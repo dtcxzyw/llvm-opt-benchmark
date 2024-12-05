@@ -39,11 +39,11 @@ $_ZTVN7rocksdb15ConcurrentArenaE = comdat any
 define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) initializes((0, 8), (64, 80)) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
+  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %div2 = lshr i64 %block_size, 3
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div2, i64 131072)
   store i64 %.sroa.speculated, ptr %shard_block_size_, align 16
-  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %shards_, align 8
   %call.i = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #11
   br label %while.cond.i
@@ -56,7 +56,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   br i1 %cmp.i5, label %while.cond.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i
-  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %storemerge.i, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %storemerge.i to i64
   %0 = icmp samesign ugt i32 %storemerge.i, 57
@@ -72,11 +72,11 @@ new.ctorloop.i:                                   ; preds = %while.end.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont9.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call7.i, %new.ctorloop.i ], [ %arrayctor.next.i, %invoke.cont9.i ]
-  %mutex.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 40
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 40
   store i8 0, ptr %mutex.i.i, align 1
-  %free_begin_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 48
+  %free_begin_.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %free_begin_.i.i, i8 0, i64 16, i1 false)
-  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 64
+  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 64
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %invoke.cont9.i
 
@@ -98,24 +98,24 @@ lpad.i:                                           ; preds = %while.end.i
   br i1 %cmp.not.i.i, label %ehcleanup8, label %ehcleanup8.sink.split
 
 invoke.cont2:                                     ; preds = %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, %arrayctor.cont.i
-  %arena_ = getelementptr inbounds i8, ptr %this, i64 96
+  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont2
-  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
+  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
   store i8 0, ptr %arena_mutex_, align 16
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %6 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
+  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
   store atomic i64 %6, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %7 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %7, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %8 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %8, ptr %irregular_block_num_.i monotonic, align 8
   ret void
 
@@ -154,7 +154,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %size_shift_.i, align 16
   %1 = load i32, ptr %call2.i, align 4
   %conv.i.i.i = zext i32 %1 to i64
@@ -175,7 +175,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %size_shift_4.i = getelementptr inbounds i8, ptr %this, i64 80
+  %size_shift_4.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %3 = load i32, ptr %size_shift_4.i, align 16
   %4 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i, i32 %3)
   %conv6.i = sext i32 %4 to i64
@@ -184,7 +184,7 @@ if.else.i:                                        ; preds = %entry
 _ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit: ; preds = %if.then.i, %if.else.i
   %5 = phi i32 [ %3, %if.else.i ], [ %.pre, %if.then.i ]
   %storemerge.i = phi i64 [ %conv6.i, %if.else.i ], [ %conv.i, %if.then.i ]
-  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %shards_, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %6, i64 %storemerge.i
   %sh_prom.i = zext nneg i32 %5 to i64
@@ -202,9 +202,9 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %arena_ = getelementptr inbounds i8, ptr %this, i64 96
+  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #11
-  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %shards_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
@@ -222,9 +222,9 @@ _ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit: ; preds = %en
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
-  %arena_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i) #11
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %shards_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
@@ -243,7 +243,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena8AllocateEm(ptr nou
 entry:
   %ref.tmp = alloca %class.anon, align 8
   store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %bytes, ptr %0, align 8
   %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   ret ptr %call
@@ -258,11 +258,11 @@ entry:
   %add = add i64 %or, 1
   %cmp = icmp ne i64 %huge_page_size, 0
   store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %add, ptr %0, align 8
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %huge_page_size, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %logger, ptr %2, align 8
   %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %add, i1 noundef zeroext %cmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   ret ptr %call
@@ -271,7 +271,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb15ConcurrentArena9BlockSizeEv(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %kBlockSize.i = getelementptr inbounds i8, ptr %this, i64 2160
+  %kBlockSize.i = getelementptr inbounds nuw i8, ptr %this, i64 2160
   %0 = load i64, ptr %kBlockSize.i, align 16
   ret i64 %0
 }
@@ -301,8 +301,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(16) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
-  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
+  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
+  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
   %cmp = icmp ugt i64 %bytes, %div29
@@ -316,9 +316,9 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3, label %invoke.cont, label %invoke.cont19
 
 invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds i8, ptr %3, i64 56
+  %allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
   %tobool5.not = icmp eq i64 %4, 0
   br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
@@ -361,15 +361,15 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
   %11 = load ptr, ptr %func, align 8
-  %12 = getelementptr inbounds i8, ptr %func, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %func, i64 8
   %13 = load i64, ptr %12, align 8
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %11, i64 2352
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2352
   %14 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
   %cmp.not.i.i = icmp ugt i64 %13, %14
   br i1 %cmp.not.i.i, label %if.end.i.i45, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %unaligned_alloc_ptr_.i.i = getelementptr inbounds i8, ptr %11, i64 2336
+  %unaligned_alloc_ptr_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2336
   %15 = load ptr, ptr %unaligned_alloc_ptr_.i.i, align 16
   %idx.neg.i.i = sub i64 0, %13
   %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %idx.neg.i.i
@@ -379,38 +379,38 @@ if.then.i.i:                                      ; preds = %if.end
   br label %cleanup74.thread
 
 if.end.i.i45:                                     ; preds = %if.end
-  %arena_.i = getelementptr inbounds i8, ptr %11, i64 96
+  %arena_.i = getelementptr inbounds nuw i8, ptr %11, i64 96
   %call.i.i46 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i1 noundef zeroext false)
           to label %cleanup74.thread unwind label %if.then3.i.i116
 
 cleanup74.thread:                                 ; preds = %if.end.i.i45, %if.then.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %call.i.i46, %if.end.i.i45 ]
-  %alloc_bytes_remaining_.i.i47 = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %16 = load i64, ptr %alloc_bytes_remaining_.i.i47, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
+  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
   store atomic i64 %16, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %17 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %17, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %18 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %18, ptr %irregular_block_num_.i monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
-  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %shards_16 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %19 = load i32, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %19 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
   %20 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %20, i64 %and
-  %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %20, i64 %and
+  %mutex = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
   %21 = load atomic i8, ptr %mutex monotonic, align 1
   %tobool.i.i.i = trunc i8 %21 to i1
   br i1 %tobool.i.i.i, label %if.then23, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
@@ -462,7 +462,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i, %if.th
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
-  %mutex26 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 40
+  %mutex26 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 40
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont24
@@ -492,8 +492,8 @@ for.inc.i:                                        ; preds = %if.then2.i, %if.end
 
 if.end28:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %mutex29 = getelementptr inbounds i8, ptr %s.0, i64 40
-  %allocated_and_unused_31 = getelementptr inbounds i8, ptr %s.0, i64 56
+  %mutex29 = getelementptr inbounds nuw i8, ptr %s.0, i64 40
+  %allocated_and_unused_31 = getelementptr inbounds nuw i8, ptr %s.0, i64 56
   %34 = load atomic i64, ptr %allocated_and_unused_31 monotonic, align 8
   %cmp33 = icmp ult i64 %34, %bytes
   br i1 %cmp33, label %for.cond.i.i57, label %if.end61
@@ -524,19 +524,19 @@ for.inc.i.i64:                                    ; preds = %if.then2.i.i66, %if
   br label %for.cond.i.i57, !llvm.loop !7
 
 invoke.cont37:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i60
-  %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
+  %arena_allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %38 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
   %cmp39.not = icmp ult i64 %38, %bytes
   br i1 %cmp39.not, label %if.end49, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %invoke.cont37
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
-  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2216
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2184
   %39 = load ptr, ptr %_M_finish.i.i, align 8
   %40 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %39, %40
-  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
-  %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
+  %_M_finish.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 2296
+  %_M_start.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 2264
   %41 = load ptr, ptr %_M_finish.i1.i, align 8
   %42 = load ptr, ptr %_M_start.i2.i, align 8
   %cmp.i.i3.i = icmp eq ptr %41, %42
@@ -545,15 +545,15 @@ land.lhs.true40:                                  ; preds = %invoke.cont37
 
 if.then44:                                        ; preds = %land.lhs.true40
   %44 = load ptr, ptr %func, align 8
-  %45 = getelementptr inbounds i8, ptr %func, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %func, i64 8
   %46 = load i64, ptr %45, align 8
-  %alloc_bytes_remaining_.i.i68 = getelementptr inbounds i8, ptr %44, i64 2352
+  %alloc_bytes_remaining_.i.i68 = getelementptr inbounds nuw i8, ptr %44, i64 2352
   %47 = load i64, ptr %alloc_bytes_remaining_.i.i68, align 16
   %cmp.not.i.i69 = icmp ugt i64 %46, %47
   br i1 %cmp.not.i.i69, label %if.end.i.i76, label %if.then.i.i70
 
 if.then.i.i70:                                    ; preds = %if.then44
-  %unaligned_alloc_ptr_.i.i71 = getelementptr inbounds i8, ptr %44, i64 2336
+  %unaligned_alloc_ptr_.i.i71 = getelementptr inbounds nuw i8, ptr %44, i64 2336
   %48 = load ptr, ptr %unaligned_alloc_ptr_.i.i71, align 16
   %idx.neg.i.i72 = sub i64 0, %46
   %add.ptr.i.i73 = getelementptr inbounds i8, ptr %48, i64 %idx.neg.i.i72
@@ -563,7 +563,7 @@ if.then.i.i70:                                    ; preds = %if.then44
   br label %cleanup
 
 if.end.i.i76:                                     ; preds = %if.then44
-  %arena_.i77 = getelementptr inbounds i8, ptr %44, i64 96
+  %arena_.i77 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %call.i.i79 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i77, i64 noundef %46, i1 noundef zeroext false)
           to label %cleanup unwind label %ehcleanup75.thread
 
@@ -582,39 +582,39 @@ if.end49:                                         ; preds = %land.lhs.true40, %i
   %cmp55 = icmp ult i64 %38, %mul
   %or.cond = and i1 %cmp52.not, %cmp55
   %cond = select i1 %or.cond, i64 %38, i64 %50
-  %arena_57 = getelementptr inbounds i8, ptr %this, i64 96
+  %arena_57 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call59 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_57, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup75.thread
 
 cleanup.thread:                                   ; preds = %if.end49
-  %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
+  %free_begin_ = getelementptr inbounds nuw i8, ptr %s.0, i64 48
   store ptr %call59, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i87 = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i87 = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %51 = load i64, ptr %alloc_bytes_remaining_.i.i87, align 16
   store atomic i64 %51, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i89 = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i89 = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %52 = load i64, ptr %blocks_memory_.i.i89, align 16
-  %memory_allocated_bytes_.i90 = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i90 = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %52, ptr %memory_allocated_bytes_.i90 monotonic, align 16
-  %irregular_block_num.i.i91 = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i91 = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %53 = load i64, ptr %irregular_block_num.i.i91, align 8
-  %irregular_block_num_.i92 = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i92 = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %53, ptr %irregular_block_num_.i92 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end61
 
 cleanup:                                          ; preds = %if.end.i.i76, %if.then.i.i70
   %retval.0.i.i75 = phi ptr [ %add.ptr.i.i73, %if.then.i.i70 ], [ %call.i.i79, %if.end.i.i76 ]
-  %alloc_bytes_remaining_.i.i81 = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i81 = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %54 = load i64, ptr %alloc_bytes_remaining_.i.i81, align 16
   store atomic i64 %54, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i83 = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i83 = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %55 = load i64, ptr %blocks_memory_.i.i83, align 16
-  %memory_allocated_bytes_.i84 = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i84 = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %55, ptr %memory_allocated_bytes_.i84 monotonic, align 16
-  %irregular_block_num.i.i85 = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %56 = load i64, ptr %irregular_block_num.i.i85, align 8
-  %irregular_block_num_.i86 = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i86 = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %56, ptr %irregular_block_num_.i86 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %cleanup74
@@ -625,7 +625,7 @@ if.end61:                                         ; preds = %cleanup.thread, %if
   store atomic i64 %sub63, ptr %allocated_and_unused_31 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp65 = icmp eq i64 %rem, 0
-  %free_begin_67 = getelementptr inbounds i8, ptr %s.0, i64 48
+  %free_begin_67 = getelementptr inbounds nuw i8, ptr %s.0, i64 48
   %57 = load ptr, ptr %free_begin_67, align 8
   br i1 %cmp65, label %if.then66, label %if.else
 
@@ -670,8 +670,8 @@ declare i32 @sched_yield() local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(32) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
-  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
+  %arena_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 2384
+  %shard_block_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
   %cmp = icmp ugt i64 %bytes, %div29
@@ -685,9 +685,9 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3, label %invoke.cont, label %invoke.cont19
 
 invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
+  %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds i8, ptr %3, i64 56
+  %allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
   %tobool5.not = icmp eq i64 %4, 0
   br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
@@ -730,43 +730,43 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
   %11 = load ptr, ptr %func, align 8
-  %arena_.i = getelementptr inbounds i8, ptr %11, i64 96
-  %12 = getelementptr inbounds i8, ptr %func, i64 8
+  %arena_.i = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %func, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %func, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %func, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %func, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %func, i64 24
   %17 = load ptr, ptr %16, align 8
   %call.i4546 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %13, i64 noundef %15, ptr noundef %17)
           to label %cleanup72.thread unwind label %if.then3.i.i104
 
 cleanup72.thread:                                 ; preds = %if.end
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %18 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
+  %arena_allocated_and_unused_.i = getelementptr inbounds nuw i8, ptr %this, i64 2392
   store atomic i64 %18, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %19 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %19, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %20 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
-  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %shards_16 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %21 = load i32, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %21 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
   %22 = load ptr, ptr %shards_16, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
-  %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
+  %mutex = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
   %23 = load atomic i8, ptr %mutex monotonic, align 1
   %tobool.i.i.i = trunc i8 %23 to i1
   br i1 %tobool.i.i.i, label %if.then22, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit
@@ -818,7 +818,7 @@ invoke.cont23:                                    ; preds = %if.else.i.i, %if.th
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
-  %mutex25 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 40
+  %mutex25 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 40
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont23
@@ -848,8 +848,8 @@ for.inc.i:                                        ; preds = %if.then2.i, %if.end
 
 if.end27:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %mutex28 = getelementptr inbounds i8, ptr %s.0, i64 40
-  %allocated_and_unused_30 = getelementptr inbounds i8, ptr %s.0, i64 56
+  %mutex28 = getelementptr inbounds nuw i8, ptr %s.0, i64 40
+  %allocated_and_unused_30 = getelementptr inbounds nuw i8, ptr %s.0, i64 56
   %36 = load atomic i64, ptr %allocated_and_unused_30 monotonic, align 8
   %cmp32 = icmp ult i64 %36, %bytes
   br i1 %cmp32, label %for.cond.i.i54, label %if.end59
@@ -880,19 +880,19 @@ for.inc.i.i61:                                    ; preds = %if.then2.i.i63, %if
   br label %for.cond.i.i54, !llvm.loop !7
 
 invoke.cont36:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i57
-  %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
+  %arena_allocated_and_unused_ = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %40 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
   %cmp38.not = icmp ult i64 %40, %bytes
   br i1 %cmp38.not, label %if.end47, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %invoke.cont36
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
-  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2216
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2184
   %41 = load ptr, ptr %_M_finish.i.i, align 8
   %42 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %41, %42
-  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
-  %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
+  %_M_finish.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 2296
+  %_M_start.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 2264
   %43 = load ptr, ptr %_M_finish.i1.i, align 8
   %44 = load ptr, ptr %_M_start.i2.i, align 8
   %cmp.i.i3.i = icmp eq ptr %43, %44
@@ -901,12 +901,12 @@ land.lhs.true39:                                  ; preds = %invoke.cont36
 
 if.then41:                                        ; preds = %land.lhs.true39
   %46 = load ptr, ptr %func, align 8
-  %arena_.i65 = getelementptr inbounds i8, ptr %46, i64 96
-  %47 = getelementptr inbounds i8, ptr %func, i64 8
+  %arena_.i65 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %func, i64 8
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %func, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %func, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %func, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %func, i64 24
   %52 = load ptr, ptr %51, align 8
   %call.i6667 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i65, i64 noundef %48, i64 noundef %50, ptr noundef %52)
           to label %cleanup unwind label %ehcleanup73.thread
@@ -926,38 +926,38 @@ if.end47:                                         ; preds = %land.lhs.true39, %i
   %cmp53 = icmp ult i64 %40, %mul
   %or.cond = and i1 %cmp50.not, %cmp53
   %cond = select i1 %or.cond, i64 %40, i64 %54
-  %arena_55 = getelementptr inbounds i8, ptr %this, i64 96
+  %arena_55 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call57 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_55, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup73.thread
 
 cleanup.thread:                                   ; preds = %if.end47
-  %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
+  %free_begin_ = getelementptr inbounds nuw i8, ptr %s.0, i64 48
   store ptr %call57, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i75 = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %55 = load i64, ptr %alloc_bytes_remaining_.i.i75, align 16
   store atomic i64 %55, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i77 = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i77 = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %56 = load i64, ptr %blocks_memory_.i.i77, align 16
-  %memory_allocated_bytes_.i78 = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i78 = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %56, ptr %memory_allocated_bytes_.i78 monotonic, align 16
-  %irregular_block_num.i.i79 = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i79 = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %57 = load i64, ptr %irregular_block_num.i.i79, align 8
-  %irregular_block_num_.i80 = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i80 = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %57, ptr %irregular_block_num_.i80 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end59
 
 cleanup:                                          ; preds = %if.then41
-  %alloc_bytes_remaining_.i.i69 = getelementptr inbounds i8, ptr %this, i64 2352
+  %alloc_bytes_remaining_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %58 = load i64, ptr %alloc_bytes_remaining_.i.i69, align 16
   store atomic i64 %58, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i71 = getelementptr inbounds i8, ptr %this, i64 2368
+  %blocks_memory_.i.i71 = getelementptr inbounds nuw i8, ptr %this, i64 2368
   %59 = load i64, ptr %blocks_memory_.i.i71, align 16
-  %memory_allocated_bytes_.i72 = getelementptr inbounds i8, ptr %this, i64 2400
+  %memory_allocated_bytes_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 2400
   store atomic i64 %59, ptr %memory_allocated_bytes_.i72 monotonic, align 16
-  %irregular_block_num.i.i73 = getelementptr inbounds i8, ptr %this, i64 2328
+  %irregular_block_num.i.i73 = getelementptr inbounds nuw i8, ptr %this, i64 2328
   %60 = load i64, ptr %irregular_block_num.i.i73, align 8
-  %irregular_block_num_.i74 = getelementptr inbounds i8, ptr %this, i64 2408
+  %irregular_block_num_.i74 = getelementptr inbounds nuw i8, ptr %this, i64 2408
   store atomic i64 %60, ptr %irregular_block_num_.i74 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %cleanup72
@@ -968,7 +968,7 @@ if.end59:                                         ; preds = %cleanup.thread, %if
   store atomic i64 %sub61, ptr %allocated_and_unused_30 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp63 = icmp eq i64 %rem, 0
-  %free_begin_65 = getelementptr inbounds i8, ptr %s.0, i64 48
+  %free_begin_65 = getelementptr inbounds nuw i8, ptr %s.0, i64 48
   %61 = load ptr, ptr %free_begin_65, align 8
   br i1 %cmp63, label %if.then64, label %if.else
 

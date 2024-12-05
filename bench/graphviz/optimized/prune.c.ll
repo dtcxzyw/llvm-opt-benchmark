@@ -40,14 +40,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #15
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %7, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.0 = select i1 %8, ptr %6, ptr %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %.outer
 
 .outer:                                           ; preds = %addattr.exit, %2
@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 gv_strdup.exit.i:                                 ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %18, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %32 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %31) #16
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %gv_strdup.exit7.i
@@ -150,7 +150,7 @@ addattr.exit:                                     ; preds = %gv_strdup.exit7.i, 
   %58 = phi ptr [ %47, %49 ], [ %.val77.ph, %gv_strdup.exit7.i ]
   %59 = getelementptr inbounds %struct.strattr_t, ptr %58, i64 %39
   store ptr %24, ptr %59, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %60 = add i64 %39, 1
   store i64 %60, ptr %12, align 8
@@ -304,9 +304,9 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br i1 %130, label %168, label %131
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %129, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store i32 1, ptr %134, align 8
   %135 = call ptr @agfstout(ptr noundef nonnull %115, ptr noundef nonnull %129) #16
   %.not69126.us = icmp eq ptr %135, null
@@ -320,7 +320,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   %139 = icmp eq i32 %138, 2
   %140 = getelementptr inbounds i8, ptr %.056127.us, i64 -64
   %141 = select i1 %139, ptr %.056127.us, ptr %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 56
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 56
   %143 = load ptr, ptr %142, align 8
   %.not70.us = icmp eq ptr %143, %129
   br i1 %.not70.us, label %159, label %144
@@ -342,7 +342,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   %.pre-phi = phi i32 [ %.pre174, %147 ], [ %138, %144 ]
   %152 = icmp eq i32 %.pre-phi, 2
   %153 = select i1 %152, ptr %.056127.us, ptr %140
-  %154 = getelementptr inbounds i8, ptr %153, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
   %155 = load ptr, ptr %154, align 8
   %156 = call fastcc i32 @remove_child(ptr noundef %115, ptr noundef %155)
   %.not71.us = icmp eq i32 %156, 0
@@ -358,7 +358,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
 
 ._crit_edge.us:                                   ; preds = %159, %131
   %160 = load ptr, ptr %132, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store i32 0, ptr %161, align 8
   br i1 %.not, label %.loopexit.us, label %.lr.ph130.us
 
@@ -371,7 +371,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br i1 %164, label %.split140.us, label %165
 
 165:                                              ; preds = %.lr.ph130.us
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %162, i64 8
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %162, i64 8
   %.sroa.2.0.copyload.i93.us = load ptr, ptr %.sroa.2.0..sroa_idx.i.us, align 8
   %166 = call i32 @agxset(ptr noundef nonnull %129, ptr noundef nonnull %163, ptr noundef %.sroa.2.0.copyload.i93.us) #16
   %167 = add nuw i64 %.059128.us, 1
@@ -478,9 +478,9 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %.not = icmp eq i32 %7, 0
@@ -499,7 +499,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %14, align 8
   br label %41
 
@@ -516,7 +516,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
   %20 = icmp eq i32 %19, 2
   %21 = getelementptr inbounds i8, ptr %.02939, i64 -64
   %22 = select i1 %20, ptr %.02939, ptr %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not35 = icmp eq ptr %24, %1
   br i1 %.not35, label %39, label %25
@@ -538,7 +538,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
   %.pre-phi = phi i32 [ %.pre40, %27 ], [ %19, %25 ]
   %32 = icmp eq i32 %.pre-phi, 2
   %33 = select i1 %32, ptr %.02939, ptr %21
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc i32 @remove_child(ptr noundef %0, ptr noundef %35)
   %.not37 = icmp eq i32 %36, 0
@@ -573,7 +573,7 @@ declare i32 @agclose(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @attrs_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %attrs_clear.exit, label %.lr.ph.i
@@ -583,7 +583,7 @@ define internal fastcc void @attrs_free(ptr nocapture noundef nonnull %0) unname
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds %struct.strattr_t, ptr %4, i64 %.07.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %6) #16
   tail call void @free(ptr noundef %8) #16
@@ -602,7 +602,7 @@ attrs_clear.exit:                                 ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nodes_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %nodes_clear.exit, label %.lr.ph.i

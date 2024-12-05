@@ -196,7 +196,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %8, label %316, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.72) #3
   %12 = load ptr, ptr %10, align 8
@@ -230,7 +230,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not394, label %.loopexit383, label %.lr.ph393
 
 .lr.ph393:                                        ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %35
 
 35:                                               ; preds = %.backedge, %.lr.ph393

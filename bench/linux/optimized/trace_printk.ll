@@ -281,7 +281,7 @@ define internal ptr @t_start(ptr nocapture readnone %0, ptr nocapture noundef re
   br i1 %30, label %31, label %23
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %31, %20, %17, %7
@@ -349,14 +349,14 @@ define internal ptr @t_next(ptr nocapture readnone %0, ptr noundef readonly %1, 
   br i1 %36, label %37, label %29
 
 37:                                               ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   br label %.loopexit
 
 39:                                               ; preds = %25
   %40 = getelementptr i8, ptr %1, i64 -16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, @trace_bprintk_fmt_list
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = select i1 %42, ptr null, ptr %43
   br label %.loopexit
 
@@ -441,7 +441,7 @@ declare dso_local i32 @register_module_notifier(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 1020
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1020
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
   %7 = icmp eq i64 %1, 1
@@ -449,7 +449,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 1024
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1024
   %11 = load ptr, ptr %10, align 64
   %12 = zext i32 %5 to i64
   %13 = getelementptr ptr, ptr %11, i64 %12
@@ -471,7 +471,7 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @strcmp(ptr noundef %23, ptr noundef nonnull dereferenceable(1) %16) #13
   %25 = icmp eq i32 %24, 0
@@ -503,12 +503,12 @@ define internal noundef i32 @module_trace_bprintk_format_notify(ptr nocapture re
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
   store ptr %31, ptr getelementptr inbounds (i8, ptr @trace_bprintk_fmt_list, i64 8), align 8
   store ptr @trace_bprintk_fmt_list, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %40, ptr %41, align 8
   store volatile ptr %31, ptr %40, align 8
   %42 = load ptr, ptr %15, align 8
   %43 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef %42) #13
-  %44 = getelementptr inbounds i8, ptr %31, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %37, ptr %44, align 8
   br label %46
 

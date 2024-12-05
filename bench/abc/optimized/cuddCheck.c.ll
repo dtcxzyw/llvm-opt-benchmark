@@ -59,38 +59,38 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   br i1 %5, label %586, label %.preheader226
 
 .preheader226:                                    ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   %.not332 = icmp eq i32 %7, 0
   br i1 %.not332, label %.preheader, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %.preheader226
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
-  %9 = getelementptr inbounds i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 616
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %19
 
 .preheader:                                       ; preds = %255, %.preheader226
   %.0149.lcssa = phi i32 [ 0, %.preheader226 ], [ %.10, %255 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 140
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %13 = load i32, ptr %12, align 4
   %.not333 = icmp eq i32 %13, 0
   br i1 %.not333, label %._crit_edge302, label %.lr.ph301
 
 .lr.ph301:                                        ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
-  %15 = getelementptr inbounds i8, ptr %0, i64 320
-  %16 = getelementptr inbounds i8, ptr %0, i64 616
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %259
 
 19:                                               ; preds = %.lr.ph275, %255
   %indvars.iv341 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next342, %255 ]
   %.0149274 = phi i32 [ 0, %.lr.ph275 ], [ %.10, %255 ]
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv341
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv341
   %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr %9, align 8
   %24 = sext i32 %22 to i64
@@ -108,9 +108,9 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 32:                                               ; preds = %28, %19
   %33 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds %struct.DdSubtable, ptr %33, i64 %indvars.iv341
+  %34 = getelementptr inbounds nuw %struct.DdSubtable, ptr %33, i64 %indvars.iv341
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph268.preheader, label %._crit_edge269
@@ -124,7 +124,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.0266 = phi i32 [ 0, %.lr.ph268.preheader ], [ %.1.lcssa, %._crit_edge ]
   %.0143265 = phi i32 [ 0, %.lr.ph268.preheader ], [ %.1144.lcssa, %._crit_edge ]
   %.1150264 = phi i32 [ %.0149274, %.lr.ph268.preheader ], [ %.2151.lcssa, %._crit_edge ]
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %storemerge209255 = load ptr, ptr %39, align 8
   store ptr %storemerge209255, ptr %3, align 8
   %.not210256 = icmp eq ptr %storemerge209255, %0
@@ -136,19 +136,19 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.1144258 = phi i32 [ %41, %239 ], [ %.0143265, %.lr.ph268 ]
   %.2151257 = phi i32 [ %.8157, %239 ], [ %.1150264, %.lr.ph268 ]
   %41 = add nsw i32 %.1144258, 1
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not211 = icmp eq ptr %43, null
   br i1 %.not211, label %.thread, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds i8, ptr %40, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not212 = icmp eq ptr %46, null
   br i1 %.not212, label %.thread, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %40, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %49 = load i32, ptr %48, align 4
   %.not213 = icmp eq i32 %49, 0
   br i1 %.not213, label %217, label %50
@@ -166,12 +166,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %57 = and i64 %56, -2
   %58 = inttoptr i64 %57 to ptr
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = ptrtoint ptr %63 to i64
-  %65 = getelementptr inbounds i8, ptr %58, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.40, i64 noundef %57, i32 noundef %59, i32 noundef %61, i64 noundef %64, i64 noundef %67) #6
@@ -188,7 +188,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %9, align 8
   %75 = zext i32 %71 to i64
-  %76 = getelementptr inbounds i32, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
   br label %79
@@ -210,7 +210,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 88:                                               ; preds = %81
   %89 = load ptr, ptr %9, align 8
   %90 = zext i32 %86 to i64
-  %91 = getelementptr inbounds i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
   br label %94
@@ -228,12 +228,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %102, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = ptrtoint ptr %107 to i64
-  %109 = getelementptr inbounds i8, ptr %102, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %110 = load ptr, ptr %109, align 8
   %111 = ptrtoint ptr %110 to i64
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.40, i64 noundef %101, i32 noundef %103, i32 noundef %105, i64 noundef %108, i64 noundef %111) #6
@@ -257,12 +257,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %124, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %124, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %129 = load ptr, ptr %128, align 8
   %130 = ptrtoint ptr %129 to i64
-  %131 = getelementptr inbounds i8, ptr %124, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = ptrtoint ptr %132 to i64
   %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.40, i64 noundef %123, i32 noundef %125, i32 noundef %127, i64 noundef %130, i64 noundef %133) #6
@@ -284,12 +284,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %144 = and i64 %143, -2
   %145 = inttoptr i64 %144 to ptr
   %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %145, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %145, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %150 = load ptr, ptr %149, align 8
   %151 = ptrtoint ptr %150 to i64
-  %152 = getelementptr inbounds i8, ptr %145, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %153 = load ptr, ptr %152, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.40, i64 noundef %144, i32 noundef %146, i32 noundef %148, i64 noundef %151, i64 noundef %154) #6
@@ -299,7 +299,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 156:                                              ; preds = %139, %135
   %157 = phi ptr [ %.pre359, %139 ], [ %136, %135 ]
   %.6155 = phi i32 [ 1, %139 ], [ %.5154, %135 ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %169, label %161
@@ -309,7 +309,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %163 = ptrtoint ptr %162 to i64
   %164 = and i64 %163, -2
   %165 = inttoptr i64 %164 to ptr
-  %166 = getelementptr inbounds i8, ptr %165, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %186
@@ -322,12 +322,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %174 = and i64 %173, -2
   %175 = inttoptr i64 %174 to ptr
   %176 = load i32, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %175, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %175, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = ptrtoint ptr %180 to i64
-  %182 = getelementptr inbounds i8, ptr %175, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
   %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.40, i64 noundef %174, i32 noundef %176, i32 noundef %178, i64 noundef %181, i64 noundef %184) #6
@@ -344,7 +344,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %storemerge221 = select i1 %.not220, i32 1, i32 %190
   store i32 %storemerge221, ptr %2, align 4
   %191 = load ptr, ptr %3, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = sext i32 %storemerge221 to i64
   %195 = inttoptr i64 %194 to ptr
@@ -357,7 +357,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   br label %586
 
 199:                                              ; preds = %186
-  %200 = getelementptr inbounds i8, ptr %191, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %201 = load ptr, ptr %200, align 8
   %202 = ptrtoint ptr %201 to i64
   %203 = and i64 %202, -2
@@ -383,7 +383,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   br label %586
 
 217:                                              ; preds = %47
-  %218 = getelementptr inbounds i8, ptr %40, i64 4
+  %218 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %219 = load i32, ptr %218, align 4
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %221, label %.thread
@@ -400,12 +400,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %227 = and i64 %226, -2
   %228 = inttoptr i64 %227 to ptr
   %229 = load i32, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %228, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds i8, ptr %228, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %233 = load ptr, ptr %232, align 8
   %234 = ptrtoint ptr %233 to i64
-  %235 = getelementptr inbounds i8, ptr %228, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %236 = load ptr, ptr %235, align 8
   %237 = ptrtoint ptr %236 to i64
   %238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.40, i64 noundef %227, i32 noundef %229, i32 noundef %231, i64 noundef %234, i64 noundef %237) #6
@@ -415,7 +415,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %240 = phi ptr [ %191, %199 ], [ %40, %221 ], [ %40, %.thread ]
   %.8157 = phi i32 [ %.7156, %199 ], [ %.2151257, %221 ], [ 1, %.thread ]
   %.2 = phi i32 [ %.1259, %199 ], [ %222, %221 ], [ %.1259, %.thread ]
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %storemerge209 = load ptr, ptr %241, align 8
   store ptr %storemerge209, ptr %3, align 8
   %.not210 = icmp eq ptr %storemerge209, %0
@@ -438,7 +438,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.1150.lcssa = phi i32 [ %.0149274, %32 ], [ %.2151.lcssa, %._crit_edge269.loopexit ]
   %.0143.lcssa = phi i32 [ 0, %32 ], [ %.1144.lcssa, %._crit_edge269.loopexit ]
   %.0.lcssa = phi i32 [ 0, %32 ], [ %.1.lcssa, %._crit_edge269.loopexit ]
-  %243 = getelementptr inbounds %struct.DdSubtable, ptr %242, i64 %indvars.iv341, i32 3
+  %243 = getelementptr inbounds nuw %struct.DdSubtable, ptr %242, i64 %indvars.iv341, i32 3
   %244 = load i32, ptr %243, align 8
   %.not207 = icmp eq i32 %.0143.lcssa, %244
   br i1 %.not207, label %248, label %245
@@ -452,7 +452,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 248:                                              ; preds = %245, %._crit_edge269
   %249 = phi ptr [ %.pre362, %245 ], [ %242, %._crit_edge269 ]
   %.9 = phi i32 [ 1, %245 ], [ %.1150.lcssa, %._crit_edge269 ]
-  %250 = getelementptr inbounds %struct.DdSubtable, ptr %249, i64 %indvars.iv341, i32 5
+  %250 = getelementptr inbounds nuw %struct.DdSubtable, ptr %249, i64 %indvars.iv341, i32 5
   %251 = load i32, ptr %250, align 8
   %.not208 = icmp eq i32 %.0.lcssa, %251
   br i1 %.not208, label %255, label %252
@@ -474,7 +474,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %indvars.iv349 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next350, %517 ]
   %.11300 = phi i32 [ %.0149.lcssa, %.lr.ph301 ], [ %.21, %517 ]
   %260 = load ptr, ptr %14, align 8
-  %261 = getelementptr inbounds i32, ptr %260, i64 %indvars.iv349
+  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv349
   %262 = load i32, ptr %261, align 4
   %263 = load ptr, ptr %15, align 8
   %264 = sext i32 %262 to i64
@@ -492,9 +492,9 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 272:                                              ; preds = %268, %259
   %273 = load ptr, ptr %17, align 8
-  %274 = getelementptr inbounds %struct.DdSubtable, ptr %273, i64 %indvars.iv349
+  %274 = getelementptr inbounds nuw %struct.DdSubtable, ptr %273, i64 %indvars.iv349
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %274, i64 12
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 12
   %277 = load i32, ptr %276, align 4
   %278 = icmp sgt i32 %277, 0
   br i1 %278, label %.lr.ph294.preheader, label %._crit_edge295
@@ -508,7 +508,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.3292 = phi i32 [ 0, %.lr.ph294.preheader ], [ %.4.lcssa, %._crit_edge285 ]
   %.2145291 = phi i32 [ 0, %.lr.ph294.preheader ], [ %.3146.lcssa, %._crit_edge285 ]
   %.12290 = phi i32 [ %.11300, %.lr.ph294.preheader ], [ %.13.lcssa, %._crit_edge285 ]
-  %279 = getelementptr inbounds ptr, ptr %275, i64 %indvars.iv344
+  %279 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv344
   %storemerge190277 = load ptr, ptr %279, align 8
   store ptr %storemerge190277, ptr %3, align 8
   %.not191278 = icmp eq ptr %storemerge190277, null
@@ -520,19 +520,19 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.3146280 = phi i32 [ %281, %501 ], [ %.2145291, %.lr.ph294 ]
   %.13279 = phi i32 [ %.19, %501 ], [ %.12290, %.lr.ph294 ]
   %281 = add nsw i32 %.3146280, 1
-  %282 = getelementptr inbounds i8, ptr %280, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %283 = load ptr, ptr %282, align 8
   %.not192 = icmp eq ptr %283, null
   br i1 %.not192, label %.thread370, label %284
 
 284:                                              ; preds = %.lr.ph284
-  %285 = getelementptr inbounds i8, ptr %280, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %286 = load ptr, ptr %285, align 8
   %.not193 = icmp eq ptr %286, null
   br i1 %.not193, label %.thread370, label %287
 
 287:                                              ; preds = %284
-  %288 = getelementptr inbounds i8, ptr %280, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %289 = load i32, ptr %288, align 4
   %.not194 = icmp eq i32 %289, 0
   br i1 %.not194, label %479, label %290
@@ -550,12 +550,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %297 = and i64 %296, -2
   %298 = inttoptr i64 %297 to ptr
   %299 = load i32, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %298, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 4
   %301 = load i32, ptr %300, align 4
-  %302 = getelementptr inbounds i8, ptr %298, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %298, i64 16
   %303 = load ptr, ptr %302, align 8
   %304 = ptrtoint ptr %303 to i64
-  %305 = getelementptr inbounds i8, ptr %298, i64 24
+  %305 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %306 = load ptr, ptr %305, align 8
   %307 = ptrtoint ptr %306 to i64
   %308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %295, ptr noundef nonnull @.str.40, i64 noundef %297, i32 noundef %299, i32 noundef %301, i64 noundef %304, i64 noundef %307) #6
@@ -585,12 +585,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %322 = and i64 %321, -2
   %323 = inttoptr i64 %322 to ptr
   %324 = load i32, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %323, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 4
   %326 = load i32, ptr %325, align 4
-  %327 = getelementptr inbounds i8, ptr %323, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %328 = load ptr, ptr %327, align 8
   %329 = ptrtoint ptr %328 to i64
-  %330 = getelementptr inbounds i8, ptr %323, i64 24
+  %330 = getelementptr inbounds nuw i8, ptr %323, i64 24
   %331 = load ptr, ptr %330, align 8
   %332 = ptrtoint ptr %331 to i64
   %333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.40, i64 noundef %322, i32 noundef %324, i32 noundef %326, i64 noundef %329, i64 noundef %332) #6
@@ -607,7 +607,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 338:                                              ; preds = %334
   %339 = load ptr, ptr %15, align 8
   %340 = zext i32 %336 to i64
-  %341 = getelementptr inbounds i32, ptr %339, i64 %340
+  %341 = getelementptr inbounds nuw i32, ptr %339, i64 %340
   %342 = load i32, ptr %341, align 4
   %343 = zext i32 %342 to i64
   br label %344
@@ -626,7 +626,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 350:                                              ; preds = %346
   %351 = load ptr, ptr %15, align 8
   %352 = zext i32 %348 to i64
-  %353 = getelementptr inbounds i32, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw i32, ptr %351, i64 %352
   %354 = load i32, ptr %353, align 4
   %355 = zext i32 %354 to i64
   br label %356
@@ -644,12 +644,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %363 = and i64 %362, -2
   %364 = inttoptr i64 %363 to ptr
   %365 = load i32, ptr %364, align 8
-  %366 = getelementptr inbounds i8, ptr %364, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %364, i64 4
   %367 = load i32, ptr %366, align 4
-  %368 = getelementptr inbounds i8, ptr %364, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %369 = load ptr, ptr %368, align 8
   %370 = ptrtoint ptr %369 to i64
-  %371 = getelementptr inbounds i8, ptr %364, i64 24
+  %371 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %372 = load ptr, ptr %371, align 8
   %373 = ptrtoint ptr %372 to i64
   %374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.40, i64 noundef %363, i32 noundef %365, i32 noundef %367, i64 noundef %370, i64 noundef %373) #6
@@ -659,12 +659,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %378 = and i64 %377, -2
   %379 = inttoptr i64 %378 to ptr
   %380 = load i32, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %379, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 4
   %382 = load i32, ptr %381, align 4
-  %383 = getelementptr inbounds i8, ptr %379, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %384 = load ptr, ptr %383, align 8
   %385 = ptrtoint ptr %384 to i64
-  %386 = getelementptr inbounds i8, ptr %379, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %379, i64 24
   %387 = load ptr, ptr %386, align 8
   %388 = ptrtoint ptr %387 to i64
   %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef nonnull @.str.40, i64 noundef %378, i32 noundef %380, i32 noundef %382, i64 noundef %385, i64 noundef %388) #6
@@ -674,12 +674,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %393 = and i64 %392, -2
   %394 = inttoptr i64 %393 to ptr
   %395 = load i32, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %394, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %394, i64 4
   %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %394, i64 16
+  %398 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %399 = load ptr, ptr %398, align 8
   %400 = ptrtoint ptr %399 to i64
-  %401 = getelementptr inbounds i8, ptr %394, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %394, i64 24
   %402 = load ptr, ptr %401, align 8
   %403 = ptrtoint ptr %402 to i64
   %404 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef nonnull @.str.40, i64 noundef %393, i32 noundef %395, i32 noundef %397, i64 noundef %400, i64 noundef %403) #6
@@ -701,12 +701,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %414 = and i64 %413, -2
   %415 = inttoptr i64 %414 to ptr
   %416 = load i32, ptr %415, align 8
-  %417 = getelementptr inbounds i8, ptr %415, i64 4
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 4
   %418 = load i32, ptr %417, align 4
-  %419 = getelementptr inbounds i8, ptr %415, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %415, i64 16
   %420 = load ptr, ptr %419, align 8
   %421 = ptrtoint ptr %420 to i64
-  %422 = getelementptr inbounds i8, ptr %415, i64 24
+  %422 = getelementptr inbounds nuw i8, ptr %415, i64 24
   %423 = load ptr, ptr %422, align 8
   %424 = ptrtoint ptr %423 to i64
   %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.40, i64 noundef %414, i32 noundef %416, i32 noundef %418, i64 noundef %421, i64 noundef %424) #6
@@ -716,14 +716,14 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 426:                                              ; preds = %409, %405
   %427 = phi ptr [ %.pre366, %409 ], [ %406, %405 ]
   %.17 = phi i32 [ 1, %409 ], [ %.16, %405 ]
-  %428 = getelementptr inbounds i8, ptr %427, i64 4
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 4
   %429 = load i32, ptr %428, align 4
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %436, label %431
 
 431:                                              ; preds = %426
   %432 = load ptr, ptr %285, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 4
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 4
   %434 = load i32, ptr %433, align 4
   %435 = icmp eq i32 %434, 0
   br i1 %435, label %436, label %453
@@ -736,12 +736,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %441 = and i64 %440, -2
   %442 = inttoptr i64 %441 to ptr
   %443 = load i32, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %442, i64 4
+  %444 = getelementptr inbounds nuw i8, ptr %442, i64 4
   %445 = load i32, ptr %444, align 4
-  %446 = getelementptr inbounds i8, ptr %442, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %442, i64 16
   %447 = load ptr, ptr %446, align 8
   %448 = ptrtoint ptr %447 to i64
-  %449 = getelementptr inbounds i8, ptr %442, i64 24
+  %449 = getelementptr inbounds nuw i8, ptr %442, i64 24
   %450 = load ptr, ptr %449, align 8
   %451 = ptrtoint ptr %450 to i64
   %452 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %439, ptr noundef nonnull @.str.40, i64 noundef %441, i32 noundef %443, i32 noundef %445, i64 noundef %448, i64 noundef %451) #6
@@ -758,7 +758,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %storemerge203 = select i1 %.not202, i32 1, i32 %457
   store i32 %storemerge203, ptr %2, align 4
   %458 = load ptr, ptr %3, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load ptr, ptr %459, align 8
   %461 = sext i32 %storemerge203 to i64
   %462 = inttoptr i64 %461 to ptr
@@ -771,7 +771,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   br label %586
 
 466:                                              ; preds = %453
-  %467 = getelementptr inbounds i8, ptr %458, i64 24
+  %467 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %468 = load ptr, ptr %467, align 8
   %469 = call i32 @st__lookup_int(ptr noundef nonnull %4, ptr noundef %468, ptr noundef nonnull %2) #6
   %.not204 = icmp eq i32 %469, 0
@@ -788,12 +788,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 477:                                              ; preds = %466
   call void @st__free_table(ptr noundef nonnull %4) #6
-  %478 = getelementptr inbounds i8, ptr %0, i64 624
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %478, align 8
   br label %586
 
 479:                                              ; preds = %287
-  %480 = getelementptr inbounds i8, ptr %280, i64 4
+  %480 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %481 = load i32, ptr %480, align 4
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %483, label %.thread370
@@ -810,12 +810,12 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %489 = and i64 %488, -2
   %490 = inttoptr i64 %489 to ptr
   %491 = load i32, ptr %490, align 8
-  %492 = getelementptr inbounds i8, ptr %490, i64 4
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 4
   %493 = load i32, ptr %492, align 4
-  %494 = getelementptr inbounds i8, ptr %490, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %490, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = ptrtoint ptr %495 to i64
-  %497 = getelementptr inbounds i8, ptr %490, i64 24
+  %497 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %498 = load ptr, ptr %497, align 8
   %499 = ptrtoint ptr %498 to i64
   %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef nonnull @.str.40, i64 noundef %489, i32 noundef %491, i32 noundef %493, i64 noundef %496, i64 noundef %499) #6
@@ -825,7 +825,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %502 = phi ptr [ %458, %466 ], [ %280, %483 ], [ %280, %.thread370 ]
   %.19 = phi i32 [ %.18, %466 ], [ %.13279, %483 ], [ 1, %.thread370 ]
   %.5 = phi i32 [ %.4281, %466 ], [ %484, %483 ], [ %.4281, %.thread370 ]
-  %503 = getelementptr inbounds i8, ptr %502, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %storemerge190 = load ptr, ptr %503, align 8
   store ptr %storemerge190, ptr %3, align 8
   %.not191 = icmp eq ptr %storemerge190, null
@@ -848,7 +848,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.12.lcssa = phi i32 [ %.11300, %272 ], [ %.13.lcssa, %._crit_edge295.loopexit ]
   %.2145.lcssa = phi i32 [ 0, %272 ], [ %.3146.lcssa, %._crit_edge295.loopexit ]
   %.3.lcssa = phi i32 [ 0, %272 ], [ %.4.lcssa, %._crit_edge295.loopexit ]
-  %505 = getelementptr inbounds %struct.DdSubtable, ptr %504, i64 %indvars.iv349, i32 3
+  %505 = getelementptr inbounds nuw %struct.DdSubtable, ptr %504, i64 %indvars.iv349, i32 3
   %506 = load i32, ptr %505, align 8
   %.not188 = icmp eq i32 %.2145.lcssa, %506
   br i1 %.not188, label %510, label %507
@@ -862,7 +862,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 510:                                              ; preds = %507, %._crit_edge295
   %511 = phi ptr [ %.pre369, %507 ], [ %504, %._crit_edge295 ]
   %.20 = phi i32 [ 1, %507 ], [ %.12.lcssa, %._crit_edge295 ]
-  %512 = getelementptr inbounds %struct.DdSubtable, ptr %511, i64 %indvars.iv349, i32 5
+  %512 = getelementptr inbounds nuw %struct.DdSubtable, ptr %511, i64 %indvars.iv349, i32 5
   %513 = load i32, ptr %512, align 8
   %.not189 = icmp eq i32 %.3.lcssa, %513
   br i1 %.not189, label %517, label %514
@@ -882,15 +882,15 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge302:                                   ; preds = %517, %.preheader
   %.11.lcssa = phi i32 [ %.0149.lcssa, %.preheader ], [ %.21, %517 ]
-  %521 = getelementptr inbounds i8, ptr %0, i64 168
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds i8, ptr %0, i64 180
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %524 = load i32, ptr %523, align 4
   %525 = icmp sgt i32 %524, 0
   br i1 %525, label %.lr.ph321, label %._crit_edge322
 
 .lr.ph321:                                        ; preds = %._crit_edge302
-  %526 = getelementptr inbounds i8, ptr %0, i64 616
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %wide.trip.count355 = zext nneg i32 %524 to i64
   br label %527
 
@@ -899,7 +899,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.6319 = phi i32 [ 0, %.lr.ph321 ], [ %.7.lcssa, %._crit_edge312 ]
   %.4147318 = phi i32 [ 0, %.lr.ph321 ], [ %.5148.lcssa, %._crit_edge312 ]
   %.22317 = phi i32 [ %.11.lcssa, %.lr.ph321 ], [ %.23.lcssa, %._crit_edge312 ]
-  %528 = getelementptr inbounds ptr, ptr %522, i64 %indvars.iv352
+  %528 = getelementptr inbounds nuw ptr, ptr %522, i64 %indvars.iv352
   %storemerge304 = load ptr, ptr %528, align 8
   store ptr %storemerge304, ptr %3, align 8
   %.not184305 = icmp eq ptr %storemerge304, null
@@ -911,7 +911,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.5148307 = phi i32 [ %530, %547 ], [ %.4147318, %527 ]
   %.23306 = phi i32 [ %.24, %547 ], [ %.22317, %527 ]
   %530 = add nsw i32 %.5148307, 1
-  %531 = getelementptr inbounds i8, ptr %529, i64 4
+  %531 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %532 = load i32, ptr %531, align 4
   %.not185 = icmp eq i32 %532, 0
   br i1 %.not185, label %545, label %533
@@ -928,7 +928,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %539 = ptrtoint ptr %529 to i64
   %540 = load i32, ptr %529, align 8
   %541 = load i32, ptr %531, align 4
-  %542 = getelementptr inbounds i8, ptr %529, i64 16
+  %542 = getelementptr inbounds nuw i8, ptr %529, i64 16
   %543 = load double, ptr %542, align 8
   %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %538, ptr noundef nonnull @.str.18, i64 noundef %539, i32 noundef %540, i32 noundef %541, double noundef %543) #6
   br label %547
@@ -940,7 +940,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
 547:                                              ; preds = %533, %535, %545
   %.24 = phi i32 [ 1, %535 ], [ %.23306, %533 ], [ %.23306, %545 ]
   %.8 = phi i32 [ %.7308, %535 ], [ %.7308, %533 ], [ %546, %545 ]
-  %548 = getelementptr inbounds i8, ptr %529, i64 8
+  %548 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %storemerge = load ptr, ptr %548, align 8
   store ptr %storemerge, ptr %3, align 8
   %.not184 = icmp eq ptr %storemerge, null
@@ -958,26 +958,26 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.22.lcssa = phi i32 [ %.11.lcssa, %._crit_edge302 ], [ %.23.lcssa, %._crit_edge312 ]
   %.4147.lcssa = phi i32 [ 0, %._crit_edge302 ], [ %.5148.lcssa, %._crit_edge312 ]
   %.6.lcssa = phi i32 [ 0, %._crit_edge302 ], [ %.7.lcssa, %._crit_edge312 ]
-  %549 = getelementptr inbounds i8, ptr %0, i64 184
+  %549 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %550 = load i32, ptr %549, align 8
   %.not = icmp eq i32 %.4147.lcssa, %550
   br i1 %.not, label %555, label %551
 
 551:                                              ; preds = %._crit_edge322
-  %552 = getelementptr inbounds i8, ptr %0, i64 616
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %553 = load ptr, ptr %552, align 8
   %554 = call i64 @fwrite(ptr nonnull @.str.19, i64 48, i64 1, ptr %553)
   br label %555
 
 555:                                              ; preds = %551, %._crit_edge322
   %.25 = phi i32 [ 1, %551 ], [ %.22.lcssa, %._crit_edge322 ]
-  %556 = getelementptr inbounds i8, ptr %0, i64 192
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %557 = load i32, ptr %556, align 8
   %.not181 = icmp eq i32 %.6.lcssa, %557
   br i1 %.not181, label %562, label %558
 
 558:                                              ; preds = %555
-  %559 = getelementptr inbounds i8, ptr %0, i64 616
+  %559 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %560 = load ptr, ptr %559, align 8
   %561 = call i64 @fwrite(ptr nonnull @.str.20, i64 47, i64 1, ptr %560)
   br label %562
@@ -990,14 +990,14 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   br i1 %.not182326, label %._crit_edge330, label %.lr.ph329
 
 .lr.ph329:                                        ; preds = %562
-  %565 = getelementptr inbounds i8, ptr %0, i64 616
+  %565 = getelementptr inbounds nuw i8, ptr %0, i64 616
   br label %566
 
 566:                                              ; preds = %.lr.ph329, %584
   %.27327 = phi i32 [ %.26, %.lr.ph329 ], [ %.28, %584 ]
   %567 = load i32, ptr %2, align 4
   %568 = load ptr, ptr %3, align 8
-  %569 = getelementptr inbounds i8, ptr %568, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 4
   %570 = load i32, ptr %569, align 4
   %571 = icmp sle i32 %567, %570
   %.not183 = icmp eq i32 %570, -1
@@ -1008,10 +1008,10 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %573 = load ptr, ptr %565, align 8
   %574 = ptrtoint ptr %568 to i64
   %575 = load i32, ptr %568, align 8
-  %576 = getelementptr inbounds i8, ptr %568, i64 16
+  %576 = getelementptr inbounds nuw i8, ptr %568, i64 16
   %577 = load ptr, ptr %576, align 8
   %578 = ptrtoint ptr %577 to i64
-  %579 = getelementptr inbounds i8, ptr %568, i64 24
+  %579 = getelementptr inbounds nuw i8, ptr %568, i64 24
   %580 = load ptr, ptr %579, align 8
   %581 = ptrtoint ptr %580 to i64
   %582 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %573, ptr noundef nonnull @.str.21, i64 noundef %574, i32 noundef %567, i32 noundef %575, i32 noundef %570, i64 noundef %578, i64 noundef %581) #6
@@ -1051,12 +1051,12 @@ define void @cuddPrintNode(ptr noundef %0, ptr nocapture noundef %1) local_unnam
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i64 noundef %4, i32 noundef %6, i32 noundef %8, i64 noundef %11, i64 noundef %14) #6
@@ -1075,9 +1075,9 @@ declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 312
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
-  %5 = getelementptr inbounds i8, ptr %0, i64 608
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   br label %6
 
 6:                                                ; preds = %._crit_edge36, %2
@@ -1089,7 +1089,7 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %3, align 8
   %11 = zext i32 %7 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   br label %15
@@ -1101,9 +1101,9 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %indvars.iv38
+  %20 = getelementptr inbounds nuw %struct.DdSubtable, ptr %19, i64 %indvars.iv38
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph35.preheader, label %._crit_edge36
@@ -1114,17 +1114,17 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %.030 = load ptr, ptr %25, align 8
   %.not31 = icmp eq ptr %.030, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph35, %39
   %.032 = phi ptr [ %.0, %39 ], [ %.030, %.lr.ph35 ]
-  %26 = getelementptr inbounds i8, ptr %.032, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.032, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre41 = ptrtoint ptr %.pre to i64
   %29 = and i64 %.pre41, -2
@@ -1137,14 +1137,14 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
   %32 = load ptr, ptr %5, align 8
   %33 = ptrtoint ptr %.032 to i64
   %34 = load i32, ptr %.032, align 8
-  %35 = getelementptr inbounds i8, ptr %.032, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = ptrtoint ptr %27 to i64
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.50, i64 noundef %33, i32 noundef %34, i32 noundef %36, i64 noundef %37, i64 noundef %.pre41) #6
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.lr.ph._crit_edge
-  %40 = getelementptr inbounds i8, ptr %.032, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %.0 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -1166,14 +1166,14 @@ declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph225, label %._crit_edge226
 
 .lr.ph225:                                        ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
-  %6 = getelementptr inbounds i8, ptr %0, i64 616
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %wide.trip.count299 = zext nneg i32 %3 to i64
   br label %7
 
@@ -1185,16 +1185,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.0151219 = phi i32 [ 0, %.lr.ph225 ], [ %15, %52 ]
   %.0153218 = phi i32 [ 0, %.lr.ph225 ], [ %.1154, %52 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.DdSubtable, ptr %8, i64 %indvars.iv296
+  %9 = getelementptr inbounds nuw %struct.DdSubtable, ptr %8, i64 %indvars.iv296
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %12, %.0151219
-  %16 = getelementptr inbounds i8, ptr %9, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = sub i32 32, %19
   %21 = shl nsw i32 -1, %20
@@ -1225,7 +1225,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.1145210 = phi i32 [ %.0144222, %.lr.ph213.preheader ], [ %spec.select, %._crit_edge ]
   %.0158209 = phi i32 [ %14, %.lr.ph213.preheader ], [ %.1159.lcssa, %._crit_edge ]
   %.0166208 = phi i32 [ %12, %.lr.ph213.preheader ], [ %.1167.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %.not196 = icmp ne ptr %33, %0
   %34 = zext i1 %.not196 to i32
@@ -1238,12 +1238,12 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.1167205 = phi i32 [ %35, %.lr.ph ], [ %.0166208, %.lr.ph213 ]
   %.0172204 = phi ptr [ %41, %.lr.ph ], [ %33, %.lr.ph213 ]
   %35 = add nsw i32 %.1167205, -1
-  %36 = getelementptr inbounds i8, ptr %.0172204, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0172204, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   %39 = sext i1 %38 to i32
   %spec.select198 = add nsw i32 %.1159206, %39
-  %40 = getelementptr inbounds i8, ptr %.0172204, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0172204, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not197 = icmp eq ptr %41, %0
   br i1 %.not197, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -1291,14 +1291,14 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.0149.lcssa = phi i32 [ 0, %1 ], [ %30, %52 ]
   %.0147.lcssa = phi i32 [ 0, %1 ], [ %31, %52 ]
   %.0144.lcssa = phi i32 [ 0, %1 ], [ %.1145.lcssa, %52 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 140
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph258, label %._crit_edge259
 
 .lr.ph258:                                        ; preds = %._crit_edge226
-  %56 = getelementptr inbounds i8, ptr %0, i64 160
-  %57 = getelementptr inbounds i8, ptr %0, i64 616
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %wide.trip.count309 = zext nneg i32 %54 to i64
   br label %58
 
@@ -1310,14 +1310,14 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.1152252 = phi i32 [ %.0151.lcssa, %.lr.ph258 ], [ %66, %91 ]
   %.2155251 = phi i32 [ %.0153.lcssa, %.lr.ph258 ], [ %.3156, %91 ]
   %59 = load ptr, ptr %56, align 8
-  %60 = getelementptr inbounds %struct.DdSubtable, ptr %59, i64 %indvars.iv306
+  %60 = getelementptr inbounds nuw %struct.DdSubtable, ptr %59, i64 %indvars.iv306
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = add nsw i32 %63, %.1152252
-  %67 = getelementptr inbounds i8, ptr %60, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, %.1150253
   %70 = add nsw i32 %65, %.1148254
@@ -1333,7 +1333,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.4243 = phi i32 [ %.3255, %.lr.ph246.preheader ], [ %spec.select199, %._crit_edge238 ]
   %.3161242 = phi i32 [ %65, %.lr.ph246.preheader ], [ %.4162.lcssa, %._crit_edge238 ]
   %.2168241 = phi i32 [ %63, %.lr.ph246.preheader ], [ %.3169.lcssa, %._crit_edge238 ]
-  %71 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv301
+  %71 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv301
   %72 = load ptr, ptr %71, align 8
   %.not191 = icmp ne ptr %72, null
   %73 = zext i1 %.not191 to i32
@@ -1346,12 +1346,12 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.3169234 = phi i32 [ %74, %.lr.ph237 ], [ %.2168241, %.lr.ph246 ]
   %.1173233 = phi ptr [ %80, %.lr.ph237 ], [ %72, %.lr.ph246 ]
   %74 = add nsw i32 %.3169234, -1
-  %75 = getelementptr inbounds i8, ptr %.1173233, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.1173233, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
   %78 = sext i1 %77 to i32
   %spec.select200 = add nsw i32 %.4162235, %78
-  %79 = getelementptr inbounds i8, ptr %.1173233, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.1173233, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not192 = icmp eq ptr %80, null
   br i1 %.not192, label %._crit_edge238, label %.lr.ph237, !llvm.loop !20
@@ -1399,14 +1399,14 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.1150.lcssa = phi i32 [ %.0149.lcssa, %._crit_edge226 ], [ %69, %91 ]
   %.1148.lcssa = phi i32 [ %.0147.lcssa, %._crit_edge226 ], [ %70, %91 ]
   %.3.lcssa = phi i32 [ %.0144.lcssa, %._crit_edge226 ], [ %.4.lcssa, %91 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 168
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 184
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 192
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %97 = load i32, ptr %96, align 8
   %98 = add nsw i32 %95, %.1152.lcssa
-  %99 = getelementptr inbounds i8, ptr %0, i64 180
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, %.1150.lcssa
   %102 = add nsw i32 %97, %.1148.lcssa
@@ -1422,7 +1422,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.6276 = phi i32 [ %.3.lcssa, %.lr.ph279.preheader ], [ %spec.select201, %._crit_edge271 ]
   %.6164275 = phi i32 [ %97, %.lr.ph279.preheader ], [ %.7165.lcssa, %._crit_edge271 ]
   %.4170274 = phi i32 [ %95, %.lr.ph279.preheader ], [ %.5171.lcssa, %._crit_edge271 ]
-  %103 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv311
+  %103 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv311
   %104 = load ptr, ptr %103, align 8
   %.not187 = icmp ne ptr %104, null
   %105 = zext i1 %.not187 to i32
@@ -1435,12 +1435,12 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.5171267 = phi i32 [ %106, %.lr.ph270 ], [ %.4170274, %.lr.ph279 ]
   %.2174266 = phi ptr [ %112, %.lr.ph270 ], [ %104, %.lr.ph279 ]
   %106 = add nsw i32 %.5171267, -1
-  %107 = getelementptr inbounds i8, ptr %.2174266, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.2174266, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, 0
   %110 = sext i1 %109 to i32
   %spec.select202 = add nsw i32 %.7165268, %110
-  %111 = getelementptr inbounds i8, ptr %.2174266, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.2174266, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not188 = icmp eq ptr %112, null
   br i1 %.not188, label %._crit_edge271, label %.lr.ph270, !llvm.loop !23
@@ -1460,7 +1460,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   br i1 %.not, label %118, label %113
 
 113:                                              ; preds = %._crit_edge280
-  %114 = getelementptr inbounds i8, ptr %0, i64 616
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.28, i32 noundef %.4170.lcssa) #6
   %117 = add nsw i32 %.2155.lcssa, 1
@@ -1472,35 +1472,35 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   br i1 %.not182, label %123, label %119
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 616
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %121 = load ptr, ptr %120, align 8
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.29, i32 noundef %.6164.lcssa) #6
   br label %123
 
 123:                                              ; preds = %119, %118
-  %124 = getelementptr inbounds i8, ptr %0, i64 228
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 232
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %127 = load i32, ptr %126, align 8
   %128 = add i32 %127, %125
   %.not183 = icmp eq i32 %98, %128
   br i1 %.not183, label %134, label %129
 
 129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %0, i64 616
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %131 = load ptr, ptr %130, align 8
   %132 = sub i32 %98, %125
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.30, i32 noundef %132) #6
   br label %134
 
 134:                                              ; preds = %129, %123
-  %135 = getelementptr inbounds i8, ptr %0, i64 224
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %136 = load i32, ptr %135, align 8
   %.not184 = icmp eq i32 %101, %136
   br i1 %.not184, label %142, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %0, i64 616
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %139 = load ptr, ptr %138, align 8
   %140 = sub i32 %101, %136
   %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.31, i32 noundef %140) #6
@@ -1509,9 +1509,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 142:                                              ; preds = %137, %134
   %143 = phi i32 [ %.pre, %137 ], [ %101, %134 ]
-  %144 = getelementptr inbounds i8, ptr %0, i64 248
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 256
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %147 = load double, ptr %146, align 8
   %148 = uitofp i32 %143 to double
   %149 = fmul double %147, %148
@@ -1520,22 +1520,22 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
   br i1 %.not185, label %155, label %151
 
 151:                                              ; preds = %142
-  %152 = getelementptr inbounds i8, ptr %0, i64 616
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %153 = load ptr, ptr %152, align 8
   %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.32, i32 noundef %145, i32 noundef %150) #6
   br label %155
 
 155:                                              ; preds = %151, %142
-  %156 = getelementptr inbounds i8, ptr %0, i64 236
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %0, i64 240
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %159 = load i32, ptr %158, align 8
   %160 = add i32 %159, %157
   %.not186 = icmp eq i32 %102, %160
   br i1 %.not186, label %166, label %161
 
 161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %0, i64 616
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %163 = load ptr, ptr %162, align 8
   %164 = sub i32 %102, %157
   %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.33, i32 noundef %164) #6
@@ -1555,11 +1555,11 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.35, i64 noundef %8) #6
@@ -1579,10 +1579,10 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.061 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %26 ]
   %.04060 = phi i32 [ -1, %.lr.ph.preheader ], [ %.141, %26 ]
   %.04359 = phi i32 [ -1, %.lr.ph.preheader ], [ %.144, %26 ]
-  %12 = getelementptr inbounds %struct.DdSubtable, ptr %5, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %12 = getelementptr inbounds nuw %struct.DdSubtable, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sub i32 %14, %16
   %.not51 = icmp eq i32 %14, %16
@@ -1614,9 +1614,9 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.043.lcssa = phi i32 [ -1, %.preheader ], [ %.144, %26 ]
   %.040.lcssa = phi i32 [ -1, %.preheader ], [ %.141, %26 ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %26 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %30 = load i32, ptr %29, align 8
   %31 = sub i32 %28, %30
   %.not = icmp eq i32 %28, %30
@@ -1660,13 +1660,13 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: nofree nounwind uwtable
 define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i32 %2, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %. = select i1 %.not, i64 312, i64 320
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %7
   %.0 = load i32, ptr %10, align 4
   %.not26 = icmp eq i32 %3, 0
   br i1 %.not26, label %11, label %13
@@ -1682,7 +1682,7 @@ define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not27, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.preheader
@@ -1697,7 +1697,7 @@ define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture
 .preheader:                                       ; preds = %16, %.preheader
   %.02439 = phi ptr [ %22, %.preheader ], [ %18, %16 ]
   tail call void @cuddPrintVarGroups(ptr noundef %0, ptr noundef nonnull %.02439, i32 noundef %2, i32 noundef %3)
-  %21 = getelementptr inbounds i8, ptr %.02439, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %23, label %.preheader, !llvm.loop !26
@@ -1706,7 +1706,7 @@ define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not26, label %24, label %.critedge
 
 24:                                               ; preds = %.thread, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %.0, -1
   %28 = add i32 %27, %26
@@ -1750,7 +1750,7 @@ define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture
 
 43:                                               ; preds = %39, %42, %24
   %putchar37 = tail call i32 @putchar(i32 41)
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.critedge

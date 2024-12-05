@@ -13,7 +13,7 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
   %7 = sext i32 %0 to i64
   %8 = shl nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %13
@@ -26,15 +26,15 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
   %14 = tail call i32 @cuddComputeFloorLog2(i32 noundef %spec.store.select) #9
   %15 = shl nuw i32 1, %14
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %15, ptr %16, align 8
   %17 = sub i32 32, %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %17, ptr %18, align 4
   %19 = sext i32 %15 to i64
   %20 = shl nsw i64 %19, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %20)
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %calloc, ptr %21, align 8
   %22 = icmp eq ptr %calloc, null
   br i1 %22, label %23, label %24
@@ -47,16 +47,16 @@ define noalias noundef ptr @cuddLevelQueueInit(i32 noundef %0, i32 noundef %1, i
 24:                                               ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
   store ptr null, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %28, align 8
   %29 = shl i32 4, %14
-  %30 = getelementptr inbounds i8, ptr %4, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %29, ptr %30, align 4
   br label %31
 
@@ -78,7 +78,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @cuddLevelQueueQuit(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not26 = icmp eq ptr %3, null
   br i1 %.not26, label %.preheader, label %.lr.ph
@@ -107,7 +107,7 @@ define void @cuddLevelQueueQuit(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not23, label %._crit_edge, label %.lr.ph28, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph28, %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %14, label %13
@@ -118,7 +118,7 @@ define void @cuddLevelQueueQuit(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %._crit_edge, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not25 = icmp eq ptr %16, null
   br i1 %.not25, label %18, label %17
@@ -150,25 +150,25 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 .lr.ph.i:                                         ; preds = %3, %15
   %.03.i = phi ptr [ %.0.i, %15 ], [ %.01.i, %3 ]
-  %12 = getelementptr inbounds i8, ptr %.03.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %hashLookup.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.03.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
   %.0.i = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %15, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.loopexit
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #8
@@ -178,7 +178,7 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
 26:                                               ; preds = %.loopexit
   %27 = load ptr, ptr %18, align 8
   store ptr %27, ptr %17, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 36
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre65 = sext i32 %.pre to i64
   br label %28
@@ -187,13 +187,13 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %.pre-phi = phi i64 [ %23, %20 ], [ %.pre65, %26 ]
   %.0 = phi ptr [ %24, %20 ], [ %18, %26 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0, i8 0, i64 %.pre-phi, i1 false)
-  %29 = getelementptr inbounds i8, ptr %.0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %2 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
@@ -258,14 +258,14 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %60 = getelementptr inbounds ptr, ptr %59, i64 %35
   store ptr %.0, ptr %60, align 8
   %61 = load i32, ptr %30, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %61, %63
   br i1 %64, label %65, label %hashInsert.exit
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load i32, ptr %67, align 8
   %69 = shl i32 %68, 1
   %70 = sext i32 %69 to i64
@@ -296,16 +296,16 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 .lr.ph40.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph40.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %80 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8
   %.not3536.i.i = icmp eq ptr %81, null
   br i1 %.not3536.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph40.i.i, %.lr.ph.i.i
   %.03337.i.i = phi ptr [ %83, %.lr.ph.i.i ], [ %81, %.lr.ph40.i.i ]
-  %82 = getelementptr inbounds i8, ptr %.03337.i.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.03337.i.i, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.03337.i.i, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.03337.i.i, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = ptrtoint ptr %85 to i64
   %87 = trunc i64 %86 to i32
@@ -343,7 +343,7 @@ hashInsert.exit:                                  ; preds = %58, %73, %._crit_ed
   %101 = sext i32 %99 to i64
   %102 = getelementptr inbounds ptr, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store ptr %103, ptr %104, align 8
   %105 = load ptr, ptr %4, align 8
   %106 = getelementptr inbounds ptr, ptr %105, i64 %101
@@ -362,7 +362,7 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 52
   %.val14 = load i32, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
@@ -379,14 +379,14 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   br i1 %17, label %18, label %.preheader.i
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %13, align 8
   br label %hashDelete.exit
 
 .preheader.i:                                     ; preds = %16, %23
   %.0.i = phi ptr [ %22, %23 ], [ %14, %16 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %hashDelete.exit, label %23
@@ -396,14 +396,14 @@ define void @cuddLevelQueueDequeue(ptr nocapture noundef %0, i32 noundef %1) loc
   br i1 %24, label %25, label %.preheader.i, !llvm.loop !11
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   br label %hashDelete.exit
 
 hashDelete.exit:                                  ; preds = %.preheader.i, %2, %18, %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %1 to i64
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
@@ -418,11 +418,11 @@ hashDelete.exit:                                  ; preds = %.preheader.i, %2, %
 36:                                               ; preds = %35, %hashDelete.exit
   %37 = load ptr, ptr %3, align 8
   store ptr %37, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %3, align 8
   store ptr %3, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr %40, align 8

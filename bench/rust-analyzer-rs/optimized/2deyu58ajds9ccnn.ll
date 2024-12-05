@@ -116,7 +116,7 @@ define hidden noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 9:                                                ; preds = %4
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load i32, ptr %11, align 4, !noalias !10, !noundef !19
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4, !noalias !10
@@ -129,11 +129,11 @@ define hidden noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 
 16:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i"
   %17 = load i64, ptr %spec.select.i.i, align 8, !range !20, !noalias !21, !noundef !19
-  %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %.sroa.3.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i, align 8, !noalias !21, !nonnull !19, !noundef !19
   %switch.not.not.i.i.i.i.i = icmp eq i64 %17, 0
   %.0.in.idx.i.i.i.i.i = select i1 %switch.not.not.i.i.i.i.i, i64 4, i64 0
-  %.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
+  %.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i
   %.0.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i, align 4, !noalias !24, !noundef !19
   %18 = icmp ult i16 %.0.i.i.i.i.i, 273
   br i1 %18, label %27, label %19
@@ -148,7 +148,7 @@ define hidden noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 20:                                               ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
   %23 = load i32, ptr %22, align 4, !noalias !25, !noundef !19
   %24 = add i32 %23, -1
   store i32 %24, ptr %22, align 4, !noalias !25
@@ -164,7 +164,7 @@ define hidden noundef ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
   br i1 %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.13962917913251662315.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
   %31 = load i32, ptr %30, align 4, !noalias !32, !noundef !19
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 4, !noalias !32
@@ -195,7 +195,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h09455b4c3c8e8891E.llvm.1396291
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8ef59fcf1c05992fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !19, !align !39, !noundef !19
-  %.0.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = tail call noundef zeroext i1 @"_ZN64_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..fmt..Display$GT$3fmt17h65e555f980e80621E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %4
 }
@@ -215,26 +215,26 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.13
 
 6:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %10, align 8
   ret void
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.5.llvm.13962917913251662315, ptr %4, align 8, !alias.scope !40, !noalias !43
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8, !alias.scope !40, !noalias !43
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8, !alias.scope !40, !noalias !43
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, ptr %14, align 8, !alias.scope !40, !noalias !43
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !40, !noalias !43
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.9.llvm.13962917913251662315) #17
   unreachable
@@ -243,19 +243,19 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.13
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h332e7961a186cb68E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %5, label %11, label %"_ZN6syntax3ast4edit11IndentLevel15increase_indent28_$u7b$$u7b$closure$u7d$$u7d$17h24536223a9ab3b94E.llvm.13962917913251662315.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !45, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !45
@@ -263,7 +263,7 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   br i1 %10, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit.sink.split.i", label %"_ZN6syntax3ast4edit11IndentLevel15increase_indent28_$u7b$$u7b$closure$u7d$$u7d$17h24536223a9ab3b94E.llvm.13962917913251662315.exit"
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 48
   %13 = load i32, ptr %12, align 4, !noalias !52, !noundef !19
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4, !noalias !52
@@ -282,19 +282,19 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb4e072937da391eaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %5, label %11, label %"_ZN6syntax3ast4edit11IndentLevel15decrease_indent28_$u7b$$u7b$closure$u7d$$u7d$17h7bf7771d8b263defE.llvm.13962917913251662315.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !62, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !62
@@ -302,7 +302,7 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   br i1 %10, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit.sink.split.i", label %"_ZN6syntax3ast4edit11IndentLevel15decrease_indent28_$u7b$$u7b$closure$u7d$$u7d$17h7bf7771d8b263defE.llvm.13962917913251662315.exit"
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 48
   %13 = load i32, ptr %12, align 4, !noalias !69, !noundef !19
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4, !noalias !69
@@ -320,7 +320,7 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17ha72492d5018214c6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 8, !range !79, !noundef !19
   %3 = and i32 %.val, 2097119
   %4 = add nsw i32 %3, -65
@@ -330,7 +330,7 @@ define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17ha72
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hac63c777a6de930aE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 8, !range !79, !noundef !19
   %3 = and i32 %.val, 2097119
   %4 = add nsw i32 %3, -71
@@ -348,7 +348,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$core..ops..control_flow..Co
   ret void
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i32, ptr %5, align 4, !noalias !80, !noundef !19
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4, !noalias !80
@@ -364,7 +364,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$core..ops..control_flow..Co
 define hidden void @"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.13962917913251662315"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !20, !noundef !19
   %3 = icmp eq i64 %2, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %11
 
 5:                                                ; preds = %1
@@ -372,7 +372,7 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeO
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %6 = load ptr, ptr %4, align 8, !alias.scope !96, !nonnull !19, !noundef !19
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !96, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !96
@@ -384,7 +384,7 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeO
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %12 = load ptr, ptr %4, align 8, !alias.scope !106, !nonnull !19, !noundef !19
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i32, ptr %13, align 4, !noalias !106, !noundef !19
   %15 = add i32 %14, -1
   store i32 %15, ptr %13, align 4, !noalias !106
@@ -404,8 +404,8 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeO
 define hidden void @"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !20, !noundef !19
   %3 = icmp eq i64 %2, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %3, label %6, label %21
 
 6:                                                ; preds = %1
@@ -419,7 +419,7 @@ define hidden void @"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %10 = load ptr, ptr %5, align 8, !alias.scope !119, !nonnull !19, !noundef !19
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 4, !noalias !119, !noundef !19
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4, !noalias !119
@@ -431,7 +431,7 @@ define hidden void @"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %16 = load ptr, ptr %5, align 8, !alias.scope !129, !nonnull !19, !noundef !19
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 4, !noalias !129, !noundef !19
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 4, !noalias !129
@@ -449,7 +449,7 @@ define hidden void @"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %25 = load ptr, ptr %5, align 8, !alias.scope !142, !nonnull !19, !noundef !19
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i32, ptr %26, align 4, !noalias !142, !noundef !19
   %28 = add i32 %27, -1
   store i32 %28, ptr %26, align 4, !noalias !142
@@ -461,7 +461,7 @@ define hidden void @"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %31 = load ptr, ptr %5, align 8, !alias.scope !152, !nonnull !19, !noundef !19
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load i32, ptr %32, align 4, !noalias !152, !noundef !19
   %34 = add i32 %33, -1
   store i32 %34, ptr %32, align 4, !noalias !152
@@ -503,7 +503,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h094
 10:                                               ; preds = %5
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load i32, ptr %12, align 4, !noalias !153, !noundef !19
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4, !noalias !153
@@ -519,11 +519,11 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h094
 
 17:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i"
   %18 = load i64, ptr %spec.select.i, align 8, !range !20, !noalias !162, !noundef !19
-  %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !162, !nonnull !19, !noundef !19
   %switch.not.not.i.i.i.i = icmp eq i64 %18, 0
   %.0.in.idx.i.i.i.i = select i1 %switch.not.not.i.i.i.i, i64 4, i64 0
-  %.0.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
+  %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i
   %.0.i.i.i.i = load i16, ptr %.0.in.i.i.i.i, align 4, !noalias !162, !noundef !19
   %19 = icmp ult i16 %.0.i.i.i.i, 273
   br i1 %19, label %28, label %20
@@ -538,7 +538,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h094
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
   %24 = load i32, ptr %23, align 4, !noalias !165, !noundef !19
   %25 = add i32 %24, -1
   store i32 %25, ptr %23, align 4, !noalias !165
@@ -554,7 +554,7 @@ define hidden noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h094
   br i1 %29, label %"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17hcc7765bed365900eE.exit", label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %spec.select.i, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
   %32 = load i32, ptr %31, align 4, !noalias !172, !noundef !19
   %33 = add i32 %32, -1
   store i32 %33, ptr %31, align 4, !noalias !172
@@ -632,26 +632,26 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h181
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 1, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 95, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 44
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 95, ptr %.sroa.0.sroa.7.0..sroa_idx, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %12
 
 9:                                                ; preds = %14, %10
@@ -772,11 +772,11 @@ define hidden noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc
 define hidden noundef i16 @_ZN5rowan6cursor11SyntaxToken4kind17h3ecb86ab0d6896b2E.llvm.13962917913251662315(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
   %3 = load i64, ptr %2, align 8, !range !20, !noundef !19
-  %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i = load ptr, ptr %.sroa.3.0.in.i, align 8, !nonnull !19, !noundef !19
   %switch.not.not = icmp eq i64 %3, 0
   %.0.in.idx = select i1 %switch.not.not, i64 4, i64 0
-  %.0.in = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 %.0.in.idx
+  %.0.in = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 %.0.in.idx
   %.0 = load i16, ptr %.0.in, align 4, !noundef !19
   ret i16 %.0
 }
@@ -789,11 +789,11 @@ define hidden { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989ac
   br i1 %switch.not.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i = load ptr, ptr %.sroa.3.0.in.i, align 8, !nonnull !19, !noundef !19
-  %5 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !19
-  %7 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 16
   br label %8
 
 8:                                                ; preds = %1, %4
@@ -807,7 +807,7 @@ define hidden { ptr, i64 } @_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989ac
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.llvm.13962917913251662315(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !20, !noundef !19
-  %.sroa.3.0.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0 = load ptr, ptr %.sroa.3.0.in, align 8, !nonnull !19, !noundef !19
   %3 = insertvalue { i64, ptr } poison, i64 %2, 0
   %4 = insertvalue { i64, ptr } %3, ptr %.sroa.3.0, 1
@@ -817,10 +817,10 @@ define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !19, !align !218, !noundef !19
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !19
   %9 = icmp ugt i64 %8, %5
   %.promoted = load i64, ptr %6, align 8
@@ -831,8 +831,8 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %3, i64 %.promoted
   %12 = sub nuw i64 %8, %.promoted
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !19
   %16 = getelementptr i8, ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -1
@@ -857,7 +857,7 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
 
 .lr.ph.i.us:                                      ; preds = %24, %28
   %.05.i.us = phi i64 [ %29, %28 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [0 x i8], ptr %.sroa.0.050.us, i64 0, i64 %.05.i.us
+  %25 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.050.us, i64 0, i64 %.05.i.us
   %26 = load i8, ptr %25, align 1, !alias.scope !219, !noundef !19
   %27 = icmp eq i8 %26, %20
   br i1 %27, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us, label %28
@@ -914,7 +914,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us: ; preds = %.lr.
 
 .lr.ph.i:                                         ; preds = %47, %51
   %.05.i = phi i64 [ %52, %51 ], [ 0, %47 ]
-  %48 = getelementptr inbounds [0 x i8], ptr %.sroa.0.050, i64 0, i64 %.05.i
+  %48 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.050, i64 0, i64 %.05.i
   %49 = load i8, ptr %48, align 1, !alias.scope !219, !noundef !19
   %50 = icmp eq i8 %49, %43
   br i1 %50, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %51
@@ -969,9 +969,9 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
   unreachable
 
 .split80.us:                                      ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit"
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %65, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %59, ptr %69, align 8
   br label %.loopexit
 
@@ -985,7 +985,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit: ; preds = %.lr.ph.
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h35314c8b05b9199bE"(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load atomic i64, ptr %0 acquire, align 8
   %.not.i = icmp eq i64 %2, 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h385f211fd6495201E.llvm.13962917913251662315.exit", label %4
 
 4:                                                ; preds = %1
@@ -1003,7 +1003,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h385f211fd6495201E.llvm.13962917913251662315"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
@@ -1021,7 +1021,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
 define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add759da1db9eE(ptr noundef nonnull %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !noalias !229, !noundef !19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %47, label %15
@@ -1033,7 +1033,7 @@ define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add75
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %7 = load ptr, ptr %3, align 8, !alias.scope !244, !nonnull !19, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 4, !noalias !244, !noundef !19
   %10 = add i32 %9, -1
   store i32 %10, ptr %8, align 4, !noalias !244
@@ -1050,7 +1050,7 @@ define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add75
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit"
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !229, !noundef !19
   %18 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %17, i32 1)
   %19 = extractvalue { i32, i1 } %18, 1
@@ -1080,11 +1080,11 @@ define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add75
   %28 = extractvalue { i32, i1 } %18, 0
   store i32 %28, ptr %16, align 4, !noalias !229
   %29 = load i64, ptr %5, align 8, !range !20, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %29, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noundef !19
   %30 = icmp ult i16 %.0.i, 273
   br i1 %30, label %"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E.exit", label %31
@@ -1124,7 +1124,7 @@ define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add75
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit17" unwind label %13
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit17": ; preds = %36, %39
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i32, ptr %40, align 4, !noalias !266, !noundef !19
   %42 = add i32 %41, -1
   store i32 %42, ptr %40, align 4, !noalias !266
@@ -1166,7 +1166,7 @@ _ZN6syntax3ast9generated5nodes9BlockExpr9stmt_list17h22da10b5aac4f260E.exit: ; p
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit" unwind label %45
 
 55:                                               ; preds = %_ZN6syntax3ast9generated5nodes9BlockExpr9stmt_list17h22da10b5aac4f260E.exit
-  %56 = getelementptr inbounds i8, ptr %48, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %57 = load i32, ptr %56, align 4, !noalias !284, !noundef !19
   %58 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %57, i32 1)
   %59 = extractvalue { i32, i1 } %58, 1
@@ -1206,7 +1206,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
   call void @llvm.experimental.noalias.scope.decl(metadata !302)
   call void @llvm.experimental.noalias.scope.decl(metadata !305)
   %68 = load ptr, ptr %3, align 8, !alias.scope !308, !nonnull !19, !noundef !19
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load i32, ptr %69, align 4, !noalias !308, !noundef !19
   %71 = add i32 %70, -1
   store i32 %71, ptr %69, align 4, !noalias !308
@@ -1225,18 +1225,18 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
 define hidden noundef ptr @"_ZN6syntax3ast4edit11IndentLevel15increase_indent28_$u7b$$u7b$closure$u7d$$u7d$17h24536223a9ab3b94E.llvm.13962917913251662315"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !range !20, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !19
   br i1 %4, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !range !20
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %16, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit"
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %13 = load i32, ptr %12, align 4, !noalias !309, !noundef !19
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4, !noalias !309
@@ -1244,7 +1244,7 @@ define hidden noundef ptr @"_ZN6syntax3ast4edit11IndentLevel15increase_indent28_
   br i1 %15, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit.sink.split", label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit"
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %18 = load i32, ptr %17, align 4, !noalias !314, !noundef !19
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 4, !noalias !314
@@ -1264,18 +1264,18 @@ define hidden noundef ptr @"_ZN6syntax3ast4edit11IndentLevel15increase_indent28_
 define hidden noundef ptr @"_ZN6syntax3ast4edit11IndentLevel15decrease_indent28_$u7b$$u7b$closure$u7d$$u7d$17h7bf7771d8b263defE.llvm.13962917913251662315"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !range !20, !noundef !19
   %4 = icmp eq i64 %3, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !19
   br i1 %4, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !range !20
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %16, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit"
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %13 = load i32, ptr %12, align 4, !noalias !323, !noundef !19
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4, !noalias !323
@@ -1283,7 +1283,7 @@ define hidden noundef ptr @"_ZN6syntax3ast4edit11IndentLevel15decrease_indent28_
   br i1 %15, label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit.sink.split", label %"_ZN4core3ptr231drop_in_place$LT$rowan..utility_types..WalkEvent$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$17h8784753f5224100eE.llvm.13962917913251662315.exit"
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %18 = load i32, ptr %17, align 4, !noalias !328, !noundef !19
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 4, !noalias !328
@@ -1327,7 +1327,7 @@ define hidden void @_ZN6syntax3ast13edit_in_place6Indent11reindent_to17h477cfcd5
 8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = load i32, ptr %10, align 4, !noalias !340, !noundef !19
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 4, !noalias !340
@@ -1339,7 +1339,7 @@ define hidden void @_ZN6syntax3ast13edit_in_place6Indent11reindent_to17h477cfcd5
           to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit.i" unwind label %21
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !347, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !347
@@ -1380,11 +1380,11 @@ define { i1, i8 } @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generat
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %5
 
 5:                                                ; preds = %1
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !354, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !354, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %1, %5
@@ -1392,7 +1392,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %.sroa.0.0.i = phi ptr [ %8, %5 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !357
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !357
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %9, align 8, !noalias !357
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77d69ae4511741e3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !360
   %.not6.i.i = icmp eq ptr %10, null
@@ -1400,7 +1400,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i:                                       ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i"
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !363, !noundef !19
   %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i, %13
   br i1 %.not.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i"
@@ -1421,10 +1421,10 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 _ZN6syntax3ast9token_ext11CommentKind9from_text17hdb2d6f554b75c1f6E.exit: ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i"
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = load i8, ptr %17, align 8, !range !375, !noalias !357, !noundef !19
   %19 = trunc nuw i8 %18 to i1
-  %20 = getelementptr inbounds i8, ptr %11, i64 17
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %21 = load i8, ptr %20, align 1, !range !376, !noalias !357, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !357
   %22 = insertvalue { i1, i8 } poison, i1 %19, 0
@@ -1443,11 +1443,11 @@ define noundef zeroext i1 @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast.
   br i1 %switch.not.not.i.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, label %5
 
 5:                                                ; preds = %1
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !383, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !383, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %5, %1
@@ -1455,7 +1455,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %.sroa.0.0.i.i = phi ptr [ %8, %5 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !384
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !384
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %9, align 8, !noalias !384
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77d69ae4511741e3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !387
   %.not6.i.i.i = icmp eq ptr %10, null
@@ -1463,7 +1463,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i"
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !390, !noundef !19
   %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
@@ -1484,7 +1484,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$4kind17h4969297d3c285e27E.exit": ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
-  %17 = getelementptr inbounds i8, ptr %11, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %18 = load i8, ptr %17, align 1, !range !376, !noalias !384, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !384
   %19 = icmp ne i8 %18, 2
@@ -1502,11 +1502,11 @@ define noundef zeroext i1 @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast.
   br i1 %switch.not.not.i.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, label %5
 
 5:                                                ; preds = %1
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !408, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !408, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %5, %1
@@ -1514,7 +1514,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %.sroa.0.0.i.i = phi ptr [ %8, %5 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !409
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !409
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %9, align 8, !noalias !409
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77d69ae4511741e3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !412
   %.not6.i.i.i = icmp eq ptr %10, null
@@ -1522,7 +1522,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i"
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !415, !noundef !19
   %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
@@ -1543,7 +1543,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$4kind17h4969297d3c285e27E.exit": ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
-  %17 = getelementptr inbounds i8, ptr %11, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %18 = load i8, ptr %17, align 1, !range !376, !noalias !409, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !409
   %19 = icmp ne i8 %18, 2
@@ -1563,11 +1563,11 @@ define noundef zeroext i1 @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast.
   br i1 %switch.not.not.i.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, label %5
 
 5:                                                ; preds = %1
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !433, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !433, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %5, %1
@@ -1575,7 +1575,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %.sroa.0.0.i.i = phi ptr [ %8, %5 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !434
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !434
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %9, align 8, !noalias !434
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77d69ae4511741e3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !437
   %.not6.i.i.i = icmp eq ptr %10, null
@@ -1583,7 +1583,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i"
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !440, !noundef !19
   %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %13
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
@@ -1604,7 +1604,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$4kind17h4969297d3c285e27E.exit": ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
-  %17 = getelementptr inbounds i8, ptr %11, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %18 = load i8, ptr %17, align 1, !range !376, !noalias !434, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !434
   %19 = trunc i8 %18 to i1
@@ -1617,13 +1617,13 @@ define { ptr, i64 } @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..gener
   %1 = alloca { ptr, ptr, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   %2 = load ptr, ptr %0, align 8, !alias.scope !455, !noalias !460, !nonnull !19, !noundef !19
-  %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$6prefix28_$u7b$$u7b$closure$u7d$$u7d$17h87b2190406261a93E.exit.thread.i", %.lr.ph.i
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$6prefix28_$u7b$$u7b$closure$u7d$$u7d$17h87b2190406261a93E.exit.thread.i" ]
-  %.ptr = getelementptr inbounds i8, ptr @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.66, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.66, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 24
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
@@ -1633,9 +1633,9 @@ define { ptr, i64 } @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..gener
 
 6:                                                ; preds = %4
   %.sroa.3.0.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !464, !nonnull !19, !noundef !19
-  %7 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !464, !noundef !19
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i.i: ; preds = %6, %4
@@ -1650,7 +1650,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i.i, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i.i.i"
   %11 = phi ptr [ %16, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i.i.i" ], [ %10, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !471, !noundef !19
   %.not.i.i.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i.i.i, %13
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i.i.i"
@@ -1671,12 +1671,12 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$4kind17h4969297d3c285e27E.exit.i.i": ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i.i.i"
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = load i8, ptr %17, align 8, !range !375, !noalias !465, !noundef !19
-  %19 = getelementptr inbounds i8, ptr %11, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 17
   %20 = load i8, ptr %19, align 1, !range !376, !noalias !465, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !465
-  %21 = getelementptr inbounds i8, ptr %.ptr, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
   %.val2.i.i = load i8, ptr %21, align 8, !range !375, !noalias !483, !noundef !19
   %22 = getelementptr i8, ptr %.ptr, i64 17
   %.val3.i.i = load i8, ptr %22, align 1, !noalias !483
@@ -1705,15 +1705,15 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 32:                                               ; preds = %30
   %.sroa.3.0.i.i4.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i, align 8, !noalias !484, !nonnull !19, !noundef !19
-  %33 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i4.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i4.i.i, i64 8
   %34 = load i64, ptr %33, align 8, !noalias !484, !noundef !19
-  %35 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i4.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i4.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i.i: ; preds = %32, %30
   %.sroa.3.0.i.i.i = phi i64 [ %34, %32 ], [ 0, %30 ]
   %.sroa.0.0.i.i.i = phi ptr [ %35, %32 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %30 ]
-  %36 = getelementptr inbounds i8, ptr %.ptr, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   %37 = load i64, ptr %36, align 8, !noalias !483, !noundef !19
   %.not.i.i.i = icmp ult i64 %.sroa.3.0.i.i.i, %37
   br i1 %.not.i.i.i, label %"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$6prefix28_$u7b$$u7b$closure$u7d$$u7d$17h87b2190406261a93E.exit.thread.i", label %"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$6prefix28_$u7b$$u7b$closure$u7d$$u7d$17h87b2190406261a93E.exit.i"
@@ -1753,11 +1753,11 @@ define { ptr, i64 } @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..gener
   br i1 %switch.not.not.i.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, label %8
 
 8:                                                ; preds = %1
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !500, !nonnull !19, !noundef !19
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !500, !noundef !19
-  %11 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %8, %1
@@ -1765,7 +1765,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %.sroa.0.0.i.i = phi ptr [ %11, %8 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %1 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !501
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %4, align 8, !noalias !501
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %12, align 8, !noalias !501
   %13 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77d69ae4511741e3E.llvm.15484593084965490010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !504
   %.not6.i.i.i = icmp eq ptr %13, null
@@ -1773,7 +1773,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i"
   %14 = phi ptr [ %19, %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i" ], [ %13, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !507, !noundef !19
   %.not.i.i.i.i.i = icmp ult i64 %.sroa.3.0.i.i, %16
   br i1 %.not.i.i.i.i.i, label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.thread.i.i.i", label %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
@@ -1794,14 +1794,14 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..ast..generated..tokens..Comment$GT$4kind17h4969297d3c285e27E.exit": ; preds = %"_ZN6syntax3ast9token_ext11CommentKind9from_text28_$u7b$$u7b$closure$u7d$$u7d$17hf417f1ff06b63e66E.llvm.15484593084965490010.exit.i.i.i"
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load i8, ptr %20, align 8, !range !375, !noalias !501, !noundef !19
   %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds i8, ptr %14, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %24 = load i8, ptr %23, align 1, !range !376, !noalias !501, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !501
   store i8 %21, ptr %5, align 1
-  %25 = getelementptr inbounds i8, ptr %5, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %24, ptr %25, align 1
   %.not = icmp eq i8 %24, 2
   br i1 %.not, label %64, label %26
@@ -1811,7 +1811,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   store ptr %5, ptr %3, align 8, !noalias !519
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !519
   store ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, ptr %2, align 8, !noalias !519
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.82b27cccaf6c1d93c3497edc733a2d28.78.llvm.15484593084965490010, i64 216), ptr %27, align 8, !noalias !519
   %28 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h2d049b337a000a38E.llvm.15484593084965490010(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   %29 = icmp eq ptr %28, null
@@ -1822,7 +1822,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 _ZN6syntax3ast9token_ext11CommentKind6prefix17hc0034b806313ae77E.exit: ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !519
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1831,11 +1831,11 @@ _ZN6syntax3ast9token_ext11CommentKind6prefix17hc0034b806313ae77E.exit: ; preds =
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %34
 
 34:                                               ; preds = %_ZN6syntax3ast9token_ext11CommentKind6prefix17hc0034b806313ae77E.exit
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.i.i11 = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !522, !nonnull !19, !noundef !19
-  %35 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i11, i64 8
   %36 = load i64, ptr %35, align 8, !noalias !522, !noundef !19
-  %37 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i11, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %_ZN6syntax3ast9token_ext11CommentKind6prefix17hc0034b806313ae77E.exit, %34
@@ -1922,11 +1922,11 @@ define noundef zeroext i1 @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast.
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %6
 
 6:                                                ; preds = %1
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !537, !nonnull !19, !noundef !19
-  %7 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !537, !noundef !19
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %1, %6
@@ -1935,22 +1935,22 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !540
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !540
   store ptr %.sroa.0.0.i, ptr %2, align 8, !alias.scope !543, !noalias !546
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.3.0.i, ptr %10, align 8, !alias.scope !543, !noalias !546
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %11, align 8, !alias.scope !543, !noalias !546
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %.sroa.3.0.i, ptr %12, align 8, !alias.scope !543, !noalias !546
-  %13 = getelementptr inbounds i8, ptr %2, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 10, ptr %13, align 4, !alias.scope !543, !noalias !546
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 1, ptr %14, align 8, !alias.scope !543, !noalias !546
-  %15 = getelementptr inbounds i8, ptr %2, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 10, ptr %15, align 8, !alias.scope !543, !noalias !546
   call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3, ptr noalias noundef align 8 dereferenceable(48) %2)
   %16 = load i64, ptr %3, align 8, !range !20, !noalias !540, !noundef !19
   %trunc.i = trunc nuw i64 %16 to i1
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !540
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !540
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !540
@@ -1998,7 +1998,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i ], [ 0, %38 ]
-  %39 = getelementptr inbounds [0 x i8], ptr %32, i64 0, i64 %.05.i.i.i.i
+  %39 = getelementptr inbounds nuw [0 x i8], ptr %32, i64 0, i64 %.05.i.i.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !557, !noundef !19
   %41 = icmp eq i8 %40, 10
   %42 = add nuw nsw i64 %.05.i.i.i.i, 1
@@ -2040,11 +2040,11 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17hb378eaa8a5cf61c5E.exit.thread: ; pred
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %17
 
 17:                                               ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17hb378eaa8a5cf61c5E.exit.thread
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !562, !nonnull !19, !noundef !19
-  %18 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !562, !noundef !19
-  %20 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17hb378eaa8a5cf61c5E.exit.thread, %17
@@ -2064,11 +2064,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %switch.not.not.i28, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit33, label %25
 
 25:                                               ; preds = %22
-  %.sroa.3.0.in.i.i29 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.3.0.in.i.i29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.3.0.i.i30 = load ptr, ptr %.sroa.3.0.in.i.i29, align 8, !noalias !571, !nonnull !19, !noundef !19
-  %26 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i30, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i30, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !571, !noundef !19
-  %28 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i30, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i30, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit33
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit33: ; preds = %22, %25
@@ -2081,18 +2081,18 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %trunc.i34, label %108, label %134
 
 30:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
-  %31 = getelementptr inbounds i8, ptr %6, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %32 = load i32, ptr %31, align 4, !noalias !565, !noundef !19
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %34 = load i32, ptr %33, align 4, !noalias !565, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6), !noalias !565
-  %35 = getelementptr inbounds i8, ptr %15, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %36 = load i8, ptr %35, align 4, !range !375, !noalias !579, !noundef !19
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %15, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %40 = load i32, ptr %39, align 8, !noalias !579, !noundef !19
   br label %43
 
@@ -2103,7 +2103,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 43:                                               ; preds = %41, %38
   %.0.i.i37 = phi i32 [ %42, %41 ], [ %40, %38 ]
   %44 = load i64, ptr %15, align 8, !range !20, !noalias !579, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !579, !nonnull !19, !noundef !19
   %switch.i.i.i = icmp eq i64 %44, 0
   br i1 %switch.i.i.i, label %45, label %47
@@ -2113,7 +2113,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i"
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !579, !noundef !19
   %50 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %49), !noalias !579
   %51 = extractvalue { i32, i32 } %50, 0
@@ -2176,7 +2176,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %67, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %78
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %61
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %61
   %69 = load i8, ptr %68, align 1, !alias.scope !582, !noalias !589, !noundef !19
   %70 = icmp sgt i8 %69, -65
   br i1 %70, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %78
@@ -2194,7 +2194,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %74, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %78
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i": ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %62
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %62
   %76 = load i8, ptr %75, align 1, !alias.scope !591, !noalias !589, !noundef !19
   %77 = icmp sgt i8 %76, -65
   br i1 %77, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %78
@@ -2204,13 +2204,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i"
-  %79 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %61
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %61
   %80 = sub nsw i64 %62, %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.410.0..sroa_idx, align 8
-  %.sroa.511.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.511.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 0, ptr %9, align 8
@@ -2218,13 +2218,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   store i8 0, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   store ptr %10, ptr %7, align 8
-  %81 = getelementptr inbounds i8, ptr %7, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %7, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %79, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %80, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %7, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %8, ptr %84, align 8
   invoke void @_ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17he18546d0d0b275e2E.llvm.11162169574061779932(ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %80, i8 noundef 2, ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit unwind label %85
@@ -2258,9 +2258,9 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
 
 94:                                               ; preds = %89
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %79, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %80, ptr %.sroa.57.0..sroa_idx, align 8
   br label %.critedge
 
@@ -2273,13 +2273,13 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !594
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
-  %96 = getelementptr inbounds i8, ptr %4, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %97 = load i64, ptr %96, align 8, !range !603, !noalias !594, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %97, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %98
 
 98:                                               ; preds = %.critedge
-  %99 = getelementptr inbounds i8, ptr %4, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %100 = load i64, ptr %99, align 8, !noalias !594, !noundef !19
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %102
@@ -2306,18 +2306,18 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   resume { ptr, i32 } %86
 
 108:                                              ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit33
-  %109 = getelementptr inbounds i8, ptr %5, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %110 = load i32, ptr %109, align 4, !noalias !574, !noundef !19
-  %111 = getelementptr inbounds i8, ptr %5, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %112 = load i32, ptr %111, align 4, !noalias !574, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5), !noalias !574
-  %113 = getelementptr inbounds i8, ptr %23, i64 60
+  %113 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %114 = load i8, ptr %113, align 4, !range !375, !noalias !604, !noundef !19
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %108
-  %117 = getelementptr inbounds i8, ptr %23, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %118 = load i32, ptr %117, align 8, !noalias !604, !noundef !19
   br label %121
 
@@ -2328,7 +2328,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
 121:                                              ; preds = %119, %116
   %.0.i.i41 = phi i32 [ %120, %119 ], [ %118, %116 ]
   %122 = load i64, ptr %23, align 8, !range !20, !noalias !604, !noundef !19
-  %.sroa.3.0.in.i.i.i42 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.3.0.in.i.i.i42 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.3.0.i.i.i43 = load ptr, ptr %.sroa.3.0.in.i.i.i42, align 8, !noalias !604, !nonnull !19, !noundef !19
   %switch.i.i.i44 = icmp eq i64 %122, 0
   br i1 %switch.i.i.i44, label %123, label %125
@@ -2338,7 +2338,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i47"
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i43, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i43, i64 8
   %127 = load i64, ptr %126, align 8, !noalias !604, !noundef !19
   %128 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %127), !noalias !604
   %129 = extractvalue { i32, i32 } %128, 0
@@ -2401,7 +2401,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   br i1 %145, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i58", label %156
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i61": ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %.sroa.0.0.i32, i64 %139
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i32, i64 %139
   %147 = load i8, ptr %146, align 1, !alias.scope !607, !noalias !614, !noundef !19
   %148 = icmp sgt i8 %147, -65
   br i1 %148, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i58", label %156
@@ -2419,7 +2419,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   br i1 %152, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit62", label %156
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i60": ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %.sroa.0.0.i32, i64 %140
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i32, i64 %140
   %154 = load i8, ptr %153, align 1, !alias.scope !616, !noalias !614, !noundef !19
   %155 = icmp sgt i8 %154, -65
   br i1 %155, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit62", label %156
@@ -2429,12 +2429,12 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17hbe6409b3e3054762E.exit: ; pr
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit62": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i58", %151, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i60"
-  %157 = getelementptr inbounds i8, ptr %.sroa.0.0.i32, i64 %139
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i32, i64 %139
   %158 = sub nsw i64 %140, %139
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %157, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %158, ptr %.sroa.5.0..sroa_idx, align 8
   br label %104
 }
@@ -2468,11 +2468,11 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17h653d569f3f53efbeE.exit.thread: ; pred
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %17
 
 17:                                               ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17h653d569f3f53efbeE.exit.thread
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !626, !nonnull !19, !noundef !19
-  %18 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !626, !noundef !19
-  %20 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17h653d569f3f53efbeE.exit.thread, %17
@@ -2492,11 +2492,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %switch.not.not.i24, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29, label %25
 
 25:                                               ; preds = %22
-  %.sroa.3.0.in.i.i25 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.3.0.in.i.i25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.3.0.i.i26 = load ptr, ptr %.sroa.3.0.in.i.i25, align 8, !noalias !634, !nonnull !19, !noundef !19
-  %26 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i26, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i26, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !634, !noundef !19
-  %28 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i26, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29: ; preds = %22, %25
@@ -2509,18 +2509,18 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %trunc.i30, label %110, label %136
 
 30:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
-  %31 = getelementptr inbounds i8, ptr %6, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %32 = load i32, ptr %31, align 4, !noalias !629, !noundef !19
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %34 = load i32, ptr %33, align 4, !noalias !629, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6), !noalias !629
-  %35 = getelementptr inbounds i8, ptr %15, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %36 = load i8, ptr %35, align 4, !range !375, !noalias !642, !noundef !19
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %15, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %40 = load i32, ptr %39, align 8, !noalias !642, !noundef !19
   br label %43
 
@@ -2531,7 +2531,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 43:                                               ; preds = %41, %38
   %.0.i.i33 = phi i32 [ %42, %41 ], [ %40, %38 ]
   %44 = load i64, ptr %15, align 8, !range !20, !noalias !642, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !642, !nonnull !19, !noundef !19
   %switch.i.i.i = icmp eq i64 %44, 0
   br i1 %switch.i.i.i, label %45, label %47
@@ -2541,7 +2541,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i"
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !642, !noundef !19
   %50 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %49), !noalias !642
   %51 = extractvalue { i32, i32 } %50, 0
@@ -2604,7 +2604,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %67, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %78
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %61
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %61
   %69 = load i8, ptr %68, align 1, !alias.scope !645, !noalias !652, !noundef !19
   %70 = icmp sgt i8 %69, -65
   br i1 %70, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %78
@@ -2622,7 +2622,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %74, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %78
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i": ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %62
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %62
   %76 = load i8, ptr %75, align 1, !alias.scope !654, !noalias !652, !noundef !19
   %77 = icmp sgt i8 %76, -65
   br i1 %77, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %78
@@ -2632,13 +2632,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", %73, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i"
-  %79 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %61
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %61
   %80 = sub nsw i64 %62, %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %10, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %10, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %82, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 0, ptr %9, align 8
@@ -2646,13 +2646,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   store i8 0, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   store ptr %10, ptr %7, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %7, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %79, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %80, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %7, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %8, ptr %86, align 8
   invoke void @_ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17h3b9b56cde69df244E.llvm.11162169574061779932(ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %80, i8 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit unwind label %87
@@ -2686,9 +2686,9 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
 
 96:                                               ; preds = %91
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %79, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %80, ptr %.sroa.57.0..sroa_idx, align 8
   br label %.critedge
 
@@ -2701,13 +2701,13 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !657
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
-  %98 = getelementptr inbounds i8, ptr %4, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %99 = load i64, ptr %98, align 8, !range !603, !noalias !657, !noundef !19
   %.not.i.i.i37 = icmp eq i64 %99, 0
   br i1 %.not.i.i.i37, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb6561be30e229c45E.exit", label %100
 
 100:                                              ; preds = %.critedge
-  %101 = getelementptr inbounds i8, ptr %4, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !657, !noundef !19
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb6561be30e229c45E.exit", label %104
@@ -2734,18 +2734,18 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   resume { ptr, i32 } %88
 
 110:                                              ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29
-  %111 = getelementptr inbounds i8, ptr %5, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %112 = load i32, ptr %111, align 4, !noalias !637, !noundef !19
-  %113 = getelementptr inbounds i8, ptr %5, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %114 = load i32, ptr %113, align 4, !noalias !637, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5), !noalias !637
-  %115 = getelementptr inbounds i8, ptr %23, i64 60
+  %115 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %116 = load i8, ptr %115, align 4, !range !375, !noalias !664, !noundef !19
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %23, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %120 = load i32, ptr %119, align 8, !noalias !664, !noundef !19
   br label %123
 
@@ -2756,7 +2756,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
 123:                                              ; preds = %121, %118
   %.0.i.i38 = phi i32 [ %122, %121 ], [ %120, %118 ]
   %124 = load i64, ptr %23, align 8, !range !20, !noalias !664, !noundef !19
-  %.sroa.3.0.in.i.i.i39 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.3.0.in.i.i.i39 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.3.0.i.i.i40 = load ptr, ptr %.sroa.3.0.in.i.i.i39, align 8, !noalias !664, !nonnull !19, !noundef !19
   %switch.i.i.i41 = icmp eq i64 %124, 0
   br i1 %switch.i.i.i41, label %125, label %127
@@ -2766,7 +2766,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i44"
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i40, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i40, i64 8
   %129 = load i64, ptr %128, align 8, !noalias !664, !noundef !19
   %130 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %129), !noalias !664
   %131 = extractvalue { i32, i32 } %130, 0
@@ -2829,7 +2829,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   br i1 %147, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", label %158
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i58": ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %141
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %141
   %149 = load i8, ptr %148, align 1, !alias.scope !667, !noalias !674, !noundef !19
   %150 = icmp sgt i8 %149, -65
   br i1 %150, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", label %158
@@ -2847,7 +2847,7 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   br i1 %154, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59", label %158
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i57": ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %142
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %142
   %156 = load i8, ptr %155, align 1, !alias.scope !676, !noalias !674, !noundef !19
   %157 = icmp sgt i8 %156, -65
   br i1 %157, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59", label %158
@@ -2857,12 +2857,12 @@ _ZN17ra_ap_rustc_lexer8unescape16unescape_unicode17he771121c164c0aacE.exit: ; pr
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", %153, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i57"
-  %159 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %141
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %141
   %160 = sub nsw i64 %142, %141
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %159, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %160, ptr %.sroa.5.0..sroa_idx, align 8
   br label %106
 }
@@ -2885,20 +2885,20 @@ define void @"_ZN92_$LT$syntax..ast..generated..tokens..CString$u20$as$u20$synta
   br label %43
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %13 = load i32, ptr %12, align 4, !noalias !679, !noundef !19
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load i32, ptr %14, align 4, !noalias !679, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6), !noalias !679
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)
   %16 = load ptr, ptr %0, align 8, !alias.scope !684, !nonnull !19, !noundef !19
-  %17 = getelementptr inbounds i8, ptr %16, i64 60
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %18 = load i8, ptr %17, align 4, !range !375, !noalias !684, !noundef !19
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %16, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %22 = load i32, ptr %21, align 8, !noalias !684, !noundef !19
   br label %25
 
@@ -2909,7 +2909,7 @@ define void @"_ZN92_$LT$syntax..ast..generated..tokens..CString$u20$as$u20$synta
 25:                                               ; preds = %23, %20
   %.0.i.i = phi i32 [ %24, %23 ], [ %22, %20 ]
   %26 = load i64, ptr %16, align 8, !range !20, !noalias !684, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !684, !nonnull !19, !noundef !19
   %switch.i.i.i = icmp eq i64 %26, 0
   br i1 %switch.i.i.i, label %27, label %29
@@ -2919,7 +2919,7 @@ define void @"_ZN92_$LT$syntax..ast..generated..tokens..CString$u20$as$u20$synta
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i"
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !684, !noundef !19
   %32 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %31), !noalias !684
   %33 = extractvalue { i32, i32 } %32, 0
@@ -2953,9 +2953,9 @@ define void @"_ZN92_$LT$syntax..ast..generated..tokens..CString$u20$as$u20$synta
 
 39:                                               ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit"
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !687, !nonnull !19, !noundef !19
-  %40 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !687, !noundef !19
-  %42 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %"_ZN5rowan3api20SyntaxToken$LT$L$GT$10text_range17h86778fb17ab354d7E.exit", %39
@@ -2994,7 +2994,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %54, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %65
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %48
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %48
   %56 = load i8, ptr %55, align 1, !alias.scope !690, !noalias !697, !noundef !19
   %57 = icmp sgt i8 %56, -65
   br i1 %57, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %65
@@ -3012,7 +3012,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %61, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %65
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i": ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %49
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %49
   %63 = load i8, ptr %62, align 1, !alias.scope !699, !noalias !697, !noundef !19
   %64 = icmp sgt i8 %63, -65
   br i1 %64, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %65
@@ -3022,15 +3022,15 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", %60, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i"
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %48
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %48
   %67 = sub nsw i64 %49, %48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %46, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !702
   store ptr %7, ptr %5, align 8, !noalias !702
@@ -3071,11 +3071,11 @@ _ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.thread: ; pred
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit, label %18
 
 18:                                               ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.thread
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !713, !nonnull !19, !noundef !19
-  %19 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !713, !noundef !19
-  %21 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %_ZN6syntax3ast9token_ext8IsString6is_raw17h05bfaf79e1982593E.exit.thread, %18
@@ -3095,11 +3095,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %switch.not.not.i24, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29, label %26
 
 26:                                               ; preds = %23
-  %.sroa.3.0.in.i.i25 = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.3.0.in.i.i25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.3.0.i.i26 = load ptr, ptr %.sroa.3.0.in.i.i25, align 8, !noalias !721, !nonnull !19, !noundef !19
-  %27 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i26, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !721, !noundef !19
-  %29 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i26, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29: ; preds = %23, %26
@@ -3112,18 +3112,18 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %trunc.i30, label %113, label %139
 
 31:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
-  %32 = getelementptr inbounds i8, ptr %7, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %33 = load i32, ptr %32, align 4, !noalias !716, !noundef !19
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %35 = load i32, ptr %34, align 4, !noalias !716, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7), !noalias !716
-  %36 = getelementptr inbounds i8, ptr %16, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %37 = load i8, ptr %36, align 4, !range !375, !noalias !729, !noundef !19
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %16, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %41 = load i32, ptr %40, align 8, !noalias !729, !noundef !19
   br label %44
 
@@ -3134,7 +3134,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 44:                                               ; preds = %42, %39
   %.0.i.i33 = phi i32 [ %43, %42 ], [ %41, %39 ]
   %45 = load i64, ptr %16, align 8, !range !20, !noalias !729, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !729, !nonnull !19, !noundef !19
   %switch.i.i.i = icmp eq i64 %45, 0
   br i1 %switch.i.i.i, label %46, label %48
@@ -3144,7 +3144,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i"
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %50 = load i64, ptr %49, align 8, !noalias !729, !noundef !19
   %51 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %50), !noalias !729
   %52 = extractvalue { i32, i32 } %51, 0
@@ -3207,7 +3207,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %68, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %79
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %62
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %62
   %70 = load i8, ptr %69, align 1, !alias.scope !732, !noalias !739, !noundef !19
   %71 = icmp sgt i8 %70, -65
   br i1 %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", label %79
@@ -3225,7 +3225,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %75, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %79
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i": ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %63
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %63
   %77 = load i8, ptr %76, align 1, !alias.scope !741, !noalias !739, !noundef !19
   %78 = icmp sgt i8 %77, -65
   br i1 %78, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit", label %79
@@ -3235,13 +3235,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i", %74, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i"
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %62
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %62
   %81 = sub nsw i64 %63, %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   store i64 0, ptr %11, align 8
-  %82 = getelementptr inbounds i8, ptr %11, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %11, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8
@@ -3249,15 +3249,15 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr %11, ptr %8, align 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %8, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %8, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %80, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %81, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %9, ptr %88, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !744
   store ptr %8, ptr %5, align 8, !noalias !744
@@ -3294,9 +3294,9 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 99:                                               ; preds = %94
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %80, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %81, ptr %.sroa.57.0..sroa_idx, align 8
   br label %.critedge
 
@@ -3309,13 +3309,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !748
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  %101 = getelementptr inbounds i8, ptr %4, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %102 = load i64, ptr %101, align 8, !range !603, !noalias !748, !noundef !19
   %.not.i.i.i37 = icmp eq i64 %102, 0
   br i1 %.not.i.i.i37, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb6561be30e229c45E.exit", label %103
 
 103:                                              ; preds = %.critedge
-  %104 = getelementptr inbounds i8, ptr %4, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %105 = load i64, ptr %104, align 8, !noalias !748, !noundef !19
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb6561be30e229c45E.exit", label %107
@@ -3342,18 +3342,18 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   resume { ptr, i32 } %90
 
 113:                                              ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit29
-  %114 = getelementptr inbounds i8, ptr %6, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %115 = load i32, ptr %114, align 4, !noalias !724, !noundef !19
-  %116 = getelementptr inbounds i8, ptr %6, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %117 = load i32, ptr %116, align 4, !noalias !724, !noundef !19
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6), !noalias !724
-  %118 = getelementptr inbounds i8, ptr %24, i64 60
+  %118 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %119 = load i8, ptr %118, align 4, !range !375, !noalias !755, !noundef !19
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %124, label %121
 
 121:                                              ; preds = %113
-  %122 = getelementptr inbounds i8, ptr %24, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %123 = load i32, ptr %122, align 8, !noalias !755, !noundef !19
   br label %126
 
@@ -3364,7 +3364,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 126:                                              ; preds = %124, %121
   %.0.i.i38 = phi i32 [ %125, %124 ], [ %123, %121 ]
   %127 = load i64, ptr %24, align 8, !range !20, !noalias !755, !noundef !19
-  %.sroa.3.0.in.i.i.i39 = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.3.0.in.i.i.i39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.3.0.i.i.i40 = load ptr, ptr %.sroa.3.0.in.i.i.i39, align 8, !noalias !755, !nonnull !19, !noundef !19
   %switch.i.i.i41 = icmp eq i64 %127, 0
   br i1 %switch.i.i.i41, label %128, label %130
@@ -3374,7 +3374,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br label %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.3712155024907033177.exit.i.i44"
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i40, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i40, i64 8
   %132 = load i64, ptr %131, align 8, !noalias !755, !noundef !19
   %133 = tail call { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.3712155024907033177"(i64 noundef %132), !noalias !755
   %134 = extractvalue { i32, i32 } %133, 0
@@ -3437,7 +3437,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %150, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", label %161
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i58": ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %144
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %144
   %152 = load i8, ptr %151, align 1, !alias.scope !758, !noalias !765, !noundef !19
   %153 = icmp sgt i8 %152, -65
   br i1 %153, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", label %161
@@ -3455,7 +3455,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %157, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59", label %161
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i57": ; preds = %155
-  %158 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %145
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %145
   %159 = load i8, ptr %158, align 1, !alias.scope !767, !noalias !765, !noundef !19
   %160 = icmp sgt i8 %159, -65
   br i1 %160, label %"_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59", label %161
@@ -3465,12 +3465,12 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   unreachable
 
 "_ZN9text_size5range92_$LT$impl$u20$core..ops..index..Index$LT$text_size..range..TextRange$GT$$u20$for$u20$str$GT$5index17h8ace1ddee83071efE.exit59": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i55", %156, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i57"
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.0.i28, i64 %144
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i28, i64 %144
   %163 = sub nsw i64 %145, %144
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %162, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %163, ptr %.sroa.5.0..sroa_idx, align 8
   br label %109
 }
@@ -3484,11 +3484,11 @@ define noundef range(i8 2, 17) i8 @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$synt
   br i1 %switch.not.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit26.thread", label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %1
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !770, !nonnull !19, !noundef !19
-  %4 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !770, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   %.not.i.i = icmp ugt i64 %5, 2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %7
 
@@ -3497,7 +3497,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit26.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 18
   %10 = load i8, ptr %9, align 1, !alias.scope !773, !noundef !19
   %11 = icmp sgt i8 %10, -65
   br i1 %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit26.thread"
@@ -3535,11 +3535,11 @@ define void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..to
   br i1 %switch.not.not.i.i, label %.thread, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %2
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !796, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !796, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   %.not.i.i.i = icmp ugt i64 %7, 2
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %9
 
@@ -3548,7 +3548,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i", label %.thread
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
-  %11 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 18
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 18
   %12 = load i8, ptr %11, align 1, !alias.scope !797, !noalias !790, !noundef !19
   %13 = icmp sgt i8 %12, -65
   br i1 %13, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i", label %.thread
@@ -3574,7 +3574,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %21
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %select.unfold
-  %17 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 18
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 18
   %18 = load i8, ptr %17, align 1, !alias.scope !814, !noalias !819, !noundef !19
   %19 = icmp sgt i8 %18, -65
   br i1 %19, label %21, label %20
@@ -3584,7 +3584,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   unreachable
 
 21:                                               ; preds = %select.unfold, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  %22 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 18
   %23 = add i64 %7, -2
   br label %.thread
 
@@ -3595,7 +3595,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   %..i4767 = phi i64 [ 2, %21 ], [ 0, %2 ], [ 0, %9 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit26.i" ]
   %26 = phi ptr [ %spec.select, %21 ], [ @_ZN4core3ops8function6FnOnce9call_once17ha72492d5018214c6E, %2 ], [ @_ZN4core3ops8function6FnOnce9call_once17ha72492d5018214c6E, %9 ], [ @_ZN4core3ops8function6FnOnce9call_once17ha72492d5018214c6E, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @_ZN4core3ops8function6FnOnce9call_once17ha72492d5018214c6E, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit26.i" ]
   %27 = getelementptr inbounds i8, ptr %25, i64 %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %29
 
 29:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread14.i", %.thread
@@ -3606,7 +3606,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h673456b910e13993E.exit.thread, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %36 = load i8, ptr %31, align 1, !noalias !821, !noundef !19
   %37 = icmp sgt i8 %36, -1
   br i1 %37, label %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i"
@@ -3616,7 +3616,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   %39 = zext nneg i8 %38 to i32
   %40 = icmp ne ptr %35, %27
   call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds i8, ptr %31, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %42 = load i8, ptr %35, align 1, !noalias !821, !noundef !19
   %43 = shl nuw nsw i32 %39, 6
   %44 = and i8 %42, 63
@@ -3632,7 +3632,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i"
   %50 = icmp ne ptr %41, %27
   call void @llvm.assume(i1 %50)
-  %51 = getelementptr inbounds i8, ptr %31, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 3
   %52 = load i8, ptr %41, align 1, !noalias !821, !noundef !19
   %53 = shl nuw nsw i32 %45, 6
   %54 = and i8 %52, 63
@@ -3646,7 +3646,7 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
 60:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i"
   %61 = icmp ne ptr %51, %27
   call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds i8, ptr %31, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %63 = load i8, ptr %51, align 1, !noalias !821, !noundef !19
   %64 = shl nuw nsw i32 %39, 18
   %65 = and i32 %64, 1835008
@@ -3705,15 +3705,15 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h673456b910e13993E.exit.thread:
   %.sroa.017.0 = phi ptr [ %81, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h2a55ff7e85de83d2E.exit27.thread76" ], [ %85, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h2a55ff7e85de83d2E.exit27" ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %60 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %29 ]
   %.sroa.3.0 = phi i64 [ %84, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h2a55ff7e85de83d2E.exit27.thread76" ], [ %86, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h2a55ff7e85de83d2E.exit27" ], [ 0, %60 ], [ 0, %29 ]
   store ptr %.sroa.0.0.i4468, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %..i4767, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6.0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.017.0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.3.0, ptr %91, align 8
   ret void
 
@@ -3729,16 +3729,16 @@ define void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..to
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$16split_into_parts17h912341aabdbee1a3E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !19, !align !218, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h18188c3c251bf1ecE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !19, !noundef !19
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !839)
@@ -3748,11 +3748,11 @@ define void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..to
   br i1 %switch.not.not.i.i, label %"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$5radix17h2995550b9ab24110E.exit", label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i: ; preds = %2
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !842, !nonnull !19, !noundef !19
-  %16 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !842, !noundef !19
-  %18 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 16
   %.not.i.i.i = icmp ugt i64 %17, 2
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %19
 
@@ -3761,7 +3761,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %20, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i", label %"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$5radix17h2995550b9ab24110E.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 18
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 18
   %22 = load i8, ptr %21, align 1, !alias.scope !843, !noalias !836, !noundef !19
   %23 = icmp sgt i8 %22, -65
   br i1 %23, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3731a58f8f41fc5fE.exit.i", label %"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$5radix17h2995550b9ab24110E.exit"
@@ -3797,13 +3797,13 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 30:                                               ; preds = %"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$5radix17h2995550b9ab24110E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !860
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !range !603, !noalias !860, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !860, !noundef !19
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %37
@@ -3833,9 +3833,9 @@ define { ptr, i64 } @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..gener
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$16split_into_parts17h912341aabdbee1a3E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !nonnull !19, !align !218, !noundef !19
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %7 = icmp eq i64 %6, 0
@@ -3853,17 +3853,17 @@ define { i64, double } @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..ge
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..generated..tokens..IntNumber$GT$16split_into_parts17h912341aabdbee1a3E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !19, !align !218, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h18188c3c251bf1ecE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !19, !noundef !19
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !19
   invoke void @"_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$8from_str17h00942230fba36c9cE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
           to label %16 unwind label %14
@@ -3876,18 +3876,18 @@ define { i64, double } @"_ZN6syntax3ast9token_ext59_$LT$impl$u20$syntax..ast..ge
 
 16:                                               ; preds = %1
   %17 = load i8, ptr %4, align 8, !range !375, !noundef !19
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load double, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !869
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8, !range !603, !noalias !869, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !869, !noundef !19
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %26
@@ -3927,11 +3927,11 @@ define void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..to
   br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit48, label %5
 
 5:                                                ; preds = %2
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !878, !nonnull !19, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !878, !noundef !19
-  %8 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit48
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit48: ; preds = %2, %5
@@ -3948,7 +3948,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %17 = load i8, ptr %12, align 1, !noalias !881, !noundef !19
   %18 = icmp sgt i8 %17, -1
   br i1 %18, label %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i"
@@ -3958,7 +3958,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   %20 = zext nneg i8 %19 to i32
   %21 = icmp ne ptr %16, %9
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %16, align 1, !noalias !881, !noundef !19
   %24 = shl nuw nsw i32 %20, 6
   %25 = and i8 %23, 63
@@ -3974,7 +3974,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i"
   %31 = icmp ne ptr %22, %9
   tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds i8, ptr %12, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 3
   %33 = load i8, ptr %22, align 1, !noalias !881, !noundef !19
   %34 = shl nuw nsw i32 %26, 6
   %35 = and i8 %33, 63
@@ -3988,7 +3988,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 41:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i"
   %42 = icmp ne ptr %32, %9
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds i8, ptr %12, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %44 = load i8, ptr %32, align 1, !noalias !881, !noundef !19
   %45 = shl nuw nsw i32 %20, 18
   %46 = and i32 %45, 1835008
@@ -4025,11 +4025,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
   %.sroa.08.0 = phi ptr [ %141, %139 ], [ %132, %130 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %92 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %61 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %10 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %41 ]
   %.sroa.49.0 = phi i64 [ %140, %139 ], [ %131, %130 ], [ 0, %92 ], [ 0, %61 ], [ 0, %10 ], [ 0, %41 ]
   store ptr %.sroa.0.0.i81, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.08.0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.49.0, ptr %60, align 8
   ret void
 
@@ -4041,7 +4041,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %63, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %68 = load i8, ptr %63, align 1, !noalias !888, !noundef !19
   %69 = icmp sgt i8 %68, -1
   br i1 %69, label %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i53"
@@ -4051,7 +4051,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
   %71 = zext nneg i8 %70 to i32
   %72 = icmp ne ptr %67, %9
   tail call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds i8, ptr %63, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %74 = load i8, ptr %67, align 1, !noalias !888, !noundef !19
   %75 = shl nuw nsw i32 %71, 6
   %76 = and i8 %74, 63
@@ -4067,7 +4067,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i61": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i.i.i53"
   %82 = icmp ne ptr %73, %9
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds i8, ptr %63, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 3
   %84 = load i8, ptr %73, align 1, !noalias !888, !noundef !19
   %85 = shl nuw nsw i32 %77, 6
   %86 = and i8 %84, 63
@@ -4081,7 +4081,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
 92:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i61"
   %93 = icmp ne ptr %83, %9
   tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds i8, ptr %63, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %95 = load i8, ptr %83, align 1, !noalias !888, !noundef !19
   %96 = shl nuw nsw i32 %71, 18
   %97 = and i32 %96, 1835008
@@ -4186,9 +4186,9 @@ define { ptr, i64 } @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..gener
   %2 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..tokens..FloatNumber$GT$16split_into_parts17hba715b6e694d27ebE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !19, !align !218, !noundef !19
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %7 = icmp eq i64 %6, 0
@@ -4206,14 +4206,14 @@ define void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..to
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..tokens..FloatNumber$GT$16split_into_parts17hba715b6e694d27ebE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %6 = load ptr, ptr %5, align 8, !nonnull !19, !align !218, !noundef !19
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h18188c3c251bf1ecE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !19, !noundef !19
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !19
   invoke void @"_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f64$GT$8from_str17h00942230fba36c9cE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
           to label %15 unwind label %13
@@ -4227,13 +4227,13 @@ define void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..to
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !915
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !603, !noalias !915, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !915, !noundef !19
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %22
@@ -4266,14 +4266,14 @@ define i64 @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..tok
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..tokens..FloatNumber$GT$16split_into_parts17hba715b6e694d27ebE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %5 = load ptr, ptr %4, align 8, !nonnull !19, !align !218, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h18188c3c251bf1ecE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !19, !noundef !19
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !19
   %12 = invoke i64 @"_ZN4core3num7dec2flt60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$f32$GT$8from_str17hec37d8fa9ba0746aE"(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
           to label %15 unwind label %13
@@ -4287,13 +4287,13 @@ define i64 @"_ZN6syntax3ast9token_ext61_$LT$impl$u20$syntax..ast..generated..tok
 15:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !924
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6ccf600be665ec22E.llvm.13346703328537446882"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !range !603, !noalias !924, !noundef !19
   %.not.i.i.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !924, !noundef !19
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha534727b09ff09b9E.exit", label %22
@@ -4327,11 +4327,11 @@ define noundef i32 @"_ZN6syntax3ast9token_ext54_$LT$impl$u20$syntax..ast..genera
   br i1 %switch.not.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit.thread", label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %1
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !933, !nonnull !19, !noundef !19
-  %4 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !933, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit"
 
@@ -4342,7 +4342,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 8:                                                ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit"
   %.not.i.i.not = icmp eq i64 %5, 1
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 17
   br i1 %.not.i.i.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd53644dc6a89e869E.exit.thread", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %8
@@ -4360,7 +4360,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd53644dc6a89e869E.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
   %13 = add i64 %5, -1
-  %14 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 17
   %15 = getelementptr i8, ptr %6, i64 %13
   %rhsc38 = load i8, ptr %15, align 1
   %16 = icmp eq i8 %rhsc38, 39
@@ -4388,11 +4388,11 @@ define { i1, i8 } @"_ZN6syntax3ast9token_ext54_$LT$impl$u20$syntax..ast..generat
   br i1 %switch.not.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit.thread", label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit
 
 _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315.exit: ; preds = %1
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !941, !nonnull !19, !noundef !19
-  %4 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !941, !noundef !19
-  %6 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 16
   %.not.i = icmp ult i64 %5, 2
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit"
 
@@ -4403,7 +4403,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 8:                                                ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h566158f85cadf50eE.exit"
   %.not.i.i.not = icmp eq i64 %5, 2
-  %9 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 18
   br i1 %.not.i.i.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd53644dc6a89e869E.exit.thread", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %8
@@ -4424,7 +4424,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hd53644dc6a89e869E.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
   %15 = add i64 %5, -2
-  %16 = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 18
   %17 = getelementptr i8, ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -1
   %rhsc = load i8, ptr %18, align 1
@@ -4448,11 +4448,11 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h56ea5a34895152e0E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !956, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !956, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !956, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4460,7 +4460,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h56
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !959, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !959
@@ -4483,7 +4483,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h56
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h26ba5aaccf126cb8E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !966, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !966
@@ -4515,11 +4515,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h56
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h5a117809244c086bE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !973, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !973, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !973, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4527,7 +4527,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h5a
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !976, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !976
@@ -4550,7 +4550,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h5a
   br i1 %14, label %"_ZN85_$LT$syntax..ast..generated..nodes..AssocItemList$u20$as$u20$syntax..ast..AstNode$GT$4cast17he7dc5d53cd29bce8E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !983, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !983
@@ -4582,11 +4582,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17h5a
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb58cf1c1edc98b38E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !990, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !990, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !990, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4594,7 +4594,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb5
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !993, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !993
@@ -4617,7 +4617,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb5
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..WhereClause$u20$as$u20$syntax..ast..AstNode$GT$4cast17h34ca0b8a99c37822E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1000, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1000
@@ -4649,11 +4649,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb5
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb6d533221b5cb488E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1007, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1007, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1007, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4661,7 +4661,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb6
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1010, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1010
@@ -4684,7 +4684,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb6
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..AstNode$GT$4cast17hfe46cc920e3bfbacE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1017, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1017
@@ -4716,11 +4716,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb6
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb838bbee0ec6b3f5E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1024, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1024, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1024, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4728,7 +4728,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb8
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1027, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1027
@@ -4751,7 +4751,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb8
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..UseTreeList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h597fea37b266a7efE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1034, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1034
@@ -4783,11 +4783,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hb8
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hbac5096d43ef6623E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1041, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1041, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1041, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4795,7 +4795,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hba
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1044, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1044
@@ -4818,7 +4818,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hba
   br i1 %14, label %"_ZN86_$LT$syntax..ast..generated..nodes..GenericArgList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h51ab08b1886234dfE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1051, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1051
@@ -4850,11 +4850,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hba
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hd9d38572783448acE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1058, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1058, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1058, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4862,7 +4862,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hd9
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1061, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1061
@@ -4885,7 +4885,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hd9
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$syntax..ast..AstNode$GT$4cast17hce83ca91527769dbE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1068, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1068
@@ -4917,11 +4917,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hd9
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hf0b21f72a09339deE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode16clone_for_update17h89efe027f4f6f581E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1075, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1075, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1075, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4929,7 +4929,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hf0
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1078, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1078
@@ -4952,7 +4952,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hf0
   br i1 %14, label %"_ZN88_$LT$syntax..ast..generated..nodes..GenericParamList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h708d6c2846301adeE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1085, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1085
@@ -4984,11 +4984,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode16clone_for_update17hf0
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h08086e173f1263c0E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1092, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1092, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1092, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -4996,7 +4996,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h08086
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1095, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1095
@@ -5019,7 +5019,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h08086
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$syntax..ast..AstNode$GT$4cast17h1f4120ee92bd47b7E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1102, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1102
@@ -5051,11 +5051,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h08086
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0abbe58437ecd84dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1109, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1109, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1109, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5063,7 +5063,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0abbe
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1112, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1112
@@ -5086,7 +5086,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0abbe
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..Lifetime$u20$as$u20$syntax..ast..AstNode$GT$4cast17h41118c6d502b35ecE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1119, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1119
@@ -5118,11 +5118,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0abbe
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0d4eac7c00622d69E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1126, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1126, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1126, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5130,7 +5130,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0d4ea
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1129, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1129
@@ -5153,7 +5153,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0d4ea
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Enum$u20$as$u20$syntax..ast..AstNode$GT$4cast17he40ce1a5bb4c8646E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1136, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1136
@@ -5185,11 +5185,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0d4ea
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0dbea3d278ab8025E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1143, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1143, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1143, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5197,7 +5197,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0dbea
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1146, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1146
@@ -5220,7 +5220,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0dbea
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..RecordPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h2367f6df2af05293E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1153, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1153
@@ -5252,11 +5252,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0dbea
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0ec06522c143f7e4E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1160, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1160, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1160, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5264,7 +5264,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0ec06
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1163, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1163
@@ -5287,7 +5287,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0ec06
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..NameRef$u20$as$u20$syntax..ast..AstNode$GT$4cast17h5ead6f2210f87a09E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1170, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1170
@@ -5319,11 +5319,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0ec06
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0fd10a733d466118E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1177, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1177, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1177, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5331,7 +5331,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0fd10
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1180, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1180
@@ -5354,7 +5354,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0fd10
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..SlicePat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h6870366c04d795aeE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1187, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1187
@@ -5386,11 +5386,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h0fd10
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11687e89c0ce76b4E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1194, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1194, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1194, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5398,7 +5398,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11687
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1197, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1197
@@ -5421,7 +5421,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11687
   br i1 %14, label %"_ZN88_$LT$syntax..ast..generated..nodes..GenericParamList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h708d6c2846301adeE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1204, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1204
@@ -5453,11 +5453,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11687
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11ea95a8ca3c02e7E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1211, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1211, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1211, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5465,7 +5465,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11ea9
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1214, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1214
@@ -5488,7 +5488,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11ea9
   br i1 %14, label %"_ZN85_$LT$syntax..ast..generated..nodes..LifetimeParam$u20$as$u20$syntax..ast..AstNode$GT$4cast17hd1d091cd91be7ee8E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1221, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1221
@@ -5520,11 +5520,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h11ea9
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h150c0523289372d2E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1228, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1228, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1228, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5532,7 +5532,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h150c0
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1231, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1231
@@ -5555,7 +5555,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h150c0
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..ExprStmt$u20$as$u20$syntax..ast..AstNode$GT$4cast17h56fb19e329886650E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1238, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1238
@@ -5587,11 +5587,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h150c0
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h172b9ed9755ccde9E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1245, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1245, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1245, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5599,7 +5599,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h172b9
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1248, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1248
@@ -5622,7 +5622,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h172b9
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..UseTree$u20$as$u20$syntax..ast..AstNode$GT$4cast17hfe46cc920e3bfbacE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1255, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1255
@@ -5654,11 +5654,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h172b9
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c30e6c3f620f996E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1262, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1262, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1262, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5666,7 +5666,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c30e
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1265, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1265
@@ -5689,7 +5689,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c30e
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..IdentPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h7a3e8f80798a7aeeE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1272, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1272
@@ -5721,11 +5721,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c30e
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c9020874a5757c5E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1279, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1279, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1279, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5733,7 +5733,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c902
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1282, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1282
@@ -5756,7 +5756,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c902
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..WherePred$u20$as$u20$syntax..ast..AstNode$GT$4cast17h559bafa84bcdf0c2E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1289, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1289
@@ -5788,11 +5788,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h1c902
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h21198e9af7bdcc6bE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1296, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1296, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1296, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5800,7 +5800,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h21198
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1299, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1299
@@ -5823,7 +5823,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h21198
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..PathSegment$u20$as$u20$syntax..ast..AstNode$GT$4cast17h9d381471c171a5d2E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1306, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1306
@@ -5855,11 +5855,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h21198
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h216b01e4552c8ad8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1313, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1313, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1313, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5867,7 +5867,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h216b0
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1316, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1316
@@ -5890,7 +5890,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h216b0
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..LetExpr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h76b4a4020a1f03b9E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1323, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1323
@@ -5922,11 +5922,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h216b0
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h2c53e4501b17d2a9E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1330, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1330, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1330, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -5934,7 +5934,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h2c53e
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1333, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1333
@@ -5957,7 +5957,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h2c53e
   br i1 %14, label %"_ZN86_$LT$syntax..ast..generated..nodes..RecordPatField$u20$as$u20$syntax..ast..AstNode$GT$4cast17h9b0260a65ecab856E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1340, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1340
@@ -5989,11 +5989,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h2c53e
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h41fed9be8509dfa3E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1347, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1347, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1347, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6001,7 +6001,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h41fed
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1350, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1350
@@ -6024,7 +6024,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h41fed
   br i1 %14, label %"_ZN77_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$syntax..ast..AstNode$GT$4cast17h0610c61360bd451bE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1357, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1357
@@ -6056,11 +6056,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h41fed
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h4242f3e3933d9288E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1364, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1364, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1364, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6068,7 +6068,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h4242f
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1367, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1367
@@ -6091,7 +6091,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h4242f
   br i1 %14, label %"_ZN86_$LT$syntax..ast..generated..nodes..TupleStructPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h2f0d0b1461db998cE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1374, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1374
@@ -6123,11 +6123,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h4242f
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h480717cba2c9d4e7E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1381, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1381, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1381, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6135,7 +6135,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48071
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1384, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1384
@@ -6158,7 +6158,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48071
   br i1 %14, label %"_ZN84_$LT$syntax..ast..generated..nodes..MatchArmList$u20$as$u20$syntax..ast..AstNode$GT$4cast17hd37127020eb169f5E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1391, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1391
@@ -6190,11 +6190,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48071
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48d70a5d70812e6aE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1398, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1398, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1398, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6202,7 +6202,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48d70
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1401, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1401
@@ -6225,7 +6225,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48d70
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..WildcardPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h22c9833019ec6795E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1408, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1408
@@ -6257,11 +6257,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h48d70
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h5779d2aa62c96fa8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1415, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1415, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1415, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6269,7 +6269,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h5779d
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1418, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1418
@@ -6292,7 +6292,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h5779d
   br i1 %14, label %"_ZN78_$LT$syntax..ast..generated..nodes..Struct$u20$as$u20$syntax..ast..AstNode$GT$4cast17h4994960660c2f591E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1425, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1425
@@ -6324,11 +6324,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h5779d
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h59b290c1a06efbedE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1432, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1432, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1432, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6336,7 +6336,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h59b29
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1435, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1435
@@ -6359,7 +6359,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h59b29
   br i1 %14, label %"_ZN82_$LT$syntax..ast..generated..nodes..RecordExpr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h60ac1a63df242449E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1442, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1442
@@ -6391,11 +6391,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h59b29
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h62f6c1e56582851dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1449, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1449, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1449, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6403,7 +6403,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h62f6c
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1452, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1452
@@ -6426,7 +6426,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h62f6c
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..WhereClause$u20$as$u20$syntax..ast..AstNode$GT$4cast17h34ca0b8a99c37822E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1459, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1459
@@ -6458,11 +6458,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h62f6c
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h64cecec5e120c885E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1466, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1466, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1466, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6470,7 +6470,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h64cec
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1469, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1469
@@ -6493,7 +6493,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h64cec
   br i1 %14, label %"_ZN85_$LT$syntax..ast..generated..nodes..ImplTraitType$u20$as$u20$syntax..ast..AstNode$GT$4cast17h6dcd52a16e92fde4E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1476, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1476
@@ -6525,11 +6525,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h64cec
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h6dc815c02aa294bfE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1483, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1483, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1483, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6537,7 +6537,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h6dc81
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1486, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1486
@@ -6560,7 +6560,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h6dc81
   br i1 %14, label %"_ZN82_$LT$syntax..ast..generated..nodes..ConstParam$u20$as$u20$syntax..ast..AstNode$GT$4cast17hef3be323656db0f5E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1493, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1493
@@ -6592,11 +6592,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h6dc81
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h79f20e7f68cd4e7dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1500, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1500, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1500, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6604,7 +6604,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h79f20
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1503, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1503
@@ -6627,7 +6627,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h79f20
   br i1 %14, label %"_ZN85_$LT$syntax..ast..generated..nodes..AssocItemList$u20$as$u20$syntax..ast..AstNode$GT$4cast17he7dc5d53cd29bce8E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1510, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1510
@@ -6659,11 +6659,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h79f20
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cacb8903cdfd7d5E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1517, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1517, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1517, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6671,7 +6671,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cacb
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1520, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1520
@@ -6694,7 +6694,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cacb
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..TypeArg$u20$as$u20$syntax..ast..AstNode$GT$4cast17h3e6a4b8d1a145d7bE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1527, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1527
@@ -6726,11 +6726,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cacb
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cbcf7c59b6dd3a3E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1534, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1534, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1534, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6738,7 +6738,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cbcf
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1537, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1537
@@ -6761,7 +6761,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cbcf
   br i1 %14, label %"_ZN74_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$syntax..ast..AstNode$GT$4cast17h93f89223052d9909E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1544, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1544
@@ -6793,11 +6793,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7cbcf
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7d06e13460a0b733E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1551, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1551, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1551, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6805,7 +6805,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7d06e
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1554, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1554
@@ -6828,7 +6828,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7d06e
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..LetStmt$u20$as$u20$syntax..ast..AstNode$GT$4cast17h2bfd82031bf86a10E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1561, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1561
@@ -6860,11 +6860,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h7d06e
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h818dd5d80d7ed811E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1568, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1568, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1568, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6872,7 +6872,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h818dd
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1571, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1571
@@ -6895,7 +6895,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h818dd
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..TokenTree$u20$as$u20$syntax..ast..AstNode$GT$4cast17h786db54516e322afE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1578, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1578
@@ -6927,11 +6927,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h818dd
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h8bb8f63d4f949ab9E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1585, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1585, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1585, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -6939,7 +6939,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h8bb8f
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1588, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1588
@@ -6962,7 +6962,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h8bb8f
   br i1 %14, label %"_ZN87_$LT$syntax..ast..generated..nodes..RecordExprField$u20$as$u20$syntax..ast..AstNode$GT$4cast17hf07d7e4a0ba8b1ddE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1595, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1595
@@ -6992,7 +6992,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h8bb8f
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN6syntax3ast7AstNode13clone_subtree17h8f8c909e309d22b5E(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.i)
   %3 = tail call { i64, ptr } @"_ZN75_$LT$syntax..ast..generated..nodes..Pat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h3357570b3198fc4eE"(ptr noundef nonnull %2)
   %4 = extractvalue { i64, ptr } %3, 0
@@ -7009,7 +7009,7 @@ define hidden { i64, ptr } @_ZN6syntax3ast7AstNode13clone_subtree17h8f8c909e309d
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN6syntax3ast7AstNode13clone_subtree17h94b72f14e6d8aee0E(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0.i)
   %3 = tail call { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Type$u20$as$u20$syntax..ast..AstNode$GT$4cast17hb43e7ff9c88b9379E"(ptr noundef nonnull %2)
   %4 = extractvalue { i64, ptr } %3, 0
@@ -7028,11 +7028,11 @@ define hidden { i64, ptr } @_ZN6syntax3ast7AstNode13clone_subtree17h94b72f14e6d8
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h94cce18f533b8af7E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1602, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1602, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1602, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7040,7 +7040,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h94cce
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1605, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1605
@@ -7063,7 +7063,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h94cce
   br i1 %14, label %"_ZN77_$LT$syntax..ast..generated..nodes..Param$u20$as$u20$syntax..ast..AstNode$GT$4cast17h8f136b2c06c08cf5E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1612, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1612
@@ -7095,11 +7095,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h94cce
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9607961b94c683a3E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1619, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1619, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1619, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7107,7 +7107,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h96079
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1622, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1622
@@ -7130,7 +7130,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h96079
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u20$syntax..ast..AstNode$GT$4cast17h9266ae48bdd1f6ebE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1629, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1629
@@ -7162,11 +7162,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h96079
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9a6f61037661d046E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1636, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1636, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1636, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7174,7 +7174,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9a6f6
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1639, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1639
@@ -7197,7 +7197,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9a6f6
   br i1 %14, label %"_ZN82_$LT$syntax..ast..generated..nodes..TupleField$u20$as$u20$syntax..ast..AstNode$GT$4cast17h39c61382ed547b13E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1646, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1646
@@ -7229,11 +7229,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9a6f6
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9cdec6f43bec9be9E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1653, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1653, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1653, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7241,7 +7241,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9cdec
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1656, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1656
@@ -7264,7 +7264,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9cdec
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$syntax..ast..AstNode$GT$4cast17hce83ca91527769dbE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1663, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1663
@@ -7296,11 +7296,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17h9cdec
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17ha923f31deb52c83dE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1670, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1670, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1670, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7308,7 +7308,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17ha923f
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1673, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1673
@@ -7331,7 +7331,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17ha923f
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..Variant$u20$as$u20$syntax..ast..AstNode$GT$4cast17hd82c88586cbeb62bE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1680, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1680
@@ -7363,11 +7363,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17ha923f
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb217c586ec825a92E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1687, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1687, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1687, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7375,7 +7375,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb217c
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1690, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1690
@@ -7398,7 +7398,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb217c
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Attr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h1849f9629d3a4b1fE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1697, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1697
@@ -7430,11 +7430,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb217c
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb29bb038858d6f0cE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1704, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1704, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1704, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7442,7 +7442,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb29bb
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1707, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1707
@@ -7465,7 +7465,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb29bb
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..RecordField$u20$as$u20$syntax..ast..AstNode$GT$4cast17h9eb34bedd8822d43E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1714, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1714
@@ -7497,11 +7497,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb29bb
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb4865c43ab5f2b1fE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1721, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1721, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1721, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7509,7 +7509,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb4865
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1724, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1724
@@ -7532,7 +7532,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb4865
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..RetType$u20$as$u20$syntax..ast..AstNode$GT$4cast17hb36b32004fc66d33E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1731, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1731
@@ -7564,11 +7564,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hb4865
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hba880e00b0c44625E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1738, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1738, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1738, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7576,7 +7576,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hba880
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1741, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1741
@@ -7599,7 +7599,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hba880
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..Literal$u20$as$u20$syntax..ast..AstNode$GT$4cast17h14ad986240d14d3eE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1748, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1748
@@ -7648,11 +7648,11 @@ define hidden { i64, ptr } @_ZN6syntax3ast7AstNode13clone_subtree17hc3e0ab0b7b23
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hc4ad71fd8c13066cE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1755, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1755, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1755, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7660,7 +7660,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hc4ad7
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1758, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1758
@@ -7683,7 +7683,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hc4ad7
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..TuplePat$u20$as$u20$syntax..ast..AstNode$GT$4cast17hf5cc00f1aef9dfc9E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1765, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1765
@@ -7715,11 +7715,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hc4ad7
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcaf9a9c7ef885cf0E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1772, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1772, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1772, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7727,7 +7727,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcaf9a
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1775, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1775
@@ -7750,7 +7750,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcaf9a
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..TypeBound$u20$as$u20$syntax..ast..AstNode$GT$4cast17h0b02de5b2e81dc46E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1782, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1782
@@ -7782,11 +7782,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcaf9a
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcfb1768fc18ae1daE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1789, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1789, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1789, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7794,7 +7794,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcfb17
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1792, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1792
@@ -7817,7 +7817,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcfb17
   br i1 %14, label %"_ZN82_$LT$syntax..ast..generated..nodes..Visibility$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc15c795eee35732fE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1799, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1799
@@ -7849,11 +7849,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hcfb17
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd028f357e6bb36a6E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1806, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1806, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1806, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7861,7 +7861,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd028f
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1809, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1809
@@ -7884,7 +7884,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd028f
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$syntax..ast..AstNode$GT$4cast17hab8cfae4d2d4af9bE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1816, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1816
@@ -7916,11 +7916,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd028f
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd336cfa7c8f7ca5fE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1823, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1823, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1823, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7928,7 +7928,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd336c
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1826, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1826
@@ -7951,7 +7951,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd336c
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Name$u20$as$u20$syntax..ast..AstNode$GT$4cast17h02643f9c7c4cd21dE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1833, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1833
@@ -7983,11 +7983,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hd336c
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he1fab63469a83c8cE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1840, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1840, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1840, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -7995,7 +7995,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he1fab
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1843, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1843
@@ -8018,7 +8018,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he1fab
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..LifetimeArg$u20$as$u20$syntax..ast..AstNode$GT$4cast17h7ff54b54d7dcd566E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1850, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1850
@@ -8050,11 +8050,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he1fab
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he3cb0caa989cb1d8E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1857, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1857, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1857, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8062,7 +8062,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he3cb0
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1860, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1860
@@ -8085,7 +8085,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he3cb0
   br i1 %14, label %"_ZN83_$LT$syntax..ast..generated..nodes..UseTreeList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h597fea37b266a7efE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1867, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1867
@@ -8117,11 +8117,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17he3cb0
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17heaf48849939eb9f2E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1874, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1874, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1874, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8129,7 +8129,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17heaf48
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1877, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1877
@@ -8152,7 +8152,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17heaf48
   br i1 %14, label %"_ZN80_$LT$syntax..ast..generated..nodes..ConstArg$u20$as$u20$syntax..ast..AstNode$GT$4cast17h850a9bb036f38234E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1884, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1884
@@ -8184,11 +8184,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17heaf48
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hee9e14eecefc1999E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1891, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1891, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1891, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8196,7 +8196,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hee9e1
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1894, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1894
@@ -8219,7 +8219,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hee9e1
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..TypeParam$u20$as$u20$syntax..ast..AstNode$GT$4cast17h686e6a4ce20f6b26E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1901, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1901
@@ -8251,11 +8251,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hee9e1
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf36d1b27ee389f03E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1908, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1908, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1908, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8263,7 +8263,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf36d1
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1911, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1911
@@ -8286,7 +8286,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf36d1
   br i1 %14, label %"_ZN79_$LT$syntax..ast..generated..nodes..RestPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17hed3e59c6dd47aed6E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1918, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1918
@@ -8318,11 +8318,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf36d1
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf398ee8d7d628297E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1925, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1925, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1925, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8330,7 +8330,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf398e
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1928, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1928
@@ -8353,7 +8353,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf398e
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..SelfParam$u20$as$u20$syntax..ast..AstNode$GT$4cast17h1904c8fa9dcfc6aaE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1935, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1935
@@ -8385,11 +8385,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf398e
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf5c904ade3807218E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1942, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1942, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1942, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8397,7 +8397,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf5c90
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1945, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1945
@@ -8420,7 +8420,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf5c90
   br i1 %14, label %"_ZN86_$LT$syntax..ast..generated..nodes..GenericArgList$u20$as$u20$syntax..ast..AstNode$GT$4cast17h51ab08b1886234dfE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1952, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1952
@@ -8452,11 +8452,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf5c90
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf90866a4ee78ac88E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1959, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1959, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1959, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8464,7 +8464,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf9086
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1962, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1962
@@ -8487,7 +8487,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf9086
   br i1 %14, label %"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h26ba5aaccf126cb8E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1969, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1969
@@ -8519,11 +8519,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hf9086
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc0ebc89eaf73c93E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1976, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1976, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1976, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8531,7 +8531,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc0eb
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1979, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1979
@@ -8554,7 +8554,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc0eb
   br i1 %14, label %"_ZN76_$LT$syntax..ast..generated..nodes..Meta$u20$as$u20$syntax..ast..AstNode$GT$4cast17h31e573814da0de96E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !1986, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !1986
@@ -8586,11 +8586,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc0eb
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc8ed6ad1a19d785E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !1993, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1993, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !1993, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8598,7 +8598,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc8ed
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !1996, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !1996
@@ -8621,7 +8621,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc8ed
   br i1 %14, label %"_ZN75_$LT$syntax..ast..generated..nodes..Use$u20$as$u20$syntax..ast..AstNode$GT$4cast17hc0964ccbbcc4b76fE.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !2003, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !2003
@@ -8653,11 +8653,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfc8ed
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfe0641f16e3fc3c3E(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !2010, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !2010, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !2010, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8665,7 +8665,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfe064
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !2013, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !2013
@@ -8688,7 +8688,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfe064
   br i1 %14, label %"_ZN77_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$syntax..ast..AstNode$GT$4cast17h8f2cfbfa934657a1E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !2020, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !2020
@@ -8720,11 +8720,11 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfe064
 define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfecd76f21dd31cbcE(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @_ZN5rowan6cursor10SyntaxNode13clone_subtree17h1b51d9db676cb487E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %3 = load i64, ptr %2, align 8, !range !20, !noalias !2027, !noundef !19
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !2027, !nonnull !19, !noundef !19
   %switch.not.not.i.i = icmp eq i64 %3, 0
   %spec.select.idx.i.i = select i1 %switch.not.not.i.i, i64 4, i64 0
-  %spec.select.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i, i64 %spec.select.idx.i.i
   %.0.i.i = load i16, ptr %spec.select.i.i, align 4, !noalias !2027, !noundef !19
   %4 = icmp ult i16 %.0.i.i, 273
   br i1 %4, label %13, label %12
@@ -8732,7 +8732,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfecd7
 5:                                                ; preds = %12
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i32, ptr %7, align 4, !noalias !2030, !noundef !19
   %9 = add i32 %8, -1
   store i32 %9, ptr %7, align 4, !noalias !2030
@@ -8755,7 +8755,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast7AstNode13clone_subtree17hfecd7
   br i1 %14, label %"_ZN82_$LT$syntax..ast..generated..nodes..LiteralPat$u20$as$u20$syntax..ast..AstNode$GT$4cast17h38729acc7528a909E.exit", label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i32, ptr %16, align 4, !noalias !2037, !noundef !19
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 4, !noalias !2037
@@ -8789,7 +8789,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2044)
   %4 = load ptr, ptr %0, align 8, !alias.scope !2044, !nonnull !19, !noundef !19
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load i32, ptr %5, align 4, !noalias !2044, !noundef !19
   %7 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %6, i32 1)
   %8 = extractvalue { i32, i1 } %7, 1
@@ -8806,7 +8806,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
   store i64 %12, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8
   br label %.noexc1
 
@@ -8827,7 +8827,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
 19:                                               ; preds = %.noexc
   %20 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds i8, ptr %18, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %22 = load i32, ptr %21, align 4, !noalias !2047, !noundef !19
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 4, !noalias !2047
@@ -8840,11 +8840,11 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
 
 26:                                               ; preds = %"_ZN6syntax3ast7support5token28_$u7b$$u7b$closure$u7d$$u7d$17h3f8031261de9b523E.exit.i.i.i"
   %27 = load i64, ptr %spec.select.i.i.i, align 8, !range !20, !noalias !2056, !noundef !19
-  %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 8
+  %.sroa.3.0.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
   %.sroa.3.0.i.i.i.i.i.i.i = load ptr, ptr %.sroa.3.0.in.i.i.i.i.i.i.i, align 8, !noalias !2056, !nonnull !19, !noundef !19
   %switch.not.not.i.i.i.i.i.i = icmp eq i64 %27, 0
   %.0.in.idx.i.i.i.i.i.i = select i1 %switch.not.not.i.i.i.i.i.i, i64 4, i64 0
-  %.0.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
+  %.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i, i64 %.0.in.idx.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = load i16, ptr %.0.in.i.i.i.i.i.i, align 4, !noalias !2059, !noundef !19
   %28 = icmp ult i16 %.0.i.i.i.i.i.i, 273
   br i1 %28, label %37, label %29
@@ -8859,7 +8859,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
           cleanup
-  %32 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
   %33 = load i32, ptr %32, align 4, !noalias !2065, !noundef !19
   %34 = add i32 %33, -1
   store i32 %34, ptr %32, align 4, !noalias !2065
@@ -8875,7 +8875,7 @@ define noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias
   br i1 %38, label %_ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913251662315.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
   %41 = load i32, ptr %40, align 4, !noalias !2072, !noundef !19
   %42 = add i32 %41, -1
   store i32 %42, ptr %40, align 4, !noalias !2072
@@ -8924,7 +8924,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913
   call void @llvm.experimental.noalias.scope.decl(metadata !2096)
   call void @llvm.experimental.noalias.scope.decl(metadata !2099)
   %53 = load ptr, ptr %14, align 8, !alias.scope !2102, !nonnull !19, !noundef !19
-  %54 = getelementptr inbounds i8, ptr %53, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load i32, ptr %54, align 4, !noalias !2102, !noundef !19
   %56 = add i32 %55, -1
   store i32 %56, ptr %54, align 4, !noalias !2102
@@ -8935,7 +8935,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h1c77a297b5fca01dE.llvm.13962917913
   call void @llvm.experimental.noalias.scope.decl(metadata !2103)
   call void @llvm.experimental.noalias.scope.decl(metadata !2106)
   %59 = load ptr, ptr %14, align 8, !alias.scope !2109, !nonnull !19, !noundef !19
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load i32, ptr %60, align 4, !noalias !2109, !noundef !19
   %62 = add i32 %61, -1
   store i32 %62, ptr %60, align 4, !noalias !2109
@@ -8976,11 +8976,11 @@ define noundef zeroext i1 @"_ZN78_$LT$syntax..ast..generated..tokens..Byte$u20$a
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Byte$u20$as$u20$syntax..ast..AstToken$GT$4cast17hf71b003ba279f072E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2111, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2111, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2111, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -8988,7 +8988,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Byte$u20$as$u20$s
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2114, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2114
@@ -9015,7 +9015,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Byte$u20$as$u20$s
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2121, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2121
@@ -9056,11 +9056,11 @@ define noundef zeroext i1 @"_ZN84_$LT$syntax..ast..generated..tokens..ByteString
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..ByteString$u20$as$u20$syntax..ast..AstToken$GT$4cast17h3bf6aead3394908cE"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2128, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2128, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2128, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9068,7 +9068,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..ByteString$u20$as
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2131, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2131
@@ -9095,7 +9095,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..ByteString$u20$as
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2138, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2138
@@ -9136,11 +9136,11 @@ define noundef zeroext i1 @"_ZN81_$LT$syntax..ast..generated..tokens..CString$u2
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..CString$u20$as$u20$syntax..ast..AstToken$GT$4cast17h29e134f5e6b05b7bE"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2145, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2145, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2145, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9148,7 +9148,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..CString$u20$as$u2
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2148, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2148
@@ -9175,7 +9175,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..CString$u20$as$u2
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2155, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2155
@@ -9216,11 +9216,11 @@ define noundef zeroext i1 @"_ZN78_$LT$syntax..ast..generated..tokens..Char$u20$a
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Char$u20$as$u20$syntax..ast..AstToken$GT$4cast17h797e2c50c4bc60e8E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2162, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2162, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2162, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9228,7 +9228,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Char$u20$as$u20$s
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2165, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2165
@@ -9255,7 +9255,7 @@ define noundef ptr @"_ZN78_$LT$syntax..ast..generated..tokens..Char$u20$as$u20$s
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2172, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2172
@@ -9296,11 +9296,11 @@ define noundef zeroext i1 @"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u2
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u20$syntax..ast..AstToken$GT$4cast17habcc8ccbee744ee4E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2179, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2179, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2179, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9308,7 +9308,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u2
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2182, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2182
@@ -9335,7 +9335,7 @@ define noundef ptr @"_ZN81_$LT$syntax..ast..generated..tokens..Comment$u20$as$u2
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2189, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2189
@@ -9376,11 +9376,11 @@ define noundef zeroext i1 @"_ZN85_$LT$syntax..ast..generated..tokens..FloatNumbe
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN85_$LT$syntax..ast..generated..tokens..FloatNumber$u20$as$u20$syntax..ast..AstToken$GT$4cast17hf0e873983837c147E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2196, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2196, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2196, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9388,7 +9388,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..tokens..FloatNumber$u20$a
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2199, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2199
@@ -9415,7 +9415,7 @@ define noundef ptr @"_ZN85_$LT$syntax..ast..generated..tokens..FloatNumber$u20$a
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2206, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2206
@@ -9456,11 +9456,11 @@ define noundef zeroext i1 @"_ZN79_$LT$syntax..ast..generated..tokens..Ident$u20$
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN79_$LT$syntax..ast..generated..tokens..Ident$u20$as$u20$syntax..ast..AstToken$GT$4cast17hd04e5ced8221e9e9E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2213, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2213, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2213, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9468,7 +9468,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..tokens..Ident$u20$as$u20$
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2216, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2216
@@ -9495,7 +9495,7 @@ define noundef ptr @"_ZN79_$LT$syntax..ast..generated..tokens..Ident$u20$as$u20$
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2223, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2223
@@ -9536,11 +9536,11 @@ define noundef zeroext i1 @"_ZN83_$LT$syntax..ast..generated..tokens..IntNumber$
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN83_$LT$syntax..ast..generated..tokens..IntNumber$u20$as$u20$syntax..ast..AstToken$GT$4cast17hdadda4fc96879ab7E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2230, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2230, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2230, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9548,7 +9548,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..tokens..IntNumber$u20$as$
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2233, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2233
@@ -9575,7 +9575,7 @@ define noundef ptr @"_ZN83_$LT$syntax..ast..generated..tokens..IntNumber$u20$as$
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2240, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2240
@@ -9616,11 +9616,11 @@ define noundef zeroext i1 @"_ZN80_$LT$syntax..ast..generated..tokens..String$u20
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN80_$LT$syntax..ast..generated..tokens..String$u20$as$u20$syntax..ast..AstToken$GT$4cast17hbde913a2a1acf550E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2247, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2247, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2247, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9628,7 +9628,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..tokens..String$u20$as$u20
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2250, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2250
@@ -9655,7 +9655,7 @@ define noundef ptr @"_ZN80_$LT$syntax..ast..generated..tokens..String$u20$as$u20
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2257, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2257
@@ -9696,11 +9696,11 @@ define noundef zeroext i1 @"_ZN84_$LT$syntax..ast..generated..tokens..Whitespace
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..Whitespace$u20$as$u20$syntax..ast..AstToken$GT$4cast17h08885a3beb49d566E"(ptr noundef nonnull %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noalias !2264, !noundef !19
-  %.sroa.3.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.i.i = load ptr, ptr %.sroa.3.0.in.i.i, align 8, !noalias !2264, !nonnull !19, !noundef !19
   %switch.not.not.i = icmp eq i64 %2, 0
   %.0.in.idx.i = select i1 %switch.not.not.i, i64 4, i64 0
-  %.0.in.i = getelementptr inbounds i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i, i64 %.0.in.idx.i
   %.0.i = load i16, ptr %.0.in.i, align 4, !noalias !2264, !noundef !19
   %3 = icmp ult i16 %.0.i, 273
   br i1 %3, label %12, label %11
@@ -9708,7 +9708,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..Whitespace$u20$as
 4:                                                ; preds = %11
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 4, !noalias !2267, !noundef !19
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4, !noalias !2267
@@ -9735,7 +9735,7 @@ define noundef ptr @"_ZN84_$LT$syntax..ast..generated..tokens..Whitespace$u20$as
   ret ptr %.0
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 4, !noalias !2274, !noundef !19
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4, !noalias !2274

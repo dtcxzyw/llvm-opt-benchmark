@@ -34,34 +34,34 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %44, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %19, 0
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %23
   %27 = tail call i64 @llvm.umin.i64(i64 %17, i64 %26)
@@ -69,16 +69,16 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
 
 28:                                               ; preds = %21, %11
   %29 = phi i64 [ %27, %21 ], [ %17, %11 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = sub i64 %29, %14
   %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 %32)
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = tail call i64 @llvm.smax.i64(i64 %35, i64 0)
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8
-  %39 = tail call i32 %9(ptr noundef %12, i64 noundef %14, i64 noundef %33, i64 noundef %36, i32 noundef %38, ptr noundef %3) #8
+  %39 = tail call i32 %9(ptr noundef %12, i64 noundef %14, i64 noundef %33, i64 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -110,7 +110,7 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @__SCT__tp_func_iomap_iter(ptr noundef %58, ptr noundef %0, ptr noundef %1, i64 noundef %46) #8
   br label %60
@@ -130,7 +130,7 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br label %67
 
 67:                                               ; preds = %64, %60, %47, %44
-  %68 = getelementptr inbounds i8, ptr %0, i64 66
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 512
   %71 = icmp ne i16 %70, 0
@@ -139,7 +139,7 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %73, label %.thread10, label %74
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = icmp slt i64 %76, 0
   br i1 %77, label %110, label %78
@@ -150,18 +150,18 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %80, label %81, label %.thread
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, %72
-  %85 = getelementptr inbounds i8, ptr %0, i64 144
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %86 = load i16, ptr %85, align 8
   %87 = icmp eq i16 %86, 0
   br i1 %87, label %95, label %88
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 128
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 136
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %92, %90
   %94 = tail call i64 @llvm.umin.i64(i64 %84, i64 %93)
@@ -169,9 +169,9 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
 
 95:                                               ; preds = %88, %81
   %96 = phi i64 [ %94, %88 ], [ %84, %81 ]
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = sub i64 %96, %100
   %102 = tail call i64 @llvm.umin.i64(i64 %98, i64 %101)
@@ -193,9 +193,9 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %108, label %.thread, label %.thread10
 
 .thread10:                                        ; preds = %67, %105
-  %109 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %109, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(160) %3, i8 0, i64 160, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %3, i8 0, i64 160, i1 false)
   br label %113
 
 110:                                              ; preds = %74
@@ -206,19 +206,19 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
 113:                                              ; preds = %.thread10, %110
   %114 = load ptr, ptr %1, align 8
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 120
-  %123 = tail call i32 %114(ptr noundef %115, i64 noundef %117, i64 noundef %119, i32 noundef %121, ptr noundef %3, ptr noundef %122) #8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %123 = tail call i32 %114(ptr noundef %115, i64 noundef %117, i64 noundef %119, i32 noundef %121, ptr noundef nonnull %3, ptr noundef nonnull %122) #8
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %.thread, label %125
 
 125:                                              ; preds = %113
-  %126 = getelementptr inbounds i8, ptr %0, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %127 = load i64, ptr %126, align 8
   %128 = load i64, ptr %116, align 8
   %129 = icmp sgt i64 %127, %128
@@ -290,9 +290,9 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %156, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %160 = load ptr, ptr %159, align 8
-  %161 = tail call i32 @__SCT__tp_func_iomap_iter_dstmap(ptr noundef %160, ptr noundef %148, ptr noundef %3) #8
+  %161 = tail call i32 @__SCT__tp_func_iomap_iter_dstmap(ptr noundef %160, ptr noundef %148, ptr noundef nonnull %3) #8
   br label %162
 
 162:                                              ; preds = %158, %155
@@ -310,7 +310,7 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br label %169
 
 169:                                              ; preds = %166, %162, %149, %147
-  %170 = getelementptr inbounds i8, ptr %0, i64 144
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %171 = load i16, ptr %170, align 8
   %172 = icmp eq i16 %171, 0
   br i1 %172, label %.thread, label %173
@@ -337,9 +337,9 @@ define dso_local range(i32 -2147483648, 2) i32 @iomap_iter(ptr noundef %0, ptr n
   br i1 %183, label %188, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %182, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %186 = load ptr, ptr %185, align 8
-  %187 = tail call i32 @__SCT__tp_func_iomap_iter_srcmap(ptr noundef %186, ptr noundef %174, ptr noundef %122) #8
+  %187 = tail call i32 @__SCT__tp_func_iomap_iter_srcmap(ptr noundef %186, ptr noundef %174, ptr noundef nonnull %122) #8
   br label %188
 
 188:                                              ; preds = %184, %181

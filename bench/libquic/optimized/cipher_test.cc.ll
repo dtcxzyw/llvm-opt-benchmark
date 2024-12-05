@@ -72,7 +72,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef nonnull @_ZL10TestCipherP8FileTestPv, ptr noundef null, ptr noundef %2)
   br label %return
@@ -635,7 +635,7 @@ invoke.cont171.split.us:                          ; preds = %invoke.cont171
 
 for.body.us:                                      ; preds = %invoke.cont171.split.us, %invoke.cont186.us
   %__begin1.sroa.0.0.idx117.us = phi i64 [ %__begin1.sroa.0.0.add.us, %invoke.cont186.us ], [ 0, %invoke.cont171.split.us ]
-  %__begin1.sroa.0.0.ptr.us = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us
+  %__begin1.sroa.0.0.ptr.us = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us
   %21 = load i64, ptr %__begin1.sroa.0.0.ptr.us, align 8
   %call187.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext false, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont186.us unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.us
@@ -656,7 +656,7 @@ invoke.cont171.split:                             ; preds = %invoke.cont171
 
 for.body.us120:                                   ; preds = %invoke.cont171.split, %invoke.cont180.us
   %__begin1.sroa.0.0.idx117.us122 = phi i64 [ %__begin1.sroa.0.0.add.us126, %invoke.cont180.us ], [ 0, %invoke.cont171.split ]
-  %__begin1.sroa.0.0.ptr.us123 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us122
+  %__begin1.sroa.0.0.ptr.us123 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us122
   %23 = load i64, ptr %__begin1.sroa.0.0.ptr.us123, align 8
   %call181.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext true, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont180.us unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.split.us
@@ -674,7 +674,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.split.split.us:     ; preds = %for.body.us120
 
 for.body:                                         ; preds = %invoke.cont171.split, %for.inc
   %__begin1.sroa.0.0.idx117 = phi i64 [ %__begin1.sroa.0.0.add, %for.inc ], [ 0, %invoke.cont171.split ]
-  %__begin1.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117
+  %__begin1.sroa.0.0.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117
   %25 = load i64, ptr %__begin1.sroa.0.0.ptr, align 8
   %call181 = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext true, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont180 unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.split
@@ -928,7 +928,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br i1 %call14, label %if.then15, label %if.end38
 
 if.then15:                                        ; preds = %invoke.cont13
-  %_M_finish.i53 = getelementptr inbounds i8, ptr %iv, i64 8
+  %_M_finish.i53 = getelementptr inbounds nuw i8, ptr %iv, i64 8
   %1 = load ptr, ptr %_M_finish.i53, align 8
   %2 = load ptr, ptr %iv, align 8
   br i1 %cmp, label %if.else26, label %if.then17
@@ -982,7 +982,7 @@ if.end38:                                         ; preds = %invoke.cont21, %inv
   br i1 %brmerge, label %if.end51, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
-  %_M_finish.i57 = getelementptr inbounds i8, ptr %tag, i64 8
+  %_M_finish.i57 = getelementptr inbounds nuw i8, ptr %tag, i64 8
   %5 = load ptr, ptr %_M_finish.i57, align 8
   %6 = load ptr, ptr %tag, align 8
   %sub.ptr.lhs.cast.i58 = ptrtoint ptr %5 to i64
@@ -998,7 +998,7 @@ invoke.cont47:                                    ; preds = %land.lhs.true41
 
 if.end51:                                         ; preds = %invoke.cont30, %if.end38, %invoke.cont47
   %cmp.not141 = phi i1 [ %cmp, %if.end38 ], [ false, %invoke.cont47 ], [ true, %invoke.cont30 ]
-  %_M_finish.i61 = getelementptr inbounds i8, ptr %plaintext.ciphertext, i64 8
+  %_M_finish.i61 = getelementptr inbounds nuw i8, ptr %plaintext.ciphertext, i64 8
   %7 = load ptr, ptr %_M_finish.i61, align 8
   %8 = load ptr, ptr %plaintext.ciphertext, align 8
   %sub.ptr.lhs.cast.i62 = ptrtoint ptr %7 to i64
@@ -1026,10 +1026,10 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 call5.i.i.i.i1.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i65, ptr %result, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i65, i64 %sub.ptr.sub.i64
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %result, i64 16
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i65, align 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i65, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i65, i64 1
   %sub.i.i.i.i.i = add nsw i64 %sub.ptr.sub.i64, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont55, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1041,12 +1041,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 invoke.cont55:                                    ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc
   %9 = phi ptr [ %call5.i.i.i.i1.i.i65, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i65, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %result, i64 8
+  %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %10 = load ptr, ptr %_M_finish.i61, align 8
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i63
-  %_M_finish.i70 = getelementptr inbounds i8, ptr %ciphertext.plaintext, i64 8
+  %_M_finish.i70 = getelementptr inbounds nuw i8, ptr %ciphertext.plaintext, i64 8
   %11 = load ptr, ptr %_M_finish.i70, align 8
   %12 = load ptr, ptr %ciphertext.plaintext, align 8
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %11 to i64
@@ -1088,7 +1088,7 @@ if.then.i.i.i:                                    ; preds = %lpad65
 
 if.end67:                                         ; preds = %invoke.cont55
   store i32 0, ptr %result_len1, align 4
-  %_M_finish.i82 = getelementptr inbounds i8, ptr %key, i64 8
+  %_M_finish.i82 = getelementptr inbounds nuw i8, ptr %key, i64 8
   %15 = load ptr, ptr %_M_finish.i82, align 8
   %16 = load ptr, ptr %key, align 8
   %sub.ptr.lhs.cast.i83 = ptrtoint ptr %15 to i64
@@ -1114,7 +1114,7 @@ invoke.cont79:                                    ; preds = %lor.lhs.false
 
 lor.lhs.false82:                                  ; preds = %invoke.cont79
   %19 = load ptr, ptr %aad, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %aad, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %aad, i64 8
   %20 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i86 = icmp eq ptr %19, %20
   br i1 %cmp.i.i86, label %lor.lhs.false93, label %land.lhs.true84
@@ -1261,7 +1261,7 @@ if.end162:                                        ; preds = %invoke.cont159
   br i1 %brmerge52, label %if.end188, label %if.then166
 
 if.then166:                                       ; preds = %if.end162
-  %_M_finish.i117 = getelementptr inbounds i8, ptr %tag, i64 8
+  %_M_finish.i117 = getelementptr inbounds nuw i8, ptr %tag, i64 8
   %41 = load ptr, ptr %_M_finish.i117, align 8
   %42 = load ptr, ptr %tag, align 8
   %sub.ptr.lhs.cast.i118 = ptrtoint ptr %41 to i64
@@ -1415,7 +1415,7 @@ declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1426,7 +1426,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
@@ -1440,7 +1440,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then
   store i8 0, ptr %0, align 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %sub.i.i.i.i = add i64 %sub, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1468,14 +1468,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
   %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #16
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr.i, align 1
   %sub.i.i.i23.i = add nsw i64 %sub, -1
   %cmp.i.i.i.i.i24.i = icmp eq i64 %sub.i.i.i23.i, 0
   br i1 %cmp.i.i.i.i.i24.i, label %try.cont.i, label %if.then.i.i.i.i.i.i.i25.i
 
 if.then.i.i.i.i.i.i.i25.i:                        ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %incdec.ptr.i.i.i22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i.i.i22.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i, i8 0, i64 %sub.i.i.i23.i, i1 false)
   br label %try.cont.i
 
@@ -1499,7 +1499,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i: ; preds = %if.then.i31.
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr36.i, ptr %_M_finish.i, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %3
+  %add.ptr39.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 

@@ -308,7 +308,7 @@ define internal i32 @dissect_hsms_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %43, label %95, label %44
 
 44:                                               ; preds = %41, %38, %34, %30, %25, %24
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 34, ptr noundef nonnull @.str.43) #3
   %47 = load ptr, ptr %45, align 8

@@ -95,19 +95,19 @@ define hidden i32 @MIDI_OUT_SendShortMessage(ptr noundef readonly %0, i32 nounde
   store i8 %9, ptr %4, align 1
   %10 = lshr i32 %1, 8
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %1, 16
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %14, ptr %15, align 1
   %16 = icmp samesign ult i32 %8, 240
   %17 = lshr i32 %8, 4
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [15 x i32], ptr @CHANNEL_MESSAGE_LENGTH, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [15 x i32], ptr @CHANNEL_MESSAGE_LENGTH, i64 0, i64 %18
   %20 = and i32 %1, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i32], ptr @SYSTEM_MESSAGE_LENGTH, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i32], ptr @SYSTEM_MESSAGE_LENGTH, i64 0, i64 %21
   %.0.in.i = select i1 %16, ptr %19, ptr %22
   %.0.i = load i32, ptr %.0.in.i, align 4
   %23 = sext i32 %.0.i to i64

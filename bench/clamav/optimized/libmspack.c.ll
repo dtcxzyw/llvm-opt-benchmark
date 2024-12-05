@@ -35,12 +35,12 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mspack_name, align 8
   %4 = alloca %struct.mspack_system_ex, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 0, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) @mspack_sys_fmap_ops, i64 88, i1 false)
   %9 = call ptr @mspack_create_cab_decompressor(ptr noundef nonnull %4) #14
@@ -48,7 +48,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not, label %77, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #14
   %14 = load ptr, ptr %11, align 8
@@ -63,25 +63,25 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br label %80
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %17, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %.068130 = load ptr, ptr %20, align 8
   %.not86131 = icmp eq ptr %.068130, null
   br i1 %.not86131, label %.thread121, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 88
-  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   br label %26
 
 26:                                               ; preds = %.lr.ph, %67
   %.068133 = phi ptr [ %.068130, %.lr.ph ], [ %.068, %67 ]
   %.067132 = phi i32 [ 0, %.lr.ph ], [ %68, %67 ]
-  %27 = getelementptr inbounds i8, ptr %.068133, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.068133, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.068133, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.068133, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = call i32 @cli_matchmeta(ptr noundef nonnull %0, ptr noundef %28, i64 noundef 0, i64 noundef %31, i32 noundef 0, i32 noundef %.067132, i32 noundef 0) #14
@@ -90,7 +90,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load i64, ptr %35, align 8
   %.not88 = icmp eq i64 %36, 0
   br i1 %.not88, label %39, label %37
@@ -101,14 +101,14 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not89, label %.thread, label %.thread121
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %34, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %41 = load i64, ptr %40, align 8
   %.not90 = icmp eq i64 %41, 0
   %spec.select128 = select i1 %.not90, i64 4294967295, i64 %41
   br label %49
 
 .thread:                                          ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %34, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %43 = load i64, ptr %42, align 8
   %.not90103 = icmp eq i64 %43, 0
   %44 = sub nuw i64 %36, %38
@@ -158,7 +158,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 59:                                               ; preds = %56, %.fold.split
   %.2 = phi i8 [ 0, %56 ], [ 1, %.fold.split ]
   %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8
   %.not98 = icmp eq i32 %62, 0
   br i1 %.not98, label %63, label %67
@@ -183,7 +183,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   %.070 = phi i32 [ %58, %56 ], [ 10, %65 ]
   %.064 = phi i8 [ 1, %56 ], [ %.2, %65 ]
   %70 = load ptr, ptr %21, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load i32, ptr %71, align 8
   %.not101 = icmp eq i32 %72, 0
   br i1 %.not101, label %73, label %.thread114
@@ -206,7 +206,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 
 .thread121:                                       ; preds = %49, %37, %67, %26, %19, %.thread114
   %.070112118 = phi i32 [ %.070, %.thread114 ], [ 0, %19 ], [ 20, %49 ], [ 0, %37 ], [ 0, %67 ], [ %32, %26 ]
-  %78 = getelementptr inbounds i8, ptr %9, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %9, ptr noundef nonnull %17) #14
   br label %80
@@ -248,12 +248,12 @@ declare void @mspack_destroy_cab_decompressor(ptr noundef) local_unnamed_addr #3
 define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mspack_name, align 8
   %3 = alloca %struct.mspack_system_ex, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 0, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) @mspack_sys_fmap_ops, i64 88, i1 false)
   %8 = call ptr @mspack_create_chm_decompressor(ptr noundef nonnull %3) #14
@@ -271,25 +271,25 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %72
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.063126 = load ptr, ptr %13, align 8
   %.not82127 = icmp eq ptr %.063126, null
   br i1 %.not82127, label %.thread117, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 88
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph, %59
   %.063129 = phi ptr [ %.063126, %.lr.ph ], [ %.063, %59 ]
   %.062128 = phi i32 [ 0, %.lr.ph ], [ %60, %59 ]
-  %20 = getelementptr inbounds i8, ptr %.063129, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.063129, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.063129, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.063129, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = call i32 @cli_matchmeta(ptr noundef nonnull %0, ptr noundef %21, i64 noundef 0, i64 noundef %23, i32 noundef 0, i32 noundef %.062128, i32 noundef 0) #14
   %.not83 = icmp eq i32 %24, 0
@@ -297,7 +297,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load i64, ptr %27, align 8
   %.not84 = icmp eq i64 %28, 0
   br i1 %.not84, label %31, label %29
@@ -308,14 +308,14 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not85, label %.thread, label %.thread117
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %33 = load i64, ptr %32, align 8
   %.not86 = icmp eq i64 %33, 0
   %spec.select124 = select i1 %.not86, i64 4294967295, i64 %33
   br label %41
 
 .thread:                                          ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %26, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %35 = load i64, ptr %34, align 8
   %.not8699 = icmp eq i64 %35, 0
   %36 = sub nuw i64 %28, %30
@@ -365,7 +365,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 51:                                               ; preds = %48, %.fold.split
   %.2 = phi i8 [ 0, %48 ], [ 1, %.fold.split ]
   %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load i32, ptr %53, align 8
   %.not94 = icmp eq i32 %54, 0
   br i1 %.not94, label %55, label %59
@@ -390,7 +390,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   %.065 = phi i32 [ %50, %48 ], [ 10, %57 ]
   %.059 = phi i8 [ 1, %48 ], [ %.2, %57 ]
   %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load i32, ptr %63, align 8
   %.not97 = icmp eq i32 %64, 0
   br i1 %.not97, label %65, label %.thread110
@@ -413,7 +413,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread117:                                       ; preds = %41, %29, %59, %19, %12, %.thread110
   %.065108114 = phi i32 [ %.065, %.thread110 ], [ 0, %12 ], [ 20, %41 ], [ 0, %29 ], [ 0, %59 ], [ %24, %19 ]
-  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull %8, ptr noundef nonnull %11) #14
   br label %72
@@ -461,13 +461,13 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef read
 8:                                                ; preds = %7
   store i32 1, ptr %calloc, align 8
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store i64 0, ptr %14, align 8
   br label %27
 
@@ -485,7 +485,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef read
   %.024 = phi ptr [ @.str.4, %16 ], [ @.str.3, %15 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8
   %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %19, ptr %20, align 8
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %21, label %22
@@ -495,9 +495,9 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef read
   br label %26
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store i64 %24, ptr %25, align 8
   br label %27
 
@@ -521,7 +521,7 @@ define internal void @mspack_fmap_close(ptr noundef %0) #0 {
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %10, label %8
@@ -561,15 +561,15 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %10, label %11, label %39
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %2 to i64
-  %20 = getelementptr inbounds i8, ptr %18, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %21 = load i64, ptr %20, align 8
   %22 = icmp ne i64 %16, %21
   %23 = icmp ne i32 %2, 0
@@ -583,7 +583,7 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
 26:                                               ; preds = %24
   %27 = sub nuw i64 %21, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 2147483648) %19, i64 %27)
-  %28 = getelementptr inbounds i8, ptr %18, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %18, i64 noundef %16, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #14
   %.not.i = icmp eq ptr %30, null
@@ -615,7 +615,7 @@ fmap_readn.exit:                                  ; preds = %31, %11
 
 39:                                               ; preds = %8
   %40 = zext nneg i32 %2 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @fread(ptr noundef %1, i64 noundef %40, i64 noundef 1, ptr noundef %42)
   %44 = icmp eq i64 %43, 0
@@ -659,7 +659,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef %0
   br i1 %.not, label %24, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
   %.not26 = icmp eq i64 %14, 0
   br i1 %.not26, label %24, label %15
@@ -669,7 +669,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef %0
   %17 = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
   %18 = sub i64 %14, %17
   store i64 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %17, i64 noundef 1, ptr noundef %20)
   %22 = icmp eq i64 %21, 0
@@ -706,15 +706,15 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i64 %11, %1
   br label %20
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %1
   br label %20
@@ -729,9 +729,9 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load i64, ptr %25, align 8
   %27 = icmp sgt i64 %.0, %26
   br i1 %27, label %28, label %29
@@ -741,7 +741,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
   br label %37
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.0, ptr %30, align 8
   br label %37
 
@@ -754,7 +754,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
   br label %37
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @fseek(ptr noundef %35, i64 noundef %1, i32 noundef %2)
   br label %37
@@ -775,12 +775,12 @@ define internal i64 @mspack_fmap_tell(ptr noundef readonly %0) #5 {
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @ftell(ptr noundef %10)
   br label %12
@@ -799,11 +799,11 @@ define internal void @mspack_fmap_message(ptr nocapture readnone %0, ptr nocaptu
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8175) %7, i8 0, i64 8175, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, ptr noundef nonnull align 1 dereferenceable(17) @.str.13, i64 17, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %4, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %9 = call i32 @vsnprintf(ptr noundef nonnull %8, i64 noundef 8173, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15

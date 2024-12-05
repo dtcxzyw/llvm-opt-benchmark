@@ -14,13 +14,13 @@ entry:
   %0 = ptrtoint ptr %storage to i64
   %rem = and i64 %0, 48
   %sub = sub nuw nsw i64 64, %rem
-  %add.ptr = getelementptr inbounds i8, ptr %storage, i64 %sub
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 960
+  %add.ptr = getelementptr inbounds nuw i8, ptr %storage, i64 %sub
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 960
   %1 = ptrtoint ptr %add.ptr to i64
   %and = and i64 %1, 4032
   %tobool.not = icmp samesign ult i64 %and, 3776
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 320
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 640
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 320
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 640
   %m.0 = select i1 %tobool.not, ptr %add.ptr, ptr %add.ptr4
   %result.0 = select i1 %tobool.not, ptr %add.ptr3, ptr %add.ptr
   %a_inv.0 = select i1 %tobool.not, ptr %add.ptr4, ptr %add.ptr3
@@ -100,7 +100,7 @@ entry:
   call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 30) #2
   call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
   call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 31) #2
-  %arrayidx = getelementptr inbounds i8, ptr %exponent, i64 127
+  %arrayidx = getelementptr inbounds nuw i8, ptr %exponent, i64 127
   %2 = load i8, ptr %arrayidx, align 1
   %3 = lshr i8 %2, 3
   %shr7 = zext nneg i8 %3 to i32
@@ -112,7 +112,7 @@ while.body:                                       ; preds = %entry, %while.body
   call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 5) #2
   %div279 = lshr i32 %index.0280, 3
   %4 = zext nneg i32 %div279 to i64
-  %5 = getelementptr inbounds i8, ptr %exponent, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %exponent, i64 %4
   %6 = load i16, ptr %5, align 1
   %7 = zext i16 %6 to i32
   %rem16 = and i32 %index.0280, 7
@@ -142,9 +142,9 @@ while.end:                                        ; preds = %while.body
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %while.end
   %i.05.i.i = phi i64 [ 0, %while.end ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %result_norm, i64 %i.05.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %result_norm, i64 %i.05.i.i
   %12 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.05.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw i64, ptr %tmp, i64 %i.05.i.i
   %13 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i.i = and i64 %12, %10
   %and2.i.i.i = and i64 %13, %11
@@ -182,46 +182,46 @@ entry:
   %0 = ptrtoint ptr %storage to i64
   %rem = and i64 %0, 48
   %sub = sub nuw nsw i64 64, %rem
-  %add.ptr = getelementptr inbounds i8, ptr %storage, i64 %sub
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 1024
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 1088
+  %add.ptr = getelementptr inbounds nuw i8, ptr %storage, i64 %sub
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1024
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1088
   %1 = load i64, ptr %m, align 8
   %sub5 = sub i64 0, %1
   store i64 %sub5, ptr %add.ptr4, align 16
-  %arrayidx7 = getelementptr inbounds i8, ptr %m, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %m, i64 8
   %2 = load i64, ptr %arrayidx7, align 8
   %not = xor i64 %2, -1
-  %arrayidx8 = getelementptr inbounds i8, ptr %add.ptr, i64 1096
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1096
   store i64 %not, ptr %arrayidx8, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %3 = load i64, ptr %arrayidx9, align 8
   %not10 = xor i64 %3, -1
-  %arrayidx11 = getelementptr inbounds i8, ptr %add.ptr, i64 1104
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1104
   store i64 %not10, ptr %arrayidx11, align 16
-  %arrayidx12 = getelementptr inbounds i8, ptr %m, i64 24
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %m, i64 24
   %4 = load i64, ptr %arrayidx12, align 8
   %not13 = xor i64 %4, -1
-  %arrayidx14 = getelementptr inbounds i8, ptr %add.ptr, i64 1112
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1112
   store i64 %not13, ptr %arrayidx14, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 32
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %m, i64 32
   %5 = load i64, ptr %arrayidx15, align 8
   %not16 = xor i64 %5, -1
-  %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr, i64 1120
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1120
   store i64 %not16, ptr %arrayidx17, align 16
-  %arrayidx18 = getelementptr inbounds i8, ptr %m, i64 40
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %m, i64 40
   %6 = load i64, ptr %arrayidx18, align 8
   %not19 = xor i64 %6, -1
-  %arrayidx20 = getelementptr inbounds i8, ptr %add.ptr, i64 1128
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1128
   store i64 %not19, ptr %arrayidx20, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %m, i64 48
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %m, i64 48
   %7 = load i64, ptr %arrayidx21, align 8
   %not22 = xor i64 %7, -1
-  %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr, i64 1136
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1136
   store i64 %not22, ptr %arrayidx23, align 16
-  %arrayidx24 = getelementptr inbounds i8, ptr %m, i64 56
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %m, i64 56
   %8 = load i64, ptr %arrayidx24, align 8
   %not25 = xor i64 %8, -1
-  %arrayidx26 = getelementptr inbounds i8, ptr %add.ptr, i64 1144
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1144
   store i64 %not25, ptr %arrayidx26, align 8
   call void @rsaz_512_scatter4(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr4, i32 noundef 0) #2
   call void @rsaz_512_mul(ptr noundef nonnull %add.ptr2, ptr noundef %base, ptr noundef %RR, ptr noundef nonnull %m, i64 noundef %k0) #2
@@ -238,7 +238,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %arrayidx27 = getelementptr inbounds i8, ptr %exponent, i64 63
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %exponent, i64 63
   %9 = load i8, ptr %arrayidx27, align 1
   %conv = zext i8 %9 to i32
   %shr = lshr i32 %conv, 4
@@ -250,7 +250,7 @@ for.end:                                          ; preds = %for.body
 
 for.body31:                                       ; preds = %for.end, %for.body31
   %indvars.iv = phi i64 [ 62, %for.end ], [ %indvars.iv.next, %for.body31 ]
-  %arrayidx32 = getelementptr inbounds i8, ptr %exponent, i64 %indvars.iv
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %exponent, i64 %indvars.iv
   %10 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %10 to i32
   call void @rsaz_512_sqr(ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr4, ptr noundef nonnull %m, i64 noundef %k0, i32 noundef 4) #2
@@ -274,9 +274,9 @@ for.end37:                                        ; preds = %for.body31
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end37
   %i.05.i.i = phi i64 [ 0, %for.end37 ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %result, i64 %i.05.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %result, i64 %i.05.i.i
   %13 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.05.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw i64, ptr %tmp, i64 %i.05.i.i
   %14 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i.i = and i64 %13, %11
   %and2.i.i.i = and i64 %14, %12

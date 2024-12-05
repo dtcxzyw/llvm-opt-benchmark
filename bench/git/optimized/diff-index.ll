@@ -37,20 +37,20 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not27 = icmp eq i8 %3, 104
   br i1 %.not27, label %land.lhs.true.tail, label %if.end
 
 land.lhs.true.tail:                               ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then, label %if.end
@@ -63,7 +63,7 @@ if.end:                                           ; preds = %sub_1, %land.lhs.tr
   tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #6
   %7 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %7, ptr noundef nonnull %rev, ptr noundef %prefix) #6
-  %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
+  %abbrev = getelementptr inbounds nuw i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
   call void @diff_merges_suppress_m_parsing() #6
   %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #6
@@ -71,7 +71,7 @@ if.end:                                           ; preds = %sub_1, %land.lhs.tr
   br i1 %cmp322, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %match_missing = getelementptr inbounds i8, ptr %rev, i64 280
+  %match_missing = getelementptr inbounds nuw i8, ptr %rev, i64 280
   %match_missing.promoted = load i64, ptr %match_missing, align 8
   %wide.trip.count = zext nneg i32 %call2 to i64
   br label %for.body
@@ -80,7 +80,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %bf.load26 = phi i64 [ %match_missing.promoted, %for.body.lr.ph ], [ %bf.load25, %for.inc ]
   %option.023 = phi i32 [ 0, %for.body.lr.ph ], [ %option.1, %for.inc ]
-  %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx4, align 8
   %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.1) #7
   %tobool6.not = icmp eq i32 %call5, 0
@@ -105,13 +105,13 @@ sub_017:                                          ; preds = %if.else
   br i1 %.not28, label %sub_118, label %if.else16
 
 sub_118:                                          ; preds = %sub_017
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %.not29 = icmp eq i8 %11, 109
   br i1 %.not29, label %if.else12.tail, label %if.else16
 
 if.else12.tail:                                   ; preds = %sub_118
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %if.then15, label %if.else16
@@ -134,8 +134,8 @@ for.inc:                                          ; preds = %if.then7, %if.then1
 
 for.end:                                          ; preds = %for.inc, %if.end
   %option.0.lcssa = phi i32 [ 0, %if.end ], [ %option.1, %for.inc ]
-  %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
-  %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
+  %diffopt = getelementptr inbounds nuw i8, ptr %rev, i64 1472
+  %output_format = getelementptr inbounds nuw i8, ptr %rev, i64 1756
   %15 = load i32, ptr %output_format, align 4
   %tobool20.not = icmp eq i32 %15, 0
   br i1 %tobool20.not, label %if.then21, label %if.end24
@@ -145,20 +145,20 @@ if.then21:                                        ; preds = %for.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %for.end
-  %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
+  %rotate_to_strict = getelementptr inbounds nuw i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
-  %pending = getelementptr inbounds i8, ptr %rev, i64 8
+  %pending = getelementptr inbounds nuw i8, ptr %rev, i64 8
   %16 = load i32, ptr %pending, align 8
   %cmp26 = icmp ne i32 %16, 1
-  %max_count = getelementptr inbounds i8, ptr %rev, i64 1412
+  %max_count = getelementptr inbounds nuw i8, ptr %rev, i64 1412
   %17 = load i32, ptr %max_count, align 4
   %cmp27 = icmp ne i32 %17, -1
   %or.cond = select i1 %cmp26, i1 true, i1 %cmp27
-  %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
+  %min_age = getelementptr inbounds nuw i8, ptr %rev, i64 1432
   %18 = load i64, ptr %min_age, align 8
   %cmp29 = icmp ne i64 %18, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp29
-  %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
+  %max_age = getelementptr inbounds nuw i8, ptr %rev, i64 1416
   %19 = load i64, ptr %max_age, align 8
   %cmp31 = icmp ne i64 %19, -1
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp31
@@ -176,7 +176,7 @@ if.end33:                                         ; preds = %if.end24
 if.then35:                                        ; preds = %if.end33
   call void @setup_work_tree() #6
   %20 = load ptr, ptr @the_repository, align 8
-  %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
+  %pathspec = getelementptr inbounds nuw i8, ptr %rev, i64 1936
   %call37 = call i32 @repo_read_index_preload(ptr noundef %20, ptr noundef nonnull %pathspec, i32 noundef 0) #6
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %if.then39, label %if.end46

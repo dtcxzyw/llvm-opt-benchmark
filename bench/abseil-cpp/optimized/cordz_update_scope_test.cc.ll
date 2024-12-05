@@ -323,17 +323,17 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_142CordzUpdateScopeTes
 entry:
   %cord = alloca %"struct.absl::TestCordData", align 8
   %call4.i.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #17
-  %refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 8
+  %refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i.i.i, align 4
-  %tag.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 12
+  %tag.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 12
   store i8 17, ptr %tag.i.i.i.i, align 4
   store ptr %call4.i.i.i.i, ptr %cord, align 8
   store i64 100, ptr %call4.i.i.i.i, align 8
-  %storage.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 13
+  %storage.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %storage.i.i.i, i8 1, i64 100, i1 false)
-  %data.i = getelementptr inbounds i8, ptr %cord, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %cord, i64 8
   store i64 1, ptr %data.i, align 8
-  %rep.i.i.i.i = getelementptr inbounds i8, ptr %cord, i64 16
+  %rep.i.i.i.i = getelementptr inbounds nuw i8, ptr %cord, i64 16
   store ptr %call4.i.i.i.i, ptr %rep.i.i.i.i, align 8
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i32 noundef 9)
           to label %invoke.cont3 unwind label %lpad
@@ -357,7 +357,7 @@ if.then.i4:                                       ; preds = %if.then.i
   %2 = load i64, ptr %data.i, align 8
   %sub.i2 = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i2 to ptr
-  %rep_.i = getelementptr inbounds i8, ptr %3, i64 64
+  %rep_.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %rep_.i, align 8
   invoke void @_ZN4absl13cord_internal9CordzInfo6UnlockEv(ptr noundef nonnull align 8 dereferenceable(1332) %1)
           to label %_ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit unwind label %terminate.lpad.i
@@ -371,7 +371,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i4
 
 _ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit: ; preds = %invoke.cont9.thread, %if.then.i4
   %6 = load ptr, ptr %cord, align 8
-  %refcount.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %refcount.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refcount.i.i.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i.i = icmp eq i32 %7, 2
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %_ZN4absl12TestCordDataD2Ev.exit
@@ -403,7 +403,7 @@ declare void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_
 define linkonce_odr dso_local void @_ZN4absl12TestCordDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %refcount.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %refcount.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refcount.i.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i = icmp eq i32 %1, 2
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZN4absl11TestCordRepD2Ev.exit
@@ -572,7 +572,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
+  %line.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i32 34, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -655,7 +655,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
+  %line.i.i14 = getelementptr inbounds nuw i8, ptr %agg.tmp.i1, i64 32
   store i32 38, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16

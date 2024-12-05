@@ -56,14 +56,14 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21specifies_noexecstackEPKc(ptr nou
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @fseek(ptr noundef nonnull %6, i64 noundef %15, i32 noundef 0)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %19 = load i16, ptr %18, align 8
   %.not16 = icmp eq i16 %19, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -87,7 +87,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21specifies_noexecstackEPKc(ptr nou
   br i1 %28, label %29, label %20
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 6
   br label %.loopexit

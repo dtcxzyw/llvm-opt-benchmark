@@ -87,9 +87,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -97,18 +97,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -117,21 +117,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -140,10 +140,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -161,20 +161,20 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -184,11 +184,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -198,7 +198,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
   %60 = shl i64 %2, 32
   %61 = add i64 %60, 17179869184
   %62 = ashr exact i64 %61, 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %64)
   ret i64 %62
@@ -228,9 +228,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -238,18 +238,18 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -258,21 +258,21 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -281,10 +281,10 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -302,20 +302,20 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -325,11 +325,11 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -337,7 +337,7 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 59:                                               ; preds = %47, %31, %39
   %60 = add i64 %2, 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
@@ -345,9 +345,9 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -355,18 +355,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -375,21 +375,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -398,10 +398,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -419,20 +419,20 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -442,11 +442,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -456,7 +456,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
   %60 = shl i64 %2, 32
   %61 = add i64 %60, 17179869184
   %62 = ashr exact i64 %61, 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %64)
   ret i64 %62
@@ -464,9 +464,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -474,18 +474,18 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -494,21 +494,21 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -517,10 +517,10 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -538,20 +538,20 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -561,11 +561,11 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -573,7 +573,7 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 59:                                               ; preds = %47, %31, %39
   %60 = add i64 %2, 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
@@ -581,9 +581,9 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -591,18 +591,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -611,21 +611,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -634,10 +634,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -655,20 +655,20 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -678,11 +678,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -692,7 +692,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
   %60 = shl i64 %2, 32
   %61 = add i64 %60, 17179869184
   %62 = ashr exact i64 %61, 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %64)
   ret i64 %62
@@ -700,9 +700,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -710,18 +710,18 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -730,21 +730,21 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -753,10 +753,10 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -774,20 +774,20 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -797,11 +797,11 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -809,7 +809,7 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 59:                                               ; preds = %47, %31, %39
   %60 = add i64 %2, 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
@@ -817,9 +817,9 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -827,18 +827,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -847,21 +847,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -870,10 +870,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -891,20 +891,20 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -914,11 +914,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -928,7 +928,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
   %60 = shl i64 %2, 32
   %61 = add i64 %60, 17179869184
   %62 = ashr exact i64 %61, 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %64)
   ret i64 %62
@@ -936,9 +936,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 968
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sink.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %7, 0
@@ -946,18 +946,18 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 8:                                                ; preds = %3
   %9 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4096
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 32
@@ -966,21 +966,21 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 18:                                               ; preds = %13
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 962
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 962
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i64, ptr %27, align 8
   br i1 %26, label %29, label %47
 
@@ -989,10 +989,10 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1896
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #12
   %38 = and i64 %37, 1048576
@@ -1010,20 +1010,20 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 42:                                               ; preds = %39
   %43 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 22, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 %1, ptr %46, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_virtual_instruction, i64 16), ptr %43, align 8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTI24trap_virtual_instruction, ptr nonnull @_ZN24trap_virtual_instructionD2Ev) #13
   unreachable
 
 47:                                               ; preds = %23
-  %48 = getelementptr inbounds i8, ptr %0, i64 984
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1048576
   %.not = icmp eq i64 %52, 0
@@ -1033,11 +1033,11 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %1, ptr %58, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %55, align 8
   tail call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
@@ -1045,7 +1045,7 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 59:                                               ; preds = %47, %31, %39
   %60 = add i64 %2, 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
@@ -1053,7 +1053,7 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nocapt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -1066,7 +1066,7 @@ define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t8has_tvalEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN11insn_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -1144,7 +1144,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #12
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %1, null
@@ -1217,7 +1217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
   br label %25
 
 25:                                               ; preds = %24, %22, %._crit_edge.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %21, i64 %11
   store i8 0, ptr %27, align 1

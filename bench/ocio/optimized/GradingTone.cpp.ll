@@ -65,41 +65,41 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_green = getelementptr inbounds i8, ptr %lhs, i64 8
+  %m_green = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green, align 8
-  %m_green2 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_green2 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2, align 8
   %cmp3 = fcmp oeq double %2, %3
   br i1 %cmp3, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %m_blue = getelementptr inbounds i8, ptr %lhs, i64 16
+  %m_blue = getelementptr inbounds nuw i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue, align 8
-  %m_blue5 = getelementptr inbounds i8, ptr %rhs, i64 16
+  %m_blue5 = getelementptr inbounds nuw i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5, align 8
   %cmp6 = fcmp oeq double %4, %5
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %m_master = getelementptr inbounds i8, ptr %lhs, i64 24
+  %m_master = getelementptr inbounds nuw i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master, align 8
-  %m_master8 = getelementptr inbounds i8, ptr %rhs, i64 24
+  %m_master8 = getelementptr inbounds nuw i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8, align 8
   %cmp9 = fcmp oeq double %6, %7
   br i1 %cmp9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %m_start = getelementptr inbounds i8, ptr %lhs, i64 32
+  %m_start = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start, align 8
-  %m_start11 = getelementptr inbounds i8, ptr %rhs, i64 32
+  %m_start11 = getelementptr inbounds nuw i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11, align 8
   %cmp12 = fcmp oeq double %8, %9
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %m_width = getelementptr inbounds i8, ptr %lhs, i64 40
+  %m_width = getelementptr inbounds nuw i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width, align 8
-  %m_width13 = getelementptr inbounds i8, ptr %rhs, i64 40
+  %m_width13 = getelementptr inbounds nuw i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13, align 8
   %cmp14 = fcmp oeq double %10, %11
   br label %land.end
@@ -118,41 +118,41 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
+  %m_green.i = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_green2.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
+  %m_blue5.i = getelementptr inbounds nuw i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
+  %m_master.i = getelementptr inbounds nuw i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
+  %m_master8.i = getelementptr inbounds nuw i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
+  %m_start.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
+  %m_start11.i = getelementptr inbounds nuw i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %land.rhs.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
+  %m_width.i = getelementptr inbounds nuw i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
+  %m_width13.i = getelementptr inbounds nuw i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp une double %10, %11
   br label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
@@ -171,241 +171,241 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %land.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
+  %m_green.i = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_green2.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %land.end
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
+  %m_blue5.i = getelementptr inbounds nuw i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %land.end
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
+  %m_master.i = getelementptr inbounds nuw i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
+  %m_master8.i = getelementptr inbounds nuw i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %land.end
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
+  %m_start.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
+  %m_start11.i = getelementptr inbounds nuw i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit: ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
+  %m_width.i = getelementptr inbounds nuw i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
+  %m_width13.i = getelementptr inbounds nuw i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp oeq double %10, %11
   br i1 %cmp14.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
-  %m_whites = getelementptr inbounds i8, ptr %lhs, i64 192
-  %m_whites2 = getelementptr inbounds i8, ptr %rhs, i64 192
+  %m_whites = getelementptr inbounds nuw i8, ptr %lhs, i64 192
+  %m_whites2 = getelementptr inbounds nuw i8, ptr %rhs, i64 192
   %12 = load double, ptr %m_whites, align 8
   %13 = load double, ptr %m_whites2, align 8
   %cmp.i11 = fcmp oeq double %12, %13
   br i1 %cmp.i11, label %land.lhs.true.i12, label %land.end
 
 land.lhs.true.i12:                                ; preds = %land.lhs.true
-  %m_green.i13 = getelementptr inbounds i8, ptr %lhs, i64 200
+  %m_green.i13 = getelementptr inbounds nuw i8, ptr %lhs, i64 200
   %14 = load double, ptr %m_green.i13, align 8
-  %m_green2.i14 = getelementptr inbounds i8, ptr %rhs, i64 200
+  %m_green2.i14 = getelementptr inbounds nuw i8, ptr %rhs, i64 200
   %15 = load double, ptr %m_green2.i14, align 8
   %cmp3.i15 = fcmp oeq double %14, %15
   br i1 %cmp3.i15, label %land.lhs.true4.i16, label %land.end
 
 land.lhs.true4.i16:                               ; preds = %land.lhs.true.i12
-  %m_blue.i17 = getelementptr inbounds i8, ptr %lhs, i64 208
+  %m_blue.i17 = getelementptr inbounds nuw i8, ptr %lhs, i64 208
   %16 = load double, ptr %m_blue.i17, align 8
-  %m_blue5.i18 = getelementptr inbounds i8, ptr %rhs, i64 208
+  %m_blue5.i18 = getelementptr inbounds nuw i8, ptr %rhs, i64 208
   %17 = load double, ptr %m_blue5.i18, align 8
   %cmp6.i19 = fcmp oeq double %16, %17
   br i1 %cmp6.i19, label %land.lhs.true7.i20, label %land.end
 
 land.lhs.true7.i20:                               ; preds = %land.lhs.true4.i16
-  %m_master.i21 = getelementptr inbounds i8, ptr %lhs, i64 216
+  %m_master.i21 = getelementptr inbounds nuw i8, ptr %lhs, i64 216
   %18 = load double, ptr %m_master.i21, align 8
-  %m_master8.i22 = getelementptr inbounds i8, ptr %rhs, i64 216
+  %m_master8.i22 = getelementptr inbounds nuw i8, ptr %rhs, i64 216
   %19 = load double, ptr %m_master8.i22, align 8
   %cmp9.i23 = fcmp oeq double %18, %19
   br i1 %cmp9.i23, label %land.lhs.true10.i24, label %land.end
 
 land.lhs.true10.i24:                              ; preds = %land.lhs.true7.i20
-  %m_start.i25 = getelementptr inbounds i8, ptr %lhs, i64 224
+  %m_start.i25 = getelementptr inbounds nuw i8, ptr %lhs, i64 224
   %20 = load double, ptr %m_start.i25, align 8
-  %m_start11.i26 = getelementptr inbounds i8, ptr %rhs, i64 224
+  %m_start11.i26 = getelementptr inbounds nuw i8, ptr %rhs, i64 224
   %21 = load double, ptr %m_start11.i26, align 8
   %cmp12.i27 = fcmp oeq double %20, %21
   br i1 %cmp12.i27, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32: ; preds = %land.lhs.true10.i24
-  %m_width.i29 = getelementptr inbounds i8, ptr %lhs, i64 232
+  %m_width.i29 = getelementptr inbounds nuw i8, ptr %lhs, i64 232
   %22 = load double, ptr %m_width.i29, align 8
-  %m_width13.i30 = getelementptr inbounds i8, ptr %rhs, i64 232
+  %m_width13.i30 = getelementptr inbounds nuw i8, ptr %rhs, i64 232
   %23 = load double, ptr %m_width13.i30, align 8
   %cmp14.i31 = fcmp oeq double %22, %23
   br i1 %cmp14.i31, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32
-  %m_highlights = getelementptr inbounds i8, ptr %lhs, i64 144
-  %m_highlights5 = getelementptr inbounds i8, ptr %rhs, i64 144
+  %m_highlights = getelementptr inbounds nuw i8, ptr %lhs, i64 144
+  %m_highlights5 = getelementptr inbounds nuw i8, ptr %rhs, i64 144
   %24 = load double, ptr %m_highlights, align 8
   %25 = load double, ptr %m_highlights5, align 8
   %cmp.i33 = fcmp oeq double %24, %25
   br i1 %cmp.i33, label %land.lhs.true.i34, label %land.end
 
 land.lhs.true.i34:                                ; preds = %land.lhs.true4
-  %m_green.i35 = getelementptr inbounds i8, ptr %lhs, i64 152
+  %m_green.i35 = getelementptr inbounds nuw i8, ptr %lhs, i64 152
   %26 = load double, ptr %m_green.i35, align 8
-  %m_green2.i36 = getelementptr inbounds i8, ptr %rhs, i64 152
+  %m_green2.i36 = getelementptr inbounds nuw i8, ptr %rhs, i64 152
   %27 = load double, ptr %m_green2.i36, align 8
   %cmp3.i37 = fcmp oeq double %26, %27
   br i1 %cmp3.i37, label %land.lhs.true4.i38, label %land.end
 
 land.lhs.true4.i38:                               ; preds = %land.lhs.true.i34
-  %m_blue.i39 = getelementptr inbounds i8, ptr %lhs, i64 160
+  %m_blue.i39 = getelementptr inbounds nuw i8, ptr %lhs, i64 160
   %28 = load double, ptr %m_blue.i39, align 8
-  %m_blue5.i40 = getelementptr inbounds i8, ptr %rhs, i64 160
+  %m_blue5.i40 = getelementptr inbounds nuw i8, ptr %rhs, i64 160
   %29 = load double, ptr %m_blue5.i40, align 8
   %cmp6.i41 = fcmp oeq double %28, %29
   br i1 %cmp6.i41, label %land.lhs.true7.i42, label %land.end
 
 land.lhs.true7.i42:                               ; preds = %land.lhs.true4.i38
-  %m_master.i43 = getelementptr inbounds i8, ptr %lhs, i64 168
+  %m_master.i43 = getelementptr inbounds nuw i8, ptr %lhs, i64 168
   %30 = load double, ptr %m_master.i43, align 8
-  %m_master8.i44 = getelementptr inbounds i8, ptr %rhs, i64 168
+  %m_master8.i44 = getelementptr inbounds nuw i8, ptr %rhs, i64 168
   %31 = load double, ptr %m_master8.i44, align 8
   %cmp9.i45 = fcmp oeq double %30, %31
   br i1 %cmp9.i45, label %land.lhs.true10.i46, label %land.end
 
 land.lhs.true10.i46:                              ; preds = %land.lhs.true7.i42
-  %m_start.i47 = getelementptr inbounds i8, ptr %lhs, i64 176
+  %m_start.i47 = getelementptr inbounds nuw i8, ptr %lhs, i64 176
   %32 = load double, ptr %m_start.i47, align 8
-  %m_start11.i48 = getelementptr inbounds i8, ptr %rhs, i64 176
+  %m_start11.i48 = getelementptr inbounds nuw i8, ptr %rhs, i64 176
   %33 = load double, ptr %m_start11.i48, align 8
   %cmp12.i49 = fcmp oeq double %32, %33
   br i1 %cmp12.i49, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54: ; preds = %land.lhs.true10.i46
-  %m_width.i51 = getelementptr inbounds i8, ptr %lhs, i64 184
+  %m_width.i51 = getelementptr inbounds nuw i8, ptr %lhs, i64 184
   %34 = load double, ptr %m_width.i51, align 8
-  %m_width13.i52 = getelementptr inbounds i8, ptr %rhs, i64 184
+  %m_width13.i52 = getelementptr inbounds nuw i8, ptr %rhs, i64 184
   %35 = load double, ptr %m_width13.i52, align 8
   %cmp14.i53 = fcmp oeq double %34, %35
   br i1 %cmp14.i53, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54
-  %m_midtones = getelementptr inbounds i8, ptr %lhs, i64 96
-  %m_midtones8 = getelementptr inbounds i8, ptr %rhs, i64 96
+  %m_midtones = getelementptr inbounds nuw i8, ptr %lhs, i64 96
+  %m_midtones8 = getelementptr inbounds nuw i8, ptr %rhs, i64 96
   %36 = load double, ptr %m_midtones, align 8
   %37 = load double, ptr %m_midtones8, align 8
   %cmp.i55 = fcmp oeq double %36, %37
   br i1 %cmp.i55, label %land.lhs.true.i56, label %land.end
 
 land.lhs.true.i56:                                ; preds = %land.lhs.true7
-  %m_green.i57 = getelementptr inbounds i8, ptr %lhs, i64 104
+  %m_green.i57 = getelementptr inbounds nuw i8, ptr %lhs, i64 104
   %38 = load double, ptr %m_green.i57, align 8
-  %m_green2.i58 = getelementptr inbounds i8, ptr %rhs, i64 104
+  %m_green2.i58 = getelementptr inbounds nuw i8, ptr %rhs, i64 104
   %39 = load double, ptr %m_green2.i58, align 8
   %cmp3.i59 = fcmp oeq double %38, %39
   br i1 %cmp3.i59, label %land.lhs.true4.i60, label %land.end
 
 land.lhs.true4.i60:                               ; preds = %land.lhs.true.i56
-  %m_blue.i61 = getelementptr inbounds i8, ptr %lhs, i64 112
+  %m_blue.i61 = getelementptr inbounds nuw i8, ptr %lhs, i64 112
   %40 = load double, ptr %m_blue.i61, align 8
-  %m_blue5.i62 = getelementptr inbounds i8, ptr %rhs, i64 112
+  %m_blue5.i62 = getelementptr inbounds nuw i8, ptr %rhs, i64 112
   %41 = load double, ptr %m_blue5.i62, align 8
   %cmp6.i63 = fcmp oeq double %40, %41
   br i1 %cmp6.i63, label %land.lhs.true7.i64, label %land.end
 
 land.lhs.true7.i64:                               ; preds = %land.lhs.true4.i60
-  %m_master.i65 = getelementptr inbounds i8, ptr %lhs, i64 120
+  %m_master.i65 = getelementptr inbounds nuw i8, ptr %lhs, i64 120
   %42 = load double, ptr %m_master.i65, align 8
-  %m_master8.i66 = getelementptr inbounds i8, ptr %rhs, i64 120
+  %m_master8.i66 = getelementptr inbounds nuw i8, ptr %rhs, i64 120
   %43 = load double, ptr %m_master8.i66, align 8
   %cmp9.i67 = fcmp oeq double %42, %43
   br i1 %cmp9.i67, label %land.lhs.true10.i68, label %land.end
 
 land.lhs.true10.i68:                              ; preds = %land.lhs.true7.i64
-  %m_start.i69 = getelementptr inbounds i8, ptr %lhs, i64 128
+  %m_start.i69 = getelementptr inbounds nuw i8, ptr %lhs, i64 128
   %44 = load double, ptr %m_start.i69, align 8
-  %m_start11.i70 = getelementptr inbounds i8, ptr %rhs, i64 128
+  %m_start11.i70 = getelementptr inbounds nuw i8, ptr %rhs, i64 128
   %45 = load double, ptr %m_start11.i70, align 8
   %cmp12.i71 = fcmp oeq double %44, %45
   br i1 %cmp12.i71, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76: ; preds = %land.lhs.true10.i68
-  %m_width.i73 = getelementptr inbounds i8, ptr %lhs, i64 136
+  %m_width.i73 = getelementptr inbounds nuw i8, ptr %lhs, i64 136
   %46 = load double, ptr %m_width.i73, align 8
-  %m_width13.i74 = getelementptr inbounds i8, ptr %rhs, i64 136
+  %m_width13.i74 = getelementptr inbounds nuw i8, ptr %rhs, i64 136
   %47 = load double, ptr %m_width13.i74, align 8
   %cmp14.i75 = fcmp oeq double %46, %47
   br i1 %cmp14.i75, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76
-  %m_shadows = getelementptr inbounds i8, ptr %lhs, i64 48
-  %m_shadows11 = getelementptr inbounds i8, ptr %rhs, i64 48
+  %m_shadows = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %m_shadows11 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %48 = load double, ptr %m_shadows, align 8
   %49 = load double, ptr %m_shadows11, align 8
   %cmp.i77 = fcmp oeq double %48, %49
   br i1 %cmp.i77, label %land.lhs.true.i78, label %land.end
 
 land.lhs.true.i78:                                ; preds = %land.lhs.true10
-  %m_green.i79 = getelementptr inbounds i8, ptr %lhs, i64 56
+  %m_green.i79 = getelementptr inbounds nuw i8, ptr %lhs, i64 56
   %50 = load double, ptr %m_green.i79, align 8
-  %m_green2.i80 = getelementptr inbounds i8, ptr %rhs, i64 56
+  %m_green2.i80 = getelementptr inbounds nuw i8, ptr %rhs, i64 56
   %51 = load double, ptr %m_green2.i80, align 8
   %cmp3.i81 = fcmp oeq double %50, %51
   br i1 %cmp3.i81, label %land.lhs.true4.i82, label %land.end
 
 land.lhs.true4.i82:                               ; preds = %land.lhs.true.i78
-  %m_blue.i83 = getelementptr inbounds i8, ptr %lhs, i64 64
+  %m_blue.i83 = getelementptr inbounds nuw i8, ptr %lhs, i64 64
   %52 = load double, ptr %m_blue.i83, align 8
-  %m_blue5.i84 = getelementptr inbounds i8, ptr %rhs, i64 64
+  %m_blue5.i84 = getelementptr inbounds nuw i8, ptr %rhs, i64 64
   %53 = load double, ptr %m_blue5.i84, align 8
   %cmp6.i85 = fcmp oeq double %52, %53
   br i1 %cmp6.i85, label %land.lhs.true7.i86, label %land.end
 
 land.lhs.true7.i86:                               ; preds = %land.lhs.true4.i82
-  %m_master.i87 = getelementptr inbounds i8, ptr %lhs, i64 72
+  %m_master.i87 = getelementptr inbounds nuw i8, ptr %lhs, i64 72
   %54 = load double, ptr %m_master.i87, align 8
-  %m_master8.i88 = getelementptr inbounds i8, ptr %rhs, i64 72
+  %m_master8.i88 = getelementptr inbounds nuw i8, ptr %rhs, i64 72
   %55 = load double, ptr %m_master8.i88, align 8
   %cmp9.i89 = fcmp oeq double %54, %55
   br i1 %cmp9.i89, label %land.lhs.true10.i90, label %land.end
 
 land.lhs.true10.i90:                              ; preds = %land.lhs.true7.i86
-  %m_start.i91 = getelementptr inbounds i8, ptr %lhs, i64 80
+  %m_start.i91 = getelementptr inbounds nuw i8, ptr %lhs, i64 80
   %56 = load double, ptr %m_start.i91, align 8
-  %m_start11.i92 = getelementptr inbounds i8, ptr %rhs, i64 80
+  %m_start11.i92 = getelementptr inbounds nuw i8, ptr %rhs, i64 80
   %57 = load double, ptr %m_start11.i92, align 8
   %cmp12.i93 = fcmp oeq double %56, %57
   br i1 %cmp12.i93, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98: ; preds = %land.lhs.true10.i90
-  %m_width.i95 = getelementptr inbounds i8, ptr %lhs, i64 88
+  %m_width.i95 = getelementptr inbounds nuw i8, ptr %lhs, i64 88
   %58 = load double, ptr %m_width.i95, align 8
-  %m_width13.i96 = getelementptr inbounds i8, ptr %rhs, i64 88
+  %m_width13.i96 = getelementptr inbounds nuw i8, ptr %rhs, i64 88
   %59 = load double, ptr %m_width13.i96, align 8
   %cmp14.i97 = fcmp oeq double %58, %59
   br i1 %cmp14.i97, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98
-  %m_scontrast = getelementptr inbounds i8, ptr %lhs, i64 240
+  %m_scontrast = getelementptr inbounds nuw i8, ptr %lhs, i64 240
   %60 = load double, ptr %m_scontrast, align 8
-  %m_scontrast13 = getelementptr inbounds i8, ptr %rhs, i64 240
+  %m_scontrast13 = getelementptr inbounds nuw i8, ptr %rhs, i64 240
   %61 = load double, ptr %m_scontrast13, align 8
   %cmp = fcmp oeq double %60, %61
   br label %land.end
@@ -465,19 +465,19 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_green = getelementptr inbounds i8, ptr %this, i64 8
+  %m_green = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load double, ptr %m_green, align 8
   %cmp2 = fcmp olt double %1, 9.999900e-02
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %m_blue = getelementptr inbounds i8, ptr %this, i64 16
+  %m_blue = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %m_blue, align 8
   %cmp4 = fcmp olt double %2, 9.999900e-02
   br i1 %cmp4, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %m_master = getelementptr inbounds i8, ptr %this, i64 24
+  %m_master = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load double, ptr %m_master, align 8
   %cmp6 = fcmp olt double %3, 9.999900e-02
   br i1 %cmp6, label %if.then, label %if.end
@@ -545,7 +545,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread148
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %m_width = getelementptr inbounds i8, ptr %this, i64 40
+  %m_width = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load double, ptr %m_width, align 8
   %cmp21 = fcmp olt double %8, 0x3F847A5B0FF10ECC
   br i1 %cmp21, label %if.then22, label %if.end50
@@ -686,25 +686,25 @@ cleanup.action86:                                 ; preds = %ehcleanup84.thread1
   br label %eh.resume
 
 if.end89:                                         ; preds = %if.end50
-  %m_midtones = getelementptr inbounds i8, ptr %this, i64 96
+  %m_midtones = getelementptr inbounds nuw i8, ptr %this, i64 96
   %18 = load double, ptr %m_midtones, align 8
   %cmp91 = fcmp olt double %18, 9.999900e-02
   br i1 %cmp91, label %if.then101, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %if.end89
-  %m_green93 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_green93 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %19 = load double, ptr %m_green93, align 8
   %cmp94 = fcmp olt double %19, 9.999900e-02
   br i1 %cmp94, label %if.then101, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %lor.lhs.false92
-  %m_blue96 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_blue96 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %20 = load double, ptr %m_blue96, align 8
   %cmp97 = fcmp olt double %20, 9.999900e-02
   br i1 %cmp97, label %if.then101, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %lor.lhs.false95
-  %m_master99 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_master99 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %21 = load double, ptr %m_master99, align 8
   %cmp100 = fcmp olt double %21, 9.999900e-02
   br i1 %cmp100, label %if.then101, label %if.end128
@@ -772,7 +772,7 @@ cleanup.action125:                                ; preds = %ehcleanup123.thread
   br label %eh.resume
 
 if.end128:                                        ; preds = %lor.lhs.false98
-  %m_width129 = getelementptr inbounds i8, ptr %this, i64 136
+  %m_width129 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %26 = load double, ptr %m_width129, align 8
   %cmp130 = fcmp olt double %26, 0x3F847A5B0FF10ECC
   br i1 %cmp130, label %if.then131, label %if.end159
@@ -913,25 +913,25 @@ cleanup.action195:                                ; preds = %ehcleanup193.thread
   br label %eh.resume
 
 if.end198:                                        ; preds = %if.end159
-  %m_whites = getelementptr inbounds i8, ptr %this, i64 192
+  %m_whites = getelementptr inbounds nuw i8, ptr %this, i64 192
   %36 = load double, ptr %m_whites, align 8
   %cmp200 = fcmp olt double %36, 9.999900e-02
   br i1 %cmp200, label %if.then210, label %lor.lhs.false201
 
 lor.lhs.false201:                                 ; preds = %if.end198
-  %m_green202 = getelementptr inbounds i8, ptr %this, i64 200
+  %m_green202 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %37 = load double, ptr %m_green202, align 8
   %cmp203 = fcmp olt double %37, 9.999900e-02
   br i1 %cmp203, label %if.then210, label %lor.lhs.false204
 
 lor.lhs.false204:                                 ; preds = %lor.lhs.false201
-  %m_blue205 = getelementptr inbounds i8, ptr %this, i64 208
+  %m_blue205 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %38 = load double, ptr %m_blue205, align 8
   %cmp206 = fcmp olt double %38, 9.999900e-02
   br i1 %cmp206, label %if.then210, label %lor.lhs.false207
 
 lor.lhs.false207:                                 ; preds = %lor.lhs.false204
-  %m_master208 = getelementptr inbounds i8, ptr %this, i64 216
+  %m_master208 = getelementptr inbounds nuw i8, ptr %this, i64 216
   %39 = load double, ptr %m_master208, align 8
   %cmp209 = fcmp olt double %39, 9.999900e-02
   br i1 %cmp209, label %if.then210, label %if.end237
@@ -999,7 +999,7 @@ cleanup.action234:                                ; preds = %ehcleanup232.thread
   br label %eh.resume
 
 if.end237:                                        ; preds = %lor.lhs.false207
-  %m_width238 = getelementptr inbounds i8, ptr %this, i64 232
+  %m_width238 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %44 = load double, ptr %m_width238, align 8
   %cmp239 = fcmp olt double %44, 0x3F847A5B0FF10ECC
   br i1 %cmp239, label %if.then240, label %if.end268
@@ -1140,25 +1140,25 @@ cleanup.action304:                                ; preds = %ehcleanup302.thread
   br label %eh.resume
 
 if.end307:                                        ; preds = %if.end268
-  %m_shadows = getelementptr inbounds i8, ptr %this, i64 48
+  %m_shadows = getelementptr inbounds nuw i8, ptr %this, i64 48
   %54 = load double, ptr %m_shadows, align 8
   %cmp309 = fcmp olt double %54, 1.999990e-01
   br i1 %cmp309, label %if.then319, label %lor.lhs.false310
 
 lor.lhs.false310:                                 ; preds = %if.end307
-  %m_green311 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_green311 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %55 = load double, ptr %m_green311, align 8
   %cmp312 = fcmp olt double %55, 1.999990e-01
   br i1 %cmp312, label %if.then319, label %lor.lhs.false313
 
 lor.lhs.false313:                                 ; preds = %lor.lhs.false310
-  %m_blue314 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_blue314 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %56 = load double, ptr %m_blue314, align 8
   %cmp315 = fcmp olt double %56, 1.999990e-01
   br i1 %cmp315, label %if.then319, label %lor.lhs.false316
 
 lor.lhs.false316:                                 ; preds = %lor.lhs.false313
-  %m_master317 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_master317 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %57 = load double, ptr %m_master317, align 8
   %cmp318 = fcmp olt double %57, 1.999990e-01
   br i1 %cmp318, label %if.then319, label %if.end346
@@ -1226,9 +1226,9 @@ cleanup.action343:                                ; preds = %ehcleanup341.thread
   br label %eh.resume
 
 if.end346:                                        ; preds = %lor.lhs.false316
-  %m_start = getelementptr inbounds i8, ptr %this, i64 80
+  %m_start = getelementptr inbounds nuw i8, ptr %this, i64 80
   %62 = load double, ptr %m_start, align 8
-  %m_width347 = getelementptr inbounds i8, ptr %this, i64 88
+  %m_width347 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %63 = load double, ptr %m_width347, align 8
   %add = fadd double %63, 0x3F847A5B0FF10ECC
   %cmp348 = fcmp olt double %62, %add
@@ -1379,25 +1379,25 @@ cleanup.action418:                                ; preds = %ehcleanup416.thread
   br label %eh.resume
 
 if.end421:                                        ; preds = %if.end382
-  %m_highlights = getelementptr inbounds i8, ptr %this, i64 144
+  %m_highlights = getelementptr inbounds nuw i8, ptr %this, i64 144
   %74 = load double, ptr %m_highlights, align 8
   %cmp423 = fcmp olt double %74, 1.999990e-01
   br i1 %cmp423, label %if.then433, label %lor.lhs.false424
 
 lor.lhs.false424:                                 ; preds = %if.end421
-  %m_green425 = getelementptr inbounds i8, ptr %this, i64 152
+  %m_green425 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %75 = load double, ptr %m_green425, align 8
   %cmp426 = fcmp olt double %75, 1.999990e-01
   br i1 %cmp426, label %if.then433, label %lor.lhs.false427
 
 lor.lhs.false427:                                 ; preds = %lor.lhs.false424
-  %m_blue428 = getelementptr inbounds i8, ptr %this, i64 160
+  %m_blue428 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %76 = load double, ptr %m_blue428, align 8
   %cmp429 = fcmp olt double %76, 1.999990e-01
   br i1 %cmp429, label %if.then433, label %lor.lhs.false430
 
 lor.lhs.false430:                                 ; preds = %lor.lhs.false427
-  %m_master431 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_master431 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %77 = load double, ptr %m_master431, align 8
   %cmp432 = fcmp olt double %77, 1.999990e-01
   br i1 %cmp432, label %if.then433, label %if.end460
@@ -1465,9 +1465,9 @@ cleanup.action457:                                ; preds = %ehcleanup455.thread
   br label %eh.resume
 
 if.end460:                                        ; preds = %lor.lhs.false430
-  %m_start461 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_start461 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %82 = load double, ptr %m_start461, align 8
-  %m_width462 = getelementptr inbounds i8, ptr %this, i64 184
+  %m_width462 = getelementptr inbounds nuw i8, ptr %this, i64 184
   %83 = load double, ptr %m_width462, align 8
   %sub = fadd double %83, 0xBF847A5B0FF10ECC
   %cmp463 = fcmp ogt double %82, %sub
@@ -1618,7 +1618,7 @@ cleanup.action533:                                ; preds = %ehcleanup531.thread
   br label %eh.resume
 
 if.end536:                                        ; preds = %if.end497
-  %m_scontrast = getelementptr inbounds i8, ptr %this, i64 240
+  %m_scontrast = getelementptr inbounds nuw i8, ptr %this, i64 240
   %94 = load double, ptr %m_scontrast, align 8
   %cmp537 = fcmp olt double %94, 0x3F847A5B0FF10ECC
   br i1 %cmp537, label %if.then538, label %if.end566
@@ -1815,19 +1815,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then2:                                         ; preds = %entry
-  %m_green = getelementptr inbounds i8, ptr %value, i64 8
+  %m_green = getelementptr inbounds nuw i8, ptr %value, i64 8
   %1 = load double, ptr %m_green, align 8
   %conv3 = fptrunc double %1 to float
   br label %return
 
 if.then6:                                         ; preds = %entry
-  %m_blue = getelementptr inbounds i8, ptr %value, i64 16
+  %m_blue = getelementptr inbounds nuw i8, ptr %value, i64 16
   %2 = load double, ptr %m_blue, align 8
   %conv7 = fptrunc double %2 to float
   br label %return
 
 if.then11:                                        ; preds = %entry
-  %m_master = getelementptr inbounds i8, ptr %value, i64 24
+  %m_master = getelementptr inbounds nuw i8, ptr %value, i64 24
   %3 = load double, ptr %m_master, align 8
   %conv12 = fptrunc double %3 to float
   br label %return
@@ -1842,94 +1842,94 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11Gr
 entry:
   %0 = load double, ptr %value, align 8
   %cmp.i = fcmp oeq double %0, 1.000000e+00
-  %m_green.i = getelementptr inbounds i8, ptr %value, i64 8
+  %m_green.i = getelementptr inbounds nuw i8, ptr %value, i64 8
   %1 = load double, ptr %m_green.i, align 8
   %cmp1.i = fcmp oeq double %1, 1.000000e+00
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  %m_blue.i = getelementptr inbounds i8, ptr %value, i64 16
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %value, i64 16
   %2 = load double, ptr %m_blue.i, align 8
   %cmp3.i = fcmp oeq double %2, 1.000000e+00
   %or.cond4.i = select i1 %or.cond.i, i1 %cmp3.i, i1 false
-  %m_master.i = getelementptr inbounds i8, ptr %value, i64 24
+  %m_master.i = getelementptr inbounds nuw i8, ptr %value, i64 24
   %3 = load double, ptr %m_master.i, align 8
   %cmp4.i = fcmp oeq double %3, 1.000000e+00
   %or.cond = select i1 %or.cond4.i, i1 %cmp4.i, i1 false
   br i1 %or.cond, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_shadows = getelementptr inbounds i8, ptr %value, i64 48
+  %m_shadows = getelementptr inbounds nuw i8, ptr %value, i64 48
   %4 = load double, ptr %m_shadows, align 8
   %cmp.i6 = fcmp oeq double %4, 1.000000e+00
-  %m_green.i7 = getelementptr inbounds i8, ptr %value, i64 56
+  %m_green.i7 = getelementptr inbounds nuw i8, ptr %value, i64 56
   %5 = load double, ptr %m_green.i7, align 8
   %cmp1.i8 = fcmp oeq double %5, 1.000000e+00
   %or.cond.i9 = select i1 %cmp.i6, i1 %cmp1.i8, i1 false
-  %m_blue.i10 = getelementptr inbounds i8, ptr %value, i64 64
+  %m_blue.i10 = getelementptr inbounds nuw i8, ptr %value, i64 64
   %6 = load double, ptr %m_blue.i10, align 8
   %cmp3.i11 = fcmp oeq double %6, 1.000000e+00
   %or.cond4.i12 = select i1 %or.cond.i9, i1 %cmp3.i11, i1 false
-  %m_master.i14 = getelementptr inbounds i8, ptr %value, i64 72
+  %m_master.i14 = getelementptr inbounds nuw i8, ptr %value, i64 72
   %7 = load double, ptr %m_master.i14, align 8
   %cmp4.i15 = fcmp oeq double %7, 1.000000e+00
   %or.cond50 = select i1 %or.cond4.i12, i1 %cmp4.i15, i1 false
   br i1 %or.cond50, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %m_midtones = getelementptr inbounds i8, ptr %value, i64 96
+  %m_midtones = getelementptr inbounds nuw i8, ptr %value, i64 96
   %8 = load double, ptr %m_midtones, align 8
   %cmp.i17 = fcmp oeq double %8, 1.000000e+00
-  %m_green.i18 = getelementptr inbounds i8, ptr %value, i64 104
+  %m_green.i18 = getelementptr inbounds nuw i8, ptr %value, i64 104
   %9 = load double, ptr %m_green.i18, align 8
   %cmp1.i19 = fcmp oeq double %9, 1.000000e+00
   %or.cond.i20 = select i1 %cmp.i17, i1 %cmp1.i19, i1 false
-  %m_blue.i21 = getelementptr inbounds i8, ptr %value, i64 112
+  %m_blue.i21 = getelementptr inbounds nuw i8, ptr %value, i64 112
   %10 = load double, ptr %m_blue.i21, align 8
   %cmp3.i22 = fcmp oeq double %10, 1.000000e+00
   %or.cond4.i23 = select i1 %or.cond.i20, i1 %cmp3.i22, i1 false
-  %m_master.i25 = getelementptr inbounds i8, ptr %value, i64 120
+  %m_master.i25 = getelementptr inbounds nuw i8, ptr %value, i64 120
   %11 = load double, ptr %m_master.i25, align 8
   %cmp4.i26 = fcmp oeq double %11, 1.000000e+00
   %or.cond51 = select i1 %or.cond4.i23, i1 %cmp4.i26, i1 false
   br i1 %or.cond51, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %m_highlights = getelementptr inbounds i8, ptr %value, i64 144
+  %m_highlights = getelementptr inbounds nuw i8, ptr %value, i64 144
   %12 = load double, ptr %m_highlights, align 8
   %cmp.i28 = fcmp oeq double %12, 1.000000e+00
-  %m_green.i29 = getelementptr inbounds i8, ptr %value, i64 152
+  %m_green.i29 = getelementptr inbounds nuw i8, ptr %value, i64 152
   %13 = load double, ptr %m_green.i29, align 8
   %cmp1.i30 = fcmp oeq double %13, 1.000000e+00
   %or.cond.i31 = select i1 %cmp.i28, i1 %cmp1.i30, i1 false
-  %m_blue.i32 = getelementptr inbounds i8, ptr %value, i64 160
+  %m_blue.i32 = getelementptr inbounds nuw i8, ptr %value, i64 160
   %14 = load double, ptr %m_blue.i32, align 8
   %cmp3.i33 = fcmp oeq double %14, 1.000000e+00
   %or.cond4.i34 = select i1 %or.cond.i31, i1 %cmp3.i33, i1 false
-  %m_master.i36 = getelementptr inbounds i8, ptr %value, i64 168
+  %m_master.i36 = getelementptr inbounds nuw i8, ptr %value, i64 168
   %15 = load double, ptr %m_master.i36, align 8
   %cmp4.i37 = fcmp oeq double %15, 1.000000e+00
   %or.cond52 = select i1 %or.cond4.i34, i1 %cmp4.i37, i1 false
   br i1 %or.cond52, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %m_whites = getelementptr inbounds i8, ptr %value, i64 192
+  %m_whites = getelementptr inbounds nuw i8, ptr %value, i64 192
   %16 = load double, ptr %m_whites, align 8
   %cmp.i39 = fcmp oeq double %16, 1.000000e+00
-  %m_green.i40 = getelementptr inbounds i8, ptr %value, i64 200
+  %m_green.i40 = getelementptr inbounds nuw i8, ptr %value, i64 200
   %17 = load double, ptr %m_green.i40, align 8
   %cmp1.i41 = fcmp oeq double %17, 1.000000e+00
   %or.cond.i42 = select i1 %cmp.i39, i1 %cmp1.i41, i1 false
-  %m_blue.i43 = getelementptr inbounds i8, ptr %value, i64 208
+  %m_blue.i43 = getelementptr inbounds nuw i8, ptr %value, i64 208
   %18 = load double, ptr %m_blue.i43, align 8
   %cmp3.i44 = fcmp oeq double %18, 1.000000e+00
   %or.cond4.i45 = select i1 %or.cond.i42, i1 %cmp3.i44, i1 false
-  %m_master.i47 = getelementptr inbounds i8, ptr %value, i64 216
+  %m_master.i47 = getelementptr inbounds nuw i8, ptr %value, i64 216
   %19 = load double, ptr %m_master.i47, align 8
   %cmp4.i48 = fcmp oeq double %19, 1.000000e+00
   %or.cond53 = select i1 %or.cond4.i45, i1 %cmp4.i48, i1 false
   br i1 %or.cond53, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %m_scontrast = getelementptr inbounds i8, ptr %value, i64 240
+  %m_scontrast = getelementptr inbounds nuw i8, ptr %value, i64 240
   %20 = load double, ptr %m_scontrast, align 8
   %cmp = fcmp oeq double %20, 1.000000e+00
   br label %land.end
@@ -1942,18 +1942,18 @@ land.end:                                         ; preds = %land.lhs.true6, %la
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((0, 929), (932, 936)) %this, i32 noundef %style) unnamed_addr #6 align 2 {
 entry:
-  %m_top = getelementptr inbounds i8, ptr %this, i64 912
+  %m_top = getelementptr inbounds nuw i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 0, i64 912, i1 false)
   store float 1.000000e+00, ptr %m_top, align 8
-  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
+  %m_topSC = getelementptr inbounds nuw i8, ptr %this, i64 916
   store float 1.000000e+00, ptr %m_topSC, align 4
-  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
+  %m_bottom = getelementptr inbounds nuw i8, ptr %this, i64 920
   store float 0.000000e+00, ptr %m_bottom, align 8
-  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
+  %m_pivot = getelementptr inbounds nuw i8, ptr %this, i64 924
   store float 0x3FD99999A0000000, ptr %m_pivot, align 4
-  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
+  %m_localBypass = getelementptr inbounds nuw i8, ptr %this, i64 928
   store i8 0, ptr %m_localBypass, align 8
-  %m_style = getelementptr inbounds i8, ptr %this, i64 932
+  %m_style = getelementptr inbounds nuw i8, ptr %this, i64 932
   store i32 0, ptr %m_style, align 4
   %cmp.not.i = icmp eq i32 %style, 0
   br i1 %cmp.not.i, label %_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE.exit, label %if.then.i
@@ -1989,7 +1989,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, i32 noundef %style) local_unnamed_addr #8 align 2 {
 entry:
-  %m_style = getelementptr inbounds i8, ptr %this, i64 932
+  %m_style = getelementptr inbounds nuw i8, ptr %this, i64 932
   %0 = load i32, ptr %m_style, align 4
   %cmp.not = icmp eq i32 %0, %style
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2000,21 +2000,21 @@ if.then:                                          ; preds = %entry
   br i1 %1, label %switch.lookup, label %if.end
 
 switch.lookup:                                    ; preds = %if.then
-  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
-  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
-  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
-  %m_top = getelementptr inbounds i8, ptr %this, i64 912
+  %m_pivot = getelementptr inbounds nuw i8, ptr %this, i64 924
+  %m_bottom = getelementptr inbounds nuw i8, ptr %this, i64 920
+  %m_topSC = getelementptr inbounds nuw i8, ptr %this, i64 916
+  %m_top = getelementptr inbounds nuw i8, ptr %this, i64 912
   %2 = zext nneg i32 %style to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %2
   %switch.load = load float, ptr %switch.gep, align 4
   %3 = zext nneg i32 %style to i64
-  %switch.gep3 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %3
+  %switch.gep3 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %3
   %switch.load4 = load float, ptr %switch.gep3, align 4
   %4 = zext nneg i32 %style to i64
-  %switch.gep5 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %4
+  %switch.gep5 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %4
   %switch.load6 = load float, ptr %switch.gep5, align 4
   %5 = zext nneg i32 %style to i64
-  %switch.gep7 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %5
+  %switch.gep7 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %5
   %switch.load8 = load float, ptr %switch.gep7, align 4
   store float %switch.load, ptr %m_top, align 8
   store float %switch.load4, ptr %m_topSC, align 4
@@ -2034,16 +2034,16 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %style to i64
-  %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = zext nneg i32 %style to i64
-  %switch.gep12 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %2
+  %switch.gep12 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.4, i64 0, i64 %2
   %switch.load13 = load float, ptr %switch.gep12, align 4
   %3 = zext nneg i32 %style to i64
-  %switch.gep14 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %3
+  %switch.gep14 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.5, i64 0, i64 %3
   %switch.load15 = load float, ptr %switch.gep14, align 4
   %4 = zext nneg i32 %style to i64
-  %switch.gep16 = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %4
+  %switch.gep16 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_.6, i64 0, i64 %4
   %switch.load17 = load float, ptr %switch.gep16, align 4
   store float %switch.load, ptr %top, align 4
   store float %switch.load13, ptr %topSC, align 4
@@ -2059,76 +2059,76 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) initializes((928, 929)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
+  %m_localBypass = getelementptr inbounds nuw i8, ptr %this, i64 928
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %m_localBypass, align 8
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_master = getelementptr inbounds i8, ptr %v, i64 168
+  %m_master = getelementptr inbounds nuw i8, ptr %v, i64 168
   %0 = load double, ptr %m_master, align 8
-  %m_start = getelementptr inbounds i8, ptr %v, i64 176
+  %m_start = getelementptr inbounds nuw i8, ptr %v, i64 176
   %1 = load double, ptr %m_start, align 8
-  %m_width = getelementptr inbounds i8, ptr %v, i64 184
+  %m_width = getelementptr inbounds nuw i8, ptr %v, i64 184
   %2 = load double, ptr %m_width, align 8
-  %m_start5 = getelementptr inbounds i8, ptr %v, i64 224
+  %m_start5 = getelementptr inbounds nuw i8, ptr %v, i64 224
   %3 = load double, ptr %m_start5, align 8
-  %m_width7 = getelementptr inbounds i8, ptr %v, i64 232
+  %m_width7 = getelementptr inbounds nuw i8, ptr %v, i64 232
   %4 = load double, ptr %m_width7, align 8
   %sub = fadd double %2, -1.000000e-02
   %cmp = fcmp ogt double %1, %sub
   %cond = select i1 %cmp, double %sub, double %1
-  %m_highlightsStart = getelementptr inbounds i8, ptr %this, i64 16
+  %m_highlightsStart = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %cond, ptr %m_highlightsStart, align 8
-  %m_highlightsWidth = getelementptr inbounds i8, ptr %this, i64 24
+  %m_highlightsWidth = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %2, ptr %m_highlightsWidth, align 8
   %call11 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %3, double noundef %cond, double noundef %2, double noundef %0)
   %add = fadd double %3, %4
   %5 = load double, ptr %m_highlightsStart, align 8
   %6 = load double, ptr %m_highlightsWidth, align 8
   %call14 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %add, double noundef %5, double noundef %6, double noundef %0)
-  %m_whitesStart = getelementptr inbounds i8, ptr %this, i64 48
+  %m_whitesStart = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %call11, ptr %m_whitesStart, align 8
   %sub15 = fsub double %call14, %call11
-  %m_whitesWidth = getelementptr inbounds i8, ptr %this, i64 56
+  %m_whitesWidth = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %sub15, ptr %m_whitesWidth, align 8
-  %m_master17 = getelementptr inbounds i8, ptr %v, i64 72
+  %m_master17 = getelementptr inbounds nuw i8, ptr %v, i64 72
   %7 = load double, ptr %m_master17, align 8
-  %m_start20 = getelementptr inbounds i8, ptr %v, i64 80
+  %m_start20 = getelementptr inbounds nuw i8, ptr %v, i64 80
   %8 = load double, ptr %m_start20, align 8
-  %m_width23 = getelementptr inbounds i8, ptr %v, i64 88
+  %m_width23 = getelementptr inbounds nuw i8, ptr %v, i64 88
   %9 = load double, ptr %m_width23, align 8
-  %m_start24 = getelementptr inbounds i8, ptr %v, i64 32
+  %m_start24 = getelementptr inbounds nuw i8, ptr %v, i64 32
   %10 = load double, ptr %m_start24, align 8
-  %m_width26 = getelementptr inbounds i8, ptr %v, i64 40
+  %m_width26 = getelementptr inbounds nuw i8, ptr %v, i64 40
   %11 = load double, ptr %m_width26, align 8
   %add27 = fadd double %9, 1.000000e-02
   %cmp28 = fcmp olt double %8, %add27
   %cond33 = select i1 %cmp28, double %add27, double %8
   store double %cond33, ptr %this, align 8
-  %m_shadowsWidth = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shadowsWidth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %9, ptr %m_shadowsWidth, align 8
   %call37 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %10, double noundef %9, double noundef %cond33, double noundef %7)
   %sub39 = fsub double %10, %11
   %12 = load double, ptr %m_shadowsWidth, align 8
   %13 = load double, ptr %this, align 8
   %call42 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %sub39, double noundef %12, double noundef %13, double noundef %7)
-  %m_blacksStart = getelementptr inbounds i8, ptr %this, i64 32
+  %m_blacksStart = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %call37, ptr %m_blacksStart, align 8
   %sub43 = fsub double %call37, %call42
-  %m_blacksWidth = getelementptr inbounds i8, ptr %this, i64 40
+  %m_blacksWidth = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %sub43, ptr %m_blacksWidth, align 8
-  %m_top = getelementptr inbounds i8, ptr %this, i64 912
+  %m_top = getelementptr inbounds nuw i8, ptr %this, i64 912
   %14 = load float, ptr %m_top, align 8
-  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
+  %m_bottom = getelementptr inbounds nuw i8, ptr %this, i64 920
   %15 = load float, ptr %m_bottom, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %14, float noundef %15)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
+  %m_topSC = getelementptr inbounds nuw i8, ptr %this, i64 916
   %16 = load float, ptr %m_topSC, align 4
   %17 = load float, ptr %m_bottom, align 8
-  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
+  %m_pivot = getelementptr inbounds nuw i8, ptr %this, i64 924
   %18 = load float, ptr %m_pivot, align 4
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %16, float noundef %17, float noundef %18)
   br label %return
@@ -2403,50 +2403,50 @@ define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomp
 entry:
   %ref.tmp2 = alloca [4 x i32], align 4
   store i32 0, ptr %ref.tmp2, align 4
-  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 4
   store i32 1, ptr %arrayinit.element, align 4
-  %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %arrayinit.element3 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i32 2, ptr %arrayinit.element3, align 4
-  %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
+  %arrayinit.element4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 12
   store i32 3, ptr %arrayinit.element4, align 4
-  %m_midX = getelementptr inbounds i8, ptr %this, i64 64
-  %m_midY = getelementptr inbounds i8, ptr %this, i64 160
-  %m_midM = getelementptr inbounds i8, ptr %this, i64 256
-  %m_master.i = getelementptr inbounds i8, ptr %v, i64 120
-  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 112
-  %m_green.i = getelementptr inbounds i8, ptr %v, i64 104
-  %m_midtones = getelementptr inbounds i8, ptr %v, i64 96
+  %m_midX = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %m_midY = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %m_midM = getelementptr inbounds nuw i8, ptr %this, i64 256
+  %m_master.i = getelementptr inbounds nuw i8, ptr %v, i64 120
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %v, i64 112
+  %m_green.i = getelementptr inbounds nuw i8, ptr %v, i64 104
+  %m_midtones = getelementptr inbounds nuw i8, ptr %v, i64 96
   %sub = fsub float %top, %bottom
   %mul = fmul float %sub, 0x3FEE666660000000
-  %m_width = getelementptr inbounds i8, ptr %v, i64 136
-  %m_start = getelementptr inbounds i8, ptr %v, i64 128
+  %m_width = getelementptr inbounds nuw i8, ptr %v, i64 136
+  %m_start = getelementptr inbounds nuw i8, ptr %v, i64 128
   %add96 = fadd float %top, %bottom
   %mul97 = fmul float %add96, 5.000000e-01
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.0.idx138 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx138
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %__begin1.0.idx138
   %0 = load i32, ptr %__begin1.0.ptr, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [4 x [6 x float]], ptr %m_midX, i64 0, i64 %idxprom
-  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %arrayidx22 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx, i64 20
-  %arrayidx28 = getelementptr inbounds [4 x [6 x float]], ptr %m_midY, i64 0, i64 %idxprom
-  %arrayidx33 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
-  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %arrayidx28, i64 12
-  %arrayidx45 = getelementptr inbounds i8, ptr %arrayidx28, i64 16
-  %arrayidx49 = getelementptr inbounds i8, ptr %arrayidx28, i64 20
-  %arrayidx51 = getelementptr inbounds [4 x [6 x float]], ptr %m_midM, i64 0, i64 %idxprom
-  %arrayidx56 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
-  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
-  %arrayidx64 = getelementptr inbounds i8, ptr %arrayidx51, i64 12
-  %arrayidx68 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
-  %arrayidx72 = getelementptr inbounds i8, ptr %arrayidx51, i64 20
+  %arrayidx = getelementptr inbounds nuw [4 x [6 x float]], ptr %m_midX, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
+  %arrayidx28 = getelementptr inbounds nuw [4 x [6 x float]], ptr %m_midY, i64 0, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 8
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 12
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 16
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 20
+  %arrayidx51 = getelementptr inbounds nuw [4 x [6 x float]], ptr %m_midM, i64 0, i64 %idxprom
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 4
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 8
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 12
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 16
+  %arrayidx72 = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 20
   switch i32 %0, label %_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
@@ -2632,27 +2632,27 @@ entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 4
   store i8 0, ptr %ref.tmp2, align 1
-  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp5, i64 4
-  %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 12
-  %m_hsX = getelementptr inbounds i8, ptr %this, i64 352
-  %m_hsY = getelementptr inbounds i8, ptr %this, i64 448
-  %m_hsM = getelementptr inbounds i8, ptr %this, i64 544
-  %m_master.i77 = getelementptr inbounds i8, ptr %v, i64 168
-  %m_blue.i81 = getelementptr inbounds i8, ptr %v, i64 160
-  %m_green.i84 = getelementptr inbounds i8, ptr %v, i64 152
-  %m_highlights = getelementptr inbounds i8, ptr %v, i64 144
-  %m_master.i = getelementptr inbounds i8, ptr %v, i64 72
-  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 64
-  %m_green.i = getelementptr inbounds i8, ptr %v, i64 56
-  %m_shadows = getelementptr inbounds i8, ptr %v, i64 48
+  %arrayinit.element7 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 4
+  %arrayinit.element8 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
+  %arrayinit.element9 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 12
+  %m_hsX = getelementptr inbounds nuw i8, ptr %this, i64 352
+  %m_hsY = getelementptr inbounds nuw i8, ptr %this, i64 448
+  %m_hsM = getelementptr inbounds nuw i8, ptr %this, i64 544
+  %m_master.i77 = getelementptr inbounds nuw i8, ptr %v, i64 168
+  %m_blue.i81 = getelementptr inbounds nuw i8, ptr %v, i64 160
+  %m_green.i84 = getelementptr inbounds nuw i8, ptr %v, i64 152
+  %m_highlights = getelementptr inbounds nuw i8, ptr %v, i64 144
+  %m_master.i = getelementptr inbounds nuw i8, ptr %v, i64 72
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %v, i64 64
+  %m_green.i = getelementptr inbounds nuw i8, ptr %v, i64 56
+  %m_shadows = getelementptr inbounds nuw i8, ptr %v, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc168
   %__begin1.0.idx106 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc168 ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx106
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %__begin1.0.idx106
   %0 = load i8, ptr %__begin1.0.ptr, align 1
   %tobool = trunc i8 %0 to i1
   store i32 0, ptr %ref.tmp5, align 4
@@ -2662,24 +2662,24 @@ for.body:                                         ; preds = %entry, %for.inc168
   %tobool.mask = and i8 %0, 1
   %idxprom = zext nneg i8 %tobool.mask to i64
   %cond87.in.idx = select i1 %tobool, i64 0, i64 16
-  %cond87.in = getelementptr inbounds i8, ptr %this, i64 %cond87.in.idx
+  %cond87.in = getelementptr inbounds nuw i8, ptr %this, i64 %cond87.in.idx
   %cond92.in.v = select i1 %tobool, i64 8, i64 24
-  %cond92.in = getelementptr inbounds i8, ptr %this, i64 %cond92.in.v
+  %cond92.in = getelementptr inbounds nuw i8, ptr %this, i64 %cond92.in.v
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx105 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx105
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 %__begin2.0.idx105
   %1 = load i32, ptr %__begin2.0.ptr, align 4
   %idxprom19 = zext i32 %1 to i64
-  %arrayidx20 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsX, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
-  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
-  %arrayidx43 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsY, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx52 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
-  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx43, i64 8
-  %arrayidx66 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_hsM, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx75 = getelementptr inbounds i8, ptr %arrayidx66, i64 4
+  %arrayidx20 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %m_hsX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 4
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 8
+  %arrayidx43 = getelementptr inbounds nuw [2 x [4 x [3 x float]]], ptr %m_hsY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %arrayidx43, i64 4
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %arrayidx43, i64 8
+  %arrayidx66 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %m_hsM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx75 = getelementptr inbounds nuw i8, ptr %arrayidx66, i64 4
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.body17
@@ -2866,27 +2866,27 @@ entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 4
   store i8 0, ptr %ref.tmp2, align 1
-  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp5, i64 4
-  %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 12
-  %m_wbX = getelementptr inbounds i8, ptr %this, i64 608
-  %m_wbY = getelementptr inbounds i8, ptr %this, i64 672
-  %m_wbM = getelementptr inbounds i8, ptr %this, i64 736
-  %m_wbGain = getelementptr inbounds i8, ptr %this, i64 800
-  %m_master.i76 = getelementptr inbounds i8, ptr %v, i64 216
-  %m_blue.i80 = getelementptr inbounds i8, ptr %v, i64 208
-  %m_green.i83 = getelementptr inbounds i8, ptr %v, i64 200
-  %m_whites = getelementptr inbounds i8, ptr %v, i64 192
-  %m_master.i = getelementptr inbounds i8, ptr %v, i64 24
-  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 16
-  %m_green.i = getelementptr inbounds i8, ptr %v, i64 8
+  %arrayinit.element7 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 4
+  %arrayinit.element8 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
+  %arrayinit.element9 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 12
+  %m_wbX = getelementptr inbounds nuw i8, ptr %this, i64 608
+  %m_wbY = getelementptr inbounds nuw i8, ptr %this, i64 672
+  %m_wbM = getelementptr inbounds nuw i8, ptr %this, i64 736
+  %m_wbGain = getelementptr inbounds nuw i8, ptr %this, i64 800
+  %m_master.i76 = getelementptr inbounds nuw i8, ptr %v, i64 216
+  %m_blue.i80 = getelementptr inbounds nuw i8, ptr %v, i64 208
+  %m_green.i83 = getelementptr inbounds nuw i8, ptr %v, i64 200
+  %m_whites = getelementptr inbounds nuw i8, ptr %v, i64 192
+  %m_master.i = getelementptr inbounds nuw i8, ptr %v, i64 24
+  %m_blue.i = getelementptr inbounds nuw i8, ptr %v, i64 16
+  %m_green.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc133
   %__begin1.0.idx105 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc133 ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx105
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %__begin1.0.idx105
   %0 = load i8, ptr %__begin1.0.ptr, align 1
   %tobool = trunc i8 %0 to i1
   store i32 0, ptr %ref.tmp5, align 4
@@ -2896,9 +2896,9 @@ for.body:                                         ; preds = %entry, %for.inc133
   %tobool.mask = and i8 %0, 1
   %idxprom = zext nneg i8 %tobool.mask to i64
   %cond67.in.v = select i1 %tobool, i64 32, i64 48
-  %cond67.in = getelementptr inbounds i8, ptr %this, i64 %cond67.in.v
+  %cond67.in = getelementptr inbounds nuw i8, ptr %this, i64 %cond67.in.v
   %cond72.in.v = select i1 %tobool, i64 40, i64 56
-  %cond72.in = getelementptr inbounds i8, ptr %this, i64 %cond72.in.v
+  %cond72.in = getelementptr inbounds nuw i8, ptr %this, i64 %cond72.in.v
   %cond67.pre = load double, ptr %cond67.in, align 8
   %cond72.pre = load double, ptr %cond72.in, align 8
   %conv = fptrunc double %cond67.pre to float
@@ -2916,16 +2916,16 @@ for.body:                                         ; preds = %entry, %for.inc133
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx104 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx104
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 %__begin2.0.idx104
   %3 = load i32, ptr %__begin2.0.ptr, align 4
   %idxprom19 = zext i32 %3 to i64
-  %arrayidx20 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbX, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
-  %arrayidx35 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbY, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx44 = getelementptr inbounds i8, ptr %arrayidx35, i64 4
-  %arrayidx50 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbM, i64 0, i64 %idxprom, i64 %idxprom19
-  %arrayidx59 = getelementptr inbounds i8, ptr %arrayidx50, i64 4
-  %arrayidx65 = getelementptr inbounds [2 x [4 x float]], ptr %m_wbGain, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %m_wbX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 4
+  %arrayidx35 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %m_wbY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %arrayidx35, i64 4
+  %arrayidx50 = getelementptr inbounds nuw [2 x [4 x [2 x float]]], ptr %m_wbM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %arrayidx50, i64 4
+  %arrayidx65 = getelementptr inbounds nuw [2 x [4 x float]], ptr %m_wbGain, i64 0, i64 %idxprom, i64 %idxprom19
   br i1 %tobool, label %cond.true75, label %cond.false77
 
 cond.true75:                                      ; preds = %for.body17
@@ -3070,7 +3070,7 @@ for.end135:                                       ; preds = %for.inc133
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #8 align 2 {
 entry:
-  %m_scontrast = getelementptr inbounds i8, ptr %v, i64 240
+  %m_scontrast = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load double, ptr %m_scontrast, align 8
   %conv = fptrunc double %0 to float
   %cmp = fcmp une float %conv, 1.000000e+00
@@ -3095,16 +3095,16 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi float [ %div, %cond.true ], [ %2, %cond.false ]
-  %m_scX = getelementptr inbounds i8, ptr %this, i64 832
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 836
-  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 840
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 844
-  %m_scY = getelementptr inbounds i8, ptr %this, i64 864
-  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 868
-  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 872
-  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 876
-  %m_scM = getelementptr inbounds i8, ptr %this, i64 896
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 900
+  %m_scX = getelementptr inbounds nuw i8, ptr %this, i64 832
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 836
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 840
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 844
+  %m_scY = getelementptr inbounds nuw i8, ptr %this, i64 864
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %this, i64 868
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %this, i64 872
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %this, i64 876
+  %m_scM = getelementptr inbounds nuw i8, ptr %this, i64 896
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 900
   store float %topSC, ptr %arrayidx14, align 4
   store float %topSC, ptr %arrayidx25, align 4
   %sub = fsub float %topSC, %pivot
@@ -3167,16 +3167,16 @@ if.end58:                                         ; preds = %if.else, %if.then48
   %mul61 = fmul float %add59, %sub60
   %13 = tail call float @llvm.fmuladd.f32(float %mul61, float 5.000000e-01, float %3)
   store float %13, ptr %arrayidx22, align 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %this, i64 848
-  %arrayidx70 = getelementptr inbounds i8, ptr %this, i64 852
-  %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 856
-  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 860
-  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 880
-  %arrayidx86 = getelementptr inbounds i8, ptr %this, i64 884
-  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 888
-  %arrayidx94 = getelementptr inbounds i8, ptr %this, i64 892
-  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 904
-  %arrayidx102 = getelementptr inbounds i8, ptr %this, i64 908
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %this, i64 848
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %this, i64 852
+  %arrayidx74 = getelementptr inbounds nuw i8, ptr %this, i64 856
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %this, i64 860
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %this, i64 880
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %this, i64 884
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %this, i64 888
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %this, i64 892
+  %arrayidx97 = getelementptr inbounds nuw i8, ptr %this, i64 904
+  %arrayidx102 = getelementptr inbounds nuw i8, ptr %this, i64 908
   store float %bottom, ptr %arrayidx65, align 8
   store float %bottom, ptr %arrayidx81, align 8
   %sub103 = fsub float %pivot, %bottom

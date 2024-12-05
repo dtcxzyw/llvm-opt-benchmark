@@ -38,7 +38,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK10MarkBitMap14print_on_errorEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNK6BitMap14print_on_errorEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1, ptr noundef %2) #5
   ret void
 }
@@ -67,17 +67,17 @@ define hidden noundef range(i64 -2147483648, 2147483641) i64 @_ZN10MarkBitMap13m
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((8, 24), (32, 48)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #3 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %2, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %11, align 8
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %10, ptr %.sroa.2.0..sroa_idx1, align 8
   ret void
 }
@@ -86,11 +86,11 @@ define hidden void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr nocapture noun
 define hidden void @_ZN10MarkBitMap8do_clearE9MemRegionb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.MemRegion, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %8 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #5
   %9 = extractvalue { ptr, i64 } %8, 0
@@ -100,7 +100,7 @@ define hidden void @_ZN10MarkBitMap8do_clearE9MemRegionb(ptr noundef nonnull ali
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = lshr i64 %14, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = zext nneg i32 %17 to i64
   %19 = lshr i64 %15, %18
@@ -109,7 +109,7 @@ define hidden void @_ZN10MarkBitMap8do_clearE9MemRegionb(ptr noundef nonnull ali
   %22 = sub i64 %21, %13
   %23 = lshr i64 %22, 3
   %24 = lshr i64 %23, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %3, label %26, label %27
 
 26:                                               ; preds = %4

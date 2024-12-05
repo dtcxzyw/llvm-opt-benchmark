@@ -146,19 +146,19 @@ declare void @_Z17lua_pushcclosurekP9lua_StatePFiS0_EPKciPFiS0_iE(ptr noundef, p
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11luaB_pcallyP9lua_State(ptr noundef %0) #0 {
   tail call void @_Z13luaL_checkanyP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = or i32 %7, 2
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 82
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -168,9 +168,9 @@ define internal noundef i32 @_ZL11luaB_pcallyP9lua_State(ptr noundef %0) #0 {
   %19 = add i16 %18, -1
   store i16 %19, ptr %9, align 2
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ult ptr %22, %24
   br i1 %25, label %26, label %27
@@ -184,7 +184,7 @@ define internal noundef i32 @_ZL11luaB_pcallyP9lua_State(ptr noundef %0) #0 {
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %32 [
     i8 1, label %35
@@ -233,20 +233,20 @@ define internal noundef i32 @_ZL12luaB_xpcallyP9lua_State(ptr noundef %0) #0 {
   tail call void @_Z13lua_pushvalueP9lua_Statei(ptr noundef %0, i32 noundef 2)
   tail call void @_Z11lua_replaceP9lua_Statei(ptr noundef %0, i32 noundef 1)
   tail call void @_Z11lua_replaceP9lua_Statei(ptr noundef %0, i32 noundef 2)
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 2
   store i32 %6, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 82
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %11 = load i16, ptr %10, align 2
   %12 = add i16 %11, 1
   store i16 %12, ptr %10, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %9 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -258,9 +258,9 @@ define internal noundef i32 @_ZL12luaB_xpcallyP9lua_State(ptr noundef %0) #0 {
   %22 = add i16 %21, -1
   store i16 %22, ptr %10, align 2
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ult ptr %25, %27
   br i1 %28, label %29, label %30
@@ -274,7 +274,7 @@ define internal noundef i32 @_ZL12luaB_xpcallyP9lua_State(ptr noundef %0) #0 {
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %35 [
     i8 1, label %38
@@ -311,11 +311,11 @@ define internal noundef i32 @_ZL15luaB_xpcallcontP9lua_Statei(ptr noundef %0, i3
   tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef %0, i32 noundef 0)
   tail call void @_Z13lua_pushvalueP9lua_Statei(ptr noundef %0, i32 noundef 1)
   tail call void @_Z13lua_pushvalueP9lua_Statei(ptr noundef %0, i32 noundef -3)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -48
   %10 = getelementptr inbounds i8, ptr %8, i64 -32
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -671,7 +671,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @isspace(i32 noundef %20) #11
   %.not17 = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %18, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br i1 %.not17, label %23, label %.preheader, !llvm.loop !7
 
 23:                                               ; preds = %.preheader

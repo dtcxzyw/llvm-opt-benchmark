@@ -68,7 +68,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
   %12 = alloca %struct.PQExpBufferData, align 8
   %13 = alloca [4 x i8], align 1
   %14 = alloca ptr, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 114
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond.i, label %20, label %30
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %2, i64 997
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 997
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %25, label %24
@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
   br label %check_expected_areq.exit.thread48
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %2, i64 998
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 998
   %27 = load i8, ptr %26, align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %30, label %29
@@ -97,7 +97,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
   br label %check_expected_areq.exit.thread48
 
 30:                                               ; preds = %25, %3
-  %31 = getelementptr inbounds i8, ptr %2, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %.thread.i, label %33
@@ -116,19 +116,19 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
   ]
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %2, i64 776
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 776
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %.thread.i
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %2, i64 784
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
   br i1 %41, label %.thread.i, label %auth_method_description.exit.i
 
 42:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33
-  %43 = getelementptr inbounds i8, ptr %2, i64 780
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 780
   %44 = load i32, ptr %43, align 4
   %45 = lshr i32 %44, %0
   %46 = trunc i32 %45 to i1
@@ -141,7 +141,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %.thread48.i
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.pg_fe_sendauth, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.pg_fe_sendauth, i64 0, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %auth_method_description.exit.i
 
@@ -151,7 +151,7 @@ auth_method_description.exit.i:                   ; preds = %33, %.thread48.i, %
   br label %check_expected_areq.exit.thread48
 
 .thread.i:                                        ; preds = %42, %38, %34, %30
-  %49 = getelementptr inbounds i8, ptr %2, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %50 = load ptr, ptr %49, align 8
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 114
@@ -166,15 +166,15 @@ auth_method_description.exit.i:                   ; preds = %33, %.thread48.i, %
   ]
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %2, i64 976
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 976
   %56 = load ptr, ptr %55, align 8
   %.not33.i = icmp eq ptr %56, null
   br i1 %.not33.i, label %63, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 984
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 984
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 %59(ptr noundef %61) #9
   br i1 %62, label %check_expected_areq.exit.thread48, label %63
@@ -224,11 +224,11 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   br label %check_expected_areq.exit.thread48
 
 70:                                               ; preds = %check_expected_areq.exit, %check_expected_areq.exit
-  %71 = getelementptr inbounds i8, ptr %2, i64 761
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 761
   store i8 1, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %2, i64 432
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 428
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 428
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr %struct.pg_conn_host, ptr %73, i64 %76, i32 4
@@ -237,7 +237,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %70
-  %81 = getelementptr inbounds i8, ptr %2, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %86, label %.thread
@@ -249,7 +249,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %.thread, %80
-  %87 = getelementptr inbounds i8, ptr %2, i64 1000
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %87, ptr noundef nonnull @.str.5) #9
   br label %check_expected_areq.exit.thread48
 
@@ -278,7 +278,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
 
 94:                                               ; preds = %91
   %95 = getelementptr i8, ptr %92, i64 36
-  %96 = getelementptr inbounds i8, ptr %2, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %97 = load ptr, ptr %96, align 8
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #11
   %99 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %.050, ptr noundef %97, i64 noundef %98, ptr noundef %95, ptr noundef nonnull %14) #9
@@ -319,12 +319,12 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %.not37, label %112, label %110
 
 110:                                              ; preds = %pg_password_sendauth.exit.thread, %pg_password_sendauth.exit
-  %111 = getelementptr inbounds i8, ptr %2, i64 1000
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   call void @appendPQExpBufferStr(ptr noundef nonnull %111, ptr noundef nonnull @.str.6) #9
   br label %check_expected_areq.exit.thread48
 
 112:                                              ; preds = %pg_password_sendauth.exit
-  %113 = getelementptr inbounds i8, ptr %2, i64 784
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 784
   store i8 1, ptr %113, align 8
   br label %check_expected_areq.exit.thread48
 
@@ -342,7 +342,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %2, i64 996
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 996
   %120 = load i8, ptr %119, align 4
   %121 = trunc i8 %120 to i1
   br i1 %121, label %123, label %122
@@ -352,7 +352,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br label %216
 
 123:                                              ; preds = %118, %114
-  %124 = getelementptr inbounds i8, ptr %2, i64 984
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 984
   %125 = load ptr, ptr %124, align 8
   %.not.i39 = icmp eq ptr %125, null
   br i1 %.not.i39, label %.preheader.i, label %130
@@ -363,9 +363,9 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %.not4764.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %127 = getelementptr inbounds i8, ptr %12, i64 16
-  %128 = getelementptr inbounds i8, ptr %2, i64 976
-  %129 = getelementptr inbounds i8, ptr %2, i64 996
+  %127 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 976
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 996
   br label %132
 
 130:                                              ; preds = %123
@@ -373,7 +373,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br label %216
 
 ._crit_edge.i:                                    ; preds = %156, %.preheader.i
-  %131 = getelementptr inbounds i8, ptr %2, i64 1000
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   call void @appendPQExpBufferStr(ptr noundef nonnull %131, ptr noundef nonnull @.str.36) #9
   br label %216
 
@@ -454,11 +454,11 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br label %216
 
 167:                                              ; preds = %164, %160
-  %168 = getelementptr inbounds i8, ptr %2, i64 761
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 761
   store i8 1, ptr %168, align 1
-  %169 = getelementptr inbounds i8, ptr %2, i64 432
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %2, i64 428
+  %171 = getelementptr inbounds nuw i8, ptr %2, i64 428
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
   %174 = getelementptr %struct.pg_conn_host, ptr %170, i64 %173, i32 4
@@ -467,7 +467,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %176, label %177, label %.thread.i42
 
 177:                                              ; preds = %167
-  %178 = getelementptr inbounds i8, ptr %2, i64 96
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %183, label %.thread.i42
@@ -479,7 +479,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %.thread.i42, %177
-  %184 = getelementptr inbounds i8, ptr %2, i64 1000
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   call void @appendPQExpBufferStr(ptr noundef nonnull %184, ptr noundef nonnull @.str.5) #9
   br label %216
 
@@ -497,7 +497,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
 
 189:                                              ; preds = %185
   %190 = load ptr, ptr %128, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8
   call void %192(ptr noundef nonnull %188, ptr noundef null, i32 noundef -1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
   %193 = load i8, ptr %10, align 1
@@ -581,10 +581,10 @@ pg_SASL_init.exit:                                ; preds = %214
   br label %check_expected_areq.exit.thread48
 
 220:                                              ; preds = %53, %53, %check_expected_areq.exit, %check_expected_areq.exit
-  %221 = getelementptr inbounds i8, ptr %2, i64 984
+  %221 = getelementptr inbounds nuw i8, ptr %2, i64 984
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, null
-  %224 = getelementptr inbounds i8, ptr %2, i64 1000
+  %224 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   br i1 %223, label %225, label %226
 
 225:                                              ; preds = %220
@@ -592,7 +592,7 @@ pg_SASL_init.exit:                                ; preds = %214
   br label %check_expected_areq.exit.thread48
 
 226:                                              ; preds = %220
-  %227 = getelementptr inbounds i8, ptr %2, i64 1008
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 1008
   %228 = load i64, ptr %227, align 8
   %229 = icmp eq i32 %0, 12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -622,9 +622,9 @@ pg_SASL_init.exit:                                ; preds = %214
 238:                                              ; preds = %234
   %239 = getelementptr i8, ptr %232, i64 %235
   store i8 0, ptr %239, align 1
-  %240 = getelementptr inbounds i8, ptr %2, i64 976
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 976
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %221, align 8
   call void %243(ptr noundef %244, ptr noundef nonnull %232, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
@@ -839,9 +839,9 @@ define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %58, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1000
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   tail call void @resetPQExpBuffer(ptr noundef nonnull %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 1024
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %10, align 8
   %11 = icmp eq ptr %3, null
   br i1 %11, label %12, label %sub_0
@@ -893,13 +893,13 @@ define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 sub_0:                                            ; preds = %8, %28
   %.038 = phi ptr [ %5, %28 ], [ %3, %8 ]
-  %.038.sroa.phi = getelementptr inbounds i8, ptr %.038, i64 2
+  %.038.sroa.phi = getelementptr inbounds nuw i8, ptr %.038, i64 2
   %30 = load i8, ptr %.038, align 1
   %.not52 = icmp eq i8 %30, 111
   br i1 %.not52, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %.038.sroa.phi58 = getelementptr inbounds i8, ptr %.038, i64 1
+  %.038.sroa.phi58 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %31 = load i8, ptr %.038.sroa.phi58, align 1
   %.not53 = icmp eq i8 %31, 110
   br i1 %.not53, label %.tail, label %.tail.thread
@@ -925,7 +925,7 @@ sub_1:                                            ; preds = %sub_0
 
 40:                                               ; preds = %37
   store ptr null, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 992
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %42 = load i32, ptr %41, align 8
   %43 = call ptr @pg_fe_scram_build_secret(ptr noundef %1, i32 noundef %42, ptr noundef nonnull %6) #9
   %.not51 = icmp eq ptr %43, null

@@ -53,29 +53,29 @@ module asm ".previous\09\09\09\09\09"
 define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = lshr i32 %9, 25
   %11 = and i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !6
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 1960
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1960
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %15, i64 1944
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 1944
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %21, %13
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %19
   %24 = sub nuw i64 %13, %21
-  %25 = getelementptr inbounds i8, ptr %15, i64 1952
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 1952
   %26 = load i64, ptr %25, align 32
   %27 = icmp ule i64 %24, %26
   br label %28
@@ -94,7 +94,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %34, label %54, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %15, i64 1952
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1952
   %37 = load i64, ptr %36, align 32
   %38 = icmp eq i64 %37, 0
   %39 = or i1 %18, %38
@@ -102,7 +102,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %39, label %49, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %15, i64 1944
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 1944
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %43, %32
   br i1 %44, label %45, label %.thread
@@ -119,7 +119,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %51, label %..thread_crit_edge, label %69
 
 ..thread_crit_edge:                               ; preds = %49
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 1944
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 1944
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %.thread
 
@@ -133,7 +133,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %55, label %69, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %1, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %58 = load i64, ptr %57, align 8
   %59 = icmp ne i64 %58, 43
   %60 = and i64 %8, 67108864
@@ -142,7 +142,7 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = icmp ne ptr %65, null
   %67 = ptrtoint ptr %65 to i64
@@ -165,14 +165,14 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %80, label %81, label %101
 
 81:                                               ; preds = %69
-  %82 = getelementptr inbounds i8, ptr %15, i64 1944
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 1944
   %83 = load i64, ptr %82, align 8
   %84 = icmp ult i64 %83, %79
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %81
   %86 = sub nuw i64 %79, %83
-  %87 = getelementptr inbounds i8, ptr %15, i64 1952
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 1952
   %88 = load i64, ptr %87, align 32
   %89 = icmp ugt i64 %86, %88
   br i1 %89, label %90, label %101, !prof !7
@@ -188,10 +188,10 @@ define dso_local ptr @get_sigframe(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %95, label %108, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %15, i64 1800
-  %98 = getelementptr inbounds i8, ptr %15, i64 1320
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 1800
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 1320
   %99 = load i32, ptr %98, align 8
-  %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %97, i32 noundef %99) #12
+  %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %97, i32 noundef %99) #12
   br label %108
 
 101:                                              ; preds = %85, %69
@@ -260,17 +260,17 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
 
 5:                                                ; preds = %1
   %6 = inttoptr i64 %4 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 3008
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 3008
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = icmp eq i64 %10, 4294967295
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load i32, ptr %15, align 16
   %17 = and i32 %16, 6
   %18 = icmp eq i32 %17, 0
@@ -293,7 +293,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br label %.thread
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 268435456
   %29 = icmp eq i64 %28, 0
@@ -305,7 +305,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
 
 31:                                               ; preds = %25, %23
   store i64 %9, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, -2
   store i64 %34, ptr %32, align 8
@@ -326,8 +326,8 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
 41:                                               ; preds = %40, %.thread
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
-  %42 = getelementptr inbounds i8, ptr %6, i64 2464
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, i64 1) #11, !srcloc !11
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 2464
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %42, i64 1) #11, !srcloc !11
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %43 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   %44 = icmp ult i8 %43, 2
@@ -342,7 +342,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br label %49
 
 49:                                               ; preds = %46, %41
-  %50 = getelementptr inbounds i8, ptr %6, i64 2448
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 2448
   %51 = load ptr, ptr %50, align 16
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -352,7 +352,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br label %54
 
 54:                                               ; preds = %53, %49
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 33554432
   %58 = icmp eq i64 %57, 0
@@ -381,11 +381,11 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 144
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, -66817
   store i64 %74, ptr %72, align 8
-  call void @fpu__clear_user_states(ptr noundef %7) #11
+  call void @fpu__clear_user_states(ptr noundef nonnull %7) #11
   br label %75
 
 75:                                               ; preds = %71, %68
@@ -394,7 +394,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br label %112
 
 77:                                               ; preds = %1
-  %78 = getelementptr inbounds i8, ptr %0, i64 120
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, 4294967295
   %81 = icmp eq i64 %80, 4294967295
@@ -402,9 +402,9 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   br i1 %81, label %.thread2, label %82
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %86 = load i32, ptr %85, align 16
   %87 = and i32 %86, 6
   %88 = icmp eq i32 %87, 0
@@ -423,7 +423,7 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
   ]
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.pre, i64 1264
+  %95 = getelementptr inbounds nuw i8, ptr %.pre, i64 1264
   %96 = load i64, ptr %95, align 16
   %97 = and i64 %96, 2
   %98 = icmp eq i64 %97, 0
@@ -433,14 +433,14 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
 100:                                              ; preds = %94, %93, %93, %93
   %101 = phi i64 [ %99, %94 ], [ %79, %93 ], [ %79, %93 ], [ %79, %93 ]
   store i64 %101, ptr %83, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 128
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, -2
   store i64 %104, ptr %102, align 8
   br label %.thread2
 
 .thread2:                                         ; preds = %77, %82, %100, %93
-  %105 = getelementptr inbounds i8, ptr %.pre, i64 1248
+  %105 = getelementptr inbounds nuw i8, ptr %.pre, i64 1248
   %106 = load i16, ptr %105, align 32
   %107 = and i16 %106, 16
   %108 = icmp eq i16 %107, 0
@@ -449,8 +449,8 @@ define dso_local void @arch_do_signal_or_restart(ptr noundef %0) local_unnamed_a
 109:                                              ; preds = %.thread2
   %110 = and i16 %106, -17
   store i16 %110, ptr %105, align 32
-  %111 = getelementptr inbounds i8, ptr %.pre, i64 1912
-  call void @__set_current_blocked(ptr noundef %111) #11
+  %111 = getelementptr inbounds nuw i8, ptr %.pre, i64 1912
+  call void @__set_current_blocked(ptr noundef nonnull %111) #11
   br label %112
 
 112:                                              ; preds = %109, %.thread2, %75
@@ -478,18 +478,18 @@ define dso_local void @signal_fault(ptr nocapture noundef readonly %0, ptr nound
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %5, i64 1320
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1320
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 1
   %15 = select i1 %14, ptr @.str.2, ptr @.str.3
-  %16 = getelementptr inbounds i8, ptr %5, i64 1800
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1800
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load i64, ptr %21, align 8
-  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %15, ptr noundef %16, i32 noundef %13, ptr noundef %2, ptr noundef %1, i64 noundef %18, i64 noundef %20, i64 noundef %22) #12
+  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %15, ptr noundef nonnull %16, i32 noundef %13, ptr noundef %2, ptr noundef %1, i64 noundef %18, i64 noundef %20, i64 noundef %22) #12
   %24 = load i64, ptr %17, align 8
   tail call void @print_vma_addr(ptr noundef nonnull @.str.4, i64 noundef %24) #11
   %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #12
@@ -531,9 +531,9 @@ define dso_local zeroext i1 @sigaltstack_size_valid(i64 noundef %0) local_unname
 
 10:                                               ; preds = %1
   %11 = inttoptr i64 %6 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 1376
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1376
   %13 = load ptr, ptr %12, align 32
-  %14 = getelementptr inbounds i8, ptr %13, i64 3052
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 3052
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = add nsw i64 %5, %16
@@ -542,9 +542,9 @@ define dso_local zeroext i1 @sigaltstack_size_valid(i64 noundef %0) local_unname
 
 .thread1:                                         ; preds = %7
   %19 = inttoptr i64 %6 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 1376
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1376
   %21 = load ptr, ptr %20, align 32
-  %22 = getelementptr inbounds i8, ptr %21, i64 3052
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 3052
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = add nsw i64 %5, %24
@@ -560,7 +560,7 @@ define dso_local zeroext i1 @sigaltstack_size_valid(i64 noundef %0) local_unname
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %13, i64 3040
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 3040
   %32 = load i64, ptr %31, align 32
   %33 = and i64 %32, 262144
   %34 = icmp eq i64 %33, 0

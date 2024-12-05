@@ -101,28 +101,28 @@ define internal void @ac97_class_init(ptr noundef %klass, ptr nocapture readnone
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #7
-  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i11, i64 176
   store ptr @ac97_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i11, i64 184
   store ptr @ac97_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i11, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 210
   store i16 9237, ptr %device_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i11, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i11, i64 212
   store i8 1, ptr %revision, align 4
-  %class_id = getelementptr inbounds i8, ptr %call.i11, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 214
   store i16 1025, ptr %class_id, align 2
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.1, ptr %desc, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_ac97, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ac97_properties) #7
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @ac97_on_reset, ptr %reset, align 8
   ret void
 }
@@ -131,9 +131,9 @@ entry:
 define internal void @ac97_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
-  %config = getelementptr inbounds i8, ptr %call.i, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
-  %card = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %card = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   %call2 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str, ptr noundef nonnull %card, ptr noundef %errp) #7
   br i1 %call2, label %if.end, label %return
 
@@ -168,15 +168,15 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %arrayidx15, align 1
   %arrayidx16 = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx16, align 1
-  %io_nam = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %io_nam = getelementptr inbounds nuw i8, ptr %call.i, i64 3152
   tail call void @memory_region_init_io(ptr noundef nonnull %io_nam, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nam_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.8, i64 noundef 1024) #7
-  %io_nabm = getelementptr inbounds i8, ptr %call.i, i64 3424
+  %io_nabm = getelementptr inbounds nuw i8, ptr %call.i, i64 3424
   tail call void @memory_region_init_io(ptr noundef nonnull %io_nabm, ptr noundef nonnull %call.i, ptr noundef nonnull @ac97_io_nabm_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef 256) #7
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io_nam) #7
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %io_nabm) #7
   %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
-  %bm_regs.i = getelementptr inbounds i8, ptr %call.i.i, i64 2656
+  %bm_regs.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2656
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i.i, ptr noundef nonnull %bm_regs.i)
   %arrayidx2.i = getelementptr i8, ptr %call.i.i, i64 2680
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i.i, ptr noundef %arrayidx2.i)
@@ -193,14 +193,14 @@ return:                                           ; preds = %entry, %if.end
 define internal void @ac97_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
-  %card = getelementptr inbounds i8, ptr %call.i, i64 2608
-  %voice_pi = getelementptr inbounds i8, ptr %call.i, i64 2984
+  %card = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
+  %voice_pi = getelementptr inbounds nuw i8, ptr %call.i, i64 2984
   %0 = load ptr, ptr %voice_pi, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %0) #7
-  %voice_po = getelementptr inbounds i8, ptr %call.i, i64 2992
+  %voice_po = getelementptr inbounds nuw i8, ptr %call.i, i64 2992
   %1 = load ptr, ptr %voice_po, align 16
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %1) #7
-  %voice_mc = getelementptr inbounds i8, ptr %call.i, i64 3000
+  %voice_mc = getelementptr inbounds nuw i8, ptr %call.i, i64 3000
   %2 = load ptr, ptr %voice_mc, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %2) #7
   tail call void @AUD_remove_card(ptr noundef nonnull %card) #7
@@ -213,7 +213,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @ac97_on_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, i32 noundef 89, ptr noundef nonnull @.str.2) #7
-  %bm_regs = getelementptr inbounds i8, ptr %call.i, i64 2656
+  %bm_regs = getelementptr inbounds nuw i8, ptr %call.i, i64 2656
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i, ptr noundef nonnull %bm_regs)
   %arrayidx2 = getelementptr i8, ptr %call.i, i64 2680
   tail call fastcc void @reset_bm_regs(ptr noundef %call.i, ptr noundef %arrayidx2)
@@ -249,20 +249,20 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %cas.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i, align 8
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
   %conv5 = trunc i64 %addr to i32
-  %cas.i7 = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i7 = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i7, align 8
   %0 = add i32 %conv5, -255
   %cmp.i.i = icmp ult i32 %0, -257
   br i1 %cmp.i.i, label %return, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb4
-  %mixer_data.i.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %idxprom.i.i = and i64 %addr, 4294967295
   %arrayidx.i.i = getelementptr [256 x i8], ptr %mixer_data.i.i, i64 0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
@@ -277,7 +277,7 @@ if.else.i.i:                                      ; preds = %sw.bb4
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %cas.i8 = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i8 = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i8, align 8
   br label %return
 
@@ -302,14 +302,14 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %cas.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i, align 8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.end
   %conv5 = trunc i64 %addr to i32
   %conv6 = trunc i64 %val to i32
-  %cas.i9 = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i9 = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i9, align 8
   %0 = tail call i32 @llvm.fshl.i32(i32 %conv5, i32 %conv5, i32 31)
   switch i32 %0, label %sw.default.i [
@@ -353,7 +353,7 @@ sw.bb1.i:                                         ; preds = %sw.bb4
   br i1 %cmp.i.i, label %sw.epilog, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb1.i
-  %mixer_data.i.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %idxprom.i.i = and i64 %addr, 4294967295
   %arrayidx.i.i = getelementptr [256 x i8], ptr %mixer_data.i.i, i64 0, i64 %idxprom.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
@@ -419,7 +419,7 @@ sw.bb.i.i:                                        ; preds = %sw.bb4.i
   %mul6.i.i.i = mul nuw i16 %conv5.i.i.i, %conv4.i.i.i
   %div7.i.i.i = udiv i16 %mul6.i.i.i, 255
   %conv8.i.i.i = trunc nuw i16 %div7.i.i.i to i8
-  %voice_po.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %voice_po.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   %14 = load ptr, ptr %voice_po.i.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %14, i32 noundef %or.i.i.i, i8 noundef zeroext %conv3.i14.i.i, i8 noundef zeroext %conv8.i.i.i) #7
   br label %sw.epilog
@@ -465,7 +465,7 @@ sw.bb1.i.i:                                       ; preds = %sw.bb4.i
   %mul6.i47.i.i = mul nuw i16 %conv4.i45.i.i, %conv5.i46.i.i
   %div7.i48.i.i = udiv i16 %mul6.i47.i.i, 255
   %conv8.i49.i.i = trunc nuw i16 %div7.i48.i.i to i8
-  %voice_po.i50.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %voice_po.i50.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   %21 = load ptr, ptr %voice_po.i50.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %21, i32 noundef %or.i39.i.i, i8 noundef zeroext %conv3.i44.i.i, i8 noundef zeroext %conv8.i49.i.i) #7
   br label %sw.epilog
@@ -485,7 +485,7 @@ sw.bb4.i.i:                                       ; preds = %sw.bb4.i
   %narrow.i.i.i = mul nuw i8 %conv3.i51.i.i, 17
   %and9.i.i58.i.i = and i8 %conv6.i54.i.i, 15
   %div12.i.i59.i.i = mul nuw i8 %and9.i.i58.i.i, 17
-  %voice_pi.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2984
+  %voice_pi.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2984
   %25 = load ptr, ptr %voice_pi.i.i.i, align 8
   tail call void @AUD_set_volume_in(ptr noundef %25, i32 noundef %shr.i.i.i.i, i8 noundef zeroext %div12.i.i59.i.i, i8 noundef zeroext %narrow.i.i.i) #7
   br label %sw.epilog
@@ -544,7 +544,7 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.en
   br label %sw.epilog
 
 sw.bb15.i:                                        ; preds = %sw.bb4
-  %mixer_data.i74.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i74.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %arrayidx.i75.i = getelementptr i8, ptr %opaque, i64 2770
   %29 = load i8, ptr %arrayidx.i75.i, align 1
   %30 = and i8 %29, 1
@@ -574,7 +574,7 @@ mixer_store.exit93.i:                             ; preds = %if.end.i84.i, %if.t
   br label %sw.epilog
 
 sw.bb23.i:                                        ; preds = %sw.bb4
-  %mixer_data.i95.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i95.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %arrayidx.i96.i = getelementptr i8, ptr %opaque, i64 2770
   %33 = load i8, ptr %arrayidx.i96.i, align 1
   %34 = and i8 %33, 8
@@ -604,7 +604,7 @@ mixer_store.exit114.i:                            ; preds = %if.end.i105.i, %if.
   br label %sw.epilog
 
 sw.bb32.i:                                        ; preds = %sw.bb4
-  %mixer_data.i116.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i116.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %arrayidx.i117.i = getelementptr i8, ptr %opaque, i64 2770
   %37 = load i8, ptr %arrayidx.i117.i, align 1
   %38 = and i8 %37, 1
@@ -640,7 +640,7 @@ sw.default.i:                                     ; preds = %sw.bb4
 
 if.end.i137.i:                                    ; preds = %sw.default.i
   %conv3.i138.i = trunc i64 %val to i8
-  %mixer_data.i139.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %mixer_data.i139.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %idxprom.i140.i = and i64 %addr, 4294967295
   %arrayidx.i141.i = getelementptr [256 x i8], ptr %mixer_data.i139.i, i64 0, i64 %idxprom.i140.i
   store i8 %conv3.i138.i, ptr %arrayidx.i141.i, align 1
@@ -653,7 +653,7 @@ if.end.i137.i:                                    ; preds = %sw.default.i
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end
-  %cas.i10 = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i10 = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   store i32 0, ptr %cas.i10, align 8
   br label %sw.epilog
 
@@ -665,8 +665,8 @@ sw.epilog:                                        ; preds = %if.end.i137.i, %sw.
 define internal fastcc void @mixer_reset(ptr noundef initializes((2728, 2984), (3008, 3012)) %s) unnamed_addr #0 {
 entry:
   %active = alloca [3 x i8], align 1
-  %mixer_data = getelementptr inbounds i8, ptr %s, i64 2728
-  %0 = getelementptr inbounds i8, ptr %s, i64 2752
+  %mixer_data = getelementptr inbounds nuw i8, ptr %s, i64 2728
+  %0 = getelementptr inbounds nuw i8, ptr %s, i64 2752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 232, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %active, i8 0, i64 3, i1 false)
   store i8 0, ptr %mixer_data, align 1
@@ -732,7 +732,7 @@ entry:
   %conv3.i14.i = xor i8 %5, -1
   %6 = trunc nuw i16 %div.i13.i.i to i8
   %conv8.i.i = xor i8 %6, -1
-  %voice_po.i.i = getelementptr inbounds i8, ptr %s, i64 2992
+  %voice_po.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2992
   %7 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %7, i32 noundef 1, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #7
   store i8 8, ptr %arrayidx.i4.i.i, align 1
@@ -761,7 +761,7 @@ entry:
   store i8 8, ptr %arrayidx.i53.i, align 1
   %arrayidx10.i55.i = getelementptr i8, ptr %s, i64 2757
   store i8 -120, ptr %arrayidx10.i55.i, align 1
-  %voice_pi.i.i = getelementptr inbounds i8, ptr %s, i64 2984
+  %voice_pi.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2984
   %13 = load ptr, ptr %voice_pi.i.i, align 8
   tail call void @AUD_set_volume_in(ptr noundef %13, i32 noundef 1, i8 noundef zeroext -120, i8 noundef zeroext -120) #7
   call fastcc void @reset_voices(ptr noundef %s, ptr noundef %active)
@@ -773,14 +773,14 @@ define internal fastcc void @open_voice(ptr noundef %s, i32 noundef range(i32 0,
 entry:
   %as = alloca %struct.audsettings, align 4
   store i32 %freq, ptr %as, align 4
-  %nchannels = getelementptr inbounds i8, ptr %as, i64 4
+  %nchannels = getelementptr inbounds nuw i8, ptr %as, i64 4
   store i32 2, ptr %nchannels, align 4
-  %fmt = getelementptr inbounds i8, ptr %as, i64 8
+  %fmt = getelementptr inbounds nuw i8, ptr %as, i64 8
   store i32 3, ptr %fmt, align 4
-  %endianness = getelementptr inbounds i8, ptr %as, i64 12
+  %endianness = getelementptr inbounds nuw i8, ptr %as, i64 12
   store i32 0, ptr %endianness, align 4
   %cmp = icmp sgt i32 %freq, 0
-  %invalid_freq = getelementptr inbounds i8, ptr %s, i64 3008
+  %invalid_freq = getelementptr inbounds nuw i8, ptr %s, i64 3008
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr [3 x i32], ptr %invalid_freq, i64 0, i64 %idxprom
   br i1 %cmp, label %if.then, label %if.else
@@ -794,24 +794,24 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %card = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_pi = getelementptr inbounds i8, ptr %s, i64 2984
+  %card = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_pi = getelementptr inbounds nuw i8, ptr %s, i64 2984
   %0 = load ptr, ptr %voice_pi, align 8
   %call = call ptr @AUD_open_in(ptr noundef nonnull %card, ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %s, ptr noundef nonnull @pi_callback, ptr noundef nonnull %as) #7
   store ptr %call, ptr %voice_pi, align 8
   br label %if.end
 
 sw.bb3:                                           ; preds = %if.then
-  %card4 = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_po = getelementptr inbounds i8, ptr %s, i64 2992
+  %card4 = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_po = getelementptr inbounds nuw i8, ptr %s, i64 2992
   %1 = load ptr, ptr %voice_po, align 16
   %call5 = call ptr @AUD_open_out(ptr noundef nonnull %card4, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %s, ptr noundef nonnull @po_callback, ptr noundef nonnull %as) #7
   store ptr %call5, ptr %voice_po, align 16
   br label %if.end
 
 sw.bb7:                                           ; preds = %if.then
-  %card8 = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_mc = getelementptr inbounds i8, ptr %s, i64 3000
+  %card8 = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_mc = getelementptr inbounds nuw i8, ptr %s, i64 3000
   %2 = load ptr, ptr %voice_mc, align 8
   %call9 = call ptr @AUD_open_in(ptr noundef nonnull %card8, ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef nonnull %s, ptr noundef nonnull @mc_callback, ptr noundef nonnull %as) #7
   store ptr %call9, ptr %voice_mc, align 8
@@ -826,24 +826,24 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb14:                                          ; preds = %if.else
-  %card15 = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_pi16 = getelementptr inbounds i8, ptr %s, i64 2984
+  %card15 = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_pi16 = getelementptr inbounds nuw i8, ptr %s, i64 2984
   %3 = load ptr, ptr %voice_pi16, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card15, ptr noundef %3) #7
   store ptr null, ptr %voice_pi16, align 8
   br label %if.end
 
 sw.bb18:                                          ; preds = %if.else
-  %card19 = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_po20 = getelementptr inbounds i8, ptr %s, i64 2992
+  %card19 = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_po20 = getelementptr inbounds nuw i8, ptr %s, i64 2992
   %4 = load ptr, ptr %voice_po20, align 16
   tail call void @AUD_close_out(ptr noundef nonnull %card19, ptr noundef %4) #7
   store ptr null, ptr %voice_po20, align 16
   br label %if.end
 
 sw.bb22:                                          ; preds = %if.else
-  %card23 = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_mc24 = getelementptr inbounds i8, ptr %s, i64 3000
+  %card23 = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_mc24 = getelementptr inbounds nuw i8, ptr %s, i64 3000
   %5 = load ptr, ptr %voice_mc24, align 8
   tail call void @AUD_close_in(ptr noundef nonnull %card23, ptr noundef %5) #7
   store ptr null, ptr %voice_mc24, align 8
@@ -875,17 +875,17 @@ entry:
   %or.i = or disjoint i32 %shl.i, %conv3.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i)
   store i32 %or.i, ptr %as.i, align 4
-  %nchannels.i = getelementptr inbounds i8, ptr %as.i, i64 4
+  %nchannels.i = getelementptr inbounds nuw i8, ptr %as.i, i64 4
   store i32 2, ptr %nchannels.i, align 4
-  %fmt.i = getelementptr inbounds i8, ptr %as.i, i64 8
+  %fmt.i = getelementptr inbounds nuw i8, ptr %as.i, i64 8
   store i32 3, ptr %fmt.i, align 4
-  %endianness.i = getelementptr inbounds i8, ptr %as.i, i64 12
+  %endianness.i = getelementptr inbounds nuw i8, ptr %as.i, i64 12
   store i32 0, ptr %endianness.i, align 4
   %cmp.i.not = icmp eq i32 %or.i, 0
-  %invalid_freq.i = getelementptr inbounds i8, ptr %s, i64 3008
+  %invalid_freq.i = getelementptr inbounds nuw i8, ptr %s, i64 3008
   store i32 0, ptr %invalid_freq.i, align 4
-  %card15.i = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_pi16.i = getelementptr inbounds i8, ptr %s, i64 2984
+  %card15.i = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_pi16.i = getelementptr inbounds nuw i8, ptr %s, i64 2984
   %2 = load ptr, ptr %voice_pi16.i, align 8
   br i1 %cmp.i.not, label %if.else.i, label %if.then.i
 
@@ -914,17 +914,17 @@ open_voice.exit:                                  ; preds = %if.then.i, %if.else
   %or.i21 = or disjoint i32 %shl.i20, %conv3.i17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i22)
   store i32 %or.i21, ptr %as.i22, align 4
-  %nchannels.i23 = getelementptr inbounds i8, ptr %as.i22, i64 4
+  %nchannels.i23 = getelementptr inbounds nuw i8, ptr %as.i22, i64 4
   store i32 2, ptr %nchannels.i23, align 4
-  %fmt.i24 = getelementptr inbounds i8, ptr %as.i22, i64 8
+  %fmt.i24 = getelementptr inbounds nuw i8, ptr %as.i22, i64 8
   store i32 3, ptr %fmt.i24, align 4
-  %endianness.i25 = getelementptr inbounds i8, ptr %as.i22, i64 12
+  %endianness.i25 = getelementptr inbounds nuw i8, ptr %as.i22, i64 12
   store i32 0, ptr %endianness.i25, align 4
   %cmp.i26.not = icmp eq i32 %or.i21, 0
   %arrayidx.i28 = getelementptr i8, ptr %s, i64 3012
   store i32 0, ptr %arrayidx.i28, align 4
-  %card19.i = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_po20.i = getelementptr inbounds i8, ptr %s, i64 2992
+  %card19.i = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_po20.i = getelementptr inbounds nuw i8, ptr %s, i64 2992
   %6 = load ptr, ptr %voice_po20.i, align 16
   br i1 %cmp.i26.not, label %if.else.i29, label %if.then.i30
 
@@ -954,17 +954,17 @@ open_voice.exit31:                                ; preds = %if.then.i30, %if.el
   %or.i39 = or disjoint i32 %shl.i38, %conv3.i35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %as.i40)
   store i32 %or.i39, ptr %as.i40, align 4
-  %nchannels.i41 = getelementptr inbounds i8, ptr %as.i40, i64 4
+  %nchannels.i41 = getelementptr inbounds nuw i8, ptr %as.i40, i64 4
   store i32 2, ptr %nchannels.i41, align 4
-  %fmt.i42 = getelementptr inbounds i8, ptr %as.i40, i64 8
+  %fmt.i42 = getelementptr inbounds nuw i8, ptr %as.i40, i64 8
   store i32 3, ptr %fmt.i42, align 4
-  %endianness.i43 = getelementptr inbounds i8, ptr %as.i40, i64 12
+  %endianness.i43 = getelementptr inbounds nuw i8, ptr %as.i40, i64 12
   store i32 0, ptr %endianness.i43, align 4
   %cmp.i44.not = icmp eq i32 %or.i39, 0
   %arrayidx.i46 = getelementptr i8, ptr %s, i64 3016
   store i32 0, ptr %arrayidx.i46, align 4
-  %card23.i = getelementptr inbounds i8, ptr %s, i64 2608
-  %voice_mc24.i = getelementptr inbounds i8, ptr %s, i64 3000
+  %card23.i = getelementptr inbounds nuw i8, ptr %s, i64 2608
+  %voice_mc24.i = getelementptr inbounds nuw i8, ptr %s, i64 3000
   %10 = load ptr, ptr %voice_mc24.i, align 8
   br i1 %cmp.i44.not, label %if.else.i47, label %if.then.i48
 
@@ -1032,10 +1032,10 @@ entry:
   %tmpbuf.i = alloca [4096 x i8], align 16
   %b.i58 = alloca [8 x i8], align 4
   %b.i = alloca [8 x i8], align 4
-  %bm_regs = getelementptr inbounds i8, ptr %s, i64 2656
+  %bm_regs = getelementptr inbounds nuw i8, ptr %s, i64 2656
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs, i64 0, i64 %idxprom
-  %invalid_freq = getelementptr inbounds i8, ptr %s, i64 3008
+  %invalid_freq = getelementptr inbounds nuw i8, ptr %s, i64 3008
   %arrayidx2 = getelementptr [3 x i32], ptr %invalid_freq, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx2, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1046,7 +1046,7 @@ if.then:                                          ; preds = %entry
   br label %while.end
 
 if.end:                                           ; preds = %entry
-  %sr = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %sr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %1 = load i16, ptr %sr, align 2
   %2 = and i16 %1, 1
   %tobool6.not = icmp eq i16 %2, 0
@@ -1057,30 +1057,30 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool14144, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %bd_valid = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %civ.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
-  %bd.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %b.i, i64 4
-  %ctl_len.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
-  %picb.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %bd_valid = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
+  %civ.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
+  %bus_master_as.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 576
+  %bd.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %b.i, i64 4
+  %ctl_len.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
+  %picb.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %switch = icmp eq i32 %index, 1
   %cmp.i = icmp eq i32 %index, 2
   %cond.in.v.i = select i1 %cmp.i, i64 3000, i64 2984
-  %cond.in.i = getelementptr inbounds i8, ptr %s, i64 %cond.in.v.i
-  %voice_po.i78 = getelementptr inbounds i8, ptr %s, i64 2992
-  %last_samp29.i = getelementptr inbounds i8, ptr %s, i64 2652
-  %lvi67 = getelementptr inbounds i8, ptr %arrayidx, i64 5
-  %piv78 = getelementptr inbounds i8, ptr %arrayidx, i64 10
-  %arrayidx3.i119 = getelementptr inbounds i8, ptr %b.i108, i64 4
-  %bup_flag77 = getelementptr inbounds i8, ptr %s, i64 3148
-  %cr.i = getelementptr inbounds i8, ptr %arrayidx, i64 11
+  %cond.in.i = getelementptr inbounds nuw i8, ptr %s, i64 %cond.in.v.i
+  %voice_po.i78 = getelementptr inbounds nuw i8, ptr %s, i64 2992
+  %last_samp29.i = getelementptr inbounds nuw i8, ptr %s, i64 2652
+  %lvi67 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
+  %piv78 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 10
+  %arrayidx3.i119 = getelementptr inbounds nuw i8, ptr %b.i108, i64 4
+  %bup_flag77 = getelementptr inbounds nuw i8, ptr %s, i64 3148
+  %cr.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 11
   %arrayidx.i134 = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom
-  %glob_sta.i = getelementptr inbounds i8, ptr %s, i64 2644
+  %glob_sta.i = getelementptr inbounds nuw i8, ptr %s, i64 2644
   br label %while.body
 
 if.then7:                                         ; preds = %if.end
-  %cr = getelementptr inbounds i8, ptr %arrayidx, i64 11
+  %cr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 11
   %3 = load i8, ptr %cr, align 1
   %4 = and i8 %3, 1
   %tobool10 = icmp ne i8 %4, 0
@@ -1089,7 +1089,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %or.cond, label %sw.bb, label %while.end
 
 sw.bb:                                            ; preds = %if.then7
-  %bup_flag.i = getelementptr inbounds i8, ptr %s, i64 3148
+  %bup_flag.i = getelementptr inbounds nuw i8, ptr %s, i64 3148
   %5 = load i32, ptr %bup_flag.i, align 4
   %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -1098,11 +1098,11 @@ sw.bb:                                            ; preds = %if.then7
 if.then.i:                                        ; preds = %sw.bb
   %and2.i = and i32 %5, 2
   %tobool3.not.i = icmp eq i32 %and2.i, 0
-  %silence6.i = getelementptr inbounds i8, ptr %s, i64 3020
+  %silence6.i = getelementptr inbounds nuw i8, ptr %s, i64 3020
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %last_samp.i = getelementptr inbounds i8, ptr %s, i64 2652
+  %last_samp.i = getelementptr inbounds nuw i8, ptr %s, i64 2652
   %.pre.i = load i32, ptr %last_samp.i, align 4
   br label %for.body.i
 
@@ -1134,8 +1134,8 @@ if.end9.i:                                        ; preds = %if.end.i, %sw.bb
   br i1 %tobool10.not24.i, label %while.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end9.i
-  %voice_po.i = getelementptr inbounds i8, ptr %s, i64 2992
-  %silence18.i = getelementptr inbounds i8, ptr %s, i64 3020
+  %voice_po.i = getelementptr inbounds nuw i8, ptr %s, i64 2992
+  %silence18.i = getelementptr inbounds nuw i8, ptr %s, i64 3020
   br label %while.body.i
 
 while.cond.loopexit.i:                            ; preds = %if.end24.i
@@ -1234,7 +1234,7 @@ if.end28:                                         ; preds = %if.then20
   %24 = load i32, ptr %b.i58, align 4
   %and.i67 = and i32 %24, -4
   store i32 %and.i67, ptr %bd.i, align 4
-  %arrayidx3.i69 = getelementptr inbounds i8, ptr %b.i58, i64 4
+  %arrayidx3.i69 = getelementptr inbounds nuw i8, ptr %b.i58, i64 4
   %25 = load i32, ptr %arrayidx3.i69, align 4
   store i32 %25, ptr %ctl_len.i, align 4
   %conv9.i71 = trunc i32 %25 to i16
@@ -1527,13 +1527,13 @@ sw.bb:                                            ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
-  %cas.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %cas.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   %0 = load i32, ptr %cas.i, align 8
   store i32 1, ptr %cas.i, align 8
   br label %nabm_readb.exit
 
 sw.bb2.i:                                         ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i = lshr i32 %conv2, 4
   %narrow21.i = mul nuw nsw i32 %shr.i, 24
   %1 = or disjoint i32 %narrow21.i, 4
@@ -1544,7 +1544,7 @@ sw.bb2.i:                                         ; preds = %sw.bb, %sw.bb, %sw.
   br label %nabm_readb.exit
 
 sw.bb3.i:                                         ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs4.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs4.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr5.i = lshr i32 %conv2, 4
   %narrow20.i = mul nuw nsw i32 %shr5.i, 24
   %3 = or disjoint i32 %narrow20.i, 5
@@ -1555,7 +1555,7 @@ sw.bb3.i:                                         ; preds = %sw.bb, %sw.bb, %sw.
   br label %nabm_readb.exit
 
 sw.bb10.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs11.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs11.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr12.i = lshr i32 %conv2, 4
   %narrow18.i = mul nuw nsw i32 %shr12.i, 24
   %5 = zext nneg i32 %narrow18.i to i64
@@ -1566,7 +1566,7 @@ sw.bb10.i:                                        ; preds = %sw.bb, %sw.bb, %sw.
   br label %nabm_readb.exit
 
 sw.bb17.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs18.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs18.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr19.i = lshr i32 %conv2, 4
   %narrow16.i = mul nuw nsw i32 %shr19.i, 24
   %8 = zext nneg i32 %narrow16.i to i64
@@ -1577,7 +1577,7 @@ sw.bb17.i:                                        ; preds = %sw.bb, %sw.bb, %sw.
   br label %nabm_readb.exit
 
 sw.bb24.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs25.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs25.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr26.i = lshr i32 %conv2, 4
   %narrow.i = mul nuw nsw i32 %shr26.i, 24
   %11 = or disjoint i32 %narrow.i, 6
@@ -1605,7 +1605,7 @@ sw.bb4:                                           ; preds = %if.end
   ]
 
 sw.bb.i9:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
-  %bm_regs.i10 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i10 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i11 = lshr i32 %conv5, 4
   %narrow6.i = mul nuw nsw i32 %shr.i11, 24
   %14 = or disjoint i32 %narrow6.i, 6
@@ -1616,7 +1616,7 @@ sw.bb.i9:                                         ; preds = %sw.bb4, %sw.bb4, %s
   br label %return
 
 sw.bb1.i:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
-  %bm_regs2.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr3.i = lshr i32 %conv5, 4
   %narrow.i7 = mul nuw nsw i32 %shr3.i, 24
   %16 = zext nneg i32 %narrow.i7 to i64
@@ -1644,7 +1644,7 @@ sw.bb8:                                           ; preds = %if.end
   ]
 
 sw.bb.i25:                                        ; preds = %sw.bb8, %sw.bb8, %sw.bb8
-  %bm_regs.i26 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i26 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i27 = lshr i64 %addr, 4
   %and.i = and i64 %shr.i27, 3
   %arrayidx.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i26, i64 0, i64 %and.i
@@ -1661,19 +1661,19 @@ sw.bb1.i20:                                       ; preds = %sw.bb8, %sw.bb8, %s
   br label %nabm_readl.exit
 
 sw.bb11.i:                                        ; preds = %sw.bb8, %sw.bb8, %sw.bb8
-  %bm_regs12.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs12.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr13.i = lshr i64 %addr, 4
   %and14.i = and i64 %shr13.i, 3
   %arrayidx16.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs12.i, i64 0, i64 %and14.i
-  %picb.i17 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 8
+  %picb.i17 = getelementptr inbounds nuw i8, ptr %arrayidx16.i, i64 8
   %23 = load i16, ptr %picb.i17, align 4
   %conv17.i = zext i16 %23 to i32
-  %piv.i18 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 10
+  %piv.i18 = getelementptr inbounds nuw i8, ptr %arrayidx16.i, i64 10
   %24 = load i8, ptr %piv.i18, align 2
   %conv18.i = zext i8 %24 to i32
   %shl19.i = shl nuw nsw i32 %conv18.i, 16
   %or20.i = or disjoint i32 %shl19.i, %conv17.i
-  %cr.i19 = getelementptr inbounds i8, ptr %arrayidx16.i, i64 11
+  %cr.i19 = getelementptr inbounds nuw i8, ptr %arrayidx16.i, i64 11
   %25 = load i8, ptr %cr.i19, align 1
   %conv21.i = zext i8 %25 to i32
   %shl22.i = shl nuw i32 %conv21.i, 24
@@ -1681,12 +1681,12 @@ sw.bb11.i:                                        ; preds = %sw.bb8, %sw.bb8, %s
   br label %nabm_readl.exit
 
 sw.bb24.i16:                                      ; preds = %sw.bb8
-  %glob_cnt.i = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %glob_cnt.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   %26 = load i32, ptr %glob_cnt.i, align 16
   br label %nabm_readl.exit
 
 sw.bb25.i:                                        ; preds = %sw.bb8
-  %glob_sta.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %27 = load i32, ptr %glob_sta.i, align 4
   %or26.i = or i32 %27, 256
   br label %nabm_readl.exit
@@ -1734,18 +1734,18 @@ sw.bb:                                            ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i = lshr i64 %addr, 4
   %idxprom.i = and i64 %shr.i, 268435455
   %arrayidx.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i, i64 0, i64 %idxprom.i
-  %cr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 11
+  %cr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 11
   %0 = load i8, ptr %cr.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb.i
-  %sr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %sr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   %2 = load i16, ptr %sr.i, align 2
   %3 = and i16 %2, 1
   %tobool4.not.i = icmp eq i16 %3, 0
@@ -1754,9 +1754,9 @@ land.lhs.true.i:                                  ; preds = %sw.bb.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %and7.i = and i16 %2, -4
   store i16 %and7.i, ptr %sr.i, align 2
-  %piv.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
+  %piv.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 10
   %4 = load i8, ptr %piv.i, align 2
-  %civ.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %civ.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i8 %4, ptr %civ.i, align 4
   %5 = add i8 %4, 1
   %6 = and i8 %5, 31
@@ -1767,22 +1767,22 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %mul.i.i = shl nuw nsw i32 %conv.i.i, 3
   %add.i.i = add i32 %7, %mul.i.i
   %conv1.i.i = zext i32 %add.i.i to i64
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 576
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv1.i.i, i32 1, ptr noundef nonnull %b.i.i, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
-  %bd_valid.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %bd_valid.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   store i32 1, ptr %bd_valid.i.i, align 4
   %8 = load i32, ptr %b.i.i, align 4
   %and.i.i = and i32 %8, -4
-  %bd.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %bd.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 %and.i.i, ptr %bd.i.i, align 4
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %b.i.i, i64 4
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %b.i.i, i64 4
   %9 = load i32, ptr %arrayidx3.i.i, align 4
-  %ctl_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %ctl_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i32 %9, ptr %ctl_len.i.i, align 4
   %conv9.i.i = trunc i32 %9 to i16
-  %picb.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %picb.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i16 %conv9.i.i, ptr %picb.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i.i)
   br label %if.end.i
@@ -1790,12 +1790,12 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %sw.bb.i
   %10 = trunc i64 %val to i8
   %conv14.i = and i8 %10, 31
-  %lvi.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %lvi.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   store i8 %conv14.i, ptr %lvi.i, align 1
   br label %sw.epilog
 
 sw.bb15.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs16.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs16.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr17.i = lshr i32 %conv2, 4
   %idxprom19.i = zext nneg i32 %shr17.i to i64
   %arrayidx20.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs16.i, i64 0, i64 %idxprom19.i
@@ -1810,7 +1810,7 @@ if.then23.i:                                      ; preds = %sw.bb15.i
 if.else.i:                                        ; preds = %sw.bb15.i
   %11 = trunc i64 %val to i8
   %conv25.i = and i8 %11, 29
-  %cr26.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 11
+  %cr26.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 11
   store i8 %conv25.i, ptr %cr26.i, align 1
   %and29.i = and i32 %conv3, 1
   %tobool30.not.i = icmp eq i32 %and29.i, 0
@@ -1824,19 +1824,19 @@ if.then31.i:                                      ; preds = %if.else.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then31.i
-  %voice_pi.i.i = getelementptr inbounds i8, ptr %opaque, i64 2984
+  %voice_pi.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2984
   %12 = load ptr, ptr %voice_pi.i.i, align 8
   tail call void @AUD_set_active_in(ptr noundef %12, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
 sw.bb1.i.i:                                       ; preds = %if.then31.i
-  %voice_po.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %voice_po.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   %13 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_active_out(ptr noundef %13, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
 sw.bb2.i.i:                                       ; preds = %if.then31.i
-  %voice_mc.i.i = getelementptr inbounds i8, ptr %opaque, i64 3000
+  %voice_mc.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3000
   %14 = load ptr, ptr %voice_mc.i.i, align 8
   tail call void @AUD_set_active_in(ptr noundef %14, i32 noundef 0) #7
   br label %voice_set_active.exit.i
@@ -1845,16 +1845,16 @@ default.unreachable.i:                            ; preds = %if.then31.i
   unreachable
 
 voice_set_active.exit.i:                          ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %sr34.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 6
+  %sr34.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 6
   %15 = load i16, ptr %sr34.i, align 2
   %16 = or i16 %15, 1
   store i16 %16, ptr %sr34.i, align 2
   br label %sw.epilog
 
 if.else37.i:                                      ; preds = %if.else.i
-  %piv38.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 10
+  %piv38.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 10
   %17 = load i8, ptr %piv38.i, align 2
-  %civ39.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 4
+  %civ39.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 4
   store i8 %17, ptr %civ39.i, align 4
   %18 = add i8 %17, 1
   %19 = and i8 %18, 31
@@ -1865,25 +1865,25 @@ if.else37.i:                                      ; preds = %if.else.i
   %mul.i44.i = shl nuw nsw i32 %conv.i43.i, 3
   %add.i45.i = add i32 %20, %mul.i44.i
   %conv1.i46.i = zext i32 %add.i45.i to i64
-  %bus_master_as.i.i.i.i47.i = getelementptr inbounds i8, ptr %opaque, i64 576
+  %bus_master_as.i.i.i.i47.i = getelementptr inbounds nuw i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
   %call.i.i.i.i.i48.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i47.i, i64 noundef range(i64 0, 4294967296) %conv1.i46.i, i32 1, ptr noundef nonnull %b.i41.i, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
-  %bd_valid.i49.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 12
+  %bd_valid.i49.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 12
   store i32 1, ptr %bd_valid.i49.i, align 4
   %21 = load i32, ptr %b.i41.i, align 4
   %and.i50.i = and i32 %21, -4
-  %bd.i51.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 16
+  %bd.i51.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 16
   store i32 %and.i50.i, ptr %bd.i51.i, align 4
-  %arrayidx3.i52.i = getelementptr inbounds i8, ptr %b.i41.i, i64 4
+  %arrayidx3.i52.i = getelementptr inbounds nuw i8, ptr %b.i41.i, i64 4
   %22 = load i32, ptr %arrayidx3.i52.i, align 4
-  %ctl_len.i53.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 20
+  %ctl_len.i53.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 20
   store i32 %22, ptr %ctl_len.i53.i, align 4
   %conv9.i54.i = trunc i32 %22 to i16
-  %picb.i55.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 8
+  %picb.i55.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   store i16 %conv9.i54.i, ptr %picb.i55.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i41.i)
-  %sr46.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 6
+  %sr46.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 6
   %23 = load i16, ptr %sr46.i, align 2
   %24 = and i16 %23, -2
   store i16 %24, ptr %sr46.i, align 2
@@ -1894,19 +1894,19 @@ if.else37.i:                                      ; preds = %if.else.i
   ]
 
 sw.bb.i60.i:                                      ; preds = %if.else37.i
-  %voice_pi.i61.i = getelementptr inbounds i8, ptr %opaque, i64 2984
+  %voice_pi.i61.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2984
   %25 = load ptr, ptr %voice_pi.i61.i, align 8
   call void @AUD_set_active_in(ptr noundef %25, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb1.i58.i:                                     ; preds = %if.else37.i
-  %voice_po.i59.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %voice_po.i59.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   %26 = load ptr, ptr %voice_po.i59.i, align 16
   call void @AUD_set_active_out(ptr noundef %26, i32 noundef 1) #7
   br label %sw.epilog
 
 sw.bb2.i56.i:                                     ; preds = %if.else37.i
-  %voice_mc.i57.i = getelementptr inbounds i8, ptr %opaque, i64 3000
+  %voice_mc.i57.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3000
   %27 = load ptr, ptr %voice_mc.i57.i, align 8
   call void @AUD_set_active_in(ptr noundef %27, i32 noundef 1) #7
   br label %sw.epilog
@@ -1915,11 +1915,11 @@ default.unreachable65.i:                          ; preds = %if.else37.i
   unreachable
 
 sw.bb59.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
-  %bm_regs60.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs60.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr61.i = lshr i64 %addr, 4
   %idxprom63.i = and i64 %shr61.i, 268435455
   %arrayidx64.i = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs60.i, i64 0, i64 %idxprom63.i
-  %sr66.i = getelementptr inbounds i8, ptr %arrayidx64.i, i64 6
+  %sr66.i = getelementptr inbounds nuw i8, ptr %arrayidx64.i, i64 6
   %28 = load i16, ptr %sr66.i, align 2
   %29 = trunc i64 %val to i16
   %30 = and i16 %29, -32
@@ -1949,7 +1949,7 @@ if.end25.thread.i.i:                              ; preds = %if.then.i.i
   %arrayidx35.i.i = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom63.i
   %32 = load i32, ptr %arrayidx35.i.i, align 4
   %not.i.i = xor i32 %32, -1
-  %glob_sta36.i.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta36.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %33 = load i32, ptr %glob_sta36.i.i, align 4
   %and37.i.i = and i32 %33, %not.i.i
   store i32 %and37.i.i, ptr %glob_sta36.i.i, align 4
@@ -1962,7 +1962,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br i1 %tobool5.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
-  %cr.i.i = getelementptr inbounds i8, ptr %arrayidx64.i, i64 11
+  %cr.i.i = getelementptr inbounds nuw i8, ptr %arrayidx64.i, i64 11
   %34 = load i8, ptr %cr.i.i, align 1
   %35 = and i8 %34, 4
   %36 = icmp eq i8 %35, 0
@@ -1975,7 +1975,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   br i1 %tobool11.not.i.i, label %if.end20.i.i, label %land.lhs.true12.i.i
 
 land.lhs.true12.i.i:                              ; preds = %if.end.i.i
-  %cr13.i.i = getelementptr inbounds i8, ptr %arrayidx64.i, i64 11
+  %cr13.i.i = getelementptr inbounds nuw i8, ptr %arrayidx64.i, i64 11
   %37 = load i8, ptr %cr13.i.i, align 1
   %38 = and i8 %37, 16
   %tobool16.not.i.i = icmp eq i8 %38, 0
@@ -1994,7 +1994,7 @@ if.end20.i.i:                                     ; preds = %land.lhs.true12.i.i
 if.then27.i.i:                                    ; preds = %if.end20.i.i, %if.end20.thread29.i.i
   %arrayidx.i.i = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom63.i
   %39 = load i32, ptr %arrayidx.i.i, align 4
-  %glob_sta.i.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %40 = load i32, ptr %glob_sta.i.i, align 4
   %or.i.i = or i32 %40, %39
   store i32 %or.i.i, ptr %glob_sta.i.i, align 4
@@ -2011,11 +2011,11 @@ sw.bb4:                                           ; preds = %if.end
 
 sw.bb.i9:                                         ; preds = %sw.bb4, %sw.bb4, %sw.bb4
   %conv6 = trunc i64 %val to i32
-  %bm_regs.i10 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i10 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i11 = lshr i64 %addr, 4
   %idxprom.i12 = and i64 %shr.i11, 268435455
   %arrayidx.i13 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i10, i64 0, i64 %idxprom.i12
-  %sr.i14 = getelementptr inbounds i8, ptr %arrayidx.i13, i64 6
+  %sr.i14 = getelementptr inbounds nuw i8, ptr %arrayidx.i13, i64 6
   %41 = load i16, ptr %sr.i14, align 2
   %42 = trunc i64 %val to i16
   %43 = and i16 %42, -32
@@ -2045,7 +2045,7 @@ if.end25.thread.i.i41:                            ; preds = %if.then.i.i19
   %arrayidx35.i.i43 = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom.i12
   %45 = load i32, ptr %arrayidx35.i.i43, align 4
   %not.i.i44 = xor i32 %45, -1
-  %glob_sta36.i.i45 = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta36.i.i45 = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %46 = load i32, ptr %glob_sta36.i.i45, align 4
   %and37.i.i46 = and i32 %46, %not.i.i44
   store i32 %and37.i.i46, ptr %glob_sta36.i.i45, align 4
@@ -2058,7 +2058,7 @@ if.else.i.i21:                                    ; preds = %if.then.i.i19
   br i1 %tobool5.not.i.i23, label %if.end.i.i26, label %land.lhs.true.i.i24
 
 land.lhs.true.i.i24:                              ; preds = %if.else.i.i21
-  %cr.i.i25 = getelementptr inbounds i8, ptr %arrayidx.i13, i64 11
+  %cr.i.i25 = getelementptr inbounds nuw i8, ptr %arrayidx.i13, i64 11
   %47 = load i8, ptr %cr.i.i25, align 1
   %48 = and i8 %47, 4
   %49 = icmp eq i8 %48, 0
@@ -2071,7 +2071,7 @@ if.end.i.i26:                                     ; preds = %land.lhs.true.i.i24
   br i1 %tobool11.not.i.i29, label %if.end20.i.i39, label %land.lhs.true12.i.i30
 
 land.lhs.true12.i.i30:                            ; preds = %if.end.i.i26
-  %cr13.i.i31 = getelementptr inbounds i8, ptr %arrayidx.i13, i64 11
+  %cr13.i.i31 = getelementptr inbounds nuw i8, ptr %arrayidx.i13, i64 11
   %50 = load i8, ptr %cr13.i.i31, align 1
   %51 = and i8 %50, 16
   %tobool16.not.i.i32 = icmp eq i8 %51, 0
@@ -2090,7 +2090,7 @@ if.end20.i.i39:                                   ; preds = %land.lhs.true12.i.i
 if.then27.i.i35:                                  ; preds = %if.end20.i.i39, %if.end20.thread29.i.i33
   %arrayidx.i.i36 = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom.i12
   %52 = load i32, ptr %arrayidx.i.i36, align 4
-  %glob_sta.i.i37 = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta.i.i37 = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %53 = load i32, ptr %glob_sta.i.i37, align 4
   %or.i.i38 = or i32 %53, %52
   store i32 %or.i.i38, ptr %glob_sta.i.i37, align 4
@@ -2109,7 +2109,7 @@ sw.bb7:                                           ; preds = %if.end
   ]
 
 sw.bb.i54:                                        ; preds = %sw.bb7, %sw.bb7, %sw.bb7
-  %bm_regs.i55 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %bm_regs.i55 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %shr.i56 = lshr i64 %addr, 4
   %idxprom.i57 = and i64 %shr.i56, 268435455
   %arrayidx.i58 = getelementptr [3 x %struct.AC97BusMasterRegs], ptr %bm_regs.i55, i64 0, i64 %idxprom.i57
@@ -2124,14 +2124,14 @@ sw.bb2.i:                                         ; preds = %sw.bb7
 
 if.then.i53:                                      ; preds = %sw.bb2.i
   %and4.i = and i32 %conv9, 57
-  %glob_cnt.i = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %glob_cnt.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   store i32 %and4.i, ptr %glob_cnt.i, align 16
   br label %sw.epilog
 
 sw.bb5.i:                                         ; preds = %sw.bb7
   %and6.i49 = and i32 %conv9, 35841
   %not.i50 = xor i32 %and6.i49, -1
-  %glob_sta.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %glob_sta.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %54 = load i32, ptr %glob_sta.i, align 4
   %and7.i51 = and i32 %54, %not.i50
   %and9.i = and i32 %conv9, 196608
@@ -2147,11 +2147,11 @@ sw.epilog:                                        ; preds = %sw.bb5.i, %if.then.
 define internal fastcc void @reset_bm_regs(ptr noundef %s, ptr noundef initializes((0, 6)) %r) unnamed_addr #0 {
 entry:
   store i32 0, ptr %r, align 4
-  %civ = getelementptr inbounds i8, ptr %r, i64 4
+  %civ = getelementptr inbounds nuw i8, ptr %r, i64 4
   store i8 0, ptr %civ, align 4
-  %lvi = getelementptr inbounds i8, ptr %r, i64 5
+  %lvi = getelementptr inbounds nuw i8, ptr %r, i64 5
   store i8 0, ptr %lvi, align 1
-  %sr.i = getelementptr inbounds i8, ptr %r, i64 6
+  %sr.i = getelementptr inbounds nuw i8, ptr %r, i64 6
   %0 = load i16, ptr %sr.i, align 2
   %1 = and i16 %0, 28
   %tobool.not.i = icmp eq i16 %1, 0
@@ -2163,7 +2163,7 @@ if.end20.thread.i:                                ; preds = %entry
   br label %update_sr.exit
 
 if.then.i:                                        ; preds = %entry
-  %bm_regs29.i = getelementptr inbounds i8, ptr %s, i64 2656
+  %bm_regs29.i = getelementptr inbounds nuw i8, ptr %s, i64 2656
   %sub.ptr.lhs.cast31.i = ptrtoint ptr %r to i64
   %sub.ptr.rhs.cast32.i = ptrtoint ptr %bm_regs29.i to i64
   %sub.ptr.sub33.i = sub i64 %sub.ptr.lhs.cast31.i, %sub.ptr.rhs.cast32.i
@@ -2171,7 +2171,7 @@ if.then.i:                                        ; preds = %entry
   %arrayidx35.i = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %sub.ptr.div34.i
   %2 = load i32, ptr %arrayidx35.i, align 4
   %not.i = xor i32 %2, -1
-  %glob_sta36.i = getelementptr inbounds i8, ptr %s, i64 2644
+  %glob_sta36.i = getelementptr inbounds nuw i8, ptr %s, i64 2644
   %3 = load i32, ptr %glob_sta36.i, align 4
   %and37.i = and i32 %3, %not.i
   store i32 %and37.i, ptr %glob_sta36.i, align 4
@@ -2180,17 +2180,17 @@ if.then.i:                                        ; preds = %entry
 
 update_sr.exit:                                   ; preds = %if.end20.thread.i, %if.then.i
   %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre, %if.end20.thread.i ], [ %sub.ptr.lhs.cast31.i, %if.then.i ]
-  %picb = getelementptr inbounds i8, ptr %r, i64 8
+  %picb = getelementptr inbounds nuw i8, ptr %r, i64 8
   store i16 0, ptr %picb, align 4
-  %piv = getelementptr inbounds i8, ptr %r, i64 10
+  %piv = getelementptr inbounds nuw i8, ptr %r, i64 10
   store i8 0, ptr %piv, align 2
-  %cr = getelementptr inbounds i8, ptr %r, i64 11
+  %cr = getelementptr inbounds nuw i8, ptr %r, i64 11
   %4 = load i8, ptr %cr, align 1
   %5 = and i8 %4, 28
   store i8 %5, ptr %cr, align 1
-  %bd_valid = getelementptr inbounds i8, ptr %r, i64 12
+  %bd_valid = getelementptr inbounds nuw i8, ptr %r, i64 12
   store i32 0, ptr %bd_valid, align 4
-  %bm_regs = getelementptr inbounds i8, ptr %s, i64 2656
+  %bm_regs = getelementptr inbounds nuw i8, ptr %s, i64 2656
   %sub.ptr.rhs.cast = ptrtoint ptr %bm_regs to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast.pre-phi, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
@@ -2202,19 +2202,19 @@ update_sr.exit:                                   ; preds = %if.end20.thread.i, 
   ]
 
 sw.bb.i:                                          ; preds = %update_sr.exit
-  %voice_pi.i = getelementptr inbounds i8, ptr %s, i64 2984
+  %voice_pi.i = getelementptr inbounds nuw i8, ptr %s, i64 2984
   %6 = load ptr, ptr %voice_pi.i, align 8
   tail call void @AUD_set_active_in(ptr noundef %6, i32 noundef 0) #7
   br label %voice_set_active.exit
 
 sw.bb1.i:                                         ; preds = %update_sr.exit
-  %voice_po.i = getelementptr inbounds i8, ptr %s, i64 2992
+  %voice_po.i = getelementptr inbounds nuw i8, ptr %s, i64 2992
   %7 = load ptr, ptr %voice_po.i, align 16
   tail call void @AUD_set_active_out(ptr noundef %7, i32 noundef 0) #7
   br label %voice_set_active.exit
 
 sw.bb2.i:                                         ; preds = %update_sr.exit
-  %voice_mc.i = getelementptr inbounds i8, ptr %s, i64 3000
+  %voice_mc.i = getelementptr inbounds nuw i8, ptr %s, i64 3000
   %8 = load ptr, ptr %voice_mc.i, align 8
   tail call void @AUD_set_active_in(ptr noundef %8, i32 noundef 0) #7
   br label %voice_set_active.exit
@@ -2224,7 +2224,7 @@ sw.default.i:                                     ; preds = %update_sr.exit
   br label %voice_set_active.exit
 
 voice_set_active.exit:                            ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.default.i
-  %silence = getelementptr inbounds i8, ptr %s, i64 3020
+  %silence = getelementptr inbounds nuw i8, ptr %s, i64 3020
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %silence, i8 0, i64 128, i1 false)
   ret void
 }
@@ -2289,7 +2289,7 @@ entry:
   %mul6.i.i = mul nuw i16 %conv5.i.i, %conv4.i.i
   %div7.i.i = udiv i16 %mul6.i.i, 255
   %conv8.i.i = trunc nuw i16 %div7.i.i to i8
-  %voice_po.i.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %voice_po.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   %9 = load ptr, ptr %voice_po.i.i, align 16
   tail call void @AUD_set_volume_out(ptr noundef %9, i32 noundef %or.i.i, i8 noundef zeroext %conv3.i14.i, i8 noundef zeroext %conv8.i.i) #7
   %10 = load i8, ptr %arrayidx.i4.i.i, align 1
@@ -2349,27 +2349,27 @@ entry:
   %narrow.i.i = mul nuw i8 %conv3.i51.i, 17
   %and9.i.i58.i = and i8 %conv6.i54.i, 15
   %div12.i.i59.i = mul nuw i8 %and9.i.i58.i, 17
-  %voice_pi.i.i = getelementptr inbounds i8, ptr %opaque, i64 2984
+  %voice_pi.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2984
   %21 = load ptr, ptr %voice_pi.i.i, align 8
   tail call void @AUD_set_volume_in(ptr noundef %21, i32 noundef %shr.i.i.i, i8 noundef zeroext %div12.i.i59.i, i8 noundef zeroext %narrow.i.i) #7
-  %cr = getelementptr inbounds i8, ptr %opaque, i64 2667
+  %cr = getelementptr inbounds nuw i8, ptr %opaque, i64 2667
   %22 = load i8, ptr %cr, align 1
   %23 = and i8 %22, 1
   store i8 %23, ptr %active, align 1
   %cr13 = getelementptr i8, ptr %opaque, i64 2691
   %24 = load i8, ptr %cr13, align 1
   %25 = and i8 %24, 1
-  %arrayidx22 = getelementptr inbounds i8, ptr %active, i64 1
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %active, i64 1
   store i8 %25, ptr %arrayidx22, align 1
   %cr25 = getelementptr i8, ptr %opaque, i64 2715
   %26 = load i8, ptr %cr25, align 1
   %27 = and i8 %26, 1
-  %arrayidx34 = getelementptr inbounds i8, ptr %active, i64 2
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %active, i64 2
   store i8 %27, ptr %arrayidx34, align 1
   call fastcc void @reset_voices(ptr noundef %opaque, ptr noundef %active)
-  %bup_flag = getelementptr inbounds i8, ptr %opaque, i64 3148
+  %bup_flag = getelementptr inbounds nuw i8, ptr %opaque, i64 3148
   store i32 0, ptr %bup_flag, align 4
-  %last_samp = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %last_samp = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   store i32 0, ptr %last_samp, align 4
   ret i32 0
 }

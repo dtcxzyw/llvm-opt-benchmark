@@ -24,7 +24,7 @@ define hidden ptr @lexbor_str_init(ptr noundef %0, ptr noundef %1, i64 noundef %
   %6 = add i64 %2, 1
   %7 = tail call ptr @lexbor_mraw_alloc(ptr noundef %1, i64 noundef %6) #15
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %9
@@ -57,7 +57,7 @@ define hidden ptr @lexbor_str_init_append(ptr noundef writeonly %0, ptr noundef 
   %11 = getelementptr inbounds i8, ptr %8, i64 %3
   store i8 0, ptr %11, align 1
   store ptr %8, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %12, align 8
   br label %13
 
@@ -71,7 +71,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @lexbor_str_clean(ptr nocapture noundef writeonly initializes((8, 16)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -135,7 +135,7 @@ declare ptr @lexbor_mraw_realloc(ptr noundef, ptr noundef, i64 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_check_size(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = xor i64 %2, -1
   %7 = icmp ugt i64 %5, %6
@@ -165,7 +165,7 @@ define hidden ptr @lexbor_str_check_size(ptr nocapture noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 -2, %3
   %8 = icmp ugt i64 %6, %7
@@ -210,7 +210,7 @@ define hidden ptr @lexbor_str_append(ptr nocapture noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append_before(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 -2, %3
   %8 = icmp ugt i64 %6, %7
@@ -261,7 +261,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append_one(ptr nocapture noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, -3
   br i1 %6, label %27, label %7
@@ -308,7 +308,7 @@ define hidden ptr @lexbor_str_append_one(ptr nocapture noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append_lowercase(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 -2, %3
   %8 = icmp ugt i64 %6, %7
@@ -345,7 +345,7 @@ define hidden ptr @lexbor_str_append_lowercase(ptr nocapture noundef %0, ptr nou
   %22 = getelementptr inbounds i8, ptr %2, i64 %.02630
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %21, i64 %.02630
   store i8 %26, ptr %27, align 1
@@ -368,7 +368,7 @@ define hidden ptr @lexbor_str_append_lowercase(ptr nocapture noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 -2, %3
   %8 = icmp ugt i64 %6, %7
@@ -412,7 +412,7 @@ define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr nocapture noundef %
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %26
   store i8 0, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %33, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %.not = icmp eq ptr %29, %19
   br i1 %.not, label %.critedge, label %30
 
@@ -547,12 +547,12 @@ define hidden ptr @lexbor_str_copy(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   %13 = tail call ptr @lexbor_mraw_alloc(ptr noundef %2, i64 noundef %12) #15
   store ptr %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %lexbor_str_append.exit, label %lexbor_str_init.exit
@@ -570,9 +570,9 @@ lexbor_str_init.exit._crit_edge:                  ; preds = %lexbor_str_init.exi
 16:                                               ; preds = %lexbor_str_init.exit._crit_edge, %6
   %.val.i = phi ptr [ %.pr, %lexbor_str_init.exit._crit_edge ], [ %7, %6 ]
   %17 = phi ptr [ %.pre, %lexbor_str_init.exit._crit_edge ], [ %4, %6 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = sub i64 -2, %19
   %23 = icmp ugt i64 %21, %22
@@ -617,7 +617,7 @@ lexbor_str_append.exit:                           ; preds = %9, %33, %29, %16, %
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lexbor_str_stay_only_whitespace(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -659,7 +659,7 @@ define hidden void @lexbor_str_stay_only_whitespace(ptr nocapture noundef %0) lo
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lexbor_str_strip_collapse_whitespace(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %._crit_edge.thread, label %6
@@ -757,7 +757,7 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr nocapture noundef %
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -803,7 +803,7 @@ define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr nocapture noundef %
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @lexbor_str_whitespace_from_begin(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -832,7 +832,7 @@ define hidden i64 @lexbor_str_whitespace_from_begin(ptr nocapture noundef readon
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @lexbor_str_whitespace_from_end(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %.not24 = icmp eq i64 %3, 0
@@ -878,12 +878,12 @@ define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef readonly %0, ptr n
 
 7:                                                ; preds = %.lr.ph
   %8 = zext i8 %5 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds i8, ptr %1, i64 %.018
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %10, %15
   br i1 %.not, label %16, label %.loopexit
@@ -920,12 +920,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr nocapture nou
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 %6
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %.not7 = icmp eq i8 %11, %16
   br i1 %.not7, label %4, label %17
@@ -958,12 +958,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr nocapture
   %9 = getelementptr inbounds i8, ptr %6, i64 %.08.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = getelementptr inbounds i8, ptr %2, i64 %.08.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %13, %18
   br i1 %.not.i, label %7, label %lexbor_str_data_ncasecmp.exit
@@ -989,12 +989,12 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp(ptr nocapture noundef
   %5 = getelementptr inbounds i8, ptr %0, i64 %.08
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds i8, ptr %1, i64 %.08
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %9, %14
   %15 = add nuw i64 %.08, 1
@@ -1019,7 +1019,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nlocmp_right(ptr nocapture nou
   %7 = getelementptr inbounds i8, ptr %1, i64 %.08
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %6, %11
   %12 = add nuw i64 %.08, 1
@@ -1044,7 +1044,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr nocapture nou
   %7 = getelementptr inbounds i8, ptr %1, i64 %.08
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %6, %11
   %12 = add nuw i64 %.08, 1
@@ -1061,11 +1061,11 @@ define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr nocapture nou
 define hidden zeroext i1 @lexbor_str_data_casecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not9 = icmp eq i8 %6, %10
   %11 = icmp ne i8 %3, 0
@@ -1075,15 +1075,15 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.012 = phi ptr [ %13, %.lr.ph ], [ %1, %2 ]
   %.0611 = phi ptr [ %12, %.lr.ph ], [ %0, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.0611, i64 1
-  %13 = getelementptr inbounds i8, ptr %.012, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0611, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %14 = load i8, ptr %12, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = load i8, ptr %13, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %17, %21
   %22 = icmp ne i8 %14, 0
@@ -1159,8 +1159,8 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr nocapture noundef readonly %0,
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.013 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
   %.0612 = phi ptr [ %6, %.lr.ph ], [ %0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.0612, i64 1
-  %7 = getelementptr inbounds i8, ptr %.013, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.0612, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.013, i64 1
   %8 = load i8, ptr %6, align 1
   %9 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, %9
@@ -1188,8 +1188,8 @@ define hidden noundef zeroext i1 @lexbor_str_data_cmp_ws(ptr nocapture noundef r
   br i1 %6, label %switch.hole_check, label %7
 
 7:                                                ; preds = %switch.hole_check, %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01115, i64 1
-  %9 = getelementptr inbounds i8, ptr %.016, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01115, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %10 = load i8, ptr %8, align 1
   %11 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, %11
@@ -1217,7 +1217,7 @@ define hidden void @lexbor_str_data_to_lowercase(ptr nocapture noundef writeonly
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1
@@ -1239,7 +1239,7 @@ define hidden void @lexbor_str_data_to_uppercase(ptr nocapture noundef writeonly
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1
@@ -1264,7 +1264,7 @@ define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly %0, i64 n
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %7, %10
   br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3
@@ -1292,7 +1292,7 @@ define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef readonly %0, i64 n
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %7, %10
   br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3
@@ -1353,7 +1353,7 @@ lexbor_str_realloc.exit.i:                        ; preds = %5
 
 9:                                                ; preds = %lexbor_str_realloc.exit.i, %3
   %10 = phi ptr [ %7, %lexbor_str_realloc.exit.i ], [ %.val.i, %3 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 %2
   store i8 0, ptr %12, align 1

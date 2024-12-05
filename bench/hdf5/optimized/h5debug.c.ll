@@ -172,7 +172,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br label %.thread357
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 37) #12
   %.not = icmp eq ptr %31, null
@@ -252,7 +252,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br label %.loopexit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 @strtoll(ptr nocapture noundef %73, ptr noundef null, i32 noundef 0) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -272,15 +272,15 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 .lr.ph.preheader:                                 ; preds = %75, %78
   %.1 = phi i32 [ 10, %78 ], [ %76, %75 ]
   %81 = zext nneg i32 %.1 to i64
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0244365 = phi i64 [ %85, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %.0244365
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %.0244365
   %82 = load ptr, ptr %gep, align 8
   %83 = call i64 @strtoll(ptr nocapture noundef %82, ptr noundef null, i32 noundef 0) #10
-  %84 = getelementptr inbounds [10 x i64], ptr %3, i64 0, i64 %.0244365
+  %84 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %.0244365
   store i64 %83, ptr %84, align 8
   %85 = add nuw nsw i64 %.0244365, 1
   %exitcond.not = icmp eq i64 %85, %81
@@ -361,7 +361,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not296, label %120, label %181
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %4, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %122 = load i8, ptr %121, align 1
   switch i8 %122, label %177 [
     i8 0, label %123
@@ -425,10 +425,10 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 .lr.ph368:                                        ; preds = %.preheader364, %.lr.ph368
   %.1245367 = phi i64 [ %157, %.lr.ph368 ], [ 0, %.preheader364 ]
   %157 = add nuw nsw i64 %.1245367, 1
-  %158 = getelementptr inbounds [10 x i64], ptr %3, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [10 x i64], ptr %3, i64 0, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds [33 x i32], ptr %7, i64 0, i64 %.1245367
+  %161 = getelementptr inbounds nuw [33 x i32], ptr %7, i64 0, i64 %.1245367
   store i32 %160, ptr %161, align 4
   %exitcond375.not = icmp eq i64 %157, %149
   br i1 %exitcond375.not, label %.lr.ph370, label %.lr.ph368
@@ -440,7 +440,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 
 .lr.ph370:                                        ; preds = %.lr.ph368, %162
   %.2369 = phi i64 [ %163, %162 ], [ 0, %.lr.ph368 ]
-  %164 = getelementptr inbounds [33 x i32], ptr %7, i64 0, i64 %.2369
+  %164 = getelementptr inbounds nuw [33 x i32], ptr %7, i64 0, i64 %.2369
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %162
@@ -455,7 +455,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br label %515
 
 ._crit_edge:                                      ; preds = %162, %.preheader364
-  %174 = getelementptr inbounds [33 x i32], ptr %7, i64 0, i64 %149
+  %174 = getelementptr inbounds nuw [33 x i32], ptr %7, i64 0, i64 %149
   store i32 0, ptr %174, align 4
   %175 = load ptr, ptr @stdout, align 8
   %176 = call i32 @H5D_btree_debug(ptr noundef %58, i64 noundef %.0242343, ptr noundef %175, i32 noundef 0, i32 noundef 50, i32 noundef %147, ptr noundef nonnull %7) #10
@@ -473,7 +473,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not298, label %182, label %198
 
 182:                                              ; preds = %181
-  %183 = getelementptr inbounds i8, ptr %4, i64 5
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val = load i8, ptr %183, align 1
   %184 = call fastcc ptr @get_H5B2_class(i8 %.val)
   %185 = icmp eq ptr %184, @H5D_BT2
@@ -505,7 +505,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not300, label %199, label %246
 
 199:                                              ; preds = %198
-  %200 = getelementptr inbounds i8, ptr %4, i64 5
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val334 = load i8, ptr %200, align 1
   %201 = call fastcc ptr @get_H5B2_class(i8 %.val334)
   %202 = icmp eq ptr %201, @H5D_BT2
@@ -515,24 +515,24 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %or.cond15, label %204, label %._crit_edge382
 
 ._crit_edge382:                                   ; preds = %199
-  %.phi.trans.insert383 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert383 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre384 = load i64, ptr %.phi.trans.insert383, align 8
-  %.phi.trans.insert385 = getelementptr inbounds i8, ptr %3, i64 16
+  %.phi.trans.insert385 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre386 = load i64, ptr %.phi.trans.insert385, align 16
   br label %224
 
 204:                                              ; preds = %199
   %205 = icmp eq i64 %.pre381, 0
   %or.cond18 = select i1 %.0243, i1 true, i1 %205
-  %206 = getelementptr inbounds i8, ptr %3, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %207 = load i64, ptr %206, align 8
   %208 = icmp eq i64 %207, 0
   %or.cond21 = select i1 %or.cond18, i1 true, i1 %208
-  %209 = getelementptr inbounds i8, ptr %3, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %210 = load i64, ptr %209, align 16
   %211 = icmp eq i64 %210, 0
   %or.cond24 = select i1 %or.cond21, i1 true, i1 %211
-  %212 = getelementptr inbounds i8, ptr %3, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %213 = load i64, ptr %212, align 8
   %214 = icmp eq i64 %213, 0
   %or.cond27 = select i1 %or.cond24, i1 true, i1 %214
@@ -575,7 +575,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   %240 = load ptr, ptr @stdout, align 8
   %241 = trunc i64 %226 to i32
   %242 = trunc i64 %225 to i32
-  %243 = getelementptr inbounds i8, ptr %3, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %244 = load i64, ptr %243, align 8
   %245 = call i32 @H5B2__int_debug(ptr noundef %58, i64 noundef %.0242343, ptr noundef %240, i32 noundef 0, i32 noundef 50, ptr noundef %201, i64 noundef %.pre381, i32 noundef %241, i32 noundef %242, i64 noundef %244) #10
   br label %508
@@ -586,7 +586,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not302, label %247, label %284
 
 247:                                              ; preds = %246
-  %248 = getelementptr inbounds i8, ptr %4, i64 5
+  %248 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val335 = load i8, ptr %248, align 1
   %249 = call fastcc ptr @get_H5B2_class(i8 %.val335)
   %250 = icmp eq ptr %249, @H5D_BT2
@@ -596,18 +596,18 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %or.cond38, label %252, label %._crit_edge379
 
 ._crit_edge379:                                   ; preds = %247
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre380 = load i64, ptr %.phi.trans.insert, align 8
   br label %267
 
 252:                                              ; preds = %247
   %253 = icmp eq i64 %.pre378, 0
   %or.cond41 = select i1 %.0243, i1 true, i1 %253
-  %254 = getelementptr inbounds i8, ptr %3, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %255 = load i64, ptr %254, align 8
   %256 = icmp eq i64 %255, 0
   %or.cond44 = select i1 %or.cond41, i1 true, i1 %256
-  %257 = getelementptr inbounds i8, ptr %3, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %258 = load i64, ptr %257, align 16
   %259 = icmp eq i64 %258, 0
   %or.cond47 = select i1 %or.cond44, i1 true, i1 %259
@@ -642,7 +642,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 278:                                              ; preds = %267
   %279 = load ptr, ptr @stdout, align 8
   %280 = trunc i64 %268 to i32
-  %281 = getelementptr inbounds i8, ptr %3, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %282 = load i64, ptr %281, align 16
   %283 = call i32 @H5B2__leaf_debug(ptr noundef %58, i64 noundef %.0242343, ptr noundef %279, i32 noundef 0, i32 noundef 50, ptr noundef %249, i64 noundef %.pre378, i32 noundef %280, i64 noundef %282) #10
   br label %508
@@ -666,7 +666,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   %290 = load i64, ptr %3, align 16
   %291 = icmp eq i64 %290, 0
   %or.cond56 = select i1 %.0243, i1 true, i1 %291
-  %292 = getelementptr inbounds i8, ptr %3, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %293 = load i64, ptr %292, align 8
   %294 = icmp eq i64 %293, 0
   %or.cond59 = select i1 %or.cond56, i1 true, i1 %294
@@ -695,7 +695,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   %307 = load i64, ptr %3, align 16
   %308 = icmp eq i64 %307, 0
   %or.cond62 = select i1 %.0243, i1 true, i1 %308
-  %309 = getelementptr inbounds i8, ptr %3, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %310 = load i64, ptr %309, align 8
   %311 = icmp eq i64 %310, 0
   %or.cond65 = select i1 %or.cond62, i1 true, i1 %311
@@ -735,7 +735,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   %329 = load i64, ptr %3, align 16
   %330 = icmp eq i64 %329, 0
   %or.cond68 = select i1 %.0243, i1 true, i1 %330
-  %331 = getelementptr inbounds i8, ptr %3, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %332 = load i64, ptr %331, align 8
   %333 = icmp eq i64 %332, 0
   %or.cond71 = select i1 %or.cond68, i1 true, i1 %333
@@ -796,7 +796,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not318, label %363, label %378
 
 363:                                              ; preds = %362
-  %364 = getelementptr inbounds i8, ptr %4, i64 5
+  %364 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val336 = load i8, ptr %364, align 1
   %365 = call fastcc ptr @get_H5EA_class(i8 %.val336)
   %366 = load i64, ptr %3, align 16
@@ -824,13 +824,13 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not320, label %379, label %397
 
 379:                                              ; preds = %378
-  %380 = getelementptr inbounds i8, ptr %4, i64 5
+  %380 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val337 = load i8, ptr %380, align 1
   %381 = call fastcc ptr @get_H5EA_class(i8 %.val337)
   %382 = load i64, ptr %3, align 16
   %383 = icmp eq i64 %382, 0
   %or.cond80 = select i1 %.0243, i1 true, i1 %383
-  %384 = getelementptr inbounds i8, ptr %3, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %385 = load i64, ptr %384, align 8
   %386 = icmp eq i64 %385, 0
   %or.cond83 = select i1 %or.cond80, i1 true, i1 %386
@@ -856,17 +856,17 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not322, label %398, label %420
 
 398:                                              ; preds = %397
-  %399 = getelementptr inbounds i8, ptr %4, i64 5
+  %399 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val338 = load i8, ptr %399, align 1
   %400 = call fastcc ptr @get_H5EA_class(i8 %.val338)
   %401 = load i64, ptr %3, align 16
   %402 = icmp eq i64 %401, 0
   %or.cond86 = select i1 %.0243, i1 true, i1 %402
-  %403 = getelementptr inbounds i8, ptr %3, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %404 = load i64, ptr %403, align 8
   %405 = icmp eq i64 %404, 0
   %or.cond89 = select i1 %or.cond86, i1 true, i1 %405
-  %406 = getelementptr inbounds i8, ptr %3, i64 16
+  %406 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %407 = load i64, ptr %406, align 16
   %408 = icmp eq i64 %407, 0
   %or.cond92 = select i1 %or.cond89, i1 true, i1 %408
@@ -893,17 +893,17 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not324, label %421, label %442
 
 421:                                              ; preds = %420
-  %422 = getelementptr inbounds i8, ptr %4, i64 5
+  %422 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val339 = load i8, ptr %422, align 1
   %423 = call fastcc ptr @get_H5EA_class(i8 %.val339)
   %424 = load i64, ptr %3, align 16
   %425 = icmp eq i64 %424, 0
   %or.cond95 = select i1 %.0243, i1 true, i1 %425
-  %426 = getelementptr inbounds i8, ptr %3, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %427 = load i64, ptr %426, align 8
   %428 = icmp eq i64 %427, 0
   %or.cond98 = select i1 %or.cond95, i1 true, i1 %428
-  %429 = getelementptr inbounds i8, ptr %3, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %430 = load i64, ptr %429, align 16
   %431 = icmp eq i64 %430, 0
   %or.cond101 = select i1 %or.cond98, i1 true, i1 %431
@@ -929,7 +929,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not326, label %443, label %458
 
 443:                                              ; preds = %442
-  %444 = getelementptr inbounds i8, ptr %4, i64 5
+  %444 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val340 = load i8, ptr %444, align 1
   %445 = call fastcc ptr @get_H5FA_class(i8 %.val340)
   %446 = load i64, ptr %3, align 16
@@ -957,13 +957,13 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
   br i1 %.not328, label %459, label %477
 
 459:                                              ; preds = %458
-  %460 = getelementptr inbounds i8, ptr %4, i64 5
+  %460 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %.val341 = load i8, ptr %460, align 1
   %461 = call fastcc ptr @get_H5FA_class(i8 %.val341)
   %462 = load i64, ptr %3, align 16
   %463 = icmp eq i64 %462, 0
   %or.cond107 = select i1 %.0243, i1 true, i1 %463
-  %464 = getelementptr inbounds i8, ptr %3, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %465 = load i64, ptr %464, align 8
   %466 = icmp eq i64 %465, 0
   %or.cond110 = select i1 %or.cond107, i1 true, i1 %466
@@ -1009,7 +1009,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 
 489:                                              ; preds = %487, %502
   %.3366 = phi i64 [ 0, %487 ], [ %503, %502 ]
-  %490 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %.3366
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %.3366
   %491 = load i8, ptr %490, align 1
   %492 = zext i8 %491 to i32
   %493 = add i8 %491, -127
@@ -1155,7 +1155,7 @@ define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.get_H5B2_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.get_H5B2_class, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1197,7 +1197,7 @@ define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5EA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_H5EA_class, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1227,7 +1227,7 @@ define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.get_H5FA_class, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.get_H5FA_class, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

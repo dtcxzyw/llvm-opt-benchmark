@@ -39,9 +39,9 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   %7 = alloca %"class.gmx::ArrayRef", align 8
   %8 = alloca %"class.gmx::ArrayRef", align 8
   %9 = load i32, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #9
   %.not = icmp eq ptr %14, null
@@ -56,9 +56,9 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   br i1 %.not102, label %.critedge108, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.01.0.copyload.i = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8
   %23 = icmp eq ptr %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
   br i1 %23, label %.critedge107, label %24
@@ -84,25 +84,25 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   br i1 %33, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %19
   br i1 %37, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %19
   br i1 %41, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit273, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %19
   br i1 %45, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit275, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 16
   %48 = add nsw i64 %.052.i.i.i, -1
   %49 = icmp sgt i64 %.052.i.i.i, 1
   br i1 %49, label %31, label %._crit_edge.loopexit.i.i.i, !llvm.loop !5
@@ -128,7 +128,7 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   br i1 %53, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.lcssa.i.i.i, i64 4
   br label %._crit_edge._crit_edge.i.i.i
 
 ._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %54
@@ -138,7 +138,7 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   br i1 %57, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit, label %58
 
 58:                                               ; preds = %._crit_edge._crit_edge.i.i.i
-  %59 = getelementptr inbounds i8, ptr %.sroa.034.1.i.i.i, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i.i.i, i64 4
   br label %._crit_edge._crit_edge57.i.i.i
 
 ._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i, %58
@@ -149,15 +149,15 @@ define noundef i32 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr nou
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit: ; preds = %34
-  %62 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 4
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit273: ; preds = %38
-  %63 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit275: ; preds = %42
-  %64 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i, i64 12
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %31, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit273, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit.loopexit.split.loop.exit275, %51, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
@@ -185,7 +185,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %31, %_ZSt4fin
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %79
   %indvars.iv230 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next231, %79 ]
-  %73 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %indvars.iv230, i32 7
+  %73 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %indvars.iv230, i32 7
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, %71
   br i1 %75, label %76, label %79
@@ -289,7 +289,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   %.pre-phi = phi i64 [ %.pre, %99 ], [ %.pre, %.critedge2 ], [ %87, %88 ]
   %107 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre-phi, i32 7
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %2, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %110 = load ptr, ptr %109, align 8
   %111 = sext i32 %.0165247 to i64
   %112 = getelementptr inbounds %struct.t_resinfo, ptr %110, i64 %111
@@ -299,12 +299,12 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br label %.loopexit
 
 115:                                              ; preds = %6
-  %116 = getelementptr inbounds i8, ptr %0, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %117 = sext i32 %1 to i64
   %118 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %117, i32 7
   %119 = load i32, ptr %118, align 4
   %.sroa.01.0.copyload.i116 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i117 = load ptr, ptr %120, align 8
   %121 = icmp eq ptr %.sroa.01.0.copyload.i116, %.sroa.0.0.copyload.i117
   br i1 %121, label %.critedge110, label %122
@@ -330,25 +330,25 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br i1 %131, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141, label %132
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, %119
   br i1 %135, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 8
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, %119
   br i1 %139, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit265, label %140
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 12
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, %119
   br i1 %143, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit267, label %144
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 16
   %146 = add nsw i64 %.052.i.i.i133, -1
   %147 = icmp sgt i64 %.052.i.i.i133, 1
   br i1 %147, label %129, label %._crit_edge.loopexit.i.i.i135, !llvm.loop !5
@@ -374,7 +374,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br i1 %151, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %.sroa.034.0.lcssa.i.i.i122, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.lcssa.i.i.i122, i64 4
   br label %._crit_edge._crit_edge.i.i.i128
 
 ._crit_edge._crit_edge.i.i.i128:                  ; preds = %._crit_edge.i.i.i120, %152
@@ -384,7 +384,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br i1 %155, label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141, label %156
 
 156:                                              ; preds = %._crit_edge._crit_edge.i.i.i128
-  %157 = getelementptr inbounds i8, ptr %.sroa.034.1.i.i.i130, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i.i.i130, i64 4
   br label %._crit_edge._crit_edge57.i.i.i123
 
 ._crit_edge._crit_edge57.i.i.i123:                ; preds = %._crit_edge.i.i.i120, %156
@@ -395,15 +395,15 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %79, %69, %76
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit: ; preds = %132
-  %160 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 4
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit265: ; preds = %136
-  %161 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 8
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit267: ; preds = %140
-  %162 = getelementptr inbounds i8, ptr %.sroa.034.051.i.i.i134, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.034.051.i.i.i134, i64 12
   br label %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141
 
 _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141: ; preds = %129, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit265, %_ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141.loopexit.split.loop.exit267, %149, %._crit_edge._crit_edge.i.i.i128, %._crit_edge._crit_edge57.i.i.i123
@@ -419,7 +419,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141: ; preds = %129, %_ZSt
   br i1 %.not105, label %167, label %.critedge110
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i127, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i127, i64 4
   %169 = load i32, ptr %168, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %170 = icmp sgt i32 %9, 0
@@ -431,7 +431,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit141: ; preds = %129, %_ZSt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %177
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %177 ]
-  %171 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %indvars.iv, i32 7
+  %171 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %indvars.iv, i32 7
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, %169
   br i1 %173, label %174, label %177
@@ -459,7 +459,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit146:    ; preds = %177, %167, %174
 .lr.ph188:                                        ; preds = %.critedge110, %183
   %.2187 = phi i32 [ %184, %183 ], [ %1, %.critedge110 ]
   %179 = zext nneg i32 %.2187 to i64
-  %180 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %179, i32 7
+  %180 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %179, i32 7
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, %119
   br i1 %182, label %183, label %.critedge6
@@ -487,13 +487,13 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit146:    ; preds = %177, %167, %174
   br i1 %191, label %192, label %.critedge8
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %189, i32 7
+  %193 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %189, i32 7
   %194 = load i32, ptr %193, align 4
   %195 = icmp eq i32 %194, %.1166
   br i1 %195, label %196, label %.critedge8
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds ptr, ptr %13, i64 %189
+  %197 = getelementptr inbounds nuw ptr, ptr %13, i64 %189
   %198 = load ptr, ptr %197, align 8
   %199 = load ptr, ptr %198, align 8
   %200 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %116, ptr noundef %199)
@@ -505,9 +505,9 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit146:    ; preds = %177, %167, %174
   br i1 %202, label %203, label %.loopexit
 
 203:                                              ; preds = %.critedge8
-  %204 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %187, i32 7
+  %204 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %187, i32 7
   %205 = load i32, ptr %204, align 4
-  %206 = getelementptr inbounds i8, ptr %2, i64 48
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %207 = load ptr, ptr %206, align 8
   %208 = sext i32 %.1166 to i64
   %209 = getelementptr inbounds %struct.t_resinfo, ptr %207, i64 %208
@@ -540,14 +540,14 @@ define noundef i32 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef %0, i32 no
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %12 = getelementptr inbounds %struct.t_atom, ptr %10, i64 %indvars.iv, i32 7
+  %12 = getelementptr inbounds nuw %struct.t_atom, ptr %10, i64 %indvars.iv, i32 7
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %15, label %18
@@ -643,7 +643,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #10
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %14 unwind label %18
@@ -651,7 +651,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 14:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %16 unwind label %20
 
@@ -702,7 +702,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

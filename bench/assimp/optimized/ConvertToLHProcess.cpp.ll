@@ -59,45 +59,45 @@ entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str)
-  %mRootNode = getelementptr inbounds i8, ptr %pScene, i64 8
+  %mRootNode = getelementptr inbounds nuw i8, ptr %pScene, i64 8
   %0 = load ptr, ptr %mRootNode, align 8
   store float 1.000000e+00, ptr %ref.tmp, align 4
-  %a2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %b2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %a2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
+  %b2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %a2.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i, align 4
-  %b3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %c3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %b3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %c3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %b3.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i, align 4
-  %c4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
-  %d4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
+  %c4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 44
+  %d4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i, align 4
   call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp)
-  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %cmp26.not = icmp eq i32 %1, 0
   br i1 %cmp26.not, label %for.cond3.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   br label %for.body
 
 for.cond3.preheader:                              ; preds = %for.body, %entry
-  %mNumMaterials = getelementptr inbounds i8, ptr %pScene, i64 32
+  %mNumMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 32
   %2 = load i32, ptr %mNumMaterials, align 8
   %cmp428.not = icmp eq i32 %2, 0
   br i1 %cmp428.not, label %for.cond12.preheader, label %for.body5.lr.ph
 
 for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
-  %mMaterials = getelementptr inbounds i8, ptr %pScene, i64 40
+  %mMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 40
   br label %for.body5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull align 8 poison, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -107,25 +107,25 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.cond3.preheader, !llvm.loop !4
 
 for.cond12.preheader:                             ; preds = %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit, %for.cond3.preheader
-  %mNumAnimations = getelementptr inbounds i8, ptr %pScene, i64 48
+  %mNumAnimations = getelementptr inbounds nuw i8, ptr %pScene, i64 48
   %7 = load i32, ptr %mNumAnimations, align 8
   %cmp1332.not = icmp eq i32 %7, 0
   br i1 %cmp1332.not, label %for.cond29.preheader, label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
-  %mAnimations = getelementptr inbounds i8, ptr %pScene, i64 56
+  %mAnimations = getelementptr inbounds nuw i8, ptr %pScene, i64 56
   br label %for.body14
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit
   %indvars.iv37 = phi i64 [ 0, %for.body5.lr.ph ], [ %indvars.iv.next38, %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit ]
   %8 = load ptr, ptr %mMaterials, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv37
+  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv37
   %9 = load ptr, ptr %arrayidx7, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.body5
-  %mNumProperties.i = getelementptr inbounds i8, ptr %9, i64 8
+  %mNumProperties.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i32, ptr %mNumProperties.i, align 8
   %cmp26.not.i = icmp eq i32 %10, 0
   br i1 %cmp26.not.i, label %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit, label %for.body.i
@@ -139,17 +139,17 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %11 = phi i32 [ %16, %for.inc.i ], [ %10, %for.cond.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %12 = load ptr, ptr %9, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %13, i64 4
+  %data.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i, ptr noundef nonnull dereferenceable(13) @.str.4) #15
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then4.i, label %for.inc.i
 
 if.then4.i:                                       ; preds = %for.body.i
-  %mData.i = getelementptr inbounds i8, ptr %13, i64 1048
+  %mData.i = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %14 = load ptr, ptr %mData.i, align 8
-  %z.i = getelementptr inbounds i8, ptr %14, i64 8
+  %z.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load float, ptr %z.i, align 4
   %mul.i = fneg float %15
   store float %mul.i, ptr %z.i, align 4
@@ -171,58 +171,58 @@ _ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit: ; preds =
   br i1 %cmp4, label %for.body5, label %for.cond12.preheader, !llvm.loop !7
 
 for.cond29.preheader:                             ; preds = %for.inc25, %for.cond12.preheader
-  %mNumCameras = getelementptr inbounds i8, ptr %pScene, i64 96
+  %mNumCameras = getelementptr inbounds nuw i8, ptr %pScene, i64 96
   %20 = load i32, ptr %mNumCameras, align 8
   %cmp3034.not = icmp eq i32 %20, 0
   br i1 %cmp3034.not, label %for.end36, label %for.body31.lr.ph
 
 for.body31.lr.ph:                                 ; preds = %for.cond29.preheader
-  %mCameras = getelementptr inbounds i8, ptr %pScene, i64 104
+  %mCameras = getelementptr inbounds nuw i8, ptr %pScene, i64 104
   br label %for.body31
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc25
   %21 = phi i32 [ %7, %for.body14.lr.ph ], [ %41, %for.inc25 ]
   %indvars.iv43 = phi i64 [ 0, %for.body14.lr.ph ], [ %indvars.iv.next44, %for.inc25 ]
   %22 = load ptr, ptr %mAnimations, align 8
-  %arrayidx16 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv43
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv43
   %23 = load ptr, ptr %arrayidx16, align 8
-  %mNumChannels = getelementptr inbounds i8, ptr %23, i64 1048
+  %mNumChannels = getelementptr inbounds nuw i8, ptr %23, i64 1048
   %24 = load i32, ptr %mNumChannels, align 8
   %cmp1830.not = icmp eq i32 %24, 0
   br i1 %cmp1830.not, label %for.inc25, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %for.body14
-  %mChannels = getelementptr inbounds i8, ptr %23, i64 1056
+  %mChannels = getelementptr inbounds nuw i8, ptr %23, i64 1056
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit
   %indvars.iv40 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next41, %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit ]
   %25 = load ptr, ptr %mChannels, align 8
-  %arrayidx21 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv40
+  %arrayidx21 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv40
   %26 = load ptr, ptr %arrayidx21, align 8
-  %mNumPositionKeys.i = getelementptr inbounds i8, ptr %26, i64 1028
+  %mNumPositionKeys.i = getelementptr inbounds nuw i8, ptr %26, i64 1028
   %27 = load i32, ptr %mNumPositionKeys.i, align 4
   %cmp10.not.i = icmp eq i32 %27, 0
   br i1 %cmp10.not.i, label %for.cond3.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body19
-  %mPositionKeys.i = getelementptr inbounds i8, ptr %26, i64 1032
+  %mPositionKeys.i = getelementptr inbounds nuw i8, ptr %26, i64 1032
   br label %for.body.i20
 
 for.cond3.preheader.i:                            ; preds = %for.body.i20, %for.body19
-  %mNumRotationKeys.i = getelementptr inbounds i8, ptr %26, i64 1040
+  %mNumRotationKeys.i = getelementptr inbounds nuw i8, ptr %26, i64 1040
   %28 = load i32, ptr %mNumRotationKeys.i, align 8
   %cmp412.not.i = icmp eq i32 %28, 0
   br i1 %cmp412.not.i, label %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit, label %for.body5.lr.ph.i
 
 for.body5.lr.ph.i:                                ; preds = %for.cond3.preheader.i
-  %mRotationKeys.i = getelementptr inbounds i8, ptr %26, i64 1048
+  %mRotationKeys.i = getelementptr inbounds nuw i8, ptr %26, i64 1048
   br label %for.body5.i
 
 for.body.i20:                                     ; preds = %for.body.i20, %for.body.lr.ph.i
   %indvars.iv.i21 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i24, %for.body.i20 ]
   %29 = load ptr, ptr %mPositionKeys.i, align 8
-  %z.i22 = getelementptr inbounds %struct.aiVectorKey, ptr %29, i64 %indvars.iv.i21, i32 1, i32 2
+  %z.i22 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %29, i64 %indvars.iv.i21, i32 1, i32 2
   %30 = load float, ptr %z.i22, align 8
   %mul.i23 = fneg float %30
   store float %mul.i23, ptr %z.i22, align 8
@@ -235,12 +235,12 @@ for.body.i20:                                     ; preds = %for.body.i20, %for.
 for.body5.i:                                      ; preds = %for.body5.i, %for.body5.lr.ph.i
   %indvars.iv15.i = phi i64 [ 0, %for.body5.lr.ph.i ], [ %indvars.iv.next16.i, %for.body5.i ]
   %33 = load ptr, ptr %mRotationKeys.i, align 8
-  %x.i = getelementptr inbounds %struct.aiQuatKey, ptr %33, i64 %indvars.iv15.i, i32 1, i32 1
+  %x.i = getelementptr inbounds nuw %struct.aiQuatKey, ptr %33, i64 %indvars.iv15.i, i32 1, i32 1
   %34 = load float, ptr %x.i, align 4
   %mul9.i = fneg float %34
   store float %mul9.i, ptr %x.i, align 4
   %35 = load ptr, ptr %mRotationKeys.i, align 8
-  %y.i = getelementptr inbounds %struct.aiQuatKey, ptr %35, i64 %indvars.iv15.i, i32 1, i32 2
+  %y.i = getelementptr inbounds nuw %struct.aiQuatKey, ptr %35, i64 %indvars.iv15.i, i32 1, i32 2
   %36 = load float, ptr %y.i, align 8
   %mul14.i = fneg float %36
   store float %mul14.i, ptr %y.i, align 8
@@ -271,24 +271,24 @@ for.inc25:                                        ; preds = %for.inc25.loopexit,
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.body31
   %indvars.iv46 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next47, %for.body31 ]
   %43 = load ptr, ptr %mCameras, align 8
-  %arrayidx33 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv46
+  %arrayidx33 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv46
   %44 = load ptr, ptr %arrayidx33, align 8
-  %mPosition.i = getelementptr inbounds i8, ptr %44, i64 1028
+  %mPosition.i = getelementptr inbounds nuw i8, ptr %44, i64 1028
   %45 = load float, ptr %mPosition.i, align 4
   %mul.i.i = fmul float %45, 2.000000e+00
-  %y.i.i = getelementptr inbounds i8, ptr %44, i64 1032
+  %y.i.i = getelementptr inbounds nuw i8, ptr %44, i64 1032
   %46 = load float, ptr %y.i.i, align 4
   %mul1.i.i = fmul float %46, 2.000000e+00
-  %z.i.i = getelementptr inbounds i8, ptr %44, i64 1036
+  %z.i.i = getelementptr inbounds nuw i8, ptr %44, i64 1036
   %47 = load float, ptr %z.i.i, align 4
   %mul2.i.i = fmul float %47, 2.000000e+00
-  %mLookAt.i = getelementptr inbounds i8, ptr %44, i64 1052
+  %mLookAt.i = getelementptr inbounds nuw i8, ptr %44, i64 1052
   %48 = load float, ptr %mLookAt.i, align 4
   %sub.i.i = fsub float %mul.i.i, %48
-  %y2.i.i = getelementptr inbounds i8, ptr %44, i64 1056
+  %y2.i.i = getelementptr inbounds nuw i8, ptr %44, i64 1056
   %49 = load float, ptr %y2.i.i, align 4
   %sub3.i.i = fsub float %mul1.i.i, %49
-  %z4.i.i = getelementptr inbounds i8, ptr %44, i64 1060
+  %z4.i.i = getelementptr inbounds nuw i8, ptr %44, i64 1060
   %50 = load float, ptr %z4.i.i, align 4
   %sub5.i.i = fsub float %mul2.i.i, %50
   %retval.sroa.0.0.vec.insert.i5.i = insertelement <2 x float> poison, float %sub.i.i, i64 0
@@ -315,70 +315,70 @@ declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %pNode, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %pParentGlobalRotation) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
-  %mTransformation = getelementptr inbounds i8, ptr %pNode, i64 1028
-  %c1 = getelementptr inbounds i8, ptr %pNode, i64 1060
+  %mTransformation = getelementptr inbounds nuw i8, ptr %pNode, i64 1028
+  %c1 = getelementptr inbounds nuw i8, ptr %pNode, i64 1060
   %0 = load float, ptr %c1, align 4
   %fneg = fneg float %0
   store float %fneg, ptr %c1, align 4
-  %c2 = getelementptr inbounds i8, ptr %pNode, i64 1064
+  %c2 = getelementptr inbounds nuw i8, ptr %pNode, i64 1064
   %1 = load float, ptr %c2, align 4
   %fneg5 = fneg float %1
   store float %fneg5, ptr %c2, align 4
-  %c3 = getelementptr inbounds i8, ptr %pNode, i64 1068
+  %c3 = getelementptr inbounds nuw i8, ptr %pNode, i64 1068
   %2 = load float, ptr %c3, align 4
-  %c4 = getelementptr inbounds i8, ptr %pNode, i64 1072
+  %c4 = getelementptr inbounds nuw i8, ptr %pNode, i64 1072
   %3 = load float, ptr %c4, align 4
   %fneg13 = fneg float %3
   store float %fneg13, ptr %c4, align 4
-  %a3 = getelementptr inbounds i8, ptr %pNode, i64 1036
+  %a3 = getelementptr inbounds nuw i8, ptr %pNode, i64 1036
   %4 = load float, ptr %a3, align 4
   %fneg17 = fneg float %4
   store float %fneg17, ptr %a3, align 4
-  %b3 = getelementptr inbounds i8, ptr %pNode, i64 1052
+  %b3 = getelementptr inbounds nuw i8, ptr %pNode, i64 1052
   %5 = load float, ptr %b3, align 4
   %fneg21 = fneg float %5
   store float %fneg21, ptr %b3, align 4
   store float %2, ptr %c3, align 4
-  %d3 = getelementptr inbounds i8, ptr %pNode, i64 1084
+  %d3 = getelementptr inbounds nuw i8, ptr %pNode, i64 1084
   %6 = load float, ptr %d3, align 4
   %fneg30 = fneg float %6
   store float %fneg30, ptr %d3, align 4
-  %mNumChildren = getelementptr inbounds i8, ptr %pNode, i64 1104
+  %mNumChildren = getelementptr inbounds nuw i8, ptr %pNode, i64 1104
   %7 = load i32, ptr %mNumChildren, align 8
   %cmp22.not = icmp eq i32 %7, 0
   br i1 %cmp22.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mChildren = getelementptr inbounds i8, ptr %pNode, i64 1112
-  %b1.i = getelementptr inbounds i8, ptr %pNode, i64 1044
-  %a2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %a3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %d1.i = getelementptr inbounds i8, ptr %pNode, i64 1076
-  %a4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  %a24.i = getelementptr inbounds i8, ptr %pNode, i64 1032
-  %b2.i = getelementptr inbounds i8, ptr %pNode, i64 1048
-  %d2.i = getelementptr inbounds i8, ptr %pNode, i64 1080
-  %a416.i = getelementptr inbounds i8, ptr %pNode, i64 1040
-  %b4.i = getelementptr inbounds i8, ptr %pNode, i64 1056
-  %d4.i = getelementptr inbounds i8, ptr %pNode, i64 1088
-  %b123.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %b225.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %b328.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %b430.i = getelementptr inbounds i8, ptr %ref.tmp, i64 28
-  %c159.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %c261.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
-  %c364.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %c466.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
-  %d195.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  %d297.i = getelementptr inbounds i8, ptr %ref.tmp, i64 52
-  %d3100.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  %d4102.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
+  %mChildren = getelementptr inbounds nuw i8, ptr %pNode, i64 1112
+  %b1.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1044
+  %a2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
+  %a3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %d1.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1076
+  %a4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
+  %a24.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1032
+  %b2.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1048
+  %d2.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1080
+  %a416.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1040
+  %b4.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1056
+  %d4.i = getelementptr inbounds nuw i8, ptr %pNode, i64 1088
+  %b123.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %b225.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 20
+  %b328.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %b430.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 28
+  %c159.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  %c261.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
+  %c364.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
+  %c466.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 44
+  %d195.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 48
+  %d297.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 52
+  %d3100.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 56
+  %d4102.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 60
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %a.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %8 = load ptr, ptr %mChildren, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %a.023
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %8, i64 %a.023
   %9 = load ptr, ptr %arrayidx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %pParentGlobalRotation, i64 64, i1 false)
   %10 = load float, ptr %mTransformation, align 4
@@ -511,16 +511,16 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumVertices = getelementptr inbounds i8, ptr %pMesh, i64 4
+  %mNumVertices = getelementptr inbounds nuw i8, ptr %pMesh, i64 4
   %0 = load i32, ptr %mNumVertices, align 4
   %cmp269.not = icmp eq i32 %0, 0
   br i1 %cmp269.not, label %for.cond18.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mVertices = getelementptr inbounds i8, ptr %pMesh, i64 16
-  %mNormals.i = getelementptr inbounds i8, ptr %pMesh, i64 24
-  %mTangents.i = getelementptr inbounds i8, ptr %pMesh, i64 32
-  %mBitangents.i = getelementptr inbounds i8, ptr %pMesh, i64 40
+  %mVertices = getelementptr inbounds nuw i8, ptr %pMesh, i64 16
+  %mNormals.i = getelementptr inbounds nuw i8, ptr %pMesh, i64 24
+  %mTangents.i = getelementptr inbounds nuw i8, ptr %pMesh, i64 32
+  %mBitangents.i = getelementptr inbounds nuw i8, ptr %pMesh, i64 40
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -529,20 +529,20 @@ if.then:                                          ; preds = %entry
   br label %if.end113
 
 for.cond18.preheader:                             ; preds = %for.inc, %for.cond.preheader
-  %mNumAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1264
+  %mNumAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1264
   %1 = load i32, ptr %mNumAnimMeshes, align 8
   %cmp2077.not = icmp eq i32 %1, 0
   br i1 %cmp2077.not, label %for.cond70.preheader, label %for.cond23.preheader.lr.ph
 
 for.cond23.preheader.lr.ph:                       ; preds = %for.cond18.preheader
-  %mAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1272
+  %mAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1272
   %.pre86 = load ptr, ptr %mAnimMeshes, align 8
   br label %for.cond23.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %a.070 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %2 = load ptr, ptr %mVertices, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %2, i64 %a.070, i32 2
+  %z = getelementptr inbounds nuw %class.aiVector3t, ptr %2, i64 %a.070, i32 2
   %3 = load float, ptr %z, align 4
   %mul = fneg float %3
   store float %mul, ptr %z, align 4
@@ -554,7 +554,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %6, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %for.body
-  %z6 = getelementptr inbounds %class.aiVector3t, ptr %4, i64 %a.070, i32 2
+  %z6 = getelementptr inbounds nuw %class.aiVector3t, ptr %4, i64 %a.070, i32 2
   %7 = load float, ptr %z6, align 4
   %mul7 = fneg float %7
   store float %mul7, ptr %z6, align 4
@@ -575,12 +575,12 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %if.end8
   br i1 %cmp3.i.not, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
-  %z12 = getelementptr inbounds %class.aiVector3t, ptr %8, i64 %a.070, i32 2
+  %z12 = getelementptr inbounds nuw %class.aiVector3t, ptr %8, i64 %a.070, i32 2
   %10 = load float, ptr %z12, align 4
   %mul13 = fneg float %10
   store float %mul13, ptr %z12, align 4
   %11 = load ptr, ptr %mBitangents.i, align 8
-  %z15 = getelementptr inbounds %class.aiVector3t, ptr %11, i64 %a.070, i32 2
+  %z15 = getelementptr inbounds nuw %class.aiVector3t, ptr %11, i64 %a.070, i32 2
   %12 = load float, ptr %z15, align 4
   %mul16 = fneg float %12
   store float %mul16, ptr %z15, align 4
@@ -598,74 +598,74 @@ for.cond23.preheader:                             ; preds = %for.cond23.preheade
   %14 = phi i32 [ %1, %for.cond23.preheader.lr.ph ], [ %37, %for.inc66 ]
   %15 = phi ptr [ %.pre86, %for.cond23.preheader.lr.ph ], [ %38, %for.inc66 ]
   %m.078 = phi i64 [ 0, %for.cond23.preheader.lr.ph ], [ %inc67, %for.inc66 ]
-  %arrayidx2471 = getelementptr inbounds ptr, ptr %15, i64 %m.078
+  %arrayidx2471 = getelementptr inbounds nuw ptr, ptr %15, i64 %m.078
   %16 = load ptr, ptr %arrayidx2471, align 8
-  %mNumVertices2572 = getelementptr inbounds i8, ptr %16, i64 1192
+  %mNumVertices2572 = getelementptr inbounds nuw i8, ptr %16, i64 1192
   %17 = load i32, ptr %mNumVertices2572, align 8
   %cmp2774.not = icmp eq i32 %17, 0
   br i1 %cmp2774.not, label %for.inc66, label %for.body28
 
 for.cond70.preheader:                             ; preds = %for.inc66, %for.cond18.preheader
-  %mNumBones = getelementptr inbounds i8, ptr %pMesh, i64 216
+  %mNumBones = getelementptr inbounds nuw i8, ptr %pMesh, i64 216
   %18 = load i32, ptr %mNumBones, align 8
   %cmp7280.not = icmp eq i32 %18, 0
   br i1 %cmp7280.not, label %for.end99, label %for.body73.lr.ph
 
 for.body73.lr.ph:                                 ; preds = %for.cond70.preheader
-  %mBones = getelementptr inbounds i8, ptr %pMesh, i64 224
+  %mBones = getelementptr inbounds nuw i8, ptr %pMesh, i64 224
   br label %for.body73
 
 for.body28:                                       ; preds = %for.cond23.preheader, %for.inc63
   %19 = phi ptr [ %34, %for.inc63 ], [ %16, %for.cond23.preheader ]
   %a22.075 = phi i64 [ %inc64, %for.inc63 ], [ 0, %for.cond23.preheader ]
-  %mVertices31 = getelementptr inbounds i8, ptr %19, i64 1032
+  %mVertices31 = getelementptr inbounds nuw i8, ptr %19, i64 1032
   %20 = load ptr, ptr %mVertices31, align 8
-  %z33 = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %a22.075, i32 2
+  %z33 = getelementptr inbounds nuw %class.aiVector3t, ptr %20, i64 %a22.075, i32 2
   %21 = load float, ptr %z33, align 4
   %mul34 = fneg float %21
   store float %mul34, ptr %z33, align 4
   %22 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %22, i64 %m.078
+  %arrayidx36 = getelementptr inbounds nuw ptr, ptr %22, i64 %m.078
   %23 = load ptr, ptr %arrayidx36, align 8
-  %mNormals.i56 = getelementptr inbounds i8, ptr %23, i64 1040
+  %mNormals.i56 = getelementptr inbounds nuw i8, ptr %23, i64 1040
   %24 = load ptr, ptr %mNormals.i56, align 8
   %cmp.i.not = icmp eq ptr %24, null
   br i1 %cmp.i.not, label %if.end45, label %if.then38
 
 if.then38:                                        ; preds = %for.body28
-  %z43 = getelementptr inbounds %class.aiVector3t, ptr %24, i64 %a22.075, i32 2
+  %z43 = getelementptr inbounds nuw %class.aiVector3t, ptr %24, i64 %a22.075, i32 2
   %25 = load float, ptr %z43, align 4
   %mul44 = fneg float %25
   store float %mul44, ptr %z43, align 4
   %.pre87 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx47.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre87, i64 %m.078
+  %arrayidx47.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre87, i64 %m.078
   %.pre88 = load ptr, ptr %arrayidx47.phi.trans.insert, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then38, %for.body28
   %26 = phi ptr [ %.pre88, %if.then38 ], [ %23, %for.body28 ]
   %27 = phi ptr [ %.pre87, %if.then38 ], [ %22, %for.body28 ]
-  %mTangents.i57 = getelementptr inbounds i8, ptr %26, i64 1048
+  %mTangents.i57 = getelementptr inbounds nuw i8, ptr %26, i64 1048
   %28 = load ptr, ptr %mTangents.i57, align 8
   %cmp.i58.not = icmp eq ptr %28, null
   br i1 %cmp.i58.not, label %for.inc63, label %if.then49
 
 if.then49:                                        ; preds = %if.end45
-  %z54 = getelementptr inbounds %class.aiVector3t, ptr %28, i64 %a22.075, i32 2
+  %z54 = getelementptr inbounds nuw %class.aiVector3t, ptr %28, i64 %a22.075, i32 2
   %29 = load float, ptr %z54, align 4
   %mul55 = fneg float %29
   store float %mul55, ptr %z54, align 4
   %30 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx57 = getelementptr inbounds ptr, ptr %30, i64 %m.078
+  %arrayidx57 = getelementptr inbounds nuw ptr, ptr %30, i64 %m.078
   %31 = load ptr, ptr %arrayidx57, align 8
-  %mBitangents58 = getelementptr inbounds i8, ptr %31, i64 1056
+  %mBitangents58 = getelementptr inbounds nuw i8, ptr %31, i64 1056
   %32 = load ptr, ptr %mBitangents58, align 8
-  %z60 = getelementptr inbounds %class.aiVector3t, ptr %32, i64 %a22.075, i32 2
+  %z60 = getelementptr inbounds nuw %class.aiVector3t, ptr %32, i64 %a22.075, i32 2
   %33 = load float, ptr %z60, align 4
   %mul61 = fneg float %33
   store float %mul61, ptr %z60, align 4
   %.pre89 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx24.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre89, i64 %m.078
+  %arrayidx24.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre89, i64 %m.078
   %.pre90 = load ptr, ptr %arrayidx24.phi.trans.insert, align 8
   br label %for.inc63
 
@@ -673,7 +673,7 @@ for.inc63:                                        ; preds = %if.end45, %if.then4
   %34 = phi ptr [ %26, %if.end45 ], [ %.pre90, %if.then49 ]
   %35 = phi ptr [ %27, %if.end45 ], [ %.pre89, %if.then49 ]
   %inc64 = add nuw nsw i64 %a22.075, 1
-  %mNumVertices25 = getelementptr inbounds i8, ptr %34, i64 1192
+  %mNumVertices25 = getelementptr inbounds nuw i8, ptr %34, i64 1192
   %36 = load i32, ptr %mNumVertices25, align 8
   %conv26 = zext i32 %36 to i64
   %cmp27 = icmp samesign ult i64 %inc64, %conv26
@@ -694,29 +694,29 @@ for.inc66:                                        ; preds = %for.inc66.loopexit,
 for.body73:                                       ; preds = %for.body73.lr.ph, %for.body73
   %a69.081 = phi i64 [ 0, %for.body73.lr.ph ], [ %inc98, %for.body73 ]
   %39 = load ptr, ptr %mBones, align 8
-  %arrayidx74 = getelementptr inbounds ptr, ptr %39, i64 %a69.081
+  %arrayidx74 = getelementptr inbounds nuw ptr, ptr %39, i64 %a69.081
   %40 = load ptr, ptr %arrayidx74, align 8
-  %a3 = getelementptr inbounds i8, ptr %40, i64 1064
+  %a3 = getelementptr inbounds nuw i8, ptr %40, i64 1064
   %41 = load float, ptr %a3, align 8
   %fneg = fneg float %41
   store float %fneg, ptr %a3, align 8
-  %b3 = getelementptr inbounds i8, ptr %40, i64 1080
+  %b3 = getelementptr inbounds nuw i8, ptr %40, i64 1080
   %42 = load float, ptr %b3, align 8
   %fneg78 = fneg float %42
   store float %fneg78, ptr %b3, align 8
-  %d3 = getelementptr inbounds i8, ptr %40, i64 1112
+  %d3 = getelementptr inbounds nuw i8, ptr %40, i64 1112
   %43 = load float, ptr %d3, align 8
   %fneg82 = fneg float %43
   store float %fneg82, ptr %d3, align 8
-  %c1 = getelementptr inbounds i8, ptr %40, i64 1088
+  %c1 = getelementptr inbounds nuw i8, ptr %40, i64 1088
   %44 = load float, ptr %c1, align 8
   %fneg86 = fneg float %44
   store float %fneg86, ptr %c1, align 8
-  %c2 = getelementptr inbounds i8, ptr %40, i64 1092
+  %c2 = getelementptr inbounds nuw i8, ptr %40, i64 1092
   %45 = load float, ptr %c2, align 4
   %fneg90 = fneg float %45
   store float %fneg90, ptr %c2, align 4
-  %c4 = getelementptr inbounds i8, ptr %40, i64 1100
+  %c4 = getelementptr inbounds nuw i8, ptr %40, i64 1100
   %46 = load float, ptr %c4, align 4
   %fneg94 = fneg float %46
   store float %fneg94, ptr %c4, align 4
@@ -727,10 +727,10 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   br i1 %cmp72, label %for.body73, label %for.end99, !llvm.loop !17
 
 for.end99:                                        ; preds = %for.body73, %for.cond70.preheader
-  %mTangents.i59 = getelementptr inbounds i8, ptr %pMesh, i64 32
+  %mTangents.i59 = getelementptr inbounds nuw i8, ptr %pMesh, i64 32
   %48 = load ptr, ptr %mTangents.i59, align 8
   %cmp.not.i60 = icmp eq ptr %48, null
-  %mBitangents.i61 = getelementptr inbounds i8, ptr %pMesh, i64 40
+  %mBitangents.i61 = getelementptr inbounds nuw i8, ptr %pMesh, i64 40
   %49 = load ptr, ptr %mBitangents.i61, align 8
   %cmp2.not.i62 = icmp eq ptr %49, null
   %or.cond.i63 = select i1 %cmp.not.i60, i1 true, i1 %cmp2.not.i62
@@ -744,15 +744,15 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit67:   ; preds = %for.end99
 for.body106:                                      ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit67, %for.body106
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body106 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit67 ]
   %51 = load ptr, ptr %mBitangents.i61, align 8
-  %arrayidx108 = getelementptr inbounds %class.aiVector3t, ptr %51, i64 %indvars.iv
+  %arrayidx108 = getelementptr inbounds nuw %class.aiVector3t, ptr %51, i64 %indvars.iv
   %52 = load float, ptr %arrayidx108, align 4
   %mul.i = fneg float %52
   store float %mul.i, ptr %arrayidx108, align 4
-  %y.i = getelementptr inbounds i8, ptr %arrayidx108, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %arrayidx108, i64 4
   %53 = load float, ptr %y.i, align 4
   %mul2.i = fneg float %53
   store float %mul2.i, ptr %y.i, align 4
-  %z.i = getelementptr inbounds i8, ptr %arrayidx108, i64 8
+  %z.i = getelementptr inbounds nuw i8, ptr %arrayidx108, i64 8
   %54 = load float, ptr %z.i, align 4
   %mul3.i = fneg float %54
   store float %mul3.i, ptr %z.i, align 4
@@ -773,7 +773,7 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumProperties = getelementptr inbounds i8, ptr %_mat, i64 8
+  %mNumProperties = getelementptr inbounds nuw i8, ptr %_mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp26.not = icmp eq i32 %0, 0
   br i1 %cmp26.not, label %for.end, label %for.body
@@ -787,17 +787,17 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = phi i32 [ %6, %for.inc ], [ %0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %_mat, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 4
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 4
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(13) @.str.4) #15
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %for.body
-  %mData = getelementptr inbounds i8, ptr %3, i64 1048
+  %mData = getelementptr inbounds nuw i8, ptr %3, i64 1048
   %4 = load ptr, ptr %mData, align 8
-  %z = getelementptr inbounds i8, ptr %4, i64 8
+  %z = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load float, ptr %z, align 4
   %mul = fneg float %5
   store float %mul, ptr %z, align 4
@@ -818,29 +818,29 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %pAnim) local_unnamed_addr #5 align 2 {
 entry:
-  %mNumPositionKeys = getelementptr inbounds i8, ptr %pAnim, i64 1028
+  %mNumPositionKeys = getelementptr inbounds nuw i8, ptr %pAnim, i64 1028
   %0 = load i32, ptr %mNumPositionKeys, align 4
   %cmp10.not = icmp eq i32 %0, 0
   br i1 %cmp10.not, label %for.cond3.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mPositionKeys = getelementptr inbounds i8, ptr %pAnim, i64 1032
+  %mPositionKeys = getelementptr inbounds nuw i8, ptr %pAnim, i64 1032
   br label %for.body
 
 for.cond3.preheader:                              ; preds = %for.body, %entry
-  %mNumRotationKeys = getelementptr inbounds i8, ptr %pAnim, i64 1040
+  %mNumRotationKeys = getelementptr inbounds nuw i8, ptr %pAnim, i64 1040
   %1 = load i32, ptr %mNumRotationKeys, align 8
   %cmp412.not = icmp eq i32 %1, 0
   br i1 %cmp412.not, label %for.end17, label %for.body5.lr.ph
 
 for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
-  %mRotationKeys = getelementptr inbounds i8, ptr %pAnim, i64 1048
+  %mRotationKeys = getelementptr inbounds nuw i8, ptr %pAnim, i64 1048
   br label %for.body5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %2 = load ptr, ptr %mPositionKeys, align 8
-  %z = getelementptr inbounds %struct.aiVectorKey, ptr %2, i64 %indvars.iv, i32 1, i32 2
+  %z = getelementptr inbounds nuw %struct.aiVectorKey, ptr %2, i64 %indvars.iv, i32 1, i32 2
   %3 = load float, ptr %z, align 8
   %mul = fneg float %3
   store float %mul, ptr %z, align 8
@@ -853,12 +853,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.body5
   %indvars.iv15 = phi i64 [ 0, %for.body5.lr.ph ], [ %indvars.iv.next16, %for.body5 ]
   %6 = load ptr, ptr %mRotationKeys, align 8
-  %x = getelementptr inbounds %struct.aiQuatKey, ptr %6, i64 %indvars.iv15, i32 1, i32 1
+  %x = getelementptr inbounds nuw %struct.aiQuatKey, ptr %6, i64 %indvars.iv15, i32 1, i32 1
   %7 = load float, ptr %x, align 4
   %mul9 = fneg float %7
   store float %mul9, ptr %x, align 4
   %8 = load ptr, ptr %mRotationKeys, align 8
-  %y = getelementptr inbounds %struct.aiQuatKey, ptr %8, i64 %indvars.iv15, i32 1, i32 2
+  %y = getelementptr inbounds nuw %struct.aiQuatKey, ptr %8, i64 %indvars.iv15, i32 1, i32 2
   %9 = load float, ptr %y, align 8
   %mul14 = fneg float %9
   store float %mul14, ptr %y, align 8
@@ -875,22 +875,22 @@ for.end17:                                        ; preds = %for.body5, %for.con
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %pCam) local_unnamed_addr #6 align 2 {
 entry:
-  %mPosition = getelementptr inbounds i8, ptr %pCam, i64 1028
+  %mPosition = getelementptr inbounds nuw i8, ptr %pCam, i64 1028
   %0 = load float, ptr %mPosition, align 4
   %mul.i = fmul float %0, 2.000000e+00
-  %y.i = getelementptr inbounds i8, ptr %pCam, i64 1032
+  %y.i = getelementptr inbounds nuw i8, ptr %pCam, i64 1032
   %1 = load float, ptr %y.i, align 4
   %mul1.i = fmul float %1, 2.000000e+00
-  %z.i = getelementptr inbounds i8, ptr %pCam, i64 1036
+  %z.i = getelementptr inbounds nuw i8, ptr %pCam, i64 1036
   %2 = load float, ptr %z.i, align 4
   %mul2.i = fmul float %2, 2.000000e+00
-  %mLookAt = getelementptr inbounds i8, ptr %pCam, i64 1052
+  %mLookAt = getelementptr inbounds nuw i8, ptr %pCam, i64 1052
   %3 = load float, ptr %mLookAt, align 4
   %sub.i = fsub float %mul.i, %3
-  %y2.i = getelementptr inbounds i8, ptr %pCam, i64 1056
+  %y2.i = getelementptr inbounds nuw i8, ptr %pCam, i64 1056
   %4 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %mul1.i, %4
-  %z4.i = getelementptr inbounds i8, ptr %pCam, i64 1060
+  %z4.i = getelementptr inbounds nuw i8, ptr %pCam, i64 1060
   %5 = load float, ptr %z4.i, align 4
   %sub5.i = fsub float %mul2.i, %5
   %retval.sroa.0.0.vec.insert.i5 = insertelement <2 x float> poison, float %sub.i, i64 0
@@ -953,43 +953,43 @@ define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr nocapture n
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.5)
-  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp13.not = icmp eq i32 %0, 0
   br i1 %cmp13.not, label %for.cond3.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   br label %for.body
 
 for.cond3.preheader:                              ; preds = %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit, %entry
-  %mNumMaterials = getelementptr inbounds i8, ptr %pScene, i64 32
+  %mNumMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 32
   %1 = load i32, ptr %mNumMaterials, align 8
   %cmp415.not = icmp eq i32 %1, 0
   br i1 %cmp415.not, label %for.end10, label %for.body5.lr.ph
 
 for.body5.lr.ph:                                  ; preds = %for.cond3.preheader
-  %mMaterials = getelementptr inbounds i8, ptr %pScene, i64 40
+  %mMaterials = getelementptr inbounds nuw i8, ptr %pScene, i64 40
   br label %for.body5
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit ]
   %2 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %for.body
-  %mTextureCoords.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
-  %mNumVertices.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
+  %mTextureCoords.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %mNumVertices.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.pre.i.i = load i32, ptr %mNumVertices.i.i.i, align 4
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i.i:         ; preds = %for.inc15.i.i, %for.cond.preheader.i.i
   %4 = phi i32 [ %.pre.i.i, %for.cond.preheader.i.i ], [ %9, %for.inc15.i.i ]
   %indvars.iv16.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next17.i.i, %for.inc15.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i.i.i, i64 0, i64 %indvars.iv16.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i.i.i, i64 0, i64 %indvars.iv16.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   %cmp2.not.i.i.i = icmp ne ptr %5, null
   %cmp3.i.i.i = icmp ne i32 %4, 0
@@ -999,7 +999,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i.i:         ; preds = %for.inc15.i.i, %for
 for.body6.i.i:                                    ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, %for.body6.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body6.i.i ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i ]
   %7 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %y.i.i = getelementptr inbounds %class.aiVector3t, ptr %7, i64 %indvars.iv.i.i, i32 1
+  %y.i.i = getelementptr inbounds nuw %class.aiVector3t, ptr %7, i64 %indvars.iv.i.i, i32 1
   %8 = load float, ptr %y.i.i, align 4
   %sub.i.i = fsub float 1.000000e+00, %8
   store float %sub.i.i, ptr %y.i.i, align 4
@@ -1015,32 +1015,32 @@ for.inc15.i.i:                                    ; preds = %for.body6.i.i
   br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, !llvm.loop !20
 
 _ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i:   ; preds = %for.inc15.i.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, %for.body
-  %mNumAnimMeshes.i = getelementptr inbounds i8, ptr %3, i64 1264
+  %mNumAnimMeshes.i = getelementptr inbounds nuw i8, ptr %3, i64 1264
   %11 = load i32, ptr %mNumAnimMeshes.i, align 8
   %cmp19.not.i = icmp eq i32 %11, 0
   br i1 %cmp19.not.i, label %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i
-  %mAnimMeshes.i = getelementptr inbounds i8, ptr %3, i64 1272
+  %mAnimMeshes.i = getelementptr inbounds nuw i8, ptr %3, i64 1272
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i, %for.body.lr.ph.i
   %12 = phi i32 [ %11, %for.body.lr.ph.i ], [ %21, %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i ]
   %13 = load ptr, ptr %mAnimMeshes.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i5.i = icmp eq ptr %14, null
   br i1 %cmp.i5.i, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i, label %for.cond.preheader.i6.i
 
 for.cond.preheader.i6.i:                          ; preds = %for.body.i
-  %mTextureCoords.i.i7.i = getelementptr inbounds i8, ptr %14, i64 1128
-  %mNumVertices.i.i = getelementptr inbounds i8, ptr %14, i64 1192
+  %mTextureCoords.i.i7.i = getelementptr inbounds nuw i8, ptr %14, i64 1128
+  %mNumVertices.i.i = getelementptr inbounds nuw i8, ptr %14, i64 1192
   br label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i
 
 _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i:    ; preds = %for.inc15.i16.i, %for.cond.preheader.i6.i
   %indvars.iv16.i8.i = phi i64 [ 0, %for.cond.preheader.i6.i ], [ %indvars.iv.next17.i17.i, %for.inc15.i16.i ]
-  %arrayidx.i.i9.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i.i7.i, i64 0, i64 %indvars.iv16.i8.i
+  %arrayidx.i.i9.i = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i.i7.i, i64 0, i64 %indvars.iv16.i8.i
   %15 = load ptr, ptr %arrayidx.i.i9.i, align 8
   %cmp2.i.not.i.i = icmp eq ptr %15, null
   br i1 %cmp2.i.not.i.i, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit.i, label %for.cond4.preheader.i.i
@@ -1053,7 +1053,7 @@ for.cond4.preheader.i.i:                          ; preds = %_ZNK10aiAnimMesh16H
 for.body6.i10.i:                                  ; preds = %for.cond4.preheader.i.i, %for.body6.i10.i
   %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i14.i, %for.body6.i10.i ], [ 0, %for.cond4.preheader.i.i ]
   %17 = load ptr, ptr %arrayidx.i.i9.i, align 8
-  %y.i12.i = getelementptr inbounds %class.aiVector3t, ptr %17, i64 %indvars.iv.i11.i, i32 1
+  %y.i12.i = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %indvars.iv.i11.i, i32 1
   %18 = load float, ptr %y.i12.i, align 4
   %sub.i13.i = fsub float 1.000000e+00, %18
   store float %sub.i13.i, ptr %y.i12.i, align 4
@@ -1090,9 +1090,9 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %_
   %25 = phi i32 [ %1, %for.body5.lr.ph ], [ %36, %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit ]
   %indvars.iv18 = phi i64 [ 0, %for.body5.lr.ph ], [ %indvars.iv.next19, %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit ]
   %26 = load ptr, ptr %mMaterials, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv18
+  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv18
   %27 = load ptr, ptr %arrayidx7, align 8
-  %mNumProperties.i = getelementptr inbounds i8, ptr %27, i64 8
+  %mNumProperties.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load i32, ptr %mNumProperties.i, align 8
   %cmp7.not.i = icmp eq i32 %28, 0
   br i1 %cmp7.not.i, label %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit, label %for.body.i8
@@ -1100,7 +1100,7 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %_
 for.body.i8:                                      ; preds = %for.body5, %for.inc.i
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i11, %for.inc.i ], [ 0, %for.body5 ]
   %29 = load ptr, ptr %27, align 8
-  %arrayidx.i10 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i9
+  %arrayidx.i10 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i9
   %30 = load ptr, ptr %arrayidx.i10, align 8
   %tobool.not.i = icmp eq ptr %30, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -1111,19 +1111,19 @@ if.then.i:                                        ; preds = %for.body.i8
   br label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i8
-  %data.i = getelementptr inbounds i8, ptr %30, i64 4
+  %data.i = getelementptr inbounds nuw i8, ptr %30, i64 4
   %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data.i, ptr noundef nonnull dereferenceable(13) @.str.8) #15
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %for.inc.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %mData.i = getelementptr inbounds i8, ptr %30, i64 1048
+  %mData.i = getelementptr inbounds nuw i8, ptr %30, i64 1048
   %31 = load ptr, ptr %mData.i, align 8
-  %y.i = getelementptr inbounds i8, ptr %31, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   %32 = load float, ptr %y.i, align 4
   %mul.i = fneg float %32
   store float %mul.i, ptr %y.i, align 4
-  %mRotation.i = getelementptr inbounds i8, ptr %31, i64 16
+  %mRotation.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load float, ptr %mRotation.i, align 4
   %mul5.i = fneg float %33
   store float %mul5.i, ptr %mRotation.i, align 4
@@ -1160,15 +1160,15 @@ entry:
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %mTextureCoords.i.i = getelementptr inbounds i8, ptr %pMesh, i64 112
-  %mNumVertices.i.i = getelementptr inbounds i8, ptr %pMesh, i64 4
+  %mTextureCoords.i.i = getelementptr inbounds nuw i8, ptr %pMesh, i64 112
+  %mNumVertices.i.i = getelementptr inbounds nuw i8, ptr %pMesh, i64 4
   %.pre.i = load i32, ptr %mNumVertices.i.i, align 4
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %for.inc15.i, %for.cond.preheader.i
   %0 = phi i32 [ %.pre.i, %for.cond.preheader.i ], [ %5, %for.inc15.i ]
   %indvars.iv16.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next17.i, %for.inc15.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i.i, i64 0, i64 %indvars.iv16.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i.i, i64 0, i64 %indvars.iv16.i
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.not.i.i = icmp ne ptr %1, null
   %cmp3.i.i = icmp ne i32 %0, 0
@@ -1178,7 +1178,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %for.inc15.i, %for.c
 for.body6.i:                                      ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %for.body6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body6.i ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i ]
   %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %3, i64 %indvars.iv.i, i32 1
+  %y.i = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv.i, i32 1
   %4 = load float, ptr %y.i, align 4
   %sub.i = fsub float 1.000000e+00, %4
   store float %sub.i, ptr %y.i, align 4
@@ -1194,32 +1194,32 @@ for.inc15.i:                                      ; preds = %for.body6.i
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, !llvm.loop !20
 
 _ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit:     ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %for.inc15.i, %entry
-  %mNumAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1264
+  %mNumAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1264
   %7 = load i32, ptr %mNumAnimMeshes, align 8
   %cmp19.not = icmp eq i32 %7, 0
   br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit
-  %mAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1272
+  %mAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1272
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit
   %8 = phi i32 [ %7, %for.body.lr.ph ], [ %17, %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit ]
   %9 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx, align 8
   %cmp.i5 = icmp eq ptr %10, null
   br i1 %cmp.i5, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit, label %for.cond.preheader.i6
 
 for.cond.preheader.i6:                            ; preds = %for.body
-  %mTextureCoords.i.i7 = getelementptr inbounds i8, ptr %10, i64 1128
-  %mNumVertices.i = getelementptr inbounds i8, ptr %10, i64 1192
+  %mTextureCoords.i.i7 = getelementptr inbounds nuw i8, ptr %10, i64 1128
+  %mNumVertices.i = getelementptr inbounds nuw i8, ptr %10, i64 1192
   br label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i
 
 _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i:      ; preds = %for.inc15.i16, %for.cond.preheader.i6
   %indvars.iv16.i8 = phi i64 [ 0, %for.cond.preheader.i6 ], [ %indvars.iv.next17.i17, %for.inc15.i16 ]
-  %arrayidx.i.i9 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i.i7, i64 0, i64 %indvars.iv16.i8
+  %arrayidx.i.i9 = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i.i7, i64 0, i64 %indvars.iv16.i8
   %11 = load ptr, ptr %arrayidx.i.i9, align 8
   %cmp2.i.not.i = icmp eq ptr %11, null
   br i1 %cmp2.i.not.i, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit, label %for.cond4.preheader.i
@@ -1232,7 +1232,7 @@ for.cond4.preheader.i:                            ; preds = %_ZNK10aiAnimMesh16H
 for.body6.i10:                                    ; preds = %for.cond4.preheader.i, %for.body6.i10
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i14, %for.body6.i10 ], [ 0, %for.cond4.preheader.i ]
   %13 = load ptr, ptr %arrayidx.i.i9, align 8
-  %y.i12 = getelementptr inbounds %class.aiVector3t, ptr %13, i64 %indvars.iv.i11, i32 1
+  %y.i12 = getelementptr inbounds nuw %class.aiVector3t, ptr %13, i64 %indvars.iv.i11, i32 1
   %14 = load float, ptr %y.i12, align 4
   %sub.i13 = fsub float 1.000000e+00, %14
   store float %sub.i13, ptr %y.i12, align 4
@@ -1265,7 +1265,7 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_17f
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %_mat) local_unnamed_addr #4 align 2 {
 entry:
-  %mNumProperties = getelementptr inbounds i8, ptr %_mat, i64 8
+  %mNumProperties = getelementptr inbounds nuw i8, ptr %_mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
   %cmp7.not = icmp eq i32 %0, 0
   br i1 %cmp7.not, label %for.end, label %for.body
@@ -1273,7 +1273,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %1 = load ptr, ptr %_mat, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1284,19 +1284,19 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %data = getelementptr inbounds i8, ptr %2, i64 4
+  %data = getelementptr inbounds nuw i8, ptr %2, i64 4
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %data, ptr noundef nonnull dereferenceable(13) @.str.8) #15
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %if.end
-  %mData = getelementptr inbounds i8, ptr %2, i64 1048
+  %mData = getelementptr inbounds nuw i8, ptr %2, i64 1048
   %3 = load ptr, ptr %mData, align 8
-  %y = getelementptr inbounds i8, ptr %3, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4 = load float, ptr %y, align 4
   %mul = fneg float %4
   store float %mul, ptr %y, align 4
-  %mRotation = getelementptr inbounds i8, ptr %3, i64 16
+  %mRotation = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load float, ptr %mRotation, align 4
   %mul5 = fneg float %5
   store float %mul5, ptr %mRotation, align 4
@@ -1328,19 +1328,19 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr no
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.9)
-  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 16
   %0 = load i32, ptr %mNumMeshes, align 8
   %cmp4.not = icmp eq i32 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   tail call void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1364,48 +1364,48 @@ entry:
   %__tmp.i70 = alloca %class.aiVector3t, align 4
   %__tmp.i68 = alloca %class.aiVector3t, align 4
   %__tmp.i = alloca %class.aiVector3t, align 4
-  %mNumFaces = getelementptr inbounds i8, ptr %pMesh, i64 8
+  %mNumFaces = getelementptr inbounds nuw i8, ptr %pMesh, i64 8
   %0 = load i32, ptr %mNumFaces, align 8
   %cmp84.not = icmp eq i32 %0, 0
   br i1 %cmp84.not, label %for.cond14.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mFaces = getelementptr inbounds i8, ptr %pMesh, i64 208
+  %mFaces = getelementptr inbounds nuw i8, ptr %pMesh, i64 208
   br label %for.body
 
 for.cond14.preheader:                             ; preds = %for.inc11, %entry
-  %mNumAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1264
+  %mNumAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1264
   %1 = load i32, ptr %mNumAnimMeshes, align 8
   %cmp15100.not = icmp eq i32 %1, 0
   br i1 %cmp15100.not, label %for.end130, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %for.cond14.preheader
-  %mAnimMeshes = getelementptr inbounds i8, ptr %pMesh, i64 1272
+  %mAnimMeshes = getelementptr inbounds nuw i8, ptr %pMesh, i64 1272
   br label %for.body16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc11
   %2 = phi i32 [ %0, %for.body.lr.ph ], [ %13, %for.inc11 ]
   %indvars.iv107 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next108, %for.inc11 ]
   %3 = load ptr, ptr %mFaces, align 8
-  %arrayidx = getelementptr inbounds %struct.aiFace, ptr %3, i64 %indvars.iv107
+  %arrayidx = getelementptr inbounds nuw %struct.aiFace, ptr %3, i64 %indvars.iv107
   %4 = load i32, ptr %arrayidx, align 8
   %cmp282.not = icmp ult i32 %4, 2
   br i1 %cmp282.not, label %for.inc11, label %for.body3.lr.ph
 
 for.body3.lr.ph:                                  ; preds = %for.body
-  %mIndices = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %mIndices = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %for.body3
   %indvars.iv = phi i64 [ 0, %for.body3.lr.ph ], [ %indvars.iv.next, %for.body3 ]
   %5 = phi i32 [ %4, %for.body3.lr.ph ], [ %11, %for.body3 ]
   %6 = load ptr, ptr %mIndices, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = xor i32 %7, -1
   %sub8 = add i32 %5, %8
   %idxprom9 = zext i32 %sub8 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %6, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw i32, ptr %6, i64 %idxprom9
   %9 = load i32, ptr %arrayidx5, align 4
   %10 = load i32, ptr %arrayidx10, align 4
   store i32 %10, ptr %arrayidx5, align 4
@@ -1431,12 +1431,12 @@ for.inc11:                                        ; preds = %for.inc11.loopexit,
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc128
   %indvars.iv141 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next142, %for.inc128 ]
   %15 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv141
+  %arrayidx18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv141
   %16 = load ptr, ptr %arrayidx18, align 8
-  %mNumVertices = getelementptr inbounds i8, ptr %16, i64 1192
+  %mNumVertices = getelementptr inbounds nuw i8, ptr %16, i64 1192
   %17 = load i32, ptr %mNumVertices, align 8
   %.fr = freeze i32 %17
-  %mVertices.i = getelementptr inbounds i8, ptr %16, i64 1032
+  %mVertices.i = getelementptr inbounds nuw i8, ptr %16, i64 1032
   %18 = load ptr, ptr %mVertices.i, align 8
   %cmp.i.not = icmp ne ptr %18, null
   %cmp2186 = icmp ne i32 %.fr, 0
@@ -1450,12 +1450,12 @@ for.body22.preheader:                             ; preds = %for.body16
 for.body22:                                       ; preds = %for.body22.preheader, %for.body22
   %indvars.iv110 = phi i64 [ 0, %for.body22.preheader ], [ %indvars.iv.next111, %for.body22 ]
   %19 = load ptr, ptr %mVertices.i, align 8
-  %arrayidx24 = getelementptr inbounds %class.aiVector3t, ptr %19, i64 %indvars.iv110
+  %arrayidx24 = getelementptr inbounds nuw %class.aiVector3t, ptr %19, i64 %indvars.iv110
   %20 = trunc nuw i64 %indvars.iv110 to i32
   %21 = xor i32 %20, -1
   %sub27 = add i32 %.fr, %21
   %idxprom28 = zext i32 %sub27 to i64
-  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %19, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw %class.aiVector3t, ptr %19, i64 %idxprom28
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx24, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx24, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx29, i64 12, i1 false)
@@ -1466,7 +1466,7 @@ for.body22:                                       ; preds = %for.body22.preheade
   br i1 %exitcond.not, label %if.end, label %for.body22, !llvm.loop !30
 
 if.end:                                           ; preds = %for.body22, %for.body16
-  %mNormals.i = getelementptr inbounds i8, ptr %16, i64 1040
+  %mNormals.i = getelementptr inbounds nuw i8, ptr %16, i64 1040
   %22 = load ptr, ptr %mNormals.i, align 8
   %cmp.i67.not = icmp ne ptr %22, null
   %or.cond102 = and i1 %cmp.i67.not, %cmp2186
@@ -1479,12 +1479,12 @@ for.body38.preheader:                             ; preds = %if.end
 for.body38:                                       ; preds = %for.body38.preheader, %for.body38
   %indvars.iv113 = phi i64 [ 0, %for.body38.preheader ], [ %indvars.iv.next114, %for.body38 ]
   %23 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx40 = getelementptr inbounds %class.aiVector3t, ptr %23, i64 %indvars.iv113
+  %arrayidx40 = getelementptr inbounds nuw %class.aiVector3t, ptr %23, i64 %indvars.iv113
   %24 = trunc nuw i64 %indvars.iv113 to i32
   %25 = xor i32 %24, -1
   %sub43 = add i32 %.fr, %25
   %idxprom44 = zext i32 %sub43 to i64
-  %arrayidx45 = getelementptr inbounds %class.aiVector3t, ptr %23, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds nuw %class.aiVector3t, ptr %23, i64 %idxprom44
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i68)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i68, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx40, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx40, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx45, i64 12, i1 false)
@@ -1495,7 +1495,7 @@ for.body38:                                       ; preds = %for.body38.preheade
   br i1 %exitcond117.not, label %if.end49, label %for.body38, !llvm.loop !31
 
 if.end49:                                         ; preds = %for.body38, %if.end
-  %mTextureCoords.i = getelementptr inbounds i8, ptr %16, i64 1128
+  %mTextureCoords.i = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %cmp5790.not = icmp eq i32 %.fr, 0
   br i1 %cmp5790.not, label %for.inc128, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader
 
@@ -1505,7 +1505,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader: ; preds = %if.end49
 
 _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader, %for.inc74.us
   %indvars.iv123 = phi i64 [ 0, %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader ], [ %indvars.iv.next124, %for.inc74.us ]
-  %arrayidx.i.us = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv123
+  %arrayidx.i.us = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv123
   %26 = load ptr, ptr %arrayidx.i.us, align 8
   %cmp2.i.not.us = icmp eq ptr %26, null
   br i1 %cmp2.i.not.us, label %for.inc74.us, label %for.body58.us
@@ -1513,12 +1513,12 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
 for.body58.us:                                    ; preds = %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us, %for.body58.us
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %for.body58.us ], [ 0, %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us ]
   %27 = load ptr, ptr %arrayidx.i.us, align 8
-  %arrayidx62.us = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %indvars.iv118
+  %arrayidx62.us = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %indvars.iv118
   %28 = trunc nuw i64 %indvars.iv118 to i32
   %29 = xor i32 %28, -1
   %sub67.us = add i32 %.fr, %29
   %idxprom68.us = zext i32 %sub67.us to i64
-  %arrayidx69.us = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %idxprom68.us
+  %arrayidx69.us = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %idxprom68.us
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i70)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i70, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx62.us, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx62.us, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx69.us, i64 12, i1 false)
@@ -1534,34 +1534,34 @@ for.inc74.us:                                     ; preds = %for.body58.us, %_ZN
   br i1 %exitcond126.not, label %for.end76, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us, !llvm.loop !33
 
 for.end76:                                        ; preds = %for.inc74.us
-  %mTangents.i = getelementptr inbounds i8, ptr %16, i64 1048
+  %mTangents.i = getelementptr inbounds nuw i8, ptr %16, i64 1048
   %30 = load ptr, ptr %mTangents.i, align 8
   %cmp.i71.not = icmp ne ptr %30, null
   %or.cond103 = and i1 %cmp.i71.not, %cmp2186
   br i1 %or.cond103, label %for.body82.lr.ph, label %if.end100
 
 for.body82.lr.ph:                                 ; preds = %for.end76
-  %mBitangents = getelementptr inbounds i8, ptr %16, i64 1056
+  %mBitangents = getelementptr inbounds nuw i8, ptr %16, i64 1056
   %wide.trip.count130 = zext i32 %.fr to i64
   br label %for.body82
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.body82
   %indvars.iv127 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next128, %for.body82 ]
   %31 = load ptr, ptr %mTangents.i, align 8
-  %arrayidx84 = getelementptr inbounds %class.aiVector3t, ptr %31, i64 %indvars.iv127
+  %arrayidx84 = getelementptr inbounds nuw %class.aiVector3t, ptr %31, i64 %indvars.iv127
   %32 = trunc nuw i64 %indvars.iv127 to i32
   %33 = xor i32 %32, -1
   %sub87 = add i32 %.fr, %33
   %idxprom88 = zext i32 %sub87 to i64
-  %arrayidx89 = getelementptr inbounds %class.aiVector3t, ptr %31, i64 %idxprom88
+  %arrayidx89 = getelementptr inbounds nuw %class.aiVector3t, ptr %31, i64 %idxprom88
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i72)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i72, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx84, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx84, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx89, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx89, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i72, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.i72)
   %34 = load ptr, ptr %mBitangents, align 8
-  %arrayidx91 = getelementptr inbounds %class.aiVector3t, ptr %34, i64 %indvars.iv127
-  %arrayidx96 = getelementptr inbounds %class.aiVector3t, ptr %34, i64 %idxprom88
+  %arrayidx91 = getelementptr inbounds nuw %class.aiVector3t, ptr %34, i64 %indvars.iv127
+  %arrayidx96 = getelementptr inbounds nuw %class.aiVector3t, ptr %34, i64 %idxprom88
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.i73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.i73, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx91, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx91, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx96, i64 12, i1 false)
@@ -1572,13 +1572,13 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   br i1 %exitcond131.not, label %if.end100, label %for.body82, !llvm.loop !34
 
 if.end100:                                        ; preds = %for.body82, %for.end76
-  %mColors.i = getelementptr inbounds i8, ptr %16, i64 1064
+  %mColors.i = getelementptr inbounds nuw i8, ptr %16, i64 1064
   %wide.trip.count135 = zext i32 %.fr to i64
   br label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us
 
 _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %if.end100, %for.inc125.us
   %indvars.iv137 = phi i64 [ 0, %if.end100 ], [ %indvars.iv.next138, %for.inc125.us ]
-  %arrayidx.i77.us = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv137
+  %arrayidx.i77.us = getelementptr inbounds nuw [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv137
   %35 = load ptr, ptr %arrayidx.i77.us, align 8
   %cmp2.i78.not.us = icmp eq ptr %35, null
   br i1 %cmp2.i78.not.us, label %for.inc125.us, label %for.body109.us
@@ -1586,12 +1586,12 @@ _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %if.end100, %for.inc
 for.body109.us:                                   ; preds = %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, %for.body109.us
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %for.body109.us ], [ 0, %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us ]
   %36 = load ptr, ptr %arrayidx.i77.us, align 8
-  %arrayidx113.us = getelementptr inbounds %class.aiColor4t, ptr %36, i64 %indvars.iv132
+  %arrayidx113.us = getelementptr inbounds nuw %class.aiColor4t, ptr %36, i64 %indvars.iv132
   %37 = trunc nuw i64 %indvars.iv132 to i32
   %38 = xor i32 %37, -1
   %sub118.us = add i32 %.fr, %38
   %idxprom119.us = zext i32 %sub118.us to i64
-  %arrayidx120.us = getelementptr inbounds %class.aiColor4t, ptr %36, i64 %idxprom119.us
+  %arrayidx120.us = getelementptr inbounds nuw %class.aiColor4t, ptr %36, i64 %idxprom119.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i80)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i80, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113.us, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx113.us, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx120.us, i64 16, i1 false)

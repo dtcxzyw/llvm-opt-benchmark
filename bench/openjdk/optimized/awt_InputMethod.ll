@@ -67,7 +67,7 @@ define hidden i64 @awt_util_nowMillisUTC() local_unnamed_addr #0 {
   %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #14
   %3 = load i64, ptr %1, align 8
   %4 = mul nsw i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sdiv i64 %6, 1000
   %8 = add nsw i64 %7, %4
@@ -92,7 +92,7 @@ define hidden signext range(i8 0, 2) i8 @awt_x11inputmethod_lookupString(ptr nou
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -109,7 +109,7 @@ define hidden signext range(i8 0, 2) i8 @awt_x11inputmethod_lookupString(ptr nou
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 808
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 808
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @x11InputMethodIDs, align 8
   %17 = tail call i64 %15(ptr noundef nonnull %6, ptr noundef %7, ptr noundef %16) #14
@@ -121,11 +121,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i44, label %22, label %getX11InputMethodData.exit
 
 22:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %23 = getelementptr inbounds i8, ptr %18, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %24, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1824
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1824
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i8 %28(ptr noundef nonnull %6) #14
   %.not.i46 = icmp eq i8 %29, 0
@@ -133,7 +133,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 30:                                               ; preds = %22
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 880
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 880
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %33(ptr noundef nonnull %6, ptr noundef %7, ptr noundef %34, i64 noundef 0) #14
@@ -150,20 +150,20 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %38, label %getX11InputMethodData.exit.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %18, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %43 = add nsw i32 %41, -1
   br label %52
 
 44:                                               ; preds = %39
   %45 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #15
-  %46 = getelementptr inbounds i8, ptr %18, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %45, ptr %46, align 8
   %47 = icmp eq ptr %45, null
   br i1 %47, label %48, label %51
@@ -181,7 +181,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
 52:                                               ; preds = %._crit_edge, %51
   %53 = phi i32 [ %43, %._crit_edge ], [ 511, %51 ]
   %54 = phi ptr [ %.pre, %._crit_edge ], [ %45, %51 ]
-  %55 = getelementptr inbounds i8, ptr %18, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %56 = call i32 @XmbLookupString(ptr noundef nonnull %37, ptr noundef %0, ptr noundef %54, i32 noundef %53, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %57 = load i32, ptr %4, align 4
   %58 = icmp eq i32 %57, -1
@@ -227,7 +227,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %.b41, label %81, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 84
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %78 = load i32, ptr %77, align 4
   %.not42 = icmp eq i32 %78, 0
   br i1 %.not42, label %81, label %79
@@ -249,7 +249,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr @currentX11InputMethodInstance, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load i64, ptr %87, align 8
   %89 = call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %86, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %84, i64 noundef %88) #14
   br label %getX11InputMethodData.exit.thread
@@ -295,19 +295,19 @@ declare i64 @JNU_CallMethodByName(ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden void @paintStatusWindow(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i32, ptr %15, align 8
   %17 = load ptr, ptr @dpy, align 8
   %18 = tail call i32 @XFillRectangle(ptr noundef %17, i64 noundef %2, ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef %12, i32 noundef %14) #14
@@ -342,7 +342,7 @@ define hidden void @paintStatusWindow(ptr noundef %0) local_unnamed_addr #2 {
   %47 = tail call i32 @XDrawLine(ptr noundef %45, i64 noundef %2, ptr noundef %6, i32 noundef 2, i32 noundef 2, i32 noundef %46, i32 noundef 2) #14
   %48 = load ptr, ptr @dpy, align 8
   %49 = tail call i32 @XDrawLine(ptr noundef %48, i64 noundef %2, ptr noundef %6, i32 noundef %30, i32 noundef 2, i32 noundef %30, i32 noundef %41) #14
-  %50 = getelementptr inbounds i8, ptr %0, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
   %52 = load ptr, ptr @dpy, align 8
@@ -352,7 +352,7 @@ define hidden void @paintStatusWindow(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %60, label %56
 
 56:                                               ; preds = %1
-  %57 = getelementptr inbounds i8, ptr %0, i64 92
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #16
   %59 = trunc i64 %58 to i32
   tail call void @XmbDrawString(ptr noundef %52, i64 noundef %2, ptr noundef nonnull %51, ptr noundef %10, i32 noundef %53, i32 noundef %55, ptr noundef nonnull %57, i32 noundef %59) #14
@@ -381,7 +381,7 @@ declare i32 @XDrawString(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32
 define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.XIMCallback, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1824
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %8, 0
@@ -389,20 +389,20 @@ define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr nound
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #14
   br label %13
 
 13:                                               ; preds = %9, %3
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @tkClass, align 8
   %18 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18) #14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i8 %21(ptr noundef nonnull %0) #14
   %.not25 = icmp eq i8 %22, 0
@@ -410,7 +410,7 @@ define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr nound
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0) #14
   br label %27
@@ -431,7 +431,7 @@ define noundef zeroext i8 @Java_sun_awt_X11_XInputMethod_openXIMNative(ptr nound
   br i1 %33, label %OpenXIMCallback.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @DestroyXIMCallback, ptr %35, align 8
   store ptr null, ptr %4, align 8
   %36 = call ptr (ptr, ...) @XSetIMValues(ptr noundef nonnull %32, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef null) #14
@@ -444,7 +444,7 @@ OpenXIMCallback.exit:                             ; preds = %30, %34
 37:                                               ; preds = %27, %OpenXIMCallback.exit
   call void (...) @awt_output_flush() #14
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 120
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef nonnull %0) #14
   %.not27 = icmp eq ptr %41, null
@@ -452,20 +452,20 @@ OpenXIMCallback.exit:                             ; preds = %30, %34
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull %0) #14
   br label %46
 
 46:                                               ; preds = %42, %37
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1128
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1128
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @tkClass, align 8
   %51 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %49(ptr noundef nonnull %0, ptr noundef %50, ptr noundef %51) #14
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1824
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
   %54 = load ptr, ptr %53, align 8
   %55 = call zeroext i8 %54(ptr noundef nonnull %0) #14
   %.not28 = icmp eq i8 %55, 0
@@ -473,7 +473,7 @@ OpenXIMCallback.exit:                             ; preds = %30, %34
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull %0) #14
   br label %60
@@ -483,7 +483,7 @@ OpenXIMCallback.exit:                             ; preds = %30, %34
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %41) #14
   br label %66
@@ -503,7 +503,7 @@ define internal void @OpenXIMCallback(ptr noundef %0, ptr nocapture readnone %1,
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @DestroyXIMCallback, ptr %8, align 8
   store ptr null, ptr %4, align 8
   %9 = call ptr (ptr, ...) @XSetIMValues(ptr noundef nonnull %5, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef null) #14
@@ -538,7 +538,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %22 = alloca ptr, align 8
   %23 = alloca %struct.XIMCallback, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1824
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1824
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i8 %26(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %27, 0
@@ -546,20 +546,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 28:                                               ; preds = %3
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %0) #14
   br label %32
 
 32:                                               ; preds = %28, %3
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1128
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1128
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @tkClass, align 8
   %37 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %35(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %37) #14
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1824
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1824
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i8 %40(ptr noundef nonnull %0) #14
   %.not79 = icmp eq i8 %41, 0
@@ -567,7 +567,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 42:                                               ; preds = %32
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %0) #14
   br label %46
@@ -580,7 +580,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
   tail call void (...) @awt_output_flush() #14
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %0) #14
   %.not81 = icmp eq ptr %51, null
@@ -588,20 +588,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0) #14
   br label %56
 
 56:                                               ; preds = %52, %47
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1128
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1128
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr @tkClass, align 8
   %61 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %59(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %61) #14
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = tail call zeroext i8 %64(ptr noundef nonnull %0) #14
   %.not82 = icmp eq i8 %65, 0
@@ -609,7 +609,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 136
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0) #14
   br label %70
@@ -619,7 +619,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef nonnull %51) #14
   br label %396
@@ -635,7 +635,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %81, ptr noundef null) #14
   tail call void (...) @awt_output_flush() #14
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 120
   %84 = load ptr, ptr %83, align 8
   %85 = tail call ptr %84(ptr noundef nonnull %0) #14
   %.not86 = icmp eq ptr %85, null
@@ -643,20 +643,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 86:                                               ; preds = %79
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 136
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %0) #14
   br label %90
 
 90:                                               ; preds = %86, %79
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1128
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1128
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr @tkClass, align 8
   %95 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %93(ptr noundef nonnull %0, ptr noundef %94, ptr noundef %95) #14
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 1824
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1824
   %98 = load ptr, ptr %97, align 8
   %99 = tail call zeroext i8 %98(ptr noundef nonnull %0) #14
   %.not87 = icmp eq i8 %99, 0
@@ -664,7 +664,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 100:                                              ; preds = %90
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull %0) #14
   br label %104
@@ -674,19 +674,19 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 105:                                              ; preds = %104
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef nonnull %0, ptr noundef nonnull %85) #14
   br label %396
 
 110:                                              ; preds = %76
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 168
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 168
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr %113(ptr noundef nonnull %0, ptr noundef %1) #14
-  %115 = getelementptr inbounds i8, ptr %77, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %77, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %77, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   %117 = load ptr, ptr @X11im, align 8
@@ -705,7 +705,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br i1 %.not27.i, label %.thread51.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = load ptr, ptr %123, align 8
   %wide.trip.count.i = zext i16 %122 to i64
   br label %129
@@ -722,7 +722,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 129:                                              ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
-  %130 = getelementptr inbounds i64, ptr %124, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv.i
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 514
   br i1 %132, label %._crit_edge.i, label %128
@@ -736,7 +736,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %.08617.i = phi i64 [ 0, %._crit_edge.i ], [ %141, %133 ]
   %.08716.i = phi i64 [ 0, %._crit_edge.i ], [ %139, %133 ]
   %.08915.i = phi i64 [ 0, %._crit_edge.i ], [ %137, %133 ]
-  %134 = getelementptr inbounds i64, ptr %124, i64 %indvars.iv33.i
+  %134 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv33.i
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, %.091.i
   %137 = or i64 %136, %.08915.i
@@ -770,14 +770,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 149:                                              ; preds = %148
   %150 = load ptr, ptr @X11im, align 8
   %151 = call ptr (ptr, ...) @XCreateIC(ptr noundef %150, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef 1032, ptr noundef null) #14
-  %152 = getelementptr inbounds i8, ptr %77, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %151, ptr %152, align 8
   %153 = call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #15
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread99, label %155
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %77, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %153, ptr %156, align 8
   br label %157
 
@@ -785,27 +785,27 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %indvars.iv38.i = phi i64 [ 0, %155 ], [ %indvars.iv.next39.i, %157 ]
   %.08525.i = phi ptr [ %153, %155 ], [ %161, %157 ]
   store ptr %114, ptr %.08525.i, align 8
-  %158 = getelementptr inbounds [7 x ptr], ptr @callback_funcs, i64 0, i64 %indvars.iv38.i
+  %158 = getelementptr inbounds nuw [7 x ptr], ptr @callback_funcs, i64 0, i64 %indvars.iv38.i
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %.08525.i, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %.08525.i, i64 8
   store ptr %159, ptr %160, align 8
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %161 = getelementptr inbounds i8, ptr %.08525.i, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %.08525.i, i64 16
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 7
   br i1 %exitcond41.not.i, label %162, label %157, !llvm.loop !10
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds i8, ptr %153, i64 16
-  %164 = getelementptr inbounds i8, ptr %153, i64 32
-  %165 = getelementptr inbounds i8, ptr %153, i64 48
+  %163 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %166 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %153, ptr noundef nonnull @.str.19, ptr noundef nonnull %163, ptr noundef nonnull @.str.20, ptr noundef nonnull %164, ptr noundef nonnull @.str.21, ptr noundef nonnull %165, ptr noundef null) #14
   %cond.i = icmp eq ptr %166, null
   br i1 %cond.i, label %344, label %167
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %153, i64 64
-  %169 = getelementptr inbounds i8, ptr %153, i64 80
-  %170 = getelementptr inbounds i8, ptr %153, i64 96
+  %168 = getelementptr inbounds nuw i8, ptr %153, i64 64
+  %169 = getelementptr inbounds nuw i8, ptr %153, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %153, i64 96
   %171 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %168, ptr noundef nonnull @.str.23, ptr noundef nonnull %169, ptr noundef nonnull @.str.24, ptr noundef nonnull %170, ptr noundef null) #14
   %172 = icmp eq ptr %171, null
   br i1 %172, label %342, label %173
@@ -832,7 +832,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   store i32 0, ptr %10, align 4
   %174 = load ptr, ptr @dpy, align 8
   %175 = call i32 @XGetGeometry(ptr noundef %174, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
-  %176 = getelementptr inbounds i8, ptr %4, i64 88
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 1, ptr %176, align 8
   %177 = load i32, ptr @awt_numScreens, align 4
   %178 = icmp sgt i32 %177, 0
@@ -840,7 +840,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 .lr.ph.i.i:                                       ; preds = %173
   %179 = load ptr, ptr @dpy, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 232
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 232
   %181 = load ptr, ptr %180, align 8
   %182 = load i64, ptr %19, align 8
   %wide.trip.count.i.i = zext nneg i32 %177 to i64
@@ -848,7 +848,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 183:                                              ; preds = %187, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %187 ]
-  %184 = getelementptr inbounds %struct.Screen, ptr %181, i64 %indvars.iv.i.i, i32 2
+  %184 = getelementptr inbounds nuw %struct.Screen, ptr %181, i64 %indvars.iv.i.i, i32 2
   %185 = load i64, ptr %184, align 8
   %186 = icmp eq i64 %185, %182
   br i1 %186, label %._crit_edge.loopexit.split.loop.exit.i.i, label %187
@@ -865,7 +865,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 ._crit_edge.i.i:                                  ; preds = %187, %._crit_edge.loopexit.split.loop.exit.i.i, %173
   %.080.i.i = phi i32 [ 0, %173 ], [ %188, %._crit_edge.loopexit.split.loop.exit.i.i ], [ 0, %187 ]
   %189 = call ptr @getDefaultConfig(i32 noundef %.080.i.i) #14
-  %190 = getelementptr inbounds i8, ptr %189, i64 96
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 96
   %191 = load ptr, ptr %190, align 8
   %192 = call i32 %191(i32 noundef 255, i32 noundef 255, i32 noundef 255, ptr noundef %189) #14
   %193 = sext i32 %192 to i64
@@ -886,15 +886,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %207 = load ptr, ptr @dpy, align 8
   %208 = load i64, ptr %5, align 8
   %209 = call i32 @XGetWindowAttributes(ptr noundef %207, i64 noundef %208, ptr noundef nonnull %8) #14
-  %210 = getelementptr inbounds i8, ptr %8, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %211 = load i32, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %7, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %213 = load i32, ptr %212, align 8
   %214 = sub nsw i32 %211, %213
   %215 = sdiv i32 %214, 2
-  %216 = getelementptr inbounds i8, ptr %8, i64 12
+  %216 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %217 = load i32, ptr %216, align 4
-  %218 = getelementptr inbounds i8, ptr %7, i64 12
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %219 = load i32, ptr %218, align 4
   %220 = add i32 %215, %219
   %221 = sub i32 %217, %220
@@ -902,10 +902,10 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %223 = load i64, ptr %19, align 8
   %224 = call i32 @XGetWindowAttributes(ptr noundef %222, i64 noundef %223, ptr noundef nonnull %8) #14
   %225 = load ptr, ptr @dpy, align 8
-  %226 = getelementptr inbounds i8, ptr %7, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %227 = load i64, ptr %226, align 8
   %228 = load i32, ptr %7, align 8
-  %229 = getelementptr inbounds i8, ptr %7, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %230 = load i32, ptr %229, align 4
   %231 = call i32 @XTranslateCoordinates(ptr noundef %225, i64 noundef range(i64 1, 0) %2, i64 noundef %227, i32 noundef %228, i32 noundef %230, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #14
   %232 = load i32, ptr %12, align 4
@@ -927,9 +927,9 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %.078.i.i = select i1 %244, i32 %245, i32 %237
   %246 = load ptr, ptr @dpy, align 8
   %247 = load i64, ptr %226, align 8
-  %248 = getelementptr inbounds i8, ptr %7, i64 20
+  %248 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %249 = load i32, ptr %248, align 4
-  %250 = getelementptr inbounds i8, ptr %189, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %251 = load ptr, ptr %250, align 8
   %252 = call i64 @XCreateWindow(ptr noundef %246, i64 noundef %247, i32 noundef %spec.select.i.i, i32 noundef %.078.i.i, i32 noundef 80, i32 noundef 22, i32 noundef 0, i32 noundef %249, i32 noundef 1, ptr noundef %251, i64 noundef 512, ptr noundef nonnull %4) #14
   %253 = load ptr, ptr @dpy, align 8
@@ -948,7 +948,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   store i64 %252, ptr %255, align 8
   %261 = load ptr, ptr @dpy, align 8
   %262 = call ptr @XCreateFontSet(ptr noundef %261, ptr noundef nonnull @.str.30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
-  %263 = getelementptr inbounds i8, ptr %255, i64 192
+  %263 = getelementptr inbounds nuw i8, ptr %255, i64 192
   store ptr %262, ptr %263, align 8
   %264 = load i32, ptr %10, align 4
   %265 = icmp sgt i32 %264, 0
@@ -960,60 +960,60 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br label %268
 
 268:                                              ; preds = %266, %260
-  %269 = getelementptr inbounds i8, ptr %255, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store i64 %2, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %255, i64 208
+  %270 = getelementptr inbounds nuw i8, ptr %255, i64 208
   store i32 0, ptr %270, align 8
   %271 = load i32, ptr %12, align 4
-  %272 = getelementptr inbounds i8, ptr %255, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store i32 %271, ptr %272, align 8
   %273 = load i32, ptr %13, align 4
-  %274 = getelementptr inbounds i8, ptr %255, i64 28
+  %274 = getelementptr inbounds nuw i8, ptr %255, i64 28
   store i32 %273, ptr %274, align 4
   %275 = load i32, ptr %212, align 8
-  %276 = getelementptr inbounds i8, ptr %255, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %255, i64 32
   store i32 %275, ptr %276, align 8
   %277 = load i32, ptr %218, align 4
-  %278 = getelementptr inbounds i8, ptr %255, i64 36
+  %278 = getelementptr inbounds nuw i8, ptr %255, i64 36
   store i32 %277, ptr %278, align 4
-  %279 = getelementptr inbounds i8, ptr %255, i64 200
+  %279 = getelementptr inbounds nuw i8, ptr %255, i64 200
   store i32 %215, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %255, i64 204
+  %280 = getelementptr inbounds nuw i8, ptr %255, i64 204
   store i32 %221, ptr %280, align 4
   %281 = load i32, ptr %16, align 4
-  %282 = getelementptr inbounds i8, ptr %255, i64 88
+  %282 = getelementptr inbounds nuw i8, ptr %255, i64 88
   store i32 %281, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %255, i64 76
+  %283 = getelementptr inbounds nuw i8, ptr %255, i64 76
   store i32 22, ptr %283, align 4
-  %284 = getelementptr inbounds i8, ptr %255, i64 72
+  %284 = getelementptr inbounds nuw i8, ptr %255, i64 72
   store i32 80, ptr %284, align 8
   %285 = load i32, ptr %216, align 4
-  %286 = getelementptr inbounds i8, ptr %255, i64 84
+  %286 = getelementptr inbounds nuw i8, ptr %255, i64 84
   store i32 %285, ptr %286, align 4
   %287 = load i32, ptr %210, align 8
-  %288 = getelementptr inbounds i8, ptr %255, i64 80
+  %288 = getelementptr inbounds nuw i8, ptr %255, i64 80
   store i32 %287, ptr %288, align 8
   %289 = load ptr, ptr @dpy, align 8
   %290 = call ptr @XCreateGC(ptr noundef %289, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
-  %291 = getelementptr inbounds i8, ptr %255, i64 40
+  %291 = getelementptr inbounds nuw i8, ptr %255, i64 40
   store ptr %290, ptr %291, align 8
   %292 = load ptr, ptr @dpy, align 8
   %293 = call i32 @XSetForeground(ptr noundef %292, ptr noundef %290, i64 noundef %199) #14
   %294 = load ptr, ptr @dpy, align 8
   %295 = call ptr @XCreateGC(ptr noundef %294, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
-  %296 = getelementptr inbounds i8, ptr %255, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %255, i64 48
   store ptr %295, ptr %296, align 8
   %297 = load ptr, ptr @dpy, align 8
   %298 = call i32 @XSetForeground(ptr noundef %297, ptr noundef %295, i64 noundef %202) #14
   %299 = load ptr, ptr @dpy, align 8
   %300 = call ptr @XCreateGC(ptr noundef %299, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
-  %301 = getelementptr inbounds i8, ptr %255, i64 64
+  %301 = getelementptr inbounds nuw i8, ptr %255, i64 64
   store ptr %300, ptr %301, align 8
   %302 = load ptr, ptr @dpy, align 8
   %303 = call i32 @XSetForeground(ptr noundef %302, ptr noundef %300, i64 noundef %196) #14
   %304 = load ptr, ptr @dpy, align 8
   %305 = call ptr @XCreateGC(ptr noundef %304, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
-  %306 = getelementptr inbounds i8, ptr %255, i64 56
+  %306 = getelementptr inbounds nuw i8, ptr %255, i64 56
   store ptr %305, ptr %306, align 8
   %307 = load ptr, ptr @dpy, align 8
   %308 = call i32 @XSetForeground(ptr noundef %307, ptr noundef %305, i64 noundef %193) #14
@@ -1041,7 +1041,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
   store ptr %255, ptr %116, align 8
   %309 = load ptr, ptr @X11im, align 8
   %310 = call ptr (ptr, ...) @XCreateIC(ptr noundef %309, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %166, ptr noundef nonnull @.str.25, ptr noundef nonnull %171, ptr noundef null) #14
-  %311 = getelementptr inbounds i8, ptr %77, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %310, ptr %311, align 8
   %312 = call i32 @XFree(ptr noundef nonnull %171) #14
   %313 = call i32 @XFree(ptr noundef nonnull %166) #14
@@ -1051,9 +1051,9 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
   %.1903.i = phi i64 [ 0, %.thread51.i ], [ %145, %148 ], [ %spec.select.i, %147 ]
   %314 = load ptr, ptr @X11im, align 8
   %315 = call ptr (ptr, ...) @XCreateIC(ptr noundef %314, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
-  %316 = getelementptr inbounds i8, ptr %77, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %77, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %315, ptr %317, align 8
   br label %318
 
@@ -1069,7 +1069,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
 
 324:                                              ; preds = %322
   store ptr %114, ptr %23, align 8
-  %325 = getelementptr inbounds i8, ptr %23, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @CommitStringCallback, ptr %325, align 8
   %326 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %320, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef null) #14
   %.not106.i = icmp eq ptr %320, %319
@@ -1092,7 +1092,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
   br i1 %.not7.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 333:                                              ; preds = %.lr.ph.i.i.i
-  %334 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   %.0.i.i.i = load ptr, ptr %334, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
@@ -1110,7 +1110,7 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
 
 339:                                              ; preds = %.loopexit.i.i
   store ptr %114, ptr %337, align 8
-  %340 = getelementptr inbounds i8, ptr %337, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store ptr %.06.i.i.i, ptr %340, align 8
   store ptr %337, ptr @x11InputMethodGRefListHead, align 8
   br label %setXICFocus.exit.i
@@ -1146,11 +1146,11 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
 347:                                              ; preds = %322
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  %348 = getelementptr inbounds i8, ptr %77, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %77, i64 8
   call void @XUnsetICFocus(ptr noundef nonnull %320) #14
   %349 = load ptr, ptr %348, align 8
   call void @XDestroyIC(ptr noundef %349) #14
-  %350 = getelementptr inbounds i8, ptr %77, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %351 = load ptr, ptr %350, align 8
   %.not15.i = icmp eq ptr %349, %351
   br i1 %.not15.i, label %destroyX11InputMethodData.exit, label %352
@@ -1172,7 +1172,7 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
 destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %354
   call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef nonnull %77)
   %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 1824
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 1824
   %357 = load ptr, ptr %356, align 8
   %358 = call zeroext i8 %357(ptr noundef nonnull %0) #14
   %.not83 = icmp eq i8 %358, 0
@@ -1181,7 +1181,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
 359:                                              ; preds = %createXIC.exit, %destroyX11InputMethodData.exit
   %.073 = phi ptr [ null, %destroyX11InputMethodData.exit ], [ %77, %createXIC.exit ]
   %360 = load ptr, ptr %0, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 880
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 880
   %362 = load ptr, ptr %361, align 8
   %363 = load ptr, ptr @x11InputMethodIDs, align 8
   %364 = ptrtoint ptr %.073 to i64
@@ -1194,7 +1194,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
   %.1 = phi i8 [ 0, %destroyX11InputMethodData.exit ], [ %366, %359 ]
   call void (...) @awt_output_flush() #14
   %368 = load ptr, ptr %0, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 120
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 120
   %370 = load ptr, ptr %369, align 8
   %371 = call ptr %370(ptr noundef nonnull %0) #14
   %.not84 = icmp eq ptr %371, null
@@ -1202,20 +1202,20 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
 
 372:                                              ; preds = %367
   %373 = load ptr, ptr %0, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 136
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 136
   %375 = load ptr, ptr %374, align 8
   call void %375(ptr noundef nonnull %0) #14
   br label %376
 
 376:                                              ; preds = %372, %367
   %377 = load ptr, ptr %0, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 1128
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 1128
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr @tkClass, align 8
   %381 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %379(ptr noundef nonnull %0, ptr noundef %380, ptr noundef %381) #14
   %382 = load ptr, ptr %0, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 1824
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 1824
   %384 = load ptr, ptr %383, align 8
   %385 = call zeroext i8 %384(ptr noundef nonnull %0) #14
   %.not85 = icmp eq i8 %385, 0
@@ -1223,7 +1223,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
 
 386:                                              ; preds = %376
   %387 = load ptr, ptr %0, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 136
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 136
   %389 = load ptr, ptr %388, align 8
   call void %389(ptr noundef nonnull %0) #14
   br label %390
@@ -1233,7 +1233,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
 
 391:                                              ; preds = %390
   %392 = load ptr, ptr %0, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 104
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 104
   %394 = load ptr, ptr %393, align 8
   %395 = call i32 %394(ptr noundef nonnull %0, ptr noundef nonnull %371) #14
   br label %396
@@ -1251,7 +1251,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %9, 0
@@ -1259,20 +1259,20 @@ define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #14
   br label %14
 
 14:                                               ; preds = %10, %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #14
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #14
   %.not83 = icmp eq i8 %23, 0
@@ -1280,14 +1280,14 @@ define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #14
   br label %28
 
 28:                                               ; preds = %14, %24
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 808
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 808
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @x11InputMethodIDs, align 8
   %33 = tail call i64 %31(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %32) #14
@@ -1299,11 +1299,11 @@ define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr
   br i1 %or.cond.i, label %38, label %getX11InputMethodData.exit
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %34, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %40, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1824
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1824
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i8 %44(ptr noundef nonnull %0) #14
   %.not.i = icmp eq i8 %45, 0
@@ -1311,7 +1311,7 @@ define void @Java_sun_awt_X11_XInputMethod_setXICFocusNative(ptr noundef %0, ptr
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 880
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 880
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %50, i64 noundef 0) #14
@@ -1325,7 +1325,7 @@ getX11InputMethodData.exit:                       ; preds = %28
 getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11InputMethodData.exit
   tail call void (...) @awt_output_flush() #14
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %0) #14
   %.not94 = icmp eq ptr %55, null
@@ -1333,20 +1333,20 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 
 56:                                               ; preds = %getX11InputMethodData.exit.thread
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %0) #14
   br label %60
 
 60:                                               ; preds = %56, %getX11InputMethodData.exit.thread
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1128
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1128
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr @tkClass, align 8
   %65 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %63(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %65) #14
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1824
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1824
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i8 %68(ptr noundef nonnull %0) #14
   %.not95 = icmp eq i8 %69, 0
@@ -1354,7 +1354,7 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 
 70:                                               ; preds = %60
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 136
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull %0) #14
   br label %74
@@ -1373,7 +1373,7 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 77:                                               ; preds = %76
   tail call void (...) @awt_output_flush() #14
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr %80(ptr noundef nonnull %0) #14
   %.not87 = icmp eq ptr %81, null
@@ -1381,20 +1381,20 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull %0) #14
   br label %86
 
 86:                                               ; preds = %82, %77
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1128
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1128
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr @tkClass, align 8
   %91 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %89(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %91) #14
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 1824
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1824
   %94 = load ptr, ptr %93, align 8
   %95 = tail call zeroext i8 %94(ptr noundef nonnull %0) #14
   %.not88 = icmp eq i8 %95, 0
@@ -1402,7 +1402,7 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 
 96:                                               ; preds = %86
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull %0) #14
   br label %100
@@ -1413,7 +1413,7 @@ getX11InputMethodData.exit.thread:                ; preds = %46, %38, %getX11Inp
 101:                                              ; preds = %76
   %.not89 = icmp eq i8 %4, 0
   %.in.v = select i1 %.not89, i64 16, i64 8
-  %.in = getelementptr inbounds i8, ptr %34, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %34, i64 %.in.v
   %102 = load ptr, ptr %.in, align 8
   store ptr %102, ptr %34, align 8
   %103 = icmp eq ptr %102, null
@@ -1451,20 +1451,20 @@ setXICWindowFocus.exit:                           ; preds = %104, %107
   br label %setXICFocus.exit
 
 setXICFocus.exit:                                 ; preds = %111, %116, %117
-  %118 = getelementptr inbounds i8, ptr %34, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %119 = load ptr, ptr %118, align 8
   store ptr %119, ptr @currentX11InputMethodInstance, align 8
   store i64 %2, ptr @currentFocusWindow, align 8
   br i1 %.not89, label %129, label %120
 
 120:                                              ; preds = %setXICFocus.exit
-  %121 = getelementptr inbounds i8, ptr %34, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %122 = load ptr, ptr %121, align 8
   %.not90 = icmp eq ptr %122, null
   br i1 %.not90, label %129, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %122, i64 208
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 208
   %125 = load i32, ptr %124, align 8
   %.not91 = icmp eq i32 %125, 0
   br i1 %.not91, label %129, label %126
@@ -1493,7 +1493,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
   %131 = tail call i32 @XFlush(ptr noundef %130) #14
   tail call void (...) @awt_output_flush() #14
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 120
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 120
   %134 = load ptr, ptr %133, align 8
   %135 = tail call ptr %134(ptr noundef nonnull %0) #14
   %.not92 = icmp eq ptr %135, null
@@ -1501,20 +1501,20 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
 
 136:                                              ; preds = %129
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 136
   %139 = load ptr, ptr %138, align 8
   tail call void %139(ptr noundef nonnull %0) #14
   br label %140
 
 140:                                              ; preds = %136, %129
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 1128
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 1128
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr @tkClass, align 8
   %145 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %143(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %145) #14
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 1824
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1824
   %148 = load ptr, ptr %147, align 8
   %149 = tail call zeroext i8 %148(ptr noundef nonnull %0) #14
   %.not93 = icmp eq i8 %149, 0
@@ -1522,7 +1522,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
 
 150:                                              ; preds = %140
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 136
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 136
   %153 = load ptr, ptr %152, align 8
   tail call void %153(ptr noundef nonnull %0) #14
   br label %154
@@ -1533,7 +1533,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
 .sink.split:                                      ; preds = %154, %100, %74
   %.sink = phi ptr [ %55, %74 ], [ %81, %100 ], [ %135, %154 ]
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 104
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 104
   %157 = load ptr, ptr %156, align 8
   %158 = tail call i32 %157(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #14
   br label %159
@@ -1553,7 +1553,7 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
   br i1 %8, label %94, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %94, label %13
@@ -1566,17 +1566,17 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
   %16 = load ptr, ptr @dpy, align 8
   %17 = load i64, ptr %11, align 8
   %18 = tail call i32 @XUnmapWindow(ptr noundef %16, i64 noundef %17) #14
-  %19 = getelementptr inbounds i8, ptr %11, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 208
   store i32 0, ptr %19, align 8
   br label %94
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr @jvm, align 8
   %22 = tail call ptr @JNU_GetEnv(ptr noundef %21, i32 noundef 65538) #14
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef %22, ptr noundef null, ptr noundef %24, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #14
-  %26 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %27 = load i64, ptr %26, align 8
   %.not = icmp eq i64 %27, %25
   br i1 %.not, label %29, label %28
@@ -1589,13 +1589,13 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
   %30 = load ptr, ptr @dpy, align 8
   %31 = call i32 @XGetWindowAttributes(ptr noundef %30, i64 noundef %25, ptr noundef nonnull %3) #14
   %32 = load ptr, ptr @dpy, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load i64, ptr %33, align 8
   %35 = load i32, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = call i32 @XTranslateCoordinates(ptr noundef %32, i64 noundef %25, i64 noundef %34, i32 noundef %35, i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #14
-  %39 = getelementptr inbounds i8, ptr %11, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = load i32, ptr %5, align 4
   %.not38 = icmp eq i32 %40, %41
@@ -1603,33 +1603,33 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
   br i1 %.not38, label %42, label %50
 
 42:                                               ; preds = %29
-  %43 = getelementptr inbounds i8, ptr %11, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %44 = load i32, ptr %43, align 4
   %.not39 = icmp eq i32 %44, %.pre
   br i1 %.not39, label %45, label %50
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %11, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %3, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %49 = load i32, ptr %48, align 4
   %.not40 = icmp eq i32 %47, %49
   br i1 %.not40, label %89, label %50
 
 50:                                               ; preds = %45, %42, %29
   store i32 %41, ptr %39, align 8
-  %51 = getelementptr inbounds i8, ptr %11, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %.pre, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %11, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %11, i64 200
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %56 = load i32, ptr %55, align 8
   %57 = sub nsw i32 %41, %56
   store i32 %57, ptr %5, align 4
   %58 = add nsw i32 %53, %.pre
-  %59 = getelementptr inbounds i8, ptr %11, i64 204
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 204
   %60 = load i32, ptr %59, align 4
   %61 = sub i32 %58, %60
   store i32 %61, ptr %6, align 4
@@ -1642,10 +1642,10 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
 
 64:                                               ; preds = %63, %50
   %65 = phi i32 [ 0, %63 ], [ %57, %50 ]
-  %66 = getelementptr inbounds i8, ptr %11, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %67 = load i32, ptr %66, align 8
   %68 = add nsw i32 %67, %65
-  %69 = getelementptr inbounds i8, ptr %11, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %68, %70
   br i1 %71, label %72, label %74
@@ -1657,10 +1657,10 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
 
 74:                                               ; preds = %72, %64
   %75 = phi i32 [ %73, %72 ], [ %65, %64 ]
-  %76 = getelementptr inbounds i8, ptr %11, i64 76
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %77 = load i32, ptr %76, align 4
   %78 = add nsw i32 %77, %61
-  %79 = getelementptr inbounds i8, ptr %11, i64 84
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %78, %80
   br i1 %81, label %82, label %84
@@ -1678,7 +1678,7 @@ define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull rea
   br label %89
 
 89:                                               ; preds = %84, %45
-  %90 = getelementptr inbounds i8, ptr %11, i64 208
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 208
   store i32 1, ptr %90, align 8
   %91 = load ptr, ptr @dpy, align 8
   %92 = load i64, ptr %11, align 8
@@ -1694,7 +1694,7 @@ declare i32 @XFlush(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11InputMethodBase_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #14
   store ptr %6, ptr @x11InputMethodIDs, align 8
@@ -1704,7 +1704,7 @@ define void @Java_sun_awt_X11InputMethodBase_initIDs(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11InputMethodBase_turnoffStatusWindow(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %6, 0
@@ -1712,20 +1712,20 @@ define void @Java_sun_awt_X11InputMethodBase_turnoffStatusWindow(ptr noundef %0,
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %0) #14
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @tkClass, align 8
   %16 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #14
   %.not46 = icmp eq i8 %20, 0
@@ -1733,7 +1733,7 @@ define void @Java_sun_awt_X11InputMethodBase_turnoffStatusWindow(ptr noundef %0,
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #14
   br label %25
@@ -1747,7 +1747,7 @@ define void @Java_sun_awt_X11InputMethodBase_turnoffStatusWindow(ptr noundef %0,
   br i1 %or.cond, label %isX11InputMethodGRefInList.exit.thread, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %isX11InputMethodGRefInList.exit.thread, label %.lr.ph.i, !llvm.loop !6
@@ -1760,7 +1760,7 @@ define void @Java_sun_awt_X11InputMethodBase_turnoffStatusWindow(ptr noundef %0,
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 808
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 808
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @x11InputMethodIDs, align 8
   %36 = tail call i64 %34(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %35) #14
@@ -1772,11 +1772,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i53, label %41, label %getX11InputMethodData.exit
 
 41:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %42 = getelementptr inbounds i8, ptr %37, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %43, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1824
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1824
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i8 %47(ptr noundef nonnull %0) #14
   %.not.i55 = icmp eq i8 %48, 0
@@ -1784,7 +1784,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 49:                                               ; preds = %41
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 880
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 880
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %53, i64 noundef 0) #14
@@ -1796,13 +1796,13 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %54, label %isX11InputMethodGRefInList.exit.thread, label %55
 
 55:                                               ; preds = %getX11InputMethodData.exit
-  %56 = getelementptr inbounds i8, ptr %37, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %isX11InputMethodGRefInList.exit.thread, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %57, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 208
   %61 = load i32, ptr %60, align 8
   %.not48 = icmp eq i32 %61, 0
   br i1 %.not48, label %isX11InputMethodGRefInList.exit.thread, label %85
@@ -1810,7 +1810,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
 isX11InputMethodGRefInList.exit.thread:           ; preds = %28, %49, %41, %25, %getX11InputMethodData.exit, %55, %59
   tail call void (...) @awt_output_flush() #14
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr %64(ptr noundef nonnull %0) #14
   %.not51 = icmp eq ptr %65, null
@@ -1818,20 +1818,20 @@ isX11InputMethodGRefInList.exit.thread:           ; preds = %28, %49, %41, %25, 
 
 66:                                               ; preds = %isX11InputMethodGRefInList.exit.thread
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 136
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0) #14
   br label %70
 
 70:                                               ; preds = %66, %isX11InputMethodGRefInList.exit.thread
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1128
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1128
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr @tkClass, align 8
   %75 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %73(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %75) #14
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1824
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1824
   %78 = load ptr, ptr %77, align 8
   %79 = tail call zeroext i8 %78(ptr noundef nonnull %0) #14
   %.not52 = icmp eq i8 %79, 0
@@ -1839,7 +1839,7 @@ isX11InputMethodGRefInList.exit.thread:           ; preds = %28, %49, %41, %25, 
 
 80:                                               ; preds = %70
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 136
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 136
   %83 = load ptr, ptr %82, align 8
   tail call void %83(ptr noundef nonnull %0) #14
   br label %84
@@ -1862,7 +1862,7 @@ isX11InputMethodGRefInList.exit.thread:           ; preds = %28, %49, %41, %25, 
 onoffStatusWindow.exit:                           ; preds = %85, %88
   tail call void (...) @awt_output_flush() #14
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 120
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 120
   %94 = load ptr, ptr %93, align 8
   %95 = tail call ptr %94(ptr noundef nonnull %0) #14
   %.not49 = icmp eq ptr %95, null
@@ -1870,20 +1870,20 @@ onoffStatusWindow.exit:                           ; preds = %85, %88
 
 96:                                               ; preds = %onoffStatusWindow.exit
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull %0) #14
   br label %100
 
 100:                                              ; preds = %96, %onoffStatusWindow.exit
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1128
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1128
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr @tkClass, align 8
   %105 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %103(ptr noundef nonnull %0, ptr noundef %104, ptr noundef %105) #14
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 1824
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1824
   %108 = load ptr, ptr %107, align 8
   %109 = tail call zeroext i8 %108(ptr noundef nonnull %0) #14
   %.not50 = icmp eq i8 %109, 0
@@ -1891,7 +1891,7 @@ onoffStatusWindow.exit:                           ; preds = %85, %88
 
 110:                                              ; preds = %100
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 136
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 136
   %113 = load ptr, ptr %112, align 8
   tail call void %113(ptr noundef nonnull %0) #14
   br label %114
@@ -1902,7 +1902,7 @@ onoffStatusWindow.exit:                           ; preds = %85, %88
 .sink.split:                                      ; preds = %114, %84
   %.sink = phi ptr [ %65, %84 ], [ %95, %114 ]
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 104
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 %117(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #14
   br label %119
@@ -1914,7 +1914,7 @@ onoffStatusWindow.exit:                           ; preds = %85, %88
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %6, 0
@@ -1922,20 +1922,20 @@ define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noun
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %0) #14
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @tkClass, align 8
   %16 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #14
   %.not48 = icmp eq i8 %20, 0
@@ -1943,14 +1943,14 @@ define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #14
   br label %25
 
 25:                                               ; preds = %11, %21
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 808
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 808
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @x11InputMethodIDs, align 8
   %30 = tail call i64 %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29) #14
@@ -1962,11 +1962,11 @@ define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noun
   br i1 %or.cond.i, label %35, label %getX11InputMethodData.exit
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %31, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %37, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1824
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #14
   %.not.i = icmp eq i8 %42, 0
@@ -1974,7 +1974,7 @@ define void @Java_sun_awt_X11InputMethodBase_disposeXIC(ptr noundef %0, ptr noun
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 880
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 880
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %47, i64 noundef 0) #14
@@ -1988,7 +1988,7 @@ getX11InputMethodData.exit:                       ; preds = %25
 getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11InputMethodData.exit
   tail call void (...) @awt_output_flush() #14
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr %51(ptr noundef nonnull %0) #14
   %.not51 = icmp eq ptr %52, null
@@ -1996,20 +1996,20 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 53:                                               ; preds = %getX11InputMethodData.exit.thread
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull %0) #14
   br label %57
 
 57:                                               ; preds = %53, %getX11InputMethodData.exit.thread
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1128
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1128
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @tkClass, align 8
   %62 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %60(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62) #14
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef nonnull %0) #14
   %.not52 = icmp eq i8 %66, 0
@@ -2017,7 +2017,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull %0) #14
   br label %71
@@ -2027,11 +2027,11 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 72:                                               ; preds = %getX11InputMethodData.exit
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 880
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 880
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %75(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %76, i64 noundef 0) #14
-  %77 = getelementptr inbounds i8, ptr %31, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr @currentX11InputMethodInstance, align 8
   %80 = icmp eq ptr %78, %79
@@ -2043,7 +2043,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
   br label %82
 
 82:                                               ; preds = %81, %72
-  %83 = getelementptr inbounds i8, ptr %31, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not.i53 = icmp eq ptr %84, null
   br i1 %.not.i53, label %destroyX11InputMethodData.exit, label %85
@@ -2053,7 +2053,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
   %86 = load ptr, ptr %83, align 8
   tail call void @XDestroyIC(ptr noundef %86) #14
   %87 = load ptr, ptr %83, align 8
-  %88 = getelementptr inbounds i8, ptr %31, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %89 = load ptr, ptr %88, align 8
   %.not15.i = icmp eq ptr %87, %89
   br i1 %.not15.i, label %destroyX11InputMethodData.exit, label %90
@@ -2077,7 +2077,7 @@ destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
   tail call fastcc void @freeX11InputMethodData(ptr noundef nonnull %0, ptr noundef nonnull %31)
   tail call void (...) @awt_output_flush() #14
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 120
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 120
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr %96(ptr noundef nonnull %0) #14
   %.not49 = icmp eq ptr %97, null
@@ -2085,20 +2085,20 @@ destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
 
 98:                                               ; preds = %destroyX11InputMethodData.exit
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 136
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 136
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull %0) #14
   br label %102
 
 102:                                              ; preds = %98, %destroyX11InputMethodData.exit
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 1128
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1128
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr @tkClass, align 8
   %107 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %105(ptr noundef nonnull %0, ptr noundef %106, ptr noundef %107) #14
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1824
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1824
   %110 = load ptr, ptr %109, align 8
   %111 = tail call zeroext i8 %110(ptr noundef nonnull %0) #14
   %.not50 = icmp eq i8 %111, 0
@@ -2106,7 +2106,7 @@ destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
 
 112:                                              ; preds = %102
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 136
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 136
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull %0) #14
   br label %116
@@ -2117,7 +2117,7 @@ destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
 .sink.split:                                      ; preds = %116, %71
   %.sink = phi ptr [ %52, %71 ], [ %97, %116 ]
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 104
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 104
   %119 = load ptr, ptr %118, align 8
   %120 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #14
   br label %121
@@ -2129,7 +2129,7 @@ destroyX11InputMethodData.exit:                   ; preds = %82, %85, %93
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %6, 0
@@ -2137,20 +2137,20 @@ define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %0) #14
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @tkClass, align 8
   %16 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #14
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #14
   %.not68 = icmp eq i8 %20, 0
@@ -2158,14 +2158,14 @@ define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #14
   br label %25
 
 25:                                               ; preds = %11, %21
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 808
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 808
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @x11InputMethodIDs, align 8
   %30 = tail call i64 %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29) #14
@@ -2177,11 +2177,11 @@ define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef
   br i1 %or.cond.i, label %35, label %getX11InputMethodData.exit
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %31, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %37, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1824
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #14
   %.not.i = icmp eq i8 %42, 0
@@ -2189,7 +2189,7 @@ define ptr @Java_sun_awt_X11InputMethodBase_resetXIC(ptr noundef %0, ptr noundef
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 880
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 880
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %47, i64 noundef 0) #14
@@ -2203,7 +2203,7 @@ getX11InputMethodData.exit:                       ; preds = %25
 getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11InputMethodData.exit
   tail call void (...) @awt_output_flush() #14
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr %51(ptr noundef nonnull %0) #14
   %.not74 = icmp eq ptr %52, null
@@ -2211,20 +2211,20 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 53:                                               ; preds = %getX11InputMethodData.exit.thread
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull %0) #14
   br label %57
 
 57:                                               ; preds = %53, %getX11InputMethodData.exit.thread
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1128
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1128
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @tkClass, align 8
   %62 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %60(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62) #14
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef nonnull %0) #14
   %.not75 = icmp eq i8 %66, 0
@@ -2232,7 +2232,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull %0) #14
   br label %71
@@ -2250,7 +2250,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
   br label %99
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %31, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr @XmbResetIC(ptr noundef %78) #14
   %80 = load ptr, ptr %77, align 8
@@ -2268,7 +2268,7 @@ getX11InputMethodData.exit.thread:                ; preds = %43, %35, %getX11Inp
 
 setXICFocus.exit:                                 ; preds = %82, %85
   %86 = load ptr, ptr %77, align 8
-  %87 = getelementptr inbounds i8, ptr %31, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %88 = load ptr, ptr %87, align 8
   %.not70 = icmp eq ptr %86, %88
   br i1 %.not70, label %99, label %89
@@ -2309,7 +2309,7 @@ setXICFocus.exit76:                               ; preds = %93, %96
   %.061 = phi ptr [ %101, %100 ], [ null, %99 ]
   tail call void (...) @awt_output_flush() #14
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 120
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 120
   %106 = load ptr, ptr %105, align 8
   %107 = tail call ptr %106(ptr noundef nonnull %0) #14
   %.not72 = icmp eq ptr %107, null
@@ -2317,20 +2317,20 @@ setXICFocus.exit76:                               ; preds = %93, %96
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 136
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 136
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %0) #14
   br label %112
 
 112:                                              ; preds = %108, %103
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1128
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1128
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr @tkClass, align 8
   %117 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %115(ptr noundef nonnull %0, ptr noundef %116, ptr noundef %117) #14
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 1824
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1824
   %120 = load ptr, ptr %119, align 8
   %121 = tail call zeroext i8 %120(ptr noundef nonnull %0) #14
   %.not73 = icmp eq i8 %121, 0
@@ -2338,7 +2338,7 @@ setXICFocus.exit76:                               ; preds = %93, %96
 
 122:                                              ; preds = %112
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 136
   %125 = load ptr, ptr %124, align 8
   tail call void %125(ptr noundef nonnull %0) #14
   br label %126
@@ -2350,7 +2350,7 @@ setXICFocus.exit76:                               ; preds = %93, %96
   %.sink = phi ptr [ %52, %71 ], [ %107, %126 ]
   %.0.ph = phi ptr [ null, %71 ], [ %.061, %126 ]
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 104
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 104
   %129 = load ptr, ptr %128, align 8
   %130 = tail call i32 %129(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #14
   br label %131
@@ -2378,7 +2378,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
   %13 = alloca i32, align 4
   %14 = alloca i64, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1824
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1824
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 %17(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %18, 0
@@ -2386,20 +2386,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0) #14
   br label %23
 
 23:                                               ; preds = %19, %3
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1128
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @tkClass, align 8
   %28 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %26(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %28) #14
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1824
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1824
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i8 %31(ptr noundef nonnull %0) #14
   %.not66 = icmp eq i8 %32, 0
@@ -2407,14 +2407,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0) #14
   br label %37
 
 37:                                               ; preds = %23, %33
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 808
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 808
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @x11InputMethodIDs, align 8
   %42 = tail call i64 %40(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %41) #14
@@ -2426,11 +2426,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
   br i1 %or.cond.i, label %47, label %getX11InputMethodData.exit
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #14
   %.not.i = icmp eq i8 %54, 0
@@ -2438,7 +2438,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_setComposition
 
 55:                                               ; preds = %47
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 880
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 880
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %58(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %59, i64 noundef 0) #14
@@ -2457,7 +2457,7 @@ getX11InputMethodData.exit:                       ; preds = %37
 getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11InputMethodData.exit, %61
   tail call void (...) @awt_output_flush() #14
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 120
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr %66(ptr noundef nonnull %0) #14
   %.not74 = icmp eq ptr %67, null
@@ -2465,20 +2465,20 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
 
 68:                                               ; preds = %getX11InputMethodData.exit.thread
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %0) #14
   br label %72
 
 72:                                               ; preds = %68, %getX11InputMethodData.exit.thread
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1128
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1128
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr @tkClass, align 8
   %77 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %75(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %77) #14
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1824
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1824
   %80 = load ptr, ptr %79, align 8
   %81 = tail call zeroext i8 %80(ptr noundef nonnull %0) #14
   %.not75 = icmp eq i8 %81, 0
@@ -2486,7 +2486,7 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
 
 82:                                               ; preds = %72
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull %0) #14
   br label %86
@@ -2496,13 +2496,13 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
 
 87:                                               ; preds = %86
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 104
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 %90(ptr noundef nonnull %0, ptr noundef nonnull %67) #14
   br label %180
 
 92:                                               ; preds = %61
-  %93 = getelementptr inbounds i8, ptr %43, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %94 = load ptr, ptr %93, align 8
   %.not67 = icmp eq ptr %94, null
   br i1 %.not67, label %132, label %95
@@ -2519,9 +2519,9 @@ getX11InputMethodData.exit.thread:                ; preds = %55, %47, %getX11Inp
   br i1 %101, label %102, label %132
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %43, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %43, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %106 = load ptr, ptr %105, align 8
   %.not68 = icmp eq ptr %104, %106
   br i1 %.not68, label %132, label %107
@@ -2607,7 +2607,7 @@ getParentWindow.exit79:                           ; preds = %getParentWindow.exi
   br i1 %.not70, label %141, label %138
 
 138:                                              ; preds = %132
-  %139 = getelementptr inbounds i8, ptr %43, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @XSetICFocus(ptr noundef %140) #14
   br label %141
@@ -2615,7 +2615,7 @@ getParentWindow.exit79:                           ; preds = %getParentWindow.exi
 141:                                              ; preds = %132, %138
   call void (...) @awt_output_flush() #14
   %142 = load ptr, ptr %0, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 120
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 120
   %144 = load ptr, ptr %143, align 8
   %145 = call ptr %144(ptr noundef nonnull %0) #14
   %.not71 = icmp eq ptr %145, null
@@ -2623,20 +2623,20 @@ getParentWindow.exit79:                           ; preds = %getParentWindow.exi
 
 146:                                              ; preds = %141
   %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 136
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 136
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull %0) #14
   br label %150
 
 150:                                              ; preds = %146, %141
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1128
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1128
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr @tkClass, align 8
   %155 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %153(ptr noundef nonnull %0, ptr noundef %154, ptr noundef %155) #14
   %156 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 1824
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1824
   %158 = load ptr, ptr %157, align 8
   %159 = call zeroext i8 %158(ptr noundef nonnull %0) #14
   %.not72 = icmp eq i8 %159, 0
@@ -2644,7 +2644,7 @@ getParentWindow.exit79:                           ; preds = %getParentWindow.exi
 
 160:                                              ; preds = %150
   %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 136
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 136
   %163 = load ptr, ptr %162, align 8
   call void %163(ptr noundef nonnull %0) #14
   br label %164
@@ -2654,7 +2654,7 @@ getParentWindow.exit79:                           ; preds = %getParentWindow.exi
 
 165:                                              ; preds = %164
   %166 = load ptr, ptr %0, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 104
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 104
   %168 = load ptr, ptr %167, align 8
   %169 = call i32 %168(ptr noundef nonnull %0, ptr noundef nonnull %145) #14
   br label %170
@@ -2708,7 +2708,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %7, 0
@@ -2716,20 +2716,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #14
   br label %12
 
 12:                                               ; preds = %8, %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #14
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #14
   %.not53 = icmp eq i8 %21, 0
@@ -2737,14 +2737,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #14
   br label %26
 
 26:                                               ; preds = %12, %22
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 808
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 808
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @x11InputMethodIDs, align 8
   %31 = tail call i64 %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30) #14
@@ -2756,11 +2756,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
   br i1 %or.cond.i, label %36, label %getX11InputMethodData.exit
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %32, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef %38, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1824
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1824
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #14
   %.not.i = icmp eq i8 %43, 0
@@ -2768,7 +2768,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11InputMethodBase_isCompositionE
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 880
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 880
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %47(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %48, i64 noundef 0) #14
@@ -2787,7 +2787,7 @@ getX11InputMethodData.exit:                       ; preds = %26
 getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11InputMethodData.exit, %50
   tail call void (...) @awt_output_flush() #14
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 120
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %0) #14
   %.not57 = icmp eq ptr %56, null
@@ -2795,20 +2795,20 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 57:                                               ; preds = %getX11InputMethodData.exit.thread
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 136
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull %0) #14
   br label %61
 
 61:                                               ; preds = %57, %getX11InputMethodData.exit.thread
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1128
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1128
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr @tkClass, align 8
   %66 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %66) #14
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1824
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1824
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i8 %69(ptr noundef nonnull %0) #14
   %.not58 = icmp eq i8 %70, 0
@@ -2816,7 +2816,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 71:                                               ; preds = %61
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 136
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 136
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %0) #14
   br label %75
@@ -2826,7 +2826,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 76:                                               ; preds = %75
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 104
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 %79(ptr noundef nonnull %0, ptr noundef nonnull %56) #14
   br label %126
@@ -2838,7 +2838,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
   %85 = call i32 @XFree(ptr noundef %82) #14
   call void (...) @awt_output_flush() #14
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 120
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr %88(ptr noundef nonnull %0) #14
   %.not54 = icmp eq ptr %89, null
@@ -2846,20 +2846,20 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 90:                                               ; preds = %81
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull %0) #14
   br label %94
 
 94:                                               ; preds = %90, %81
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1128
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1128
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr @tkClass, align 8
   %99 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %97(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %99) #14
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1824
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1824
   %102 = load ptr, ptr %101, align 8
   %103 = call zeroext i8 %102(ptr noundef nonnull %0) #14
   %.not55 = icmp eq i8 %103, 0
@@ -2867,7 +2867,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 104:                                              ; preds = %94
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 136
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull %0) #14
   br label %108
@@ -2877,7 +2877,7 @@ getX11InputMethodData.exit.thread:                ; preds = %44, %36, %getX11Inp
 
 109:                                              ; preds = %108
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 104
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 104
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 %112(ptr noundef nonnull %0, ptr noundef nonnull %89) #14
   br label %114
@@ -2918,7 +2918,7 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1824
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1824
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 %10(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %11, 0
@@ -2926,20 +2926,20 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0) #14
   br label %16
 
 16:                                               ; preds = %12, %3
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1128
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @tkClass, align 8
   %21 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %19(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %21) #14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1824
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i8 %24(ptr noundef nonnull %0) #14
   %.not24 = icmp eq i8 %25, 0
@@ -2947,7 +2947,7 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %0) #14
   br label %30
@@ -2967,7 +2967,7 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
   br i1 %or.cond.i, label %adjustStatusWindow.exit, label %.lr.ph.i.i
 
 35:                                               ; preds = %.lr.ph.i.i
-  %36 = getelementptr inbounds i8, ptr %.08.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %.0.i.i = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %adjustStatusWindow.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -2980,7 +2980,7 @@ define void @Java_sun_awt_X11_XInputMethod_adjustStatusWindow(ptr noundef %0, pt
 
 isX11InputMethodGRefInList.exit.i:                ; preds = %.lr.ph.i.i
   %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 808
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 808
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @x11InputMethodIDs, align 8
   %43 = tail call i64 %41(ptr noundef nonnull %32, ptr noundef %33, ptr noundef %42) #14
@@ -2992,11 +2992,11 @@ isX11InputMethodGRefInList.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %or.cond.i32.i, label %48, label %getX11InputMethodData.exit.i
 
 48:                                               ; preds = %isX11InputMethodGRefInList.exit.i
-  %49 = getelementptr inbounds i8, ptr %44, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %32, ptr noundef null, ptr noundef %50, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1824
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %32) #14
   %.not.i34.i = icmp eq i8 %55, 0
@@ -3004,7 +3004,7 @@ isX11InputMethodGRefInList.exit.i:                ; preds = %.lr.ph.i.i
 
 56:                                               ; preds = %48
   %57 = load ptr, ptr %32, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 880
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 880
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %59(ptr noundef nonnull %32, ptr noundef %33, ptr noundef %60, i64 noundef 0) #14
@@ -3016,13 +3016,13 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
   br i1 %61, label %adjustStatusWindow.exit, label %62
 
 62:                                               ; preds = %getX11InputMethodData.exit.i
-  %63 = getelementptr inbounds i8, ptr %44, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %adjustStatusWindow.exit, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %64, i64 208
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 208
   %68 = load i32, ptr %67, align 8
   %.not28.i = icmp eq i32 %68, 0
   br i1 %.not28.i, label %adjustStatusWindow.exit, label %69
@@ -3031,13 +3031,13 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
   %70 = load ptr, ptr @dpy, align 8
   %71 = call i32 @XGetWindowAttributes(ptr noundef %70, i64 noundef %2, ptr noundef nonnull %4) #14
   %72 = load ptr, ptr @dpy, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = load i32, ptr %4, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = call i32 @XTranslateCoordinates(ptr noundef %72, i64 noundef %2, i64 noundef %74, i32 noundef %75, i32 noundef %77, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
-  %79 = getelementptr inbounds i8, ptr %64, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = load i32, ptr %5, align 4
   %.not29.i = icmp eq i32 %80, %81
@@ -3045,33 +3045,33 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
   br i1 %.not29.i, label %82, label %90
 
 82:                                               ; preds = %69
-  %83 = getelementptr inbounds i8, ptr %64, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %84 = load i32, ptr %83, align 4
   %.not30.i = icmp eq i32 %84, %.pre.i
   br i1 %.not30.i, label %85, label %90
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %64, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 36
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %4, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %89 = load i32, ptr %88, align 4
   %.not31.i = icmp eq i32 %87, %89
   br i1 %.not31.i, label %adjustStatusWindow.exit, label %90
 
 90:                                               ; preds = %85, %82, %69
   store i32 %81, ptr %79, align 8
-  %91 = getelementptr inbounds i8, ptr %64, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %64, i64 28
   store i32 %.pre.i, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %4, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %64, i64 36
+  %94 = getelementptr inbounds nuw i8, ptr %64, i64 36
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %64, i64 200
+  %95 = getelementptr inbounds nuw i8, ptr %64, i64 200
   %96 = load i32, ptr %95, align 8
   %97 = sub nsw i32 %81, %96
   store i32 %97, ptr %5, align 4
   %98 = add nsw i32 %93, %.pre.i
-  %99 = getelementptr inbounds i8, ptr %64, i64 204
+  %99 = getelementptr inbounds nuw i8, ptr %64, i64 204
   %100 = load i32, ptr %99, align 4
   %101 = sub i32 %98, %100
   store i32 %101, ptr %6, align 4
@@ -3084,10 +3084,10 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
 
 104:                                              ; preds = %103, %90
   %105 = phi i32 [ 0, %103 ], [ %97, %90 ]
-  %106 = getelementptr inbounds i8, ptr %64, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %107 = load i32, ptr %106, align 8
   %108 = add nsw i32 %107, %105
-  %109 = getelementptr inbounds i8, ptr %64, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %64, i64 80
   %110 = load i32, ptr %109, align 8
   %111 = icmp sgt i32 %108, %110
   br i1 %111, label %112, label %114
@@ -3099,10 +3099,10 @@ getX11InputMethodData.exit.i:                     ; preds = %isX11InputMethodGRe
 
 114:                                              ; preds = %112, %104
   %115 = phi i32 [ %113, %112 ], [ %105, %104 ]
-  %116 = getelementptr inbounds i8, ptr %64, i64 76
+  %116 = getelementptr inbounds nuw i8, ptr %64, i64 76
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, %101
-  %119 = getelementptr inbounds i8, ptr %64, i64 84
+  %119 = getelementptr inbounds nuw i8, ptr %64, i64 84
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %118, %120
   br i1 %121, label %122, label %124
@@ -3126,7 +3126,7 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void (...) @awt_output_flush() #14
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 120
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 120
   %131 = load ptr, ptr %130, align 8
   %132 = call ptr %131(ptr noundef nonnull %0) #14
   %.not25 = icmp eq ptr %132, null
@@ -3134,20 +3134,20 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
 
 133:                                              ; preds = %adjustStatusWindow.exit
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 136
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 136
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr noundef nonnull %0) #14
   br label %137
 
 137:                                              ; preds = %133, %adjustStatusWindow.exit
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 1128
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1128
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr @tkClass, align 8
   %142 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %140(ptr noundef nonnull %0, ptr noundef %141, ptr noundef %142) #14
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 1824
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1824
   %145 = load ptr, ptr %144, align 8
   %146 = call zeroext i8 %145(ptr noundef nonnull %0) #14
   %.not26 = icmp eq i8 %146, 0
@@ -3155,7 +3155,7 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
 
 147:                                              ; preds = %137
   %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 136
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 136
   %150 = load ptr, ptr %149, align 8
   call void %150(ptr noundef nonnull %0) #14
   br label %151
@@ -3165,7 +3165,7 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 104
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 104
   %155 = load ptr, ptr %154, align 8
   %156 = call i32 %155(ptr noundef nonnull %0, ptr noundef nonnull %132) #14
   br label %157
@@ -3176,29 +3176,29 @@ adjustStatusWindow.exit:                          ; preds = %35, %30, %48, %56, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @awt_display, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @XFreeGC(ptr noundef %6, ptr noundef %8) #14
   %10 = load ptr, ptr @awt_display, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @XFreeGC(ptr noundef %10, ptr noundef %12) #14
   %14 = load ptr, ptr @awt_display, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @XFreeGC(ptr noundef %14, ptr noundef %16) #14
   %18 = load ptr, ptr @awt_display, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @XFreeGC(ptr noundef %18, ptr noundef %20) #14
-  %22 = getelementptr inbounds i8, ptr %4, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %23 = load ptr, ptr %22, align 8
   %.not24 = icmp eq ptr %23, null
   br i1 %.not24, label %26, label %24
@@ -3216,7 +3216,7 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocaptur
   br label %30
 
 30:                                               ; preds = %26, %2
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not25 = icmp eq ptr %32, null
   br i1 %.not25, label %34, label %33
@@ -3230,7 +3230,7 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocaptur
   br i1 %.not26, label %59, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @x11InputMethodGRefListHead, align 8
   %39 = icmp eq ptr %38, null
@@ -3250,7 +3250,7 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.preheader.i.preheader, %.preheader.i
   %.018.i30 = phi ptr [ %46, %.preheader.i ], [ %38, %.preheader.i.preheader ]
-  %45 = getelementptr inbounds i8, ptr %.018.i30, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.018.i30, i64 8
   %46 = load ptr, ptr %45, align 8
   %cond.i = icmp eq ptr %46, null
   br i1 %cond.i, label %removeX11InputMethodGRefFromList.exit, label %.preheader.i, !llvm.loop !12
@@ -3261,15 +3261,15 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocaptur
 
 .preheader.i._crit_edge.thread:                   ; preds = %.preheader.i.preheader, %.preheader.i._crit_edge
   %.018.i.lcssa37 = phi ptr [ %46, %.preheader.i._crit_edge ], [ %38, %.preheader.i.preheader ]
-  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr @x11InputMethodGRefListHead, align 8
   br label %54
 
 50:                                               ; preds = %.preheader.i._crit_edge
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.018.i30, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.018.i30, i64 8
   store ptr %52, ptr %53, align 8
   br label %54
 
@@ -3282,13 +3282,13 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr nocaptur
 removeX11InputMethodGRefFromList.exit:            ; preds = %.lr.ph, %35, %54
   %55 = phi ptr [ %37, %35 ], [ %.pre, %54 ], [ %37, %.lr.ph ]
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 176
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %0, ptr noundef %55) #14
   br label %59
 
 59:                                               ; preds = %removeX11InputMethodGRefFromList.exit, %34
-  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %61 = load ptr, ptr %60, align 8
   %.not27 = icmp eq ptr %61, null
   br i1 %.not27, label %63, label %62
@@ -3316,7 +3316,7 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
   %4 = load ptr, ptr @jvm, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #14
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %5) #14
   %.not = icmp eq i8 %9, 0
@@ -3324,20 +3324,20 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %5) #14
   br label %14
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %5, ptr noundef %18, ptr noundef %19) #14
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %5) #14
   %.not32 = icmp eq i8 %23, 0
@@ -3345,7 +3345,7 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %5) #14
   br label %28
@@ -3359,7 +3359,7 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
   %30 = phi ptr [ %67, %66 ], [ %29, %28 ]
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 808
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 808
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @x11InputMethodIDs, align 8
   %36 = tail call i64 %34(ptr noundef nonnull %5, ptr noundef %31, ptr noundef %35) #14
@@ -3371,11 +3371,11 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
   br i1 %or.cond.i, label %41, label %getX11InputMethodData.exit
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %37, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %5, ptr noundef null, ptr noundef %43, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1824
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1824
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i8 %47(ptr noundef nonnull %5) #14
   %.not.i = icmp eq i8 %48, 0
@@ -3383,7 +3383,7 @@ define internal void @DestroyXIMCallback(ptr nocapture readnone %0, ptr nocaptur
 
 49:                                               ; preds = %41
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 880
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 880
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %52(ptr noundef nonnull %5, ptr noundef %31, ptr noundef %53, i64 noundef 0) #14
@@ -3396,7 +3396,7 @@ getX11InputMethodData.exit:                       ; preds = %.lr.ph
 
 getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11InputMethodData.exit
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 120
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr %57(ptr noundef nonnull %5) #14
   %.not36 = icmp eq ptr %58, null
@@ -3404,11 +3404,11 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 
 59:                                               ; preds = %getX11InputMethodData.exit.thread
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %5) #14
   %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 136
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 136
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull %5) #14
   br label %66
@@ -3421,7 +3421,7 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 ._crit_edge:                                      ; preds = %66, %28
   tail call void (...) @awt_output_flush() #14
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 120
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr %70(ptr noundef nonnull %5) #14
   %.not34 = icmp eq ptr %71, null
@@ -3429,20 +3429,20 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 
 72:                                               ; preds = %._crit_edge
   %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 136
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 136
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull %5) #14
   br label %76
 
 76:                                               ; preds = %72, %._crit_edge
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1128
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1128
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr @tkClass, align 8
   %81 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %79(ptr noundef nonnull %5, ptr noundef %80, ptr noundef %81) #14
   %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1824
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1824
   %84 = load ptr, ptr %83, align 8
   %85 = tail call zeroext i8 %84(ptr noundef nonnull %5) #14
   %.not35 = icmp eq i8 %85, 0
@@ -3450,7 +3450,7 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 
 86:                                               ; preds = %76
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 136
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %5) #14
   br label %90
@@ -3460,7 +3460,7 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 104
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 %94(ptr noundef nonnull %5, ptr noundef nonnull %71) #14
   br label %96
@@ -3483,7 +3483,7 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
   %5 = load ptr, ptr @jvm, align 8
   %6 = tail call ptr @JNU_GetEnv(ptr noundef %5, i32 noundef 65538) #14
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %6) #14
   %.not = icmp eq i8 %10, 0
@@ -3491,20 +3491,20 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %6) #14
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @tkClass, align 8
   %20 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %6, ptr noundef %19, ptr noundef %20) #14
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 %23(ptr noundef nonnull %6) #14
   %.not46 = icmp eq i8 %24, 0
@@ -3512,7 +3512,7 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %6) #14
   br label %29
@@ -3525,7 +3525,7 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -3547,7 +3547,7 @@ define internal void @CommitStringCallback(ptr nocapture readnone %0, ptr nounde
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 808
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 808
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @x11InputMethodIDs, align 8
   %42 = tail call i64 %40(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %41) #14
@@ -3559,11 +3559,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i51, label %47, label %getX11InputMethodData.exit
 
 47:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %6) #14
   %.not.i53 = icmp eq i8 %54, 0
@@ -3571,7 +3571,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 55:                                               ; preds = %47
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 880
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 880
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %58(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %59, i64 noundef 0) #14
@@ -3584,10 +3584,10 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
 
 61:                                               ; preds = %getX11InputMethodData.exit
   store ptr %1, ptr @currentX11InputMethodInstance, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
-  %65 = getelementptr inbounds i8, ptr %2, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %66 = load ptr, ptr %65, align 8
   br i1 %64, label %67, label %69
 
@@ -3635,13 +3635,13 @@ wcstombsdmp.exit:                                 ; preds = %82
   br i1 %.not48, label %getX11InputMethodData.exit.thread, label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %43, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %90 = load ptr, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %91 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %92 = load i64, ptr %4, align 8
   %93 = mul nsw i64 %92, 1000
-  %94 = getelementptr inbounds i8, ptr %4, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = sdiv i64 %95, 1000
   %97 = add nsw i64 %96, %93
@@ -3652,7 +3652,7 @@ wcstombsdmp.exit:                                 ; preds = %82
 getX11InputMethodData.exit.thread:                ; preds = %69, %85, %79, %55, %47, %37, %.loopexit, %getX11InputMethodData.exit, %88, %87
   tail call void (...) @awt_output_flush() #14
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 120
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %6) #14
   %.not49 = icmp eq ptr %102, null
@@ -3660,20 +3660,20 @@ getX11InputMethodData.exit.thread:                ; preds = %69, %85, %79, %55, 
 
 103:                                              ; preds = %getX11InputMethodData.exit.thread
   %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 136
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 136
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull %6) #14
   br label %107
 
 107:                                              ; preds = %103, %getX11InputMethodData.exit.thread
   %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1128
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1128
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr @tkClass, align 8
   %112 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %110(ptr noundef nonnull %6, ptr noundef %111, ptr noundef %112) #14
   %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1824
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1824
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i8 %115(ptr noundef nonnull %6) #14
   %.not50 = icmp eq i8 %116, 0
@@ -3681,7 +3681,7 @@ getX11InputMethodData.exit.thread:                ; preds = %69, %85, %79, %55, 
 
 117:                                              ; preds = %107
   %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 136
   %120 = load ptr, ptr %119, align 8
   tail call void %120(ptr noundef nonnull %6) #14
   br label %121
@@ -3691,7 +3691,7 @@ getX11InputMethodData.exit.thread:                ; preds = %69, %85, %79, %55, 
 
 122:                                              ; preds = %121
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 104
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 104
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 %125(ptr noundef nonnull %6, ptr noundef nonnull %102) #14
   br label %127
@@ -3720,7 +3720,7 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1824
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef nonnull %6) #14
   %.not = icmp eq i8 %12, 0
@@ -3728,20 +3728,20 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %6) #14
   br label %17
 
 17:                                               ; preds = %13, %8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1128
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @tkClass, align 8
   %22 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %20(ptr noundef nonnull %6, ptr noundef %21, ptr noundef %22) #14
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1824
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1824
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i8 %25(ptr noundef nonnull %6) #14
   %.not83 = icmp eq i8 %26, 0
@@ -3749,7 +3749,7 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %6) #14
   br label %31
@@ -3762,7 +3762,7 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -3784,7 +3784,7 @@ define internal void @PreeditDrawCallback(ptr nocapture readnone %0, ptr noundef
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 808
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 808
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @x11InputMethodIDs, align 8
   %44 = tail call i64 %42(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %43) #14
@@ -3796,11 +3796,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i90, label %49, label %getX11InputMethodData.exit
 
 49:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %50 = getelementptr inbounds i8, ptr %45, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %51, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1824
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1824
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i8 %55(ptr noundef nonnull %6) #14
   %.not.i92 = icmp eq i8 %56, 0
@@ -3808,7 +3808,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 880
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 880
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %60(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %61, i64 noundef 0) #14
@@ -3820,19 +3820,19 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %62, label %getX11InputMethodData.exit.thread, label %63
 
 63:                                               ; preds = %getX11InputMethodData.exit
-  %64 = getelementptr inbounds i8, ptr %2, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not85 = icmp eq ptr %65, null
   br i1 %.not85, label %129, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %65, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %68 = load ptr, ptr %67, align 8
   %.not86 = icmp eq ptr %68, null
   br i1 %.not86, label %93, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %65, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %76
@@ -3875,14 +3875,14 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 93:                                               ; preds = %73, %wcstombsdmp.exit, %66
   %.1 = phi ptr [ %74, %73 ], [ %91, %wcstombsdmp.exit ], [ null, %66 ]
-  %94 = getelementptr inbounds i8, ptr %65, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not87 = icmp eq ptr %95, null
   br i1 %.not87, label %129, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1432
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1432
   %99 = load ptr, ptr %98, align 8
   %100 = load i16, ptr %65, align 8
   %101 = zext i16 %100 to i32
@@ -3892,7 +3892,7 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 104:                                              ; preds = %96
   %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 136
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull %6) #14
   %108 = load ptr, ptr @jvm, align 8
@@ -3926,10 +3926,10 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %121 = getelementptr inbounds i64, ptr %.pre, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv
   store i32 %123, ptr %124, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = icmp samesign ult i64 %indvars.iv.next, %117
@@ -3937,7 +3937,7 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1688
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1688
   %128 = load ptr, ptr %127, align 8
   tail call void %128(ptr noundef nonnull %6, ptr noundef nonnull %102, i32 noundef 0, i32 noundef %116, ptr noundef nonnull %114) #14
   tail call void @free(ptr noundef nonnull %114) #14
@@ -3946,18 +3946,18 @@ wcstombsdmp.exit:                                 ; preds = %87
 129:                                              ; preds = %93, %._crit_edge, %63
   %.070 = phi ptr [ %102, %._crit_edge ], [ null, %93 ], [ null, %63 ]
   %.0 = phi ptr [ %.1, %._crit_edge ], [ %.1, %93 ], [ null, %63 ]
-  %130 = getelementptr inbounds i8, ptr %45, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %2, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %2, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = load i32, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %137 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %138 = load i64, ptr %4, align 8
   %139 = mul nsw i64 %138, 1000
-  %140 = getelementptr inbounds i8, ptr %4, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %141 = load i64, ptr %140, align 8
   %142 = sdiv i64 %141, 1000
   %143 = add nsw i64 %142, %139
@@ -3968,7 +3968,7 @@ wcstombsdmp.exit:                                 ; preds = %87
 getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, %104, %118, %129, %39, %.loopexit, %getX11InputMethodData.exit, %73, %wcstombsdmp.exit
   tail call void (...) @awt_output_flush() #14
   %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 120
   %147 = load ptr, ptr %146, align 8
   %148 = tail call ptr %147(ptr noundef nonnull %6) #14
   %.not88 = icmp eq ptr %148, null
@@ -3976,20 +3976,20 @@ getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, 
 
 149:                                              ; preds = %getX11InputMethodData.exit.thread
   %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 136
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 136
   %152 = load ptr, ptr %151, align 8
   tail call void %152(ptr noundef nonnull %6) #14
   br label %153
 
 153:                                              ; preds = %149, %getX11InputMethodData.exit.thread
   %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1128
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1128
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr @tkClass, align 8
   %158 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %156(ptr noundef nonnull %6, ptr noundef %157, ptr noundef %158) #14
   %159 = load ptr, ptr %6, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1824
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1824
   %161 = load ptr, ptr %160, align 8
   %162 = tail call zeroext i8 %161(ptr noundef nonnull %6) #14
   %.not89 = icmp eq i8 %162, 0
@@ -3997,7 +3997,7 @@ getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, 
 
 163:                                              ; preds = %153
   %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 136
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 136
   %166 = load ptr, ptr %165, align 8
   tail call void %166(ptr noundef nonnull %6) #14
   br label %167
@@ -4007,7 +4007,7 @@ getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, 
 
 168:                                              ; preds = %167
   %169 = load ptr, ptr %6, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 104
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 %171(ptr noundef nonnull %6, ptr noundef nonnull %148) #14
   br label %173
@@ -4031,7 +4031,7 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
   %4 = load ptr, ptr @jvm, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #14
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %5) #14
   %.not = icmp eq i8 %9, 0
@@ -4039,20 +4039,20 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %5) #14
   br label %14
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %5, ptr noundef %18, ptr noundef %19) #14
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %5) #14
   %.not32 = icmp eq i8 %23, 0
@@ -4060,7 +4060,7 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %5) #14
   br label %28
@@ -4073,7 +4073,7 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -4095,7 +4095,7 @@ define internal void @StatusDoneCallback(ptr nocapture readnone %0, ptr noundef 
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 808
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 808
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr @x11InputMethodIDs, align 8
   %41 = tail call i64 %39(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %40) #14
@@ -4107,11 +4107,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i36, label %46, label %getX11InputMethodData.exit
 
 46:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %47 = getelementptr inbounds i8, ptr %42, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %5, ptr noundef null, ptr noundef %48, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1824
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i8 %52(ptr noundef nonnull %5) #14
   %.not.i38 = icmp eq i8 %53, 0
@@ -4119,7 +4119,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 880
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 880
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %57(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %58, i64 noundef 0) #14
@@ -4131,7 +4131,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %59, label %onoffStatusWindow.exit, label %60
 
 60:                                               ; preds = %getX11InputMethodData.exit
-  %61 = getelementptr inbounds i8, ptr %42, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %onoffStatusWindow.exit, label %64
@@ -4141,14 +4141,14 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   %65 = load ptr, ptr @dpy, align 8
   %66 = load i64, ptr %62, align 8
   %67 = tail call i32 @XUnmapWindow(ptr noundef %65, i64 noundef %66) #14
-  %68 = getelementptr inbounds i8, ptr %62, i64 208
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 208
   store i32 0, ptr %68, align 8
   br label %onoffStatusWindow.exit
 
 onoffStatusWindow.exit:                           ; preds = %54, %46, %64, %36, %.loopexit, %60, %getX11InputMethodData.exit
   tail call void (...) @awt_output_flush() #14
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 120
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 120
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %5) #14
   %.not34 = icmp eq ptr %72, null
@@ -4156,20 +4156,20 @@ onoffStatusWindow.exit:                           ; preds = %54, %46, %64, %36, 
 
 73:                                               ; preds = %onoffStatusWindow.exit
   %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 136
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 136
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull %5) #14
   br label %77
 
 77:                                               ; preds = %73, %onoffStatusWindow.exit
   %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1128
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1128
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @tkClass, align 8
   %82 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %80(ptr noundef nonnull %5, ptr noundef %81, ptr noundef %82) #14
   %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1824
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1824
   %85 = load ptr, ptr %84, align 8
   %86 = tail call zeroext i8 %85(ptr noundef nonnull %5) #14
   %.not35 = icmp eq i8 %86, 0
@@ -4177,7 +4177,7 @@ onoffStatusWindow.exit:                           ; preds = %54, %46, %64, %36, 
 
 87:                                               ; preds = %77
   %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 136
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull %5) #14
   br label %91
@@ -4187,7 +4187,7 @@ onoffStatusWindow.exit:                           ; preds = %54, %46, %64, %36, 
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 104
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 104
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 %95(ptr noundef nonnull %5, ptr noundef nonnull %72) #14
   br label %97
@@ -4201,7 +4201,7 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
   %4 = load ptr, ptr @jvm, align 8
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #14
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %5) #14
   %.not = icmp eq i8 %9, 0
@@ -4209,20 +4209,20 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %5) #14
   br label %14
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %5, ptr noundef %18, ptr noundef %19) #14
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %5) #14
   %.not55 = icmp eq i8 %23, 0
@@ -4230,7 +4230,7 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %5) #14
   br label %28
@@ -4243,7 +4243,7 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -4265,7 +4265,7 @@ define internal void @StatusDrawCallback(ptr nocapture readnone %0, ptr noundef 
 
 isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 808
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 808
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr @x11InputMethodIDs, align 8
   %41 = tail call i64 %39(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %40) #14
@@ -4277,11 +4277,11 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
   br i1 %or.cond.i61, label %46, label %getX11InputMethodData.exit
 
 46:                                               ; preds = %isX11InputMethodGRefInList.exit
-  %47 = getelementptr inbounds i8, ptr %42, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %5, ptr noundef null, ptr noundef %48, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #14
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1824
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i8 %52(ptr noundef nonnull %5) #14
   %.not.i63 = icmp eq i8 %53, 0
@@ -4289,7 +4289,7 @@ isX11InputMethodGRefInList.exit:                  ; preds = %.lr.ph.i
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 880
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 880
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @x11InputMethodIDs, align 8
   tail call void %57(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %58, i64 noundef 0) #14
@@ -4301,7 +4301,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %59, label %onoffStatusWindow.exit, label %60
 
 60:                                               ; preds = %getX11InputMethodData.exit
-  %61 = getelementptr inbounds i8, ptr %42, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %onoffStatusWindow.exit, label %64
@@ -4313,30 +4313,30 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   br i1 %66, label %67, label %onoffStatusWindow.exit
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not57 = icmp eq ptr %69, null
   br i1 %.not57, label %78, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %72 = load ptr, ptr %71, align 8
   %.not58 = icmp eq ptr %72, null
   br i1 %.not58, label %onoffStatusWindow.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %62, i64 92
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 92
   %75 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %72, i64 noundef 100) #14
-  %76 = getelementptr inbounds i8, ptr %62, i64 191
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 191
   store i8 0, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %62, i64 208
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 208
   store i32 1, ptr %77, align 8
   tail call fastcc void @onoffStatusWindow(ptr noundef %42, i32 noundef 1)
   tail call void @paintStatusWindow(ptr noundef nonnull %62)
   br label %onoffStatusWindow.exit
 
 78:                                               ; preds = %67
-  %79 = getelementptr inbounds i8, ptr %62, i64 208
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 208
   store i32 0, ptr %79, align 8
   %80 = load ptr, ptr %61, align 8
   %81 = icmp eq ptr %80, null
@@ -4346,14 +4346,14 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   %83 = load ptr, ptr @dpy, align 8
   %84 = load i64, ptr %80, align 8
   %85 = tail call i32 @XUnmapWindow(ptr noundef %83, i64 noundef %84) #14
-  %86 = getelementptr inbounds i8, ptr %80, i64 208
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 208
   store i32 0, ptr %86, align 8
   br label %onoffStatusWindow.exit
 
 onoffStatusWindow.exit:                           ; preds = %70, %54, %46, %82, %78, %36, %.loopexit, %60, %getX11InputMethodData.exit, %73, %64
   tail call void (...) @awt_output_flush() #14
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 120
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr %89(ptr noundef nonnull %5) #14
   %.not59 = icmp eq ptr %90, null
@@ -4361,20 +4361,20 @@ onoffStatusWindow.exit:                           ; preds = %70, %54, %46, %82, 
 
 91:                                               ; preds = %onoffStatusWindow.exit
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 136
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull %5) #14
   br label %95
 
 95:                                               ; preds = %91, %onoffStatusWindow.exit
   %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 1128
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1128
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr @tkClass, align 8
   %100 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %98(ptr noundef nonnull %5, ptr noundef %99, ptr noundef %100) #14
   %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1824
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1824
   %103 = load ptr, ptr %102, align 8
   %104 = tail call zeroext i8 %103(ptr noundef nonnull %5) #14
   %.not60 = icmp eq i8 %104, 0
@@ -4382,7 +4382,7 @@ onoffStatusWindow.exit:                           ; preds = %70, %54, %46, %82, 
 
 105:                                              ; preds = %95
   %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 136
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 136
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull %5) #14
   br label %109
@@ -4392,7 +4392,7 @@ onoffStatusWindow.exit:                           ; preds = %70, %54, %46, %82, 
 
 110:                                              ; preds = %109
   %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 104
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 %113(ptr noundef nonnull %5, ptr noundef nonnull %90) #14
   br label %115

@@ -25,7 +25,7 @@ define i32 @ompi_mpiext_init() local_unnamed_addr #0 {
   br i1 %.not11, label %6, label %.loopexit
 
 6:                                                ; preds = %4, %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.0613, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0613, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -50,7 +50,7 @@ define internal i32 @ompi_mpiext_fini() #0 {
 .lr.ph:                                           ; preds = %0, %7
   %2 = phi ptr [ %9, %7 ], [ %1, %0 ]
   %.0613 = phi ptr [ %8, %7 ], [ @ompi_mpiext_components, %0 ]
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %7, label %5
@@ -61,7 +61,7 @@ define internal i32 @ompi_mpiext_fini() #0 {
   br i1 %.not11, label %7, label %._crit_edge
 
 7:                                                ; preds = %5, %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.0613, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0613, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

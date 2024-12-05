@@ -99,7 +99,7 @@ define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef 
   %48 = fcmp ugt double %4, 0.000000e+00
   %.077 = select i1 %48, double %4, double 1.000000e-04
   %49 = load i32, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %51 = load i32, ptr %50, align 4
   %.not91 = icmp eq i32 %49, %51
   br i1 %.not91, label %53, label %52
@@ -166,9 +166,9 @@ gv_calloc.exit95:                                 ; preds = %67
 82:                                               ; preds = %.lr.ph98, %._crit_edge
   %indvars.iv101 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next102, %._crit_edge ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %83 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv.next102
+  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.next102
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv101
+  %85 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv101
   %86 = load i32, ptr %85, align 4
   %87 = sub nsw i32 %84, %86
   %88 = load ptr, ptr %12, align 8
@@ -343,10 +343,10 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   %30 = sitofp i8 %.sroa.017.0.extract.trunc to double
   store double %30, ptr %14, align 16
   %31 = sitofp i8 %.sroa.218.0.extract.trunc to double
-  %32 = getelementptr inbounds i8, ptr %14, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double %31, ptr %32, align 8
   %33 = sitofp i8 %.sroa.319.0.extract.trunc to double
-  %34 = getelementptr inbounds i8, ptr %14, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double %33, ptr %34, align 16
   %35 = load i32, ptr %3, align 8
   switch i32 %35, label %51 [
@@ -385,7 +385,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, i8 0, i64 %45, i1 false)
   %scevgep = getelementptr i8, ptr %7, i64 %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %45, i1 false)
-  %46 = getelementptr inbounds double, ptr %7, i64 %44
+  %46 = getelementptr inbounds nuw double, ptr %7, i64 %44
   store double 5.000000e-01, ptr %46, align 8
   %47 = uitofp nneg i32 %4 to double
   %sqrt196 = tail call double @llvm.sqrt.f64(double %47)
@@ -397,7 +397,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   call void @QuadTree_get_nearest(ptr noundef %1, ptr noundef nonnull %15, ptr noundef %7, ptr noundef nonnull %17, ptr noundef nonnull %16) #15
   call void @LAB2RGB_real_01(ptr noundef %7) #15
   %49 = zext nneg i32 %4 to i64
-  %50 = getelementptr inbounds double, ptr %7, i64 %49
+  %50 = getelementptr inbounds nuw double, ptr %7, i64 %49
   call void @QuadTree_get_nearest(ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %50, ptr noundef nonnull %17, ptr noundef nonnull %16) #15
   call void @LAB2RGB_real_01(ptr noundef nonnull %50) #15
   store double 1.000000e+03, ptr %8, align 8
@@ -405,26 +405,26 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   br label %204
 
 51:                                               ; preds = %26
-  %52 = getelementptr inbounds i8, ptr %3, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %3, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %61 = load ptr, ptr %60, align 8
   %62 = freeze ptr %61
   br label %63
 
 63:                                               ; preds = %59, %51
   %.0172 = phi ptr [ null, %51 ], [ %62, %59 ]
-  %64 = getelementptr inbounds i8, ptr %11, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double 3.500000e-01, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double 3.500000e-01, ptr %65, align 8
   store double 3.500000e-01, ptr %11, align 16
   tail call void @srand(i32 noundef %6) #15
@@ -440,7 +440,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %68 = tail call double @drand() #15
   %69 = fmul double %68, 0x3FE6666666666666
-  %70 = getelementptr inbounds double, ptr %7, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   store double %69, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -538,10 +538,10 @@ gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %128 ], [ 0, %.lr.ph217 ]
   %.1174214.us = phi double [ %.2175.us, %128 ], [ %.0173226, %.lr.ph217 ]
   %.1178213.us = phi double [ %.2179.us, %128 ], [ %.0177224, %.lr.ph217 ]
-  %110 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv246
+  %110 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv246
   %111 = load i32, ptr %110, align 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %112 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.next247
+  %112 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.next247
   %113 = load i32, ptr %112, align 4
   %114 = icmp slt i32 %111, %113
   br i1 %114, label %.lr.ph208.us.preheader, label %._crit_edge209.split.us.us
@@ -553,7 +553,7 @@ gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit
 ._crit_edge209.split.us.us:                       ; preds = %146, %.lr.ph217.split.us
   %.0170.lcssa.us = phi i32 [ 0, %.lr.ph217.split.us ], [ %.1171.us.us, %146 ]
   %116 = mul nuw nsw i64 %indvars.iv246, %102
-  %117 = getelementptr inbounds double, ptr %7, i64 %116
+  %117 = getelementptr inbounds nuw double, ptr %7, i64 %116
   store ptr %117, ptr %13, align 8
   br i1 %101, label %120, label %118
 
@@ -624,10 +624,10 @@ gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %185 ], [ 0, %.lr.ph217 ]
   %.1174214 = phi double [ %.2175, %185 ], [ %.0173226, %.lr.ph217 ]
   %.1178213 = phi double [ %.2179, %185 ], [ %.0177224, %.lr.ph217 ]
-  %150 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv238
+  %150 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv238
   %151 = load i32, ptr %150, align 4
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %152 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.next239
+  %152 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.next239
   %153 = load i32, ptr %152, align 4
   %154 = icmp slt i32 %151, %153
   br i1 %154, label %.lr.ph208.preheader, label %._crit_edge209.split
@@ -669,7 +669,7 @@ gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit
 ._crit_edge209.split:                             ; preds = %169, %.lr.ph217.split
   %.0170.lcssa = phi i32 [ 0, %.lr.ph217.split ], [ %.1171, %169 ]
   %173 = mul nuw nsw i64 %indvars.iv238, %102
-  %174 = getelementptr inbounds double, ptr %7, i64 %173
+  %174 = getelementptr inbounds nuw double, ptr %7, i64 %173
   store ptr %174, ptr %13, align 8
   br i1 %101, label %175, label %176
 
@@ -725,19 +725,19 @@ gv_calloc.exit193:                                ; preds = %88, %gv_calloc.exit
   br i1 %or.cond229, label %.lr.ph228, label %.loopexit
 
 .lr.ph228:                                        ; preds = %.critedge
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %wide.trip.count255 = zext nneg i32 %35 to i64
   br label %192
 
 192:                                              ; preds = %.lr.ph228, %192
   %indvars.iv252 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next253, %192 ]
   %193 = mul nuw nsw i64 %indvars.iv252, %102
-  %194 = getelementptr inbounds double, ptr %7, i64 %193
+  %194 = getelementptr inbounds nuw double, ptr %7, i64 %193
   %195 = load double, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %194, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %199 = load double, ptr %198, align 8
   %200 = call i24 @color_lab_init(double noundef %195, double noundef %197, double noundef %199) #15
   call void @LAB2RGB(ptr dead_on_unwind nonnull writable sret(%struct.rgb_struct) align 8 %18, i24 %200) #15

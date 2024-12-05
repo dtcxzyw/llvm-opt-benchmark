@@ -84,7 +84,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, -1
   %.not40 = icmp slt i32 %29, %.val
@@ -159,7 +159,7 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 59:                                               ; preds = %57, %.lr.ph.i
   %60 = phi i8 [ %53, %.lr.ph.i ], [ %.pre.i.i, %57 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i8 %60 to i1
   br i1 %64, label %65, label %opal_pointer_array_get_item.exit.i
@@ -171,13 +171,13 @@ define i32 @PMPI_Group_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 opal_pointer_array_get_item.exit.i:               ; preds = %65, %59
   %67 = phi i8 [ %60, %59 ], [ %.pre.i, %65 ]
-  %68 = getelementptr inbounds i8, ptr %63, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, %44
   br i1 %70, label %71, label %49
 
 71:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %72 = getelementptr inbounds i8, ptr %63, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %73 = load i32, ptr %72, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

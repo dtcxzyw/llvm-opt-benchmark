@@ -29,7 +29,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawLine(ptr noundef %0, ptr nocap
 10:                                               ; preds = %8
   %11 = inttoptr i64 %2 to ptr
   %12 = load ptr, ptr @awt_display, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %3 to ptr
   %16 = tail call i32 @llvm.smax.i32(i32 %4, i32 -32768)
@@ -66,7 +66,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr nocap
   %15 = icmp slt i32 %7, 2
   %or.cond5 = or i1 %14, %15
   %16 = load ptr, ptr @awt_display, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %3 to ptr
   %20 = tail call i32 @llvm.smax.i32(i32 %4, i32 -32768)
@@ -125,7 +125,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %22 = icmp slt i32 %7, 2
   %or.cond5.i = or i1 %21, %22
   %23 = load ptr, ptr @awt_display, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %3 to ptr
   %27 = tail call i32 @llvm.smax.i32(i32 %4, i32 -32768)
@@ -185,7 +185,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %71 = add nsw i64 %70, %69
   %spec.select171 = tail call i64 @llvm.smax.i64(i64 %71, i64 -32768)
   %72 = tail call i64 @llvm.smin.i64(i64 %spec.select171, i64 32767)
-  %73 = getelementptr inbounds i8, ptr %11, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %74 = inttoptr i64 %3 to ptr
   %75 = trunc i64 %59 to i32
   %.tr = sub i32 %75, %46
@@ -313,7 +313,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocap
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @awt_display, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %3 to ptr
   %21 = add nuw nsw i32 %6, 1
@@ -322,7 +322,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocap
   br label %awt_drawArc.exit
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %9, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %3 to ptr
   %28 = load ptr, ptr @awt_display, align 8
@@ -346,7 +346,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr nocapt
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %2 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %3 to ptr
   %17 = or i32 %7, %6
@@ -402,7 +402,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocap
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1368
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %7) #10
   %24 = icmp slt i32 %23, %8
@@ -410,7 +410,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocap
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1368
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1368
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %6) #10
   %30 = icmp slt i32 %29, %8
@@ -434,7 +434,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocap
   %38 = load i32, ptr %11, align 4
   %39 = icmp eq i32 %38, 2
   %40 = load ptr, ptr @awt_display, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %42 = load i64, ptr %41, align 8
   %43 = inttoptr i64 %3 to ptr
   br i1 %39, label %44, label %57
@@ -442,13 +442,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocap
 44:                                               ; preds = %37
   %45 = load i16, ptr %36, align 2
   %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %36, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %36, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %36, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i32
   %56 = call i32 @XDrawLine(ptr noundef %40, i64 noundef %42, ptr noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55) #10
@@ -482,7 +482,7 @@ declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) 
 define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1776
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1776
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #10
   %14 = icmp eq ptr %13, null
@@ -490,7 +490,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1776
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #10
   %20 = icmp eq ptr %19, null
@@ -498,7 +498,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1784
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
   br label %91
@@ -556,7 +556,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %51 = trunc nsw i32 %47 to i16
   store i16 %51, ptr %.097127, align 2
   %52 = trunc nsw i32 %50 to i16
-  %53 = getelementptr inbounds i8, ptr %.097127, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.097127, i64 2
   store i16 %52, ptr %53, align 2
   %54 = sext i1 %.0104.shrunk to i32
   %spec.select120 = add nsw i32 %.0105, %54
@@ -572,12 +572,12 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %.098132 = phi i32 [ %50, %.lr.ph.preheader ], [ %.1, %71 ]
   %.099131 = phi i32 [ %47, %.lr.ph.preheader ], [ %.1100, %71 ]
   %.0101130 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %71 ]
-  %56 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, %3
   %spec.select121 = tail call i32 @llvm.smax.i32(i32 %58, i32 -32768)
   %59 = tail call i32 @llvm.smin.i32(i32 %spec.select121, i32 32767)
-  %60 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, %4
   %spec.select122 = tail call i32 @llvm.smax.i32(i32 %62, i32 -32768)
@@ -593,7 +593,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %67 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %66
   store i16 %65, ptr %67, align 2
   %68 = trunc nsw i32 %63 to i16
-  %69 = getelementptr inbounds i8, ptr %67, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i16 %68, ptr %69, align 2
   %70 = add nsw i32 %.0101130, 1
   br label %71
@@ -614,10 +614,10 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %.098.lcssa140 = phi i32 [ %.1, %._crit_edge ], [ %50, %.thread124 ]
   %.099.lcssa139 = phi i32 [ %.1100, %._crit_edge ], [ %47, %.thread124 ]
   %73 = trunc nsw i32 %.099.lcssa139 to i16
-  %74 = getelementptr inbounds i8, ptr %.097127, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.097127, i64 4
   store i16 %73, ptr %74, align 2
   %75 = trunc nsw i32 %.098.lcssa140 to i16
-  %76 = getelementptr inbounds i8, ptr %.097127, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.097127, i64 6
   store i16 %75, ptr %76, align 2
   br label %83
 
@@ -640,11 +640,11 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 84:                                               ; preds = %83, %41
   %.097128 = phi ptr [ %.097127, %83 ], [ null, %41 ]
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1784
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1784
   %87 = load ptr, ptr %86, align 8
   tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef 2) #10
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1784
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1784
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %19, i32 noundef 2) #10
   br label %91
@@ -665,13 +665,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   %11 = alloca %struct._DrawHandler, align 8
   %12 = inttoptr i64 %3 to ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 56, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -32768, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 -32768, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 32767, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 32767, ptr %16, align 4
   %17 = icmp eq i64 %3, 0
   br i1 %17, label %104, label %18
@@ -682,7 +682,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 800
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 800
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @path2DWindingRuleID, align 8
   %24 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %23) #10
@@ -691,12 +691,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 25:                                               ; preds = %19, %18
   %.065 = phi i32 [ %24, %19 ], [ undef, %18 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 760
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 760
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @path2DTypesID, align 8
   %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %29) #10
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 760
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 760
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @path2DFloatCoordsID, align 8
   %35 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %34) #10
@@ -709,12 +709,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 
 38:                                               ; preds = %25
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 800
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 800
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @path2DNumTypesID, align 8
   %43 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %42) #10
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1368
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1368
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef %30) #10
   %48 = icmp slt i32 %47, %43
@@ -725,23 +725,23 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   br label %104
 
 50:                                               ; preds = %38
-  %51 = getelementptr inbounds i8, ptr %10, i64 24
-  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 1048
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 1048
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 1052
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 1052
   store i32 256, ptr %54, align 4
   %55 = inttoptr i64 %4 to ptr
-  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %10, align 8
-  %59 = getelementptr inbounds i8, ptr %11, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %10, ptr %59, align 8
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 800
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 800
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr @sg2dStrokeHintID, align 8
   %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %63) #10
@@ -749,11 +749,11 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   %66 = icmp ne i32 %64, %65
   %67 = zext i1 %66 to i32
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1368
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1368
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %35) #10
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1776
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1776
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef null) #10
   %.not72 = icmp eq ptr %75, null
@@ -761,7 +761,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 
 76:                                               ; preds = %50
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1776
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1776
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %30, ptr noundef null) #10
   %.not73 = icmp eq ptr %80, null
@@ -771,14 +771,14 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %85, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %11, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @drawScanline, ptr %83, align 8
   %84 = call zeroext i8 @doFillPath(ptr noundef nonnull %11, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67, i32 noundef %.065) #10
   br label %88
 
 85:                                               ; preds = %81
   store ptr @storeLine, ptr %11, align 8
-  %86 = getelementptr inbounds i8, ptr %11, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @storePoint, ptr %86, align 8
   %87 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef nonnull @drawSubPath, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %75, i32 noundef %71, ptr noundef nonnull %80, i32 noundef %43, i32 noundef %67) #10
   br label %88
@@ -786,12 +786,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 88:                                               ; preds = %85, %82
   %.1 = phi i8 [ %84, %82 ], [ %87, %85 ]
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1784
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1784
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %80, i32 noundef 2) #10
   %92 = icmp eq i8 %.1, 0
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1784
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1784
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
   br i1 %92, label %96, label %100
@@ -802,7 +802,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 
 .critedge:                                        ; preds = %76
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1784
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1784
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %75, i32 noundef 2) #10
   br label %100
@@ -829,11 +829,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @drawScanline(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @awt_display, align 8
   %8 = load i64, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @XDrawLine(ptr noundef %7, i64 noundef %8, ptr noundef %10, i32 noundef %1, i32 noundef %3, i32 noundef %2, i32 noundef %3) #10
   ret void
@@ -843,20 +843,20 @@ declare zeroext i8 @doFillPath(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 1048
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 1052
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1052
   %13 = load i32, ptr %12, align 4
   %.not = icmp slt i32 %11, %13
   br i1 %.not, label %28, label %14
 
 14:                                               ; preds = %5
   %15 = shl nsw i32 %13, 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = icmp eq ptr %9, %16
   %18 = sext i32 %15 to i64
   %19 = shl nsw i64 %18, 2
@@ -887,7 +887,7 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
   %31 = trunc i32 %1 to i16
   store i16 %31, ptr %30, align 2
   %32 = trunc i32 %2 to i16
-  %33 = getelementptr inbounds i8, ptr %30, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i16 %32, ptr %33, align 2
   %34 = add nsw i32 %11, 1
   store i32 %34, ptr %10, align 8
@@ -898,7 +898,7 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
 
 37:                                               ; preds = %28
   %38 = shl nsw i32 %36, 1
-  %39 = getelementptr inbounds i8, ptr %7, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %40 = icmp eq ptr %35, %39
   %41 = sext i32 %38 to i64
   %42 = shl nsw i64 %41, 2
@@ -929,7 +929,7 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
   %54 = trunc i32 %3 to i16
   store i16 %54, ptr %53, align 2
   %55 = trunc i32 %4 to i16
-  %56 = getelementptr inbounds i8, ptr %53, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i16 %55, ptr %56, align 2
   %57 = add nsw i32 %11, 2
   store i32 %57, ptr %10, align 8
@@ -938,20 +938,20 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @storePoint(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 1052
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1052
   %11 = load i32, ptr %10, align 4
   %.not = icmp slt i32 %9, %11
   br i1 %.not, label %26, label %12
 
 12:                                               ; preds = %3
   %13 = shl nsw i32 %11, 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = icmp eq ptr %7, %14
   %16 = sext i32 %13 to i64
   %17 = shl nsw i64 %16, 2
@@ -982,7 +982,7 @@ define internal void @storePoint(ptr nocapture noundef readonly %0, i32 noundef 
   %29 = trunc i32 %1 to i16
   store i16 %29, ptr %28, align 2
   %30 = trunc i32 %2 to i16
-  %31 = getelementptr inbounds i8, ptr %28, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store i16 %30, ptr %31, align 2
   %32 = add nsw i32 %9, 1
   store i32 %32, ptr %8, align 8
@@ -993,13 +993,13 @@ declare zeroext i8 @doDrawPath(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %38 [
     i32 0, label %44
@@ -1010,11 +1010,11 @@ define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
 10:                                               ; preds = %1
   %11 = load ptr, ptr @awt_display, align 8
   %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %7, align 2
   %16 = sext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = sext i16 %18 to i32
   %20 = tail call i32 @XFillRectangle(ptr noundef %11, i64 noundef %12, ptr noundef %14, i32 noundef %16, i32 noundef %19, i32 noundef 1, i32 noundef 1) #10
@@ -1023,17 +1023,17 @@ define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
 21:                                               ; preds = %1
   %22 = load ptr, ptr @awt_display, align 8
   %23 = load i64, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i16, ptr %7, align 2
   %27 = sext i16 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %7, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %7, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %7, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
   %37 = tail call i32 @XDrawLine(ptr noundef %22, i64 noundef %23, ptr noundef %25, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36) #10
@@ -1042,7 +1042,7 @@ define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
 38:                                               ; preds = %1
   %39 = load ptr, ptr @awt_display, align 8
   %40 = load i64, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @XDrawLines(ptr noundef %39, i64 noundef %40, ptr noundef %42, ptr noundef %7, i32 noundef %9, i32 noundef 0) #10
   br label %44
@@ -1060,7 +1060,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillRect(ptr noundef %0, ptr nocap
 10:                                               ; preds = %8
   %11 = inttoptr i64 %2 to ptr
   %12 = load ptr, ptr @awt_display, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %3 to ptr
   %16 = tail call i32 @llvm.smax.i32(i32 %4, i32 -32768)
@@ -1097,7 +1097,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillRoundRect(ptr noundef %0, ptr 
 
 Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %18 = load ptr, ptr @awt_display, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %3 to ptr
   %22 = tail call i32 @llvm.smax.i32(i32 %4, i32 -32768)
@@ -1153,7 +1153,7 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %spec.select172 = tail call i64 @llvm.smax.i64(i64 %62, i64 -32768)
   %63 = tail call i64 @llvm.smin.i64(i64 %spec.select172, i64 32767)
   %64 = sub nsw i64 %45, %63
-  %65 = getelementptr inbounds i8, ptr %11, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %66 = inttoptr i64 %3 to ptr
   %67 = trunc i64 %50 to i32
   %.tr = sub i32 %67, %37
@@ -1338,14 +1338,14 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nocap
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr @awt_display, align 8
-  %53 = getelementptr inbounds i8, ptr %9, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %3 to ptr
   %56 = tail call i32 @XFillRectangle(ptr noundef %52, i64 noundef %54, ptr noundef %55, i32 noundef %.0, i32 noundef %.047, i32 noundef %.048, i32 noundef %.049) #10
   br label %awt_drawArc.exit
 
 57:                                               ; preds = %11
-  %58 = getelementptr inbounds i8, ptr %9, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %59 = load i64, ptr %58, align 8
   %60 = inttoptr i64 %3 to ptr
   %61 = load ptr, ptr @awt_display, align 8
@@ -1372,7 +1372,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr nocapt
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %2 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %3 to ptr
   %17 = or i32 %7, %6
@@ -1428,7 +1428,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocap
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1368
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1368
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %7) #10
   %23 = icmp slt i32 %22, %8
@@ -1436,7 +1436,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocap
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1368
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1368
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef nonnull %6) #10
   %29 = icmp slt i32 %28, %8
@@ -1462,7 +1462,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocap
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @awt_display, align 8
-  %40 = getelementptr inbounds i8, ptr %12, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %41 = load i64, ptr %40, align 8
   %42 = inttoptr i64 %3 to ptr
   %43 = call i32 @XFillPolygon(ptr noundef %39, i64 noundef %41, ptr noundef %42, ptr noundef nonnull %34, i32 noundef %36, i32 noundef 0, i32 noundef 0) #10
@@ -1510,17 +1510,17 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noca
 19:                                               ; preds = %16
   %20 = load ptr, ptr %10, align 8
   %21 = tail call ptr %20(ptr noundef %0, ptr noundef nonnull %4) #10
-  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i8 %23(ptr noundef %21, ptr noundef nonnull %9) #10
   %.not34 = icmp eq i8 %24, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 12
-  %28 = getelementptr inbounds i8, ptr %11, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %29 = inttoptr i64 %3 to ptr
   br label %30
 
@@ -1550,7 +1550,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noca
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %30, %19
-  %52 = getelementptr inbounds i8, ptr %10, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef %0, ptr noundef %21) #10
   call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %11) #10
@@ -1571,7 +1571,7 @@ define void @Java_sun_java2d_x11_X11Renderer_devCopyArea(ptr noundef %0, ptr noc
   %14 = inttoptr i64 %2 to ptr
   %15 = inttoptr i64 %3 to ptr
   %16 = load ptr, ptr @awt_display, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %18 = load i64, ptr %17, align 8
   %19 = tail call i32 @XCopyArea(ptr noundef %16, i64 noundef %18, i64 noundef %18, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %6, i32 noundef %7) #10
   tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %14) #10

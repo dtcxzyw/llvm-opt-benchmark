@@ -70,11 +70,11 @@ define hidden void @_ZN11rpolynomial7managerC2ER11mpz_managerILb0EEP22small_obje
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   store ptr %this, ptr %call, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %m, ptr %m_manager.i, align 8
-  %m_allocator.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_allocator.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %a, ptr %m_allocator.i, align 8
-  %m_own_allocator.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_own_allocator.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %cmp.i = icmp eq ptr %a, null
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %m_own_allocator.i, align 8
@@ -101,13 +101,13 @@ entry:
   br i1 %cmp.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %m_own_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_own_allocator.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i8, ptr %m_own_allocator.i.i, align 8
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_allocator.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %m_allocator.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %m_allocator.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN11rpolynomial7manager3impD2Ev.exit.i, label %if.end.i.i.i

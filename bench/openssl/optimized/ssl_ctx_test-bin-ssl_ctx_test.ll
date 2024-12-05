@@ -37,17 +37,17 @@ entry:
   %idxprom = sext i32 %idx_tst to i64
   %arrayidx = getelementptr inbounds [25 x %struct.version_test], ptr @version_testdata, i64 0, i64 %idxprom
   %t.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
-  %t.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %t.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %t.sroa.2.0.copyload = load i32, ptr %t.sroa.2.0.arrayidx.sroa_idx, align 4
-  %t.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %t.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %t.sroa.4.0.copyload = load i32, ptr %t.sroa.4.0.arrayidx.sroa_idx, align 4
-  %t.sroa.6.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %t.sroa.6.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %t.sroa.6.0.copyload = load i32, ptr %t.sroa.6.0.arrayidx.sroa_idx, align 4
-  %t.sroa.8.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %t.sroa.8.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %t.sroa.8.0.copyload = load i32, ptr %t.sroa.8.0.arrayidx.sroa_idx, align 4
-  %t.sroa.10.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %t.sroa.10.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %t.sroa.10.0.copyload = load i32, ptr %t.sroa.10.0.arrayidx.sroa_idx, align 4
-  %t.sroa.12.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %t.sroa.12.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %t.sroa.12.0.copyload = load i32, ptr %t.sroa.12.0.arrayidx.sroa_idx, align 4
   switch i32 %t.sroa.0.0.copyload, label %if.then [
     i32 0, label %sw.bb

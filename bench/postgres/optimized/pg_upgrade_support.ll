@@ -58,7 +58,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_tablespace_oid(ptr noca
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_pg_tablespace_oid, align 4
@@ -89,7 +89,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_type_oid(ptr nocapture 
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_pg_type_oid, align 4
@@ -111,7 +111,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_array_pg_type_oid(ptr noca
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_array_pg_type_oid, align 4
@@ -133,7 +133,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_pg_type_oid(ptr
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_mrng_pg_type_oid, align 4
@@ -155,7 +155,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_multirange_array_pg_type_o
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_mrng_array_pg_type_oid, align 4
@@ -177,7 +177,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_pg_class_oid(ptr noca
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_heap_pg_class_oid, align 4
@@ -199,7 +199,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_heap_relfilenode(ptr nocap
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_heap_pg_class_relfilenumber, align 4
@@ -221,7 +221,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_pg_class_oid(ptr noc
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_index_pg_class_oid, align 4
@@ -243,7 +243,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_index_relfilenode(ptr noca
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_index_pg_class_relfilenumber, align 4
@@ -265,7 +265,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_pg_class_oid(ptr noc
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_toast_pg_class_oid, align 4
@@ -287,7 +287,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_toast_relfilenode(ptr noca
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_toast_pg_class_relfilenumber, align 4
@@ -309,7 +309,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_enum_oid(ptr nocapture 
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_pg_enum_oid, align 4
@@ -331,7 +331,7 @@ define dso_local noundef i64 @binary_upgrade_set_next_pg_authid_oid(ptr nocaptur
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @binary_upgrade_next_pg_authid_oid, align 4
@@ -355,8 +355,8 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %29, label %15
@@ -502,7 +502,7 @@ define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr nocapture
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i8
@@ -512,7 +512,7 @@ define dso_local noundef i64 @binary_upgrade_set_record_init_privs(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @binary_upgrade_set_missing_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -559,7 +559,7 @@ define dso_local range(i64 0, 2) i64 @binary_upgrade_logical_slot_has_caught_up(
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   tail call void @ReplicationSlotAcquire(ptr noundef %11, i1 noundef zeroext true) #5
@@ -594,8 +594,8 @@ define dso_local noundef i64 @binary_upgrade_add_sub_rel_state(ptr nocapture nou
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %22, label %13
@@ -679,7 +679,7 @@ define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture no
   unreachable
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %16
@@ -692,7 +692,7 @@ define dso_local noundef i64 @binary_upgrade_replorigin_advance(ptr nocapture no
   unreachable
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
   %20 = tail call ptr @pg_detoast_datum_packed(ptr noundef %19) #5

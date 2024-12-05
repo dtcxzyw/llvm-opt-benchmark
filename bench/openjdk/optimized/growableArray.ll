@@ -23,9 +23,9 @@ define hidden noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i
   %6 = mul nsw i64 %4, %5
   %7 = add nsw i64 %6, 7
   %8 = and i64 %7, -8
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64

@@ -27,14 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bpcharin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc ptr @bpchar_input(ptr noundef %4, i64 noundef %8, i32 noundef %7, ptr noundef %10)
   %12 = ptrtoint ptr %11 to i64
@@ -95,7 +95,7 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
   %29 = trunc i64 %27 to i32
   %30 = shl i32 %29, 2
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %0, i64 %.039, i1 false)
   %32 = icmp ugt i64 %.040, %.039
   br i1 %32, label %33, label %36
@@ -116,7 +116,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpcharout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @text_to_cstring(ptr noundef %4) #12
@@ -129,15 +129,15 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bpcharrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 %10, %12
   %14 = call ptr @pq_getmsgtext(ptr noundef %5, i32 noundef %13, ptr noundef nonnull %2) #12
@@ -163,7 +163,7 @@ declare i64 @textsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -184,7 +184,7 @@ define dso_local i64 @bpchar(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %5, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
   %21 = and i8 %19, -2
@@ -216,7 +216,7 @@ define dso_local i64 @bpchar(ptr nocapture noundef readonly %0) local_unnamed_ad
   %37 = and i8 %14, 1
   %.not61 = icmp eq i8 %37, 0
   %.v = select i1 %.not61, i64 4, i64 1
-  %38 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %39 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %38, i32 noundef %36) #12
   %40 = icmp eq i32 %39, %13
   br i1 %40, label %68, label %41
@@ -269,7 +269,7 @@ define dso_local i64 @bpchar(ptr nocapture noundef readonly %0) local_unnamed_ad
   %59 = tail call ptr @palloc(i64 noundef %58) #12
   %60 = shl i32 %57, 2
   store i32 %60, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = sext i32 %.055 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %38, i64 %62, i1 false)
   %63 = icmp sgt i32 %.053, %.055
@@ -313,12 +313,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @char_bpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i8
   %5 = tail call ptr @palloc(i64 noundef 5) #12
   store i32 20, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %4, ptr %6, align 4
   %7 = ptrtoint ptr %5 to i64
   ret i64 %7
@@ -326,7 +326,7 @@ define dso_local noundef i64 @char_bpchar(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpchar_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -336,7 +336,7 @@ define dso_local i64 @bpchar_name(ptr nocapture noundef readonly %0) local_unnam
   br i1 %8, label %.thread, label %13
 
 .thread:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 18
   %12 = select i1 %11, i32 16, i32 0
@@ -365,7 +365,7 @@ define dso_local i64 @bpchar_name(ptr nocapture noundef readonly %0) local_unnam
   %24 = and i8 %6, 1
   %.not25 = icmp eq i8 %24, 0
   %.v = select i1 %.not25, i64 4, i64 1
-  %25 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %26 = icmp sgt i32 %23, 63
   br i1 %26, label %27, label %29
 
@@ -415,7 +415,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @name_bpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @cstring_to_text(ptr noundef %4) #12
@@ -427,7 +427,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 5, 10485765) i64 @bpchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
@@ -486,7 +486,7 @@ define internal fastcc range(i32 5, 10485765) i32 @anychar_typmodin(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpchartypmodout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @palloc(i64 noundef 64) #12
@@ -509,14 +509,14 @@ anychar_typmodout.exit:                           ; preds = %7, %10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varcharin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc ptr @varchar_input(ptr noundef %4, i64 noundef %8, i32 noundef %7, ptr noundef %10)
   %12 = ptrtoint ptr %11 to i64
@@ -574,7 +574,7 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varcharout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @text_to_cstring(ptr noundef %4) #12
@@ -585,15 +585,15 @@ define dso_local i64 @varcharout(ptr nocapture noundef readonly %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varcharrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 %10, %12
   %14 = call ptr @pq_getmsgtext(ptr noundef %5, i32 noundef %13, ptr noundef nonnull %2) #12
@@ -613,7 +613,7 @@ define dso_local i64 @varcharsend(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i32, ptr %4, align 4
@@ -621,9 +621,9 @@ define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_u
   br i1 %6, label %7, label %35
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 16
   %.val = load ptr, ptr %12, align 8
@@ -634,7 +634,7 @@ define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_u
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %35, label %21
@@ -642,7 +642,7 @@ define dso_local i64 @varchar_support(ptr nocapture noundef readonly %0) local_u
 21:                                               ; preds = %17
   %22 = load ptr, ptr %.val, align 8
   %23 = tail call i32 @exprTypmod(ptr noundef %22) #12
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = icmp slt i32 %26, 0
@@ -672,7 +672,7 @@ declare ptr @relabel_to_typmod(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -688,7 +688,7 @@ define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 1
   %18 = and i8 %16, -2
@@ -720,7 +720,7 @@ define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_a
   %34 = and i8 %11, 1
   %.not36 = icmp eq i8 %34, 0
   %.v = select i1 %.not36, i64 4, i64 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %36 = add i32 %8, -4
   %37 = icmp sgt i32 %36, -1
   %.not37 = icmp sgt i32 %33, %36
@@ -772,7 +772,7 @@ declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 5, 10485765) i64 @varchartypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
@@ -783,7 +783,7 @@ define dso_local range(i64 5, 10485765) i64 @varchartypmodin(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varchartypmodout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @palloc(i64 noundef 64) #12
@@ -837,7 +837,7 @@ define dso_local i32 @bpchartruelen(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -845,7 +845,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharlen(ptr nocapture
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
   %.not.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = icmp eq i8 %6, 1
   br i1 %10, label %11, label %19
 
@@ -876,7 +876,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharlen(ptr nocapture
 
 27:                                               ; preds = %23, %20, %11
   %28 = phi i32 [ %18, %11 ], [ %22, %20 ], [ %26, %23 ]
-  %29 = getelementptr inbounds i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = select i1 %.not.i, ptr %29, ptr %9
   %31 = zext i32 %28 to i64
   %32 = tail call i32 @llvm.smin.i32(i32 %28, i32 0)
@@ -911,7 +911,7 @@ bcTruelen.exit:                                   ; preds = %33, %.split.loop.ex
   %44 = and i8 %43, 1
   %.not6 = icmp eq i8 %44, 0
   %.v = select i1 %.not6, i64 4, i64 1
-  %45 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %46 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %45, i32 noundef %.0.in.lcssa.i.i) #12
   br label %47
 
@@ -925,7 +925,7 @@ declare i32 @pg_database_encoding_max_length() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharoctetlen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @toast_raw_datum_size(i64 noundef %3) #12
   %5 = shl i64 %4, 32
@@ -938,7 +938,7 @@ declare i64 @toast_raw_datum_size(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchareq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -946,7 +946,7 @@ define dso_local range(i64 0, 2) i64 @bpchareq(ptr nocapture noundef readonly %0
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %check_collation_set.exit
@@ -965,7 +965,7 @@ check_collation_set.exit:                         ; preds = %1
   %18 = zext i8 %17 to i32
   %19 = and i32 %18, 1
   %.not.i48 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %5, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %21 = icmp eq i8 %17, 1
   br i1 %21, label %22, label %30
 
@@ -996,7 +996,7 @@ check_collation_set.exit:                         ; preds = %1
 
 38:                                               ; preds = %34, %31, %22
   %39 = phi i32 [ %29, %22 ], [ %33, %31 ], [ %37, %34 ]
-  %40 = getelementptr inbounds i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %41 = select i1 %.not.i48, ptr %40, ptr %20
   %42 = zext i32 %39 to i64
   %43 = tail call i32 @llvm.smin.i32(i32 %39, i32 0)
@@ -1026,7 +1026,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %53 = zext i8 %52 to i32
   %54 = and i32 %53, 1
   %.not.i49 = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %9, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %56 = icmp eq i8 %52, 1
   br i1 %56, label %57, label %65
 
@@ -1057,7 +1057,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
 
 73:                                               ; preds = %69, %66, %57
   %74 = phi i32 [ %64, %57 ], [ %68, %66 ], [ %72, %69 ]
-  %75 = getelementptr inbounds i8, ptr %9, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %76 = select i1 %.not.i49, ptr %75, ptr %55
   %77 = zext i32 %74 to i64
   %78 = tail call i32 @llvm.smin.i32(i32 %74, i32 0)
@@ -1100,12 +1100,12 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
   %93 = and i8 %92, 1
   %.not42 = icmp eq i8 %93, 0
   %.v43 = select i1 %.not42, i64 4, i64 1
-  %94 = getelementptr inbounds i8, ptr %5, i64 %.v43
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 %.v43
   %95 = load i8, ptr %9, align 1
   %96 = and i8 %95, 1
   %.not44 = icmp eq i8 %96, 0
   %.v45 = select i1 %.not44, i64 4, i64 1
-  %97 = getelementptr inbounds i8, ptr %9, i64 %.v45
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 %.v45
   %98 = sext i32 %.0.in.lcssa.i.i to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %94, ptr nonnull %97, i64 %98)
   %99 = icmp eq i32 %bcmp, 0
@@ -1116,12 +1116,12 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
   %102 = and i8 %101, 1
   %.not = icmp eq i8 %102, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %103 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %104 = load i8, ptr %9, align 1
   %105 = and i8 %104, 1
   %.not39 = icmp eq i8 %105, 0
   %.v40 = select i1 %.not39, i64 4, i64 1
-  %106 = getelementptr inbounds i8, ptr %9, i64 %.v40
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 %.v40
   %107 = tail call i32 @varstr_cmp(ptr noundef nonnull %103, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %106, i32 noundef %.0.in.lcssa.i.i52, i32 noundef %11) #12
   %108 = icmp eq i32 %107, 0
   br label %109
@@ -1165,7 +1165,7 @@ declare i32 @varstr_cmp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpcharne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1173,7 +1173,7 @@ define dso_local range(i64 0, 2) i64 @bpcharne(ptr nocapture noundef readonly %0
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %check_collation_set.exit
@@ -1192,7 +1192,7 @@ check_collation_set.exit:                         ; preds = %1
   %18 = zext i8 %17 to i32
   %19 = and i32 %18, 1
   %.not.i48 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %5, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %21 = icmp eq i8 %17, 1
   br i1 %21, label %22, label %30
 
@@ -1223,7 +1223,7 @@ check_collation_set.exit:                         ; preds = %1
 
 38:                                               ; preds = %34, %31, %22
   %39 = phi i32 [ %29, %22 ], [ %33, %31 ], [ %37, %34 ]
-  %40 = getelementptr inbounds i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %41 = select i1 %.not.i48, ptr %40, ptr %20
   %42 = zext i32 %39 to i64
   %43 = tail call i32 @llvm.smin.i32(i32 %39, i32 0)
@@ -1253,7 +1253,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
   %53 = zext i8 %52 to i32
   %54 = and i32 %53, 1
   %.not.i49 = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %9, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %56 = icmp eq i8 %52, 1
   br i1 %56, label %57, label %65
 
@@ -1284,7 +1284,7 @@ bcTruelen.exit:                                   ; preds = %44, %.split.loop.ex
 
 73:                                               ; preds = %69, %66, %57
   %74 = phi i32 [ %64, %57 ], [ %68, %66 ], [ %72, %69 ]
-  %75 = getelementptr inbounds i8, ptr %9, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %76 = select i1 %.not.i49, ptr %75, ptr %55
   %77 = zext i32 %74 to i64
   %78 = tail call i32 @llvm.smin.i32(i32 %74, i32 0)
@@ -1327,12 +1327,12 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
   %93 = and i8 %92, 1
   %.not42 = icmp eq i8 %93, 0
   %.v43 = select i1 %.not42, i64 4, i64 1
-  %94 = getelementptr inbounds i8, ptr %5, i64 %.v43
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 %.v43
   %95 = load i8, ptr %9, align 1
   %96 = and i8 %95, 1
   %.not44 = icmp eq i8 %96, 0
   %.v45 = select i1 %.not44, i64 4, i64 1
-  %97 = getelementptr inbounds i8, ptr %9, i64 %.v45
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 %.v45
   %98 = sext i32 %.0.in.lcssa.i.i to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %94, ptr nonnull %97, i64 %98)
   %99 = icmp ne i32 %bcmp, 0
@@ -1343,12 +1343,12 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
   %102 = and i8 %101, 1
   %.not = icmp eq i8 %102, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %103 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %104 = load i8, ptr %9, align 1
   %105 = and i8 %104, 1
   %.not39 = icmp eq i8 %105, 0
   %.v40 = select i1 %.not39, i64 4, i64 1
-  %106 = getelementptr inbounds i8, ptr %9, i64 %.v40
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 %.v40
   %107 = tail call i32 @varstr_cmp(ptr noundef nonnull %103, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %106, i32 noundef %.0.in.lcssa.i.i52, i32 noundef %11) #12
   %108 = icmp ne i32 %107, 0
   br label %109
@@ -1381,7 +1381,7 @@ bcTruelen.exit56:                                 ; preds = %79, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpcharlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1393,7 +1393,7 @@ define dso_local range(i64 0, 2) i64 @bpcharlt(ptr nocapture noundef readonly %0
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -1424,7 +1424,7 @@ define dso_local range(i64 0, 2) i64 @bpcharlt(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -1454,7 +1454,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i24 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -1485,7 +1485,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i24, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -1514,12 +1514,12 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not20 = icmp eq i8 %82, 0
   %.v21 = select i1 %.not20, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v21
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v21
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i27, i32 noundef %85) #12
   %87 = load i64, ptr %2, align 8
@@ -1549,7 +1549,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpcharle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1561,7 +1561,7 @@ define dso_local range(i64 0, 2) i64 @bpcharle(ptr nocapture noundef readonly %0
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -1592,7 +1592,7 @@ define dso_local range(i64 0, 2) i64 @bpcharle(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -1622,7 +1622,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i24 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -1653,7 +1653,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i24, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -1682,12 +1682,12 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not20 = icmp eq i8 %82, 0
   %.v21 = select i1 %.not20, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v21
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v21
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i27, i32 noundef %85) #12
   %87 = load i64, ptr %2, align 8
@@ -1717,7 +1717,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchargt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1729,7 +1729,7 @@ define dso_local range(i64 0, 2) i64 @bpchargt(ptr nocapture noundef readonly %0
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -1760,7 +1760,7 @@ define dso_local range(i64 0, 2) i64 @bpchargt(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -1790,7 +1790,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i24 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -1821,7 +1821,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i24, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -1850,12 +1850,12 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not20 = icmp eq i8 %82, 0
   %.v21 = select i1 %.not20, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v21
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v21
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i27, i32 noundef %85) #12
   %87 = load i64, ptr %2, align 8
@@ -1885,7 +1885,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpcharge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1897,7 +1897,7 @@ define dso_local range(i64 0, 2) i64 @bpcharge(ptr nocapture noundef readonly %0
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -1928,7 +1928,7 @@ define dso_local range(i64 0, 2) i64 @bpcharge(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -1958,7 +1958,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i24 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -1989,7 +1989,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i24, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -2018,12 +2018,12 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not20 = icmp eq i8 %82, 0
   %.v21 = select i1 %.not20, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v21
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v21
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i27, i32 noundef %85) #12
   %87 = load i64, ptr %2, align 8
@@ -2053,7 +2053,7 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -2065,7 +2065,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharcmp(ptr nocapture
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -2096,7 +2096,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpcharcmp(ptr nocapture
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -2126,7 +2126,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i24 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -2157,7 +2157,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i24, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -2186,12 +2186,12 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not20 = icmp eq i8 %82, 0
   %.v21 = select i1 %.not20, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v21
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v21
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i27, i32 noundef %85) #12
   %87 = load i64, ptr %2, align 8
@@ -2220,10 +2220,10 @@ bcTruelen.exit31:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bpchar_sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2237,7 +2237,7 @@ declare void @varstr_sortsupport(ptr noundef, i32 noundef, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpchar_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -2249,7 +2249,7 @@ define dso_local i64 @bpchar_larger(ptr nocapture noundef readonly %0) local_unn
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -2280,7 +2280,7 @@ define dso_local i64 @bpchar_larger(ptr nocapture noundef readonly %0) local_unn
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -2310,7 +2310,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i17 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -2341,7 +2341,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i17, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -2370,12 +2370,12 @@ bcTruelen.exit24:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not15 = icmp eq i8 %82, 0
   %.v16 = select i1 %.not15, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v16
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v16
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i20, i32 noundef %85) #12
   %87 = icmp slt i32 %86, 0
@@ -2386,7 +2386,7 @@ bcTruelen.exit24:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bpchar_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -2398,7 +2398,7 @@ define dso_local i64 @bpchar_smaller(ptr nocapture noundef readonly %0) local_un
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = icmp eq i8 %10, 1
   br i1 %14, label %15, label %23
 
@@ -2429,7 +2429,7 @@ define dso_local i64 @bpchar_smaller(ptr nocapture noundef readonly %0) local_un
 
 31:                                               ; preds = %27, %24, %15
   %32 = phi i32 [ %22, %15 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = select i1 %.not.i, ptr %33, ptr %13
   %35 = zext i32 %32 to i64
   %36 = tail call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -2459,7 +2459,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 1
   %.not.i17 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %49 = icmp eq i8 %45, 1
   br i1 %49, label %50, label %58
 
@@ -2490,7 +2490,7 @@ bcTruelen.exit:                                   ; preds = %37, %.split.loop.ex
 
 66:                                               ; preds = %62, %59, %50
   %67 = phi i32 [ %57, %50 ], [ %61, %59 ], [ %65, %62 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = select i1 %.not.i17, ptr %68, ptr %48
   %70 = zext i32 %67 to i64
   %71 = tail call i32 @llvm.smin.i32(i32 %67, i32 0)
@@ -2519,12 +2519,12 @@ bcTruelen.exit24:                                 ; preds = %72, %.split.loop.ex
   %80 = and i8 %10, 1
   %.not = icmp eq i8 %80, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %82 = and i8 %45, 1
   %.not15 = icmp eq i8 %82, 0
   %.v16 = select i1 %.not15, i64 4, i64 1
-  %83 = getelementptr inbounds i8, ptr %9, i64 %.v16
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 %.v16
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = tail call i32 @varstr_cmp(ptr noundef nonnull %81, i32 noundef %.0.in.lcssa.i.i, ptr noundef nonnull %83, i32 noundef %.0.in.lcssa.i.i20, i32 noundef %85) #12
   %87 = icmp slt i32 %86, 1
@@ -2535,11 +2535,11 @@ bcTruelen.exit24:                                 ; preds = %72, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @hashbpchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %13
@@ -2558,11 +2558,11 @@ define dso_local range(i64 0, 4294967296) i64 @hashbpchar(ptr nocapture noundef 
   %15 = and i8 %14, 1
   %.not32 = icmp eq i8 %15, 0
   %.v = select i1 %.not32, i64 4, i64 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %17 = zext i8 %14 to i32
   %18 = and i32 %17, 1
   %.not.i = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = icmp eq i8 %14, 1
   br i1 %20, label %21, label %29
 
@@ -2593,7 +2593,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashbpchar(ptr nocapture noundef 
 
 37:                                               ; preds = %33, %30, %21
   %38 = phi i32 [ %28, %21 ], [ %32, %30 ], [ %36, %33 ]
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %40 = select i1 %.not.i, ptr %39, ptr %19
   %41 = zext i32 %38 to i64
   %42 = tail call i32 @llvm.smin.i32(i32 %38, i32 0)
@@ -2681,11 +2681,11 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hashbpcharextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %13
@@ -2704,11 +2704,11 @@ define dso_local i64 @hashbpcharextended(ptr nocapture noundef readonly %0) loca
   %15 = and i8 %14, 1
   %.not34 = icmp eq i8 %15, 0
   %.v = select i1 %.not34, i64 4, i64 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 %.v
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %17 = zext i8 %14 to i32
   %18 = and i32 %17, 1
   %.not.i = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = icmp eq i8 %14, 1
   br i1 %20, label %21, label %29
 
@@ -2739,7 +2739,7 @@ define dso_local i64 @hashbpcharextended(ptr nocapture noundef readonly %0) loca
 
 37:                                               ; preds = %33, %30, %21
   %38 = phi i32 [ %28, %21 ], [ %32, %30 ], [ %36, %33 ]
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %40 = select i1 %.not.i, ptr %39, ptr %19
   %41 = zext i32 %38 to i64
   %42 = tail call i32 @llvm.smin.i32(i32 %38, i32 0)
@@ -2824,7 +2824,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchar_pattern_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -2864,7 +2864,7 @@ define internal fastcc i32 @internal_bpchar_pattern_compare(ptr nocapture nounde
   %4 = zext i8 %3 to i32
   %5 = and i32 %4, 1
   %.not.i = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = icmp eq i8 %3, 1
   br i1 %7, label %8, label %16
 
@@ -2895,7 +2895,7 @@ define internal fastcc i32 @internal_bpchar_pattern_compare(ptr nocapture nounde
 
 24:                                               ; preds = %20, %17, %8
   %25 = phi i32 [ %15, %8 ], [ %19, %17 ], [ %23, %20 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = select i1 %.not.i, ptr %26, ptr %6
   %28 = zext i32 %25 to i64
   %29 = tail call i32 @llvm.smin.i32(i32 %25, i32 0)
@@ -2925,7 +2925,7 @@ bcTruelen.exit:                                   ; preds = %30, %.split.loop.ex
   %39 = zext i8 %38 to i32
   %40 = and i32 %39, 1
   %.not.i24 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = icmp eq i8 %38, 1
   br i1 %42, label %43, label %51
 
@@ -2956,7 +2956,7 @@ bcTruelen.exit:                                   ; preds = %30, %.split.loop.ex
 
 59:                                               ; preds = %55, %52, %43
   %60 = phi i32 [ %50, %43 ], [ %54, %52 ], [ %58, %55 ]
-  %61 = getelementptr inbounds i8, ptr %1, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %62 = select i1 %.not.i24, ptr %61, ptr %41
   %63 = zext i32 %60 to i64
   %64 = tail call i32 @llvm.smin.i32(i32 %60, i32 0)
@@ -2985,11 +2985,11 @@ bcTruelen.exit31:                                 ; preds = %65, %.split.loop.ex
   %73 = and i8 %3, 1
   %.not = icmp eq i8 %73, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %74 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %75 = and i8 %38, 1
   %.not21 = icmp eq i8 %75, 0
   %.v22 = select i1 %.not21, i64 4, i64 1
-  %76 = getelementptr inbounds i8, ptr %1, i64 %.v22
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %.v22
   %77 = tail call i32 @llvm.smin.i32(i32 %.0.in.lcssa.i.i, i32 %.0.in.lcssa.i.i27)
   %78 = sext i32 %77 to i64
   %79 = tail call i32 @memcmp(ptr noundef nonnull %74, ptr noundef nonnull %76, i64 noundef %78) #11
@@ -3012,7 +3012,7 @@ bcTruelen.exit31:                                 ; preds = %65, %.split.loop.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchar_pattern_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -3048,7 +3048,7 @@ define dso_local range(i64 0, 2) i64 @bpchar_pattern_le(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchar_pattern_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -3084,7 +3084,7 @@ define dso_local range(i64 0, 2) i64 @bpchar_pattern_ge(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bpchar_pattern_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -3120,7 +3120,7 @@ define dso_local range(i64 0, 2) i64 @bpchar_pattern_gt(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @btbpchar_pattern_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -3155,7 +3155,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @btbpchar_pattern_cmp(pt
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @btbpchar_pattern_sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 8

@@ -114,59 +114,59 @@ entry:
   %call.fca.1.extract = extractvalue { i64, i32 } %call, 1
   call void @_ZN4absl12lts_2023080210FormatTimeB5cxx11ENS0_4TimeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, i64 %call.fca.0.extract, i32 %call.fca.1.extract)
   %retval.sroa.0.0.copyload.i = load i64, ptr %context, align 8
-  %retval.sroa.2.0.rpc_method_.sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 8
+  %retval.sroa.2.0.rpc_method_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.rpc_method_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp3, align 8
-  %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %1, align 8
-  %principal_.i = getelementptr inbounds i8, ptr %context, i64 16
+  %principal_.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %retval.sroa.0.0.copyload.i5 = load i64, ptr %principal_.i, align 8
-  %retval.sroa.2.0.principal_.sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 24
+  %retval.sroa.2.0.principal_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %context, i64 24
   %retval.sroa.2.0.copyload.i6 = load ptr, ptr %retval.sroa.2.0.principal_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i5, ptr %ref.tmp5, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   store ptr %retval.sroa.2.0.copyload.i6, ptr %2, align 8
-  %policy_name_.i = getelementptr inbounds i8, ptr %context, i64 32
+  %policy_name_.i = getelementptr inbounds nuw i8, ptr %context, i64 32
   %retval.sroa.0.0.copyload.i9 = load i64, ptr %policy_name_.i, align 8
-  %retval.sroa.2.0.policy_name_.sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 40
+  %retval.sroa.2.0.policy_name_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %context, i64 40
   %retval.sroa.2.0.copyload.i10 = load ptr, ptr %retval.sroa.2.0.policy_name_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i9, ptr %ref.tmp8, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store ptr %retval.sroa.2.0.copyload.i10, ptr %3, align 8
-  %matched_rule_.i = getelementptr inbounds i8, ptr %context, i64 48
+  %matched_rule_.i = getelementptr inbounds nuw i8, ptr %context, i64 48
   %retval.sroa.0.0.copyload.i13 = load i64, ptr %matched_rule_.i, align 8
-  %retval.sroa.2.0.matched_rule_.sroa_idx.i = getelementptr inbounds i8, ptr %context, i64 56
+  %retval.sroa.2.0.matched_rule_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %context, i64 56
   %retval.sroa.2.0.copyload.i14 = load ptr, ptr %retval.sroa.2.0.matched_rule_.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i13, ptr %ref.tmp11, align 8
-  %4 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store ptr %retval.sroa.2.0.copyload.i14, ptr %4, align 8
-  %authorized_.i = getelementptr inbounds i8, ptr %context, i64 64
+  %authorized_.i = getelementptr inbounds nuw i8, ptr %context, i64 64
   %5 = load i8, ptr %authorized_.i, align 8
   %tobool.i = trunc i8 %5 to i1
   %cond = select i1 %tobool.i, ptr @.str, ptr @.str.1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp2, ptr %ref.tmp.i, align 8
-  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %ref.tmp3, ptr %arrayinit.element.i, align 8
-  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %dispatcher_.i.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8
-  %arrayinit.element13.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %arrayinit.element13.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store ptr %ref.tmp5, ptr %arrayinit.element13.i, align 8
-  %dispatcher_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %dispatcher_.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8
-  %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
+  %arrayinit.element14.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
   store ptr %ref.tmp8, ptr %arrayinit.element14.i, align 8
-  %dispatcher_.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
+  %dispatcher_.i.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8
-  %arrayinit.element15.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
+  %arrayinit.element15.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
   store ptr %ref.tmp11, ptr %arrayinit.element15.i, align 8
-  %dispatcher_.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
+  %dispatcher_.i.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i4.i, align 8
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 80
   store ptr %cond, ptr %arrayinit.element16.i, align 8
-  %dispatcher_.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
+  %dispatcher_.i.i5.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 88
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i5.i, align 8
   %call17.i17 = invoke noundef i32 @_ZN4absl12lts_2023080219str_format_internal7FprintFEP8_IO_FILENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef %0, ptr nonnull @_ZN9grpc_core12experimental12_GLOBAL__N_110kLogFormatE, i64 128, ptr nonnull %ref.tmp.i, i64 6)
           to label %invoke.cont17 unwind label %lpad
@@ -252,7 +252,7 @@ define void @_ZN9grpc_core12experimental24StdoutAuditLoggerFactory22ParseAuditLo
 _ZNSt10unique_ptrIN9grpc_core12experimental24StdoutAuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental24StdoutAuditLoggerFactory6ConfigE, i64 16), ptr %call.i, align 8, !noalias !4
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i, ptr %1, align 8
   store i64 0, ptr %agg.result, align 8
   ret void
@@ -267,13 +267,13 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call { i64, ptr } %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = extractvalue { i64, ptr } %call3, 0
   %3 = extractvalue { i64, ptr } %call3, 1
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 16
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call { i64, ptr } %4(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %5 = extractvalue { i64, ptr } %call7, 0

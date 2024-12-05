@@ -304,7 +304,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   br i1 %14, label %.lr.ph353, label %.thread383
 
 .lr.ph353:                                        ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph353, %.loopexit

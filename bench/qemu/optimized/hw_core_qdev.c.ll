@@ -91,7 +91,7 @@ define dso_local ptr @qdev_get_vmsd(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %vmsd = getelementptr inbounds i8, ptr %call1.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %vmsd, align 8
   ret ptr %0
 }
@@ -102,11 +102,11 @@ entry:
   %name.i29 = alloca [32 x i8], align 16
   %name.i = alloca [32 x i8], align 16
   %_now.i.i = alloca %struct.timeval, align 8
-  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %bus_type = getelementptr inbounds i8, ptr %call1.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call1.i, i64 168
   %1 = load ptr, ptr %bus_type, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -123,7 +123,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.end:                                           ; preds = %land.lhs.true
   %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #14
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
-  %check_address.i = getelementptr inbounds i8, ptr %call1.i.i, i64 128
+  %check_address.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 128
   %2 = load ptr, ptr %check_address.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end6, label %bus_check_address.exit
@@ -163,7 +163,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %dev, ptr noundef %call9, ptr noundef nonnull %0, ptr noundef %call10, ptr noundef %bus, ptr noundef %call11) #14
   br label %trace_qdev_update_parent_bus.exit
@@ -177,36 +177,36 @@ trace_qdev_update_parent_bus.exit:                ; preds = %if.then8, %land.lhs
   %call12 = tail call ptr @object_ref(ptr noundef nonnull %dev) #14
   %9 = load ptr, ptr %parent_bus, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
-  %children.i = getelementptr inbounds i8, ptr %9, i64 80
+  %children.i = getelementptr inbounds nuw i8, ptr %9, i64 80
   %kid.016.i = load ptr, ptr %children.i, align 8
   %tobool.not17.i = icmp eq ptr %kid.016.i, null
   br i1 %tobool.not17.i, label %bus_remove_child.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %trace_qdev_update_parent_bus.exit, %for.inc.i
   %kid.018.i = phi ptr [ %kid.0.i, %for.inc.i ], [ %kid.016.i, %trace_qdev_update_parent_bus.exit ]
-  %child1.i = getelementptr inbounds i8, ptr %kid.018.i, i64 16
+  %child1.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 16
   %10 = load ptr, ptr %child1.i, align 8
   %cmp.i = icmp eq ptr %10, %dev
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %index.i = getelementptr inbounds i8, ptr %kid.018.i, i64 24
+  %index.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 24
   %11 = load i32, ptr %index.i, align 8
   %call.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %11) #14
-  %sibling.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
+  %sibling.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 32
   %12 = load ptr, ptr %sibling.i, align 8
   %cmp2.not.i = icmp eq ptr %12, null
-  %tql_prev9.i = getelementptr inbounds i8, ptr %kid.018.i, i64 40
+  %tql_prev9.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 40
   %13 = load ptr, ptr %tql_prev9.i, align 8
   br i1 %cmp2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %tql_prev7.i = getelementptr inbounds i8, ptr %12, i64 40
+  %tql_prev7.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %13, ptr %tql_prev7.i, align 8
   br label %while.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %tql_prev11.i = getelementptr inbounds i8, ptr %9, i64 88
+  %tql_prev11.i = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %13, ptr %tql_prev11.i, align 8
   br label %while.end.i
 
@@ -215,7 +215,7 @@ while.end.i:                                      ; preds = %if.else.i, %if.then
   %15 = ptrtoint ptr %14 to i64
   store atomic i64 %15, ptr %13 monotonic, align 8
   store ptr null, ptr %tql_prev9.i, align 8
-  %num_children.i = getelementptr inbounds i8, ptr %9, i64 72
+  %num_children.i = getelementptr inbounds nuw i8, ptr %9, i64 72
   %16 = load i32, ptr %num_children.i, align 8
   %dec.i = add i32 %16, -1
   store i32 %dec.i, ptr %num_children.i, align 8
@@ -224,7 +224,7 @@ while.end.i:                                      ; preds = %if.else.i, %if.then
   br label %bus_remove_child.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %sibling23.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
+  %sibling23.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 32
   %kid.0.i = load ptr, ptr %sibling23.i, align 8
   %tobool.not.i27 = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i27, label %bus_remove_child.exit, label %for.body.i, !llvm.loop !5
@@ -238,46 +238,46 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   %call16 = call ptr @object_ref(ptr noundef %bus) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i29)
   %call.i30 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #16
-  %num_children.i31 = getelementptr inbounds i8, ptr %bus, i64 72
+  %num_children.i31 = getelementptr inbounds nuw i8, ptr %bus, i64 72
   %17 = load i32, ptr %num_children.i31, align 8
   %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %num_children.i31, align 8
-  %max_index.i = getelementptr inbounds i8, ptr %bus, i64 64
+  %max_index.i = getelementptr inbounds nuw i8, ptr %bus, i64 64
   %18 = load i32, ptr %max_index.i, align 8
   %inc1.i = add i32 %18, 1
   store i32 %inc1.i, ptr %max_index.i, align 8
-  %index.i32 = getelementptr inbounds i8, ptr %call.i30, i64 24
+  %index.i32 = getelementptr inbounds nuw i8, ptr %call.i30, i64 24
   store i32 %18, ptr %index.i32, align 8
-  %child2.i = getelementptr inbounds i8, ptr %call.i30, i64 16
+  %child2.i = getelementptr inbounds nuw i8, ptr %call.i30, i64 16
   store ptr %dev, ptr %child2.i, align 8
   %call4.i = call ptr @object_ref(ptr noundef %dev) #14
-  %children.i33 = getelementptr inbounds i8, ptr %bus, i64 80
+  %children.i33 = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %19 = load ptr, ptr %children.i33, align 8
-  %sibling.i34 = getelementptr inbounds i8, ptr %call.i30, i64 32
+  %sibling.i34 = getelementptr inbounds nuw i8, ptr %call.i30, i64 32
   store ptr %19, ptr %sibling.i34, align 8
   %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %if.else.i37, label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.end14
-  %tql_prev.i = getelementptr inbounds i8, ptr %19, i64 40
+  %tql_prev.i = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %sibling.i34, ptr %tql_prev.i, align 8
   br label %bus_add_child.exit
 
 if.else.i37:                                      ; preds = %if.end14
-  %tql_prev11.i38 = getelementptr inbounds i8, ptr %bus, i64 88
+  %tql_prev11.i38 = getelementptr inbounds nuw i8, ptr %bus, i64 88
   store ptr %sibling.i34, ptr %tql_prev11.i38, align 8
   br label %bus_add_child.exit
 
 bus_add_child.exit:                               ; preds = %if.then.i35, %if.else.i37
   %20 = ptrtoint ptr %call.i30 to i64
   store atomic i64 %20, ptr %children.i33 release, align 8
-  %tql_prev18.i = getelementptr inbounds i8, ptr %call.i30, i64 40
+  %tql_prev18.i = getelementptr inbounds nuw i8, ptr %call.i30, i64 40
   store ptr %children.i33, ptr %tql_prev18.i, align 8
   %call21.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i29, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %18) #14
   %call23.i = call ptr @object_get_typename(ptr noundef nonnull %dev) #14
   %call25.i = call ptr @object_property_add_link(ptr noundef nonnull %bus, ptr noundef nonnull %name.i29, ptr noundef %call23.i, ptr noundef nonnull %child2.i, ptr noundef null, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i29)
-  %realized = getelementptr inbounds i8, ptr %dev, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %dev, i64 56
   %21 = load i8, ptr %realized, align 8
   %tobool17 = trunc i8 %21 to i1
   br i1 %tobool17, label %if.then18, label %if.end19
@@ -361,10 +361,10 @@ declare ptr @module_object_class_by_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @device_listener_register(ptr noundef initializes((24, 40)) %listener) local_unnamed_addr #0 {
 entry:
-  %link = getelementptr inbounds i8, ptr %listener, i64 24
+  %link = getelementptr inbounds nuw i8, ptr %listener, i64 24
   store ptr null, ptr %link, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
-  %tql_prev = getelementptr inbounds i8, ptr %listener, i64 32
+  %tql_prev = getelementptr inbounds nuw i8, ptr %listener, i64 32
   store ptr %0, ptr %tql_prev, align 8
   store ptr %listener, ptr %0, align 8
   store ptr %link, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
@@ -395,7 +395,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %link = getelementptr inbounds i8, ptr %_listener.07, i64 24
+  %link = getelementptr inbounds nuw i8, ptr %_listener.07, i64 24
   %_listener.0 = load ptr, ptr %link, align 8
   %tobool.not = icmp eq ptr %_listener.0, null
   br i1 %tobool.not, label %do.end, label %for.body, !llvm.loop !7
@@ -407,15 +407,15 @@ do.end:                                           ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @device_listener_unregister(ptr nocapture noundef %listener) local_unnamed_addr #4 {
 entry:
-  %link = getelementptr inbounds i8, ptr %listener, i64 24
+  %link = getelementptr inbounds nuw i8, ptr %listener, i64 24
   %0 = load ptr, ptr %link, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev6 = getelementptr inbounds i8, ptr %listener, i64 32
+  %tql_prev6 = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %1 = load ptr, ptr %tql_prev6, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev4 = getelementptr inbounds i8, ptr %0, i64 32
+  %tql_prev4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %tql_prev4, align 8
   %.pre = load ptr, ptr %link, align 8
   br label %if.end
@@ -436,7 +436,7 @@ define dso_local noundef zeroext i1 @qdev_should_hide_device(ptr noundef %opts, 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -448,7 +448,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %listener.012 = phi ptr [ %listener.0, %for.inc ], [ %listener.010, %entry ]
-  %hide_device = getelementptr inbounds i8, ptr %listener.012, i64 16
+  %hide_device = getelementptr inbounds nuw i8, ptr %listener.012, i64 16
   %0 = load ptr, ptr %hide_device, align 8
   %tobool4.not = icmp eq ptr %0, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
@@ -463,7 +463,7 @@ if.else:                                          ; preds = %if.then5
   br i1 %tobool9.not, label %for.inc, label %cleanup.loopexit
 
 for.inc:                                          ; preds = %for.body, %if.else
-  %link = getelementptr inbounds i8, ptr %listener.012, i64 24
+  %link = getelementptr inbounds nuw i8, ptr %listener.012, i64 24
   %listener.0 = load ptr, ptr %link, align 8
   %tobool3.not = icmp eq ptr %listener.0, null
   br i1 %tobool3.not, label %cleanup.loopexit, label %for.body, !llvm.loop !8
@@ -485,7 +485,7 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_set_legacy_instance_id(ptr nocapture noundef %dev, i32 noundef %alias_id, i32 noundef %required_for_version) local_unnamed_addr #0 {
 entry:
-  %realized = getelementptr inbounds i8, ptr %dev, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.else, label %if.end
@@ -495,9 +495,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %instance_id_alias = getelementptr inbounds i8, ptr %dev, i64 124
+  %instance_id_alias = getelementptr inbounds nuw i8, ptr %dev, i64 124
   store i32 %alias_id, ptr %instance_id_alias, align 4
-  %alias_required_for_version = getelementptr inbounds i8, ptr %dev, i64 128
+  %alias_required_for_version = getelementptr inbounds nuw i8, ptr %dev, i64 128
   store i32 %required_for_version, ptr %alias_required_for_version, align 8
   ret void
 }
@@ -523,13 +523,13 @@ declare zeroext i1 @resettable_is_in_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qdev_realize(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %realized = getelementptr inbounds i8, ptr %dev, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %1 = load ptr, ptr %parent_bus, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %if.else
@@ -549,7 +549,7 @@ if.then3:                                         ; preds = %if.end
 if.else6:                                         ; preds = %if.end
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %dev) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %bus_type = getelementptr inbounds i8, ptr %call1.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call1.i, i64 168
   %2 = load ptr, ptr %bus_type, align 8
   %tobool8.not = icmp eq ptr %2, null
   br i1 %tobool8.not, label %if.end12, label %if.else10
@@ -607,7 +607,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %call.i) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool3 = trunc i8 %0 to i1
   br i1 %tobool3, label %if.end, label %if.else
@@ -617,13 +617,13 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %parent_bus, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %lor.lhs.false, label %if.end10
 
 lor.lhs.false:                                    ; preds = %if.end
-  %bus_type = getelementptr inbounds i8, ptr %call1.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call1.i, i64 168
   %2 = load ptr, ptr %bus_type, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end10, label %if.else8
@@ -649,7 +649,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qdev_get_parent_bus(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
 entry:
-  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   ret ptr %0
 }
@@ -663,21 +663,21 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %child_bus = getelementptr inbounds i8, ptr %dev, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %dev, i64 112
   %bus.08 = load ptr, ptr %child_bus, align 8
   %tobool2.not9 = icmp eq ptr %bus.08, null
   br i1 %tobool2.not9, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %bus.010 = phi ptr [ %bus.0, %for.inc ], [ %bus.08, %if.end ]
-  %name3 = getelementptr inbounds i8, ptr %bus.010, i64 48
+  %name3 = getelementptr inbounds nuw i8, ptr %bus.010, i64 48
   %0 = load ptr, ptr %name3, align 8
   %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #17
   %cmp = icmp eq i32 %call4, 0
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %sibling = getelementptr inbounds i8, ptr %bus.010, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %bus.010, i64 96
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool2.not = icmp eq ptr %bus.0, null
   br i1 %tobool2.not, label %return, label %for.body, !llvm.loop !9
@@ -704,13 +704,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %child_bus = getelementptr inbounds i8, ptr %dev, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %dev, i64 112
   %bus.016 = load ptr, ptr %child_bus, align 8
   %tobool4.not17 = icmp eq ptr %bus.016, null
   br i1 %tobool4.not17, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %sibling = getelementptr inbounds i8, ptr %bus.018, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %bus.018, i64 96
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool4.not = icmp eq ptr %bus.0, null
   br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !10
@@ -742,7 +742,7 @@ return:                                           ; preds = %for.body, %if.then9
 define dso_local ptr @qdev_find_recursive(ptr nocapture noundef readonly %bus, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #14
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -758,7 +758,7 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %children = getelementptr inbounds i8, ptr %bus, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   %tobool2.not26 = icmp eq i64 %2, 0
@@ -767,9 +767,9 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 for.body3:                                        ; preds = %rcu_read_auto_lock.exit, %while.end22
   %kid.027.in = phi i64 [ %5, %while.end22 ], [ %2, %rcu_read_auto_lock.exit ]
   %kid.027 = inttoptr i64 %kid.027.in to ptr
-  %child4 = getelementptr inbounds i8, ptr %kid.027, i64 16
+  %child4 = getelementptr inbounds nuw i8, ptr %kid.027, i64 16
   %3 = load ptr, ptr %child4, align 8
-  %id5 = getelementptr inbounds i8, ptr %3, i64 40
+  %id5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %id5, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.end, label %land.lhs.true
@@ -780,13 +780,13 @@ land.lhs.true:                                    ; preds = %for.body3
   br i1 %cmp, label %if.then.i.i, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body3
-  %child_bus = getelementptr inbounds i8, ptr %3, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %3, i64 112
   %child.022 = load ptr, ptr %child_bus, align 8
   %tobool10.not23 = icmp eq ptr %child.022, null
   br i1 %tobool10.not23, label %while.end22, label %for.body11
 
 for.cond9:                                        ; preds = %for.body11
-  %sibling = getelementptr inbounds i8, ptr %child.024, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %child.024, i64 96
   %child.0 = load ptr, ptr %sibling, align 8
   %tobool10.not = icmp eq ptr %child.0, null
   br i1 %tobool10.not, label %while.end22, label %for.body11, !llvm.loop !13
@@ -798,7 +798,7 @@ for.body11:                                       ; preds = %if.end, %for.cond9
   br i1 %tobool13.not, label %for.cond9, label %if.then.i.i
 
 while.end22:                                      ; preds = %for.cond9, %if.end
-  %sibling23 = getelementptr inbounds i8, ptr %kid.027, i64 32
+  %sibling23 = getelementptr inbounds nuw i8, ptr %kid.027, i64 32
   %5 = load atomic i64, ptr %sibling23 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   %tobool2.not = icmp eq i64 %5, 0
@@ -806,7 +806,7 @@ while.end22:                                      ; preds = %for.cond9, %if.end
 
 for.inc26:                                        ; preds = %while.end22, %rcu_read_auto_lock.exit
   %call.i.i10 = tail call ptr @get_ptr_rcu_reader() #14
-  %depth.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 12
+  %depth.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i10, i64 12
   %6 = load i32, ptr %depth.i.i11, align 4
   %cmp.not.i.i12 = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i12, label %if.else.i.i, label %if.end.i.i
@@ -825,7 +825,7 @@ while.end.i.i13:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i10 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i10, i64 8
   %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -837,7 +837,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i13
 if.then.i.i:                                      ; preds = %land.lhs.true, %for.body11
   %retval.0 = phi ptr [ %call12, %for.body11 ], [ %3, %land.lhs.true ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #14
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %8 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -856,7 +856,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -885,7 +885,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -893,7 +893,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
-  %get_dev_path = getelementptr inbounds i8, ptr %call1.i, i64 104
+  %get_dev_path = getelementptr inbounds nuw i8, ptr %call1.i, i64 104
   %1 = load ptr, ptr %get_dev_path, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %return, label %if.then4
@@ -910,7 +910,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_add_unplug_blocker(ptr nocapture noundef %dev, ptr noundef %reason) local_unnamed_addr #0 {
 entry:
-  %unplug_blockers = getelementptr inbounds i8, ptr %dev, i64 144
+  %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
   %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %reason) #14
   store ptr %call, ptr %unplug_blockers, align 8
@@ -922,7 +922,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_del_unplug_blocker(ptr nocapture noundef %dev, ptr noundef %reason) local_unnamed_addr #0 {
 entry:
-  %unplug_blockers = getelementptr inbounds i8, ptr %dev, i64 144
+  %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
   %call = tail call ptr @g_slist_remove(ptr noundef %0, ptr noundef %reason) #14
   store ptr %call, ptr %unplug_blockers, align 8
@@ -934,7 +934,7 @@ declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @qdev_unplug_blocked(ptr nocapture noundef readonly %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %unplug_blockers = getelementptr inbounds i8, ptr %dev, i64 144
+  %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
   %tobool.not = icmp ne ptr %0, null
   br i1 %tobool.not, label %if.then, label %return
@@ -956,7 +956,7 @@ declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly initializes((0, 8)) %parent_reset) local_unnamed_addr #9 {
 entry:
-  %reset = getelementptr inbounds i8, ptr %dc, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %dc, i64 136
   %0 = load ptr, ptr %reset, align 8
   store ptr %0, ptr %parent_reset, align 8
   store ptr %dev_reset, ptr %reset, align 8
@@ -966,7 +966,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_realize) local_unnamed_addr #9 {
 entry:
-  %realize = getelementptr inbounds i8, ptr %dc, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %dc, i64 144
   %0 = load ptr, ptr %realize, align 8
   store ptr %0, ptr %parent_realize, align 8
   store ptr %dev_realize, ptr %realize, align 8
@@ -976,7 +976,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_unrealize) local_unnamed_addr #9 {
 entry:
-  %unrealize = getelementptr inbounds i8, ptr %dc, i64 152
+  %unrealize = getelementptr inbounds nuw i8, ptr %dc, i64 152
   %0 = load ptr, ptr %unrealize, align 8
   store ptr %0, ptr %parent_unrealize, align 8
   store ptr %dev_unrealize, ptr %unrealize, align 8
@@ -1065,7 +1065,7 @@ declare void @call_rcu1(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bus_free_bus_child(ptr noundef %kid) #0 {
 entry:
-  %child = getelementptr inbounds i8, ptr %kid, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %kid, i64 16
   %0 = load ptr, ptr %child, align 8
   tail call void @object_unref(ptr noundef %0) #14
   tail call void @g_free(ptr noundef %kid) #14
@@ -1096,19 +1096,19 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store i32 1, ptr %hotplugged, align 8
   store i1 true, ptr @qdev_hot_added, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %instance_id_alias = getelementptr inbounds i8, ptr %call.i, i64 124
+  %instance_id_alias = getelementptr inbounds nuw i8, ptr %call.i, i64 124
   store i32 -1, ptr %instance_id_alias, align 4
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i8 0, ptr %realized, align 8
-  %allow_unplug_during_migration = getelementptr inbounds i8, ptr %call.i, i64 84
+  %allow_unplug_during_migration = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   store i8 0, ptr %allow_unplug_during_migration, align 4
-  %gpios = getelementptr inbounds i8, ptr %call.i, i64 96
+  %gpios = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gpios, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1126,7 +1126,7 @@ entry:
 define internal void @device_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %unplug_blockers = getelementptr inbounds i8, ptr %call.i, i64 144
+  %unplug_blockers = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.else
@@ -1136,16 +1136,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %gpios = getelementptr inbounds i8, ptr %call.i, i64 96
+  %gpios = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %1 = load ptr, ptr %gpios, align 8
   %tobool1.not26 = icmp eq ptr %1, null
   br i1 %tobool1.not26, label %for.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %do.end
-  %node29 = getelementptr inbounds i8, ptr %1, i64 24
+  %node29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %node29, align 8
   %cmp.not30 = icmp eq ptr %2, null
-  %le_prev15.phi.trans.insert31 = getelementptr inbounds i8, ptr %1, i64 32
+  %le_prev15.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre2832 = load ptr, ptr %le_prev15.phi.trans.insert31, align 8
   br i1 %cmp.not30, label %for.end.critedge, label %if.then5
 
@@ -1154,23 +1154,23 @@ if.then5:                                         ; preds = %land.rhs.preheader,
   %3 = phi ptr [ %7, %if.then5 ], [ %2, %land.rhs.preheader ]
   %node34 = phi ptr [ %node, %if.then5 ], [ %node29, %land.rhs.preheader ]
   %ngl.02733 = phi ptr [ %3, %if.then5 ], [ %1, %land.rhs.preheader ]
-  %le_prev10 = getelementptr inbounds i8, ptr %3, i64 32
+  %le_prev10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %.pre2835, ptr %le_prev10, align 8
   %.pre = load ptr, ptr %node34, align 8
   store ptr %.pre, ptr %.pre2835, align 8
-  %in = getelementptr inbounds i8, ptr %ngl.02733, i64 8
+  %in = getelementptr inbounds nuw i8, ptr %ngl.02733, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node34, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %in, align 8
-  %num_in = getelementptr inbounds i8, ptr %ngl.02733, i64 16
+  %num_in = getelementptr inbounds nuw i8, ptr %ngl.02733, i64 16
   %5 = load i32, ptr %num_in, align 8
   tail call void @qemu_free_irqs(ptr noundef %4, i32 noundef %5) #14
   %6 = load ptr, ptr %ngl.02733, align 8
   tail call void @g_free(ptr noundef %6) #14
   tail call void @g_free(ptr noundef nonnull %ngl.02733) #14
-  %node = getelementptr inbounds i8, ptr %3, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %7, null
-  %le_prev15.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %le_prev15.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre28 = load ptr, ptr %le_prev15.phi.trans.insert, align 8
   br i1 %cmp.not, label %for.end.critedge, label %if.then5, !llvm.loop !17
 
@@ -1179,10 +1179,10 @@ for.end.critedge:                                 ; preds = %if.then5, %land.rhs
   %node.lcssa = phi ptr [ %node29, %land.rhs.preheader ], [ %node, %if.then5 ]
   %.pre28.lcssa = phi ptr [ %.pre2832, %land.rhs.preheader ], [ %.pre28, %if.then5 ]
   store ptr null, ptr %.pre28.lcssa, align 8
-  %in.c = getelementptr inbounds i8, ptr %ngl.027.lcssa, i64 8
+  %in.c = getelementptr inbounds nuw i8, ptr %ngl.027.lcssa, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.lcssa, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %in.c, align 8
-  %num_in.c = getelementptr inbounds i8, ptr %ngl.027.lcssa, i64 16
+  %num_in.c = getelementptr inbounds nuw i8, ptr %ngl.027.lcssa, i64 16
   %9 = load i32, ptr %num_in.c, align 8
   tail call void @qemu_free_irqs(ptr noundef %8, i32 noundef %9) #14
   %10 = load ptr, ptr %ngl.027.lcssa, align 8
@@ -1192,13 +1192,13 @@ for.end.critedge:                                 ; preds = %if.then5, %land.rhs
 
 for.end:                                          ; preds = %for.end.critedge, %do.end
   tail call void @qdev_finalize_clocklist(ptr noundef %call.i) #14
-  %pending_deleted_event = getelementptr inbounds i8, ptr %call.i, i64 57
+  %pending_deleted_event = getelementptr inbounds nuw i8, ptr %call.i, i64 57
   %11 = load i8, ptr %pending_deleted_event, align 1
   %tobool21 = trunc i8 %11 to i1
   br i1 %tobool21, label %do.body23, label %if.end32
 
 do.body23:                                        ; preds = %for.end
-  %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
+  %canonical_path = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %12 = load ptr, ptr %canonical_path, align 8
   %tobool24.not = icmp eq ptr %12, null
   br i1 %tobool24.not, label %if.else26, label %do.end28
@@ -1208,7 +1208,7 @@ if.else26:                                        ; preds = %do.body23
   unreachable
 
 do.end28:                                         ; preds = %do.body23
-  %id = getelementptr inbounds i8, ptr %call.i, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %13 = load ptr, ptr %id, align 8
   tail call void @qapi_event_send_device_deleted(ptr noundef %13, ptr noundef nonnull %12) #14
   %14 = load ptr, ptr %canonical_path, align 8
@@ -1217,13 +1217,13 @@ do.end28:                                         ; preds = %do.body23
   br label %if.end32
 
 if.end32:                                         ; preds = %do.end28, %for.end
-  %opts = getelementptr inbounds i8, ptr %call.i, i64 72
+  %opts = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %15 = load ptr, ptr %opts, align 8
   %tobool33.not = icmp eq ptr %15, null
   br i1 %tobool33.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end32
-  %refcnt.i = getelementptr inbounds i8, ptr %15, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %16, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1243,7 +1243,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.end32, %land.lhs.true.i, %if.then5.i
-  %id35 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %id35 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %17 = load ptr, ptr %id35, align 8
   tail call void @g_free(ptr noundef %17) #14
   ret void
@@ -1255,21 +1255,21 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #14
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #14
-  %unparent = getelementptr inbounds i8, ptr %class, i64 80
+  %unparent = getelementptr inbounds nuw i8, ptr %class, i64 80
   store ptr @device_unparent, ptr %unparent, align 8
-  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call.i, i64 129
   store i8 1, ptr %hotpluggable, align 1
-  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
+  %user_creatable = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i8 1, ptr %user_creatable, align 8
-  %get_id = getelementptr inbounds i8, ptr %call.i12, i64 112
+  %get_id = getelementptr inbounds nuw i8, ptr %call.i12, i64 112
   store ptr @device_vmstate_if_get_id, ptr %get_id, align 8
-  %get_state = getelementptr inbounds i8, ptr %call.i13, i64 136
+  %get_state = getelementptr inbounds nuw i8, ptr %call.i13, i64 136
   store ptr @device_get_reset_state, ptr %get_state, align 8
-  %child_foreach = getelementptr inbounds i8, ptr %call.i13, i64 152
+  %child_foreach = getelementptr inbounds nuw i8, ptr %call.i13, i64 152
   store ptr @device_reset_child_foreach, ptr %child_foreach, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @device_phases_reset, ptr %reset, align 8
-  %get_transitional_function = getelementptr inbounds i8, ptr %call.i13, i64 144
+  %get_transitional_function = getelementptr inbounds nuw i8, ptr %call.i13, i64 144
   store ptr @device_get_transitional_reset, ptr %get_transitional_function, align 8
   %call3 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.6, ptr noundef nonnull @device_get_realized, ptr noundef nonnull @device_set_realized) #14
   %call4 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.26, ptr noundef nonnull @device_get_hotpluggable, ptr noundef null) #14
@@ -1282,7 +1282,7 @@ entry:
 define internal void @device_class_base_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
-  %props_ = getelementptr inbounds i8, ptr %call.i, i64 120
+  %props_ = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr null, ptr %props_, align 8
   ret void
 }
@@ -1304,7 +1304,7 @@ define internal void @device_unparent(ptr noundef %obj) #0 {
 entry:
   %name.i = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -1314,13 +1314,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %num_child_bus = getelementptr inbounds i8, ptr %call.i, i64 120
+  %num_child_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %1 = load i32, ptr %num_child_bus, align 8
   %tobool1.not12 = icmp eq i32 %1, 0
   br i1 %tobool1.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %child_bus = getelementptr inbounds i8, ptr %call.i, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1331,43 +1331,43 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %if.end
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %4 = load ptr, ptr %parent_bus, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
-  %children.i = getelementptr inbounds i8, ptr %4, i64 80
+  %children.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   %kid.016.i = load ptr, ptr %children.i, align 8
   %tobool.not17.i = icmp eq ptr %kid.016.i, null
   br i1 %tobool.not17.i, label %bus_remove_child.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then3, %for.inc.i
   %kid.018.i = phi ptr [ %kid.0.i, %for.inc.i ], [ %kid.016.i, %if.then3 ]
-  %child1.i = getelementptr inbounds i8, ptr %kid.018.i, i64 16
+  %child1.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 16
   %5 = load ptr, ptr %child1.i, align 8
   %cmp.i = icmp eq ptr %5, %call.i
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %index.i = getelementptr inbounds i8, ptr %kid.018.i, i64 24
+  %index.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 24
   %6 = load i32, ptr %index.i, align 8
   %call.i10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %6) #14
-  %sibling.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
+  %sibling.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 32
   %7 = load ptr, ptr %sibling.i, align 8
   %cmp2.not.i = icmp eq ptr %7, null
-  %tql_prev9.i = getelementptr inbounds i8, ptr %kid.018.i, i64 40
+  %tql_prev9.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 40
   %8 = load ptr, ptr %tql_prev9.i, align 8
   br i1 %cmp2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %tql_prev7.i = getelementptr inbounds i8, ptr %7, i64 40
+  %tql_prev7.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %8, ptr %tql_prev7.i, align 8
   br label %while.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %tql_prev11.i = getelementptr inbounds i8, ptr %4, i64 88
+  %tql_prev11.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %8, ptr %tql_prev11.i, align 8
   br label %while.end.i
 
@@ -1376,7 +1376,7 @@ while.end.i:                                      ; preds = %if.else.i, %if.then
   %10 = ptrtoint ptr %9 to i64
   store atomic i64 %10, ptr %8 monotonic, align 8
   store ptr null, ptr %tql_prev9.i, align 8
-  %num_children.i = getelementptr inbounds i8, ptr %4, i64 72
+  %num_children.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load i32, ptr %num_children.i, align 8
   %dec.i = add i32 %11, -1
   store i32 %dec.i, ptr %num_children.i, align 8
@@ -1386,7 +1386,7 @@ while.end.i:                                      ; preds = %if.else.i, %if.then
   br label %bus_remove_child.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %sibling23.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
+  %sibling23.i = getelementptr inbounds nuw i8, ptr %kid.018.i, i64 32
   %kid.0.i = load ptr, ptr %sibling23.i, align 8
   %tobool.not.i = icmp eq ptr %kid.0.i, null
   br i1 %tobool.not.i, label %bus_remove_child.exit, label %for.body.i, !llvm.loop !5
@@ -1410,7 +1410,7 @@ entry:
   br i1 %tobool.not.i, label %qdev_get_dev_path.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %parent_bus.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus.i, align 8
   %tobool1.not.i = icmp eq ptr %0, null
   br i1 %tobool1.not.i, label %qdev_get_dev_path.exit, label %if.end.i
@@ -1418,7 +1418,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #14
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
-  %get_dev_path.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
+  %get_dev_path.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 104
   %1 = load ptr, ptr %get_dev_path.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %qdev_get_dev_path.exit, label %if.then4.i
@@ -1436,7 +1436,7 @@ qdev_get_dev_path.exit:                           ; preds = %entry, %lor.lhs.fal
 define internal nonnull ptr @device_get_reset_state(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 132
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 132
   ret ptr %reset
 }
 
@@ -1444,7 +1444,7 @@ entry:
 define internal void @device_reset_child_foreach(ptr noundef %obj, ptr nocapture noundef readonly %cb, ptr noundef %opaque, i32 noundef %type) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %child_bus = getelementptr inbounds i8, ptr %call.i, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   %bus.03 = load ptr, ptr %child_bus, align 8
   %tobool.not4 = icmp eq ptr %bus.03, null
   br i1 %tobool.not4, label %for.end, label %for.body
@@ -1452,7 +1452,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %bus.05 = phi ptr [ %bus.0, %for.body ], [ %bus.03, %entry ]
   tail call void %cb(ptr noundef nonnull %bus.05, ptr noundef %opaque, i32 noundef %type) #14
-  %sibling = getelementptr inbounds i8, ptr %bus.05, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %bus.05, i64 96
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %bus.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1466,7 +1466,7 @@ define internal void @device_phases_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #14
-  %phases = getelementptr inbounds i8, ptr %call1.i, i64 112
+  %phases = getelementptr inbounds nuw i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %phases, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1476,7 +1476,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hold = getelementptr inbounds i8, ptr %call1.i, i64 120
+  %hold = getelementptr inbounds nuw i8, ptr %call1.i, i64 120
   %1 = load ptr, ptr %hold, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -1486,7 +1486,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %exit = getelementptr inbounds i8, ptr %call1.i, i64 128
+  %exit = getelementptr inbounds nuw i8, ptr %call1.i, i64 128
   %2 = load ptr, ptr %exit, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %if.end14, label %if.then11
@@ -1504,7 +1504,7 @@ define internal ptr @device_get_transitional_reset(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %reset = getelementptr inbounds i8, ptr %call1.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %reset, align 8
   %cmp.not = icmp eq ptr %0, @device_phases_reset
   %.device_transitional_reset = select i1 %cmp.not, ptr null, ptr @device_transitional_reset
@@ -1517,7 +1517,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @device_get_realized(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1532,13 +1532,13 @@ entry:
   %call.i89 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i89, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   store ptr null, ptr %local_err, align 8
-  %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %0 = load i32, ptr %hotplugged, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %hotpluggable = getelementptr inbounds i8, ptr %call1.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call1.i, i64 129
   %1 = load i8, ptr %hotpluggable, align 1
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.end, label %if.then
@@ -1549,7 +1549,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end168
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %2 = load i8, ptr %realized, align 8
   %tobool6 = trunc i8 %2 to i1
   br i1 %value, label %land.lhs.true5, label %land.lhs.true86
@@ -1560,7 +1560,7 @@ land.lhs.true5:                                   ; preds = %if.end
 if.then7:                                         ; preds = %land.lhs.true5
   %call.i.i = tail call ptr @object_get_class(ptr noundef %obj) #14
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %vmsd.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
+  %vmsd.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 160
   %3 = load ptr, ptr %vmsd.i, align 8
   %call1.i90 = tail call zeroext i1 @vmstate_check_only_migratable(ptr noundef %3) #14
   br i1 %call1.i90, label %if.end10, label %fail.thread
@@ -1572,7 +1572,7 @@ fail.thread:                                      ; preds = %if.then7
   br label %if.end168
 
 if.end10:                                         ; preds = %if.then7
-  %parent = getelementptr inbounds i8, ptr %obj, i64 32
+  %parent = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %4 = load ptr, ptr %parent, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.then12, label %if.end17
@@ -1611,7 +1611,7 @@ if.then20:                                        ; preds = %if.end17
   br i1 %cmp.not, label %if.end23, label %fail
 
 if.end23:                                         ; preds = %if.then20, %if.end17
-  %realize = getelementptr inbounds i8, ptr %call1.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call1.i, i64 144
   %9 = load ptr, ptr %realize, align 8
   %tobool24.not = icmp eq ptr %9, null
   br i1 %tobool24.not, label %do.body, label %if.then25
@@ -1638,37 +1638,37 @@ if.then34:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then34
-  %link = getelementptr inbounds i8, ptr %_listener.0116, i64 24
+  %link = getelementptr inbounds nuw i8, ptr %_listener.0116, i64 24
   %_listener.0 = load ptr, ptr %link, align 8
   %tobool31.not = icmp eq ptr %_listener.0, null
   br i1 %tobool31.not, label %do.end, label %for.body, !llvm.loop !20
 
 do.end:                                           ; preds = %for.inc, %do.body
-  %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
+  %canonical_path = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %12 = load ptr, ptr %canonical_path, align 8
   call void @g_free(ptr noundef %12) #14
   %call37 = call ptr @object_get_canonical_path(ptr noundef %call.i) #14
   store ptr %call37, ptr %canonical_path, align 8
-  %clocks = getelementptr inbounds i8, ptr %call.i, i64 104
+  %clocks = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   %ncl.0117 = load ptr, ptr %clocks, align 8
   %tobool40.not118 = icmp eq ptr %ncl.0117, null
   br i1 %tobool40.not118, label %for.end46, label %for.body41
 
 for.body41:                                       ; preds = %do.end, %for.inc45
   %ncl.0119 = phi ptr [ %ncl.0, %for.inc45 ], [ %ncl.0117, %do.end ]
-  %alias = getelementptr inbounds i8, ptr %ncl.0119, i64 17
+  %alias = getelementptr inbounds nuw i8, ptr %ncl.0119, i64 17
   %13 = load i8, ptr %alias, align 1
   %tobool42 = trunc i8 %13 to i1
   br i1 %tobool42, label %for.inc45, label %if.else
 
 if.else:                                          ; preds = %for.body41
-  %clock = getelementptr inbounds i8, ptr %ncl.0119, i64 8
+  %clock = getelementptr inbounds nuw i8, ptr %ncl.0119, i64 8
   %14 = load ptr, ptr %clock, align 8
   call void @clock_setup_canonical_path(ptr noundef %14) #14
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.body41, %if.else
-  %node = getelementptr inbounds i8, ptr %ncl.0119, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %ncl.0119, i64 24
   %ncl.0 = load ptr, ptr %node, align 8
   %tobool40.not = icmp eq ptr %ncl.0, null
   br i1 %tobool40.not, label %for.end46, label %for.body41, !llvm.loop !21
@@ -1676,7 +1676,7 @@ for.inc45:                                        ; preds = %for.body41, %if.els
 for.end46:                                        ; preds = %for.inc45, %do.end
   %call.i.i94 = call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i.i95 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i94, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %vmsd.i96 = getelementptr inbounds i8, ptr %call1.i.i95, i64 160
+  %vmsd.i96 = getelementptr inbounds nuw i8, ptr %call1.i.i95, i64 160
   %15 = load ptr, ptr %vmsd.i96, align 8
   %tobool48.not = icmp eq ptr %15, null
   br i1 %tobool48.not, label %if.end56, label %if.then49
@@ -1684,24 +1684,24 @@ for.end46:                                        ; preds = %for.inc45, %do.end
 if.then49:                                        ; preds = %for.end46
   %call50 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.device_set_realized) #14
   %call51 = call ptr @qdev_get_vmsd(ptr noundef %call.i)
-  %instance_id_alias = getelementptr inbounds i8, ptr %call.i, i64 124
+  %instance_id_alias = getelementptr inbounds nuw i8, ptr %call.i, i64 124
   %16 = load i32, ptr %instance_id_alias, align 4
-  %alias_required_for_version = getelementptr inbounds i8, ptr %call.i, i64 128
+  %alias_required_for_version = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   %17 = load i32, ptr %alias_required_for_version, align 8
   %call52 = call i32 @vmstate_register_with_alias_id(ptr noundef %call50, i32 noundef -1, ptr noundef %call51, ptr noundef %call.i, i32 noundef %16, i32 noundef %17, ptr noundef nonnull %local_err) #14
   %cmp53 = icmp slt i32 %call52, 0
   br i1 %cmp53, label %post_realize_fail, label %if.end56
 
 if.end56:                                         ; preds = %if.then49, %for.end46
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 132
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 132
   store i64 0, ptr %reset, align 4
-  %child_bus = getelementptr inbounds i8, ptr %call.i, i64 112
+  %child_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   %bus.0120 = load ptr, ptr %child_bus, align 8
   %tobool59.not121 = icmp eq ptr %bus.0120, null
   br i1 %tobool59.not121, label %for.end66, label %for.body60
 
 for.cond58:                                       ; preds = %for.body60
-  %sibling = getelementptr inbounds i8, ptr %bus.0122, i64 96
+  %sibling = getelementptr inbounds nuw i8, ptr %bus.0122, i64 96
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool59.not = icmp eq ptr %bus.0, null
   br i1 %tobool59.not, label %for.end66, label %for.body60, !llvm.loop !22
@@ -1718,14 +1718,14 @@ for.end66:                                        ; preds = %for.cond58, %if.end
 
 if.then69:                                        ; preds = %for.end66
   call void @resettable_assert_reset(ptr noundef nonnull %call.i, i32 noundef 0) #14
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %19 = load ptr, ptr %parent_bus, align 8
   call void @resettable_change_parent(ptr noundef nonnull %call.i, ptr noundef %19, ptr noundef null) #14
   call void @resettable_release_reset(ptr noundef nonnull %call.i, i32 noundef 0) #14
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %for.end66
-  %pending_deleted_event = getelementptr inbounds i8, ptr %call.i, i64 57
+  %pending_deleted_event = getelementptr inbounds nuw i8, ptr %call.i, i64 57
   store i8 0, ptr %pending_deleted_event, align 1
   br i1 %tobool19.not, label %if.end139, label %if.then72
 
@@ -1746,7 +1746,7 @@ while.end95:                                      ; preds = %land.lhs.true86
   store atomic i8 %frombool, ptr %realized monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   fence release
-  %child_bus101 = getelementptr inbounds i8, ptr %call.i, i64 112
+  %child_bus101 = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   %bus.1105 = load ptr, ptr %child_bus101, align 8
   %tobool104.not106 = icmp eq ptr %bus.1105, null
   br i1 %tobool104.not106, label %for.end109, label %for.body105
@@ -1754,7 +1754,7 @@ while.end95:                                      ; preds = %land.lhs.true86
 for.body105:                                      ; preds = %while.end95, %for.body105
   %bus.1107 = phi ptr [ %bus.1, %for.body105 ], [ %bus.1105, %while.end95 ]
   tail call void @qbus_unrealize(ptr noundef nonnull %bus.1107) #14
-  %sibling107 = getelementptr inbounds i8, ptr %bus.1107, i64 96
+  %sibling107 = getelementptr inbounds nuw i8, ptr %bus.1107, i64 96
   %bus.1 = load ptr, ptr %sibling107, align 8
   %tobool104.not = icmp eq ptr %bus.1, null
   br i1 %tobool104.not, label %for.end109, label %for.body105, !llvm.loop !24
@@ -1762,7 +1762,7 @@ for.body105:                                      ; preds = %while.end95, %for.b
 for.end109:                                       ; preds = %for.body105, %while.end95
   %call.i.i97 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i.i98 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i97, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %vmsd.i99 = getelementptr inbounds i8, ptr %call1.i.i98, i64 160
+  %vmsd.i99 = getelementptr inbounds nuw i8, ptr %call1.i.i98, i64 160
   %21 = load ptr, ptr %vmsd.i99, align 8
   %tobool111.not = icmp eq ptr %21, null
   br i1 %tobool111.not, label %if.end115, label %if.then112
@@ -1771,13 +1771,13 @@ if.then112:                                       ; preds = %for.end109
   %call113 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.device_set_realized) #14
   %call.i.i100 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i.i101 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i100, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %vmsd.i102 = getelementptr inbounds i8, ptr %call1.i.i101, i64 160
+  %vmsd.i102 = getelementptr inbounds nuw i8, ptr %call1.i.i101, i64 160
   %22 = load ptr, ptr %vmsd.i102, align 8
   tail call void @vmstate_unregister(ptr noundef %call113, ptr noundef %22, ptr noundef %call.i) #14
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %for.end109
-  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 152
+  %unrealize = getelementptr inbounds nuw i8, ptr %call1.i, i64 152
   %23 = load ptr, ptr %unrealize, align 8
   %tobool116.not = icmp eq ptr %23, null
   br i1 %tobool116.not, label %if.end119, label %if.then117
@@ -1787,10 +1787,10 @@ if.then117:                                       ; preds = %if.end115
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then117, %if.end115
-  %pending_deleted_event120 = getelementptr inbounds i8, ptr %call.i, i64 57
+  %pending_deleted_event120 = getelementptr inbounds nuw i8, ptr %call.i, i64 57
   store i8 1, ptr %pending_deleted_event120, align 1
   %.pn108 = load ptr, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
-  %_listener122.0.in.in109 = getelementptr inbounds i8, ptr %.pn108, i64 8
+  %_listener122.0.in.in109 = getelementptr inbounds nuw i8, ptr %.pn108, i64 8
   %_listener122.0.in110 = load ptr, ptr %_listener122.0.in.in109, align 8
   %_listener122.0111 = load ptr, ptr %_listener122.0.in110, align 8
   %tobool124.not112 = icmp eq ptr %_listener122.0111, null
@@ -1798,7 +1798,7 @@ if.end119:                                        ; preds = %if.then117, %if.end
 
 for.body125:                                      ; preds = %if.end119, %for.inc131
   %_listener122.0113 = phi ptr [ %_listener122.0, %for.inc131 ], [ %_listener122.0111, %if.end119 ]
-  %unrealize126 = getelementptr inbounds i8, ptr %_listener122.0113, i64 8
+  %unrealize126 = getelementptr inbounds nuw i8, ptr %_listener122.0113, i64 8
   %24 = load ptr, ptr %unrealize126, align 8
   %tobool127.not = icmp eq ptr %24, null
   br i1 %tobool127.not, label %for.inc131, label %if.then128
@@ -1808,9 +1808,9 @@ if.then128:                                       ; preds = %for.body125
   br label %for.inc131
 
 for.inc131:                                       ; preds = %for.body125, %if.then128
-  %tql_prev133 = getelementptr inbounds i8, ptr %_listener122.0113, i64 32
+  %tql_prev133 = getelementptr inbounds nuw i8, ptr %_listener122.0113, i64 32
   %.pn = load ptr, ptr %tql_prev133, align 8
-  %_listener122.0.in.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %_listener122.0.in.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %_listener122.0.in = load ptr, ptr %_listener122.0.in.in, align 8
   %_listener122.0 = load ptr, ptr %_listener122.0.in, align 8
   %tobool124.not = icmp eq ptr %_listener122.0, null
@@ -1834,7 +1834,7 @@ child_realize_fail:                               ; preds = %for.body60, %if.the
 for.body148:                                      ; preds = %child_realize_fail, %for.body148
   %bus.2125 = phi ptr [ %bus.2, %for.body148 ], [ %bus.2123, %child_realize_fail ]
   call void @qbus_unrealize(ptr noundef nonnull %bus.2125) #14
-  %sibling150 = getelementptr inbounds i8, ptr %bus.2125, i64 96
+  %sibling150 = getelementptr inbounds nuw i8, ptr %bus.2125, i64 96
   %bus.2 = load ptr, ptr %sibling150, align 8
   %tobool147.not = icmp eq ptr %bus.2, null
   br i1 %tobool147.not, label %for.end152, label %for.body148, !llvm.loop !26
@@ -1854,7 +1854,7 @@ post_realize_fail:                                ; preds = %for.end152, %if.the
   %26 = load ptr, ptr %canonical_path, align 8
   call void @g_free(ptr noundef %26) #14
   store ptr null, ptr %canonical_path, align 8
-  %unrealize161 = getelementptr inbounds i8, ptr %call1.i, i64 152
+  %unrealize161 = getelementptr inbounds nuw i8, ptr %call1.i, i64 152
   %27 = load ptr, ptr %unrealize161, align 8
   %tobool162.not = icmp eq ptr %27, null
   br i1 %tobool162.not, label %fail, label %if.then163
@@ -1885,19 +1885,19 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %hotpluggable = getelementptr inbounds i8, ptr %call1.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call1.i, i64 129
   %0 = load i8, ptr %hotpluggable, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %parent_bus = getelementptr inbounds i8, ptr %call.i3, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i3, i64 88
   %1 = load ptr, ptr %parent_bus, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %hotplug_handler.i = getelementptr inbounds i8, ptr %1, i64 56
+  %hotplug_handler.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %hotplug_handler.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %land.end, label %if.then.i
@@ -1905,7 +1905,7 @@ lor.rhs:                                          ; preds = %land.rhs
 if.then.i:                                        ; preds = %lor.rhs
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %2) #14
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #14
-  %is_hotpluggable_bus.i = getelementptr inbounds i8, ptr %call1.i.i, i64 144
+  %is_hotpluggable_bus.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 144
   %3 = load ptr, ptr %is_hotpluggable_bus.i, align 8
   %tobool3.not.i = icmp eq ptr %3, null
   br i1 %tobool3.not.i, label %land.end, label %if.then4.i
@@ -1923,7 +1923,7 @@ land.end:                                         ; preds = %if.then4.i, %if.the
 define internal zeroext i1 @device_get_hotplugged(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %0 = load i32, ptr %hotplugged, align 8
   %tobool = icmp ne i32 %0, 0
   ret i1 %tobool
@@ -1938,7 +1938,7 @@ define internal void @device_transitional_reset(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
-  %reset = getelementptr inbounds i8, ptr %call1.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

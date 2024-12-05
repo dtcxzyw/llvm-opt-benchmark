@@ -72,17 +72,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @H5C_json_log_class_g, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
   %7 = icmp eq ptr %5, null
   br i1 %7, label %40, label %8
 
 8:                                                ; preds = %3
   %9 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 1, i64 noundef 1024) #8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %16
@@ -185,9 +185,9 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @H5MM_xfree(ptr noundef %5) #9
   %7 = load ptr, ptr %3, align 8
@@ -204,7 +204,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr nocapture 
 14:                                               ; preds = %1
   store ptr null, ptr %3, align 8
   %15 = tail call ptr @H5MM_xfree(ptr noundef nonnull %3) #9
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %17
 
@@ -215,7 +215,7 @@ define internal range(i32 -1, 1) i32 @H5C__json_tear_down_logging(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_start_log_msg(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.9, i64 noundef %4) #9
@@ -248,7 +248,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_stop_log_msg(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.12, i64 noundef %4) #9
@@ -281,7 +281,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_create_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.13, i64 noundef %5, i32 noundef %1) #9
@@ -314,7 +314,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_cache_log_msg(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @time(ptr noundef null) #9
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.14, i64 noundef %4) #9
@@ -347,7 +347,7 @@ H5C__json_write_log_message.exit:                 ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_evict_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.15, i64 noundef %5, i32 noundef %1) #9
@@ -380,7 +380,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_expunge_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.16, i64 noundef %7, i64 noundef %1, i32 noundef %2, i32 noundef %3) #9
@@ -413,7 +413,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_flush_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @time(ptr noundef null) #9
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.17, i64 noundef %5, i32 noundef %1) #9
@@ -446,7 +446,7 @@ H5C__json_write_log_message.exit:                 ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_insert_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @time(ptr noundef null) #9
   %10 = trunc i64 %4 to i32
@@ -480,10 +480,10 @@ H5C__json_write_log_message.exit:                 ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_dirty_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.19, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -515,10 +515,10 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_mark_entry_clean_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.20, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -550,10 +550,10 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_mark_unserialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.21, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -585,10 +585,10 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_mark_serialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.22, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -620,7 +620,7 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_move_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @time(ptr noundef null) #9
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.23, i64 noundef %8, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #9
@@ -653,10 +653,10 @@ H5C__json_write_log_message.exit:                 ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_pin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.24, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -688,12 +688,12 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_create_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.25, i64 noundef %7, i64 noundef %9, i64 noundef %11, i32 noundef %3) #9
   %13 = load ptr, ptr %5, align 8
@@ -738,12 +738,12 @@ define internal range(i32 -1, 1) i32 @H5C__json_write_protect_entry_log_msg(ptr 
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @time(ptr noundef null) #9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 1024, ptr noundef nonnull @.str.28, i64 noundef %13, i64 noundef %15, i32 noundef %2, ptr noundef nonnull %6, i32 noundef %18, i32 noundef %4) #9
@@ -776,10 +776,10 @@ H5C__json_write_log_message.exit:                 ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_resize_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %2 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.29, i64 noundef %7, i64 noundef %9, i32 noundef %10, i32 noundef %3) #9
@@ -812,10 +812,10 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_unpin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.30, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8
@@ -847,12 +847,12 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_destroy_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @time(ptr noundef null) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.31, i64 noundef %7, i64 noundef %9, i64 noundef %11, i32 noundef %3) #9
   %13 = load ptr, ptr %5, align 8
@@ -884,7 +884,7 @@ H5C__json_write_log_message.exit:                 ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_unprotect_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @time(ptr noundef null) #9
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 1024, ptr noundef nonnull @.str.32, i64 noundef %8, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #9
@@ -917,7 +917,7 @@ H5C__json_write_log_message.exit:                 ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_set_cache_config_log_msg(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.33, i64 noundef %6, i32 noundef %2) #9
@@ -950,10 +950,10 @@ H5C__json_write_log_message.exit:                 ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__json_write_remove_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @time(ptr noundef null) #9
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1024, ptr noundef nonnull @.str.34, i64 noundef %6, i64 noundef %8, i32 noundef %2) #9
   %10 = load ptr, ptr %4, align 8

@@ -360,11 +360,11 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false8
   %sub.i.i12 = add nsw i64 %call, -9
   %pkt.sroa.16.2 = select i1 %cmp.i9, i64 %sub.i.i12, i64 %sub.i.i
   %pkt.sroa.0.2.v = select i1 %cmp.i9, i64 9, i64 5
-  %pkt.sroa.0.2 = getelementptr inbounds i8, ptr %0, i64 %pkt.sroa.0.2.v
+  %pkt.sroa.0.2 = getelementptr inbounds nuw i8, ptr %0, i64 %pkt.sroa.0.2.v
   %cmp.i16 = icmp ugt i64 %pkt.sroa.16.2, 33
   %sub.i.i19 = add nsw i64 %pkt.sroa.16.2, -34
   %pkt.sroa.0.3.idx = select i1 %cmp.i16, i64 34, i64 0
-  %pkt.sroa.0.3 = getelementptr inbounds i8, ptr %pkt.sroa.0.2, i64 %pkt.sroa.0.3.idx
+  %pkt.sroa.0.3 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.2, i64 %pkt.sroa.0.3.idx
   %pkt.sroa.16.3 = select i1 %cmp.i16, i64 %sub.i.i19, i64 %pkt.sroa.16.2
   %retval.0.i20 = zext i1 %cmp.i16 to i32
   %call18 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.19, i32 noundef %retval.0.i20) #3
@@ -383,8 +383,8 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false20
   br i1 %cmp.i.i.i, label %PACKET_get_length_prefixed_1.exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %lor.lhs.false.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.3, i64 1
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.3, i64 1
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub.i.i6.i = sub nuw nsw i64 %sub.i.i.i, %conv.i
   br label %PACKET_get_length_prefixed_1.exit
 
@@ -411,7 +411,7 @@ lor.lhs.false.i26:                                ; preds = %lor.lhs.false26
   %2 = load i8, ptr %pkt.sroa.0.4, align 1
   %conv.i.i.i = zext i8 %2 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i28 = getelementptr inbounds i8, ptr %pkt.sroa.0.4, i64 1
+  %add.ptr.i.i.i28 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.4, i64 1
   %3 = load i8, ptr %add.ptr.i.i.i28, align 1
   %conv2.i.i.i = zext i8 %3 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
@@ -420,8 +420,8 @@ lor.lhs.false.i26:                                ; preds = %lor.lhs.false26
   br i1 %cmp.i.i4.i, label %PACKET_get_length_prefixed_2.exit, label %if.end.i30
 
 if.end.i30:                                       ; preds = %lor.lhs.false.i26
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.4, i64 2
-  %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.4, i64 2
+  %add.ptr.i.i6.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
   %sub.i.i7.i = sub nuw nsw i64 %sub.i.i.i29, %or.i.i.i
   br label %PACKET_get_length_prefixed_2.exit
 
@@ -452,8 +452,8 @@ lor.lhs.false.i36:                                ; preds = %lor.lhs.false32
   br i1 %cmp.i.i.i40, label %PACKET_get_length_prefixed_1.exit47, label %if.end.i41
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i36
-  %add.ptr.i.i.i42 = getelementptr inbounds i8, ptr %pkt.sroa.0.5, i64 1
-  %add.ptr.i.i5.i43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i42, i64 %conv.i39
+  %add.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.5, i64 1
+  %add.ptr.i.i5.i43 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i42, i64 %conv.i39
   %sub.i.i6.i44 = sub nuw nsw i64 %sub.i.i.i38, %conv.i39
   br label %PACKET_get_length_prefixed_1.exit47
 
@@ -475,7 +475,7 @@ lor.lhs.false.i51:                                ; preds = %lor.lhs.false38
   %5 = load i8, ptr %pkt.sroa.0.6, align 1
   %conv.i.i.i53 = zext i8 %5 to i64
   %shl.i.i.i54 = shl nuw nsw i64 %conv.i.i.i53, 8
-  %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %pkt.sroa.0.6, i64 1
+  %add.ptr.i.i.i55 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.6, i64 1
   %6 = load i8, ptr %add.ptr.i.i.i55, align 1
   %conv2.i.i.i56 = zext i8 %6 to i64
   %or.i.i.i57 = or disjoint i64 %shl.i.i.i54, %conv2.i.i.i56
@@ -484,7 +484,7 @@ lor.lhs.false.i51:                                ; preds = %lor.lhs.false38
   br i1 %cmp.not.i, label %if.end.i60, label %PACKET_as_length_prefixed_2.exit
 
 if.end.i60:                                       ; preds = %lor.lhs.false.i51
-  %add.ptr.i2.i.i61 = getelementptr inbounds i8, ptr %pkt.sroa.0.6, i64 2
+  %add.ptr.i2.i.i61 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.6, i64 2
   br label %PACKET_as_length_prefixed_2.exit
 
 PACKET_as_length_prefixed_2.exit:                 ; preds = %lor.lhs.false38, %lor.lhs.false.i51, %if.end.i60
@@ -510,11 +510,11 @@ PACKET_get_net_2.exit:                            ; preds = %while.cond
   %7 = load i8, ptr %pkt2.sroa.0.0, align 1
   %conv.i.i = zext i8 %7 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i.i65 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 1
+  %add.ptr.i.i65 = getelementptr inbounds nuw i8, ptr %pkt2.sroa.0.0, i64 1
   %8 = load i8, ptr %add.ptr.i.i65, align 1
   %conv2.i.i = zext i8 %8 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 2
+  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %pkt2.sroa.0.0, i64 2
   %sub.i.i66 = add i64 %pkt2.sroa.11.0, -2
   %call49 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 1) #3
   %tobool50.not = icmp eq i32 %call49, 0
@@ -533,7 +533,7 @@ lor.lhs.false.i71:                                ; preds = %lor.lhs.false51
   %9 = load i8, ptr %add.ptr.i2.i, align 1
   %conv.i.i.i73 = zext i8 %9 to i64
   %shl.i.i.i74 = shl nuw nsw i64 %conv.i.i.i73, 8
-  %add.ptr.i.i.i75 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 3
+  %add.ptr.i.i.i75 = getelementptr inbounds nuw i8, ptr %pkt2.sroa.0.0, i64 3
   %10 = load i8, ptr %add.ptr.i.i.i75, align 1
   %conv2.i.i.i76 = zext i8 %10 to i64
   %or.i.i.i77 = or disjoint i64 %shl.i.i.i74, %conv2.i.i.i76
@@ -542,8 +542,8 @@ lor.lhs.false.i71:                                ; preds = %lor.lhs.false51
   br i1 %cmp.i.i4.i79, label %PACKET_get_length_prefixed_2.exit86, label %if.end.i80
 
 if.end.i80:                                       ; preds = %lor.lhs.false.i71
-  %add.ptr.i2.i.i81 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 4
-  %add.ptr.i.i6.i82 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i81, i64 %or.i.i.i77
+  %add.ptr.i2.i.i81 = getelementptr inbounds nuw i8, ptr %pkt2.sroa.0.0, i64 4
+  %add.ptr.i.i6.i82 = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i81, i64 %or.i.i.i77
   %sub.i.i7.i83 = sub nuw i64 %sub.i.i.i78, %or.i.i.i77
   br label %PACKET_get_length_prefixed_2.exit86
 
@@ -570,7 +570,7 @@ lor.lhs.false.i90:                                ; preds = %if.then61
   %11 = load i8, ptr %pkt3.sroa.0.1, align 1
   %conv.i.i.i92 = zext i8 %11 to i64
   %shl.i.i.i93 = shl nuw nsw i64 %conv.i.i.i92, 8
-  %add.ptr.i.i.i94 = getelementptr inbounds i8, ptr %pkt3.sroa.0.1, i64 1
+  %add.ptr.i.i.i94 = getelementptr inbounds nuw i8, ptr %pkt3.sroa.0.1, i64 1
   %12 = load i8, ptr %add.ptr.i.i.i94, align 1
   %conv2.i.i.i95 = zext i8 %12 to i64
   %or.i.i.i96 = or disjoint i64 %shl.i.i.i93, %conv2.i.i.i95
@@ -579,7 +579,7 @@ lor.lhs.false.i90:                                ; preds = %if.then61
   br i1 %cmp.i.i4.i98, label %PACKET_get_length_prefixed_2.exit105, label %if.end.i99
 
 if.end.i99:                                       ; preds = %lor.lhs.false.i90
-  %add.ptr.i2.i.i100 = getelementptr inbounds i8, ptr %pkt3.sroa.0.1, i64 2
+  %add.ptr.i2.i.i100 = getelementptr inbounds nuw i8, ptr %pkt3.sroa.0.1, i64 2
   br label %PACKET_get_length_prefixed_2.exit105
 
 PACKET_get_length_prefixed_2.exit105:             ; preds = %if.then61, %lor.lhs.false.i90, %if.end.i99
@@ -603,7 +603,7 @@ lor.lhs.false72:                                  ; preds = %lor.lhs.false67
 if.end.i107:                                      ; preds = %lor.lhs.false72
   %13 = load i8, ptr %pkt4.sroa.0.0, align 1
   %conv.i.i108 = zext i8 %13 to i32
-  %add.ptr.i.i109 = getelementptr inbounds i8, ptr %pkt4.sroa.0.0, i64 1
+  %add.ptr.i.i109 = getelementptr inbounds nuw i8, ptr %pkt4.sroa.0.0, i64 1
   %sub.i.i110 = add nsw i64 %pkt4.sroa.7.0, -1
   br label %PACKET_get_1.exit
 
@@ -629,7 +629,7 @@ lor.lhs.false.i115:                               ; preds = %lor.lhs.false81
   %14 = load i8, ptr %pkt4.sroa.0.1, align 1
   %conv.i.i.i117 = zext i8 %14 to i64
   %shl.i.i.i118 = shl nuw nsw i64 %conv.i.i.i117, 8
-  %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %pkt4.sroa.0.1, i64 1
+  %add.ptr.i.i.i119 = getelementptr inbounds nuw i8, ptr %pkt4.sroa.0.1, i64 1
   %15 = load i8, ptr %add.ptr.i.i.i119, align 1
   %conv2.i.i.i120 = zext i8 %15 to i64
   %or.i.i.i121 = or disjoint i64 %shl.i.i.i118, %conv2.i.i.i120
@@ -638,7 +638,7 @@ lor.lhs.false.i115:                               ; preds = %lor.lhs.false81
   br i1 %cmp.i.i4.i123, label %PACKET_get_length_prefixed_2.exit130, label %if.end.i124
 
 if.end.i124:                                      ; preds = %lor.lhs.false.i115
-  %add.ptr.i2.i.i125 = getelementptr inbounds i8, ptr %pkt4.sroa.0.1, i64 2
+  %add.ptr.i2.i.i125 = getelementptr inbounds nuw i8, ptr %pkt4.sroa.0.1, i64 2
   br label %PACKET_get_length_prefixed_2.exit130
 
 PACKET_get_length_prefixed_2.exit130:             ; preds = %lor.lhs.false81, %lor.lhs.false.i115, %if.end.i124

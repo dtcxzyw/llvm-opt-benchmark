@@ -2457,7 +2457,7 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph4365:                                       ; preds = %7
   %11 = shl i32 %3, 3
-  %12 = getelementptr inbounds i8, ptr %2, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %13
 
 13:                                               ; preds = %.lr.ph4365, %.thread
@@ -2805,19 +2805,19 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %177
   %185 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %185
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %185
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %188
 
 switch.lookup4389:                                ; preds = %179
   %186 = zext nneg i8 %switch.tableidx4390 to i64
-  %switch.gep4391 = getelementptr inbounds [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
+  %switch.gep4391 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
   %switch.load4392 = load ptr, ptr %switch.gep4391, align 8
   br label %188
 
 switch.lookup4393:                                ; preds = %183
   %187 = zext nneg i8 %switch.tableidx4394 to i64
-  %switch.gep4395 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
+  %switch.gep4395 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
   %switch.load4396 = load ptr, ptr %switch.gep4395, align 8
   br label %188
 
@@ -2957,19 +2957,19 @@ switch.lookup4393:                                ; preds = %183
 
 switch.lookup4397:                                ; preds = %249
   %257 = zext nneg i8 %switch.tableidx4398 to i64
-  %switch.gep4399 = getelementptr inbounds [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
+  %switch.gep4399 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
   %switch.load4400 = load ptr, ptr %switch.gep4399, align 8
   br label %260
 
 switch.lookup4401:                                ; preds = %251
   %258 = zext nneg i8 %switch.tableidx4402 to i64
-  %switch.gep4403 = getelementptr inbounds [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
+  %switch.gep4403 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
   %switch.load4404 = load ptr, ptr %switch.gep4403, align 8
   br label %260
 
 switch.lookup4405:                                ; preds = %255
   %259 = zext nneg i8 %switch.tableidx4406 to i64
-  %switch.gep4407 = getelementptr inbounds [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
+  %switch.gep4407 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
   %switch.load4408 = load ptr, ptr %switch.gep4407, align 8
   br label %260
 
@@ -7498,7 +7498,7 @@ define hidden noundef zeroext i16 @de_sm_pco(ptr noundef %0, ptr noundef %1, ptr
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
-  %15 = getelementptr inbounds i8, ptr %2, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %16 = load i32, ptr %15, align 8
   %17 = load i32, ptr @hf_gsm_a_gm_link_dir, align 4
   %18 = tail call ptr @proto_tree_add_int(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef %16) #5
@@ -7506,13 +7506,13 @@ define hidden noundef zeroext i16 @de_sm_pco(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %19
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not5.i = icmp eq ptr %21, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, 2
   store i32 %25, ptr %23, align 4
@@ -7533,7 +7533,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %19, %22
 .lr.ph:                                           ; preds = %proto_item_set_generated.exit
   %.not = icmp eq i32 %16, 0
   %35 = icmp eq i32 %16, 1
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %gsm_a_sm_pco_ms2net_prot_vals.gsm_a_sm_pco_net2ms_prot_vals = select i1 %.not, ptr @gsm_a_sm_pco_ms2net_prot_vals, ptr @gsm_a_sm_pco_net2ms_prot_vals
   br label %37
 
@@ -8386,7 +8386,7 @@ define hidden zeroext i16 @de_sm_pdp_addr(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %17
   %26 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.de_sm_pdp_addr, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_sm_pdp_addr, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 
@@ -8570,7 +8570,7 @@ define zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %78
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %2, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ult i8 %62, 64
   br i1 %68, label %qos_calc_bitrate.exit, label %69
@@ -8614,7 +8614,7 @@ qos_calc_bitrate.exit:                            ; preds = %65, %71, %74
   br label %100
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %2, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = icmp ult i8 %84, 64
   br i1 %90, label %qos_calc_bitrate.exit361, label %91
@@ -8692,7 +8692,7 @@ qos_calc_bitrate.exit361:                         ; preds = %87, %93, %96
 
 130:                                              ; preds = %124, %127, %120
   %.0 = phi i32 [ %121, %120 ], [ %126, %124 ], [ %129, %127 ]
-  %131 = getelementptr inbounds i8, ptr %2, i64 408
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %132 = load ptr, ptr %131, align 8
   %133 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %132, ptr noundef nonnull @.str.140, i32 noundef %.0) #5
   br label %134
@@ -8719,7 +8719,7 @@ qos_calc_bitrate.exit361:                         ; preds = %87, %93, %96
   br label %158
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %2, i64 408
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %147 = load ptr, ptr %146, align 8
   %148 = icmp ult i8 %142, 64
   br i1 %148, label %qos_calc_bitrate.exit363, label %149
@@ -8763,7 +8763,7 @@ qos_calc_bitrate.exit363:                         ; preds = %145, %151, %154
   br label %180
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %2, i64 408
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %169 = load ptr, ptr %168, align 8
   %170 = icmp ult i8 %164, 64
   br i1 %170, label %qos_calc_bitrate.exit365, label %171
@@ -8831,7 +8831,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %209 = urem i32 %208, 1000
   %210 = udiv i32 %208, 1000
   %211 = icmp eq i32 %209, 0
-  %212 = getelementptr inbounds i8, ptr %2, i64 408
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %213 = load ptr, ptr %212, align 8
   br i1 %211, label %214, label %216
 
@@ -8869,7 +8869,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %232 = urem i32 %231, 1000
   %233 = udiv i32 %231, 1000
   %234 = icmp eq i32 %232, 0
-  %235 = getelementptr inbounds i8, ptr %2, i64 408
+  %235 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %236 = load ptr, ptr %235, align 8
   br i1 %234, label %237, label %239
 
@@ -8907,7 +8907,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %255 = urem i32 %254, 1000
   %256 = udiv i32 %254, 1000
   %257 = icmp eq i32 %255, 0
-  %258 = getelementptr inbounds i8, ptr %2, i64 408
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %259 = load ptr, ptr %258, align 8
   br i1 %257, label %260, label %262
 
@@ -8945,7 +8945,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   %278 = urem i32 %277, 1000
   %279 = udiv i32 %277, 1000
   %280 = icmp eq i32 %278, 0
-  %281 = getelementptr inbounds i8, ptr %2, i64 408
+  %281 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %282 = load ptr, ptr %281, align 8
   br i1 %280, label %283, label %285
 
@@ -9000,7 +9000,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
 
 qos_calc_ext2_bitrate.exit:                       ; preds = %298, %303, %306, %308
   %.0.i378 = phi i32 [ %300, %298 ], [ %305, %303 ], [ %310, %308 ], [ 10000, %306 ]
-  %311 = getelementptr inbounds i8, ptr %2, i64 408
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %312 = load ptr, ptr %311, align 8
   %313 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %312, ptr noundef nonnull @.str.146, i32 noundef %.0.i378) #5
   br label %314
@@ -9048,7 +9048,7 @@ qos_calc_ext2_bitrate.exit:                       ; preds = %298, %303, %306, %3
 
 qos_calc_ext2_bitrate.exit380:                    ; preds = %325, %330, %333, %335
   %.0.i379 = phi i32 [ %327, %325 ], [ %332, %330 ], [ %337, %335 ], [ 10000, %333 ]
-  %338 = getelementptr inbounds i8, ptr %2, i64 408
+  %338 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %339 = load ptr, ptr %338, align 8
   %340 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %339, ptr noundef nonnull @.str.146, i32 noundef %.0.i379) #5
   br label %341
@@ -9096,7 +9096,7 @@ qos_calc_ext2_bitrate.exit380:                    ; preds = %325, %330, %333, %3
 
 qos_calc_ext2_bitrate.exit382:                    ; preds = %352, %357, %360, %362
   %.0.i381 = phi i32 [ %354, %352 ], [ %359, %357 ], [ %364, %362 ], [ 10000, %360 ]
-  %365 = getelementptr inbounds i8, ptr %2, i64 408
+  %365 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %366 = load ptr, ptr %365, align 8
   %367 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %366, ptr noundef nonnull @.str.146, i32 noundef %.0.i381) #5
   br label %368
@@ -9144,7 +9144,7 @@ qos_calc_ext2_bitrate.exit382:                    ; preds = %352, %357, %360, %3
 
 qos_calc_ext2_bitrate.exit384:                    ; preds = %379, %384, %387, %389
   %.0.i383 = phi i32 [ %381, %379 ], [ %386, %384 ], [ %391, %389 ], [ 10000, %387 ]
-  %392 = getelementptr inbounds i8, ptr %2, i64 408
+  %392 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %393 = load ptr, ptr %392, align 8
   %394 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %393, ptr noundef nonnull @.str.146, i32 noundef %.0.i383) #5
   br label %395
@@ -9718,7 +9718,7 @@ define internal noundef zeroext i16 @de_gmm_tmsi_stat(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_gmm_detach_type(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
-  %8 = getelementptr inbounds i8, ptr %2, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 348
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %14
@@ -10306,7 +10306,7 @@ define internal noundef zeroext i16 @de_sm_mbms_bearer_cap(ptr noundef %0, ptr n
   br label %24
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ult i8 %8, 64
   br i1 %14, label %qos_calc_bitrate.exit, label %15
@@ -10356,7 +10356,7 @@ qos_calc_bitrate.exit:                            ; preds = %11, %17, %20
   %38 = urem i32 %37, 1000
   %39 = udiv i32 %37, 1000
   %40 = icmp eq i32 %38, 0
-  %41 = getelementptr inbounds i8, ptr %2, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %42 = load ptr, ptr %41, align 8
   br i1 %40, label %43, label %45
 
@@ -10405,7 +10405,7 @@ define internal noundef zeroext i16 @de_sm_enh_nsapi(ptr noundef %0, ptr noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.1062, i32 noundef %9) #5
   br label %16
@@ -10748,17 +10748,17 @@ define hidden void @get_sm_msg_params(i8 noundef zeroext %0, ptr nocapture nound
 define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %1 = alloca [138 x ptr], align 16
   store ptr @ett_gmm_radio_cap, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_gmm_rai, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_sm_tft, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ett_gmm_gprs_timer, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @ett_gmm_network_cap, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @ett_gsm_a_gm_msrac_multislot_capability, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr @ett_sm_pco, ptr %7, align 16
   br label %8
 
@@ -10862,7 +10862,7 @@ declare zeroext i16 @de_lai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_attach_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -11163,7 +11163,7 @@ define internal void @dtap_gmm_attach_req(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_attach_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -11468,7 +11468,7 @@ define internal void @dtap_gmm_attach_acc(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_attach_com(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -11499,7 +11499,7 @@ define internal void @dtap_gmm_attach_com(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_attach_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -11552,7 +11552,7 @@ define internal void @dtap_gmm_attach_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_detach_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %10 [
     i32 0, label %8
@@ -11585,7 +11585,7 @@ define internal void @dtap_gmm_detach_req(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_detach_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %20, label %8
@@ -11620,7 +11620,7 @@ define internal void @dtap_gmm_detach_acc(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_rau_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -11895,7 +11895,7 @@ define internal void @dtap_gmm_rau_req(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_rau_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -12178,7 +12178,7 @@ define internal void @dtap_gmm_rau_acc(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_rau_com(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %27, label %8
@@ -12217,7 +12217,7 @@ define internal void @dtap_gmm_rau_com(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_rau_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12284,7 +12284,7 @@ define internal void @dtap_gmm_rau_rej(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_service_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -12369,7 +12369,7 @@ define internal void @dtap_gmm_service_req(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_service_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -12400,7 +12400,7 @@ define internal void @dtap_gmm_service_acc(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_service_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12445,7 +12445,7 @@ define internal void @dtap_gmm_service_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_ptmsi_realloc_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12534,7 +12534,7 @@ define internal void @dtap_gmm_ptmsi_realloc_cmd(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_ptmsi_realloc_com(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7
@@ -12549,7 +12549,7 @@ define internal void @dtap_gmm_ptmsi_realloc_com(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_auth_ciph_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -12648,7 +12648,7 @@ define internal void @dtap_gmm_auth_ciph_req(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_auth_ciph_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -12709,7 +12709,7 @@ define internal void @dtap_gmm_auth_ciph_resp(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_auth_ciph_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7
@@ -12724,7 +12724,7 @@ define internal void @dtap_gmm_auth_ciph_rej(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_ident_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %13
@@ -12758,7 +12758,7 @@ define internal void @dtap_gmm_ident_req(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_ident_res(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12795,7 +12795,7 @@ define internal void @dtap_gmm_ident_res(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_auth_ciph_fail(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12840,7 +12840,7 @@ define internal void @dtap_gmm_auth_ciph_fail(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_status(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12877,7 +12877,7 @@ define internal void @dtap_gmm_status(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_gmm_information(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %45, label %8
@@ -12956,7 +12956,7 @@ declare zeroext i16 @elem_t(ptr noundef, ptr noundef, ptr noundef, i8 noundef ze
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dtap_gmm_detach_req_MO(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -13001,7 +13001,7 @@ define internal fastcc void @dtap_gmm_detach_req_MO(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dtap_gmm_detach_req_MT(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -13038,9 +13038,9 @@ define internal fastcc void @dtap_gmm_detach_req_MT(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_pdp_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13199,9 +13199,9 @@ define internal void @dtap_sm_act_pdp_req(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_pdp_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13354,9 +13354,9 @@ define internal void @dtap_sm_act_pdp_acc(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_pdp_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13433,9 +13433,9 @@ define internal void @dtap_sm_act_pdp_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_pdp_act(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13504,9 +13504,9 @@ define internal void @dtap_sm_req_pdp_act(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_pdp_act_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13567,9 +13567,9 @@ define internal void @dtap_sm_req_pdp_act_rej(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_deact_pdp_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 -1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13654,9 +13654,9 @@ define internal void @dtap_sm_deact_pdp_req(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_deact_pdp_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 -1, ptr %7, align 8
   %8 = icmp slt i32 %4, 1
   br i1 %8, label %28, label %9
@@ -13695,9 +13695,9 @@ define internal void @dtap_sm_deact_pdp_acc(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_mod_pdp_req_net(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -13842,9 +13842,9 @@ define internal void @dtap_sm_mod_pdp_req_net(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_mod_pdp_acc_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp slt i32 %4, 1
   br i1 %8, label %28, label %9
@@ -13883,9 +13883,9 @@ define internal void @dtap_sm_mod_pdp_acc_ms(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_mod_pdp_req_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp slt i32 %4, 1
   br i1 %8, label %58, label %9
@@ -13964,9 +13964,9 @@ define internal void @dtap_sm_mod_pdp_req_ms(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_mod_pdp_acc_net(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp slt i32 %4, 1
   br i1 %8, label %64, label %9
@@ -14053,7 +14053,7 @@ define internal void @dtap_sm_mod_pdp_acc_net(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_mod_pdp_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14130,9 +14130,9 @@ define internal void @dtap_sm_mod_pdp_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_sec_pdp_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -14283,9 +14283,9 @@ define internal void @dtap_sm_act_sec_pdp_req(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_sec_pdp_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -14414,9 +14414,9 @@ define internal void @dtap_sm_act_sec_pdp_acc(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_sec_pdp_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -14493,9 +14493,9 @@ define internal void @dtap_sm_act_sec_pdp_rej(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_status(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 -1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -14532,7 +14532,7 @@ define internal void @dtap_sm_status(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_mbms_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14673,7 +14673,7 @@ define internal void @dtap_sm_act_mbms_req(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_mbms_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14740,7 +14740,7 @@ define internal void @dtap_sm_act_mbms_acc(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_act_mbms_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14801,7 +14801,7 @@ define internal void @dtap_sm_act_mbms_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_mbms_act(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14890,7 +14890,7 @@ define internal void @dtap_sm_req_mbms_act(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_mbms_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -14935,9 +14935,9 @@ define internal void @dtap_sm_req_mbms_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_sec_pdp_act(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -15044,9 +15044,9 @@ define internal void @dtap_sm_req_sec_pdp_act(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_req_sec_pdp_act_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15
@@ -15107,9 +15107,9 @@ define internal void @dtap_sm_req_sec_pdp_act_rej(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtap_sm_notif(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352), (384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %7, align 8
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %9, label %15

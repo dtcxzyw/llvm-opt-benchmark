@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @chmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   ret i32 %5
@@ -24,7 +24,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %.not34 = icmp ult i32 %8, 65536
   br i1 %.not34, label %9, label %74
@@ -35,7 +35,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br i1 %.not35, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   %15 = and i32 %2, 29
@@ -49,7 +49,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br i1 %.not36, label %23, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, -1
   %22 = and i32 %.030, 27
@@ -58,14 +58,14 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
 
 23:                                               ; preds = %18, %16
   %.1 = phi i32 [ %.030, %16 ], [ %spec.select39, %18 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = tail call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %24) #7
   %26 = and i32 %.1, 8
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %36, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load i64, ptr %28, align 8
   switch i64 %29, label %34 [
     i64 1073741822, label %30
@@ -77,7 +77,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br label %36
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   br label %36
 
@@ -92,7 +92,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br i1 %.not38, label %47, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %40 = load i64, ptr %39, align 8
   switch i64 %40, label %45 [
     i64 1073741822, label %41
@@ -104,7 +104,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br label %47
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %1, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   br label %47
 
@@ -116,10 +116,10 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   %.3 = phi i32 [ %42, %41 ], [ %.2, %43 ], [ %.2, %45 ], [ %.2, %36 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 32
-  %50 = getelementptr inbounds i8, ptr %4, i64 40
-  %51 = getelementptr inbounds i8, ptr %4, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %48, i8 0, i64 40, i1 false)
   store i8 1, ptr %51, align 8
   %52 = call i32 @inode_find(ptr noundef nonnull %4) #7
@@ -128,20 +128,20 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 26
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 26
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 15
   %59 = icmp eq i16 %58, 3
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %55, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %62 = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %69, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 200
   %65 = load ptr, ptr %64, align 8
   %.not18.i = icmp eq ptr %65, null
   br i1 %.not18.i, label %69, label %66
@@ -186,7 +186,7 @@ chstat_recursive.exit:                            ; preds = %70, %72
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   ret i32 %5
@@ -195,9 +195,9 @@ define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unname
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %2, ptr %6, align 4
   %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
   ret i32 %7
@@ -206,9 +206,9 @@ define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %2, ptr %6, align 4
   %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
   ret i32 %7
@@ -221,17 +221,17 @@ define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly %1) lo
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 1073741823, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 1073741823, ptr %10, align 8
   br label %11
 
@@ -250,17 +250,17 @@ define range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly %1) l
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   br label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 1073741823, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 1073741823, ptr %10, align 8
   br label %11
 

@@ -53,7 +53,7 @@ define hidden void @rule_set_relevant_vars(ptr nocapture noundef readonly %0, pt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 3360
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3360
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %202
@@ -185,13 +185,13 @@ read_token.exit36:                                ; preds = %54, %54
   br i1 %62, label %rule_check_ip_vars.exit, label %63
 
 63:                                               ; preds = %read_token.exit36
-  %64 = getelementptr inbounds i8, ptr %1, i64 3464
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 3464
   %65 = load i32, ptr %64, align 8
   %66 = icmp ugt i32 %65, 5
   br i1 %66, label %rule_check_ip_vars.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 @g_hash_table_lookup_extended(ptr noundef %69, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not.i37 = icmp eq i32 %70, 0
@@ -199,7 +199,7 @@ read_token.exit36:                                ; preds = %54, %54
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %9, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 3472
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 3472
   %74 = load i32, ptr %64, align 8
   %75 = zext i32 %74 to i64
   %76 = getelementptr [6 x %struct.used_variable_t], ptr %73, i64 0, i64 %75
@@ -265,13 +265,13 @@ read_token.exit45:                                ; preds = %90, %90
   br i1 %98, label %rule_check_port_vars.exit, label %99
 
 99:                                               ; preds = %read_token.exit45
-  %100 = getelementptr inbounds i8, ptr %1, i64 3364
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 3364
   %101 = load i32, ptr %100, align 4
   %102 = icmp ugt i32 %101, 5
   br i1 %102, label %rule_check_port_vars.exit, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 @g_hash_table_lookup_extended(ptr noundef %105, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not.i46 = icmp eq i32 %106, 0
@@ -279,7 +279,7 @@ read_token.exit45:                                ; preds = %90, %90
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 3368
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 3368
   %110 = load i32, ptr %100, align 4
   %111 = zext i32 %110 to i64
   %112 = getelementptr [6 x %struct.used_variable_t], ptr %109, i64 0, i64 %111
@@ -385,13 +385,13 @@ read_token.exit64:                                ; preds = %143, %143
   br i1 %151, label %rule_check_ip_vars.exit68, label %152
 
 152:                                              ; preds = %read_token.exit64
-  %153 = getelementptr inbounds i8, ptr %1, i64 3464
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 3464
   %154 = load i32, ptr %153, align 8
   %155 = icmp ugt i32 %154, 5
   br i1 %155, label %rule_check_ip_vars.exit68, label %156
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %0, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = call i32 @g_hash_table_lookup_extended(ptr noundef %158, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %.not.i65 = icmp eq i32 %159, 0
@@ -399,7 +399,7 @@ read_token.exit64:                                ; preds = %143, %143
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr inbounds i8, ptr %1, i64 3472
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 3472
   %163 = load i32, ptr %153, align 8
   %164 = zext i32 %163 to i64
   %165 = getelementptr [6 x %struct.used_variable_t], ptr %162, i64 0, i64 %164
@@ -463,13 +463,13 @@ read_token.exit76:                                ; preds = %skipWhiteSpace.exit
   br i1 %184, label %rule_check_port_vars.exit80, label %185
 
 185:                                              ; preds = %read_token.exit76
-  %186 = getelementptr inbounds i8, ptr %1, i64 3364
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 3364
   %187 = load i32, ptr %186, align 4
   %188 = icmp ugt i32 %187, 5
   br i1 %188, label %rule_check_port_vars.exit80, label %189
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %0, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = call i32 @g_hash_table_lookup_extended(ptr noundef %191, ptr noundef nonnull getelementptr inbounds (i8, ptr @read_token.static_buffer, i64 1), ptr noundef nonnull %3, ptr noundef nonnull %4) #16
   %.not.i77 = icmp eq i32 %192, 0
@@ -477,7 +477,7 @@ read_token.exit76:                                ; preds = %skipWhiteSpace.exit
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %3, align 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 3368
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 3368
   %196 = load i32, ptr %186, align 4
   %197 = zext i32 %196 to i64
   %198 = getelementptr [6 x %struct.used_variable_t], ptr %195, i64 0, i64 %197
@@ -556,7 +556,7 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @g_hash_table_lookup(ptr noundef %23, ptr noundef nonnull @read_token.static_buffer) #16
   %.not19 = icmp eq ptr %24, null
@@ -586,7 +586,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 8
@@ -595,7 +595,7 @@ define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 3568
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 3568
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr %9, align 8
@@ -613,22 +613,22 @@ define hidden void @create_config(ptr nocapture noundef initializes((0, 8)) %0, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %4, ptr %6, align 8
   %7 = tail call ptr @g_hash_table_new(ptr noundef nonnull @string_hash, ptr noundef nonnull @string_equal) #16
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %9, align 8
   %10 = tail call ptr @g_hash_table_new(ptr noundef nonnull @string_hash, ptr noundef nonnull @string_equal) #16
   %11 = load ptr, ptr %0, align 8
   store ptr %10, ptr %11, align 8
   %12 = tail call ptr @g_hash_table_new(ptr noundef nonnull @string_hash, ptr noundef nonnull @string_equal) #16
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   %15 = tail call ptr @g_hash_table_new(ptr noundef nonnull @string_hash, ptr noundef nonnull @string_equal) #16
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %15, ptr %17, align 8
   %18 = tail call noalias ptr @g_path_get_dirname(ptr noundef %1) #16
   %19 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #16
@@ -720,18 +720,18 @@ define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr noc
   br i1 %.not98, label %.loopexit, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %7, i64 18
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = add nsw i32 %4, 1
-  %18 = getelementptr inbounds i8, ptr %7, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %19 = ptrtoint ptr %7 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %22
 
 22:                                               ; preds = %.lr.ph100, %.backedge
@@ -1187,12 +1187,12 @@ parse_include_file.exit:                          ; preds = %180, %181
 
 186:                                              ; preds = %185
   %187 = call noalias dereferenceable_or_null(3576) ptr @g_malloc_n(i64 noundef 1, i64 noundef 3576) #18
-  %188 = getelementptr inbounds i8, ptr %187, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3576) %188, i8 0, i64 3560, i1 false)
   %189 = call noalias ptr @g_strdup(ptr noundef nonnull %7) #16
   store ptr %189, ptr %187, align 8
   %190 = call noalias ptr @g_strdup(ptr noundef %2) #16
-  %191 = getelementptr inbounds i8, ptr %187, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr %190, ptr %191, align 8
   store i32 %23, ptr %188, align 8
   br label %192
@@ -1231,7 +1231,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   %203 = call noalias ptr @g_strndup(ptr noundef nonnull %196, i64 noundef %202) #16
   %204 = getelementptr i8, ptr %203, i64 %198
   store i8 0, ptr %204, align 1
-  %205 = getelementptr inbounds i8, ptr %187, i64 48
+  %205 = getelementptr inbounds nuw i8, ptr %187, i64 48
   store ptr %203, ptr %205, align 8
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 40)
   %206 = icmp eq ptr %strchr.i, null
@@ -1268,15 +1268,15 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 .preheader.i:                                     ; preds = %215
   %220 = getelementptr i8, ptr %7, i64 %216
-  %221 = getelementptr inbounds i8, ptr %187, i64 44
-  %222 = getelementptr inbounds i8, ptr %187, i64 40
-  %223 = getelementptr inbounds i8, ptr %187, i64 24
-  %224 = getelementptr inbounds i8, ptr %187, i64 3192
-  %225 = getelementptr inbounds i8, ptr %187, i64 3200
-  %226 = getelementptr inbounds i8, ptr %187, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %187, i64 44
+  %222 = getelementptr inbounds nuw i8, ptr %187, i64 40
+  %223 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %187, i64 3192
+  %225 = getelementptr inbounds nuw i8, ptr %187, i64 3200
+  %226 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %227 = getelementptr i8, ptr %187, i64 3184
-  %228 = getelementptr inbounds i8, ptr %187, i64 56
-  %229 = getelementptr inbounds i8, ptr %187, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %187, i64 56
+  %229 = getelementptr inbounds nuw i8, ptr %187, i64 64
   br label %230
 
 230:                                              ; preds = %.thread64.i, %.preheader.i
@@ -1410,9 +1410,9 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   %289 = zext nneg i32 %284 to i64
   %290 = getelementptr [30 x %struct.content_t], ptr %229, i64 0, i64 %289
   %291 = call noalias ptr @g_strdup(ptr noundef %gep73.i) #16
-  %292 = getelementptr inbounds i8, ptr %290, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %290, i64 8
   store ptr %291, ptr %292, align 8
-  %293 = getelementptr inbounds i8, ptr %290, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 16
   store i32 %287, ptr %293, align 8
   store ptr %290, ptr %227, align 8
   br label %process_rule_option.exit.i
@@ -1455,9 +1455,9 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   %314 = zext nneg i32 %309 to i64
   %315 = getelementptr [30 x %struct.content_t], ptr %229, i64 0, i64 %314
   %316 = call noalias ptr @g_strdup(ptr noundef %gep.i) #16
-  %317 = getelementptr inbounds i8, ptr %315, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store ptr %316, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %315, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %315, i64 16
   store i32 %312, ptr %318, align 8
   store ptr %315, ptr %227, align 8
   store i32 1, ptr %315, align 8
@@ -1507,7 +1507,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i95.i.i, label %process_rule_option.exit.i, label %336
 
 336:                                              ; preds = %335
-  %337 = getelementptr inbounds i8, ptr %.val85.i.i, i64 20
+  %337 = getelementptr inbounds nuw i8, ptr %.val85.i.i, i64 20
   store i32 1, ptr %337, align 4
   br label %process_rule_option.exit.i
 
@@ -1523,10 +1523,10 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 342:                                              ; preds = %340
   %343 = load i32, ptr %6, align 4
-  %344 = getelementptr inbounds i8, ptr %341, i64 28
+  %344 = getelementptr inbounds nuw i8, ptr %341, i64 28
   store i32 %343, ptr %344, align 4
   %345 = load ptr, ptr %227, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 24
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   store i32 1, ptr %346, align 8
   br label %process_rule_option.exit.i
 
@@ -1542,7 +1542,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 350:                                              ; preds = %349
   %351 = load i32, ptr %6, align 4
-  %352 = getelementptr inbounds i8, ptr %.val86.i.i, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %.val86.i.i, i64 32
   store i32 %351, ptr %352, align 8
   br label %process_rule_option.exit.i
 
@@ -1558,7 +1558,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 356:                                              ; preds = %355
   %357 = load i32, ptr %6, align 4
-  %358 = getelementptr inbounds i8, ptr %.val87.i.i, i64 44
+  %358 = getelementptr inbounds nuw i8, ptr %.val87.i.i, i64 44
   store i32 %357, ptr %358, align 4
   br label %process_rule_option.exit.i
 
@@ -1574,10 +1574,10 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
 
 363:                                              ; preds = %361
   %364 = load i32, ptr %6, align 4
-  %365 = getelementptr inbounds i8, ptr %362, i64 40
+  %365 = getelementptr inbounds nuw i8, ptr %362, i64 40
   store i32 %364, ptr %365, align 8
   %366 = load ptr, ptr %227, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 36
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 36
   store i32 1, ptr %367, align 4
   br label %process_rule_option.exit.i
 
@@ -1592,7 +1592,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i100.i.i, label %process_rule_option.exit.i, label %371
 
 371:                                              ; preds = %370
-  %372 = getelementptr inbounds i8, ptr %.val88.i.i, i64 48
+  %372 = getelementptr inbounds nuw i8, ptr %.val88.i.i, i64 48
   store i32 1, ptr %372, align 8
   br label %process_rule_option.exit.i
 
@@ -1607,7 +1607,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i101.i.i, label %process_rule_option.exit.i, label %376
 
 376:                                              ; preds = %375
-  %377 = getelementptr inbounds i8, ptr %.val89.i.i, i64 56
+  %377 = getelementptr inbounds nuw i8, ptr %.val89.i.i, i64 56
   store i32 1, ptr %377, align 8
   br label %process_rule_option.exit.i
 
@@ -1622,7 +1622,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i102.i.i, label %process_rule_option.exit.i, label %381
 
 381:                                              ; preds = %380
-  %382 = getelementptr inbounds i8, ptr %.val90.i.i, i64 60
+  %382 = getelementptr inbounds nuw i8, ptr %.val90.i.i, i64 60
   store i32 1, ptr %382, align 4
   br label %process_rule_option.exit.i
 
@@ -1637,7 +1637,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i103.i.i, label %process_rule_option.exit.i, label %386
 
 386:                                              ; preds = %385
-  %387 = getelementptr inbounds i8, ptr %.val91.i.i, i64 64
+  %387 = getelementptr inbounds nuw i8, ptr %.val91.i.i, i64 64
   store i32 1, ptr %387, align 8
   br label %process_rule_option.exit.i
 
@@ -1652,7 +1652,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i104.i.i, label %process_rule_option.exit.i, label %391
 
 391:                                              ; preds = %390
-  %392 = getelementptr inbounds i8, ptr %.val92.i.i, i64 68
+  %392 = getelementptr inbounds nuw i8, ptr %.val92.i.i, i64 68
   store i32 1, ptr %392, align 4
   br label %process_rule_option.exit.i
 
@@ -1667,7 +1667,7 @@ read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit
   br i1 %.not.i105.i.i, label %process_rule_option.exit.i, label %396
 
 396:                                              ; preds = %395
-  %397 = getelementptr inbounds i8, ptr %.val93.i.i, i64 52
+  %397 = getelementptr inbounds nuw i8, ptr %.val93.i.i, i64 52
   store i32 1, ptr %397, align 4
   br label %process_rule_option.exit.i
 
@@ -1752,19 +1752,19 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @delete_config(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %4, ptr noundef nonnull @delete_rule, ptr noundef null) #16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void @g_hash_table_destroy(ptr noundef %8) #16
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %11, ptr noundef nonnull @delete_string_entry, ptr noundef null) #16
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void @g_hash_table_destroy(ptr noundef %15) #16
   %16 = load ptr, ptr %0, align 8
@@ -1774,19 +1774,19 @@ define hidden void @delete_config(ptr nocapture noundef %0) local_unnamed_addr #
   %20 = load ptr, ptr %19, align 8
   tail call void @g_hash_table_destroy(ptr noundef %20) #16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %23, ptr noundef nonnull @delete_string_entry, ptr noundef null) #16
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @g_hash_table_destroy(ptr noundef %27) #16
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %30, ptr noundef nonnull @delete_string_entry, ptr noundef null) #16
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void @g_hash_table_destroy(ptr noundef %34) #16
   %35 = load ptr, ptr %0, align 8
@@ -1801,44 +1801,44 @@ declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef i32 @delete_rule(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = load ptr, ptr %1, align 8
   tail call void @g_free(ptr noundef %4) #16
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #16
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #16
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #16
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %19
 
 .preheader:                                       ; preds = %19, %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 3192
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3192
   %17 = load i32, ptr %16, align 8
   %.not21 = icmp eq i32 %17, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %1, i64 3200
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 3200
   br label %28
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr [30 x %struct.content_t], ptr %15, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22) #16
-  %23 = getelementptr inbounds i8, ptr %20, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %24 = load ptr, ptr %23, align 8
   tail call void @g_free(ptr noundef %24) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1878,7 +1878,7 @@ define hidden ptr @get_rule(ptr noundef readonly %0, i32 noundef %1) local_unnam
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %12, label %8
@@ -1896,16 +1896,16 @@ define hidden ptr @get_rule(ptr noundef readonly %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @get_global_rule_stats(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %get_rule.exit.thread, label %get_rule.exit
@@ -1918,7 +1918,7 @@ get_rule.exit:                                    ; preds = %6
   br i1 %.not, label %get_rule.exit.thread, label %19
 
 19:                                               ; preds = %get_rule.exit
-  %20 = getelementptr inbounds i8, ptr %18, i64 3568
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 3568
   %21 = load i32, ptr %20, align 8
   br label %get_rule.exit.thread
 
@@ -1934,9 +1934,9 @@ define hidden void @reset_global_rule_stats(ptr noundef %0) local_unnamed_addr #
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @reset_rule_stats, ptr noundef null) #16
   br label %7
@@ -1949,26 +1949,26 @@ declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @reset_rule_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((3568, 3572)) %1, ptr nocapture readnone %2) #10 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 3568
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 3568
   store i32 0, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @content_convert_to_binary(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %content_get_nibble_value.values_set.promoted = load i1, ptr @content_get_nibble_value.values_set, align 4
   br label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %8 = load i32, ptr %7, align 4
   br label %59
 
@@ -2090,11 +2090,11 @@ content_get_nibble_value.exit:                    ; preds = %30, %40
   %54 = add i32 %.033, 1
   %55 = sext i32 %54 to i64
   %56 = tail call noalias ptr @g_malloc(i64 noundef %55) #19
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %56, ptr %57, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr nonnull align 16 @content_convert_to_binary.binary_str, i64 %55, i1 false)
   store i32 1, ptr %2, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 84
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.033, ptr %58, align 4
   br label %59
 
@@ -2111,13 +2111,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %8 = trunc i64 %7 to i32
@@ -2136,10 +2136,10 @@ define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture 
   br i1 %12, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 100
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  %15 = getelementptr inbounds i8, ptr %0, i64 92
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %17
 
 17:                                               ; preds = %.lr.ph, %25
@@ -2187,9 +2187,9 @@ define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %30, i64 %32, i1 false)
   %33 = getelementptr i8, ptr %28, i64 %32
   store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %31, ptr %35, align 4
   br label %.thread
 
@@ -2222,23 +2222,23 @@ declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @rule_add_pcre(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 30
   br i1 %4, label %5, label %rule_add_content.exit.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = add nuw nsw i32 %3, 1
   store i32 %7, ptr %2, align 8
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr [30 x %struct.content_t], ptr %6, i64 0, i64 %8
   %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull getelementptr inbounds (i8, ptr @process_rule_option.value, i64 1)) #16
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 3184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   store ptr %9, ptr %13, align 8
   store i32 2, ptr %9, align 8
   br label %rule_add_content.exit.thread

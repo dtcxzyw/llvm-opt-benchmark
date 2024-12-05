@@ -25,32 +25,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = tail call ptr @devres_open_group(ptr noundef %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs, i32 noundef 3264) #8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = tail call ptr @devres_open_group(ptr noundef nonnull %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs, i32 noundef 3264) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %53, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call noalias noundef dereferenceable_or_null(16) ptr @devm_kmalloc(ptr noundef %3, i64 noundef 16, i32 noundef 3520) #9
+  %7 = tail call noalias noundef dereferenceable_or_null(16) ptr @devm_kmalloc(ptr noundef nonnull %3, i64 noundef 16, i32 noundef 3520) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %6
   store ptr %0, ptr %7, align 8
-  %10 = tail call ptr @devm_bitmap_zalloc(ptr noundef %3, i32 noundef 64, i32 noundef 3264) #8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = tail call ptr @devm_bitmap_zalloc(ptr noundef nonnull %3, i32 noundef 64, i32 noundef 3264) #8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %19
 
 19:                                               ; preds = %28, %17
@@ -99,7 +99,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %.loopexit
-  %38 = tail call noalias ptr @devm_kstrdup(ptr noundef %3, ptr noundef %34, i32 noundef 3264) #8
+  %38 = tail call noalias ptr @devm_kstrdup(ptr noundef nonnull %3, ptr noundef %34, i32 noundef 3264) #8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
 
@@ -109,7 +109,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
 
 42:                                               ; preds = %40, %.loopexit
   %43 = phi ptr [ %38, %40 ], [ %34, %.loopexit ]
-  %44 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef %3, ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull @power_supply_hwmon_chip_info, ptr noundef null) #8
+  %44 = tail call ptr @devm_hwmon_device_register_with_info(ptr noundef nonnull %3, ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull @power_supply_hwmon_chip_info, ptr noundef null) #8
   %45 = icmp ule ptr %44, inttoptr (i64 -4096 to ptr)
   %46 = ptrtoint ptr %44 to i64
   %47 = trunc i64 %46 to i32
@@ -118,12 +118,12 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %42
-  tail call void @devres_close_group(ptr noundef %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs) #8
+  tail call void @devres_close_group(ptr noundef nonnull %3, ptr noundef nonnull @power_supply_add_hwmon_sysfs) #8
   br label %53
 
 .thread:                                          ; preds = %37, %42, %9, %6
   %51 = phi i32 [ %47, %42 ], [ -12, %6 ], [ -12, %9 ], [ -12, %37 ]
-  %52 = tail call i32 @devres_release_group(ptr noundef %3, ptr noundef null) #8
+  %52 = tail call i32 @devres_release_group(ptr noundef nonnull %3, ptr noundef null) #8
   br label %53
 
 53:                                               ; preds = %.thread, %50, %1
@@ -163,8 +163,8 @@ declare dso_local i32 @devres_release_group(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_remove_hwmon_sysfs(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = tail call i32 @devres_release_group(ptr noundef %2, ptr noundef nonnull @power_supply_add_hwmon_sysfs) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = tail call i32 @devres_release_group(ptr noundef nonnull %2, ptr noundef nonnull @power_supply_add_hwmon_sysfs) #8
   ret void
 }
 
@@ -179,7 +179,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr
   br i1 %7, label %8, label %42
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %.split.us, label %.split
 
@@ -337,7 +337,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
 
 60:                                               ; preds = %46, %45, %44, %43, %49, %48, %47, %54, %53, %59, %58, %57, %56, %52, %55
   %.ph7 = phi i32 [ 52, %55 ], [ 57, %52 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 58, %53 ], [ 59, %54 ], [ 18, %47 ], [ 16, %48 ], [ 17, %49 ], [ 13, %43 ], [ 9, %44 ], [ 8, %45 ], [ 12, %46 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = zext nneg i32 %.ph7 to i64
   %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, i64 %63) #8, !srcloc !9
@@ -390,7 +390,7 @@ power_supply_hwmon_to_property.exit6:             ; preds = %52, %55, %47, %43, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @power_supply_hwmon_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = alloca %union.power_supply_propval, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
@@ -525,7 +525,7 @@ define internal noundef i32 @power_supply_hwmon_read_string(ptr nocapture readno
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @power_supply_hwmon_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca %union.power_supply_propval, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8

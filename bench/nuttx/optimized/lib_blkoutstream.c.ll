@@ -9,7 +9,7 @@ define void @lib_blkoutstream_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %4, null
   br i1 %.not9, label %7, label %5
@@ -20,7 +20,7 @@ define void @lib_blkoutstream_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %11, label %10
@@ -56,33 +56,33 @@ define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr 
 9:                                                ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = call i32 %14(ptr noundef nonnull %10, ptr noundef nonnull %21) #6
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i16, ptr %25, align 8
   %27 = icmp slt i16 %26, 1
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
@@ -95,7 +95,7 @@ define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr 
 35:                                               ; preds = %28
   %36 = zext nneg i16 %26 to i64
   %37 = call noalias ptr @malloc(i64 noundef %36) #7
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %37, ptr %38, align 8
   %39 = icmp eq ptr %37, null
   %40 = load ptr, ptr %3, align 8
@@ -106,13 +106,13 @@ define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr 
   br label %48
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %40, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @blkoutstream_putc, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @blkoutstream_puts, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @blkoutstream_flush, ptr %47, align 8
   br label %48
 
@@ -134,13 +134,13 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i16, ptr %5, align 8
   %7 = sext i16 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %12
 
 12:                                               ; preds = %61, %2
@@ -173,7 +173,7 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 
 31:                                               ; preds = %17
   %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %11, align 8
   %36 = trunc i64 %15 to i32
@@ -200,7 +200,7 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 47:                                               ; preds = %39
   %48 = udiv i64 %.06573.i, %41
   %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = trunc i64 %15 to i32
   %53 = trunc i64 %48 to i32
@@ -230,18 +230,18 @@ blkoutstream_puts.exit:                           ; preds = %31, %47, %61, %.thr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i16, ptr %4, align 8
   %6 = sext i16 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.not72 = icmp eq i32 %2, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %12
 
 12:                                               ; preds = %.lr.ph, %63
@@ -274,7 +274,7 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 
 31:                                               ; preds = %17
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %11, align 8
   %36 = trunc i64 %15 to i32
@@ -301,7 +301,7 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 48:                                               ; preds = %40
   %49 = udiv i64 %.06573, %42
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = trunc i64 %15 to i32
   %54 = trunc i64 %49 to i32
@@ -332,7 +332,7 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @blkoutstream_flush(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i64
   %5 = load i32, ptr %0, align 8
@@ -343,13 +343,13 @@ define internal i32 @blkoutstream_flush(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = trunc i64 %8 to i32
   %19 = tail call i64 %15(ptr noundef %11, ptr noundef %17, i32 noundef %18, i32 noundef 1) #6

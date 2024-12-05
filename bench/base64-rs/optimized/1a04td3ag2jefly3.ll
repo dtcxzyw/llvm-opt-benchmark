@@ -43,7 +43,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %.075174 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %104, %102 ]
   %.sroa.0.0173 = phi ptr [ %.sroa.0.0.ph184, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %20, %102 ]
   %.sroa.8.0172 = phi i64 [ %.sroa.8.0.ph183, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %21, %102 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0173, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0173, i64 1
   %21 = add i64 %.sroa.8.0172, 1
   %22 = load i8, ptr %.sroa.0.0173, align 1, !noundef !4
   %23 = icmp eq i8 %22, 61
@@ -76,9 +76,9 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 29:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread"
   %30 = add i64 %.078.ph.lcssa167, %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %31, align 8
-  %.sroa.5120.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %30, ptr %.sroa.5120.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74
@@ -89,17 +89,17 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %35 = load i8, ptr %12, align 4, !noundef !4
   %36 = zext i8 %35 to i32
   %37 = shl i32 %36, 26
-  %38 = getelementptr inbounds i8, ptr %12, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %39 = load i8, ptr %38, align 1, !noundef !4
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 20
   %42 = or i32 %41, %37
-  %43 = getelementptr inbounds i8, ptr %12, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %44 = load i8, ptr %43, align 2, !noundef !4
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 14
   %47 = or i32 %42, %46
-  %48 = getelementptr inbounds i8, ptr %12, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 3
   %49 = load i8, ptr %48, align 1, !noundef !4
   %50 = zext i8 %49 to i32
   %51 = shl nuw nsw i32 %50, 8
@@ -117,13 +117,13 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %.not89, label %32, label %60
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 3, ptr %59, align 8
   store i64 2, ptr %0, align 8
   br label %74
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 3, ptr %61, align 8
   store i64 2, ptr %0, align 8
   br label %74
@@ -147,11 +147,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 69:                                               ; preds = %62
   %70 = add i64 %3, -1
   %71 = add i64 %70, %.078.ph.lcssa167
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %72, align 8
-  %.sroa.4134.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.4134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.079.ph.lcssa171, ptr %.sroa.4134.0..sroa_idx, align 1
-  %.sroa.6136.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %71, ptr %.sroa.6136.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74
@@ -163,9 +163,9 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %.sroa.0137.0 = zext i1 %.not91 to i64
   %.sroa.5138.0 = select i1 %.not91, i64 %73, i64 undef
   store i64 %.sroa.0137.0, ptr %0, align 8
-  %.sroa.5138.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5138.0, ptr %.sroa.5138.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8
   br label %74
 
@@ -181,9 +181,9 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   ret void
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 4, ptr %76, align 8
-  %.sroa.373.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %.sroa.373.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74
@@ -209,18 +209,18 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 86:                                               ; preds = %83
   %87 = add i64 %.074175, %3
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %88, align 8
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 61, ptr %.sroa.4104.0..sroa_idx, align 1
-  %.sroa.6106.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %87, ptr %.sroa.6106.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74
 
 89:                                               ; preds = %83
   %90 = zext i8 %22 to i64
-  %91 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1, !noundef !4
   %93 = icmp eq i8 %92, -1
   br i1 %93, label %95, label %94
@@ -231,17 +231,17 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 95:                                               ; preds = %89
   %96 = add i64 %.sroa.8.0172, %3
-  %97 = getelementptr inbounds i8, ptr %0, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %97, align 8
-  %.sroa.4112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %22, ptr %.sroa.4112.0..sroa_idx, align 1
-  %.sroa.6114.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %96, ptr %.sroa.6114.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74
 
 .outer:                                           ; preds = %94
-  %98 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %.078.ph186
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %.078.ph186
   store i8 %92, ptr %98, align 1
   %99 = add nuw nsw i64 %.078.ph186, 1
   %100 = icmp eq ptr %20, %15
@@ -260,11 +260,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 106:                                              ; preds = %84
   %107 = add i64 %.sroa.8.0172, %3
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %108, align 8
-  %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 61, ptr %.sroa.496.0..sroa_idx, align 1
-  %.sroa.698.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %107, ptr %.sroa.698.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %74

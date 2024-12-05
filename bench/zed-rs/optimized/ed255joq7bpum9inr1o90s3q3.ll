@@ -15,10 +15,10 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %8 = load i64, ptr %6, align 8, !range !13, !alias.scope !11, !noalias !14, !noundef !4
   %9 = icmp eq i64 %8, -9223372036854775808
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !11, !noalias !14, !noundef !4
   %12 = load ptr, ptr %7, align 8, !alias.scope !9, !noalias !15, !nonnull !4, !align !5, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !16, !noundef !4
   %.not.i.i = icmp ult i64 %11, %14
   br i1 %9, label %15, label %16
@@ -31,7 +31,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit.i": ; preds = %15
   %17 = load ptr, ptr %12, align 8, !noalias !16, !nonnull !4, !align !17, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !align !17, !noundef !4
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %17, ptr nonnull readonly align 1 %19, i64 %14), !alias.scope !18, !noalias !16
   %20 = icmp eq i32 %bcmp.i.i.i, 0
@@ -52,14 +52,14 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   store i64 2, ptr %0, align 8, !alias.scope !6, !noalias !25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !26
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !14
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8, !range !13, !noalias !26, !noundef !4
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf43839a7152bc0feE.exit.i.i", label %24
 
 24:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread.i"
   %25 = load ptr, ptr %4, align 8, !noalias !26, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !26, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2036775944964463284"(ptr noalias noundef nonnull readonly align 1 %10, ptr noundef nonnull %25, i64 noundef %22, i64 noundef %27), !noalias !14
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf43839a7152bc0feE.exit.i.i"
@@ -70,7 +70,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.i": ; preds = %16
   %28 = load ptr, ptr %12, align 8, !noalias !16, !nonnull !4, !align !17, !noundef !4
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !11, !noalias !14, !nonnull !4, !noundef !4
   %bcmp.i.i23.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %28, ptr nonnull readonly align 1 %30, i64 %14), !alias.scope !37, !noalias !16
   %31 = icmp eq i32 %bcmp.i.i23.i, 0
@@ -86,10 +86,10 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
   %5 = alloca [24 x i8], align 8
   %6 = load i64, ptr %2, align 8, !range !13, !noundef !4
   %7 = icmp eq i64 %6, -9223372036854775808
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
   %.not.i = icmp ult i64 %9, %12
   br i1 %7, label %13, label %14
@@ -102,7 +102,7 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit": ; preds = %13
   %15 = load ptr, ptr %10, align 8, !nonnull !4, !align !17, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !17, !noundef !4
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %15, ptr nonnull readonly align 1 %17, i64 %12), !alias.scope !44
   %18 = icmp eq i32 %bcmp.i.i, 0
@@ -123,14 +123,14 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !51
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd5475c794abf08eaE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8, !range !13, !noalias !51, !noundef !4
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf43839a7152bc0feE.exit.i", label %22
 
 22:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25.thread"
   %23 = load ptr, ptr %4, align 8, !noalias !51, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load i64, ptr %24, align 8, !noalias !51, !noundef !4
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2036775944964463284"(ptr noalias noundef nonnull readonly align 1 %8, ptr noundef nonnull %23, i64 noundef %20, i64 noundef %25)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf43839a7152bc0feE.exit.i"
@@ -141,7 +141,7 @@ define hidden void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSour
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h30507492a82389b9E.exit25": ; preds = %14
   %26 = load ptr, ptr %10, align 8, !nonnull !4, !align !17, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %bcmp.i.i23 = tail call i32 @bcmp(ptr nonnull readonly align 1 %26, ptr nonnull readonly align 1 %28, i64 %12), !alias.scope !62
   %29 = icmp eq i32 %bcmp.i.i23, 0

@@ -498,20 +498,20 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 260) i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.143) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %11, align 8
   br label %12
 
@@ -520,10 +520,10 @@ define internal range(i32 1, 260) i32 @dissect_bssap(ptr noundef %0, ptr noundef
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %15 = load i32, ptr @ett_bssap, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
@@ -534,20 +534,20 @@ define internal range(i32 1, 260) i32 @dissect_bssap(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 260) i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.146) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %11, align 8
   br label %12
 
@@ -556,10 +556,10 @@ define internal range(i32 1, 260) i32 @dissect_bsap(ptr noundef %0, ptr noundef 
   %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.146) #2
   %15 = load i32, ptr @ett_bssap, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
@@ -570,20 +570,20 @@ define internal range(i32 1, 260) i32 @dissect_bsap(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 260) i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.147) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %11, align 8
   br label %12
 
@@ -592,10 +592,10 @@ define internal range(i32 1, 260) i32 @dissect_bssap_le(ptr noundef %0, ptr noun
   %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.147) #2
   %15 = load i32, ptr @ett_bssap, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 2, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
@@ -625,20 +625,20 @@ define internal range(i32 2, 258) i32 @dissect_bssap_imei_dissector(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bssap_plus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.277) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not519 = icmp eq ptr %9, null
   br i1 %.not519, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %11, align 8
   br label %12
 
@@ -2767,13 +2767,13 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_bssap, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #2
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   store i8 %10, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 1
   %13 = load i32, ptr @hf_bssap_pdu_type, align 4
@@ -2816,7 +2816,7 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
 
 41:                                               ; preds = %5
   %42 = zext i8 %18 to i32
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %11, align 4
   %.not54 = icmp eq i32 %45, 1
@@ -2851,14 +2851,14 @@ define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_para
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_bssap, align 4
   %15 = tail call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %14, i32 noundef 0) #2
   %16 = load i32, ptr @ett_bssap_dlci, align 4
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.273) #2
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 0) #2
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %.not.i = icmp eq i32 %20, 1
   %21 = zext i8 %18 to i32
@@ -2884,12 +2884,12 @@ define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_para
   br label %dissect_bssap_data_param.exit
 
 33:                                               ; preds = %8
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @proto_bssap, align 4
   %37 = tail call ptr @p_get_proto_data(ptr noundef %35, ptr noundef %1, i32 noundef %36, i32 noundef 0) #2
   %38 = load i8, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4
   switch i32 %40, label %53 [
     i32 0, label %41

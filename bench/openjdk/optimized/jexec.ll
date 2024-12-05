@@ -127,13 +127,13 @@ getJavaPath.exit52:                               ; preds = %16
 
 44:                                               ; preds = %31
   store ptr %3, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @.str.5, ptr %45, align 8
   %46 = icmp samesign ugt i32 %0, 1
   br i1 %46, label %47, label %70
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @realpath(ptr noundef %49, ptr noundef nonnull %4) #18
   %51 = icmp eq ptr %50, null
@@ -177,7 +177,7 @@ getJavaPath.exit52:                               ; preds = %16
   unreachable
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds i8, ptr %35, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %4, ptr %69, align 8
   br label %70
 
@@ -207,7 +207,7 @@ getJavaPath.exit52:                               ; preds = %16
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %70
   %.pre-phi = phi i64 [ %72, %70 ], [ %wide.trip.count, %.lr.ph.preheader ]
-  %83 = getelementptr inbounds ptr, ptr %35, i64 %.pre-phi
+  %83 = getelementptr inbounds nuw ptr, ptr %35, i64 %.pre-phi
   store ptr null, ptr %83, align 8
   %84 = call i32 @execv(ptr noundef nonnull %3, ptr noundef nonnull %35) #18
   call void @free(ptr noundef nonnull %35) #18
@@ -306,25 +306,25 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
 8:                                                ; preds = %3
   %9 = load i8, ptr %5, align 16
   %10 = icmp eq i8 %9, 80
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 75
   %14 = and i1 %10, %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %16 = load i8, ptr %15, align 2
   %17 = icmp eq i8 %16, 3
   %18 = and i1 %14, %17
-  %19 = getelementptr inbounds i8, ptr %5, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 4
   %22 = and i1 %18, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %5, i64 26
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %5, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i64
   %30 = add nuw nsw i64 %26, 30
@@ -342,9 +342,9 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not27, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %5, i64 %.022
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.022
   %37 = load i16, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %36, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %39 = load i16, ptr %38, align 1
   %40 = zext i16 %39 to i64
   %41 = add nuw nsw i64 %.022, 4

@@ -50,10 +50,10 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6419initHeaderFunctionsER
   %6 = alloca %"class.Luau::CodeGen::X64::AssemblyBuilderX64", align 8
   %7 = alloca ptr, align 8
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C1Eb(ptr noundef nonnull align 8 dereferenceable(252) %6, i1 noundef zeroext false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 0)
           to label %13 unwind label %201
@@ -74,13 +74,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6419initHeaderFunctionsER
   %.sroa.1.0.extract.shift = lshr i64 %14, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %15 = load ptr, ptr %9, align 8, !noalias !5
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !noalias !5
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.noexc14 unwind label %201
 
 .noexc14:                                         ; preds = %.noexc13
-  %18 = getelementptr inbounds i8, ptr %6, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %19 = load i32, ptr %18, align 4, !noalias !5
   %20 = icmp eq i32 %19, 0
   %21 = icmp eq i32 %19, 1
@@ -161,7 +161,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6419initHeaderFunctionsER
 _ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %.noexc25
   %39 = add nsw i32 %30, -6
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #10
           to label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE7reserveEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
 
@@ -181,10 +181,10 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit
   br label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i
 
 _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit.i.i
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %42, ptr %2, align 8, !noalias !5
   store ptr %42, ptr %43, align 8, !noalias !5
-  %44 = getelementptr inbounds %"struct.Luau::CodeGen::X64::RegisterX64", ptr %42, i64 %40
+  %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %42, i64 %40
   store ptr %44, ptr %41, align 8, !noalias !5
   %wide.trip.count.i = zext nneg i8 %29 to i64
   br label %45
@@ -214,7 +214,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE7reserveEm.exit.i: ; preds 
   %54 = trunc nuw i64 %47 to i8
   store i8 %54, ptr %51, align 1, !noalias !5
   %55 = load ptr, ptr %43, align 8, !noalias !5
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %43, align 8, !noalias !5
   br label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i
 
@@ -259,7 +259,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit
   br label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
 
 _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i: ; preds = %74, %_ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %75 = getelementptr inbounds i8, ptr %71, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %.not.i17.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %76
 
@@ -270,7 +270,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %70, ptr %2, align 8, !noalias !5
   store ptr %75, ptr %43, align 8, !noalias !5
-  %77 = getelementptr inbounds %"struct.Luau::CodeGen::X64::RegisterX64", ptr %70, i64 %67
+  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %70, i64 %67
   store ptr %77, ptr %41, align 8, !noalias !5
   br label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i
 
@@ -296,17 +296,17 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i: ; 
 
 83:                                               ; preds = %80
   store i8 28, ptr %3, align 1, !noalias !5
-  %84 = getelementptr inbounds i8, ptr %3, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 100, ptr %84, align 1, !noalias !5
-  %85 = getelementptr inbounds i8, ptr %3, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 108, ptr %85, align 1, !noalias !5
-  %86 = getelementptr inbounds i8, ptr %3, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 116, ptr %86, align 1, !noalias !5
-  %87 = getelementptr inbounds i8, ptr %3, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 124, ptr %87, align 1, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !5
   %88 = load ptr, ptr %9, align 8, !noalias !5
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = load ptr, ptr %89, align 8, !noalias !5
   invoke void %90(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %81, i32 noundef %33, i1 noundef zeroext true, ptr nonnull %3, i64 5, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %91 unwind label %99, !noalias !5
@@ -317,7 +317,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i: ; 
   br i1 %.not.i.i.i167.i, label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit.i, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %4, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %95 = load ptr, ptr %94, align 8, !noalias !5
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %92 to i64
@@ -333,7 +333,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i: ; 
   br i1 %.not.i.i.i168.i, label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %4, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %104 = load ptr, ptr %103, align 8, !noalias !5
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %101 to i64
@@ -343,22 +343,22 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i: ; 
 
 108:                                              ; preds = %80
   store i8 28, ptr %5, align 1, !noalias !5
-  %109 = getelementptr inbounds i8, ptr %5, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 100, ptr %109, align 1, !noalias !5
-  %110 = getelementptr inbounds i8, ptr %5, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 108, ptr %110, align 1, !noalias !5
-  %111 = getelementptr inbounds i8, ptr %5, i64 3
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 116, ptr %111, align 1, !noalias !5
-  %112 = getelementptr inbounds i8, ptr %5, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 124, ptr %112, align 1, !noalias !5
-  %113 = getelementptr inbounds i8, ptr %5, i64 5
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 60, ptr %113, align 1, !noalias !5
-  %114 = getelementptr inbounds i8, ptr %5, i64 6
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 52, ptr %114, align 1, !noalias !5
-  %115 = getelementptr inbounds i8, ptr %5, i64 7
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 44, ptr %115, align 1, !noalias !5
   %116 = load ptr, ptr %9, align 8, !noalias !5
-  %117 = getelementptr inbounds i8, ptr %116, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 72
   %118 = load ptr, ptr %117, align 8, !noalias !5
   invoke void %118(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %81, i32 noundef %33, i1 noundef zeroext false, ptr nonnull %5, i64 8, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
@@ -502,7 +502,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit.i: ; preds = %108
 
 155:                                              ; preds = %154
   %156 = load ptr, ptr %9, align 8, !noalias !5
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8, !noalias !5
   invoke void %158(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %.sroa.1.0.extract.trunc, i32 noundef -1)
           to label %159 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
@@ -513,7 +513,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit.i: ; preds = %108
   br i1 %.not.i.i.i188.i, label %174, label %161
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds i8, ptr %2, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %163 = load ptr, ptr %162, align 8, !noalias !5
   %164 = ptrtoint ptr %163 to i64
   %165 = ptrtoint ptr %160 to i64
@@ -528,7 +528,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i: ; preds = %
   br i1 %.not.i.i.i190.i, label %.body, label %168
 
 168:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i
-  %169 = getelementptr inbounds i8, ptr %2, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %170 = load ptr, ptr %169, align 8, !noalias !5
   %171 = ptrtoint ptr %170 to i64
   %172 = ptrtoint ptr %167 to i64
@@ -546,33 +546,33 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i: ; preds = %
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr %9, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
   %179 = load ptr, ptr %178, align 8
   invoke void %179(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %180 unwind label %201
 
 180:                                              ; preds = %176
   store ptr null, ptr %7, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %182 = load ptr, ptr %6, align 8
-  %183 = getelementptr inbounds i8, ptr %6, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %182 to i64
   %187 = sub i64 %185, %186
   %sext = shl i64 %187, 32
   %188 = ashr exact i64 %sext, 32
-  %189 = getelementptr inbounds i8, ptr %6, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %6, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %192 = load ptr, ptr %191, align 8
   %193 = ptrtoint ptr %192 to i64
   %194 = ptrtoint ptr %190 to i64
   %195 = sub i64 %193, %194
   %sext12 = shl i64 %195, 32
   %196 = ashr exact i64 %sext12, 32
-  %197 = getelementptr inbounds i8, ptr %0, i64 136
-  %198 = getelementptr inbounds i8, ptr %0, i64 144
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %199 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen13CodeAllocator8allocateEPKhmS3_mRPhRmS5_(ptr noundef nonnull align 8 dereferenceable(120) %181, ptr noundef %182, i64 noundef %188, ptr noundef %190, i64 noundef %196, ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef nonnull align 8 dereferenceable(8) %198, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %200 unwind label %201
 
@@ -591,18 +591,18 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit169.i: ; preds = %
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %9, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %206 = load ptr, ptr %205, align 8
   invoke void %206(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %.sroa.4.8.extract.shift)
           to label %207 unwind label %201
 
 207:                                              ; preds = %203
   %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 %.sroa.1.0.extract.shift
-  %210 = getelementptr inbounds i8, ptr %0, i64 168
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.sroa.1.0.extract.shift
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %209, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %208, i64 %.sroa.8.16.extract.shift
-  %212 = getelementptr inbounds i8, ptr %0, i64 176
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %.sroa.8.16.extract.shift
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %211, ptr %212, align 8
   br label %213
 
@@ -624,7 +624,7 @@ declare void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuilderX64ERNS0_13ModuleHelpersE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(56) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %7
@@ -634,7 +634,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %8)
   tail call void @_ZN4Luau7CodeGen3X6419emitUpdatePcForExitERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
   %9 = load i8, ptr %3, align 8
@@ -646,7 +646,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   br label %12
 
 12:                                               ; preds = %11, %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %13)
   tail call void @_ZN4Luau7CodeGen3X6419emitClearNativeFlagERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
   %14 = load i8, ptr %3, align 8
@@ -669,7 +669,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %22)
   tail call void @_ZN4Luau7CodeGen3X648emitExitERNS1_18AssemblyBuilderX64Eb(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext false)
   %23 = load i8, ptr %3, align 8
@@ -681,7 +681,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   br label %26
 
 26:                                               ; preds = %25, %21
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %27)
   tail call void @_ZN4Luau7CodeGen3X6413emitInterruptERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
   %28 = load i8, ptr %3, align 8
@@ -693,7 +693,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415assembleHelpersERNS1_18AssemblyBuil
   br label %31
 
 31:                                               ; preds = %30, %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %32)
   tail call void @_ZN4Luau7CodeGen3X6410emitReturnERNS1_18AssemblyBuilderX64ERNS0_13ModuleHelpersE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(56) %1)
   ret void

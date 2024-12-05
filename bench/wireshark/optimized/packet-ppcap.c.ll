@@ -140,7 +140,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ppcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.41) #4
   %8 = load ptr, ptr %6, align 8
@@ -154,22 +154,22 @@ define internal i32 @dissect_ppcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 184
-  %16 = getelementptr inbounds i8, ptr %1, i64 188
-  %17 = getelementptr inbounds i8, ptr %1, i64 192
-  %18 = getelementptr inbounds i8, ptr %1, i64 200
-  %19 = getelementptr inbounds i8, ptr %1, i64 232
-  %20 = getelementptr inbounds i8, ptr %1, i64 236
-  %21 = getelementptr inbounds i8, ptr %1, i64 240
-  %22 = getelementptr inbounds i8, ptr %1, i64 248
-  %23 = getelementptr inbounds i8, ptr %1, i64 160
-  %24 = getelementptr inbounds i8, ptr %1, i64 164
-  %25 = getelementptr inbounds i8, ptr %1, i64 168
-  %26 = getelementptr inbounds i8, ptr %1, i64 176
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
-  %28 = getelementptr inbounds i8, ptr %1, i64 212
-  %29 = getelementptr inbounds i8, ptr %1, i64 216
-  %30 = getelementptr inbounds i8, ptr %1, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 224
   br label %31
 
 31:                                               ; preds = %.lr.ph, %265
@@ -381,10 +381,10 @@ dissect_ppcap_payload_data.exit:                  ; preds = %87, %92, %96, %99, 
   store ptr %143, ptr @mtp3_addr_opc, align 8
   %144 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %139) #4
   %145 = load ptr, ptr @mtp3_addr_opc, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 %144, ptr %146, align 4
   store i32 1, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i8 0, ptr %147, align 4
   %148 = load i32, ptr @ss7pc_address_type, align 4
   br label %dissect_ppcap_source_address.exit.sink.split
@@ -398,10 +398,10 @@ dissect_ppcap_payload_data.exit:                  ; preds = %87, %92, %96, %99, 
   store ptr %154, ptr @mtp3_addr_opc, align 8
   %155 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %135) #4
   %156 = load ptr, ptr @mtp3_addr_opc, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store i32 %155, ptr %157, align 4
   store i32 1, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %156, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i8 0, ptr %158, align 4
   %159 = load i32, ptr @ss7pc_address_type, align 4
   br label %dissect_ppcap_source_address.exit.sink.split
@@ -501,10 +501,10 @@ dissect_ppcap_source_address.exit:                ; preds = %dissect_ppcap_sourc
   store ptr %196, ptr @mtp3_addr_dpc, align 8
   %197 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %192) #4
   %198 = load ptr, ptr @mtp3_addr_dpc, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 %197, ptr %199, align 4
   store i32 1, ptr %198, align 4
-  %200 = getelementptr inbounds i8, ptr %198, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i8 0, ptr %200, align 4
   %201 = load i32, ptr @ss7pc_address_type, align 4
   br label %dissect_ppcap_destination_address.exit.sink.split
@@ -517,10 +517,10 @@ dissect_ppcap_source_address.exit:                ; preds = %dissect_ppcap_sourc
   store ptr %206, ptr @mtp3_addr_dpc, align 8
   %207 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %187) #4
   %208 = load ptr, ptr @mtp3_addr_dpc, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   store i32 %207, ptr %209, align 4
   store i32 1, ptr %208, align 4
-  %210 = getelementptr inbounds i8, ptr %208, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i8 0, ptr %210, align 4
   %211 = load i32, ptr @ss7pc_address_type, align 4
   br label %dissect_ppcap_destination_address.exit.sink.split

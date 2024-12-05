@@ -107,12 +107,12 @@ define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly %0) 
 
 16:                                               ; preds = %10
   store ptr null, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %3, i32 noundef %18) #3
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %cond = icmp eq i32 %21, -1
   %spec.select = select i1 %cond, i32 -4, i32 %21
   store i32 %spec.select, ptr %22, align 4

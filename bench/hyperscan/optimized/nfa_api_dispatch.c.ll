@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaCheckFinalState(ptr noundef %nfa, ptr noundef %state, ptr noundef %streamState, i64 noundef %offset, ptr noundef %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -119,7 +119,7 @@ declare signext i8 @nfaExecMcSheng16_testEOD(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaQueueInitState(ptr noundef %nfa, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -279,7 +279,7 @@ declare signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaQueueExec_raw(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type.i, align 8
   switch i8 %0, label %nfaQueueExec_i.exit [
     i8 0, label %sw.bb.i
@@ -397,7 +397,7 @@ nfaQueueExec_i.exit:                              ; preds = %entry, %sw.bb39.i, 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaQueueExec2_raw(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type.i, align 8
   switch i8 %0, label %nfaQueueExec2_i.exit [
     i8 0, label %sw.bb.i
@@ -510,30 +510,30 @@ nfaQueueExec2_i.exit:                             ; preds = %entry, %sw.bb39.i, 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %items = getelementptr inbounds i8, ptr %q, i64 104
-  %cur = getelementptr inbounds i8, ptr %q, i64 8
+  %items = getelementptr inbounds nuw i8, ptr %q, i64 104
+  %cur = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
   %idxprom = zext i32 %0 to i64
   %location.idx = mul nuw nsw i64 %idxprom, 24
-  %1 = getelementptr inbounds i8, ptr %items, i64 %location.idx
-  %location = getelementptr inbounds i8, ptr %1, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %items, i64 %location.idx
+  %location = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i64, ptr %location, align 8
   %cmp = icmp sgt i64 %2, %end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds i8, ptr %q, i64 48
+  %length = getelementptr inbounds nuw i8, ptr %q, i64 48
   %3 = load i64, ptr %length, align 8
   %cmp1 = icmp sgt i64 %end, %3
   %spec.select = zext i1 %cmp1 to i8
   %spec.select104 = tail call i64 @llvm.smin.i64(i64 %end, i64 %3)
-  %maxBiAnchoredWidth.i = getelementptr inbounds i8, ptr %nfa, i64 11
+  %maxBiAnchoredWidth.i = getelementptr inbounds nuw i8, ptr %nfa, i64 11
   %4 = load i8, ptr %maxBiAnchoredWidth.i, align 1
   %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
+  %offset.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %5, %spec.select104
   %conv4.i = zext i8 %4 to i64
@@ -541,13 +541,13 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
-  %maxOffset.i = getelementptr inbounds i8, ptr %nfa, i64 40
+  %maxOffset.i = getelementptr inbounds nuw i8, ptr %nfa, i64 40
   %6 = load i32, ptr %maxOffset.i, align 8
   %tobool8.i.not = icmp eq i32 %6, 0
   br i1 %tobool8.i.not, label %if.end11, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %offset10.i = getelementptr inbounds i8, ptr %q, i64 32
+  %offset10.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %7 = load i64, ptr %offset10.i, align 8
   %conv12.i = zext i32 %6 to i64
   %cmp13.i.not = icmp ult i64 %7, %conv12.i
@@ -560,8 +560,8 @@ if.end18.i:                                       ; preds = %if.then9.i
 
 if.then25.i:                                      ; preds = %if.end18.i
   %sub.i = sub nsw i64 %conv12.i, %7
-  %end31.i = getelementptr inbounds i8, ptr %q, i64 12
-  %invariant.gep = getelementptr inbounds i8, ptr %q, i64 112
+  %end31.i = getelementptr inbounds nuw i8, ptr %q, i64 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %q, i64 112
   %end31.i.promoted = load i32, ptr %end31.i, align 4
   %cmp32.i115 = icmp ugt i32 %end31.i.promoted, %0
   br i1 %cmp32.i115, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
@@ -571,7 +571,7 @@ land.rhs.i.preheader:                             ; preds = %if.then25.i
   %sub35.i124 = add i32 %end31.i.promoted, -1
   %idxprom.i125 = zext i32 %sub35.i124 to i64
   %location.i.idx126 = mul nuw nsw i64 %idxprom.i125, 24
-  %gep127 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx126
+  %gep127 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location.i.idx126
   %9 = load i64, ptr %gep127, align 8
   %cmp36.i128 = icmp sgt i64 %9, %sub.i
   br i1 %cmp36.i128, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
@@ -588,7 +588,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %12 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i130, %if.end65.i ]
   %indvars.iv129 = phi i64 [ %10, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
   store i64 %sub.i, ptr %gep132, align 8
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i131
+  %arrayidx50.i = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i131
   store i32 1, ptr %arrayidx50.i, align 8
   %sub53.i = sub i32 %12, %0
   %cmp54.i = icmp ult i32 %sub53.i, 2
@@ -598,7 +598,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
   %sub58.i = add i64 %indvars.iv129, 4294967294
   %idxprom59.i = and i64 %sub58.i, 4294967295
   %location61.i.idx = mul nuw nsw i64 %idxprom59.i, 24
-  %gep114 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location61.i.idx
+  %gep114 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location61.i.idx
   %13 = load i64, ptr %gep114, align 8
   %cmp62.i.not = icmp sgt i64 %13, %sub.i
   br i1 %cmp62.i.not, label %if.end65.i, label %nfaQueueCanMatch.exit
@@ -610,7 +610,7 @@ if.end65.i:                                       ; preds = %lor.lhs.false.i
   %sub35.i = add i32 %14, -1
   %idxprom.i = zext i32 %sub35.i to i64
   %location.i.idx = mul nuw nsw i64 %idxprom.i, 24
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location.i.idx
   %15 = load i64, ptr %gep, align 8
   %cmp36.i = icmp sgt i64 %15, %sub.i
   br i1 %cmp36.i, label %while.body.i, label %nfaQueueCanMatch.exit
@@ -623,7 +623,7 @@ nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lh
   br i1 %cmp70.i, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.then9.i, %land.lhs.true.i, %nfaQueueCanMatch.exit
-  %report_current = getelementptr inbounds i8, ptr %q, i64 80
+  %report_current = getelementptr inbounds nuw i8, ptr %q, i64 80
   %16 = load i8, ptr %report_current, align 8
   %tobool6.not = icmp eq i8 %16, 0
   br i1 %tobool6.not, label %return, label %if.then7
@@ -635,7 +635,7 @@ if.then7:                                         ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
   %q_trimmed.1112 = phi i8 [ %q_trimmed.4, %nfaQueueCanMatch.exit ], [ %spec.select, %if.end18.i ], [ %spec.select, %if.end.i ]
-  %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %17 = load i8, ptr %type.i, align 8
   switch i8 %17, label %nfaQueueExec_i.exit [
     i8 0, label %sw.bb.i
@@ -761,7 +761,7 @@ return:                                           ; preds = %if.then5, %if.then7
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaReportCurrentMatches(ptr noundef %nfa, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -879,29 +879,29 @@ return:                                           ; preds = %entry, %sw.bb39, %s
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
-  %items = getelementptr inbounds i8, ptr %q, i64 104
-  %cur = getelementptr inbounds i8, ptr %q, i64 8
+  %items = getelementptr inbounds nuw i8, ptr %q, i64 104
+  %cur = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
   %idxprom = zext i32 %0 to i64
   %location.idx = mul nuw nsw i64 %idxprom, 24
-  %1 = getelementptr inbounds i8, ptr %items, i64 %location.idx
-  %location = getelementptr inbounds i8, ptr %1, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %items, i64 %location.idx
+  %location = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i64, ptr %location, align 8
   %cmp = icmp sgt i64 %2, %end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds i8, ptr %q, i64 48
+  %length = getelementptr inbounds nuw i8, ptr %q, i64 48
   %3 = load i64, ptr %length, align 8
   %cmp1 = icmp sle i64 %end, %3
   %spec.select = tail call i64 @llvm.smin.i64(i64 %end, i64 %3)
-  %maxBiAnchoredWidth.i = getelementptr inbounds i8, ptr %nfa, i64 11
+  %maxBiAnchoredWidth.i = getelementptr inbounds nuw i8, ptr %nfa, i64 11
   %4 = load i8, ptr %maxBiAnchoredWidth.i, align 1
   %tobool.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.not, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
+  %offset.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %5, %spec.select
   %conv4.i = zext i8 %4 to i64
@@ -909,13 +909,13 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end
-  %maxOffset.i = getelementptr inbounds i8, ptr %nfa, i64 40
+  %maxOffset.i = getelementptr inbounds nuw i8, ptr %nfa, i64 40
   %6 = load i32, ptr %maxOffset.i, align 8
   %tobool8.i.not = icmp eq i32 %6, 0
   br i1 %tobool8.i.not, label %if.end11, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %offset10.i = getelementptr inbounds i8, ptr %q, i64 32
+  %offset10.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %7 = load i64, ptr %offset10.i, align 8
   %conv12.i = zext i32 %6 to i64
   %cmp13.i.not = icmp ult i64 %7, %conv12.i
@@ -928,8 +928,8 @@ if.end18.i:                                       ; preds = %if.then9.i
 
 if.then25.i:                                      ; preds = %if.end18.i
   %sub.i = sub nsw i64 %conv12.i, %7
-  %end31.i = getelementptr inbounds i8, ptr %q, i64 12
-  %invariant.gep = getelementptr inbounds i8, ptr %q, i64 112
+  %end31.i = getelementptr inbounds nuw i8, ptr %q, i64 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %q, i64 112
   %end31.i.promoted = load i32, ptr %end31.i, align 4
   %cmp32.i120 = icmp ugt i32 %end31.i.promoted, %0
   br i1 %cmp32.i120, label %land.rhs.i.preheader, label %nfaQueueCanMatch.exit
@@ -939,7 +939,7 @@ land.rhs.i.preheader:                             ; preds = %if.then25.i
   %sub35.i129 = add i32 %end31.i.promoted, -1
   %idxprom.i130 = zext i32 %sub35.i129 to i64
   %location.i.idx131 = mul nuw nsw i64 %idxprom.i130, 24
-  %gep132 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx131
+  %gep132 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location.i.idx131
   %9 = load i64, ptr %gep132, align 8
   %cmp36.i133 = icmp sgt i64 %9, %sub.i
   br i1 %cmp36.i133, label %while.body.i.lr.ph, label %nfaQueueCanMatch.exit
@@ -956,7 +956,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %12 = phi i32 [ %end31.i.promoted, %while.body.i.lr.ph ], [ %sub35.i135, %if.end65.i ]
   %indvars.iv134 = phi i64 [ %10, %while.body.i.lr.ph ], [ %indvars.iv.next, %if.end65.i ]
   store i64 %sub.i, ptr %gep137, align 8
-  %arrayidx50.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i136
+  %arrayidx50.i = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i136
   store i32 1, ptr %arrayidx50.i, align 8
   %sub53.i = sub i32 %12, %0
   %cmp54.i = icmp ult i32 %sub53.i, 2
@@ -966,7 +966,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
   %sub58.i = add i64 %indvars.iv134, 4294967294
   %idxprom59.i = and i64 %sub58.i, 4294967295
   %location61.i.idx = mul nuw nsw i64 %idxprom59.i, 24
-  %gep119 = getelementptr inbounds i8, ptr %invariant.gep, i64 %location61.i.idx
+  %gep119 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location61.i.idx
   %13 = load i64, ptr %gep119, align 8
   %cmp62.i.not = icmp sgt i64 %13, %sub.i
   br i1 %cmp62.i.not, label %if.end65.i, label %nfaQueueCanMatch.exit
@@ -978,7 +978,7 @@ if.end65.i:                                       ; preds = %lor.lhs.false.i
   %sub35.i = add i32 %14, -1
   %idxprom.i = zext i32 %sub35.i to i64
   %location.i.idx = mul nuw nsw i64 %idxprom.i, 24
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %location.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %location.i.idx
   %15 = load i64, ptr %gep, align 8
   %cmp36.i = icmp sgt i64 %15, %sub.i
   br i1 %cmp36.i, label %while.body.i, label %nfaQueueCanMatch.exit
@@ -991,7 +991,7 @@ nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lh
   br i1 %cmp70.i, label %if.then5, label %if.end11
 
 if.then5:                                         ; preds = %if.then9.i, %land.lhs.true.i, %nfaQueueCanMatch.exit
-  %report_current = getelementptr inbounds i8, ptr %q, i64 80
+  %report_current = getelementptr inbounds nuw i8, ptr %q, i64 80
   %16 = load i8, ptr %report_current, align 8
   %tobool6.not = icmp eq i8 %16, 0
   br i1 %tobool6.not, label %return, label %if.then7
@@ -1003,7 +1003,7 @@ if.then7:                                         ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
   %q_trimmed.0114 = phi i8 [ %q_trimmed.3, %nfaQueueCanMatch.exit ], [ 0, %if.end18.i ], [ 0, %if.end.i ]
-  %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %17 = load i8, ptr %type.i, align 8
   switch i8 %17, label %if.end27 [
     i8 0, label %sw.bb.i
@@ -1121,13 +1121,13 @@ if.then19:                                        ; preds = %if.then17
   %18 = load i32, ptr %maxOffset.i, align 8
   %add = add i32 %18, 1
   %conv20 = zext i32 %add to i64
-  %end22 = getelementptr inbounds i8, ptr %q, i64 12
+  %end22 = getelementptr inbounds nuw i8, ptr %q, i64 12
   %19 = load i32, ptr %end22, align 4
   %sub = add i32 %19, -1
   %idxprom23 = zext i32 %sub to i64
   %location25.idx = mul nuw nsw i64 %idxprom23, 24
-  %20 = getelementptr inbounds i8, ptr %items, i64 %location25.idx
-  %location25 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %items, i64 %location25.idx
+  %location25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %conv20, ptr %location25, align 8
   br label %return
 
@@ -1190,7 +1190,7 @@ declare signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaInAcceptState(ptr noundef %nfa, i32 noundef %report, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -1343,7 +1343,7 @@ declare signext i8 @nfaExecMcSheng16_inAccept(ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaInAnyAcceptState(ptr noundef %nfa, ptr noundef %q) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -1496,7 +1496,7 @@ declare signext i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaQueueExecRose(ptr noundef %nfa, ptr noundef %q, i32 noundef %r) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type.i, align 8
   switch i8 %0, label %nfaQueueExecRose_i.exit [
     i8 0, label %sw.bb.i
@@ -1609,7 +1609,7 @@ nfaQueueExecRose_i.exit:                          ; preds = %entry, %sw.bb39.i, 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaBlockExecReverse(ptr noundef %nfa, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -1664,7 +1664,7 @@ declare signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaQueueCompressState(ptr noundef %nfa, ptr noundef %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -1824,7 +1824,7 @@ declare signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExpandState(ptr noundef %nfa, ptr noundef %dest, ptr noundef %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -1984,7 +1984,7 @@ declare signext i8 @nfaExecMcSheng16_expandState(ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaInitCompressedState(ptr noundef %nfa, i64 noundef %offset, ptr noundef %state, i8 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb
@@ -2137,7 +2137,7 @@ declare signext i8 @nfaExecMcSheng16_initCompressedState(ptr noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nfaGetZombieStatus(ptr noundef %nfa, ptr noundef %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %nfa, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   switch i8 %0, label %return [
     i8 0, label %sw.bb

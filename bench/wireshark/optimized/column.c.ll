@@ -383,7 +383,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %.lcssa = phi ptr [ null, %13 ], [ %20, %.lr.ph ]
   store ptr %.lcssa, ptr %3, align 8
   tail call void @g_ptr_array_insert(ptr noundef %14, i32 noundef 0, ptr noundef %16) #13
-  %25 = getelementptr inbounds i8, ptr %14, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i32, ptr %25, align 8
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.thread53, label %27
@@ -462,13 +462,13 @@ get_column_format_from_str.exit:                  ; preds = %col_format_to_strin
   %.143 = phi ptr [ %.0425156, %.thread53 ], [ null, %get_column_format_from_str.exit ]
   %.141 = phi i32 [ %53, %.thread53 ], [ 0, %get_column_format_from_str.exit ]
   %.1 = phi i8 [ %.039, %.thread53 ], [ 1, %get_column_format_from_str.exit ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.044, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.143, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.141, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 29
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 %.1, ptr %64, align 1
   br label %get_column_format_from_str.exit.thread
 
@@ -540,7 +540,7 @@ define void @try_convert_to_custom_column(ptr nocapture noundef %0) local_unname
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.145, ptr noundef %10) #13
   %12 = load ptr, ptr %0, align 8
@@ -1008,7 +1008,7 @@ define i32 @get_column_format(i32 noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   br label %8
 
@@ -1028,7 +1028,7 @@ define void @set_column_format(i32 noundef %0, i32 noundef %1) local_unnamed_add
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %7, align 8
   br label %8
 
@@ -1064,7 +1064,7 @@ define range(i32 0, 2) i32 @get_column_visible(i32 noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32
@@ -1085,7 +1085,7 @@ define void @set_column_visible(i32 noundef %0, i32 noundef %1) local_unnamed_ad
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
   %7 = icmp ne i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %6, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %9 = zext i1 %7 to i8
   store i8 %9, ptr %8, align 4
   br label %10
@@ -1103,7 +1103,7 @@ define range(i32 0, 2) i32 @get_column_resolved(i32 noundef %0) local_unnamed_ad
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 29
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 29
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32
@@ -1124,7 +1124,7 @@ define void @set_column_resolved(i32 noundef %0, i32 noundef %1) local_unnamed_a
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
   %7 = icmp ne i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %6, i64 29
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 29
   %9 = zext i1 %7 to i8
   store i8 %9, ptr %8, align 1
   br label %10
@@ -1142,7 +1142,7 @@ define ptr @get_column_custom_fields(i32 noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -1160,7 +1160,7 @@ define void @set_column_custom_fields(i32 noundef %0, ptr noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #13
   %9 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
@@ -1180,7 +1180,7 @@ define i32 @get_column_custom_occurrence(i32 noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   br label %8
 
@@ -1198,7 +1198,7 @@ define void @set_column_custom_occurrence(i32 noundef %0, i32 noundef %1) local_
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %1, ptr %7, align 8
   br label %8
 
@@ -1216,7 +1216,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %.not28 = icmp eq i32 %8, 4
   br i1 %.not28, label %12, label %9
@@ -1227,7 +1227,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
   br label %63
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @g_regex_split_simple(ptr noundef nonnull @.str.148, ptr noundef %14, i32 noundef 2048, i32 noundef 0) #13
   %16 = tail call ptr @g_string_new(ptr noundef nonnull @.str.149) #13
@@ -1236,7 +1236,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %19
 
 19:                                               ; preds = %.lr.ph, %58
@@ -1274,14 +1274,14 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
   br label %get_custom_field_tooltip.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %26, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %26, align 8
-  %41 = getelementptr inbounds i8, ptr %26, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.255, ptr noundef %40, ptr noundef %42) #13
   br label %get_custom_field_tooltip.exit
@@ -1290,7 +1290,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
   %45 = icmp eq i32 %25, 0
   %46 = call ptr @proto_get_protocol_name(i32 noundef %37) #13
   %47 = load ptr, ptr %26, align 8
-  %48 = getelementptr inbounds i8, ptr %26, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %49 = load ptr, ptr %48, align 8
   br i1 %45, label %50, label %52
 
@@ -1356,14 +1356,14 @@ define ptr @get_column_text(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 get_column_resolved.exit:                         ; preds = %2
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 29
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 29
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %get_column_resolved.exit.thread
 
 9:                                                ; preds = %get_column_resolved.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr ptr, ptr %11, i64 %12
@@ -1372,7 +1372,7 @@ get_column_resolved.exit:                         ; preds = %2
   br i1 %.not8, label %get_column_resolved.exit.thread, label %20
 
 get_column_resolved.exit.thread:                  ; preds = %2, %9, %get_column_resolved.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
   %18 = getelementptr %struct.col_item_t, ptr %16, i64 %17, i32 7
@@ -1387,16 +1387,16 @@ get_column_resolved.exit.thread:                  ; preds = %2, %9, %get_column_
 ; Function Attrs: nounwind uwtable
 define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph85, label %._crit_edge86
 
 .lr.ph85:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %10
 
 10:                                               ; preds = %.lr.ph85, %get_column_format_matches.exit
@@ -1405,12 +1405,12 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %12 = getelementptr %struct.col_item_t, ptr %11, i64 %indvars.iv92
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %14, label %16, label %53
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %19 = call zeroext i1 @dfilter_compile_full(ptr noundef %17, ptr noundef nonnull %18, ptr noundef null, i32 noundef 6, ptr noundef nonnull @__func__.col_finalize) #13
   %.pr = load ptr, ptr %15, align 8
   br i1 %19, label %21, label %.thread
@@ -1418,7 +1418,7 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
 .thread:                                          ; preds = %16
   call void @g_free(ptr noundef %.pr) #13
   store ptr null, ptr %15, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 0, ptr %20, align 8
   store ptr null, ptr %18, align 8
   br label %56
@@ -1435,7 +1435,7 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not90, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %12, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 40
   br label %27
 
 27:                                               ; preds = %.lr.ph, %49
@@ -1460,7 +1460,7 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %37 = call noalias ptr @g_strdup(ptr noundef %36) #13
   store ptr %37, ptr %35, align 8
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %28, align 8
   %41 = call ptr @proto_registrar_get_byname(ptr noundef %40) #13
@@ -1468,9 +1468,9 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %.not80, label %46, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %41, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %44, ptr %45, align 8
   br label %46
 
@@ -1493,15 +1493,15 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 53:                                               ; preds = %10
   store ptr null, ptr %15, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %12, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr null, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %.thread, %21, %._crit_edge, %53
   %57 = call noalias dereferenceable_or_null(184) ptr @g_malloc0_n(i64 noundef 46, i64 noundef 4) #16
-  %58 = getelementptr inbounds i8, ptr %12, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr %12, align 8
   %or.cond.i = icmp ult i32 %59, 46
@@ -1581,11 +1581,11 @@ define void @col_finalize(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br label %get_column_format_matches.exit
 
 get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
-  %82 = getelementptr inbounds i8, ptr %12, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr null, ptr %82, align 8
   %83 = load i32, ptr %12, align 8
   %84 = icmp eq i32 %83, 25
-  %85 = getelementptr inbounds i8, ptr %12, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %. = select i1 %84, i64 4096, i64 2048
   %86 = call noalias dereferenceable_or_null(2048) ptr @g_malloc_n(i64 noundef %., i64 noundef 1) #16
   store ptr %86, ptr %85, align 8
@@ -1609,11 +1609,11 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
 
 ._crit_edge86:                                    ; preds = %._crit_edge86.loopexit, %1
   %.072.lcssa = phi i64 [ 0, %1 ], [ %95, %._crit_edge86.loopexit ]
-  %96 = getelementptr inbounds i8, ptr %0, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr ptr, ptr %97, i64 %.072.lcssa
   store ptr null, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr ptr, ptr %100, i64 %.072.lcssa
   store ptr null, ptr %101, align 8
@@ -1622,9 +1622,9 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   br i1 %103, label %.preheader.lr.ph, label %._crit_edge89
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge86
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
-  %105 = getelementptr inbounds i8, ptr %0, i64 24
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %123
@@ -1694,13 +1694,13 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define void @build_column_format_array(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   tail call void @col_setup(ptr noundef %0, i32 noundef %1) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq i32 %2, 0
   br label %8
 
@@ -1716,7 +1716,7 @@ define void @build_column_format_array(ptr noundef %0, i32 noundef %1, i32 nound
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   br label %get_column_format.exit
 
@@ -1736,7 +1736,7 @@ get_column_format.exit:                           ; preds = %8, %14
 get_column_title.exit:                            ; preds = %get_column_format.exit, %20
   %.0.i21 = phi ptr [ %22, %20 ], [ null, %get_column_format.exit ]
   %23 = tail call noalias ptr @g_strdup(ptr noundef %.0.i21) #13
-  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %10, align 8
   %26 = icmp eq i32 %25, 4
@@ -1750,14 +1750,14 @@ get_column_title.exit:                            ; preds = %get_column_format.e
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   br label %get_column_custom_fields.exit
 
 get_column_custom_fields.exit:                    ; preds = %27, %30
   %.0.i23 = phi ptr [ %33, %30 ], [ null, %27 ]
   %34 = tail call noalias ptr @g_strdup(ptr noundef %.0.i23) #13
-  %35 = getelementptr inbounds i8, ptr %10, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr @prefs, align 8
   %37 = tail call ptr @g_list_nth(ptr noundef %36, i32 noundef %12) #13
@@ -1766,13 +1766,13 @@ get_column_custom_fields.exit:                    ; preds = %27, %30
 
 38:                                               ; preds = %get_column_custom_fields.exit
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8
   br label %get_column_custom_occurrence.exit
 
 get_column_custom_occurrence.exit:                ; preds = %get_column_custom_fields.exit, %38
   %.0.i25 = phi i32 [ %41, %38 ], [ 0, %get_column_custom_fields.exit ]
-  %42 = getelementptr inbounds i8, ptr %10, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %.0.i25, ptr %42, align 8
   %.pre = load i32, ptr %10, align 8
   br label %43
@@ -1781,12 +1781,12 @@ get_column_custom_occurrence.exit:                ; preds = %get_column_custom_f
   %44 = phi i32 [ %.pre, %get_column_custom_occurrence.exit ], [ %25, %get_column_title.exit ]
   %45 = tail call ptr @try_val_to_str(i32 noundef %44, ptr noundef nonnull @col_format_abbrev.alist_vals) #13
   %46 = tail call i32 @proto_registrar_get_id_byname(ptr noundef %45) #13
-  %47 = getelementptr inbounds i8, ptr %10, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i32 %46, ptr %47, align 8
   br i1 %.not, label %50, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %10, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i32 0, ptr %49, align 8
   br label %50
 
@@ -1885,21 +1885,21 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
   br i1 %.not2123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
-  %36 = getelementptr inbounds i8, ptr %1, i64 28
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
-  %38 = getelementptr inbounds i8, ptr %1, i64 60
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
-  %40 = getelementptr inbounds i8, ptr %1, i64 68
-  %41 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %42
 
 42:                                               ; preds = %.lr.ph, %58
   %.024 = phi ptr [ %32, %.lr.ph ], [ %60, %58 ]
   %43 = load ptr, ptr %.024, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
   %47 = getelementptr i32, ptr %27, i64 %46
@@ -1931,14 +1931,14 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
   br label %58
 
 58:                                               ; preds = %42, %49
-  %59 = getelementptr inbounds i8, ptr %.024, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not21 = icmp eq ptr %60, null
   br i1 %.not21, label %._crit_edge, label %42, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %58, %24
   call void @g_free(ptr noundef nonnull %27) #13
-  %61 = getelementptr inbounds i8, ptr %26, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %62 = load i32, ptr %61, align 8
   store i32 %62, ptr @hf_cols_cleanup, align 4
   %63 = load i32, ptr @proto_cols, align 4

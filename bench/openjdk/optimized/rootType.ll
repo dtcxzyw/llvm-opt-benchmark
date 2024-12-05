@@ -68,7 +68,7 @@ switch.hole_check:                                ; preds = %_ZN13OldObjectRoot1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -95,7 +95,7 @@ define hidden noundef nonnull ptr @_ZN13OldObjectRoot16type_descriptionENS_4Type
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN13OldObjectRoot16type_descriptionENS_4TypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN13OldObjectRoot16type_descriptionENS_4TypeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

@@ -128,7 +128,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %40 = getelementptr %struct.TimeLineHistoryEntry, ptr %38, i64 %39
   %41 = load i32, ptr %4, align 4
   store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %.051.ph101, ptr %42, align 8
   %43 = load i32, ptr %5, align 4
   %44 = zext i32 %43 to i64
@@ -136,7 +136,7 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %46 = load i32, ptr %6, align 4
   %47 = zext i32 %46 to i64
   %48 = or disjoint i64 %45, %47
-  %49 = getelementptr inbounds i8, ptr %40, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %48, ptr %49, align 8
   br i1 %.1, label %.outer._crit_edge, label %.preheader.lr.ph, !llvm.loop !8
 
@@ -175,9 +175,9 @@ define dso_local ptr @rewind_parseTimeLineHistory(ptr noundef %0, i32 noundef %1
   %60 = sext i32 %.053.ph.lcssa83 to i64
   %61 = getelementptr %struct.TimeLineHistoryEntry, ptr %.155, i64 %60
   store i32 %1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.051.ph.lcssa77, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 0, ptr %63, align 8
   store i32 %52, ptr %2, align 4
   ret ptr %.155

@@ -394,7 +394,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wlan_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   tail call fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 2048
   %.not = icmp eq i16 %7, 0
@@ -417,7 +417,7 @@ define internal i32 @dissect_wlan_radio(ptr noundef %0, ptr noundef %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wlan_noqos_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   tail call fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 2048
   %.not = icmp eq i16 %7, 0
@@ -495,22 +495,22 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.197) #9
   %12 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #9
-  %13 = getelementptr inbounds i8, ptr %3, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 4
   %.not = icmp eq i16 %15, 0
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %3, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %18 = load i16, ptr %17, align 4
   %19 = uitofp i16 %18 to float
   %20 = fmul float %19, 5.000000e-01
@@ -519,9 +519,9 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 21:                                               ; preds = %16, %4
   %.0583 = phi i32 [ 1, %16 ], [ 0, %4 ]
   %.0 = phi float [ %20, %16 ], [ 0.000000e+00, %4 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 50
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 50
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %.not655 = icmp eq i16 %26, 0
@@ -557,7 +557,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %45, label %99
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %3, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = load i64, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 8), align 8
   %49 = icmp eq i64 %47, %48
@@ -590,7 +590,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   store ptr %59, ptr @current_aggregate, align 8
   %60 = load i32, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 16), align 8
   store i32 %60, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @previous_frame, i64 20), i64 16, i1 false)
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   %.not657 = icmp eq ptr %62, null
@@ -610,7 +610,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %69 = add i32 %68, 1
   %70 = select i1 %.not658, i32 %66, i32 %69
   %71 = add i32 %70, 4
-  %72 = getelementptr inbounds i8, ptr %29, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %71, ptr %72, align 8
   %73 = add i32 %71, %6
   store i32 %73, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 36), align 4
@@ -621,7 +621,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   ]
 
 75:                                               ; preds = %64
-  %76 = getelementptr inbounds i8, ptr %65, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %77 = load i8, ptr %9, align 4
   %78 = and i8 %77, 1
   %.not659 = icmp eq i8 %78, 0
@@ -634,23 +634,23 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %.not660, label %96, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %3, i64 14
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %84 = load i16, ptr %83, align 2
-  %85 = getelementptr inbounds i8, ptr %65, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %86 = load i16, ptr %85, align 2
   %87 = icmp ugt i16 %84, %86
   br i1 %87, label %.sink.split, label %96
 
 88:                                               ; preds = %64
-  %89 = getelementptr inbounds i8, ptr %3, i64 15
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %90 = load i8, ptr %89, align 1
-  %91 = getelementptr inbounds i8, ptr %65, i64 7
+  %91 = getelementptr inbounds nuw i8, ptr %65, i64 7
   %92 = load i8, ptr %91, align 1
   %93 = icmp ugt i8 %90, %92
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %65, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %65, i64 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %94
@@ -660,7 +660,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 96:                                               ; preds = %.sink.split, %88, %75, %79, %82, %64
   %97 = load i32, ptr %65, align 4
-  %98 = getelementptr inbounds i8, ptr %65, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %65, i64 4
   br label %100
 
 99:                                               ; preds = %35, %53, %56, %39, %28
@@ -676,7 +676,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %103 = and i16 %102, 1
   %104 = zext nneg i16 %103 to i32
   store i32 %104, ptr @previous_frame, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %106 = load i64, ptr %105, align 8
   store i64 %106, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 8), align 8
   %107 = load i32, ptr %7, align 8
@@ -697,7 +697,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %112, align 4
-  %115 = getelementptr inbounds i8, ptr %112, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 4
   br label %116
 
 116:                                              ; preds = %108, %111, %113, %100
@@ -732,7 +732,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 127:                                              ; preds = %124
   %128 = load i32, ptr @hf_wlan_radio_11_fhss_hop_set, align 4
-  %129 = getelementptr inbounds i8, ptr %.1626, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.1626, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %131) #9
@@ -747,7 +747,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 136:                                              ; preds = %133
   %137 = load i32, ptr @hf_wlan_radio_11_fhss_hop_pattern, align 4
-  %138 = getelementptr inbounds i8, ptr %.1626, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %.1626, i64 2
   %139 = load i8, ptr %138, align 2
   %140 = zext i8 %139 to i32
   %141 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %137, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %140) #9
@@ -762,7 +762,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 145:                                              ; preds = %142
   %146 = load i32, ptr @hf_wlan_radio_11_fhss_hop_index, align 4
-  %147 = getelementptr inbounds i8, ptr %.1626, i64 3
+  %147 = getelementptr inbounds nuw i8, ptr %.1626, i64 3
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %146, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %149) #9
@@ -771,7 +771,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 151:                                              ; preds = %121
   %152 = load i8, ptr %.1626, align 4
   %153 = and i8 %152, 1
-  %154 = getelementptr inbounds i8, ptr %.1626, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %.1626, i64 4
   %155 = load i32, ptr %154, align 4
   %.not695 = icmp eq i8 %153, 0
   br i1 %.not695, label %ieee80211_he_ofdm_rate.exit.thread, label %156
@@ -819,7 +819,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 181:                                              ; preds = %178
   %182 = load i32, ptr @hf_wlan_radio_11g_mode, align 4
-  %183 = getelementptr inbounds i8, ptr %.1626, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.1626, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %182, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %184) #9
   br label %ieee80211_he_ofdm_rate.exit.thread
@@ -831,16 +831,16 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %or.cond757.not, label %189, label %210
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %.1626, i64 2
+  %190 = getelementptr inbounds nuw i8, ptr %.1626, i64 2
   %191 = load i16, ptr %190, align 2
   %192 = icmp ult i16 %191, 76
   br i1 %192, label %193, label %.thread
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %.1626, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %.1626, i64 4
   %195 = load i32, ptr %194, align 4
   %.not853 = icmp eq i32 %195, 1
-  %196 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %197 = load i8, ptr %196, align 4
   %198 = and i8 %197, 1
   %199 = zext nneg i16 %191 to i64
@@ -863,7 +863,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %.not682, label %216, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %210
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.1626, i64 2
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1626, i64 2
   %.pre870 = load i16, ptr %.phi.trans.insert, align 2
   br label %.thread
 
@@ -887,7 +887,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 219:                                              ; preds = %216
   %220 = load i32, ptr @hf_wlan_radio_11n_bandwidth, align 4
-  %221 = getelementptr inbounds i8, ptr %.1626, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %.1626, i64 4
   %222 = load i32, ptr %221, align 4
   %223 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %220, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %222) #9
   %.pre872 = load i8, ptr %.1626, align 4
@@ -901,7 +901,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 227:                                              ; preds = %224
   %228 = load i32, ptr @hf_wlan_radio_11n_short_gi, align 4
-  %229 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %230 = load i8, ptr %229, align 4
   %231 = and i8 %230, 1
   %232 = zext nneg i8 %231 to i64
@@ -917,7 +917,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 237:                                              ; preds = %234
   %238 = load i32, ptr @hf_wlan_radio_11n_greenfield, align 4
-  %239 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %240 = load i8, ptr %239, align 4
   %241 = lshr i8 %240, 1
   %242 = and i8 %241, 1
@@ -934,7 +934,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 248:                                              ; preds = %245
   %249 = load i32, ptr @hf_wlan_radio_11n_fec, align 4
-  %250 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %251 = load i8, ptr %250, align 4
   %252 = lshr i8 %251, 2
   %253 = and i8 %252, 1
@@ -951,7 +951,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 259:                                              ; preds = %256
   %260 = load i32, ptr @hf_wlan_radio_11n_stbc_streams, align 4
-  %261 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %262 = load i8, ptr %261, align 4
   %263 = lshr i8 %262, 3
   %264 = and i8 %263, 3
@@ -968,7 +968,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 270:                                              ; preds = %267
   %271 = load i32, ptr @hf_wlan_radio_11n_ness, align 4
-  %272 = getelementptr inbounds i8, ptr %.1626, i64 12
+  %272 = getelementptr inbounds nuw i8, ptr %.1626, i64 12
   %273 = load i32, ptr %272, align 4
   %274 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %271, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %273) #9
   br label %ieee80211_he_ofdm_rate.exit.thread
@@ -996,7 +996,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 287:                                              ; preds = %284
   %288 = load i32, ptr @hf_wlan_radio_11ac_bandwidth, align 4
-  %289 = getelementptr inbounds i8, ptr %.1626, i64 2
+  %289 = getelementptr inbounds nuw i8, ptr %.1626, i64 2
   %290 = load i8, ptr %289, align 2
   %291 = zext i8 %290 to i32
   %292 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %288, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %291) #9
@@ -1087,9 +1087,9 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br label %344
 
 344:                                              ; preds = %339, %336
-  %345 = getelementptr inbounds i8, ptr %.1626, i64 7
-  %346 = getelementptr inbounds i8, ptr %.1626, i64 3
-  %347 = getelementptr inbounds i8, ptr %.1626, i64 11
+  %345 = getelementptr inbounds nuw i8, ptr %.1626, i64 7
+  %346 = getelementptr inbounds nuw i8, ptr %.1626, i64 3
+  %347 = getelementptr inbounds nuw i8, ptr %.1626, i64 11
   %348 = getelementptr [4 x i32], ptr @subcarriers, i64 0, i64 %.0591
   br label %349
 
@@ -1128,7 +1128,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %369 = zext nneg i8 %365 to i64
   %370 = getelementptr [10 x %struct.mcs_vht_info], ptr @ieee80211_vhtinfo, i64 0, i64 %369
   %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %370, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %373 = load ptr, ptr %372, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %364, ptr noundef nonnull @.str.200, ptr noundef %371, ptr noundef %373) #9
   br label %374
@@ -1230,7 +1230,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 434:                                              ; preds = %431
   %435 = load i32, ptr @hf_wlan_radio_11ac_gid, align 4
-  %436 = getelementptr inbounds i8, ptr %.1626, i64 12
+  %436 = getelementptr inbounds nuw i8, ptr %.1626, i64 12
   %437 = load i8, ptr %436, align 4
   %438 = zext i8 %437 to i32
   %439 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %435, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %438) #9
@@ -1245,7 +1245,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 443:                                              ; preds = %440
   %444 = load i32, ptr @hf_wlan_radio_11ac_p_aid, align 4
-  %445 = getelementptr inbounds i8, ptr %.1626, i64 14
+  %445 = getelementptr inbounds nuw i8, ptr %.1626, i64 14
   %446 = load i16, ptr %445, align 2
   %447 = zext i16 %446 to i32
   %448 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %444, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %447) #9
@@ -1258,7 +1258,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br i1 %or.cond759.not, label %452, label %ieee80211_he_ofdm_rate.exit.thread
 
 452:                                              ; preds = %449
-  %453 = getelementptr inbounds i8, ptr %.1626, i64 1
+  %453 = getelementptr inbounds nuw i8, ptr %.1626, i64 1
   %454 = load i16, ptr %453, align 1
   %455 = lshr i16 %454, 4
   %456 = and i16 %455, 15
@@ -1343,7 +1343,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 495:                                              ; preds = %491
   %496 = load ptr, ptr %10, align 8
-  %497 = getelementptr inbounds i8, ptr %3, i64 30
+  %497 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %498 = load i16, ptr %497, align 2
   %499 = zext i16 %498 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %496, i32 noundef 15, ptr noundef nonnull @.str.203, i32 noundef %499) #9
@@ -1362,7 +1362,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 507:                                              ; preds = %504
   %508 = load ptr, ptr %10, align 8
-  %509 = getelementptr inbounds i8, ptr %3, i64 32
+  %509 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %510 = load i32, ptr %509, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %508, i32 noundef 15, ptr noundef nonnull @.str.204, i32 noundef %510) #9
   %511 = load i32, ptr @hf_wlan_radio_frequency, align 4
@@ -1379,7 +1379,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 517:                                              ; preds = %514
   %518 = load ptr, ptr %10, align 8
-  %519 = getelementptr inbounds i8, ptr %3, i64 38
+  %519 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %520 = load i8, ptr %519, align 2
   %521 = zext i8 %520 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %518, i32 noundef 22, ptr noundef nonnull @.str.205, i32 noundef %521) #9
@@ -1398,7 +1398,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 529:                                              ; preds = %526
   %530 = load ptr, ptr %10, align 8
-  %531 = getelementptr inbounds i8, ptr %3, i64 42
+  %531 = getelementptr inbounds nuw i8, ptr %3, i64 42
   %532 = load i8, ptr %531, align 2
   %533 = zext i8 %532 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %530, i32 noundef 22, ptr noundef nonnull @.str.206, i32 noundef %533) #9
@@ -1417,7 +1417,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 541:                                              ; preds = %538
   %542 = load ptr, ptr %10, align 8
-  %543 = getelementptr inbounds i8, ptr %3, i64 40
+  %543 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %544 = load i8, ptr %543, align 8
   %545 = sext i8 %544 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %542, i32 noundef 22, ptr noundef nonnull @.str.207, i32 noundef %545) #9
@@ -1436,7 +1436,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 553:                                              ; preds = %550
   %554 = load i32, ptr @hf_wlan_radio_noise_percent, align 4
-  %555 = getelementptr inbounds i8, ptr %3, i64 39
+  %555 = getelementptr inbounds nuw i8, ptr %3, i64 39
   %556 = load i8, ptr %555, align 1
   %557 = zext i8 %556 to i32
   %558 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %554, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %557) #9
@@ -1451,7 +1451,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 562:                                              ; preds = %559
   %563 = load i32, ptr @hf_wlan_radio_noise_db, align 4
-  %564 = getelementptr inbounds i8, ptr %3, i64 43
+  %564 = getelementptr inbounds nuw i8, ptr %3, i64 43
   %565 = load i8, ptr %564, align 1
   %566 = zext i8 %565 to i32
   %567 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %563, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %566) #9
@@ -1466,7 +1466,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 571:                                              ; preds = %568
   %572 = load i32, ptr @hf_wlan_radio_noise_dbm, align 4
-  %573 = getelementptr inbounds i8, ptr %3, i64 41
+  %573 = getelementptr inbounds nuw i8, ptr %3, i64 41
   %574 = load i8, ptr %573, align 1
   %575 = sext i8 %574 to i32
   %576 = tail call ptr @proto_tree_add_int(ptr noundef %120, i32 noundef %572, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %575) #9
@@ -1481,10 +1481,10 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 580:                                              ; preds = %577
   %581 = load i32, ptr @hf_wlan_radio_snr, align 4
-  %582 = getelementptr inbounds i8, ptr %3, i64 40
+  %582 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %583 = load i8, ptr %582, align 8
   %584 = sext i8 %583 to i32
-  %585 = getelementptr inbounds i8, ptr %3, i64 41
+  %585 = getelementptr inbounds nuw i8, ptr %3, i64 41
   %586 = load i8, ptr %585, align 1
   %587 = sext i8 %586 to i32
   %588 = sub nsw i32 %584, %587
@@ -1500,7 +1500,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 593:                                              ; preds = %590
   %594 = load i32, ptr @hf_wlan_radio_timestamp, align 4
-  %595 = getelementptr inbounds i8, ptr %3, i64 48
+  %595 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %596 = load i64, ptr %595, align 8
   %597 = tail call ptr @proto_tree_add_uint64(ptr noundef %120, i32 noundef %594, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %596) #9
   %.pre889 = load i16, ptr %13, align 4
@@ -1514,7 +1514,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 601:                                              ; preds = %598
   %602 = load i32, ptr @hf_wlan_last_part_of_a_mpdu, align 4
-  %603 = getelementptr inbounds i8, ptr %3, i64 56
+  %603 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %604 = load i32, ptr %603, align 8
   %605 = zext i32 %604 to i64
   %606 = tail call ptr @proto_tree_add_boolean(ptr noundef %120, i32 noundef %602, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %605) #9
@@ -1523,13 +1523,13 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   %609 = zext i32 %608 to i64
   %610 = tail call ptr @proto_tree_add_boolean(ptr noundef %120, i32 noundef %607, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %609) #9
   %611 = load i32, ptr @hf_wlan_a_mpdu_aggregate_id, align 4
-  %612 = getelementptr inbounds i8, ptr %3, i64 60
+  %612 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %613 = load i32, ptr %612, align 4
   %614 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %611, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %613) #9
   br label %615
 
 615:                                              ; preds = %601, %598
-  %616 = getelementptr inbounds i8, ptr %1, i64 88
+  %616 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %617 = load ptr, ptr %616, align 8
   %618 = load i32, ptr %617, align 8
   %619 = icmp eq i32 %618, 0
@@ -1635,7 +1635,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not711, label %proto_item_set_generated.exit791, label %670
 
 670:                                              ; preds = %667
-  %671 = getelementptr inbounds i8, ptr %.1626, i64 2
+  %671 = getelementptr inbounds nuw i8, ptr %.1626, i64 2
   %672 = load i16, ptr %671, align 2
   %673 = icmp ugt i16 %672, 76
   %674 = and i8 %668, 6
@@ -1649,7 +1649,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not714, label %683, label %678
 
 678:                                              ; preds = %676
-  %679 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %679 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %680 = load i8, ptr %679, align 4
   %681 = and i8 %680, 2
   %.not715 = icmp eq i8 %681, 0
@@ -1664,7 +1664,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not716, label %691, label %685
 
 685:                                              ; preds = %683
-  %686 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %686 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %687 = load i8, ptr %686, align 4
   %688 = lshr i8 %687, 3
   %689 = and i8 %688, 3
@@ -1679,7 +1679,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not717, label %697, label %693
 
 693:                                              ; preds = %691
-  %694 = getelementptr inbounds i8, ptr %.1626, i64 12
+  %694 = getelementptr inbounds nuw i8, ptr %.1626, i64 12
   %695 = load i32, ptr %694, align 4
   %696 = icmp ugt i32 %695, 3
   br i1 %696, label %proto_item_set_generated.exit791, label %697
@@ -1713,7 +1713,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not716, label %723, label %717
 
 717:                                              ; preds = %707
-  %718 = getelementptr inbounds i8, ptr %.1626, i64 8
+  %718 = getelementptr inbounds nuw i8, ptr %.1626, i64 8
   %719 = load i8, ptr %718, align 4
   %720 = lshr i8 %719, 3
   %721 = and i8 %720, 3
@@ -1734,7 +1734,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not722, label %735, label %727
 
 727:                                              ; preds = %725
-  %728 = getelementptr inbounds i8, ptr %.0621, i64 8
+  %728 = getelementptr inbounds nuw i8, ptr %.0621, i64 8
   %729 = load i32, ptr %728, align 8
   %.not723 = icmp eq i32 %729, 0
   %spec.select767 = select i1 %.not723, i32 %716, i32 0
@@ -1756,7 +1756,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   %.not725 = icmp eq i16 %740, 0
   %741 = xor i16 %740, 1
   %spec.select768 = zext nneg i16 %741 to i32
-  %742 = getelementptr inbounds i8, ptr %.1626, i64 7
+  %742 = getelementptr inbounds nuw i8, ptr %.1626, i64 7
   %743 = load i8, ptr %742, align 1
   %744 = zext i8 %743 to i32
   %745 = shl nuw nsw i32 %744, 2
@@ -1776,7 +1776,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not728, label %769, label %753
 
 753:                                              ; preds = %751
-  %754 = getelementptr inbounds i8, ptr %.0621, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %.0621, i64 8
   %755 = load i32, ptr %754, align 8
   %.not729 = icmp eq i32 %755, 0
   %spec.select769 = select i1 %.not729, i32 %750, i32 0
@@ -1815,7 +1815,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   %.0602 = phi i32 [ %716, %727 ], [ 0, %735 ], [ 0, %.critedge.thread ], [ 0, %.critedge.thread814 ], [ %750, %753 ], [ 0, %769 ]
   %.0598 = phi i32 [ %spec.select767, %727 ], [ %716, %735 ], [ 20, %.critedge.thread ], [ %650, %.critedge.thread814 ], [ %spec.select769, %753 ], [ %750, %769 ]
   %777 = load ptr, ptr %22, align 8
-  %778 = getelementptr inbounds i8, ptr %777, i64 50
+  %778 = getelementptr inbounds nuw i8, ptr %777, i64 50
   %779 = load i16, ptr %778, align 2
   %780 = and i16 %779, 8
   %781 = icmp eq i16 %780, 0
@@ -1835,7 +1835,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 787:                                              ; preds = %785
   %788 = add i32 %.0618, %.0620
   %789 = add i32 %788, %.0602
-  %790 = getelementptr inbounds i8, ptr %786, i64 24
+  %790 = getelementptr inbounds nuw i8, ptr %786, i64 24
   store i32 %789, ptr %790, align 4
   %791 = load ptr, ptr getelementptr inbounds (i8, ptr @previous_frame, i64 40), align 8
   %.not732 = icmp eq ptr %791, null
@@ -1847,12 +1847,12 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %794, label %795, label %797
 
 795:                                              ; preds = %792
-  %796 = getelementptr inbounds i8, ptr %791, i64 40
+  %796 = getelementptr inbounds nuw i8, ptr %791, i64 40
   store i16 0, ptr %796, align 8
   br label %797
 
 797:                                              ; preds = %787, %792, %795, %785
-  %798 = getelementptr inbounds i8, ptr %3, i64 48
+  %798 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %799 = load i64, ptr %798, align 8
   %800 = icmp eq i64 %799, -1
   br i1 %800, label %801, label %816
@@ -1861,12 +1861,12 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   %802 = select i1 %.not731, i32 0, i32 %.0602
   %803 = add i32 %802, %.0620
   %804 = zext i32 %803 to i64
-  %805 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %805 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   store i64 %804, ptr %805, align 8
   %806 = add i32 %.0618, %.0620
   %807 = add i32 %806, %802
   %808 = zext i32 %807 to i64
-  %809 = getelementptr inbounds i8, ptr %.0621, i64 24
+  %809 = getelementptr inbounds nuw i8, ptr %.0621, i64 24
   store i64 %808, ptr %809, align 8
   %810 = load ptr, ptr @agg_tracker_list, align 8
   %811 = icmp eq ptr %810, null
@@ -1892,10 +1892,10 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 820:                                              ; preds = %816
   %821 = zext i32 %.0618 to i64
   %822 = sub i64 %799, %821
-  %823 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %823 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   store i64 %822, ptr %823, align 8
   %824 = load i64, ptr %798, align 8
-  %825 = getelementptr inbounds i8, ptr %.0621, i64 24
+  %825 = getelementptr inbounds nuw i8, ptr %.0621, i64 24
   store i64 %824, ptr %825, align 8
   %826 = load ptr, ptr @agg_tracker_list, align 8
   %.not734 = icmp eq ptr %826, null
@@ -1920,10 +1920,10 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 834:                                              ; preds = %833
   %835 = zext i32 %.0618 to i64
   %836 = sub i64 %799, %835
-  %837 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %837 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   store i64 %836, ptr %837, align 8
   %838 = load i64, ptr %798, align 8
-  %839 = getelementptr inbounds i8, ptr %.0621, i64 24
+  %839 = getelementptr inbounds nuw i8, ptr %.0621, i64 24
   store i64 %838, ptr %839, align 8
   br label %852
 
@@ -1932,14 +1932,14 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   %842 = zext i32 %.0598 to i64
   %843 = sub nsw i64 %841, %842
   %844 = add i64 %843, %799
-  %845 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %845 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   store i64 %844, ptr %845, align 8
   %846 = load i64, ptr %798, align 8
   %847 = zext i32 %.0618 to i64
   %848 = add nuw nsw i64 %847, %841
   %849 = sub nsw i64 %848, %842
   %850 = add i64 %849, %846
-  %851 = getelementptr inbounds i8, ptr %.0621, i64 24
+  %851 = getelementptr inbounds nuw i8, ptr %.0621, i64 24
   store i64 %850, ptr %851, align 8
   br label %852
 
@@ -1953,12 +1953,12 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %or.cond74, label %858, label %865
 
 858:                                              ; preds = %852
-  %859 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %859 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   %860 = load i64, ptr %859, align 8
-  %861 = getelementptr inbounds i8, ptr %856, i64 24
+  %861 = getelementptr inbounds nuw i8, ptr %856, i64 24
   %862 = load i64, ptr %861, align 8
   %863 = sub i64 %860, %862
-  %864 = getelementptr inbounds i8, ptr %.0621, i64 32
+  %864 = getelementptr inbounds nuw i8, ptr %.0621, i64 32
   store i64 %863, ptr %864, align 8
   br label %865
 
@@ -1973,7 +1973,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %870, label %871, label %873
 
 871:                                              ; preds = %868
-  %872 = getelementptr inbounds i8, ptr %.0621, i64 40
+  %872 = getelementptr inbounds nuw i8, ptr %.0621, i64 40
   store i16 %869, ptr %872, align 8
   br label %873
 
@@ -1984,16 +1984,16 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not737, label %883, label %876
 
 876:                                              ; preds = %873
-  %877 = getelementptr inbounds i8, ptr %3, i64 40
+  %877 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %878 = load i8, ptr %877, align 8
-  %879 = getelementptr inbounds i8, ptr %.0621, i64 42
+  %879 = getelementptr inbounds nuw i8, ptr %.0621, i64 42
   store i8 %878, ptr %879, align 2
   %880 = load ptr, ptr @current_aggregate, align 8
   %.not738 = icmp eq ptr %880, null
   br i1 %.not738, label %883, label %881
 
 881:                                              ; preds = %876
-  %882 = getelementptr inbounds i8, ptr %880, i64 20
+  %882 = getelementptr inbounds nuw i8, ptr %880, i64 20
   store i8 %878, ptr %882, align 4
   br label %883
 
@@ -2006,13 +2006,13 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
   br i1 %.not.i773, label %proto_item_set_generated.exit, label %888
 
 888:                                              ; preds = %883
-  %889 = getelementptr inbounds i8, ptr %885, i64 32
+  %889 = getelementptr inbounds nuw i8, ptr %885, i64 32
   %890 = load ptr, ptr %889, align 8
   %.not5.i = icmp eq ptr %890, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %891
 
 891:                                              ; preds = %888
-  %892 = getelementptr inbounds i8, ptr %890, i64 28
+  %892 = getelementptr inbounds nuw i8, ptr %890, i64 28
   %893 = load i32, ptr %892, align 4
   %894 = or i32 %893, 2
   store i32 %894, ptr %892, align 4
@@ -2067,13 +2067,13 @@ proto_item_set_generated.exit:                    ; preds = %883, %888, %891
   br i1 %.not.i774, label %proto_item_set_generated.exit776, label %913
 
 913:                                              ; preds = %910
-  %914 = getelementptr inbounds i8, ptr %912, i64 32
+  %914 = getelementptr inbounds nuw i8, ptr %912, i64 32
   %915 = load ptr, ptr %914, align 8
   %.not5.i775 = icmp eq ptr %915, null
   br i1 %.not5.i775, label %proto_item_set_generated.exit776, label %916
 
 916:                                              ; preds = %913
-  %917 = getelementptr inbounds i8, ptr %915, i64 28
+  %917 = getelementptr inbounds nuw i8, ptr %915, i64 28
   %918 = load i32, ptr %917, align 4
   %919 = or i32 %918, 2
   store i32 %919, ptr %917, align 4
@@ -2097,13 +2097,13 @@ proto_item_set_generated.exit776:                 ; preds = %916, %913, %910, %9
   br i1 %.not.i777, label %proto_item_set_generated.exit779, label %927
 
 927:                                              ; preds = %922
-  %928 = getelementptr inbounds i8, ptr %924, i64 32
+  %928 = getelementptr inbounds nuw i8, ptr %924, i64 32
   %929 = load ptr, ptr %928, align 8
   %.not5.i778 = icmp eq ptr %929, null
   br i1 %.not5.i778, label %proto_item_set_generated.exit779, label %930
 
 930:                                              ; preds = %927
-  %931 = getelementptr inbounds i8, ptr %929, i64 28
+  %931 = getelementptr inbounds nuw i8, ptr %929, i64 28
   %932 = load i32, ptr %931, align 4
   %933 = or i32 %932, 2
   store i32 %933, ptr %931, align 4
@@ -2111,7 +2111,7 @@ proto_item_set_generated.exit776:                 ; preds = %916, %913, %910, %9
 
 proto_item_set_generated.exit779:                 ; preds = %922, %927, %930
   %934 = load ptr, ptr %.0621, align 8
-  %935 = getelementptr inbounds i8, ptr %934, i64 24
+  %935 = getelementptr inbounds nuw i8, ptr %934, i64 24
   %936 = load i32, ptr %935, align 4
   %.not749 = icmp eq i32 %936, 0
   br i1 %.not749, label %proto_item_set_generated.exit782, label %937
@@ -2123,20 +2123,20 @@ proto_item_set_generated.exit779:                 ; preds = %922, %927, %930
   br i1 %.not.i780, label %proto_item_set_generated.exit782, label %940
 
 940:                                              ; preds = %937
-  %941 = getelementptr inbounds i8, ptr %939, i64 32
+  %941 = getelementptr inbounds nuw i8, ptr %939, i64 32
   %942 = load ptr, ptr %941, align 8
   %.not5.i781 = icmp eq ptr %942, null
   br i1 %.not5.i781, label %proto_item_set_generated.exit782, label %943
 
 943:                                              ; preds = %940
-  %944 = getelementptr inbounds i8, ptr %942, i64 28
+  %944 = getelementptr inbounds nuw i8, ptr %942, i64 28
   %945 = load i32, ptr %944, align 4
   %946 = or i32 %945, 2
   store i32 %946, ptr %944, align 4
   br label %proto_item_set_generated.exit782
 
 proto_item_set_generated.exit782:                 ; preds = %943, %940, %937, %proto_item_set_generated.exit779, %920
-  %947 = getelementptr inbounds i8, ptr %.0621, i64 32
+  %947 = getelementptr inbounds nuw i8, ptr %.0621, i64 32
   %948 = load i64, ptr %947, align 8
   %.not750 = icmp eq i64 %948, 0
   br i1 %.not750, label %proto_item_set_generated.exit785, label %949
@@ -2148,20 +2148,20 @@ proto_item_set_generated.exit782:                 ; preds = %943, %940, %937, %p
   br i1 %.not.i783, label %proto_item_set_generated.exit785, label %952
 
 952:                                              ; preds = %949
-  %953 = getelementptr inbounds i8, ptr %951, i64 32
+  %953 = getelementptr inbounds nuw i8, ptr %951, i64 32
   %954 = load ptr, ptr %953, align 8
   %.not5.i784 = icmp eq ptr %954, null
   br i1 %.not5.i784, label %proto_item_set_generated.exit785, label %955
 
 955:                                              ; preds = %952
-  %956 = getelementptr inbounds i8, ptr %954, i64 28
+  %956 = getelementptr inbounds nuw i8, ptr %954, i64 28
   %957 = load i32, ptr %956, align 4
   %958 = or i32 %957, 2
   store i32 %958, ptr %956, align 4
   br label %proto_item_set_generated.exit785
 
 proto_item_set_generated.exit785:                 ; preds = %955, %952, %949, %proto_item_set_generated.exit782
-  %959 = getelementptr inbounds i8, ptr %.0621, i64 16
+  %959 = getelementptr inbounds nuw i8, ptr %.0621, i64 16
   %960 = load i64, ptr %959, align 8
   %.not751 = icmp eq i64 %960, 0
   br i1 %.not751, label %proto_item_set_generated.exit788, label %961
@@ -2173,20 +2173,20 @@ proto_item_set_generated.exit785:                 ; preds = %955, %952, %949, %p
   br i1 %.not.i786, label %proto_item_set_generated.exit788, label %964
 
 964:                                              ; preds = %961
-  %965 = getelementptr inbounds i8, ptr %963, i64 32
+  %965 = getelementptr inbounds nuw i8, ptr %963, i64 32
   %966 = load ptr, ptr %965, align 8
   %.not5.i787 = icmp eq ptr %966, null
   br i1 %.not5.i787, label %proto_item_set_generated.exit788, label %967
 
 967:                                              ; preds = %964
-  %968 = getelementptr inbounds i8, ptr %966, i64 28
+  %968 = getelementptr inbounds nuw i8, ptr %966, i64 28
   %969 = load i32, ptr %968, align 4
   %970 = or i32 %969, 2
   store i32 %970, ptr %968, align 4
   br label %proto_item_set_generated.exit788
 
 proto_item_set_generated.exit788:                 ; preds = %967, %964, %961, %proto_item_set_generated.exit785
-  %971 = getelementptr inbounds i8, ptr %.0621, i64 24
+  %971 = getelementptr inbounds nuw i8, ptr %.0621, i64 24
   %972 = load i64, ptr %971, align 8
   %.not752 = icmp eq i64 %972, 0
   br i1 %.not752, label %proto_item_set_generated.exit791, label %973
@@ -2198,13 +2198,13 @@ proto_item_set_generated.exit788:                 ; preds = %967, %964, %961, %p
   br i1 %.not.i789, label %proto_item_set_generated.exit791, label %976
 
 976:                                              ; preds = %973
-  %977 = getelementptr inbounds i8, ptr %975, i64 32
+  %977 = getelementptr inbounds nuw i8, ptr %975, i64 32
   %978 = load ptr, ptr %977, align 8
   %.not5.i790 = icmp eq ptr %978, null
   br i1 %.not5.i790, label %proto_item_set_generated.exit791, label %979
 
 979:                                              ; preds = %976
-  %980 = getelementptr inbounds i8, ptr %978, i64 28
+  %980 = getelementptr inbounds nuw i8, ptr %978, i64 28
   %981 = load i32, ptr %980, align 4
   %982 = or i32 %981, 2
   store i32 %982, ptr %980, align 4
@@ -2218,7 +2218,7 @@ proto_item_set_generated.exit791:                 ; preds = %639, %979, %976, %9
 
 985:                                              ; preds = %proto_item_set_generated.exit791
   %986 = load i32, ptr @hf_wlan_zero_length_psdu_type, align 4
-  %987 = getelementptr inbounds i8, ptr %3, i64 64
+  %987 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %988 = load i8, ptr %987, align 8
   %989 = zext i8 %988 to i32
   %990 = call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %986, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %989) #9
@@ -2238,7 +2238,7 @@ proto_item_set_generated.exit791:                 ; preds = %639, %979, %976, %9
 
 996:                                              ; preds = %994, %991
   %997 = load ptr, ptr %22, align 8
-  %998 = getelementptr inbounds i8, ptr %997, i64 50
+  %998 = getelementptr inbounds nuw i8, ptr %997, i64 50
   %999 = load i16, ptr %998, align 2
   %1000 = and i16 %999, 8
   %.not755 = icmp eq i16 %1000, 0
@@ -2295,7 +2295,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #5 {
   %4 = shl i32 %0, 3
   %5 = add i32 %4, 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr [77 x i8], ptr @ieee80211_ht_Nes, i64 0, i64 %8
@@ -2307,7 +2307,7 @@ define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 n
   %14 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   %20 = zext i1 %19 to i32
@@ -2320,7 +2320,7 @@ define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 n
   %26 = zext i1 %.not15 to i32
   %spec.select = add i32 %24, %26
   %27 = shl i32 %spec.select, %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i8, ptr %28, align 4
   %30 = and i8 %29, 1
   %.not16 = icmp eq i8 %30, 0
@@ -2340,23 +2340,23 @@ declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @adjust_agg_tsf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %3
   store i64 %6, ptr %4, align 8
   %7 = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %2
   %15 = load i64, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8

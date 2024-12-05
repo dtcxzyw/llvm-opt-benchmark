@@ -31,7 +31,7 @@ define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Optio
   br i1 %5, label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h4bbf6aac3fdcb07dE.exit", label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %8 = load ptr, ptr %7, align 8, !alias.scope !18, !nonnull !5, !noundef !5
@@ -59,20 +59,20 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
   %8 = alloca [24 x i8], align 8
   %9 = alloca [16 x i8], align 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %10, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !19
   store i64 -1835792788345511543, ptr %7, align 8, !noalias !19
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 6845861785225802364, ptr %11, align 8, !noalias !19
-  %12 = getelementptr inbounds i8, ptr %3, i64 960
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 960
   %13 = load i64, ptr %12, align 8, !alias.scope !22, !noalias !25, !noundef !5
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %31, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %3, i64 936
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 936
   %17 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6d683341bc6aef12E.llvm.6606443611540752835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, i64 noundef -9084122957546767828, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %31, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd237834eebb45fd3E.llvm.6606443611540752835.exit.i"
@@ -83,7 +83,7 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
   %21 = getelementptr inbounds i8, ptr %17, i64 -8
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !27, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8, !invariant.load !5, !alias.scope !28, !nonnull !5
   %25 = call { i64, i64 } %24(ptr noundef nonnull align 1 %20), !noalias !28
   %26 = extractvalue { i64, i64 } %25, 0
@@ -114,7 +114,7 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
 
 37:                                               ; preds = %32
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %38 = getelementptr inbounds i8, ptr %20, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %39 = load i64, ptr %38, align 8, !alias.scope !34, !noalias !37, !noundef !5
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %select.unfold.i, label %41
@@ -132,7 +132,7 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %46 = lshr i64 %45, 57
   %47 = trunc nuw nsw i64 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %20, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %49 = load i64, ptr %48, align 8, !alias.scope !62, !noalias !63, !noundef !5
   %50 = load ptr, ptr %20, align 8, !alias.scope !62, !noalias !63, !nonnull !5, !noundef !5
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %47, i64 0
@@ -189,13 +189,13 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %37
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %73 = getelementptr inbounds i8, ptr %20, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %74 = load i64, ptr %73, align 8, !alias.scope !91, !noalias !94, !noundef !5
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %"_ZN10file_icons9FileIcons8get_icon28_$u7b$$u7b$closure$u7d$$u7d$17h20710504ae1c8e89E.exit.thread", label %76
 
 76:                                               ; preds = %select.unfold.i
-  %77 = getelementptr inbounds i8, ptr %20, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !96
   store i64 0, ptr %5, align 8, !noalias !96
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.2780247948091414069"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %35), !noalias !99
@@ -208,7 +208,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %82 = lshr i64 %81, 57
   %83 = trunc nuw nsw i64 %82 to i8
-  %84 = getelementptr inbounds i8, ptr %20, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %85 = load i64, ptr %84, align 8, !alias.scope !119, !noalias !120, !noundef !5
   %86 = load ptr, ptr %77, align 8, !alias.scope !119, !noalias !120, !nonnull !5, !noundef !5
   %.sroa.0.0.vec.insert.i.i.i9.i = insertelement <16 x i8> poison, i8 %83, i64 0
@@ -315,13 +315,13 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 define void @_ZN10file_icons9FileIcons13get_type_icon17hd49fd1aef0b5176bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i64, ptr %6, align 8, !alias.scope !157, !noalias !160, !noundef !5
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %select.unfold, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !162
   store i64 0, ptr %5, align 8, !noalias !162
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.2780247948091414069"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !165
@@ -334,7 +334,7 @@ define void @_ZN10file_icons9FileIcons13get_type_icon17hd49fd1aef0b5176bE(ptr de
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
   %15 = lshr i64 %14, 57
   %16 = trunc nuw nsw i64 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load i64, ptr %17, align 8, !alias.scope !185, !noalias !186, !noundef !5
   %19 = load ptr, ptr %10, align 8, !alias.scope !185, !noalias !186, !nonnull !5, !noundef !5
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %16, i64 0
@@ -416,9 +416,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %4
 "_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4d74fe3901ca7b4eE.exit": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc1ce78f09024ccfeE.exit", %48
   %storemerge.i = phi i64 [ 1, %48 ], [ 0, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc1ce78f09024ccfeE.exit" ]
   store i64 %storemerge.i, ptr %0, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %47, ptr %.sroa.55.0..sroa_idx, align 8
   br label %52
 
@@ -432,15 +432,15 @@ define void @_ZN10file_icons9FileIcons15get_folder_icon17h097f61a12a877c33E(ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !221
   store i64 -1835792788345511543, ptr %4, align 8, !noalias !221
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 6845861785225802364, ptr %5, align 8, !noalias !221
-  %6 = getelementptr inbounds i8, ptr %2, i64 960
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 960
   %7 = load i64, ptr %6, align 8, !alias.scope !224, !noalias !227, !noundef !5
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %25, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 936
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %11 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6d683341bc6aef12E.llvm.6606443611540752835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef -9084122957546767828, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd237834eebb45fd3E.llvm.6606443611540752835.exit.i"
@@ -451,7 +451,7 @@ define void @_ZN10file_icons9FileIcons15get_folder_icon17h097f61a12a877c33E(ptr 
   %15 = getelementptr inbounds i8, ptr %11, i64 -8
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !align !27, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !invariant.load !5, !alias.scope !229, !nonnull !5
   %19 = call { i64, i64 } %18(ptr noundef nonnull align 1 %14), !noalias !229
   %20 = extractvalue { i64, i64 } %19, 0
@@ -492,15 +492,15 @@ define void @_ZN10file_icons9FileIcons16get_chevron_icon17h4905de9b915c0ea1E(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !232
   store i64 -1835792788345511543, ptr %4, align 8, !noalias !232
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 6845861785225802364, ptr %5, align 8, !noalias !232
-  %6 = getelementptr inbounds i8, ptr %2, i64 960
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 960
   %7 = load i64, ptr %6, align 8, !alias.scope !235, !noalias !238, !noundef !5
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %25, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 936
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %11 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6d683341bc6aef12E.llvm.6606443611540752835"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef -9084122957546767828, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hd237834eebb45fd3E.llvm.6606443611540752835.exit.i"
@@ -511,7 +511,7 @@ define void @_ZN10file_icons9FileIcons16get_chevron_icon17h4905de9b915c0ea1E(ptr
   %15 = getelementptr inbounds i8, ptr %11, i64 -8
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !align !27, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !invariant.load !5, !alias.scope !240, !nonnull !5
   %19 = call { i64, i64 } %18(ptr noundef nonnull align 1 %14), !noalias !240
   %20 = extractvalue { i64, i64 } %19, 0

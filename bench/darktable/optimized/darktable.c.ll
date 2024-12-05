@@ -70,10 +70,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca [4096 x i8], align 16
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %3, ptr %4, align 8, !tbaa !6
   %5 = tail call ptr @gtk_event_box_new() #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %5, ptr %6, align 8, !tbaa !13
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef 80) #9
   %8 = tail call i64 @g_signal_connect_data(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @_lib_darktable_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
@@ -81,7 +81,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef 80) #9
   %11 = tail call i64 @g_signal_connect_data(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef nonnull @_lib_darktable_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %13 = getelementptr inbounds i8, ptr %12, i64 1448
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1448
   %14 = load double, ptr %13, align 8, !tbaa !24
   %15 = fptrunc double %14 to float
   %16 = fneg reassoc nsz arcp contract afn float %15
@@ -92,7 +92,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 19:                                               ; preds = %1
   %20 = tail call ptr @cairo_image_surface_get_data(ptr noundef nonnull %17) #9
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !30
   br label %76
 
@@ -130,9 +130,9 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %38 = call i32 @cairo_image_surface_get_height(ptr noundef %32) #9
   %39 = sitofp i32 %37 to double
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %41 = getelementptr inbounds i8, ptr %40, i64 1448
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1448
   %42 = load double, ptr %41, align 8, !tbaa !24
-  %43 = getelementptr inbounds i8, ptr %40, i64 1456
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1456
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = fmul reassoc nsz arcp contract afn double %44, %42
   %46 = fmul reassoc nsz arcp contract afn double %45, %39
@@ -145,11 +145,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %53 = sext i32 %50 to i64
   %54 = mul nsw i64 %53, %52
   %55 = call noalias ptr @calloc(i64 noundef %54, i64 noundef 1) #11
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !30
   %57 = call ptr @cairo_image_surface_create_for_data(ptr noundef %55, i32 noundef 0, i32 noundef %47, i32 noundef %50, i32 noundef %51) #9
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %59 = getelementptr inbounds i8, ptr %58, i64 1456
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1456
   %60 = load double, ptr %59, align 8, !tbaa !31
   call void @cairo_surface_set_device_scale(ptr noundef %57, double noundef %60, double noundef %60) #9
   store ptr %57, ptr %3, align 8, !tbaa !28
@@ -174,7 +174,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %70 = sitofp i32 %50 to double
   call void @cairo_rectangle(ptr noundef %68, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %69, double noundef %70) #9
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %72 = getelementptr inbounds i8, ptr %71, i64 1448
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1448
   %73 = load double, ptr %72, align 8, !tbaa !24
   call void @cairo_scale(ptr noundef %68, double noundef %73, double noundef %73) #9
   call void @cairo_set_source_surface(ptr noundef %68, ptr noundef %32, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
@@ -196,7 +196,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %3, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %80, align 8, !tbaa !32
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
   br label %101
@@ -205,12 +205,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %83 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %77) #9
   %84 = sitofp i32 %83 to double
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %86 = getelementptr inbounds i8, ptr %85, i64 1456
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1456
   %87 = load double, ptr %86, align 8, !tbaa !31
   %88 = fdiv reassoc nsz arcp contract afn double %84, %87
   %89 = fptosi double %88 to i32
   %90 = load ptr, ptr %3, align 8, !tbaa !28
-  %91 = getelementptr inbounds i8, ptr %3, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %89, ptr %91, align 8, !tbaa !32
   %92 = icmp eq ptr %90, null
   br i1 %92, label %101, label %93
@@ -219,7 +219,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %94 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %90) #9
   %95 = sitofp i32 %94 to double
   %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %97 = getelementptr inbounds i8, ptr %96, i64 1456
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1456
   %98 = load double, ptr %97, align 8, !tbaa !31
   %99 = fdiv reassoc nsz arcp contract afn double %95, %98
   %100 = fptosi double %99 to i32
@@ -229,20 +229,20 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %102 = phi ptr [ %96, %93 ], [ %85, %82 ], [ %81, %79 ]
   %103 = phi ptr [ %91, %93 ], [ %91, %82 ], [ %80, %79 ]
   %104 = phi i32 [ %100, %93 ], [ 0, %82 ], [ 0, %79 ]
-  %105 = getelementptr inbounds i8, ptr %3, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %104, ptr %105, align 4, !tbaa !33
-  %106 = getelementptr inbounds i8, ptr %102, i64 1448
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 1448
   %107 = load double, ptr %106, align 8, !tbaa !24
   %108 = fptrunc double %107 to float
   %109 = fneg reassoc nsz arcp contract afn float %108
   %110 = call ptr @dt_util_get_logo_text(float noundef %109) #9
-  %111 = getelementptr inbounds i8, ptr %3, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %110, ptr %111, align 8, !tbaa !34
   %112 = icmp eq ptr %110, null
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %3, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %114, align 8, !tbaa !35
   %115 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
   br label %135
@@ -251,12 +251,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %117 = call i32 @cairo_image_surface_get_width(ptr noundef nonnull %110) #9
   %118 = sitofp i32 %117 to double
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %120 = getelementptr inbounds i8, ptr %119, i64 1456
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1456
   %121 = load double, ptr %120, align 8, !tbaa !31
   %122 = fdiv reassoc nsz arcp contract afn double %118, %121
   %123 = fptosi double %122 to i32
   %124 = load ptr, ptr %111, align 8, !tbaa !34
-  %125 = getelementptr inbounds i8, ptr %3, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %123, ptr %125, align 8, !tbaa !35
   %126 = icmp eq ptr %124, null
   br i1 %126, label %135, label %127
@@ -265,7 +265,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %128 = call i32 @cairo_image_surface_get_height(ptr noundef nonnull %124) #9
   %129 = sitofp i32 %128 to double
   %130 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %131 = getelementptr inbounds i8, ptr %130, i64 1456
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1456
   %132 = load double, ptr %131, align 8, !tbaa !31
   %133 = fdiv reassoc nsz arcp contract afn double %129, %132
   %134 = fptosi double %133 to i32
@@ -274,11 +274,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 135:                                              ; preds = %127, %116, %113
   %136 = phi ptr [ %130, %127 ], [ %119, %116 ], [ %115, %113 ]
   %137 = phi i32 [ %134, %127 ], [ 0, %116 ], [ 0, %113 ]
-  %138 = getelementptr inbounds i8, ptr %3, i64 36
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %137, ptr %138, align 4, !tbaa !36
   %139 = load ptr, ptr %6, align 8, !tbaa !13
   %140 = load i32, ptr %103, align 8, !tbaa !32
-  %141 = getelementptr inbounds i8, ptr %136, i64 1448
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 1448
   %142 = load double, ptr %141, align 8, !tbaa !24
   %143 = fmul reassoc nsz arcp contract afn double %142, 1.800000e+02
   %144 = fptosi double %143 to i32
@@ -308,15 +308,15 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = tail call ptr @gtk_widget_get_style_context(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #9
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !37
   %12 = sitofp i32 %11 to double
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !39
   %15 = sitofp i32 %14 to double
   call void @gtk_render_background(ptr noundef %9, ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %12, double noundef %15) #9
@@ -332,22 +332,22 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %21 = getelementptr inbounds i8, ptr %20, i64 1448
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1448
   %22 = load double, ptr %21, align 8, !tbaa !24
   %23 = fmul reassoc nsz arcp contract afn double %22, 7.000000e+00
   %24 = fptosi double %23 to i32
   %25 = sitofp i32 %24 to double
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %17, double noundef 0.000000e+00, double noundef %25) #9
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !32
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %29 = getelementptr inbounds i8, ptr %28, i64 1448
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1448
   %30 = load double, ptr %29, align 8, !tbaa !24
   %31 = fmul reassoc nsz arcp contract afn double %30, 8.000000e+00
   %32 = fptosi double %31 to i32
   %33 = add nsw i32 %27, %32
   %34 = sitofp i32 %33 to double
-  %35 = getelementptr inbounds i8, ptr %8, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !33
   %37 = add nsw i32 %36, %32
   %38 = sitofp i32 %37 to double
@@ -357,16 +357,16 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
 
 39:                                               ; preds = %19, %3
   %40 = call ptr @gtk_widget_create_pango_layout(ptr noundef %0, ptr noundef null) #9
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !34
   %43 = icmp eq ptr %42, null
   br i1 %43, label %74, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !32
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %48 = getelementptr inbounds i8, ptr %47, i64 1448
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1448
   %49 = load double, ptr %48, align 8, !tbaa !24
   %50 = fmul reassoc nsz arcp contract afn double %49, 5.000000e+00
   %51 = fptosi double %50 to i32
@@ -377,17 +377,17 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   %56 = sitofp i32 %55 to double
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef nonnull %42, double noundef %53, double noundef %56) #9
   %57 = load i32, ptr %45, align 8, !tbaa !32
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !35
   %60 = add nsw i32 %59, %57
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %62 = getelementptr inbounds i8, ptr %61, i64 1448
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1448
   %63 = load double, ptr %62, align 8, !tbaa !24
   %64 = fmul reassoc nsz arcp contract afn double %63, 1.100000e+01
   %65 = fptosi double %64 to i32
   %66 = add nsw i32 %60, %65
   %67 = sitofp i32 %66 to double
-  %68 = getelementptr inbounds i8, ptr %8, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = fmul reassoc nsz arcp contract afn double %63, 1.300000e+01
   %71 = fptosi double %70 to i32
@@ -402,7 +402,7 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   call void @pango_font_description_set_weight(ptr noundef %75, i32 noundef 700) #9
   %76 = load ptr, ptr %6, align 8, !tbaa !40
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %78 = getelementptr inbounds i8, ptr %77, i64 1448
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1448
   %79 = load double, ptr %78, align 8, !tbaa !24
   %80 = fmul reassoc nsz arcp contract afn double %79, 2.560000e+04
   call void @pango_font_description_set_absolute_size(ptr noundef %76, double noundef %80) #9
@@ -411,16 +411,16 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull @.str, i32 noundef -1) #9
   %82 = load ptr, ptr %5, align 8, !tbaa !40
   %83 = load double, ptr %82, align 8, !tbaa !41
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load double, ptr %84, align 8, !tbaa !43
-  %86 = getelementptr inbounds i8, ptr %82, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %87 = load double, ptr %86, align 8, !tbaa !44
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %83, double noundef %85, double noundef %87, double noundef 0x3FE6666666666666) #9
-  %88 = getelementptr inbounds i8, ptr %8, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %89 = load i32, ptr %88, align 8, !tbaa !32
   %90 = sitofp i32 %89 to double
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %92 = getelementptr inbounds i8, ptr %91, i64 1448
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1448
   %93 = load double, ptr %92, align 8, !tbaa !24
   %94 = fmul reassoc nsz arcp contract afn double %93, 3.000000e+00
   %95 = fadd reassoc nsz arcp contract afn double %94, %90
@@ -432,18 +432,18 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
 97:                                               ; preds = %74, %44
   %98 = load ptr, ptr %6, align 8, !tbaa !40
   %99 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %100 = getelementptr inbounds i8, ptr %99, i64 1448
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1448
   %101 = load double, ptr %100, align 8, !tbaa !24
   %102 = fmul reassoc nsz arcp contract afn double %101, 1.024000e+04
   call void @pango_font_description_set_absolute_size(ptr noundef %98, double noundef %102) #9
   %103 = load ptr, ptr %6, align 8, !tbaa !40
   call void @pango_layout_set_font_description(ptr noundef %40, ptr noundef %103) #9
   call void @pango_layout_set_text(ptr noundef %40, ptr noundef nonnull @darktable_package_version, i32 noundef -1) #9
-  %104 = getelementptr inbounds i8, ptr %8, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %105 = load i32, ptr %104, align 8, !tbaa !32
   %106 = sitofp i32 %105 to double
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !14
-  %108 = getelementptr inbounds i8, ptr %107, i64 1448
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1448
   %109 = load double, ptr %108, align 8, !tbaa !24
   %110 = fmul reassoc nsz arcp contract afn double %109, 4.000000e+00
   %111 = fadd reassoc nsz arcp contract afn double %110, %106
@@ -451,9 +451,9 @@ define internal noundef i32 @_lib_darktable_draw_callback(ptr noundef %0, ptr no
   call void @cairo_move_to(ptr noundef %1, double noundef %111, double noundef %112) #9
   %113 = load ptr, ptr %5, align 8, !tbaa !40
   %114 = load double, ptr %113, align 8, !tbaa !41
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load double, ptr %115, align 8, !tbaa !43
-  %117 = getelementptr inbounds i8, ptr %113, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %118 = load double, ptr %117, align 8, !tbaa !44
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %114, double noundef %116, double noundef %118, double noundef 0x3FE6666666666666) #9
   call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %40) #9
@@ -536,14 +536,14 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   tail call void @cairo_surface_destroy(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   tail call void @free(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10

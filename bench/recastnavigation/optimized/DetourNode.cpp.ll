@@ -23,14 +23,14 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10dtNodePoolC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
   %9 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %10 = icmp eq ptr %9, null
@@ -150,13 +150,13 @@ define void @_ZN10dtNodePoolD2Ev(ptr nocapture noundef nonnull readonly align 8 
           to label %3 unwind label %10
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   invoke void @_Z6dtFreePv(ptr noundef %5)
           to label %6 unwind label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   invoke void @_Z6dtFreePv(ptr noundef %8)
           to label %9 unwind label %10
@@ -190,14 +190,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %3, i8 -1, i64 %7, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
   ret void
 }
@@ -217,20 +217,20 @@ define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef 
   %15 = add i32 %12, %14
   %16 = lshr i32 %15, 16
   %17 = xor i32 %16, %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, -1
   %21 = and i32 %20, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %24
   %.017 = load i16, ptr %25, align 2
   %.not18 = icmp eq i16 %.017, -1
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %27
 
 27:                                               ; preds = %.lr.ph, %39
@@ -238,8 +238,8 @@ define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef 
   %.01519 = phi i32 [ 0, %.lr.ph ], [ %.1, %39 ]
   %28 = load ptr, ptr %0, align 8
   %29 = zext i16 %.020 to i64
-  %30 = getelementptr inbounds %struct.dtNode, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %30 = getelementptr inbounds nuw %struct.dtNode, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %1
   br i1 %33, label %34, label %39
@@ -258,7 +258,7 @@ define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef 
 39:                                               ; preds = %35, %27
   %.1 = phi i32 [ %36, %35 ], [ %.01519, %27 ]
   %40 = load ptr, ptr %26, align 8
-  %41 = getelementptr inbounds i16, ptr %40, i64 %29
+  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %29
   %.0 = load i16, ptr %41, align 2
   %.not = icmp eq i16 %.0, -1
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !4
@@ -283,14 +283,14 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull re
   %14 = add i32 %11, %13
   %15 = lshr i32 %14, 16
   %16 = xor i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, -1
   %20 = and i32 %19, %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %23
   %.011 = load i16, ptr %24, align 2
   %.not12 = icmp eq i16 %.011, -1
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -298,21 +298,21 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull re
 .lr.ph:                                           ; preds = %3
   %25 = load ptr, ptr %0, align 8
   %26 = zext i8 %2 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %41
   %.013 = phi i16 [ %.011, %.lr.ph ], [ %.0, %41 ]
   %30 = zext i16 %.013 to i64
-  %31 = getelementptr inbounds %struct.dtNode, ptr %25, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %31 = getelementptr inbounds nuw %struct.dtNode, ptr %25, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %1
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %31, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = lshr i32 %37, 24
   %39 = and i32 %38, 3
@@ -320,7 +320,7 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull re
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %35, %29
-  %42 = getelementptr inbounds i16, ptr %28, i64 %30
+  %42 = getelementptr inbounds nuw i16, ptr %28, i64 %30
   %.0 = load i16, ptr %42, align 2
   %.not = icmp eq i16 %.0, -1
   br i1 %.not, label %._crit_edge, label %29, !llvm.loop !6
@@ -345,14 +345,14 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
   %14 = add i32 %11, %13
   %15 = lshr i32 %14, 16
   %16 = xor i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, -1
   %20 = and i32 %19, %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %23
   %.027 = load i16, ptr %24, align 2
   %.not28 = icmp eq i16 %.027, -1
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -360,21 +360,21 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
 .lr.ph:                                           ; preds = %3
   %25 = load ptr, ptr %0, align 8
   %26 = zext i8 %2 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %41
   %.029 = phi i16 [ %.027, %.lr.ph ], [ %.0, %41 ]
   %30 = zext i16 %.029 to i64
-  %31 = getelementptr inbounds %struct.dtNode, ptr %25, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %31 = getelementptr inbounds nuw %struct.dtNode, ptr %25, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %1
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %31, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = lshr i32 %37, 24
   %39 = and i32 %38, 3
@@ -382,15 +382,15 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %35, %29
-  %42 = getelementptr inbounds i16, ptr %28, i64 %30
+  %42 = getelementptr inbounds nuw i16, ptr %28, i64 %30
   %.0 = load i16, ptr %42, align 2
   %.not = icmp eq i16 %.0, -1
   br i1 %.not, label %._crit_edge, label %29, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %41, %3
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i32, ptr %45, align 8
   %.not26 = icmp slt i32 %44, %46
   br i1 %.not26, label %47, label %.loopexit
@@ -402,14 +402,14 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
   %50 = load ptr, ptr %0, align 8
   %.mask = and i32 %44, 65535
   %51 = zext nneg i32 %.mask to i64
-  %52 = getelementptr inbounds %struct.dtNode, ptr %50, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 20
+  %52 = getelementptr inbounds nuw %struct.dtNode, ptr %50, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store float 0.000000e+00, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %52, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store float 0.000000e+00, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %52, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i32 %1, ptr %57, align 4
   %58 = and i8 %2, 3
   %59 = zext nneg i8 %58 to i32
@@ -418,14 +418,14 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
   %62 = or disjoint i32 %61, %60
   store i32 %62, ptr %53, align 4
   %63 = load ptr, ptr %21, align 8
-  %64 = getelementptr inbounds i16, ptr %63, i64 %23
+  %64 = getelementptr inbounds nuw i16, ptr %63, i64 %23
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i16, ptr %67, i64 %51
+  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %51
   store i16 %65, ptr %68, align 2
   %69 = load ptr, ptr %21, align 8
-  %70 = getelementptr inbounds i16, ptr %69, i64 %23
+  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %23
   store i16 %48, ptr %70, align 2
   br label %.loopexit
 
@@ -437,9 +437,9 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11dtNodeQueueC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
   %5 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %6 = icmp eq ptr %5, null
@@ -498,7 +498,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull r
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %15
@@ -509,7 +509,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull r
   %8 = sext i32 %.014 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load float, ptr %11, align 4
   %13 = load float, ptr %5, align 4
   %14 = fcmp ogt float %12, %13
@@ -517,7 +517,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull r
 
 15:                                               ; preds = %6
   %16 = zext nneg i32 %.01013 to i64
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %16
   store ptr %10, ptr %17, align 8
   %18 = icmp sgt i32 %.01013, 2
   br i1 %18, label %6, label %.critedge, !llvm.loop !8
@@ -533,7 +533,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull r
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.0.in15 = shl nsw i32 %1, 1
   %.016 = or disjoint i32 %.0.in15, 1
   %5 = load i32, ptr %4, align 4
@@ -554,12 +554,12 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds ptr, ptr %.pre, i64 %10
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load float, ptr %14, align 4
   %16 = sext i32 %8 to i64
   %17 = getelementptr inbounds ptr, ptr %.pre, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load float, ptr %19, align 4
   %21 = fcmp ogt float %15, %20
   br i1 %21, label %22, label %.lr.ph._crit_edge
@@ -587,7 +587,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
   br i1 %29, label %.lr.ph.i, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %31
 
 31:                                               ; preds = %40, %.lr.ph.i
@@ -598,7 +598,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
   %33 = sext i32 %.014.i to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load float, ptr %36, align 4
   %38 = load float, ptr %30, align 4
   %39 = fcmp ogt float %37, %38
@@ -606,7 +606,7 @@ define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnu
 
 40:                                               ; preds = %31
   %41 = zext nneg i32 %.01013.i to i64
-  %42 = getelementptr inbounds ptr, ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %32, i64 %41
   store ptr %35, ptr %42, align 8
   %43 = icmp sgt i32 %.01013.i, 2
   br i1 %43, label %31, label %_ZN11dtNodeQueue8bubbleUpEiP6dtNode.exit, !llvm.loop !8

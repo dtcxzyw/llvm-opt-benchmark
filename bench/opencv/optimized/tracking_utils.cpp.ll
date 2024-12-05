@@ -41,9 +41,9 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::_InputArray", align 8
   %9 = alloca %"class.cv::_InputArray", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %16, label %15
@@ -53,9 +53,9 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   unreachable
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %23, label %22
@@ -92,14 +92,14 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br i1 %37, label %.lr.ph197, label %.loopexit
 
 .lr.ph197:                                        ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp sgt i32 %18, 0
@@ -130,11 +130,11 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %.3122182.us = phi i32 [ %.2121194.us, %.lr.ph185.us ], [ %63, %53 ]
   %.3126181.us = phi i32 [ %.2125193.us, %.lr.ph185.us ], [ %65, %53 ]
   %.3130180.us = phi i32 [ %.2129192.us, %.lr.ph185.us ], [ %67, %53 ]
-  %54 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv219
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv219
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = add i32 %.3184.us, %56
-  %58 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv219
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv219
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = add i32 %.3118183.us, %60
@@ -154,9 +154,9 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br i1 %exitcond228.not, label %.loopexit, label %.lr.ph185.us, !llvm.loop !6
 
 68:                                               ; preds = %34
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = icmp sgt i32 %24, 0
   br i1 %73, label %.lr.ph.preheader, label %.loopexit
@@ -172,11 +172,11 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %.0119172 = phi i32 [ 0, %.lr.ph.preheader ], [ %83, %.lr.ph ]
   %.0123171 = phi i32 [ 0, %.lr.ph.preheader ], [ %85, %.lr.ph ]
   %.0127170 = phi i32 [ 0, %.lr.ph.preheader ], [ %87, %.lr.ph ]
-  %74 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = add i32 %.0114174, %76
-  %78 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = add i32 %.0115173, %80
@@ -230,48 +230,48 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br label %152
 
 111:                                              ; preds = %30, %26, %23
-  %112 = getelementptr inbounds i8, ptr %4, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %4, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %113, align 4
   store i32 16842752, ptr %4, align 8
-  %114 = getelementptr inbounds i8, ptr %4, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %114, align 8
   call void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %115 = load double, ptr %3, align 8
-  %116 = getelementptr inbounds i8, ptr %6, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %6, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %117, align 4
   store i32 16842752, ptr %6, align 8
-  %118 = getelementptr inbounds i8, ptr %6, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %118, align 8
   call void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %119 = load double, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %7, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %7, i64 20
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %121, align 4
   store i32 16842752, ptr %7, align 8
-  %122 = getelementptr inbounds i8, ptr %7, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %122, align 8
   %123 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %124 = call noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %123)
-  %125 = getelementptr inbounds i8, ptr %8, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %8, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %126, align 4
   store i32 16842752, ptr %8, align 8
-  %127 = getelementptr inbounds i8, ptr %8, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %127, align 8
   %128 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %129 = call noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %128)
-  %130 = getelementptr inbounds i8, ptr %9, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %9, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %131, align 4
   store i32 16842752, ptr %9, align 8
-  %132 = getelementptr inbounds i8, ptr %9, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %132, align 8
   %133 = call noundef double @_ZNK2cv3Mat3dotERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %134 = fmul double %115, %115

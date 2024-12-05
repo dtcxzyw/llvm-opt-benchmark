@@ -153,15 +153,15 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
 
 5:                                                ; preds = %2
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %6
+  %11 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %6
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %.loopexit, label %.lr.ph
@@ -175,7 +175,7 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
 
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %12, i64 %indvars.iv.next, i32 1
+  %19 = getelementptr inbounds nuw %struct.mca_base_var_enum_value_t, ptr %12, i64 %indvars.iv.next, i32 1
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -199,19 +199,19 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_algorithms() local_unnamed_addr #
 
 1:                                                ; preds = %0, %mca_han_algorithm_enumerator_create.exit.thread
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %mca_han_algorithm_enumerator_create.exit.thread ]
-  %2 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %mca_han_algorithm_count.exit.thread, label %.preheader.i
 
 mca_han_algorithm_count.exit.thread:              ; preds = %1
-  %4 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   store i32 0, ptr %4, align 4
   br label %mca_han_algorithm_enumerator_create.exit.thread
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %1 ]
-  %5 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.mca_coll_han_algorithm_value_s, ptr %3, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not4.i = icmp eq ptr %6, null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -219,7 +219,7 @@ mca_han_algorithm_count.exit.thread:              ; preds = %1
 
 mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %8 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   store i32 %7, ptr %8, align 4
   %9 = icmp eq i64 %indvars.iv.i, 0
   br i1 %9, label %mca_han_algorithm_enumerator_create.exit.thread, label %10
@@ -230,7 +230,7 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   br i1 %12, label %13, label %mca_han_algorithm_enumerator_create.exit.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %2, align 8
   store ptr null, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
@@ -238,7 +238,7 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %13 ]
-  %16 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8
   %.not4.i.i = icmp eq ptr %17, null
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
@@ -259,7 +259,7 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
 
 .lr.ph.preheader.i:                               ; preds = %19
   store i32 0, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @.str, ptr %24, align 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %indvars23.le, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
@@ -268,12 +268,12 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %.lr.ph.i ]
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  %25 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %22, i64 %indvars.iv.next.i11
+  %25 = getelementptr inbounds nuw %struct.mca_base_var_enum_value_t, ptr %22, i64 %indvars.iv.next.i11
   %26 = trunc nuw nsw i64 %indvars.iv.next.i11 to i32
   store i32 %26, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i10
+  %27 = getelementptr inbounds nuw %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i10
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %28, ptr %29, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -299,7 +299,7 @@ mca_han_algorithm_enumerator_create.exit.thread:  ; preds = %13, %mca_han_algori
 
 34:                                               ; preds = %38, %33
   %indvars.iv.i13 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i15, %38 ]
-  %35 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv.i13
+  %35 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv.i13
   %36 = load ptr, ptr %35, align 8
   %.not.i14 = icmp eq ptr %36, null
   br i1 %.not.i14, label %38, label %37
@@ -327,7 +327,7 @@ define noundef i32 @mca_coll_han_free_algorithms() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %5
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
-  %2 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

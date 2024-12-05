@@ -71,14 +71,14 @@ entry:
 define internal fastcc void @submodule_cache_clear(ptr noundef %cache) unnamed_addr #0 {
 entry:
   %iter = alloca %struct.hashmap_iter, align 8
-  %initialized = getelementptr inbounds i8, ptr %cache, i64 96
+  %initialized = getelementptr inbounds nuw i8, ptr %cache, i64 96
   %bf.load = load i8, ptr %initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %for_name = getelementptr inbounds i8, ptr %cache, i64 48
+  %for_name = getelementptr inbounds nuw i8, ptr %cache, i64 48
   call void @hashmap_iter_init(ptr noundef nonnull %for_name, ptr noundef nonnull %iter) #14
   %call.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter) #14
   %tobool3.not7 = icmp eq ptr %call.i, null
@@ -86,20 +86,20 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.body
   %entry1.08 = phi ptr [ %call4, %for.body ], [ %call.i, %if.end ]
-  %config.i = getelementptr inbounds i8, ptr %entry1.08, i64 16
+  %config.i = getelementptr inbounds nuw i8, ptr %entry1.08, i64 16
   %0 = load ptr, ptr %config.i, align 8
   %1 = load ptr, ptr %0, align 8
   call void @free(ptr noundef %1) #14
   %2 = load ptr, ptr %config.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %2, i64 8
+  %name.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %name.i, align 8
   call void @free(ptr noundef %3) #14
   %4 = load ptr, ptr %config.i, align 8
-  %branch.i = getelementptr inbounds i8, ptr %4, i64 40
+  %branch.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %branch.i, align 8
   call void @free(ptr noundef %5) #14
   %6 = load ptr, ptr %config.i, align 8
-  %command.i = getelementptr inbounds i8, ptr %6, i64 56
+  %command.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   %7 = load ptr, ptr %command.i, align 8
   call void @free(ptr noundef %7) #14
   %8 = load ptr, ptr %config.i, align 8
@@ -131,7 +131,7 @@ entry:
   br i1 %tobool.not, label %return, label %in_component
 
 while.body:                                       ; preds = %if.end19
-  %incdec.ptr = getelementptr inbounds i8, ptr %name.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %name.addr.1, i64 1
   switch i8 %4, label %if.end19 [
     i8 92, label %in_componentthread-pre-split
     i8 47, label %in_componentthread-pre-split
@@ -148,13 +148,13 @@ in_component:                                     ; preds = %entry, %in_componen
   br i1 %cmp, label %land.lhs.true, label %if.end19.preheader
 
 land.lhs.true:                                    ; preds = %in_component
-  %arrayidx6 = getelementptr inbounds i8, ptr %name.addr.0, i64 1
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %name.addr.0, i64 1
   %2 = load i8, ptr %arrayidx6, align 1
   %cmp8 = icmp eq i8 %2, 46
   br i1 %cmp8, label %land.lhs.true10, label %if.end19.preheader
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
-  %arrayidx11 = getelementptr inbounds i8, ptr %name.addr.0, i64 2
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %name.addr.0, i64 2
   %3 = load i8, ptr %arrayidx11, align 1
   switch i8 %3, label %if.end19.preheader [
     i8 0, label %return
@@ -258,7 +258,7 @@ parse_fetch_recurse.exit:                         ; preds = %entry, %sw.bb1.i, %
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @option_fetch_parse_recurse_submodules(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -272,7 +272,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool4.not, label %return.sink.split, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %long_name = getelementptr inbounds i8, ptr %opt, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %opt, i64 8
   %1 = load ptr, ptr %long_name, align 8
   %call.i.i = tail call i32 @git_parse_maybe_bool(ptr noundef nonnull %arg) #14
   switch i32 %call.i.i, label %sw.default.i.i [
@@ -363,13 +363,13 @@ parse_push_recurse.exit:                          ; preds = %entry, %sw.default.
 ; Function Attrs: nounwind uwtable
 define dso_local void @repo_read_gitmodules(ptr noundef %repo, i32 noundef %skip_if_read) local_unnamed_addr #0 {
 entry:
-  %submodule_cache.i = getelementptr inbounds i8, ptr %repo, i64 232
+  %submodule_cache.i = getelementptr inbounds nuw i8, ptr %repo, i64 232
   %0 = load ptr, ptr %submodule_cache.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.then5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %initialized.i = getelementptr inbounds i8, ptr %0, i64 96
+  %initialized.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %bf.load.i = load i8, ptr %initialized.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool2.not.i = icmp eq i8 %bf.clear.i, 0
@@ -383,14 +383,14 @@ if.then5.i:                                       ; preds = %entry
 if.end7.i:                                        ; preds = %if.then5.i, %land.lhs.true.i
   %1 = phi ptr [ %0, %land.lhs.true.i ], [ %call.i.i, %if.then5.i ]
   tail call void @hashmap_init(ptr noundef %1, ptr noundef nonnull @config_path_cmp, ptr noundef null, i64 noundef 0) #14
-  %for_name.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %for_name.i.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @hashmap_init(ptr noundef nonnull %for_name.i.i, ptr noundef nonnull @config_name_cmp, ptr noundef null, i64 noundef 0) #14
-  %initialized.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %initialized.i.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %bf.load.i.i = load i8, ptr %initialized.i.i, align 8
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %initialized.i.i, align 8
   %.pre = load ptr, ptr %submodule_cache.i, align 8
-  %gitmodules_read.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %gitmodules_read.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %bf.load.pre = load i8, ptr %gitmodules_read.phi.trans.insert, align 8
   br label %submodule_cache_check_init.exit
 
@@ -408,7 +408,7 @@ if.end:                                           ; preds = %submodule_cache_che
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %index = getelementptr inbounds i8, ptr %repo, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %3 = load ptr, ptr %index, align 8
   %call4 = tail call i32 @is_gitmodules_unmerged(ptr noundef %3) #14
   %tobool5.not = icmp eq i32 %call4, 0
@@ -420,7 +420,7 @@ if.then6:                                         ; preds = %if.end3
 
 if.end7:                                          ; preds = %if.then6, %if.end3
   %4 = load ptr, ptr %submodule_cache.i, align 8
-  %gitmodules_read9 = getelementptr inbounds i8, ptr %4, i64 96
+  %gitmodules_read9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %bf.load10 = load i8, ptr %gitmodules_read9, align 8
   %bf.set = or i8 %bf.load10, 2
   store i8 %bf.set, ptr %gitmodules_read9, align 8
@@ -440,7 +440,7 @@ entry:
   %config_source = alloca %struct.git_config_source, align 8
   %opts = alloca %struct.config_options, align 8
   %oid = alloca %struct.object_id, align 4
-  %worktree = getelementptr inbounds i8, ptr %repo, i64 128
+  %worktree = getelementptr inbounds nuw i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end17, label %if.then
@@ -454,7 +454,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %file4 = getelementptr inbounds i8, ptr %config_source, i64 8
+  %file4 = getelementptr inbounds nuw i8, ptr %config_source, i64 8
   store ptr %call, ptr %file4, align 8
   br label %if.end15
 
@@ -471,17 +471,17 @@ lor.lhs.false:                                    ; preds = %if.else
 if.then8:                                         ; preds = %lor.lhs.false, %if.else
   %call9 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #14
   %call10 = call ptr @xstrdup(ptr noundef %call9) #14
-  %blob = getelementptr inbounds i8, ptr %config_source, i64 16
+  %blob = getelementptr inbounds nuw i8, ptr %config_source, i64 16
   store ptr %call10, ptr %blob, align 8
   %1 = load ptr, ptr @the_repository, align 8
   %cmp11.not = icmp eq ptr %repo, %1
   br i1 %cmp11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then8
-  %objects = getelementptr inbounds i8, ptr %repo, i64 16
+  %objects = getelementptr inbounds nuw i8, ptr %repo, i64 16
   %2 = load ptr, ptr %objects, align 8
   %3 = load ptr, ptr %2, align 8
-  %path = getelementptr inbounds i8, ptr %3, i64 56
+  %path = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %path, align 8
   call void @add_submodule_odb_by_path(ptr noundef %4) #14
   br label %if.end15
@@ -505,15 +505,15 @@ if.end17:                                         ; preds = %out, %entry
 define internal range(i32 -1, 1) i32 @gitmodules_cb(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readonly %data) #0 {
 entry:
   %parameter = alloca %struct.parse_config_parameter, align 8
-  %submodule_cache = getelementptr inbounds i8, ptr %data, i64 232
+  %submodule_cache = getelementptr inbounds nuw i8, ptr %data, i64 232
   %0 = load ptr, ptr %submodule_cache, align 8
   store ptr %0, ptr %parameter, align 8
-  %treeish_name = getelementptr inbounds i8, ptr %parameter, i64 8
+  %treeish_name = getelementptr inbounds nuw i8, ptr %parameter, i64 8
   store ptr null, ptr %treeish_name, align 8
   %call = tail call ptr @null_oid() #14
-  %gitmodules_oid = getelementptr inbounds i8, ptr %parameter, i64 16
+  %gitmodules_oid = getelementptr inbounds nuw i8, ptr %parameter, i64 16
   store ptr %call, ptr %gitmodules_oid, align 8
-  %overwrite = getelementptr inbounds i8, ptr %parameter, i64 24
+  %overwrite = getelementptr inbounds nuw i8, ptr %parameter, i64 24
   store i32 1, ptr %overwrite, align 8
   %call1 = call i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr poison, ptr noundef nonnull %parameter)
   ret i32 %call1
@@ -526,13 +526,13 @@ entry:
   %oid = alloca %struct.object_id, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rev, ptr noundef nonnull align 8 dereferenceable(24) @__const.config_from.rev, i64 24, i1 false)
   %0 = load ptr, ptr @the_repository, align 8
-  %submodule_cache.i = getelementptr inbounds i8, ptr %0, i64 232
+  %submodule_cache.i = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1 = load ptr, ptr %submodule_cache.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.then5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %initialized.i = getelementptr inbounds i8, ptr %1, i64 96
+  %initialized.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %bf.load.i = load i8, ptr %initialized.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool2.not.i = icmp eq i8 %bf.clear.i, 0
@@ -546,9 +546,9 @@ if.then5.i:                                       ; preds = %entry
 if.end7.i:                                        ; preds = %if.then5.i, %land.lhs.true.i
   %2 = phi ptr [ %1, %land.lhs.true.i ], [ %call.i.i, %if.then5.i ]
   tail call void @hashmap_init(ptr noundef %2, ptr noundef nonnull @config_path_cmp, ptr noundef null, i64 noundef 0) #14
-  %for_name.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %for_name.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @hashmap_init(ptr noundef nonnull %for_name.i.i, ptr noundef nonnull @config_name_cmp, ptr noundef null, i64 noundef 0) #14
-  %initialized.i.i = getelementptr inbounds i8, ptr %2, i64 96
+  %initialized.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %bf.load.i.i = load i8, ptr %initialized.i.i, align 8
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %initialized.i.i, align 8
@@ -560,7 +560,7 @@ submodule_cache_check_init.exit:                  ; preds = %land.lhs.true.i, %i
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %submodule_cache_check_init.exit
-  %buf = getelementptr inbounds i8, ptr %rev, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %rev, i64 16
   %3 = load ptr, ptr %buf, align 8
   %4 = load ptr, ptr @the_repository, align 8
   %call1 = call i32 @git_config_from_blob_oid(ptr noundef nonnull @gitmodules_cb, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %oid, ptr noundef %4, i32 noundef 0) #14
@@ -569,9 +569,9 @@ if.then:                                          ; preds = %submodule_cache_che
 if.end:                                           ; preds = %if.then, %submodule_cache_check_init.exit
   call void @strbuf_release(ptr noundef nonnull %rev) #14
   %5 = load ptr, ptr @the_repository, align 8
-  %submodule_cache = getelementptr inbounds i8, ptr %5, i64 232
+  %submodule_cache = getelementptr inbounds nuw i8, ptr %5, i64 232
   %6 = load ptr, ptr %submodule_cache, align 8
-  %gitmodules_read = getelementptr inbounds i8, ptr %6, i64 96
+  %gitmodules_read = getelementptr inbounds nuw i8, ptr %6, i64 96
   %bf.load = load i8, ptr %gitmodules_read, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %gitmodules_read, align 8
@@ -585,14 +585,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc range(i32 0, 2) i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef nonnull %gitmodules_oid, ptr noundef nonnull %rev) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @null_oid() #14
-  %algo.i.i = getelementptr inbounds i8, ptr %treeish_name, i64 32
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %treeish_name, i64 32
   %0 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
   br label %is_null_oid.exit
 
@@ -614,13 +614,13 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.el
 if.then:                                          ; preds = %is_null_oid.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds i8, ptr %gitmodules_oid, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %gitmodules_oid, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   br label %return
 
@@ -628,7 +628,7 @@ if.end:                                           ; preds = %is_null_oid.exit
   %call1 = tail call ptr @oid_to_hex(ptr noundef nonnull %treeish_name) #14
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %rev, ptr noundef nonnull @.str.28, ptr noundef %call1) #14
   %6 = load ptr, ptr @the_repository, align 8
-  %buf = getelementptr inbounds i8, ptr %rev, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %rev, i64 16
   %7 = load ptr, ptr %buf, align 8
   %call2 = tail call i32 @repo_get_oid(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %gitmodules_oid) #14
   %cmp = icmp sgt i32 %call2, -1
@@ -648,7 +648,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 define dso_local ptr @submodule_from_name(ptr noundef %r, ptr noundef %treeish_name, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call void @repo_read_gitmodules(ptr noundef %r, i32 noundef 1)
-  %submodule_cache = getelementptr inbounds i8, ptr %r, i64 232
+  %submodule_cache = getelementptr inbounds nuw i8, ptr %r, i64 232
   %0 = load ptr, ptr %submodule_cache, align 8
   %call = tail call fastcc ptr @config_from(ptr noundef %0, ptr noundef %treeish_name, ptr noundef %name, i32 noundef 0)
   ret ptr %call
@@ -678,14 +678,14 @@ entry:
   br i1 %or.cond, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %for_name = getelementptr inbounds i8, ptr %cache, i64 48
+  %for_name = getelementptr inbounds nuw i8, ptr %cache, i64 48
   call void @hashmap_iter_init(ptr noundef nonnull %for_name, ptr noundef nonnull %iter) #14
   %call.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter) #14
   %tobool4.not = icmp eq ptr %call.i, null
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %config6 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %config6 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %config6, align 8
   br label %return
 
@@ -696,39 +696,39 @@ if.end7:                                          ; preds = %entry
 
 if.end11:                                         ; preds = %if.end7
   %trunc = trunc nuw i32 %lookup_type to i1
-  %algo.i.i29 = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i.i29 = getelementptr inbounds nuw i8, ptr %oid, i64 32
   br i1 %trunc, label %sw.bb13, label %sw.bb
 
 sw.bb:                                            ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i)
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %rawsz.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i64, ptr %rawsz.i.i, align 8
   %call.i.i = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %3) #14
   %call1.i.i = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i = add i32 %call1.i.i, %call.i.i
-  %gitmodules_oid2.i = getelementptr inbounds i8, ptr %key_config.i, i64 64
+  %gitmodules_oid2.i = getelementptr inbounds nuw i8, ptr %key_config.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %4 = load i32, ptr %algo.i.i29, align 4
-  %algo3.i.i = getelementptr inbounds i8, ptr %key_config.i, i64 96
+  %algo3.i.i = getelementptr inbounds nuw i8, ptr %key_config.i, i64 96
   store i32 %4, ptr %algo3.i.i, align 8
-  %name3.i = getelementptr inbounds i8, ptr %key_config.i, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %key_config.i, i64 8
   store ptr %key, ptr %name3.i, align 8
-  %hash1.i.i = getelementptr inbounds i8, ptr %key.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %key.i, i64 8
   store i32 %add.i.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %key.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %key.i, i64 16
+  %config.i = getelementptr inbounds nuw i8, ptr %key.i, i64 16
   store ptr %key_config.i, ptr %config.i, align 8
-  %for_name.i = getelementptr inbounds i8, ptr %cache, i64 48
+  %for_name.i = getelementptr inbounds nuw i8, ptr %cache, i64 48
   %call5.i = call ptr @hashmap_get(ptr noundef nonnull %for_name.i, ptr noundef nonnull %key.i, ptr noundef null) #14
   %tobool.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool.not.i, label %cache_lookup_name.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %config7.i = getelementptr inbounds i8, ptr %call5.i, i64 16
+  %config7.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
   %5 = load ptr, ptr %config7.i, align 8
   br label %cache_lookup_name.exit
 
@@ -742,30 +742,30 @@ sw.bb13:                                          ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i21)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i22)
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i23 = getelementptr inbounds i8, ptr %6, i64 256
+  %hash_algo.i.i23 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = load ptr, ptr %hash_algo.i.i23, align 8
-  %rawsz.i.i24 = getelementptr inbounds i8, ptr %7, i64 16
+  %rawsz.i.i24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load i64, ptr %rawsz.i.i24, align 8
   %call.i.i25 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %8) #14
   %call1.i.i26 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i27 = add i32 %call1.i.i26, %call.i.i25
-  %gitmodules_oid2.i28 = getelementptr inbounds i8, ptr %key_config.i22, i64 64
+  %gitmodules_oid2.i28 = getelementptr inbounds nuw i8, ptr %key_config.i22, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i28, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i29, align 4
-  %algo3.i.i30 = getelementptr inbounds i8, ptr %key_config.i22, i64 96
+  %algo3.i.i30 = getelementptr inbounds nuw i8, ptr %key_config.i22, i64 96
   store i32 %9, ptr %algo3.i.i30, align 8
   store ptr %key, ptr %key_config.i22, align 8
-  %hash1.i.i31 = getelementptr inbounds i8, ptr %key.i21, i64 8
+  %hash1.i.i31 = getelementptr inbounds nuw i8, ptr %key.i21, i64 8
   store i32 %add.i.i27, ptr %hash1.i.i31, align 8
   store ptr null, ptr %key.i21, align 8
-  %config.i32 = getelementptr inbounds i8, ptr %key.i21, i64 16
+  %config.i32 = getelementptr inbounds nuw i8, ptr %key.i21, i64 16
   store ptr %key_config.i22, ptr %config.i32, align 8
   %call5.i33 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i21, ptr noundef null) #14
   %tobool.not.i34 = icmp eq ptr %call5.i33, null
   br i1 %tobool.not.i34, label %cache_lookup_path.exit, label %if.then.i35
 
 if.then.i35:                                      ; preds = %sw.bb13
-  %config7.i36 = getelementptr inbounds i8, ptr %call5.i33, i64 16
+  %config7.i36 = getelementptr inbounds nuw i8, ptr %call5.i33, i64 16
   %10 = load ptr, ptr %config7.i36, align 8
   br label %cache_lookup_path.exit
 
@@ -791,51 +791,51 @@ if.end17:                                         ; preds = %sw.epilog
 
 if.end22:                                         ; preds = %if.end17
   store ptr %cache, ptr %parameter, align 8
-  %treeish_name24 = getelementptr inbounds i8, ptr %parameter, i64 8
+  %treeish_name24 = getelementptr inbounds nuw i8, ptr %parameter, i64 8
   store ptr %treeish_name, ptr %treeish_name24, align 8
-  %gitmodules_oid = getelementptr inbounds i8, ptr %parameter, i64 16
+  %gitmodules_oid = getelementptr inbounds nuw i8, ptr %parameter, i64 16
   store ptr %oid, ptr %gitmodules_oid, align 8
-  %overwrite = getelementptr inbounds i8, ptr %parameter, i64 24
+  %overwrite = getelementptr inbounds nuw i8, ptr %parameter, i64 24
   store i32 0, ptr %overwrite, align 8
-  %buf = getelementptr inbounds i8, ptr %rev, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %rev, i64 16
   %13 = load ptr, ptr %buf, align 8
   %14 = load i64, ptr %config_size, align 8
   %call25 = call i32 @git_config_from_mem(ptr noundef nonnull @parse_config, i32 noundef 4, ptr noundef %13, ptr noundef nonnull %call18, i64 noundef %14, ptr noundef nonnull %parameter, i32 noundef 0, ptr noundef null) #14
   call void @strbuf_release(ptr noundef nonnull %rev) #14
   call void @free(ptr noundef nonnull %call18) #14
-  %algo.i.i66 = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i.i66 = getelementptr inbounds nuw i8, ptr %oid, i64 32
   br i1 %trunc, label %sw.bb28, label %sw.bb26
 
 sw.bb26:                                          ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i38)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i39)
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i40 = getelementptr inbounds i8, ptr %15, i64 256
+  %hash_algo.i.i40 = getelementptr inbounds nuw i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo.i.i40, align 8
-  %rawsz.i.i41 = getelementptr inbounds i8, ptr %16, i64 16
+  %rawsz.i.i41 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %17 = load i64, ptr %rawsz.i.i41, align 8
   %call.i.i42 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %17) #14
   %call1.i.i43 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i44 = add i32 %call1.i.i43, %call.i.i42
-  %gitmodules_oid2.i45 = getelementptr inbounds i8, ptr %key_config.i39, i64 64
+  %gitmodules_oid2.i45 = getelementptr inbounds nuw i8, ptr %key_config.i39, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i45, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %18 = load i32, ptr %algo.i.i66, align 4
-  %algo3.i.i47 = getelementptr inbounds i8, ptr %key_config.i39, i64 96
+  %algo3.i.i47 = getelementptr inbounds nuw i8, ptr %key_config.i39, i64 96
   store i32 %18, ptr %algo3.i.i47, align 8
-  %name3.i48 = getelementptr inbounds i8, ptr %key_config.i39, i64 8
+  %name3.i48 = getelementptr inbounds nuw i8, ptr %key_config.i39, i64 8
   store ptr %key, ptr %name3.i48, align 8
-  %hash1.i.i49 = getelementptr inbounds i8, ptr %key.i38, i64 8
+  %hash1.i.i49 = getelementptr inbounds nuw i8, ptr %key.i38, i64 8
   store i32 %add.i.i44, ptr %hash1.i.i49, align 8
   store ptr null, ptr %key.i38, align 8
-  %config.i50 = getelementptr inbounds i8, ptr %key.i38, i64 16
+  %config.i50 = getelementptr inbounds nuw i8, ptr %key.i38, i64 16
   store ptr %key_config.i39, ptr %config.i50, align 8
-  %for_name.i51 = getelementptr inbounds i8, ptr %cache, i64 48
+  %for_name.i51 = getelementptr inbounds nuw i8, ptr %cache, i64 48
   %call5.i52 = call ptr @hashmap_get(ptr noundef nonnull %for_name.i51, ptr noundef nonnull %key.i38, ptr noundef null) #14
   %tobool.not.i53 = icmp eq ptr %call5.i52, null
   br i1 %tobool.not.i53, label %cache_lookup_name.exit57, label %if.then.i54
 
 if.then.i54:                                      ; preds = %sw.bb26
-  %config7.i55 = getelementptr inbounds i8, ptr %call5.i52, i64 16
+  %config7.i55 = getelementptr inbounds nuw i8, ptr %call5.i52, i64 16
   %19 = load ptr, ptr %config7.i55, align 8
   br label %cache_lookup_name.exit57
 
@@ -849,30 +849,30 @@ sw.bb28:                                          ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i58)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i59)
   %20 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i60 = getelementptr inbounds i8, ptr %20, i64 256
+  %hash_algo.i.i60 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %21 = load ptr, ptr %hash_algo.i.i60, align 8
-  %rawsz.i.i61 = getelementptr inbounds i8, ptr %21, i64 16
+  %rawsz.i.i61 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %22 = load i64, ptr %rawsz.i.i61, align 8
   %call.i.i62 = call i32 @memhash(ptr noundef nonnull %oid, i64 noundef %22) #14
   %call1.i.i63 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i64 = add i32 %call1.i.i63, %call.i.i62
-  %gitmodules_oid2.i65 = getelementptr inbounds i8, ptr %key_config.i59, i64 64
+  %gitmodules_oid2.i65 = getelementptr inbounds nuw i8, ptr %key_config.i59, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i65, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %23 = load i32, ptr %algo.i.i66, align 4
-  %algo3.i.i67 = getelementptr inbounds i8, ptr %key_config.i59, i64 96
+  %algo3.i.i67 = getelementptr inbounds nuw i8, ptr %key_config.i59, i64 96
   store i32 %23, ptr %algo3.i.i67, align 8
   store ptr %key, ptr %key_config.i59, align 8
-  %hash1.i.i68 = getelementptr inbounds i8, ptr %key.i58, i64 8
+  %hash1.i.i68 = getelementptr inbounds nuw i8, ptr %key.i58, i64 8
   store i32 %add.i.i64, ptr %hash1.i.i68, align 8
   store ptr null, ptr %key.i58, align 8
-  %config.i69 = getelementptr inbounds i8, ptr %key.i58, i64 16
+  %config.i69 = getelementptr inbounds nuw i8, ptr %key.i58, i64 16
   store ptr %key_config.i59, ptr %config.i69, align 8
   %call5.i70 = call ptr @hashmap_get(ptr noundef %cache, ptr noundef nonnull %key.i58, ptr noundef null) #14
   %tobool.not.i71 = icmp eq ptr %call5.i70, null
   br i1 %tobool.not.i71, label %cache_lookup_path.exit75, label %if.then.i72
 
 if.then.i72:                                      ; preds = %sw.bb28
-  %config7.i73 = getelementptr inbounds i8, ptr %call5.i70, i64 16
+  %config7.i73 = getelementptr inbounds nuw i8, ptr %call5.i70, i64 16
   %24 = load ptr, ptr %config7.i73, align 8
   br label %cache_lookup_path.exit75
 
@@ -898,7 +898,7 @@ return:                                           ; preds = %if.then, %out, %cac
 define dso_local ptr @submodule_from_path(ptr noundef %r, ptr noundef %treeish_name, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   tail call void @repo_read_gitmodules(ptr noundef %r, i32 noundef 1)
-  %submodule_cache = getelementptr inbounds i8, ptr %r, i64 232
+  %submodule_cache = getelementptr inbounds nuw i8, ptr %r, i64 232
   %0 = load ptr, ptr %submodule_cache, align 8
   %call = tail call fastcc ptr @config_from(ptr noundef %0, ptr noundef %treeish_name, ptr noundef %path, i32 noundef 1)
   ret ptr %call
@@ -909,9 +909,9 @@ define dso_local void @submodules_of_tree(ptr noundef %r, ptr noundef %treeish_n
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 0, i64 noundef 24) #14
   store ptr %call, ptr %out, align 8
-  %entry_nr = getelementptr inbounds i8, ptr %out, i64 8
+  %entry_nr = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i32 0, ptr %entry_nr, align 8
-  %entry_alloc = getelementptr inbounds i8, ptr %out, i64 12
+  %entry_alloc = getelementptr inbounds nuw i8, ptr %out, i64 12
   store i32 0, ptr %entry_alloc, align 4
   tail call fastcc void @traverse_tree_submodules(ptr noundef %r, ptr noundef %treeish_name, ptr noundef null, ptr noundef %treeish_name, ptr noundef nonnull %out)
   ret void
@@ -931,11 +931,11 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %tobool3.not = icmp eq ptr %prefix, null
-  %path = getelementptr inbounds i8, ptr %call, i64 40
-  %mode = getelementptr inbounds i8, ptr %call, i64 52
-  %entry_nr = getelementptr inbounds i8, ptr %out, i64 8
-  %entry_alloc = getelementptr inbounds i8, ptr %out, i64 12
-  %submodule_cache.i = getelementptr inbounds i8, ptr %r, i64 232
+  %path = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %mode = getelementptr inbounds nuw i8, ptr %call, i64 52
+  %entry_nr = getelementptr inbounds nuw i8, ptr %out, i64 8
+  %entry_alloc = getelementptr inbounds nuw i8, ptr %out, i64 12
+  %submodule_cache.i = getelementptr inbounds nuw i8, ptr %r, i64 232
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end56
@@ -1013,10 +1013,10 @@ do.end:                                           ; preds = %do.body.do.end_crit
   call void @repo_read_gitmodules(ptr noundef %r, i32 noundef 1)
   %8 = load ptr, ptr %submodule_cache.i, align 8
   %call.i = call fastcc ptr @config_from(ptr noundef %8, ptr noundef %root_tree, ptr noundef %tree_path.0, i32 noundef 1)
-  %submodule = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %submodule = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store ptr %call.i, ptr %submodule, align 8
   %call39 = call ptr @xmalloc(i64 noundef 304) #14
-  %repo = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %repo = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %call39, ptr %repo, align 8
   %call41 = call i32 @repo_submodule_init(ptr noundef %call39, ptr noundef %r, ptr noundef %tree_path.0, ptr noundef %root_tree) #14
   %tobool42.not = icmp eq i32 %call41, 0
@@ -1051,7 +1051,7 @@ while.end:                                        ; preds = %if.end56, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @submodule_free(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %submodule_cache = getelementptr inbounds i8, ptr %r, i64 232
+  %submodule_cache = getelementptr inbounds nuw i8, ptr %r, i64 232
   %0 = load ptr, ptr %submodule_cache, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1135,7 +1135,7 @@ define dso_local void @fetch_config_from_gitmodules(ptr noundef %max_children, p
 entry:
   %config = alloca %struct.fetch_config, align 8
   store ptr %max_children, ptr %config, align 8
-  %recurse_submodules2 = getelementptr inbounds i8, ptr %config, i64 8
+  %recurse_submodules2 = getelementptr inbounds nuw i8, ptr %config, i64 8
   store ptr %recurse_submodules, ptr %recurse_submodules2, align 8
   %0 = load ptr, ptr @the_repository, align 8
   call fastcc void @config_from_gitmodules(ptr noundef nonnull @gitmodules_fetch_config, ptr noundef %0, ptr noundef nonnull %config)
@@ -1185,7 +1185,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.else
-  %recurse_submodules = getelementptr inbounds i8, ptr %cb, i64 8
+  %recurse_submodules = getelementptr inbounds nuw i8, ptr %cb, i64 8
   %3 = load ptr, ptr %recurse_submodules, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return, label %if.then9
@@ -1283,10 +1283,10 @@ declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @config_path_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
 entry:
-  %config = getelementptr inbounds i8, ptr %eptr, i64 16
+  %config = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
   %1 = load ptr, ptr %0, align 8
-  %config2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
+  %config2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 16
   %2 = load ptr, ptr %config2, align 8
   %3 = load ptr, ptr %2, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #16
@@ -1294,16 +1294,16 @@ entry:
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %gitmodules_oid = getelementptr inbounds i8, ptr %0, i64 64
-  %gitmodules_oid6 = getelementptr inbounds i8, ptr %2, i64 64
-  %algo.i = getelementptr inbounds i8, ptr %0, i64 96
+  %gitmodules_oid = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %gitmodules_oid6 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %algo.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.rhs
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %5, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i, align 8
   br label %oideq.exit
 
@@ -1331,29 +1331,29 @@ lor.end:                                          ; preds = %oideq.exit, %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @config_name_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
 entry:
-  %config = getelementptr inbounds i8, ptr %eptr, i64 16
+  %config = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
-  %config2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
+  %config2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 16
   %2 = load ptr, ptr %config2, align 8
-  %name3 = getelementptr inbounds i8, ptr %2, i64 8
+  %name3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %name3, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %gitmodules_oid = getelementptr inbounds i8, ptr %0, i64 64
-  %gitmodules_oid6 = getelementptr inbounds i8, ptr %2, i64 64
-  %algo.i = getelementptr inbounds i8, ptr %0, i64 96
+  %gitmodules_oid = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %gitmodules_oid6 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %algo.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.rhs
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %5, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i, align 8
   br label %oideq.exit
 
@@ -1424,14 +1424,14 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = load i64, ptr %subsection_len.i, align 8
   call void @strbuf_add(ptr noundef nonnull %name, ptr noundef nonnull %0, i64 noundef %1) #14
-  %buf.i = getelementptr inbounds i8, ptr %name, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %name, i64 16
   %2 = load ptr, ptr %buf.i, align 8
   %3 = load i8, ptr %2, align 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.then3.i, label %in_component.i.i
 
 while.body.i.i:                                   ; preds = %if.end19.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %name.addr.1.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %name.addr.1.i.i, i64 1
   switch i8 %7, label %if.end19.i.i [
     i8 92, label %in_componentthread-pre-split.i.i
     i8 47, label %in_componentthread-pre-split.i.i
@@ -1448,13 +1448,13 @@ in_component.i.i:                                 ; preds = %if.end.i, %in_compo
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end19.i.i.preheader
 
 land.lhs.true.i.i:                                ; preds = %in_component.i.i
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %name.addr.0.i.i, i64 1
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %name.addr.0.i.i, i64 1
   %5 = load i8, ptr %arrayidx6.i.i, align 1
   %cmp8.i.i = icmp eq i8 %5, 46
   br i1 %cmp8.i.i, label %land.lhs.true10.i.i, label %if.end19.i.i.preheader
 
 land.lhs.true10.i.i:                              ; preds = %land.lhs.true.i.i
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %name.addr.0.i.i, i64 2
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %name.addr.0.i.i, i64 2
   %6 = load i8, ptr %arrayidx11.i.i, align 1
   switch i8 %6, label %if.end19.i.i.preheader [
     i8 0, label %if.then3.i
@@ -1502,7 +1502,7 @@ if.end:                                           ; preds = %if.end19.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %subsection_len.i)
   %11 = load ptr, ptr %data, align 8
-  %gitmodules_oid = getelementptr inbounds i8, ptr %data, i64 16
+  %gitmodules_oid = getelementptr inbounds nuw i8, ptr %data, i64 16
   %12 = load ptr, ptr %gitmodules_oid, align 8
   %13 = load ptr, ptr %buf.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %name_buf.i)
@@ -1510,27 +1510,27 @@ if.end:                                           ; preds = %if.end19.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key_config.i.i)
   %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %14, i64 256
+  %hash_algo.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 256
   %15 = load ptr, ptr %hash_algo.i.i.i, align 8
-  %rawsz.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %rawsz.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load i64, ptr %rawsz.i.i.i, align 8
   %call.i.i.i = call i32 @memhash(ptr noundef %12, i64 noundef %16) #14
   %call1.i.i.i = call i32 @strhash(ptr noundef %13) #14
   %add.i.i.i = add i32 %call1.i.i.i, %call.i.i.i
-  %gitmodules_oid2.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 64
+  %gitmodules_oid2.i.i = getelementptr inbounds nuw i8, ptr %key_config.i.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
-  %algo.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %algo.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %17 = load i32, ptr %algo.i.i.i, align 4
-  %algo3.i.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 96
+  %algo3.i.i.i = getelementptr inbounds nuw i8, ptr %key_config.i.i, i64 96
   store i32 %17, ptr %algo3.i.i.i, align 8
-  %name3.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 8
+  %name3.i.i = getelementptr inbounds nuw i8, ptr %key_config.i.i, i64 8
   store ptr %13, ptr %name3.i.i, align 8
-  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
+  %hash1.i.i.i = getelementptr inbounds nuw i8, ptr %key.i.i, i64 8
   store i32 %add.i.i.i, ptr %hash1.i.i.i, align 8
   store ptr null, ptr %key.i.i, align 8
-  %config.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 16
+  %config.i.i = getelementptr inbounds nuw i8, ptr %key.i.i, i64 16
   store ptr %key_config.i.i, ptr %config.i.i, align 8
-  %for_name.i.i = getelementptr inbounds i8, ptr %11, i64 48
+  %for_name.i.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   %call5.i.i = call ptr @hashmap_get(ptr noundef nonnull %for_name.i.i, ptr noundef nonnull %key.i.i, ptr noundef null) #14
   %tobool.not.i.i77 = icmp eq ptr %call5.i.i, null
   br i1 %tobool.not.i.i77, label %cache_lookup_name.exit.thread.i, label %cache_lookup_name.exit.i
@@ -1541,7 +1541,7 @@ cache_lookup_name.exit.thread.i:                  ; preds = %if.end
   br label %if.end.i79
 
 cache_lookup_name.exit.i:                         ; preds = %if.end
-  %config7.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
+  %config7.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 16
   %18 = load ptr, ptr %config7.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key_config.i.i)
@@ -1553,39 +1553,39 @@ if.end.i79:                                       ; preds = %cache_lookup_name.e
   %call.i.i80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
   call void @strbuf_add(ptr noundef nonnull %name_buf.i, ptr noundef %13, i64 noundef %call.i.i80) #14
   %call2.i = call ptr @strbuf_detach(ptr noundef nonnull %name_buf.i, ptr noundef null) #14
-  %name3.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store ptr %call2.i, ptr %name3.i, align 8
   store ptr null, ptr %call1.i, align 8
-  %url.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %url.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   store ptr null, ptr %url.i, align 8
-  %update_strategy.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %update_strategy.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   store i32 0, ptr %update_strategy.i, align 8
-  %command.i = getelementptr inbounds i8, ptr %call1.i, i64 56
+  %command.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 56
   store ptr null, ptr %command.i, align 8
-  %fetch_recurse.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %fetch_recurse.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   store i32 -2, ptr %fetch_recurse.i, align 8
-  %ignore.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  %recommend_shallow.i = getelementptr inbounds i8, ptr %call1.i, i64 100
+  %ignore.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
+  %recommend_shallow.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ignore.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %recommend_shallow.i, align 4
-  %gitmodules_oid5.i = getelementptr inbounds i8, ptr %call1.i, i64 64
+  %gitmodules_oid5.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid5.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
   %19 = load i32, ptr %algo.i.i.i, align 4
-  %algo3.i.i = getelementptr inbounds i8, ptr %call1.i, i64 96
+  %algo3.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 96
   store i32 %19, ptr %algo3.i.i, align 4
   %20 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i17.i = getelementptr inbounds i8, ptr %20, i64 256
+  %hash_algo.i.i17.i = getelementptr inbounds nuw i8, ptr %20, i64 256
   %21 = load ptr, ptr %hash_algo.i.i17.i, align 8
-  %rawsz.i.i18.i = getelementptr inbounds i8, ptr %21, i64 16
+  %rawsz.i.i18.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   %22 = load i64, ptr %rawsz.i.i18.i, align 8
   %call.i.i19.i = call i32 @memhash(ptr noundef nonnull %gitmodules_oid5.i, i64 noundef %22) #14
   %call1.i.i20.i = call i32 @strhash(ptr noundef %call2.i) #14
   %add.i.i21.i = add i32 %call1.i.i20.i, %call.i.i19.i
   %call1.i.i = call ptr @xmalloc(i64 noundef 24) #14
-  %hash1.i.i22.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
+  %hash1.i.i22.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 8
   store i32 %add.i.i21.i, ptr %hash1.i.i22.i, align 8
   store ptr null, ptr %call1.i.i, align 8
-  %config.i23.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
+  %config.i23.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 16
   store ptr %call1.i, ptr %config.i23.i, align 8
   call void @hashmap_add(ptr noundef nonnull %for_name.i.i, ptr noundef nonnull %call1.i.i) #14
   br label %lookup_or_create_by_name.exit
@@ -1593,7 +1593,7 @@ if.end.i79:                                       ; preds = %cache_lookup_name.e
 lookup_or_create_by_name.exit:                    ; preds = %cache_lookup_name.exit.i, %if.end.i79
   %retval.0.i78 = phi ptr [ %call1.i, %if.end.i79 ], [ %18, %cache_lookup_name.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %name_buf.i)
-  %buf2 = getelementptr inbounds i8, ptr %item, i64 16
+  %buf2 = getelementptr inbounds nuw i8, ptr %item, i64 16
   %23 = load ptr, ptr %buf2, align 8
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.10) #16
   %tobool4.not = icmp eq i32 %call3, 0
@@ -1627,7 +1627,7 @@ warn_command_line_option.exit:                    ; preds = %if.then12, %if.end3
   br label %if.end188
 
 if.else13:                                        ; preds = %if.else
-  %overwrite = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite = getelementptr inbounds nuw i8, ptr %data, i64 24
   %25 = load i32, ptr %overwrite, align 8
   %tobool14.not = icmp eq i32 %25, 0
   %26 = load ptr, ptr %retval.0.i78, align 8
@@ -1638,9 +1638,9 @@ land.lhs.true:                                    ; preds = %if.else13
   br i1 %tobool15.not, label %if.end23, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
-  %treeish_name = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name = getelementptr inbounds nuw i8, ptr %data, i64 8
   %27 = load ptr, ptr %treeish_name, align 8
-  %name17 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name17 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %28 = load ptr, ptr %name17, align 8
   call fastcc void @warn_multiple_config(ptr noundef %27, ptr noundef %28, ptr noundef nonnull @.str.10)
   br label %if.end188
@@ -1651,19 +1651,19 @@ if.else18:                                        ; preds = %if.else13
 if.then21:                                        ; preds = %if.else18
   %29 = load ptr, ptr %data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i)
-  %gitmodules_oid.i = getelementptr inbounds i8, ptr %retval.0.i78, i64 64
+  %gitmodules_oid.i = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 64
   %30 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %30, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %30, i64 256
   %31 = load ptr, ptr %hash_algo.i.i, align 8
-  %rawsz.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %rawsz.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %32 = load i64, ptr %rawsz.i.i, align 8
   %call.i.i85 = call i32 @memhash(ptr noundef nonnull %gitmodules_oid.i, i64 noundef %32) #14
   %call1.i.i86 = call i32 @strhash(ptr noundef nonnull %26) #14
   %add.i.i = add i32 %call1.i.i86, %call.i.i85
-  %hash1.i.i = getelementptr inbounds i8, ptr %e.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 8
   store i32 %add.i.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %e.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %config.i = getelementptr inbounds nuw i8, ptr %e.i, i64 16
   store ptr %retval.0.i78, ptr %config.i, align 8
   %call2.i87 = call ptr @hashmap_remove(ptr noundef %29, ptr noundef nonnull %e.i, ptr noundef null) #14
   call void @free(ptr noundef %call2.i87) #14
@@ -1677,20 +1677,20 @@ if.end23:                                         ; preds = %land.lhs.true, %if.
   %call25 = call ptr @xstrdup(ptr noundef nonnull %value) #14
   store ptr %call25, ptr %retval.0.i78, align 8
   %34 = load ptr, ptr %data, align 8
-  %gitmodules_oid.i88 = getelementptr inbounds i8, ptr %retval.0.i78, i64 64
+  %gitmodules_oid.i88 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 64
   %35 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i89 = getelementptr inbounds i8, ptr %35, i64 256
+  %hash_algo.i.i89 = getelementptr inbounds nuw i8, ptr %35, i64 256
   %36 = load ptr, ptr %hash_algo.i.i89, align 8
-  %rawsz.i.i90 = getelementptr inbounds i8, ptr %36, i64 16
+  %rawsz.i.i90 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %37 = load i64, ptr %rawsz.i.i90, align 8
   %call.i.i91 = call i32 @memhash(ptr noundef nonnull %gitmodules_oid.i88, i64 noundef %37) #14
   %call1.i.i92 = call i32 @strhash(ptr noundef %call25) #14
   %add.i.i93 = add i32 %call1.i.i92, %call.i.i91
   %call1.i94 = call ptr @xmalloc(i64 noundef 24) #14
-  %hash1.i.i95 = getelementptr inbounds i8, ptr %call1.i94, i64 8
+  %hash1.i.i95 = getelementptr inbounds nuw i8, ptr %call1.i94, i64 8
   store i32 %add.i.i93, ptr %hash1.i.i95, align 8
   store ptr null, ptr %call1.i94, align 8
-  %config.i96 = getelementptr inbounds i8, ptr %call1.i94, i64 16
+  %config.i96 = getelementptr inbounds nuw i8, ptr %call1.i94, i64 16
   store ptr %retval.0.i78, ptr %config.i96, align 8
   %call3.i = call ptr @hashmap_put(ptr noundef %34, ptr noundef nonnull %call1.i94) #14
   br label %if.end188
@@ -1703,14 +1703,14 @@ if.else31:                                        ; preds = %lookup_or_create_by
 if.then35:                                        ; preds = %if.else31
   %38 = load ptr, ptr %gitmodules_oid, align 8
   %call.i97 = call ptr @null_oid() #14
-  %algo.i.i = getelementptr inbounds i8, ptr %38, i64 32
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %38, i64 32
   %39 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i98 = icmp eq i32 %39, 0
   br i1 %tobool.not.i.i98, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then35
   %40 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i99 = getelementptr inbounds i8, ptr %40, i64 256
+  %hash_algo.i.i99 = getelementptr inbounds nuw i8, ptr %40, i64 256
   %41 = load ptr, ptr %hash_algo.i.i99, align 8
   br label %is_null_oid.exit
 
@@ -1727,21 +1727,21 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.el
   %..i.i.i = select i1 %cmp.i.i.i, i64 32, i64 20
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %38, ptr noundef nonnull readonly dereferenceable(20) %call.i97, i64 %..i.i.i)
   %retval.0.in.i.i.i.not = icmp ne i32 %bcmp.i.i.i, 0
-  %overwrite38 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite38 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %43 = load i32, ptr %overwrite38, align 8
   %tobool39.not = icmp eq i32 %43, 0
   br i1 %tobool39.not, label %land.lhs.true40, label %if.else44
 
 land.lhs.true40:                                  ; preds = %is_null_oid.exit
-  %fetch_recurse = getelementptr inbounds i8, ptr %retval.0.i78, i64 24
+  %fetch_recurse = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 24
   %44 = load i32, ptr %fetch_recurse, align 8
   %cmp.not = icmp eq i32 %44, -2
   br i1 %cmp.not, label %if.else44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true40
-  %treeish_name42 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name42 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %45 = load ptr, ptr %treeish_name42, align 8
-  %name43 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name43 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %46 = load ptr, ptr %name43, align 8
   %tobool.not.i100 = icmp eq ptr %45, null
   br i1 %tobool.not.i100, label %warn_multiple_config.exit, label %if.then.i
@@ -1778,7 +1778,7 @@ if.then4.i:                                       ; preds = %sw.default.i
 
 parse_fetch_recurse.exit:                         ; preds = %sw.default.i, %if.else44, %sw.bb1.i
   %retval.0.i104 = phi i32 [ 0, %sw.bb1.i ], [ 2, %if.else44 ], [ %.mux, %sw.default.i ]
-  %fetch_recurse46 = getelementptr inbounds i8, ptr %retval.0.i78, i64 24
+  %fetch_recurse46 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 24
   store i32 %retval.0.i104, ptr %fetch_recurse46, align 8
   br label %if.end188
 
@@ -1796,21 +1796,21 @@ if.then54:                                        ; preds = %if.then52
   br label %if.end188
 
 if.else57:                                        ; preds = %if.then52
-  %overwrite58 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite58 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %47 = load i32, ptr %overwrite58, align 8
   %tobool59.not = icmp eq i32 %47, 0
   br i1 %tobool59.not, label %land.lhs.true60, label %if.else65
 
 land.lhs.true60:                                  ; preds = %if.else57
-  %ignore = getelementptr inbounds i8, ptr %retval.0.i78, i64 32
+  %ignore = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 32
   %48 = load ptr, ptr %ignore, align 8
   %tobool61.not = icmp eq ptr %48, null
   br i1 %tobool61.not, label %if.else65, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true60
-  %treeish_name63 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name63 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %49 = load ptr, ptr %treeish_name63, align 8
-  %name64 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name64 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %50 = load ptr, ptr %name64, align 8
   call fastcc void @warn_multiple_config(ptr noundef %49, ptr noundef %50, ptr noundef nonnull @.str.12)
   br label %if.end188
@@ -1841,7 +1841,7 @@ if.then77:                                        ; preds = %land.lhs.true74
   br label %if.end188
 
 if.else79:                                        ; preds = %land.lhs.true74, %land.lhs.true71, %land.lhs.true68, %if.else65
-  %ignore80 = getelementptr inbounds i8, ptr %retval.0.i78, i64 32
+  %ignore80 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 32
   %52 = load ptr, ptr %ignore80, align 8
   call void @free(ptr noundef %52) #14
   %call81 = call ptr @xstrdup(ptr noundef nonnull %value) #14
@@ -1881,10 +1881,10 @@ warn_command_line_option.exit113:                 ; preds = %if.then98, %if.end3
   br label %if.end188
 
 if.else99:                                        ; preds = %if.else95
-  %overwrite100 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite100 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %54 = load i32, ptr %overwrite100, align 8
   %tobool101.not = icmp eq i32 %54, 0
-  %url = getelementptr inbounds i8, ptr %retval.0.i78, i64 16
+  %url = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 16
   %55 = load ptr, ptr %url, align 8
   br i1 %tobool101.not, label %land.lhs.true102, label %if.else107
 
@@ -1893,16 +1893,16 @@ land.lhs.true102:                                 ; preds = %if.else99
   br i1 %tobool103.not, label %if.else107, label %if.then104
 
 if.then104:                                       ; preds = %land.lhs.true102
-  %treeish_name105 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name105 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %56 = load ptr, ptr %treeish_name105, align 8
-  %name106 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name106 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %57 = load ptr, ptr %name106, align 8
   call fastcc void @warn_multiple_config(ptr noundef %56, ptr noundef %57, ptr noundef nonnull @.str.18)
   br label %if.end188
 
 if.else107:                                       ; preds = %if.else99, %land.lhs.true102
   %58 = phi ptr [ null, %land.lhs.true102 ], [ %55, %if.else99 ]
-  %url108 = getelementptr inbounds i8, ptr %retval.0.i78, i64 16
+  %url108 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 16
   call void @free(ptr noundef %58) #14
   %call109 = call ptr @xstrdup(ptr noundef nonnull %value) #14
   store ptr %call109, ptr %url108, align 8
@@ -1922,27 +1922,27 @@ if.then120:                                       ; preds = %if.then118
   br label %if.end188
 
 if.else123:                                       ; preds = %if.then118
-  %overwrite124 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite124 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %59 = load i32, ptr %overwrite124, align 8
   %tobool125.not = icmp eq i32 %59, 0
   br i1 %tobool125.not, label %land.lhs.true126, label %if.else131
 
 land.lhs.true126:                                 ; preds = %if.else123
-  %update_strategy = getelementptr inbounds i8, ptr %retval.0.i78, i64 48
+  %update_strategy = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 48
   %60 = load i32, ptr %update_strategy, align 8
   %cmp127.not = icmp eq i32 %60, 0
   br i1 %cmp127.not, label %if.else131, label %if.then128
 
 if.then128:                                       ; preds = %land.lhs.true126
-  %treeish_name129 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name129 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %61 = load ptr, ptr %treeish_name129, align 8
-  %name130 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name130 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %62 = load ptr, ptr %name130, align 8
   call fastcc void @warn_multiple_config(ptr noundef %61, ptr noundef %62, ptr noundef nonnull @.str.19)
   br label %if.end188
 
 if.else131:                                       ; preds = %land.lhs.true126, %if.else123
-  %update_strategy132 = getelementptr inbounds i8, ptr %retval.0.i78, i64 48
+  %update_strategy132 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 48
   %call133 = call i32 @parse_submodule_update_strategy(ptr noundef nonnull %value, ptr noundef nonnull %update_strategy132) #14
   %cmp134 = icmp slt i32 %call133, 0
   br i1 %cmp134, label %if.then138, label %lor.lhs.false
@@ -1963,28 +1963,28 @@ if.else143:                                       ; preds = %if.else114
   br i1 %tobool146.not, label %if.then147, label %if.else159
 
 if.then147:                                       ; preds = %if.else143
-  %overwrite148 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite148 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %64 = load i32, ptr %overwrite148, align 8
   %tobool149.not = icmp eq i32 %64, 0
   br i1 %tobool149.not, label %land.lhs.true150, label %if.else155
 
 land.lhs.true150:                                 ; preds = %if.then147
-  %recommend_shallow = getelementptr inbounds i8, ptr %retval.0.i78, i64 100
+  %recommend_shallow = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 100
   %65 = load i32, ptr %recommend_shallow, align 4
   %cmp151.not = icmp eq i32 %65, -1
   br i1 %cmp151.not, label %if.else155, label %if.then152
 
 if.then152:                                       ; preds = %land.lhs.true150
-  %treeish_name153 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name153 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %66 = load ptr, ptr %treeish_name153, align 8
-  %name154 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name154 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %67 = load ptr, ptr %name154, align 8
   call fastcc void @warn_multiple_config(ptr noundef %66, ptr noundef %67, ptr noundef nonnull @.str.21)
   br label %if.end188
 
 if.else155:                                       ; preds = %land.lhs.true150, %if.then147
   %call156 = call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #14
-  %recommend_shallow157 = getelementptr inbounds i8, ptr %retval.0.i78, i64 100
+  %recommend_shallow157 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 100
   store i32 %call156, ptr %recommend_shallow157, align 4
   br label %if.end188
 
@@ -2002,10 +2002,10 @@ if.then165:                                       ; preds = %if.then163
   br label %if.end188
 
 if.else168:                                       ; preds = %if.then163
-  %overwrite169 = getelementptr inbounds i8, ptr %data, i64 24
+  %overwrite169 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %68 = load i32, ptr %overwrite169, align 8
   %tobool170.not = icmp eq i32 %68, 0
-  %branch = getelementptr inbounds i8, ptr %retval.0.i78, i64 40
+  %branch = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 40
   %69 = load ptr, ptr %branch, align 8
   br i1 %tobool170.not, label %land.lhs.true171, label %if.else176
 
@@ -2014,16 +2014,16 @@ land.lhs.true171:                                 ; preds = %if.else168
   br i1 %tobool172.not, label %if.else176, label %if.then173
 
 if.then173:                                       ; preds = %land.lhs.true171
-  %treeish_name174 = getelementptr inbounds i8, ptr %data, i64 8
+  %treeish_name174 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %70 = load ptr, ptr %treeish_name174, align 8
-  %name175 = getelementptr inbounds i8, ptr %retval.0.i78, i64 8
+  %name175 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 8
   %71 = load ptr, ptr %name175, align 8
   call fastcc void @warn_multiple_config(ptr noundef %70, ptr noundef %71, ptr noundef nonnull @.str.22)
   br label %if.end188
 
 if.else176:                                       ; preds = %if.else168, %land.lhs.true171
   %72 = phi ptr [ null, %land.lhs.true171 ], [ %69, %if.else168 ]
-  %branch177 = getelementptr inbounds i8, ptr %retval.0.i78, i64 40
+  %branch177 = getelementptr inbounds nuw i8, ptr %retval.0.i78, i64 40
   call void @free(ptr noundef %72) #14
   %call178 = call ptr @xstrdup(ptr noundef nonnull %value) #14
   store ptr %call178, ptr %branch177, align 8

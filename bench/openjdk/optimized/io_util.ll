@@ -68,7 +68,7 @@ define hidden range(i32 -1, -2147483648) i32 @readBytes(ptr noundef %0, ptr noun
 
 outOfBounds.exit:                                 ; preds = %10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1368
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1368
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %16 = sub nsw i32 %15, %3
@@ -115,7 +115,7 @@ outOfBounds.exit.thread:                          ; preds = %10, %outOfBounds.ex
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1664
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1664
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %32, ptr noundef nonnull %.032) #4
   br label %41
@@ -200,7 +200,7 @@ define hidden void @writeBytes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 outOfBounds.exit:                                 ; preds = %11
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %17 = sub nsw i32 %16, %3
@@ -232,11 +232,11 @@ outOfBounds.exit.thread:                          ; preds = %11, %outOfBounds.ex
 27:                                               ; preds = %20, %22
   %.042 = phi ptr [ %24, %22 ], [ %8, %20 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1600
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1600
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %.042) #4
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %0) #4
   %.not49 = icmp eq ptr %34, null
@@ -314,7 +314,7 @@ outOfBounds.exit.thread:                          ; preds = %11, %outOfBounds.ex
 define hidden void @throwFileNotFoundException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @getLastErrorString(ptr noundef %0) #4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #4
   %.not = icmp eq i8 %7, 0
@@ -327,7 +327,7 @@ define hidden void @throwFileNotFoundException(ptr noundef %0, ptr noundef %1) l
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %9) #4
   br label %15

@@ -9,13 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @pm_string_list_append(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %17
 
@@ -24,7 +24,7 @@ define hidden void @pm_string_list_append(ptr nocapture noundef %0, ptr nocaptur
   %10 = shl i64 %6, 1
   %storemerge = select i1 %9, i64 1, i64 %10
   store i64 %storemerge, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = mul i64 %storemerge, 24
   %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #6
@@ -62,7 +62,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden void @pm_string_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #8
   ret void

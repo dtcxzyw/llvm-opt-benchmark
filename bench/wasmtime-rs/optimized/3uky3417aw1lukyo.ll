@@ -37,7 +37,7 @@ define range(i32 1, 5) i32 @_ZN23wasmtime_component_util16DiscriminantSize9byte_
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17h71f2ddd67cf0a6e5E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17h71f2ddd67cf0a6e5E", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -93,13 +93,13 @@ define { i8, i8 } @_ZN23wasmtime_component_util9FlagsSize10from_count17hd3908913
 
 17:                                               ; preds = %11
   store ptr @anon.b1944cf119c04b11a542e513218e87df.2, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @anon.b1944cf119c04b11a542e513218e87df.3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %21, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %2, ptr nonnull align 8 @anon.b1944cf119c04b11a542e513218e87df.6) #4
   unreachable

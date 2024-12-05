@@ -911,13 +911,13 @@ define hidden void @add_safety_data_type_to_info_column(ptr nocapture noundef re
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4
   %switch.selectcmp.i = icmp eq i32 %6, 1
   br i1 %switch.selectcmp.i, label %get_cip_safety_data_type.exit.thread6, label %get_cip_safety_data_type.exit.thread
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4
   %switch.selectcmp15.i = icmp eq i32 %9, 2
   br i1 %switch.selectcmp15.i, label %get_cip_safety_data_type.exit.thread6, label %get_cip_safety_data_type.exit.thread
@@ -927,7 +927,7 @@ get_cip_safety_data_type.exit.thread:             ; preds = %4, %3, %7
 
 get_cip_safety_data_type.exit.thread6:            ; preds = %7, %4, %get_cip_safety_data_type.exit.thread
   %.str.11.sink = phi ptr [ @.str.11, %get_cip_safety_data_type.exit.thread ], [ @.str.10, %4 ], [ @.str.10, %7 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull %.str.11.sink) #6
   ret void
@@ -1526,7 +1526,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #6
   %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %20 = getelementptr inbounds i8, ptr %1, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, -16
@@ -1535,7 +1535,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %29, label %25
 
 25:                                               ; preds = %4
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 1
   br label %29
@@ -1544,22 +1544,22 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = phi i1 [ false, %4 ], [ %28, %25 ]
   %31 = zext i1 %30 to i32
   store i64 0, ptr %14, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_set_str(ptr noundef %33, i32 noundef 34, ptr noundef nonnull @.str.410) #6
   br i1 %.not.i, label %44, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not152.i = icmp eq ptr %36, null
   br i1 %.not152.i, label %44, label %37
 
 37:                                               ; preds = %34
   %38 = load i32, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = load i8, ptr %41, align 8
   %.lobit.i = lshr i8 %42, 7
   %43 = zext nneg i8 %.lobit.i to i32
@@ -1596,7 +1596,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %30, label %65, label %75
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load i64, ptr %58, align 8
   %60 = lshr i64 %59, 16
@@ -1607,9 +1607,9 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br label %75
 
 65:                                               ; preds = %.thread.i
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = lshr i64 %69, 16
   %71 = trunc i64 %70 to i16
@@ -1637,13 +1637,13 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i.i = icmp eq ptr %85, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 2
   store i32 %89, ptr %87, align 4
@@ -1664,9 +1664,9 @@ proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %80
 99:                                               ; preds = %proto_item_set_generated.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i16 %78, ptr %13, align 2
-  %100 = getelementptr inbounds i8, ptr %13, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i32 %77, ptr %100, align 2
-  %101 = getelementptr inbounds i8, ptr %13, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 6
   store i16 %76, ptr %101, align 2
   %102 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %13, i32 noundef 8, i16 noundef zeroext 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -1700,13 +1700,13 @@ proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %80
   br i1 %.not.i.i160.i, label %dissect_extended_format_time_coordination_message.exit.i, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load ptr, ptr %117, align 8
   %.not5.i.i161.i = icmp eq ptr %118, null
   br i1 %.not5.i.i161.i, label %dissect_extended_format_time_coordination_message.exit.i, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 2
   store i32 %122, ptr %120, align 4
@@ -1728,9 +1728,9 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, 
   %135 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %134, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i16 %78, ptr %7, align 2
-  %136 = getelementptr inbounds i8, ptr %7, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i32 %77, ptr %136, align 2
-  %137 = getelementptr inbounds i8, ptr %7, i64 6
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 %76, ptr %137, align 2
   %138 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %7, i32 noundef 8, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1761,10 +1761,10 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, 
   br i1 %30, label %.sink.split.i, label %148
 
 .sink.split.i:                                    ; preds = %145
-  %146 = getelementptr inbounds i8, ptr %3, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = load ptr, ptr %146, align 8
   %spec.select.idx = select i1 %or.cond7.i, i64 0, i64 40
-  %spec.select = getelementptr inbounds i8, ptr %147, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %147, i64 %spec.select.idx
   %.sink.i = load i64, ptr %spec.select, align 8
   store i64 %.sink.i, ptr %14, align 8
   br label %148
@@ -1893,12 +1893,12 @@ define internal i32 @dissect_cipsafety_base_data(ptr noundef %0, ptr noundef %1,
   %5 = alloca %struct.cip_safety_info, align 8
   %6 = alloca %struct.cip_conn_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, i8 0, i64 240, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
   store i32 2, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %9, align 4
   %10 = call i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   ret i32 %10
@@ -1909,12 +1909,12 @@ define internal i32 @dissect_cipsafety_extended_data(ptr noundef %0, ptr noundef
   %5 = alloca %struct.cip_safety_info, align 8
   %6 = alloca %struct.cip_conn_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, i8 0, i64 240, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
   store i32 2, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %9, align 4
   %10 = call i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   ret i32 %10
@@ -1925,12 +1925,12 @@ define internal i32 @dissect_cipsafety_base_time_coord(ptr noundef %0, ptr nound
   %5 = alloca %struct.cip_safety_info, align 8
   %6 = alloca %struct.cip_conn_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, i8 0, i64 240, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
   store i32 1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %9, align 4
   %10 = call i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   ret i32 %10
@@ -1941,12 +1941,12 @@ define internal i32 @dissect_cipsafety_extended_time_coord(ptr noundef %0, ptr n
   %5 = alloca %struct.cip_safety_info, align 8
   %6 = alloca %struct.cip_conn_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, i8 0, i64 240, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
   store i32 1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %9, align 4
   %10 = call i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   ret i32 %10
@@ -1964,7 +1964,7 @@ define internal i32 @dissect_cip_class_s_supervisor(ptr noundef %0, ptr noundef 
   %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.519) #6
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
@@ -2295,7 +2295,7 @@ define internal i32 @dissect_cip_class_s_validator(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.526) #6
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
@@ -2335,7 +2335,7 @@ define internal i32 @dissect_cip_class_s_validator(ptr noundef %0, ptr noundef %
 
 40:                                               ; preds = %35
   %41 = icmp eq i32 %22, 1
-  %42 = getelementptr inbounds i8, ptr %7, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, -1
   %45 = icmp ult i32 %44, -2
@@ -2533,13 +2533,13 @@ define internal fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef %0
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
@@ -2555,14 +2555,14 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 
 23:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %24 = getelementptr inbounds i8, ptr %5, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %25 = load i16, ptr %24, align 2
   store i16 %25, ptr %10, align 2
-  %26 = getelementptr inbounds i8, ptr %10, i64 2
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %26, align 2
-  %29 = getelementptr inbounds i8, ptr %10, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %30 = load i16, ptr %5, align 4
   store i16 %30, ptr %29, align 2
   %31 = call zeroext i8 @crc8_0x37(ptr noundef nonnull %10, i32 noundef 8, i8 noundef zeroext 0) #6
@@ -2582,16 +2582,16 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %41 = load i16, ptr %24, align 2
   store i16 %41, ptr %8, align 2
-  %42 = getelementptr inbounds i8, ptr %8, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %43 = load i32, ptr %27, align 4
   store i32 %43, ptr %42, align 2
-  %44 = getelementptr inbounds i8, ptr %8, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %45 = load i16, ptr %5, align 4
   store i16 %45, ptr %44, align 2
   %46 = call zeroext i8 @crc8_0x37(ptr noundef nonnull %8, i32 noundef 8, i8 noundef zeroext 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %47 = xor i8 %32, -32
-  %48 = getelementptr inbounds i8, ptr %0, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %3 to i64
   %51 = call ptr @tvb_memdup(ptr noundef %49, ptr noundef %2, i32 noundef 0, i64 noundef %50) #6
@@ -2651,13 +2651,13 @@ define internal fastcc void @dissect_base_format_time_stamp_section(ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
@@ -2672,14 +2672,14 @@ proto_item_set_generated.exit:                    ; preds = %7, %13, %16
 
 23:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %24 = getelementptr inbounds i8, ptr %6, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %25 = load i16, ptr %24, align 2
   store i16 %25, ptr %10, align 2
-  %26 = getelementptr inbounds i8, ptr %10, i64 2
-  %27 = getelementptr inbounds i8, ptr %6, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %26, align 2
-  %29 = getelementptr inbounds i8, ptr %10, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %30 = load i16, ptr %6, align 4
   store i16 %30, ptr %29, align 2
   %31 = call zeroext i8 @crc8_0x37(ptr noundef nonnull %10, i32 noundef 8, i8 noundef zeroext 0) #6
@@ -2719,13 +2719,13 @@ define internal fastcc void @dissect_base_format_time_correction_message(ptr nou
   br i1 %.not.i, label %proto_item_set_generated.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not5.i = icmp eq ptr %8, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, 2
   store i32 %12, ptr %10, align 4
@@ -2759,13 +2759,13 @@ define internal fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
@@ -2781,14 +2781,14 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
 
 23:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %24 = getelementptr inbounds i8, ptr %5, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %25 = load i16, ptr %24, align 2
   store i16 %25, ptr %10, align 2
-  %26 = getelementptr inbounds i8, ptr %10, i64 2
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %26, align 2
-  %29 = getelementptr inbounds i8, ptr %10, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %30 = load i16, ptr %5, align 4
   store i16 %30, ptr %29, align 2
   %31 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %10, i32 noundef 8, i16 noundef zeroext 0) #6
@@ -2851,14 +2851,14 @@ verify_compliment_data.exit.thread:               ; preds = %53, %46, %verify_co
 
 60:                                               ; preds = %verify_compliment_data.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %61 = getelementptr inbounds i8, ptr %5, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %62 = load i16, ptr %61, align 2
   store i16 %62, ptr %8, align 2
-  %63 = getelementptr inbounds i8, ptr %8, i64 2
-  %64 = getelementptr inbounds i8, ptr %5, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %63, align 2
-  %66 = getelementptr inbounds i8, ptr %8, i64 6
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %67 = load i16, ptr %5, align 4
   store i16 %67, ptr %66, align 2
   %68 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %8, i32 noundef 8, i16 noundef zeroext 0) #6
@@ -2893,9 +2893,9 @@ verify_compliment_data.exit.thread:               ; preds = %53, %46, %verify_co
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 50
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 8
   %.not = icmp eq i16 %8, 0
@@ -2905,12 +2905,12 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapt
 10:                                               ; preds = %3
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 2) #6
   %12 = icmp eq i16 %2, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   br i1 %12, label %15, label %._crit_edge
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %17 = load i32, ptr %16, align 4
   %.not15 = icmp eq i32 %17, 0
   br i1 %.not15, label %18, label %._crit_edge
@@ -2920,17 +2920,17 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapt
   br label %34
 
 ._crit_edge:                                      ; preds = %10, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 1, ptr %20, align 4
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 34
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 34
   %23 = load i16, ptr %22, align 2
   %24 = icmp ult i16 %2, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds i8, ptr %21, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %27 = load i16, ptr %26, align 8
   %28 = add i16 %27, 1
   store i16 %28, ptr %26, align 8
@@ -2939,10 +2939,10 @@ define internal fastcc ptr @get_timestamp_packet_data(ptr noundef %0, ptr nocapt
 
 29:                                               ; preds = %25, %._crit_edge
   %30 = phi ptr [ %.pre16, %25 ], [ %21, %._crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i16, ptr %31, align 8
   store i16 %32, ptr %11, align 2
-  %33 = getelementptr inbounds i8, ptr %30, i64 34
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 34
   store i16 %2, ptr %33, align 2
   br label %34
 
@@ -2977,13 +2977,13 @@ define internal fastcc void @dissect_extended_format_1_or_2_byte_data(ptr nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not5.i = icmp eq ptr %19, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 2
   store i32 %23, ptr %21, align 4
@@ -3012,14 +3012,14 @@ proto_item_set_generated.exit:                    ; preds = %7, %17, %20
 
 40:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %41 = getelementptr inbounds i8, ptr %5, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %42 = load i16, ptr %41, align 2
   store i16 %42, ptr %11, align 2
-  %43 = getelementptr inbounds i8, ptr %11, i64 2
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %43, align 2
-  %46 = getelementptr inbounds i8, ptr %11, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %47 = load i16, ptr %5, align 4
   store i16 %47, ptr %46, align 2
   %48 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %11, i32 noundef 8, i32 noundef 0) #6
@@ -3059,13 +3059,13 @@ define internal fastcc void @dissect_extended_format_time_correction_message(ptr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not5.i = icmp eq ptr %8, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, 2
   store i32 %12, ptr %10, align 4
@@ -3108,13 +3108,13 @@ define internal fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %20
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %22, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 2
   store i32 %26, ptr %24, align 4
@@ -3137,14 +3137,14 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
 
 34:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %35 = getelementptr inbounds i8, ptr %5, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %36 = load i16, ptr %35, align 2
   store i16 %36, ptr %14, align 2
-  %37 = getelementptr inbounds i8, ptr %14, i64 2
-  %38 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %39 = load i32, ptr %38, align 4
   store i32 %39, ptr %37, align 2
-  %40 = getelementptr inbounds i8, ptr %14, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %41 = load i16, ptr %5, align 4
   store i16 %41, ptr %40, align 2
   %42 = call zeroext i16 @crc16_0x080F_seed(ptr noundef nonnull %14, i32 noundef 8, i16 noundef zeroext 0) #6
@@ -3224,21 +3224,21 @@ verify_compliment_data.exit.thread:               ; preds = %66, %59, %verify_co
 
 84:                                               ; preds = %verify_compliment_data.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %85 = getelementptr inbounds i8, ptr %5, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %86 = load i16, ptr %85, align 2
   store i16 %86, ptr %11, align 2
-  %87 = getelementptr inbounds i8, ptr %11, i64 2
-  %88 = getelementptr inbounds i8, ptr %5, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %89 = load i32, ptr %88, align 4
   store i32 %89, ptr %87, align 2
-  %90 = getelementptr inbounds i8, ptr %11, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %91 = load i16, ptr %5, align 4
   store i16 %91, ptr %90, align 2
   %92 = call i32 @crc32_0x5D6DCB_seed(ptr noundef nonnull %11, i32 noundef 8, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %93 = load i16, ptr %6, align 2
   %94 = and i8 %29, 31
-  %95 = getelementptr inbounds i8, ptr %0, i64 408
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %3 to i64
   %98 = call ptr @tvb_memdup(ptr noundef %96, ptr noundef %2, i32 noundef 0, i64 noundef %97) #6
@@ -3326,13 +3326,13 @@ define internal fastcc void @validate_crc_s5(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %.0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i = icmp eq ptr %30, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 2
   store i32 %34, ptr %32, align 4

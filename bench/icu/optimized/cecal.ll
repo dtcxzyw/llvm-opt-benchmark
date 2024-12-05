@@ -89,7 +89,7 @@ declare noundef nonnull align 8 dereferenceable(618) ptr @_ZN6icu_758CalendaraSE
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7510CECalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %emonth, i8 signext %0) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 440
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp.i = icmp sgt i32 %emonth, -1
@@ -161,7 +161,7 @@ define noundef i32 @_ZNK6icu_7510CECalendar14handleGetLimitE19UCalendarDateField
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
-  %arrayidx3 = getelementptr inbounds [24 x [4 x i32]], ptr @_ZN6icu_75L6LIMITSE, i64 0, i64 %idxprom, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZN6icu_75L6LIMITSE, i64 0, i64 %idxprom, i64 %idxprom2
   %0 = load i32, ptr %arrayidx3, align 4
   ret i32 %0
 }

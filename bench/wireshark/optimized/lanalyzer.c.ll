@@ -51,9 +51,9 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 
 12:                                               ; preds = %3
   %.val = load i16, ptr %4, align 2
-  %13 = getelementptr inbounds i8, ptr %4, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %.val104 = load i8, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %.val105 = load i8, ptr %14, align 1
   %15 = zext i8 %.val105 to i16
   %16 = shl nuw i16 %15, 8
@@ -103,7 +103,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
@@ -119,18 +119,18 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br i1 %.not95146, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %6, i64 1
-  %48 = getelementptr inbounds i8, ptr %6, i64 2
-  %49 = getelementptr inbounds i8, ptr %7, i64 20
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
-  %51 = getelementptr inbounds i8, ptr %7, i64 12
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 4
-  %54 = getelementptr inbounds i8, ptr %7, i64 32
-  %55 = getelementptr inbounds i8, ptr %6, i64 30
-  %56 = getelementptr inbounds i8, ptr %6, i64 31
-  %57 = getelementptr inbounds i8, ptr %6, i64 188
-  %58 = getelementptr inbounds i8, ptr %6, i64 189
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 30
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 31
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 188
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 189
   br label %61
 
 ._crit_edge:                                      ; preds = %112, %44
@@ -282,22 +282,22 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 
 118:                                              ; preds = %115
   %119 = load i32, ptr @lanalyzer_file_type_subtype, align 4
-  %120 = getelementptr inbounds i8, ptr %0, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %119, ptr %120, align 4
   %121 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #13
   store i64 %.079128, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @lanalyzer_read, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 120
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @lanalyzer_seek_read, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 144
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.078122, ptr %125, align 8
   %126 = zext i16 %.083140 to i32
-  %127 = getelementptr inbounds i8, ptr %0, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 148
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %128, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #11
   br label %.loopexit
@@ -340,7 +340,7 @@ define internal i32 @lanalyzer_read(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @lanalyzer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
   %10 = icmp eq i64 %9, -1
@@ -398,7 +398,7 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
 
 13:                                               ; preds = %11
   %.val70 = load i8, ptr %7, align 1
-  %14 = getelementptr inbounds i8, ptr %7, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.val71 = load i8, ptr %14, align 1
   %15 = zext i8 %.val71 to i16
   %16 = shl nuw i16 %15, 8
@@ -415,7 +415,7 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
   br label %87
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %8, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.val69 = load i8, ptr %23, align 1
   %24 = zext i8 %.val69 to i16
   %25 = shl nuw i16 %24, 8
@@ -439,9 +439,9 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
 
 34:                                               ; preds = %32
   %35 = add nsw i32 %28, -32
-  %36 = getelementptr inbounds i8, ptr %9, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.val64 = load i8, ptr %36, align 2
-  %37 = getelementptr inbounds i8, ptr %9, i64 7
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %.val65 = load i8, ptr %37, align 1
   %38 = zext i8 %.val65 to i32
   %39 = shl nuw nsw i32 %38, 8
@@ -457,45 +457,45 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
   br label %87
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %9, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %.val67 = load i8, ptr %46, align 1
   %47 = zext i8 %.val67 to i16
   %48 = shl nuw i16 %47, 8
-  %49 = getelementptr inbounds i8, ptr %9, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.val66 = load i8, ptr %49, align 4
   %50 = zext i8 %.val66 to i16
   %51 = or disjoint i16 %48, %50
   store i32 0, ptr %2, align 8
   %52 = call ptr @wtap_block_create(i32 noundef 5) #11
-  %53 = getelementptr inbounds i8, ptr %2, i64 232
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %9, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val62 = load i16, ptr %55, align 8
   %56 = zext i16 %.val62 to i64
-  %57 = getelementptr inbounds i8, ptr %9, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %.val60 = load i16, ptr %57, align 2
   %58 = zext i16 %.val60 to i64
   %59 = shl nuw nsw i64 %58, 16
-  %60 = getelementptr inbounds i8, ptr %9, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %.val = load i16, ptr %60, align 4
   %61 = zext i16 %.val to i64
   %62 = shl nuw nsw i64 %61, 32
   %63 = or disjoint i64 %59, %56
   %64 = or disjoint i64 %63, %62
   %65 = udiv i64 %64, 2000000
-  %66 = getelementptr inbounds i8, ptr %0, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %67 = load ptr, ptr %66, align 8
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %65, %68
-  %70 = getelementptr inbounds i8, ptr %2, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %69, ptr %70, align 8
   %.neg = mul nuw nsw i64 %65, 4292967296
   %71 = add nuw nsw i64 %.neg, %63
   %72 = trunc i64 %71 to i32
   %73 = mul i32 %72, 500
-  %74 = getelementptr inbounds i8, ptr %2, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %73, ptr %74, align 8
   %75 = zext i16 %51 to i32
   %76 = add nsw i32 %75, -4
@@ -503,17 +503,17 @@ define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef re
   %77 = trunc nuw i32 %76 to i16
   %spec.select = select i1 %.not58, i16 %51, i16 %77
   %78 = zext i16 %spec.select to i32
-  %79 = getelementptr inbounds i8, ptr %2, i64 64
-  %80 = getelementptr inbounds i8, ptr %2, i64 68
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %78, ptr %80, align 4
   store i32 %41, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %82 = load i32, ptr %81, align 8
   %cond = icmp eq i32 %82, 1
   br i1 %cond, label %83, label %85
 
 83:                                               ; preds = %45
-  %84 = getelementptr inbounds i8, ptr %2, i64 80
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %84, align 8
   br label %85
 
@@ -556,18 +556,18 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_open(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %3
   store i32 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @lanalyzer_dump, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @lanalyzer_dump_finish, ptr %11, align 8
   %12 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 3018, i32 noundef 0, ptr noundef %1) #11
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 3018, ptr %15, align 8
   br label %16
 
@@ -590,9 +590,9 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   %12 = alloca i16, align 2
   %13 = alloca i16, align 2
   %14 = alloca %struct.nstime_t, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 36
   %20 = load i32, ptr %1, align 8
@@ -604,9 +604,9 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br label %s0write.exit.thread
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = load i32, ptr %25, align 8
   %.not58 = icmp eq i32 %24, %26
   br i1 %.not58, label %28, label %27
@@ -616,7 +616,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br label %s0write.exit.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = sext i32 %19 to i64
   %32 = add i64 %30, %31
@@ -661,16 +661,16 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br i1 %.not62, label %47, label %54
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %16, i64 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
-  %50 = getelementptr inbounds i8, ptr %16, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 0, ptr %50, align 8
   store i32 1, ptr %16, align 8
   %51 = load i32, ptr %23, align 8
-  %52 = getelementptr inbounds i8, ptr %16, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %16, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 0, ptr %53, align 8
   br label %54
 
@@ -691,7 +691,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br i1 %.not64, label %s0write.exit.thread, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 68
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %60 = load i32, ptr %59, align 4
   %61 = trunc i32 %60 to i16
   %62 = add i16 %61, 4
@@ -713,10 +713,10 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br i1 %.not66, label %s0write.exit.thread, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = getelementptr inbounds i8, ptr %16, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %69, ptr noundef nonnull %70) #11
-  %71 = getelementptr inbounds i8, ptr %14, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, 250
   %74 = sdiv i32 %73, 500
@@ -729,7 +729,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br i1 %.not67, label %s0write.exit.thread, label %80
 
 80:                                               ; preds = %68
-  %81 = getelementptr inbounds i8, ptr %16, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 8
@@ -741,7 +741,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef 
   br i1 %.not68, label %s0write.exit.thread, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %16, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %87 = load i32, ptr %86, align 8
   %88 = trunc i32 %87 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
@@ -801,15 +801,15 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   %30 = alloca i8, align 1
   %31 = alloca i16, align 2
   %32 = alloca i16, align 2
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 2
   %40 = select i1 %39, i16 227, i16 226
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = tail call ptr @localtime(ptr noundef nonnull %41) #11
   %43 = icmp eq ptr %42, null
   br i1 %43, label %lanalyzer_dump_header.exit, label %44
@@ -866,7 +866,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   br i1 %.not117.i, label %lanalyzer_dump_header.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %42, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = trunc i32 %65 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
@@ -877,7 +877,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   br i1 %.not118.i, label %lanalyzer_dump_header.exit, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %42, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = trunc i32 %70 to i8
   %72 = add i8 %71, 1
@@ -889,7 +889,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   br i1 %.not119.i, label %lanalyzer_dump_header.exit, label %74
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %42, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = trunc i32 %76 to i16
   %78 = add i16 %77, 1900
@@ -943,7 +943,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   br i1 %.not124.i, label %lanalyzer_dump_header.exit, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %42, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = trunc i32 %100 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23)
@@ -954,7 +954,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr n
   br i1 %.not125.i, label %lanalyzer_dump_header.exit, label %103
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %42, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = trunc i32 %105 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22)
@@ -1054,7 +1054,7 @@ s0write.exit162.i:                                ; preds = %s0write.exit157.pre
   br i1 %.not137.i, label %lanalyzer_dump_header.exit, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %36, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %137 = load i32, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 %137, ptr %13, align 4

@@ -86,7 +86,7 @@ define dso_local i32 @hugetlb_vmemmap_restore_folio(ptr nocapture noundef readon
 define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.vmemmap_remap_walk, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 16
   %9 = icmp eq i64 %8, 0
@@ -94,7 +94,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %1 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = shl i32 64, %13
   %15 = zext i32 %14 to i64
@@ -102,17 +102,17 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
   %17 = add i64 %11, 4096
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store ptr %4, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
   store ptr @vmemmap_restore_pte, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i64 %11, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %2, ptr %22, align 8
   %23 = add nsw i64 %15, -4096
   %24 = inttoptr i64 %17 to ptr
@@ -134,12 +134,12 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
 
 35:                                               ; preds = %31
   %36 = add i64 %32, -1
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %37, ptr %39, align 8
   store ptr %38, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %4, ptr %40, align 8
   store volatile ptr %37, ptr %4, align 8
   %41 = icmp eq i64 %36, 0
@@ -171,7 +171,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.loopexit
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %6, i32 -17, ptr elementtype(i8) %6) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 -17, ptr nonnull elementtype(i8) %6) #7, !srcloc !9
   call void @static_key_slow_dec(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
   br label %52
 
@@ -211,13 +211,13 @@ define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr nocapture noundef reado
 19:                                               ; preds = %17, %.preheader
   %20 = phi ptr [ %.pre, %17 ], [ %8, %.preheader ]
   %21 = phi i64 [ %18, %17 ], [ %7, %.preheader ]
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %23, ptr %24, align 8
   store volatile ptr %20, ptr %23, align 8
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %6, ptr %26, align 8
   store ptr %25, ptr %6, align 8
   store ptr %2, ptr %22, align 8
@@ -263,7 +263,7 @@ define dso_local void @hugetlb_vmemmap_optimize_folio(ptr nocapture noundef read
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   store ptr %3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
   %5 = call fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i64 noundef 0)
   %6 = load ptr, ptr %3, align 8
@@ -307,7 +307,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 0, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.vmemmap_remap_walk, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 16
   %9 = icmp eq i64 %8, 0
@@ -319,7 +319,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
   br i1 %12, label %60, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = shl i32 64, %15
   %17 = add i32 %16, -4096
@@ -329,21 +329,21 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
 19:                                               ; preds = %13
   %20 = ptrtoint ptr %1 to i64
   %21 = tail call zeroext i1 @static_key_slow_inc(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %6, i32 16, ptr elementtype(i8) %6) #7, !srcloc !14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 16, ptr nonnull elementtype(i8) %6) #7, !srcloc !14
   %22 = load i32, ptr %14, align 8
   %23 = shl i32 64, %22
   %24 = zext i32 %23 to i64
   %25 = add i64 %24, %20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
   store ptr @vmemmap_remap_pte, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %26, align 8
   store i64 %20, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %3, ptr %30, align 8
   %31 = load i64, ptr %1, align 16
   %32 = lshr i64 %31, 58
@@ -362,12 +362,12 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
   %42 = add i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
   tail call void @copy_page(ptr noundef %43, ptr noundef %1) #7
-  %44 = getelementptr inbounds i8, ptr %34, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
   store ptr %45, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %34, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %2, ptr %47, align 8
   store volatile ptr %44, ptr %2, align 8
   br label %48
@@ -384,7 +384,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
   %54 = shl i64 %51, 12
   %55 = add i64 %54, %20
   store ptr @vmemmap_restore_pte, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store i64 %20, ptr %28, align 8
   store ptr %2, ptr %29, align 8
   store i64 0, ptr %30, align 8
@@ -399,7 +399,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
 
 59:                                               ; preds = %.thread, %57
   call void @static_key_slow_dec(ptr noundef nonnull @hugetlb_optimize_vmemmap_key) #7
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %6, i32 -17, ptr elementtype(i8) %6) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 -17, ptr nonnull elementtype(i8) %6) #7, !srcloc !9
   br label %60
 
 60:                                               ; preds = %59, %57, %13, %10, %4
@@ -413,10 +413,10 @@ define dso_local void @hugetlb_vmemmap_optimize_folios(ptr nocapture noundef rea
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store ptr %4, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %1, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -572,7 +572,7 @@ define internal noundef i32 @hugetlb_vmemmap_init() #4 section ".init.text" alig
 
 .preheader:                                       ; preds = %0, %5
   %8 = phi ptr [ %6, %5 ], [ @hstates, %0 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = shl i32 64, %10
   %12 = add i32 %11, -4096
@@ -610,7 +610,7 @@ define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr nocapture 
   %16 = lshr i64 %15, 12
   %17 = and i64 %16, 1099511627775
   %18 = getelementptr %struct.page, ptr %8, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
   br i1 %21, label %23, label %22, !prof !17
@@ -621,14 +621,14 @@ define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr nocapture 
   unreachable
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 -8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   store volatile ptr %30, ptr %29, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %26, align 8
@@ -640,7 +640,7 @@ define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr nocapture 
   %36 = load i64, ptr @page_offset_base, align 8
   %37 = add i64 %35, %36
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = inttoptr i64 %40 to ptr
   tail call void @copy_page(ptr noundef %38, ptr noundef %41) #7
@@ -719,7 +719,7 @@ define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, 
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 2
   %19 = icmp eq i64 %18, 0
@@ -766,14 +766,14 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %14, align 8
   br label %15
 
@@ -917,7 +917,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   %.0..0..0..0.3 = load volatile i64, ptr %5, align 8
   store volatile i64 %.0..0..0..0.3, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %103 = getelementptr inbounds i8, ptr %10, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %104 = load i64, ptr %103, align 8
   %105 = and i64 %104, 1
   %106 = icmp eq i64 %105, 0
@@ -949,9 +949,9 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @vmemmap_pte_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %24
@@ -981,7 +981,7 @@ define internal noundef i32 @vmemmap_pte_entry(ptr noundef %0, i64 noundef %1, i
   br label %26
 
 26:                                               ; preds = %24, %11
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
@@ -1017,7 +1017,7 @@ define internal fastcc void @pte_free_kernel(ptr noundef nonnull %0) unnamed_add
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %13, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %19 = load i64, ptr %18, align 16
   %20 = trunc i64 %19 to i32
   %21 = and i32 %20, 255
@@ -1052,20 +1052,20 @@ define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noca
   %9 = load volatile i64, ptr %0, align 8
   store volatile i64 %9, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %1
   br i1 %12, label %13, label %22, !prof !21
 
 13:                                               ; preds = %3
   %14 = and i64 %6, -9223372036854775453
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
@@ -1095,7 +1095,7 @@ define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noca
   %34 = lshr i64 %33, 12
   %35 = and i64 %34, 1099511627775
   %36 = inttoptr i64 %8 to ptr
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr @vmemmap_base, align 8
   %40 = ptrtoint ptr %38 to i64
@@ -1113,13 +1113,13 @@ define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noca
   %52 = and i64 %51, %23
   %53 = or disjoint i64 %49, %52
   %54 = getelementptr %struct.page, ptr %36, i64 %35, i32 1
-  %55 = getelementptr inbounds i8, ptr %2, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %54, ptr %58, align 8
   store ptr %57, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %56, ptr %59, align 8
   store volatile ptr %54, ptr %56, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

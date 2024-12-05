@@ -22,9 +22,9 @@ define void @Java_sun_java2d_loops_ScaledBlit_Scale(ptr noundef %0, ptr noundef 
   br i1 %21, label %341, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %27
@@ -114,14 +114,14 @@ define void @Java_sun_java2d_loops_ScaledBlit_Scale(ptr noundef %0, ptr noundef 
 findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %.0.i = phi i32 [ %73, %72 ], [ 1, %.loopexit304 ]
   store i32 %6, ptr %15, align 8
-  %74 = getelementptr inbounds i8, ptr %15, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %7, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %15, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %8, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %15, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %9, ptr %76, align 4
   %77 = load ptr, ptr %31, align 8
-  %78 = getelementptr inbounds i8, ptr %20, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %79 = load i32, ptr %78, align 8
   %80 = call i32 %77(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %15, i32 noundef %79) #5
   %.not279 = icmp eq i32 %80, 0
@@ -140,7 +140,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br i1 %.not281, label %90, label %87
 
 87:                                               ; preds = %81, %84
-  %88 = getelementptr inbounds i8, ptr %31, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %89 = load ptr, ptr %88, align 8
   %.not292 = icmp eq ptr %89, null
   br i1 %.not292, label %341, label %.sink.split
@@ -163,7 +163,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %103 = call double @llvm.ceil.f64(double %102)
   %104 = fdiv double %103, %49
   %105 = fadd double %104, %98
-  %106 = getelementptr inbounds i8, ptr %16, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %93, ptr %106, align 8
   store i32 %93, ptr %16, align 8
   %107 = sitofp i32 %83 to double
@@ -194,7 +194,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %120 = sub nsw i32 %82, %6
   %121 = shl i32 %120, %.0244
   %122 = call fastcc i32 @refine(i32 noundef %93, double noundef %10, i32 noundef %.0.i, double noundef %58, i32 noundef %121, i32 noundef %60)
-  %123 = getelementptr inbounds i8, ptr %16, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %122, ptr %123, align 8
   br label %124
 
@@ -210,9 +210,9 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   %131 = call double @llvm.ceil.f64(double %130)
   %132 = fdiv double %131, %49
   %133 = fadd double %132, %126
-  %134 = getelementptr inbounds i8, ptr %16, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %96, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %16, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %96, ptr %135, align 4
   %136 = sitofp i32 %86 to double
   %137 = fcmp oge double %133, %136
@@ -238,20 +238,20 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
 
 147:                                              ; preds = %142, %143
   %148 = phi i32 [ %146, %143 ], [ %96, %142 ]
-  %149 = getelementptr inbounds i8, ptr %16, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %148, ptr %149, align 4
   %150 = sub nsw i32 %85, %7
   %151 = shl i32 %150, %.0244
   %152 = call fastcc i32 @refine(i32 noundef %96, double noundef %11, i32 noundef %.0.i, double noundef %50, i32 noundef %151, i32 noundef %52)
-  %153 = getelementptr inbounds i8, ptr %16, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %152, ptr %153, align 4
   br label %154
 
 154:                                              ; preds = %125, %140, %147
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %16, ptr noundef nonnull %18) #5
-  %155 = getelementptr inbounds i8, ptr %20, i64 52
+  %155 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds i8, ptr %18, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
   %160 = or i32 %156, 66
@@ -262,37 +262,37 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br i1 %.not284, label %166, label %163
 
 163:                                              ; preds = %154
-  %164 = getelementptr inbounds i8, ptr %31, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %165 = load ptr, ptr %164, align 8
   %.not291 = icmp eq ptr %165, null
   br i1 %.not291, label %341, label %.sink.split
 
 166:                                              ; preds = %154
-  %167 = getelementptr inbounds i8, ptr %16, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %168 = load i32, ptr %167, align 8
   %169 = load i32, ptr %16, align 8
   %170 = icmp sgt i32 %168, %169
   br i1 %170, label %171, label %334
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds i8, ptr %16, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %16, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %175 = load i32, ptr %174, align 4
   %176 = icmp sgt i32 %173, %175
   br i1 %176, label %177, label %334
 
 177:                                              ; preds = %171
-  %178 = getelementptr inbounds i8, ptr %31, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %179 = load ptr, ptr %178, align 8
   call void %179(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %15) #5
-  %180 = getelementptr inbounds i8, ptr %34, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %181 = load ptr, ptr %180, align 8
   call void %181(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %16) #5
-  %182 = getelementptr inbounds i8, ptr %15, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = icmp ne ptr %183, null
-  %185 = getelementptr inbounds i8, ptr %16, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %186 = load ptr, ptr %185, align 8
   %187 = icmp ne ptr %186, null
   %or.cond = select i1 %184, i1 %187, i1 false
@@ -301,12 +301,12 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
 188:                                              ; preds = %177
   %189 = ptrtoint ptr %183 to i64
   %190 = sext i32 %7 to i64
-  %191 = getelementptr inbounds i8, ptr %15, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = sext i32 %192 to i64
   %194 = mul nsw i64 %193, %190
   %195 = sext i32 %6 to i64
-  %196 = getelementptr inbounds i8, ptr %15, i64 28
+  %196 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
   %199 = mul nsw i64 %198, %195
@@ -327,13 +327,13 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br i1 %.not285310, label %.loopexit301, label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %.preheader
-  %207 = getelementptr inbounds i8, ptr %19, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %208 = sub i32 0, %.0.i
-  %209 = getelementptr inbounds i8, ptr %19, i64 12
-  %210 = getelementptr inbounds i8, ptr %19, i64 8
-  %211 = getelementptr inbounds i8, ptr %16, i64 32
-  %212 = getelementptr inbounds i8, ptr %16, i64 28
-  %213 = getelementptr inbounds i8, ptr %20, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %210 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %213 = getelementptr inbounds nuw i8, ptr %20, i64 32
   br label %265
 
 214:                                              ; preds = %188
@@ -354,12 +354,12 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br i1 %.not286305, label %.loopexit301, label %.lr.ph
 
 .lr.ph:                                           ; preds = %214
-  %228 = getelementptr inbounds i8, ptr %19, i64 4
-  %229 = getelementptr inbounds i8, ptr %16, i64 32
-  %230 = getelementptr inbounds i8, ptr %16, i64 28
-  %231 = getelementptr inbounds i8, ptr %20, i64 32
-  %232 = getelementptr inbounds i8, ptr %19, i64 8
-  %233 = getelementptr inbounds i8, ptr %19, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %231 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %19, i64 12
   br label %234
 
 234:                                              ; preds = %.lr.ph, %234
@@ -499,7 +499,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br label %326
 
 326:                                              ; preds = %177, %.loopexit301
-  %327 = getelementptr inbounds i8, ptr %34, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %328 = load ptr, ptr %327, align 8
   %.not287 = icmp eq ptr %328, null
   br i1 %.not287, label %330, label %329
@@ -509,7 +509,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br label %330
 
 330:                                              ; preds = %329, %326
-  %331 = getelementptr inbounds i8, ptr %31, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %332 = load ptr, ptr %331, align 8
   %.not288 = icmp eq ptr %332, null
   br i1 %.not288, label %334, label %333
@@ -519,7 +519,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br label %334
 
 334:                                              ; preds = %166, %171, %330, %333
-  %335 = getelementptr inbounds i8, ptr %34, i64 24
+  %335 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %336 = load ptr, ptr %335, align 8
   %.not289 = icmp eq ptr %336, null
   br i1 %.not289, label %338, label %337
@@ -529,7 +529,7 @@ findpow2tilesize.exit:                            ; preds = %.loopexit304, %72
   br label %338
 
 338:                                              ; preds = %337, %334
-  %339 = getelementptr inbounds i8, ptr %31, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %340 = load ptr, ptr %339, align 8
   %.not290 = icmp eq ptr %340, null
   br i1 %.not290, label %341, label %.sink.split

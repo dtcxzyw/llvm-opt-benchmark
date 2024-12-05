@@ -109,7 +109,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr nocapture noun
   %11 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %12 = alloca [32 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %11, ptr noundef nonnull align 1 dereferenceable(6) %2, i64 6, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   %.val = load ptr, ptr %0, align 8
   %14 = call ptr @g_hash_table_lookup(ptr noundef %.val, ptr noundef nonnull %11) #14
@@ -117,15 +117,15 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr nocapture noun
   br i1 %15, label %119, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %14, i64 33
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 33
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %119, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %14, i64 36
-  %21 = getelementptr inbounds i8, ptr %14, i64 84
-  %22 = getelementptr inbounds i8, ptr %14, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 84
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %24 [
     i32 1, label %Dot11DecryptGetKckLen.exit
@@ -171,24 +171,24 @@ switch.hole_check:                                ; preds = %Dot11DecryptGetKckL
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKekLen.exit
 
 Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   %.0.i42 = phi i64 [ 0, %28 ], [ %switch.load, %switch.lookup ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %Dot11DecryptGetKekLen.exit
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i16, ptr %34, align 8
   br label %40
 
 36:                                               ; preds = %Dot11DecryptGetKekLen.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load i16, ptr %37, align 8
   %39 = icmp ult i16 %38, 16
   br i1 %39, label %119, label %40
@@ -200,7 +200,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   br i1 %42, label %119, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = icmp ult i16 %45, 95
   %47 = zext i16 %45 to i32
@@ -210,7 +210,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   br i1 %or.cond, label %119, label %50
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = load ptr, ptr %51, align 8
   br i1 %32, label %53, label %74
 
@@ -218,10 +218,10 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   %54 = icmp ugt i16 %.055, 31
   %55 = select i1 %54, i8 1, i8 2
   store i8 %55, ptr %20, align 4
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) %57, i64 16, i1 false)
-  %58 = getelementptr inbounds i8, ptr %12, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
@@ -325,7 +325,7 @@ AES_unwrap.exit:                                  ; preds = %83
   br i1 %.not.i49, label %Dot11DecryptCopyKey.exit, label %93
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %14, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not30.i = icmp eq ptr %95, null
   br i1 %.not30.i, label %97, label %96
@@ -339,23 +339,23 @@ AES_unwrap.exit:                                  ; preds = %83
   br label %98
 
 98:                                               ; preds = %97, %96
-  %99 = getelementptr inbounds i8, ptr %14, i64 172
+  %99 = getelementptr inbounds nuw i8, ptr %14, i64 172
   %100 = load i32, ptr %99, align 4
   %101 = trunc i32 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %6, i64 145
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 145
   store i8 %101, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %6, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %104 = load i32, ptr %99, align 4
   %105 = sext i32 %104 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %103, ptr nonnull readonly align 4 %21, i64 %105, i1 false)
   %106 = load i32, ptr %22, align 4
   %107 = trunc i32 %106 to i8
-  %108 = getelementptr inbounds i8, ptr %6, i64 146
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 146
   store i8 %107, ptr %108, align 2
-  %109 = getelementptr inbounds i8, ptr %14, i64 76
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %110 = load i32, ptr %109, align 4
   %111 = trunc i32 %110 to i8
-  %112 = getelementptr inbounds i8, ptr %6, i64 147
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 147
   store i8 %111, ptr %112, align 1
   %113 = load i8, ptr %20, align 4
   switch i8 %113, label %Dot11DecryptCopyKey.exit [
@@ -373,7 +373,7 @@ AES_unwrap.exit:                                  ; preds = %83
 
 switch.lookup74:                                  ; preds = %114
   %117 = zext nneg i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %117
+  %switch.gep76 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %117
   %switch.load77 = load i8, ptr %switch.gep76, align 1
   br label %.sink.split.i50
 
@@ -456,7 +456,7 @@ define internal fastcc void @Dot11DecryptCopyKey(ptr nocapture noundef nonnull r
   br i1 %.not, label %31, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not30 = icmp eq ptr %5, null
   br i1 %.not30, label %7, label %6
@@ -470,26 +470,26 @@ define internal fastcc void @Dot11DecryptCopyKey(ptr nocapture noundef nonnull r
   br label %8
 
 8:                                                ; preds = %7, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
-  %10 = getelementptr inbounds i8, ptr %0, i64 172
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %1, i64 145
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 145
   store i8 %12, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %16 = load i32, ptr %10, align 4
   %17 = sext i32 %16 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 4 %15, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %1, i64 146
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 146
   store i8 %20, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %23 = load i32, ptr %22, align 4
   %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds i8, ptr %1, i64 147
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 147
   store i8 %24, ptr %25, align 1
   %26 = load i8, ptr %9, align 4
   switch i8 %26, label %31 [
@@ -507,7 +507,7 @@ define internal fastcc void @Dot11DecryptCopyKey(ptr nocapture noundef nonnull r
 
 switch.lookup:                                    ; preds = %27
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %.sink.split
 
@@ -528,9 +528,9 @@ define hidden range(i32 0, 25) i32 @Dot11DecryptGetKCK(ptr noundef %0, ptr nound
   br i1 %or.cond, label %5, label %Dot11DecryptGetKckLen.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %6, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 146
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %8 = load i8, ptr %7, align 2
   %switch.tableidx = add i8 %8, -1
   %9 = icmp ult i8 %switch.tableidx, 18
@@ -548,7 +548,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptGetKCK, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table.Dot11DecryptGetKCK, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetKckLen.exit
 
@@ -565,8 +565,8 @@ define hidden range(i32 0, 33) i32 @Dot11DecryptGetKEK(ptr noundef %0, ptr nound
   br i1 %or.cond, label %5, label %Dot11DecryptGetKekLen.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 146
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %8 = load i8, ptr %7, align 2
   %switch.tableidx = add i8 %8, -1
   %9 = icmp ult i8 %switch.tableidx, 18
@@ -584,7 +584,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -609,7 +609,7 @@ switch.hole_check14:                              ; preds = %Dot11DecryptGetKckL
 
 switch.lookup15:                                  ; preds = %switch.hole_check14
   %16 = zext nneg i8 %switch.tableidx13 to i64
-  %switch.gep19 = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptGetKEK.5, i64 0, i64 %16
+  %switch.gep19 = getelementptr inbounds nuw [18 x i32], ptr @switch.table.Dot11DecryptGetKEK.5, i64 0, i64 %16
   %switch.load20 = load i32, ptr %switch.gep19, align 4
   br label %Dot11DecryptGetKekLen.exit
 
@@ -636,8 +636,8 @@ define hidden range(i32 0, 33) i32 @Dot11DecryptGetTK(ptr noundef %0, ptr nounde
   br label %Dot11DecryptGetTkLen.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 146
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %13 = load i8, ptr %12, align 2
   %switch.tableidx = add i8 %13, -1
   %14 = icmp ult i8 %switch.tableidx, 18
@@ -655,9 +655,9 @@ switch.hole_check:                                ; preds = %10
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i8], ptr @switch.table.Dot11DecryptGetTK, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [18 x i8], ptr @switch.table.Dot11DecryptGetTK, i64 0, i64 %16
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %17
+  %switch.gep21 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %17
   %switch.load22 = load i64, ptr %switch.gep21, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -681,7 +681,7 @@ switch.hole_check25:                              ; preds = %Dot11DecryptGetKckL
 
 switch.lookup26:                                  ; preds = %switch.hole_check25
   %21 = zext nneg i8 %switch.tableidx24 to i64
-  %switch.gep30 = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %21
+  %switch.gep30 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %21
   %switch.load31 = load i64, ptr %switch.gep30, align 8
   br label %Dot11DecryptGetKekLen.exit
 
@@ -690,7 +690,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup26, %2
   %22 = getelementptr i8, ptr %11, i64 %.0.i
   %23 = getelementptr i8, ptr %22, i64 %.0.i15
   store ptr %23, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 147
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %25 = load i8, ptr %24, align 1
   %switch.tableidx33 = add i8 %25, -1
   %26 = icmp ult i8 %switch.tableidx33, 13
@@ -702,7 +702,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup26, %2
 
 switch.lookup32:                                  ; preds = %Dot11DecryptGetKekLen.exit
   %28 = zext nneg i8 %switch.tableidx33 to i64
-  %switch.gep34 = getelementptr inbounds [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %28
+  %switch.gep34 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %28
   %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -723,7 +723,7 @@ define internal fastcc range(i32 -1, 257) i32 @Dot11DecryptGetTkLen(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.Dot11DecryptGetTkLen, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptGetTkLen, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -747,7 +747,7 @@ define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr nound
   br i1 %8, label %Dot11DecryptGetTkLen.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 147
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %11 = load i8, ptr %10, align 1
   %switch.tableidx = add i8 %11, -1
   %12 = icmp ult i8 %switch.tableidx, 13
@@ -759,7 +759,7 @@ define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -877,7 +877,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
   %48 = getelementptr i8, ptr %1, i64 %47
   %49 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %45, ptr noundef nonnull dereferenceable(6) %48, i64 noundef 6) #16
   %50 = icmp slt i32 %49, 0
-  %51 = getelementptr inbounds i8, ptr %4, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %. = select i1 %50, ptr %45, ptr %48
   %.123 = select i1 %50, ptr %48, ptr %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %51, ptr noundef nonnull align 1 dereferenceable(6) %., i64 6, i1 false)
@@ -895,13 +895,13 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
 
 54:                                               ; preds = %.lr.ph118, %60
   %.0116 = phi ptr [ %52, %.lr.ph118 ], [ %61, %60 ]
-  %55 = getelementptr inbounds i8, ptr %.0116, i64 33
+  %55 = getelementptr inbounds nuw i8, ptr %.0116, i64 33
   %56 = load i8, ptr %55, align 1
   %.not89 = icmp eq i8 %56, 0
   br i1 %.not89, label %60, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.0116, i64 37
+  %58 = getelementptr inbounds nuw i8, ptr %.0116, i64 37
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %58, ptr noundef nonnull dereferenceable(32) %gep, i64 32)
   %59 = icmp eq i32 %bcmp, 0
   br i1 %59, label %.loopexit, label %60
@@ -921,7 +921,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr nocapture no
   br label %.loopexit
 
 64:                                               ; preds = %._crit_edge119
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull readonly align 1 dereferenceable(12) %4, i64 12, i1 false)
   %66 = call fastcc i32 @Dot11DecryptTDLSDeriveKey(ptr noundef %62, ptr noundef nonnull %1, i32 noundef %.084.lcssa, i32 noundef %.082.lcssa, i32 noundef %.079.lcssa, i32 noundef %.080.lcssa, i8 noundef zeroext %7)
   %67 = icmp eq i32 %66, 0
@@ -1004,9 +1004,9 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   br label %186
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %48, %50
   br i1 %51, label %52, label %53
@@ -1018,16 +1018,16 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
 
 53:                                               ; preds = %52, %46
   %54 = phi i32 [ %.pre, %52 ], [ %48, %46 ]
-  %55 = getelementptr inbounds i8, ptr %44, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %56 = add i32 %54, 1
   store i32 %56, ptr %47, align 8
   %57 = sext i32 %54 to i64
   %58 = getelementptr [1 x i8], ptr %55, i64 0, i64 %57
   store i8 1, ptr %58, align 1
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %61, %63
   br i1 %64, label %65, label %66
@@ -1039,7 +1039,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
 
 66:                                               ; preds = %65, %53
   %67 = phi i32 [ %.pre90, %65 ], [ %61, %53 ]
-  %68 = getelementptr inbounds i8, ptr %59, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %69 = add i32 %67, 1
   store i32 %69, ptr %60, align 8
   %70 = sext i32 %67 to i64
@@ -1058,9 +1058,9 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   %77 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %77, ptr noundef %33, i64 noundef 6) #14
   %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %80, %82
   br i1 %83, label %84, label %85
@@ -1072,16 +1072,16 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
 
 85:                                               ; preds = %84, %66
   %86 = phi i32 [ %.pre91, %84 ], [ %80, %66 ]
-  %87 = getelementptr inbounds i8, ptr %78, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %88 = add i32 %86, 1
   store i32 %88, ptr %79, align 8
   %89 = sext i32 %86 to i64
   %90 = getelementptr [1 x i8], ptr %87, i64 0, i64 %89
   store i8 0, ptr %90, align 1
   %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %93, %95
   br i1 %96, label %97, label %98
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
 
 98:                                               ; preds = %97, %85
   %99 = phi i32 [ %.pre92, %97 ], [ %93, %85 ]
-  %100 = getelementptr inbounds i8, ptr %91, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %101 = add i32 %99, 1
   store i32 %101, ptr %92, align 8
   %102 = sext i32 %99 to i64
@@ -1201,23 +1201,23 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   br i1 %.not86, label %Dot11DecryptGetKckLen.exit, label %186
 
 Dot11DecryptGetKckLen.exit:                       ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %0, i64 36
-  %177 = getelementptr inbounds i8, ptr %0, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %0, i64 76
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 4, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %0, i64 172
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 48, ptr %179, align 4
   %180 = getelementptr i8, ptr %0, i64 116
-  %181 = getelementptr inbounds i8, ptr %10, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %182 = call fastcc i32 @Dot11DecryptGetTkLen(i32 noundef 4)
   %.lhs.trunc88 = trunc nsw i32 %182 to i16
   %183 = sdiv i16 %.lhs.trunc88, 8
   %.sext89 = zext nneg i16 %183 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %180, ptr nonnull align 16 %181, i64 %.sext89, i1 false)
-  %184 = getelementptr inbounds i8, ptr %0, i64 37
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %184, ptr noundef nonnull align 1 dereferenceable(32) %22, i64 32, i1 false)
-  %185 = getelementptr inbounds i8, ptr %0, i64 33
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %185, align 1
   store i8 2, ptr %176, align 4
   br label %186
@@ -1272,7 +1272,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   unreachable
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %1, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %18 = load i8, ptr %17, align 2
   switch i8 %18, label %Dot11DecryptGroupHandshake.exit [
     i8 2, label %19
@@ -1281,7 +1281,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
 
 19:                                               ; preds = %16, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
-  %20 = getelementptr inbounds i8, ptr %13, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %20, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 6, i1 false)
   %21 = load i32, ptr %1, align 8
   switch i32 %21, label %228 [
@@ -1298,19 +1298,19 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i16, ptr %23, align 4
   %25 = icmp ugt i16 %24, 1024
   br i1 %25, label %Dot11DecryptRsna4WHandshake.exit, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i16, ptr %27, align 8
   %29 = icmp ugt i16 %28, 1024
   br i1 %29, label %Dot11DecryptRsna4WHandshake.exit, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i16, ptr %31, align 8
   %33 = icmp ugt i16 %32, 1024
   br i1 %33, label %Dot11DecryptRsna4WHandshake.exit, label %34
@@ -1323,7 +1323,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   ]
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   %.not136.i = icmp eq ptr %37, null
   br i1 %.not136.i, label %Dot11DecryptRsna4WHandshake.exit, label %38
@@ -1335,7 +1335,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %39, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %43 = load i8, ptr %42, align 8
   %44 = icmp ugt i8 %43, 1
   br i1 %44, label %45, label %51
@@ -1350,21 +1350,21 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   br label %Dot11DecryptRsna4WHandshake.exit
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull readonly align 1 dereferenceable(12) %13, i64 12, i1 false)
   %50 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %46)
   br label %51
 
 51:                                               ; preds = %48, %41
   %.0122.i = phi ptr [ %50, %48 ], [ %39, %41 ]
-  %52 = getelementptr inbounds i8, ptr %.0122.i, i64 36
-  %53 = getelementptr inbounds i8, ptr %.0122.i, i64 37
+  %52 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 37
   %54 = load ptr, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %53, ptr noundef nonnull align 1 dereferenceable(32) %54, i64 32, i1 false)
-  %55 = getelementptr inbounds i8, ptr %1, i64 7
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %56 = load i8, ptr %55, align 1
   store i8 %56, ptr %52, align 4
-  %57 = getelementptr inbounds i8, ptr %.0122.i, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 32
   store i8 1, ptr %57, align 8
   br label %Dot11DecryptRsna4WHandshake.exit
 
@@ -1375,17 +1375,17 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   br i1 %60, label %Dot11DecryptRsna4WHandshake.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %Dot11DecryptRsna4WHandshake.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %59, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not133.i = icmp ne ptr %66, null
   store i64 0, ptr %12, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 27656
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
   %70 = icmp sgt i32 %69, 0
@@ -1393,31 +1393,31 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   br i1 %71, label %.lr.ph.i, label %Dot11DecryptRsna4WHandshake.exit
 
 .lr.ph.i:                                         ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 27696
-  %74 = getelementptr inbounds i8, ptr %9, i64 320
-  %75 = getelementptr inbounds i8, ptr %9, i64 392
-  %76 = getelementptr inbounds i8, ptr %0, i64 27664
-  %77 = getelementptr inbounds i8, ptr %9, i64 424
-  %78 = getelementptr inbounds i8, ptr %9, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 27696
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 320
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 392
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 27664
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 424
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = zext nneg i32 %3 to i64
-  %80 = getelementptr inbounds i8, ptr %1, i64 7
-  %81 = getelementptr inbounds i8, ptr %1, i64 36
-  %82 = getelementptr inbounds i8, ptr %1, i64 35
-  %83 = getelementptr inbounds i8, ptr %1, i64 34
-  %84 = getelementptr inbounds i8, ptr %1, i64 80
-  %85 = getelementptr inbounds i8, ptr %1, i64 120
-  %86 = getelementptr inbounds i8, ptr %1, i64 128
-  %87 = getelementptr inbounds i8, ptr %1, i64 136
-  %88 = getelementptr inbounds i8, ptr %59, i64 8
-  %89 = getelementptr inbounds i8, ptr %59, i64 14
-  %90 = getelementptr inbounds i8, ptr %8, i64 6
-  %91 = getelementptr inbounds i8, ptr %59, i64 37
-  %92 = getelementptr inbounds i8, ptr %8, i64 12
-  %93 = getelementptr inbounds i8, ptr %8, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %59, i64 14
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %91 = getelementptr inbounds nuw i8, ptr %59, i64 37
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %94 = getelementptr i8, ptr %1, i64 48
   %95 = getelementptr i8, ptr %1, i64 56
-  %96 = getelementptr inbounds i8, ptr %10, i64 81
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 81
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i
@@ -1458,7 +1458,7 @@ Dot11DecryptIsWpaKeyType.exit.i:                  ; preds = %97, %.backedge.i
   ]
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %.0124.i, i64 424
+  %106 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 424
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %109, label %Dot11DecryptIsPwdWildcardSsid.exit.i
@@ -1509,9 +1509,9 @@ Dot11DecryptIsPwdWildcardSsid.exit.i:             ; preds = %112, %109, %105, %1
   br i1 %124, label %125, label %Dot11DecryptDerivePmkFromMsk.exit.i
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %.0123.i, i64 313
+  %126 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 313
   %127 = load i8, ptr %126, align 1
-  %128 = getelementptr inbounds i8, ptr %.0123.i, i64 144
+  %128 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 144
   %129 = icmp eq i32 %.3113.i, 12
   %..i.i = select i1 %129, i8 48, i8 32
   store i8 %..i.i, ptr %128, align 1
@@ -1524,8 +1524,8 @@ Dot11DecryptIsPwdWildcardSsid.exit.i:             ; preds = %112, %109, %105, %1
   br label %Dot11DecryptDerivePmkFromMsk.exit.i
 
 133:                                              ; preds = %125
-  %134 = getelementptr inbounds i8, ptr %.0123.i, i64 8
-  %135 = getelementptr inbounds i8, ptr %.0123.i, i64 185
+  %134 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 185
   %136 = zext nneg i8 %..i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %134, ptr noundef nonnull readonly align 1 dereferenceable(1) %135, i64 %136, i1 false)
   br label %Dot11DecryptDerivePmkFromMsk.exit.i
@@ -1550,8 +1550,8 @@ Dot11DecryptDerivePmkFromMsk.exit.i:              ; preds = %133, %132, %122
   br label %171
 
 Dot11DecryptIsFtAkm.exit.i:                       ; preds = %Dot11DecryptDerivePmkFromMsk.exit.i
-  %145 = getelementptr inbounds i8, ptr %.0123.i, i64 8
-  %146 = getelementptr inbounds i8, ptr %.0123.i, i64 144
+  %145 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 144
   %147 = load i8, ptr %146, align 8
   %148 = zext i8 %147 to i64
   %149 = load ptr, ptr %62, align 8
@@ -1576,7 +1576,7 @@ Dot11DecryptIsFtAkm.exit.i:                       ; preds = %Dot11DecryptDeriveP
 
 switch.lookup:                                    ; preds = %154
   %157 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptScanEapolForKeys, i64 0, i64 %157
+  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table.Dot11DecryptScanEapolForKeys, i64 0, i64 %157
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetHashAlgoFromAkm.exit.i.i
 
@@ -1653,7 +1653,7 @@ switch.hole_check:                                ; preds = %172
 
 switch.lookup43:                                  ; preds = %switch.hole_check
   %176 = zext nneg i8 %switch.tableidx42 to i64
-  %switch.gep44 = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %176
+  %switch.gep44 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %176
   %switch.load45 = load i64, ptr %switch.gep44, align 8
   br label %Dot11DecryptGetKckLen.exit.i.i
 
@@ -1758,23 +1758,23 @@ Dot11DecryptIsWpaKeyType.exit141.thread.i:        ; preds = %185, %.thread.i.i, 
   %.1107162.i = phi i32 [ %.3109.i, %.thread.i ], [ %.2108.i, %._crit_edge.i ]
   %.1111161.i = phi i32 [ %.3113.i, %.thread.i ], [ %.2112.i, %._crit_edge.i ]
   %197 = load i8, ptr %80, align 1
-  %198 = getelementptr inbounds i8, ptr %59, i64 36
+  %198 = getelementptr inbounds nuw i8, ptr %59, i64 36
   store i8 %197, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %59, i64 72
+  %199 = getelementptr inbounds nuw i8, ptr %59, i64 72
   store i32 %.1111161.i, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %59, i64 76
+  %200 = getelementptr inbounds nuw i8, ptr %59, i64 76
   store i32 %.1107162.i, ptr %200, align 4
-  %201 = getelementptr inbounds i8, ptr %59, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %59, i64 80
   store i32 %.1163.i, ptr %201, align 4
-  %202 = getelementptr inbounds i8, ptr %59, i64 84
+  %202 = getelementptr inbounds nuw i8, ptr %59, i64 84
   %203 = load i64, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %202, ptr nonnull align 16 %11, i64 %203, i1 false)
   %204 = trunc i64 %203 to i32
-  %205 = getelementptr inbounds i8, ptr %59, i64 172
+  %205 = getelementptr inbounds nuw i8, ptr %59, i64 172
   store i32 %204, ptr %205, align 4
-  %206 = getelementptr inbounds i8, ptr %59, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i8 2, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %59, i64 33
+  %207 = getelementptr inbounds nuw i8, ptr %59, i64 33
   store i8 1, ptr %207, align 1
   br label %Dot11DecryptRsna4WHandshake.exit
 
@@ -1783,9 +1783,9 @@ Dot11DecryptIsWpaKeyType.exit141.thread.i:        ; preds = %185, %.thread.i.i, 
   br i1 %209, label %210, label %217
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %1, i64 64
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %1, i64 72
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %214 = load i16, ptr %213, align 8
   %215 = zext i16 %214 to i64
   %216 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef %0, ptr noundef %212, i64 noundef %215, ptr noundef nonnull %13)
@@ -1809,9 +1809,9 @@ Dot11DecryptRsna4WHandshake.exit:                 ; preds = %Dot11DecryptIsWpaKe
   br i1 %220, label %Dot11DecryptGroupHandshake.exit, label %221
 
 221:                                              ; preds = %219
-  %222 = getelementptr inbounds i8, ptr %1, i64 64
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 72
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %225 = load i16, ptr %224, align 8
   %226 = zext i16 %225 to i64
   %227 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly %0, ptr noundef %223, i64 noundef %226, ptr noundef nonnull %13)
@@ -1883,14 +1883,14 @@ define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond.i, label %31, label %._crit_edge.i
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %1, i64 10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %32, ptr noundef nonnull readonly dereferenceable(6) %33, i64 6)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %._crit_edge.i.thread, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %bcmp24.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %35, ptr noundef nonnull readonly dereferenceable(6) %33, i64 6)
   %.not25.i = icmp eq i32 %bcmp24.i, 0
   br i1 %.not25.i, label %._crit_edge.i.thread, label %36
@@ -1898,7 +1898,7 @@ define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonl
 36:                                               ; preds = %34
   %37 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(6) %35, ptr noundef nonnull readonly dereferenceable(6) %32, i64 noundef 6) #16
   %38 = icmp slt i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %8, i64 6
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 6
   br i1 %38, label %40, label %41
 
 40:                                               ; preds = %36
@@ -1923,30 +1923,30 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 ._crit_edge.i.thread:                             ; preds = %31, %34, %._crit_edge.i
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) %42, i64 6, i1 false)
-  %43 = getelementptr inbounds i8, ptr %1, i64 10
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %43, ptr noundef nonnull readonly dereferenceable(6) %42, i64 6)
   %44 = icmp eq i32 %bcmp.i.i, 0
-  %45 = getelementptr inbounds i8, ptr %1, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select.i.i = select i1 %44, ptr %45, ptr %43
   br label %Dot11DecryptGetStaAddress.exit.i
 
 46:                                               ; preds = %._crit_edge.i
-  %47 = getelementptr inbounds i8, ptr %1, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) %47, i64 6, i1 false)
-  %48 = getelementptr inbounds i8, ptr %1, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %Dot11DecryptGetStaAddress.exit.i
 
 49:                                               ; preds = %._crit_edge.i
-  %50 = getelementptr inbounds i8, ptr %1, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) %50, i64 6, i1 false)
-  %51 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %Dot11DecryptGetStaAddress.exit.i
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 10
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %55 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(6) %53, ptr noundef nonnull readonly dereferenceable(6) %54, i64 noundef 6) #16
   %56 = icmp sgt i32 %55, 0
   %..i.i = select i1 %56, ptr %53, ptr %54
@@ -1957,7 +1957,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
 
 Dot11DecryptGetStaAddress.exit.i:                 ; preds = %52, %49, %46, %._crit_edge.i.thread
   %.0.i27.i = phi ptr [ %51, %49 ], [ %48, %46 ], [ %..i26.i, %52 ], [ %spec.select.i.i, %._crit_edge.i.thread ]
-  %58 = getelementptr inbounds i8, ptr %8, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %58, ptr noundef nonnull align 1 dereferenceable(6) %.0.i27.i, i64 6, i1 false)
   br label %Dot11DecryptGetSaAddress.exit
 
@@ -1983,14 +1983,14 @@ Dot11DecryptGetSaAddress.exit:                    ; preds = %40, %41, %Dot11Decr
   br label %Dot11DecryptGetNbrOfTkKeys.exit.thread
 
 71:                                               ; preds = %61
-  %72 = getelementptr inbounds i8, ptr %1, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 1
   %.not49 = icmp eq i8 %74, 0
   br i1 %.not49, label %77, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %8, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %76, i8 -1, i64 6, i1 false)
   br label %77
 
@@ -2007,13 +2007,13 @@ Dot11DecryptGetSaAddress.exit:                    ; preds = %40, %41, %Dot11Decr
 
 .thread:                                          ; preds = %77, %79
   %.061 = phi i32 [ %80, %79 ], [ 3, %77 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 27656
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %82 = load i64, ptr %81, align 8
   %.not.i52 = icmp eq i64 %82, 0
   br i1 %.not.i52, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %84
 
 84:                                               ; preds = %84, %.lr.ph.i
@@ -2054,7 +2054,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not78 = icmp ne ptr %15, null
   %spec.select = zext i1 %.not78 to i8
@@ -2062,7 +2062,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
 
 16:                                               ; preds = %13, %6
   %.065 = phi i8 [ 0, %6 ], [ %spec.select, %13 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 27656
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, 0
@@ -2073,15 +2073,15 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
   br label %87
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = zext i32 %2 to i64
   %24 = getelementptr i8, ptr %11, i64 %23
-  %25 = getelementptr inbounds i8, ptr %8, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %26 = add i32 %2, 4
   %27 = zext i32 %26 to i64
   %28 = getelementptr i8, ptr %11, i64 %27
-  %29 = getelementptr inbounds i8, ptr %8, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 3
   br label %30
 
 30:                                               ; preds = %.lr.ph, %.thread97
@@ -2115,8 +2115,8 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 1 %1, i64 %39, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) %24, i64 3, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.06889, i64 8
-  %41 = getelementptr inbounds i8, ptr %.06889, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.06889, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.06889, i64 40
   %42 = load i64, ptr %41, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %40, i64 %42, i1 false)
   %43 = add i64 %42, 3
@@ -2149,7 +2149,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
   br label %87
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull readonly align 1 dereferenceable(12) %5, i64 12, i1 false)
   %.val.i = load ptr, ptr %0, align 8
   %57 = call ptr @g_hash_table_lookup(ptr noundef %.val.i, ptr noundef nonnull %5) #14
@@ -2173,7 +2173,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
 
 Dot11DecryptAddSa.exit:                           ; preds = %59, %58, %52
   %.063 = phi ptr [ %12, %52 ], [ %57, %58 ], [ %54, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.063, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.063, i64 24
   store ptr %.06889, ptr %63, align 8
   %.not82 = icmp eq ptr %4, null
   br i1 %.not82, label %.thread101, label %64
@@ -2249,7 +2249,7 @@ define internal fastcc i32 @Dot11DecryptRsnaMng(ptr nocapture noundef nonnull %0
 14:                                               ; preds = %8, %87
   %.072131 = phi ptr [ %4, %8 ], [ %88, %87 ]
   %.073130 = phi i32 [ 1, %8 ], [ %.2, %87 ]
-  %15 = getelementptr inbounds i8, ptr %.072131, i64 33
+  %15 = getelementptr inbounds nuw i8, ptr %.072131, i64 33
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %87, label %18
@@ -2258,7 +2258,7 @@ define internal fastcc i32 @Dot11DecryptRsnaMng(ptr nocapture noundef nonnull %0
   %19 = load i32, ptr %2, align 4
   %20 = zext i32 %19 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr nonnull align 1 %0, i64 %20, i1 false)
-  %21 = getelementptr inbounds i8, ptr %.072131, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %.072131, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %24, label %38
@@ -2293,7 +2293,7 @@ define internal fastcc i32 @Dot11DecryptRsnaMng(ptr nocapture noundef nonnull %0
   br label %90
 
 38:                                               ; preds = %18
-  %39 = getelementptr inbounds i8, ptr %.072131, i64 76
+  %39 = getelementptr inbounds nuw i8, ptr %.072131, i64 76
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, -2
   %switch = icmp eq i32 %41, 8
@@ -2308,8 +2308,8 @@ define internal fastcc i32 @Dot11DecryptRsnaMng(ptr nocapture noundef nonnull %0
   br label %Dot11DecryptCopyKey.exit
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.072131, i64 84
-  %47 = getelementptr inbounds i8, ptr %.072131, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.072131, i64 84
+  %47 = getelementptr inbounds nuw i8, ptr %.072131, i64 72
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %49 [
     i32 1, label %Dot11DecryptGetKckLen.exit
@@ -2354,7 +2354,7 @@ switch.hole_check:                                ; preds = %Dot11DecryptGetKckL
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKekLen.exit
 
@@ -2373,7 +2373,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %52
 
 switch.lookup170:                                 ; preds = %Dot11DecryptGetKekLen.exit
   %59 = zext nneg i32 %switch.tableidx171 to i64
-  %switch.gep172 = getelementptr inbounds [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %59
+  %switch.gep172 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %59
   %switch.load173 = load i32, ptr %switch.gep172, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -2399,8 +2399,8 @@ Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup170, %
   br label %Dot11DecryptCopyKey.exit
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.072131, i64 84
-  %70 = getelementptr inbounds i8, ptr %.072131, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.072131, i64 84
+  %70 = getelementptr inbounds nuw i8, ptr %.072131, i64 72
   %71 = load i32, ptr %70, align 4
   switch i32 %71, label %72 [
     i32 1, label %Dot11DecryptGetKckLen.exit97
@@ -2445,7 +2445,7 @@ switch.hole_check176:                             ; preds = %Dot11DecryptGetKckL
 
 switch.lookup177:                                 ; preds = %switch.hole_check176
   %76 = zext nneg i32 %switch.tableidx175 to i64
-  %switch.gep180 = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %76
+  %switch.gep180 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %76
   %switch.load181 = load i64, ptr %switch.gep180, align 8
   br label %Dot11DecryptGetKekLen.exit99
 
@@ -2464,7 +2464,7 @@ Dot11DecryptGetKekLen.exit99:                     ; preds = %switch.lookup177, %
 
 switch.lookup182:                                 ; preds = %Dot11DecryptGetKekLen.exit99
   %82 = zext nneg i32 %switch.tableidx183 to i64
-  %switch.gep184 = getelementptr inbounds [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %82
+  %switch.gep184 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.12, i64 0, i64 %82
   %switch.load185 = load i32, ptr %switch.gep184, align 4
   br label %Dot11DecryptGetTkLen.exit101
 
@@ -2491,7 +2491,7 @@ Dot11DecryptGetTkLen.exit101:                     ; preds = %switch.lookup182, %
 
 90:                                               ; preds = %84, %61, %35
   %.sink = phi i32 [ %86, %84 ], [ %63, %61 ], [ %37, %35 ]
-  %91 = getelementptr inbounds i8, ptr %.072131, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %.072131, i64 36
   store i32 %.sink, ptr %2, align 4
   %92 = icmp ugt i32 %.sink, %6
   %93 = icmp ult i32 %.sink, 8
@@ -2528,7 +2528,7 @@ Dot11DecryptGetTkLen.exit101:                     ; preds = %switch.lookup182, %
   br i1 %.not.i, label %Dot11DecryptCopyKey.exit, label %108
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %.072131, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %.072131, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not30.i = icmp eq ptr %110, null
   br i1 %.not30.i, label %112, label %111
@@ -2542,25 +2542,25 @@ Dot11DecryptGetTkLen.exit101:                     ; preds = %switch.lookup182, %
   br label %113
 
 113:                                              ; preds = %112, %111
-  %114 = getelementptr inbounds i8, ptr %.072131, i64 172
+  %114 = getelementptr inbounds nuw i8, ptr %.072131, i64 172
   %115 = load i32, ptr %114, align 4
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %3, i64 145
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 145
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %3, i64 56
-  %119 = getelementptr inbounds i8, ptr %.072131, i64 84
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %.072131, i64 84
   %120 = load i32, ptr %114, align 4
   %121 = sext i32 %120 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr nonnull readonly align 4 %119, i64 %121, i1 false)
-  %122 = getelementptr inbounds i8, ptr %.072131, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %.072131, i64 72
   %123 = load i32, ptr %122, align 4
   %124 = trunc i32 %123 to i8
-  %125 = getelementptr inbounds i8, ptr %3, i64 146
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 146
   store i8 %124, ptr %125, align 2
-  %126 = getelementptr inbounds i8, ptr %.072131, i64 76
+  %126 = getelementptr inbounds nuw i8, ptr %.072131, i64 76
   %127 = load i32, ptr %126, align 4
   %128 = trunc i32 %127 to i8
-  %129 = getelementptr inbounds i8, ptr %3, i64 147
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 147
   store i8 %128, ptr %129, align 1
   %130 = load i8, ptr %91, align 4
   switch i8 %130, label %Dot11DecryptCopyKey.exit [
@@ -2578,7 +2578,7 @@ Dot11DecryptGetTkLen.exit101:                     ; preds = %switch.lookup182, %
 
 switch.lookup186:                                 ; preds = %131
   %134 = zext nneg i32 %switch.tableidx187 to i64
-  %switch.gep188 = getelementptr inbounds [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %134
+  %switch.gep188 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.Dot11DecryptRsnaMng.13, i64 0, i64 %134
   %switch.load189 = load i8, ptr %switch.gep188, align 1
   br label %.sink.split.i
 
@@ -2601,26 +2601,26 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
   br i1 %.not.i, label %Dot11DecryptAddSa.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull readonly align 1 dereferenceable(12) %4, i64 12, i1 false)
-  %12 = getelementptr inbounds i8, ptr %9, i64 36
-  %13 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 2, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 33
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 27656
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %16 = load i64, ptr %15, align 8
   %.not63 = icmp eq i64 %16, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 24
-  %21 = getelementptr inbounds i8, ptr %9, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %22 = getelementptr i8, ptr %9, i64 116
-  %23 = getelementptr inbounds i8, ptr %9, i64 172
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 172
   br label %24
 
 24:                                               ; preds = %.lr.ph61, %.loopexit
@@ -2634,8 +2634,8 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
 
 28:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %26, i64 152
-  %30 = getelementptr inbounds i8, ptr %26, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %.loopexit [
     i8 16, label %33
@@ -2762,7 +2762,7 @@ define hidden i32 @Dot11DecryptSetKeys(ptr noundef %0, ptr noundef %1, i64 nound
   br label %52
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27656) %11, i8 0, i64 27656, i1 false)
   %12 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %12, null
@@ -2774,7 +2774,7 @@ define hidden i32 @Dot11DecryptSetKeys(ptr noundef %0, ptr noundef %1, i64 nound
   br label %Dot11DecryptInitContext.exit
 
 Dot11DecryptInitContext.exit:                     ; preds = %10, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 27696
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 27696
   store i64 0, ptr %14, align 8
   %15 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @Dot11DecryptSaHash, ptr noundef nonnull @Dot11DecryptIsSaIdEqual, ptr noundef nonnull @g_free, ptr noundef nonnull @Dot11DecryptCleanSA) #14
   store ptr %15, ptr %0, align 8
@@ -2805,7 +2805,7 @@ Dot11DecryptInitContext.exit:                     ; preds = %10, %13
   ]
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, -33
   %or.cond.i = icmp ult i64 %24, -32
@@ -2816,19 +2816,19 @@ Dot11DecryptInitContext.exit:                     ; preds = %10, %13
   br label %Dot11DecryptValidateKey.exit.thread
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %16, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 5, ptr %27, align 8
   store i8 0, ptr %16, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %16, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 13, ptr %29, align 8
   store i8 0, ptr %16, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %16, i64 320
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 320
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #16
   %33 = add i64 %32, -64
   %or.cond3.i = icmp ult i64 %33, -56
@@ -2836,13 +2836,13 @@ Dot11DecryptInitContext.exit:                     ; preds = %10, %13
 
 34:                                               ; preds = %30
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.46) #14
-  %35 = getelementptr inbounds i8, ptr %16, i64 424
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 424
   %36 = load i64, ptr %35, align 8
   %37 = icmp ugt i64 %36, 32
   br i1 %37, label %41, label %Dot11DecryptValidateKey.exit.thread
 
 .thread:                                          ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %16, i64 424
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 424
   %39 = load i64, ptr %38, align 8
   %40 = icmp ugt i64 %39, 32
   br i1 %40, label %41, label %Dot11DecryptValidateKey.exit.thread34
@@ -2857,10 +2857,10 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
   br i1 %42, label %43, label %Dot11DecryptValidateKey.exit.thread34.thread
 
 43:                                               ; preds = %Dot11DecryptValidateKey.exit.thread34
-  %44 = getelementptr inbounds i8, ptr %16, i64 320
-  %45 = getelementptr inbounds i8, ptr %16, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 320
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef nonnull %44, ptr noundef nonnull %45)
-  %46 = getelementptr inbounds i8, ptr %16, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i8 32, ptr %46, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
 
@@ -2880,7 +2880,7 @@ Dot11DecryptValidateKey.exit.thread:              ; preds = %34, %19, %25, %41, 
 ._crit_edge:                                      ; preds = %Dot11DecryptValidateKey.exit.thread, %Dot11DecryptInitContext.exit
   %.0.lcssa = phi i32 [ 0, %Dot11DecryptInitContext.exit ], [ %.1, %Dot11DecryptValidateKey.exit.thread ]
   %50 = sext i32 %.0.lcssa to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 27656
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   store i64 %50, ptr %51, align 8
   br label %52
 
@@ -2899,7 +2899,7 @@ define range(i32 0, 2) i32 @Dot11DecryptInitContext(ptr noundef %0) local_unname
   br label %11
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27656) %5, i8 0, i64 27656, i1 false)
   %6 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %6, null
@@ -2911,7 +2911,7 @@ define range(i32 0, 2) i32 @Dot11DecryptInitContext(ptr noundef %0) local_unname
   br label %Dot11DecryptCleanSecAssoc.exit
 
 Dot11DecryptCleanSecAssoc.exit:                   ; preds = %4, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 27696
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 27696
   store i64 0, ptr %8, align 8
   %9 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @Dot11DecryptSaHash, ptr noundef nonnull @Dot11DecryptIsSaIdEqual, ptr noundef nonnull @g_free, ptr noundef nonnull @Dot11DecryptCleanSA) #14
   store ptr %9, ptr %0, align 8
@@ -2931,15 +2931,15 @@ define internal fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef %0, ptr nocaptu
   %5 = alloca [40 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = tail call ptr @g_byte_array_new() #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = tail call ptr @g_byte_array_append(ptr noundef %6, ptr noundef %0, i32 noundef %9) #14
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3002,7 +3002,7 @@ Dot11DecryptRsnaPwd2PskStep.exit:                 ; preds = %30, %37, %18
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %12, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 20
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %3, i8 0, i64 36, i1 false)
   %42 = icmp ugt i64 %.pr, 32
@@ -3072,9 +3072,9 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef writeonly
   br i1 %or.cond5, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 27664
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 27664
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 27696
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 27696
   store i64 %2, ptr %10, align 8
   br label %11
 
@@ -3127,7 +3127,7 @@ define range(i32 0, 2) i32 @Dot11DecryptDestroyContext(ptr noundef %0) local_unn
   br label %Dot11DecryptCleanSecAssoc.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27656) %5, i8 0, i64 27656, i1 false)
   %6 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %6, null
@@ -3164,7 +3164,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
   br label %Dot11DecryptIsFtAkm.exit
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %Dot11DecryptIsFtAkm.exit [
     i8 3, label %21
@@ -3174,13 +3174,13 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
   ]
 
 21:                                               ; preds = %18, %18, %18, %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %Dot11DecryptIsFtAkm.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not96 = icmp eq ptr %26, null
   br i1 %.not96, label %Dot11DecryptIsFtAkm.exit, label %27
@@ -3196,12 +3196,12 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
 
 switch.lookup:                                    ; preds = %27
   %31 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.15, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.15, i64 0, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 6
-  %33 = getelementptr inbounds i8, ptr %1, i64 %switch.load
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 2 dereferenceable(6) %33, i64 6, i1 false)
-  %34 = getelementptr inbounds i8, ptr %1, i64 124
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, ptr noundef nonnull align 4 dereferenceable(6) %34, i64 6, i1 false)
   %35 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #17
   %.not.i = icmp eq ptr %35, null
@@ -3212,39 +3212,39 @@ switch.lookup:                                    ; preds = %27
   br label %Dot11DecryptIsFtAkm.exit
 
 37:                                               ; preds = %switch.lookup
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull readonly align 1 dereferenceable(12) %9, i64 12, i1 false)
-  %39 = getelementptr inbounds i8, ptr %35, i64 37
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 37
   %40 = load ptr, ptr %22, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 1 dereferenceable(32) %40, i64 32, i1 false)
-  %41 = getelementptr inbounds i8, ptr %35, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not97 = icmp ne ptr %42, null
-  %43 = getelementptr inbounds i8, ptr %0, i64 27656
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %44 = load i64, ptr %43, align 8
   %45 = icmp ne i64 %44, 0
   %46 = or i1 %.not97, %45
   br i1 %46, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 27696
-  %49 = getelementptr inbounds i8, ptr %10, i64 320
-  %50 = getelementptr inbounds i8, ptr %10, i64 392
-  %51 = getelementptr inbounds i8, ptr %0, i64 27664
-  %52 = getelementptr inbounds i8, ptr %10, i64 424
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 48
-  %56 = getelementptr inbounds i8, ptr %1, i64 56
-  %57 = getelementptr inbounds i8, ptr %1, i64 64
-  %58 = getelementptr inbounds i8, ptr %1, i64 2
-  %59 = getelementptr inbounds i8, ptr %1, i64 96
-  %60 = getelementptr inbounds i8, ptr %1, i64 80
-  %61 = getelementptr inbounds i8, ptr %1, i64 88
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
-  %63 = getelementptr inbounds i8, ptr %1, i64 24
-  %64 = getelementptr inbounds i8, ptr %1, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 27696
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 320
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 392
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 27664
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 424
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %65
 
 65:                                               ; preds = %.lr.ph, %Dot11DecryptIsWpaKeyType.exit105
@@ -3281,7 +3281,7 @@ Dot11DecryptIsWpaKeyType.exit:                    ; preds = %66, %65
   ]
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %.088, i64 424
+  %74 = getelementptr inbounds nuw i8, ptr %.088, i64 424
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %77, label %Dot11DecryptDerivePmkFromMsk.exit
@@ -3307,10 +3307,10 @@ Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %71, %71, %71, %80
   br i1 %82, label %83, label %Dot11DecryptDerivePmkFromMsk.exit
 
 83:                                               ; preds = %Dot11DecryptIsPwdWildcardSsid.exit
-  %84 = getelementptr inbounds i8, ptr %.087, i64 313
+  %84 = getelementptr inbounds nuw i8, ptr %.087, i64 313
   %85 = load i8, ptr %84, align 1
   %86 = load i8, ptr %19, align 1
-  %87 = getelementptr inbounds i8, ptr %.087, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %.087, i64 144
   %88 = icmp eq i8 %86, 12
   %..i = select i1 %88, i8 48, i8 32
   store i8 %..i, ptr %87, align 1
@@ -3323,8 +3323,8 @@ Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %71, %71, %71, %80
   br label %Dot11DecryptDerivePmkFromMsk.exit
 
 92:                                               ; preds = %83
-  %93 = getelementptr inbounds i8, ptr %.087, i64 8
-  %94 = getelementptr inbounds i8, ptr %.087, i64 185
+  %93 = getelementptr inbounds nuw i8, ptr %.087, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.087, i64 185
   %95 = zext nneg i8 %..i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %93, ptr noundef nonnull readonly align 1 dereferenceable(1) %94, i64 %95, i1 false)
   br label %Dot11DecryptDerivePmkFromMsk.exit
@@ -3364,7 +3364,7 @@ switch.hole_check:                                ; preds = %108
 
 switch.lookup141:                                 ; preds = %switch.hole_check
   %112 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep142 = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %112
+  %switch.gep142 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %112
   %switch.load143 = load i64, ptr %switch.gep142, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -3389,10 +3389,10 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup141, %
 
 switch.lookup144:                                 ; preds = %119
   %122 = zext nneg i8 %120 to i64
-  %switch.gep145 = getelementptr inbounds [4 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.15, i64 0, i64 %122
+  %switch.gep145 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.15, i64 0, i64 %122
   %switch.load146 = load i64, ptr %switch.gep145, align 8
   %switch.offset = add nuw nsw i8 %120, 3
-  %123 = getelementptr inbounds i8, ptr %1, i64 %switch.load146
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load146
   store i8 %switch.offset, ptr %6, align 1
   %124 = call i32 @gcry_mac_open(ptr noundef nonnull %8, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
   %.not.i110 = icmp eq i32 %124, 0
@@ -3500,37 +3500,37 @@ Dot11DecryptIsWpaKeyType.exit105:                 ; preds = %71, %Dot11DecryptFt
 
 181:                                              ; preds = %.thread, %._crit_edge
   %182 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %35)
-  %183 = getelementptr inbounds i8, ptr %182, i64 36
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 36
   store i8 0, ptr %183, align 4
   %184 = load i8, ptr %19, align 1
   %185 = zext i8 %184 to i32
-  %186 = getelementptr inbounds i8, ptr %182, i64 72
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 72
   store i32 %185, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %1, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %188 = load i8, ptr %187, align 2
   %189 = zext i8 %188 to i32
-  %190 = getelementptr inbounds i8, ptr %182, i64 76
+  %190 = getelementptr inbounds nuw i8, ptr %182, i64 76
   store i32 %189, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %1, i64 1
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
-  %194 = getelementptr inbounds i8, ptr %182, i64 80
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 80
   store i32 %193, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %182, i64 84
+  %195 = getelementptr inbounds nuw i8, ptr %182, i64 84
   %196 = load i64, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %195, ptr nonnull align 16 %11, i64 %196, i1 false)
   %197 = trunc i64 %196 to i32
-  %198 = getelementptr inbounds i8, ptr %182, i64 172
+  %198 = getelementptr inbounds nuw i8, ptr %182, i64 172
   store i32 %197, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %182, i64 33
+  %199 = getelementptr inbounds nuw i8, ptr %182, i64 33
   store i8 1, ptr %199, align 1
-  %200 = getelementptr inbounds i8, ptr %1, i64 112
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %201 = load ptr, ptr %200, align 8
   %.not100 = icmp eq ptr %201, null
   br i1 %.not100, label %224, label %202
 
 202:                                              ; preds = %181
-  %203 = getelementptr inbounds i8, ptr %1, i64 120
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %204 = load i16, ptr %203, align 8
   %205 = icmp ult i16 %204, 65
   br i1 %205, label %206, label %224
@@ -3578,7 +3578,7 @@ switch.hole_check149:                             ; preds = %Dot11DecryptGetKckL
 
 switch.lookup150:                                 ; preds = %switch.hole_check149
   %213 = zext nneg i32 %switch.tableidx148 to i64
-  %switch.gep153 = getelementptr inbounds [18 x i16], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.16, i64 0, i64 %213
+  %switch.gep153 = getelementptr inbounds nuw [18 x i16], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.16, i64 0, i64 %213
   %switch.load154 = load i16, ptr %switch.gep153, align 2
   br label %Dot11DecryptGetKekLen.exit
 
@@ -3592,7 +3592,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup150, %
 
 217:                                              ; preds = %Dot11DecryptGetKekLen.exit
   %218 = load i16, ptr %14, align 2
-  %219 = getelementptr inbounds i8, ptr %1, i64 122
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %220 = load i16, ptr %219, align 2
   %.not102 = icmp eq i16 %218, %220
   br i1 %.not102, label %221, label %Dot11DecryptIsFtAkm.exit
@@ -3629,7 +3629,7 @@ define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr no
 
 switch.lookup:                                    ; preds = %12
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table.Dot11DecryptFtDerivePtk, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table.Dot11DecryptFtDerivePtk, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetHashAlgoFromAkm.exit
 
@@ -3668,7 +3668,7 @@ Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   br i1 %36, label %37, label %Dot11DecryptGetXXKeyFromMSK.exit.thread
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %2, i64 313
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 313
   %39 = load i8, ptr %38, align 1
   switch i8 %trunc.i, label %Dot11DecryptGetXXKeyFromMSK.exit.thread [
     i8 3, label %40
@@ -3683,34 +3683,34 @@ Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   br i1 %or.cond, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread67
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %2, i64 185
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 185
   %45 = icmp ult i8 %39, 48
   br i1 %45, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread67
 
 Dot11DecryptGetXXKeyFromMSK.exit.thread:          ; preds = %37, %43, %40, %32
-  %46 = getelementptr inbounds i8, ptr %2, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %47 = load i8, ptr %46, align 8
   %.not57 = icmp eq i8 %47, 0
   br i1 %.not57, label %63, label %48
 
 48:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = zext i8 %47 to i64
   br label %Dot11DecryptGetXXKeyFromMSK.exit.thread67
 
 Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %40, %43, %48
   %.162.ph = phi i64 [ %50, %48 ], [ 48, %43 ], [ 32, %40 ]
   %.1.ph = phi ptr [ %49, %48 ], [ %44, %43 ], [ %42, %40 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 27664
-  %52 = getelementptr inbounds i8, ptr %0, i64 27696
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 27664
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 27696
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %56 = call zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef nonnull %.1.ph, i64 noundef %.162.ph, ptr noundef nonnull %51, i64 noundef %53, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %15) #14
   %57 = load i64, ptr %18, align 8
   %58 = call zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef nonnull %13, i64 noundef %57, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %16) #14
   %59 = load i64, ptr %19, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 37
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %61 = load i64, ptr %11, align 8
   %62 = call zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef nonnull %14, i64 noundef %59, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %60, ptr noundef nonnull %54, ptr noundef nonnull %55, i32 noundef %.0.i, ptr noundef nonnull %10, i64 noundef %61, ptr noundef nonnull %17) #14
   br label %63
@@ -3739,7 +3739,7 @@ define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr no
 
 13:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, i8 -1, i64 6, i1 false)
   %15 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #17
   %.not.i = icmp eq ptr %15, null
@@ -3750,27 +3750,27 @@ define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr no
   br label %Dot11DecryptAddSa.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull readonly align 1 dereferenceable(12) %6, i64 12, i1 false)
-  %19 = getelementptr inbounds i8, ptr %11, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %20 = load i8, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i8 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %15, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %11, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %15, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 76
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %11, i64 172
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 172
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %15, i64 172
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 172
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %15, i64 33
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %15, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %32, i8 0, i64 88, i1 false)
   %33 = getelementptr i8, ptr %15, i64 116
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -3849,7 +3849,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, -1
   %or.cond170 = icmp ult i32 %22, 32
@@ -3857,14 +3857,14 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 23:                                               ; preds = %19
   %24 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %25, align 4
   store ptr %12, ptr %24, align 8
   %26 = load i32, ptr %20, align 8
   %27 = shl i32 %26, 3
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %29, align 8
   br label %169
 
@@ -3923,7 +3923,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %44, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, -64
   %or.cond171 = icmp ult i32 %55, -56
@@ -3971,7 +3971,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 74:                                               ; preds = %63
-  %75 = getelementptr inbounds i8, ptr %64, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = icmp ugt i32 %76, 32
   br i1 %77, label %78, label %84
@@ -3994,12 +3994,12 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 84:                                               ; preds = %74, %61
   %.0137 = phi ptr [ %64, %74 ], [ null, %61 ]
   %85 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %86 = getelementptr inbounds i8, ptr %85, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 20
   store i32 3, ptr %86, align 4
   store ptr %44, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %85, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i32 256, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %.0137, ptr %88, align 8
   tail call void @g_strfreev(ptr noundef nonnull %36) #14
   br label %169
@@ -4024,7 +4024,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 97:                                               ; preds = %89
-  %98 = getelementptr inbounds i8, ptr %90, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %99 = load i32, ptr %98, align 8
   switch i32 %99, label %100 [
     i32 32, label %105
@@ -4046,14 +4046,14 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 105:                                              ; preds = %97, %97
   %106 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %107 = getelementptr inbounds i8, ptr %106, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i32 4, ptr %107, align 4
   store ptr %90, ptr %106, align 8
   %108 = load i32, ptr %98, align 8
   %109 = shl i32 %108, 3
-  %110 = getelementptr inbounds i8, ptr %106, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i32 %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %106, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr null, ptr %111, align 8
   br label %169
 
@@ -4064,7 +4064,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br i1 %.not149, label %117, label %.preheader
 
 .preheader:                                       ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i32, ptr %115, align 8
   br label %123
 
@@ -4113,14 +4113,14 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 135:                                              ; preds = %123
   %136 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %137 = getelementptr inbounds i8, ptr %136, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 20
   store i32 6, ptr %137, align 4
   store ptr %113, ptr %136, align 8
   %138 = load i32, ptr %115, align 8
   %139 = shl i32 %138, 3
-  %140 = getelementptr inbounds i8, ptr %136, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i32 %139, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %136, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr null, ptr %141, align 8
   br label %169
 
@@ -4144,7 +4144,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 150:                                              ; preds = %142
-  %151 = getelementptr inbounds i8, ptr %143, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %152 = load i32, ptr %151, align 8
   %153 = add i32 %152, -129
   %or.cond172 = icmp ult i32 %153, -65
@@ -4165,14 +4165,14 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 
 159:                                              ; preds = %150
   %160 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %161 = getelementptr inbounds i8, ptr %160, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 20
   store i32 7, ptr %161, align 4
   store ptr %143, ptr %160, align 8
   %162 = load i32, ptr %151, align 8
   %163 = shl i32 %162, 3
-  %164 = getelementptr inbounds i8, ptr %160, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store i32 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %160, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr null, ptr %165, align 8
   br label %169
 
@@ -4228,7 +4228,7 @@ define void @free_key_string(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %3, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %10, label %8

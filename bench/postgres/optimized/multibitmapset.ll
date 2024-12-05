@@ -29,7 +29,7 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not.i, label %list_length.exit, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %10 = load i32, ptr %9, align 4
   br label %list_length.exit
 
@@ -67,7 +67,7 @@ declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not.i26 = icmp eq ptr %1, null
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %.not.i26, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %2
@@ -76,7 +76,7 @@ define dso_local ptr @mbms_add_members(ptr noundef %0, ptr noundef readonly %1) 
 
 list_length.exit.us:                              ; preds = %.split.us.preheader, %.split.us
   %.0.us47 = phi ptr [ %7, %.split.us ], [ %0, %.split.us.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.0.us47, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.0.us47, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.split.us, label %.thread
@@ -97,16 +97,16 @@ list_length.exit:                                 ; preds = %.split
   br i1 %9, label %17, label %.thread
 
 list_length.exit.thread:                          ; preds = %.split
-  %10 = getelementptr inbounds i8, ptr %.0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %3, align 4
   %13 = icmp slt i32 %11, %12
   br i1 %13, label %17, label %.preheader.thread.thread
 
 .preheader.thread.thread:                         ; preds = %list_length.exit.thread
-  %14 = getelementptr inbounds i8, ptr %.0, i64 4
-  %15 = getelementptr inbounds i8, ptr %.0, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader.split30.split
 
 17:                                               ; preds = %list_length.exit.thread, %list_length.exit
@@ -165,14 +165,14 @@ list_length.exit.split.us:                        ; preds = %2
   br label %.thread
 
 list_length.exit.split:                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @list_truncate(ptr noundef %0, i32 noundef %5) #5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not, label %.thread, label %list_length.exit.split.split
 
 list_length.exit.split.split:                     ; preds = %list_length.exit.split, %28
@@ -237,7 +237,7 @@ define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %.not.i, label %list_length.exit, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   br label %list_length.exit
 
@@ -264,12 +264,12 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbms_overlap_sets(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %0, null
   %.not23 = icmp eq ptr %1, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %brmerge = or i1 %.not23, %.not
   br i1 %brmerge, label %.thread, label %.split.split
 

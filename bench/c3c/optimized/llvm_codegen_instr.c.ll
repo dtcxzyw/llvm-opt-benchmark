@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llvm_emit_cond_br_raw(ptr nocapture noundef initializes((80, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3
   %8 = load ptr, ptr %5, align 8
   tail call void @LLVMClearInsertionPosition(ptr noundef %8) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 424
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
   store i8 %12, ptr %10, align 8
@@ -34,16 +34,16 @@ declare void @LLVMClearInsertionPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llvm_emit_cond_br(ptr nocapture noundef initializes((80, 88)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %8, ptr noundef %2, ptr noundef %3) #3
   %10 = load ptr, ptr %5, align 8
   tail call void @LLVMClearInsertionPosition(ptr noundef %10) #3
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 424
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, -2
   store i8 %14, ptr %12, align 8
@@ -69,7 +69,7 @@ define dso_local ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %1, i32 n
 11:                                               ; preds = %5
   %12 = zext i32 %2 to i64
   %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #3
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @LLVMBuildLShr(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.3) #3
   br label %17
@@ -99,7 +99,7 @@ define dso_local ptr @llvm_emit_ashr_fixed(ptr noundef %0, ptr noundef %1, i32 n
   %spec.select = select i1 %.not, i32 %2, i32 %9
   %10 = zext i32 %spec.select to i64
   %11 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %10, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @LLVMBuildAShr(ptr noundef %13, ptr noundef %1, ptr noundef %11, ptr noundef nonnull @.str.4) #3
   br label %15
@@ -128,7 +128,7 @@ define dso_local ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1, i32 no
 11:                                               ; preds = %5
   %12 = zext i32 %2 to i64
   %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #3
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @LLVMBuildShl(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.5) #3
   br label %17
@@ -149,7 +149,7 @@ define dso_local range(i32 0, 8) i32 @llvm_atomic_ordering(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.llvm_atomic_ordering, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.llvm_atomic_ordering, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

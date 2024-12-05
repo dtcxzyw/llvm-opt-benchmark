@@ -358,11 +358,11 @@ define void @lv_scale_set_line_needle_value(ptr noundef %0, ptr noundef %1, i32 
   store float %64, ptr %65, align 4, !tbaa !27
   %66 = add nsw i32 %40, %13
   %67 = sitofp i32 %66 to float
-  %68 = getelementptr inbounds i8, ptr %.5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.5, i64 8
   store float %67, ptr %68, align 4, !tbaa !24
   %69 = add nsw i32 %46, %13
   %70 = sitofp i32 %69 to float
-  %71 = getelementptr inbounds i8, ptr %.5, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.5, i64 12
   store float %70, ptr %71, align 4, !tbaa !27
   tail call void @lv_line_set_points_mutable(ptr noundef %1, ptr noundef nonnull %.5, i32 noundef 2) #9
   br label %72
@@ -468,7 +468,7 @@ define void @lv_scale_set_text_src(ptr noundef initializes((88, 96), (124, 128))
   %6 = phi i32 [ %7, %.lr.ph ], [ 0, %.preheader ]
   %7 = add nuw nsw i32 %6, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !29
@@ -1523,7 +1523,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 92
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 92
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 48

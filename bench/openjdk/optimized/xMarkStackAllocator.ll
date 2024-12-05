@@ -40,11 +40,11 @@ define hidden void @_ZN15XMarkStackSpaceC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca %class.GCLogPreciousHandle, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 0, ptr %5, align 8
   %6 = load i64, ptr @ZMarkStackSpaceLimit, align 8
   %7 = tail call noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %6, i1 noundef zeroext false, i8 noundef zeroext 5) #10
@@ -53,7 +53,7 @@ define hidden void @_ZN15XMarkStackSpaceC2Ev(ptr noundef nonnull align 8 derefer
 
 9:                                                ; preds = %1
   store i32 5, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str)
   br label %32
@@ -82,7 +82,7 @@ define hidden void @_ZN15XMarkStackSpaceC2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 23:                                               ; preds = %10
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN15XMarkStackSpace12expand_spaceEv.exit, label %25
 
@@ -115,7 +115,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious16vwrite_and_debugE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #10
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -124,9 +124,9 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15XMarkStackSpace12expand_spaceEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
   %7 = add i64 %6, 33554432
@@ -143,7 +143,7 @@ define hidden noundef i64 @_ZN15XMarkStackSpace12expand_spaceEv(ptr noundef nonn
   unreachable
 
 14:                                               ; preds = %1
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
 
@@ -162,7 +162,7 @@ define hidden noundef i64 @_ZN15XMarkStackSpace12expand_spaceEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK15XMarkStackSpace14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, 0
   ret i1 %4
@@ -170,9 +170,9 @@ define hidden noundef zeroext i1 @_ZNK15XMarkStackSpace14is_initializedEv(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK15XMarkStackSpace4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
   ret i64 %6
@@ -180,9 +180,9 @@ define hidden noundef i64 @_ZNK15XMarkStackSpace4sizeEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK15XMarkStackSpace4usedEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
   ret i64 %6
@@ -204,12 +204,12 @@ declare void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef, i64 noundef, i1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15XMarkStackSpace12shrink_spaceEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load volatile i64, ptr %7, align 8
   %9 = xor i64 %5, -1
   %10 = add i64 %8, %9
@@ -220,7 +220,7 @@ define hidden noundef i64 @_ZN15XMarkStackSpace12shrink_spaceEv(ptr noundef nonn
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %1
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not9 = icmp eq ptr %15, null
   br i1 %.not9, label %19, label %16
 
@@ -245,9 +245,9 @@ declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15XMarkStackSpace11alloc_spaceEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load volatile i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 6:                                                ; preds = %10, %2
@@ -270,9 +270,9 @@ define hidden noundef i64 @_ZN15XMarkStackSpace11alloc_spaceEm(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15XMarkStackSpace22expand_and_alloc_spaceEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load volatile i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %7
 
 7:                                                ; preds = %11, %2
@@ -293,7 +293,7 @@ _ZN15XMarkStackSpace11alloc_spaceEm.exit:         ; preds = %11
 
 _ZN15XMarkStackSpace11alloc_spaceEm.exit.thread:  ; preds = %7, %_ZN15XMarkStackSpace11alloc_spaceEm.exit
   %14 = load volatile i64, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %14, %16
   %18 = add i64 %17, 33554432
@@ -310,7 +310,7 @@ _ZN15XMarkStackSpace11alloc_spaceEm.exit.thread:  ; preds = %7, %_ZN15XMarkStack
   unreachable
 
 25:                                               ; preds = %_ZN15XMarkStackSpace11alloc_spaceEm.exit.thread
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_ZN15XMarkStackSpace12expand_spaceEv.exit, label %27
 
@@ -336,9 +336,9 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %_ZN15XMarkStackSpac
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15XMarkStackSpace5allocEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load volatile i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 6:                                                ; preds = %10, %2
@@ -368,12 +368,12 @@ _ZN15XMarkStackSpace11alloc_spaceEm.exit.thread:  ; preds = %6, %_ZN15XMarkStack
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15XMarkStackSpace4freeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load volatile i64, ptr %7, align 8
   %9 = xor i64 %5, -1
   %10 = add i64 %8, %9
@@ -384,7 +384,7 @@ define hidden void @_ZN15XMarkStackSpace4freeEv(ptr noundef nonnull align 8 dere
   br i1 %.not.i, label %_ZN15XMarkStackSpace12shrink_spaceEv.exit, label %14
 
 14:                                               ; preds = %1
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not9.i = icmp eq ptr %15, null
   br i1 %.not9.i, label %19, label %16
 
@@ -414,14 +414,14 @@ _ZN15XMarkStackSpace12shrink_spaceEv.exit:        ; preds = %1, %19
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19XMarkStackAllocatorC2Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %0, align 64
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN15XMarkStackSpaceC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK19XMarkStackAllocator14is_initializedEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(128) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, 0
   ret i1 %4
@@ -429,9 +429,9 @@ define hidden noundef zeroext i1 @_ZNK19XMarkStackAllocator14is_initializedEv(pt
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK19XMarkStackAllocator4sizeEv(ptr noundef nonnull align 64 dereferenceable(128) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
   ret i64 %6
@@ -445,7 +445,7 @@ define hidden noundef ptr @_ZN19XMarkStackAllocator26create_magazine_from_spaceE
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit
@@ -492,7 +492,7 @@ define hidden noundef ptr @_ZN19XMarkStackAllocator14alloc_magazineEv(ptr nounde
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = add i64 %4, 1
   %17 = icmp eq ptr %15, null
@@ -509,10 +509,10 @@ define hidden noundef ptr @_ZN19XMarkStackAllocator14alloc_magazineEv(ptr nounde
   br i1 %26, label %_ZN10XStackListI6XStackIPS0_I15XMarkStackEntryLm254EELm15EEE3popEv.exit, label %3, !llvm.loop !11
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = load volatile i64, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %32
 
 32:                                               ; preds = %36, %27
@@ -540,7 +540,7 @@ _ZN15XMarkStackSpace5allocEm.exit.thread:         ; preds = %_ZN15XMarkStackSpac
   %.0.i713 = phi i64 [ %39, %_ZN15XMarkStackSpace5allocEm.exit ], [ %.011.i.i, %_ZN15XMarkStackSpace11alloc_spaceEm.exit.i ]
   %41 = inttoptr i64 %.0.i713 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %41, i8 0, i64 16, i1 false)
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %43
 
 43:                                               ; preds = %_ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.i, %_ZN15XMarkStackSpace5allocEm.exit.thread
@@ -572,7 +572,7 @@ _ZN10XStackListI6XStackIPS0_I15XMarkStackEntryLm254EELm15EEE3popEv.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19XMarkStackAllocator13free_magazineEP6XStackIPS0_I15XMarkStackEntryLm254EELm15EE(ptr noundef nonnull align 64 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr %0, align 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = icmp eq ptr %1, null
   %6 = ptrtoint ptr %1 to i64
   br i1 %5, label %.split.us.i, label %.split.i
@@ -624,12 +624,12 @@ _ZN10XStackListI6XStackIPS0_I15XMarkStackEntryLm254EELm15EEE4pushEPS4_.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19XMarkStackAllocator4freeEv(ptr noundef nonnull align 64 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %0, align 64
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load volatile i64, ptr %7, align 16
   %9 = xor i64 %5, -1
   %10 = add i64 %8, %9
@@ -640,7 +640,7 @@ define hidden void @_ZN19XMarkStackAllocator4freeEv(ptr noundef nonnull align 64
   br i1 %.not.i.i, label %_ZN15XMarkStackSpace4freeEv.exit, label %14
 
 14:                                               ; preds = %1
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not9.i.i = icmp eq ptr %15, null
   br i1 %.not9.i.i, label %19, label %16
 

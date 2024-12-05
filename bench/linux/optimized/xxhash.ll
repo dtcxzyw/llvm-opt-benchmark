@@ -321,16 +321,16 @@ define dso_local void @xxh32_reset(ptr nocapture noundef writeonly initializes((
   %4 = add i32 %1, -2048144777
   %5 = add i32 %1, 1640531535
   store i64 0, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %5, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -343,16 +343,16 @@ define dso_local void @xxh64_reset(ptr nocapture noundef writeonly initializes((
   %4 = add i64 %1, -4417276706812531889
   %5 = add i64 %1, 7046029288634856825
   store i64 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   ret void
 }
 
@@ -371,11 +371,11 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   %11 = icmp ugt i32 %9, 15
   %12 = or i1 %10, %11
   %13 = zext i1 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, %13
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = add i64 %2, %19
@@ -383,7 +383,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr i8, ptr %23, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %1, i64 %2, i1 false)
   %25 = load i32, ptr %17, align 4
@@ -395,12 +395,12 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   br i1 %28, label %69, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = getelementptr i8, ptr %30, i64 %19
   %32 = sub i32 16, %18
   %33 = zext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %1, i64 %33, i1 false)
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %30, align 1
   %37 = mul i32 %36, -2048144777
@@ -409,7 +409,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   %40 = mul i32 %39, -1640531535
   store i32 %40, ptr %34, align 4
   %41 = getelementptr i8, ptr %0, i64 28
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %41, align 1
   %45 = mul i32 %44, -2048144777
@@ -418,7 +418,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   %48 = mul i32 %47, -1640531535
   store i32 %48, ptr %42, align 4
   %49 = getelementptr i8, ptr %0, i64 32
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %49, align 1
   %53 = mul i32 %52, -2048144777
@@ -427,7 +427,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   %56 = mul i32 %55, -1640531535
   store i32 %56, ptr %50, align 4
   %57 = getelementptr i8, ptr %0, i64 36
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %57, align 1
   %61 = mul i32 %60, -2048144777
@@ -449,13 +449,13 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   br i1 %72, label %114, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %81 = load i32, ptr %80, align 4
   br label %82
 
@@ -505,11 +505,11 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
   br i1 %116, label %117, label %125
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %0, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %119 = ptrtoint ptr %4 to i64
   %120 = ptrtoint ptr %115 to i64
   %121 = sub i64 %119, %120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %118, ptr nonnull align 1 %115, i64 %121, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %118, ptr nonnull align 1 %115, i64 %121, i1 false)
   %122 = trunc i64 %121 to i32
   br label %123
 
@@ -525,36 +525,36 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local i32 @xxh32_digest(ptr noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %6 = getelementptr i8, ptr %2, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %26, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 1)
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 7)
   %17 = add i32 %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 12)
   %21 = add i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 18)
   %25 = add i32 %21, %24
   br label %30
 
 26:                                               ; preds = %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, 374761393
   br label %30
@@ -622,7 +622,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, %2
   store i64 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = add i64 %2, %11
@@ -630,7 +630,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr i8, ptr %15, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false)
   %17 = trunc i64 %2 to i32
@@ -643,12 +643,12 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   br i1 %21, label %62, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr i8, ptr %23, i64 %11
   %25 = sub i32 32, %10
   %26 = zext i32 %25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %1, i64 %26, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %23, align 1
   %30 = mul i64 %29, -4417276706812531889
@@ -657,7 +657,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   %33 = mul i64 %32, -7046029288634856825
   store i64 %33, ptr %27, align 8
   %34 = getelementptr i8, ptr %0, i64 48
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = load i64, ptr %34, align 1
   %38 = mul i64 %37, -4417276706812531889
@@ -666,7 +666,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   %41 = mul i64 %40, -7046029288634856825
   store i64 %41, ptr %35, align 8
   %42 = getelementptr i8, ptr %0, i64 56
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = load i64, ptr %42, align 1
   %46 = mul i64 %45, -4417276706812531889
@@ -675,7 +675,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   %49 = mul i64 %48, -7046029288634856825
   store i64 %49, ptr %43, align 8
   %50 = getelementptr i8, ptr %0, i64 64
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = load i64, ptr %50, align 1
   %54 = mul i64 %53, -4417276706812531889
@@ -698,13 +698,13 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
 
 66:                                               ; preds = %62
   %67 = getelementptr i8, ptr %4, i64 -32
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load i64, ptr %74, align 8
   br label %76
 
@@ -754,11 +754,11 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %0, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %113 = ptrtoint ptr %4 to i64
   %114 = ptrtoint ptr %109 to i64
   %115 = sub i64 %113, %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %112, ptr align 1 %109, i64 %115, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %112, ptr align 1 %109, i64 %115, i1 false)
   %116 = trunc i64 %115 to i32
   br label %117
 
@@ -774,8 +774,8 @@ define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local i64 @xxh64_digest(ptr noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr i8, ptr %2, i64 %5
@@ -784,13 +784,13 @@ define dso_local i64 @xxh64_digest(ptr noundef readonly %0) #2 align 16 {
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 1)
   %19 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 7)
@@ -826,7 +826,7 @@ define dso_local i64 @xxh64_digest(ptr noundef readonly %0) #2 align 16 {
   br label %53
 
 49:                                               ; preds = %1
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 2870177450012600261
   br label %53

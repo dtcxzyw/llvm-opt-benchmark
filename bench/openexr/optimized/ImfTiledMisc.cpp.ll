@@ -126,7 +126,7 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %add.i = add nsw i32 %sub.i, 1
   %shl.i = shl nuw i32 1, %lx
   %div.i = sdiv i32 %add.i, %shl.i
-  %roundingMode = getelementptr inbounds i8, ptr %tileDesc, i64 12
+  %roundingMode = getelementptr inbounds nuw i8, ptr %tileDesc, i64 12
   %2 = load i32, ptr %roundingMode, align 4
   %cmp1.i = icmp eq i32 %2, 1
   %mul4.i = shl i32 %div.i, %lx
@@ -149,12 +149,12 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %add.i22 = add i32 %sub, %.sroa.speculated.i
   %sub3 = add i32 %minY, -1
   %add4.i24 = add i32 %sub3, %.sroa.speculated.i15
-  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %minX, ptr %agg.result, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %minY, ptr %y3.i.i, align 4
   store i32 %add.i22, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %y3.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 %add4.i24, ptr %y3.i2.i, align 4
   ret void
 }
@@ -166,7 +166,7 @@ entry:
   %0 = load i32, ptr %tileDesc, align 4
   %mul = mul i32 %0, %dx
   %add = add i32 %mul, %minX
-  %ySize = getelementptr inbounds i8, ptr %tileDesc, i64 4
+  %ySize = getelementptr inbounds nuw i8, ptr %tileDesc, i64 4
   %1 = load i32, ptr %ySize, align 4
   %mul1 = mul i32 %1, %dy
   %add2 = add i32 %mul1, %minY
@@ -179,9 +179,9 @@ entry:
   %add10 = add nsw i64 %conv9, -1
   %sub11 = add nsw i64 %add10, %conv7
   call void @_ZN7Imf_3_218dataWindowForLevelERKNS_15TileDescriptionEiiiiii(ptr nonnull sret(%"class.Imath_3_2::Box") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, i32 noundef %lx, i32 noundef %ly)
-  %max = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %2 = load i32, ptr %max, align 4
-  %y3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %y3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   %3 = load i32, ptr %y3.i, align 4
   %conv14 = sext i32 %2 to i64
   %.sroa.speculated15 = tail call i64 @llvm.smin.i64(i64 %sub, i64 %conv14)
@@ -189,12 +189,12 @@ entry:
   %conv19 = sext i32 %3 to i64
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub11, i64 %conv19)
   %conv21 = trunc i64 %.sroa.speculated to i32
-  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %add, ptr %agg.result, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %add2, ptr %y3.i.i, align 4
   store i32 %conv16, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %y3.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 %conv21, ptr %y3.i2.i, align 4
   ret void
 }
@@ -211,7 +211,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %bytesPerPixel.08 = phi i64 [ %add, %for.body ], [ 0, %entry ]
   %c.sroa.0.07 = phi ptr [ %call.i.i, %for.body ], [ %call1, %entry ]
-  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.07, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %c.sroa.0.07, i64 288
   %0 = load i32, ptr %second.i, align 4
   %call8 = tail call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %0)
   %conv = sext i32 %call8 to i64
@@ -254,18 +254,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv34 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next35, %for.inc28 ]
   %c.sroa.0.023 = phi ptr [ %call1, %for.body.lr.ph ], [ %call.i.i, %for.inc28 ]
   %0 = load ptr, ptr %yOffsets, align 8
-  %add.ptr.i11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv34
+  %add.ptr.i11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
   %1 = load i32, ptr %add.ptr.i11, align 4
   %sub11 = sub nsw i32 %maxY, %1
   br i1 %cmp.not18, label %for.inc28, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %for.body
-  %second.i = getelementptr inbounds i8, ptr %c.sroa.0.023, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %c.sroa.0.023, i64 288
   br i1 %cmp16.not16, label %for.inc28, label %for.body12.preheader
 
 for.body12.preheader:                             ; preds = %for.body12.lr.ph
   %2 = load ptr, ptr %xOffsets, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv34
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv34
   %3 = load i32, ptr %add.ptr.i, align 4
   %sub15 = sub nsw i32 %maxX, %3
   %sub13 = sub i32 %minX, %3
@@ -293,7 +293,7 @@ for.body17:                                       ; preds = %for.body12, %for.bo
   %mul = mul nsw i32 %call20, %8
   %conv21 = sext i32 %mul to i64
   %10 = load ptr, ptr %bytesPerLine, align 8
-  %add.ptr.i13 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv29
+  %add.ptr.i13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv29
   %11 = load i64, ptr %add.ptr.i13, align 8
   %add = add i64 %11, %conv21
   store i64 %add, ptr %add.ptr.i13, align 8
@@ -321,9 +321,9 @@ for.end31:                                        ; preds = %for.inc28, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_220precalculateTileInfoERKNS_15TileDescriptionEiiiiRPiS4_RiS5_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tileDesc, i32 noundef %minX, i32 noundef %maxX, i32 noundef %minY, i32 noundef %maxY, ptr nocapture noundef nonnull align 8 dereferenceable(8) %numXTiles, ptr nocapture noundef nonnull align 8 dereferenceable(8) %numYTiles, ptr nocapture noundef nonnull align 4 dereferenceable(4) %numXLevels, ptr nocapture noundef nonnull align 4 dereferenceable(4) %numYLevels) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %tileDesc, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %tileDesc, i64 8
   %tileDesc.val = load i32, ptr %0, align 4
-  %1 = getelementptr inbounds i8, ptr %tileDesc, i64 12
+  %1 = getelementptr inbounds nuw i8, ptr %tileDesc, i64 12
   %tileDesc.val20 = load i32, ptr %1, align 4
   switch i32 %tileDesc.val, label %sw.default.i [
     i32 0, label %_ZN7Imf_3_212_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit
@@ -596,7 +596,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sub.i83 = add nsw i64 %add.i, %conv.i
   %div.i = udiv i64 %sub.i83, %conv1.i
   %conv3.i = trunc i64 %div.i to i32
-  %arrayidx.i = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   store i32 %conv3.i, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -614,7 +614,7 @@ _ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit:
 
 for.body.lr.ph.i85:                               ; preds = %_ZN7Imf_3_212_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit
   %25 = load i32, ptr %1, align 4
-  %ySize = getelementptr inbounds i8, ptr %tileDesc, i64 4
+  %ySize = getelementptr inbounds nuw i8, ptr %tileDesc, i64 4
   %26 = load i32, ptr %ySize, align 4
   %sub.i.i86 = sub nsw i32 %maxY, %minY
   %add.i.i87 = add nsw i32 %sub.i.i86, 1
@@ -639,7 +639,7 @@ for.body.i92:                                     ; preds = %for.body.i92, %for.
   %sub.i103 = add nsw i64 %add.i90, %conv.i102
   %div.i104 = udiv i64 %sub.i103, %conv1.i89
   %conv3.i105 = trunc i64 %div.i104 to i32
-  %arrayidx.i106 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.i93
+  %arrayidx.i106 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i93
   store i32 %conv3.i105, ptr %arrayidx.i106, align 4
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i91
@@ -667,11 +667,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %call, align 4
-  %max = getelementptr inbounds i8, ptr %call, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %max, align 4
-  %y = getelementptr inbounds i8, ptr %call, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %call, i64 4
   %2 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds i8, ptr %call, i64 12
+  %y5 = getelementptr inbounds nuw i8, ptr %call, i64 12
   %3 = load i32, ptr %y5, align 4
   invoke void @_ZN7Imf_3_220precalculateTileInfoERKNS_15TileDescriptionEiiiiRPiS4_RiS5_(ptr noundef nonnull align 4 dereferenceable(16) %call1, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %numXTiles, ptr noundef nonnull align 8 dereferenceable(8) %numYTiles, ptr noundef nonnull align 4 dereferenceable(4) %numXLevels, ptr noundef nonnull align 4 dereferenceable(4) %numYLevels)
           to label %invoke.cont6 unwind label %lpad
@@ -681,7 +681,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %mode = getelementptr inbounds i8, ptr %call8, i64 8
+  %mode = getelementptr inbounds nuw i8, ptr %call8, i64 8
   %4 = load i32, ptr %mode, align 4
   switch i32 %4, label %invoke.cont7.sw.epilog_crit_edge [
     i32 0, label %sw.bb
@@ -714,7 +714,7 @@ for.cond22.preheader.us.preheader:                ; preds = %for.cond22.preheade
 for.cond22.preheader.us:                          ; preds = %for.cond22.preheader.us.preheader, %for.cond22.for.inc44_crit_edge.us
   %indvars.iv39 = phi i64 [ 0, %for.cond22.preheader.us.preheader ], [ %indvars.iv.next40, %for.cond22.for.inc44_crit_edge.us ]
   %lineOffsetSize.228.us = phi i64 [ 0, %for.cond22.preheader.us.preheader ], [ %add32.us, %for.cond22.for.inc44_crit_edge.us ]
-  %arrayidx26.us = getelementptr inbounds i32, ptr %.pre49, i64 %indvars.iv39
+  %arrayidx26.us = getelementptr inbounds nuw i32, ptr %.pre49, i64 %indvars.iv39
   %8 = load i32, ptr %arrayidx26.us, align 4
   %conv27.us = sext i32 %8 to i64
   br label %for.body24.us
@@ -727,7 +727,7 @@ for.cond22.us:                                    ; preds = %for.body24.us
 for.body24.us:                                    ; preds = %for.cond22.preheader.us, %for.cond22.us
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader.us ], [ %indvars.iv.next, %for.cond22.us ]
   %lineOffsetSize.325.us = phi i64 [ %lineOffsetSize.228.us, %for.cond22.preheader.us ], [ %add32.us, %for.cond22.us ]
-  %arrayidx29.us = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %arrayidx29.us = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx29.us, align 4
   %conv30.us = sext i32 %9 to i64
   %mul31.us = mul nsw i64 %conv30.us, %conv27.us
@@ -764,10 +764,10 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv44 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next45, %for.cond ]
   %lineOffsetSize.132 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
-  %arrayidx = getelementptr inbounds i32, ptr %.pre50, i64 %indvars.iv44
+  %arrayidx = getelementptr inbounds nuw i32, ptr %.pre50, i64 %indvars.iv44
   %13 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %13 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv44
+  %arrayidx10 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv44
   %14 = load i32, ptr %arrayidx10, align 4
   %conv11 = sext i32 %14 to i64
   %mul = mul nsw i64 %conv11, %conv

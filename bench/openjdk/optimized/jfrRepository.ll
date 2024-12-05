@@ -54,7 +54,7 @@ define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN13JfrRepositor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -127,7 +127,7 @@ define hidden noundef ptr @_ZN13JfrRepository6createER10JfrPostBox(ptr noundef n
 
 4:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %5, align 8
   br label %6
 
@@ -239,7 +239,7 @@ define hidden void @_ZN13JfrRepository24notify_on_new_chunk_pathEv() local_unnam
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @_ZL9_instance, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21) %5, i32 noundef 3) #8
   br label %6
@@ -281,15 +281,15 @@ declare noundef i64 @_ZNK14JfrChunkWriter25current_chunk_start_nanosEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13JfrRepository14set_chunk_pathEP8_jstringP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 800
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
   %14 = icmp eq ptr %13, null
@@ -297,7 +297,7 @@ define hidden void @_ZN13JfrRepository14set_chunk_pathEP8_jstringP10JavaThread(p
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, -1
   br i1 %.not, label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit, label %18
@@ -309,7 +309,7 @@ define hidden void @_ZN13JfrRepository14set_chunk_pathEP8_jstringP10JavaThread(p
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @_ZL9_instance, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21) %23, i32 noundef 3) #8
   br label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
@@ -343,15 +343,15 @@ declare noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13JfrRepository8set_pathEP8_jstringP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 800
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
   %.not = icmp eq ptr %13, null
@@ -444,14 +444,14 @@ define hidden void @_ZN13JfrRepository5flushEP10JavaThread(ptr nocapture noundef
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_ZL12_chunkwriter, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, -1
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @_ZL9_instance, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21) %10, i32 noundef 9) #8
   br label %11

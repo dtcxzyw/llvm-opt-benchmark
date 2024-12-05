@@ -63,19 +63,19 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br label %317
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %17 = load i32, ptr %16, align 8
   %.not381 = icmp eq i64 %1, 0
   br i1 %.not381, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 200
-  %19 = getelementptr inbounds i8, ptr %0, i64 224
-  %20 = getelementptr inbounds i8, ptr %0, i64 208
-  %21 = getelementptr inbounds i8, ptr %0, i64 240
-  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %23
 
 23:                                               ; preds = %.lr.ph, %50
@@ -148,7 +148,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %58 = add i64 %57, %56
   %59 = add nsw i64 %58, %51
   %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds %struct.iovec, ptr %.1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %struct.iovec, ptr %.1, i64 %indvars.iv
   store ptr %60, ptr %61, align 8
   %62 = load ptr, ptr %18, align 8
   %63 = getelementptr inbounds %struct.iovec, ptr %62, i64 %53, i32 1
@@ -157,7 +157,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %.neg363 = sub i64 %.1338, %65
   %66 = add i64 %.neg363, %64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %66, i64 %.0328386)
-  %67 = getelementptr inbounds %struct.iovec, ptr %.1, i64 %indvars.iv, i32 1
+  %67 = getelementptr inbounds nuw %struct.iovec, ptr %.1, i64 %indvars.iv, i32 1
   store i64 %spec.select, ptr %67, align 8
   %68 = load i64, ptr %19, align 8
   %69 = add i64 %68, %spec.select
@@ -189,7 +189,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 74:                                               ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) @__const.ompi_io_ompio_generate_current_file_view.blocklen, i64 12, i1 false)
   store ptr @ompi_mpi_datatype_null, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 2
@@ -207,13 +207,13 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br label %317
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 328
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 328
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 144
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 144
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 152
   %93 = load ptr, ptr %92, align 8
   %94 = call i32 %91(ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull %79, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %87, ptr noundef %93) #13
   %95 = load i32, ptr %5, align 4
@@ -228,7 +228,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br i1 %100, label %.lr.ph393, label %._crit_edge394
 
 .lr.ph393:                                        ; preds = %.preheader373
-  %101 = getelementptr inbounds i8, ptr %0, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %102 = load i32, ptr %101, align 4
   %wide.trip.count = zext nneg i32 %95 to i64
   br label %104
@@ -241,16 +241,16 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 104:                                              ; preds = %.lr.ph393, %104
   %indvars.iv463 = phi i64 [ 0, %.lr.ph393 ], [ %indvars.iv.next464, %104 ]
-  %105 = getelementptr inbounds %struct.iovec, ptr %.0312.lcssa, i64 %indvars.iv463
+  %105 = getelementptr inbounds nuw %struct.iovec, ptr %.0312.lcssa, i64 %indvars.iv463
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
-  %108 = getelementptr inbounds %struct.mca_io_ompio_offlen_array_t, ptr %98, i64 %indvars.iv463
+  %108 = getelementptr inbounds nuw %struct.mca_io_ompio_offlen_array_t, ptr %98, i64 %indvars.iv463
   store i64 %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i32 %102, ptr %112, align 8
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count
@@ -258,25 +258,25 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 ._crit_edge394:                                   ; preds = %104, %.preheader373
   store ptr @ompi_mpi_long, ptr %8, align 16
-  %113 = getelementptr inbounds i8, ptr %8, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @ompi_mpi_long, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %8, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @ompi_mpi_int, ptr %114, align 16
   %115 = ptrtoint ptr %98 to i64
   store i64 %115, ptr %7, align 16
-  %116 = getelementptr inbounds i8, ptr %98, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %117 = ptrtoint ptr %116 to i64
-  %118 = getelementptr inbounds i8, ptr %7, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %98, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %120 = ptrtoint ptr %119 to i64
-  %121 = getelementptr inbounds i8, ptr %7, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %120, ptr %121, align 16
   br label %122
 
 122:                                              ; preds = %._crit_edge394, %122
   %indvars.iv466 = phi i64 [ 0, %._crit_edge394 ], [ %indvars.iv.next467, %122 ]
-  %123 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv466
+  %123 = getelementptr inbounds nuw [3 x i64], ptr %7, i64 0, i64 %indvars.iv466
   %124 = load i64, ptr %123, align 8
   %125 = sub nsw i64 %124, %115
   store i64 %125, ptr %123, align 8
@@ -288,7 +288,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %127 = call i32 @ompi_datatype_create_struct(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %.val = load ptr, ptr %9, align 8
   %128 = call i32 @opal_datatype_commit(ptr noundef %.val) #13
-  %129 = getelementptr inbounds i8, ptr %0, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %.loopexit
@@ -310,9 +310,9 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %indvars.iv470 = phi i64 [ 1, %.lr.ph399.preheader ], [ %indvars.iv.next471, %.lr.ph399 ]
   %.1327396 = phi i32 [ %133, %.lr.ph399.preheader ], [ %142, %.lr.ph399 ]
   %138 = add nsw i32 %136, %137
-  %139 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv470
+  %139 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv470
   store i32 %138, ptr %139, align 4
-  %140 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv470
+  %140 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv470
   %141 = load i32, ptr %140, align 4
   %142 = add nsw i32 %141, %.1327396
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
@@ -377,7 +377,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %indvars.iv530 = phi i32 [ 0, %.lr.ph404 ], [ %indvars.iv.next531, %167 ]
   %indvars.iv475 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next476, %167 ]
   %162 = call noalias ptr @malloc(i64 noundef %159) #15
-  %163 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv475
+  %163 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv475
   store ptr %162, ptr %163, align 8
   %164 = icmp eq ptr %162, null
   br i1 %164, label %.preheader, label %167
@@ -392,7 +392,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph456:                                        ; preds = %.lr.ph456.preheader, %.lr.ph456
   %indvars.iv527 = phi i64 [ 0, %.lr.ph456.preheader ], [ %indvars.iv.next528, %.lr.ph456 ]
-  %165 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv527
+  %165 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv527
   %166 = load ptr, ptr %165, align 8
   call void @free(ptr noundef %166) #13
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
@@ -425,13 +425,13 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br label %._crit_edge407
 
 .lr.ph406:                                        ; preds = %.preheader370
-  %170 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv483
+  %170 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv483
   %.pre537 = load ptr, ptr %170, align 8
   br label %171
 
 171:                                              ; preds = %.lr.ph406, %171
   %indvars.iv480 = phi i64 [ 0, %.lr.ph406 ], [ %indvars.iv.next481, %171 ]
-  %172 = getelementptr inbounds i32, ptr %.pre537, i64 %indvars.iv480
+  %172 = getelementptr inbounds nuw i32, ptr %.pre537, i64 %indvars.iv480
   store i32 0, ptr %172, align 4
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %173 = load i32, ptr %75, align 8
@@ -452,13 +452,13 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %.0324 = phi ptr [ null, %126 ], [ %150, %.preheader372 ], [ %150, %._crit_edge407 ]
   %.0311 = phi ptr [ null, %126 ], [ %156, %.preheader372 ], [ %156, %._crit_edge407 ]
   %178 = load ptr, ptr %86, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 328
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 328
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 160
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 160
   %182 = load ptr, ptr %181, align 8
   %183 = load i32, ptr %5, align 4
   %184 = load ptr, ptr %9, align 8
-  %185 = getelementptr inbounds i8, ptr %180, i64 168
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 168
   %186 = load ptr, ptr %185, align 8
   %187 = call i32 %182(ptr noundef nonnull %98, i32 noundef %183, ptr noundef %184, ptr noundef %.0325, ptr noundef nonnull %79, ptr noundef nonnull %82, ptr noundef %184, i32 noundef 0, ptr noundef %178, ptr noundef %186) #13
   %188 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %9) #13
@@ -489,14 +489,14 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 .preheader368.us:                                 ; preds = %.preheader368.us.preheader, %._crit_edge415.us
   %indvars.iv496 = phi i64 [ 0, %.preheader368.us.preheader ], [ %indvars.iv.next497, %._crit_edge415.us ]
   %.0318418.us = phi i32 [ 0, %.preheader368.us.preheader ], [ %spec.select.us, %._crit_edge415.us ]
-  %197 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv496
+  %197 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv496
   %198 = load ptr, ptr %197, align 8
   br label %199
 
 199:                                              ; preds = %.preheader368.us, %199
   %indvars.iv491 = phi i64 [ 0, %.preheader368.us ], [ %indvars.iv.next492, %199 ]
   %.1319413.us = phi i32 [ %.0318418.us, %.preheader368.us ], [ %spec.select.us, %199 ]
-  %200 = getelementptr inbounds i32, ptr %198, i64 %indvars.iv491
+  %200 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv491
   %201 = load i32, ptr %200, align 4
   %202 = icmp sgt i32 %201, 0
   %203 = zext i1 %202 to i32
@@ -517,7 +517,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %206 = getelementptr inbounds %struct.mca_io_ompio_offlen_array_t, ptr %.0325, i64 %205, i32 2
   %207 = load i32, ptr %206, align 8
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
-  %208 = getelementptr inbounds i32, ptr %.0324, i64 %indvars.iv.next487
+  %208 = getelementptr inbounds nuw i32, ptr %.0324, i64 %indvars.iv.next487
   %209 = load i32, ptr %208, align 4
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds %struct.mca_io_ompio_offlen_array_t, ptr %.0325, i64 %210, i32 2
@@ -552,7 +552,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph453:                                        ; preds = %.preheader365, %.lr.ph453
   %indvars.iv524 = phi i64 [ %indvars.iv.next525, %.lr.ph453 ], [ 0, %.preheader365 ]
-  %229 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv524
+  %229 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv524
   %230 = load ptr, ptr %229, align 8
   call void @free(ptr noundef %230) #13
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
@@ -587,7 +587,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph450:                                        ; preds = %240, %.lr.ph450
   %indvars.iv521 = phi i64 [ %indvars.iv.next522, %.lr.ph450 ], [ 0, %240 ]
-  %244 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv521
+  %244 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv521
   %245 = load ptr, ptr %244, align 8
   call void @free(ptr noundef %245) #13
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
@@ -623,7 +623,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph446:                                        ; preds = %256, %.lr.ph446
   %indvars.iv518 = phi i64 [ %indvars.iv.next519, %.lr.ph446 ], [ 0, %256 ]
-  %260 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv518
+  %260 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv518
   %261 = load ptr, ptr %260, align 8
   call void @free(ptr noundef %261) #13
   %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
@@ -658,7 +658,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br i1 %270, label %.lr.ph424, label %._crit_edge425
 
 .lr.ph424:                                        ; preds = %.preheader367
-  %271 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv504
+  %271 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv504
   br label %272
 
 272:                                              ; preds = %.lr.ph424, %286
@@ -668,7 +668,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %.1314423 = phi i32 [ %.0313430, %.lr.ph424 ], [ %.2, %286 ]
   %.1316422 = phi i32 [ %.0315429, %.lr.ph424 ], [ %.2317, %286 ]
   %275 = load ptr, ptr %271, align 8
-  %276 = getelementptr inbounds i32, ptr %275, i64 %indvars.iv501
+  %276 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv501
   %277 = load i32, ptr %276, align 4
   %278 = icmp sgt i32 %277, 0
   br i1 %278, label %279, label %286
@@ -699,7 +699,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %.1316.lcssa = phi i32 [ %.0315429, %.preheader367 ], [ %.2317, %286 ]
   %.1314.lcssa = phi i32 [ %.0313430, %.preheader367 ], [ %.2, %286 ]
   %indvars.iv.next505 = add nuw nsw i64 %indvars.iv504, 1
-  %292 = getelementptr inbounds i32, ptr %254, i64 %indvars.iv.next505
+  %292 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv.next505
   store i32 %.1314.lcssa, ptr %292, align 4
   %293 = sext i32 %291 to i64
   %294 = icmp slt i64 %indvars.iv.next505, %293
@@ -716,7 +716,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %.lr.ph434
   %indvars.iv507 = phi i64 [ 0, %.lr.ph434.preheader ], [ %indvars.iv.next508, %.lr.ph434 ]
-  %296 = getelementptr inbounds i32, ptr %238, i64 %indvars.iv507
+  %296 = getelementptr inbounds nuw i32, ptr %238, i64 %indvars.iv507
   %297 = load i32, ptr %296, align 4
   %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %225, ptr noundef nonnull @.str.9, i32 noundef %297) #13
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
@@ -731,7 +731,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph439:                                        ; preds = %._crit_edge435, %.lr.ph439
   %indvars.iv512 = phi i64 [ %indvars.iv.next513, %.lr.ph439 ], [ 0, %._crit_edge435 ]
-  %300 = getelementptr inbounds i32, ptr %254, i64 %indvars.iv512
+  %300 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv512
   %301 = load i32, ptr %300, align 4
   %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %225, ptr noundef nonnull @.str.9, i32 noundef %301) #13
   %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
@@ -774,7 +774,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
 
 .lr.ph442:                                        ; preds = %.preheader366, %.lr.ph442
   %indvars.iv515 = phi i64 [ %indvars.iv.next516, %.lr.ph442 ], [ 0, %.preheader366 ]
-  %312 = getelementptr inbounds ptr, ptr %.0311, i64 %indvars.iv515
+  %312 = getelementptr inbounds nuw ptr, ptr %.0311, i64 %indvars.iv515
   %313 = load ptr, ptr %312, align 8
   call void @free(ptr noundef %313) #13
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
@@ -837,7 +837,7 @@ define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -930,7 +930,7 @@ define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef rea
   %indvars.iv141 = phi i64 [ %16, %.lr.ph138.preheader ], [ %indvars.iv.next142, %104 ]
   %indvars143 = trunc i64 %indvars.iv141 to i32
   %59 = load i32, ptr %7, align 4
-  %60 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv141
+  %60 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv141
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %7, align 4
   store i32 %59, ptr %60, align 4
@@ -1005,7 +1005,7 @@ define range(i32 -2, 1) i32 @ompi_io_ompio_sort_offlen(ptr nocapture noundef rea
 
 104:                                              ; preds = %96
   %105 = load i32, ptr %60, align 4
-  %106 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv141
+  %106 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv141
   store i32 %105, ptr %106, align 4
   %107 = icmp sgt i64 %indvars.iv141, 1
   br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !26

@@ -59,7 +59,7 @@ entry:
 define dso_local void @_ZN6snappy4Sink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %bytes, i64 noundef %n, ptr nocapture noundef readonly %deleter, ptr noundef %deleter_arg) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %bytes, i64 noundef %n) #11
   tail call void %deleter(ptr noundef %deleter_arg, ptr noundef %bytes, i64 noundef %n) #11
@@ -85,7 +85,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK6snappy15ByteArraySource9AvailableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
-  %left_ = getelementptr inbounds i8, ptr %this, i64 16
+  %left_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %left_, align 8
   ret i64 %0
 }
@@ -93,10 +93,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @_ZN6snappy15ByteArraySource4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 8)) %len) unnamed_addr #7 align 2 {
 entry:
-  %left_ = getelementptr inbounds i8, ptr %this, i64 16
+  %left_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %left_, align 8
   store i64 %0, ptr %len, align 8
-  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
+  %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_, align 8
   ret ptr %1
 }
@@ -104,11 +104,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN6snappy15ByteArraySource4SkipEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) unnamed_addr #7 align 2 {
 entry:
-  %left_ = getelementptr inbounds i8, ptr %this, i64 16
+  %left_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %left_, align 8
   %sub = sub i64 %0, %n
   store i64 %sub, ptr %left_, align 8
-  %ptr_ = getelementptr inbounds i8, ptr %this, i64 8
+  %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %n
   store ptr %add.ptr, ptr %ptr_, align 8
@@ -131,7 +131,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %data, i64 noundef %n) unnamed_addr #8 align 2 {
 entry:
-  %dest_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dest_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
   %cmp.not = icmp eq ptr %data, %0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -154,7 +154,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN6snappy22UncheckedByteArraySink15GetAppendBufferEmPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %len, ptr nocapture readnone %scratch) unnamed_addr #6 align 2 {
 entry:
-  %dest_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dest_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
   ret ptr %0
 }
@@ -162,7 +162,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6snappy22UncheckedByteArraySink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %bytes, i64 noundef %n, ptr nocapture noundef readonly %deleter, ptr noundef %deleter_arg) unnamed_addr #4 align 2 {
 entry:
-  %dest_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dest_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
   %cmp.not = icmp eq ptr %bytes, %0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -184,7 +184,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local noundef ptr @_ZN6snappy22UncheckedByteArraySink23GetAppendBufferVariableEmmPcmPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %min_size, i64 noundef %desired_size_hint, ptr nocapture readnone %scratch, i64 %scratch_size, ptr nocapture noundef writeonly initializes((0, 8)) %allocated_size) unnamed_addr #7 align 2 {
 entry:
   store i64 %desired_size_hint, ptr %allocated_size, align 8
-  %dest_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dest_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8
   ret ptr %0
 }

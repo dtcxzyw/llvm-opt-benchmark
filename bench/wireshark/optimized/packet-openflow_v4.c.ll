@@ -1842,7 +1842,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_openflow_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull @openflow_v4_type_values_ext, ptr noundef nonnull @.str.1070) #4
@@ -2072,12 +2072,12 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef %82, i32 noundef 0) #4
   %84 = load i32, ptr @ett_openflow_v4_error_data, align 4
   %85 = tail call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84) #4
-  %86 = getelementptr inbounds i8, ptr %1, i64 276
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %87 = load i8, ptr %86, align 4
   %88 = and i8 %87, 1
   %89 = or i8 %87, 1
   store i8 %89, ptr %86, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load ptr, ptr %90, align 8
   tail call void @col_set_writable(ptr noundef %91, i32 noundef -1, i32 noundef 0) #4
   tail call fastcc void @dissect_openflow_message_v4(ptr noundef %0, ptr noundef %1, ptr noundef %85, i32 noundef %80)
@@ -2214,47 +2214,47 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   %197 = sub i32 %11, %194
   %198 = load i32, ptr @ett_openflow_v4_packet_in_data, align 4
   %199 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %194, i32 noundef %197, i32 noundef %198, ptr noundef null, ptr noundef nonnull @.str.225) #4
-  %200 = getelementptr inbounds i8, ptr %1, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %201 = load ptr, ptr %200, align 8
   %202 = tail call i32 @col_get_writable(ptr noundef %201, i32 noundef -1) #4
-  %203 = getelementptr inbounds i8, ptr %1, i64 276
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %204 = load i8, ptr %203, align 4
   %205 = and i8 %204, 1
-  %206 = getelementptr inbounds i8, ptr %1, i64 112
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %207 = load i32, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %1, i64 116
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds i8, ptr %1, i64 120
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 136
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %213 = load i32, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %1, i64 140
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %215 = load i32, ptr %214, align 4
-  %216 = getelementptr inbounds i8, ptr %1, i64 144
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 160
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %219 = load i32, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %1, i64 164
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds i8, ptr %1, i64 168
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 184
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %1, i64 188
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %227 = load i32, ptr %226, align 4
-  %228 = getelementptr inbounds i8, ptr %1, i64 192
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %1, i64 208
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %231 = load i32, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %1, i64 212
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %1, i64 216
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 232
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %237 = load i32, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %1, i64 236
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %1, i64 240
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %241 = load ptr, ptr %240, align 8
   %242 = load ptr, ptr %200, align 8
   tail call void @col_set_writable(ptr noundef %242, i32 noundef -1, i32 noundef 0) #4
@@ -2270,32 +2270,32 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   store i32 %207, ptr %206, align 8
   store i32 %209, ptr %208, align 4
   store ptr %211, ptr %210, align 8
-  %250 = getelementptr inbounds i8, ptr %1, i64 128
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %250, align 8
   store i32 %213, ptr %212, align 8
   store i32 %215, ptr %214, align 4
   store ptr %217, ptr %216, align 8
-  %251 = getelementptr inbounds i8, ptr %1, i64 152
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %251, align 8
   store i32 %219, ptr %218, align 8
   store i32 %221, ptr %220, align 4
   store ptr %223, ptr %222, align 8
-  %252 = getelementptr inbounds i8, ptr %1, i64 176
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %252, align 8
   store i32 %225, ptr %224, align 8
   store i32 %227, ptr %226, align 4
   store ptr %229, ptr %228, align 8
-  %253 = getelementptr inbounds i8, ptr %1, i64 200
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %253, align 8
   store i32 %231, ptr %230, align 8
   store i32 %233, ptr %232, align 4
   store ptr %235, ptr %234, align 8
-  %254 = getelementptr inbounds i8, ptr %1, i64 224
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %254, align 8
   store i32 %237, ptr %236, align 8
   store i32 %239, ptr %238, align 4
   store ptr %241, ptr %240, align 8
-  %255 = getelementptr inbounds i8, ptr %1, i64 248
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %255, align 8
   br label %common.ret
 
@@ -2377,47 +2377,47 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   %317 = sub i32 %11, %.0.lcssa.i
   %318 = load i32, ptr @ett_openflow_v4_packet_out_data, align 4
   %319 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %317, i32 noundef %318, ptr noundef null, ptr noundef nonnull @.str.225) #4
-  %320 = getelementptr inbounds i8, ptr %1, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = tail call i32 @col_get_writable(ptr noundef %321, i32 noundef -1) #4
-  %323 = getelementptr inbounds i8, ptr %1, i64 276
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %324 = load i8, ptr %323, align 4
   %325 = and i8 %324, 1
-  %326 = getelementptr inbounds i8, ptr %1, i64 112
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %327 = load i32, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %1, i64 116
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %329 = load i32, ptr %328, align 4
-  %330 = getelementptr inbounds i8, ptr %1, i64 120
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %1, i64 136
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %333 = load i32, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %1, i64 140
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %335 = load i32, ptr %334, align 4
-  %336 = getelementptr inbounds i8, ptr %1, i64 144
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %1, i64 160
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %339 = load i32, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %1, i64 164
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %341 = load i32, ptr %340, align 4
-  %342 = getelementptr inbounds i8, ptr %1, i64 168
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds i8, ptr %1, i64 184
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %345 = load i32, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %1, i64 188
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %347 = load i32, ptr %346, align 4
-  %348 = getelementptr inbounds i8, ptr %1, i64 192
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %1, i64 208
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %351 = load i32, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %1, i64 212
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %353 = load i32, ptr %352, align 4
-  %354 = getelementptr inbounds i8, ptr %1, i64 216
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %1, i64 232
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %357 = load i32, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %1, i64 236
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %359 = load i32, ptr %358, align 4
-  %360 = getelementptr inbounds i8, ptr %1, i64 240
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %320, align 8
   tail call void @col_set_writable(ptr noundef %362, i32 noundef -1, i32 noundef 0) #4
@@ -2433,32 +2433,32 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   store i32 %327, ptr %326, align 8
   store i32 %329, ptr %328, align 4
   store ptr %331, ptr %330, align 8
-  %370 = getelementptr inbounds i8, ptr %1, i64 128
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %370, align 8
   store i32 %333, ptr %332, align 8
   store i32 %335, ptr %334, align 4
   store ptr %337, ptr %336, align 8
-  %371 = getelementptr inbounds i8, ptr %1, i64 152
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %371, align 8
   store i32 %339, ptr %338, align 8
   store i32 %341, ptr %340, align 4
   store ptr %343, ptr %342, align 8
-  %372 = getelementptr inbounds i8, ptr %1, i64 176
+  %372 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %372, align 8
   store i32 %345, ptr %344, align 8
   store i32 %347, ptr %346, align 4
   store ptr %349, ptr %348, align 8
-  %373 = getelementptr inbounds i8, ptr %1, i64 200
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %373, align 8
   store i32 %351, ptr %350, align 8
   store i32 %353, ptr %352, align 4
   store ptr %355, ptr %354, align 8
-  %374 = getelementptr inbounds i8, ptr %1, i64 224
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %374, align 8
   store i32 %357, ptr %356, align 8
   store i32 %359, ptr %358, align 4
   store ptr %361, ptr %360, align 8
-  %375 = getelementptr inbounds i8, ptr %1, i64 248
+  %375 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %375, align 8
   br label %common.ret
 
@@ -2639,7 +2639,7 @@ common.ret:                                       ; preds = %126, %163, %256, %2
   %534 = load i32, ptr @hf_openflow_v4_multipart_request_type, align 4
   %535 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %534, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #4
   %536 = add i32 %3, 10
-  %537 = getelementptr inbounds i8, ptr %1, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %538 = load ptr, ptr %537, align 8
   %539 = zext i16 %533 to i32
   %540 = tail call ptr @val_to_str_const(i32 noundef %539, ptr noundef nonnull @openflow_v4_multipart_type_values, ptr noundef nonnull @.str.1086) #4
@@ -3066,7 +3066,7 @@ define internal fastcc void @dissect_openflow_multipart_reply_v4(ptr noundef %0,
   %12 = load i32, ptr @hf_openflow_v4_multipart_reply_type, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #4
   %14 = add i32 %3, 2
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %11 to i32
   %18 = tail call ptr @val_to_str_const(i32 noundef %17, ptr noundef nonnull @openflow_v4_multipart_type_values, ptr noundef nonnull @.str.1086) #4

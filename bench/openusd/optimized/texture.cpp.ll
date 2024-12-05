@@ -255,17 +255,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiComponentMappingES2_.exit: ; p
   br i1 %57, label %58, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %60, %62
   br i1 %63, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit: ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %0, i64 68
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %65, %67
   br i1 %68, label %69, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16

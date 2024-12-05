@@ -154,7 +154,7 @@ define dso_local noundef i32 @__traceiter_swiotlb_bounced(ptr nocapture readnone
 .preheader:                                       ; preds = %4, %.preheader
   %7 = phi ptr [ %11, %.preheader ], [ %5, %4 ]
   %8 = load volatile ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10, ptr noundef %1, i64 noundef %2, i64 noundef %3) #21
   %11 = getelementptr i8, ptr %7, i64 24
@@ -181,7 +181,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
@@ -197,7 +197,7 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
   br i1 %14, label %59, label %15
 
 15:                                               ; preds = %13, %10, %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %.thread4
@@ -223,7 +223,7 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
 29:                                               ; preds = %.thread4
   %30 = shl i32 %24, 16
   %31 = or disjoint i32 %30, 41
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %27, i64 41
   %34 = load ptr, ptr %16, align 8
@@ -239,7 +239,7 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
 .thread8:                                         ; preds = %35, %29
   %38 = phi ptr [ %34, %29 ], [ %spec.select11, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #21
-  %40 = getelementptr inbounds i8, ptr %1, i64 560
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %45, label %43
@@ -250,25 +250,25 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
 
 45:                                               ; preds = %43, %.thread8
   %46 = phi i64 [ %44, %43 ], [ 0, %.thread8 ]
-  %47 = getelementptr inbounds i8, ptr %27, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 %2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %27, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %3, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 616
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %51, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %55 = load i8, ptr %54, align 8, !range !12, !noundef !13
   br label %56
 
 56:                                               ; preds = %53, %45
   %57 = phi i8 [ 0, %45 ], [ %55, %53 ]
-  %58 = getelementptr inbounds i8, ptr %27, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i8 %57, ptr %58, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %5) #21
   br label %59
@@ -284,7 +284,7 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.thread4
@@ -302,11 +302,11 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
   %14 = trunc i64 %13 to i32
   %15 = shl i32 %14, 16
   %16 = add i32 %15, 65577
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #22, !srcloc !14
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
@@ -329,17 +329,17 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
   %34 = load ptr, ptr %5, align 8
   %35 = call ptr @llvm.returnaddress(i32 0)
   %36 = ptrtoint ptr %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 128
   store i64 %36, ptr %37, align 8
   %38 = call ptr @llvm.frameaddress.p0(i32 0)
   %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds i8, ptr %34, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 152
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 136
   store i64 16, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 144
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %31, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %16, ptr %43, align 8
   %44 = getelementptr i8, ptr %31, i64 41
   %45 = load ptr, ptr %7, align 8
@@ -355,7 +355,7 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
 .thread8:                                         ; preds = %46, %33
   %49 = phi ptr [ %45, %33 ], [ %spec.select11, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #21
-  %51 = getelementptr inbounds i8, ptr %1, i64 560
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %54
@@ -366,25 +366,25 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr nocapture n
 
 56:                                               ; preds = %54, %.thread8
   %57 = phi i64 [ %55, %54 ], [ 0, %.thread8 ]
-  %58 = getelementptr inbounds i8, ptr %31, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %31, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 %2, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %31, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i64 %3, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 616
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %62, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %66 = load i8, ptr %65, align 8, !range !12, !noundef !13
   br label %67
 
 67:                                               ; preds = %64, %56
   %68 = phi i8 [ 0, %56 ], [ %66, %64 ]
-  %69 = getelementptr inbounds i8, ptr %31, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i8 %68, ptr %69, align 8
   %70 = load i32, ptr %6, align 4
   %71 = load ptr, ptr %5, align 8
@@ -1339,22 +1339,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @swiotlb_dev_init(ptr nocapture noundef writeonly initializes((616, 624)) %0) local_unnamed_addr #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 616
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store ptr @io_tlb_default_mem, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 %5, i64 noundef %6) local_unnamed_addr #1 align 16 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 616
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 592
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -1367,7 +1367,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %9, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %30
@@ -1398,21 +1398,21 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %36 = zext nneg i32 %20 to i64
   %37 = add i64 %3, %36
   %38 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !22
-  %39 = getelementptr inbounds i8, ptr %9, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, -1
   %42 = and i32 %41, %38
-  %43 = getelementptr inbounds i8, ptr %9, i64 48
-  %44 = getelementptr inbounds i8, ptr %0, i64 584
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %45 = add i64 %37, 2047
   %46 = lshr i64 %45, 11
   %47 = trunc i64 %46 to i32
   %48 = icmp eq i32 %47, 0
   %49 = icmp ugt i64 %37, 4095
   %50 = and i64 %46, 4294967295
-  %51 = getelementptr inbounds i8, ptr %9, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %52 = icmp eq i64 %1, 0
-  %53 = getelementptr inbounds i8, ptr %9, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br i1 %48, label %.split.us, label %.split, !prof !10
 
 .split.us:                                        ; preds = %35
@@ -1431,7 +1431,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %.split
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %66
@@ -1447,7 +1447,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br i1 %70, label %.loopexit34, label %71
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %.loopexit34, label %.preheader33
@@ -1470,7 +1470,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br i1 %86, label %75, label %87
 
 87:                                               ; preds = %.preheader33
-  %88 = getelementptr inbounds i8, ptr %81, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %83
   br label %.loopexit34
@@ -1483,7 +1483,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br i1 %60, label %.thread25, label %95
 
 95:                                               ; preds = %.loopexit34
-  %96 = getelementptr inbounds i8, ptr %59, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, %4
   br label %.thread25
@@ -1506,8 +1506,8 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %107 = and i32 %106, -2048
   %108 = lshr i32 %106, 11
   %109 = add nuw nsw i32 %108, 1
-  %110 = getelementptr inbounds i8, ptr %58, i64 12
-  %111 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %110) #21
+  %110 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %111 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %110) #21
   %112 = load i32, ptr %51, align 8
   %113 = zext i32 %112 to i64
   %114 = load i64, ptr %58, align 8
@@ -1517,7 +1517,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 
 117:                                              ; preds = %104
   %118 = mul i32 %112, %55
-  %119 = getelementptr inbounds i8, ptr %58, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %120 = icmp eq i32 %112, 0
   br i1 %120, label %.thread27, label %121
 
@@ -1587,7 +1587,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   br label %168
 
 .thread27:                                        ; preds = %139, %104, %117
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %110, i64 noundef %111) #21
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %110, i64 noundef %111) #21
   br label %217
 
 .loopexit32:                                      ; preds = %168, %159
@@ -1643,19 +1643,19 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %199 = load i64, ptr %58, align 8
   %200 = add i64 %199, %50
   store i64 %200, ptr %58, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %110, i64 noundef %111) #21
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %110, i64 noundef %111) #21
   %201 = load ptr, ptr %8, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 88
-  %203 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %202, i64 %50, ptr elementtype(i64) %202) #21, !srcloc !33
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 88
+  %203 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %202, i64 %50, ptr nonnull elementtype(i64) %202) #21, !srcloc !33
   %204 = add i64 %203, %50
-  %205 = getelementptr inbounds i8, ptr %201, i64 96
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 96
   %206 = load volatile i64, ptr %205, align 8
   %207 = icmp ugt i64 %204, %206
   br i1 %207, label %.preheader29, label %.thread26
 
 .preheader29:                                     ; preds = %.loopexit31, %213
   %208 = phi i64 [ %214, %213 ], [ %206, %.loopexit31 ]
-  %209 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %205, i64 %204, ptr elementtype(i64) %205, i64 %208) #21, !srcloc !34
+  %209 = tail call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %205, i64 %204, ptr nonnull elementtype(i64) %205, i64 %208) #21, !srcloc !34
   %210 = extractvalue { i8, i64 } %209, 0
   %211 = icmp ult i8 %210, 2
   tail call void @llvm.assume(i1 %211)
@@ -1695,7 +1695,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 
 231:                                              ; preds = %228
   %232 = load i64, ptr %23, align 8
-  %233 = getelementptr inbounds i8, ptr %9, i64 88
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %234 = load volatile i64, ptr %233, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %3, i64 noundef %232, i64 noundef %234) #23
   br label %250
@@ -1736,19 +1736,19 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %1, %7
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = shl i64 %8, 21
   %12 = ashr i64 %11, 32
   %13 = getelementptr %struct.io_tlb_slot, ptr %10, i64 %12
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 %1
   %20 = sub i64 0, %7
@@ -1759,13 +1759,13 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
 23:                                               ; preds = %4
   %24 = trunc i64 %1 to i32
   %25 = and i32 %24, 2047
-  %26 = getelementptr inbounds i8, ptr %0, i64 592
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -1785,7 +1785,7 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
   store i1 true, ptr @swiotlb_bounce.__already_done, align 1
   tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #21, !srcloc !38
   %41 = tail call ptr @dev_driver_string(ptr noundef %0) #21
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
@@ -1817,7 +1817,7 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
   store i1 true, ptr @swiotlb_bounce.__already_done.36, align 1
   tail call void asm sideeffect "455: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 455b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 455) #21, !srcloc !43
   %56 = tail call ptr @dev_driver_string(ptr noundef %0) #21
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62
@@ -1849,7 +1849,7 @@ define internal fastcc void @swiotlb_bounce(ptr noundef %0, i64 noundef %1, i64 
   store i1 true, ptr @swiotlb_bounce.__already_done.38, align 1
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #21, !srcloc !48
   %71 = tail call ptr @dev_driver_string(ptr noundef %0) #21
-  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %77
@@ -1901,15 +1901,15 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   br label %12
 
 12:                                               ; preds = %11, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 616
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 592
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 4
   br label %21
 
@@ -1924,7 +1924,7 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %29 = sub i64 %1, %28
   %30 = lshr i64 %29, 11
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %14, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = shl i64 %30, 32
   %35 = ashr exact i64 %34, 32
@@ -1933,14 +1933,14 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %38 = add nuw nsw i64 %26, 2047
   %39 = add i64 %38, %37
   %40 = lshr i64 %39, 11
-  %41 = getelementptr inbounds i8, ptr %14, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = udiv i32 %31, %42
-  %44 = getelementptr inbounds i8, ptr %14, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %43 to i64
   %47 = getelementptr %struct.io_tlb_area, ptr %45, i64 %46
-  %48 = getelementptr inbounds i8, ptr %14, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %43, %49
   br i1 %50, label %52, label %51, !prof !9
@@ -1952,8 +1952,8 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
 
 52:                                               ; preds = %21
   %53 = trunc i64 %40 to i32
-  %54 = getelementptr inbounds i8, ptr %47, i64 12
-  %55 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %54) #21
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %55 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %54) #21
   %56 = add i32 %53, %31
   %57 = and i32 %31, -128
   %58 = add i32 %57, 128
@@ -2022,11 +2022,11 @@ define dso_local void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %1, 
   %99 = load i64, ptr %47, align 8
   %100 = sub i64 %99, %98
   store i64 %100, ptr %47, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %54, i64 noundef %55) #21
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %54, i64 noundef %55) #21
   %101 = load ptr, ptr %13, align 8
   %102 = and i64 %40, 4294967295
-  %103 = getelementptr inbounds i8, ptr %101, i64 88
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %103, i64 %102, ptr elementtype(i64) %103) #21, !srcloc !57
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 88
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %103, i64 %102, ptr nonnull elementtype(i64) %103) #21, !srcloc !57
   ret void
 }
 
@@ -2079,13 +2079,13 @@ define dso_local void @swiotlb_sync_single_for_cpu(ptr noundef %0, i64 noundef %
 define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
-  %7 = getelementptr inbounds i8, ptr %0, i64 584
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %.loopexit, label %.preheader17
@@ -2108,7 +2108,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br i1 %25, label %14, label %26
 
 26:                                               ; preds = %.preheader17
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %22
   br label %.loopexit
@@ -2135,7 +2135,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @__SCT__tp_func_swiotlb_bounced(ptr noundef %42, ptr noundef %0, i64 noundef %30, i64 noundef %2) #21
   br label %44
@@ -2171,7 +2171,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br label %82
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %55, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %.thread15, label %.preheader
@@ -2198,7 +2198,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   br label %98
 
 75:                                               ; preds = %.preheader
-  %76 = getelementptr inbounds i8, ptr %69, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, %71
   store i64 %78, ptr %6, align 8
@@ -2210,10 +2210,10 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
 82:                                               ; preds = %.thread16, %75
   %83 = phi i64 [ %58, %.thread16 ], [ %80, %75 ]
   %84 = phi i64 [ %52, %.thread16 ], [ %78, %75 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 560
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %86 = load ptr, ptr %85, align 8
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 576
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %87, 0
   br i1 %90, label %95, label %91
@@ -2241,7 +2241,7 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
   store i1 true, ptr @swiotlb_map.__already_done, align 1
   tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #21, !srcloc !70
   %102 = tail call ptr @dev_driver_string(ptr noundef %0) #21
-  %103 = getelementptr inbounds i8, ptr %0, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %108
@@ -2252,10 +2252,10 @@ define dso_local i64 @swiotlb_map(ptr noundef %0, i64 noundef %1, i64 noundef %2
 
 108:                                              ; preds = %106, %101
   %109 = phi ptr [ %107, %106 ], [ %104, %101 ]
-  %110 = getelementptr inbounds i8, ptr %0, i64 560
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %111 = load ptr, ptr %110, align 8
   %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 576
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %114 = load i64, ptr %113, align 8
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.14, ptr noundef %102, ptr noundef %109, ptr noundef nonnull %6, i64 noundef %2, i64 noundef %112, i64 noundef %114) #21
   call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #21, !srcloc !71
@@ -2278,13 +2278,13 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i64 -2147219456, 2147745793) i64 @swiotlb_max_mapping_size(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 592
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread, label %9
@@ -2311,13 +2311,13 @@ define dso_local zeroext i1 @is_swiotlb_allocated() local_unnamed_addr #5 align 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @is_swiotlb_active(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 616
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = icmp ne i64 %7, 0
   br label %9
@@ -2380,31 +2380,31 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_swiotlb_bounced(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #21
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %22 = load i8, ptr %21, align 8, !range !12, !noundef !13
   %23 = icmp eq i8 %22, 0
   %24 = select i1 %23, ptr @.str.28, ptr @.str.27
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %14, i64 noundef %16, i64 noundef %18, i64 noundef %20, ptr noundef nonnull %24) #21
-  %25 = tail call i32 @trace_handle_return(ptr noundef %9) #21
+  %25 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #21
   br label %26
 
 26:                                               ; preds = %8, %3
@@ -2495,7 +2495,7 @@ declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef i32 @io_tlb_used_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #19 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load volatile i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
   ret i32 0
@@ -2509,7 +2509,7 @@ define internal i32 @fops_io_tlb_hiwater_open(ptr noundef %0, ptr noundef %1) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef i32 @io_tlb_hiwater_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #19 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load volatile i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
   ret i32 0
@@ -2521,7 +2521,7 @@ define internal noundef range(i32 -22, 1) i32 @io_tlb_hiwater_set(ptr noundef %0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile i64 0, ptr %5, align 8
   br label %6
 

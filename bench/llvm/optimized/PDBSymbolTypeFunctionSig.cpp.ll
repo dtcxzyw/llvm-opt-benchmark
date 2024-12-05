@@ -51,7 +51,7 @@ define dso_local void @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig12getArgumentsEv(p
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val = load ptr, ptr %6, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #7, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), ptr %7, align 8, !noalias !4
@@ -60,7 +60,7 @@ define dso_local void @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig12getArgumentsEv(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4
   %9 = load ptr, ptr %.val, align 8, !noalias !10
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !10
   call void %11(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.val, i32 noundef 20) #8, !noalias !10
   %12 = load ptr, ptr %3, align 8, !noalias !10
@@ -87,7 +87,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionArgEnumeratorESt14default_deleteIS1_E
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig4dumpERNS0_12PDBSymDumperE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   ret void
@@ -96,7 +96,7 @@ define dso_local void @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig4dumpERNS0_12PDBSy
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig9dumpRightERNS0_12PDBSymDumperE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   ret void
@@ -109,11 +109,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig10is
   %4 = alloca %"class.std::unique_ptr.18", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %7, align 8, !noalias !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !17
   %8 = load ptr, ptr %.val.i, align 8, !noalias !20
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !20
   call void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.val.i, i32 noundef 20) #8, !noalias !20
   %11 = load ptr, ptr %3, align 8, !noalias !20, !nonnull !23, !noundef !23
@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig10is
   store i64 %12, ptr %14, align 8, !noalias !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !17
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
   %19 = icmp eq i32 %18, 0
@@ -135,7 +135,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb24PDBSymbolTypeFunctionSig10is
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %22 = load ptr, ptr %13, align 8, !noalias !27
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8, !noalias !27
   call void %24(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %21) #8, !noalias !27
   %25 = load ptr, ptr %2, align 8, !noalias !27
@@ -151,11 +151,11 @@ _ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndexEj.exit.thread: ; pred
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !27
   %29 = load ptr, ptr %28, align 8, !noalias !27
-  %30 = getelementptr inbounds i8, ptr %29, i64 592
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 592
   %31 = load ptr, ptr %30, align 8, !noalias !27
   %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #8, !noalias !27
   %33 = load ptr, ptr %6, align 8, !noalias !27
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8, !noalias !27
   call void %35(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %32) #8
   %.pr.i = load ptr, ptr %2, align 8, !noalias !27
@@ -164,7 +164,7 @@ _ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndexEj.exit.thread: ; pred
 
 _ZNKSt14default_deleteIN4llvm3pdb24PDBSymbolTypeFunctionArgEEclEPS2_.exit.i.i: ; preds = %26
   %36 = load ptr, ptr %.pr.i, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(32) %.pr.i) #8
   br label %_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndexEj.exit
@@ -184,7 +184,7 @@ _ZN4llvm16dyn_cast_or_nullINS_3pdb20PDBSymbolTypeBuiltinENS1_9PDBSymbolEEEDaPT0_
   %42 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 200
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8) %43) #8
   %48 = icmp eq i32 %47, 0
@@ -201,7 +201,7 @@ _ZN4llvm16dyn_cast_or_nullINS_3pdb20PDBSymbolTypeBuiltinENS1_9PDBSymbolEEEDaPT0_
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %49
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(32) %50) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -213,7 +213,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
 _ZN12_GLOBAL__N_121FunctionArgEnumeratorD0Ev.exit: ; preds = %1, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
   %.0 = phi i1 [ %.1, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ], [ false, %1 ]
   %54 = load ptr, ptr %13, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
   ret i1 %.0
@@ -253,7 +253,7 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD2Ev(ptr nocapture
 
 _ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_24PDBSymbolTypeFunctionArgEEEEclEPS4_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_24PDBSymbolTypeFunctionArgEEESt14default_deleteIS4_EED2Ev.exit
@@ -273,7 +273,7 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD0Ev(ptr noundef n
 
 _ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_24PDBSymbolTypeFunctionArgEEEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %_ZN12_GLOBAL__N_121FunctionArgEnumeratorD2Ev.exit
@@ -288,7 +288,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_121FunctionArgEnumerator13getChild
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret i32 %7
@@ -300,7 +300,7 @@ define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndex
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %2) #8
   %10 = load ptr, ptr %4, align 8
@@ -317,11 +317,11 @@ define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndex
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 592
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 592
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %19) #8
   %.pr = load ptr, ptr %4, align 8
@@ -330,7 +330,7 @@ define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndex
 
 _ZNKSt14default_deleteIN4llvm3pdb24PDBSymbolTypeFunctionArgEEclEPS2_.exit.i: ; preds = %11
   %23 = load ptr, ptr %.pr, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb24PDBSymbolTypeFunctionArgESt14default_deleteIS2_EED2Ev.exit
@@ -345,7 +345,7 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator7getNextEv(ptr dea
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.37") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %5) #8
   %9 = load ptr, ptr %3, align 8
@@ -362,11 +362,11 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator7getNextEv(ptr dea
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 592
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 592
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %18) #8
   %.pr = load ptr, ptr %3, align 8
@@ -375,7 +375,7 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator7getNextEv(ptr dea
 
 _ZNKSt14default_deleteIN4llvm3pdb24PDBSymbolTypeFunctionArgEEclEPS2_.exit.i: ; preds = %10
   %22 = load ptr, ptr %.pr, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb24PDBSymbolTypeFunctionArgESt14default_deleteIS2_EED2Ev.exit
@@ -389,7 +389,7 @@ define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator5resetEv(ptr nocap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   ret void
@@ -405,7 +405,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_24PD
 
 _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEEEclEPS4_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit
@@ -425,7 +425,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_24PD
 
 _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_9PDBSymbolEEEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   br label %_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_24PDBSymbolTypeFunctionArgEED2Ev.exit
@@ -440,7 +440,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm3pdb24ConcreteSymbolEnumeratorI
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret i32 %7
@@ -452,7 +452,7 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb24ConcreteSymbolEnumeratorINS0_24P
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %2) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -478,7 +478,7 @@ _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb24PDBSymbolTypeFunctionArgENS1_9PDBSymb
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb24PDBSymbolTypeFunctionArgENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -493,7 +493,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_24PD
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -520,7 +520,7 @@ _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb24PDBSymbolTypeFunctionArgENS1_9PDBSymb
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb24PDBSymbolTypeFunctionArgENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
@@ -534,7 +534,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_24PD
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void

@@ -190,13 +190,13 @@ define internal i32 @dissect_S101(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %19, label %find_s101_packet_header.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
-  %23 = getelementptr inbounds i8, ptr %1, i64 212
-  %24 = getelementptr inbounds i8, ptr %1, i64 216
-  %25 = getelementptr inbounds i8, ptr %1, i64 272
-  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
@@ -697,7 +697,7 @@ get_fragment_pdu_id.exit:                         ; preds = %258, %263
 284:                                              ; preds = %280
   %285 = load i32, ptr %26, align 4
   store i32 %285, ptr %282, align 4
-  %286 = getelementptr inbounds i8, ptr %282, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 0, ptr %286, align 4
   br label %new_fragment_info.exit
 
@@ -716,7 +716,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
   %292 = phi i32 [ %.pre, %new_fragment_info.exit ], [ %290, %289 ]
   %.0 = phi ptr [ %282, %new_fragment_info.exit ], [ %277, %289 ]
   %293 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %292, ptr noundef null, i32 noundef 0, i32 noundef %.0105, i32 noundef 1) #4
-  %294 = getelementptr inbounds i8, ptr %.0, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 %.0105, ptr %294, align 4
   br label %.thread265
 
@@ -725,7 +725,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
 
 296:                                              ; preds = %295
   %297 = load i32, ptr %277, align 4
-  %298 = getelementptr inbounds i8, ptr %277, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %277, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %297, ptr noundef null, i32 noundef %299, i32 noundef %.0105, i32 noundef 0) #4
   %301 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.11, ptr noundef nonnull %1, ptr noundef nonnull @.str.72, ptr noundef %300, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %164) #4
@@ -769,7 +769,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
 
 319:                                              ; preds = %317
   %320 = load i32, ptr %277, align 4
-  %321 = getelementptr inbounds i8, ptr %277, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %277, i64 4
   %322 = load i32, ptr %321, align 4
   %323 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %320, ptr noundef null, i32 noundef %322, i32 noundef %.0105, i32 noundef 1) #4
   %324 = load i32, ptr %321, align 4

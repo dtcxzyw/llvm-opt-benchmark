@@ -107,7 +107,7 @@ define internal i32 @dissect_moldudp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %6, label %81, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.24) #4
   %10 = load ptr, ptr %8, align 8
@@ -178,13 +178,13 @@ define internal i32 @dissect_moldudp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %54
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %53, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %56 = load ptr, ptr %55, align 8
   %.not5.i.i = icmp eq ptr %56, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, 2
   store i32 %60, ptr %58, align 4

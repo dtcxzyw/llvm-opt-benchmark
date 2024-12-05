@@ -46,7 +46,7 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly %0, i32 noundef
   br i1 %11, label %29, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = load i32, ptr @debug_threshold, align 4
@@ -63,11 +63,11 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly %0, i32 noundef
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds [512 x i8], ptr %7, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %21
   store i8 10, ptr %22, align 1
   %23 = add nuw nsw i32 %19, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [512 x i8], ptr %7, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %24
   store i8 0, ptr %25, align 1
   br label %26
 
@@ -99,7 +99,7 @@ define hidden void @mbedtls_debug_print_ret(ptr noundef readonly %0, i32 noundef
   br i1 %11, label %25, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %25, label %16
@@ -142,7 +142,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   br i1 %13, label %._crit_edge.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = load i32, ptr @debug_threshold, align 4
@@ -207,7 +207,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   %.1 = phi i64 [ %43, %37 ], [ %.069, %.lr.ph ]
   %45 = getelementptr inbounds i8, ptr %8, i64 %.1
   %46 = sub i64 512, %.1
-  %47 = getelementptr inbounds i8, ptr %5, i64 %.05268
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %.05268
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.4, i32 noundef %49) #9
@@ -217,7 +217,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   %54 = add i8 %53, -32
   %or.cond62 = icmp ult i8 %54, 95
   %55 = select i1 %or.cond62, i8 %53, i8 46
-  %56 = getelementptr inbounds [17 x i8], ptr %9, i64 0, i64 %28
+  %56 = getelementptr inbounds nuw [17 x i8], ptr %9, i64 0, i64 %28
   store i8 %55, ptr %56, align 1
   %57 = add nuw nsw i64 %.05268, 1
   %exitcond = icmp eq i64 %.05268, %umin
@@ -273,7 +273,7 @@ define hidden void @mbedtls_debug_print_ecp(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = load i32, ptr @debug_threshold, align 4
@@ -285,7 +285,7 @@ define hidden void @mbedtls_debug_print_ecp(ptr noundef %0, i32 noundef %1, ptr 
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef %4) #9
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef %5)
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef %4) #9
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %21)
   br label %22
 
@@ -305,7 +305,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   br i1 %11, label %._crit_edge.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = icmp eq ptr %5, null
@@ -330,9 +330,9 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
 
 .thread:                                          ; preds = %19
   store i8 32, ptr %7, align 16
-  %26 = getelementptr inbounds i8, ptr %7, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 48, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %7, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 48, ptr %27, align 2
   br label %58
 
@@ -344,7 +344,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
 
 .lr.ph:                                           ; preds = %28
   %32 = lshr i64 %29, 3
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = and i64 %32, 2147483647
   br label %35
 
@@ -353,7 +353,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   %.158 = phi i64 [ 0, %.lr.ph ], [ %.2, %56 ]
   %36 = lshr i64 %indvars.iv, 3
   %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
   %40 = shl nuw nsw i64 %indvars.iv, 3
   %41 = and i64 %40, 56
@@ -425,7 +425,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = icmp eq ptr %5, null
@@ -436,7 +436,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %9, i64 15
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 15
   br label %24
 
 24:                                               ; preds = %.preheader, %debug_print_pk.exit
@@ -470,7 +470,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr 
   %36 = sub i64 %35, %34
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %36, i64 511)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %.0.i, i64 %spec.store.select.i, i1 false)
-  %37 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 %spec.store.select.i
+  %37 = getelementptr inbounds nuw [512 x i8], ptr %10, i64 0, i64 %spec.store.select.i
   store i8 0, ptr %37, align 1
   %.val.i = load ptr, ptr %0, align 8
   %38 = getelementptr i8, ptr %.val.i, i64 32
@@ -478,17 +478,17 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef %1, ptr 
   %39 = getelementptr i8, ptr %.val.i, i64 40
   %.val.val17.i = load ptr, ptr %39, align 8
   call void %.val.val.i(ptr noundef %.val.val17.i, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %10) #9
-  %40 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   br label %41
 
 41:                                               ; preds = %32, %30
   %.1.i = phi ptr [ %40, %32 ], [ %.0.i, %30 ]
-  %42 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   br label %30, !llvm.loop !8
 
 debug_print_line_by_line.exit:                    ; preds = %30
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10)
-  %43 = getelementptr inbounds i8, ptr %.025, i64 360
+  %43 = getelementptr inbounds nuw i8, ptr %.025, i64 360
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %8, i8 0, i64 72, i1 false)
@@ -507,13 +507,13 @@ debug_print_line_by_line.exit:                    ; preds = %30
 
 .preheader.i:                                     ; preds = %debug_print_line_by_line.exit, %77
   %.01.i = phi i64 [ %78, %77 ], [ 0, %debug_print_line_by_line.exit ]
-  %48 = getelementptr inbounds [3 x %struct.mbedtls_pk_debug_item], ptr %8, i64 0, i64 %.01.i
+  %48 = getelementptr inbounds nuw [3 x %struct.mbedtls_pk_debug_item], ptr %8, i64 0, i64 %.01.i
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %debug_print_pk.exit, label %51
 
 51:                                               ; preds = %.preheader.i
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, ptr noundef %53) #9
   store i8 0, ptr %23, align 1
@@ -524,13 +524,13 @@ debug_print_line_by_line.exit:                    ; preds = %30
   ]
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %48, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %58 = load ptr, ptr %57, align 8
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %58)
   br label %77
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %48, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %61 = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   %62 = load ptr, ptr %0, align 8
@@ -538,7 +538,7 @@ debug_print_line_by_line.exit:                    ; preds = %30
   br i1 %63, label %mbedtls_debug_print_ecp.exit.i, label %64
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %62, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   %68 = load i32, ptr @debug_threshold, align 4
@@ -550,7 +550,7 @@ debug_print_line_by_line.exit:                    ; preds = %30
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #9
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef %61)
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull %9) #9
-  %73 = getelementptr inbounds i8, ptr %61, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %73)
   br label %mbedtls_debug_print_ecp.exit.i
 
@@ -575,7 +575,7 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %70, %64, %59
 debug_print_pk.exit:                              ; preds = %.preheader.i, %77, %45
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %79 = getelementptr inbounds i8, ptr %.025, i64 608
+  %79 = getelementptr inbounds nuw i8, ptr %.025, i64 608
   %80 = load ptr, ptr %79, align 8
   %.old2.not = icmp eq ptr %80, null
   br i1 %.old2.not, label %.loopexit, label %24
@@ -597,7 +597,7 @@ define hidden void @mbedtls_debug_printf_ecdh(ptr noundef %0, i32 noundef %1, pt
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 288
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %mbedtls_debug_print_ecp.exit.i, label %12
@@ -608,7 +608,7 @@ define hidden void @mbedtls_debug_printf_ecdh(ptr noundef %0, i32 noundef %1, pt
   br i1 %14, label %mbedtls_debug_print_ecp.exit.i, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = load i32, ptr @debug_threshold, align 4
@@ -620,7 +620,7 @@ define hidden void @mbedtls_debug_printf_ecdh(ptr noundef %0, i32 noundef %1, pt
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16) #9
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.16) #9
-  %24 = getelementptr inbounds i8, ptr %4, i64 312
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 312
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %24)
   br label %mbedtls_debug_print_ecp.exit.i
 
@@ -629,7 +629,7 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
   br label %mbedtls_debug_printf_ecdh_internal.exit
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %4, i64 360
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 360
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   %27 = icmp eq ptr %0, null
   br i1 %27, label %mbedtls_debug_print_ecp.exit17.i, label %28
@@ -640,7 +640,7 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
   br i1 %30, label %mbedtls_debug_print_ecp.exit17.i, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %35 = load i32, ptr @debug_threshold, align 4
@@ -652,7 +652,7 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %21, %15, %12, %9
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #9
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %26)
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #9
-  %40 = getelementptr inbounds i8, ptr %4, i64 384
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 384
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %40)
   br label %mbedtls_debug_print_ecp.exit17.i
 
@@ -661,7 +661,7 @@ mbedtls_debug_print_ecp.exit17.i:                 ; preds = %37, %31, %28, %25
   br label %mbedtls_debug_printf_ecdh_internal.exit
 
 41:                                               ; preds = %6
-  %42 = getelementptr inbounds i8, ptr %4, i64 432
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 432
   tail call void @mbedtls_debug_print_mpi(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %42)
   br label %mbedtls_debug_printf_ecdh_internal.exit
 

@@ -67,20 +67,20 @@ define internal void @_ZL16tMPI_C_BOOL_landPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 1
   br label %13
 
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %9 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -101,20 +101,20 @@ define internal void @_ZL15tMPI_C_BOOL_lorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 1
   br label %13
 
 13:                                               ; preds = %9, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %9 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -135,13 +135,13 @@ define internal void @_ZL16tMPI_C_BOOL_lxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
   %11 = and i8 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -162,12 +162,12 @@ define internal void @_ZL13tMPI_CHAR_maxPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -188,12 +188,12 @@ define internal void @_ZL13tMPI_CHAR_minPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -214,12 +214,12 @@ define internal void @_ZL13tMPI_CHAR_sumPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -240,12 +240,12 @@ define internal void @_ZL14tMPI_CHAR_prodPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = mul i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -266,13 +266,13 @@ define internal void @_ZL14tMPI_CHAR_landPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -280,7 +280,7 @@ define internal void @_ZL14tMPI_CHAR_landPvS_S_i(ptr nocapture noundef writeonly
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -301,12 +301,12 @@ define internal void @_ZL14tMPI_CHAR_bandPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -327,13 +327,13 @@ define internal void @_ZL13tMPI_CHAR_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -341,7 +341,7 @@ define internal void @_ZL13tMPI_CHAR_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -362,12 +362,12 @@ define internal void @_ZL13tMPI_CHAR_borPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = or i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -388,15 +388,15 @@ define internal void @_ZL14tMPI_CHAR_lxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %.not11 = icmp eq i8 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -417,12 +417,12 @@ define internal void @_ZL14tMPI_CHAR_bxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -443,12 +443,12 @@ define internal void @_ZL14tMPI_SHORT_maxPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %7, i16 %9)
-  %10 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %., ptr %10, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -469,12 +469,12 @@ define internal void @_ZL14tMPI_SHORT_minPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %7, i16 %9)
-  %10 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %., ptr %10, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -495,12 +495,12 @@ define internal void @_ZL14tMPI_SHORT_sumPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = add i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -521,12 +521,12 @@ define internal void @_ZL15tMPI_SHORT_prodPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = mul i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -547,13 +547,13 @@ define internal void @_ZL15tMPI_SHORT_landPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp ne i16 %10, 0
   %12 = zext i1 %11 to i16
@@ -561,7 +561,7 @@ define internal void @_ZL15tMPI_SHORT_landPvS_S_i(ptr nocapture noundef writeonl
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i16 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -582,12 +582,12 @@ define internal void @_ZL15tMPI_SHORT_bandPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -608,13 +608,13 @@ define internal void @_ZL14tMPI_SHORT_lorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp ne i16 %10, 0
   %12 = zext i1 %11 to i16
@@ -622,7 +622,7 @@ define internal void @_ZL14tMPI_SHORT_lorPvS_S_i(ptr nocapture noundef writeonly
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i16 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -643,12 +643,12 @@ define internal void @_ZL14tMPI_SHORT_borPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = or i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -669,15 +669,15 @@ define internal void @_ZL15tMPI_SHORT_lxorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %.not11 = icmp eq i16 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i16
-  %12 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %11, ptr %12, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -698,12 +698,12 @@ define internal void @_ZL15tMPI_SHORT_bxorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = xor i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -724,12 +724,12 @@ define internal void @_ZL12tMPI_INT_maxPvS_S_i(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %7, i32 %9)
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %., ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -750,12 +750,12 @@ define internal void @_ZL12tMPI_INT_minPvS_S_i(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %9)
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %., ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -776,12 +776,12 @@ define internal void @_ZL12tMPI_INT_sumPvS_S_i(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -802,12 +802,12 @@ define internal void @_ZL13tMPI_INT_prodPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = mul nsw i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -828,13 +828,13 @@ define internal void @_ZL13tMPI_INT_landPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -842,7 +842,7 @@ define internal void @_ZL13tMPI_INT_landPvS_S_i(ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -863,12 +863,12 @@ define internal void @_ZL13tMPI_INT_bandPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -889,13 +889,13 @@ define internal void @_ZL12tMPI_INT_lorPvS_S_i(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -903,7 +903,7 @@ define internal void @_ZL12tMPI_INT_lorPvS_S_i(ptr nocapture noundef writeonly %
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i32 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -924,12 +924,12 @@ define internal void @_ZL12tMPI_INT_borPvS_S_i(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -950,15 +950,15 @@ define internal void @_ZL13tMPI_INT_lxorPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.not11 = icmp eq i32 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i32
-  %12 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -979,12 +979,12 @@ define internal void @_ZL13tMPI_INT_bxorPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = xor i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1005,12 +1005,12 @@ define internal void @_ZL13tMPI_LONG_maxPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1031,12 +1031,12 @@ define internal void @_ZL13tMPI_LONG_minPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1057,12 +1057,12 @@ define internal void @_ZL13tMPI_LONG_sumPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1083,12 +1083,12 @@ define internal void @_ZL14tMPI_LONG_prodPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = mul nsw i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1109,13 +1109,13 @@ define internal void @_ZL14tMPI_LONG_landPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -1123,7 +1123,7 @@ define internal void @_ZL14tMPI_LONG_landPvS_S_i(ptr nocapture noundef writeonly
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1144,12 +1144,12 @@ define internal void @_ZL14tMPI_LONG_bandPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1170,13 +1170,13 @@ define internal void @_ZL13tMPI_LONG_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -1184,7 +1184,7 @@ define internal void @_ZL13tMPI_LONG_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1205,12 +1205,12 @@ define internal void @_ZL13tMPI_LONG_borPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1231,15 +1231,15 @@ define internal void @_ZL14tMPI_LONG_lxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not11 = icmp eq i64 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1260,12 +1260,12 @@ define internal void @_ZL14tMPI_LONG_bxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1286,12 +1286,12 @@ define internal void @_ZL15tMPI_S_CHAR_maxPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1312,12 +1312,12 @@ define internal void @_ZL15tMPI_S_CHAR_minPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1338,12 +1338,12 @@ define internal void @_ZL15tMPI_S_CHAR_sumPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1364,12 +1364,12 @@ define internal void @_ZL16tMPI_S_CHAR_prodPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = mul i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1390,13 +1390,13 @@ define internal void @_ZL16tMPI_S_CHAR_landPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -1404,7 +1404,7 @@ define internal void @_ZL16tMPI_S_CHAR_landPvS_S_i(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1425,12 +1425,12 @@ define internal void @_ZL16tMPI_S_CHAR_bandPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1451,13 +1451,13 @@ define internal void @_ZL15tMPI_S_CHAR_lorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -1465,7 +1465,7 @@ define internal void @_ZL15tMPI_S_CHAR_lorPvS_S_i(ptr nocapture noundef writeonl
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1486,12 +1486,12 @@ define internal void @_ZL15tMPI_S_CHAR_borPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = or i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1512,15 +1512,15 @@ define internal void @_ZL16tMPI_S_CHAR_lxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %.not11 = icmp eq i8 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1541,12 +1541,12 @@ define internal void @_ZL16tMPI_S_CHAR_bxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1567,12 +1567,12 @@ define internal void @_ZL15tMPI_U_CHAR_maxPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1593,12 +1593,12 @@ define internal void @_ZL15tMPI_U_CHAR_minPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1619,12 +1619,12 @@ define internal void @_ZL15tMPI_U_CHAR_sumPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1645,12 +1645,12 @@ define internal void @_ZL16tMPI_U_CHAR_prodPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = mul i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1671,13 +1671,13 @@ define internal void @_ZL16tMPI_U_CHAR_landPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -1685,7 +1685,7 @@ define internal void @_ZL16tMPI_U_CHAR_landPvS_S_i(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1706,12 +1706,12 @@ define internal void @_ZL16tMPI_U_CHAR_bandPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1732,13 +1732,13 @@ define internal void @_ZL15tMPI_U_CHAR_lorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -1746,7 +1746,7 @@ define internal void @_ZL15tMPI_U_CHAR_lorPvS_S_i(ptr nocapture noundef writeonl
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1767,12 +1767,12 @@ define internal void @_ZL15tMPI_U_CHAR_borPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = or i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1793,15 +1793,15 @@ define internal void @_ZL16tMPI_U_CHAR_lxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %.not11 = icmp eq i8 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1822,12 +1822,12 @@ define internal void @_ZL16tMPI_U_CHAR_bxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1848,12 +1848,12 @@ define internal void @_ZL16tMPI_U_SHORT_maxPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %7, i16 %9)
-  %10 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %., ptr %10, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1874,12 +1874,12 @@ define internal void @_ZL16tMPI_U_SHORT_minPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %. = tail call i16 @llvm.umin.i16(i16 %7, i16 %9)
-  %10 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %., ptr %10, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1900,12 +1900,12 @@ define internal void @_ZL16tMPI_U_SHORT_sumPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = add i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1926,12 +1926,12 @@ define internal void @_ZL17tMPI_U_SHORT_prodPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = mul i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1952,13 +1952,13 @@ define internal void @_ZL17tMPI_U_SHORT_landPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp ne i16 %10, 0
   %12 = zext i1 %11 to i16
@@ -1966,7 +1966,7 @@ define internal void @_ZL17tMPI_U_SHORT_landPvS_S_i(ptr nocapture noundef writeo
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i16 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1987,12 +1987,12 @@ define internal void @_ZL17tMPI_U_SHORT_bandPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2013,13 +2013,13 @@ define internal void @_ZL16tMPI_U_SHORT_lorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp ne i16 %10, 0
   %12 = zext i1 %11 to i16
@@ -2027,7 +2027,7 @@ define internal void @_ZL16tMPI_U_SHORT_lorPvS_S_i(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i16 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2048,12 +2048,12 @@ define internal void @_ZL16tMPI_U_SHORT_borPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = or i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2074,15 +2074,15 @@ define internal void @_ZL17tMPI_U_SHORT_lxorPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %.not11 = icmp eq i16 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i16
-  %12 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %11, ptr %12, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2103,12 +2103,12 @@ define internal void @_ZL17tMPI_U_SHORT_bxorPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = xor i16 %9, %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   store i16 %10, ptr %11, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2129,12 +2129,12 @@ define internal void @_ZL17tMPI_UNSIGNED_maxPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %7, i32 %9)
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %., ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2155,12 +2155,12 @@ define internal void @_ZL17tMPI_UNSIGNED_minPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %7, i32 %9)
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %., ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2181,12 +2181,12 @@ define internal void @_ZL17tMPI_UNSIGNED_sumPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2207,12 +2207,12 @@ define internal void @_ZL18tMPI_UNSIGNED_prodPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = mul i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2233,13 +2233,13 @@ define internal void @_ZL18tMPI_UNSIGNED_landPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -2247,7 +2247,7 @@ define internal void @_ZL18tMPI_UNSIGNED_landPvS_S_i(ptr nocapture noundef write
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2268,12 +2268,12 @@ define internal void @_ZL18tMPI_UNSIGNED_bandPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2294,13 +2294,13 @@ define internal void @_ZL17tMPI_UNSIGNED_lorPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -2308,7 +2308,7 @@ define internal void @_ZL17tMPI_UNSIGNED_lorPvS_S_i(ptr nocapture noundef writeo
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i32 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2329,12 +2329,12 @@ define internal void @_ZL17tMPI_UNSIGNED_borPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2355,15 +2355,15 @@ define internal void @_ZL18tMPI_UNSIGNED_lxorPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.not11 = icmp eq i32 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i32
-  %12 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2384,12 +2384,12 @@ define internal void @_ZL18tMPI_UNSIGNED_bxorPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = xor i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2410,12 +2410,12 @@ define internal void @_ZL15tMPI_U_LONG_maxPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2436,12 +2436,12 @@ define internal void @_ZL15tMPI_U_LONG_minPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2462,12 +2462,12 @@ define internal void @_ZL15tMPI_U_LONG_sumPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2488,12 +2488,12 @@ define internal void @_ZL16tMPI_U_LONG_prodPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2514,13 +2514,13 @@ define internal void @_ZL16tMPI_U_LONG_landPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -2528,7 +2528,7 @@ define internal void @_ZL16tMPI_U_LONG_landPvS_S_i(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2549,12 +2549,12 @@ define internal void @_ZL16tMPI_U_LONG_bandPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2575,13 +2575,13 @@ define internal void @_ZL15tMPI_U_LONG_lorPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -2589,7 +2589,7 @@ define internal void @_ZL15tMPI_U_LONG_lorPvS_S_i(ptr nocapture noundef writeonl
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2610,12 +2610,12 @@ define internal void @_ZL15tMPI_U_LONG_borPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2636,15 +2636,15 @@ define internal void @_ZL16tMPI_U_LONG_lxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not11 = icmp eq i64 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2665,12 +2665,12 @@ define internal void @_ZL16tMPI_U_LONG_bxorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2691,13 +2691,13 @@ define internal void @_ZL14tMPI_FLOAT_maxPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fcmp ogt float %7, %9
   %. = select i1 %10, float %7, float %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %., ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2718,13 +2718,13 @@ define internal void @_ZL14tMPI_FLOAT_minPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fcmp olt float %7, %9
   %. = select i1 %10, float %7, float %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %., ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2745,12 +2745,12 @@ define internal void @_ZL14tMPI_FLOAT_sumPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fadd float %7, %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2771,12 +2771,12 @@ define internal void @_ZL15tMPI_FLOAT_prodPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fmul float %7, %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2797,13 +2797,13 @@ define internal void @_ZL15tMPI_DOUBLE_maxPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fcmp ogt double %7, %9
   %. = select i1 %10, double %7, double %9
-  %11 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %., ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2824,13 +2824,13 @@ define internal void @_ZL15tMPI_DOUBLE_minPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fcmp olt double %7, %9
   %. = select i1 %10, double %7, double %9
-  %11 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %., ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2851,12 +2851,12 @@ define internal void @_ZL15tMPI_DOUBLE_sumPvS_S_i(ptr nocapture noundef writeonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fadd double %7, %9
-  %11 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2877,12 +2877,12 @@ define internal void @_ZL16tMPI_DOUBLE_prodPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fmul double %7, %9
-  %11 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   store double %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2903,13 +2903,13 @@ define internal void @_ZL17tMPI_L_DOUBLE_maxPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds x86_fp80, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw x86_fp80, ptr %1, i64 %indvars.iv
   %7 = load x86_fp80, ptr %6, align 16
-  %8 = getelementptr inbounds x86_fp80, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw x86_fp80, ptr %2, i64 %indvars.iv
   %9 = load x86_fp80, ptr %8, align 16
   %10 = fcmp ogt x86_fp80 %7, %9
   %. = select i1 %10, x86_fp80 %7, x86_fp80 %9
-  %11 = getelementptr inbounds x86_fp80, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
   store x86_fp80 %., ptr %11, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2930,13 +2930,13 @@ define internal void @_ZL17tMPI_L_DOUBLE_minPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds x86_fp80, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw x86_fp80, ptr %1, i64 %indvars.iv
   %7 = load x86_fp80, ptr %6, align 16
-  %8 = getelementptr inbounds x86_fp80, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw x86_fp80, ptr %2, i64 %indvars.iv
   %9 = load x86_fp80, ptr %8, align 16
   %10 = fcmp olt x86_fp80 %7, %9
   %. = select i1 %10, x86_fp80 %7, x86_fp80 %9
-  %11 = getelementptr inbounds x86_fp80, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
   store x86_fp80 %., ptr %11, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2957,12 +2957,12 @@ define internal void @_ZL17tMPI_L_DOUBLE_sumPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds x86_fp80, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw x86_fp80, ptr %1, i64 %indvars.iv
   %7 = load x86_fp80, ptr %6, align 16
-  %8 = getelementptr inbounds x86_fp80, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw x86_fp80, ptr %2, i64 %indvars.iv
   %9 = load x86_fp80, ptr %8, align 16
   %10 = fadd x86_fp80 %7, %9
-  %11 = getelementptr inbounds x86_fp80, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
   store x86_fp80 %10, ptr %11, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2983,12 +2983,12 @@ define internal void @_ZL18tMPI_L_DOUBLE_prodPvS_S_i(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds x86_fp80, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw x86_fp80, ptr %1, i64 %indvars.iv
   %7 = load x86_fp80, ptr %6, align 16
-  %8 = getelementptr inbounds x86_fp80, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw x86_fp80, ptr %2, i64 %indvars.iv
   %9 = load x86_fp80, ptr %8, align 16
   %10 = fmul x86_fp80 %7, %9
-  %11 = getelementptr inbounds x86_fp80, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
   store x86_fp80 %10, ptr %11, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3009,12 +3009,12 @@ define internal void @_ZL13tMPI_BYTE_maxPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3035,12 +3035,12 @@ define internal void @_ZL13tMPI_BYTE_minPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %7, i8 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %., ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3061,12 +3061,12 @@ define internal void @_ZL13tMPI_BYTE_sumPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3087,12 +3087,12 @@ define internal void @_ZL14tMPI_BYTE_prodPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = mul i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3113,13 +3113,13 @@ define internal void @_ZL14tMPI_BYTE_landPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -3127,7 +3127,7 @@ define internal void @_ZL14tMPI_BYTE_landPvS_S_i(ptr nocapture noundef writeonly
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3148,12 +3148,12 @@ define internal void @_ZL14tMPI_BYTE_bandPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3174,13 +3174,13 @@ define internal void @_ZL13tMPI_BYTE_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 0
   %12 = zext i1 %11 to i8
@@ -3188,7 +3188,7 @@ define internal void @_ZL13tMPI_BYTE_lorPvS_S_i(ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i8 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3209,12 +3209,12 @@ define internal void @_ZL13tMPI_BYTE_borPvS_S_i(ptr nocapture noundef writeonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = or i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3235,15 +3235,15 @@ define internal void @_ZL14tMPI_BYTE_lxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %.not11 = icmp eq i8 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3264,12 +3264,12 @@ define internal void @_ZL14tMPI_BYTE_bxorPvS_S_i(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3290,12 +3290,12 @@ define internal void @_ZL16tMPI_INT64_T_maxPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3316,12 +3316,12 @@ define internal void @_ZL16tMPI_INT64_T_minPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %., ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3342,12 +3342,12 @@ define internal void @_ZL16tMPI_INT64_T_sumPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3368,12 +3368,12 @@ define internal void @_ZL17tMPI_INT64_T_prodPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = mul nsw i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3394,13 +3394,13 @@ define internal void @_ZL17tMPI_INT64_T_landPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -3408,7 +3408,7 @@ define internal void @_ZL17tMPI_INT64_T_landPvS_S_i(ptr nocapture noundef writeo
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3429,12 +3429,12 @@ define internal void @_ZL17tMPI_INT64_T_bandPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3455,13 +3455,13 @@ define internal void @_ZL16tMPI_INT64_T_lorPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i64
@@ -3469,7 +3469,7 @@ define internal void @_ZL16tMPI_INT64_T_lorPvS_S_i(ptr nocapture noundef writeon
 
 13:                                               ; preds = %8, %.lr.ph
   %14 = phi i64 [ 1, %.lr.ph ], [ %12, %8 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3490,12 +3490,12 @@ define internal void @_ZL16tMPI_INT64_T_borPvS_S_i(ptr nocapture noundef writeon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3516,15 +3516,15 @@ define internal void @_ZL17tMPI_INT64_T_lxorPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not11 = icmp eq i64 %9, 0
   %10 = xor i1 %.not, %.not11
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3545,12 +3545,12 @@ define internal void @_ZL17tMPI_INT64_T_bxorPvS_S_i(ptr nocapture noundef writeo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, %7
-  %11 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3567,27 +3567,27 @@ define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %
   %6 = load i64, ptr %1, align 8
   %7 = mul i64 %6, %5
   store i64 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %9, align 8
   %10 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 16)
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   store ptr %1, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %14, align 8
   %15 = load ptr, ptr @tmpi_global, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, ptr nonnull elementtype(i32) %16) #5, !srcloc !130
   %17 = load ptr, ptr @tmpi_global, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
-  %21 = getelementptr inbounds i8, ptr %17, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %22 = load i32, ptr %21, align 4
   %.not = icmp slt i32 %20, %22
   br i1 %.not, label %32, label %23
@@ -3604,7 +3604,7 @@ define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %
   %31 = load ptr, ptr @tmpi_global, align 8
   store ptr %30, ptr %31, align 8
   %.pre = load ptr, ptr @tmpi_global, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre12 = load i32, ptr %.phi.trans.insert, align 8
   br label %32
 
@@ -3616,13 +3616,13 @@ define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %
   %37 = getelementptr inbounds ptr, ptr %35, i64 %36
   store ptr %4, ptr %37, align 8
   %38 = load ptr, ptr @tmpi_global, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 8
   store ptr %4, ptr %2, align 8
   %42 = load ptr, ptr @tmpi_global, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %43) #5, !srcloc !131
   ret i32 0
 }
@@ -3634,17 +3634,17 @@ declare noundef ptr @_Z12tMPI_ReallocPvm(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %66
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @tmpi_global, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void asm sideeffect "1:\09cmpl $$0, $0\0A\09je 2f\0A\09pause\0A\09jmp 1b\0A2:\09movl $$1, %eax\0A\09xchgl %eax, $0\0A\09cmpl $$0, %eax\0A\09jne 1b", "=*m,*m,~{eax},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %7) #5, !srcloc !130
   %8 = load ptr, ptr @tmpi_global, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph58, label %._crit_edge.thread
@@ -3657,17 +3657,17 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 13:                                               ; preds = %.lr.ph58, %.loopexit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next69, %.loopexit ]
   %.03657 = phi ptr [ %2, %.lr.ph58 ], [ %.1, %.loopexit ]
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv68
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv68
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   %.not43 = icmp eq i32 %17, 0
   br i1 %.not43, label %.loopexit, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.03657, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.03657, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %20, %22
   br i1 %23, label %.preheader47, label %.loopexit
@@ -3677,9 +3677,9 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader47
-  %25 = getelementptr inbounds i8, ptr %15, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.03657, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.03657, i64 24
   %28 = load ptr, ptr %27, align 8
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %30
@@ -3691,17 +3691,17 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 
 30:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %31 = getelementptr inbounds %struct.tmpi_datatype_component, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.tmpi_datatype_component, ptr %26, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.tmpi_datatype_component, ptr %28, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.tmpi_datatype_component, ptr %28, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.not44 = icmp eq ptr %32, %34
   br i1 %.not44, label %35, label %.loopexit
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load i32, ptr %38, align 8
   %.not45 = icmp eq i32 %37, %39
   br i1 %.not45, label %29, label %.loopexit
@@ -3734,19 +3734,19 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 
 44:                                               ; preds = %.lr.ph65, %43
   %indvars.iv73 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next74, %43 ]
-  %45 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv73
+  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv73
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %40
   br i1 %47, label %48, label %43
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv73
+  %49 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv73
   %50 = getelementptr ptr, ptr %42, i64 %wide.trip.count76
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %49, align 8
   %53 = load ptr, ptr @tmpi_global, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %54, align 8
@@ -3756,7 +3756,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 .critedge:                                        ; preds = %43, %._crit_edge.thread, %48
   %.036.lcssa8284 = phi ptr [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
   %57 = phi ptr [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   tail call void @free(ptr noundef %59) #5
   %60 = load ptr, ptr %0, align 8
@@ -3767,13 +3767,13 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.036.lcssa81 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %._crit_edge ]
-  %62 = getelementptr inbounds i8, ptr %.036.lcssa81, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.036.lcssa81, i64 32
   store i32 1, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %61, %.critedge
   %64 = phi ptr [ %8, %61 ], [ %.pre78, %.critedge ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   tail call void asm sideeffect "\0A\09movl $$0, $0\0A", "=*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65) #5, !srcloc !131
   br label %66
 

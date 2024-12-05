@@ -46,7 +46,7 @@ default.unreachable22:                            ; preds = %13
   unreachable
 
 22:                                               ; preds = %19, %16, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %2, i64 %3, i1 false)
   br label %24
 
@@ -98,7 +98,7 @@ default.unreachable15:                            ; preds = %4
 19:                                               ; preds = %16, %13, %10
   %20 = load i8, ptr %2, align 1
   %21 = zext nneg i32 %9 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   store i8 %20, ptr %22, align 1
   %23 = add nuw nsw i32 %9, 1
   %24 = zext nneg i32 %23 to i64
@@ -160,12 +160,12 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   unreachable
 
 38:                                               ; preds = %35, %32, %30
-  %39 = getelementptr inbounds i8, ptr %0, i64 %26
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
 40:                                               ; preds = %12
-  %41 = getelementptr inbounds i8, ptr %6, i64 2056
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 2056
   %42 = load i32, ptr %41, align 8
   %43 = sub nsw i32 9, %8
   %44 = tail call i32 @llvm.smin.i32(i32 %43, i32 3)
@@ -215,7 +215,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   br label %68
 
 68:                                               ; preds = %65, %62, %60
-  %69 = getelementptr inbounds i8, ptr %0, i64 %56
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
@@ -242,7 +242,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   %or.cond = select i1 %45, i1 %83, i1 false
   %narrow = or i1 %19, %or.cond
   %84 = select i1 %narrow, ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat
-  %85 = getelementptr inbounds i8, ptr %0, i64 %18
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   %86 = sub nuw i64 %1, %18
   %87 = call i64 %84(ptr noundef nonnull %85, i64 noundef %86, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82) #5, !callees !5
   %88 = load i32, ptr %13, align 4
@@ -300,7 +300,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
   br label %114
 
 114:                                              ; preds = %111, %108, %106
-  %115 = getelementptr inbounds i8, ptr %0, i64 %102
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr readonly align 1 %2, i64 %3, i1 false)
   br label %ZSTD_noCompressLiterals.exit
 
@@ -324,7 +324,7 @@ default.unreachable117:                           ; preds = %130, %105, %59, %29
 
 .lr.ph.i:                                         ; preds = %120, %123
   %.08.i = phi i64 [ %124, %123 ], [ 1, %120 ]
-  %125 = getelementptr inbounds i8, ptr %2, i64 %.08.i
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i
   %126 = load i8, ptr %125, align 1
   %.not.i = icmp eq i8 %126, %121
   br i1 %.not.i, label %123, label %allBytesIdentical.exit
@@ -338,7 +338,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %116
   br i1 %.not96, label %128, label %130
 
 128:                                              ; preds = %allBytesIdentical.exit
-  %129 = getelementptr inbounds i8, ptr %7, i64 2056
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 2056
   store i32 1, ptr %129, align 8
   br label %130
 
@@ -363,7 +363,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %116
   store i16 %141, ptr %0, align 1
   %142 = lshr i32 %140, 16
   %143 = trunc i32 %142 to i8
-  %144 = getelementptr inbounds i8, ptr %0, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %143, ptr %144, align 1
   br label %164
 
@@ -389,7 +389,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %116
   store i32 %160, ptr %0, align 1
   %161 = lshr i64 %87, 10
   %162 = trunc i64 %161 to i8
-  %163 = getelementptr inbounds i8, ptr %0, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %162, ptr %163, align 1
   br label %164
 

@@ -39,13 +39,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen26HTTPSessionActivityTrackerC2EPN6wangle17ManagedConnectionEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %managedConnection, i64 noundef %ingressThreshold, i64 noundef %egressThreshold) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i64 16), ptr %this, align 8
-  %managedConnection_ = getelementptr inbounds i8, ptr %this, i64 8
+  %managedConnection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %managedConnection, ptr %managedConnection_, align 8
-  %ingressSize_ = getelementptr inbounds i8, ptr %this, i64 16
-  %ingressThreshold_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ingressSize_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %ingressThreshold_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ingressSize_, i8 0, i64 16, i1 false)
   store i64 %ingressThreshold, ptr %ingressThreshold_, align 8
-  %egressThreshold_ = getelementptr inbounds i8, ptr %this, i64 40
+  %egressThreshold_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %egressThreshold, ptr %egressThreshold_, align 8
   ret void
 }
@@ -53,9 +53,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen26HTTPSessionActivityTracker14reportActivityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  %managedConnection_ = getelementptr inbounds i8, ptr %this, i64 8
+  %managedConnection_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %managedConnection_, align 8
-  %connectionManager_.i = getelementptr inbounds i8, ptr %0, i64 88
+  %connectionManager_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %connectionManager_.i, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -73,11 +73,11 @@ declare void @_ZN6wangle17ConnectionManager14reportActivityERNS_17ManagedConnect
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8proxygen26HTTPSessionActivityTracker13onIngressBodyEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %bytes) local_unnamed_addr #4 align 2 {
 entry:
-  %ingressSize_ = getelementptr inbounds i8, ptr %this, i64 16
+  %ingressSize_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %ingressSize_, align 8
   %add = add i64 %0, %bytes
   store i64 %add, ptr %ingressSize_, align 8
-  %ingressThreshold_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ingressThreshold_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %ingressThreshold_, align 8
   %cmp.not = icmp uge i64 %add, %1
   br i1 %cmp.not, label %if.then, label %return
@@ -101,7 +101,7 @@ entry:
   %tobool = icmp ne ptr %byteEventTracker, null
   %tobool2 = icmp ne ptr %txn, null
   %or.cond = and i1 %tobool, %tobool2
-  %sessionBodyOffset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %sessionBodyOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %sessionBodyOffset_, align 8
   br i1 %or.cond, label %lor.lhs.false3, label %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge"
 
@@ -110,7 +110,7 @@ entry:
   br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit"
 
 lor.lhs.false3:                                   ; preds = %entry
-  %egressThreshold_ = getelementptr inbounds i8, ptr %this, i64 40
+  %egressThreshold_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %egressThreshold_, align 8
   %div = udiv i64 %0, %1
   %add = add i64 %0, %bodyLen
@@ -126,9 +126,9 @@ if.end:                                           ; preds = %lor.lhs.false3
 
 while.body.lr.ph:                                 ; preds = %if.end
   %2 = ptrtoint ptr %this to i64
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
@@ -141,7 +141,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %byteEventTracker, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(48) %byteEventTracker, ptr noundef nonnull %txn, i64 noundef %sub, ptr noundef nonnull %agg.tmp) #12
   %6 = load ptr, ptr %_M_manager.i.i, align 8
@@ -169,7 +169,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %while.body, %if.t
 
 "_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit": ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge", %if.end, %lor.lhs.false3
   %add.i.i.i.pre-phi = phi i64 [ %.pre12, %"entry._ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit_crit_edge" ], [ %add, %if.end ], [ %add, %lor.lhs.false3 ], [ %add12, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
-  %sessionBodyOffset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %sessionBodyOffset_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %add.i.i.i.pre-phi, ptr %sessionBodyOffset_.i.i.i, align 8
   ret void
 }

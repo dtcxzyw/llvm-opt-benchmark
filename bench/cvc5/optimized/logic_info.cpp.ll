@@ -195,15 +195,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
           to label %invoke.cont5 unwind label %lpad.i4
@@ -215,22 +215,22 @@ lpad.i4:                                          ; preds = %invoke.cont
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 0, ptr %d_sharingTheories, align 8
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 1, ptr %d_integers, align 8
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   store i8 1, ptr %d_reals, align 1
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   store i8 1, ptr %d_transcendentals, align 2
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %d_linear, i8 0, i64 5, i1 false)
   store i32 0, ptr %id, align 4
   br label %for.body
@@ -290,7 +290,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -332,11 +332,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread18,
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i212223 = lshr i32 %theory, 6
   %div.i.i.i.i.i21.zext = zext nneg i32 %div.i.i.i.i.i212223 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i.i21.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %div.i.i.i.i.i21.zext
   %5 = and i32 %theory, 63
   %conv4.i.i.i.i.i = zext nneg i32 %5 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -353,7 +353,7 @@ if.then9:                                         ; preds = %do.end
   ]
 
 if.then11:                                        ; preds = %if.then9
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load i64, ptr %d_sharingTheories, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %d_sharingTheories, align 8
@@ -362,7 +362,7 @@ if.then11:                                        ; preds = %if.then9
 if.end12:                                         ; preds = %if.then9, %if.then9, %if.then9, %if.then11
   %call13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   %8 = load ptr, ptr %d_theories, align 8
-  %add.ptr.i.i.i.i.i5 = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i21.zext
+  %add.ptr.i.i.i.i.i5 = getelementptr inbounds nuw i64, ptr %8, i64 %div.i.i.i.i.i21.zext
   %9 = load i64, ptr %add.ptr.i.i.i.i.i5, align 8
   %or.i = or i64 %9, %shl.i.i.i
   store i64 %or.i, ptr %add.ptr.i.i.i.i.i5, align 8
@@ -389,7 +389,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -399,11 +399,11 @@ if.then.i.i:                                      ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i) #19
   store ptr null, ptr %this, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i, align 8
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
@@ -440,15 +440,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
           to label %invoke.cont5 unwind label %lpad.i5
@@ -460,14 +460,14 @@ lpad.i5:                                          ; preds = %invoke.cont
   br label %ehcleanup11
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories, i8 0, i64 16, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %logicString)
           to label %invoke.cont7 unwind label %lpad6
@@ -477,7 +477,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
   store i8 1, ptr %d_locked, align 1
   ret void
@@ -526,7 +526,7 @@ entry:
   %err = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp220 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp221 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -569,7 +569,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread86,
 
 do.end:                                           ; preds = %entry
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.body
@@ -577,7 +577,7 @@ for.body:                                         ; preds = %do.end, %for.body
   %5 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i949596 = lshr i32 %4, 6
   %div.i.i.i.i.i94.zext = zext nneg i32 %div.i.i.i.i.i949596 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %div.i.i.i.i.i94.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %div.i.i.i.i.i94.zext
   %6 = and i32 %4, 63
   %conv4.i.i.i.i.i = zext nneg i32 %6 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -591,7 +591,7 @@ for.body:                                         ; preds = %do.end, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 0, ptr %d_sharingTheories, align 8
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 0)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 1)
@@ -601,20 +601,20 @@ for.end:                                          ; preds = %for.body
   br i1 %.not, label %sub_1, label %if.end13
 
 sub_1:                                            ; preds = %for.end
-  %9 = getelementptr inbounds i8, ptr %call9, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %call9, i64 1
   %10 = load i8, ptr %9, align 1
   %.not149 = icmp eq i8 %10, 79
   br i1 %.not149, label %for.end.tail, label %if.else
 
 for.end.tail:                                     ; preds = %sub_1
-  %11 = getelementptr inbounds i8, ptr %call9, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %call9, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 95
   br i1 %13, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %for.end.tail
   call void @_ZN4cvc58internal9LogicInfo17enableHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr = getelementptr inbounds i8, ptr %call9, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 3
   %.pre = load i8, ptr %add.ptr, align 1
   br label %if.end13
 
@@ -632,7 +632,7 @@ if.else:                                          ; preds = %sub_1, %for.end.tai
   br i1 %tobool18.not, label %if.then19, label %if.else21
 
 if.then19:                                        ; preds = %if.else
-  %add.ptr20 = getelementptr inbounds i8, ptr %p.0182, i64 6
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %p.0182, i64 6
   br label %if.end186
 
 if.else21:                                        ; preds = %if.else
@@ -642,7 +642,7 @@ if.else21:                                        ; preds = %if.else
 
 if.then24:                                        ; preds = %if.else21
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
-  %add.ptr25 = getelementptr inbounds i8, ptr %p.0182, i64 3
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %p.0182, i64 3
   br label %if.end186
 
 if.else26:                                        ; preds = %if.else21
@@ -651,13 +651,13 @@ if.else26:                                        ; preds = %if.else21
   br i1 %tobool28.not, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %if.else26
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   %16 = load i8, ptr %d_higherOrder, align 2
   %tobool30 = trunc i8 %16 to i1
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool30)
   call void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr31 = getelementptr inbounds i8, ptr %p.0182, i64 6
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %p.0182, i64 6
   br label %if.end186
 
 if.else32:                                        ; preds = %if.else26
@@ -666,13 +666,13 @@ if.else32:                                        ; preds = %if.else26
   br i1 %tobool34.not, label %if.then35, label %if.else39
 
 if.then35:                                        ; preds = %if.else32
-  %d_higherOrder36 = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder36 = getelementptr inbounds nuw i8, ptr %this, i64 86
   %17 = load i8, ptr %d_higherOrder36, align 2
   %tobool37 = trunc i8 %17 to i1
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool37)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr38 = getelementptr inbounds i8, ptr %p.0182, i64 3
+  %add.ptr38 = getelementptr inbounds nuw i8, ptr %p.0182, i64 3
   br label %if.end186
 
 if.else39:                                        ; preds = %if.else32
@@ -681,13 +681,13 @@ if.else39:                                        ; preds = %if.else32
   br i1 %tobool41.not, label %if.then42, label %sub_097
 
 if.then42:                                        ; preds = %if.else39
-  %d_higherOrder43 = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder43 = getelementptr inbounds nuw i8, ptr %this, i64 86
   %18 = load i8, ptr %d_higherOrder43, align 2
   %tobool44 = trunc i8 %18 to i1
   call void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %tobool44)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr45 = getelementptr inbounds i8, ptr %p.0182, i64 4
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %p.0182, i64 4
   br label %if.end186
 
 sub_097:                                          ; preds = %if.else39
@@ -695,20 +695,20 @@ sub_097:                                          ; preds = %if.else39
   br i1 %.not150, label %sub_198, label %if.else51
 
 sub_198:                                          ; preds = %sub_097
-  %19 = getelementptr inbounds i8, ptr %p.0182, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %p.0182, i64 1
   %20 = load i8, ptr %19, align 1
   %.not151 = icmp eq i8 %20, 70
   br i1 %.not151, label %if.else46.tail, label %if.else51
 
 if.else46.tail:                                   ; preds = %sub_198
-  %21 = getelementptr inbounds i8, ptr %p.0182, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %p.0182, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 95
   br i1 %23, label %if.then49, label %if.else51
 
 if.then49:                                        ; preds = %if.else46.tail
   call void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 13)
-  %add.ptr50 = getelementptr inbounds i8, ptr %p.0182, i64 3
+  %add.ptr50 = getelementptr inbounds nuw i8, ptr %p.0182, i64 3
   br label %if.end52
 
 if.else51:                                        ; preds = %sub_198, %sub_097, %if.else46.tail
@@ -725,7 +725,7 @@ if.then55:                                        ; preds = %if.end52
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 9)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 2)
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 10)
-  %add.ptr56 = getelementptr inbounds i8, ptr %p.2, i64 4
+  %add.ptr56 = getelementptr inbounds nuw i8, ptr %p.2, i64 4
   br label %sub_0101
 
 sub_0101:                                         ; preds = %if.end52, %if.then55
@@ -735,18 +735,18 @@ sub_0101:                                         ; preds = %if.end52, %if.then5
   br i1 %.not152, label %if.end57.tail, label %sub_0104
 
 if.end57.tail:                                    ; preds = %sub_0101
-  %25 = getelementptr inbounds i8, ptr %p.3, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %p.3, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 88
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 7)
   br i1 %27, label %if.then60, label %if.then65
 
 if.then60:                                        ; preds = %if.end57.tail
-  %add.ptr61 = getelementptr inbounds i8, ptr %p.3, i64 2
+  %add.ptr61 = getelementptr inbounds nuw i8, ptr %p.3, i64 2
   br label %if.end186
 
 if.then65:                                        ; preds = %if.end57.tail
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.3, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.3, i64 1
   %.pre172 = load i8, ptr %incdec.ptr, align 1
   br label %sub_0104
 
@@ -757,14 +757,14 @@ sub_0104:                                         ; preds = %sub_0101, %if.then6
   br i1 %.not153, label %if.end66.tail, label %if.end71
 
 if.end66.tail:                                    ; preds = %sub_0104
-  %29 = getelementptr inbounds i8, ptr %p.4, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %p.4, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 70
   br i1 %31, label %if.then69, label %if.end96
 
 if.then69:                                        ; preds = %if.end66.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 2)
-  %add.ptr70 = getelementptr inbounds i8, ptr %p.4, i64 2
+  %add.ptr70 = getelementptr inbounds nuw i8, ptr %p.4, i64 2
   %lhsc.pre = load i8, ptr %add.ptr70, align 1
   br label %if.end71
 
@@ -775,9 +775,9 @@ if.end71:                                         ; preds = %sub_0104, %if.then6
   br i1 %tobool73.not, label %if.then74, label %sub_0107
 
 if.then74:                                        ; preds = %if.end71
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   store i8 1, ptr %d_cardinalityConstraints, align 1
-  %add.ptr75 = getelementptr inbounds i8, ptr %p.5, i64 1
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %p.5, i64 1
   %.pre174 = load i8, ptr %add.ptr75, align 1
   br label %sub_0107
 
@@ -788,14 +788,14 @@ sub_0107:                                         ; preds = %if.end71, %if.then7
   br i1 %.not154, label %if.end76.tail, label %sub_0110
 
 if.end76.tail:                                    ; preds = %sub_0107
-  %33 = getelementptr inbounds i8, ptr %p.6, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %p.6, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 86
   br i1 %35, label %if.then79, label %if.end96
 
 if.then79:                                        ; preds = %if.end76.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 4)
-  %add.ptr80 = getelementptr inbounds i8, ptr %p.6, i64 2
+  %add.ptr80 = getelementptr inbounds nuw i8, ptr %p.6, i64 2
   %.pre175 = load i8, ptr %add.ptr80, align 1
   br label %sub_0110
 
@@ -806,28 +806,28 @@ sub_0110:                                         ; preds = %sub_0107, %if.then7
   br i1 %.not155, label %if.end81.tail, label %sub_0116
 
 if.end81.tail:                                    ; preds = %sub_0110
-  %37 = getelementptr inbounds i8, ptr %p.7, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %p.7, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 70
   br i1 %39, label %sub_0113, label %if.end86.tail
 
 sub_0113:                                         ; preds = %if.end81.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 5)
-  %add.ptr85 = getelementptr inbounds i8, ptr %p.7, i64 2
+  %add.ptr85 = getelementptr inbounds nuw i8, ptr %p.7, i64 2
   %.pre176 = load i8, ptr %add.ptr85, align 1
   %.not156 = icmp eq i8 %.pre176, 70
   br i1 %.not156, label %if.end86.tail, label %sub_0116
 
 if.end86.tail:                                    ; preds = %if.end81.tail, %sub_0113
   %p.8203 = phi ptr [ %add.ptr85, %sub_0113 ], [ %p.7, %if.end81.tail ]
-  %40 = getelementptr inbounds i8, ptr %p.8203, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %p.8203, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 80
   br i1 %42, label %if.then89, label %if.end96
 
 if.then89:                                        ; preds = %if.end86.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 6)
-  %add.ptr90 = getelementptr inbounds i8, ptr %p.8203, i64 2
+  %add.ptr90 = getelementptr inbounds nuw i8, ptr %p.8203, i64 2
   %.pre177 = load i8, ptr %add.ptr90, align 1
   br label %sub_0116
 
@@ -838,14 +838,14 @@ sub_0116:                                         ; preds = %sub_0110, %sub_0113
   br i1 %.not157, label %if.end91.tail, label %if.end96
 
 if.end91.tail:                                    ; preds = %sub_0116
-  %44 = getelementptr inbounds i8, ptr %p.9, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %p.9, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 84
   br i1 %46, label %if.then94, label %if.end96
 
 if.then94:                                        ; preds = %if.end91.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 8)
-  %add.ptr95 = getelementptr inbounds i8, ptr %p.9, i64 2
+  %add.ptr95 = getelementptr inbounds nuw i8, ptr %p.9, i64 2
   br label %if.end96
 
 if.end96:                                         ; preds = %if.end66.tail, %if.end76.tail, %if.end86.tail, %sub_0116, %if.then94, %if.end91.tail
@@ -862,14 +862,14 @@ sub_0119:                                         ; preds = %if.end96
   br i1 %.not158, label %land.rhs.tail, label %if.end106
 
 land.rhs.tail:                                    ; preds = %sub_0119
-  %50 = getelementptr inbounds i8, ptr %p.10, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %p.10, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 86
   br i1 %52, label %if.then104, label %if.end106thread-pre-split
 
 if.then104:                                       ; preds = %land.rhs.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 4)
-  %add.ptr105 = getelementptr inbounds i8, ptr %p.10, i64 2
+  %add.ptr105 = getelementptr inbounds nuw i8, ptr %p.10, i64 2
   br label %if.end106thread-pre-split
 
 if.end106thread-pre-split:                        ; preds = %land.rhs.tail, %if.then104, %if.end96
@@ -885,7 +885,7 @@ if.end106:                                        ; preds = %sub_0119, %if.end10
 
 if.then109:                                       ; preds = %if.end106
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 12)
-  %incdec.ptr110 = getelementptr inbounds i8, ptr %p.11, i64 1
+  %incdec.ptr110 = getelementptr inbounds nuw i8, ptr %p.11, i64 1
   %.pre178 = load i8, ptr %incdec.ptr110, align 1
   br label %sub_0122
 
@@ -898,13 +898,13 @@ sub_0122:                                         ; preds = %if.end106, %if.then
   ]
 
 sub_1123:                                         ; preds = %sub_0122
-  %55 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %56 = load i8, ptr %55, align 1
   %.not160 = icmp eq i8 %56, 68
   br i1 %.not160, label %if.end111.tail, label %if.else121
 
 if.end111.tail:                                   ; preds = %sub_1123
-  %57 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 76
   br i1 %59, label %if.then114, label %if.else121
@@ -913,17 +913,17 @@ if.then114:                                       ; preds = %if.end111.tail
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo12disableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo19arithOnlyDifferenceEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr115 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr115 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
 sub_1127:                                         ; preds = %sub_0122
-  %60 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %61 = load i8, ptr %60, align 1
   %.not162 = icmp eq i8 %61, 68
   br i1 %.not162, label %if.else116.tail, label %if.else121
 
 if.else116.tail:                                  ; preds = %sub_1127
-  %62 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 76
   br i1 %64, label %if.then119, label %if.else121.thread
@@ -932,7 +932,7 @@ if.then119:                                       ; preds = %if.else116.tail
   call void @_ZN4cvc58internal9LogicInfo15disableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo19arithOnlyDifferenceEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr120 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr120 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
 if.else121:                                       ; preds = %sub_0122, %if.end111.tail, %sub_1123, %sub_1127
@@ -949,7 +949,7 @@ if.then124:                                       ; preds = %if.else121.thread, 
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo19arithOnlyDifferenceEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr125 = getelementptr inbounds i8, ptr %p.12, i64 4
+  %add.ptr125 = getelementptr inbounds nuw i8, ptr %p.12, i64 4
   br label %sub_0146thread-pre-split
 
 sub_0130:                                         ; preds = %if.else121
@@ -957,13 +957,13 @@ sub_0130:                                         ; preds = %if.else121
   br i1 %.not163, label %sub_1131, label %if.else136
 
 sub_1131:                                         ; preds = %sub_0130
-  %65 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %66 = load i8, ptr %65, align 1
   %.not164 = icmp eq i8 %66, 73
   br i1 %.not164, label %if.else126.tail, label %sub_1135
 
 if.else126.tail:                                  ; preds = %sub_1131
-  %67 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 65
   br i1 %69, label %if.then129, label %sub_1135
@@ -972,17 +972,17 @@ if.then129:                                       ; preds = %if.else126.tail
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo12disableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo15arithOnlyLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr130 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr130 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
 sub_1135:                                         ; preds = %if.else126.tail, %sub_1131
-  %70 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %71 = load i8, ptr %70, align 1
   %.not166 = icmp eq i8 %71, 82
   br i1 %.not166, label %if.else131.tail, label %if.else136
 
 if.else131.tail:                                  ; preds = %sub_1135
-  %72 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 65
   br i1 %74, label %if.then134, label %if.else136.thread
@@ -991,7 +991,7 @@ if.then134:                                       ; preds = %if.else131.tail
   call void @_ZN4cvc58internal9LogicInfo15disableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo15arithOnlyLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr135 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr135 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
 if.else136:                                       ; preds = %sub_0130, %if.else121.thread, %sub_1135
@@ -1008,7 +1008,7 @@ if.then139:                                       ; preds = %if.else136.thread, 
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo15arithOnlyLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr140 = getelementptr inbounds i8, ptr %p.12, i64 4
+  %add.ptr140 = getelementptr inbounds nuw i8, ptr %p.12, i64 4
   br label %sub_0146thread-pre-split
 
 sub_0138:                                         ; preds = %if.else136
@@ -1016,13 +1016,13 @@ sub_0138:                                         ; preds = %if.else136
   br i1 %.not167, label %sub_1139, label %if.else156
 
 sub_1139:                                         ; preds = %sub_0138
-  %75 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %76 = load i8, ptr %75, align 1
   %.not168 = icmp eq i8 %76, 73
   br i1 %.not168, label %if.else141.tail, label %sub_1143
 
 if.else141.tail:                                  ; preds = %sub_1139
-  %77 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 65
   br i1 %79, label %if.then144, label %sub_1143
@@ -1031,17 +1031,17 @@ if.then144:                                       ; preds = %if.else141.tail
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo12disableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr145 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr145 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   br label %sub_0146thread-pre-split
 
 sub_1143:                                         ; preds = %if.else141.tail, %sub_1139
-  %80 = getelementptr inbounds i8, ptr %p.12, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %p.12, i64 1
   %81 = load i8, ptr %80, align 1
   %.not170 = icmp eq i8 %81, 82
   br i1 %.not170, label %if.else146.tail, label %if.else156
 
 if.else146.tail:                                  ; preds = %sub_1143
-  %82 = getelementptr inbounds i8, ptr %p.12, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %p.12, i64 2
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 65
   br i1 %84, label %if.then149, label %if.else156
@@ -1050,14 +1050,14 @@ if.then149:                                       ; preds = %if.else146.tail
   call void @_ZN4cvc58internal9LogicInfo15disableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr150 = getelementptr inbounds i8, ptr %p.12, i64 3
+  %add.ptr150 = getelementptr inbounds nuw i8, ptr %p.12, i64 3
   %85 = load i8, ptr %add.ptr150, align 1
   %cmp152 = icmp eq i8 %85, 84
   br i1 %cmp152, label %if.then153, label %sub_0146
 
 if.then153:                                       ; preds = %if.then149
   call void @_ZN4cvc58internal9LogicInfo20arithTranscendentalsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr154 = getelementptr inbounds i8, ptr %p.12, i64 4
+  %add.ptr154 = getelementptr inbounds nuw i8, ptr %p.12, i64 4
   br label %sub_0146thread-pre-split
 
 if.else156:                                       ; preds = %sub_0138, %if.else136.thread, %sub_1143, %if.else146.tail
@@ -1069,14 +1069,14 @@ if.then159:                                       ; preds = %if.else156
   call void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
   call void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr160 = getelementptr inbounds i8, ptr %p.12, i64 4
+  %add.ptr160 = getelementptr inbounds nuw i8, ptr %p.12, i64 4
   %86 = load i8, ptr %add.ptr160, align 1
   %cmp162 = icmp eq i8 %86, 84
   br i1 %cmp162, label %if.then163, label %sub_0146
 
 if.then163:                                       ; preds = %if.then159
   call void @_ZN4cvc58internal9LogicInfo20arithTranscendentalsEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %add.ptr164 = getelementptr inbounds i8, ptr %p.12, i64 5
+  %add.ptr164 = getelementptr inbounds nuw i8, ptr %p.12, i64 5
   br label %sub_0146thread-pre-split
 
 sub_0146thread-pre-split:                         ; preds = %if.then119, %if.then129, %if.then139, %if.then153, %if.then163, %if.else156, %if.then144, %if.then134, %if.then124, %if.then114
@@ -1091,14 +1091,14 @@ sub_0146:                                         ; preds = %sub_0146thread-pre-
   br i1 %.not171, label %if.end174.tail, label %if.end186
 
 if.end174.tail:                                   ; preds = %sub_0146
-  %88 = getelementptr inbounds i8, ptr %p.13, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %p.13, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 83
   br i1 %90, label %if.then177, label %if.end186
 
 if.then177:                                       ; preds = %if.end174.tail
   call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 10)
-  %add.ptr178 = getelementptr inbounds i8, ptr %p.13, i64 2
+  %add.ptr178 = getelementptr inbounds nuw i8, ptr %p.13, i64 2
   br label %if.end186
 
 if.end186:                                        ; preds = %sub_0146, %if.then19, %if.then29, %if.then42, %if.end174.tail, %if.then177, %if.then60, %if.then35, %if.then24, %if.end13
@@ -1120,7 +1120,7 @@ if.end192:                                        ; preds = %if.then191, %if.end
 
 if.then195:                                       ; preds = %if.end192
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %err)
-  %add.ptr196 = getelementptr inbounds i8, ptr %err, i64 16
+  %add.ptr196 = getelementptr inbounds nuw i8, ptr %err, i64 16
   %call199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr196, ptr noundef nonnull @.str.54)
           to label %invoke.cont198 unwind label %lpad197
 
@@ -1240,15 +1240,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %d_theories, align 8
-  %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_offset.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_finish.i.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_offset.i.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
           to label %invoke.cont5 unwind label %lpad.i5
@@ -1260,14 +1260,14 @@ lpad.i5:                                          ; preds = %invoke.cont
   br label %ehcleanup14
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 8
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %d_theories, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i.i.i, align 8
   store i32 14, ptr %_M_offset.i.i1.i.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i1.i, align 8
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
   %call.i11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
@@ -1305,7 +1305,7 @@ invoke.cont8:                                     ; preds = %if.end.i
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
   store i8 1, ptr %d_locked, align 1
@@ -1352,7 +1352,7 @@ eh.resume:                                        ; preds = %ehcleanup14, %lpad.
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo16isSharingEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -1394,7 +1394,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp ugt i64 %4, 1
   ret i1 %cmp
@@ -1447,7 +1447,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #16
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   resume { ptr, i32 } %.pn
@@ -1457,7 +1457,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   ret void
@@ -1472,7 +1472,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15isTheoryEnabledENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -1514,11 +1514,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i8910 = lshr i32 %theory, 6
   %div.i.i.i.i.i8.zext = zext nneg i32 %div.i.i.i.i.i8910 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i.i8.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %div.i.i.i.i.i8.zext
   %5 = and i32 %theory, 63
   %conv4.i.i.i.i.i = zext nneg i32 %5 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -1539,7 +1539,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo12isQuantifiedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -1596,7 +1596,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo13isHigherOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -1638,7 +1638,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   %4 = load i8, ptr %d_higherOrder, align 2
   %tobool4 = trunc i8 %4 to i1
   ret i1 %tobool4
@@ -1656,7 +1656,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo13hasEverythingEv(ptr noc
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %everything = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -1707,19 +1707,19 @@ invoke.cont5:                                     ; preds = %do.end
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %d_locked.i = getelementptr inbounds i8, ptr %everything, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %everything, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %call10 = invoke noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoeqERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %everything)
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %d_theories.i = getelementptr inbounds i8, ptr %everything, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %everything, i64 32
   %4 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont9
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 64
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %everything, i64 64
   %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
@@ -1729,11 +1729,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont9
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #19
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %everything, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %everything, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %everything, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %everything, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -1761,7 +1761,7 @@ define void @_ZN4cvc58internal9LogicInfo16enableEverythingEb(ptr noundef nonnull
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -1805,13 +1805,13 @@ cleanup.action:                                   ; preds = %ehcleanup.thread10,
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5) #16
-  %d_theories.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
@@ -1821,33 +1821,33 @@ if.then.i.i.i:                                    ; preds = %do.end
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %5, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #19
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %if.then.i.i.i, %do.end
   %frombool = zext i1 %enableHigherOrder to i8
-  %d_theories3.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
+  %d_theories3.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 64
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
-  %d_sharingTheories.i = getelementptr inbounds i8, ptr %this, i64 72
-  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
+  %d_sharingTheories.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5) #16
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   store i8 %frombool, ptr %d_higherOrder, align 2
   ret void
 
@@ -1865,10 +1865,10 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %tobool.i = trunc i8 %0 to i1
-  %d_locked.i14 = getelementptr inbounds i8, ptr %other, i64 87
+  %d_locked.i14 = getelementptr inbounds nuw i8, ptr %other, i64 87
   %1 = load i8, ptr %d_locked.i14, align 1
   %tobool.i15 = trunc i8 %1 to i1
   %2 = select i1 %tobool.i, i1 %tobool.i15, i1 false
@@ -1912,8 +1912,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread28,
 
 do.end:                                           ; preds = %entry
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
-  %d_theories8 = getelementptr inbounds i8, ptr %other, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %d_theories8 = getelementptr inbounds nuw i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
@@ -1921,7 +1921,7 @@ for.body:                                         ; preds = %do.end, %for.inc
   %7 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i353638 = lshr i32 %6, 6
   %div.i.i.i.i.i35.zext = zext nneg i32 %div.i.i.i.i.i353638 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %div.i.i.i.i.i35.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %div.i.i.i.i.i35.zext
   %8 = and i32 %6, 63
   %conv4.i.i.i.i.i = zext nneg i32 %8 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -1929,7 +1929,7 @@ for.body:                                         ; preds = %do.end, %for.inc
   %and.i.i.i.i = and i64 %9, %shl.i.i.i
   %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
   %10 = load ptr, ptr %d_theories8, align 8
-  %add.ptr.i.i.i.i.i17 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i35.zext
+  %add.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i64, ptr %10, i64 %div.i.i.i.i.i35.zext
   %11 = load i64, ptr %add.ptr.i.i.i.i.i17, align 8
   %and.i.i.i.i23 = and i64 %11, %shl.i.i.i
   %tobool.i.i.i.i24 = icmp ne i64 %and.i.i.i.i23, 0
@@ -1943,9 +1943,9 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp, label %for.body, label %do.body16, !llvm.loop !7
 
 do.body16:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %13 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories17 = getelementptr inbounds i8, ptr %other, i64 72
+  %d_sharingTheories17 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %14 = load i64, ptr %d_sharingTheories17, align 8
   %cmp18.not = icmp eq i64 %13, %14
   br i1 %cmp18.not, label %do.end36, label %if.then21
@@ -1987,9 +1987,9 @@ cleanup.action33:                                 ; preds = %ehcleanup31.thread3
   br label %eh.resume
 
 do.end36:                                         ; preds = %do.body16
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   %18 = load i8, ptr %d_cardinalityConstraints, align 1
-  %d_cardinalityConstraints38 = getelementptr inbounds i8, ptr %other, i64 85
+  %d_cardinalityConstraints38 = getelementptr inbounds nuw i8, ptr %other, i64 85
   %19 = load i8, ptr %d_cardinalityConstraints38, align 1
   %20 = xor i8 %19, %18
   %21 = and i8 %20, 1
@@ -1997,9 +1997,9 @@ do.end36:                                         ; preds = %do.body16
   br i1 %cmp41.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %do.end36
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   %22 = load i8, ptr %d_higherOrder, align 2
-  %d_higherOrder44 = getelementptr inbounds i8, ptr %other, i64 86
+  %d_higherOrder44 = getelementptr inbounds nuw i8, ptr %other, i64 86
   %23 = load i8, ptr %d_higherOrder44, align 2
   %24 = xor i8 %23, %22
   %25 = and i8 %24, 1
@@ -2011,9 +2011,9 @@ if.end49:                                         ; preds = %lor.lhs.false
   br i1 %call50, label %if.then51, label %return
 
 if.then51:                                        ; preds = %if.end49
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   %26 = load i8, ptr %d_integers, align 8
-  %d_integers54 = getelementptr inbounds i8, ptr %other, i64 80
+  %d_integers54 = getelementptr inbounds nuw i8, ptr %other, i64 80
   %27 = load i8, ptr %d_integers54, align 8
   %28 = xor i8 %27, %26
   %29 = and i8 %28, 1
@@ -2021,9 +2021,9 @@ if.then51:                                        ; preds = %if.end49
   br i1 %cmp57, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then51
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %30 = load i8, ptr %d_reals, align 1
-  %d_reals60 = getelementptr inbounds i8, ptr %other, i64 81
+  %d_reals60 = getelementptr inbounds nuw i8, ptr %other, i64 81
   %31 = load i8, ptr %d_reals60, align 1
   %32 = xor i8 %31, %30
   %33 = and i8 %32, 1
@@ -2031,9 +2031,9 @@ land.lhs.true:                                    ; preds = %if.then51
   br i1 %cmp63, label %land.lhs.true64, label %return
 
 land.lhs.true64:                                  ; preds = %land.lhs.true
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   %34 = load i8, ptr %d_transcendentals, align 2
-  %d_transcendentals67 = getelementptr inbounds i8, ptr %other, i64 82
+  %d_transcendentals67 = getelementptr inbounds nuw i8, ptr %other, i64 82
   %35 = load i8, ptr %d_transcendentals67, align 2
   %36 = xor i8 %35, %34
   %37 = and i8 %36, 1
@@ -2041,9 +2041,9 @@ land.lhs.true64:                                  ; preds = %land.lhs.true
   br i1 %cmp70, label %land.lhs.true71, label %return
 
 land.lhs.true71:                                  ; preds = %land.lhs.true64
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   %38 = load i8, ptr %d_linear, align 1
-  %d_linear74 = getelementptr inbounds i8, ptr %other, i64 83
+  %d_linear74 = getelementptr inbounds nuw i8, ptr %other, i64 83
   %39 = load i8, ptr %d_linear74, align 1
   %40 = xor i8 %39, %38
   %41 = and i8 %40, 1
@@ -2051,9 +2051,9 @@ land.lhs.true71:                                  ; preds = %land.lhs.true64
   br i1 %cmp77, label %land.rhs78, label %return
 
 land.rhs78:                                       ; preds = %land.lhs.true71
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   %42 = load i8, ptr %d_differenceLogic, align 4
-  %d_differenceLogic81 = getelementptr inbounds i8, ptr %other, i64 84
+  %d_differenceLogic81 = getelementptr inbounds nuw i8, ptr %other, i64 84
   %43 = load i8, ptr %d_differenceLogic81, align 4
   %44 = xor i8 %43, %42
   %45 = and i8 %44, 1
@@ -2075,13 +2075,13 @@ unreachable:                                      ; preds = %invoke.cont28, %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_theories, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -2091,11 +2091,11 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #19
   store ptr null, ptr %d_theories, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
@@ -2110,7 +2110,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo10hasNothingEv(ptr nocapt
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %nothing = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -2153,19 +2153,19 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %nothing, ptr noundef nonnull @.str)
-  %d_locked.i = getelementptr inbounds i8, ptr %nothing, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %nothing, i64 87
   store i8 1, ptr %d_locked.i, align 1
   %call7 = invoke noundef zeroext i1 @_ZNK4cvc58internal9LogicInfoeqERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %nothing)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %do.end
-  %d_theories.i = getelementptr inbounds i8, ptr %nothing, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %nothing, i64 32
   %4 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 64
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nothing, i64 64
   %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
@@ -2175,11 +2175,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont6
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #19
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nothing, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nothing, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %nothing, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nothing, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -2206,7 +2206,7 @@ unreachable:                                      ; preds = %invoke.cont3
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo6isPureENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -2263,13 +2263,13 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   ]
 
 _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit.thread: ; preds = %land.lhs.true6, %land.lhs.true6, %land.lhs.true6
-  %d_sharingTheories15 = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i64, ptr %d_sharingTheories15, align 8
   %5 = icmp eq i64 %4, 0
   br label %land.rhs
 
 _ZN4cvc58internal9LogicInfo12isTrueTheoryENS0_6theory8TheoryIdE.exit: ; preds = %land.lhs.true6
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp eq i64 %6, 1
   br i1 %cmp, label %land.rhs, label %land.end
@@ -2302,7 +2302,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo15areIntegersUsedEv(ptr n
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body4, label %if.then
@@ -2384,7 +2384,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   %7 = load i8, ptr %d_integers, align 8
   %tobool23 = trunc i8 %7 to i1
   ret i1 %tobool23
@@ -2402,7 +2402,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo12areRealsUsedEv(ptr noca
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body4, label %if.then
@@ -2484,7 +2484,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %7 = load i8, ptr %d_reals, align 1
   %tobool23 = trunc i8 %7 to i1
   ret i1 %tobool23
@@ -2502,7 +2502,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo22areTranscendentalsUsedE
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body4, label %if.then
@@ -2584,7 +2584,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   %7 = load i8, ptr %d_transcendentals, align 2
   %tobool23 = trunc i8 %7 to i1
   ret i1 %tobool23
@@ -2602,7 +2602,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo8isLinearEv(ptr nocapture
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body4, label %if.then
@@ -2684,10 +2684,10 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   %7 = load i8, ptr %d_linear, align 1
   %tobool23 = trunc i8 %7 to i1
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   %8 = load i8, ptr %d_differenceLogic, align 4
   %tobool24 = trunc i8 %8 to i1
   %9 = select i1 %tobool23, i1 true, i1 %tobool24
@@ -2706,7 +2706,7 @@ define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo17isDifferenceLogicEv(ptr
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body4, label %if.then
@@ -2788,7 +2788,7 @@ cleanup.action19:                                 ; preds = %ehcleanup17.thread1
   br label %eh.resume
 
 do.end22:                                         ; preds = %do.body4
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   %7 = load i8, ptr %d_differenceLogic, align 4
   %tobool23 = trunc i8 %7 to i1
   ret i1 %tobool23
@@ -2805,7 +2805,7 @@ unreachable:                                      ; preds = %invoke.cont14, %inv
 define noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo25hasCardinalityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -2847,7 +2847,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   %4 = load i8, ptr %d_cardinalityConstraints, align 1
   %tobool4 = trunc i8 %4 to i1
   ret i1 %tobool4
@@ -2866,10 +2866,10 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %tobool.i = trunc i8 %0 to i1
-  %d_locked.i16 = getelementptr inbounds i8, ptr %other, i64 87
+  %d_locked.i16 = getelementptr inbounds nuw i8, ptr %other, i64 87
   %1 = load i8, ptr %d_locked.i16, align 1
   %tobool.i17 = trunc i8 %1 to i1
   %2 = select i1 %tobool.i, i1 %tobool.i17, i1 false
@@ -2913,8 +2913,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread30,
 
 do.end:                                           ; preds = %entry
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
-  %d_theories7 = getelementptr inbounds i8, ptr %other, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %d_theories7 = getelementptr inbounds nuw i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
@@ -2922,7 +2922,7 @@ for.body:                                         ; preds = %do.end, %for.inc
   %7 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i373840 = lshr i32 %6, 6
   %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373840 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %div.i.i.i.i.i37.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %div.i.i.i.i.i37.zext
   %8 = and i32 %6, 63
   %conv4.i.i.i.i.i = zext nneg i32 %8 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -2933,7 +2933,7 @@ for.body:                                         ; preds = %do.end, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %10 = load ptr, ptr %d_theories7, align 8
-  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i37.zext
+  %add.ptr.i.i.i.i.i19 = getelementptr inbounds nuw i64, ptr %10, i64 %div.i.i.i.i.i37.zext
   %11 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
   %and.i.i.i.i25 = and i64 %11, %shl.i.i.i
   %tobool.i.i.i.i26.not = icmp eq i64 %and.i.i.i.i25, 0
@@ -2946,9 +2946,9 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp, label %for.body, label %do.body13, !llvm.loop !8
 
 do.body13:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %12 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories14 = getelementptr inbounds i8, ptr %other, i64 72
+  %d_sharingTheories14 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %13 = load i64, ptr %d_sharingTheories14, align 8
   %cmp15.not = icmp ugt i64 %12, %13
   br i1 %cmp15.not, label %if.then18, label %do.end33
@@ -2990,25 +2990,25 @@ cleanup.action30:                                 ; preds = %ehcleanup28.thread3
   br label %eh.resume
 
 do.end33:                                         ; preds = %do.body13
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   %17 = load i8, ptr %d_cardinalityConstraints, align 1
   %tobool = trunc i8 %17 to i1
   br i1 %tobool, label %lor.lhs.false, label %land.rhs36
 
 lor.lhs.false:                                    ; preds = %do.end33
-  %d_cardinalityConstraints34 = getelementptr inbounds i8, ptr %other, i64 85
+  %d_cardinalityConstraints34 = getelementptr inbounds nuw i8, ptr %other, i64 85
   %18 = load i8, ptr %d_cardinalityConstraints34, align 1
   %tobool35 = trunc i8 %18 to i1
   br i1 %tobool35, label %land.rhs36, label %land.end40
 
 land.rhs36:                                       ; preds = %lor.lhs.false, %do.end33
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   %19 = load i8, ptr %d_higherOrder, align 2
   %tobool37 = trunc i8 %19 to i1
   br i1 %tobool37, label %lor.rhs, label %land.end40
 
 lor.rhs:                                          ; preds = %land.rhs36
-  %d_higherOrder38 = getelementptr inbounds i8, ptr %other, i64 86
+  %d_higherOrder38 = getelementptr inbounds nuw i8, ptr %other, i64 86
   %20 = load i8, ptr %d_higherOrder38, align 2
   %tobool39 = trunc i8 %20 to i1
   br label %land.end40
@@ -3023,61 +3023,61 @@ land.lhs.true42:                                  ; preds = %land.end40
   br i1 %call43, label %if.then44, label %return
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   %22 = load i8, ptr %d_integers, align 8
   %tobool45 = trunc i8 %22 to i1
   br i1 %tobool45, label %lor.lhs.false46, label %land.lhs.true49
 
 lor.lhs.false46:                                  ; preds = %if.then44
-  %d_integers47 = getelementptr inbounds i8, ptr %other, i64 80
+  %d_integers47 = getelementptr inbounds nuw i8, ptr %other, i64 80
   %23 = load i8, ptr %d_integers47, align 8
   %tobool48 = trunc i8 %23 to i1
   br i1 %tobool48, label %land.lhs.true49, label %return
 
 land.lhs.true49:                                  ; preds = %lor.lhs.false46, %if.then44
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %24 = load i8, ptr %d_reals, align 1
   %tobool50 = trunc i8 %24 to i1
   br i1 %tobool50, label %lor.lhs.false51, label %land.lhs.true54
 
 lor.lhs.false51:                                  ; preds = %land.lhs.true49
-  %d_reals52 = getelementptr inbounds i8, ptr %other, i64 81
+  %d_reals52 = getelementptr inbounds nuw i8, ptr %other, i64 81
   %25 = load i8, ptr %d_reals52, align 1
   %tobool53 = trunc i8 %25 to i1
   br i1 %tobool53, label %land.lhs.true54, label %return
 
 land.lhs.true54:                                  ; preds = %lor.lhs.false51, %land.lhs.true49
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   %26 = load i8, ptr %d_transcendentals, align 2
   %tobool55 = trunc i8 %26 to i1
   br i1 %tobool55, label %lor.lhs.false56, label %land.lhs.true59
 
 lor.lhs.false56:                                  ; preds = %land.lhs.true54
-  %d_transcendentals57 = getelementptr inbounds i8, ptr %other, i64 82
+  %d_transcendentals57 = getelementptr inbounds nuw i8, ptr %other, i64 82
   %27 = load i8, ptr %d_transcendentals57, align 2
   %tobool58 = trunc i8 %27 to i1
   br i1 %tobool58, label %land.lhs.true59, label %return
 
 land.lhs.true59:                                  ; preds = %lor.lhs.false56, %land.lhs.true54
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   %28 = load i8, ptr %d_linear, align 1
   %tobool60 = trunc i8 %28 to i1
   br i1 %tobool60, label %land.lhs.true64, label %lor.lhs.false61
 
 lor.lhs.false61:                                  ; preds = %land.lhs.true59
-  %d_linear62 = getelementptr inbounds i8, ptr %other, i64 83
+  %d_linear62 = getelementptr inbounds nuw i8, ptr %other, i64 83
   %29 = load i8, ptr %d_linear62, align 1
   %tobool63 = trunc i8 %29 to i1
   br i1 %tobool63, label %return, label %land.lhs.true64
 
 land.lhs.true64:                                  ; preds = %lor.lhs.false61, %land.lhs.true59
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   %30 = load i8, ptr %d_differenceLogic, align 4
   %tobool65 = trunc i8 %30 to i1
   br i1 %tobool65, label %land.rhs69, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %land.lhs.true64
-  %d_differenceLogic67 = getelementptr inbounds i8, ptr %other, i64 84
+  %d_differenceLogic67 = getelementptr inbounds nuw i8, ptr %other, i64 84
   %31 = load i8, ptr %d_differenceLogic67, align 4
   %tobool68 = trunc i8 %31 to i1
   br i1 %tobool68, label %return, label %land.rhs69
@@ -3103,10 +3103,10 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %id = alloca i32, align 4
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked.i = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked.i, align 1
   %tobool.i = trunc i8 %0 to i1
-  %d_locked.i16 = getelementptr inbounds i8, ptr %other, i64 87
+  %d_locked.i16 = getelementptr inbounds nuw i8, ptr %other, i64 87
   %1 = load i8, ptr %d_locked.i16, align 1
   %tobool.i17 = trunc i8 %1 to i1
   %2 = select i1 %tobool.i, i1 %tobool.i17, i1 false
@@ -3150,8 +3150,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread30,
 
 do.end:                                           ; preds = %entry
   store i32 0, ptr %id, align 4
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
-  %d_theories7 = getelementptr inbounds i8, ptr %other, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %d_theories7 = getelementptr inbounds nuw i8, ptr %other, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
@@ -3159,7 +3159,7 @@ for.body:                                         ; preds = %do.end, %for.inc
   %7 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i373840 = lshr i32 %6, 6
   %div.i.i.i.i.i37.zext = zext nneg i32 %div.i.i.i.i.i373840 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %div.i.i.i.i.i37.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %div.i.i.i.i.i37.zext
   %8 = and i32 %6, 63
   %conv4.i.i.i.i.i = zext nneg i32 %8 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -3170,7 +3170,7 @@ for.body:                                         ; preds = %do.end, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %10 = load ptr, ptr %d_theories7, align 8
-  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.i37.zext
+  %add.ptr.i.i.i.i.i19 = getelementptr inbounds nuw i64, ptr %10, i64 %div.i.i.i.i.i37.zext
   %11 = load i64, ptr %add.ptr.i.i.i.i.i19, align 8
   %and.i.i.i.i25 = and i64 %11, %shl.i.i.i
   %tobool.i.i.i.i26.not = icmp eq i64 %and.i.i.i.i25, 0
@@ -3183,9 +3183,9 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp, label %for.body, label %do.body13, !llvm.loop !9
 
 do.body13:                                        ; preds = %for.inc
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %12 = load i64, ptr %d_sharingTheories, align 8
-  %d_sharingTheories14 = getelementptr inbounds i8, ptr %other, i64 72
+  %d_sharingTheories14 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %13 = load i64, ptr %d_sharingTheories14, align 8
   %cmp15.not = icmp ult i64 %12, %13
   br i1 %cmp15.not, label %if.then18, label %do.end33
@@ -3227,25 +3227,25 @@ cleanup.action30:                                 ; preds = %ehcleanup28.thread3
   br label %eh.resume
 
 do.end33:                                         ; preds = %do.body13
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   %17 = load i8, ptr %d_cardinalityConstraints, align 1
   %tobool = trunc i8 %17 to i1
   br i1 %tobool, label %land.rhs36, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end33
-  %d_cardinalityConstraints34 = getelementptr inbounds i8, ptr %other, i64 85
+  %d_cardinalityConstraints34 = getelementptr inbounds nuw i8, ptr %other, i64 85
   %18 = load i8, ptr %d_cardinalityConstraints34, align 1
   %tobool35 = trunc i8 %18 to i1
   br i1 %tobool35, label %land.end41, label %land.rhs36
 
 land.rhs36:                                       ; preds = %lor.lhs.false, %do.end33
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   %19 = load i8, ptr %d_higherOrder, align 2
   %tobool37 = trunc i8 %19 to i1
   br i1 %tobool37, label %land.end41, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs36
-  %d_higherOrder38 = getelementptr inbounds i8, ptr %other, i64 86
+  %d_higherOrder38 = getelementptr inbounds nuw i8, ptr %other, i64 86
   %20 = load i8, ptr %d_higherOrder38, align 2
   %tobool39 = trunc i8 %20 to i1
   %lnot40 = xor i1 %tobool39, true
@@ -3261,61 +3261,61 @@ land.lhs.true43:                                  ; preds = %land.end41
   br i1 %call44, label %if.then45, label %return
 
 if.then45:                                        ; preds = %land.lhs.true43
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   %22 = load i8, ptr %d_integers, align 8
   %tobool46 = trunc i8 %22 to i1
   br i1 %tobool46, label %land.lhs.true50, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.then45
-  %d_integers48 = getelementptr inbounds i8, ptr %other, i64 80
+  %d_integers48 = getelementptr inbounds nuw i8, ptr %other, i64 80
   %23 = load i8, ptr %d_integers48, align 8
   %tobool49 = trunc i8 %23 to i1
   br i1 %tobool49, label %return, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %lor.lhs.false47, %if.then45
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %24 = load i8, ptr %d_reals, align 1
   %tobool51 = trunc i8 %24 to i1
   br i1 %tobool51, label %land.lhs.true55, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %land.lhs.true50
-  %d_reals53 = getelementptr inbounds i8, ptr %other, i64 81
+  %d_reals53 = getelementptr inbounds nuw i8, ptr %other, i64 81
   %25 = load i8, ptr %d_reals53, align 1
   %tobool54 = trunc i8 %25 to i1
   br i1 %tobool54, label %return, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %lor.lhs.false52, %land.lhs.true50
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   %26 = load i8, ptr %d_transcendentals, align 2
   %tobool56 = trunc i8 %26 to i1
   br i1 %tobool56, label %land.lhs.true60, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %land.lhs.true55
-  %d_transcendentals58 = getelementptr inbounds i8, ptr %other, i64 82
+  %d_transcendentals58 = getelementptr inbounds nuw i8, ptr %other, i64 82
   %27 = load i8, ptr %d_transcendentals58, align 2
   %tobool59 = trunc i8 %27 to i1
   br i1 %tobool59, label %return, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %lor.lhs.false57, %land.lhs.true55
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   %28 = load i8, ptr %d_linear, align 1
   %tobool61 = trunc i8 %28 to i1
   br i1 %tobool61, label %lor.lhs.false62, label %land.lhs.true65
 
 lor.lhs.false62:                                  ; preds = %land.lhs.true60
-  %d_linear63 = getelementptr inbounds i8, ptr %other, i64 83
+  %d_linear63 = getelementptr inbounds nuw i8, ptr %other, i64 83
   %29 = load i8, ptr %d_linear63, align 1
   %tobool64 = trunc i8 %29 to i1
   br i1 %tobool64, label %land.lhs.true65, label %return
 
 land.lhs.true65:                                  ; preds = %lor.lhs.false62, %land.lhs.true60
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   %30 = load i8, ptr %d_differenceLogic, align 4
   %tobool66 = trunc i8 %30 to i1
   br i1 %tobool66, label %lor.lhs.false67, label %land.rhs70
 
 lor.lhs.false67:                                  ; preds = %land.lhs.true65
-  %d_differenceLogic68 = getelementptr inbounds i8, ptr %other, i64 84
+  %d_differenceLogic68 = getelementptr inbounds nuw i8, ptr %other, i64 84
   %31 = load i8, ptr %d_differenceLogic68, align 4
   %tobool69 = trunc i8 %31 to i1
   br i1 %tobool69, label %land.rhs70, label %return
@@ -3343,7 +3343,7 @@ entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp181 = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp199 = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.then
@@ -3395,7 +3395,7 @@ if.then5:                                         ; preds = %do.end
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then5
-  %d_locked.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 87
+  %d_locked.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 87
   store i8 1, ptr %d_locked.i, align 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
           to label %invoke.cont9 unwind label %lpad6
@@ -3408,7 +3408,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br i1 %call12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %invoke.cont11
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.15)
           to label %if.end16 unwind label %lpad10
 
@@ -3431,7 +3431,7 @@ invoke.cont17:                                    ; preds = %if.end16
   br i1 %call18, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %invoke.cont17
-  %add.ptr20 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr20, ptr noundef nonnull @.str.16)
           to label %if.end23 unwind label %lpad10
 
@@ -3450,7 +3450,7 @@ invoke.cont26:                                    ; preds = %lor.lhs.false
   br i1 %call27, label %if.then193.invoke, label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %invoke.cont26
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %d_theories, align 8
   %7 = load i64, ptr %6, align 8
   %and.i.i.i.i = and i64 %7, 512
@@ -3458,7 +3458,7 @@ invoke.cont32:                                    ; preds = %invoke.cont26
   br i1 %tobool.i.i.i.i.not, label %invoke.cont40, label %if.then34
 
 if.then34:                                        ; preds = %invoke.cont32
-  %add.ptr35 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr35, ptr noundef nonnull @.str.18)
           to label %if.then34.invoke.cont40_crit_edge unwind label %lpad10
 
@@ -3475,8 +3475,8 @@ invoke.cont40:                                    ; preds = %if.then34.invoke.co
   br i1 %tobool.i.i.i.i18.not, label %invoke.cont49, label %if.then42
 
 if.then42:                                        ; preds = %invoke.cont40
-  %add.ptr43 = getelementptr inbounds i8, ptr %ss, i64 16
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr43 = getelementptr inbounds nuw i8, ptr %ss, i64 16
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %9 = load i64, ptr %d_sharingTheories, align 8
   %cmp = icmp eq i64 %9, 1
   %cond = select i1 %cmp, ptr @.str.19, ptr @.str.20
@@ -3497,7 +3497,7 @@ invoke.cont49:                                    ; preds = %invoke.cont40, %inv
   br i1 %tobool.i.i.i.i20.not, label %if.end56, label %if.then51
 
 if.then51:                                        ; preds = %invoke.cont49
-  %add.ptr52 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr52 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr52, ptr noundef nonnull @.str.21)
           to label %invoke.cont53 unwind label %lpad10
 
@@ -3507,13 +3507,13 @@ invoke.cont53:                                    ; preds = %if.then51
 
 if.end56:                                         ; preds = %invoke.cont53, %invoke.cont49
   %seen.2 = phi i64 [ %inc55, %invoke.cont53 ], [ %seen.1, %invoke.cont49 ]
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   %11 = load i8, ptr %d_cardinalityConstraints, align 1
   %tobool57 = trunc i8 %11 to i1
   br i1 %tobool57, label %if.then58, label %invoke.cont64
 
 if.then58:                                        ; preds = %if.end56
-  %add.ptr59 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr59 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr59, ptr noundef nonnull @.str.22)
           to label %invoke.cont64 unwind label %lpad10
 
@@ -3525,7 +3525,7 @@ invoke.cont64:                                    ; preds = %if.end56, %if.then5
   br i1 %tobool.i.i.i.i22.not, label %invoke.cont73, label %if.then66
 
 if.then66:                                        ; preds = %invoke.cont64
-  %add.ptr67 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr67 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr67, ptr noundef nonnull @.str.23)
           to label %invoke.cont68 unwind label %lpad10
 
@@ -3543,7 +3543,7 @@ invoke.cont73:                                    ; preds = %invoke.cont64, %inv
   br i1 %tobool.i.i.i.i24.not, label %invoke.cont82, label %if.then75
 
 if.then75:                                        ; preds = %invoke.cont73
-  %add.ptr76 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr76 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr76, ptr noundef nonnull @.str.24)
           to label %invoke.cont77 unwind label %lpad10
 
@@ -3561,7 +3561,7 @@ invoke.cont82:                                    ; preds = %invoke.cont73, %inv
   br i1 %tobool.i.i.i.i26.not, label %invoke.cont91, label %if.then84
 
 if.then84:                                        ; preds = %invoke.cont82
-  %add.ptr85 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr85 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr85, ptr noundef nonnull @.str.25)
           to label %invoke.cont86 unwind label %lpad10
 
@@ -3579,7 +3579,7 @@ invoke.cont91:                                    ; preds = %invoke.cont82, %inv
   br i1 %tobool.i.i.i.i28.not, label %invoke.cont100, label %if.then93
 
 if.then93:                                        ; preds = %invoke.cont91
-  %add.ptr94 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr94 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr94, ptr noundef nonnull @.str.26)
           to label %invoke.cont95 unwind label %lpad10
 
@@ -3597,7 +3597,7 @@ invoke.cont100:                                   ; preds = %invoke.cont91, %inv
   br i1 %tobool.i.i.i.i30.not, label %invoke.cont109, label %if.then102
 
 if.then102:                                       ; preds = %invoke.cont100
-  %add.ptr103 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr103 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr103, ptr noundef nonnull @.str.27)
           to label %invoke.cont104 unwind label %lpad10
 
@@ -3619,7 +3619,7 @@ if.then111:                                       ; preds = %invoke.cont109
           to label %invoke.cont112 unwind label %lpad10
 
 invoke.cont112:                                   ; preds = %if.then111
-  %add.ptr115 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr115 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   br i1 %call113, label %if.then114, label %if.else130
 
 if.then114:                                       ; preds = %invoke.cont112
@@ -3698,7 +3698,7 @@ invoke.cont161:                                   ; preds = %invoke.cont109, %if
   br i1 %tobool.i.i.i.i34.not, label %invoke.cont170, label %if.then163
 
 if.then163:                                       ; preds = %invoke.cont161
-  %add.ptr164 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr164 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call166 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr164, ptr noundef nonnull @.str.34)
           to label %invoke.cont165 unwind label %lpad10
 
@@ -3716,7 +3716,7 @@ invoke.cont170:                                   ; preds = %invoke.cont161, %in
   br i1 %tobool.i.i.i.i36.not, label %if.end177, label %if.then172
 
 if.then172:                                       ; preds = %invoke.cont170
-  %add.ptr173 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr173 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr173, ptr noundef nonnull @.str.35)
           to label %invoke.cont174 unwind label %lpad10
 
@@ -3726,7 +3726,7 @@ invoke.cont174:                                   ; preds = %if.then172
 
 if.end177:                                        ; preds = %invoke.cont174, %invoke.cont170
   %seen.10 = phi i64 [ %inc176, %invoke.cont174 ], [ %seen.9, %invoke.cont170 ]
-  %d_sharingTheories178 = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories178 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %23 = load i64, ptr %d_sharingTheories178, align 8
   %cmp179.not = icmp eq i64 %seen.10, %23
   br i1 %cmp179.not, label %if.end191, label %if.then180
@@ -3763,7 +3763,7 @@ if.end191:                                        ; preds = %if.end177
 
 if.then193.invoke:                                ; preds = %if.end191, %invoke.cont24, %invoke.cont26
   %25 = phi ptr [ @.str.17, %invoke.cont26 ], [ @.str.17, %invoke.cont24 ], [ @.str.39, %if.end191 ]
-  %add.ptr29 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr29, ptr noundef nonnull %25)
           to label %if.end198 unwind label %lpad10
 
@@ -3775,13 +3775,13 @@ invoke.cont200:                                   ; preds = %if.end198
   %call202 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp199) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp199) #16
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #16
-  %d_theories.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 32
   %27 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont200
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 64
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 64
   %28 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %27 to i64
@@ -3791,11 +3791,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont200
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #19
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %qf_all_supported, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %qf_all_supported, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -3847,7 +3847,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 define void @_ZN4cvc58internal9LogicInfo17enableHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -3890,7 +3890,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   store i8 1, ptr %d_higherOrder, align 2
   ret void
 
@@ -3909,7 +3909,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define void @_ZN4cvc58internal9LogicInfo14arithNonLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -3952,9 +3952,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   store i8 0, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i8 0, ptr %d_differenceLogic, align 4
   ret void
 
@@ -3979,7 +3979,7 @@ entry:
 define void @_ZN4cvc58internal9LogicInfo14enableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4023,7 +4023,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   tail call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 1, ptr %d_integers, align 8
   ret void
 
@@ -4039,7 +4039,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo12disableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4082,9 +4082,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   store i8 0, ptr %d_reals, align 1
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   %4 = load i8, ptr %d_integers, align 8
   %tobool6 = trunc i8 %4 to i1
   br i1 %tobool6, label %if.end8, label %if.then7
@@ -4108,7 +4108,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo19arithOnlyDifferenceEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4151,11 +4151,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   store i8 1, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i8 1, ptr %d_differenceLogic, align 4
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   store i8 0, ptr %d_transcendentals, align 2
   ret void
 
@@ -4171,7 +4171,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo15disableIntegersEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4214,9 +4214,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_integers = getelementptr inbounds i8, ptr %this, i64 80
+  %d_integers = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 0, ptr %d_integers, align 8
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %4 = load i8, ptr %d_reals, align 1
   %tobool6 = trunc i8 %4 to i1
   br i1 %tobool6, label %if.end8, label %if.then7
@@ -4240,7 +4240,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo11enableRealsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4284,7 +4284,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   tail call void @_ZN4cvc58internal9LogicInfo12enableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef 3)
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   store i8 1, ptr %d_reals, align 1
   ret void
 
@@ -4300,7 +4300,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo15arithOnlyLinearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4343,11 +4343,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   store i8 1, ptr %d_linear, align 1
-  %d_differenceLogic = getelementptr inbounds i8, ptr %this, i64 84
+  %d_differenceLogic = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i8 0, ptr %d_differenceLogic, align 4
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   store i8 0, ptr %d_transcendentals, align 2
   ret void
 
@@ -4363,7 +4363,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo20arithTranscendentalsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4406,9 +4406,9 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_transcendentals = getelementptr inbounds i8, ptr %this, i64 82
+  %d_transcendentals = getelementptr inbounds nuw i8, ptr %this, i64 82
   store i8 1, ptr %d_transcendentals, align 2
-  %d_reals = getelementptr inbounds i8, ptr %this, i64 81
+  %d_reals = getelementptr inbounds nuw i8, ptr %this, i64 81
   %4 = load i8, ptr %d_reals, align 1
   %tobool6 = trunc i8 %4 to i1
   br i1 %tobool6, label %if.end8, label %if.then7
@@ -4418,7 +4418,7 @@ if.then7:                                         ; preds = %do.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %do.end
-  %d_linear = getelementptr inbounds i8, ptr %this, i64 83
+  %d_linear = getelementptr inbounds nuw i8, ptr %this, i64 83
   %5 = load i8, ptr %d_linear, align 1
   %tobool9 = trunc i8 %5 to i1
   br i1 %tobool9, label %if.then10, label %if.end11
@@ -4447,7 +4447,7 @@ define void @_ZN4cvc58internal9LogicInfo17disableEverythingEv(ptr noundef nonnul
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.cvc5::internal::LogicInfo", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4491,13 +4491,13 @@ cleanup.action:                                   ; preds = %ehcleanup.thread10,
 do.end:                                           ; preds = %entry
   call void @_ZN4cvc58internal9LogicInfoC1EPKc(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5, ptr noundef nonnull @.str)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5) #16
-  %d_theories.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_theories.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
@@ -4507,29 +4507,29 @@ if.then.i.i.i:                                    ; preds = %do.end
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %5, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #19
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
 
 _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %if.then.i.i.i, %do.end
-  %d_theories3.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
+  %d_theories3.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i, i64 40, i1 false)
   store ptr null, ptr %d_theories3.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 40
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 48
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 56
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 64
+  %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 64
   store ptr null, ptr %ref.tmp.sroa.52.0.this.sroa_idx.i.i.i.i.i, align 8
-  %d_sharingTheories.i = getelementptr inbounds i8, ptr %this, i64 72
-  %d_sharingTheories5.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 72
+  %d_sharingTheories.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %d_sharingTheories5.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories5.i, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp5) #16
   ret void
@@ -4548,7 +4548,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN4cvc58internal9LogicInfo13disableTheoryENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %theory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4590,11 +4590,11 @@ cleanup.action:                                   ; preds = %ehcleanup.thread21,
   br label %eh.resume
 
 do.end:                                           ; preds = %entry
-  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %d_theories, align 8
   %div.i.i.i.i.i252627 = lshr i32 %theory, 6
   %div.i.i.i.i.i25.zext = zext nneg i32 %div.i.i.i.i.i252627 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i.i25.zext
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %div.i.i.i.i.i25.zext
   %5 = and i32 %theory, 63
   %conv4.i.i.i.i.i = zext nneg i32 %5 to i64
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
@@ -4611,7 +4611,7 @@ if.then8:                                         ; preds = %do.end
   ]
 
 if.end11.thread:                                  ; preds = %if.then8
-  %d_sharingTheories = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load i64, ptr %d_sharingTheories, align 8
   %dec = add i64 %7, -1
   store i64 %dec, ptr %d_sharingTheories, align 8
@@ -4624,7 +4624,7 @@ if.end11:                                         ; preds = %if.then8, %if.then8
 if.end14:                                         ; preds = %if.end11.thread, %if.end11
   %call15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
   %8 = load ptr, ptr %d_theories, align 8
-  %add.ptr.i.i.i.i.i7 = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i25.zext
+  %add.ptr.i.i.i.i.i7 = getelementptr inbounds nuw i64, ptr %8, i64 %div.i.i.i.i.i25.zext
   %not.i = xor i64 %shl.i.i.i, -1
   %9 = load i64, ptr %add.ptr.i.i.i.i.i7, align 8
   %and.i16 = and i64 %9, %not.i
@@ -4656,7 +4656,7 @@ entry:
 define void @_ZN4cvc58internal9LogicInfo28enableCardinalityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4699,7 +4699,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   store i8 1, ptr %d_cardinalityConstraints, align 1
   ret void
 
@@ -4715,7 +4715,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo29disableCardinalityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4758,7 +4758,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_cardinalityConstraints = getelementptr inbounds i8, ptr %this, i64 85
+  %d_cardinalityConstraints = getelementptr inbounds nuw i8, ptr %this, i64 85
   store i8 0, ptr %d_cardinalityConstraints, align 1
   ret void
 
@@ -4774,7 +4774,7 @@ unreachable:                                      ; preds = %invoke.cont4
 define void @_ZN4cvc58internal9LogicInfo18disableHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.end
@@ -4817,7 +4817,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 do.end:                                           ; preds = %entry
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str)
-  %d_higherOrder = getelementptr inbounds i8, ptr %this, i64 86
+  %d_higherOrder = getelementptr inbounds nuw i8, ptr %this, i64 86
   store i8 0, ptr %d_higherOrder, align 2
   ret void
 
@@ -4832,12 +4832,12 @@ unreachable:                                      ; preds = %invoke.cont4
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4cvc58internal9LogicInfo15getUnlockedCopyEv(ptr noalias nonnull sret(%"class.cvc5::internal::LogicInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_locked = getelementptr inbounds i8, ptr %this, i64 87
+  %d_locked = getelementptr inbounds nuw i8, ptr %this, i64 87
   %0 = load i8, ptr %d_locked, align 1
   %tobool = trunc i8 %0 to i1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this)
-  %d_theories.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %d_theories3.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_theories.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %d_theories3.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -4855,10 +4855,10 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 _ZN4cvc58internal9LogicInfoC2ERKS1_.exit:         ; preds = %if.then
-  %d_sharingTheories.i = getelementptr inbounds i8, ptr %agg.result, i64 72
-  %d_sharingTheories4.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
+  %d_sharingTheories4.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories4.i, i64 16, i1 false)
-  %d_locked2 = getelementptr inbounds i8, ptr %agg.result, i64 87
+  %d_locked2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 87
   store i8 0, ptr %d_locked2, align 1
   br label %return
 
@@ -4872,8 +4872,8 @@ lpad.i3:                                          ; preds = %if.else
   br label %common.resume
 
 _ZN4cvc58internal9LogicInfoC2ERKS1_.exit6:        ; preds = %if.else
-  %d_sharingTheories.i4 = getelementptr inbounds i8, ptr %agg.result, i64 72
-  %d_sharingTheories4.i5 = getelementptr inbounds i8, ptr %this, i64 72
+  %d_sharingTheories.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 72
+  %d_sharingTheories4.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i4, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories4.i5, i64 16, i1 false)
   br label %return
 
@@ -4905,7 +4905,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2Ev(ptr noundef non
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -4948,7 +4948,7 @@ declare void @_ZN4cvc58internal24IllegalArgumentException12format_extraB5cxx11EP
 define linkonce_odr hidden void @_ZN4cvc58internal24IllegalArgumentExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -4958,7 +4958,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #16
   ret ptr %call
 }
@@ -4990,17 +4990,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %__x) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %_M_offset.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_offset.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_M_finish.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_offset.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_M_offset.i.i1.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %__x, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %__x, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_offset.i.i.i = getelementptr inbounds i8, ptr %__x, i64 24
+  %_M_offset.i.i.i = getelementptr inbounds nuw i8, ptr %__x, i64 24
   %1 = load i32, ptr %_M_offset.i.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -5021,7 +5021,7 @@ if.then.i:                                        ; preds = %entry
 
 call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   %div1.i.i = lshr i64 %sub.i.i.i, 6
-  %add.ptr.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div1.i.i
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i4, i64 %div1.i.i
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %call5.i.i.i.i4, ptr %this, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
@@ -5097,13 +5097,13 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
   %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont11, !llvm.loop !10
@@ -5126,7 +5126,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -5136,11 +5136,11 @@ if.then.i:                                        ; preds = %entry
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #19
   store ptr null, ptr %this, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont

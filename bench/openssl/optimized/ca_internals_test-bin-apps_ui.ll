@@ -227,7 +227,7 @@ entry:
   br i1 %or.cond, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %entry
-  %prompt_info = getelementptr inbounds i8, ptr %call, i64 8
+  %prompt_info = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %prompt_info, align 8
   br label %if.end4
 
@@ -277,7 +277,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %prompt_info2 = getelementptr inbounds i8, ptr %cb_data, i64 8
+  %prompt_info2 = getelementptr inbounds nuw i8, ptr %cb_data, i64 8
   %1 = load ptr, ptr %prompt_info2, align 8
   br label %if.end6
 

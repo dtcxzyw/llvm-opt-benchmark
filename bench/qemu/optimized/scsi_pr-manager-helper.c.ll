@@ -62,7 +62,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @pr_manager_helper_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock) #7
   ret void
 }
@@ -71,10 +71,10 @@ entry:
 define internal void @pr_manager_helper_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
-  %ioc = getelementptr inbounds i8, ptr %call.i, i64 96
+  %ioc = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %ioc, align 8
   tail call void @object_unref(ptr noundef %0) #7
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #7
   ret void
 }
@@ -85,11 +85,11 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.PR_MANAGER_CLASS) #7
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @get_path, ptr noundef nonnull @set_path) #7
-  %complete = getelementptr inbounds i8, ptr %call.i4, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i4, i64 112
   store ptr @pr_manager_helper_complete, ptr %complete, align 8
-  %run = getelementptr inbounds i8, ptr %call.i, i64 96
+  %run = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr @pr_manager_helper_run, ptr %run, align 8
-  %is_connected = getelementptr inbounds i8, ptr %call.i, i64 104
+  %is_connected = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @pr_manager_helper_is_connected, ptr %is_connected, align 8
   ret void
 }
@@ -108,7 +108,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @get_path(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
-  %path = getelementptr inbounds i8, ptr %call.i, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %path, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #7
   ret ptr %call1
@@ -118,7 +118,7 @@ entry:
 define internal void @set_path(ptr noundef %obj, ptr noundef %str, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
-  %path = getelementptr inbounds i8, ptr %call.i, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %path, align 8
   tail call void @g_free(ptr noundef %0) #7
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #7
@@ -132,7 +132,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 267) #7
   %call1 = tail call fastcc i32 @pr_manager_helper_initialize(ptr noundef %call.i, ptr noundef %errp)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 269) #7
@@ -146,14 +146,14 @@ entry:
   %cdb = alloca [16 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %p, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %cdb, i8 0, i64 16, i1 false)
-  %cmd_len = getelementptr inbounds i8, ptr %io_hdr, i64 8
+  %cmd_len = getelementptr inbounds nuw i8, ptr %io_hdr, i64 8
   %0 = load i8, ptr %cmd_len, align 8
   %1 = add i8 %0, -17
   %or.cond51 = icmp ult i8 %1, -16
   br i1 %or.cond51, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmdp = getelementptr inbounds i8, ptr %io_hdr, i64 24
+  %cmdp = getelementptr inbounds nuw i8, ptr %io_hdr, i64 24
   %2 = load ptr, ptr %cmdp, align 8
   %conv4 = zext nneg i8 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cdb, ptr align 1 %2, i64 %conv4, i1 false)
@@ -169,14 +169,14 @@ if.else:                                          ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   %cond = select i1 %cmp6, i32 -2, i32 -3
-  %dxfer_direction = getelementptr inbounds i8, ptr %io_hdr, i64 4
+  %dxfer_direction = getelementptr inbounds nuw i8, ptr %io_hdr, i64 4
   %5 = load i32, ptr %dxfer_direction, align 4
   %cmp19.not = icmp eq i32 %5, %cond
   br i1 %cmp19.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end14
   %call24 = call i32 @scsi_cdb_xfer(ptr noundef nonnull %cdb) #7
-  %dxfer_len = getelementptr inbounds i8, ptr %io_hdr, i64 12
+  %dxfer_len = getelementptr inbounds nuw i8, ptr %io_hdr, i64 12
   %6 = load i32, ptr %dxfer_len, align 4
   %cmp25 = icmp ult i32 %6, %call24
   %cmp28 = icmp ugt i32 %call24, 8192
@@ -186,9 +186,9 @@ if.end22:                                         ; preds = %if.end14
 while.end:                                        ; preds = %if.end22
   %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   call void %8(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 180) #7
-  %ioc = getelementptr inbounds i8, ptr %call.i, i64 96
+  %ioc = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %while.end, %for.inc
@@ -227,9 +227,9 @@ if.end61:                                         ; preds = %if.end51
 if.then64:                                        ; preds = %if.end61
   %12 = load i32, ptr %dxfer_len, align 4
   %sub = sub i32 %12, %call24
-  %resid = getelementptr inbounds i8, ptr %io_hdr, i64 72
+  %resid = getelementptr inbounds nuw i8, ptr %io_hdr, i64 72
   store i32 %sub, ptr %resid, align 8
-  %dxferp = getelementptr inbounds i8, ptr %io_hdr, i64 16
+  %dxferp = getelementptr inbounds nuw i8, ptr %io_hdr, i64 16
   %13 = load ptr, ptr %dxferp, align 8
   %call66 = call fastcc i32 @pr_manager_helper_write(ptr noundef nonnull %call.i, i32 noundef -1, ptr noundef %13, i32 noundef %call24, ptr noundef null)
   %cmp67 = icmp slt i32 %call66, 0
@@ -259,7 +259,7 @@ if.end76:                                         ; preds = %if.end71
   %17 = load i32, ptr %resp, align 4
   %18 = call noundef i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %resp, align 4
-  %sz = getelementptr inbounds i8, ptr %resp, i64 4
+  %sz = getelementptr inbounds nuw i8, ptr %resp, i64 4
   %19 = load i32, ptr %sz, align 4
   %20 = call noundef i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %sz, align 4
@@ -277,7 +277,7 @@ if.else90:                                        ; preds = %if.then84
   unreachable
 
 if.end91:                                         ; preds = %if.then84
-  %dxferp92 = getelementptr inbounds i8, ptr %io_hdr, i64 16
+  %dxferp92 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 16
   %23 = load ptr, ptr %dxferp92, align 8
   %call94 = call fastcc i32 @pr_manager_helper_read(ptr noundef nonnull %call.i, ptr noundef %23, i32 noundef %20, ptr noundef null)
   %cmp95 = icmp slt i32 %call94, 0
@@ -287,7 +287,7 @@ if.end98:                                         ; preds = %if.end91
   %24 = load i32, ptr %dxfer_len, align 4
   %25 = load i32, ptr %sz, align 4
   %sub101 = sub i32 %24, %25
-  %resid102 = getelementptr inbounds i8, ptr %io_hdr, i64 72
+  %resid102 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 72
   store i32 %sub101, ptr %resid102, align 8
   %.pre = load i32, ptr %resp, align 4
   br label %if.end110
@@ -303,42 +303,42 @@ if.else108:                                       ; preds = %if.else103
 if.end110:                                        ; preds = %if.else103, %if.end98
   %26 = phi i32 [ %18, %if.else103 ], [ %.pre, %if.end98 ]
   %conv112 = trunc i32 %26 to i8
-  %status = getelementptr inbounds i8, ptr %io_hdr, i64 64
+  %status = getelementptr inbounds nuw i8, ptr %io_hdr, i64 64
   store i8 %conv112, ptr %status, align 8
   %cmp114 = icmp eq i32 %26, 2
   br i1 %cmp114, label %if.then116, label %if.end145
 
 if.then116:                                       ; preds = %if.end110
-  %driver_status = getelementptr inbounds i8, ptr %io_hdr, i64 70
+  %driver_status = getelementptr inbounds nuw i8, ptr %io_hdr, i64 70
   store i16 8, ptr %driver_status, align 2
-  %mx_sb_len = getelementptr inbounds i8, ptr %io_hdr, i64 9
+  %mx_sb_len = getelementptr inbounds nuw i8, ptr %io_hdr, i64 9
   %27 = load i8, ptr %mx_sb_len, align 1
   %28 = call i8 @llvm.umin.i8(i8 %27, i8 96)
-  %sb_len_wr = getelementptr inbounds i8, ptr %io_hdr, i64 67
+  %sb_len_wr = getelementptr inbounds nuw i8, ptr %io_hdr, i64 67
   store i8 %28, ptr %sb_len_wr, align 1
-  %sbp = getelementptr inbounds i8, ptr %io_hdr, i64 32
+  %sbp = getelementptr inbounds nuw i8, ptr %io_hdr, i64 32
   %29 = load ptr, ptr %sbp, align 8
-  %sense = getelementptr inbounds i8, ptr %resp, i64 8
+  %sense = getelementptr inbounds nuw i8, ptr %resp, i64 8
   %conv125 = zext nneg i8 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 4 %sense, i64 %conv125, i1 false)
   br label %if.end145
 
 if.then129:                                       ; preds = %for.inc, %if.then.i.i, %if.then.i, %if.then64, %if.end91
   %ret.3.ph = phi i32 [ %call94, %if.end91 ], [ %call66, %if.then64 ], [ -22, %if.then.i ], [ -22, %if.then.i.i ], [ %ret.2, %for.inc ]
-  %sbp130 = getelementptr inbounds i8, ptr %io_hdr, i64 32
+  %sbp130 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 32
   %30 = load ptr, ptr %sbp130, align 8
   %sense_code_LUN_COMM_FAILURE.coerce.0.copyload = load i24, ptr @sense_code_LUN_COMM_FAILURE, align 1
   %call131 = call i32 @scsi_build_sense(ptr noundef %30, i24 %sense_code_LUN_COMM_FAILURE.coerce.0.copyload) #7
-  %driver_status132 = getelementptr inbounds i8, ptr %io_hdr, i64 70
+  %driver_status132 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 70
   store i16 8, ptr %driver_status132, align 2
-  %mx_sb_len133 = getelementptr inbounds i8, ptr %io_hdr, i64 9
+  %mx_sb_len133 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 9
   %31 = load i8, ptr %mx_sb_len133, align 1
   %conv134 = zext i8 %31 to i32
   %cond141 = call i32 @llvm.smin.i32(i32 %call131, i32 %conv134)
   %conv142 = trunc i32 %cond141 to i8
-  %sb_len_wr143 = getelementptr inbounds i8, ptr %io_hdr, i64 67
+  %sb_len_wr143 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 67
   store i8 %conv142, ptr %sb_len_wr143, align 1
-  %status144 = getelementptr inbounds i8, ptr %io_hdr, i64 64
+  %status144 = getelementptr inbounds nuw i8, ptr %io_hdr, i64 64
   store i8 2, ptr %status144, align 8
   br label %if.end145
 
@@ -358,9 +358,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %p, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 30, ptr noundef nonnull @__func__.PR_MANAGER_HELPER) #7
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 256) #7
-  %ioc = getelementptr inbounds i8, ptr %call.i, i64 96
+  %ioc = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %ioc, align 8
   %cmp = icmp ne ptr %2, null
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.2, i32 noundef 258) #7
@@ -379,17 +379,17 @@ entry:
   %saddr = alloca %struct.SocketAddress, align 8
   %local_err = alloca ptr, align 8
   %flags = alloca i32, align 4
-  %path1 = getelementptr inbounds i8, ptr %pr_mgr, i64 40
+  %path1 = getelementptr inbounds nuw i8, ptr %pr_mgr, i64 40
   %0 = load ptr, ptr %path1, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %0) #7
   store i32 1, ptr %saddr, align 8
-  %u = getelementptr inbounds i8, ptr %saddr, i64 8
-  %1 = getelementptr inbounds i8, ptr %saddr, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %saddr, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %saddr, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store ptr %call, ptr %u, align 8
   %call3 = tail call ptr @qio_channel_socket_new() #7
   store ptr null, ptr %local_err, align 8
-  %ioc = getelementptr inbounds i8, ptr %pr_mgr, i64 96
+  %ioc = getelementptr inbounds nuw i8, ptr %pr_mgr, i64 96
   %2 = load ptr, ptr %ioc, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.else
@@ -486,7 +486,7 @@ declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -22, 1) i32 @pr_manager_helper_read(ptr noundef %pr_mgr, ptr noundef %buf, i32 noundef %sz, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %ioc = getelementptr inbounds i8, ptr %pr_mgr, i64 96
+  %ioc = getelementptr inbounds nuw i8, ptr %pr_mgr, i64 96
   %0 = load ptr, ptr %ioc, align 8
   %conv = sext i32 %sz to i64
   %call = tail call i32 @qio_channel_read_all(ptr noundef %0, ptr noundef %buf, i64 noundef %conv, ptr noundef %errp) #7
@@ -524,8 +524,8 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %cmp = icmp ne i32 %fd, -1
   %conv1 = zext i1 %cmp to i64
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
-  %ioc = getelementptr inbounds i8, ptr %pr_mgr, i64 96
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
+  %ioc = getelementptr inbounds nuw i8, ptr %pr_mgr, i64 96
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16

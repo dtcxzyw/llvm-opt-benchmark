@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -15,13 +15,13 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   br label %34
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
   %13 = icmp eq ptr %0, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
@@ -30,35 +30,35 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %13, label %20, label %27
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %4, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %22 = load ptr, ptr %21, align 8
   br i1 %19, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %22, ptr %24, align 8
   store ptr %1, ptr %21, align 8
   br label %34
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %22, ptr %26, align 8
   store ptr %1, ptr %21, align 8
   br label %34
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %4, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %29 = load ptr, ptr %28, align 8
   br i1 %19, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %29, ptr %31, align 8
   store ptr %1, ptr %28, align 8
   br label %34
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %29, ptr %33, align 8
   store ptr %1, ptr %28, align 8
   br label %34
@@ -69,7 +69,7 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -77,28 +77,28 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1
 .lr.ph:                                           ; preds = %2, %23
   %.sink = phi ptr [ %13, %23 ], [ %4, %2 ]
   %.029 = phi ptr [ %.1, %23 ], [ %3, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.sink, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp eq ptr %0, %10
   %.33 = select i1 %11, i64 144, i64 152
-  %12 = getelementptr inbounds i8, ptr %.sink, i64 %.33
+  %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 %.33
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %.sink, %1
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %.lr.ph
   store ptr %.sink, ptr %.029, align 8
-  %16 = getelementptr inbounds i8, ptr %.sink, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = icmp eq ptr %0, %20
   %.v = select i1 %21, i64 144, i64 152
-  %22 = getelementptr inbounds i8, ptr %.sink, i64 %.v
+  %22 = getelementptr inbounds nuw i8, ptr %.sink, i64 %.v
   br label %23
 
 23:                                               ; preds = %.lr.ph, %15
@@ -114,7 +114,7 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef %0, ptr noundef readnone %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.027 = load ptr, ptr %3, align 8
   %.not28 = icmp eq ptr %.027, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -127,7 +127,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
 
 5:                                                ; preds = %.lr.ph, %27
   %.029 = phi ptr [ %.027, %.lr.ph ], [ %.0, %27 ]
-  %6 = getelementptr inbounds i8, ptr %.029, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.029, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
@@ -143,7 +143,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
   br label %27
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %.029, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
@@ -162,7 +162,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
   %.pre-phi34 = phi ptr [ %10, %16 ], [ %10, %23 ], [ %.pre33, %12 ]
   %28 = icmp eq ptr %0, %.pre-phi34
   %.in.v = select i1 %28, i64 144, i64 152
-  %.in = getelementptr inbounds i8, ptr %.029, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %.029, i64 %.in.v
   %.0 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %5, !llvm.loop !6
@@ -173,15 +173,15 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %29 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %2 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %35, ptr %36, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
@@ -189,7 +189,7 @@ define void @Fraig_NodeTransferFanout(ptr noundef %0, ptr noundef %1) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.089 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.089, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -198,14 +198,14 @@ define i32 @Fraig_NodeGetFanoutNum(ptr noundef readonly %0) local_unnamed_addr #
   %.0812 = phi ptr [ %.08, %.lr.ph ], [ %.089, %1 ]
   %.011 = phi i32 [ %3, %.lr.ph ], [ 0, %1 ]
   %3 = add nuw nsw i32 %.011, 1
-  %4 = getelementptr inbounds i8, ptr %.0812, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %.0812, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   %9 = icmp eq ptr %0, %8
   %.in.v = select i1 %9, i64 144, i64 152
-  %.in = getelementptr inbounds i8, ptr %.0812, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %.0812, i64 %.in.v
   %.08 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.08, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

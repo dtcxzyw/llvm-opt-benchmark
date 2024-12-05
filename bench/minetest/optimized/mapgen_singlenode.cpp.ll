@@ -383,10 +383,10 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef 6, ptr noundef %params, ptr noundef %emerge)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenSinglenode, i64 16), ptr %this, align 8, !tbaa !12
-  %ndef = getelementptr inbounds i8, ptr %this, i64 48
+  %ndef = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %ndef, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #13
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #13
   store i64 17, ptr %__dnew.i.i, align 8, !tbaa !32
@@ -398,7 +398,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !32
   store i64 %2, ptr %1, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call2.i11.i23, ptr noundef nonnull align 1 dereferenceable(17) @.str.21, i64 17, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
@@ -408,7 +408,7 @@ call2.i11.i.noexc:                                ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %call2.i11.i.noexc
-  %c_node = getelementptr inbounds i8, ptr %this, i64 200
+  %c_node = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i16 %call, ptr %c_node, align 8, !tbaa !34
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %4, %1
@@ -466,14 +466,14 @@ ehcleanup:                                        ; preds = %if.then.i.i26, %_ZN
 invoke.cont13:                                    ; preds = %if.then, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %11 = phi i16 [ %6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 126, %if.then ]
   %12 = load ptr, ptr %ndef, align 8, !tbaa !14
-  %m_content_lighting_flag_cache.i.i = getelementptr inbounds i8, ptr %12, i64 312
+  %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %12, i64 312
   %idxprom.i.i = zext i16 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [65536 x %struct.ContentLightingFlags], ptr %m_content_lighting_flag_cache.i.i, i64 0, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !33
   %13 = and i8 %retval.sroa.0.0.copyload.i.i, 64
   %bf.cast.not = icmp eq i8 %13, 0
   %conv15 = select i1 %bf.cast.not, i8 0, i8 15
-  %set_light = getelementptr inbounds i8, ptr %this, i64 202
+  %set_light = getelementptr inbounds nuw i8, ptr %this, i64 202
   store i8 %conv15, ptr %set_light, align 2, !tbaa !36
   ret void
 }
@@ -485,26 +485,26 @@ declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_str
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16MapgenSinglenode9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(203) initializes((24, 25), (32, 40), (48, 60)) %this, ptr noundef %data) unnamed_addr #5 align 2 {
 entry:
-  %generating = getelementptr inbounds i8, ptr %this, i64 24
+  %generating = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %generating, align 8, !tbaa !37
   %0 = load ptr, ptr %data, align 8, !tbaa !38
-  %vm = getelementptr inbounds i8, ptr %this, i64 32
+  %vm = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %vm, align 8, !tbaa !55
-  %nodedef = getelementptr inbounds i8, ptr %data, i64 160
+  %nodedef = getelementptr inbounds nuw i8, ptr %data, i64 160
   %1 = load ptr, ptr %nodedef, align 8, !tbaa !56
-  %ndef = getelementptr inbounds i8, ptr %this, i64 48
+  %ndef = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %1, ptr %ndef, align 8, !tbaa !14
-  %blockpos_min2 = getelementptr inbounds i8, ptr %data, i64 16
+  %blockpos_min2 = getelementptr inbounds nuw i8, ptr %data, i64 16
   %blockpos_min.sroa.0.0.copyload = load i16, ptr %blockpos_min2, align 8, !tbaa !57
-  %blockpos_min.sroa.4.0.blockpos_min2.sroa_idx = getelementptr inbounds i8, ptr %data, i64 18
+  %blockpos_min.sroa.4.0.blockpos_min2.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 18
   %blockpos_min.sroa.4.0.copyload = load i16, ptr %blockpos_min.sroa.4.0.blockpos_min2.sroa_idx, align 2, !tbaa !57
-  %blockpos_min.sroa.5.0.blockpos_min2.sroa_idx = getelementptr inbounds i8, ptr %data, i64 20
+  %blockpos_min.sroa.5.0.blockpos_min2.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 20
   %blockpos_min.sroa.5.0.copyload = load i16, ptr %blockpos_min.sroa.5.0.blockpos_min2.sroa_idx, align 4, !tbaa !57
-  %blockpos_max3 = getelementptr inbounds i8, ptr %data, i64 22
+  %blockpos_max3 = getelementptr inbounds nuw i8, ptr %data, i64 22
   %blockpos_max.sroa.0.0.copyload = load i16, ptr %blockpos_max3, align 2, !tbaa !57
-  %blockpos_max.sroa.4.0.blockpos_max3.sroa_idx = getelementptr inbounds i8, ptr %data, i64 24
+  %blockpos_max.sroa.4.0.blockpos_max3.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 24
   %blockpos_max.sroa.4.0.copyload = load i16, ptr %blockpos_max.sroa.4.0.blockpos_max3.sroa_idx, align 2, !tbaa !57
-  %blockpos_max.sroa.5.0.blockpos_max3.sroa_idx = getelementptr inbounds i8, ptr %data, i64 26
+  %blockpos_max.sroa.5.0.blockpos_max3.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 26
   %blockpos_max.sroa.5.0.copyload = load i16, ptr %blockpos_max.sroa.5.0.blockpos_max3.sroa_idx, align 2, !tbaa !57
   %mul.i = shl i16 %blockpos_min.sroa.0.0.copyload, 4
   %mul6.i = shl i16 %blockpos_min.sroa.4.0.copyload, 4
@@ -529,13 +529,13 @@ entry:
   %retval.sroa.2.0.insert.insert.i142 = or disjoint i48 %retval.sroa.3.0.insert.shift.i139, %retval.sroa.2.0.insert.shift.i141
   %retval.sroa.0.0.insert.ext.i143 = zext i16 %sub.i to i48
   %retval.sroa.0.0.insert.insert.i144 = or disjoint i48 %retval.sroa.2.0.insert.insert.i142, %retval.sroa.0.0.insert.ext.i143
-  %seed = getelementptr inbounds i8, ptr %data, i64 8
+  %seed = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %seed, align 8, !tbaa !58
   %conv = trunc i64 %3 to i32
   %call13 = tail call noundef i32 @_ZN6Mapgen13getBlockSeed2EN3irr4core8vector3dIsEEi(i48 %retval.sroa.0.0.insert.insert.i, i32 noundef %conv)
-  %blockseed = getelementptr inbounds i8, ptr %this, i64 56
+  %blockseed = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %call13, ptr %blockseed, align 8, !tbaa !59
-  %c_node = getelementptr inbounds i8, ptr %this, i64 200
+  %c_node = getelementptr inbounds nuw i8, ptr %this, i64 200
   %4 = load i16, ptr %c_node, align 8, !tbaa !34
   %cmp.not159 = icmp sgt i16 %mul10.i, %sub13.i
   br i1 %cmp.not159, label %for.cond.cleanup, label %for.cond17.preheader.lr.ph
@@ -561,7 +561,7 @@ for.cond17.preheader:                             ; preds = %for.cond17.preheade
 for.cond.cleanup:                                 ; preds = %for.cond17.for.cond.cleanup22_crit_edge.split, %for.cond17.preheader.lr.ph, %entry
   %5 = load ptr, ptr %ndef, align 8, !tbaa !14
   %conv.i.i = zext i16 %4 to i64
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !60
   %7 = load ptr, ptr %5, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -572,19 +572,19 @@ for.cond.cleanup:                                 ; preds = %for.cond17.for.cond
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.cond.cleanup
-  %add.ptr.i.i.i = getelementptr inbounds %struct.ContentFeatures, ptr %7, i64 %conv.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1456
+  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %7, i64 %conv.i.i
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %8 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %cmp.i.i.i = icmp eq i64 %8, 0
   br i1 %cmp.i.i.i, label %cond.false.i.i, label %_ZNK14NodeDefManager3getERK7MapNode.exit
 
 cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, %for.cond.cleanup
-  %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %7, i64 464000
+  %add.ptr.i14.i.i = getelementptr inbounds nuw i8, ptr %7, i64 464000
   br label %_ZNK14NodeDefManager3getERK7MapNode.exit
 
 _ZNK14NodeDefManager3getERK7MapNode.exit:         ; preds = %cond.false.i.i, %land.lhs.true.i.i
   %cond-lvalue.i.i = phi ptr [ %add.ptr.i14.i.i, %cond.false.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i ]
-  %liquid_type.i = getelementptr inbounds i8, ptr %cond-lvalue.i.i, i64 3089
+  %liquid_type.i = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i, i64 3089
   %9 = load i8, ptr %liquid_type.i, align 1, !tbaa !63
   %cmp.i.not = icmp eq i8 %9, 0
   br i1 %cmp.i.not, label %if.end55, label %if.then52
@@ -598,19 +598,19 @@ for.body23:                                       ; preds = %for.cond27.for.cond
   %conv18158 = phi i32 [ %conv18155, %for.cond17.preheader ], [ %conv18, %for.cond27.for.cond.cleanup32_crit_edge ]
   %y.0157 = phi i16 [ %mul6.i, %for.cond17.preheader ], [ %inc44, %for.cond27.for.cond.cleanup32_crit_edge ]
   %10 = load ptr, ptr %vm, align 8, !tbaa !55
-  %m_area = getelementptr inbounds i8, ptr %10, i64 8
-  %Z.i145 = getelementptr inbounds i8, ptr %10, i64 12
+  %m_area = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %Z.i145 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %11 = load i16, ptr %Z.i145, align 2, !tbaa !96
   %conv2.i = sext i16 %11 to i32
   %sub.i146 = sub nsw i32 %conv.i, %conv2.i
-  %m_cache_extent.i = getelementptr inbounds i8, ptr %10, i64 20
-  %Y.i147 = getelementptr inbounds i8, ptr %10, i64 22
+  %m_cache_extent.i = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %Y.i147 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %12 = load i16, ptr %Y.i147, align 2, !tbaa !98
   %conv3.i = sext i16 %12 to i32
   %mul.i148 = mul nsw i32 %sub.i146, %conv3.i
   %13 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !99
   %conv5.i = sext i16 %13 to i32
-  %Y9.i = getelementptr inbounds i8, ptr %10, i64 10
+  %Y9.i = getelementptr inbounds nuw i8, ptr %10, i64 10
   %14 = load i16, ptr %Y9.i, align 2, !tbaa !100
   %conv10.i = sext i16 %14 to i32
   %sub11.i = add nsw i32 %mul.i148, %conv18158
@@ -632,10 +632,10 @@ for.body33:                                       ; preds = %if.end, %for.body23
   %i.0154 = phi i32 [ %add21.i, %for.body23 ], [ %inc, %if.end ]
   %x.0153 = phi i16 [ %mul.i, %for.body23 ], [ %inc42, %if.end ]
   %16 = load ptr, ptr %vm, align 8, !tbaa !55
-  %m_data = getelementptr inbounds i8, ptr %16, i64 32
+  %m_data = getelementptr inbounds nuw i8, ptr %16, i64 32
   %17 = load ptr, ptr %m_data, align 8, !tbaa !103
   %idxprom = zext i32 %i.0154 to i64
-  %arrayidx = getelementptr inbounds %struct.MapNode, ptr %17, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %17, i64 %idxprom
   %18 = load i16, ptr %arrayidx, align 4, !tbaa !105
   %cmp37 = icmp eq i16 %18, 127
   br i1 %cmp37, label %if.then, label %if.end
@@ -652,16 +652,16 @@ if.end:                                           ; preds = %if.then, %for.body3
   br i1 %cmp31.not, label %for.cond27.for.cond.cleanup32_crit_edge, label %for.body33, !llvm.loop !108
 
 if.then52:                                        ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit
-  %transforming_liquid = getelementptr inbounds i8, ptr %data, i64 32
+  %transforming_liquid = getelementptr inbounds nuw i8, ptr %data, i64 32
   tail call void @_ZN6Mapgen12updateLiquidEP11UniqueQueueIN3irr4core8vector3dIsEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %transforming_liquid, i48 %retval.sroa.0.0.insert.insert.i, i48 %retval.sroa.0.0.insert.insert.i144)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %_ZNK14NodeDefManager3getERK7MapNode.exit
-  %flags = getelementptr inbounds i8, ptr %this, i64 20
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 20
   %19 = load i32, ptr %flags, align 4, !tbaa !109
   %and = and i32 %19, 16
   %tobool.not = icmp ne i32 %and, 0
-  %set_light = getelementptr inbounds i8, ptr %this, i64 202
+  %set_light = getelementptr inbounds nuw i8, ptr %this, i64 202
   %20 = load i8, ptr %set_light, align 2
   %cmp57 = icmp eq i8 %20, 15
   %or.cond = select i1 %tobool.not, i1 %cmp57, i1 false

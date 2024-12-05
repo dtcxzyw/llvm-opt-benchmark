@@ -27,9 +27,9 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.body
   %n.026 = phi i64 [ 0, %if.end ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %n.026
+  %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %n.026
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %ivec, i64 %n.026
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %ivec, i64 %n.026
   %1 = load i8, ptr %arrayidx6, align 1
   %xor25 = xor i8 %1, %0
   store i8 %xor25, ptr %arrayidx6, align 1
@@ -74,9 +74,9 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end3, %for.body
   %n.026 = phi i64 [ 0, %if.end3 ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %n.026
+  %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %n.026
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %ivec, i64 %n.026
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %ivec, i64 %n.026
   %1 = load i8, ptr %arrayidx6, align 1
   %xor25 = xor i8 %1, %0
   store i8 %xor25, ptr %arrayidx6, align 1
@@ -88,7 +88,7 @@ for.end:                                          ; preds = %for.body
   %add.ptr4 = getelementptr inbounds i8, ptr %out, i64 %sub
   tail call void %block(ptr noundef nonnull %ivec, ptr noundef nonnull %ivec, ptr noundef %key) #4
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr4, i64 -16
-  %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr9, i64 %rem
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 %rem
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr10, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
   br label %return
 
@@ -151,7 +151,7 @@ if.end3:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tmp, ptr align 1 %add.ptr, i64 %rem, i1 false)
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr4, i64 -16
-  %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr7, i64 %rem
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 %rem
   call void %cbc(ptr noundef nonnull %tmp, ptr noundef nonnull %add.ptr8, i64 noundef 16, ptr noundef %key, ptr noundef %ivec, i32 noundef 1) #4
   br label %return
 
@@ -185,24 +185,24 @@ if.then4:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.then4, %if.end
   %out.addr.0 = phi ptr [ %add.ptr5, %if.then4 ], [ %out, %if.end ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.then4 ], [ %in, %if.end ]
-  %add.ptr7 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   call void %block(ptr noundef %in.addr.0, ptr noundef nonnull %add.ptr7, ptr noundef %key) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr7, i64 16, i1 false)
-  %add.ptr12 = getelementptr inbounds i8, ptr %in.addr.0, i64 16
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %tmp, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr12, i64 %spec.store.select, i1 false)
   call void %block(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, ptr noundef %key) #4
   br label %for.body
 
 for.body:                                         ; preds = %if.end6, %for.body
   %n.039 = phi i64 [ 0, %if.end6 ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.0, i64 %n.039
+  %arrayidx = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %n.039
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx16 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %n.039
+  %arrayidx16 = getelementptr inbounds nuw [32 x i8], ptr %tmp, i64 0, i64 %n.039
   %1 = load i8, ptr %arrayidx16, align 1
-  %arrayidx17 = getelementptr inbounds i8, ptr %ivec, i64 %n.039
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %ivec, i64 %n.039
   %2 = load i8, ptr %arrayidx17, align 1
   %xor38 = xor i8 %2, %1
-  %arrayidx20 = getelementptr inbounds i8, ptr %out.addr.0, i64 %n.039
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 %n.039
   store i8 %xor38, ptr %arrayidx20, align 1
   store i8 %0, ptr %arrayidx17, align 1
   %inc = add nuw nsw i64 %n.039, 1
@@ -211,12 +211,12 @@ for.body:                                         ; preds = %if.end6, %for.body
 
 for.body26:                                       ; preds = %for.body, %for.body26
   %n.141 = phi i64 [ %inc35, %for.body26 ], [ 16, %for.body ]
-  %arrayidx27 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %n.141
+  %arrayidx27 = getelementptr inbounds nuw [32 x i8], ptr %tmp, i64 0, i64 %n.141
   %3 = load i8, ptr %arrayidx27, align 1
-  %arrayidx29 = getelementptr inbounds i8, ptr %in.addr.0, i64 %n.141
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %n.141
   %4 = load i8, ptr %arrayidx29, align 1
   %xor3137 = xor i8 %4, %3
-  %arrayidx33 = getelementptr inbounds i8, ptr %out.addr.0, i64 %n.141
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 %n.141
   store i8 %xor3137, ptr %arrayidx33, align 1
   %inc35 = add nuw nsw i64 %n.141, 1
   %exitcond42.not = icmp eq i64 %inc35, %add
@@ -264,8 +264,8 @@ if.then4:                                         ; preds = %if.end3
 if.end6:                                          ; preds = %if.then4, %if.end3
   %out.addr.0 = phi ptr [ %add.ptr5, %if.then4 ], [ %out, %if.end3 ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.then4 ], [ %in, %if.end3 ]
-  %add.ptr7 = getelementptr inbounds i8, ptr %in.addr.0, i64 %rem
-  %add.ptr8 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %rem
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   call void %block(ptr noundef nonnull %add.ptr7, ptr noundef nonnull %add.ptr8, ptr noundef %key) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr8, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tmp, ptr align 1 %in.addr.0, i64 %rem, i1 false)
@@ -274,17 +274,16 @@ if.end6:                                          ; preds = %if.then4, %if.end3
 
 for.body:                                         ; preds = %if.end6, %for.body
   %n.051 = phi i64 [ 0, %if.end6 ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.0, i64 %n.051
+  %arrayidx = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %n.051
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx16 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %n.051
+  %arrayidx16 = getelementptr inbounds nuw [32 x i8], ptr %tmp, i64 0, i64 %n.051
   %1 = load i8, ptr %arrayidx16, align 1
-  %arrayidx17 = getelementptr inbounds i8, ptr %ivec, i64 %n.051
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %ivec, i64 %n.051
   %2 = load i8, ptr %arrayidx17, align 1
   %xor50 = xor i8 %2, %1
-  %arrayidx20 = getelementptr inbounds i8, ptr %out.addr.0, i64 %n.051
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 %n.051
   store i8 %xor50, ptr %arrayidx20, align 1
-  %add21 = add nuw nsw i64 %n.051, %rem
-  %arrayidx22 = getelementptr inbounds i8, ptr %in.addr.0, i64 %add21
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 %rem
   %3 = load i8, ptr %arrayidx22, align 1
   store i8 %3, ptr %arrayidx17, align 1
   store i8 %0, ptr %arrayidx16, align 1
@@ -294,13 +293,13 @@ for.body:                                         ; preds = %if.end6, %for.body
 
 for.body29:                                       ; preds = %for.body, %for.body29
   %n.153 = phi i64 [ %inc39, %for.body29 ], [ 16, %for.body ]
-  %arrayidx30 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %n.153
+  %arrayidx30 = getelementptr inbounds nuw [32 x i8], ptr %tmp, i64 0, i64 %n.153
   %4 = load i8, ptr %arrayidx30, align 1
   %sub32 = add nsw i64 %n.153, -16
   %arrayidx33 = getelementptr inbounds [32 x i8], ptr %tmp, i64 0, i64 %sub32
   %5 = load i8, ptr %arrayidx33, align 1
   %xor3549 = xor i8 %5, %4
-  %arrayidx37 = getelementptr inbounds i8, ptr %out.addr.0, i64 %n.153
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 %n.153
   store i8 %xor3549, ptr %arrayidx37, align 1
   %inc39 = add nuw nsw i64 %n.153, 1
   %exitcond54.not = icmp eq i64 %inc39, %add
@@ -341,9 +340,9 @@ if.end6:                                          ; preds = %if.then4, %if.end
   %out.addr.0 = phi ptr [ %add.ptr5, %if.then4 ], [ %out, %if.end ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.then4 ], [ %in, %if.end ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false)
-  %add.ptr9 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %add.ptr9 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   call void %cbc(ptr noundef %in.addr.0, ptr noundef nonnull %tmp, i64 noundef 16, ptr noundef %key, ptr noundef nonnull %add.ptr9, i32 noundef 0) #4
-  %add.ptr11 = getelementptr inbounds i8, ptr %in.addr.0, i64 16
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %tmp, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr11, i64 %spec.store.select, i1 false)
   call void %cbc(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef 32, ptr noundef %key, ptr noundef %ivec, i32 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %out.addr.0, ptr noundef nonnull align 8 dereferenceable(1) %tmp, i64 %add, i1 false)
@@ -386,8 +385,8 @@ if.end6:                                          ; preds = %if.then4, %if.end3
   %out.addr.0 = phi ptr [ %add.ptr5, %if.then4 ], [ %out, %if.end3 ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.then4 ], [ %in, %if.end3 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp, i8 0, i64 32, i1 false)
-  %add.ptr7 = getelementptr inbounds i8, ptr %in.addr.0, i64 %rem
-  %add.ptr10 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %rem
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   call void %cbc(ptr noundef nonnull %add.ptr7, ptr noundef nonnull %tmp, i64 noundef 16, ptr noundef %key, ptr noundef nonnull %add.ptr10, i32 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tmp, ptr align 1 %in.addr.0, i64 %rem, i1 false)
   call void %cbc(ptr noundef nonnull %tmp, ptr noundef nonnull %tmp, i64 noundef 32, ptr noundef %key, ptr noundef %ivec, i32 noundef 0) #4

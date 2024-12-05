@@ -51,7 +51,7 @@ define i32 @PMPI_Graph_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %or.cond.i, label %ompi_comm_invalid.exit.thread, label %ompi_comm_invalid.exit
 
 ompi_comm_invalid.exit:                           ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 48
   %or.cond7.i.not = icmp eq i32 %20, 0
@@ -77,9 +77,9 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 304
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %34 = load i32, ptr %33, align 8
   %35 = tail call i32 @ompi_errhandler_invoke(ptr noundef %32, ptr noundef nonnull %0, i32 noundef %34, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #5
   br label %122
@@ -95,9 +95,9 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   br i1 %or.cond, label %40, label %46
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 296
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %44 = load i32, ptr %43, align 8
   %45 = tail call i32 @ompi_errhandler_invoke(ptr noundef %42, ptr noundef nonnull %0, i32 noundef %44, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #5
   br label %122
@@ -111,9 +111,9 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 296
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 304
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %54 = load i32, ptr %53, align 8
   %55 = tail call i32 @ompi_errhandler_invoke(ptr noundef %52, ptr noundef nonnull %0, i32 noundef %54, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #5
   br label %122
@@ -127,17 +127,17 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   br label %122
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 248
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = icmp sgt i32 %1, %63
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 304
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %69 = load i32, ptr %68, align 8
   %70 = tail call i32 @ompi_errhandler_invoke(ptr noundef %67, ptr noundef nonnull %0, i32 noundef %69, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #5
   br label %122
@@ -166,16 +166,16 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
 81:                                               ; preds = %73, %79
   %.059.ph = phi i32 [ 77, %73 ], [ 75, %79 ]
   %82 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.059.ph)
-  %83 = getelementptr inbounds i8, ptr %0, i64 296
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 304
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %86 = load i32, ptr %85, align 8
   %87 = call i32 @ompi_errhandler_invoke(ptr noundef %84, ptr noundef nonnull %0, i32 noundef %86, i32 noundef %82, ptr noundef nonnull @FUNC_NAME) #5
   br label %122
 
 ompi_comm_iface_create_check.exit:                ; preds = %76
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = icmp ne i32 %4, 0
   %92 = call i32 %90(ptr noundef %88, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %91, ptr noundef %5) #5
@@ -184,7 +184,7 @@ ompi_comm_iface_create_check.exit:                ; preds = %76
 
 93:                                               ; preds = %ompi_comm_iface_create_check.exit
   %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i8, ptr @opal_uses_threads, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %101
@@ -208,7 +208,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %98, %101
 
 106:                                              ; preds = %opal_thread_add_fetch_32.exit
   %107 = load ptr, ptr %94, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %109, align 8
   %.not6.i = icmp eq ptr %110, null
@@ -218,7 +218,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %98, %101
   %111 = phi ptr [ %113, %.lr.ph.i ], [ %110, %106 ]
   %.07.i = phi ptr [ %112, %.lr.ph.i ], [ %109, %106 ]
   call void %111(ptr noundef nonnull %94) #5
-  %112 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i = icmp eq ptr %113, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -234,9 +234,9 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %115
 
 115:                                              ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %116 = getelementptr inbounds i8, ptr %0, i64 296
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 304
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %119 = load i32, ptr %118, align 8
   %120 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %92)
   %121 = call i32 @ompi_errhandler_invoke(ptr noundef %117, ptr noundef %0, i32 noundef %119, i32 noundef %120, ptr noundef nonnull @FUNC_NAME) #5
@@ -288,7 +288,7 @@ define internal fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %0) unnamed_ad
 15:                                               ; preds = %13, %.lr.ph
   %16 = phi i8 [ %9, %.lr.ph ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i8 %16 to i1
   br i1 %20, label %21, label %opal_pointer_array_get_item.exit
@@ -300,13 +300,13 @@ define internal fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %0) unnamed_ad
 
 opal_pointer_array_get_item.exit:                 ; preds = %15, %21
   %23 = phi i8 [ %16, %15 ], [ %.pre, %21 ]
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %0
   br i1 %26, label %27, label %5
 
 27:                                               ; preds = %opal_pointer_array_get_item.exit
-  %28 = getelementptr inbounds i8, ptr %19, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %29 = load i32, ptr %28, align 4
   br label %.loopexit
 

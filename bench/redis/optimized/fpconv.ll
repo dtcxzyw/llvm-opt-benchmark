@@ -45,7 +45,7 @@ valid_number_character.exit.i:                    ; preds = %if.end.i.i
   br i1 %or.cond30.i.i, label %strtod_buffer_size.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %valid_number_character.exit.i, %if.end.i.i, %if.end.i.i, %if.end.i.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
   br label %while.cond.i, !llvm.loop !7
 
 strtod_buffer_size.exit:                          ; preds = %valid_number_character.exit.i
@@ -145,15 +145,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf) #11
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %fmt) #11
   store i8 37, ptr %fmt, align 1, !tbaa !4
-  %arrayidx1.i = getelementptr inbounds i8, ptr %fmt, i64 1
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %fmt, i64 1
   store i8 46, ptr %arrayidx1.i, align 1, !tbaa !4
   %precision.off.i = add i32 %precision, 9
   %tobool.not.i = icmp ult i32 %precision.off.i, 19
-  %i.0.i.sroa.gep21 = getelementptr inbounds i8, ptr %fmt, i64 2
+  %i.0.i.sroa.gep21 = getelementptr inbounds nuw i8, ptr %fmt, i64 2
   br i1 %tobool.not.i, label %set_number_format.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %i.0.i.sroa.gep = getelementptr inbounds i8, ptr %fmt, i64 3
+  %i.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %fmt, i64 3
   %div.i = sdiv i32 %precision, 10
   %0 = trunc i32 %div.i to i8
   %conv.i = add i8 %0, 48
@@ -189,9 +189,9 @@ do.body:                                          ; preds = %do.body, %if.end
   %4 = load i8, ptr %b.0, align 1, !tbaa !4
   %cmp9 = icmp eq i8 %4, %3
   %spec.select = select i1 %cmp9, i8 46, i8 %4
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.0, i64 1
   store i8 %spec.select, ptr %str.addr.0, align 1, !tbaa !4
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %b.0, i64 1
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %b.0, i64 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %cleanup, label %do.body, !llvm.loop !11
 
@@ -213,11 +213,11 @@ entry:
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 8, ptr noundef nonnull @.str.1, double noundef 5.000000e-01) #11
   %0 = load i8, ptr %buf.i, align 1, !tbaa !4
   %cmp.i = icmp ne i8 %0, 48
-  %arrayidx2.i = getelementptr inbounds i8, ptr %buf.i, i64 2
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 2
   %1 = load i8, ptr %arrayidx2.i, align 1
   %cmp4.i = icmp ne i8 %1, 53
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
-  %arrayidx7.i = getelementptr inbounds i8, ptr %buf.i, i64 3
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 3
   %2 = load i8, ptr %arrayidx7.i, align 1
   %cmp9.i = icmp ne i8 %2, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
@@ -230,7 +230,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 fpconv_update_locale.exit:                        ; preds = %entry
-  %arrayidx12.i = getelementptr inbounds i8, ptr %buf.i, i64 1
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 1
   %5 = load i8, ptr %arrayidx12.i, align 1, !tbaa !4
   store i8 %5, ptr @locale_decimal_point, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #11

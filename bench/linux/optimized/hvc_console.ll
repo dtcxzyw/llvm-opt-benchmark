@@ -226,23 +226,23 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   %5 = alloca [16 x i8], align 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !13
-  %6 = getelementptr inbounds i8, ptr %0, i64 376
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.thread15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 400
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 396
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 480
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %19 = zext nneg i32 %9 to i64
-  %20 = tail call i64 %15(i32 noundef %17, ptr noundef %18, i64 noundef %19) #12
+  %20 = tail call i64 %15(i32 noundef %17, ptr noundef nonnull %18, i64 noundef %19) #12
   %21 = trunc i64 %20 to i32
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %23, label %24
@@ -268,16 +268,16 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   %28 = and i64 %20, 2147483647
   %29 = getelementptr i8, ptr %18, i64 %28
   %30 = zext nneg i32 %26 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %18, ptr align 1 %29, i64 %30, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %29, i64 %30, i1 false)
   br label %34
 
 .thread13.thread41:                               ; preds = %24, %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 1, ptr %31, align 8
   br label %.thread15
 
 .thread13:                                        ; preds = %23, %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 384
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 1, ptr %32, align 8
   %.pr.pre = load i32, ptr %8, align 8
   %33 = icmp sgt i32 %.pr.pre, 0
@@ -293,9 +293,9 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   br i1 %1, label %36, label %39
 
 36:                                               ; preds = %.thread15
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #12
   %37 = tail call i32 @__SCT__cond_resched() #12
-  %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
+  %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
   br label %39
 
 39:                                               ; preds = %36, %.thread15
@@ -305,26 +305,26 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   br i1 %42, label %.thread16, label %43
 
 .thread16:                                        ; preds = %39
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %40) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %40) #12
   br label %140
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %41, i64 416
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 416
   %45 = load volatile i64, ptr %44, align 8
   %46 = and i64 %45, 1
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
   %52 = or disjoint i32 %35, 1
   %53 = select i1 %51, i32 %52, i32 %35
-  %54 = getelementptr inbounds i8, ptr %0, i64 400
-  %55 = getelementptr inbounds i8, ptr %0, i64 396
-  %56 = getelementptr inbounds i8, ptr %0, i64 380
-  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %58
 
 58:                                               ; preds = %125, %48
@@ -359,9 +359,9 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   ]
 
 76:                                               ; preds = %75
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %60) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %60) #12
   call void @tty_hangup(ptr noundef nonnull %41) #12
-  %77 = call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
+  %77 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
   br label %.loopexit
 
 78:                                               ; preds = %75
@@ -403,15 +403,15 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   store i8 %95, ptr %3, align 1
   store i8 0, ptr %4, align 1
   %96 = load ptr, ptr %57, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = icmp ult i32 %98, %100
   br i1 %101, label %102, label %117
 
 102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds i8, ptr %96, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 28
   %104 = load i8, ptr %103, align 4, !range !14, !noundef !15
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %._crit_edge36, label %106
@@ -421,7 +421,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   br label %112
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %96, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %108 = zext i32 %98 to i64
   %109 = getelementptr i8, ptr %107, i64 %108
   %110 = zext i32 %100 to i64
@@ -435,7 +435,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   %113 = phi i8 [ %95, %._crit_edge36 ], [ %.pre35, %106 ]
   %114 = add nuw i32 %98, 1
   store i32 %114, ptr %97, align 8
-  %115 = getelementptr inbounds i8, ptr %96, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %116 = getelementptr i8, ptr %115, i64 %.pre-phi
   store i8 %113, ptr %116, align 1
   br label %119
@@ -459,9 +459,9 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   br i1 %1, label %125, label %128
 
 125:                                              ; preds = %123
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %60) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %60) #12
   %126 = call i32 @__SCT__cond_resched() #12
-  %127 = call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
+  %127 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #12
   br label %58
 
 128:                                              ; preds = %123
@@ -472,7 +472,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   %130 = phi i32 [ 0, %43 ], [ %62, %76 ], [ %62, %78 ], [ %62, %75 ], [ %124, %128 ], [ %62, %61 ]
   %131 = phi i64 [ %40, %43 ], [ %77, %76 ], [ %60, %78 ], [ %60, %75 ], [ %60, %61 ], [ %60, %128 ]
   %132 = phi i32 [ %35, %43 ], [ %53, %76 ], [ %52, %78 ], [ %53, %75 ], [ %52, %61 ], [ %52, %128 ]
-  %133 = getelementptr inbounds i8, ptr %0, i64 384
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %134 = load i32, ptr %133, align 8
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %137, label %136
@@ -483,7 +483,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
   br label %137
 
 137:                                              ; preds = %136, %.loopexit
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %131) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %131) #12
   %138 = icmp eq i32 %130, 0
   br i1 %138, label %140, label %139
 
@@ -501,11 +501,11 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__hvc_resize(ptr noundef initializes((416, 424)) %0, i64 %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load ptr, ptr @system_wq, align 8
-  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #12
+  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef nonnull %4) #12
   ret void
 }
 
@@ -544,19 +544,19 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %47
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @.str.2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr @.str.2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 44
   store i32 229, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %17, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %17, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i16 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %17, i64 60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(44) %28, ptr noundef nonnull align 4 dereferenceable(44) @tty_std_termios, i64 44, i1 false)
-  %29 = getelementptr inbounds i8, ptr %17, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %28, ptr noundef nonnull align 4 dereferenceable(44) @tty_std_termios, i64 44, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store ptr @hvc_ops, ptr %29, align 8
   %30 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @khvcd, ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str.3) #12
   %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
@@ -609,26 +609,26 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %55, label %118, label %56
 
 56:                                               ; preds = %.thread12
-  %57 = getelementptr inbounds i8, ptr %54, i64 396
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 396
   store i32 %0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %54, i64 412
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 412
   store i32 %1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %54, i64 400
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 400
   store ptr %2, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 388
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 388
   store i32 %3, ptr %60, align 4
   tail call void @tty_port_init(ptr noundef nonnull %54) #12
-  %61 = getelementptr inbounds i8, ptr %54, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 152
   store ptr @hvc_port_ops, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %54, i64 424
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 424
   store i64 68719476704, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %54, i64 432
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 432
   store volatile ptr %63, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 440
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 440
   store volatile ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %54, i64 448
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 448
   store ptr @hvc_set_winsz, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %54, i64 376
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 376
   store i32 0, ptr %66, align 8
   tail call void @mutex_lock(ptr noundef nonnull @hvc_structs_mutex) #12
   %67 = load i32, ptr %57, align 4
@@ -662,7 +662,7 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %.preheader
 
 .thread15:                                        ; preds = %.loopexit
-  %83 = getelementptr inbounds i8, ptr %54, i64 380
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 380
   store i32 %81, ptr %83, align 4
   br label %101
 
@@ -692,7 +692,7 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 
 97:                                               ; preds = %.thread14, %91
   %98 = phi i32 [ %96, %.thread14 ], [ %92, %91 ]
-  %99 = getelementptr inbounds i8, ptr %54, i64 380
+  %99 = getelementptr inbounds nuw i8, ptr %54, i64 380
   store i32 %98, ptr %99, align 4
   %100 = icmp slt i32 %98, 16
   br i1 %100, label %101, label %106
@@ -708,11 +708,11 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 
 106:                                              ; preds = %101, %97
   %107 = phi i32 [ %102, %101 ], [ %98, %97 ]
-  %108 = getelementptr inbounds i8, ptr %54, i64 456
+  %108 = getelementptr inbounds nuw i8, ptr %54, i64 456
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @hvc_structs, i64 8), align 8
   store ptr %108, ptr getelementptr inbounds (i8, ptr @hvc_structs, i64 8), align 8
   store ptr @hvc_structs, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %54, i64 464
+  %110 = getelementptr inbounds nuw i8, ptr %54, i64 464
   store ptr %109, ptr %110, align 8
   store volatile ptr %108, ptr %109, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @hvc_structs_mutex) #12
@@ -773,9 +773,9 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 define dso_local void @hvc_remove(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @tty_port_tty_get(ptr noundef %0) #12
   tail call void @console_lock() #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 376
-  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 380
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 16
   br i1 %7, label %8, label %12
@@ -789,7 +789,7 @@ define dso_local void @hvc_remove(ptr noundef %0) #1 align 16 {
   br label %12
 
 12:                                               ; preds = %8, %1
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %4) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #12
   tail call void @console_unlock() #12
   tail call void @tty_port_put(ptr noundef %0) #12
   %13 = icmp eq ptr %2, null
@@ -829,7 +829,7 @@ declare dso_local void @register_console(ptr noundef) local_unnamed_addr #3
 define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
   %4 = alloca [16 x i8], align 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 74
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %6 = load i16, ptr %5, align 2
   %7 = icmp sgt i16 %6, 15
   br i1 %7, label %81, label %8
@@ -886,7 +886,7 @@ define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr n
 
 40:                                               ; preds = %16
   %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %10, align 4
   %45 = call i64 %43(i32 noundef %44, ptr noundef nonnull %4, i64 noundef %22) #12
@@ -900,7 +900,7 @@ define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr n
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %65, label %55
@@ -935,7 +935,7 @@ define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr n
 .loopexit:                                        ; preds = %65, %13
   %73 = getelementptr [16 x ptr], ptr @cons_ops, i64 0, i64 %9
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %81, label %78
@@ -952,7 +952,7 @@ define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal ptr @hvc_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 74
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i64
   %6 = getelementptr [16 x i32], ptr @vtermnos, i64 0, i64 %5
@@ -973,7 +973,7 @@ define internal ptr @hvc_console_device(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 74
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp ugt i16 %4, 15
   br i1 %5, label %12, label %6
@@ -1042,18 +1042,18 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hvc_port_destruct(ptr noundef %0) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @hvc_structs_mutex) #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #12
   tail call void @mutex_unlock(ptr noundef nonnull @hvc_structs_mutex) #12
   tail call void @kfree(ptr noundef %0) #12
   ret void
@@ -1125,8 +1125,8 @@ define internal noundef i32 @khvcd(ptr nocapture readnone %0) #1 align 16 {
 
 25:                                               ; preds = %.loopexit
   %26 = inttoptr i64 %5 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 1, ptr elementtype(i32) %27) #12, !srcloc !28
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #12, !srcloc !28
   %29 = load i1, ptr @hvc_kicked, align 4
   br i1 %29, label %44, label %30
 
@@ -1182,14 +1182,14 @@ declare dso_local void @tty_driver_kref_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @hvc_install(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call fastcc ptr @hvc_get_by_index(i32 noundef %4)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 584
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 584
   store ptr %5, ptr %8, align 8
   %9 = tail call i32 @tty_port_install(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1) #12
   %10 = icmp eq i32 %9, 0
@@ -1206,29 +1206,29 @@ define internal i32 @hvc_install(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
-  %7 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = icmp sgt i32 %8, 0
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #12
   br i1 %10, label %36, label %11
 
 11:                                               ; preds = %2
   tail call void @tty_port_tty_set(ptr noundef %4, ptr noundef %0) #12
-  %12 = getelementptr inbounds i8, ptr %4, i64 400
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 412
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 412
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 %15(ptr noundef %4, i32 noundef %19) #12
   %21 = icmp eq i32 %20, 0
@@ -1239,7 +1239,7 @@ define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 alig
   br label %36
 
 .thread:                                          ; preds = %11, %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4111
   %27 = icmp eq i32 %26, 0
@@ -1247,7 +1247,7 @@ define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 alig
 
 28:                                               ; preds = %.thread
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %34, label %33
@@ -1257,8 +1257,8 @@ define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 alig
   br label %34
 
 34:                                               ; preds = %33, %28, %.thread
-  %35 = getelementptr inbounds i8, ptr %4, i64 240
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 1, ptr elementtype(i8) %35) #12, !srcloc !30
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %35, i32 1, ptr nonnull elementtype(i8) %35) #12, !srcloc !30
   br label %36
 
 36:                                               ; preds = %34, %22, %2
@@ -1271,16 +1271,16 @@ define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @tty_hung_up_p(ptr noundef %1) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 168
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %4, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 8
@@ -1288,25 +1288,25 @@ define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %13, label %14, label %43
 
 14:                                               ; preds = %7
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #12
   tail call void @tty_port_tty_set(ptr noundef %4, ptr noundef null) #12
-  %15 = getelementptr inbounds i8, ptr %4, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %16 = load volatile i64, ptr %15, align 8
   %17 = and i64 %16, 1
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %50, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 1024
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %4, i64 400
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %31, label %30
@@ -1316,24 +1316,24 @@ define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br label %31
 
 31:                                               ; preds = %30, %24, %19
-  %32 = getelementptr inbounds i8, ptr %4, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %4, i64 412
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 412
   %39 = load i32, ptr %38, align 4
   tail call void %35(ptr noundef %4, i32 noundef %39) #12
   br label %40
 
 40:                                               ; preds = %37, %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 424
-  %42 = tail call zeroext i1 @cancel_work_sync(ptr noundef %41) #12
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 424
+  %42 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %41) #12
   tail call void @tty_wait_until_sent(ptr noundef %0, i64 noundef 10) #12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15, i32 -2, ptr elementtype(i8) %15) #12, !srcloc !31
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i32 -2, ptr nonnull elementtype(i8) %15) #12, !srcloc !31
   br label %50
 
 43:                                               ; preds = %7
@@ -1341,13 +1341,13 @@ define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %4, i64 396
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 396
   %47 = load i32, ptr %46, align 4
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %47, i32 noundef %12) #13
   br label %49
 
 49:                                               ; preds = %45, %43
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #12
   br label %50
 
 50:                                               ; preds = %49, %40, %14, %2
@@ -1356,7 +1356,7 @@ define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hvc_cleanup(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   tail call void @tty_port_put(ptr noundef %3) #12
   ret void
@@ -1364,25 +1364,25 @@ define internal void @hvc_cleanup(ptr nocapture noundef readonly %0) #1 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %85, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %85, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 376
-  %13 = getelementptr inbounds i8, ptr %5, i64 388
-  %14 = getelementptr inbounds i8, ptr %5, i64 392
-  %15 = getelementptr inbounds i8, ptr %5, i64 480
-  %16 = getelementptr inbounds i8, ptr %5, i64 400
-  %17 = getelementptr inbounds i8, ptr %5, i64 396
-  %18 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 376
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 388
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 480
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 396
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %19 = icmp eq i64 %2, 0
   br i1 %19, label %.loopexit, label %.lr.ph
 
@@ -1390,7 +1390,7 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
   %20 = phi ptr [ %43, %.backedge ], [ %1, %11 ]
   %21 = phi i64 [ %42, %.backedge ], [ 0, %11 ]
   %22 = phi i64 [ %41, %.backedge ], [ %2, %11 ]
-  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #12
+  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %12) #12
   %24 = load i32, ptr %13, align 4
   %25 = load i32, ptr %14, align 8
   %26 = icmp eq i32 %24, %25
@@ -1422,11 +1422,11 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %17, align 4
   %50 = zext nneg i32 %40 to i64
-  %51 = tail call i64 %48(i32 noundef %49, ptr noundef %15, i64 noundef %50) #12
+  %51 = tail call i64 %48(i32 noundef %49, ptr noundef nonnull %15, i64 noundef %50) #12
   %52 = trunc i64 %51 to i32
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %56
@@ -1456,7 +1456,7 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
   %61 = and i64 %51, 2147483647
   %62 = getelementptr i8, ptr %15, i64 %61
   %63 = zext nneg i32 %58 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %15, ptr align 1 %62, i64 %63, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %62, i64 %63, i1 false)
   br label %65
 
 64:                                               ; preds = %.thread, %56
@@ -1464,11 +1464,11 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %65
 
 .thread9:                                         ; preds = %39, %55
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %23) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %23) #12
   br label %.loopexit
 
 65:                                               ; preds = %64, %60
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %23) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %23) #12
   %cond = icmp eq i64 %41, 0
   br i1 %cond, label %.loopexit, label %66
 
@@ -1481,7 +1481,7 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
   %70 = load ptr, ptr %16, align 8
   %71 = load i32, ptr %17, align 4
   %72 = tail call i32 @__SCT__might_resched() #12
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.backedge, label %76
@@ -1513,15 +1513,15 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal i32 @hvc_write_room(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 388
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 388
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %7, %9
   br label %11
@@ -1533,13 +1533,13 @@ define internal i32 @hvc_write_room(ptr nocapture noundef readonly %0) #6 align 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal i32 @hvc_chars_in_buffer(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %7 = load i32, ptr %6, align 8
   br label %8
 
@@ -1558,40 +1558,40 @@ define internal void @hvc_unthrottle(ptr nocapture readnone %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hvc_hangup(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %24, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 424
-  %7 = tail call zeroext i1 @cancel_work_sync(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %3, i64 168
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %3, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 424
+  %7 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %6) #12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %5
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #12
   br label %24
 
 14:                                               ; preds = %5
   store i32 0, ptr %10, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #12
   tail call void @tty_port_tty_set(ptr noundef nonnull %3, ptr noundef null) #12
-  %15 = getelementptr inbounds i8, ptr %3, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 392
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 400
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 400
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %3, i64 412
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 412
   %23 = load i32, ptr %22, align 4
   tail call void %19(ptr noundef nonnull %3, i32 noundef %23) #12
   br label %24
@@ -1602,15 +1602,15 @@ define internal void @hvc_hangup(ptr nocapture noundef readonly %0) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @hvc_tiocmget(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 400
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 400
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
@@ -1626,15 +1626,15 @@ define internal i32 @hvc_tiocmget(ptr nocapture noundef readonly %0) #1 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @hvc_tiocmset(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 400
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13

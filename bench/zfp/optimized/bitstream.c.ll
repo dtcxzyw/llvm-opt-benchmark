@@ -12,16 +12,16 @@ define noundef i64 @stream_alignment() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @stream_data(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @stream_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -31,9 +31,9 @@ define i64 @stream_size(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @stream_capacity(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -58,14 +58,14 @@ define range(i32 0, 2) i32 @stream_read_bit(ptr nocapture noundef %0) local_unna
   br i1 %.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = add i64 %2, -1
   br label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %5, align 8
   br label %8
 
@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @stream_read_bit(ptr nocapture noundef %0) local_unna
   %9 = phi i64 [ 63, %4 ], [ %3, %._crit_edge ]
   %10 = load i64, ptr %.in, align 8
   store i64 %9, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = trunc i64 %10 to i32
   %13 = and i32 %12, 1
   %14 = lshr i64 %10, 1
@@ -87,7 +87,7 @@ define noundef i32 @stream_write_bit(ptr nocapture noundef %0, i32 noundef retur
   %3 = zext i32 %1 to i64
   %4 = load i64, ptr %0, align 8
   %5 = shl i64 %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   store i64 %8, ptr %6, align 8
@@ -97,9 +97,9 @@ define noundef i32 @stream_write_bit(ptr nocapture noundef %0, i32 noundef retur
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %12, align 8
   store i64 %8, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -111,16 +111,16 @@ define noundef i32 @stream_write_bit(ptr nocapture noundef %0, i32 noundef retur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @stream_read_bits(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
   %6 = icmp ult i64 %5, %1
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %8, align 8
   %11 = load i64, ptr %9, align 8
   %12 = shl i64 %11, %5
@@ -164,7 +164,7 @@ define i64 @stream_read_bits(ptr nocapture noundef %0, i64 noundef %1) local_unn
 define i64 @stream_write_bits(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = load i64, ptr %0, align 8
   %5 = shl i64 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   %9 = add i64 %4, %2
@@ -177,9 +177,9 @@ define i64 @stream_write_bits(ptr nocapture noundef %0, i64 noundef %1, i64 noun
   %13 = add i64 %2, -1
   %14 = add i64 %9, -64
   store i64 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %15, align 8
   store i64 %8, ptr %16, align 8
   %18 = load i64, ptr %0, align 8
@@ -202,9 +202,9 @@ define i64 @stream_write_bits(ptr nocapture noundef %0, i64 noundef %1, i64 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @stream_rtell(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -217,9 +217,9 @@ define i64 @stream_rtell(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @stream_wtell(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -232,9 +232,9 @@ define i64 @stream_wtell(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
@@ -243,17 +243,17 @@ define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = lshr i64 %1, 6
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %8, align 8
   %11 = load i64, ptr %7, align 8
   %12 = lshr i64 %11, %3
@@ -263,7 +263,7 @@ define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 14:                                               ; preds = %2, %9
   %.sink = phi i64 [ %12, %9 ], [ 0, %2 ]
   %storemerge = phi i64 [ %13, %9 ], [ 0, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %15, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -272,11 +272,11 @@ define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = lshr i64 %1, 6
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %13, label %9
@@ -290,7 +290,7 @@ define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 
 13:                                               ; preds = %2, %9
   %.sink = phi i64 [ %12, %9 ], [ 0, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %14, align 8
   store i64 %3, ptr %0, align 8
   ret void
@@ -298,9 +298,9 @@ define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stream_skip(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -311,13 +311,13 @@ define void @stream_skip(ptr nocapture noundef initializes((8, 16)) %0, i64 noun
   %13 = add i64 %12, %1
   %14 = and i64 %13, 63
   %15 = lshr i64 %13, 6
-  %16 = getelementptr inbounds i64, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %15
   store ptr %16, ptr %3, align 8
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %stream_rseek.exit, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %3, align 8
   %19 = load i64, ptr %16, align 8
   %20 = lshr i64 %19, %14
@@ -327,7 +327,7 @@ define void @stream_skip(ptr nocapture noundef initializes((8, 16)) %0, i64 noun
 stream_rseek.exit:                                ; preds = %2, %17
   %.sink.i = phi i64 [ %20, %17 ], [ 0, %2 ]
   %storemerge.i = phi i64 [ %21, %17 ], [ 0, %2 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i, ptr %22, align 8
   store i64 %storemerge.i, ptr %0, align 8
   ret void
@@ -341,8 +341,8 @@ define void @stream_pad(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %6, align 8
   br label %8
 
@@ -350,7 +350,7 @@ define void @stream_pad(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
   %9 = phi i64 [ %.pre, %.lr.ph ], [ 0, %8 ]
   %.09 = phi i64 [ %4, %.lr.ph ], [ %12, %8 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %7, align 8
   store i64 %9, ptr %10, align 8
   store i64 0, ptr %6, align 8
@@ -371,9 +371,9 @@ define i64 @stream_align(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -381,13 +381,13 @@ define i64 @stream_align(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %11 = shl i64 %10, 3
   %12 = and i64 %11, 56
   %13 = lshr i64 %11, 6
-  %14 = getelementptr inbounds i64, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %7, i64 %13
   store ptr %14, ptr %4, align 8
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %stream_skip.exit, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %14, align 8
   %18 = lshr i64 %17, %12
@@ -397,7 +397,7 @@ define i64 @stream_align(ptr nocapture noundef %0) local_unnamed_addr #2 {
 stream_skip.exit:                                 ; preds = %3, %15
   %.sink.i.i = phi i64 [ %18, %15 ], [ 0, %3 ]
   %storemerge.i.i = phi i64 [ %19, %15 ], [ 0, %3 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i.i, ptr %20, align 8
   store i64 %storemerge.i.i, ptr %0, align 8
   br label %21
@@ -420,8 +420,8 @@ define range(i64 0, 64) i64 @stream_flush(ptr nocapture noundef %0) local_unname
   br i1 %7, label %.lr.ph.i, label %stream_pad.exit
 
 .lr.ph.i:                                         ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load i64, ptr %8, align 8
   br label %10
 
@@ -429,7 +429,7 @@ define range(i64 0, 64) i64 @stream_flush(ptr nocapture noundef %0) local_unname
   %11 = phi i64 [ %.pre.i, %.lr.ph.i ], [ 0, %10 ]
   %.09.i = phi i64 [ %6, %.lr.ph.i ], [ %14, %10 ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %9, align 8
   store i64 %11, ptr %12, align 8
   store i64 0, ptr %8, align 8
@@ -452,10 +452,10 @@ define void @stream_copy(ptr nocapture noundef %0, ptr nocapture noundef %1, i64
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %stream_write_bits.exit
@@ -467,7 +467,7 @@ define void @stream_copy(ptr nocapture noundef %0, ptr nocapture noundef %1, i64
 12:                                               ; preds = %9
   %13 = load i64, ptr %5, align 8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %6, align 8
   %16 = load i64, ptr %14, align 8
   %17 = shl i64 %16, %10
@@ -505,7 +505,7 @@ stream_read_bits.exit:                            ; preds = %19, %20, %23
   %32 = lshr i64 %.0.i, 1
   store i64 %25, ptr %0, align 8
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %8, align 8
   store i64 %28, ptr %33, align 8
   %35 = load i64, ptr %0, align 8
@@ -530,16 +530,16 @@ stream_write_bits.exit:                           ; preds = %stream_read_bits.ex
   br i1 %.not, label %92, label %44
 
 44:                                               ; preds = %._crit_edge
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = load i64, ptr %1, align 8
   %48 = icmp ult i64 %47, %.0.lcssa
   br i1 %48, label %49, label %66
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %52, ptr %50, align 8
   %53 = load i64, ptr %51, align 8
   %54 = shl i64 %53, %47
@@ -578,7 +578,7 @@ stream_read_bits.exit14:                          ; preds = %58, %59, %66
   %.0.i12 = phi i64 [ %65, %59 ], [ %55, %58 ], [ %70, %66 ]
   %71 = load i64, ptr %0, align 8
   %72 = shl i64 %.0.i12, %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, %72
   %76 = add i64 %71, %.0.lcssa
@@ -590,9 +590,9 @@ stream_read_bits.exit14:                          ; preds = %58, %59, %66
   %79 = lshr i64 %.0.i12, 1
   %80 = add i64 %76, -64
   store i64 %80, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %83, ptr %81, align 8
   store i64 %75, ptr %82, align 8
   %84 = load i64, ptr %0, align 8
@@ -621,13 +621,13 @@ define noalias noundef ptr @stream_open(ptr noundef %0, i64 noundef %1) local_un
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %5, align 8
   %6 = lshr i64 %1, 3
-  %7 = getelementptr inbounds i64, ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %10

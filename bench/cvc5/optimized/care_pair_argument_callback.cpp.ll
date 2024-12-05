@@ -55,7 +55,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory24CarePairArgumentCallbackC2ERNS1_6TheoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(408) %t) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory24CarePairArgumentCallbackE, i64 16), ptr %this, align 8
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 8
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %t, ptr %d_theory, align 8
   ret void
 }
@@ -79,14 +79,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 8
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %d_theory, align 8
   %3 = load ptr, ptr %a, align 8
   store ptr %3, ptr %agg.tmp, align 8
   %4 = load ptr, ptr %b, align 8
   store ptr %4, ptr %agg.tmp6, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   %call9 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp6)
   %lnot = xor i1 %call9, true
@@ -106,14 +106,14 @@ define hidden void @_ZN4cvc58internal6theory24CarePairArgumentCallback11processD
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 8
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_theory, align 8
   %1 = load ptr, ptr %fa, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %2 = load ptr, ptr %fb, align 8
   store ptr %2, ptr %agg.tmp2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
   ret void
@@ -156,9 +156,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #12

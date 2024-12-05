@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 488
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %6 = load i32, ptr %5, align 8
   store i32 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %8
 
 8:                                                ; preds = %8, %4
@@ -30,12 +30,12 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %1, %12
   br i1 %15, label %16, label %17
@@ -78,7 +78,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -86,29 +86,29 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br label %35
 
 35:                                               ; preds = %28, %24
-  %36 = getelementptr inbounds i8, ptr %0, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %1 to i64
   %39 = and i64 %38, -2
   %40 = inttoptr i64 %39 to ptr
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = ptrtoint ptr %2 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %37, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %37, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not344 = icmp sgt i32 %44, %51
   br i1 %.not344, label %65, label %52
 
 52:                                               ; preds = %35
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %40, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = and i64 %38, 1
   %.not345 = icmp eq i64 %57, 0
@@ -131,9 +131,9 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
   br i1 %.not346, label %79, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %47, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %47, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = and i64 %45, 1
   %.not347 = icmp eq i64 %71, 0
@@ -458,7 +458,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -474,7 +474,7 @@ define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
@@ -492,29 +492,29 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not, label %14, label %161
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = ptrtoint ptr %2 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %16, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not257 = icmp sgt i32 %23, %30
   br i1 %.not257, label %44, label %31
 
 31:                                               ; preds = %14
-  %32 = getelementptr inbounds i8, ptr %19, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %19, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = and i64 %17, 1
   %.not258 = icmp eq i64 %36, 0
@@ -537,9 +537,9 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not259, label %58, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %26, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %26, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = and i64 %24, 1
   %.not260 = icmp eq i64 %50, 0
@@ -791,7 +791,7 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_MakeBddFromZddCover(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -810,13 +810,13 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   br i1 %8, label %95, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %13, label %17

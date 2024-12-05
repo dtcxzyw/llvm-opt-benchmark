@@ -17,15 +17,15 @@ define dso_local ptr @clean_NOT(ptr noundef %0, ptr nocapture noundef writeonly 
   %4 = tail call fastcc ptr @maketree(ptr noundef %0)
   %5 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16, ptr %7, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %plaintree.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 4
   %.off.i = add i8 %11, -1
@@ -52,7 +52,7 @@ plaintree.exit:                                   ; preds = %2, %8, %12
 define internal fastcc ptr @maketree(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 24) #7
   tail call void @check_stack_depth() #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %4 = load i8, ptr %0, align 4
@@ -60,11 +60,11 @@ define internal fastcc ptr @maketree(ptr noundef %0) unnamed_addr #0 {
   br i1 %5, label %6, label %common.ret12
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = getelementptr i8, ptr %0, i64 12
   %9 = tail call fastcc ptr @maketree(ptr noundef %8)
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %11, 1
   br i1 %.not, label %common.ret12, label %12
@@ -74,7 +74,7 @@ common.ret12:                                     ; preds = %6, %1, %12
   ret ptr %common.ret12.op
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = getelementptr %union.QueryItem, ptr %0, i64 %15
@@ -86,14 +86,14 @@ common.ret12:                                     ; preds = %6, %1, %12
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @clean_NOT_intree(ptr noundef %0) unnamed_addr #0 {
   tail call void @check_stack_depth() #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %20 [
     i8 1, label %9
@@ -112,7 +112,7 @@ define internal fastcc ptr @clean_NOT_intree(ptr noundef %0) unnamed_addr #0 {
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %16)
   store ptr %17, ptr %15, align 8
@@ -127,7 +127,7 @@ define internal fastcc ptr @clean_NOT_intree(ptr noundef %0) unnamed_addr #0 {
   %21 = load ptr, ptr %0, align 8
   %22 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %21)
   store ptr %22, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %24)
   store ptr %25, ptr %23, align 8
@@ -165,7 +165,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
   %3 = alloca %struct.PLAINTREE, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
@@ -191,7 +191,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 
 19:                                               ; preds = %17, %15, %14
   %20 = tail call ptr @palloc(i64 noundef 8) #7
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4
   store i32 32, ptr %20, align 4
   br label %.loopexit
@@ -199,11 +199,11 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 22:                                               ; preds = %9
   %23 = tail call fastcc i32 @calcstrlen(ptr noundef nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %24 = getelementptr inbounds i8, ptr %3, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 16, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %27, align 4
   %.off.i = add i8 %28, -1
@@ -229,7 +229,7 @@ plaintree.exit:                                   ; preds = %22, %29
   %37 = call ptr @palloc(i64 noundef %36) #7
   %38 = shl i32 %35, 2
   store i32 %38, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %32, ptr %39, align 4
   %40 = getelementptr i8, ptr %37, i64 8
   %41 = sext i32 %32 to i64
@@ -256,7 +256,7 @@ plaintree.exit:                                   ; preds = %22, %29
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 12
   %52 = getelementptr i8, ptr %10, i64 %51
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = lshr i32 %54, 12
   %56 = zext nneg i32 %55 to i64
@@ -282,9 +282,9 @@ plaintree.exit:                                   ; preds = %22, %29
   %74 = and i32 %72, 4095
   %75 = or disjoint i32 %73, %74
   store i32 %75, ptr %53, align 4
-  %76 = add nuw nsw i32 %74, 1
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr i8, ptr %.04045, i64 %77
+  %76 = zext nneg i32 %74 to i64
+  %77 = getelementptr i8, ptr %.04045, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 1
   %.pre = load i32, ptr %39, align 4
   br label %79
 
@@ -310,7 +310,7 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
   tail call void @check_stack_depth() #7
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %12 [
@@ -323,13 +323,13 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
   br label %79
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc ptr @clean_stopword_intree(ptr noundef %18, ptr noundef %1, ptr noundef %2)
   store ptr %19, ptr %17, align 8
@@ -344,18 +344,18 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
   %22 = load ptr, ptr %0, align 8
   %23 = call fastcc ptr @clean_stopword_intree(ptr noundef %22, ptr noundef %4, ptr noundef %5)
   store ptr %23, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call fastcc ptr @clean_stopword_intree(ptr noundef %25, ptr noundef %6, ptr noundef %7)
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 4
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %27, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i32
   br label %35
@@ -438,7 +438,7 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
   %70 = load i32, ptr %5, align 4
   %71 = load i32, ptr %6, align 4
   %72 = add i32 %71, %70
-  %73 = getelementptr inbounds i8, ptr %27, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = trunc i32 %72 to i16
   %76 = add i16 %74, %75
@@ -464,7 +464,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @calcstrlen(ptr nocapture noundef readonly %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 1
@@ -473,7 +473,7 @@ define internal fastcc i32 @calcstrlen(ptr nocapture noundef readonly %0) unname
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %accumulator.tr.lcssa = phi i32 [ 0, %1 ], [ %17, %tailrecurse ]
   %.lcssa = phi ptr [ %3, %1 ], [ %19, %tailrecurse ]
-  %6 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 4095
   %9 = add nuw nsw i32 %8, 1
@@ -483,10 +483,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %10 = phi ptr [ %19, %tailrecurse ], [ %3, %1 ]
   %.tr11 = phi ptr [ %16, %tailrecurse ], [ %0, %1 ]
   %accumulator.tr10 = phi i32 [ %17, %tailrecurse ], [ 0, %1 ]
-  %11 = getelementptr inbounds i8, ptr %.tr11, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.tr11, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc i32 @calcstrlen(ptr noundef %12)
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 1
   br i1 %.not, label %.loopexit, label %tailrecurse
@@ -494,7 +494,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
 tailrecurse:                                      ; preds = %.lr.ph
   %16 = load ptr, ptr %.tr11, align 8
   %17 = add i32 %13, %accumulator.tr10
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 4
   %21 = icmp eq i8 %20, 1
@@ -515,9 +515,9 @@ declare void @check_stack_depth() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   tail call void @check_stack_depth() #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %.pre = load ptr, ptr %0, align 8
@@ -538,7 +538,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %15 = phi ptr [ %12, %8 ], [ %.pre, %2 ]
   %16 = sext i32 %14 to i64
   %17 = getelementptr %union.QueryItem, ptr %15, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
   %20 = load ptr, ptr %18, align 8
@@ -553,7 +553,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   br label %50
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %20, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 1
   br i1 %29, label %30, label %39
@@ -567,7 +567,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %35 = load i32, ptr %3, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %3, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %38)
   br label %50
@@ -576,7 +576,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %40 = load i32, ptr %3, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %3, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %43)
   %44 = load i32, ptr %3, align 4
@@ -614,7 +614,7 @@ define internal fastcc void @freetree(ptr noundef %0) unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %9, label %8

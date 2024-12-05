@@ -74,7 +74,7 @@ define dso_local void @drm_format_conv_state_copy(ptr nocapture noundef writeonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_format_conv_state_reserve(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %1
   br i1 %6, label %7, label %._crit_edge
@@ -84,7 +84,7 @@ define dso_local ptr @drm_format_conv_state_reserve(ptr nocapture noundef %0, i6
   br label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %16
@@ -116,7 +116,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_format_conv_state_release(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %7
@@ -136,10 +136,10 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local i32 @drm_fb_clip_offset(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = mul i32 %8, %0
   %10 = load i32, ptr %2, align 4
@@ -150,23 +150,23 @@ define dso_local i32 @drm_fb_clip_offset(i32 noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_fb_memcpy(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 align 16 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %9, %11
   %13 = icmp eq ptr %1, null
   %14 = select i1 %13, ptr @drm_fb_xfrm.default_dst_pitch, ptr %1
-  %15 = getelementptr inbounds i8, ptr %7, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %.loopexit2, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %21 = icmp eq i32 %9, %11
   %.fr = freeze i1 %21
   br i1 %.fr, label %.split3.us, label %.split3
@@ -209,7 +209,7 @@ define dso_local void @drm_fb_memcpy(ptr nocapture noundef readonly %0, ptr noun
   %53 = icmp eq i32 %52, 0
   %54 = select i1 %53, i32 %37, i32 %52
   %55 = getelementptr %struct.iosys_map, ptr %0, i64 %29
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i8, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = icmp eq i8 %57, 0
@@ -264,7 +264,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_fb_swab(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr nocapture noundef %6) #1 align 16 {
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @drm_format_info_bpp(ptr noundef %9, i32 noundef 0) #12
   %11 = add i32 %10, 7
@@ -302,7 +302,7 @@ define dso_local void @drm_fb_swab(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -370,30 +370,30 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %10 = load i32, ptr %8, align 4
   %11 = zext i32 %10 to i64
   %12 = zext i8 %.0.val1 to i64
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %2, align 4
   %16 = sub i32 %14, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 %19, %21
   br i1 %9, label %107, label %23
 
 23:                                               ; preds = %6
   %24 = mul nsw i64 %17, %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = mul nsw i64 %29, %17
   br i1 %3, label %31, label %43
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ult i64 %33, %24
   br i1 %34, label %35, label %._crit_edge13
@@ -403,7 +403,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   br label %63
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.thread
@@ -424,7 +424,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %45 = or i64 %44, 7
   %46 = add nsw i64 %45, 1
   %47 = add nsw i64 %30, %46
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp ult i64 %49, %47
   br i1 %50, label %51, label %._crit_edge
@@ -434,7 +434,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   br label %60
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i8, ptr %52, align 8, !range !5, !noundef !6
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %55, label %60
@@ -466,14 +466,14 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %69 = phi ptr [ null, %.thread15 ], [ %64, %63 ]
   %70 = icmp eq i32 %10, 0
   %71 = select i1 %70, i64 %24, i64 %11
-  %72 = getelementptr inbounds i8, ptr %1, i64 88
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %73 = icmp eq i32 %19, %21
   br i1 %73, label %.thread, label %74
 
 74:                                               ; preds = %67
   %75 = load i32, ptr %2, align 4
   %76 = load ptr, ptr %25, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
   %78 = load i8, ptr %77, align 2
   %79 = zext i8 %78 to i32
   %80 = mul i32 %75, %79
@@ -517,22 +517,22 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   br i1 %106, label %.thread, label %.split, !llvm.loop !13
 
 107:                                              ; preds = %6
-  %108 = getelementptr inbounds i8, ptr %1, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 6
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 6
   %111 = load i8, ptr %110, align 2
   %112 = zext i8 %111 to i64
   %113 = mul nsw i64 %112, %17
   br i1 %3, label %128, label %114
 
 114:                                              ; preds = %107
-  %115 = getelementptr inbounds i8, ptr %4, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %116 = load i64, ptr %115, align 8
   %117 = icmp ult i64 %116, %113
   br i1 %117, label %118, label %126
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %4, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %120 = load i8, ptr %119, align 8, !range !5, !noundef !6
   %121 = icmp eq i8 %120, 0
   br i1 %121, label %122, label %.thread
@@ -568,14 +568,14 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
 
 137:                                              ; preds = %131, %128
   %138 = phi i64 [ %11, %128 ], [ %136, %131 ]
-  %139 = getelementptr inbounds i8, ptr %1, i64 88
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %140 = icmp eq i32 %19, %21
   br i1 %140, label %.thread, label %141
 
 141:                                              ; preds = %137
   %142 = load i32, ptr %2, align 4
   %143 = load ptr, ptr %108, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 6
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 6
   %145 = load i8, ptr %144, align 2
   %146 = zext i8 %145 to i32
   %147 = mul i32 %142, %146
@@ -1086,7 +1086,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   %9 = alloca i32, align 4
   store i32 %2, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %9, align 4
@@ -1139,7 +1139,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -1190,7 +1190,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -1313,7 +1313,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %86 = load ptr, ptr %85, align 8
   br label %87
 
@@ -1330,18 +1330,18 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_fb_blit(ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_fb_xrgb8888_to_mono(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) #1 align 16 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %4, align 4
   %10 = sub i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sub i32 %12, %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i32
   %21 = mul i32 %10, %20
@@ -1354,11 +1354,11 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr nocapture noundef readonly %0
 26:                                               ; preds = %6
   %27 = load ptr, ptr %3, align 8
   tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #12, !srcloc !27
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @dev_driver_string(ptr noundef %29) #12
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
@@ -1386,13 +1386,13 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr nocapture noundef readonly %0
   %46 = select i1 %43, i32 %45, i32 %42
   %47 = add i32 %21, %10
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = icmp ult i64 %50, %48
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i8, ptr %53, align 8, !range !5, !noundef !6
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %56, label %.thread
@@ -1417,7 +1417,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr nocapture noundef readonly %0
   %63 = phi ptr [ %58, %.thread8 ], [ %.pr, %60 ]
   %64 = zext i32 %21 to i64
   %65 = getelementptr i8, ptr %63, i64 %64
-  %66 = getelementptr inbounds i8, ptr %3, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %67 = icmp eq i32 %12, %14
   br i1 %67, label %.thread, label %68
 
@@ -1537,7 +1537,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %0, null
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %19
 
 .loopexit18:                                      ; preds = %.loopexit17, %5
@@ -1547,7 +1547,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
 
 15:                                               ; preds = %.loopexit18
   %16 = icmp eq ptr %0, null
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   store i32 875713112, ptr %7, align 4
   %18 = icmp ugt ptr %13, %3

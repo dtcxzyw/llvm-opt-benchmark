@@ -967,7 +967,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_gc_prev.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -976,7 +976,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %si_set = getelementptr inbounds i8, ptr %si, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %si, i64 16
   %5 = load ptr, ptr %si_set, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1007,7 +1007,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @setiter_traverse(ptr nocapture noundef readonly %si, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %si_set = getelementptr inbounds i8, ptr %si, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %si_set, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1030,15 +1030,15 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @setiter_iternext(ptr nocapture noundef %si) #0 {
 entry:
-  %si_set = getelementptr inbounds i8, ptr %si, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %si_set, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %si_used = getelementptr inbounds i8, ptr %si, i64 24
+  %si_used = getelementptr inbounds nuw i8, ptr %si, i64 24
   %1 = load i64, ptr %si_used, align 8
-  %used = getelementptr inbounds i8, ptr %0, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %used, align 8
   %cmp2.not = icmp eq i64 %1, %2
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -1050,11 +1050,11 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %si_pos = getelementptr inbounds i8, ptr %si, i64 32
+  %si_pos = getelementptr inbounds nuw i8, ptr %si, i64 32
   %4 = load i64, ptr %si_pos, align 8
-  %table = getelementptr inbounds i8, ptr %0, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %table, align 8
-  %mask6 = getelementptr inbounds i8, ptr %0, i64 32
+  %mask6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %mask6, align 8
   %cmp7.not25 = icmp sgt i64 %4, %6
   br i1 %cmp7.not25, label %fail, label %land.rhs
@@ -1075,7 +1075,7 @@ while.body:                                       ; preds = %land.rhs
 
 if.end16:                                         ; preds = %land.rhs
   store i64 %inc, ptr %si_pos, align 8
-  %len = getelementptr inbounds i8, ptr %si, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %si, i64 40
   %8 = load i64, ptr %len, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %len, align 8
@@ -1117,7 +1117,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @set_dealloc(ptr noundef %so) #0 {
 entry:
-  %used2 = getelementptr inbounds i8, ptr %so, i64 24
+  %used2 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %0 = load i64, ptr %used2, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %so) #10
   %call = tail call i32 @_PyTrash_cond(ptr noundef %so, ptr noundef nonnull @set_dealloc) #10
@@ -1132,7 +1132,7 @@ if.then:                                          ; preds = %entry
 
 if.end7:                                          ; preds = %if.then, %entry
   %_tstate.0 = phi ptr [ %call3, %if.then ], [ null, %entry ]
-  %weakreflist = getelementptr inbounds i8, ptr %so, i64 192
+  %weakreflist = getelementptr inbounds nuw i8, ptr %so, i64 192
   %1 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end9, label %if.then8
@@ -1142,7 +1142,7 @@ if.then8:                                         ; preds = %if.end7
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end7
-  %table = getelementptr inbounds i8, ptr %so, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %so, i64 40
   %2 = load ptr, ptr %table, align 8
   %cmp1021 = icmp sgt i64 %0, 0
   br i1 %cmp1021, label %for.body, label %for.end
@@ -1185,7 +1185,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end9
   %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %if.end9 ]
-  %smalltable = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp18.not = icmp eq ptr %6, %smalltable
   br i1 %cmp18.not, label %if.end21, label %if.then19
 
@@ -1196,7 +1196,7 @@ if.then19:                                        ; preds = %for.end
 if.end21:                                         ; preds = %if.then19, %for.end
   %7 = getelementptr i8, ptr %so, i64 8
   %so.val = load ptr, ptr %7, align 8
-  %tp_free = getelementptr inbounds i8, ptr %so.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %so.val, i64 320
   %8 = load ptr, ptr %tp_free, align 8
   tail call void %8(ptr noundef nonnull %so) #10
   %tobool23.not = icmp eq ptr %_tstate.0, null
@@ -1224,13 +1224,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %0 = getelementptr i8, ptr %so, i64 8
   %so.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds i8, ptr %so.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %so.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %call4 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef %1) #10
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %2 = load i64, ptr %used, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.then6, label %if.end10
@@ -1239,7 +1239,7 @@ if.then6:                                         ; preds = %if.end5
   tail call void @Py_ReprLeave(ptr noundef nonnull %so) #10
   %3 = getelementptr i8, ptr %so, i64 8
   %so.val25 = load ptr, ptr %3, align 8
-  %tp_name8 = getelementptr inbounds i8, ptr %so.val25, i64 24
+  %tp_name8 = getelementptr inbounds nuw i8, ptr %so.val25, i64 24
   %4 = load ptr, ptr %tp_name8, align 8
   %call9 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.9, ptr noundef %4) #10
   br label %return
@@ -1301,7 +1301,7 @@ if.end23:                                         ; preds = %Py_DECREF.exit40
   br i1 %cmp.i28.not, label %if.else, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %tp_name28 = getelementptr inbounds i8, ptr %so.val27, i64 24
+  %tp_name28 = getelementptr inbounds nuw i8, ptr %so.val27, i64 24
   %11 = load ptr, ptr %tp_name28, align 8
   %call29 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.10, ptr noundef %11, ptr noundef nonnull %call20) #10
   br label %if.end31
@@ -1393,21 +1393,21 @@ return:                                           ; preds = %if.then, %do.end, %
 define internal noundef i32 @set_clear_internal(ptr noundef %so) #0 {
 entry:
   %small_copy = alloca [8 x %struct.setentry], align 16
-  %table2 = getelementptr inbounds i8, ptr %so, i64 40
+  %table2 = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = load ptr, ptr %table2, align 8
-  %used4 = getelementptr inbounds i8, ptr %so, i64 24
+  %used4 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %1 = load i64, ptr %used4, align 8
-  %smalltable = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.not = icmp eq ptr %0, %smalltable
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable, i8 0, i64 128, i1 false)
-  %fill.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   br label %if.end10.sink.split
 
 if.else:                                          ; preds = %entry
-  %fill3 = getelementptr inbounds i8, ptr %so, i64 16
+  %fill3 = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill3, align 8
   %cmp5 = icmp sgt i64 %2, 0
   br i1 %cmp5, label %if.then7, label %if.end10
@@ -1420,11 +1420,11 @@ if.then7:                                         ; preds = %if.else
 if.end10.sink.split:                              ; preds = %if.then, %if.then7
   %fill3.sink = phi ptr [ %fill3, %if.then7 ], [ %fill.i, %if.then ]
   %table.0.ph = phi ptr [ %small_copy, %if.then7 ], [ %0, %if.then ]
-  %mask.i19 = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i19 = getelementptr inbounds nuw i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19, align 8
   store ptr %smalltable, ptr %table2, align 8
-  %hash.i21 = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i21 = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21, align 8
   br label %if.end10
 
@@ -1516,13 +1516,13 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %sw.bb
-  %hash = getelementptr inbounds i8, ptr %v, i64 48
+  %hash = getelementptr inbounds nuw i8, ptr %v, i64 48
   %3 = load i64, ptr %hash, align 8
   %cmp15.not = icmp eq i64 %3, -1
   br i1 %cmp15.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %hash16 = getelementptr inbounds i8, ptr %w, i64 48
+  %hash16 = getelementptr inbounds nuw i8, ptr %w, i64 48
   %4 = load i64, ptr %hash16, align 8
   %cmp17.not = icmp eq i64 %4, -1
   %cmp21.not = icmp eq i64 %3, %4
@@ -1560,13 +1560,13 @@ if.end.i42:                                       ; preds = %lor.lhs.false7.i, %
   br i1 %cmp.not.i, label %if.end14.i, label %if.end29
 
 if.end14.i:                                       ; preds = %if.end.i42
-  %hash.i = getelementptr inbounds i8, ptr %v, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %v, i64 48
   %7 = load i64, ptr %hash.i, align 8
   %cmp15.not.i = icmp eq i64 %7, -1
   br i1 %cmp15.not.i, label %set_richcompare.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end14.i
-  %hash16.i = getelementptr inbounds i8, ptr %w, i64 48
+  %hash16.i = getelementptr inbounds nuw i8, ptr %w, i64 48
   %8 = load i64, ptr %hash16.i, align 8
   %cmp17.not.i = icmp eq i64 %8, -1
   %cmp21.not.i = icmp eq i64 %7, %8
@@ -1661,25 +1661,25 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %si_set = getelementptr inbounds i8, ptr %call, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %so, ptr %si_set, align 8
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %1 = load i64, ptr %used, align 8
-  %si_used = getelementptr inbounds i8, ptr %call, i64 24
+  %si_used = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %1, ptr %si_used, align 8
-  %si_pos = getelementptr inbounds i8, ptr %call, i64 32
+  %si_pos = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 0, ptr %si_pos, align 8
   %2 = load i64, ptr %used, align 8
-  %len = getelementptr inbounds i8, ptr %call, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 %2, ptr %len, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds i8, ptr %5, i64 1096
+  %generation03.i = getelementptr inbounds nuw i8, ptr %5, i64 1096
   %6 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_gc_prev.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %_gc_prev.i, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1715,25 +1715,25 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %call2 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %args, ptr noundef %1, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %iterable) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %fill = getelementptr inbounds i8, ptr %self, i64 16
+  %fill = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load i64, ptr %fill, align 8
   %tobool6.not = icmp eq i64 %2, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i)
-  %table2.i = getelementptr inbounds i8, ptr %self, i64 40
+  %table2.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   %3 = load ptr, ptr %table2.i, align 8
-  %used4.i = getelementptr inbounds i8, ptr %self, i64 24
+  %used4.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %4 = load i64, ptr %used4.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %self, i64 64
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %self, i64 64
   %cmp.not.i = icmp eq ptr %3, %smalltable.i
   br i1 %cmp.not.i, label %if.else.i, label %if.end10.sink.split.i
 
@@ -1748,11 +1748,11 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end10.sink.split.i:                            ; preds = %if.then7, %if.then7.i
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %3, %if.then7 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
-  %mask.i19.i = getelementptr inbounds i8, ptr %self, i64 32
+  %mask.i19.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
   store ptr %smalltable.i, ptr %table2.i, align 8
-  %hash.i21.i = getelementptr inbounds i8, ptr %self, i64 48
+  %hash.i21.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
 
@@ -1805,7 +1805,7 @@ set_clear_internal.exit:                          ; preds = %for.end.i, %if.then
   br label %if.end9
 
 if.end9:                                          ; preds = %set_clear_internal.exit, %if.end5
-  %hash = getelementptr inbounds i8, ptr %self, i64 48
+  %hash = getelementptr inbounds nuw i8, ptr %self, i64 48
   store i64 -1, ptr %hash, align 8
   %8 = load ptr, ptr %iterable, align 8
   %cmp10 = icmp eq ptr %8, null
@@ -1825,25 +1825,25 @@ declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @set_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %0(ptr noundef %type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   br label %make_new_set.exit
 
@@ -1880,25 +1880,25 @@ if.end8:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %lor.lhs.false4, %if.end8
   %0 = load ptr, ptr %args, align 8
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %1 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %1(ptr noundef %type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %return, label %if.then2.i
@@ -1925,25 +1925,25 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end12:                                         ; preds = %if.end8
-  %tp_alloc.i6 = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i6 = getelementptr inbounds nuw i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc.i6, align 8
   %call.i7 = tail call ptr %4(ptr noundef %type, i64 noundef 0) #10
   %cmp.i8 = icmp eq ptr %call.i7, null
   br i1 %cmp.i8, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.end12
-  %fill.i10 = getelementptr inbounds i8, ptr %call.i7, i64 16
-  %mask.i11 = getelementptr inbounds i8, ptr %call.i7, i64 32
+  %fill.i10 = getelementptr inbounds nuw i8, ptr %call.i7, i64 16
+  %mask.i11 = getelementptr inbounds nuw i8, ptr %call.i7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i10, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i11, align 8
-  %smalltable.i12 = getelementptr inbounds i8, ptr %call.i7, i64 64
-  %table.i13 = getelementptr inbounds i8, ptr %call.i7, i64 40
+  %smalltable.i12 = getelementptr inbounds nuw i8, ptr %call.i7, i64 64
+  %table.i13 = getelementptr inbounds nuw i8, ptr %call.i7, i64 40
   store ptr %smalltable.i12, ptr %table.i13, align 8
-  %hash.i14 = getelementptr inbounds i8, ptr %call.i7, i64 48
+  %hash.i14 = getelementptr inbounds nuw i8, ptr %call.i7, i64 48
   store i64 -1, ptr %hash.i14, align 8
-  %finger.i15 = getelementptr inbounds i8, ptr %call.i7, i64 56
+  %finger.i15 = getelementptr inbounds nuw i8, ptr %call.i7, i64 56
   store i64 0, ptr %finger.i15, align 8
-  %weakreflist.i16 = getelementptr inbounds i8, ptr %call.i7, i64 192
+  %weakreflist.i16 = getelementptr inbounds nuw i8, ptr %call.i7, i64 192
   store ptr null, ptr %weakreflist.i16, align 8
   br label %return
 
@@ -1955,15 +1955,15 @@ return:                                           ; preds = %if.end.i9, %if.end1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i64 @frozenset_hash(ptr nocapture noundef %self) #2 {
 entry:
-  %hash2 = getelementptr inbounds i8, ptr %self, i64 48
+  %hash2 = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i64, ptr %hash2, align 8
   %cmp.not = icmp eq i64 %0, -1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %table = getelementptr inbounds i8, ptr %self, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %self, i64 40
   %1 = load ptr, ptr %table, align 8
-  %mask = getelementptr inbounds i8, ptr %self, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %self, i64 32
   %2 = load i64, ptr %mask, align 8
   %arrayidx = getelementptr %struct.setentry, ptr %1, i64 %2
   %cmp5.not23 = icmp ugt ptr %1, %arrayidx
@@ -1972,7 +1972,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body
   %entry1.025 = phi ptr [ %incdec.ptr, %for.body ], [ %1, %if.end ]
   %hash.024 = phi i64 [ %xor, %for.body ], [ 0, %if.end ]
-  %hash6 = getelementptr inbounds i8, ptr %entry1.025, i64 8
+  %hash6 = getelementptr inbounds nuw i8, ptr %entry1.025, i64 8
   %3 = load i64, ptr %hash6, align 8
   %shl.i = shl i64 %3, 16
   %4 = xor i64 %3, %shl.i
@@ -1985,14 +1985,14 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body, %if.end
   %hash.0.lcssa = phi i64 [ 0, %if.end ], [ %xor, %for.body ]
-  %fill = getelementptr inbounds i8, ptr %self, i64 16
+  %fill = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load i64, ptr %fill, align 8
   %6 = add i64 %5, %2
   %7 = and i64 %6, 1
   %tobool.not.not = icmp eq i64 %7, 0
   %xor10 = xor i64 %hash.0.lcssa, 327557089134353749
   %spec.select = select i1 %tobool.not.not, i64 %xor10, i64 %hash.0.lcssa
-  %used = getelementptr inbounds i8, ptr %self, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %self, i64 24
   %8 = load i64, ptr %used, align 8
   %sub13 = sub i64 %5, %8
   %and14 = and i64 %sub13, 1
@@ -2027,7 +2027,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
+  %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 296), align 8
   %cmp1 = icmp ne ptr %0, %1
@@ -2045,7 +2045,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false, %lan
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3, %land.lhs.true, %lor.lhs.false
-  %tp_name = getelementptr inbounds i8, ptr %type, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %type, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call4 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %args, ptr noundef %2, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %iterable) #10
   %tobool5.not = icmp eq i32 %call4, 0
@@ -2103,24 +2103,24 @@ return:                                           ; preds = %lor.lhs.false4, %lo
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PySet_New(ptr noundef %iterable) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PySet_Type, i64 304), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PySet_Type, i64 304), align 8
   %call.i = tail call ptr %0(ptr noundef nonnull @PySet_Type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %cmp1.not.i = icmp eq ptr %iterable, null
   br i1 %cmp1.not.i, label %make_new_set.exit, label %if.then2.i
@@ -2154,24 +2154,24 @@ make_new_set.exit:                                ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyFrozenSet_New(ptr noundef %iterable) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %0(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %cmp1.not.i = icmp eq ptr %iterable, null
   br i1 %cmp1.not.i, label %make_new_set.exit, label %if.then2.i
@@ -2261,21 +2261,21 @@ if.then:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i)
-  %table2.i = getelementptr inbounds i8, ptr %set, i64 40
+  %table2.i = getelementptr inbounds nuw i8, ptr %set, i64 40
   %1 = load ptr, ptr %table2.i, align 8
-  %used4.i = getelementptr inbounds i8, ptr %set, i64 24
+  %used4.i = getelementptr inbounds nuw i8, ptr %set, i64 24
   %2 = load i64, ptr %used4.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %set, i64 64
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %set, i64 64
   %cmp.not.i = icmp eq ptr %1, %smalltable.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
-  %fill.i.i = getelementptr inbounds i8, ptr %set, i64 16
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %set, i64 16
   br label %if.end10.sink.split.i
 
 if.else.i:                                        ; preds = %if.end
-  %fill3.i = getelementptr inbounds i8, ptr %set, i64 16
+  %fill3.i = getelementptr inbounds nuw i8, ptr %set, i64 16
   %3 = load i64, ptr %fill3.i, align 8
   %cmp5.i = icmp sgt i64 %3, 0
   br i1 %cmp5.i, label %if.then7.i, label %if.end10.i
@@ -2288,11 +2288,11 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %1, %if.then.i ]
-  %mask.i19.i = getelementptr inbounds i8, ptr %set, i64 32
+  %mask.i19.i = getelementptr inbounds nuw i8, ptr %set, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
   store ptr %smalltable.i, ptr %table2.i, align 8
-  %hash.i21.i = getelementptr inbounds i8, ptr %set, i64 48
+  %hash.i21.i = getelementptr inbounds nuw i8, ptr %set, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
 
@@ -2381,7 +2381,7 @@ if.end:                                           ; preds = %lor.lhs.false7, %lo
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %2 = load i64, ptr %hash1.i, align 8
   %cmp.i10 = icmp eq i64 %2, -1
   br i1 %cmp.i10, label %if.then.i, label %if.end5.i
@@ -2432,7 +2432,7 @@ if.end:                                           ; preds = %lor.lhs.false, %ent
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %2 = load i64, ptr %hash1.i, align 8
   %cmp.i4 = icmp eq i64 %2, -1
   br i1 %cmp.i4, label %if.then.i, label %if.end5.i
@@ -2455,9 +2455,9 @@ if.end.i.i:                                       ; preds = %if.end5.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   store ptr @_dummy_struct, ptr %call.i.i, align 8
-  %hash8.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %hash8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 -1, ptr %hash8.i.i, align 8
-  %used.i.i = getelementptr inbounds i8, ptr %set, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %set, i64 24
   %4 = load i64, ptr %used.i.i, align 8
   %dec.i.i = add i64 %4, -1
   store i64 %dec.i.i, ptr %used.i.i, align 8
@@ -2520,7 +2520,7 @@ if.end:                                           ; preds = %lor.lhs.false10, %l
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %2 = load i64, ptr %hash1.i, align 8
   %cmp.i12 = icmp eq i64 %2, -1
   br i1 %cmp.i12, label %if.then.i, label %if.end5.i
@@ -2603,7 +2603,7 @@ if.end14:                                         ; preds = %land.rhs.i
   store i64 %inc.i, ptr %pos, align 8
   %5 = load ptr, ptr %entry1.06.i, align 8
   store ptr %5, ptr %key, align 8
-  %hash16 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash16 = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %6 = load i64, ptr %hash16, align 8
   store i64 %6, ptr %hash, align 8
   br label %return
@@ -2631,13 +2631,13 @@ if.then:                                          ; preds = %lor.lhs.false
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false, %entry
-  %table.i = getelementptr inbounds i8, ptr %set, i64 40
+  %table.i = getelementptr inbounds nuw i8, ptr %set, i64 40
   %1 = load ptr, ptr %table.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %set, i64 56
-  %mask.i = getelementptr inbounds i8, ptr %set, i64 32
+  %finger.i = getelementptr inbounds nuw i8, ptr %set, i64 56
+  %mask.i = getelementptr inbounds nuw i8, ptr %set, i64 32
   %2 = load i64, ptr %mask.i, align 8
   %add.ptr4.i = getelementptr %struct.setentry, ptr %1, i64 %2
-  %used.i = getelementptr inbounds i8, ptr %set, i64 24
+  %used.i = getelementptr inbounds nuw i8, ptr %set, i64 24
   %3 = load i64, ptr %used.i, align 8
   %cmp.i4 = icmp eq i64 %3, 0
   br i1 %cmp.i4, label %if.then.i, label %while.cond.preheader.i
@@ -2672,7 +2672,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   %entry1.0.lcssa.i = phi ptr [ %add.ptr.i, %while.cond.preheader.i ], [ %spec.select.i, %while.body.i ]
   %.lcssa.i = phi ptr [ %5, %while.cond.preheader.i ], [ %7, %while.body.i ]
   store ptr @_dummy_struct, ptr %entry1.0.lcssa.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %entry1.0.lcssa.i, i64 8
+  %hash.i = getelementptr inbounds nuw i8, ptr %entry1.0.lcssa.i, i64 8
   store i64 -1, ptr %hash.i, align 8
   %8 = load i64, ptr %used.i, align 8
   %dec.i = add i64 %8, -1
@@ -2694,13 +2694,13 @@ return:                                           ; preds = %while.end.i, %if.th
 ; Function Attrs: nounwind uwtable
 define internal ptr @set_pop(ptr nocapture noundef %so, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %table = getelementptr inbounds i8, ptr %so, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = load ptr, ptr %table, align 8
-  %finger = getelementptr inbounds i8, ptr %so, i64 56
-  %mask = getelementptr inbounds i8, ptr %so, i64 32
+  %finger = getelementptr inbounds nuw i8, ptr %so, i64 56
+  %mask = getelementptr inbounds nuw i8, ptr %so, i64 32
   %1 = load i64, ptr %mask, align 8
   %add.ptr4 = getelementptr %struct.setentry, ptr %0, i64 %1
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %2 = load i64, ptr %used, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then, label %while.cond.preheader
@@ -2735,7 +2735,7 @@ while.end:                                        ; preds = %while.body, %while.
   %entry1.0.lcssa = phi ptr [ %add.ptr, %while.cond.preheader ], [ %spec.select, %while.body ]
   %.lcssa = phi ptr [ %4, %while.cond.preheader ], [ %6, %while.body ]
   store ptr @_dummy_struct, ptr %entry1.0.lcssa, align 8
-  %hash = getelementptr inbounds i8, ptr %entry1.0.lcssa, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %entry1.0.lcssa, i64 8
   store i64 -1, ptr %hash, align 8
   %7 = load i64, ptr %used, align 8
   %dec = add i64 %7, -1
@@ -2810,24 +2810,24 @@ if.then:                                          ; preds = %lor.lhs.false7, %lo
   br i1 %cmp.i36, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %used.i = getelementptr inbounds i8, ptr %other, i64 24
+  %used.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %1 = load i64, ptr %used.i, align 8
   %cmp1.i = icmp eq i64 %1, 0
   br i1 %cmp1.i, label %return, label %if.end.i37
 
 if.end.i37:                                       ; preds = %lor.lhs.false.i
-  %fill.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill.i, align 8
   %add.i = add i64 %2, %1
   %mul.i = mul i64 %add.i, 5
-  %mask.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   %3 = load i64, ptr %mask.i, align 8
   %mul3.i = mul i64 %3, 3
   %cmp4.not.i = icmp slt i64 %mul.i, %mul3.i
   br i1 %cmp4.not.i, label %if.end13.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i37
-  %used6.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used6.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %4 = load i64, ptr %used6.i, align 8
   %add8.i = add i64 %4, %1
   %mul9.i = shl i64 %add8.i, 1
@@ -2841,29 +2841,29 @@ if.then5.if.end13_crit_edge.i:                    ; preds = %if.then5.i
 
 if.end13.i:                                       ; preds = %if.then5.if.end13_crit_edge.i, %if.end.i37
   %5 = phi i64 [ %.pre.i, %if.then5.if.end13_crit_edge.i ], [ %2, %if.end.i37 ]
-  %table.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %6 = load ptr, ptr %table.i, align 8
-  %table14.i = getelementptr inbounds i8, ptr %other, i64 40
+  %table14.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %7 = load ptr, ptr %table14.i, align 8
   %cmp16.i = icmp eq i64 %5, 0
   br i1 %cmp16.i, label %land.lhs.true.i, label %for.cond66.preheader.i
 
 for.cond66.preheader.i:                           ; preds = %if.end13.i
-  %mask67.i = getelementptr inbounds i8, ptr %other, i64 32
+  %mask67.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %8 = load i64, ptr %mask67.i, align 8
   %cmp68.not64.i = icmp slt i64 %8, 0
   br i1 %cmp68.not64.i, label %return, label %for.body69.i
 
 land.lhs.true.i:                                  ; preds = %if.end13.i
   %9 = load i64, ptr %mask.i, align 8
-  %mask18.i = getelementptr inbounds i8, ptr %other, i64 32
+  %mask18.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %10 = load i64, ptr %mask18.i, align 8
   %cmp19.i = icmp eq i64 %9, %10
   %.pre78.i = load i64, ptr %used.i, align 8
   br i1 %cmp19.i, label %land.lhs.true20.i, label %if.then42.i
 
 land.lhs.true20.i:                                ; preds = %land.lhs.true.i
-  %fill21.i = getelementptr inbounds i8, ptr %other, i64 16
+  %fill21.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   %11 = load i64, ptr %fill21.i, align 8
   %cmp23.i = icmp eq i64 %11, %.pre78.i
   br i1 %cmp23.i, label %for.cond.preheader.i, label %if.then42.i
@@ -2893,9 +2893,9 @@ if.end.i.i.i:                                     ; preds = %if.then29.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then29.i
   store ptr %13, ptr %so_entry.072.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %other_entry.073.i, i64 8
+  %hash.i = getelementptr inbounds nuw i8, ptr %other_entry.073.i, i64 8
   %15 = load i64, ptr %hash.i, align 8
-  %hash32.i = getelementptr inbounds i8, ptr %so_entry.072.i, i64 8
+  %hash32.i = getelementptr inbounds nuw i8, ptr %so_entry.072.i, i64 8
   store i64 %15, ptr %hash32.i, align 8
   %.pre79.i = load i64, ptr %mask18.i, align 8
   br label %for.inc.i
@@ -2916,14 +2916,14 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %17 = phi i64 [ %.pre80.i, %for.end.loopexit.i ], [ %.pre78.i, %for.cond.preheader.i ]
   store i64 %17, ptr %fill.i, align 8
   %18 = load i64, ptr %used.i, align 8
-  %used38.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used38.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   store i64 %18, ptr %used38.i, align 8
   br label %return
 
 if.then42.i:                                      ; preds = %land.lhs.true20.i, %land.lhs.true.i
   store i64 %.pre78.i, ptr %fill.i, align 8
   %19 = load i64, ptr %used.i, align 8
-  %used48.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used48.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   store i64 %19, ptr %used48.i, align 8
   %20 = load i64, ptr %mask18.i, align 8
   %cmp5267.i = icmp ult i64 %20, 9223372036854775807
@@ -2953,7 +2953,7 @@ if.end.i.i59.i:                                   ; preds = %if.then58.i
   br label %_Py_NewRef.exit60.i
 
 _Py_NewRef.exit60.i:                              ; preds = %if.end.i.i59.i, %if.then58.i
-  %hash60.i = getelementptr inbounds i8, ptr %other_entry.169.i, i64 8
+  %hash60.i = getelementptr inbounds nuw i8, ptr %other_entry.169.i, i64 8
   %23 = load i64, ptr %hash60.i, align 8
   %i.017.i.i = and i64 %23, %9
   %arrayidx18.i.i = getelementptr %struct.setentry, ptr %6, i64 %i.017.i.i
@@ -2996,7 +2996,7 @@ if.end10.i.i:                                     ; preds = %for.cond.i.i, %if.e
 set_insert_clean.exit.i:                          ; preds = %if.end10.i.i, %for.body.i.i, %_Py_NewRef.exit60.i
   %entry1.0.i.i = phi ptr [ %arrayidx18.i.i, %_Py_NewRef.exit60.i ], [ %incdec.ptr.i.i, %for.body.i.i ], [ %arrayidx.i.i, %if.end10.i.i ]
   store ptr %21, ptr %entry1.0.i.i, align 8
-  %hash15.i.i = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 8
+  %hash15.i.i = getelementptr inbounds nuw i8, ptr %entry1.0.i.i, i64 8
   store i64 %23, ptr %hash15.i.i, align 8
   br label %for.inc62.i
 
@@ -3018,7 +3018,7 @@ for.body69.i:                                     ; preds = %for.cond66.preheade
   br i1 %or.cond1.i, label %if.then75.i, label %for.inc81.i
 
 if.then75.i:                                      ; preds = %for.body69.i
-  %hash76.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %hash76.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %30 = load i64, ptr %hash76.i, align 8
   %call77.i = tail call fastcc i32 @set_add_entry(ptr noundef %so, ptr noundef nonnull %29, i64 noundef %30)
   %tobool.not.i = icmp eq i32 %call77.i, 0
@@ -3047,18 +3047,18 @@ if.then14:                                        ; preds = %if.end
   br i1 %cmp, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.then14
-  %fill = getelementptr inbounds i8, ptr %so, i64 16
+  %fill = getelementptr inbounds nuw i8, ptr %so, i64 16
   %33 = load i64, ptr %fill, align 8
   %add = add i64 %33, %other.val32
   %mul = mul i64 %add, 5
-  %mask = getelementptr inbounds i8, ptr %so, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %so, i64 32
   %34 = load i64, ptr %mask, align 8
   %mul18 = mul i64 %34, 3
   %cmp19.not = icmp slt i64 %mul, %mul18
   br i1 %cmp19.not, label %while.cond.preheader, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %35 = load i64, ptr %used, align 8
   %add21 = add i64 %35, %other.val32
   %mul22 = shl i64 %add21, 1
@@ -3099,7 +3099,7 @@ while.body42:                                     ; preds = %while.cond39.prehea
   br i1 %cmp.i.not.i, label %lor.lhs.false.i42, label %if.then.i
 
 lor.lhs.false.i42:                                ; preds = %while.body42
-  %hash1.i = getelementptr inbounds i8, ptr %38, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i64, ptr %hash1.i, align 8
   %cmp.i43 = icmp eq i64 %40, -1
   br i1 %cmp.i43, label %if.then.i, label %set_add_key.exit
@@ -3202,21 +3202,21 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @setiter_len(ptr nocapture noundef readonly %si, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %si_set = getelementptr inbounds i8, ptr %si, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %si_set, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %si_used = getelementptr inbounds i8, ptr %si, i64 24
+  %si_used = getelementptr inbounds nuw i8, ptr %si, i64 24
   %1 = load i64, ptr %si_used, align 8
-  %used = getelementptr inbounds i8, ptr %0, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %used, align 8
   %cmp2 = icmp eq i64 %1, %2
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %len3 = getelementptr inbounds i8, ptr %si, i64 40
+  %len3 = getelementptr inbounds nuw i8, ptr %si, i64 40
   %3 = load i64, ptr %len3, align 8
   br label %if.end
 
@@ -3231,7 +3231,7 @@ define internal ptr @setiter_reduce(ptr nocapture noundef readonly %si, ptr noca
 entry:
   %tmp = alloca %struct.setiterobject, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tmp, ptr noundef nonnull align 8 dereferenceable(48) %si, i64 48, i1 false)
-  %si_set = getelementptr inbounds i8, ptr %tmp, i64 16
+  %si_set = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %0 = load ptr, ptr %si_set, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XINCREF.exit, label %if.then.i
@@ -3519,25 +3519,25 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %if.end
   %type.addr.0.i.i = phi ptr [ %so.val.i, %if.end ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %2 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %2(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -3655,31 +3655,31 @@ if.end:                                           ; preds = %lor.lhs.false7, %lo
 
 if.end.i16:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %tab.i.i)
-  %fill.i.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %1 = load i64, ptr %fill.i.i, align 8
-  %fill1.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %fill1.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %2 = load i64, ptr %fill1.i.i, align 8
   store i64 %2, ptr %fill.i.i, align 8
   store i64 %1, ptr %fill1.i.i, align 8
-  %used.i.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %3 = load i64, ptr %used.i.i, align 8
-  %used4.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %used4.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %4 = load i64, ptr %used4.i.i, align 8
   store i64 %4, ptr %used.i.i, align 8
   store i64 %3, ptr %used4.i.i, align 8
-  %mask.i.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   %5 = load i64, ptr %mask.i.i, align 8
-  %mask7.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %mask7.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %6 = load i64, ptr %mask7.i.i, align 8
   store i64 %6, ptr %mask.i.i, align 8
   store i64 %5, ptr %mask7.i.i, align 8
-  %table.i.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table.i.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %7 = load ptr, ptr %table.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.i6.i = icmp eq ptr %7, %smalltable.i.i
-  %smalltable11.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %smalltable11.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %spec.select.i.i = select i1 %cmp.i6.i, ptr %smalltable11.i.i, ptr %7
-  %table13.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %table13.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %8 = load ptr, ptr %table13.i.i, align 8
   %cmp18.i.i = icmp eq ptr %8, %smalltable11.i.i
   %spec.store.select.i.i = select i1 %cmp18.i.i, ptr %smalltable.i.i, ptr %8
@@ -3712,18 +3712,18 @@ land.lhs.true.i.i:                                ; preds = %if.end44.i.i
   br i1 %tobool48.not.i.i, label %if.else.i.i, label %if.then49.i.i
 
 if.then49.i.i:                                    ; preds = %land.lhs.true.i.i
-  %hash.i.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   %12 = load i64, ptr %hash.i.i, align 8
-  %hash50.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash50.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %13 = load i64, ptr %hash50.i.i, align 8
   store i64 %13, ptr %hash.i.i, align 8
   store i64 %12, ptr %hash50.i.i, align 8
   br label %set_swap_bodies.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end44.i.i
-  %hash53.i.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash53.i.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash53.i.i, align 8
-  %hash54.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash54.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash54.i.i, align 8
   br label %set_swap_bodies.exit.i
 
@@ -3933,25 +3933,25 @@ if.then.i:                                        ; preds = %if.end23
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end23
   %type.addr.0.i = phi ptr [ %so.val, %if.end23 ], [ %PyFrozenSet_Type.PySet_Type.i, %if.then.i ]
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type.addr.0.i, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i, i64 304
   %4 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = tail call ptr %4(ptr noundef %type.addr.0.i, i64 noundef 0) #10
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end3.i
-  %fill.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
-  %table.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64
+  %table.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   store ptr %smalltable.i.i, ptr %table.i.i, align 8
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
   store i64 -1, ptr %hash.i.i, align 8
-  %finger.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %finger.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   store i64 0, ptr %finger.i.i, align 8
-  %weakreflist.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
+  %weakreflist.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i, align 8
   %other.val67 = load ptr, ptr %0, align 8
   %cmp.i84.not = icmp eq ptr %other.val67, @PyDict_Type
@@ -3997,7 +3997,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.rhs.i
-  %hash35 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash35 = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %9 = load i64, ptr %hash35, align 8
   %10 = load i32, ptr %8, align 8
   %add.i192 = add i32 %10, 1
@@ -4130,7 +4130,7 @@ while.body.i102:                                  ; preds = %land.rhs.i93
   br i1 %cmp.not.i105, label %return, label %land.rhs.i93, !llvm.loop !8
 
 while.body51:                                     ; preds = %land.rhs.i93
-  %hash53 = getelementptr inbounds i8, ptr %entry1.06.i94, i64 8
+  %hash53 = getelementptr inbounds nuw i8, ptr %entry1.06.i94, i64 8
   %22 = load i64, ptr %hash53, align 8
   %23 = load i32, ptr %21, align 8
   %add.i = add i32 %23, 1
@@ -4264,25 +4264,25 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %entry
   %type.addr.0.i.i = phi ptr [ %so.val.i, %entry ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %1(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -4342,25 +4342,25 @@ if.then:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %if.then, %entry
   %type.addr.0 = phi ptr [ %type, %entry ], [ %PyFrozenSet_Type.PySet_Type, %if.then ]
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type.addr.0, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type.addr.0, i64 304
   %0 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %0(ptr noundef %type.addr.0, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %make_new_set.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %cmp1.not.i = icmp eq ptr %iterable, null
   br i1 %cmp1.not.i, label %make_new_set.exit, label %if.then2.i
@@ -4406,8 +4406,8 @@ if.end.i109:                                      ; preds = %entry
   br label %Py_INCREF.exit111
 
 Py_INCREF.exit111:                                ; preds = %entry, %if.end.i109
-  %mask2 = getelementptr inbounds i8, ptr %so, i64 32
-  %table3 = getelementptr inbounds i8, ptr %so, i64 40
+  %mask2 = getelementptr inbounds nuw i8, ptr %so, i64 32
+  %table3 = getelementptr inbounds nuw i8, ptr %so, i64 40
   %1 = getelementptr i8, ptr %key, i64 8
   %.pre.pre = load ptr, ptr %table3, align 8
   br label %restart
@@ -4439,7 +4439,7 @@ do.body:                                          ; preds = %if.end43, %while.bo
   %mask.1 = phi i64 [ %mask.0, %while.body ], [ %mask.2, %if.end43 ]
   %probes.0 = phi i32 [ %cond, %while.body ], [ %dec, %if.end43 ]
   %freeslot.1 = phi ptr [ %freeslot.0, %while.body ], [ %freeslot.2, %if.end43 ]
-  %hash5 = getelementptr inbounds i8, ptr %entry1.0, i64 8
+  %hash5 = getelementptr inbounds nuw i8, ptr %entry1.0, i64 8
   %5 = load i64, ptr %hash5, align 8
   %cmp6 = icmp eq i64 %5, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end
@@ -4555,22 +4555,22 @@ found_unused_or_dummy:                            ; preds = %land.lhs.true
   br i1 %cmp48, label %found_unused, label %if.end50
 
 if.end50:                                         ; preds = %found_unused_or_dummy
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %17 = load i64, ptr %used, align 8
   %inc = add i64 %17, 1
   store i64 %inc, ptr %used, align 8
   store ptr %key, ptr %freeslot.1, align 8
-  %hash52 = getelementptr inbounds i8, ptr %freeslot.1, i64 8
+  %hash52 = getelementptr inbounds nuw i8, ptr %freeslot.1, i64 8
   store i64 %hash, ptr %hash52, align 8
   br label %return
 
 found_unused:                                     ; preds = %found_unused_or_dummy
-  %hash5.le = getelementptr inbounds i8, ptr %entry1.0, i64 8
-  %fill = getelementptr inbounds i8, ptr %so, i64 16
+  %hash5.le = getelementptr inbounds nuw i8, ptr %entry1.0, i64 8
+  %fill = getelementptr inbounds nuw i8, ptr %so, i64 16
   %18 = load i64, ptr %fill, align 8
   %inc53 = add i64 %18, 1
   store i64 %inc53, ptr %fill, align 8
-  %used54 = getelementptr inbounds i8, ptr %so, i64 24
+  %used54 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %19 = load i64, ptr %used54, align 8
   %inc55 = add i64 %19, 1
   store i64 %inc55, ptr %used54, align 8
@@ -4645,25 +4645,25 @@ if.then.i:                                        ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %type.addr.0.i = phi ptr [ %so.val, %entry ], [ %PyFrozenSet_Type.PySet_Type.i, %if.then.i ]
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type.addr.0.i, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = tail call ptr %1(ptr noundef %type.addr.0.i, i64 noundef 0) #10
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %make_new_set_basetype.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end3.i
-  %fill.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
-  %table.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64
+  %table.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   store ptr %smalltable.i.i, ptr %table.i.i, align 8
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
   store i64 -1, ptr %hash.i.i, align 8
-  %finger.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %finger.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   store i64 0, ptr %finger.i.i, align 8
-  %weakreflist.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
+  %weakreflist.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i, align 8
   %call3.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i = icmp eq i32 %call3.i.i, 0
@@ -4699,21 +4699,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i)
-  %table2.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table2.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = load ptr, ptr %table2.i, align 8
-  %used4.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used4.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %1 = load i64, ptr %used4.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.not.i = icmp eq ptr %0, %smalltable.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
-  %fill.i.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   br label %if.end10.sink.split.i
 
 if.else.i:                                        ; preds = %if.then
-  %fill3.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill3.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill3.i, align 8
   %cmp5.i = icmp sgt i64 %2, 0
   br i1 %cmp5.i, label %if.then7.i, label %if.end10.i
@@ -4726,11 +4726,11 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %0, %if.then.i ]
-  %mask.i19.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i19.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
   store ptr %smalltable.i, ptr %table2.i, align 8
-  %hash.i21.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i21.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
 
@@ -4869,7 +4869,7 @@ if.end.i154:                                      ; preds = %while.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i154
-  %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %14 = load i64, ptr %hash, align 8
   %call.i = tail call fastcc ptr @set_lookkey(ptr noundef %so, ptr noundef nonnull %12, i64 noundef %14)
   %cmp.i69 = icmp eq ptr %call.i, null
@@ -4882,7 +4882,7 @@ if.end.i70:                                       ; preds = %Py_INCREF.exit
 
 if.end5.i:                                        ; preds = %if.end.i70
   store ptr @_dummy_struct, ptr %call.i, align 8
-  %hash8.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %hash8.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 -1, ptr %hash8.i, align 8
   %16 = load i64, ptr %8, align 8
   %dec.i73 = add i64 %16, -1
@@ -4982,7 +4982,7 @@ while.cond36.preheader:                           ; preds = %if.else30
   br i1 %cmp38.not100, label %while.end44, label %while.body39.lr.ph
 
 while.body39.lr.ph:                               ; preds = %while.cond36.preheader
-  %used.i.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   br label %while.body39
 
 while.body39:                                     ; preds = %while.body39.lr.ph, %Py_DECREF.exit67
@@ -4993,7 +4993,7 @@ while.body39:                                     ; preds = %while.body39.lr.ph,
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i79
 
 lor.lhs.false.i:                                  ; preds = %while.body39
-  %hash1.i = getelementptr inbounds i8, ptr %call37101, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %call37101, i64 24
   %28 = load i64, ptr %hash1.i, align 8
   %cmp.i85 = icmp eq i64 %28, -1
   br i1 %cmp.i85, label %if.then.i79, label %if.end5.i81
@@ -5016,7 +5016,7 @@ if.end.i.i82:                                     ; preds = %if.end5.i81
 
 if.end5.i.i:                                      ; preds = %if.end.i.i82
   store ptr @_dummy_struct, ptr %call.i.i, align 8
-  %hash8.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %hash8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 -1, ptr %hash8.i.i, align 8
   %30 = load i64, ptr %used.i.i, align 8
   %dec.i.i83 = add i64 %30, -1
@@ -5111,12 +5111,12 @@ Py_DECREF.exit:                                   ; preds = %while.end44, %if.th
   br i1 %tobool46.not, label %if.end49, label %return
 
 if.end49:                                         ; preds = %Py_DECREF.exit, %if.end.i89, %if.then1.i92, %while.end
-  %fill = getelementptr inbounds i8, ptr %so, i64 16
+  %fill = getelementptr inbounds nuw i8, ptr %so, i64 16
   %41 = load i64, ptr %fill, align 8
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %42 = load i64, ptr %used, align 8
   %sub = sub i64 %41, %42
-  %mask = getelementptr inbounds i8, ptr %so, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %so, i64 32
   %43 = load i64, ptr %mask, align 8
   %div53 = lshr i64 %43, 2
   %cmp50.not = icmp ugt i64 %sub, %div53
@@ -5156,25 +5156,25 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %if.then
   %type.addr.0.i.i = phi ptr [ %so.val.i, %if.then ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %1(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -5203,25 +5203,25 @@ if.then.i:                                        ; preds = %if.end
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end
   %type.addr.0.i = phi ptr [ %so.val.i, %if.end ], [ %PyFrozenSet_Type.PySet_Type.i, %if.then.i ]
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type.addr.0.i, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i, i64 304
   %4 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i84 = tail call ptr %4(ptr noundef %type.addr.0.i, i64 noundef 0) #10
   %cmp.i.i85 = icmp eq ptr %call.i.i84, null
   br i1 %cmp.i.i85, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end3.i
-  %fill.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 32
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 64
-  %table.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 40
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 64
+  %table.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 40
   store ptr %smalltable.i.i, ptr %table.i.i, align 8
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 48
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 48
   store i64 -1, ptr %hash.i.i, align 8
-  %finger.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 56
+  %finger.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 56
   store i64 0, ptr %finger.i.i, align 8
-  %weakreflist.i.i = getelementptr inbounds i8, ptr %call.i.i84, i64 192
+  %weakreflist.i.i = getelementptr inbounds nuw i8, ptr %call.i.i84, i64 192
   store ptr null, ptr %weakreflist.i.i, align 8
   %5 = getelementptr i8, ptr %other, i64 8
   %other.val78 = load ptr, ptr %5, align 8
@@ -5281,7 +5281,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.rhs.i
-  %hash27 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash27 = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %11 = load i64, ptr %hash27, align 8
   %12 = load i32, ptr %10, align 8
   %add.i = add i32 %12, 1
@@ -5572,7 +5572,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @set_table_resize(ptr noundef %so, i64 noundef %minused) unnamed_addr #0 {
 entry:
   %small_copy = alloca [8 x %struct.setentry], align 16
-  %mask = getelementptr inbounds i8, ptr %so, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %so, i64 32
   %0 = load i64, ptr %mask, align 8
   br label %while.cond
 
@@ -5583,9 +5583,9 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !26
 
 while.end:                                        ; preds = %while.cond
-  %table = getelementptr inbounds i8, ptr %so, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %so, i64 40
   %1 = load ptr, ptr %table, align 8
-  %smalltable = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp2.not = icmp eq ptr %1, %smalltable
   %cmp3 = icmp eq i64 %newsize.0, 8
   br i1 %cmp3, label %if.then, label %if.else
@@ -5594,9 +5594,9 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp2.not, label %if.then9, label %if.end23
 
 if.then9:                                         ; preds = %if.then
-  %fill = getelementptr inbounds i8, ptr %so, i64 16
+  %fill = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill, align 8
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %3 = load i64, ptr %used, align 8
   %cmp10 = icmp eq i64 %2, %3
   br i1 %cmp10, label %return, label %if.end
@@ -5627,9 +5627,9 @@ if.end23:                                         ; preds = %cond.end, %if.then,
   %sub = add nsw i64 %newsize.0, -1
   store i64 %sub, ptr %mask, align 8
   store ptr %newtable.0, ptr %table, align 8
-  %fill28 = getelementptr inbounds i8, ptr %so, i64 16
+  %fill28 = getelementptr inbounds nuw i8, ptr %so, i64 16
   %4 = load i64, ptr %fill28, align 8
-  %used29 = getelementptr inbounds i8, ptr %so, i64 24
+  %used29 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %5 = load i64, ptr %used29, align 8
   %cmp30 = icmp eq i64 %4, %5
   br i1 %cmp30, label %for.cond.preheader, label %if.else40
@@ -5646,7 +5646,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp35.not, label %for.inc, label %if.then37
 
 if.then37:                                        ; preds = %for.body
-  %hash = getelementptr inbounds i8, ptr %entry1.084, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %entry1.084, i64 8
   %7 = load i64, ptr %hash, align 8
   %i.017.i = and i64 %7, %sub
   %arrayidx18.i = getelementptr %struct.setentry, ptr %newtable.0, i64 %i.017.i
@@ -5689,7 +5689,7 @@ if.end10.i:                                       ; preds = %for.cond.i, %if.end
 set_insert_clean.exit:                            ; preds = %if.end10.i, %for.body.i, %if.then37
   %entry1.0.i = phi ptr [ %arrayidx18.i, %if.then37 ], [ %incdec.ptr.i, %for.body.i ], [ %arrayidx.i, %if.end10.i ]
   store ptr %6, ptr %entry1.0.i, align 8
-  %hash15.i = getelementptr inbounds i8, ptr %entry1.0.i, i64 8
+  %hash15.i = getelementptr inbounds nuw i8, ptr %entry1.0.i, i64 8
   store i64 %7, ptr %hash15.i, align 8
   br label %for.inc
 
@@ -5713,7 +5713,7 @@ for.body47:                                       ; preds = %if.else40, %for.inc
   br i1 %or.cond, label %for.inc58, label %if.then54
 
 if.then54:                                        ; preds = %for.body47
-  %hash56 = getelementptr inbounds i8, ptr %entry1.182, i64 8
+  %hash56 = getelementptr inbounds nuw i8, ptr %entry1.182, i64 8
   %12 = load i64, ptr %hash56, align 8
   %i.017.i46 = and i64 %12, %sub
   %arrayidx18.i47 = getelementptr %struct.setentry, ptr %newtable.0, i64 %i.017.i46
@@ -5756,7 +5756,7 @@ if.end10.i63:                                     ; preds = %for.cond.i60, %if.e
 set_insert_clean.exit73:                          ; preds = %if.end10.i63, %for.body.i55, %if.then54
   %entry1.0.i71 = phi ptr [ %arrayidx18.i47, %if.then54 ], [ %incdec.ptr.i58, %for.body.i55 ], [ %arrayidx.i69, %if.end10.i63 ]
   store ptr %11, ptr %entry1.0.i71, align 8
-  %hash15.i72 = getelementptr inbounds i8, ptr %entry1.0.i71, i64 8
+  %hash15.i72 = getelementptr inbounds nuw i8, ptr %entry1.0.i71, i64 8
   store i64 %12, ptr %hash15.i72, align 8
   br label %for.inc58
 
@@ -5782,8 +5782,8 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @set_lookkey(ptr nocapture noundef readonly %so, ptr noundef %key, i64 noundef %hash) unnamed_addr #0 {
 entry:
-  %mask2 = getelementptr inbounds i8, ptr %so, i64 32
-  %table3 = getelementptr inbounds i8, ptr %so, i64 40
+  %mask2 = getelementptr inbounds nuw i8, ptr %so, i64 32
+  %table3 = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = getelementptr i8, ptr %key, i64 8
   %.pre.pre = load ptr, ptr %table3, align 8
   br label %tailrecurse
@@ -5813,7 +5813,7 @@ do.body:                                          ; preds = %if.end40, %while.bo
   %mask.1 = phi i64 [ %mask.0, %while.body ], [ %mask.2, %if.end40 ]
   %probes.0 = phi i32 [ %cond, %while.body ], [ %dec, %if.end40 ]
   %entry1.0 = phi ptr [ %arrayidx, %while.body ], [ %incdec.ptr, %if.end40 ]
-  %hash5 = getelementptr inbounds i8, ptr %entry1.0, i64 8
+  %hash5 = getelementptr inbounds nuw i8, ptr %entry1.0, i64 8
   %4 = load i64, ptr %hash5, align 8
   %cmp6 = icmp eq i64 %4, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end
@@ -5952,25 +5952,25 @@ if.then.i:                                        ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %type.addr.0.i = phi ptr [ %so.val, %entry ], [ %PyFrozenSet_Type.PySet_Type.i, %if.then.i ]
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type.addr.0.i, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = tail call ptr %1(ptr noundef %type.addr.0.i, i64 noundef 0) #10
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end3.i
-  %fill.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
-  %table.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 64
+  %table.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   store ptr %smalltable.i.i, ptr %table.i.i, align 8
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
   store i64 -1, ptr %hash.i.i, align 8
-  %finger.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %finger.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   store i64 0, ptr %finger.i.i, align 8
-  %weakreflist.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
+  %weakreflist.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i, align 8
   %cmp1.not.i.i = icmp eq ptr %other, null
   br i1 %cmp1.not.i.i, label %if.end, label %if.then2.i.i
@@ -6046,21 +6046,21 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i.i)
-  %table2.i.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table2.i.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = load ptr, ptr %table2.i.i, align 8
-  %used4.i.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used4.i.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %1 = load i64, ptr %used4.i.i, align 8
-  %smalltable.i.i = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable.i.i = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.not.i.i = icmp eq ptr %0, %smalltable.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i.i, i8 0, i64 128, i1 false)
-  %fill.i.i.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   br label %if.end10.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.then
-  %fill3.i.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill3.i.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill3.i.i, align 8
   %cmp5.i.i = icmp sgt i64 %2, 0
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end10.i.i
@@ -6073,11 +6073,11 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
 if.end10.sink.split.i.i:                          ; preds = %if.then7.i.i, %if.then.i.i
   %fill3.sink.i.i = phi ptr [ %fill3.i.i, %if.then7.i.i ], [ %fill.i.i.i, %if.then.i.i ]
   %table.0.ph.i.i = phi ptr [ %small_copy.i.i, %if.then7.i.i ], [ %0, %if.then.i.i ]
-  %mask.i19.i.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i19.i.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i.i, align 8
   store ptr %smalltable.i.i, ptr %table2.i.i, align 8
-  %hash.i21.i.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i21.i.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i.i, align 8
   br label %if.end10.i.i
 
@@ -6141,7 +6141,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool5.not102, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %used.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %Py_DECREF.exit109
@@ -6170,7 +6170,7 @@ if.end.i51:                                       ; preds = %Py_INCREF.exit173
 
 if.end5.i:                                        ; preds = %if.end.i51
   store ptr @_dummy_struct, ptr %call.i, align 8
-  %hash8.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %hash8.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 -1, ptr %hash8.i, align 8
   %12 = load i64, ptr %used.i, align 8
   %dec.i52 = add i64 %12, -1
@@ -6296,7 +6296,7 @@ if.end37:                                         ; preds = %if.end.i.i59, %if.t
 
 land.rhs.preheader.i.lr.ph:                       ; preds = %if.end37
   %29 = getelementptr i8, ptr %otherset.0, i64 40
-  %used.i70 = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i70 = getelementptr inbounds nuw i8, ptr %so, i64 24
   br label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %land.rhs.preheader.i.lr.ph, %Py_DECREF.exit64
@@ -6322,7 +6322,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.not.i, label %while.end55, label %land.rhs.i, !llvm.loop !8
 
 while.body41:                                     ; preds = %land.rhs.i
-  %hash43 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash43 = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %32 = load i64, ptr %hash43, align 8
   %33 = load i32, ptr %31, align 8
   %add.i = add i32 %33, 1
@@ -6345,7 +6345,7 @@ if.end.i66:                                       ; preds = %Py_INCREF.exit
 
 if.end5.i68:                                      ; preds = %if.end.i66
   store ptr @_dummy_struct, ptr %call.i64, align 8
-  %hash8.i69 = getelementptr inbounds i8, ptr %call.i64, i64 8
+  %hash8.i69 = getelementptr inbounds nuw i8, ptr %call.i64, i64 8
   store i64 -1, ptr %hash8.i69, align 8
   %35 = load i64, ptr %used.i70, align 8
   %dec.i71 = add i64 %35, -1
@@ -6481,21 +6481,21 @@ define internal noundef nonnull ptr @set_clear(ptr noundef %so, ptr nocapture re
 entry:
   %small_copy.i = alloca [8 x %struct.setentry], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %small_copy.i)
-  %table2.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table2.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %0 = load ptr, ptr %table2.i, align 8
-  %used4.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used4.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %1 = load i64, ptr %used4.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.not.i = icmp eq ptr %0, %smalltable.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %smalltable.i, i8 0, i64 128, i1 false)
-  %fill.i.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   br label %if.end10.sink.split.i
 
 if.else.i:                                        ; preds = %entry
-  %fill3.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill3.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %2 = load i64, ptr %fill3.i, align 8
   %cmp5.i = icmp sgt i64 %2, 0
   br i1 %cmp5.i, label %if.then7.i, label %if.end10.i
@@ -6508,11 +6508,11 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end10.sink.split.i:                            ; preds = %if.then7.i, %if.then.i
   %fill3.sink.i = phi ptr [ %fill3.i, %if.then7.i ], [ %fill.i.i, %if.then.i ]
   %table.0.ph.i = phi ptr [ %small_copy.i, %if.then7.i ], [ %0, %if.then.i ]
-  %mask.i19.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i19.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill3.sink.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i19.i, align 8
   store ptr %smalltable.i, ptr %table2.i, align 8
-  %hash.i21.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i21.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash.i21.i, align 8
   br label %if.end10.i
 
@@ -6570,7 +6570,7 @@ declare i32 @_PyDict_Next(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @set_len(ptr nocapture noundef readonly %so) #5 {
 entry:
-  %used = getelementptr inbounds i8, ptr %so, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %so, i64 24
   %0 = load i64, ptr %used, align 8
   ret i64 %0
 }
@@ -6584,7 +6584,7 @@ entry:
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %1 = load i64, ptr %hash1.i, align 8
   %cmp.i11 = icmp eq i64 %1, -1
   br i1 %cmp.i11, label %if.then.i, label %if.end5.i
@@ -6624,24 +6624,24 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %4(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i13 = icmp eq ptr %call.i, null
   br i1 %cmp.i13, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %call3.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i, ptr noundef nonnull %key)
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -6670,7 +6670,7 @@ if.end12:                                         ; preds = %if.then2.i
   br i1 %cmp.i.not.i17, label %lor.lhs.false.i29, label %if.then.i18
 
 lor.lhs.false.i29:                                ; preds = %if.end12
-  %hash1.i30 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %hash1.i30 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %8 = load i64, ptr %hash1.i30, align 8
   %cmp.i31 = icmp eq i64 %8, -1
   br i1 %cmp.i31, label %if.then.i18, label %if.end5.i21
@@ -6820,7 +6820,7 @@ if.end.i54:                                       ; preds = %while.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i54
-  %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %11 = load i64, ptr %hash, align 8
   %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %other, ptr noundef nonnull %9, i64 noundef %11)
   %cmp.not.i33 = icmp eq ptr %call.i, null
@@ -6908,7 +6908,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %while.body
-  %hash1.i = getelementptr inbounds i8, ptr %call15, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %call15, i64 24
   %2 = load i64, ptr %hash1.i, align 8
   %cmp.i27 = icmp eq i64 %2, -1
   br i1 %cmp.i27, label %if.then.i, label %if.end5.i
@@ -7028,7 +7028,7 @@ entry:
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %1 = load i64, ptr %hash1.i, align 8
   %cmp.i = icmp eq i64 %1, -1
   br i1 %cmp.i, label %if.then.i, label %set_add_key.exit
@@ -7077,7 +7077,7 @@ entry:
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %1 = load i64, ptr %hash1.i, align 8
   %cmp.i11 = icmp eq i64 %1, -1
   br i1 %cmp.i11, label %if.then.i, label %if.end5.i
@@ -7100,9 +7100,9 @@ if.end.i.i:                                       ; preds = %if.end5.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   store ptr @_dummy_struct, ptr %call.i.i, align 8
-  %hash8.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %hash8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 -1, ptr %hash8.i.i, align 8
-  %used.i.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %3 = load i64, ptr %used.i.i, align 8
   %dec.i.i = add i64 %3, -1
   store i64 %dec.i.i, ptr %used.i.i, align 8
@@ -7139,24 +7139,24 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %7(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i13 = icmp eq ptr %call.i, null
   br i1 %cmp.i13, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %call3.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i, ptr noundef nonnull %key)
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -7185,7 +7185,7 @@ if.end12:                                         ; preds = %if.then2.i
   br i1 %cmp.i.not.i19, label %lor.lhs.false.i39, label %if.then.i20
 
 lor.lhs.false.i39:                                ; preds = %if.end12
-  %hash1.i40 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %hash1.i40 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %11 = load i64, ptr %hash1.i40, align 8
   %cmp.i41 = icmp eq i64 %11, -1
   br i1 %cmp.i41, label %if.then.i20, label %if.end5.i23
@@ -7208,9 +7208,9 @@ if.end.i.i27:                                     ; preds = %if.end5.i23
 
 if.end5.i.i29:                                    ; preds = %if.end.i.i27
   store ptr @_dummy_struct, ptr %call.i.i25, align 8
-  %hash8.i.i30 = getelementptr inbounds i8, ptr %call.i.i25, i64 8
+  %hash8.i.i30 = getelementptr inbounds nuw i8, ptr %call.i.i25, i64 8
   store i64 -1, ptr %hash8.i.i30, align 8
-  %used.i.i31 = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i31 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %13 = load i64, ptr %used.i.i31, align 8
   %dec.i.i32 = add i64 %13, -1
   store i64 %dec.i.i32, ptr %used.i.i31, align 8
@@ -7281,25 +7281,25 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %if.then
   %type.addr.0.i.i = phi ptr [ %so.val.i, %if.then ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %2 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %2(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -7318,7 +7318,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i
   br i1 %cmp.i.i.i.i, label %return.sink.split, label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   %call2 = tail call fastcc ptr @set_difference(ptr noundef %so, ptr noundef %5)
   %cmp3 = icmp eq ptr %call2, null
@@ -7368,7 +7368,7 @@ return:                                           ; preds = %for.cond, %return.s
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @set_difference_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
 entry:
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val4 = load i64, ptr %0, align 8
   %cmp5 = icmp sgt i64 %args.val4, 0
@@ -7417,25 +7417,25 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %if.then
   %type.addr.0.i.i = phi ptr [ %so.val.i, %if.then ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %2 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %2(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -7470,7 +7470,7 @@ _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
   br i1 %cmp419, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_Py_NewRef.exit
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7533,31 +7533,31 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %tab.i)
-  %fill.i = getelementptr inbounds i8, ptr %so, i64 16
+  %fill.i = getelementptr inbounds nuw i8, ptr %so, i64 16
   %0 = load i64, ptr %fill.i, align 8
-  %fill1.i = getelementptr inbounds i8, ptr %call, i64 16
+  %fill1.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load i64, ptr %fill1.i, align 8
   store i64 %1, ptr %fill.i, align 8
   store i64 %0, ptr %fill1.i, align 8
-  %used.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %2 = load i64, ptr %used.i, align 8
-  %used4.i = getelementptr inbounds i8, ptr %call, i64 24
+  %used4.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %3 = load i64, ptr %used4.i, align 8
   store i64 %3, ptr %used.i, align 8
   store i64 %2, ptr %used4.i, align 8
-  %mask.i = getelementptr inbounds i8, ptr %so, i64 32
+  %mask.i = getelementptr inbounds nuw i8, ptr %so, i64 32
   %4 = load i64, ptr %mask.i, align 8
-  %mask7.i = getelementptr inbounds i8, ptr %call, i64 32
+  %mask7.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %5 = load i64, ptr %mask7.i, align 8
   store i64 %5, ptr %mask.i, align 8
   store i64 %4, ptr %mask7.i, align 8
-  %table.i = getelementptr inbounds i8, ptr %so, i64 40
+  %table.i = getelementptr inbounds nuw i8, ptr %so, i64 40
   %6 = load ptr, ptr %table.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.i6 = icmp eq ptr %6, %smalltable.i
-  %smalltable11.i = getelementptr inbounds i8, ptr %call, i64 64
+  %smalltable11.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %spec.select.i = select i1 %cmp.i6, ptr %smalltable11.i, ptr %6
-  %table13.i = getelementptr inbounds i8, ptr %call, i64 40
+  %table13.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %7 = load ptr, ptr %table13.i, align 8
   %cmp18.i = icmp eq ptr %7, %smalltable11.i
   %spec.store.select.i = select i1 %cmp18.i, ptr %smalltable.i, ptr %7
@@ -7590,18 +7590,18 @@ land.lhs.true.i:                                  ; preds = %if.end44.i
   br i1 %tobool48.not.i, label %if.else.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %land.lhs.true.i
-  %hash.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   %11 = load i64, ptr %hash.i, align 8
-  %hash50.i = getelementptr inbounds i8, ptr %call, i64 48
+  %hash50.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   %12 = load i64, ptr %hash50.i, align 8
   store i64 %12, ptr %hash.i, align 8
   store i64 %11, ptr %hash50.i, align 8
   br label %set_swap_bodies.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end44.i
-  %hash53.i = getelementptr inbounds i8, ptr %so, i64 48
+  %hash53.i = getelementptr inbounds nuw i8, ptr %so, i64 48
   store i64 -1, ptr %hash53.i, align 8
-  %hash54.i = getelementptr inbounds i8, ptr %call, i64 48
+  %hash54.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 -1, ptr %hash54.i, align 8
   br label %set_swap_bodies.exit
 
@@ -7697,7 +7697,7 @@ if.end.i101:                                      ; preds = %while.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i101
-  %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %8 = load i64, ptr %hash, align 8
   %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select34, ptr noundef nonnull %6, i64 noundef %8)
   %cmp.not.i44 = icmp eq ptr %call.i, null
@@ -7751,7 +7751,7 @@ while.body32:                                     ; preds = %while.cond29
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i48
 
 lor.lhs.false.i:                                  ; preds = %while.body32
-  %hash1.i = getelementptr inbounds i8, ptr %call30, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %call30, i64 24
   %13 = load i64, ptr %hash1.i, align 8
   %cmp.i51 = icmp eq i64 %13, -1
   br i1 %cmp.i51, label %if.then.i48, label %if.end5.i
@@ -7949,7 +7949,7 @@ entry:
   br i1 %cmp.i.not.i, label %lor.lhs.false.i, label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 24
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 24
   %1 = load i64, ptr %hash1.i, align 8
   %cmp.i13 = icmp eq i64 %1, -1
   br i1 %cmp.i13, label %if.then.i, label %if.end5.i
@@ -7972,9 +7972,9 @@ if.end.i.i:                                       ; preds = %if.end5.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   store ptr @_dummy_struct, ptr %call.i.i, align 8
-  %hash8.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %hash8.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 -1, ptr %hash8.i.i, align 8
-  %used.i.i = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %so, i64 24
   %3 = load i64, ptr %used.i.i, align 8
   %dec.i.i = add i64 %3, -1
   store i64 %dec.i.i, ptr %used.i.i, align 8
@@ -8011,24 +8011,24 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false, %if.
 
 if.end:                                           ; preds = %lor.lhs.false5
   tail call void @PyErr_Clear() #10
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i = tail call ptr %7(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i15 = icmp eq ptr %call.i, null
   br i1 %cmp.i15, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %call3.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i, ptr noundef nonnull %key)
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -8057,7 +8057,7 @@ if.end12:                                         ; preds = %if.then2.i
   br i1 %cmp.i.not.i21, label %lor.lhs.false.i41, label %if.then.i22
 
 lor.lhs.false.i41:                                ; preds = %if.end12
-  %hash1.i42 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %hash1.i42 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %11 = load i64, ptr %hash1.i42, align 8
   %cmp.i43 = icmp eq i64 %11, -1
   br i1 %cmp.i43, label %if.then.i22, label %if.end5.i25
@@ -8080,9 +8080,9 @@ if.end.i.i29:                                     ; preds = %if.end5.i25
 
 if.end5.i.i31:                                    ; preds = %if.end.i.i29
   store ptr @_dummy_struct, ptr %call.i.i27, align 8
-  %hash8.i.i32 = getelementptr inbounds i8, ptr %call.i.i27, i64 8
+  %hash8.i.i32 = getelementptr inbounds nuw i8, ptr %call.i.i27, i64 8
   store i64 -1, ptr %hash8.i.i32, align 8
-  %used.i.i33 = getelementptr inbounds i8, ptr %so, i64 24
+  %used.i.i33 = getelementptr inbounds nuw i8, ptr %so, i64 24
   %13 = load i64, ptr %used.i.i33, align 8
   %dec.i.i34 = add i64 %13, -1
   store i64 %dec.i.i34, ptr %used.i.i33, align 8
@@ -8140,14 +8140,14 @@ entry:
   %so.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %so.val, i64 32
   %call.val = load i64, ptr %1, align 8
-  %table = getelementptr inbounds i8, ptr %so, i64 40
+  %table = getelementptr inbounds nuw i8, ptr %so, i64 40
   %2 = load ptr, ptr %table, align 8
-  %smalltable = getelementptr inbounds i8, ptr %so, i64 64
+  %smalltable = getelementptr inbounds nuw i8, ptr %so, i64 64
   %cmp.not = icmp eq ptr %2, %smalltable
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mask = getelementptr inbounds i8, ptr %so, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %so, i64 32
   %3 = load i64, ptr %mask, align 8
   %add = shl i64 %3, 4
   %mul = add i64 %call.val, 16
@@ -8178,25 +8178,25 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %entry
   %type.addr.0.i.i = phi ptr [ %so.val.i, %entry ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %1(ptr noundef %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -8209,7 +8209,7 @@ for.cond.preheader:                               ; preds = %if.then2.i.i.i
   br i1 %cmp214, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %for.body
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i.i.i
@@ -8271,7 +8271,7 @@ return:                                           ; preds = %for.inc, %return.si
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @set_update(ptr noundef %so, ptr nocapture noundef readonly %args) #0 {
 entry:
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val4 = load i64, ptr %0, align 8
   %cmp5 = icmp sgt i64 %args.val4, 0
@@ -8344,25 +8344,25 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.end3.i.i:                                      ; preds = %if.then.i.i, %if.end
   %type.addr.0.i.i = phi ptr [ @PySet_Type, %if.end ], [ %PyFrozenSet_Type.PySet_Type.i.i, %if.then.i.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type.addr.0.i.i, i64 304
+  %tp_alloc.i.i.i = getelementptr inbounds nuw i8, ptr %type.addr.0.i.i, i64 304
   %2 = load ptr, ptr %tp_alloc.i.i.i, align 8
   %call.i.i.i = tail call ptr %2(ptr noundef nonnull %type.addr.0.i.i, i64 noundef 0) #10
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %return, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end3.i.i
-  %fill.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %fill.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i.i.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i.i.i, align 8
-  %smalltable.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
-  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %smalltable.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
+  %table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
   store ptr %smalltable.i.i.i, ptr %table.i.i.i, align 8
-  %hash.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
+  %hash.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 48
   store i64 -1, ptr %hash.i.i.i, align 8
-  %finger.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  %finger.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 56
   store i64 0, ptr %finger.i.i.i, align 8
-  %weakreflist.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 192
+  %weakreflist.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 192
   store ptr null, ptr %weakreflist.i.i.i, align 8
   %call3.i.i.i = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %so)
   %tobool.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
@@ -8396,25 +8396,25 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %0(ptr noundef %type, i64 noundef 0) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %fill.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %fill.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i, align 8
-  %smalltable.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %table.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %smalltable.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %table.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %smalltable.i, ptr %table.i, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %hash.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 -1, ptr %hash.i, align 8
-  %finger.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %finger.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 0, ptr %finger.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr null, ptr %weakreflist.i, align 8
   %cmp1.not.i = icmp eq ptr %iterable, null
   br i1 %cmp1.not.i, label %return, label %if.then2.i
@@ -8445,24 +8445,24 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end.split, label %land.lhs.true
 
 if.end.split:                                     ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i9 = tail call ptr %3(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i10 = icmp eq ptr %call.i9, null
   br i1 %cmp.i10, label %return, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.end.split
-  %fill.i12 = getelementptr inbounds i8, ptr %call.i9, i64 16
-  %mask.i13 = getelementptr inbounds i8, ptr %call.i9, i64 32
+  %fill.i12 = getelementptr inbounds nuw i8, ptr %call.i9, i64 16
+  %mask.i13 = getelementptr inbounds nuw i8, ptr %call.i9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i12, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i13, align 8
-  %smalltable.i14 = getelementptr inbounds i8, ptr %call.i9, i64 64
-  %table.i15 = getelementptr inbounds i8, ptr %call.i9, i64 40
+  %smalltable.i14 = getelementptr inbounds nuw i8, ptr %call.i9, i64 64
+  %table.i15 = getelementptr inbounds nuw i8, ptr %call.i9, i64 40
   store ptr %smalltable.i14, ptr %table.i15, align 8
-  %hash.i16 = getelementptr inbounds i8, ptr %call.i9, i64 48
+  %hash.i16 = getelementptr inbounds nuw i8, ptr %call.i9, i64 48
   store i64 -1, ptr %hash.i16, align 8
-  %finger.i17 = getelementptr inbounds i8, ptr %call.i9, i64 56
+  %finger.i17 = getelementptr inbounds nuw i8, ptr %call.i9, i64 56
   store i64 0, ptr %finger.i17, align 8
-  %weakreflist.i18 = getelementptr inbounds i8, ptr %call.i9, i64 192
+  %weakreflist.i18 = getelementptr inbounds nuw i8, ptr %call.i9, i64 192
   store ptr null, ptr %weakreflist.i18, align 8
   br label %return
 
@@ -8473,24 +8473,24 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i21.not, label %if.then3, label %land.lhs.true.split
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 304), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 304), align 8
   %call.i22 = tail call ptr %5(ptr noundef nonnull @PyFrozenSet_Type, i64 noundef 0) #10
   %cmp.i23 = icmp eq ptr %call.i22, null
   br i1 %cmp.i23, label %return, label %if.then2.i33
 
 if.then2.i33:                                     ; preds = %land.lhs.true.split
-  %fill.i25 = getelementptr inbounds i8, ptr %call.i22, i64 16
-  %mask.i26 = getelementptr inbounds i8, ptr %call.i22, i64 32
+  %fill.i25 = getelementptr inbounds nuw i8, ptr %call.i22, i64 16
+  %mask.i26 = getelementptr inbounds nuw i8, ptr %call.i22, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fill.i25, i8 0, i64 16, i1 false)
   store i64 7, ptr %mask.i26, align 8
-  %smalltable.i27 = getelementptr inbounds i8, ptr %call.i22, i64 64
-  %table.i28 = getelementptr inbounds i8, ptr %call.i22, i64 40
+  %smalltable.i27 = getelementptr inbounds nuw i8, ptr %call.i22, i64 64
+  %table.i28 = getelementptr inbounds nuw i8, ptr %call.i22, i64 40
   store ptr %smalltable.i27, ptr %table.i28, align 8
-  %hash.i29 = getelementptr inbounds i8, ptr %call.i22, i64 48
+  %hash.i29 = getelementptr inbounds nuw i8, ptr %call.i22, i64 48
   store i64 -1, ptr %hash.i29, align 8
-  %finger.i30 = getelementptr inbounds i8, ptr %call.i22, i64 56
+  %finger.i30 = getelementptr inbounds nuw i8, ptr %call.i22, i64 56
   store i64 0, ptr %finger.i30, align 8
-  %weakreflist.i31 = getelementptr inbounds i8, ptr %call.i22, i64 192
+  %weakreflist.i31 = getelementptr inbounds nuw i8, ptr %call.i22, i64 192
   store ptr null, ptr %weakreflist.i31, align 8
   %call3.i34 = tail call fastcc i32 @set_update_internal(ptr noundef nonnull %call.i22, ptr noundef nonnull %iterable)
   %tobool.not.i35 = icmp eq i32 %call3.i34, 0

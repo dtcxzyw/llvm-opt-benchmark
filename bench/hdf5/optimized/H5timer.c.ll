@@ -76,7 +76,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 
 18:                                               ; preds = %16
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %8) #11
-  %20 = getelementptr inbounds i8, ptr %0, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %20, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #11
   br label %57
 
@@ -87,7 +87,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 23:                                               ; preds = %21
   %24 = fmul double %8, 0x3F50000000000000
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %24) #11
-  %26 = getelementptr inbounds i8, ptr %0, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false) #11
   br label %57
 
@@ -98,7 +98,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 29:                                               ; preds = %27
   %30 = fmul double %8, 0x3EB0000000000000
   %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #11
-  %32 = getelementptr inbounds i8, ptr %0, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.6, i64 6, i1 false) #11
   br label %57
 
@@ -109,7 +109,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 35:                                               ; preds = %33
   %36 = fmul double %8, 0x3E10000000000000
   %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %36) #11
-  %38 = getelementptr inbounds i8, ptr %0, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) @.str.7, i64 6, i1 false) #11
   br label %57
 
@@ -120,7 +120,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 41:                                               ; preds = %39
   %42 = fmul double %8, 0x3D70000000000000
   %43 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %42) #11
-  %44 = getelementptr inbounds i8, ptr %0, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %44, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false) #11
   br label %57
 
@@ -131,7 +131,7 @@ define void @H5_bandwidth(ptr nocapture noundef %0, i64 noundef %1, double nound
 47:                                               ; preds = %45
   %48 = fmul double %8, 0x3CD0000000000000
   %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %48) #11
-  %50 = getelementptr inbounds i8, ptr %0, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %50, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, i64 6, i1 false) #11
   br label %57
 
@@ -175,7 +175,7 @@ define i64 @H5_now_usec() local_unnamed_addr #4 {
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #11
   %3 = load i64, ptr %1, align 8
   %4 = mul i64 %3, 1000000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = udiv i64 %6, 1000
   %8 = add i64 %7, %4
@@ -191,7 +191,7 @@ define double @H5_get_time() local_unnamed_addr #4 {
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #11
   %3 = load i64, ptr %1, align 8
   %4 = sitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sitofp i64 %6 to double
   %8 = fdiv double %7, 1.000000e+09
@@ -222,19 +222,19 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   br label %33
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sitofp i64 %11 to double
   %13 = fdiv double %12, 1.000000e+06
   %14 = fadd double %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %14, ptr %15, align 8
   %16 = load i64, ptr %3, align 8
   %17 = sitofp i64 %16 to double
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = sitofp i64 %19 to double
   %21 = fdiv double %20, 1.000000e+06
@@ -244,16 +244,16 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #11
   %24 = load i64, ptr %2, align 8
   %25 = sitofp i64 %24 to double
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = sitofp i64 %27 to double
   %29 = fdiv double %28, 1.000000e+09
   %30 = fadd double %29, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %30, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 1, ptr %32, align 8
   br label %33
 
@@ -276,20 +276,20 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   br label %53
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = sitofp i64 %9 to double
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = sitofp i64 %12 to double
   %14 = fdiv double %13, 1.000000e+06
   %15 = fadd double %14, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %15, ptr %16, align 8
   %17 = load i64, ptr %3, align 8
   %18 = sitofp i64 %17 to double
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+06
@@ -299,20 +299,20 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   %24 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #11
   %25 = load i64, ptr %2, align 8
   %26 = sitofp i64 %25 to double
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+09
   %31 = fadd double %30, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load double, ptr %33, align 8
   %35 = fsub double %31, %34
   store double %35, ptr %32, align 8
   %36 = load double, ptr %16, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load double, ptr %37, align 8
   %39 = fsub double %36, %38
   store double %39, ptr %16, align 8
@@ -320,19 +320,19 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   %41 = load double, ptr %0, align 8
   %42 = fsub double %40, %41
   store double %42, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load double, ptr %44, align 8
   %46 = fadd double %35, %45
   store double %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load double, ptr %47, align 8
   %49 = fadd double %39, %48
   store double %49, ptr %47, align 8
   %50 = load double, ptr %43, align 8
   %51 = fadd double %42, %50
   store double %51, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %52, align 8
   br label %53
 
@@ -345,7 +345,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
 define range(i32 -1, 1) i32 @H5_timer_get_times(ptr nocapture noundef readonly byval(%struct.H5_timer_t) align 8 %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.rusage, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %45
@@ -361,17 +361,17 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
   br label %55
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = sitofp i64 %13 to double
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+06
   %19 = fadd double %18, %14
   %20 = load i64, ptr %4, align 8
   %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+06
@@ -380,36 +380,36 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #11
   %28 = load i64, ptr %3, align 8
   %29 = sitofp i64 %28 to double
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = sitofp i64 %31 to double
   %33 = fdiv double %32, 1.000000e+09
   %34 = fadd double %33, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load double, ptr %35, align 8
   %37 = fsub double %34, %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load double, ptr %39, align 8
   %41 = fsub double %19, %40
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %41, ptr %42, align 8
   %43 = load double, ptr %0, align 8
   %44 = fsub double %26, %43
   br label %54
 
 45:                                               ; preds = %2
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %51, ptr %52, align 8
   %53 = load double, ptr %46, align 8
   br label %54
@@ -428,7 +428,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
 define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr nocapture noundef readonly byval(%struct.H5_timer_t) align 8 %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.rusage, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %54
@@ -444,17 +444,17 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
   br label %64
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = sitofp i64 %13 to double
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+06
   %19 = fadd double %18, %14
   %20 = load i64, ptr %4, align 8
   %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+06
@@ -463,29 +463,29 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #11
   %28 = load i64, ptr %3, align 8
   %29 = sitofp i64 %28 to double
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = sitofp i64 %31 to double
   %33 = fdiv double %32, 1.000000e+09
   %34 = fadd double %33, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load double, ptr %38, align 8
   %40 = fsub double %34, %39
   %41 = fadd double %37, %40
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load double, ptr %45, align 8
   %47 = fsub double %19, %46
   %48 = fadd double %44, %47
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %48, ptr %49, align 8
   %50 = load double, ptr %35, align 8
   %51 = load double, ptr %0, align 8
@@ -494,14 +494,14 @@ H5__timer_get_timevals.exit.thread:               ; preds = %8
   br label %63
 
 54:                                               ; preds = %2
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
-  %56 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %60, ptr %61, align 8
   %62 = load double, ptr %55, align 8
   br label %63

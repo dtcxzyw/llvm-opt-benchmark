@@ -46,7 +46,7 @@ gv_alloc.exit:                                    ; preds = %2
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %gv_alloc.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %23, label %19
@@ -63,11 +63,11 @@ gv_alloc.exit:                                    ; preds = %2
   br i1 %.not3845, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
-  %27 = getelementptr inbounds i8, ptr %3, i64 120
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %30
 
 30:                                               ; preds = %.lr.ph, %202
@@ -78,7 +78,7 @@ gv_alloc.exit:                                    ; preds = %2
   call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %7, i1 false)
   %31 = call i64 @time(ptr noundef null) #12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  %32 = getelementptr inbounds i8, ptr %.049, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.049, i64 24
   %33 = load ptr, ptr %32, align 8
   store i32 2, ptr %3, align 8
   store ptr %.049, ptr %25, align 8
@@ -87,7 +87,7 @@ gv_alloc.exit:                                    ; preds = %2
   %34 = load i32, ptr %.049, align 8
   %35 = lshr i32 %34, 4
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %36
+  %37 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = or i8 %38, 1
   store i8 %39, ptr %37, align 1
@@ -124,7 +124,7 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %51 = icmp eq i32 %50, 2
   %.idx90.i = select i1 %51, i64 0, i64 -64
   %52 = getelementptr inbounds i8, ptr %47, i64 %.idx90.i
-  %53 = getelementptr inbounds i8, ptr %52, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
   %.not91.i = icmp eq ptr %.078147.i, null
   br i1 %.not91.i, label %57, label %55
@@ -150,7 +150,7 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %62 = icmp eq i32 %61, 2
   %.idx93.i = select i1 %62, i64 0, i64 -64
   %63 = getelementptr inbounds i8, ptr %.176142.i, i64 %.idx93.i
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %54
   br i1 %66, label %95, label %67
@@ -159,7 +159,7 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %68 = load i32, ptr %65, align 8
   %69 = lshr i32 %68, 4
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %70
+  %71 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %84
@@ -183,7 +183,7 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   br label %95
 
 84:                                               ; preds = %67
-  %85 = getelementptr inbounds i8, ptr %71, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %86 = load i8, ptr %85, align 1
   switch i8 %86, label %95 [
     i8 0, label %97
@@ -194,11 +194,11 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %88 = load i32, ptr %54, align 8
   %89 = lshr i32 %88, 4
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %90, i32 1
+  %91 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %90, i32 1
   %92 = load i8, ptr %91, align 1
   %.not134.i = icmp eq i8 %92, 0
   %93 = select i1 %.not134.i, i8 1, i8 2
-  %94 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %70, i32 1
+  %94 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %70, i32 1
   store i8 %93, ptr %94, align 1
   br label %95
 
@@ -212,23 +212,23 @@ top.exit.i:                                       ; preds = %pop.exit.i, %push.e
   %98 = load i32, ptr %54, align 8
   %99 = lshr i32 %98, 4
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %100, i32 1
+  %101 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %100, i32 1
   %102 = load i8, ptr %101, align 1
   %.not135.i = icmp eq i8 %102, 0
   %103 = select i1 %.not135.i, i8 1, i8 2
-  %104 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %70, i32 1
+  %104 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %70, i32 1
   store i8 %103, ptr %104, align 1
   %105 = load i32, ptr %.176142.i, align 8
   %106 = and i32 %105, 3
   %107 = icmp eq i32 %106, 2
   %.idx.i98.i = select i1 %107, i64 0, i64 -64
   %108 = getelementptr inbounds i8, ptr %.176142.i, i64 %.idx.i98.i
-  %109 = getelementptr inbounds i8, ptr %108, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %110, align 8
   %112 = lshr i32 %111, 4
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %113
+  %114 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = or i8 %115, 1
   store i8 %116, ptr %114, align 1
@@ -277,12 +277,12 @@ push.exit105.i:                                   ; preds = %124, %97
   %137 = icmp eq i32 %136, 2
   %.idx.i106.i = select i1 %137, i64 0, i64 -64
   %138 = getelementptr inbounds i8, ptr %133, i64 %.idx.i106.i
-  %139 = getelementptr inbounds i8, ptr %138, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %140, align 8
   %142 = lshr i32 %141, 4
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %143
+  %144 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = and i8 %145, -2
   store i8 %146, ptr %144, align 1
@@ -313,7 +313,7 @@ top.exit.thread.i:                                ; preds = %pop.exit.i, %top.ex
   %152 = icmp eq i32 %151, 2
   %153 = getelementptr inbounds i8, ptr %.077150.i, i64 -64
   %154 = select i1 %152, ptr %.077150.i, ptr %153
-  %155 = getelementptr inbounds i8, ptr %154, i64 56
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 56
   %156 = load ptr, ptr %155, align 8
   %157 = icmp eq ptr %.072151.i, %156
   br i1 %157, label %.thread.i, label %158
@@ -322,7 +322,7 @@ top.exit.thread.i:                                ; preds = %pop.exit.i, %top.ex
   %159 = load i32, ptr %156, align 8
   %160 = lshr i32 %159, 4
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds %struct.nodeinfo_t, ptr %8, i64 %161, i32 1
+  %162 = getelementptr inbounds nuw %struct.nodeinfo_t, ptr %8, i64 %161, i32 1
   %163 = load i8, ptr %162, align 1
   %164 = icmp ult i8 %163, 2
   br i1 %164, label %188, label %.thread.i
@@ -344,15 +344,15 @@ top.exit.thread.i:                                ; preds = %pop.exit.i, %top.ex
   %172 = and i32 %171, 3
   %173 = icmp eq i32 %172, 2
   %174 = select i1 %173, ptr %.077150.i, ptr %153
-  %175 = getelementptr inbounds i8, ptr %174, i64 56
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 56
   %176 = load ptr, ptr %175, align 8
   %177 = call ptr @agnameof(ptr noundef %176) #12
   %178 = load i32, ptr %.077150.i, align 8
   %179 = and i32 %178, 3
   %180 = icmp eq i32 %179, 3
   %.idx.i = select i1 %180, i64 0, i64 64
-  %181 = getelementptr inbounds i8, ptr %.077150.i, i64 %.idx.i
-  %182 = getelementptr inbounds i8, ptr %181, i64 56
+  %181 = getelementptr inbounds nuw i8, ptr %.077150.i, i64 %.idx.i
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 56
   %183 = load ptr, ptr %182, align 8
   %184 = call ptr @agnameof(ptr noundef %183) #12
   %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %168, ptr noundef nonnull @.str.7, ptr noundef %170, ptr noundef %177, ptr noundef %184) #12
@@ -406,7 +406,7 @@ dfs.exit:                                         ; preds = %188, %top.exit.thre
   br i1 %205, label %206, label %212
 
 206:                                              ; preds = %._crit_edge
-  %207 = getelementptr inbounds i8, ptr %1, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %208 = load ptr, ptr %207, align 8
   %.not39 = icmp eq ptr %208, null
   br i1 %.not39, label %212, label %209
@@ -418,7 +418,7 @@ dfs.exit:                                         ; preds = %188, %top.exit.thre
 
 212:                                              ; preds = %209, %206, %._crit_edge
   call void @free(ptr noundef %8) #12
-  %213 = getelementptr inbounds i8, ptr %1, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = call i32 @agwrite(ptr noundef %0, ptr noundef %214) #12
   %216 = load ptr, ptr %213, align 8

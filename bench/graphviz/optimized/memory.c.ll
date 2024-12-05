@@ -49,9 +49,9 @@ gcd.exit:                                         ; preds = %gcd.exit.loopexit, 
 
 17:                                               ; preds = %2, %gcd.exit, %5
   %18 = phi i32 [ %16, %gcd.exit ], [ 8, %5 ], [ %1, %2 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -59,7 +59,7 @@ gcd.exit:                                         ; preds = %gcd.exit.loopexit, 
 .preheader:                                       ; preds = %17, %.preheader
   %.016 = phi ptr [ %22, %.preheader ], [ %21, %17 ]
   %22 = load ptr, ptr %.016, align 8
-  %23 = getelementptr inbounds i8, ptr %.016, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #9
   tail call void @free(ptr noundef nonnull %.016) #9
@@ -81,7 +81,7 @@ define noundef ptr @getfree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %3, label %4, label %40
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #10
   %8 = icmp eq ptr %7, null
@@ -127,7 +127,7 @@ gv_alloc.exit:                                    ; preds = %4
   unreachable
 
 gv_calloc.exit:                                   ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %21, ptr %29, align 8
   %30 = icmp sgt i32 %12, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
@@ -147,7 +147,7 @@ gv_calloc.exit:                                   ; preds = %20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %gv_calloc.exit
   %37 = phi ptr [ null, %gv_calloc.exit ], [ %33, %.lr.ph ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %7, align 8
   store ptr %7, ptr %38, align 8

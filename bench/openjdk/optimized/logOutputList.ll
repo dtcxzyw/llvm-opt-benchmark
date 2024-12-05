@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %2) #4, !srcloc !6
   %4 = add nsw i32 %3, 1
   ret i32 %4
@@ -15,7 +15,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN13LogOutputLis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %2) #4, !srcloc !6
   %4 = add nsw i32 %3, -1
   ret i32 %4
@@ -25,7 +25,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN13LogOutputList
 define hidden void @_ZNK13LogOutputList21wait_until_no_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -40,7 +40,7 @@ define hidden void @_ZNK13LogOutputList21wait_until_no_readersEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.08.i = load volatile ptr, ptr %4, align 8
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %.loopexit, label %.lr.ph.i
@@ -52,7 +52,7 @@ define hidden void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4t
   br i1 %6, label %_ZNK13LogOutputList4findEPK9LogOutput.exit, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.0.i = load volatile ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
@@ -62,12 +62,12 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
   br i1 %9, label %10, label %64
 
 10:                                               ; preds = %_ZNK13LogOutputList4findEPK9LogOutput.exit
-  %11 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   br label %12
 
 12:                                               ; preds = %18, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %18 ]
-  %13 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %.010.i
   br i1 %15, label %16, label %18
@@ -89,7 +89,7 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
   br i1 %.not.i16, label %.loopexit.i, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.0.i15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %.010.i
   br i1 %22, label %23, label %.preheader, !llvm.loop !13
@@ -102,7 +102,7 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
 .loopexit.i:                                      ; preds = %.preheader, %23
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %26
 
 26:                                               ; preds = %26, %.loopexit.i
@@ -121,13 +121,13 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
 
 28:                                               ; preds = %.loopexit
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
   store ptr %1, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %2, ptr %31, align 8
   %32 = zext i32 %2 to i64
-  %33 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %32
   %34 = load volatile ptr, ptr %33, align 8
   store volatile ptr %34, ptr %30, align 8
   %35 = load volatile ptr, ptr %30, align 8
@@ -136,14 +136,14 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
 
 .lr.ph.i17:                                       ; preds = %28, %40
   %36 = load volatile ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %40, label %.critedge.i
 
 40:                                               ; preds = %.lr.ph.i17
   %41 = load volatile ptr, ptr %30, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load volatile ptr, ptr %42, align 8
   store volatile ptr %43, ptr %30, align 8
   %44 = load volatile ptr, ptr %30, align 8
@@ -167,7 +167,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %.lr.ph42.i
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, %2
   br i1 %52, label %53, label %54
@@ -192,19 +192,19 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
   br i1 %.not37.i, label %62, label %55
 
 55:                                               ; preds = %.lr.ph47.i
-  %56 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %57 = load volatile ptr, ptr %56, align 8
   %58 = load volatile ptr, ptr %30, align 8
   %59 = icmp eq ptr %57, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   store volatile ptr %29, ptr %61, align 8
   br label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit
 
 62:                                               ; preds = %55, %.lr.ph47.i
-  %63 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %.0.i20 = load volatile ptr, ptr %63, align 8
   %.not36.i = icmp eq ptr %.0.i20, null
   br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !16
@@ -219,7 +219,7 @@ _ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit: ; preds = %62, 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.08 = load volatile ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -231,7 +231,7 @@ define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef non
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.010, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.0 = load volatile ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -243,12 +243,12 @@ define hidden noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %4
 
 4:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %8, label %10
@@ -264,7 +264,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
   br i1 %exitcond.not, label %11, label %4, !llvm.loop !12
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
 13:                                               ; preds = %14, %11
@@ -274,7 +274,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
   br i1 %.not, label %.loopexit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %13, !llvm.loop !13
@@ -287,7 +287,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
 .loopexit:                                        ; preds = %13, %18
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %21
 
 21:                                               ; preds = %21, %.loopexit
@@ -311,15 +311,15 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %21
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %6, align 8
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %9, ptr %10, align 8
   %11 = load volatile ptr, ptr %10, align 8
   %.not38 = icmp eq ptr %11, null
@@ -327,14 +327,14 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
 
 .lr.ph:                                           ; preds = %3, %16
   %12 = load volatile ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %2
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %.lr.ph
   %17 = load volatile ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   store volatile ptr %19, ptr %10, align 8
   %20 = load volatile ptr, ptr %10, align 8
@@ -358,7 +358,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.lr.ph42
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp slt i32 %27, %2
   br i1 %28, label %29, label %30
@@ -373,7 +373,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   br i1 %.not35.not, label %.lr.ph42, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %30, %.critedge
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.043 = load volatile ptr, ptr %31, align 8
   %.not3644 = icmp eq ptr %.043, null
   br i1 %.not3644, label %.loopexit, label %.lr.ph47
@@ -384,19 +384,19 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   br i1 %.not37, label %39, label %32
 
 32:                                               ; preds = %.lr.ph47
-  %33 = getelementptr inbounds i8, ptr %.045, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %34 = load volatile ptr, ptr %33, align 8
   %35 = load volatile ptr, ptr %10, align 8
   %36 = icmp eq ptr %34, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.045, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   store volatile ptr %4, ptr %38, align 8
   br label %.loopexit
 
 39:                                               ; preds = %.lr.ph47, %32
-  %40 = getelementptr inbounds i8, ptr %.045, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %.0 = load volatile ptr, ptr %40, align 8
   %.not36 = icmp eq ptr %.0, null
   br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !16
@@ -409,13 +409,13 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
 define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeEN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   store ptr %4, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %7, align 8
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   store volatile ptr %10, ptr %6, align 8
   %11 = load volatile ptr, ptr %6, align 8
@@ -424,14 +424,14 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
 
 .lr.ph.i:                                         ; preds = %3, %16
   %12 = load volatile ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %2
   br i1 %15, label %16, label %.critedge.i
 
 16:                                               ; preds = %.lr.ph.i
   %17 = load volatile ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   store volatile ptr %19, ptr %6, align 8
   %20 = load volatile ptr, ptr %6, align 8
@@ -455,7 +455,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.lr.ph42.i
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp slt i32 %27, %2
   br i1 %28, label %29, label %30
@@ -470,7 +470,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   br i1 %.not35.not.i, label %.lr.ph42.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %30, %.critedge.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.043.i = load volatile ptr, ptr %31, align 8
   %.not3644.i = icmp eq ptr %.043.i, null
   br i1 %.not3644.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i
@@ -481,19 +481,19 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   br i1 %.not37.i, label %39, label %32
 
 32:                                               ; preds = %.lr.ph47.i
-  %33 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %34 = load volatile ptr, ptr %33, align 8
   %35 = load volatile ptr, ptr %6, align 8
   %36 = icmp eq ptr %34, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   store volatile ptr %5, ptr %38, align 8
   br label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit
 
 39:                                               ; preds = %32, %.lr.ph47.i
-  %40 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %.0.i = load volatile ptr, ptr %40, align 8
   %.not36.i = icmp eq ptr %.0.i, null
   br i1 %.not36.i, label %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit, label %.lr.ph47.i, !llvm.loop !16
@@ -501,7 +501,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
 _ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit: ; preds = %39, %._crit_edge.i, %37
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %42
 
 42:                                               ; preds = %42, %_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit
@@ -511,12 +511,12 @@ _ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE.exit: ; preds = %39, 
 
 _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %45
 
 45:                                               ; preds = %51, %_ZNK13LogOutputList21wait_until_no_readersEv.exit
   %indvars.iv.i4 = phi i64 [ 1, %_ZNK13LogOutputList21wait_until_no_readersEv.exit ], [ %indvars.iv.next.i5, %51 ]
-  %46 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %indvars.iv.i4
+  %46 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %indvars.iv.i4
   %47 = load volatile ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %1
   br i1 %48, label %49, label %51
@@ -538,7 +538,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %42
   br i1 %.not.i7, label %.loopexit.i, label %52
 
 52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds i8, ptr %.0.i6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 8
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %1
   br i1 %55, label %56, label %.preheader, !llvm.loop !13
@@ -566,13 +566,13 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %58
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load volatile ptr, ptr %2, align 8
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %indvars.iv
   store volatile ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -581,7 +581,7 @@ define hidden void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 deref
 6:                                                ; preds = %4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %8
 
 8:                                                ; preds = %8, %6
@@ -596,7 +596,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %8
 
 .lr.ph:                                           ; preds = %_ZNK13LogOutputList21wait_until_no_readersEv.exit, %.lr.ph
   %.010 = phi ptr [ %11, %.lr.ph ], [ %3, %_ZNK13LogOutputList21wait_until_no_readersEv.exit ]
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %11 = load volatile ptr, ptr %10, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.010) #4
   %.not = icmp eq ptr %11, null

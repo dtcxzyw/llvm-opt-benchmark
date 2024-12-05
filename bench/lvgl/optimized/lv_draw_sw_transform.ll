@@ -447,7 +447,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br i1 %or.cond124.i, label %306, label %304
 
 304:                                              ; preds = %300, %.lr.ph.i
-  %305 = getelementptr inbounds i8, ptr %.0480, i64 %indvars.iv.i
+  %305 = getelementptr inbounds nuw i8, ptr %.0480, i64 %indvars.iv.i
   store i8 0, ptr %305, align 1, !tbaa !25
   br label %380
 
@@ -471,7 +471,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %319 = sext i32 %318 to i64
   %320 = getelementptr inbounds i8, ptr %2, i64 %319
   %321 = load i8, ptr %320, align 1, !tbaa !25
-  %322 = getelementptr inbounds i8, ptr %.0480, i64 %indvars.iv.i
+  %322 = getelementptr inbounds nuw i8, ptr %.0480, i64 %indvars.iv.i
   store i8 %321, ptr %322, align 1, !tbaa !25
   br i1 %66, label %323, label %362
 
@@ -604,7 +604,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br i1 %or.cond170.i, label %398, label %396
 
 396:                                              ; preds = %392, %.lr.ph.i221
-  %397 = getelementptr inbounds i32, ptr %.0480, i64 %indvars.iv.i223
+  %397 = getelementptr inbounds nuw i32, ptr %.0480, i64 %indvars.iv.i223
   store i32 0, ptr %397, align 4, !tbaa !28
   br label %498
 
@@ -626,8 +626,8 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %409 = getelementptr inbounds i8, ptr %2, i64 %408
   %410 = shl nuw nsw i32 %389, 2
   %411 = zext nneg i32 %410 to i64
-  %412 = getelementptr inbounds i8, ptr %409, i64 %411
-  %413 = getelementptr inbounds %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i223
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 %411
+  %413 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i223
   %414 = load i32, ptr %412, align 1
   store i32 %414, ptr %413, align 1
   %415 = lshr i32 %414, 24
@@ -651,12 +651,12 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %423 = sext i32 %.0149.i to i64
   %424 = getelementptr inbounds %struct.lv_color32_t, ptr %412, i64 %423
   %.sroa.023.sroa.0.0.copyload.i = load i24, ptr %424, align 1
-  %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %424, i64 3
+  %.sroa.528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %424, i64 3
   %.sroa.528.0.copyload.i = load i8, ptr %.sroa.528.0..sroa_idx.i, align 1, !tbaa !25
   %425 = mul nsw i32 %.0148.i, %5
   %426 = sext i32 %425 to i64
   %427 = getelementptr inbounds i8, ptr %412, i64 %426
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %427, i64 3
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %427, i64 3
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 1, !tbaa !25
   %428 = zext i8 %.sroa.5.0.copyload.i to i32
   %429 = icmp eq i8 %.sroa.5.0.copyload.i, 0
@@ -833,7 +833,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br i1 %or.cond131.i238, label %521, label %519
 
 519:                                              ; preds = %515, %.lr.ph.i234
-  %520 = getelementptr inbounds %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i236
+  %520 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i236
   store i32 0, ptr %520, align 4, !tbaa !28
   br label %601
 
@@ -857,7 +857,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %534 = sext i32 %533 to i64
   %535 = getelementptr inbounds i8, ptr %2, i64 %534
   %536 = load i8, ptr %535, align 1, !tbaa !25
-  %537 = getelementptr inbounds %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i236
+  %537 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0480, i64 %indvars.iv.i236
   store i8 %536, ptr %537, align 1, !tbaa !32
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 1
   store i8 %536, ptr %538, align 1, !tbaa !33
@@ -1001,7 +1001,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br i1 %or.cond129.i, label %620, label %617
 
 617:                                              ; preds = %613, %.lr.ph.i249
-  %618 = getelementptr inbounds %struct.lv_color16a_t, ptr %.0480, i64 %indvars.iv.i251
+  %618 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0480, i64 %indvars.iv.i251
   store i8 0, ptr %618, align 1, !tbaa !36
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 1
   store i8 0, ptr %619, align 1, !tbaa !38
@@ -1027,7 +1027,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   %633 = sext i32 %632 to i64
   %634 = getelementptr inbounds i8, ptr %2, i64 %633
   %635 = load i8, ptr %634, align 1, !tbaa !25
-  %636 = getelementptr inbounds %struct.lv_color16a_t, ptr %.0480, i64 %indvars.iv.i251
+  %636 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0480, i64 %indvars.iv.i251
   store i8 %635, ptr %636, align 1, !tbaa !36
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 1
   store i8 -1, ptr %637, align 1, !tbaa !38
@@ -1194,7 +1194,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br i1 %or.cond170, label %34, label %32
 
 32:                                               ; preds = %28, %16
-  %33 = getelementptr inbounds %struct.lv_color32_t, ptr %9, i64 %indvars.iv, i32 3
+  %33 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv, i32 3
   store i8 0, ptr %33, align 1, !tbaa !29
   br label %106
 
@@ -1216,12 +1216,12 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   %45 = add i32 %43, %44
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = load i8, ptr %48, align 1, !tbaa !25
-  %50 = getelementptr inbounds %struct.lv_color32_t, ptr %9, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
   store i8 %49, ptr %51, align 1, !tbaa !34
-  %52 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store i8 %53, ptr %54, align 1, !tbaa !33
@@ -1249,17 +1249,17 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   %64 = mul nsw i32 %.0155, %11
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %47, i64 %65
-  %67 = getelementptr inbounds i8, ptr %66, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = load i8, ptr %67, align 1, !tbaa !25
-  %69 = getelementptr inbounds i8, ptr %66, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !25
   %71 = load i8, ptr %66, align 1, !tbaa !25
   %72 = mul nsw i32 %.0156, %3
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %47, i64 %73
-  %75 = getelementptr inbounds i8, ptr %74, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i8, ptr %75, align 1, !tbaa !25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !25
   %79 = load i8, ptr %74, align 1, !tbaa !25
   %80 = load i32, ptr %50, align 1
@@ -1389,7 +1389,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   br i1 %or.cond182, label %39, label %37
 
 37:                                               ; preds = %33, %21
-  %38 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 0, ptr %38, align 1, !tbaa !25
   br label %151
 
@@ -1413,9 +1413,9 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   %52 = getelementptr inbounds i8, ptr %0, i64 %51
   %53 = shl nuw nsw i32 %30, 1
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !42
-  %57 = getelementptr inbounds i16, ptr %9, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
   store i16 %56, ptr %57, align 2, !tbaa !42
   br i1 %12, label %58, label %122
 
@@ -1449,7 +1449,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %16, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !25
-  %78 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %77, ptr %78, align 1, !tbaa !25
   %79 = getelementptr inbounds i8, ptr %76, i64 %65
   %80 = load i8, ptr %79, align 1, !tbaa !25
@@ -1499,7 +1499,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   br i1 %110, label %113, label %151
 
 111:                                              ; preds = %64
-  %112 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 -1, ptr %112, align 1, !tbaa !25
   br label %113
 
@@ -1547,7 +1547,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   %135 = mul nuw nsw i32 %134, %133
   %136 = lshr i32 %135, 8
   %137 = trunc nuw i32 %136 to i8
-  %138 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %137, ptr %138, align 1, !tbaa !25
   br label %151
 
@@ -1566,12 +1566,12 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   %145 = mul nuw nsw i32 %144, %143
   %146 = lshr i32 %145, 8
   %147 = trunc nuw i32 %146 to i8
-  %148 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %147, ptr %148, align 1, !tbaa !25
   br label %151
 
 149:                                              ; preds = %139
-  %150 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %.0, ptr %150, align 1, !tbaa !25
   br label %151
 

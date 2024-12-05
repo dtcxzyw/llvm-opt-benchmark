@@ -55,7 +55,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @open_console(ptr nocapture noundef readonly %ui) #3 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %ui, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %ui, i64 48
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -248,7 +248,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %lock = getelementptr inbounds i8, ptr %ui, i64 48
+  %lock = getelementptr inbounds nuw i8, ptr %ui, i64 48
   %4 = load ptr, ptr %lock, align 8
   %call5 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #15
   ret i32 1
@@ -295,7 +295,7 @@ entry:
   store volatile i32 0, ptr @intr_signal, align 4
   store i32 0, ptr @read_string_inner.ps, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
-  %0 = getelementptr inbounds i8, ptr %sa.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 144, i1 false)
   store ptr @recsig, ptr %sa.i, align 8
   br label %for.body.i
@@ -310,7 +310,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   ]
 
 if.end7.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [32 x %struct.sigaction], ptr @savsig, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x %struct.sigaction], ptr @savsig, i64 0, i64 %indvars.iv.i
   %call.i = call i32 @sigaction(i32 noundef %1, ptr noundef nonnull %sa.i, ptr noundef nonnull %arrayidx.i) #15
   br label %for.inc.i
 
@@ -457,7 +457,7 @@ for.body.i19:                                     ; preds = %if.end45, %for.inc.
   ]
 
 if.end4.i:                                        ; preds = %for.body.i19
-  %arrayidx.i24 = getelementptr inbounds [32 x %struct.sigaction], ptr @savsig, i64 0, i64 %indvars.iv.i20
+  %arrayidx.i24 = getelementptr inbounds nuw [32 x %struct.sigaction], ptr @savsig, i64 0, i64 %indvars.iv.i20
   %call.i25 = call i32 @sigaction(i32 noundef %13, ptr noundef nonnull %arrayidx.i24, ptr noundef null) #15
   br label %for.inc.i21
 

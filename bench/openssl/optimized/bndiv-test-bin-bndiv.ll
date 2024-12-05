@@ -66,7 +66,7 @@ if.then2:                                         ; preds = %entry
   %div.zext = zext nneg i32 %div16 to i64
   %and6 = and i32 %conv, 64
   %and9 = and i32 %conv, 128
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %3 = sub nsw i32 %2, %div16
   br label %if.end10
 
@@ -89,7 +89,7 @@ cond.false:                                       ; preds = %if.end10
 
 cond.end:                                         ; preds = %if.end10
   tail call void @BN_set_negative(ptr noundef %5, i32 noundef %s1.0) #5
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.0, i64 %l1.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.0, i64 %l1.0
   %6 = load ptr, ptr @b2, align 8
   %call15 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr, i32 noundef %l2.0, ptr noundef %6) #5
   %7 = load ptr, ptr @b2, align 8

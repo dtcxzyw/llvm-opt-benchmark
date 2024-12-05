@@ -572,7 +572,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %354
 
 354:                                              ; preds = %351, %347
-  %355 = getelementptr inbounds i32, ptr %66, i64 %333
+  %355 = getelementptr inbounds nuw i32, ptr %66, i64 %333
   br i1 %switch, label %358, label %356
 
 356:                                              ; preds = %354
@@ -615,8 +615,8 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %376 = add i32 %reass.sub49, 1
   store i32 %376, ptr %31, align 4, !tbaa !3
   %377 = getelementptr inbounds double, ptr %65, i64 %364
-  %378 = getelementptr inbounds double, ptr %63, i64 %333
-  %379 = getelementptr inbounds double, ptr %64, i64 %333
+  %378 = getelementptr inbounds nuw double, ptr %63, i64 %333
+  %379 = getelementptr inbounds nuw double, ptr %64, i64 %333
   %380 = getelementptr inbounds double, ptr %65, i64 %.pre-phi60
   call void @dtgsna_(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef %27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef nonnull %4, ptr noundef nonnull %377, ptr noundef nonnull %4, ptr noundef nonnull %378, ptr noundef nonnull %379, ptr noundef nonnull %39, ptr noundef nonnull %35, ptr noundef nonnull %380, ptr noundef nonnull %31, ptr noundef %26, ptr noundef nonnull %34) #7
   %.pre57 = load i32, ptr %30, align 4, !tbaa !3
@@ -649,7 +649,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 395:                                              ; preds = %.loopexit40, %390
   %396 = phi i64 [ 1, %390 ], [ %469, %.loopexit40 ]
-  %397 = getelementptr inbounds double, ptr %54, i64 %396
+  %397 = getelementptr inbounds nuw double, ptr %54, i64 %396
   %398 = load double, ptr %397, align 8, !tbaa !7
   %399 = fcmp olt double %398, 0.000000e+00
   br i1 %399, label %.loopexit40, label %400
@@ -774,7 +774,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 479:                                              ; preds = %.loopexit, %474
   %480 = phi i64 [ 1, %474 ], [ %553, %.loopexit ]
-  %481 = getelementptr inbounds double, ptr %54, i64 %480
+  %481 = getelementptr inbounds nuw double, ptr %54, i64 %480
   %482 = load double, ptr %481, align 8, !tbaa !7
   %483 = fcmp olt double %482, 0.000000e+00
   br i1 %483, label %.loopexit, label %484

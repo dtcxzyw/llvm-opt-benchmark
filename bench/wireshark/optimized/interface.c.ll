@@ -24,7 +24,7 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %.preheader.i, %27
   %.01219.i = phi ptr [ %.012.i, %27 ], [ %.01216.i, %.preheader.i ]
   %.118.i = phi ptr [ %.2.i, %27 ], [ null, %.preheader.i ]
-  %4 = getelementptr inbounds i8, ptr %.01219.i, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.01219.i, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
@@ -39,13 +39,13 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = call nonnull ptr @ws_inet_ntop4(ptr noundef nonnull %11, ptr noundef nonnull %2, i64 noundef 46) #5
   br label %17
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = call nonnull ptr @ws_inet_ntop6(ptr noundef nonnull %15, ptr noundef nonnull %2, i64 noundef 46) #5
   br label %17
 

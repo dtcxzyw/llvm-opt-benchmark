@@ -21,9 +21,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not, label %42, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fsub float %19, %21
   %23 = fmul float %22, 5.000000e-01
@@ -35,10 +35,10 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %29 = fdiv float %25, %28
   %30 = fadd float %24, %29
   %31 = fadd float %19, %21
-  %32 = getelementptr inbounds i8, ptr %4, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %33 = load float, ptr %32, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %30, float %31, float %33)
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load float, ptr %35, align 4
   %37 = fadd float %36, %34
   %38 = fmul float %21, %30
@@ -49,14 +49,14 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 42:                                               ; preds = %15
   %43 = load float, ptr %3, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %45 = load float, ptr %44, align 4
   %46 = fsub float %43, %45
   %47 = fmul float %46, 5.000000e-01
   %48 = load float, ptr %2, align 4
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load float, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load float, ptr %51, align 4
   %53 = fsub float %52, %45
   %54 = fsub float %53, %47
@@ -65,7 +65,7 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %57 = fadd float %43, %45
   %58 = load float, ptr %4, align 4
   %59 = tail call float @llvm.fmuladd.f32(float %56, float %57, float %58)
-  %60 = getelementptr inbounds i8, ptr %4, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %61 = load float, ptr %60, align 4
   %62 = fadd float %61, %59
   %63 = fmul float %43, %56
@@ -132,16 +132,16 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %105 = fsub float %104, %.sink
   %106 = fdiv float %103, %105
   %107 = fadd float %102, %106
-  %108 = getelementptr inbounds i8, ptr %4, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %3, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %111 = load float, ptr %110, align 4
   %112 = fsub float %111, %.sink
   %113 = fdiv float %109, %112
   %114 = fadd float %107, %113
-  %115 = getelementptr inbounds i8, ptr %4, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %116 = load float, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %3, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %118 = load float, ptr %117, align 4
   %119 = fsub float %118, %.sink
   %120 = fdiv float %116, %119
@@ -161,12 +161,12 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %129 = load i32, ptr %1, align 4
   %.not326 = icmp eq i32 %129, 0
   %.sink390.in.idx = select i1 %.not326, i64 0, i64 4
-  %.sink390.in = getelementptr inbounds i8, ptr %3, i64 %.sink390.in.idx
+  %.sink390.in = getelementptr inbounds nuw i8, ptr %3, i64 %.sink390.in.idx
   %.sink388 = select i1 %.not326, i64 4, i64 8
   %.sink390 = load float, ptr %.sink390.in, align 4
   %130 = fsub float %.sink390, %128
   %131 = tail call noundef float @llvm.fabs.f32(float %130)
-  %132 = getelementptr inbounds i8, ptr %3, i64 %.sink388
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink388
   %133 = load float, ptr %132, align 4
   %134 = fsub float %133, %128
   %135 = tail call noundef float @llvm.fabs.f32(float %134)
@@ -187,13 +187,13 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 141:                                              ; preds = %139, %141
   %indvars.iv = phi i64 [ 1, %139 ], [ %indvars.iv.next, %141 ]
-  %142 = getelementptr inbounds float, ptr %12, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %143 = load float, ptr %142, align 4
   %144 = fmul float %., %143
   %145 = add nsw i64 %indvars.iv, -1
   %146 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %145
   store float %144, ptr %146, align 4
-  %147 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %148 = load float, ptr %147, align 4
   %149 = fmul float %., %148
   %150 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %145
@@ -243,9 +243,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %172, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %9, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %174 = load float, ptr %173, align 4
-  %175 = getelementptr inbounds i8, ptr %9, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %176 = load float, ptr %175, align 4
   %177 = load float, ptr %9, align 4
   br label %180

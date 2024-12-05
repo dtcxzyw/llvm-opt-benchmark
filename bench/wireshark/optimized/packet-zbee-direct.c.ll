@@ -248,7 +248,7 @@ define internal void @zb_direct_init() #2 {
   %indvars.iv13 = phi i64 [ 0, %0 ], [ 1, %.critedge ]
   %3 = getelementptr [2 x %struct.encryption_states_handler_s], ptr @enc_h, i64 0, i64 %indvars.iv13
   store i16 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %5
 
 5:                                                ; preds = %1, %8
@@ -339,7 +339,7 @@ define internal void @uat_key_records_zdd_ieee_tostr_cb(ptr nocapture noundef re
 define internal void @uat_key_records_zvd_ieee_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #10
   store ptr %7, ptr %8, align 8
@@ -348,7 +348,7 @@ define internal void @uat_key_records_zvd_ieee_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_key_records_zvd_ieee_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -376,7 +376,7 @@ define internal void @uat_key_records_zvd_ieee_tostr_cb(ptr nocapture noundef re
 define internal void @uat_key_records_key_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #10
   store ptr %7, ptr %8, align 8
@@ -385,7 +385,7 @@ define internal void @uat_key_records_key_set_cb(ptr nocapture noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_key_records_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -413,7 +413,7 @@ define internal void @uat_key_records_key_tostr_cb(ptr nocapture noundef readonl
 define internal void @uat_key_records_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #10
   store ptr %7, ptr %8, align 8
@@ -422,7 +422,7 @@ define internal void @uat_key_records_label_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_key_records_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -453,20 +453,20 @@ define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeon
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #10
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @g_strdup(ptr noundef %11) #10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %17, align 8
   ret ptr %0
 }
@@ -483,7 +483,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br label %zbd_parse_uat_hexline.exit76.sink.split
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -493,7 +493,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br label %zbd_parse_uat_hexline.exit76.sink.split
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
@@ -779,13 +779,13 @@ zbd_parse_uat_hexline.exit76:                     ; preds = %123, %107, %zbd_par
 define internal void @uat_key_record_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #10
   ret void
@@ -809,7 +809,7 @@ define internal void @uat_key_record_post_update() #0 {
   br i1 %.not17, label %.lr.ph87, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.082, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.082, i64 8
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !9
@@ -824,17 +824,17 @@ define internal void @uat_key_record_post_update() #0 {
 
 .lr.ph89:                                         ; preds = %.preheader
   %14 = load ptr, ptr @g_ascii_table, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %25
 
 .lr.ph87:                                         ; preds = %.lr.ph, %.lr.ph87
   %.186 = phi ptr [ %22, %.lr.ph87 ], [ %.082, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %.186, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.186, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @zbee_pc_keyring, align 8
   %24 = tail call ptr @g_slist_remove_link(ptr noundef %23, ptr noundef nonnull %.186) #10
@@ -1185,7 +1185,7 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
   %2 = phi ptr [ @.str.75, %0 ], [ %10, %1 ]
   %3 = phi ptr [ @proto_reg_handoff_zb_direct.services, %0 ], [ %9, %1 ]
   %.04 = phi i64 [ 0, %0 ], [ %8, %1 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_zb_direct, align 4
   %7 = tail call ptr @create_dissector_handle(ptr noundef %5, i32 noundef %6) #10
@@ -1206,7 +1206,7 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
 define internal range(i32 1, 34) i32 @dissect_zb_direct_dump_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.zb_direct_key_record_t, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.55) #10
   %9 = load i32, ptr @proto_zb_direct, align 4
@@ -1222,13 +1222,13 @@ define internal range(i32 1, 34) i32 @dissect_zb_direct_dump_info(ptr noundef %0
   br i1 %.not.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 4
@@ -1248,21 +1248,21 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   call void @col_append_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.102) #10
   %28 = load i32, ptr @hf_zb_direct_info_key, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #10
-  %30 = getelementptr inbounds i8, ptr %6, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %31 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %30, i32 noundef 1, i64 noundef 16) #10
   %32 = load i32, ptr @hf_zb_direct_info_zdd_ieee, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %32, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef -2147483648) #10
-  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %35 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %34, i32 noundef 17, i64 noundef 8) #10
   %36 = load i32, ptr @hf_zb_direct_info_zvd_ieee, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %36, ptr noundef %0, i32 noundef 25, i32 noundef 8, i32 noundef -2147483648) #10
-  %38 = getelementptr inbounds i8, ptr %6, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %39 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %38, i32 noundef 25, i64 noundef 8) #10
-  %40 = getelementptr inbounds i8, ptr %1, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %6, align 8
   %42 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.103, i32 noundef %41) #10
-  %43 = getelementptr inbounds i8, ptr %6, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %42, ptr %43, align 8
   %44 = load ptr, ptr @zbee_pc_keyring, align 8
   %45 = icmp eq ptr %44, null
@@ -1295,7 +1295,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
 
 61:                                               ; preds = %60
   %.not9.i = icmp eq i16 %56, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 20
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br i1 %.not9.i, label %.thread.i, label %62
 
@@ -1321,7 +1321,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
   br i1 %59, label %87, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %57, -1
   %76 = zext nneg i32 %75 to i64
@@ -1390,20 +1390,20 @@ define internal i32 @dissect_zb_direct_formation(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %12, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.113) #10
   %.not = icmp eq ptr %8, null
@@ -1435,20 +1435,20 @@ define internal noundef i32 @dissect_zb_direct_leave(ptr noundef %0, ptr noundef
   br i1 %.not.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 2
   store i32 %20, ptr %18, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %14, %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.114) #10
   %23 = tail call i32 @tvb_reported_length(ptr noundef %12) #10
@@ -1492,20 +1492,20 @@ define internal i32 @dissect_zb_direct_join(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %12, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.118) #10
   %.not = icmp eq ptr %8, null
@@ -1536,20 +1536,20 @@ define internal i32 @dissect_zb_direct_permit_join(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %13, %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.119) #10
   %22 = tail call i32 @tvb_reported_length(ptr noundef %11) #10
@@ -1593,20 +1593,20 @@ define internal i32 @dissect_zb_direct_status(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %12, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.122) #10
   %21 = tail call i32 @dissect_zbee_tlvs(ptr noundef %10, ptr noundef %1, ptr noundef %8, i32 noundef %7, ptr noundef %3, i8 noundef zeroext 4, i32 noundef 4) #10
@@ -1628,20 +1628,20 @@ define internal i32 @dissect_zb_direct_manage_joiners(ptr noundef %0, ptr nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %12, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.123) #10
   %.not = icmp eq ptr %8, null
@@ -1672,20 +1672,20 @@ define internal noundef i32 @dissect_zb_direct_identify(ptr noundef %0, ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %13, %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.124) #10
   %22 = tail call i32 @tvb_reported_length(ptr noundef %11) #10
@@ -1731,20 +1731,20 @@ define internal noundef i32 @dissect_zb_direct_finding_binding(ptr noundef %0, p
   br i1 %.not.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 2
   store i32 %20, ptr %18, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %4, %14, %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.127) #10
   %23 = tail call i32 @tvb_reported_length(ptr noundef %12) #10
@@ -1786,13 +1786,13 @@ define internal i32 @dissect_zb_direct_tunneling(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
@@ -1838,7 +1838,7 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @zbd_free_key_record(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #10
   tail call void @g_free(ptr noundef %0) #10
@@ -1865,7 +1865,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
   %13 = alloca [264 x i8], align 16
   %14 = alloca %struct.zb_secur_ccm_nonce_s, align 8
   %15 = alloca [6 x i8], align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.55) #10
   %18 = load ptr, ptr %2, align 8
@@ -1894,7 +1894,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
 
 .lr.ph.i.i:                                       ; preds = %27
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = add nuw nsw i64 %30, 4294967295
   %34 = and i64 %33, 4294967295
@@ -1928,22 +1928,22 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %48, i32 noundef 0) #10
   %.fr = freeze i32 %49
   %50 = trunc i32 %.fr to i16
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 512) #10
   %54 = load ptr, ptr @zbee_pc_keyring, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %15)
-  %55 = getelementptr inbounds i8, ptr %1, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %56 = call i32 @address_to_bytes(ptr noundef nonnull %55, ptr noundef nonnull %15, i32 noundef 6) #10
   %57 = load i8, ptr %15, align 1
   %58 = xor i8 %57, 2
-  %59 = getelementptr inbounds i8, ptr %15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %15, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %15, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 3
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %15, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %66 = load i16, ptr %65, align 1
   %67 = zext i16 %66 to i64
   %68 = shl nuw i64 %67, 48
@@ -1966,7 +1966,7 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br i1 %76, label %77, label %.lr.ph.i
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %79 = load ptr, ptr %78, align 8
   %.old2.not.i = icmp eq ptr %79, null
   br i1 %.old2.not.i, label %._crit_edge.i, label %73
@@ -1977,16 +1977,16 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
 
 .lr.ph.i:                                         ; preds = %73, %.critedge.i
   %.05655.i = phi ptr [ %54, %.critedge.i ], [ %.1.i, %73 ]
-  %80 = getelementptr inbounds i8, ptr %14, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %81 = getelementptr i8, ptr %3, i64 16
-  %82 = getelementptr inbounds i8, ptr %12, i64 16
-  %83 = getelementptr inbounds i8, ptr %12, i64 17
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 17
   %84 = getelementptr i8, ptr %4, i64 16
-  %85 = getelementptr inbounds i8, ptr %12, i64 33
-  %86 = getelementptr inbounds i8, ptr %11, i64 8
-  %87 = getelementptr inbounds i8, ptr %9, i64 16
-  %88 = getelementptr inbounds i8, ptr %9, i64 17
-  %89 = getelementptr inbounds i8, ptr %9, i64 33
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 17
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %90 = and i32 %.fr, 65535
   %91 = icmp ult i16 %50, 8
   %92 = add i32 %.fr, 65532
@@ -1998,7 +1998,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %.227.i.us = phi ptr [ %98, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05655.i, %.lr.ph.i ]
   %95 = load ptr, ptr %0, align 8
   %96 = call ptr @tvb_get_ptr(ptr noundef %95, i32 noundef 0, i32 noundef %90) #10
-  %97 = getelementptr inbounds i8, ptr %.227.i.us, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.227.i.us, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not115.i.us = icmp eq ptr %98, null
   br i1 %.not115.i.us, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !15
@@ -2008,7 +2008,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %99 = load ptr, ptr %0, align 8
   %100 = call ptr @tvb_get_ptr(ptr noundef %99, i32 noundef 0, i32 noundef %90) #10
   %101 = load ptr, ptr %.227.i, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %.val.i = load i64, ptr %102, align 1
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %13)
@@ -2031,7 +2031,7 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   br i1 %exitcond.not.i.i.i.i.i, label %memcpy_reverse.exit.i.i.i.i, label %.preheader47.i, !llvm.loop !11
 
 memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader47.i
-  %109 = getelementptr inbounds i8, ptr %101, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i8 0, ptr %82, align 16
   br label %110
 
@@ -2047,7 +2047,7 @@ memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader47.i
   br i1 %exitcond.not.i7.i.i.i.i, label %create_auth_string.exit.i.i.i, label %110, !llvm.loop !11
 
 create_auth_string.exit.i.i.i:                    ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %101, i64 20
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 20
   %117 = getelementptr i8, ptr %100, i64 4
   store i8 0, ptr %85, align 1
   %118 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %116, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %117, ptr noundef nonnull %13, i32 noundef 34, i32 noundef %94, i32 noundef 4) #10
@@ -2122,7 +2122,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11)
-  %137 = getelementptr inbounds i8, ptr %.227.i, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.227.i, i64 8
   %138 = load ptr, ptr %137, align 8
   %.not115.i = icmp eq ptr %138, null
   br i1 %.not115.i, label %._crit_edge.i, label %.preheader47.i.preheader, !llvm.loop !15
@@ -2138,7 +2138,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   br i1 %.not45.i, label %.loopexit.thread.i, label %.lr.ph42.i
 
 .lr.ph42.i:                                       ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %8, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6.0.insert.ext.i = zext i8 %64 to i64
   %.sroa.6.0.insert.shift.i = shl nuw nsw i64 %.sroa.6.0.insert.ext.i, 40
   %.sroa.3.0.insert.ext.i = zext i8 %62 to i64
@@ -2152,10 +2152,10 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %.sroa.0.0.insert.mask.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %68
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.mask.i, 1095199883264
   %143 = getelementptr i8, ptr %3, i64 16
-  %144 = getelementptr inbounds i8, ptr %6, i64 16
-  %145 = getelementptr inbounds i8, ptr %6, i64 17
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %146 = getelementptr i8, ptr %4, i64 16
-  %147 = getelementptr inbounds i8, ptr %6, i64 33
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %148 = load ptr, ptr %141, align 8
   %149 = load ptr, ptr %148, align 8
   %.not46.i = icmp eq ptr %149, null
@@ -2186,7 +2186,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %162 = load ptr, ptr %0, align 8
   %163 = call ptr @tvb_get_ptr(ptr noundef %162, i32 noundef 0, i32 noundef %150) #10
   %164 = load ptr, ptr %.431.i, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %8)
@@ -2242,7 +2242,7 @@ create_auth_string.exit.i.i:                      ; preds = %172
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8)
-  %182 = getelementptr inbounds i8, ptr %.431.i, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %.431.i, i64 8
   %183 = load ptr, ptr %182, align 8
   br label %184
 
@@ -2332,13 +2332,13 @@ switch.lookup:
   br i1 %.not.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %switch.lookup
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not5.i = icmp eq ptr %17, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4
@@ -2363,7 +2363,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
   br i1 %31, label %zb_direct_encryption_disable.exit.thread, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %29, -1
   %36 = zext nneg i32 %35 to i64
@@ -2381,7 +2381,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15,
 
 43:                                               ; preds = %39
   %.not9.i = icmp eq i16 %40, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 20
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br i1 %.not9.i, label %zb_direct_encryption_disable.exit.thread.sink.split, label %44
 
@@ -2419,7 +2419,7 @@ zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_gene
   %57 = phi i32 [ %53, %zb_direct_encryption_disable.exit.thread ], [ %54, %zb_direct_encryption_disable.exit ]
   %58 = add nuw nsw i64 %26, 4294967295
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr [5 x %struct._value_string], ptr @msg_type_str, i64 0, i64 %59, i32 1
   %63 = load ptr, ptr %62, align 8
@@ -2429,7 +2429,7 @@ zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_gene
 64:                                               ; preds = %zb_direct_encryption_disable.exit
   %65 = load i32, ptr @hf_zb_direct_unrecognized_msg, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %13, i32 noundef 0, i32 noundef %7, i32 noundef 0) #10
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   tail call void @col_set_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.112) #10
   br label %69

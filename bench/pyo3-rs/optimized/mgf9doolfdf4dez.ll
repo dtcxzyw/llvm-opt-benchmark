@@ -13,7 +13,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd8b4c893838ffc86E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
@@ -32,7 +32,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 
 16:                                               ; preds = %12, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ %15, %12 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE"(ptr nonnull align 8 %0, i64 %.sroa.0.0, ptr nonnull align 8 %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator8for_each17ha34b7b1f6e42a50bE(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
@@ -46,7 +46,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
   %5 = alloca [24 x i8], align 8
   %6 = alloca [72 x i8], align 8
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha286efe98e52009cE"(ptr nonnull sret([72 x i8]) align 8 %6, ptr align 8 %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %12
@@ -65,7 +65,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 
 16:                                               ; preds = %12, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ %15, %12 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E"(ptr nonnull align 8 %0, i64 %.sroa.0.0, ptr nonnull align 8 %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator8for_each17hc055d80855c621e6E(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
@@ -78,7 +78,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %7 = load ptr, ptr %0, align 8
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb73a764e46566433E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %7, ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -93,7 +93,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = invoke i64 @_ZN4core4hash11BuildHasher8hash_one17hf2413a228893a99bE(ptr nonnull align 8 %6, ptr nonnull align 8 %4)
           to label %8 unwind label %19
 
@@ -143,9 +143,9 @@ define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..default..Default$GT$7default17hf57d565c48ce3e01E"()
   %3 = extractvalue { i64, i64 } %2, 1
   %4 = extractvalue { i64, i64 } %2, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %3, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.5bad72285d763db287507f59aced23ad.1, i64 32, i1 false)
   ret void
@@ -188,7 +188,7 @@ define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h175d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h0bcf59bc14b6a3adE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0ddaefb09d058598E"(ptr align 1 %3, i64 %5, ptr align 8 %1)
   ret i1 %6
@@ -210,13 +210,13 @@ define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hddd04b21d5eaf480E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17hf2413a228893a99bE(ptr nonnull align 8 %7, ptr align 8 %1)
   %9 = tail call align 8 ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hfce1c2c466ab3fb9E"(ptr nonnull align 8 %0, i64 %8, ptr align 8 %1)
   %.not = icmp ne ptr %9, null
@@ -229,17 +229,17 @@ define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_ke
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd0f1cebd42ffc927E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h7fbff2d9f14848caE(ptr nonnull align 8 %8, ptr align 1 %1, i64 %2)
   %10 = tail call align 8 ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h294be89ef765e6c7E"(ptr nonnull align 8 %0, i64 %9, ptr align 1 %1, i64 %2)
   %11 = icmp eq ptr %10, null
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %spec.select = select i1 %11, ptr null, ptr %12
   br label %13
 
@@ -253,14 +253,14 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hd01b5bcabf5
   %.sroa.0 = alloca [32 x i8], align 8
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h6a49c2ebf0d8c65cE"(ptr %3, i64 0)
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   call void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h0ad9212317e6bcc1E"(ptr nonnull sret([32 x i8]) align 8 %.sroa.0, ptr %3, ptr %4, i64 %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
@@ -268,7 +268,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hd01b5bcabf5
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h880dd191d6fc5516E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = invoke i64 @_ZN4core4hash11BuildHasher8hash_one17hf2413a228893a99bE(ptr nonnull align 8 %4, ptr align 8 %1)
           to label %6 unwind label %18
 
@@ -315,7 +315,7 @@ define noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb73a764e46566433E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = invoke i64 @_ZN4core4hash11BuildHasher8hash_one17h83bd99f09480621cE(ptr nonnull align 8 %7, ptr align 8 %2)
           to label %9 unwind label %22
 
@@ -340,7 +340,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb73a764e4
 17:                                               ; preds = %11
   %18 = ptrtoint ptr %13 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %20 = call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17he460ed21ffce275aE"(ptr align 8 %1, i64 %8, i64 %18, ptr nonnull align 8 %5)
   store i64 -9223372036854775808, ptr %0, align 8

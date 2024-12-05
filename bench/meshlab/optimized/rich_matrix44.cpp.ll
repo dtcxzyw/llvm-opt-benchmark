@@ -71,13 +71,13 @@ define noundef zeroext i1 @_ZN12RichMatrix44eqERK13RichParameter(ptr noundef non
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %13 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #8
   br i1 %13, label %14, label %.critedge
@@ -85,12 +85,12 @@ define noundef zeroext i1 @_ZN12RichMatrix44eqERK13RichParameter(ptr noundef non
 14:                                               ; preds = %10
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %4, ptr noundef nonnull align 8 dereferenceable(8) %19)
   br label %.preheader.i
@@ -108,9 +108,9 @@ define noundef zeroext i1 @_ZN12RichMatrix44eqERK13RichParameter(ptr noundef non
 25:                                               ; preds = %24, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
   %26 = add nuw nsw i64 %indvars.iv.i, %23
-  %27 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %26
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %26
+  %29 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %26
   %30 = load float, ptr %29, align 4
   %31 = fcmp oeq float %28, %30
   br i1 %31, label %24, label %.critedge

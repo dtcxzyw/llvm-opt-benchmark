@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 2) i32 @tls13_set_crypto_state(ptr nocapture noundef %rl, i32 %level, ptr noundef %key, i64 %keylen, ptr nocapture noundef readonly %iv, i64 noundef %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr nocapture readnone %md, ptr nocapture readnone %comp) #0 {
 entry:
-  %direction = getelementptr inbounds i8, ptr %rl, i64 28
+  %direction = getelementptr inbounds nuw i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
   %cmp = icmp eq i32 %0, 1
   %cond = zext i1 %cmp to i32
@@ -25,10 +25,10 @@ entry:
   br i1 %cmp1, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %iv2 = getelementptr inbounds i8, ptr %rl, i64 4268
+  %iv2 = getelementptr inbounds nuw i8, ptr %rl, i64 4268
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %iv2, ptr align 1 %iv, i64 %ivlen, i1 false)
   %call = tail call ptr @EVP_CIPHER_CTX_new() #5
-  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
+  %enc_ctx = getelementptr inbounds nuw i8, ptr %rl, i64 4128
   store ptr %call, ptr %enc_ctx, align 8
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %return.sink.split, label %if.end5
@@ -81,7 +81,7 @@ entry:
   %lenu = alloca i32, align 4
   %lenf = alloca i32, align 4
   %wpkt = alloca %struct.wpacket_st, align 8
-  %sequence = getelementptr inbounds i8, ptr %rl, i64 4096
+  %sequence = getelementptr inbounds nuw i8, ptr %rl, i64 4096
   %cmp.not = icmp eq i64 %n_recs, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -92,9 +92,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %enc_ctx = getelementptr inbounds i8, ptr %rl, i64 4128
+  %enc_ctx = getelementptr inbounds nuw i8, ptr %rl, i64 4128
   %0 = load ptr, ptr %enc_ctx, align 8
-  %iv1 = getelementptr inbounds i8, ptr %rl, i64 4268
+  %iv1 = getelementptr inbounds nuw i8, ptr %rl, i64 4268
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #5
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -111,17 +111,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %type = getelementptr inbounds i8, ptr %recs, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %recs, i64 4
   %1 = load i32, ptr %type, align 4
   %cmp8 = icmp eq i32 %1, 21
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %lor.lhs.false, %if.end5
-  %data = getelementptr inbounds i8, ptr %recs, i64 32
+  %data = getelementptr inbounds nuw i8, ptr %recs, i64 32
   %2 = load ptr, ptr %data, align 8
-  %input = getelementptr inbounds i8, ptr %recs, i64 40
+  %input = getelementptr inbounds nuw i8, ptr %recs, i64 40
   %3 = load ptr, ptr %input, align 8
-  %length = getelementptr inbounds i8, ptr %recs, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %recs, i64 8
   %4 = load i64, ptr %length, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %4, i1 false)
   %5 = load ptr, ptr %data, align 8
@@ -135,9 +135,9 @@ if.end12:                                         ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %if.end12
-  %length15 = getelementptr inbounds i8, ptr %recs, i64 8
+  %length15 = getelementptr inbounds nuw i8, ptr %recs, i64 8
   %6 = load i64, ptr %length15, align 8
-  %taglen = getelementptr inbounds i8, ptr %rl, i64 4296
+  %taglen = getelementptr inbounds nuw i8, ptr %rl, i64 4296
   %7 = load i64, ptr %taglen, align 8
   %add = add i64 %7, 1
   %cmp16 = icmp ult i64 %6, %add
@@ -168,7 +168,7 @@ for.body:                                         ; preds = %if.end26, %for.body
   %add31 = add nsw i64 %loop.061, %sub27
   %arrayidx32 = getelementptr inbounds i8, ptr %iv1, i64 %add31
   %8 = load i8, ptr %arrayidx32, align 1
-  %arrayidx34 = getelementptr inbounds i8, ptr %sequence, i64 %loop.061
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %sequence, i64 %loop.061
   %9 = load i8, ptr %arrayidx34, align 1
   %xor60 = xor i8 %9, %8
   %arrayidx38 = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 %add31
@@ -191,12 +191,12 @@ lor.lhs.false47:                                  ; preds = %if.end42
   br i1 %tobool.not, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %lor.lhs.false47
-  %taglen49 = getelementptr inbounds i8, ptr %rl, i64 4296
+  %taglen49 = getelementptr inbounds nuw i8, ptr %rl, i64 4296
   %10 = load i64, ptr %taglen49, align 8
   %conv50 = trunc i64 %10 to i32
-  %data51 = getelementptr inbounds i8, ptr %recs, i64 32
+  %data51 = getelementptr inbounds nuw i8, ptr %recs, i64 32
   %11 = load ptr, ptr %data51, align 8
-  %length52 = getelementptr inbounds i8, ptr %recs, i64 8
+  %length52 = getelementptr inbounds nuw i8, ptr %recs, i64 8
   %12 = load i64, ptr %length52, align 8
   %add.ptr = getelementptr inbounds i8, ptr %11, i64 %12
   %call53 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 17, i32 noundef %conv50, ptr noundef %add.ptr) #5
@@ -229,9 +229,9 @@ lor.lhs.false66:                                  ; preds = %lor.lhs.false61
   br i1 %tobool69.not, label %if.then85, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %lor.lhs.false66
-  %length71 = getelementptr inbounds i8, ptr %recs, i64 8
+  %length71 = getelementptr inbounds nuw i8, ptr %recs, i64 8
   %15 = load i64, ptr %length71, align 8
-  %taglen72 = getelementptr inbounds i8, ptr %rl, i64 4296
+  %taglen72 = getelementptr inbounds nuw i8, ptr %rl, i64 4296
   %16 = load i64, ptr %taglen72, align 8
   %add73 = add i64 %16, %15
   %call74 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %wpkt, i64 noundef %add73, i64 noundef 2) #5
@@ -275,9 +275,9 @@ lor.lhs.false95:                                  ; preds = %land.lhs.true89, %i
   br i1 %cmp98, label %return, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %lor.lhs.false95
-  %data101 = getelementptr inbounds i8, ptr %recs, i64 32
+  %data101 = getelementptr inbounds nuw i8, ptr %recs, i64 32
   %19 = load ptr, ptr %data101, align 8
-  %input102 = getelementptr inbounds i8, ptr %recs, i64 40
+  %input102 = getelementptr inbounds nuw i8, ptr %recs, i64 40
   %20 = load ptr, ptr %input102, align 8
   %21 = load i64, ptr %length71, align 8
   %conv104 = trunc i64 %21 to i32
@@ -342,7 +342,7 @@ declare i32 @tls_get_more_records(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tls13_validate_record_header(ptr noundef %rl, ptr nocapture noundef readonly %rec) #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %rec, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %if.then [
     i32 23, label %if.end
@@ -351,13 +351,13 @@ entry:
   ]
 
 lor.lhs.false:                                    ; preds = %entry
-  %is_first_handshake = getelementptr inbounds i8, ptr %rl, i64 4160
+  %is_first_handshake = getelementptr inbounds nuw i8, ptr %rl, i64 4160
   %1 = load i32, ptr %is_first_handshake, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 lor.lhs.false6:                                   ; preds = %entry
-  %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
+  %allow_plain_alerts = getelementptr inbounds nuw i8, ptr %rl, i64 4284
   %2 = load i32, ptr %allow_plain_alerts, align 4
   %tobool7.not = icmp eq i32 %2, 0
   br i1 %tobool7.not, label %if.then, label %if.end
@@ -380,7 +380,7 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %length = getelementptr inbounds i8, ptr %rec, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %rec, i64 8
   %4 = load i64, ptr %length, align 8
   %cmp11 = icmp ugt i64 %4, 16640
   br i1 %cmp11, label %if.then12, label %return
@@ -399,10 +399,10 @@ return:                                           ; preds = %if.end10, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tls13_post_process_record(ptr noundef %rl, ptr noundef %rec) #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %rec, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %rec, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 21
-  %length15.phi.trans.insert = getelementptr inbounds i8, ptr %rec, i64 8
+  %length15.phi.trans.insert = getelementptr inbounds nuw i8, ptr %rec, i64 8
   %.pre17 = load i64, ptr %length15.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end14, label %if.then
 
@@ -413,7 +413,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %for.cond.preheader, label %if.then4
 
 for.cond.preheader:                               ; preds = %if.then
-  %data = getelementptr inbounds i8, ptr %rec, i64 32
+  %data = getelementptr inbounds nuw i8, ptr %rec, i64 32
   %.pre.pre = load ptr, ptr %data, align 8
   br label %for.cond
 
@@ -476,7 +476,7 @@ declare i32 @tls_initialise_write_packets_default(ptr noundef, ptr noundef, i64 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext range(i8 21, 24) i8 @tls13_get_record_type(ptr nocapture noundef readonly %rl, ptr nocapture noundef readonly %template) #2 {
 entry:
-  %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
+  %allow_plain_alerts = getelementptr inbounds nuw i8, ptr %rl, i64 4284
   %0 = load i32, ptr %allow_plain_alerts, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -499,7 +499,7 @@ declare i32 @tls_prepare_record_header_default(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tls13_add_record_padding(ptr noundef %rl, ptr nocapture noundef readonly %thistempl, ptr noundef %thispkt, ptr nocapture noundef %thiswr) #0 {
 entry:
-  %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
+  %allow_plain_alerts = getelementptr inbounds nuw i8, ptr %rl, i64 4284
   %0 = load i32, ptr %allow_plain_alerts, align 4
   %tobool.not = icmp eq i32 %0, 0
   %.pre = load i8, ptr %thistempl, align 8
@@ -520,11 +520,11 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %length = getelementptr inbounds i8, ptr %thiswr, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %thiswr, i64 8
   %1 = load i64, ptr %length, align 8
   %add = add i64 %1, 1
   store i64 %add, ptr %length, align 8
-  %max_frag_len = getelementptr inbounds i8, ptr %rl, i64 4164
+  %max_frag_len = getelementptr inbounds nuw i8, ptr %rl, i64 4164
   %2 = load i32, ptr %max_frag_len, align 4
   %conv8 = zext i32 %2 to i64
   %cmp9 = icmp ult i64 %add, %conv8
@@ -532,13 +532,13 @@ if.end6:                                          ; preds = %if.end
 
 if.then11:                                        ; preds = %if.end6
   %sub = sub nuw nsw i64 %conv8, %add
-  %padding14 = getelementptr inbounds i8, ptr %rl, i64 4408
+  %padding14 = getelementptr inbounds nuw i8, ptr %rl, i64 4408
   %3 = load ptr, ptr %padding14, align 8
   %cmp15.not = icmp eq ptr %3, null
   br i1 %cmp15.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.then11
-  %cbarg = getelementptr inbounds i8, ptr %rl, i64 4376
+  %cbarg = getelementptr inbounds nuw i8, ptr %rl, i64 4376
   %4 = load ptr, ptr %cbarg, align 8
   %5 = load i8, ptr %thistempl, align 8
   %conv20 = zext i8 %5 to i32
@@ -546,7 +546,7 @@ if.then17:                                        ; preds = %if.then11
   br label %if.end43
 
 if.else:                                          ; preds = %if.then11
-  %block_padding = getelementptr inbounds i8, ptr %rl, i64 4184
+  %block_padding = getelementptr inbounds nuw i8, ptr %rl, i64 4184
   %6 = load i64, ptr %block_padding, align 8
   %cmp22.not = icmp eq i64 %6, 0
   br i1 %cmp22.not, label %return, label %if.then24

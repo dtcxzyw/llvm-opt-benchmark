@@ -8,27 +8,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_reg_getnumstates(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_reg_getinitialstate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_reg_getfinalstate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
@@ -36,9 +36,9 @@ define dso_local i32 @pg_reg_getfinalstate(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_reg_getnumoutarcs(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %12, label %8
 
@@ -61,7 +61,7 @@ define dso_local i32 @pg_reg_getnumoutarcs(ptr nocapture noundef readonly %0, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #1 {
   tail call void @check_stack_depth() #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = getelementptr ptr, ptr %7, i64 %8
@@ -71,7 +71,7 @@ define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, 
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %13
 
 13:                                               ; preds = %.lr.ph, %33
@@ -95,14 +95,14 @@ define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, 
   %25 = sext i32 %19 to i64
   %26 = getelementptr %struct.regex_arc_t, ptr %3, i64 %25
   store i32 %24, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.022, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %28, ptr %29, align 4
   br label %33
 
 30:                                               ; preds = %13
-  %31 = getelementptr inbounds i8, ptr %.022, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %32 = load i32, ptr %31, align 4
   tail call fastcc void @traverse_lacons(ptr noundef nonnull %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %33
@@ -120,9 +120,9 @@ define internal fastcc void @traverse_lacons(ptr nocapture noundef readonly %0, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_reg_getoutarcs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = icmp slt i32 %1, 0
   br i1 %9, label %15, label %10
 
@@ -144,9 +144,9 @@ define dso_local void @pg_reg_getoutarcs(ptr nocapture noundef readonly %0, i32 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_reg_getnumcolors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = add i32 %6, 1
@@ -155,9 +155,9 @@ define dso_local i32 @pg_reg_getnumcolors(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @pg_reg_colorisbegin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %6 = load i16, ptr %5, align 4
   %7 = sext i16 %6 to i32
   %8 = icmp eq i32 %1, %7
@@ -178,9 +178,9 @@ define dso_local range(i32 0, 2) i32 @pg_reg_colorisbegin(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @pg_reg_colorisend(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i16, ptr %5, align 8
   %7 = sext i16 %6 to i32
   %8 = icmp eq i32 %1, %7
@@ -201,30 +201,30 @@ define dso_local range(i32 0, 2) i32 @pg_reg_colorisend(ptr nocapture noundef re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_reg_getnumcharacters(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp slt i32 %1, 1
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %4, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, %7
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr %struct.colordesc, ptr %13, i64 %7
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 2
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4
   %.not12 = icmp eq i32 %20, 0
   br i1 %.not12, label %21, label %23
@@ -240,14 +240,14 @@ define dso_local i32 @pg_reg_getnumcharacters(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp slt i32 %1, 1
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds i8, ptr %6, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %11, %9
   %13 = icmp slt i32 %3, 1
@@ -255,7 +255,7 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
   br i1 %or.cond, label %.loopexit, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %struct.colordesc, ptr %16, i64 %9, i32 5
   %18 = load i32, ptr %17, align 4
@@ -264,7 +264,7 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %6, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 152
   br label %21
 
 21:                                               ; preds = %.preheader, %32

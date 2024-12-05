@@ -86,13 +86,13 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 2048
   %.not137 = icmp eq i16 %16, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not137, label %.lr.ph._crit_edge, label %17
 
@@ -133,9 +133,9 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %._crit_edge168
   %indvars.iv206 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next207, %._crit_edge168 ]
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv206
+  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv206
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not120 = icmp eq ptr %30, null
   br i1 %.not120, label %._crit_edge168, label %31
@@ -152,9 +152,9 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %._crit_edge164
   %indvars.iv201 = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next202, %._crit_edge164 ]
-  %34 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv201
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv201
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not121 = icmp eq ptr %37, null
   br i1 %.not121, label %._crit_edge152, label %38
@@ -171,16 +171,16 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph151:                                        ; preds = %.lr.ph151.preheader, %55
   %indvars.iv181 = phi i64 [ 0, %.lr.ph151.preheader ], [ %indvars.iv.next182, %55 ]
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv181
+  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv181
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 1342177280
   %or.cond140 = icmp eq i64 %45, 0
   br i1 %or.cond140, label %46, label %54
 
 46:                                               ; preds = %.lr.ph151
-  %47 = getelementptr inbounds i8, ptr %42, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %48 = load i16, ptr %47, align 8
   %49 = and i16 %48, 768
   %or.cond141 = icmp eq i16 %49, 0
@@ -208,7 +208,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   br i1 %exitcond185.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !9
 
 ._crit_edge152:                                   ; preds = %55, %.lr.ph167, %38
-  %56 = getelementptr inbounds i8, ptr %35, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 160
   %57 = load ptr, ptr %56, align 8
   %.not122 = icmp eq ptr %57, null
   br i1 %.not122, label %._crit_edge156, label %58
@@ -225,9 +225,9 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %67
   %indvars.iv186 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next187, %67 ]
-  %61 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv186
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv186
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 1342177280
   %or.cond145 = icmp eq i64 %65, 0
@@ -243,7 +243,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   br i1 %exitcond190.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !10
 
 ._crit_edge156:                                   ; preds = %67, %._crit_edge152, %58
-  %68 = getelementptr inbounds i8, ptr %35, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %69 = load ptr, ptr %68, align 8
   %.not123 = icmp eq ptr %69, null
   br i1 %.not123, label %._crit_edge160, label %70
@@ -260,9 +260,9 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph159:                                        ; preds = %.lr.ph159.preheader, %79
   %indvars.iv191 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next192, %79 ]
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv191
+  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv191
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 1342177280
   %or.cond146 = icmp eq i64 %77, 0
@@ -278,7 +278,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   br i1 %exitcond195.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !11
 
 ._crit_edge160:                                   ; preds = %79, %._crit_edge156, %70
-  %80 = getelementptr inbounds i8, ptr %35, i64 224
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 224
   %81 = load ptr, ptr %80, align 8
   %.not124 = icmp eq ptr %81, null
   br i1 %.not124, label %._crit_edge164, label %82
@@ -295,9 +295,9 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %91
   %indvars.iv196 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next197, %91 ]
-  %85 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv196
+  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv196
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = and i64 %88, 1342177280
   %or.cond147 = icmp eq i64 %89, 0
@@ -333,7 +333,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_ad
 
 .lr.ph:                                           ; preds = %1, %.lr.ph.backedge
   %.0131 = phi ptr [ %.0131.be, %.lr.ph.backedge ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.0131, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %.0131, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 536870912
   %.not73 = icmp eq i64 %4, 0
@@ -370,7 +370,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_ad
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %.0131, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %.0131, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not82 = icmp eq ptr %11, null
   br i1 %.not82, label %sema_trace_func_liveness.exit, label %.preheader106
@@ -381,7 +381,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_ad
 
 .lr.ph140:                                        ; preds = %.preheader106, %.backedge108
   %.064139 = phi ptr [ %.064.be, %.backedge108 ], [ %11, %.preheader106 ]
-  %13 = getelementptr inbounds i8, ptr %.064139, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.064139, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %sema_trace_func_liveness.exit [
@@ -394,20 +394,20 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_ad
   ]
 
 .backedge108:                                     ; preds = %.lr.ph140, %.lr.ph140, %.lr.ph140, %.lr.ph140, %.lr.ph140, %.lr.ph140
-  %.064.be.in = getelementptr inbounds i8, ptr %14, i64 56
+  %.064.be.in = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.064.be = load ptr, ptr %.064.be.in, align 8
   %16 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.064.be) #3
   br i1 %16, label %tailrecurse.backedge, label %.lr.ph140
 
 tailrecurse.backedge:                             ; preds = %.backedge111, %.backedge108, %.preheader109, %.preheader106
   %.064.lcssa.pn = phi ptr [ %11, %.preheader106 ], [ %64, %.preheader109 ], [ %.064.be, %.backedge108 ], [ %.0.i.be, %.backedge111 ]
-  %.tr.be.in = getelementptr inbounds i8, ptr %.064.lcssa.pn, i64 56
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.064.lcssa.pn, i64 56
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %.not130 = icmp eq ptr %.tr.be, null
   br i1 %.not130, label %sema_trace_func_liveness.exit, label %.lr.ph.backedge
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.0131, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %sema_trace_func_liveness.exit, label %.lr.ph.backedge
@@ -417,9 +417,9 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   br label %.lr.ph
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %.0131, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %.0131, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not77 = icmp eq ptr %24, null
   br i1 %.not77, label %.loopexit, label %.preheader97
@@ -430,7 +430,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph162:                                        ; preds = %.preheader97, %.backedge
   %.063161 = phi ptr [ %.063.be, %.backedge ], [ %24, %.preheader97 ]
-  %26 = getelementptr inbounds i8, ptr %.063161, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.063161, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %.loopexit [
@@ -443,20 +443,20 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   ]
 
 .backedge:                                        ; preds = %.lr.ph162, %.lr.ph162, %.lr.ph162, %.lr.ph162, %.lr.ph162, %.lr.ph162
-  %.063.be.in = getelementptr inbounds i8, ptr %27, i64 56
+  %.063.be.in = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.063.be = load ptr, ptr %.063.be.in, align 8
   %29 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.063.be) #3
   br i1 %29, label %._crit_edge163, label %.lr.ph162
 
 ._crit_edge163:                                   ; preds = %.backedge, %.preheader97
   %.063.lcssa = phi ptr [ %24, %.preheader97 ], [ %.063.be, %.backedge ]
-  %30 = getelementptr inbounds i8, ptr %.063.lcssa, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.063.lcssa, i64 56
   %31 = load ptr, ptr %30, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %31)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %5, %5, %5, %5, %5, %.lr.ph162, %._crit_edge163, %20
-  %32 = getelementptr inbounds i8, ptr %.0131, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
   %33 = load ptr, ptr %32, align 8
   %.not78 = icmp eq ptr %33, null
   br i1 %.not78, label %sema_trace_func_liveness.exit, label %34
@@ -473,16 +473,16 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .preheader:                                       ; preds = %.preheader.preheader, %48
   %indvars.iv188 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next189, %48 ]
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv188
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv188
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 127
   %42 = icmp eq i64 %41, 21
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %38, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 120
   %45 = load i16, ptr %44, align 8
   %46 = and i16 %45, 6144
   %or.cond = icmp eq i16 %46, 0
@@ -502,7 +502,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   unreachable
 
 50:                                               ; preds = %5
-  %51 = getelementptr inbounds i8, ptr %.0131, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %.0131, i64 96
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %._crit_edge, label %53
@@ -519,7 +519,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next, %.lr.ph135 ]
-  %56 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -527,7 +527,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph135, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph135, %50, %53
-  %58 = getelementptr inbounds i8, ptr %.0131, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
   %59 = load i32, ptr %58, align 8
   %.not26.i = icmp eq i32 %59, 0
   br i1 %.not26.i, label %sema_trace_func_liveness.exit, label %60
@@ -535,7 +535,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 60:                                               ; preds = %._crit_edge
   %61 = load ptr, ptr @type_info_arena, align 8
   %62 = zext i32 %59 to i64
-  %63 = getelementptr inbounds %struct.TypeInfo_, ptr %61, i64 %62, i32 1
+  %63 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %61, i64 %62, i32 1
   %64 = load ptr, ptr %63, align 8
   %.not27.i = icmp eq ptr %64, null
   br i1 %.not27.i, label %sema_trace_func_liveness.exit, label %.preheader109
@@ -546,7 +546,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph137:                                        ; preds = %.preheader109, %.backedge111
   %.0.i136 = phi ptr [ %.0.i.be, %.backedge111 ], [ %64, %.preheader109 ]
-  %66 = getelementptr inbounds i8, ptr %.0.i136, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %sema_trace_func_liveness.exit [
@@ -559,13 +559,13 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   ]
 
 .backedge111:                                     ; preds = %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137
-  %.0.i.be.in = getelementptr inbounds i8, ptr %67, i64 56
+  %.0.i.be.in = getelementptr inbounds nuw i8, ptr %67, i64 56
   %.0.i.be = load ptr, ptr %.0.i.be.in, align 8
   %69 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i.be) #3
   br i1 %69, label %tailrecurse.backedge, label %.lr.ph137
 
 70:                                               ; preds = %5
-  %71 = getelementptr inbounds i8, ptr %.0131, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %.0131, i64 104
   %72 = load ptr, ptr %71, align 8
   %.not.i83 = icmp eq ptr %72, null
   br i1 %.not.i83, label %._crit_edge148, label %73
@@ -582,7 +582,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
   %indvars.iv183 = phi i64 [ 0, %.lr.ph147.preheader ], [ %indvars.iv.next184, %.lr.ph147 ]
-  %76 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv183
+  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv183
   %77 = load ptr, ptr %76, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %77)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -590,7 +590,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   br i1 %exitcond187.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !16
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %70, %73
-  %78 = getelementptr inbounds i8, ptr %.0131, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %.0131, i64 96
   %79 = load i32, ptr %78, align 8
   %.not26.i86 = icmp eq i32 %79, 0
   br i1 %.not26.i86, label %sema_trace_func_liveness.exit89, label %80
@@ -598,7 +598,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 80:                                               ; preds = %._crit_edge148
   %81 = load ptr, ptr @type_info_arena, align 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds %struct.TypeInfo_, ptr %81, i64 %82, i32 1
+  %83 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %81, i64 %82, i32 1
   %84 = load ptr, ptr %83, align 8
   %.not27.i87 = icmp eq ptr %84, null
   br i1 %.not27.i87, label %sema_trace_func_liveness.exit89, label %.preheader104
@@ -609,7 +609,7 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
 
 .lr.ph150:                                        ; preds = %.preheader104, %.backedge105
   %.0.i88149 = phi ptr [ %.0.i88.be, %.backedge105 ], [ %84, %.preheader104 ]
-  %86 = getelementptr inbounds i8, ptr %.0.i88149, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i88149, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %87, align 8
   switch i32 %88, label %sema_trace_func_liveness.exit89 [
@@ -622,31 +622,31 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   ]
 
 .backedge105:                                     ; preds = %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150
-  %.0.i88.be.in = getelementptr inbounds i8, ptr %87, i64 56
+  %.0.i88.be.in = getelementptr inbounds nuw i8, ptr %87, i64 56
   %.0.i88.be = load ptr, ptr %.0.i88.be.in, align 8
   %89 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i88.be) #3
   br i1 %89, label %._crit_edge151, label %.lr.ph150
 
 ._crit_edge151:                                   ; preds = %.backedge105, %.preheader104
   %.0.i88.lcssa = phi ptr [ %84, %.preheader104 ], [ %.0.i88.be, %.backedge105 ]
-  %90 = getelementptr inbounds i8, ptr %.0.i88.lcssa, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i88.lcssa, i64 56
   %91 = load ptr, ptr %90, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %91)
   br label %sema_trace_func_liveness.exit89
 
 sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_edge148, %80, %._crit_edge151
-  %92 = getelementptr inbounds i8, ptr %.0131, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %.0131, i64 112
   %93 = load i32, ptr %92, align 8
   %.not.i90 = icmp eq i32 %93, 0
   %94 = load ptr, ptr @ast_arena, align 8
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds %struct.Ast_, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw %struct.Ast_, ptr %94, i64 %95
   %97 = select i1 %.not.i90, ptr null, ptr %96
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef %97)
   br label %sema_trace_func_liveness.exit
 
 98:                                               ; preds = %5
-  %99 = getelementptr inbounds i8, ptr %.0131, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %.0131, i64 80
   %100 = load i32, ptr %99, align 8
   %trunc = trunc i32 %100 to i8
   switch i8 %trunc, label %119 [
@@ -659,7 +659,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   ]
 
 101:                                              ; preds = %98, %98, %98, %98
-  %102 = getelementptr inbounds i8, ptr %.0131, i64 72
+  %102 = getelementptr inbounds nuw i8, ptr %.0131, i64 72
   %103 = load ptr, ptr %102, align 8
   %.not74 = icmp eq ptr %103, null
   br i1 %.not74, label %.loopexit102, label %.preheader101
@@ -670,7 +670,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
 
 .lr.ph154:                                        ; preds = %.preheader101, %.backedge103
   %.062153 = phi ptr [ %.062.be, %.backedge103 ], [ %103, %.preheader101 ]
-  %105 = getelementptr inbounds i8, ptr %.062153, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.062153, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %106, align 8
   switch i32 %107, label %.loopexit102 [
@@ -683,26 +683,26 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   ]
 
 .backedge103:                                     ; preds = %.lr.ph154, %.lr.ph154, %.lr.ph154, %.lr.ph154, %.lr.ph154, %.lr.ph154
-  %.062.be.in = getelementptr inbounds i8, ptr %106, i64 56
+  %.062.be.in = getelementptr inbounds nuw i8, ptr %106, i64 56
   %.062.be = load ptr, ptr %.062.be.in, align 8
   %108 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.062.be) #3
   br i1 %108, label %._crit_edge155, label %.lr.ph154
 
 ._crit_edge155:                                   ; preds = %.backedge103, %.preheader101
   %.062.lcssa = phi ptr [ %103, %.preheader101 ], [ %.062.be, %.backedge103 ]
-  %109 = getelementptr inbounds i8, ptr %.062.lcssa, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %.062.lcssa, i64 56
   %110 = load ptr, ptr %109, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %110)
   br label %.loopexit102
 
 .loopexit102:                                     ; preds = %.lr.ph154, %101, %._crit_edge155
-  %111 = getelementptr inbounds i8, ptr %.0131, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
   %112 = load ptr, ptr %111, align 8
   %.not75 = icmp eq ptr %112, null
   br i1 %.not75, label %sema_trace_func_liveness.exit, label %113
 
 113:                                              ; preds = %.loopexit102
-  %114 = getelementptr inbounds i8, ptr %112, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %115 = load i16, ptr %114, align 8
   %116 = and i16 %115, 3840
   %117 = icmp eq i16 %116, 512
@@ -713,7 +713,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   br label %sema_trace_func_liveness.exit
 
 119:                                              ; preds = %98
-  %120 = getelementptr inbounds i8, ptr %.0131, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %.0131, i64 72
   %121 = load ptr, ptr %120, align 8
   %.not76 = icmp eq ptr %121, null
   br i1 %.not76, label %.loopexit99, label %.preheader98
@@ -724,7 +724,7 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
 
 .lr.ph158:                                        ; preds = %.preheader98, %.backedge100
   %.061157 = phi ptr [ %.061.be, %.backedge100 ], [ %121, %.preheader98 ]
-  %123 = getelementptr inbounds i8, ptr %.061157, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.061157, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = load i32, ptr %124, align 8
   switch i32 %125, label %.loopexit99 [
@@ -737,20 +737,20 @@ sema_trace_func_liveness.exit89:                  ; preds = %.lr.ph150, %._crit_
   ]
 
 .backedge100:                                     ; preds = %.lr.ph158, %.lr.ph158, %.lr.ph158, %.lr.ph158, %.lr.ph158, %.lr.ph158
-  %.061.be.in = getelementptr inbounds i8, ptr %124, i64 56
+  %.061.be.in = getelementptr inbounds nuw i8, ptr %124, i64 56
   %.061.be = load ptr, ptr %.061.be.in, align 8
   %126 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.061.be) #3
   br i1 %126, label %._crit_edge159, label %.lr.ph158
 
 ._crit_edge159:                                   ; preds = %.backedge100, %.preheader98
   %.061.lcssa = phi ptr [ %121, %.preheader98 ], [ %.061.be, %.backedge100 ]
-  %127 = getelementptr inbounds i8, ptr %.061.lcssa, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %.061.lcssa, i64 56
   %128 = load ptr, ptr %127, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %128)
   br label %.loopexit99
 
 .loopexit99:                                      ; preds = %.lr.ph158, %119, %._crit_edge159
-  %129 = getelementptr inbounds i8, ptr %.0131, i64 88
+  %129 = getelementptr inbounds nuw i8, ptr %.0131, i64 88
   %130 = load ptr, ptr %129, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %130)
   br label %sema_trace_func_liveness.exit
@@ -773,7 +773,7 @@ define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly %0) u
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
   %.tr147 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.tr147, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %.tr147, i64 12
   %3 = load i8, ptr %2, align 4
   switch i8 %3, label %203 [
     i8 0, label %4
@@ -814,7 +814,7 @@ define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly %0) u
   unreachable
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.tr147, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %sema_trace_expr_list_liveness.exit, label %8
@@ -831,7 +831,7 @@ define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly %0) u
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv183 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next184, %.lr.ph156 ]
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv183
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv183
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %12)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -839,11 +839,11 @@ define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly %0) u
   br i1 %exitcond187.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph156, !llvm.loop !17
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.tr147, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %.tr147, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = load ptr, ptr @ast_arena, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.Ast_, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw %struct.Ast_, ptr %16, i64 %17
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %13, %50, %117, %138, %171, %174
@@ -852,7 +852,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   br i1 %.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %21 = load i32, ptr %20, align 8
   br label %22
 
@@ -864,11 +864,11 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 23:                                               ; preds = %22
   %24 = load ptr, ptr @ast_arena, align 8
   %25 = zext i32 %.0.i121 to i64
-  %26 = getelementptr inbounds %struct.Ast_, ptr %24, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %26 = getelementptr inbounds nuw %struct.Ast_, ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %26)
-  %29 = getelementptr inbounds i8, ptr %26, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %30 = load i8, ptr %29, align 4
   switch i8 %30, label %22 [
     i8 25, label %sema_trace_expr_list_liveness.exit
@@ -878,22 +878,22 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   ], !llvm.loop !18
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %33)
   br label %sema_trace_expr_list_liveness.exit
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %36)
   br label %sema_trace_expr_list_liveness.exit
 
 37:                                               ; preds = %.lr.ph, %.lr.ph
-  %38 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %39 = load ptr, ptr %38, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %39)
-  %40 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %41 = load i32, ptr %40, align 8
   %.not118 = icmp eq i32 %41, 0
   br i1 %.not118, label %46, label %42
@@ -901,14 +901,14 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 42:                                               ; preds = %37
   %43 = load ptr, ptr @ast_arena, align 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds %struct.Ast_, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw %struct.Ast_, ptr %43, i64 %44
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %45)
   %.pre = load i32, ptr %40, align 8
   br label %46
 
 46:                                               ; preds = %42, %37
   %47 = phi i32 [ %.pre, %42 ], [ 0, %37 ]
-  %48 = getelementptr inbounds i8, ptr %.tr147, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.tr147, i64 28
   %49 = load i32, ptr %48, align 4
   %.not119 = icmp eq i32 %47, %49
   %.not120 = icmp eq i32 %49, 0
@@ -918,15 +918,15 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 50:                                               ; preds = %46
   %51 = load ptr, ptr @ast_arena, align 8
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds %struct.Ast_, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw %struct.Ast_, ptr %51, i64 %52
   br label %tailrecurse.backedge
 
 54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, 8
   %.not116 = icmp eq i8 %57, 0
-  %58 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   br i1 %.not116, label %65, label %59
 
 59:                                               ; preds = %54
@@ -937,31 +937,31 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 61:                                               ; preds = %59
   %62 = load ptr, ptr @expr_arena, align 8
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds %struct.Expr_, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw %struct.Expr_, ptr %62, i64 %63
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %64)
   br label %sema_trace_expr_list_liveness.exit
 
 65:                                               ; preds = %54
   %66 = load ptr, ptr %58, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load i32, ptr %67, align 8
   tail call fastcc void @sema_trace_stmt_chain_liveness(i32 noundef %68)
   %69 = load ptr, ptr %58, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %71 = load ptr, ptr %70, align 8
   tail call fastcc void @sema_trace_asm_arg_list(ptr noundef %71)
   %72 = load ptr, ptr %58, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   tail call fastcc void @sema_trace_asm_arg_list(ptr noundef %74)
   br label %sema_trace_expr_list_liveness.exit
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %77 = load i32, ptr %76, align 8
   %78 = load ptr, ptr @expr_arena, align 8
   %79 = zext i32 %77 to i64
-  %80 = getelementptr inbounds %struct.Expr_, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw %struct.Expr_, ptr %78, i64 %79
   %81 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
   %.not115 = icmp eq i32 %81, 0
   br i1 %.not115, label %82, label %84
@@ -975,7 +975,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   br label %sema_trace_expr_list_liveness.exit
 
 85:                                               ; preds = %.lr.ph
-  %86 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %87 = load ptr, ptr %86, align 8
   %.not114 = icmp eq ptr %87, null
   br i1 %.not114, label %sema_trace_expr_list_liveness.exit, label %88
@@ -992,7 +992,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 
 .lr.ph154:                                        ; preds = %.lr.ph154.preheader, %.lr.ph154
   %indvars.iv178 = phi i64 [ 0, %.lr.ph154.preheader ], [ %indvars.iv.next179, %.lr.ph154 ]
-  %91 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv178
+  %91 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv178
   %92 = load ptr, ptr %91, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %92)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -1000,7 +1000,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   br i1 %exitcond182.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph154, !llvm.loop !19
 
 93:                                               ; preds = %.lr.ph
-  %94 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %95 = load i32, ptr %94, align 8
   %.not110 = icmp eq i32 %95, 0
   br i1 %.not110, label %100, label %96
@@ -1008,12 +1008,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 96:                                               ; preds = %93
   %97 = load ptr, ptr @expr_arena, align 8
   %98 = zext i32 %95 to i64
-  %99 = getelementptr inbounds %struct.Expr_, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw %struct.Expr_, ptr %97, i64 %98
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %99)
   br label %100
 
 100:                                              ; preds = %96, %93
-  %101 = getelementptr inbounds i8, ptr %.tr147, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
   %102 = load i32, ptr %101, align 8
   %.not111 = icmp eq i32 %102, 0
   br i1 %.not111, label %107, label %103
@@ -1021,12 +1021,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 103:                                              ; preds = %100
   %104 = load ptr, ptr @expr_arena, align 8
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds %struct.Expr_, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw %struct.Expr_, ptr %104, i64 %105
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %106)
   br label %107
 
 107:                                              ; preds = %103, %100
-  %108 = getelementptr inbounds i8, ptr %.tr147, i64 28
+  %108 = getelementptr inbounds nuw i8, ptr %.tr147, i64 28
   %109 = load i32, ptr %108, align 4
   %.not112 = icmp eq i32 %109, 0
   br i1 %.not112, label %114, label %110
@@ -1034,12 +1034,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 110:                                              ; preds = %107
   %111 = load ptr, ptr @expr_arena, align 8
   %112 = zext i32 %109 to i64
-  %113 = getelementptr inbounds %struct.Expr_, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw %struct.Expr_, ptr %111, i64 %112
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %113)
   br label %114
 
 114:                                              ; preds = %110, %107
-  %115 = getelementptr inbounds i8, ptr %.tr147, i64 36
+  %115 = getelementptr inbounds nuw i8, ptr %.tr147, i64 36
   %116 = load i32, ptr %115, align 4
   %.not113 = icmp eq i32 %116, 0
   br i1 %.not113, label %sema_trace_expr_list_liveness.exit, label %117
@@ -1047,11 +1047,11 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 117:                                              ; preds = %114
   %118 = load ptr, ptr @ast_arena, align 8
   %119 = zext i32 %116 to i64
-  %120 = getelementptr inbounds %struct.Ast_, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw %struct.Ast_, ptr %118, i64 %119
   br label %tailrecurse.backedge
 
 121:                                              ; preds = %.lr.ph
-  %122 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %123 = load i32, ptr %122, align 8
   %.not107 = icmp eq i32 %123, 0
   br i1 %.not107, label %128, label %124
@@ -1059,12 +1059,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 124:                                              ; preds = %121
   %125 = load ptr, ptr @expr_arena, align 8
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds %struct.Expr_, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw %struct.Expr_, ptr %125, i64 %126
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %127)
   br label %128
 
 128:                                              ; preds = %124, %121
-  %129 = getelementptr inbounds i8, ptr %.tr147, i64 28
+  %129 = getelementptr inbounds nuw i8, ptr %.tr147, i64 28
   %130 = load i32, ptr %129, align 4
   %.not108 = icmp eq i32 %130, 0
   br i1 %.not108, label %135, label %131
@@ -1072,12 +1072,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 131:                                              ; preds = %128
   %132 = load ptr, ptr @ast_arena, align 8
   %133 = zext i32 %130 to i64
-  %134 = getelementptr inbounds %struct.Ast_, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw %struct.Ast_, ptr %132, i64 %133
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %134)
   br label %135
 
 135:                                              ; preds = %131, %128
-  %136 = getelementptr inbounds i8, ptr %.tr147, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
   %137 = load i32, ptr %136, align 8
   %.not109 = icmp eq i32 %137, 0
   br i1 %.not109, label %sema_trace_expr_list_liveness.exit, label %138
@@ -1085,11 +1085,11 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 138:                                              ; preds = %135
   %139 = load ptr, ptr @ast_arena, align 8
   %140 = zext i32 %137 to i64
-  %141 = getelementptr inbounds %struct.Ast_, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw %struct.Ast_, ptr %139, i64 %140
   br label %tailrecurse.backedge
 
 142:                                              ; preds = %.lr.ph, %.lr.ph
-  %143 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %144 = load i32, ptr %143, align 8
   %.not105 = icmp eq i32 %144, 0
   br i1 %.not105, label %149, label %145
@@ -1097,12 +1097,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 145:                                              ; preds = %142
   %146 = load ptr, ptr @expr_arena, align 8
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds %struct.Expr_, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw %struct.Expr_, ptr %146, i64 %147
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %148)
   br label %149
 
 149:                                              ; preds = %145, %142
-  %150 = getelementptr inbounds i8, ptr %.tr147, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
   %151 = load ptr, ptr %150, align 8
   %.not106 = icmp eq ptr %151, null
   br i1 %.not106, label %sema_trace_expr_list_liveness.exit, label %152
@@ -1119,7 +1119,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next, %.lr.ph152 ]
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef %156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1127,7 +1127,7 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph152, !llvm.loop !20
 
 157:                                              ; preds = %.lr.ph
-  %158 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %159 = load i32, ptr %158, align 8
   %.not103 = icmp eq i32 %159, 0
   br i1 %.not103, label %164, label %160
@@ -1135,12 +1135,12 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 160:                                              ; preds = %157
   %161 = load ptr, ptr @expr_arena, align 8
   %162 = zext i32 %159 to i64
-  %163 = getelementptr inbounds %struct.Expr_, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw %struct.Expr_, ptr %161, i64 %162
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %163)
   br label %164
 
 164:                                              ; preds = %160, %157
-  %165 = getelementptr inbounds i8, ptr %.tr147, i64 20
+  %165 = getelementptr inbounds nuw i8, ptr %.tr147, i64 20
   %166 = load i32, ptr %165, align 4
   %.not104 = icmp eq i32 %166, 0
   br i1 %.not104, label %171, label %167
@@ -1148,22 +1148,22 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 167:                                              ; preds = %164
   %168 = load ptr, ptr @expr_arena, align 8
   %169 = zext i32 %166 to i64
-  %170 = getelementptr inbounds %struct.Expr_, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw %struct.Expr_, ptr %168, i64 %169
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %170)
   br label %171
 
 171:                                              ; preds = %167, %164
-  %172 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %173 = load ptr, ptr %172, align 8
   br label %tailrecurse.backedge
 
 174:                                              ; preds = %.lr.ph
-  %175 = getelementptr inbounds i8, ptr %.tr147, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %176 = load ptr, ptr %175, align 8
   br label %tailrecurse.backedge
 
 177:                                              ; preds = %.lr.ph
-  %178 = getelementptr inbounds i8, ptr %.tr147, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
   %179 = load i32, ptr %178, align 8
   br label %180
 
@@ -1175,11 +1175,11 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
 181:                                              ; preds = %180
   %182 = load ptr, ptr @ast_arena, align 8
   %183 = zext i32 %.0.i123 to i64
-  %184 = getelementptr inbounds %struct.Ast_, ptr %182, i64 %183
-  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  %184 = getelementptr inbounds nuw %struct.Ast_, ptr %182, i64 %183
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load i32, ptr %185, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %184)
-  %187 = getelementptr inbounds i8, ptr %184, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 12
   %188 = load i8, ptr %187, align 4
   switch i8 %188, label %180 [
     i8 25, label %sema_trace_stmt_chain_liveness.exit125
@@ -1189,13 +1189,13 @@ tailrecurse.backedge:                             ; preds = %13, %50, %117, %138
   ], !llvm.loop !18
 
 sema_trace_stmt_chain_liveness.exit125:           ; preds = %180, %181, %181, %181, %181
-  %189 = getelementptr inbounds i8, ptr %.tr147, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
   %190 = load ptr, ptr %189, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %190)
   br label %sema_trace_expr_list_liveness.exit
 
 191:                                              ; preds = %.lr.ph, %.lr.ph
-  %192 = getelementptr inbounds i8, ptr %.tr147, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %.tr147, i64 20
   %193 = load i32, ptr %192, align 4
   br label %194
 
@@ -1207,11 +1207,11 @@ sema_trace_stmt_chain_liveness.exit125:           ; preds = %180, %181, %181, %1
 195:                                              ; preds = %194
   %196 = load ptr, ptr @ast_arena, align 8
   %197 = zext i32 %.0.i126 to i64
-  %198 = getelementptr inbounds %struct.Ast_, ptr %196, i64 %197
-  %199 = getelementptr inbounds i8, ptr %198, i64 8
+  %198 = getelementptr inbounds nuw %struct.Ast_, ptr %196, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load i32, ptr %199, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %198)
-  %201 = getelementptr inbounds i8, ptr %198, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 12
   %202 = load i8, ptr %201, align 4
   switch i8 %202, label %194 [
     i8 25, label %sema_trace_expr_list_liveness.exit
@@ -1245,7 +1245,7 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
 
 .lr.ph:                                           ; preds = %.preheader216, %.backedge
   %.0246 = phi ptr [ %.0.be, %.backedge ], [ %2, %.preheader216 ]
-  %4 = getelementptr inbounds i8, ptr %.0246, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0246, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.loopexit [
@@ -1258,20 +1258,20 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
   ]
 
 .backedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %.0.be.in = getelementptr inbounds i8, ptr %5, i64 56
+  %.0.be.in = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.0.be = load ptr, ptr %.0.be.in, align 8
   %7 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.be) #3
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader216
   %.0.lcssa = phi ptr [ %2, %.preheader216 ], [ %.0.be, %.backedge ]
-  %8 = getelementptr inbounds i8, ptr %.0.lcssa, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %9)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph249, %._crit_edge
-  %10 = getelementptr inbounds i8, ptr %.0150248, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.0150248, i64 16
   %11 = load i16, ptr %10, align 8
   %trunc = trunc i16 %11 to i8
   switch i8 %trunc, label %296 [
@@ -1349,7 +1349,7 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
   unreachable
 
 13:                                               ; preds = %.loopexit
-  %14 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %tailrecurse.backedge
 
@@ -1359,8 +1359,8 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   br i1 %.not247, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph249.backedge
 
 16:                                               ; preds = %.loopexit, %.loopexit
-  %17 = getelementptr inbounds i8, ptr %.0150248, i64 24
-  %18 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %19)
   %20 = load ptr, ptr %17, align 8
@@ -1376,7 +1376,7 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   br label %.lr.ph249
 
 21:                                               ; preds = %.loopexit
-  %22 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i8
   switch i8 %24, label %31 [
@@ -1390,11 +1390,11 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   ]
 
 25:                                               ; preds = %21, %21
-  %26 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = load ptr, ptr @expr_arena, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.Expr_, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw %struct.Expr_, ptr %28, i64 %29
   br label %tailrecurse.backedge
 
 31:                                               ; preds = %21
@@ -1402,22 +1402,22 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   unreachable
 
 32:                                               ; preds = %.loopexit, %.loopexit
-  %33 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = load ptr, ptr @expr_arena, align 8
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.Expr_, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw %struct.Expr_, ptr %35, i64 %36
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %37)
-  %38 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr @expr_arena, align 8
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds %struct.Expr_, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw %struct.Expr_, ptr %40, i64 %41
   br label %tailrecurse.backedge
 
 43:                                               ; preds = %.loopexit
-  %44 = getelementptr inbounds i8, ptr %.0150248, i64 24
-  %45 = getelementptr inbounds i8, ptr %.0150248, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0150248, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %sema_trace_expr_list_liveness.exit, label %47
@@ -1434,7 +1434,7 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
 
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %.lr.ph262
   %indvars.iv = phi i64 [ 0, %.lr.ph262.preheader ], [ %indvars.iv.next, %.lr.ph262 ]
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %51)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1442,13 +1442,13 @@ tailrecurse.backedge:                             ; preds = %279, %232, %13, %25
   br i1 %exitcond.not, label %sema_trace_expr_list_liveness.exit, label %.lr.ph262, !llvm.loop !17
 
 sema_trace_expr_list_liveness.exit:               ; preds = %.lr.ph262, %43, %47
-  %52 = getelementptr inbounds i8, ptr %.0150248, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.0150248, i64 48
   %53 = load ptr, ptr %52, align 8
   %.not184 = icmp eq ptr %53, null
   br i1 %.not184, label %sema_trace_expr_list_liveness.exit192, label %54
 
 54:                                               ; preds = %sema_trace_expr_list_liveness.exit
-  %55 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %56 = load i16, ptr %55, align 8
   %57 = and i16 %56, 4
   %.not185 = icmp eq i16 %57, 0
@@ -1470,7 +1470,7 @@ sema_trace_expr_list_liveness.exit:               ; preds = %.lr.ph262, %43, %47
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %.lr.ph265
   %indvars.iv344 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next345, %.lr.ph265 ]
-  %62 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv344
+  %62 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv344
   %63 = load ptr, ptr %62, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %63)
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
@@ -1478,7 +1478,7 @@ sema_trace_expr_list_liveness.exit:               ; preds = %.lr.ph262, %43, %47
   br i1 %exitcond348.not, label %sema_trace_expr_list_liveness.exit192, label %.lr.ph265, !llvm.loop !17
 
 sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58, %sema_trace_expr_list_liveness.exit
-  %64 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %65 = load i16, ptr %64, align 8
   %66 = and i16 %65, 32
   %.not186 = icmp eq i16 %66, 0
@@ -1493,38 +1493,38 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr @expr_arena, align 8
-  %73 = getelementptr inbounds %struct.Expr_, ptr %72, i64 %70
+  %73 = getelementptr inbounds nuw %struct.Expr_, ptr %72, i64 %70
   br label %tailrecurse.backedge
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr @decl_arena, align 8
-  %76 = getelementptr inbounds %struct.Decl_, ptr %75, i64 %70
+  %76 = getelementptr inbounds nuw %struct.Decl_, ptr %75, i64 %70
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %76)
   br label %sema_trace_expr_list_liveness.exit196
 
 77:                                               ; preds = %.loopexit
-  %78 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr @expr_arena, align 8
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.Expr_, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw %struct.Expr_, ptr %80, i64 %81
   br label %.backedge218
 
 83:                                               ; preds = %.loopexit, %.loopexit, %.loopexit
-  %84 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %85 = load ptr, ptr %84, align 8
   br label %.backedge218
 
 86:                                               ; preds = %.loopexit
-  %87 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = load ptr, ptr @expr_arena, align 8
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds %struct.Expr_, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw %struct.Expr_, ptr %89, i64 %90
   br label %.backedge218
 
 92:                                               ; preds = %.loopexit
-  %93 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not181 = icmp eq ptr %94, null
   br i1 %.not181, label %96, label %95
@@ -1534,7 +1534,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br label %100
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not182 = icmp eq ptr %98, null
   br i1 %.not182, label %100, label %99
@@ -1544,7 +1544,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br label %100
 
 100:                                              ; preds = %96, %99, %95
-  %101 = getelementptr inbounds i8, ptr %.0150248, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.0150248, i64 40
   %102 = load ptr, ptr %101, align 8
   %.not183 = icmp eq ptr %102, null
   br i1 %.not183, label %sema_trace_expr_list_liveness.exit196, label %103
@@ -1561,7 +1561,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph297:                                        ; preds = %.lr.ph297.preheader, %.lr.ph297
   %indvars.iv389 = phi i64 [ 0, %.lr.ph297.preheader ], [ %indvars.iv.next390, %.lr.ph297 ]
-  %106 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv389
+  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv389
   %107 = load ptr, ptr %106, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %107)
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
@@ -1569,25 +1569,25 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond393.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph297, !llvm.loop !21
 
 108:                                              ; preds = %.loopexit
-  %109 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %110 = load i16, ptr %109, align 8
   %111 = and i16 %110, 255
   %.not180 = icmp eq i16 %111, 9
   br i1 %.not180, label %112, label %sema_trace_expr_list_liveness.exit196
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %114 = load ptr, ptr %113, align 8
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %114)
   br label %sema_trace_expr_list_liveness.exit196
 
 115:                                              ; preds = %.loopexit
-  %116 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %117 = load ptr, ptr %116, align 8
   br label %tailrecurse.backedge
 
 118:                                              ; preds = %.loopexit
-  %119 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %120 = load ptr, ptr %119, align 8
   %.not179 = icmp eq ptr %120, null
   br i1 %.not179, label %sema_trace_expr_list_liveness.exit196, label %121
@@ -1604,7 +1604,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %.lr.ph294
   %indvars.iv384 = phi i64 [ 0, %.lr.ph294.preheader ], [ %indvars.iv.next385, %.lr.ph294 ]
-  %124 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv384
+  %124 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv384
   %125 = load ptr, ptr %124, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %125)
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
@@ -1612,13 +1612,13 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond388.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph294, !llvm.loop !22
 
 126:                                              ; preds = %.loopexit
-  %127 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %128 = load ptr, ptr %127, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %128)
   br label %sema_trace_expr_list_liveness.exit196
 
 129:                                              ; preds = %.loopexit
-  %130 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %131 = load ptr, ptr %130, align 8
   %.not.i193 = icmp eq ptr %131, null
   br i1 %.not.i193, label %sema_trace_expr_list_liveness.exit196, label %132
@@ -1635,7 +1635,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph291:                                        ; preds = %.lr.ph291.preheader, %.lr.ph291
   %indvars.iv379 = phi i64 [ 0, %.lr.ph291.preheader ], [ %indvars.iv.next380, %.lr.ph291 ]
-  %135 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv379
+  %135 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv379
   %136 = load ptr, ptr %135, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %136)
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
@@ -1643,7 +1643,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond383.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph291, !llvm.loop !17
 
 137:                                              ; preds = %.loopexit
-  %138 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %139 = load ptr, ptr %138, align 8
   %.not.i197 = icmp eq ptr %139, null
   br i1 %.not.i197, label %sema_trace_expr_list_liveness.exit196, label %140
@@ -1660,7 +1660,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph288:                                        ; preds = %.lr.ph288.preheader, %.lr.ph288
   %indvars.iv374 = phi i64 [ 0, %.lr.ph288.preheader ], [ %indvars.iv.next375, %.lr.ph288 ]
-  %143 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv374
+  %143 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv374
   %144 = load ptr, ptr %143, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %144)
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
@@ -1668,7 +1668,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond378.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph288, !llvm.loop !17
 
 145:                                              ; preds = %.loopexit
-  %146 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %147 = load i32, ptr %146, align 8
   %.not177 = icmp eq i32 %147, 0
   br i1 %.not177, label %sema_trace_expr_list_liveness.exit196, label %.preheader
@@ -1677,21 +1677,21 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   %.0156 = phi i32 [ %152, %.preheader ], [ %147, %145 ]
   %148 = load ptr, ptr @ast_arena, align 8
   %149 = zext i32 %.0156 to i64
-  %150 = getelementptr inbounds %struct.Ast_, ptr %148, i64 %149
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %150 = getelementptr inbounds nuw %struct.Ast_, ptr %148, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %150)
   %.not178 = icmp eq i32 %152, 0
   br i1 %.not178, label %sema_trace_expr_list_liveness.exit196, label %.preheader, !llvm.loop !23
 
 153:                                              ; preds = %.loopexit
-  %154 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %155 = load ptr, ptr %154, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %155)
   br label %sema_trace_expr_list_liveness.exit196
 
 156:                                              ; preds = %.loopexit
-  %157 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %158 = load ptr, ptr %157, align 8
   %.not176 = icmp eq ptr %158, null
   br i1 %.not176, label %sema_trace_expr_list_liveness.exit196, label %159
@@ -1708,7 +1708,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph285:                                        ; preds = %.lr.ph285.preheader, %.lr.ph285
   %indvars.iv369 = phi i64 [ 0, %.lr.ph285.preheader ], [ %indvars.iv.next370, %.lr.ph285 ]
-  %162 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv369
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv369
   %163 = load ptr, ptr %162, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %163)
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
@@ -1716,14 +1716,14 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond373.not, label %sema_trace_expr_list_liveness.exit196, label %.lr.ph285, !llvm.loop !24
 
 164:                                              ; preds = %.loopexit
-  %165 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %166 = load ptr, ptr %165, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %166)
   br label %sema_trace_expr_list_liveness.exit196
 
 167:                                              ; preds = %.loopexit
-  %168 = getelementptr inbounds i8, ptr %.0150248, i64 24
-  %169 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not175 = icmp eq ptr %170, null
   br i1 %.not175, label %._crit_edge282, label %171
@@ -1740,7 +1740,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph281:                                        ; preds = %.lr.ph281.preheader, %.lr.ph281
   %indvars.iv364 = phi i64 [ 0, %.lr.ph281.preheader ], [ %indvars.iv.next365, %.lr.ph281 ]
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv364
+  %174 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv364
   %175 = load ptr, ptr %174, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %175)
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
@@ -1759,11 +1759,11 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 178:                                              ; preds = %177
   %179 = load ptr, ptr @ast_arena, align 8
   %180 = zext i32 %.0.i201 to i64
-  %181 = getelementptr inbounds %struct.Ast_, ptr %179, i64 %180
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
+  %181 = getelementptr inbounds nuw %struct.Ast_, ptr %179, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load i32, ptr %182, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %181)
-  %184 = getelementptr inbounds i8, ptr %181, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %185 = load i8, ptr %184, align 4
   switch i8 %185, label %177 [
     i8 25, label %sema_trace_expr_list_liveness.exit196
@@ -1773,8 +1773,8 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   ], !llvm.loop !18
 
 186:                                              ; preds = %.loopexit
-  %187 = getelementptr inbounds i8, ptr %.0150248, i64 24
-  %188 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %189 = load ptr, ptr %188, align 8
   %.not173 = icmp eq ptr %189, null
   br i1 %.not173, label %._crit_edge274, label %190
@@ -1791,7 +1791,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph273:                                        ; preds = %.lr.ph273.preheader, %.lr.ph273
   %indvars.iv354 = phi i64 [ 0, %.lr.ph273.preheader ], [ %indvars.iv.next355, %.lr.ph273 ]
-  %193 = getelementptr inbounds ptr, ptr %189, i64 %indvars.iv354
+  %193 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv354
   %194 = load ptr, ptr %193, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %194)
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
@@ -1815,7 +1815,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph277:                                        ; preds = %.lr.ph277.preheader, %.lr.ph277
   %indvars.iv359 = phi i64 [ 0, %.lr.ph277.preheader ], [ %indvars.iv.next360, %.lr.ph277 ]
-  %199 = getelementptr inbounds ptr, ptr %195, i64 %indvars.iv359
+  %199 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv359
   %200 = load ptr, ptr %199, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %200)
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
@@ -1823,86 +1823,86 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br i1 %exitcond363.not, label %._crit_edge278, label %.lr.ph277, !llvm.loop !27
 
 ._crit_edge278:                                   ; preds = %.lr.ph277, %._crit_edge274, %196
-  %201 = getelementptr inbounds i8, ptr %.0150248, i64 40
+  %201 = getelementptr inbounds nuw i8, ptr %.0150248, i64 40
   %202 = load i32, ptr %201, align 8
   %.not.i203 = icmp eq i32 %202, 0
   %203 = load ptr, ptr @ast_arena, align 8
   %204 = zext i32 %202 to i64
-  %205 = getelementptr inbounds %struct.Ast_, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw %struct.Ast_, ptr %203, i64 %204
   %206 = select i1 %.not.i203, ptr null, ptr %205
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef %206)
   br label %sema_trace_expr_list_liveness.exit196
 
 207:                                              ; preds = %.loopexit
-  %208 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %208 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %209 = load i32, ptr %208, align 4
   %210 = load ptr, ptr @expr_arena, align 8
   %211 = zext i32 %209 to i64
-  %212 = getelementptr inbounds %struct.Expr_, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw %struct.Expr_, ptr %210, i64 %211
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %212)
-  %213 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %214 = load i32, ptr %213, align 8
   %215 = load ptr, ptr @expr_arena, align 8
   %216 = zext i32 %214 to i64
-  %217 = getelementptr inbounds %struct.Expr_, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw %struct.Expr_, ptr %215, i64 %216
   br label %.backedge218
 
 218:                                              ; preds = %.loopexit, %.loopexit
-  %219 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %220 = load ptr, ptr %219, align 8
   br label %.backedge218
 
 221:                                              ; preds = %.loopexit, %.loopexit
-  %222 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %223 = load i32, ptr %222, align 8
   %224 = load ptr, ptr @expr_arena, align 8
   %225 = zext i32 %223 to i64
-  %226 = getelementptr inbounds %struct.Expr_, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw %struct.Expr_, ptr %224, i64 %225
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %226)
-  %227 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %227 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %228 = load i32, ptr %227, align 4
   %229 = load ptr, ptr @expr_arena, align 8
   %230 = zext i32 %228 to i64
-  %231 = getelementptr inbounds %struct.Expr_, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw %struct.Expr_, ptr %229, i64 %230
   br label %tailrecurse.backedge
 
 232:                                              ; preds = %.loopexit, %.loopexit, %.loopexit
-  %233 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %234 = load i32, ptr %233, align 8
   %235 = load ptr, ptr @expr_arena, align 8
   %236 = zext i32 %234 to i64
-  %237 = getelementptr inbounds %struct.Expr_, ptr %235, i64 %236
+  %237 = getelementptr inbounds nuw %struct.Expr_, ptr %235, i64 %236
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %237)
-  %238 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %239 = load i32, ptr %238, align 4
   %240 = load ptr, ptr @expr_arena, align 8
   %241 = zext i32 %239 to i64
-  %242 = getelementptr inbounds %struct.Expr_, ptr %240, i64 %241
+  %242 = getelementptr inbounds nuw %struct.Expr_, ptr %240, i64 %241
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %242)
-  %243 = getelementptr inbounds i8, ptr %.0150248, i64 36
+  %243 = getelementptr inbounds nuw i8, ptr %.0150248, i64 36
   %244 = load i32, ptr %243, align 4
   %.not.i204 = icmp eq i32 %244, 0
   %245 = load ptr, ptr @expr_arena, align 8
   %246 = zext i32 %244 to i64
-  %247 = getelementptr inbounds %struct.Expr_, ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw %struct.Expr_, ptr %245, i64 %246
   br i1 %.not.i204, label %sema_trace_expr_list_liveness.exit196, label %tailrecurse.backedge
 
 248:                                              ; preds = %.loopexit
-  %249 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %250 = load i32, ptr %249, align 8
   %251 = load ptr, ptr @expr_arena, align 8
   %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds %struct.Expr_, ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw %struct.Expr_, ptr %251, i64 %252
   br label %tailrecurse.backedge
 
 254:                                              ; preds = %.loopexit
-  %255 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %256 = load i32, ptr %255, align 8
   %257 = load ptr, ptr @expr_arena, align 8
   %258 = zext i32 %256 to i64
-  %259 = getelementptr inbounds %struct.Expr_, ptr %257, i64 %258
+  %259 = getelementptr inbounds nuw %struct.Expr_, ptr %257, i64 %258
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %259)
-  %260 = getelementptr inbounds i8, ptr %.0150248, i64 28
+  %260 = getelementptr inbounds nuw i8, ptr %.0150248, i64 28
   %261 = load i32, ptr %260, align 4
   %.not172 = icmp eq i32 %261, 0
   br i1 %.not172, label %266, label %262
@@ -1910,20 +1910,20 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 262:                                              ; preds = %254
   %263 = load ptr, ptr @expr_arena, align 8
   %264 = zext i32 %261 to i64
-  %265 = getelementptr inbounds %struct.Expr_, ptr %263, i64 %264
+  %265 = getelementptr inbounds nuw %struct.Expr_, ptr %263, i64 %264
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %265)
   br label %266
 
 266:                                              ; preds = %262, %254
-  %267 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %267 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %268 = load i32, ptr %267, align 8
   %269 = load ptr, ptr @expr_arena, align 8
   %270 = zext i32 %268 to i64
-  %271 = getelementptr inbounds %struct.Expr_, ptr %269, i64 %270
+  %271 = getelementptr inbounds nuw %struct.Expr_, ptr %269, i64 %270
   br label %.backedge218
 
 272:                                              ; preds = %.loopexit
-  %273 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %273 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %274 = load i32, ptr %273, align 8
   %.not171 = icmp eq i32 %274, 0
   br i1 %.not171, label %sema_trace_expr_list_liveness.exit196, label %275
@@ -1931,17 +1931,17 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 275:                                              ; preds = %272
   %276 = load ptr, ptr @expr_arena, align 8
   %277 = zext i32 %274 to i64
-  %278 = getelementptr inbounds %struct.Expr_, ptr %276, i64 %277
+  %278 = getelementptr inbounds nuw %struct.Expr_, ptr %276, i64 %277
   br label %tailrecurse.backedge
 
 279:                                              ; preds = %.loopexit
-  %280 = getelementptr inbounds i8, ptr %.0150248, i64 24
-  %281 = getelementptr inbounds i8, ptr %.0150248, i64 32
+  %280 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %.0150248, i64 32
   %282 = load ptr, ptr %281, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %282)
   %283 = load i8, ptr %280, align 8
   %284 = trunc i8 %283 to i1
-  %285 = getelementptr inbounds i8, ptr %.0150248, i64 40
+  %285 = getelementptr inbounds nuw i8, ptr %.0150248, i64 40
   %286 = load ptr, ptr %285, align 8
   br i1 %284, label %tailrecurse.backedge, label %287
 
@@ -1950,7 +1950,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
   br label %sema_trace_expr_list_liveness.exit196
 
 288:                                              ; preds = %.loopexit
-  %289 = getelementptr inbounds i8, ptr %.0150248, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %.0150248, i64 24
   %290 = load ptr, ptr %289, align 8
   %.not.i205 = icmp eq ptr %290, null
   br i1 %.not.i205, label %sema_trace_expr_list_liveness.exit196, label %291
@@ -1967,7 +1967,7 @@ sema_trace_expr_list_liveness.exit192:            ; preds = %.lr.ph265, %59, %58
 
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %.lr.ph270
   %indvars.iv349 = phi i64 [ 0, %.lr.ph270.preheader ], [ %indvars.iv.next350, %.lr.ph270 ]
-  %294 = getelementptr inbounds ptr, ptr %290, i64 %indvars.iv349
+  %294 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv349
   %295 = load ptr, ptr %294, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %295)
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
@@ -1996,11 +1996,11 @@ define internal fastcc void @sema_trace_stmt_chain_liveness(i32 noundef %0) unna
 3:                                                ; preds = %2
   %4 = load ptr, ptr @ast_arena, align 8
   %5 = zext i32 %.0 to i64
-  %6 = getelementptr inbounds %struct.Ast_, ptr %4, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw %struct.Ast_, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   tail call fastcc void @sema_trace_stmt_liveness(ptr noundef nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %2 [
     i8 25, label %11
@@ -2030,7 +2030,7 @@ define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly %0) un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i8
@@ -2049,13 +2049,13 @@ define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly %0) un
   unreachable
 
 10:                                               ; preds = %.lr.ph, %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %12)
   br label %21
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %14, align 8
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %21, label %16
@@ -2063,7 +2063,7 @@ define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly %0) un
 16:                                               ; preds = %13
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds %struct.Expr_, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %struct.Expr_, ptr %17, i64 %18
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef nonnull %19)
   br label %21
 
@@ -2100,16 +2100,16 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   ]
 
 .backedge:                                        ; preds = %2, %2
-  %.040.be.in = getelementptr inbounds i8, ptr %.040, i64 16
+  %.040.be.in = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %.040.be = load ptr, ptr %.040.be.in, align 8
   br label %2
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.040, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.040, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph58.preheader, label %.loopexit
@@ -2120,7 +2120,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv75 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next76, %.lr.ph58 ]
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv75
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv75
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %13)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
@@ -2128,7 +2128,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58, !llvm.loop !29
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %.040, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not45 = icmp eq ptr %16, null
   br i1 %.not45, label %.loopexit, label %17
@@ -2145,7 +2145,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv70 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next71, %.lr.ph56 ]
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv70
+  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv70
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %21)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -2153,11 +2153,11 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond74.not, label %.loopexit, label %.lr.ph56, !llvm.loop !30
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %.040, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %32, label %29
@@ -2169,7 +2169,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
 
 32:                                               ; preds = %22, %29
   %.039 = phi i32 [ %31, %29 ], [ 0, %22 ]
-  %33 = getelementptr inbounds i8, ptr %26, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 127
   %36 = icmp eq i64 %35, 25
@@ -2180,14 +2180,14 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.040, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %wide.trip.count = zext i32 %spec.store.select to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @sema_trace_const_initializer_liveness(ptr noundef %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2195,7 +2195,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !31
 
 43:                                               ; preds = %2
-  %44 = getelementptr inbounds i8, ptr %.040, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %45 = load ptr, ptr %44, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %45)
   br label %.loopexit

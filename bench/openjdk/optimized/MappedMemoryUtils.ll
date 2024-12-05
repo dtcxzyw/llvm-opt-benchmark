@@ -43,7 +43,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_nio_MappedMemoryUtils_isLoaded0(ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %.01922 = phi i64 [ %18, %17 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %7, i64 %.01922
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 %.01922
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %._crit_edge, label %17

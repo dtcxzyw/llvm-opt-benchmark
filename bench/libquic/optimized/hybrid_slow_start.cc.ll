@@ -9,8 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net15HybridSlowStartC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 28), (32, 48)) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %hystart_found_ = getelementptr inbounds i8, ptr %this, i64 4
-  %current_min_rtt_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hystart_found_ = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %current_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %hystart_found_, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_min_rtt_, i8 0, i64 16, i1 false)
   ret void
@@ -19,7 +19,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net15HybridSlowStart13OnPacketAckedEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %acked_packet_number) local_unnamed_addr #1 align 2 {
 entry:
-  %end_packet_number_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_packet_number_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_packet_number_.i, align 8
   %cmp.i.not = icmp ugt i64 %0, %acked_packet_number
   br i1 %cmp.i.not, label %if.end, label %if.then
@@ -35,7 +35,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net15HybridSlowStart12IsEndOfRoundEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %ack) local_unnamed_addr #2 align 2 {
 entry:
-  %end_packet_number_ = getelementptr inbounds i8, ptr %this, i64 16
+  %end_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_packet_number_, align 8
   %cmp = icmp ule i64 %0, %ack
   ret i1 %cmp
@@ -44,7 +44,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net15HybridSlowStart12OnPacketSentEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %this, i64 noundef %packet_number) local_unnamed_addr #0 align 2 {
 entry:
-  %last_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 8
+  %last_sent_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %packet_number, ptr %last_sent_packet_number_, align 8
   ret void
 }
@@ -53,7 +53,7 @@ entry:
 define dso_local void @_ZN3net15HybridSlowStart7RestartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 8)) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %hystart_found_ = getelementptr inbounds i8, ptr %this, i64 4
+  %hystart_found_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %hystart_found_, align 4
   ret void
 }
@@ -61,10 +61,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net15HybridSlowStart17StartReceiveRoundEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (16, 28), (32, 48)) %this, i64 noundef %last_sent) local_unnamed_addr #0 align 2 {
 entry:
-  %end_packet_number_ = getelementptr inbounds i8, ptr %this, i64 16
+  %end_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %last_sent, ptr %end_packet_number_, align 8
-  %current_min_rtt_ = getelementptr inbounds i8, ptr %this, i64 32
-  %rtt_sample_count_ = getelementptr inbounds i8, ptr %this, i64 24
+  %current_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %rtt_sample_count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %rtt_sample_count_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_min_rtt_, i8 0, i64 16, i1 false)
   store i8 1, ptr %this, align 8
@@ -79,25 +79,25 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %last_sent_packet_number_ = getelementptr inbounds i8, ptr %this, i64 8
+  %last_sent_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %last_sent_packet_number_, align 8
-  %end_packet_number_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_packet_number_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %1, ptr %end_packet_number_.i, align 8
-  %current_min_rtt_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %rtt_sample_count_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %current_min_rtt_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %rtt_sample_count_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %rtt_sample_count_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_min_rtt_.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %this, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hystart_found_ = getelementptr inbounds i8, ptr %this, i64 4
+  %hystart_found_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %hystart_found_, align 4
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %rtt_sample_count_ = getelementptr inbounds i8, ptr %this, i64 24
+  %rtt_sample_count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %rtt_sample_count_, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %rtt_sample_count_, align 8
@@ -105,7 +105,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end32
 
 if.then6:                                         ; preds = %if.end3
-  %time_offset_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %time_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %time_offset_.i, align 8
   %cmp.i = icmp eq i64 %4, 0
   %cmp.i.i = icmp slt i64 %latest_rtt.coerce1, %4
@@ -113,7 +113,7 @@ if.then6:                                         ; preds = %if.end3
   br i1 %or.cond, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.then6
-  %current_min_rtt_ = getelementptr inbounds i8, ptr %this, i64 32
+  %current_min_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %latest_rtt.coerce0, ptr %current_min_rtt_, align 8
   store i64 %latest_rtt.coerce1, ptr %time_offset_.i, align 8
   br label %if.end14

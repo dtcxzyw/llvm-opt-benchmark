@@ -143,7 +143,7 @@ define i32 @cli_ftcode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %exitcond, label %.loopexit, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not7 = icmp eq i32 %6, 0
@@ -151,7 +151,7 @@ define i32 @cli_ftcode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %3, %1
   %.lcssa = phi ptr [ @ftmap, %1 ], [ %4, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %8 = load i32, ptr %7, align 8
   br label %.loopexit
 
@@ -171,12 +171,12 @@ define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %1, %4
   %indvars.iv9 = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
-  %3 = getelementptr inbounds [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw [87 x %struct.ftmap_s], ptr @ftmap, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 86
   br i1 %exitcond, label %._crit_edge.loopexit, label %4
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %._crit_edge.loopexit, label %.lr.ph
@@ -192,25 +192,25 @@ define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define void @cli_ftfree(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not21 = icmp eq ptr %3, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %.022 = phi ptr [ %3, %.lr.ph ], [ %7, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.022, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %.022, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @mpool_free(ptr noundef %8, ptr noundef %10) #10
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %.022, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @mpool_free(ptr noundef %11, ptr noundef %13) #10
   %14 = load ptr, ptr %4, align 8
@@ -219,25 +219,25 @@ define void @cli_ftfree(ptr nocapture noundef readonly %0) local_unnamed_addr #3
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %5, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %16 = load ptr, ptr %15, align 8
   %.not2023 = icmp eq ptr %16, null
   br i1 %.not2023, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %18
 
 18:                                               ; preds = %.lr.ph26, %18
   %.124 = phi ptr [ %16, %.lr.ph26 ], [ %20, %18 ]
-  %19 = getelementptr inbounds i8, ptr %.124, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.124, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %.124, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.124, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @mpool_free(ptr noundef %21, ptr noundef %23) #10
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %.124, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.124, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void @mpool_free(ptr noundef %24, ptr noundef %26) #10
   %27 = load ptr, ptr %17, align 8
@@ -253,16 +253,16 @@ declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %.016 = load ptr, ptr %4, align 8
   %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %22
   %.018 = phi ptr [ %.0, %22 ], [ %.016, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.018, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %.018, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %.018, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.018, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = add i32 %6, %9
@@ -272,8 +272,8 @@ define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 nou
 
 12:                                               ; preds = %.lr.ph
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %.018, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %8 to i64
   %bcmp = tail call i32 @bcmp(ptr %14, ptr %16, i64 %17)
@@ -281,14 +281,14 @@ define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not14, label %18, label %22
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %.018, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef %20) #10
   %21 = load i32, ptr %.018, align 8
   br label %24
 
 22:                                               ; preds = %12, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.018, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %.0 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -306,16 +306,16 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %.018 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %.018, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %22
   %.020 = phi ptr [ %.0, %22 ], [ %.018, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.020, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %.020, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.020, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = add i32 %6, %9
@@ -325,8 +325,8 @@ define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr nocapture n
 
 12:                                               ; preds = %.lr.ph
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %.020, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %8 to i64
   %bcmp = tail call i32 @bcmp(ptr %14, ptr %16, i64 %17)
@@ -334,14 +334,14 @@ define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr nocapture n
   br i1 %.not16, label %18, label %22
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %.020, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef %20) #10
   %21 = load i32, ptr %.020, align 8
   br label %26
 
 22:                                               ; preds = %12, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.020, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %.0 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -375,7 +375,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
 
 11:                                               ; preds = %3
   %12 = icmp eq i32 %2, 557
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i64, ptr %13, align 8
   br i1 %12, label %15, label %16
 
@@ -390,7 +390,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
 17:                                               ; preds = %16, %15
   %.0146.in = phi i64 [ %spec.select229, %15 ], [ %spec.select202228, %16 ]
   %.0146 = trunc nuw nsw i64 %.0146.in to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, i64 noundef 0, i64 noundef range(i64 0, 1029) %.0146.in, i32 noundef 0) #10
   %.not190 = icmp eq ptr %20, null
@@ -409,16 +409,16 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %12, label %25, label %46
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.016.i = load ptr, ptr %26, align 8
   %.not17.i = icmp eq ptr %.016.i, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %44
   %.018.i = phi ptr [ %.0.i, %44 ], [ %.016.i, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.018.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 4
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %30 = load i16, ptr %29, align 8
   %31 = zext i16 %30 to i32
   %32 = add i32 %28, %31
@@ -428,8 +428,8 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
 
 34:                                               ; preds = %.lr.ph.i
   %35 = zext i32 %28 to i64
-  %36 = getelementptr inbounds i8, ptr %20, i64 %35
-  %37 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = zext i16 %30 to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull readonly %36, ptr %38, i64 %39)
@@ -437,14 +437,14 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %.not14.i, label %40, label %44
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %.018.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %42 = load ptr, ptr %41, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef %42) #10
   %43 = load i32, ptr %.018.i, align 8
   br label %cli_compare_ftm_partition.exit
 
 44:                                               ; preds = %34, %.lr.ph.i
-  %45 = getelementptr inbounds i8, ptr %.018.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
   %.0.i = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -454,16 +454,16 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br label %cli_compare_ftm_partition.exit.thread
 
 46:                                               ; preds = %24
-  %47 = getelementptr inbounds i8, ptr %1, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.018.i207 = load ptr, ptr %47, align 8
   %.not19.i = icmp eq ptr %.018.i207, null
   br i1 %.not19.i, label %._crit_edge.i212, label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %46, %65
   %.020.i = phi ptr [ %.0.i210, %65 ], [ %.018.i207, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.020.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.020.i, i64 4
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.020.i, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %51 = load i16, ptr %50, align 8
   %52 = zext i16 %51 to i32
   %53 = add i32 %49, %52
@@ -473,8 +473,8 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
 
 55:                                               ; preds = %.lr.ph.i208
   %56 = zext i32 %49 to i64
-  %57 = getelementptr inbounds i8, ptr %20, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %20, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = zext i16 %51 to i64
   %bcmp.i209 = call i32 @bcmp(ptr nonnull %57, ptr %59, i64 %60)
@@ -482,14 +482,14 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %.not16.i, label %61, label %65
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %63 = load ptr, ptr %62, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef %63) #10
   %64 = load i32, ptr %.020.i, align 8
   br label %cli_compare_ftm_file.exit
 
 65:                                               ; preds = %55, %.lr.ph.i208
-  %66 = getelementptr inbounds i8, ptr %.020.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %.0.i210 = load ptr, ptr %66, align 8
   %.not.i211 = icmp eq ptr %.0.i210, null
   br i1 %.not.i211, label %._crit_edge.i212, label %.lr.ph.i208
@@ -526,7 +526,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 76:                                               ; preds = %73
   store i32 67324752, ptr %6, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %78
 
 78:                                               ; preds = %76, %128
@@ -544,7 +544,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br i1 %.not192, label %115, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %80, i64 30
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 30
   %83 = ptrtoint ptr %82 to i64
   %84 = ptrtoint ptr %.0162244 to i64
   %.neg = sub i64 %84, %83
@@ -558,14 +558,14 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %88 = phi ptr [ %103, %101 ], [ @.str.3, %81 ]
   %89 = phi ptr [ %102, %101 ], [ @ooxml_detect, %81 ]
   %.2243 = phi i32 [ %.3, %101 ], [ %.0147251, %81 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %bcmp = call i32 @bcmp(ptr nonnull %82, ptr nonnull %88, i64 %91)
   %92 = icmp eq i32 %bcmp, 0
   br i1 %92, label %93, label %101
 
 93:                                               ; preds = %.preheader
-  %94 = getelementptr inbounds i8, ptr %89, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %95 = load i32, ptr %94, align 8
   switch i32 %95, label %100 [
     i32 517, label %101
@@ -598,7 +598,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 101:                                              ; preds = %93, %.preheader
   %.3 = phi i32 [ %.2243, %.preheader ], [ 1, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = getelementptr inbounds [17 x %struct.ooxml_ftcodes], ptr @ooxml_detect, i64 0, i64 %indvars.iv.next
+  %102 = getelementptr inbounds nuw [17 x %struct.ooxml_ftcodes], ptr @ooxml_detect, i64 0, i64 %indvars.iv.next
   %103 = load ptr, ptr %102, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond, label %104, label %.preheader
@@ -685,7 +685,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br i1 %131, label %132, label %cli_compare_ftm_partition.exit
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %0, i64 88
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %134 = load i64, ptr %133, align 8
   %135 = call i32 @cli_mbr_check(ptr noundef nonnull %20, i64 noundef %.0146.in, i64 noundef %134) #10
   switch i32 %135, label %137 [
@@ -709,18 +709,18 @@ cli_compare_ftm_partition.exit:                   ; preds = %40, %130
 
 cli_compare_ftm_partition.exit.thread224:         ; preds = %137, %69, %cli_compare_ftm_partition.exit
   %.0164227 = phi i32 [ %.0164, %cli_compare_ftm_partition.exit ], [ 504, %69 ], [ 504, %137 ]
-  %139 = getelementptr inbounds i8, ptr %1, i64 96
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %140, align 8
   %.not196 = icmp eq ptr %141, null
   br i1 %.not196, label %cli_compare_ftm_partition.exit.thread, label %142
 
 142:                                              ; preds = %cli_compare_ftm_partition.exit.thread224
-  %143 = getelementptr inbounds i8, ptr %141, i64 232
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 232
   %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %141, i64 248
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 248
   %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %141, i64 304
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 304
   %148 = load i32, ptr %147, align 8
   %149 = call i32 @cli_ac_initdata(ptr noundef nonnull %5, i32 noundef %144, i32 noundef %146, i32 noundef %148, i8 noundef zeroext 8) #10
   %.not197 = icmp eq i32 %149, 0
@@ -764,9 +764,9 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %137, %69, %cli_comp
 168:                                              ; preds = %162, %160
   %.2166 = phi i32 [ %.0164227, %160 ], [ %spec.select204, %162 ]
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
-  %169 = getelementptr inbounds i8, ptr %1, i64 168
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 28
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %172 = load i32, ptr %171, align 4
   %173 = and i32 %172, 2
   %174 = icmp ne i32 %173, 0
@@ -782,14 +782,14 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %137, %69, %cli_comp
 178:                                              ; preds = %176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2058) %7, i8 0, i64 2058, i1 false)
   store ptr %20, ptr %8, align 8
-  %179 = getelementptr inbounds i8, ptr %8, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.0146.in, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %8, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %180, align 8
   store ptr %7, ptr %9, align 8
-  %181 = getelementptr inbounds i8, ptr %9, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2058, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %9, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %182, align 8
   %183 = call i32 @encoding_normalize_toascii(ptr noundef nonnull %8, ptr noundef nonnull %177, ptr noundef nonnull %9) #10
   %184 = icmp sgt i32 %183, -1

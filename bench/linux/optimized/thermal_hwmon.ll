@@ -38,7 +38,7 @@ define dso_local i32 @thermal_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !5
   tail call void @mutex_lock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -54,7 +54,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0
@@ -73,15 +73,15 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br i1 %19, label %97, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store volatile ptr %21, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store volatile ptr %21, ptr %22, align 8
-  %23 = tail call i64 @strscpy(ptr noundef nonnull %18, ptr noundef %4, i64 noundef 20) #9
+  %23 = tail call i64 @strscpy(ptr noundef nonnull %18, ptr noundef nonnull %4, i64 noundef 20) #9
   %24 = tail call ptr @strreplace(ptr noundef nonnull %18, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = tail call ptr @hwmon_device_register_for_thermal(ptr noundef %25, ptr noundef nonnull %18, ptr noundef nonnull %18) #9
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = tail call ptr @hwmon_device_register_for_thermal(ptr noundef nonnull %25, ptr noundef nonnull %18, ptr noundef nonnull %18) #9
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %26, ptr %27, align 8
   %28 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
   br i1 %28, label %29, label %32
@@ -107,32 +107,32 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   %40 = phi ptr [ %37, %.thread ], [ %34, %32 ]
   %41 = phi ptr [ %10, %.thread ], [ %18, %32 ]
   %42 = phi i1 [ false, %.thread ], [ true, %32 ]
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %40, i64 24
-  %48 = getelementptr inbounds i8, ptr %40, i64 56
-  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %48, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef %46) #9
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %48, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef %46) #9
   store ptr %48, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i16 292, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %40, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store ptr @temp_input_show, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %41, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @device_create_file(ptr noundef %53, ptr noundef %47) #9
+  %54 = tail call i32 @device_create_file(ptr noundef %53, ptr noundef nonnull %47) #9
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %88
 
 56:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !5
-  %57 = getelementptr inbounds i8, ptr %0, i64 928
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %75, label %62
@@ -144,17 +144,17 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %40, i64 72
-  %67 = getelementptr inbounds i8, ptr %40, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %68 = load i32, ptr %44, align 8
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %67, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %68) #9
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %67, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %68) #9
   store ptr %67, ptr %66, align 8
-  %70 = getelementptr inbounds i8, ptr %40, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 80
   store i16 292, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %40, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 88
   store ptr @temp_crit_show, ptr %71, align 8
   %72 = load ptr, ptr %52, align 8
-  %73 = call i32 @device_create_file(ptr noundef %72, ptr noundef %66) #9
+  %73 = call i32 @device_create_file(ptr noundef %72, ptr noundef nonnull %66) #9
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %76, label %86
 
@@ -167,22 +167,22 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br i1 %42, label %77, label %81
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %41, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @thermal_hwmon_list, i64 8), align 8
   store ptr %78, ptr getelementptr inbounds (i8, ptr @thermal_hwmon_list, i64 8), align 8
   store ptr @thermal_hwmon_list, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %41, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr %79, ptr %80, align 8
   store volatile ptr %78, ptr %79, align 8
   br label %81
 
 81:                                               ; preds = %77, %76
-  %82 = getelementptr inbounds i8, ptr %41, i64 40
-  %83 = getelementptr inbounds i8, ptr %41, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %84 = load ptr, ptr %83, align 8
   store ptr %40, ptr %83, align 8
   store ptr %82, ptr %40, align 8
-  %85 = getelementptr inbounds i8, ptr %40, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %84, ptr %85, align 8
   store volatile ptr %40, ptr %84, align 8
   call void @mutex_unlock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
@@ -190,7 +190,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 
 86:                                               ; preds = %65
   %87 = load ptr, ptr %52, align 8
-  call void @device_remove_file(ptr noundef %87, ptr noundef %47) #9
+  call void @device_remove_file(ptr noundef %87, ptr noundef nonnull %47) #9
   br label %88
 
 88:                                               ; preds = %86, %39
@@ -201,7 +201,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 90:                                               ; preds = %32, %88
   %91 = phi ptr [ %41, %88 ], [ %18, %32 ]
   %92 = phi i32 [ %89, %88 ], [ -12, %32 ]
-  %93 = getelementptr inbounds i8, ptr %91, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %94 = load ptr, ptr %93, align 8
   call void @hwmon_device_unregister(ptr noundef %94) #9
   br label %.thread7
@@ -265,14 +265,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @temp_crit_show(ptr nocap
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !5
-  %7 = getelementptr inbounds i8, ptr %6, i64 992
-  tail call void @mutex_lock(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %6, i64 928
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 992
+  tail call void @mutex_lock(ptr noundef nonnull %7) #9
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 928
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 %11(ptr noundef %6, ptr noundef nonnull %4) #9
-  call void @mutex_unlock(ptr noundef %7) #9
+  call void @mutex_unlock(ptr noundef nonnull %7) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
 
@@ -313,7 +313,7 @@ define dso_local void @thermal_remove_hwmon_sysfs(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !5
   tail call void @mutex_lock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -329,7 +329,7 @@ thermal_hwmon_lookup_by_type.exit.thread:         ; preds = %5
 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %7, i64 -56
-  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef readonly %4) #9
+  %11 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %4) #9
   %12 = call ptr @strreplace(ptr noundef nonnull %2, i8 noundef zeroext 45, i8 noundef zeroext 95) #9
   %13 = call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %2) #9
   %14 = icmp eq i32 %13, 0
@@ -357,7 +357,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br label %58
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
   br i1 %25, label %26, label %18, !llvm.loop !10
@@ -370,13 +370,13 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 28:                                               ; preds = %26
   %29 = getelementptr i8, ptr %7, i64 -32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 24
-  tail call void @device_remove_file(ptr noundef %30, ptr noundef %31) #9
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  tail call void @device_remove_file(ptr noundef %30, ptr noundef nonnull %31) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !5
-  %32 = getelementptr inbounds i8, ptr %0, i64 928
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %43, label %37
@@ -389,8 +389,8 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %29, align 8
-  %42 = getelementptr inbounds i8, ptr %20, i64 72
-  call void @device_remove_file(ptr noundef %41, ptr noundef %42) #9
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  call void @device_remove_file(ptr noundef %41, ptr noundef nonnull %42) #9
   br label %44
 
 43:                                               ; preds = %28
@@ -399,10 +399,10 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
 
 44:                                               ; preds = %43, %40, %37
   call void @mutex_lock(ptr noundef nonnull @thermal_hwmon_list_lock) #9
-  %45 = getelementptr inbounds i8, ptr %20, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %20, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %46, ptr %48, align 8
   store volatile ptr %47, ptr %46, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %20, align 8
@@ -420,7 +420,7 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   %53 = getelementptr i8, ptr %7, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %54, ptr %56, align 8
   store volatile ptr %55, ptr %54, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8

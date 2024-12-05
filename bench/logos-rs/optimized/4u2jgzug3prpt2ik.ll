@@ -8,9 +8,9 @@ define hidden zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b379
   %3 = alloca [1 x i8], align 1
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds { i32, i32 }, ptr %6, i64 %8
   %10 = tail call align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4fold17h9f063d7114f82e74E(ptr %6, ptr %9, ptr align 4 null)
@@ -20,15 +20,15 @@ define hidden zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b379
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @_ZN13logos_codegen5graph5regex12is_one_ascii17h8523ea3a0f9f7067E(ptr nocapture readonly align 8 %0, i1 zeroext %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 1
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 128
   br i1 %11, label %16, label %12

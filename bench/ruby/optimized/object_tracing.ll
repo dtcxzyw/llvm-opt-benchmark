@@ -50,7 +50,7 @@ define ptr @objspace_lookup_allocation_info(i64 noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %lookup_allocation_info.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %0, ptr noundef nonnull %2) #11
   %.not2.i = icmp eq i32 %7, 0
@@ -101,11 +101,11 @@ define internal noundef i64 @trace_object_allocations_start(i64 %0) #0 {
   %5 = load i64, ptr @rb_cObject, align 8
   %6 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 48, ptr noundef nonnull @allocation_info_tracer_type) #11
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not.i.i, label %12, label %RTYPEDDATA_GET_DATA.exit.i
 
 12:                                               ; preds = %4
@@ -120,17 +120,17 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %12, %4
   store i32 0, ptr %15, align 8
   %.b.i = load i1, ptr @tmp_keep_remains, align 4
   %16 = zext i1 %.b.i to i32
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = tail call ptr @rb_st_init_numtable() #11
   %20 = load ptr, ptr @tmp_trace_arg, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %19, ptr %21, align 8
   %22 = tail call ptr @rb_st_init_strtable() #11
   %23 = load ptr, ptr @tmp_trace_arg, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %22, ptr %24, align 8
   br label %get_traceobj_arg.exit
 
@@ -143,7 +143,7 @@ get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_
   br i1 %28, label %43, label %29
 
 29:                                               ; preds = %get_traceobj_arg.exit
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %37
@@ -152,7 +152,7 @@ get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_
   %34 = tail call i64 @rb_tracepoint_new(i64 noundef 0, i32 noundef 1048576, ptr noundef nonnull @newobj_i, ptr noundef nonnull %25) #11
   store i64 %34, ptr %30, align 8
   %35 = tail call i64 @rb_tracepoint_new(i64 noundef 0, i32 noundef 2097152, ptr noundef nonnull @freeobj_i, ptr noundef nonnull %25) #11
-  %36 = getelementptr inbounds i8, ptr %25, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %35, ptr %36, align 8
   %.pre = load i64, ptr %30, align 8
   br label %37
@@ -160,7 +160,7 @@ get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_
 37:                                               ; preds = %33, %29
   %38 = phi i64 [ %.pre, %33 ], [ %31, %29 ]
   %39 = tail call i64 @rb_tracepoint_enable(i64 noundef %38) #11
-  %40 = getelementptr inbounds i8, ptr %25, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = tail call i64 @rb_tracepoint_enable(i64 noundef %41) #11
   br label %43
@@ -179,11 +179,11 @@ define internal noundef i64 @trace_object_allocations_stop(i64 %0) #0 {
   %5 = load i64, ptr @rb_cObject, align 8
   %6 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 48, ptr noundef nonnull @allocation_info_tracer_type) #11
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not.i.i, label %12, label %RTYPEDDATA_GET_DATA.exit.i
 
 12:                                               ; preds = %4
@@ -198,17 +198,17 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %12, %4
   store i32 0, ptr %15, align 8
   %.b.i = load i1, ptr @tmp_keep_remains, align 4
   %16 = zext i1 %.b.i to i32
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = tail call ptr @rb_st_init_numtable() #11
   %20 = load ptr, ptr @tmp_trace_arg, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %19, ptr %21, align 8
   %22 = tail call ptr @rb_st_init_strtable() #11
   %23 = load ptr, ptr @tmp_trace_arg, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %22, ptr %24, align 8
   br label %get_traceobj_arg.exit
 
@@ -229,7 +229,7 @@ get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %25, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %35 = load i64, ptr %34, align 8
   %.not = icmp eq i64 %35, 0
   br i1 %.not, label %38, label %36
@@ -239,7 +239,7 @@ get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_
   br label %38
 
 38:                                               ; preds = %36, %33
-  %39 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %40 = load i64, ptr %39, align 8
   %.not9 = icmp eq i64 %40, 0
   br i1 %.not9, label %43, label %41
@@ -262,11 +262,11 @@ define internal noundef i64 @trace_object_allocations_clear(i64 %0) #0 {
   %5 = load i64, ptr @rb_cObject, align 8
   %6 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 48, ptr noundef nonnull @allocation_info_tracer_type) #11
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 2
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not.i.i, label %12, label %RTYPEDDATA_GET_DATA.exit.i
 
 12:                                               ; preds = %4
@@ -281,28 +281,28 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %12, %4
   store i32 0, ptr %15, align 8
   %.b.i = load i1, ptr @tmp_keep_remains, align 4
   %16 = zext i1 %.b.i to i32
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = tail call ptr @rb_st_init_numtable() #11
   %20 = load ptr, ptr @tmp_trace_arg, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %19, ptr %21, align 8
   %22 = tail call ptr @rb_st_init_strtable() #11
   %23 = load ptr, ptr @tmp_trace_arg, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %22, ptr %24, align 8
   br label %get_traceobj_arg.exit
 
 get_traceobj_arg.exit:                            ; preds = %1, %RTYPEDDATA_GET_DATA.exit.i
   %25 = phi ptr [ %23, %RTYPEDDATA_GET_DATA.exit.i ], [ %2, %1 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @rb_st_foreach(ptr noundef %27, ptr noundef nonnull @free_values_i, i64 noundef 0) #11
   %29 = load ptr, ptr %26, align 8
   tail call void @rb_st_clear(ptr noundef %29) #11
-  %30 = getelementptr inbounds i8, ptr %25, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @rb_st_foreach(ptr noundef %31, ptr noundef nonnull @free_keys_i, i64 noundef 0) #11
   %33 = load ptr, ptr %30, align 8
@@ -335,7 +335,7 @@ define internal i64 @allocation_sourcefile(i64 %0, i64 noundef %1) #0 {
   br i1 %.not.i, label %lookup_allocation_info.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @rb_st_lookup(ptr noundef %7, i64 noundef %1, ptr noundef nonnull %3) #11
   %.not2.i = icmp eq i32 %8, 0
@@ -353,7 +353,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 
 10:                                               ; preds = %lookup_allocation_info.exit
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not6 = icmp eq ptr %13, null
   br i1 %.not6, label %16, label %14
@@ -376,7 +376,7 @@ define internal range(i64 1, 0) i64 @allocation_sourceline(i64 %0, i64 noundef %
   br i1 %.not.i, label %lookup_allocation_info.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @rb_st_lookup(ptr noundef %7, i64 noundef %1, ptr noundef nonnull %3) #11
   %.not2.i = icmp eq i32 %8, 0
@@ -394,7 +394,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 
 10:                                               ; preds = %lookup_allocation_info.exit
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = shl i64 %13, 1
   %15 = or disjoint i64 %14, 1
@@ -414,7 +414,7 @@ define internal i64 @allocation_class_path(i64 %0, i64 noundef %1) #0 {
   br i1 %.not.i, label %lookup_allocation_info.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @rb_st_lookup(ptr noundef %7, i64 noundef %1, ptr noundef nonnull %3) #11
   %.not2.i = icmp eq i32 %8, 0
@@ -432,7 +432,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 
 10:                                               ; preds = %lookup_allocation_info.exit
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not6 = icmp eq ptr %13, null
   br i1 %.not6, label %16, label %14
@@ -455,7 +455,7 @@ define internal i64 @allocation_method_id(i64 %0, i64 noundef %1) #0 {
   br i1 %.not.i, label %lookup_allocation_info.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @rb_st_lookup(ptr noundef %7, i64 noundef %1, ptr noundef nonnull %3) #11
   %.not2.i = icmp eq i32 %8, 0
@@ -473,7 +473,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 
 10:                                               ; preds = %lookup_allocation_info.exit
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -491,7 +491,7 @@ define internal i64 @allocation_generation(i64 %0, i64 noundef %1) #0 {
   br i1 %.not.i, label %lookup_allocation_info.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @rb_st_lookup(ptr noundef %7, i64 noundef %1, ptr noundef nonnull %3) #11
   %.not2.i = icmp eq i32 %8, 0
@@ -509,7 +509,7 @@ lookup_allocation_info.exit:                      ; preds = %5
 
 10:                                               ; preds = %lookup_allocation_info.exit
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, 4611686018427387904
   br i1 %14, label %15, label %18
@@ -552,13 +552,13 @@ define internal void @newobj_i(i64 noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not52, label %24, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = inttoptr i64 %8 to ptr
   %17 = load i64, ptr %16, align 8, !noalias !6
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %20
 
 20:                                               ; preds = %13
@@ -567,7 +567,7 @@ define internal void @newobj_i(i64 noundef %0, ptr nocapture noundef readonly %1
 
 RSTRING_PTR.exit:                                 ; preds = %13, %20
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %20 ], [ %19, %13 ]
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = tail call fastcc ptr @make_unique_str(ptr noundef %15, ptr noundef %.sroa.2.0.i, i64 noundef %22)
   br label %24
@@ -598,13 +598,13 @@ RSTRING_PTR.exit:                                 ; preds = %13, %20
   br i1 %.not55, label %.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = inttoptr i64 %36 to ptr
   %42 = load i64, ptr %41, align 8, !noalias !9
   %43 = and i64 %42, 8192
   %.not.i.i43 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %41, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   br i1 %.not.i.i43, label %RSTRING_PTR.exit46, label %45
 
 45:                                               ; preds = %38
@@ -613,14 +613,14 @@ RSTRING_PTR.exit:                                 ; preds = %13, %20
 
 RSTRING_PTR.exit46:                               ; preds = %38, %45
   %.sroa.2.0.i45 = phi ptr [ %.sroa.2.0.copyload.i44, %45 ], [ %44, %38 ]
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = tail call fastcc ptr @make_unique_str(ptr noundef %40, ptr noundef %.sroa.2.0.i45, i64 noundef %47)
   br label %.thread
 
 .thread:                                          ; preds = %28, %24, %35, %RSTRING_PTR.exit46
   %49 = phi ptr [ %48, %RSTRING_PTR.exit46 ], [ null, %35 ], [ null, %24 ], [ null, %28 ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @rb_st_lookup(ptr noundef %51, i64 noundef %7, ptr noundef nonnull %5) #11
   %.not = icmp eq i32 %52, 0
@@ -629,9 +629,9 @@ RSTRING_PTR.exit46:                               ; preds = %38, %45
 53:                                               ; preds = %.thread
   %54 = load i64, ptr %5, align 8
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %1, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i = icmp eq ptr %59, null
@@ -660,7 +660,7 @@ RSTRING_PTR.exit46:                               ; preds = %38, %45
 delete_unique_str.exit:                           ; preds = %53, %65, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %72 = load ptr, ptr %56, align 8
-  %73 = getelementptr inbounds i8, ptr %55, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %74 = load ptr, ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %.not.i47 = icmp eq ptr %74, null
@@ -699,13 +699,13 @@ delete_unique_str.exit48:                         ; preds = %delete_unique_str.e
   store i32 1, ptr %.0, align 8
   %90 = inttoptr i64 %7 to ptr
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.0, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %.0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store i64 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %.0, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %25, ptr %96, align 8
   %97 = and i64 %9, 1
   %.not.i49 = icmp eq i64 %97, 0
@@ -723,14 +723,14 @@ rb_num2int_inline.exit:                           ; preds = %98, %100
   %.0.i = phi i64 [ %99, %98 ], [ %101, %100 ]
   %sext = shl i64 %.0.i, 32
   %102 = ashr exact i64 %sext, 32
-  %103 = getelementptr inbounds i8, ptr %.0, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %.0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   store i64 %10, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %.0, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store ptr %49, ptr %105, align 8
   %106 = call i64 @rb_gc_count() #11
-  %107 = getelementptr inbounds i8, ptr %.0, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store i64 %106, ptr %107, align 8
   %108 = load ptr, ptr %50, align 8
   %109 = ptrtoint ptr %.0 to i64
@@ -748,10 +748,10 @@ define internal void @freeobj_i(i64 noundef %0, ptr nocapture noundef readonly %
   %8 = tail call i64 @rb_tracearg_object(ptr noundef nonnull %7) #11
   store i64 %8, ptr %5, align 8
   %9 = tail call i64 @rb_gc_disable_no_rest() #11
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   br i1 %.not, label %19, label %14
 
@@ -774,9 +774,9 @@ define internal void @freeobj_i(i64 noundef %0, ptr nocapture noundef readonly %
 21:                                               ; preds = %19
   %22 = load i64, ptr %6, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i = icmp eq ptr %27, null
@@ -805,7 +805,7 @@ define internal void @freeobj_i(i64 noundef %0, ptr nocapture noundef readonly %
 delete_unique_str.exit:                           ; preds = %21, %33, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %40 = load ptr, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %.not.i14 = icmp eq ptr %42, null
@@ -860,10 +860,10 @@ declare ptr @rb_st_init_strtable() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @allocation_info_tracer_mark(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   tail call void @rb_gc_mark(i64 noundef %5) #11
   ret void
@@ -871,12 +871,12 @@ define internal void @allocation_info_tracer_mark(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal void @allocation_info_tracer_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @rb_st_foreach(ptr noundef %3, ptr noundef nonnull @free_values_i, i64 noundef 0) #11
   %5 = load ptr, ptr %2, align 8
   tail call void @rb_st_free_table(ptr noundef %5) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @rb_st_foreach(ptr noundef %7, ptr noundef nonnull @free_keys_i, i64 noundef 0) #11
   %9 = load ptr, ptr %6, align 8
@@ -887,11 +887,11 @@ define internal void @allocation_info_tracer_free(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal i64 @allocation_info_tracer_memsize(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @rb_st_memsize(ptr noundef %3) #13
   %5 = add i64 %4, 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @rb_st_memsize(ptr noundef %7) #13
   %9 = add i64 %5, %8
@@ -900,7 +900,7 @@ define internal i64 @allocation_info_tracer_memsize(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal void @allocation_info_tracer_compact(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -1055,7 +1055,7 @@ define internal void @object_allocations_reporter(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call i32 @rb_st_foreach(ptr noundef %7, ptr noundef nonnull @object_allocations_reporter_i, i64 noundef %8) #11
@@ -1077,11 +1077,11 @@ define internal noundef i32 @object_allocations_reporter_i(i64 noundef %0, i64 n
   %7 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.16, ptr @.str.15
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.14, ptr noundef %6, ptr noundef nonnull %8, ptr noundef %11) #11
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %17, label %15
@@ -1091,21 +1091,21 @@ define internal noundef i32 @object_allocations_reporter_i(i64 noundef %0, i64 n
   br label %22
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef %20) #11
   br label %22
 
 22:                                               ; preds = %17, %15
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not22 = icmp eq ptr %24, null
   %spec.select = select i1 %.not22, ptr @.str.20, ptr %24
-  %25 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.19, ptr noundef nonnull %spec.select, i64 noundef %26) #11
-  %28 = getelementptr inbounds i8, ptr %5, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 4
   br i1 %30, label %39, label %31
@@ -1116,7 +1116,7 @@ define internal noundef i32 @object_allocations_reporter_i(i64 noundef %0, i64 n
   %34 = load i64, ptr %33, align 8, !noalias !12
   %35 = and i64 %34, 8192
   %.not.i.i = icmp eq i64 %35, 0
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %37
 
 37:                                               ; preds = %31

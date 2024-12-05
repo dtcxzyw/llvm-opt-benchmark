@@ -43,7 +43,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %format to i64
   %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 8
-  %has_format = getelementptr inbounds i8, ptr %0, i64 56
+  %has_format = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %has_format, align 8
   %call = tail call zeroext i1 %1(ptr noundef %buf, i64 noundef %len) #9
   br label %return
@@ -72,7 +72,7 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx, align 8
-  %driver = getelementptr inbounds i8, ptr %call, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %1, ptr %driver, align 8
   %2 = load ptr, ptr %1, align 8
   %call11 = tail call i32 %2(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #9
@@ -84,7 +84,7 @@ if.then14:                                        ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %mutex = getelementptr inbounds i8, ptr %call, i64 56
+  %mutex = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #9
   br label %return
 
@@ -123,9 +123,9 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %0 to i64
   %arrayidx = getelementptr [2 x ptr], ptr @qcrypto_block_drivers, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx, align 8
-  %driver = getelementptr inbounds i8, ptr %call, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %1, ptr %driver, align 8
-  %create = getelementptr inbounds i8, ptr %1, i64 8
+  %create = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %create, align 8
   %call11 = tail call i32 %2(ptr noundef nonnull %call, ptr noundef nonnull %options, ptr noundef %optprefix, ptr noundef %initfunc, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp) #9
   %cmp12 = icmp slt i32 %call11, 0
@@ -136,7 +136,7 @@ if.then14:                                        ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %mutex = getelementptr inbounds i8, ptr %call, i64 56
+  %mutex = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #9
   br label %return
 
@@ -187,9 +187,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %driver = getelementptr inbounds i8, ptr %block, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %block, i64 8
   %2 = load ptr, ptr %driver, align 8
-  %amend = getelementptr inbounds i8, ptr %2, i64 16
+  %amend = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %amend, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then2, label %if.end4
@@ -214,9 +214,9 @@ entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #10
   %0 = load i32, ptr %block, align 8
   store i32 %0, ptr %call, align 8
-  %driver = getelementptr inbounds i8, ptr %block, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load ptr, ptr %driver, align 8
-  %get_info = getelementptr inbounds i8, ptr %1, i64 24
+  %get_info = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %get_info, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -238,9 +238,9 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_block_decrypt(ptr noundef %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds i8, ptr %block, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %block, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %decrypt = getelementptr inbounds i8, ptr %0, i64 48
+  %decrypt = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %decrypt, align 8
   %call = tail call i32 %1(ptr noundef %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) #9
   ret i32 %call
@@ -249,9 +249,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcrypto_block_encrypt(ptr noundef %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %driver = getelementptr inbounds i8, ptr %block, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %block, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %encrypt = getelementptr inbounds i8, ptr %0, i64 40
+  %encrypt = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %encrypt, align 8
   %call = tail call i32 %1(ptr noundef %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) #9
   ret i32 %call
@@ -260,7 +260,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qcrypto_block_get_cipher(ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
-  %n_ciphers = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %0 = load i64, ptr %n_ciphers, align 8
   %cmp = icmp ult i64 %0, 2
   br i1 %cmp, label %if.end, label %if.else
@@ -270,7 +270,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ciphers = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers = getelementptr inbounds nuw i8, ptr %block, i64 24
   %1 = load ptr, ptr %ciphers, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -290,19 +290,19 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @qcrypto_block_init_cipher(ptr nocapture noundef %block, i32 noundef %alg, i32 noundef %mode, ptr noundef %key, i64 noundef %nkey, i64 noundef %n_threads, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %ciphers = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers = getelementptr inbounds nuw i8, ptr %block, i64 24
   %0 = load ptr, ptr %ciphers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %n_ciphers = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %1 = load i64, ptr %n_ciphers, align 8
   %tobool1.not = icmp eq i64 %1, 0
   br i1 %tobool1.not, label %land.lhs.true2, label %if.else
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %n_free_ciphers = getelementptr inbounds i8, ptr %block, i64 40
+  %n_free_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 40
   %2 = load i64, ptr %n_free_ciphers, align 8
   %tobool3.not = icmp eq i64 %2, 0
   br i1 %tobool3.not, label %if.end, label %if.else
@@ -384,15 +384,15 @@ declare ptr @qcrypto_cipher_new(i32 noundef, i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qcrypto_block_free_cipher(ptr nocapture noundef %block) local_unnamed_addr #0 {
 entry:
-  %ciphers = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers = getelementptr inbounds nuw i8, ptr %block, i64 24
   %0 = load ptr, ptr %ciphers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %n_ciphers = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %1 = load i64, ptr %n_ciphers, align 8
-  %n_free_ciphers = getelementptr inbounds i8, ptr %block, i64 40
+  %n_free_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 40
   %2 = load i64, ptr %n_free_ciphers, align 8
   %cmp = icmp eq i64 %1, %2
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -435,7 +435,7 @@ declare void @qcrypto_cipher_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qcrypto_block_get_ivgen(ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
-  %n_ciphers = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %0 = load i64, ptr %n_ciphers, align 8
   %cmp = icmp ult i64 %0, 2
   br i1 %cmp, label %if.end, label %if.else
@@ -445,7 +445,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
+  %ivgen = getelementptr inbounds nuw i8, ptr %block, i64 48
   %1 = load ptr, ptr %ivgen, align 8
   ret ptr %1
 }
@@ -453,7 +453,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qcrypto_block_get_kdf_hash(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
 entry:
-  %kdfhash = getelementptr inbounds i8, ptr %block, i64 104
+  %kdfhash = getelementptr inbounds nuw i8, ptr %block, i64 104
   %0 = load i32, ptr %kdfhash, align 8
   ret i32 %0
 }
@@ -461,7 +461,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qcrypto_block_get_payload_offset(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
 entry:
-  %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
+  %payload_offset = getelementptr inbounds nuw i8, ptr %block, i64 120
   %0 = load i64, ptr %payload_offset, align 8
   ret i64 %0
 }
@@ -469,7 +469,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qcrypto_block_get_sector_size(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
 entry:
-  %sector_size = getelementptr inbounds i8, ptr %block, i64 128
+  %sector_size = getelementptr inbounds nuw i8, ptr %block, i64 128
   %0 = load i64, ptr %sector_size, align 8
   ret i64 %0
 }
@@ -481,20 +481,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %driver = getelementptr inbounds i8, ptr %block, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %block, i64 8
   %0 = load ptr, ptr %driver, align 8
-  %cleanup = getelementptr inbounds i8, ptr %0, i64 32
+  %cleanup = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %cleanup, align 8
   tail call void %1(ptr noundef nonnull %block) #9
-  %ciphers.i = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %2 = load ptr, ptr %ciphers.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %qcrypto_block_free_cipher.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %n_ciphers.i = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 32
   %3 = load i64, ptr %n_ciphers.i, align 8
-  %n_free_ciphers.i = getelementptr inbounds i8, ptr %block, i64 40
+  %n_free_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 40
   %4 = load i64, ptr %n_free_ciphers.i, align 8
   %cmp.i = icmp eq i64 %3, %4
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
@@ -529,10 +529,10 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br label %qcrypto_block_free_cipher.exit
 
 qcrypto_block_free_cipher.exit:                   ; preds = %if.end, %for.end.i
-  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
+  %ivgen = getelementptr inbounds nuw i8, ptr %block, i64 48
   %9 = load ptr, ptr %ivgen, align 8
   tail call void @qcrypto_ivgen_free(ptr noundef %9) #9
-  %mutex = getelementptr inbounds i8, ptr %block, i64 56
+  %mutex = getelementptr inbounds nuw i8, ptr %block, i64 56
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %mutex) #9
   tail call void @g_free(ptr noundef nonnull %block) #9
   br label %return
@@ -722,9 +722,9 @@ define dso_local range(i32 -1, 1) i32 @qcrypto_block_decrypt_helper(ptr noundef 
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %block, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %block, i64 56
   tail call void %1(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 237) #9
-  %n_free_ciphers.i = getelementptr inbounds i8, ptr %block, i64 40
+  %n_free_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 40
   %2 = load i64, ptr %n_free_ciphers.i, align 8
   %cmp.not.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i, label %if.else.i, label %qcrypto_block_pop_cipher.exit
@@ -736,14 +736,14 @@ if.else.i:                                        ; preds = %entry
 qcrypto_block_pop_cipher.exit:                    ; preds = %entry
   %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %n_free_ciphers.i, align 8
-  %ciphers.i = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %3 = load ptr, ptr %ciphers.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %dec.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 243) #9
-  %niv = getelementptr inbounds i8, ptr %block, i64 112
+  %niv = getelementptr inbounds nuw i8, ptr %block, i64 112
   %5 = load i64, ptr %niv, align 8
-  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
+  %ivgen = getelementptr inbounds nuw i8, ptr %block, i64 48
   %6 = load ptr, ptr %ivgen, align 8
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
@@ -831,7 +831,7 @@ do_qcrypto_block_cipher_encdec.exit:              ; preds = %while.body.i, %if.e
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 252) #9
   %11 = load i64, ptr %n_free_ciphers.i, align 8
-  %n_ciphers.i = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 32
   %12 = load i64, ptr %n_ciphers.i, align 8
   %cmp.i9 = icmp ult i64 %11, %12
   br i1 %cmp.i9, label %qcrypto_block_push_cipher.exit, label %if.else.i10
@@ -856,9 +856,9 @@ define dso_local range(i32 -1, 1) i32 @qcrypto_block_encrypt_helper(ptr noundef 
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %block, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %block, i64 56
   tail call void %1(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 237) #9
-  %n_free_ciphers.i = getelementptr inbounds i8, ptr %block, i64 40
+  %n_free_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 40
   %2 = load i64, ptr %n_free_ciphers.i, align 8
   %cmp.not.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i, label %if.else.i, label %qcrypto_block_pop_cipher.exit
@@ -870,14 +870,14 @@ if.else.i:                                        ; preds = %entry
 qcrypto_block_pop_cipher.exit:                    ; preds = %entry
   %dec.i = add i64 %2, -1
   store i64 %dec.i, ptr %n_free_ciphers.i, align 8
-  %ciphers.i = getelementptr inbounds i8, ptr %block, i64 24
+  %ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %3 = load ptr, ptr %ciphers.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %3, i64 %dec.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 243) #9
-  %niv = getelementptr inbounds i8, ptr %block, i64 112
+  %niv = getelementptr inbounds nuw i8, ptr %block, i64 112
   %5 = load i64, ptr %niv, align 8
-  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
+  %ivgen = getelementptr inbounds nuw i8, ptr %block, i64 48
   %6 = load ptr, ptr %ivgen, align 8
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
@@ -965,7 +965,7 @@ do_qcrypto_block_cipher_encdec.exit:              ; preds = %while.body.i, %if.e
   %10 = inttoptr i64 %9 to ptr
   tail call void %10(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str, i32 noundef 252) #9
   %11 = load i64, ptr %n_free_ciphers.i, align 8
-  %n_ciphers.i = getelementptr inbounds i8, ptr %block, i64 32
+  %n_ciphers.i = getelementptr inbounds nuw i8, ptr %block, i64 32
   %12 = load i64, ptr %n_ciphers.i, align 8
   %cmp.i9 = icmp ult i64 %11, %12
   br i1 %cmp.i9, label %qcrypto_block_push_cipher.exit, label %if.else.i10

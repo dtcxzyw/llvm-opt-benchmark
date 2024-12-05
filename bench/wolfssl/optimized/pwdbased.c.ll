@@ -268,9 +268,9 @@ for.body.i.i.us:                                  ; preds = %if.end62.us, %for.b
   %tpb.sroa.0.0.i.us = phi ptr [ %incdec.ptr1.i.i.us, %for.body.i.i.us ], [ %output.addr.045.us, %if.end62.us ]
   %tpm.sroa.0.0.i.us = phi ptr [ %incdec.ptr.i.i.us, %for.body.i.i.us ], [ %buffer, %if.end62.us ]
   %i.03.i.i.us = phi i32 [ %inc.i.i.us, %for.body.i.i.us ], [ 0, %if.end62.us ]
-  %incdec.ptr.i.i.us = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i.us, i64 8
+  %incdec.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %tpm.sroa.0.0.i.us, i64 8
   %5 = load i64, ptr %tpm.sroa.0.0.i.us, align 8
-  %incdec.ptr1.i.i.us = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i.us, i64 8
+  %incdec.ptr1.i.i.us = getelementptr inbounds nuw i8, ptr %tpb.sroa.0.0.i.us, i64 8
   %6 = load i64, ptr %tpb.sroa.0.0.i.us, align 8
   %xor.i.i.us = xor i64 %6, %5
   store i64 %xor.i.i.us, ptr %tpb.sroa.0.0.i.us, align 8
@@ -291,9 +291,9 @@ for.body.preheader.i.us:                          ; preds = %if.end.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us, %for.body.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %for.body.preheader.i.us ], [ %indvars.iv.next.i.us, %for.body.i.us ]
-  %arrayidx.i.us = getelementptr inbounds i8, ptr %m.0.i.us, i64 %indvars.iv.i.us
+  %arrayidx.i.us = getelementptr inbounds nuw i8, ptr %m.0.i.us, i64 %indvars.iv.i.us
   %7 = load i8, ptr %arrayidx.i.us, align 1
-  %arrayidx13.i.us = getelementptr inbounds i8, ptr %b.0.i.us, i64 %indvars.iv.i.us
+  %arrayidx13.i.us = getelementptr inbounds nuw i8, ptr %b.0.i.us, i64 %indvars.iv.i.us
   %8 = load i8, ptr %arrayidx13.i.us, align 1
   %xor1516.i.us = xor i8 %8, %7
   store i8 %xor1516.i.us, ptr %arrayidx13.i.us, align 1
@@ -318,7 +318,7 @@ for.body.us:                                      ; preds = %while.body.us, %for
   br i1 %cmp27.not.us, label %for.cond.us, label %while.end
 
 for.cond45.if.end70_crit_edge.us:                 ; preds = %xorbuf.exit.us
-  %add.ptr.us = getelementptr inbounds i8, ptr %output.addr.045.us, i64 %conv44.us
+  %add.ptr.us = getelementptr inbounds nuw i8, ptr %output.addr.045.us, i64 %conv44.us
   %sub71.us = sub nsw i32 %kLen.addr.044.us, %cond.i.us
   %inc72.us = add i32 %i.046.us, 1
   %tobool.us.not = icmp eq i32 %sub71.us, 0
@@ -357,7 +357,7 @@ if.end41:                                         ; preds = %if.end34
   %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.044, i32 range(i32 -2147483647, -2147483648) %call9)
   %conv44 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.045, ptr nonnull align 16 %buffer, i64 %conv44, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %output.addr.045, i64 %conv44
+  %add.ptr = getelementptr inbounds nuw i8, ptr %output.addr.045, i64 %conv44
   %sub71 = sub nsw i32 %kLen.addr.044, %cond.i
   %inc72 = add i32 %i.046, 1
   %tobool.not = icmp eq i32 %sub71, 0
@@ -462,9 +462,9 @@ if.then34:                                        ; preds = %if.end22
 if.end41:                                         ; preds = %if.then34, %if.end22
   %buffer.0 = phi ptr [ %staticBuffer, %if.end22 ], [ %call36, %if.then34 ]
   %idx.ext = zext nneg i32 %call16.fr to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buffer.0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer.0, i64 %idx.ext
   %idx.ext42 = zext i32 %mul to i64
-  %add.ptr43 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext42
+  %add.ptr43 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext42
   %2 = trunc i32 %id to i8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %buffer.0, i8 %2, i64 %idx.ext, i1 false)
   %cmp4594.not = icmp eq i32 %sub, %0
@@ -483,9 +483,9 @@ for.body:                                         ; preds = %if.end41, %for.body
   %4 = trunc nuw i64 %indvars.iv to i32
   %rem = urem i32 %4, %saltLen
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds i8, ptr %salt, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %salt, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
-  %arrayidx48 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
+  %arrayidx48 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %indvars.iv
   store i8 %5, ptr %arrayidx48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp45 = icmp samesign ult i64 %indvars.iv.next, %idx.ext42
@@ -498,7 +498,7 @@ while.cond.preheader:                             ; preds = %for.body52, %for.co
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %cmp1318.i = icmp sgt i32 %iterations, 1
   %cmp10899.not = icmp eq i32 %add29, 0
-  %add.ptr149 = getelementptr inbounds i8, ptr %tmp, i64 1
+  %add.ptr149 = getelementptr inbounds nuw i8, ptr %tmp, i64 1
   %umax = tail call i32 @llvm.umax.i32(i32 %call16.fr, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %while.body
@@ -508,9 +508,9 @@ for.body52:                                       ; preds = %for.body52.preheade
   %6 = trunc nuw i64 %indvars.iv107 to i32
   %rem53 = urem i32 %6, %passLen
   %idxprom54 = zext nneg i32 %rem53 to i64
-  %arrayidx55 = getelementptr inbounds i8, ptr %passwd, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw i8, ptr %passwd, i64 %idxprom54
   %7 = load i8, ptr %arrayidx55, align 1
-  %arrayidx57 = getelementptr inbounds i8, ptr %add.ptr43, i64 %indvars.iv107
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %add.ptr43, i64 %indvars.iv107
   store i8 %7, ptr %arrayidx57, align 1
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %cmp50 = icmp samesign ult i64 %indvars.iv.next108, %3
@@ -575,9 +575,9 @@ for.body72:                                       ; preds = %DoPKCS12Hash.exit, 
   %8 = trunc nuw nsw i64 %indvars.iv110 to i32
   %rem73 = urem i32 %8, %call9
   %idxprom74 = zext nneg i32 %rem73 to i64
-  %arrayidx75 = getelementptr inbounds [64 x i8], ptr %Ai, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds nuw [64 x i8], ptr %Ai, i64 0, i64 %idxprom74
   %9 = load i8, ptr %arrayidx75, align 1
-  %arrayidx77 = getelementptr inbounds [144 x i8], ptr %B, i64 0, i64 %indvars.iv110
+  %arrayidx77 = getelementptr inbounds nuw [144 x i8], ptr %B, i64 0, i64 %indvars.iv110
   store i8 %9, ptr %arrayidx77, align 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
@@ -618,7 +618,7 @@ for.body110:                                      ; preds = %for.cond107.prehead
 
 if.end117:                                        ; preds = %for.body110
   %idx.ext119 = zext i32 %i.3100 to i64
-  %add.ptr120 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext119
+  %add.ptr120 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext119
   %call121 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %i1, ptr noundef nonnull %add.ptr120, i32 noundef %call16.fr) #6
   %cmp122.not = icmp eq i32 %call121, 0
   br i1 %cmp122.not, label %if.else125, label %if.end176
@@ -650,7 +650,7 @@ if.then154:                                       ; preds = %if.else151
   %sub157 = sub nuw nsw i32 %call16.fr, %call135
   %conv158 = zext nneg i32 %sub157 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr120, i8 0, i64 %conv158, i1 false)
-  %add.ptr163 = getelementptr inbounds i8, ptr %add.ptr120, i64 %idx.ext
+  %add.ptr163 = getelementptr inbounds nuw i8, ptr %add.ptr120, i64 %idx.ext
   %idx.ext164 = zext nneg i32 %call135 to i64
   %idx.neg = sub nsw i64 0, %idx.ext164
   %add.ptr165 = getelementptr inbounds i8, ptr %add.ptr163, i64 %idx.neg
@@ -673,7 +673,7 @@ if.end190:                                        ; preds = %for.cond107, %for.c
   %cond.i = call noundef i32 @llvm.umin.i32(i32 %kLen.addr.0102, i32 range(i32 -2147483647, -2147483648) %call9)
   %conv193 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %output.addr.0103, ptr nonnull align 16 %Ai, i64 %conv193, i1 false)
-  %add.ptr195 = getelementptr inbounds i8, ptr %output.addr.0103, i64 %conv193
+  %add.ptr195 = getelementptr inbounds nuw i8, ptr %output.addr.0103, i64 %conv193
   %sub196 = sub nsw i32 %kLen.addr.0102, %cond.i
   call void @sp_clear(ptr noundef nonnull %B1) #6
   %cmp61 = icmp sgt i32 %sub196, 0

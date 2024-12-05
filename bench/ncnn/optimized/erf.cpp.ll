@@ -63,7 +63,7 @@ define hidden noundef i32 @_ZNK4ncnn3Erf15forward_inplaceERNS_3MatERKNS_6OptionE
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = tail call fast nofpclass(nan inf) float @erff(float noundef nofpclass(nan inf) %23) #7
   store float %24, ptr %22, align 4

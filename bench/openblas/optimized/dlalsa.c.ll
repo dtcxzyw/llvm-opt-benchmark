@@ -107,9 +107,9 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %91 = add nuw nsw i32 %69, 1
   %92 = add nuw nsw i32 %91, %69
   %93 = zext nneg i32 %91 to i64
-  %94 = getelementptr inbounds i32, ptr %62, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %62, i64 %93
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr inbounds i32, ptr %62, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %62, i64 %95
   call void @dlasdt_(ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef nonnull %30, ptr noundef %24, ptr noundef nonnull %94, ptr noundef nonnull %96, ptr noundef nonnull %1) #3
   %97 = load i32, ptr %0, align 4, !tbaa !3
   %98 = icmp eq i32 %97, 1
@@ -185,7 +185,7 @@ thread-pre-split13:                               ; preds = %108
 .preheader26:                                     ; preds = %.preheader26.preheader, %.preheader26
   %147 = phi i64 [ %148, %.preheader26 ], [ 1, %.preheader26.preheader ]
   %148 = add nuw nsw i64 %147, 1
-  %149 = getelementptr inbounds i32, ptr %62, i64 %147
+  %149 = getelementptr inbounds nuw i32, ptr %62, i64 %147
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add nsw i32 %150, %35
   %152 = sext i32 %151 to i64

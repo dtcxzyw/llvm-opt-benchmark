@@ -111,12 +111,12 @@ define internal i32 @dissect_kismet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond, label %.loopexit, label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.24) #3
-  %18 = getelementptr inbounds i8, ptr %1, i64 292
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %21 = load i32, ptr %20, align 8
   %.not.not = icmp eq i32 %19, %21
   br i1 %.not.not, label %.thread, label %22
@@ -136,7 +136,7 @@ define internal i32 @dissect_kismet(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread:                                          ; preds = %22, %22, %15
   %25 = phi ptr [ @.str.3, %15 ], [ @.str, %22 ], [ @.str, %22 ]
   %26 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %8 to i64
   %30 = call ptr @format_text(ptr noundef %28, ptr noundef nonnull %9, i64 noundef %29) #3
@@ -172,13 +172,13 @@ define internal i32 @dissect_kismet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i190, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 2
   store i32 %49, ptr %47, align 4
@@ -190,8 +190,8 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br i1 %.not195, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_generated.exit
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69

@@ -77,7 +77,7 @@ define hidden noundef i32 @_ZNK4ncnn12Clip_x86_avx15forward_inplaceERNS_3MatERKN
   %38 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %37, <8 x float> %33)
   %39 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %38, <8 x float> %36)
   store <8 x float> %39, ptr %.0129151, align 1
-  %40 = getelementptr inbounds i8, ptr %.0129151, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.0129151, i64 32
   %41 = add nuw nsw i32 %.0130150, 8
   %42 = or disjoint i32 %41, 7
   %43 = icmp slt i32 %42, %16
@@ -114,7 +114,7 @@ define hidden noundef i32 @_ZNK4ncnn12Clip_x86_avx15forward_inplaceERNS_3MatERKN
   %54 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %53, <4 x float> %47)
   %55 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %54, <4 x float> %49)
   store <4 x float> %55, ptr %.1154, align 16
-  %56 = getelementptr inbounds i8, ptr %.1154, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.1154, i64 16
   %57 = add nuw nsw i32 %.1131153, 4
   %58 = or disjoint i32 %57, 3
   %59 = icmp slt i32 %58, %16
@@ -143,7 +143,7 @@ define hidden noundef i32 @_ZNK4ncnn12Clip_x86_avx15forward_inplaceERNS_3MatERKN
   br label %69
 
 69:                                               ; preds = %68, %64
-  %70 = getelementptr inbounds i8, ptr %.2160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.2160, i64 4
   %71 = add nuw nsw i32 %.2132159, 1
   %exitcond.not = icmp eq i32 %71, %16
   br i1 %exitcond.not, label %._crit_edge162, label %.lr.ph161, !llvm.loop !7

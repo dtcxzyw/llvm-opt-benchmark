@@ -15,7 +15,7 @@ define hidden void @png_set_bgr(ptr noalias noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 300
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -31,13 +31,13 @@ define hidden void @png_set_swap(ptr noalias noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 16
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, 16
   store i32 %10, ptr %8, align 4
@@ -53,13 +53,13 @@ define hidden void @png_set_packing(ptr noalias noundef %0) local_unnamed_addr #
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i8, ptr %4, align 8
   %6 = icmp ult i8 %5, 8
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, 4
   store i32 %10, ptr %8, align 4
@@ -75,13 +75,13 @@ define hidden void @png_set_packswap(ptr noalias noundef %0) local_unnamed_addr 
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i8, ptr %4, align 8
   %6 = icmp ult i8 %5, 8
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, 65536
   store i32 %10, ptr %8, align 4
@@ -97,11 +97,11 @@ define hidden void @png_set_shift(ptr noalias noundef %0, ptr nocapture noundef 
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 300
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, 8
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 621
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 621
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) %1, i64 5, i1 false)
   br label %9
 
@@ -118,13 +118,13 @@ define hidden range(i32 1, 8) i32 @png_set_interlace_handling(ptr noalias nounde
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 516
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %4 = load i8, ptr %3, align 4
   %.not4 = icmp eq i8 %4, 0
   br i1 %.not4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 300
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %7 = load i32, ptr %6, align 4
   %8 = or i32 %7, 2
   store i32 %8, ptr %6, align 4
@@ -141,7 +141,7 @@ define hidden void @png_set_filler(ptr noalias noundef %0, i32 noundef %1, i32 n
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 292
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32768
   %.not = icmp eq i32 %8, 0
@@ -149,14 +149,14 @@ define hidden void @png_set_filler(ptr noalias noundef %0, i32 noundef %1, i32 n
 
 9:                                                ; preds = %5
   %10 = trunc i32 %1 to i16
-  %11 = getelementptr inbounds i8, ptr %0, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i16 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 32768
   store i32 %14, ptr %12, align 4
   %15 = icmp eq i32 %2, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %17 = load i32, ptr %16, align 8
   br i1 %15, label %19, label %21
 
@@ -186,7 +186,7 @@ define hidden void @png_set_add_alpha(ptr noalias noundef %0, i32 noundef %1, i3
   br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 292
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %7 = load i32, ptr %6, align 4, !alias.scope !6
   %8 = and i32 %7, 32768
   %.not.i = icmp eq i32 %8, 0
@@ -194,20 +194,20 @@ define hidden void @png_set_add_alpha(ptr noalias noundef %0, i32 noundef %1, i3
 
 9:                                                ; preds = %5
   %10 = trunc i32 %1 to i16
-  %11 = getelementptr inbounds i8, ptr %0, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i16 %10, ptr %11, align 8, !alias.scope !6
-  %12 = getelementptr inbounds i8, ptr %0, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %13 = load i32, ptr %12, align 4, !alias.scope !6
   %14 = or i32 %13, 32768
   store i32 %14, ptr %12, align 4, !alias.scope !6
   %15 = icmp eq i32 %2, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %17 = load i32, ptr %16, align 8, !alias.scope !6
   br i1 %15, label %19, label %21
 
 18:                                               ; preds = %5
   tail call void @png_app_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 300
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 300
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %png_set_filler.exit
 
@@ -228,7 +228,7 @@ png_set_filler.exit:                              ; preds = %18, %19, %21
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %png_set_filler.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 300
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %27 = or i32 %23, 16777216
   store i32 %27, ptr %26, align 4
   br label %28
@@ -243,7 +243,7 @@ define hidden void @png_set_swap_alpha(ptr noalias noundef %0) local_unnamed_add
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 300
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 131072
   store i32 %6, ptr %4, align 4
@@ -259,7 +259,7 @@ define hidden void @png_set_invert_alpha(ptr noalias noundef %0) local_unnamed_a
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 300
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 524288
   store i32 %6, ptr %4, align 4
@@ -275,7 +275,7 @@ define hidden void @png_set_invert_mono(ptr noalias noundef %0) local_unnamed_ad
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 300
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 32
   store i32 %6, ptr %4, align 4
@@ -287,7 +287,7 @@ define hidden void @png_set_invert_mono(ptr noalias noundef %0) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %.loopexit [
     i8 0, label %5
@@ -295,7 +295,7 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not47 = icmp eq i64 %7, 0
   br i1 %.not47, label %.loopexit, label %.lr.ph45
@@ -306,13 +306,13 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
   %8 = load i8, ptr %.044, align 1
   %9 = xor i8 %8, -1
   store i8 %9, ptr %.044, align 1
-  %10 = getelementptr inbounds i8, ptr %.044, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %11 = add nuw i64 %.03243, 1
   %exitcond.not = icmp eq i64 %11, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph45, !llvm.loop !9
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %.loopexit [
     i8 8, label %15
@@ -320,7 +320,7 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %.not46 = icmp eq i64 %17, 0
   br i1 %.not46, label %.loopexit, label %.lr.ph42
@@ -331,13 +331,13 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
   %18 = load i8, ptr %.03440, align 1
   %19 = xor i8 %18, -1
   store i8 %19, ptr %.03440, align 1
-  %20 = getelementptr inbounds i8, ptr %.03440, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.03440, i64 2
   %21 = add nuw i64 %.03341, 2
   %22 = icmp ult i64 %21, %17
   br i1 %22, label %.lr.ph42, label %.loopexit, !llvm.loop !11
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -348,11 +348,11 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
   %26 = load i8, ptr %.03138, align 1
   %27 = xor i8 %26, -1
   store i8 %27, ptr %.03138, align 1
-  %28 = getelementptr inbounds i8, ptr %.03138, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.03138, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = xor i8 %29, -1
   store i8 %30, ptr %28, align 1
-  %31 = getelementptr inbounds i8, ptr %.03138, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.03138, i64 4
   %32 = add nuw i64 %.03039, 4
   %33 = icmp ult i64 %32, %25
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -363,14 +363,14 @@ define hidden void @png_do_invert(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @png_do_swap(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 16
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 18
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   %11 = mul i32 %7, %10
@@ -381,12 +381,12 @@ define hidden void @png_do_swap(ptr nocapture noundef readonly %0, ptr nocapture
   %.014 = phi ptr [ %16, %.lr.ph ], [ %1, %6 ]
   %.01213 = phi i32 [ %15, %.lr.ph ], [ 0, %6 ]
   %12 = load i8, ptr %.014, align 1
-  %13 = getelementptr inbounds i8, ptr %.014, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %14 = load i8, ptr %13, align 1
   store i8 %14, ptr %.014, align 1
   store i8 %12, ptr %13, align 1
   %15 = add nuw i32 %.01213, 1
-  %16 = getelementptr inbounds i8, ptr %.014, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   %exitcond.not = icmp eq i32 %15, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
@@ -396,13 +396,13 @@ define hidden void @png_do_swap(ptr nocapture noundef readonly %0, ptr nocapture
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @png_do_packswap(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1
   %5 = icmp ult i8 %4, 8
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   switch i8 %4, label %.loopexit [
@@ -426,10 +426,10 @@ define hidden void @png_do_packswap(ptr nocapture noundef readonly %0, ptr nound
   %.01315 = phi ptr [ %18, %.lr.ph ], [ %1, %12 ]
   %14 = load i8, ptr %.01315, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %.0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 %15
   %17 = load i8, ptr %16, align 1
   store i8 %17, ptr %.01315, align 1
-  %18 = getelementptr inbounds i8, ptr %.01315, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 1
   %19 = icmp ult ptr %18, %9
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
@@ -439,10 +439,10 @@ define hidden void @png_do_packswap(ptr nocapture noundef readonly %0, ptr nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 18
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %8 = load i8, ptr %7, align 2
   switch i8 %8, label %81 [
     i8 2, label %9
@@ -450,7 +450,7 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
   ]
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %81 [
     i8 8, label %12
@@ -459,8 +459,8 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
 
 12:                                               ; preds = %9
   %.not87 = icmp eq i32 %2, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.074 = select i1 %.not87, ptr %13, ptr %1
   %.0 = select i1 %.not87, ptr %14, ptr %13
   %15 = icmp ult ptr %.0, %6
@@ -470,16 +470,16 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
   %.1103 = phi ptr [ %18, %.lr.ph105 ], [ %.0, %12 ]
   %.175102 = phi ptr [ %17, %.lr.ph105 ], [ %.074, %12 ]
   %16 = load i8, ptr %.1103, align 1
-  %17 = getelementptr inbounds i8, ptr %.175102, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.175102, i64 1
   store i8 %16, ptr %.175102, align 1
-  %18 = getelementptr inbounds i8, ptr %.1103, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.1103, i64 2
   %19 = icmp ult ptr %18, %6
   br i1 %19, label %.lr.ph105, label %._crit_edge106, !llvm.loop !15
 
 20:                                               ; preds = %9
   %.not86 = icmp eq i32 %2, 0
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.377 = select i1 %.not86, ptr %21, ptr %1
   %.2 = select i1 %.not86, ptr %22, ptr %21
   %23 = icmp ult ptr %.2, %6
@@ -488,23 +488,23 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
 .lr.ph99:                                         ; preds = %20, %.lr.ph99
   %.397 = phi ptr [ %29, %.lr.ph99 ], [ %.2, %20 ]
   %.47896 = phi ptr [ %28, %.lr.ph99 ], [ %.377, %20 ]
-  %24 = getelementptr inbounds i8, ptr %.397, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.397, i64 1
   %25 = load i8, ptr %.397, align 1
-  %26 = getelementptr inbounds i8, ptr %.47896, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.47896, i64 1
   store i8 %25, ptr %.47896, align 1
   %27 = load i8, ptr %24, align 1
-  %28 = getelementptr inbounds i8, ptr %.47896, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.47896, i64 2
   store i8 %27, ptr %26, align 1
-  %29 = getelementptr inbounds i8, ptr %.397, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.397, i64 4
   %30 = icmp ult ptr %29, %6
   br i1 %30, label %.lr.ph99, label %._crit_edge106, !llvm.loop !16
 
 ._crit_edge106:                                   ; preds = %.lr.ph99, %.lr.ph105, %20, %12
   %.276 = phi ptr [ %.074, %12 ], [ %.377, %20 ], [ %17, %.lr.ph105 ], [ %28, %.lr.ph99 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 19
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %11, ptr %31, align 1
   store i8 1, ptr %7, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 4
   br i1 %34, label %35, label %77
@@ -514,7 +514,7 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
   br label %77
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %0, i64 17
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %38 = load i8, ptr %37, align 1
   switch i8 %38, label %81 [
     i8 8, label %39
@@ -524,82 +524,82 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
 39:                                               ; preds = %36
   %.not85 = icmp eq i32 %2, 0
   %.680.idx = select i1 %.not85, i64 3, i64 0
-  %.680 = getelementptr inbounds i8, ptr %1, i64 %.680.idx
+  %.680 = getelementptr inbounds nuw i8, ptr %1, i64 %.680.idx
   %.4.v = select i1 %.not85, i64 4, i64 1
   %40 = icmp slt i64 %.4.v, %5
   br i1 %40, label %.lr.ph93.preheader, label %._crit_edge94
 
 .lr.ph93.preheader:                               ; preds = %39
-  %.4 = getelementptr inbounds i8, ptr %1, i64 %.4.v
+  %.4 = getelementptr inbounds nuw i8, ptr %1, i64 %.4.v
   br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %.591 = phi ptr [ %49, %.lr.ph93 ], [ %.4, %.lr.ph93.preheader ]
   %.78190 = phi ptr [ %48, %.lr.ph93 ], [ %.680, %.lr.ph93.preheader ]
-  %41 = getelementptr inbounds i8, ptr %.591, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.591, i64 1
   %42 = load i8, ptr %.591, align 1
-  %43 = getelementptr inbounds i8, ptr %.78190, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.78190, i64 1
   store i8 %42, ptr %.78190, align 1
-  %44 = getelementptr inbounds i8, ptr %.591, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.591, i64 2
   %45 = load i8, ptr %41, align 1
-  %46 = getelementptr inbounds i8, ptr %.78190, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.78190, i64 2
   store i8 %45, ptr %43, align 1
   %47 = load i8, ptr %44, align 1
-  %48 = getelementptr inbounds i8, ptr %.78190, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %.78190, i64 3
   store i8 %47, ptr %46, align 1
-  %49 = getelementptr inbounds i8, ptr %.591, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.591, i64 4
   %50 = icmp ult ptr %49, %6
   br i1 %50, label %.lr.ph93, label %._crit_edge94, !llvm.loop !17
 
 51:                                               ; preds = %36
   %.not = icmp eq i32 %2, 0
   %.9.idx = select i1 %.not, i64 6, i64 0
-  %.9 = getelementptr inbounds i8, ptr %1, i64 %.9.idx
+  %.9 = getelementptr inbounds nuw i8, ptr %1, i64 %.9.idx
   %.6.v = select i1 %.not, i64 8, i64 2
   %52 = icmp slt i64 %.6.v, %5
   br i1 %52, label %.lr.ph.preheader, label %._crit_edge94
 
 .lr.ph.preheader:                                 ; preds = %51
-  %.6 = getelementptr inbounds i8, ptr %1, i64 %.6.v
+  %.6 = getelementptr inbounds nuw i8, ptr %1, i64 %.6.v
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.789 = phi ptr [ %70, %.lr.ph ], [ %.6, %.lr.ph.preheader ]
   %.1088 = phi ptr [ %69, %.lr.ph ], [ %.9, %.lr.ph.preheader ]
-  %53 = getelementptr inbounds i8, ptr %.789, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.789, i64 1
   %54 = load i8, ptr %.789, align 1
-  %55 = getelementptr inbounds i8, ptr %.1088, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.1088, i64 1
   store i8 %54, ptr %.1088, align 1
-  %56 = getelementptr inbounds i8, ptr %.789, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.789, i64 2
   %57 = load i8, ptr %53, align 1
-  %58 = getelementptr inbounds i8, ptr %.1088, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.1088, i64 2
   store i8 %57, ptr %55, align 1
-  %59 = getelementptr inbounds i8, ptr %.789, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.789, i64 3
   %60 = load i8, ptr %56, align 1
-  %61 = getelementptr inbounds i8, ptr %.1088, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %.1088, i64 3
   store i8 %60, ptr %58, align 1
-  %62 = getelementptr inbounds i8, ptr %.789, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.789, i64 4
   %63 = load i8, ptr %59, align 1
-  %64 = getelementptr inbounds i8, ptr %.1088, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.1088, i64 4
   store i8 %63, ptr %61, align 1
-  %65 = getelementptr inbounds i8, ptr %.789, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.789, i64 5
   %66 = load i8, ptr %62, align 1
-  %67 = getelementptr inbounds i8, ptr %.1088, i64 5
+  %67 = getelementptr inbounds nuw i8, ptr %.1088, i64 5
   store i8 %66, ptr %64, align 1
   %68 = load i8, ptr %65, align 1
-  %69 = getelementptr inbounds i8, ptr %.1088, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.1088, i64 6
   store i8 %68, ptr %67, align 1
-  %70 = getelementptr inbounds i8, ptr %.789, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.789, i64 8
   %71 = icmp ult ptr %70, %6
   br i1 %71, label %.lr.ph, label %._crit_edge94, !llvm.loop !18
 
 ._crit_edge94:                                    ; preds = %.lr.ph, %.lr.ph93, %51, %39
   %.sink115 = phi i8 [ 24, %39 ], [ 48, %51 ], [ 24, %.lr.ph93 ], [ 48, %.lr.ph ]
   %.8 = phi ptr [ %.680, %39 ], [ %.9, %51 ], [ %48, %.lr.ph93 ], [ %69, %.lr.ph ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 19
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %.sink115, ptr %72, align 1
   store i8 3, ptr %7, align 2
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 6
   br i1 %75, label %76, label %77
@@ -622,7 +622,7 @@ define hidden void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 2
   %.not = icmp eq i8 %5, 0
@@ -630,7 +630,7 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %.loopexit [
     i8 8, label %10
@@ -655,12 +655,12 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
   %.081 = phi ptr [ %15, %.lr.ph82 ], [ %1, %.preheader ]
   %.05980 = phi i32 [ %14, %.lr.ph82 ], [ 0, %.preheader ]
   %11 = load i8, ptr %.081, align 1
-  %12 = getelementptr inbounds i8, ptr %.081, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.081, i64 2
   %13 = load i8, ptr %12, align 1
   store i8 %13, ptr %.081, align 1
   store i8 %11, ptr %12, align 1
   %14 = add nuw i32 %.05980, 1
-  %15 = getelementptr inbounds i8, ptr %.081, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %.081, i64 3
   %exitcond92.not = icmp eq i32 %14, %7
   br i1 %exitcond92.not, label %.loopexit, label %.lr.ph82, !llvm.loop !19
 
@@ -668,12 +668,12 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
   %.06278 = phi ptr [ %20, %.lr.ph79 ], [ %1, %.preheader66 ]
   %.06377 = phi i32 [ %19, %.lr.ph79 ], [ 0, %.preheader66 ]
   %16 = load i8, ptr %.06278, align 1
-  %17 = getelementptr inbounds i8, ptr %.06278, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.06278, i64 2
   %18 = load i8, ptr %17, align 1
   store i8 %18, ptr %.06278, align 1
   store i8 %16, ptr %17, align 1
   %19 = add nuw i32 %.06377, 1
-  %20 = getelementptr inbounds i8, ptr %.06278, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.06278, i64 4
   %exitcond91.not = icmp eq i32 %19, %7
   br i1 %exitcond91.not, label %.loopexit, label %.lr.ph79, !llvm.loop !20
 
@@ -695,18 +695,18 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
   %.06075 = phi i32 [ %29, %.lr.ph76 ], [ 0, %.preheader68 ]
   %.06174 = phi ptr [ %30, %.lr.ph76 ], [ %1, %.preheader68 ]
   %22 = load i8, ptr %.06174, align 1
-  %23 = getelementptr inbounds i8, ptr %.06174, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.06174, i64 4
   %24 = load i8, ptr %23, align 1
   store i8 %24, ptr %.06174, align 1
   store i8 %22, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.06174, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.06174, i64 1
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.06174, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %.06174, i64 5
   %28 = load i8, ptr %27, align 1
   store i8 %28, ptr %25, align 1
   store i8 %26, ptr %27, align 1
   %29 = add nuw i32 %.06075, 1
-  %30 = getelementptr inbounds i8, ptr %.06174, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %.06174, i64 6
   %exitcond90.not = icmp eq i32 %29, %7
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph76, !llvm.loop !21
 
@@ -714,18 +714,18 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
   %.05773 = phi i32 [ %38, %.lr.ph ], [ 0, %.preheader70 ]
   %.05872 = phi ptr [ %39, %.lr.ph ], [ %1, %.preheader70 ]
   %31 = load i8, ptr %.05872, align 1
-  %32 = getelementptr inbounds i8, ptr %.05872, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.05872, i64 4
   %33 = load i8, ptr %32, align 1
   store i8 %33, ptr %.05872, align 1
   store i8 %31, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.05872, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.05872, i64 1
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.05872, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %.05872, i64 5
   %37 = load i8, ptr %36, align 1
   store i8 %37, ptr %34, align 1
   store i8 %35, ptr %36, align 1
   %38 = add nuw i32 %.05773, 1
-  %39 = getelementptr inbounds i8, ptr %.05872, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.05872, i64 8
   %exitcond.not = icmp eq i32 %38, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
@@ -735,10 +735,10 @@ define hidden void @png_do_bgr(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 504
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %7 = load i8, ptr %6, align 1
   %8 = zext nneg i8 %7 to i32
   %9 = shl nuw i32 1, %8
@@ -748,16 +748,16 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   br i1 %or.cond, label %.loopexit, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 19
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = load i32, ptr %1, align 8
   %16 = mul i32 %15, %14
   %17 = sub i32 0, %16
   %18 = and i32 %17, 7
-  %19 = getelementptr inbounds i8, ptr %0, i64 472
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
   switch i8 %7, label %.loopexit [
@@ -772,7 +772,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader78
-  %25 = getelementptr inbounds i8, ptr %0, i64 508
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %.promoted = load i32, ptr %25, align 4
   br label %72
 
@@ -781,7 +781,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   br i1 %26, label %.lr.ph83, label %.loopexit
 
 .lr.ph83:                                         ; preds = %.preheader76
-  %27 = getelementptr inbounds i8, ptr %0, i64 508
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %.promoted84 = load i32, ptr %27, align 4
   br label %58
 
@@ -790,7 +790,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   br i1 %28, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %.preheader74
-  %29 = getelementptr inbounds i8, ptr %0, i64 508
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %.promoted88 = load i32, ptr %29, align 4
   br label %40
 
@@ -799,7 +799,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias nocapture noundef %
   br i1 %30, label %.lr.ph91, label %.loopexit
 
 .lr.ph91:                                         ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %0, i64 508
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 508
   br label %32
 
 32:                                               ; preds = %.lr.ph91, %37
@@ -908,14 +908,14 @@ define hidden void @png_set_user_transform_info(ptr noalias noundef %0, ptr noun
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 292
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 32768
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 64
   %.not9 = icmp eq i32 %13, 0
@@ -926,13 +926,13 @@ define hidden void @png_set_user_transform_info(ptr noalias noundef %0, ptr noun
   br label %21
 
 15:                                               ; preds = %10, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %1, ptr %16, align 8
   %17 = trunc i32 %2 to i8
-  %18 = getelementptr inbounds i8, ptr %0, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 %17, ptr %18, align 8
   %19 = trunc i32 %3 to i8
-  %20 = getelementptr inbounds i8, ptr %0, i64 289
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 %19, ptr %20, align 1
   br label %21
 
@@ -946,7 +946,7 @@ define hidden ptr @png_get_user_transform_ptr(ptr noalias noundef readonly %0) l
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -961,7 +961,7 @@ define hidden i32 @png_get_current_row_number(ptr noalias noundef readonly %0) l
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 452
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %4 = load i32, ptr %3, align 4
   br label %5
 
@@ -976,7 +976,7 @@ define hidden zeroext i8 @png_get_current_pass_number(ptr noalias noundef readon
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 517
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 517
   %4 = load i8, ptr %3, align 1
   br label %5
 

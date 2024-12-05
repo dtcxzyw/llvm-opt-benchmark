@@ -18,7 +18,7 @@ define hidden i32 @mbedtls_ecdh_gen_public(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %7, label %ecdh_gen_public_restartable.exit
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = tail call i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef null) #6
   br label %ecdh_gen_public_restartable.exit
 
@@ -64,19 +64,19 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -20096, 1) i32 @mbedtls_ecdh_setup(ptr noundef initializes((0, 1), (4, 12)) %0, i32 noundef %1) local_unnamed_addr #1 {
   store i8 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @mbedtls_ecp_group_init(ptr noundef nonnull %5) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %6) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 360
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %9) #6
   %10 = tail call i32 @mbedtls_ecp_group_load(ptr noundef nonnull %5, i32 noundef %1) #6
   %.not.i = icmp eq i32 %10, 0
@@ -90,28 +90,28 @@ define hidden void @mbedtls_ecdh_free(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @mbedtls_ecp_group_free(ptr noundef nonnull %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %10) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %11) #6
   br label %12
 
 12:                                               ; preds = %3, %6
   store i8 0, ptr %0, align 8
   store i32 0, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -123,31 +123,31 @@ define hidden void @mbedtls_ecdh_free(ptr noundef %0) local_unnamed_addr #1 {
 define hidden i32 @mbedtls_ecdh_make_params(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %cond = icmp eq i32 %10, 1
   br i1 %cond, label %11, label %35
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %0, align 8
   %14 = zext i8 %13 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %ecdh_make_params_internal.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 264
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %21 = tail call i32 @mbedtls_ecp_gen_privkey(ptr noundef nonnull %12, ptr noundef nonnull %19, ptr noundef %4, ptr noundef %5) #6
   %.not.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i, label %mbedtls_ecdh_gen_public.exit.i, label %ecdh_make_params_internal.exit
 
 mbedtls_ecdh_gen_public.exit.i:                   ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = tail call i32 @mbedtls_ecp_mul_restartable(ptr noundef nonnull %12, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %22, ptr noundef %4, ptr noundef %5, ptr noundef null) #6
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %ecdh_make_params_internal.exit
@@ -197,19 +197,19 @@ define hidden i32 @mbedtls_ecdh_read_params(ptr noundef %0, ptr noundef %1, ptr 
 10:                                               ; preds = %3
   %11 = load i32, ptr %4, align 4
   store i8 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %11, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %14) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 264
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @mbedtls_mpi_init(ptr noundef nonnull %15) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %16) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 360
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 360
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %17) #6
-  %18 = getelementptr inbounds i8, ptr %0, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   call void @mbedtls_mpi_init(ptr noundef nonnull %18) #6
   %19 = call i32 @mbedtls_ecp_group_load(ptr noundef nonnull %14, i32 noundef %11) #6
   %.not.i.i = icmp eq i32 %19, 0
@@ -244,18 +244,18 @@ define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 n
 
 7:                                                ; preds = %3
   store i8 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %8, align 8
   store i32 %6, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @mbedtls_ecp_group_init(ptr noundef nonnull %9) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %10) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %11) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 360
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %12) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 432
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %13) #6
   %14 = tail call i32 @mbedtls_ecp_group_load(ptr noundef nonnull %9, i32 noundef %6) #6
   %.not.i.i = icmp eq i32 %14, 0
@@ -266,7 +266,7 @@ define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not, label %16, label %ecdh_get_params_internal.exit
 
 16:                                               ; preds = %15, %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %cond = icmp eq i32 %18, 1
   br i1 %cond, label %19, label %ecdh_get_params_internal.exit
@@ -278,21 +278,21 @@ define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 360
-  %22 = getelementptr inbounds i8, ptr %1, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %23 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %21, ptr noundef nonnull %22) #6
   br label %ecdh_get_params_internal.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 288
-  %26 = getelementptr inbounds i8, ptr %1, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %27 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %25, ptr noundef nonnull %26) #6
   %.not13.i = icmp eq i32 %27, 0
   br i1 %.not13.i, label %28, label %ecdh_get_params_internal.exit
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 264
-  %30 = getelementptr inbounds i8, ptr %1, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %31 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %29, ptr noundef nonnull %30) #6
   br label %ecdh_get_params_internal.exit
 
@@ -303,29 +303,29 @@ ecdh_get_params_internal.exit:                    ; preds = %28, %24, %20, %19, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_make_public(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %cond = icmp eq i32 %8, 1
   br i1 %cond, label %9, label %ecdh_make_public_internal.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %0, align 8
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %ecdh_make_public_internal.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 264
-  %18 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %19 = tail call i32 @mbedtls_ecp_gen_privkey(ptr noundef nonnull %10, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5) #6
   %.not.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i.i, label %mbedtls_ecdh_gen_public.exit.i, label %ecdh_make_public_internal.exit
 
 mbedtls_ecdh_gen_public.exit.i:                   ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = tail call i32 @mbedtls_ecp_mul_restartable(ptr noundef nonnull %10, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %20, ptr noundef %4, ptr noundef %5, ptr noundef null) #6
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %ecdh_make_public_internal.exit
@@ -342,16 +342,16 @@ ecdh_make_public_internal.exit:                   ; preds = %22, %mbedtls_ecdh_g
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_read_public(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %7, label %15
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %10 = call i32 @mbedtls_ecp_tls_read_point(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %4, i64 noundef %2) #6
   %.not.i = icmp eq i32 %10, 0
   %11 = load ptr, ptr %4, align 8
@@ -372,22 +372,22 @@ define hidden i32 @mbedtls_ecdh_read_public(ptr noundef %0, ptr noundef %1, i64 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_calc_secret(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %cond = icmp eq i32 %9, 1
   br i1 %cond, label %10, label %ecdh_calc_secret_internal.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %ecdh_calc_secret_internal.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 432
-  %17 = getelementptr inbounds i8, ptr %0, i64 360
-  %18 = getelementptr inbounds i8, ptr %0, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #6
   %19 = call i32 @mbedtls_ecp_mul_restartable(ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef null) #6

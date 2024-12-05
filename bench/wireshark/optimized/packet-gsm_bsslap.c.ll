@@ -314,7 +314,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
   %1 = alloca [48 x ptr], align 16
   store ptr @ett_gsm_bsslap, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_bsslap_cell_list, ptr %2, align 8
   br label %3
 
@@ -367,7 +367,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_bsslap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.77) #2
   %.not = icmp eq ptr %2, null

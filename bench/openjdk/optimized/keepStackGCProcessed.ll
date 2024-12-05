@@ -41,13 +41,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   tail call void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef %1, ptr noundef null, i32 noundef 0) #5
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %5) #5
   br i1 %9, label %11, label %10
@@ -64,13 +64,13 @@ define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr nocapture 
 
 .lr.ph.i:                                         ; preds = %11, %17
   %.08.i = phi ptr [ %19, %17 ], [ %13, %11 ]
-  %14 = getelementptr inbounds i8, ptr %.08.i, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 152
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -86,13 +86,13 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.l
 
 .lr.ph.i7:                                        ; preds = %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit, %24
   %.08.i8 = phi ptr [ %26, %24 ], [ %20, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit ]
-  %21 = getelementptr inbounds i8, ptr %.08.i8, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %.08.i8, i64 152
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit11, label %24
 
 24:                                               ; preds = %.lr.ph.i7
-  %25 = getelementptr inbounds i8, ptr %.08.i8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.08.i8, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not.i9 = icmp eq ptr %26, null
   br i1 %.not.i9, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit11, label %.lr.ph.i7, !llvm.loop !6
@@ -108,7 +108,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit11: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24KeepStackGCProcessedMark17finish_processingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef %3, ptr noundef null, i32 noundef 0) #5
   ret void
@@ -128,16 +128,16 @@ define hidden void @_ZN24KeepStackGCProcessedMarkD2Ev(ptr nocapture noundef nonn
   %7 = tail call noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr noundef %6) #5
   %.not7.i = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %.not7.i)
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i2 = phi ptr [ %12, %.lr.ph.i ], [ %7, %4 ]
-  %11 = getelementptr inbounds i8, ptr %.08.i2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.08.i2, i64 24
   %12 = load ptr, ptr %11, align 8, !nonnull !8, !noundef !8
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i

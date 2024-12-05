@@ -5,11 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @mca_topo_base_cart_coords(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   %12 = icmp sgt i32 %2, 0
@@ -21,7 +21,7 @@ define noundef i32 @mca_topo_base_cart_coords(ptr nocapture noundef readonly %0,
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %.lr.ph
 
@@ -34,15 +34,15 @@ define noundef i32 @mca_topo_base_cart_coords(ptr nocapture noundef readonly %0,
   %18 = load i32, ptr %.023, align 4
   %19 = sdiv i32 %.01621, %18
   %20 = sdiv i32 %.01720, %19
-  %21 = getelementptr inbounds i8, ptr %.01819, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.01819, i64 4
   store i32 %20, ptr %.01819, align 4
   %22 = srem i32 %.01720, %19
   %23 = add nuw nsw i32 %.01522, 1
-  %24 = getelementptr inbounds i8, ptr %.023, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %23, %29
   %31 = icmp slt i32 %23, %2

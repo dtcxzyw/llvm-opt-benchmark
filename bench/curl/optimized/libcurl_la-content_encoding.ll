@@ -59,7 +59,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %len.1 = phi i64 [ %len.020, %for.body ], [ %add6, %if.then ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %cep.021, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cep.021, i64 8
   %3 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
@@ -94,15 +94,15 @@ if.then20:                                        ; preds = %for.body16
   %call22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %p.023, ptr noundef nonnull dereferenceable(1) %6) #7
   %call23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.023) #8
   %add.ptr = getelementptr inbounds i8, ptr %p.023, i64 %call23
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 44, ptr %add.ptr, align 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store i8 32, ptr %incdec.ptr24, align 1
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.body16, %if.then20
   %p.1 = phi ptr [ %p.023, %for.body16 ], [ %incdec.ptr25, %if.then20 ]
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %cep.122, i64 8
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %cep.122, i64 8
   %7 = load ptr, ptr %incdec.ptr28, align 8
   %tobool15.not = icmp eq ptr %7, null
   br i1 %tobool15.not, label %for.end29, label %for.body16, !llvm.loop !6
@@ -130,9 +130,9 @@ entry:
   %writer = alloca ptr, align 8
   %tobool.not.not = icmp eq i32 %is_transfer, 0
   %cond = select i1 %tobool.not.not, i32 3, i32 1
-  %http_transfer_encoding = getelementptr inbounds i8, ptr %data, i64 2706
+  %http_transfer_encoding = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %0 = load ptr, ptr @Curl_httpchunk_unencoder, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
   %tobool5.not.i = icmp eq ptr %1, null
   br label %while.cond
 
@@ -150,7 +150,7 @@ for.cond.preheader:                               ; preds = %while.cond
   br label %for.cond
 
 while.body:                                       ; preds = %while.cond, %while.cond, %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %enclist.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %enclist.addr.1, i64 1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.body, %do.cond
@@ -181,7 +181,7 @@ if.then:                                          ; preds = %lor.lhs.false20
 
 for.inc:                                          ; preds = %lor.lhs.false20, %for.cond, %for.cond, %if.then
   %namelen.1 = phi i64 [ %add, %if.then ], [ %namelen.0, %for.cond ], [ %namelen.0, %for.cond ], [ %namelen.0, %lor.lhs.false20 ]
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %enclist.addr.2, i64 1
+  %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %enclist.addr.2, i64 1
   %.pr = load i8, ptr %incdec.ptr27, align 1
   br label %for.cond, !llvm.loop !8
 
@@ -272,7 +272,7 @@ land.lhs.true23.i:                                ; preds = %for.body18.i
   br i1 %tobool26.not.i, label %find_unencode_writer.exit, label %lor.lhs.false27.i
 
 lor.lhs.false27.i:                                ; preds = %land.lhs.true23.i, %for.body18.i
-  %alias28.i = getelementptr inbounds i8, ptr %11, i64 8
+  %alias28.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %alias28.i, align 8
   %tobool29.not.i = icmp eq ptr %15, null
   br i1 %tobool29.not.i, label %for.inc40.i, label %land.lhs.true30.i
@@ -290,7 +290,7 @@ land.lhs.true34.i:                                ; preds = %land.lhs.true30.i
   br i1 %tobool37.not.i, label %find_unencode_writer.exit, label %for.inc40.i
 
 for.inc40.i:                                      ; preds = %land.lhs.true34.i, %land.lhs.true30.i, %lor.lhs.false27.i
-  %incdec.ptr41.i = getelementptr inbounds i8, ptr %cep.132.i, i64 8
+  %incdec.ptr41.i = getelementptr inbounds nuw i8, ptr %cep.132.i, i64 8
   %18 = load ptr, ptr %incdec.ptr41.i, align 8
   %tobool17.not.i = icmp eq ptr %18, null
   br i1 %tobool17.not.i, label %find_unencode_writer.exit, label %for.body18.i, !llvm.loop !9
@@ -349,10 +349,10 @@ declare void @Curl_cwriter_def_close(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %data, ptr noundef initializes((96, 112)) %writer) #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
-  %zalloc = getelementptr inbounds i8, ptr %writer, i64 96
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %zalloc = getelementptr inbounds nuw i8, ptr %writer, i64 96
   store ptr @zalloc_cb, ptr %zalloc, align 8
-  %zfree = getelementptr inbounds i8, ptr %writer, i64 104
+  %zfree = getelementptr inbounds nuw i8, ptr %writer, i64 104
   store ptr @zfree_cb, ptr %zfree, align 8
   %call = tail call i32 @inflateInit_(ptr noundef nonnull %z1, ptr noundef nonnull @.str.5, i32 noundef 112) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -373,7 +373,7 @@ if.else.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store i32 1, ptr %zlib_init, align 8
   br label %return
 
@@ -390,18 +390,18 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #7
   br label %return
 
 if.end:                                           ; preds = %entry
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
   store ptr %buf, ptr %z1, align 8
   %conv = trunc i64 %nbytes to i32
-  %avail_in = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv, ptr %avail_in, align 8
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %1 = load i32, ptr %zlib_init, align 8
   %cmp = icmp eq i32 %1, 3
   br i1 %cmp, label %if.then3, label %if.end5
@@ -422,8 +422,8 @@ return:                                           ; preds = %if.end5, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal void @deflate_do_close(ptr noundef %data, ptr noundef %writer) #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %0 = load i32, ptr %zlib_init, align 4
   %cmp.i = icmp eq i32 %0, 4
   br i1 %cmp.i, label %do.body.i, label %if.end.i
@@ -493,10 +493,10 @@ declare i32 @Curl_cwriter_write(ptr noundef, ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %data, ptr noundef %zp) unnamed_addr #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %zp, i64 32
-  %avail_in = getelementptr inbounds i8, ptr %zp, i64 40
+  %z1 = getelementptr inbounds nuw i8, ptr %zp, i64 32
+  %avail_in = getelementptr inbounds nuw i8, ptr %zp, i64 40
   %0 = load i32, ptr %avail_in, align 8
-  %trailerlen = getelementptr inbounds i8, ptr %zp, i64 28
+  %trailerlen = getelementptr inbounds nuw i8, ptr %zp, i64 28
   %1 = load i32, ptr %trailerlen, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %0, i32 %1)
   %sub = sub i32 %1, %.
@@ -505,13 +505,13 @@ entry:
   store i32 %sub6, ptr %avail_in, align 8
   %2 = load ptr, ptr %z1, align 8
   %idx.ext = zext i32 %. to i64
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %idx.ext
   store ptr %add.ptr, ptr %z1, align 8
   %tobool.not.not = icmp ugt i32 %0, %1
   br i1 %tobool.not.not, label %if.end.split, label %lor.lhs.false
 
 if.end.split:                                     ; preds = %entry
-  %zlib_init16 = getelementptr inbounds i8, ptr %zp, i64 24
+  %zlib_init16 = getelementptr inbounds nuw i8, ptr %zp, i64 24
   %3 = load i32, ptr %zlib_init16, align 4
   %cmp.i = icmp eq i32 %3, 4
   br i1 %cmp.i, label %do.body.i, label %if.end.i
@@ -535,7 +535,7 @@ if.end8.i:                                        ; preds = %if.end.i
 
 lor.lhs.false:                                    ; preds = %entry
   %tobool10.not.not = icmp ugt i32 %1, %0
-  %zlib_init12 = getelementptr inbounds i8, ptr %zp, i64 24
+  %zlib_init12 = getelementptr inbounds nuw i8, ptr %zp, i64 24
   br i1 %tobool10.not.not, label %if.else, label %lor.lhs.false.split
 
 lor.lhs.false.split:                              ; preds = %lor.lhs.false
@@ -591,11 +591,11 @@ if.end13:                                         ; preds = %if.end8.i28, %if.en
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @inflate_stream(ptr noundef %data, ptr noundef %writer, i32 noundef %type, i32 noundef range(i32 2, 7) %started) unnamed_addr #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
-  %avail_in = getelementptr inbounds i8, ptr %writer, i64 40
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %avail_in = getelementptr inbounds nuw i8, ptr %writer, i64 40
   %0 = load i32, ptr %avail_in, align 8
   %1 = load ptr, ptr %z1, align 8
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %2 = load i32, ptr %zlib_init, align 8
   switch i32 %2, label %if.end.i [
     i32 1, label %if.end
@@ -629,11 +629,11 @@ if.end:                                           ; preds = %entry, %entry, %ent
   br i1 %tobool.not, label %if.then12, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %next_out = getelementptr inbounds i8, ptr %writer, i64 56
-  %avail_out = getelementptr inbounds i8, ptr %writer, i64 64
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next_out = getelementptr inbounds nuw i8, ptr %writer, i64 56
+  %avail_out = getelementptr inbounds nuw i8, ptr %writer, i64 64
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %6 = getelementptr i8, ptr %writer, i64 80
-  %trailerlen = getelementptr inbounds i8, ptr %writer, i64 28
+  %trailerlen = getelementptr inbounds nuw i8, ptr %writer, i64 28
   br label %while.body
 
 if.then12:                                        ; preds = %if.end
@@ -891,10 +891,10 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %data, ptr noundef initializes((96, 112)) %writer) #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
-  %zalloc = getelementptr inbounds i8, ptr %writer, i64 96
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %zalloc = getelementptr inbounds nuw i8, ptr %writer, i64 96
   store ptr @zalloc_cb, ptr %zalloc, align 8
-  %zfree = getelementptr inbounds i8, ptr %writer, i64 104
+  %zfree = getelementptr inbounds nuw i8, ptr %writer, i64 104
   store ptr @zfree_cb, ptr %zfree, align 8
   %call = tail call ptr @zlibVersion() #7
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(8) @.str.10) #8
@@ -921,7 +921,7 @@ if.else.i:                                        ; preds = %if.then5
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store i32 6, ptr %zlib_init, align 8
   br label %return
 
@@ -945,9 +945,9 @@ if.else.i13:                                      ; preds = %if.then9
   br label %return
 
 if.end11:                                         ; preds = %if.else
-  %trailerlen = getelementptr inbounds i8, ptr %writer, i64 28
+  %trailerlen = getelementptr inbounds nuw i8, ptr %writer, i64 28
   store i32 8, ptr %trailerlen, align 4
-  %zlib_init12 = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init12 = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store i32 1, ptr %zlib_init12, align 8
   br label %return
 
@@ -959,19 +959,19 @@ return:                                           ; preds = %if.else.i13, %if.th
 ; Function Attrs: nounwind uwtable
 define internal i32 @gzip_do_write(ptr noundef %data, ptr noundef %writer, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
   %and = and i32 %type, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #7
   br label %return
 
 if.end:                                           ; preds = %entry
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %1 = load i32, ptr %zlib_init, align 8
   switch i32 %1, label %sw.default84 [
     i32 6, label %if.then2
@@ -983,7 +983,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   store ptr %buf, ptr %z1, align 8
   %conv = trunc i64 %nbytes to i32
-  %avail_in = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv, ptr %avail_in, align 8
   %call3 = tail call fastcc i32 @inflate_stream(ptr noundef %data, ptr noundef nonnull %writer, i32 noundef %type, i32 noundef 6)
   br label %return
@@ -998,15 +998,15 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp1.not.i, label %lor.lhs.false.i, label %sw.default
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %arrayidx3.i = getelementptr inbounds i8, ptr %buf, i64 1
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %3 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %3, -117
   br i1 %cmp5.not.i, label %if.end8.i, label %sw.default
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %buf, i64 2
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %buf, i64 2
   %4 = load i8, ptr %arrayidx9.i, align 1
-  %arrayidx11.i = getelementptr inbounds i8, ptr %buf, i64 3
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %buf, i64 3
   %5 = load i8, ptr %arrayidx11.i, align 1
   %conv12.i = zext i8 %5 to i32
   %cmp13.not.i = icmp eq i8 %4, 8
@@ -1016,7 +1016,7 @@ if.end8.i:                                        ; preds = %lor.lhs.false.i
 
 if.end19.i:                                       ; preds = %if.end8.i
   %sub.i = add nsw i64 %nbytes, -10
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 10
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 10
   %and20.i = and i32 %conv12.i, 4
   %tobool.not.i = icmp eq i32 %and20.i, 0
   br i1 %tobool.not.i, label %if.end39.i, label %if.then21.i
@@ -1034,7 +1034,7 @@ if.end25.i:                                       ; preds = %if.then21.i
 
 if.end34.i:                                       ; preds = %if.end25.i
   %sub36.i = sub nuw nsw i64 %sub.i, %add.i
-  %add.ptr38.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.i
+  %add.ptr38.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end34.i, %if.end19.i
@@ -1054,7 +1054,7 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   %8 = load i8, ptr %data.addr.243.i, align 1
   %tobool45.not.i = icmp eq i8 %8, 0
   %dec52.i = add nsw i64 %len.addr.242.i, -1
-  %incdec.ptr53.i = getelementptr inbounds i8, ptr %data.addr.243.i, i64 1
+  %incdec.ptr53.i = getelementptr inbounds nuw i8, ptr %data.addr.243.i, i64 1
   br i1 %tobool45.not.i, label %if.end54.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -1080,7 +1080,7 @@ land.rhs60.i:                                     ; preds = %while.cond58.prehea
   br i1 %tobool62.not.i, label %if.end75.i, label %while.body64.i
 
 while.body64.i:                                   ; preds = %land.rhs60.i
-  %incdec.ptr66.i = getelementptr inbounds i8, ptr %data.addr.346.i, i64 1
+  %incdec.ptr66.i = getelementptr inbounds nuw i8, ptr %data.addr.346.i, i64 1
   %tobool59.not.i = icmp eq i64 %dec74.i, 0
   br i1 %tobool59.not.i, label %sw.bb12, label %land.rhs60.i, !llvm.loop !12
 
@@ -1104,14 +1104,14 @@ sw.bb7:                                           ; preds = %if.end82.i, %if.end
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub85.i
   store ptr %add.ptr, ptr %z1, align 8
   %conv9 = trunc i64 %len.addr.5.i to i32
-  %avail_in10 = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in10 = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv9, ptr %avail_in10, align 8
   store i32 5, ptr %zlib_init, align 8
   br label %sw.epilog88
 
 sw.bb12:                                          ; preds = %while.body.i, %while.body64.i, %sw.bb, %if.then21.i, %if.end25.i, %if.then78.i, %while.cond58.preheader.i, %while.cond.preheader.i
   %conv13 = trunc i64 %nbytes to i32
-  %avail_in14 = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in14 = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv13, ptr %avail_in14, align 8
   %10 = load ptr, ptr @Curl_cmalloc, align 8
   %conv16 = and i64 %nbytes, 4294967295
@@ -1170,7 +1170,7 @@ if.then3.i:                                       ; preds = %if.end.i82
 
 sw.bb33:                                          ; preds = %if.end
   %conv35 = trunc i64 %nbytes to i32
-  %avail_in36 = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in36 = getelementptr inbounds nuw i8, ptr %writer, i64 40
   %17 = load i32, ptr %avail_in36, align 8
   %add = add i32 %17, %conv35
   store i32 %add, ptr %avail_in36, align 8
@@ -1206,7 +1206,7 @@ if.then3.i88:                                     ; preds = %if.end.i86
 if.end47:                                         ; preds = %sw.bb33
   %22 = load i32, ptr %avail_in36, align 8
   %idx.ext = zext i32 %22 to i64
-  %add.ptr50 = getelementptr inbounds i8, ptr %call40, i64 %idx.ext
+  %add.ptr50 = getelementptr inbounds nuw i8, ptr %call40, i64 %idx.ext
   %idx.neg = sub i64 0, %nbytes
   %add.ptr51 = getelementptr inbounds i8, ptr %add.ptr50, i64 %idx.neg
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr51, ptr align 1 %buf, i64 %nbytes, i1 false)
@@ -1222,15 +1222,15 @@ if.end.i97:                                       ; preds = %if.end47
   br i1 %cmp1.not.i98, label %lor.lhs.false.i100, label %sw.default73
 
 lor.lhs.false.i100:                               ; preds = %if.end.i97
-  %arrayidx3.i101 = getelementptr inbounds i8, ptr %23, i64 1
+  %arrayidx3.i101 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %26 = load i8, ptr %arrayidx3.i101, align 1
   %cmp5.not.i102 = icmp eq i8 %26, -117
   br i1 %cmp5.not.i102, label %if.end8.i103, label %sw.default73
 
 if.end8.i103:                                     ; preds = %lor.lhs.false.i100
-  %arrayidx9.i104 = getelementptr inbounds i8, ptr %23, i64 2
+  %arrayidx9.i104 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %27 = load i8, ptr %arrayidx9.i104, align 1
-  %arrayidx11.i105 = getelementptr inbounds i8, ptr %23, i64 3
+  %arrayidx11.i105 = getelementptr inbounds nuw i8, ptr %23, i64 3
   %28 = load i8, ptr %arrayidx11.i105, align 1
   %conv12.i106 = zext i8 %28 to i32
   %cmp13.not.i107 = icmp eq i8 %27, 8
@@ -1240,7 +1240,7 @@ if.end8.i103:                                     ; preds = %lor.lhs.false.i100
 
 if.end19.i110:                                    ; preds = %if.end8.i103
   %sub.i111 = add nsw i64 %conv54, -10
-  %add.ptr.i112 = getelementptr inbounds i8, ptr %23, i64 10
+  %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %and20.i113 = and i32 %conv12.i106, 4
   %tobool.not.i114 = icmp eq i32 %and20.i113, 0
   br i1 %tobool.not.i114, label %if.end39.i123, label %if.then21.i115
@@ -1258,7 +1258,7 @@ if.end25.i117:                                    ; preds = %if.then21.i115
 
 if.end34.i120:                                    ; preds = %if.end25.i117
   %sub36.i121 = sub nuw nsw i64 %sub.i111, %add.i118
-  %add.ptr38.i122 = getelementptr inbounds i8, ptr %add.ptr.i112, i64 %add.i118
+  %add.ptr38.i122 = getelementptr inbounds nuw i8, ptr %add.ptr.i112, i64 %add.i118
   br label %if.end39.i123
 
 if.end39.i123:                                    ; preds = %if.end34.i120, %if.end19.i110
@@ -1278,7 +1278,7 @@ land.rhs.i130:                                    ; preds = %while.cond.preheade
   %31 = load i8, ptr %data.addr.243.i131, align 1
   %tobool45.not.i133 = icmp eq i8 %31, 0
   %dec52.i139 = add nsw i64 %len.addr.242.i132, -1
-  %incdec.ptr53.i140 = getelementptr inbounds i8, ptr %data.addr.243.i131, i64 1
+  %incdec.ptr53.i140 = getelementptr inbounds nuw i8, ptr %data.addr.243.i131, i64 1
   br i1 %tobool45.not.i133, label %if.end54.i141, label %while.body.i134
 
 while.body.i134:                                  ; preds = %land.rhs.i130
@@ -1304,7 +1304,7 @@ land.rhs60.i147:                                  ; preds = %while.cond58.prehea
   br i1 %tobool62.not.i150, label %if.end75.i157, label %while.body64.i151
 
 while.body64.i151:                                ; preds = %land.rhs60.i147
-  %incdec.ptr66.i153 = getelementptr inbounds i8, ptr %data.addr.346.i148, i64 1
+  %incdec.ptr66.i153 = getelementptr inbounds nuw i8, ptr %data.addr.346.i148, i64 1
   %tobool59.not.i154 = icmp eq i64 %dec74.i156, 0
   br i1 %tobool59.not.i154, label %return, label %land.rhs60.i147, !llvm.loop !12
 
@@ -1380,7 +1380,7 @@ if.then3.i177:                                    ; preds = %if.end.i175
 sw.bb78:                                          ; preds = %if.end
   store ptr %buf, ptr %z1, align 8
   %conv80 = trunc i64 %nbytes to i32
-  %avail_in81 = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in81 = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv80, ptr %avail_in81, align 8
   %call82 = tail call fastcc i32 @process_trailer(ptr noundef %data, ptr noundef nonnull %writer)
   br label %return
@@ -1388,7 +1388,7 @@ sw.bb78:                                          ; preds = %if.end
 sw.default84:                                     ; preds = %if.end
   store ptr %buf, ptr %z1, align 8
   %conv86 = trunc i64 %nbytes to i32
-  %avail_in87 = getelementptr inbounds i8, ptr %writer, i64 40
+  %avail_in87 = getelementptr inbounds nuw i8, ptr %writer, i64 40
   store i32 %conv86, ptr %avail_in87, align 8
   br label %sw.epilog88
 
@@ -1409,8 +1409,8 @@ return:                                           ; preds = %while.body.i134, %w
 ; Function Attrs: nounwind uwtable
 define internal void @gzip_do_close(ptr noundef %data, ptr noundef %writer) #0 {
 entry:
-  %z1 = getelementptr inbounds i8, ptr %writer, i64 32
-  %zlib_init = getelementptr inbounds i8, ptr %writer, i64 24
+  %z1 = getelementptr inbounds nuw i8, ptr %writer, i64 32
+  %zlib_init = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %0 = load i32, ptr %zlib_init, align 4
   %cmp.i = icmp eq i32 %0, 4
   br i1 %cmp.i, label %do.body.i, label %if.end.i
@@ -1469,7 +1469,7 @@ declare ptr @Curl_saferealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal range(i32 0, 28) i32 @brotli_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 32)) %writer) #0 {
 entry:
   %call = tail call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #7
-  %br = getelementptr inbounds i8, ptr %writer, i64 24
+  %br = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store ptr %call, ptr %br, align 8
   %tobool.not = icmp eq ptr %call, null
   %cond = select i1 %tobool.not, i32 27, i32 0
@@ -1490,13 +1490,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #7
   br label %return
 
 if.end:                                           ; preds = %entry
-  %br = getelementptr inbounds i8, ptr %writer, i64 24
+  %br = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %1 = load ptr, ptr %br, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end3
@@ -1508,7 +1508,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool5.not, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end3
-  %next12 = getelementptr inbounds i8, ptr %writer, i64 8
+  %next12 = getelementptr inbounds nuw i8, ptr %writer, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %sw.epilog
@@ -1576,7 +1576,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal void @brotli_do_close(ptr nocapture readnone %data, ptr nocapture noundef %writer) #0 {
 entry:
-  %br = getelementptr inbounds i8, ptr %writer, i64 24
+  %br = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %0 = load ptr, ptr %br, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1602,9 +1602,9 @@ declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 28) i32 @zstd_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 40)) %writer) #0 {
 entry:
   %call = tail call ptr @ZSTD_createDStream() #7
-  %zds = getelementptr inbounds i8, ptr %writer, i64 24
+  %zds = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store ptr %call, ptr %zds, align 8
-  %decomp = getelementptr inbounds i8, ptr %writer, i64 32
+  %decomp = getelementptr inbounds nuw i8, ptr %writer, i64 32
   store ptr null, ptr %decomp, align 8
   %tobool.not = icmp eq ptr %call, null
   %cond = select i1 %tobool.not, i32 27, i32 0
@@ -1621,13 +1621,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #7
   br label %return
 
 if.end:                                           ; preds = %entry
-  %decomp = getelementptr inbounds i8, ptr %writer, i64 32
+  %decomp = getelementptr inbounds nuw i8, ptr %writer, i64 32
   %1 = load ptr, ptr %decomp, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %if.end9
@@ -1641,15 +1641,15 @@ if.then2:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then2, %if.end
   %3 = phi ptr [ %call3, %if.then2 ], [ %1, %if.end ]
-  %pos = getelementptr inbounds i8, ptr %in, i64 16
+  %pos = getelementptr inbounds nuw i8, ptr %in, i64 16
   store i64 0, ptr %pos, align 8
   store ptr %buf, ptr %in, align 8
-  %size = getelementptr inbounds i8, ptr %in, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %in, i64 8
   store i64 %nbytes, ptr %size, align 8
-  %next20 = getelementptr inbounds i8, ptr %writer, i64 8
-  %pos10 = getelementptr inbounds i8, ptr %out, i64 16
-  %size12 = getelementptr inbounds i8, ptr %out, i64 8
-  %zds = getelementptr inbounds i8, ptr %writer, i64 24
+  %next20 = getelementptr inbounds nuw i8, ptr %writer, i64 8
+  %pos10 = getelementptr inbounds nuw i8, ptr %out, i64 16
+  %size12 = getelementptr inbounds nuw i8, ptr %out, i64 8
+  %zds = getelementptr inbounds nuw i8, ptr %writer, i64 24
   store i64 0, ptr %pos10, align 8
   store ptr %3, ptr %out, align 8
   store i64 16384, ptr %size12, align 8
@@ -1701,7 +1701,7 @@ return:                                           ; preds = %if.end34, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal void @zstd_do_close(ptr nocapture readnone %data, ptr nocapture noundef %writer) #0 {
 entry:
-  %decomp = getelementptr inbounds i8, ptr %writer, i64 32
+  %decomp = getelementptr inbounds nuw i8, ptr %writer, i64 32
   %0 = load ptr, ptr %decomp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1713,7 +1713,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %zds = getelementptr inbounds i8, ptr %writer, i64 24
+  %zds = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %2 = load ptr, ptr %zds, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -1751,7 +1751,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %nbytes) #7
   br label %return

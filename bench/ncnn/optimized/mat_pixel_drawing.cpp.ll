@@ -63,7 +63,7 @@ define hidden void @_ZN4ncnn17draw_rectangle_c1EPhiiiiiiiji(ptr nocapture nounde
 
 27:                                               ; preds = %26
   %28 = zext nneg i32 %.0131198.us to i64
-  %29 = getelementptr inbounds i8, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %28
   store i8 %.sroa.0.0.extract.trunc, ptr %29, align 1
   br label %30
 
@@ -127,7 +127,7 @@ define hidden void @_ZN4ncnn17draw_rectangle_c1EPhiiiiiiiji(ptr nocapture nounde
 
 57:                                               ; preds = %56
   %58 = zext nneg i32 %.0137160.us to i64
-  %59 = getelementptr inbounds i8, ptr %53, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
   store i8 %.sroa.0.0.extract.trunc, ptr %59, align 1
   br label %60
 
@@ -188,7 +188,7 @@ define hidden void @_ZN4ncnn17draw_rectangle_c1EPhiiiiiiiji(ptr nocapture nounde
 
 81:                                               ; preds = %80
   %82 = zext nneg i32 %.0134167.us to i64
-  %83 = getelementptr inbounds i8, ptr %77, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 %82
   store i8 %.sroa.0.0.extract.trunc, ptr %83, align 1
   br label %84
 
@@ -379,11 +379,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c2EPhiiiiiiiji(ptr nocapture nounde
 27:                                               ; preds = %26
   %28 = shl nuw nsw i32 %.0146215.us, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %29
   store i8 %.sroa.0.0.extract.trunc, ptr %30, align 1
   %31 = or disjoint i32 %28, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %23, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %32
   store i8 %.sroa.6.0.extract.trunc, ptr %33, align 1
   br label %34
 
@@ -448,11 +448,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c2EPhiiiiiiiji(ptr nocapture nounde
 61:                                               ; preds = %60
   %62 = shl nuw nsw i32 %.0152179.us, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %57, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %63
   store i8 %.sroa.0.0.extract.trunc, ptr %64, align 1
   %65 = or disjoint i32 %62, 1
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %57, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 %66
   store i8 %.sroa.6.0.extract.trunc, ptr %67, align 1
   br label %68
 
@@ -514,11 +514,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c2EPhiiiiiiiji(ptr nocapture nounde
 89:                                               ; preds = %88
   %90 = shl nuw nsw i32 %.0149186.us, 1
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %85, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 %91
   store i8 %.sroa.0.0.extract.trunc, ptr %92, align 1
   %93 = or disjoint i32 %90, 1
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %85, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 %94
   store i8 %.sroa.6.0.extract.trunc, ptr %95, align 1
   br label %96
 
@@ -571,9 +571,9 @@ define hidden void @_ZN4ncnn17draw_rectangle_c2EPhiiiiiiiji(ptr nocapture nounde
 111:                                              ; preds = %110
   %112 = mul nsw i64 %indvars.iv249, %104
   %113 = getelementptr inbounds i8, ptr %0, i64 %112
-  %114 = getelementptr inbounds i8, ptr %113, i64 %120
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %120
   store i8 %.sroa.0.0.extract.trunc, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %113, i64 %122
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %122
   store i8 %.sroa.6.0.extract.trunc, ptr %115, align 1
   br label %116
 
@@ -634,9 +634,9 @@ define hidden void @_ZN4ncnn17draw_rectangle_c2EPhiiiiiiiji(ptr nocapture nounde
 137:                                              ; preds = %136
   %138 = mul nsw i64 %indvars.iv253, %130
   %139 = getelementptr inbounds i8, ptr %0, i64 %138
-  %140 = getelementptr inbounds i8, ptr %139, i64 %146
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %146
   store i8 %.sroa.0.0.extract.trunc, ptr %140, align 1
-  %141 = getelementptr inbounds i8, ptr %139, i64 %148
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 %148
   store i8 %.sroa.6.0.extract.trunc, ptr %141, align 1
   br label %142
 
@@ -721,11 +721,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c3EPhiiiiiiiji(ptr nocapture nounde
 27:                                               ; preds = %26
   %28 = mul nuw nsw i32 %.0161236.us, 3
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %29
   store i8 %.sroa.0.0.extract.trunc, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 %.sroa.6.0.extract.trunc, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %30, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i8 %.sroa.11.0.extract.trunc, ptr %32, align 1
   br label %33
 
@@ -790,11 +790,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c3EPhiiiiiiiji(ptr nocapture nounde
 60:                                               ; preds = %59
   %61 = mul nuw nsw i32 %.0167198.us, 3
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %56, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 %62
   store i8 %.sroa.0.0.extract.trunc, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 %.sroa.6.0.extract.trunc, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %63, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store i8 %.sroa.11.0.extract.trunc, ptr %65, align 1
   br label %66
 
@@ -856,11 +856,11 @@ define hidden void @_ZN4ncnn17draw_rectangle_c3EPhiiiiiiiji(ptr nocapture nounde
 87:                                               ; preds = %86
   %88 = mul nuw nsw i32 %.0164205.us, 3
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %83, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 %89
   store i8 %.sroa.0.0.extract.trunc, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %90, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store i8 %.sroa.6.0.extract.trunc, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %90, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 2
   store i8 %.sroa.11.0.extract.trunc, ptr %92, align 1
   br label %93
 
@@ -914,9 +914,9 @@ define hidden void @_ZN4ncnn17draw_rectangle_c3EPhiiiiiiiji(ptr nocapture nounde
   %109 = mul nsw i64 %indvars.iv270, %101
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %109
   store i8 %.sroa.0.0.extract.trunc, ptr %gep.us, align 1
-  %110 = getelementptr inbounds i8, ptr %gep.us, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %gep.us, i64 1
   store i8 %.sroa.6.0.extract.trunc, ptr %110, align 1
-  %111 = getelementptr inbounds i8, ptr %gep.us, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %gep.us, i64 2
   store i8 %.sroa.11.0.extract.trunc, ptr %111, align 1
   br label %112
 
@@ -977,9 +977,9 @@ define hidden void @_ZN4ncnn17draw_rectangle_c3EPhiiiiiiiji(ptr nocapture nounde
   %132 = mul nsw i64 %indvars.iv274, %124
   %gep.us232 = getelementptr i8, ptr %invariant.gep.us234, i64 %132
   store i8 %.sroa.0.0.extract.trunc, ptr %gep.us232, align 1
-  %133 = getelementptr inbounds i8, ptr %gep.us232, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %gep.us232, i64 1
   store i8 %.sroa.6.0.extract.trunc, ptr %133, align 1
-  %134 = getelementptr inbounds i8, ptr %gep.us232, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %gep.us232, i64 2
   store i8 %.sroa.11.0.extract.trunc, ptr %134, align 1
   br label %135
 
@@ -1065,19 +1065,19 @@ define hidden void @_ZN4ncnn17draw_rectangle_c4EPhiiiiiiiji(ptr nocapture nounde
 27:                                               ; preds = %26
   %28 = shl nsw i32 %.0176253.us, 2
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %29
   store i8 %.sroa.0.0.extract.trunc, ptr %30, align 1
   %31 = or disjoint i32 %28, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %23, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %32
   store i8 %.sroa.6.0.extract.trunc, ptr %33, align 1
   %34 = or disjoint i32 %28, 2
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %23, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 %35
   store i8 %.sroa.11.0.extract.trunc, ptr %36, align 1
   %37 = or disjoint i32 %28, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %23, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 %38
   store i8 %.sroa.16.0.extract.trunc, ptr %39, align 1
   br label %40
 
@@ -1142,19 +1142,19 @@ define hidden void @_ZN4ncnn17draw_rectangle_c4EPhiiiiiiiji(ptr nocapture nounde
 67:                                               ; preds = %66
   %68 = shl nsw i32 %.0182217.us, 2
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %63, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 %69
   store i8 %.sroa.0.0.extract.trunc, ptr %70, align 1
   %71 = or disjoint i32 %68, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %63, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %72
   store i8 %.sroa.6.0.extract.trunc, ptr %73, align 1
   %74 = or disjoint i32 %68, 2
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %63, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 %75
   store i8 %.sroa.11.0.extract.trunc, ptr %76, align 1
   %77 = or disjoint i32 %68, 3
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %63, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 %78
   store i8 %.sroa.16.0.extract.trunc, ptr %79, align 1
   br label %80
 
@@ -1216,19 +1216,19 @@ define hidden void @_ZN4ncnn17draw_rectangle_c4EPhiiiiiiiji(ptr nocapture nounde
 101:                                              ; preds = %100
   %102 = shl nsw i32 %.0179224.us, 2
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %97, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 %103
   store i8 %.sroa.0.0.extract.trunc, ptr %104, align 1
   %105 = or disjoint i32 %102, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %97, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %97, i64 %106
   store i8 %.sroa.6.0.extract.trunc, ptr %107, align 1
   %108 = or disjoint i32 %102, 2
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %97, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 %109
   store i8 %.sroa.11.0.extract.trunc, ptr %110, align 1
   %111 = or disjoint i32 %102, 3
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %97, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %97, i64 %112
   store i8 %.sroa.16.0.extract.trunc, ptr %113, align 1
   br label %114
 
@@ -1281,13 +1281,13 @@ define hidden void @_ZN4ncnn17draw_rectangle_c4EPhiiiiiiiji(ptr nocapture nounde
 129:                                              ; preds = %128
   %130 = mul nsw i64 %indvars.iv287, %122
   %131 = getelementptr inbounds i8, ptr %0, i64 %130
-  %132 = getelementptr inbounds i8, ptr %131, i64 %140
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %140
   store i8 %.sroa.0.0.extract.trunc, ptr %132, align 1
-  %133 = getelementptr inbounds i8, ptr %131, i64 %142
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 %142
   store i8 %.sroa.6.0.extract.trunc, ptr %133, align 1
-  %134 = getelementptr inbounds i8, ptr %131, i64 %144
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %144
   store i8 %.sroa.11.0.extract.trunc, ptr %134, align 1
-  %135 = getelementptr inbounds i8, ptr %131, i64 %146
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %146
   store i8 %.sroa.16.0.extract.trunc, ptr %135, align 1
   br label %136
 
@@ -1352,13 +1352,13 @@ define hidden void @_ZN4ncnn17draw_rectangle_c4EPhiiiiiiiji(ptr nocapture nounde
 161:                                              ; preds = %160
   %162 = mul nsw i64 %indvars.iv291, %154
   %163 = getelementptr inbounds i8, ptr %0, i64 %162
-  %164 = getelementptr inbounds i8, ptr %163, i64 %172
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %172
   store i8 %.sroa.0.0.extract.trunc, ptr %164, align 1
-  %165 = getelementptr inbounds i8, ptr %163, i64 %174
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %174
   store i8 %.sroa.6.0.extract.trunc, ptr %165, align 1
-  %166 = getelementptr inbounds i8, ptr %163, i64 %176
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 %176
   store i8 %.sroa.11.0.extract.trunc, ptr %166, align 1
-  %167 = getelementptr inbounds i8, ptr %163, i64 %178
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 %178
   store i8 %.sroa.16.0.extract.trunc, ptr %167, align 1
   br label %168
 
@@ -1487,7 +1487,7 @@ define hidden void @_ZN4ncnn14draw_circle_c1EPhiiiiiiji(ptr nocapture noundef wr
 
 40:                                               ; preds = %34
   %41 = zext nneg i32 %.07085.us to i64
-  %42 = getelementptr inbounds i8, ptr %27, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 %41
   store i8 %.sroa.0.0.extract.trunc, ptr %42, align 1
   br label %43
 
@@ -1579,7 +1579,7 @@ define hidden void @_ZN4ncnn14draw_circle_c1EPhiiiiiiji(ptr nocapture noundef wr
 
 94:                                               ; preds = %86
   %95 = zext nneg i32 %.079.us to i64
-  %96 = getelementptr inbounds i8, ptr %79, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %79, i64 %95
   store i8 %.sroa.0.0.extract.trunc, ptr %96, align 1
   br label %97
 
@@ -1674,11 +1674,11 @@ define hidden void @_ZN4ncnn14draw_circle_c2EPhiiiiiiji(ptr nocapture noundef wr
 40:                                               ; preds = %34
   %41 = shl nuw nsw i32 %.07692.us, 1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %27, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
   store i8 %.sroa.0.0.extract.trunc, ptr %43, align 1
   %44 = or disjoint i32 %41, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %27, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 %45
   store i8 %.sroa.3.0.extract.trunc, ptr %46, align 1
   br label %47
 
@@ -1770,11 +1770,11 @@ define hidden void @_ZN4ncnn14draw_circle_c2EPhiiiiiiji(ptr nocapture noundef wr
 97:                                               ; preds = %89
   %98 = shl nuw nsw i32 %.086.us, 1
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %82, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %82, i64 %99
   store i8 %.sroa.0.0.extract.trunc, ptr %100, align 1
   %101 = or disjoint i32 %98, 1
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %82, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 %102
   store i8 %.sroa.3.0.extract.trunc, ptr %103, align 1
   br label %104
 
@@ -1871,11 +1871,11 @@ define hidden void @_ZN4ncnn14draw_circle_c3EPhiiiiiiji(ptr nocapture noundef wr
 40:                                               ; preds = %34
   %41 = mul nuw nsw i32 %.08299.us, 3
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %27, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
   store i8 %.sroa.0.0.extract.trunc, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store i8 %.sroa.3.0.extract.trunc, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %43, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store i8 %.sroa.5.0.extract.trunc, ptr %45, align 1
   br label %46
 
@@ -1967,11 +1967,11 @@ define hidden void @_ZN4ncnn14draw_circle_c3EPhiiiiiiji(ptr nocapture noundef wr
 96:                                               ; preds = %88
   %97 = mul nuw nsw i32 %.093.us, 3
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %81, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %81, i64 %98
   store i8 %.sroa.0.0.extract.trunc, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 %.sroa.3.0.extract.trunc, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %99, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 %.sroa.5.0.extract.trunc, ptr %101, align 1
   br label %102
 
@@ -2070,19 +2070,19 @@ define hidden void @_ZN4ncnn14draw_circle_c4EPhiiiiiiji(ptr nocapture noundef wr
 40:                                               ; preds = %34
   %41 = shl nsw i32 %.088106.us, 2
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %27, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 %42
   store i8 %.sroa.0.0.extract.trunc, ptr %43, align 1
   %44 = or disjoint i32 %41, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %27, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 %45
   store i8 %.sroa.3.0.extract.trunc, ptr %46, align 1
   %47 = or disjoint i32 %41, 2
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %27, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 %48
   store i8 %.sroa.5.0.extract.trunc, ptr %49, align 1
   %50 = or disjoint i32 %41, 3
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %27, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 %51
   store i8 %.sroa.7.0.extract.trunc, ptr %52, align 1
   br label %53
 
@@ -2175,19 +2175,19 @@ define hidden void @_ZN4ncnn14draw_circle_c4EPhiiiiiiji(ptr nocapture noundef wr
 104:                                              ; preds = %96
   %105 = shl nsw i32 %.0100.us, 2
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %89, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 %106
   store i8 %.sroa.0.0.extract.trunc, ptr %107, align 1
   %108 = or disjoint i32 %105, 1
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %89, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 %109
   store i8 %.sroa.3.0.extract.trunc, ptr %110, align 1
   %111 = or disjoint i32 %105, 2
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %89, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %89, i64 %112
   store i8 %.sroa.5.0.extract.trunc, ptr %113, align 1
   %114 = or disjoint i32 %105, 3
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %89, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %89, i64 %115
   store i8 %.sroa.7.0.extract.trunc, ptr %116, align 1
   br label %117
 
@@ -2344,7 +2344,7 @@ _ZN4ncnnL17distance_lessthanEiiiiiif.exit.us:     ; preds = %53
 
 72:                                               ; preds = %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.us
   %73 = zext nneg i32 %.071.us to i64
-  %74 = getelementptr inbounds i8, ptr %44, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %44, i64 %73
   store i8 %.sroa.0.0.extract.trunc, ptr %74, align 1
   br label %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.thread.us
 
@@ -2476,11 +2476,11 @@ _ZN4ncnnL17distance_lessthanEiiiiiif.exit.us:     ; preds = %53
 72:                                               ; preds = %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.us
   %73 = shl nuw nsw i32 %.074.us, 1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %44, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %44, i64 %74
   store i8 %.sroa.0.0.extract.trunc, ptr %75, align 1
   %76 = or disjoint i32 %73, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %44, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 %77
   store i8 %.sroa.2.0.extract.trunc, ptr %78, align 1
   br label %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.thread.us
 
@@ -2614,11 +2614,11 @@ _ZN4ncnnL17distance_lessthanEiiiiiif.exit.us:     ; preds = %53
 72:                                               ; preds = %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.us
   %73 = mul nuw nsw i32 %.077.us, 3
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %44, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %44, i64 %74
   store i8 %.sroa.0.0.extract.trunc, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store i8 %.sroa.2.0.extract.trunc, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %75, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i8 %.sroa.3.0.extract.trunc, ptr %77, align 1
   br label %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.thread.us
 
@@ -2754,19 +2754,19 @@ _ZN4ncnnL17distance_lessthanEiiiiiif.exit.us:     ; preds = %53
 72:                                               ; preds = %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.us
   %73 = shl nsw i32 %.080.us, 2
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %44, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %44, i64 %74
   store i8 %.sroa.0.0.extract.trunc, ptr %75, align 1
   %76 = or disjoint i32 %73, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %44, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 %77
   store i8 %.sroa.2.0.extract.trunc, ptr %78, align 1
   %79 = or disjoint i32 %73, 2
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %44, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %44, i64 %80
   store i8 %.sroa.3.0.extract.trunc, ptr %81, align 1
   %82 = or disjoint i32 %73, 3
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %44, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %44, i64 %83
   store i8 %.sroa.4.0.extract.trunc, ptr %84, align 1
   br label %_ZN4ncnnL17distance_lessthanEiiiiiif.exit.thread.us
 
@@ -2834,7 +2834,7 @@ define hidden void @_ZN4ncnn21get_text_drawing_sizeEPKciPiS2_(ptr nocapture noun
 9:                                                ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.02829 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %18 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
   %13 = icmp eq i8 %11, 10
@@ -2904,7 +2904,7 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr nocapture noundef %0
   %indvars.iv103 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next104, %.loopexit ]
   %.08498 = phi i32 [ %5, %.lr.ph ], [ %.1, %.loopexit ]
   %.08596 = phi i32 [ %6, %.lr.ph ], [ %.186, %.loopexit ]
-  %21 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv103
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv103
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   switch i8 %22, label %28 [
@@ -2968,7 +2968,7 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr nocapture noundef %0
   %.04689.us = phi i32 [ %.sroa.speculated56, %.lr.ph.us ], [ %59, %46 ]
   %.04788.us = phi ptr [ %gep.us, %.lr.ph.us ], [ %58, %46 ]
   %.04887.us = phi ptr [ %gep94.us, %.lr.ph.us ], [ %47, %46 ]
-  %47 = getelementptr inbounds i8, ptr %.04887.us, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.04887.us, i64 1
   %48 = load i8, ptr %.04887.us, align 1
   %49 = load i8, ptr %.04788.us, align 1
   %50 = zext i8 %49 to i32
@@ -2980,7 +2980,7 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr nocapture noundef %0
   %56 = udiv i32 %55, 255
   %57 = trunc i32 %56 to i8
   store i8 %57, ptr %.04788.us, align 1
-  %58 = getelementptr inbounds i8, ptr %.04788.us, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.04788.us, i64 1
   %59 = add nuw nsw i32 %.04689.us, 1
   %exitcond.not = icmp eq i32 %59, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge.us, label %46, !llvm.loop !70
@@ -3033,7 +3033,7 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr nocapture noundef %0
   %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %.loopexit ]
   %.089103 = phi i32 [ %5, %.lr.ph ], [ %.1, %.loopexit ]
   %.090101 = phi i32 [ %6, %.lr.ph ], [ %.191, %.loopexit ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv108
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv108
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
   switch i8 %23, label %29 [
@@ -3099,7 +3099,7 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr nocapture noundef %0
   %.05194.us = phi i32 [ %.sroa.speculated61, %.lr.ph.us ], [ %70, %49 ]
   %.05293.us = phi ptr [ %gep.us, %.lr.ph.us ], [ %69, %49 ]
   %.05392.us = phi ptr [ %gep99.us, %.lr.ph.us ], [ %50, %49 ]
-  %50 = getelementptr inbounds i8, ptr %.05392.us, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.05392.us, i64 1
   %51 = load i8, ptr %.05392.us, align 1
   %52 = load i8, ptr %.05293.us, align 1
   %53 = zext i8 %52 to i32
@@ -3111,7 +3111,7 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr nocapture noundef %0
   %59 = udiv i32 %58, 255
   %60 = trunc i32 %59 to i8
   store i8 %60, ptr %.05293.us, align 1
-  %61 = getelementptr inbounds i8, ptr %.05293.us, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.05293.us, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = mul nuw nsw i32 %55, %63
@@ -3120,7 +3120,7 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr nocapture noundef %0
   %67 = udiv i32 %66, 255
   %68 = trunc i32 %67 to i8
   store i8 %68, ptr %61, align 1
-  %69 = getelementptr inbounds i8, ptr %.05293.us, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.05293.us, i64 2
   %70 = add nuw nsw i32 %.05194.us, 1
   %exitcond.not = icmp eq i32 %70, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !73
@@ -3175,7 +3175,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
   %indvars.iv113 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next114, %.loopexit ]
   %.094108 = phi i32 [ %5, %.lr.ph ], [ %.1, %.loopexit ]
   %.095106 = phi i32 [ %6, %.lr.ph ], [ %.196, %.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv113
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv113
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
   switch i8 %24, label %30 [
@@ -3241,7 +3241,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
   %.05699.us = phi i32 [ %.sroa.speculated66, %.lr.ph.us ], [ %79, %50 ]
   %.05798.us = phi ptr [ %gep.us, %.lr.ph.us ], [ %78, %50 ]
   %.05897.us = phi ptr [ %gep104.us, %.lr.ph.us ], [ %51, %50 ]
-  %51 = getelementptr inbounds i8, ptr %.05897.us, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.05897.us, i64 1
   %52 = load i8, ptr %.05897.us, align 1
   %53 = load i8, ptr %.05798.us, align 1
   %54 = zext i8 %53 to i32
@@ -3253,7 +3253,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
   %60 = udiv i32 %59, 255
   %61 = trunc i32 %60 to i8
   store i8 %61, ptr %.05798.us, align 1
-  %62 = getelementptr inbounds i8, ptr %.05798.us, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.05798.us, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = mul nuw nsw i32 %56, %64
@@ -3262,7 +3262,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
   %68 = udiv i32 %67, 255
   %69 = trunc i32 %68 to i8
   store i8 %69, ptr %62, align 1
-  %70 = getelementptr inbounds i8, ptr %.05798.us, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.05798.us, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = mul nuw nsw i32 %56, %72
@@ -3271,7 +3271,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
   %76 = udiv i32 %75, 255
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %70, align 1
-  %78 = getelementptr inbounds i8, ptr %.05798.us, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.05798.us, i64 3
   %79 = add nuw nsw i32 %.05699.us, 1
   %exitcond.not = icmp eq i32 %79, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !76
@@ -3327,7 +3327,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %indvars.iv118 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next119, %.loopexit ]
   %.099113 = phi i32 [ %5, %.lr.ph ], [ %.1, %.loopexit ]
   %.0100111 = phi i32 [ %6, %.lr.ph ], [ %.1101, %.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv118
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv118
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
   switch i8 %24, label %30 [
@@ -3393,7 +3393,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %.061104.us = phi i32 [ %.sroa.speculated71, %.lr.ph.us ], [ %87, %50 ]
   %.062103.us = phi ptr [ %gep.us, %.lr.ph.us ], [ %86, %50 ]
   %.063102.us = phi ptr [ %gep109.us, %.lr.ph.us ], [ %51, %50 ]
-  %51 = getelementptr inbounds i8, ptr %.063102.us, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.063102.us, i64 1
   %52 = load i8, ptr %.063102.us, align 1
   %53 = load i8, ptr %.062103.us, align 1
   %54 = zext i8 %53 to i32
@@ -3405,7 +3405,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %60 = udiv i32 %59, 255
   %61 = trunc i32 %60 to i8
   store i8 %61, ptr %.062103.us, align 1
-  %62 = getelementptr inbounds i8, ptr %.062103.us, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.062103.us, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = mul nuw nsw i32 %56, %64
@@ -3414,7 +3414,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %68 = udiv i32 %67, 255
   %69 = trunc i32 %68 to i8
   store i8 %69, ptr %62, align 1
-  %70 = getelementptr inbounds i8, ptr %.062103.us, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.062103.us, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = mul nuw nsw i32 %56, %72
@@ -3423,7 +3423,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %76 = udiv i32 %75, 255
   %77 = trunc i32 %76 to i8
   store i8 %77, ptr %70, align 1
-  %78 = getelementptr inbounds i8, ptr %.062103.us, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.062103.us, i64 3
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = mul nuw nsw i32 %56, %80
@@ -3432,7 +3432,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
   %84 = udiv i32 %83, 255
   %85 = trunc i32 %84 to i8
   store i8 %85, ptr %78, align 1
-  %86 = getelementptr inbounds i8, ptr %.062103.us, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.062103.us, i64 4
   %87 = add nuw nsw i32 %.061104.us, 1
   %exitcond.not = icmp eq i32 %87, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !79
@@ -3496,7 +3496,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %28 = fptosi float %27 to i32
   %29 = sitofp i32 %28 to float
   %30 = fsub fast float %26, %29
-  %31 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   store i32 %28, ptr %31, align 4
   %32 = fmul fast float %30, 2.048000e+03
   %33 = fsub fast float 2.048000e+03, %32
@@ -3505,14 +3505,14 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %36 = fadd fast float %35, %33
   %37 = tail call i16 @llvm.fptosi.sat.i16.f32(float %36)
   %38 = shl nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds i16, ptr %18, i64 %38
+  %39 = getelementptr inbounds nuw i16, ptr %18, i64 %38
   store i16 %37, ptr %39, align 2
   %40 = fcmp fast oge float %32, 0.000000e+00
   %41 = select fast i1 %40, float 5.000000e-01, float -5.000000e-01
   %42 = fadd fast float %41, %32
   %43 = tail call i16 @llvm.fptosi.sat.i16.f32(float %42)
   %44 = or disjoint i64 %38, 1
-  %45 = getelementptr inbounds i16, ptr %18, i64 %44
+  %45 = getelementptr inbounds nuw i16, ptr %18, i64 %44
   store i16 %43, ptr %45, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3530,7 +3530,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %53 = fptosi float %52 to i32
   %54 = sitofp i32 %53 to float
   %55 = fsub fast float %51, %54
-  %56 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv942
+  %56 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv942
   store i32 %53, ptr %56, align 4
   %57 = fmul fast float %55, 2.048000e+03
   %58 = fsub fast float 2.048000e+03, %57
@@ -3539,14 +3539,14 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %61 = fadd fast float %60, %58
   %62 = tail call i16 @llvm.fptosi.sat.i16.f32(float %61)
   %63 = shl nuw nsw i64 %indvars.iv942, 1
-  %64 = getelementptr inbounds i16, ptr %19, i64 %63
+  %64 = getelementptr inbounds nuw i16, ptr %19, i64 %63
   store i16 %62, ptr %64, align 2
   %65 = fcmp fast oge float %57, 0.000000e+00
   %66 = select fast i1 %65, float 5.000000e-01, float -5.000000e-01
   %67 = fadd fast float %66, %57
   %68 = tail call i16 @llvm.fptosi.sat.i16.f32(float %67)
   %69 = or disjoint i64 %63, 1
-  %70 = getelementptr inbounds i16, ptr %19, i64 %69
+  %70 = getelementptr inbounds nuw i16, ptr %19, i64 %69
   store i16 %68, ptr %70, align 2
   %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
   %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
@@ -3618,8 +3618,8 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   br i1 %103, label %.lr.ph859.preheader, label %.lr.ph857
 
 .lr.ph857:                                        ; preds = %99
-  %invariant.gep853 = getelementptr inbounds i8, ptr %102, i64 1
-  %104 = getelementptr inbounds i8, ptr %102, i64 9
+  %invariant.gep853 = getelementptr inbounds nuw i8, ptr %102, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 9
   br label %105
 
 .lr.ph859.preheader:                              ; preds = %99
@@ -3629,10 +3629,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 105:                                              ; preds = %.lr.ph857, %134
   %indvars.iv960 = phi i64 [ 0, %.lr.ph857 ], [ %indvars.iv.next961, %134 ]
   %.0683856 = phi ptr [ %18, %.lr.ph857 ], [ %146, %134 ]
-  %106 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv960
+  %106 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv960
   %107 = load i32, ptr %106, align 4
   %108 = load i16, ptr %.0683856, align 2
-  %109 = getelementptr inbounds i8, ptr %.0683856, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.0683856, i64 2
   %110 = load i16, ptr %109, align 2
   %111 = icmp slt i32 %107, 0
   br i1 %111, label %112, label %115
@@ -3656,7 +3656,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %122 = icmp eq i32 %121, 0
   %123 = lshr i32 %107, 1
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %102, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %102, i64 %124
   %126 = load i8, ptr %125, align 1
   br i1 %122, label %127, label %130
 
@@ -3667,7 +3667,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 130:                                              ; preds = %120
   %131 = lshr i8 %126, 4
-  %gep854 = getelementptr inbounds i8, ptr %invariant.gep853, i64 %124
+  %gep854 = getelementptr inbounds nuw i8, ptr %invariant.gep853, i64 %124
   %132 = load i8, ptr %gep854, align 1
   %133 = and i8 %132, 15
   br label %134
@@ -3685,9 +3685,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %142 = lshr i32 %141, 4
   %143 = add nsw i32 %142, %141
   %144 = trunc i32 %143 to i16
-  %145 = getelementptr inbounds i16, ptr %.0674917, i64 %indvars.iv960
+  %145 = getelementptr inbounds nuw i16, ptr %.0674917, i64 %indvars.iv960
   store i16 %144, ptr %145, align 2
-  %146 = getelementptr inbounds i8, ptr %.0683856, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.0683856, i64 4
   %indvars.iv.next961 = add nuw nsw i64 %indvars.iv960, 1
   %exitcond964.not = icmp eq i64 %indvars.iv.next961, %84
   br i1 %exitcond964.not, label %.loopexit, label %105, !llvm.loop !84
@@ -3699,26 +3699,26 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i8, ptr %0, i64 %151
   %153 = icmp sgt i32 %93, 38
-  %invariant.gep848 = getelementptr inbounds i8, ptr %149, i64 1
+  %invariant.gep848 = getelementptr inbounds nuw i8, ptr %149, i64 1
   br i1 %153, label %.lr.ph852, label %.lr.ph847
 
 .lr.ph847:                                        ; preds = %147
-  %invariant.gep843 = getelementptr inbounds i8, ptr %152, i64 1
-  %154 = getelementptr inbounds i8, ptr %149, i64 9
-  %155 = getelementptr inbounds i8, ptr %152, i64 9
+  %invariant.gep843 = getelementptr inbounds nuw i8, ptr %152, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 9
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 9
   br label %200
 
 .lr.ph852:                                        ; preds = %147
-  %156 = getelementptr inbounds i8, ptr %149, i64 9
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 9
   br label %157
 
 157:                                              ; preds = %.lr.ph852, %186
   %indvars.iv955 = phi i64 [ 0, %.lr.ph852 ], [ %indvars.iv.next956, %186 ]
   %.0687851 = phi ptr [ %18, %.lr.ph852 ], [ %199, %186 ]
-  %158 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv955
+  %158 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv955
   %159 = load i32, ptr %158, align 4
   %160 = load i16, ptr %.0687851, align 2
-  %161 = getelementptr inbounds i8, ptr %.0687851, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %.0687851, i64 2
   %162 = load i16, ptr %161, align 2
   %163 = icmp slt i32 %159, 0
   br i1 %163, label %164, label %167
@@ -3742,7 +3742,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %174 = icmp eq i32 %173, 0
   %175 = lshr i32 %159, 1
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds i8, ptr %149, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr %149, i64 %176
   %178 = load i8, ptr %177, align 1
   br i1 %174, label %179, label %182
 
@@ -3753,7 +3753,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 182:                                              ; preds = %172
   %183 = lshr i8 %178, 4
-  %gep849 = getelementptr inbounds i8, ptr %invariant.gep848, i64 %176
+  %gep849 = getelementptr inbounds nuw i8, ptr %invariant.gep848, i64 %176
   %184 = load i8, ptr %gep849, align 1
   %185 = and i8 %184, 15
   br label %186
@@ -3771,11 +3771,11 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %194 = lshr i32 %193, 4
   %195 = add nsw i32 %194, %193
   %196 = trunc i32 %195 to i16
-  %197 = getelementptr inbounds i16, ptr %.0674917, i64 %indvars.iv955
+  %197 = getelementptr inbounds nuw i16, ptr %.0674917, i64 %indvars.iv955
   store i16 %196, ptr %197, align 2
-  %198 = getelementptr inbounds i16, ptr %.0676916, i64 %indvars.iv955
+  %198 = getelementptr inbounds nuw i16, ptr %.0676916, i64 %indvars.iv955
   store i16 0, ptr %198, align 2
-  %199 = getelementptr inbounds i8, ptr %.0687851, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %.0687851, i64 4
   %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
   %exitcond959.not = icmp eq i64 %indvars.iv.next956, %84
   br i1 %exitcond959.not, label %.loopexit, label %157, !llvm.loop !85
@@ -3783,10 +3783,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 200:                                              ; preds = %.lr.ph847, %242
   %indvars.iv950 = phi i64 [ 0, %.lr.ph847 ], [ %indvars.iv.next951, %242 ]
   %.0702846 = phi ptr [ %18, %.lr.ph847 ], [ %263, %242 ]
-  %201 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv950
+  %201 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv950
   %202 = load i32, ptr %201, align 4
   %203 = load i16, ptr %.0702846, align 2
-  %204 = getelementptr inbounds i8, ptr %.0702846, i64 2
+  %204 = getelementptr inbounds nuw i8, ptr %.0702846, i64 2
   %205 = load i16, ptr %204, align 2
   %206 = icmp slt i32 %202, 0
   br i1 %206, label %207, label %212
@@ -3814,14 +3814,14 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %221 = icmp eq i32 %220, 0
   %222 = lshr i32 %202, 1
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds i8, ptr %149, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr %149, i64 %223
   %225 = load i8, ptr %224, align 1
   br i1 %221, label %226, label %233
 
 226:                                              ; preds = %219
   %227 = and i8 %225, 15
   %228 = lshr i8 %225, 4
-  %229 = getelementptr inbounds i8, ptr %152, i64 %223
+  %229 = getelementptr inbounds nuw i8, ptr %152, i64 %223
   %230 = load i8, ptr %229, align 1
   %231 = and i8 %230, 15
   %232 = lshr i8 %230, 4
@@ -3829,13 +3829,13 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 233:                                              ; preds = %219
   %234 = lshr i8 %225, 4
-  %gep = getelementptr inbounds i8, ptr %invariant.gep848, i64 %223
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep848, i64 %223
   %235 = load i8, ptr %gep, align 1
   %236 = and i8 %235, 15
-  %237 = getelementptr inbounds i8, ptr %152, i64 %223
+  %237 = getelementptr inbounds nuw i8, ptr %152, i64 %223
   %238 = load i8, ptr %237, align 1
   %239 = lshr i8 %238, 4
-  %gep844 = getelementptr inbounds i8, ptr %invariant.gep843, i64 %223
+  %gep844 = getelementptr inbounds nuw i8, ptr %invariant.gep843, i64 %223
   %240 = load i8, ptr %gep844, align 1
   %241 = and i8 %240, 15
   br label %242
@@ -3855,7 +3855,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %250 = lshr i32 %249, 4
   %251 = add nsw i32 %250, %249
   %252 = trunc i32 %251 to i16
-  %253 = getelementptr inbounds i16, ptr %.0674917, i64 %indvars.iv950
+  %253 = getelementptr inbounds nuw i16, ptr %.0674917, i64 %indvars.iv950
   store i16 %252, ptr %253, align 2
   %254 = zext nneg i8 %.0706 to i32
   %255 = mul nsw i32 %254, %244
@@ -3865,9 +3865,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %259 = lshr i32 %258, 4
   %260 = add nsw i32 %259, %258
   %261 = trunc i32 %260 to i16
-  %262 = getelementptr inbounds i16, ptr %.0676916, i64 %indvars.iv950
+  %262 = getelementptr inbounds nuw i16, ptr %.0676916, i64 %indvars.iv950
   store i16 %261, ptr %262, align 2
-  %263 = getelementptr inbounds i8, ptr %.0702846, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %.0702846, i64 4
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %exitcond954.not = icmp eq i64 %indvars.iv.next951, %84
   br i1 %exitcond954.not, label %.loopexit, label %200, !llvm.loop !86
@@ -3892,11 +3892,11 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   br i1 %270, label %271, label %386
 
 271:                                              ; preds = %266
-  %272 = getelementptr inbounds i8, ptr %.0918, i64 2
+  %272 = getelementptr inbounds nuw i8, ptr %.0918, i64 2
   %273 = load i16, ptr %272, align 2
-  %274 = getelementptr inbounds i8, ptr %.0918, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %.0918, i64 4
   %275 = load i16, ptr %274, align 2
-  %276 = getelementptr inbounds i8, ptr %.0918, i64 6
+  %276 = getelementptr inbounds nuw i8, ptr %.0918, i64 6
   %277 = load i16, ptr %276, align 2
   %278 = mul nsw i32 %.0680914, %2
   %279 = sext i32 %278 to i64
@@ -3931,10 +3931,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %.0717885 = phi ptr [ %323, %.lr.ph890 ], [ %283, %271 ]
   %.0720884 = phi i32 [ %326, %.lr.ph890 ], [ 0, %271 ]
   %294 = load <8 x i16>, ptr %.0708888, align 1
-  %295 = getelementptr inbounds i8, ptr %.0708888, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %.0708888, i64 16
   %296 = load <8 x i16>, ptr %295, align 1
   %297 = load <8 x i16>, ptr %.0711887, align 1
-  %298 = getelementptr inbounds i8, ptr %.0711887, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %.0711887, i64 16
   %299 = load <8 x i16>, ptr %298, align 1
   %300 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %294, <8 x i16> %285)
   %301 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %297, <8 x i16> %287)
@@ -3960,10 +3960,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %321 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %316, <8 x i16> %319)
   store <16 x i8> %320, ptr %.0714886, align 1
   store <16 x i8> %321, ptr %.0717885, align 1
-  %322 = getelementptr inbounds i8, ptr %.0714886, i64 16
-  %323 = getelementptr inbounds i8, ptr %.0717885, i64 16
-  %324 = getelementptr inbounds i8, ptr %.0708888, i64 32
-  %325 = getelementptr inbounds i8, ptr %.0711887, i64 32
+  %322 = getelementptr inbounds nuw i8, ptr %.0714886, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %.0717885, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %.0708888, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %.0711887, i64 32
   %326 = add nuw nsw i32 %.0720884, 16
   %327 = or disjoint i32 %326, 15
   %328 = icmp slt i32 %327, %2
@@ -4011,10 +4011,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   store i64 %350, ptr %.1715898, align 1
   %351 = extractelement <2 x i64> %349, i64 0
   store i64 %351, ptr %.1718897, align 1
-  %352 = getelementptr inbounds i8, ptr %.1715898, i64 8
-  %353 = getelementptr inbounds i8, ptr %.1718897, i64 8
-  %354 = getelementptr inbounds i8, ptr %.1709900, i64 16
-  %355 = getelementptr inbounds i8, ptr %.1712899, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %.1715898, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %.1718897, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %.1709900, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %.1712899, i64 16
   %356 = add nuw nsw i32 %.1721896, 8
   %357 = or disjoint i32 %356, 7
   %358 = icmp slt i32 %357, %2
@@ -4026,9 +4026,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %.2716909 = phi ptr [ %.1715.lcssa, %.lr.ph912 ], [ %374, %359 ]
   %.2719908 = phi ptr [ %.1718.lcssa, %.lr.ph912 ], [ %383, %359 ]
   %.2722907 = phi i32 [ %.1721.lcssa, %.lr.ph912 ], [ %384, %359 ]
-  %360 = getelementptr inbounds i8, ptr %.2710911, i64 2
+  %360 = getelementptr inbounds nuw i8, ptr %.2710911, i64 2
   %361 = load i16, ptr %.2710911, align 2
-  %362 = getelementptr inbounds i8, ptr %.2713910, i64 2
+  %362 = getelementptr inbounds nuw i8, ptr %.2713910, i64 2
   %363 = load i16, ptr %.2713910, align 2
   %364 = sext i16 %361 to i32
   %365 = mul nsw i32 %364, %330
@@ -4040,7 +4040,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %371 = add nuw nsw i32 %370, %369
   %372 = lshr i32 %371, 2
   %373 = trunc i32 %372 to i8
-  %374 = getelementptr inbounds i8, ptr %.2716909, i64 1
+  %374 = getelementptr inbounds nuw i8, ptr %.2716909, i64 1
   store i8 %373, ptr %.2716909, align 1
   %375 = mul nsw i32 %364, %332
   %376 = lshr i32 %375, 16
@@ -4050,20 +4050,20 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %380 = add nuw nsw i32 %379, %378
   %381 = lshr i32 %380, 2
   %382 = trunc i32 %381 to i8
-  %383 = getelementptr inbounds i8, ptr %.2719908, i64 1
+  %383 = getelementptr inbounds nuw i8, ptr %.2719908, i64 1
   store i8 %382, ptr %.2719908, align 1
   %384 = add nuw nsw i32 %.2722907, 1
   %exitcond969.not = icmp eq i32 %384, %2
   br i1 %exitcond969.not, label %._crit_edge913, label %359, !llvm.loop !89
 
 ._crit_edge913:                                   ; preds = %359, %.preheader
-  %385 = getelementptr inbounds i8, ptr %.0918, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %.0918, i64 8
   %.pre971 = add nsw i32 %.0680914, 2
   br label %459
 
 386:                                              ; preds = %.loopexit._crit_edge, %266
   %387 = phi i16 [ %.pre, %.loopexit._crit_edge ], [ %.pre970, %266 ]
-  %388 = getelementptr inbounds i8, ptr %.0918, i64 2
+  %388 = getelementptr inbounds nuw i8, ptr %.0918, i64 2
   %389 = load i16, ptr %388, align 2
   %390 = mul nsw i32 %.0680914, %2
   %391 = sext i32 %390 to i64
@@ -4089,10 +4089,10 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %.0693861 = phi ptr [ %418, %.lr.ph865 ], [ %.1677, %386 ]
   %.0696860 = phi ptr [ %417, %.lr.ph865 ], [ %.1675, %386 ]
   %399 = load <8 x i16>, ptr %.0696860, align 1
-  %400 = getelementptr inbounds i8, ptr %.0696860, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %.0696860, i64 16
   %401 = load <8 x i16>, ptr %400, align 1
   %402 = load <8 x i16>, ptr %.0693861, align 1
-  %403 = getelementptr inbounds i8, ptr %.0693861, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %.0693861, i64 16
   %404 = load <8 x i16>, ptr %403, align 1
   %405 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %399, <8 x i16> %394)
   %406 = call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %402, <8 x i16> %396)
@@ -4106,9 +4106,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %414 = ashr <8 x i16> %413, splat (i16 2)
   %415 = call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %411, <8 x i16> %414)
   store <16 x i8> %415, ptr %.0690862, align 1
-  %416 = getelementptr inbounds i8, ptr %.0690862, i64 16
-  %417 = getelementptr inbounds i8, ptr %.0696860, i64 32
-  %418 = getelementptr inbounds i8, ptr %.0693861, i64 32
+  %416 = getelementptr inbounds nuw i8, ptr %.0690862, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %.0696860, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %.0693861, i64 32
   %419 = add nuw nsw i32 %.0688863, 16
   %420 = or disjoint i32 %419, 15
   %421 = icmp slt i32 %420, %2
@@ -4143,9 +4143,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %433 = bitcast <16 x i8> %432 to <2 x i64>
   %434 = extractelement <2 x i64> %433, i64 0
   store i64 %434, ptr %.1691871, align 1
-  %435 = getelementptr inbounds i8, ptr %.1691871, i64 8
-  %436 = getelementptr inbounds i8, ptr %.1697869, i64 16
-  %437 = getelementptr inbounds i8, ptr %.1694870, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %.1691871, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %.1697869, i64 16
+  %437 = getelementptr inbounds nuw i8, ptr %.1694870, i64 16
   %438 = add nuw nsw i32 %.1689872, 8
   %439 = or disjoint i32 %438, 7
   %440 = icmp slt i32 %439, %2
@@ -4156,9 +4156,9 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %.2692880 = phi ptr [ %.1691.lcssa, %.lr.ph882 ], [ %456, %441 ]
   %.2695879 = phi ptr [ %.1694.lcssa, %.lr.ph882 ], [ %444, %441 ]
   %.2698878 = phi ptr [ %.1697.lcssa, %.lr.ph882 ], [ %442, %441 ]
-  %442 = getelementptr inbounds i8, ptr %.2698878, i64 2
+  %442 = getelementptr inbounds nuw i8, ptr %.2698878, i64 2
   %443 = load i16, ptr %.2698878, align 2
-  %444 = getelementptr inbounds i8, ptr %.2695879, i64 2
+  %444 = getelementptr inbounds nuw i8, ptr %.2695879, i64 2
   %445 = load i16, ptr %.2695879, align 2
   %446 = sext i16 %443 to i32
   %447 = mul nsw i32 %446, %423
@@ -4170,14 +4170,14 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %453 = add nuw nsw i32 %452, %451
   %454 = lshr i32 %453, 2
   %455 = trunc i32 %454 to i8
-  %456 = getelementptr inbounds i8, ptr %.2692880, i64 1
+  %456 = getelementptr inbounds nuw i8, ptr %.2692880, i64 1
   store i8 %455, ptr %.2692880, align 1
   %457 = add nuw nsw i32 %.2881, 1
   %exitcond968.not = icmp eq i32 %457, %2
   br i1 %exitcond968.not, label %._crit_edge883, label %441, !llvm.loop !92
 
 ._crit_edge883:                                   ; preds = %441, %.preheader826
-  %458 = getelementptr inbounds i8, ptr %.0918, i64 4
+  %458 = getelementptr inbounds nuw i8, ptr %.0918, i64 4
   br label %459
 
 459:                                              ; preds = %._crit_edge913, %._crit_edge883
@@ -4205,7 +4205,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 468:                                              ; preds = %465
   %469 = load ptr, ptr %466, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
   %471 = load ptr, ptr %470, align 8
   invoke void %471(ptr noundef nonnull align 8 dereferenceable(8) %466, ptr noundef %467)
           to label %474 unwind label %476
@@ -4246,7 +4246,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 485:                                              ; preds = %482
   %486 = load ptr, ptr %483, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
   %488 = load ptr, ptr %487, align 8
   invoke void %488(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef %484)
           to label %491 unwind label %492
@@ -4282,7 +4282,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
 
 501:                                              ; preds = %498
   %502 = load ptr, ptr %499, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 24
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 24
   %504 = load ptr, ptr %503, align 8
   invoke void %504(ptr noundef nonnull align 8 dereferenceable(8) %499, ptr noundef %500)
           to label %507 unwind label %508

@@ -1506,7 +1506,7 @@ define internal i32 @dissect_isis_l2_lsp(ptr noundef %0, ptr noundef %1, ptr nou
 define internal fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   store i16 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.637) #3
   %9 = load i32, ptr @proto_isis_lsp, align 4
@@ -1518,9 +1518,9 @@ define internal fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, pt
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %17, ptr noundef %19) #3
   br label %178
@@ -1557,9 +1557,9 @@ thread-pre-split:                                 ; preds = %29, %21
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %42, ptr noundef %44) #3
   br label %178
@@ -1570,7 +1570,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %49 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #3
   %50 = load i8, ptr %4, align 8
   %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %4, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %54, 14
@@ -1578,9 +1578,9 @@ thread-pre-split:                                 ; preds = %29, %21
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %59, ptr noundef %61) #3
   br label %178
@@ -1589,7 +1589,7 @@ thread-pre-split:                                 ; preds = %29, %21
   %64 = load i32, ptr @hf_isis_lsp_lsp_id, align 4
   %65 = add nuw nsw i32 %54, 2
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %64, ptr noundef %0, i32 noundef 12, i32 noundef %65, i32 noundef 0) #3
-  %67 = getelementptr inbounds i8, ptr %1, i64 408
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr %52, align 1
   %70 = zext i8 %69 to i32
@@ -1606,9 +1606,9 @@ thread-pre-split:                                 ; preds = %29, %21
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %63
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %82, ptr noundef %84) #3
   br label %178
@@ -1635,9 +1635,9 @@ thread-pre-split:                                 ; preds = %29, %21
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %86
-  %104 = getelementptr inbounds i8, ptr %4, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %4, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %105, ptr noundef %107) #3
   br label %178
@@ -1703,9 +1703,9 @@ thread-pre-split:                                 ; preds = %29, %21
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %135
-  %144 = getelementptr inbounds i8, ptr %4, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %4, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %145, ptr noundef %147) #3
   br label %178
@@ -1742,7 +1742,7 @@ thread-pre-split:                                 ; preds = %29, %21
 
 172:                                              ; preds = %171
   %173 = add nuw nsw i32 %75, 21
-  %174 = getelementptr inbounds i8, ptr %4, i64 2
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %22, ptr %174, align 2
   %175 = load i32, ptr @ett_isis_lsp_clv_unknown, align 4
   %176 = load i32, ptr @hf_isis_lsp_clv_type, align 4
@@ -1799,7 +1799,7 @@ define internal void @dissect_lsp_area_address_clv(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_lsp_l1_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   tail call fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %9, i32 noundef 1, i32 noundef 0)
@@ -1808,7 +1808,7 @@ define internal void @dissect_lsp_l1_is_neighbors_clv(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_lsp_l1_es_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   tail call fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %9, i32 noundef 1, i32 noundef 1)
@@ -1829,7 +1829,7 @@ define internal void @dissect_lsp_ori_buffersize_clv(ptr noundef %0, ptr noundef
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_short_clv, ptr noundef %0, i32 noundef %3, i32 noundef -1, ptr noundef nonnull @.str.806, i32 noundef %5, i32 noundef %10) #3
@@ -1851,7 +1851,7 @@ define internal void @dissect_lsp_ext_is_reachability_clv(ptr noundef %0, ptr no
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %30
@@ -1905,7 +1905,7 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %6
   %.not = icmp eq ptr %2, null
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %10
@@ -2027,10 +2027,10 @@ define internal void @dissect_lsp_ext_ip_reachability_clv(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph100, label %.loopexit
 
 .lr.ph100:                                        ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %16
 
 16:                                               ; preds = %.lr.ph100, %85
@@ -2163,10 +2163,10 @@ define internal void @dissect_lsp_ipv6_reachability_clv(ptr noundef %0, ptr noun
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.preheader, %93
@@ -3238,10 +3238,10 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
   %19 = add nsw i32 %5, -2
   %20 = add i32 %3, 2
-  %21 = getelementptr inbounds i8, ptr %10, i64 4
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.loopexit
@@ -3647,7 +3647,7 @@ define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %.preheader, label %28
 
 .preheader:                                       ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %30
 
 28:                                               ; preds = %12
@@ -3824,7 +3824,7 @@ define internal fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %17
   %.not87 = icmp eq ptr %2, null
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br i1 %.not87, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -5331,7 +5331,7 @@ declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_lsp_l2_is_neighbors_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   tail call fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %9, i32 noundef 0, i32 noundef 0)
@@ -5340,7 +5340,7 @@ define internal void @dissect_lsp_l2_is_neighbors_clv(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_lsp_partition_dis_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp slt i32 %5, %9
@@ -5463,7 +5463,7 @@ dissect_metric.exit66:                            ; preds = %56, %dissect_metric
 .lr.ph:                                           ; preds = %dissect_metric.exit66
   %58 = add nsw i32 %5, -4
   %59 = add i32 %3, 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %61
 
 61:                                               ; preds = %.lr.ph, %73

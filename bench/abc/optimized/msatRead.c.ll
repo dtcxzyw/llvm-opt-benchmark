@@ -54,7 +54,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 .critedge.i.i:                                    ; preds = %15, %15, %15, %15, %15, %15
-  %17 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   br label %15, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %15, %21
@@ -66,17 +66,17 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 19:                                               ; preds = %.preheader.i
-  %20 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   br label %skipLine.exit.i.backedge
 
 21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %22, align 1
   br label %.preheader.i
 
 .preheader47.i:                                   ; preds = %15, %.preheader47.i.backedge
   %.2.pn.i = phi ptr [ %.5.i, %.preheader47.i.backedge ], [ %.2.i, %15 ]
-  %.5.i = getelementptr inbounds i8, ptr %.2.pn.i, i64 1
+  %.5.i = getelementptr inbounds nuw i8, ptr %.2.pn.i, i64 1
   %23 = load i8, ptr %.5.i, align 1
   switch i8 %23, label %Msat_ReadWhitespace.exit23.i [
     i8 32, label %.preheader47.i.backedge
@@ -106,7 +106,7 @@ Msat_ReadNotWhitespace.exit.i.preheader:          ; preds = %Msat_ReadWhitespace
   br label %Msat_ReadNotWhitespace.exit.i
 
 25:                                               ; preds = %Msat_ReadWhitespace.exit23.i
-  %26 = getelementptr inbounds i8, ptr %.6.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   %.pre.i = load i8, ptr %26, align 1
   br label %Msat_ReadWhitespace.exit23.i, !llvm.loop !6
 
@@ -125,12 +125,12 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   ]
 
 .critedge.i.i.i:                                  ; preds = %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.pre127.i = load i8, ptr %29, align 1
   br label %Msat_ReadNotWhitespace.exit.i, !llvm.loop !4
 
 .sink.split.i.i:                                  ; preds = %Msat_ReadNotWhitespace.exit.i, %Msat_ReadNotWhitespace.exit.i
-  %30 = getelementptr inbounds i8, ptr %28, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.pre128.i = load i8, ptr %30, align 1
   br label %.loopexit46.i
 
@@ -156,7 +156,7 @@ Msat_ReadNotWhitespace.exit.i:                    ; preds = %Msat_ReadNotWhitesp
   %narrow.i.i = add nsw i8 %37, -48
   %40 = zext nneg i8 %narrow.i.i to i32
   %41 = add nsw i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %38, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = add i8 %43, -48
   %or.cond19.i.i = icmp ult i8 %44, 10
@@ -183,12 +183,12 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
   ]
 
 .critedge.i.i29.i:                                ; preds = %47, %47, %47, %47, %47, %47
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.pre129.i = load i8, ptr %50, align 1
   br label %47, !llvm.loop !4
 
 .sink.split.i31.i:                                ; preds = %47, %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.pre130.i = load i8, ptr %51, align 1
   br label %.loopexit.i
 
@@ -208,7 +208,7 @@ Msat_ReadInt.exit.i:                              ; preds = %.lr.ph.i.i
 
 .lr.ph.i34.i:                                     ; preds = %.loopexit.i, %.lr.ph.i34.i
   %58 = phi ptr [ %59, %.lr.ph.i34.i ], [ %.promoted.i32.i, %.loopexit.i ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = add i8 %60, -48
   %or.cond19.i37.i = icmp ult i8 %61, 10
@@ -223,11 +223,11 @@ Msat_ReadInt.exit40.i:                            ; preds = %.lr.ph.i34.i, %65
   ]
 
 63:                                               ; preds = %Msat_ReadInt.exit40.i
-  %64 = getelementptr inbounds i8, ptr %.7.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
   br label %skipLine.exit42.i
 
 65:                                               ; preds = %Msat_ReadInt.exit40.i
-  %66 = getelementptr inbounds i8, ptr %.7.i, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
   %.pre131.i = load i8, ptr %66, align 1
   br label %Msat_ReadInt.exit40.i
 
@@ -267,7 +267,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   ]
 
 .critedge.i.i.i.i:                                ; preds = %73, %73, %73, %73, %73, %73
-  %76 = getelementptr inbounds i8, ptr %74, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge.i.i.i.i, %99
@@ -275,7 +275,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   br label %73, !llvm.loop !4
 
 .sink.split.i.i.i:                                ; preds = %73, %73
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.pre.i.i = load i8, ptr %77, align 1
   br label %.loopexit.i.i
 
@@ -301,7 +301,7 @@ skipLine.exit42.i:                                ; preds = %Msat_ReadInt.exit40
   %narrow.i.i.i = add nsw i8 %84, -48
   %87 = zext nneg i8 %narrow.i.i.i to i32
   %88 = add nsw i32 %86, %87
-  %89 = getelementptr inbounds i8, ptr %85, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %90 = load i8, ptr %89, align 1
   %91 = add i8 %90, -48
   %or.cond19.i.i.i = icmp ult i8 %91, 10

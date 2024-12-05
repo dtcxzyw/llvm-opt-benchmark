@@ -38,9 +38,9 @@ lor.lhs.false3:                                   ; preds = %entry
   br i1 %tobool5.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %kdfdata = getelementptr inbounds i8, ptr %vpkdfctx, i64 16
+  %kdfdata = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 16
   store ptr %vkdf, ptr %kdfdata, align 8
-  %kdfctx.i = getelementptr inbounds i8, ptr %vpkdfctx, i64 8
+  %kdfctx.i = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx.i, align 8
   %call.i = tail call i32 @EVP_KDF_CTX_set_params(ptr noundef %0, ptr noundef %params) #3
   br label %return
@@ -58,7 +58,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kdfctx = getelementptr inbounds i8, ptr %vpkdfctx, i64 8
+  %kdfctx = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx, align 8
   %call1 = tail call i64 @EVP_KDF_CTX_get_kdf_size(ptr noundef %0) #3
   %cmp = icmp eq ptr %secret, null
@@ -101,10 +101,10 @@ return:                                           ; preds = %if.end9, %entry, %i
 ; Function Attrs: nounwind uwtable
 define internal void @kdf_freectx(ptr noundef %vpkdfctx) #0 {
 entry:
-  %kdfctx = getelementptr inbounds i8, ptr %vpkdfctx, i64 8
+  %kdfctx = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx, align 8
   tail call void @EVP_KDF_CTX_free(ptr noundef %0) #3
-  %kdfdata = getelementptr inbounds i8, ptr %vpkdfctx, i64 16
+  %kdfdata = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 16
   %1 = load ptr, ptr %kdfdata, align 8
   tail call void @ossl_kdf_data_free(ptr noundef %1) #3
   tail call void @CRYPTO_free(ptr noundef %vpkdfctx, ptr noundef nonnull @.str.1, i32 noundef 134) #3
@@ -125,16 +125,16 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(24) %vpkdfctx, i64 24, i1 false)
-  %kdfctx = getelementptr inbounds i8, ptr %vpkdfctx, i64 8
+  %kdfctx = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx, align 8
   %call4 = tail call ptr @EVP_KDF_CTX_dup(ptr noundef %0) #3
-  %kdfctx5 = getelementptr inbounds i8, ptr %call1, i64 8
+  %kdfctx5 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call4, ptr %kdfctx5, align 8
   %cmp7 = icmp eq ptr %call4, null
   br i1 %cmp7, label %return.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %if.end3
-  %kdfdata = getelementptr inbounds i8, ptr %call1, i64 16
+  %kdfdata = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %1 = load ptr, ptr %kdfdata, align 8
   %call10 = tail call i32 @ossl_kdf_data_up_ref(ptr noundef %1) #3
   %tobool11.not = icmp eq i32 %call10, 0
@@ -158,7 +158,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @kdf_set_ctx_params(ptr nocapture noundef readonly %vpkdfctx, ptr noundef %params) #0 {
 entry:
-  %kdfctx = getelementptr inbounds i8, ptr %vpkdfctx, i64 8
+  %kdfctx = getelementptr inbounds nuw i8, ptr %vpkdfctx, i64 8
   %0 = load ptr, ptr %kdfctx, align 8
   %call = tail call i32 @EVP_KDF_CTX_set_params(ptr noundef %0, ptr noundef %params) #3
   ret i32 %call
@@ -253,7 +253,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end3
   %call10 = tail call ptr @EVP_KDF_CTX_new(ptr noundef nonnull %call6) #3
-  %kdfctx11 = getelementptr inbounds i8, ptr %call1, i64 8
+  %kdfctx11 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call10, ptr %kdfctx11, align 8
   tail call void @EVP_KDF_free(ptr noundef nonnull %call6) #3
   %cmp13 = icmp eq ptr %call10, null

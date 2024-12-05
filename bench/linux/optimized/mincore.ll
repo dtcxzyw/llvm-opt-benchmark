@@ -42,11 +42,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 1) i64 @__x64_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i64 @__se_sys_mincore(i64 noundef %3, i64 noundef %5, i64 noundef %7), !range !5
   ret i64 %8
@@ -91,7 +91,7 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
 28:                                               ; preds = %26
   %29 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !7
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 1192
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1192
   br label %32
 
 32:                                               ; preds = %99, %28
@@ -107,8 +107,8 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   br label %38
 
 38:                                               ; preds = %37, %32
-  %39 = getelementptr inbounds i8, ptr %36, i64 176
-  tail call void @down_read(ptr noundef %39) #7
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  tail call void @down_read(ptr noundef nonnull %39) #7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #7
           to label %41 [label %40], !srcloc !8
 
@@ -118,43 +118,43 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
 
 41:                                               ; preds = %40, %38
   %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
-  %44 = tail call ptr @mtree_load(ptr noundef %43, i64 noundef %33) #7
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %44 = tail call ptr @mtree_load(ptr noundef nonnull %43, i64 noundef %33) #7
   %45 = icmp eq ptr %44, null
   br i1 %45, label %87, label %46
 
 46:                                               ; preds = %41
   %47 = tail call i64 @llvm.umin.i64(i64 %35, i64 4096)
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = shl nuw nsw i64 %47, 12
   %51 = add i64 %50, %33
   %52 = tail call i64 @llvm.umin.i64(i64 %49, i64 %51)
-  %53 = getelementptr inbounds i8, ptr %44, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %77, label %56
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %44, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %74, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 168
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 168
   %62 = load ptr, ptr %61, align 8
   %63 = tail call zeroext i1 @inode_owner_or_capable(ptr noundef nonnull @nop_mnt_idmap, ptr noundef %62) #7
   br i1 %63, label %77, label %64
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %57, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 152
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 152
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load volatile ptr, ptr %68, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
-  %70 = getelementptr inbounds i8, ptr %65, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 168
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @inode_permission(ptr noundef %69, ptr noundef %71, i32 noundef 2) #7
   %73 = icmp eq i32 %72, 0
@@ -168,7 +168,7 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   br label %87
 
 77:                                               ; preds = %64, %60, %46
-  %78 = getelementptr inbounds i8, ptr %44, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 @walk_page_range(ptr noundef %79, i64 noundef %33, i64 noundef %52, ptr noundef nonnull @mincore_walk_ops, ptr noundef nonnull %24) #7
   %81 = icmp slt i32 %80, 0
@@ -194,8 +194,8 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   br label %91
 
 91:                                               ; preds = %90, %87
-  %92 = getelementptr inbounds i8, ptr %89, i64 176
-  tail call void @up_read(ptr noundef %92) #7
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 176
+  tail call void @up_read(ptr noundef nonnull %92) #7
   %93 = icmp slt i64 %88, 1
   br i1 %93, label %.loopexit, label %94
 
@@ -234,13 +234,13 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 1) i64 @__ia32_sys_mincore(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = tail call fastcc i64 @__se_sys_mincore(i64 noundef %4, i64 noundef %7, i64 noundef %10), !range !5
@@ -288,13 +288,13 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = sub i64 %2, %1
   store ptr null, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @__pte_offset_map_lock(ptr noundef %13, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6) #7
   %15 = icmp eq ptr %14, null
@@ -305,12 +305,12 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   br i1 %17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %8, i64 136
-  %19 = getelementptr inbounds i8, ptr %8, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 128
   br label %22
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 2, ptr %21, align 8
   br label %95
 
@@ -340,7 +340,7 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   %38 = lshr i64 %37, 12
   %39 = load i64, ptr %19, align 8
   %40 = add i64 %38, %39
-  %41 = getelementptr inbounds i8, ptr %33, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 216
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @filemap_get_incore_folio(ptr noundef %42, i64 noundef %40) #7
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
@@ -359,8 +359,8 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 50:                                               ; preds = %49, %45
   %51 = lshr exact i64 %47, 3
   %52 = trunc nuw nsw i64 %51 to i8
-  %53 = getelementptr inbounds i8, ptr %43, i64 52
-  %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, ptr elementtype(i32) %53) #7, !srcloc !20
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 52
+  %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, ptr nonnull elementtype(i32) %53) #7, !srcloc !20
   %55 = icmp ult i8 %54, 2
   call void @llvm.assume(i1 %55)
   %56 = icmp eq i8 %54, 0
@@ -402,8 +402,8 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 78:                                               ; preds = %77, %73
   %79 = lshr exact i64 %75, 3
   %80 = trunc nuw nsw i64 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %71, i64 52
-  %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #7, !srcloc !20
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 52
+  %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, ptr nonnull elementtype(i32) %81) #7, !srcloc !20
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
   %84 = icmp eq i8 %82, 0
@@ -443,13 +443,13 @@ __mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sub i64 %1, %0
   %10 = lshr i64 %9, 12
-  %11 = getelementptr inbounds i8, ptr %6, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = icmp ult i64 %9, 4096
@@ -465,7 +465,7 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
   %18 = load i64, ptr %6, align 8
   %19 = sub i64 %0, %18
   %20 = lshr i64 %19, 12
-  %21 = getelementptr inbounds i8, ptr %6, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %20, %22
   br label %24
@@ -475,7 +475,7 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
   %26 = phi i64 [ %50, %46 ], [ %23, %17 ]
   %27 = phi i32 [ %49, %46 ], [ 0, %17 ]
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 216
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @filemap_get_incore_folio(ptr noundef %30, i64 noundef %26) #7
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
@@ -494,8 +494,8 @@ define internal noundef i32 @mincore_unmapped_range(i64 noundef %0, i64 noundef 
 38:                                               ; preds = %37, %33
   %39 = lshr exact i64 %35, 3
   %40 = trunc nuw nsw i64 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %31, i64 52
-  %42 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41, ptr elementtype(i32) %41) #7, !srcloc !20
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 52
+  %42 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, ptr nonnull elementtype(i32) %41) #7, !srcloc !20
   %43 = icmp ult i8 %42, 2
   tail call void @llvm.assume(i1 %43)
   %44 = icmp eq i8 %42, 0
@@ -537,7 +537,7 @@ __mincore_unmapped_range.exit:                    ; preds = %46, %.preheader.i, 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef i32 @mincore_hugetlb(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) #4 align 16 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %18, label %10

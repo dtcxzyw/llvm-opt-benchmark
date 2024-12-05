@@ -76,13 +76,13 @@ sub_0:                                            ; preds = %0
   br i1 %.not5, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %.not6 = icmp eq i8 %4, 58
   br i1 %.not6, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %.tail.thread
@@ -223,7 +223,7 @@ define ptr @H5PL_load(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 
 34:                                               ; preds = %22, %14, %6
   store i32 %0, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %35, align 8
   %36 = call i32 @H5PL__find_plugin_in_cache(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %37 = icmp slt i32 %36, 0
@@ -340,7 +340,7 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
 
 32:                                               ; preds = %25
   %.not83 = icmp eq ptr %2, null
-  %33 = getelementptr inbounds i8, ptr %26, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %34 = load i32, ptr %33, align 4
   br i1 %.not83, label %.thread90, label %35
 
@@ -383,9 +383,9 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
 
 48:                                               ; preds = %47
   store i32 0, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %50, ptr %51, align 8
   br label %52
 
@@ -434,9 +434,9 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
 
 73:                                               ; preds = %72
   store i32 0, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %66, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %75, ptr %76, align 8
   br label %77
 

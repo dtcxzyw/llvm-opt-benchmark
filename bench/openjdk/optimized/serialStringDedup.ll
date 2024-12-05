@@ -41,12 +41,12 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden noundef zeroext i1 @_ZN17SerialStringDedup22is_candidate_from_markEP7oopDesc(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.markWord, align 8
   %3 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #4
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp uge ptr %0, %7
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = icmp ult ptr %0, %10

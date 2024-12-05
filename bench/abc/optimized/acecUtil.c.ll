@@ -15,13 +15,13 @@ define void @Gia_PolynCollectXors_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %.val = load ptr, ptr %4, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 616
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = shl nsw i64 %5, 2
   %11 = getelementptr inbounds i8, ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %12, %14
   br i1 %.not, label %Vec_IntPushUnique.exit, label %15
@@ -68,13 +68,13 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   %37 = and i32 %36, 536870911
   %38 = sub nsw i32 %1, %37
   tail call void @Gia_PolynCollectXors_rec(ptr noundef nonnull %0, i32 noundef %38, ptr noundef %2)
-  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   %wide.trip.count.i = zext nneg i32 %40 to i64
   br label %45
@@ -86,7 +86,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
 
 45:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %46 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %1
   br i1 %48, label %Vec_IntPushUnique.exit, label %44
@@ -97,7 +97,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   br i1 %50, label %51, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
 .Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %._crit_edge.i
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %Vec_IntPush.exit.i
 
@@ -106,7 +106,7 @@ Gia_ObjIsXor.exit:                                ; preds = %15
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not9.i.i.i = icmp eq ptr %55, null
   br i1 %.not9.i.i.i, label %58, label %56
@@ -127,7 +127,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %58, %56
 
 61:                                               ; preds = %51
   %62 = shl nuw nsw i32 %40, 1
-  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not9.i9.i.i = icmp eq ptr %64, null
   %65 = zext nneg i32 %62 to i64
@@ -165,11 +165,11 @@ Vec_IntPushUnique.exit:                           ; preds = %45, %Vec_IntPush.ex
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   store i32 100, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 72
   %.val = load ptr, ptr %7, align 8
@@ -185,7 +185,7 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val18, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
@@ -217,7 +217,7 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
   %31 = phi i32 [ %46, %.lr.ph.i ], [ %29, %20 ]
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = xor i32 %35, -1
@@ -263,19 +263,19 @@ declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   store i32 100, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 4
   %.val23 = load i32, ptr %12, align 4
@@ -297,7 +297,7 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.val20 = load ptr, ptr %14, align 8
   %18 = getelementptr i8, ptr %17, i64 8
   %.val21.val = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds i32, ptr %.val21.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %.val21.val, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val20, i64 %21
@@ -346,11 +346,11 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
   store i32 16, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 32
   %7 = getelementptr i8, ptr %0, i64 72
@@ -362,7 +362,7 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %.val12 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %.val12, i64 8
   %.val12.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i32, ptr %.val12.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %.val12.val, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val11, i64 %12

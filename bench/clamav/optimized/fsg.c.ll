@@ -16,11 +16,11 @@ define range(i32 -1, 2) i32 @unfsg_200(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %3, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %3, ptr %14, align 4
   store i32 %4, ptr %9, align 4
   %15 = call i32 @cli_rebuildpe(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef %7) #2
@@ -75,22 +75,22 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv120 = phi i64 [ 0, %.preheader106.us ], [ %indvars.iv.next121, %29 ]
   %.189112.us = phi i32 [ 0, %.preheader106.us ], [ %.290.us, %29 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %17 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv.next121
+  %17 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv.next121
   %18 = load i32, ptr %17, align 4
   %.not102.us = icmp ugt i32 %16, %18
   br i1 %.not102.us, label %19, label %29
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv120
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv120
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = load i32, ptr %23, align 4
   store i32 %18, ptr %20, align 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %21, align 4
   store i32 %16, ptr %17, align 4
@@ -126,14 +126,14 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %41, label %.loopexit108, label %42
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %43 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %.091110, ptr %44, align 4
   %45 = load ptr, ptr %11, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %37
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %43, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 %48, ptr %49, align 4
   %50 = add i32 %.091110, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -148,8 +148,8 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %51 = zext nneg i32 %5 to i64
   %52 = add nuw i32 %5, 1
   %wide.trip.count128 = zext i32 %52 to i64
-  %53 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %51, i32 1
-  %.phi.trans.insert = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %51
+  %53 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %51, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %51
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %63
@@ -159,12 +159,12 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not101, label %62, label %54
 
 54:                                               ; preds = %.lr.ph118
-  %55 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
-  %56 = getelementptr inbounds i8, ptr %55, i64 36
+  %55 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %55, align 4
   %59 = sub i32 %57, %58
-  %60 = getelementptr inbounds i8, ptr %55, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %59, ptr %60, align 4
   %.neg = sub i32 %.092116, %57
   %61 = add i32 %.neg, %58
@@ -179,10 +179,10 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %64 = phi i32 [ %59, %54 ], [ %.092116, %62 ]
   %65 = phi i32 [ %58, %54 ], [ %.pre130, %62 ]
   %.193 = phi i32 [ %61, %54 ], [ %.092116, %62 ]
-  %66 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %66 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = trunc nuw nsw i64 %indvars.iv125 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %71, i32 noundef %65, i32 noundef %64, i32 noundef %68, i32 noundef %70) #2

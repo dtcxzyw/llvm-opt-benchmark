@@ -289,7 +289,7 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
   %25 = load i32, ptr @hf_scylla_payload, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 12, i32 noundef %17, i32 noundef 0) #3
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.49) #3
   %29 = load ptr, ptr %27, align 8
@@ -347,16 +347,16 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
   %62 = load i32, ptr @hf_scylla_payload, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %62, ptr noundef %0, i32 noundef 12, i32 noundef %52, i32 noundef 0) #3
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   call void @col_set_str(ptr noundef %65, i32 noundef 34, ptr noundef nonnull @.str.49) #3
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %98, label %66
 
 66:                                               ; preds = %49
-  %67 = getelementptr inbounds i8, ptr %1, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %51, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 %68, ptr %69, align 4
   %70 = load i32, ptr @hf_scylla_verb, align 4
   %71 = load i64, ptr %51, align 8
@@ -365,13 +365,13 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %73
 
 73:                                               ; preds = %66
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %75 = load ptr, ptr %74, align 8
   %.not5.i.i = icmp eq ptr %75, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, 2
   store i32 %79, ptr %77, align 4
@@ -379,20 +379,20 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 proto_item_set_generated.exit.i:                  ; preds = %76, %73, %66
   %80 = load i32, ptr @hf_scylla_response_request_frame, align 4
-  %81 = getelementptr inbounds i8, ptr %51, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %82) #3
   %.not.i43.i = icmp eq ptr %83, null
   br i1 %.not.i43.i, label %proto_item_set_generated.exit45.i, label %84
 
 84:                                               ; preds = %proto_item_set_generated.exit.i
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not5.i44.i = icmp eq ptr %86, null
   br i1 %.not5.i44.i, label %proto_item_set_generated.exit45.i, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, 2
   store i32 %90, ptr %88, align 4
@@ -439,9 +439,9 @@ dissect_scylla_response_pdu.exit:                 ; preds = %proto_item_set_gene
   ]
 
 response_expected.exit:                           ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %1, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 50
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 50
   %106 = load i16, ptr %105, align 2
   %107 = and i16 %106, 8
   %.not54 = icmp eq i16 %107, 0
@@ -454,9 +454,9 @@ response_expected.exit:                           ; preds = %101
   %112 = tail call noalias ptr @wmem_alloc(ptr noundef %111, i64 noundef 16) #3
   store i64 %102, ptr %110, align 8
   store i64 %.049, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i32 %114, ptr %115, align 8
   %116 = tail call ptr @wmem_map_insert(ptr noundef %.047, ptr noundef nonnull %110, ptr noundef nonnull %112) #3
   br label %response_expected.exit.thread
@@ -563,7 +563,7 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   br i1 %.not.i55, label %dissect_scylla_msg_pdu.exit, label %185
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %.048, i64 12
+  %186 = getelementptr inbounds nuw i8, ptr %.048, i64 12
   %187 = load i32, ptr %186, align 4
   %.not132.i = icmp eq i32 %187, 0
   br i1 %.not132.i, label %198, label %188
@@ -575,13 +575,13 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   br i1 %.not.i.i56, label %dissect_scylla_msg_pdu.exit, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %190, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %193 = load ptr, ptr %192, align 8
   %.not5.i.i57 = icmp eq ptr %193, null
   br i1 %.not5.i.i57, label %dissect_scylla_msg_pdu.exit, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %193, i64 28
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = or i32 %196, 2
   store i32 %197, ptr %195, align 4
@@ -592,7 +592,7 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   br label %dissect_scylla_msg_pdu.exit
 
 dissect_scylla_msg_pdu.exit:                      ; preds = %184, %188, %191, %194, %198
-  %200 = getelementptr inbounds i8, ptr %1, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %201 = load ptr, ptr %200, align 8
   call void @col_set_str(ptr noundef %201, i32 noundef 34, ptr noundef nonnull @.str.49) #3
   %202 = load ptr, ptr %200, align 8

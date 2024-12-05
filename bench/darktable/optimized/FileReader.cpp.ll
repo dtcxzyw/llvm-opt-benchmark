@@ -90,7 +90,7 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 
 24:                                               ; preds = %21
   store i8 0, ptr %23, align 8, !tbaa.struct !14, !noalias !11
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !noalias !11
   %26 = invoke noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %11, i64 noundef 16) #20
           to label %29 unwind label %27, !noalias !11
@@ -103,9 +103,9 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 
 29:                                               ; preds = %24
   store ptr %26, ptr %25, align 8, !tbaa !15, !noalias !11
-  %30 = getelementptr inbounds i8, ptr %23, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %31 = getelementptr i8, ptr %26, i64 %11
-  %32 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %31, ptr %32, align 8, !tbaa !17, !noalias !11
   store ptr %31, ptr %30, align 8, !tbaa !18, !noalias !11
   store ptr %23, ptr %3, align 8, !tbaa !19, !alias.scope !11
@@ -148,9 +148,9 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
   %51 = trunc nuw i64 %11 to i32
   %52 = ptrtoint ptr %23 to i64
   store i64 %52, ptr %0, align 8, !tbaa !19
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %53, align 8, !tbaa !19
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %51, ptr %54, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   %55 = tail call i32 @fclose(ptr noundef nonnull %5)
@@ -225,13 +225,13 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrISt6vectorIhN8rawspeed27Defaul
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = ptrtoint ptr %6 to i64
   %12 = icmp ne ptr %10, %6

@@ -79,7 +79,7 @@ define i32 @PMPI_Reduce_local(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not.i, label %40, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %3, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %26
@@ -88,7 +88,7 @@ define i32 @PMPI_Reduce_local(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %4, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %32 = sext i32 %28 to i64
   %33 = getelementptr inbounds [43 x ptr], ptr %31, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
@@ -96,16 +96,16 @@ define i32 @PMPI_Reduce_local(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %35, label %36, label %ompi_op_is_valid.exit
 
 36:                                               ; preds = %30, %23
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  %38 = getelementptr inbounds i8, ptr %3, i64 240
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %39 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str, ptr noundef nonnull @FUNC_NAME, ptr noundef nonnull %37, ptr noundef nonnull %38) #5
   br label %48
 
 40:                                               ; preds = %20
-  %41 = getelementptr inbounds i8, ptr %3, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %42 = load i8, ptr %41, align 8
   %.not19.i = icmp eq i8 %42, 0
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %.not19.i, label %46, label %44
 
 44:                                               ; preds = %40
@@ -150,14 +150,14 @@ ompi_op_is_valid.exit:                            ; preds = %30, %17
   br i1 %61, label %153, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load i8, ptr @opal_uses_threads, align 1
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
   %67 = atomicrmw volatile add ptr %63, i32 1 monotonic, align 4
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = atomicrmw volatile add ptr %68, i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit60
 
@@ -166,7 +166,7 @@ ompi_op_is_valid.exit:                            ; preds = %30, %17
   %72 = add nsw i32 %71, 1
   store volatile i32 %72, ptr %63, align 4
   %73 = load volatile i32, ptr %63, align 4
-  %74 = getelementptr inbounds i8, ptr %3, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %75 = load volatile i32, ptr %74, align 4
   %76 = add nsw i32 %75, 1
   store volatile i32 %76, ptr %74, align 4
@@ -176,9 +176,9 @@ ompi_op_is_valid.exit:                            ; preds = %30, %17
 opal_thread_add_fetch_32.exit60:                  ; preds = %66, %70
   %78 = phi ptr [ %68, %66 ], [ %74, %70 ]
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 328), align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1056
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1056
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 1064
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 1064
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 %81(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %83) #5
   %85 = load i8, ptr @opal_uses_threads, align 1
@@ -204,7 +204,7 @@ opal_thread_add_fetch_32.exit62:                  ; preds = %87, %90
 
 95:                                               ; preds = %opal_thread_add_fetch_32.exit62
   %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %.not6.i = icmp eq ptr %99, null
@@ -214,7 +214,7 @@ opal_thread_add_fetch_32.exit62:                  ; preds = %87, %90
   %100 = phi ptr [ %102, %.lr.ph.i ], [ %99, %95 ]
   %.07.i = phi ptr [ %101, %.lr.ph.i ], [ %98, %95 ]
   tail call void %100(ptr noundef nonnull %3) #5
-  %101 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %102 = load ptr, ptr %101, align 8
   %.not.i63 = icmp eq ptr %102, null
   br i1 %.not.i63, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -248,7 +248,7 @@ opal_thread_add_fetch_32.exit65:                  ; preds = %106, %109
 
 114:                                              ; preds = %opal_thread_add_fetch_32.exit65
   %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %117, align 8
   %.not6.i66 = icmp eq ptr %118, null
@@ -258,7 +258,7 @@ opal_thread_add_fetch_32.exit65:                  ; preds = %106, %109
   %119 = phi ptr [ %121, %.lr.ph.i67 ], [ %118, %114 ]
   %.07.i68 = phi ptr [ %120, %.lr.ph.i67 ], [ %117, %114 ]
   tail call void %119(ptr noundef nonnull %4) #5
-  %120 = getelementptr inbounds i8, ptr %.07.i68, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.07.i68, i64 8
   %121 = load ptr, ptr %120, align 8
   %.not.i69 = icmp eq ptr %121, null
   br i1 %.not.i69, label %opal_obj_run_destructors.exit70, label %.lr.ph.i67, !llvm.loop !4
@@ -309,7 +309,7 @@ opal_obj_run_destructors.exit70:                  ; preds = %.lr.ph.i67, %114
 137:                                              ; preds = %135, %.lr.ph.i72
   %138 = phi i8 [ %131, %.lr.ph.i72 ], [ %.pre.i.i, %135 ]
   %139 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv.i
   %141 = load ptr, ptr %140, align 8
   %142 = trunc i8 %138 to i1
   br i1 %142, label %143, label %opal_pointer_array_get_item.exit.i
@@ -321,13 +321,13 @@ opal_obj_run_destructors.exit70:                  ; preds = %.lr.ph.i67, %114
 
 opal_pointer_array_get_item.exit.i:               ; preds = %143, %137
   %145 = phi i8 [ %138, %137 ], [ %.pre.i, %143 ]
-  %146 = getelementptr inbounds i8, ptr %141, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, %84
   br i1 %148, label %149, label %127
 
 149:                                              ; preds = %opal_pointer_array_get_item.exit.i
-  %150 = getelementptr inbounds i8, ptr %141, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 20
   %151 = load i32, ptr %150, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

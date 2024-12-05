@@ -93,7 +93,7 @@ define range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) local_unna
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.pre, i64 11
+  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 11
   store ptr %32, ptr %4, align 8
   br label %33
 
@@ -148,7 +148,7 @@ define range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) local_unna
   %57 = phi i32 [ %55, %.lr.ph.preheader.i ], [ %64, %63 ]
   %58 = phi ptr [ %.pre24.i, %.lr.ph.preheader.i ], [ %65, %63 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %63 ]
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %.not18.i = icmp eq ptr %60, null
   br i1 %.not18.i, label %63, label %61
@@ -251,7 +251,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %10 = phi ptr [ %.pre24, %.lr.ph.preheader ], [ %17, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %.121 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %15 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %15, label %13
@@ -312,7 +312,7 @@ define i32 @job_submit_g_submit(ptr noundef initializes((620, 624)) %0, i32 noun
   %7 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %8 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 620
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 -2, ptr %9, align 4
   %10 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #8
   %.not = icmp eq i32 %10, 0
@@ -332,7 +332,7 @@ define i32 @job_submit_g_submit(ptr noundef initializes((620, 624)) %0, i32 noun
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.slurm_submit_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1, ptr noundef %2) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -380,7 +380,7 @@ define i32 @job_submit_g_modify(ptr noundef initializes((620, 624)) %0, ptr noun
   %8 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %9 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 620
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i32 -2, ptr %10, align 4
   %11 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #8
   %.not = icmp eq i32 %11, 0
@@ -400,7 +400,7 @@ define i32 @job_submit_g_modify(ptr noundef initializes((620, 624)) %0, ptr noun
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv, i32 1
+  %17 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

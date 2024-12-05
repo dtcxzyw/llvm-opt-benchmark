@@ -292,9 +292,9 @@ do.end:                                           ; preds = %entry
   store i64 0, ptr %ref.tmp26, align 8, !tbaa !27, !alias.scope !29
   %second3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 8
   store i64 %add, ptr %second3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !32, !alias.scope !29
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 16
   store i64 0, ptr %incdec.ptr.i.i.i, align 8, !tbaa !27, !alias.scope !29
-  %second3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 24
+  %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 24
   store i64 %0, ptr %second3.i.i.i.i, align 8, !tbaa !32, !alias.scope !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp25, i8 0, i64 32, i1 false), !alias.scope !33
@@ -317,9 +317,9 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZN5boost6detail11multi_array10extent_genILm2EEixEl.exit, !llvm.loop !36
 
 _ZN5boost6detail11multi_array10extent_genILm2EEixEl.exit: ; preds = %for.body.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i84 = getelementptr inbounds i8, ptr %ref.tmp25, i64 32
+  %incdec.ptr.i.i.i84 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 32
   store i64 0, ptr %incdec.ptr.i.i.i84, align 8, !tbaa !27, !alias.scope !33
-  %second3.i.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp25, i64 40
+  %second3.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 40
   store i64 %0, ptr %second3.i.i.i.i85, align 8, !tbaa !32, !alias.scope !33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp30) #20
   invoke void @_ZN5boost11multi_arrayIdLm3ESaIdEEC2ERKNS_6detail11multi_array10extent_genILm3EEERKS1_(ptr noundef nonnull align 8 dereferenceable(152) %d, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30)
@@ -334,8 +334,8 @@ invoke.cont45:                                    ; preds = %_ZN5boost6detail11m
   %25 = load i64, ptr %origin_offset_.i.i, align 8, !tbaa !47, !noalias !44
   %add.ptr.i.i = getelementptr inbounds double, ptr %24, i64 %25
   %stride_list_.i.i = getelementptr inbounds nuw i8, ptr %d, i64 64
-  %add.ptr3.i.i = getelementptr inbounds i8, ptr %d, i64 72
-  %add.ptr3.i.i88 = getelementptr inbounds i8, ptr %d, i64 80
+  %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %d, i64 72
+  %add.ptr3.i.i88 = getelementptr inbounds nuw i8, ptr %d, i64 80
   store double 1.000000e+00, ptr %add.ptr.i.i, align 8, !tbaa !48
   %cmp51347 = icmp ugt i64 %0, 1
   br i1 %cmp51347, label %for.cond52.preheader.lr.ph, label %cond.true.i
@@ -1286,7 +1286,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !76
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1299,7 +1299,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !76
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

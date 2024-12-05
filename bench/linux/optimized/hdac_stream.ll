@@ -88,15 +88,15 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_str
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 108
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 164
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 164
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12) #10, !srcloc !6
   %14 = and i32 %13, 6
@@ -107,7 +107,7 @@ define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocaptu
   %17 = icmp ugt i32 %8, 48000
   %18 = mul i32 %10, %6
   %19 = udiv i32 %8, 48000
-  %20 = getelementptr inbounds i8, ptr %0, i64 1316
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   %21 = load i32, ptr %20, align 4
   %22 = select i1 %17, i32 %19, i32 1
   %23 = mul i32 %18, %22
@@ -137,35 +137,35 @@ define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocaptu
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initializes((0, 8), (72, 76), (96, 104), (136, 140), (164, 166)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   store ptr %0, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = shl i32 %2, 5
   %9 = add i32 %8, 128
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %11, ptr %12, align 8
   %13 = shl nuw i32 1, %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 %13, ptr %14, align 8
   %15 = trunc i32 %2 to i8
-  %16 = getelementptr inbounds i8, ptr %1, i64 165
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 165
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %3, ptr %17, align 8
   %18 = trunc i32 %4 to i8
-  %19 = getelementptr inbounds i8, ptr %1, i64 164
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i8 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = getelementptr inbounds i8, ptr %0, i64 1160
-  %22 = getelementptr inbounds i8, ptr %0, i64 1168
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %23 = load ptr, ptr %22, align 8
   store ptr %20, ptr %22, align 8
   store ptr %21, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store ptr %23, ptr %24, align 8
   store volatile ptr %20, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %39, label %28
@@ -175,18 +175,18 @@ define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initiali
   %30 = shl i32 %2, 3
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = getelementptr i8, ptr %35, i64 %31
   %37 = getelementptr i8, ptr %36, i64 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %37, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %28, %5
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %49, label %43
@@ -196,7 +196,7 @@ define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initiali
   %45 = shl i32 %2, 3
   %46 = sext i32 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = getelementptr inbounds i8, ptr %1, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %47, ptr %48, align 8
   br label %49
 
@@ -227,7 +227,7 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_snd_hdac_stream_start(ptr noundef %14, ptr noundef %2, ptr noundef %0) #10
   br label %16
@@ -247,17 +247,17 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
   br label %23
 
 23:                                               ; preds = %20, %16, %3, %1
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 48
   %27 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26) #10, !srcloc !6
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %24, align 8
   %31 = getelementptr i8, ptr %30, i64 32
   %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #10, !srcloc !6
-  %33 = getelementptr inbounds i8, ptr %0, i64 165
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %34 = load i8, ptr %33, align 1
   %35 = zext nneg i8 %34 to i32
   %36 = shl nuw i32 1, %35
@@ -265,26 +265,26 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
   %38 = load ptr, ptr %24, align 8
   %39 = getelementptr i8, ptr %38, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %37, ptr elementtype(i32) %39) #10, !srcloc !19
-  %40 = getelementptr inbounds i8, ptr %0, i64 172
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 32
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %85, label %44
 
 44:                                               ; preds = %23
-  %45 = getelementptr inbounds i8, ptr %0, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %46, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 192
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 112
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 108
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 108
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %50, i64 164
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 164
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %24, align 8
   %58 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57) #10, !srcloc !6
@@ -296,7 +296,7 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
   %62 = icmp ugt i32 %54, 48000
   %63 = mul i32 %56, %52
   %64 = udiv i32 %54, 48000
-  %65 = getelementptr inbounds i8, ptr %2, i64 1316
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 1316
   %66 = load i32, ptr %65, align 4
   %67 = select i1 %62, i32 %64, i32 1
   %68 = mul i32 %63, %67
@@ -321,7 +321,7 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %44
   %78 = phi i8 [ 0, %44 ], [ 0, %48 ], [ %77, %.loopexit.loopexit ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr i8, ptr %80, i64 2
   %82 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %81) #10, !srcloc !20
@@ -331,11 +331,11 @@ define dso_local void @snd_hdac_stream_start(ptr noundef %0) #0 align 16 {
   br label %85
 
 85:                                               ; preds = %.loopexit, %23
-  %86 = getelementptr inbounds i8, ptr %2, i64 1176
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   %87 = load i16, ptr %86, align 8
   %88 = and i16 %87, 2048
   %89 = icmp eq i16 %88, 0
-  %90 = getelementptr inbounds i8, ptr %0, i64 96
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %91 = load ptr, ptr %90, align 8
   br i1 %89, label %96, label %92
 
@@ -382,7 +382,7 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_snd_hdac_stream_stop(ptr noundef %14, ptr noundef %2, ptr noundef %0) #10
   br label %16
@@ -402,7 +402,7 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
   br label %23
 
 23:                                               ; preds = %20, %16, %3, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25) #10, !srcloc !20
   %27 = and i8 %26, -31
@@ -410,7 +410,7 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
   %28 = load ptr, ptr %24, align 8
   %29 = getelementptr i8, ptr %28, i64 3
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 28, ptr elementtype(i8) %29) #10, !srcloc !21
-  %30 = getelementptr inbounds i8, ptr %0, i64 172
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 32
   %33 = icmp eq i8 %32, 0
@@ -430,18 +430,18 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
   %41 = and i8 %40, -3
   store i8 %41, ptr %30, align 4
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 32
   %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #10, !srcloc !6
-  %47 = getelementptr inbounds i8, ptr %0, i64 165
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %48 = load i8, ptr %47, align 1
   %49 = zext nneg i8 %48 to i32
   %50 = shl nuw i32 1, %49
   %51 = xor i32 %50, -1
   %52 = and i32 %46, %51
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %56) #10, !srcloc !19
@@ -450,7 +450,7 @@ define dso_local void @snd_hdac_stream_stop(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stop_streams(ptr noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -469,14 +469,14 @@ define dso_local void @snd_hdac_stop_streams(ptr noundef readonly %0) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stop_streams_and_chip(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 1
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
@@ -502,7 +502,7 @@ declare dso_local void @snd_hdac_bus_stop_chip(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_reset(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3) #10, !srcloc !20
   %5 = and i8 %4, -31
@@ -510,7 +510,7 @@ define dso_local void @snd_hdac_stream_reset(ptr nocapture noundef %0) #0 align 
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %6, i64 3
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 28, ptr elementtype(i8) %7) #10, !srcloc !21
-  %8 = getelementptr inbounds i8, ptr %0, i64 172
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 32
   %11 = icmp eq i8 %10, 0
@@ -564,7 +564,7 @@ define dso_local void @snd_hdac_stream_reset(ptr nocapture noundef %0) #0 align 
 
 .loopexit5:                                       ; preds = %35, %32, %17
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1188
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1188
   %43 = load i32, ptr %42, align 4
   %44 = icmp ne i32 %43, 0
   %45 = icmp ne i8 %22, 0
@@ -608,7 +608,7 @@ define dso_local void @snd_hdac_stream_reset(ptr nocapture noundef %0) #0 align 
   br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %62, %59, %49
-  %68 = getelementptr inbounds i8, ptr %0, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %72, label %71
@@ -630,19 +630,19 @@ declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %7, %2
   %11 = phi ptr [ %9, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13) #10, !srcloc !20
   %15 = and i8 %14, -31
@@ -650,7 +650,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr i8, ptr %16, i64 3
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 28, ptr elementtype(i8) %17) #10, !srcloc !21
-  %18 = getelementptr inbounds i8, ptr %0, i64 172
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 32
   %21 = icmp eq i8 %20, 0
@@ -672,12 +672,12 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   %30 = load ptr, ptr %12, align 8
   %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #10, !srcloc !6
   %32 = and i32 %31, -15728641
-  %33 = getelementptr inbounds i8, ptr %0, i64 164
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %34 = load i8, ptr %33, align 4
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 20
   %37 = or i32 %36, %32
-  %38 = getelementptr inbounds i8, ptr %3, i64 1176
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 1176
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, 16
   %41 = icmp eq i16 %40, 0
@@ -685,25 +685,25 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   %43 = select i1 %41, i32 %42, i32 %37
   %44 = load ptr, ptr %12, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr elementtype(i32) %44) #10, !srcloc !19
-  %45 = getelementptr inbounds i8, ptr %0, i64 76
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr %12, align 8
   %48 = getelementptr i8, ptr %47, i64 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %46, ptr elementtype(i32) %48) #10, !srcloc !19
   %49 = load ptr, ptr %12, align 8
   %50 = getelementptr i8, ptr %49, i64 18
-  %51 = getelementptr inbounds i8, ptr %0, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %52 = load i32, ptr %51, align 8
   %53 = trunc i32 %52 to i16
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %53, ptr elementtype(i16) %50) #10, !srcloc !30
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr i8, ptr %54, i64 12
-  %56 = getelementptr inbounds i8, ptr %0, i64 84
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %57 = load i32, ptr %56, align 4
   %58 = trunc i32 %57 to i16
   %59 = add i16 %58, -1
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %59, ptr elementtype(i16) %55) #10, !srcloc !30
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %61 = load i64, ptr %60, align 8
   %62 = trunc i64 %61 to i32
   %63 = load ptr, ptr %12, align 8
@@ -721,13 +721,13 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   br i1 %72, label %90, label %73
 
 73:                                               ; preds = %27
-  %74 = getelementptr inbounds i8, ptr %3, i64 1128
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 1128
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %90, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %3, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 112
   %81 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %80) #10, !srcloc !6
@@ -783,7 +783,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
 .loopexit:                                        ; preds = %106, %102, %95
   %112 = phi i16 [ %105, %102 ], [ %98, %95 ], [ %110, %106 ]
   %113 = zext i16 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %0, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %113, ptr %114, align 8
   br label %115
 
@@ -792,34 +792,34 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
   br i1 %116, label %136, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %11, i64 120
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %119 = load i64, ptr %118, align 8
   %120 = icmp ugt i64 %119, 64
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %11, i64 160
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %123 = load i32, ptr %122, align 8
   %124 = mul i32 %123, -8
   br label %125
 
 125:                                              ; preds = %121, %117
   %126 = phi i32 [ %124, %121 ], [ 0, %117 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 264
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i32 %126, ptr %127, align 8
   %128 = load i64, ptr %118, align 8
   %129 = mul i64 %128, 24000
-  %130 = getelementptr inbounds i8, ptr %11, i64 108
+  %130 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %131 = load i32, ptr %130, align 4
   %132 = zext i32 %131 to i64
   %133 = udiv i64 %129, %132
   %134 = mul i64 %133, 1000
-  %135 = getelementptr inbounds i8, ptr %0, i64 192
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %134, ptr %135, align 8
   br label %138
 
 136:                                              ; preds = %115
-  %137 = getelementptr inbounds i8, ptr %0, i64 264
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i32 0, ptr %137, align 8
   br label %138
 
@@ -829,7 +829,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_cleanup(ptr nocapture noundef initializes((76, 84), (160, 164)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %4) #10, !srcloc !19
@@ -838,21 +838,21 @@ define dso_local void @snd_hdac_stream_cleanup(ptr nocapture noundef initializes
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %6) #10, !srcloc !19
   %7 = load ptr, ptr %2, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %7) #10, !srcloc !19
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %4, 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   %9 = or i32 %8, %5
@@ -861,7 +861,7 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = shl i32 %14, 16
   %16 = or i32 %15, %9
@@ -869,16 +869,16 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
 
 17:                                               ; preds = %12, %2
   %18 = phi i32 [ %16, %12 ], [ %9, %2 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 1192
-  tail call void @_raw_spin_lock_irq(ptr noundef %19) #10
-  %20 = getelementptr inbounds i8, ptr %0, i64 1160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %19) #10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %20
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %17
   %24 = load i32, ptr %6, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 1176
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   br label %26
 
 26:                                               ; preds = %49, %23
@@ -928,30 +928,30 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 172
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 172
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, -4
   %60 = or disjoint i8 %59, 1
   store i8 %60, ptr %57, align 4
-  %61 = getelementptr inbounds i8, ptr %54, i64 168
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 168
   store i32 %18, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %54, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 144
   store ptr %1, ptr %62, align 8
   br label %.thread
 
 .thread:                                          ; preds = %17, %56, %53
   %63 = phi ptr [ %54, %56 ], [ null, %53 ], [ null, %17 ]
-  tail call void @_raw_spin_unlock_irq(ptr noundef %19) #10
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #10
   ret ptr %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef initializes((144, 152)) %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 172
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -4
   store i8 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr null, ptr %5, align 8
   ret void
 }
@@ -959,21 +959,21 @@ define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef init
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_release(ptr nocapture noundef initializes((144, 152)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1192
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 172
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1192
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -4
   store i8 %6, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr null, ptr %7, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #10
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %.loopexit, label %.preheader
@@ -1009,17 +1009,17 @@ define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, null
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 776
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 776
   br label %19
 
 12:                                               ; preds = %1
@@ -1027,9 +1027,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   br label %19
 
 18:                                               ; preds = %12
@@ -1045,30 +1045,30 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %20 = phi ptr [ %10, %8 ], [ null, %14 ]
   %21 = phi ptr [ %11, %8 ], [ %17, %14 ]
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 24
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %25) #10, !srcloc !19
   %26 = load ptr, ptr %23, align 8
   %27 = getelementptr i8, ptr %26, i64 28
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %27) #10, !srcloc !19
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
   %.fr53 = freeze i32 %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 76
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %31 = load i32, ptr %30, align 4
   %32 = udiv i32 %31, %.fr53
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 1184
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 1184
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq ptr %20, null
   br i1 %38, label %._crit_edge.thread, label %39
 
 39:                                               ; preds = %19
-  %40 = getelementptr inbounds i8, ptr %0, i64 172
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 8
   %43 = icmp eq i8 %42, 0
@@ -1077,7 +1077,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   br i1 %45, label %46, label %._crit_edge.thread
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %20, i64 108
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 108
   %48 = load i32, ptr %47, align 4
   %49 = mul i32 %48, %37
   %50 = add i32 %49, 47999
@@ -1096,7 +1096,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
 59:                                               ; preds = %52, %46
   %60 = phi i32 [ %58, %52 ], [ %37, %46 ]
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %20, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 160
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
   %65 = mul nsw i64 %64, %61
@@ -1111,7 +1111,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   br label %._crit_edge.thread
 
 71:                                               ; preds = %59
-  %72 = getelementptr inbounds i8, ptr %2, i64 1176
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   %73 = icmp sgt i32 %67, 0
   br i1 %73, label %.lr.ph, label %._crit_edge.thread
 
@@ -1170,8 +1170,8 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %.fr = freeze i32 %107
   %110 = add nsw i32 %32, -1
   %111 = icmp ne i32 %.fr, 0
-  %112 = getelementptr inbounds i8, ptr %0, i64 172
-  %113 = getelementptr inbounds i8, ptr %2, i64 1176
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   %114 = sub i32 %.fr53, %.fr
   %115 = icmp sgt i32 %.fr53, 0
   %116 = icmp sgt i32 %114, 0
@@ -1376,29 +1376,29 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, null
   br i1 %7, label %27, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = mul i64 %12, %15
   %17 = sdiv i64 %16, 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %19 = load i64, ptr %18, align 8
   %20 = mul i64 %19, %15
   %21 = sdiv i64 %20, 8
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %10, i64 180
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 180
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 1
   %26 = zext nneg i8 %25 to i32
@@ -1409,11 +1409,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
   br i1 %28, label %71, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load i32, ptr %34, align 8
   br label %36
 
@@ -1422,25 +1422,25 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
   %38 = phi i32 [ %22, %8 ], [ %35, %29 ]
   %39 = phi i32 [ %26, %8 ], [ 0, %29 ]
   %40 = trunc i64 %37 to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %40
   br i1 %43, label %44, label %59
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %38, %46
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 160
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %1
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 172
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %54 = load i8, ptr %53, align 4
   %55 = lshr i8 %54, 3
   %56 = and i8 %55, 1
@@ -1450,12 +1450,12 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
 
 59:                                               ; preds = %52, %48, %44, %36
   store i32 %40, ptr %41, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %38, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 160
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %1, ptr %61, align 8
   %62 = icmp eq i32 %39, 0
-  %63 = getelementptr inbounds i8, ptr %0, i64 172
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %64 = load i8, ptr %63, align 4
   %65 = select i1 %62, i8 0, i8 8
   %66 = and i8 %64, -9
@@ -1476,11 +1476,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 1160
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
@@ -1528,8 +1528,8 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef re
   br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %32, %2
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
-  %38 = getelementptr inbounds i8, ptr %7, i64 748
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 748
   %39 = load i32, ptr %38, align 4
   switch i32 %39, label %42 [
     i32 1, label %40
@@ -1537,19 +1537,19 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef re
   ]
 
 40:                                               ; preds = %.loopexit
-  tail call void @ktime_get_ts64(ptr noundef %37) #10
+  tail call void @ktime_get_ts64(ptr noundef nonnull %37) #10
   br label %43
 
 41:                                               ; preds = %.loopexit
-  tail call void @ktime_get_raw_ts64(ptr noundef %37) #10
+  tail call void @ktime_get_raw_ts64(ptr noundef nonnull %37) #10
   br label %43
 
 42:                                               ; preds = %.loopexit
-  tail call void @ktime_get_real_ts64(ptr noundef %37) #10
+  tail call void @ktime_get_real_ts64(ptr noundef nonnull %37) #10
   br label %43
 
 43:                                               ; preds = %42, %41, %40
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %44, align 8
   ret void
 }
@@ -1559,7 +1559,7 @@ define dso_local void @snd_hdac_stream_sync_trigger(ptr nocapture noundef readon
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq i32 %3, 0
   %7 = select i1 %6, i32 56, i32 %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
   %11 = getelementptr i8, ptr %9, i64 %10
@@ -1577,7 +1577,7 @@ define dso_local void @snd_hdac_stream_sync_trigger(ptr nocapture noundef readon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_sync(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   br i1 %1, label %.split8.us, label %.split8
 
 .split8.us:                                       ; preds = %3, %9
@@ -1709,7 +1709,7 @@ define dso_local void @snd_hdac_stream_sync(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_spbcap_enable(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1746,7 +1746,7 @@ define dso_local void @snd_hdac_stream_spbcap_enable(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1757,7 +1757,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr noc
   br label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %11 = load ptr, ptr %10, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %11) #10, !srcloc !19
   br label %12
@@ -1769,7 +1769,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -1780,7 +1780,7 @@ define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr nocapture noundef reado
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #10, !srcloc !6
   br label %12
@@ -1792,7 +1792,7 @@ define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_stream_drsm_enable(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1830,14 +1830,14 @@ define dso_local void @snd_hdac_stream_drsm_enable(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 165
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
   %6 = shl nuw i32 1, %5
   %7 = tail call i64 @ktime_get() #10
   %8 = add i64 %7, 2000000
   %9 = tail call i32 @__SCT__might_resched() #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 4
   %13 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12) #10, !srcloc !6
@@ -1879,7 +1879,7 @@ declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1890,7 +1890,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr no
   br label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %11 = load ptr, ptr %10, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, ptr elementtype(i32) %11) #10, !srcloc !19
   br label %12
@@ -1902,7 +1902,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @snd_hdac_stream_set_lpib(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, ptr elementtype(i32) %5) #10, !srcloc !19
@@ -1940,7 +1940,7 @@ declare dso_local i32 @snd_sgbuf_get_chunk_size(ptr noundef, i32 noundef, i32 no
 define internal range(i64 0, 4294967296) i64 @azx_cc_read(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -240
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 48
   %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #10, !srcloc !6

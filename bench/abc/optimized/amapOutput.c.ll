@@ -9,7 +9,7 @@ define noundef ptr @Amap_OutputStructAlloc(ptr noundef %0, ptr noundef readonly 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 24
   br label %7
@@ -21,12 +21,12 @@ define noundef ptr @Amap_OutputStructAlloc(ptr noundef %0, ptr noundef readonly 
   %11 = add nuw nsw i32 %9, 16
   %12 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef %11) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 -1, i64 %10, i1 false)
   br i1 %.not, label %Amap_OuputStrsav.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %Amap_OuputStrsav.exit, label %17
@@ -43,7 +43,7 @@ Amap_OuputStrsav.exit:                            ; preds = %17, %14, %7
   %23 = phi ptr [ null, %7 ], [ %21, %17 ], [ null, %14 ]
   store ptr %23, ptr %12, align 8
   %24 = trunc nuw nsw i32 %8 to i16
-  %25 = getelementptr inbounds i8, ptr %12, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 10
   store i16 %24, ptr %25, align 2
   ret ptr %12
 }
@@ -57,13 +57,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define noalias noundef ptr @Amap_ManProduceMapped(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Aig_MmFlexStart() #7
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   store i32 10, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val181 = load i32, ptr %9, align 4
@@ -71,7 +71,7 @@ define noalias noundef ptr @Amap_ManProduceMapped(ptr nocapture noundef readonly
   br i1 %10, label %.lr.ph184, label %.Vec_PtrGrow.exit11_crit_edge.i170
 
 .lr.ph184:                                        ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph184, %393
@@ -79,7 +79,7 @@ define noalias noundef ptr @Amap_ManProduceMapped(ptr nocapture noundef readonly
   %13 = phi ptr [ %8, %.lr.ph184 ], [ %394, %393 ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val110 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val110, i64 %indvars.iv187
+  %15 = getelementptr inbounds nuw ptr, ptr %.val110, i64 %indvars.iv187
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %393, label %18
@@ -92,15 +92,15 @@ define noalias noundef ptr @Amap_ManProduceMapped(ptr nocapture noundef readonly
 
 20:                                               ; preds = %18
   %21 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef 20) #7
-  %22 = getelementptr inbounds i8, ptr %21, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 -1, ptr %22, align 4
   store ptr null, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 10
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 10
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i16 -1, ptr %24, align 8
   store i16 0, ptr %23, align 2
   %.val107 = load i32, ptr %4, align 4
-  %25 = getelementptr inbounds i8, ptr %16, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 %.val107, ptr %25, align 8
   %26 = load i32, ptr %3, align 8
   %27 = icmp eq i32 %.val107, %26
@@ -162,20 +162,20 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %50 = sext i32 %.val107 to i64
   %51 = getelementptr inbounds ptr, ptr %48, i64 %50
   store ptr %21, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %16, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %53 = load i32, ptr %52, align 4
   %.not106 = icmp eq i32 %53, 0
   br i1 %.not106, label %393, label %54
 
 54:                                               ; preds = %Vec_PtrPush.exit
   %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %62, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %57, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %60 = load i32, ptr %59, align 8
   %61 = lshr i32 %60, 24
   br label %62
@@ -187,12 +187,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %66 = add nuw nsw i32 %64, 16
   %67 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %66) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %68 = getelementptr inbounds i8, ptr %67, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %68, i8 -1, i64 %65, i1 false)
   br i1 %.not.i, label %Amap_OutputStructAlloc.exit, label %69
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %57, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i, label %Amap_OutputStructAlloc.exit, label %72
@@ -209,7 +209,7 @@ Amap_OutputStructAlloc.exit:                      ; preds = %62, %69, %72
   %78 = phi ptr [ null, %62 ], [ %76, %72 ], [ null, %69 ]
   store ptr %78, ptr %67, align 8
   %79 = trunc nuw nsw i32 %63 to i16
-  %80 = getelementptr inbounds i8, ptr %67, i64 10
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 10
   store i16 %79, ptr %80, align 2
   %81 = load i32, ptr %25, align 8
   store i32 %81, ptr %68, align 4
@@ -287,10 +287,10 @@ Vec_PtrGrow.exit.i128:                            ; preds = %91, %89
 
 115:                                              ; preds = %110
   %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds i8, ptr %16, i64 64
-  %118 = getelementptr inbounds i8, ptr %16, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = and i32 %121, 65535
   %123 = getelementptr i8, ptr %116, i64 8
@@ -298,13 +298,13 @@ Vec_PtrGrow.exit.i128:                            ; preds = %91, %89
   %124 = getelementptr i8, ptr %.val115, i64 8
   %.val115.val = load ptr, ptr %124, align 8
   %125 = zext nneg i32 %122 to i64
-  %126 = getelementptr inbounds ptr, ptr %.val115.val, i64 %125
+  %126 = getelementptr inbounds nuw ptr, ptr %.val115.val, i64 %125
   %127 = load ptr, ptr %126, align 8
   %.not.i130 = icmp eq ptr %127, null
   br i1 %.not.i130, label %132, label %128
 
 128:                                              ; preds = %115
-  %129 = getelementptr inbounds i8, ptr %127, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %130 = load i32, ptr %129, align 8
   %131 = lshr i32 %130, 24
   br label %132
@@ -316,12 +316,12 @@ Vec_PtrGrow.exit.i128:                            ; preds = %91, %89
   %136 = add nuw nsw i32 %134, 16
   %137 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %136) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
-  %138 = getelementptr inbounds i8, ptr %137, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %138, i8 -1, i64 %135, i1 false)
   br i1 %.not.i130, label %Amap_OutputStructAlloc.exit132, label %139
 
 139:                                              ; preds = %132
-  %140 = getelementptr inbounds i8, ptr %127, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %141 = load ptr, ptr %140, align 8
   %.not.i.i131 = icmp eq ptr %141, null
   br i1 %.not.i.i131, label %Amap_OutputStructAlloc.exit132, label %142
@@ -338,7 +338,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
   %148 = phi ptr [ null, %132 ], [ %146, %142 ], [ null, %139 ]
   store ptr %148, ptr %137, align 8
   %149 = trunc nuw nsw i32 %133 to i16
-  %150 = getelementptr inbounds i8, ptr %137, i64 10
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 10
   store i16 %149, ptr %150, align 2
   %151 = load ptr, ptr %117, align 8
   %152 = load i32, ptr %151, align 4
@@ -348,10 +348,10 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
 .lr.ph:                                           ; preds = %Amap_OutputStructAlloc.exit132, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Amap_OutputStructAlloc.exit132 ]
   %153 = phi ptr [ %179, %.lr.ph ], [ %151, %Amap_OutputStructAlloc.exit132 ]
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load ptr, ptr %118, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 12
-  %157 = getelementptr inbounds [15 x i8], ptr %156, i64 0, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 12
+  %157 = getelementptr inbounds nuw [15 x i8], ptr %156, i64 0, i64 %indvars.iv
   %158 = load i8, ptr %157, align 1
   %159 = sext i8 %158 to i32
   %160 = ashr i32 %159, 1
@@ -371,11 +371,11 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
   %172 = lshr i64 %171, 63
   %173 = trunc nuw nsw i64 %172 to i32
   %174 = icmp ne i32 %170, %173
-  %175 = getelementptr inbounds i8, ptr %168, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %176 = load i32, ptr %175, align 8
   %177 = zext i1 %174 to i32
   %.sink = add nsw i32 %176, %177
-  %178 = getelementptr inbounds [0 x i32], ptr %138, i64 0, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [0 x i32], ptr %138, i64 0, i64 %indvars.iv
   store i32 %.sink, ptr %178, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %179 = load ptr, ptr %117, align 8
@@ -387,7 +387,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
 
 .critedge2:                                       ; preds = %.lr.ph, %Amap_OutputStructAlloc.exit132
   %.val108 = load i32, ptr %4, align 4
-  %184 = getelementptr inbounds i8, ptr %16, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 %.val108, ptr %184, align 8
   %185 = load i32, ptr %3, align 8
   %186 = icmp eq i32 %.val108, %185
@@ -452,20 +452,20 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   %211 = load i64, ptr %16, align 8
   %.not104 = icmp sgt i64 %211, -1
   %212 = zext i1 %.not104 to i64
-  %213 = getelementptr inbounds [2 x i32], ptr %111, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [2 x i32], ptr %111, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4
   %.not105 = icmp eq i32 %214, 0
   br i1 %.not105, label %393, label %215
 
 215:                                              ; preds = %Vec_PtrPush.exit139
   %216 = load ptr, ptr %11, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 56
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 56
   %218 = load ptr, ptr %217, align 8
   %.not.i140 = icmp eq ptr %218, null
   br i1 %.not.i140, label %223, label %219
 
 219:                                              ; preds = %215
-  %220 = getelementptr inbounds i8, ptr %218, i64 56
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 56
   %221 = load i32, ptr %220, align 8
   %222 = lshr i32 %221, 24
   br label %223
@@ -477,12 +477,12 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   %227 = add nuw nsw i32 %225, 16
   %228 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %227) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, i8 0, i64 16, i1 false)
-  %229 = getelementptr inbounds i8, ptr %228, i64 12
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %229, i8 -1, i64 %226, i1 false)
   br i1 %.not.i140, label %Amap_OutputStructAlloc.exit142, label %230
 
 230:                                              ; preds = %223
-  %231 = getelementptr inbounds i8, ptr %218, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %232 = load ptr, ptr %231, align 8
   %.not.i.i141 = icmp eq ptr %232, null
   br i1 %.not.i.i141, label %Amap_OutputStructAlloc.exit142, label %233
@@ -499,7 +499,7 @@ Amap_OutputStructAlloc.exit142:                   ; preds = %223, %230, %233
   %239 = phi ptr [ null, %223 ], [ %237, %233 ], [ null, %230 ]
   store ptr %239, ptr %228, align 8
   %240 = trunc nuw nsw i32 %224 to i16
-  %241 = getelementptr inbounds i8, ptr %228, i64 10
+  %241 = getelementptr inbounds nuw i8, ptr %228, i64 10
   store i16 %240, ptr %241, align 2
   %242 = load i32, ptr %184, align 8
   store i32 %242, ptr %229, align 4
@@ -580,13 +580,13 @@ Vec_PtrGrow.exit.i148:                            ; preds = %252, %250
   br i1 %.not103, label %301, label %277
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %276, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 32
   %279 = load ptr, ptr %278, align 8
   %.not.i150 = icmp eq ptr %279, null
   br i1 %.not.i150, label %284, label %280
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %279, i64 56
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 56
   %282 = load i32, ptr %281, align 8
   %283 = lshr i32 %282, 24
   br label %284
@@ -598,12 +598,12 @@ Vec_PtrGrow.exit.i148:                            ; preds = %252, %250
   %288 = add nuw nsw i32 %286, 16
   %289 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %288) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %289, i8 0, i64 16, i1 false)
-  %290 = getelementptr inbounds i8, ptr %289, i64 12
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %290, i8 -1, i64 %287, i1 false)
   br i1 %.not.i150, label %Amap_OutputStructAlloc.exit152, label %291
 
 291:                                              ; preds = %284
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = load ptr, ptr %292, align 8
   %.not.i.i151 = icmp eq ptr %293, null
   br i1 %.not.i.i151, label %Amap_OutputStructAlloc.exit152, label %294
@@ -622,13 +622,13 @@ Amap_OutputStructAlloc.exit152:                   ; preds = %284, %291, %294
   br label %325
 
 301:                                              ; preds = %274
-  %302 = getelementptr inbounds i8, ptr %276, i64 40
+  %302 = getelementptr inbounds nuw i8, ptr %276, i64 40
   %303 = load ptr, ptr %302, align 8
   %.not.i153 = icmp eq ptr %303, null
   br i1 %.not.i153, label %308, label %304
 
 304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %303, i64 56
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 56
   %306 = load i32, ptr %305, align 8
   %307 = lshr i32 %306, 24
   br label %308
@@ -640,12 +640,12 @@ Amap_OutputStructAlloc.exit152:                   ; preds = %284, %291, %294
   %312 = add nuw nsw i32 %310, 16
   %313 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %312) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %313, i8 0, i64 16, i1 false)
-  %314 = getelementptr inbounds i8, ptr %313, i64 12
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %314, i8 -1, i64 %311, i1 false)
   br i1 %.not.i153, label %Amap_OutputStructAlloc.exit155, label %315
 
 315:                                              ; preds = %308
-  %316 = getelementptr inbounds i8, ptr %303, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %303, i64 16
   %317 = load ptr, ptr %316, align 8
   %.not.i.i154 = icmp eq ptr %317, null
   br i1 %.not.i.i154, label %Amap_OutputStructAlloc.exit155, label %318
@@ -667,7 +667,7 @@ Amap_OutputStructAlloc.exit155:                   ; preds = %308, %315, %318
   %.sink194 = phi i32 [ %309, %Amap_OutputStructAlloc.exit155 ], [ %285, %Amap_OutputStructAlloc.exit152 ]
   %.sink193 = phi ptr [ %313, %Amap_OutputStructAlloc.exit155 ], [ %289, %Amap_OutputStructAlloc.exit152 ]
   %326 = trunc nuw nsw i32 %.sink194 to i16
-  %327 = getelementptr inbounds i8, ptr %.sink193, i64 10
+  %327 = getelementptr inbounds nuw i8, ptr %.sink193, i64 10
   store i16 %326, ptr %327, align 2
   %.val109 = load i32, ptr %4, align 4
   %328 = load i32, ptr %3, align 8
@@ -737,7 +737,7 @@ Vec_PtrPush.exit162:                              ; preds = %.Vec_PtrGrow.exit11
   %356 = trunc nuw nsw i64 %355 to i32
   %357 = and i32 %.val119, 1
   %358 = icmp ne i32 %357, %356
-  %359 = getelementptr inbounds i8, ptr %272, i64 40
+  %359 = getelementptr inbounds nuw i8, ptr %272, i64 40
   %360 = load i32, ptr %359, align 8
   %361 = zext i1 %358 to i32
   %spec.select = add nsw i32 %360, %361
@@ -746,11 +746,11 @@ Vec_PtrPush.exit162:                              ; preds = %.Vec_PtrGrow.exit11
 362:                                              ; preds = %354, %Vec_PtrPush.exit162
   %.095 = phi i32 [ %.val109, %Vec_PtrPush.exit162 ], [ %spec.select, %354 ]
   %363 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef 20) #7
-  %364 = getelementptr inbounds i8, ptr %363, i64 12
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 12
   store ptr null, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %363, i64 10
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 10
   store i16 1, ptr %365, align 2
-  %366 = getelementptr inbounds i8, ptr %363, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i16 1, ptr %366, align 8
   store i32 %.095, ptr %364, align 4
   %367 = load i32, ptr %4, align 4

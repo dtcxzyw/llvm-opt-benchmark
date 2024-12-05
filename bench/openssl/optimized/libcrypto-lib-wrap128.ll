@@ -19,17 +19,17 @@ entry:
   br i1 %or.cond1, label %return, label %for.cond8.preheader.us.preheader
 
 for.cond8.preheader.us.preheader:                 ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %inlen, i1 false)
   %tobool3.not = icmp eq ptr %iv, null
   %spec.store.select = select i1 %tobool3.not, ptr @default_iv, ptr %iv
   %2 = load i64, ptr %spec.store.select, align 1
   store i64 %2, ptr %B, align 16
-  %add.ptr12 = getelementptr inbounds i8, ptr %B, i64 8
-  %arrayidx = getelementptr inbounds i8, ptr %B, i64 7
-  %arrayidx25 = getelementptr inbounds i8, ptr %B, i64 6
-  %arrayidx33 = getelementptr inbounds i8, ptr %B, i64 5
-  %arrayidx41 = getelementptr inbounds i8, ptr %B, i64 4
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %B, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %B, i64 7
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %B, i64 6
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %B, i64 5
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %B, i64 4
   %3 = add nsw i64 %inlen, -1
   %4 = lshr i64 %3, 3
   %5 = add nuw nsw i64 %4, 1
@@ -76,7 +76,7 @@ if.end45.us:                                      ; preds = %if.then21.us, %for.
   %18 = load i64, ptr %add.ptr12, align 8
   store i64 %18, ptr %R.025.us, align 1
   %inc.us = add i64 %t.127.us, 1
-  %add.ptr48.us = getelementptr inbounds i8, ptr %R.025.us, i64 8
+  %add.ptr48.us = getelementptr inbounds nuw i8, ptr %R.025.us, i64 8
   %exitcond.not = icmp eq i64 %inc.us, %6
   br i1 %exitcond.not, label %for.cond8.for.inc49_crit_edge.us, label %for.body10.us, !llvm.loop !4
 
@@ -120,15 +120,15 @@ crypto_128_unwrap_raw.exit.thread:                ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %2 = load i64, ptr %in, align 1
   store i64 %2, ptr %B.i, align 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub.i, i1 false)
   %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub.i
   %cmp727.not.i = icmp eq i64 %sub.i, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %B.i, i64 7
-  %arrayidx20.i = getelementptr inbounds i8, ptr %B.i, i64 6
-  %arrayidx28.i = getelementptr inbounds i8, ptr %B.i, i64 5
-  %arrayidx36.i = getelementptr inbounds i8, ptr %B.i, i64 4
-  %add.ptr42.i = getelementptr inbounds i8, ptr %B.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %B.i, i64 7
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %B.i, i64 6
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %B.i, i64 5
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %B.i, i64 4
+  %add.ptr42.i = getelementptr inbounds nuw i8, ptr %B.i, i64 8
   br i1 %cmp727.not.i, label %crypto_128_unwrap_raw.exit.thread7, label %for.body.us.preheader.i
 
 crypto_128_unwrap_raw.exit.thread7:               ; preds = %if.end.i
@@ -241,7 +241,7 @@ if.end4:                                          ; preds = %if.end, %if.else
   br i1 %cmp16, label %if.then18, label %if.else22
 
 if.then18:                                        ; preds = %if.end4
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %inlen, i1 false)
   %3 = and i64 %inlen, 16777215
   %aiv.sroa.4.0.insert.insert = tail call i64 @llvm.bswap.i64(i64 %3)
@@ -249,14 +249,14 @@ if.then18:                                        ; preds = %if.end4
   %aiv.sroa.3.0.insert.insert = or disjoint i64 %aiv.sroa.4.0.insert.insert, %aiv.sroa.3.0.insert.shift
   %aiv.sroa.0.0.insert.insert = or disjoint i64 %storemerge, %aiv.sroa.3.0.insert.insert
   store i64 %aiv.sroa.0.0.insert.insert, ptr %out, align 1
-  %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr, i64 %inlen
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %inlen
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr21, i8 0, i64 %sub, i1 false)
   tail call void %block(ptr noundef nonnull %out, ptr noundef nonnull %out, ptr noundef %key) #6
   br label %return
 
 if.else22:                                        ; preds = %if.end4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %inlen, i1 false)
-  %add.ptr23 = getelementptr inbounds i8, ptr %out, i64 %inlen
+  %add.ptr23 = getelementptr inbounds nuw i8, ptr %out, i64 %inlen
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr23, i8 0, i64 %sub, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %B.i)
   %4 = add nsw i64 %div27, -2147483649
@@ -264,7 +264,7 @@ if.else22:                                        ; preds = %if.end4
   br i1 %5, label %CRYPTO_128_wrap.exit, label %for.cond8.preheader.us.preheader.i
 
 for.cond8.preheader.us.preheader.i:               ; preds = %if.else22
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %out, i64 %div27, i1 false)
   %6 = and i64 %inlen, 16777215
   %aiv.sroa.4.0.insert.insert41 = tail call i64 @llvm.bswap.i64(i64 %6)
@@ -272,11 +272,11 @@ for.cond8.preheader.us.preheader.i:               ; preds = %if.else22
   %aiv.sroa.3.0.insert.insert36 = or disjoint i64 %aiv.sroa.4.0.insert.insert41, %aiv.sroa.3.0.insert.shift34
   %aiv.sroa.0.0.insert.insert31 = or disjoint i64 %storemerge, %aiv.sroa.3.0.insert.insert36
   store i64 %aiv.sroa.0.0.insert.insert31, ptr %B.i, align 16
-  %add.ptr12.i = getelementptr inbounds i8, ptr %B.i, i64 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %B.i, i64 7
-  %arrayidx25.i = getelementptr inbounds i8, ptr %B.i, i64 6
-  %arrayidx33.i = getelementptr inbounds i8, ptr %B.i, i64 5
-  %arrayidx41.i = getelementptr inbounds i8, ptr %B.i, i64 4
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %B.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %B.i, i64 7
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %B.i, i64 6
+  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %B.i, i64 5
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %B.i, i64 4
   %7 = add nsw i64 %div27, -1
   %8 = lshr i64 %7, 3
   %9 = add nuw nsw i64 %8, 1
@@ -323,7 +323,7 @@ if.end45.us.i:                                    ; preds = %if.then21.us.i, %fo
   %22 = load i64, ptr %add.ptr12.i, align 8
   store i64 %22, ptr %R.025.us.i, align 1
   %inc.us.i = add nuw i64 %t.127.us.i, 1
-  %add.ptr48.us.i = getelementptr inbounds i8, ptr %R.025.us.i, i64 8
+  %add.ptr48.us.i = getelementptr inbounds nuw i8, ptr %R.025.us.i, i64 8
   %exitcond.not.i = icmp eq i64 %inc.us.i, %10
   br i1 %exitcond.not.i, label %for.cond8.for.inc49_crit_edge.us.i, label %for.body10.us.i, !llvm.loop !4
 
@@ -374,7 +374,7 @@ if.then5:                                         ; preds = %if.end
   call void %block(ptr noundef %in, ptr noundef nonnull %buff, ptr noundef %key) #6
   %2 = load i64, ptr %buff, align 16
   store i64 %2, ptr %aiv, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %buff, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buff, i64 8
   %3 = load i64, ptr %add.ptr, align 8
   store i64 %3, ptr %out, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %buff, i64 noundef 16) #6
@@ -389,14 +389,14 @@ if.else:                                          ; preds = %if.end
 for.body.us.preheader.i:                          ; preds = %if.else
   %5 = load i64, ptr %in, align 1
   store i64 %5, ptr %B.i, align 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub10, i1 false)
   %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub10
-  %arrayidx.i = getelementptr inbounds i8, ptr %B.i, i64 7
-  %arrayidx20.i = getelementptr inbounds i8, ptr %B.i, i64 6
-  %arrayidx28.i = getelementptr inbounds i8, ptr %B.i, i64 5
-  %arrayidx36.i = getelementptr inbounds i8, ptr %B.i, i64 4
-  %add.ptr42.i = getelementptr inbounds i8, ptr %B.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %B.i, i64 7
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %B.i, i64 6
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %B.i, i64 5
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %B.i, i64 4
+  %add.ptr42.i = getelementptr inbounds nuw i8, ptr %B.i, i64 8
   %shr.i = lshr exact i64 %sub10, 3
   %mul.i = mul nuw nsw i64 %shr.i, 6
   br label %for.body.us.i
@@ -483,21 +483,21 @@ if.then25:                                        ; preds = %land.lhs.true21, %l
   br label %return
 
 if.end26:                                         ; preds = %land.lhs.true, %land.lhs.true21
-  %arrayidx = getelementptr inbounds i8, ptr %aiv, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %aiv, i64 4
   %18 = load i8, ptr %arrayidx, align 4
   %conv = zext i8 %18 to i64
   %shl = shl nuw nsw i64 %conv, 24
-  %arrayidx27 = getelementptr inbounds i8, ptr %aiv, i64 5
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %aiv, i64 5
   %19 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %19 to i64
   %shl29 = shl nuw nsw i64 %conv28, 16
   %or = or disjoint i64 %shl29, %shl
-  %arrayidx30 = getelementptr inbounds i8, ptr %aiv, i64 6
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %aiv, i64 6
   %20 = load i8, ptr %arrayidx30, align 2
   %conv31 = zext i8 %20 to i64
   %shl32 = shl nuw nsw i64 %conv31, 8
   %or33 = or disjoint i64 %or, %shl32
-  %arrayidx34 = getelementptr inbounds i8, ptr %aiv, i64 7
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %aiv, i64 7
   %21 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %21 to i64
   %or36 = or disjoint i64 %or33, %conv35
@@ -514,7 +514,7 @@ if.then45:                                        ; preds = %if.end26
 
 if.end46:                                         ; preds = %if.end26
   %sub47 = sub nsw i64 %padded_len.0, %or36
-  %add.ptr48 = getelementptr inbounds i8, ptr %out, i64 %or36
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %out, i64 %or36
   %call49 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr48, ptr noundef nonnull @CRYPTO_128_unwrap_pad.zeros, i64 noundef %sub47) #6
   %cmp50.not = icmp eq i32 %call49, 0
   br i1 %cmp50.not, label %return, label %if.then52

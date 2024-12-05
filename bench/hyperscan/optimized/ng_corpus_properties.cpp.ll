@@ -13,15 +13,15 @@ $_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615EL
 define hidden void @_ZN16CorpusPropertiesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((0, 52), (2544, 2552)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 100, ptr %this, align 8
-  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
-  %cycleMin = getelementptr inbounds i8, ptr %this, i64 28
+  %unmatchness = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %cycleMin = getelementptr inbounds nuw i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %unmatchness, i8 0, i64 24, i1 false)
   store <4 x i32> <i32 1, i32 1, i32 500000, i32 0>, ptr %cycleMin, align 4
-  %alphabetSize = getelementptr inbounds i8, ptr %this, i64 44
+  %alphabetSize = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %alphabetSize, align 4
-  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
+  %randomGen = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 5489, ptr %randomGen, align 8
-  %i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2544
+  %i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2544
   store i64 1, ptr %i.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -35,7 +35,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   %mul.i.i.i = mul i32 %xor.i.i.i, 1812433253
   %1 = trunc nuw i64 %storemerge19.i.i.i to i32
   %2 = add i32 %mul.i.i.i, %1
-  %arrayidx16.i.i.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i.i.i
+  %arrayidx16.i.i.i = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i.i.i
   store i32 %2, ptr %arrayidx16.i.i.i, align 4
   %3 = load i64, ptr %i.i.i.i, align 8
   %inc.i.i.i = add i64 %3, 1
@@ -44,9 +44,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !5
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1632
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1632
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2540
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2540
   %5 = load i32, ptr %arrayidx3.i.i.i.i, align 4
   %xor.i.i.i.i = xor i32 %5, %4
   %xor4.i.i.i.i = shl i32 %xor.i.i.i.i, 1
@@ -62,35 +62,35 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = or disjoint i64 %j.030.i.i.i.i, 1
-  %arrayidx14.i.i.i.i.1 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i
+  %arrayidx14.i.i.i.i.1 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i
   %7 = load i32, ptr %arrayidx14.i.i.i.i.1, align 4
   %cmp15.not.i.i.i.i.1 = icmp eq i32 %7, 0
   br i1 %cmp15.not.i.i.i.i.1, label %for.cond.i.i.i.i.1, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 for.cond.i.i.i.i.1:                               ; preds = %for.cond.i.i.i.i
   %inc.i.i.i.i.1 = add nuw nsw i64 %j.030.i.i.i.i, 2
-  %arrayidx14.i.i.i.i.2 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.1
+  %arrayidx14.i.i.i.i.2 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.1
   %8 = load i32, ptr %arrayidx14.i.i.i.i.2, align 8
   %cmp15.not.i.i.i.i.2 = icmp eq i32 %8, 0
   br i1 %cmp15.not.i.i.i.i.2, label %for.cond.i.i.i.i.2, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 for.cond.i.i.i.i.2:                               ; preds = %for.cond.i.i.i.i.1
   %inc.i.i.i.i.2 = add nuw nsw i64 %j.030.i.i.i.i, 3
-  %arrayidx14.i.i.i.i.3 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.2
+  %arrayidx14.i.i.i.i.3 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.2
   %9 = load i32, ptr %arrayidx14.i.i.i.i.3, align 4
   %cmp15.not.i.i.i.i.3 = icmp eq i32 %9, 0
   br i1 %cmp15.not.i.i.i.i.3, label %for.cond.i.i.i.i.3, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 for.cond.i.i.i.i.3:                               ; preds = %for.cond.i.i.i.i.2
   %inc.i.i.i.i.3 = add nuw nsw i64 %j.030.i.i.i.i, 4
-  %arrayidx14.i.i.i.i.4 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.3
+  %arrayidx14.i.i.i.i.4 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.3
   %10 = load i32, ptr %arrayidx14.i.i.i.i.4, align 8
   %cmp15.not.i.i.i.i.4 = icmp eq i32 %10, 0
   br i1 %cmp15.not.i.i.i.i.4, label %for.cond.i.i.i.i.4, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 for.cond.i.i.i.i.4:                               ; preds = %for.cond.i.i.i.i.3
   %inc.i.i.i.i.4 = add nuw nsw i64 %j.030.i.i.i.i, 5
-  %arrayidx14.i.i.i.i.5 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.4
+  %arrayidx14.i.i.i.i.5 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.i.i.4
   %11 = load i32, ptr %arrayidx14.i.i.i.i.5, align 4
   %cmp15.not.i.i.i.i.5 = icmp eq i32 %11, 0
   br i1 %cmp15.not.i.i.i.i.5, label %for.cond.i.i.i.i.5, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
@@ -102,7 +102,7 @@ for.cond.i.i.i.i.5:                               ; preds = %for.cond.i.i.i.i.4
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i.5, %for.end.i.i.i
   %j.030.i.i.i.i = phi i64 [ 0, %for.end.i.i.i ], [ %inc.i.i.i.i.5, %for.cond.i.i.i.i.5 ]
-  %arrayidx14.i.i.i.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %j.030.i.i.i.i
+  %arrayidx14.i.i.i.i = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %j.030.i.i.i.i
   %12 = load i32, ptr %arrayidx14.i.i.i.i, align 8
   %cmp15.not.i.i.i.i = icmp eq i32 %12, 0
   br i1 %cmp15.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
@@ -112,7 +112,7 @@ for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i.5
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit: ; preds = %for.body.i.i.i.i, %for.cond.i.i.i.i.4, %for.cond.i.i.i.i.3, %for.cond.i.i.i.i.2, %for.cond.i.i.i.i.1, %for.cond.i.i.i.i, %for.end.i.i.i.i
-  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
+  %rngSeed = getelementptr inbounds nuw i8, ptr %this, i64 2552
   store i32 0, ptr %rngSeed, align 8
   ret void
 }
@@ -127,9 +127,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %match, ptr %this, align 8
-  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
+  %unmatchness = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %unmatch, ptr %unmatchness, align 4
-  %randomness = getelementptr inbounds i8, ptr %this, i64 8
+  %randomness = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %random, ptr %randomness, align 8
   br label %return
 
@@ -140,11 +140,11 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN16CorpusProperties4seedEj(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((48, 52), (2544, 2556)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
-  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
+  %rngSeed = getelementptr inbounds nuw i8, ptr %this, i64 2552
   store i32 %val, ptr %rngSeed, align 8
-  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
+  %randomGen = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %val, ptr %randomGen, align 8
-  %i.i = getelementptr inbounds i8, ptr %this, i64 2544
+  %i.i = getelementptr inbounds nuw i8, ptr %this, i64 2544
   store i64 1, ptr %i.i, align 8
   br label %for.body.i
 
@@ -158,7 +158,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %mul.i = mul i32 %xor.i, 1812433253
   %1 = trunc nuw i64 %storemerge19.i to i32
   %2 = add i32 %mul.i, %1
-  %arrayidx16.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i
+  %arrayidx16.i = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %storemerge19.i
   store i32 %2, ptr %arrayidx16.i, align 4
   %3 = load i64, ptr %i.i, align 8
   %inc.i = add i64 %3, 1
@@ -167,9 +167,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 1632
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1632
   %4 = load i32, ptr %arrayidx.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 2540
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2540
   %5 = load i32, ptr %arrayidx3.i.i, align 4
   %xor.i.i = xor i32 %5, %4
   %xor4.i.i = shl i32 %xor.i.i, 1
@@ -185,35 +185,35 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = or disjoint i64 %j.030.i.i, 1
-  %arrayidx14.i.i.1 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i
+  %arrayidx14.i.i.1 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i
   %7 = load i32, ptr %arrayidx14.i.i.1, align 4
   %cmp15.not.i.i.1 = icmp eq i32 %7, 0
   br i1 %cmp15.not.i.i.1, label %for.cond.i.i.1, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
 
 for.cond.i.i.1:                                   ; preds = %for.cond.i.i
   %inc.i.i.1 = add nuw nsw i64 %j.030.i.i, 2
-  %arrayidx14.i.i.2 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.1
+  %arrayidx14.i.i.2 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.1
   %8 = load i32, ptr %arrayidx14.i.i.2, align 8
   %cmp15.not.i.i.2 = icmp eq i32 %8, 0
   br i1 %cmp15.not.i.i.2, label %for.cond.i.i.2, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
 
 for.cond.i.i.2:                                   ; preds = %for.cond.i.i.1
   %inc.i.i.2 = add nuw nsw i64 %j.030.i.i, 3
-  %arrayidx14.i.i.3 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.2
+  %arrayidx14.i.i.3 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.2
   %9 = load i32, ptr %arrayidx14.i.i.3, align 4
   %cmp15.not.i.i.3 = icmp eq i32 %9, 0
   br i1 %cmp15.not.i.i.3, label %for.cond.i.i.3, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
 
 for.cond.i.i.3:                                   ; preds = %for.cond.i.i.2
   %inc.i.i.3 = add nuw nsw i64 %j.030.i.i, 4
-  %arrayidx14.i.i.4 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.3
+  %arrayidx14.i.i.4 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.3
   %10 = load i32, ptr %arrayidx14.i.i.4, align 8
   %cmp15.not.i.i.4 = icmp eq i32 %10, 0
   br i1 %cmp15.not.i.i.4, label %for.cond.i.i.4, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
 
 for.cond.i.i.4:                                   ; preds = %for.cond.i.i.3
   %inc.i.i.4 = add nuw nsw i64 %j.030.i.i, 5
-  %arrayidx14.i.i.5 = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.4
+  %arrayidx14.i.i.5 = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %inc.i.i.4
   %11 = load i32, ptr %arrayidx14.i.i.5, align 4
   %cmp15.not.i.i.5 = icmp eq i32 %11, 0
   br i1 %cmp15.not.i.i.5, label %for.cond.i.i.5, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
@@ -225,7 +225,7 @@ for.cond.i.i.5:                                   ; preds = %for.cond.i.i.4
 
 for.body.i.i:                                     ; preds = %for.cond.i.i.5, %for.end.i
   %j.030.i.i = phi i64 [ 0, %for.end.i ], [ %inc.i.i.5, %for.cond.i.i.5 ]
-  %arrayidx14.i.i = getelementptr inbounds [624 x i32], ptr %randomGen, i64 0, i64 %j.030.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [624 x i32], ptr %randomGen, i64 0, i64 %j.030.i.i
   %12 = load i32, ptr %arrayidx14.i.i, align 8
   %cmp15.not.i.i = icmp eq i32 %12, 0
   br i1 %cmp15.not.i.i, label %for.cond.i.i, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE4seedERKj.exit
@@ -241,7 +241,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK16CorpusProperties7getSeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2556) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
+  %rngSeed = getelementptr inbounds nuw i8, ptr %this, i64 2552
   %0 = load i32, ptr %rngSeed, align 8
   ret i32 %0
 }
@@ -249,7 +249,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN16CorpusProperties4randEjj(ptr noundef nonnull align 8 dereferenceable(2556) %this, i32 noundef %n, i32 noundef %m) local_unnamed_addr #3 align 2 {
 entry:
-  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
+  %randomGen = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i.i = tail call noundef i32 @_ZN5boost6random6detail20generate_uniform_intINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEiEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(2504) %randomGen, i32 noundef %n, i32 noundef %m)
   ret i32 %call.i.i
 }
@@ -262,20 +262,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
+  %unmatchness = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %unmatchness, align 4
   %cmp2 = icmp eq i32 %1, 100
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %randomness = getelementptr inbounds i8, ptr %this, i64 8
+  %randomness = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %randomness, align 8
   %cmp5 = icmp eq i32 %2, 100
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %randomGen.i = getelementptr inbounds i8, ptr %this, i64 48
-  %i.i171.i = getelementptr inbounds i8, ptr %this, i64 2544
+  %randomGen.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %i.i171.i = getelementptr inbounds nuw i8, ptr %this, i64 2544
   %.pre.i = load i64, ptr %i.i171.i, align 8
   br label %for.cond76.i
 
@@ -336,7 +336,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.end75
 
 if.then7:                                         ; preds = %if.else
-  %i.i = getelementptr inbounds i8, ptr %eng, i64 2496
+  %i.i = getelementptr inbounds nuw i8, ptr %eng, i64 2496
   %0 = load i64, ptr %i.i, align 8
   %cmp.i = icmp eq i64 %0, 624
   br i1 %cmp.i, label %if.then.i, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit
@@ -372,7 +372,7 @@ if.end75:                                         ; preds = %if.else
   %cmp67 = icmp eq i32 %rem66, %retval.0.i
   %inc69 = zext i1 %cmp67 to i32
   %spec.select151 = add nuw i32 %div64, %inc69
-  %i.i171 = getelementptr inbounds i8, ptr %eng, i64 2496
+  %i.i171 = getelementptr inbounds nuw i8, ptr %eng, i64 2496
   %.pre = load i64, ptr %i.i171, align 8
   br label %for.cond76
 
@@ -425,11 +425,11 @@ entry:
 vector.body:                                      ; preds = %vector.body, %entry
   %index = phi i64 [ 0, %entry ], [ %index.next, %vector.body ]
   %vector.recur = phi <4 x i32> [ %vector.recur.init, %entry ], [ %wide.load155, %vector.body ]
-  %0 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %index
+  %0 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %index
   %1 = or disjoint i64 %index, 1
-  %2 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %1
+  %2 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %1
   %wide.load = load <4 x i32>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %wide.load155 = load <4 x i32>, ptr %3, align 4
   %4 = shufflevector <4 x i32> %vector.recur, <4 x i32> %wide.load, <4 x i32> <i32 3, i32 4, i32 5, i32 6>
   %5 = shufflevector <4 x i32> %wide.load, <4 x i32> %wide.load155, <4 x i32> <i32 3, i32 4, i32 5, i32 6>
@@ -440,9 +440,9 @@ vector.body:                                      ; preds = %vector.body, %entry
   %10 = or disjoint <4 x i32> %6, %8
   %11 = or disjoint <4 x i32> %7, %9
   %12 = add nuw nsw i64 %index, 397
-  %13 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %12
   %wide.load156 = load <4 x i32>, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %wide.load157 = load <4 x i32>, ptr %14, align 4
   %15 = lshr exact <4 x i32> %10, splat (i32 1)
   %16 = lshr exact <4 x i32> %11, splat (i32 1)
@@ -457,7 +457,7 @@ vector.body:                                      ; preds = %vector.body, %entry
   %25 = xor <4 x i32> %22, %wide.load157
   %26 = xor <4 x i32> %25, %16
   store <4 x i32> %24, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x i32> %26, ptr %27, align 8
   %index.next = add nuw nsw i64 %index, 8
   %28 = icmp eq i64 %index.next, 216
@@ -465,13 +465,13 @@ vector.body:                                      ; preds = %vector.body, %entry
 
 for.body:                                         ; preds = %vector.body
   %vector.recur.extract = extractelement <4 x i32> %wide.load155, i64 3
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 864
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 864
   %and = and i32 %vector.recur.extract, -2147483648
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 868
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 868
   %29 = load i32, ptr %arrayidx3, align 4
   %and4 = and i32 %29, 2147483646
   %or = or disjoint i32 %and4, %and
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 2452
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 2452
   %30 = load i32, ptr %arrayidx7, align 4
   %shr = lshr exact i32 %or, 1
   %xor = xor i32 %shr, %30
@@ -481,11 +481,11 @@ for.body:                                         ; preds = %vector.body
   %xor12 = xor i32 %xor, %mul
   store i32 %xor12, ptr %arrayidx, align 8
   %and.1 = and i32 %29, -2147483648
-  %arrayidx3.1 = getelementptr inbounds i8, ptr %this, i64 872
+  %arrayidx3.1 = getelementptr inbounds nuw i8, ptr %this, i64 872
   %32 = load i32, ptr %arrayidx3.1, align 8
   %and4.1 = and i32 %32, 2147483646
   %or.1 = or disjoint i32 %and4.1, %and.1
-  %arrayidx7.1 = getelementptr inbounds i8, ptr %this, i64 2456
+  %arrayidx7.1 = getelementptr inbounds nuw i8, ptr %this, i64 2456
   %33 = load i32, ptr %arrayidx7.1, align 8
   %shr.1 = lshr exact i32 %or.1, 1
   %xor.1 = xor i32 %shr.1, %33
@@ -495,11 +495,11 @@ for.body:                                         ; preds = %vector.body
   %xor12.1 = xor i32 %xor.1, %mul.1
   store i32 %xor12.1, ptr %arrayidx3, align 4
   %and.2 = and i32 %32, -2147483648
-  %arrayidx3.2 = getelementptr inbounds i8, ptr %this, i64 876
+  %arrayidx3.2 = getelementptr inbounds nuw i8, ptr %this, i64 876
   %35 = load i32, ptr %arrayidx3.2, align 4
   %and4.2 = and i32 %35, 2147483646
   %or.2 = or disjoint i32 %and4.2, %and.2
-  %arrayidx7.2 = getelementptr inbounds i8, ptr %this, i64 2460
+  %arrayidx7.2 = getelementptr inbounds nuw i8, ptr %this, i64 2460
   %36 = load i32, ptr %arrayidx7.2, align 4
   %shr.2 = lshr exact i32 %or.2, 1
   %xor.2 = xor i32 %shr.2, %36
@@ -509,11 +509,11 @@ for.body:                                         ; preds = %vector.body
   %xor12.2 = xor i32 %xor.2, %mul.2
   store i32 %xor12.2, ptr %arrayidx3.1, align 8
   %and.3 = and i32 %35, -2147483648
-  %arrayidx3.3 = getelementptr inbounds i8, ptr %this, i64 880
+  %arrayidx3.3 = getelementptr inbounds nuw i8, ptr %this, i64 880
   %38 = load i32, ptr %arrayidx3.3, align 8
   %and4.3 = and i32 %38, 2147483646
   %or.3 = or disjoint i32 %and4.3, %and.3
-  %arrayidx7.3 = getelementptr inbounds i8, ptr %this, i64 2464
+  %arrayidx7.3 = getelementptr inbounds nuw i8, ptr %this, i64 2464
   %39 = load i32, ptr %arrayidx7.3, align 8
   %shr.3 = lshr exact i32 %or.3, 1
   %xor.3 = xor i32 %shr.3, %39
@@ -523,11 +523,11 @@ for.body:                                         ; preds = %vector.body
   %xor12.3 = xor i32 %xor.3, %mul.3
   store i32 %xor12.3, ptr %arrayidx3.2, align 4
   %and.4 = and i32 %38, -2147483648
-  %arrayidx3.4 = getelementptr inbounds i8, ptr %this, i64 884
+  %arrayidx3.4 = getelementptr inbounds nuw i8, ptr %this, i64 884
   %41 = load i32, ptr %arrayidx3.4, align 4
   %and4.4 = and i32 %41, 2147483646
   %or.4 = or disjoint i32 %and4.4, %and.4
-  %arrayidx7.4 = getelementptr inbounds i8, ptr %this, i64 2468
+  %arrayidx7.4 = getelementptr inbounds nuw i8, ptr %this, i64 2468
   %42 = load i32, ptr %arrayidx7.4, align 4
   %shr.4 = lshr exact i32 %or.4, 1
   %xor.4 = xor i32 %shr.4, %42
@@ -537,11 +537,11 @@ for.body:                                         ; preds = %vector.body
   %xor12.4 = xor i32 %xor.4, %mul.4
   store i32 %xor12.4, ptr %arrayidx3.3, align 8
   %and.5 = and i32 %41, -2147483648
-  %arrayidx3.5 = getelementptr inbounds i8, ptr %this, i64 888
+  %arrayidx3.5 = getelementptr inbounds nuw i8, ptr %this, i64 888
   %44 = load i32, ptr %arrayidx3.5, align 8
   %and4.5 = and i32 %44, 2147483646
   %or.5 = or disjoint i32 %and4.5, %and.5
-  %arrayidx7.5 = getelementptr inbounds i8, ptr %this, i64 2472
+  %arrayidx7.5 = getelementptr inbounds nuw i8, ptr %this, i64 2472
   %45 = load i32, ptr %arrayidx7.5, align 8
   %shr.5 = lshr exact i32 %or.5, 1
   %xor.5 = xor i32 %shr.5, %45
@@ -550,9 +550,9 @@ for.body:                                         ; preds = %vector.body
   %mul.5 = select i1 %.not149.5, i32 0, i32 -1727483681
   %xor12.5 = xor i32 %xor.5, %mul.5
   store i32 %xor12.5, ptr %arrayidx3.4, align 4
-  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 892
-  %arrayidx31 = getelementptr inbounds i8, ptr %this, i64 2476
-  %arrayidx26.3 = getelementptr inbounds i8, ptr %this, i64 904
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %this, i64 892
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %this, i64 2476
+  %arrayidx26.3 = getelementptr inbounds nuw i8, ptr %this, i64 904
   %47 = load <4 x i32>, ptr %arrayidx26, align 4
   %48 = shufflevector <4 x i32> %47, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %49 = and <4 x i32> %48, <i32 2147483646, i32 2147483646, i32 2147483646, i32 -2147483648>
@@ -570,11 +570,11 @@ for.body:                                         ; preds = %vector.body
   store <4 x i32> %60, ptr %arrayidx3.5, align 8
   %61 = extractelement <4 x i32> %47, i64 3
   %and23.4 = and i32 %61, -2147483648
-  %arrayidx26.4 = getelementptr inbounds i8, ptr %this, i64 908
+  %arrayidx26.4 = getelementptr inbounds nuw i8, ptr %this, i64 908
   %62 = load i32, ptr %arrayidx26.4, align 4
   %and27.4 = and i32 %62, 2147483646
   %or28.4 = or disjoint i32 %and27.4, %and23.4
-  %arrayidx31.4 = getelementptr inbounds i8, ptr %this, i64 2492
+  %arrayidx31.4 = getelementptr inbounds nuw i8, ptr %this, i64 2492
   %63 = load i32, ptr %arrayidx31.4, align 4
   %shr32.4 = lshr exact i32 %or28.4, 1
   %xor33.4 = xor i32 %shr32.4, %63
@@ -590,15 +590,15 @@ vector.body162:                                   ; preds = %vector.body162, %fo
   %index163 = phi i64 [ 0, %for.body ], [ %index.next168, %vector.body162 ]
   %vector.recur165 = phi <4 x i32> [ %vector.recur.init164, %for.body ], [ %wide.load166, %vector.body162 ]
   %offset.idx = add nuw nsw i64 %index163, 227
-  %65 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %offset.idx
+  %65 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %offset.idx
   %66 = add nuw nsw i64 %index163, 228
-  %67 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %66
   %wide.load166 = load <4 x i32>, ptr %67, align 8
   %68 = shufflevector <4 x i32> %vector.recur165, <4 x i32> %wide.load166, <4 x i32> <i32 3, i32 4, i32 5, i32 6>
   %69 = and <4 x i32> %68, splat (i32 -2147483648)
   %70 = and <4 x i32> %wide.load166, splat (i32 2147483646)
   %71 = or disjoint <4 x i32> %69, %70
-  %72 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %index163
+  %72 = getelementptr inbounds nuw [624 x i32], ptr %this, i64 0, i64 %index163
   %wide.load167 = load <4 x i32>, ptr %72, align 8
   %73 = lshr exact <4 x i32> %71, splat (i32 1)
   %74 = and <4 x i32> %wide.load166, splat (i32 1)
@@ -617,7 +617,7 @@ for.cond.cleanup77:                               ; preds = %vector.body162
   %81 = load i32, ptr %this, align 8
   %and110 = and i32 %81, 2147483646
   %or111 = or disjoint i32 %and110, %and107
-  %arrayidx113 = getelementptr inbounds i8, ptr %this, i64 1584
+  %arrayidx113 = getelementptr inbounds nuw i8, ptr %this, i64 1584
   %82 = load i32, ptr %arrayidx113, align 8
   %shr114 = lshr exact i32 %or111, 1
   %xor115 = xor i32 %shr114, %82
@@ -626,7 +626,7 @@ for.cond.cleanup77:                               ; preds = %vector.body162
   %mul119 = select i1 %.not, i32 0, i32 -1727483681
   %xor120 = xor i32 %xor115, %mul119
   store i32 %xor120, ptr %arrayidx31.4, align 4
-  %i = getelementptr inbounds i8, ptr %this, i64 2496
+  %i = getelementptr inbounds nuw i8, ptr %this, i64 2496
   store i64 0, ptr %i, align 8
   ret void
 }

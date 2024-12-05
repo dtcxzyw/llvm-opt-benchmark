@@ -22,7 +22,7 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 16
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr i8, ptr %8, i64 %9
@@ -31,7 +31,7 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   br label %16
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   store ptr %15, ptr %13, align 8
@@ -50,7 +50,7 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 16
   %26 = zext nneg i32 %17 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -59,7 +59,7 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   br label %33
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 8
   store ptr %32, ptr %30, align 8
@@ -91,18 +91,18 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
 44:                                               ; preds = %42
   %45 = and i32 %0, 5
   %or.cond3 = icmp eq i32 %45, 1
-  %46 = getelementptr inbounds i8, ptr %.019, i64 976
+  %46 = getelementptr inbounds nuw i8, ptr %.019, i64 976
   br i1 %or.cond3, label %47, label %50
 
 47:                                               ; preds = %44
   %48 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32) #4
-  %49 = getelementptr inbounds i8, ptr %.019, i64 1007
+  %49 = getelementptr inbounds nuw i8, ptr %.019, i64 1007
   store i8 0, ptr %49, align 1
   br label %53
 
 50:                                               ; preds = %44
   %51 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %46, i64 noundef 32) #4
-  %52 = getelementptr inbounds i8, ptr %19, i64 30
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 30
   store i8 0, ptr %52, align 1
   br label %53
 

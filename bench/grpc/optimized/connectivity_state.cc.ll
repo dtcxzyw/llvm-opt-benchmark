@@ -137,7 +137,7 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %state to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -153,10 +153,10 @@ define void @_ZN9grpc_core38AsyncConnectivityStateWatcherInterface6NotifyE23grpc
 invoke.cont:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
-  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %refs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   store ptr %this, ptr %agg.tmp, align 8
-  %work_serializer_ = getelementptr inbounds i8, ptr %this, i64 16
+  %work_serializer_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierC2ENS_13RefCountedPtrIS0_EE23grpc_connectivity_stateRKN4absl12lts_202308026StatusERKSt10shared_ptrINS_14WorkSerializerEE(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull %agg.tmp, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr noundef nonnull align 8 dereferenceable(16) %work_serializer_)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -166,14 +166,14 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_33ConnectivityStateWatcherInterfaceEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont3
-  %refs_.i.i2 = getelementptr inbounds i8, ptr %1, i64 8
+  %refs_.i.i2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i2, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_33ConnectivityStateWatcherInterfaceEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #17
   br label %_ZN9grpc_core13RefCountedPtrINS_33ConnectivityStateWatcherInterfaceEED2Ev.exit
@@ -189,14 +189,14 @@ lpad2:                                            ; preds = %invoke.cont
   br i1 %cmp.not.i10, label %cleanup.action, label %if.then.i11
 
 if.then.i11:                                      ; preds = %lpad2
-  %refs_.i.i12 = getelementptr inbounds i8, ptr %5, i64 8
+  %refs_.i.i12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = atomicrmw sub ptr %refs_.i.i12, i64 1 acq_rel, align 8
   %cmp.i.i.i13 = icmp eq i64 %6, 1
   br i1 %cmp.i.i.i13, label %if.then.i.i14, label %cleanup.action
 
 if.then.i.i14:                                    ; preds = %if.then.i11
   %vtable.i.i.i15 = load ptr, ptr %5, align 8
-  %vfn.i.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i.i15, i64 16
+  %vfn.i.i.i16 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i15, i64 16
   %7 = load ptr, ptr %vfn.i.i.i16, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %cleanup.action
@@ -222,9 +222,9 @@ entry:
   %0 = load ptr, ptr %watcher, align 8
   store ptr %0, ptr %this, align 8
   store ptr null, ptr %watcher, align 8
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %state, ptr %state_, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 16
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %status, align 8
   store i64 %1, ptr %status_, align 8
   %and.i.i.i = and i64 %1, 1
@@ -243,9 +243,9 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
   br i1 %cmp.i.i.not, label %invoke.cont15, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %5 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %this to i64
   store i64 %6, ptr %agg.tmp, align 8
@@ -289,12 +289,12 @@ terminate.lpad.i.i10:                             ; preds = %if.then.i.i8
   unreachable
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  %closure_7 = getelementptr inbounds i8, ptr %this, i64 24
-  %cb1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %closure_7 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %cb1.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr @_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, ptr %cb1.i, align 8
-  %cb_arg2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %cb_arg2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %this, ptr %cb_arg2.i, align 8
-  %error_data.i = getelementptr inbounds i8, ptr %this, i64 48
+  %error_data.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %error_data.i, align 8
   store i64 0, ptr %agg.tmp14, align 8, !alias.scope !7
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11, ptr noundef nonnull %closure_7, ptr noundef nonnull %agg.tmp14)
@@ -334,14 +334,14 @@ ehcleanup:                                        ; preds = %if.then.i.i8, %lpad
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ehcleanup
-  %refs_.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %refs_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i15 = icmp eq i64 %19, 1
   br i1 %cmp.i.i.i15, label %if.then.i.i16, label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit
 
 if.then.i.i16:                                    ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %20 = load ptr, ptr %vfn.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   br label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit
@@ -357,27 +357,27 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define void @_ZN9grpc_core24ConnectivityStateTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %state_ monotonic, align 8
   %cmp = icmp eq i32 %0, 4
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.i.not13 = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.i.not13, label %cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
   %2 = icmp ult i32 %0, 5
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4absl12lts_202308026StatusD2Ev.exit
   %__begin1.sroa.0.014 = phi ptr [ %call.i, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ %1, %for.body.preheader ]
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then8, label %invoke.cont16
 
@@ -392,7 +392,7 @@ do.body.i:                                        ; preds = %if.then8
   unreachable
 
 switch.lookup:                                    ; preds = %if.then8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.014, i64 32
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.014, i64 32
   %5 = load ptr, ptr %_M_storage.i.i, align 8
   %6 = load ptr, ptr %this, align 8
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -400,11 +400,11 @@ switch.lookup:                                    ; preds = %if.then8
           to label %invoke.cont16 unwind label %terminate.lpad.loopexit
 
 invoke.cont16:                                    ; preds = %for.body, %switch.lookup
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.014, i64 40
+  %second = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.014, i64 40
   %7 = load ptr, ptr %second, align 8
   store i64 0, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont17 unwind label %terminate.lpad.loopexit
@@ -432,8 +432,8 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont17, %if.
   br i1 %cmp.i.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.end, %entry
-  %watchers_19 = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %watchers_19 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %watchers_19, ptr noundef %12)
           to label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -446,7 +446,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 _ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEED2Ev.exit: ; preds = %cleanup
-  %status_ = getelementptr inbounds i8, ptr %this, i64 16
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load i64, ptr %status_, align 8
   %and.i.i.i6 = and i64 %15, 1
   %cmp.i.i.i7 = icmp eq i64 %and.i.i.i6, 0
@@ -524,7 +524,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 define void @_ZN9grpc_core24ConnectivityStateTracker10AddWatcherE23grpc_connectivity_stateSt10unique_ptrINS_33ConnectivityStateWatcherInterfaceENS_16OrphanableDeleteEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %initial_state, ptr nocapture noundef %watcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.9", align 8
-  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -535,13 +535,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load atomic i32, ptr %state_ monotonic, align 8
   %cmp.not = icmp eq i32 %initial_state, %3
   br i1 %cmp.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i5 = trunc i8 %4 to i1
   br i1 %tobool.i.i.i5, label %if.then6, label %if.end11
 
@@ -565,19 +565,19 @@ do.body.i11:                                      ; preds = %switch.lookup
 
 switch.lookup20:                                  ; preds = %switch.lookup
   %9 = zext nneg i32 %initial_state to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep21 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %10
+  %switch.gep21 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %10
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 128, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %5, ptr noundef nonnull %this, ptr noundef %6, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load22)
   br label %if.end11
 
 if.end11:                                         ; preds = %switch.lookup20, %if.then4
   %11 = load ptr, ptr %watcher, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 16
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %status_)
   br label %if.end13
@@ -587,29 +587,29 @@ if.end13:                                         ; preds = %if.end11, %if.end
   br i1 %cmp14.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %watchers_ = getelementptr inbounds i8, ptr %this, i64 24
+  %watchers_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load ptr, ptr %watcher, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   store ptr %13, ptr %ref.tmp, align 8, !alias.scope !10
-  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %second.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %.cast = ptrtoint ptr %13 to i64
   store i64 %.cast, ptr %second.i.i, align 8, !alias.scope !10
   store ptr null, ptr %watcher, align 8, !noalias !10
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %14 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.not5.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then15, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %14, %if.then15 ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then15 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %15 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult ptr %15, %13
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !13
@@ -619,7 +619,7 @@ _ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %16 = load ptr, ptr %_M_storage.i.i.i, align 8
   %cmp.i3.i = icmp ult ptr %13, %16
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont
@@ -681,7 +681,7 @@ if.end19:                                         ; preds = %if.then.i.i, %invok
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core24ConnectivityStateTracker13RemoveWatcherEPNS_33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %watcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -691,8 +691,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %__x.038.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not39.i.i.i = icmp eq ptr %__x.038.i.i.i, null
   br i1 %cmp.not39.i.i.i, label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5eraseERS9_.exit, label %while.body.i.i.i
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %if.then, %entry
 while.body.i.i.i:                                 ; preds = %if.end, %if.end19.i.i.i
   %__x.041.i.i.i = phi ptr [ %__x.0.i.i.i, %if.end19.i.i.i ], [ %__x.038.i.i.i, %if.end ]
   %__y.040.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ %add.ptr.i.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.041.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult ptr %2, %watcher
   br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
@@ -710,9 +710,9 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i18.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %_M_left.i19.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 16
+  %_M_left.i19.i.i.i = getelementptr inbounds nuw i8, ptr %__x.041.i.i.i, i64 16
   %3 = load ptr, ptr %_M_left.i19.i.i.i, align 8
-  %_M_right.i20.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 24
+  %_M_right.i20.i.i.i = getelementptr inbounds nuw i8, ptr %__x.041.i.i.i, i64 24
   %4 = load ptr, ptr %_M_right.i20.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, label %while.body.i.i.i.i
@@ -720,12 +720,12 @@ if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
 while.body.i.i.i.i:                               ; preds = %if.else12.i.i.i, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %3, %if.else12.i.i.i ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.041.i.i.i, %if.else12.i.i.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult ptr %5, %watcher
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !13
@@ -738,12 +738,12 @@ _ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10u
 while.body.i23.i.i.i:                             ; preds = %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %while.body.i23.i.i.i
   %__x.addr.07.i24.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i, %while.body.i23.i.i.i ], [ %4, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ]
   %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.040.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 32
+  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i24.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i26.i.i.i, align 8
   %cmp.i.i27.i.i.i = icmp ult ptr %watcher, %6
   %__y.addr.1.i28.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
   %__x.addr.1.in.v.i29.i.i.i = select i1 %cmp.i.i27.i.i.i, i64 16, i64 24
-  %__x.addr.1.in.i30.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
+  %__x.addr.1.in.i30.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
   %__x.addr.1.i31.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i, align 8
   %cmp.not.i32.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i, null
   br i1 %cmp.not.i32.i.i.i, label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5eraseERS9_.exit, label %while.body.i23.i.i.i, !llvm.loop !15
@@ -751,7 +751,7 @@ while.body.i23.i.i.i:                             ; preds = %_ZNSt8_Rb_treeIPN9g
 if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %while.body.i.i.i
   %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ 16, %if.else.i.i.i ]
   %__y.1.i.i.i = phi ptr [ %__y.040.i.i.i, %while.body.i.i.i ], [ %__x.041.i.i.i, %if.else.i.i.i ]
-  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 %.sink.i.i.i
+  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.041.i.i.i, i64 %.sink.i.i.i
   %__x.0.i.i.i = load ptr, ptr %_M_left.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5eraseERS9_.exit, label %while.body.i.i.i, !llvm.loop !16
@@ -759,7 +759,7 @@ if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %whi
 _ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5eraseERS9_.exit: ; preds = %if.end19.i.i.i, %while.body.i23.i.i.i, %if.end, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %if.end ], [ %__y.addr.0.lcssa.i.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   %retval.sroa.3.0.i.i.i = phi ptr [ %__y.040.i.i.i, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %if.end ], [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
-  %watchers_ = getelementptr inbounds i8, ptr %this, i64 24
+  %watchers_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_(ptr noundef nonnull align 8 dereferenceable(48) %watchers_, ptr %retval.sroa.0.0.i.i.i, ptr %retval.sroa.3.0.i.i.i)
   ret void
 }
@@ -768,13 +768,13 @@ _ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_
 define void @_ZN9grpc_core24ConnectivityStateTracker8SetStateE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEPKc(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status, ptr noundef %reason) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %state_ monotonic, align 8
   %cmp = icmp eq i32 %state, %0
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then3, label %if.end7
 
@@ -797,10 +797,10 @@ do.body.i17:                                      ; preds = %switch.lookup
 
 switch.lookup42:                                  ; preds = %switch.lookup
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %state to i64
-  %switch.gep43 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %6
+  %switch.gep43 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %6
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   call void @_ZNK4absl12lts_202308026Status8ToStringB5cxx11ENS0_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %status, i32 noundef 1)
   %call6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
@@ -819,7 +819,7 @@ lpad:                                             ; preds = %switch.lookup42
 
 if.end7:                                          ; preds = %invoke.cont, %if.end
   store atomic i32 %state, ptr %state_ monotonic, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 16
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %status_, align 8
   %9 = load i64, ptr %status, align 8
   %cmp.not.i = icmp eq i64 %9, %8
@@ -849,10 +849,10 @@ if.then.i7.i:                                     ; preds = %_ZN4absl12lts_20230
   br label %_ZN4absl12lts_202308026StatusaSERKS1_.exit
 
 _ZN4absl12lts_202308026StatusaSERKS1_.exit:       ; preds = %if.end7, %_ZN4absl12lts_202308026Status3RefEm.exit.i, %if.then.i7.i
-  %watchers_ = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %watchers_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.i.not37 = icmp eq ptr %13, %add.ptr.i.i
   br i1 %cmp.i.not37, label %for.end, label %for.body.preheader
 
@@ -860,19 +860,19 @@ for.body.preheader:                               ; preds = %_ZN4absl12lts_20230
   %14 = icmp ult i32 %0, 5
   %15 = icmp ult i32 %state, 5
   %16 = zext nneg i32 %0 to i64
-  %switch.gep40 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %16
+  %switch.gep40 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %16
   %17 = zext nneg i32 %state to i64
-  %switch.gep46 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %17
+  %switch.gep46 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %17
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end20
   %__begin1.sroa.0.038 = phi ptr [ %call.i, %if.end20 ], [ %13, %for.body.preheader ]
-  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %18 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i19 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i19, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %for.body
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.038, i64 32
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.038, i64 32
   %19 = load ptr, ptr %this, align 8
   %20 = load ptr, ptr %_M_storage.i.i, align 8
   br i1 %14, label %switch.lookup39, label %do.body.i25
@@ -895,10 +895,10 @@ switch.lookup45:                                  ; preds = %switch.lookup39
   br label %if.end20
 
 if.end20:                                         ; preds = %switch.lookup45, %for.body
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.038, i64 40
+  %second = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.038, i64 40
   %21 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %21, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %22 = load ptr, ptr %vfn, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status)
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.038) #20
@@ -910,7 +910,7 @@ for.end:                                          ; preds = %if.end20, %_ZN4absl
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %for.end
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %23 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %watchers_, ptr noundef %23)
           to label %_ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -925,9 +925,9 @@ terminate.lpad.i.i:                               ; preds = %if.then24
 _ZNSt3mapIPN9grpc_core33ConnectivityStateWatcherInterfaceESt10unique_ptrIS1_NS0_16OrphanableDeleteEESt4lessIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit: ; preds = %if.then24
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_right.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   br label %if.end26
 
@@ -993,9 +993,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK9grpc_core24ConnectivityStateTracker5stateEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %state_ monotonic, align 8
-  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -1010,7 +1010,7 @@ do.body.i:                                        ; preds = %if.then
 switch.lookup:                                    ; preds = %if.then
   %3 = load ptr, ptr %this, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 181, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef %3, ptr noundef nonnull %this, ptr noundef nonnull %switch.load)
   br label %if.end
@@ -1022,14 +1022,14 @@ if.end:                                           ; preds = %switch.lookup, %ent
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core33ConnectivityStateWatcherInterface6OrphanEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.i.i = icmp eq i64 %0, 1
   br i1 %cmp.i.i, label %if.then.i, label %_ZN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
 
 if.then.i:                                        ; preds = %entry
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %this) #17
   br label %_ZN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
@@ -1042,13 +1042,13 @@ _ZN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11
 define linkonce_odr void @_ZN9grpc_core38AsyncConnectivityStateWatcherInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core38AsyncConnectivityStateWatcherInterfaceE, i64 16), ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1056,10 +1056,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -1085,10 +1085,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1110,7 +1110,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
@@ -1134,12 +1134,12 @@ declare void @_ZN9grpc_core14WorkSerializer3RunESt8functionIFvvEERKNS_13DebugLoc
 define linkonce_odr void @_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef %0) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %1 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core29grpc_connectivity_state_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %state_ = getelementptr inbounds i8, ptr %arg, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %2 = load i32, ptr %state_, align 8
   %3 = icmp ult i32 %2, 5
   br i1 %3, label %switch.lookup, label %do.body.i
@@ -1151,9 +1151,9 @@ do.body.i:                                        ; preds = %if.then
 switch.lookup:                                    ; preds = %if.then
   %4 = load ptr, ptr %arg, align 8
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core38AsyncConnectivityStateWatcherInterface8Notifier16SendNotificationEPvN4absl12lts_202308026StatusE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %status_ = getelementptr inbounds i8, ptr %arg, i64 16
+  %status_ = getelementptr inbounds nuw i8, ptr %arg, i64 16
   call void @_ZNK4absl12lts_202308026Status8ToStringB5cxx11ENS0_18StatusToStringModeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %status_, i32 noundef 1)
   %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 78, i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef %4, ptr noundef nonnull %switch.load, ptr noundef %call3)
@@ -1171,11 +1171,11 @@ lpad:                                             ; preds = %switch.lookup
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %7 = load ptr, ptr %arg, align 8
-  %state_6 = getelementptr inbounds i8, ptr %arg, i64 8
+  %state_6 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %8 = load i32, ptr %state_6, align 8
-  %status_7 = getelementptr inbounds i8, ptr %arg, i64 16
+  %status_7 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %9 = load ptr, ptr %vfn, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %status_7)
   %10 = load i64, ptr %status_7, align 8
@@ -1200,14 +1200,14 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.not.i.i, label %_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i = icmp eq i64 %14, 1
   br i1 %cmp.i.i.i1.i, label %if.then.i.i2.i, label %_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierD2Ev.exit
 
 if.then.i.i2.i:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %_ZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierD2Ev.exit
@@ -1293,12 +1293,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 40
   %2 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %if.then.i.i.i.i.i.i
@@ -1437,13 +1437,13 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherIn
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<grpc_core::ConnectivityStateWatcherInterface *, std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>, std::_Select1st<std::pair<grpc_core::ConnectivityStateWatcherInterface *const, std::unique_ptr<grpc_core::ConnectivityStateWatcherInterface, grpc_core::OrphanableDelete>>>, std::less<grpc_core::ConnectivityStateWatcherInterface *>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
+  %_M_node.i = getelementptr inbounds nuw i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load ptr, ptr %__args, align 8
   store ptr %0, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
-  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 40
+  %second3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %1 = load i64, ptr %second3.i.i.i.i.i.i, align 8
   store i64 %1, ptr %second.i.i.i.i.i.i, align 8
   store ptr null, ptr %second3.i.i.i.i.i.i, align 8
@@ -1459,14 +1459,14 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont3
   %cmp.not.i.i = icmp ne ptr %2, null
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp2.i.i = icmp eq ptr %3, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
   %4 = load ptr, ptr %_M_storage.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult ptr %4, %5
   br label %cleanup.thread
@@ -1474,7 +1474,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
   %6 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %6, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #17
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load i64, ptr %_M_node_count.i.i, align 8
   %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
@@ -1516,27 +1516,27 @@ _ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10u
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
-  %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_node_count.i, align 8
   %cmp5.not = icmp eq i64 %0, 0
   br i1 %cmp5.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8
   %3 = load ptr, ptr %__k, align 8
   %cmp.i = icmp ult ptr %2, %3
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not20.i = icmp eq ptr %__x.019.i, null
   br i1 %cmp.not20.i, label %if.then.i, label %while.body.lr.ph.i
@@ -1547,11 +1547,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
+  %_M_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult ptr %4, %5
   %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
-  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
+  %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !21
@@ -1561,14 +1561,14 @@ while.end.i:                                      ; preds = %while.body.i
 
 if.then.i:                                        ; preds = %while.end.i, %if.else
   %__y.0.lcssa25.i = phi ptr [ %__x.021.i, %while.end.i ], [ %add.ptr.i, %if.else ]
-  %_M_left.i3.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_left.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_left.i3.i, align 8
   %cmp.i4.i = icmp eq ptr %__y.0.lcssa25.i, %6
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #20
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre114 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre115 = load ptr, ptr %__k, align 8
   br label %if.end12.i
@@ -1585,26 +1585,26 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.else12:                                        ; preds = %entry
   %9 = load ptr, ptr %__k, align 8
-  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
+  %_M_storage.i.i.i11 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 32
   %10 = load ptr, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult ptr %9, %10
   br i1 %cmp.i12, label %if.then18, label %if.else44
 
 if.then18:                                        ; preds = %if.else12
-  %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load ptr, ptr %_M_left.i, align 8
   %cmp21 = icmp eq ptr %11, %__position.coerce
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %_M_storage.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult ptr %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %_M_right.i18 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -1612,18 +1612,18 @@ if.then32:                                        ; preds = %if.else25
   br label %return
 
 if.else42:                                        ; preds = %if.else25
-  %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
   br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
   %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
+  %_M_storage.i.i.i28 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 32
   %14 = load ptr, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult ptr %9, %14
   %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
-  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %cond.in.i31 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 %cond.in.v.i30
   %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
   %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
   br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !21
@@ -1638,7 +1638,7 @@ if.then.i46:                                      ; preds = %while.end.i34, %if.
 
 if.else.i50:                                      ; preds = %if.then.i46
   %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #20
-  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
   %.pre113 = load ptr, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
   br label %if.end12.i35
 
@@ -1656,20 +1656,20 @@ if.else44:                                        ; preds = %if.else12
   br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_right.i55 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
   %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %_M_storage.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i58, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i59, align 8
   %cmp.i60 = icmp ult ptr %9, %17
   br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %_M_right.i61 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 24
   %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
   %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
@@ -1677,18 +1677,18 @@ if.then64:                                        ; preds = %if.else57
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
   %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
   br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
 while.body.i69:                                   ; preds = %if.else74, %while.body.i69
   %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
-  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %_M_storage.i.i.i71 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 32
   %19 = load ptr, ptr %_M_storage.i.i.i71, align 8
   %cmp.i.i72 = icmp ult ptr %9, %19
   %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
-  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 %cond.in.v.i73
   %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
   br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !21
@@ -1698,14 +1698,14 @@ while.end.i77:                                    ; preds = %while.body.i69
 
 if.then.i89:                                      ; preds = %while.end.i77, %if.else74
   %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load ptr, ptr %_M_left.i3.i91, align 8
   %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
   %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #20
-  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
   %.pre = load ptr, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
   br label %if.end12.i78
 
@@ -1729,13 +1729,13 @@ return:                                           ; preds = %if.end12.i78, %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %if.then.i.i.i.i.i.i
@@ -1770,18 +1770,18 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i, align 8
   %cmp.i = icmp eq ptr %__first.coerce, %0
   br i1 %cmp.i, label %land.rhs, label %if.else
 
 land.rhs:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.i1 = icmp eq ptr %__last.coerce, %add.ptr.i
   br i1 %cmp.i1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.rhs
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1)
           to label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE5clearEv.exit unwind label %terminate.lpad.i
@@ -1796,9 +1796,9 @@ terminate.lpad.i:                                 ; preds = %if.then
 _ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE5clearEv.exit: ; preds = %if.then
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr.i, ptr %_M_left.i, align 8
-  %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_right.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_right.i.i, align 8
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i, align 8
   br label %if.end
 
@@ -1807,15 +1807,15 @@ if.else:                                          ; preds = %entry, %land.rhs
   br i1 %cmp.i3.not8, label %if.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E.exit
   %__first.sroa.0.09 = phi ptr [ %__first.coerce, %while.body.lr.ph ], [ %call.i, %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E.exit ]
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09) #20
   %call.i5 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4) #17
-  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 40
+  %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 40
   %4 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPN9grpc_core33ConnectivityStateWatcherInterfaceESt4pairIKS2_St10unique_ptrIS1_NS0_16OrphanableDeleteEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_E.exit, label %if.then.i.i.i.i.i.i.i

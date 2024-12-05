@@ -35,7 +35,7 @@ define dso_local void @_ZN5vcpkg20generate_random_UUIDB5cxx11Ev(ptr dead_on_unwi
   %3 = alloca %"class.std::uniform_int_distribution", align 8
   call void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %2)
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %4, align 8
   %5 = invoke noundef i64 @_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit unwind label %48
@@ -57,7 +57,7 @@ _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1: ; preds = %_
   %.04065.i = phi i1 [ false, %28 ], [ true, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
   %.04164.i = phi i64 [ %14, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
   %.043.idx63.i = phi i64 [ %.043.add.i, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
-  %.043.ptr.i = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_top_field_size, i64 %.043.idx63.i
+  %.043.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_top_field_size, i64 %.043.idx63.i
   %11 = load i64, ptr %.043.ptr.i, align 8, !noalias !5
   br i1 %.04065.i, label %13, label %12
 
@@ -111,14 +111,14 @@ _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsI
   %20 = lshr i64 %8, %19
   %21 = lshr i64 %20, 4
   %22 = and i64 %21, 15
-  %23 = getelementptr inbounds [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %24)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc.i:                                         ; preds = %16
   %25 = and i64 %20, 15
-  %26 = getelementptr inbounds [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %27)
           to label %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -131,7 +131,7 @@ _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsI
 .preheader.i:                                     ; preds = %28, %44
   %.039.idx67.i = phi i64 [ %.039.add.i, %44 ], [ 0, %28 ]
   %.166.i = phi i64 [ %30, %44 ], [ 0, %28 ]
-  %.039.ptr.i = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_bottom_field_size, i64 %.039.idx67.i
+  %.039.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_bottom_field_size, i64 %.039.idx67.i
   %29 = load i64, ptr %.039.ptr.i, align 8, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 45)
           to label %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit50.preheader.i unwind label %.loopexit.split-lp.loopexit.i
@@ -152,14 +152,14 @@ _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsI
   %36 = lshr i64 %10, %35
   %37 = lshr i64 %36, 4
   %38 = and i64 %37, 15
-  %39 = getelementptr inbounds [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %40)
           to label %.noexc48.i unwind label %.loopexit.i
 
 .noexc48.i:                                       ; preds = %32
   %41 = and i64 %36, 15
-  %42 = getelementptr inbounds [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [17 x i8], ptr @_ZN12_GLOBAL__N_113append_hexits3hexE, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %43)
           to label %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit50.i unwind label %.loopexit.i
@@ -383,7 +383,7 @@ declare void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(5000) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %"struct.std::uniform_int_distribution<unsigned long>::param_type", align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
   %8 = sub i64 %6, %7
@@ -426,7 +426,7 @@ _ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit: ;
 
 .preheader:                                       ; preds = %28
   %29 = lshr i64 %8, 32
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %31
 
 31:                                               ; preds = %.preheader, %31

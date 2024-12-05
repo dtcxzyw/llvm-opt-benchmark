@@ -43,9 +43,9 @@ define hidden i32 @file_ascmagic(ptr noundef %0, ptr nocapture noundef readonly 
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, ptr noundef nonnull align 8 dereferenceable(192) %1, i64 192, i1 false)
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = load i64, ptr %12, align 8
   %invariant.gep.i = getelementptr i8, ptr %11, i64 -1
   %14 = icmp ugt i64 %13, 1
@@ -64,13 +64,13 @@ define hidden i32 @file_ascmagic(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %19, label %.lr.ph.i, label %trim_nuls.exit.thread
 
 trim_nuls.exit.thread:                            ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %6, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i64 1, ptr %20, align 8
   br label %23
 
 trim_nuls.exit:                                   ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i64 [ %13, %3 ], [ %.04.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i64 %.0.lcssa.i, ptr %21, align 8
   %22 = and i64 %.0.lcssa.i, 1
   %.not = icmp eq i64 %22, 0
@@ -116,11 +116,11 @@ declare i32 @file_encoding(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define hidden i32 @file_ascmagic_with_encoding(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.buffer, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1040
   %invariant.gep.i = getelementptr i8, ptr %10, i64 -1
@@ -177,7 +177,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 40:                                               ; preds = %36
   %41 = trunc nuw nsw i64 %34 to i8
-  %42 = getelementptr inbounds i8, ptr %.06471.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %41, ptr %.06471.i, align 1
   br label %126
 
@@ -212,7 +212,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   %60 = lshr i64 %34, 12
   %61 = trunc nuw i64 %60 to i8
   %62 = or disjoint i8 %61, -32
-  %63 = getelementptr inbounds i8, ptr %.06471.i, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %62, ptr %.06471.i, align 1
   br label %114
 
@@ -247,7 +247,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   %81 = lshr i64 %34, 24
   %82 = trunc nuw i64 %81 to i8
   %83 = or disjoint i8 %82, -8
-  %84 = getelementptr inbounds i8, ptr %.06471.i, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %83, ptr %.06471.i, align 1
   br label %101
 
@@ -263,14 +263,14 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   %91 = lshr i64 %34, 30
   %92 = trunc nuw i64 %91 to i8
   %93 = or disjoint i8 %92, -4
-  %94 = getelementptr inbounds i8, ptr %.06471.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %93, ptr %.06471.i, align 1
   %95 = load i64, ptr %33, align 8
   %96 = lshr i64 %95, 24
   %97 = trunc i64 %96 to i8
   %98 = and i8 %97, 63
   %99 = or disjoint i8 %98, -128
-  %100 = getelementptr inbounds i8, ptr %.06471.i, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 2
   store i8 %99, ptr %94, align 1
   br label %101
 
@@ -286,13 +286,13 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 107:                                              ; preds = %101, %70
   %.064.pn.i = phi ptr [ %.06471.i, %70 ], [ %.5.i, %101 ]
-  %.4.i = getelementptr inbounds i8, ptr %.064.pn.i, i64 1
+  %.4.i = getelementptr inbounds nuw i8, ptr %.064.pn.i, i64 1
   %108 = load i64, ptr %33, align 8
   %109 = lshr i64 %108, 12
   %110 = trunc i64 %109 to i8
   %111 = and i8 %110, 63
   %112 = or disjoint i8 %111, -128
-  %113 = getelementptr inbounds i8, ptr %.064.pn.i, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %.064.pn.i, i64 2
   store i8 %112, ptr %.4.i, align 1
   br label %114
 
@@ -308,12 +308,12 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 120:                                              ; preds = %114, %49
   %.064.pn67.i = phi ptr [ %.06471.i, %49 ], [ %.3.i, %114 ]
-  %.2.i = getelementptr inbounds i8, ptr %.064.pn67.i, i64 1
+  %.2.i = getelementptr inbounds nuw i8, ptr %.064.pn67.i, i64 1
   %121 = load i64, ptr %33, align 8
   %122 = trunc i64 %121 to i8
   %123 = and i8 %122, 63
   %124 = or disjoint i8 %123, -128
-  %125 = getelementptr inbounds i8, ptr %.064.pn67.i, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %.064.pn67.i, i64 2
   store i8 %124, ptr %.2.i, align 1
   br label %126
 
@@ -325,7 +325,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 encode_utf8.exit:                                 ; preds = %126
   %128 = load i32, ptr %1, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = ptrtoint ptr %.1.i to i64
   %131 = ptrtoint ptr %26 to i64
   %132 = sub i64 %130, %131

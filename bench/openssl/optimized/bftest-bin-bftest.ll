@@ -114,7 +114,7 @@ for.cond2.preheader.i:                            ; preds = %for.end35.i, %sw.bb
 
 for.body4.i:                                      ; preds = %for.body4.i, %for.cond2.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %indvars.iv.next.i, %for.body4.i ]
-  %arrayidx6.i = getelementptr inbounds [34 x [8 x i8]], ptr @ecb_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw [34 x [8 x i8]], ptr @ecb_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx6.i, align 1
   %conv.i = zext i8 %0 to i32
   %call7.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv.i)
@@ -128,7 +128,7 @@ for.end.i:                                        ; preds = %for.body4.i
 
 for.body12.i:                                     ; preds = %for.body12.i, %for.end.i
   %indvars.iv86.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next87.i, %for.body12.i ]
-  %arrayidx16.i = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv86.i
+  %arrayidx16.i = getelementptr inbounds nuw [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv86.i
   %1 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %1 to i32
   %call18.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv17.i)
@@ -142,7 +142,7 @@ for.end21.i:                                      ; preds = %for.body12.i
 
 for.body26.i:                                     ; preds = %for.body26.i, %for.end21.i
   %indvars.iv90.i = phi i64 [ 0, %for.end21.i ], [ %indvars.iv.next91.i, %for.body26.i ]
-  %arrayidx30.i = getelementptr inbounds [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv90.i
+  %arrayidx30.i = getelementptr inbounds nuw [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %indvars.iv94.i, i64 %indvars.iv90.i
   %2 = load i8, ptr %arrayidx30.i, align 1
   %conv31.i = zext i8 %2 to i32
   %call32.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv31.i)
@@ -163,7 +163,7 @@ for.end39.i:                                      ; preds = %for.end35.i
 
 for.body45.i:                                     ; preds = %for.body45.i, %for.end39.i
   %indvars.iv98.i = phi i64 [ 0, %for.end39.i ], [ %indvars.iv.next99.i, %for.body45.i ]
-  %arrayidx47.i = getelementptr inbounds [8 x i8], ptr @key_data, i64 0, i64 %indvars.iv98.i
+  %arrayidx47.i = getelementptr inbounds nuw [8 x i8], ptr @key_data, i64 0, i64 %indvars.iv98.i
   %3 = load i8, ptr %arrayidx47.i, align 1
   %conv48.i = zext i8 %3 to i32
   %call49.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv48.i)
@@ -183,7 +183,7 @@ for.body57.i:                                     ; preds = %for.end84.i, %for.e
 
 for.body62.i:                                     ; preds = %for.body62.i, %for.body57.i
   %indvars.iv102.i = phi i64 [ 0, %for.body57.i ], [ %indvars.iv.next103.i, %for.body62.i ]
-  %arrayidx66.i = getelementptr inbounds [25 x [8 x i8]], ptr @key_out, i64 0, i64 %indvars.iv114.i, i64 %indvars.iv102.i
+  %arrayidx66.i = getelementptr inbounds nuw [25 x [8 x i8]], ptr @key_out, i64 0, i64 %indvars.iv114.i, i64 %indvars.iv102.i
   %4 = load i8, ptr %arrayidx66.i, align 1
   %conv67.i = zext i8 %4 to i32
   %call68.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv67.i)
@@ -199,7 +199,7 @@ for.end71.i:                                      ; preds = %for.body62.i
 
 for.body77.i:                                     ; preds = %for.body77.i, %for.end71.i
   %indvars.iv106.i = phi i64 [ 0, %for.end71.i ], [ %indvars.iv.next107.i, %for.body77.i ]
-  %arrayidx79.i = getelementptr inbounds [25 x i8], ptr @key_test, i64 0, i64 %indvars.iv106.i
+  %arrayidx79.i = getelementptr inbounds nuw [25 x i8], ptr @key_test, i64 0, i64 %indvars.iv106.i
   %6 = load i8, ptr %arrayidx79.i, align 1
   %conv80.i = zext i8 %6 to i32
   %call81.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv80.i)
@@ -220,7 +220,7 @@ for.end88.i:                                      ; preds = %for.end84.i
 
 for.body94.i:                                     ; preds = %for.body94.i, %for.end88.i
   %indvars.iv120.i = phi i64 [ 0, %for.end88.i ], [ %indvars.iv.next121.i, %for.body94.i ]
-  %arrayidx96.i = getelementptr inbounds [16 x i8], ptr @cbc_key, i64 0, i64 %indvars.iv120.i
+  %arrayidx96.i = getelementptr inbounds nuw [16 x i8], ptr @cbc_key, i64 0, i64 %indvars.iv120.i
   %7 = load i8, ptr %arrayidx96.i, align 1
   %conv97.i = zext i8 %7 to i32
   %call98.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv97.i)
@@ -234,7 +234,7 @@ for.end101.i:                                     ; preds = %for.body94.i
 
 for.body106.i:                                    ; preds = %for.body106.i, %for.end101.i
   %indvars.iv124.i = phi i64 [ 0, %for.end101.i ], [ %indvars.iv.next125.i, %for.body106.i ]
-  %arrayidx108.i = getelementptr inbounds [8 x i8], ptr @cbc_iv, i64 0, i64 %indvars.iv124.i
+  %arrayidx108.i = getelementptr inbounds nuw [8 x i8], ptr @cbc_iv, i64 0, i64 %indvars.iv124.i
   %8 = load i8, ptr %arrayidx108.i, align 1
   %conv109.i = zext i8 %8 to i32
   %call110.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv109.i)
@@ -258,7 +258,7 @@ for.end113.i:                                     ; preds = %for.body106.i
 for.body128.i:                                    ; preds = %for.end113.i, %for.body128.i
   %conv12373.i = phi i64 [ %conv123.i, %for.body128.i ], [ 0, %for.end113.i ]
   %j.872.i = phi i32 [ %inc134.i, %for.body128.i ], [ 0, %for.end113.i ]
-  %arrayidx130.i = getelementptr inbounds [40 x i8], ptr @cbc_data, i64 0, i64 %conv12373.i
+  %arrayidx130.i = getelementptr inbounds nuw [40 x i8], ptr @cbc_data, i64 0, i64 %conv12373.i
   %9 = load i8, ptr %arrayidx130.i, align 1
   %conv131.i = sext i8 %9 to i32
   %call132.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv131.i)
@@ -277,7 +277,7 @@ for.end135.i:                                     ; preds = %for.body128.i, %for
 
 for.body142.i:                                    ; preds = %for.body142.i, %for.end135.i
   %indvars.iv128.i = phi i64 [ 0, %for.end135.i ], [ %indvars.iv.next129.i, %for.body142.i ]
-  %arrayidx144.i = getelementptr inbounds [32 x i8], ptr @cbc_ok, i64 0, i64 %indvars.iv128.i
+  %arrayidx144.i = getelementptr inbounds nuw [32 x i8], ptr @cbc_ok, i64 0, i64 %indvars.iv128.i
   %10 = load i8, ptr %arrayidx144.i, align 1
   %conv145.i = zext i8 %10 to i32
   %call146.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv145.i)
@@ -299,7 +299,7 @@ for.end149.i:                                     ; preds = %for.body142.i
 for.body162.i:                                    ; preds = %for.end149.i, %for.body162.i
   %conv15779.i = phi i64 [ %conv157.i, %for.body162.i ], [ 0, %for.end149.i ]
   %j.1078.i = phi i32 [ %inc168.i, %for.body162.i ], [ 0, %for.end149.i ]
-  %arrayidx164.i = getelementptr inbounds [29 x i8], ptr @cfb64_ok, i64 0, i64 %conv15779.i
+  %arrayidx164.i = getelementptr inbounds nuw [29 x i8], ptr @cfb64_ok, i64 0, i64 %conv15779.i
   %11 = load i8, ptr %arrayidx164.i, align 1
   %conv165.i = zext i8 %11 to i32
   %call166.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv165.i)
@@ -324,7 +324,7 @@ for.end169.i:                                     ; preds = %for.body162.i, %for
 for.body182.i:                                    ; preds = %for.end169.i, %for.body182.i
   %conv17784.i = phi i64 [ %conv177.i, %for.body182.i ], [ 0, %for.end169.i ]
   %j.1183.i = phi i32 [ %inc188.i, %for.body182.i ], [ 0, %for.end169.i ]
-  %arrayidx184.i = getelementptr inbounds [29 x i8], ptr @ofb64_ok, i64 0, i64 %conv17784.i
+  %arrayidx184.i = getelementptr inbounds nuw [29 x i8], ptr @ofb64_ok, i64 0, i64 %conv17784.i
   %12 = load i8, ptr %arrayidx184.i, align 1
   %conv185.i = zext i8 %12 to i32
   %call186.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv185.i)
@@ -370,9 +370,9 @@ entry:
   %arrayidx5 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_plain, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx5, align 8
   store i32 %0, ptr %data, align 4
-  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx5, i64 4
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 4
   %1 = load i32, ptr %arrayidx10, align 4
-  %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 4
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %data, i64 4
   store i32 %1, ptr %arrayidx11, align 4
   call void @BF_encrypt(ptr noundef nonnull %data, ptr noundef nonnull %key) #7
   %arrayidx14 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_cipher, i64 0, i64 %idxprom
@@ -468,7 +468,7 @@ entry:
   store i64 1167088121787636990, ptr %iv, align 8
   store i32 0, ptr %n, align 4
   call void @BF_cfb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 13, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 1) #7
-  %arrayidx = getelementptr inbounds i8, ptr %cbc_out, i64 13
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cbc_out, i64 13
   %sub = add i64 %call, 4294967284
   %conv5 = and i64 %sub, 4294967295
   call void @BF_cfb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @cbc_data, i64 13), ptr noundef nonnull %arrayidx, i64 noundef %conv5, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 1) #7
@@ -480,8 +480,8 @@ entry:
   store i32 0, ptr %n, align 4
   store i64 1167088121787636990, ptr %iv, align 8
   call void @BF_cfb64_encrypt(ptr noundef nonnull %cbc_out, ptr noundef nonnull %cbc_in, i64 noundef 17, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 0) #7
-  %arrayidx15 = getelementptr inbounds i8, ptr %cbc_out, i64 17
-  %arrayidx16 = getelementptr inbounds i8, ptr %cbc_in, i64 17
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %cbc_out, i64 17
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %cbc_in, i64 17
   %sub17 = add i64 %call, 4294967280
   %conv18 = and i64 %sub17, 4294967295
   call void @BF_cfb64_encrypt(ptr noundef nonnull %arrayidx15, ptr noundef nonnull %arrayidx16, i64 noundef %conv18, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n, i32 noundef 0) #7
@@ -507,7 +507,7 @@ entry:
   store i64 1167088121787636990, ptr %iv, align 8
   store i32 0, ptr %n, align 4
   call void @BF_ofb64_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %cbc_out, i64 noundef 13, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
-  %arrayidx = getelementptr inbounds i8, ptr %cbc_out, i64 13
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cbc_out, i64 13
   %sub = add i64 %call, 4294967284
   %conv5 = and i64 %sub, 4294967295
   call void @BF_ofb64_encrypt(ptr noundef nonnull getelementptr inbounds (i8, ptr @cbc_data, i64 13), ptr noundef nonnull %arrayidx, i64 noundef %conv5, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
@@ -519,8 +519,8 @@ entry:
   store i32 0, ptr %n, align 4
   store i64 1167088121787636990, ptr %iv, align 8
   call void @BF_ofb64_encrypt(ptr noundef nonnull %cbc_out, ptr noundef nonnull %cbc_in, i64 noundef 17, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7
-  %arrayidx15 = getelementptr inbounds i8, ptr %cbc_out, i64 17
-  %arrayidx16 = getelementptr inbounds i8, ptr %cbc_in, i64 17
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %cbc_out, i64 17
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %cbc_in, i64 17
   %sub17 = add i64 %call, 4294967280
   %conv18 = and i64 %sub17, 4294967295
   call void @BF_ofb64_encrypt(ptr noundef nonnull %arrayidx15, ptr noundef nonnull %arrayidx16, i64 noundef %conv18, ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef nonnull %n) #7

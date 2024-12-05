@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnul
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [32 x ptr], ptr @_ZZNK8Register12RegisterImpl4nameEvE5names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [32 x ptr], ptr @_ZZNK8Register12RegisterImpl4nameEvE5names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -131,7 +131,7 @@ define hidden noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr nou
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [8 x ptr], ptr @_ZZNK13FloatRegister17FloatRegisterImpl4nameEvE5names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZNK13FloatRegister17FloatRegisterImpl4nameEvE5names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -150,7 +150,7 @@ define hidden noundef ptr @_ZNK11XMMRegister15XMMRegisterImpl4nameEv(ptr noundef
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [32 x ptr], ptr @_ZZNK11XMMRegister15XMMRegisterImpl4nameEvE5names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [32 x ptr], ptr @_ZZNK11XMMRegister15XMMRegisterImpl4nameEvE5names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -169,7 +169,7 @@ define hidden noundef ptr @_ZNK9KRegister13KRegisterImpl4nameEv(ptr noundef nonn
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [8 x ptr], ptr @__const._ZNK9KRegister13KRegisterImpl4nameEv.names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x ptr], ptr @__const._ZNK9KRegister13KRegisterImpl4nameEv.names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   br label %9
 

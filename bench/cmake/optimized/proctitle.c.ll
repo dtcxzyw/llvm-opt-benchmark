@@ -33,7 +33,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04149 = phi i64 [ %7, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #6
   %11 = add i64 %.04149, 1
@@ -53,7 +53,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
   br i1 %18, label %37, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %14
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %14
   %21 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %21, i64 %7, i1 false)
   store ptr %20, ptr %17, align 8
@@ -69,12 +69,12 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
   %.04053 = phi ptr [ %20, %.lr.ph55.preheader ], [ %22, %.lr.ph55 ]
   %.14252 = phi i64 [ %7, %.lr.ph55.preheader ], [ %26, %.lr.ph55 ]
   %22 = getelementptr inbounds i8, ptr %.04053, i64 %.14252
-  %23 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv66
+  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv66
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #6
   %26 = add i64 %25, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %24, i64 %26, i1 false)
-  %27 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv66
+  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv66
   store ptr %22, ptr %27, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
@@ -88,8 +88,8 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
   %.lcssa51 = phi i64 [ %indvars.iv66, %._crit_edge56.loopexit ], [ 0, %19 ]
   %.142.lcssa = phi i64 [ %26, %._crit_edge56.loopexit ], [ %7, %19 ]
   %.lcssa = phi i64 [ %28, %._crit_edge56.loopexit ], [ 1, %19 ]
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %.lcssa51
-  %30 = getelementptr inbounds ptr, ptr %17, i64 %.lcssa
+  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %.lcssa51
+  %30 = getelementptr inbounds nuw ptr, ptr %17, i64 %.lcssa
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 %.142.lcssa

@@ -28,9 +28,9 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !6
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !11
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 1024, ptr noundef nonnull @.str.1, i32 noundef %18, i32 noundef %20) #14
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
@@ -112,8 +112,8 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %71 = phi ptr [ %73, %68 ], [ %59, %53 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false)
   %72 = add nuw nsw i32 %69, 1
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
-  %74 = getelementptr inbounds i8, ptr %70, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %75 = load i32, ptr %17, align 4, !tbaa !6
   %76 = icmp slt i32 %72, %75
   br i1 %76, label %68, label %60

@@ -52,7 +52,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, ptr noundef %name) #8
   br label %trace_load_file.exit
@@ -118,7 +118,7 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i18
   %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #8
   %call10.i.i23 = tail call i32 @qemu_get_thread_id() #8
   %12 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
+  %tv_usec.i.i24 = getelementptr inbounds nuw i8, ptr %_now.i.i11, i64 8
   %13 = load i64, ptr %tv_usec.i.i24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i23, i64 noundef %12, i64 noundef %13, ptr noundef %name, ptr noundef %call4) #8
   br label %trace_load_file.exit25

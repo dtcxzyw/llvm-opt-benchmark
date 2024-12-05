@@ -25,9 +25,9 @@ define dso_local ptr @get_attribute_options(i32 noundef %0, i32 noundef %1) loca
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 16, ptr %9, align 8
   %10 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 40) #6
   store ptr %10, ptr @AttoptCacheHash, align 8
@@ -48,14 +48,14 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
 13:                                               ; preds = %InitializeAttoptCache.exit, %2
   %14 = phi ptr [ %.pre, %InitializeAttoptCache.exit ], [ %6, %2 ]
   store i32 %0, ptr %4, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %15, align 4
   %16 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #6
   %.not26 = icmp eq ptr %16, null
   br i1 %.not26, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
   br label %41
 
@@ -96,7 +96,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
   %.022 = phi ptr [ %.1, %36 ], [ null, %17 ]
   %38 = load ptr, ptr @AttoptCacheHash, align 8
   %39 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null) #6
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %.022, ptr %40, align 8
   br label %41
 
@@ -107,7 +107,7 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
   br i1 %43, label %54, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.021, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %46 = load i32, ptr %42, align 4
   %47 = lshr i32 %46, 2
   %48 = zext nneg i32 %47 to i64
@@ -160,7 +160,7 @@ define internal void @InvalidateAttoptCacheCallback(i64 %0, i32 %1, i32 %2) #0 {
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %12, label %11

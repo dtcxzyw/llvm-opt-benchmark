@@ -59,7 +59,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @json_get_object(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %.split.loop.exit
@@ -76,11 +76,11 @@ define noundef ptr @json_get_object(ptr nocapture noundef readonly %0, ptr nound
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.022, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %.022, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
@@ -94,7 +94,7 @@ define noundef ptr @json_get_object(ptr nocapture noundef readonly %0, ptr nound
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.022, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.022, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %31
@@ -126,7 +126,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -146,7 +146,7 @@ define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unname
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @json_get_array(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %.split.loop.exit
@@ -163,11 +163,11 @@ define noundef ptr @json_get_array(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.022, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %.022, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
@@ -181,7 +181,7 @@ define noundef ptr @json_get_array(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.022, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.022, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %31
@@ -214,7 +214,7 @@ define i32 @json_get_array_len(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   br label %6
 
@@ -232,7 +232,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %1, %8
   br i1 %.not, label %.preheader, label %.loopexit
@@ -257,7 +257,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
 
 ; Function Attrs: nounwind uwtable
 define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %.loopexit
@@ -274,11 +274,11 @@ define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr nocaptu
   br i1 %9, label %10, label %45
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.026, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %.026, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
@@ -292,7 +292,7 @@ define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr nocaptu
   br i1 %22, label %23, label %45
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.026, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.026, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %45
@@ -500,7 +500,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
@@ -517,11 +517,11 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.026, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %0, i64 %14
-  %16 = getelementptr inbounds i8, ptr %.026, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %17, %13
   %19 = sext i32 %18 to i64
@@ -535,7 +535,7 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
   br i1 %23, label %24, label %44
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.026, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.026, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %44
@@ -581,7 +581,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
@@ -598,11 +598,11 @@ define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, p
   br i1 %10, label %11, label %51
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.035, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.035, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %0, i64 %14
-  %16 = getelementptr inbounds i8, ptr %.035, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %17, %13
   %19 = sext i32 %18 to i64
@@ -616,7 +616,7 @@ define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, p
   br i1 %23, label %24, label %51
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.035, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.035, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %51

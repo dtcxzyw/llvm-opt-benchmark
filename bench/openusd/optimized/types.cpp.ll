@@ -70,7 +70,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12HioGetFormatEjNS_7Hio
   %22 = select i1 %or.cond3, i64 1, i64 %21
   %23 = add nsw i32 %0, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [10 x [4 x i32]], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 0, i64 %22, i64 %24
+  %25 = getelementptr inbounds nuw [10 x [4 x i32]], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L11_hioFormatsE, i64 0, i64 %22, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -307,7 +307,7 @@ define noundef range(i64 0, 9) i64 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGe
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_7HioTypeE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_7HioTypeE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -321,7 +321,7 @@ define noundef range(i64 1, 9) i64 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGe
 switch.lookup:
   %1 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13HioGetHioTypeENS_9HioFormatE(i32 noundef %0)
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_9HioFormatE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__20HioGetDataSizeOfTypeENS_9HioFormatE, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -505,14 +505,14 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14HioGetDataSizeENS_9Hi
   %9 = add nsw i64 %7, -1
   %10 = add i64 %9, %8
   %11 = udiv i64 %10, %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %4, align 8
   %16 = add nsw i64 %14, -1
   %17 = add i64 %16, %15
   %18 = udiv i64 %17, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 4
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %20, i32 1)
   %21 = zext nneg i32 %.sroa.speculated to i64

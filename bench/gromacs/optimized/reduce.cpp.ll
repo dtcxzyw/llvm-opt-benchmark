@@ -22,10 +22,10 @@ define noundef i32 @_Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmp
   br label %17
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
   br label %17
@@ -68,14 +68,14 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
   br label %.loopexit
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not99 = icmp eq ptr %26, null
   br i1 %.not99, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = zext i32 %4 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not100 = icmp eq ptr %30, null
   br i1 %.not100, label %31, label %33
@@ -87,12 +87,12 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
 33:                                               ; preds = %27
   %34 = icmp eq ptr %0, null
   %spec.select = select i1 %34, ptr %1, ptr %0
-  %35 = getelementptr inbounds i8, ptr %6, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %11 to i64
   %38 = getelementptr inbounds %struct.tMPI_Atomic_ptr, ptr %36, i64 %37
   store ptr %spec.select, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds %struct.tMPI_Atomic_ptr, ptr %40, i64 %37
   store ptr %1, ptr %41, align 8
@@ -102,7 +102,7 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
 .lr.ph:                                           ; preds = %33
   %.not101 = icmp eq ptr %1, %spec.select
   %43 = sext i32 %2 to i64
-  %44 = getelementptr inbounds i8, ptr %6, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 184
   br label %45
 
 45:                                               ; preds = %.lr.ph, %102
@@ -149,7 +149,7 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
 
 _Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit.thread: ; preds = %54
   %69 = load ptr, ptr %25, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %28
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %28
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %1, ptr noundef nonnull %spec.select., ptr noundef %.085, i32 noundef %2)
   br label %73
@@ -286,9 +286,9 @@ define noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm
   %14 = icmp eq ptr %0, null
   %spec.select = select i1 %14, ptr %1, ptr %0
   %15 = tail call noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_comm_(ptr noundef nonnull %spec.select, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef %5)
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = tail call noundef i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr noundef nonnull %16)
-  %18 = getelementptr inbounds i8, ptr %5, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %.not30 = icmp eq i32 %8, 0

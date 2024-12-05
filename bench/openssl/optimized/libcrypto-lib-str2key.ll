@@ -22,7 +22,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %str, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %rem28 = and i64 %indvars.iv, 8
   %cmp2.not.not = icmp eq i64 %rem28, 0
@@ -41,7 +41,7 @@ if.else:                                          ; preds = %for.body
 for.inc:                                          ; preds = %if.then, %if.else
   %rem5.sink = phi i64 [ %rem5, %if.then ], [ %sub, %if.else ]
   %shl.sink = phi i8 [ %shl, %if.then ], [ %rev, %if.else ]
-  %arrayidx7 = getelementptr inbounds [8 x i8], ptr %key, i64 0, i64 %rem5.sink
+  %arrayidx7 = getelementptr inbounds nuw [8 x i8], ptr %key, i64 0, i64 %rem5.sink
   %1 = load i8, ptr %arrayidx7, align 1
   %xor = xor i8 %1, %shl.sink
   store i8 %xor, ptr %arrayidx7, align 1
@@ -88,7 +88,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %str, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = and i32 %1, 16
@@ -103,14 +103,14 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp5.not.not, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then
-  %arrayidx11 = getelementptr inbounds [8 x i8], ptr %key1, i64 0, i64 %rem9
+  %arrayidx11 = getelementptr inbounds nuw [8 x i8], ptr %key1, i64 0, i64 %rem9
   %2 = load i8, ptr %arrayidx11, align 1
   %xor = xor i8 %2, %shl
   store i8 %xor, ptr %arrayidx11, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.then
-  %arrayidx18 = getelementptr inbounds [8 x i8], ptr %key2, i64 0, i64 %rem9
+  %arrayidx18 = getelementptr inbounds nuw [8 x i8], ptr %key2, i64 0, i64 %rem9
   %3 = load i8, ptr %arrayidx18, align 1
   %xor20 = xor i8 %3, %shl
   store i8 %xor20, ptr %arrayidx18, align 1
@@ -124,14 +124,14 @@ if.else22:                                        ; preds = %for.body
   br i1 %cmp45.not.not, label %if.then47, label %if.else55
 
 if.then47:                                        ; preds = %if.else22
-  %arrayidx51 = getelementptr inbounds [8 x i8], ptr %key1, i64 0, i64 %sub
+  %arrayidx51 = getelementptr inbounds nuw [8 x i8], ptr %key1, i64 0, i64 %sub
   %4 = load i8, ptr %arrayidx51, align 1
   %xor5342 = xor i8 %4, %rev
   store i8 %xor5342, ptr %arrayidx51, align 1
   br label %for.inc
 
 if.else55:                                        ; preds = %if.else22
-  %arrayidx60 = getelementptr inbounds [8 x i8], ptr %key2, i64 0, i64 %sub
+  %arrayidx60 = getelementptr inbounds nuw [8 x i8], ptr %key2, i64 0, i64 %sub
   %5 = load i8, ptr %arrayidx60, align 1
   %xor6241 = xor i8 %5, %rev
   store i8 %xor6241, ptr %arrayidx60, align 1

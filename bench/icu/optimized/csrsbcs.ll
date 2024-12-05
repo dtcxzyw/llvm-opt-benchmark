@@ -191,17 +191,17 @@ $_ZTIN6icu_757UMemoryE = comdat any
 define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 36), (40, 48)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511NGramParserE, i64 16), ptr %this, align 8
-  %ngram = getelementptr inbounds i8, ptr %this, i64 8
+  %ngram = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ngram, align 8
-  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
+  %byteIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %byteIndex, align 8
-  %ngramList = getelementptr inbounds i8, ptr %this, i64 16
+  %ngramList = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %theNgramList, ptr %ngramList, align 8
-  %charMap = getelementptr inbounds i8, ptr %this, i64 40
+  %charMap = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %theCharMap, ptr %charMap, align 8
-  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %hitCount, align 4
-  %ngramCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %ngramCount, align 8
   ret void
 }
@@ -226,42 +226,42 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -1, 67) i32 @_ZN6icu_7511NGramParser6searchEPKii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %table, i32 noundef %value) local_unnamed_addr #4 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %table, i64 128
+  %arrayidx = getelementptr inbounds nuw i8, ptr %table, i64 128
   %0 = load i32, ptr %arrayidx, align 4
   %cmp.not = icmp sgt i32 %0, %value
   %spec.select = select i1 %cmp.not, i32 0, i32 32
   %add3 = or disjoint i32 %spec.select, 16
   %idxprom4 = zext nneg i32 %add3 to i64
-  %arrayidx5 = getelementptr inbounds i32, ptr %table, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom4
   %1 = load i32, ptr %arrayidx5, align 4
   %cmp6.not = icmp sgt i32 %1, %value
   %index.1 = select i1 %cmp6.not, i32 %spec.select, i32 %add3
   %add10 = or disjoint i32 %index.1, 8
   %idxprom11 = zext nneg i32 %add10 to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %table, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom11
   %2 = load i32, ptr %arrayidx12, align 4
   %cmp13.not = icmp sgt i32 %2, %value
   %index.2 = select i1 %cmp13.not, i32 %index.1, i32 %add10
   %add17 = or disjoint i32 %index.2, 4
   %idxprom18 = zext nneg i32 %add17 to i64
-  %arrayidx19 = getelementptr inbounds i32, ptr %table, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom18
   %3 = load i32, ptr %arrayidx19, align 4
   %cmp20.not = icmp sgt i32 %3, %value
   %index.3 = select i1 %cmp20.not, i32 %index.2, i32 %add17
   %add24 = add nuw nsw i32 %index.3, 2
   %idxprom25 = zext nneg i32 %add24 to i64
-  %arrayidx26 = getelementptr inbounds i32, ptr %table, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom25
   %4 = load i32, ptr %arrayidx26, align 4
   %cmp27.not = icmp sgt i32 %4, %value
   %index.4 = select i1 %cmp27.not, i32 %index.3, i32 %add24
   %add31 = add nuw nsw i32 %index.4, 1
   %idxprom32 = zext nneg i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds i32, ptr %table, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom32
   %5 = load i32, ptr %arrayidx33, align 4
   %cmp34.not = icmp sgt i32 %5, %value
   %index.5 = select i1 %cmp34.not, i32 %index.4, i32 %add31
   %idxprom38 = zext nneg i32 %index.5 to i64
-  %arrayidx39 = getelementptr inbounds i32, ptr %table, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom38
   %6 = load i32, ptr %arrayidx39, align 4
   %cmp40 = icmp sgt i32 %6, %value
   %sub = sext i1 %cmp40 to i32
@@ -271,7 +271,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %idxprom44 = zext nneg i32 %index.6 to i64
-  %arrayidx45 = getelementptr inbounds i32, ptr %table, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds nuw i32, ptr %table, i64 %idxprom44
   %7 = load i32, ptr %arrayidx45, align 4
   %cmp46.not = icmp eq i32 %7, %value
   %spec.select31 = select i1 %cmp46.not, i32 %index.6, i32 -1
@@ -285,48 +285,48 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7511NGramParser6lookupEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %thisNgram) local_unnamed_addr #5 align 2 {
 entry:
-  %ngramCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %ngramCount, align 8
   %add = add nsw i32 %0, 1
   store i32 %add, ptr %ngramCount, align 8
-  %ngramList = getelementptr inbounds i8, ptr %this, i64 16
+  %ngramList = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ngramList, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 128
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp sgt i32 %2, %thisNgram
   %spec.select.i = select i1 %cmp.not.i, i32 0, i32 32
   %add3.i = or disjoint i32 %spec.select.i, 16
   %idxprom4.i = zext nneg i32 %add3.i to i64
-  %arrayidx5.i = getelementptr inbounds i32, ptr %1, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom4.i
   %3 = load i32, ptr %arrayidx5.i, align 4
   %cmp6.not.i = icmp sgt i32 %3, %thisNgram
   %index.1.i = select i1 %cmp6.not.i, i32 %spec.select.i, i32 %add3.i
   %add10.i = or disjoint i32 %index.1.i, 8
   %idxprom11.i = zext nneg i32 %add10.i to i64
-  %arrayidx12.i = getelementptr inbounds i32, ptr %1, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom11.i
   %4 = load i32, ptr %arrayidx12.i, align 4
   %cmp13.not.i = icmp sgt i32 %4, %thisNgram
   %index.2.i = select i1 %cmp13.not.i, i32 %index.1.i, i32 %add10.i
   %add17.i = or disjoint i32 %index.2.i, 4
   %idxprom18.i = zext nneg i32 %add17.i to i64
-  %arrayidx19.i = getelementptr inbounds i32, ptr %1, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom18.i
   %5 = load i32, ptr %arrayidx19.i, align 4
   %cmp20.not.i = icmp sgt i32 %5, %thisNgram
   %index.3.i = select i1 %cmp20.not.i, i32 %index.2.i, i32 %add17.i
   %add24.i = add nuw nsw i32 %index.3.i, 2
   %idxprom25.i = zext nneg i32 %add24.i to i64
-  %arrayidx26.i = getelementptr inbounds i32, ptr %1, i64 %idxprom25.i
+  %arrayidx26.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom25.i
   %6 = load i32, ptr %arrayidx26.i, align 4
   %cmp27.not.i = icmp sgt i32 %6, %thisNgram
   %index.4.i = select i1 %cmp27.not.i, i32 %index.3.i, i32 %add24.i
   %add31.i = add nuw nsw i32 %index.4.i, 1
   %idxprom32.i = zext nneg i32 %add31.i to i64
-  %arrayidx33.i = getelementptr inbounds i32, ptr %1, i64 %idxprom32.i
+  %arrayidx33.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom32.i
   %7 = load i32, ptr %arrayidx33.i, align 4
   %cmp34.not.i = icmp sgt i32 %7, %thisNgram
   %index.5.i = select i1 %cmp34.not.i, i32 %index.4.i, i32 %add31.i
   %idxprom38.i = zext nneg i32 %index.5.i to i64
-  %arrayidx39.i = getelementptr inbounds i32, ptr %1, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom38.i
   %8 = load i32, ptr %arrayidx39.i, align 4
   %cmp40.i = icmp sgt i32 %8, %thisNgram
   %sub.i = sext i1 %cmp40.i to i32
@@ -336,13 +336,13 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %idxprom44.i = zext nneg i32 %index.6.i to i64
-  %arrayidx45.i = getelementptr inbounds i32, ptr %1, i64 %idxprom44.i
+  %arrayidx45.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom44.i
   %9 = load i32, ptr %arrayidx45.i, align 4
   %cmp46.not.i = icmp eq i32 %9, %thisNgram
   br i1 %cmp46.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false.i
-  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount = getelementptr inbounds nuw i8, ptr %this, i64 28
   %10 = load i32, ptr %hitCount, align 4
   %add2 = add nsw i32 %10, 1
   store i32 %add2, ptr %hitCount, align 4
@@ -355,54 +355,54 @@ if.end:                                           ; preds = %lor.lhs.false.i, %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6icu_7511NGramParser7addByteEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %b) local_unnamed_addr #5 align 2 {
 entry:
-  %ngram = getelementptr inbounds i8, ptr %this, i64 8
+  %ngram = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %ngram, align 8
   %shl = shl i32 %0, 8
   %add = add nsw i32 %shl, %b
   %and = and i32 %add, 16777215
   store i32 %and, ptr %ngram, align 8
-  %ngramCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %ngramCount.i, align 8
   %add.i = add nsw i32 %1, 1
   store i32 %add.i, ptr %ngramCount.i, align 8
-  %ngramList.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ngramList.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %ngramList.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 128
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i.i = icmp sgt i32 %3, %and
   %spec.select.i.i = select i1 %cmp.not.i.i, i32 0, i32 32
   %add3.i.i = or disjoint i32 %spec.select.i.i, 16
   %idxprom4.i.i = zext nneg i32 %add3.i.i to i64
-  %arrayidx5.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom4.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom4.i.i
   %4 = load i32, ptr %arrayidx5.i.i, align 4
   %cmp6.not.i.i = icmp sgt i32 %4, %and
   %index.1.i.i = select i1 %cmp6.not.i.i, i32 %spec.select.i.i, i32 %add3.i.i
   %add10.i.i = or disjoint i32 %index.1.i.i, 8
   %idxprom11.i.i = zext nneg i32 %add10.i.i to i64
-  %arrayidx12.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom11.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom11.i.i
   %5 = load i32, ptr %arrayidx12.i.i, align 4
   %cmp13.not.i.i = icmp sgt i32 %5, %and
   %index.2.i.i = select i1 %cmp13.not.i.i, i32 %index.1.i.i, i32 %add10.i.i
   %add17.i.i = or disjoint i32 %index.2.i.i, 4
   %idxprom18.i.i = zext nneg i32 %add17.i.i to i64
-  %arrayidx19.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom18.i.i
+  %arrayidx19.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom18.i.i
   %6 = load i32, ptr %arrayidx19.i.i, align 4
   %cmp20.not.i.i = icmp sgt i32 %6, %and
   %index.3.i.i = select i1 %cmp20.not.i.i, i32 %index.2.i.i, i32 %add17.i.i
   %add24.i.i = add nuw nsw i32 %index.3.i.i, 2
   %idxprom25.i.i = zext nneg i32 %add24.i.i to i64
-  %arrayidx26.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom25.i.i
+  %arrayidx26.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom25.i.i
   %7 = load i32, ptr %arrayidx26.i.i, align 4
   %cmp27.not.i.i = icmp sgt i32 %7, %and
   %index.4.i.i = select i1 %cmp27.not.i.i, i32 %index.3.i.i, i32 %add24.i.i
   %add31.i.i = add nuw nsw i32 %index.4.i.i, 1
   %idxprom32.i.i = zext nneg i32 %add31.i.i to i64
-  %arrayidx33.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom32.i.i
+  %arrayidx33.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom32.i.i
   %8 = load i32, ptr %arrayidx33.i.i, align 4
   %cmp34.not.i.i = icmp sgt i32 %8, %and
   %index.5.i.i = select i1 %cmp34.not.i.i, i32 %index.4.i.i, i32 %add31.i.i
   %idxprom38.i.i = zext nneg i32 %index.5.i.i to i64
-  %arrayidx39.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom38.i.i
+  %arrayidx39.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom38.i.i
   %9 = load i32, ptr %arrayidx39.i.i, align 4
   %cmp40.i.i = icmp sgt i32 %9, %and
   %sub.i.i = sext i1 %cmp40.i.i to i32
@@ -412,13 +412,13 @@ entry:
 
 lor.lhs.false.i.i:                                ; preds = %entry
   %idxprom44.i.i = zext nneg i32 %index.6.i.i to i64
-  %arrayidx45.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom44.i.i
+  %arrayidx45.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %idxprom44.i.i
   %10 = load i32, ptr %arrayidx45.i.i, align 4
   %cmp46.not.i.i = icmp eq i32 %10, %and
   br i1 %cmp46.not.i.i, label %if.then.i, label %_ZN6icu_7511NGramParser6lookupEi.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i.i
-  %hitCount.i = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %11 = load i32, ptr %hitCount.i, align 4
   %add2.i = add nsw i32 %11, 1
   store i32 %add2.i, ptr %hitCount.i, align 4
@@ -431,9 +431,9 @@ _ZN6icu_7511NGramParser6lookupEi.exit:            ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 -1, 256) i32 @_ZN6icu_7511NGramParser8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
 entry:
-  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
+  %byteIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
-  %fInputLen = getelementptr inbounds i8, ptr %det, i64 8
+  %fInputLen = getelementptr inbounds nuw i8, ptr %det, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
@@ -457,18 +457,18 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN6icu_7511NGramParser15parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det) unnamed_addr #6 align 2 {
 entry:
   %vtable53 = load ptr, ptr %this, align 8
-  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 16
+  %vfn54 = getelementptr inbounds nuw i8, ptr %vtable53, i64 16
   %0 = load ptr, ptr %vfn54, align 8
   %call55 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
   %cmp56 = icmp sgt i32 %call55, -1
   br i1 %cmp56, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %charMap = getelementptr inbounds i8, ptr %this, i64 40
-  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
-  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %charMap = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %ngram.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %ngramCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %ngramList.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %hitCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
@@ -476,7 +476,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %ignoreSpace.057 = phi i1 [ false, %while.body.lr.ph ], [ %ignoreSpace.1, %if.end9 ]
   %1 = load ptr, ptr %charMap, align 8
   %idxprom = zext nneg i32 %call58 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   switch i8 %2, label %if.then.split [
     i8 0, label %if.end9
@@ -494,42 +494,42 @@ if.then.split:                                    ; preds = %while.body
   %add.i.i = add nsw i32 %4, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
   %5 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 128
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 128
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %6, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
   %add3.i.i.i = or disjoint i32 %spec.select.i.i.i, 16
   %idxprom4.i.i.i = zext nneg i32 %add3.i.i.i to i64
-  %arrayidx5.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom4.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom4.i.i.i
   %7 = load i32, ptr %arrayidx5.i.i.i, align 4
   %cmp6.not.i.i.i = icmp sgt i32 %7, %and.i
   %index.1.i.i.i = select i1 %cmp6.not.i.i.i, i32 %spec.select.i.i.i, i32 %add3.i.i.i
   %add10.i.i.i = or disjoint i32 %index.1.i.i.i, 8
   %idxprom11.i.i.i = zext nneg i32 %add10.i.i.i to i64
-  %arrayidx12.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom11.i.i.i
+  %arrayidx12.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom11.i.i.i
   %8 = load i32, ptr %arrayidx12.i.i.i, align 4
   %cmp13.not.i.i.i = icmp sgt i32 %8, %and.i
   %index.2.i.i.i = select i1 %cmp13.not.i.i.i, i32 %index.1.i.i.i, i32 %add10.i.i.i
   %add17.i.i.i = or disjoint i32 %index.2.i.i.i, 4
   %idxprom18.i.i.i = zext nneg i32 %add17.i.i.i to i64
-  %arrayidx19.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom18.i.i.i
+  %arrayidx19.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom18.i.i.i
   %9 = load i32, ptr %arrayidx19.i.i.i, align 4
   %cmp20.not.i.i.i = icmp sgt i32 %9, %and.i
   %index.3.i.i.i = select i1 %cmp20.not.i.i.i, i32 %index.2.i.i.i, i32 %add17.i.i.i
   %add24.i.i.i = add nuw nsw i32 %index.3.i.i.i, 2
   %idxprom25.i.i.i = zext nneg i32 %add24.i.i.i to i64
-  %arrayidx26.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom25.i.i.i
+  %arrayidx26.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom25.i.i.i
   %10 = load i32, ptr %arrayidx26.i.i.i, align 4
   %cmp27.not.i.i.i = icmp sgt i32 %10, %and.i
   %index.4.i.i.i = select i1 %cmp27.not.i.i.i, i32 %index.3.i.i.i, i32 %add24.i.i.i
   %add31.i.i.i = add nuw nsw i32 %index.4.i.i.i, 1
   %idxprom32.i.i.i = zext nneg i32 %add31.i.i.i to i64
-  %arrayidx33.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom32.i.i.i
+  %arrayidx33.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom32.i.i.i
   %11 = load i32, ptr %arrayidx33.i.i.i, align 4
   %cmp34.not.i.i.i = icmp sgt i32 %11, %and.i
   %index.5.i.i.i = select i1 %cmp34.not.i.i.i, i32 %index.4.i.i.i, i32 %add31.i.i.i
   %idxprom38.i.i.i = zext nneg i32 %index.5.i.i.i to i64
-  %arrayidx39.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom38.i.i.i
+  %arrayidx39.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom38.i.i.i
   %12 = load i32, ptr %arrayidx39.i.i.i, align 4
   %cmp40.i.i.i = icmp sgt i32 %12, %and.i
   %sub.i.i.i = sext i1 %cmp40.i.i.i to i32
@@ -539,7 +539,7 @@ if.then.split:                                    ; preds = %while.body
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.split
   %idxprom44.i.i.i = zext nneg i32 %index.6.i.i.i to i64
-  %arrayidx45.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom44.i.i.i
+  %arrayidx45.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom44.i.i.i
   %13 = load i32, ptr %arrayidx45.i.i.i, align 4
   %cmp46.not.i.i.i = icmp eq i32 %13, %and.i
   br i1 %cmp46.not.i.i.i, label %if.end9.sink.split, label %if.end9
@@ -557,42 +557,42 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   %add.i.i9 = add nsw i32 %15, 1
   store i32 %add.i.i9, ptr %ngramCount.i.i, align 8
   %16 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i11 = getelementptr inbounds i8, ptr %16, i64 128
+  %arrayidx.i.i.i11 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %17 = load i32, ptr %arrayidx.i.i.i11, align 4
   %cmp.not.i.i.i12 = icmp sgt i32 %17, %and.i7
   %spec.select.i.i.i13 = select i1 %cmp.not.i.i.i12, i32 0, i32 32
   %add3.i.i.i14 = or disjoint i32 %spec.select.i.i.i13, 16
   %idxprom4.i.i.i15 = zext nneg i32 %add3.i.i.i14 to i64
-  %arrayidx5.i.i.i16 = getelementptr inbounds i32, ptr %16, i64 %idxprom4.i.i.i15
+  %arrayidx5.i.i.i16 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom4.i.i.i15
   %18 = load i32, ptr %arrayidx5.i.i.i16, align 4
   %cmp6.not.i.i.i17 = icmp sgt i32 %18, %and.i7
   %index.1.i.i.i18 = select i1 %cmp6.not.i.i.i17, i32 %spec.select.i.i.i13, i32 %add3.i.i.i14
   %add10.i.i.i19 = or disjoint i32 %index.1.i.i.i18, 8
   %idxprom11.i.i.i20 = zext nneg i32 %add10.i.i.i19 to i64
-  %arrayidx12.i.i.i21 = getelementptr inbounds i32, ptr %16, i64 %idxprom11.i.i.i20
+  %arrayidx12.i.i.i21 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom11.i.i.i20
   %19 = load i32, ptr %arrayidx12.i.i.i21, align 4
   %cmp13.not.i.i.i22 = icmp sgt i32 %19, %and.i7
   %index.2.i.i.i23 = select i1 %cmp13.not.i.i.i22, i32 %index.1.i.i.i18, i32 %add10.i.i.i19
   %add17.i.i.i24 = or disjoint i32 %index.2.i.i.i23, 4
   %idxprom18.i.i.i25 = zext nneg i32 %add17.i.i.i24 to i64
-  %arrayidx19.i.i.i26 = getelementptr inbounds i32, ptr %16, i64 %idxprom18.i.i.i25
+  %arrayidx19.i.i.i26 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom18.i.i.i25
   %20 = load i32, ptr %arrayidx19.i.i.i26, align 4
   %cmp20.not.i.i.i27 = icmp sgt i32 %20, %and.i7
   %index.3.i.i.i28 = select i1 %cmp20.not.i.i.i27, i32 %index.2.i.i.i23, i32 %add17.i.i.i24
   %add24.i.i.i29 = add nuw nsw i32 %index.3.i.i.i28, 2
   %idxprom25.i.i.i30 = zext nneg i32 %add24.i.i.i29 to i64
-  %arrayidx26.i.i.i31 = getelementptr inbounds i32, ptr %16, i64 %idxprom25.i.i.i30
+  %arrayidx26.i.i.i31 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom25.i.i.i30
   %21 = load i32, ptr %arrayidx26.i.i.i31, align 4
   %cmp27.not.i.i.i32 = icmp sgt i32 %21, %and.i7
   %index.4.i.i.i33 = select i1 %cmp27.not.i.i.i32, i32 %index.3.i.i.i28, i32 %add24.i.i.i29
   %add31.i.i.i34 = add nuw nsw i32 %index.4.i.i.i33, 1
   %idxprom32.i.i.i35 = zext nneg i32 %add31.i.i.i34 to i64
-  %arrayidx33.i.i.i36 = getelementptr inbounds i32, ptr %16, i64 %idxprom32.i.i.i35
+  %arrayidx33.i.i.i36 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom32.i.i.i35
   %22 = load i32, ptr %arrayidx33.i.i.i36, align 4
   %cmp34.not.i.i.i37 = icmp sgt i32 %22, %and.i7
   %index.5.i.i.i38 = select i1 %cmp34.not.i.i.i37, i32 %index.4.i.i.i33, i32 %add31.i.i.i34
   %idxprom38.i.i.i39 = zext nneg i32 %index.5.i.i.i38 to i64
-  %arrayidx39.i.i.i40 = getelementptr inbounds i32, ptr %16, i64 %idxprom38.i.i.i39
+  %arrayidx39.i.i.i40 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom38.i.i.i39
   %23 = load i32, ptr %arrayidx39.i.i.i40, align 4
   %cmp40.i.i.i41 = icmp sgt i32 %23, %and.i7
   %sub.i.i.i42 = sext i1 %cmp40.i.i.i41 to i32
@@ -602,7 +602,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
 
 lor.lhs.false.i.i.i45:                            ; preds = %land.lhs.true.split
   %idxprom44.i.i.i46 = zext nneg i32 %index.6.i.i.i43 to i64
-  %arrayidx45.i.i.i47 = getelementptr inbounds i32, ptr %16, i64 %idxprom44.i.i.i46
+  %arrayidx45.i.i.i47 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom44.i.i.i46
   %24 = load i32, ptr %arrayidx45.i.i.i47, align 4
   %cmp46.not.i.i.i48 = icmp eq i32 %24, %and.i7
   br i1 %cmp46.not.i.i.i48, label %if.end9.sink.split, label %if.end9
@@ -617,7 +617,7 @@ if.end9.sink.split:                               ; preds = %lor.lhs.false.i.i.i
 if.end9:                                          ; preds = %if.end9.sink.split, %while.body, %land.lhs.true, %if.then.split, %lor.lhs.false.i.i.i, %land.lhs.true.split, %lor.lhs.false.i.i.i45
   %ignoreSpace.1 = phi i1 [ %ignoreSpace.057, %while.body ], [ true, %lor.lhs.false.i.i.i45 ], [ true, %land.lhs.true.split ], [ false, %lor.lhs.false.i.i.i ], [ false, %if.then.split ], [ true, %land.lhs.true ], [ %ignoreSpace.1.ph, %if.end9.sink.split ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
   %cmp = icmp sgt i32 %call, -1
@@ -631,57 +631,57 @@ while.end:                                        ; preds = %if.end9, %entry
 define noundef i32 @_ZN6icu_7511NGramParser5parseEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det) local_unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %det)
-  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ngram.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %ngram.i, align 8
   %shl.i = shl i32 %1, 8
   %add.i = and i32 %shl.i, 16776960
   %and.i = or disjoint i32 %add.i, 32
   store i32 %and.i, ptr %ngram.i, align 8
-  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %ngramCount.i.i, align 8
   %add.i.i = add nsw i32 %2, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
-  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ngramList.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %4, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
   %add3.i.i.i = or disjoint i32 %spec.select.i.i.i, 16
   %idxprom4.i.i.i = zext nneg i32 %add3.i.i.i to i64
-  %arrayidx5.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom4.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom4.i.i.i
   %5 = load i32, ptr %arrayidx5.i.i.i, align 4
   %cmp6.not.i.i.i = icmp sgt i32 %5, %and.i
   %index.1.i.i.i = select i1 %cmp6.not.i.i.i, i32 %spec.select.i.i.i, i32 %add3.i.i.i
   %add10.i.i.i = or disjoint i32 %index.1.i.i.i, 8
   %idxprom11.i.i.i = zext nneg i32 %add10.i.i.i to i64
-  %arrayidx12.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom11.i.i.i
+  %arrayidx12.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom11.i.i.i
   %6 = load i32, ptr %arrayidx12.i.i.i, align 4
   %cmp13.not.i.i.i = icmp sgt i32 %6, %and.i
   %index.2.i.i.i = select i1 %cmp13.not.i.i.i, i32 %index.1.i.i.i, i32 %add10.i.i.i
   %add17.i.i.i = or disjoint i32 %index.2.i.i.i, 4
   %idxprom18.i.i.i = zext nneg i32 %add17.i.i.i to i64
-  %arrayidx19.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom18.i.i.i
+  %arrayidx19.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom18.i.i.i
   %7 = load i32, ptr %arrayidx19.i.i.i, align 4
   %cmp20.not.i.i.i = icmp sgt i32 %7, %and.i
   %index.3.i.i.i = select i1 %cmp20.not.i.i.i, i32 %index.2.i.i.i, i32 %add17.i.i.i
   %add24.i.i.i = add nuw nsw i32 %index.3.i.i.i, 2
   %idxprom25.i.i.i = zext nneg i32 %add24.i.i.i to i64
-  %arrayidx26.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom25.i.i.i
+  %arrayidx26.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom25.i.i.i
   %8 = load i32, ptr %arrayidx26.i.i.i, align 4
   %cmp27.not.i.i.i = icmp sgt i32 %8, %and.i
   %index.4.i.i.i = select i1 %cmp27.not.i.i.i, i32 %index.3.i.i.i, i32 %add24.i.i.i
   %add31.i.i.i = add nuw nsw i32 %index.4.i.i.i, 1
   %idxprom32.i.i.i = zext nneg i32 %add31.i.i.i to i64
-  %arrayidx33.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom32.i.i.i
+  %arrayidx33.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom32.i.i.i
   %9 = load i32, ptr %arrayidx33.i.i.i, align 4
   %cmp34.not.i.i.i = icmp sgt i32 %9, %and.i
   %index.5.i.i.i = select i1 %cmp34.not.i.i.i, i32 %index.4.i.i.i, i32 %add31.i.i.i
   %idxprom38.i.i.i = zext nneg i32 %index.5.i.i.i to i64
-  %arrayidx39.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom38.i.i.i
+  %arrayidx39.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom38.i.i.i
   %10 = load i32, ptr %arrayidx39.i.i.i, align 4
   %cmp40.i.i.i = icmp sgt i32 %10, %and.i
   %sub.i.i.i = sext i1 %cmp40.i.i.i to i32
@@ -691,20 +691,20 @@ entry:
 
 lor.lhs.false.i.i.i:                              ; preds = %entry
   %idxprom44.i.i.i = zext nneg i32 %index.6.i.i.i to i64
-  %arrayidx45.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom44.i.i.i
+  %arrayidx45.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom44.i.i.i
   %11 = load i32, ptr %arrayidx45.i.i.i, align 4
   %cmp46.not.i.i.i = icmp eq i32 %11, %and.i
   br i1 %cmp46.not.i.i.i, label %if.then.i.i, label %_ZN6icu_7511NGramParser7addByteEi.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
-  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %12 = load i32, ptr %hitCount.i.i, align 4
   %add2.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i, ptr %hitCount.i.i, align 4
   br label %_ZN6icu_7511NGramParser7addByteEi.exit
 
 _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.false.i.i.i, %if.then.i.i
-  %hitCount = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount = getelementptr inbounds nuw i8, ptr %this, i64 28
   %13 = load i32, ptr %hitCount, align 4
   %conv = sitofp i32 %13 to double
   %conv2 = sitofp i32 %add.i.i to double
@@ -719,20 +719,20 @@ _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 12), (16, 36), (40, 52)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
-  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ngram.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ngram.i, align 8
-  %byteIndex.i = getelementptr inbounds i8, ptr %this, i64 32
+  %byteIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %byteIndex.i, align 8
-  %ngramList.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ngramList.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %theNgramList, ptr %ngramList.i, align 8
-  %charMap.i = getelementptr inbounds i8, ptr %this, i64 40
+  %charMap.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %theCharMap, ptr %charMap.i, align 8
-  %hitCount.i = getelementptr inbounds i8, ptr %this, i64 28
+  %hitCount.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %hitCount.i, align 4
-  %ngramCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ngramCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %ngramCount.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518NGramParser_IBM420E, i64 16), ptr %this, align 8
-  %alef = getelementptr inbounds i8, ptr %this, i64 48
+  %alef = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %alef, align 8
   ret void
 }
@@ -776,9 +776,9 @@ return:                                           ; preds = %entry, %return.fold
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 -1, 256) i32 @_ZN6icu_7518NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
 entry:
-  %byteIndex = getelementptr inbounds i8, ptr %this, i64 32
+  %byteIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
-  %fInputLen = getelementptr inbounds i8, ptr %det, i64 8
+  %fInputLen = getelementptr inbounds nuw i8, ptr %det, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -807,18 +807,18 @@ _ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split: ; preds = %if
 
 _ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %if.end, %_ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split, %return.fold.split.i
   %retval.0.i.ph = phi i32 [ 73, %return.fold.split.i ], [ 71, %if.end ], [ 86, %_ZN6icu_7518NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split ]
-  %alef5 = getelementptr inbounds i8, ptr %this, i64 48
+  %alef5 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %retval.0.i.ph, ptr %alef5, align 8
   br label %if.end21
 
 if.else:                                          ; preds = %if.end
-  %alef = getelementptr inbounds i8, ptr %this, i64 48
+  %alef = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %alef, align 8
   %5 = load ptr, ptr %det, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %5, i64 %idxprom
   %6 = load i8, ptr %arrayidx15, align 1
   %idxprom17 = zext i8 %6 to i64
-  %arrayidx18 = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L17unshapeMap_IBM420E, i64 0, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L17unshapeMap_IBM420E, i64 0, i64 %idxprom17
   %7 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %7 to i32
   br label %if.end21
@@ -838,19 +838,19 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define void @_ZN6icu_7518NGramParser_IBM42015parseCharactersEPNS_9InputTextE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det) unnamed_addr #6 align 2 {
 entry:
   %vtable156 = load ptr, ptr %this, align 8
-  %vfn157 = getelementptr inbounds i8, ptr %vtable156, i64 16
+  %vfn157 = getelementptr inbounds nuw i8, ptr %vtable156, i64 16
   %0 = load ptr, ptr %vfn157, align 8
   %call158 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det)
   %cmp159 = icmp sgt i32 %call158, -1
   br i1 %cmp159, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %charMap = getelementptr inbounds i8, ptr %this, i64 40
-  %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
-  %ngramCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %ngramList.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %hitCount.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %alef = getelementptr inbounds i8, ptr %this, i64 48
+  %charMap = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %ngram.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %ngramCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %ngramList.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %hitCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %alef = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end30
@@ -858,7 +858,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %ignoreSpace.0160 = phi i8 [ 0, %while.body.lr.ph ], [ %ignoreSpace.2, %if.end30 ]
   %1 = load ptr, ptr %charMap, align 8
   %idxprom = zext nneg i32 %call161 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
   %cmp2.not = icmp eq i8 %2, 0
@@ -878,42 +878,42 @@ if.then.split:                                    ; preds = %if.then
   %add.i.i = add nsw i32 %4, 1
   store i32 %add.i.i, ptr %ngramCount.i.i, align 8
   %5 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 128
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 128
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp sgt i32 %6, %and.i
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 32
   %add3.i.i.i = or disjoint i32 %spec.select.i.i.i, 16
   %idxprom4.i.i.i = zext nneg i32 %add3.i.i.i to i64
-  %arrayidx5.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom4.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom4.i.i.i
   %7 = load i32, ptr %arrayidx5.i.i.i, align 4
   %cmp6.not.i.i.i = icmp sgt i32 %7, %and.i
   %index.1.i.i.i = select i1 %cmp6.not.i.i.i, i32 %spec.select.i.i.i, i32 %add3.i.i.i
   %add10.i.i.i = or disjoint i32 %index.1.i.i.i, 8
   %idxprom11.i.i.i = zext nneg i32 %add10.i.i.i to i64
-  %arrayidx12.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom11.i.i.i
+  %arrayidx12.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom11.i.i.i
   %8 = load i32, ptr %arrayidx12.i.i.i, align 4
   %cmp13.not.i.i.i = icmp sgt i32 %8, %and.i
   %index.2.i.i.i = select i1 %cmp13.not.i.i.i, i32 %index.1.i.i.i, i32 %add10.i.i.i
   %add17.i.i.i = or disjoint i32 %index.2.i.i.i, 4
   %idxprom18.i.i.i = zext nneg i32 %add17.i.i.i to i64
-  %arrayidx19.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom18.i.i.i
+  %arrayidx19.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom18.i.i.i
   %9 = load i32, ptr %arrayidx19.i.i.i, align 4
   %cmp20.not.i.i.i = icmp sgt i32 %9, %and.i
   %index.3.i.i.i = select i1 %cmp20.not.i.i.i, i32 %index.2.i.i.i, i32 %add17.i.i.i
   %add24.i.i.i = add nuw nsw i32 %index.3.i.i.i, 2
   %idxprom25.i.i.i = zext nneg i32 %add24.i.i.i to i64
-  %arrayidx26.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom25.i.i.i
+  %arrayidx26.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom25.i.i.i
   %10 = load i32, ptr %arrayidx26.i.i.i, align 4
   %cmp27.not.i.i.i = icmp sgt i32 %10, %and.i
   %index.4.i.i.i = select i1 %cmp27.not.i.i.i, i32 %index.3.i.i.i, i32 %add24.i.i.i
   %add31.i.i.i = add nuw nsw i32 %index.4.i.i.i, 1
   %idxprom32.i.i.i = zext nneg i32 %add31.i.i.i to i64
-  %arrayidx33.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom32.i.i.i
+  %arrayidx33.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom32.i.i.i
   %11 = load i32, ptr %arrayidx33.i.i.i, align 4
   %cmp34.not.i.i.i = icmp sgt i32 %11, %and.i
   %index.5.i.i.i = select i1 %cmp34.not.i.i.i, i32 %index.4.i.i.i, i32 %add31.i.i.i
   %idxprom38.i.i.i = zext nneg i32 %index.5.i.i.i to i64
-  %arrayidx39.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom38.i.i.i
+  %arrayidx39.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom38.i.i.i
   %12 = load i32, ptr %arrayidx39.i.i.i, align 4
   %cmp40.i.i.i = icmp sgt i32 %12, %and.i
   %sub.i.i.i = sext i1 %cmp40.i.i.i to i32
@@ -923,7 +923,7 @@ if.then.split:                                    ; preds = %if.then
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.split
   %idxprom44.i.i.i = zext nneg i32 %index.6.i.i.i to i64
-  %arrayidx45.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom44.i.i.i
+  %arrayidx45.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom44.i.i.i
   %13 = load i32, ptr %arrayidx45.i.i.i, align 4
   %cmp46.not.i.i.i = icmp eq i32 %13, %and.i
   br i1 %cmp46.not.i.i.i, label %if.end.sink.split, label %if.end
@@ -942,42 +942,42 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   %add.i.i14 = add nsw i32 %15, 1
   store i32 %add.i.i14, ptr %ngramCount.i.i, align 8
   %16 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 128
+  %arrayidx.i.i.i16 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %17 = load i32, ptr %arrayidx.i.i.i16, align 4
   %cmp.not.i.i.i17 = icmp sgt i32 %17, %and.i12
   %spec.select.i.i.i18 = select i1 %cmp.not.i.i.i17, i32 0, i32 32
   %add3.i.i.i19 = or disjoint i32 %spec.select.i.i.i18, 16
   %idxprom4.i.i.i20 = zext nneg i32 %add3.i.i.i19 to i64
-  %arrayidx5.i.i.i21 = getelementptr inbounds i32, ptr %16, i64 %idxprom4.i.i.i20
+  %arrayidx5.i.i.i21 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom4.i.i.i20
   %18 = load i32, ptr %arrayidx5.i.i.i21, align 4
   %cmp6.not.i.i.i22 = icmp sgt i32 %18, %and.i12
   %index.1.i.i.i23 = select i1 %cmp6.not.i.i.i22, i32 %spec.select.i.i.i18, i32 %add3.i.i.i19
   %add10.i.i.i24 = or disjoint i32 %index.1.i.i.i23, 8
   %idxprom11.i.i.i25 = zext nneg i32 %add10.i.i.i24 to i64
-  %arrayidx12.i.i.i26 = getelementptr inbounds i32, ptr %16, i64 %idxprom11.i.i.i25
+  %arrayidx12.i.i.i26 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom11.i.i.i25
   %19 = load i32, ptr %arrayidx12.i.i.i26, align 4
   %cmp13.not.i.i.i27 = icmp sgt i32 %19, %and.i12
   %index.2.i.i.i28 = select i1 %cmp13.not.i.i.i27, i32 %index.1.i.i.i23, i32 %add10.i.i.i24
   %add17.i.i.i29 = or disjoint i32 %index.2.i.i.i28, 4
   %idxprom18.i.i.i30 = zext nneg i32 %add17.i.i.i29 to i64
-  %arrayidx19.i.i.i31 = getelementptr inbounds i32, ptr %16, i64 %idxprom18.i.i.i30
+  %arrayidx19.i.i.i31 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom18.i.i.i30
   %20 = load i32, ptr %arrayidx19.i.i.i31, align 4
   %cmp20.not.i.i.i32 = icmp sgt i32 %20, %and.i12
   %index.3.i.i.i33 = select i1 %cmp20.not.i.i.i32, i32 %index.2.i.i.i28, i32 %add17.i.i.i29
   %add24.i.i.i34 = add nuw nsw i32 %index.3.i.i.i33, 2
   %idxprom25.i.i.i35 = zext nneg i32 %add24.i.i.i34 to i64
-  %arrayidx26.i.i.i36 = getelementptr inbounds i32, ptr %16, i64 %idxprom25.i.i.i35
+  %arrayidx26.i.i.i36 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom25.i.i.i35
   %21 = load i32, ptr %arrayidx26.i.i.i36, align 4
   %cmp27.not.i.i.i37 = icmp sgt i32 %21, %and.i12
   %index.4.i.i.i38 = select i1 %cmp27.not.i.i.i37, i32 %index.3.i.i.i33, i32 %add24.i.i.i34
   %add31.i.i.i39 = add nuw nsw i32 %index.4.i.i.i38, 1
   %idxprom32.i.i.i40 = zext nneg i32 %add31.i.i.i39 to i64
-  %arrayidx33.i.i.i41 = getelementptr inbounds i32, ptr %16, i64 %idxprom32.i.i.i40
+  %arrayidx33.i.i.i41 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom32.i.i.i40
   %22 = load i32, ptr %arrayidx33.i.i.i41, align 4
   %cmp34.not.i.i.i42 = icmp sgt i32 %22, %and.i12
   %index.5.i.i.i43 = select i1 %cmp34.not.i.i.i42, i32 %index.4.i.i.i38, i32 %add31.i.i.i39
   %idxprom38.i.i.i44 = zext nneg i32 %index.5.i.i.i43 to i64
-  %arrayidx39.i.i.i45 = getelementptr inbounds i32, ptr %16, i64 %idxprom38.i.i.i44
+  %arrayidx39.i.i.i45 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom38.i.i.i44
   %23 = load i32, ptr %arrayidx39.i.i.i45, align 4
   %cmp40.i.i.i46 = icmp sgt i32 %23, %and.i12
   %sub.i.i.i47 = sext i1 %cmp40.i.i.i46 to i32
@@ -987,7 +987,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
 
 lor.lhs.false.i.i.i50:                            ; preds = %land.lhs.true.split
   %idxprom44.i.i.i51 = zext nneg i32 %index.6.i.i.i48 to i64
-  %arrayidx45.i.i.i52 = getelementptr inbounds i32, ptr %16, i64 %idxprom44.i.i.i51
+  %arrayidx45.i.i.i52 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom44.i.i.i51
   %24 = load i32, ptr %arrayidx45.i.i.i52, align 4
   %cmp46.not.i.i.i53 = icmp eq i32 %24, %and.i12
   br i1 %cmp46.not.i.i.i53, label %if.end.sink.split, label %if.end
@@ -1011,7 +1011,7 @@ if.end9:                                          ; preds = %if.end, %while.body
 if.then11:                                        ; preds = %if.end9
   %and = and i32 %26, 255
   %idxprom14 = zext nneg i32 %and to i64
-  %arrayidx15 = getelementptr inbounds i8, ptr %1, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom14
   %27 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %27 to i32
   %cmp17.not = icmp eq i8 %27, 0
@@ -1031,42 +1031,42 @@ if.then18.split:                                  ; preds = %if.then18
   %add.i.i63 = add nsw i32 %29, 1
   store i32 %add.i.i63, ptr %ngramCount.i.i, align 8
   %30 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %30, i64 128
+  %arrayidx.i.i.i65 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %31 = load i32, ptr %arrayidx.i.i.i65, align 4
   %cmp.not.i.i.i66 = icmp sgt i32 %31, %and.i61
   %spec.select.i.i.i67 = select i1 %cmp.not.i.i.i66, i32 0, i32 32
   %add3.i.i.i68 = or disjoint i32 %spec.select.i.i.i67, 16
   %idxprom4.i.i.i69 = zext nneg i32 %add3.i.i.i68 to i64
-  %arrayidx5.i.i.i70 = getelementptr inbounds i32, ptr %30, i64 %idxprom4.i.i.i69
+  %arrayidx5.i.i.i70 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom4.i.i.i69
   %32 = load i32, ptr %arrayidx5.i.i.i70, align 4
   %cmp6.not.i.i.i71 = icmp sgt i32 %32, %and.i61
   %index.1.i.i.i72 = select i1 %cmp6.not.i.i.i71, i32 %spec.select.i.i.i67, i32 %add3.i.i.i68
   %add10.i.i.i73 = or disjoint i32 %index.1.i.i.i72, 8
   %idxprom11.i.i.i74 = zext nneg i32 %add10.i.i.i73 to i64
-  %arrayidx12.i.i.i75 = getelementptr inbounds i32, ptr %30, i64 %idxprom11.i.i.i74
+  %arrayidx12.i.i.i75 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom11.i.i.i74
   %33 = load i32, ptr %arrayidx12.i.i.i75, align 4
   %cmp13.not.i.i.i76 = icmp sgt i32 %33, %and.i61
   %index.2.i.i.i77 = select i1 %cmp13.not.i.i.i76, i32 %index.1.i.i.i72, i32 %add10.i.i.i73
   %add17.i.i.i78 = or disjoint i32 %index.2.i.i.i77, 4
   %idxprom18.i.i.i79 = zext nneg i32 %add17.i.i.i78 to i64
-  %arrayidx19.i.i.i80 = getelementptr inbounds i32, ptr %30, i64 %idxprom18.i.i.i79
+  %arrayidx19.i.i.i80 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom18.i.i.i79
   %34 = load i32, ptr %arrayidx19.i.i.i80, align 4
   %cmp20.not.i.i.i81 = icmp sgt i32 %34, %and.i61
   %index.3.i.i.i82 = select i1 %cmp20.not.i.i.i81, i32 %index.2.i.i.i77, i32 %add17.i.i.i78
   %add24.i.i.i83 = add nuw nsw i32 %index.3.i.i.i82, 2
   %idxprom25.i.i.i84 = zext nneg i32 %add24.i.i.i83 to i64
-  %arrayidx26.i.i.i85 = getelementptr inbounds i32, ptr %30, i64 %idxprom25.i.i.i84
+  %arrayidx26.i.i.i85 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom25.i.i.i84
   %35 = load i32, ptr %arrayidx26.i.i.i85, align 4
   %cmp27.not.i.i.i86 = icmp sgt i32 %35, %and.i61
   %index.4.i.i.i87 = select i1 %cmp27.not.i.i.i86, i32 %index.3.i.i.i82, i32 %add24.i.i.i83
   %add31.i.i.i88 = add nuw nsw i32 %index.4.i.i.i87, 1
   %idxprom32.i.i.i89 = zext nneg i32 %add31.i.i.i88 to i64
-  %arrayidx33.i.i.i90 = getelementptr inbounds i32, ptr %30, i64 %idxprom32.i.i.i89
+  %arrayidx33.i.i.i90 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom32.i.i.i89
   %36 = load i32, ptr %arrayidx33.i.i.i90, align 4
   %cmp34.not.i.i.i91 = icmp sgt i32 %36, %and.i61
   %index.5.i.i.i92 = select i1 %cmp34.not.i.i.i91, i32 %index.4.i.i.i87, i32 %add31.i.i.i88
   %idxprom38.i.i.i93 = zext nneg i32 %index.5.i.i.i92 to i64
-  %arrayidx39.i.i.i94 = getelementptr inbounds i32, ptr %30, i64 %idxprom38.i.i.i93
+  %arrayidx39.i.i.i94 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom38.i.i.i93
   %37 = load i32, ptr %arrayidx39.i.i.i94, align 4
   %cmp40.i.i.i95 = icmp sgt i32 %37, %and.i61
   %sub.i.i.i96 = sext i1 %cmp40.i.i.i95 to i32
@@ -1076,7 +1076,7 @@ if.then18.split:                                  ; preds = %if.then18
 
 lor.lhs.false.i.i.i99:                            ; preds = %if.then18.split
   %idxprom44.i.i.i100 = zext nneg i32 %index.6.i.i.i97 to i64
-  %arrayidx45.i.i.i101 = getelementptr inbounds i32, ptr %30, i64 %idxprom44.i.i.i100
+  %arrayidx45.i.i.i101 = getelementptr inbounds nuw i32, ptr %30, i64 %idxprom44.i.i.i100
   %38 = load i32, ptr %arrayidx45.i.i.i101, align 4
   %cmp46.not.i.i.i102 = icmp eq i32 %38, %and.i61
   br i1 %cmp46.not.i.i.i102, label %if.end25.sink.split, label %if.end25
@@ -1095,42 +1095,42 @@ land.lhs.true21.split:                            ; preds = %land.lhs.true21
   %add.i.i112 = add nsw i32 %40, 1
   store i32 %add.i.i112, ptr %ngramCount.i.i, align 8
   %41 = load ptr, ptr %ngramList.i.i, align 8
-  %arrayidx.i.i.i114 = getelementptr inbounds i8, ptr %41, i64 128
+  %arrayidx.i.i.i114 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %42 = load i32, ptr %arrayidx.i.i.i114, align 4
   %cmp.not.i.i.i115 = icmp sgt i32 %42, %and.i110
   %spec.select.i.i.i116 = select i1 %cmp.not.i.i.i115, i32 0, i32 32
   %add3.i.i.i117 = or disjoint i32 %spec.select.i.i.i116, 16
   %idxprom4.i.i.i118 = zext nneg i32 %add3.i.i.i117 to i64
-  %arrayidx5.i.i.i119 = getelementptr inbounds i32, ptr %41, i64 %idxprom4.i.i.i118
+  %arrayidx5.i.i.i119 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom4.i.i.i118
   %43 = load i32, ptr %arrayidx5.i.i.i119, align 4
   %cmp6.not.i.i.i120 = icmp sgt i32 %43, %and.i110
   %index.1.i.i.i121 = select i1 %cmp6.not.i.i.i120, i32 %spec.select.i.i.i116, i32 %add3.i.i.i117
   %add10.i.i.i122 = or disjoint i32 %index.1.i.i.i121, 8
   %idxprom11.i.i.i123 = zext nneg i32 %add10.i.i.i122 to i64
-  %arrayidx12.i.i.i124 = getelementptr inbounds i32, ptr %41, i64 %idxprom11.i.i.i123
+  %arrayidx12.i.i.i124 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom11.i.i.i123
   %44 = load i32, ptr %arrayidx12.i.i.i124, align 4
   %cmp13.not.i.i.i125 = icmp sgt i32 %44, %and.i110
   %index.2.i.i.i126 = select i1 %cmp13.not.i.i.i125, i32 %index.1.i.i.i121, i32 %add10.i.i.i122
   %add17.i.i.i127 = or disjoint i32 %index.2.i.i.i126, 4
   %idxprom18.i.i.i128 = zext nneg i32 %add17.i.i.i127 to i64
-  %arrayidx19.i.i.i129 = getelementptr inbounds i32, ptr %41, i64 %idxprom18.i.i.i128
+  %arrayidx19.i.i.i129 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom18.i.i.i128
   %45 = load i32, ptr %arrayidx19.i.i.i129, align 4
   %cmp20.not.i.i.i130 = icmp sgt i32 %45, %and.i110
   %index.3.i.i.i131 = select i1 %cmp20.not.i.i.i130, i32 %index.2.i.i.i126, i32 %add17.i.i.i127
   %add24.i.i.i132 = add nuw nsw i32 %index.3.i.i.i131, 2
   %idxprom25.i.i.i133 = zext nneg i32 %add24.i.i.i132 to i64
-  %arrayidx26.i.i.i134 = getelementptr inbounds i32, ptr %41, i64 %idxprom25.i.i.i133
+  %arrayidx26.i.i.i134 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom25.i.i.i133
   %46 = load i32, ptr %arrayidx26.i.i.i134, align 4
   %cmp27.not.i.i.i135 = icmp sgt i32 %46, %and.i110
   %index.4.i.i.i136 = select i1 %cmp27.not.i.i.i135, i32 %index.3.i.i.i131, i32 %add24.i.i.i132
   %add31.i.i.i137 = add nuw nsw i32 %index.4.i.i.i136, 1
   %idxprom32.i.i.i138 = zext nneg i32 %add31.i.i.i137 to i64
-  %arrayidx33.i.i.i139 = getelementptr inbounds i32, ptr %41, i64 %idxprom32.i.i.i138
+  %arrayidx33.i.i.i139 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom32.i.i.i138
   %47 = load i32, ptr %arrayidx33.i.i.i139, align 4
   %cmp34.not.i.i.i140 = icmp sgt i32 %47, %and.i110
   %index.5.i.i.i141 = select i1 %cmp34.not.i.i.i140, i32 %index.4.i.i.i136, i32 %add31.i.i.i137
   %idxprom38.i.i.i142 = zext nneg i32 %index.5.i.i.i141 to i64
-  %arrayidx39.i.i.i143 = getelementptr inbounds i32, ptr %41, i64 %idxprom38.i.i.i142
+  %arrayidx39.i.i.i143 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom38.i.i.i142
   %48 = load i32, ptr %arrayidx39.i.i.i143, align 4
   %cmp40.i.i.i144 = icmp sgt i32 %48, %and.i110
   %sub.i.i.i145 = sext i1 %cmp40.i.i.i144 to i32
@@ -1140,7 +1140,7 @@ land.lhs.true21.split:                            ; preds = %land.lhs.true21
 
 lor.lhs.false.i.i.i148:                           ; preds = %land.lhs.true21.split
   %idxprom44.i.i.i149 = zext nneg i32 %index.6.i.i.i146 to i64
-  %arrayidx45.i.i.i150 = getelementptr inbounds i32, ptr %41, i64 %idxprom44.i.i.i149
+  %arrayidx45.i.i.i150 = getelementptr inbounds nuw i32, ptr %41, i64 %idxprom44.i.i.i149
   %49 = load i32, ptr %arrayidx45.i.i.i150, align 4
   %cmp46.not.i.i.i151 = icmp eq i32 %49, %and.i110
   br i1 %cmp46.not.i.i.i151, label %if.end25.sink.split, label %if.end25
@@ -1158,7 +1158,7 @@ if.end25:                                         ; preds = %if.end25.sink.split
 if.end30:                                         ; preds = %if.then11, %if.end25, %if.end9
   %ignoreSpace.2 = phi i8 [ %frombool28, %if.end25 ], [ %ignoreSpace.1, %if.then11 ], [ %ignoreSpace.1, %if.end9 ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %51 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %det)
   %cmp = icmp sgt i32 %call, -1
@@ -1201,60 +1201,60 @@ entry:
   %parser = alloca %"class.icu_75::NGramParser", align 8
   call void @_ZN6icu_7511NGramParserC1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
   %vtable.i = load ptr, ptr %parser, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %det)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %ngram.i.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %ngram.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %1 = load i32, ptr %ngram.i.i, align 8
   %shl.i.i = shl i32 %1, 8
   %add.i.i = and i32 %shl.i.i, 16776960
   %and.i.i = or disjoint i32 %add.i.i, 32
   store i32 %and.i.i, ptr %ngram.i.i, align 8
-  %ngramCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
+  %ngramCount.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %2 = load i32, ptr %ngramCount.i.i.i, align 8
   %add.i.i.i = add nsw i32 %2, 1
   store i32 %add.i.i.i, ptr %ngramCount.i.i.i, align 8
-  %ngramList.i.i.i = getelementptr inbounds i8, ptr %parser, i64 16
+  %ngramList.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %3 = load ptr, ptr %ngramList.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp sgt i32 %4, %and.i.i
   %spec.select.i.i.i.i = select i1 %cmp.not.i.i.i.i, i32 0, i32 32
   %add3.i.i.i.i = or disjoint i32 %spec.select.i.i.i.i, 16
   %idxprom4.i.i.i.i = zext nneg i32 %add3.i.i.i.i to i64
-  %arrayidx5.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom4.i.i.i.i
+  %arrayidx5.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom4.i.i.i.i
   %5 = load i32, ptr %arrayidx5.i.i.i.i, align 4
   %cmp6.not.i.i.i.i = icmp sgt i32 %5, %and.i.i
   %index.1.i.i.i.i = select i1 %cmp6.not.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %add3.i.i.i.i
   %add10.i.i.i.i = or disjoint i32 %index.1.i.i.i.i, 8
   %idxprom11.i.i.i.i = zext nneg i32 %add10.i.i.i.i to i64
-  %arrayidx12.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom11.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom11.i.i.i.i
   %6 = load i32, ptr %arrayidx12.i.i.i.i, align 4
   %cmp13.not.i.i.i.i = icmp sgt i32 %6, %and.i.i
   %index.2.i.i.i.i = select i1 %cmp13.not.i.i.i.i, i32 %index.1.i.i.i.i, i32 %add10.i.i.i.i
   %add17.i.i.i.i = or disjoint i32 %index.2.i.i.i.i, 4
   %idxprom18.i.i.i.i = zext nneg i32 %add17.i.i.i.i to i64
-  %arrayidx19.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom18.i.i.i.i
+  %arrayidx19.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom18.i.i.i.i
   %7 = load i32, ptr %arrayidx19.i.i.i.i, align 4
   %cmp20.not.i.i.i.i = icmp sgt i32 %7, %and.i.i
   %index.3.i.i.i.i = select i1 %cmp20.not.i.i.i.i, i32 %index.2.i.i.i.i, i32 %add17.i.i.i.i
   %add24.i.i.i.i = add nuw nsw i32 %index.3.i.i.i.i, 2
   %idxprom25.i.i.i.i = zext nneg i32 %add24.i.i.i.i to i64
-  %arrayidx26.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom25.i.i.i.i
+  %arrayidx26.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom25.i.i.i.i
   %8 = load i32, ptr %arrayidx26.i.i.i.i, align 4
   %cmp27.not.i.i.i.i = icmp sgt i32 %8, %and.i.i
   %index.4.i.i.i.i = select i1 %cmp27.not.i.i.i.i, i32 %index.3.i.i.i.i, i32 %add24.i.i.i.i
   %add31.i.i.i.i = add nuw nsw i32 %index.4.i.i.i.i, 1
   %idxprom32.i.i.i.i = zext nneg i32 %add31.i.i.i.i to i64
-  %arrayidx33.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom32.i.i.i.i
+  %arrayidx33.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom32.i.i.i.i
   %9 = load i32, ptr %arrayidx33.i.i.i.i, align 4
   %cmp34.not.i.i.i.i = icmp sgt i32 %9, %and.i.i
   %index.5.i.i.i.i = select i1 %cmp34.not.i.i.i.i, i32 %index.4.i.i.i.i, i32 %add31.i.i.i.i
   %idxprom38.i.i.i.i = zext nneg i32 %index.5.i.i.i.i to i64
-  %arrayidx39.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom38.i.i.i.i
+  %arrayidx39.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom38.i.i.i.i
   %10 = load i32, ptr %arrayidx39.i.i.i.i, align 4
   %cmp40.i.i.i.i = icmp sgt i32 %10, %and.i.i
   %sub.i.i.i.i = sext i1 %cmp40.i.i.i.i to i32
@@ -1264,20 +1264,20 @@ entry:
 
 lor.lhs.false.i.i.i.i:                            ; preds = %.noexc
   %idxprom44.i.i.i.i = zext nneg i32 %index.6.i.i.i.i to i64
-  %arrayidx45.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom44.i.i.i.i
+  %arrayidx45.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom44.i.i.i.i
   %11 = load i32, ptr %arrayidx45.i.i.i.i, align 4
   %cmp46.not.i.i.i.i = icmp eq i32 %11, %and.i.i
   br i1 %cmp46.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i.i
-  %hitCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 28
+  %hitCount.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %12 = load i32, ptr %hitCount.i.i.i, align 4
   %add2.i.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i.i, ptr %hitCount.i.i.i, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i.i, %.noexc
-  %hitCount.i = getelementptr inbounds i8, ptr %parser, i64 28
+  %hitCount.i = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %13 = load i32, ptr %hitCount.i, align 4
   %conv.i = sitofp i32 %13 to double
   %conv2.i = sitofp i32 %add.i.i.i to double
@@ -1316,7 +1316,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_8859_15matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.1, ptr @.str
@@ -1325,11 +1325,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %bestConfidenceSoFar.09 = phi i32 [ -1, %entry ], [ %bestConfidenceSoFar.1, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_1E, i64 0, i64 %indvars.iv
-  %lang5 = getelementptr inbounds i8, ptr %arrayidx, i64 256
+  %arrayidx = getelementptr inbounds nuw [10 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_1E, i64 0, i64 %indvars.iv
+  %lang5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 256
   %1 = load ptr, ptr %lang5, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull %arrayidx, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_1E)
   %cmp6 = icmp sgt i32 %call, %bestConfidenceSoFar.09
@@ -1377,7 +1377,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_8859_25matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.3, ptr @.str.2
@@ -1386,11 +1386,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %bestConfidenceSoFar.09 = phi i32 [ -1, %entry ], [ %bestConfidenceSoFar.1, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_2E, i64 0, i64 %indvars.iv
-  %lang5 = getelementptr inbounds i8, ptr %arrayidx, i64 256
+  %arrayidx = getelementptr inbounds nuw [4 x %"struct.icu_75::NGramsPlusLang"], ptr @_ZN6icu_75L13ngrams_8859_2E, i64 0, i64 %indvars.iv
+  %lang5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 256
   %1 = load ptr, ptr %lang5, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull %arrayidx, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_2E)
   %cmp6 = icmp sgt i32 %call, %bestConfidenceSoFar.09
@@ -1463,7 +1463,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_8859_5_ru5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_5_ruE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_5E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1517,7 +1517,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_8859_6_ar5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_6_arE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_6E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1570,12 +1570,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_8859_7_el5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.8, ptr @.str.10
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_7_elE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_7E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.9)
@@ -1634,12 +1634,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7524CharsetRecog_8859_8_I_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %.str.14..str.12 = select i1 %tobool.not, ptr @.str.12, ptr @.str.14
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L18ngrams_8859_8_I_heE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_8E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %.str.14..str.12, ptr noundef nonnull @.str.13)
@@ -1672,12 +1672,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_8859_8_he5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.11, ptr @.str.14
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_8_heE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_8E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.13)
@@ -1730,12 +1730,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_8859_9_tr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
-  %fC1Bytes = getelementptr inbounds i8, ptr %textIn, i64 24
+  %fC1Bytes = getelementptr inbounds nuw i8, ptr %textIn, i64 24
   %0 = load i8, ptr %fC1Bytes, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.15, ptr @.str.17
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L16ngrams_8859_9_trE, ptr noundef nonnull @_ZN6icu_75L14charMap_8859_9E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef nonnull %cond, ptr noundef nonnull @.str.16)
@@ -1775,7 +1775,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7525CharsetRecog_windows_12565matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L19ngrams_windows_1256E, ptr noundef nonnull @_ZN6icu_75L20charMap_windows_1256E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1815,7 +1815,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7525CharsetRecog_windows_12515matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L19ngrams_windows_1251E, ptr noundef nonnull @_ZN6icu_75L20charMap_windows_1251E)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1855,7 +1855,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_KOI8_R5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L13ngrams_KOI8_RE, ptr noundef nonnull @_ZN6icu_75L14charMap_KOI8_RE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1909,7 +1909,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7526CharsetRecog_IBM424_he_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM424_he_rtlE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM424_heE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1943,7 +1943,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7526CharsetRecog_IBM424_he_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM424_he_ltrE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM424_heE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -1978,60 +1978,60 @@ entry:
   %parser = alloca %"class.icu_75::NGramParser_IBM420", align 8
   call void @_ZN6icu_7518NGramParser_IBM420C1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(52) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
   %vtable.i = load ptr, ptr %parser, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %det)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %ngram.i.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %ngram.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %1 = load i32, ptr %ngram.i.i, align 8
   %shl.i.i = shl i32 %1, 8
   %add.i.i = and i32 %shl.i.i, 16776960
   %and.i.i = or disjoint i32 %add.i.i, 32
   store i32 %and.i.i, ptr %ngram.i.i, align 8
-  %ngramCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 24
+  %ngramCount.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %2 = load i32, ptr %ngramCount.i.i.i, align 8
   %add.i.i.i = add nsw i32 %2, 1
   store i32 %add.i.i.i, ptr %ngramCount.i.i.i, align 8
-  %ngramList.i.i.i = getelementptr inbounds i8, ptr %parser, i64 16
+  %ngramList.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %3 = load ptr, ptr %ngramList.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp sgt i32 %4, %and.i.i
   %spec.select.i.i.i.i = select i1 %cmp.not.i.i.i.i, i32 0, i32 32
   %add3.i.i.i.i = or disjoint i32 %spec.select.i.i.i.i, 16
   %idxprom4.i.i.i.i = zext nneg i32 %add3.i.i.i.i to i64
-  %arrayidx5.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom4.i.i.i.i
+  %arrayidx5.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom4.i.i.i.i
   %5 = load i32, ptr %arrayidx5.i.i.i.i, align 4
   %cmp6.not.i.i.i.i = icmp sgt i32 %5, %and.i.i
   %index.1.i.i.i.i = select i1 %cmp6.not.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %add3.i.i.i.i
   %add10.i.i.i.i = or disjoint i32 %index.1.i.i.i.i, 8
   %idxprom11.i.i.i.i = zext nneg i32 %add10.i.i.i.i to i64
-  %arrayidx12.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom11.i.i.i.i
+  %arrayidx12.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom11.i.i.i.i
   %6 = load i32, ptr %arrayidx12.i.i.i.i, align 4
   %cmp13.not.i.i.i.i = icmp sgt i32 %6, %and.i.i
   %index.2.i.i.i.i = select i1 %cmp13.not.i.i.i.i, i32 %index.1.i.i.i.i, i32 %add10.i.i.i.i
   %add17.i.i.i.i = or disjoint i32 %index.2.i.i.i.i, 4
   %idxprom18.i.i.i.i = zext nneg i32 %add17.i.i.i.i to i64
-  %arrayidx19.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom18.i.i.i.i
+  %arrayidx19.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom18.i.i.i.i
   %7 = load i32, ptr %arrayidx19.i.i.i.i, align 4
   %cmp20.not.i.i.i.i = icmp sgt i32 %7, %and.i.i
   %index.3.i.i.i.i = select i1 %cmp20.not.i.i.i.i, i32 %index.2.i.i.i.i, i32 %add17.i.i.i.i
   %add24.i.i.i.i = add nuw nsw i32 %index.3.i.i.i.i, 2
   %idxprom25.i.i.i.i = zext nneg i32 %add24.i.i.i.i to i64
-  %arrayidx26.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom25.i.i.i.i
+  %arrayidx26.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom25.i.i.i.i
   %8 = load i32, ptr %arrayidx26.i.i.i.i, align 4
   %cmp27.not.i.i.i.i = icmp sgt i32 %8, %and.i.i
   %index.4.i.i.i.i = select i1 %cmp27.not.i.i.i.i, i32 %index.3.i.i.i.i, i32 %add24.i.i.i.i
   %add31.i.i.i.i = add nuw nsw i32 %index.4.i.i.i.i, 1
   %idxprom32.i.i.i.i = zext nneg i32 %add31.i.i.i.i to i64
-  %arrayidx33.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom32.i.i.i.i
+  %arrayidx33.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom32.i.i.i.i
   %9 = load i32, ptr %arrayidx33.i.i.i.i, align 4
   %cmp34.not.i.i.i.i = icmp sgt i32 %9, %and.i.i
   %index.5.i.i.i.i = select i1 %cmp34.not.i.i.i.i, i32 %index.4.i.i.i.i, i32 %add31.i.i.i.i
   %idxprom38.i.i.i.i = zext nneg i32 %index.5.i.i.i.i to i64
-  %arrayidx39.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom38.i.i.i.i
+  %arrayidx39.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom38.i.i.i.i
   %10 = load i32, ptr %arrayidx39.i.i.i.i, align 4
   %cmp40.i.i.i.i = icmp sgt i32 %10, %and.i.i
   %sub.i.i.i.i = sext i1 %cmp40.i.i.i.i to i32
@@ -2041,20 +2041,20 @@ entry:
 
 lor.lhs.false.i.i.i.i:                            ; preds = %.noexc
   %idxprom44.i.i.i.i = zext nneg i32 %index.6.i.i.i.i to i64
-  %arrayidx45.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom44.i.i.i.i
+  %arrayidx45.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %idxprom44.i.i.i.i
   %11 = load i32, ptr %arrayidx45.i.i.i.i, align 4
   %cmp46.not.i.i.i.i = icmp eq i32 %11, %and.i.i
   br i1 %cmp46.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i.i
-  %hitCount.i.i.i = getelementptr inbounds i8, ptr %parser, i64 28
+  %hitCount.i.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %12 = load i32, ptr %hitCount.i.i.i, align 4
   %add2.i.i.i = add nsw i32 %12, 1
   store i32 %add2.i.i.i, ptr %hitCount.i.i.i, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %lor.lhs.false.i.i.i.i, %.noexc
-  %hitCount.i = getelementptr inbounds i8, ptr %parser, i64 28
+  %hitCount.i = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %13 = load i32, ptr %hitCount.i, align 4
   %conv.i = sitofp i32 %13 to double
   %conv2.i = sitofp i32 %add.i.i.i to double
@@ -2098,7 +2098,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7526CharsetRecog_IBM420_ar_rtl5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM420_ar_rtlE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM420_arE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -2132,7 +2132,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7526CharsetRecog_IBM420_ar_ltr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef nonnull @_ZN6icu_75L20ngrams_IBM420_ar_ltrE, ptr noundef nonnull @_ZN6icu_75L17charMap_IBM420_arE)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %textIn, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)

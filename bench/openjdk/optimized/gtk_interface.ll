@@ -48,8 +48,8 @@ define hidden range(i32 0, 2) i32 @gtk_load(ptr noundef %0, i32 noundef %1, i32 
   %12 = phi i1 [ true, %.lr.ph.i.i ], [ false, %11 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %11 ]
   %.019.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %11 ]
-  %13 = getelementptr inbounds [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr %13, align 8
   %16 = icmp eq i32 %15, 0
@@ -63,7 +63,7 @@ define hidden range(i32 0, 2) i32 @gtk_load(ptr noundef %0, i32 noundef %1, i32 
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %18, ptr %19, align 8
   store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %10, align 8
   br label %get_libs_order.exit.i.preheader
@@ -83,25 +83,25 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   br i1 %.not13.i, label %50, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %25(ptr noundef %27, i32 noundef 0) #6
   %.not14.i = icmp eq i32 %28, 0
   br i1 %.not14.i, label %29, label %get_loaded.exit
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %31(ptr noundef %33, i32 noundef 0) #6
   %.not15.i = icmp eq i32 %34, 0
   br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !8
 
 get_loaded.exit:                                  ; preds = %29, %23
-  %35 = getelementptr inbounds i8, ptr %22, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.not37 = icmp eq i32 %2, 0
   br i1 %.not37, label %40, label %36
 
@@ -112,7 +112,7 @@ get_loaded.exit:                                  ; preds = %29, %23
   br label %40
 
 40:                                               ; preds = %36, %get_loaded.exit
-  %41 = getelementptr inbounds i8, ptr %22, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %35, align 8
   %44 = tail call ptr %42(ptr noundef %0, ptr noundef %43) #6
@@ -122,7 +122,7 @@ get_loaded.exit:                                  ; preds = %29, %23
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr inbounds i8, ptr %22, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %46(ptr noundef %0, ptr noundef %48) #6
   store ptr %49, ptr @gtk, align 8
@@ -155,8 +155,8 @@ get_libs_order.exit.thread:                       ; preds = %51
   %57 = phi i1 [ true, %.lr.ph.i ], [ false, %56 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %56 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %56 ]
-  %58 = getelementptr inbounds [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i
-  %59 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
   store ptr %58, ptr %59, align 8
   %60 = load i32, ptr %58, align 8
   %61 = icmp eq i32 %60, %1
@@ -170,7 +170,7 @@ get_libs_order.exit.thread:                       ; preds = %51
 
 .critedge.i:                                      ; preds = %._crit_edge.i
   %63 = load ptr, ptr %55, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %63, ptr %64, align 8
   store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %55, align 8
   br label %get_libs_order.exit
@@ -196,7 +196,7 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
   %71 = phi ptr [ %70, %69 ], [ %68, %.lr.ph ]
   %.04758 = phi ptr [ %73, %69 ], [ %55, %.lr.ph ]
   %72 = phi ptr [ %98, %69 ], [ null, %.lr.ph ]
-  %73 = getelementptr inbounds i8, ptr %.04758, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.04758, i64 8
   br i1 %67, label %77, label %74
 
 74:                                               ; preds = %.lr.ph59
@@ -214,9 +214,9 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
   br label %82
 
 82:                                               ; preds = %78, %77
-  %83 = getelementptr inbounds i8, ptr %71, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %71, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr %84(ptr noundef %0, ptr noundef %86) #6
   store ptr %87, ptr @gtk, align 8
@@ -225,7 +225,7 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %83, align 8
-  %90 = getelementptr inbounds i8, ptr %71, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr %89(ptr noundef %0, ptr noundef %91) #6
   store ptr %92, ptr @gtk, align 8
@@ -304,8 +304,8 @@ define hidden range(i32 0, 2) i32 @gtk_check_version(i32 noundef %0) local_unnam
   %9 = phi i1 [ true, %.lr.ph.i.i ], [ false, %8 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ 1, %8 ]
   %.019.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %8 ]
-  %10 = getelementptr inbounds [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
   store ptr %10, ptr %11, align 8
   %12 = load i32, ptr %10, align 8
   %13 = icmp eq i32 %12, 0
@@ -319,7 +319,7 @@ define hidden range(i32 0, 2) i32 @gtk_check_version(i32 noundef %0) local_unnam
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %15, ptr %16, align 8
   store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %7, align 8
   br label %get_libs_order.exit.i.preheader
@@ -339,18 +339,18 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   br i1 %.not13.i, label %32, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %22(ptr noundef %24, i32 noundef 0) #6
   %.not14.i = icmp eq i32 %25, 0
   br i1 %.not14.i, label %26, label %get_loaded.exit
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %28(ptr noundef %30, i32 noundef 0) #6
   %.not15.i = icmp eq i32 %31, 0
@@ -379,8 +379,8 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %38 = phi i1 [ true, %.lr.ph.i.i4 ], [ false, %37 ]
   %indvars.iv.i.i5 = phi i64 [ 0, %.lr.ph.i.i4 ], [ 1, %37 ]
   %.019.i.i6 = phi i32 [ 0, %.lr.ph.i.i4 ], [ %spec.select.i.i7, %37 ]
-  %39 = getelementptr inbounds [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i5
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.i.i5
+  %39 = getelementptr inbounds nuw [2 x %struct.GtkLib], ptr @gtk_libs, i64 0, i64 %indvars.iv.i.i5
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i5
   store ptr %39, ptr %40, align 8
   %41 = load i32, ptr %39, align 8
   %42 = icmp eq i32 %41, %0
@@ -394,7 +394,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
 
 .critedge.i.i10:                                  ; preds = %._crit_edge.i.i8
   %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %44, ptr %45, align 8
   store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %36, align 8
   br label %get_libs_order.exit.i11.preheader
@@ -409,18 +409,18 @@ get_libs_order.exit.i11:                          ; preds = %get_libs_order.exit
   br i1 %.not.i12, label %get_loaded.exit, label %47
 
 47:                                               ; preds = %get_libs_order.exit.i11
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %49(ptr noundef %51, i32 noundef 1) #6
   %.not11.i = icmp eq i32 %52, 0
   br i1 %.not11.i, label %53, label %get_loaded.exit
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds i8, ptr %46, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %55(ptr noundef %57, i32 noundef 1) #6
   %.not12.i = icmp eq i32 %58, 0

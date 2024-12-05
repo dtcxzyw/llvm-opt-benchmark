@@ -24,12 +24,12 @@ define hidden noundef ptr @_ZN13GuardedMemory9wrap_copyEPKvmS1_(ptr noundef read
 
 6:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 -85, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds i8, ptr %8, i64 %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, i8 -85, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %10, align 8
   %11 = load i64, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 -15, i64 %11, i1 false)
@@ -61,7 +61,7 @@ define hidden noundef zeroext i1 @_ZN13GuardedMemory9free_copyEPv(ptr noundef %0
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %.07.idx8.i.i = phi i64 [ %.07.add.i.i, %.preheader.i ], [ 0, %3 ]
-  %.07.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.07.idx8.i.i
+  %.07.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.07.idx8.i.i
   %5 = load i8, ptr %.07.ptr.i.i, align 1
   %.not.i.i = icmp eq i8 %5, -85
   %.07.add.i.i = add nuw nsw i64 %.07.idx8.i.i, 1
@@ -80,7 +80,7 @@ _ZNK13GuardedMemory5Guard6verifyEv.exit.i:        ; preds = %.preheader.i
 
 10:                                               ; preds = %10, %8
   %.07.idx8.i2.i = phi i64 [ 0, %8 ], [ %.07.add.i5.i, %10 ]
-  %.07.ptr.i3.i = getelementptr inbounds i8, ptr %9, i64 %.07.idx8.i2.i
+  %.07.ptr.i3.i = getelementptr inbounds nuw i8, ptr %9, i64 %.07.idx8.i2.i
   %11 = load i8, ptr %.07.ptr.i3.i, align 1
   %.not.i4.i = icmp eq i8 %11, -85
   %.07.add.i5.i = add nuw nsw i64 %.07.idx8.i2.i, 1
@@ -103,7 +103,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK13GuardedMemory8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = ptrtoint ptr %0 to i64
@@ -115,12 +115,12 @@ define hidden void @_ZNK13GuardedMemory8print_onEP12outputStream(ptr noundef non
 
 8:                                                ; preds = %2
   %9 = ptrtoint ptr %4 to i64
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = ptrtoint ptr %15 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i64 noundef %6, i64 noundef %9, i64 noundef %12, i64 noundef %14, i64 noundef %16) #4
   %17 = load ptr, ptr %3, align 8
@@ -128,7 +128,7 @@ define hidden void @_ZNK13GuardedMemory8print_onEP12outputStream(ptr noundef non
 
 18:                                               ; preds = %18, %8
   %.07.idx8.i = phi i64 [ 0, %8 ], [ %.07.add.i, %18 ]
-  %.07.ptr.i = getelementptr inbounds i8, ptr %17, i64 %.07.idx8.i
+  %.07.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 %.07.idx8.i
   %19 = load i8, ptr %.07.ptr.i, align 1
   %.not.i = icmp eq i8 %19, -85
   %.07.add.i = add nuw nsw i64 %.07.idx8.i, 1
@@ -141,15 +141,15 @@ _ZNK13GuardedMemory5Guard6verifyEv.exit:          ; preds = %18
   %21 = select i1 %.not.i, ptr @.str.6, ptr @.str.7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %20, ptr noundef nonnull %21) #4
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %_ZNK13GuardedMemory5Guard6verifyEv.exit
   %.07.idx8.i12 = phi i64 [ 0, %_ZNK13GuardedMemory5Guard6verifyEv.exit ], [ %.07.add.i15, %27 ]
-  %.07.ptr.i13 = getelementptr inbounds i8, ptr %26, i64 %.07.idx8.i12
+  %.07.ptr.i13 = getelementptr inbounds nuw i8, ptr %26, i64 %.07.idx8.i12
   %28 = load i8, ptr %.07.ptr.i13, align 1
   %.not.i14 = icmp eq i8 %28, -85
   %.07.add.i15 = add nuw nsw i64 %.07.idx8.i12, 1
@@ -162,7 +162,7 @@ _ZNK13GuardedMemory5Guard6verifyEv.exit18:        ; preds = %27
   %30 = select i1 %.not.i14, ptr @.str.6, ptr @.str.7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i64 noundef %29, ptr noundef nonnull %30) #4
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %36 [
     i8 -15, label %34

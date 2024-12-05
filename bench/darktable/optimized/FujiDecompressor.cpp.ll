@@ -124,36 +124,36 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16), (36, 44), (48, 96)) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.rawspeed::FujiDecompressor::FujiHeader", align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load <2 x ptr>, ptr %1, align 8, !tbaa !11
   store ptr null, ptr %6, align 8, !tbaa !6
   store <2 x ptr> %7, ptr %0, align 8, !tbaa !11
   store ptr null, ptr %1, align 8, !tbaa !12
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %9, align 4, !tbaa !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %10, align 8, !tbaa !17
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %0, align 8, !tbaa !12
-  %14 = getelementptr inbounds i8, ptr %13, i64 584
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 584
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %116
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %13, i64 548
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 548
   %19 = load i32, ptr %18, align 4, !tbaa !78
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %116
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 588
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 588
   %23 = load i32, ptr %22, align 4, !tbaa !79
   %24 = icmp eq i32 %23, 2
   br i1 %24, label %27, label %116
@@ -161,10 +161,10 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
 25:                                               ; preds = %116
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %427
+  br label %424
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 48879, ptr %28, align 4, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #25
   invoke void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStreamE(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -180,34 +180,34 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #25
-  br label %427
+  br label %424
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8, !tbaa !12
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
-  %36 = getelementptr inbounds i8, ptr %0, i64 26
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %37 = load i16, ptr %36, align 2, !tbaa !87
   %38 = zext i16 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %0, i64 22
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %40 = load i16, ptr %39, align 2, !tbaa !99
   %41 = zext i16 %40 to i32
   %42 = load i32, ptr %35, align 4, !tbaa !14
   %43 = icmp eq i32 %42, %38
-  %44 = getelementptr inbounds i8, ptr %34, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %41
   %47 = select i1 %43, i1 %46, i1 false
   br i1 %47, label %48, label %116
 
 48:                                               ; preds = %33
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = load i8, ptr %49, align 4, !tbaa !100
   %51 = icmp eq i8 %50, 12
   br i1 %51, label %116, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %34, i64 64
-  %54 = getelementptr inbounds i8, ptr %34, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %55 = load i64, ptr %54, align 8
   %56 = trunc i64 %55 to i32
   %57 = lshr i64 %55, 32
@@ -236,7 +236,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressorC2ENS_8RawImageENS_10ByteStrea
 69:                                               ; preds = %73, %67, %61
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %427
+  br label %424
 
 71:                                               ; preds = %63
   %72 = icmp eq i64 %64, 0
@@ -334,7 +334,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 112:                                              ; preds = %.noexc22, %.noexc21, %.noexc, %84, %114, %_ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread
   %113 = landingpad { ptr, i32 }
           cleanup
-  br label %427
+  br label %424
 
 114:                                              ; preds = %107, %102, %97
   %.ph32.ph = phi i32 [ 1, %97 ], [ 2, %102 ], [ 3, %107 ]
@@ -353,7 +353,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   unreachable
 
 119:                                              ; preds = %91, %71
-  %120 = getelementptr inbounds i8, ptr %0, i64 30
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %121 = load i8, ptr %120, align 2, !tbaa !103
   %122 = zext i8 %121 to i64
   %123 = icmp eq i8 %121, 0
@@ -376,9 +376,9 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   br label %132
 
 132:                                              ; preds = %129, %127
-  %133 = getelementptr inbounds i32, ptr %126, i64 %122
-  %134 = getelementptr inbounds i8, ptr %0, i64 64
-  %135 = getelementptr inbounds i8, ptr %0, i64 56
+  %133 = getelementptr inbounds nuw i32, ptr %126, i64 %122
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %136 = load i32, ptr %135, align 8, !tbaa !104
   %137 = zext i32 %136 to i64
   %138 = load i32, ptr %28, align 4
@@ -419,7 +419,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   br label %.preheader49
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds i8, ptr %0, i64 68
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %165 = shl nuw i64 %154, 2
   %166 = getelementptr i8, ptr %126, i64 %165
   %167 = getelementptr i8, ptr %166, i64 4
@@ -460,9 +460,9 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %196 = shl i64 %194, 2
   %197 = getelementptr i8, ptr %126, i64 %196
   %198 = getelementptr i8, ptr %168, i64 %196
-  %199 = getelementptr inbounds i8, ptr %198, i64 32
-  %200 = getelementptr inbounds i8, ptr %198, i64 64
-  %201 = getelementptr inbounds i8, ptr %198, i64 96
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 64
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 96
   %202 = load <8 x i32>, ptr %198, align 1, !alias.scope !113
   %203 = load <8 x i32>, ptr %199, align 1, !alias.scope !113
   %204 = load <8 x i32>, ptr %200, align 1, !alias.scope !113
@@ -488,7 +488,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   br i1 %217, label %.preheader, label %218
 
 218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %0, i64 68
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %220 = shl nuw i64 %154, 2
   %221 = getelementptr i8, ptr %126, i64 %220
   %222 = getelementptr i8, ptr %221, i64 4
@@ -529,9 +529,9 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %251 = shl i64 %249, 2
   %252 = getelementptr i8, ptr %126, i64 %251
   %253 = getelementptr i8, ptr %223, i64 %251
-  %254 = getelementptr inbounds i8, ptr %253, i64 32
-  %255 = getelementptr inbounds i8, ptr %253, i64 64
-  %256 = getelementptr inbounds i8, ptr %253, i64 96
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 64
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 96
   %257 = load <8 x i32>, ptr %253, align 1, !alias.scope !118
   %258 = load <8 x i32>, ptr %254, align 1, !alias.scope !118
   %259 = load <8 x i32>, ptr %255, align 1, !alias.scope !118
@@ -576,7 +576,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %280 = trunc nuw i64 %275 to i32
   store i32 %280, ptr %134, align 8, !tbaa !106
   store i32 %279, ptr %274, align 4, !tbaa !86
-  %281 = getelementptr inbounds i8, ptr %274, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %282 = icmp eq ptr %281, %133
   br i1 %282, label %.loopexit25, label %272, !llvm.loop !127
 
@@ -590,7 +590,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %287 = phi ptr [ %321, %330 ], [ null, %124 ]
   %288 = landingpad { ptr, i32 }
           cleanup
-  br label %420
+  br label %417
 
 289:                                              ; preds = %.preheader49, %295
   %290 = phi i64 [ %292, %295 ], [ %.ph50, %.preheader49 ]
@@ -615,14 +615,14 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %299 = trunc nuw i64 %292 to i32
   store i32 %299, ptr %134, align 8, !tbaa !106
   store i32 %298, ptr %291, align 4, !tbaa !86
-  %300 = getelementptr inbounds i8, ptr %291, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %291, i64 4
   %301 = icmp eq ptr %300, %133
   br i1 %301, label %.loopexit25, label %289, !llvm.loop !128
 
 302:                                              ; preds = %.loopexit24
   %303 = landingpad { ptr, i32 }
           cleanup
-  br label %424
+  br label %421
 
 304:                                              ; preds = %.loopexit25
   %305 = trunc nuw nsw i64 %284 to i32
@@ -653,12 +653,12 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 317:                                              ; preds = %311
   %318 = landingpad { ptr, i32 }
           cleanup
-  br label %424
+  br label %421
 
 319:                                              ; preds = %313, %.loopexit25, %119
   %320 = phi ptr [ %133, %313 ], [ %133, %.loopexit25 ], [ null, %119 ]
   %321 = phi ptr [ %126, %313 ], [ %126, %.loopexit25 ], [ null, %119 ]
-  %322 = getelementptr inbounds i8, ptr %0, i64 88
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %323 = load ptr, ptr %322, align 8, !tbaa !129
   %324 = load ptr, ptr %12, align 8, !tbaa !130
   %325 = ptrtoint ptr %323 to i64
@@ -669,7 +669,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   br i1 %329, label %330, label %346
 
 330:                                              ; preds = %319
-  %331 = getelementptr inbounds i8, ptr %0, i64 80
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %332 = load ptr, ptr %331, align 8, !tbaa !131
   %333 = ptrtoint ptr %332 to i64
   %334 = sub i64 %333, %326
@@ -697,7 +697,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   store ptr %336, ptr %12, align 8, !tbaa !130
   %344 = getelementptr inbounds i8, ptr %336, i64 %334
   store ptr %344, ptr %331, align 8, !tbaa !131
-  %345 = getelementptr inbounds %"class.rawspeed::Array1DRef.62", ptr %336, i64 %122
+  %345 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.62", ptr %336, i64 %122
   store ptr %345, ptr %322, align 8, !tbaa !129
   br label %346
 
@@ -705,12 +705,12 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   br i1 %123, label %.loopexit, label %347
 
 347:                                              ; preds = %346
-  %348 = getelementptr inbounds i8, ptr %0, i64 64
-  %349 = getelementptr inbounds i8, ptr %0, i64 56
-  %350 = getelementptr inbounds i8, ptr %0, i64 80
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %354
 
-.loopexit:                                        ; preds = %413, %346
+.loopexit:                                        ; preds = %410, %346
   %351 = icmp eq ptr %321, null
   br i1 %351, label %353, label %352
 
@@ -721,8 +721,8 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 353:                                              ; preds = %352, %.loopexit
   ret void
 
-354:                                              ; preds = %413, %347
-  %355 = phi ptr [ %321, %347 ], [ %414, %413 ]
+354:                                              ; preds = %410, %347
+  %355 = phi ptr [ %321, %347 ], [ %411, %410 ]
   %356 = load i32, ptr %355, align 4, !tbaa !86
   %357 = load i32, ptr %348, align 8, !tbaa !106, !noalias !132
   %358 = zext i32 %357 to i64
@@ -735,7 +735,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 
 364:                                              ; preds = %354
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #17
-          to label %365 unwind label %418
+          to label %365 unwind label %415
 
 365:                                              ; preds = %364
   unreachable
@@ -751,7 +751,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   tail call void @llvm.assume(i1 %371)
   %372 = icmp sgt i32 %356, -1
   tail call void @llvm.assume(i1 %372)
-  %373 = getelementptr inbounds i8, ptr %367, i64 %358
+  %373 = getelementptr inbounds nuw i8, ptr %367, i64 %358
   store i32 %369, ptr %348, align 8, !tbaa !106, !noalias !132
   %374 = load ptr, ptr %350, align 8, !tbaa !11
   %375 = load ptr, ptr %322, align 8, !tbaa !129
@@ -760,12 +760,12 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 
 377:                                              ; preds = %366
   store ptr %373, ptr %374, align 8, !tbaa !11
-  %378 = getelementptr inbounds i8, ptr %374, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i32 %356, ptr %378, align 8, !tbaa !86
   %379 = load ptr, ptr %350, align 8, !tbaa !131
-  %380 = getelementptr inbounds i8, ptr %379, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   store ptr %380, ptr %350, align 8, !tbaa !131
-  br label %413
+  br label %410
 
 381:                                              ; preds = %366
   %382 = load ptr, ptr %12, align 8, !tbaa !11
@@ -777,7 +777,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
 
 387:                                              ; preds = %381
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #29
-          to label %388 unwind label %418
+          to label %388 unwind label %415
 
 388:                                              ; preds = %387
   unreachable
@@ -789,84 +789,80 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   %393 = icmp ult i64 %392, %390
   %394 = tail call i64 @llvm.umin.i64(i64 %392, i64 576460752303423487)
   %395 = select i1 %393, i64 576460752303423487, i64 %394
-  %396 = icmp eq i64 %395, 0
-  br i1 %396, label %400, label %397
+  %396 = icmp ne i64 %395, 0
+  tail call void @llvm.assume(i1 %396)
+  %397 = shl nuw nsw i64 %395, 4
+  %398 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %397) #27
+          to label %399 unwind label %413
 
-397:                                              ; preds = %389
-  %398 = shl nuw nsw i64 %395, 4
-  %399 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %398) #27
-          to label %400 unwind label %416
+399:                                              ; preds = %389
+  %400 = getelementptr inbounds i8, ptr %398, i64 %385
+  store ptr %373, ptr %400, align 8, !tbaa !11
+  %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
+  store i32 %356, ptr %401, align 8, !tbaa !86
+  %402 = icmp sgt i64 %385, 0
+  br i1 %402, label %403, label %404
 
-400:                                              ; preds = %397, %389
-  %401 = phi ptr [ null, %389 ], [ %399, %397 ]
-  %402 = getelementptr inbounds %"class.rawspeed::Array1DRef.62", ptr %401, i64 %390
-  store ptr %373, ptr %402, align 8, !tbaa !11
-  %403 = getelementptr inbounds i8, ptr %402, i64 8
-  store i32 %356, ptr %403, align 8, !tbaa !86
-  %404 = icmp sgt i64 %385, 0
-  br i1 %404, label %405, label %406
+403:                                              ; preds = %399
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %398, ptr align 8 %382, i64 %385, i1 false)
+  br label %404
 
-405:                                              ; preds = %400
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %401, ptr align 8 %382, i64 %385, i1 false)
-  br label %406
+404:                                              ; preds = %403, %399
+  %405 = getelementptr inbounds nuw i8, ptr %400, i64 16
+  %406 = icmp eq ptr %382, null
+  br i1 %406, label %408, label %407
 
-406:                                              ; preds = %405, %400
-  %407 = getelementptr inbounds i8, ptr %401, i64 %385
-  %408 = getelementptr inbounds i8, ptr %407, i64 16
-  %409 = icmp eq ptr %382, null
-  br i1 %409, label %411, label %410
-
-410:                                              ; preds = %406
+407:                                              ; preds = %404
   tail call void @_ZdlPv(ptr noundef nonnull %382) #28
-  br label %411
+  br label %408
 
-411:                                              ; preds = %410, %406
-  store ptr %401, ptr %12, align 8, !tbaa !130
-  store ptr %408, ptr %350, align 8, !tbaa !131
-  %412 = getelementptr inbounds %"class.rawspeed::Array1DRef.62", ptr %401, i64 %395
-  store ptr %412, ptr %322, align 8, !tbaa !129
-  br label %413
+408:                                              ; preds = %407, %404
+  store ptr %398, ptr %12, align 8, !tbaa !130
+  store ptr %405, ptr %350, align 8, !tbaa !131
+  %409 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.62", ptr %398, i64 %395
+  store ptr %409, ptr %322, align 8, !tbaa !129
+  br label %410
 
-413:                                              ; preds = %411, %377
-  %414 = getelementptr inbounds i8, ptr %355, i64 4
-  %415 = icmp eq ptr %414, %320
-  br i1 %415, label %.loopexit, label %354
+410:                                              ; preds = %408, %377
+  %411 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  %412 = icmp eq ptr %411, %320
+  br i1 %412, label %.loopexit, label %354
 
-416:                                              ; preds = %397
-  %417 = landingpad { ptr, i32 }
+413:                                              ; preds = %389
+  %414 = landingpad { ptr, i32 }
           cleanup
-  br label %420
+  br label %417
 
-418:                                              ; preds = %387, %364
-  %419 = landingpad { ptr, i32 }
+415:                                              ; preds = %387, %364
+  %416 = landingpad { ptr, i32 }
           cleanup
-  br label %420
+  br label %417
 
-420:                                              ; preds = %418, %416, %286
-  %421 = phi ptr [ %287, %286 ], [ %321, %418 ], [ %321, %416 ]
-  %422 = phi { ptr, i32 } [ %288, %286 ], [ %419, %418 ], [ %417, %416 ]
-  %423 = icmp eq ptr %421, null
-  br i1 %423, label %427, label %424
+417:                                              ; preds = %415, %413, %286
+  %418 = phi ptr [ %287, %286 ], [ %321, %415 ], [ %321, %413 ]
+  %419 = phi { ptr, i32 } [ %288, %286 ], [ %416, %415 ], [ %414, %413 ]
+  %420 = icmp eq ptr %418, null
+  br i1 %420, label %424, label %421
 
-424:                                              ; preds = %420, %317, %302
-  %425 = phi { ptr, i32 } [ %422, %420 ], [ %303, %302 ], [ %318, %317 ]
-  %426 = phi ptr [ %421, %420 ], [ %126, %302 ], [ %126, %317 ]
+421:                                              ; preds = %417, %317, %302
+  %422 = phi { ptr, i32 } [ %419, %417 ], [ %303, %302 ], [ %318, %317 ]
+  %423 = phi ptr [ %418, %417 ], [ %126, %302 ], [ %126, %317 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %423) #28
+  br label %424
+
+424:                                              ; preds = %421, %417, %112, %69, %31, %25
+  %425 = phi { ptr, i32 } [ %26, %25 ], [ %32, %31 ], [ %70, %69 ], [ %113, %112 ], [ %419, %417 ], [ %422, %421 ]
+  %426 = load ptr, ptr %12, align 8, !tbaa !130
+  %427 = icmp eq ptr %426, null
+  br i1 %427, label %429, label %428
+
+428:                                              ; preds = %424
   tail call void @_ZdlPv(ptr noundef nonnull %426) #28
-  br label %427
+  br label %429
 
-427:                                              ; preds = %424, %420, %112, %69, %31, %25
-  %428 = phi { ptr, i32 } [ %26, %25 ], [ %32, %31 ], [ %70, %69 ], [ %113, %112 ], [ %422, %420 ], [ %425, %424 ]
-  %429 = load ptr, ptr %12, align 8, !tbaa !130
-  %430 = icmp eq ptr %429, null
-  br i1 %430, label %432, label %431
-
-431:                                              ; preds = %427
-  tail call void @_ZdlPv(ptr noundef nonnull %429) #28
-  br label %432
-
-432:                                              ; preds = %431, %427
+429:                                              ; preds = %428, %424
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  resume { ptr, i32 } %428
+  resume { ptr, i32 } %425
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -909,14 +905,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvbEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %0) local_unnamed_addr #4 align 2 {
   %2 = load i16, ptr %0, align 4, !tbaa !141
   %3 = icmp eq i16 %2, 18771
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2
   %6 = icmp eq i8 %5, 1
   %7 = select i1 %3, i1 %6, i1 false
   br i1 %7, label %8, label %72
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %10 = load i16, ptr %9, align 2, !tbaa !142
   %11 = add i16 %10, -6
   %12 = icmp ult i16 %11, 12283
@@ -927,7 +923,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   br i1 %16, label %17, label %72
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %19 = load i16, ptr %18, align 2, !tbaa !143
   %20 = zext i16 %19 to i32
   %21 = add i16 %19, -768
@@ -938,14 +934,14 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   br i1 %25, label %26, label %72
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i16, ptr %27, align 4, !tbaa !144
   %29 = icmp ugt i16 %28, 12288
   br i1 %29, label %72, label %30
 
 30:                                               ; preds = %26
   %31 = zext nneg i16 %28 to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %33 = load i16, ptr %32, align 4, !tbaa !145
   %34 = icmp ne i16 %33, 768
   %35 = icmp samesign ult i16 %28, 768
@@ -960,7 +956,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   br i1 %43, label %72, label %44
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds i8, ptr %0, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %46 = load i8, ptr %45, align 2, !tbaa !146
   %47 = add i8 %46, -1
   %48 = icmp ult i8 %47, 16
@@ -977,7 +973,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   br i1 %56, label %57, label %72
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i16, ptr %58, align 4, !tbaa !147
   %60 = add i16 %59, -1
   %61 = icmp ult i16 %60, 2048
@@ -986,7 +982,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %66 = load i8, ptr %65, align 4, !tbaa !148
   switch i8 %66, label %72 [
     i8 12, label %67
@@ -995,7 +991,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   ]
 
 67:                                               ; preds = %64, %64, %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %69 = load i8, ptr %68, align 1, !tbaa !149
   %70 = and i8 %69, -17
   %71 = icmp eq i8 %70, 0
@@ -1010,7 +1006,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
 define linkonce_odr hidden { i64, i8 } @_ZN8rawspeed16getAsXTransPhaseERKNS_16ColorFilterArrayE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array.72", align 1
   %3 = alloca %"struct.std::array.72", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa.struct !150
   %6 = icmp eq i64 %5, 25769803782
   br i1 %6, label %7, label %254
@@ -1020,177 +1016,177 @@ define linkonce_odr hidden { i64, i8 } @_ZN8rawspeed16getAsXTransPhaseERKNS_16Co
   %8 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 0)
   store i8 %8, ptr %2, align 1, !tbaa !151
   %9 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 0)
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %9, ptr %10, align 1, !tbaa !151
   %11 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 0)
-  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %11, ptr %12, align 1, !tbaa !151
   %13 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 0)
-  %14 = getelementptr inbounds i8, ptr %2, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %13, ptr %14, align 1, !tbaa !151
   %15 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 0)
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %15, ptr %16, align 1, !tbaa !151
   %17 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 0)
-  %18 = getelementptr inbounds i8, ptr %2, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %17, ptr %18, align 1, !tbaa !151
-  %19 = getelementptr inbounds i8, ptr %2, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %20 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 1)
   store i8 %20, ptr %19, align 1, !tbaa !151
   %21 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 1)
-  %22 = getelementptr inbounds i8, ptr %2, i64 7
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %21, ptr %22, align 1, !tbaa !151
   %23 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 1)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %23, ptr %24, align 1, !tbaa !151
   %25 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 1)
-  %26 = getelementptr inbounds i8, ptr %2, i64 9
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %25, ptr %26, align 1, !tbaa !151
   %27 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 1)
-  %28 = getelementptr inbounds i8, ptr %2, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %27, ptr %28, align 1, !tbaa !151
   %29 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 1)
-  %30 = getelementptr inbounds i8, ptr %2, i64 11
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 %29, ptr %30, align 1, !tbaa !151
-  %31 = getelementptr inbounds i8, ptr %2, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 2)
   store i8 %32, ptr %31, align 1, !tbaa !151
   %33 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 2)
-  %34 = getelementptr inbounds i8, ptr %2, i64 13
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %33, ptr %34, align 1, !tbaa !151
   %35 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 2)
-  %36 = getelementptr inbounds i8, ptr %2, i64 14
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %35, ptr %36, align 1, !tbaa !151
   %37 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 2)
-  %38 = getelementptr inbounds i8, ptr %2, i64 15
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 %37, ptr %38, align 1, !tbaa !151
   %39 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 2)
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %39, ptr %40, align 1, !tbaa !151
   %41 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 2)
-  %42 = getelementptr inbounds i8, ptr %2, i64 17
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 17
   store i8 %41, ptr %42, align 1, !tbaa !151
-  %43 = getelementptr inbounds i8, ptr %2, i64 18
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %44 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 3)
   store i8 %44, ptr %43, align 1, !tbaa !151
   %45 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 3)
-  %46 = getelementptr inbounds i8, ptr %2, i64 19
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 19
   store i8 %45, ptr %46, align 1, !tbaa !151
   %47 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 3)
-  %48 = getelementptr inbounds i8, ptr %2, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 %47, ptr %48, align 1, !tbaa !151
   %49 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 3)
-  %50 = getelementptr inbounds i8, ptr %2, i64 21
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 21
   store i8 %49, ptr %50, align 1, !tbaa !151
   %51 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 3)
-  %52 = getelementptr inbounds i8, ptr %2, i64 22
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i8 %51, ptr %52, align 1, !tbaa !151
   %53 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 3)
-  %54 = getelementptr inbounds i8, ptr %2, i64 23
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 23
   store i8 %53, ptr %54, align 1, !tbaa !151
-  %55 = getelementptr inbounds i8, ptr %2, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 4)
   store i8 %56, ptr %55, align 1, !tbaa !151
   %57 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 4)
-  %58 = getelementptr inbounds i8, ptr %2, i64 25
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 %57, ptr %58, align 1, !tbaa !151
   %59 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 4)
-  %60 = getelementptr inbounds i8, ptr %2, i64 26
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 26
   store i8 %59, ptr %60, align 1, !tbaa !151
   %61 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 4)
-  %62 = getelementptr inbounds i8, ptr %2, i64 27
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 27
   store i8 %61, ptr %62, align 1, !tbaa !151
   %63 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 4)
-  %64 = getelementptr inbounds i8, ptr %2, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 %63, ptr %64, align 1, !tbaa !151
   %65 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 4)
-  %66 = getelementptr inbounds i8, ptr %2, i64 29
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 29
   store i8 %65, ptr %66, align 1, !tbaa !151
-  %67 = getelementptr inbounds i8, ptr %2, i64 30
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %68 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef 5)
   store i8 %68, ptr %67, align 1, !tbaa !151
   %69 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 5)
-  %70 = getelementptr inbounds i8, ptr %2, i64 31
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 31
   store i8 %69, ptr %70, align 1, !tbaa !151
   %71 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 5)
-  %72 = getelementptr inbounds i8, ptr %2, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 %71, ptr %72, align 1, !tbaa !151
   %73 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 5)
-  %74 = getelementptr inbounds i8, ptr %2, i64 33
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 33
   store i8 %73, ptr %74, align 1, !tbaa !151
   %75 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4, i32 noundef 5)
-  %76 = getelementptr inbounds i8, ptr %2, i64 34
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 34
   store i8 %75, ptr %76, align 1, !tbaa !151
   %77 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 5, i32 noundef 5)
-  %78 = getelementptr inbounds i8, ptr %2, i64 35
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 35
   store i8 %77, ptr %78, align 1, !tbaa !151
-  %79 = getelementptr inbounds i8, ptr %3, i64 1
-  %80 = getelementptr inbounds i8, ptr %3, i64 2
-  %81 = getelementptr inbounds i8, ptr %3, i64 3
-  %82 = getelementptr inbounds i8, ptr %3, i64 4
-  %83 = getelementptr inbounds i8, ptr %3, i64 5
-  %84 = getelementptr inbounds i8, ptr %3, i64 6
-  %85 = getelementptr inbounds i8, ptr %3, i64 7
-  %86 = getelementptr inbounds i8, ptr %3, i64 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 9
-  %88 = getelementptr inbounds i8, ptr %3, i64 10
-  %89 = getelementptr inbounds i8, ptr %3, i64 11
-  %90 = getelementptr inbounds i8, ptr %3, i64 12
-  %91 = getelementptr inbounds i8, ptr %3, i64 13
-  %92 = getelementptr inbounds i8, ptr %3, i64 14
-  %93 = getelementptr inbounds i8, ptr %3, i64 15
-  %94 = getelementptr inbounds i8, ptr %3, i64 16
-  %95 = getelementptr inbounds i8, ptr %3, i64 17
-  %96 = getelementptr inbounds i8, ptr %3, i64 18
-  %97 = getelementptr inbounds i8, ptr %3, i64 19
-  %98 = getelementptr inbounds i8, ptr %3, i64 20
-  %99 = getelementptr inbounds i8, ptr %3, i64 21
-  %100 = getelementptr inbounds i8, ptr %3, i64 22
-  %101 = getelementptr inbounds i8, ptr %3, i64 23
-  %102 = getelementptr inbounds i8, ptr %3, i64 24
-  %103 = getelementptr inbounds i8, ptr %3, i64 25
-  %104 = getelementptr inbounds i8, ptr %3, i64 26
-  %105 = getelementptr inbounds i8, ptr %3, i64 27
-  %106 = getelementptr inbounds i8, ptr %3, i64 28
-  %107 = getelementptr inbounds i8, ptr %3, i64 29
-  %108 = getelementptr inbounds i8, ptr %3, i64 30
-  %109 = getelementptr inbounds i8, ptr %3, i64 31
-  %110 = getelementptr inbounds i8, ptr %3, i64 32
-  %111 = getelementptr inbounds i8, ptr %3, i64 33
-  %112 = getelementptr inbounds i8, ptr %3, i64 34
-  %113 = getelementptr inbounds i8, ptr %3, i64 35
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 19
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 21
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 25
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 26
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 27
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 29
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 30
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 31
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 34
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 35
   br label %114
 
 114:                                              ; preds = %247, %7
   %115 = phi i64 [ 0, %7 ], [ %118, %247 ]
   %116 = mul nuw nsw i64 %115, 6
-  %117 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %116
   %118 = add nuw nsw i64 %115, 1
   %119 = icmp eq i64 %118, 6
   %120 = mul nuw nsw i64 %118, 6
   %121 = select i1 %119, i64 0, i64 %120
-  %122 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %121
   %123 = trunc i64 %115 to i32
   %124 = add i32 %123, 2
   %125 = urem i32 %124, 6
   %126 = mul nuw nsw i32 %125, 6
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %127
   %129 = add i32 %123, 3
   %130 = urem i32 %129, 6
   %131 = mul nuw nsw i32 %130, 6
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %132
   %134 = add i32 %123, 4
   %135 = urem i32 %134, 6
   %136 = mul nuw nsw i32 %135, 6
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %137
   %139 = add i32 %123, 5
   %140 = urem i32 %139, 6
   %141 = mul nuw nsw i32 %140, 6
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr @__const._ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.basePat, i64 %142
   br label %144
 
 144:                                              ; preds = %246, %114
@@ -1198,128 +1194,128 @@ define linkonce_odr hidden { i64, i8 } @_ZN8rawspeed16getAsXTransPhaseERKNS_16Co
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %146 = getelementptr inbounds i8, ptr %117, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %117, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !151, !noalias !159
   store i8 %147, ptr %3, align 1, !tbaa !151, !alias.scope !159
   %148 = add nuw nsw i64 %145, 1
   %149 = icmp eq i64 %148, 6
   %150 = select i1 %149, i64 0, i64 %148
-  %151 = getelementptr inbounds i8, ptr %117, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %117, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !151, !noalias !159
   store i8 %152, ptr %79, align 1, !tbaa !151, !alias.scope !159
   %153 = trunc i64 %145 to i32
   %154 = add i32 %153, 2
   %155 = urem i32 %154, 6
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %117, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %117, i64 %156
   %158 = load i8, ptr %157, align 1, !tbaa !151, !noalias !159
   store i8 %158, ptr %80, align 1, !tbaa !151, !alias.scope !159
   %159 = add i32 %153, 3
   %160 = urem i32 %159, 6
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %117, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %117, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !151, !noalias !159
   store i8 %163, ptr %81, align 1, !tbaa !151, !alias.scope !159
   %164 = add i32 %153, 4
   %165 = urem i32 %164, 6
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds i8, ptr %117, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %117, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !151, !noalias !159
   store i8 %168, ptr %82, align 1, !tbaa !151, !alias.scope !159
   %169 = add i32 %153, 5
   %170 = urem i32 %169, 6
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %117, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %117, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !151, !noalias !159
   store i8 %173, ptr %83, align 1, !tbaa !151, !alias.scope !159
-  %174 = getelementptr inbounds i8, ptr %122, i64 %145
+  %174 = getelementptr inbounds nuw i8, ptr %122, i64 %145
   %175 = load i8, ptr %174, align 1, !tbaa !151, !noalias !159
   store i8 %175, ptr %84, align 1, !tbaa !151, !alias.scope !159
-  %176 = getelementptr inbounds i8, ptr %122, i64 %150
+  %176 = getelementptr inbounds nuw i8, ptr %122, i64 %150
   %177 = load i8, ptr %176, align 1, !tbaa !151, !noalias !159
   store i8 %177, ptr %85, align 1, !tbaa !151, !alias.scope !159
-  %178 = getelementptr inbounds i8, ptr %122, i64 %156
+  %178 = getelementptr inbounds nuw i8, ptr %122, i64 %156
   %179 = load i8, ptr %178, align 1, !tbaa !151, !noalias !159
   store i8 %179, ptr %86, align 1, !tbaa !151, !alias.scope !159
-  %180 = getelementptr inbounds i8, ptr %122, i64 %161
+  %180 = getelementptr inbounds nuw i8, ptr %122, i64 %161
   %181 = load i8, ptr %180, align 1, !tbaa !151, !noalias !159
   store i8 %181, ptr %87, align 1, !tbaa !151, !alias.scope !159
-  %182 = getelementptr inbounds i8, ptr %122, i64 %166
+  %182 = getelementptr inbounds nuw i8, ptr %122, i64 %166
   %183 = load i8, ptr %182, align 1, !tbaa !151, !noalias !159
   store i8 %183, ptr %88, align 1, !tbaa !151, !alias.scope !159
-  %184 = getelementptr inbounds i8, ptr %122, i64 %171
+  %184 = getelementptr inbounds nuw i8, ptr %122, i64 %171
   %185 = load i8, ptr %184, align 1, !tbaa !151, !noalias !159
   store i8 %185, ptr %89, align 1, !tbaa !151, !alias.scope !159
-  %186 = getelementptr inbounds i8, ptr %128, i64 %145
+  %186 = getelementptr inbounds nuw i8, ptr %128, i64 %145
   %187 = load i8, ptr %186, align 1, !tbaa !151, !noalias !159
   store i8 %187, ptr %90, align 1, !tbaa !151, !alias.scope !159
-  %188 = getelementptr inbounds i8, ptr %128, i64 %150
+  %188 = getelementptr inbounds nuw i8, ptr %128, i64 %150
   %189 = load i8, ptr %188, align 1, !tbaa !151, !noalias !159
   store i8 %189, ptr %91, align 1, !tbaa !151, !alias.scope !159
-  %190 = getelementptr inbounds i8, ptr %128, i64 %156
+  %190 = getelementptr inbounds nuw i8, ptr %128, i64 %156
   %191 = load i8, ptr %190, align 1, !tbaa !151, !noalias !159
   store i8 %191, ptr %92, align 1, !tbaa !151, !alias.scope !159
-  %192 = getelementptr inbounds i8, ptr %128, i64 %161
+  %192 = getelementptr inbounds nuw i8, ptr %128, i64 %161
   %193 = load i8, ptr %192, align 1, !tbaa !151, !noalias !159
   store i8 %193, ptr %93, align 1, !tbaa !151, !alias.scope !159
-  %194 = getelementptr inbounds i8, ptr %128, i64 %166
+  %194 = getelementptr inbounds nuw i8, ptr %128, i64 %166
   %195 = load i8, ptr %194, align 1, !tbaa !151, !noalias !159
   store i8 %195, ptr %94, align 1, !tbaa !151, !alias.scope !159
-  %196 = getelementptr inbounds i8, ptr %128, i64 %171
+  %196 = getelementptr inbounds nuw i8, ptr %128, i64 %171
   %197 = load i8, ptr %196, align 1, !tbaa !151, !noalias !159
   store i8 %197, ptr %95, align 1, !tbaa !151, !alias.scope !159
-  %198 = getelementptr inbounds i8, ptr %133, i64 %145
+  %198 = getelementptr inbounds nuw i8, ptr %133, i64 %145
   %199 = load i8, ptr %198, align 1, !tbaa !151, !noalias !159
   store i8 %199, ptr %96, align 1, !tbaa !151, !alias.scope !159
-  %200 = getelementptr inbounds i8, ptr %133, i64 %150
+  %200 = getelementptr inbounds nuw i8, ptr %133, i64 %150
   %201 = load i8, ptr %200, align 1, !tbaa !151, !noalias !159
   store i8 %201, ptr %97, align 1, !tbaa !151, !alias.scope !159
-  %202 = getelementptr inbounds i8, ptr %133, i64 %156
+  %202 = getelementptr inbounds nuw i8, ptr %133, i64 %156
   %203 = load i8, ptr %202, align 1, !tbaa !151, !noalias !159
   store i8 %203, ptr %98, align 1, !tbaa !151, !alias.scope !159
-  %204 = getelementptr inbounds i8, ptr %133, i64 %161
+  %204 = getelementptr inbounds nuw i8, ptr %133, i64 %161
   %205 = load i8, ptr %204, align 1, !tbaa !151, !noalias !159
   store i8 %205, ptr %99, align 1, !tbaa !151, !alias.scope !159
-  %206 = getelementptr inbounds i8, ptr %133, i64 %166
+  %206 = getelementptr inbounds nuw i8, ptr %133, i64 %166
   %207 = load i8, ptr %206, align 1, !tbaa !151, !noalias !159
   store i8 %207, ptr %100, align 1, !tbaa !151, !alias.scope !159
-  %208 = getelementptr inbounds i8, ptr %133, i64 %171
+  %208 = getelementptr inbounds nuw i8, ptr %133, i64 %171
   %209 = load i8, ptr %208, align 1, !tbaa !151, !noalias !159
   store i8 %209, ptr %101, align 1, !tbaa !151, !alias.scope !159
-  %210 = getelementptr inbounds i8, ptr %138, i64 %145
+  %210 = getelementptr inbounds nuw i8, ptr %138, i64 %145
   %211 = load i8, ptr %210, align 1, !tbaa !151, !noalias !159
   store i8 %211, ptr %102, align 1, !tbaa !151, !alias.scope !159
-  %212 = getelementptr inbounds i8, ptr %138, i64 %150
+  %212 = getelementptr inbounds nuw i8, ptr %138, i64 %150
   %213 = load i8, ptr %212, align 1, !tbaa !151, !noalias !159
   store i8 %213, ptr %103, align 1, !tbaa !151, !alias.scope !159
-  %214 = getelementptr inbounds i8, ptr %138, i64 %156
+  %214 = getelementptr inbounds nuw i8, ptr %138, i64 %156
   %215 = load i8, ptr %214, align 1, !tbaa !151, !noalias !159
   store i8 %215, ptr %104, align 1, !tbaa !151, !alias.scope !159
-  %216 = getelementptr inbounds i8, ptr %138, i64 %161
+  %216 = getelementptr inbounds nuw i8, ptr %138, i64 %161
   %217 = load i8, ptr %216, align 1, !tbaa !151, !noalias !159
   store i8 %217, ptr %105, align 1, !tbaa !151, !alias.scope !159
-  %218 = getelementptr inbounds i8, ptr %138, i64 %166
+  %218 = getelementptr inbounds nuw i8, ptr %138, i64 %166
   %219 = load i8, ptr %218, align 1, !tbaa !151, !noalias !159
   store i8 %219, ptr %106, align 1, !tbaa !151, !alias.scope !159
-  %220 = getelementptr inbounds i8, ptr %138, i64 %171
+  %220 = getelementptr inbounds nuw i8, ptr %138, i64 %171
   %221 = load i8, ptr %220, align 1, !tbaa !151, !noalias !159
   store i8 %221, ptr %107, align 1, !tbaa !151, !alias.scope !159
-  %222 = getelementptr inbounds i8, ptr %143, i64 %145
+  %222 = getelementptr inbounds nuw i8, ptr %143, i64 %145
   %223 = load i8, ptr %222, align 1, !tbaa !151, !noalias !159
   store i8 %223, ptr %108, align 1, !tbaa !151, !alias.scope !159
-  %224 = getelementptr inbounds i8, ptr %143, i64 %150
+  %224 = getelementptr inbounds nuw i8, ptr %143, i64 %150
   %225 = load i8, ptr %224, align 1, !tbaa !151, !noalias !159
   store i8 %225, ptr %109, align 1, !tbaa !151, !alias.scope !159
-  %226 = getelementptr inbounds i8, ptr %143, i64 %156
+  %226 = getelementptr inbounds nuw i8, ptr %143, i64 %156
   %227 = load i8, ptr %226, align 1, !tbaa !151, !noalias !159
   store i8 %227, ptr %110, align 1, !tbaa !151, !alias.scope !159
-  %228 = getelementptr inbounds i8, ptr %143, i64 %161
+  %228 = getelementptr inbounds nuw i8, ptr %143, i64 %161
   %229 = load i8, ptr %228, align 1, !tbaa !151, !noalias !159
   store i8 %229, ptr %111, align 1, !tbaa !151, !alias.scope !159
-  %230 = getelementptr inbounds i8, ptr %143, i64 %166
+  %230 = getelementptr inbounds nuw i8, ptr %143, i64 %166
   %231 = load i8, ptr %230, align 1, !tbaa !151, !noalias !159
   store i8 %231, ptr %112, align 1, !tbaa !151, !alias.scope !159
-  %232 = getelementptr inbounds i8, ptr %143, i64 %171
+  %232 = getelementptr inbounds nuw i8, ptr %143, i64 %171
   %233 = load i8, ptr %232, align 1, !tbaa !151, !noalias !159
   store i8 %233, ptr %113, align 1, !tbaa !151, !alias.scope !159
   br label %234
@@ -1327,12 +1323,12 @@ define linkonce_odr hidden { i64, i8 } @_ZN8rawspeed16getAsXTransPhaseERKNS_16Co
 234:                                              ; preds = %234, %144
   %235 = phi ptr [ %2, %144 ], [ %242, %234 ]
   %236 = phi i64 [ 0, %144 ], [ %241, %234 ]
-  %237 = getelementptr inbounds i8, ptr %3, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !151
   %239 = load i8, ptr %235, align 1, !tbaa !151
   %240 = icmp eq i8 %238, %239
   %241 = add nuw nsw i64 %236, 1
-  %242 = getelementptr inbounds i8, ptr %235, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %235, i64 1
   %243 = icmp ne i64 %241, 36
   %244 = select i1 %240, i1 %243, i1 false
   br i1 %244, label %234, label %245, !llvm.loop !160
@@ -1369,13 +1365,13 @@ define linkonce_odr hidden { i64, i8 } @_ZN8rawspeed16getAsXTransPhaseERKNS_16Co
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -1383,14 +1379,14 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !163
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !165
   %12 = load ptr, ptr %3, align 8, !tbaa !166
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   %15 = load ptr, ptr %3, align 8, !tbaa !166
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %29
@@ -1444,15 +1440,15 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #25
   %11 = load ptr, ptr %0, align 8, !tbaa !12
   store ptr %11, ptr %10, align 8, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   store ptr %14, ptr %12, align 8, !tbaa !6
   %15 = icmp eq ptr %14, null
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %23, label %20
@@ -1472,9 +1468,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 27:                                               ; preds = %23, %20, %1
   %28 = phi ptr [ null, %1 ], [ %14, %20 ], [ %26, %23 ]
   %29 = phi ptr [ %11, %1 ], [ %11, %20 ], [ %25, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8, !tbaa !130, !nonnull !105, !noundef !105
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !131
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %31 to i64
@@ -1483,25 +1479,25 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %38 = trunc i64 %37 to i32
   %39 = icmp sgt i32 %38, -1
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %9, align 8, !tbaa !12
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %12, align 8, !tbaa !6
   store ptr %28, ptr %41, align 8, !tbaa !6
   store ptr null, ptr %10, align 8, !tbaa !12
-  %42 = getelementptr inbounds i8, ptr %9, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %31, ptr %42, align 8, !tbaa !11
-  %43 = getelementptr inbounds i8, ptr %9, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %38, ptr %43, align 8, !tbaa !86
-  %44 = getelementptr inbounds i8, ptr %9, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %40, ptr %44, align 8, !tbaa !11
-  %45 = getelementptr inbounds i8, ptr %9, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
-  %46 = getelementptr inbounds i8, ptr %0, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %47 = load i16, ptr %46, align 4, !tbaa !145
   %48 = urem i16 %47, 3
   %49 = icmp ne i16 %48, 0
-  %50 = getelementptr inbounds i8, ptr %0, i64 19
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 16
   %53 = select i1 %49, i1 %52, i1 false
@@ -1542,30 +1538,30 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 71:                                               ; preds = %69, %64
   %72 = phi i16 [ %68, %64 ], [ %70, %69 ]
-  %73 = getelementptr inbounds i8, ptr %9, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i16 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %9, i64 64
-  %75 = getelementptr inbounds i8, ptr %9, i64 68
-  %76 = getelementptr inbounds i8, ptr %9, i64 72
-  %77 = getelementptr inbounds i8, ptr %9, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 76
   store <4 x i32> <i32 0, i32 18, i32 67, i32 276>, ptr %74, align 8, !tbaa !86
-  %78 = getelementptr inbounds i8, ptr %0, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %79 = load i8, ptr %78, align 4, !tbaa !148
   %80 = zext nneg i8 %79 to i32
   %81 = shl nsw i32 -1, %80
   %82 = xor i32 %81, -1
-  %83 = getelementptr inbounds i8, ptr %9, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i32 %82, ptr %83, align 8, !tbaa !86
-  %84 = getelementptr inbounds i8, ptr %9, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 64, ptr %84, align 8, !tbaa !169
   %85 = shl i32 2, %80
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %9, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %88 = icmp ugt i8 %79, 30
   br i1 %88, label %103, label %89
 
 89:                                               ; preds = %71
-  %90 = getelementptr inbounds i8, ptr %9, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %91 = icmp slt i32 %85, 0
   br i1 %91, label %92, label %94
 
@@ -1583,10 +1579,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 96:                                               ; preds = %94
   store i8 0, ptr %95, align 1, !tbaa !85
   %97 = add nsw i64 %86, -1
-  %98 = getelementptr inbounds i8, ptr %95, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %98, i8 0, i64 %97, i1 false)
   store ptr %95, ptr %45, align 8, !tbaa !176
-  %99 = getelementptr inbounds i8, ptr %95, i64 %86
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %86
   store ptr %99, ptr %87, align 8, !tbaa !177
   store ptr %99, ptr %90, align 8, !tbaa !178
   %100 = zext nneg i32 %85 to i64
@@ -1631,7 +1627,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %126 = sub nsw i8 0, %124
   %127 = select i1 %125, i8 %126, i8 %124
   %128 = load ptr, ptr %45, align 8, !tbaa !176
-  %129 = getelementptr inbounds i8, ptr %128, i64 %108
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %108
   store i8 %127, ptr %129, align 1, !tbaa !85
   %130 = or disjoint i64 %108, 1
   %131 = load i32, ptr %83, align 8, !tbaa !86
@@ -1654,7 +1650,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %148 = sub nsw i8 0, %146
   %149 = select i1 %147, i8 %148, i8 %146
   %150 = load ptr, ptr %45, align 8, !tbaa !176
-  %151 = getelementptr inbounds i8, ptr %150, i64 %130
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %130
   store i8 %149, ptr %151, align 1, !tbaa !85
   %152 = add nuw nsw i64 %108, 2
   %153 = icmp eq i64 %152, %100
@@ -1664,13 +1660,13 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   br label %169
 
 155:                                              ; preds = %103
-  %156 = getelementptr inbounds i8, ptr %9, i64 96
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i32 4096, ptr %156, align 8, !tbaa !180
-  %157 = getelementptr inbounds i8, ptr %9, i64 92
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 92
   store i32 12, ptr %157, align 4, !tbaa !181
-  %158 = getelementptr inbounds i8, ptr %9, i64 84
+  %158 = getelementptr inbounds nuw i8, ptr %9, i64 84
   store i32 48, ptr %158, align 4, !tbaa !182
-  %159 = getelementptr inbounds i8, ptr %9, i64 100
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i32 64, ptr %159, align 4, !tbaa !183
   br label %160
 
@@ -1701,24 +1697,24 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %170 = phi i32 [ 56, %154 ], [ 64, %103 ]
   %171 = phi i32 [ 256, %154 ], [ 1024, %103 ]
   %172 = phi <2 x i32> [ <i32 14, i32 16384>, %154 ], [ <i32 16, i32 65536>, %103 ]
-  %173 = getelementptr inbounds i8, ptr %9, i64 92
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 92
   store <2 x i32> %172, ptr %173, align 4, !tbaa !86
-  %174 = getelementptr inbounds i8, ptr %9, i64 84
+  %174 = getelementptr inbounds nuw i8, ptr %9, i64 84
   store i32 %170, ptr %174, align 4, !tbaa !182
-  %175 = getelementptr inbounds i8, ptr %9, i64 100
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i32 %171, ptr %175, align 4, !tbaa !183
   %176 = load ptr, ptr %44, align 8, !tbaa !184
   %177 = load i16, ptr %73, align 8, !tbaa !187
   %178 = load ptr, ptr %9, align 8, !tbaa !12
-  %179 = getelementptr inbounds i8, ptr %178, i64 48
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 48
   %180 = load i32, ptr %179, align 8, !tbaa !188, !noalias !189
-  %181 = getelementptr inbounds i8, ptr %178, i64 604
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 604
   %182 = load i32, ptr %181, align 4, !tbaa !192, !noalias !189
-  %183 = getelementptr inbounds i8, ptr %178, i64 600
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 600
   %184 = load i32, ptr %183, align 8, !tbaa !193, !noalias !189
-  %185 = getelementptr inbounds i8, ptr %178, i64 584
+  %185 = getelementptr inbounds nuw i8, ptr %178, i64 584
   %186 = load i32, ptr %185, align 8, !tbaa !18, !noalias !189
-  %187 = getelementptr inbounds i8, ptr %178, i64 560
+  %187 = getelementptr inbounds nuw i8, ptr %178, i64 560
   %188 = load ptr, ptr %187, align 8, !tbaa !194, !noalias !189
   call void @llvm.lifetime.start.p0(i64 2120, ptr nonnull %6) #25
   %189 = mul nsw i32 %186, %184
@@ -1739,21 +1735,21 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %199 = xor i1 %198, %197
   tail call void @llvm.assume(i1 %199)
   store ptr %188, ptr %6, align 8, !tbaa !11
-  %200 = getelementptr inbounds i8, ptr %6, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %191, ptr %200, align 8, !tbaa !86
-  %201 = getelementptr inbounds i8, ptr %6, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %190, ptr %201, align 8, !tbaa !86
-  %202 = getelementptr inbounds i8, ptr %6, i64 20
+  %202 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %189, ptr %202, align 4, !tbaa !86
-  %203 = getelementptr inbounds i8, ptr %6, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %182, ptr %203, align 8, !tbaa !86
-  %204 = getelementptr inbounds i8, ptr %6, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %176, ptr %204, align 8, !tbaa !11
-  %205 = getelementptr inbounds i8, ptr %6, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %45, ptr %205, align 8, !tbaa !11
-  %206 = getelementptr inbounds i8, ptr %6, i64 88
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i8 0, ptr %206, align 8, !tbaa !195
-  %207 = getelementptr inbounds i8, ptr %6, i64 2064
+  %207 = getelementptr inbounds nuw i8, ptr %6, i64 2064
   %208 = zext i16 %177 to i64
   %209 = mul nuw nsw i64 %208, 18
   %210 = add nuw nsw i64 %209, 36
@@ -1764,43 +1760,43 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 213:                                              ; preds = %169
   store ptr %212, ptr %207, align 8, !tbaa !197
-  %214 = getelementptr inbounds i16, ptr %212, i64 %210
-  %215 = getelementptr inbounds i8, ptr %6, i64 2080
+  %214 = getelementptr inbounds nuw i16, ptr %212, i64 %210
+  %215 = getelementptr inbounds nuw i8, ptr %6, i64 2080
   store ptr %214, ptr %215, align 8, !tbaa !199
   %216 = mul nuw nsw i64 %208, 36
   %217 = add nuw nsw i64 %216, 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %212, i8 0, i64 %217, i1 false), !tbaa !83
-  %218 = getelementptr inbounds i8, ptr %6, i64 2072
+  %218 = getelementptr inbounds nuw i8, ptr %6, i64 2072
   store ptr %214, ptr %218, align 8, !tbaa !200
-  %219 = getelementptr inbounds i8, ptr %6, i64 2088
+  %219 = getelementptr inbounds nuw i8, ptr %6, i64 2088
   %220 = zext i16 %177 to i32
   %221 = add nuw nsw i32 %220, 2
   %222 = mul nuw nsw i32 %221, 18
   store ptr %212, ptr %219, align 8, !tbaa !11
-  %223 = getelementptr inbounds i8, ptr %6, i64 2096
+  %223 = getelementptr inbounds nuw i8, ptr %6, i64 2096
   store i32 %222, ptr %223, align 8, !tbaa !86
-  %224 = getelementptr inbounds i8, ptr %6, i64 2104
+  %224 = getelementptr inbounds nuw i8, ptr %6, i64 2104
   store i32 %221, ptr %224, align 8, !tbaa !201
-  %225 = getelementptr inbounds i8, ptr %6, i64 2108
+  %225 = getelementptr inbounds nuw i8, ptr %6, i64 2108
   store i32 %221, ptr %225, align 4, !tbaa !204
-  %226 = getelementptr inbounds i8, ptr %6, i64 2112
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 2112
   store i32 18, ptr %226, align 8, !tbaa !205
-  %227 = getelementptr inbounds i8, ptr %176, i64 14
+  %227 = getelementptr inbounds nuw i8, ptr %176, i64 14
   %228 = load i8, ptr %227, align 2
   %229 = icmp eq i8 %228, 0
   br i1 %229, label %244, label %230
 
 230:                                              ; preds = %213
-  %231 = getelementptr inbounds i8, ptr %6, i64 96
-  %232 = getelementptr inbounds i8, ptr %6, i64 1080
-  %233 = getelementptr inbounds i8, ptr %6, i64 48
-  %234 = getelementptr inbounds i8, ptr %6, i64 56
-  %235 = getelementptr inbounds i8, ptr %6, i64 64
-  %236 = getelementptr inbounds i8, ptr %6, i64 72
-  %237 = getelementptr inbounds i8, ptr %6, i64 80
-  %238 = getelementptr inbounds i8, ptr %6, i64 84
-  %239 = getelementptr inbounds i8, ptr %7, i64 16
-  %240 = getelementptr inbounds i8, ptr %7, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %232 = getelementptr inbounds nuw i8, ptr %6, i64 1080
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %234 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %235 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %236 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %237 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %238 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %246
 
 241:                                              ; preds = %.loopexit150
@@ -1824,9 +1820,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %253 = zext nneg i32 %251 to i64
   %254 = icmp samesign ult i64 %247, %253
   call void @llvm.assume(i1 %254)
-  %255 = getelementptr inbounds %"class.rawspeed::Array1DRef.62", ptr %250, i64 %247
+  %255 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.62", ptr %250, i64 %247
   %256 = load ptr, ptr %255, align 8, !tbaa !11
-  %257 = getelementptr inbounds i8, ptr %255, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %258 = load i32, ptr %257, align 8, !tbaa !86
   %259 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %260 = load i32, ptr %223, align 8, !tbaa !86
@@ -1886,7 +1882,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %294 = icmp samesign ule i32 %293, %278
   call void @llvm.assume(i1 %294)
   %295 = zext nneg i32 %292 to i64
-  %296 = getelementptr inbounds i16, ptr %277, i64 %295
+  %296 = getelementptr inbounds nuw i16, ptr %277, i64 %295
   %297 = zext nneg i32 %280 to i64
   %298 = shl nuw nsw i64 %297, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %296, i8 0, i64 %298, i1 false)
@@ -1923,7 +1919,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %319 = icmp samesign ule i32 %318, %300
   call void @llvm.assume(i1 %319)
   %320 = zext nneg i32 %317 to i64
-  %321 = getelementptr inbounds i16, ptr %299, i64 %320
+  %321 = getelementptr inbounds nuw i16, ptr %299, i64 %320
   %322 = zext nneg i32 %302 to i64
   %323 = shl nuw nsw i64 %322, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %321, i8 0, i64 %323, i1 false)
@@ -2003,339 +1999,339 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %378 = getelementptr i16, ptr %345, i64 %377
   store i16 %372, ptr %378, align 2, !tbaa !83
   %379 = load ptr, ptr %205, align 8, !tbaa !208
-  %380 = getelementptr inbounds i8, ptr %379, i64 60
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 60
   %381 = load i32, ptr %380, align 4, !tbaa !183
   br label %382
 
 382:                                              ; preds = %382, %246
   %383 = phi i64 [ 0, %246 ], [ %548, %382 ]
-  %384 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %383
-  %385 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %383
+  %385 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %383
   store i32 %381, ptr %384, align 8, !tbaa !218
-  %386 = getelementptr inbounds i8, ptr %384, i64 4
+  %386 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store i32 1, ptr %386, align 4, !tbaa !220
   store i32 %381, ptr %385, align 8, !tbaa !218
-  %387 = getelementptr inbounds i8, ptr %385, i64 4
+  %387 = getelementptr inbounds nuw i8, ptr %385, i64 4
   store i32 1, ptr %387, align 4, !tbaa !220
-  %388 = getelementptr inbounds i8, ptr %384, i64 8
+  %388 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store i32 %381, ptr %388, align 8, !tbaa !218
-  %389 = getelementptr inbounds i8, ptr %384, i64 12
+  %389 = getelementptr inbounds nuw i8, ptr %384, i64 12
   store i32 1, ptr %389, align 4, !tbaa !220
-  %390 = getelementptr inbounds i8, ptr %385, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i32 %381, ptr %390, align 8, !tbaa !218
-  %391 = getelementptr inbounds i8, ptr %385, i64 12
+  %391 = getelementptr inbounds nuw i8, ptr %385, i64 12
   store i32 1, ptr %391, align 4, !tbaa !220
-  %392 = getelementptr inbounds i8, ptr %384, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %384, i64 16
   store i32 %381, ptr %392, align 8, !tbaa !218
-  %393 = getelementptr inbounds i8, ptr %384, i64 20
+  %393 = getelementptr inbounds nuw i8, ptr %384, i64 20
   store i32 1, ptr %393, align 4, !tbaa !220
-  %394 = getelementptr inbounds i8, ptr %385, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %385, i64 16
   store i32 %381, ptr %394, align 8, !tbaa !218
-  %395 = getelementptr inbounds i8, ptr %385, i64 20
+  %395 = getelementptr inbounds nuw i8, ptr %385, i64 20
   store i32 1, ptr %395, align 4, !tbaa !220
-  %396 = getelementptr inbounds i8, ptr %384, i64 24
+  %396 = getelementptr inbounds nuw i8, ptr %384, i64 24
   store i32 %381, ptr %396, align 8, !tbaa !218
-  %397 = getelementptr inbounds i8, ptr %384, i64 28
+  %397 = getelementptr inbounds nuw i8, ptr %384, i64 28
   store i32 1, ptr %397, align 4, !tbaa !220
-  %398 = getelementptr inbounds i8, ptr %385, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %385, i64 24
   store i32 %381, ptr %398, align 8, !tbaa !218
-  %399 = getelementptr inbounds i8, ptr %385, i64 28
+  %399 = getelementptr inbounds nuw i8, ptr %385, i64 28
   store i32 1, ptr %399, align 4, !tbaa !220
-  %400 = getelementptr inbounds i8, ptr %384, i64 32
+  %400 = getelementptr inbounds nuw i8, ptr %384, i64 32
   store i32 %381, ptr %400, align 8, !tbaa !218
-  %401 = getelementptr inbounds i8, ptr %384, i64 36
+  %401 = getelementptr inbounds nuw i8, ptr %384, i64 36
   store i32 1, ptr %401, align 4, !tbaa !220
-  %402 = getelementptr inbounds i8, ptr %385, i64 32
+  %402 = getelementptr inbounds nuw i8, ptr %385, i64 32
   store i32 %381, ptr %402, align 8, !tbaa !218
-  %403 = getelementptr inbounds i8, ptr %385, i64 36
+  %403 = getelementptr inbounds nuw i8, ptr %385, i64 36
   store i32 1, ptr %403, align 4, !tbaa !220
-  %404 = getelementptr inbounds i8, ptr %384, i64 40
+  %404 = getelementptr inbounds nuw i8, ptr %384, i64 40
   store i32 %381, ptr %404, align 8, !tbaa !218
-  %405 = getelementptr inbounds i8, ptr %384, i64 44
+  %405 = getelementptr inbounds nuw i8, ptr %384, i64 44
   store i32 1, ptr %405, align 4, !tbaa !220
-  %406 = getelementptr inbounds i8, ptr %385, i64 40
+  %406 = getelementptr inbounds nuw i8, ptr %385, i64 40
   store i32 %381, ptr %406, align 8, !tbaa !218
-  %407 = getelementptr inbounds i8, ptr %385, i64 44
+  %407 = getelementptr inbounds nuw i8, ptr %385, i64 44
   store i32 1, ptr %407, align 4, !tbaa !220
-  %408 = getelementptr inbounds i8, ptr %384, i64 48
+  %408 = getelementptr inbounds nuw i8, ptr %384, i64 48
   store i32 %381, ptr %408, align 8, !tbaa !218
-  %409 = getelementptr inbounds i8, ptr %384, i64 52
+  %409 = getelementptr inbounds nuw i8, ptr %384, i64 52
   store i32 1, ptr %409, align 4, !tbaa !220
-  %410 = getelementptr inbounds i8, ptr %385, i64 48
+  %410 = getelementptr inbounds nuw i8, ptr %385, i64 48
   store i32 %381, ptr %410, align 8, !tbaa !218
-  %411 = getelementptr inbounds i8, ptr %385, i64 52
+  %411 = getelementptr inbounds nuw i8, ptr %385, i64 52
   store i32 1, ptr %411, align 4, !tbaa !220
-  %412 = getelementptr inbounds i8, ptr %384, i64 56
+  %412 = getelementptr inbounds nuw i8, ptr %384, i64 56
   store i32 %381, ptr %412, align 8, !tbaa !218
-  %413 = getelementptr inbounds i8, ptr %384, i64 60
+  %413 = getelementptr inbounds nuw i8, ptr %384, i64 60
   store i32 1, ptr %413, align 4, !tbaa !220
-  %414 = getelementptr inbounds i8, ptr %385, i64 56
+  %414 = getelementptr inbounds nuw i8, ptr %385, i64 56
   store i32 %381, ptr %414, align 8, !tbaa !218
-  %415 = getelementptr inbounds i8, ptr %385, i64 60
+  %415 = getelementptr inbounds nuw i8, ptr %385, i64 60
   store i32 1, ptr %415, align 4, !tbaa !220
-  %416 = getelementptr inbounds i8, ptr %384, i64 64
+  %416 = getelementptr inbounds nuw i8, ptr %384, i64 64
   store i32 %381, ptr %416, align 8, !tbaa !218
-  %417 = getelementptr inbounds i8, ptr %384, i64 68
+  %417 = getelementptr inbounds nuw i8, ptr %384, i64 68
   store i32 1, ptr %417, align 4, !tbaa !220
-  %418 = getelementptr inbounds i8, ptr %385, i64 64
+  %418 = getelementptr inbounds nuw i8, ptr %385, i64 64
   store i32 %381, ptr %418, align 8, !tbaa !218
-  %419 = getelementptr inbounds i8, ptr %385, i64 68
+  %419 = getelementptr inbounds nuw i8, ptr %385, i64 68
   store i32 1, ptr %419, align 4, !tbaa !220
-  %420 = getelementptr inbounds i8, ptr %384, i64 72
+  %420 = getelementptr inbounds nuw i8, ptr %384, i64 72
   store i32 %381, ptr %420, align 8, !tbaa !218
-  %421 = getelementptr inbounds i8, ptr %384, i64 76
+  %421 = getelementptr inbounds nuw i8, ptr %384, i64 76
   store i32 1, ptr %421, align 4, !tbaa !220
-  %422 = getelementptr inbounds i8, ptr %385, i64 72
+  %422 = getelementptr inbounds nuw i8, ptr %385, i64 72
   store i32 %381, ptr %422, align 8, !tbaa !218
-  %423 = getelementptr inbounds i8, ptr %385, i64 76
+  %423 = getelementptr inbounds nuw i8, ptr %385, i64 76
   store i32 1, ptr %423, align 4, !tbaa !220
-  %424 = getelementptr inbounds i8, ptr %384, i64 80
+  %424 = getelementptr inbounds nuw i8, ptr %384, i64 80
   store i32 %381, ptr %424, align 8, !tbaa !218
-  %425 = getelementptr inbounds i8, ptr %384, i64 84
+  %425 = getelementptr inbounds nuw i8, ptr %384, i64 84
   store i32 1, ptr %425, align 4, !tbaa !220
-  %426 = getelementptr inbounds i8, ptr %385, i64 80
+  %426 = getelementptr inbounds nuw i8, ptr %385, i64 80
   store i32 %381, ptr %426, align 8, !tbaa !218
-  %427 = getelementptr inbounds i8, ptr %385, i64 84
+  %427 = getelementptr inbounds nuw i8, ptr %385, i64 84
   store i32 1, ptr %427, align 4, !tbaa !220
-  %428 = getelementptr inbounds i8, ptr %384, i64 88
+  %428 = getelementptr inbounds nuw i8, ptr %384, i64 88
   store i32 %381, ptr %428, align 8, !tbaa !218
-  %429 = getelementptr inbounds i8, ptr %384, i64 92
+  %429 = getelementptr inbounds nuw i8, ptr %384, i64 92
   store i32 1, ptr %429, align 4, !tbaa !220
-  %430 = getelementptr inbounds i8, ptr %385, i64 88
+  %430 = getelementptr inbounds nuw i8, ptr %385, i64 88
   store i32 %381, ptr %430, align 8, !tbaa !218
-  %431 = getelementptr inbounds i8, ptr %385, i64 92
+  %431 = getelementptr inbounds nuw i8, ptr %385, i64 92
   store i32 1, ptr %431, align 4, !tbaa !220
-  %432 = getelementptr inbounds i8, ptr %384, i64 96
+  %432 = getelementptr inbounds nuw i8, ptr %384, i64 96
   store i32 %381, ptr %432, align 8, !tbaa !218
-  %433 = getelementptr inbounds i8, ptr %384, i64 100
+  %433 = getelementptr inbounds nuw i8, ptr %384, i64 100
   store i32 1, ptr %433, align 4, !tbaa !220
-  %434 = getelementptr inbounds i8, ptr %385, i64 96
+  %434 = getelementptr inbounds nuw i8, ptr %385, i64 96
   store i32 %381, ptr %434, align 8, !tbaa !218
-  %435 = getelementptr inbounds i8, ptr %385, i64 100
+  %435 = getelementptr inbounds nuw i8, ptr %385, i64 100
   store i32 1, ptr %435, align 4, !tbaa !220
-  %436 = getelementptr inbounds i8, ptr %384, i64 104
+  %436 = getelementptr inbounds nuw i8, ptr %384, i64 104
   store i32 %381, ptr %436, align 8, !tbaa !218
-  %437 = getelementptr inbounds i8, ptr %384, i64 108
+  %437 = getelementptr inbounds nuw i8, ptr %384, i64 108
   store i32 1, ptr %437, align 4, !tbaa !220
-  %438 = getelementptr inbounds i8, ptr %385, i64 104
+  %438 = getelementptr inbounds nuw i8, ptr %385, i64 104
   store i32 %381, ptr %438, align 8, !tbaa !218
-  %439 = getelementptr inbounds i8, ptr %385, i64 108
+  %439 = getelementptr inbounds nuw i8, ptr %385, i64 108
   store i32 1, ptr %439, align 4, !tbaa !220
-  %440 = getelementptr inbounds i8, ptr %384, i64 112
+  %440 = getelementptr inbounds nuw i8, ptr %384, i64 112
   store i32 %381, ptr %440, align 8, !tbaa !218
-  %441 = getelementptr inbounds i8, ptr %384, i64 116
+  %441 = getelementptr inbounds nuw i8, ptr %384, i64 116
   store i32 1, ptr %441, align 4, !tbaa !220
-  %442 = getelementptr inbounds i8, ptr %385, i64 112
+  %442 = getelementptr inbounds nuw i8, ptr %385, i64 112
   store i32 %381, ptr %442, align 8, !tbaa !218
-  %443 = getelementptr inbounds i8, ptr %385, i64 116
+  %443 = getelementptr inbounds nuw i8, ptr %385, i64 116
   store i32 1, ptr %443, align 4, !tbaa !220
-  %444 = getelementptr inbounds i8, ptr %384, i64 120
+  %444 = getelementptr inbounds nuw i8, ptr %384, i64 120
   store i32 %381, ptr %444, align 8, !tbaa !218
-  %445 = getelementptr inbounds i8, ptr %384, i64 124
+  %445 = getelementptr inbounds nuw i8, ptr %384, i64 124
   store i32 1, ptr %445, align 4, !tbaa !220
-  %446 = getelementptr inbounds i8, ptr %385, i64 120
+  %446 = getelementptr inbounds nuw i8, ptr %385, i64 120
   store i32 %381, ptr %446, align 8, !tbaa !218
-  %447 = getelementptr inbounds i8, ptr %385, i64 124
+  %447 = getelementptr inbounds nuw i8, ptr %385, i64 124
   store i32 1, ptr %447, align 4, !tbaa !220
-  %448 = getelementptr inbounds i8, ptr %384, i64 128
+  %448 = getelementptr inbounds nuw i8, ptr %384, i64 128
   store i32 %381, ptr %448, align 8, !tbaa !218
-  %449 = getelementptr inbounds i8, ptr %384, i64 132
+  %449 = getelementptr inbounds nuw i8, ptr %384, i64 132
   store i32 1, ptr %449, align 4, !tbaa !220
-  %450 = getelementptr inbounds i8, ptr %385, i64 128
+  %450 = getelementptr inbounds nuw i8, ptr %385, i64 128
   store i32 %381, ptr %450, align 8, !tbaa !218
-  %451 = getelementptr inbounds i8, ptr %385, i64 132
+  %451 = getelementptr inbounds nuw i8, ptr %385, i64 132
   store i32 1, ptr %451, align 4, !tbaa !220
-  %452 = getelementptr inbounds i8, ptr %384, i64 136
+  %452 = getelementptr inbounds nuw i8, ptr %384, i64 136
   store i32 %381, ptr %452, align 8, !tbaa !218
-  %453 = getelementptr inbounds i8, ptr %384, i64 140
+  %453 = getelementptr inbounds nuw i8, ptr %384, i64 140
   store i32 1, ptr %453, align 4, !tbaa !220
-  %454 = getelementptr inbounds i8, ptr %385, i64 136
+  %454 = getelementptr inbounds nuw i8, ptr %385, i64 136
   store i32 %381, ptr %454, align 8, !tbaa !218
-  %455 = getelementptr inbounds i8, ptr %385, i64 140
+  %455 = getelementptr inbounds nuw i8, ptr %385, i64 140
   store i32 1, ptr %455, align 4, !tbaa !220
-  %456 = getelementptr inbounds i8, ptr %384, i64 144
+  %456 = getelementptr inbounds nuw i8, ptr %384, i64 144
   store i32 %381, ptr %456, align 8, !tbaa !218
-  %457 = getelementptr inbounds i8, ptr %384, i64 148
+  %457 = getelementptr inbounds nuw i8, ptr %384, i64 148
   store i32 1, ptr %457, align 4, !tbaa !220
-  %458 = getelementptr inbounds i8, ptr %385, i64 144
+  %458 = getelementptr inbounds nuw i8, ptr %385, i64 144
   store i32 %381, ptr %458, align 8, !tbaa !218
-  %459 = getelementptr inbounds i8, ptr %385, i64 148
+  %459 = getelementptr inbounds nuw i8, ptr %385, i64 148
   store i32 1, ptr %459, align 4, !tbaa !220
-  %460 = getelementptr inbounds i8, ptr %384, i64 152
+  %460 = getelementptr inbounds nuw i8, ptr %384, i64 152
   store i32 %381, ptr %460, align 8, !tbaa !218
-  %461 = getelementptr inbounds i8, ptr %384, i64 156
+  %461 = getelementptr inbounds nuw i8, ptr %384, i64 156
   store i32 1, ptr %461, align 4, !tbaa !220
-  %462 = getelementptr inbounds i8, ptr %385, i64 152
+  %462 = getelementptr inbounds nuw i8, ptr %385, i64 152
   store i32 %381, ptr %462, align 8, !tbaa !218
-  %463 = getelementptr inbounds i8, ptr %385, i64 156
+  %463 = getelementptr inbounds nuw i8, ptr %385, i64 156
   store i32 1, ptr %463, align 4, !tbaa !220
-  %464 = getelementptr inbounds i8, ptr %384, i64 160
+  %464 = getelementptr inbounds nuw i8, ptr %384, i64 160
   store i32 %381, ptr %464, align 8, !tbaa !218
-  %465 = getelementptr inbounds i8, ptr %384, i64 164
+  %465 = getelementptr inbounds nuw i8, ptr %384, i64 164
   store i32 1, ptr %465, align 4, !tbaa !220
-  %466 = getelementptr inbounds i8, ptr %385, i64 160
+  %466 = getelementptr inbounds nuw i8, ptr %385, i64 160
   store i32 %381, ptr %466, align 8, !tbaa !218
-  %467 = getelementptr inbounds i8, ptr %385, i64 164
+  %467 = getelementptr inbounds nuw i8, ptr %385, i64 164
   store i32 1, ptr %467, align 4, !tbaa !220
-  %468 = getelementptr inbounds i8, ptr %384, i64 168
+  %468 = getelementptr inbounds nuw i8, ptr %384, i64 168
   store i32 %381, ptr %468, align 8, !tbaa !218
-  %469 = getelementptr inbounds i8, ptr %384, i64 172
+  %469 = getelementptr inbounds nuw i8, ptr %384, i64 172
   store i32 1, ptr %469, align 4, !tbaa !220
-  %470 = getelementptr inbounds i8, ptr %385, i64 168
+  %470 = getelementptr inbounds nuw i8, ptr %385, i64 168
   store i32 %381, ptr %470, align 8, !tbaa !218
-  %471 = getelementptr inbounds i8, ptr %385, i64 172
+  %471 = getelementptr inbounds nuw i8, ptr %385, i64 172
   store i32 1, ptr %471, align 4, !tbaa !220
-  %472 = getelementptr inbounds i8, ptr %384, i64 176
+  %472 = getelementptr inbounds nuw i8, ptr %384, i64 176
   store i32 %381, ptr %472, align 8, !tbaa !218
-  %473 = getelementptr inbounds i8, ptr %384, i64 180
+  %473 = getelementptr inbounds nuw i8, ptr %384, i64 180
   store i32 1, ptr %473, align 4, !tbaa !220
-  %474 = getelementptr inbounds i8, ptr %385, i64 176
+  %474 = getelementptr inbounds nuw i8, ptr %385, i64 176
   store i32 %381, ptr %474, align 8, !tbaa !218
-  %475 = getelementptr inbounds i8, ptr %385, i64 180
+  %475 = getelementptr inbounds nuw i8, ptr %385, i64 180
   store i32 1, ptr %475, align 4, !tbaa !220
-  %476 = getelementptr inbounds i8, ptr %384, i64 184
+  %476 = getelementptr inbounds nuw i8, ptr %384, i64 184
   store i32 %381, ptr %476, align 8, !tbaa !218
-  %477 = getelementptr inbounds i8, ptr %384, i64 188
+  %477 = getelementptr inbounds nuw i8, ptr %384, i64 188
   store i32 1, ptr %477, align 4, !tbaa !220
-  %478 = getelementptr inbounds i8, ptr %385, i64 184
+  %478 = getelementptr inbounds nuw i8, ptr %385, i64 184
   store i32 %381, ptr %478, align 8, !tbaa !218
-  %479 = getelementptr inbounds i8, ptr %385, i64 188
+  %479 = getelementptr inbounds nuw i8, ptr %385, i64 188
   store i32 1, ptr %479, align 4, !tbaa !220
-  %480 = getelementptr inbounds i8, ptr %384, i64 192
+  %480 = getelementptr inbounds nuw i8, ptr %384, i64 192
   store i32 %381, ptr %480, align 8, !tbaa !218
-  %481 = getelementptr inbounds i8, ptr %384, i64 196
+  %481 = getelementptr inbounds nuw i8, ptr %384, i64 196
   store i32 1, ptr %481, align 4, !tbaa !220
-  %482 = getelementptr inbounds i8, ptr %385, i64 192
+  %482 = getelementptr inbounds nuw i8, ptr %385, i64 192
   store i32 %381, ptr %482, align 8, !tbaa !218
-  %483 = getelementptr inbounds i8, ptr %385, i64 196
+  %483 = getelementptr inbounds nuw i8, ptr %385, i64 196
   store i32 1, ptr %483, align 4, !tbaa !220
-  %484 = getelementptr inbounds i8, ptr %384, i64 200
+  %484 = getelementptr inbounds nuw i8, ptr %384, i64 200
   store i32 %381, ptr %484, align 8, !tbaa !218
-  %485 = getelementptr inbounds i8, ptr %384, i64 204
+  %485 = getelementptr inbounds nuw i8, ptr %384, i64 204
   store i32 1, ptr %485, align 4, !tbaa !220
-  %486 = getelementptr inbounds i8, ptr %385, i64 200
+  %486 = getelementptr inbounds nuw i8, ptr %385, i64 200
   store i32 %381, ptr %486, align 8, !tbaa !218
-  %487 = getelementptr inbounds i8, ptr %385, i64 204
+  %487 = getelementptr inbounds nuw i8, ptr %385, i64 204
   store i32 1, ptr %487, align 4, !tbaa !220
-  %488 = getelementptr inbounds i8, ptr %384, i64 208
+  %488 = getelementptr inbounds nuw i8, ptr %384, i64 208
   store i32 %381, ptr %488, align 8, !tbaa !218
-  %489 = getelementptr inbounds i8, ptr %384, i64 212
+  %489 = getelementptr inbounds nuw i8, ptr %384, i64 212
   store i32 1, ptr %489, align 4, !tbaa !220
-  %490 = getelementptr inbounds i8, ptr %385, i64 208
+  %490 = getelementptr inbounds nuw i8, ptr %385, i64 208
   store i32 %381, ptr %490, align 8, !tbaa !218
-  %491 = getelementptr inbounds i8, ptr %385, i64 212
+  %491 = getelementptr inbounds nuw i8, ptr %385, i64 212
   store i32 1, ptr %491, align 4, !tbaa !220
-  %492 = getelementptr inbounds i8, ptr %384, i64 216
+  %492 = getelementptr inbounds nuw i8, ptr %384, i64 216
   store i32 %381, ptr %492, align 8, !tbaa !218
-  %493 = getelementptr inbounds i8, ptr %384, i64 220
+  %493 = getelementptr inbounds nuw i8, ptr %384, i64 220
   store i32 1, ptr %493, align 4, !tbaa !220
-  %494 = getelementptr inbounds i8, ptr %385, i64 216
+  %494 = getelementptr inbounds nuw i8, ptr %385, i64 216
   store i32 %381, ptr %494, align 8, !tbaa !218
-  %495 = getelementptr inbounds i8, ptr %385, i64 220
+  %495 = getelementptr inbounds nuw i8, ptr %385, i64 220
   store i32 1, ptr %495, align 4, !tbaa !220
-  %496 = getelementptr inbounds i8, ptr %384, i64 224
+  %496 = getelementptr inbounds nuw i8, ptr %384, i64 224
   store i32 %381, ptr %496, align 8, !tbaa !218
-  %497 = getelementptr inbounds i8, ptr %384, i64 228
+  %497 = getelementptr inbounds nuw i8, ptr %384, i64 228
   store i32 1, ptr %497, align 4, !tbaa !220
-  %498 = getelementptr inbounds i8, ptr %385, i64 224
+  %498 = getelementptr inbounds nuw i8, ptr %385, i64 224
   store i32 %381, ptr %498, align 8, !tbaa !218
-  %499 = getelementptr inbounds i8, ptr %385, i64 228
+  %499 = getelementptr inbounds nuw i8, ptr %385, i64 228
   store i32 1, ptr %499, align 4, !tbaa !220
-  %500 = getelementptr inbounds i8, ptr %384, i64 232
+  %500 = getelementptr inbounds nuw i8, ptr %384, i64 232
   store i32 %381, ptr %500, align 8, !tbaa !218
-  %501 = getelementptr inbounds i8, ptr %384, i64 236
+  %501 = getelementptr inbounds nuw i8, ptr %384, i64 236
   store i32 1, ptr %501, align 4, !tbaa !220
-  %502 = getelementptr inbounds i8, ptr %385, i64 232
+  %502 = getelementptr inbounds nuw i8, ptr %385, i64 232
   store i32 %381, ptr %502, align 8, !tbaa !218
-  %503 = getelementptr inbounds i8, ptr %385, i64 236
+  %503 = getelementptr inbounds nuw i8, ptr %385, i64 236
   store i32 1, ptr %503, align 4, !tbaa !220
-  %504 = getelementptr inbounds i8, ptr %384, i64 240
+  %504 = getelementptr inbounds nuw i8, ptr %384, i64 240
   store i32 %381, ptr %504, align 8, !tbaa !218
-  %505 = getelementptr inbounds i8, ptr %384, i64 244
+  %505 = getelementptr inbounds nuw i8, ptr %384, i64 244
   store i32 1, ptr %505, align 4, !tbaa !220
-  %506 = getelementptr inbounds i8, ptr %385, i64 240
+  %506 = getelementptr inbounds nuw i8, ptr %385, i64 240
   store i32 %381, ptr %506, align 8, !tbaa !218
-  %507 = getelementptr inbounds i8, ptr %385, i64 244
+  %507 = getelementptr inbounds nuw i8, ptr %385, i64 244
   store i32 1, ptr %507, align 4, !tbaa !220
-  %508 = getelementptr inbounds i8, ptr %384, i64 248
+  %508 = getelementptr inbounds nuw i8, ptr %384, i64 248
   store i32 %381, ptr %508, align 8, !tbaa !218
-  %509 = getelementptr inbounds i8, ptr %384, i64 252
+  %509 = getelementptr inbounds nuw i8, ptr %384, i64 252
   store i32 1, ptr %509, align 4, !tbaa !220
-  %510 = getelementptr inbounds i8, ptr %385, i64 248
+  %510 = getelementptr inbounds nuw i8, ptr %385, i64 248
   store i32 %381, ptr %510, align 8, !tbaa !218
-  %511 = getelementptr inbounds i8, ptr %385, i64 252
+  %511 = getelementptr inbounds nuw i8, ptr %385, i64 252
   store i32 1, ptr %511, align 4, !tbaa !220
-  %512 = getelementptr inbounds i8, ptr %384, i64 256
+  %512 = getelementptr inbounds nuw i8, ptr %384, i64 256
   store i32 %381, ptr %512, align 8, !tbaa !218
-  %513 = getelementptr inbounds i8, ptr %384, i64 260
+  %513 = getelementptr inbounds nuw i8, ptr %384, i64 260
   store i32 1, ptr %513, align 4, !tbaa !220
-  %514 = getelementptr inbounds i8, ptr %385, i64 256
+  %514 = getelementptr inbounds nuw i8, ptr %385, i64 256
   store i32 %381, ptr %514, align 8, !tbaa !218
-  %515 = getelementptr inbounds i8, ptr %385, i64 260
+  %515 = getelementptr inbounds nuw i8, ptr %385, i64 260
   store i32 1, ptr %515, align 4, !tbaa !220
-  %516 = getelementptr inbounds i8, ptr %384, i64 264
+  %516 = getelementptr inbounds nuw i8, ptr %384, i64 264
   store i32 %381, ptr %516, align 8, !tbaa !218
-  %517 = getelementptr inbounds i8, ptr %384, i64 268
+  %517 = getelementptr inbounds nuw i8, ptr %384, i64 268
   store i32 1, ptr %517, align 4, !tbaa !220
-  %518 = getelementptr inbounds i8, ptr %385, i64 264
+  %518 = getelementptr inbounds nuw i8, ptr %385, i64 264
   store i32 %381, ptr %518, align 8, !tbaa !218
-  %519 = getelementptr inbounds i8, ptr %385, i64 268
+  %519 = getelementptr inbounds nuw i8, ptr %385, i64 268
   store i32 1, ptr %519, align 4, !tbaa !220
-  %520 = getelementptr inbounds i8, ptr %384, i64 272
+  %520 = getelementptr inbounds nuw i8, ptr %384, i64 272
   store i32 %381, ptr %520, align 8, !tbaa !218
-  %521 = getelementptr inbounds i8, ptr %384, i64 276
+  %521 = getelementptr inbounds nuw i8, ptr %384, i64 276
   store i32 1, ptr %521, align 4, !tbaa !220
-  %522 = getelementptr inbounds i8, ptr %385, i64 272
+  %522 = getelementptr inbounds nuw i8, ptr %385, i64 272
   store i32 %381, ptr %522, align 8, !tbaa !218
-  %523 = getelementptr inbounds i8, ptr %385, i64 276
+  %523 = getelementptr inbounds nuw i8, ptr %385, i64 276
   store i32 1, ptr %523, align 4, !tbaa !220
-  %524 = getelementptr inbounds i8, ptr %384, i64 280
+  %524 = getelementptr inbounds nuw i8, ptr %384, i64 280
   store i32 %381, ptr %524, align 8, !tbaa !218
-  %525 = getelementptr inbounds i8, ptr %384, i64 284
+  %525 = getelementptr inbounds nuw i8, ptr %384, i64 284
   store i32 1, ptr %525, align 4, !tbaa !220
-  %526 = getelementptr inbounds i8, ptr %385, i64 280
+  %526 = getelementptr inbounds nuw i8, ptr %385, i64 280
   store i32 %381, ptr %526, align 8, !tbaa !218
-  %527 = getelementptr inbounds i8, ptr %385, i64 284
+  %527 = getelementptr inbounds nuw i8, ptr %385, i64 284
   store i32 1, ptr %527, align 4, !tbaa !220
-  %528 = getelementptr inbounds i8, ptr %384, i64 288
+  %528 = getelementptr inbounds nuw i8, ptr %384, i64 288
   store i32 %381, ptr %528, align 8, !tbaa !218
-  %529 = getelementptr inbounds i8, ptr %384, i64 292
+  %529 = getelementptr inbounds nuw i8, ptr %384, i64 292
   store i32 1, ptr %529, align 4, !tbaa !220
-  %530 = getelementptr inbounds i8, ptr %385, i64 288
+  %530 = getelementptr inbounds nuw i8, ptr %385, i64 288
   store i32 %381, ptr %530, align 8, !tbaa !218
-  %531 = getelementptr inbounds i8, ptr %385, i64 292
+  %531 = getelementptr inbounds nuw i8, ptr %385, i64 292
   store i32 1, ptr %531, align 4, !tbaa !220
-  %532 = getelementptr inbounds i8, ptr %384, i64 296
+  %532 = getelementptr inbounds nuw i8, ptr %384, i64 296
   store i32 %381, ptr %532, align 8, !tbaa !218
-  %533 = getelementptr inbounds i8, ptr %384, i64 300
+  %533 = getelementptr inbounds nuw i8, ptr %384, i64 300
   store i32 1, ptr %533, align 4, !tbaa !220
-  %534 = getelementptr inbounds i8, ptr %385, i64 296
+  %534 = getelementptr inbounds nuw i8, ptr %385, i64 296
   store i32 %381, ptr %534, align 8, !tbaa !218
-  %535 = getelementptr inbounds i8, ptr %385, i64 300
+  %535 = getelementptr inbounds nuw i8, ptr %385, i64 300
   store i32 1, ptr %535, align 4, !tbaa !220
-  %536 = getelementptr inbounds i8, ptr %384, i64 304
+  %536 = getelementptr inbounds nuw i8, ptr %384, i64 304
   store i32 %381, ptr %536, align 8, !tbaa !218
-  %537 = getelementptr inbounds i8, ptr %384, i64 308
+  %537 = getelementptr inbounds nuw i8, ptr %384, i64 308
   store i32 1, ptr %537, align 4, !tbaa !220
-  %538 = getelementptr inbounds i8, ptr %385, i64 304
+  %538 = getelementptr inbounds nuw i8, ptr %385, i64 304
   store i32 %381, ptr %538, align 8, !tbaa !218
-  %539 = getelementptr inbounds i8, ptr %385, i64 308
+  %539 = getelementptr inbounds nuw i8, ptr %385, i64 308
   store i32 1, ptr %539, align 4, !tbaa !220
-  %540 = getelementptr inbounds i8, ptr %384, i64 312
+  %540 = getelementptr inbounds nuw i8, ptr %384, i64 312
   store i32 %381, ptr %540, align 8, !tbaa !218
-  %541 = getelementptr inbounds i8, ptr %384, i64 316
+  %541 = getelementptr inbounds nuw i8, ptr %384, i64 316
   store i32 1, ptr %541, align 4, !tbaa !220
-  %542 = getelementptr inbounds i8, ptr %385, i64 312
+  %542 = getelementptr inbounds nuw i8, ptr %385, i64 312
   store i32 %381, ptr %542, align 8, !tbaa !218
-  %543 = getelementptr inbounds i8, ptr %385, i64 316
+  %543 = getelementptr inbounds nuw i8, ptr %385, i64 316
   store i32 1, ptr %543, align 4, !tbaa !220
-  %544 = getelementptr inbounds i8, ptr %384, i64 320
+  %544 = getelementptr inbounds nuw i8, ptr %384, i64 320
   store i32 %381, ptr %544, align 8, !tbaa !218
-  %545 = getelementptr inbounds i8, ptr %384, i64 324
+  %545 = getelementptr inbounds nuw i8, ptr %384, i64 324
   store i32 1, ptr %545, align 4, !tbaa !220
-  %546 = getelementptr inbounds i8, ptr %385, i64 320
+  %546 = getelementptr inbounds nuw i8, ptr %385, i64 320
   store i32 %381, ptr %546, align 8, !tbaa !218
-  %547 = getelementptr inbounds i8, ptr %385, i64 324
+  %547 = getelementptr inbounds nuw i8, ptr %385, i64 324
   store i32 1, ptr %547, align 4, !tbaa !220
   %548 = add nuw nsw i64 %383, 1
   %549 = icmp eq i64 %548, 3
@@ -2380,36 +2376,36 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 565:                                              ; preds = %561
   %566 = load ptr, ptr %205, align 8, !tbaa !208
-  %567 = getelementptr inbounds i8, ptr %566, i64 64
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 64
   %568 = load i16, ptr %567, align 8, !tbaa !187
   %569 = zext i16 %568 to i64
   %570 = shl nuw nsw i64 %569, 2
   %571 = add nuw nsw i64 %570, 8
   %572 = add nuw nsw i64 %247, 1
   %573 = add nuw nsw i32 %551, 1
-  %574 = getelementptr inbounds i8, ptr %249, i64 12
-  %575 = getelementptr inbounds i8, ptr %249, i64 10
+  %574 = getelementptr inbounds nuw i8, ptr %249, i64 12
+  %575 = getelementptr inbounds nuw i8, ptr %249, i64 10
   br label %576
 
 576:                                              ; preds = %3245, %565
   %577 = phi i64 [ 0, %565 ], [ %3241, %3245 ]
   %578 = load ptr, ptr %204, align 8, !tbaa !223
-  %579 = getelementptr inbounds i8, ptr %578, i64 3
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 3
   %580 = load i8, ptr %579, align 1, !tbaa !149
   %581 = icmp eq i8 %580, 16
   %582 = load ptr, ptr %205, align 8, !tbaa !208
-  %583 = getelementptr inbounds i8, ptr %582, i64 64
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 64
   %584 = load i16, ptr %583, align 8, !tbaa !187
   %585 = and i16 %584, 1
   %586 = icmp eq i16 %585, 0
   call void @llvm.assume(i1 %586)
   %587 = lshr exact i16 %584, 1
   %588 = zext nneg i16 %587 to i32
-  %589 = getelementptr inbounds i8, ptr %582, i64 40
-  %590 = getelementptr inbounds i8, ptr %582, i64 44
-  %591 = getelementptr inbounds i8, ptr %582, i64 52
-  %592 = getelementptr inbounds i8, ptr %582, i64 56
-  %593 = getelementptr inbounds i8, ptr %582, i64 48
+  %589 = getelementptr inbounds nuw i8, ptr %582, i64 40
+  %590 = getelementptr inbounds nuw i8, ptr %582, i64 44
+  %591 = getelementptr inbounds nuw i8, ptr %582, i64 52
+  %592 = getelementptr inbounds nuw i8, ptr %582, i64 56
+  %593 = getelementptr inbounds nuw i8, ptr %582, i64 48
   %594 = add nuw nsw i32 %588, 3
   br i1 %581, label %595, label %1568
 
@@ -2427,15 +2423,15 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %600 = shl nuw i32 %599, 1
   %601 = and i32 %600, 2
   %602 = zext nneg i32 %601 to i64
-  %603 = getelementptr inbounds i8, ptr %4, i64 %602
+  %603 = getelementptr inbounds nuw i8, ptr %4, i64 %602
   %604 = load i8, ptr %603, align 2, !tbaa !151
-  %605 = getelementptr inbounds i8, ptr %603, i64 1
+  %605 = getelementptr inbounds nuw i8, ptr %603, i64 1
   %606 = load i8, ptr %605, align 1, !tbaa !151
   %607 = sext i8 %604 to i64
   %608 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = zext nneg i8 %604 to i64
-  %611 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %610
+  %611 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %610
   %612 = load i32, ptr %611, align 4, !tbaa !86
   %613 = add nsw i32 %612, %609
   %614 = add nsw i32 %612, 1
@@ -2444,7 +2440,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %616 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %615
   %617 = load i32, ptr %616, align 4
   %618 = zext nneg i8 %606 to i64
-  %619 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %618
   %620 = load i32, ptr %619, align 4, !tbaa !86
   %621 = add nsw i32 %620, %617
   %622 = add nsw i32 %620, 1
@@ -2459,10 +2455,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i32 0, ptr %.sroa.6, align 4, !tbaa !86
   %623 = urem i32 %599, 3
   %624 = zext nneg i32 %623 to i64
-  %625 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %624
   %626 = add nsw i32 %599, -1
   %627 = icmp ult i32 %626, 2
-  %628 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %624
+  %628 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %624
   %629 = load i32, ptr %234, align 8, !tbaa !226
   %630 = load i32, ptr %237, align 8, !tbaa !227
   %631 = load ptr, ptr %235, align 8, !nonnull !105
@@ -2563,20 +2559,20 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %690 = icmp ule i32 %689, %672
   call void @llvm.assume(i1 %690)
   %691 = zext nneg i32 %688 to i64
-  %692 = getelementptr inbounds i16, ptr %671, i64 %691
+  %692 = getelementptr inbounds nuw i16, ptr %671, i64 %691
   %693 = zext nneg i32 %670 to i64
-  %694 = getelementptr inbounds i16, ptr %692, i64 %693
+  %694 = getelementptr inbounds nuw i16, ptr %692, i64 %693
   %695 = load i16, ptr %694, align 2, !tbaa !83
   %696 = zext i16 %695 to i32
   %697 = zext nneg i32 %669 to i64
-  %698 = getelementptr inbounds i16, ptr %692, i64 %697
+  %698 = getelementptr inbounds nuw i16, ptr %692, i64 %697
   %699 = load i16, ptr %698, align 2, !tbaa !83
   %700 = zext i16 %699 to i32
   %701 = add nuw nsw i32 %669, 2
   %702 = icmp samesign ugt i32 %674, %701
   call void @llvm.assume(i1 %702)
   %703 = zext nneg i32 %701 to i64
-  %704 = getelementptr inbounds i16, ptr %692, i64 %703
+  %704 = getelementptr inbounds nuw i16, ptr %692, i64 %703
   %705 = load i16, ptr %704, align 2, !tbaa !83
   %706 = zext i16 %705 to i32
   %707 = add nsw i32 %.sroa.phi97.sroa.speculated, -2
@@ -2587,8 +2583,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %711 = icmp samesign ule i32 %710, %672
   call void @llvm.assume(i1 %711)
   %712 = zext nneg i32 %709 to i64
-  %713 = getelementptr inbounds i16, ptr %671, i64 %712
-  %714 = getelementptr inbounds i16, ptr %713, i64 %693
+  %713 = getelementptr inbounds nuw i16, ptr %671, i64 %712
+  %714 = getelementptr inbounds nuw i16, ptr %713, i64 %693
   %715 = load i16, ptr %714, align 2, !tbaa !83
   %716 = zext i16 %715 to i32
   %717 = sub nsw i32 %700, %696
@@ -2670,20 +2666,20 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %763 = icmp ule i32 %762, %745
   call void @llvm.assume(i1 %763)
   %764 = zext nneg i32 %761 to i64
-  %765 = getelementptr inbounds i16, ptr %744, i64 %764
+  %765 = getelementptr inbounds nuw i16, ptr %744, i64 %764
   %766 = zext nneg i32 %743 to i64
-  %767 = getelementptr inbounds i16, ptr %765, i64 %766
+  %767 = getelementptr inbounds nuw i16, ptr %765, i64 %766
   %768 = load i16, ptr %767, align 2, !tbaa !83
   %769 = zext i16 %768 to i32
   %770 = zext nneg i32 %742 to i64
-  %771 = getelementptr inbounds i16, ptr %765, i64 %770
+  %771 = getelementptr inbounds nuw i16, ptr %765, i64 %770
   %772 = load i16, ptr %771, align 2, !tbaa !83
   %773 = zext i16 %772 to i32
   %774 = add nuw nsw i32 %742, 2
   %775 = icmp samesign ugt i32 %747, %774
   call void @llvm.assume(i1 %775)
   %776 = zext nneg i32 %774 to i64
-  %777 = getelementptr inbounds i16, ptr %765, i64 %776
+  %777 = getelementptr inbounds nuw i16, ptr %765, i64 %776
   %778 = load i16, ptr %777, align 2, !tbaa !83
   %779 = zext i16 %778 to i32
   %780 = add nsw i32 %.sroa.phi97.sroa.speculated, -2
@@ -2694,8 +2690,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %784 = icmp samesign ule i32 %783, %745
   call void @llvm.assume(i1 %784)
   %785 = zext nneg i32 %782 to i64
-  %786 = getelementptr inbounds i16, ptr %744, i64 %785
-  %787 = getelementptr inbounds i16, ptr %786, i64 %766
+  %786 = getelementptr inbounds nuw i16, ptr %744, i64 %785
+  %787 = getelementptr inbounds nuw i16, ptr %786, i64 %766
   %788 = load i16, ptr %787, align 2, !tbaa !83
   %789 = zext i16 %788 to i32
   %790 = sub nsw i32 %773, %769
@@ -2756,7 +2752,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 837:                                              ; preds = %834
   %838 = zext nneg i32 %829 to i64
-  %839 = getelementptr inbounds i8, ptr %649, i64 %838
+  %839 = getelementptr inbounds nuw i8, ptr %649, i64 %838
   br label %851
 
 840:                                              ; preds = %834
@@ -2772,7 +2768,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %847 = icmp ult i32 %846, 5
   call void @llvm.assume(i1 %847)
   %848 = zext nneg i32 %843 to i64
-  %849 = getelementptr inbounds i8, ptr %649, i64 %848
+  %849 = getelementptr inbounds nuw i8, ptr %649, i64 %848
   %850 = zext nneg i32 %846 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %849, i64 %850, i1 false)
   br label %851
@@ -2822,9 +2818,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 884:                                              ; preds = %878
   %885 = zext nneg i32 %822 to i64
-  %886 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %625, i64 0, i64 %885
+  %886 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %625, i64 0, i64 %885
   %887 = load i32, ptr %886, align 8, !tbaa !218
-  %888 = getelementptr inbounds i8, ptr %886, i64 4
+  %888 = getelementptr inbounds nuw i8, ptr %886, i64 4
   %889 = load i32, ptr %888, align 4, !tbaa !220
   %890 = icmp sgt i32 %887, -1
   call void @llvm.assume(i1 %890)
@@ -2858,7 +2854,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 911:                                              ; preds = %908
   %912 = zext nneg i32 %865 to i64
-  %913 = getelementptr inbounds i8, ptr %649, i64 %912
+  %913 = getelementptr inbounds nuw i8, ptr %649, i64 %912
   br label %925
 
 914:                                              ; preds = %908
@@ -2874,7 +2870,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %921 = icmp ult i32 %920, 5
   call void @llvm.assume(i1 %921)
   %922 = zext nneg i32 %917 to i64
-  %923 = getelementptr inbounds i8, ptr %649, i64 %922
+  %923 = getelementptr inbounds nuw i8, ptr %649, i64 %922
   %924 = zext nneg i32 %920 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %923, i64 %924, i1 false)
   br label %925
@@ -2939,11 +2935,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %965 = xor i32 %962, %964
   %966 = call i32 @llvm.abs.i32(i32 %965, i1 true)
   %967 = zext nneg i32 %822 to i64
-  %968 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %625, i64 0, i64 %967
+  %968 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %625, i64 0, i64 %967
   %969 = load i32, ptr %968, align 8, !tbaa !218
   %970 = add nsw i32 %969, %966
   store i32 %970, ptr %968, align 8, !tbaa !218
-  %971 = getelementptr inbounds i8, ptr %968, i64 4
+  %971 = getelementptr inbounds nuw i8, ptr %968, i64 4
   %972 = load i32, ptr %971, align 4, !tbaa !220
   %973 = load i32, ptr %593, align 8, !tbaa !169
   %974 = icmp eq i32 %972, %973
@@ -3039,8 +3035,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1033 = icmp samesign ule i32 %1032, %1015
   call void @llvm.assume(i1 %1033)
   %1034 = zext nneg i32 %1031 to i64
-  %1035 = getelementptr inbounds i16, ptr %1014, i64 %1034
-  %1036 = getelementptr inbounds i16, ptr %1035, i64 %1010
+  %1035 = getelementptr inbounds nuw i16, ptr %1014, i64 %1034
+  %1036 = getelementptr inbounds nuw i16, ptr %1035, i64 %1010
   store i16 %1013, ptr %1036, align 2, !tbaa !83
   %1037 = add nuw nsw i32 %662, 1
   store i32 %1037, ptr %.sroa.phi, align 4, !tbaa !86
@@ -3101,9 +3097,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1074 = icmp ule i32 %1073, %1054
   call void @llvm.assume(i1 %1074)
   %1075 = zext nneg i32 %1072 to i64
-  %1076 = getelementptr inbounds i16, ptr %1055, i64 %1075
+  %1076 = getelementptr inbounds nuw i16, ptr %1055, i64 %1075
   %1077 = zext nneg i32 %1062 to i64
-  %1078 = getelementptr inbounds i16, ptr %1076, i64 %1077
+  %1078 = getelementptr inbounds nuw i16, ptr %1076, i64 %1077
   %1079 = load i16, ptr %1078, align 2, !tbaa !83
   %1080 = zext i16 %1079 to i32
   %1081 = add nsw i32 %.sroa.phi99.sroa.speculated, -1
@@ -3117,21 +3113,21 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1087 = icmp ule i32 %1086, %1054
   call void @llvm.assume(i1 %1087)
   %1088 = zext nneg i32 %1085 to i64
-  %1089 = getelementptr inbounds i16, ptr %1055, i64 %1088
+  %1089 = getelementptr inbounds nuw i16, ptr %1055, i64 %1088
   %1090 = zext nneg i32 %1082 to i64
-  %1091 = getelementptr inbounds i16, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds nuw i16, ptr %1089, i64 %1090
   %1092 = load i16, ptr %1091, align 2, !tbaa !83
   %1093 = zext i16 %1092 to i32
-  %1094 = getelementptr inbounds i16, ptr %1089, i64 %1077
+  %1094 = getelementptr inbounds nuw i16, ptr %1089, i64 %1077
   %1095 = load i16, ptr %1094, align 2, !tbaa !83
   %1096 = zext i16 %1095 to i32
   %1097 = add nuw nsw i32 %1061, 3
   %1098 = icmp ugt i32 %1053, %1097
   call void @llvm.assume(i1 %1098)
   %1099 = zext nneg i32 %1097 to i64
-  %1100 = getelementptr inbounds i16, ptr %1089, i64 %1099
+  %1100 = getelementptr inbounds nuw i16, ptr %1089, i64 %1099
   %1101 = load i16, ptr %1100, align 2, !tbaa !83
-  %1102 = getelementptr inbounds i16, ptr %1076, i64 %1099
+  %1102 = getelementptr inbounds nuw i16, ptr %1076, i64 %1099
   %1103 = load i16, ptr %1102, align 2, !tbaa !83
   %1104 = zext i16 %1103 to i32
   %1105 = add nuw nsw i32 %1104, %1080
@@ -3185,7 +3181,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1146:                                             ; preds = %1143
   %1147 = zext nneg i32 %1138 to i64
-  %1148 = getelementptr inbounds i8, ptr %631, i64 %1147
+  %1148 = getelementptr inbounds nuw i8, ptr %631, i64 %1147
   br label %1160
 
 1149:                                             ; preds = %1143
@@ -3201,7 +3197,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1156 = icmp ult i32 %1155, 5
   call void @llvm.assume(i1 %1156)
   %1157 = zext nneg i32 %1152 to i64
-  %1158 = getelementptr inbounds i8, ptr %631, i64 %1157
+  %1158 = getelementptr inbounds nuw i8, ptr %631, i64 %1157
   %1159 = zext nneg i32 %1155 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %1158, i64 %1159, i1 false)
   br label %1160
@@ -3251,9 +3247,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1193:                                             ; preds = %1187
   %1194 = zext nneg i32 %1131 to i64
-  %1195 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %628, i64 0, i64 %1194
+  %1195 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %628, i64 0, i64 %1194
   %1196 = load i32, ptr %1195, align 8, !tbaa !218
-  %1197 = getelementptr inbounds i8, ptr %1195, i64 4
+  %1197 = getelementptr inbounds nuw i8, ptr %1195, i64 4
   %1198 = load i32, ptr %1197, align 4, !tbaa !220
   %1199 = icmp sgt i32 %1196, -1
   call void @llvm.assume(i1 %1199)
@@ -3289,7 +3285,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1221:                                             ; preds = %1218
   %1222 = zext nneg i32 %1172 to i64
-  %1223 = getelementptr inbounds i8, ptr %631, i64 %1222
+  %1223 = getelementptr inbounds nuw i8, ptr %631, i64 %1222
   br label %1235
 
 1224:                                             ; preds = %1218
@@ -3305,7 +3301,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1231 = icmp ult i32 %1230, 5
   call void @llvm.assume(i1 %1231)
   %1232 = zext nneg i32 %1227 to i64
-  %1233 = getelementptr inbounds i8, ptr %631, i64 %1232
+  %1233 = getelementptr inbounds nuw i8, ptr %631, i64 %1232
   %1234 = zext nneg i32 %1230 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %1233, i64 %1234, i1 false)
   br label %1235
@@ -3370,11 +3366,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1275 = xor i32 %1272, %1274
   %1276 = call i32 @llvm.abs.i32(i32 %1275, i1 true)
   %1277 = zext nneg i32 %1131 to i64
-  %1278 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %628, i64 0, i64 %1277
+  %1278 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %628, i64 0, i64 %1277
   %1279 = load i32, ptr %1278, align 8, !tbaa !218
   %1280 = add nsw i32 %1279, %1276
   store i32 %1280, ptr %1278, align 8, !tbaa !218
-  %1281 = getelementptr inbounds i8, ptr %1278, i64 4
+  %1281 = getelementptr inbounds nuw i8, ptr %1278, i64 4
   %1282 = load i32, ptr %1281, align 4, !tbaa !220
   %1283 = load i32, ptr %593, align 8, !tbaa !169
   %1284 = icmp eq i32 %1282, %1283
@@ -3457,8 +3453,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1332 = icmp samesign ule i32 %1331, %1316
   call void @llvm.assume(i1 %1332)
   %1333 = zext nneg i32 %1330 to i64
-  %1334 = getelementptr inbounds i16, ptr %1315, i64 %1333
-  %1335 = getelementptr inbounds i16, ptr %1334, i64 %1090
+  %1334 = getelementptr inbounds nuw i16, ptr %1315, i64 %1333
+  %1335 = getelementptr inbounds nuw i16, ptr %1334, i64 %1090
   store i16 %1314, ptr %1335, align 2, !tbaa !83
   %1336 = add nsw i32 %1060, 1
   store i32 %1336, ptr %.sroa.phi94, align 4, !tbaa !86
@@ -3497,35 +3493,35 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1360 = add nuw nsw i32 %1359, %1347
   %1361 = icmp ule i32 %1360, %1345
   %1362 = zext nneg i32 %1359 to i64
-  %1363 = getelementptr inbounds i16, ptr %1344, i64 %1362
-  %1364 = getelementptr inbounds i8, ptr %1363, i64 2
+  %1363 = getelementptr inbounds nuw i16, ptr %1344, i64 %1362
+  %1364 = getelementptr inbounds nuw i8, ptr %1363, i64 2
   %1365 = icmp ugt i32 %1349, 15
   %1366 = mul nsw i32 %1351, 15
   %1367 = add nuw nsw i32 %1366, %1347
   %1368 = icmp ule i32 %1367, %1345
   %1369 = zext nneg i32 %1366 to i64
-  %1370 = getelementptr inbounds i16, ptr %1344, i64 %1369
+  %1370 = getelementptr inbounds nuw i16, ptr %1344, i64 %1369
   %1371 = getelementptr i16, ptr %1363, i64 %1358
   %1372 = getelementptr i8, ptr %1371, i64 -4
   %1373 = getelementptr i16, ptr %1370, i64 %1358
   %1374 = getelementptr i8, ptr %1373, i64 -2
-  %1375 = getelementptr inbounds i8, ptr %1370, i64 2
+  %1375 = getelementptr inbounds nuw i8, ptr %1370, i64 2
   %1376 = icmp ugt i32 %1349, 16
   %1377 = shl nsw i32 %1351, 4
   %1378 = add nuw nsw i32 %1377, %1347
   %1379 = icmp ule i32 %1378, %1345
   %1380 = zext nneg i32 %1377 to i64
-  %1381 = getelementptr inbounds i16, ptr %1344, i64 %1380
+  %1381 = getelementptr inbounds nuw i16, ptr %1344, i64 %1380
   %1382 = getelementptr i8, ptr %1373, i64 -4
   %1383 = getelementptr i16, ptr %1381, i64 %1358
   %1384 = getelementptr i8, ptr %1383, i64 -2
-  %1385 = getelementptr inbounds i8, ptr %1381, i64 2
+  %1385 = getelementptr inbounds nuw i8, ptr %1381, i64 2
   %1386 = icmp ugt i32 %1349, 17
   %1387 = mul nsw i32 %1351, 17
   %1388 = add nuw nsw i32 %1387, %1347
   %1389 = icmp ule i32 %1388, %1345
   %1390 = zext nneg i32 %1387 to i64
-  %1391 = getelementptr inbounds i16, ptr %1344, i64 %1390
+  %1391 = getelementptr inbounds nuw i16, ptr %1344, i64 %1390
   %1392 = getelementptr i8, ptr %1383, i64 -4
   %1393 = getelementptr i16, ptr %1391, i64 %1358
   %1394 = getelementptr i8, ptr %1393, i64 -2
@@ -3533,100 +3529,100 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1396 = add nuw nsw i32 %1395, %1347
   %1397 = icmp ule i32 %1396, %1345
   %1398 = zext nneg i32 %1395 to i64
-  %1399 = getelementptr inbounds i16, ptr %1344, i64 %1398
-  %1400 = getelementptr inbounds i8, ptr %1399, i64 2
+  %1399 = getelementptr inbounds nuw i16, ptr %1344, i64 %1398
+  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 2
   %1401 = icmp ugt i32 %1349, 7
   %1402 = mul nsw i32 %1351, 7
   %1403 = add nuw nsw i32 %1402, %1347
   %1404 = icmp ule i32 %1403, %1345
   %1405 = zext nneg i32 %1402 to i64
-  %1406 = getelementptr inbounds i16, ptr %1344, i64 %1405
+  %1406 = getelementptr inbounds nuw i16, ptr %1344, i64 %1405
   %1407 = getelementptr i16, ptr %1399, i64 %1358
   %1408 = getelementptr i8, ptr %1407, i64 -4
   %1409 = getelementptr i16, ptr %1406, i64 %1358
   %1410 = getelementptr i8, ptr %1409, i64 -2
-  %1411 = getelementptr inbounds i8, ptr %1406, i64 2
+  %1411 = getelementptr inbounds nuw i8, ptr %1406, i64 2
   %1412 = icmp ugt i32 %1349, 8
   %1413 = shl nsw i32 %1351, 3
   %1414 = add nuw nsw i32 %1413, %1347
   %1415 = icmp ule i32 %1414, %1345
   %1416 = zext nneg i32 %1413 to i64
-  %1417 = getelementptr inbounds i16, ptr %1344, i64 %1416
+  %1417 = getelementptr inbounds nuw i16, ptr %1344, i64 %1416
   %1418 = getelementptr i8, ptr %1409, i64 -4
   %1419 = getelementptr i16, ptr %1417, i64 %1358
   %1420 = getelementptr i8, ptr %1419, i64 -2
-  %1421 = getelementptr inbounds i8, ptr %1417, i64 2
+  %1421 = getelementptr inbounds nuw i8, ptr %1417, i64 2
   %1422 = icmp ugt i32 %1349, 9
   %1423 = mul nsw i32 %1351, 9
   %1424 = add nuw nsw i32 %1423, %1347
   %1425 = icmp ule i32 %1424, %1345
   %1426 = zext nneg i32 %1423 to i64
-  %1427 = getelementptr inbounds i16, ptr %1344, i64 %1426
+  %1427 = getelementptr inbounds nuw i16, ptr %1344, i64 %1426
   %1428 = getelementptr i8, ptr %1419, i64 -4
   %1429 = getelementptr i16, ptr %1427, i64 %1358
   %1430 = getelementptr i8, ptr %1429, i64 -2
-  %1431 = getelementptr inbounds i8, ptr %1427, i64 2
+  %1431 = getelementptr inbounds nuw i8, ptr %1427, i64 2
   %1432 = icmp ugt i32 %1349, 10
   %1433 = mul nsw i32 %1351, 10
   %1434 = add nuw nsw i32 %1433, %1347
   %1435 = icmp ule i32 %1434, %1345
   %1436 = zext nneg i32 %1433 to i64
-  %1437 = getelementptr inbounds i16, ptr %1344, i64 %1436
+  %1437 = getelementptr inbounds nuw i16, ptr %1344, i64 %1436
   %1438 = getelementptr i8, ptr %1429, i64 -4
   %1439 = getelementptr i16, ptr %1437, i64 %1358
   %1440 = getelementptr i8, ptr %1439, i64 -2
-  %1441 = getelementptr inbounds i8, ptr %1437, i64 2
+  %1441 = getelementptr inbounds nuw i8, ptr %1437, i64 2
   %1442 = icmp ugt i32 %1349, 11
   %1443 = mul nsw i32 %1351, 11
   %1444 = add nuw nsw i32 %1443, %1347
   %1445 = icmp ule i32 %1444, %1345
   %1446 = zext nneg i32 %1443 to i64
-  %1447 = getelementptr inbounds i16, ptr %1344, i64 %1446
+  %1447 = getelementptr inbounds nuw i16, ptr %1344, i64 %1446
   %1448 = getelementptr i8, ptr %1439, i64 -4
   %1449 = getelementptr i16, ptr %1447, i64 %1358
   %1450 = getelementptr i8, ptr %1449, i64 -2
-  %1451 = getelementptr inbounds i8, ptr %1447, i64 2
+  %1451 = getelementptr inbounds nuw i8, ptr %1447, i64 2
   %1452 = icmp ugt i32 %1349, 12
   %1453 = mul nsw i32 %1351, 12
   %1454 = add nuw nsw i32 %1453, %1347
   %1455 = icmp ule i32 %1454, %1345
   %1456 = zext nneg i32 %1453 to i64
-  %1457 = getelementptr inbounds i16, ptr %1344, i64 %1456
+  %1457 = getelementptr inbounds nuw i16, ptr %1344, i64 %1456
   %1458 = getelementptr i8, ptr %1449, i64 -4
   %1459 = getelementptr i16, ptr %1457, i64 %1358
   %1460 = getelementptr i8, ptr %1459, i64 -2
   %1461 = add nuw nsw i32 %1351, %1347
   %1462 = icmp ule i32 %1461, %1345
   %1463 = zext nneg i32 %1351 to i64
-  %1464 = getelementptr inbounds i16, ptr %1344, i64 %1463
-  %1465 = getelementptr inbounds i8, ptr %1464, i64 2
+  %1464 = getelementptr inbounds nuw i16, ptr %1344, i64 %1463
+  %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 2
   %1466 = icmp ugt i32 %1349, 2
   %1467 = shl nuw nsw i32 %1351, 1
   %1468 = add nuw nsw i32 %1467, %1347
   %1469 = icmp ule i32 %1468, %1345
   %1470 = zext nneg i32 %1467 to i64
-  %1471 = getelementptr inbounds i16, ptr %1344, i64 %1470
+  %1471 = getelementptr inbounds nuw i16, ptr %1344, i64 %1470
   %1472 = getelementptr i16, ptr %1464, i64 %1358
   %1473 = getelementptr i8, ptr %1472, i64 -4
   %1474 = getelementptr i16, ptr %1471, i64 %1358
   %1475 = getelementptr i8, ptr %1474, i64 -2
-  %1476 = getelementptr inbounds i8, ptr %1471, i64 2
+  %1476 = getelementptr inbounds nuw i8, ptr %1471, i64 2
   %1477 = icmp ugt i32 %1349, 3
   %1478 = mul nsw i32 %1351, 3
   %1479 = add nuw nsw i32 %1478, %1347
   %1480 = icmp ule i32 %1479, %1345
   %1481 = zext nneg i32 %1478 to i64
-  %1482 = getelementptr inbounds i16, ptr %1344, i64 %1481
+  %1482 = getelementptr inbounds nuw i16, ptr %1344, i64 %1481
   %1483 = getelementptr i8, ptr %1474, i64 -4
   %1484 = getelementptr i16, ptr %1482, i64 %1358
   %1485 = getelementptr i8, ptr %1484, i64 -2
-  %1486 = getelementptr inbounds i8, ptr %1482, i64 2
+  %1486 = getelementptr inbounds nuw i8, ptr %1482, i64 2
   %1487 = icmp ugt i32 %1349, 4
   %1488 = shl nsw i32 %1351, 2
   %1489 = add nuw nsw i32 %1488, %1347
   %1490 = icmp ule i32 %1489, %1345
   %1491 = zext nneg i32 %1488 to i64
-  %1492 = getelementptr inbounds i16, ptr %1344, i64 %1491
+  %1492 = getelementptr inbounds nuw i16, ptr %1344, i64 %1491
   %1493 = getelementptr i8, ptr %1484, i64 -4
   %1494 = getelementptr i16, ptr %1492, i64 %1358
   %1495 = getelementptr i8, ptr %1494, i64 -2
@@ -3850,15 +3846,15 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1573 = shl nuw i32 %1572, 1
   %1574 = and i32 %1573, 2
   %1575 = zext nneg i32 %1574 to i64
-  %1576 = getelementptr inbounds i8, ptr %2, i64 %1575
+  %1576 = getelementptr inbounds nuw i8, ptr %2, i64 %1575
   %1577 = load i8, ptr %1576, align 2, !tbaa !151
-  %1578 = getelementptr inbounds i8, ptr %1576, i64 1
+  %1578 = getelementptr inbounds nuw i8, ptr %1576, i64 1
   %1579 = load i8, ptr %1578, align 1, !tbaa !151
   %1580 = sext i8 %1577 to i64
   %1581 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %1583 = zext nneg i8 %1577 to i64
-  %1584 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %1583
+  %1584 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %1583
   %1585 = load i32, ptr %1584, align 4, !tbaa !86
   %1586 = add nsw i32 %1585, %1582
   %1587 = add nsw i32 %1585, 1
@@ -3867,7 +3863,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1589 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1588
   %1590 = load i32, ptr %1589, align 4
   %1591 = zext nneg i8 %1579 to i64
-  %1592 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %1591
+  %1592 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %1591
   %1593 = load i32, ptr %1592, align 4, !tbaa !86
   %1594 = add nsw i32 %1593, %1590
   %1595 = add nsw i32 %1593, 1
@@ -3882,8 +3878,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i32 0, ptr %.sroa.6116, align 4, !tbaa !86
   %1596 = urem i32 %1572, 3
   %1597 = zext nneg i32 %1596 to i64
-  %1598 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %1597
-  %1599 = getelementptr inbounds [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %1597
+  %1598 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %231, i64 0, i64 %1597
+  %1599 = getelementptr inbounds nuw [3 x %"struct.std::array.102"], ptr %232, i64 0, i64 %1597
   %1600 = load i32, ptr %234, align 8, !tbaa !226
   %1601 = load i32, ptr %237, align 8, !tbaa !227
   %1602 = load ptr, ptr %235, align 8, !nonnull !105
@@ -3950,20 +3946,20 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1645 = icmp ule i32 %1644, %1623
   call void @llvm.assume(i1 %1645)
   %1646 = zext nneg i32 %1643 to i64
-  %1647 = getelementptr inbounds i16, ptr %1624, i64 %1646
+  %1647 = getelementptr inbounds nuw i16, ptr %1624, i64 %1646
   %1648 = zext nneg i32 %1632 to i64
-  %1649 = getelementptr inbounds i16, ptr %1647, i64 %1648
+  %1649 = getelementptr inbounds nuw i16, ptr %1647, i64 %1648
   %1650 = load i16, ptr %1649, align 2, !tbaa !83
   %1651 = zext i16 %1650 to i32
   %1652 = zext nneg i32 %1631 to i64
-  %1653 = getelementptr inbounds i16, ptr %1647, i64 %1652
+  %1653 = getelementptr inbounds nuw i16, ptr %1647, i64 %1652
   %1654 = load i16, ptr %1653, align 2, !tbaa !83
   %1655 = zext i16 %1654 to i32
   %1656 = add nuw nsw i32 %1631, 2
   %1657 = icmp samesign ugt i32 %1622, %1656
   call void @llvm.assume(i1 %1657)
   %1658 = zext nneg i32 %1656 to i64
-  %1659 = getelementptr inbounds i16, ptr %1647, i64 %1658
+  %1659 = getelementptr inbounds nuw i16, ptr %1647, i64 %1658
   %1660 = load i16, ptr %1659, align 2, !tbaa !83
   %1661 = zext i16 %1660 to i32
   %1662 = add nsw i32 %.sroa.phi117.sroa.speculated, -2
@@ -3974,8 +3970,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1666 = icmp ule i32 %1665, %1623
   call void @llvm.assume(i1 %1666)
   %1667 = zext nneg i32 %1664 to i64
-  %1668 = getelementptr inbounds i16, ptr %1624, i64 %1667
-  %1669 = getelementptr inbounds i16, ptr %1668, i64 %1648
+  %1668 = getelementptr inbounds nuw i16, ptr %1624, i64 %1667
+  %1669 = getelementptr inbounds nuw i16, ptr %1668, i64 %1648
   %1670 = load i16, ptr %1669, align 2, !tbaa !83
   %1671 = zext i16 %1670 to i32
   %1672 = sub nsw i32 %1655, %1651
@@ -4034,7 +4030,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1718:                                             ; preds = %1715
   %1719 = zext nneg i32 %1710 to i64
-  %1720 = getelementptr inbounds i8, ptr %1602, i64 %1719
+  %1720 = getelementptr inbounds nuw i8, ptr %1602, i64 %1719
   br label %1732
 
 1721:                                             ; preds = %1715
@@ -4050,7 +4046,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1728 = icmp ult i32 %1727, 5
   call void @llvm.assume(i1 %1728)
   %1729 = zext nneg i32 %1724 to i64
-  %1730 = getelementptr inbounds i8, ptr %1602, i64 %1729
+  %1730 = getelementptr inbounds nuw i8, ptr %1602, i64 %1729
   %1731 = zext nneg i32 %1727 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %1730, i64 %1731, i1 false)
   br label %1732
@@ -4099,9 +4095,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1764:                                             ; preds = %1758
   %1765 = zext nneg i32 %1704 to i64
-  %1766 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1598, i64 0, i64 %1765
+  %1766 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1598, i64 0, i64 %1765
   %1767 = load i32, ptr %1766, align 8, !tbaa !218
-  %1768 = getelementptr inbounds i8, ptr %1766, i64 4
+  %1768 = getelementptr inbounds nuw i8, ptr %1766, i64 4
   %1769 = load i32, ptr %1768, align 4, !tbaa !220
   %1770 = icmp sgt i32 %1767, -1
   call void @llvm.assume(i1 %1770)
@@ -4135,7 +4131,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 1791:                                             ; preds = %1788
   %1792 = zext nneg i32 %1745 to i64
-  %1793 = getelementptr inbounds i8, ptr %1602, i64 %1792
+  %1793 = getelementptr inbounds nuw i8, ptr %1602, i64 %1792
   br label %1805
 
 1794:                                             ; preds = %1788
@@ -4151,7 +4147,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1801 = icmp ult i32 %1800, 5
   call void @llvm.assume(i1 %1801)
   %1802 = zext nneg i32 %1797 to i64
-  %1803 = getelementptr inbounds i8, ptr %1602, i64 %1802
+  %1803 = getelementptr inbounds nuw i8, ptr %1602, i64 %1802
   %1804 = zext nneg i32 %1800 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %1803, i64 %1804, i1 false)
   br label %1805
@@ -4215,11 +4211,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1844 = xor i32 %1841, %1843
   %1845 = call i32 @llvm.abs.i32(i32 %1844, i1 true)
   %1846 = zext nneg i32 %1704 to i64
-  %1847 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1598, i64 0, i64 %1846
+  %1847 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1598, i64 0, i64 %1846
   %1848 = load i32, ptr %1847, align 8, !tbaa !218
   %1849 = add nsw i32 %1848, %1845
   store i32 %1849, ptr %1847, align 8, !tbaa !218
-  %1850 = getelementptr inbounds i8, ptr %1847, i64 4
+  %1850 = getelementptr inbounds nuw i8, ptr %1847, i64 4
   %1851 = load i32, ptr %1850, align 4, !tbaa !220
   %1852 = load i32, ptr %593, align 8, !tbaa !169
   %1853 = icmp eq i32 %1851, %1852
@@ -4302,8 +4298,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1901 = icmp samesign ule i32 %1900, %1885
   call void @llvm.assume(i1 %1901)
   %1902 = zext nneg i32 %1899 to i64
-  %1903 = getelementptr inbounds i16, ptr %1884, i64 %1902
-  %1904 = getelementptr inbounds i16, ptr %1903, i64 %1648
+  %1903 = getelementptr inbounds nuw i16, ptr %1884, i64 %1902
+  %1904 = getelementptr inbounds nuw i16, ptr %1903, i64 %1648
   store i16 %1883, ptr %1904, align 2, !tbaa !83
   %1905 = add nsw i32 %1629, 1
   store i32 %1905, ptr %.sroa.phi108, align 4, !tbaa !86
@@ -4364,9 +4360,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1942 = icmp ule i32 %1941, %1922
   call void @llvm.assume(i1 %1942)
   %1943 = zext nneg i32 %1940 to i64
-  %1944 = getelementptr inbounds i16, ptr %1923, i64 %1943
+  %1944 = getelementptr inbounds nuw i16, ptr %1923, i64 %1943
   %1945 = zext nneg i32 %1930 to i64
-  %1946 = getelementptr inbounds i16, ptr %1944, i64 %1945
+  %1946 = getelementptr inbounds nuw i16, ptr %1944, i64 %1945
   %1947 = load i16, ptr %1946, align 2, !tbaa !83
   %1948 = zext i16 %1947 to i32
   %1949 = add nsw i32 %.sroa.phi119.sroa.speculated, -1
@@ -4380,21 +4376,21 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1955 = icmp ule i32 %1954, %1922
   call void @llvm.assume(i1 %1955)
   %1956 = zext nneg i32 %1953 to i64
-  %1957 = getelementptr inbounds i16, ptr %1923, i64 %1956
+  %1957 = getelementptr inbounds nuw i16, ptr %1923, i64 %1956
   %1958 = zext nneg i32 %1950 to i64
-  %1959 = getelementptr inbounds i16, ptr %1957, i64 %1958
+  %1959 = getelementptr inbounds nuw i16, ptr %1957, i64 %1958
   %1960 = load i16, ptr %1959, align 2, !tbaa !83
   %1961 = zext i16 %1960 to i32
-  %1962 = getelementptr inbounds i16, ptr %1957, i64 %1945
+  %1962 = getelementptr inbounds nuw i16, ptr %1957, i64 %1945
   %1963 = load i16, ptr %1962, align 2, !tbaa !83
   %1964 = zext i16 %1963 to i32
   %1965 = add nuw nsw i32 %1929, 3
   %1966 = icmp ugt i32 %1921, %1965
   call void @llvm.assume(i1 %1966)
   %1967 = zext nneg i32 %1965 to i64
-  %1968 = getelementptr inbounds i16, ptr %1957, i64 %1967
+  %1968 = getelementptr inbounds nuw i16, ptr %1957, i64 %1967
   %1969 = load i16, ptr %1968, align 2, !tbaa !83
-  %1970 = getelementptr inbounds i16, ptr %1944, i64 %1967
+  %1970 = getelementptr inbounds nuw i16, ptr %1944, i64 %1967
   %1971 = load i16, ptr %1970, align 2, !tbaa !83
   %1972 = zext i16 %1971 to i32
   %1973 = add nuw nsw i32 %1972, %1948
@@ -4448,7 +4444,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 2014:                                             ; preds = %2011
   %2015 = zext nneg i32 %2006 to i64
-  %2016 = getelementptr inbounds i8, ptr %1602, i64 %2015
+  %2016 = getelementptr inbounds nuw i8, ptr %1602, i64 %2015
   br label %2028
 
 2017:                                             ; preds = %2011
@@ -4464,7 +4460,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2024 = icmp ult i32 %2023, 5
   call void @llvm.assume(i1 %2024)
   %2025 = zext nneg i32 %2020 to i64
-  %2026 = getelementptr inbounds i8, ptr %1602, i64 %2025
+  %2026 = getelementptr inbounds nuw i8, ptr %1602, i64 %2025
   %2027 = zext nneg i32 %2023 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %2026, i64 %2027, i1 false)
   br label %2028
@@ -4514,9 +4510,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 2061:                                             ; preds = %2055
   %2062 = zext nneg i32 %1999 to i64
-  %2063 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1599, i64 0, i64 %2062
+  %2063 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1599, i64 0, i64 %2062
   %2064 = load i32, ptr %2063, align 8, !tbaa !218
-  %2065 = getelementptr inbounds i8, ptr %2063, i64 4
+  %2065 = getelementptr inbounds nuw i8, ptr %2063, i64 4
   %2066 = load i32, ptr %2065, align 4, !tbaa !220
   %2067 = icmp sgt i32 %2064, -1
   call void @llvm.assume(i1 %2067)
@@ -4552,7 +4548,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 2089:                                             ; preds = %2086
   %2090 = zext nneg i32 %2040 to i64
-  %2091 = getelementptr inbounds i8, ptr %1602, i64 %2090
+  %2091 = getelementptr inbounds nuw i8, ptr %1602, i64 %2090
   br label %2104
 
 2092:                                             ; preds = %2086
@@ -4575,7 +4571,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2100 = icmp ult i32 %2099, 5
   call void @llvm.assume(i1 %2100)
   %2101 = zext nneg i32 %2096 to i64
-  %2102 = getelementptr inbounds i8, ptr %1602, i64 %2101
+  %2102 = getelementptr inbounds nuw i8, ptr %1602, i64 %2101
   %2103 = zext nneg i32 %2099 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %238, ptr nonnull align 1 %2102, i64 %2103, i1 false)
   br label %2104
@@ -4647,11 +4643,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2145 = xor i32 %2142, %2144
   %2146 = call i32 @llvm.abs.i32(i32 %2145, i1 true)
   %2147 = zext nneg i32 %1999 to i64
-  %2148 = getelementptr inbounds [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1599, i64 0, i64 %2147
+  %2148 = getelementptr inbounds nuw [41 x %"struct.rawspeed::(anonymous namespace)::int_pair"], ptr %1599, i64 0, i64 %2147
   %2149 = load i32, ptr %2148, align 8, !tbaa !218
   %2150 = add nsw i32 %2149, %2146
   store i32 %2150, ptr %2148, align 8, !tbaa !218
-  %2151 = getelementptr inbounds i8, ptr %2148, i64 4
+  %2151 = getelementptr inbounds nuw i8, ptr %2148, i64 4
   %2152 = load i32, ptr %2151, align 4, !tbaa !220
   %2153 = load i32, ptr %593, align 8, !tbaa !169
   %2154 = icmp eq i32 %2152, %2153
@@ -4734,8 +4730,8 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2202 = icmp samesign ule i32 %2201, %2186
   call void @llvm.assume(i1 %2202)
   %2203 = zext nneg i32 %2200 to i64
-  %2204 = getelementptr inbounds i16, ptr %2185, i64 %2203
-  %2205 = getelementptr inbounds i16, ptr %2204, i64 %1958
+  %2204 = getelementptr inbounds nuw i16, ptr %2185, i64 %2203
+  %2205 = getelementptr inbounds nuw i16, ptr %2204, i64 %1958
   store i16 %2184, ptr %2205, align 2, !tbaa !83
   %2206 = add nsw i32 %1928, 1
   store i32 %2206, ptr %.sroa.phi110, align 4, !tbaa !86
@@ -4774,35 +4770,35 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2230 = add nuw nsw i32 %2229, %2217
   %2231 = icmp ule i32 %2230, %2215
   %2232 = zext nneg i32 %2229 to i64
-  %2233 = getelementptr inbounds i16, ptr %2214, i64 %2232
-  %2234 = getelementptr inbounds i8, ptr %2233, i64 2
+  %2233 = getelementptr inbounds nuw i16, ptr %2214, i64 %2232
+  %2234 = getelementptr inbounds nuw i8, ptr %2233, i64 2
   %2235 = icmp ugt i32 %2219, 15
   %2236 = mul nsw i32 %2221, 15
   %2237 = add nuw nsw i32 %2236, %2217
   %2238 = icmp ule i32 %2237, %2215
   %2239 = zext nneg i32 %2236 to i64
-  %2240 = getelementptr inbounds i16, ptr %2214, i64 %2239
+  %2240 = getelementptr inbounds nuw i16, ptr %2214, i64 %2239
   %2241 = getelementptr i16, ptr %2233, i64 %2228
   %2242 = getelementptr i8, ptr %2241, i64 -4
   %2243 = getelementptr i16, ptr %2240, i64 %2228
   %2244 = getelementptr i8, ptr %2243, i64 -2
-  %2245 = getelementptr inbounds i8, ptr %2240, i64 2
+  %2245 = getelementptr inbounds nuw i8, ptr %2240, i64 2
   %2246 = icmp ugt i32 %2219, 16
   %2247 = shl nsw i32 %2221, 4
   %2248 = add nuw nsw i32 %2247, %2217
   %2249 = icmp ule i32 %2248, %2215
   %2250 = zext nneg i32 %2247 to i64
-  %2251 = getelementptr inbounds i16, ptr %2214, i64 %2250
+  %2251 = getelementptr inbounds nuw i16, ptr %2214, i64 %2250
   %2252 = getelementptr i8, ptr %2243, i64 -4
   %2253 = getelementptr i16, ptr %2251, i64 %2228
   %2254 = getelementptr i8, ptr %2253, i64 -2
-  %2255 = getelementptr inbounds i8, ptr %2251, i64 2
+  %2255 = getelementptr inbounds nuw i8, ptr %2251, i64 2
   %2256 = icmp ugt i32 %2219, 17
   %2257 = mul nsw i32 %2221, 17
   %2258 = add nuw nsw i32 %2257, %2217
   %2259 = icmp ule i32 %2258, %2215
   %2260 = zext nneg i32 %2257 to i64
-  %2261 = getelementptr inbounds i16, ptr %2214, i64 %2260
+  %2261 = getelementptr inbounds nuw i16, ptr %2214, i64 %2260
   %2262 = getelementptr i8, ptr %2253, i64 -4
   %2263 = getelementptr i16, ptr %2261, i64 %2228
   %2264 = getelementptr i8, ptr %2263, i64 -2
@@ -4810,100 +4806,100 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2266 = add nuw nsw i32 %2265, %2217
   %2267 = icmp ule i32 %2266, %2215
   %2268 = zext nneg i32 %2265 to i64
-  %2269 = getelementptr inbounds i16, ptr %2214, i64 %2268
-  %2270 = getelementptr inbounds i8, ptr %2269, i64 2
+  %2269 = getelementptr inbounds nuw i16, ptr %2214, i64 %2268
+  %2270 = getelementptr inbounds nuw i8, ptr %2269, i64 2
   %2271 = icmp ugt i32 %2219, 7
   %2272 = mul nsw i32 %2221, 7
   %2273 = add nuw nsw i32 %2272, %2217
   %2274 = icmp ule i32 %2273, %2215
   %2275 = zext nneg i32 %2272 to i64
-  %2276 = getelementptr inbounds i16, ptr %2214, i64 %2275
+  %2276 = getelementptr inbounds nuw i16, ptr %2214, i64 %2275
   %2277 = getelementptr i16, ptr %2269, i64 %2228
   %2278 = getelementptr i8, ptr %2277, i64 -4
   %2279 = getelementptr i16, ptr %2276, i64 %2228
   %2280 = getelementptr i8, ptr %2279, i64 -2
-  %2281 = getelementptr inbounds i8, ptr %2276, i64 2
+  %2281 = getelementptr inbounds nuw i8, ptr %2276, i64 2
   %2282 = icmp ugt i32 %2219, 8
   %2283 = shl nsw i32 %2221, 3
   %2284 = add nuw nsw i32 %2283, %2217
   %2285 = icmp ule i32 %2284, %2215
   %2286 = zext nneg i32 %2283 to i64
-  %2287 = getelementptr inbounds i16, ptr %2214, i64 %2286
+  %2287 = getelementptr inbounds nuw i16, ptr %2214, i64 %2286
   %2288 = getelementptr i8, ptr %2279, i64 -4
   %2289 = getelementptr i16, ptr %2287, i64 %2228
   %2290 = getelementptr i8, ptr %2289, i64 -2
-  %2291 = getelementptr inbounds i8, ptr %2287, i64 2
+  %2291 = getelementptr inbounds nuw i8, ptr %2287, i64 2
   %2292 = icmp ugt i32 %2219, 9
   %2293 = mul nsw i32 %2221, 9
   %2294 = add nuw nsw i32 %2293, %2217
   %2295 = icmp ule i32 %2294, %2215
   %2296 = zext nneg i32 %2293 to i64
-  %2297 = getelementptr inbounds i16, ptr %2214, i64 %2296
+  %2297 = getelementptr inbounds nuw i16, ptr %2214, i64 %2296
   %2298 = getelementptr i8, ptr %2289, i64 -4
   %2299 = getelementptr i16, ptr %2297, i64 %2228
   %2300 = getelementptr i8, ptr %2299, i64 -2
-  %2301 = getelementptr inbounds i8, ptr %2297, i64 2
+  %2301 = getelementptr inbounds nuw i8, ptr %2297, i64 2
   %2302 = icmp ugt i32 %2219, 10
   %2303 = mul nsw i32 %2221, 10
   %2304 = add nuw nsw i32 %2303, %2217
   %2305 = icmp ule i32 %2304, %2215
   %2306 = zext nneg i32 %2303 to i64
-  %2307 = getelementptr inbounds i16, ptr %2214, i64 %2306
+  %2307 = getelementptr inbounds nuw i16, ptr %2214, i64 %2306
   %2308 = getelementptr i8, ptr %2299, i64 -4
   %2309 = getelementptr i16, ptr %2307, i64 %2228
   %2310 = getelementptr i8, ptr %2309, i64 -2
-  %2311 = getelementptr inbounds i8, ptr %2307, i64 2
+  %2311 = getelementptr inbounds nuw i8, ptr %2307, i64 2
   %2312 = icmp ugt i32 %2219, 11
   %2313 = mul nsw i32 %2221, 11
   %2314 = add nuw nsw i32 %2313, %2217
   %2315 = icmp ule i32 %2314, %2215
   %2316 = zext nneg i32 %2313 to i64
-  %2317 = getelementptr inbounds i16, ptr %2214, i64 %2316
+  %2317 = getelementptr inbounds nuw i16, ptr %2214, i64 %2316
   %2318 = getelementptr i8, ptr %2309, i64 -4
   %2319 = getelementptr i16, ptr %2317, i64 %2228
   %2320 = getelementptr i8, ptr %2319, i64 -2
-  %2321 = getelementptr inbounds i8, ptr %2317, i64 2
+  %2321 = getelementptr inbounds nuw i8, ptr %2317, i64 2
   %2322 = icmp ugt i32 %2219, 12
   %2323 = mul nsw i32 %2221, 12
   %2324 = add nuw nsw i32 %2323, %2217
   %2325 = icmp ule i32 %2324, %2215
   %2326 = zext nneg i32 %2323 to i64
-  %2327 = getelementptr inbounds i16, ptr %2214, i64 %2326
+  %2327 = getelementptr inbounds nuw i16, ptr %2214, i64 %2326
   %2328 = getelementptr i8, ptr %2319, i64 -4
   %2329 = getelementptr i16, ptr %2327, i64 %2228
   %2330 = getelementptr i8, ptr %2329, i64 -2
   %2331 = add nuw nsw i32 %2221, %2217
   %2332 = icmp ule i32 %2331, %2215
   %2333 = zext nneg i32 %2221 to i64
-  %2334 = getelementptr inbounds i16, ptr %2214, i64 %2333
-  %2335 = getelementptr inbounds i8, ptr %2334, i64 2
+  %2334 = getelementptr inbounds nuw i16, ptr %2214, i64 %2333
+  %2335 = getelementptr inbounds nuw i8, ptr %2334, i64 2
   %2336 = icmp ugt i32 %2219, 2
   %2337 = shl nuw nsw i32 %2221, 1
   %2338 = add nuw nsw i32 %2337, %2217
   %2339 = icmp ule i32 %2338, %2215
   %2340 = zext nneg i32 %2337 to i64
-  %2341 = getelementptr inbounds i16, ptr %2214, i64 %2340
+  %2341 = getelementptr inbounds nuw i16, ptr %2214, i64 %2340
   %2342 = getelementptr i16, ptr %2334, i64 %2228
   %2343 = getelementptr i8, ptr %2342, i64 -4
   %2344 = getelementptr i16, ptr %2341, i64 %2228
   %2345 = getelementptr i8, ptr %2344, i64 -2
-  %2346 = getelementptr inbounds i8, ptr %2341, i64 2
+  %2346 = getelementptr inbounds nuw i8, ptr %2341, i64 2
   %2347 = icmp ugt i32 %2219, 3
   %2348 = mul nsw i32 %2221, 3
   %2349 = add nuw nsw i32 %2348, %2217
   %2350 = icmp ule i32 %2349, %2215
   %2351 = zext nneg i32 %2348 to i64
-  %2352 = getelementptr inbounds i16, ptr %2214, i64 %2351
+  %2352 = getelementptr inbounds nuw i16, ptr %2214, i64 %2351
   %2353 = getelementptr i8, ptr %2344, i64 -4
   %2354 = getelementptr i16, ptr %2352, i64 %2228
   %2355 = getelementptr i8, ptr %2354, i64 -2
-  %2356 = getelementptr inbounds i8, ptr %2352, i64 2
+  %2356 = getelementptr inbounds nuw i8, ptr %2352, i64 2
   %2357 = icmp ugt i32 %2219, 4
   %2358 = shl nsw i32 %2221, 2
   %2359 = add nuw nsw i32 %2358, %2217
   %2360 = icmp ule i32 %2359, %2215
   %2361 = zext nneg i32 %2358 to i64
-  %2362 = getelementptr inbounds i16, ptr %2214, i64 %2361
+  %2362 = getelementptr inbounds nuw i16, ptr %2214, i64 %2361
   %2363 = getelementptr i8, ptr %2354, i64 -4
   %2364 = getelementptr i16, ptr %2362, i64 %2228
   %2365 = getelementptr i8, ptr %2364, i64 -2
@@ -5115,7 +5111,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 2438:                                             ; preds = %2437, %1567
   %2439 = load ptr, ptr %204, align 8, !tbaa !223
-  %2440 = getelementptr inbounds i8, ptr %2439, i64 3
+  %2440 = getelementptr inbounds nuw i8, ptr %2439, i64 3
   %2441 = load i8, ptr %2440, align 1, !tbaa !149
   %2442 = icmp eq i8 %2441, 16
   %2443 = load i8, ptr %248, align 2, !tbaa !146
@@ -5183,7 +5179,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2486)
   %2487 = icmp ule i32 %2484, %2465
   %2488 = zext nneg i32 %2483 to i64
-  %2489 = getelementptr inbounds i16, ptr %2464, i64 %2488
+  %2489 = getelementptr inbounds nuw i16, ptr %2464, i64 %2488
   call void @llvm.assume(i1 %2487)
   %2490 = or disjoint i64 %2480, 1
   %2491 = icmp samesign ult i64 %2490, %2479
@@ -5192,7 +5188,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2494 = add nuw nsw i32 %2493, %2467
   %2495 = icmp ule i32 %2494, %2465
   %2496 = zext nneg i32 %2493 to i64
-  %2497 = getelementptr inbounds i16, ptr %2464, i64 %2496
+  %2497 = getelementptr inbounds nuw i16, ptr %2464, i64 %2496
   call void @llvm.assume(i1 %2491)
   call void @llvm.assume(i1 %2495)
   %2498 = add nuw nsw i64 %2480, 2
@@ -5202,7 +5198,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2502 = add nuw nsw i32 %2501, %2467
   %2503 = icmp ule i32 %2502, %2465
   %2504 = zext nneg i32 %2501 to i64
-  %2505 = getelementptr inbounds i16, ptr %2464, i64 %2504
+  %2505 = getelementptr inbounds nuw i16, ptr %2464, i64 %2504
   call void @llvm.assume(i1 %2499)
   call void @llvm.assume(i1 %2503)
   %2506 = add nuw nsw i64 %2480, 3
@@ -5212,7 +5208,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2510 = add nuw nsw i32 %2509, %2467
   %2511 = icmp ule i32 %2510, %2465
   %2512 = zext nneg i32 %2509 to i64
-  %2513 = getelementptr inbounds i16, ptr %2464, i64 %2512
+  %2513 = getelementptr inbounds nuw i16, ptr %2464, i64 %2512
   call void @llvm.assume(i1 %2507)
   call void @llvm.assume(i1 %2511)
   %2514 = add nuw nsw i64 %2480, 4
@@ -5222,7 +5218,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2518 = add nuw nsw i32 %2517, %2467
   %2519 = icmp ule i32 %2518, %2465
   %2520 = zext nneg i32 %2517 to i64
-  %2521 = getelementptr inbounds i16, ptr %2464, i64 %2520
+  %2521 = getelementptr inbounds nuw i16, ptr %2464, i64 %2520
   call void @llvm.assume(i1 %2515)
   call void @llvm.assume(i1 %2519)
   %2522 = add nuw nsw i64 %2480, 5
@@ -5232,7 +5228,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2526 = add nuw nsw i32 %2525, %2467
   %2527 = icmp ule i32 %2526, %2465
   %2528 = zext nneg i32 %2525 to i64
-  %2529 = getelementptr inbounds i16, ptr %2464, i64 %2528
+  %2529 = getelementptr inbounds nuw i16, ptr %2464, i64 %2528
   call void @llvm.assume(i1 %2523)
   call void @llvm.assume(i1 %2527)
   br label %2530
@@ -5280,12 +5276,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2560 = add nuw nsw i32 %2559, %2548
   %2561 = icmp samesign ule i32 %2560, %2546
   %2562 = zext nneg i32 %2559 to i64
-  %2563 = getelementptr inbounds i16, ptr %2545, i64 %2562
-  %2564 = getelementptr inbounds i16, ptr %2489, i64 %2544
+  %2563 = getelementptr inbounds nuw i16, ptr %2545, i64 %2562
+  %2564 = getelementptr inbounds nuw i16, ptr %2489, i64 %2544
   %2565 = or disjoint i32 %2533, 1
   %2566 = add nuw nsw i64 %2544, 1
   %2567 = icmp samesign ult i32 %2537, %2467
-  %2568 = getelementptr inbounds i16, ptr %2489, i64 %2566
+  %2568 = getelementptr inbounds nuw i16, ptr %2489, i64 %2566
   %2569 = add i32 %2533, 2
   %2570 = shl i32 %2569, 1
   %2571 = udiv i32 %2570, 3
@@ -5301,16 +5297,16 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2581 = add nuw nsw i32 %2580, %2548
   %2582 = icmp samesign ule i32 %2581, %2546
   %2583 = zext nneg i32 %2580 to i64
-  %2584 = getelementptr inbounds i16, ptr %2545, i64 %2583
+  %2584 = getelementptr inbounds nuw i16, ptr %2545, i64 %2583
   %2585 = zext nneg i32 %2578 to i64
-  %2586 = getelementptr inbounds i16, ptr %2584, i64 %2585
+  %2586 = getelementptr inbounds nuw i16, ptr %2584, i64 %2585
   %2587 = add nuw nsw i64 %2544, 2
   %2588 = icmp samesign ule i64 %2587, %2478
-  %2589 = getelementptr inbounds i16, ptr %2489, i64 %2587
+  %2589 = getelementptr inbounds nuw i16, ptr %2489, i64 %2587
   %2590 = add i32 %2533, 3
   %2591 = add nuw nsw i64 %2544, 3
   %2592 = icmp samesign ule i64 %2591, %2478
-  %2593 = getelementptr inbounds i16, ptr %2489, i64 %2591
+  %2593 = getelementptr inbounds nuw i16, ptr %2489, i64 %2591
   %2594 = add i32 %2533, 4
   %2595 = insertelement <4 x i32> poison, i32 %2532, i64 0
   %2596 = insertelement <4 x i32> %2595, i32 %2565, i64 1
@@ -5332,14 +5328,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2558)
   call void @llvm.assume(i1 %2561)
   %2611 = zext nneg i32 %2609 to i64
-  %2612 = getelementptr inbounds i16, ptr %2563, i64 %2611
+  %2612 = getelementptr inbounds nuw i16, ptr %2563, i64 %2611
   %2613 = load i16, ptr %2612, align 2, !tbaa !83
   store i16 %2613, ptr %2564, align 2, !tbaa !83
   %2614 = extractelement <4 x i32> %2608, i64 1
   %2615 = icmp samesign ugt i32 %2548, %2614
   call void @llvm.assume(i1 %2615)
   %2616 = zext nneg i32 %2614 to i64
-  %2617 = getelementptr inbounds i16, ptr %2563, i64 %2616
+  %2617 = getelementptr inbounds nuw i16, ptr %2563, i64 %2616
   %2618 = load i16, ptr %2617, align 2, !tbaa !83
   call void @llvm.assume(i1 %2567)
   store i16 %2618, ptr %2568, align 2, !tbaa !83
@@ -5352,7 +5348,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2621 = icmp samesign ugt i32 %2548, %2620
   call void @llvm.assume(i1 %2621)
   %2622 = zext nneg i32 %2620 to i64
-  %2623 = getelementptr inbounds i16, ptr %2563, i64 %2622
+  %2623 = getelementptr inbounds nuw i16, ptr %2563, i64 %2622
   %2624 = load i16, ptr %2623, align 2, !tbaa !83
   call void @llvm.assume(i1 %2592)
   store i16 %2624, ptr %2593, align 2, !tbaa !83
@@ -5360,12 +5356,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2626 = icmp samesign ugt i32 %2548, %2625
   call void @llvm.assume(i1 %2626)
   %2627 = zext nneg i32 %2625 to i64
-  %2628 = getelementptr inbounds i16, ptr %2563, i64 %2627
+  %2628 = getelementptr inbounds nuw i16, ptr %2563, i64 %2627
   %2629 = load i16, ptr %2628, align 2, !tbaa !83
   %2630 = add nuw nsw i64 %2544, 4
   %2631 = icmp samesign ule i64 %2630, %2478
   call void @llvm.assume(i1 %2631)
-  %2632 = getelementptr inbounds i16, ptr %2489, i64 %2630
+  %2632 = getelementptr inbounds nuw i16, ptr %2489, i64 %2630
   store i16 %2629, ptr %2632, align 2, !tbaa !83
   %2633 = add i32 %2533, 5
   %2634 = shl i32 %2633, 1
@@ -5386,14 +5382,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2647 = icmp samesign ule i32 %2646, %2546
   call void @llvm.assume(i1 %2647)
   %2648 = zext nneg i32 %2645 to i64
-  %2649 = getelementptr inbounds i16, ptr %2545, i64 %2648
+  %2649 = getelementptr inbounds nuw i16, ptr %2545, i64 %2648
   %2650 = zext nneg i32 %2642 to i64
-  %2651 = getelementptr inbounds i16, ptr %2649, i64 %2650
+  %2651 = getelementptr inbounds nuw i16, ptr %2649, i64 %2650
   %2652 = load i16, ptr %2651, align 2, !tbaa !83
   %2653 = add nuw nsw i64 %2544, 5
   %2654 = icmp samesign ule i64 %2653, %2478
   call void @llvm.assume(i1 %2654)
-  %2655 = getelementptr inbounds i16, ptr %2489, i64 %2653
+  %2655 = getelementptr inbounds nuw i16, ptr %2489, i64 %2653
   store i16 %2652, ptr %2655, align 2, !tbaa !83
   %2656 = load ptr, ptr %219, align 8, !nonnull !105
   %2657 = load i32, ptr %223, align 8
@@ -5424,16 +5420,16 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2673 = icmp samesign ule i32 %2672, %2657
   call void @llvm.assume(i1 %2673)
   %2674 = zext nneg i32 %2671 to i64
-  %2675 = getelementptr inbounds i16, ptr %2656, i64 %2674
-  %2676 = getelementptr inbounds i16, ptr %2675, i64 %2611
+  %2675 = getelementptr inbounds nuw i16, ptr %2656, i64 %2674
+  %2676 = getelementptr inbounds nuw i16, ptr %2675, i64 %2611
   %2677 = load i16, ptr %2676, align 2, !tbaa !83
-  %2678 = getelementptr inbounds i16, ptr %2497, i64 %2544
+  %2678 = getelementptr inbounds nuw i16, ptr %2497, i64 %2544
   store i16 %2677, ptr %2678, align 2, !tbaa !83
   %2679 = icmp samesign ugt i32 %2659, %2614
   call void @llvm.assume(i1 %2679)
-  %2680 = getelementptr inbounds i16, ptr %2675, i64 %2616
+  %2680 = getelementptr inbounds nuw i16, ptr %2675, i64 %2616
   %2681 = load i16, ptr %2680, align 2, !tbaa !83
-  %2682 = getelementptr inbounds i16, ptr %2497, i64 %2566
+  %2682 = getelementptr inbounds nuw i16, ptr %2497, i64 %2566
   store i16 %2681, ptr %2682, align 2, !tbaa !83
   %2683 = icmp samesign ugt i32 %2659, %2578
   call void @llvm.assume(i1 %2683)
@@ -5444,22 +5440,22 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2687 = icmp samesign ule i32 %2686, %2657
   call void @llvm.assume(i1 %2687)
   %2688 = zext nneg i32 %2685 to i64
-  %2689 = getelementptr inbounds i16, ptr %2656, i64 %2688
-  %2690 = getelementptr inbounds i16, ptr %2689, i64 %2585
+  %2689 = getelementptr inbounds nuw i16, ptr %2656, i64 %2688
+  %2690 = getelementptr inbounds nuw i16, ptr %2689, i64 %2585
   %2691 = load i16, ptr %2690, align 2, !tbaa !83
-  %2692 = getelementptr inbounds i16, ptr %2497, i64 %2587
+  %2692 = getelementptr inbounds nuw i16, ptr %2497, i64 %2587
   store i16 %2691, ptr %2692, align 2, !tbaa !83
   %2693 = icmp samesign ugt i32 %2659, %2620
   call void @llvm.assume(i1 %2693)
-  %2694 = getelementptr inbounds i16, ptr %2675, i64 %2622
+  %2694 = getelementptr inbounds nuw i16, ptr %2675, i64 %2622
   %2695 = load i16, ptr %2694, align 2, !tbaa !83
-  %2696 = getelementptr inbounds i16, ptr %2497, i64 %2591
+  %2696 = getelementptr inbounds nuw i16, ptr %2497, i64 %2591
   store i16 %2695, ptr %2696, align 2, !tbaa !83
   %2697 = icmp samesign ugt i32 %2659, %2625
   call void @llvm.assume(i1 %2697)
-  %2698 = getelementptr inbounds i16, ptr %2675, i64 %2627
+  %2698 = getelementptr inbounds nuw i16, ptr %2675, i64 %2627
   %2699 = load i16, ptr %2698, align 2, !tbaa !83
-  %2700 = getelementptr inbounds i16, ptr %2497, i64 %2630
+  %2700 = getelementptr inbounds nuw i16, ptr %2497, i64 %2630
   store i16 %2699, ptr %2700, align 2, !tbaa !83
   %2701 = icmp samesign ugt i32 %2659, %2642
   call void @llvm.assume(i1 %2701)
@@ -5468,10 +5464,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2704 = icmp samesign ule i32 %2703, %2657
   call void @llvm.assume(i1 %2704)
   %2705 = zext nneg i32 %2702 to i64
-  %2706 = getelementptr inbounds i16, ptr %2656, i64 %2705
-  %2707 = getelementptr inbounds i16, ptr %2706, i64 %2650
+  %2706 = getelementptr inbounds nuw i16, ptr %2656, i64 %2705
+  %2707 = getelementptr inbounds nuw i16, ptr %2706, i64 %2650
   %2708 = load i16, ptr %2707, align 2, !tbaa !83
-  %2709 = getelementptr inbounds i16, ptr %2497, i64 %2653
+  %2709 = getelementptr inbounds nuw i16, ptr %2497, i64 %2653
   store i16 %2708, ptr %2709, align 2, !tbaa !83
   %2710 = load ptr, ptr %219, align 8, !nonnull !105
   %2711 = load i32, ptr %223, align 8
@@ -5502,10 +5498,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2727 = icmp samesign ule i32 %2726, %2711
   call void @llvm.assume(i1 %2727)
   %2728 = zext nneg i32 %2725 to i64
-  %2729 = getelementptr inbounds i16, ptr %2710, i64 %2728
-  %2730 = getelementptr inbounds i16, ptr %2729, i64 %2611
+  %2729 = getelementptr inbounds nuw i16, ptr %2710, i64 %2728
+  %2730 = getelementptr inbounds nuw i16, ptr %2729, i64 %2611
   %2731 = load i16, ptr %2730, align 2, !tbaa !83
-  %2732 = getelementptr inbounds i16, ptr %2505, i64 %2544
+  %2732 = getelementptr inbounds nuw i16, ptr %2505, i64 %2544
   store i16 %2731, ptr %2732, align 2, !tbaa !83
   %2733 = icmp samesign ugt i32 %2713, %2614
   call void @llvm.assume(i1 %2733)
@@ -5514,10 +5510,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2736 = icmp samesign ule i32 %2735, %2711
   call void @llvm.assume(i1 %2736)
   %2737 = zext nneg i32 %2734 to i64
-  %2738 = getelementptr inbounds i16, ptr %2710, i64 %2737
-  %2739 = getelementptr inbounds i16, ptr %2738, i64 %2616
+  %2738 = getelementptr inbounds nuw i16, ptr %2710, i64 %2737
+  %2739 = getelementptr inbounds nuw i16, ptr %2738, i64 %2616
   %2740 = load i16, ptr %2739, align 2, !tbaa !83
-  %2741 = getelementptr inbounds i16, ptr %2505, i64 %2566
+  %2741 = getelementptr inbounds nuw i16, ptr %2505, i64 %2566
   store i16 %2740, ptr %2741, align 2, !tbaa !83
   %2742 = icmp samesign ugt i32 %2713, %2578
   call void @llvm.assume(i1 %2742)
@@ -5526,28 +5522,28 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2745 = icmp samesign ule i32 %2744, %2711
   call void @llvm.assume(i1 %2745)
   %2746 = zext nneg i32 %2743 to i64
-  %2747 = getelementptr inbounds i16, ptr %2710, i64 %2746
-  %2748 = getelementptr inbounds i16, ptr %2747, i64 %2585
+  %2747 = getelementptr inbounds nuw i16, ptr %2710, i64 %2746
+  %2748 = getelementptr inbounds nuw i16, ptr %2747, i64 %2585
   %2749 = load i16, ptr %2748, align 2, !tbaa !83
-  %2750 = getelementptr inbounds i16, ptr %2505, i64 %2587
+  %2750 = getelementptr inbounds nuw i16, ptr %2505, i64 %2587
   store i16 %2749, ptr %2750, align 2, !tbaa !83
   %2751 = icmp samesign ugt i32 %2713, %2620
   call void @llvm.assume(i1 %2751)
-  %2752 = getelementptr inbounds i16, ptr %2738, i64 %2622
+  %2752 = getelementptr inbounds nuw i16, ptr %2738, i64 %2622
   %2753 = load i16, ptr %2752, align 2, !tbaa !83
-  %2754 = getelementptr inbounds i16, ptr %2505, i64 %2591
+  %2754 = getelementptr inbounds nuw i16, ptr %2505, i64 %2591
   store i16 %2753, ptr %2754, align 2, !tbaa !83
   %2755 = icmp samesign ugt i32 %2713, %2625
   call void @llvm.assume(i1 %2755)
-  %2756 = getelementptr inbounds i16, ptr %2729, i64 %2627
+  %2756 = getelementptr inbounds nuw i16, ptr %2729, i64 %2627
   %2757 = load i16, ptr %2756, align 2, !tbaa !83
-  %2758 = getelementptr inbounds i16, ptr %2505, i64 %2630
+  %2758 = getelementptr inbounds nuw i16, ptr %2505, i64 %2630
   store i16 %2757, ptr %2758, align 2, !tbaa !83
   %2759 = icmp samesign ugt i32 %2713, %2642
   call void @llvm.assume(i1 %2759)
-  %2760 = getelementptr inbounds i16, ptr %2747, i64 %2650
+  %2760 = getelementptr inbounds nuw i16, ptr %2747, i64 %2650
   %2761 = load i16, ptr %2760, align 2, !tbaa !83
-  %2762 = getelementptr inbounds i16, ptr %2505, i64 %2653
+  %2762 = getelementptr inbounds nuw i16, ptr %2505, i64 %2653
   store i16 %2761, ptr %2762, align 2, !tbaa !83
   %2763 = load ptr, ptr %219, align 8, !nonnull !105
   %2764 = load i32, ptr %223, align 8
@@ -5578,16 +5574,16 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2780 = icmp samesign ule i32 %2779, %2764
   call void @llvm.assume(i1 %2780)
   %2781 = zext nneg i32 %2778 to i64
-  %2782 = getelementptr inbounds i16, ptr %2763, i64 %2781
-  %2783 = getelementptr inbounds i16, ptr %2782, i64 %2611
+  %2782 = getelementptr inbounds nuw i16, ptr %2763, i64 %2781
+  %2783 = getelementptr inbounds nuw i16, ptr %2782, i64 %2611
   %2784 = load i16, ptr %2783, align 2, !tbaa !83
-  %2785 = getelementptr inbounds i16, ptr %2513, i64 %2544
+  %2785 = getelementptr inbounds nuw i16, ptr %2513, i64 %2544
   store i16 %2784, ptr %2785, align 2, !tbaa !83
   %2786 = icmp samesign ugt i32 %2766, %2614
   call void @llvm.assume(i1 %2786)
-  %2787 = getelementptr inbounds i16, ptr %2782, i64 %2616
+  %2787 = getelementptr inbounds nuw i16, ptr %2782, i64 %2616
   %2788 = load i16, ptr %2787, align 2, !tbaa !83
-  %2789 = getelementptr inbounds i16, ptr %2513, i64 %2566
+  %2789 = getelementptr inbounds nuw i16, ptr %2513, i64 %2566
   store i16 %2788, ptr %2789, align 2, !tbaa !83
   %2790 = icmp samesign ugt i32 %2766, %2578
   call void @llvm.assume(i1 %2790)
@@ -5598,22 +5594,22 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2794 = icmp samesign ule i32 %2793, %2764
   call void @llvm.assume(i1 %2794)
   %2795 = zext nneg i32 %2792 to i64
-  %2796 = getelementptr inbounds i16, ptr %2763, i64 %2795
-  %2797 = getelementptr inbounds i16, ptr %2796, i64 %2585
+  %2796 = getelementptr inbounds nuw i16, ptr %2763, i64 %2795
+  %2797 = getelementptr inbounds nuw i16, ptr %2796, i64 %2585
   %2798 = load i16, ptr %2797, align 2, !tbaa !83
-  %2799 = getelementptr inbounds i16, ptr %2513, i64 %2587
+  %2799 = getelementptr inbounds nuw i16, ptr %2513, i64 %2587
   store i16 %2798, ptr %2799, align 2, !tbaa !83
   %2800 = icmp samesign ugt i32 %2766, %2620
   call void @llvm.assume(i1 %2800)
-  %2801 = getelementptr inbounds i16, ptr %2782, i64 %2622
+  %2801 = getelementptr inbounds nuw i16, ptr %2782, i64 %2622
   %2802 = load i16, ptr %2801, align 2, !tbaa !83
-  %2803 = getelementptr inbounds i16, ptr %2513, i64 %2591
+  %2803 = getelementptr inbounds nuw i16, ptr %2513, i64 %2591
   store i16 %2802, ptr %2803, align 2, !tbaa !83
   %2804 = icmp samesign ugt i32 %2766, %2625
   call void @llvm.assume(i1 %2804)
-  %2805 = getelementptr inbounds i16, ptr %2782, i64 %2627
+  %2805 = getelementptr inbounds nuw i16, ptr %2782, i64 %2627
   %2806 = load i16, ptr %2805, align 2, !tbaa !83
-  %2807 = getelementptr inbounds i16, ptr %2513, i64 %2630
+  %2807 = getelementptr inbounds nuw i16, ptr %2513, i64 %2630
   store i16 %2806, ptr %2807, align 2, !tbaa !83
   %2808 = icmp samesign ugt i32 %2766, %2642
   call void @llvm.assume(i1 %2808)
@@ -5622,10 +5618,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2811 = icmp samesign ule i32 %2810, %2764
   call void @llvm.assume(i1 %2811)
   %2812 = zext nneg i32 %2809 to i64
-  %2813 = getelementptr inbounds i16, ptr %2763, i64 %2812
-  %2814 = getelementptr inbounds i16, ptr %2813, i64 %2650
+  %2813 = getelementptr inbounds nuw i16, ptr %2763, i64 %2812
+  %2814 = getelementptr inbounds nuw i16, ptr %2813, i64 %2650
   %2815 = load i16, ptr %2814, align 2, !tbaa !83
-  %2816 = getelementptr inbounds i16, ptr %2513, i64 %2653
+  %2816 = getelementptr inbounds nuw i16, ptr %2513, i64 %2653
   store i16 %2815, ptr %2816, align 2, !tbaa !83
   %2817 = load ptr, ptr %219, align 8, !nonnull !105
   %2818 = load i32, ptr %223, align 8
@@ -5656,16 +5652,16 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2834 = icmp samesign ule i32 %2833, %2818
   call void @llvm.assume(i1 %2834)
   %2835 = zext nneg i32 %2832 to i64
-  %2836 = getelementptr inbounds i16, ptr %2817, i64 %2835
-  %2837 = getelementptr inbounds i16, ptr %2836, i64 %2611
+  %2836 = getelementptr inbounds nuw i16, ptr %2817, i64 %2835
+  %2837 = getelementptr inbounds nuw i16, ptr %2836, i64 %2611
   %2838 = load i16, ptr %2837, align 2, !tbaa !83
-  %2839 = getelementptr inbounds i16, ptr %2521, i64 %2544
+  %2839 = getelementptr inbounds nuw i16, ptr %2521, i64 %2544
   store i16 %2838, ptr %2839, align 2, !tbaa !83
   %2840 = icmp samesign ugt i32 %2820, %2614
   call void @llvm.assume(i1 %2840)
-  %2841 = getelementptr inbounds i16, ptr %2836, i64 %2616
+  %2841 = getelementptr inbounds nuw i16, ptr %2836, i64 %2616
   %2842 = load i16, ptr %2841, align 2, !tbaa !83
-  %2843 = getelementptr inbounds i16, ptr %2521, i64 %2566
+  %2843 = getelementptr inbounds nuw i16, ptr %2521, i64 %2566
   store i16 %2842, ptr %2843, align 2, !tbaa !83
   %2844 = icmp samesign ugt i32 %2820, %2578
   call void @llvm.assume(i1 %2844)
@@ -5674,22 +5670,22 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2847 = icmp samesign ule i32 %2846, %2818
   call void @llvm.assume(i1 %2847)
   %2848 = zext nneg i32 %2845 to i64
-  %2849 = getelementptr inbounds i16, ptr %2817, i64 %2848
-  %2850 = getelementptr inbounds i16, ptr %2849, i64 %2585
+  %2849 = getelementptr inbounds nuw i16, ptr %2817, i64 %2848
+  %2850 = getelementptr inbounds nuw i16, ptr %2849, i64 %2585
   %2851 = load i16, ptr %2850, align 2, !tbaa !83
-  %2852 = getelementptr inbounds i16, ptr %2521, i64 %2587
+  %2852 = getelementptr inbounds nuw i16, ptr %2521, i64 %2587
   store i16 %2851, ptr %2852, align 2, !tbaa !83
   %2853 = icmp samesign ugt i32 %2820, %2620
   call void @llvm.assume(i1 %2853)
-  %2854 = getelementptr inbounds i16, ptr %2836, i64 %2622
+  %2854 = getelementptr inbounds nuw i16, ptr %2836, i64 %2622
   %2855 = load i16, ptr %2854, align 2, !tbaa !83
-  %2856 = getelementptr inbounds i16, ptr %2521, i64 %2591
+  %2856 = getelementptr inbounds nuw i16, ptr %2521, i64 %2591
   store i16 %2855, ptr %2856, align 2, !tbaa !83
   %2857 = icmp samesign ugt i32 %2820, %2625
   call void @llvm.assume(i1 %2857)
-  %2858 = getelementptr inbounds i16, ptr %2836, i64 %2627
+  %2858 = getelementptr inbounds nuw i16, ptr %2836, i64 %2627
   %2859 = load i16, ptr %2858, align 2, !tbaa !83
-  %2860 = getelementptr inbounds i16, ptr %2521, i64 %2630
+  %2860 = getelementptr inbounds nuw i16, ptr %2521, i64 %2630
   store i16 %2859, ptr %2860, align 2, !tbaa !83
   %2861 = icmp samesign ugt i32 %2820, %2642
   call void @llvm.assume(i1 %2861)
@@ -5700,10 +5696,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2865 = icmp samesign ule i32 %2864, %2818
   call void @llvm.assume(i1 %2865)
   %2866 = zext nneg i32 %2863 to i64
-  %2867 = getelementptr inbounds i16, ptr %2817, i64 %2866
-  %2868 = getelementptr inbounds i16, ptr %2867, i64 %2650
+  %2867 = getelementptr inbounds nuw i16, ptr %2817, i64 %2866
+  %2868 = getelementptr inbounds nuw i16, ptr %2867, i64 %2650
   %2869 = load i16, ptr %2868, align 2, !tbaa !83
-  %2870 = getelementptr inbounds i16, ptr %2521, i64 %2653
+  %2870 = getelementptr inbounds nuw i16, ptr %2521, i64 %2653
   store i16 %2869, ptr %2870, align 2, !tbaa !83
   %2871 = load ptr, ptr %219, align 8, !nonnull !105
   %2872 = load i32, ptr %223, align 8
@@ -5734,10 +5730,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2888 = icmp samesign ule i32 %2887, %2872
   call void @llvm.assume(i1 %2888)
   %2889 = zext nneg i32 %2886 to i64
-  %2890 = getelementptr inbounds i16, ptr %2871, i64 %2889
-  %2891 = getelementptr inbounds i16, ptr %2890, i64 %2611
+  %2890 = getelementptr inbounds nuw i16, ptr %2871, i64 %2889
+  %2891 = getelementptr inbounds nuw i16, ptr %2890, i64 %2611
   %2892 = load i16, ptr %2891, align 2, !tbaa !83
-  %2893 = getelementptr inbounds i16, ptr %2529, i64 %2544
+  %2893 = getelementptr inbounds nuw i16, ptr %2529, i64 %2544
   store i16 %2892, ptr %2893, align 2, !tbaa !83
   %2894 = icmp samesign ugt i32 %2874, %2614
   call void @llvm.assume(i1 %2894)
@@ -5748,10 +5744,10 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2898 = icmp samesign ule i32 %2897, %2872
   call void @llvm.assume(i1 %2898)
   %2899 = zext nneg i32 %2896 to i64
-  %2900 = getelementptr inbounds i16, ptr %2871, i64 %2899
-  %2901 = getelementptr inbounds i16, ptr %2900, i64 %2616
+  %2900 = getelementptr inbounds nuw i16, ptr %2871, i64 %2899
+  %2901 = getelementptr inbounds nuw i16, ptr %2900, i64 %2616
   %2902 = load i16, ptr %2901, align 2, !tbaa !83
-  %2903 = getelementptr inbounds i16, ptr %2529, i64 %2566
+  %2903 = getelementptr inbounds nuw i16, ptr %2529, i64 %2566
   store i16 %2902, ptr %2903, align 2, !tbaa !83
   %2904 = icmp samesign ugt i32 %2874, %2578
   call void @llvm.assume(i1 %2904)
@@ -5760,28 +5756,28 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2907 = icmp samesign ule i32 %2906, %2872
   call void @llvm.assume(i1 %2907)
   %2908 = zext nneg i32 %2905 to i64
-  %2909 = getelementptr inbounds i16, ptr %2871, i64 %2908
-  %2910 = getelementptr inbounds i16, ptr %2909, i64 %2585
+  %2909 = getelementptr inbounds nuw i16, ptr %2871, i64 %2908
+  %2910 = getelementptr inbounds nuw i16, ptr %2909, i64 %2585
   %2911 = load i16, ptr %2910, align 2, !tbaa !83
-  %2912 = getelementptr inbounds i16, ptr %2529, i64 %2587
+  %2912 = getelementptr inbounds nuw i16, ptr %2529, i64 %2587
   store i16 %2911, ptr %2912, align 2, !tbaa !83
   %2913 = icmp samesign ugt i32 %2874, %2620
   call void @llvm.assume(i1 %2913)
-  %2914 = getelementptr inbounds i16, ptr %2900, i64 %2622
+  %2914 = getelementptr inbounds nuw i16, ptr %2900, i64 %2622
   %2915 = load i16, ptr %2914, align 2, !tbaa !83
-  %2916 = getelementptr inbounds i16, ptr %2529, i64 %2591
+  %2916 = getelementptr inbounds nuw i16, ptr %2529, i64 %2591
   store i16 %2915, ptr %2916, align 2, !tbaa !83
   %2917 = icmp samesign ugt i32 %2874, %2625
   call void @llvm.assume(i1 %2917)
-  %2918 = getelementptr inbounds i16, ptr %2890, i64 %2627
+  %2918 = getelementptr inbounds nuw i16, ptr %2890, i64 %2627
   %2919 = load i16, ptr %2918, align 2, !tbaa !83
-  %2920 = getelementptr inbounds i16, ptr %2529, i64 %2630
+  %2920 = getelementptr inbounds nuw i16, ptr %2529, i64 %2630
   store i16 %2919, ptr %2920, align 2, !tbaa !83
   %2921 = icmp samesign ugt i32 %2874, %2642
   call void @llvm.assume(i1 %2921)
-  %2922 = getelementptr inbounds i16, ptr %2909, i64 %2650
+  %2922 = getelementptr inbounds nuw i16, ptr %2909, i64 %2650
   %2923 = load i16, ptr %2922, align 2, !tbaa !83
-  %2924 = getelementptr inbounds i16, ptr %2529, i64 %2653
+  %2924 = getelementptr inbounds nuw i16, ptr %2529, i64 %2653
   store i16 %2923, ptr %2924, align 2, !tbaa !83
   %2925 = add nuw nsw i64 %2531, 1
   %2926 = icmp eq i64 %2925, %2485
@@ -5843,7 +5839,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2964 = add nuw nsw i32 %2963, %2945
   %2965 = icmp ule i32 %2964, %2943
   %2966 = zext nneg i32 %2963 to i64
-  %2967 = getelementptr inbounds i16, ptr %2942, i64 %2966
+  %2967 = getelementptr inbounds nuw i16, ptr %2942, i64 %2966
   call void @llvm.assume(i1 %2956)
   call void @llvm.assume(i1 %2961)
   call void @llvm.assume(i1 %2965)
@@ -5854,7 +5850,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2972 = add nuw nsw i32 %2971, %2945
   %2973 = icmp ule i32 %2972, %2943
   %2974 = zext nneg i32 %2971 to i64
-  %2975 = getelementptr inbounds i16, ptr %2942, i64 %2974
+  %2975 = getelementptr inbounds nuw i16, ptr %2942, i64 %2974
   call void @llvm.assume(i1 %2969)
   call void @llvm.assume(i1 %2973)
   %2976 = add nuw nsw i64 %2947, 4
@@ -5866,7 +5862,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2981 = add nuw nsw i32 %2980, %2945
   %2982 = icmp ule i32 %2981, %2943
   %2983 = zext nneg i32 %2980 to i64
-  %2984 = getelementptr inbounds i16, ptr %2942, i64 %2983
+  %2984 = getelementptr inbounds nuw i16, ptr %2942, i64 %2983
   call void @llvm.assume(i1 %2978)
   call void @llvm.assume(i1 %2982)
   %2985 = or disjoint i64 %2959, 1
@@ -5876,7 +5872,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2989 = add nuw nsw i32 %2988, %2945
   %2990 = icmp ule i32 %2989, %2943
   %2991 = zext nneg i32 %2988 to i64
-  %2992 = getelementptr inbounds i16, ptr %2942, i64 %2991
+  %2992 = getelementptr inbounds nuw i16, ptr %2942, i64 %2991
   call void @llvm.assume(i1 %2986)
   call void @llvm.assume(i1 %2990)
   %2993 = add nuw nsw i64 %2947, 6
@@ -5888,7 +5884,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2998 = add nuw nsw i32 %2997, %2945
   %2999 = icmp ule i32 %2998, %2943
   %3000 = zext nneg i32 %2997 to i64
-  %3001 = getelementptr inbounds i16, ptr %2942, i64 %3000
+  %3001 = getelementptr inbounds nuw i16, ptr %2942, i64 %3000
   call void @llvm.assume(i1 %2995)
   call void @llvm.assume(i1 %2999)
   %3002 = or disjoint i64 %2976, 1
@@ -5898,7 +5894,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3006 = add nuw nsw i32 %3005, %2945
   %3007 = icmp ule i32 %3006, %2943
   %3008 = zext nneg i32 %3005 to i64
-  %3009 = getelementptr inbounds i16, ptr %2942, i64 %3008
+  %3009 = getelementptr inbounds nuw i16, ptr %2942, i64 %3008
   call void @llvm.assume(i1 %3003)
   call void @llvm.assume(i1 %3007)
   br label %3010
@@ -5937,7 +5933,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3038 = icmp eq i32 %3027, %3037
   %3039 = zext nneg i32 %3029 to i64
   %3040 = icmp samesign ult i64 %3012, %3039
-  %3041 = getelementptr inbounds i16, ptr %3026, i64 %3012
+  %3041 = getelementptr inbounds nuw i16, ptr %3026, i64 %3012
   call void @llvm.assume(i1 %3028)
   call void @llvm.assume(i1 %3030)
   call void @llvm.assume(i1 %3032)
@@ -5951,9 +5947,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3044 = icmp samesign ule i32 %3043, %3027
   call void @llvm.assume(i1 %3044)
   %3045 = zext nneg i32 %3042 to i64
-  %3046 = getelementptr inbounds i16, ptr %3041, i64 %3045
+  %3046 = getelementptr inbounds nuw i16, ptr %3041, i64 %3045
   %3047 = load i16, ptr %3046, align 2, !tbaa !83
-  %3048 = getelementptr inbounds i16, ptr %2967, i64 %3025
+  %3048 = getelementptr inbounds nuw i16, ptr %2967, i64 %3025
   store i16 %3047, ptr %3048, align 2, !tbaa !83
   %3049 = icmp samesign ugt i32 %3031, 7
   call void @llvm.assume(i1 %3049)
@@ -5962,12 +5958,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3052 = icmp samesign ule i32 %3051, %3027
   call void @llvm.assume(i1 %3052)
   %3053 = zext nneg i32 %3050 to i64
-  %3054 = getelementptr inbounds i16, ptr %3041, i64 %3053
+  %3054 = getelementptr inbounds nuw i16, ptr %3041, i64 %3053
   %3055 = load i16, ptr %3054, align 2, !tbaa !83
   %3056 = add nuw nsw i64 %3025, 1
   %3057 = icmp samesign ult i32 %3018, %2945
   call void @llvm.assume(i1 %3057)
-  %3058 = getelementptr inbounds i16, ptr %2967, i64 %3056
+  %3058 = getelementptr inbounds nuw i16, ptr %2967, i64 %3056
   store i16 %3055, ptr %3058, align 2, !tbaa !83
   %3059 = load ptr, ptr %219, align 8, !nonnull !105
   %3060 = load i32, ptr %223, align 8
@@ -5984,7 +5980,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3071 = icmp eq i32 %3060, %3070
   %3072 = zext nneg i32 %3062 to i64
   %3073 = icmp samesign ult i64 %3012, %3072
-  %3074 = getelementptr inbounds i16, ptr %3059, i64 %3012
+  %3074 = getelementptr inbounds nuw i16, ptr %3059, i64 %3012
   call void @llvm.assume(i1 %3061)
   call void @llvm.assume(i1 %3063)
   call void @llvm.assume(i1 %3065)
@@ -5998,9 +5994,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3077 = icmp samesign ule i32 %3076, %3060
   call void @llvm.assume(i1 %3077)
   %3078 = zext nneg i32 %3075 to i64
-  %3079 = getelementptr inbounds i16, ptr %3074, i64 %3078
+  %3079 = getelementptr inbounds nuw i16, ptr %3074, i64 %3078
   %3080 = load i16, ptr %3079, align 2, !tbaa !83
-  %3081 = getelementptr inbounds i16, ptr %2975, i64 %3025
+  %3081 = getelementptr inbounds nuw i16, ptr %2975, i64 %3025
   store i16 %3080, ptr %3081, align 2, !tbaa !83
   %3082 = icmp samesign ugt i32 %3064, 15
   call void @llvm.assume(i1 %3082)
@@ -6009,9 +6005,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3085 = icmp samesign ule i32 %3084, %3060
   call void @llvm.assume(i1 %3085)
   %3086 = zext nneg i32 %3083 to i64
-  %3087 = getelementptr inbounds i16, ptr %3074, i64 %3086
+  %3087 = getelementptr inbounds nuw i16, ptr %3074, i64 %3086
   %3088 = load i16, ptr %3087, align 2, !tbaa !83
-  %3089 = getelementptr inbounds i16, ptr %2975, i64 %3056
+  %3089 = getelementptr inbounds nuw i16, ptr %2975, i64 %3056
   store i16 %3088, ptr %3089, align 2, !tbaa !83
   %3090 = load i16, ptr %574, align 4, !tbaa !145
   %3091 = zext i16 %3090 to i32
@@ -6042,7 +6038,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3113 = icmp eq i32 %3102, %3112
   %3114 = zext nneg i32 %3104 to i64
   %3115 = icmp samesign ult i64 %3012, %3114
-  %3116 = getelementptr inbounds i16, ptr %3101, i64 %3012
+  %3116 = getelementptr inbounds nuw i16, ptr %3101, i64 %3012
   call void @llvm.assume(i1 %3103)
   call void @llvm.assume(i1 %3105)
   call void @llvm.assume(i1 %3107)
@@ -6056,9 +6052,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3119 = icmp samesign ule i32 %3118, %3102
   call void @llvm.assume(i1 %3119)
   %3120 = zext nneg i32 %3117 to i64
-  %3121 = getelementptr inbounds i16, ptr %3116, i64 %3120
+  %3121 = getelementptr inbounds nuw i16, ptr %3116, i64 %3120
   %3122 = load i16, ptr %3121, align 2, !tbaa !83
-  %3123 = getelementptr inbounds i16, ptr %2984, i64 %3100
+  %3123 = getelementptr inbounds nuw i16, ptr %2984, i64 %3100
   store i16 %3122, ptr %3123, align 2, !tbaa !83
   %3124 = icmp samesign ugt i32 %3106, 9
   call void @llvm.assume(i1 %3124)
@@ -6067,12 +6063,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3127 = icmp samesign ule i32 %3126, %3102
   call void @llvm.assume(i1 %3127)
   %3128 = zext nneg i32 %3125 to i64
-  %3129 = getelementptr inbounds i16, ptr %3116, i64 %3128
+  %3129 = getelementptr inbounds nuw i16, ptr %3116, i64 %3128
   %3130 = load i16, ptr %3129, align 2, !tbaa !83
   %3131 = add nuw nsw i64 %3100, 1
   %3132 = icmp samesign ult i32 %3093, %2945
   call void @llvm.assume(i1 %3132)
-  %3133 = getelementptr inbounds i16, ptr %2984, i64 %3131
+  %3133 = getelementptr inbounds nuw i16, ptr %2984, i64 %3131
   store i16 %3130, ptr %3133, align 2, !tbaa !83
   %3134 = load ptr, ptr %219, align 8, !nonnull !105
   %3135 = load i32, ptr %223, align 8
@@ -6089,7 +6085,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3146 = icmp eq i32 %3135, %3145
   %3147 = zext nneg i32 %3137 to i64
   %3148 = icmp samesign ult i64 %3012, %3147
-  %3149 = getelementptr inbounds i16, ptr %3134, i64 %3012
+  %3149 = getelementptr inbounds nuw i16, ptr %3134, i64 %3012
   call void @llvm.assume(i1 %3136)
   call void @llvm.assume(i1 %3138)
   call void @llvm.assume(i1 %3140)
@@ -6103,9 +6099,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3152 = icmp samesign ule i32 %3151, %3135
   call void @llvm.assume(i1 %3152)
   %3153 = zext nneg i32 %3150 to i64
-  %3154 = getelementptr inbounds i16, ptr %3149, i64 %3153
+  %3154 = getelementptr inbounds nuw i16, ptr %3149, i64 %3153
   %3155 = load i16, ptr %3154, align 2, !tbaa !83
-  %3156 = getelementptr inbounds i16, ptr %2992, i64 %3100
+  %3156 = getelementptr inbounds nuw i16, ptr %2992, i64 %3100
   store i16 %3155, ptr %3156, align 2, !tbaa !83
   %3157 = icmp samesign ugt i32 %3139, 16
   call void @llvm.assume(i1 %3157)
@@ -6114,9 +6110,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3160 = icmp samesign ule i32 %3159, %3135
   call void @llvm.assume(i1 %3160)
   %3161 = zext nneg i32 %3158 to i64
-  %3162 = getelementptr inbounds i16, ptr %3149, i64 %3161
+  %3162 = getelementptr inbounds nuw i16, ptr %3149, i64 %3161
   %3163 = load i16, ptr %3162, align 2, !tbaa !83
-  %3164 = getelementptr inbounds i16, ptr %2992, i64 %3131
+  %3164 = getelementptr inbounds nuw i16, ptr %2992, i64 %3131
   store i16 %3163, ptr %3164, align 2, !tbaa !83
   %3165 = load i16, ptr %574, align 4, !tbaa !145
   %3166 = zext i16 %3165 to i32
@@ -6147,7 +6143,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3188 = icmp eq i32 %3177, %3187
   %3189 = zext nneg i32 %3179 to i64
   %3190 = icmp samesign ult i64 %3012, %3189
-  %3191 = getelementptr inbounds i16, ptr %3176, i64 %3012
+  %3191 = getelementptr inbounds nuw i16, ptr %3176, i64 %3012
   call void @llvm.assume(i1 %3178)
   call void @llvm.assume(i1 %3180)
   call void @llvm.assume(i1 %3182)
@@ -6161,9 +6157,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3194 = icmp samesign ule i32 %3193, %3177
   call void @llvm.assume(i1 %3194)
   %3195 = zext nneg i32 %3192 to i64
-  %3196 = getelementptr inbounds i16, ptr %3191, i64 %3195
+  %3196 = getelementptr inbounds nuw i16, ptr %3191, i64 %3195
   %3197 = load i16, ptr %3196, align 2, !tbaa !83
-  %3198 = getelementptr inbounds i16, ptr %3001, i64 %3175
+  %3198 = getelementptr inbounds nuw i16, ptr %3001, i64 %3175
   store i16 %3197, ptr %3198, align 2, !tbaa !83
   %3199 = icmp samesign ugt i32 %3181, 11
   call void @llvm.assume(i1 %3199)
@@ -6172,12 +6168,12 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3202 = icmp samesign ule i32 %3201, %3177
   call void @llvm.assume(i1 %3202)
   %3203 = zext nneg i32 %3200 to i64
-  %3204 = getelementptr inbounds i16, ptr %3191, i64 %3203
+  %3204 = getelementptr inbounds nuw i16, ptr %3191, i64 %3203
   %3205 = load i16, ptr %3204, align 2, !tbaa !83
   %3206 = add nuw nsw i64 %3175, 1
   %3207 = icmp samesign ult i32 %3168, %2945
   call void @llvm.assume(i1 %3207)
-  %3208 = getelementptr inbounds i16, ptr %3001, i64 %3206
+  %3208 = getelementptr inbounds nuw i16, ptr %3001, i64 %3206
   store i16 %3205, ptr %3208, align 2, !tbaa !83
   %3209 = load ptr, ptr %219, align 8, !nonnull !105
   %3210 = load i32, ptr %223, align 8
@@ -6194,7 +6190,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3221 = icmp eq i32 %3210, %3220
   %3222 = zext nneg i32 %3212 to i64
   %3223 = icmp samesign ult i64 %3012, %3222
-  %3224 = getelementptr inbounds i16, ptr %3209, i64 %3012
+  %3224 = getelementptr inbounds nuw i16, ptr %3209, i64 %3012
   call void @llvm.assume(i1 %3211)
   call void @llvm.assume(i1 %3213)
   call void @llvm.assume(i1 %3215)
@@ -6208,9 +6204,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3227 = icmp samesign ule i32 %3226, %3210
   call void @llvm.assume(i1 %3227)
   %3228 = zext nneg i32 %3225 to i64
-  %3229 = getelementptr inbounds i16, ptr %3224, i64 %3228
+  %3229 = getelementptr inbounds nuw i16, ptr %3224, i64 %3228
   %3230 = load i16, ptr %3229, align 2, !tbaa !83
-  %3231 = getelementptr inbounds i16, ptr %3009, i64 %3175
+  %3231 = getelementptr inbounds nuw i16, ptr %3009, i64 %3175
   store i16 %3230, ptr %3231, align 2, !tbaa !83
   %3232 = icmp samesign ugt i32 %3214, 17
   call void @llvm.assume(i1 %3232)
@@ -6219,9 +6215,9 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3235 = icmp samesign ule i32 %3234, %3210
   call void @llvm.assume(i1 %3235)
   %3236 = zext nneg i32 %3233 to i64
-  %3237 = getelementptr inbounds i16, ptr %3224, i64 %3236
+  %3237 = getelementptr inbounds nuw i16, ptr %3224, i64 %3236
   %3238 = load i16, ptr %3237, align 2, !tbaa !83
-  %3239 = getelementptr inbounds i16, ptr %3009, i64 %3206
+  %3239 = getelementptr inbounds nuw i16, ptr %3009, i64 %3206
   store i16 %3238, ptr %3239, align 2, !tbaa !83
   %3240 = icmp eq i64 %3012, %2958
   br i1 %3240, label %.loopexit148, label %3010, !llvm.loop !241
@@ -6263,7 +6259,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3263 = icmp samesign ule i32 %3262, %3247
   call void @llvm.assume(i1 %3263)
   %3264 = zext nneg i32 %3261 to i64
-  %3265 = getelementptr inbounds i16, ptr %3246, i64 %3264
+  %3265 = getelementptr inbounds nuw i16, ptr %3246, i64 %3264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %3246, ptr noundef nonnull align 2 dereferenceable(1) %3265, i64 %571, i1 false)
   %3266 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %3267 = load i32, ptr %223, align 8, !tbaa !86
@@ -6292,7 +6288,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3282 = icmp samesign ule i32 %3281, %3267
   call void @llvm.assume(i1 %3282)
   %3283 = zext nneg i32 %3280 to i64
-  %3284 = getelementptr inbounds i16, ptr %3266, i64 %3283
+  %3284 = getelementptr inbounds nuw i16, ptr %3266, i64 %3283
   %3285 = icmp samesign ugt i32 %3271, 11
   call void @llvm.assume(i1 %3285)
   %3286 = mul nuw nsw i32 %3273, 11
@@ -6300,7 +6296,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3288 = icmp samesign ule i32 %3287, %3267
   call void @llvm.assume(i1 %3288)
   %3289 = zext nneg i32 %3286 to i64
-  %3290 = getelementptr inbounds i16, ptr %3266, i64 %3289
+  %3290 = getelementptr inbounds nuw i16, ptr %3266, i64 %3289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %3284, ptr noundef nonnull align 2 dereferenceable(1) %3290, i64 %571, i1 false)
   %3291 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %3292 = load i32, ptr %223, align 8, !tbaa !86
@@ -6329,7 +6325,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3307 = icmp samesign ule i32 %3306, %3292
   call void @llvm.assume(i1 %3307)
   %3308 = zext nneg i32 %3305 to i64
-  %3309 = getelementptr inbounds i16, ptr %3291, i64 %3308
+  %3309 = getelementptr inbounds nuw i16, ptr %3291, i64 %3308
   %3310 = icmp samesign ugt i32 %3296, 16
   call void @llvm.assume(i1 %3310)
   %3311 = shl nsw i32 %3298, 4
@@ -6337,7 +6333,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3313 = icmp samesign ule i32 %3312, %3292
   call void @llvm.assume(i1 %3313)
   %3314 = zext nneg i32 %3311 to i64
-  %3315 = getelementptr inbounds i16, ptr %3291, i64 %3314
+  %3315 = getelementptr inbounds nuw i16, ptr %3291, i64 %3314
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %3309, ptr noundef nonnull align 2 dereferenceable(1) %3315, i64 %571, i1 false)
   %3316 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %3317 = load i32, ptr %223, align 8, !tbaa !86
@@ -6440,7 +6436,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %3383 = load ptr, ptr %9, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
   %3384 = load ptr, ptr %3382, align 8, !tbaa !166
-  %3385 = getelementptr inbounds i8, ptr %3384, i64 16
+  %3385 = getelementptr inbounds nuw i8, ptr %3384, i64 16
   %3386 = load ptr, ptr %3385, align 8
   %3387 = call noundef ptr %3386(ptr noundef nonnull align 8 dereferenceable(16) %3382) #25
   store ptr %239, ptr %7, align 8, !tbaa !243
@@ -6511,7 +6507,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i64 %3392, ptr %240, align 8, !tbaa !245
   %3412 = getelementptr inbounds i8, ptr %3407, i64 %3392
   store i8 0, ptr %3412, align 1, !tbaa !85
-  %3413 = getelementptr inbounds i8, ptr %3383, i64 8
+  %3413 = getelementptr inbounds nuw i8, ptr %3383, i64 8
   invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3413, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %3414 unwind label %3428
 
@@ -6538,7 +6534,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 .loopexit150:                                     ; preds = %3245, %.loopexit148, %3421, %561
   %3422 = add nuw nsw i64 %247, 1
   %3423 = load ptr, ptr %44, align 8, !tbaa !184
-  %3424 = getelementptr inbounds i8, ptr %3423, i64 14
+  %3424 = getelementptr inbounds nuw i8, ptr %3423, i64 14
   %3425 = load i8, ptr %3424, align 2
   %3426 = zext i8 %3425 to i64
   %3427 = icmp samesign ult i64 %3422, %3426
@@ -6568,13 +6564,13 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 3437:                                             ; preds = %244, %241
   call void @llvm.lifetime.end.p0(i64 2120, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #25
-  %3438 = getelementptr inbounds i8, ptr %8, i64 16
+  %3438 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3438, ptr %8, align 8, !tbaa !243
-  %3439 = getelementptr inbounds i8, ptr %8, i64 8
+  %3439 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %3439, align 8, !tbaa !245
   store i8 0, ptr %3438, align 8, !tbaa !85
   %3440 = load ptr, ptr %9, align 8, !tbaa !12
-  %3441 = getelementptr inbounds i8, ptr %3440, i64 8
+  %3441 = getelementptr inbounds nuw i8, ptr %3440, i64 8
   %3442 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3441, i32 noundef 1, ptr noundef nonnull %8)
           to label %3443 unwind label %3447
 
@@ -6641,7 +6637,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   br i1 %3468, label %3493, label %3469
 
 3469:                                             ; preds = %3466
-  %3470 = getelementptr inbounds i8, ptr %3467, i64 8
+  %3470 = getelementptr inbounds nuw i8, ptr %3467, i64 8
   %3471 = load atomic i64, ptr %3470 acquire, align 8
   %3472 = icmp eq i64 %3471, 4294967297
   %3473 = trunc i64 %3471 to i32
@@ -6649,14 +6645,14 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 3474:                                             ; preds = %3469
   store i32 0, ptr %3470, align 8, !tbaa !163
-  %3475 = getelementptr inbounds i8, ptr %3467, i64 12
+  %3475 = getelementptr inbounds nuw i8, ptr %3467, i64 12
   store i32 0, ptr %3475, align 4, !tbaa !165
   %3476 = load ptr, ptr %3467, align 8, !tbaa !166
-  %3477 = getelementptr inbounds i8, ptr %3476, i64 16
+  %3477 = getelementptr inbounds nuw i8, ptr %3476, i64 16
   %3478 = load ptr, ptr %3477, align 8
   call void %3478(ptr noundef nonnull align 8 dereferenceable(16) %3467) #25
   %3479 = load ptr, ptr %3467, align 8, !tbaa !166
-  %3480 = getelementptr inbounds i8, ptr %3479, i64 24
+  %3480 = getelementptr inbounds nuw i8, ptr %3479, i64 24
   %3481 = load ptr, ptr %3480, align 8
   call void %3481(ptr noundef nonnull align 8 dereferenceable(16) %3467) #25
   br label %3493
@@ -6696,7 +6692,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !176
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -6706,13 +6702,13 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2E
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = icmp eq i64 %12, 4294967297
   %14 = trunc i64 %12 to i32
@@ -6720,14 +6716,14 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2E
 
 15:                                               ; preds = %10
   store i32 0, ptr %11, align 8, !tbaa !163
-  %16 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %16, align 4, !tbaa !165
   %17 = load ptr, ptr %8, align 8, !tbaa !166
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   %20 = load ptr, ptr %8, align 8, !tbaa !166
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   br label %34
@@ -6761,11 +6757,11 @@ define internal fastcc void @_ZN8rawspeed12_GLOBAL__N_120FujiDecompressorImplD2E
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStreamE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !106
   %5 = zext i32 %4 to i64
   %6 = add nuw nsw i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !104
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ugt i64 %6, %9
@@ -6776,7 +6772,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !247
   %15 = icmp eq i32 %14, 57005
   %16 = load ptr, ptr %1, align 8, !tbaa !140, !nonnull !105, !noundef !105
@@ -6787,7 +6783,7 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %4, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds i8, ptr %16, i64 %5
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %5
   %22 = load i16, ptr %21, align 1
   %23 = tail call i16 @llvm.bswap.i16(i16 %22)
   %24 = select i1 %15, i16 %22, i16 %23
@@ -6801,9 +6797,9 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 27:                                               ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %29 = zext nneg i32 %18 to i64
-  %30 = getelementptr inbounds i8, ptr %16, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = add nuw nsw i32 %4, 3
   store i32 %32, ptr %3, align 8, !tbaa !106
@@ -6816,9 +6812,9 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %0, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %37 = zext nneg i32 %32 to i64
-  %38 = getelementptr inbounds i8, ptr %16, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = add nuw nsw i32 %4, 4
   store i32 %40, ptr %3, align 8, !tbaa !106
@@ -6831,9 +6827,9 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = zext nneg i32 %40 to i64
-  %46 = getelementptr inbounds i8, ptr %16, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = add nuw nsw i32 %4, 5
   store i32 %48, ptr %3, align 8, !tbaa !106
@@ -6848,11 +6844,11 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %0, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %55 = add nuw nsw i32 %4, 7
   %56 = icmp samesign ule i32 %55, %8
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds i8, ptr %16, i64 %49
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 %49
   %58 = load i16, ptr %57, align 1
   %59 = tail call i16 @llvm.bswap.i16(i16 %58)
   %60 = select i1 %15, i16 %58, i16 %59
@@ -6868,11 +6864,11 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = add nuw nsw i32 %4, 9
   %68 = icmp samesign ule i32 %67, %8
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds i8, ptr %16, i64 %61
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 %61
   %70 = load i16, ptr %69, align 1
   %71 = tail call i16 @llvm.bswap.i16(i16 %70)
   %72 = select i1 %15, i16 %70, i16 %71
@@ -6888,11 +6884,11 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 77:                                               ; preds = %65
-  %78 = getelementptr inbounds i8, ptr %0, i64 10
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %79 = add nuw nsw i32 %4, 11
   %80 = icmp samesign ule i32 %79, %8
   tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds i8, ptr %16, i64 %73
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 %73
   %82 = load i16, ptr %81, align 1
   %83 = tail call i16 @llvm.bswap.i16(i16 %82)
   %84 = select i1 %15, i16 %82, i16 %83
@@ -6908,11 +6904,11 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 89:                                               ; preds = %77
-  %90 = getelementptr inbounds i8, ptr %0, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %91 = add nuw nsw i32 %4, 13
   %92 = icmp samesign ule i32 %91, %8
   tail call void @llvm.assume(i1 %92)
-  %93 = getelementptr inbounds i8, ptr %16, i64 %85
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 %85
   %94 = load i16, ptr %93, align 1
   %95 = tail call i16 @llvm.bswap.i16(i16 %94)
   %96 = select i1 %15, i16 %94, i16 %95
@@ -6926,9 +6922,9 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %0, i64 14
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %101 = zext nneg i32 %91 to i64
-  %102 = getelementptr inbounds i8, ptr %16, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = add nuw nsw i32 %4, 14
   store i32 %104, ptr %3, align 8, !tbaa !106
@@ -6943,17 +6939,17 @@ define hidden void @_ZN8rawspeed16FujiDecompressor10FujiHeaderC2ERNS_10ByteStrea
   unreachable
 
 109:                                              ; preds = %99
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = add nuw nsw i32 %4, 16
   %112 = icmp samesign ule i32 %111, %8
   tail call void @llvm.assume(i1 %112)
-  %113 = getelementptr inbounds i8, ptr %16, i64 %105
+  %113 = getelementptr inbounds nuw i8, ptr %16, i64 %105
   %114 = load i16, ptr %113, align 1
   %115 = tail call i16 @llvm.bswap.i16(i16 %114)
   %116 = select i1 %15, i16 %114, i16 %115
   store i32 %111, ptr %3, align 8, !tbaa !106
   store i16 %116, ptr %110, align 4, !tbaa !147
-  %117 = getelementptr inbounds i8, ptr %0, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %118 = icmp eq i8 %39, 16
   %119 = select i1 %118, i64 25769803782, i64 8589934594
   store i64 %119, ptr %117, align 4, !tbaa.struct !150
@@ -7072,10 +7068,10 @@ declare i32 @llvm.bswap.i32(i32) #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !166
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -7097,7 +7093,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !166
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   br label %20

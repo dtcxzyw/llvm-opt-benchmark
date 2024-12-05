@@ -9,7 +9,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %.not, label %70, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, -1
   %10 = icmp ne ptr %2, null
@@ -21,11 +21,11 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %or.cond5, label %13, label %70
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i32, ptr %4, i64 %20
@@ -83,7 +83,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   %44 = phi i64 [ %50, %.lr.ph ], [ %35, %.preheader70 ]
   %.05872 = phi i32 [ %49, %.lr.ph ], [ %33, %.preheader70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %.05872, ptr %45, align 4
   %46 = load i32, ptr %43, align 4
   %47 = sub i32 -2, %46
@@ -100,7 +100,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   %indvars.iv87 = phi i64 [ %42, %.lr.ph75.preheader ], [ %indvars.iv.next88, %.lr.ph75 ]
   %indvars.iv85 = phi i64 [ %41, %.lr.ph75.preheader ], [ %indvars.iv.next86, %.lr.ph75 ]
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, -1
-  %54 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next88
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next88
   %55 = load i32, ptr %54, align 4
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
   %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86

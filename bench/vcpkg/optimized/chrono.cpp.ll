@@ -47,7 +47,7 @@ define dso_local void @_ZN5vcpkg11to_utc_timeERKl(ptr dead_on_unwind noalias noc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = call ptr @gmtime_r(ptr noundef nonnull %1, ptr noundef nonnull %3) #12
   %5 = icmp eq ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %5, label %7, label %8
 
 7:                                                ; preds = %2
@@ -239,8 +239,8 @@ define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocaptur
 
 7:                                                ; preds = %1
   %.sroa.1.8.copyload = load i8, ptr %2, align 8
-  %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.8..sroa_idx, i64 55, i1 false)
   br label %8
 
@@ -249,7 +249,7 @@ define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocaptur
   %.sink = phi i8 [ %.sroa.1.8.copyload, %7 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   store i8 %.sink10, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %9, align 8
   ret void
 }
@@ -275,12 +275,12 @@ define dso_local void @_ZN5vcpkg5CTime10now_stringB5cxx11Ev(ptr dead_on_unwind n
 
 8:                                                ; preds = %1
   %.sroa.1.8.copyload.i = load i8, ptr %2, align 8, !noalias !26
-  %.sroa.4.8..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 1
-  %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 9
+  %.sroa.4.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.0.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.8..sroa_idx.i, i64 55, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2), !noalias !26
   store i8 1, ptr %4, align 8, !alias.scope !26
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.1.8.copyload.i, ptr %9, align 8, !alias.scope !26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNK5vcpkg5CTime8strftimeB5cxx11EPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.1)
@@ -309,18 +309,18 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.1") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.vcpkg::CTime", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %10, 6
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %3
   store i8 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %12, align 8
   br label %28
 
@@ -331,7 +331,7 @@ define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwin
 
 16:                                               ; preds = %13
   store i8 0, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %17, align 8
   br label %28
 
@@ -344,7 +344,7 @@ define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwin
 
 22:                                               ; preds = %18
   store i8 0, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %23, align 8
   br label %28
 
@@ -353,7 +353,7 @@ define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwin
   store i32 %25, ptr %6, align 8
   %26 = call noundef i64 @timegm(ptr noundef nonnull %4) #12
   store i8 1, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %28
 
@@ -386,7 +386,7 @@ define dso_local void @_ZNK5vcpkg5CTime9add_hoursEi(ptr dead_on_unwind noalias n
 
 13:                                               ; preds = %3
   %.sroa.2.8.copyload.i = load i8, ptr %4, align 8, !noalias !32
-  %.sroa.5.8..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 1
+  %.sroa.5.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.8..sroa_idx.i, i64 55, i1 false), !noalias !32
   br label %_ZN5vcpkg11to_utc_timeERKl.exit.i
 
@@ -394,7 +394,7 @@ _ZN5vcpkg11to_utc_timeERKl.exit.i:                ; preds = %13, %3
   %.sroa.2.0.i = phi i8 [ %.sroa.2.8.copyload.i, %13 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !32
   store i32 59, ptr %6, align 8, !noalias !32
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.8, ptr %14, align 8, !noalias !32
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext %12, ptr nonnull @.str.9, i64 14)
           to label %_ZN5vcpkgL15date_plus_hoursEP2tmi.exit unwind label %15, !noalias !32
@@ -407,7 +407,7 @@ _ZN5vcpkg11to_utc_timeERKl.exit.i:                ; preds = %13, %3
   unreachable
 
 _ZN5vcpkgL15date_plus_hoursEP2tmi.exit:           ; preds = %_ZN5vcpkg11to_utc_timeERKl.exit.i
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.i, i64 55, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %.sroa.5.i)

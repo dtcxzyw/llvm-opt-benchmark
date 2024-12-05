@@ -22,7 +22,7 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %78
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @ft_gzip_check_header(ptr noundef %1)
   store i32 %11, ptr %4, align 4
@@ -31,7 +31,7 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 12:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %10, ptr %13, align 8
   %14 = call ptr @ft_mem_qalloc(ptr noundef %10, i64 noundef 8360, ptr noundef nonnull %4) #6
   %15 = load i32, ptr %4, align 4
@@ -39,17 +39,17 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not51, label %16, label %40
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %18, align 8
   store ptr %1, ptr %14, align 8
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8336
-  %22 = getelementptr inbounds i8, ptr %14, i64 8352
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8336
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8352
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 8344
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8344
   store ptr %21, ptr %23, align 8
   store i64 0, ptr %21, align 8
   %24 = call fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %1)
@@ -57,18 +57,18 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not.i, label %25, label %37
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %14, i64 4240
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 4240
   %27 = call i64 @FT_Stream_Pos(ptr noundef nonnull %1) #6
-  %28 = getelementptr inbounds i8, ptr %14, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr @ft_gzip_alloc, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store ptr @ft_gzip_free, ptr %30, align 8
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %33, align 8
   store ptr %26, ptr %17, align 8
   %34 = call i32 @inflateInit2_(ptr noundef nonnull %17, i32 noundef -15, ptr noundef nonnull @.str, i32 noundef 112) #6
@@ -88,15 +88,15 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 38:                                               ; preds = %35
   store i32 0, ptr %4, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %14, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %38, %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, -4
   %46 = call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef %45) #6
@@ -131,26 +131,26 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %14, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %59 = call i32 @inflateEnd(ptr noundef nonnull %58) #6
-  %60 = getelementptr inbounds i8, ptr %14, i64 88
-  %61 = getelementptr inbounds i8, ptr %14, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %14, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   call void @ft_mem_free(ptr noundef %10, ptr noundef %14) #6
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %spec.store.select.i, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %65, align 8
   store ptr %52, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ft_gzip_stream_close, ptr %67, align 8
   br label %78
 
@@ -172,14 +172,14 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
 
 73:                                               ; preds = %71, %70, %72
   %.sink = phi i64 [ 2147483647, %72 ], [ %spec.store.select.i, %70 ], [ %spec.store.select.i, %71 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %75, align 8
   store ptr null, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @ft_gzip_stream_io, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ft_gzip_stream_close, ptr %77, align 8
   br label %78
 
@@ -204,18 +204,18 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
 7:                                                ; preds = %5
   %8 = load i8, ptr %3, align 1
   %9 = icmp ne i8 %8, 31
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp ne i8 %11, -117
   %or.cond = select i1 %9, i1 true, i1 %12
-  %13 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp ne i8 %14, 8
   %or.cond7 = select i1 %or.cond, i1 true, i1 %15
   br i1 %or.cond7, label %.loopexit, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %3, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %18 = load i8, ptr %17, align 1
   %.not18 = icmp ult i8 %18, 32
   br i1 %.not18, label %19, label %.loopexit
@@ -312,34 +312,34 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8336
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 @FT_Stream_Seek(ptr noundef %9, i64 noundef %11) #6
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %ft_gzip_file_reset.exit.thread, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_reset.exit.thread:                   ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = tail call i32 @inflateReset(ptr noundef nonnull %13) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %16, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4240
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8352
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8344
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   store ptr %5, ptr %21, align 8
   store i64 0, ptr %5, align 8
   br label %22
@@ -351,8 +351,8 @@ ft_gzip_file_reset.exit.thread:                   ; preds = %8
 
 25:                                               ; preds = %22
   %26 = sub nuw i64 %1, %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 8352
-  %28 = getelementptr inbounds i8, ptr %0, i64 8344
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8352
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   br label %29
 
 29:                                               ; preds = %40, %25
@@ -386,8 +386,8 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   br i1 %.old1, label %ft_gzip_file_reset.exit, label %.preheader
 
 .preheader:                                       ; preds = %43, %ft_gzip_file_skip_output.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 8352
-  %45 = getelementptr inbounds i8, ptr %0, i64 8344
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8352
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   br label %46
 
 46:                                               ; preds = %.preheader, %59
@@ -425,20 +425,20 @@ ft_gzip_file_reset.exit:                          ; preds = %40, %46, %59, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal void @ft_gzip_stream_close(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = tail call i32 @inflateEnd(ptr noundef nonnull %7) #6
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -447,7 +447,7 @@ define internal void @ft_gzip_stream_close(ptr nocapture noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %15, label %17
@@ -464,7 +464,7 @@ define internal void @ft_gzip_stream_close(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ft_gzip_stream_io(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i64 @ft_gzip_file_io(ptr noundef %6, i64 noundef %1, ptr noundef %2, i64 noundef %3)
   ret i64 %7
@@ -483,19 +483,19 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
 10:                                               ; preds = %5
   store ptr %3, ptr %6, align 8
   %11 = trunc i64 %4 to i32
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %13, align 8
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @ft_gzip_alloc, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr @ft_gzip_free, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %0, ptr %19, align 8
   %20 = call i32 @inflateInit2_(ptr noundef nonnull %6, i32 noundef 47, ptr noundef nonnull @.str, i32 noundef 112) #6
   %.not = icmp eq i32 %20, 0
@@ -512,7 +512,7 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %.thread, label %30
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %6, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %2, align 8
   %29 = call i32 @inflateEnd(ptr noundef nonnull %6) #6
@@ -526,7 +526,7 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %30
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.FT_Gzip_Uncompress, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.FT_Gzip_Uncompress, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -576,16 +576,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 86) i32 @ft_gzip_file_fill_output(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 4240
-  %4 = getelementptr inbounds i8, ptr %0, i64 8344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 4096, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %9
 
 thread-pre-split:                                 ; preds = %41
@@ -600,13 +600,13 @@ thread-pre-split:                                 ; preds = %41
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %24, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 %15(ptr noundef nonnull %13, i64 noundef %18, ptr noundef nonnull %8, i64 noundef 4096) #6
   %20 = icmp eq i64 %19, 0
@@ -614,21 +614,21 @@ thread-pre-split:                                 ; preds = %41
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8352
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %22, ptr %23, align 8
   br label %ft_gzip_file_fill_input.exit.thread
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8352
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %31, ptr %32, align 8
   br label %ft_gzip_file_fill_input.exit.thread
 
@@ -642,7 +642,7 @@ thread-pre-split:                                 ; preds = %41
 
 ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
   %.0.i = phi i64 [ %19, %16 ], [ %spec.store.select.i, %33 ]
-  %37 = getelementptr inbounds i8, ptr %13, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %.0.i
   store i64 %39, ptr %37, align 8
@@ -660,7 +660,7 @@ ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8352
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr %4, align 8
   %47 = icmp eq ptr %44, %46
@@ -669,7 +669,7 @@ ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8352
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %49, ptr %50, align 8
   br label %ft_gzip_file_fill_input.exit.thread
 

@@ -11,30 +11,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @mlib_ImageAffineEdgeZero(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.val = load i32, ptr %4, align 8
   %13 = getelementptr i8, ptr %4, i64 4
   %.val380 = load i32, ptr %13, align 4
   %14 = getelementptr i8, ptr %4, i64 16
   %.val381 = load i32, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   switch i32 %.val, label %.loopexit [
@@ -917,40 +917,40 @@ define hidden void @mlib_ImageAffineEdgeZero(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.val = load i32, ptr %4, align 8
   %13 = getelementptr i8, ptr %4, i64 4
   %.val805 = load i32, ptr %13, align 4
   %14 = getelementptr i8, ptr %4, i64 16
   %.val806 = load i32, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 84
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %34 = load i32, ptr %33, align 4
   switch i32 %.val, label %.loopexit [
     i32 1, label %.preheader816
@@ -1043,9 +1043,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 72:                                               ; preds = %.lr.ph989.us, %72
   %indvars.iv1195 = phi i64 [ 0, %.lr.ph989.us ], [ %indvars.iv.next1196, %72 ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv1195
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv1195
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %.0702993.us, i64 %indvars.iv1195
+  %75 = getelementptr inbounds nuw i8, ptr %.0702993.us, i64 %indvars.iv1195
   store i8 %74, ptr %75, align 1
   %indvars.iv.next1196 = add nuw nsw i64 %indvars.iv1195, 1
   %exitcond1199.not = icmp eq i64 %indvars.iv.next1196, %wide.trip.count1198
@@ -1054,7 +1054,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us997:                                ; preds = %72
   %76 = add nsw i32 %.0710991.us, %34
   %77 = add nsw i32 %.0726990.us, %32
-  %78 = getelementptr inbounds i8, ptr %.0702993.us, i64 %43
+  %78 = getelementptr inbounds nuw i8, ptr %.0702993.us, i64 %43
   %79 = add nuw nsw i32 %.0706992.us, 1
   %exitcond1200.not = icmp eq i32 %.0706992.us, %reass.sub1047
   br i1 %exitcond1200.not, label %._crit_edge996, label %.lr.ph989.us, !llvm.loop !20
@@ -1131,9 +1131,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 115:                                              ; preds = %.lr.ph1004.us, %115
   %indvars.iv1206 = phi i64 [ 0, %.lr.ph1004.us ], [ %indvars.iv.next1207, %115 ]
-  %116 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv1206
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv1206
   %117 = load i8, ptr %116, align 1
-  %118 = getelementptr inbounds i8, ptr %.17031008.us, i64 %indvars.iv1206
+  %118 = getelementptr inbounds nuw i8, ptr %.17031008.us, i64 %indvars.iv1206
   store i8 %117, ptr %118, align 1
   %indvars.iv.next1207 = add nuw nsw i64 %indvars.iv1206, 1
   %exitcond1210.not = icmp eq i64 %indvars.iv.next1207, %wide.trip.count1209
@@ -1142,7 +1142,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us1011:                               ; preds = %115
   %119 = add nsw i32 %.17111006.us, %34
   %120 = add nsw i32 %.17271005.us, %32
-  %121 = getelementptr inbounds i8, ptr %.17031008.us, i64 %47
+  %121 = getelementptr inbounds nuw i8, ptr %.17031008.us, i64 %47
   %122 = add nuw nsw i32 %.17071007.us, 1
   %exitcond1211.not = icmp eq i32 %122, %100
   br i1 %exitcond1211.not, label %.loopexit814, label %.lr.ph1004.us, !llvm.loop !23
@@ -1184,9 +1184,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 143:                                              ; preds = %.lr.ph1013.us, %143
   %indvars.iv1212 = phi i64 [ 0, %.lr.ph1013.us ], [ %indvars.iv.next1213, %143 ]
-  %144 = getelementptr inbounds i8, ptr %142, i64 %indvars.iv1212
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv1212
   %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds i8, ptr %.27041017.us, i64 %indvars.iv1212
+  %146 = getelementptr inbounds nuw i8, ptr %.27041017.us, i64 %indvars.iv1212
   store i8 %145, ptr %146, align 1
   %indvars.iv.next1213 = add nuw nsw i64 %indvars.iv1212, 1
   %exitcond1216.not = icmp eq i64 %indvars.iv.next1213, %wide.trip.count1215
@@ -1195,7 +1195,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us1021:                               ; preds = %143
   %147 = add nsw i32 %.27121015.us, %34
   %148 = add nsw i32 %.27281014.us, %32
-  %149 = getelementptr inbounds i8, ptr %.27041017.us, i64 %47
+  %149 = getelementptr inbounds nuw i8, ptr %.27041017.us, i64 %47
   %150 = add nuw nsw i32 %.27081016.us, 1
   %exitcond1217.not = icmp eq i32 %150, %123
   br i1 %exitcond1217.not, label %._crit_edge1020, label %.lr.ph1013.us, !llvm.loop !25
@@ -1246,9 +1246,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 173:                                              ; preds = %.lr.ph1029.us, %173
   %indvars.iv1223 = phi i64 [ 0, %.lr.ph1029.us ], [ %indvars.iv.next1224, %173 ]
-  %174 = getelementptr inbounds i8, ptr %172, i64 %indvars.iv1223
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 %indvars.iv1223
   %175 = load i8, ptr %174, align 1
-  %176 = getelementptr inbounds i8, ptr %.37051033.us, i64 %indvars.iv1223
+  %176 = getelementptr inbounds nuw i8, ptr %.37051033.us, i64 %indvars.iv1223
   store i8 %175, ptr %176, align 1
   %indvars.iv.next1224 = add nuw nsw i64 %indvars.iv1223, 1
   %exitcond1227.not = icmp eq i64 %indvars.iv.next1224, %wide.trip.count1226
@@ -1257,7 +1257,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us1037:                               ; preds = %173
   %177 = add nsw i32 %.37131031.us, %34
   %178 = add nsw i32 %.37291030.us, %32
-  %179 = getelementptr inbounds i8, ptr %.37051033.us, i64 %82
+  %179 = getelementptr inbounds nuw i8, ptr %.37051033.us, i64 %82
   %180 = add nuw nsw i32 %.37091032.us, 1
   %exitcond1228.not = icmp eq i32 %.37091032.us, %reass.sub1048
   br i1 %exitcond1228.not, label %._crit_edge1036, label %.lr.ph1029.us, !llvm.loop !28
@@ -1337,9 +1337,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 214:                                              ; preds = %.lr.ph935.us, %214
   %indvars.iv1156 = phi i64 [ 0, %.lr.ph935.us ], [ %indvars.iv.next1157, %214 ]
-  %215 = getelementptr inbounds i16, ptr %213, i64 %indvars.iv1156
+  %215 = getelementptr inbounds nuw i16, ptr %213, i64 %indvars.iv1156
   %216 = load i16, ptr %215, align 2
-  %217 = getelementptr inbounds i16, ptr %.0694939.us, i64 %indvars.iv1156
+  %217 = getelementptr inbounds nuw i16, ptr %.0694939.us, i64 %indvars.iv1156
   store i16 %216, ptr %217, align 2
   %indvars.iv.next1157 = add nuw nsw i64 %indvars.iv1156, 1
   %exitcond1160.not = icmp eq i64 %indvars.iv.next1157, %wide.trip.count1159
@@ -1348,7 +1348,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us943:                                ; preds = %214
   %218 = add nsw i32 %.4714937.us, %34
   %219 = add nsw i32 %.4730936.us, %32
-  %220 = getelementptr inbounds i16, ptr %.0694939.us, i64 %185
+  %220 = getelementptr inbounds nuw i16, ptr %.0694939.us, i64 %185
   %221 = add nuw nsw i32 %.4938.us, 1
   %exitcond1161.not = icmp eq i32 %.4938.us, %reass.sub1045
   br i1 %exitcond1161.not, label %._crit_edge942, label %.lr.ph935.us, !llvm.loop !31
@@ -1425,9 +1425,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 257:                                              ; preds = %.lr.ph950.us, %257
   %indvars.iv1167 = phi i64 [ 0, %.lr.ph950.us ], [ %indvars.iv.next1168, %257 ]
-  %258 = getelementptr inbounds i16, ptr %256, i64 %indvars.iv1167
+  %258 = getelementptr inbounds nuw i16, ptr %256, i64 %indvars.iv1167
   %259 = load i16, ptr %258, align 2
-  %260 = getelementptr inbounds i16, ptr %.1695954.us, i64 %indvars.iv1167
+  %260 = getelementptr inbounds nuw i16, ptr %.1695954.us, i64 %indvars.iv1167
   store i16 %259, ptr %260, align 2
   %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
   %exitcond1171.not = icmp eq i64 %indvars.iv.next1168, %wide.trip.count1170
@@ -1436,7 +1436,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us957:                                ; preds = %257
   %261 = add nsw i32 %.5715952.us, %34
   %262 = add nsw i32 %.5731951.us, %32
-  %263 = getelementptr inbounds i16, ptr %.1695954.us, i64 %189
+  %263 = getelementptr inbounds nuw i16, ptr %.1695954.us, i64 %189
   %264 = add nuw nsw i32 %.5953.us, 1
   %exitcond1172.not = icmp eq i32 %264, %242
   br i1 %exitcond1172.not, label %.loopexit819, label %.lr.ph950.us, !llvm.loop !34
@@ -1478,9 +1478,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 285:                                              ; preds = %.lr.ph959.us, %285
   %indvars.iv1173 = phi i64 [ 0, %.lr.ph959.us ], [ %indvars.iv.next1174, %285 ]
-  %286 = getelementptr inbounds i16, ptr %284, i64 %indvars.iv1173
+  %286 = getelementptr inbounds nuw i16, ptr %284, i64 %indvars.iv1173
   %287 = load i16, ptr %286, align 2
-  %288 = getelementptr inbounds i16, ptr %.2696963.us, i64 %indvars.iv1173
+  %288 = getelementptr inbounds nuw i16, ptr %.2696963.us, i64 %indvars.iv1173
   store i16 %287, ptr %288, align 2
   %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
   %exitcond1177.not = icmp eq i64 %indvars.iv.next1174, %wide.trip.count1176
@@ -1489,7 +1489,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us967:                                ; preds = %285
   %289 = add nsw i32 %.6716961.us, %34
   %290 = add nsw i32 %.6732960.us, %32
-  %291 = getelementptr inbounds i16, ptr %.2696963.us, i64 %189
+  %291 = getelementptr inbounds nuw i16, ptr %.2696963.us, i64 %189
   %292 = add nuw nsw i32 %.6962.us, 1
   %exitcond1178.not = icmp eq i32 %292, %265
   br i1 %exitcond1178.not, label %._crit_edge966, label %.lr.ph959.us, !llvm.loop !36
@@ -1540,9 +1540,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 315:                                              ; preds = %.lr.ph975.us, %315
   %indvars.iv1184 = phi i64 [ 0, %.lr.ph975.us ], [ %indvars.iv.next1185, %315 ]
-  %316 = getelementptr inbounds i16, ptr %314, i64 %indvars.iv1184
+  %316 = getelementptr inbounds nuw i16, ptr %314, i64 %indvars.iv1184
   %317 = load i16, ptr %316, align 2
-  %318 = getelementptr inbounds i16, ptr %.3697979.us, i64 %indvars.iv1184
+  %318 = getelementptr inbounds nuw i16, ptr %.3697979.us, i64 %indvars.iv1184
   store i16 %317, ptr %318, align 2
   %indvars.iv.next1185 = add nuw nsw i64 %indvars.iv1184, 1
   %exitcond1188.not = icmp eq i64 %indvars.iv.next1185, %wide.trip.count1187
@@ -1551,7 +1551,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us983:                                ; preds = %315
   %319 = add nsw i32 %.7717977.us, %34
   %320 = add nsw i32 %.7733976.us, %32
-  %321 = getelementptr inbounds i16, ptr %.3697979.us, i64 %224
+  %321 = getelementptr inbounds nuw i16, ptr %.3697979.us, i64 %224
   %322 = add nuw nsw i32 %.7978.us, 1
   %exitcond1189.not = icmp eq i32 %.7978.us, %reass.sub1046
   br i1 %exitcond1189.not, label %._crit_edge982, label %.lr.ph975.us, !llvm.loop !39
@@ -1631,9 +1631,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 356:                                              ; preds = %.lr.ph881.us, %356
   %indvars.iv1117 = phi i64 [ 0, %.lr.ph881.us ], [ %indvars.iv.next1118, %356 ]
-  %357 = getelementptr inbounds i32, ptr %355, i64 %indvars.iv1117
+  %357 = getelementptr inbounds nuw i32, ptr %355, i64 %indvars.iv1117
   %358 = load i32, ptr %357, align 4
-  %359 = getelementptr inbounds i32, ptr %.0686885.us, i64 %indvars.iv1117
+  %359 = getelementptr inbounds nuw i32, ptr %.0686885.us, i64 %indvars.iv1117
   store i32 %358, ptr %359, align 4
   %indvars.iv.next1118 = add nuw nsw i64 %indvars.iv1117, 1
   %exitcond1121.not = icmp eq i64 %indvars.iv.next1118, %wide.trip.count1120
@@ -1642,7 +1642,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us889:                                ; preds = %356
   %360 = add nsw i32 %.8718883.us, %34
   %361 = add nsw i32 %.8734882.us, %32
-  %362 = getelementptr inbounds i32, ptr %.0686885.us, i64 %327
+  %362 = getelementptr inbounds nuw i32, ptr %.0686885.us, i64 %327
   %363 = add nuw nsw i32 %.8884.us, 1
   %exitcond1122.not = icmp eq i32 %.8884.us, %reass.sub1043
   br i1 %exitcond1122.not, label %._crit_edge888, label %.lr.ph881.us, !llvm.loop !42
@@ -1719,9 +1719,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 399:                                              ; preds = %.lr.ph896.us, %399
   %indvars.iv1128 = phi i64 [ 0, %.lr.ph896.us ], [ %indvars.iv.next1129, %399 ]
-  %400 = getelementptr inbounds i32, ptr %398, i64 %indvars.iv1128
+  %400 = getelementptr inbounds nuw i32, ptr %398, i64 %indvars.iv1128
   %401 = load i32, ptr %400, align 4
-  %402 = getelementptr inbounds i32, ptr %.1687900.us, i64 %indvars.iv1128
+  %402 = getelementptr inbounds nuw i32, ptr %.1687900.us, i64 %indvars.iv1128
   store i32 %401, ptr %402, align 4
   %indvars.iv.next1129 = add nuw nsw i64 %indvars.iv1128, 1
   %exitcond1132.not = icmp eq i64 %indvars.iv.next1129, %wide.trip.count1131
@@ -1730,7 +1730,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us903:                                ; preds = %399
   %403 = add nsw i32 %.9719898.us, %34
   %404 = add nsw i32 %.9735897.us, %32
-  %405 = getelementptr inbounds i32, ptr %.1687900.us, i64 %331
+  %405 = getelementptr inbounds nuw i32, ptr %.1687900.us, i64 %331
   %406 = add nuw nsw i32 %.9899.us, 1
   %exitcond1133.not = icmp eq i32 %406, %384
   br i1 %exitcond1133.not, label %.loopexit823, label %.lr.ph896.us, !llvm.loop !45
@@ -1772,9 +1772,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 427:                                              ; preds = %.lr.ph905.us, %427
   %indvars.iv1134 = phi i64 [ 0, %.lr.ph905.us ], [ %indvars.iv.next1135, %427 ]
-  %428 = getelementptr inbounds i32, ptr %426, i64 %indvars.iv1134
+  %428 = getelementptr inbounds nuw i32, ptr %426, i64 %indvars.iv1134
   %429 = load i32, ptr %428, align 4
-  %430 = getelementptr inbounds i32, ptr %.2688909.us, i64 %indvars.iv1134
+  %430 = getelementptr inbounds nuw i32, ptr %.2688909.us, i64 %indvars.iv1134
   store i32 %429, ptr %430, align 4
   %indvars.iv.next1135 = add nuw nsw i64 %indvars.iv1134, 1
   %exitcond1138.not = icmp eq i64 %indvars.iv.next1135, %wide.trip.count1137
@@ -1783,7 +1783,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us913:                                ; preds = %427
   %431 = add nsw i32 %.10720907.us, %34
   %432 = add nsw i32 %.10736906.us, %32
-  %433 = getelementptr inbounds i32, ptr %.2688909.us, i64 %331
+  %433 = getelementptr inbounds nuw i32, ptr %.2688909.us, i64 %331
   %434 = add nuw nsw i32 %.10908.us, 1
   %exitcond1139.not = icmp eq i32 %434, %407
   br i1 %exitcond1139.not, label %._crit_edge912, label %.lr.ph905.us, !llvm.loop !47
@@ -1834,9 +1834,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 457:                                              ; preds = %.lr.ph921.us, %457
   %indvars.iv1145 = phi i64 [ 0, %.lr.ph921.us ], [ %indvars.iv.next1146, %457 ]
-  %458 = getelementptr inbounds i32, ptr %456, i64 %indvars.iv1145
+  %458 = getelementptr inbounds nuw i32, ptr %456, i64 %indvars.iv1145
   %459 = load i32, ptr %458, align 4
-  %460 = getelementptr inbounds i32, ptr %.3689925.us, i64 %indvars.iv1145
+  %460 = getelementptr inbounds nuw i32, ptr %.3689925.us, i64 %indvars.iv1145
   store i32 %459, ptr %460, align 4
   %indvars.iv.next1146 = add nuw nsw i64 %indvars.iv1145, 1
   %exitcond1149.not = icmp eq i64 %indvars.iv.next1146, %wide.trip.count1148
@@ -1845,7 +1845,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us929:                                ; preds = %457
   %461 = add nsw i32 %.11721923.us, %34
   %462 = add nsw i32 %.11737922.us, %32
-  %463 = getelementptr inbounds i32, ptr %.3689925.us, i64 %366
+  %463 = getelementptr inbounds nuw i32, ptr %.3689925.us, i64 %366
   %464 = add nuw nsw i32 %.11924.us, 1
   %exitcond1150.not = icmp eq i32 %.11924.us, %reass.sub1044
   br i1 %exitcond1150.not, label %._crit_edge928, label %.lr.ph921.us, !llvm.loop !50
@@ -1912,9 +1912,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 492:                                              ; preds = %.lr.ph.us, %492
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %492 ]
-  %493 = getelementptr inbounds double, ptr %491, i64 %indvars.iv
+  %493 = getelementptr inbounds nuw double, ptr %491, i64 %indvars.iv
   %494 = load double, ptr %493, align 8
-  %495 = getelementptr inbounds double, ptr %.0678834.us, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw double, ptr %.0678834.us, i64 %indvars.iv
   store double %494, ptr %495, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1923,7 +1923,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us:                                   ; preds = %492
   %496 = add nsw i32 %.12722832.us, %34
   %497 = add nsw i32 %.12738831.us, %32
-  %498 = getelementptr inbounds double, ptr %.0678834.us, i64 %38
+  %498 = getelementptr inbounds nuw double, ptr %.0678834.us, i64 %38
   %499 = add nuw nsw i32 %.12833.us, 1
   %exitcond1084.not = icmp eq i32 %.12833.us, %reass.sub
   br i1 %exitcond1084.not, label %._crit_edge837, label %.lr.ph.us, !llvm.loop !53
@@ -2000,9 +2000,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 535:                                              ; preds = %.lr.ph842.us, %535
   %indvars.iv1090 = phi i64 [ 0, %.lr.ph842.us ], [ %indvars.iv.next1091, %535 ]
-  %536 = getelementptr inbounds double, ptr %534, i64 %indvars.iv1090
+  %536 = getelementptr inbounds nuw double, ptr %534, i64 %indvars.iv1090
   %537 = load double, ptr %536, align 8
-  %538 = getelementptr inbounds double, ptr %.1679846.us, i64 %indvars.iv1090
+  %538 = getelementptr inbounds nuw double, ptr %.1679846.us, i64 %indvars.iv1090
   store double %537, ptr %538, align 8
   %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
   %exitcond1094.not = icmp eq i64 %indvars.iv.next1091, %wide.trip.count1093
@@ -2011,7 +2011,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us849:                                ; preds = %535
   %539 = add nsw i32 %.13723844.us, %34
   %540 = add nsw i32 %.13739843.us, %32
-  %541 = getelementptr inbounds double, ptr %.1679846.us, i64 %467
+  %541 = getelementptr inbounds nuw double, ptr %.1679846.us, i64 %467
   %542 = add nuw nsw i32 %.13845.us, 1
   %exitcond1095.not = icmp eq i32 %542, %520
   br i1 %exitcond1095.not, label %.loopexit827, label %.lr.ph842.us, !llvm.loop !56
@@ -2053,9 +2053,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 563:                                              ; preds = %.lr.ph851.us, %563
   %indvars.iv1096 = phi i64 [ 0, %.lr.ph851.us ], [ %indvars.iv.next1097, %563 ]
-  %564 = getelementptr inbounds double, ptr %562, i64 %indvars.iv1096
+  %564 = getelementptr inbounds nuw double, ptr %562, i64 %indvars.iv1096
   %565 = load double, ptr %564, align 8
-  %566 = getelementptr inbounds double, ptr %.2680855.us, i64 %indvars.iv1096
+  %566 = getelementptr inbounds nuw double, ptr %.2680855.us, i64 %indvars.iv1096
   store double %565, ptr %566, align 8
   %indvars.iv.next1097 = add nuw nsw i64 %indvars.iv1096, 1
   %exitcond1100.not = icmp eq i64 %indvars.iv.next1097, %wide.trip.count1099
@@ -2064,7 +2064,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us859:                                ; preds = %563
   %567 = add nsw i32 %.14724853.us, %34
   %568 = add nsw i32 %.14740852.us, %32
-  %569 = getelementptr inbounds double, ptr %.2680855.us, i64 %467
+  %569 = getelementptr inbounds nuw double, ptr %.2680855.us, i64 %467
   %570 = add nuw nsw i32 %.14854.us, 1
   %exitcond1101.not = icmp eq i32 %570, %543
   br i1 %exitcond1101.not, label %._crit_edge858, label %.lr.ph851.us, !llvm.loop !58
@@ -2115,9 +2115,9 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 593:                                              ; preds = %.lr.ph867.us, %593
   %indvars.iv1106 = phi i64 [ 0, %.lr.ph867.us ], [ %indvars.iv.next1107, %593 ]
-  %594 = getelementptr inbounds double, ptr %592, i64 %indvars.iv1106
+  %594 = getelementptr inbounds nuw double, ptr %592, i64 %indvars.iv1106
   %595 = load double, ptr %594, align 8
-  %596 = getelementptr inbounds double, ptr %.3681871.us, i64 %indvars.iv1106
+  %596 = getelementptr inbounds nuw double, ptr %.3681871.us, i64 %indvars.iv1106
   store double %595, ptr %596, align 8
   %indvars.iv.next1107 = add nuw nsw i64 %indvars.iv1106, 1
   %exitcond1110.not = icmp eq i64 %indvars.iv.next1107, %wide.trip.count1109
@@ -2126,7 +2126,7 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 ._crit_edge.us875:                                ; preds = %593
   %597 = add nsw i32 %.15725869.us, %34
   %598 = add nsw i32 %.15741868.us, %32
-  %599 = getelementptr inbounds double, ptr %.3681871.us, i64 %502
+  %599 = getelementptr inbounds nuw double, ptr %.3681871.us, i64 %502
   %600 = add nuw nsw i32 %.15870.us, 1
   %exitcond1111.not = icmp eq i32 %.15870.us, %reass.sub1042
   br i1 %exitcond1111.not, label %._crit_edge874, label %.lr.ph867.us, !llvm.loop !61
@@ -2143,40 +2143,40 @@ define hidden void @mlib_ImageAffineEdgeNearest(ptr nocapture noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.val = load i32, ptr %4, align 8
   %13 = getelementptr i8, ptr %4, i64 4
   %.val2191 = load i32, ptr %13, align 4
   %14 = getelementptr i8, ptr %4, i64 16
   %.val2193 = load i32, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 84
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr i8, ptr %35, i64 8
@@ -2294,22 +2294,22 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.019932537.us = phi ptr [ %90, %.lr.ph2540.us ], [ %125, %97 ]
   %98 = load i8, ptr %.019932537.us, align 1
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %99
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %.019932537.us, i64 %91
+  %102 = getelementptr inbounds nuw i8, ptr %.019932537.us, i64 %91
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %104
   %106 = load double, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %.019932537.us, i64 %92
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %109
   %111 = load double, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %.019932537.us, i64 %94
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %114
   %116 = load double, ptr %115, align 8
   %117 = fmul double %69, %106
   %118 = tail call double @llvm.fmuladd.f64(double %101, double %95, double %117)
@@ -2318,9 +2318,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %121 = fmul double %72, %120
   %122 = tail call double @llvm.fmuladd.f64(double %118, double %96, double %121)
   %123 = fptoui double %122 to i8
-  %124 = getelementptr inbounds i8, ptr %.019892545.us, i64 %indvars.iv2840
+  %124 = getelementptr inbounds nuw i8, ptr %.019892545.us, i64 %indvars.iv2840
   store i8 %123, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %.019932537.us, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %.019932537.us, i64 1
   %indvars.iv.next2841 = add nuw nsw i64 %indvars.iv2840, 1
   %exitcond2844.not = icmp eq i64 %indvars.iv.next2841, %wide.trip.count2843
   br i1 %exitcond2844.not, label %._crit_edge2541.us, label %97, !llvm.loop !63
@@ -2328,7 +2328,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2541.us:                               ; preds = %97
   %126 = add nsw i32 %.020492542.us, %32
   %127 = add nsw i32 %.020252543.us, %34
-  %128 = getelementptr inbounds i8, ptr %.019892545.us, i64 %42
+  %128 = getelementptr inbounds nuw i8, ptr %.019892545.us, i64 %42
   %129 = add nuw nsw i32 %.020072544.us, 1
   %exitcond2845.not = icmp eq i32 %.020072544.us, %reass.sub2608
   br i1 %exitcond2845.not, label %._crit_edge2548, label %.lr.ph2540.us, !llvm.loop !64
@@ -2436,22 +2436,22 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.119942554 = phi ptr [ %174, %.lr.ph2557 ], [ %217, %189 ]
   %190 = load i8, ptr %.119942554, align 1
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %191
   %193 = load double, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %.119942554, i64 %183
+  %194 = getelementptr inbounds nuw i8, ptr %.119942554, i64 %183
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i64
-  %197 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %196
   %198 = load double, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %.119942554, i64 %184
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %201
   %203 = load double, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %.119942554, i64 %186
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %206
   %208 = load double, ptr %207, align 8
   %209 = fmul double %159, %198
   %210 = tail call double @llvm.fmuladd.f64(double %193, double %187, double %209)
@@ -2460,9 +2460,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %213 = fmul double %162, %212
   %214 = tail call double @llvm.fmuladd.f64(double %210, double %188, double %213)
   %215 = fptoui double %214 to i8
-  %216 = getelementptr inbounds i8, ptr %.119902562, i64 %indvars.iv2851
+  %216 = getelementptr inbounds nuw i8, ptr %.119902562, i64 %indvars.iv2851
   store i8 %215, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.119942554, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %.119942554, i64 1
   %indvars.iv.next2852 = add nuw nsw i64 %indvars.iv2851, 1
   %exitcond2855.not = icmp eq i64 %indvars.iv.next2852, %wide.trip.count2854
   br i1 %exitcond2855.not, label %._crit_edge2558, label %189, !llvm.loop !66
@@ -2550,22 +2550,22 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.219952565 = phi ptr [ %253, %.lr.ph2568 ], [ %296, %268 ]
   %269 = load i8, ptr %.219952565, align 1
   %270 = zext i8 %269 to i64
-  %271 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %270
   %272 = load double, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %.219952565, i64 %262
+  %273 = getelementptr inbounds nuw i8, ptr %.219952565, i64 %262
   %274 = load i8, ptr %273, align 1
   %275 = zext i8 %274 to i64
-  %276 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %275
   %277 = load double, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %.219952565, i64 %263
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i64
-  %281 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %280
   %282 = load double, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %.219952565, i64 %265
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %285
   %287 = load double, ptr %286, align 8
   %288 = fmul double %238, %277
   %289 = tail call double @llvm.fmuladd.f64(double %272, double %266, double %288)
@@ -2574,9 +2574,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %292 = fmul double %241, %291
   %293 = tail call double @llvm.fmuladd.f64(double %289, double %267, double %292)
   %294 = fptoui double %293 to i8
-  %295 = getelementptr inbounds i8, ptr %.219912573, i64 %indvars.iv2857
+  %295 = getelementptr inbounds nuw i8, ptr %.219912573, i64 %indvars.iv2857
   store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds i8, ptr %.219952565, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %.219952565, i64 1
   %indvars.iv.next2858 = add nuw nsw i64 %indvars.iv2857, 1
   %exitcond2861.not = icmp eq i64 %indvars.iv.next2858, %wide.trip.count2860
   br i1 %exitcond2861.not, label %._crit_edge2569, label %268, !llvm.loop !68
@@ -2666,22 +2666,22 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.319962583.us = phi ptr [ %342, %.lr.ph2586.us ], [ %377, %349 ]
   %350 = load i8, ptr %.319962583.us, align 1
   %351 = zext i8 %350 to i64
-  %352 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %351
   %353 = load double, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %.319962583.us, i64 %343
+  %354 = getelementptr inbounds nuw i8, ptr %.319962583.us, i64 %343
   %355 = load i8, ptr %354, align 1
   %356 = zext i8 %355 to i64
-  %357 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %356
   %358 = load double, ptr %357, align 8
   %359 = getelementptr inbounds i8, ptr %.319962583.us, i64 %344
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i64
-  %362 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %361
   %363 = load double, ptr %362, align 8
   %364 = getelementptr inbounds i8, ptr %.319962583.us, i64 %346
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i64
-  %367 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %366
   %368 = load double, ptr %367, align 8
   %369 = fmul double %321, %358
   %370 = tail call double @llvm.fmuladd.f64(double %353, double %347, double %369)
@@ -2690,9 +2690,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %373 = fmul double %324, %372
   %374 = tail call double @llvm.fmuladd.f64(double %370, double %348, double %373)
   %375 = fptoui double %374 to i8
-  %376 = getelementptr inbounds i8, ptr %.319922591.us, i64 %indvars.iv2868
+  %376 = getelementptr inbounds nuw i8, ptr %.319922591.us, i64 %indvars.iv2868
   store i8 %375, ptr %376, align 1
-  %377 = getelementptr inbounds i8, ptr %.319962583.us, i64 1
+  %377 = getelementptr inbounds nuw i8, ptr %.319962583.us, i64 1
   %indvars.iv.next2869 = add nuw nsw i64 %indvars.iv2868, 1
   %exitcond2872.not = icmp eq i64 %indvars.iv.next2869, %wide.trip.count2871
   br i1 %exitcond2872.not, label %._crit_edge2587.us, label %349, !llvm.loop !71
@@ -2700,7 +2700,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2587.us:                               ; preds = %349
   %378 = add nsw i32 %.320522588.us, %32
   %379 = add nsw i32 %.320282589.us, %34
-  %380 = getelementptr inbounds i8, ptr %.319922591.us, i64 %132
+  %380 = getelementptr inbounds nuw i8, ptr %.319922591.us, i64 %132
   %381 = add nuw nsw i32 %.320102590.us, 1
   %exitcond2873.not = icmp eq i32 %.320102590.us, %reass.sub2609
   br i1 %exitcond2873.not, label %._crit_edge2594, label %.lr.ph2586.us, !llvm.loop !72
@@ -2812,7 +2812,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.019812474.us = phi ptr [ %435, %.lr.ph2477.us ], [ %462, %442 ]
   %443 = load i16, ptr %.019812474.us, align 2
   %444 = sitofp i16 %443 to double
-  %445 = getelementptr inbounds i16, ptr %.019812474.us, i64 %436
+  %445 = getelementptr inbounds nuw i16, ptr %.019812474.us, i64 %436
   %446 = load i16, ptr %445, align 2
   %447 = sitofp i16 %446 to double
   %448 = getelementptr inbounds i16, ptr %.019812474.us, i64 %437
@@ -2828,9 +2828,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %458 = fmul double %417, %457
   %459 = tail call double @llvm.fmuladd.f64(double %455, double %441, double %458)
   %460 = fptosi double %459 to i16
-  %461 = getelementptr inbounds i16, ptr %.019772482.us, i64 %indvars.iv2801
+  %461 = getelementptr inbounds nuw i16, ptr %.019772482.us, i64 %indvars.iv2801
   store i16 %460, ptr %461, align 2
-  %462 = getelementptr inbounds i8, ptr %.019812474.us, i64 2
+  %462 = getelementptr inbounds nuw i8, ptr %.019812474.us, i64 2
   %indvars.iv.next2802 = add nuw nsw i64 %indvars.iv2801, 1
   %exitcond2805.not = icmp eq i64 %indvars.iv.next2802, %wide.trip.count2804
   br i1 %exitcond2805.not, label %._crit_edge2478.us, label %442, !llvm.loop !74
@@ -2838,7 +2838,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2478.us:                               ; preds = %442
   %463 = add nsw i32 %.420532479.us, %32
   %464 = add nsw i32 %.420292480.us, %34
-  %465 = getelementptr inbounds i16, ptr %.019772482.us, i64 %387
+  %465 = getelementptr inbounds nuw i16, ptr %.019772482.us, i64 %387
   %466 = add nuw nsw i32 %.420112481.us, 1
   %exitcond2806.not = icmp eq i32 %.420112481.us, %reass.sub2606
   br i1 %exitcond2806.not, label %._crit_edge2485, label %.lr.ph2477.us, !llvm.loop !75
@@ -2946,7 +2946,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.119822492 = phi ptr [ %511, %.lr.ph2495 ], [ %546, %526 ]
   %527 = load i16, ptr %.119822492, align 2
   %528 = sitofp i16 %527 to double
-  %529 = getelementptr inbounds i16, ptr %.119822492, i64 %520
+  %529 = getelementptr inbounds nuw i16, ptr %.119822492, i64 %520
   %530 = load i16, ptr %529, align 2
   %531 = sitofp i16 %530 to double
   %532 = getelementptr inbounds i16, ptr %.119822492, i64 %521
@@ -2962,9 +2962,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %542 = fmul double %499, %541
   %543 = tail call double @llvm.fmuladd.f64(double %539, double %525, double %542)
   %544 = fptosi double %543 to i16
-  %545 = getelementptr inbounds i16, ptr %.119782500, i64 %indvars.iv2812
+  %545 = getelementptr inbounds nuw i16, ptr %.119782500, i64 %indvars.iv2812
   store i16 %544, ptr %545, align 2
-  %546 = getelementptr inbounds i8, ptr %.119822492, i64 2
+  %546 = getelementptr inbounds nuw i8, ptr %.119822492, i64 2
   %indvars.iv.next2813 = add nuw nsw i64 %indvars.iv2812, 1
   %exitcond2816.not = icmp eq i64 %indvars.iv.next2813, %wide.trip.count2815
   br i1 %exitcond2816.not, label %._crit_edge2496, label %526, !llvm.loop !77
@@ -3052,7 +3052,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.219832503 = phi ptr [ %582, %.lr.ph2506 ], [ %617, %597 ]
   %598 = load i16, ptr %.219832503, align 2
   %599 = sitofp i16 %598 to double
-  %600 = getelementptr inbounds i16, ptr %.219832503, i64 %591
+  %600 = getelementptr inbounds nuw i16, ptr %.219832503, i64 %591
   %601 = load i16, ptr %600, align 2
   %602 = sitofp i16 %601 to double
   %603 = getelementptr inbounds i16, ptr %.219832503, i64 %592
@@ -3068,9 +3068,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %613 = fmul double %570, %612
   %614 = tail call double @llvm.fmuladd.f64(double %610, double %596, double %613)
   %615 = fptosi double %614 to i16
-  %616 = getelementptr inbounds i16, ptr %.219792511, i64 %indvars.iv2818
+  %616 = getelementptr inbounds nuw i16, ptr %.219792511, i64 %indvars.iv2818
   store i16 %615, ptr %616, align 2
-  %617 = getelementptr inbounds i8, ptr %.219832503, i64 2
+  %617 = getelementptr inbounds nuw i8, ptr %.219832503, i64 2
   %indvars.iv.next2819 = add nuw nsw i64 %indvars.iv2818, 1
   %exitcond2822.not = icmp eq i64 %indvars.iv.next2819, %wide.trip.count2821
   br i1 %exitcond2822.not, label %._crit_edge2507, label %597, !llvm.loop !79
@@ -3160,7 +3160,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.319842521.us = phi ptr [ %663, %.lr.ph2524.us ], [ %690, %670 ]
   %671 = load i16, ptr %.319842521.us, align 2
   %672 = sitofp i16 %671 to double
-  %673 = getelementptr inbounds i16, ptr %.319842521.us, i64 %664
+  %673 = getelementptr inbounds nuw i16, ptr %.319842521.us, i64 %664
   %674 = load i16, ptr %673, align 2
   %675 = sitofp i16 %674 to double
   %676 = getelementptr inbounds i16, ptr %.319842521.us, i64 %665
@@ -3176,9 +3176,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %686 = fmul double %645, %685
   %687 = tail call double @llvm.fmuladd.f64(double %683, double %669, double %686)
   %688 = fptosi double %687 to i16
-  %689 = getelementptr inbounds i16, ptr %.319802529.us, i64 %indvars.iv2829
+  %689 = getelementptr inbounds nuw i16, ptr %.319802529.us, i64 %indvars.iv2829
   store i16 %688, ptr %689, align 2
-  %690 = getelementptr inbounds i8, ptr %.319842521.us, i64 2
+  %690 = getelementptr inbounds nuw i8, ptr %.319842521.us, i64 2
   %indvars.iv.next2830 = add nuw nsw i64 %indvars.iv2829, 1
   %exitcond2833.not = icmp eq i64 %indvars.iv.next2830, %wide.trip.count2832
   br i1 %exitcond2833.not, label %._crit_edge2525.us, label %670, !llvm.loop !82
@@ -3186,7 +3186,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2525.us:                               ; preds = %670
   %691 = add nsw i32 %.720562526.us, %32
   %692 = add nsw i32 %.720322527.us, %34
-  %693 = getelementptr inbounds i16, ptr %.319802529.us, i64 %469
+  %693 = getelementptr inbounds nuw i16, ptr %.319802529.us, i64 %469
   %694 = add nuw nsw i32 %.720142528.us, 1
   %exitcond2834.not = icmp eq i32 %.720142528.us, %reass.sub2607
   br i1 %exitcond2834.not, label %._crit_edge2532, label %.lr.ph2524.us, !llvm.loop !83
@@ -3298,7 +3298,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.019692411.us = phi ptr [ %748, %.lr.ph2414.us ], [ %775, %755 ]
   %756 = load i16, ptr %.019692411.us, align 2
   %757 = uitofp i16 %756 to double
-  %758 = getelementptr inbounds i16, ptr %.019692411.us, i64 %749
+  %758 = getelementptr inbounds nuw i16, ptr %.019692411.us, i64 %749
   %759 = load i16, ptr %758, align 2
   %760 = uitofp i16 %759 to double
   %761 = getelementptr inbounds i16, ptr %.019692411.us, i64 %750
@@ -3314,9 +3314,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %771 = fmul double %730, %770
   %772 = tail call double @llvm.fmuladd.f64(double %768, double %754, double %771)
   %773 = fptoui double %772 to i16
-  %774 = getelementptr inbounds i16, ptr %.019652419.us, i64 %indvars.iv2762
+  %774 = getelementptr inbounds nuw i16, ptr %.019652419.us, i64 %indvars.iv2762
   store i16 %773, ptr %774, align 2
-  %775 = getelementptr inbounds i8, ptr %.019692411.us, i64 2
+  %775 = getelementptr inbounds nuw i8, ptr %.019692411.us, i64 2
   %indvars.iv.next2763 = add nuw nsw i64 %indvars.iv2762, 1
   %exitcond2766.not = icmp eq i64 %indvars.iv.next2763, %wide.trip.count2765
   br i1 %exitcond2766.not, label %._crit_edge2415.us, label %755, !llvm.loop !85
@@ -3324,7 +3324,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2415.us:                               ; preds = %755
   %776 = add nsw i32 %.820572416.us, %32
   %777 = add nsw i32 %.820332417.us, %34
-  %778 = getelementptr inbounds i16, ptr %.019652419.us, i64 %700
+  %778 = getelementptr inbounds nuw i16, ptr %.019652419.us, i64 %700
   %779 = add nuw nsw i32 %.820152418.us, 1
   %exitcond2767.not = icmp eq i32 %.820152418.us, %reass.sub2604
   br i1 %exitcond2767.not, label %._crit_edge2422, label %.lr.ph2414.us, !llvm.loop !86
@@ -3432,7 +3432,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.119702429 = phi ptr [ %824, %.lr.ph2432 ], [ %859, %839 ]
   %840 = load i16, ptr %.119702429, align 2
   %841 = uitofp i16 %840 to double
-  %842 = getelementptr inbounds i16, ptr %.119702429, i64 %833
+  %842 = getelementptr inbounds nuw i16, ptr %.119702429, i64 %833
   %843 = load i16, ptr %842, align 2
   %844 = uitofp i16 %843 to double
   %845 = getelementptr inbounds i16, ptr %.119702429, i64 %834
@@ -3448,9 +3448,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %855 = fmul double %812, %854
   %856 = tail call double @llvm.fmuladd.f64(double %852, double %838, double %855)
   %857 = fptoui double %856 to i16
-  %858 = getelementptr inbounds i16, ptr %.119662437, i64 %indvars.iv2773
+  %858 = getelementptr inbounds nuw i16, ptr %.119662437, i64 %indvars.iv2773
   store i16 %857, ptr %858, align 2
-  %859 = getelementptr inbounds i8, ptr %.119702429, i64 2
+  %859 = getelementptr inbounds nuw i8, ptr %.119702429, i64 2
   %indvars.iv.next2774 = add nuw nsw i64 %indvars.iv2773, 1
   %exitcond2777.not = icmp eq i64 %indvars.iv.next2774, %wide.trip.count2776
   br i1 %exitcond2777.not, label %._crit_edge2433, label %839, !llvm.loop !88
@@ -3538,7 +3538,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.219712440 = phi ptr [ %895, %.lr.ph2443 ], [ %930, %910 ]
   %911 = load i16, ptr %.219712440, align 2
   %912 = uitofp i16 %911 to double
-  %913 = getelementptr inbounds i16, ptr %.219712440, i64 %904
+  %913 = getelementptr inbounds nuw i16, ptr %.219712440, i64 %904
   %914 = load i16, ptr %913, align 2
   %915 = uitofp i16 %914 to double
   %916 = getelementptr inbounds i16, ptr %.219712440, i64 %905
@@ -3554,9 +3554,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %926 = fmul double %883, %925
   %927 = tail call double @llvm.fmuladd.f64(double %923, double %909, double %926)
   %928 = fptoui double %927 to i16
-  %929 = getelementptr inbounds i16, ptr %.219672448, i64 %indvars.iv2779
+  %929 = getelementptr inbounds nuw i16, ptr %.219672448, i64 %indvars.iv2779
   store i16 %928, ptr %929, align 2
-  %930 = getelementptr inbounds i8, ptr %.219712440, i64 2
+  %930 = getelementptr inbounds nuw i8, ptr %.219712440, i64 2
   %indvars.iv.next2780 = add nuw nsw i64 %indvars.iv2779, 1
   %exitcond2783.not = icmp eq i64 %indvars.iv.next2780, %wide.trip.count2782
   br i1 %exitcond2783.not, label %._crit_edge2444, label %910, !llvm.loop !90
@@ -3646,7 +3646,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.319722458.us = phi ptr [ %976, %.lr.ph2461.us ], [ %1003, %983 ]
   %984 = load i16, ptr %.319722458.us, align 2
   %985 = uitofp i16 %984 to double
-  %986 = getelementptr inbounds i16, ptr %.319722458.us, i64 %977
+  %986 = getelementptr inbounds nuw i16, ptr %.319722458.us, i64 %977
   %987 = load i16, ptr %986, align 2
   %988 = uitofp i16 %987 to double
   %989 = getelementptr inbounds i16, ptr %.319722458.us, i64 %978
@@ -3662,9 +3662,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %999 = fmul double %958, %998
   %1000 = tail call double @llvm.fmuladd.f64(double %996, double %982, double %999)
   %1001 = fptoui double %1000 to i16
-  %1002 = getelementptr inbounds i16, ptr %.319682466.us, i64 %indvars.iv2790
+  %1002 = getelementptr inbounds nuw i16, ptr %.319682466.us, i64 %indvars.iv2790
   store i16 %1001, ptr %1002, align 2
-  %1003 = getelementptr inbounds i8, ptr %.319722458.us, i64 2
+  %1003 = getelementptr inbounds nuw i8, ptr %.319722458.us, i64 2
   %indvars.iv.next2791 = add nuw nsw i64 %indvars.iv2790, 1
   %exitcond2794.not = icmp eq i64 %indvars.iv.next2791, %wide.trip.count2793
   br i1 %exitcond2794.not, label %._crit_edge2462.us, label %983, !llvm.loop !93
@@ -3672,7 +3672,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2462.us:                               ; preds = %983
   %1004 = add nsw i32 %.1120602463.us, %32
   %1005 = add nsw i32 %.1120362464.us, %34
-  %1006 = getelementptr inbounds i16, ptr %.319682466.us, i64 %782
+  %1006 = getelementptr inbounds nuw i16, ptr %.319682466.us, i64 %782
   %1007 = add nuw nsw i32 %.1120182465.us, 1
   %exitcond2795.not = icmp eq i32 %.1120182465.us, %reass.sub2605
   br i1 %exitcond2795.not, label %._crit_edge2469, label %.lr.ph2461.us, !llvm.loop !94
@@ -3784,7 +3784,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.019572348.us = phi ptr [ %1061, %.lr.ph2351.us ], [ %1088, %1068 ]
   %1069 = load i32, ptr %.019572348.us, align 4
   %1070 = sitofp i32 %1069 to double
-  %1071 = getelementptr inbounds i32, ptr %.019572348.us, i64 %1062
+  %1071 = getelementptr inbounds nuw i32, ptr %.019572348.us, i64 %1062
   %1072 = load i32, ptr %1071, align 4
   %1073 = sitofp i32 %1072 to double
   %1074 = getelementptr inbounds i32, ptr %.019572348.us, i64 %1063
@@ -3800,9 +3800,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1084 = fmul double %1043, %1083
   %1085 = tail call double @llvm.fmuladd.f64(double %1081, double %1067, double %1084)
   %1086 = fptosi double %1085 to i32
-  %1087 = getelementptr inbounds i32, ptr %.019532356.us, i64 %indvars.iv2723
+  %1087 = getelementptr inbounds nuw i32, ptr %.019532356.us, i64 %indvars.iv2723
   store i32 %1086, ptr %1087, align 4
-  %1088 = getelementptr inbounds i8, ptr %.019572348.us, i64 4
+  %1088 = getelementptr inbounds nuw i8, ptr %.019572348.us, i64 4
   %indvars.iv.next2724 = add nuw nsw i64 %indvars.iv2723, 1
   %exitcond2727.not = icmp eq i64 %indvars.iv.next2724, %wide.trip.count2726
   br i1 %exitcond2727.not, label %._crit_edge2352.us, label %1068, !llvm.loop !96
@@ -3810,7 +3810,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2352.us:                               ; preds = %1068
   %1089 = add nsw i32 %.1220612353.us, %32
   %1090 = add nsw i32 %.1220372354.us, %34
-  %1091 = getelementptr inbounds i32, ptr %.019532356.us, i64 %1013
+  %1091 = getelementptr inbounds nuw i32, ptr %.019532356.us, i64 %1013
   %1092 = add nuw nsw i32 %.1220192355.us, 1
   %exitcond2728.not = icmp eq i32 %.1220192355.us, %reass.sub2602
   br i1 %exitcond2728.not, label %._crit_edge2359, label %.lr.ph2351.us, !llvm.loop !97
@@ -3918,7 +3918,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.119582366 = phi ptr [ %1137, %.lr.ph2369 ], [ %1172, %1152 ]
   %1153 = load i32, ptr %.119582366, align 4
   %1154 = sitofp i32 %1153 to double
-  %1155 = getelementptr inbounds i32, ptr %.119582366, i64 %1146
+  %1155 = getelementptr inbounds nuw i32, ptr %.119582366, i64 %1146
   %1156 = load i32, ptr %1155, align 4
   %1157 = sitofp i32 %1156 to double
   %1158 = getelementptr inbounds i32, ptr %.119582366, i64 %1147
@@ -3934,9 +3934,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1168 = fmul double %1125, %1167
   %1169 = tail call double @llvm.fmuladd.f64(double %1165, double %1151, double %1168)
   %1170 = fptosi double %1169 to i32
-  %1171 = getelementptr inbounds i32, ptr %.119542374, i64 %indvars.iv2734
+  %1171 = getelementptr inbounds nuw i32, ptr %.119542374, i64 %indvars.iv2734
   store i32 %1170, ptr %1171, align 4
-  %1172 = getelementptr inbounds i8, ptr %.119582366, i64 4
+  %1172 = getelementptr inbounds nuw i8, ptr %.119582366, i64 4
   %indvars.iv.next2735 = add nuw nsw i64 %indvars.iv2734, 1
   %exitcond2738.not = icmp eq i64 %indvars.iv.next2735, %wide.trip.count2737
   br i1 %exitcond2738.not, label %._crit_edge2370, label %1152, !llvm.loop !99
@@ -4024,7 +4024,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.219592377 = phi ptr [ %1208, %.lr.ph2380 ], [ %1243, %1223 ]
   %1224 = load i32, ptr %.219592377, align 4
   %1225 = sitofp i32 %1224 to double
-  %1226 = getelementptr inbounds i32, ptr %.219592377, i64 %1217
+  %1226 = getelementptr inbounds nuw i32, ptr %.219592377, i64 %1217
   %1227 = load i32, ptr %1226, align 4
   %1228 = sitofp i32 %1227 to double
   %1229 = getelementptr inbounds i32, ptr %.219592377, i64 %1218
@@ -4040,9 +4040,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1239 = fmul double %1196, %1238
   %1240 = tail call double @llvm.fmuladd.f64(double %1236, double %1222, double %1239)
   %1241 = fptosi double %1240 to i32
-  %1242 = getelementptr inbounds i32, ptr %.219552385, i64 %indvars.iv2740
+  %1242 = getelementptr inbounds nuw i32, ptr %.219552385, i64 %indvars.iv2740
   store i32 %1241, ptr %1242, align 4
-  %1243 = getelementptr inbounds i8, ptr %.219592377, i64 4
+  %1243 = getelementptr inbounds nuw i8, ptr %.219592377, i64 4
   %indvars.iv.next2741 = add nuw nsw i64 %indvars.iv2740, 1
   %exitcond2744.not = icmp eq i64 %indvars.iv.next2741, %wide.trip.count2743
   br i1 %exitcond2744.not, label %._crit_edge2381, label %1223, !llvm.loop !101
@@ -4132,7 +4132,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.319602395.us = phi ptr [ %1289, %.lr.ph2398.us ], [ %1316, %1296 ]
   %1297 = load i32, ptr %.319602395.us, align 4
   %1298 = sitofp i32 %1297 to double
-  %1299 = getelementptr inbounds i32, ptr %.319602395.us, i64 %1290
+  %1299 = getelementptr inbounds nuw i32, ptr %.319602395.us, i64 %1290
   %1300 = load i32, ptr %1299, align 4
   %1301 = sitofp i32 %1300 to double
   %1302 = getelementptr inbounds i32, ptr %.319602395.us, i64 %1291
@@ -4148,9 +4148,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1312 = fmul double %1271, %1311
   %1313 = tail call double @llvm.fmuladd.f64(double %1309, double %1295, double %1312)
   %1314 = fptosi double %1313 to i32
-  %1315 = getelementptr inbounds i32, ptr %.319562403.us, i64 %indvars.iv2751
+  %1315 = getelementptr inbounds nuw i32, ptr %.319562403.us, i64 %indvars.iv2751
   store i32 %1314, ptr %1315, align 4
-  %1316 = getelementptr inbounds i8, ptr %.319602395.us, i64 4
+  %1316 = getelementptr inbounds nuw i8, ptr %.319602395.us, i64 4
   %indvars.iv.next2752 = add nuw nsw i64 %indvars.iv2751, 1
   %exitcond2755.not = icmp eq i64 %indvars.iv.next2752, %wide.trip.count2754
   br i1 %exitcond2755.not, label %._crit_edge2399.us, label %1296, !llvm.loop !104
@@ -4158,7 +4158,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2399.us:                               ; preds = %1296
   %1317 = add nsw i32 %.1520642400.us, %32
   %1318 = add nsw i32 %.1520402401.us, %34
-  %1319 = getelementptr inbounds i32, ptr %.319562403.us, i64 %1095
+  %1319 = getelementptr inbounds nuw i32, ptr %.319562403.us, i64 %1095
   %1320 = add nuw nsw i32 %.1520222402.us, 1
   %exitcond2756.not = icmp eq i32 %.1520222402.us, %reass.sub2603
   br i1 %exitcond2756.not, label %._crit_edge2406, label %.lr.ph2398.us, !llvm.loop !105
@@ -4270,7 +4270,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.019452285.us = phi ptr [ %1374, %.lr.ph2288.us ], [ %1401, %1381 ]
   %1382 = load float, ptr %.019452285.us, align 4
   %1383 = fpext float %1382 to double
-  %1384 = getelementptr inbounds float, ptr %.019452285.us, i64 %1375
+  %1384 = getelementptr inbounds nuw float, ptr %.019452285.us, i64 %1375
   %1385 = load float, ptr %1384, align 4
   %1386 = fpext float %1385 to double
   %1387 = getelementptr inbounds float, ptr %.019452285.us, i64 %1376
@@ -4286,9 +4286,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1397 = fmul double %1356, %1396
   %1398 = tail call double @llvm.fmuladd.f64(double %1394, double %1380, double %1397)
   %1399 = fptrunc double %1398 to float
-  %1400 = getelementptr inbounds float, ptr %.019412293.us, i64 %indvars.iv2684
+  %1400 = getelementptr inbounds nuw float, ptr %.019412293.us, i64 %indvars.iv2684
   store float %1399, ptr %1400, align 4
-  %1401 = getelementptr inbounds i8, ptr %.019452285.us, i64 4
+  %1401 = getelementptr inbounds nuw i8, ptr %.019452285.us, i64 4
   %indvars.iv.next2685 = add nuw nsw i64 %indvars.iv2684, 1
   %exitcond2688.not = icmp eq i64 %indvars.iv.next2685, %wide.trip.count2687
   br i1 %exitcond2688.not, label %._crit_edge2289.us, label %1381, !llvm.loop !107
@@ -4296,7 +4296,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2289.us:                               ; preds = %1381
   %1402 = add nsw i32 %.1620652290.us, %32
   %1403 = add nsw i32 %.1620412291.us, %34
-  %1404 = getelementptr inbounds float, ptr %.019412293.us, i64 %1326
+  %1404 = getelementptr inbounds nuw float, ptr %.019412293.us, i64 %1326
   %1405 = add nuw nsw i32 %.1620232292.us, 1
   %exitcond2689.not = icmp eq i32 %.1620232292.us, %reass.sub2600
   br i1 %exitcond2689.not, label %._crit_edge2296, label %.lr.ph2288.us, !llvm.loop !108
@@ -4404,7 +4404,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.119462303 = phi ptr [ %1450, %.lr.ph2306 ], [ %1485, %1465 ]
   %1466 = load float, ptr %.119462303, align 4
   %1467 = fpext float %1466 to double
-  %1468 = getelementptr inbounds float, ptr %.119462303, i64 %1459
+  %1468 = getelementptr inbounds nuw float, ptr %.119462303, i64 %1459
   %1469 = load float, ptr %1468, align 4
   %1470 = fpext float %1469 to double
   %1471 = getelementptr inbounds float, ptr %.119462303, i64 %1460
@@ -4420,9 +4420,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1481 = fmul double %1438, %1480
   %1482 = tail call double @llvm.fmuladd.f64(double %1478, double %1464, double %1481)
   %1483 = fptrunc double %1482 to float
-  %1484 = getelementptr inbounds float, ptr %.119422311, i64 %indvars.iv2695
+  %1484 = getelementptr inbounds nuw float, ptr %.119422311, i64 %indvars.iv2695
   store float %1483, ptr %1484, align 4
-  %1485 = getelementptr inbounds i8, ptr %.119462303, i64 4
+  %1485 = getelementptr inbounds nuw i8, ptr %.119462303, i64 4
   %indvars.iv.next2696 = add nuw nsw i64 %indvars.iv2695, 1
   %exitcond2699.not = icmp eq i64 %indvars.iv.next2696, %wide.trip.count2698
   br i1 %exitcond2699.not, label %._crit_edge2307, label %1465, !llvm.loop !110
@@ -4510,7 +4510,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.219472314 = phi ptr [ %1521, %.lr.ph2317 ], [ %1556, %1536 ]
   %1537 = load float, ptr %.219472314, align 4
   %1538 = fpext float %1537 to double
-  %1539 = getelementptr inbounds float, ptr %.219472314, i64 %1530
+  %1539 = getelementptr inbounds nuw float, ptr %.219472314, i64 %1530
   %1540 = load float, ptr %1539, align 4
   %1541 = fpext float %1540 to double
   %1542 = getelementptr inbounds float, ptr %.219472314, i64 %1531
@@ -4526,9 +4526,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1552 = fmul double %1509, %1551
   %1553 = tail call double @llvm.fmuladd.f64(double %1549, double %1535, double %1552)
   %1554 = fptrunc double %1553 to float
-  %1555 = getelementptr inbounds float, ptr %.219432322, i64 %indvars.iv2701
+  %1555 = getelementptr inbounds nuw float, ptr %.219432322, i64 %indvars.iv2701
   store float %1554, ptr %1555, align 4
-  %1556 = getelementptr inbounds i8, ptr %.219472314, i64 4
+  %1556 = getelementptr inbounds nuw i8, ptr %.219472314, i64 4
   %indvars.iv.next2702 = add nuw nsw i64 %indvars.iv2701, 1
   %exitcond2705.not = icmp eq i64 %indvars.iv.next2702, %wide.trip.count2704
   br i1 %exitcond2705.not, label %._crit_edge2318, label %1536, !llvm.loop !112
@@ -4618,7 +4618,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %.319482332.us = phi ptr [ %1602, %.lr.ph2335.us ], [ %1629, %1609 ]
   %1610 = load float, ptr %.319482332.us, align 4
   %1611 = fpext float %1610 to double
-  %1612 = getelementptr inbounds float, ptr %.319482332.us, i64 %1603
+  %1612 = getelementptr inbounds nuw float, ptr %.319482332.us, i64 %1603
   %1613 = load float, ptr %1612, align 4
   %1614 = fpext float %1613 to double
   %1615 = getelementptr inbounds float, ptr %.319482332.us, i64 %1604
@@ -4634,9 +4634,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1625 = fmul double %1584, %1624
   %1626 = tail call double @llvm.fmuladd.f64(double %1622, double %1608, double %1625)
   %1627 = fptrunc double %1626 to float
-  %1628 = getelementptr inbounds float, ptr %.319442340.us, i64 %indvars.iv2712
+  %1628 = getelementptr inbounds nuw float, ptr %.319442340.us, i64 %indvars.iv2712
   store float %1627, ptr %1628, align 4
-  %1629 = getelementptr inbounds i8, ptr %.319482332.us, i64 4
+  %1629 = getelementptr inbounds nuw i8, ptr %.319482332.us, i64 4
   %indvars.iv.next2713 = add nuw nsw i64 %indvars.iv2712, 1
   %exitcond2716.not = icmp eq i64 %indvars.iv.next2713, %wide.trip.count2715
   br i1 %exitcond2716.not, label %._crit_edge2336.us, label %1609, !llvm.loop !115
@@ -4644,7 +4644,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2336.us:                               ; preds = %1609
   %1630 = add nsw i32 %.1920682337.us, %32
   %1631 = add nsw i32 %.1920442338.us, %34
-  %1632 = getelementptr inbounds float, ptr %.319442340.us, i64 %1408
+  %1632 = getelementptr inbounds nuw float, ptr %.319442340.us, i64 %1408
   %1633 = add nuw nsw i32 %.192339.us, 1
   %exitcond2717.not = icmp eq i32 %.192339.us, %reass.sub2601
   br i1 %exitcond2717.not, label %._crit_edge2343, label %.lr.ph2335.us, !llvm.loop !116
@@ -4755,7 +4755,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %1694 ]
   %.019332230.us = phi ptr [ %1687, %.lr.ph.us ], [ %1709, %1694 ]
   %1695 = load double, ptr %.019332230.us, align 8
-  %1696 = getelementptr inbounds double, ptr %.019332230.us, i64 %1688
+  %1696 = getelementptr inbounds nuw double, ptr %.019332230.us, i64 %1688
   %1697 = load double, ptr %1696, align 8
   %1698 = getelementptr inbounds double, ptr %.019332230.us, i64 %1689
   %1699 = load double, ptr %1698, align 8
@@ -4767,9 +4767,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1705 = tail call double @llvm.fmuladd.f64(double %1699, double %1692, double %1704)
   %1706 = fmul double %1669, %1705
   %1707 = tail call double @llvm.fmuladd.f64(double %1703, double %1693, double %1706)
-  %1708 = getelementptr inbounds double, ptr %.019292235.us, i64 %indvars.iv
+  %1708 = getelementptr inbounds nuw double, ptr %.019292235.us, i64 %indvars.iv
   store double %1707, ptr %1708, align 8
-  %1709 = getelementptr inbounds i8, ptr %.019332230.us, i64 8
+  %1709 = getelementptr inbounds nuw i8, ptr %.019332230.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %1694, !llvm.loop !118
@@ -4777,7 +4777,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge.us:                                   ; preds = %1694
   %1710 = add nsw i32 %.2020692232.us, %32
   %1711 = add nsw i32 %.2020452233.us, %34
-  %1712 = getelementptr inbounds double, ptr %.019292235.us, i64 %1639
+  %1712 = getelementptr inbounds nuw double, ptr %.019292235.us, i64 %1639
   %1713 = add nuw nsw i32 %.202234.us, 1
   %exitcond2651.not = icmp eq i32 %.202234.us, %reass.sub
   br i1 %exitcond2651.not, label %._crit_edge2238, label %.lr.ph.us, !llvm.loop !119
@@ -4884,7 +4884,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %indvars.iv2657 = phi i64 [ 0, %.lr.ph2244 ], [ %indvars.iv.next2658, %1773 ]
   %.119342242 = phi ptr [ %1758, %.lr.ph2244 ], [ %1788, %1773 ]
   %1774 = load double, ptr %.119342242, align 8
-  %1775 = getelementptr inbounds double, ptr %.119342242, i64 %1767
+  %1775 = getelementptr inbounds nuw double, ptr %.119342242, i64 %1767
   %1776 = load double, ptr %1775, align 8
   %1777 = getelementptr inbounds double, ptr %.119342242, i64 %1768
   %1778 = load double, ptr %1777, align 8
@@ -4896,9 +4896,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1784 = tail call double @llvm.fmuladd.f64(double %1778, double %1771, double %1783)
   %1785 = fmul double %1746, %1784
   %1786 = tail call double @llvm.fmuladd.f64(double %1782, double %1772, double %1785)
-  %1787 = getelementptr inbounds double, ptr %.119302248, i64 %indvars.iv2657
+  %1787 = getelementptr inbounds nuw double, ptr %.119302248, i64 %indvars.iv2657
   store double %1786, ptr %1787, align 8
-  %1788 = getelementptr inbounds i8, ptr %.119342242, i64 8
+  %1788 = getelementptr inbounds nuw i8, ptr %.119342242, i64 8
   %indvars.iv.next2658 = add nuw nsw i64 %indvars.iv2657, 1
   %exitcond2661.not = icmp eq i64 %indvars.iv.next2658, %wide.trip.count2660
   br i1 %exitcond2661.not, label %._crit_edge, label %1773, !llvm.loop !121
@@ -4985,7 +4985,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %indvars.iv2663 = phi i64 [ 0, %.lr.ph2254 ], [ %indvars.iv.next2664, %1839 ]
   %.219352251 = phi ptr [ %1824, %.lr.ph2254 ], [ %1854, %1839 ]
   %1840 = load double, ptr %.219352251, align 8
-  %1841 = getelementptr inbounds double, ptr %.219352251, i64 %1833
+  %1841 = getelementptr inbounds nuw double, ptr %.219352251, i64 %1833
   %1842 = load double, ptr %1841, align 8
   %1843 = getelementptr inbounds double, ptr %.219352251, i64 %1834
   %1844 = load double, ptr %1843, align 8
@@ -4997,9 +4997,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1850 = tail call double @llvm.fmuladd.f64(double %1844, double %1837, double %1849)
   %1851 = fmul double %1812, %1850
   %1852 = tail call double @llvm.fmuladd.f64(double %1848, double %1838, double %1851)
-  %1853 = getelementptr inbounds double, ptr %.219312259, i64 %indvars.iv2663
+  %1853 = getelementptr inbounds nuw double, ptr %.219312259, i64 %indvars.iv2663
   store double %1852, ptr %1853, align 8
-  %1854 = getelementptr inbounds i8, ptr %.219352251, i64 8
+  %1854 = getelementptr inbounds nuw i8, ptr %.219352251, i64 8
   %indvars.iv.next2664 = add nuw nsw i64 %indvars.iv2663, 1
   %exitcond2667.not = icmp eq i64 %indvars.iv.next2664, %wide.trip.count2666
   br i1 %exitcond2667.not, label %._crit_edge2255, label %1839, !llvm.loop !123
@@ -5088,7 +5088,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %indvars.iv2673 = phi i64 [ 0, %.lr.ph2272.us ], [ %indvars.iv.next2674, %1907 ]
   %.319362269.us = phi ptr [ %1900, %.lr.ph2272.us ], [ %1922, %1907 ]
   %1908 = load double, ptr %.319362269.us, align 8
-  %1909 = getelementptr inbounds double, ptr %.319362269.us, i64 %1901
+  %1909 = getelementptr inbounds nuw double, ptr %.319362269.us, i64 %1901
   %1910 = load double, ptr %1909, align 8
   %1911 = getelementptr inbounds double, ptr %.319362269.us, i64 %1902
   %1912 = load double, ptr %1911, align 8
@@ -5100,9 +5100,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
   %1918 = tail call double @llvm.fmuladd.f64(double %1912, double %1905, double %1917)
   %1919 = fmul double %1882, %1918
   %1920 = tail call double @llvm.fmuladd.f64(double %1916, double %1906, double %1919)
-  %1921 = getelementptr inbounds double, ptr %.319322277.us, i64 %indvars.iv2673
+  %1921 = getelementptr inbounds nuw double, ptr %.319322277.us, i64 %indvars.iv2673
   store double %1920, ptr %1921, align 8
-  %1922 = getelementptr inbounds i8, ptr %.319362269.us, i64 8
+  %1922 = getelementptr inbounds nuw i8, ptr %.319362269.us, i64 8
   %indvars.iv.next2674 = add nuw nsw i64 %indvars.iv2673, 1
   %exitcond2677.not = icmp eq i64 %indvars.iv.next2674, %wide.trip.count2676
   br i1 %exitcond2677.not, label %._crit_edge2273.us, label %1907, !llvm.loop !126
@@ -5110,7 +5110,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr nocapture noundef r
 ._crit_edge2273.us:                               ; preds = %1907
   %1923 = add nsw i32 %.2320722274.us, %32
   %1924 = add nsw i32 %.2320482275.us, %34
-  %1925 = getelementptr inbounds double, ptr %.319322277.us, i64 %1716
+  %1925 = getelementptr inbounds nuw double, ptr %.319322277.us, i64 %1716
   %1926 = add nuw nsw i32 %.232276.us, 1
   %exitcond2678.not = icmp eq i32 %.232276.us, %reass.sub2599
   br i1 %exitcond2678.not, label %._crit_edge2280, label %.lr.ph2272.us, !llvm.loop !127
@@ -5130,40 +5130,40 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.val = load i32, ptr %4, align 8
   %13 = getelementptr i8, ptr %4, i64 4
   %.val6756 = load i32, ptr %13, align 4
   %14 = getelementptr i8, ptr %4, i64 16
   %.val6758 = load i32, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 84
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr i8, ptr %35, i64 8
@@ -5172,7 +5172,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.val6760 = load i32, ptr %37, align 4
   %38 = getelementptr i8, ptr %35, i64 16
   %.val6757 = load i32, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %.val, 1
   %42 = icmp eq i32 %40, 2
@@ -5253,32 +5253,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %75 = lshr i32 %74, 4
   %76 = and i32 %75, 4080
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %43, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = fpext float %79 to double
-  %81 = getelementptr inbounds i8, ptr %78, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load float, ptr %81, align 4
   %83 = fpext float %82 to double
-  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load float, ptr %84, align 4
   %86 = fpext float %85 to double
-  %87 = getelementptr inbounds i8, ptr %78, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %88 = load float, ptr %87, align 4
   %89 = fpext float %88 to double
   %90 = add nsw i32 %.063437358, -32768
   %91 = lshr i32 %90, 4
   %92 = and i32 %91, 4080
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %43, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %43, i64 %93
   %95 = load float, ptr %94, align 4
   %96 = fpext float %95 to double
-  %97 = getelementptr inbounds i8, ptr %94, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %98 = load float, ptr %97, align 4
   %99 = fpext float %98 to double
-  %100 = getelementptr inbounds i8, ptr %94, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %101 = load float, ptr %100, align 4
   %102 = fpext float %101 to double
-  %103 = getelementptr inbounds i8, ptr %94, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %104 = load float, ptr %103, align 4
   %105 = fpext float %104 to double
   br i1 %50, label %.lr.ph7355, label %._crit_edge7356
@@ -5350,96 +5350,96 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %161 = getelementptr inbounds i8, ptr %.062597352, i64 %137
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %163
   %165 = load double, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %.062597352, i64 %138
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %168
   %170 = load double, ptr %169, align 8
   %171 = fmul double %170, %83
   %172 = tail call double @llvm.fmuladd.f64(double %165, double %80, double %171)
   %173 = getelementptr inbounds i8, ptr %.062597352, i64 %140
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %175
   %177 = load double, ptr %176, align 8
   %178 = tail call double @llvm.fmuladd.f64(double %177, double %86, double %172)
   %179 = getelementptr inbounds i8, ptr %.062597352, i64 %142
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %181
   %183 = load double, ptr %182, align 8
   %184 = tail call double @llvm.fmuladd.f64(double %183, double %89, double %178)
   %185 = getelementptr inbounds i8, ptr %.062597352, i64 %143
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %187
   %189 = load double, ptr %188, align 8
   %190 = load i8, ptr %.062597352, align 1
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %191
   %193 = load double, ptr %192, align 8
   %194 = fmul double %193, %83
   %195 = tail call double @llvm.fmuladd.f64(double %189, double %80, double %194)
-  %196 = getelementptr inbounds i8, ptr %.062597352, i64 %144
+  %196 = getelementptr inbounds nuw i8, ptr %.062597352, i64 %144
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %198
   %200 = load double, ptr %199, align 8
   %201 = tail call double @llvm.fmuladd.f64(double %200, double %86, double %195)
-  %202 = getelementptr inbounds i8, ptr %.062597352, i64 %145
+  %202 = getelementptr inbounds nuw i8, ptr %.062597352, i64 %145
   %203 = load i8, ptr %202, align 1
   %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %204
   %206 = load double, ptr %205, align 8
   %207 = tail call double @llvm.fmuladd.f64(double %206, double %89, double %201)
   %208 = getelementptr inbounds i8, ptr %.062597352, i64 %147
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i64
-  %211 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %210
   %212 = load double, ptr %211, align 8
   %213 = getelementptr inbounds i8, ptr %.062597352, i64 %148
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %215
   %217 = load double, ptr %216, align 8
   %218 = fmul double %217, %83
   %219 = tail call double @llvm.fmuladd.f64(double %212, double %80, double %218)
   %220 = getelementptr inbounds i8, ptr %.062597352, i64 %150
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i64
-  %223 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %222
   %224 = load double, ptr %223, align 8
   %225 = tail call double @llvm.fmuladd.f64(double %224, double %86, double %219)
   %226 = getelementptr inbounds i8, ptr %.062597352, i64 %152
   %227 = load i8, ptr %226, align 1
   %228 = zext i8 %227 to i64
-  %229 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %228
   %230 = load double, ptr %229, align 8
   %231 = tail call double @llvm.fmuladd.f64(double %230, double %89, double %225)
   %232 = getelementptr inbounds i8, ptr %.062597352, i64 %154
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i64
-  %235 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %234
   %236 = load double, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %.062597352, i64 %155
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i64
-  %240 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %239
   %241 = load double, ptr %240, align 8
   %242 = fmul double %241, %83
   %243 = tail call double @llvm.fmuladd.f64(double %236, double %80, double %242)
   %244 = getelementptr inbounds i8, ptr %.062597352, i64 %157
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %246
   %248 = load double, ptr %247, align 8
   %249 = tail call double @llvm.fmuladd.f64(double %248, double %86, double %243)
   %250 = getelementptr inbounds i8, ptr %.062597352, i64 %159
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i64
-  %253 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %252
   %254 = load double, ptr %253, align 8
   %255 = tail call double @llvm.fmuladd.f64(double %254, double %89, double %249)
   %256 = fmul double %207, %99
@@ -5455,9 +5455,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %262 = lshr i32 %261, 24
   %263 = trunc nuw i32 %262 to i8
   %264 = xor i8 %263, -128
-  %265 = getelementptr inbounds i8, ptr %.062557360, i64 %indvars.iv7781
+  %265 = getelementptr inbounds nuw i8, ptr %.062557360, i64 %indvars.iv7781
   store i8 %264, ptr %265, align 1
-  %266 = getelementptr inbounds i8, ptr %.062597352, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %.062597352, i64 1
   %indvars.iv.next7782 = add nuw nsw i64 %indvars.iv7781, 1
   %exitcond7785.not = icmp eq i64 %indvars.iv.next7782, %wide.trip.count7784
   br i1 %exitcond7785.not, label %._crit_edge7356, label %160, !llvm.loop !129
@@ -5533,32 +5533,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %299 = lshr i32 %298, 4
   %300 = and i32 %299, 4080
   %301 = zext nneg i32 %300 to i64
-  %302 = getelementptr inbounds i8, ptr %43, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %43, i64 %301
   %303 = load float, ptr %302, align 4
   %304 = fpext float %303 to double
-  %305 = getelementptr inbounds i8, ptr %302, i64 4
+  %305 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %306 = load float, ptr %305, align 4
   %307 = fpext float %306 to double
-  %308 = getelementptr inbounds i8, ptr %302, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %309 = load float, ptr %308, align 4
   %310 = fpext float %309 to double
-  %311 = getelementptr inbounds i8, ptr %302, i64 12
+  %311 = getelementptr inbounds nuw i8, ptr %302, i64 12
   %312 = load float, ptr %311, align 4
   %313 = fpext float %312 to double
   %314 = add nsw i32 %.163447375, -32768
   %315 = lshr i32 %314, 4
   %316 = and i32 %315, 4080
   %317 = zext nneg i32 %316 to i64
-  %318 = getelementptr inbounds i8, ptr %43, i64 %317
+  %318 = getelementptr inbounds nuw i8, ptr %43, i64 %317
   %319 = load float, ptr %318, align 4
   %320 = fpext float %319 to double
-  %321 = getelementptr inbounds i8, ptr %318, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %322 = load float, ptr %321, align 4
   %323 = fpext float %322 to double
-  %324 = getelementptr inbounds i8, ptr %318, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %325 = load float, ptr %324, align 4
   %326 = fpext float %325 to double
-  %327 = getelementptr inbounds i8, ptr %318, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %318, i64 12
   %328 = load float, ptr %327, align 4
   %329 = fpext float %328 to double
   br i1 %56, label %.lr.ph7372, label %._crit_edge7373
@@ -5630,96 +5630,96 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %385 = getelementptr inbounds i8, ptr %.162607369, i64 %361
   %386 = load i8, ptr %385, align 1
   %387 = zext i8 %386 to i64
-  %388 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %387
   %389 = load double, ptr %388, align 8
   %390 = getelementptr inbounds i8, ptr %.162607369, i64 %362
   %391 = load i8, ptr %390, align 1
   %392 = zext i8 %391 to i64
-  %393 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %392
+  %393 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %392
   %394 = load double, ptr %393, align 8
   %395 = fmul double %394, %307
   %396 = tail call double @llvm.fmuladd.f64(double %389, double %304, double %395)
   %397 = getelementptr inbounds i8, ptr %.162607369, i64 %364
   %398 = load i8, ptr %397, align 1
   %399 = zext i8 %398 to i64
-  %400 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %399
   %401 = load double, ptr %400, align 8
   %402 = tail call double @llvm.fmuladd.f64(double %401, double %310, double %396)
   %403 = getelementptr inbounds i8, ptr %.162607369, i64 %366
   %404 = load i8, ptr %403, align 1
   %405 = zext i8 %404 to i64
-  %406 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %405
   %407 = load double, ptr %406, align 8
   %408 = tail call double @llvm.fmuladd.f64(double %407, double %313, double %402)
   %409 = getelementptr inbounds i8, ptr %.162607369, i64 %367
   %410 = load i8, ptr %409, align 1
   %411 = zext i8 %410 to i64
-  %412 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %411
   %413 = load double, ptr %412, align 8
   %414 = load i8, ptr %.162607369, align 1
   %415 = zext i8 %414 to i64
-  %416 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %415
   %417 = load double, ptr %416, align 8
   %418 = fmul double %417, %307
   %419 = tail call double @llvm.fmuladd.f64(double %413, double %304, double %418)
-  %420 = getelementptr inbounds i8, ptr %.162607369, i64 %368
+  %420 = getelementptr inbounds nuw i8, ptr %.162607369, i64 %368
   %421 = load i8, ptr %420, align 1
   %422 = zext i8 %421 to i64
-  %423 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %422
   %424 = load double, ptr %423, align 8
   %425 = tail call double @llvm.fmuladd.f64(double %424, double %310, double %419)
-  %426 = getelementptr inbounds i8, ptr %.162607369, i64 %369
+  %426 = getelementptr inbounds nuw i8, ptr %.162607369, i64 %369
   %427 = load i8, ptr %426, align 1
   %428 = zext i8 %427 to i64
-  %429 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %428
   %430 = load double, ptr %429, align 8
   %431 = tail call double @llvm.fmuladd.f64(double %430, double %313, double %425)
   %432 = getelementptr inbounds i8, ptr %.162607369, i64 %371
   %433 = load i8, ptr %432, align 1
   %434 = zext i8 %433 to i64
-  %435 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %434
+  %435 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %434
   %436 = load double, ptr %435, align 8
   %437 = getelementptr inbounds i8, ptr %.162607369, i64 %372
   %438 = load i8, ptr %437, align 1
   %439 = zext i8 %438 to i64
-  %440 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %439
+  %440 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %439
   %441 = load double, ptr %440, align 8
   %442 = fmul double %441, %307
   %443 = tail call double @llvm.fmuladd.f64(double %436, double %304, double %442)
   %444 = getelementptr inbounds i8, ptr %.162607369, i64 %374
   %445 = load i8, ptr %444, align 1
   %446 = zext i8 %445 to i64
-  %447 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %446
+  %447 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %446
   %448 = load double, ptr %447, align 8
   %449 = tail call double @llvm.fmuladd.f64(double %448, double %310, double %443)
   %450 = getelementptr inbounds i8, ptr %.162607369, i64 %376
   %451 = load i8, ptr %450, align 1
   %452 = zext i8 %451 to i64
-  %453 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %452
+  %453 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %452
   %454 = load double, ptr %453, align 8
   %455 = tail call double @llvm.fmuladd.f64(double %454, double %313, double %449)
   %456 = getelementptr inbounds i8, ptr %.162607369, i64 %378
   %457 = load i8, ptr %456, align 1
   %458 = zext i8 %457 to i64
-  %459 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %458
+  %459 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %458
   %460 = load double, ptr %459, align 8
   %461 = getelementptr inbounds i8, ptr %.162607369, i64 %379
   %462 = load i8, ptr %461, align 1
   %463 = zext i8 %462 to i64
-  %464 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %463
+  %464 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %463
   %465 = load double, ptr %464, align 8
   %466 = fmul double %465, %307
   %467 = tail call double @llvm.fmuladd.f64(double %460, double %304, double %466)
   %468 = getelementptr inbounds i8, ptr %.162607369, i64 %381
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i64
-  %471 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %470
   %472 = load double, ptr %471, align 8
   %473 = tail call double @llvm.fmuladd.f64(double %472, double %310, double %467)
   %474 = getelementptr inbounds i8, ptr %.162607369, i64 %383
   %475 = load i8, ptr %474, align 1
   %476 = zext i8 %475 to i64
-  %477 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %476
   %478 = load double, ptr %477, align 8
   %479 = tail call double @llvm.fmuladd.f64(double %478, double %313, double %473)
   %480 = fmul double %431, %323
@@ -5735,9 +5735,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %486 = lshr i32 %485, 24
   %487 = trunc nuw i32 %486 to i8
   %488 = xor i8 %487, -128
-  %489 = getelementptr inbounds i8, ptr %.162567377, i64 %indvars.iv7792
+  %489 = getelementptr inbounds nuw i8, ptr %.162567377, i64 %indvars.iv7792
   store i8 %488, ptr %489, align 1
-  %490 = getelementptr inbounds i8, ptr %.162607369, i64 1
+  %490 = getelementptr inbounds nuw i8, ptr %.162607369, i64 1
   %indvars.iv.next7793 = add nuw nsw i64 %indvars.iv7792, 1
   %exitcond7796.not = icmp eq i64 %indvars.iv.next7793, %wide.trip.count7795
   br i1 %exitcond7796.not, label %._crit_edge7373, label %384, !llvm.loop !132
@@ -5783,32 +5783,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %508 = lshr i32 %507, 4
   %509 = and i32 %508, 4080
   %510 = zext nneg i32 %509 to i64
-  %511 = getelementptr inbounds i8, ptr %43, i64 %510
+  %511 = getelementptr inbounds nuw i8, ptr %43, i64 %510
   %512 = load float, ptr %511, align 4
   %513 = fpext float %512 to double
-  %514 = getelementptr inbounds i8, ptr %511, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %511, i64 4
   %515 = load float, ptr %514, align 4
   %516 = fpext float %515 to double
-  %517 = getelementptr inbounds i8, ptr %511, i64 8
+  %517 = getelementptr inbounds nuw i8, ptr %511, i64 8
   %518 = load float, ptr %517, align 4
   %519 = fpext float %518 to double
-  %520 = getelementptr inbounds i8, ptr %511, i64 12
+  %520 = getelementptr inbounds nuw i8, ptr %511, i64 12
   %521 = load float, ptr %520, align 4
   %522 = fpext float %521 to double
   %523 = add nsw i32 %.263457386, -32768
   %524 = lshr i32 %523, 4
   %525 = and i32 %524, 4080
   %526 = zext nneg i32 %525 to i64
-  %527 = getelementptr inbounds i8, ptr %43, i64 %526
+  %527 = getelementptr inbounds nuw i8, ptr %43, i64 %526
   %528 = load float, ptr %527, align 4
   %529 = fpext float %528 to double
-  %530 = getelementptr inbounds i8, ptr %527, i64 4
+  %530 = getelementptr inbounds nuw i8, ptr %527, i64 4
   %531 = load float, ptr %530, align 4
   %532 = fpext float %531 to double
-  %533 = getelementptr inbounds i8, ptr %527, i64 8
+  %533 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %534 = load float, ptr %533, align 4
   %535 = fpext float %534 to double
-  %536 = getelementptr inbounds i8, ptr %527, i64 12
+  %536 = getelementptr inbounds nuw i8, ptr %527, i64 12
   %537 = load float, ptr %536, align 4
   %538 = fpext float %537 to double
   br i1 %56, label %.lr.ph7383, label %._crit_edge7384
@@ -5880,96 +5880,96 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %594 = getelementptr inbounds i8, ptr %.262617380, i64 %570
   %595 = load i8, ptr %594, align 1
   %596 = zext i8 %595 to i64
-  %597 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %596
+  %597 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %596
   %598 = load double, ptr %597, align 8
   %599 = getelementptr inbounds i8, ptr %.262617380, i64 %571
   %600 = load i8, ptr %599, align 1
   %601 = zext i8 %600 to i64
-  %602 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %601
+  %602 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %601
   %603 = load double, ptr %602, align 8
   %604 = fmul double %603, %516
   %605 = tail call double @llvm.fmuladd.f64(double %598, double %513, double %604)
   %606 = getelementptr inbounds i8, ptr %.262617380, i64 %573
   %607 = load i8, ptr %606, align 1
   %608 = zext i8 %607 to i64
-  %609 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %608
+  %609 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %608
   %610 = load double, ptr %609, align 8
   %611 = tail call double @llvm.fmuladd.f64(double %610, double %519, double %605)
   %612 = getelementptr inbounds i8, ptr %.262617380, i64 %575
   %613 = load i8, ptr %612, align 1
   %614 = zext i8 %613 to i64
-  %615 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %614
   %616 = load double, ptr %615, align 8
   %617 = tail call double @llvm.fmuladd.f64(double %616, double %522, double %611)
   %618 = getelementptr inbounds i8, ptr %.262617380, i64 %576
   %619 = load i8, ptr %618, align 1
   %620 = zext i8 %619 to i64
-  %621 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %620
+  %621 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %620
   %622 = load double, ptr %621, align 8
   %623 = load i8, ptr %.262617380, align 1
   %624 = zext i8 %623 to i64
-  %625 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %624
   %626 = load double, ptr %625, align 8
   %627 = fmul double %626, %516
   %628 = tail call double @llvm.fmuladd.f64(double %622, double %513, double %627)
-  %629 = getelementptr inbounds i8, ptr %.262617380, i64 %577
+  %629 = getelementptr inbounds nuw i8, ptr %.262617380, i64 %577
   %630 = load i8, ptr %629, align 1
   %631 = zext i8 %630 to i64
-  %632 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %631
+  %632 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %631
   %633 = load double, ptr %632, align 8
   %634 = tail call double @llvm.fmuladd.f64(double %633, double %519, double %628)
-  %635 = getelementptr inbounds i8, ptr %.262617380, i64 %578
+  %635 = getelementptr inbounds nuw i8, ptr %.262617380, i64 %578
   %636 = load i8, ptr %635, align 1
   %637 = zext i8 %636 to i64
-  %638 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %637
   %639 = load double, ptr %638, align 8
   %640 = tail call double @llvm.fmuladd.f64(double %639, double %522, double %634)
   %641 = getelementptr inbounds i8, ptr %.262617380, i64 %580
   %642 = load i8, ptr %641, align 1
   %643 = zext i8 %642 to i64
-  %644 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %643
+  %644 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %643
   %645 = load double, ptr %644, align 8
   %646 = getelementptr inbounds i8, ptr %.262617380, i64 %581
   %647 = load i8, ptr %646, align 1
   %648 = zext i8 %647 to i64
-  %649 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %648
+  %649 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %648
   %650 = load double, ptr %649, align 8
   %651 = fmul double %650, %516
   %652 = tail call double @llvm.fmuladd.f64(double %645, double %513, double %651)
   %653 = getelementptr inbounds i8, ptr %.262617380, i64 %583
   %654 = load i8, ptr %653, align 1
   %655 = zext i8 %654 to i64
-  %656 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %655
+  %656 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %655
   %657 = load double, ptr %656, align 8
   %658 = tail call double @llvm.fmuladd.f64(double %657, double %519, double %652)
   %659 = getelementptr inbounds i8, ptr %.262617380, i64 %585
   %660 = load i8, ptr %659, align 1
   %661 = zext i8 %660 to i64
-  %662 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %661
+  %662 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %661
   %663 = load double, ptr %662, align 8
   %664 = tail call double @llvm.fmuladd.f64(double %663, double %522, double %658)
   %665 = getelementptr inbounds i8, ptr %.262617380, i64 %587
   %666 = load i8, ptr %665, align 1
   %667 = zext i8 %666 to i64
-  %668 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %667
+  %668 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %667
   %669 = load double, ptr %668, align 8
   %670 = getelementptr inbounds i8, ptr %.262617380, i64 %588
   %671 = load i8, ptr %670, align 1
   %672 = zext i8 %671 to i64
-  %673 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %672
+  %673 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %672
   %674 = load double, ptr %673, align 8
   %675 = fmul double %674, %516
   %676 = tail call double @llvm.fmuladd.f64(double %669, double %513, double %675)
   %677 = getelementptr inbounds i8, ptr %.262617380, i64 %590
   %678 = load i8, ptr %677, align 1
   %679 = zext i8 %678 to i64
-  %680 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %679
+  %680 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %679
   %681 = load double, ptr %680, align 8
   %682 = tail call double @llvm.fmuladd.f64(double %681, double %519, double %676)
   %683 = getelementptr inbounds i8, ptr %.262617380, i64 %592
   %684 = load i8, ptr %683, align 1
   %685 = zext i8 %684 to i64
-  %686 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %685
+  %686 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %685
   %687 = load double, ptr %686, align 8
   %688 = tail call double @llvm.fmuladd.f64(double %687, double %522, double %682)
   %689 = fmul double %640, %532
@@ -5985,9 +5985,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %695 = lshr i32 %694, 24
   %696 = trunc nuw i32 %695 to i8
   %697 = xor i8 %696, -128
-  %698 = getelementptr inbounds i8, ptr %.262577388, i64 %indvars.iv7798
+  %698 = getelementptr inbounds nuw i8, ptr %.262577388, i64 %indvars.iv7798
   store i8 %697, ptr %698, align 1
-  %699 = getelementptr inbounds i8, ptr %.262617380, i64 1
+  %699 = getelementptr inbounds nuw i8, ptr %.262617380, i64 1
   %indvars.iv.next7799 = add nuw nsw i64 %indvars.iv7798, 1
   %exitcond7802.not = icmp eq i64 %indvars.iv.next7799, %wide.trip.count7801
   br i1 %exitcond7802.not, label %._crit_edge7384, label %593, !llvm.loop !134
@@ -6037,32 +6037,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %719 = lshr i32 %718, 4
   %720 = and i32 %719, 4080
   %721 = zext nneg i32 %720 to i64
-  %722 = getelementptr inbounds i8, ptr %43, i64 %721
+  %722 = getelementptr inbounds nuw i8, ptr %43, i64 %721
   %723 = load float, ptr %722, align 4
   %724 = fpext float %723 to double
-  %725 = getelementptr inbounds i8, ptr %722, i64 4
+  %725 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %726 = load float, ptr %725, align 4
   %727 = fpext float %726 to double
-  %728 = getelementptr inbounds i8, ptr %722, i64 8
+  %728 = getelementptr inbounds nuw i8, ptr %722, i64 8
   %729 = load float, ptr %728, align 4
   %730 = fpext float %729 to double
-  %731 = getelementptr inbounds i8, ptr %722, i64 12
+  %731 = getelementptr inbounds nuw i8, ptr %722, i64 12
   %732 = load float, ptr %731, align 4
   %733 = fpext float %732 to double
   %734 = add nsw i32 %.363467404, -32768
   %735 = lshr i32 %734, 4
   %736 = and i32 %735, 4080
   %737 = zext nneg i32 %736 to i64
-  %738 = getelementptr inbounds i8, ptr %43, i64 %737
+  %738 = getelementptr inbounds nuw i8, ptr %43, i64 %737
   %739 = load float, ptr %738, align 4
   %740 = fpext float %739 to double
-  %741 = getelementptr inbounds i8, ptr %738, i64 4
+  %741 = getelementptr inbounds nuw i8, ptr %738, i64 4
   %742 = load float, ptr %741, align 4
   %743 = fpext float %742 to double
-  %744 = getelementptr inbounds i8, ptr %738, i64 8
+  %744 = getelementptr inbounds nuw i8, ptr %738, i64 8
   %745 = load float, ptr %744, align 4
   %746 = fpext float %745 to double
-  %747 = getelementptr inbounds i8, ptr %738, i64 12
+  %747 = getelementptr inbounds nuw i8, ptr %738, i64 12
   %748 = load float, ptr %747, align 4
   %749 = fpext float %748 to double
   br i1 %274, label %.lr.ph7401, label %._crit_edge7402
@@ -6134,96 +6134,96 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %805 = getelementptr inbounds i8, ptr %.362627398, i64 %781
   %806 = load i8, ptr %805, align 1
   %807 = zext i8 %806 to i64
-  %808 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %807
+  %808 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %807
   %809 = load double, ptr %808, align 8
   %810 = getelementptr inbounds i8, ptr %.362627398, i64 %782
   %811 = load i8, ptr %810, align 1
   %812 = zext i8 %811 to i64
-  %813 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %812
+  %813 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %812
   %814 = load double, ptr %813, align 8
   %815 = fmul double %814, %727
   %816 = tail call double @llvm.fmuladd.f64(double %809, double %724, double %815)
   %817 = getelementptr inbounds i8, ptr %.362627398, i64 %784
   %818 = load i8, ptr %817, align 1
   %819 = zext i8 %818 to i64
-  %820 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %819
+  %820 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %819
   %821 = load double, ptr %820, align 8
   %822 = tail call double @llvm.fmuladd.f64(double %821, double %730, double %816)
   %823 = getelementptr inbounds i8, ptr %.362627398, i64 %786
   %824 = load i8, ptr %823, align 1
   %825 = zext i8 %824 to i64
-  %826 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %825
+  %826 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %825
   %827 = load double, ptr %826, align 8
   %828 = tail call double @llvm.fmuladd.f64(double %827, double %733, double %822)
   %829 = getelementptr inbounds i8, ptr %.362627398, i64 %787
   %830 = load i8, ptr %829, align 1
   %831 = zext i8 %830 to i64
-  %832 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %831
+  %832 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %831
   %833 = load double, ptr %832, align 8
   %834 = load i8, ptr %.362627398, align 1
   %835 = zext i8 %834 to i64
-  %836 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %835
+  %836 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %835
   %837 = load double, ptr %836, align 8
   %838 = fmul double %837, %727
   %839 = tail call double @llvm.fmuladd.f64(double %833, double %724, double %838)
-  %840 = getelementptr inbounds i8, ptr %.362627398, i64 %788
+  %840 = getelementptr inbounds nuw i8, ptr %.362627398, i64 %788
   %841 = load i8, ptr %840, align 1
   %842 = zext i8 %841 to i64
-  %843 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %842
+  %843 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %842
   %844 = load double, ptr %843, align 8
   %845 = tail call double @llvm.fmuladd.f64(double %844, double %730, double %839)
-  %846 = getelementptr inbounds i8, ptr %.362627398, i64 %789
+  %846 = getelementptr inbounds nuw i8, ptr %.362627398, i64 %789
   %847 = load i8, ptr %846, align 1
   %848 = zext i8 %847 to i64
-  %849 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %848
+  %849 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %848
   %850 = load double, ptr %849, align 8
   %851 = tail call double @llvm.fmuladd.f64(double %850, double %733, double %845)
   %852 = getelementptr inbounds i8, ptr %.362627398, i64 %791
   %853 = load i8, ptr %852, align 1
   %854 = zext i8 %853 to i64
-  %855 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %854
+  %855 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %854
   %856 = load double, ptr %855, align 8
   %857 = getelementptr inbounds i8, ptr %.362627398, i64 %792
   %858 = load i8, ptr %857, align 1
   %859 = zext i8 %858 to i64
-  %860 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %859
+  %860 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %859
   %861 = load double, ptr %860, align 8
   %862 = fmul double %861, %727
   %863 = tail call double @llvm.fmuladd.f64(double %856, double %724, double %862)
   %864 = getelementptr inbounds i8, ptr %.362627398, i64 %794
   %865 = load i8, ptr %864, align 1
   %866 = zext i8 %865 to i64
-  %867 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %866
+  %867 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %866
   %868 = load double, ptr %867, align 8
   %869 = tail call double @llvm.fmuladd.f64(double %868, double %730, double %863)
   %870 = getelementptr inbounds i8, ptr %.362627398, i64 %796
   %871 = load i8, ptr %870, align 1
   %872 = zext i8 %871 to i64
-  %873 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %872
+  %873 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %872
   %874 = load double, ptr %873, align 8
   %875 = tail call double @llvm.fmuladd.f64(double %874, double %733, double %869)
   %876 = getelementptr inbounds i8, ptr %.362627398, i64 %798
   %877 = load i8, ptr %876, align 1
   %878 = zext i8 %877 to i64
-  %879 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %878
+  %879 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %878
   %880 = load double, ptr %879, align 8
   %881 = getelementptr inbounds i8, ptr %.362627398, i64 %799
   %882 = load i8, ptr %881, align 1
   %883 = zext i8 %882 to i64
-  %884 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %883
+  %884 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %883
   %885 = load double, ptr %884, align 8
   %886 = fmul double %885, %727
   %887 = tail call double @llvm.fmuladd.f64(double %880, double %724, double %886)
   %888 = getelementptr inbounds i8, ptr %.362627398, i64 %801
   %889 = load i8, ptr %888, align 1
   %890 = zext i8 %889 to i64
-  %891 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %890
+  %891 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %890
   %892 = load double, ptr %891, align 8
   %893 = tail call double @llvm.fmuladd.f64(double %892, double %730, double %887)
   %894 = getelementptr inbounds i8, ptr %.362627398, i64 %803
   %895 = load i8, ptr %894, align 1
   %896 = zext i8 %895 to i64
-  %897 = getelementptr inbounds [0 x double], ptr @mlib_U82D64, i64 0, i64 %896
+  %897 = getelementptr inbounds nuw [0 x double], ptr @mlib_U82D64, i64 0, i64 %896
   %898 = load double, ptr %897, align 8
   %899 = tail call double @llvm.fmuladd.f64(double %898, double %733, double %893)
   %900 = fmul double %851, %743
@@ -6239,9 +6239,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %906 = lshr i32 %905, 24
   %907 = trunc nuw i32 %906 to i8
   %908 = xor i8 %907, -128
-  %909 = getelementptr inbounds i8, ptr %.362587406, i64 %indvars.iv7809
+  %909 = getelementptr inbounds nuw i8, ptr %.362587406, i64 %indvars.iv7809
   store i8 %908, ptr %909, align 1
-  %910 = getelementptr inbounds i8, ptr %.362627398, i64 1
+  %910 = getelementptr inbounds nuw i8, ptr %.362627398, i64 1
   %indvars.iv.next7810 = add nuw nsw i64 %indvars.iv7809, 1
   %exitcond7813.not = icmp eq i64 %indvars.iv.next7810, %wide.trip.count7812
   br i1 %exitcond7813.not, label %._crit_edge7402, label %804, !llvm.loop !137
@@ -6325,32 +6325,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %946 = lshr i32 %945, 3
   %947 = and i32 %946, 8176
   %948 = zext nneg i32 %947 to i64
-  %949 = getelementptr inbounds i8, ptr %46, i64 %948
+  %949 = getelementptr inbounds nuw i8, ptr %46, i64 %948
   %950 = load float, ptr %949, align 4
   %951 = fpext float %950 to double
-  %952 = getelementptr inbounds i8, ptr %949, i64 4
+  %952 = getelementptr inbounds nuw i8, ptr %949, i64 4
   %953 = load float, ptr %952, align 4
   %954 = fpext float %953 to double
-  %955 = getelementptr inbounds i8, ptr %949, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %949, i64 8
   %956 = load float, ptr %955, align 4
   %957 = fpext float %956 to double
-  %958 = getelementptr inbounds i8, ptr %949, i64 12
+  %958 = getelementptr inbounds nuw i8, ptr %949, i64 12
   %959 = load float, ptr %958, align 4
   %960 = fpext float %959 to double
   %961 = add nsw i32 %.463477295, -32768
   %962 = lshr i32 %961, 3
   %963 = and i32 %962, 8176
   %964 = zext nneg i32 %963 to i64
-  %965 = getelementptr inbounds i8, ptr %46, i64 %964
+  %965 = getelementptr inbounds nuw i8, ptr %46, i64 %964
   %966 = load float, ptr %965, align 4
   %967 = fpext float %966 to double
-  %968 = getelementptr inbounds i8, ptr %965, i64 4
+  %968 = getelementptr inbounds nuw i8, ptr %965, i64 4
   %969 = load float, ptr %968, align 4
   %970 = fpext float %969 to double
-  %971 = getelementptr inbounds i8, ptr %965, i64 8
+  %971 = getelementptr inbounds nuw i8, ptr %965, i64 8
   %972 = load float, ptr %971, align 4
   %973 = fpext float %972 to double
-  %974 = getelementptr inbounds i8, ptr %965, i64 12
+  %974 = getelementptr inbounds nuw i8, ptr %965, i64 12
   %975 = load float, ptr %974, align 4
   %976 = fpext float %975 to double
   br i1 %921, label %.lr.ph7292, label %._crit_edge7293
@@ -6442,11 +6442,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1052 = sitofp i16 %1051 to double
   %1053 = fmul double %954, %1052
   %1054 = tail call double @llvm.fmuladd.f64(double %1050, double %951, double %1053)
-  %1055 = getelementptr inbounds i16, ptr %.062477289, i64 %1015
+  %1055 = getelementptr inbounds nuw i16, ptr %.062477289, i64 %1015
   %1056 = load i16, ptr %1055, align 2
   %1057 = sitofp i16 %1056 to double
   %1058 = tail call double @llvm.fmuladd.f64(double %1057, double %957, double %1054)
-  %1059 = getelementptr inbounds i16, ptr %.062477289, i64 %1016
+  %1059 = getelementptr inbounds nuw i16, ptr %.062477289, i64 %1016
   %1060 = load i16, ptr %1059, align 2
   %1061 = sitofp i16 %1060 to double
   %1062 = tail call double @llvm.fmuladd.f64(double %1061, double %960, double %1058)
@@ -6493,9 +6493,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1099 = fptosi double %.96280 to i32
   %1100 = lshr i32 %1099, 16
   %1101 = trunc nuw i32 %1100 to i16
-  %1102 = getelementptr inbounds i16, ptr %.062437297, i64 %indvars.iv7742
+  %1102 = getelementptr inbounds nuw i16, ptr %.062437297, i64 %indvars.iv7742
   store i16 %1101, ptr %1102, align 2
-  %1103 = getelementptr inbounds i8, ptr %.062477289, i64 2
+  %1103 = getelementptr inbounds nuw i8, ptr %.062477289, i64 2
   %indvars.iv.next7743 = add nuw nsw i64 %indvars.iv7742, 1
   %exitcond7746.not = icmp eq i64 %indvars.iv.next7743, %wide.trip.count7745
   br i1 %exitcond7746.not, label %._crit_edge7293, label %1031, !llvm.loop !140
@@ -6571,32 +6571,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1136 = lshr i32 %1135, 3
   %1137 = and i32 %1136, 8176
   %1138 = zext nneg i32 %1137 to i64
-  %1139 = getelementptr inbounds i8, ptr %46, i64 %1138
+  %1139 = getelementptr inbounds nuw i8, ptr %46, i64 %1138
   %1140 = load float, ptr %1139, align 4
   %1141 = fpext float %1140 to double
-  %1142 = getelementptr inbounds i8, ptr %1139, i64 4
+  %1142 = getelementptr inbounds nuw i8, ptr %1139, i64 4
   %1143 = load float, ptr %1142, align 4
   %1144 = fpext float %1143 to double
-  %1145 = getelementptr inbounds i8, ptr %1139, i64 8
+  %1145 = getelementptr inbounds nuw i8, ptr %1139, i64 8
   %1146 = load float, ptr %1145, align 4
   %1147 = fpext float %1146 to double
-  %1148 = getelementptr inbounds i8, ptr %1139, i64 12
+  %1148 = getelementptr inbounds nuw i8, ptr %1139, i64 12
   %1149 = load float, ptr %1148, align 4
   %1150 = fpext float %1149 to double
   %1151 = add nsw i32 %.563487313, -32768
   %1152 = lshr i32 %1151, 3
   %1153 = and i32 %1152, 8176
   %1154 = zext nneg i32 %1153 to i64
-  %1155 = getelementptr inbounds i8, ptr %46, i64 %1154
+  %1155 = getelementptr inbounds nuw i8, ptr %46, i64 %1154
   %1156 = load float, ptr %1155, align 4
   %1157 = fpext float %1156 to double
-  %1158 = getelementptr inbounds i8, ptr %1155, i64 4
+  %1158 = getelementptr inbounds nuw i8, ptr %1155, i64 4
   %1159 = load float, ptr %1158, align 4
   %1160 = fpext float %1159 to double
-  %1161 = getelementptr inbounds i8, ptr %1155, i64 8
+  %1161 = getelementptr inbounds nuw i8, ptr %1155, i64 8
   %1162 = load float, ptr %1161, align 4
   %1163 = fpext float %1162 to double
-  %1164 = getelementptr inbounds i8, ptr %1155, i64 12
+  %1164 = getelementptr inbounds nuw i8, ptr %1155, i64 12
   %1165 = load float, ptr %1164, align 4
   %1166 = fpext float %1165 to double
   br i1 %927, label %.lr.ph7310, label %._crit_edge7311
@@ -6688,11 +6688,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1242 = sitofp i16 %1241 to double
   %1243 = fmul double %1144, %1242
   %1244 = tail call double @llvm.fmuladd.f64(double %1240, double %1141, double %1243)
-  %1245 = getelementptr inbounds i16, ptr %.162487307, i64 %1205
+  %1245 = getelementptr inbounds nuw i16, ptr %.162487307, i64 %1205
   %1246 = load i16, ptr %1245, align 2
   %1247 = sitofp i16 %1246 to double
   %1248 = tail call double @llvm.fmuladd.f64(double %1247, double %1147, double %1244)
-  %1249 = getelementptr inbounds i16, ptr %.162487307, i64 %1206
+  %1249 = getelementptr inbounds nuw i16, ptr %.162487307, i64 %1206
   %1250 = load i16, ptr %1249, align 2
   %1251 = sitofp i16 %1250 to double
   %1252 = tail call double @llvm.fmuladd.f64(double %1251, double %1150, double %1248)
@@ -6739,9 +6739,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1289 = fptosi double %.116282 to i32
   %1290 = lshr i32 %1289, 16
   %1291 = trunc nuw i32 %1290 to i16
-  %1292 = getelementptr inbounds i16, ptr %.162447315, i64 %indvars.iv7753
+  %1292 = getelementptr inbounds nuw i16, ptr %.162447315, i64 %indvars.iv7753
   store i16 %1291, ptr %1292, align 2
-  %1293 = getelementptr inbounds i8, ptr %.162487307, i64 2
+  %1293 = getelementptr inbounds nuw i8, ptr %.162487307, i64 2
   %indvars.iv.next7754 = add nuw nsw i64 %indvars.iv7753, 1
   %exitcond7757.not = icmp eq i64 %indvars.iv.next7754, %wide.trip.count7756
   br i1 %exitcond7757.not, label %._crit_edge7311, label %1221, !llvm.loop !143
@@ -6787,32 +6787,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1311 = lshr i32 %1310, 3
   %1312 = and i32 %1311, 8176
   %1313 = zext nneg i32 %1312 to i64
-  %1314 = getelementptr inbounds i8, ptr %46, i64 %1313
+  %1314 = getelementptr inbounds nuw i8, ptr %46, i64 %1313
   %1315 = load float, ptr %1314, align 4
   %1316 = fpext float %1315 to double
-  %1317 = getelementptr inbounds i8, ptr %1314, i64 4
+  %1317 = getelementptr inbounds nuw i8, ptr %1314, i64 4
   %1318 = load float, ptr %1317, align 4
   %1319 = fpext float %1318 to double
-  %1320 = getelementptr inbounds i8, ptr %1314, i64 8
+  %1320 = getelementptr inbounds nuw i8, ptr %1314, i64 8
   %1321 = load float, ptr %1320, align 4
   %1322 = fpext float %1321 to double
-  %1323 = getelementptr inbounds i8, ptr %1314, i64 12
+  %1323 = getelementptr inbounds nuw i8, ptr %1314, i64 12
   %1324 = load float, ptr %1323, align 4
   %1325 = fpext float %1324 to double
   %1326 = add nsw i32 %.663497324, -32768
   %1327 = lshr i32 %1326, 3
   %1328 = and i32 %1327, 8176
   %1329 = zext nneg i32 %1328 to i64
-  %1330 = getelementptr inbounds i8, ptr %46, i64 %1329
+  %1330 = getelementptr inbounds nuw i8, ptr %46, i64 %1329
   %1331 = load float, ptr %1330, align 4
   %1332 = fpext float %1331 to double
-  %1333 = getelementptr inbounds i8, ptr %1330, i64 4
+  %1333 = getelementptr inbounds nuw i8, ptr %1330, i64 4
   %1334 = load float, ptr %1333, align 4
   %1335 = fpext float %1334 to double
-  %1336 = getelementptr inbounds i8, ptr %1330, i64 8
+  %1336 = getelementptr inbounds nuw i8, ptr %1330, i64 8
   %1337 = load float, ptr %1336, align 4
   %1338 = fpext float %1337 to double
-  %1339 = getelementptr inbounds i8, ptr %1330, i64 12
+  %1339 = getelementptr inbounds nuw i8, ptr %1330, i64 12
   %1340 = load float, ptr %1339, align 4
   %1341 = fpext float %1340 to double
   br i1 %927, label %.lr.ph7321, label %._crit_edge7322
@@ -6904,11 +6904,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1417 = sitofp i16 %1416 to double
   %1418 = fmul double %1319, %1417
   %1419 = tail call double @llvm.fmuladd.f64(double %1415, double %1316, double %1418)
-  %1420 = getelementptr inbounds i16, ptr %.262497318, i64 %1380
+  %1420 = getelementptr inbounds nuw i16, ptr %.262497318, i64 %1380
   %1421 = load i16, ptr %1420, align 2
   %1422 = sitofp i16 %1421 to double
   %1423 = tail call double @llvm.fmuladd.f64(double %1422, double %1322, double %1419)
-  %1424 = getelementptr inbounds i16, ptr %.262497318, i64 %1381
+  %1424 = getelementptr inbounds nuw i16, ptr %.262497318, i64 %1381
   %1425 = load i16, ptr %1424, align 2
   %1426 = sitofp i16 %1425 to double
   %1427 = tail call double @llvm.fmuladd.f64(double %1426, double %1325, double %1423)
@@ -6955,9 +6955,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1464 = fptosi double %.136284 to i32
   %1465 = lshr i32 %1464, 16
   %1466 = trunc nuw i32 %1465 to i16
-  %1467 = getelementptr inbounds i16, ptr %.262457326, i64 %indvars.iv7759
+  %1467 = getelementptr inbounds nuw i16, ptr %.262457326, i64 %indvars.iv7759
   store i16 %1466, ptr %1467, align 2
-  %1468 = getelementptr inbounds i8, ptr %.262497318, i64 2
+  %1468 = getelementptr inbounds nuw i8, ptr %.262497318, i64 2
   %indvars.iv.next7760 = add nuw nsw i64 %indvars.iv7759, 1
   %exitcond7763.not = icmp eq i64 %indvars.iv.next7760, %wide.trip.count7762
   br i1 %exitcond7763.not, label %._crit_edge7322, label %1396, !llvm.loop !145
@@ -7007,32 +7007,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1488 = lshr i32 %1487, 3
   %1489 = and i32 %1488, 8176
   %1490 = zext nneg i32 %1489 to i64
-  %1491 = getelementptr inbounds i8, ptr %46, i64 %1490
+  %1491 = getelementptr inbounds nuw i8, ptr %46, i64 %1490
   %1492 = load float, ptr %1491, align 4
   %1493 = fpext float %1492 to double
-  %1494 = getelementptr inbounds i8, ptr %1491, i64 4
+  %1494 = getelementptr inbounds nuw i8, ptr %1491, i64 4
   %1495 = load float, ptr %1494, align 4
   %1496 = fpext float %1495 to double
-  %1497 = getelementptr inbounds i8, ptr %1491, i64 8
+  %1497 = getelementptr inbounds nuw i8, ptr %1491, i64 8
   %1498 = load float, ptr %1497, align 4
   %1499 = fpext float %1498 to double
-  %1500 = getelementptr inbounds i8, ptr %1491, i64 12
+  %1500 = getelementptr inbounds nuw i8, ptr %1491, i64 12
   %1501 = load float, ptr %1500, align 4
   %1502 = fpext float %1501 to double
   %1503 = add nsw i32 %.763507342, -32768
   %1504 = lshr i32 %1503, 3
   %1505 = and i32 %1504, 8176
   %1506 = zext nneg i32 %1505 to i64
-  %1507 = getelementptr inbounds i8, ptr %46, i64 %1506
+  %1507 = getelementptr inbounds nuw i8, ptr %46, i64 %1506
   %1508 = load float, ptr %1507, align 4
   %1509 = fpext float %1508 to double
-  %1510 = getelementptr inbounds i8, ptr %1507, i64 4
+  %1510 = getelementptr inbounds nuw i8, ptr %1507, i64 4
   %1511 = load float, ptr %1510, align 4
   %1512 = fpext float %1511 to double
-  %1513 = getelementptr inbounds i8, ptr %1507, i64 8
+  %1513 = getelementptr inbounds nuw i8, ptr %1507, i64 8
   %1514 = load float, ptr %1513, align 4
   %1515 = fpext float %1514 to double
-  %1516 = getelementptr inbounds i8, ptr %1507, i64 12
+  %1516 = getelementptr inbounds nuw i8, ptr %1507, i64 12
   %1517 = load float, ptr %1516, align 4
   %1518 = fpext float %1517 to double
   br i1 %1111, label %.lr.ph7339, label %._crit_edge7340
@@ -7124,11 +7124,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1594 = sitofp i16 %1593 to double
   %1595 = fmul double %1496, %1594
   %1596 = tail call double @llvm.fmuladd.f64(double %1592, double %1493, double %1595)
-  %1597 = getelementptr inbounds i16, ptr %.362507336, i64 %1557
+  %1597 = getelementptr inbounds nuw i16, ptr %.362507336, i64 %1557
   %1598 = load i16, ptr %1597, align 2
   %1599 = sitofp i16 %1598 to double
   %1600 = tail call double @llvm.fmuladd.f64(double %1599, double %1499, double %1596)
-  %1601 = getelementptr inbounds i16, ptr %.362507336, i64 %1558
+  %1601 = getelementptr inbounds nuw i16, ptr %.362507336, i64 %1558
   %1602 = load i16, ptr %1601, align 2
   %1603 = sitofp i16 %1602 to double
   %1604 = tail call double @llvm.fmuladd.f64(double %1603, double %1502, double %1600)
@@ -7175,9 +7175,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1641 = fptosi double %.156286 to i32
   %1642 = lshr i32 %1641, 16
   %1643 = trunc nuw i32 %1642 to i16
-  %1644 = getelementptr inbounds i16, ptr %.362467344, i64 %indvars.iv7770
+  %1644 = getelementptr inbounds nuw i16, ptr %.362467344, i64 %indvars.iv7770
   store i16 %1643, ptr %1644, align 2
-  %1645 = getelementptr inbounds i8, ptr %.362507336, i64 2
+  %1645 = getelementptr inbounds nuw i8, ptr %.362507336, i64 2
   %indvars.iv.next7771 = add nuw nsw i64 %indvars.iv7770, 1
   %exitcond7774.not = icmp eq i64 %indvars.iv.next7771, %wide.trip.count7773
   br i1 %exitcond7774.not, label %._crit_edge7340, label %1573, !llvm.loop !148
@@ -7261,32 +7261,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1681 = lshr i32 %1680, 3
   %1682 = and i32 %1681, 8176
   %1683 = zext nneg i32 %1682 to i64
-  %1684 = getelementptr inbounds i8, ptr %46, i64 %1683
+  %1684 = getelementptr inbounds nuw i8, ptr %46, i64 %1683
   %1685 = load float, ptr %1684, align 4
   %1686 = fpext float %1685 to double
-  %1687 = getelementptr inbounds i8, ptr %1684, i64 4
+  %1687 = getelementptr inbounds nuw i8, ptr %1684, i64 4
   %1688 = load float, ptr %1687, align 4
   %1689 = fpext float %1688 to double
-  %1690 = getelementptr inbounds i8, ptr %1684, i64 8
+  %1690 = getelementptr inbounds nuw i8, ptr %1684, i64 8
   %1691 = load float, ptr %1690, align 4
   %1692 = fpext float %1691 to double
-  %1693 = getelementptr inbounds i8, ptr %1684, i64 12
+  %1693 = getelementptr inbounds nuw i8, ptr %1684, i64 12
   %1694 = load float, ptr %1693, align 4
   %1695 = fpext float %1694 to double
   %1696 = add nsw i32 %.863517232, -32768
   %1697 = lshr i32 %1696, 3
   %1698 = and i32 %1697, 8176
   %1699 = zext nneg i32 %1698 to i64
-  %1700 = getelementptr inbounds i8, ptr %46, i64 %1699
+  %1700 = getelementptr inbounds nuw i8, ptr %46, i64 %1699
   %1701 = load float, ptr %1700, align 4
   %1702 = fpext float %1701 to double
-  %1703 = getelementptr inbounds i8, ptr %1700, i64 4
+  %1703 = getelementptr inbounds nuw i8, ptr %1700, i64 4
   %1704 = load float, ptr %1703, align 4
   %1705 = fpext float %1704 to double
-  %1706 = getelementptr inbounds i8, ptr %1700, i64 8
+  %1706 = getelementptr inbounds nuw i8, ptr %1700, i64 8
   %1707 = load float, ptr %1706, align 4
   %1708 = fpext float %1707 to double
-  %1709 = getelementptr inbounds i8, ptr %1700, i64 12
+  %1709 = getelementptr inbounds nuw i8, ptr %1700, i64 12
   %1710 = load float, ptr %1709, align 4
   %1711 = fpext float %1710 to double
   br i1 %1656, label %.lr.ph7229, label %._crit_edge7230
@@ -7378,11 +7378,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1787 = uitofp i16 %1786 to double
   %1788 = fmul double %1689, %1787
   %1789 = tail call double @llvm.fmuladd.f64(double %1785, double %1686, double %1788)
-  %1790 = getelementptr inbounds i16, ptr %.062357226, i64 %1750
+  %1790 = getelementptr inbounds nuw i16, ptr %.062357226, i64 %1750
   %1791 = load i16, ptr %1790, align 2
   %1792 = uitofp i16 %1791 to double
   %1793 = tail call double @llvm.fmuladd.f64(double %1792, double %1692, double %1789)
-  %1794 = getelementptr inbounds i16, ptr %.062357226, i64 %1751
+  %1794 = getelementptr inbounds nuw i16, ptr %.062357226, i64 %1751
   %1795 = load i16, ptr %1794, align 2
   %1796 = uitofp i16 %1795 to double
   %1797 = tail call double @llvm.fmuladd.f64(double %1796, double %1695, double %1793)
@@ -7431,9 +7431,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1836 = lshr i32 %1835, 16
   %1837 = trunc nuw i32 %1836 to i16
   %1838 = xor i16 %1837, -32768
-  %1839 = getelementptr inbounds i16, ptr %.062317234, i64 %indvars.iv7703
+  %1839 = getelementptr inbounds nuw i16, ptr %.062317234, i64 %indvars.iv7703
   store i16 %1838, ptr %1839, align 2
-  %1840 = getelementptr inbounds i8, ptr %.062357226, i64 2
+  %1840 = getelementptr inbounds nuw i8, ptr %.062357226, i64 2
   %indvars.iv.next7704 = add nuw nsw i64 %indvars.iv7703, 1
   %exitcond7707.not = icmp eq i64 %indvars.iv.next7704, %wide.trip.count7706
   br i1 %exitcond7707.not, label %._crit_edge7230, label %1766, !llvm.loop !151
@@ -7509,32 +7509,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1873 = lshr i32 %1872, 3
   %1874 = and i32 %1873, 8176
   %1875 = zext nneg i32 %1874 to i64
-  %1876 = getelementptr inbounds i8, ptr %46, i64 %1875
+  %1876 = getelementptr inbounds nuw i8, ptr %46, i64 %1875
   %1877 = load float, ptr %1876, align 4
   %1878 = fpext float %1877 to double
-  %1879 = getelementptr inbounds i8, ptr %1876, i64 4
+  %1879 = getelementptr inbounds nuw i8, ptr %1876, i64 4
   %1880 = load float, ptr %1879, align 4
   %1881 = fpext float %1880 to double
-  %1882 = getelementptr inbounds i8, ptr %1876, i64 8
+  %1882 = getelementptr inbounds nuw i8, ptr %1876, i64 8
   %1883 = load float, ptr %1882, align 4
   %1884 = fpext float %1883 to double
-  %1885 = getelementptr inbounds i8, ptr %1876, i64 12
+  %1885 = getelementptr inbounds nuw i8, ptr %1876, i64 12
   %1886 = load float, ptr %1885, align 4
   %1887 = fpext float %1886 to double
   %1888 = add nsw i32 %.963527250, -32768
   %1889 = lshr i32 %1888, 3
   %1890 = and i32 %1889, 8176
   %1891 = zext nneg i32 %1890 to i64
-  %1892 = getelementptr inbounds i8, ptr %46, i64 %1891
+  %1892 = getelementptr inbounds nuw i8, ptr %46, i64 %1891
   %1893 = load float, ptr %1892, align 4
   %1894 = fpext float %1893 to double
-  %1895 = getelementptr inbounds i8, ptr %1892, i64 4
+  %1895 = getelementptr inbounds nuw i8, ptr %1892, i64 4
   %1896 = load float, ptr %1895, align 4
   %1897 = fpext float %1896 to double
-  %1898 = getelementptr inbounds i8, ptr %1892, i64 8
+  %1898 = getelementptr inbounds nuw i8, ptr %1892, i64 8
   %1899 = load float, ptr %1898, align 4
   %1900 = fpext float %1899 to double
-  %1901 = getelementptr inbounds i8, ptr %1892, i64 12
+  %1901 = getelementptr inbounds nuw i8, ptr %1892, i64 12
   %1902 = load float, ptr %1901, align 4
   %1903 = fpext float %1902 to double
   br i1 %1662, label %.lr.ph7247, label %._crit_edge7248
@@ -7626,11 +7626,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %1979 = uitofp i16 %1978 to double
   %1980 = fmul double %1881, %1979
   %1981 = tail call double @llvm.fmuladd.f64(double %1977, double %1878, double %1980)
-  %1982 = getelementptr inbounds i16, ptr %.162367244, i64 %1942
+  %1982 = getelementptr inbounds nuw i16, ptr %.162367244, i64 %1942
   %1983 = load i16, ptr %1982, align 2
   %1984 = uitofp i16 %1983 to double
   %1985 = tail call double @llvm.fmuladd.f64(double %1984, double %1884, double %1981)
-  %1986 = getelementptr inbounds i16, ptr %.162367244, i64 %1943
+  %1986 = getelementptr inbounds nuw i16, ptr %.162367244, i64 %1943
   %1987 = load i16, ptr %1986, align 2
   %1988 = uitofp i16 %1987 to double
   %1989 = tail call double @llvm.fmuladd.f64(double %1988, double %1887, double %1985)
@@ -7679,9 +7679,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2028 = lshr i32 %2027, 16
   %2029 = trunc nuw i32 %2028 to i16
   %2030 = xor i16 %2029, -32768
-  %2031 = getelementptr inbounds i16, ptr %.162327252, i64 %indvars.iv7714
+  %2031 = getelementptr inbounds nuw i16, ptr %.162327252, i64 %indvars.iv7714
   store i16 %2030, ptr %2031, align 2
-  %2032 = getelementptr inbounds i8, ptr %.162367244, i64 2
+  %2032 = getelementptr inbounds nuw i8, ptr %.162367244, i64 2
   %indvars.iv.next7715 = add nuw nsw i64 %indvars.iv7714, 1
   %exitcond7718.not = icmp eq i64 %indvars.iv.next7715, %wide.trip.count7717
   br i1 %exitcond7718.not, label %._crit_edge7248, label %1958, !llvm.loop !154
@@ -7727,32 +7727,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2050 = lshr i32 %2049, 3
   %2051 = and i32 %2050, 8176
   %2052 = zext nneg i32 %2051 to i64
-  %2053 = getelementptr inbounds i8, ptr %46, i64 %2052
+  %2053 = getelementptr inbounds nuw i8, ptr %46, i64 %2052
   %2054 = load float, ptr %2053, align 4
   %2055 = fpext float %2054 to double
-  %2056 = getelementptr inbounds i8, ptr %2053, i64 4
+  %2056 = getelementptr inbounds nuw i8, ptr %2053, i64 4
   %2057 = load float, ptr %2056, align 4
   %2058 = fpext float %2057 to double
-  %2059 = getelementptr inbounds i8, ptr %2053, i64 8
+  %2059 = getelementptr inbounds nuw i8, ptr %2053, i64 8
   %2060 = load float, ptr %2059, align 4
   %2061 = fpext float %2060 to double
-  %2062 = getelementptr inbounds i8, ptr %2053, i64 12
+  %2062 = getelementptr inbounds nuw i8, ptr %2053, i64 12
   %2063 = load float, ptr %2062, align 4
   %2064 = fpext float %2063 to double
   %2065 = add nsw i32 %.1063537261, -32768
   %2066 = lshr i32 %2065, 3
   %2067 = and i32 %2066, 8176
   %2068 = zext nneg i32 %2067 to i64
-  %2069 = getelementptr inbounds i8, ptr %46, i64 %2068
+  %2069 = getelementptr inbounds nuw i8, ptr %46, i64 %2068
   %2070 = load float, ptr %2069, align 4
   %2071 = fpext float %2070 to double
-  %2072 = getelementptr inbounds i8, ptr %2069, i64 4
+  %2072 = getelementptr inbounds nuw i8, ptr %2069, i64 4
   %2073 = load float, ptr %2072, align 4
   %2074 = fpext float %2073 to double
-  %2075 = getelementptr inbounds i8, ptr %2069, i64 8
+  %2075 = getelementptr inbounds nuw i8, ptr %2069, i64 8
   %2076 = load float, ptr %2075, align 4
   %2077 = fpext float %2076 to double
-  %2078 = getelementptr inbounds i8, ptr %2069, i64 12
+  %2078 = getelementptr inbounds nuw i8, ptr %2069, i64 12
   %2079 = load float, ptr %2078, align 4
   %2080 = fpext float %2079 to double
   br i1 %1662, label %.lr.ph7258, label %._crit_edge7259
@@ -7844,11 +7844,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2156 = uitofp i16 %2155 to double
   %2157 = fmul double %2058, %2156
   %2158 = tail call double @llvm.fmuladd.f64(double %2154, double %2055, double %2157)
-  %2159 = getelementptr inbounds i16, ptr %.262377255, i64 %2119
+  %2159 = getelementptr inbounds nuw i16, ptr %.262377255, i64 %2119
   %2160 = load i16, ptr %2159, align 2
   %2161 = uitofp i16 %2160 to double
   %2162 = tail call double @llvm.fmuladd.f64(double %2161, double %2061, double %2158)
-  %2163 = getelementptr inbounds i16, ptr %.262377255, i64 %2120
+  %2163 = getelementptr inbounds nuw i16, ptr %.262377255, i64 %2120
   %2164 = load i16, ptr %2163, align 2
   %2165 = uitofp i16 %2164 to double
   %2166 = tail call double @llvm.fmuladd.f64(double %2165, double %2064, double %2162)
@@ -7897,9 +7897,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2205 = lshr i32 %2204, 16
   %2206 = trunc nuw i32 %2205 to i16
   %2207 = xor i16 %2206, -32768
-  %2208 = getelementptr inbounds i16, ptr %.262337263, i64 %indvars.iv7720
+  %2208 = getelementptr inbounds nuw i16, ptr %.262337263, i64 %indvars.iv7720
   store i16 %2207, ptr %2208, align 2
-  %2209 = getelementptr inbounds i8, ptr %.262377255, i64 2
+  %2209 = getelementptr inbounds nuw i8, ptr %.262377255, i64 2
   %indvars.iv.next7721 = add nuw nsw i64 %indvars.iv7720, 1
   %exitcond7724.not = icmp eq i64 %indvars.iv.next7721, %wide.trip.count7723
   br i1 %exitcond7724.not, label %._crit_edge7259, label %2135, !llvm.loop !156
@@ -7949,32 +7949,32 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2229 = lshr i32 %2228, 3
   %2230 = and i32 %2229, 8176
   %2231 = zext nneg i32 %2230 to i64
-  %2232 = getelementptr inbounds i8, ptr %46, i64 %2231
+  %2232 = getelementptr inbounds nuw i8, ptr %46, i64 %2231
   %2233 = load float, ptr %2232, align 4
   %2234 = fpext float %2233 to double
-  %2235 = getelementptr inbounds i8, ptr %2232, i64 4
+  %2235 = getelementptr inbounds nuw i8, ptr %2232, i64 4
   %2236 = load float, ptr %2235, align 4
   %2237 = fpext float %2236 to double
-  %2238 = getelementptr inbounds i8, ptr %2232, i64 8
+  %2238 = getelementptr inbounds nuw i8, ptr %2232, i64 8
   %2239 = load float, ptr %2238, align 4
   %2240 = fpext float %2239 to double
-  %2241 = getelementptr inbounds i8, ptr %2232, i64 12
+  %2241 = getelementptr inbounds nuw i8, ptr %2232, i64 12
   %2242 = load float, ptr %2241, align 4
   %2243 = fpext float %2242 to double
   %2244 = add nsw i32 %.1163547279, -32768
   %2245 = lshr i32 %2244, 3
   %2246 = and i32 %2245, 8176
   %2247 = zext nneg i32 %2246 to i64
-  %2248 = getelementptr inbounds i8, ptr %46, i64 %2247
+  %2248 = getelementptr inbounds nuw i8, ptr %46, i64 %2247
   %2249 = load float, ptr %2248, align 4
   %2250 = fpext float %2249 to double
-  %2251 = getelementptr inbounds i8, ptr %2248, i64 4
+  %2251 = getelementptr inbounds nuw i8, ptr %2248, i64 4
   %2252 = load float, ptr %2251, align 4
   %2253 = fpext float %2252 to double
-  %2254 = getelementptr inbounds i8, ptr %2248, i64 8
+  %2254 = getelementptr inbounds nuw i8, ptr %2248, i64 8
   %2255 = load float, ptr %2254, align 4
   %2256 = fpext float %2255 to double
-  %2257 = getelementptr inbounds i8, ptr %2248, i64 12
+  %2257 = getelementptr inbounds nuw i8, ptr %2248, i64 12
   %2258 = load float, ptr %2257, align 4
   %2259 = fpext float %2258 to double
   br i1 %1848, label %.lr.ph7276, label %._crit_edge7277
@@ -8066,11 +8066,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2335 = uitofp i16 %2334 to double
   %2336 = fmul double %2237, %2335
   %2337 = tail call double @llvm.fmuladd.f64(double %2333, double %2234, double %2336)
-  %2338 = getelementptr inbounds i16, ptr %.362387273, i64 %2298
+  %2338 = getelementptr inbounds nuw i16, ptr %.362387273, i64 %2298
   %2339 = load i16, ptr %2338, align 2
   %2340 = uitofp i16 %2339 to double
   %2341 = tail call double @llvm.fmuladd.f64(double %2340, double %2240, double %2337)
-  %2342 = getelementptr inbounds i16, ptr %.362387273, i64 %2299
+  %2342 = getelementptr inbounds nuw i16, ptr %.362387273, i64 %2299
   %2343 = load i16, ptr %2342, align 2
   %2344 = uitofp i16 %2343 to double
   %2345 = tail call double @llvm.fmuladd.f64(double %2344, double %2243, double %2341)
@@ -8119,9 +8119,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2384 = lshr i32 %2383, 16
   %2385 = trunc nuw i32 %2384 to i16
   %2386 = xor i16 %2385, -32768
-  %2387 = getelementptr inbounds i16, ptr %.362347281, i64 %indvars.iv7731
+  %2387 = getelementptr inbounds nuw i16, ptr %.362347281, i64 %indvars.iv7731
   store i16 %2386, ptr %2387, align 2
-  %2388 = getelementptr inbounds i8, ptr %.362387273, i64 2
+  %2388 = getelementptr inbounds nuw i8, ptr %.362387273, i64 2
   %indvars.iv.next7732 = add nuw nsw i64 %indvars.iv7731, 1
   %exitcond7735.not = icmp eq i64 %indvars.iv.next7732, %wide.trip.count7734
   br i1 %exitcond7735.not, label %._crit_edge7277, label %2314, !llvm.loop !159
@@ -8340,11 +8340,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2537 = sitofp i32 %2536 to double
   %2538 = fmul double %2441, %2537
   %2539 = tail call double @llvm.fmuladd.f64(double %2535, double %2439, double %2538)
-  %2540 = getelementptr inbounds i32, ptr %.062237164, i64 %2500
+  %2540 = getelementptr inbounds nuw i32, ptr %.062237164, i64 %2500
   %2541 = load i32, ptr %2540, align 4
   %2542 = sitofp i32 %2541 to double
   %2543 = tail call double @llvm.fmuladd.f64(double %2542, double %2444, double %2539)
-  %2544 = getelementptr inbounds i32, ptr %.062237164, i64 %2501
+  %2544 = getelementptr inbounds nuw i32, ptr %.062237164, i64 %2501
   %2545 = load i32, ptr %2544, align 4
   %2546 = sitofp i32 %2545 to double
   %2547 = tail call double @llvm.fmuladd.f64(double %2546, double %2445, double %2543)
@@ -8389,9 +8389,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6775 = fcmp ole double %.246295, 0xC1E0000000000000
   %.256296 = select i1 %.inv6775, double 0xC1E0000000000000, double %.246295
   %2584 = fptosi double %.256296 to i32
-  %2585 = getelementptr inbounds i32, ptr %.062197172, i64 %indvars.iv7664
+  %2585 = getelementptr inbounds nuw i32, ptr %.062197172, i64 %indvars.iv7664
   store i32 %2584, ptr %2585, align 4
-  %2586 = getelementptr inbounds i8, ptr %.062237164, i64 4
+  %2586 = getelementptr inbounds nuw i8, ptr %.062237164, i64 4
   %indvars.iv.next7665 = add nuw nsw i64 %indvars.iv7664, 1
   %exitcond7668.not = icmp eq i64 %indvars.iv.next7665, %wide.trip.count7667
   br i1 %exitcond7668.not, label %._crit_edge7168, label %2516, !llvm.loop !162
@@ -8584,11 +8584,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2725 = sitofp i32 %2724 to double
   %2726 = fmul double %2629, %2725
   %2727 = tail call double @llvm.fmuladd.f64(double %2723, double %2627, double %2726)
-  %2728 = getelementptr inbounds i32, ptr %.162247181, i64 %2688
+  %2728 = getelementptr inbounds nuw i32, ptr %.162247181, i64 %2688
   %2729 = load i32, ptr %2728, align 4
   %2730 = sitofp i32 %2729 to double
   %2731 = tail call double @llvm.fmuladd.f64(double %2730, double %2632, double %2727)
-  %2732 = getelementptr inbounds i32, ptr %.162247181, i64 %2689
+  %2732 = getelementptr inbounds nuw i32, ptr %.162247181, i64 %2689
   %2733 = load i32, ptr %2732, align 4
   %2734 = sitofp i32 %2733 to double
   %2735 = tail call double @llvm.fmuladd.f64(double %2734, double %2633, double %2731)
@@ -8633,9 +8633,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6769 = fcmp ole double %.266297, 0xC1E0000000000000
   %.27 = select i1 %.inv6769, double 0xC1E0000000000000, double %.266297
   %2772 = fptosi double %.27 to i32
-  %2773 = getelementptr inbounds i32, ptr %.162207189, i64 %indvars.iv7675
+  %2773 = getelementptr inbounds nuw i32, ptr %.162207189, i64 %indvars.iv7675
   store i32 %2772, ptr %2773, align 4
-  %2774 = getelementptr inbounds i8, ptr %.162247181, i64 4
+  %2774 = getelementptr inbounds nuw i8, ptr %.162247181, i64 4
   %indvars.iv.next7676 = add nuw nsw i64 %indvars.iv7675, 1
   %exitcond7679.not = icmp eq i64 %indvars.iv.next7676, %wide.trip.count7678
   br i1 %exitcond7679.not, label %._crit_edge7185, label %2704, !llvm.loop !165
@@ -8798,11 +8798,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %2898 = sitofp i32 %2897 to double
   %2899 = fmul double %2802, %2898
   %2900 = tail call double @llvm.fmuladd.f64(double %2896, double %2800, double %2899)
-  %2901 = getelementptr inbounds i32, ptr %.262257192, i64 %2861
+  %2901 = getelementptr inbounds nuw i32, ptr %.262257192, i64 %2861
   %2902 = load i32, ptr %2901, align 4
   %2903 = sitofp i32 %2902 to double
   %2904 = tail call double @llvm.fmuladd.f64(double %2903, double %2805, double %2900)
-  %2905 = getelementptr inbounds i32, ptr %.262257192, i64 %2862
+  %2905 = getelementptr inbounds nuw i32, ptr %.262257192, i64 %2862
   %2906 = load i32, ptr %2905, align 4
   %2907 = sitofp i32 %2906 to double
   %2908 = tail call double @llvm.fmuladd.f64(double %2907, double %2806, double %2904)
@@ -8847,9 +8847,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6771 = fcmp ole double %.28, 0xC1E0000000000000
   %.29 = select i1 %.inv6771, double 0xC1E0000000000000, double %.28
   %2945 = fptosi double %.29 to i32
-  %2946 = getelementptr inbounds i32, ptr %.262217200, i64 %indvars.iv7681
+  %2946 = getelementptr inbounds nuw i32, ptr %.262217200, i64 %indvars.iv7681
   store i32 %2945, ptr %2946, align 4
-  %2947 = getelementptr inbounds i8, ptr %.262257192, i64 4
+  %2947 = getelementptr inbounds nuw i8, ptr %.262257192, i64 4
   %indvars.iv.next7682 = add nuw nsw i64 %indvars.iv7681, 1
   %exitcond7685.not = icmp eq i64 %indvars.iv.next7682, %wide.trip.count7684
   br i1 %exitcond7685.not, label %._crit_edge7196, label %2877, !llvm.loop !167
@@ -9016,11 +9016,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3073 = sitofp i32 %3072 to double
   %3074 = fmul double %2977, %3073
   %3075 = tail call double @llvm.fmuladd.f64(double %3071, double %2975, double %3074)
-  %3076 = getelementptr inbounds i32, ptr %.362267210, i64 %3036
+  %3076 = getelementptr inbounds nuw i32, ptr %.362267210, i64 %3036
   %3077 = load i32, ptr %3076, align 4
   %3078 = sitofp i32 %3077 to double
   %3079 = tail call double @llvm.fmuladd.f64(double %3078, double %2980, double %3075)
-  %3080 = getelementptr inbounds i32, ptr %.362267210, i64 %3037
+  %3080 = getelementptr inbounds nuw i32, ptr %.362267210, i64 %3037
   %3081 = load i32, ptr %3080, align 4
   %3082 = sitofp i32 %3081 to double
   %3083 = tail call double @llvm.fmuladd.f64(double %3082, double %2981, double %3079)
@@ -9065,9 +9065,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6773 = fcmp ole double %.30, 0xC1E0000000000000
   %.31 = select i1 %.inv6773, double 0xC1E0000000000000, double %.30
   %3120 = fptosi double %.31 to i32
-  %3121 = getelementptr inbounds i32, ptr %.362227218, i64 %indvars.iv7692
+  %3121 = getelementptr inbounds nuw i32, ptr %.362227218, i64 %indvars.iv7692
   store i32 %3120, ptr %3121, align 4
-  %3122 = getelementptr inbounds i8, ptr %.362267210, i64 4
+  %3122 = getelementptr inbounds nuw i8, ptr %.362267210, i64 4
   %indvars.iv.next7693 = add nuw nsw i64 %indvars.iv7692, 1
   %exitcond7696.not = icmp eq i64 %indvars.iv.next7693, %wide.trip.count7695
   br i1 %exitcond7696.not, label %._crit_edge7214, label %3052, !llvm.loop !170
@@ -9248,11 +9248,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3251 = sitofp i32 %3250 to double
   %3252 = fmul double %3158, %3251
   %3253 = tail call double @llvm.fmuladd.f64(double %3249, double %3156, double %3252)
-  %3254 = getelementptr inbounds i32, ptr %.062117102, i64 %3214
+  %3254 = getelementptr inbounds nuw i32, ptr %.062117102, i64 %3214
   %3255 = load i32, ptr %3254, align 4
   %3256 = sitofp i32 %3255 to double
   %3257 = tail call double @llvm.fmuladd.f64(double %3256, double %3160, double %3253)
-  %3258 = getelementptr inbounds i32, ptr %.062117102, i64 %3215
+  %3258 = getelementptr inbounds nuw i32, ptr %.062117102, i64 %3215
   %3259 = load i32, ptr %3258, align 4
   %3260 = sitofp i32 %3259 to double
   %3261 = tail call double @llvm.fmuladd.f64(double %3260, double %3161, double %3257)
@@ -9297,9 +9297,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6767 = fcmp ole double %.32, 0xC1E0000000000000
   %.33 = select i1 %.inv6767, double 0xC1E0000000000000, double %.32
   %3298 = fptosi double %.33 to i32
-  %3299 = getelementptr inbounds i32, ptr %.062077110, i64 %indvars.iv7625
+  %3299 = getelementptr inbounds nuw i32, ptr %.062077110, i64 %indvars.iv7625
   store i32 %3298, ptr %3299, align 4
-  %3300 = getelementptr inbounds i8, ptr %.062117102, i64 4
+  %3300 = getelementptr inbounds nuw i8, ptr %.062117102, i64 4
   %indvars.iv.next7626 = add nuw nsw i64 %indvars.iv7625, 1
   %exitcond7629.not = icmp eq i64 %indvars.iv.next7626, %wide.trip.count7628
   br i1 %exitcond7629.not, label %._crit_edge7106, label %3230, !llvm.loop !173
@@ -9488,11 +9488,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3435 = sitofp i32 %3434 to double
   %3436 = fmul double %3342, %3435
   %3437 = tail call double @llvm.fmuladd.f64(double %3433, double %3340, double %3436)
-  %3438 = getelementptr inbounds i32, ptr %.162127119, i64 %3398
+  %3438 = getelementptr inbounds nuw i32, ptr %.162127119, i64 %3398
   %3439 = load i32, ptr %3438, align 4
   %3440 = sitofp i32 %3439 to double
   %3441 = tail call double @llvm.fmuladd.f64(double %3440, double %3344, double %3437)
-  %3442 = getelementptr inbounds i32, ptr %.162127119, i64 %3399
+  %3442 = getelementptr inbounds nuw i32, ptr %.162127119, i64 %3399
   %3443 = load i32, ptr %3442, align 4
   %3444 = sitofp i32 %3443 to double
   %3445 = tail call double @llvm.fmuladd.f64(double %3444, double %3345, double %3441)
@@ -9537,9 +9537,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6761 = fcmp ole double %.34, 0xC1E0000000000000
   %.35 = select i1 %.inv6761, double 0xC1E0000000000000, double %.34
   %3482 = fptosi double %.35 to i32
-  %3483 = getelementptr inbounds i32, ptr %.162087127, i64 %indvars.iv7636
+  %3483 = getelementptr inbounds nuw i32, ptr %.162087127, i64 %indvars.iv7636
   store i32 %3482, ptr %3483, align 4
-  %3484 = getelementptr inbounds i8, ptr %.162127119, i64 4
+  %3484 = getelementptr inbounds nuw i8, ptr %.162127119, i64 4
   %indvars.iv.next7637 = add nuw nsw i64 %indvars.iv7636, 1
   %exitcond7640.not = icmp eq i64 %indvars.iv.next7637, %wide.trip.count7639
   br i1 %exitcond7640.not, label %._crit_edge7123, label %3414, !llvm.loop !176
@@ -9698,11 +9698,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3604 = sitofp i32 %3603 to double
   %3605 = fmul double %3511, %3604
   %3606 = tail call double @llvm.fmuladd.f64(double %3602, double %3509, double %3605)
-  %3607 = getelementptr inbounds i32, ptr %.262137130, i64 %3567
+  %3607 = getelementptr inbounds nuw i32, ptr %.262137130, i64 %3567
   %3608 = load i32, ptr %3607, align 4
   %3609 = sitofp i32 %3608 to double
   %3610 = tail call double @llvm.fmuladd.f64(double %3609, double %3513, double %3606)
-  %3611 = getelementptr inbounds i32, ptr %.262137130, i64 %3568
+  %3611 = getelementptr inbounds nuw i32, ptr %.262137130, i64 %3568
   %3612 = load i32, ptr %3611, align 4
   %3613 = sitofp i32 %3612 to double
   %3614 = tail call double @llvm.fmuladd.f64(double %3613, double %3514, double %3610)
@@ -9747,9 +9747,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6763 = fcmp ole double %.36, 0xC1E0000000000000
   %.37 = select i1 %.inv6763, double 0xC1E0000000000000, double %.36
   %3651 = fptosi double %.37 to i32
-  %3652 = getelementptr inbounds i32, ptr %.262097138, i64 %indvars.iv7642
+  %3652 = getelementptr inbounds nuw i32, ptr %.262097138, i64 %indvars.iv7642
   store i32 %3651, ptr %3652, align 4
-  %3653 = getelementptr inbounds i8, ptr %.262137130, i64 4
+  %3653 = getelementptr inbounds nuw i8, ptr %.262137130, i64 4
   %indvars.iv.next7643 = add nuw nsw i64 %indvars.iv7642, 1
   %exitcond7646.not = icmp eq i64 %indvars.iv.next7643, %wide.trip.count7645
   br i1 %exitcond7646.not, label %._crit_edge7134, label %3583, !llvm.loop !178
@@ -9912,11 +9912,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3775 = sitofp i32 %3774 to double
   %3776 = fmul double %3682, %3775
   %3777 = tail call double @llvm.fmuladd.f64(double %3773, double %3680, double %3776)
-  %3778 = getelementptr inbounds i32, ptr %.362147148, i64 %3738
+  %3778 = getelementptr inbounds nuw i32, ptr %.362147148, i64 %3738
   %3779 = load i32, ptr %3778, align 4
   %3780 = sitofp i32 %3779 to double
   %3781 = tail call double @llvm.fmuladd.f64(double %3780, double %3684, double %3777)
-  %3782 = getelementptr inbounds i32, ptr %.362147148, i64 %3739
+  %3782 = getelementptr inbounds nuw i32, ptr %.362147148, i64 %3739
   %3783 = load i32, ptr %3782, align 4
   %3784 = sitofp i32 %3783 to double
   %3785 = tail call double @llvm.fmuladd.f64(double %3784, double %3685, double %3781)
@@ -9961,9 +9961,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %.inv6765 = fcmp ole double %.38, 0xC1E0000000000000
   %.39 = select i1 %.inv6765, double 0xC1E0000000000000, double %.38
   %3822 = fptosi double %.39 to i32
-  %3823 = getelementptr inbounds i32, ptr %.362107156, i64 %indvars.iv7653
+  %3823 = getelementptr inbounds nuw i32, ptr %.362107156, i64 %indvars.iv7653
   store i32 %3822, ptr %3823, align 4
-  %3824 = getelementptr inbounds i8, ptr %.362147148, i64 4
+  %3824 = getelementptr inbounds nuw i8, ptr %.362147148, i64 4
   %indvars.iv.next7654 = add nuw nsw i64 %indvars.iv7653, 1
   %exitcond7657.not = icmp eq i64 %indvars.iv.next7654, %wide.trip.count7656
   br i1 %exitcond7657.not, label %._crit_edge7152, label %3754, !llvm.loop !181
@@ -10182,11 +10182,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %3973 = fpext float %3972 to double
   %3974 = fmul double %3877, %3973
   %3975 = tail call double @llvm.fmuladd.f64(double %3971, double %3875, double %3974)
-  %3976 = getelementptr inbounds float, ptr %.061997040, i64 %3936
+  %3976 = getelementptr inbounds nuw float, ptr %.061997040, i64 %3936
   %3977 = load float, ptr %3976, align 4
   %3978 = fpext float %3977 to double
   %3979 = tail call double @llvm.fmuladd.f64(double %3978, double %3880, double %3975)
-  %3980 = getelementptr inbounds float, ptr %.061997040, i64 %3937
+  %3980 = getelementptr inbounds nuw float, ptr %.061997040, i64 %3937
   %3981 = load float, ptr %3980, align 4
   %3982 = fpext float %3981 to double
   %3983 = tail call double @llvm.fmuladd.f64(double %3982, double %3881, double %3979)
@@ -10227,9 +10227,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4018 = tail call double @llvm.fmuladd.f64(double %3999, double %3896, double %4017)
   %4019 = tail call double @llvm.fmuladd.f64(double %4015, double %3897, double %4018)
   %4020 = fptrunc double %4019 to float
-  %4021 = getelementptr inbounds float, ptr %.061957048, i64 %indvars.iv7586
+  %4021 = getelementptr inbounds nuw float, ptr %.061957048, i64 %indvars.iv7586
   store float %4020, ptr %4021, align 4
-  %4022 = getelementptr inbounds i8, ptr %.061997040, i64 4
+  %4022 = getelementptr inbounds nuw i8, ptr %.061997040, i64 4
   %indvars.iv.next7587 = add nuw nsw i64 %indvars.iv7586, 1
   %exitcond7590.not = icmp eq i64 %indvars.iv.next7587, %wide.trip.count7589
   br i1 %exitcond7590.not, label %._crit_edge7044, label %3952, !llvm.loop !184
@@ -10422,11 +10422,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4161 = fpext float %4160 to double
   %4162 = fmul double %4065, %4161
   %4163 = tail call double @llvm.fmuladd.f64(double %4159, double %4063, double %4162)
-  %4164 = getelementptr inbounds float, ptr %.162007057, i64 %4124
+  %4164 = getelementptr inbounds nuw float, ptr %.162007057, i64 %4124
   %4165 = load float, ptr %4164, align 4
   %4166 = fpext float %4165 to double
   %4167 = tail call double @llvm.fmuladd.f64(double %4166, double %4068, double %4163)
-  %4168 = getelementptr inbounds float, ptr %.162007057, i64 %4125
+  %4168 = getelementptr inbounds nuw float, ptr %.162007057, i64 %4125
   %4169 = load float, ptr %4168, align 4
   %4170 = fpext float %4169 to double
   %4171 = tail call double @llvm.fmuladd.f64(double %4170, double %4069, double %4167)
@@ -10467,9 +10467,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4206 = tail call double @llvm.fmuladd.f64(double %4187, double %4084, double %4205)
   %4207 = tail call double @llvm.fmuladd.f64(double %4203, double %4085, double %4206)
   %4208 = fptrunc double %4207 to float
-  %4209 = getelementptr inbounds float, ptr %.161967065, i64 %indvars.iv7597
+  %4209 = getelementptr inbounds nuw float, ptr %.161967065, i64 %indvars.iv7597
   store float %4208, ptr %4209, align 4
-  %4210 = getelementptr inbounds i8, ptr %.162007057, i64 4
+  %4210 = getelementptr inbounds nuw i8, ptr %.162007057, i64 4
   %indvars.iv.next7598 = add nuw nsw i64 %indvars.iv7597, 1
   %exitcond7601.not = icmp eq i64 %indvars.iv.next7598, %wide.trip.count7600
   br i1 %exitcond7601.not, label %._crit_edge7061, label %4140, !llvm.loop !187
@@ -10632,11 +10632,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4334 = fpext float %4333 to double
   %4335 = fmul double %4238, %4334
   %4336 = tail call double @llvm.fmuladd.f64(double %4332, double %4236, double %4335)
-  %4337 = getelementptr inbounds float, ptr %.262017068, i64 %4297
+  %4337 = getelementptr inbounds nuw float, ptr %.262017068, i64 %4297
   %4338 = load float, ptr %4337, align 4
   %4339 = fpext float %4338 to double
   %4340 = tail call double @llvm.fmuladd.f64(double %4339, double %4241, double %4336)
-  %4341 = getelementptr inbounds float, ptr %.262017068, i64 %4298
+  %4341 = getelementptr inbounds nuw float, ptr %.262017068, i64 %4298
   %4342 = load float, ptr %4341, align 4
   %4343 = fpext float %4342 to double
   %4344 = tail call double @llvm.fmuladd.f64(double %4343, double %4242, double %4340)
@@ -10677,9 +10677,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4379 = tail call double @llvm.fmuladd.f64(double %4360, double %4257, double %4378)
   %4380 = tail call double @llvm.fmuladd.f64(double %4376, double %4258, double %4379)
   %4381 = fptrunc double %4380 to float
-  %4382 = getelementptr inbounds float, ptr %.261977076, i64 %indvars.iv7603
+  %4382 = getelementptr inbounds nuw float, ptr %.261977076, i64 %indvars.iv7603
   store float %4381, ptr %4382, align 4
-  %4383 = getelementptr inbounds i8, ptr %.262017068, i64 4
+  %4383 = getelementptr inbounds nuw i8, ptr %.262017068, i64 4
   %indvars.iv.next7604 = add nuw nsw i64 %indvars.iv7603, 1
   %exitcond7607.not = icmp eq i64 %indvars.iv.next7604, %wide.trip.count7606
   br i1 %exitcond7607.not, label %._crit_edge7072, label %4313, !llvm.loop !189
@@ -10846,11 +10846,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4509 = fpext float %4508 to double
   %4510 = fmul double %4413, %4509
   %4511 = tail call double @llvm.fmuladd.f64(double %4507, double %4411, double %4510)
-  %4512 = getelementptr inbounds float, ptr %.362027086, i64 %4472
+  %4512 = getelementptr inbounds nuw float, ptr %.362027086, i64 %4472
   %4513 = load float, ptr %4512, align 4
   %4514 = fpext float %4513 to double
   %4515 = tail call double @llvm.fmuladd.f64(double %4514, double %4416, double %4511)
-  %4516 = getelementptr inbounds float, ptr %.362027086, i64 %4473
+  %4516 = getelementptr inbounds nuw float, ptr %.362027086, i64 %4473
   %4517 = load float, ptr %4516, align 4
   %4518 = fpext float %4517 to double
   %4519 = tail call double @llvm.fmuladd.f64(double %4518, double %4417, double %4515)
@@ -10891,9 +10891,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4554 = tail call double @llvm.fmuladd.f64(double %4535, double %4432, double %4553)
   %4555 = tail call double @llvm.fmuladd.f64(double %4551, double %4433, double %4554)
   %4556 = fptrunc double %4555 to float
-  %4557 = getelementptr inbounds float, ptr %.361987094, i64 %indvars.iv7614
+  %4557 = getelementptr inbounds nuw float, ptr %.361987094, i64 %indvars.iv7614
   store float %4556, ptr %4557, align 4
-  %4558 = getelementptr inbounds i8, ptr %.362027086, i64 4
+  %4558 = getelementptr inbounds nuw i8, ptr %.362027086, i64 4
   %indvars.iv.next7615 = add nuw nsw i64 %indvars.iv7614, 1
   %exitcond7618.not = icmp eq i64 %indvars.iv.next7615, %wide.trip.count7617
   br i1 %exitcond7618.not, label %._crit_edge7090, label %4488, !llvm.loop !192
@@ -11074,11 +11074,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4687 = fpext float %4686 to double
   %4688 = fmul double %4594, %4687
   %4689 = tail call double @llvm.fmuladd.f64(double %4685, double %4592, double %4688)
-  %4690 = getelementptr inbounds float, ptr %.061876978, i64 %4650
+  %4690 = getelementptr inbounds nuw float, ptr %.061876978, i64 %4650
   %4691 = load float, ptr %4690, align 4
   %4692 = fpext float %4691 to double
   %4693 = tail call double @llvm.fmuladd.f64(double %4692, double %4596, double %4689)
-  %4694 = getelementptr inbounds float, ptr %.061876978, i64 %4651
+  %4694 = getelementptr inbounds nuw float, ptr %.061876978, i64 %4651
   %4695 = load float, ptr %4694, align 4
   %4696 = fpext float %4695 to double
   %4697 = tail call double @llvm.fmuladd.f64(double %4696, double %4597, double %4693)
@@ -11119,9 +11119,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4732 = tail call double @llvm.fmuladd.f64(double %4713, double %4610, double %4731)
   %4733 = tail call double @llvm.fmuladd.f64(double %4729, double %4611, double %4732)
   %4734 = fptrunc double %4733 to float
-  %4735 = getelementptr inbounds float, ptr %.061836986, i64 %indvars.iv7547
+  %4735 = getelementptr inbounds nuw float, ptr %.061836986, i64 %indvars.iv7547
   store float %4734, ptr %4735, align 4
-  %4736 = getelementptr inbounds i8, ptr %.061876978, i64 4
+  %4736 = getelementptr inbounds nuw i8, ptr %.061876978, i64 4
   %indvars.iv.next7548 = add nuw nsw i64 %indvars.iv7547, 1
   %exitcond7551.not = icmp eq i64 %indvars.iv.next7548, %wide.trip.count7550
   br i1 %exitcond7551.not, label %._crit_edge6982, label %4666, !llvm.loop !195
@@ -11310,11 +11310,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4871 = fpext float %4870 to double
   %4872 = fmul double %4778, %4871
   %4873 = tail call double @llvm.fmuladd.f64(double %4869, double %4776, double %4872)
-  %4874 = getelementptr inbounds float, ptr %.161886995, i64 %4834
+  %4874 = getelementptr inbounds nuw float, ptr %.161886995, i64 %4834
   %4875 = load float, ptr %4874, align 4
   %4876 = fpext float %4875 to double
   %4877 = tail call double @llvm.fmuladd.f64(double %4876, double %4780, double %4873)
-  %4878 = getelementptr inbounds float, ptr %.161886995, i64 %4835
+  %4878 = getelementptr inbounds nuw float, ptr %.161886995, i64 %4835
   %4879 = load float, ptr %4878, align 4
   %4880 = fpext float %4879 to double
   %4881 = tail call double @llvm.fmuladd.f64(double %4880, double %4781, double %4877)
@@ -11355,9 +11355,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %4916 = tail call double @llvm.fmuladd.f64(double %4897, double %4794, double %4915)
   %4917 = tail call double @llvm.fmuladd.f64(double %4913, double %4795, double %4916)
   %4918 = fptrunc double %4917 to float
-  %4919 = getelementptr inbounds float, ptr %.161847003, i64 %indvars.iv7558
+  %4919 = getelementptr inbounds nuw float, ptr %.161847003, i64 %indvars.iv7558
   store float %4918, ptr %4919, align 4
-  %4920 = getelementptr inbounds i8, ptr %.161886995, i64 4
+  %4920 = getelementptr inbounds nuw i8, ptr %.161886995, i64 4
   %indvars.iv.next7559 = add nuw nsw i64 %indvars.iv7558, 1
   %exitcond7562.not = icmp eq i64 %indvars.iv.next7559, %wide.trip.count7561
   br i1 %exitcond7562.not, label %._crit_edge6999, label %4850, !llvm.loop !198
@@ -11516,11 +11516,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5040 = fpext float %5039 to double
   %5041 = fmul double %4947, %5040
   %5042 = tail call double @llvm.fmuladd.f64(double %5038, double %4945, double %5041)
-  %5043 = getelementptr inbounds float, ptr %.261897006, i64 %5003
+  %5043 = getelementptr inbounds nuw float, ptr %.261897006, i64 %5003
   %5044 = load float, ptr %5043, align 4
   %5045 = fpext float %5044 to double
   %5046 = tail call double @llvm.fmuladd.f64(double %5045, double %4949, double %5042)
-  %5047 = getelementptr inbounds float, ptr %.261897006, i64 %5004
+  %5047 = getelementptr inbounds nuw float, ptr %.261897006, i64 %5004
   %5048 = load float, ptr %5047, align 4
   %5049 = fpext float %5048 to double
   %5050 = tail call double @llvm.fmuladd.f64(double %5049, double %4950, double %5046)
@@ -11561,9 +11561,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5085 = tail call double @llvm.fmuladd.f64(double %5066, double %4963, double %5084)
   %5086 = tail call double @llvm.fmuladd.f64(double %5082, double %4964, double %5085)
   %5087 = fptrunc double %5086 to float
-  %5088 = getelementptr inbounds float, ptr %.261857014, i64 %indvars.iv7564
+  %5088 = getelementptr inbounds nuw float, ptr %.261857014, i64 %indvars.iv7564
   store float %5087, ptr %5088, align 4
-  %5089 = getelementptr inbounds i8, ptr %.261897006, i64 4
+  %5089 = getelementptr inbounds nuw i8, ptr %.261897006, i64 4
   %indvars.iv.next7565 = add nuw nsw i64 %indvars.iv7564, 1
   %exitcond7568.not = icmp eq i64 %indvars.iv.next7565, %wide.trip.count7567
   br i1 %exitcond7568.not, label %._crit_edge7010, label %5019, !llvm.loop !200
@@ -11726,11 +11726,11 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5211 = fpext float %5210 to double
   %5212 = fmul double %5118, %5211
   %5213 = tail call double @llvm.fmuladd.f64(double %5209, double %5116, double %5212)
-  %5214 = getelementptr inbounds float, ptr %.361907024, i64 %5174
+  %5214 = getelementptr inbounds nuw float, ptr %.361907024, i64 %5174
   %5215 = load float, ptr %5214, align 4
   %5216 = fpext float %5215 to double
   %5217 = tail call double @llvm.fmuladd.f64(double %5216, double %5120, double %5213)
-  %5218 = getelementptr inbounds float, ptr %.361907024, i64 %5175
+  %5218 = getelementptr inbounds nuw float, ptr %.361907024, i64 %5175
   %5219 = load float, ptr %5218, align 4
   %5220 = fpext float %5219 to double
   %5221 = tail call double @llvm.fmuladd.f64(double %5220, double %5121, double %5217)
@@ -11771,9 +11771,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5256 = tail call double @llvm.fmuladd.f64(double %5237, double %5134, double %5255)
   %5257 = tail call double @llvm.fmuladd.f64(double %5253, double %5135, double %5256)
   %5258 = fptrunc double %5257 to float
-  %5259 = getelementptr inbounds float, ptr %.361867032, i64 %indvars.iv7575
+  %5259 = getelementptr inbounds nuw float, ptr %.361867032, i64 %indvars.iv7575
   store float %5258, ptr %5259, align 4
-  %5260 = getelementptr inbounds i8, ptr %.361907024, i64 4
+  %5260 = getelementptr inbounds nuw i8, ptr %.361907024, i64 4
   %indvars.iv.next7576 = add nuw nsw i64 %indvars.iv7575, 1
   %exitcond7579.not = icmp eq i64 %indvars.iv.next7576, %wide.trip.count7578
   br i1 %exitcond7579.not, label %._crit_edge7028, label %5190, !llvm.loop !203
@@ -11986,10 +11986,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5403 = load double, ptr %.061756916, align 8
   %5404 = fmul double %5313, %5403
   %5405 = tail call double @llvm.fmuladd.f64(double %5402, double %5311, double %5404)
-  %5406 = getelementptr inbounds double, ptr %.061756916, i64 %5372
+  %5406 = getelementptr inbounds nuw double, ptr %.061756916, i64 %5372
   %5407 = load double, ptr %5406, align 8
   %5408 = tail call double @llvm.fmuladd.f64(double %5407, double %5316, double %5405)
-  %5409 = getelementptr inbounds double, ptr %.061756916, i64 %5373
+  %5409 = getelementptr inbounds nuw double, ptr %.061756916, i64 %5373
   %5410 = load double, ptr %5409, align 8
   %5411 = tail call double @llvm.fmuladd.f64(double %5410, double %5317, double %5408)
   %5412 = getelementptr inbounds double, ptr %.061756916, i64 %5375
@@ -12020,9 +12020,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5437 = tail call double @llvm.fmuladd.f64(double %5400, double %5327, double %5436)
   %5438 = tail call double @llvm.fmuladd.f64(double %5423, double %5332, double %5437)
   %5439 = tail call double @llvm.fmuladd.f64(double %5435, double %5333, double %5438)
-  %5440 = getelementptr inbounds double, ptr %.061716924, i64 %indvars.iv7508
+  %5440 = getelementptr inbounds nuw double, ptr %.061716924, i64 %indvars.iv7508
   store double %5439, ptr %5440, align 8
-  %5441 = getelementptr inbounds i8, ptr %.061756916, i64 8
+  %5441 = getelementptr inbounds nuw i8, ptr %.061756916, i64 8
   %indvars.iv.next7509 = add nuw nsw i64 %indvars.iv7508, 1
   %exitcond7512.not = icmp eq i64 %indvars.iv.next7509, %wide.trip.count7511
   br i1 %exitcond7512.not, label %._crit_edge6920, label %5388, !llvm.loop !206
@@ -12209,10 +12209,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5574 = load double, ptr %.161766933, align 8
   %5575 = fmul double %5484, %5574
   %5576 = tail call double @llvm.fmuladd.f64(double %5573, double %5482, double %5575)
-  %5577 = getelementptr inbounds double, ptr %.161766933, i64 %5543
+  %5577 = getelementptr inbounds nuw double, ptr %.161766933, i64 %5543
   %5578 = load double, ptr %5577, align 8
   %5579 = tail call double @llvm.fmuladd.f64(double %5578, double %5487, double %5576)
-  %5580 = getelementptr inbounds double, ptr %.161766933, i64 %5544
+  %5580 = getelementptr inbounds nuw double, ptr %.161766933, i64 %5544
   %5581 = load double, ptr %5580, align 8
   %5582 = tail call double @llvm.fmuladd.f64(double %5581, double %5488, double %5579)
   %5583 = getelementptr inbounds double, ptr %.161766933, i64 %5546
@@ -12243,9 +12243,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5608 = tail call double @llvm.fmuladd.f64(double %5571, double %5498, double %5607)
   %5609 = tail call double @llvm.fmuladd.f64(double %5594, double %5503, double %5608)
   %5610 = tail call double @llvm.fmuladd.f64(double %5606, double %5504, double %5609)
-  %5611 = getelementptr inbounds double, ptr %.161726941, i64 %indvars.iv7519
+  %5611 = getelementptr inbounds nuw double, ptr %.161726941, i64 %indvars.iv7519
   store double %5610, ptr %5611, align 8
-  %5612 = getelementptr inbounds i8, ptr %.161766933, i64 8
+  %5612 = getelementptr inbounds nuw i8, ptr %.161766933, i64 8
   %indvars.iv.next7520 = add nuw nsw i64 %indvars.iv7519, 1
   %exitcond7523.not = icmp eq i64 %indvars.iv.next7520, %wide.trip.count7522
   br i1 %exitcond7523.not, label %._crit_edge6937, label %5559, !llvm.loop !209
@@ -12402,10 +12402,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5730 = load double, ptr %.261776944, align 8
   %5731 = fmul double %5640, %5730
   %5732 = tail call double @llvm.fmuladd.f64(double %5729, double %5638, double %5731)
-  %5733 = getelementptr inbounds double, ptr %.261776944, i64 %5699
+  %5733 = getelementptr inbounds nuw double, ptr %.261776944, i64 %5699
   %5734 = load double, ptr %5733, align 8
   %5735 = tail call double @llvm.fmuladd.f64(double %5734, double %5643, double %5732)
-  %5736 = getelementptr inbounds double, ptr %.261776944, i64 %5700
+  %5736 = getelementptr inbounds nuw double, ptr %.261776944, i64 %5700
   %5737 = load double, ptr %5736, align 8
   %5738 = tail call double @llvm.fmuladd.f64(double %5737, double %5644, double %5735)
   %5739 = getelementptr inbounds double, ptr %.261776944, i64 %5702
@@ -12436,9 +12436,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5764 = tail call double @llvm.fmuladd.f64(double %5727, double %5654, double %5763)
   %5765 = tail call double @llvm.fmuladd.f64(double %5750, double %5659, double %5764)
   %5766 = tail call double @llvm.fmuladd.f64(double %5762, double %5660, double %5765)
-  %5767 = getelementptr inbounds double, ptr %.261736952, i64 %indvars.iv7525
+  %5767 = getelementptr inbounds nuw double, ptr %.261736952, i64 %indvars.iv7525
   store double %5766, ptr %5767, align 8
-  %5768 = getelementptr inbounds i8, ptr %.261776944, i64 8
+  %5768 = getelementptr inbounds nuw i8, ptr %.261776944, i64 8
   %indvars.iv.next7526 = add nuw nsw i64 %indvars.iv7525, 1
   %exitcond7529.not = icmp eq i64 %indvars.iv.next7526, %wide.trip.count7528
   br i1 %exitcond7529.not, label %._crit_edge6948, label %5715, !llvm.loop !211
@@ -12599,10 +12599,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5888 = load double, ptr %.361786962, align 8
   %5889 = fmul double %5798, %5888
   %5890 = tail call double @llvm.fmuladd.f64(double %5887, double %5796, double %5889)
-  %5891 = getelementptr inbounds double, ptr %.361786962, i64 %5857
+  %5891 = getelementptr inbounds nuw double, ptr %.361786962, i64 %5857
   %5892 = load double, ptr %5891, align 8
   %5893 = tail call double @llvm.fmuladd.f64(double %5892, double %5801, double %5890)
-  %5894 = getelementptr inbounds double, ptr %.361786962, i64 %5858
+  %5894 = getelementptr inbounds nuw double, ptr %.361786962, i64 %5858
   %5895 = load double, ptr %5894, align 8
   %5896 = tail call double @llvm.fmuladd.f64(double %5895, double %5802, double %5893)
   %5897 = getelementptr inbounds double, ptr %.361786962, i64 %5860
@@ -12633,9 +12633,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %5922 = tail call double @llvm.fmuladd.f64(double %5885, double %5812, double %5921)
   %5923 = tail call double @llvm.fmuladd.f64(double %5908, double %5817, double %5922)
   %5924 = tail call double @llvm.fmuladd.f64(double %5920, double %5818, double %5923)
-  %5925 = getelementptr inbounds double, ptr %.361746970, i64 %indvars.iv7536
+  %5925 = getelementptr inbounds nuw double, ptr %.361746970, i64 %indvars.iv7536
   store double %5924, ptr %5925, align 8
-  %5926 = getelementptr inbounds i8, ptr %.361786962, i64 8
+  %5926 = getelementptr inbounds nuw i8, ptr %.361786962, i64 8
   %indvars.iv.next7537 = add nuw nsw i64 %indvars.iv7536, 1
   %exitcond7540.not = icmp eq i64 %indvars.iv.next7537, %wide.trip.count7539
   br i1 %exitcond7540.not, label %._crit_edge6966, label %5873, !llvm.loop !214
@@ -12810,10 +12810,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6049 = load double, ptr %.061636858, align 8
   %6050 = fmul double %5962, %6049
   %6051 = tail call double @llvm.fmuladd.f64(double %6048, double %5960, double %6050)
-  %6052 = getelementptr inbounds double, ptr %.061636858, i64 %6018
+  %6052 = getelementptr inbounds nuw double, ptr %.061636858, i64 %6018
   %6053 = load double, ptr %6052, align 8
   %6054 = tail call double @llvm.fmuladd.f64(double %6053, double %5964, double %6051)
-  %6055 = getelementptr inbounds double, ptr %.061636858, i64 %6019
+  %6055 = getelementptr inbounds nuw double, ptr %.061636858, i64 %6019
   %6056 = load double, ptr %6055, align 8
   %6057 = tail call double @llvm.fmuladd.f64(double %6056, double %5965, double %6054)
   %6058 = getelementptr inbounds double, ptr %.061636858, i64 %6021
@@ -12844,9 +12844,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6083 = tail call double @llvm.fmuladd.f64(double %6046, double %5974, double %6082)
   %6084 = tail call double @llvm.fmuladd.f64(double %6069, double %5978, double %6083)
   %6085 = tail call double @llvm.fmuladd.f64(double %6081, double %5979, double %6084)
-  %6086 = getelementptr inbounds double, ptr %.061596863, i64 %indvars.iv
+  %6086 = getelementptr inbounds nuw double, ptr %.061596863, i64 %indvars.iv
   store double %6085, ptr %6086, align 8
-  %6087 = getelementptr inbounds i8, ptr %.061636858, i64 8
+  %6087 = getelementptr inbounds nuw i8, ptr %.061636858, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6034, !llvm.loop !217
@@ -13029,10 +13029,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6216 = load double, ptr %.161646871, align 8
   %6217 = fmul double %6129, %6216
   %6218 = tail call double @llvm.fmuladd.f64(double %6215, double %6127, double %6217)
-  %6219 = getelementptr inbounds double, ptr %.161646871, i64 %6185
+  %6219 = getelementptr inbounds nuw double, ptr %.161646871, i64 %6185
   %6220 = load double, ptr %6219, align 8
   %6221 = tail call double @llvm.fmuladd.f64(double %6220, double %6131, double %6218)
-  %6222 = getelementptr inbounds double, ptr %.161646871, i64 %6186
+  %6222 = getelementptr inbounds nuw double, ptr %.161646871, i64 %6186
   %6223 = load double, ptr %6222, align 8
   %6224 = tail call double @llvm.fmuladd.f64(double %6223, double %6132, double %6221)
   %6225 = getelementptr inbounds double, ptr %.161646871, i64 %6188
@@ -13063,9 +13063,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6250 = tail call double @llvm.fmuladd.f64(double %6213, double %6141, double %6249)
   %6251 = tail call double @llvm.fmuladd.f64(double %6236, double %6145, double %6250)
   %6252 = tail call double @llvm.fmuladd.f64(double %6248, double %6146, double %6251)
-  %6253 = getelementptr inbounds double, ptr %.161606879, i64 %indvars.iv7481
+  %6253 = getelementptr inbounds nuw double, ptr %.161606879, i64 %indvars.iv7481
   store double %6252, ptr %6253, align 8
-  %6254 = getelementptr inbounds i8, ptr %.161646871, i64 8
+  %6254 = getelementptr inbounds nuw i8, ptr %.161646871, i64 8
   %indvars.iv.next7482 = add nuw nsw i64 %indvars.iv7481, 1
   %exitcond7485.not = icmp eq i64 %indvars.iv.next7482, %wide.trip.count7484
   br i1 %exitcond7485.not, label %._crit_edge6875, label %6201, !llvm.loop !220
@@ -13218,10 +13218,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6368 = load double, ptr %.261656882, align 8
   %6369 = fmul double %6281, %6368
   %6370 = tail call double @llvm.fmuladd.f64(double %6367, double %6279, double %6369)
-  %6371 = getelementptr inbounds double, ptr %.261656882, i64 %6337
+  %6371 = getelementptr inbounds nuw double, ptr %.261656882, i64 %6337
   %6372 = load double, ptr %6371, align 8
   %6373 = tail call double @llvm.fmuladd.f64(double %6372, double %6283, double %6370)
-  %6374 = getelementptr inbounds double, ptr %.261656882, i64 %6338
+  %6374 = getelementptr inbounds nuw double, ptr %.261656882, i64 %6338
   %6375 = load double, ptr %6374, align 8
   %6376 = tail call double @llvm.fmuladd.f64(double %6375, double %6284, double %6373)
   %6377 = getelementptr inbounds double, ptr %.261656882, i64 %6340
@@ -13252,9 +13252,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6402 = tail call double @llvm.fmuladd.f64(double %6365, double %6293, double %6401)
   %6403 = tail call double @llvm.fmuladd.f64(double %6388, double %6297, double %6402)
   %6404 = tail call double @llvm.fmuladd.f64(double %6400, double %6298, double %6403)
-  %6405 = getelementptr inbounds double, ptr %.261616890, i64 %indvars.iv7487
+  %6405 = getelementptr inbounds nuw double, ptr %.261616890, i64 %indvars.iv7487
   store double %6404, ptr %6405, align 8
-  %6406 = getelementptr inbounds i8, ptr %.261656882, i64 8
+  %6406 = getelementptr inbounds nuw i8, ptr %.261656882, i64 8
   %indvars.iv.next7488 = add nuw nsw i64 %indvars.iv7487, 1
   %exitcond7491.not = icmp eq i64 %indvars.iv.next7488, %wide.trip.count7490
   br i1 %exitcond7491.not, label %._crit_edge6886, label %6353, !llvm.loop !222
@@ -13411,10 +13411,10 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6522 = load double, ptr %.361666900, align 8
   %6523 = fmul double %6435, %6522
   %6524 = tail call double @llvm.fmuladd.f64(double %6521, double %6433, double %6523)
-  %6525 = getelementptr inbounds double, ptr %.361666900, i64 %6491
+  %6525 = getelementptr inbounds nuw double, ptr %.361666900, i64 %6491
   %6526 = load double, ptr %6525, align 8
   %6527 = tail call double @llvm.fmuladd.f64(double %6526, double %6437, double %6524)
-  %6528 = getelementptr inbounds double, ptr %.361666900, i64 %6492
+  %6528 = getelementptr inbounds nuw double, ptr %.361666900, i64 %6492
   %6529 = load double, ptr %6528, align 8
   %6530 = tail call double @llvm.fmuladd.f64(double %6529, double %6438, double %6527)
   %6531 = getelementptr inbounds double, ptr %.361666900, i64 %6494
@@ -13445,9 +13445,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr nocapture noundef r
   %6556 = tail call double @llvm.fmuladd.f64(double %6519, double %6447, double %6555)
   %6557 = tail call double @llvm.fmuladd.f64(double %6542, double %6451, double %6556)
   %6558 = tail call double @llvm.fmuladd.f64(double %6554, double %6452, double %6557)
-  %6559 = getelementptr inbounds double, ptr %.361626908, i64 %indvars.iv7497
+  %6559 = getelementptr inbounds nuw double, ptr %.361626908, i64 %indvars.iv7497
   store double %6558, ptr %6559, align 8
-  %6560 = getelementptr inbounds i8, ptr %.361666900, i64 8
+  %6560 = getelementptr inbounds nuw i8, ptr %.361666900, i64 8
   %indvars.iv.next7498 = add nuw nsw i64 %indvars.iv7497, 1
   %exitcond7501.not = icmp eq i64 %indvars.iv.next7498, %wide.trip.count7500
   br i1 %exitcond7501.not, label %._crit_edge6904, label %6507, !llvm.loop !225

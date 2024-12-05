@@ -33,7 +33,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dev_pm_set_wake_irq(ptr noundef 
 
 8:                                                ; preds = %4
   store ptr %0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %1, ptr %9, align 4
   %10 = tail call fastcc i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %6), !range !5
   %11 = icmp eq i32 %10, 0
@@ -54,9 +54,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 228
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load i1, ptr @dev_pm_attach_wake_irq.__already_done, align 1
@@ -67,7 +67,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr
   store i1 true, ptr @dev_pm_attach_wake_irq.__already_done, align 1
   tail call void asm sideeffect "312: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 312b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 312) #5, !srcloc !7
   %13 = tail call ptr @dev_driver_string(ptr noundef nonnull %0) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.thread
@@ -95,7 +95,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr
 
 22:                                               ; preds = %.thread, %21, %20
   %23 = phi i32 [ 0, %21 ], [ -17, %20 ], [ -17, %.thread ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #5
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #5
   br label %24
 
 24:                                               ; preds = %22, %2
@@ -108,25 +108,25 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dev_pm_clear_wake_irq(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 228
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #5
   tail call void @device_wakeup_detach_irq(ptr noundef %0) #5
   store ptr null, ptr %2, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #5
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @free_irq(i32 noundef %14, ptr noundef nonnull %3) #5
   %16 = load i32, ptr %8, align 8
@@ -135,7 +135,7 @@ define dso_local void @dev_pm_clear_wake_irq(ptr noundef %0) #0 align 16 {
   br label %18
 
 18:                                               ; preds = %12, %5
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #5
   tail call void @kfree(ptr noundef nonnull %3) #5
@@ -172,7 +172,7 @@ define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -184,14 +184,14 @@ define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 
 15:                                               ; preds = %13, %9
   %16 = phi ptr [ %14, %13 ], [ %11, %9 ]
   %17 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.3, ptr noundef %16) #5
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %36, label %20
 
 20:                                               ; preds = %15
   store ptr %0, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %1, ptr %21, align 4
   tail call void @irq_modify_status(i32 noundef %1, i64 noundef 0, i64 noundef 524288) #5
   %22 = load ptr, ptr %18, align 8
@@ -206,7 +206,7 @@ define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 
 
 28:                                               ; preds = %25
   %29 = or i32 %2, 1
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %29, ptr %30, align 8
   br label %38
 
@@ -238,13 +238,13 @@ define dso_local i32 @dev_pm_set_dedicated_wake_irq_reverse(ptr noundef %0, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dev_pm_enable_wake_irq_check(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = and i64 %9, 7
@@ -274,7 +274,7 @@ define dso_local void @dev_pm_enable_wake_irq_check(ptr nocapture noundef readon
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18, %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %24 = load i32, ptr %23, align 4
   tail call void @enable_irq(i32 noundef %24) #5
   %25 = load i32, ptr %7, align 8
@@ -291,13 +291,13 @@ declare dso_local void @enable_irq(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dev_pm_disable_wake_irq_check(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = and i64 %9, 7
@@ -316,7 +316,7 @@ define dso_local void @dev_pm_disable_wake_irq_check(ptr nocapture noundef reado
 19:                                               ; preds = %12
   %20 = and i32 %8, -9
   store i32 %20, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %22 = load i32, ptr %21, align 4
   tail call void @disable_irq_nosync(i32 noundef %22) #5
   br label %23
@@ -330,20 +330,20 @@ declare dso_local void @disable_irq_nosync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dev_pm_enable_wake_irq_complete(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 6
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i32, ptr %11, align 4
   tail call void @enable_irq(i32 noundef %12) #5
   br label %13
@@ -359,33 +359,33 @@ define dso_local void @dev_pm_arm_wake_irq(ptr noundef readonly %0) local_unname
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 220
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 220
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %25, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %25, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 9
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   tail call void @enable_irq(i32 noundef %20) #5
   br label %21
 
 21:                                               ; preds = %18, %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @irq_set_irq_wake(i32 noundef %23, i32 noundef 1) #5
   br label %25
@@ -401,23 +401,23 @@ define dso_local void @dev_pm_disarm_wake_irq(ptr noundef readonly %0) local_unn
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 220
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 220
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @irq_set_irq_wake(i32 noundef %15, i32 noundef 0) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 9
   %20 = icmp eq i32 %19, 1
@@ -456,7 +456,7 @@ declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @handle_threaded_wake_irq(i32 noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call ptr @irq_get_irq_data(i32 noundef %0) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16384

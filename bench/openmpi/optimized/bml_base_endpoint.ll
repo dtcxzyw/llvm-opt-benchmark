@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_bml_base_endpoint_construct(ptr noundef initializes((48, 64), (72, 80)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 32), align 8
@@ -25,11 +25,11 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef initializes((4
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @mca_bml_base_btl_array_t_class, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -38,7 +38,7 @@ define internal void @mca_bml_base_endpoint_construct(ptr noundef initializes((4
   %11 = phi ptr [ %13, %.lr.ph.i ], [ %10, %6 ]
   %.07.i = phi ptr [ %12, %.lr.ph.i ], [ %9, %6 ]
   tail call void %11(ptr noundef nonnull %7) #3
-  %12 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -54,11 +54,11 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   br label %17
 
 17:                                               ; preds = %16, %opal_obj_run_constructors.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @mca_bml_base_btl_array_t_class, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i13 = icmp eq ptr %21, null
   br i1 %.not6.i13, label %opal_obj_run_constructors.exit17, label %.lr.ph.i14
@@ -67,7 +67,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %22 = phi ptr [ %24, %.lr.ph.i14 ], [ %21, %17 ]
   %.07.i15 = phi ptr [ %23, %.lr.ph.i14 ], [ %20, %17 ]
   tail call void %22(ptr noundef nonnull %18) #3
-  %23 = getelementptr inbounds i8, ptr %.07.i15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i15, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i16 = icmp eq ptr %24, null
   br i1 %.not.i16, label %opal_obj_run_constructors.exit17, label %.lr.ph.i14, !llvm.loop !4
@@ -83,11 +83,11 @@ opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %17
   br label %28
 
 28:                                               ; preds = %27, %opal_obj_run_constructors.exit17
-  %29 = getelementptr inbounds i8, ptr %0, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr @mca_bml_base_btl_array_t_class, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml_base_btl_array_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i18 = icmp eq ptr %32, null
   br i1 %.not6.i18, label %opal_obj_run_constructors.exit22, label %.lr.ph.i19
@@ -96,7 +96,7 @@ opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %17
   %33 = phi ptr [ %35, %.lr.ph.i19 ], [ %32, %28 ]
   %.07.i20 = phi ptr [ %34, %.lr.ph.i19 ], [ %31, %28 ]
   tail call void %33(ptr noundef nonnull %29) #3
-  %34 = getelementptr inbounds i8, ptr %.07.i20, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.07.i20, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i21 = icmp eq ptr %35, null
   br i1 %.not.i21, label %opal_obj_run_constructors.exit22, label %.lr.ph.i19, !llvm.loop !4
@@ -107,9 +107,9 @@ opal_obj_run_constructors.exit22:                 ; preds = %.lr.ph.i19, %28
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_bml_base_endpoint_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -119,15 +119,15 @@ define internal void @mca_bml_base_endpoint_destruct(ptr noundef %0) #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %1 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %1 ]
   tail call void %7(ptr noundef nonnull %2) #3
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i3 = icmp eq ptr %14, null
@@ -137,15 +137,15 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
   %15 = phi ptr [ %17, %.lr.ph.i4 ], [ %14, %opal_obj_run_destructors.exit ]
   %.07.i5 = phi ptr [ %16, %.lr.ph.i4 ], [ %13, %opal_obj_run_destructors.exit ]
   tail call void %15(ptr noundef nonnull %10) #3
-  %16 = getelementptr inbounds i8, ptr %.07.i5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i5, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i6 = icmp eq ptr %17, null
   br i1 %.not.i6, label %opal_obj_run_destructors.exit7, label %.lr.ph.i4, !llvm.loop !6
 
 opal_obj_run_destructors.exit7:                   ; preds = %.lr.ph.i4, %opal_obj_run_destructors.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i8 = icmp eq ptr %22, null
@@ -155,7 +155,7 @@ opal_obj_run_destructors.exit7:                   ; preds = %.lr.ph.i4, %opal_ob
   %23 = phi ptr [ %25, %.lr.ph.i9 ], [ %22, %opal_obj_run_destructors.exit7 ]
   %.07.i10 = phi ptr [ %24, %.lr.ph.i9 ], [ %21, %opal_obj_run_destructors.exit7 ]
   tail call void %23(ptr noundef nonnull %18) #3
-  %24 = getelementptr inbounds i8, ptr %.07.i10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.07.i10, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i11 = icmp eq ptr %25, null
   br i1 %.not.i11, label %opal_obj_run_destructors.exit12, label %.lr.ph.i9, !llvm.loop !6

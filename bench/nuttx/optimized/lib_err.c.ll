@@ -17,7 +17,7 @@ define void @vwarn_func(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 4
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %1)
   store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %7, align 8
   %8 = call ptr @lib_get_stream(i32 noundef 2) #7
   %9 = call i32 @gettid() #7
@@ -44,7 +44,7 @@ define void @vwarnx_func(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %1)
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = call ptr @lib_get_stream(i32 noundef 2) #7
   %7 = call i32 @gettid() #7
@@ -65,7 +65,7 @@ define void @warn_func(ptr noundef %0, ...) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 4
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   store ptr %0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %7, align 8
   %8 = call ptr @lib_get_stream(i32 noundef 2) #7
   %9 = call i32 @gettid() #7
@@ -88,7 +88,7 @@ define void @warnx_func(ptr noundef %0, ...) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %5, align 8
   %6 = call ptr @lib_get_stream(i32 noundef 2) #7
   %7 = call i32 @gettid() #7

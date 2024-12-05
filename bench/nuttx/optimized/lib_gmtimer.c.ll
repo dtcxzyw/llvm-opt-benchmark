@@ -90,20 +90,20 @@ clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.
   %46 = add i32 %45, 1
   %47 = sub i32 %46, %44
   %48 = add nsw i32 %.pre-phi.i, -1900
-  %49 = getelementptr inbounds i8, ptr %1, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %48, ptr %49, align 4
   %50 = add nsw i32 %.pre-phi54.i, -1
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %47, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %42, ptr %54, align 4
   store i32 %41, ptr %1, align 8
   %55 = tail call i32 @clock_dayoftheweek(i32 noundef %47, i32 noundef %.pre-phi54.i, i32 noundef %.pre-phi.i) #3
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %55, ptr %56, align 8
   %57 = add nsw i32 %47, -1
   %58 = load i32, ptr %51, align 8
@@ -111,11 +111,11 @@ clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.
   %60 = icmp ne i32 %59, 0
   %61 = tail call i32 @clock_daysbeforemonth(i32 noundef %58, i1 noundef zeroext %60) #3
   %62 = add nsw i32 %57, %61
-  %63 = getelementptr inbounds i8, ptr %1, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   ret ptr %1
 }

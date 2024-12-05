@@ -56,12 +56,12 @@ define hidden void @_ZN15ContiguousSpaceC2Ev(ptr nocapture noundef nonnull write
 define hidden void @_ZN15ContiguousSpace10initializeE9MemRegionbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds ptr, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   br i1 %3, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %9, align 8
   br label %10
 
@@ -72,7 +72,7 @@ define hidden void @_ZN15ContiguousSpace10initializeE9MemRegionbb(ptr nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN15ContiguousSpace5clearEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8
   ret void
 }
@@ -81,13 +81,13 @@ define hidden void @_ZN15ContiguousSpace5clearEb(ptr nocapture noundef nonnull a
 define hidden void @_ZNK15ContiguousSpace5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @tty, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
   %9 = lshr i64 %8, 10
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %7
@@ -103,13 +103,13 @@ define hidden void @_ZNK15ContiguousSpace5printEv(ptr nocapture noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ContiguousSpace8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
   %9 = lshr i64 %8, 10
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %7
@@ -127,7 +127,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ContiguousSpace6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ult ptr %2, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -137,7 +137,7 @@ define hidden void @_ZNK15ContiguousSpace6verifyEv(ptr nocapture noundef nonnull
   tail call void @_ZN7oopDesc6verifyEPS_(ptr noundef %.07) #7
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %.07, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   br i1 %7, label %9, label %19
 
 9:                                                ; preds = %.lr.ph
@@ -158,7 +158,7 @@ define hidden void @_ZNK15ContiguousSpace6verifyEv(ptr nocapture noundef nonnull
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
   %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %34
@@ -175,7 +175,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %.0.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 256
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 256
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.07) #7
   br label %_ZN7oopDesc4sizeEv.exit
@@ -186,7 +186,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
 
 36:                                               ; preds = %34
   %37 = select i1 %7, i64 12, i64 16
-  %38 = getelementptr inbounds i8, ptr %.07, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.07, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = and i32 %22, 63
@@ -208,7 +208,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
 
 56:                                               ; preds = %34
   %57 = load ptr, ptr %.0.i.i, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 256
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 256
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.07) #7
   br label %_ZN7oopDesc4sizeEv.exit
@@ -247,7 +247,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -259,7 +259,7 @@ define hidden void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr no
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.07) #7
   %9 = load i8, ptr @UseCompressedClassPointers, align 1
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %.07, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   br i1 %10, label %12, label %22
 
 12:                                               ; preds = %.lr.ph
@@ -280,7 +280,7 @@ define hidden void @_ZN15ContiguousSpace14object_iterateEP13ObjectClosure(ptr no
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %22, %12
   %.0.i.i = phi ptr [ %21, %12 ], [ %23, %22 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %37
@@ -297,7 +297,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %22, %12
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %.0.i.i, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 256
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.07) #7
   br label %_ZN7oopDesc4sizeEv.exit
@@ -308,7 +308,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %22, %12
 
 39:                                               ; preds = %37
   %40 = select i1 %10, i64 12, i64 16
-  %41 = getelementptr inbounds i8, ptr %.07, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %.07, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = and i32 %25, 63
@@ -330,7 +330,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %22, %12
 
 59:                                               ; preds = %37
   %60 = load ptr, ptr %.0.i.i, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 256
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 256
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.07) #7
   br label %_ZN7oopDesc4sizeEv.exit
@@ -348,9 +348,9 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %29, %32, %39, %59
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN15ContiguousSpace8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -371,8 +371,8 @@ _ZN15ContiguousSpace13allocate_implEm.exit:       ; preds = %2, %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN15ContiguousSpace12par_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %12, %2

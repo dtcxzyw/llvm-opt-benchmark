@@ -18,68 +18,68 @@ $_ZN6VlWideILm3EEcvPjEv = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i8, ptr %2, align 8
   %4 = xor i8 %3, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 94
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 94
   %6 = load i8, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1296
-  %8 = getelementptr inbounds i8, ptr %0, i64 1280
-  %9 = getelementptr inbounds i8, ptr %0, i64 816
-  %10 = getelementptr inbounds i8, ptr %0, i64 820
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 820
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 2
   %13 = and i32 %12, 15
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = lshr i8 %19, 1
   %21 = and i8 %20, %6
   %22 = and i8 %21, %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 95
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 95
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 82
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %25 = load i8, ptr %24, align 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 115
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 115
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 150
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 150
   %29 = load i8, ptr %28, align 2
   %30 = xor i8 %29, -1
   %31 = or i8 %25, %30
   %32 = and i8 %31, 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 46
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 46
   store i8 %32, ptr %34, align 2
   %35 = load i32, ptr %9, align 4
   %.mask = and i32 %35, -134217728
   %36 = icmp ne i32 %.mask, 134217728
   %37 = zext i1 %36 to i8
   %38 = xor i8 %37, -1
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load i8, ptr %39, align 8
   %41 = xor i8 %40, -1
-  %42 = getelementptr inbounds i8, ptr %0, i64 159
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 159
   %43 = load i8, ptr %42, align 1
   %44 = and i8 %43, %41
   %45 = or i8 %44, %38
   %46 = or i8 %45, %21
   %47 = and i8 %46, %4
   %48 = and i8 %47, 1
-  %49 = getelementptr inbounds i8, ptr %0, i64 93
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 93
   store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %0, i64 151
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 151
   %51 = load i8, ptr %50, align 1
   %52 = xor i8 %51, -1
   %53 = and i8 %51, %30
   %54 = and i8 %27, %52
   %55 = or i8 %53, %54
   %56 = or i8 %55, %25
-  %57 = getelementptr inbounds i8, ptr %0, i64 149
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 149
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 97
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %59 = load i8, ptr %58, align 1
   %60 = or i8 %59, %29
   %61 = xor i8 %60, -1
@@ -87,22 +87,22 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   %63 = and i8 %27, %61
   %64 = or i8 %62, %63
   %65 = or i8 %64, %25
-  %66 = getelementptr inbounds i8, ptr %0, i64 148
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 87
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 87
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %0, i64 556
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %70 = load i32, ptr %69, align 4
   %71 = icmp ne i32 %70, 0
   %72 = zext i1 %71 to i8
   %73 = xor i8 %72, -1
   %74 = and i8 %68, %73
   %75 = and i8 %74, %32
-  %76 = getelementptr inbounds i8, ptr %0, i64 145
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 %75, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load i8, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 560
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %80 = load i32, ptr %79, align 8
   %81 = or i32 %80, %70
   %.demorgan114 = icmp ne i32 %81, 0
@@ -110,22 +110,22 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   %82 = xor i8 %.demorgan, -1
   %83 = and i8 %78, %82
   %84 = and i8 %83, %32
-  %85 = getelementptr inbounds i8, ptr %0, i64 144
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 9
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %87 = load i8, ptr %86, align 1
   %88 = xor i8 %87, -1
   %89 = or i8 %25, %88
   %90 = or i8 %89, %27
   %91 = or i8 %90, %47
   %92 = and i8 %91, 1
-  %93 = getelementptr inbounds i8, ptr %0, i64 143
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 143
   store i8 %92, ptr %93, align 1
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %99, label %94
 
 94:                                               ; preds = %1
-  %95 = getelementptr inbounds i8, ptr %0, i64 116
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %96 = load i8, ptr %95, align 4
   %97 = and i8 %96, 1
   %98 = xor i8 %97, 1
@@ -137,7 +137,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
 
 101:                                              ; preds = %99, %94
   %102 = phi i8 [ %98, %94 ], [ %100, %99 ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 91
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 91
   store i8 %102, ptr %103, align 1
   %.not115 = icmp eq i8 %87, 0
   br i1 %.not115, label %108, label %104
@@ -153,7 +153,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
 
 108:                                              ; preds = %101, %104
   %109 = phi i8 [ %107, %104 ], [ 0, %101 ]
-  %110 = getelementptr inbounds i8, ptr %0, i64 43
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 %109, ptr %110, align 1
   %111 = and i32 %35, 65011712
   %.not117 = icmp eq i32 %111, 0
@@ -161,7 +161,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
 
 112:                                              ; preds = %108
   %113 = lshr i32 %35, 21
-  %114 = getelementptr inbounds i8, ptr %0, i64 142
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %115 = load i8, ptr %114, align 2
   %116 = zext i8 %115 to i32
   %117 = xor i32 %113, %116
@@ -172,12 +172,12 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   br i1 %.not118.not, label %121, label %124
 
 121:                                              ; preds = %112
-  %122 = getelementptr inbounds i8, ptr %0, i64 544
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %123 = load i32, ptr %122, align 8
   br label %141
 
 124:                                              ; preds = %112
-  %125 = getelementptr inbounds i8, ptr %0, i64 141
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = xor i32 %113, %127
@@ -188,40 +188,40 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   br i1 %.not119.not, label %132, label %135
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds i8, ptr %0, i64 540
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %134 = load i32, ptr %133, align 4
   br label %141
 
 135:                                              ; preds = %124
-  %136 = getelementptr inbounds i8, ptr %0, i64 1152
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %137 = and i32 %113, 31
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds [32 x i32], ptr %136, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i32], ptr %136, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4
   br label %141
 
 141:                                              ; preds = %108, %121, %135, %132
   %142 = phi i32 [ %123, %121 ], [ %134, %132 ], [ %140, %135 ], [ 0, %108 ]
-  %143 = getelementptr inbounds i8, ptr %0, i64 392
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 %142, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 89
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %145 = load i8, ptr %144, align 1
   %.not120 = icmp eq i8 %145, 0
   br i1 %.not120, label %149, label %146
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %0, i64 384
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %148 = load i32, ptr %147, align 8
   br label %234
 
 149:                                              ; preds = %141
-  %150 = getelementptr inbounds i8, ptr %0, i64 132
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %151 = load i8, ptr %150, align 4
   %.not121 = icmp eq i8 %151, 0
   br i1 %.not121, label %156, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %0, i64 492
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %154 = load i32, ptr %153, align 4
   %155 = add i32 %154, 4
   br label %234
@@ -230,39 +230,39 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   br i1 %.not, label %196, label %157
 
 157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %0, i64 118
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %159 = load i8, ptr %158, align 2
-  %160 = getelementptr inbounds i8, ptr %0, i64 119
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 119
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, %159
   %163 = zext i8 %162 to i32
   %164 = sub nsw i32 0, %163
-  %165 = getelementptr inbounds i8, ptr %0, i64 396
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %166 = load i32, ptr %165, align 4
   %167 = and i32 %166, %164
-  %168 = getelementptr inbounds i8, ptr %0, i64 152
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %169 = load i8, ptr %168, align 8
   %170 = zext i8 %169 to i32
-  %171 = getelementptr inbounds i8, ptr %0, i64 116
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %172 = load i8, ptr %171, align 4
   %173 = zext i8 %172 to i32
   %174 = and i32 %173, %170
   %175 = sub nsw i32 0, %174
-  %176 = getelementptr inbounds i8, ptr %0, i64 436
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, 8
   %179 = and i32 %178, %175
   %180 = xor i32 %173, -1
   %181 = and i32 %180, %170
   %182 = sub nsw i32 0, %181
-  %183 = getelementptr inbounds i8, ptr %0, i64 400
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %184 = load i32, ptr %183, align 8
   %185 = and i32 %184, %182
-  %186 = getelementptr inbounds i8, ptr %0, i64 120
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %187 = load i8, ptr %186, align 8
   %188 = zext i8 %187 to i32
   %189 = sub nsw i32 0, %188
-  %190 = getelementptr inbounds i8, ptr %0, i64 412
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %191 = load i32, ptr %190, align 4
   %192 = and i32 %191, %189
   %193 = or i32 %185, %167
@@ -277,7 +277,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
 197:                                              ; preds = %196
   %198 = zext nneg i8 %22 to i32
   %199 = sub nsw i32 0, %198
-  %200 = getelementptr inbounds i8, ptr %0, i64 388
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %201 = load i32, ptr %200, align 4
   %202 = and i32 %201, %199
   %203 = or i32 %198, -2
@@ -300,34 +300,34 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   br label %234
 
 214:                                              ; preds = %196
-  %215 = getelementptr inbounds i8, ptr %0, i64 81
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %216 = load i8, ptr %215, align 1
   %.not124 = icmp eq i8 %216, 0
   br i1 %.not124, label %220, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %0, i64 564
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %219 = load i32, ptr %218, align 4
   br label %234
 
 220:                                              ; preds = %214
-  %221 = getelementptr inbounds i8, ptr %0, i64 49
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %222 = load i8, ptr %221, align 1
-  %223 = getelementptr inbounds i8, ptr %0, i64 50
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %224 = load i8, ptr %223, align 2
   %225 = and i8 %224, %222
   %.not125 = icmp eq i8 %225, 0
   br i1 %.not125, label %230, label %226
 
 226:                                              ; preds = %220
-  %227 = getelementptr inbounds i8, ptr %0, i64 564
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %228 = load i32, ptr %227, align 4
   %229 = add i32 %228, 8
   br label %234
 
 230:                                              ; preds = %220
   %.not126 = icmp eq i8 %222, 0
-  %231 = getelementptr inbounds i8, ptr %0, i64 564
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, 4
   %spec.select = select i1 %.not126, i32 %232, i32 %233
@@ -335,20 +335,20 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
 
 234:                                              ; preds = %230, %152, %210, %226, %217, %157, %146
   %235 = phi i32 [ %148, %146 ], [ %155, %152 ], [ %195, %157 ], [ %213, %210 ], [ %219, %217 ], [ %229, %226 ], [ %spec.select, %230 ]
-  %236 = getelementptr inbounds i8, ptr %0, i64 784
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i32 %235, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %0, i64 177
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 177
   %238 = load i8, ptr %237, align 1
   %.not129 = icmp eq i8 %238, 0
   br i1 %.not129, label %249, label %239
 
 239:                                              ; preds = %234
-  %240 = getelementptr inbounds i8, ptr %0, i64 564
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %241 = load i32, ptr %240, align 4
   %242 = trunc i32 %241 to i16
   %243 = lshr i16 %242, 3
   %244 = and i16 %243, 511
-  %245 = getelementptr inbounds i8, ptr %0, i64 232
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i16 %244, ptr %245, align 8
   %246 = lshr i32 %241, 6
   %247 = trunc i32 %246 to i8
@@ -362,7 +362,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   %251 = trunc i32 %235 to i16
   %252 = lshr i16 %251, 3
   %253 = and i16 %252, 511
-  %254 = getelementptr inbounds i8, ptr %0, i64 232
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i16 %253, ptr %254, align 8
   %255 = lshr i32 %235, 6
   %256 = trunc i32 %255 to i8
@@ -370,13 +370,13 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__1P20Vmycpu_t
   br label %260
 
 258:                                              ; preds = %249
-  %259 = getelementptr inbounds i8, ptr %0, i64 232
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i16 0, ptr %259, align 8
   br label %260
 
 260:                                              ; preds = %250, %258, %239
   %.sink = phi i8 [ %257, %250 ], [ 0, %258 ], [ %248, %239 ]
-  %261 = getelementptr inbounds i8, ptr %0, i64 185
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 %.sink, ptr %261, align 1
   ret void
 }
@@ -388,28 +388,28 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm3EEcvPjEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top___024root(ptr noundef initializes((161, 162), (488, 492), (880, 888)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 162
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %3 = load i8, ptr %2, align 2
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 572
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %8 = load i32, ptr %7, align 4
   %9 = xor i32 %8, %6
   %10 = lshr i32 %9, 31
   %11 = and i32 %10, %4
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 0, %13
   %15 = select i1 %.not, i64 %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 161
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 161
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 880
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 488
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 368
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 67108864
   %.not495 = icmp eq i32 %21, 0
@@ -446,9 +446,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond679, label %35, label %42
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 480
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 472
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 31
   %41 = shl i32 %37, %40
@@ -477,7 +477,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 50:                                               ; preds = %49
   %51 = and i32 %20, 524288
   %.not566 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds i8, ptr %0, i64 165
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %53 = load i8, ptr %52, align 1
   %.not567 = icmp eq i8 %53, 0
   br i1 %.not566, label %60, label %54
@@ -486,7 +486,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not567, label %59, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 904
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %57 = load i64, ptr %56, align 8
   %58 = sub i64 %57, %15
   store i64 %58, ptr %17, align 8
@@ -500,7 +500,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not567, label %65, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 904
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %63 = load i64, ptr %62, align 8
   %64 = sub i64 %63, %15
   store i64 %64, ptr %17, align 8
@@ -520,8 +520,8 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 
 69:                                               ; preds = %68
   store i32 32, ptr %18, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 588
-  %71 = getelementptr inbounds i8, ptr %0, i64 472
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %72 = load i32, ptr %71, align 8
   br label %73
 
@@ -548,8 +548,8 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 
 82:                                               ; preds = %81
   store i32 32, ptr %18, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 588
-  %84 = getelementptr inbounds i8, ptr %0, i64 472
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %85 = load i32, ptr %84, align 8
   br label %86
 
@@ -590,7 +590,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond681, label %101, label %113
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %0, i64 480
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %103 = load i32, ptr %102, align 8
   %104 = shl i32 %103, 16
   br label %113
@@ -599,9 +599,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond681, label %106, label %113
 
 106:                                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %0, i64 472
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 480
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %110 = load i32, ptr %109, align 8
   %111 = icmp ult i32 %108, %110
   %112 = zext i1 %111 to i32
@@ -618,10 +618,10 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond745.not, label %117, label %322
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 472
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %119 = load i32, ptr %118, align 8
   %.not546 = icmp sgt i32 %119, -1
-  %120 = getelementptr inbounds i8, ptr %0, i64 480
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %121 = load i32, ptr %120, align 8
   br i1 %.not546, label %125, label %122
 
@@ -649,7 +649,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 130:                                              ; preds = %128
   %131 = and i32 %20, 524288
   %.not539 = icmp eq i32 %131, 0
-  %132 = getelementptr inbounds i8, ptr %0, i64 165
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %133 = load i8, ptr %132, align 1
   %.not540 = icmp eq i8 %133, 0
   br i1 %.not539, label %140, label %134
@@ -658,7 +658,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not540, label %139, label %135
 
 135:                                              ; preds = %134
-  %136 = getelementptr inbounds i8, ptr %0, i64 904
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %137 = load i64, ptr %136, align 8
   %138 = add i64 %137, %15
   store i64 %138, ptr %17, align 8
@@ -672,7 +672,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not540, label %145, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %0, i64 904
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %143 = load i64, ptr %142, align 8
   %144 = add i64 %143, %15
   store i64 %144, ptr %17, align 8
@@ -701,9 +701,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 152:                                              ; preds = %150
   %153 = and i32 %20, 524288
   %.not533 = icmp eq i32 %153, 0
-  %154 = getelementptr inbounds i8, ptr %0, i64 472
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %155 = load i32, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 480
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %157 = load i32, ptr %156, align 8
   br i1 %.not533, label %160, label %158
 
@@ -736,9 +736,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %.not525 = icmp eq i32 %174, 0
   %175 = and i32 %20, 524288
   %.not526 = icmp eq i32 %175, 0
-  %176 = getelementptr inbounds i8, ptr %0, i64 472
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 480
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %179 = load i32, ptr %178, align 8
   br i1 %.not524, label %194, label %180
 
@@ -824,7 +824,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not515, label %230, label %219
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %0, i64 166
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 166
   %221 = load i8, ptr %220, align 2
   %.not520 = icmp eq i8 %221, 0
   br i1 %.not516, label %226, label %222
@@ -833,7 +833,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not520, label %322, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %0, i64 864
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %225 = load i64, ptr %224, align 8
   store i64 %225, ptr %17, align 8
   br label %322
@@ -842,13 +842,13 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not520, label %322, label %227
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %0, i64 864
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %229 = load i64, ptr %228, align 8
   store i64 %229, ptr %17, align 8
   br label %322
 
 230:                                              ; preds = %216
-  %231 = getelementptr inbounds i8, ptr %0, i64 165
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %232 = load i8, ptr %231, align 1
   %.not517 = icmp eq i8 %232, 0
   br i1 %.not516, label %237, label %233
@@ -890,13 +890,13 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not511, label %256, label %245
 
 245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %0, i64 904
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %247 = load i64, ptr %246, align 8
   br i1 %.not512, label %254, label %248
 
 248:                                              ; preds = %245
   %249 = and i64 %247, -4294967296
-  %250 = getelementptr inbounds i8, ptr %0, i64 472
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %251 = load i32, ptr %250, align 8
   %252 = zext i32 %251 to i64
   %253 = or disjoint i64 %249, %252
@@ -912,11 +912,11 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not512, label %266, label %257
 
 257:                                              ; preds = %256
-  %258 = getelementptr inbounds i8, ptr %0, i64 472
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %259 = load i32, ptr %258, align 8
   %260 = zext i32 %259 to i64
   %261 = shl nuw i64 %260, 32
-  %262 = getelementptr inbounds i8, ptr %0, i64 904
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %263 = load i64, ptr %262, align 8
   %264 = and i64 %263, 4294967295
   %265 = or disjoint i64 %261, %264
@@ -924,7 +924,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br label %322
 
 266:                                              ; preds = %256
-  %267 = getelementptr inbounds i8, ptr %0, i64 904
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %268 = load i64, ptr %267, align 8
   %269 = lshr i64 %268, 32
   %270 = trunc nuw i64 %269 to i32
@@ -940,7 +940,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond684, label %274, label %320
 
 274:                                              ; preds = %272
-  %275 = getelementptr inbounds i8, ptr %0, i64 472
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %276 = load i32, ptr %275, align 8
   br label %320
 
@@ -957,9 +957,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not501, label %296, label %282
 
 282:                                              ; preds = %280
-  %283 = getelementptr inbounds i8, ptr %0, i64 480
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %284 = load i32, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %0, i64 472
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %286 = load i32, ptr %285, align 8
   %287 = and i32 %286, 31
   br i1 %.not504, label %294, label %288
@@ -981,9 +981,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not504, label %297, label %320
 
 297:                                              ; preds = %296
-  %298 = getelementptr inbounds i8, ptr %0, i64 480
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %299 = load i32, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %0, i64 472
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %301 = load i32, ptr %300, align 8
   %302 = and i32 %301, 31
   %303 = shl i32 %299, %302
@@ -995,9 +995,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 305:                                              ; preds = %304
   %306 = and i32 %20, 524288
   %.not502 = icmp eq i32 %306, 0
-  %307 = getelementptr inbounds i8, ptr %0, i64 480
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %308 = load i32, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %0, i64 472
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %310 = load i32, ptr %309, align 8
   %311 = and i32 %310, 31
   br i1 %.not502, label %318, label %312
@@ -1033,11 +1033,11 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %.0486 = phi i8 [ 0, %22 ], [ 0, %42 ], [ 0, %55 ], [ 0, %59 ], [ 1, %61 ], [ 1, %65 ], [ 0, %76 ], [ 0, %89 ], [ 0, %113 ], [ 0, %122 ], [ 0, %125 ], [ 0, %135 ], [ 0, %139 ], [ 1, %141 ], [ 1, %145 ], [ 0, %170 ], [ 0, %192 ], [ 0, %197 ], [ 0, %204 ], [ 0, %223 ], [ 0, %227 ], [ 0, %234 ], [ 0, %236 ], [ 1, %238 ], [ 1, %240 ], [ 0, %248 ], [ 0, %254 ], [ 0, %257 ], [ 0, %266 ], [ 0, %320 ], [ 0, %222 ], [ 0, %226 ], [ 0, %.loopexit718 ], [ 0, %.loopexit719 ], [ 0, %44 ], [ 0, %49 ], [ 0, %68 ], [ 0, %81 ], [ 0, %115 ], [ 0, %128 ], [ 0, %147 ], [ 0, %195 ], [ 0, %202 ], [ 0, %215 ], [ 0, %241 ]
   %.0485 = phi i8 [ 0, %22 ], [ 0, %42 ], [ 0, %55 ], [ 0, %59 ], [ 0, %61 ], [ 0, %65 ], [ 0, %76 ], [ 0, %89 ], [ 0, %113 ], [ 0, %122 ], [ 0, %125 ], [ 0, %135 ], [ 0, %139 ], [ 0, %141 ], [ 0, %145 ], [ 0, %170 ], [ 0, %192 ], [ 0, %197 ], [ 0, %204 ], [ 0, %223 ], [ 1, %227 ], [ 0, %234 ], [ 0, %236 ], [ 0, %238 ], [ 0, %240 ], [ 0, %248 ], [ 0, %254 ], [ 0, %257 ], [ 0, %266 ], [ 0, %320 ], [ 0, %222 ], [ 1, %226 ], [ 0, %.loopexit718 ], [ 0, %.loopexit719 ], [ 0, %44 ], [ 0, %49 ], [ 0, %68 ], [ 0, %81 ], [ 0, %115 ], [ 0, %128 ], [ 0, %147 ], [ 0, %195 ], [ 0, %202 ], [ 0, %215 ], [ 0, %241 ]
   %.0 = phi i8 [ 0, %22 ], [ 0, %42 ], [ 0, %55 ], [ 0, %59 ], [ 0, %61 ], [ 0, %65 ], [ 0, %76 ], [ 0, %89 ], [ 0, %113 ], [ 0, %122 ], [ 0, %125 ], [ 0, %135 ], [ 0, %139 ], [ 0, %141 ], [ 0, %145 ], [ 0, %170 ], [ 0, %192 ], [ 0, %197 ], [ 0, %204 ], [ 0, %223 ], [ 0, %227 ], [ 0, %234 ], [ 0, %236 ], [ 0, %238 ], [ 0, %240 ], [ 0, %248 ], [ 0, %254 ], [ 0, %257 ], [ 0, %266 ], [ 0, %320 ], [ 1, %222 ], [ 1, %226 ], [ 0, %.loopexit718 ], [ 0, %.loopexit719 ], [ 0, %44 ], [ 0, %49 ], [ 0, %68 ], [ 0, %81 ], [ 0, %115 ], [ 0, %128 ], [ 0, %147 ], [ 0, %195 ], [ 0, %202 ], [ 0, %215 ], [ 0, %241 ]
-  %323 = getelementptr inbounds i8, ptr %0, i64 160
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %0, i64 872
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 0, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %0, i64 364
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %326 = load i32, ptr %325, align 4
   %327 = and i32 %326, 67108864
   %.not580 = icmp eq i32 %327, 0
@@ -1073,9 +1073,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond692, label %341, label %626
 
 341:                                              ; preds = %339
-  %342 = getelementptr inbounds i8, ptr %0, i64 476
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %343 = load i32, ptr %342, align 4
-  %344 = getelementptr inbounds i8, ptr %0, i64 468
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %345 = load i32, ptr %344, align 4
   %346 = and i32 %345, 31
   %347 = shl i32 %343, %346
@@ -1099,7 +1099,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 354:                                              ; preds = %353
   %355 = and i32 %326, 524288
   %.not653 = icmp eq i32 %355, 0
-  %356 = getelementptr inbounds i8, ptr %0, i64 165
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %357 = load i8, ptr %356, align 1
   %.not654 = icmp eq i8 %357, 0
   br i1 %.not653, label %364, label %358
@@ -1108,7 +1108,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not654, label %363, label %359
 
 359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %0, i64 904
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %361 = load i64, ptr %360, align 8
   %362 = sub i64 %361, %15
   store i64 %362, ptr %324, align 8
@@ -1122,7 +1122,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not654, label %369, label %365
 
 365:                                              ; preds = %364
-  %366 = getelementptr inbounds i8, ptr %0, i64 904
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %367 = load i64, ptr %366, align 8
   %368 = sub i64 %367, %15
   store i64 %368, ptr %324, align 8
@@ -1141,8 +1141,8 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not644, label %626, label %373
 
 373:                                              ; preds = %372
-  %374 = getelementptr inbounds i8, ptr %0, i64 584
-  %375 = getelementptr inbounds i8, ptr %0, i64 468
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %376 = load i32, ptr %375, align 4
   br label %377
 
@@ -1167,8 +1167,8 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not644, label %626, label %386
 
 386:                                              ; preds = %385
-  %387 = getelementptr inbounds i8, ptr %0, i64 584
-  %388 = getelementptr inbounds i8, ptr %0, i64 468
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %389 = load i32, ptr %388, align 4
   br label %390
 
@@ -1213,12 +1213,12 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not639, label %410, label %407
 
 407:                                              ; preds = %405
-  %408 = getelementptr inbounds i8, ptr %0, i64 380
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %409 = load i32, ptr %408, align 4
   br label %626
 
 410:                                              ; preds = %405
-  %411 = getelementptr inbounds i8, ptr %0, i64 476
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %412 = load i32, ptr %411, align 4
   %413 = shl i32 %412, 16
   br label %626
@@ -1229,9 +1229,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond693, label %416, label %626
 
 416:                                              ; preds = %414
-  %417 = getelementptr inbounds i8, ptr %0, i64 468
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %418 = load i32, ptr %417, align 4
-  %419 = getelementptr inbounds i8, ptr %0, i64 476
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %420 = load i32, ptr %419, align 4
   %421 = icmp ult i32 %418, %420
   %422 = zext i1 %421 to i32
@@ -1243,10 +1243,10 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond698.not, label %425, label %626
 
 425:                                              ; preds = %423
-  %426 = getelementptr inbounds i8, ptr %0, i64 468
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %427 = load i32, ptr %426, align 4
   %.not632 = icmp sgt i32 %427, -1
-  %428 = getelementptr inbounds i8, ptr %0, i64 476
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %429 = load i32, ptr %428, align 4
   br i1 %.not632, label %433, label %430
 
@@ -1272,7 +1272,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 438:                                              ; preds = %436
   %439 = and i32 %326, 524288
   %.not625 = icmp eq i32 %439, 0
-  %440 = getelementptr inbounds i8, ptr %0, i64 165
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %441 = load i8, ptr %440, align 1
   %.not626 = icmp eq i8 %441, 0
   br i1 %.not625, label %448, label %442
@@ -1281,7 +1281,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not626, label %447, label %443
 
 443:                                              ; preds = %442
-  %444 = getelementptr inbounds i8, ptr %0, i64 904
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %445 = load i64, ptr %444, align 8
   %446 = add i64 %445, %15
   store i64 %446, ptr %324, align 8
@@ -1295,7 +1295,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not626, label %453, label %449
 
 449:                                              ; preds = %448
-  %450 = getelementptr inbounds i8, ptr %0, i64 904
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %451 = load i64, ptr %450, align 8
   %452 = add i64 %451, %15
   store i64 %452, ptr %324, align 8
@@ -1324,9 +1324,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 460:                                              ; preds = %458
   %461 = and i32 %326, 524288
   %.not619 = icmp eq i32 %461, 0
-  %462 = getelementptr inbounds i8, ptr %0, i64 468
+  %462 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %463 = load i32, ptr %462, align 4
-  %464 = getelementptr inbounds i8, ptr %0, i64 476
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %465 = load i32, ptr %464, align 4
   br i1 %.not619, label %469, label %466
 
@@ -1355,9 +1355,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %.not610 = icmp eq i32 %482, 0
   %483 = and i32 %326, 524288
   %.not611 = icmp eq i32 %483, 0
-  %484 = getelementptr inbounds i8, ptr %0, i64 468
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %485 = load i32, ptr %484, align 4
-  %486 = getelementptr inbounds i8, ptr %0, i64 476
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %487 = load i32, ptr %486, align 4
   br i1 %.not609, label %500, label %488
 
@@ -1436,7 +1436,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not600, label %536, label %525
 
 525:                                              ; preds = %522
-  %526 = getelementptr inbounds i8, ptr %0, i64 166
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 166
   %527 = load i8, ptr %526, align 2
   %.not605 = icmp eq i8 %527, 0
   br i1 %.not601, label %532, label %528
@@ -1445,7 +1445,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not605, label %626, label %529
 
 529:                                              ; preds = %528
-  %530 = getelementptr inbounds i8, ptr %0, i64 864
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %531 = load i64, ptr %530, align 8
   store i64 %531, ptr %324, align 8
   br label %626
@@ -1454,13 +1454,13 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not605, label %626, label %533
 
 533:                                              ; preds = %532
-  %534 = getelementptr inbounds i8, ptr %0, i64 864
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %535 = load i64, ptr %534, align 8
   store i64 %535, ptr %324, align 8
   br label %626
 
 536:                                              ; preds = %522
-  %537 = getelementptr inbounds i8, ptr %0, i64 165
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %538 = load i8, ptr %537, align 1
   %.not602 = icmp eq i8 %538, 0
   br i1 %.not601, label %543, label %539
@@ -1500,13 +1500,13 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not596, label %562, label %551
 
 551:                                              ; preds = %548
-  %552 = getelementptr inbounds i8, ptr %0, i64 904
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %553 = load i64, ptr %552, align 8
   br i1 %.not597, label %560, label %554
 
 554:                                              ; preds = %551
   %555 = and i64 %553, -4294967296
-  %556 = getelementptr inbounds i8, ptr %0, i64 468
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %557 = load i32, ptr %556, align 4
   %558 = zext i32 %557 to i64
   %559 = or disjoint i64 %555, %558
@@ -1521,11 +1521,11 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not597, label %572, label %563
 
 563:                                              ; preds = %562
-  %564 = getelementptr inbounds i8, ptr %0, i64 468
+  %564 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %565 = load i32, ptr %564, align 4
   %566 = zext i32 %565 to i64
   %567 = shl nuw i64 %566, 32
-  %568 = getelementptr inbounds i8, ptr %0, i64 904
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %569 = load i64, ptr %568, align 8
   %570 = and i64 %569, 4294967295
   %571 = or disjoint i64 %567, %570
@@ -1533,7 +1533,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br label %626
 
 572:                                              ; preds = %562
-  %573 = getelementptr inbounds i8, ptr %0, i64 904
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %574 = load i64, ptr %573, align 8
   %575 = lshr i64 %574, 32
   %576 = trunc nuw i64 %575 to i32
@@ -1548,7 +1548,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %or.cond696, label %580, label %626
 
 580:                                              ; preds = %578
-  %581 = getelementptr inbounds i8, ptr %0, i64 468
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %582 = load i32, ptr %581, align 4
   br label %626
 
@@ -1565,9 +1565,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not586, label %602, label %588
 
 588:                                              ; preds = %586
-  %589 = getelementptr inbounds i8, ptr %0, i64 476
+  %589 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %590 = load i32, ptr %589, align 4
-  %591 = getelementptr inbounds i8, ptr %0, i64 468
+  %591 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %592 = load i32, ptr %591, align 4
   %593 = and i32 %592, 31
   br i1 %.not589, label %600, label %594
@@ -1589,9 +1589,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   br i1 %.not589, label %603, label %626
 
 603:                                              ; preds = %602
-  %604 = getelementptr inbounds i8, ptr %0, i64 476
+  %604 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %605 = load i32, ptr %604, align 4
-  %606 = getelementptr inbounds i8, ptr %0, i64 468
+  %606 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %607 = load i32, ptr %606, align 4
   %608 = and i32 %607, 31
   %609 = shl i32 %605, %608
@@ -1603,9 +1603,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 611:                                              ; preds = %610
   %612 = and i32 %326, 524288
   %.not587 = icmp eq i32 %612, 0
-  %613 = getelementptr inbounds i8, ptr %0, i64 476
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %614 = load i32, ptr %613, align 4
-  %615 = getelementptr inbounds i8, ptr %0, i64 468
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %616 = load i32, ptr %615, align 4
   %617 = and i32 %616, 31
   br i1 %.not587, label %624, label %618
@@ -1637,20 +1637,20 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %.0489 = phi i8 [ 0, %328 ], [ 0, %359 ], [ 0, %363 ], [ 1, %365 ], [ 1, %369 ], [ 0, %380 ], [ 0, %393 ], [ 0, %430 ], [ 0, %433 ], [ 0, %443 ], [ 0, %447 ], [ 1, %449 ], [ 1, %453 ], [ 0, %503 ], [ 0, %510 ], [ 0, %529 ], [ 0, %533 ], [ 0, %540 ], [ 0, %542 ], [ 1, %544 ], [ 1, %546 ], [ 0, %554 ], [ 0, %560 ], [ 0, %563 ], [ 0, %572 ], [ 0, %339 ], [ 0, %341 ], [ 0, %348 ], [ 0, %353 ], [ 0, %372 ], [ 0, %385 ], [ 0, %414 ], [ 0, %416 ], [ 0, %403 ], [ 0, %410 ], [ 0, %407 ], [ 0, %423 ], [ 0, %436 ], [ 0, %455 ], [ 0, %469 ], [ 0, %466 ], [ 0, %458 ], [ 0, %496 ], [ 0, %498 ], [ 0, %490 ], [ 0, %493 ], [ 0, %521 ], [ 0, %528 ], [ 0, %532 ], [ 0, %547 ], [ 0, %603 ], [ 0, %602 ], [ 0, %594 ], [ 0, %600 ], [ 0, %610 ], [ 0, %618 ], [ 0, %624 ], [ 0, %578 ], [ 0, %580 ], [ 0, %.loopexit ], [ 0, %.loopexit717 ], [ 0, %501 ], [ 0, %508 ]
   %.0488 = phi i8 [ 0, %328 ], [ 0, %359 ], [ 0, %363 ], [ 0, %365 ], [ 0, %369 ], [ 0, %380 ], [ 0, %393 ], [ 0, %430 ], [ 0, %433 ], [ 0, %443 ], [ 0, %447 ], [ 0, %449 ], [ 0, %453 ], [ 0, %503 ], [ 0, %510 ], [ 0, %529 ], [ 1, %533 ], [ 0, %540 ], [ 0, %542 ], [ 0, %544 ], [ 0, %546 ], [ 0, %554 ], [ 0, %560 ], [ 0, %563 ], [ 0, %572 ], [ 0, %339 ], [ 0, %341 ], [ 0, %348 ], [ 0, %353 ], [ 0, %372 ], [ 0, %385 ], [ 0, %414 ], [ 0, %416 ], [ 0, %403 ], [ 0, %410 ], [ 0, %407 ], [ 0, %423 ], [ 0, %436 ], [ 0, %455 ], [ 0, %469 ], [ 0, %466 ], [ 0, %458 ], [ 0, %496 ], [ 0, %498 ], [ 0, %490 ], [ 0, %493 ], [ 0, %521 ], [ 0, %528 ], [ 1, %532 ], [ 0, %547 ], [ 0, %603 ], [ 0, %602 ], [ 0, %594 ], [ 0, %600 ], [ 0, %610 ], [ 0, %618 ], [ 0, %624 ], [ 0, %578 ], [ 0, %580 ], [ 0, %.loopexit ], [ 0, %.loopexit717 ], [ 0, %501 ], [ 0, %508 ]
   %.0487 = phi i8 [ 0, %328 ], [ 0, %359 ], [ 0, %363 ], [ 0, %365 ], [ 0, %369 ], [ 0, %380 ], [ 0, %393 ], [ 0, %430 ], [ 0, %433 ], [ 0, %443 ], [ 0, %447 ], [ 0, %449 ], [ 0, %453 ], [ 0, %503 ], [ 0, %510 ], [ 0, %529 ], [ 0, %533 ], [ 0, %540 ], [ 0, %542 ], [ 0, %544 ], [ 0, %546 ], [ 0, %554 ], [ 0, %560 ], [ 0, %563 ], [ 0, %572 ], [ 0, %339 ], [ 0, %341 ], [ 0, %348 ], [ 0, %353 ], [ 0, %372 ], [ 0, %385 ], [ 0, %414 ], [ 0, %416 ], [ 0, %403 ], [ 0, %410 ], [ 0, %407 ], [ 0, %423 ], [ 0, %436 ], [ 0, %455 ], [ 0, %469 ], [ 0, %466 ], [ 0, %458 ], [ 0, %496 ], [ 0, %498 ], [ 0, %490 ], [ 0, %493 ], [ 0, %521 ], [ 1, %528 ], [ 1, %532 ], [ 0, %547 ], [ 0, %603 ], [ 0, %602 ], [ 0, %594 ], [ 0, %600 ], [ 0, %610 ], [ 0, %618 ], [ 0, %624 ], [ 0, %578 ], [ 0, %580 ], [ 0, %.loopexit ], [ 0, %.loopexit717 ], [ 0, %501 ], [ 0, %508 ]
-  %627 = getelementptr inbounds i8, ptr %0, i64 448
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %628 = load i32, ptr %627, align 8
   %629 = and i32 %628, 130816
   %630 = select i1 %.0491.shrunk, i32 128, i32 0
-  %631 = getelementptr inbounds i8, ptr %0, i64 123
+  %631 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %632 = load i8, ptr %631, align 1
   %633 = icmp eq i8 %632, 35
-  %634 = getelementptr inbounds i8, ptr %0, i64 464
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %635 = load i32, ptr %634, align 8
   %636 = and i32 %635, 3
   %637 = icmp ne i32 %636, 0
   %638 = and i1 %633, %637
   %639 = zext i1 %638 to i32
-  %640 = getelementptr inbounds i8, ptr %0, i64 171
+  %640 = getelementptr inbounds nuw i8, ptr %0, i64 171
   %641 = load i8, ptr %640, align 1
   %642 = zext i8 %641 to i32
   %643 = and i8 %632, -5
@@ -1663,7 +1663,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %650 = icmp eq i8 %632, 43
   %651 = and i1 %650, %637
   %652 = zext i1 %651 to i32
-  %653 = getelementptr inbounds i8, ptr %0, i64 172
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %654 = load i8, ptr %653, align 4
   %655 = zext i8 %654 to i32
   %656 = icmp eq i8 %632, 41
@@ -1674,21 +1674,21 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %661 = or disjoint i32 %629, %630
   %662 = or i32 %661, %660
   %663 = or i32 %662, %649
-  %664 = getelementptr inbounds i8, ptr %0, i64 456
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i32 %663, ptr %664, align 8
   %665 = and i32 %326, 1
   %.not668 = icmp eq i32 %665, 0
   %spec.select = select i1 %.not668, i8 %.0, i8 %.0487
   %spec.select744 = select i1 %.not668, i8 %.0485, i8 %.0488
-  %666 = getelementptr inbounds i8, ptr %0, i64 164
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i8 %spec.select, ptr %666, align 4
-  %667 = getelementptr inbounds i8, ptr %0, i64 163
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 163
   store i8 %spec.select744, ptr %667, align 1
-  %668 = getelementptr inbounds i8, ptr %0, i64 121
+  %668 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %669 = load i8, ptr %668, align 1
   %670 = zext i8 %669 to i32
   %671 = sub nsw i32 0, %670
-  %672 = getelementptr inbounds i8, ptr %0, i64 436
+  %672 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %673 = load i32, ptr %672, align 4
   %674 = add i32 %673, 8
   %675 = and i32 %674, %671
@@ -1696,16 +1696,16 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %.neg = add nsw i32 %676, 1
   %677 = and i32 %.neg, %.0490
   %678 = or i32 %677, %675
-  %679 = getelementptr inbounds i8, ptr %0, i64 484
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 484
   store i32 %678, ptr %679, align 4
-  %680 = getelementptr inbounds i8, ptr %0, i64 444
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %681 = load i32, ptr %680, align 4
   %682 = and i32 %681, 130816
   %683 = select i1 %.0492.shrunk, i32 128, i32 0
-  %684 = getelementptr inbounds i8, ptr %0, i64 122
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %685 = load i8, ptr %684, align 2
   %686 = icmp eq i8 %685, 35
-  %687 = getelementptr inbounds i8, ptr %0, i64 460
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %688 = load i32, ptr %687, align 4
   %689 = and i32 %688, 3
   %690 = icmp ne i32 %689, 0
@@ -1729,7 +1729,7 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
   %708 = or disjoint i32 %682, %683
   %709 = or i32 %708, %707
   %710 = or i32 %709, %699
-  %711 = getelementptr inbounds i8, ptr %0, i64 452
+  %711 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i32 %710, ptr %711, align 4
   %712 = and i32 %326, 2
   %.not669 = icmp eq i32 %712, 0
@@ -1752,9 +1752,9 @@ define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top_
 721:                                              ; preds = %719, %715
   %.sink739 = phi i32 [ %714, %719 ], [ %716, %715 ]
   %.sink = phi i32 [ %720, %719 ], [ %718, %715 ]
-  %722 = getelementptr inbounds i8, ptr %0, i64 592
+  %722 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i32 %.sink739, ptr %722, align 8
-  %723 = getelementptr inbounds i8, ptr %0, i64 596
+  %723 = getelementptr inbounds nuw i8, ptr %0, i64 596
   store i32 %.sink, ptr %723, align 4
   ret void
 }
@@ -1839,7 +1839,7 @@ define internal noundef i32 @_ZL14VL_SHIFTRS_IIIiiijj(i32 noundef %0, i32 nounde
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #4 {
   tail call void @_Z41Vmycpu_top___024root___eval_triggers__actP20Vmycpu_top___024root(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 19232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 19232
   br label %3
 
 3:                                                ; preds = %5, %1
@@ -1848,13 +1848,13 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__actP
   br i1 %4, label %5, label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [1 x i64], ptr %2, i64 0, i64 %.0.i
+  %6 = getelementptr inbounds nuw [1 x i64], ptr %2, i64 0, i64 %.0.i
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %3, label %8, !llvm.loop !10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 19248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 19248
   %10 = load i64, ptr %2, align 8
   %11 = load i64, ptr %9, align 8
   %12 = or i64 %11, %10
@@ -1872,7 +1872,7 @@ declare void @_Z31Vmycpu_top___024root___eval_actP20Vmycpu_top___024root(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 19248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 19248
   br label %3
 
 3:                                                ; preds = %5, %1
@@ -1881,7 +1881,7 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__nbaP
   br i1 %4, label %5, label %_ZNK12VlTriggerVecILm2EE3anyEv.exit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds [1 x i64], ptr %2, i64 0, i64 %.0.i
+  %6 = getelementptr inbounds nuw [1 x i64], ptr %2, i64 0, i64 %.0.i
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %3, label %8, !llvm.loop !10
@@ -1899,15 +1899,15 @@ declare void @_Z31Vmycpu_top___024root___eval_nbaP20Vmycpu_top___024root(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z27Vmycpu_top___024root___evalP20Vmycpu_top___024root(ptr noundef initializes((220, 221)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 220
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i8 1, ptr %2, align 4
   br label %7
 
 _Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader: ; preds = %select.unfold
-  %3 = getelementptr inbounds i8, ptr %0, i64 788
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
-  %5 = getelementptr inbounds i8, ptr %0, i64 19232
-  %6 = getelementptr inbounds i8, ptr %0, i64 19248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 788
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 19232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 19248
   br label %12
 
 7:                                                ; preds = %1, %select.unfold
@@ -1972,7 +1972,7 @@ thread-pre-split:                                 ; preds = %_Z38Vmycpu_top___02
   br i1 %24, label %25, label %_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds [1 x i64], ptr %5, i64 0, i64 %.0.i.i
+  %26 = getelementptr inbounds nuw [1 x i64], ptr %5, i64 0, i64 %.0.i.i
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i, label %23, label %_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit.thread, !llvm.loop !10
@@ -2001,7 +2001,7 @@ _Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit: ; preds 
   br i1 %34, label %35, label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.loopexit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds [1 x i64], ptr %6, i64 0, i64 %.0.i.i26
+  %36 = getelementptr inbounds nuw [1 x i64], ptr %6, i64 0, i64 %.0.i.i26
   %37 = load i64, ptr %36, align 8
   %.not.i.i27 = icmp eq i64 %37, 0
   br i1 %.not.i.i27, label %33, label %select.unfold28, !llvm.loop !10

@@ -347,7 +347,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .preheader105:                                    ; preds = %206, %.preheader105
   %212 = phi i64 [ %217, %.preheader105 ], [ 1, %206 ]
-  %213 = getelementptr inbounds i32, ptr %42, i64 %212
+  %213 = getelementptr inbounds nuw i32, ptr %42, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !3
   %215 = tail call i32 @llvm.abs.i32(i32 %214, i1 true)
   %216 = and i32 %215, 4095
@@ -358,7 +358,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 219:                                              ; preds = %.preheader105
   store i32 %214, ptr %17, align 4, !tbaa !3
-  %220 = getelementptr inbounds i8, ptr %3, i64 12
+  %220 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %221 = load i32, ptr %220, align 4, !tbaa !3
   %222 = and i32 %221, -2147483647
   %223 = icmp eq i32 %222, 1
@@ -414,7 +414,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 253:                                              ; preds = %253, %250
   %254 = phi i64 [ 2, %250 ], [ %263, %253 ]
   %255 = phi double [ %234, %250 ], [ %262, %253 ]
-  %256 = getelementptr inbounds double, ptr %43, i64 %254
+  %256 = getelementptr inbounds nuw double, ptr %43, i64 %254
   %257 = load double, ptr %256, align 8, !tbaa !7
   %258 = fcmp oge double %257, 0.000000e+00
   %259 = fneg double %257

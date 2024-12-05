@@ -51,7 +51,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z30grpc_chttp2_goaway_parser_initP25grpc_chttp2_goaway_parser(ptr nocapture noundef writeonly initializes((16, 24)) %p) local_unnamed_addr #3 {
 entry:
-  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
+  %debug_data = getelementptr inbounds nuw i8, ptr %p, i64 16
   store ptr null, ptr %debug_data, align 8
   ret void
 }
@@ -59,7 +59,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_Z33grpc_chttp2_goaway_parser_destroyP25grpc_chttp2_goaway_parser(ptr nocapture noundef readonly %p) local_unnamed_addr #4 {
 entry:
-  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
+  %debug_data = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load ptr, ptr %debug_data, align 8
   tail call void @gpr_free(ptr noundef %0)
   ret void
@@ -82,7 +82,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %length to i64
   %1 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %1, ptr %ref.tmp.i, align 8, !noalias !4
-  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !4
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str, i64 33, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -95,7 +95,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont5:                                     ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp3, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -119,7 +119,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -148,16 +148,16 @@ lpad4:                                            ; preds = %if.then
   resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %entry
-  %debug_data = getelementptr inbounds i8, ptr %p, i64 16
+  %debug_data = getelementptr inbounds nuw i8, ptr %p, i64 16
   %11 = load ptr, ptr %debug_data, align 8
   tail call void @gpr_free(ptr noundef %11)
   %sub = add i32 %length, -8
-  %debug_length = getelementptr inbounds i8, ptr %p, i64 24
+  %debug_length = getelementptr inbounds nuw i8, ptr %p, i64 24
   store i32 %sub, ptr %debug_length, align 8
   %conv = zext i32 %sub to i64
   %call7 = tail call ptr @gpr_malloc(i64 noundef %conv)
   store ptr %call7, ptr %debug_data, align 8
-  %debug_pos = getelementptr inbounds i8, ptr %p, i64 28
+  %debug_pos = getelementptr inbounds nuw i8, ptr %p, i64 28
   store i32 0, ptr %debug_pos, align 4
   store i32 0, ptr %p, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !9
@@ -181,7 +181,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -205,7 +205,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -236,11 +236,11 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 entry:
   %1 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %1, null
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
-  %data17 = getelementptr inbounds i8, ptr %slice, i64 8
+  %data17 = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %3 = load i64, ptr %data17, align 8
   %conv = and i64 %3, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %3
@@ -270,9 +270,9 @@ if.end:                                           ; preds = %sw.bb
   %5 = load i8, ptr %cond, align 1
   %conv24 = zext i8 %5 to i32
   %shl = shl nuw i32 %conv24, 24
-  %last_stream_id = getelementptr inbounds i8, ptr %parser, i64 4
+  %last_stream_id = getelementptr inbounds nuw i8, ptr %parser, i64 4
   store i32 %shl, ptr %last_stream_id, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cond, i64 1
   br label %sw.bb25
 
 sw.bb25:                                          ; preds = %if.end, %entry
@@ -288,11 +288,11 @@ if.end29:                                         ; preds = %sw.bb25
   %6 = load i8, ptr %cur.0, align 1
   %conv30 = zext i8 %6 to i32
   %shl31 = shl nuw nsw i32 %conv30, 16
-  %last_stream_id32 = getelementptr inbounds i8, ptr %parser, i64 4
+  %last_stream_id32 = getelementptr inbounds nuw i8, ptr %parser, i64 4
   %7 = load i32, ptr %last_stream_id32, align 4
   %or = or i32 %shl31, %7
   store i32 %or, ptr %last_stream_id32, align 4
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %cur.0, i64 1
+  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %cur.0, i64 1
   br label %sw.bb34
 
 sw.bb34:                                          ; preds = %if.end29, %entry
@@ -308,11 +308,11 @@ if.end38:                                         ; preds = %sw.bb34
   %8 = load i8, ptr %cur.1, align 1
   %conv39 = zext i8 %8 to i32
   %shl40 = shl nuw nsw i32 %conv39, 8
-  %last_stream_id41 = getelementptr inbounds i8, ptr %parser, i64 4
+  %last_stream_id41 = getelementptr inbounds nuw i8, ptr %parser, i64 4
   %9 = load i32, ptr %last_stream_id41, align 4
   %or42 = or i32 %shl40, %9
   store i32 %or42, ptr %last_stream_id41, align 4
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %cur.1, i64 1
+  %incdec.ptr43 = getelementptr inbounds nuw i8, ptr %cur.1, i64 1
   br label %sw.bb44
 
 sw.bb44:                                          ; preds = %if.end38, %entry
@@ -327,11 +327,11 @@ if.then46:                                        ; preds = %sw.bb44
 if.end48:                                         ; preds = %sw.bb44
   %10 = load i8, ptr %cur.2, align 1
   %conv49 = zext i8 %10 to i32
-  %last_stream_id50 = getelementptr inbounds i8, ptr %parser, i64 4
+  %last_stream_id50 = getelementptr inbounds nuw i8, ptr %parser, i64 4
   %11 = load i32, ptr %last_stream_id50, align 4
   %or51 = or i32 %11, %conv49
   store i32 %or51, ptr %last_stream_id50, align 4
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %cur.2, i64 1
+  %incdec.ptr52 = getelementptr inbounds nuw i8, ptr %cur.2, i64 1
   br label %sw.bb53
 
 sw.bb53:                                          ; preds = %if.end48, %entry
@@ -347,9 +347,9 @@ if.end57:                                         ; preds = %sw.bb53
   %12 = load i8, ptr %cur.3, align 1
   %conv58 = zext i8 %12 to i32
   %shl59 = shl nuw i32 %conv58, 24
-  %error_code = getelementptr inbounds i8, ptr %parser, i64 8
+  %error_code = getelementptr inbounds nuw i8, ptr %parser, i64 8
   store i32 %shl59, ptr %error_code, align 8
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %cur.3, i64 1
+  %incdec.ptr60 = getelementptr inbounds nuw i8, ptr %cur.3, i64 1
   br label %sw.bb61
 
 sw.bb61:                                          ; preds = %if.end57, %entry
@@ -365,11 +365,11 @@ if.end65:                                         ; preds = %sw.bb61
   %13 = load i8, ptr %cur.4, align 1
   %conv66 = zext i8 %13 to i32
   %shl67 = shl nuw nsw i32 %conv66, 16
-  %error_code68 = getelementptr inbounds i8, ptr %parser, i64 8
+  %error_code68 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %14 = load i32, ptr %error_code68, align 8
   %or69 = or i32 %shl67, %14
   store i32 %or69, ptr %error_code68, align 8
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %cur.4, i64 1
+  %incdec.ptr70 = getelementptr inbounds nuw i8, ptr %cur.4, i64 1
   br label %sw.bb71
 
 sw.bb71:                                          ; preds = %if.end65, %entry
@@ -385,11 +385,11 @@ if.end75:                                         ; preds = %sw.bb71
   %15 = load i8, ptr %cur.5, align 1
   %conv76 = zext i8 %15 to i32
   %shl77 = shl nuw nsw i32 %conv76, 8
-  %error_code78 = getelementptr inbounds i8, ptr %parser, i64 8
+  %error_code78 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %16 = load i32, ptr %error_code78, align 8
   %or79 = or i32 %shl77, %16
   store i32 %or79, ptr %error_code78, align 8
-  %incdec.ptr80 = getelementptr inbounds i8, ptr %cur.5, i64 1
+  %incdec.ptr80 = getelementptr inbounds nuw i8, ptr %cur.5, i64 1
   br label %sw.bb81
 
 sw.bb81:                                          ; preds = %if.end75, %entry
@@ -404,11 +404,11 @@ if.then83:                                        ; preds = %sw.bb81
 if.end85:                                         ; preds = %sw.bb81
   %17 = load i8, ptr %cur.6, align 1
   %conv86 = zext i8 %17 to i32
-  %error_code87 = getelementptr inbounds i8, ptr %parser, i64 8
+  %error_code87 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %18 = load i32, ptr %error_code87, align 8
   %or88 = or i32 %18, %conv86
   store i32 %or88, ptr %error_code87, align 8
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %cur.6, i64 1
+  %incdec.ptr89 = getelementptr inbounds nuw i8, ptr %cur.6, i64 1
   br label %sw.bb90
 
 sw.bb90:                                          ; preds = %if.end85, %entry
@@ -423,12 +423,12 @@ sw.bb90.do.body_crit_edge:                        ; preds = %sw.bb90
   br label %do.body
 
 if.then92:                                        ; preds = %sw.bb90
-  %debug_data = getelementptr inbounds i8, ptr %parser, i64 16
+  %debug_data = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %19 = load ptr, ptr %debug_data, align 8
-  %debug_pos = getelementptr inbounds i8, ptr %parser, i64 28
+  %debug_pos = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %20 = load i32, ptr %debug_pos, align 4
   %idx.ext = zext i32 %20 to i64
-  %add.ptr93 = getelementptr inbounds i8, ptr %19, i64 %idx.ext
+  %add.ptr93 = getelementptr inbounds nuw i8, ptr %19, i64 %idx.ext
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur.7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -437,7 +437,7 @@ if.then92:                                        ; preds = %sw.bb90
 
 do.body:                                          ; preds = %sw.bb90.do.body_crit_edge, %if.then92
   %sub.ptr.sub97.pre-phi = phi i64 [ %.pre76, %sw.bb90.do.body_crit_edge ], [ %sub.ptr.sub, %if.then92 ]
-  %debug_pos98 = getelementptr inbounds i8, ptr %parser, i64 28
+  %debug_pos98 = getelementptr inbounds nuw i8, ptr %parser, i64 28
   %21 = load i32, ptr %debug_pos98, align 4
   %sub = xor i32 %21, -1
   %conv99 = zext i32 %sub to i64
@@ -457,13 +457,13 @@ do.end:                                           ; preds = %do.body
   br i1 %tobool110.not, label %return, label %if.then111
 
 if.then111:                                       ; preds = %do.end
-  %error_code112 = getelementptr inbounds i8, ptr %parser, i64 8
+  %error_code112 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %22 = load i32, ptr %error_code112, align 8
-  %last_stream_id113 = getelementptr inbounds i8, ptr %parser, i64 4
+  %last_stream_id113 = getelementptr inbounds nuw i8, ptr %parser, i64 4
   %23 = load i32, ptr %last_stream_id113, align 4
-  %debug_data114 = getelementptr inbounds i8, ptr %parser, i64 16
+  %debug_data114 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %24 = load ptr, ptr %debug_data114, align 8
-  %debug_length = getelementptr inbounds i8, ptr %parser, i64 24
+  %debug_length = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %25 = load i32, ptr %debug_length, align 8
   %conv115 = zext i32 %25 to i64
   tail call void @_Z31grpc_chttp2_add_incoming_goawayP21grpc_chttp2_transportjjSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %t, i32 noundef %22, i32 noundef %23, i64 %conv115, ptr %24)
@@ -499,7 +499,7 @@ entry:
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %header, i64 noundef 17)
   %0 = load ptr, ptr %debug_data, align 8
   %tobool4.not = icmp ne ptr %0, null
-  %data6 = getelementptr inbounds i8, ptr %debug_data, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %debug_data, i64 8
   %1 = load i64, ptr %data6, align 8
   %2 = icmp ugt i64 %1, 4294967286
   %cond11 = select i1 %tobool4.not, i1 %2, i1 false
@@ -512,99 +512,99 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %3 = load ptr, ptr %header, align 8
   %tobool.not = icmp eq ptr %3, null
-  %bytes2 = getelementptr inbounds i8, ptr %header, i64 9
-  %bytes = getelementptr inbounds i8, ptr %header, i64 16
+  %bytes2 = getelementptr inbounds nuw i8, ptr %header, i64 9
+  %bytes = getelementptr inbounds nuw i8, ptr %header, i64 16
   %4 = load ptr, ptr %bytes, align 8
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %4
-  %data = getelementptr inbounds i8, ptr %header, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %header, i64 8
   %conv21 = and i64 %1, 255
   %cond23 = select i1 %tobool4.not, i64 %1, i64 %conv21
   %conv24 = trunc i64 %cond23 to i32
   %add = add i32 %conv24, 8
   %shr = lshr i32 %add, 16
   %conv25 = trunc i32 %shr to i8
-  %bytes2.sroa.gep = getelementptr inbounds i8, ptr %header, i64 10
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 1
+  %bytes2.sroa.gep = getelementptr inbounds nuw i8, ptr %header, i64 10
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 1
   %cond.sroa.sel = select i1 %tobool.not, ptr %bytes2.sroa.gep, ptr %.sroa.gep
   store i8 %conv25, ptr %cond, align 1
   %shr26 = lshr i32 %add, 8
   %conv27 = trunc i32 %shr26 to i8
-  %bytes2.sroa.gep33 = getelementptr inbounds i8, ptr %header, i64 11
-  %.sroa.gep34 = getelementptr inbounds i8, ptr %4, i64 2
+  %bytes2.sroa.gep33 = getelementptr inbounds nuw i8, ptr %header, i64 11
+  %.sroa.gep34 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %cond.sroa.sel35 = select i1 %tobool.not, ptr %bytes2.sroa.gep33, ptr %.sroa.gep34
   store i8 %conv27, ptr %cond.sroa.sel, align 1
   %conv29 = trunc i32 %add to i8
-  %bytes2.sroa.gep36 = getelementptr inbounds i8, ptr %header, i64 12
-  %.sroa.gep37 = getelementptr inbounds i8, ptr %4, i64 3
+  %bytes2.sroa.gep36 = getelementptr inbounds nuw i8, ptr %header, i64 12
+  %.sroa.gep37 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %cond.sroa.sel38 = select i1 %tobool.not, ptr %bytes2.sroa.gep36, ptr %.sroa.gep37
   store i8 %conv29, ptr %cond.sroa.sel35, align 1
-  %bytes2.sroa.gep39 = getelementptr inbounds i8, ptr %header, i64 13
-  %.sroa.gep40 = getelementptr inbounds i8, ptr %4, i64 4
+  %bytes2.sroa.gep39 = getelementptr inbounds nuw i8, ptr %header, i64 13
+  %.sroa.gep40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %cond.sroa.sel41 = select i1 %tobool.not, ptr %bytes2.sroa.gep39, ptr %.sroa.gep40
   store i8 7, ptr %cond.sroa.sel38, align 1
-  %bytes2.sroa.gep42 = getelementptr inbounds i8, ptr %header, i64 14
-  %.sroa.gep43 = getelementptr inbounds i8, ptr %4, i64 5
+  %bytes2.sroa.gep42 = getelementptr inbounds nuw i8, ptr %header, i64 14
+  %.sroa.gep43 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %cond.sroa.sel44 = select i1 %tobool.not, ptr %bytes2.sroa.gep42, ptr %.sroa.gep43
   store i8 0, ptr %cond.sroa.sel41, align 1
-  %bytes2.sroa.gep45 = getelementptr inbounds i8, ptr %header, i64 15
-  %.sroa.gep46 = getelementptr inbounds i8, ptr %4, i64 6
+  %bytes2.sroa.gep45 = getelementptr inbounds nuw i8, ptr %header, i64 15
+  %.sroa.gep46 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %cond.sroa.sel47 = select i1 %tobool.not, ptr %bytes2.sroa.gep45, ptr %.sroa.gep46
   store i8 0, ptr %cond.sroa.sel44, align 1
-  %.sroa.gep49 = getelementptr inbounds i8, ptr %4, i64 7
+  %.sroa.gep49 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %cond.sroa.sel50 = select i1 %tobool.not, ptr %bytes, ptr %.sroa.gep49
   store i8 0, ptr %cond.sroa.sel47, align 1
-  %bytes2.sroa.gep51 = getelementptr inbounds i8, ptr %header, i64 17
-  %.sroa.gep52 = getelementptr inbounds i8, ptr %4, i64 8
+  %bytes2.sroa.gep51 = getelementptr inbounds nuw i8, ptr %header, i64 17
+  %.sroa.gep52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %cond.sroa.sel53 = select i1 %tobool.not, ptr %bytes2.sroa.gep51, ptr %.sroa.gep52
   store i8 0, ptr %cond.sroa.sel50, align 1
-  %bytes2.sroa.gep54 = getelementptr inbounds i8, ptr %header, i64 18
-  %.sroa.gep55 = getelementptr inbounds i8, ptr %4, i64 9
+  %bytes2.sroa.gep54 = getelementptr inbounds nuw i8, ptr %header, i64 18
+  %.sroa.gep55 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %cond.sroa.sel56 = select i1 %tobool.not, ptr %bytes2.sroa.gep54, ptr %.sroa.gep55
   store i8 0, ptr %cond.sroa.sel53, align 1
   %shr37 = lshr i32 %last_stream_id, 24
   %conv38 = trunc nuw i32 %shr37 to i8
-  %bytes2.sroa.gep57 = getelementptr inbounds i8, ptr %header, i64 19
-  %.sroa.gep58 = getelementptr inbounds i8, ptr %4, i64 10
+  %bytes2.sroa.gep57 = getelementptr inbounds nuw i8, ptr %header, i64 19
+  %.sroa.gep58 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %cond.sroa.sel59 = select i1 %tobool.not, ptr %bytes2.sroa.gep57, ptr %.sroa.gep58
   store i8 %conv38, ptr %cond.sroa.sel56, align 1
   %shr40 = lshr i32 %last_stream_id, 16
   %conv41 = trunc i32 %shr40 to i8
-  %bytes2.sroa.gep60 = getelementptr inbounds i8, ptr %header, i64 20
-  %.sroa.gep61 = getelementptr inbounds i8, ptr %4, i64 11
+  %bytes2.sroa.gep60 = getelementptr inbounds nuw i8, ptr %header, i64 20
+  %.sroa.gep61 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %cond.sroa.sel62 = select i1 %tobool.not, ptr %bytes2.sroa.gep60, ptr %.sroa.gep61
   store i8 %conv41, ptr %cond.sroa.sel59, align 1
   %shr43 = lshr i32 %last_stream_id, 8
   %conv44 = trunc i32 %shr43 to i8
-  %bytes2.sroa.gep63 = getelementptr inbounds i8, ptr %header, i64 21
-  %.sroa.gep64 = getelementptr inbounds i8, ptr %4, i64 12
+  %bytes2.sroa.gep63 = getelementptr inbounds nuw i8, ptr %header, i64 21
+  %.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %cond.sroa.sel65 = select i1 %tobool.not, ptr %bytes2.sroa.gep63, ptr %.sroa.gep64
   store i8 %conv44, ptr %cond.sroa.sel62, align 1
   %conv46 = trunc i32 %last_stream_id to i8
-  %bytes2.sroa.gep66 = getelementptr inbounds i8, ptr %header, i64 22
-  %.sroa.gep67 = getelementptr inbounds i8, ptr %4, i64 13
+  %bytes2.sroa.gep66 = getelementptr inbounds nuw i8, ptr %header, i64 22
+  %.sroa.gep67 = getelementptr inbounds nuw i8, ptr %4, i64 13
   %cond.sroa.sel68 = select i1 %tobool.not, ptr %bytes2.sroa.gep66, ptr %.sroa.gep67
   store i8 %conv46, ptr %cond.sroa.sel65, align 1
   %shr48 = lshr i32 %error_code, 24
   %conv49 = trunc nuw i32 %shr48 to i8
-  %bytes2.sroa.gep69 = getelementptr inbounds i8, ptr %header, i64 23
-  %.sroa.gep70 = getelementptr inbounds i8, ptr %4, i64 14
+  %bytes2.sroa.gep69 = getelementptr inbounds nuw i8, ptr %header, i64 23
+  %.sroa.gep70 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %cond.sroa.sel71 = select i1 %tobool.not, ptr %bytes2.sroa.gep69, ptr %.sroa.gep70
   store i8 %conv49, ptr %cond.sroa.sel68, align 1
   %shr51 = lshr i32 %error_code, 16
   %conv52 = trunc i32 %shr51 to i8
-  %bytes2.sroa.gep72 = getelementptr inbounds i8, ptr %header, i64 24
-  %.sroa.gep73 = getelementptr inbounds i8, ptr %4, i64 15
+  %bytes2.sroa.gep72 = getelementptr inbounds nuw i8, ptr %header, i64 24
+  %.sroa.gep73 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %cond.sroa.sel74 = select i1 %tobool.not, ptr %bytes2.sroa.gep72, ptr %.sroa.gep73
   store i8 %conv52, ptr %cond.sroa.sel71, align 1
   %shr54 = lshr i32 %error_code, 8
   %conv55 = trunc i32 %shr54 to i8
-  %bytes2.sroa.gep75 = getelementptr inbounds i8, ptr %header, i64 25
-  %.sroa.gep76 = getelementptr inbounds i8, ptr %4, i64 16
+  %bytes2.sroa.gep75 = getelementptr inbounds nuw i8, ptr %header, i64 25
+  %.sroa.gep76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %cond.sroa.sel77 = select i1 %tobool.not, ptr %bytes2.sroa.gep75, ptr %.sroa.gep76
   store i8 %conv55, ptr %cond.sroa.sel74, align 1
   %conv57 = trunc i32 %error_code to i8
-  %bytes2.sroa.gep78 = getelementptr inbounds i8, ptr %header, i64 26
-  %.sroa.gep79 = getelementptr inbounds i8, ptr %4, i64 17
+  %bytes2.sroa.gep78 = getelementptr inbounds nuw i8, ptr %header, i64 26
+  %.sroa.gep79 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %cond.sroa.sel80 = select i1 %tobool.not, ptr %bytes2.sroa.gep78, ptr %.sroa.gep79
   store i8 %conv57, ptr %cond.sroa.sel77, align 1
   %5 = load ptr, ptr %header, align 8

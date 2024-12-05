@@ -15,22 +15,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_minmax_opcinfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @palloc0(i64 noundef 280) #4
   store i16 2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 1, ptr %6, align 2
   %7 = getelementptr i8, ptr %5, i64 32
   %8 = ptrtoint ptr %7 to i64
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
   %13 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #4
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = getelementptr i8, ptr %5, i64 24
   store ptr %13, ptr %15, align 8
   store ptr %13, ptr %14, align 8
@@ -44,7 +44,7 @@ declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -52,29 +52,29 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load i16, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = sext i16 %12 to i64
   %17 = add nsw i64 %16, -1
   %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %17
-  %19 = getelementptr inbounds i8, ptr %7, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %18, i64 86
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %24 = load i8, ptr %23, align 2
   %25 = trunc i8 %24 to i1
-  %26 = getelementptr inbounds i8, ptr %18, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %27 = load i16, ptr %26, align 4
   %28 = sext i16 %27 to i32
   %29 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %25, i32 noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8
   store i64 %29, ptr %31, align 8
   %32 = load i8, ptr %23, align 2
@@ -89,10 +89,10 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   br label %87
 
 39:                                               ; preds = %1
-  %40 = getelementptr inbounds i8, ptr %18, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %41 = load i32, ptr %40, align 4
   %42 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %41, i16 noundef zeroext 1)
-  %43 = getelementptr inbounds i8, ptr %7, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr %44, align 8
   %46 = tail call i64 @FunctionCall2Coll(ptr noundef %42, i32 noundef %11, i64 noundef %9, i64 noundef %45) #4
@@ -100,7 +100,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   br i1 %47, label %48, label %62
 
 48:                                               ; preds = %39
-  %49 = getelementptr inbounds i8, ptr %18, i64 86
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %50 = load i8, ptr %49, align 2
   %51 = trunc i8 %50 to i1
   br i1 %51, label %56, label %52
@@ -116,7 +116,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
 
 56:                                               ; preds = %52, %48
   %.pre-phi = phi i1 [ %.pre49, %52 ], [ true, %48 ]
-  %57 = getelementptr inbounds i8, ptr %18, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %58 = load i16, ptr %57, align 4
   %59 = sext i16 %58 to i32
   %60 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi, i32 noundef %59) #4
@@ -135,7 +135,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   br i1 %.not, label %85, label %69
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %18, i64 86
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %71 = load i8, ptr %70, align 2
   %72 = trunc i8 %71 to i1
   br i1 %72, label %78, label %73
@@ -152,7 +152,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
 
 78:                                               ; preds = %73, %69
   %.pre-phi51 = phi i1 [ %.pre50, %73 ], [ true, %69 ]
-  %79 = getelementptr inbounds i8, ptr %18, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %80 = load i16, ptr %79, align 4
   %81 = sext i16 %80 to i32
   %82 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi51, i32 noundef %81) #4
@@ -175,12 +175,12 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @minmax_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
   %8 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %2
@@ -204,24 +204,24 @@ define internal fastcc ptr @minmax_get_strategy_procinfo(ptr nocapture noundef r
   br label %18
 
 18:                                               ; preds = %17, %4
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = zext i16 %3 to i32
   %21 = add nsw i32 %20, -1
   %22 = sext i32 %21 to i64
   %23 = getelementptr [5 x %struct.FmgrInfo], ptr %19, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %53
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 352
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i32, ptr %31, i64 %7
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %33 to i64
   %.idx = mul nsw i64 %7, 104
@@ -262,7 +262,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -271,15 +271,15 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %20 = load i16, ptr %19, align 2
   switch i16 %20, label %46 [
     i16 1, label %21
@@ -291,7 +291,7 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
 
 21:                                               ; preds = %1, %1
   %22 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
   %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
@@ -299,7 +299,7 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
 
 27:                                               ; preds = %1
   %28 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext 2)
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
@@ -316,7 +316,7 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
 
 39:                                               ; preds = %1, %1
   %40 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %14, i32 noundef %16, i16 noundef zeroext %20)
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
@@ -346,7 +346,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -355,22 +355,22 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = load i16, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = sext i16 %13 to i64
   %18 = add nsw i64 %17, -1
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 68
   %21 = load i32, ptr %20, align 4
   %22 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %21, i16 noundef zeroext 1)
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %27, align 8
   %29 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %28) #4
@@ -378,7 +378,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   br i1 %.not, label %46, label %30
 
 30:                                               ; preds = %1
-  %31 = getelementptr inbounds i8, ptr %19, i64 86
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 86
   %32 = load i8, ptr %31, align 2
   %33 = trunc i8 %32 to i1
   br i1 %33, label %38, label %34
@@ -396,7 +396,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   %.pre-phi38 = phi i1 [ %.pre37, %34 ], [ true, %30 ]
   %39 = load ptr, ptr %23, align 8
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %42 = load i16, ptr %41, align 4
   %43 = sext i16 %42 to i32
   %44 = tail call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext %.pre-phi38, i32 noundef %43) #4
@@ -418,7 +418,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   br i1 %.not34, label %75, label %56
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %19, i64 86
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 86
   %58 = load i8, ptr %57, align 2
   %59 = trunc i8 %58 to i1
   br i1 %59, label %65, label %60
@@ -438,7 +438,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   %66 = load ptr, ptr %23, align 8
   %67 = getelementptr i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %19, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %70 = load i16, ptr %69, align 4
   %71 = sext i16 %70 to i32
   %72 = tail call i64 @datumCopy(i64 noundef %68, i1 noundef zeroext %.pre-phi, i32 noundef %71) #4

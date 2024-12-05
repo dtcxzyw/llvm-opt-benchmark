@@ -156,11 +156,11 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
-  %arrayidx = getelementptr inbounds i32, ptr %it, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %it, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %sz, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw i32, ptr %sz, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx4, align 4
   %cmp5 = icmp ult i32 %inc, %1
   br i1 %cmp5, label %return, label %if.end
@@ -189,7 +189,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not6, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %m_trim_nl = getelementptr inbounds i8, ptr %this, i64 8
+  %m_trim_nl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl, align 8
   %.fr = freeze i8 %2
   %tobool4 = trunc i8 %.fr to i1
@@ -197,7 +197,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
   %it.07.us = phi ptr [ %incdec.ptr.us, %while.body.us ], [ %0, %while.body.lr.ph ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %it.07.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %it.07.us, i64 1
   %3 = load i8, ptr %incdec.ptr.us, align 1
   %tobool.not.us = icmp eq i8 %3, 0
   br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !6
@@ -207,7 +207,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %e.08 = phi ptr [ %spec.select, %while.body ], [ %0, %while.body.lr.ph ]
   %it.07 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %while.body.lr.ph ]
   %cmp5.not = icmp eq i8 %4, 10
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.07, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.07, i64 1
   %spec.select = select i1 %cmp5.not, ptr %e.08, ptr %incdec.ptr
   %5 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %5, 0
@@ -231,7 +231,7 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %tobool.not6.i, label %for.end14, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %m_trim_nl.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_trim_nl.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %m_trim_nl.i, align 8
   %.fr.i = freeze i8 %2
   %tobool4.i = trunc i8 %.fr.i to i1
@@ -239,7 +239,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
 
 while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %while.body.us.i
   %it.07.us.i = phi ptr [ %incdec.ptr.us.i, %while.body.us.i ], [ %0, %while.body.lr.ph.i ]
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %it.07.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %it.07.us.i, i64 1
   %3 = load i8, ptr %incdec.ptr.us.i, align 1
   %tobool.not.us.i = icmp eq i8 %3, 0
   br i1 %tobool.not.us.i, label %for.body.lr.ph, label %while.body.us.i, !llvm.loop !6
@@ -249,7 +249,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   %e.08.i = phi ptr [ %spec.select.i, %while.body.i ], [ %0, %while.body.lr.ph.i ]
   %it.07.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %0, %while.body.lr.ph.i ]
   %cmp5.not.i = icmp eq i8 %4, 10
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.07.i, i64 1
   %spec.select.i = select i1 %cmp5.not.i, ptr %e.08.i, ptr %incdec.ptr.i
   %5 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i = icmp eq i8 %5, 0
@@ -261,7 +261,7 @@ _ZNK7escaped3endEv.exit:                          ; preds = %while.body.i
 
 for.body.lr.ph:                                   ; preds = %while.body.us.i, %_ZNK7escaped3endEv.exit
   %retval.0.i21 = phi ptr [ %spec.select.i, %_ZNK7escaped3endEv.exit ], [ %incdec.ptr.us.i, %while.body.us.i ]
-  %m_indent = getelementptr inbounds i8, ptr %this, i64 12
+  %m_indent = getelementptr inbounds nuw i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc13
@@ -292,7 +292,7 @@ for.body10:                                       ; preds = %if.end, %for.body10
   br i1 %cmp9, label %for.body10, label %for.inc13, !llvm.loop !7
 
 for.inc13:                                        ; preds = %for.body10, %if.end.thread, %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.014, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.014, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %retval.0.i21
   br i1 %cmp.not, label %for.end14, label %for.body, !llvm.loop !8
 

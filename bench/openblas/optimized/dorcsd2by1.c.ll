@@ -597,7 +597,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %381, label %382, label %490
 
 382:                                              ; preds = %375
-  %383 = getelementptr inbounds i8, ptr %17, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %384 = sext i32 %107 to i64
   %385 = getelementptr inbounds double, ptr %53, i64 %384
   %386 = sext i32 %120 to i64
@@ -733,7 +733,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %.neg43 = add i32 %464, %467
   %468 = add i32 %465, %466
   %469 = sub i32 %.neg43, %468
-  %470 = getelementptr inbounds i32, ptr %54, i64 %463
+  %470 = getelementptr inbounds nuw i32, ptr %54, i64 %463
   store i32 %469, ptr %470, align 4, !tbaa !3
   %471 = add nuw nsw i64 %463, 1
   %472 = icmp eq i64 %471, %461
@@ -782,7 +782,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %492, label %493, label %600
 
 493:                                              ; preds = %490
-  %494 = getelementptr inbounds i8, ptr %17, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %495 = sext i32 %107 to i64
   %496 = getelementptr inbounds double, ptr %53, i64 %495
   %497 = sext i32 %120 to i64
@@ -917,7 +917,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %.neg40 = add i32 %574, %577
   %578 = add i32 %575, %576
   %579 = sub i32 %.neg40, %578
-  %580 = getelementptr inbounds i32, ptr %54, i64 %573
+  %580 = getelementptr inbounds nuw i32, ptr %54, i64 %573
   store i32 %579, ptr %580, align 4, !tbaa !3
   %581 = add nuw nsw i64 %573, 1
   %582 = icmp eq i64 %581, %571
@@ -967,7 +967,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %603, label %604, label %716
 
 604:                                              ; preds = %600
-  %605 = getelementptr inbounds i8, ptr %17, i64 8
+  %605 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %606 = sext i32 %107 to i64
   %607 = getelementptr inbounds double, ptr %53, i64 %606
   %608 = sext i32 %120 to i64
@@ -1111,7 +1111,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %695 = trunc i64 %693 to i32
   %696 = sub i32 %695, %685
   %697 = add i32 %696, %694
-  %698 = getelementptr inbounds i32, ptr %54, i64 %693
+  %698 = getelementptr inbounds nuw i32, ptr %54, i64 %693
   store i32 %697, ptr %698, align 4, !tbaa !3
   %699 = add nuw nsw i64 %693, 1
   %700 = icmp eq i64 %699, %691
@@ -1159,7 +1159,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 716:                                              ; preds = %600
   %717 = sub nsw i32 %349, %601
   store i32 %717, ptr %22, align 4, !tbaa !3
-  %718 = getelementptr inbounds i8, ptr %17, i64 8
+  %718 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %719 = sext i32 %107 to i64
   %720 = getelementptr inbounds double, ptr %53, i64 %719
   %721 = sext i32 %120 to i64
@@ -1389,7 +1389,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %875 = trunc i64 %873 to i32
   %876 = sub i32 %875, %865
   %877 = add i32 %876, %874
-  %878 = getelementptr inbounds i32, ptr %54, i64 %873
+  %878 = getelementptr inbounds nuw i32, ptr %54, i64 %873
   store i32 %877, ptr %878, align 4, !tbaa !3
   %879 = add nuw nsw i64 %873, 1
   %880 = icmp eq i64 %879, %871

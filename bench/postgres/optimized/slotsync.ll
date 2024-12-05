@@ -107,7 +107,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @CheckAndGetDbnameFromConninfo() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalReceiverFunctions, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @PrimaryConnInfo, align 8
   %5 = tail call ptr %3(ptr noundef %4) #15
@@ -259,20 +259,20 @@ define internal fastcc void @ReplSlotSyncWorkerMain() unnamed_addr #3 {
   call void @InitProcess() #15
   call void @BaseInit() #15
   %4 = load ptr, ptr @SlotSyncCtx, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #15, !srcloc !5
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %0
   %8 = load ptr, ptr @SlotSyncCtx, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 1138, ptr noundef nonnull @__func__.ReplSlotSyncWorkerMain) #15
   br label %11
 
 11:                                               ; preds = %0, %7
   %12 = load ptr, ptr @SlotSyncCtx, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %19
@@ -280,7 +280,7 @@ define internal fastcc void @ReplSlotSyncWorkerMain() unnamed_addr #3 {
 16:                                               ; preds = %11
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = load ptr, ptr @SlotSyncCtx, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 0, ptr %18, align 8
   call void @proc_exit(i32 noundef 0) #18
   unreachable
@@ -290,7 +290,7 @@ define internal fastcc void @ReplSlotSyncWorkerMain() unnamed_addr #3 {
   store i32 %20, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
   %21 = load ptr, ptr @SlotSyncCtx, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 0, ptr %22, align 8
   %23 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
   br i1 %23, label %24, label %26
@@ -330,7 +330,7 @@ define internal fastcc void @ReplSlotSyncWorkerMain() unnamed_addr #3 {
   %40 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #15
   call void @SetConfigOption(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 5, i32 noundef 10) #15
   %41 = load ptr, ptr @WalReceiverFunctions, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @PrimaryConnInfo, align 8
   %45 = call ptr %43(ptr noundef %44) #15
@@ -478,7 +478,7 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
 
 108:                                              ; preds = %106, %104
   %109 = load ptr, ptr @SlotSyncCtx, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 0, ptr %110, align 8
   call void @proc_exit(i32 noundef 0) #18
   unreachable
@@ -514,27 +514,27 @@ wait_for_slot_activity.exit.backedge:             ; preds = %116, %120
 ; Function Attrs: nounwind uwtable
 define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %1 = load ptr, ptr @SlotSyncCtx, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #15, !srcloc !5
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @SlotSyncCtx, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef 1363, ptr noundef nonnull @__func__.ShutDownSlotSync) #15
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @SlotSyncCtx, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 1, ptr %10, align 4
   %11 = load ptr, ptr @SlotSyncCtx, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   %14 = load ptr, ptr @SlotSyncCtx, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 0, ptr %15, align 8
   br i1 %13, label %.loopexit, label %16
 
@@ -563,14 +563,14 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
 
 27:                                               ; preds = %26, %23, %19
   %28 = load ptr, ptr @SlotSyncCtx, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %29, i8 1, ptr nonnull elementtype(i8) %29) #15, !srcloc !5
   %.not3 = icmp eq i8 %30, 0
   br i1 %.not3, label %35, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr @SlotSyncCtx, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = tail call i32 @s_lock(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, i32 noundef 1392, ptr noundef nonnull @__func__.ShutDownSlotSync) #15
   br label %35
 
@@ -580,7 +580,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %38 = icmp eq i32 %37, -1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   %39 = load ptr, ptr @SlotSyncCtx, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i8 0, ptr %40, align 8
   br i1 %38, label %.loopexit, label %19
 
@@ -603,7 +603,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #2
 define dso_local noundef zeroext i1 @SlotSyncWorkerCanRestart() local_unnamed_addr #0 {
   %1 = tail call i64 @time(ptr noundef null) #15
   %2 = load ptr, ptr @SlotSyncCtx, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %1, %4
   %6 = trunc i64 %5 to i32
@@ -652,7 +652,7 @@ define dso_local void @SlotSyncShmemInit() local_unnamed_addr #0 {
   store i32 -1, ptr %2, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !8
   %6 = load ptr, ptr @SlotSyncCtx, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %7, align 8
   br label %8
 
@@ -703,24 +703,24 @@ define internal void @slotsync_failure_callback(i32 %0, i64 noundef %1) #0 {
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @SlotSyncCtx, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #15, !srcloc !5
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @SlotSyncCtx, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 1494, ptr noundef nonnull @__func__.slotsync_failure_callback) #15
   br label %11
 
 11:                                               ; preds = %3, %7
   %12 = load ptr, ptr @SlotSyncCtx, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 5
   store i8 0, ptr %13, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %14 = load ptr, ptr @SlotSyncCtx, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 0, ptr %15, align 8
   store i1 false, ptr @syncing_slots, align 1
   br label %16
@@ -728,7 +728,7 @@ define internal void @slotsync_failure_callback(i32 %0, i64 noundef %1) #0 {
 16:                                               ; preds = %11, %2
   %17 = inttoptr i64 %1 to ptr
   %18 = load ptr, ptr @WalReceiverFunctions, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef %17) #15
   ret void
@@ -755,7 +755,7 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
 
 8:                                                ; preds = %7, %1
   %9 = load ptr, ptr @WalReceiverFunctions, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = call ptr %11(ptr noundef %0, ptr noundef %12, i32 noundef 2, ptr noundef nonnull %2) #15
@@ -769,7 +769,7 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %17)
   %18 = load ptr, ptr @PrimarySlotName, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %18, ptr noundef %20) #15
   %22 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.24) #15
@@ -777,10 +777,10 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   unreachable
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %13, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @MakeSingleTupleTableSlot(ptr noundef %25, ptr noundef nonnull @TTSOpsMinimalTuple) #15
-  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %28, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %26) #15
   br i1 %29, label %33, label %30
@@ -793,7 +793,7 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   unreachable
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %26, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %35 = load i16, ptr %34, align 2
   %36 = icmp slt i16 %35, 1
   br i1 %36, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
@@ -803,7 +803,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %33
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %33, %slot_getsomeattrs.exit.i
-  %37 = getelementptr inbounds i8, ptr %26, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %38, align 8
   %.not14 = icmp eq i64 %39, 0
@@ -845,12 +845,12 @@ slot_getattr.exit13:                              ; preds = %44, %slot_getsomeat
   unreachable
 
 56:                                               ; preds = %slot_getattr.exit13
-  %57 = getelementptr inbounds i8, ptr %26, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull %26) #15
-  %61 = getelementptr inbounds i8, ptr %13, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not11.i = icmp eq ptr %62, null
   br i1 %.not11.i, label %64, label %63
@@ -896,20 +896,20 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
   %4 = alloca [9 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, ptr noundef nonnull align 16 dereferenceable(36) @__const.synchronize_slots.slotRow, i64 36, i1 false)
   %5 = load ptr, ptr @SlotSyncCtx, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !5
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @SlotSyncCtx, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = tail call i32 @s_lock(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, i32 noundef 674, ptr noundef nonnull @__func__.synchronize_slots) #15
   br label %12
 
 12:                                               ; preds = %1, %8
   %13 = load ptr, ptr @SlotSyncCtx, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 5
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %23
@@ -917,7 +917,7 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
 17:                                               ; preds = %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !10
   %18 = load ptr, ptr @SlotSyncCtx, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 0, ptr %19, align 8
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %20)
@@ -930,7 +930,7 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
   store i8 1, ptr %14, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %24 = load ptr, ptr @SlotSyncCtx, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 0, ptr %25, align 8
   store i1 true, ptr @syncing_slots, align 1
   %26 = tail call zeroext i1 @IsTransactionState() #15
@@ -942,7 +942,7 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
 
 28:                                               ; preds = %27, %23
   %29 = load ptr, ptr @WalReceiverFunctions, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr %31(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 9, ptr noundef nonnull %4) #15
   %33 = load i32, ptr %32, align 8
@@ -952,26 +952,26 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
 34:                                               ; preds = %28
   %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %37) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 700, ptr noundef nonnull @__func__.synchronize_slots) #15
   unreachable
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %32, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @MakeSingleTupleTableSlot(ptr noundef %41, ptr noundef nonnull @TTSOpsMinimalTuple) #15
-  %43 = getelementptr inbounds i8, ptr %32, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %44, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %42) #15
   br i1 %45, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %42, i64 6
-  %47 = getelementptr inbounds i8, ptr %42, i64 32
-  %48 = getelementptr inbounds i8, ptr %42, i64 24
-  %49 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   br label %50
 
 50:                                               ; preds = %.lr.ph, %150
@@ -1005,7 +1005,7 @@ slot_getattr.exit72:                              ; preds = %slot_getattr.exit, 
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   %64 = call ptr @text_to_cstring(ptr noundef %63) #15
-  %65 = getelementptr inbounds i8, ptr %51, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %64, ptr %65, align 8
   %66 = load i16, ptr %46, align 2
   %67 = icmp slt i16 %66, 3
@@ -1024,7 +1024,7 @@ slot_getattr.exit74:                              ; preds = %slot_getattr.exit72
   %73 = load i64, ptr %72, align 8
   %74 = trunc i8 %70 to i1
   %spec.select = select i1 %74, i64 0, i64 %73
-  %75 = getelementptr inbounds i8, ptr %51, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i64 %spec.select, ptr %75, align 8
   %76 = load i16, ptr %46, align 2
   %77 = icmp slt i16 %76, 4
@@ -1043,7 +1043,7 @@ slot_getattr.exit76:                              ; preds = %slot_getattr.exit74
   %83 = load i64, ptr %82, align 8
   %84 = trunc i8 %80 to i1
   %spec.select93 = select i1 %84, i64 0, i64 %83
-  %85 = getelementptr inbounds i8, ptr %51, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i64 %spec.select93, ptr %85, align 8
   %86 = load i16, ptr %46, align 2
   %87 = icmp slt i16 %86, 5
@@ -1063,7 +1063,7 @@ slot_getattr.exit78:                              ; preds = %slot_getattr.exit76
   %94 = trunc i8 %90 to i1
   %95 = trunc i64 %93 to i32
   %96 = select i1 %94, i32 0, i32 %95
-  %97 = getelementptr inbounds i8, ptr %51, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i32 %96, ptr %97, align 8
   %98 = load i16, ptr %46, align 2
   %99 = icmp slt i16 %98, 6
@@ -1078,7 +1078,7 @@ slot_getattr.exit80:                              ; preds = %slot_getattr.exit78
   %101 = getelementptr i8, ptr %100, i64 40
   %102 = load i64, ptr %101, align 8
   %103 = icmp ne i64 %102, 0
-  %104 = getelementptr inbounds i8, ptr %51, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %105 = zext i1 %103 to i8
   store i8 %105, ptr %104, align 8
   %106 = load i16, ptr %46, align 2
@@ -1094,7 +1094,7 @@ slot_getattr.exit82:                              ; preds = %slot_getattr.exit80
   %109 = getelementptr i8, ptr %108, i64 48
   %110 = load i64, ptr %109, align 8
   %111 = icmp ne i64 %110, 0
-  %112 = getelementptr inbounds i8, ptr %51, i64 25
+  %112 = getelementptr inbounds nuw i8, ptr %51, i64 25
   %113 = zext i1 %111 to i8
   store i8 %113, ptr %112, align 1
   %114 = load i16, ptr %46, align 2
@@ -1111,7 +1111,7 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   %118 = load i64, ptr %117, align 8
   %119 = inttoptr i64 %118 to ptr
   %120 = call ptr @text_to_cstring(ptr noundef %119) #15
-  %121 = getelementptr inbounds i8, ptr %51, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %120, ptr %121, align 8
   %122 = load i16, ptr %46, align 2
   %123 = icmp slt i16 %122, 9
@@ -1139,7 +1139,7 @@ slot_getattr.exit86:                              ; preds = %slot_getattr.exit84
 
 135:                                              ; preds = %slot_getattr.exit86, %128
   %136 = phi i32 [ %134, %128 ], [ 0, %slot_getattr.exit86 ]
-  %137 = getelementptr inbounds i8, ptr %51, i64 52
+  %137 = getelementptr inbounds nuw i8, ptr %51, i64 52
   store i32 %136, ptr %137, align 4
   %138 = load i64, ptr %85, align 8
   %139 = icmp eq i64 %138, 0
@@ -1172,7 +1172,7 @@ slot_getattr.exit86:                              ; preds = %slot_getattr.exit84
 150:                                              ; preds = %148, %147
   %.1 = phi ptr [ %.0104, %147 ], [ %149, %148 ]
   %151 = load ptr, ptr %49, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull %42) #15
   %154 = load ptr, ptr %43, align 8
@@ -1204,13 +1204,13 @@ get_local_synced_slots.exit.thread.i:             ; preds = %._crit_edge
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %174 ]
   %.09.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %.1.i.i, %174 ]
   %165 = getelementptr [1 x %struct.ReplicationSlot], ptr %164, i64 0, i64 %indvars.iv.i.i
-  %166 = getelementptr inbounds i8, ptr %165, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
   %167 = load i8, ptr %166, align 1
   %168 = trunc i8 %167 to i1
   br i1 %168, label %169, label %174
 
 169:                                              ; preds = %.lr.ph.i.i
-  %170 = getelementptr inbounds i8, ptr %165, i64 201
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 201
   %171 = load i8, ptr %170, align 1
   %.not.i.i = icmp eq i8 %171, 0
   br i1 %.not.i.i, label %174, label %172
@@ -1234,15 +1234,15 @@ get_local_synced_slots.exit.i:                    ; preds = %174
   %179 = load ptr, ptr @MainLWLockArray, align 8
   %180 = getelementptr i8, ptr %179, i64 4736
   call void @LWLockRelease(ptr noundef %180) #15
-  %181 = getelementptr inbounds i8, ptr %.1.i.i, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %.not19.i = icmp eq ptr %.1.i.i, null
   br i1 %.not19.i, label %drop_local_obsolete_slots.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_local_synced_slots.exit.i
-  %182 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %.not18.i.i = icmp eq ptr %.0.lcssa, null
-  %183 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
-  %184 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %185 = load i32, ptr %181, align 4
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %.lr.ph106, label %drop_local_obsolete_slots.exit
@@ -1252,8 +1252,8 @@ get_local_synced_slots.exit.i:                    ; preds = %174
   %187 = load ptr, ptr %182, align 8
   %188 = getelementptr %union.ListCell, ptr %187, i64 %indvars.iv.i105
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 24
-  %191 = getelementptr inbounds i8, ptr %189, i64 112
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 112
   br i1 %.not18.i.i, label %local_sync_slot_required.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph106
@@ -1290,7 +1290,7 @@ get_local_synced_slots.exit.i:                    ; preds = %174
   br label %205
 
 205:                                              ; preds = %203, %.split.i.i
-  %206 = getelementptr inbounds i8, ptr %198, i64 52
+  %206 = getelementptr inbounds nuw i8, ptr %198, i64 52
   %207 = load i32, ptr %206, align 4
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %local_sync_slot_required.exit.i, label %local_sync_slot_required.exit.thread28.i
@@ -1308,7 +1308,7 @@ local_sync_slot_required.exit.i:                  ; preds = %205
   br i1 %210, label %230, label %local_sync_slot_required.exit.thread.i
 
 local_sync_slot_required.exit.thread.i:           ; preds = %195, %local_sync_slot_required.exit.i, %.preheader.i.i, %.lr.ph106
-  %211 = getelementptr inbounds i8, ptr %189, i64 88
+  %211 = getelementptr inbounds nuw i8, ptr %189, i64 88
   %212 = load i32, ptr %211, align 8
   call void @LockSharedObject(i32 noundef 1262, i32 noundef %212, i16 noundef zeroext 0, i32 noundef 1) #15
   %213 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %189, i8 1, ptr elementtype(i8) %189) #15, !srcloc !5
@@ -1320,13 +1320,13 @@ local_sync_slot_required.exit.thread.i:           ; preds = %195, %local_sync_sl
   br label %216
 
 216:                                              ; preds = %214, %local_sync_slot_required.exit.thread.i
-  %217 = getelementptr inbounds i8, ptr %189, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %189, i64 1
   %218 = load i8, ptr %217, align 1
   %219 = trunc i8 %218 to i1
   br i1 %219, label %220, label %.critedge24.i
 
 220:                                              ; preds = %216
-  %221 = getelementptr inbounds i8, ptr %189, i64 201
+  %221 = getelementptr inbounds nuw i8, ptr %189, i64 201
   %222 = load i8, ptr %221, align 1
   %.not.i = icmp eq i8 %222, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
@@ -1364,8 +1364,8 @@ local_sync_slot_required.exit.thread.i:           ; preds = %195, %local_sync_sl
 
 drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %get_local_synced_slots.exit.thread.i, %get_local_synced_slots.exit.i
   %.not69 = icmp eq ptr %.0.lcssa, null
-  %234 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
-  %235 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   br i1 %.not69, label %.critedge, label %.lr.ph111.preheader
 
 .lr.ph111.preheader:                              ; preds = %drop_local_obsolete_slots.exit
@@ -1379,13 +1379,13 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   %238 = load ptr, ptr %235, align 8
   %239 = getelementptr %union.ListCell, ptr %238, i64 %indvars.iv137
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %242 = load ptr, ptr %241, align 8
   %243 = call i32 @get_database_oid(ptr noundef %242, i1 noundef zeroext false) #15
   call void @LockSharedObject(i32 noundef 1262, i32 noundef %243, i16 noundef zeroext 0, i32 noundef 1) #15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %244 = call i64 @GetStandbyFlushRecPtr(ptr noundef null) #15
-  %245 = getelementptr inbounds i8, ptr %240, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %240, i64 40
   %246 = load i64, ptr %245, align 8
   %247 = icmp ugt i64 %246, %244
   br i1 %247, label %248, label %262
@@ -1426,7 +1426,7 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br label %269
 
 269:                                              ; preds = %267, %265
-  %270 = getelementptr inbounds i8, ptr %264, i64 201
+  %270 = getelementptr inbounds nuw i8, ptr %264, i64 201
   %271 = load i8, ptr %270, align 1
   %.not68.i = icmp eq i8 %271, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
@@ -1445,13 +1445,13 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
 277:                                              ; preds = %269
   %278 = load ptr, ptr %240, align 8
   call void @ReplicationSlotAcquire(ptr noundef %278, i1 noundef zeroext true) #15
-  %279 = getelementptr inbounds i8, ptr %264, i64 112
+  %279 = getelementptr inbounds nuw i8, ptr %264, i64 112
   %280 = load i32, ptr %279, align 8
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %282, label %.thread.i
 
 282:                                              ; preds = %277
-  %283 = getelementptr inbounds i8, ptr %240, i64 52
+  %283 = getelementptr inbounds nuw i8, ptr %240, i64 52
   %284 = load i32, ptr %283, align 4
   %.not69.i = icmp ne i32 %284, 0
   br i1 %.not69.i, label %285, label %.thread80.i
@@ -1481,7 +1481,7 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br label %synchronize_one_slot.exit
 
 .thread80.i:                                      ; preds = %289, %282
-  %292 = getelementptr inbounds i8, ptr %264, i64 92
+  %292 = getelementptr inbounds nuw i8, ptr %264, i64 92
   %293 = load i32, ptr %292, align 4
   %294 = icmp eq i32 %293, 2
   br i1 %294, label %295, label %297
@@ -1491,16 +1491,16 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br label %382
 
 297:                                              ; preds = %.thread80.i
-  %298 = getelementptr inbounds i8, ptr %240, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %299 = load i64, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %264, i64 104
+  %300 = getelementptr inbounds nuw i8, ptr %264, i64 104
   %301 = load i64, ptr %300, align 8
   %302 = icmp ult i64 %299, %301
   br i1 %302, label %303, label %317
 
 303:                                              ; preds = %297
-  %304 = getelementptr inbounds i8, ptr %240, i64 32
-  %305 = getelementptr inbounds i8, ptr %264, i64 104
+  %304 = getelementptr inbounds nuw i8, ptr %240, i64 32
+  %305 = getelementptr inbounds nuw i8, ptr %264, i64 104
   %306 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %306)
   %307 = load ptr, ptr %240, align 8
@@ -1526,22 +1526,22 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br label %382
 
 320:                                              ; preds = %262
-  %321 = getelementptr inbounds i8, ptr %240, i64 52
+  %321 = getelementptr inbounds nuw i8, ptr %240, i64 52
   %322 = load i32, ptr %321, align 4
   %.not64.i = icmp eq i32 %322, 0
   br i1 %.not64.i, label %323, label %synchronize_one_slot.exit
 
 323:                                              ; preds = %320
   %324 = load ptr, ptr %240, align 8
-  %325 = getelementptr inbounds i8, ptr %240, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %326 = load i8, ptr %325, align 8
   %327 = trunc i8 %326 to i1
-  %328 = getelementptr inbounds i8, ptr %240, i64 25
+  %328 = getelementptr inbounds nuw i8, ptr %240, i64 25
   %329 = load i8, ptr %328, align 1
   %330 = trunc i8 %329 to i1
   call void @ReplicationSlotCreate(ptr noundef %324, i1 noundef zeroext true, i32 noundef 2, i1 noundef zeroext %327, i1 noundef zeroext %330, i1 noundef zeroext true) #15
   %331 = load ptr, ptr @MyReplicationSlot, align 8
-  %332 = getelementptr inbounds i8, ptr %240, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %333 = load ptr, ptr %332, align 8
   call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %333) #15
   %334 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %331, i8 1, ptr elementtype(i8) %331) #15, !srcloc !5
@@ -1553,17 +1553,17 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br label %337
 
 337:                                              ; preds = %335, %323
-  %338 = getelementptr inbounds i8, ptr %331, i64 88
+  %338 = getelementptr inbounds nuw i8, ptr %331, i64 88
   store i32 %243, ptr %338, align 8
-  %339 = getelementptr inbounds i8, ptr %331, i64 137
+  %339 = getelementptr inbounds nuw i8, ptr %331, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %339, ptr noundef nonnull align 1 dereferenceable(64) %3, i64 64, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
   store i8 0, ptr %331, align 8
-  %340 = getelementptr inbounds i8, ptr %240, i64 32
+  %340 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %341 = load i64, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %342 = load ptr, ptr @MyReplicationSlot, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 104
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 104
   br label %344
 
 344:                                              ; preds = %365, %337
@@ -1631,9 +1631,9 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %364
   br label %376
 
 376:                                              ; preds = %374, %reserve_wal_for_local_slot.exit.i
-  %377 = getelementptr inbounds i8, ptr %331, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %331, i64 16
   store i32 %372, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %331, i64 100
+  %378 = getelementptr inbounds nuw i8, ptr %331, i64 100
   store i32 %372, ptr %378, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   store i8 0, ptr %331, align 8
@@ -1663,7 +1663,7 @@ synchronize_one_slot.exit:                        ; preds = %248, %251, %.thread
 .critedge:                                        ; preds = %synchronize_one_slot.exit, %.lr.ph111.preheader, %drop_local_obsolete_slots.exit
   %.163.lcssa = phi i1 [ false, %drop_local_obsolete_slots.exit ], [ false, %.lr.ph111.preheader ], [ %383, %synchronize_one_slot.exit ]
   call void @list_free_deep(ptr noundef %.0.lcssa) #15
-  %387 = getelementptr inbounds i8, ptr %32, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %388 = load ptr, ptr %387, align 8
   %.not11.i = icmp eq ptr %388, null
   br i1 %.not11.i, label %390, label %389
@@ -1700,24 +1700,24 @@ walrcv_clear_result.exit:                         ; preds = %393, %395
 
 397:                                              ; preds = %396, %walrcv_clear_result.exit
   %398 = load ptr, ptr @SlotSyncCtx, align 8
-  %399 = getelementptr inbounds i8, ptr %398, i64 16
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %400 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %399, i8 1, ptr nonnull elementtype(i8) %399) #15, !srcloc !5
   %.not68 = icmp eq i8 %400, 0
   br i1 %.not68, label %405, label %401
 
 401:                                              ; preds = %397
   %402 = load ptr, ptr @SlotSyncCtx, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 16
   %404 = call i32 @s_lock(ptr noundef nonnull %403, ptr noundef nonnull @.str.2, i32 noundef 804, ptr noundef nonnull @__func__.synchronize_slots) #15
   br label %405
 
 405:                                              ; preds = %397, %401
   %406 = load ptr, ptr @SlotSyncCtx, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 5
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 5
   store i8 0, ptr %407, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
   %408 = load ptr, ptr @SlotSyncCtx, align 8
-  %409 = getelementptr inbounds i8, ptr %408, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 16
   store i8 0, ptr %409, align 8
   store i1 false, ptr @syncing_slots, align 1
   ret i1 %.163.lcssa
@@ -1740,14 +1740,14 @@ declare void @proc_exit(i32 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @SlotSyncCtx, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #15, !srcloc !5
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @SlotSyncCtx, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 1058, ptr noundef nonnull @__func__.slotsync_worker_onexit) #15
   br label %10
 
@@ -1756,7 +1756,7 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   store i32 -1, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
   %12 = load ptr, ptr @SlotSyncCtx, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 0, ptr %13, align 8
   ret void
 }
@@ -1864,17 +1864,17 @@ declare void @ReplicationSlotRelease() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @MyReplicationSlot, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %13 = load i32, ptr %12, align 4
   %14 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %11, i32 noundef %13) #15
   br i1 %14, label %15, label %33
@@ -1890,13 +1890,13 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
   %21 = lshr i64 %20, 32
   %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %20 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = load i64, ptr %6, align 8
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
-  %30 = getelementptr inbounds i8, ptr %3, i64 100
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37, i32 noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %28, i32 noundef %29, i32 noundef %31) #15
   br label %.sink.split
@@ -1937,29 +1937,29 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
 define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nameData, align 1
   %4 = load ptr, ptr @MyReplicationSlot, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 100
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %8 = load i32, ptr %7, align 4
   %.not = icmp ne i32 %6, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %12 = load i64, ptr %11, align 8
   %.not37 = icmp ne i64 %10, %12
   %brmerge = select i1 %.not, i1 true, i1 %.not37
   br i1 %brmerge, label %45, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %1, %15
   br i1 %16, label %17, label %45
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -1967,9 +1967,9 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocaptur
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %4, i64 202
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 202
   %29 = load i8, ptr %28, align 2
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
@@ -1977,23 +1977,23 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocaptur
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %35, %37
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 137
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 137
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %42) #20
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %71, label %45
 
 45:                                               ; preds = %2, %39, %33, %25, %17, %13
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %47) #15
   %48 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #15, !srcloc !5
@@ -2005,29 +2005,29 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocaptur
   br label %51
 
 51:                                               ; preds = %45, %49
-  %52 = getelementptr inbounds i8, ptr %4, i64 137
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %52, ptr noundef nonnull align 1 dereferenceable(64) %3, i64 64, i1 false)
-  %53 = getelementptr inbounds i8, ptr %4, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load i8, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %57 = and i8 %55, 1
   store i8 %57, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 25
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %4, i64 202
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 202
   %61 = and i8 %59, 1
   store i8 %61, ptr %60, align 2
   %62 = load i64, ptr %9, align 8
   store i64 %62, ptr %11, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 %64, ptr %65, align 8
   %66 = load i32, ptr %5, align 8
   store i32 %66, ptr %7, align 4
-  %67 = getelementptr inbounds i8, ptr %4, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %66, ptr %67, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   store i8 0, ptr %4, align 8

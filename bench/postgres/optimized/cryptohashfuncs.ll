@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @md5_text(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [33 x i8], align 16
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #4
@@ -34,7 +34,7 @@ define dso_local i64 @md5_text(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   %15 = and i8 %13, -2
@@ -68,7 +68,7 @@ define dso_local i64 @md5_text(ptr nocapture noundef readonly %0) local_unnamed_
   %33 = and i8 %8, 1
   %.not12 = icmp eq i8 %33, 0
   %.v = select i1 %.not12, i64 4, i64 1
-  %34 = getelementptr inbounds i8, ptr %7, i64 %.v
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
   %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br i1 %35, label %41, label %36
 
@@ -106,7 +106,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [33 x i8], align 16
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #4
@@ -117,7 +117,7 @@ define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 1
   %15 = and i8 %13, -2
@@ -151,7 +151,7 @@ define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed
   %33 = and i8 %8, 1
   %.not12 = icmp eq i8 %33, 0
   %.v = select i1 %.not12, i64 4, i64 1
-  %34 = getelementptr inbounds i8, ptr %7, i64 %.v
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
   %35 = call zeroext i1 @pg_md5_hash(ptr noundef nonnull %34, i64 noundef %32, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   br i1 %35, label %41, label %36
 
@@ -172,7 +172,7 @@ define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @sha224_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
@@ -200,7 +200,7 @@ switch.lookup:
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %switch.lookup
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
   %14 = and i8 %12, -2
@@ -248,7 +248,7 @@ switch.lookup:
   %40 = and i8 %7, 1
   %.not33 = icmp eq i8 %40, 0
   %.v = select i1 %.not33, i64 4, i64 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %42 = tail call i32 @pg_cryptohash_update(ptr noundef %32, ptr noundef nonnull %41, i64 noundef %31) #4
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %48
@@ -262,7 +262,7 @@ switch.lookup:
   unreachable
 
 48:                                               ; preds = %39
-  %49 = getelementptr inbounds i8, ptr %6, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %50 = zext nneg i32 %switch.load to i64
   %51 = tail call i32 @pg_cryptohash_final(ptr noundef %32, ptr noundef nonnull %49, i64 noundef %50) #4
   %52 = icmp slt i32 %51, 0
@@ -285,7 +285,7 @@ switch.lookup:
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @sha256_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
@@ -296,7 +296,7 @@ define dso_local i64 @sha256_bytea(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @sha384_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
@@ -307,7 +307,7 @@ define dso_local i64 @sha384_bytea(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @sha512_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4

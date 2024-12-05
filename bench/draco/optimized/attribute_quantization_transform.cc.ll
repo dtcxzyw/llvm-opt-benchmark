@@ -47,7 +47,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17InitFromAttributeERKNS_14PointAttributeE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %42, label %5
@@ -58,16 +58,16 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17InitFromAt
   br i1 %.not20, label %7, label %42
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %.0.copyload.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0.copyload.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -87,7 +87,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17InitFromAt
   br i1 %26, label %27, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds float, ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw float, ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %29
 
@@ -104,10 +104,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph ], [ 4, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ]
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv26
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv26
   %.0.copyload.i21 = load float, ptr %32, align 1
   %33 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
   store float %.0.copyload.i21, ptr %34, align 4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -123,9 +123,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %.017.lcssa = phi i64 [ 4, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %38, %._crit_edge.loopexit ]
   %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %.017.lcssa
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.017.lcssa
   %.0.copyload.i22 = load float, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %.0.copyload.i22, ptr %41, align 8
   br label %42
 
@@ -137,9 +137,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5draco30AttributeQuantizationTransform28CopyToAttributeTransformDataEPNS_22AttributeTransformDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef initializes((0, 4)) %1) unnamed_addr #3 align 2 {
   store i32 1, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -161,8 +161,8 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit: ; preds =
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
   %17 = load i32, ptr %3, align 8
   store i32 %17, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %20, %21
@@ -171,7 +171,7 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit: ; preds =
 .lr.ph:                                           ; preds = %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit ], [ 0, %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit ]
   %22 = phi ptr [ %37, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit ], [ %21, %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit ]
-  %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %5, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -222,7 +222,7 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit: ; preds =
 
 _ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit12: ; preds = %._crit_edge, %51
   %52 = phi ptr [ %.pre.i.i11, %51 ], [ %44, %._crit_edge ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = getelementptr inbounds i8, ptr %52, i64 %48
   %55 = load i32, ptr %53, align 8
   store i32 %55, ptr %54, align 1
@@ -232,13 +232,13 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit12: ; preds
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform18TransformAttributeERKNS_14PointAttributeERKSt6vectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEESaIS7_EEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %11 = load i32, ptr %10, align 8
   tail call void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttributeERKNS_14PointAttributeEiPS1_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i32 noundef %11, ptr noundef nonnull %3)
   br label %13
@@ -254,19 +254,19 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform18TransformA
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttributeERKNS_14PointAttributeEiPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.draco::Quantizer", align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %notmask = shl nsw i32 -1, %14
   %15 = xor i32 %notmask, -1
   call void @_ZN5draco9QuantizerC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load float, ptr %16, align 8
   call void @_ZN5draco9Quantizer4InitEfi(ptr noundef nonnull align 4 dereferenceable(4) %5, float noundef %17, i32 noundef %15)
   %18 = zext i8 %7 to i64
@@ -276,12 +276,12 @@ define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttribu
   br i1 %.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit23, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 100
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.not40 = icmp eq i8 %7, 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not40, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit23, label %.lr.ph36.split.us.preheader
 
 .lr.ph36.split.us.preheader:                      ; preds = %.lr.ph36
@@ -299,7 +299,7 @@ define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttribu
 
 29:                                               ; preds = %.lr.ph36.split.us
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds %"class.draco::IndexType", ptr %30, i64 %indvars.iv48
+  %31 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %30, i64 %indvars.iv48
   %32 = load i32, ptr %31, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
 
@@ -322,10 +322,10 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 42:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %42
   %indvars.iv43 = phi i64 [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next44, %42 ]
   %indvars.iv = phi i64 [ %41, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds float, ptr %20, i64 %indvars.iv43
+  %43 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv43
   %44 = load float, ptr %43, align 4
   %45 = load ptr, ptr %25, align 8
-  %46 = getelementptr inbounds float, ptr %45, i64 %indvars.iv43
+  %46 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv43
   %47 = load float, ptr %46, align 4
   %48 = fsub float %44, %47
   %49 = fmul float %48, %.pre
@@ -352,37 +352,37 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit23: ; preds = %._crit_edge
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttributeERKNS_14PointAttributeERKSt6vectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEESaIS7_EEiPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.draco::Quantizer", align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %notmask = shl nsw i32 -1, %15
   %16 = xor i32 %notmask, -1
   call void @_ZN5draco9QuantizerC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load float, ptr %17, align 8
   call void @_ZN5draco9Quantizer4InitEfi(ptr noundef nonnull align 4 dereferenceable(4) %6, float noundef %18, i32 noundef %16)
   %19 = zext i8 %8 to i64
   %20 = shl nuw nsw i64 %19, 2
   %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #14
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %23, %24
   br i1 %.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit29, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %1, i64 100
-  %26 = getelementptr inbounds i8, ptr %1, i64 72
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.not44 = icmp eq i8 %8, 0
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not44, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit29, label %.lr.ph39.split.us.preheader
 
 .lr.ph39.split.us.preheader:                      ; preds = %.lr.ph39
@@ -394,7 +394,7 @@ define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttribu
   %31 = phi i64 [ %62, %._crit_edge.us ], [ 0, %.lr.ph39.split.us.preheader ]
   %.037.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph39.split.us.preheader ]
   %.02436.us = phi i32 [ %61, %._crit_edge.us ], [ 0, %.lr.ph39.split.us.preheader ]
-  %32 = getelementptr inbounds %"class.draco::IndexType.46", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw %"class.draco::IndexType.46", ptr %30, i64 %31
   %.sroa.07.0.copyload.us = load i32, ptr %32, align 4
   %33 = load i8, ptr %25, align 4
   %34 = trunc i8 %33 to i1
@@ -403,7 +403,7 @@ define void @_ZNK5draco30AttributeQuantizationTransform25GeneratePortableAttribu
 35:                                               ; preds = %.lr.ph39.split.us
   %36 = zext i32 %.sroa.07.0.copyload.us to i64
   %37 = load ptr, ptr %26, align 8
-  %38 = getelementptr inbounds %"class.draco::IndexType", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %37, i64 %36
   %39 = load i32, ptr %38, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us
 
@@ -426,10 +426,10 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 49:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %49
   %indvars.iv47 = phi i64 [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next48, %49 ]
   %indvars.iv = phi i64 [ %48, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds float, ptr %21, i64 %indvars.iv47
+  %50 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv47
   %51 = load float, ptr %50, align 4
   %52 = load ptr, ptr %29, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv47
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv47
   %54 = load float, ptr %53, align 4
   %55 = fsub float %51, %54
   %56 = fmul float %55, %.pre
@@ -463,15 +463,15 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit29: ; preds = %._crit_edge
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform25InverseTransformAttributeERKNS_14PointAttributeEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::Dequantizer", align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 9
   br i1 %.not, label %7, label %53
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i64
   %13 = zext i8 %11 to i64
@@ -484,7 +484,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform25InverseTra
 17:                                               ; preds = %7
   %notmask = shl nsw i32 -1, %9
   %18 = xor i32 %notmask, -1
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load float, ptr %19, align 8
   %21 = invoke noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr noundef nonnull align 4 dereferenceable(4) %4, float noundef %20, i32 noundef %18)
           to label %22 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -499,20 +499,20 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %17, %7
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i64, ptr %25, align 8
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %26
-  %30 = getelementptr inbounds i8, ptr %2, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %31 = load i32, ptr %30, align 8
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %24
   %.not45 = icmp eq i8 %11, 0
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = getelementptr inbounds i8, ptr %2, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br i1 %.not45, label %.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -537,10 +537,10 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %17, %7
   %39 = load i32, ptr %38, align 4
   %40 = sitofp i32 %39 to float
   %41 = fmul float %34, %40
-  %42 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   %43 = load float, ptr %42, align 4
   %44 = fadd float %41, %43
-  %45 = getelementptr inbounds float, ptr %16, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -549,7 +549,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %17, %7
 ._crit_edge.us:                                   ; preds = %37
   %46 = load ptr, ptr %33, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv52
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv52
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %16, i64 %14, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, %15
   %49 = add nuw i32 %.02843.us, 1
@@ -597,13 +597,13 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform13SetParamet
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = sext i32 %3 to i64
   %12 = getelementptr inbounds float, ptr %2, i64 %11
   tail call void @_ZNSt6vectorIfSaIfEE13_M_assign_auxIPKfEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %2, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %4, ptr %13, align 8
   br label %14
 
@@ -613,7 +613,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform13SetParamet
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17ComputeParametersERKNS_14PointAttributeEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, -1
   %6 = add i32 %2, -1
@@ -623,9 +623,9 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17ComputePar
 
 8:                                                ; preds = %3
   store i32 %2, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 0.000000e+00, ptr %11, align 8
   %12 = zext i8 %10 to i64
   %.not.i.i.i.i = icmp eq i8 %10, 0
@@ -635,16 +635,16 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17ComputePar
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false)
-  %15 = getelementptr inbounds float, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw float, ptr %14, i64 %12
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc, %8
   %.sroa.10.0 = phi ptr [ null, %8 ], [ %15, %.noexc ]
   %.sroa.077.0 = phi ptr [ null, %8 ], [ %14, %.noexc ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.077.0, ptr %16, align 8
   store ptr %.sroa.10.0, ptr %18, align 8
   store ptr %.sroa.10.0, ptr %19, align 8
@@ -662,9 +662,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %20, %_ZNSt6vectorIf
           to label %24 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54
 
 24:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %1, align 8
   %30 = load ptr, ptr %29, align 8
@@ -678,7 +678,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %20, %_ZNSt6vectorIf
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %37, i64 %34, i1 false)
-  %38 = getelementptr inbounds i8, ptr %1, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = icmp ugt i32 %39, 1
   br i1 %40, label %.lr.ph94, label %.preheader
@@ -704,14 +704,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %20, %_ZNSt6vectorIf
 
 48:                                               ; preds = %.lr.ph.us, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %63 ]
-  %49 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   %50 = load float, ptr %49, align 4
   %51 = fcmp uno float %50, 0.000000e+00
   br i1 %51, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51, label %52
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %16, align 8
-  %54 = getelementptr inbounds float, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
   %55 = load float, ptr %54, align 4
   %56 = fcmp ogt float %55, %50
   br i1 %56, label %57, label %58
@@ -721,7 +721,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %20, %_ZNSt6vectorIf
   br label %58
 
 58:                                               ; preds = %57, %52
-  %59 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   %60 = load float, ptr %59, align 4
   %61 = fcmp olt float %60, %50
   br i1 %61, label %62, label %63
@@ -775,14 +775,14 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54: ; preds = %_ZNSt6vecto
 73:                                               ; preds = %.lr.ph, %86
   %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %86 ]
   %74 = phi float [ %.pre114, %.lr.ph ], [ %87, %86 ]
-  %75 = getelementptr inbounds float, ptr %68, i64 %indvars.iv109
+  %75 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv109
   %76 = load float, ptr %75, align 4
   %77 = tail call float @llvm.fabs.f32(float %76)
   %or.cond87 = fcmp ueq float %77, 0x7FF0000000000000
   br i1 %or.cond87, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds float, ptr %22, i64 %indvars.iv109
+  %79 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv109
   %80 = load float, ptr %79, align 4
   %81 = tail call float @llvm.fabs.f32(float %80)
   %or.cond89 = fcmp ueq float %81, 0x7FF0000000000000
@@ -829,26 +829,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5draco30AttributeQuantizationTransform16EncodeParametersEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, -1
   br i1 %6, label %7, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 1
   br i1 %10, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %13, %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 %17
   %21 = load ptr, ptr %1, align 8
@@ -862,9 +862,9 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %7
   br i1 %26, label %_ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %30 = load ptr, ptr %1, align 8
   %31 = ptrtoint ptr %28 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -880,7 +880,7 @@ _ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
 
 38:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIfEEbRKT_.exit
   %39 = load ptr, ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %41 = load ptr, ptr %1, align 8
   %42 = ptrtoint ptr %39 to i64
   %43 = ptrtoint ptr %41 to i64
@@ -895,11 +895,11 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %7, %_ZN5draco13Enco
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform16DecodeParametersERKNS_14PointAttributeEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -922,7 +922,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform16DecodePara
   br i1 %19, label %20, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds float, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw float, ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %22
 
@@ -936,9 +936,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   %24 = phi ptr [ %.pre, %16 ], [ %10, %18 ], [ %10, %20 ], [ %10, %22 ]
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %25, %.pre-phi
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %26
   %.not = icmp slt i64 %28, %31
@@ -957,7 +957,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br i1 %.not10, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit, label %39
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %2, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 %36
   %43 = load i32, ptr %42, align 1
@@ -981,7 +981,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
 
 54:                                               ; preds = %48
   %55 = zext nneg i8 %51 to i32
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %55, ptr %56, align 8
   br label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
 
@@ -997,7 +997,7 @@ declare void @_ZN5draco9Quantizer4InitEfi(ptr noundef nonnull align 4 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -1013,7 +1013,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5draco30AttributeQuantizationTransformD2Ev.exit, label %4
@@ -1041,7 +1041,7 @@ define linkonce_odr noundef i32 @_ZNK5draco30AttributeQuantizationTransform22Get
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK5draco30AttributeQuantizationTransform27GetTransformedNumComponentsERKNS_14PointAttributeE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #7 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i32
   ret i32 %5
@@ -1056,9 +1056,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1108,8 +1108,8 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %.0910.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
   %32 = load i8, ptr %.0910.i.i.i.i.i, align 1
   store i8 %32, ptr %.0811.i.i.i.i.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
-  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
   %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !16
@@ -1127,8 +1127,8 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %.0910.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
   %41 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
   store i8 %41, ptr %.0811.i.i.i.i.i.i.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
-  %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !16
@@ -1163,8 +1163,8 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %.0910.i.i.i.i.i61 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
   %53 = load i8, ptr %.0910.i.i.i.i.i61, align 1
   store i8 %53, ptr %.0811.i.i.i.i.i60, align 1
-  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
-  %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i61, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i59, -1
   %57 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !16
@@ -1240,7 +1240,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %83, %85
   store ptr %71, ptr %0, align 8
   store ptr %84, ptr %11, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 %68
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 %68
   store ptr %86, ptr %9, align 8
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
@@ -1266,14 +1266,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1350,7 +1350,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds float, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -1368,7 +1368,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE13_M_assign_auxIPKfEEvT_S5_St20for
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -1395,7 +1395,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %14
   br label %_ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIPKfEEPfmT_S6_.exit
 
 _ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIPKfEEPfmT_S6_.exit: ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit, label %20
 
@@ -1405,13 +1405,13 @@ _ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIPKfEEPfmT_S6_.exit: ; preds = %_ZNSt1
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSaIfEE20_M_allocate_and_copyIPKfEEPfmT_S6_.exit, %20
   store ptr %17, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 %6
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %6
   store ptr %21, ptr %19, align 8
   store ptr %21, ptr %7, align 8
   br label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %11

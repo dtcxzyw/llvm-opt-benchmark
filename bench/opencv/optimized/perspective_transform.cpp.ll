@@ -31,26 +31,26 @@ $_ZTIN5zxing20PerspectiveTransformE = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5zxing20PerspectiveTransformC2Efffffffff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 align 2 {
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %11, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %7, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %5, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store float %9, ptr %20, align 4
   ret void
 }
@@ -70,7 +70,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform28quadrilateralToQuadrilatera
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -82,46 +82,46 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
           to label %28 unwind label %127
 
 28:                                               ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit
-  %29 = getelementptr inbounds i8, ptr %21, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %30 = load float, ptr %29, align 4, !noalias !4
-  %31 = getelementptr inbounds i8, ptr %22, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %32 = load float, ptr %31, align 4, !noalias !4
-  %33 = getelementptr inbounds i8, ptr %21, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %34 = load float, ptr %33, align 8, !noalias !4
-  %35 = getelementptr inbounds i8, ptr %22, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %36 = load float, ptr %35, align 8, !noalias !4
   %37 = fmul float %34, %36
   %38 = tail call float @llvm.fmuladd.f32(float %30, float %32, float %37)
-  %39 = getelementptr inbounds i8, ptr %21, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %40 = load float, ptr %39, align 4, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %22, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %42 = load float, ptr %41, align 4, !noalias !4
   %43 = tail call float @llvm.fmuladd.f32(float %40, float %42, float %38)
-  %44 = getelementptr inbounds i8, ptr %22, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %45 = load float, ptr %44, align 8, !noalias !4
-  %46 = getelementptr inbounds i8, ptr %22, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %47 = load float, ptr %46, align 4, !noalias !4
   %48 = fmul float %34, %47
   %49 = tail call float @llvm.fmuladd.f32(float %30, float %45, float %48)
-  %50 = getelementptr inbounds i8, ptr %22, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %51 = load float, ptr %50, align 8, !noalias !4
   %52 = tail call float @llvm.fmuladd.f32(float %40, float %51, float %49)
-  %53 = getelementptr inbounds i8, ptr %22, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %54 = load float, ptr %53, align 4, !noalias !4
-  %55 = getelementptr inbounds i8, ptr %22, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %56 = load float, ptr %55, align 8, !noalias !4
   %57 = fmul float %34, %56
   %58 = tail call float @llvm.fmuladd.f32(float %30, float %54, float %57)
-  %59 = getelementptr inbounds i8, ptr %22, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %60 = load float, ptr %59, align 4, !noalias !4
   %61 = tail call float @llvm.fmuladd.f32(float %40, float %60, float %58)
-  %62 = getelementptr inbounds i8, ptr %21, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %63 = load float, ptr %62, align 8, !noalias !4
-  %64 = getelementptr inbounds i8, ptr %21, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %65 = load float, ptr %64, align 4, !noalias !4
   %66 = fmul float %36, %65
   %67 = tail call float @llvm.fmuladd.f32(float %63, float %32, float %66)
-  %68 = getelementptr inbounds i8, ptr %21, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %69 = load float, ptr %68, align 8, !noalias !4
   %70 = tail call float @llvm.fmuladd.f32(float %69, float %42, float %67)
   %71 = fmul float %47, %65
@@ -130,13 +130,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
   %74 = fmul float %56, %65
   %75 = tail call float @llvm.fmuladd.f32(float %63, float %54, float %74)
   %76 = tail call float @llvm.fmuladd.f32(float %69, float %60, float %75)
-  %77 = getelementptr inbounds i8, ptr %21, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %78 = load float, ptr %77, align 4, !noalias !4
-  %79 = getelementptr inbounds i8, ptr %21, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %80 = load float, ptr %79, align 8, !noalias !4
   %81 = fmul float %36, %80
   %82 = tail call float @llvm.fmuladd.f32(float %78, float %32, float %81)
-  %83 = getelementptr inbounds i8, ptr %21, i64 44
+  %83 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %84 = load float, ptr %83, align 4, !noalias !4
   %85 = tail call float @llvm.fmuladd.f32(float %84, float %42, float %82)
   %86 = fmul float %47, %80
@@ -145,29 +145,29 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
   %89 = fmul float %56, %80
   %90 = tail call float @llvm.fmuladd.f32(float %78, float %54, float %89)
   %91 = tail call float @llvm.fmuladd.f32(float %84, float %60, float %90)
-  %92 = getelementptr inbounds i8, ptr %27, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %27, align 8, !noalias !4
-  %93 = getelementptr inbounds i8, ptr %27, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store float %43, ptr %93, align 4, !noalias !4
-  %94 = getelementptr inbounds i8, ptr %27, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store float %70, ptr %94, align 8, !noalias !4
-  %95 = getelementptr inbounds i8, ptr %27, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store float %85, ptr %95, align 4, !noalias !4
-  %96 = getelementptr inbounds i8, ptr %27, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store float %52, ptr %96, align 8, !noalias !4
-  %97 = getelementptr inbounds i8, ptr %27, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %27, i64 28
   store float %73, ptr %97, align 4, !noalias !4
-  %98 = getelementptr inbounds i8, ptr %27, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store float %88, ptr %98, align 8, !noalias !4
-  %99 = getelementptr inbounds i8, ptr %27, i64 36
+  %99 = getelementptr inbounds nuw i8, ptr %27, i64 36
   store float %61, ptr %99, align 4, !noalias !4
-  %100 = getelementptr inbounds i8, ptr %27, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store float %76, ptr %100, align 8, !noalias !4
-  %101 = getelementptr inbounds i8, ptr %27, i64 44
+  %101 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store float %91, ptr %101, align 4, !noalias !4
   store i32 1, ptr %92, align 8, !noalias !4
   store ptr %27, ptr %0, align 8, !alias.scope !4
-  %102 = getelementptr inbounds i8, ptr %22, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, -1
   store i32 %104, ptr %102, align 8
@@ -177,13 +177,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %20, %23
 106:                                              ; preds = %28
   store i32 -559026175, ptr %102, align 8
   %107 = load ptr, ptr %22, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
-  %110 = getelementptr inbounds i8, ptr %21, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %111 = load i32, ptr %110, align 8
   %112 = add i32 %111, -1
   store i32 %112, ptr %110, align 8
@@ -193,7 +193,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
 114:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
   store i32 -559026175, ptr %110, align 8
   %115 = load ptr, ptr %21, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   tail call void %117(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
@@ -208,7 +208,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22: ; preds = %114, %_ZN5zxing
 121:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit22
   store i32 -559026175, ptr %102, align 8
   %122 = load ptr, ptr %22, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   tail call void %124(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24
@@ -228,7 +228,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %_ZN5zxing3RefIN
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %22, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = add i32 %131, -1
   store i32 %132, ptr %130, align 8
@@ -238,7 +238,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %_ZN5zxing3RefIN
 134:                                              ; preds = %129
   store i32 -559026175, ptr %130, align 8
   %135 = load ptr, ptr %22, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   tail call void %137(ptr noundef nonnull align 8 dereferenceable(12) %22) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
@@ -248,7 +248,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %134, %129, %127
   br i1 %.not.i27, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, label %138
 
 138:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
-  %139 = getelementptr inbounds i8, ptr %21, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %140 = load i32, ptr %139, align 8
   %141 = add i32 %140, -1
   store i32 %141, ptr %139, align 8
@@ -258,7 +258,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %134, %129, %127
 143:                                              ; preds = %138
   store i32 -559026175, ptr %139, align 8
   %144 = load ptr, ptr %21, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   tail call void %146(ptr noundef nonnull align 8 dereferenceable(12) %21) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
@@ -270,7 +270,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %143, %138, %_ZN
   br i1 %.not.i29, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30, label %148
 
 148:                                              ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
-  %149 = getelementptr inbounds i8, ptr %147, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = add i32 %150, -1
   store i32 %151, ptr %149, align 8
@@ -280,7 +280,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %143, %138, %_ZN
 153:                                              ; preds = %148
   store i32 -559026175, ptr %149, align 8
   %154 = load ptr, ptr %147, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef nonnull align 8 dereferenceable(12) %147) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30
@@ -299,20 +299,20 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
           to label %13 unwind label %74
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %15 = load float, ptr %14, align 4, !noalias !7
-  %16 = getelementptr inbounds i8, ptr %11, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %17 = load float, ptr %16, align 4, !noalias !7
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = load float, ptr %18, align 8, !noalias !7
-  %20 = getelementptr inbounds i8, ptr %11, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %21 = load float, ptr %20, align 8, !noalias !7
   %22 = fneg float %21
   %23 = fmul float %19, %22
   %24 = tail call float @llvm.fmuladd.f32(float %15, float %17, float %23)
-  %25 = getelementptr inbounds i8, ptr %11, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %26 = load float, ptr %25, align 4, !noalias !7
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %28 = load float, ptr %27, align 8, !noalias !7
   %29 = fneg float %17
   %30 = fmul float %28, %29
@@ -320,13 +320,13 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
   %32 = fneg float %26
   %33 = fmul float %15, %32
   %34 = tail call float @llvm.fmuladd.f32(float %28, float %21, float %33)
-  %35 = getelementptr inbounds i8, ptr %11, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %36 = load float, ptr %35, align 4, !noalias !7
-  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = load float, ptr %37, align 8, !noalias !7
   %39 = fmul float %38, %29
   %40 = tail call float @llvm.fmuladd.f32(float %36, float %21, float %39)
-  %41 = getelementptr inbounds i8, ptr %11, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %42 = load float, ptr %41, align 4, !noalias !7
   %43 = fmul float %36, %32
   %44 = tail call float @llvm.fmuladd.f32(float %42, float %17, float %43)
@@ -341,29 +341,29 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
   %53 = fneg float %28
   %54 = fmul float %38, %53
   %55 = tail call float @llvm.fmuladd.f32(float %42, float %15, float %54)
-  %56 = getelementptr inbounds i8, ptr %12, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %12, align 8, !noalias !7
-  %57 = getelementptr inbounds i8, ptr %12, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store float %24, ptr %57, align 4, !noalias !7
-  %58 = getelementptr inbounds i8, ptr %12, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store float %40, ptr %58, align 8, !noalias !7
-  %59 = getelementptr inbounds i8, ptr %12, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store float %49, ptr %59, align 4, !noalias !7
-  %60 = getelementptr inbounds i8, ptr %12, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store float %31, ptr %60, align 8, !noalias !7
-  %61 = getelementptr inbounds i8, ptr %12, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store float %44, ptr %61, align 4, !noalias !7
-  %62 = getelementptr inbounds i8, ptr %12, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store float %52, ptr %62, align 8, !noalias !7
-  %63 = getelementptr inbounds i8, ptr %12, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store float %34, ptr %63, align 4, !noalias !7
-  %64 = getelementptr inbounds i8, ptr %12, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store float %46, ptr %64, align 8, !noalias !7
-  %65 = getelementptr inbounds i8, ptr %12, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store float %55, ptr %65, align 4, !noalias !7
   store i32 1, ptr %56, align 8, !noalias !7
   store ptr %12, ptr %0, align 8, !alias.scope !7
-  %66 = getelementptr inbounds i8, ptr %11, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 8
@@ -373,7 +373,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
 70:                                               ; preds = %13
   store i32 -559026175, ptr %66, align 8
   %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
@@ -388,7 +388,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %70
   br i1 %.not.i9, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %11, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, -1
   store i32 %79, ptr %77, align 8
@@ -398,7 +398,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %70
 81:                                               ; preds = %76
   store i32 -559026175, ptr %77, align 8
   %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10
@@ -468,25 +468,25 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69: ; preds = %19, %9
   %.sink82 = phi float [ %46, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %25, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
   %.sink79 = phi float [ %50, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ %27, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
   %.sink76 = phi float [ %41, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit69 ], [ 0.000000e+00, %_ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit ]
-  %52 = getelementptr inbounds i8, ptr %.sink95, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sink95, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %.sink95, align 8
-  %53 = getelementptr inbounds i8, ptr %.sink95, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.sink95, i64 12
   store float %.sink91, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %.sink95, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sink95, i64 16
   store float %.sink88, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.sink95, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %.sink95, i64 20
   store float %.sink85, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.sink95, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.sink95, i64 24
   store float %.sink82, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.sink95, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.sink95, i64 28
   store float %.sink79, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %.sink95, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.sink95, i64 32
   store float %.sink76, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.sink95, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %.sink95, i64 36
   store float %1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.sink95, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.sink95, i64 40
   store float %2, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.sink95, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %.sink95, i64 44
   store float 1.000000e+00, ptr %61, align 4
   store i32 1, ptr %52, align 8
   store ptr %.sink95, ptr %0, align 8
@@ -499,47 +499,47 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN5zxing20PerspectiveTransform5timesENS_3RefIS0_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load float, ptr %4, align 4
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load float, ptr %11, align 8
   %13 = fmul float %10, %12
   %14 = tail call float @llvm.fmuladd.f32(float %5, float %8, float %13)
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %18 = load float, ptr %17, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %16, float %18, float %14)
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = load float, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %23 = load float, ptr %22, align 4
   %24 = fmul float %10, %23
   %25 = tail call float @llvm.fmuladd.f32(float %5, float %21, float %24)
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %27 = load float, ptr %26, align 8
   %28 = tail call float @llvm.fmuladd.f32(float %16, float %27, float %25)
-  %29 = getelementptr inbounds i8, ptr %6, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %32 = load float, ptr %31, align 8
   %33 = fmul float %10, %32
   %34 = tail call float @llvm.fmuladd.f32(float %5, float %30, float %33)
-  %35 = getelementptr inbounds i8, ptr %6, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %36 = load float, ptr %35, align 4
   %37 = tail call float @llvm.fmuladd.f32(float %16, float %36, float %34)
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load float, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %41 = load float, ptr %40, align 4
   %42 = fmul float %12, %41
   %43 = tail call float @llvm.fmuladd.f32(float %39, float %8, float %42)
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load float, ptr %44, align 8
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %18, float %43)
   %47 = fmul float %23, %41
@@ -548,13 +548,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %50 = fmul float %32, %41
   %51 = tail call float @llvm.fmuladd.f32(float %39, float %30, float %50)
   %52 = tail call float @llvm.fmuladd.f32(float %45, float %36, float %51)
-  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load float, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %56 = load float, ptr %55, align 8
   %57 = fmul float %12, %56
   %58 = tail call float @llvm.fmuladd.f32(float %54, float %8, float %57)
-  %59 = getelementptr inbounds i8, ptr %1, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %60 = load float, ptr %59, align 4
   %61 = tail call float @llvm.fmuladd.f32(float %60, float %18, float %58)
   %62 = fmul float %23, %56
@@ -563,25 +563,25 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %65 = fmul float %32, %56
   %66 = tail call float @llvm.fmuladd.f32(float %54, float %30, float %65)
   %67 = tail call float @llvm.fmuladd.f32(float %60, float %36, float %66)
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %3, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %19, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float %46, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float %61, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %3, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %28, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %3, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store float %49, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %3, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store float %64, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store float %37, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %3, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store float %52, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 44
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store float %67, ptr %77, align 4
   store i32 1, ptr %68, align 8
   store ptr %3, ptr %0, align 8
@@ -601,20 +601,20 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 define hidden void @_ZN5zxing20PerspectiveTransform12buildAdjointEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load float, ptr %9, align 8
   %11 = fneg float %10
   %12 = fmul float %8, %11
   %13 = tail call float @llvm.fmuladd.f32(float %4, float %6, float %12)
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load float, ptr %16, align 8
   %18 = fneg float %6
   %19 = fmul float %17, %18
@@ -622,13 +622,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %21 = fneg float %15
   %22 = fmul float %4, %21
   %23 = tail call float @llvm.fmuladd.f32(float %17, float %10, float %22)
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load float, ptr %26, align 8
   %28 = fmul float %27, %18
   %29 = tail call float @llvm.fmuladd.f32(float %25, float %10, float %28)
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %31 = load float, ptr %30, align 4
   %32 = fmul float %25, %21
   %33 = tail call float @llvm.fmuladd.f32(float %31, float %6, float %32)
@@ -643,25 +643,25 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
   %42 = fneg float %17
   %43 = fmul float %27, %42
   %44 = tail call float @llvm.fmuladd.f32(float %31, float %4, float %43)
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing20PerspectiveTransformE, i64 16), ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %13, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float %29, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float %38, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store float %20, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float %33, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store float %41, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store float %23, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store float %35, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store float %44, ptr %54, align 4
   store i32 1, ptr %45, align 8
   store ptr %2, ptr %0, align 8
@@ -670,7 +670,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2EPS1_.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorIfSaIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -684,24 +684,24 @@ define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorI
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = and i64 %9, 2147483647
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds float, ptr %spec.select, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw float, ptr %spec.select, i64 %indvars.iv
   %24 = load float, ptr %23, align 4
   %25 = or disjoint i64 %indvars.iv, 1
-  %26 = getelementptr inbounds float, ptr %spec.select, i64 %25
+  %26 = getelementptr inbounds nuw float, ptr %spec.select, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = load float, ptr %12, align 4
   %29 = load float, ptr %13, align 8

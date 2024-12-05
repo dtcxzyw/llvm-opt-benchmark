@@ -63,14 +63,14 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %8 = alloca [20 x i32], align 16
   %9 = alloca [20 x i32], align 16
   %10 = alloca [20 x i32], align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 83476
-  %12 = getelementptr inbounds i8, ptr %0, i64 83480
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 83476
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 83480
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 84
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 83484
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 83484
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 65
   br label %19
@@ -84,23 +84,23 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 49202
-  %26 = getelementptr inbounds i8, ptr %0, i64 100848
-  %27 = getelementptr inbounds i8, ptr %3, i64 13880
-  %28 = getelementptr inbounds i8, ptr %3, i64 13912
-  %29 = getelementptr inbounds i8, ptr %3, i64 11076
-  %30 = getelementptr inbounds i8, ptr %3, i64 31224
-  %31 = getelementptr inbounds i8, ptr %0, i64 57431
-  %32 = getelementptr inbounds i8, ptr %3, i64 13976
-  %33 = getelementptr inbounds i8, ptr %3, i64 22328
-  %34 = getelementptr inbounds i8, ptr %3, i64 22272
-  %35 = getelementptr inbounds i8, ptr %3, i64 22264
-  %36 = getelementptr inbounds i8, ptr %3, i64 31191
-  %37 = getelementptr inbounds i8, ptr %3, i64 48840
-  %38 = getelementptr inbounds i8, ptr %3, i64 48884
-  %39 = getelementptr inbounds i8, ptr %0, i64 57464
-  %40 = getelementptr inbounds i8, ptr %3, i64 22329
-  %41 = getelementptr inbounds i8, ptr %3, i64 31188
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 49202
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 100848
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 13880
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 13912
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 11076
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 31224
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 57431
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 13976
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 22328
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 22272
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 22264
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 31191
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 48840
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48884
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 57464
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 22329
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 31188
   br label %42
 
 42:                                               ; preds = %.lr.ph, %.loopexit123
@@ -416,13 +416,13 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.095.lcssa = phi i1 [ true, %19 ], [ %141, %._crit_edge.loopexit ]
   %.074.lcssa = phi i64 [ 0, %19 ], [ %.175, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %19 ], [ %.1, %._crit_edge.loopexit ]
-  %142 = getelementptr inbounds i8, ptr %0, i64 49202
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 49202
   %143 = load i8, ptr %142, align 2
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %._crit_edge
-  %146 = getelementptr inbounds i8, ptr %0, i64 100848
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 100848
   call void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %146)
   br label %147
 
@@ -504,13 +504,13 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br i1 %5, label %.critedge, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 48840
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %23 = load i32, ptr %22, align 8
   br i1 %4, label %.critedge, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 8296
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8296
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 9223372034707292159
   br i1 %27, label %28, label %29
@@ -524,16 +524,16 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br label %30
 
 30:                                               ; preds = %29, %28
-  %31 = getelementptr inbounds i8, ptr %1, i64 8288
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8288
   %32 = load i64, ptr %31, align 8
   call void @_Z4itoalPwm(i64 noundef %32, ptr noundef nonnull %8, i64 noundef 30)
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 3
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %1, i64 8456
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8456
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = select i1 %39, i32 73, i32 46
@@ -541,9 +541,9 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %1, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 8460
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8460
   %46 = load i32, ptr %45, align 4
   switch i32 %46, label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit [
     i32 0, label %47
@@ -584,7 +584,7 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %switch.selectcmp51.i = icmp eq i16 %trunc.i, 16384
   %switch.select52.i = select i1 %switch.selectcmp51.i, i32 100, i32 %switch.select.i
   store i32 %switch.select52.i, ptr %9, align 16
-  %65 = getelementptr inbounds i8, ptr %9, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %66 = and i32 %44, 256
   %.not.i = icmp eq i32 %66, 0
   %67 = select i1 %.not.i, i32 45, i32 114
@@ -631,10 +631,10 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
 _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, %36
-  %94 = getelementptr inbounds i8, ptr %1, i64 8352
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8352
   %95 = load i8, ptr %94, align 8
   %96 = trunc i8 %95 to i1
-  %97 = getelementptr inbounds i8, ptr %1, i64 8353
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8353
   %98 = load i8, ptr %97, align 1
   %99 = trunc i8 %98 to i1
   br i1 %96, label %100, label %103
@@ -665,7 +665,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %110
 
 110:                                              ; preds = %102, %105, %104, %101
-  %111 = getelementptr inbounds i8, ptr %1, i64 8264
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8264
   call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
   br i1 %3, label %112, label %.critedge
 
@@ -675,7 +675,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %114, label %120, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %0, i64 31264
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 31264
   %117 = call i32 @wcscmp(ptr noundef nonnull %116, ptr noundef nonnull @.str.27) #6
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %120
@@ -685,7 +685,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %138
 
 120:                                              ; preds = %115, %112
-  %121 = getelementptr inbounds i8, ptr %1, i64 8464
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8464
   %122 = load i32, ptr %121, align 8
   %.not113 = icmp ne i32 %122, 0
   %123 = icmp eq i32 %23, 2
@@ -693,7 +693,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %or.cond, label %124, label %138
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %0, i64 22331
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 22331
   %126 = load i8, ptr %125, align 1
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %129
@@ -706,10 +706,10 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   %130 = load i64, ptr %31, align 8
   %spec.select = call i64 @llvm.umin.i64(i64 %130, i64 2047)
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = call noundef i32 %133(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef %spec.select)
-  %135 = getelementptr inbounds [2048 x i8], ptr %13, i64 0, i64 %spec.select
+  %135 = getelementptr inbounds nuw [2048 x i8], ptr %13, i64 0, i64 %spec.select
   store i8 0, ptr %135, align 1
   br label %136
 
@@ -718,7 +718,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %138
 
 138:                                              ; preds = %120, %136, %119
-  %139 = getelementptr inbounds i8, ptr %1, i64 8272
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8272
   %140 = load i64, ptr %139, align 8
   %.not = icmp eq i64 %140, 0
   br i1 %.not, label %142, label %141
@@ -728,7 +728,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %142
 
 142:                                              ; preds = %141, %138
-  %143 = getelementptr inbounds i8, ptr %1, i64 8280
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8280
   %144 = load i64, ptr %143, align 8
   %.not125 = icmp eq i64 %144, 0
   br i1 %.not125, label %146, label %145
@@ -738,18 +738,18 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %146
 
 146:                                              ; preds = %145, %142
-  %147 = getelementptr inbounds i8, ptr %1, i64 8312
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 8312
   %148 = load i32, ptr %147, align 8
   %cond = icmp eq i32 %148, 3
   br i1 %cond, label %149, label %.thread122
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %1, i64 8316
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8316
   call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %150, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
   br label %.thread122
 
 .thread122:                                       ; preds = %146, %149
-  %151 = getelementptr inbounds i8, ptr %1, i64 8443
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8443
   %152 = load i8, ptr %151, align 1
   %153 = trunc i8 %152 to i1
   br i1 %153, label %154, label %156
@@ -759,13 +759,13 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %156
 
 156:                                              ; preds = %154, %.thread122
-  %157 = getelementptr inbounds i8, ptr %1, i64 16661
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 16661
   %158 = load i8, ptr %157, align 1
   %159 = trunc i8 %158 to i1
   br i1 %159, label %160, label %.critedge
 
 160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %1, i64 16664
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 16664
   %162 = load i8, ptr %161, align 8
   %.not117 = icmp eq i8 %162, 0
   br i1 %.not117, label %165, label %163
@@ -775,7 +775,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %165
 
 165:                                              ; preds = %160, %163
-  %166 = getelementptr inbounds i8, ptr %1, i64 16920
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 16920
   %167 = load i8, ptr %166, align 8
   %.not118 = icmp eq i8 %167, 0
   br i1 %.not118, label %.critedge, label %168

@@ -19,17 +19,17 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %15 = lshr exact i64 %14, 2
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.sroa.speculated.i, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %10, ptr %21, align 8
   ret void
 }
@@ -50,17 +50,17 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %15 = lshr exact i64 %14, 3
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.sroa.speculated.i, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %10, ptr %21, align 8
   ret void
 }
@@ -70,7 +70,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hec61148ebf90ef6bE(ptr noalia
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4, !noundef !7
   %2 = load ptr, ptr %.val.i, align 8, !noalias !8, !noundef !7
   store ptr null, ptr %.val.i, align 8, !noalias !8
-  %3 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   store i8 2, ptr %3, align 1, !noalias !8
   %4 = icmp eq ptr %2, null
   br i1 %4, label %15, label %5
@@ -83,7 +83,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hec61148ebf90ef6bE(ptr noalia
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !11, !noundef !7
   %12 = add i64 %11, -1
   store i64 %12, ptr %10, align 8, !noalias !11
@@ -104,7 +104,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h753c0c8ecb82ac4cE.llvm.50947
   %.val = load ptr, ptr %2, align 8, !alias.scope !17, !noundef !7
   %3 = load ptr, ptr %.val, align 8, !noalias !20, !noundef !7
   store ptr null, ptr %.val, align 8, !noalias !20
-  %4 = getelementptr inbounds i8, ptr %.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store i8 2, ptr %4, align 1, !noalias !20
   %5 = icmp eq ptr %3, null
   br i1 %5, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h624a7fc771368352E.exit", label %6
@@ -117,7 +117,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h753c0c8ecb82ac4cE.llvm.50947
   br i1 %9, label %10, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h624a7fc771368352E.exit"
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !23, !noundef !7
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8, !noalias !23
@@ -151,7 +151,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha011cd346e9a9ea0E.llvm.5094
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }

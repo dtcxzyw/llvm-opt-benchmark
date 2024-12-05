@@ -81,18 +81,18 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase27_
   %.079104 = phi i64 [ %36, %.preheader101 ], [ 0, %34 ]
   %.1103 = phi ptr [ %43, %.preheader101 ], [ %33, %34 ]
   %.183102 = phi ptr [ %35, %.preheader101 ], [ %31, %34 ]
-  %35 = getelementptr inbounds i8, ptr %.183102, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.183102, i64 4
   store i32 3, ptr %.183102, align 4
   %36 = add nuw i64 %.079104, 1
   %37 = urem i64 %36, %30
   %38 = trunc i64 %37 to i32
   %39 = add i32 %38, 1
-  %40 = getelementptr inbounds i8, ptr %.1103, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.1103, i64 4
   store i32 %39, ptr %.1103, align 4
   %41 = trunc i64 %36 to i32
-  %42 = getelementptr inbounds i8, ptr %.1103, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   store i32 %41, ptr %40, align 4
-  %43 = getelementptr inbounds i8, ptr %.1103, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %.1103, i64 12
   store i32 0, ptr %42, align 4
   %exitcond.not = icmp eq i64 %36, %1
   br i1 %exitcond.not, label %48, label %.preheader101, !llvm.loop !4
@@ -137,25 +137,25 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase27_
   %.077109 = phi i64 [ 0, %.preheader ], [ %57, %52 ]
   %.3108 = phi ptr [ %.2112, %.preheader ], [ %65, %52 ]
   %.385107 = phi ptr [ %.284111, %.preheader ], [ %53, %52 ]
-  %53 = getelementptr inbounds i8, ptr %.385107, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.385107, i64 4
   store i32 4, ptr %.385107, align 4
   %54 = add i64 %.077109, %.188110
   %55 = trunc i64 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %.3108, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.3108, i64 4
   store i32 %55, ptr %.3108, align 4
   %57 = add nuw i64 %.077109, 1
   %58 = urem i64 %57, %30
   %59 = add i64 %58, %.188110
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %.3108, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.3108, i64 8
   store i32 %60, ptr %56, align 4
   %.reass = add i64 %58, %invariant.op
   %62 = trunc i64 %.reass to i32
-  %63 = getelementptr inbounds i8, ptr %.3108, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %.3108, i64 12
   store i32 %62, ptr %61, align 4
   %.reass106 = add i64 %.077109, %invariant.op
   %64 = trunc i64 %.reass106 to i32
-  %65 = getelementptr inbounds i8, ptr %.3108, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.3108, i64 16
   store i32 %64, ptr %63, align 4
   %exitcond123.not = icmp eq i64 %57, %1
   br i1 %exitcond123.not, label %66, label %52, !llvm.loop !6
@@ -184,19 +184,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase27_
   %.0118 = phi i64 [ 0, %68 ], [ %78, %73 ]
   %.4117 = phi ptr [ %.2.lcssa, %68 ], [ %83, %73 ]
   %.486116 = phi ptr [ %.284.lcssa, %68 ], [ %74, %73 ]
-  %74 = getelementptr inbounds i8, ptr %.486116, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.486116, i64 4
   store i32 3, ptr %.486116, align 4
   %75 = add i64 %.0118, %spec.select94
   %76 = trunc i64 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %.4117, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.4117, i64 4
   store i32 %76, ptr %.4117, align 4
   %78 = add nuw i64 %.0118, 1
   %79 = urem i64 %78, %30
   %80 = add i64 %79, %spec.select94
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.4117, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.4117, i64 8
   store i32 %81, ptr %77, align 4
-  %83 = getelementptr inbounds i8, ptr %.4117, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %.4117, i64 12
   store i32 %72, ptr %82, align 4
   %exitcond126.not = icmp eq i64 %78, %umax125
   br i1 %exitcond126.not, label %.loopexit, label %73, !llvm.loop !8

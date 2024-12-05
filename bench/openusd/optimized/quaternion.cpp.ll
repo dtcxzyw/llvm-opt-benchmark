@@ -41,11 +41,11 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion9GetL
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
   %7 = fmul double %6, %6
   %8 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load double, ptr %9, align 8
   %11 = tail call noundef double @llvm.fmuladd.f64(double %10, double %10, double %8)
   %12 = tail call noundef double @llvm.fmuladd.f64(double %2, double %2, double %11)
@@ -58,11 +58,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion13GetNormalized
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fmul double %8, %8
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %9)
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8
   %13 = tail call noundef double @llvm.fmuladd.f64(double %12, double %12, double %10)
   %14 = tail call noundef double @llvm.fmuladd.f64(double %4, double %4, double %13)
@@ -81,11 +81,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion13GetNormalized
   %21 = fmul double %19, %6
   %22 = fmul double %19, %8
   %23 = fmul double %19, %12
-  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %21, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !7
-  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %22, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !7
-  %.sroa.8.0..sroa_idx7.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.8.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %23, ptr %.sroa.8.0..sroa_idx7.i, align 8, !alias.scope !7
   br label %24
 
@@ -100,11 +100,11 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__12GfQuaternion9Norma
   %3 = load double, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, %7
   %9 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load double, ptr %10, align 8
   %12 = tail call noundef double @llvm.fmuladd.f64(double %11, double %11, double %9)
   %13 = tail call noundef double @llvm.fmuladd.f64(double %3, double %3, double %12)
@@ -142,10 +142,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion10GetInverseEv(
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8, !noalias !10
   %6 = fneg double %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8, !noalias !10
   %9 = fneg double %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load double, ptr %10, align 8, !noalias !10
   %12 = fneg double %11
   %13 = fmul double %8, %8
@@ -158,11 +158,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion10GetInverseEv(
   %20 = fmul double %17, %9
   %21 = fmul double %17, %12
   store double %18, ptr %0, align 8, !alias.scope !13
-  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %19, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !13
-  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %20, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !13
-  %.sroa.8.0..sroa_idx7.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.8.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %21, ptr %.sroa.8.0..sroa_idx7.i, align 8, !alias.scope !13
   ret void
 }
@@ -175,15 +175,15 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %5, align 8
   %8 = load double, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
   %13 = fmul double %10, %12
   %14 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load double, ptr %17, align 8
   %19 = tail call noundef double @llvm.fmuladd.f64(double %16, double %18, double %14)
   %20 = fneg double %19
@@ -225,11 +225,11 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %6 = load double, ptr %5, align 8
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fmul double %1, %9
   store double %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
   %13 = fmul double %1, %12
   store double %13, ptr %11, align 8
@@ -243,15 +243,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_12GfQuaternionES
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %5, align 8, !noalias !16
   %8 = load double, ptr %6, align 8, !noalias !16
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8, !noalias !16
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load double, ptr %11, align 8, !noalias !16
   %13 = fmul double %10, %12
   %14 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %13)
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load double, ptr %15, align 8, !noalias !16
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load double, ptr %17, align 8, !noalias !16
   %19 = tail call noundef double @llvm.fmuladd.f64(double %16, double %18, double %14)
   %20 = load double, ptr %1, align 8, !noalias !16
@@ -314,11 +314,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_.exit: ; p
   %50 = fadd double %42, %46
   %51 = fadd double %43, %47
   store double %48, ptr %0, align 8, !alias.scope !25
-  %.sroa.4.0..sroa_idx3.i44.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx3.i44.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %49, ptr %.sroa.4.0..sroa_idx3.i44.i, align 8, !alias.scope !25
-  %.sroa.6.0..sroa_idx5.i45.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx5.i45.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %50, ptr %.sroa.6.0..sroa_idx5.i45.i, align 8, !alias.scope !25
-  %.sroa.8.0..sroa_idx7.i46.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.8.0..sroa_idx7.i46.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %51, ptr %.sroa.8.0..sroa_idx7.i46.i, align 8, !alias.scope !25
   ret void
 }
@@ -329,15 +329,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionE
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load double, ptr %5, align 8
   %8 = load double, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load double, ptr %11, align 8
   %13 = fmul double %10, %12
   %14 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %13)
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load double, ptr %17, align 8
   %19 = tail call noundef double @llvm.fmuladd.f64(double %16, double %18, double %14)
   %20 = load double, ptr %2, align 8
@@ -400,11 +400,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionE
   %51 = fadd double %43, %47
   %52 = fadd double %44, %48
   store double %49, ptr %0, align 8, !alias.scope !34
-  %.sroa.4.0..sroa_idx3.i44 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx3.i44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %50, ptr %.sroa.4.0..sroa_idx3.i44, align 8, !alias.scope !34
-  %.sroa.6.0..sroa_idx5.i45 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx5.i45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %51, ptr %.sroa.6.0..sroa_idx5.i45, align 8, !alias.scope !34
-  %.sroa.8.0..sroa_idx7.i46 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.8.0..sroa_idx7.i46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %52, ptr %.sroa.8.0..sroa_idx7.i46, align 8, !alias.scope !34
   ret void
 }

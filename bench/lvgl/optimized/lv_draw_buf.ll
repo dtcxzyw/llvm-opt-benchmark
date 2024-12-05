@@ -333,7 +333,7 @@ define void @lv_draw_buf_clear(ptr noundef readonly %0, ptr noundef %1) local_un
 
 switch.lookup:                                    ; preds = %10
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %lv_draw_buf_goto_xy.exit
 
@@ -400,7 +400,7 @@ lv_draw_buf_goto_xy.exit:                         ; preds = %switch.lookup, %16
 
 switch.lookup37:                                  ; preds = %46
   %60 = zext nneg i8 %switch.tableidx38 to i64
-  %switch.gep39 = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %60
+  %switch.gep39 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %60
   %switch.load40 = load i64, ptr %switch.gep39, align 8
   br label %61
 
@@ -494,7 +494,7 @@ define ptr @lv_draw_buf_goto_xy(ptr noundef readonly %0, i32 noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %4
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %16
 
@@ -586,7 +586,7 @@ define void @lv_draw_buf_copy(ptr nocapture noundef readonly %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %26
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %33
 
@@ -640,7 +640,7 @@ switch.lookup:                                    ; preds = %26
 
 switch.lookup111:                                 ; preds = %44
   %58 = zext nneg i8 %switch.tableidx112 to i64
-  %switch.gep113 = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %58
+  %switch.gep113 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %58
   %switch.load114 = load i64, ptr %switch.gep113, align 8
   br label %59
 
@@ -682,7 +682,7 @@ switch.lookup111:                                 ; preds = %44
 
 switch.lookup115:                                 ; preds = %.critedge
   %84 = zext nneg i8 %switch.tableidx116 to i64
-  %switch.gep117 = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %84
+  %switch.gep117 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %84
   %switch.load118 = load i64, ptr %switch.gep117, align 8
   br label %lv_draw_buf_goto_xy.exit72
 
@@ -718,7 +718,7 @@ lv_draw_buf_goto_xy.exit:                         ; preds = %69, %59, %lv_draw_b
 
 switch.lookup119:                                 ; preds = %87
   %101 = zext nneg i8 %switch.tableidx120 to i64
-  %switch.gep121 = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %101
+  %switch.gep121 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %101
   %switch.load122 = load i64, ptr %switch.gep121, align 8
   br label %102
 
@@ -771,7 +771,7 @@ switch.lookup119:                                 ; preds = %87
 
 switch.lookup123:                                 ; preds = %119
   %133 = zext nneg i8 %switch.tableidx124 to i64
-  %switch.gep125 = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %133
+  %switch.gep125 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %133
   %switch.load126 = load i64, ptr %switch.gep125, align 8
   br label %134
 
@@ -1426,7 +1426,7 @@ _calculate_draw_buf_size.exit:                    ; preds = %50, %54, %62
 
 switch.lookup:                                    ; preds = %68
   %76 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_adjust_stride, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %77
 
@@ -1489,7 +1489,7 @@ switch.lookup:                                    ; preds = %68
   %111 = load i32, ptr %23, align 4
   %112 = and i32 %111, 65535
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %.06581, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %.06581, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %.06482, i64 %108
   %116 = add nuw nsw i32 %.083, 1
   %exitcond.not = icmp eq i32 %116, %12
@@ -1554,7 +1554,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef %0) local_unname
 
 switch.lookup:                                    ; preds = %10
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.lv_draw_buf_premultiply, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.lv_draw_buf_premultiply, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.lr.ph.preheader
 
@@ -1566,7 +1566,7 @@ switch.lookup:                                    ; preds = %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv140 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next141, %.lr.ph ]
-  %17 = getelementptr inbounds %struct.lv_color32_t, ptr %16, i64 %indvars.iv140
+  %17 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %16, i64 %indvars.iv140
   tail call void @lv_color_premultiply(ptr noundef %17) #9
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -1703,10 +1703,10 @@ switch.lookup:                                    ; preds = %10
 71:                                               ; preds = %.preheader104.us, %71
   %.081107.us = phi i32 [ 0, %.preheader104.us ], [ %75, %71 ]
   %.082106.us = phi ptr [ %.084108.us, %.preheader104.us ], [ %74, %71 ]
-  %72 = getelementptr inbounds i8, ptr %.082106.us, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 2
   %73 = load i8, ptr %72, align 1, !tbaa !33
   tail call void @lv_color16_premultiply(ptr noundef %.082106.us, i8 noundef zeroext %73) #9
-  %74 = getelementptr inbounds i8, ptr %.082106.us, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 3
   %75 = add nuw nsw i32 %.081107.us, 1
   %exitcond.not = icmp eq i32 %75, %64
   br i1 %exitcond.not, label %._crit_edge.us, label %71, !llvm.loop !36

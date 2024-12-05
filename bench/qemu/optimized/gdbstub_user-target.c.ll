@@ -70,7 +70,7 @@ return:                                           ; preds = %for.inc, %return.sp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @gdb_get_cpu_index(ptr nocapture noundef readonly %cpu) local_unnamed_addr #2 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %cpu, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %cpu, i64 624
   %0 = load ptr, ptr %opaque, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -88,14 +88,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 define dso_local void @gdb_handle_query_offsets(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  %opaque = getelementptr inbounds i8, ptr %0, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %0, i64 624
   %1 = load ptr, ptr %opaque, align 16
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %info = getelementptr inbounds i8, ptr %1, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %info, align 8
-  %code_offset = getelementptr inbounds i8, ptr %3, i64 88
+  %code_offset = getelementptr inbounds nuw i8, ptr %3, i64 88
   %4 = load i64, ptr %code_offset, align 8
-  %data_offset = getelementptr inbounds i8, ptr %3, i64 96
+  %data_offset = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i64, ptr %data_offset, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef %4, i64 noundef %5, i64 noundef %5) #9
   tail call void @gdb_put_strbuf() #9
@@ -109,7 +109,7 @@ declare void @gdb_put_strbuf() local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_query_xfer_auxv(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %params, i64 8
+  %len1 = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -122,11 +122,11 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  %opaque = getelementptr inbounds i8, ptr %3, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %3, i64 624
   %4 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds i8, ptr %4, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %4, i64 48
   %5 = load ptr, ptr %info, align 8
-  %auxv_len6 = getelementptr inbounds i8, ptr %5, i64 112
+  %auxv_len6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %6 = load i64, ptr %auxv_len6, align 8
   %cmp7.not = icmp ult i64 %2, %6
   br i1 %cmp7.not, label %if.end10, label %if.then8
@@ -136,7 +136,7 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %saved_auxv4 = getelementptr inbounds i8, ptr %5, i64 104
+  %saved_auxv4 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load i64, ptr %saved_auxv4, align 8
   %arrayidx3 = getelementptr i8, ptr %1, i64 16
   %8 = load i64, ptr %arrayidx3, align 8
@@ -156,7 +156,7 @@ if.end10:                                         ; preds = %if.end
   %13 = load ptr, ptr %12, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %11) #9
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #9
-  %memory_rw_debug.i = getelementptr inbounds i8, ptr %call1.i.i, i64 200
+  %memory_rw_debug.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 200
   %14 = load ptr, ptr %memory_rw_debug.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -185,7 +185,7 @@ if.end26:                                         ; preds = %target_memory_rw_de
   tail call void @gdb_memtox(ptr noundef %15, ptr noundef %17, i32 noundef %conv) #9
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %19 = load ptr, ptr %18, align 8
-  %len29 = getelementptr inbounds i8, ptr %18, i64 8
+  %len29 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %len29, align 8
   %conv30 = trunc i64 %20 to i32
   %call31 = tail call i32 @gdb_put_packet_binary(ptr noundef %19, i32 noundef %conv30, i1 noundef zeroext true) #9
@@ -320,7 +320,7 @@ if.end14:                                         ; preds = %if.end
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call, i32 noundef %conv.i) #9
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %8 = load ptr, ptr %7, align 8
-  %len.i = getelementptr inbounds i8, ptr %7, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
   %conv1.i = trunc i64 %9 to i32
   %call.i = tail call i32 @gdb_put_packet_binary(ptr noundef %8, i32 noundef %conv1.i, i1 noundef zeroext true) #9
@@ -378,7 +378,7 @@ if.end7:                                          ; preds = %if.end
   tail call void @gdb_memtox(ptr noundef %6, ptr noundef nonnull %call1, i32 noundef %conv.i2) #9
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %8 = load ptr, ptr %7, align 8
-  %len.i = getelementptr inbounds i8, ptr %7, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %len.i, align 8
   %conv1.i = trunc i64 %9 to i32
   %call.i3 = tail call i32 @gdb_put_packet_binary(ptr noundef %8, i32 noundef %conv1.i, i1 noundef zeroext true) #9
@@ -419,19 +419,19 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds i8, ptr %call8, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %call8, i64 624
   %4 = load ptr, ptr %opaque, align 16
   %tobool13.not = icmp eq ptr %4, null
   br i1 %tobool13.not, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %bprm = getelementptr inbounds i8, ptr %4, i64 56
+  %bprm = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %bprm, align 8
   %tobool14.not = icmp eq ptr %5, null
   br i1 %tobool14.not, label %if.then18, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %filename = getelementptr inbounds i8, ptr %5, i64 1080
+  %filename = getelementptr inbounds nuw i8, ptr %5, i64 1080
   %6 = load ptr, ptr %filename, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.then18, label %if.end20

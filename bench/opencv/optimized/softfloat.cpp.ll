@@ -131,7 +131,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 
   %.1.i.i = select i1 %19, i8 %20, i8 %spec.select12.i.i
   %22 = lshr i32 %.19.i.i, 24
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !alias.scope !4, !noalias !7
   %26 = add nsw i8 %.1.i.i, -1
   %27 = add i8 %26, %25
@@ -208,7 +208,7 @@ define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 
   %.2.i.i = select i1 %7, i32 %9, i32 %.1.i.i
   %10 = lshr i32 %.2.i.i, 24
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1, !noalias !10
   %14 = add i8 %13, %.214.i.i
   %15 = add i8 %14, -40
@@ -332,7 +332,7 @@ define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 
   %.2.i.i = select i1 %9, i32 %11, i32 %.1.i.i
   %12 = lshr i32 %.2.i.i, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1, !noalias !16
   %16 = add i8 %15, %.214.i.i
   %17 = add i8 %16, -40
@@ -482,7 +482,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
   %.1.i.i.i = select i1 %25, i8 %26, i8 %spec.select12.i.i.i
   %28 = lshr i32 %.19.i.i.i, 24
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1, !noalias !19
   %32 = add nsw i8 %.1.i.i.i, -8
   %33 = add i8 %32, %31
@@ -621,7 +621,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i.i = select i1 %33, i8 %34, i8 %spec.select12.i.i.i
   %36 = lshr i32 %.19.i.i.i, 24
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1, !noalias !31
   %40 = add nsw i8 %.1.i.i.i, -8
   %41 = add i8 %40, %39
@@ -655,7 +655,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i72.i = select i1 %53, i8 %54, i8 %spec.select12.i.i70.i
   %56 = lshr i32 %.19.i.i71.i, 24
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1, !noalias !31
   %60 = add nsw i8 %.1.i.i72.i, -8
   %61 = add i8 %60, %59
@@ -861,7 +861,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i.i = select i1 %29, i8 %30, i8 %spec.select12.i.i.i
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !noalias !34
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
@@ -895,7 +895,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i77.i = select i1 %49, i8 %50, i8 %spec.select12.i.i75.i
   %52 = lshr i32 %.19.i.i76.i, 24
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !noalias !34
   %56 = add nsw i8 %.1.i.i77.i, -8
   %57 = add i8 %56, %55
@@ -1097,7 +1097,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i.i = select i1 %27, i8 %28, i8 %spec.select12.i.i.i
   %30 = lshr i32 %.19.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !37
   %34 = add nsw i8 %.1.i.i.i, -8
   %35 = add i8 %34, %33
@@ -1135,7 +1135,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %.1.i.i109.i = select i1 %48, i8 %49, i8 %spec.select12.i.i107.i
   %51 = lshr i32 %.19.i.i108.i, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !noalias !37
   %55 = add nsw i8 %.1.i.i109.i, -8
   %56 = add i8 %55, %54
@@ -1584,7 +1584,7 @@ define void @_ZN2cv10softdoubleC2Ej(ptr nocapture noundef nonnull writeonly alig
   %.1.i.i = select i1 %6, i8 %7, i8 %spec.select12.i.i
   %9 = lshr i32 %.19.i.i, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1, !noalias !46
   %13 = add nuw nsw i8 %.1.i.i, 21
   %14 = add i8 %13, %12
@@ -1660,7 +1660,7 @@ define void @_ZN2cv10softdoubleC2Ei(ptr nocapture noundef nonnull writeonly alig
   %.1.i.i = select i1 %8, i8 %9, i8 %spec.select12.i.i
   %11 = lshr i32 %.19.i.i, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1, !noalias !52
   %15 = add nuw nsw i8 %.1.i.i, 21
   %16 = add i8 %15, %14
@@ -2504,7 +2504,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   %.2.i.i.i = select i1 %31, i32 %33, i32 %.1.i.i.i
   %34 = lshr i32 %.2.i.i.i, 24
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1, !noalias !67
   %38 = add nsw i8 %.214.i.i.i, -11
   %39 = add i8 %38, %37
@@ -2543,7 +2543,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   %.2.i.i80.i = select i1 %52, i32 %54, i32 %.1.i.i78.i
   %55 = lshr i32 %.2.i.i80.i, 24
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1, !noalias !67
   %59 = add nsw i8 %.214.i.i79.i, -11
   %60 = add i8 %59, %58
@@ -2750,7 +2750,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
   %.2.i.i.i = select i1 %27, i32 %29, i32 %.1.i.i.i
   %30 = lshr i32 %.2.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1, !noalias !70
   %34 = add nsw i8 %.214.i.i.i, -11
   %35 = add i8 %34, %33
@@ -2789,7 +2789,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
   %.2.i.i102.i = select i1 %48, i32 %50, i32 %.1.i.i100.i
   %51 = lshr i32 %.2.i.i102.i, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !noalias !70
   %55 = add nsw i8 %.214.i.i101.i, -11
   %56 = add i8 %55, %54
@@ -3034,7 +3034,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %.2.i.i = select i1 %28, i32 %30, i32 %.1.i.i
   %31 = lshr i32 %.2.i.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = add nsw i8 %.214.i.i, -11
   %36 = add i8 %35, %34
@@ -3077,7 +3077,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %.2.i.i132 = select i1 %50, i32 %52, i32 %.1.i.i130
   %53 = lshr i32 %.2.i.i132, 24
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = add nsw i8 %.214.i.i131, -11
   %58 = add i8 %57, %56
@@ -3584,7 +3584,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %.1.i.i.i.i = select i1 %44, i8 %45, i8 %spec.select12.i.i.i.i
   %47 = lshr i32 %.19.i.i.i.i, 24
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1, !noalias !84
   %51 = add nsw i8 %.1.i.i.i.i, -8
   %52 = add i8 %51, %50
@@ -3618,7 +3618,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %.1.i.i172.i.i = select i1 %64, i8 %65, i8 %spec.select12.i.i170.i.i
   %67 = lshr i32 %.19.i.i171.i.i, 24
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1, !noalias !84
   %71 = add nsw i8 %.1.i.i172.i.i, -8
   %72 = add i8 %71, %70
@@ -3672,7 +3672,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %.1.i.i178.i.i = select i1 %99, i8 %100, i8 %spec.select12.i.i176.i.i
   %102 = lshr i32 %.19.i.i177.i.i, 24
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1, !noalias !84
   %106 = add nsw i8 %.1.i.i178.i.i, -8
   %107 = add i8 %106, %105
@@ -3834,7 +3834,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   %.2.i.i.i = select i1 %195, i32 %197, i32 %.1.i.i.i
   %198 = lshr i32 %.2.i.i.i, 24
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1, !noalias !84
   %202 = add i8 %.214.i.i.i, %201
   %203 = add i8 %202, -1
@@ -4096,7 +4096,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %.2.i.i.i.i = select i1 %42, i32 %44, i32 %.1.i.i.i.i
   %45 = lshr i32 %.2.i.i.i.i, 24
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1, !noalias !91
   %49 = add nsw i8 %.214.i.i.i.i, -11
   %50 = add i8 %49, %48
@@ -4135,7 +4135,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %.2.i.i226.i.i = select i1 %63, i32 %65, i32 %.1.i.i224.i.i
   %66 = lshr i32 %.2.i.i226.i.i, 24
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !noalias !91
   %70 = add nsw i8 %.214.i.i225.i.i, -11
   %71 = add i8 %70, %69
@@ -4219,7 +4219,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %.2.i.i240.i.i = select i1 %120, i32 %122, i32 %.1.i.i238.i.i
   %123 = lshr i32 %.2.i.i240.i.i, 24
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %124
   %126 = load i8, ptr %125, align 1, !noalias !91
   %127 = add nsw i8 %.214.i.i239.i.i, -11
   %128 = add i8 %127, %126
@@ -4408,7 +4408,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %169, %167, %162, %1
   %.2.i.i.i = select i1 %222, i32 %224, i32 %.1.i.i.i
   %225 = lshr i32 %.2.i.i.i, 24
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %226
   %228 = load i8, ptr %227, align 1, !noalias !91
   %229 = add i8 %.214.i.i.i, %228
   %230 = add i8 %229, -1
@@ -4651,7 +4651,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %.1.i.i.i = select i1 %29, i8 %30, i8 %spec.select12.i.i.i
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !noalias !92
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
@@ -4676,9 +4676,9 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %52 = and i64 %51, 14
   %53 = or disjoint i64 %52, %47
   %54 = lshr i32 %50, 12
-  %55 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %53
   %56 = load i16, ptr %55, align 2, !noalias !92
-  %57 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %53
   %58 = load i16, ptr %57, align 2, !noalias !92
   %59 = zext i16 %58 to i32
   %60 = and i32 %54, 65535
@@ -4855,7 +4855,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %.2.i.i.i = select i1 %28, i32 %30, i32 %.1.i.i.i
   %31 = lshr i32 %.2.i.i.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1, !noalias !95
   %35 = add nsw i8 %.214.i.i.i, -11
   %36 = add i8 %35, %34
@@ -4877,9 +4877,9 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %48 = and i64 %47, 14
   %49 = or disjoint i64 %48, %43
   %50 = lshr i32 %46, 12
-  %51 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %49
+  %51 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %49
   %52 = load i16, ptr %51, align 2, !noalias !95
-  %53 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %49
   %54 = load i16, ptr %53, align 2, !noalias !95
   %55 = zext i16 %54 to i32
   %56 = and i32 %50, 65535
@@ -5169,7 +5169,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %.1.i.i.i = select i1 %83, i8 %84, i8 %spec.select12.i.i.i
   %86 = lshr i32 %.19.i.i.i, 24
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1, !noalias !123
   %90 = add nsw i8 %.1.i.i.i, -8
   %91 = add i8 %90, %89
@@ -5346,7 +5346,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %178, %179
   store i64 %180, ptr %7, align 8
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   %181 = and i64 %.0.i.i16, 63
-  %182 = getelementptr inbounds [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %181
   %183 = load i64, ptr %182, align 8
   store i64 %183, ptr %16, align 8, !alias.scope !134
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -5744,7 +5744,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %151, %152
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL13exp_postscaleE)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   %153 = and i64 %.0.i.i.i, 63
-  %154 = getelementptr inbounds [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %153
   %155 = load i64, ptr %154, align 8
   store i64 %155, ptr %15, align 8, !alias.scope !196
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -5920,11 +5920,11 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %38, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %39 = shl nuw nsw i32 %35, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %40
   %42 = load i64, ptr %41, align 16
   %43 = or disjoint i32 %39, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %5, align 8, !alias.scope !237
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -6301,11 +6301,11 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %107, %104, %101
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %113, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %114 = shl nuw nsw i32 %111, 1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %115
   %117 = load i64, ptr %116, align 16
   %118 = or disjoint i32 %114, 1
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8
   store i64 %121, ptr %19, align 8, !alias.scope !308
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -8242,7 +8242,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
   %.1.i = select i1 %23, i8 %24, i8 %spec.select12.i
   %26 = lshr i32 %.19.i, 24
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = add nsw i8 %.1.i, -8
   %31 = add i8 %30, %29
@@ -8617,7 +8617,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_
   %.1.i = select i1 %8, i8 %9, i8 %spec.select12.i
   %11 = lshr i32 %.19.i, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = add nsw i8 %.1.i, -1
   %16 = add i8 %15, %14
@@ -8969,7 +8969,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %.2.i = select i1 %28, i32 %30, i32 %.1.i
   %31 = lshr i32 %.2.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = add i8 %34, -11
   %36 = add i8 %35, %.214.i
@@ -9119,7 +9119,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
   %.2.i = select i1 %9, i32 %11, i32 %.1.i
   %12 = lshr i32 %.2.i, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = add nsw i8 %.214.i, -1
   %17 = add i8 %16, %15

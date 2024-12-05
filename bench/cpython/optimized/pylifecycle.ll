@@ -551,7 +551,7 @@ sub_0:                                            ; preds = %if.end4
   br i1 %.not, label %sub_1, label %return
 
 sub_1:                                            ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %call5, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %call5, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   %5 = zext i1 %4 to i32
@@ -734,9 +734,9 @@ if.then3:                                         ; preds = %if.end
   br label %done
 
 if.end4:                                          ; preds = %if.end
-  %interp = getelementptr inbounds i8, ptr %1, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %interp, align 8
-  %config6 = getelementptr inbounds i8, ptr %4, i64 1592
+  %config6 = getelementptr inbounds nuw i8, ptr %4, i64 1592
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp5, ptr noundef nonnull %config6, ptr noundef nonnull %config) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp5, i64 32, i1 false)
   %5 = load i32, ptr %status, align 8
@@ -751,8 +751,8 @@ if.end10:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status8.i)
   %6 = load ptr, ptr %interp, align 8
-  %config1.i = getelementptr inbounds i8, ptr %6, i64 1592
-  %runtime.i = getelementptr inbounds i8, ptr %6, i64 976
+  %config1.i = getelementptr inbounds nuw i8, ptr %6, i64 1592
+  %runtime.i = getelementptr inbounds nuw i8, ptr %6, i64 976
   %7 = load ptr, ptr %runtime.i, align 8
   call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config1.i, ptr noundef %7) #21
   %8 = load i32, ptr %status.i, align 8
@@ -785,9 +785,9 @@ if.then11.i:                                      ; preds = %if.then7.i
 
 if.end13.i:                                       ; preds = %if.then7.if.end13_crit_edge.i, %if.then.if.end4_crit_edge.i
   %11 = phi ptr [ %.pre7.i, %if.then7.if.end13_crit_edge.i ], [ %.pre.i, %if.then.if.end4_crit_edge.i ]
-  %int_max_str_digits.i = getelementptr inbounds i8, ptr %6, i64 1856
+  %int_max_str_digits.i = getelementptr inbounds nuw i8, ptr %6, i64 1856
   %12 = load i32, ptr %int_max_str_digits.i, align 8
-  %long_state.i = getelementptr inbounds i8, ptr %11, i64 267784
+  %long_state.i = getelementptr inbounds nuw i8, ptr %11, i64 267784
   store i32 %12, ptr %long_state.i, align 8
   %call15.i = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %1) #21
   %call15.lobit.i = ashr i32 %call15.i, 31
@@ -831,11 +831,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__._Py_PreInitializeFromPyArgv, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.132, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -856,9 +856,9 @@ _PyRuntime_Initialize.exit:                       ; preds = %if.end
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %_PyRuntime_Initialize.exit
-  %status.sroa.12.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 4
+  %status.sroa.12.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 4
   store i32 %status.sroa.0.0.copyload.pr, ptr %agg.result, align 8
-  %status.sroa.12.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.12.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.agg.result.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.tmp.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -879,9 +879,9 @@ if.end10:                                         ; preds = %if.end4
   br i1 %cmp13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
-  %status.sroa.12.0.tmp11.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 4
+  %status.sroa.12.0.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 4
   store i32 %status.sroa.0.0.copyload8, ptr %agg.result, align 8
-  %status.sroa.12.0.agg.result.sroa_idx14 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.12.0.agg.result.sroa_idx14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.agg.result.sroa_idx14, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.tmp11.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -892,9 +892,9 @@ if.end15:                                         ; preds = %if.end10
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %status.sroa.12.0.tmp16.sroa_idx = getelementptr inbounds i8, ptr %tmp16, i64 4
+  %status.sroa.12.0.tmp16.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp16, i64 4
   store i32 %status.sroa.0.0.copyload10, ptr %agg.result, align 8
-  %status.sroa.12.0.agg.result.sroa_idx15 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.12.0.agg.result.sroa_idx15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.agg.result.sroa_idx15, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.tmp16.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -905,9 +905,9 @@ if.end20:                                         ; preds = %if.end15
   br i1 %cmp23.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  %status.sroa.12.0.tmp21.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 4
+  %status.sroa.12.0.tmp21.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 4
   store i32 %status.sroa.0.0.copyload12, ptr %agg.result, align 8
-  %status.sroa.12.0.agg.result.sroa_idx16 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.12.0.agg.result.sroa_idx16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.agg.result.sroa_idx16, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.12.0.tmp21.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -932,11 +932,11 @@ define dso_local void @Py_PreInitializeFromBytesArgs(ptr noalias nocapture write
 entry:
   %args = alloca %struct._PyArgv, align 8
   store i64 %argc, ptr %args, align 8
-  %use_bytes_argv = getelementptr inbounds i8, ptr %args, i64 8
+  %use_bytes_argv = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i32 1, ptr %use_bytes_argv, align 8
-  %bytes_argv = getelementptr inbounds i8, ptr %args, i64 16
+  %bytes_argv = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr %argv, ptr %bytes_argv, align 8
-  %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
+  %wchar_argv = getelementptr inbounds nuw i8, ptr %args, i64 24
   store ptr null, ptr %wchar_argv, align 8
   call void @_Py_PreInitializeFromPyArgv(ptr sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %src_config, ptr noundef nonnull %args)
   ret void
@@ -947,11 +947,11 @@ define dso_local void @Py_PreInitializeFromArgs(ptr noalias nocapture writeonly 
 entry:
   %args = alloca %struct._PyArgv, align 8
   store i64 %argc, ptr %args, align 8
-  %use_bytes_argv = getelementptr inbounds i8, ptr %args, i64 8
+  %use_bytes_argv = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i32 0, ptr %use_bytes_argv, align 8
-  %bytes_argv = getelementptr inbounds i8, ptr %args, i64 16
+  %bytes_argv = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr null, ptr %bytes_argv, align 8
-  %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
+  %wchar_argv = getelementptr inbounds nuw i8, ptr %args, i64 24
   store ptr %argv, ptr %wchar_argv, align 8
   call void @_Py_PreInitializeFromPyArgv(ptr sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %src_config, ptr noundef nonnull %args)
   ret void
@@ -1000,7 +1000,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %preconfig, ptr noundef %config) #21
-  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
+  %parse_argv = getelementptr inbounds nuw i8, ptr %config, i64 104
   %1 = load i32, ptr %parse_argv, align 8
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %if.then5, label %if.else
@@ -1014,15 +1014,15 @@ if.else:                                          ; preds = %if.end3
   br i1 %cmp6, label %if.then7, label %if.else9
 
 if.then7:                                         ; preds = %if.else
-  %argv = getelementptr inbounds i8, ptr %config, i64 128
+  %argv = getelementptr inbounds nuw i8, ptr %config, i64 128
   %2 = load i64, ptr %argv, align 8
   store i64 %2, ptr %config_args, align 8
-  %use_bytes_argv = getelementptr inbounds i8, ptr %config_args, i64 8
+  %use_bytes_argv = getelementptr inbounds nuw i8, ptr %config_args, i64 8
   store i32 0, ptr %use_bytes_argv, align 8
-  %bytes_argv = getelementptr inbounds i8, ptr %config_args, i64 16
+  %bytes_argv = getelementptr inbounds nuw i8, ptr %config_args, i64 16
   store ptr null, ptr %bytes_argv, align 8
-  %wchar_argv = getelementptr inbounds i8, ptr %config_args, i64 24
-  %items = getelementptr inbounds i8, ptr %config, i64 136
+  %wchar_argv = getelementptr inbounds nuw i8, ptr %config_args, i64 24
+  %items = getelementptr inbounds nuw i8, ptr %config, i64 136
   %3 = load ptr, ptr %items, align 8
   store ptr %3, ptr %wchar_argv, align 8
   call void @_Py_PreInitializeFromPyArgv(ptr sret(%struct.PyStatus) align 8 %agg.result, ptr noundef nonnull %preconfig, ptr noundef nonnull %config_args)
@@ -1060,11 +1060,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.Py_InitializeFromConfig, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.133, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -1094,26 +1094,26 @@ _PyRuntime_Initialize.exit:                       ; preds = %if.end
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %_PyRuntime_Initialize.exit
-  %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 28
+  %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 28
   %status.sroa.9.sroa.9.0.copyload = load i32, ptr %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx, align 4
-  %status.sroa.9.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 4
-  %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 24
+  %status.sroa.9.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 4
+  %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 24
   %status.sroa.9.sroa.8.0.copyload = load i32, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
+  %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %status.sroa.9.sroa.7.0.copyload = load ptr, ptr %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 8
+  %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   %status.sroa.9.sroa.6.0.copyload = load ptr, ptr %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx, align 8
   %status.sroa.9.sroa.0.0.copyload = load i32, ptr %status.sroa.9.0.tmp.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload.pr, ptr %agg.result, align 8
-  %status.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.9.sroa.0.0.copyload, ptr %status.sroa.9.0.agg.result.sroa_idx, align 4
-  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.9.sroa.6.0.copyload, ptr %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.9.sroa.7.0.copyload, ptr %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.9.sroa.8.0.copyload, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.9.sroa.9.0.copyload, ptr %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx.sroa_idx, align 4
   br label %return
 
@@ -1159,7 +1159,7 @@ _Py_PreInitializeFromConfig.exit.i.thread:        ; preds = %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   call void @_PyPreConfig_InitFromConfig(ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config) #21, !noalias !26
-  %parse_argv.i.i = getelementptr inbounds i8, ptr %config, i64 104
+  %parse_argv.i.i = getelementptr inbounds nuw i8, ptr %config, i64 104
   %1 = load i32, ptr %parse_argv.i.i, align 8, !noalias !26
   %tobool4.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.else.i.i
@@ -1169,15 +1169,15 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i
   br label %_Py_PreInitializeFromConfig.exit.i
 
 if.else.i.i:                                      ; preds = %if.end3.i.i
-  %argv.i.i = getelementptr inbounds i8, ptr %config, i64 128
+  %argv.i.i = getelementptr inbounds nuw i8, ptr %config, i64 128
   %2 = load i64, ptr %argv.i.i, align 8, !noalias !26
   store i64 %2, ptr %config_args.i.i, align 8, !noalias !26
-  %use_bytes_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 8
+  %use_bytes_argv.i.i = getelementptr inbounds nuw i8, ptr %config_args.i.i, i64 8
   store i32 0, ptr %use_bytes_argv.i.i, align 8, !noalias !26
-  %bytes_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 16
+  %bytes_argv.i.i = getelementptr inbounds nuw i8, ptr %config_args.i.i, i64 16
   store ptr null, ptr %bytes_argv.i.i, align 8, !noalias !26
-  %wchar_argv.i.i = getelementptr inbounds i8, ptr %config_args.i.i, i64 24
-  %items.i.i = getelementptr inbounds i8, ptr %config, i64 136
+  %wchar_argv.i.i = getelementptr inbounds nuw i8, ptr %config_args.i.i, i64 24
+  %items.i.i = getelementptr inbounds nuw i8, ptr %config, i64 136
   %3 = load ptr, ptr %items.i.i, align 8, !noalias !26
   store ptr %3, ptr %wchar_argv.i.i, align 8, !noalias !26
   call void @_Py_PreInitializeFromPyArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %preconfig.i.i, ptr noundef nonnull %config_args.i.i), !noalias !17
@@ -1192,15 +1192,15 @@ _Py_PreInitializeFromConfig.exit.i:               ; preds = %if.else.i.i, %if.th
   br i1 %cmp.not.i, label %if.end.i12, label %pyinit_core.exit.thread
 
 pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFromConfig.exit.i
-  %tmp5.sroa.14.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 28
+  %tmp5.sroa.14.0.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 28
   %tmp5.sroa.14.0.copyload = load i32, ptr %tmp5.sroa.14.0.tmp.i.sroa_idx, align 4
-  %tmp5.sroa.13.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 24
+  %tmp5.sroa.13.0.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 24
   %tmp5.sroa.13.0.copyload = load i32, ptr %tmp5.sroa.13.0.tmp.i.sroa_idx, align 8
-  %tmp5.sroa.12.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %tmp5.sroa.12.0.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
   %tmp5.sroa.12.0.copyload = load ptr, ptr %tmp5.sroa.12.0.tmp.i.sroa_idx, align 8
-  %tmp5.sroa.11.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %tmp5.sroa.11.0.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   %tmp5.sroa.11.0.copyload = load ptr, ptr %tmp5.sroa.11.0.tmp.i.sroa_idx, align 8
-  %tmp5.sroa.9.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 4
+  %tmp5.sroa.9.0.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 4
   %tmp5.sroa.9.0.copyload = load i32, ptr %tmp5.sroa.9.0.tmp.i.sroa_idx, align 4
   br label %if.then8.sink.split
 
@@ -1208,15 +1208,15 @@ if.end.i12:                                       ; preds = %_Py_PreInitializeFr
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #21, !noalias !17
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !17
   %tmp5.sroa.0.0.copyload15 = load i32, ptr %tmp1.i, align 8
-  %tmp5.sroa.9.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 4
+  %tmp5.sroa.9.0.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 4
   %tmp5.sroa.9.0.copyload18 = load i32, ptr %tmp5.sroa.9.0.tmp1.i.sroa_idx, align 4
-  %tmp5.sroa.11.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 8
+  %tmp5.sroa.11.0.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 8
   %tmp5.sroa.11.0.copyload21 = load ptr, ptr %tmp5.sroa.11.0.tmp1.i.sroa_idx, align 8
-  %tmp5.sroa.12.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 16
+  %tmp5.sroa.12.0.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 16
   %tmp5.sroa.12.0.copyload24 = load ptr, ptr %tmp5.sroa.12.0.tmp1.i.sroa_idx, align 8
-  %tmp5.sroa.13.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 24
+  %tmp5.sroa.13.0.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 24
   %tmp5.sroa.13.0.copyload27 = load i32, ptr %tmp5.sroa.13.0.tmp1.i.sroa_idx, align 8
-  %tmp5.sroa.14.0.tmp1.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 28
+  %tmp5.sroa.14.0.tmp1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 28
   %tmp5.sroa.14.0.copyload30 = load i32, ptr %tmp5.sroa.14.0.tmp1.i.sroa_idx, align 4
   %cmp3.not.i = icmp eq i32 %tmp5.sroa.0.0.copyload15, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %pyinit_core.exit.thread90
@@ -1224,15 +1224,15 @@ if.end.i12:                                       ; preds = %_Py_PreInitializeFr
 if.end5.i:                                        ; preds = %if.end.i12
   call void @_PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6.i, ptr noundef nonnull %config.i, i32 noundef 0) #21, !noalias !17
   %tmp5.sroa.0.0.copyload16 = load i32, ptr %tmp6.i, align 8
-  %tmp5.sroa.9.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 4
+  %tmp5.sroa.9.0.tmp6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 4
   %tmp5.sroa.9.0.copyload19 = load i32, ptr %tmp5.sroa.9.0.tmp6.i.sroa_idx, align 4
-  %tmp5.sroa.11.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 8
+  %tmp5.sroa.11.0.tmp6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 8
   %tmp5.sroa.11.0.copyload22 = load ptr, ptr %tmp5.sroa.11.0.tmp6.i.sroa_idx, align 8
-  %tmp5.sroa.12.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 16
+  %tmp5.sroa.12.0.tmp6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 16
   %tmp5.sroa.12.0.copyload25 = load ptr, ptr %tmp5.sroa.12.0.tmp6.i.sroa_idx, align 8
-  %tmp5.sroa.13.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 24
+  %tmp5.sroa.13.0.tmp6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 24
   %tmp5.sroa.13.0.copyload28 = load i32, ptr %tmp5.sroa.13.0.tmp6.i.sroa_idx, align 8
-  %tmp5.sroa.14.0.tmp6.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 28
+  %tmp5.sroa.14.0.tmp6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 28
   %tmp5.sroa.14.0.copyload31 = load i32, ptr %tmp5.sroa.14.0.tmp6.i.sroa_idx, align 4
   %cmp8.not.i = icmp eq i32 %tmp5.sroa.0.0.copyload16, 0
   br i1 %cmp8.not.i, label %if.end10.i, label %pyinit_core.exit.thread90
@@ -1245,15 +1245,15 @@ if.end10.i:                                       ; preds = %if.end5.i
 if.then11.i:                                      ; preds = %if.end10.i
   call fastcc void @pyinit_config(ptr noalias align 8 %tmp12.i, ptr noundef nonnull %tstate, ptr noundef %config.i), !noalias !17
   %tmp5.sroa.0.0.copyload17 = load i32, ptr %tmp12.i, align 8
-  %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 4
+  %tmp5.sroa.9.0.tmp12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp12.i, i64 4
   %tmp5.sroa.9.0.copyload20 = load i32, ptr %tmp5.sroa.9.0.tmp12.i.sroa_idx, align 4
-  %tmp5.sroa.11.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 8
+  %tmp5.sroa.11.0.tmp12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp12.i, i64 8
   %tmp5.sroa.11.0.copyload23 = load ptr, ptr %tmp5.sroa.11.0.tmp12.i.sroa_idx, align 8
-  %tmp5.sroa.12.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 16
+  %tmp5.sroa.12.0.tmp12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp12.i, i64 16
   %tmp5.sroa.12.0.copyload26 = load ptr, ptr %tmp5.sroa.12.0.tmp12.i.sroa_idx, align 8
-  %tmp5.sroa.13.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 24
+  %tmp5.sroa.13.0.tmp12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp12.i, i64 24
   %tmp5.sroa.13.0.copyload29 = load i32, ptr %tmp5.sroa.13.0.tmp12.i.sroa_idx, align 8
-  %tmp5.sroa.14.0.tmp12.i.sroa_idx = getelementptr inbounds i8, ptr %tmp12.i, i64 28
+  %tmp5.sroa.14.0.tmp12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp12.i, i64 28
   %tmp5.sroa.14.0.copyload32 = load i32, ptr %tmp5.sroa.14.0.tmp12.i.sroa_idx, align 4
   br label %pyinit_core.exit
 
@@ -1268,7 +1268,7 @@ if.else.i:                                        ; preds = %if.end10.i
 
 if.end.i6.i:                                      ; preds = %if.else.i
   store ptr %6, ptr %tstate, align 8, !noalias !27
-  %interp1.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %interp1.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp1.i.i, align 8, !noalias !27
   %cmp.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i, label %pyinit_core_reconfigure.exit.i, label %if.end7.i.i
@@ -1280,41 +1280,41 @@ if.end7.i.i:                                      ; preds = %if.end.i6.i
   br i1 %cmp9.not.i.i, label %if.end11.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
-  %status.sroa.9.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 4
+  %status.sroa.9.0.tmp.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 4
   %tmp13.sroa.7.4.copyload.i = load i32, ptr %status.sroa.9.0.tmp.sroa_idx.i.i, align 4, !noalias !17
-  %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 8
+  %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 8
   %tmp13.sroa.10.4.copyload.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
+  %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 16
   %tmp13.sroa.12.4.copyload.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 24
+  %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 24
   %tmp13.sroa.14.4.copyload.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 28
+  %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 28
   %tmp13.sroa.16.4.copyload.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
 if.end11.i.i:                                     ; preds = %if.end7.i.i
-  %config13.i.i = getelementptr inbounds i8, ptr %7, i64 1592
+  %config13.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1592
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp12.i.i, ptr noundef nonnull %config13.i.i, ptr noundef nonnull %config.i) #21, !noalias !27
   %status.sroa.0.0.copyload8.i.i = load i32, ptr %tmp12.i.i, align 8, !noalias !27
   %cmp15.not.i.i = icmp eq i32 %status.sroa.0.0.copyload8.i.i, 0
   br i1 %cmp15.not.i.i, label %if.end17.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.end11.i.i
-  %status.sroa.9.0.tmp12.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 4
+  %status.sroa.9.0.tmp12.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %tmp12.i.i, i64 4
   %tmp13.sroa.7.4.copyload1.i = load i32, ptr %status.sroa.9.0.tmp12.sroa_idx.i.i, align 4, !noalias !17
-  %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 8
+  %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp12.i.i, i64 8
   %tmp13.sroa.10.4.copyload3.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 16
+  %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp12.i.i, i64 16
   %tmp13.sroa.12.4.copyload5.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 24
+  %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp12.i.i, i64 24
   %tmp13.sroa.14.4.copyload7.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp12.i.i, i64 28
+  %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp12.i.i, i64 28
   %tmp13.sroa.16.4.copyload9.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp12.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
 if.end17.i.i:                                     ; preds = %if.end11.i.i
   %call18.i.i = call ptr @_PyInterpreterState_GetConfig(ptr noundef nonnull %7) #21, !noalias !27
-  %_install_importlib.i.i = getelementptr inbounds i8, ptr %call18.i.i, i64 432
+  %_install_importlib.i.i = getelementptr inbounds nuw i8, ptr %call18.i.i, i64 432
   %8 = load i32, ptr %_install_importlib.i.i, align 8, !noalias !27
   %tobool19.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool19.not.i.i, label %pyinit_core_reconfigure.exit.i, label %if.then20.i.i
@@ -1326,15 +1326,15 @@ if.then20.i.i:                                    ; preds = %if.end17.i.i
   br i1 %cmp23.not.i.i, label %pyinit_core_reconfigure.exit.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.then20.i.i
-  %status.sroa.9.0.tmp21.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 4
+  %status.sroa.9.0.tmp21.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %tmp21.i.i, i64 4
   %tmp13.sroa.7.4.copyload2.i = load i32, ptr %status.sroa.9.0.tmp21.sroa_idx.i.i, align 4, !noalias !17
-  %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 8
+  %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp21.i.i, i64 8
   %tmp13.sroa.10.4.copyload4.i = load ptr, ptr %tmp13.sroa.10.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 16
+  %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp21.i.i, i64 16
   %tmp13.sroa.12.4.copyload6.i = load ptr, ptr %tmp13.sroa.12.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 24
+  %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp21.i.i, i64 24
   %tmp13.sroa.14.4.copyload8.i = load i32, ptr %tmp13.sroa.14.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 8, !noalias !17
-  %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %tmp21.i.i, i64 28
+  %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp21.i.i, i64 28
   %tmp13.sroa.16.4.copyload10.i = load i32, ptr %tmp13.sroa.16.4.status.sroa.9.0.tmp21.sroa_idx.i.sroa_idx.i, align 4, !noalias !17
   br label %pyinit_core_reconfigure.exit.i
 
@@ -1398,24 +1398,24 @@ if.then8:                                         ; preds = %if.then8.sink.split
   %tmp5.sroa.13.185 = phi i32 [ %tmp5.sroa.13.0, %pyinit_core.exit ], [ %tmp5.sroa.13.185.ph, %if.then8.sink.split ]
   %tmp5.sroa.14.184 = phi i32 [ %tmp5.sroa.14.0, %pyinit_core.exit ], [ %tmp5.sroa.14.184.ph, %if.then8.sink.split ]
   store i32 %tmp5.sroa.0.189, ptr %agg.result, align 8
-  %status.sroa.9.0.agg.result.sroa_idx8 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.9.0.agg.result.sroa_idx8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %tmp5.sroa.9.188, ptr %status.sroa.9.0.agg.result.sroa_idx8, align 4
-  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %tmp5.sroa.11.187, ptr %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx, align 8
-  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %tmp5.sroa.12.186, ptr %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx, align 8
-  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %tmp5.sroa.13.185, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx, align 8
-  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %tmp5.sroa.14.184, ptr %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx8.sroa_idx, align 4
   br label %return
 
 if.end9:                                          ; preds = %pyinit_core.exit
   %9 = load ptr, ptr %tstate, align 8
-  %interp = getelementptr inbounds i8, ptr %9, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp, align 8
   %call = call ptr @_PyInterpreterState_GetConfig(ptr noundef %10) #21
-  %_init_main = getelementptr inbounds i8, ptr %call, i64 436
+  %_init_main = getelementptr inbounds nuw i8, ptr %call, i64 436
   %11 = load i32, ptr %_init_main, align 4
   %tobool.not = icmp eq i32 %11, 0
   br i1 %tobool.not, label %if.end16, label %if.then10
@@ -1427,26 +1427,26 @@ if.then10:                                        ; preds = %if.end9
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.then10
-  %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 28
+  %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 28
   %status.sroa.9.sroa.9.0.copyload51 = load i32, ptr %status.sroa.9.sroa.9.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx, align 4
-  %status.sroa.9.0.tmp11.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 4
-  %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 24
+  %status.sroa.9.0.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 4
+  %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 24
   %status.sroa.9.sroa.8.0.copyload47 = load i32, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 16
+  %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 16
   %status.sroa.9.sroa.7.0.copyload43 = load ptr, ptr %status.sroa.9.sroa.7.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx, align 8
-  %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp11, i64 8
+  %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11, i64 8
   %status.sroa.9.sroa.6.0.copyload39 = load ptr, ptr %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp11.sroa_idx.sroa_idx, align 8
   %status.sroa.9.sroa.0.0.copyload35 = load i32, ptr %status.sroa.9.0.tmp11.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload6, ptr %agg.result, align 8
-  %status.sroa.9.0.agg.result.sroa_idx9 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.9.0.agg.result.sroa_idx9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.9.sroa.0.0.copyload35, ptr %status.sroa.9.0.agg.result.sroa_idx9, align 4
-  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.9.sroa.6.0.copyload39, ptr %status.sroa.9.sroa.6.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx, align 8
-  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.9.sroa.7.0.copyload43, ptr %status.sroa.9.sroa.7.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx, align 8
-  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.9.sroa.8.0.copyload47, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx, align 8
-  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.9.sroa.9.0.copyload51, ptr %status.sroa.9.sroa.9.0.status.sroa.9.0.agg.result.sroa_idx9.sroa_idx, align 4
   br label %return
 
@@ -1466,27 +1466,27 @@ entry:
   %status.i.i = alloca %struct.PyStatus, align 8
   %status8.i.i = alloca %struct.PyStatus, align 8
   %status = alloca %struct.PyStatus, align 8
-  %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
-  %runtime = getelementptr inbounds i8, ptr %0, i64 976
+  %runtime = getelementptr inbounds nuw i8, ptr %0, i64 976
   %1 = load ptr, ptr %runtime, align 8
-  %core_initialized = getelementptr inbounds i8, ptr %1, i64 308
+  %core_initialized = getelementptr inbounds nuw i8, ptr %1, i64 308
   %2 = load i32, ptr %core_initialized, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.pyinit_main, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.165, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %initialized = getelementptr inbounds i8, ptr %1, i64 312
+  %initialized = getelementptr inbounds nuw i8, ptr %1, i64 312
   %3 = load i32, ptr %initialized, align 8
   %tobool3.not = icmp eq i32 %3, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -1495,7 +1495,7 @@ if.then4:                                         ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i), !noalias !30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status8.i.i), !noalias !30
-  %config1.i.i = getelementptr inbounds i8, ptr %0, i64 1592
+  %config1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1592
   call void @_PyConfig_Write(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config1.i.i, ptr noundef nonnull %1) #21, !noalias !30
   %4 = load i32, ptr %status.i.i, align 8, !noalias !30
   %cmp.not.i.i = icmp eq i32 %4, 0
@@ -1526,9 +1526,9 @@ interpreter_update_config.exit.thread.i:          ; preds = %if.then7.i.i, %if.t
 
 interpreter_update_config.exit.i:                 ; preds = %if.then7.if.end13_crit_edge.i.i, %if.then.if.end4_crit_edge.i.i
   %7 = phi ptr [ %.pre7.i.i, %if.then7.if.end13_crit_edge.i.i ], [ %.pre.i.i, %if.then.if.end4_crit_edge.i.i ]
-  %int_max_str_digits.i.i = getelementptr inbounds i8, ptr %0, i64 1856
+  %int_max_str_digits.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1856
   %8 = load i32, ptr %int_max_str_digits.i.i, align 8, !noalias !30
-  %long_state.i.i = getelementptr inbounds i8, ptr %7, i64 267784
+  %long_state.i.i = getelementptr inbounds nuw i8, ptr %7, i64 267784
   store i32 %8, ptr %long_state.i.i, align 8, !noalias !30
   %call15.i.i = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %tstate) #21, !noalias !30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i), !noalias !30
@@ -1538,11 +1538,11 @@ interpreter_update_config.exit.i:                 ; preds = %if.then7.if.end13_c
 
 if.then.i:                                        ; preds = %interpreter_update_config.exit.i, %interpreter_update_config.exit.thread.i
   store i32 1, ptr %agg.result, align 8, !alias.scope !30
-  %func.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.pyinit_main_reconfigure, ptr %func.i, align 8, !alias.scope !30
-  %err_msg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.166, ptr %err_msg.i, align 8, !alias.scope !30
-  %exitcode.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode.i, align 8, !alias.scope !30
   br label %return
 
@@ -1604,7 +1604,7 @@ if.end:                                           ; preds = %_PyRuntime_Initiali
 
 if.end2:                                          ; preds = %if.end
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #21
-  %install_signal_handlers = getelementptr inbounds i8, ptr %config, i64 16
+  %install_signal_handlers = getelementptr inbounds nuw i8, ptr %config, i64 16
   store i32 %install_sigs, ptr %install_signal_handlers, align 8
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %config)
   call void @PyConfig_Clear(ptr noundef nonnull %config) #21
@@ -1630,7 +1630,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %exitcode = getelementptr inbounds i8, ptr %status, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %status, i64 24
   %1 = load i32, ptr %exitcode, align 8
   tail call void @exit(i32 noundef %1) #25
   unreachable
@@ -1638,9 +1638,9 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
   %call = tail call i32 @fileno(ptr noundef %2) #21
-  %func = getelementptr inbounds i8, ptr %status, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %status, i64 8
   %3 = load ptr, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %status, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %status, i64 16
   %4 = load ptr, ptr %err_msg, align 8
   tail call fastcc void @fatal_error(i32 noundef %call, i32 noundef 1, ptr noundef %3, ptr noundef %4, i32 noundef 1) #24
   unreachable
@@ -1702,23 +1702,23 @@ entry:
 _PyRuntimeState_SetFinalizing.exit:               ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp = getelementptr inbounds i8, ptr %2, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp, align 8
-  %finalizing = getelementptr inbounds i8, ptr %3, i64 924
+  %finalizing = getelementptr inbounds nuw i8, ptr %3, i64 924
   store i32 1, ptr %finalizing, align 4
   tail call fastcc void @wait_for_thread_shutdown(ptr noundef %2)
   tail call void @_Py_FinishPendingCalls(ptr noundef %2) #21
   %4 = load ptr, ptr %interp, align 8
   tail call void @_PyAtExit_Call(ptr noundef %4) #21
   %5 = load ptr, ptr %interp, align 8
-  %malloc_stats3 = getelementptr inbounds i8, ptr %5, i64 1664
+  %malloc_stats3 = getelementptr inbounds nuw i8, ptr %5, i64 1664
   %6 = load i32, ptr %malloc_stats3, align 8
-  %_finalizing.i = getelementptr inbounds i8, ptr %5, i64 984
+  %_finalizing.i = getelementptr inbounds nuw i8, ptr %5, i64 984
   %7 = ptrtoint ptr %2 to i64
   store atomic i64 %7, ptr %_finalizing.i monotonic, align 8
-  %thread_id.i = getelementptr inbounds i8, ptr %2, i64 144
+  %thread_id.i = getelementptr inbounds nuw i8, ptr %2, i64 144
   %8 = load i64, ptr %thread_id.i, align 8
-  %_finalizing_id.i = getelementptr inbounds i8, ptr %5, i64 992
+  %_finalizing_id.i = getelementptr inbounds nuw i8, ptr %5, i64 992
   store atomic i64 %8, ptr %_finalizing_id.i monotonic, align 8
   store atomic i64 %7, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %9 = load i64, ptr %thread_id.i, align 8
@@ -2025,7 +2025,7 @@ entry:
   %key.i = alloca ptr, align 8
   %value.i23 = alloca ptr, align 8
   %value.i = alloca ptr, align 8
-  %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
   %call = tail call ptr @_PyImport_GetModules(ptr noundef %0) #21
   %cmp = icmp eq ptr %call, null
@@ -2033,7 +2033,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %0) #21
-  %verbose3 = getelementptr inbounds i8, ptr %call2, i64 208
+  %verbose3 = getelementptr inbounds nuw i8, ptr %call2, i64 208
   %1 = load i32, ptr %verbose3, align 8
   %tstate.val = load ptr, ptr %interp1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -2045,7 +2045,7 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i21
 
 if.end.i21:                                       ; preds = %if.then.i, %if.end
-  %builtins.i = getelementptr inbounds i8, ptr %tstate.val, i64 1248
+  %builtins.i = getelementptr inbounds nuw i8, ptr %tstate.val, i64 1248
   %2 = load ptr, ptr %builtins.i, align 8
   %call.i = tail call i32 @PyDict_SetItemString(ptr noundef %2, ptr noundef nonnull @.str.229, ptr noundef nonnull @_Py_NoneStruct) #21
   %cmp.i22 = icmp slt i32 %call.i, 0
@@ -2059,7 +2059,7 @@ if.then2.i:                                       ; preds = %if.end.i21
   br label %for.body.i.preheader
 
 for.cond9.preheader.i:                            ; preds = %for.inc.i
-  %sysdict.i = getelementptr inbounds i8, ptr %tstate.val, i64 1240
+  %sysdict.i = getelementptr inbounds nuw i8, ptr %tstate.val, i64 1240
   br i1 %tobool.not.i, label %for.body11.us.i, label %for.body11.i
 
 for.body11.us.i:                                  ; preds = %for.cond9.preheader.i, %for.inc29.us.i
@@ -2655,7 +2655,7 @@ if.then2.i42:                                     ; preds = %if.else.i39
 
 finalize_clear_modules_dict.exit:                 ; preds = %if.then.i43, %if.else.i39, %if.then2.i42
   %tstate.val20 = load ptr, ptr %interp1, align 8
-  %builtins.i44 = getelementptr inbounds i8, ptr %tstate.val20, i64 1248
+  %builtins.i44 = getelementptr inbounds nuw i8, ptr %tstate.val20, i64 1248
   %69 = load ptr, ptr %builtins.i44, align 8
   %call.i45 = call ptr @PyDict_Copy(ptr noundef %69) #21
   %cmp.i46 = icmp eq ptr %call.i45, null
@@ -2669,7 +2669,7 @@ if.end.i47:                                       ; preds = %if.then.i55, %final
   %70 = load ptr, ptr %builtins.i44, align 8
   call void @PyDict_Clear(ptr noundef %70) #21
   %71 = load ptr, ptr %builtins.i44, align 8
-  %builtins_copy.i = getelementptr inbounds i8, ptr %tstate.val20, i64 2064
+  %builtins_copy.i = getelementptr inbounds nuw i8, ptr %tstate.val20, i64 2064
   %72 = load ptr, ptr %builtins_copy.i, align 8
   %call4.i = call i32 @PyDict_Update(ptr noundef %71, ptr noundef %72) #21
   %tobool.not.i48 = icmp eq i32 %call4.i, 0
@@ -2711,9 +2711,9 @@ if.then7:                                         ; preds = %finalize_restore_bu
   br i1 %cmp23.i, label %for.body.lr.ph.i, label %finalize_modules_clear_weaklist.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then7
-  %ob_item.i = getelementptr inbounds i8, ptr %call.i24, i64 24
-  %builtins.i56 = getelementptr inbounds i8, ptr %0, i64 1248
-  %sysdict.i57 = getelementptr inbounds i8, ptr %0, i64 1240
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call.i24, i64 24
+  %builtins.i56 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %sysdict.i57 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %for.inc.i64, %for.body.lr.ph.i
@@ -2721,7 +2721,7 @@ for.body.i59:                                     ; preds = %for.inc.i64, %for.b
   %76 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %76, i64 %i.024.i
   %77 = load ptr, ptr %arrayidx.i, align 8
-  %ob_item1.i = getelementptr inbounds i8, ptr %77, i64 24
+  %ob_item1.i = getelementptr inbounds nuw i8, ptr %77, i64 24
   %78 = load ptr, ptr %ob_item1.i, align 8
   %arrayidx4.i = getelementptr i8, ptr %77, i64 32
   %79 = load ptr, ptr %arrayidx4.i, align 8
@@ -2828,20 +2828,20 @@ if.end8:                                          ; preds = %if.end.i, %if.then1
 
 if.then.i70:                                      ; preds = %if.end8
   call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.239) #21
-  %sysdict.i71 = getelementptr inbounds i8, ptr %0, i64 1240
+  %sysdict.i71 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %94 = load ptr, ptr %sysdict.i71, align 8
   call void @_PyModule_ClearDict(ptr noundef %94) #21
   call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.240) #21
   br label %finalize_clear_sys_builtins_dict.exit
 
 if.end3.critedge.i:                               ; preds = %if.end8
-  %sysdict.c.i = getelementptr inbounds i8, ptr %0, i64 1240
+  %sysdict.c.i = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %95 = load ptr, ptr %sysdict.c.i, align 8
   call void @_PyModule_ClearDict(ptr noundef %95) #21
   br label %finalize_clear_sys_builtins_dict.exit
 
 finalize_clear_sys_builtins_dict.exit:            ; preds = %if.then.i70, %if.end3.critedge.i
-  %builtins.i73 = getelementptr inbounds i8, ptr %0, i64 1248
+  %builtins.i73 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %96 = load ptr, ptr %builtins.i73, align 8
   call void @_PyModule_ClearDict(ptr noundef %96) #21
   call void @_PyImport_ClearModulesByIndex(ptr noundef nonnull %0) #21
@@ -2868,7 +2868,7 @@ declare void @_PyHash_Fini() local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @finalize_interp_clear(ptr noundef %tstate) unnamed_addr #1 {
 entry:
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %0, %1
@@ -2956,26 +2956,26 @@ _PyRuntime_Initialize.exit:                       ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_PyRuntime_Initialize.exit
-  %status.sroa.17.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 28
+  %status.sroa.17.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 28
   %status.sroa.17.0.copyload = load i32, ptr %status.sroa.17.0.tmp.sroa_idx, align 4
-  %status.sroa.16.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 24
+  %status.sroa.16.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 24
   %status.sroa.16.0.copyload = load i32, ptr %status.sroa.16.0.tmp.sroa_idx, align 8
-  %status.sroa.15.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
+  %status.sroa.15.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %status.sroa.15.0.copyload = load ptr, ptr %status.sroa.15.0.tmp.sroa_idx, align 8
-  %status.sroa.14.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 8
+  %status.sroa.14.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   %status.sroa.14.0.copyload = load ptr, ptr %status.sroa.14.0.tmp.sroa_idx, align 8
-  %status.sroa.13.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 4
+  %status.sroa.13.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 4
   %status.sroa.13.0.copyload = load i32, ptr %status.sroa.13.0.tmp.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload.pr, ptr %agg.result, align 8
-  %status.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.13.0.copyload, ptr %status.sroa.13.0.agg.result.sroa_idx, align 4
-  %status.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.14.0.copyload, ptr %status.sroa.14.0.agg.result.sroa_idx, align 8
-  %status.sroa.15.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.15.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.15.0.copyload, ptr %status.sroa.15.0.agg.result.sroa_idx, align 8
-  %status.sroa.16.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.16.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.16.0.copyload, ptr %status.sroa.16.0.agg.result.sroa_idx, align 8
-  %status.sroa.17.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.17.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.17.0.copyload, ptr %status.sroa.17.0.agg.result.sroa_idx, align 4
   br label %return
 
@@ -2986,11 +2986,11 @@ if.end:                                           ; preds = %_PyRuntime_Initiali
 
 if.then1:                                         ; preds = %if.end
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.new_interpreter, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.241, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -3013,25 +3013,25 @@ if.end10:                                         ; preds = %if.end3
 
 if.then13:                                        ; preds = %if.end10
   call void @_PyThreadState_Detach(ptr noundef nonnull %2) #21
-  %interp17 = getelementptr inbounds i8, ptr %2, i64 16
+  %interp17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end10, %if.then13
   %.sink.in = phi ptr [ %interp17, %if.then13 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), %if.end10 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %call20 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %.sink) #21
-  %config23 = getelementptr inbounds i8, ptr %call, i64 1592
+  %config23 = getelementptr inbounds nuw i8, ptr %call, i64 1592
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp22, ptr noundef nonnull %config23, ptr noundef %call20) #21
   %status.sroa.0.0.copyload26 = load i32, ptr %tmp22, align 8
-  %status.sroa.13.0.tmp22.sroa_idx = getelementptr inbounds i8, ptr %tmp22, i64 4
+  %status.sroa.13.0.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22, i64 4
   %status.sroa.13.0.copyload32 = load i32, ptr %status.sroa.13.0.tmp22.sroa_idx, align 4
-  %status.sroa.14.0.tmp22.sroa_idx = getelementptr inbounds i8, ptr %tmp22, i64 8
+  %status.sroa.14.0.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22, i64 8
   %status.sroa.14.0.copyload39 = load ptr, ptr %status.sroa.14.0.tmp22.sroa_idx, align 8
-  %status.sroa.15.0.tmp22.sroa_idx = getelementptr inbounds i8, ptr %tmp22, i64 16
+  %status.sroa.15.0.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22, i64 16
   %status.sroa.15.0.copyload46 = load ptr, ptr %status.sroa.15.0.tmp22.sroa_idx, align 8
-  %status.sroa.16.0.tmp22.sroa_idx = getelementptr inbounds i8, ptr %tmp22, i64 24
+  %status.sroa.16.0.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22, i64 24
   %status.sroa.16.0.copyload53 = load i32, ptr %status.sroa.16.0.tmp22.sroa_idx, align 8
-  %status.sroa.17.0.tmp22.sroa_idx = getelementptr inbounds i8, ptr %tmp22, i64 28
+  %status.sroa.17.0.tmp22.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22, i64 28
   %status.sroa.17.0.copyload60 = load i32, ptr %status.sroa.17.0.tmp22.sroa_idx, align 4
   %cmp25.not = icmp eq i32 %status.sroa.0.0.copyload26, 0
   br i1 %cmp25.not, label %if.end27, label %error.thread
@@ -3042,85 +3042,85 @@ if.end27:                                         ; preds = %if.end21
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.end27
-  %feature_flags.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %4 = load i64, ptr %feature_flags.i, align 8, !noalias !48
   %or.i = or i64 %4, 32
   store i64 %or.i, ptr %feature_flags.i, align 8, !noalias !48
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end27
-  %check_multi_interp_extensions.i = getelementptr inbounds i8, ptr %config, i64 20
+  %check_multi_interp_extensions.i = getelementptr inbounds nuw i8, ptr %config, i64 20
   %5 = load i32, ptr %check_multi_interp_extensions.i, align 4, !noalias !48
   %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %error.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then.i69
-  %allow_fork.i = getelementptr inbounds i8, ptr %config, i64 4
+  %allow_fork.i = getelementptr inbounds nuw i8, ptr %config, i64 4
   %6 = load i32, ptr %allow_fork.i, align 4, !noalias !48
   %tobool4.not.i = icmp eq i32 %6, 0
   br i1 %tobool4.not.i, label %if.end8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %feature_flags6.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags6.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %7 = load i64, ptr %feature_flags6.i, align 8, !noalias !48
   %or7.i = or i64 %7, 32768
   store i64 %or7.i, ptr %feature_flags6.i, align 8, !noalias !48
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.end3.i
-  %allow_exec.i = getelementptr inbounds i8, ptr %config, i64 8
+  %allow_exec.i = getelementptr inbounds nuw i8, ptr %config, i64 8
   %8 = load i32, ptr %allow_exec.i, align 4, !noalias !48
   %tobool9.not.i = icmp eq i32 %8, 0
   br i1 %tobool9.not.i, label %if.end13.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %feature_flags11.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags11.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %9 = load i64, ptr %feature_flags11.i, align 8, !noalias !48
   %or12.i = or i64 %9, 65536
   store i64 %or12.i, ptr %feature_flags11.i, align 8, !noalias !48
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %allow_threads.i = getelementptr inbounds i8, ptr %config, i64 12
+  %allow_threads.i = getelementptr inbounds nuw i8, ptr %config, i64 12
   %10 = load i32, ptr %allow_threads.i, align 4, !noalias !48
   %tobool14.not.i = icmp eq i32 %10, 0
   br i1 %tobool14.not.i, label %if.end18.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end13.i
-  %feature_flags16.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags16.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %11 = load i64, ptr %feature_flags16.i, align 8, !noalias !48
   %or17.i = or i64 %11, 1024
   store i64 %or17.i, ptr %feature_flags16.i, align 8, !noalias !48
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then15.i, %if.end13.i
-  %allow_daemon_threads.i = getelementptr inbounds i8, ptr %config, i64 16
+  %allow_daemon_threads.i = getelementptr inbounds nuw i8, ptr %config, i64 16
   %12 = load i32, ptr %allow_daemon_threads.i, align 4, !noalias !48
   %tobool19.not.i = icmp eq i32 %12, 0
   br i1 %tobool19.not.i, label %if.end23.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end18.i
-  %feature_flags21.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags21.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %13 = load i64, ptr %feature_flags21.i, align 8, !noalias !48
   %or22.i = or i64 %13, 2048
   store i64 %or22.i, ptr %feature_flags21.i, align 8, !noalias !48
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.end18.i
-  %check_multi_interp_extensions24.i = getelementptr inbounds i8, ptr %config, i64 20
+  %check_multi_interp_extensions24.i = getelementptr inbounds nuw i8, ptr %config, i64 20
   %14 = load i32, ptr %check_multi_interp_extensions24.i, align 4, !noalias !48
   %tobool25.not.i = icmp eq i32 %14, 0
   br i1 %tobool25.not.i, label %if.end29.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end23.i
-  %feature_flags27.i = getelementptr inbounds i8, ptr %call, i64 2040
+  %feature_flags27.i = getelementptr inbounds nuw i8, ptr %call, i64 2040
   %15 = load i64, ptr %feature_flags27.i, align 8, !noalias !48
   %or28.i = or i64 %15, 256
   store i64 %or28.i, ptr %feature_flags27.i, align 8, !noalias !48
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then26.i, %if.end23.i
-  %gil.i = getelementptr inbounds i8, ptr %config, i64 24
+  %gil.i = getelementptr inbounds nuw i8, ptr %config, i64 24
   %16 = load i32, ptr %gil.i, align 4, !noalias !48
   %switch.i = icmp ult i32 %16, 3
   br i1 %switch.i, label %if.end32, label %error.thread
@@ -3136,15 +3136,15 @@ if.end40:                                         ; preds = %if.end32
   call fastcc void @init_interp_create_gil(ptr noundef %call33, i32 noundef %17)
   call fastcc void @pycore_interp_init(ptr noalias align 8 %tmp41, ptr noundef nonnull %call33)
   %status.sroa.0.0.copyload28 = load i32, ptr %tmp41, align 8
-  %status.sroa.13.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 4
+  %status.sroa.13.0.tmp41.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp41, i64 4
   %status.sroa.13.0.copyload34 = load i32, ptr %status.sroa.13.0.tmp41.sroa_idx, align 4
-  %status.sroa.14.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 8
+  %status.sroa.14.0.tmp41.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp41, i64 8
   %status.sroa.14.0.copyload41 = load ptr, ptr %status.sroa.14.0.tmp41.sroa_idx, align 8
-  %status.sroa.15.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 16
+  %status.sroa.15.0.tmp41.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp41, i64 16
   %status.sroa.15.0.copyload48 = load ptr, ptr %status.sroa.15.0.tmp41.sroa_idx, align 8
-  %status.sroa.16.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 24
+  %status.sroa.16.0.tmp41.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp41, i64 24
   %status.sroa.16.0.copyload55 = load i32, ptr %status.sroa.16.0.tmp41.sroa_idx, align 8
-  %status.sroa.17.0.tmp41.sroa_idx = getelementptr inbounds i8, ptr %tmp41, i64 28
+  %status.sroa.17.0.tmp41.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp41, i64 28
   %status.sroa.17.0.copyload62 = load i32, ptr %status.sroa.17.0.tmp41.sroa_idx, align 4
   %cmp43.not = icmp eq i32 %status.sroa.0.0.copyload28, 0
   br i1 %cmp43.not, label %if.end45, label %if.then56
@@ -3152,15 +3152,15 @@ if.end40:                                         ; preds = %if.end32
 if.end45:                                         ; preds = %if.end40
   call fastcc void @init_interp_main(ptr noalias align 8 %tmp46, ptr noundef nonnull %call33)
   %status.sroa.0.0.copyload29 = load i32, ptr %tmp46, align 8
-  %status.sroa.13.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 4
+  %status.sroa.13.0.tmp46.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp46, i64 4
   %status.sroa.13.0.copyload35 = load i32, ptr %status.sroa.13.0.tmp46.sroa_idx, align 4
-  %status.sroa.14.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 8
+  %status.sroa.14.0.tmp46.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp46, i64 8
   %status.sroa.14.0.copyload42 = load ptr, ptr %status.sroa.14.0.tmp46.sroa_idx, align 8
-  %status.sroa.15.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 16
+  %status.sroa.15.0.tmp46.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp46, i64 16
   %status.sroa.15.0.copyload49 = load ptr, ptr %status.sroa.15.0.tmp46.sroa_idx, align 8
-  %status.sroa.16.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 24
+  %status.sroa.16.0.tmp46.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp46, i64 24
   %status.sroa.16.0.copyload56 = load i32, ptr %status.sroa.16.0.tmp46.sroa_idx, align 8
-  %status.sroa.17.0.tmp46.sroa_idx = getelementptr inbounds i8, ptr %tmp46, i64 28
+  %status.sroa.17.0.tmp46.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp46, i64 28
   %status.sroa.17.0.copyload63 = load i32, ptr %status.sroa.17.0.tmp46.sroa_idx, align 4
   %cmp48.not = icmp eq i32 %status.sroa.0.0.copyload29, 0
   br i1 %cmp48.not, label %if.end50, label %if.then56
@@ -3209,15 +3209,15 @@ if.then59:                                        ; preds = %if.end57
 if.end60:                                         ; preds = %if.then59, %if.end57
   call void @PyInterpreterState_Delete(ptr noundef nonnull %call) #21
   store i32 %status.sroa.0.084, ptr %agg.result, align 8
-  %status.sroa.13.0.agg.result.sroa_idx36 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.13.0.agg.result.sroa_idx36 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.13.085, ptr %status.sroa.13.0.agg.result.sroa_idx36, align 4
-  %status.sroa.14.0.agg.result.sroa_idx43 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.14.0.agg.result.sroa_idx43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.14.086, ptr %status.sroa.14.0.agg.result.sroa_idx43, align 8
-  %status.sroa.15.0.agg.result.sroa_idx50 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.15.0.agg.result.sroa_idx50 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.15.087, ptr %status.sroa.15.0.agg.result.sroa_idx50, align 8
-  %status.sroa.16.0.agg.result.sroa_idx57 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.16.0.agg.result.sroa_idx57 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.16.088, ptr %status.sroa.16.0.agg.result.sroa_idx57, align 8
-  %status.sroa.17.0.agg.result.sroa_idx64 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.17.0.agg.result.sroa_idx64 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.17.089, ptr %status.sroa.17.0.agg.result.sroa_idx64, align 4
   br label %return
 
@@ -3248,7 +3248,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @Py_EndInterpreter(ptr noundef %tstate) local_unnamed_addr #1 {
 entry:
-  %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
@@ -3260,7 +3260,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %current_frame = getelementptr inbounds i8, ptr %tstate, i64 64
+  %current_frame = getelementptr inbounds nuw i8, ptr %tstate, i64 64
   %3 = load ptr, ptr %current_frame, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -3270,19 +3270,19 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %finalizing = getelementptr inbounds i8, ptr %0, i64 924
+  %finalizing = getelementptr inbounds nuw i8, ptr %0, i64 924
   store i32 1, ptr %finalizing, align 4
   tail call fastcc void @wait_for_thread_shutdown(ptr noundef nonnull %tstate)
   tail call void @_Py_FinishPendingCalls(ptr noundef nonnull %tstate) #21
   %4 = load ptr, ptr %interp1, align 8
   tail call void @_PyAtExit_Call(ptr noundef %4) #21
-  %head = getelementptr inbounds i8, ptr %0, i64 944
+  %head = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load ptr, ptr %head, align 8
   %cmp6.not = icmp eq ptr %tstate, %5
   br i1 %cmp6.not, label %lor.lhs.false, label %if.then8
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %next = getelementptr inbounds i8, ptr %tstate, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %tstate, i64 8
   %6 = load ptr, ptr %next, align 8
   %cmp7.not = icmp eq ptr %6, null
   br i1 %cmp7.not, label %_PyInterpreterState_SetFinalizing.exit, label %if.then8
@@ -3292,12 +3292,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   unreachable
 
 _PyInterpreterState_SetFinalizing.exit:           ; preds = %lor.lhs.false
-  %_finalizing.i = getelementptr inbounds i8, ptr %0, i64 984
+  %_finalizing.i = getelementptr inbounds nuw i8, ptr %0, i64 984
   %7 = ptrtoint ptr %tstate to i64
   store atomic i64 %7, ptr %_finalizing.i monotonic, align 8
-  %thread_id.i = getelementptr inbounds i8, ptr %tstate, i64 144
+  %thread_id.i = getelementptr inbounds nuw i8, ptr %tstate, i64 144
   %8 = load i64, ptr %thread_id.i, align 8
-  %_finalizing_id.i = getelementptr inbounds i8, ptr %0, i64 992
+  %_finalizing_id.i = getelementptr inbounds nuw i8, ptr %0, i64 992
   store atomic i64 %8, ptr %_finalizing_id.i monotonic, align 8
   %9 = load ptr, ptr %interp1, align 8
   tail call void @_PyImport_FiniExternal(ptr noundef %9) #21
@@ -3328,7 +3328,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_finalizing.i = getelementptr inbounds i8, ptr %interp, i64 984
+  %_finalizing.i = getelementptr inbounds nuw i8, ptr %interp, i64 984
   %1 = load atomic i64, ptr %_finalizing.i monotonic, align 8
   %2 = icmp ne i64 %1, 0
   %3 = zext i1 %2 to i32
@@ -3366,7 +3366,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.end72, label %if.end5
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %sysdict = getelementptr inbounds i8, ptr %interp, i64 1240
+  %sysdict = getelementptr inbounds nuw i8, ptr %interp, i64 1240
   %3 = load ptr, ptr %sysdict, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %if.end28, label %if.then7
@@ -3702,7 +3702,7 @@ if.else25:                                        ; preds = %fatal_error_dump_ru
 
 if.end31:                                         ; preds = %if.else25, %fatal_error_dump_runtime.exit
   %.pn = phi ptr [ %6, %fatal_error_dump_runtime.exit ], [ %call21, %if.else25 ]
-  %interp.0.in = getelementptr inbounds i8, ptr %.pn, i64 16
+  %interp.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %interp.0 = load ptr, ptr %interp.0.in, align 8
   %cmp32 = icmp ne ptr %call21, null
   %cmp34 = icmp eq ptr %call21, %6
@@ -3948,7 +3948,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @_Py_GetConfig() #21
-  %interactive = getelementptr inbounds i8, ptr %call2, i64 192
+  %interactive = getelementptr inbounds nuw i8, ptr %call2, i64 192
   %0 = load i32, ptr %interactive, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %return, label %if.end5
@@ -3988,7 +3988,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @_Py_GetConfig() #21
-  %interactive = getelementptr inbounds i8, ptr %call2, i64 192
+  %interactive = getelementptr inbounds nuw i8, ptr %call2, i64 192
   %0 = load i32, ptr %interactive, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %return, label %if.end5
@@ -4033,9 +4033,9 @@ entry:
   %context = alloca %struct.sigaction, align 8
   %ocontext = alloca %struct.sigaction, align 8
   store ptr %handler, ptr %context, align 8
-  %sa_mask = getelementptr inbounds i8, ptr %context, i64 8
+  %sa_mask = getelementptr inbounds nuw i8, ptr %context, i64 8
   %call = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #21
-  %sa_flags = getelementptr inbounds i8, ptr %context, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %context, i64 136
   store i32 134217728, ptr %sa_flags, align 8
   %call1 = call i32 @sigaction(i32 noundef %sig, ptr noundef nonnull %context, ptr noundef nonnull %ocontext) #21
   %cmp = icmp eq i32 %call1, -1
@@ -4080,21 +4080,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp13.i)
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 312), align 8, !noalias !54
   %tobool.not.i = icmp eq i32 %0, 0
-  %tmp.i.sink102.sroa.gep = getelementptr inbounds i8, ptr %tmp.i, i64 4
-  %tmp.i.sink102.sroa.gep103 = getelementptr inbounds i8, ptr %tmp8.i, i64 4
-  %tmp.i.sink102.sroa.gep104 = getelementptr inbounds i8, ptr %tmp13.i, i64 4
-  %tmp.i.sink102.sroa.gep106 = getelementptr inbounds i8, ptr %tmp.i, i64 8
-  %tmp.i.sink102.sroa.gep107 = getelementptr inbounds i8, ptr %tmp8.i, i64 8
-  %tmp.i.sink102.sroa.gep108 = getelementptr inbounds i8, ptr %tmp13.i, i64 8
-  %tmp.i.sink102.sroa.gep110 = getelementptr inbounds i8, ptr %tmp.i, i64 16
-  %tmp.i.sink102.sroa.gep111 = getelementptr inbounds i8, ptr %tmp8.i, i64 16
-  %tmp.i.sink102.sroa.gep112 = getelementptr inbounds i8, ptr %tmp13.i, i64 16
-  %tmp.i.sink102.sroa.gep114 = getelementptr inbounds i8, ptr %tmp.i, i64 24
-  %tmp.i.sink102.sroa.gep115 = getelementptr inbounds i8, ptr %tmp8.i, i64 24
-  %tmp.i.sink102.sroa.gep116 = getelementptr inbounds i8, ptr %tmp13.i, i64 24
-  %tmp.i.sink102.sroa.gep118 = getelementptr inbounds i8, ptr %tmp.i, i64 28
-  %tmp.i.sink102.sroa.gep119 = getelementptr inbounds i8, ptr %tmp8.i, i64 28
-  %tmp.i.sink102.sroa.gep120 = getelementptr inbounds i8, ptr %tmp13.i, i64 28
+  %tmp.i.sink102.sroa.gep = getelementptr inbounds nuw i8, ptr %tmp.i, i64 4
+  %tmp.i.sink102.sroa.gep103 = getelementptr inbounds nuw i8, ptr %tmp8.i, i64 4
+  %tmp.i.sink102.sroa.gep104 = getelementptr inbounds nuw i8, ptr %tmp13.i, i64 4
+  %tmp.i.sink102.sroa.gep106 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
+  %tmp.i.sink102.sroa.gep107 = getelementptr inbounds nuw i8, ptr %tmp8.i, i64 8
+  %tmp.i.sink102.sroa.gep108 = getelementptr inbounds nuw i8, ptr %tmp13.i, i64 8
+  %tmp.i.sink102.sroa.gep110 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
+  %tmp.i.sink102.sroa.gep111 = getelementptr inbounds nuw i8, ptr %tmp8.i, i64 16
+  %tmp.i.sink102.sroa.gep112 = getelementptr inbounds nuw i8, ptr %tmp13.i, i64 16
+  %tmp.i.sink102.sroa.gep114 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 24
+  %tmp.i.sink102.sroa.gep115 = getelementptr inbounds nuw i8, ptr %tmp8.i, i64 24
+  %tmp.i.sink102.sroa.gep116 = getelementptr inbounds nuw i8, ptr %tmp13.i, i64 24
+  %tmp.i.sink102.sroa.gep118 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 28
+  %tmp.i.sink102.sroa.gep119 = getelementptr inbounds nuw i8, ptr %tmp8.i, i64 28
+  %tmp.i.sink102.sroa.gep120 = getelementptr inbounds nuw i8, ptr %tmp13.i, i64 28
   br i1 %tobool.not.i, label %if.end.i, label %pycore_init_runtime.exit.thread
 
 if.end.i:                                         ; preds = %entry
@@ -4104,15 +4104,15 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end3.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %status.sroa.14.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 4
+  %status.sroa.14.0.status.i.sroa_idx = getelementptr inbounds nuw i8, ptr %status.i, i64 4
   %status.sroa.14.0.copyload15 = load i32, ptr %status.sroa.14.0.status.i.sroa_idx, align 4
-  %status.sroa.15.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 8
+  %status.sroa.15.0.status.i.sroa_idx = getelementptr inbounds nuw i8, ptr %status.i, i64 8
   %status.sroa.15.0.copyload24 = load ptr, ptr %status.sroa.15.0.status.i.sroa_idx, align 8
-  %status.sroa.17.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 16
+  %status.sroa.17.0.status.i.sroa_idx = getelementptr inbounds nuw i8, ptr %status.i, i64 16
   %status.sroa.17.0.copyload33 = load ptr, ptr %status.sroa.17.0.status.i.sroa_idx, align 8
-  %status.sroa.19.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 24
+  %status.sroa.19.0.status.i.sroa_idx = getelementptr inbounds nuw i8, ptr %status.i, i64 24
   %status.sroa.19.0.copyload42 = load i32, ptr %status.sroa.19.0.status.i.sroa_idx, align 8
-  %status.sroa.21.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 28
+  %status.sroa.21.0.status.i.sroa_idx = getelementptr inbounds nuw i8, ptr %status.i, i64 28
   %status.sroa.21.0.copyload51 = load i32, ptr %status.sroa.21.0.status.i.sroa_idx, align 4
   br label %pycore_init_runtime.exit.thread
 
@@ -4188,15 +4188,15 @@ if.then:                                          ; preds = %pycore_init_runtime
   %status.sroa.14.072 = phi i32 [ %status.sroa.14.0.ph, %pycore_init_runtime.exit.thread ], [ %status.sroa.14.0.copyload16, %pycore_init_runtime.exit ]
   %status.sroa.0.071 = phi i32 [ %status.sroa.0.0.ph, %pycore_init_runtime.exit.thread ], [ %status.sroa.0.0, %pycore_init_runtime.exit ]
   store i32 %status.sroa.0.071, ptr %agg.result, align 8
-  %status.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.14.072, ptr %status.sroa.14.0.agg.result.sroa_idx, align 4
-  %status.sroa.15.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.15.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.15.073, ptr %status.sroa.15.0.agg.result.sroa_idx, align 8
-  %status.sroa.17.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.17.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.17.074, ptr %status.sroa.17.0.agg.result.sroa_idx, align 8
-  %status.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.19.075, ptr %status.sroa.19.0.agg.result.sroa_idx, align 8
-  %status.sroa.21.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.21.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.21.076, ptr %status.sroa.21.0.agg.result.sroa_idx, align 4
   br label %return
 
@@ -4211,35 +4211,35 @@ if.end:                                           ; preds = %pycore_init_runtime
   br i1 %cmp.not.i5, label %if.end.i7, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.end
-  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 28
+  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i4, i64 28
   %status.sroa.12.sroa.11.0.copyload.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 4, !noalias !57
-  %status.sroa.12.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 4
-  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 24
+  %status.sroa.12.0.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i4, i64 4
+  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i4, i64 24
   %status.sroa.12.sroa.10.0.copyload.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 16
+  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i4, i64 16
   %status.sroa.12.sroa.9.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i4, i64 8
+  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i4, i64 8
   %status.sroa.12.sroa.8.0.copyload.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.0.0.copyload.i = load i32, ptr %status.sroa.12.0.tmp.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
 
 if.end.i7:                                        ; preds = %if.end
   %5 = load ptr, ptr %interp.i, align 8, !noalias !57
-  %config.i = getelementptr inbounds i8, ptr %5, i64 1592
+  %config.i = getelementptr inbounds nuw i8, ptr %5, i64 1592
   call void @_PyConfig_Copy(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i, ptr noundef nonnull %config) #21, !noalias !57
   %status.sroa.0.0.copyload8.i = load i32, ptr %tmp1.i, align 8, !noalias !57
   %cmp3.not.i = icmp eq i32 %status.sroa.0.0.copyload8.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i7
-  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 28
+  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 28
   %status.sroa.12.sroa.11.0.copyload28.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 4, !noalias !57
-  %status.sroa.12.0.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 4
-  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 24
+  %status.sroa.12.0.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 4
+  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 24
   %status.sroa.12.sroa.10.0.copyload22.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 16
+  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 16
   %status.sroa.12.sroa.9.0.copyload16.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 8
+  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 8
   %status.sroa.12.sroa.8.0.copyload10.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp1.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.0.0.copyload4.i = load i32, ptr %status.sroa.12.0.tmp1.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
@@ -4252,21 +4252,21 @@ if.end5.i:                                        ; preds = %if.end.i7
   br i1 %cmp8.not.i, label %if.end16.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 28
+  %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 28
   %status.sroa.12.sroa.11.0.copyload30.i = load i32, ptr %status.sroa.12.sroa.11.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 4, !noalias !57
-  %status.sroa.12.0.tmp6.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 4
-  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 24
+  %status.sroa.12.0.tmp6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 4
+  %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 24
   %status.sroa.12.sroa.10.0.copyload24.i = load i32, ptr %status.sroa.12.sroa.10.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 16
+  %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 16
   %status.sroa.12.sroa.9.0.copyload18.i = load ptr, ptr %status.sroa.12.sroa.9.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
-  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 8
+  %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 8
   %status.sroa.12.sroa.8.0.copyload12.i = load ptr, ptr %status.sroa.12.sroa.8.0.status.sroa.12.0.tmp6.sroa_idx.sroa_idx.i, align 8, !noalias !57
   %status.sroa.12.sroa.0.0.copyload6.i = load i32, ptr %status.sroa.12.0.tmp6.sroa_idx.i, align 4, !noalias !57
   br label %if.then3
 
 if.end16.i:                                       ; preds = %if.end5.i
   %7 = load ptr, ptr %interp.i, align 8, !noalias !57
-  %feature_flags.i.i = getelementptr inbounds i8, ptr %7, i64 2040
+  %feature_flags.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2040
   %8 = load i64, ptr %feature_flags.i.i, align 8, !noalias !60
   %or22.i.i = or i64 %8, 101408
   store i64 %or22.i.i, ptr %feature_flags.i.i, align 8, !noalias !60
@@ -4286,15 +4286,15 @@ if.then3:                                         ; preds = %if.then9.i, %if.the
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6.i)
   store i32 %tmp.sroa.0.0.ph, ptr %agg.result, align 8
-  %status.sroa.14.0.agg.result.sroa_idx10 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.14.0.agg.result.sroa_idx10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %tmp.sroa.6.0.ph, ptr %status.sroa.14.0.agg.result.sroa_idx10, align 4
-  %status.sroa.15.0.agg.result.sroa_idx19 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.15.0.agg.result.sroa_idx19 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %tmp.sroa.9.0.ph, ptr %status.sroa.15.0.agg.result.sroa_idx19, align 8
-  %status.sroa.17.0.agg.result.sroa_idx28 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.17.0.agg.result.sroa_idx28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %tmp.sroa.13.0.ph, ptr %status.sroa.17.0.agg.result.sroa_idx28, align 8
-  %status.sroa.19.0.agg.result.sroa_idx37 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.19.0.agg.result.sroa_idx37 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %tmp.sroa.17.0.ph, ptr %status.sroa.19.0.agg.result.sroa_idx37, align 8
-  %status.sroa.21.0.agg.result.sroa_idx46 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.21.0.agg.result.sroa_idx46 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %tmp.sroa.21.0.ph, ptr %status.sroa.21.0.agg.result.sroa_idx46, align 4
   br label %return
 
@@ -4312,26 +4312,26 @@ if.end4:                                          ; preds = %if.end16.i
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %status.sroa.21.0.tmp5.sroa_idx = getelementptr inbounds i8, ptr %tmp5, i64 28
+  %status.sroa.21.0.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp5, i64 28
   %status.sroa.21.0.copyload48 = load i32, ptr %status.sroa.21.0.tmp5.sroa_idx, align 4
-  %status.sroa.19.0.tmp5.sroa_idx = getelementptr inbounds i8, ptr %tmp5, i64 24
+  %status.sroa.19.0.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp5, i64 24
   %status.sroa.19.0.copyload39 = load i32, ptr %status.sroa.19.0.tmp5.sroa_idx, align 8
-  %status.sroa.17.0.tmp5.sroa_idx = getelementptr inbounds i8, ptr %tmp5, i64 16
+  %status.sroa.17.0.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp5, i64 16
   %status.sroa.17.0.copyload30 = load ptr, ptr %status.sroa.17.0.tmp5.sroa_idx, align 8
-  %status.sroa.15.0.tmp5.sroa_idx = getelementptr inbounds i8, ptr %tmp5, i64 8
+  %status.sroa.15.0.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp5, i64 8
   %status.sroa.15.0.copyload21 = load ptr, ptr %status.sroa.15.0.tmp5.sroa_idx, align 8
-  %status.sroa.14.0.tmp5.sroa_idx = getelementptr inbounds i8, ptr %tmp5, i64 4
+  %status.sroa.14.0.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp5, i64 4
   %status.sroa.14.0.copyload12 = load i32, ptr %status.sroa.14.0.tmp5.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload4, ptr %agg.result, align 8
-  %status.sroa.14.0.agg.result.sroa_idx13 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.14.0.agg.result.sroa_idx13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.14.0.copyload12, ptr %status.sroa.14.0.agg.result.sroa_idx13, align 4
-  %status.sroa.15.0.agg.result.sroa_idx22 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.15.0.agg.result.sroa_idx22 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.15.0.copyload21, ptr %status.sroa.15.0.agg.result.sroa_idx22, align 8
-  %status.sroa.17.0.agg.result.sroa_idx31 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.17.0.agg.result.sroa_idx31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.17.0.copyload30, ptr %status.sroa.17.0.agg.result.sroa_idx31, align 8
-  %status.sroa.19.0.agg.result.sroa_idx40 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.19.0.agg.result.sroa_idx40 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.19.0.copyload39, ptr %status.sroa.19.0.agg.result.sroa_idx40, align 8
-  %status.sroa.21.0.agg.result.sroa_idx49 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.21.0.agg.result.sroa_idx49 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.21.0.copyload48, ptr %status.sroa.21.0.agg.result.sroa_idx49, align 4
   br label %return
 
@@ -4365,7 +4365,7 @@ entry:
   %tmp31 = alloca %struct.PyStatus, align 8
   %tmp36 = alloca %struct.PyStatus, align 8
   %tmp42 = alloca %struct.PyStatus, align 8
-  %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
   store ptr null, ptr %sysmod, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
@@ -4376,27 +4376,27 @@ entry:
   br i1 %cmp.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %status.sroa.3.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
+  %status.sroa.3.0.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 4
   %tmp.sroa.3.sroa.0.0.copyload = load i32, ptr %status.sroa.3.0.tmp.sroa_idx.i, align 4
-  %tmp.sroa.3.sroa.3.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %tmp.sroa.3.sroa.3.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   %tmp.sroa.3.sroa.3.0.copyload = load ptr, ptr %tmp.sroa.3.sroa.3.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp.sroa.3.sroa.4.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %tmp.sroa.3.sroa.4.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
   %tmp.sroa.3.sroa.4.0.copyload = load ptr, ptr %tmp.sroa.3.sroa.4.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp.sroa.3.sroa.5.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 24
+  %tmp.sroa.3.sroa.5.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 24
   %tmp.sroa.3.sroa.5.0.copyload = load i32, ptr %tmp.sroa.3.sroa.5.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp.sroa.3.sroa.6.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 28
+  %tmp.sroa.3.sroa.6.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i, i64 28
   %tmp.sroa.3.sroa.6.0.copyload = load i32, ptr %tmp.sroa.3.sroa.6.0.status.sroa.3.0.tmp.sroa_idx.i.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   store i32 %status.sroa.0.0.copyload.i, ptr %agg.result, align 8
-  %status.sroa.22.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.22.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %tmp.sroa.3.sroa.0.0.copyload, ptr %status.sroa.22.0.agg.result.sroa_idx, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %tmp.sroa.3.sroa.3.0.copyload, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %tmp.sroa.3.sroa.4.0.copyload, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %tmp.sroa.3.sroa.5.0.copyload, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %tmp.sroa.3.sroa.6.0.copyload, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx.sroa_idx, align 4
   br label %return
 
@@ -4409,26 +4409,26 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp2, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp2, i64 28
   %status.sroa.22.sroa.17.0.copyload136 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx, align 4
-  %status.sroa.22.0.tmp2.sroa_idx = getelementptr inbounds i8, ptr %tmp2, i64 4
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp2, i64 24
+  %status.sroa.22.0.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp2, i64 4
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp2, i64 24
   %status.sroa.22.sroa.16.0.copyload124 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp2, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp2, i64 16
   %status.sroa.22.sroa.15.0.copyload112 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp2, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp2, i64 8
   %status.sroa.22.sroa.14.0.copyload100 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp2.sroa_idx.sroa_idx, align 8
   %status.sroa.22.sroa.0.0.copyload88 = load i32, ptr %status.sroa.22.0.tmp2.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload9, ptr %agg.result, align 8
-  %status.sroa.22.0.agg.result.sroa_idx21 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.22.0.agg.result.sroa_idx21 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.22.sroa.0.0.copyload88, ptr %status.sroa.22.0.agg.result.sroa_idx21, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.22.sroa.14.0.copyload100, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.22.sroa.15.0.copyload112, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.22.sroa.16.0.copyload124, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.22.sroa.17.0.copyload136, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx21.sroa_idx, align 4
   br label %return
 
@@ -4439,26 +4439,26 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp7, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp7, i64 28
   %status.sroa.22.sroa.17.0.copyload138 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx, align 4
-  %status.sroa.22.0.tmp7.sroa_idx = getelementptr inbounds i8, ptr %tmp7, i64 4
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp7, i64 24
+  %status.sroa.22.0.tmp7.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp7, i64 4
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp7, i64 24
   %status.sroa.22.sroa.16.0.copyload126 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp7, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp7, i64 16
   %status.sroa.22.sroa.15.0.copyload114 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp7, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp7, i64 8
   %status.sroa.22.sroa.14.0.copyload102 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp7.sroa_idx.sroa_idx, align 8
   %status.sroa.22.sroa.0.0.copyload90 = load i32, ptr %status.sroa.22.0.tmp7.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload11, ptr %agg.result, align 8
-  %status.sroa.22.0.agg.result.sroa_idx22 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.22.0.agg.result.sroa_idx22 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.22.sroa.0.0.copyload90, ptr %status.sroa.22.0.agg.result.sroa_idx22, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.22.sroa.14.0.copyload102, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.22.sroa.15.0.copyload114, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.22.sroa.16.0.copyload126, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.22.sroa.17.0.copyload138, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx22.sroa_idx, align 4
   br label %return
 
@@ -4478,15 +4478,15 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp.not.i37, label %if.end.i39, label %if.then.i38
 
 if.then.i38:                                      ; preds = %if.end11
-  %status.sroa.27.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i35, i64 4
+  %status.sroa.27.0.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp.i35, i64 4
   %tmp12.sroa.12.4.copyload43 = load i32, ptr %status.sroa.27.0.tmp.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i35, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i35, i64 8
   %tmp12.sroa.22.4.copyload52 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i35, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i35, i64 16
   %tmp12.sroa.23.4.copyload61 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i35, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i35, i64 24
   %tmp12.sroa.24.4.copyload70 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i35, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp.i35, i64 28
   %tmp12.sroa.25.4.copyload79 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4497,15 +4497,15 @@ if.end.i39:                                       ; preds = %if.end11
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i39
-  %status.sroa.27.0.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %tmp1.i, i64 4
+  %status.sroa.27.0.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 4
   %tmp12.sroa.12.4.copyload44 = load i32, ptr %status.sroa.27.0.tmp1.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 8
   %tmp12.sroa.22.4.copyload53 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 16
   %tmp12.sroa.23.4.copyload62 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 24
   %tmp12.sroa.24.4.copyload71 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp1.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp1.i, i64 28
   %tmp12.sroa.25.4.copyload80 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp1.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4516,15 +4516,15 @@ if.end5.i:                                        ; preds = %if.end.i39
   br i1 %cmp8.not.i, label %if.end10.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %status.sroa.27.0.tmp6.sroa_idx.i = getelementptr inbounds i8, ptr %tmp6.i, i64 4
+  %status.sroa.27.0.tmp6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 4
   %tmp12.sroa.12.4.copyload45 = load i32, ptr %status.sroa.27.0.tmp6.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 8
   %tmp12.sroa.22.4.copyload54 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 16
   %tmp12.sroa.23.4.copyload63 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 24
   %tmp12.sroa.24.4.copyload72 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp6.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp6.i, i64 28
   %tmp12.sroa.25.4.copyload81 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp6.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4535,15 +4535,15 @@ if.end10.i:                                       ; preds = %if.end5.i
   br i1 %cmp13.not.i, label %if.end15.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end10.i
-  %status.sroa.27.0.tmp11.sroa_idx.i = getelementptr inbounds i8, ptr %tmp11.i, i64 4
+  %status.sroa.27.0.tmp11.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp11.i, i64 4
   %tmp12.sroa.12.4.copyload46 = load i32, ptr %status.sroa.27.0.tmp11.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp11.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11.i, i64 8
   %tmp12.sroa.22.4.copyload55 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp11.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11.i, i64 16
   %tmp12.sroa.23.4.copyload64 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp11.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11.i, i64 24
   %tmp12.sroa.24.4.copyload73 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp11.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp11.i, i64 28
   %tmp12.sroa.25.4.copyload82 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp11.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4559,15 +4559,15 @@ if.end19.i:                                       ; preds = %if.end15.i
   br i1 %cmp22.not.i, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end19.i
-  %status.sroa.27.0.tmp20.sroa_idx.i = getelementptr inbounds i8, ptr %tmp20.i, i64 4
+  %status.sroa.27.0.tmp20.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp20.i, i64 4
   %tmp12.sroa.12.4.copyload47 = load i32, ptr %status.sroa.27.0.tmp20.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp20.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp20.i, i64 8
   %tmp12.sroa.22.4.copyload56 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp20.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp20.i, i64 16
   %tmp12.sroa.23.4.copyload65 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp20.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp20.i, i64 24
   %tmp12.sroa.24.4.copyload74 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp20.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp20.i, i64 28
   %tmp12.sroa.25.4.copyload83 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp20.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4578,15 +4578,15 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %cmp27.not.i, label %if.end29.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end24.i
-  %status.sroa.27.0.tmp25.sroa_idx.i = getelementptr inbounds i8, ptr %tmp25.i, i64 4
+  %status.sroa.27.0.tmp25.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp25.i, i64 4
   %tmp12.sroa.12.4.copyload48 = load i32, ptr %status.sroa.27.0.tmp25.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp25.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp25.i, i64 8
   %tmp12.sroa.22.4.copyload57 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp25.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp25.i, i64 16
   %tmp12.sroa.23.4.copyload66 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp25.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp25.i, i64 24
   %tmp12.sroa.24.4.copyload75 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp25.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp25.i, i64 28
   %tmp12.sroa.25.4.copyload84 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp25.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4597,15 +4597,15 @@ if.end29.i:                                       ; preds = %if.end24.i
   br i1 %cmp32.not.i, label %if.end34.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end29.i
-  %status.sroa.27.0.tmp30.sroa_idx.i = getelementptr inbounds i8, ptr %tmp30.i, i64 4
+  %status.sroa.27.0.tmp30.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp30.i, i64 4
   %tmp12.sroa.12.4.copyload49 = load i32, ptr %status.sroa.27.0.tmp30.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp30.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp30.i, i64 8
   %tmp12.sroa.22.4.copyload58 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp30.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp30.i, i64 16
   %tmp12.sroa.23.4.copyload67 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp30.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp30.i, i64 24
   %tmp12.sroa.24.4.copyload76 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp30.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp30.i, i64 28
   %tmp12.sroa.25.4.copyload85 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp30.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4616,15 +4616,15 @@ if.end34.i:                                       ; preds = %if.end29.i
   br i1 %cmp37.not.i, label %if.end39.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end34.i
-  %status.sroa.27.0.tmp35.sroa_idx.i = getelementptr inbounds i8, ptr %tmp35.i, i64 4
+  %status.sroa.27.0.tmp35.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp35.i, i64 4
   %tmp12.sroa.12.4.copyload50 = load i32, ptr %status.sroa.27.0.tmp35.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp35.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp35.i, i64 8
   %tmp12.sroa.22.4.copyload59 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp35.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp35.i, i64 16
   %tmp12.sroa.23.4.copyload68 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp35.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp35.i, i64 24
   %tmp12.sroa.24.4.copyload77 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp35.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp35.i, i64 28
   %tmp12.sroa.25.4.copyload86 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp35.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4635,15 +4635,15 @@ if.end39.i:                                       ; preds = %if.end34.i
   br i1 %cmp42.not.i, label %if.end16, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end39.i
-  %status.sroa.27.0.tmp40.sroa_idx.i = getelementptr inbounds i8, ptr %tmp40.i, i64 4
+  %status.sroa.27.0.tmp40.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tmp40.i, i64 4
   %tmp12.sroa.12.4.copyload51 = load i32, ptr %status.sroa.27.0.tmp40.sroa_idx.i, align 4
-  %tmp12.sroa.22.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp40.i, i64 8
+  %tmp12.sroa.22.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp40.i, i64 8
   %tmp12.sroa.22.4.copyload60 = load ptr, ptr %tmp12.sroa.22.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.23.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp40.i, i64 16
+  %tmp12.sroa.23.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp40.i, i64 16
   %tmp12.sroa.23.4.copyload69 = load ptr, ptr %tmp12.sroa.23.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.24.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp40.i, i64 24
+  %tmp12.sroa.24.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp40.i, i64 24
   %tmp12.sroa.24.4.copyload78 = load i32, ptr %tmp12.sroa.24.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx, align 8
-  %tmp12.sroa.25.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %tmp40.i, i64 28
+  %tmp12.sroa.25.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp40.i, i64 28
   %tmp12.sroa.25.4.copyload87 = load i32, ptr %tmp12.sroa.25.4.status.sroa.27.0.tmp40.sroa_idx.i.sroa_idx, align 4
   br label %pycore_init_types.exit.thread
 
@@ -4681,11 +4681,11 @@ if.end16:                                         ; preds = %if.end39.i
 
 if.then18:                                        ; preds = %if.end16
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.pycore_interp_init, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.158, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -4696,41 +4696,41 @@ if.end20:                                         ; preds = %if.end16
   br i1 %cmp23.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 28
   %status.sroa.22.sroa.17.0.copyload140 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx, align 4
-  %status.sroa.22.0.tmp21.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 4
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 24
+  %status.sroa.22.0.tmp21.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 4
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 24
   %status.sroa.22.sroa.16.0.copyload128 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 16
   %status.sroa.22.sroa.15.0.copyload116 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp21, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp21, i64 8
   %status.sroa.22.sroa.14.0.copyload104 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp21.sroa_idx.sroa_idx, align 8
   %status.sroa.22.sroa.0.0.copyload92 = load i32, ptr %status.sroa.22.0.tmp21.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload14, ptr %agg.result, align 8
-  %status.sroa.22.0.agg.result.sroa_idx23 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.22.0.agg.result.sroa_idx23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.22.sroa.0.0.copyload92, ptr %status.sroa.22.0.agg.result.sroa_idx23, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.22.sroa.14.0.copyload104, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.22.sroa.15.0.copyload116, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.22.sroa.16.0.copyload128, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.22.sroa.17.0.copyload140, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx23.sroa_idx, align 4
   br label %return
 
 if.end25:                                         ; preds = %if.end20
   call void @_PySys_Create(ptr nonnull sret(%struct.PyStatus) align 8 %tmp26, ptr noundef nonnull %tstate, ptr noundef nonnull %sysmod) #21
   %status.sroa.0.0.copyload16 = load i32, ptr %tmp26, align 8
-  %status.sroa.22.0.tmp26.sroa_idx = getelementptr inbounds i8, ptr %tmp26, i64 4
+  %status.sroa.22.0.tmp26.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp26, i64 4
   %status.sroa.22.sroa.0.0.copyload94 = load i32, ptr %status.sroa.22.0.tmp26.sroa_idx, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp26, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp26, i64 8
   %status.sroa.22.sroa.14.0.copyload106 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp26, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp26, i64 16
   %status.sroa.22.sroa.15.0.copyload118 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp26, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp26, i64 24
   %status.sroa.22.sroa.16.0.copyload130 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp26, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp26, i64 28
   %status.sroa.22.sroa.17.0.copyload142 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp26.sroa_idx.sroa_idx, align 4
   %cmp28.not = icmp eq i32 %status.sroa.0.0.copyload16, 0
   br i1 %cmp28.not, label %if.end30, label %done
@@ -4739,15 +4739,15 @@ if.end30:                                         ; preds = %if.end25
   %tstate.val = load ptr, ptr %interp1, align 8
   call fastcc void @pycore_init_builtins(ptr noalias align 8 %tmp31, ptr %tstate.val)
   %status.sroa.0.0.copyload17 = load i32, ptr %tmp31, align 8
-  %status.sroa.22.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 4
+  %status.sroa.22.0.tmp31.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp31, i64 4
   %status.sroa.22.sroa.0.0.copyload95 = load i32, ptr %status.sroa.22.0.tmp31.sroa_idx, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp31, i64 8
   %status.sroa.22.sroa.14.0.copyload107 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp31, i64 16
   %status.sroa.22.sroa.15.0.copyload119 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp31, i64 24
   %status.sroa.22.sroa.16.0.copyload131 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp31, i64 28
   %status.sroa.22.sroa.17.0.copyload143 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp31.sroa_idx.sroa_idx, align 4
   %cmp33.not = icmp eq i32 %status.sroa.0.0.copyload17, 0
   br i1 %cmp33.not, label %if.end35, label %done
@@ -4755,15 +4755,15 @@ if.end30:                                         ; preds = %if.end25
 if.end35:                                         ; preds = %if.end30
   call void @_PyXI_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp36, ptr noundef %0) #21
   %status.sroa.0.0.copyload18 = load i32, ptr %tmp36, align 8
-  %status.sroa.22.0.tmp36.sroa_idx = getelementptr inbounds i8, ptr %tmp36, i64 4
+  %status.sroa.22.0.tmp36.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp36, i64 4
   %status.sroa.22.sroa.0.0.copyload96 = load i32, ptr %status.sroa.22.0.tmp36.sroa_idx, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp36, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp36, i64 8
   %status.sroa.22.sroa.14.0.copyload108 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp36, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp36, i64 16
   %status.sroa.22.sroa.15.0.copyload120 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp36, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp36, i64 24
   %status.sroa.22.sroa.16.0.copyload132 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp36, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp36, i64 28
   %status.sroa.22.sroa.17.0.copyload144 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp36.sroa_idx.sroa_idx, align 4
   %cmp38.not = icmp eq i32 %status.sroa.0.0.copyload18, 0
   br i1 %cmp38.not, label %if.end40, label %done
@@ -4771,19 +4771,19 @@ if.end35:                                         ; preds = %if.end30
 if.end40:                                         ; preds = %if.end35
   %call41 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %0) #21
   %1 = load ptr, ptr %sysmod, align 8
-  %_install_importlib = getelementptr inbounds i8, ptr %call41, i64 432
+  %_install_importlib = getelementptr inbounds nuw i8, ptr %call41, i64 432
   %2 = load i32, ptr %_install_importlib, align 8
   call void @_PyImport_InitCore(ptr nonnull sret(%struct.PyStatus) align 8 %tmp42, ptr noundef nonnull %tstate, ptr noundef %1, i32 noundef %2) #21
   %status.sroa.0.0.copyload19 = load i32, ptr %tmp42, align 8
-  %status.sroa.22.0.tmp42.sroa_idx = getelementptr inbounds i8, ptr %tmp42, i64 4
+  %status.sroa.22.0.tmp42.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp42, i64 4
   %status.sroa.22.sroa.0.0.copyload97 = load i32, ptr %status.sroa.22.0.tmp42.sroa_idx, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp42, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp42, i64 8
   %status.sroa.22.sroa.14.0.copyload109 = load ptr, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp42, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp42, i64 16
   %status.sroa.22.sroa.15.0.copyload121 = load ptr, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp42, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp42, i64 24
   %status.sroa.22.sroa.16.0.copyload133 = load i32, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %tmp42, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp42, i64 28
   %status.sroa.22.sroa.17.0.copyload145 = load i32, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.tmp42.sroa_idx.sroa_idx, align 4
   br label %done
 
@@ -4816,15 +4816,15 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_XDECREF.exit:                                  ; preds = %done, %if.then.i41, %if.end.i.i, %if.then1.i.i
   store i32 %status.sroa.0.0, ptr %agg.result, align 8
-  %status.sroa.22.0.agg.result.sroa_idx24 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.22.0.agg.result.sroa_idx24 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %status.sroa.22.sroa.0.0, ptr %status.sroa.22.0.agg.result.sroa_idx24, align 4
-  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %status.sroa.22.sroa.14.0, ptr %status.sroa.22.sroa.14.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx, align 8
-  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %status.sroa.22.sroa.15.0, ptr %status.sroa.22.sroa.15.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx, align 8
-  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %status.sroa.22.sroa.16.0, ptr %status.sroa.22.sroa.16.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx, align 8
-  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %status.sroa.22.sroa.17.0, ptr %status.sroa.22.sroa.17.0.status.sroa.22.0.agg.result.sroa_idx24.sroa_idx, align 4
   br label %return
 
@@ -4851,7 +4851,7 @@ declare void @_PyThreadState_Bind(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_interp_create_gil(ptr noundef nonnull %tstate, i32 noundef %gil) unnamed_addr #1 {
 entry:
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   tail call void @_PyEval_FiniGIL(ptr noundef %0) #21
   tail call void @_PyGILState_SetTstate(ptr noundef nonnull %tstate) #21
@@ -4906,35 +4906,35 @@ if.end.i.i:                                       ; preds = %if.end10
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end10, %if.end.i.i
-  %builtins = getelementptr inbounds i8, ptr %tstate.16.val, i64 1248
+  %builtins = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 1248
   store ptr %call7, ptr %builtins, align 8
   %call12 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48864)) #21
   %tobool.not = icmp eq ptr %call12, null
   br i1 %tobool.not, label %if.then.i, label %if.end14
 
 if.end14:                                         ; preds = %_Py_NewRef.exit
-  %callable_cache = getelementptr inbounds i8, ptr %tstate.16.val, i64 414888
+  %callable_cache = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 414888
   store ptr %call12, ptr %callable_cache, align 8
   %call16 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 50304)) #21
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.then.i, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %len21 = getelementptr inbounds i8, ptr %tstate.16.val, i64 414896
+  %len21 = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 414896
   store ptr %call16, ptr %len21, align 8
   %call22 = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyList_Type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37952)) #21
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.then.i, label %if.end25
 
 if.end25:                                         ; preds = %if.end19
-  %list_append27 = getelementptr inbounds i8, ptr %tstate.16.val, i64 414904
+  %list_append27 = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 414904
   store ptr %call22, ptr %list_append27, align 8
   %call28 = tail call ptr @_PyType_Lookup(ptr noundef nonnull @PyBaseObject_Type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216)) #21
   %cmp29 = icmp eq ptr %call28, null
   br i1 %cmp29, label %if.then.i, label %if.end31
 
 if.end31:                                         ; preds = %if.end25
-  %object__getattribute__33 = getelementptr inbounds i8, ptr %tstate.16.val, i64 414912
+  %object__getattribute__33 = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 414912
   store ptr %call28, ptr %object__getattribute__33, align 8
   %call34 = tail call i32 @_PyBuiltins_AddExceptions(ptr noundef nonnull %call) #21
   %cmp35 = icmp slt i32 %call34, 0
@@ -4942,18 +4942,18 @@ if.end31:                                         ; preds = %if.end25
 
 if.then36:                                        ; preds = %if.end31
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.pycore_init_builtins, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.161, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
 if.end37:                                         ; preds = %if.end31
   %1 = load ptr, ptr %builtins, align 8
   %call39 = tail call ptr @PyDict_Copy(ptr noundef %1) #21
-  %builtins_copy = getelementptr inbounds i8, ptr %tstate.16.val, i64 2064
+  %builtins_copy = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 2064
   store ptr %call39, ptr %builtins_copy, align 8
   %cmp41 = icmp eq ptr %call39, null
   br i1 %cmp41, label %if.then.i, label %if.end43
@@ -5001,11 +5001,11 @@ if.then1.i.i:                                     ; preds = %if.end.i.i26
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i26, %if.then1.i.i
   store i32 1, ptr %agg.result, align 8
-  %func53 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func53 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.pycore_init_builtins, ptr %func53, align 8
-  %err_msg54 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg54 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.162, ptr %err_msg54, align 8
-  %exitcode55 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode55 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode55, align 8
   br label %return
 
@@ -5073,12 +5073,12 @@ entry:
   %tmp76 = alloca %struct.PyStatus, align 8
   %tmp81 = alloca %struct.PyStatus, align 8
   %tmp104 = alloca %struct.PyStatus, align 8
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i79.not = icmp eq ptr %0, %1
   %call3 = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %0) #21
-  %_install_importlib = getelementptr inbounds i8, ptr %call3, i64 432
+  %_install_importlib = getelementptr inbounds nuw i8, ptr %call3, i64 432
   %2 = load i32, ptr %_install_importlib, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end6
@@ -5087,9 +5087,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i79.not, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %runtime = getelementptr inbounds i8, ptr %0, i64 976
+  %runtime = getelementptr inbounds nuw i8, ptr %0, i64 976
   %3 = load ptr, ptr %runtime, align 8
-  %initialized = getelementptr inbounds i8, ptr %3, i64 312
+  %initialized = getelementptr inbounds nuw i8, ptr %3, i64 312
   store i32 1, ptr %initialized, align 8
   br label %if.end
 
@@ -5098,16 +5098,16 @@ if.end:                                           ; preds = %if.then5, %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %config7 = getelementptr inbounds i8, ptr %0, i64 1592
+  %config7 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   call void @_PyConfig_InitImportConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config7) #21
   %status.sroa.0.0.copyload = load i32, ptr %tmp, align 8
   %cmp.not = icmp eq i32 %status.sroa.0.0.copyload, 0
   br i1 %cmp.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %status.sroa.24.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 4
+  %status.sroa.24.0.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp, i64 4
   store i32 %status.sroa.0.0.copyload, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5119,7 +5119,7 @@ if.end10:                                         ; preds = %if.end6
   br i1 %cmp.i.not.i, label %if.then7.i, label %interpreter_update_config.exit
 
 if.then7.i:                                       ; preds = %if.end10
-  %config1.i = getelementptr inbounds i8, ptr %4, i64 1592
+  %config1.i = getelementptr inbounds nuw i8, ptr %4, i64 1592
   call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %status8.i, ptr noundef nonnull %config1.i) #21
   %6 = load i32, ptr %status8.i, align 8
   %cmp10.not.i = icmp eq i32 %6, 0
@@ -5136,9 +5136,9 @@ interpreter_update_config.exit.thread:            ; preds = %if.then7.i
 
 interpreter_update_config.exit:                   ; preds = %if.end10, %if.then7.if.end13_crit_edge.i
   %7 = phi ptr [ %.pre7.i, %if.then7.if.end13_crit_edge.i ], [ %4, %if.end10 ]
-  %int_max_str_digits.i = getelementptr inbounds i8, ptr %4, i64 1856
+  %int_max_str_digits.i = getelementptr inbounds nuw i8, ptr %4, i64 1856
   %8 = load i32, ptr %int_max_str_digits.i, align 8
-  %long_state.i = getelementptr inbounds i8, ptr %7, i64 267784
+  %long_state.i = getelementptr inbounds nuw i8, ptr %7, i64 267784
   store i32 %8, ptr %long_state.i, align 8
   %call15.i = call i32 @_PySys_UpdateConfig(ptr noundef nonnull %tstate) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status8.i)
@@ -5147,11 +5147,11 @@ interpreter_update_config.exit:                   ; preds = %if.end10, %if.then7
 
 if.then13:                                        ; preds = %interpreter_update_config.exit.thread, %interpreter_update_config.exit
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.167, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -5162,9 +5162,9 @@ if.end15:                                         ; preds = %interpreter_update_
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %status.sroa.24.0.tmp16.sroa_idx = getelementptr inbounds i8, ptr %tmp16, i64 4
+  %status.sroa.24.0.tmp16.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp16, i64 4
   store i32 %status.sroa.0.0.copyload42, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx56 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx56 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx56, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp16.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5172,7 +5172,7 @@ if.end20:                                         ; preds = %if.end15
   br i1 %cmp.i79.not, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %if.end20
-  %faulthandler = getelementptr inbounds i8, ptr %call3, i64 32
+  %faulthandler = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %9 = load i32, ptr %faulthandler, align 8
   call void @_PyFaulthandler_Init(ptr nonnull sret(%struct.PyStatus) align 8 %tmp23, i32 noundef %9) #21
   %status.sroa.0.0.copyload44 = load i32, ptr %tmp23, align 8
@@ -5180,9 +5180,9 @@ if.then22:                                        ; preds = %if.end20
   br i1 %cmp25.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %if.then22
-  %status.sroa.24.0.tmp23.sroa_idx = getelementptr inbounds i8, ptr %tmp23, i64 4
+  %status.sroa.24.0.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp23, i64 4
   store i32 %status.sroa.0.0.copyload44, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx57 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx57 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx57, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp23.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5193,9 +5193,9 @@ if.end28:                                         ; preds = %if.then22, %if.end2
   br i1 %cmp31.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
-  %status.sroa.24.0.tmp29.sroa_idx = getelementptr inbounds i8, ptr %tmp29, i64 4
+  %status.sroa.24.0.tmp29.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp29, i64 4
   store i32 %status.sroa.0.0.copyload46, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx58 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx58 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx58, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp29.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5203,7 +5203,7 @@ if.end33:                                         ; preds = %if.end28
   br i1 %cmp.i79.not, label %if.then35, label %if.end70
 
 if.then35:                                        ; preds = %if.end33
-  %install_signal_handlers = getelementptr inbounds i8, ptr %call3, i64 16
+  %install_signal_handlers = getelementptr inbounds nuw i8, ptr %call3, i64 16
   %10 = load i32, ptr %install_signal_handlers, align 8
   %call36 = call i32 @_PySignal_Init(i32 noundef %10) #21
   %cmp37 = icmp slt i32 %call36, 0
@@ -5211,16 +5211,16 @@ if.then35:                                        ; preds = %if.end33
 
 if.then38:                                        ; preds = %if.then35
   store i32 1, ptr %agg.result, align 8
-  %func40 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func40 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func40, align 8
-  %err_msg41 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.168, ptr %err_msg41, align 8
-  %exitcode42 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode42 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode42, align 8
   br label %return
 
 if.end43:                                         ; preds = %if.then35
-  %tracemalloc = getelementptr inbounds i8, ptr %call3, i64 36
+  %tracemalloc = getelementptr inbounds nuw i8, ptr %call3, i64 36
   %11 = load i32, ptr %tracemalloc, align 4
   %tobool44.not = icmp eq i32 %11, 0
   br i1 %tobool44.not, label %if.end55, label %if.then45
@@ -5232,16 +5232,16 @@ if.then45:                                        ; preds = %if.end43
 
 if.then49:                                        ; preds = %if.then45
   store i32 1, ptr %agg.result, align 8
-  %func51 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func51 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func51, align 8
-  %err_msg52 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg52 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.169, ptr %err_msg52, align 8
-  %exitcode53 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode53 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode53, align 8
   br label %return
 
 if.end55:                                         ; preds = %if.then45, %if.end43
-  %perf_profiling = getelementptr inbounds i8, ptr %call3, i64 40
+  %perf_profiling = getelementptr inbounds nuw i8, ptr %call3, i64 40
   %12 = load i32, ptr %perf_profiling, align 8
   %tobool56.not = icmp eq i32 %12, 0
   br i1 %tobool56.not, label %if.end70, label %if.then57
@@ -5259,11 +5259,11 @@ lor.lhs.false:                                    ; preds = %if.then57
 
 if.then63:                                        ; preds = %lor.lhs.false, %if.then57
   store i32 1, ptr %agg.result, align 8
-  %func65 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func65, align 8
-  %err_msg66 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg66 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.170, ptr %err_msg66, align 8
-  %exitcode67 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode67 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode67, align 8
   br label %return
 
@@ -5274,9 +5274,9 @@ if.end70:                                         ; preds = %if.end55, %lor.lhs.
   br i1 %cmp73.not, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.end70
-  %status.sroa.24.0.tmp71.sroa_idx = getelementptr inbounds i8, ptr %tmp71, i64 4
+  %status.sroa.24.0.tmp71.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp71, i64 4
   store i32 %status.sroa.0.0.copyload48, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx59 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx59 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx59, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp71.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5287,9 +5287,9 @@ if.end75:                                         ; preds = %if.end70
   br i1 %cmp78.not, label %if.end80, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
-  %status.sroa.24.0.tmp76.sroa_idx = getelementptr inbounds i8, ptr %tmp76, i64 4
+  %status.sroa.24.0.tmp76.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp76, i64 4
   store i32 %status.sroa.0.0.copyload50, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx60 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx60 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx60, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp76.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5300,9 +5300,9 @@ if.end80:                                         ; preds = %if.end75
   br i1 %cmp83.not, label %if.end85, label %if.then84
 
 if.then84:                                        ; preds = %if.end80
-  %status.sroa.24.0.tmp81.sroa_idx = getelementptr inbounds i8, ptr %tmp81, i64 4
+  %status.sroa.24.0.tmp81.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp81, i64 4
   store i32 %status.sroa.0.0.copyload52, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx61 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx61 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx61, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp81.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5347,14 +5347,14 @@ if.then95:                                        ; preds = %if.then92
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then95, %land.lhs.true, %if.then87
-  %runtime99 = getelementptr inbounds i8, ptr %0, i64 976
+  %runtime99 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %18 = load ptr, ptr %runtime99, align 8
-  %initialized100 = getelementptr inbounds i8, ptr %18, i64 312
+  %initialized100 = getelementptr inbounds nuw i8, ptr %18, i64 312
   store i32 1, ptr %initialized100, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end98, %if.end85
-  %site_import = getelementptr inbounds i8, ptr %call3, i64 176
+  %site_import = getelementptr inbounds nuw i8, ptr %call3, i64 176
   %19 = load i32, ptr %site_import, align 8
   %tobool102.not = icmp eq i32 %19, 0
   br i1 %tobool102.not, label %if.end109, label %if.then103
@@ -5366,9 +5366,9 @@ if.then103:                                       ; preds = %if.end101
   br i1 %cmp106.not, label %if.end109, label %if.then107
 
 if.then107:                                       ; preds = %if.then103
-  %status.sroa.24.0.tmp104.sroa_idx = getelementptr inbounds i8, ptr %tmp104, i64 4
+  %status.sroa.24.0.tmp104.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp104, i64 4
   store i32 %status.sroa.0.0.copyload54, ptr %agg.result, align 8
-  %status.sroa.24.0.agg.result.sroa_idx62 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %status.sroa.24.0.agg.result.sroa_idx62 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.agg.result.sroa_idx62, ptr noundef nonnull align 4 dereferenceable(28) %status.sroa.24.0.tmp104.sroa_idx, i64 28, i1 false)
   br label %return
 
@@ -5376,7 +5376,7 @@ if.end109:                                        ; preds = %if.then103, %if.end
   br i1 %cmp.i79.not, label %if.then111, label %if.then139
 
 if.then111:                                       ; preds = %if.end109
-  %runtime112 = getelementptr inbounds i8, ptr %0, i64 976
+  %runtime112 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %20 = load ptr, ptr %runtime112, align 8
   %21 = getelementptr i8, ptr %20, i64 3560
   %.val = load i32, ptr %21, align 4
@@ -5392,7 +5392,7 @@ land.rhs:                                         ; preds = %if.then111
 
 land.end:                                         ; preds = %land.rhs, %if.then111
   %land.ext = phi i1 [ true, %if.then111 ], [ %cmp118, %land.rhs ]
-  %xoptions = getelementptr inbounds i8, ptr %call3, i64 144
+  %xoptions = getelementptr inbounds nuw i8, ptr %call3, i64 144
   %call120 = call ptr @_Py_get_xoption(ptr noundef nonnull %xoptions, ptr noundef nonnull @.str.175) #21
   %cmp121.not = icmp eq ptr %call120, null
   %tobool125.not = select i1 %cmp121.not, i1 %land.ext, i1 false
@@ -5405,11 +5405,11 @@ if.then126:                                       ; preds = %land.end
 
 if.then130:                                       ; preds = %if.then126
   store i32 1, ptr %agg.result, align 8
-  %func132 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func132 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func132, align 8
-  %err_msg133 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg133 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.176, ptr %err_msg133, align 8
-  %exitcode134 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode134 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode134, align 8
   br label %return
 
@@ -5431,7 +5431,7 @@ if.then1.i209:                                    ; preds = %if.end.i206
   br label %if.end180
 
 if.then139:                                       ; preds = %if.end109
-  %sys_path_0 = getelementptr inbounds i8, ptr %call3, i64 424
+  %sys_path_0 = getelementptr inbounds nuw i8, ptr %call3, i64 424
   %25 = load ptr, ptr %sys_path_0, align 8
   %cmp140.not = icmp eq ptr %25, null
   br i1 %cmp140.not, label %if.end180, label %if.then142
@@ -5443,16 +5443,16 @@ if.then142:                                       ; preds = %if.then139
 
 if.then147:                                       ; preds = %if.then142
   store i32 1, ptr %agg.result, align 8
-  %func149 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func149 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func149, align 8
-  %err_msg150 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg150 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.177, ptr %err_msg150, align 8
-  %exitcode151 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode151 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode151, align 8
   br label %return
 
 if.end152:                                        ; preds = %if.then142
-  %sysdict153 = getelementptr inbounds i8, ptr %0, i64 1240
+  %sysdict153 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %26 = load ptr, ptr %sysdict153, align 8
   %cmp154 = icmp eq ptr %26, null
   br i1 %cmp154, label %if.then156, label %if.end161
@@ -5475,11 +5475,11 @@ if.then1.i200:                                    ; preds = %if.end.i197
 
 Py_DECREF.exit202:                                ; preds = %if.then156, %if.then1.i200, %if.end.i197
   store i32 1, ptr %agg.result, align 8
-  %func158 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func158 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func158, align 8
-  %err_msg159 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg159 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.177, ptr %err_msg159, align 8
-  %exitcode160 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode160 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode160, align 8
   br label %return
 
@@ -5506,11 +5506,11 @@ if.then1.i191:                                    ; preds = %if.end.i188
 
 Py_DECREF.exit193:                                ; preds = %if.then165, %if.then1.i191, %if.end.i188
   store i32 1, ptr %agg.result, align 8
-  %func167 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func167 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func167, align 8
-  %err_msg168 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg168 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.177, ptr %err_msg168, align 8
-  %exitcode169 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode169 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode169, align 8
   br label %return
 
@@ -5537,11 +5537,11 @@ Py_DECREF.exit:                                   ; preds = %if.end170, %if.then
 
 if.then173:                                       ; preds = %Py_DECREF.exit
   store i32 1, ptr %agg.result, align 8
-  %func175 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func175 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_interp_main, ptr %func175, align 8
-  %err_msg176 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg176 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.177, ptr %err_msg176, align 8
-  %exitcode177 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode177 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode177, align 8
   br label %return
 
@@ -5573,7 +5573,7 @@ declare i32 @_PyPerfTrampoline_Init(i32 noundef) local_unnamed_addr #0
 define internal fastcc void @init_sys_streams(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %sb = alloca %struct.stat, align 8
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %call = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %0) #21
   %1 = load ptr, ptr @stdin, align 8
@@ -5583,7 +5583,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %st_mode = getelementptr inbounds i8, ptr %sb, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %and = and i32 %2, 61440
   %cmp3 = icmp eq i32 %and, 16384
@@ -5591,11 +5591,11 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_sys_streams, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.178, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -5607,9 +5607,9 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.end6:                                          ; preds = %if.end
   %3 = load ptr, ptr @stdin, align 8
   %call7 = call i32 @fileno(ptr noundef %3) #21
-  %stdio_encoding = getelementptr inbounds i8, ptr %call, i64 232
+  %stdio_encoding = getelementptr inbounds nuw i8, ptr %call, i64 232
   %4 = load ptr, ptr %stdio_encoding, align 8
-  %stdio_errors = getelementptr inbounds i8, ptr %call, i64 240
+  %stdio_errors = getelementptr inbounds nuw i8, ptr %call, i64 240
   %5 = load ptr, ptr %stdio_errors, align 8
   %6 = getelementptr i8, ptr %call, i64 224
   %call.val = load i32, ptr %6, align 8
@@ -5794,15 +5794,15 @@ Py_XDECREF.exit55:                                ; preds = %if.end, %if.then.i4
   %res.sroa.4.062 = phi ptr [ %res.sroa.4.0.ph, %if.then.i48 ], [ %res.sroa.4.0.ph, %if.end.i.i51 ], [ %res.sroa.4.0.ph, %if.then1.i.i54 ], [ @__func__.init_sys_streams, %if.end ]
   %res.sroa.5.060 = phi ptr [ %res.sroa.5.0.ph, %if.then.i48 ], [ %res.sroa.5.0.ph, %if.end.i.i51 ], [ %res.sroa.5.0.ph, %if.then1.i.i54 ], [ @.str.187, %if.end ]
   store i32 %res.sroa.0.064, ptr %agg.result, align 8
-  %res.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %res.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 0, ptr %res.sroa.3.0.agg.result.sroa_idx, align 4
-  %res.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %res.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %res.sroa.4.062, ptr %res.sroa.4.0.agg.result.sroa_idx, align 8
-  %res.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %res.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %res.sroa.5.060, ptr %res.sroa.5.0.agg.result.sroa_idx, align 8
-  %res.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %res.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %res.sroa.6.0.agg.result.sroa_idx, align 8
-  %res.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %res.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 0, ptr %res.sroa.7.0.agg.result.sroa_idx, align 4
   br label %return
 
@@ -5859,21 +5859,21 @@ if.then1.i:                                       ; preds = %if.end.i
 
 done.thread11:                                    ; preds = %if.end, %if.then6, %if.then1.i14, %if.end.i11
   store i32 1, ptr %agg.result, align 8
-  %.compoundliteral.sroa.21.0.agg.result.sroa_idx12 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %.compoundliteral.sroa.21.0.agg.result.sroa_idx12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_set_builtins_open, ptr %.compoundliteral.sroa.21.0.agg.result.sroa_idx12, align 8
-  %.compoundliteral.sroa.3.0.agg.result.sroa_idx13 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %.compoundliteral.sroa.3.0.agg.result.sroa_idx13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.195, ptr %.compoundliteral.sroa.3.0.agg.result.sroa_idx13, align 8
-  %.compoundliteral.sroa.4.0.agg.result.sroa_idx14 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %.compoundliteral.sroa.4.0.agg.result.sroa_idx14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %.compoundliteral.sroa.4.0.agg.result.sroa_idx14, align 8
   br label %if.then.i
 
 done:                                             ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %.compoundliteral.sroa.21.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %.compoundliteral.sroa.21.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_set_builtins_open, ptr %.compoundliteral.sroa.21.0.agg.result.sroa_idx, align 8
-  %.compoundliteral.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %.compoundliteral.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.195, ptr %.compoundliteral.sroa.3.0.agg.result.sroa_idx, align 8
-  %.compoundliteral.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %.compoundliteral.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %.compoundliteral.sroa.4.0.agg.result.sroa_idx, align 8
   br label %Py_XDECREF.exit
 
@@ -5907,11 +5907,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.197, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -5928,11 +5928,11 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
   store i32 1, ptr %agg.result, align 8
-  %func8 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func8, align 8
-  %err_msg9 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.199, ptr %err_msg9, align 8
-  %exitcode10 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode10, align 8
   br label %return
 
@@ -5959,11 +5959,11 @@ Py_DECREF.exit89:                                 ; preds = %if.end11, %if.then1
 
 if.then14:                                        ; preds = %Py_DECREF.exit89
   store i32 1, ptr %agg.result, align 8
-  %func16 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func16, align 8
-  %err_msg17 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg17 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.201, ptr %err_msg17, align 8
-  %exitcode18 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode18 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode18, align 8
   br label %return
 
@@ -5978,11 +5978,11 @@ if.then20:                                        ; preds = %if.end19
 
 if.then23:                                        ; preds = %if.then20
   store i32 1, ptr %agg.result, align 8
-  %func25 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func25 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func25, align 8
-  %err_msg26 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg26 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.202, ptr %err_msg26, align 8
-  %exitcode27 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode27, align 8
   br label %return
 
@@ -5993,11 +5993,11 @@ if.end28:                                         ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end28
   store i32 1, ptr %agg.result, align 8
-  %func33 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func33, align 8
-  %err_msg34 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg34 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.203, ptr %err_msg34, align 8
-  %exitcode35 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode35 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode35, align 8
   br label %return
 
@@ -6024,11 +6024,11 @@ if.end37:                                         ; preds = %if.end.i75, %if.the
 
 if.then40:                                        ; preds = %if.end37
   store i32 1, ptr %agg.result, align 8
-  %func42 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func42 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func42, align 8
-  %err_msg43 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.205, ptr %err_msg43, align 8
-  %exitcode44 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode44 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode44, align 8
   br label %return
 
@@ -6066,11 +6066,11 @@ if.then49:                                        ; preds = %Py_XDECREF.exit
 
 if.then53:                                        ; preds = %if.then49
   store i32 1, ptr %agg.result, align 8
-  %func55 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func55 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func55, align 8
-  %err_msg56 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg56 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.207, ptr %err_msg56, align 8
-  %exitcode57 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode57 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode57, align 8
   br label %return
 
@@ -6081,11 +6081,11 @@ if.end58:                                         ; preds = %if.then49
 
 if.then61:                                        ; preds = %if.end58
   store i32 1, ptr %agg.result, align 8
-  %func63 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func63 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.add_main_module, ptr %func63, align 8
-  %err_msg64 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg64 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.208, ptr %err_msg64, align 8
-  %exitcode65 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode65, align 8
   br label %return
 
@@ -6130,11 +6130,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__.init_import_site, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str.210, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -6179,7 +6179,7 @@ sub_0.i:                                          ; preds = %land.lhs.true
   br i1 %.not.i, label %_Py_LegacyLocaleDetected.exit, label %if.end
 
 _Py_LegacyLocaleDetected.exit:                    ; preds = %sub_0.i
-  %1 = getelementptr inbounds i8, ptr %call5.i, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call5.i, i64 1
   %2 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %if.then, label %if.end

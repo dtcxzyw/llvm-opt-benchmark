@@ -95,7 +95,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define hidden void @_ZN6cineon5CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
-  %scanline = getelementptr inbounds i8, ptr %this, i64 8
+  %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %scanline, align 8
   ret void
 }
@@ -104,7 +104,7 @@ entry:
 define hidden void @_ZN6cineon5CodecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
-  %scanline = getelementptr inbounds i8, ptr %this, i64 8
+  %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -124,7 +124,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #0
 define hidden void @_ZN6cineon5CodecD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
-  %scanline.i = getelementptr inbounds i8, ptr %this, i64 8
+  %scanline.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6cineon5CodecD2Ev.exit, label %delete.notnull.i
@@ -141,7 +141,7 @@ _ZN6cineon5CodecD2Ev.exit:                        ; preds = %entry, %delete.notn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6cineon5Codec5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  %scanline = getelementptr inbounds i8, ptr %this, i64 8
+  %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -158,16 +158,16 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6cineon5Codec4ReadERKNS_6HeaderEPNS_17ElementReadStreamERKNS_5BlockEPvNS_8DataSizeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data, i32 noundef %size) unnamed_addr #6 align 2 {
 entry:
-  %scanline = getelementptr inbounds i8, ptr %this, i64 8
+  %scanline = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %scanline, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %1 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %1 to i32
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %2 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %2 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -224,10 +224,10 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadImageBlockINS_17ElementReadStreamEhLNS_8DataSizeE0EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %0 = load i8, ptr %bitDepth.i, align 2
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %packing.i = getelementptr inbounds i8, ptr %dpxHeader, i64 681
+  %packing.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 681
   %1 = load i8, ptr %packing.i, align 1
   switch i8 %0, label %if.else22 [
     i8 10, label %if.then
@@ -270,17 +270,17 @@ if.else22:                                        ; preds = %entry
   ]
 
 if.then24:                                        ; preds = %if.else22
-  %numberOfElements.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i.i, align 1
   %call1.i = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef 0)
-  %x2.i = getelementptr inbounds i8, ptr %block, i64 8
+  %x2.i = getelementptr inbounds nuw i8, ptr %block, i64 8
   %3 = load i32, ptr %x2.i, align 4
   %4 = load i32, ptr %block, align 4
-  %y2.i = getelementptr inbounds i8, ptr %block, i64 12
+  %y2.i = getelementptr inbounds nuw i8, ptr %block, i64 12
   %5 = load i32, ptr %y2.i, align 4
-  %y1.i = getelementptr inbounds i8, ptr %block, i64 4
+  %y1.i = getelementptr inbounds nuw i8, ptr %block, i64 4
   %6 = load i32, ptr %y1.i, align 4
-  %endOfLinePadding.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %7 = load i32, ptr %endOfLinePadding.i.i, align 4
   %call5.i = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %cmp6.not22.i = icmp slt i32 %5, %6
@@ -318,7 +318,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %18 = mul nsw i64 %indvars.iv.i, %9
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %18
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %19 = load ptr, ptr %vfn.i, align 8
   %call22.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %add.ptr.i, i64 noundef %conv21.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -345,10 +345,10 @@ return:                                           ; preds = %for.body.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadImageBlockINS_17ElementReadStreamEtLNS_8DataSizeE1EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %0 = load i8, ptr %bitDepth.i, align 2
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %packing.i = getelementptr inbounds i8, ptr %dpxHeader, i64 681
+  %packing.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 681
   %1 = load i8, ptr %packing.i, align 1
   switch i8 %0, label %if.else22 [
     i8 10, label %if.then
@@ -395,17 +395,17 @@ if.then24:                                        ; preds = %if.else22
   br label %return
 
 if.then28:                                        ; preds = %if.else22
-  %numberOfElements.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i.i, align 1
   %call1.i = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef 0)
-  %x2.i = getelementptr inbounds i8, ptr %block, i64 8
+  %x2.i = getelementptr inbounds nuw i8, ptr %block, i64 8
   %3 = load i32, ptr %x2.i, align 4
   %4 = load i32, ptr %block, align 4
-  %y2.i = getelementptr inbounds i8, ptr %block, i64 12
+  %y2.i = getelementptr inbounds nuw i8, ptr %block, i64 12
   %5 = load i32, ptr %y2.i, align 4
-  %y1.i = getelementptr inbounds i8, ptr %block, i64 4
+  %y1.i = getelementptr inbounds nuw i8, ptr %block, i64 4
   %6 = load i32, ptr %y1.i, align 4
-  %endOfLinePadding.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %7 = load i32, ptr %endOfLinePadding.i.i, align 4
   %call5.i = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %cmp6.not22.i = icmp slt i32 %5, %6
@@ -443,7 +443,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %18 = mul nsw i64 %indvars.iv.i, %9
   %add.ptr.i = getelementptr inbounds i16, ptr %data, i64 %18
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %19 = load ptr, ptr %vfn.i, align 8
   %call22.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %add.ptr.i, i64 noundef %conv21.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -466,10 +466,10 @@ return:                                           ; preds = %for.body.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadImageBlockINS_17ElementReadStreamEjLNS_8DataSizeE2EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %0 = load i8, ptr %bitDepth.i, align 2
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %packing.i = getelementptr inbounds i8, ptr %dpxHeader, i64 681
+  %packing.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 681
   %1 = load i8, ptr %packing.i, align 1
   switch i8 %0, label %if.else22 [
     i8 10, label %if.then
@@ -520,17 +520,17 @@ if.then28:                                        ; preds = %if.else22
   br label %return
 
 if.then32:                                        ; preds = %if.else22
-  %numberOfElements.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i.i, align 1
   %call1.i = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef 0)
-  %x2.i = getelementptr inbounds i8, ptr %block, i64 8
+  %x2.i = getelementptr inbounds nuw i8, ptr %block, i64 8
   %3 = load i32, ptr %x2.i, align 4
   %4 = load i32, ptr %block, align 4
-  %y2.i = getelementptr inbounds i8, ptr %block, i64 12
+  %y2.i = getelementptr inbounds nuw i8, ptr %block, i64 12
   %5 = load i32, ptr %y2.i, align 4
-  %y1.i = getelementptr inbounds i8, ptr %block, i64 4
+  %y1.i = getelementptr inbounds nuw i8, ptr %block, i64 4
   %6 = load i32, ptr %y1.i, align 4
-  %endOfLinePadding.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %7 = load i32, ptr %endOfLinePadding.i.i, align 4
   %call5.i = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %cmp6.not22.i = icmp slt i32 %5, %6
@@ -568,7 +568,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %18 = mul nsw i64 %indvars.iv.i, %9
   %add.ptr.i = getelementptr inbounds i32, ptr %data, i64 %18
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %19 = load ptr, ptr %vfn.i, align 8
   %call22.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %add.ptr.i, i64 noundef %conv21.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -587,10 +587,10 @@ return:                                           ; preds = %for.body.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadImageBlockINS_17ElementReadStreamEmLNS_8DataSizeE3EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %0 = load i8, ptr %bitDepth.i, align 2
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %packing.i = getelementptr inbounds i8, ptr %dpxHeader, i64 681
+  %packing.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 681
   %1 = load i8, ptr %packing.i, align 1
   switch i8 %0, label %if.else22 [
     i8 10, label %if.then
@@ -645,17 +645,17 @@ if.then32:                                        ; preds = %if.else22
   br label %return
 
 if.then36:                                        ; preds = %if.else22
-  %numberOfElements.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i.i, align 1
   %call1.i = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef 0)
-  %x2.i = getelementptr inbounds i8, ptr %block, i64 8
+  %x2.i = getelementptr inbounds nuw i8, ptr %block, i64 8
   %3 = load i32, ptr %x2.i, align 4
   %4 = load i32, ptr %block, align 4
-  %y2.i = getelementptr inbounds i8, ptr %block, i64 12
+  %y2.i = getelementptr inbounds nuw i8, ptr %block, i64 12
   %5 = load i32, ptr %y2.i, align 4
-  %y1.i = getelementptr inbounds i8, ptr %block, i64 4
+  %y1.i = getelementptr inbounds nuw i8, ptr %block, i64 4
   %6 = load i32, ptr %y1.i, align 4
-  %endOfLinePadding.i.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %7 = load i32, ptr %endOfLinePadding.i.i, align 4
   %call5.i = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %cmp6.not22.i = icmp slt i32 %5, %6
@@ -693,7 +693,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %18 = mul nsw i64 %indvars.iv.i, %9
   %add.ptr.i = getelementptr inbounds i64, ptr %data, i64 %18
   %vtable.i = load ptr, ptr %fd, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %19 = load ptr, ptr %vfn.i, align 8
   %call22.i = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %add.ptr.i, i64 noundef %conv21.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -710,22 +710,22 @@ declare noundef i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEtLNS_8DataSizeE1EhLS2_0EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -766,17 +766,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i8, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i16, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i16, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx.us, align 2
   %21 = lshr i16 %20, 8
   %conv1.i.us = trunc nuw i16 %21 to i8
@@ -802,7 +802,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %24 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -816,22 +816,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEjLNS_8DataSizeE2EhLS2_0EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -872,17 +872,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i8, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i32, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i32, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx.us, align 4
   %shr.i.us = lshr i32 %20, 24
   %conv.i.us = trunc nuw i32 %shr.i.us to i8
@@ -908,7 +908,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -922,22 +922,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEmLNS_8DataSizeE3EhLS2_0EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -978,17 +978,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i8, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i64, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i64, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i64, ptr %arrayidx.us, align 8
   %shr.i.us = lshr i64 %20, 56
   %conv.i.us = trunc nuw i64 %shr.i.us to i8
@@ -1014,7 +1014,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -1028,14 +1028,14 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEhLi2EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -1049,7 +1049,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -1085,7 +1085,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -1112,14 +1112,14 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %add51 = add nuw nsw i32 %mul50, 2
   %shr = lshr i32 %18, %add51
-  %arrayidx54 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %indvars.iv.next
   %19 = lshr i32 %shr, 2
   %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
@@ -1138,14 +1138,14 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEhLi0EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -1159,7 +1159,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -1195,7 +1195,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -1222,13 +1222,13 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
   %mul50 = mul nuw nsw i32 %sub49, 10
   %shr = lshr i32 %18, %mul50
-  %arrayidx54 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %indvars.iv.next
   %19 = lshr i32 %shr, 2
   %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
@@ -1247,16 +1247,16 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEhLj65472ELi2ELi4ELi6EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -1272,7 +1272,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -1308,7 +1308,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -1342,7 +1342,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %rem.not.us.i = and i32 %24, 6
   %sub4.us.i = xor i32 %rem.not.us.i, 6
   %shl.us.i = shl nuw nsw i32 %conv.us.i, %sub4.us.i
-  %arrayidx.us.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv40.i
+  %arrayidx.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv40.i
   %25 = lshr i32 %shl.us.i, 8
   %conv1.i.us.i = trunc i32 %25 to i8
   store i8 %conv1.i.us.i, ptr %arrayidx.us.i, align 1
@@ -1364,7 +1364,7 @@ for.body.us16.i:                                  ; preds = %for.body.lr.ph.i, %
   %sub4.us25.i = xor i16 %rem.not.us24.i, 6
   %shl.us26.i = shl i16 %28, %sub4.us25.i
   %30 = lshr i16 %shl.us26.i, 10
-  %arrayidx.us31.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us31.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv.i
   %conv1.i.us32.i = trunc nuw nsw i16 %30 to i8
   store i8 %conv1.i.us32.i, ptr %arrayidx.us31.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1384,7 +1384,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %rem.not.i = and i32 %34, 6
   %sub4.i = xor i32 %rem.not.i, 6
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv45.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv45.i
   %35 = lshr i32 %shl.i, 8
   %conv1.i.i = trunc i32 %35 to i8
   store i8 %conv1.i.i, ptr %arrayidx.i, align 1
@@ -1404,16 +1404,16 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEhLj65520ELi4ELi2ELi4EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -1429,7 +1429,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -1465,7 +1465,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -1499,7 +1499,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %rem.not.us.i = and i32 %rem.us.i, 4
   %sub4.us.i = xor i32 %rem.not.us.i, 4
   %shl.us.i = shl nuw nsw i32 %conv.us.i, %sub4.us.i
-  %arrayidx.us.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv39.i
+  %arrayidx.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv39.i
   %24 = lshr i32 %shl.us.i, 6
   %conv1.i.us.i = trunc i32 %24 to i8
   store i8 %conv1.i.us.i, ptr %arrayidx.us.i, align 1
@@ -1520,7 +1520,7 @@ for.body.us16.i:                                  ; preds = %for.body.lr.ph.i, %
   %rem.not.us24.i = and i32 %rem.us23.i, 4
   %sub4.us25.i = xor i32 %rem.not.us24.i, 4
   %shl.us26.i = shl nuw nsw i32 %conv.us22.i, %sub4.us25.i
-  %arrayidx.us31.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us31.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv.i
   %28 = lshr i32 %shl.us26.i, 8
   %conv1.i.us32.i = trunc i32 %28 to i8
   store i8 %conv1.i.us32.i, ptr %arrayidx.us31.i, align 1
@@ -1541,7 +1541,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %rem.not.i = and i32 %rem.i, 4
   %sub4.i = xor i32 %rem.not.i, 4
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %indvars.iv43.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %indvars.iv43.i
   %32 = lshr i32 %shl.i, 8
   %conv1.i.i = trunc i32 %32 to i8
   store i8 %conv1.i.i, ptr %arrayidx.i, align 1
@@ -1563,22 +1563,22 @@ declare noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEhLNS_8DataSizeE0EtLS2_1EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -1619,17 +1619,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i16, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i8, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i8, ptr %arrayidx.us, align 1
   %conv.i.us = zext i8 %20 to i16
   %shl.i.us = shl nuw i16 %conv.i.us, 8
@@ -1656,7 +1656,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -1670,22 +1670,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEjLNS_8DataSizeE2EtLS2_1EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -1726,17 +1726,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i16, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i32, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i32, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx.us, align 4
   %shr.i.us = lshr i32 %20, 16
   %conv.i.us = trunc nuw i32 %shr.i.us to i16
@@ -1762,7 +1762,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -1776,22 +1776,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEmLNS_8DataSizeE3EtLS2_1EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -1832,17 +1832,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i16, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i64, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i64, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i64, ptr %arrayidx.us, align 8
   %shr.i.us = lshr i64 %20, 48
   %conv.i.us = trunc nuw i64 %shr.i.us to i16
@@ -1868,7 +1868,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -1882,14 +1882,14 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEtLi2EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -1903,7 +1903,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -1939,7 +1939,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -1966,7 +1966,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -1978,7 +1978,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %indvars.iv.next
   store i16 %or.i, ptr %arrayidx54, align 2
   %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !29
@@ -1995,14 +1995,14 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEtLi0EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -2016,7 +2016,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -2052,7 +2052,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -2079,7 +2079,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -2090,7 +2090,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %indvars.iv.next
   store i16 %or.i, ptr %arrayidx54, align 2
   %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !31
@@ -2107,16 +2107,16 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEtLj65472ELi2ELi4ELi6EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -2132,7 +2132,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -2168,7 +2168,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -2205,7 +2205,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %25 = lshr i16 %shl.us.i, 10
   %shl.i.us.i = and i16 %shl.us.i, -64
   %or.i.us.i = or disjoint i16 %shl.i.us.i, %25
-  %arrayidx.us.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv39.i
+  %arrayidx.us.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv39.i
   store i16 %or.i.us.i, ptr %arrayidx.us.i, align 2
   %indvars.iv.next40.i = add nsw i64 %indvars.iv39.i, -1
   %cmp.us.not.i = icmp eq i64 %indvars.iv39.i, 0
@@ -2228,7 +2228,7 @@ for.body.us16.i:                                  ; preds = %for.body.lr.ph.i, %
   %shl.i7.us.i = and i16 %30, 16368
   %shr.i8.us.i = lshr i16 %shl.us26.i, 14
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %shr.i8.us.i
-  %arrayidx.us31.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us31.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv.i
   store i16 %or.i9.us.i, ptr %arrayidx.us31.i, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.us33.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -2248,7 +2248,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %sub4.i = xor i16 %rem.not.i, 6
   %shl.i = shl i16 %33, %sub4.i
   %conv5.i = and i16 %shl.i, -64
-  %arrayidx.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv44.i
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv44.i
   store i16 %conv5.i, ptr %arrayidx.i, align 2
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv44.i, 0
@@ -2266,16 +2266,16 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEtLj65520ELi4ELi2ELi4EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -2291,7 +2291,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -2327,7 +2327,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -2365,7 +2365,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %shl.i.us.i = and i16 %25, -64
   %shr.i.us.i = lshr i16 %shl.us.i, 8
   %or.i.us.i = or i16 %shl.i.us.i, %shr.i.us.i
-  %arrayidx.us.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv38.i
+  %arrayidx.us.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv38.i
   store i16 %or.i.us.i, ptr %arrayidx.us.i, align 2
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, -1
   %cmp.us.not.i = icmp eq i64 %indvars.iv38.i, 0
@@ -2387,7 +2387,7 @@ for.body.us16.i:                                  ; preds = %for.body.lr.ph.i, %
   %30 = lshr i16 %shl.us26.i, 12
   %shl.i7.us.i = and i16 %shl.us26.i, -16
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %30
-  %arrayidx.us31.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us31.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv.i
   store i16 %or.i9.us.i, ptr %arrayidx.us31.i, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.us33.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -2407,7 +2407,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %sub4.i = xor i16 %rem.not.i, 4
   %shl.i = shl i16 %33, %sub4.i
   %conv5.i = and i16 %shl.i, -16
-  %arrayidx.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %indvars.iv42.i
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i, i64 %indvars.iv42.i
   store i16 %conv5.i, ptr %arrayidx.i, align 2
   %indvars.iv.next43.i = add nsw i64 %indvars.iv42.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv42.i, 0
@@ -2425,22 +2425,22 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEhLNS_8DataSizeE0EjLS2_2EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -2481,17 +2481,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i8, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i8, ptr %arrayidx.us, align 1
   %conv.i.us = zext i8 %20 to i32
   %shl.i.us = shl nuw i32 %conv.i.us, 24
@@ -2522,7 +2522,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %25 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -2536,22 +2536,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEtLNS_8DataSizeE1EjLS2_2EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -2592,17 +2592,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i16, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i16, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx.us, align 2
   %conv.i.us = zext i16 %20 to i32
   %shl.i.us = shl nuw i32 %conv.i.us, 16
@@ -2628,7 +2628,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -2642,22 +2642,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEmLNS_8DataSizeE3EjLS2_2EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -2698,17 +2698,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i64, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i64, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i64, ptr %arrayidx.us, align 8
   %shr.i.us = lshr i64 %20, 32
   %conv.i.us = trunc nuw i64 %shr.i.us to i32
@@ -2734,7 +2734,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -2748,14 +2748,14 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEjLi2EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -2769,7 +2769,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -2805,7 +2805,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -2832,7 +2832,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -2844,7 +2844,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv.next
   %conv.i = zext i16 %or.i to i32
   %shl.i33 = shl nuw i32 %conv.i, 16
   store i32 %shl.i33, ptr %arrayidx54, align 4
@@ -2863,14 +2863,14 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEjLi0EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -2884,7 +2884,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -2920,7 +2920,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -2947,7 +2947,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -2958,7 +2958,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %indvars.iv.next
   %conv.i = zext i16 %or.i to i32
   %shl.i33 = shl nuw i32 %conv.i, 16
   store i32 %shl.i33, ptr %arrayidx54, align 4
@@ -2977,16 +2977,16 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEjLj65472ELi2ELi4ELi6EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -3002,7 +3002,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -3038,7 +3038,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -3075,7 +3075,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %25 = lshr i16 %shl.us.i, 10
   %shl.i.us.i = and i16 %shl.us.i, -64
   %or.i.us.i = or disjoint i16 %shl.i.us.i, %25
-  %arrayidx.us.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv42.i
+  %arrayidx.us.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv42.i
   %conv.i.us.i = zext i16 %or.i.us.i to i32
   %shl.i10.us.i = shl nuw i32 %conv.i.us.i, 16
   store i32 %shl.i10.us.i, ptr %arrayidx.us.i, align 4
@@ -3100,7 +3100,7 @@ for.body.us17.i:                                  ; preds = %for.body.lr.ph.i, %
   %shl.i7.us.i = and i16 %30, 16368
   %shr.i8.us.i = lshr i16 %shl.us27.i, 14
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %shr.i8.us.i
-  %arrayidx.us32.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us32.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv.i
   %conv.i.us33.i = zext nneg i16 %or.i9.us.i to i32
   %shl.i10.us34.i = shl nuw nsw i32 %conv.i.us33.i, 16
   store i32 %shl.i10.us34.i, ptr %arrayidx.us32.i, align 4
@@ -3121,7 +3121,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %rem.not.i = and i32 %34, 6
   %sub4.i = xor i32 %rem.not.i, 6
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv47.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv47.i
   %conv5.i = shl i32 %shl.i, 16
   %shl.i10.i = and i32 %conv5.i, -4194304
   store i32 %shl.i10.i, ptr %arrayidx.i, align 4
@@ -3141,16 +3141,16 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEjLj65520ELi4ELi2ELi4EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -3166,7 +3166,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -3202,7 +3202,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -3240,7 +3240,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %shl.i.us.i = and i16 %25, -64
   %shr.i.us.i = lshr i16 %shl.us.i, 8
   %or.i.us.i = or i16 %shl.i.us.i, %shr.i.us.i
-  %arrayidx.us.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv41.i
+  %arrayidx.us.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv41.i
   %conv.i.us.i = zext i16 %or.i.us.i to i32
   %shl.i10.us.i = shl nuw i32 %conv.i.us.i, 16
   store i32 %shl.i10.us.i, ptr %arrayidx.us.i, align 4
@@ -3264,7 +3264,7 @@ for.body.us17.i:                                  ; preds = %for.body.lr.ph.i, %
   %30 = lshr i16 %shl.us27.i, 12
   %shl.i7.us.i = and i16 %shl.us27.i, -16
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %30
-  %arrayidx.us32.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us32.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv.i
   %conv.i.us33.i = zext i16 %or.i9.us.i to i32
   %shl.i10.us34.i = shl nuw i32 %conv.i.us33.i, 16
   store i32 %shl.i10.us34.i, ptr %arrayidx.us32.i, align 4
@@ -3285,7 +3285,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %rem.not.i = and i32 %rem.i, 4
   %sub4.i = xor i32 %rem.not.i, 4
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv45.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %indvars.iv45.i
   %conv5.i = shl i32 %shl.i, 16
   %shl.i10.i = and i32 %conv5.i, -1048576
   store i32 %shl.i10.i, ptr %arrayidx.i, align 4
@@ -3305,22 +3305,22 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEhLNS_8DataSizeE0EmLS2_3EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -3361,17 +3361,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i64, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i8, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i64, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i8, ptr %arrayidx.us, align 1
   %conv.i.us = zext i8 %20 to i64
   %shl.i.us = shl nuw i64 %conv.i.us, 56
@@ -3397,7 +3397,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -3411,22 +3411,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEtLNS_8DataSizeE1EmLS2_3EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -3467,17 +3467,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i64, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i16, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i64, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i16, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i16, ptr %arrayidx.us, align 2
   %conv.i.us = zext i16 %20 to i64
   %shl.i.us = shl nuw i64 %conv.i.us, 48
@@ -3503,7 +3503,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -3517,22 +3517,22 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon14ReadBlockTypesINS_17ElementReadStreamEjLNS_8DataSizeE2EmLS2_3EEEbRKNS_6HeaderEPT0_PT_RKNS_5BlockEPT2_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %0 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %0 to i32
   %call1 = tail call noundef i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1024) %dpxHeader, i32 noundef 0)
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %1 = load i32, ptr %x2, align 4
   %2 = load i32, ptr %block, align 4
   %sub = add i32 %1, 1
   %add = sub i32 %sub, %2
   %mul = mul nsw i32 %add, %conv
   %mul.fr = freeze i32 %mul
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %3 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %4 = load i32, ptr %y1, align 4
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %5 = load i32, ptr %endOfLinePadding.i, align 4
   %cmp.i = icmp eq i32 %5, -1
   %..i = select i1 %cmp.i, i32 0, i32 %5
@@ -3573,17 +3573,17 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %16 = sext i32 %add15.us to i64
   %17 = add nsw i64 %15, %16
   %vtable.us = load ptr, ptr %fd, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 24
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 24
   %18 = load ptr, ptr %vfn.us, align 8
   %call21.us = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %17, ptr noundef %readBuf, i64 noundef %conv20)
   %19 = mul nuw nsw i64 %indvars.iv35, %9
-  %invariant.gep = getelementptr inbounds i64, ptr %data, i64 %19
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %data, i64 %19
   br label %for.body24.us
 
 for.body24.us:                                    ; preds = %for.body.us, %for.body24.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.body24.us ]
-  %arrayidx.us = getelementptr inbounds i32, ptr %readBuf, i64 %indvars.iv
-  %gep = getelementptr inbounds i64, ptr %invariant.gep, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i32, ptr %readBuf, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx.us, align 4
   %conv.i.us = zext i32 %20 to i64
   %shl.i.us = shl nuw i64 %conv.i.us, 32
@@ -3609,7 +3609,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add17 = add nsw i32 %add15, %mul16
   %conv18 = sext i32 %add17 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %23 = load ptr, ptr %vfn, align 8
   %call21 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %conv18, ptr noundef %readBuf, i64 noundef %conv20)
   %inc30 = add nuw i32 %line.030, 1
@@ -3623,14 +3623,14 @@ for.end31:                                        ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEmLi2EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -3644,7 +3644,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -3680,7 +3680,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -3707,7 +3707,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -3719,7 +3719,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %indvars.iv.next
   %conv.i = zext i16 %or.i to i64
   %shl.i33 = shl nuw i64 %conv.i, 48
   store i64 %shl.i33, ptr %arrayidx54, align 8
@@ -3738,14 +3738,14 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon15Read10bitFilledINS_17ElementReadStreamEmLi0EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
   %call2 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
   %mul = mul i32 %call2, %conv
@@ -3759,7 +3759,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %3, -1
   %..i = select i1 %cmp.i, i32 0, i32 %3
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %conv33 = zext i8 %2 to i64
   %4 = sext i32 %..i to i64
   %5 = add i32 %0, 1
@@ -3795,7 +3795,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul27 = mul i32 %mul26, %call25
   %conv28 = sext i32 %mul24 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %12 = load ptr, ptr %vfn, align 8
   %call29 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add17, ptr noundef %readBuf, i64 noundef %conv28)
   %idx.ext = sext i32 %mul27 to i64
@@ -3822,7 +3822,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %17 = trunc nsw i64 %16 to i32
   %div46 = udiv i32 %17, 3
   %idxprom = zext nneg i32 %div46 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %readBuf, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %readBuf, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 4
   %rem48 = urem i32 %17, 3
   %sub49 = sub nuw nsw i32 2, %rem48
@@ -3833,7 +3833,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %shl.i = shl nuw i16 %conv52, 6
   %shr.i = lshr i16 %conv52, 4
   %or.i = or disjoint i16 %shl.i, %shr.i
-  %arrayidx54 = getelementptr inbounds i64, ptr %add.ptr, i64 %indvars.iv.next
+  %arrayidx54 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %indvars.iv.next
   %conv.i = zext i16 %or.i to i64
   %shl.i33 = shl nuw i64 %conv.i, 48
   store i64 %shl.i33, ptr %arrayidx54, align 8
@@ -3852,16 +3852,16 @@ for.end56:                                        ; preds = %for.inc55, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEmLj65472ELi2ELi4ELi6EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -3877,7 +3877,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -3913,7 +3913,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -3950,7 +3950,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %25 = lshr i16 %shl.us.i, 10
   %shl.i.us.i = and i16 %shl.us.i, -64
   %or.i.us.i = or disjoint i16 %shl.i.us.i, %25
-  %arrayidx.us.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv42.i
+  %arrayidx.us.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv42.i
   %conv.i.us.i = zext i16 %or.i.us.i to i64
   %shl.i10.us.i = shl nuw i64 %conv.i.us.i, 48
   store i64 %shl.i10.us.i, ptr %arrayidx.us.i, align 8
@@ -3975,7 +3975,7 @@ for.body.us17.i:                                  ; preds = %for.body.lr.ph.i, %
   %shl.i7.us.i = and i16 %30, 16368
   %shr.i8.us.i = lshr i16 %shl.us27.i, 14
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %shr.i8.us.i
-  %arrayidx.us32.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us32.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv.i
   %conv.i.us33.i = zext nneg i16 %or.i9.us.i to i64
   %shl.i10.us34.i = shl nuw nsw i64 %conv.i.us33.i, 48
   store i64 %shl.i10.us34.i, ptr %arrayidx.us32.i, align 8
@@ -3998,7 +3998,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
   %35 = and i32 %shl.i, 65472
   %conv5.i = zext nneg i32 %35 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv47.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv47.i
   %shl.i10.i = shl nuw i64 %conv5.i, 48
   store i64 %shl.i10.i, ptr %arrayidx.i, align 8
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, -1
@@ -4017,16 +4017,16 @@ for.end:                                          ; preds = %_ZN6cineon12UnPackP
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6cineon10ReadPackedINS_17ElementReadStreamEmLj65520ELi4ELi2ELi4EEEbRKNS_6HeaderEPjPT_RKNS_5BlockEPT0_(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef %readBuf, ptr noundef %fd, ptr noundef nonnull align 4 dereferenceable(16) %block, ptr noundef %data) local_unnamed_addr #6 comdat {
 entry:
-  %y2 = getelementptr inbounds i8, ptr %block, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %block, i64 12
   %0 = load i32, ptr %y2, align 4
-  %y1 = getelementptr inbounds i8, ptr %block, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %block, i64 4
   %1 = load i32, ptr %y1, align 4
-  %numberOfElements.i = getelementptr inbounds i8, ptr %dpxHeader, i64 193
+  %numberOfElements.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 193
   %2 = load i8, ptr %numberOfElements.i, align 1
   %conv = zext i8 %2 to i32
-  %endOfLinePadding.i = getelementptr inbounds i8, ptr %dpxHeader, i64 684
+  %endOfLinePadding.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 684
   %3 = load i32, ptr %endOfLinePadding.i, align 4
-  %bitDepth.i = getelementptr inbounds i8, ptr %dpxHeader, i64 198
+  %bitDepth.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 198
   %4 = load i8, ptr %bitDepth.i, align 2
   %conv3 = zext i8 %4 to i32
   %call4 = tail call noundef i32 @_ZNK6cineon6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader)
@@ -4042,7 +4042,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %5 = lshr i32 %add6, 3
   %6 = and i32 %5, 536870908
   %mul11 = zext nneg i32 %6 to i64
-  %x2 = getelementptr inbounds i8, ptr %block, i64 8
+  %x2 = getelementptr inbounds nuw i8, ptr %block, i64 8
   %7 = sext i32 %..i to i64
   %8 = add i32 %0, 1
   %9 = sub i32 %8, %1
@@ -4078,7 +4078,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mul38 = mul i32 %mul37, %call36
   %conv39 = sext i32 %mul34 to i64
   %vtable = load ptr, ptr %fd, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %17 = load ptr, ptr %vfn, align 8
   %call40 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %fd, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %add21, ptr noundef %readBuf, i64 noundef %conv39)
   %18 = load i32, ptr %x2, align 4
@@ -4116,7 +4116,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %shl.i.us.i = and i16 %25, -64
   %shr.i.us.i = lshr i16 %shl.us.i, 8
   %or.i.us.i = or i16 %shl.i.us.i, %shr.i.us.i
-  %arrayidx.us.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv41.i
+  %arrayidx.us.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv41.i
   %conv.i.us.i = zext i16 %or.i.us.i to i64
   %shl.i10.us.i = shl nuw i64 %conv.i.us.i, 48
   store i64 %shl.i10.us.i, ptr %arrayidx.us.i, align 8
@@ -4140,7 +4140,7 @@ for.body.us17.i:                                  ; preds = %for.body.lr.ph.i, %
   %30 = lshr i16 %shl.us27.i, 12
   %shl.i7.us.i = and i16 %shl.us27.i, -16
   %or.i9.us.i = or disjoint i16 %shl.i7.us.i, %30
-  %arrayidx.us32.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv.i
+  %arrayidx.us32.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv.i
   %conv.i.us33.i = zext i16 %or.i9.us.i to i64
   %shl.i10.us34.i = shl nuw i64 %conv.i.us33.i, 48
   store i64 %shl.i10.us34.i, ptr %arrayidx.us32.i, align 8
@@ -4163,7 +4163,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %shl.i = shl nuw nsw i32 %conv.i, %sub4.i
   %34 = and i32 %shl.i, 65520
   %conv5.i = zext nneg i32 %34 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr.i, i64 %indvars.iv45.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %indvars.iv45.i
   %shl.i10.i = shl nuw i64 %conv5.i, 48
   store i64 %shl.i10.i, ptr %arrayidx.i, align 8
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1

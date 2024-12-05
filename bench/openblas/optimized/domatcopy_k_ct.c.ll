@@ -16,7 +16,7 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 
 .preheader:                                       ; preds = %11, %21
   %13 = phi i64 [ %22, %21 ], [ 0, %11 ]
-  %14 = getelementptr inbounds double, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw double, ptr %5, i64 %13
   br label %15
 
 15:                                               ; preds = %.preheader, %15
@@ -40,12 +40,12 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 .preheader6:                                      ; preds = %24, %37
   %26 = phi ptr [ %38, %37 ], [ %3, %24 ]
   %27 = phi i64 [ %39, %37 ], [ 0, %24 ]
-  %28 = getelementptr inbounds double, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr %5, i64 %27
   br label %29
 
 29:                                               ; preds = %.preheader6, %29
   %30 = phi i64 [ %35, %29 ], [ 0, %.preheader6 ]
-  %31 = getelementptr inbounds double, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw double, ptr %26, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !3
   %33 = mul nsw i64 %30, %6
   %34 = getelementptr inbounds double, ptr %28, i64 %33
@@ -63,12 +63,12 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 .preheader8:                                      ; preds = %24, %53
   %41 = phi ptr [ %54, %53 ], [ %3, %24 ]
   %42 = phi i64 [ %55, %53 ], [ 0, %24 ]
-  %43 = getelementptr inbounds double, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw double, ptr %5, i64 %42
   br label %44
 
 44:                                               ; preds = %.preheader8, %44
   %45 = phi i64 [ %51, %44 ], [ 0, %.preheader8 ]
-  %46 = getelementptr inbounds double, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw double, ptr %41, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !3
   %48 = fmul double %2, %47
   %49 = mul nsw i64 %45, %6

@@ -69,18 +69,18 @@ define dso_local void @WalRcvShmemInit() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %15
   %24 = load ptr, ptr @WalRcv, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %25, align 4
   %26 = load ptr, ptr @WalRcv, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @ConditionVariableInit(ptr noundef nonnull %27) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
   %28 = load ptr, ptr @WalRcv, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 2240
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2240
   store i8 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 2248
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 2248
   store volatile i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 2232
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2232
   store ptr null, ptr %31, align 8
   br label %32
 
@@ -98,7 +98,7 @@ declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @WalRcvRunning() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2240
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #7, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
@@ -108,9 +108,9 @@ define dso_local zeroext i1 @WalRcvRunning() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !7
   store i8 0, ptr %2, align 8
@@ -146,7 +146,7 @@ define dso_local zeroext i1 @WalRcvRunning() local_unnamed_addr #0 {
   store i32 0, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
   store i8 0, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %25) #7
   br label %26
 
@@ -166,7 +166,7 @@ declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2240
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #7, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
@@ -176,9 +176,9 @@ define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   store i8 0, ptr %2, align 8
@@ -214,7 +214,7 @@ define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   store i32 0, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   store i8 0, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %25) #7
   br label %26
 
@@ -230,7 +230,7 @@ define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @ShutdownWalRcv() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2240
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #7, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
@@ -240,7 +240,7 @@ define dso_local void @ShutdownWalRcv() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %.thread20 [
     i32 5, label %11
@@ -263,7 +263,7 @@ define dso_local void @ShutdownWalRcv() local_unnamed_addr #0 {
   store i32 0, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   store i8 0, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %10) #7
   br label %15
 
@@ -279,7 +279,7 @@ define dso_local void @ShutdownWalRcv() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %.thread20, %.thread17, %13, %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %16) #7
   %17 = tail call zeroext i1 @WalRcvRunning()
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -312,7 +312,7 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
   %10 = sub i32 0, %9
   %.not = sext i32 %10 to i64
   %11 = and i64 %1, %.not
-  %12 = getelementptr inbounds i8, ptr %7, i64 2240
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #7, !srcloc !6
   %.not44 = icmp eq i8 %13, 0
   br i1 %.not44, label %16, label %14
@@ -323,7 +323,7 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
 
 16:                                               ; preds = %5, %14
   %.not45 = icmp eq ptr %2, null
-  %17 = getelementptr inbounds i8, ptr %7, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 104
   br i1 %.not45, label %20, label %18
 
 18:                                               ; preds = %16
@@ -344,51 +344,51 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
   br i1 %.not47, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 2160
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 2160
   %26 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64) #7
   br label %29
 
 27:                                               ; preds = %22, %21
-  %28 = getelementptr inbounds i8, ptr %7, i64 2160
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 2160
   store i8 0, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %27, %24
   %.sink = phi i8 [ %6, %27 ], [ 0, %24 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2224
   store i8 %.sink, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   %. = select i1 %33, i32 1, i32 4
   store i32 %., ptr %31, align 4
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %8, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %7, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %40 = load i32, ptr %39, align 8
   %.not48 = icmp eq i32 %40, %0
   br i1 %.not48, label %45, label %41
 
 41:                                               ; preds = %38, %29
-  %42 = getelementptr inbounds i8, ptr %7, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %11, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %11, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %41, %38
   store i64 %11, ptr %35, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 2232
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 2232
   %48 = load ptr, ptr %47, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
   store i8 0, ptr %12, align 8
@@ -420,7 +420,7 @@ declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @WalRcv, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2240
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2240
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #7, !srcloc !6
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %8, label %6
@@ -430,13 +430,13 @@ define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly %0, ptr noundef
   br label %8
 
 8:                                                ; preds = %2, %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load i64, ptr %9, align 8
   %.not11 = icmp eq ptr %0, null
   br i1 %.not11, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %0, align 8
   br label %14
@@ -446,7 +446,7 @@ define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly %0, ptr noundef
   br i1 %.not12, label %18, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %1, align 4
   br label %18
@@ -460,7 +460,7 @@ define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly %0, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local i64 @GetWalRcvWriteRecPtr() local_unnamed_addr #5 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2248
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2248
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
@@ -468,7 +468,7 @@ define dso_local i64 @GetWalRcvWriteRecPtr() local_unnamed_addr #5 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetReplicationApplyDelay() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2240
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #7, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
@@ -478,7 +478,7 @@ define dso_local i32 @GetReplicationApplyDelay() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   store i8 0, ptr %2, align 8
@@ -513,7 +513,7 @@ declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetReplicationTransferLatency() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 2240
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 2240
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #7, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %4
@@ -523,9 +523,9 @@ define dso_local i32 @GetReplicationTransferLatency() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   store i8 0, ptr %2, align 8

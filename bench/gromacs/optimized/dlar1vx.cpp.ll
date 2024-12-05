@@ -421,7 +421,7 @@ define void @dlar1vx_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %239 = load i32, ptr %1, align 4
   store i32 %239, ptr %14, align 4
   %240 = load i32, ptr %2, align 4
-  %241 = getelementptr inbounds i8, ptr %14, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %240, ptr %241, align 4
   %242 = load i32, ptr %13, align 4
   %243 = sext i32 %242 to i64

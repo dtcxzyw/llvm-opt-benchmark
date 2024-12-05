@@ -112,34 +112,34 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN8WasmEdge7FileMgr7setPathERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::error_code", align 8
   store i32 258, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %6, align 8
   tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %_ZN8WasmEdge7FileMgr5resetEv.exit
 
 14:                                               ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %11, align 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7FileMgr5resetEv.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -149,11 +149,11 @@ _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %3
 
 _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i, %14, %17
   store i32 0, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #21
   store ptr %24, ptr %23, align 8
   %25 = call noundef i64 @_ZNSt10filesystem9file_sizeERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %25, ptr %26, align 8
   %27 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %27, 0
@@ -167,12 +167,12 @@ _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8Wa
   store i64 0, ptr %26, align 8
   store i32 256, ptr %1, align 8
   store i8 0, ptr %0, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 256, ptr %31, align 4
   br label %46
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load i8, ptr %6, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %_ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSA_.exit
@@ -190,7 +190,7 @@ _ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9
   br i1 %.not6, label %40, label %38
 
 38:                                               ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE7emplaceIJRKNSt10filesystem7__cxx114pathEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSA_.exit
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %37, ptr %39, align 8
   store i32 0, ptr %1, align 8
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit
@@ -213,7 +213,7 @@ _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit:    ; preds = %43, %40, %38
   store i64 0, ptr %26, align 8
   store i32 256, ptr %1, align 8
   store i8 0, ptr %0, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 256, ptr %45, align 4
   br label %46
 
@@ -236,34 +236,34 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge7FileMgr7setCodeEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 258, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %6, align 8
   tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %_ZN8WasmEdge7FileMgr5resetEv.exit
 
 14:                                               ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %11, align 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7FileMgr5resetEv.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -272,9 +272,9 @@ _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %9, %4
   br label %_ZN8WasmEdge7FileMgr5resetEv.exit
 
 _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i, %14, %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %3, ptr %24, align 8
   store i32 0, ptr %1, align 8
   store i64 1, ptr %0, align 4
@@ -284,38 +284,38 @@ _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8Wa
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge7FileMgr7setCodeESt6vectorIhSaIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 40)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 258, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %5, align 8
   tail call void @_ZN8WasmEdge4MMapD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   br label %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
 
 _ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i:  ; preds = %8, %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %_ZN8WasmEdge7FileMgr5resetEv.exit
 
 13:                                               ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %10, align 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7FileMgr5resetEv.exit.thread, label %17
 
 _ZN8WasmEdge7FileMgr5resetEv.exit.thread:         ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %_ZNSt8optionalISt6vectorIhSaIhEEE7emplaceIJS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %15 to i64
@@ -326,7 +326,7 @@ _ZN8WasmEdge7FileMgr5resetEv.exit.thread:         ; preds = %13
 
 _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i, %17
   %23 = phi i8 [ %11, %_ZNSt8optionalIN8WasmEdge4MMapEE5resetEv.exit.i ], [ %.pre, %17 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = trunc i8 %23 to i1
   br i1 %25, label %26, label %_ZNSt8optionalISt6vectorIhSaIhEEE7emplaceIJS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit
 
@@ -337,7 +337,7 @@ _ZN8WasmEdge7FileMgr5resetEv.exit:                ; preds = %_ZNSt8optionalIN8Wa
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt6vectorIhSaIhEEE7emplaceIJS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -349,24 +349,24 @@ _ZNSt8optionalISt6vectorIhSaIhEEE7emplaceIJS2_EEENSt9enable_ifIX18is_constructib
   %34 = phi ptr [ %16, %_ZN8WasmEdge7FileMgr5resetEv.exit.thread ], [ %24, %_ZN8WasmEdge7FileMgr5resetEv.exit ], [ %24, %26 ], [ %24, %28 ]
   %35 = load ptr, ptr %2, align 8
   store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 72
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i8 1, ptr %10, align 8
   %42 = load ptr, ptr %34, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %42, ptr %43, align 8
   %44 = load ptr, ptr %36, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %42 to i64
   %47 = sub i64 %45, %46
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %47, ptr %48, align 8
   store i32 0, ptr %1, align 8
   store i64 1, ptr %0, align 4
@@ -381,16 +381,16 @@ define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias nocaptur
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4
   br label %22
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !4
   %12 = icmp eq i64 %11, %8
   br i1 %12, label %13, label %15
@@ -398,18 +398,18 @@ define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias nocaptur
 13:                                               ; preds = %6
   store i32 258, ptr %1, align 8, !noalias !4
   store i8 0, ptr %0, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 258, ptr %14, align 4
   br label %22
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = add i64 %8, 1
   store i64 %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 %8
   store i8 1, ptr %0, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i8, ptr %19, align 1
   store i8 %21, ptr %20, align 4
   br label %22
@@ -420,9 +420,9 @@ define void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind noalias nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = icmp ult i64 %8, %2
@@ -430,10 +430,10 @@ define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias nocaptur
 
 10:                                               ; preds = %3
   store i64 %5, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %5, ptr %11, align 8
   store i32 258, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 258, ptr %12, align 4
   br label %14
 
@@ -449,9 +449,9 @@ define void @_ZN8WasmEdge7FileMgr8testReadEm(ptr dead_on_unwind noalias nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge7FileMgr9readBytesEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.31") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %5, ptr %6, align 8
   %7 = icmp slt i64 %2, 0
   br i1 %7, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -468,7 +468,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %2) #23
   %9 = getelementptr i8, ptr %8, i64 %2
   store i8 0, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = add nsw i64 %2, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %13
@@ -496,7 +496,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %.not11.i, label %.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8, !noalias !10
   %23 = sub i64 %22, %5
   %24 = icmp ult i64 %23, %16
@@ -509,7 +509,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIhSaIhE
   br label %35
 
 _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i:            ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8, !noalias !7
   %28 = getelementptr inbounds i8, ptr %27, i64 %5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %28, i64 %16, i1 false), !noalias !7
@@ -522,24 +522,24 @@ _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i:            ; preds = %20
   %.sroa.011.13645 = phi ptr [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %8, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   %.0.i.i.i.i.i3844 = phi ptr [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %.0.i.i.i.i.i, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   store i8 1, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.011.13645, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i.i.i.i3844, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.11.13446, ptr %32, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 33:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread
   store i8 0, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %34, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 35:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, %25
   %.sroa.410.0.ph.ph = phi i32 [ 258, %25 ], [ %17, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ]
   store i8 0, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.410.0.ph.ph, ptr %36, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %2) #20
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
@@ -558,7 +558,7 @@ define void @_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615
 
 6:                                                ; preds = %4
   store i8 0, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %5, ptr %7, align 4
   br label %25
 
@@ -567,9 +567,9 @@ define void @_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615
   br i1 %.not11, label %24, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !13
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !13
   %14 = sub i64 %11, %13
   %15 = icmp ult i64 %14, %3
@@ -577,16 +577,16 @@ define void @_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615
 
 16:                                               ; preds = %9
   store i64 %11, ptr %12, align 8, !noalias !13
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %11, ptr %17, align 8, !noalias !13
   store i32 258, ptr %1, align 8, !noalias !13
   store i8 0, ptr %0, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 258, ptr %18, align 4
   br label %25
 
 _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit:              ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %13
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr align 1 %21, i64 %3, i1 false)
@@ -610,13 +610,13 @@ define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias nocapture
   br i1 %.not19, label %4, label %.loopexit
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !16
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -665,7 +665,7 @@ define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias nocapture
   %.sink = phi i8 [ 0, %2 ], [ 0, %.sink.split ], [ 1, %26 ]
   %.lcssa.sink = phi i32 [ %3, %2 ], [ %.sink26, %.sink.split ], [ %29, %26 ]
   store i8 %.sink, ptr %0, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.lcssa.sink, ptr %31, align 4
   ret void
 }
@@ -678,18 +678,18 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   br label %40
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !21
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -703,7 +703,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
 17:                                               ; preds = %14
   store i32 278, ptr %1, align 8
   store i8 0, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 278, ptr %18, align 8
   br label %40
 
@@ -716,7 +716,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
   store i64 %11, ptr %9, align 8, !noalias !21
   store i32 258, ptr %1, align 8, !noalias !21
   store i8 0, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %22, align 8
   br label %40
 
@@ -734,7 +734,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
 30:                                               ; preds = %23
   store i32 277, ptr %1, align 8
   store i8 0, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 277, ptr %31, align 8
   br label %40
 
@@ -749,7 +749,7 @@ define void @_ZN8WasmEdge7FileMgr7readU64Ev(ptr dead_on_unwind noalias nocapture
 
 38:                                               ; preds = %32
   store i8 1, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %36, ptr %39, align 8
   br label %40
 
@@ -766,18 +766,18 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !alias.scope !25
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !25
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8, !noalias !25
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !28
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !25
   %14 = icmp eq i64 %11, %8
   br i1 %14, label %._crit_edge, label %.lr.ph
@@ -787,7 +787,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
   store i64 %11, ptr %9, align 8, !noalias !28
   store i32 258, ptr %1, align 8, !noalias !28
   store i8 0, ptr %0, align 8, !alias.scope !25
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %15, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -811,7 +811,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 23:                                               ; preds = %21
   store i32 278, ptr %1, align 8, !noalias !25
   store i8 0, ptr %0, align 8, !alias.scope !25
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 278, ptr %24, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -846,7 +846,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 42:                                               ; preds = %38
   store i32 277, ptr %1, align 8, !noalias !25
   store i8 0, ptr %0, align 8, !alias.scope !25
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 277, ptr %43, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -858,7 +858,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 45:                                               ; preds = %44
   store i32 277, ptr %1, align 8, !noalias !25
   store i8 0, ptr %0, align 8, !alias.scope !25
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 277, ptr %46, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -867,7 +867,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
   %48 = shl i64 %.0.i, %.01956.i10
   %49 = or i64 %48, %.03554.i12
   store i8 1, ptr %0, align 8, !alias.scope !25
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %50, align 8, !alias.scope !25
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm33EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -883,13 +883,13 @@ define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias nocapture
   br i1 %.not.i, label %4, label %_ZN8WasmEdge7FileMgr6readSNIiLm32EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noalias !31
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %6, ptr %7, align 8, !noalias !31
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !34
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !noalias !31
   %12 = icmp eq i64 %9, %6
   br i1 %12, label %._crit_edge, label %.lr.ph
@@ -972,7 +972,7 @@ _ZN8WasmEdge7FileMgr6readSNIiLm32EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit: ; p
   %.sink82.i = phi i8 [ 1, %40 ], [ 0, %39 ], [ 0, %37 ], [ 0, %20 ], [ 0, %._crit_edge ], [ 0, %2 ]
   %.sink.i = phi i32 [ %43, %40 ], [ 277, %39 ], [ 277, %37 ], [ 278, %20 ], [ 258, %._crit_edge ], [ %3, %2 ]
   store i8 %.sink82.i, ptr %0, align 4, !alias.scope !31
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink.i, ptr %44, align 4, !alias.scope !31
   ret void
 }
@@ -986,18 +986,18 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 8, !alias.scope !37
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !37
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8, !noalias !37
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !40
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !37
   %14 = icmp eq i64 %11, %8
   br i1 %14, label %._crit_edge, label %.lr.ph
@@ -1007,7 +1007,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
   store i64 %11, ptr %9, align 8, !noalias !40
   store i32 258, ptr %1, align 8, !noalias !40
   store i8 0, ptr %0, align 8, !alias.scope !37
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %15, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -1031,7 +1031,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 23:                                               ; preds = %21
   store i32 278, ptr %1, align 8, !noalias !37
   store i8 0, ptr %0, align 8, !alias.scope !37
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 278, ptr %24, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -1066,7 +1066,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 42:                                               ; preds = %38
   store i32 277, ptr %1, align 8, !noalias !37
   store i8 0, ptr %0, align 8, !alias.scope !37
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 277, ptr %43, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -1078,7 +1078,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 45:                                               ; preds = %44
   store i32 277, ptr %1, align 8, !noalias !37
   store i8 0, ptr %0, align 8, !alias.scope !37
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 277, ptr %46, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -1087,7 +1087,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
   %48 = shl i64 %.0.i, %.01956.i10
   %49 = or i64 %48, %.03554.i12
   store i8 1, ptr %0, align 8, !alias.scope !37
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %50, align 8, !alias.scope !37
   br label %_ZN8WasmEdge7FileMgr6readSNIlLm64EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
@@ -1102,18 +1102,18 @@ define void @_ZN8WasmEdge7FileMgr7readF32Ev(ptr dead_on_unwind noalias nocapture
   br i1 %.not, label %4, label %.loopexit
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !43
   %10 = sub i64 %9, %6
   %11 = icmp ult i64 %10, 4
   br i1 %11, label %14, label %_ZN8WasmEdge7FileMgr8testReadEm.exit.preheader
 
 _ZN8WasmEdge7FileMgr8testReadEm.exit.preheader:   ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %_ZN8WasmEdge7FileMgr8testReadEm.exit
 
@@ -1143,7 +1143,7 @@ _ZN8WasmEdge7FileMgr8testReadEm.exit:             ; preds = %_ZN8WasmEdge7FileMg
   %.sink = phi i8 [ 0, %14 ], [ 0, %2 ], [ 1, %_ZN8WasmEdge7FileMgr8testReadEm.exit ]
   %.lcssa.sink = phi i32 [ 258, %14 ], [ %3, %2 ], [ %22, %_ZN8WasmEdge7FileMgr8testReadEm.exit ]
   store i8 %.sink, ptr %0, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.lcssa.sink, ptr %24, align 4
   ret void
 }
@@ -1156,23 +1156,23 @@ define void @_ZN8WasmEdge7FileMgr7readF64Ev(ptr dead_on_unwind noalias nocapture
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   br label %28
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !47
   %12 = sub i64 %11, %8
   %13 = icmp ult i64 %12, 8
   br i1 %13, label %16, label %_ZN8WasmEdge7FileMgr8testReadEm.exit.preheader
 
 _ZN8WasmEdge7FileMgr8testReadEm.exit.preheader:   ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %_ZN8WasmEdge7FileMgr8testReadEm.exit
 
@@ -1181,7 +1181,7 @@ _ZN8WasmEdge7FileMgr8testReadEm.exit.preheader:   ; preds = %6
   store i64 %11, ptr %9, align 8, !noalias !47
   store i32 258, ptr %1, align 8, !noalias !47
   store i8 0, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %17, align 8
   br label %28
 
@@ -1203,7 +1203,7 @@ _ZN8WasmEdge7FileMgr8testReadEm.exit:             ; preds = %_ZN8WasmEdge7FileMg
 
 26:                                               ; preds = %_ZN8WasmEdge7FileMgr8testReadEm.exit
   store i8 1, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %25, ptr %27, align 8
   br label %28
 
@@ -1221,18 +1221,18 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
 
 6:                                                ; preds = %2
   store i8 0, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %7, align 8
   br label %149
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %10, ptr %11, align 8, !noalias !51
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !noalias !54
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8, !noalias !51
   br label %16
 
@@ -1276,7 +1276,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   %.sink26.i = phi i32 [ 258, %21 ], [ 277, %22 ], [ 278, %16 ]
   store i32 %.sink26.i, ptr %1, align 8, !noalias !51
   store i8 0, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink26.i, ptr %35, align 8
   br label %149
 
@@ -1291,7 +1291,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   store i64 %13, ptr %11, align 8, !noalias !57
   store i32 258, ptr %1, align 8, !noalias !57
   store i8 0, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 263, ptr %41, align 8
   br label %149
 
@@ -1356,7 +1356,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
 61:                                               ; preds = %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %.sroa.460.0.ph = phi i32 [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ 258, %55 ]
   store i8 0, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.460.0.ph, ptr %62, align 8
   br label %148
 
@@ -1375,7 +1375,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %.03989 = phi i32 [ %139, %._crit_edge ], [ 0, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
   %.04088 = phi i8 [ %.4.lcssa, %._crit_edge ], [ 1, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
   %66 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  %67 = getelementptr inbounds i8, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   %68 = load i8, ptr %67, align 1
   %69 = sext i8 %68 to i32
   %70 = icmp sgt i8 %68, -1
@@ -1427,7 +1427,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %92 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %93 = add i32 %.03989, 1
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, -96
   %.not104 = icmp eq i8 %97, -128
@@ -1438,7 +1438,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %99 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %100 = add i32 %.03989, 1
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = and i8 %103, -96
   %105 = icmp ne i8 %104, -96
@@ -1459,7 +1459,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %109 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %110 = add i32 %.03989, 1
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = and i8 %113, -80
   %115 = icmp eq i8 %114, -128
@@ -1469,7 +1469,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %117 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %118 = add i32 %.03989, 1
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = and i8 %121, -80
   %.not45 = icmp eq i8 %122, -128
@@ -1502,7 +1502,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %131 = trunc nuw nsw i64 %indvars.iv to i32
   %132 = add i32 %127, %131
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %130, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
   %135 = load i8, ptr %134, align 1
   %.not47 = icmp slt i8 %135, -64
   %spec.select53 = select i1 %.not47, i8 %.486, i8 0
@@ -1528,13 +1528,13 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
 145:                                              ; preds = %._crit_edge92
   store i32 276, ptr %1, align 8
   store i8 0, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 276, ptr %146, align 8
   br label %148
 
 .critedge:                                        ; preds = %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit, %._crit_edge92
   store i8 1, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %148
 
@@ -1568,11 +1568,11 @@ define void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind noalias nocaptur
   br i1 %.not.i, label %4, label %18
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noalias !68
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %6, ptr %7, align 8, !noalias !68
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noalias !71
   %10 = icmp eq i64 %9, %6
   br i1 %10, label %11, label %_ZN5cxx208expectedIhN8WasmEdge7ErrCodeEEC2EOS3_.exit
@@ -1582,14 +1582,14 @@ define void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind noalias nocaptur
   br label %18
 
 _ZN5cxx208expectedIhN8WasmEdge7ErrCodeEEC2EOS3_.exit: ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !68
   %14 = add i64 %6, 1
   store i64 %14, ptr %5, align 8, !noalias !68
   %15 = getelementptr inbounds i8, ptr %13, i64 %6
   %16 = load i8, ptr %15, align 1, !noalias !68
   store i64 %6, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %16, ptr %17, align 4
   store i8 1, ptr %0, align 4
   br label %20
@@ -1597,7 +1597,7 @@ _ZN5cxx208expectedIhN8WasmEdge7ErrCodeEEC2EOS3_.exit: ; preds = %4
 18:                                               ; preds = %2, %11
   %.sroa.5.4.insert.insert7 = phi i32 [ 258, %11 ], [ %3, %2 ]
   store i8 0, ptr %0, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.5.4.insert.insert7, ptr %19, align 4
   br label %20
 
@@ -1612,7 +1612,7 @@ define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [2 x i8], align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 3
   br i1 %9, label %10, label %16
@@ -1622,7 +1622,7 @@ define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(
   store i32 1179403647, ptr %3, align 4
   store i32 -17958194, ptr %4, align 4
   store i32 -17958193, ptr %5, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) %12, i64 4)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -1648,7 +1648,7 @@ define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(
   br i1 %17, label %..thread_crit_edge, label %19
 
 ..thread_crit_edge:                               ; preds = %16
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread
 
@@ -1675,18 +1675,18 @@ define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias noca
 
 4:                                                ; preds = %2
   store i8 0, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4
   br label %42
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8, !noalias !74
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !77
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !74
   br label %14
 
@@ -1736,7 +1736,7 @@ define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias noca
   %.sink26.i = phi i32 [ 258, %19 ], [ 277, %20 ], [ 278, %14 ]
   store i32 %.sink26.i, ptr %1, align 8, !noalias !74
   store i8 0, ptr %0, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink26.i, ptr %37, align 4
   br label %42
 
@@ -1745,7 +1745,7 @@ define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias noca
   store i64 %11, ptr %9, align 8, !noalias !80
   store i32 258, ptr %1, align 8, !noalias !80
   store i8 0, ptr %0, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 263, ptr %39, align 4
   br label %42
 

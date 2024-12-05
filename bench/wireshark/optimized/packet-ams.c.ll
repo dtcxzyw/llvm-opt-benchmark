@@ -503,7 +503,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 define internal fastcc range(i32 0, 64) i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca [200 x i8], align 16
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.110) #3
   %9 = load ptr, ptr %7, align 8

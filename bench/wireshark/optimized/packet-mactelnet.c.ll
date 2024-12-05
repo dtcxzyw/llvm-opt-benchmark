@@ -164,11 +164,11 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
 .thread:                                          ; preds = %7, %.split.loop.exit172
   %.0146156 = phi i32 [ %.0146, %.split.loop.exit172 ], [ -1, %7 ]
   %.0147155 = phi i32 [ %.0147, %.split.loop.exit172 ], [ -1, %7 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.41) #2
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @tvb_address_to_str(ptr noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 2) #2
   %33 = load ptr, ptr %30, align 8

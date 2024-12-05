@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qfw_cfg_select(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
-  %select = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
   ret void
@@ -15,7 +15,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qfw_cfg_read_data(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %read = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %0 = load ptr, ptr %read, align 8
   tail call void %0(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #5
   ret void
@@ -24,10 +24,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qfw_cfg_get(ptr noundef %fw_cfg, i16 noundef zeroext %key, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %select.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
-  %read.i = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i, align 8
   tail call void %1(ptr noundef %fw_cfg, ptr noundef %data, i64 noundef %len) #5
   ret void
@@ -37,10 +37,10 @@ entry:
 define dso_local zeroext i16 @qfw_cfg_get_u16(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
   %value = alloca i16, align 2
-  %select.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
-  %read.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
   call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 2) #5
   %2 = load i16, ptr %value, align 2
@@ -51,10 +51,10 @@ entry:
 define dso_local i32 @qfw_cfg_get_u32(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
-  %select.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
-  %read.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
   call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 4) #5
   %2 = load i32, ptr %value, align 4
@@ -65,10 +65,10 @@ entry:
 define dso_local i64 @qfw_cfg_get_u64(ptr noundef %fw_cfg, i16 noundef zeroext %key) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
-  %select.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext %key) #5
-  %read.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
   call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %value, i64 noundef 8) #5
   %2 = load i64, ptr %value, align 8
@@ -79,10 +79,10 @@ entry:
 define dso_local range(i64 0, 4294967296) i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr nocapture noundef readonly %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
-  %select.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
+  %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
   %0 = load ptr, ptr %select.i.i, align 8
   tail call void %0(ptr noundef %fw_cfg, i16 noundef zeroext 25) #5
-  %read.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 24
+  %read.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 24
   %1 = load ptr, ptr %read.i.i, align 8
   call void %1(ptr noundef %fw_cfg, ptr noundef nonnull %count, i64 noundef 4) #5
   %2 = load i32, ptr %count, align 4
@@ -107,7 +107,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.020 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %pdir_entry.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
-  %name = getelementptr inbounds i8, ptr %pdir_entry.019, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %pdir_entry.019, i64 8
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %filename) #7
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then, label %for.inc
@@ -115,7 +115,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %7 = load i32, ptr %pdir_entry.019, align 4
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
-  %select = getelementptr inbounds i8, ptr %pdir_entry.019, i64 4
+  %select = getelementptr inbounds nuw i8, ptr %pdir_entry.019, i64 4
   %9 = load i16, ptr %select, align 4
   %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv6 = zext i32 %8 to i64
@@ -154,11 +154,11 @@ define dso_local noalias noundef ptr @mm_fw_cfg_init(ptr noundef %qts, i64 nound
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #6
   store i64 %base, ptr %call, align 8
-  %qts2 = getelementptr inbounds i8, ptr %call, i64 8
+  %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %qts, ptr %qts2, align 8
-  %select = getelementptr inbounds i8, ptr %call, i64 16
+  %select = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr @mm_fw_cfg_select, ptr %select, align 8
-  %read = getelementptr inbounds i8, ptr %call, i64 24
+  %read = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @mm_fw_cfg_read, ptr %read, align 8
   ret ptr %call
 }
@@ -169,7 +169,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mm_fw_cfg_select(ptr nocapture noundef readonly %fw_cfg, i16 noundef zeroext %key) #0 {
 entry:
-  %qts = getelementptr inbounds i8, ptr %fw_cfg, i64 8
+  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   %0 = load ptr, ptr %qts, align 8
   %1 = load i64, ptr %fw_cfg, align 8
   tail call void @qtest_writew(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %key) #5
@@ -183,7 +183,7 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %qts = getelementptr inbounds i8, ptr %fw_cfg, i64 8
+  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -217,11 +217,11 @@ entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #6
   %conv = zext i16 %base to i64
   store i64 %conv, ptr %call, align 8
-  %qts2 = getelementptr inbounds i8, ptr %call, i64 8
+  %qts2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %qts, ptr %qts2, align 8
-  %select = getelementptr inbounds i8, ptr %call, i64 16
+  %select = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr @io_fw_cfg_select, ptr %select, align 8
-  %read = getelementptr inbounds i8, ptr %call, i64 24
+  %read = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @io_fw_cfg_read, ptr %read, align 8
   ret ptr %call
 }
@@ -229,7 +229,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @io_fw_cfg_select(ptr nocapture noundef readonly %fw_cfg, i16 noundef zeroext %key) #0 {
 entry:
-  %qts = getelementptr inbounds i8, ptr %fw_cfg, i64 8
+  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   %0 = load ptr, ptr %qts, align 8
   %1 = load i64, ptr %fw_cfg, align 8
   %conv = trunc i64 %1 to i16
@@ -244,7 +244,7 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %qts = getelementptr inbounds i8, ptr %fw_cfg, i64 8
+  %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

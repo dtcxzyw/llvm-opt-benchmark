@@ -13,13 +13,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h882e5f1e2fd59490E(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
@@ -29,13 +29,13 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h882e
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h8bb821f5c3a9c2ffE(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
@@ -55,13 +55,13 @@ define zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9305d019b244
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9f17af253f585440E(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
@@ -70,7 +70,7 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9f17
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h80a643e31223ecb4E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 2)) %2, i16 %3) unnamed_addr #2 {
   store i16 %3, ptr %2, align 2
-  %5 = getelementptr inbounds i8, ptr %2, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = insertvalue { ptr, ptr } poison, ptr %1, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7
@@ -79,9 +79,9 @@ define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h9ffafbe0d67a0791E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 4)) %2, i16 %3, i16 %4) unnamed_addr #2 {
   store i16 %3, ptr %2, align 2
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %4, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = insertvalue { ptr, ptr } poison, ptr %1, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9

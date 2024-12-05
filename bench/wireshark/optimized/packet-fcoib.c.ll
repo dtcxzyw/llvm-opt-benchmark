@@ -231,7 +231,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %10, label %89, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.15) #2
   %14 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 16, i32 noundef %7) #2
@@ -242,7 +242,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %20, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %17) #2
   br label %22
@@ -341,7 +341,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %71
 
 71:                                               ; preds = %68, %66
-  %72 = getelementptr inbounds i8, ptr %5, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %72, align 4
   %trunc = trunc nuw i32 %.096 to i8
   %switch.tableidx = add i8 %trunc, -40

@@ -67,7 +67,7 @@ define void @_ZN11ImageViewerC2Ev(ptr noundef nonnull align 8 dereferenceable(16
   %6 = alloca %class.QString, align 8
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11ImageViewer, i64 16), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV11ImageViewer, i64 456), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #8
           to label %9 unwind label %49
@@ -77,7 +77,7 @@ define void @_ZN11ImageViewerC2Ev(ptr noundef nonnull align 8 dereferenceable(16
           to label %10 unwind label %51
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %8, ptr %11, align 8
   invoke void @_ZN7QWidget17setBackgroundRoleEN8QPalette9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 9)
           to label %12 unwind label %49
@@ -101,7 +101,7 @@ _ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_.exit: ; preds = %12
           to label %18 unwind label %53
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %16, ptr %19, align 8
   invoke void @_ZN7QWidget17setBackgroundRoleEN8QPalette9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef 4)
           to label %20 unwind label %49
@@ -151,7 +151,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %28
 _ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 800, ptr %3, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 600, ptr %33, align 4
   invoke void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %34 unwind label %49
@@ -165,12 +165,12 @@ _ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN17QArrayDat
 35:                                               ; preds = %34
   %36 = load ptr, ptr %2, align 8
   store ptr %36, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -328,7 +328,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit:                 ; preds = %1
           to label %31 unwind label %145
 
 31:                                               ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %30, ptr %32, align 8
   %33 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %33, null
@@ -385,7 +385,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit57:               ; preds = %_ZN7QStringD2Ev.exi
           to label %47 unwind label %162
 
 47:                                               ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit57
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %46, ptr %48, align 8
   %49 = load ptr, ptr %6, align 8
   %.not.i.i.i58 = icmp eq ptr %49, null
@@ -440,7 +440,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit66:               ; preds = %_ZN7QStringD2Ev.exi
           to label %62 unwind label %179
 
 62:                                               ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit66
-  %63 = getelementptr inbounds i8, ptr %0, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %61, ptr %63, align 8
   %64 = load ptr, ptr %10, align 8
   %.not.i.i.i67 = icmp eq ptr %64, null
@@ -497,7 +497,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit75:               ; preds = %_ZN7QStringD2Ev.exi
           to label %78 unwind label %196
 
 78:                                               ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit75
-  %79 = getelementptr inbounds i8, ptr %0, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %77, ptr %79, align 8
   %80 = load ptr, ptr %14, align 8
   %.not.i.i.i76 = icmp eq ptr %80, null
@@ -554,7 +554,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit84:               ; preds = %_ZN7QStringD2Ev.exi
           to label %94 unwind label %213
 
 94:                                               ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit84
-  %95 = getelementptr inbounds i8, ptr %0, i64 120
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %93, ptr %95, align 8
   %96 = load ptr, ptr %18, align 8
   %.not.i.i.i85 = icmp eq ptr %96, null
@@ -611,7 +611,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit93:               ; preds = %_ZN7QStringD2Ev.exi
           to label %110 unwind label %230
 
 110:                                              ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit93
-  %111 = getelementptr inbounds i8, ptr %0, i64 128
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %109, ptr %111, align 8
   %112 = load ptr, ptr %22, align 8
   %.not.i.i.i94 = icmp eq ptr %112, null
@@ -670,7 +670,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit102:              ; preds = %_ZN7QStringD2Ev.exi
           to label %127 unwind label %247
 
 127:                                              ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit102
-  %128 = getelementptr inbounds i8, ptr %0, i64 136
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %126, ptr %128, align 8
   %129 = load ptr, ptr %26, align 8
   %.not.i.i.i103 = icmp eq ptr %129, null
@@ -699,7 +699,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit107:              ; preds = %_ZN7QStringD2Ev.exi
           to label %135 unwind label %255
 
 135:                                              ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit107
-  %136 = getelementptr inbounds i8, ptr %0, i64 144
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %134, ptr %136, align 8
   %137 = load ptr, ptr %28, align 8
   %.not.i.i.i108 = icmp eq ptr %137, null
@@ -1117,7 +1117,7 @@ _ZN11ImageViewer2trEPKcS1_i.exit:                 ; preds = %1
           to label %4 unwind label %29
 
 4:                                                ; preds = %_ZN11ImageViewer2trEPKcS1_i.exit
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %3, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -1135,21 +1135,21 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %4
 
 _ZN7QStringD2Ev.exit:                             ; preds = %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %12)
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %15)
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %18)
   %19 = load ptr, ptr %5, align 8
   %20 = call noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load ptr, ptr %22, align 8
   call void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef %23)
   %24 = call noundef ptr @_ZNK11QMainWindow7menuBarEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -1201,7 +1201,7 @@ declare void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QImage, align 8
   %4 = alloca %class.QPixmap, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %45, label %8
@@ -1220,7 +1220,7 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
   br label %44
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   invoke void @_ZN7QPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 0)
           to label %16 unwind label %11
@@ -1231,15 +1231,15 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
 
 17:                                               ; preds = %16
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 1.000000e+00, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   invoke void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %20, i1 noundef zeroext true)
           to label %21 unwind label %11
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = invoke noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
@@ -1251,7 +1251,7 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
           to label %.noexc8 unwind label %11
 
 .noexc8:                                          ; preds = %.noexc
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %19, align 8
   %30 = invoke noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
@@ -1263,7 +1263,7 @@ define noundef zeroext i1 @_ZN11ImageViewer4openE7QString(ptr nocapture noundef 
           to label %.noexc10 unwind label %11
 
 .noexc10:                                         ; preds = %.noexc9
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %19, align 8
   %35 = invoke noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
@@ -1323,20 +1323,20 @@ declare void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ImageViewer13updateActionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %7 = xor i1 %6, true
   tail call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = xor i1 %11, true
   tail call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext %12)
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   %16 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
@@ -1367,11 +1367,11 @@ define void @_ZN11ImageViewer6zoomInEv(ptr nocapture noundef nonnull align 8 der
 define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, double noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QSize, align 8
   %4 = alloca %class.QPixmap, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load double, ptr %5, align 8
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   call void @_ZNK6QLabel6pixmapEv(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %9)
   %10 = invoke i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1401,7 +1401,7 @@ define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 
 
 22:                                               ; preds = %11
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_ZNK19QAbstractScrollArea19horizontalScrollBarEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
   %26 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %25)
@@ -1425,12 +1425,12 @@ define void @_ZN11ImageViewer10scaleImageEd(ptr nocapture noundef nonnull align 
   %43 = call double @llvm.fmuladd.f64(double %1, double %38, double %42)
   %44 = fptosi double %43 to i32
   call void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 noundef %44)
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %46 = load ptr, ptr %45, align 8
   %47 = load double, ptr %5, align 8
   %48 = fcmp olt double %47, 3.000000e+00
   call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %46, i1 noundef zeroext %48)
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %50 = load ptr, ptr %49, align 8
   %51 = load double, ptr %5, align 8
   %52 = fcmp ogt double %51, 3.330000e-01
@@ -1452,46 +1452,46 @@ define void @_ZN11ImageViewer7zoomOutEv(ptr nocapture noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ImageViewer10normalSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((72, 80)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 1.000000e+00, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ImageViewer11fitToWindowEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN11QScrollArea18setWidgetResizableEb(ptr noundef nonnull align 8 dereferenceable(40) %6, i1 noundef zeroext %4)
   br i1 %4, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 1.000000e+00, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %2, align 8
   %15 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   %16 = xor i1 %15, true
   tail call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %2, align 8
   %20 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = xor i1 %20, true
   tail call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %2, align 8
   %25 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
@@ -1651,9 +1651,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11ImageViewer10closeEventEP11QCloseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly initializes((12, 13)) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
@@ -1661,13 +1661,13 @@ define void @_ZN11ImageViewer10closeEventEP11QCloseEvent(ptr nocapture noundef n
 
 _ZNKSt14default_deleteI11ImageViewerEclEPS0_.exit.i.i.i: ; preds = %2
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(160) %6) #9
   br label %_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EEaSEDn.exit
 
 _ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EEaSEDn.exit: ; preds = %2, %_ZNKSt14default_deleteI11ImageViewerEclEPS0_.exit.i.i.i
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 1, ptr %10, align 4
   ret void
 }

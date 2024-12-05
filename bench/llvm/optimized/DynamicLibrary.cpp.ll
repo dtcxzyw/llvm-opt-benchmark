@@ -54,7 +54,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9HandleSetD2Ev(ptr nocapture 
   %.sroa.04.08 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
   %5 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 -8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @dlclose(ptr noundef %6) #13
+  %7 = tail call i32 @dlclose(ptr noundef %6) #14
   %.not6 = icmp eq ptr %5, %4
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9HandleSetD2Ev(ptr nocapture 
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %._crit_edge
-  %11 = tail call i32 @dlclose(ptr noundef nonnull %9) #13
+  %11 = tail call i32 @dlclose(ptr noundef nonnull %9) #14
   br label %12
 
 12:                                               ; preds = %10, %._crit_edge
@@ -80,7 +80,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9HandleSetD2Ev(ptr nocapture 
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #15
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %12, %14
@@ -92,7 +92,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #13
+  %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8
 
@@ -101,8 +101,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6DLO
   br i1 %.not8, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @dlerror() #13
-  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6) #13
+  %6 = tail call ptr @dlerror() #14
+  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6) #14
   br label %8
 
 8:                                                ; preds = %2, %4, %5
@@ -120,13 +120,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3sys14DynamicLibrary9HandleSet7DLCloseEPv(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = tail call i32 @dlclose(ptr noundef %0) #13
+  %2 = tail call i32 @dlclose(ptr noundef %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet5DLSymEPvPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %1) #13
+  %3 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %1) #14
   ret ptr %3
 }
 
@@ -135,17 +135,17 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1) #15
+  %2 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1) #16
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %_ZL8DoSearchPKc.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.2) #15
+  %4 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.2) #16
   %.not4.i = icmp eq i32 %4, 0
   br i1 %.not4.i, label %_ZL8DoSearchPKc.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.3) #15
+  %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.3) #16
   %.not5.i = icmp eq i32 %6, 0
   %stdin..i = select i1 %.not5.i, ptr @stdin, ptr null
   br label %_ZL8DoSearchPKc.exit
@@ -162,7 +162,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9AddSymbolENS_9StringRefEPv(p
   br i1 %5, label %6, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %8
 
@@ -172,27 +172,27 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9AddSymbolENS_9StringRefEPv(p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %3, %6, %8
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %11
 
 11:                                               ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %10) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %10) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  %12 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %0, i64 %1) #13
+  %12 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %0, i64 %1) #14
   %13 = tail call { ptr, i8 } @_ZN4llvm9StringMapIPvNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr %0, i64 %1, i32 noundef %12)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %13, 0
   %14 = load ptr, ptr %.fca.0.extract.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %15, align 8
-  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   ret void
 }
 
@@ -206,7 +206,7 @@ define dso_local ptr @_ZN4llvm3sys14DynamicLibrary19getPermanentLibraryEPKcPNSt7
   br i1 %4, label %5, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %7
 
@@ -216,12 +216,12 @@ define dso_local ptr @_ZN4llvm3sys14DynamicLibrary19getPermanentLibraryEPKcPNSt7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %2, %5, %7
-  %9 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #13
+  %9 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #14
   %.not.i10 = icmp eq ptr %9, null
   br i1 %.not.i10, label %10, label %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -230,8 +230,8 @@ _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %2, %5, %7
   br i1 %.not8.i, label %.split, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call ptr @dlerror() #13
-  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12) #13
+  %12 = tail call ptr @dlerror() #14
+  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12) #14
   br label %.split
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
@@ -239,18 +239,18 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   br i1 %.not, label %.split, label %.split9
 
 .split9:                                          ; preds = %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %15
 
 15:                                               ; preds = %.split9
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %.split9
   %16 = icmp eq ptr %0, null
   %17 = tail call noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), ptr noundef nonnull %9, i1 noundef zeroext %16, i1 noundef zeroext true, i1 noundef zeroext false)
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   br label %.split
 
 .split:                                           ; preds = %10, %11, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
@@ -260,7 +260,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %.split9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
-  br i1 %2, label %84, label %6
+  br i1 %2, label %81, label %6
 
 6:                                                ; preds = %5
   br i1 %4, label %..critedge_crit_edge, label %7
@@ -294,25 +294,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9Hand
   br i1 %19, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
   br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit28, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 32
   %34 = add nsw i64 %.052.i.i.i.i.i, -1
   %35 = icmp sgt i64 %.052.i.i.i.i.i, 1
   br i1 %35, label %17, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !25
@@ -338,7 +338,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9Hand
   br i1 %39, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %40, %._crit_edge.i.i.i.i.i
@@ -348,7 +348,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9Hand
   br i1 %43, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit, label %44
 
 44:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %45 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge57.i.i.i.i.i
 
 ._crit_edge._crit_edge57.i.i.i.i.i:               ; preds = %44, %._crit_edge.i.i.i.i.i
@@ -359,15 +359,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9Hand
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit: ; preds = %20
-  %48 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit26: ; preds = %24
-  %49 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit28: ; preds = %28
-  %50 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit26, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit28, %37, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
@@ -379,7 +379,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sy
   br i1 %3, label %52, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
 52:                                               ; preds = %51
-  %53 = tail call i32 @dlclose(ptr noundef %1) #13
+  %53 = tail call i32 @dlclose(ptr noundef %1) #14
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %._crit_edge.i.i.i.i.i, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
@@ -393,7 +393,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sy
 58:                                               ; preds = %.critedge
   store ptr %1, ptr %54, align 8
   %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %60, ptr %55, align 8
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
@@ -406,7 +406,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sy
   br i1 %66, label %67, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 67:                                               ; preds = %61
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
   unreachable
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %61
@@ -416,67 +416,60 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %61
   %70 = icmp ult i64 %69, %68
   %71 = tail call i64 @llvm.umin.i64(i64 %69, i64 1152921504606846975)
   %72 = select i1 %70, i64 1152921504606846975, i64 %71
-  %.not.i.i.i = icmp eq i64 %72, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i, label %73
+  %.not.i.i.i = icmp ne i64 %72, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %73 = shl nuw nsw i64 %72, 3
+  %74 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #18
+  %75 = getelementptr inbounds i8, ptr %74, i64 %65
+  store ptr %1, ptr %75, align 8
+  %76 = icmp sgt i64 %65, 0
+  br i1 %76, label %77, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
 
-73:                                               ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %74 = shl nuw nsw i64 %72, 3
-  %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #17
-  br label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %73, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %76 = phi ptr [ %75, %73 ], [ null, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %68
-  store ptr %1, ptr %77, align 8
-  %78 = icmp sgt i64 %65, 0
-  br i1 %78, label %79, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-
-79:                                               ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %76, ptr align 8 %62, i64 %65, i1 false)
+77:                                               ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %74, ptr align 8 %62, i64 %65, i1 false)
   br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
 
-_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %79, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i
-  %80 = getelementptr inbounds i8, ptr %76, i64 %65
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %77, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.not.i17.i.i = icmp eq ptr %62, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %82
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %79
 
-82:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %65) #14
+79:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %65) #15
   br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
-_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %82, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  store ptr %76, ptr %0, align 8
-  store ptr %81, ptr %55, align 8
-  %83 = getelementptr inbounds ptr, ptr %76, i64 %72
-  store ptr %83, ptr %56, align 8
+_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
+  store ptr %74, ptr %0, align 8
+  store ptr %78, ptr %55, align 8
+  %80 = getelementptr inbounds nuw ptr, ptr %74, i64 %72
+  store ptr %80, ptr %56, align 8
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
-84:                                               ; preds = %5
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %.not = icmp eq ptr %86, null
-  br i1 %.not, label %93, label %87
+81:                                               ; preds = %5
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %.not = icmp eq ptr %83, null
+  br i1 %.not, label %90, label %84
 
-87:                                               ; preds = %84
-  br i1 %3, label %88, label %90
+84:                                               ; preds = %81
+  br i1 %3, label %85, label %87
 
-88:                                               ; preds = %87
-  %89 = tail call i32 @dlclose(ptr noundef nonnull %86) #13
-  %.pre25 = load ptr, ptr %85, align 8
-  br label %90
+85:                                               ; preds = %84
+  %86 = tail call i32 @dlclose(ptr noundef nonnull %83) #14
+  %.pre25 = load ptr, ptr %82, align 8
+  br label %87
 
-90:                                               ; preds = %88, %87
-  %91 = phi ptr [ %.pre25, %88 ], [ %86, %87 ]
-  %92 = icmp eq ptr %91, %1
-  br i1 %92, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit, label %93
+87:                                               ; preds = %85, %84
+  %88 = phi ptr [ %.pre25, %85 ], [ %83, %84 ]
+  %89 = icmp eq ptr %88, %1
+  br i1 %89, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit, label %90
 
-93:                                               ; preds = %90, %84
-  store ptr %1, ptr %85, align 8
+90:                                               ; preds = %87, %81
+  store ptr %1, ptr %82, align 8
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
-_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %58, %93, %90, %51, %52
-  %.0 = phi i1 [ false, %52 ], [ false, %51 ], [ false, %90 ], [ true, %93 ], [ true, %58 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ]
+_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %58, %90, %87, %51, %52
+  %.0 = phi i1 [ false, %52 ], [ false, %51 ], [ false, %87 ], [ true, %90 ], [ true, %58 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ]
   ret i1 %.0
 }
 
@@ -487,7 +480,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary19addPermanentLibraryE
   br i1 %4, label %5, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %7
 
@@ -497,17 +490,17 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary19addPermanentLibraryE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %2, %5, %7
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %10
 
 10:                                               ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %9) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %9) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
@@ -515,17 +508,17 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str) #13
+  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str) #14
   br label %14
 
 14:                                               ; preds = %12, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4llvm3sys14DynamicLibrary10getLibraryEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #13
+  %3 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 257) #14
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -534,8 +527,8 @@ define dso_local ptr @_ZN4llvm3sys14DynamicLibrary10getLibraryEPKcPNSt7__cxx1112
   br i1 %.not8.i, label %.split, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @dlerror() #13
-  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6) #13
+  %6 = tail call ptr @dlerror() #14
+  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6) #14
   br label %.split
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -548,7 +541,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   br i1 %9, label %10, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 10:                                               ; preds = %.split8
-  %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %11 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i9 = icmp eq i32 %11, 0
   br i1 %.not.i9, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %12
 
@@ -558,17 +551,17 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %.split8, %10, %12
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %15
 
 15:                                               ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
@@ -580,7 +573,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
 17:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
   store ptr %3, ptr %.pre.i, align 8
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
 
@@ -593,7 +586,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %25, label %26, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
 
 26:                                               ; preds = %20
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #17
   unreachable
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %20
@@ -603,44 +596,37 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %20
   %29 = icmp ult i64 %28, %27
   %30 = tail call i64 @llvm.umin.i64(i64 %28, i64 1152921504606846975)
   %31 = select i1 %29, i64 1152921504606846975, i64 %30
-  %.not.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i, label %32
+  %.not.i.i.i.i = icmp ne i64 %31, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %32 = shl nuw nsw i64 %31, 3
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
+  %34 = getelementptr inbounds i8, ptr %33, i64 %24
+  store ptr %3, ptr %34, align 8
+  %35 = icmp sgt i64 %24, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
-32:                                               ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
-  %33 = shl nuw nsw i64 %31, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #17
-  br label %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %32, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
-  %35 = phi ptr [ %34, %32 ], [ null, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %27
-  store ptr %3, ptr %36, align 8
-  %37 = icmp sgt i64 %24, 0
-  br i1 %37, label %38, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-
-38:                                               ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %21, i64 %24, i1 false)
+36:                                               ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %21, i64 %24, i1 false)
   br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
-_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %38, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %39 = getelementptr inbounds i8, ptr %35, i64 %24
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %36, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.not.i17.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %41
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %38
 
-41:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #14
+38:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #15
   br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 56), align 8
-  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8
-  %42 = getelementptr inbounds ptr, ptr %35, i64 %31
-  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 72), align 8
+_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 56), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8
+  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 72), align 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit: ; preds = %17, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
-  %43 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   br label %.split
 
 .split:                                           ; preds = %4, %5, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
@@ -655,7 +641,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary12closeLibraryERS1_(ptr nocap
   br i1 %3, label %4, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %6
 
@@ -665,17 +651,17 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary12closeLibraryERS1_(ptr nocap
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %1, %4, %6
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %9
 
 9:                                                ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
@@ -684,7 +670,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %.not, label %64, label %11
 
 11:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %12 = tail call i32 @dlclose(ptr noundef %10) #13
+  %12 = tail call i32 @dlclose(ptr noundef %10) #14
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 56), align 8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 64), align 8
   %15 = ptrtoint ptr %14 to i64
@@ -707,25 +693,25 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %23, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %10
   br i1 %27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %10
   br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %10
   br i1 %35, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 32
   %38 = add nsw i64 %.052.i.i.i.i.i.i, -1
   %39 = icmp sgt i64 %.052.i.i.i.i.i.i, 1
   br i1 %39, label %21, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !25
@@ -751,7 +737,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %43, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %44, %._crit_edge.i.i.i.i.i.i
@@ -761,7 +747,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %47, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i, label %48
 
 48:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge57.i.i.i.i.i.i
 
 ._crit_edge._crit_edge57.i.i.i.i.i.i:             ; preds = %48, %._crit_edge.i.i.i.i.i.i
@@ -772,15 +758,15 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit: ; preds = %24
-  %52 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19: ; preds = %28
-  %53 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21: ; preds = %32
-  %54 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i: ; preds = %21, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %41
@@ -792,7 +778,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i: ; preds = %21, %_ZN4llvm3
   %56 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i to i64
   %57 = sub i64 %56, %16
   %58 = getelementptr inbounds i8, ptr %13, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.not.i.i.i6 = icmp eq ptr %59, %14
   br i1 %.not.i.i.i6, label %_ZNSt6vectorIPvSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EE.exit.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPvSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i
 
@@ -814,7 +800,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit: ; preds = %._crit_
   br label %64
 
 64:                                               ; preds = %_ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   ret void
 }
 
@@ -825,7 +811,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary18getAddressOfSymbolEP
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call noundef ptr @dlsym(ptr noundef %3, ptr noundef %1) #13
+  %5 = tail call noundef ptr @dlsym(ptr noundef %3, ptr noundef %1) #14
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -840,7 +826,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary24SearchForAddressOfSy
   br i1 %3, label %4, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, !prof !24
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %6
 
@@ -850,17 +836,17 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary24SearchForAddressOfSy
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 128), align 8
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #13
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #13
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_17GlobalsD2Ev, ptr nonnull @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr nonnull @__dso_handle) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_110getGlobalsEvE1G) #14
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %1, %4, %6
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %9
 
 9:                                                ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #17
   unreachable
 
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_GLOBAL__N_110getGlobalsEv.exit
@@ -868,13 +854,13 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br i1 %.not.i19, label %_ZN4llvm9StringRefC2EPKc.exit, label %10
 
 10:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, %10
   %12 = phi i64 [ %11, %10 ], [ 0, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit ]
-  %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %0, i64 %12) #13
-  %14 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr %0, i64 %12, i32 noundef %13) #13
+  %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %0, i64 %12) #14
+  %14 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, ptr %0, i64 %12, i32 noundef %13) #14
   %15 = icmp eq i32 %14, -1
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 8), align 8
   %17 = zext i32 %16 to i64
@@ -905,22 +891,22 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN
 
 .thread:                                          ; preds = %19, %24, %27
   %.0.ph = phi ptr [ %29, %27 ], [ %26, %24 ], [ %23, %19 ]
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
   br label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit
 
 31:                                               ; preds = %27
-  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
-  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1) #15
+  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #14
+  %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1) #16
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.2) #15
+  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.2) #16
   %.not4.i.i = icmp eq i32 %35, 0
   br i1 %.not4.i.i, label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.3) #15
+  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.3) #16
   %.not5.i.i = icmp eq i32 %37, 0
   %stdin..i.i = select i1 %.not5.i.i, ptr @stdin, ptr null
   br label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit
@@ -953,14 +939,14 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br i1 %.not2428.i, label %.loopexit, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.sroa.021.029.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i, i64 8
   %.not24.i = icmp eq ptr %14, %12
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %13
   %.sroa.021.029.i = phi ptr [ %14, %13 ], [ %10, %9 ]
   %15 = load ptr, ptr %.sroa.021.029.i, align 8
-  %16 = tail call noundef ptr @dlsym(ptr noundef %15, ptr noundef %1) #13
+  %16 = tail call noundef ptr @dlsym(ptr noundef %15, ptr noundef %1) #14
   %.not17.i = icmp eq ptr %16, null
   br i1 %.not17.i, label %13, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit
 
@@ -978,7 +964,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
 22:                                               ; preds = %21
   %23 = getelementptr inbounds i8, ptr %.sroa.018.0.i, i64 -8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr @dlsym(ptr noundef %24, ptr noundef %1) #13
+  %25 = tail call noundef ptr @dlsym(ptr noundef %24, ptr noundef %1) #14
   %.not16.i = icmp eq ptr %25, null
   br i1 %.not16.i, label %21, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit
 
@@ -989,7 +975,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
 
 .thread:                                          ; preds = %3, %.loopexit
   %26 = phi ptr [ %.pr, %.loopexit ], [ %5, %3 ]
-  %27 = tail call noundef ptr @dlsym(ptr noundef nonnull %26, ptr noundef %1) #13
+  %27 = tail call noundef ptr @dlsym(ptr noundef nonnull %26, ptr noundef %1) #14
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %28, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit
 
@@ -1011,14 +997,14 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br i1 %.not2428.i25, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit, label %.lr.ph.i26
 
 36:                                               ; preds = %.lr.ph.i26
-  %37 = getelementptr inbounds i8, ptr %.sroa.021.029.i27, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i27, i64 8
   %.not24.i30 = icmp eq ptr %37, %35
   br i1 %.not24.i30, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %32, %36
   %.sroa.021.029.i27 = phi ptr [ %37, %36 ], [ %33, %32 ]
   %38 = load ptr, ptr %.sroa.021.029.i27, align 8
-  %39 = tail call noundef ptr @dlsym(ptr noundef %38, ptr noundef %1) #13
+  %39 = tail call noundef ptr @dlsym(ptr noundef %38, ptr noundef %1) #14
   %.not17.i28 = icmp eq ptr %39, null
   br i1 %.not17.i28, label %36, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit
 
@@ -1036,7 +1022,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
 45:                                               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %.sroa.018.0.i31, i64 -8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef ptr @dlsym(ptr noundef %47, ptr noundef %1) #13
+  %48 = tail call noundef ptr @dlsym(ptr noundef %47, ptr noundef %1) #14
   %.not16.i33 = icmp eq ptr %48, null
   br i1 %.not16.i33, label %44, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit
 
@@ -1065,7 +1051,7 @@ define dso_local void @LLVMAddSymbol(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %3
@@ -1083,9 +1069,9 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN4llvm3sys14DynamicLibrary9HandleSetD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
+  tail call void @_ZN4llvm3sys14DynamicLibrary9HandleSetD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm3sys14DynamicLibrary9HandleSetD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  tail call void @_ZN4llvm3sys14DynamicLibrary9HandleSetD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -1104,7 +1090,7 @@ define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %magicptr.i = ptrtoint ptr %13 to i64
   switch i64 %magicptr.i, label %14 [
@@ -1115,7 +1101,7 @@ define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i64, ptr %13, align 8
   %16 = add i64 %15, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %16, i64 noundef 8) #13
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %16, i64 noundef 8) #14
   br label %17
 
 17:                                               ; preds = %14, %.lr.ph.i, %.lr.ph.i
@@ -1125,7 +1111,7 @@ define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 
 
 _ZN4llvm9StringMapIPvNS_15MallocAllocatorEED2Ev.exit: ; preds = %17, %1, %7
   %18 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %18) #13
+  tail call void @free(ptr noundef %18) #14
   ret void
 }
 
@@ -1169,10 +1155,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPvNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #13
+  %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #14
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1190,7 +1176,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPvNS_15MallocAllocato
   ]
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
-  %11 = getelementptr inbounds i8, ptr %.sroa.030.0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8
   br label %.preheader.i.i, !llvm.loop !68
 
@@ -1203,8 +1189,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPvNS_15MallocAllocato
 
 16:                                               ; preds = %4, %12
   %17 = add i64 %2, 17
-  %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #13
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #14
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit, label %20
 
@@ -1223,10 +1209,10 @@ _ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefER
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
-  %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #13
+  %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #14
   %27 = load ptr, ptr %0, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -1239,7 +1225,7 @@ _ZN4llvm14StringMapEntryIPvE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefER
   ]
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br label %.preheader.i.i23, !llvm.loop !68
 
 _ZN4llvm17StringMapIteratorIPvEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
@@ -1266,6 +1252,9 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #13
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1279,11 +1268,12 @@ attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { builtin nounwind allocsize(0) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { builtin nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

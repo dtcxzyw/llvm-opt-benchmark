@@ -73,8 +73,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %10
   %16 = shl i32 %4, 5
-  %17 = getelementptr inbounds i8, ptr %2, i64 408
-  %18 = getelementptr inbounds i8, ptr %8, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %19
 
 19:                                               ; preds = %.lr.ph, %79
@@ -280,7 +280,7 @@ define internal i32 @dissect_raw_ircomm(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %10 = load ptr, ptr %8, align 8
@@ -305,7 +305,7 @@ define internal i32 @dissect_cooked_ircomm(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %6, label %34, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.11) #3
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3

@@ -56,7 +56,7 @@ define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
   %switch.select.i = select i1 %switch.selectcmp.i, i32 20, i32 0
@@ -67,7 +67,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_size(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %22 [
     i32 2, label %7
@@ -83,7 +83,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr noca
   %10 = getelementptr i8, ptr %2, i64 3
   store i8 4, ptr %10, align 1
   %11 = getelementptr i8, ptr %2, i64 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 1
   store i32 %14, ptr %11, align 1
@@ -98,7 +98,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr noca
   %18 = getelementptr i8, ptr %2, i64 3
   store i8 16, ptr %18, align 1
   %19 = getelementptr i8, ptr %2, i64 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load ptr, ptr %20, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
   br label %22
@@ -110,7 +110,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_src_ip_populate_data(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.val = load i32, ptr %3, align 8
   %switch.selectcmp.i = icmp eq i32 %.val, 3
   %switch.select.i = select i1 %switch.selectcmp.i, i32 20, i32 0
@@ -121,7 +121,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_size(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %22 [
     i32 2, label %7
@@ -137,7 +137,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr noca
   %10 = getelementptr i8, ptr %2, i64 3
   store i8 4, ptr %10, align 1
   %11 = getelementptr i8, ptr %2, i64 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 1
   store i32 %14, ptr %11, align 1
@@ -152,7 +152,7 @@ define internal range(i32 0, 21) i32 @exp_pdu_data_dst_ip_populate_data(ptr noca
   %18 = getelementptr i8, ptr %2, i64 3
   store i8 16, ptr %18, align 1
   %19 = getelementptr i8, ptr %2, i64 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %21 = load ptr, ptr %20, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
   br label %22
@@ -176,7 +176,7 @@ define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr nocapture 
   store i8 0, ptr %6, align 1
   %7 = getelementptr i8, ptr %2, i64 3
   store i8 4, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 14
   br i1 %10, label %switch.lookup, label %11
@@ -187,7 +187,7 @@ define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr nocapture 
 
 switch.lookup:                                    ; preds = %4
   %12 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [14 x i8], ptr @switch.table.exp_pdu_data_port_type_populate_data, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [14 x i8], ptr @switch.table.exp_pdu_data_port_type_populate_data, i64 0, i64 %12
   %switch.load = load i8, ptr %switch.gep, align 1
   %13 = getelementptr i8, ptr %2, i64 4
   store i8 0, ptr %13, align 1
@@ -207,7 +207,7 @@ define internal noundef i32 @exp_pdu_data_port_size(ptr nocapture readnone %0, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 284
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %6 = load i32, ptr %5, align 4
   store i8 0, ptr %2, align 1
   %7 = getelementptr i8, ptr %2, i64 1
@@ -236,7 +236,7 @@ define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   store i8 0, ptr %2, align 1
   %7 = getelementptr i8, ptr %2, i64 1
@@ -278,7 +278,7 @@ define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nocap
   %7 = getelementptr i8, ptr %2, i64 3
   store i8 4, ptr %7, align 1
   %8 = getelementptr i8, ptr %2, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 24
   %12 = trunc nuw i32 %11 to i8
@@ -325,7 +325,7 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   unreachable
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 32) #11
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
@@ -342,7 +342,7 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   %.05262 = phi ptr [ %24, %.lr.ph ], [ %3, %8 ]
   %.05461 = phi i32 [ %23, %.lr.ph ], [ %16, %8 ]
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %19(ptr noundef %0, ptr noundef %21) #11
   %23 = add i32 %22, %.05461
@@ -357,7 +357,7 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   %27 = load ptr, ptr %9, align 8
   %28 = sext i32 %26 to i64
   %29 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %28) #11
-  %30 = getelementptr inbounds i8, ptr %11, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %29, ptr %30, align 8
   store i32 %26, ptr %11, align 8
   store i8 0, ptr %29, align 1
@@ -390,9 +390,9 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   %.066 = phi ptr [ %51, %.lr.ph68 ], [ %43, %.lr.ph68.preheader ]
   %.165 = phi ptr [ %53, %.lr.ph68 ], [ %3, %.lr.ph68.preheader ]
   %.05364 = phi i32 [ %52, %.lr.ph68 ], [ %41, %.lr.ph68.preheader ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 %46(ptr noundef %0, ptr noundef %48, ptr noundef %.066, i32 noundef %.05364) #11
   %50 = sext i32 %49 to i64

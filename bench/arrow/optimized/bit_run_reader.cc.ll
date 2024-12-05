@@ -13,34 +13,34 @@ entry:
   %div = sdiv i64 %start_offset, 8
   %add.ptr = getelementptr inbounds i8, ptr %bitmap, i64 %div
   store ptr %add.ptr, ptr %this, align 8
-  %position_ = getelementptr inbounds i8, ptr %this, i64 8
+  %position_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rem = srem i64 %start_offset, 8
   store i64 %rem, ptr %position_, align 8
-  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add = add nsw i64 %rem, %length
   store i64 %add, ptr %length_, align 8
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %word_ = getelementptr inbounds i8, ptr %this, i64 24
+  %word_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %word_, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %shr.i = lshr i64 %start_offset, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %bitmap, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
   %1 = trunc i64 %start_offset to i32
   %sh_prom.i = and i32 %1, 7
-  %current_run_bit_set_ = getelementptr inbounds i8, ptr %this, i64 32
+  %current_run_bit_set_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = xor i32 %conv.i, -1
   %3 = lshr i32 %2, %sh_prom.i
   %4 = trunc i32 %3 to i8
   %frombool = and i8 %4, 1
   store i8 %frombool, ptr %current_run_bit_set_, align 8
-  %word_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %word_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %word_.i, align 8
   %cmp.i = icmp sgt i64 %add, 63
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -54,7 +54,7 @@ if.else.i:                                        ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %word_.i, ptr nonnull align 1 %add.ptr, i64 %add.i.i, i1 false)
   %sub.i = add nsw i64 %add, -1
   %shr.i6.i = lshr i64 %sub.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %word_.i, i64 %shr.i6.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %word_.i, i64 %shr.i6.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i7.i = zext i8 %5 to i32
   %6 = trunc i64 %sub.i to i32

@@ -273,7 +273,7 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
 
 112:                                              ; preds = %111, %111
   %113 = or i32 %.5, 528
-  %114 = getelementptr inbounds i8, ptr %.5357, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.5357, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !3
   %116 = icmp eq i8 %115, 86
   br i1 %116, label %.thread375, label %120

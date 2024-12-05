@@ -1098,7 +1098,7 @@ value_guard.exit1041:                             ; preds = %value_guard.exit
   %156 = add nuw i32 %145, %102
   %157 = add i32 %156, %153
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %1, i64 408
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %160 = load ptr, ptr %159, align 8
   %161 = add nuw nsw i32 %143, %151
   %162 = mul nuw nsw i32 %161, 24
@@ -1107,9 +1107,9 @@ value_guard.exit1041:                             ; preds = %value_guard.exit
   %164 = call noalias ptr @wmem_alloc(ptr noundef %160, i64 noundef %163) #5
   store i64 0, ptr %164, align 8
   %165 = zext i16 %.in to i64
-  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i64 %165, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %164, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store ptr @.str.619, ptr %167, align 8
   %.not1021 = icmp eq i64 %.09981089, 0
   br i1 %.not1021, label %173, label %168
@@ -1134,9 +1134,9 @@ value_guard.exit1041:                             ; preds = %value_guard.exit
   %176 = getelementptr %struct._segment_info_t, ptr %164, i64 %175
   store i64 %.0997, ptr %176, align 8
   %177 = zext i32 %153 to i64
-  %178 = getelementptr inbounds i8, ptr %176, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i64 %177, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %176, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store ptr @.str.623, ptr %179, align 8
   %180 = add nuw nsw i32 %.0973, 1
   br label %value_guard.exit1042
@@ -1391,9 +1391,9 @@ value_guard.exit1044:                             ; preds = %value_guard.exit104
   %314 = zext i32 %.29751232 to i64
   %315 = getelementptr %struct._segment_info_t, ptr %164, i64 %314
   store i64 %.0980, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i64 %.0987, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %315, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 16
   store ptr %304, ptr %317, align 8
   %318 = add i32 %.29751232, 1
   br label %319
@@ -1865,9 +1865,9 @@ value_guard.exit1056:                             ; preds = %428
   %543 = zext i32 %.49771266 to i64
   %544 = getelementptr %struct._segment_info_t, ptr %164, i64 %543
   store i64 %.1990, ptr %544, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store i64 %508, ptr %545, align 8
-  %546 = getelementptr inbounds i8, ptr %544, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %544, i64 16
   store ptr %435, ptr %546, align 8
   %547 = add i32 %.49771266, 1
   %548 = icmp ult i64 %.1990, 2147483648
@@ -3084,13 +3084,13 @@ value_guard.exit1051._crit_edge:                  ; preds = %value_guard.exit105
   br i1 %.not.i1084, label %proto_item_set_generated.exit, label %1120
 
 1120:                                             ; preds = %value_guard.exit1051._crit_edge
-  %1121 = getelementptr inbounds i8, ptr %1119, i64 32
+  %1121 = getelementptr inbounds nuw i8, ptr %1119, i64 32
   %1122 = load ptr, ptr %1121, align 8
   %.not5.i = icmp eq ptr %1122, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %1123
 
 1123:                                             ; preds = %1120
-  %1124 = getelementptr inbounds i8, ptr %1122, i64 28
+  %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 28
   %1125 = load i32, ptr %1124, align 4
   %1126 = or i32 %1125, 2
   store i32 %1126, ptr %1124, align 4
@@ -3181,7 +3181,7 @@ value_guard.exit1085:                             ; preds = %1147
   %1155 = trunc nuw nsw i64 %1150 to i32
   %1156 = getelementptr i8, ptr %1140, i64 -8
   %1157 = load ptr, ptr %1156, align 8
-  %1158 = getelementptr inbounds i8, ptr %1144, i64 16
+  %1158 = getelementptr inbounds nuw i8, ptr %1144, i64 16
   %1159 = load ptr, ptr %1158, align 8
   %1160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1128, i32 noundef %1153, ptr noundef %0, i32 noundef %1155, i32 noundef 1, i32 noundef %1154, ptr noundef nonnull @.str.645, ptr noundef %1157, ptr noundef %1159, i32 noundef %1154) #5
   call void @proto_item_set_len(ptr noundef %1160, i32 noundef %1154) #5
@@ -3209,7 +3209,7 @@ value_guard.exit1086:                             ; preds = %1163
   %1171 = trunc nuw nsw i64 %1166 to i32
   %1172 = getelementptr i8, ptr %1140, i64 -8
   %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1144, i64 16
+  %1174 = getelementptr inbounds nuw i8, ptr %1144, i64 16
   %1175 = load ptr, ptr %1174, align 8
   %1176 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1130, i32 noundef %1169, ptr noundef %0, i32 noundef %1171, i32 noundef 1, i32 noundef %1170, ptr noundef nonnull @.str.646, ptr noundef %1173, ptr noundef %1175, i32 noundef %1170) #5
   call void @proto_item_set_len(ptr noundef %1176, i32 noundef %1170) #5
@@ -3228,7 +3228,7 @@ value_guard.exit1086:                             ; preds = %1163
   %1180 = zext i32 %1179 to i64
   %1181 = getelementptr %struct._segment_info_t, ptr %164, i64 %1180
   %1182 = load i64, ptr %1181, align 8
-  %1183 = getelementptr inbounds i8, ptr %1181, i64 8
+  %1183 = getelementptr inbounds nuw i8, ptr %1181, i64 8
   %1184 = load i64, ptr %1183, align 8
   %1185 = add i64 %1184, %1182
   %1186 = call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -3251,7 +3251,7 @@ value_guard.exit1087:                             ; preds = %1189
   %.neg1026 = trunc i64 %.neg to i32
   %1194 = add i32 %1190, %.neg1026
   %1195 = trunc nuw nsw i64 %1185 to i32
-  %1196 = getelementptr inbounds i8, ptr %1181, i64 16
+  %1196 = getelementptr inbounds nuw i8, ptr %1181, i64 16
   %1197 = load ptr, ptr %1196, align 8
   %1198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1128, i32 noundef %1193, ptr noundef %0, i32 noundef %1195, i32 noundef 1, i32 noundef %1194, ptr noundef nonnull @.str.647, ptr noundef %1197, i32 noundef %1194) #5
   call void @proto_item_set_len(ptr noundef %1198, i32 noundef %1194) #5
@@ -3268,7 +3268,7 @@ value_guard.exit1087:                             ; preds = %1189
   %1207 = call i32 @tvb_captured_length(ptr noundef %0) #5
   %1208 = sub i32 %1207, %1204
   %1209 = call ptr @proto_tree_add_uint(ptr noundef %1118, i32 noundef %1206, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1208) #5
-  %1210 = getelementptr inbounds i8, ptr %1, i64 8
+  %1210 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1211 = load ptr, ptr %1210, align 8
   call void @col_clear(ptr noundef %1211, i32 noundef 25) #5
   %1212 = load ptr, ptr %1210, align 8

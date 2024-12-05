@@ -28,7 +28,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %12, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -53,7 +53,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
   br label %_ZN4llvm11raw_ostreamlsEh.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %12, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit
@@ -78,7 +78,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm27Diagn
   br label %_ZN4llvm11raw_ostreamlsEa.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %12, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   br label %_ZN4llvm11raw_ostreamlsEa.exit

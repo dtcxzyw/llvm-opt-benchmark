@@ -98,7 +98,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr nocapture nounde
   br i1 %36, label %.thread110, label %132
 
 37:                                               ; preds = %.thread, %23
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = trunc i32 %39 to i16
   %trunc = and i16 %40, -4096
@@ -144,7 +144,7 @@ define internal fastcc i32 @do_nftw(ptr noundef nonnull %0, ptr nocapture nounde
   %55 = trunc i64 %.079.lcssa to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 %55, ptr %7, align 4
-  %56 = getelementptr inbounds i8, ptr %7, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %4, ptr %56, align 4
   %57 = and i32 %3, 8
   %.not.i = icmp eq i32 %57, 0
@@ -222,13 +222,13 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
 
 86:                                               ; preds = %.lr.ph129, %.backedge
   %87 = phi ptr [ %81, %.lr.ph129 ], [ %97, %.backedge ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 46
   br i1 %90, label %91, label %98
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %87, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %93 = load i8, ptr %92, align 1
   switch i8 %93, label %98 [
     i8 0, label %.backedge
@@ -236,7 +236,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   ]
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %87, i64 3
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 3
   %96 = load i8, ptr %95, align 1
   %.not101 = icmp eq i8 %96, 0
   br i1 %.not101, label %.backedge, label %98
@@ -280,7 +280,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   %113 = trunc i64 %.079.lcssa to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i32 %113, ptr %6, align 4
-  %114 = getelementptr inbounds i8, ptr %6, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %114, align 4
   %115 = and i32 %3, 8
   %.not.i104 = icmp eq i32 %115, 0

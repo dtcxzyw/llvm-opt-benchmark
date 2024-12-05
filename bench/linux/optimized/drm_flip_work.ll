@@ -50,25 +50,25 @@ define dso_local void @drm_flip_work_queue(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
-  %20 = call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %20 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %19) #6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   store ptr %15, ptr %22, align 8
   store ptr %21, ptr %15, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %23, ptr %24, align 8
   store volatile ptr %15, ptr %23, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %19, i64 noundef %20) #6
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %19, i64 noundef %20) #6
   br label %29
 
 25:                                               ; preds = %12
   %26 = load ptr, ptr %0, align 8
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str, ptr noundef %26) #6
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef %0, ptr noundef %1) #6
   br label %29
@@ -88,20 +88,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_flip_work_commit(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
-  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %14, align 8
   store ptr %6, ptr %11, align 8
   store ptr %9, ptr %13, align 8
@@ -110,11 +110,11 @@ define dso_local void @drm_flip_work_commit(ptr noundef %0, ptr noundef %1) #0 a
 
 15:                                               ; preds = %8, %2
   store volatile ptr %5, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile ptr %5, ptr %16, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %4) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %1, ptr noundef %17) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %1, ptr noundef nonnull %17) #6
   ret void
 }
 
@@ -124,25 +124,25 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local void @drm_flip_work_init(ptr noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %4, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store volatile ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 68719476704, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %11, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @flip_worker, ptr %13, align 8
   ret void
 }
@@ -152,7 +152,7 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = getelementptr i8, ptr %0, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = getelementptr i8, ptr %0, i64 48
   %7 = getelementptr i8, ptr %0, i64 56
@@ -173,7 +173,7 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
 13:                                               ; preds = %9
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %14, ptr %16, align 8
   store ptr %11, ptr %14, align 8
   store ptr %2, ptr %15, align 8
@@ -192,7 +192,7 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
   %20 = phi ptr [ %21, %.preheader ], [ %18, %17 ]
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   call void %22(ptr noundef %3, ptr noundef %24) #6
   call void @kfree(ptr noundef %20) #6
@@ -206,13 +206,13 @@ define internal void @flip_worker(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_flip_work_cleanup(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %10, label %9, !prof !11

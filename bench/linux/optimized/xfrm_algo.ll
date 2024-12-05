@@ -108,14 +108,14 @@ define dso_local ptr @xfrm_aalg_get_byid(i32 noundef %0) #0 align 16 {
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
   %8 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
   %12 = icmp eq i64 %11, %2
   br i1 %12, label %13, label %3
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %17 = icmp eq i8 %16, 0
@@ -154,14 +154,14 @@ define dso_local ptr @xfrm_ealg_get_byid(i32 noundef %0) #0 align 16 {
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
   %8 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
   %12 = icmp eq i64 %11, %2
   br i1 %12, label %13, label %3
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %17 = icmp eq i8 %16, 0
@@ -200,14 +200,14 @@ define dso_local ptr @xfrm_calg_get_byid(i32 noundef %0) #0 align 16 {
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
   %8 = getelementptr %struct.xfrm_algo_desc, ptr @calg_list, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i64
   %12 = icmp eq i64 %11, %2
   br i1 %12, label %13, label %3
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %17 = icmp eq i8 %16, 0
@@ -252,7 +252,7 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 
   br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %15
@@ -263,7 +263,7 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 
   br i1 %.not, label %.critedge5, label %.critedge
 
 .critedge5:                                       ; preds = %.split, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
@@ -311,7 +311,7 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 
   br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %15
@@ -322,7 +322,7 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 
   br i1 %.not, label %.critedge5, label %.critedge
 
 .critedge5:                                       ; preds = %.split, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
@@ -370,7 +370,7 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 
   br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %15
@@ -381,7 +381,7 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 
   br i1 %.not, label %.critedge5, label %.critedge
 
 .critedge5:                                       ; preds = %.split, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
@@ -423,7 +423,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef 
 .split:                                           ; preds = %3, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %3 ]
   %7 = getelementptr %struct.xfrm_algo_desc, ptr @aead_list, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i16, ptr %8, align 16
   %10 = zext i16 %9 to i32
   %11 = icmp eq i32 %1, %10
@@ -436,7 +436,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef 
   br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 1
   %19 = icmp eq i8 %18, 0
@@ -500,7 +500,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
   %6 = getelementptr [10 x %struct.xfrm_algo_desc], ptr @aalg_list, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i32 @crypto_has_ahash(ptr noundef %7, i32 noundef 0, i32 noundef 0) #5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i8, ptr %9, align 16
   %11 = and i8 %10, 1
   %12 = zext nneg i8 %11 to i32
@@ -525,7 +525,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
   %23 = getelementptr [11 x %struct.xfrm_algo_desc], ptr @ealg_list, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 16
   %25 = tail call i32 @crypto_has_skcipher(ptr noundef %24, i32 noundef 0, i32 noundef 0) #5
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i8, ptr %26, align 16
   %28 = and i8 %27, 1
   %29 = zext nneg i8 %28 to i32
@@ -550,7 +550,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
   %40 = getelementptr [3 x %struct.xfrm_algo_desc], ptr @calg_list, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 16
   %42 = tail call i32 @crypto_has_alg(ptr noundef %41, i32 noundef 2, i32 noundef 143) #5
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i8, ptr %43, align 16
   %45 = and i8 %44, 1
   %46 = zext nneg i8 %45 to i32

@@ -80,7 +80,7 @@ range_contains_range.exit:                        ; preds = %lor.lhs.false.i
   br i1 %spec.select.i, label %if.then8, label %if.else16
 
 if.then8:                                         ; preds = %range_contains_range.exit
-  %prev9 = getelementptr inbounds i8, ptr %l.0429, i64 16
+  %prev9 = getelementptr inbounds nuw i8, ptr %l.0429, i64 16
   %3 = load ptr, ptr %prev9, align 8
   %4 = load ptr, ptr %l.0429, align 8
   tail call void @g_free(ptr noundef %4) #4
@@ -163,9 +163,9 @@ if.else.i.i.i237:                                 ; preds = %range_upb.exit231
 
 range_set_bounds.exit241:                         ; preds = %range_upb.exit231
   %call39 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %type = getelementptr inbounds i8, ptr %1, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %type, align 8
-  %type40 = getelementptr inbounds i8, ptr %call39, i64 16
+  %type40 = getelementptr inbounds nuw i8, ptr %call39, i64 16
   store i32 %7, ptr %type40, align 8
   %reg.val71 = load i64, ptr %reg, align 8
   %reg.val72 = load i64, ptr %0, align 8
@@ -190,7 +190,7 @@ if.else.i249:                                     ; preds = %range_is_empty.exit
 range_lob.exit250:                                ; preds = %range_is_empty.exit.i247
   %sub43 = add i64 %reg.val71, -1
   store i64 %.val.pre, ptr %call39, align 8
-  %upb2.i251 = getelementptr inbounds i8, ptr %call39, i64 8
+  %upb2.i251 = getelementptr inbounds nuw i8, ptr %call39, i64 8
   store i64 %sub43, ptr %upb2.i251, align 8
   %cmp.not.i.i.i252 = icmp ule i64 %.val.pre, %sub43
   %cmp3.i.i.i254 = icmp eq i64 %.val.pre, %reg.val71
@@ -278,7 +278,7 @@ if.else.i333:                                     ; preds = %range_is_empty.exit
 if.end66.sink.split:                              ; preds = %range_is_empty.exit.i331, %range_lob.exit194, %if.then8, %for.body
   %l.0429.sink = phi ptr [ %l.0429, %for.body ], [ %3, %if.then8 ], [ %l.0429, %range_lob.exit194 ], [ %l.0429, %range_is_empty.exit.i331 ]
   %list.addr.1.ph = phi ptr [ %list.addr.0430, %for.body ], [ %call11, %if.then8 ], [ %list.addr.0430, %range_lob.exit194 ], [ %list.addr.0430, %range_is_empty.exit.i331 ]
-  %next33 = getelementptr inbounds i8, ptr %l.0429.sink, i64 8
+  %next33 = getelementptr inbounds nuw i8, ptr %l.0429.sink, i64 8
   %8 = load ptr, ptr %next33, align 8
   br label %if.end66
 

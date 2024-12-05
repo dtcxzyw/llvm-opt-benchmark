@@ -351,7 +351,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.then5.i:                                       ; preds = %if.then2.i
   %6 = load ptr, ptr %pstr.i, align 8
-  %len8.i = getelementptr inbounds i8, ptr %pstr.i, i64 16
+  %len8.i = getelementptr inbounds nuw i8, ptr %pstr.i, i64 16
   %7 = load i64, ptr %len8.i, align 8
   %tobool9.i = icmp ne i32 %mutate_arg.0, 0
   br i1 %tobool9.i, label %if.then10.i, label %if.else15.i
@@ -435,7 +435,7 @@ if.end51.i:                                       ; preds = %if.then2.i
   br i1 %tobool53.not.i, label %if.end75.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.end51.i
-  %len56.i = getelementptr inbounds i8, ptr %pstr.i, i64 16
+  %len56.i = getelementptr inbounds nuw i8, ptr %pstr.i, i64 16
   %10 = load i64, ptr %len56.i, align 8
   %cmp57.i = icmp sgt i64 %10, 1024
   br i1 %cmp57.i, label %if.then59.i, label %if.end60.i
@@ -643,8 +643,8 @@ if.else16.i:                                      ; preds = %if.else11.i
 if.end19.i:                                       ; preds = %if.else11.i, %if.else.i, %if.end.i
   %.sink.i = phi i16 [ 2, %if.end.i ], [ 0, %if.else.i ], [ 1, %if.else11.i ]
   store i16 %.sink.i, ptr %l.i, align 8
-  %l_len.i = getelementptr inbounds i8, ptr %l.i, i64 16
-  %l_start.i = getelementptr inbounds i8, ptr %l.i, i64 8
+  %l_len.i = getelementptr inbounds nuw i8, ptr %l.i, i64 16
+  %l_start.i = getelementptr inbounds nuw i8, ptr %l.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_start.i, i8 0, i64 16, i1 false)
   br i1 %tobool1.not.i, label %if.end28.i, label %if.then21.i
 
@@ -667,7 +667,7 @@ if.then30.i:                                      ; preds = %if.end28.i
 
 if.end37.i:                                       ; preds = %if.then30.i, %if.end28.i
   %conv.i = trunc i32 %whence.0 to i16
-  %l_whence.i = getelementptr inbounds i8, ptr %l.i, i64 2
+  %l_whence.i = getelementptr inbounds nuw i8, ptr %l.i, i64 2
   store i16 %conv.i, ptr %l_whence.i, align 2
   %and39.i = and i32 %call7, 4
   %tobool40.not.i = icmp eq i32 %and39.i, 0

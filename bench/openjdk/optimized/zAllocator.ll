@@ -58,13 +58,13 @@ define hidden noundef zeroext range(i8 1, 16) i8 @_ZN23ZAllocatorForRelocation7i
 
 2:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv
   store ptr %0, ptr %7, align 8
   %8 = trunc i64 %indvars.iv to i8
   %9 = add nuw nsw i8 %8, 1
@@ -91,7 +91,7 @@ define hidden void @_ZN23ZAllocatorForRelocationC2Ev(ptr noundef nonnull align 8
 
 2:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN23ZAllocatorForRelocation7installEv.exit, label %6
@@ -108,7 +108,7 @@ define hidden void @_ZN23ZAllocatorForRelocationC2Ev(ptr noundef nonnull align 8
   unreachable
 
 _ZN23ZAllocatorForRelocation7installEv.exit:      ; preds = %2
-  %9 = getelementptr inbounds [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN10ZAllocator11_relocationE, i64 0, i64 %indvars.iv.i
   store ptr %0, ptr %9, align 8
   %10 = trunc i64 %indvars.iv.i to i8
   %11 = add nuw nsw i8 %10, 1

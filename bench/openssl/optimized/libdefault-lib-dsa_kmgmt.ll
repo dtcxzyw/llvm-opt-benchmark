@@ -79,20 +79,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.then10, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %selection5 = getelementptr inbounds i8, ptr %call2, i64 16
+  %selection5 = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store i32 %selection, ptr %selection5, align 8
   store ptr %call, ptr %call2, align 8
-  %pbits = getelementptr inbounds i8, ptr %call2, i64 24
+  %pbits = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store i64 2048, ptr %pbits, align 8
-  %qbits = getelementptr inbounds i8, ptr %call2, i64 32
+  %qbits = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store i64 224, ptr %qbits, align 8
-  %gen_type = getelementptr inbounds i8, ptr %call2, i64 60
+  %gen_type = getelementptr inbounds nuw i8, ptr %call2, i64 60
   store i32 2, ptr %gen_type, align 4
-  %gindex = getelementptr inbounds i8, ptr %call2, i64 56
+  %gindex = getelementptr inbounds nuw i8, ptr %call2, i64 56
   store i32 -1, ptr %gindex, align 8
-  %pcounter = getelementptr inbounds i8, ptr %call2, i64 64
+  %pcounter = getelementptr inbounds nuw i8, ptr %call2, i64 64
   store i32 -1, ptr %pcounter, align 8
-  %hindex = getelementptr inbounds i8, ptr %call2, i64 68
+  %hindex = getelementptr inbounds nuw i8, ptr %call2, i64 68
   store i32 0, ptr %hindex, align 4
   %call813 = tail call i32 @dsa_gen_set_params(ptr noundef nonnull %call2, ptr noundef %params)
   %tobool9.not = icmp eq i32 %call813, 0
@@ -120,7 +120,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @ossl_dsa_get0_params(ptr noundef nonnull %templ) #6
-  %ffc_params = getelementptr inbounds i8, ptr %genctx, i64 8
+  %ffc_params = getelementptr inbounds nuw i8, ptr %genctx, i64 8
   store ptr %call3, ptr %ffc_params, align 8
   br label %return
 
@@ -145,13 +145,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end15, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %data_type = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp6.not = icmp eq i32 %0, 4
   br i1 %cmp6.not, label %lor.lhs.false, label %if.then9
 
 lor.lhs.false:                                    ; preds = %if.then5
-  %data = getelementptr inbounds i8, ptr %call, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   br label %for.body.i
 
@@ -162,14 +162,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %lor.lhs.false
   %i.04.i = phi i64 [ 0, %lor.lhs.false ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [3 x %struct.dh_name2id_st], ptr @dsatype2id, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.dh_name2id_st], ptr @dsatype2id, i64 0, i64 %i.04.i
   %2 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef %2, ptr noundef %1) #6
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %dsa_gen_type_name2id.exit, label %for.cond.i
 
 dsa_gen_type_name2id.exit:                        ; preds = %for.body.i
-  %id.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i32, ptr %id.i, align 8
   %cmp8 = icmp eq i32 %3, -1
   br i1 %cmp8, label %if.then9, label %if.then12
@@ -181,7 +181,7 @@ if.then9:                                         ; preds = %for.cond.i, %dsa_ge
   br label %return
 
 if.then12:                                        ; preds = %dsa_gen_type_name2id.exit
-  %gen_type13 = getelementptr inbounds i8, ptr %genctx, i64 60
+  %gen_type13 = getelementptr inbounds nuw i8, ptr %genctx, i64 60
   store i32 %3, ptr %gen_type13, align 4
   br label %if.end15
 
@@ -191,7 +191,7 @@ if.end15:                                         ; preds = %if.then12, %if.end3
   br i1 %cmp17.not, label %if.end20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15
-  %gindex = getelementptr inbounds i8, ptr %genctx, i64 56
+  %gindex = getelementptr inbounds nuw i8, ptr %genctx, i64 56
   %call18 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call16, ptr noundef nonnull %gindex) #6
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %return, label %if.end20
@@ -202,7 +202,7 @@ if.end20:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp22.not, label %if.end27, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.end20
-  %pcounter = getelementptr inbounds i8, ptr %genctx, i64 64
+  %pcounter = getelementptr inbounds nuw i8, ptr %genctx, i64 64
   %call24 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call21, ptr noundef nonnull %pcounter) #6
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
@@ -213,7 +213,7 @@ if.end27:                                         ; preds = %land.lhs.true23, %i
   br i1 %cmp29.not, label %if.end34, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %if.end27
-  %hindex = getelementptr inbounds i8, ptr %genctx, i64 68
+  %hindex = getelementptr inbounds nuw i8, ptr %genctx, i64 68
   %call31 = tail call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call28, ptr noundef nonnull %hindex) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %return, label %if.end34
@@ -224,19 +224,19 @@ if.end34:                                         ; preds = %land.lhs.true30, %i
   br i1 %cmp36.not, label %if.end45, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.end34
-  %data_type38 = getelementptr inbounds i8, ptr %call35, i64 8
+  %data_type38 = getelementptr inbounds nuw i8, ptr %call35, i64 8
   %4 = load i32, ptr %data_type38, align 8
   %cmp39.not = icmp eq i32 %4, 5
   br i1 %cmp39.not, label %lor.lhs.false40, label %return
 
 lor.lhs.false40:                                  ; preds = %land.lhs.true37
-  %data41 = getelementptr inbounds i8, ptr %call35, i64 16
+  %data41 = getelementptr inbounds nuw i8, ptr %call35, i64 16
   %5 = load ptr, ptr %data41, align 8
-  %data_size = getelementptr inbounds i8, ptr %call35, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call35, i64 24
   %6 = load i64, ptr %data_size, align 8
-  %seed1.i = getelementptr inbounds i8, ptr %genctx, i64 40
+  %seed1.i = getelementptr inbounds nuw i8, ptr %genctx, i64 40
   %7 = load ptr, ptr %seed1.i, align 8
-  %seedlen2.i = getelementptr inbounds i8, ptr %genctx, i64 48
+  %seedlen2.i = getelementptr inbounds nuw i8, ptr %genctx, i64 48
   %8 = load i64, ptr %seedlen2.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %7, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 449) #6
   %cmp.i = icmp ne ptr %5, null
@@ -261,7 +261,7 @@ if.end45:                                         ; preds = %lor.lhs.false40, %i
   br i1 %cmp47.not, label %if.end52, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %if.end45
-  %pbits = getelementptr inbounds i8, ptr %genctx, i64 24
+  %pbits = getelementptr inbounds nuw i8, ptr %genctx, i64 24
   %call49 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call46, ptr noundef nonnull %pbits) #6
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %return, label %if.end52
@@ -272,7 +272,7 @@ if.end52:                                         ; preds = %land.lhs.true48, %i
   br i1 %cmp54.not, label %if.end59, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %if.end52
-  %qbits = getelementptr inbounds i8, ptr %genctx, i64 32
+  %qbits = getelementptr inbounds nuw i8, ptr %genctx, i64 32
   %call56 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call53, ptr noundef nonnull %qbits) #6
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end59
@@ -283,16 +283,16 @@ if.end59:                                         ; preds = %land.lhs.true55, %i
   br i1 %cmp61.not, label %if.end74, label %if.then62
 
 if.then62:                                        ; preds = %if.end59
-  %data_type63 = getelementptr inbounds i8, ptr %call60, i64 8
+  %data_type63 = getelementptr inbounds nuw i8, ptr %call60, i64 8
   %9 = load i32, ptr %data_type63, align 8
   %cmp64.not = icmp eq i32 %9, 4
   br i1 %cmp64.not, label %if.end66, label %return
 
 if.end66:                                         ; preds = %if.then62
-  %mdname = getelementptr inbounds i8, ptr %genctx, i64 72
+  %mdname = getelementptr inbounds nuw i8, ptr %genctx, i64 72
   %10 = load ptr, ptr %mdname, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 516) #6
-  %data67 = getelementptr inbounds i8, ptr %call60, i64 16
+  %data67 = getelementptr inbounds nuw i8, ptr %call60, i64 16
   %11 = load ptr, ptr %data67, align 8
   %call68 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 517) #6
   store ptr %call68, ptr %mdname, align 8
@@ -305,16 +305,16 @@ if.end74:                                         ; preds = %if.end66, %if.end59
   br i1 %cmp76.not, label %if.end89, label %if.then77
 
 if.then77:                                        ; preds = %if.end74
-  %data_type78 = getelementptr inbounds i8, ptr %call75, i64 8
+  %data_type78 = getelementptr inbounds nuw i8, ptr %call75, i64 8
   %12 = load i32, ptr %data_type78, align 8
   %cmp79.not = icmp eq i32 %12, 4
   br i1 %cmp79.not, label %if.end81, label %return
 
 if.end81:                                         ; preds = %if.then77
-  %mdprops = getelementptr inbounds i8, ptr %genctx, i64 80
+  %mdprops = getelementptr inbounds nuw i8, ptr %genctx, i64 80
   %13 = load ptr, ptr %mdprops, align 8
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 525) #6
-  %data82 = getelementptr inbounds i8, ptr %call75, i64 16
+  %data82 = getelementptr inbounds nuw i8, ptr %call75, i64 16
   %14 = load ptr, ptr %data82, align 8
   %call83 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 526) #6
   store ptr %call83, ptr %mdprops, align 8
@@ -351,13 +351,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %gen_type = getelementptr inbounds i8, ptr %genctx, i64 60
+  %gen_type = getelementptr inbounds nuw i8, ptr %genctx, i64 60
   %1 = load i32, ptr %gen_type, align 4
   %cmp5 = icmp eq i32 %1, 2
   br i1 %cmp5, label %if.end9.thread, label %if.end9
 
 if.end9.thread:                                   ; preds = %if.end4
-  %pbits = getelementptr inbounds i8, ptr %genctx, i64 24
+  %pbits = getelementptr inbounds nuw i8, ptr %genctx, i64 24
   %2 = load i64, ptr %pbits, align 8
   %cmp7 = icmp ult i64 %2, 2048
   %cond = zext i1 %cmp7 to i32
@@ -376,9 +376,9 @@ if.then17:                                        ; preds = %if.end9
   br label %return
 
 if.end19:                                         ; preds = %if.end9.thread, %if.end9
-  %cb = getelementptr inbounds i8, ptr %genctx, i64 88
+  %cb = getelementptr inbounds nuw i8, ptr %genctx, i64 88
   store ptr %osslcb, ptr %cb, align 8
-  %cbarg20 = getelementptr inbounds i8, ptr %genctx, i64 96
+  %cbarg20 = getelementptr inbounds nuw i8, ptr %genctx, i64 96
   store ptr %cbarg, ptr %cbarg20, align 8
   %call21 = tail call ptr @BN_GENCB_new() #6
   %cmp22.not = icmp eq ptr %call21, null
@@ -390,7 +390,7 @@ if.then24:                                        ; preds = %if.end19
 
 if.end25:                                         ; preds = %if.then24, %if.end19
   %call26 = tail call ptr @ossl_dsa_get0_params(ptr noundef nonnull %call1) #6
-  %ffc_params = getelementptr inbounds i8, ptr %genctx, i64 8
+  %ffc_params = getelementptr inbounds nuw i8, ptr %genctx, i64 8
   %4 = load ptr, ptr %ffc_params, align 8
   %cmp27.not = icmp eq ptr %4, null
   br i1 %cmp27.not, label %if.end33, label %land.lhs.true
@@ -401,27 +401,27 @@ land.lhs.true:                                    ; preds = %if.end25
   br i1 %tobool31.not, label %if.then101.critedge, label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true, %if.end25
-  %seed = getelementptr inbounds i8, ptr %genctx, i64 40
+  %seed = getelementptr inbounds nuw i8, ptr %genctx, i64 40
   %5 = load ptr, ptr %seed, align 8
   %cmp34.not = icmp eq ptr %5, null
   br i1 %cmp34.not, label %if.end41, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %seedlen = getelementptr inbounds i8, ptr %genctx, i64 48
+  %seedlen = getelementptr inbounds nuw i8, ptr %genctx, i64 48
   %6 = load i64, ptr %seedlen, align 8
   %call38 = tail call i32 @ossl_ffc_params_set_seed(ptr noundef %call26, ptr noundef nonnull %5, i64 noundef %6) #6
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.then101.critedge, label %if.end41
 
 if.end41:                                         ; preds = %land.lhs.true36, %if.end33
-  %gindex = getelementptr inbounds i8, ptr %genctx, i64 56
+  %gindex = getelementptr inbounds nuw i8, ptr %genctx, i64 56
   %7 = load i32, ptr %gindex, align 8
   %cmp42.not = icmp eq i32 %7, -1
   br i1 %cmp42.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %if.end41
   tail call void @ossl_ffc_params_set_gindex(ptr noundef %call26, i32 noundef %7) #6
-  %pcounter = getelementptr inbounds i8, ptr %genctx, i64 64
+  %pcounter = getelementptr inbounds nuw i8, ptr %genctx, i64 64
   %8 = load i32, ptr %pcounter, align 8
   %cmp46.not = icmp eq i32 %8, -1
   br i1 %cmp46.not, label %if.end56, label %if.then48
@@ -431,7 +431,7 @@ if.then48:                                        ; preds = %if.then44
   br label %if.end56
 
 if.else:                                          ; preds = %if.end41
-  %hindex = getelementptr inbounds i8, ptr %genctx, i64 68
+  %hindex = getelementptr inbounds nuw i8, ptr %genctx, i64 68
   %9 = load i32, ptr %hindex, align 4
   %cmp51.not = icmp eq i32 %9, 0
   br i1 %cmp51.not, label %if.end56, label %if.then53
@@ -441,19 +441,19 @@ if.then53:                                        ; preds = %if.else
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else, %if.then53, %if.then44, %if.then48
-  %mdname = getelementptr inbounds i8, ptr %genctx, i64 72
+  %mdname = getelementptr inbounds nuw i8, ptr %genctx, i64 72
   %10 = load ptr, ptr %mdname, align 8
   %cmp57.not = icmp eq ptr %10, null
   br i1 %cmp57.not, label %if.end61, label %if.then59
 
 if.then59:                                        ; preds = %if.end56
-  %mdprops = getelementptr inbounds i8, ptr %genctx, i64 80
+  %mdprops = getelementptr inbounds nuw i8, ptr %genctx, i64 80
   %11 = load ptr, ptr %mdprops, align 8
   tail call void @ossl_ffc_set_digest(ptr noundef %call26, ptr noundef nonnull %10, ptr noundef %11) #6
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then59, %if.end56
-  %selection = getelementptr inbounds i8, ptr %genctx, i64 16
+  %selection = getelementptr inbounds nuw i8, ptr %genctx, i64 16
   %12 = load i32, ptr %selection, align 8
   %and = and i32 %12, 4
   %cmp62.not = icmp eq i32 %and, 0
@@ -461,10 +461,10 @@ if.end61:                                         ; preds = %if.then59, %if.end5
 
 if.then64:                                        ; preds = %if.end61
   %13 = load i32, ptr %gen_type, align 4
-  %pbits66 = getelementptr inbounds i8, ptr %genctx, i64 24
+  %pbits66 = getelementptr inbounds nuw i8, ptr %genctx, i64 24
   %14 = load i64, ptr %pbits66, align 8
   %conv67 = trunc i64 %14 to i32
-  %qbits = getelementptr inbounds i8, ptr %genctx, i64 32
+  %qbits = getelementptr inbounds nuw i8, ptr %genctx, i64 32
   %15 = load i64, ptr %qbits, align 8
   %conv68 = trunc i64 %15 to i32
   %call69 = tail call i32 @ossl_dsa_generate_ffc_parameters(ptr noundef nonnull %call1, i32 noundef %13, i32 noundef %conv67, i32 noundef %conv68, ptr noundef %call21) #6
@@ -487,13 +487,13 @@ if.then82:                                        ; preds = %if.end74
   br i1 %cmp83, label %if.then101.critedge, label %lor.lhs.false85
 
 lor.lhs.false85:                                  ; preds = %if.then82
-  %q = getelementptr inbounds i8, ptr %call26, i64 8
+  %q = getelementptr inbounds nuw i8, ptr %call26, i64 8
   %19 = load ptr, ptr %q, align 8
   %cmp86 = icmp eq ptr %19, null
   br i1 %cmp86, label %if.then101.critedge, label %lor.lhs.false88
 
 lor.lhs.false88:                                  ; preds = %lor.lhs.false85
-  %g = getelementptr inbounds i8, ptr %call26, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %call26, i64 16
   %20 = load ptr, ptr %g, align 8
   %cmp89 = icmp eq ptr %20, null
   br i1 %cmp89, label %if.then101.critedge, label %if.end92
@@ -524,15 +524,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mdname = getelementptr inbounds i8, ptr %genctx, i64 72
+  %mdname = getelementptr inbounds nuw i8, ptr %genctx, i64 72
   %0 = load ptr, ptr %mdname, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 652) #6
-  %mdprops = getelementptr inbounds i8, ptr %genctx, i64 80
+  %mdprops = getelementptr inbounds nuw i8, ptr %genctx, i64 80
   %1 = load ptr, ptr %mdprops, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 653) #6
-  %seed = getelementptr inbounds i8, ptr %genctx, i64 40
+  %seed = getelementptr inbounds nuw i8, ptr %genctx, i64 40
   %2 = load ptr, ptr %seed, align 8
-  %seedlen = getelementptr inbounds i8, ptr %genctx, i64 48
+  %seedlen = getelementptr inbounds nuw i8, ptr %genctx, i64 48
   %3 = load i64, ptr %seedlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 654) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %genctx, ptr noundef nonnull @.str, i32 noundef 655) #6
@@ -981,7 +981,7 @@ entry:
   %add4.i = or disjoint i32 %spec.select.i, 2
   %type_select.1.i = select i1 %cmp2.not.i, i32 %spec.select.i, i32 %add4.i
   %idxprom.i = zext nneg i32 %type_select.1.i to i64
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr @dsa_types, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   ret ptr %0
 }
@@ -1100,7 +1100,7 @@ entry:
   %add4.i = or disjoint i32 %spec.select.i, 2
   %type_select.1.i = select i1 %cmp2.not.i, i32 %spec.select.i, i32 %add4.i
   %idxprom.i = zext nneg i32 %type_select.1.i to i64
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr @dsa_types, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   ret ptr %0
 }
@@ -1170,14 +1170,14 @@ entry:
   %call = tail call ptr @BN_GENCB_get_arg(ptr noundef %cb) #6
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.14, ptr noundef nonnull %p.addr) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.15, ptr noundef nonnull %n.addr) #6
-  %0 = getelementptr inbounds i8, ptr %params, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %cb3 = getelementptr inbounds i8, ptr %call, i64 88
+  %cb3 = getelementptr inbounds nuw i8, ptr %call, i64 88
   %1 = load ptr, ptr %cb3, align 8
-  %cbarg = getelementptr inbounds i8, ptr %call, i64 96
+  %cbarg = getelementptr inbounds nuw i8, ptr %call, i64 96
   %2 = load ptr, ptr %cbarg, align 8
   %call4 = call i32 %1(ptr noundef nonnull %params, ptr noundef %2) #6
   ret i32 %call4

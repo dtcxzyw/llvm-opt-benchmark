@@ -252,44 +252,44 @@ define dso_local void @_ZN3net17QuicHeadersStreamC2EPNS_15QuicSpdySessionE(ptr n
 invoke.cont4:
   tail call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 3, ptr noundef %session)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStreamE, i64 16), ptr %this, align 8
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   store ptr %session, ptr %spdy_session_, align 8
-  %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
-  %connection_.i = getelementptr inbounds i8, ptr %session, i64 56
+  %stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
+  %connection_.i = getelementptr inbounds nuw i8, ptr %session, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %stream_id_, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame_len_, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %connection_.i, align 8
-  %perspective_.i.i = getelementptr inbounds i8, ptr %0, i64 3204
+  %perspective_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 3204
   %1 = load i32, ptr %perspective_.i.i, align 4
-  %supports_push_promise_ = getelementptr inbounds i8, ptr %this, i64 424
+  %supports_push_promise_ = getelementptr inbounds nuw i8, ptr %this, i64 424
   %cmp = icmp eq i32 %1, 1
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %supports_push_promise_, align 8
-  %cur_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 432
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %cur_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 432
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_max_timestamp_, i8 0, i64 16, i1 false)
   invoke void @_ZN3net10SpdyFramerC1ENS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, i32 noundef 2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %spdy_framer_visitor_ = getelementptr inbounds i8, ptr %this, i64 712
+  %spdy_framer_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 712
   %call10 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #20
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %2 = getelementptr inbounds i8, ptr %call10, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 16), ptr %call10, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 288), ptr %2, align 8
-  %stream_.i = getelementptr inbounds i8, ptr %call10, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %call10, i64 16
   store ptr %this, ptr %stream_.i, align 8
-  %header_list_.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %header_list_.i = getelementptr inbounds nuw i8, ptr %call10, i64 24
   invoke void @_ZN3net14QuicHeaderListC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_.i)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   store ptr %call10, ptr %spdy_framer_visitor_, align 8
-  %header_list_ = getelementptr inbounds i8, ptr %this, i64 720
+  %header_list_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   invoke void @_ZN3net14QuicHeaderListC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -301,13 +301,13 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 invoke.cont19:                                    ; preds = %invoke.cont14
   %4 = load ptr, ptr %spdy_framer_visitor_, align 8
   %5 = icmp eq ptr %4, null
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select = select i1 %5, ptr null, ptr %add.ptr
   invoke void @_ZN3net10SpdyFramer17set_debug_visitorEPNS_31SpdyFramerDebugVisitorInterfaceE(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, ptr noundef %spec.select)
           to label %invoke.cont23 unwind label %lpad18
 
 invoke.cont23:                                    ; preds = %invoke.cont19
-  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
+  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   store i8 0, ptr %stream_contributes_to_connection_flow_control_.i, align 8
   ret void
 
@@ -346,7 +346,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad13
 
 _ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i: ; preds = %ehcleanup
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(120) %11) #22
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_deleteIS2_EED2Ev.exit
@@ -397,23 +397,23 @@ declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 derefe
 define dso_local void @_ZN3net17QuicHeadersStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStreamE, i64 16), ptr %this, align 8
-  %header_list_ = getelementptr inbounds i8, ptr %this, i64 720
+  %header_list_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_) #22
-  %spdy_framer_visitor_ = getelementptr inbounds i8, ptr %this, i64 712
+  %spdy_framer_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 712
   %0 = load ptr, ptr %spdy_framer_visitor_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(120) %0) #22
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i
   store ptr null, ptr %spdy_framer_visitor_, align 8
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_) #22
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #22
   ret void
@@ -423,23 +423,23 @@ _ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_delete
 define dso_local void @_ZN3net17QuicHeadersStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStreamE, i64 16), ptr %this, align 8
-  %header_list_.i = getelementptr inbounds i8, ptr %this, i64 720
+  %header_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 720
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_.i) #22
-  %spdy_framer_visitor_.i = getelementptr inbounds i8, ptr %this, i64 712
+  %spdy_framer_visitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 712
   %0 = load ptr, ptr %spdy_framer_visitor_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net17QuicHeadersStreamD2Ev.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(120) %0) #22
   br label %_ZN3net17QuicHeadersStreamD2Ev.exit
 
 _ZN3net17QuicHeadersStreamD2Ev.exit:              ; preds = %entry, %_ZNKSt14default_deleteIN3net17QuicHeadersStream17SpdyFramerVisitorEEclEPS2_.exit.i.i
   store ptr null, ptr %spdy_framer_visitor_.i, align 8
-  %spdy_framer_.i = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_.i) #22
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -472,28 +472,28 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont5:                                     ; preds = %.noexc
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp.i) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net13SpdyHeadersIRE, i64 16), ptr %headers_frame, align 8
-  %has_priority_.i = getelementptr inbounds i8, ptr %headers_frame, i64 104
+  %has_priority_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 104
   store i8 0, ptr %has_priority_.i, align 8
-  %weight_.i = getelementptr inbounds i8, ptr %headers_frame, i64 108
+  %weight_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 108
   store i32 16, ptr %weight_.i, align 4
-  %parent_stream_id_.i = getelementptr inbounds i8, ptr %headers_frame, i64 112
+  %parent_stream_id_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 112
   store i32 0, ptr %parent_stream_id_.i, align 8
-  %exclusive_.i = getelementptr inbounds i8, ptr %headers_frame, i64 116
+  %exclusive_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 116
   store i8 0, ptr %exclusive_.i, align 4
-  %padded_.i = getelementptr inbounds i8, ptr %headers_frame, i64 117
+  %padded_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 117
   store i8 0, ptr %padded_.i, align 1
-  %padding_payload_len_.i = getelementptr inbounds i8, ptr %headers_frame, i64 120
+  %padding_payload_len_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 120
   store i32 0, ptr %padding_payload_len_.i, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp.i)
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp) #22
   %frombool.i = zext i1 %fin to i8
-  %fin_.i = getelementptr inbounds i8, ptr %headers_frame, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %headers_frame, i64 12
   store i8 %frombool.i, ptr %fin_.i, align 4
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %1 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i, align 8
-  %perspective_.i.i = getelementptr inbounds i8, ptr %2, i64 3204
+  %perspective_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3204
   %3 = load i32, ptr %perspective_.i.i, align 4
   %cmp = icmp eq i32 %3, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -523,27 +523,27 @@ lpad2:                                            ; preds = %if.end, %if.then
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont8, %invoke.cont5
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   invoke void @_ZN3net10SpdyFramer14SerializeFrameERKNS_11SpdyFrameIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %frame, ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, ptr noundef nonnull align 8 dereferenceable(8) %headers_frame)
           to label %invoke.cont11 unwind label %lpad2
 
 invoke.cont11:                                    ; preds = %if.end
   %6 = load ptr, ptr %frame, align 8
-  %size_.i = getelementptr inbounds i8, ptr %frame, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %7 = load i64, ptr %size_.i, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef %6, i64 noundef %7)
           to label %invoke.cont18 unwind label %lpad13
 
 invoke.cont18:                                    ; preds = %invoke.cont11
   %8 = load ptr, ptr %agg.tmp12, align 8
-  %9 = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 8
   %10 = load i64, ptr %9, align 8
   invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %8, i64 %10, i1 noundef zeroext false, ptr noundef %ack_listener)
           to label %invoke.cont19 unwind label %lpad13
 
 invoke.cont19:                                    ; preds = %invoke.cont18
   %11 = load i64, ptr %size_.i, align 8
-  %owns_buffer_.i = getelementptr inbounds i8, ptr %frame, i64 16
+  %owns_buffer_.i = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %12 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN3net19SpdySerializedFrameD2Ev.exit
@@ -564,7 +564,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %invoke.cont19, %if.
 lpad13:                                           ; preds = %invoke.cont18, %invoke.cont11
   %14 = landingpad { ptr, i32 }
           cleanup
-  %owns_buffer_.i6 = getelementptr inbounds i8, ptr %frame, i64 16
+  %owns_buffer_.i6 = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %15 = load i8, ptr %owns_buffer_.i6, align 8
   %tobool.i7 = trunc i8 %15 to i1
   br i1 %tobool.i7, label %if.then.i8, label %ehcleanup
@@ -610,11 +610,11 @@ entry:
   %agg.tmp = alloca %"class.net::SpdyHeaderBlock", align 8
   %frame = alloca %"class.net::SpdySerializedFrame", align 8
   %agg.tmp17 = alloca %"class.base::BasicStringPiece", align 8
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %perspective_.i.i = getelementptr inbounds i8, ptr %1, i64 3204
+  %perspective_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 3204
   %2 = load i32, ptr %perspective_.i.i, align 4
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -625,7 +625,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 357, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -658,37 +658,37 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont13:                                    ; preds = %.noexc
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp.i) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17SpdyPushPromiseIRE, i64 16), ptr %push_promise, align 8
-  %promised_stream_id_.i = getelementptr inbounds i8, ptr %push_promise, i64 104
+  %promised_stream_id_.i = getelementptr inbounds nuw i8, ptr %push_promise, i64 104
   store i32 %promised_stream_id, ptr %promised_stream_id_.i, align 8
-  %padded_.i = getelementptr inbounds i8, ptr %push_promise, i64 108
+  %padded_.i = getelementptr inbounds nuw i8, ptr %push_promise, i64 108
   store i8 0, ptr %padded_.i, align 4
-  %padding_payload_len_.i = getelementptr inbounds i8, ptr %push_promise, i64 112
+  %padding_payload_len_.i = getelementptr inbounds nuw i8, ptr %push_promise, i64 112
   store i32 0, ptr %padding_payload_len_.i, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp.i)
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp) #22
-  %fin_.i = getelementptr inbounds i8, ptr %push_promise, i64 12
+  %fin_.i = getelementptr inbounds nuw i8, ptr %push_promise, i64 12
   store i8 0, ptr %fin_.i, align 4
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   invoke void @_ZN3net10SpdyFramer14SerializeFrameERKNS_11SpdyFrameIRE(ptr nonnull sret(%"class.net::SpdySerializedFrame") align 8 %frame, ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, ptr noundef nonnull align 8 dereferenceable(8) %push_promise)
           to label %invoke.cont16 unwind label %lpad14
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   %5 = load ptr, ptr %frame, align 8
-  %size_.i = getelementptr inbounds i8, ptr %frame, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %6 = load i64, ptr %size_.i, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp17, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont23 unwind label %lpad18
 
 invoke.cont23:                                    ; preds = %invoke.cont16
   %7 = load ptr, ptr %agg.tmp17, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.tmp17, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %agg.tmp17, i64 8
   %9 = load i64, ptr %8, align 8
   invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %7, i64 %9, i1 noundef zeroext false, ptr noundef null)
           to label %invoke.cont24 unwind label %lpad18
 
 invoke.cont24:                                    ; preds = %invoke.cont23
   %10 = load i64, ptr %size_.i, align 8
-  %owns_buffer_.i = getelementptr inbounds i8, ptr %frame, i64 16
+  %owns_buffer_.i = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %11 = load i8, ptr %owns_buffer_.i, align 8
   %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN3net19SpdySerializedFrameD2Ev.exit
@@ -724,7 +724,7 @@ lpad14:                                           ; preds = %invoke.cont13
 lpad18:                                           ; preds = %invoke.cont23, %invoke.cont16
   %15 = landingpad { ptr, i32 }
           cleanup
-  %owns_buffer_.i5 = getelementptr inbounds i8, ptr %frame, i64 16
+  %owns_buffer_.i5 = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %16 = load i8, ptr %owns_buffer_.i5, align 8
   %tobool.i6 = trunc i8 %16 to i1
   br i1 %tobool.i6, label %if.then.i7, label %ehcleanup
@@ -772,25 +772,25 @@ entry:
   %call = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef 2)
   %sub = sub i64 16384, %call
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %retval, i64 noundef 0, i1 noundef zeroext false)
-  %iov_count = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_count = getelementptr inbounds nuw i8, ptr %iov, i64 8
   %0 = load i32, ptr %iov_count, align 8
   %cmp56 = icmp sgt i32 %0, 0
   br i1 %cmp56, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %total_length2 = getelementptr inbounds i8, ptr %iov, i64 16
+  %total_length2 = getelementptr inbounds nuw i8, ptr %iov, i64 16
   %1 = load i64, ptr %total_length2, align 8
   %2 = load ptr, ptr %iov, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %sub9 = add nsw i32 %0, -1
-  %fin_.i23 = getelementptr inbounds i8, ptr %spdy_data, i64 12
-  %fin_consumed = getelementptr inbounds i8, ptr %retval, i64 8
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %fin_.i23 = getelementptr inbounds nuw i8, ptr %spdy_data, i64 12
+  %fin_consumed = getelementptr inbounds nuw i8, ptr %retval, i64 8
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %cmp23.not = icmp eq ptr %ack_notifier_delegate, null
-  %size_.i = getelementptr inbounds i8, ptr %frame, i64 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ack_notifier_delegate, i64 8
-  %4 = getelementptr inbounds i8, ptr %agg.tmp36, i64 8
-  %owns_buffer_.i = getelementptr inbounds i8, ptr %frame, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %frame, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ack_notifier_delegate, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp36, i64 8
+  %owns_buffer_.i = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %5 = zext nneg i32 %sub9 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -798,8 +798,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %total_length.057 = phi i64 [ %1, %for.body.lr.ph ], [ %sub46, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.iovec, ptr %2, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %indvars.iv
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %cmp10 = icmp eq i64 %indvars.iv, %5
   %.pre = load i64, ptr %iov_len, align 8
   br label %do.body
@@ -865,14 +865,14 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
   %13 = load i64, ptr %size_.i, align 8
   %sub31 = sub i64 %13, %.sroa.speculated
   %conv = trunc i64 %sub31 to i32
-  %14 = getelementptr inbounds i8, ptr %call27, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %call27, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i64 16), ptr %call27, align 8
-  %stream_ack_listener_.i = getelementptr inbounds i8, ptr %call27, i64 16
+  %stream_ack_listener_.i = getelementptr inbounds nuw i8, ptr %call27, i64 16
   store ptr %ack_notifier_delegate, ptr %stream_ack_listener_.i, align 8
   %15 = load i32, ptr %add.ptr.i.i.i, align 4
   %inc.i.i.i.i.i = add nsw i32 %15, 1
   store i32 %inc.i.i.i.i.i, ptr %add.ptr.i.i.i, align 4
-  %extra_bytes_.i = getelementptr inbounds i8, ptr %call27, i64 24
+  %extra_bytes_.i = getelementptr inbounds nuw i8, ptr %call27, i64 24
   store i32 %conv, ptr %extra_bytes_.i, align 8
   store i32 1, ptr %14, align 4
   br label %if.end35
@@ -906,7 +906,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont44
-  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.0, i64 8
+  %add.ptr.i.i25 = getelementptr inbounds nuw i8, ptr %ack_listener.sroa.0.0, i64 8
   %22 = load i32, ptr %add.ptr.i.i25, align 4
   %dec.i.i.i.i26 = add nsw i32 %22, -1
   store i32 %dec.i.i.i.i26, ptr %add.ptr.i.i25, align 4
@@ -915,7 +915,7 @@ if.then.i:                                        ; preds = %invoke.cont44
 
 delete.notnull.i.i.i28:                           ; preds = %if.then.i
   %vtable.i.i.i29 = load ptr, ptr %ack_listener.sroa.0.0, align 8
-  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
+  %vfn.i.i.i30 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i29, i64 24
   %23 = load ptr, ptr %vfn.i.i.i30, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #22
   br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
@@ -949,7 +949,7 @@ for.inc:                                          ; preds = %do.cond
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 if.then.i33:                                      ; preds = %lpad25
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.0, i64 8
+  %add.ptr.i.i34 = getelementptr inbounds nuw i8, ptr %ack_listener.sroa.0.0, i64 8
   %27 = load i32, ptr %add.ptr.i.i34, align 4
   %dec.i.i.i.i35 = add nsw i32 %27, -1
   store i32 %dec.i.i.i.i35, ptr %add.ptr.i.i34, align 4
@@ -958,7 +958,7 @@ if.then.i33:                                      ; preds = %lpad25
 
 delete.notnull.i.i.i37:                           ; preds = %if.then.i33
   %vtable.i.i.i38 = load ptr, ptr %ack_listener.sroa.0.0, align 8
-  %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 24
+  %vfn.i.i.i39 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i38, i64 24
   %28 = load ptr, ptr %vfn.i.i.i39, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #22
   br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
@@ -986,7 +986,7 @@ ehcleanup53:                                      ; preds = %delete.notnull.i45,
 return:                                           ; preds = %for.inc, %_ZN3net19SpdySerializedFrameD2Ev.exit, %entry
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i8, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1008,16 +1008,16 @@ entry:
   %iov = alloca %struct.iovec, align 8
   %timestamp = alloca %"class.net::QuicTime", align 8
   store i64 0, ptr %timestamp, align 8
-  %cur_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 432
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
-  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %cur_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 432
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
+  %sequencer_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %buffer, ptr %iov, align 8
   store i64 1024, ptr %iov_len, align 8
   %call32 = call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer17GetReadableRegionEP5iovecPNS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, ptr noundef nonnull %iov, ptr noundef nonnull %timestamp)
   br i1 %call32, label %if.end.lr.ph, label %while.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end11
@@ -1057,11 +1057,11 @@ entry:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator.58", align 1
   %frombool1 = zext i1 %fin to i8
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %perspective_.i.i = getelementptr inbounds i8, ptr %1, i64 3204
+  %perspective_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 3204
   %2 = load i32, ptr %perspective_.i.i, align 4
   br i1 %has_priority, label %if.then, label %if.else
 
@@ -1090,7 +1090,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad6
@@ -1112,10 +1112,10 @@ lpad6:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %7 = load ptr, ptr %spdy_session_, align 8
   %vtable8 = load ptr, ptr %7, align 8
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 336
+  %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 336
   %8 = load ptr, ptr %vfn9, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(2057) %7, i32 noundef %stream_id, i8 noundef zeroext %priority)
   br label %if.end46
@@ -1145,7 +1145,7 @@ lpad.i12:                                         ; preds = %.noexc15
 
 invoke.cont17:                                    ; preds = %.noexc15
   %vtable18 = load ptr, ptr %this, align 8
-  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 72
+  %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 72
   %10 = load ptr, ptr %vfn19, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
           to label %invoke.cont21 unwind label %lpad20
@@ -1167,9 +1167,9 @@ lpad20:                                           ; preds = %invoke.cont17
   br label %eh.resume
 
 if.end46:                                         ; preds = %if.else, %if.end
-  %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
+  %stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store i32 %stream_id, ptr %stream_id_, align 8
-  %fin_ = getelementptr inbounds i8, ptr %this, i64 400
+  %fin_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i8 %frombool1, ptr %fin_, align 8
   br label %return
 
@@ -1195,9 +1195,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net17QuicHeadersStream13OnPushPromiseEjjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((392, 400)) %this, i32 noundef %stream_id, i32 noundef %promised_stream_id, i1 noundef zeroext %end) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
+  %stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store i32 %stream_id, ptr %stream_id_, align 8
-  %promised_stream_id_ = getelementptr inbounds i8, ptr %this, i64 396
+  %promised_stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 396
   store i32 %promised_stream_id, ptr %promised_stream_id_, align 4
   ret void
 }
@@ -1211,19 +1211,19 @@ if.end:
   br i1 %cmp, label %if.end24, label %if.else78
 
 if.end24:                                         ; preds = %if.end
-  %prev_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 440
+  %prev_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %prev_max_timestamp_, align 8
-  %cur_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 432
+  %cur_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %agg.tmp25.sroa.0.0.copyload = load i64, ptr %cur_max_timestamp_, align 8
   %cmp.i.i = icmp slt i64 %agg.tmp25.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i.i, label %if.then28, label %if.end37
 
 if.then28:                                        ; preds = %if.end24
   %sub.i = sub nsw i64 %agg.tmp.sroa.0.0.copyload, %agg.tmp25.sroa.0.0.copyload
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(2057) %0, i64 0, i64 %sub.i)
   %agg.tmp.sroa.0.0.copyload.i.pre = load i64, ptr %prev_max_timestamp_, align 8
@@ -1236,44 +1236,44 @@ if.end37:                                         ; preds = %if.then28, %if.end2
   %2 = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp1.sroa.0.0.copyload.i)
   store i64 %2, ptr %prev_max_timestamp_, align 8
   store i64 0, ptr %cur_max_timestamp_, align 8
-  %promised_stream_id_ = getelementptr inbounds i8, ptr %this, i64 396
+  %promised_stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 396
   %3 = load i32, ptr %promised_stream_id_, align 4
   %cmp46 = icmp eq i32 %3, 0
-  %spdy_session_48 = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_48 = getelementptr inbounds nuw i8, ptr %this, i64 384
   %4 = load ptr, ptr %spdy_session_48, align 8
-  %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
+  %stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %5 = load i32, ptr %stream_id_, align 8
   br i1 %cmp46, label %if.then47, label %if.else51
 
 if.then47:                                        ; preds = %if.end37
-  %fin_ = getelementptr inbounds i8, ptr %this, i64 400
+  %fin_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %6 = load i8, ptr %fin_, align 8
   %tobool = trunc i8 %6 to i1
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %7 = load i64, ptr %frame_len_, align 8
   %vtable49 = load ptr, ptr %4, align 8
-  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 344
+  %vfn50 = getelementptr inbounds nuw i8, ptr %vtable49, i64 344
   %8 = load ptr, ptr %vfn50, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(2057) %4, i32 noundef %5, i1 noundef zeroext %tobool, i64 noundef %7)
   br label %if.end58
 
 if.else51:                                        ; preds = %if.end37
-  %frame_len_55 = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_55 = getelementptr inbounds nuw i8, ptr %this, i64 408
   %9 = load i64, ptr %frame_len_55, align 8
   %vtable56 = load ptr, ptr %4, align 8
-  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 368
+  %vfn57 = getelementptr inbounds nuw i8, ptr %vtable56, i64 368
   %10 = load ptr, ptr %vfn57, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(2057) %4, i32 noundef %5, i32 noundef %3, i64 noundef %9)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else51, %if.then47
-  %uncompressed_frame_len_ = getelementptr inbounds i8, ptr %this, i64 416
+  %uncompressed_frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %11 = load i64, ptr %uncompressed_frame_len_, align 8
   %cmp59.not = icmp eq i64 %11, 0
   br i1 %cmp59.not, label %if.end72, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
-  %frame_len_61 = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_61 = getelementptr inbounds nuw i8, ptr %this, i64 408
   %12 = load i64, ptr %frame_len_61, align 8
   %mul = mul i64 %12, 100
   %div = udiv i64 %mul, %11
@@ -1293,39 +1293,39 @@ if.then66:                                        ; preds = %if.then60
 if.end68:                                         ; preds = %if.then66, %if.then60
   %histogram_pointer.0 = phi ptr [ %15, %if.then60 ], [ %call67, %if.then66 ]
   %vtable69 = load ptr, ptr %histogram_pointer.0, align 8
-  %vfn70 = getelementptr inbounds i8, ptr %vtable69, i64 40
+  %vfn70 = getelementptr inbounds nuw i8, ptr %vtable69, i64 40
   %17 = load ptr, ptr %vfn70, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, i32 noundef %conv)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end68, %if.end58
-  %stream_id_74 = getelementptr inbounds i8, ptr %this, i64 392
-  %frame_len_76 = getelementptr inbounds i8, ptr %this, i64 408
+  %stream_id_74 = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %frame_len_76 = getelementptr inbounds nuw i8, ptr %this, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %stream_id_74, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame_len_76, i8 0, i64 16, i1 false)
   br label %if.end95
 
 if.else78:                                        ; preds = %if.end
-  %uncompressed_frame_len_79 = getelementptr inbounds i8, ptr %this, i64 416
+  %uncompressed_frame_len_79 = getelementptr inbounds nuw i8, ptr %this, i64 416
   %18 = load i64, ptr %uncompressed_frame_len_79, align 8
   %add = add i64 %18, %len
   store i64 %add, ptr %uncompressed_frame_len_79, align 8
-  %promised_stream_id_80 = getelementptr inbounds i8, ptr %this, i64 396
+  %promised_stream_id_80 = getelementptr inbounds nuw i8, ptr %this, i64 396
   %19 = load i32, ptr %promised_stream_id_80, align 4
   %cmp81 = icmp eq i32 %19, 0
-  %spdy_session_83 = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_83 = getelementptr inbounds nuw i8, ptr %this, i64 384
   %20 = load ptr, ptr %spdy_session_83, align 8
-  %stream_id_84 = getelementptr inbounds i8, ptr %this, i64 392
+  %stream_id_84 = getelementptr inbounds nuw i8, ptr %this, i64 392
   %21 = load i32, ptr %stream_id_84, align 8
   br i1 %cmp81, label %if.then82, label %if.else88
 
 if.then82:                                        ; preds = %if.else78
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp85, ptr noundef %header_data, i64 noundef %len)
   %22 = load ptr, ptr %agg.tmp85, align 8
-  %23 = getelementptr inbounds i8, ptr %agg.tmp85, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %agg.tmp85, i64 8
   %24 = load i64, ptr %23, align 8
   %vtable86 = load ptr, ptr %20, align 8
-  %vfn87 = getelementptr inbounds i8, ptr %vtable86, i64 328
+  %vfn87 = getelementptr inbounds nuw i8, ptr %vtable86, i64 328
   %25 = load ptr, ptr %vfn87, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(2057) %20, i32 noundef %21, ptr %22, i64 %24)
   br label %if.end95
@@ -1333,10 +1333,10 @@ if.then82:                                        ; preds = %if.else78
 if.else88:                                        ; preds = %if.else78
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp91, ptr noundef %header_data, i64 noundef %len)
   %26 = load ptr, ptr %agg.tmp91, align 8
-  %27 = getelementptr inbounds i8, ptr %agg.tmp91, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %agg.tmp91, i64 8
   %28 = load i64, ptr %27, align 8
   %vtable92 = load ptr, ptr %20, align 8
-  %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 360
+  %vfn93 = getelementptr inbounds nuw i8, ptr %vtable92, i64 360
   %29 = load ptr, ptr %vfn93, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(2057) %20, i32 noundef %21, ptr %26, i64 %28)
   br label %if.end95
@@ -1350,19 +1350,19 @@ declare noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE(ptr nocapture noundef nonnull align 8 dereferenceable(816) initializes((416, 424)) %this, ptr noundef nonnull align 8 dereferenceable(96) %header_list) local_unnamed_addr #4 align 2 {
 entry:
-  %prev_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 440
+  %prev_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %prev_max_timestamp_, align 8
-  %cur_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 432
+  %cur_max_timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %agg.tmp2.sroa.0.0.copyload = load i64, ptr %cur_max_timestamp_, align 8
   %cmp.i.i = icmp slt i64 %agg.tmp2.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %sub.i = sub nsw i64 %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(2057) %0, i64 0, i64 %sub.i)
   %agg.tmp.sroa.0.0.copyload.i.pre = load i64, ptr %prev_max_timestamp_, align 8
@@ -1375,39 +1375,39 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp1.sroa.0.0.copyload.i)
   store i64 %2, ptr %prev_max_timestamp_, align 8
   store i64 0, ptr %cur_max_timestamp_, align 8
-  %promised_stream_id_ = getelementptr inbounds i8, ptr %this, i64 396
+  %promised_stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 396
   %3 = load i32, ptr %promised_stream_id_, align 4
   %cmp = icmp eq i32 %3, 0
-  %spdy_session_20 = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_20 = getelementptr inbounds nuw i8, ptr %this, i64 384
   %4 = load ptr, ptr %spdy_session_20, align 8
-  %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
+  %stream_id_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %5 = load i32, ptr %stream_id_, align 8
   br i1 %cmp, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end
-  %fin_ = getelementptr inbounds i8, ptr %this, i64 400
+  %fin_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %6 = load i8, ptr %fin_, align 8
   %tobool = trunc i8 %6 to i1
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %7 = load i64, ptr %frame_len_, align 8
   %vtable21 = load ptr, ptr %4, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 352
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 352
   %8 = load ptr, ptr %vfn22, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(2057) %4, i32 noundef %5, i1 noundef zeroext %tobool, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(96) %header_list)
   br label %if.end29
 
 if.else:                                          ; preds = %if.end
-  %frame_len_26 = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_26 = getelementptr inbounds nuw i8, ptr %this, i64 408
   %9 = load i64, ptr %frame_len_26, align 8
   %vtable27 = load ptr, ptr %4, align 8
-  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 376
+  %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 376
   %10 = load ptr, ptr %vfn28, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(2057) %4, i32 noundef %5, i32 noundef %3, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(96) %header_list)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else, %if.then19
-  %stream_id_31 = getelementptr inbounds i8, ptr %this, i64 392
-  %frame_len_33 = getelementptr inbounds i8, ptr %this, i64 408
+  %stream_id_31 = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %frame_len_33 = getelementptr inbounds nuw i8, ptr %this, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %stream_id_31, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame_len_33, i8 0, i64 16, i1 false)
   ret void
@@ -1416,7 +1416,7 @@ if.end29:                                         ; preds = %if.else, %if.then19
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net17QuicHeadersStream21OnCompressedFrameSizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i64 noundef %frame_len) local_unnamed_addr #10 align 2 {
 entry:
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load i64, ptr %frame_len_, align 8
   %add = add i64 %0, %frame_len
   store i64 %add, ptr %frame_len_, align 8
@@ -1426,11 +1426,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net17QuicHeadersStream11IsConnectedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %connected_.i = getelementptr inbounds i8, ptr %1, i64 3208
+  %connected_.i = getelementptr inbounds nuw i8, ptr %1, i64 3208
   %2 = load i8, ptr %connected_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   ret i1 %tobool.i
@@ -1439,7 +1439,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net17QuicHeadersStream24DisableHpackDynamicTableEv(ptr noundef nonnull align 8 dereferenceable(816) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZN3net10SpdyFramer28UpdateHeaderEncoderTableSizeEj(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, i32 noundef 0)
   ret void
 }
@@ -1451,26 +1451,26 @@ define dso_local void @_ZN3net17QuicHeadersStream27SetHpackEncoderDebugVisitorES
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.297", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %helper_.i = getelementptr inbounds i8, ptr %1, i64 440
+  %helper_.i = getelementptr inbounds nuw i8, ptr %1, i64 440
   %2 = load ptr, ptr %helper_.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont7 unwind label %cleanup.action
 
 invoke.cont7:                                     ; preds = %entry
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %4 = load i64, ptr %visitor, align 8
   store ptr null, ptr %visitor, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %call, align 8
-  %clock_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %clock_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call8, ptr %clock_.i, align 8
-  %headers_stream_hpack_visitor_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %headers_stream_hpack_visitor_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %4, ptr %headers_stream_hpack_visitor_.i, align 8
   store ptr %call, ptr %agg.tmp, align 8
   invoke void @_ZN3net10SpdyFramer33SetEncoderHeaderTableDebugVisitorESt10unique_ptrINS_16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, ptr noundef nonnull %agg.tmp)
@@ -1483,7 +1483,7 @@ invoke.cont13:                                    ; preds = %invoke.cont7
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i: ; preds = %invoke.cont13
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_deleteIS2_EED2Ev.exit
@@ -1500,7 +1500,7 @@ lpad12:                                           ; preds = %invoke.cont7
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i9: ; preds = %lpad12
   %vtable.i.i10 = load ptr, ptr %8, align 8
-  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 8
+  %vfn.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i10, i64 8
   %9 = load ptr, ptr %vfn.i.i11, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   br label %eh.resume
@@ -1523,26 +1523,26 @@ define dso_local void @_ZN3net17QuicHeadersStream27SetHpackDecoderDebugVisitorES
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.297", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %helper_.i = getelementptr inbounds i8, ptr %1, i64 440
+  %helper_.i = getelementptr inbounds nuw i8, ptr %1, i64 440
   %2 = load ptr, ptr %helper_.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont7 unwind label %cleanup.action
 
 invoke.cont7:                                     ; preds = %entry
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %4 = load i64, ptr %visitor, align 8
   store ptr null, ptr %visitor, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %call, align 8
-  %clock_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %clock_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call8, ptr %clock_.i, align 8
-  %headers_stream_hpack_visitor_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %headers_stream_hpack_visitor_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %4, ptr %headers_stream_hpack_visitor_.i, align 8
   store ptr %call, ptr %agg.tmp, align 8
   invoke void @_ZN3net10SpdyFramer33SetDecoderHeaderTableDebugVisitorESt10unique_ptrINS_16HpackHeaderTable21DebugVisitorInterfaceESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, ptr noundef nonnull %agg.tmp)
@@ -1555,7 +1555,7 @@ invoke.cont13:                                    ; preds = %invoke.cont7
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i: ; preds = %invoke.cont13
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_deleteIS2_EED2Ev.exit
@@ -1572,7 +1572,7 @@ lpad12:                                           ; preds = %invoke.cont7
 
 _ZNKSt14default_deleteIN3net16HpackHeaderTable21DebugVisitorInterfaceEEclEPS2_.exit.i9: ; preds = %lpad12
   %vtable.i.i10 = load ptr, ptr %8, align 8
-  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 8
+  %vfn.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i10, i64 8
   %9 = load ptr, ptr %vfn.i.i11, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   br label %eh.resume
@@ -1593,7 +1593,7 @@ declare void @_ZN3net10SpdyFramer33SetDecoderHeaderTableDebugVisitorESt10unique_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net17QuicHeadersStream28UpdateHeaderEncoderTableSizeEj(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %value) local_unnamed_addr #4 align 2 {
 entry:
-  %spdy_framer_ = getelementptr inbounds i8, ptr %this, i64 448
+  %spdy_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZN3net10SpdyFramer28UpdateHeaderEncoderTableSizeEj(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_, i32 noundef %value)
   ret void
 }
@@ -1602,27 +1602,27 @@ entry:
 define dso_local noundef zeroext i1 @_ZN3net17QuicHeadersStream17OnDataFrameHeaderEjmb(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %stream_id, i64 noundef %length, i1 noundef zeroext %fin) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %fin to i8
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
-  %force_hol_blocking_.i = getelementptr inbounds i8, ptr %0, i64 2056
+  %force_hol_blocking_.i = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %1 = load i8, ptr %force_hol_blocking_.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %session_.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %2 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %fin_ = getelementptr inbounds i8, ptr %this, i64 400
+  %fin_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i8 %frombool, ptr %fin_, align 8
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   store i64 %length, ptr %frame_len_, align 8
   %cmp = icmp eq i64 %length, 0
   %or.cond = and i1 %fin, %cmp
@@ -1635,7 +1635,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end.i:                                         ; preds = %if.then7
   %6 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %6, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 3208
   %7 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i.i, label %if.end4.i, label %return
@@ -1643,7 +1643,7 @@ if.end.i:                                         ; preds = %if.then7
 if.end4.i:                                        ; preds = %if.end.i
   store i64 0, ptr %frame_len_, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 400
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 400
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %stream_id, ptr noundef nonnull @.str.5, i64 noundef 0, i1 noundef zeroext true)
   br label %return
@@ -1655,35 +1655,35 @@ return:                                           ; preds = %if.end4.i, %if.end.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net17QuicHeadersStream17OnStreamFrameDataEjPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %stream_id, ptr noundef %data, i64 noundef %len) local_unnamed_addr #4 align 2 {
 entry:
-  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
+  %spdy_session_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
-  %force_hol_blocking_.i = getelementptr inbounds i8, ptr %0, i64 2056
+  %force_hol_blocking_.i = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %1 = load i8, ptr %force_hol_blocking_.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %session_.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %2 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 408
+  %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %5 = load i64, ptr %frame_len_, align 8
   %sub = sub i64 %5, %len
   store i64 %sub, ptr %frame_len_, align 8
   %cmp.not = icmp eq i64 %5, %len
-  %fin_ = getelementptr inbounds i8, ptr %this, i64 400
+  %fin_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %6 = load i8, ptr %fin_, align 8
   %tobool = trunc i8 %6 to i1
   %cond = select i1 %cmp.not, i1 %tobool, i1 false
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 400
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %stream_id, ptr noundef %data, i64 noundef %len, i1 noundef zeroext %cond)
   br label %return
@@ -1722,9 +1722,9 @@ declare void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr noundef nonnull 
 define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 288), ptr %add.ptr, align 8
-  %header_list_ = getelementptr inbounds i8, ptr %this, i64 24
+  %header_list_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_) #22
   ret void
 }
@@ -1733,9 +1733,9 @@ entry:
 define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 16), ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 288), ptr %add.ptr.i, align 8
-  %header_list_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %header_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
@@ -1748,20 +1748,20 @@ entry:
   %call = tail call noundef i32 @_ZNK3net10SpdyFramer10error_codeEv(ptr noundef nonnull align 8 dereferenceable(259) %framer)
   %call2 = tail call noundef ptr @_ZN3net10SpdyFramer17ErrorCodeToStringEi(i32 noundef %call)
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.6, ptr noundef %call2)
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %2, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3208
   %3 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(377) %0, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1788,30 +1788,30 @@ define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisito
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.58", align 1
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
   %frombool.i = zext i1 %fin to i8
-  %spdy_session_.i = getelementptr inbounds i8, ptr %0, i64 384
+  %spdy_session_.i = getelementptr inbounds nuw i8, ptr %0, i64 384
   %1 = load ptr, ptr %spdy_session_.i, align 8
-  %force_hol_blocking_.i.i = getelementptr inbounds i8, ptr %1, i64 2056
+  %force_hol_blocking_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %2 = load i8, ptr %force_hol_blocking_.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %session_.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %4, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 3208
   %5 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.end4.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %fin_.i = getelementptr inbounds i8, ptr %0, i64 400
+  %fin_.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i8 %frombool.i, ptr %fin_.i, align 8
-  %frame_len_.i = getelementptr inbounds i8, ptr %0, i64 408
+  %frame_len_.i = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i64 %length, ptr %frame_len_.i, align 8
   %cmp.i = icmp eq i64 %length, 0
   %or.cond.i = and i1 %fin, %cmp.i
@@ -1824,7 +1824,7 @@ if.then7.i:                                       ; preds = %if.end4.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
   %7 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 3208
+  %connected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 3208
   %8 = load i8, ptr %connected_.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i, label %if.end4.i.i, label %return
@@ -1832,7 +1832,7 @@ if.end.i.i:                                       ; preds = %if.then7.i
 if.end4.i.i:                                      ; preds = %if.end.i.i
   store i64 0, ptr %frame_len_.i, align 8
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 400
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 400
   %9 = load ptr, ptr %vfn.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(2057) %1, i32 noundef %stream_id, ptr noundef nonnull @.str.5, i64 noundef 0, i1 noundef zeroext true)
   br label %return
@@ -1858,18 +1858,18 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %11 = load ptr, ptr %stream_, align 8
-  %session_.i.i.i4 = getelementptr inbounds i8, ptr %11, i64 224
+  %session_.i.i.i4 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %12 = load ptr, ptr %session_.i.i.i4, align 8
-  %connection_.i.i.i5 = getelementptr inbounds i8, ptr %12, i64 56
+  %connection_.i.i.i5 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %13 = load ptr, ptr %connection_.i.i.i5, align 8
-  %connected_.i.i.i6 = getelementptr inbounds i8, ptr %13, i64 3208
+  %connected_.i.i.i6 = getelementptr inbounds nuw i8, ptr %13, i64 3208
   %14 = load i8, ptr %connected_.i.i.i6, align 8
   %tobool.i.i.i7 = trunc i8 %14 to i1
   br i1 %tobool.i.i.i7, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %11, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %15 = load ptr, ptr %vfn.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(377) %11, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -1904,37 +1904,37 @@ define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisito
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.58", align 1
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
-  %spdy_session_.i = getelementptr inbounds i8, ptr %0, i64 384
+  %spdy_session_.i = getelementptr inbounds nuw i8, ptr %0, i64 384
   %1 = load ptr, ptr %spdy_session_.i, align 8
-  %force_hol_blocking_.i.i = getelementptr inbounds i8, ptr %1, i64 2056
+  %force_hol_blocking_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %2 = load i8, ptr %force_hol_blocking_.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %session_.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %4, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 3208
   %5 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.end4.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %frame_len_.i = getelementptr inbounds i8, ptr %0, i64 408
+  %frame_len_.i = getelementptr inbounds nuw i8, ptr %0, i64 408
   %6 = load i64, ptr %frame_len_.i, align 8
   %sub.i = sub i64 %6, %len
   store i64 %sub.i, ptr %frame_len_.i, align 8
   %cmp.not.i = icmp eq i64 %6, %len
-  %fin_.i = getelementptr inbounds i8, ptr %0, i64 400
+  %fin_.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %7 = load i8, ptr %fin_.i, align 8
   %tobool.i = trunc i8 %7 to i1
   %cond.i = select i1 %cmp.not.i, i1 %tobool.i, i1 false
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 400
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 400
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(2057) %1, i32 noundef %stream_id, ptr noundef %data, i64 noundef %len, i1 noundef zeroext %cond.i)
   br label %return
@@ -1960,18 +1960,18 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %10 = load ptr, ptr %stream_, align 8
-  %session_.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 224
+  %session_.i.i.i4 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %11 = load ptr, ptr %session_.i.i.i4, align 8
-  %connection_.i.i.i5 = getelementptr inbounds i8, ptr %11, i64 56
+  %connection_.i.i.i5 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %12 = load ptr, ptr %connection_.i.i.i5, align 8
-  %connected_.i.i.i6 = getelementptr inbounds i8, ptr %12, i64 3208
+  %connected_.i.i.i6 = getelementptr inbounds nuw i8, ptr %12, i64 3208
   %13 = load i8, ptr %connected_.i.i.i6, align 8
   %tobool.i.i.i7 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i7, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i9 = load ptr, ptr %10, align 8
-  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 72
+  %vfn.i10 = getelementptr inbounds nuw i8, ptr %vtable.i9, i64 72
   %14 = load ptr, ptr %vfn.i10, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(377) %10, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2031,20 +2031,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2074,7 +2074,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN3net17QuicHeadersStream17SpdyFramerVisitor18OnHeaderFrameStartEj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %0) unnamed_addr #9 comdat align 2 {
 entry:
-  %header_list_ = getelementptr inbounds i8, ptr %this, i64 24
+  %header_list_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %header_list_
 }
 
@@ -2084,32 +2084,32 @@ entry:
   br i1 %end_headers, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_, align 8
-  %session_.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %header_list_ = getelementptr inbounds i8, ptr %this, i64 24
-  %prev_max_timestamp_.i = getelementptr inbounds i8, ptr %1, i64 440
+  %header_list_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %prev_max_timestamp_.i = getelementptr inbounds nuw i8, ptr %1, i64 440
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %prev_max_timestamp_.i, align 8
-  %cur_max_timestamp_.i = getelementptr inbounds i8, ptr %1, i64 432
+  %cur_max_timestamp_.i = getelementptr inbounds nuw i8, ptr %1, i64 432
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %cur_max_timestamp_.i, align 8
   %cmp.i.i.i = icmp slt i64 %agg.tmp2.sroa.0.0.copyload.i, %agg.tmp.sroa.0.0.copyload.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
   %sub.i.i = sub nsw i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %spdy_session_.i = getelementptr inbounds i8, ptr %1, i64 384
+  %spdy_session_.i = getelementptr inbounds nuw i8, ptr %1, i64 384
   %5 = load ptr, ptr %spdy_session_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 392
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 392
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2057) %5, i64 0, i64 %sub.i.i)
   %agg.tmp.sroa.0.0.copyload.i.pre.i = load i64, ptr %prev_max_timestamp_.i, align 8
@@ -2122,44 +2122,44 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %7 = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i.i, i64 %agg.tmp1.sroa.0.0.copyload.i.i)
   store i64 %7, ptr %prev_max_timestamp_.i, align 8
   store i64 0, ptr %cur_max_timestamp_.i, align 8
-  %promised_stream_id_.i = getelementptr inbounds i8, ptr %1, i64 396
+  %promised_stream_id_.i = getelementptr inbounds nuw i8, ptr %1, i64 396
   %8 = load i32, ptr %promised_stream_id_.i, align 4
   %cmp.i = icmp eq i32 %8, 0
-  %spdy_session_20.i = getelementptr inbounds i8, ptr %1, i64 384
+  %spdy_session_20.i = getelementptr inbounds nuw i8, ptr %1, i64 384
   %9 = load ptr, ptr %spdy_session_20.i, align 8
-  %stream_id_.i = getelementptr inbounds i8, ptr %1, i64 392
+  %stream_id_.i = getelementptr inbounds nuw i8, ptr %1, i64 392
   %10 = load i32, ptr %stream_id_.i, align 8
   br i1 %cmp.i, label %if.then19.i, label %if.else.i
 
 if.then19.i:                                      ; preds = %if.end.i
-  %fin_.i = getelementptr inbounds i8, ptr %1, i64 400
+  %fin_.i = getelementptr inbounds nuw i8, ptr %1, i64 400
   %11 = load i8, ptr %fin_.i, align 8
   %tobool.i = trunc i8 %11 to i1
-  %frame_len_.i = getelementptr inbounds i8, ptr %1, i64 408
+  %frame_len_.i = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load i64, ptr %frame_len_.i, align 8
   %vtable21.i = load ptr, ptr %9, align 8
-  %vfn22.i = getelementptr inbounds i8, ptr %vtable21.i, i64 352
+  %vfn22.i = getelementptr inbounds nuw i8, ptr %vtable21.i, i64 352
   %13 = load ptr, ptr %vfn22.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(2057) %9, i32 noundef %10, i1 noundef zeroext %tobool.i, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(96) %header_list_)
   br label %_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %frame_len_26.i = getelementptr inbounds i8, ptr %1, i64 408
+  %frame_len_26.i = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load i64, ptr %frame_len_26.i, align 8
   %vtable27.i = load ptr, ptr %9, align 8
-  %vfn28.i = getelementptr inbounds i8, ptr %vtable27.i, i64 376
+  %vfn28.i = getelementptr inbounds nuw i8, ptr %vtable27.i, i64 376
   %15 = load ptr, ptr %vfn28.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(2057) %9, i32 noundef %10, i32 noundef %8, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(96) %header_list_)
   br label %_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE.exit
 
 _ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE.exit: ; preds = %if.then19.i, %if.else.i
-  %frame_len_33.i = getelementptr inbounds i8, ptr %1, i64 408
+  %frame_len_33.i = getelementptr inbounds nuw i8, ptr %1, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %stream_id_.i, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame_len_33.i, i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE.exit, %if.then
-  %header_list_4 = getelementptr inbounds i8, ptr %this, i64 24
+  %header_list_4 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN3net14QuicHeaderList5ClearEv(ptr noundef nonnull align 8 dereferenceable(96) %header_list_4)
   br label %if.end5
 
@@ -2170,13 +2170,13 @@ if.end5:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3net17QuicHeadersStream17SpdyFramerVisitor24OnControlFrameHeaderDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %stream_id, ptr noundef %header_data, i64 noundef %len) unnamed_addr #4 comdat align 2 {
 entry:
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
-  %session_.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %2, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3208
   %3 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end, label %return
@@ -2213,20 +2213,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont5
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad4
@@ -2277,20 +2277,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2341,20 +2341,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2418,20 +2418,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 224
   %3 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %4, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 3208
   %5 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(377) %2, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2462,9 +2462,9 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load ptr, ptr %stream_, align 8
-  %spdy_framer_.i = getelementptr inbounds i8, ptr %9, i64 448
+  %spdy_framer_.i = getelementptr inbounds nuw i8, ptr %9, i64 448
   tail call void @_ZN3net10SpdyFramer28UpdateHeaderEncoderTableSizeEj(ptr noundef nonnull align 8 dereferenceable(259) %spdy_framer_.i, i32 noundef %value)
   br label %sw.epilog
 
@@ -2475,20 +2475,20 @@ sw.default:                                       ; preds = %if.end
 
 invoke.cont8:                                     ; preds = %sw.default
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %call.i9) #22
-  %stream_.i10 = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %10 = load ptr, ptr %stream_.i10, align 8
-  %session_.i.i.i11 = getelementptr inbounds i8, ptr %10, i64 224
+  %session_.i.i.i11 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %11 = load ptr, ptr %session_.i.i.i11, align 8
-  %connection_.i.i.i12 = getelementptr inbounds i8, ptr %11, i64 56
+  %connection_.i.i.i12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %12 = load ptr, ptr %connection_.i.i.i12, align 8
-  %connected_.i.i.i13 = getelementptr inbounds i8, ptr %12, i64 3208
+  %connected_.i.i.i13 = getelementptr inbounds nuw i8, ptr %12, i64 3208
   %13 = load i8, ptr %connected_.i.i.i13, align 8
   %tobool.i.i.i14 = trunc i8 %13 to i1
   br i1 %tobool.i.i.i14, label %if.then.i15, label %invoke.cont10
 
 if.then.i15:                                      ; preds = %invoke.cont8
   %vtable.i16 = load ptr, ptr %10, align 8
-  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 72
+  %vfn.i17 = getelementptr inbounds nuw i8, ptr %vtable.i16, i64 72
   %14 = load ptr, ptr %vfn.i17, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(377) %10, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont10 unwind label %lpad9
@@ -2551,20 +2551,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 224
   %3 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %4, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 3208
   %5 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(377) %2, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2623,20 +2623,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 224
   %3 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %4, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 3208
   %5 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(377) %2, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2690,20 +2690,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2754,20 +2754,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2797,13 +2797,13 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisitor9OnHeadersEjbijbbb(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %stream_id, i1 noundef zeroext %has_priority, i32 noundef %weight, i32 noundef %parent_stream_id, i1 noundef zeroext %exclusive, i1 noundef zeroext %fin, i1 noundef zeroext %end) unnamed_addr #4 comdat align 2 {
 entry:
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
-  %session_.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %2, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3208
   %3 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.end, label %return
@@ -2850,20 +2850,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2905,9 +2905,9 @@ define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisito
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.58", align 1
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
-  %supports_push_promise_.i = getelementptr inbounds i8, ptr %0, i64 424
+  %supports_push_promise_.i = getelementptr inbounds nuw i8, ptr %0, i64 424
   %1 = load i8, ptr %supports_push_promise_.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.end, label %if.then
@@ -2933,18 +2933,18 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %3 = load ptr, ptr %stream_, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %3, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   %4 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %5, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 3208
   %6 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %7 = load ptr, ptr %vfn.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(377) %3, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2971,19 +2971,19 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %entry
-  %session_.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %10, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %10, i64 56
   %11 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %11, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 3208
   %12 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %stream_id_.i = getelementptr inbounds i8, ptr %0, i64 392
+  %stream_id_.i = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 %stream_id, ptr %stream_id_.i, align 8
-  %promised_stream_id_.i = getelementptr inbounds i8, ptr %0, i64 396
+  %promised_stream_id_.i = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 %promised_stream_id, ptr %promised_stream_id_.i, align 4
   br label %return
 
@@ -3027,20 +3027,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -3091,20 +3091,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %1, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %3, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3208
   %4 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %1, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -3144,7 +3144,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 283, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.20)
           to label %cleanup.action unwind label %lpad
 
@@ -3177,7 +3177,7 @@ if.then12:                                        ; preds = %if.end
 if.end14:                                         ; preds = %if.then12, %if.end
   %histogram_pointer.0 = phi ptr [ %3, %if.end ], [ %call13, %if.then12 ]
   %vtable = load ptr, ptr %histogram_pointer.0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, i32 noundef %conv)
   br label %do.end15
@@ -3189,19 +3189,19 @@ do.end15:                                         ; preds = %if.then, %cleanup.a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3net17QuicHeadersStream17SpdyFramerVisitor24OnReceiveCompressedFrameEjNS_13SpdyFrameTypeEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %stream_id, i32 noundef %type, i64 noundef %frame_len) unnamed_addr #4 comdat align 2 {
 entry:
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_, align 8
-  %session_.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %session_.i.i, align 8
-  %connection_.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i.i, align 8
-  %connected_.i.i = getelementptr inbounds i8, ptr %2, i64 3208
+  %connected_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3208
   %3 = load i8, ptr %connected_.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %frame_len_.i = getelementptr inbounds i8, ptr %0, i64 408
+  %frame_len_.i = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load i64, ptr %frame_len_.i, align 8
   %add.i = add i64 %4, %frame_len
   store i64 %add.i, ptr %frame_len_.i, align 8
@@ -3217,7 +3217,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 288), ptr %this, align 8
-  %header_list_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_.i) #22
   ret void
 }
@@ -3228,7 +3228,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i64 288), ptr %this, align 8
-  %header_list_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_list_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %0) #21
   ret void
@@ -3245,19 +3245,19 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr dso_local void @_ZThn8_N3net17QuicHeadersStream17SpdyFramerVisitor24OnReceiveCompressedFrameEjNS_13SpdyFrameTypeEm(ptr noundef %this, i32 noundef %stream_id, i32 noundef %type, i64 noundef %frame_len) unnamed_addr #13 comdat align 2 {
 entry:
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_.i, align 8
-  %session_.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %session_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %session_.i.i.i, align 8
-  %connection_.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %connection_.i.i.i, align 8
-  %connected_.i.i.i = getelementptr inbounds i8, ptr %2, i64 3208
+  %connected_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 3208
   %3 = load i8, ptr %connected_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %_ZN3net17QuicHeadersStream17SpdyFramerVisitor24OnReceiveCompressedFrameEjNS_13SpdyFrameTypeEm.exit
 
 if.then.i:                                        ; preds = %entry
-  %frame_len_.i.i = getelementptr inbounds i8, ptr %0, i64 408
+  %frame_len_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load i64, ptr %frame_len_.i.i, align 8
   %add.i.i = add i64 %4, %frame_len
   store i64 %add.i.i, ptr %frame_len_.i.i, align 8
@@ -3295,7 +3295,7 @@ declare void @_ZN3net26SpdyFrameWithHeaderBlockIRD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListener13OnPacketAckedEiNS_8QuicTime5DeltaE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %acked_bytes, i64 %ack_delay_time.coerce0, i64 %ack_delay_time.coerce1) unnamed_addr #4 align 2 {
 entry:
-  %extra_bytes_ = getelementptr inbounds i8, ptr %this, i64 24
+  %extra_bytes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %extra_bytes_, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3309,7 +3309,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %acked_bytes.addr.0 = phi i32 [ %sub4, %if.then ], [ %acked_bytes, %entry ]
-  %stream_ack_listener_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ack_listener_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %stream_ack_listener_, align 8
   %vtable = load ptr, ptr %1, align 8
   %2 = load ptr, ptr %vtable, align 8
@@ -3320,10 +3320,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListener21OnPacketRetransmittedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %retransmitted_bytes) unnamed_addr #4 align 2 {
 entry:
-  %stream_ack_listener_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ack_listener_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_ack_listener_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %retransmitted_bytes)
   ret void
@@ -3333,13 +3333,13 @@ entry:
 define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i64 16), ptr %this, align 8
-  %stream_ack_listener_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ack_listener_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_ack_listener_, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %dec.i.i.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i.i.i, ptr %add.ptr.i.i, align 4
@@ -3348,7 +3348,7 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   br label %_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit
@@ -3361,13 +3361,13 @@ _ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit: ; preds = %entry,
 define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i64 16), ptr %this, align 8
-  %stream_ack_listener_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_ack_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_ack_listener_.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3net12_GLOBAL__N_119ForceHolAckListenerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
   %dec.i.i.i.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i.i.i.i, ptr %add.ptr.i.i.i, align 4
@@ -3376,7 +3376,7 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #22
   br label %_ZN3net12_GLOBAL__N_119ForceHolAckListenerD2Ev.exit
@@ -3402,14 +3402,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr #15
 define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %this, align 8
-  %headers_stream_hpack_visitor_ = getelementptr inbounds i8, ptr %this, i64 16
+  %headers_stream_hpack_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %headers_stream_hpack_visitor_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStream17HpackDebugVisitorEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3net17QuicHeadersStream17HpackDebugVisitorEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   br label %_ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_deleteIS2_EED2Ev.exit
@@ -3423,14 +3423,14 @@ _ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_delete
 define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %this, align 8
-  %headers_stream_hpack_visitor_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %headers_stream_hpack_visitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %headers_stream_hpack_visitor_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev.exit, label %_ZNKSt14default_deleteIN3net17QuicHeadersStream17HpackDebugVisitorEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN3net17QuicHeadersStream17HpackDebugVisitorEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   br label %_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev.exit
@@ -3443,10 +3443,10 @@ _ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev.exit: ; preds = %entry, %_ZNK
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitor10OnNewEntryERKNS_10HpackEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %entry1) unnamed_addr #4 align 2 {
 entry:
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i64 %call
@@ -3455,19 +3455,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitor10OnUseEntryERKNS_10HpackEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %entry1) unnamed_addr #4 align 2 {
 entry:
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %time_added_.i = getelementptr inbounds i8, ptr %entry1, i64 112
+  %time_added_.i = getelementptr inbounds nuw i8, ptr %entry1, i64 112
   %2 = load i64, ptr %time_added_.i, align 8
   %sub.i = sub nsw i64 %call, %2
-  %headers_stream_hpack_visitor_ = getelementptr inbounds i8, ptr %this, i64 16
+  %headers_stream_hpack_visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %headers_stream_hpack_visitor_, align 8
   %vtable18 = load ptr, ptr %3, align 8
-  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
+  %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 16
   %4 = load ptr, ptr %vfn19, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 0, i64 %sub.i)
   ret void

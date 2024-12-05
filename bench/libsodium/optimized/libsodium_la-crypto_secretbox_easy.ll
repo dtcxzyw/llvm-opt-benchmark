@@ -45,7 +45,7 @@ for.body.preheader:                               ; preds = %if.end.thread, %if.
   %spec.store.select52 = phi i64 [ %spec.store.select46, %if.end.thread ], [ %spec.store.select, %if.end ]
   %cmp750 = phi i1 [ %cmp745, %if.end.thread ], [ %cmp7, %if.end ]
   %m.addr.048 = phi ptr [ %c, %if.end.thread ], [ %m, %if.end ]
-  %scevgep = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 1 %m.addr.048, i64 %spec.store.select52, i1 false)
   br label %for.end
 
@@ -60,7 +60,7 @@ for.end:                                          ; preds = %for.body.preheader,
   br i1 %cmp1039.not55, label %for.end26, label %for.body20.preheader
 
 for.body20.preheader:                             ; preds = %for.end
-  %scevgep43 = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep43 = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %c, ptr nonnull align 16 %scevgep43, i64 %spec.store.select53, i1 false)
   br label %for.end26
 
@@ -135,7 +135,7 @@ entry:
   br i1 %cmp240.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %scevgep = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr nonnull align 1 %c, i64 %spec.store.select, i1 false)
   br label %for.end
 
@@ -179,7 +179,7 @@ for.end33.thread:                                 ; preds = %if.end24
 
 for.end33:                                        ; preds = %if.end24, %if.end24.thread
   %c.addr.046 = phi ptr [ %m, %if.end24.thread ], [ %c, %if.end24 ]
-  %scevgep44 = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep44 = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %m, ptr nonnull align 16 %scevgep44, i64 %spec.store.select, i1 false)
   call void @sodium_memzero(ptr noundef nonnull %block0, i64 noundef 64) #7
   br i1 %cmp, label %if.then36, label %return.sink.split

@@ -100,12 +100,12 @@ define void @dlagsy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 62:                                               ; preds = %61
   %63 = sub nsw i32 1, %20
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %75
 
 65:                                               ; preds = %65, %58
   %66 = phi i64 [ 1, %58 ], [ %73, %65 ]
-  %67 = getelementptr inbounds double, ptr %15, i64 %66
+  %67 = getelementptr inbounds nuw double, ptr %15, i64 %66
   %68 = load double, ptr %67, align 8, !tbaa !10
   %69 = trunc i64 %66 to i32
   %70 = mul i32 %36, %69

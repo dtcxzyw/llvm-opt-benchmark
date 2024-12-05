@@ -146,7 +146,7 @@ define internal noundef ptr @mca_pml_ob1_component_init(ptr nocapture noundef wr
   br label %39
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %12, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(i1 noundef zeroext true, ptr noundef nonnull @mca_pml_ob1_seg_alloc, ptr noundef nonnull @mca_pml_ob1_seg_free, ptr noundef null) #8
   store ptr %19, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
@@ -168,16 +168,16 @@ define internal noundef ptr @mca_pml_ob1_component_init(ptr nocapture noundef wr
   br i1 %.not1216, label %.loopexit, label %.lr.ph
 
 24:                                               ; preds = %32
-  %25 = getelementptr inbounds i8, ptr %.01017, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.01017, i64 16
   %.010 = load volatile ptr, ptr %25, align 8
   %.not12 = icmp eq ptr %.010, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.01017 = phi ptr [ %.010, %24 ], [ %.01015, %.preheader ]
-  %26 = getelementptr inbounds i8, ptr %.01017, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.01017, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 262144
   %.not13 = icmp eq i32 %30, 0
@@ -239,16 +239,16 @@ define internal i32 @mca_pml_ob1_component_fini() #0 {
 11:                                               ; preds = %9
   %12 = load i8, ptr @opal_uses_threads, align 1
   %13 = trunc i8 %12 to i1
-  %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
+  %14 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
   br i1 %13, label %15, label %28
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.08.i.i.i = inttoptr i64 %14 to ptr
   store volatile ptr %.08.i.i.i, ptr %16, align 8
   fence release
   %17 = ptrtoint ptr %10 to i64
-  %18 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), i64 %14, i64 %17 acquire monotonic, align 8
+  %18 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 24), i64 %14, i64 %17 acquire monotonic, align 8
   %19 = extractvalue { i64, i1 } %18, 1
   br i1 %19, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
@@ -258,47 +258,47 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %15, %opal_atomic_
   %.0.i.i.i = inttoptr i64 %21 to ptr
   store volatile ptr %.0.i.i.i, ptr %16, align 8
   fence release
-  %22 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), i64 %21, i64 %17 acquire monotonic, align 8
+  %22 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 24), i64 %21, i64 %17 acquire monotonic, align 8
   %23 = extractvalue { i64, i1 } %22, 1
   br i1 %23, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %15
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %15 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %24 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
+  %24 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i.i = icmp eq i64 %25, 0
   %or.cond = select i1 %24, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %opal_free_list_return.exit, label %26
 
 26:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
-  %27 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
+  %27 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 28:                                               ; preds = %11
   %29 = inttoptr i64 %14 to ptr
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store volatile ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 0, ptr %31, align 8
   %32 = ptrtoint ptr %10 to i64
-  store volatile i64 %32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
+  store volatile i64 %32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 24), align 8
   %33 = load volatile ptr, ptr %30, align 8
-  %34 = icmp ne ptr %33, getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 32)
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
+  %34 = icmp ne ptr %33, getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 32)
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 104), align 8
   %.not.i4.i = icmp eq i64 %35, 0
   %or.cond74 = select i1 %34, i1 true, i1 %.not.i4.i
   br i1 %or.cond74, label %opal_free_list_return.exit, label %36
 
 36:                                               ; preds = %28
-  %37 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
+  %37 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 248), align 8
   %.not.i.i5.i = icmp eq i32 %37, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %36, %26
-  %38 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
+  %38 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   %39 = add nsw i32 %38, 1
-  store volatile i32 %39, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
+  store volatile i32 %39, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %26, %28, %36, %opal_free_list_return_mt.exit.sink.split.i
@@ -313,16 +313,16 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 42:                                               ; preds = %40
   %43 = load i8, ptr @opal_uses_threads, align 1
   %44 = trunc i8 %43 to i1
-  %45 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
+  %45 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
   br i1 %44, label %46, label %59
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.08.i.i.i16 = inttoptr i64 %45 to ptr
   store volatile ptr %.08.i.i.i16, ptr %47, align 8
   fence release
   %48 = ptrtoint ptr %41 to i64
-  %49 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), i64 %45, i64 %48 acquire monotonic, align 8
+  %49 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 24), i64 %45, i64 %48 acquire monotonic, align 8
   %50 = extractvalue { i64, i1 } %49, 1
   br i1 %50, label %opal_lifo_push_atomic.exit.i.i19, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i17
 
@@ -332,47 +332,47 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i17: ; preds = %46, %opal_atomi
   %.0.i.i.i18 = inttoptr i64 %52 to ptr
   store volatile ptr %.0.i.i.i18, ptr %47, align 8
   fence release
-  %53 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), i64 %52, i64 %48 acquire monotonic, align 8
+  %53 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 24), i64 %52, i64 %48 acquire monotonic, align 8
   %54 = extractvalue { i64, i1 } %53, 1
   br i1 %54, label %opal_lifo_push_atomic.exit.i.i19, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i17
 
 opal_lifo_push_atomic.exit.i.i19:                 ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i17, %46
   %.0.lcssa.i.i.i20 = phi ptr [ %.08.i.i.i16, %46 ], [ %.0.i.i.i18, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i17 ]
-  %55 = icmp ne ptr %.0.lcssa.i.i.i20, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
+  %55 = icmp ne ptr %.0.lcssa.i.i.i20, getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 32)
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %.not.i.i21 = icmp eq i64 %56, 0
   %or.cond75 = select i1 %55, i1 true, i1 %.not.i.i21
   br i1 %or.cond75, label %opal_free_list_return.exit23, label %57
 
 57:                                               ; preds = %opal_lifo_push_atomic.exit.i.i19
-  %58 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
+  %58 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %.not.i.i.i22 = icmp eq i32 %58, 0
   br i1 %.not.i.i.i22, label %opal_free_list_return.exit23, label %opal_free_list_return_mt.exit.sink.split.i15
 
 59:                                               ; preds = %42
   %60 = inttoptr i64 %45 to ptr
-  %61 = getelementptr inbounds i8, ptr %41, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store volatile ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %41, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i32 0, ptr %62, align 8
   %63 = ptrtoint ptr %41 to i64
-  store volatile i64 %63, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
+  store volatile i64 %63, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
   %64 = load volatile ptr, ptr %61, align 8
-  %65 = icmp ne ptr %64, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
+  %65 = icmp ne ptr %64, getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 32)
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %.not.i4.i13 = icmp eq i64 %66, 0
   %or.cond76 = select i1 %65, i1 true, i1 %.not.i4.i13
   br i1 %or.cond76, label %opal_free_list_return.exit23, label %67
 
 67:                                               ; preds = %59
-  %68 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
+  %68 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %.not.i.i5.i14 = icmp eq i32 %68, 0
   br i1 %.not.i.i5.i14, label %opal_free_list_return.exit23, label %opal_free_list_return_mt.exit.sink.split.i15
 
 opal_free_list_return_mt.exit.sink.split.i15:     ; preds = %67, %57
-  %69 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
+  %69 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   %70 = add nsw i32 %69, 1
-  store volatile i32 %70, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
+  store volatile i32 %70, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_base_send_requests, i64 252), align 4
   br label %opal_free_list_return.exit23
 
 opal_free_list_return.exit23:                     ; preds = %opal_lifo_push_atomic.exit.i.i19, %57, %59, %67, %opal_free_list_return_mt.exit.sink.split.i15
@@ -381,7 +381,7 @@ opal_free_list_return.exit23:                     ; preds = %opal_lifo_push_atom
 
 71:                                               ; preds = %40, %opal_free_list_return.exit23
   %72 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2256), align 16
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
   %.not6.i = icmp eq ptr %75, null
@@ -391,14 +391,14 @@ opal_free_list_return.exit23:                     ; preds = %opal_lifo_push_atom
   %76 = phi ptr [ %78, %.lr.ph.i ], [ %75, %71 ]
   %.07.i = phi ptr [ %77, %.lr.ph.i ], [ %74, %71 ]
   tail call void %76(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2256)) #8
-  %77 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2064), align 16
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %81, align 8
   %.not6.i24 = icmp eq ptr %82, null
@@ -408,14 +408,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
   %83 = phi ptr [ %85, %.lr.ph.i25 ], [ %82, %opal_obj_run_destructors.exit ]
   %.07.i26 = phi ptr [ %84, %.lr.ph.i25 ], [ %81, %opal_obj_run_destructors.exit ]
   tail call void %83(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2064)) #8
-  %84 = getelementptr inbounds i8, ptr %.07.i26, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.07.i26, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i27 = icmp eq ptr %85, null
   br i1 %.not.i27, label %opal_obj_run_destructors.exit28, label %.lr.ph.i25, !llvm.loop !6
 
 opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %opal_obj_run_destructors.exit
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2192), align 16
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
   %.not6.i29 = icmp eq ptr %89, null
@@ -425,14 +425,14 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %opal_o
   %90 = phi ptr [ %92, %.lr.ph.i30 ], [ %89, %opal_obj_run_destructors.exit28 ]
   %.07.i31 = phi ptr [ %91, %.lr.ph.i30 ], [ %88, %opal_obj_run_destructors.exit28 ]
   tail call void %90(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2192)) #8
-  %91 = getelementptr inbounds i8, ptr %.07.i31, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.07.i31, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i32 = icmp eq ptr %92, null
   br i1 %.not.i32, label %opal_obj_run_destructors.exit33, label %.lr.ph.i30, !llvm.loop !6
 
 opal_obj_run_destructors.exit33:                  ; preds = %.lr.ph.i30, %opal_obj_run_destructors.exit28
   %93 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2128), align 16
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %.not6.i34 = icmp eq ptr %96, null
@@ -442,14 +442,14 @@ opal_obj_run_destructors.exit33:                  ; preds = %.lr.ph.i30, %opal_o
   %97 = phi ptr [ %99, %.lr.ph.i35 ], [ %96, %opal_obj_run_destructors.exit33 ]
   %.07.i36 = phi ptr [ %98, %.lr.ph.i35 ], [ %95, %opal_obj_run_destructors.exit33 ]
   tail call void %97(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2128)) #8
-  %98 = getelementptr inbounds i8, ptr %.07.i36, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.07.i36, i64 8
   %99 = load ptr, ptr %98, align 8
   %.not.i37 = icmp eq ptr %99, null
   br i1 %.not.i37, label %opal_obj_run_destructors.exit38, label %.lr.ph.i35, !llvm.loop !6
 
 opal_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %opal_obj_run_destructors.exit33
   %100 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2320), align 16
-  %101 = getelementptr inbounds i8, ptr %100, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %102, align 8
   %.not6.i39 = icmp eq ptr %103, null
@@ -459,14 +459,14 @@ opal_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %opal_o
   %104 = phi ptr [ %106, %.lr.ph.i40 ], [ %103, %opal_obj_run_destructors.exit38 ]
   %.07.i41 = phi ptr [ %105, %.lr.ph.i40 ], [ %102, %opal_obj_run_destructors.exit38 ]
   tail call void %104(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2320)) #8
-  %105 = getelementptr inbounds i8, ptr %.07.i41, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.07.i41, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not.i42 = icmp eq ptr %106, null
   br i1 %.not.i42, label %opal_obj_run_destructors.exit43, label %.lr.ph.i40, !llvm.loop !6
 
 opal_obj_run_destructors.exit43:                  ; preds = %.lr.ph.i40, %opal_obj_run_destructors.exit38
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1360), align 16
-  %108 = getelementptr inbounds i8, ptr %107, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %109, align 8
   %.not6.i44 = icmp eq ptr %110, null
@@ -476,14 +476,14 @@ opal_obj_run_destructors.exit43:                  ; preds = %.lr.ph.i40, %opal_o
   %111 = phi ptr [ %113, %.lr.ph.i45 ], [ %110, %opal_obj_run_destructors.exit43 ]
   %.07.i46 = phi ptr [ %112, %.lr.ph.i45 ], [ %109, %opal_obj_run_destructors.exit43 ]
   tail call void %111(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1360)) #8
-  %112 = getelementptr inbounds i8, ptr %.07.i46, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.07.i46, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i47 = icmp eq ptr %113, null
   br i1 %.not.i47, label %opal_obj_run_destructors.exit48, label %.lr.ph.i45, !llvm.loop !6
 
 opal_obj_run_destructors.exit48:                  ; preds = %.lr.ph.i45, %opal_obj_run_destructors.exit43
   %114 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008), align 16
-  %115 = getelementptr inbounds i8, ptr %114, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %.not6.i49 = icmp eq ptr %117, null
@@ -493,14 +493,14 @@ opal_obj_run_destructors.exit48:                  ; preds = %.lr.ph.i45, %opal_o
   %118 = phi ptr [ %120, %.lr.ph.i50 ], [ %117, %opal_obj_run_destructors.exit48 ]
   %.07.i51 = phi ptr [ %119, %.lr.ph.i50 ], [ %116, %opal_obj_run_destructors.exit48 ]
   tail call void %118(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1008)) #8
-  %119 = getelementptr inbounds i8, ptr %.07.i51, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.07.i51, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not.i52 = icmp eq ptr %120, null
   br i1 %.not.i52, label %opal_obj_run_destructors.exit53, label %.lr.ph.i50, !llvm.loop !6
 
 opal_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %opal_obj_run_destructors.exit48
   %121 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 656), align 16
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %123, align 8
   %.not6.i54 = icmp eq ptr %124, null
@@ -510,14 +510,14 @@ opal_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %opal_o
   %125 = phi ptr [ %127, %.lr.ph.i55 ], [ %124, %opal_obj_run_destructors.exit53 ]
   %.07.i56 = phi ptr [ %126, %.lr.ph.i55 ], [ %123, %opal_obj_run_destructors.exit53 ]
   tail call void %125(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 656)) #8
-  %126 = getelementptr inbounds i8, ptr %.07.i56, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.07.i56, i64 8
   %127 = load ptr, ptr %126, align 8
   %.not.i57 = icmp eq ptr %127, null
   br i1 %.not.i57, label %opal_obj_run_destructors.exit58, label %.lr.ph.i55, !llvm.loop !6
 
 opal_obj_run_destructors.exit58:                  ; preds = %.lr.ph.i55, %opal_obj_run_destructors.exit53
   %128 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304), align 16
-  %129 = getelementptr inbounds i8, ptr %128, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 48
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
   %.not6.i59 = icmp eq ptr %131, null
@@ -527,14 +527,14 @@ opal_obj_run_destructors.exit58:                  ; preds = %.lr.ph.i55, %opal_o
   %132 = phi ptr [ %134, %.lr.ph.i60 ], [ %131, %opal_obj_run_destructors.exit58 ]
   %.07.i61 = phi ptr [ %133, %.lr.ph.i60 ], [ %130, %opal_obj_run_destructors.exit58 ]
   tail call void %132(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 304)) #8
-  %133 = getelementptr inbounds i8, ptr %.07.i61, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.07.i61, i64 8
   %134 = load ptr, ptr %133, align 8
   %.not.i62 = icmp eq ptr %134, null
   br i1 %.not.i62, label %opal_obj_run_destructors.exit63, label %.lr.ph.i60, !llvm.loop !6
 
 opal_obj_run_destructors.exit63:                  ; preds = %.lr.ph.i60, %opal_obj_run_destructors.exit58
   %135 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 240), align 16
-  %136 = getelementptr inbounds i8, ptr %135, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
   %.not6.i64 = icmp eq ptr %138, null
@@ -544,14 +544,14 @@ opal_obj_run_destructors.exit63:                  ; preds = %.lr.ph.i60, %opal_o
   %139 = phi ptr [ %141, %.lr.ph.i65 ], [ %138, %opal_obj_run_destructors.exit63 ]
   %.07.i66 = phi ptr [ %140, %.lr.ph.i65 ], [ %137, %opal_obj_run_destructors.exit63 ]
   tail call void %139(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 240)) #8
-  %140 = getelementptr inbounds i8, ptr %.07.i66, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.07.i66, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not.i67 = icmp eq ptr %141, null
   br i1 %.not.i67, label %opal_obj_run_destructors.exit68, label %.lr.ph.i65, !llvm.loop !6
 
 opal_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %opal_obj_run_destructors.exit63
   %142 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1712), align 16
-  %143 = getelementptr inbounds i8, ptr %142, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %144, align 8
   %.not6.i69 = icmp eq ptr %145, null
@@ -561,7 +561,7 @@ opal_obj_run_destructors.exit68:                  ; preds = %.lr.ph.i65, %opal_o
   %146 = phi ptr [ %148, %.lr.ph.i70 ], [ %145, %opal_obj_run_destructors.exit68 ]
   %.07.i71 = phi ptr [ %147, %.lr.ph.i70 ], [ %144, %opal_obj_run_destructors.exit68 ]
   tail call void %146(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 1712)) #8
-  %147 = getelementptr inbounds i8, ptr %.07.i71, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.07.i71, i64 8
   %148 = load ptr, ptr %147, align 8
   %.not.i72 = icmp eq ptr %148, null
   br i1 %.not.i72, label %opal_obj_run_destructors.exit73, label %.lr.ph.i70, !llvm.loop !6
@@ -582,7 +582,7 @@ opal_obj_run_destructors.exit73:                  ; preds = %.lr.ph.i70, %opal_o
 
 .sink.split:                                      ; preds = %152, %7
   %.sink79 = phi ptr [ %8, %7 ], [ %153, %152 ]
-  %154 = getelementptr inbounds i8, ptr %.sink79, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %.sink79, i64 32
   %155 = load ptr, ptr %154, align 8
   %156 = tail call i32 %155(ptr noundef nonnull %.sink79) #8
   store ptr null, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
@@ -626,29 +626,29 @@ define internal noundef i32 @mca_pml_ob1_get_unex_msgq_size(ptr nocapture readno
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load volatile ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %13, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %16 = load volatile i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   br label %18
 
 18:                                               ; preds = %10, %14
   %.sink = phi i32 [ %17, %14 ], [ 0, %10 ]
-  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %.sink, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -685,29 +685,29 @@ define internal noundef i32 @mca_pml_ob1_get_posted_recvq_size(ptr nocapture rea
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load volatile ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %13, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %16 = load volatile i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   br label %18
 
 18:                                               ; preds = %10, %14
   %.sink = phi i32 [ %17, %14 ], [ 0, %10 ]
-  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %.sink, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

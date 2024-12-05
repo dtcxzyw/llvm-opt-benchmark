@@ -164,9 +164,9 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3: ; preds = %entry,
 define void @_ZN5folly6detail20ScopedAsyncStackRootC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %framePointer, ptr noundef %returnAddress) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 16, i1 false)
-  %stackFramePtr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stackFramePtr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %framePointer, ptr %stackFramePtr.i, align 8, !tbaa !16
-  %returnAddress.i = getelementptr inbounds i8, ptr %this, i64 24
+  %returnAddress.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %returnAddress, ptr %returnAddress.i, align 8, !tbaa !20
   %0 = load i8, ptr @__tls_guard, align 1
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -182,7 +182,7 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit7: ; preds = %entry,
   %2 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %atomic-temp.0.i.i.i9.sink = inttoptr i64 %3 to ptr
-  %4 = getelementptr inbounds i8, ptr %this, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %atomic-temp.0.i.i.i9.sink, ptr %4, align 8, !tbaa !21
   %5 = ptrtoint ptr %this to i64
   store atomic i64 %5, ptr %2 release, align 8
@@ -204,7 +204,7 @@ init.i.i:                                         ; preds = %entry
 
 _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %init.i.i, %entry
   %2 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
-  %nextRoot = getelementptr inbounds i8, ptr %this, i64 8
+  %nextRoot = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %nextRoot, align 8, !tbaa !21
   %4 = ptrtoint ptr %3 to i64
   store atomic i64 %4, ptr %2 monotonic, align 8

@@ -2996,7 +2996,7 @@ define internal range(i32 1, 257) i32 @get_r3_message_len(ptr nocapture readnone
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1161) #5
   %8 = load ptr, ptr %6, align 8
@@ -3176,13 +3176,13 @@ dissect_r3_command.exit.i:                        ; preds = %77, %74, %68, %65
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %109
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %108, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %111 = load ptr, ptr %110, align 8
   %.not5.i.i = icmp eq ptr %111, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %111, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 28
   %114 = load i32, ptr %113, align 4
   %115 = or i32 %114, 2
   store i32 %115, ptr %113, align 4
@@ -3207,13 +3207,13 @@ proto_item_set_generated.exit.i:                  ; preds = %112, %109, %103, %1
   br i1 %.not.i93.i, label %dissect_r3_packet.exit, label %126
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %125, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %128 = load ptr, ptr %127, align 8
   %.not5.i94.i = icmp eq ptr %128, null
   br i1 %.not5.i94.i, label %dissect_r3_packet.exit, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %128, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
   %131 = load i32, ptr %130, align 4
   %132 = or i32 %131, 2
   store i32 %132, ptr %130, align 4
@@ -4489,13 +4489,13 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i = icmp eq ptr %79, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
@@ -5695,7 +5695,7 @@ define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr nocapture 
   %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #5
   %7 = load i32, ptr @ett_r3serialnumber, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %12 = load i32, ptr @hf_r3_sn_manufacturer, align 4
@@ -7520,7 +7520,7 @@ define internal void @dissect_r3_cmdmfg_forceoptions(ptr noundef %0, i32 noundef
 
 switch.lookup:                                    ; preds = %17
   %36 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_r3_cmdmfg_forceoptions, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_r3_cmdmfg_forceoptions, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %narrow = add nsw i8 %32, -2
   %switch.offset = zext i8 %narrow to i32

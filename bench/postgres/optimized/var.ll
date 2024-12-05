@@ -28,9 +28,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @pull_varnos(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_varnos_context, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %5, align 8
   %6 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %7 = load ptr, ptr %3, align 8
@@ -54,49 +54,49 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %104
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @bms_add_member(ptr noundef %13, i32 noundef %15) #6
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @bms_add_members(ptr noundef %16, ptr noundef %18) #6
   store ptr %19, ptr %1, align 8
   br label %104
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %104
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @bms_add_member(ptr noundef %25, i32 noundef %27) #6
   store ptr %28, ptr %1, align 8
   br label %104
 
 29:                                               ; preds = %4
-  %30 = getelementptr inbounds i8, ptr %0, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %31, %33
   br i1 %34, label %35, label %102
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %102, label %38
@@ -106,15 +106,15 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 296
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 296
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %42, %44
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %37, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 288
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %42 to i64
   %50 = getelementptr ptr, ptr %48, i64 %49
@@ -124,35 +124,35 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
 
 .thread:                                          ; preds = %38, %40, %46
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @bms_add_members(ptr noundef %53, ptr noundef %55) #6
   br label %91
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i1 @bms_equal(ptr noundef %59, ptr noundef %63) #6
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %57
   %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds i8, ptr %51, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @bms_add_members(ptr noundef %66, ptr noundef %68) #6
   br label %91
 
 70:                                               ; preds = %57
   %71 = load ptr, ptr %60, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %58, align 8
   %75 = tail call ptr @bms_difference(ptr noundef %73, ptr noundef %74) #6
-  %76 = getelementptr inbounds i8, ptr %51, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @bms_difference(ptr noundef %77, ptr noundef %75) #6
   %79 = load ptr, ptr %76, align 8
@@ -162,7 +162,7 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
 81:                                               ; preds = %70
   %82 = load ptr, ptr %58, align 8
   %83 = load ptr, ptr %60, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = tail call ptr @bms_difference(ptr noundef %82, ptr noundef %85) #6
   %87 = tail call ptr @bms_join(ptr noundef %78, ptr noundef %86) #6
@@ -177,14 +177,14 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
 91:                                               ; preds = %65, %88, %.thread
   %.sink = phi ptr [ %69, %65 ], [ %90, %88 ], [ %56, %.thread ]
   store ptr %.sink, ptr %1, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr @bms_add_members(ptr noundef %.sink, ptr noundef %93) #6
   store ptr %94, ptr %1, align 8
   br label %104
 
 95:                                               ; preds = %4
-  %96 = getelementptr inbounds i8, ptr %1, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 8
@@ -207,9 +207,9 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
 define dso_local ptr @pull_varnos_of_level(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pull_varnos_context, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %6, align 8
   %7 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %4, i32 noundef 0) #6
   %8 = load ptr, ptr %4, align 8
@@ -221,7 +221,7 @@ define dso_local void @pull_varattnos(ptr noundef %0, i32 noundef %1, ptr nocapt
   %4 = alloca %struct.pull_varattnos_context, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 8
   %7 = icmp eq ptr %0, null
   br i1 %7, label %pull_varattnos_walker.exit, label %8
@@ -232,19 +232,19 @@ define dso_local void @pull_varattnos(ptr noundef %0, i32 noundef %1, ptr nocapt
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %15, label %pull_varattnos_walker.exit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %pull_varattnos_walker.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i16, ptr %20, align 8
   %22 = sext i16 %21 to i32
   %23 = add nsw i32 %22, 7
@@ -273,22 +273,22 @@ define internal zeroext i1 @pull_varattnos_walker(ptr noundef %0, ptr noundef %1
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %21, 7
@@ -309,7 +309,7 @@ define internal zeroext i1 @pull_varattnos_walker(ptr noundef %0, ptr noundef %1
 define dso_local ptr @pull_vars_of_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_vars_context, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @pull_vars_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %6 = load ptr, ptr %3, align 8
@@ -330,9 +330,9 @@ define internal zeroext i1 @pull_vars_walker(ptr noundef %0, ptr noundef %1) #0 
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %33
@@ -344,9 +344,9 @@ define internal zeroext i1 @pull_vars_walker(ptr noundef %0, ptr noundef %1) #0 
   br label %33
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %33
@@ -358,7 +358,7 @@ define internal zeroext i1 @pull_vars_walker(ptr noundef %0, ptr noundef %1) #0 
   br label %33
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 8
@@ -391,13 +391,13 @@ define dso_local zeroext i1 @contain_var_clause(ptr noundef %0) local_unnamed_ad
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br label %contain_var_clause_walker.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %contain_var_clause_walker.exit, label %13
@@ -425,13 +425,13 @@ define internal zeroext i1 @contain_var_clause_walker(ptr noundef %0, ptr nounde
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br label %16
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %14
@@ -468,7 +468,7 @@ define internal zeroext i1 @contain_vars_of_level_walker(ptr noundef %0, ptr nou
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %1, align 4
   %10 = icmp eq i32 %8, %9
@@ -480,7 +480,7 @@ define internal zeroext i1 @contain_vars_of_level_walker(ptr noundef %0, ptr nou
   br label %26
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %1, align 4
   %18 = icmp eq i32 %16, %17
@@ -509,7 +509,7 @@ define internal zeroext i1 @contain_vars_of_level_walker(ptr noundef %0, ptr nou
 define dso_local i32 @locate_var_of_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.locate_var_of_level_context, align 4
   store i32 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
   %5 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @locate_var_of_level_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %6 = load i32, ptr %3, align 4
@@ -530,15 +530,15 @@ define internal zeroext i1 @locate_var_of_level_walker(ptr noundef %0, ptr nound
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %26
@@ -548,7 +548,7 @@ define internal zeroext i1 @locate_var_of_level_walker(ptr noundef %0, ptr nound
   br label %26
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -571,7 +571,7 @@ define internal zeroext i1 @locate_var_of_level_walker(ptr noundef %0, ptr nound
 define dso_local ptr @pull_var_clause(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_var_clause_context, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef nonnull %3)
   %6 = load ptr, ptr %3, align 8
@@ -594,7 +594,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.not48 = icmp eq i32 %8, 0
   br i1 %.not48, label %12, label %9
@@ -613,7 +613,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   br label %83
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %17 = load i32, ptr %16, align 4
   %.not45 = icmp eq i32 %17, 0
   br i1 %.not45, label %21, label %18
@@ -626,7 +626,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 1
   %.not46 = icmp eq i32 %24, 0
@@ -651,7 +651,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8
   %.not42 = icmp eq i32 %35, 0
   br i1 %.not42, label %39, label %36
@@ -664,7 +664,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not43 = icmp eq i32 %42, 0
@@ -689,7 +689,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 51:                                               ; preds = %4
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 4
   %.not40 = icmp eq i32 %54, 0
@@ -714,7 +714,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 63:                                               ; preds = %4
-  %64 = getelementptr inbounds i8, ptr %0, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %65 = load i32, ptr %64, align 4
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %69, label %66
@@ -727,7 +727,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
   unreachable
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 16
   %.not38 = icmp eq i32 %72, 0
@@ -764,16 +764,16 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
 define dso_local ptr @flatten_join_alias_vars(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flatten_join_alias_vars_context, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 47
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 47
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 21
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 %10, ptr %11, align 1
   %12 = call ptr @flatten_join_alias_vars_mutator(ptr noundef %2, ptr noundef nonnull %4)
   ret ptr %12
@@ -793,19 +793,19 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %8, %10
   br i1 %.not, label %11, label %176
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %19 = getelementptr i8, ptr %15, i64 16
@@ -813,31 +813,31 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %20 = sext i32 %18 to i64
   %21 = getelementptr %union.ListCell, ptr %.val, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %.not105 = icmp eq i32 %24, 2
   br i1 %.not105, label %25, label %176
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i16, ptr %26, align 8
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %29, label %89
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %22, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.not107 = icmp eq ptr %31, null
   %.not108 = icmp eq ptr %35, null
-  %37 = getelementptr inbounds i8, ptr %31, i64 4
-  %38 = getelementptr inbounds i8, ptr %31, i64 16
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %brmerge = select i1 %.not108, i1 true, i1 %.not107
   br i1 %brmerge, label %.thread, label %.split.split
 
@@ -892,7 +892,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 68:                                               ; preds = %65
   %69 = load i32, ptr %40, align 4
-  %70 = getelementptr inbounds i8, ptr %62, i64 44
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 44
   store i32 %69, ptr %70, align 4
   br label %71
 
@@ -915,18 +915,18 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %.us-phi111 = phi ptr [ null, %29 ], [ %.092, %52 ], [ %.092, %47 ]
   %78 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 34, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %.us-phi111, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %78, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i32 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store i32 2, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %78, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %.us-phi, ptr %84, align 8
   %85 = load i32, ptr %40, align 4
-  %86 = getelementptr inbounds i8, ptr %78, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i32 %85, ptr %86, align 8
   %87 = load ptr, ptr %1, align 8
   %88 = tail call fastcc ptr @add_nullingrels_if_needed(ptr noundef %87, ptr noundef nonnull %78, ptr noundef %0)
@@ -934,7 +934,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 89:                                               ; preds = %25
   %90 = sext i16 %27 to i64
-  %91 = getelementptr inbounds i8, ptr %22, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 16
   %.val110 = load ptr, ptr %93, align 8
@@ -956,21 +956,21 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 44
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %97, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 44
   store i32 %105, ptr %106, align 4
   br label %107
 
 107:                                              ; preds = %103, %100
   %108 = tail call ptr @flatten_join_alias_vars_mutator(ptr noundef nonnull %97, ptr noundef nonnull %1)
-  %109 = getelementptr inbounds i8, ptr %1, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %110 = load i8, ptr %109, align 4
   %111 = trunc i8 %110 to i1
   br i1 %111, label %112, label %119
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %1, i64 21
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %114 = load i8, ptr %113, align 1
   %115 = trunc i8 %114 to i1
   br i1 %115, label %119, label %116
@@ -988,24 +988,24 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 122:                                              ; preds = %4
   %123 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %0, ptr noundef nonnull @flatten_join_alias_vars_mutator, ptr noundef %1) #6
-  %124 = getelementptr inbounds i8, ptr %123, i64 36
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 36
   %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %1, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %127 = load i32, ptr %126, align 8
   %128 = icmp eq i32 %125, %127
   br i1 %128, label %129, label %176
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds i8, ptr %1, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %123, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 @bms_next_member(ptr noundef %133, i32 noundef -1) #6
   %135 = icmp sgt i32 %134, -1
   br i1 %135, label %.lr.ph.i, label %alias_relid_set.exit
 
 .lr.ph.i:                                         ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %131, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 64
   br label %137
 
 137:                                              ; preds = %153, %.lr.ph.i
@@ -1018,7 +1018,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %142 = getelementptr %union.ListCell, ptr %.val.i, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -8
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, 2
   br i1 %147, label %148, label %151
@@ -1044,20 +1044,20 @@ alias_relid_set.exit:                             ; preds = %153, %129
   br label %176
 
 156:                                              ; preds = %4
-  %157 = getelementptr inbounds i8, ptr %1, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %158 = load i32, ptr %157, align 8
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 8
-  %160 = getelementptr inbounds i8, ptr %1, i64 21
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, 1
-  %163 = getelementptr inbounds i8, ptr %0, i64 47
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %164 = load i8, ptr %163, align 1
   %165 = and i8 %164, 1
   store i8 %165, ptr %160, align 1
   %166 = tail call ptr @query_tree_mutator_impl(ptr noundef nonnull %0, ptr noundef nonnull @flatten_join_alias_vars_mutator, ptr noundef %1, i32 noundef 4) #6
   %167 = load i8, ptr %160, align 1
-  %168 = getelementptr inbounds i8, ptr %166, i64 47
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 47
   %169 = load i8, ptr %168, align 1
   %170 = or i8 %169, %167
   %171 = and i8 %170, 1
@@ -1107,7 +1107,7 @@ declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.pull_varnos_context, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %41, label %8
@@ -1125,13 +1125,13 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
   br i1 %.not, label %38, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load i32, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %14, ptr %16, align 8
   %17 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %4, i32 noundef 0) #6
   %18 = load ptr, ptr %4, align 8
@@ -1151,9 +1151,9 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
   unreachable
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = call ptr @get_relids_for_join(ptr noundef %26, i32 noundef %28) #6
   %30 = load i32, ptr %27, align 4
@@ -1163,11 +1163,11 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
 32:                                               ; preds = %24, %12
   %.0 = phi ptr [ %31, %24 ], [ %18, %12 ]
   %33 = call ptr @make_placeholder_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0) #6
-  %34 = getelementptr inbounds i8, ptr %33, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store i32 %14, ptr %34, align 4
   %35 = load ptr, ptr %5, align 8
   %36 = call ptr @bms_copy(ptr noundef %35) #6
-  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %36, ptr %37, align 8
   br label %41
 
@@ -1210,17 +1210,17 @@ define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr
   ]
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.tr52, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.tr52, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %.thread44, label %.thread42
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.tr52, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %.tr52, i64 36
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %.thread44, label %.thread42
@@ -1229,13 +1229,13 @@ define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr
   br label %.thread44
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.tr52, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.tr52, i64 16
   %19 = load i32, ptr %18, align 8
   %.not41 = icmp eq i32 %19, 2
   br i1 %.not41, label %20, label %.thread44
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.tr52, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.tr52, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread44, label %24
@@ -1252,31 +1252,31 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
   br i1 %26, label %.thread44, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.tr52, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
   br label %tailrecurse.backedge
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.tr52, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
   br label %tailrecurse.backedge
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.tr52, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.tr52, i64 8
   br label %tailrecurse.backedge
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %.tr52, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.tr52, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread44, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph64, label %.thread44
 
 .lr.ph64:                                         ; preds = %.lr.ph56
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %40 = load ptr, ptr %39, align 8
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %41
@@ -1314,23 +1314,23 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 4:                                                ; preds = %tailrecurse
-  %5 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %.thread42.sink.split, label %.thread42
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %.thread42.sink.split, label %.thread42
 
 16:                                               ; preds = %tailrecurse
-  %17 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 16
   %.val = load ptr, ptr %19, align 8
@@ -1342,26 +1342,26 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
   br label %tailrecurse
 
 20:                                               ; preds = %tailrecurse
-  %21 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   br label %tailrecurse.backedge
 
 22:                                               ; preds = %tailrecurse
-  %23 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   br label %tailrecurse.backedge
 
 24:                                               ; preds = %tailrecurse
-  %25 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   br label %tailrecurse.backedge
 
 26:                                               ; preds = %tailrecurse
-  %27 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.thread42, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i32, ptr %29, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph55, label %.thread42
@@ -1379,9 +1379,9 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
   br i1 %38, label %.lr.ph55, label %.thread42
 
 .thread42.sink.split:                             ; preds = %10, %4
-  %39 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @bms_add_members(ptr noundef %40, ptr noundef %42) #6
   store ptr %43, ptr %39, align 8

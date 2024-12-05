@@ -81,18 +81,18 @@ if.then17.us:                                     ; preds = %while.body.us
   br i1 %cmp.us, label %end, label %if.end20.us
 
 if.end20.us:                                      ; preds = %if.then17.us
-  %uptodate.us = getelementptr inbounds i8, ptr %call18.us, i64 24
+  %uptodate.us = getelementptr inbounds nuw i8, ptr %call18.us, i64 24
   store i32 1, ptr %uptodate.us, align 8
   %5 = load i32, ptr %nids.addr.042.us, align 4
   store i32 %5, ptr %call18.us, align 8
   %call.i30.us = call ptr @OPENSSL_sk_new_null() #5
-  %sk.us = getelementptr inbounds i8, ptr %call18.us, i64 8
+  %sk.us = getelementptr inbounds nuw i8, ptr %call18.us, i64 8
   store ptr %call.i30.us, ptr %sk.us, align 8
   %tobool24.not.us = icmp eq ptr %call.i30.us, null
   br i1 %tobool24.not.us, label %if.then25, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end20.us
-  %funct.us = getelementptr inbounds i8, ptr %call18.us, i64 16
+  %funct.us = getelementptr inbounds nuw i8, ptr %call18.us, i64 16
   store ptr null, ptr %funct.us, align 8
   %6 = load ptr, ptr %table, align 8
   %call.i31.us = call ptr @OPENSSL_LH_insert(ptr noundef %6, ptr noundef nonnull %call18.us) #5
@@ -103,7 +103,7 @@ if.end26.us:                                      ; preds = %if.end20.us
 
 if.end35.us:                                      ; preds = %if.end26.us, %while.body.us
   %fnd.0.us = phi ptr [ %call.i.us, %while.body.us ], [ %call18.us, %if.end26.us ]
-  %sk36.us = getelementptr inbounds i8, ptr %fnd.0.us, i64 8
+  %sk36.us = getelementptr inbounds nuw i8, ptr %fnd.0.us, i64 8
   %8 = load ptr, ptr %sk36.us, align 8
   %call.i33.us = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %8, ptr noundef %e) #5
   %9 = load ptr, ptr %sk36.us, align 8
@@ -112,9 +112,9 @@ if.end35.us:                                      ; preds = %if.end26.us, %while
   br i1 %tobool40.not.us, label %end, label %if.end42.us
 
 if.end42.us:                                      ; preds = %if.end35.us
-  %uptodate43.us = getelementptr inbounds i8, ptr %fnd.0.us, i64 24
+  %uptodate43.us = getelementptr inbounds nuw i8, ptr %fnd.0.us, i64 24
   store i32 0, ptr %uptodate43.us, align 8
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %nids.addr.042.us, i64 4
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %nids.addr.042.us, i64 4
   %dec.us = add nsw i32 %dec43.us, -1
   %tobool13.not.us = icmp eq i32 %dec43.us, 0
   br i1 %tobool13.not.us, label %end, label %while.body.us, !llvm.loop !4
@@ -135,12 +135,12 @@ if.then17:                                        ; preds = %while.body
   br i1 %cmp, label %end, label %if.end20
 
 if.end20:                                         ; preds = %if.then17
-  %uptodate = getelementptr inbounds i8, ptr %call18, i64 24
+  %uptodate = getelementptr inbounds nuw i8, ptr %call18, i64 24
   store i32 1, ptr %uptodate, align 8
   %12 = load i32, ptr %nids.addr.042, align 4
   store i32 %12, ptr %call18, align 8
   %call.i30 = call ptr @OPENSSL_sk_new_null() #5
-  %sk = getelementptr inbounds i8, ptr %call18, i64 8
+  %sk = getelementptr inbounds nuw i8, ptr %call18, i64 8
   store ptr %call.i30, ptr %sk, align 8
   %tobool24.not = icmp eq ptr %call.i30, null
   br i1 %tobool24.not, label %if.then25, label %if.end26
@@ -151,7 +151,7 @@ if.then25:                                        ; preds = %if.end20, %if.end20
   br label %end
 
 if.end26:                                         ; preds = %if.end20
-  %funct = getelementptr inbounds i8, ptr %call18, i64 16
+  %funct = getelementptr inbounds nuw i8, ptr %call18, i64 16
   store ptr null, ptr %funct, align 8
   %13 = load ptr, ptr %table, align 8
   %call.i31 = call ptr @OPENSSL_LH_insert(ptr noundef %13, ptr noundef nonnull %call18) #5
@@ -162,7 +162,7 @@ if.end26:                                         ; preds = %if.end20
 
 if.then32:                                        ; preds = %if.end26, %if.end26.us
   %.us-phi47 = phi ptr [ %call18.us, %if.end26.us ], [ %call18, %if.end26 ]
-  %sk.le = getelementptr inbounds i8, ptr %.us-phi47, i64 8
+  %sk.le = getelementptr inbounds nuw i8, ptr %.us-phi47, i64 8
   %15 = load ptr, ptr %sk.le, align 8
   call void @OPENSSL_sk_free(ptr noundef %15) #5
   call void @CRYPTO_free(ptr noundef nonnull %.us-phi47, ptr noundef nonnull @.str, i32 noundef 120) #5
@@ -170,7 +170,7 @@ if.then32:                                        ; preds = %if.end26, %if.end26
 
 if.end35:                                         ; preds = %if.end26, %while.body
   %fnd.0 = phi ptr [ %call.i, %while.body ], [ %call18, %if.end26 ]
-  %sk36 = getelementptr inbounds i8, ptr %fnd.0, i64 8
+  %sk36 = getelementptr inbounds nuw i8, ptr %fnd.0, i64 8
   %16 = load ptr, ptr %sk36, align 8
   %call.i33 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %16, ptr noundef %e) #5
   %17 = load ptr, ptr %sk36, align 8
@@ -179,7 +179,7 @@ if.end35:                                         ; preds = %if.end26, %while.bo
   br i1 %tobool40.not, label %end, label %if.end42
 
 if.end42:                                         ; preds = %if.end35
-  %uptodate43 = getelementptr inbounds i8, ptr %fnd.0, i64 24
+  %uptodate43 = getelementptr inbounds nuw i8, ptr %fnd.0, i64 24
   store i32 0, ptr %uptodate43, align 8
   %call46 = call i32 @engine_unlocked_init(ptr noundef %e) #5
   %tobool47.not = icmp eq i32 %call46, 0
@@ -192,7 +192,7 @@ if.then48:                                        ; preds = %if.end42
   br label %end
 
 if.end49:                                         ; preds = %if.end42
-  %funct50 = getelementptr inbounds i8, ptr %fnd.0, i64 16
+  %funct50 = getelementptr inbounds nuw i8, ptr %fnd.0, i64 16
   %18 = load ptr, ptr %funct50, align 8
   %tobool51.not = icmp eq ptr %18, null
   br i1 %tobool51.not, label %if.end55, label %if.then52
@@ -204,7 +204,7 @@ if.then52:                                        ; preds = %if.end49
 if.end55:                                         ; preds = %if.then52, %if.end49
   store ptr %e, ptr %funct50, align 8
   store i32 1, ptr %uptodate43, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nids.addr.042, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %nids.addr.042, i64 4
   %dec = add nsw i32 %dec43, -1
   %tobool13.not = icmp eq i32 %dec43, 0
   br i1 %tobool13.not, label %end, label %while.body, !llvm.loop !4
@@ -269,14 +269,14 @@ return:                                           ; preds = %entry, %if.end4
 ; Function Attrs: nounwind uwtable
 define internal void @int_unregister_cb(ptr nocapture noundef %pile, ptr noundef %e) #2 {
 entry:
-  %sk = getelementptr inbounds i8, ptr %pile, i64 8
+  %sk = getelementptr inbounds nuw i8, ptr %pile, i64 8
   %0 = load ptr, ptr %sk, align 8
   %call.i8 = tail call i32 @OPENSSL_sk_find(ptr noundef %0, ptr noundef %e) #5
   %cmp9 = icmp sgt i32 %call.i8, -1
   br i1 %cmp9, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %uptodate = getelementptr inbounds i8, ptr %pile, i64 24
+  %uptodate = getelementptr inbounds nuw i8, ptr %pile, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -290,7 +290,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry
-  %funct = getelementptr inbounds i8, ptr %pile, i64 16
+  %funct = getelementptr inbounds nuw i8, ptr %pile, i64 16
   %3 = load ptr, ptr %funct, align 8
   %cmp3 = icmp eq ptr %3, %e
   br i1 %cmp3, label %if.then, label %if.end
@@ -340,10 +340,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sk = getelementptr inbounds i8, ptr %p, i64 8
+  %sk = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = load ptr, ptr %sk, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %0) #5
-  %funct = getelementptr inbounds i8, ptr %p, i64 16
+  %funct = getelementptr inbounds nuw i8, ptr %p, i64 16
   %1 = load ptr, ptr %funct, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -388,7 +388,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %tobool12.not, label %if.end58, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %funct = getelementptr inbounds i8, ptr %call.i, i64 16
+  %funct = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %funct, align 8
   %tobool15.not = icmp eq ptr %3, null
   br i1 %tobool15.not, label %if.end21, label %land.lhs.true
@@ -403,13 +403,13 @@ if.then19:                                        ; preds = %land.lhs.true
   br label %if.then52
 
 if.end21:                                         ; preds = %land.lhs.true, %if.end14
-  %uptodate = getelementptr inbounds i8, ptr %call.i, i64 24
+  %uptodate = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %5 = load i32, ptr %uptodate, align 8
   %tobool22.not = icmp eq i32 %5, 0
   br i1 %tobool22.not, label %trynext.preheader, label %if.then23
 
 trynext.preheader:                                ; preds = %if.end21
-  %sk = getelementptr inbounds i8, ptr %call.i, i64 8
+  %sk = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %6 = load ptr, ptr %sk, align 8
   %call.i2232 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef 0) #5
   %tobool27.not33 = icmp eq ptr %call.i2232, null
@@ -422,7 +422,7 @@ if.then23:                                        ; preds = %if.end21
 if.end29:                                         ; preds = %trynext.preheader, %trynext.backedge
   %call.i2235 = phi ptr [ %call.i22, %trynext.backedge ], [ %call.i2232, %trynext.preheader ]
   %inc34 = phi i32 [ %inc, %trynext.backedge ], [ 1, %trynext.preheader ]
-  %funct_ref = getelementptr inbounds i8, ptr %call.i2235, i64 160
+  %funct_ref = getelementptr inbounds nuw i8, ptr %call.i2235, i64 160
   %8 = load i32, ptr %funct_ref, align 8
   %cmp = icmp sgt i32 %8, 0
   br i1 %cmp, label %if.then31, label %lor.lhs.false
@@ -470,7 +470,7 @@ if.end47:                                         ; preds = %if.then44, %if.then
 
 if.then52:                                        ; preds = %trynext.backedge, %trynext.preheader, %if.then19, %if.then23, %if.end47, %land.lhs.true38, %if.then35
   %ret.0.ph = phi ptr [ %call.i2235, %if.then35 ], [ %call.i2235, %land.lhs.true38 ], [ %call.i2235, %if.end47 ], [ %7, %if.then23 ], [ %4, %if.then19 ], [ null, %trynext.preheader ], [ null, %trynext.backedge ]
-  %uptodate53 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %uptodate53 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 1, ptr %uptodate53, align 8
   br label %if.end58
 
@@ -497,7 +497,7 @@ define void @engine_table_doall(ptr noundef %table, ptr noundef %cb, ptr noundef
 entry:
   %dall = alloca %struct.st_engine_pile_doall, align 8
   store ptr %cb, ptr %dall, align 8
-  %arg2 = getelementptr inbounds i8, ptr %dall, i64 8
+  %arg2 = getelementptr inbounds nuw i8, ptr %dall, i64 8
   store ptr %arg, ptr %arg2, align 8
   %tobool.not = icmp eq ptr %table, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -515,11 +515,11 @@ define internal void @int_dall(ptr nocapture noundef readonly %pile, ptr nocaptu
 entry:
   %0 = load ptr, ptr %dall, align 8
   %1 = load i32, ptr %pile, align 8
-  %sk = getelementptr inbounds i8, ptr %pile, i64 8
+  %sk = getelementptr inbounds nuw i8, ptr %pile, i64 8
   %2 = load ptr, ptr %sk, align 8
-  %funct = getelementptr inbounds i8, ptr %pile, i64 16
+  %funct = getelementptr inbounds nuw i8, ptr %pile, i64 16
   %3 = load ptr, ptr %funct, align 8
-  %arg = getelementptr inbounds i8, ptr %dall, i64 8
+  %arg = getelementptr inbounds nuw i8, ptr %dall, i64 8
   %4 = load ptr, ptr %arg, align 8
   tail call void %0(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   ret void

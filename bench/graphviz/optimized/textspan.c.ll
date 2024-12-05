@@ -75,9 +75,9 @@ target triple = "x86_64-pc-linux-gnu"
 define { double, double } @textspan_size(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %24
@@ -141,25 +141,25 @@ translate_postscript_fontname.exit:               ; preds = %._crit_edge.i, %gv_
 31:                                               ; preds = %.thread, %26
   %.024 = phi ptr [ null, %.thread ], [ %spec.select, %26 ]
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 1
   %36 = icmp ne i32 %35, 0
   %37 = and i32 %34, 2
   %38 = icmp ne i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store double 0.000000e+00, ptr %41, align 8
   %42 = fmul double %40, 1.200000e+00
-  %43 = getelementptr inbounds i8, ptr %1, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store double %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store double 0.000000e+00, ptr %44, align 8
   %45 = fmul double %40, 1.000000e-01
-  %46 = getelementptr inbounds i8, ptr %1, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store double %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   %48 = load ptr, ptr %32, align 8
   %49 = load ptr, ptr %1, align 8
@@ -192,9 +192,9 @@ estimate_textspan_size.exit:                      ; preds = %26
   br label %estimate_textspan_size.exit.thread25
 
 estimate_textspan_size.exit.thread25:             ; preds = %31, %.thread, %56, %58, %estimate_textspan_size.exit
-  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload = load double, ptr %60, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.2.0.copyload, 1
@@ -210,21 +210,21 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 220
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 40, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @textfont_makef, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @textfont_freef, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr @textfont_comparf, ptr %7, align 8
   %8 = load ptr, ptr @Dtoset, align 8
   %9 = tail call ptr @dtopen(ptr noundef nonnull %2, ptr noundef %8) #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %9, ptr %10, align 8
   ret void
 }
@@ -242,30 +242,30 @@ define internal noalias noundef ptr @textfont_makef(ptr nocapture noundef readon
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %13, label %10
 
 10:                                               ; preds = %7
   %11 = tail call noalias ptr @strdup(ptr noundef nonnull %9) #16
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %11, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 127
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %22, ptr %23, align 8
   ret ptr %3
 }
@@ -274,7 +274,7 @@ define internal noalias noundef ptr @textfont_makef(ptr nocapture noundef readon
 define internal void @textfont_freef(ptr nocapture noundef %0, ptr nocapture readnone %1) #4 {
   %3 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #16
   tail call void @free(ptr noundef %0) #16
@@ -301,10 +301,10 @@ define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture n
   br i1 %.not39, label %11, label %.thread
 
 11:                                               ; preds = %9, %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not40 = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not41 = icmp eq ptr %15, null
   br i1 %.not40, label %16, label %17
@@ -321,10 +321,10 @@ define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture n
   br i1 %.not44, label %20, label %.thread
 
 20:                                               ; preds = %18, %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 127
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 127
   %27 = icmp samesign ult i32 %23, %26
@@ -335,9 +335,9 @@ define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture n
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load double, ptr %33, align 8
   %35 = fcmp olt double %32, %34
   br i1 %35, label %.thread, label %36
@@ -356,7 +356,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @textfont_dict_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtclose(ptr noundef %3) #16
   ret void

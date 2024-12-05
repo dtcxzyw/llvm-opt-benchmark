@@ -176,7 +176,7 @@ define internal range(i32 0, 2) i32 @dissect_etch(ptr noundef %0, ptr noundef %1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = add nuw i32 %11, 1
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.65, i32 noundef %16) #9
@@ -253,7 +253,7 @@ define hidden void @proto_reg_handoff_etch() #0 {
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i32, ptr %22, align 8
   %.not5.i.i = icmp eq i32 %23, 0
   br i1 %.not5.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -265,7 +265,7 @@ define hidden void @proto_reg_handoff_etch() #0 {
   tail call void @g_free(ptr noundef %25) #9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %26 = load ptr, ptr @gbl_symbols_array, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next.i.i, %29
@@ -309,7 +309,7 @@ gbl_symbols_new.exit.i:                           ; preds = %37
   br i1 %.not1622.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %gbl_symbols_new.exit.i
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %45
 
 45:                                               ; preds = %74, %.lr.ph.i
@@ -439,7 +439,7 @@ gbl_symbols_vs_ext_new.exit.i:                    ; preds = %79
   call void @g_array_sort(ptr noundef nonnull %80, ptr noundef nonnull @gbl_symbols_compare_vs) #9
   %82 = load ptr, ptr @gbl_symbols_array, align 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = add i32 %85, 1
   %87 = call ptr @value_string_ext_new(ptr noundef %83, i32 noundef %86, ptr noundef nonnull @.str.86) #9
@@ -448,7 +448,7 @@ gbl_symbols_vs_ext_new.exit.i:                    ; preds = %79
 
 88:                                               ; preds = %35
   %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.76, ptr noundef %91) #9
   %92 = load ptr, ptr %4, align 8
@@ -489,7 +489,7 @@ define internal i32 @get_etch_message_len(ptr nocapture readnone %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_etch_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   %9 = icmp ne ptr %2, null
@@ -497,7 +497,7 @@ define internal i32 @dissect_etch_message(ptr noundef %0, ptr nocapture noundef 
   br i1 %or.cond, label %10, label %.thread
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %12, ptr noundef nonnull @.str.69) #9
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #9
@@ -527,7 +527,7 @@ get_column_info.exit:                             ; preds = %18, %get_byte_lengt
   %20 = load i32, ptr @gbl_pdu_counter, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr @gbl_pdu_counter, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr @gbl_old_frame_num, align 4
   %.not28 = icmp eq i32 %23, %24

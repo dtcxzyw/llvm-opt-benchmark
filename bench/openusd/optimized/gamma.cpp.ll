@@ -21,12 +21,12 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGam
   %4 = fpext float %3 to double
   %5 = tail call noundef double @pow(double noundef %4, double noundef %1) #8
   %6 = fptrunc double %5 to float
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   %10 = tail call noundef double @pow(double noundef %9, double noundef %1) #8
   %11 = fptrunc double %10 to float
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call noundef double @pow(double noundef %14, double noundef %1) #8
@@ -42,16 +42,16 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGam
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call double @pow(double noundef %7, double noundef %2) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = tail call double @pow(double noundef %10, double noundef %2) #8
   store double %5, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %11, ptr %13, align 8
   ret void
 }
@@ -63,7 +63,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 define i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0, double noundef %1) local_unnamed_addr #3 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = fpext float %6 to double
   %8 = tail call noundef double @pow(double noundef %7, double noundef %1) #8
@@ -80,7 +80,7 @@ define i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(
 15:                                               ; preds = %2
   %16 = lshr i32 %10, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %17
   %19 = load i16, ptr %18, align 2
   %.not.i = icmp eq i16 %19, 0
   br i1 %.not.i, label %29, label %20
@@ -102,10 +102,10 @@ define i48 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3hEd(
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20, %29
   %.sink.i = phi i16 [ %28, %20 ], [ %30, %29 ], [ %14, %12 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %33
   %35 = load float, ptr %34, align 4
   %36 = fpext float %35 to double
   %37 = tail call noundef double @pow(double noundef %36, double noundef %1) #8
@@ -122,7 +122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %45 = lshr i32 %39, 23
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not.i6 = icmp eq i16 %48, 0
   br i1 %.not.i6, label %58, label %49
@@ -144,10 +144,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit8: ; preds = %41, %49, %58
   %.sink.i7 = phi i16 [ %57, %49 ], [ %59, %58 ], [ %43, %41 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %62
   %64 = load float, ptr %63, align 4
   %65 = fpext float %64 to double
   %66 = tail call noundef double @pow(double noundef %65, double noundef %1) #8
@@ -164,7 +164,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit8: ; preds = %41, %4
 73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit8
   %74 = lshr i32 %68, 23
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
   %.not.i9 = icmp eq i16 %77, 0
   br i1 %.not.i9, label %87, label %78
@@ -202,17 +202,17 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfAp
   %4 = fpext float %3 to double
   %5 = tail call noundef double @pow(double noundef %4, double noundef %1) #8
   %6 = fptrunc double %5 to float
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   %10 = tail call noundef double @pow(double noundef %9, double noundef %1) #8
   %11 = fptrunc double %10 to float
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call noundef double @pow(double noundef %14, double noundef %1) #8
   %16 = fptrunc double %15 to float
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load float, ptr %17, align 4
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %6, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %11, i64 1
@@ -227,20 +227,20 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfAp
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call double @pow(double noundef %7, double noundef %2) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = tail call double @pow(double noundef %10, double noundef %2) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load double, ptr %12, align 8
   store double %5, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %11, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %13, ptr %16, align 8
   ret void
 }
@@ -249,7 +249,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd
 define i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %0, double noundef %1) local_unnamed_addr #3 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = fpext float %6 to double
   %8 = tail call noundef double @pow(double noundef %7, double noundef %1) #8
@@ -266,7 +266,7 @@ define i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(
 15:                                               ; preds = %2
   %16 = lshr i32 %10, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %17
   %19 = load i16, ptr %18, align 2
   %.not.i = icmp eq i16 %19, 0
   br i1 %.not.i, label %29, label %20
@@ -288,10 +288,10 @@ define i64 @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4hEd(
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20, %29
   %.sink.i = phi i16 [ %28, %20 ], [ %30, %29 ], [ %14, %12 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %33
   %35 = load float, ptr %34, align 4
   %36 = fpext float %35 to double
   %37 = tail call noundef double @pow(double noundef %36, double noundef %1) #8
@@ -308,7 +308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %45 = lshr i32 %39, 23
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not.i7 = icmp eq i16 %48, 0
   br i1 %.not.i7, label %58, label %49
@@ -330,10 +330,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %12, %20
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit9: ; preds = %41, %49, %58
   %.sink.i8 = phi i16 [ %57, %49 ], [ %59, %58 ], [ %43, %41 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %62
   %64 = load float, ptr %63, align 4
   %65 = fpext float %64 to double
   %66 = tail call noundef double @pow(double noundef %65, double noundef %1) #8
@@ -350,7 +350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit9: ; preds = %41, %4
 73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit9
   %74 = lshr i32 %68, 23
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [512 x i16], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
   %.not.i10 = icmp eq i16 %77, 0
   br i1 %.not.i10, label %87, label %78
@@ -372,7 +372,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit9: ; preds = %41, %4
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit12: ; preds = %70, %78, %87
   %.sink.i11 = phi i16 [ %86, %78 ], [ %88, %87 ], [ %72, %70 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 6
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload = load i16, ptr %89, align 2
   %.sroa.4.0.insert.ext = zext i16 %.sroa.0.0.copyload to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 48
@@ -413,12 +413,12 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertL
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
   %9 = tail call noundef double @pow(double noundef %8, double noundef 0x3FDD1745D1745D17) #8
   %10 = fptrunc double %9 to float
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = tail call noundef double @pow(double noundef %13, double noundef 0x3FDD1745D1745D17) #8
@@ -436,16 +436,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %3 = load double, ptr %1, align 8, !noalias !10
   %4 = tail call double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8, !noalias !10
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8, !noalias !10
   %7 = tail call double @pow(double noundef %6, double noundef 0x3FDD1745D1745D17) #8, !noalias !10
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8, !noalias !10
   %10 = tail call double @pow(double noundef %9, double noundef 0x3FDD1745D1745D17) #8, !noalias !10
   store double %4, ptr %0, align 8, !alias.scope !10
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %11, align 8, !alias.scope !10
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %12, align 8, !alias.scope !10
   ret void
 }
@@ -462,17 +462,17 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
   %9 = tail call noundef double @pow(double noundef %8, double noundef 0x3FDD1745D1745D17) #8
   %10 = fptrunc double %9 to float
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = tail call noundef double @pow(double noundef %13, double noundef 0x3FDD1745D1745D17) #8
   %15 = fptrunc double %14 to float
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load float, ptr %16, align 4
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %5, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %10, i64 1
@@ -489,20 +489,20 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load double, ptr %1, align 8, !noalias !17
   %4 = tail call double @pow(double noundef %3, double noundef 0x3FDD1745D1745D17) #8, !noalias !17
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8, !noalias !17
   %7 = tail call double @pow(double noundef %6, double noundef 0x3FDD1745D1745D17) #8, !noalias !17
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8, !noalias !17
   %10 = tail call double @pow(double noundef %9, double noundef 0x3FDD1745D1745D17) #8, !noalias !17
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8, !noalias !17
   store double %4, ptr %0, align 8, !alias.scope !17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %13, align 8, !alias.scope !17
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %14, align 8, !alias.scope !17
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %12, ptr %15, align 8, !alias.scope !17
   ret void
 }
@@ -539,12 +539,12 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertD
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 2.200000e+00) #8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
   %9 = tail call noundef double @pow(double noundef %8, double noundef 2.200000e+00) #8
   %10 = fptrunc double %9 to float
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = tail call noundef double @pow(double noundef %13, double noundef 2.200000e+00) #8
@@ -562,16 +562,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %3 = load double, ptr %1, align 8, !noalias !24
   %4 = tail call double @pow(double noundef %3, double noundef 2.200000e+00) #8, !noalias !24
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8, !noalias !24
   %7 = tail call double @pow(double noundef %6, double noundef 2.200000e+00) #8, !noalias !24
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8, !noalias !24
   %10 = tail call double @pow(double noundef %9, double noundef 2.200000e+00) #8, !noalias !24
   store double %4, ptr %0, align 8, !alias.scope !24
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %11, align 8, !alias.scope !24
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %12, align 8, !alias.scope !24
   ret void
 }
@@ -588,17 +588,17 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
   %3 = fpext float %2 to double
   %4 = tail call noundef double @pow(double noundef %3, double noundef 2.200000e+00) #8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
   %9 = tail call noundef double @pow(double noundef %8, double noundef 2.200000e+00) #8
   %10 = fptrunc double %9 to float
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = tail call noundef double @pow(double noundef %13, double noundef 2.200000e+00) #8
   %15 = fptrunc double %14 to float
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load float, ptr %16, align 4
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %5, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %10, i64 1
@@ -615,20 +615,20 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %3 = load double, ptr %1, align 8, !noalias !31
   %4 = tail call double @pow(double noundef %3, double noundef 2.200000e+00) #8, !noalias !31
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8, !noalias !31
   %7 = tail call double @pow(double noundef %6, double noundef 2.200000e+00) #8, !noalias !31
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8, !noalias !31
   %10 = tail call double @pow(double noundef %9, double noundef 2.200000e+00) #8, !noalias !31
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8, !noalias !31
   store double %4, ptr %0, align 8, !alias.scope !31
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %13, align 8, !alias.scope !31
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %14, align 8, !alias.scope !31
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %12, ptr %15, align 8, !alias.scope !31
   ret void
 }

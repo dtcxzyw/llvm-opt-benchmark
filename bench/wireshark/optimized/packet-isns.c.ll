@@ -649,7 +649,7 @@ define internal range(i32 12, 65548) i32 @get_isns_pdu_len(ptr nocapture readnon
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.243) #3
   %8 = load ptr, ptr %6, align 8
@@ -1563,10 +1563,10 @@ define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef 
   %. = select i1 %.not, i32 2, i32 3
   %isns_tcp_handle.val = load ptr, ptr @isns_tcp_handle, align 8
   %isns_udp_handle.val = load ptr, ptr @isns_udp_handle, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 208
-  %21 = getelementptr inbounds i8, ptr %5, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %22 = tail call ptr @find_conversation(i32 noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 131072) #3
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27

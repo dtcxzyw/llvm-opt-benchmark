@@ -54,40 +54,40 @@ define i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %dictBuffer, i64 noundef
 entry:
   %ctx = alloca %struct.FASTCOVER_ctx_t, align 8
   %coverParams = alloca %struct.ZDICT_cover_params_t, align 8
-  %notificationLevel = getelementptr inbounds i8, ptr %parameters, i64 48
+  %notificationLevel = getelementptr inbounds nuw i8, ptr %parameters, i64 48
   %0 = load i32, ptr %notificationLevel, align 8
   store i32 %0, ptr @g_displayLevel, align 4
-  %f = getelementptr inbounds i8, ptr %parameters, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %parameters, i64 8
   %1 = load i32, ptr %f, align 8
   %cmp = icmp eq i32 %1, 0
   %cond = select i1 %cmp, i32 20, i32 %1
-  %accel = getelementptr inbounds i8, ptr %parameters, i64 32
+  %accel = getelementptr inbounds nuw i8, ptr %parameters, i64 32
   %2 = load i32, ptr %accel, align 8
   %cond8 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %3 = getelementptr inbounds i8, ptr %coverParams, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %coverParams, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 24, i1 false)
   %parameters17.sroa.0.0.copyload = load i32, ptr %parameters, align 8
-  %parameters17.sroa.4.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 4
+  %parameters17.sroa.4.0.parameters.sroa_idx = getelementptr inbounds nuw i8, ptr %parameters, i64 4
   %parameters17.sroa.4.0.copyload = load i32, ptr %parameters17.sroa.4.0.parameters.sroa_idx, align 4
-  %parameters17.sroa.524.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 12
+  %parameters17.sroa.524.0.parameters.sroa_idx = getelementptr inbounds nuw i8, ptr %parameters, i64 12
   %parameters17.sroa.524.0.copyload = load i32, ptr %parameters17.sroa.524.0.parameters.sroa_idx, align 4
-  %parameters17.sroa.6.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 16
+  %parameters17.sroa.6.0.parameters.sroa_idx = getelementptr inbounds nuw i8, ptr %parameters, i64 16
   %parameters17.sroa.6.0.copyload = load i32, ptr %parameters17.sroa.6.0.parameters.sroa_idx, align 8
-  %parameters17.sroa.826.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
+  %parameters17.sroa.826.0.parameters.sroa_idx = getelementptr inbounds nuw i8, ptr %parameters, i64 36
   %parameters17.sroa.826.0.copyload = load i32, ptr %parameters17.sroa.826.0.parameters.sroa_idx, align 4
   store i32 %parameters17.sroa.0.0.copyload, ptr %coverParams, align 8
-  %d2.i = getelementptr inbounds i8, ptr %coverParams, i64 4
+  %d2.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 4
   store i32 %parameters17.sroa.4.0.copyload, ptr %d2.i, align 4
-  %steps3.i = getelementptr inbounds i8, ptr %coverParams, i64 8
+  %steps3.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 8
   store i32 %parameters17.sroa.524.0.copyload, ptr %steps3.i, align 8
-  %nbThreads4.i = getelementptr inbounds i8, ptr %coverParams, i64 12
+  %nbThreads4.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 12
   store i32 %parameters17.sroa.6.0.copyload, ptr %nbThreads4.i, align 4
-  %splitPoint5.i = getelementptr inbounds i8, ptr %coverParams, i64 16
+  %splitPoint5.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 16
   store double 1.000000e+00, ptr %splitPoint5.i, align 8
-  %zParams.i = getelementptr inbounds i8, ptr %coverParams, i64 32
-  %4 = getelementptr inbounds i8, ptr %parameters, i64 44
+  %zParams.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %parameters, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %zParams.i, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  %shrinkDict7.i = getelementptr inbounds i8, ptr %coverParams, i64 24
+  %shrinkDict7.i = getelementptr inbounds nuw i8, ptr %coverParams, i64 24
   store i32 %parameters17.sroa.826.0.copyload, ptr %shrinkDict7.i, align 8
   %cmp.i = icmp eq i32 %parameters17.sroa.4.0.copyload, 0
   %cmp1.i = icmp eq i32 %parameters17.sroa.0.0.copyload, 0
@@ -155,7 +155,7 @@ if.then28:                                        ; preds = %if.then26
 
 if.end32:                                         ; preds = %if.end24
   %idxprom = zext nneg i32 %cond8 to i64
-  %arrayidx = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %idxprom
   %accelParams.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
   %call36 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, i32 noundef %parameters17.sroa.4.0.copyload, double noundef 1.000000e+00, i32 noundef %cond, i64 %accelParams.sroa.0.0.copyload)
   %cmp.i20 = icmp ult i64 %call36, -119
@@ -174,7 +174,7 @@ if.then41:                                        ; preds = %if.then39
   br label %return
 
 if.end45:                                         ; preds = %if.end32
-  %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
+  %nbDmers = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %18 = load i64, ptr %nbDmers, align 8
   %19 = load i32, ptr @g_displayLevel, align 4
   tail call void @COVER_warnOnSmallCorpus(i64 noundef %dictBufferCapacity, i64 noundef %18, i32 noundef %19) #12
@@ -193,12 +193,12 @@ if.end50:                                         ; preds = %if.then47, %if.end4
   %sh_prom = zext nneg i32 %cond to i64
   %shl = shl nuw nsw i64 1, %sh_prom
   %call52 = tail call noalias ptr @calloc(i64 noundef %shl, i64 noundef 2) #13
-  %freqs = getelementptr inbounds i8, ptr %ctx, i64 56
+  %freqs = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %24 = load ptr, ptr %freqs, align 8
   %call53 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %24, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters17.sroa.0.0.copyload, i32 %parameters17.sroa.4.0.copyload, ptr noundef %call52)
-  %nbTrainSamples = getelementptr inbounds i8, ptr %ctx, i64 32
+  %nbTrainSamples = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %25 = load i64, ptr %nbTrainSamples, align 8
-  %accelParams54 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %accelParams54 = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %26 = load i32, ptr %accelParams54, align 8
   %conv = zext i32 %26 to i64
   %mul = mul i64 %25, %conv
@@ -223,7 +223,7 @@ if.then63:                                        ; preds = %if.end50
 
 if.end68:                                         ; preds = %if.then63, %if.end50
   tail call void @free(ptr noundef %24) #12
-  %offsets.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %offsets.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %30 = load ptr, ptr %offsets.i, align 8
   tail call void @free(ptr noundef %30) #12
   tail call void @free(ptr noundef %call52) #12
@@ -262,7 +262,7 @@ entry:
 cond.true17:                                      ; preds = %entry
   %call11 = tail call i64 @COVER_sum(ptr noundef %samplesSizes, i32 noundef %conv1) #12
   %idx.ext = zext i32 %conv1 to i64
-  %add.ptr = getelementptr inbounds i64, ptr %samplesSizes, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i64, ptr %samplesSizes, i64 %idx.ext
   %call18 = tail call i64 @COVER_sum(ptr noundef %add.ptr, i32 noundef %cond7) #12
   br label %cond.end20
 
@@ -348,31 +348,31 @@ if.then70:                                        ; preds = %if.end67
 
 if.end74:                                         ; preds = %if.end60, %if.then70, %if.end67
   store ptr %samplesBuffer, ptr %ctx, align 8
-  %samplesSizes76 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %samplesSizes76 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %samplesSizes, ptr %samplesSizes76, align 8
   %conv77 = zext i32 %nbSamples to i64
-  %nbSamples78 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %nbSamples78 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i64 %conv77, ptr %nbSamples78, align 8
   %conv79 = zext i32 %cond to i64
-  %nbTrainSamples80 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %nbTrainSamples80 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i64 %conv79, ptr %nbTrainSamples80, align 8
   %conv81 = zext i32 %cond7 to i64
-  %nbTestSamples82 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %nbTestSamples82 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i64 %conv81, ptr %nbTestSamples82, align 8
   %reass.sub = sub i64 %cond1464, %cond29
   %add = add i64 %reass.sub, 1
-  %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
+  %nbDmers = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store i64 %add, ptr %nbDmers, align 8
-  %d92 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %d92 = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   store i32 %d, ptr %d92, align 8
-  %f93 = getelementptr inbounds i8, ptr %ctx, i64 68
+  %f93 = getelementptr inbounds nuw i8, ptr %ctx, i64 68
   store i32 %f, ptr %f93, align 4
-  %accelParams94 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %accelParams94 = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   store i64 %accelParams.coerce, ptr %accelParams94, align 8
   %add95 = add i32 %nbSamples, 1
   %conv96 = zext i32 %add95 to i64
   %call97 = tail call noalias ptr @calloc(i64 noundef %conv96, i64 noundef 8) #13
-  %offsets = getelementptr inbounds i8, ptr %ctx, i64 8
+  %offsets = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call97, ptr %offsets, align 8
   %cmp99 = icmp eq ptr %call97, null
   br i1 %cmp99, label %if.then101, label %if.end108
@@ -390,7 +390,7 @@ if.then104:                                       ; preds = %if.then101
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then104, %if.then101
-  %freqs.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %freqs.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %19 = load ptr, ptr %freqs.i, align 8
   tail call void @free(ptr noundef %19) #12
   store ptr null, ptr %freqs.i, align 8
@@ -408,12 +408,12 @@ for.body:                                         ; preds = %if.end108, %for.bod
   %indvars.iv = phi i64 [ 1, %if.end108 ], [ %indvars.iv.next, %for.body ]
   %21 = load ptr, ptr %offsets, align 8
   %22 = add nsw i64 %indvars.iv, -1
-  %arrayidx114 = getelementptr inbounds i64, ptr %21, i64 %22
+  %arrayidx114 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %23 = load i64, ptr %arrayidx114, align 8
-  %arrayidx117 = getelementptr inbounds i64, ptr %samplesSizes, i64 %22
+  %arrayidx117 = getelementptr inbounds nuw i64, ptr %samplesSizes, i64 %22
   %24 = load i64, ptr %arrayidx117, align 8
   %add118 = add i64 %24, %23
-  %arrayidx121 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv
+  %arrayidx121 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
   store i64 %add118, ptr %arrayidx121, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -423,7 +423,7 @@ for.end:                                          ; preds = %for.body
   %sh_prom = zext nneg i32 %f to i64
   %shl = shl nuw i64 1, %sh_prom
   %call122 = tail call noalias ptr @calloc(i64 noundef %shl, i64 noundef 4) #13
-  %freqs = getelementptr inbounds i8, ptr %ctx, i64 56
+  %freqs = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   store ptr %call122, ptr %freqs, align 8
   %cmp124 = icmp eq ptr %call122, null
   %25 = load i32, ptr @g_displayLevel, align 4
@@ -471,7 +471,7 @@ if.end139:                                        ; preds = %if.then136, %if.end
 for.body.lr.ph.i:                                 ; preds = %if.end139
   %36 = load i32, ptr %d92, align 8
   %cond.i = tail call i32 @llvm.umax.i32(i32 %36, i32 8)
-  %skip3.i = getelementptr inbounds i8, ptr %ctx, i64 76
+  %skip3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   %37 = load i32, ptr %skip3.i, align 4
   %38 = load i32, ptr %f93, align 4
   %conv.i = zext i32 %cond.i to i64
@@ -536,7 +536,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val, ptr nocapture noundef %segmentFreqs) unnamed_addr #0 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
-  %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
+  %nbDmers = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load i64, ptr %nbDmers, align 8
   %conv1 = trunc i64 %0 to i32
   %call = tail call i64 @COVER_computeEpochs(i32 noundef %conv, i32 noundef %conv1, i32 noundef %parameters.0.val, i32 noundef 1) #12
@@ -559,7 +559,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp5.not1, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %f3.i = getelementptr inbounds i8, ptr %ctx, i64 68
+  %f3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 68
   %cmp.i.i = icmp eq i32 %parameters.4.val, 6
   %..i.i = select i1 %cmp.i.i, i64 -3523014627193847808, i64 -3523014627327384477
   %sub.i = add i32 %parameters.0.val, 2
@@ -614,7 +614,7 @@ while.body.i:                                     ; preds = %if.end46.i, %while.
   %activeSegment.sroa.16.04.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.2.i, %if.end46.i ]
   %activeSegment.sroa.0.02.i = phi i32 [ %conv9, %while.body.lr.ph.i ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
   %8 = load ptr, ptr %ctx, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %p.val.i.i = load i64, ptr %add.ptr.i, align 1
   %mul.i.i4.i.i = mul i64 %p.val.i.i, %..i.i
   %shr.i.i7.i.i = lshr i64 %mul.i.i4.i.i, %sh_prom.i.i.i.i
@@ -642,7 +642,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 if.then25.i:                                      ; preds = %if.end.i
   %11 = load ptr, ptr %ctx, align 8
   %idx.ext28.i = zext i32 %activeSegment.sroa.0.02.i to i64
-  %add.ptr29.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext28.i
+  %add.ptr29.i = getelementptr inbounds nuw i8, ptr %11, i64 %idx.ext28.i
   %p.val.i40.i = load i64, ptr %add.ptr29.i, align 1
   %mul.i.i4.i44.i = mul i64 %p.val.i40.i, %..i.i
   %shr.i.i7.i45.i = lshr i64 %mul.i.i4.i44.i, %sh_prom.i.i.i.i
@@ -686,7 +686,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 while.body57.i:                                   ; preds = %while.body57.i, %while.body57.lr.ph.i
   %indvars.iv16.i = phi i64 [ %7, %while.body57.lr.ph.i ], [ %indvars.iv.next17.i, %while.body57.i ]
   %14 = load ptr, ptr %ctx, align 8
-  %add.ptr62.i = getelementptr inbounds i8, ptr %14, i64 %indvars.iv16.i
+  %add.ptr62.i = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv16.i
   %p.val.i47.i = load i64, ptr %add.ptr62.i, align 1
   %mul.i.i4.i51.i = mul i64 %p.val.i47.i, %..i.i
   %shr.i.i7.i52.i = lshr i64 %mul.i.i4.i51.i, %sh_prom.i.i.i49.i
@@ -702,7 +702,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %pos.014.i = phi i32 [ %retval.sroa.0.sroa.0.0.lcssa.i, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %16 = load ptr, ptr %ctx, align 8
   %idx.ext76.i = zext i32 %pos.014.i to i64
-  %add.ptr77.i = getelementptr inbounds i8, ptr %16, i64 %idx.ext76.i
+  %add.ptr77.i = getelementptr inbounds nuw i8, ptr %16, i64 %idx.ext76.i
   %p.val.i54.i = load i64, ptr %add.ptr77.i, align 1
   %mul.i.i4.i58.i = mul i64 %p.val.i54.i, %..i.i
   %shr.i.i7.i59.i = lshr i64 %mul.i.i4.i58.i, %sh_prom.i.i.i56.i
@@ -733,7 +733,7 @@ if.end37:                                         ; preds = %if.end19
   %sub38 = sub i64 %tail.04, %conv22.tail.0
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %sub38
   %17 = load ptr, ptr %ctx, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %17, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
+  %add.ptr40 = getelementptr inbounds nuw i8, ptr %17, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr40, i64 %conv22.tail.0, i1 false)
   %18 = load i32, ptr @g_displayLevel, align 4
   %cmp41 = icmp sgt i32 %18, 1
@@ -798,13 +798,13 @@ entry:
   %coverParams.sroa.8.sroa.2 = alloca [12 x i8], align 4
   %best = alloca %struct.COVER_best_s, align 8
   %ctx = alloca %struct.FASTCOVER_ctx_t, align 8
-  %nbThreads1 = getelementptr inbounds i8, ptr %parameters, i64 16
+  %nbThreads1 = getelementptr inbounds nuw i8, ptr %parameters, i64 16
   %0 = load i32, ptr %nbThreads1, align 8
-  %splitPoint2 = getelementptr inbounds i8, ptr %parameters, i64 24
+  %splitPoint2 = getelementptr inbounds nuw i8, ptr %parameters, i64 24
   %1 = load double, ptr %splitPoint2, align 8
   %cmp = fcmp ugt double %1, 0.000000e+00
   %cond = select i1 %cmp, double %1, double 7.500000e-01
-  %d = getelementptr inbounds i8, ptr %parameters, i64 4
+  %d = getelementptr inbounds nuw i8, ptr %parameters, i64 4
   %2 = load i32, ptr %d, align 4
   %cmp4 = icmp eq i32 %2, 0
   %cond9 = select i1 %cmp4, i32 6, i32 %2
@@ -813,7 +813,7 @@ entry:
   %cmp17 = icmp eq i32 %3, 0
   %cond22 = select i1 %cmp17, i32 50, i32 %3
   %cond29 = select i1 %cmp17, i32 2000, i32 %3
-  %steps = getelementptr inbounds i8, ptr %parameters, i64 12
+  %steps = getelementptr inbounds nuw i8, ptr %parameters, i64 12
   %4 = load i32, ptr %steps, align 4
   %cmp30 = icmp eq i32 %4, 0
   %cond35 = select i1 %cmp30, i32 40, i32 %4
@@ -827,14 +827,14 @@ entry:
   %add47 = zext nneg i16 %narrow to i32
   %5 = zext i1 %cmp4 to i32
   %mul = shl nuw nsw i32 %add47, %5
-  %f48 = getelementptr inbounds i8, ptr %parameters, i64 8
+  %f48 = getelementptr inbounds nuw i8, ptr %parameters, i64 8
   %6 = load i32, ptr %f48, align 8
   %cmp49 = icmp eq i32 %6, 0
   %cond54 = select i1 %cmp49, i32 20, i32 %6
-  %accel55 = getelementptr inbounds i8, ptr %parameters, i64 32
+  %accel55 = getelementptr inbounds nuw i8, ptr %parameters, i64 32
   %7 = load i32, ptr %accel55, align 8
   %cond61 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %notificationLevel = getelementptr inbounds i8, ptr %parameters, i64 48
+  %notificationLevel = getelementptr inbounds nuw i8, ptr %parameters, i64 48
   %8 = load i32, ptr %notificationLevel, align 4
   %cmp65 = fcmp ogt double %cond, 1.000000e+00
   br i1 %cmp65, label %if.then, label %if.end69
@@ -926,11 +926,11 @@ if.end111:                                        ; preds = %if.then107, %if.end
   %pool.0 = phi ptr [ %call108, %if.then107 ], [ null, %if.end105 ]
   call void @COVER_best_init(ptr noundef nonnull %best) #12
   %parameters107.sroa.6.0.copyload = load i32, ptr %nbThreads1, align 1
-  %parameters107.sroa.8130.0.parameters.sroa_idx = getelementptr inbounds i8, ptr %parameters, i64 36
-  %23 = getelementptr inbounds i8, ptr %parameters, i64 44
+  %parameters107.sroa.8130.0.parameters.sroa_idx = getelementptr inbounds nuw i8, ptr %parameters, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %parameters, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2, ptr noundef nonnull align 1 dereferenceable(12) %23, i64 12, i1 false)
   %idxprom = zext nneg i32 %cond61 to i64
-  %arrayidx = getelementptr inbounds [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %idxprom
   %accelParams.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
   %cond118 = call i32 @llvm.usub.sat.i32(i32 %8, i32 1)
   store i32 %cond118, ptr @g_displayLevel, align 4
@@ -950,12 +950,12 @@ if.end124:                                        ; preds = %if.then121, %if.end
 
 for.body.preheader:                               ; preds = %if.end124
   %cmp127 = icmp sgt i32 %8, 2
-  %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
-  %f186 = getelementptr inbounds i8, ptr %ctx, i64 68
+  %nbDmers = getelementptr inbounds nuw i8, ptr %ctx, i64 48
+  %f186 = getelementptr inbounds nuw i8, ptr %ctx, i64 68
   %tobool197.not = icmp eq ptr %pool.0, null
   %cmp208 = icmp samesign ugt i32 %8, 3
-  %freqs.i113 = getelementptr inbounds i8, ptr %ctx, i64 56
-  %offsets.i114 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %freqs.i113 = getelementptr inbounds nuw i8, ptr %ctx, i64 56
+  %offsets.i114 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond147.for.end_crit_edge
@@ -1045,22 +1045,22 @@ if.end165:                                        ; preds = %if.then162, %if.the
 
 if.end166:                                        ; preds = %if.end157
   store ptr %ctx, ptr %call151, align 8
-  %best168 = getelementptr inbounds i8, ptr %call151, i64 8
+  %best168 = getelementptr inbounds nuw i8, ptr %call151, i64 8
   store ptr %best, ptr %best168, align 8
-  %dictBufferCapacity169 = getelementptr inbounds i8, ptr %call151, i64 16
+  %dictBufferCapacity169 = getelementptr inbounds nuw i8, ptr %call151, i64 16
   store i64 %dictBufferCapacity, ptr %dictBufferCapacity169, align 8
-  %parameters170 = getelementptr inbounds i8, ptr %call151, i64 24
-  %coverParams.sroa.3.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 28
-  %coverParams.sroa.4.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 32
-  %coverParams.sroa.5.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 36
+  %parameters170 = getelementptr inbounds nuw i8, ptr %call151, i64 24
+  %coverParams.sroa.3.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 28
+  %coverParams.sroa.4.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 32
+  %coverParams.sroa.5.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 36
   store i32 %parameters107.sroa.6.0.copyload, ptr %coverParams.sroa.5.0.parameters170.sroa_idx, align 4
-  %coverParams.sroa.6.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 40
-  %coverParams.sroa.7.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 48
-  %coverParams.sroa.8.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 52
+  %coverParams.sroa.6.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 40
+  %coverParams.sroa.7.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 48
+  %coverParams.sroa.8.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 52
   store i32 0, ptr %coverParams.sroa.8.0.parameters170.sroa_idx, align 4
-  %coverParams.sroa.8.sroa.2.0.coverParams.sroa.8.0.parameters170.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 56
+  %coverParams.sroa.8.sroa.2.0.coverParams.sroa.8.0.parameters170.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2.0.coverParams.sroa.8.0.parameters170.sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2, i64 12, i1 false)
-  %coverParams.sroa.9.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 68
+  %coverParams.sroa.9.0.parameters170.sroa_idx = getelementptr inbounds nuw i8, ptr %call151, i64 68
   store i32 0, ptr %coverParams.sroa.9.0.parameters170.sroa_idx, align 4
   store i32 %k63.0137, ptr %parameters170, align 8
   store i32 %d62.0142, ptr %coverParams.sroa.3.0.parameters170.sroa_idx, align 4
@@ -1068,7 +1068,7 @@ if.end166:                                        ; preds = %if.end157
   store i32 %cond35, ptr %coverParams.sroa.4.0.parameters170.sroa_idx, align 8
   store i32 0, ptr %coverParams.sroa.7.0.parameters170.sroa_idx, align 8
   %39 = load i32, ptr @g_displayLevel, align 4
-  %notificationLevel183 = getelementptr inbounds i8, ptr %call151, i64 60
+  %notificationLevel183 = getelementptr inbounds nuw i8, ptr %call151, i64 60
   store i32 %39, ptr %notificationLevel183, align 4
   %40 = load i32, ptr %f186, align 4
   %cmp1.i = icmp eq i32 %k63.0137, 0
@@ -1173,7 +1173,7 @@ if.then224:                                       ; preds = %for.end221
   br label %if.end227
 
 if.end227:                                        ; preds = %if.then224, %for.end221
-  %compressedSize = getelementptr inbounds i8, ptr %best, i64 160
+  %compressedSize = getelementptr inbounds nuw i8, ptr %best, i64 160
   %52 = load i64, ptr %compressedSize, align 8
   %cmp.i115 = icmp ult i64 %52, -119
   br i1 %cmp.i115, label %if.end234, label %if.then231
@@ -1184,19 +1184,19 @@ if.then231:                                       ; preds = %if.end227
   br label %return
 
 if.end234:                                        ; preds = %if.end227
-  %dictSize228 = getelementptr inbounds i8, ptr %best, i64 104
+  %dictSize228 = getelementptr inbounds nuw i8, ptr %best, i64 104
   %53 = load i64, ptr %dictSize228, align 8
-  %parameters235 = getelementptr inbounds i8, ptr %best, i64 112
+  %parameters235 = getelementptr inbounds nuw i8, ptr %best, i64 112
   %parameters235117.sroa.0.0.copyload = load i32, ptr %parameters235, align 8
-  %parameters235117.sroa.4.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 116
+  %parameters235117.sroa.4.0.parameters235.sroa_idx = getelementptr inbounds nuw i8, ptr %best, i64 116
   %parameters235117.sroa.4.0.copyload = load i32, ptr %parameters235117.sroa.4.0.parameters235.sroa_idx, align 4
-  %parameters235117.sroa.5.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 120
+  %parameters235117.sroa.5.0.parameters235.sroa_idx = getelementptr inbounds nuw i8, ptr %best, i64 120
   %parameters235117.sroa.5.0.copyload = load i32, ptr %parameters235117.sroa.5.0.parameters235.sroa_idx, align 8
-  %parameters235117.sroa.6.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 124
+  %parameters235117.sroa.6.0.parameters235.sroa_idx = getelementptr inbounds nuw i8, ptr %best, i64 124
   %parameters235117.sroa.6.0.copyload = load i32, ptr %parameters235117.sroa.6.0.parameters235.sroa_idx, align 4
-  %parameters235117.sroa.7.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 128
+  %parameters235117.sroa.7.0.parameters235.sroa_idx = getelementptr inbounds nuw i8, ptr %best, i64 128
   %parameters235117.sroa.7.0.copyload = load double, ptr %parameters235117.sroa.7.0.parameters235.sroa_idx, align 8
-  %parameters235117.sroa.8.0.parameters235.sroa_idx = getelementptr inbounds i8, ptr %best, i64 136
+  %parameters235117.sroa.8.0.parameters235.sroa_idx = getelementptr inbounds nuw i8, ptr %best, i64 136
   %parameters235117.sroa.8.0.copyload = load i32, ptr %parameters235117.sroa.8.0.parameters235.sroa_idx, align 8
   store i32 %parameters235117.sroa.0.0.copyload, ptr %parameters, align 8
   store i32 %parameters235117.sroa.4.0.copyload, ptr %d, align 4
@@ -1205,11 +1205,11 @@ if.end234:                                        ; preds = %if.end227
   store double %parameters235117.sroa.7.0.copyload, ptr %splitPoint2, align 8
   store i32 %cond54, ptr %f48, align 8
   store i32 %cond61, ptr %accel55, align 8
-  %zParams.i126 = getelementptr inbounds i8, ptr %parameters, i64 44
-  %54 = getelementptr inbounds i8, ptr %best, i64 144
+  %zParams.i126 = getelementptr inbounds nuw i8, ptr %parameters, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %best, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %zParams.i126, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false)
   store i32 %parameters235117.sroa.8.0.copyload, ptr %parameters107.sroa.8130.0.parameters.sroa_idx, align 4
-  %dict = getelementptr inbounds i8, ptr %best, i64 96
+  %dict = getelementptr inbounds nuw i8, ptr %best, i64 96
   %55 = load ptr, ptr %dict, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dictBuffer, ptr align 1 %55, i64 %53, i1 false)
   call void @COVER_best_destroy(ptr noundef nonnull %best) #12
@@ -1243,11 +1243,11 @@ entry:
   %selection = alloca %struct.COVER_dictSelection, align 8
   %tmp = alloca %struct.COVER_dictSelection, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %parameters2 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %parameters2 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %parameters, ptr noundef nonnull align 8 dereferenceable(48) %parameters2, i64 48, i1 false)
-  %dictBufferCapacity3 = getelementptr inbounds i8, ptr %opaque, i64 16
+  %dictBufferCapacity3 = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %1 = load i64, ptr %dictBufferCapacity3, align 8
-  %f = getelementptr inbounds i8, ptr %0, i64 68
+  %f = getelementptr inbounds nuw i8, ptr %0, i64 68
   %2 = load i32, ptr %f, align 4
   %sh_prom = zext nneg i32 %2 to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -1276,16 +1276,16 @@ if.then12:                                        ; preds = %if.then
   br label %_cleanup.sink.split
 
 if.end15:                                         ; preds = %entry
-  %freqs16 = getelementptr inbounds i8, ptr %0, i64 56
+  %freqs16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %freqs16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call8, ptr align 4 %7, i64 %mul, i1 false)
   %parameters.val = load i32, ptr %parameters, align 8
-  %8 = getelementptr inbounds i8, ptr %parameters, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %parameters, i64 4
   %parameters.val30 = load i32, ptr %8, align 4
   %call21 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call8, ptr noundef nonnull %call4, i64 noundef %1, i32 %parameters.val, i32 %parameters.val30, ptr noundef nonnull %call)
-  %nbTrainSamples = getelementptr inbounds i8, ptr %0, i64 32
+  %nbTrainSamples = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %nbTrainSamples, align 8
-  %accelParams = getelementptr inbounds i8, ptr %0, i64 72
+  %accelParams = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %accelParams, align 8
   %conv = zext i32 %10 to i64
   %mul22 = mul i64 %9, %conv
@@ -1294,11 +1294,11 @@ if.end15:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %call21
   %sub = sub i64 %1, %call21
   %11 = load ptr, ptr %0, align 8
-  %samplesSizes = getelementptr inbounds i8, ptr %0, i64 16
+  %samplesSizes = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %samplesSizes, align 8
-  %nbSamples = getelementptr inbounds i8, ptr %0, i64 24
+  %nbSamples = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %nbSamples, align 8
-  %offsets = getelementptr inbounds i8, ptr %0, i64 8
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %offsets, align 8
   call void @COVER_selectDict(ptr nonnull sret(%struct.COVER_dictSelection) align 8 %tmp, ptr noundef nonnull %add.ptr, i64 noundef %1, i64 noundef %sub, ptr noundef %11, ptr noundef %12, i32 noundef %conv23, i64 noundef %9, i64 noundef %13, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef %14, i64 noundef -1) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %selection, ptr noundef nonnull align 8 dereferenceable(24) %tmp, i64 24, i1 false)
@@ -1321,7 +1321,7 @@ _cleanup.sink.split:                              ; preds = %if.then12, %if.then
 
 _cleanup:                                         ; preds = %_cleanup.sink.split, %if.end15, %if.then
   call void @free(ptr noundef %call4) #12
-  %best = getelementptr inbounds i8, ptr %opaque, i64 8
+  %best = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %19 = load ptr, ptr %best, align 8
   call void @COVER_best_finish(ptr noundef %19, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %parameters, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %selection) #12
   call void @free(ptr noundef nonnull %opaque) #12

@@ -53,9 +53,9 @@ entry:
 invoke.cont.i.i:                                  ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
-  %mark.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
-  %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg_)
           to label %_ZN4YAML15ParserExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad2.i.i
 
@@ -78,7 +78,7 @@ eh.resume.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
 _ZN4YAML15ParserExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13DeepRecursionE, i64 16), ptr %this, align 8
-  %m_depth = getelementptr inbounds i8, ptr %this, i64 64
+  %m_depth = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %depth, ptr %m_depth, align 8
   ret void
 }
@@ -107,11 +107,11 @@ entry:
   %output = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %0 = load i32, ptr %mark, align 4
   %cmp.i = icmp eq i32 %0, -1
-  %line.i = getelementptr inbounds i8, ptr %mark, i64 4
+  %line.i = getelementptr inbounds nuw i8, ptr %mark, i64 4
   %1 = load i32, ptr %line.i, align 4
   %cmp2.i = icmp eq i32 %1, -1
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %column.i = getelementptr inbounds i8, ptr %mark, i64 8
+  %column.i = getelementptr inbounds nuw i8, ptr %mark, i64 8
   %2 = load i32, ptr %column.i, align 4
   %cmp3.i = icmp eq i32 %2, -1
   %or.cond = select i1 %or.cond.i, i1 %cmp3.i, i1 false
@@ -123,7 +123,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %output)
-  %add.ptr = getelementptr inbounds i8, ptr %output, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %output, i64 16
   %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 

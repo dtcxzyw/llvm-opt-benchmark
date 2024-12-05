@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @big5_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds [256 x i32], ptr @EncLen_BIG5, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_BIG5, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -90,7 +90,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not24 = icmp eq i8 %7, 0
   br i1 %.not24, label %.loopexit, label %.preheader
@@ -133,7 +133,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 define internal range(i32 0, 2) i32 @big5_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
   %7 = zext i1 %.not to i32
@@ -157,7 +157,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %or.cond20, label %._crit_edge, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.01422, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01422, i64 1
   %.not19 = icmp ult ptr %9, %1
   br i1 %.not19, label %10, label %._crit_edge
 
@@ -175,7 +175,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 
 16:                                               ; preds = %13, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %13 ]
-  %17 = getelementptr inbounds i8, ptr %.01422, i64 %.sink
+  %17 = getelementptr inbounds nuw i8, ptr %.01422, i64 %.sink
   %18 = icmp ult ptr %17, %1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 

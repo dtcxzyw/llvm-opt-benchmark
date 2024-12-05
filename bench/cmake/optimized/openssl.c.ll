@@ -298,7 +298,7 @@ define dso_local i32 @Curl_ossl_certchain(ptr noundef %0, ptr noundef %1) local_
 
 .lr.ph198:                                        ; preds = %.preheader191
   %.not168 = icmp eq ptr %0, null
-  %48 = getelementptr inbounds i8, ptr %0, i64 2642
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   br label %49
 
 49:                                               ; preds = %.lr.ph198, %287
@@ -324,7 +324,7 @@ define dso_local i32 @Curl_ossl_certchain(ptr noundef %0, ptr noundef %1) local_
   %67 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %0, i32 noundef %.0152196, ptr noundef nonnull @.str.3, ptr noundef %66, i64 noundef %65) #13
   %68 = call i64 @BIO_ctrl(ptr noundef %46, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   %69 = call ptr @X509_get_serialNumber(ptr noundef %50) #13
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 258
   br i1 %72, label %73, label %75
@@ -339,13 +339,13 @@ define dso_local i32 @Curl_ossl_certchain(ptr noundef %0, ptr noundef %1) local_
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %69, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   br label %79
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %80 = load ptr, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.5, i32 noundef %83) #13
@@ -433,7 +433,7 @@ define dso_local i32 @Curl_ossl_certchain(ptr noundef %0, ptr noundef %1) local_
 127:                                              ; preds = %124, %120
   %128 = call i64 @BIO_ctrl(ptr noundef nonnull %119, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %23) #13
   %129 = load ptr, ptr %23, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = load i64, ptr %129, align 8
   %133 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %0, i32 noundef %.0152196, ptr noundef nonnull %24, ptr noundef %131, i64 noundef %132) #13
@@ -741,9 +741,9 @@ pubkey_show.exit190:                              ; preds = %pubkey_show.exit188
 .lr.ph194:                                        ; preds = %.preheader, %.lr.ph194
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.lr.ph194 ], [ 0, %.preheader ]
   %272 = phi ptr [ %279, %.lr.ph194 ], [ %269, %.preheader ]
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 %indvars.iv201
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 %indvars.iv201
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
   %278 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.24, i32 noundef %277) #13
@@ -1001,11 +1001,11 @@ SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_ce
 
 62:                                               ; preds = %SSL_CTX_use_certificate_chain_blob.exit.thread
   %63 = zext nneg i32 %60 to i64
-  %64 = getelementptr inbounds i8, ptr %10, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 %63
   %65 = sub nuw nsw i64 254, %63
-  %66 = getelementptr inbounds i8, ptr %64, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 58, ptr %64, align 1
-  %67 = getelementptr inbounds i8, ptr %64, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store i8 32, ptr %66, align 1
   store i8 0, ptr %67, align 1
   br label %68
@@ -1080,11 +1080,11 @@ SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_ce
 
 95:                                               ; preds = %SSL_CTX_use_certificate_blob.exit.thread
   %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds i8, ptr %10, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 %96
   %98 = sub nuw nsw i64 254, %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store i8 58, ptr %97, align 1
-  %100 = getelementptr inbounds i8, ptr %97, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i8 32, ptr %99, align 1
   store i8 0, ptr %100, align 1
   br label %101
@@ -1113,7 +1113,7 @@ ossl_strerror.exit231:                            ; preds = %101, %103, %106
   br label %296
 
 109:                                              ; preds = %31
-  %110 = getelementptr inbounds i8, ptr %0, i64 3600
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %111 = load ptr, ptr %110, align 8
   %.not189 = icmp eq ptr %111, null
   br i1 %.not189, label %112, label %.thread260
@@ -1140,7 +1140,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
 .thread260:                                       ; preds = %109, %116
   %117 = phi ptr [ %.pr, %116 ], [ %111, %109 ]
   store ptr %2, ptr %12, align 8
-  %118 = getelementptr inbounds i8, ptr %12, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %118, align 8
   %119 = tail call i32 @ENGINE_ctrl(ptr noundef nonnull %117, i32 noundef 13, i64 noundef 0, ptr noundef nonnull @.str.41, ptr noundef null) #13
   %.not192 = icmp eq i32 %119, 0
@@ -1197,7 +1197,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
 
 138:                                              ; preds = %137
   %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds i8, ptr %3, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %141 = load i64, ptr %140, align 8
   %142 = trunc i64 %141 to i32
   %143 = tail call ptr @BIO_new_mem_buf(ptr noundef %139, i32 noundef %142) #13
@@ -1214,11 +1214,11 @@ is_pkcs11_uri.exit:                               ; preds = %112
 
 149:                                              ; preds = %144
   %150 = zext nneg i32 %147 to i64
-  %151 = getelementptr inbounds i8, ptr %10, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 %150
   %152 = sub nuw nsw i64 254, %150
-  %153 = getelementptr inbounds i8, ptr %151, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 1
   store i8 58, ptr %151, align 1
-  %154 = getelementptr inbounds i8, ptr %151, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i8 32, ptr %153, align 1
   store i8 0, ptr %154, align 1
   br label %155
@@ -1492,7 +1492,7 @@ SSL_CTX_use_PrivateKey_blob.exit.thread:          ; preds = %231, %SSL_CTX_use_P
 
 do_file_type.exit246.thread279:                   ; preds = %227, %do_file_type.exit246
   %.0158283 = phi ptr [ %2, %do_file_type.exit246 ], [ %5, %227 ]
-  %250 = getelementptr inbounds i8, ptr %0, i64 3600
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %251 = load ptr, ptr %250, align 8
   %.not199 = icmp eq ptr %251, null
   br i1 %.not199, label %252, label %.thread293
@@ -1634,14 +1634,14 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %2, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 672
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 2048
   %.not111 = icmp eq i32 %15, 0
@@ -1679,8 +1679,8 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %23
   %.not130 = icmp eq ptr %0, null
-  %26 = getelementptr inbounds i8, ptr %0, i64 2642
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2642
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not.i = icmp ne ptr %0, null
   switch i32 %.078, label %.lr.ph.split [
     i32 2, label %.lr.ph.split.us
@@ -1702,7 +1702,7 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   br label %subj_alt_hostcheck.exit.us
 
 .thread:                                          ; preds = %.lr.ph.split.us
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @ASN1_STRING_get0_data(ptr noundef %32) #13
   %34 = load ptr, ptr %31, align 8
@@ -1754,7 +1754,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %.thread217
 
 51:                                               ; preds = %.lr.ph.split.us179
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @ASN1_STRING_get0_data(ptr noundef %53) #13
   %55 = load ptr, ptr %52, align 8
@@ -1814,7 +1814,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr @ASN1_STRING_get0_data(ptr noundef %73) #13
   %75 = load ptr, ptr %72, align 8
@@ -1850,20 +1850,20 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %.not127, label %88, label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 2642
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %83 = load i64, ptr %82, align 2
   %84 = and i64 %83, 268435456
   %.not128 = icmp eq i64 %84, 0
   br i1 %.not128, label %88, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load ptr, ptr %86, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef %87) #13
   br label %88
 
 88:                                               ; preds = %80, %81, %85
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load ptr, ptr %89, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef %90) #13
   br label %.thread164
@@ -1912,7 +1912,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   %109 = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %98) #13
   %110 = zext nneg i32 %103 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr align 1 %109, i64 %110, i1 false)
-  %111 = getelementptr inbounds i8, ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %110
   store i8 0, ptr %111, align 1
   br label %114
 
@@ -1951,7 +1951,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %125 = load ptr, ptr %124, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %123, ptr noundef %125) #13
   br label %133
@@ -1961,7 +1961,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %.not124, label %133, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %0, i64 2642
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %129 = load i64, ptr %128, align 2
   %130 = and i64 %129, 268435456
   %.not125 = icmp eq i64 %130, 0
@@ -2028,13 +2028,13 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define dso_local range(i32 0, 83) i32 @Curl_ssl_setup_x509_store(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #13
   %5 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef %0, ptr noundef %1) #13
-  %6 = getelementptr inbounds i8, ptr %1, i64 1664
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1664
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 105
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 105
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
   %.not27 = icmp eq i8 %11, 0
@@ -2046,19 +2046,19 @@ define dso_local range(i32 0, 83) i32 @Curl_ssl_setup_x509_store(ptr noundef %0,
   br i1 %.not28, label %14, label %24
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not29 = icmp eq ptr %16, null
   br i1 %.not29, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %19 = load ptr, ptr %18, align 8
   %.not30 = icmp eq ptr %19, null
   br i1 %.not30, label %20, label %24
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %5, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 64
   %.not31 = icmp ne i8 %23, 0
@@ -2066,26 +2066,26 @@ define dso_local range(i32 0, 83) i32 @Curl_ssl_setup_x509_store(ptr noundef %0,
 
 24:                                               ; preds = %20, %17, %14, %12, %8, %3
   %.not3446 = phi i1 [ true, %17 ], [ true, %14 ], [ true, %12 ], [ true, %8 ], [ true, %3 ], [ %.not31, %20 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %27, label %.thread.i
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %29 = load ptr, ptr %28, align 8
   %.not15.i = icmp eq ptr %29, null
   br i1 %.not15.i, label %get_cached_x509_store.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %27, %24
   %30 = phi ptr [ %29, %27 ], [ %26, %24 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
   %32 = load ptr, ptr %31, align 8
   %.not16.i = icmp eq ptr %32, null
   br i1 %.not16.i, label %get_cached_x509_store.exit.thread, label %33
 
 33:                                               ; preds = %.thread.i
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not17.i = icmp eq ptr %35, null
   br i1 %.not17.i, label %get_cached_x509_store.exit.thread, label %36
@@ -2094,9 +2094,9 @@ define dso_local range(i32 0, 83) i32 @Curl_ssl_setup_x509_store(ptr noundef %0,
   %37 = tail call { i64, i32 } @Curl_now() #13
   %38 = extractvalue { i64, i32 } %37, 0
   %39 = extractvalue { i64, i32 } %37, 1
-  %40 = getelementptr inbounds i8, ptr %32, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = tail call i64 @Curl_timediff(i64 %38, i32 %39, i64 %41, i32 %43) #13
   %45 = load i32, ptr %6, align 8
@@ -2112,7 +2112,7 @@ define dso_local range(i32 0, 83) i32 @Curl_ssl_setup_x509_store(ptr noundef %0,
   %52 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #13
   %53 = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %53, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %52, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.not21.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i, label %cached_x509_store_different.exit.i, label %54
@@ -2130,7 +2130,7 @@ cached_x509_store_different.exit.i:               ; preds = %50
 
 get_cached_x509_store.exit:                       ; preds = %55, %cached_x509_store_different.exit.i
   %57 = load ptr, ptr %31, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not32 = icmp eq ptr %59, null
   %brmerge = select i1 %.not32, i1 true, i1 %.not3446
@@ -2149,26 +2149,26 @@ get_cached_x509_store.exit.thread:                ; preds = %54, %55, %27, %.thr
   %63 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %2) #13
   %64 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #13
   %65 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef %0, ptr noundef nonnull %1) #13
-  %66 = getelementptr inbounds i8, ptr %64, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ne ptr %67, null
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %get_cached_x509_store.exit.thread
-  %70 = getelementptr inbounds i8, ptr %64, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %71 = load ptr, ptr %70, align 8
   br label %72
 
 72:                                               ; preds = %get_cached_x509_store.exit.thread, %69
   %73 = phi ptr [ %71, %69 ], [ null, %get_cached_x509_store.exit.thread ]
   %74 = load ptr, ptr %64, align 8
-  %75 = getelementptr inbounds i8, ptr %65, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %64, i64 105
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 105
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, 1
   %.not.i38 = icmp eq i8 %79, 0
-  %80 = getelementptr inbounds i8, ptr %1, i64 2642
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %81 = load i64, ptr %80, align 2
   %82 = and i64 %81, 268435456
   %83 = icmp ne i64 %82, 0
@@ -2178,7 +2178,7 @@ get_cached_x509_store.exit.thread:                ; preds = %54, %55, %27, %.thr
 
 85:                                               ; preds = %72
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %93
@@ -2201,7 +2201,7 @@ get_cached_x509_store.exit.thread:                ; preds = %54, %55, %27, %.thr
   br i1 %68, label %96, label %133
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %67, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = icmp ugt i64 %98, 2147483647
   br i1 %99, label %load_cacert_from_memory.exit.thread.i, label %100
@@ -2246,7 +2246,7 @@ load_cacert_from_memory.exit.thread121.i:         ; preds = %104
 
 115:                                              ; preds = %113, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %114, %113 ], [ %.036.i.i, %.lr.ph.i.i ]
-  %116 = getelementptr inbounds i8, ptr %109, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not33.i.i = icmp eq ptr %117, null
   br i1 %.not33.i.i, label %122, label %118
@@ -2415,7 +2415,7 @@ load_cacert_from_memory.exit.thread.i:            ; preds = %load_cacert_from_me
 
 177:                                              ; preds = %176
   %178 = tail call i32 @X509_STORE_set_flags(ptr noundef nonnull %63, i64 noundef 32768) #13
-  %179 = getelementptr inbounds i8, ptr %65, i64 176
+  %179 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %180 = load i8, ptr %179, align 8
   %181 = and i8 %180, 16
   %182 = icmp ne i8 %181, 0
@@ -2436,14 +2436,14 @@ populate_x509_store.exit:                         ; preds = %176, %177, %183
   br i1 %.not.i41, label %188, label %.thread.i42
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %1, i64 192
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %190 = load ptr, ptr %189, align 8
   %.not27.i = icmp eq ptr %190, null
   br i1 %.not27.i, label %set_cached_x509_store.exit, label %.thread.i42
 
 .thread.i42:                                      ; preds = %188, %185
   %191 = phi ptr [ %190, %188 ], [ %187, %185 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 216
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 216
   %193 = load ptr, ptr %192, align 8
   %.not28.i = icmp eq ptr %193, null
   br i1 %.not28.i, label %194, label %197
@@ -2462,7 +2462,7 @@ populate_x509_store.exit:                         ; preds = %176, %177, %183
   br i1 %.not30.i, label %set_cached_x509_store.exit, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %186, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %202 = load ptr, ptr %201, align 8
   %.not31.i = icmp eq ptr %202, null
   br i1 %.not31.i, label %207, label %203
@@ -2479,7 +2479,7 @@ populate_x509_store.exit:                         ; preds = %176, %177, %183
 
 207:                                              ; preds = %203, %200
   %.0.i43 = phi ptr [ %205, %203 ], [ null, %200 ]
-  %208 = getelementptr inbounds i8, ptr %198, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %209 = load ptr, ptr %208, align 8
   %.not33.i = icmp eq ptr %209, null
   br i1 %.not33.i, label %213, label %210
@@ -2492,12 +2492,12 @@ populate_x509_store.exit:                         ; preds = %176, %177, %183
   br label %213
 
 213:                                              ; preds = %210, %207
-  %214 = getelementptr inbounds i8, ptr %198, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %215 = tail call { i64, i32 } @Curl_now() #13
   %216 = extractvalue { i64, i32 } %215, 0
   %217 = extractvalue { i64, i32 } %215, 1
   store i64 %216, ptr %214, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %198, i64 24
   store i32 %217, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %63, ptr %208, align 8
   store ptr %.0.i43, ptr %198, align 8
@@ -2544,29 +2544,29 @@ declare i32 @Curl_none_check_cxn(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [256 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 1722
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1722
   %9 = load i8, ptr %8, align 2
   %10 = icmp eq i8 %9, 2
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SSL_shutdown(ptr noundef %13) #13
   br label %15
 
 15:                                               ; preds = %11, %2
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %83, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 2642
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   br label %19
 
 19:                                               ; preds = %.preheader, %65
@@ -2623,11 +2623,11 @@ define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef 
 
 43:                                               ; preds = %39
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds i8, ptr %3, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %44
   %46 = sub nuw nsw i64 254, %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 58, ptr %45, align 1
-  %48 = getelementptr inbounds i8, ptr %45, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i8 32, ptr %47, align 1
   store i8 0, ptr %48, align 1
   br label %49
@@ -2652,7 +2652,7 @@ define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.ossl_shutdown, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.ossl_shutdown, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ossl_strerror.exit
 
@@ -2734,11 +2734,11 @@ ossl_strerror.exit:                               ; preds = %53, %switch.lookup,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ossl_data_pending(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -2762,13 +2762,13 @@ define internal range(i32 0, 3) i32 @ossl_random(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 433
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 433
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 8
   %.not7.i = icmp eq i8 %10, 0
@@ -2785,7 +2785,7 @@ define internal range(i32 0, 3) i32 @ossl_random(ptr noundef %0, ptr noundef %1,
   br i1 %.not8.i, label %ossl_seed.exit.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 433
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 433
   %17 = load i8, ptr %16, align 1
   %18 = or i8 %17, 8
   store i8 %18, ptr %16, align 1
@@ -2834,11 +2834,11 @@ declare void @Curl_ssl_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @ossl_get_internals(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 4194347
   %.in.idx = select i1 %5, i64 0, i64 8
-  %.in = getelementptr inbounds i8, ptr %4, i64 %.in.idx
+  %.in = getelementptr inbounds nuw i8, ptr %4, i64 %.in.idx
   %6 = load ptr, ptr %.in, align 8
   ret ptr %6
 }
@@ -2846,23 +2846,23 @@ define internal ptr @ossl_get_internals(ptr nocapture noundef readonly %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %95, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not72 = icmp eq ptr %12, null
   br i1 %.not72, label %93, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = and i8 %15, 1
   %.not73 = icmp eq i8 %16, 0
@@ -2881,7 +2881,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not79, label %91, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 2642
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %25 = load i64, ptr %24, align 2
   %26 = and i64 %25, 268435456
   %.not86 = icmp eq i64 %26, 0
@@ -2889,7 +2889,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %91
@@ -2915,7 +2915,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not76, label %91, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 2642
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %41 = load i64, ptr %40, align 2
   %42 = and i64 %41, 268435456
   %.not84 = icmp eq i64 %42, 0
@@ -2923,7 +2923,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %91
@@ -2937,7 +2937,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not75, label %91, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %1, i64 2642
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %52 = load i64, ptr %51, align 2
   %53 = and i64 %52, 268435456
   %.not83 = icmp eq i64 %53, 0
@@ -2945,7 +2945,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %91
@@ -2959,7 +2959,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not74, label %91, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 2642
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %63 = load i64, ptr %62, align 2
   %64 = and i64 %63, 268435456
   %.not82 = icmp eq i64 %64, 0
@@ -2967,7 +2967,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %91
@@ -2982,7 +2982,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not77, label %91, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %1, i64 2642
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %75 = load i64, ptr %74, align 2
   %76 = and i64 %75, 268435456
   %.not85 = icmp eq i64 %76, 0
@@ -2990,7 +2990,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %91
@@ -3035,12 +3035,12 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 97:                                               ; preds = %95
   call void @SSL_CTX_free(ptr noundef nonnull %96) #13
   store ptr null, ptr %7, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 36
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 0, ptr %98, align 4
   br label %99
 
 99:                                               ; preds = %97, %95
-  %100 = getelementptr inbounds i8, ptr %7, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %101 = load ptr, ptr %100, align 8
   %.not81 = icmp eq ptr %101, null
   br i1 %.not81, label %103, label %102
@@ -3056,7 +3056,7 @@ define internal void @ossl_close(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_close_all(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3600
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -3090,7 +3090,7 @@ define internal range(i32 0, 67) i32 @ossl_set_engine(ptr noundef %0, ptr nounde
   br label %36
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 3600
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %8 = load ptr, ptr %7, align 8
   %.not16 = icmp eq ptr %8, null
   br i1 %.not16, label %13, label %9
@@ -3118,11 +3118,11 @@ define internal range(i32 0, 67) i32 @ossl_set_engine(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %15
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds i8, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %22
   %24 = sub nuw nsw i64 254, %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 58, ptr %23, align 1
-  %26 = getelementptr inbounds i8, ptr %23, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 32, ptr %25, align 1
   store i8 0, ptr %26, align 1
   br label %27
@@ -3161,7 +3161,7 @@ ossl_strerror.exit:                               ; preds = %27, %29, %32
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 55) i32 @ossl_set_engine_default(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3600
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %4
@@ -3172,7 +3172,7 @@ define internal range(i32 0, 55) i32 @ossl_set_engine_default(ptr noundef %0) #0
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2642
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %9 = load i64, ptr %8, align 2
   %10 = and i64 %9, 268435456
   %.not11 = icmp eq i64 %10, 0
@@ -3256,7 +3256,7 @@ define internal range(i32 0, 28) i32 @ossl_sha256sum(ptr noundef %0, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_free_multi_ssl_backend_data(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -3277,16 +3277,16 @@ define internal void @ossl_free_multi_ssl_backend_data(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [256 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   tail call void @ERR_clear_error() #13
   %13 = tail call i64 @llvm.umin.i64(i64 %3, i64 2147483647)
   %14 = trunc nuw nsw i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @SSL_read(ptr noundef %16, ptr noundef %2, i32 noundef %14) #13
   %18 = sext i32 %17 to i64
@@ -3304,7 +3304,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture 
   ]
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %52
@@ -3318,7 +3318,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture 
   br label %52
 
 29:                                               ; preds = %20
-  %30 = getelementptr inbounds i8, ptr %12, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 81
   br i1 %32, label %33, label %34
@@ -3371,14 +3371,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
   %6 = alloca [256 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void @ERR_clear_error() #13
   %11 = tail call i64 @llvm.umin.i64(i64 %3, i64 2147483647)
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SSL_write(ptr noundef %14, ptr noundef %2, i32 noundef %12) #13
   %16 = icmp slt i32 %15, 1
@@ -3408,7 +3408,7 @@ define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef r
 21:                                               ; preds = %17
   %22 = tail call ptr @__errno_location() #15
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 81
   br i1 %26, label %27, label %28
@@ -3431,11 +3431,11 @@ define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef r
 
 34:                                               ; preds = %30
   %35 = zext nneg i32 %32 to i64
-  %36 = getelementptr inbounds i8, ptr %6, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %35
   %37 = sub nuw nsw i64 254, %35
-  %38 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 58, ptr %36, align 1
-  %39 = getelementptr inbounds i8, ptr %36, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i8 32, ptr %38, align 1
   store i8 0, ptr %39, align 1
   br label %40
@@ -3481,11 +3481,11 @@ ossl_strerror.exit:                               ; preds = %43, %40, %45, %47
 
 54:                                               ; preds = %49
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds i8, ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   %57 = sub nuw nsw i64 254, %55
-  %58 = getelementptr inbounds i8, ptr %56, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 58, ptr %56, align 1
-  %59 = getelementptr inbounds i8, ptr %56, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 2
   store i8 32, ptr %58, align 1
   store i8 0, ptr %59, align 1
   br label %60
@@ -3608,9 +3608,9 @@ define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %0, ptr no
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 %6
   %11 = sub nuw nsw i64 %7, %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 58, ptr %10, align 1
-  %13 = getelementptr inbounds i8, ptr %10, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 32, ptr %12, align 1
   store i8 0, ptr %13, align 1
   br label %14
@@ -3867,7 +3867,7 @@ define internal fastcc noundef nonnull ptr @SSL_ERROR_to_str(i32 noundef %0) unn
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.SSL_ERROR_to_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.SSL_ERROR_to_str, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3916,7 +3916,7 @@ define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, 
   %29 = alloca ptr, align 8
   %30 = alloca [256 x i8], align 16
   %31 = alloca %struct.alpn_proto_buf, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @Curl_conn_cf_get_socket(ptr noundef %0, ptr noundef %1) #13
   %35 = load i32, ptr %33, align 8
@@ -3928,7 +3928,7 @@ define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, 
   br label %ossl_connect_step3.exit.thread
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %33, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %292
@@ -3950,26 +3950,26 @@ define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %29, align 8
   %48 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %0) #13
   %49 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %0, ptr noundef %1) #13
-  %50 = getelementptr inbounds i8, ptr %48, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %51 = load i8, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 136
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %48, i64 105
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 105
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, 1
-  %61 = getelementptr inbounds i8, ptr %47, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %64 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i, label %69, label %65
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %64, i64 433
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 433
   %67 = load i8, ptr %66, align 1
   %68 = and i8 %67, 8
   %.not7.i.i = icmp eq i8 %68, 0
@@ -3986,7 +3986,7 @@ define internal fastcc i32 @ossl_connect_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not8.i.i, label %77, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %72, i64 433
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 433
   %75 = load i8, ptr %74, align 1
   %76 = or i8 %75, 8
   store i8 %76, ptr %74, align 1
@@ -3997,7 +3997,7 @@ ossl_seed.exit.i:                                 ; preds = %69
   br label %ossl_connect_step1.exit.thread
 
 77:                                               ; preds = %73, %71, %65
-  %78 = getelementptr inbounds i8, ptr %49, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %49, i64 112
   store i64 1, ptr %78, align 8
   switch i8 %51, label %84 [
     i8 0, label %79
@@ -4048,11 +4048,11 @@ ossl_seed.exit.i:                                 ; preds = %69
 
 93:                                               ; preds = %88
   %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds i8, ptr %30, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %30, i64 %94
   %96 = sub nuw nsw i64 254, %94
-  %97 = getelementptr inbounds i8, ptr %95, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store i8 58, ptr %95, align 1
-  %98 = getelementptr inbounds i8, ptr %95, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 2
   store i8 32, ptr %97, align 1
   store i8 0, ptr %98, align 1
   br label %99
@@ -4082,13 +4082,13 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
 
 107:                                              ; preds = %86
   %108 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %87, i32 noundef 33, i64 noundef 16, ptr noundef null) #13
-  %109 = getelementptr inbounds i8, ptr %1, i64 568
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %110 = load ptr, ptr %109, align 8
   %.not187.i = icmp eq ptr %110, null
   br i1 %.not187.i, label %119, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %1, i64 2642
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %113 = load i64, ptr %112, align 2
   %114 = and i64 %113, 268435456
   %.not188.i = icmp eq i64 %114, 0
@@ -4102,7 +4102,7 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
   br label %119
 
 119:                                              ; preds = %115, %111, %107
-  %120 = getelementptr inbounds i8, ptr %49, i64 176
+  %120 = getelementptr inbounds nuw i8, ptr %49, i64 176
   %121 = load i8, ptr %120, align 8
   %122 = and i8 %121, 4
   %.not189.i = icmp eq i8 %122, 0
@@ -4114,7 +4114,7 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
 124:                                              ; preds = %119
   %125 = load ptr, ptr %62, align 8
   %126 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %0) #13
-  %127 = getelementptr inbounds i8, ptr %126, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 104
   %128 = load i8, ptr %127, align 8
   switch i8 %128, label %.thread.fold.split.i.i [
     i8 1, label %.thread.i.i
@@ -4144,7 +4144,7 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
   br i1 %.not12.i.i, label %ossl_connect_step1.exit.thread, label %133
 
 133:                                              ; preds = %.thread.i.i, %124
-  %134 = getelementptr inbounds i8, ptr %126, i64 100
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 100
   %135 = load i32, ptr %134, align 4
   %136 = zext i32 %135 to i64
   %137 = tail call i64 @llvm.fshl.i64(i64 %136, i64 %136, i64 48)
@@ -4159,7 +4159,7 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
 ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   %141 = load ptr, ptr %62, align 8
   %142 = tail call i64 @SSL_CTX_set_options(ptr noundef %141, i64 noundef %spec.select.i) #13
-  %143 = getelementptr inbounds i8, ptr %47, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %144 = load ptr, ptr %143, align 8
   %.not191.i = icmp eq ptr %144, null
   br i1 %.not191.i, label %160, label %145
@@ -4171,7 +4171,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr %62, align 8
-  %149 = getelementptr inbounds i8, ptr %31, i64 36
+  %149 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %150 = load i32, ptr %149, align 4
   %151 = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %148, ptr noundef nonnull %31, i32 noundef %150) #13
   %.not193.i = icmp eq i32 %151, 0
@@ -4184,7 +4184,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 153:                                              ; preds = %147
   %154 = load ptr, ptr %143, align 8
   %155 = call i32 @Curl_alpn_to_proto_str(ptr noundef nonnull %31, ptr noundef %154) #13
-  %156 = getelementptr inbounds i8, ptr %1, i64 2642
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %157 = load i64, ptr %156, align 2
   %158 = and i64 %157, 268435456
   %.not195.i = icmp eq i64 %158, 0
@@ -4204,20 +4204,20 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr %62, align 8
-  %166 = getelementptr inbounds i8, ptr %49, i64 144
+  %166 = getelementptr inbounds nuw i8, ptr %49, i64 144
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %49, i64 152
+  %168 = getelementptr inbounds nuw i8, ptr %49, i64 152
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %49, i64 160
+  %170 = getelementptr inbounds nuw i8, ptr %49, i64 160
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %49, i64 168
+  %172 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %173 = load ptr, ptr %172, align 8
   %174 = call fastcc i32 @cert_stuff(ptr noundef nonnull %1, ptr noundef %165, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %167, ptr noundef %169, ptr noundef %171, ptr noundef %173)
   %.not196.not.i = icmp eq i32 %174, 0
   br i1 %.not196.not.i, label %ossl_connect_step1.exit.thread, label %175
 
 175:                                              ; preds = %164, %160
-  %176 = getelementptr inbounds i8, ptr %48, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %177 = load ptr, ptr %176, align 8
   %.not198.i = icmp eq ptr %177, null
   br i1 %.not198.i, label %187, label %178
@@ -4233,7 +4233,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   br label %ossl_connect_step1.exit.thread
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %1, i64 2642
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %184 = load i64, ptr %183, align 2
   %185 = and i64 %184, 268435456
   %.not201.i = icmp eq i64 %185, 0
@@ -4244,7 +4244,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   br label %187
 
 187:                                              ; preds = %186, %182, %175
-  %188 = getelementptr inbounds i8, ptr %48, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %189 = load ptr, ptr %188, align 8
   %.not202.i = icmp eq ptr %189, null
   br i1 %.not202.i, label %199, label %190
@@ -4260,7 +4260,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   br label %ossl_connect_step1.exit.thread
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %1, i64 2642
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %196 = load i64, ptr %195, align 2
   %197 = and i64 %196, 268435456
   %.not205.i = icmp eq i64 %197, 0
@@ -4273,7 +4273,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 199:                                              ; preds = %198, %194, %187
   %200 = load ptr, ptr %62, align 8
   call void @SSL_CTX_set_post_handshake_auth(ptr noundef %200, i32 noundef 1) #13
-  %201 = getelementptr inbounds i8, ptr %48, i64 88
+  %201 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %202 = load ptr, ptr %201, align 8
   %.not206.i = icmp eq ptr %202, null
   br i1 %.not206.i, label %207, label %203
@@ -4305,13 +4305,13 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   %215 = call i64 @SSL_CTX_ctrl(ptr noundef %214, i32 noundef 44, i64 noundef 769, ptr noundef null) #13
   %216 = load ptr, ptr %62, align 8
   call void @SSL_CTX_sess_set_new_cb(ptr noundef %216, ptr noundef nonnull @ossl_new_session_cb) #13
-  %217 = getelementptr inbounds i8, ptr %1, i64 1392
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   %218 = load ptr, ptr %217, align 8
   %.not.i = icmp eq ptr %218, null
   br i1 %.not.i, label %234, label %219
 
 219:                                              ; preds = %213
-  %220 = getelementptr inbounds i8, ptr %62, i64 36
+  %220 = getelementptr inbounds nuw i8, ptr %62, i64 36
   %221 = load i8, ptr %220, align 4
   %222 = trunc i8 %221 to i1
   br i1 %222, label %227, label %223
@@ -4330,7 +4330,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   call void @Curl_set_in_callback(ptr noundef nonnull %1, i1 noundef zeroext true) #13
   %228 = load ptr, ptr %217, align 8
   %229 = load ptr, ptr %62, align 8
-  %230 = getelementptr inbounds i8, ptr %1, i64 1400
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %231 = load ptr, ptr %230, align 8
   %232 = call i32 %228(ptr noundef nonnull %1, ptr noundef %229, ptr noundef %231) #13
   call void @Curl_set_in_callback(ptr noundef nonnull %1, i1 noundef zeroext false) #13
@@ -4342,7 +4342,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   br label %ossl_connect_step1.exit.thread
 
 234:                                              ; preds = %227, %213
-  %235 = getelementptr inbounds i8, ptr %62, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %236 = load ptr, ptr %235, align 8
   %.not210.i = icmp eq ptr %236, null
   br i1 %.not210.i, label %238, label %237
@@ -4377,9 +4377,9 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 249:                                              ; preds = %246, %242
   %250 = load ptr, ptr %235, align 8
   call void @SSL_set_connect_state(ptr noundef %250) #13
-  %251 = getelementptr inbounds i8, ptr %62, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr null, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %47, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %253 = load ptr, ptr %252, align 8
   %.not213.i = icmp eq ptr %253, null
   br i1 %.not213.i, label %258, label %254
@@ -4397,11 +4397,11 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 258:                                              ; preds = %254, %249
   %259 = load ptr, ptr %235, align 8
   %260 = call i32 @SSL_set_ex_data(ptr noundef %259, i32 noundef 0, ptr noundef nonnull %0) #13
-  %261 = getelementptr inbounds i8, ptr %47, i64 84
+  %261 = getelementptr inbounds nuw i8, ptr %47, i64 84
   %262 = load i8, ptr %261, align 4
   %263 = and i8 %262, -3
   store i8 %263, ptr %261, align 4
-  %264 = getelementptr inbounds i8, ptr %49, i64 105
+  %264 = getelementptr inbounds nuw i8, ptr %49, i64 105
   %265 = load i8, ptr %264, align 1
   %266 = and i8 %265, 8
   %.not215.i = icmp eq i8 %266, 0
@@ -4427,7 +4427,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   br label %ossl_connect_step1.exit.thread
 
 276:                                              ; preds = %269
-  %277 = getelementptr inbounds i8, ptr %1, i64 2642
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %278 = load i64, ptr %277, align 2
   %279 = and i64 %278, 268435456
   %.not218.i = icmp eq i64 %279, 0
@@ -4449,7 +4449,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
 
 285:                                              ; preds = %284, %258
   %286 = call fastcc ptr @ossl_bio_cf_method_create()
-  %287 = getelementptr inbounds i8, ptr %62, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %286, ptr %287, align 8
   %.not219.i = icmp eq ptr %286, null
   br i1 %.not219.i, label %ossl_connect_step1.exit.thread, label %288
@@ -4470,7 +4470,7 @@ ossl_connect_step1.exit:                          ; preds = %288
   call void @BIO_set_data(ptr noundef nonnull %289, ptr noundef nonnull %0) #13
   %290 = load ptr, ptr %235, align 8
   call void @SSL_set_bio(ptr noundef %290, ptr noundef nonnull %289, ptr noundef nonnull %289) #13
-  %291 = getelementptr inbounds i8, ptr %47, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 1, ptr %291, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %30)
@@ -4479,7 +4479,7 @@ ossl_connect_step1.exit:                          ; preds = %288
 
 292:                                              ; preds = %ossl_connect_step1.exit, %38
   %.not80.i = icmp eq ptr %1, null
-  %293 = getelementptr inbounds i8, ptr %1, i64 2642
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   br label %294
 
 294:                                              ; preds = %.backedge, %292
@@ -4539,14 +4539,14 @@ ossl_connect_step1.exit:                          ; preds = %288
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   %317 = load ptr, ptr %32, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 48
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 48
   %319 = load ptr, ptr %318, align 8
   %320 = call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %0, ptr noundef %1) #13
   call void @ERR_clear_error() #13
-  %321 = getelementptr inbounds i8, ptr %319, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = call i32 @SSL_connect(ptr noundef %322) #13
-  %324 = getelementptr inbounds i8, ptr %319, i64 36
+  %324 = getelementptr inbounds nuw i8, ptr %319, i64 36
   %325 = load i8, ptr %324, align 4
   %326 = trunc i8 %325 to i1
   br i1 %326, label %331, label %327
@@ -4579,14 +4579,14 @@ ossl_connect_step1.exit:                          ; preds = %288
   br label %ossl_connect_step2.exit.thread.sink.split
 
 336:                                              ; preds = %332
-  %337 = getelementptr inbounds i8, ptr %319, i64 32
+  %337 = getelementptr inbounds nuw i8, ptr %319, i64 32
   %338 = load i32, ptr %337, align 8
   %339 = icmp eq i32 %338, 81
   br i1 %339, label %ossl_connect_step2.exit.thread, label %340
 
 340:                                              ; preds = %336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %24, i8 0, i64 256, i1 false)
-  %341 = getelementptr inbounds i8, ptr %317, i64 4
+  %341 = getelementptr inbounds nuw i8, ptr %317, i64 4
   store i32 1, ptr %341, align 4
   %342 = call i64 @ERR_get_error() #13
   %343 = and i64 %342, 2147483648
@@ -4612,7 +4612,7 @@ ossl_connect_step1.exit:                          ; preds = %288
   br i1 %.not84.i, label %355, label %351
 
 351:                                              ; preds = %348
-  %352 = getelementptr inbounds i8, ptr %320, i64 112
+  %352 = getelementptr inbounds nuw i8, ptr %320, i64 112
   store i64 %350, ptr %352, align 8
   %353 = call ptr @X509_verify_cert_error_string(i64 noundef %350) #13
   %354 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %24, i64 noundef 256, ptr noundef nonnull @.str.171, ptr noundef %353) #13
@@ -4635,11 +4635,11 @@ ossl_connect_step1.exit:                          ; preds = %288
 
 361:                                              ; preds = %.thread.i
   %362 = zext nneg i32 %359 to i64
-  %363 = getelementptr inbounds i8, ptr %24, i64 %362
+  %363 = getelementptr inbounds nuw i8, ptr %24, i64 %362
   %364 = sub nuw nsw i64 254, %362
-  %365 = getelementptr inbounds i8, ptr %363, i64 1
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 1
   store i8 58, ptr %363, align 1
-  %366 = getelementptr inbounds i8, ptr %363, i64 2
+  %366 = getelementptr inbounds nuw i8, ptr %363, i64 2
   store i8 32, ptr %365, align 1
   store i8 0, ptr %366, align 1
   br label %367
@@ -4688,9 +4688,9 @@ ossl_strerror.exit:                               ; preds = %367, %369, %372
 
 385:                                              ; preds = %.thread93.i, %381
   %386 = phi ptr [ %384, %.thread93.i ], [ %25, %381 ]
-  %387 = getelementptr inbounds i8, ptr %317, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %317, i64 80
+  %389 = getelementptr inbounds nuw i8, ptr %317, i64 80
   %390 = load i32, ptr %389, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.173, ptr noundef nonnull %386, ptr noundef %388, i32 noundef %390) #13
   br label %ossl_connect_step2.exit.thread78
@@ -4702,7 +4702,7 @@ ossl_strerror.exit:                               ; preds = %367, %369, %372
 
 391:                                              ; preds = %331
   store i32 0, ptr %26, align 4
-  %392 = getelementptr inbounds i8, ptr %317, i64 4
+  %392 = getelementptr inbounds nuw i8, ptr %317, i64 4
   store i32 4, ptr %392, align 4
   %393 = load ptr, ptr %321, align 8
   %394 = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %393, ptr noundef nonnull %26) #13
@@ -4733,14 +4733,14 @@ ossl_strerror.exit:                               ; preds = %367, %369, %372
   br label %412
 
 412:                                              ; preds = %403, %400, %391
-  %413 = getelementptr inbounds i8, ptr %317, i64 40
+  %413 = getelementptr inbounds nuw i8, ptr %317, i64 40
   %414 = load ptr, ptr %413, align 8
   %.not83.i = icmp eq ptr %414, null
   br i1 %.not83.i, label %ossl_connect_step2.exit.thread, label %ossl_connect_step2.exit
 
 ossl_connect_step2.exit.thread.sink.split:        ; preds = %332, %332, %335
   %.sink = phi i32 [ 1, %335 ], [ %334, %332 ], [ %334, %332 ]
-  %415 = getelementptr inbounds i8, ptr %317, i64 4
+  %415 = getelementptr inbounds nuw i8, ptr %317, i64 4
   store i32 %.sink, ptr %415, align 4
   br label %ossl_connect_step2.exit.thread
 
@@ -4791,7 +4791,7 @@ ossl_connect_step2.exit:                          ; preds = %412
 424:                                              ; preds = %294
   %425 = load ptr, ptr %32, align 8
   %426 = call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %0) #13
-  %427 = getelementptr inbounds i8, ptr %426, i64 105
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 105
   %428 = load i8, ptr %427, align 1
   %429 = and i8 %428, 3
   %.not.i68 = icmp eq i8 %429, 0
@@ -4799,7 +4799,7 @@ ossl_connect_step2.exit:                          ; preds = %412
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  %430 = getelementptr inbounds i8, ptr %0, i64 24
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %431 = load ptr, ptr %430, align 8
   %432 = load ptr, ptr %32, align 8
   %433 = call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %0, ptr noundef %1) #13
@@ -4807,7 +4807,7 @@ ossl_connect_step2.exit:                          ; preds = %412
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %20, i8 0, i64 256, i1 false)
   %435 = call ptr @BIO_s_mem() #13
   %436 = call ptr @BIO_new(ptr noundef %435) #13
-  %437 = getelementptr inbounds i8, ptr %432, i64 48
+  %437 = getelementptr inbounds nuw i8, ptr %432, i64 48
   %438 = load ptr, ptr %437, align 8
   %.not.i.i69 = icmp eq ptr %436, null
   br i1 %.not.i.i69, label %439, label %458
@@ -4822,11 +4822,11 @@ ossl_connect_step2.exit:                          ; preds = %412
 
 444:                                              ; preds = %439
   %445 = zext nneg i32 %442 to i64
-  %446 = getelementptr inbounds i8, ptr %20, i64 %445
+  %446 = getelementptr inbounds nuw i8, ptr %20, i64 %445
   %447 = sub nuw nsw i64 254, %445
-  %448 = getelementptr inbounds i8, ptr %446, i64 1
+  %448 = getelementptr inbounds nuw i8, ptr %446, i64 1
   store i8 58, ptr %446, align 1
-  %449 = getelementptr inbounds i8, ptr %446, i64 2
+  %449 = getelementptr inbounds nuw i8, ptr %446, i64 2
   store i8 32, ptr %448, align 1
   store i8 0, ptr %449, align 1
   br label %450
@@ -4855,23 +4855,23 @@ ossl_strerror.exit.i.i:                           ; preds = %455, %452, %450
   br label %servercert.exit.thread.i
 
 458:                                              ; preds = %424
-  %459 = getelementptr inbounds i8, ptr %1, i64 1448
+  %459 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %460 = load i8, ptr %459, align 8
   %461 = and i8 %460, 1
   %.not176.i.i = icmp eq i8 %461, 0
   br i1 %.not176.i.i, label %466, label %462
 
 462:                                              ; preds = %458
-  %463 = getelementptr inbounds i8, ptr %438, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %464 = load ptr, ptr %463, align 8
   %465 = call i32 @Curl_ossl_certchain(ptr noundef nonnull %1, ptr noundef %464)
   br label %466
 
 466:                                              ; preds = %462, %458
-  %467 = getelementptr inbounds i8, ptr %438, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %468 = load ptr, ptr %467, align 8
   %469 = call ptr @SSL_get1_peer_certificate(ptr noundef %468) #13
-  %470 = getelementptr inbounds i8, ptr %438, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %438, i64 16
   store ptr %469, ptr %470, align 8
   %.not177.i.i = icmp eq ptr %469, null
   br i1 %.not177.i.i, label %471, label %474
@@ -4919,10 +4919,10 @@ servercert.exit.thread12.i:                       ; preds = %471
   %488 = load ptr, ptr %19, align 8
   %489 = load i64, ptr %488, align 8
   %..i.i.i = call i64 @llvm.umin.i64(i64 %489, i64 2047)
-  %490 = getelementptr inbounds i8, ptr %488, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %491 = load ptr, ptr %490, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %491, i64 %..i.i.i, i1 false)
-  %492 = getelementptr inbounds i8, ptr %21, i64 %..i.i.i
+  %492 = getelementptr inbounds nuw i8, ptr %21, i64 %..i.i.i
   store i8 0, ptr %492, align 1
   %493 = call i32 @BIO_free(ptr noundef nonnull %484) #13
   %.not16.i.not.i.i = icmp eq i32 %486, 0
@@ -4977,14 +4977,14 @@ servercert.exit.thread12.i:                       ; preds = %471
 520:                                              ; preds = %517, %509
   %521 = call i64 @BIO_ctrl(ptr noundef nonnull %436, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   %522 = call i32 @BIO_free(ptr noundef nonnull %436) #13
-  %523 = getelementptr inbounds i8, ptr %434, i64 105
+  %523 = getelementptr inbounds nuw i8, ptr %434, i64 105
   %524 = load i8, ptr %523, align 1
   %525 = and i8 %524, 2
   %.not184.i.i = icmp eq i8 %525, 0
   br i1 %.not184.i.i, label %532, label %526
 
 526:                                              ; preds = %520
-  %527 = getelementptr inbounds i8, ptr %432, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %528 = load ptr, ptr %470, align 8
   %529 = call i32 @Curl_ossl_verifyhost(ptr noundef nonnull %1, ptr noundef %431, ptr noundef nonnull %527, ptr noundef %528)
   %.not185.i.i = icmp eq i32 %529, 0
@@ -5015,10 +5015,10 @@ x509_name_oneline.exit211.i.i:                    ; preds = %532
   %539 = load ptr, ptr %18, align 8
   %540 = load i64, ptr %539, align 8
   %..i208.i.i = call i64 @llvm.umin.i64(i64 %540, i64 2047)
-  %541 = getelementptr inbounds i8, ptr %539, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %542 = load ptr, ptr %541, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %542, i64 %..i208.i.i, i1 false)
-  %543 = getelementptr inbounds i8, ptr %21, i64 %..i208.i.i
+  %543 = getelementptr inbounds nuw i8, ptr %21, i64 %..i208.i.i
   store i8 0, ptr %543, align 1
   %544 = call i32 @BIO_free(ptr noundef nonnull %536) #13
   %.not16.i209.not.i.i = icmp eq i32 %537, 0
@@ -5043,10 +5043,10 @@ x509_name_oneline.exit211.i.i:                    ; preds = %532
   br label %551
 
 551:                                              ; preds = %550, %547
-  %552 = getelementptr inbounds i8, ptr %434, i64 16
+  %552 = getelementptr inbounds nuw i8, ptr %434, i64 16
   %553 = load ptr, ptr %552, align 8
   %.not188.i.i = icmp eq ptr %553, null
-  %554 = getelementptr inbounds i8, ptr %434, i64 80
+  %554 = getelementptr inbounds nuw i8, ptr %434, i64 80
   %555 = load ptr, ptr %554, align 8
   %.not189.i.i = icmp eq ptr %555, null
   br i1 %.not188.i.i, label %556, label %557
@@ -5059,7 +5059,7 @@ x509_name_oneline.exit211.i.i:                    ; preds = %532
 
 .thread.i.i70:                                    ; preds = %557, %556
   %558 = load ptr, ptr %555, align 8
-  %559 = getelementptr inbounds i8, ptr %555, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %555, i64 8
   %560 = load i64, ptr %559, align 8
   %561 = trunc i64 %560 to i32
   %562 = call ptr @BIO_new_mem_buf(ptr noundef %558, i32 noundef %561) #13
@@ -5076,11 +5076,11 @@ x509_name_oneline.exit211.i.i:                    ; preds = %532
 
 568:                                              ; preds = %563
   %569 = zext nneg i32 %566 to i64
-  %570 = getelementptr inbounds i8, ptr %20, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr %20, i64 %569
   %571 = sub nuw nsw i64 254, %569
-  %572 = getelementptr inbounds i8, ptr %570, i64 1
+  %572 = getelementptr inbounds nuw i8, ptr %570, i64 1
   store i8 58, ptr %570, align 1
-  %573 = getelementptr inbounds i8, ptr %570, i64 2
+  %573 = getelementptr inbounds nuw i8, ptr %570, i64 2
   store i8 32, ptr %572, align 1
   store i8 0, ptr %573, align 1
   br label %574
@@ -5211,7 +5211,7 @@ ossl_strerror.exit216.i.i:                        ; preds = %579, %576, %574
 625:                                              ; preds = %623, %556
   %626 = load ptr, ptr %467, align 8
   %627 = call i64 @SSL_get_verify_result(ptr noundef %626) #13
-  %628 = getelementptr inbounds i8, ptr %433, i64 112
+  %628 = getelementptr inbounds nuw i8, ptr %433, i64 112
   store i64 %627, ptr %628, align 8
   %.not196.i.i = icmp eq i64 %627, 0
   br i1 %.not196.i.i, label %640, label %629
@@ -5326,7 +5326,7 @@ infof_certstack.exit.i.i:                         ; preds = %670, %651
   br i1 %.not200.i.i, label %760, label %674
 
 674:                                              ; preds = %infof_certstack.exit.i.i
-  %675 = getelementptr inbounds i8, ptr %432, i64 84
+  %675 = getelementptr inbounds nuw i8, ptr %432, i64 84
   %676 = load i8, ptr %675, align 4
   %677 = and i8 %676, 2
   %.not201.i.i = icmp eq i8 %677, 0
@@ -5343,7 +5343,7 @@ infof_certstack.exit.i.i:                         ; preds = %670, %651
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %680 = getelementptr inbounds i8, ptr %.val.val.i.i, i64 8
+  %680 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 8
   %681 = load ptr, ptr %680, align 8
   %682 = call i64 @SSL_ctrl(ptr noundef %681, i32 noundef 70, i64 noundef 0, ptr noundef nonnull %6) #13
   %683 = load ptr, ptr %6, align 8
@@ -5568,7 +5568,7 @@ verifystatus.exit.i.i:                            ; preds = %746, %741, %739, %7
   %spec.select.i.i = select i1 %.not.i68, i32 0, i32 %.2.i.i
   %761 = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %0) #13
   %.in.v.i.i = select i1 %761, i64 2008, i64 2000
-  %.in.i.i = getelementptr inbounds i8, ptr %1, i64 %.in.v.i.i
+  %.in.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v.i.i
   %762 = load ptr, ptr %.in.i.i, align 8
   store ptr %762, ptr %22, align 8
   %763 = icmp eq i32 %spec.select.i.i, 0
@@ -5637,7 +5637,7 @@ ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %775
   %789 = load ptr, ptr %470, align 8
   call void @X509_free(ptr noundef %789) #13
   store ptr null, ptr %470, align 8
-  %790 = getelementptr inbounds i8, ptr %432, i64 4
+  %790 = getelementptr inbounds nuw i8, ptr %432, i64 4
   store i32 5, ptr %790, align 4
   br label %servercert.exit.i
 
@@ -5659,7 +5659,7 @@ servercert.exit.i:                                ; preds = %788, %758
   br i1 %.not8.i, label %ossl_connect_step3.exit, label %ossl_connect_step3.exit.thread
 
 ossl_connect_step3.exit:                          ; preds = %servercert.exit.thread12.i, %servercert.exit.i
-  %791 = getelementptr inbounds i8, ptr %425, i64 4
+  %791 = getelementptr inbounds nuw i8, ptr %425, i64 4
   store i32 5, ptr %791, align 4
   %.pr = load i32, ptr %39, align 4
   br label %.loopexit
@@ -5700,15 +5700,15 @@ define internal void @ossl_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not, label %77, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not56 = icmp eq ptr %14, null
   br i1 %.not56, label %77, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 568
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 568
   %17 = load ptr, ptr %16, align 8
   %.not57 = icmp eq ptr %17, null
   br i1 %.not57, label %77, label %18
@@ -5798,7 +5798,7 @@ tls_rt_type.exit.thread68:                        ; preds = %34, %tls_rt_type.ex
   %40 = load i8, ptr %3, align 1
   %41 = sext i8 %40 to i32
   %42 = shl nsw i32 %41, 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %42, %45
@@ -5945,13 +5945,13 @@ define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr nou
   br i1 %.not54, label %.thread44, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not55 = icmp eq ptr %8, null
   br i1 %.not55, label %.thread44, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not56 = icmp eq ptr %11, null
   br i1 %.not56, label %.thread44, label %12
@@ -5959,7 +5959,7 @@ define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr nou
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %5) #13
   %14 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %5, ptr noundef nonnull %11) #13
-  %15 = getelementptr inbounds i8, ptr %14, i64 105
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 105
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 8
   %.not = icmp eq i8 %17, 0
@@ -5979,7 +5979,7 @@ define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr nou
   br i1 %or.cond42, label %29, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %11, i64 2642
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 2642
   %24 = load i64, ptr %23, align 2
   %25 = and i64 %24, 268435456
   %.not39 = icmp eq i64 %25, 0
@@ -6083,14 +6083,14 @@ declare i32 @BIO_meth_set_write(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @ossl_bio_cf_out_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
   store i32 55, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
   %15 = call i64 @Curl_conn_cf_send(ptr noundef %13, ptr noundef %11, ptr noundef %1, i64 noundef %14, ptr noundef nonnull %4) #13
@@ -6098,7 +6098,7 @@ define internal i32 @ossl_bio_cf_out_write(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not, label %28, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %11, i64 2642
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 2642
   %18 = load i64, ptr %17, align 2
   %19 = and i64 %18, 268435456
   %.not25 = icmp eq i64 %19, 0
@@ -6106,7 +6106,7 @@ define internal i32 @ossl_bio_cf_out_write(ptr noundef %0, ptr noundef %1, i32 n
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %28
@@ -6120,7 +6120,7 @@ define internal i32 @ossl_bio_cf_out_write(ptr noundef %0, ptr noundef %1, i32 n
 28:                                               ; preds = %3, %16, %20, %25
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #13
   %29 = load i32, ptr %4, align 4
-  %30 = getelementptr inbounds i8, ptr %9, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %29, ptr %30, align 8
   %31 = icmp slt i64 %15, 0
   %32 = icmp eq i32 %29, 81
@@ -6142,18 +6142,18 @@ declare i32 @BIO_meth_set_read(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
   store i32 56, ptr %4, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %46, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %2 to i64
   %16 = call i64 @Curl_conn_cf_recv(ptr noundef %14, ptr noundef %11, ptr noundef nonnull %1, i64 noundef %15, ptr noundef nonnull %4) #13
@@ -6161,7 +6161,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not36, label %29, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %11, i64 2642
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 2642
   %19 = load i64, ptr %18, align 2
   %20 = and i64 %19, 268435456
   %.not38 = icmp eq i64 %20, 0
@@ -6169,7 +6169,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %29
@@ -6183,7 +6183,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
 29:                                               ; preds = %12, %17, %21, %26
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #13
   %30 = load i32, ptr %4, align 4
-  %31 = getelementptr inbounds i8, ptr %9, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %30, ptr %31, align 8
   %32 = icmp slt i64 %16, 0
   %33 = icmp eq i32 %30, 81
@@ -6195,7 +6195,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
   br label %35
 
 35:                                               ; preds = %34, %29
-  %36 = getelementptr inbounds i8, ptr %9, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %37 = load i8, ptr %36, align 4
   %38 = trunc i8 %37 to i1
   br i1 %38, label %44, label %39
@@ -6247,13 +6247,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_bio_cf_ctrl(ptr nou
   br label %21
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 1
   %18 = xor i8 %17, 1

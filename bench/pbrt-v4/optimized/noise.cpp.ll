@@ -27,7 +27,7 @@ entry:
   %and13 = and i32 %conv5, 255
   %and14 = and i32 %conv7, 255
   %idxprom.i = zext nneg i32 %and to i64
-  %arrayidx.i = getelementptr inbounds [512 x i32], ptr @_ZN4pbrtL9NoisePermE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [512 x i32], ptr @_ZN4pbrtL9NoisePermE, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %add.i = add nsw i32 %and13, %3
   %idxprom1.i = sext i32 %add.i to i64
@@ -58,7 +58,7 @@ entry:
   %add = add nuw nsw i32 %and, 1
   %sub16 = fadd float %sub, -1.000000e+00
   %idxprom.i64 = zext nneg i32 %add to i64
-  %arrayidx.i65 = getelementptr inbounds [512 x i32], ptr @_ZN4pbrtL9NoisePermE, i64 0, i64 %idxprom.i64
+  %arrayidx.i65 = getelementptr inbounds nuw [512 x i32], ptr @_ZN4pbrtL9NoisePermE, i64 0, i64 %idxprom.i64
   %8 = load i32, ptr %arrayidx.i65, align 4
   %add.i66 = add nsw i32 %8, %and13
   %idxprom1.i67 = sext i32 %add.i66 to i64

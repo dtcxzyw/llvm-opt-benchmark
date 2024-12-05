@@ -1554,7 +1554,7 @@ define internal i32 @dissect_1722_ntscf(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 0, ptr %5, align 4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) @__const.dissect_1722_ntscf.fields, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.217) #6
   %10 = load ptr, ptr %8, align 8
@@ -1666,7 +1666,7 @@ define internal i32 @dissect_1722_tscf(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.236) #6
   %13 = load ptr, ptr %11, align 8
@@ -1995,7 +1995,7 @@ define internal i32 @dissect_1722_acf_lin(ptr noundef %0, ptr noundef %1, ptr no
   %38 = load i32, ptr %8, align 4
   %39 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.435, i32 noundef %38, i32 noundef %39) #6
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.433) #6
   %42 = load ptr, ptr %40, align 8
@@ -2021,7 +2021,7 @@ define internal i32 @dissect_1722_acf_lin(ptr noundef %0, ptr noundef %1, ptr no
 52:                                               ; preds = %51
   %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef %48) #6
   %54 = load ptr, ptr %40, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 408
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr @tvb_bytes_to_str_punct(ptr noundef %56, ptr noundef %0, i32 noundef 10, i32 noundef %48, i8 noundef signext 32) #6
   call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef %57) #6
@@ -2078,7 +2078,7 @@ define internal fastcc i32 @dissect_1722_common(ptr noundef %0, ptr noundef %1, 
   %7 = alloca [3 x ptr], align 16
   store i32 0, ptr %6, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) @__const.dissect_1722_common.fields, i64 24, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.14) #6
   %10 = load ptr, ptr %8, align 8
@@ -2094,9 +2094,9 @@ define internal fastcc i32 @dissect_1722_common(ptr noundef %0, ptr noundef %1, 
   %16 = load i32, ptr @hf_1722_encap_seqnum, align 4
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #6
   %18 = load i32, ptr %5, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not.i = icmp eq i16 %23, 0
@@ -2287,22 +2287,22 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %21 = zext i8 %20 to i32
   %22 = lshr i32 %21, 1
   %.lobit = and i32 %22, 1
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.lobit, ptr %23, align 4
   %24 = lshr i32 %21, 3
   %.lobit108 = and i32 %24, 1
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.lobit108, ptr %25, align 4
   %26 = lshr i32 %21, 4
   %.lobit109 = and i32 %26, 1
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %.lobit109, ptr %27, align 4
   %28 = lshr i32 %21, 2
   %.lobit110 = and i32 %28, 1
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.lobit110, ptr %29, align 4
   %30 = and i32 %21, 1
-  %31 = getelementptr inbounds i8, ptr %5, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %30, ptr %31, align 4
   %.not111 = icmp eq i32 %.lobit, 0
   %32 = load i32, ptr @proto_canfd, align 4
@@ -2339,7 +2339,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %54 = load i32, ptr @hf_1722_can_rsv1, align 4
   %55 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %56 = load i32, ptr @hf_1722_can_bus_id, align 4
-  %57 = getelementptr inbounds i8, ptr %5, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %53, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %57) #6
   %59 = load ptr, ptr %7, align 8
   %60 = load i32, ptr %57, align 4
@@ -2389,7 +2389,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %86 = load i32, ptr %57, align 4
   %87 = load i32, ptr %5, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull %84, i32 noundef %86, i32 noundef %87) #6
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8
   call void @col_set_str(ptr noundef %89, i32 noundef 34, ptr noundef nonnull @.str.426) #6
   %90 = load ptr, ptr %88, align 8
@@ -2402,7 +2402,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %95 = load i32, ptr %6, align 4
   %96 = sub i32 %94, %95
   %spec.store.select = call i32 @llvm.smax.i32(i32 %96, i32 0)
-  %97 = getelementptr inbounds i8, ptr %5, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %spec.store.select, ptr %97, align 4
   %98 = load i32, ptr @hf_1722_can_len, align 4
   %99 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %98, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef %spec.store.select) #6
@@ -2411,7 +2411,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
 
 100:                                              ; preds = %79
   %101 = load ptr, ptr %88, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 408
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = call ptr @tvb_bytes_to_str_punct(ptr noundef %103, ptr noundef %0, i32 noundef %81, i32 noundef %spec.store.select, i8 noundef signext 32) #6
   call void @col_append_str(ptr noundef %101, i32 noundef 25, ptr noundef %104) #6
@@ -2476,16 +2476,16 @@ is_valid_canfd_payload_length.exit:               ; preds = %switch.early.test.i
 
 123:                                              ; preds = %121, %118
   %124 = load i32, ptr %97, align 4
-  %125 = getelementptr inbounds i8, ptr %8, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %124, ptr %125, align 4
   %126 = load i32, ptr %23, align 4
   %.not122 = icmp ne i32 %126, 0
   %127 = zext i1 %.not122 to i32
-  %128 = getelementptr inbounds i8, ptr %8, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %127, ptr %128, align 4
   %129 = load i32, ptr %57, align 4
   %130 = trunc i32 %129 to i16
-  %131 = getelementptr inbounds i8, ptr %8, i64 12
+  %131 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 %130, ptr %131, align 4
   %132 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %81, i32 noundef %124) #6
   %133 = load i32, ptr @can_heuristic_first, align 4

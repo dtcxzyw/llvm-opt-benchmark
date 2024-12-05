@@ -31,9 +31,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly initializes((0, 4), (8, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef 1, i64 noundef 4)
   store ptr %4, ptr %3, align 8
   store i32 0, ptr %4, align 4
@@ -45,17 +45,17 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: mustprogress uwtable
 define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly initializes((0, 4), (8, 20), (24, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, i64 noundef 1, i64 noundef 4)
   store ptr %5, ptr %4, align 8
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %7, align 8
   ret void
 }
@@ -63,11 +63,11 @@ define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly initializ
 ; Function Attrs: mustprogress uwtable
 define void @_Z10done_blockP7t_block(ptr nocapture noundef initializes((0, 4), (16, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef %3)
   store ptr null, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -77,12 +77,12 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef initializes((0, 4), (16, 20), (32, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef %6)
   store ptr null, ptr %3, align 8
@@ -95,23 +95,23 @@ define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef initializes(
   br i1 %2, label %4, label %11
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 92, ptr noundef %7, i64 noundef 2, i64 noundef 4)
   store ptr %8, ptr %6, align 8
   store i32 0, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %1, ptr %10, align 4
   br label %.loopexit
 
 11:                                               ; preds = %3
   %12 = add i32 %1, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = sext i32 %12 to i64
   %16 = load ptr, ptr %14, align 8
   %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef %16, i64 noundef range(i64 -2147483647, 2147483648) %15, i64 noundef 4)
@@ -126,7 +126,7 @@ define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef initializes(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %20, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -159,7 +159,7 @@ define void @_Z8pr_blockP8_IO_FILEiPKcPK7t_blockb(ptr noundef %0, i32 noundef %1
 
 _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %.0.i = phi i32 [ %10, %9 ], [ %1, %7 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
@@ -178,7 +178,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %.03235.us = phi i32 [ %21, %30 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %14, align 8
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next40
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next40
   %21 = load i32, ptr %20, align 4
   %22 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %.not34.us = icmp sgt i32 %21, %.03235.us
@@ -210,7 +210,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %.03235 = phi i32 [ %38, %45 ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next
   %38 = load i32, ptr %37, align 4
   %39 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %.not34 = icmp sgt i32 %38, %.03235
@@ -264,10 +264,10 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
 
 17:                                               ; preds = %.lr.ph46, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = getelementptr inbounds %struct.IndexGroup, ptr %3, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw %struct.IndexGroup, ptr %3, i64 %indvars.iv, i32 1
   %19 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %12)
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %20, %22
   %24 = trunc nuw nsw i64 %indvars.iv to i32
@@ -309,7 +309,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   %.3 = phi i32 [ %36, %35 ], [ %.2, %33 ]
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %29) #6
   %39 = add nsw i32 %38, %.3
-  %40 = getelementptr inbounds i8, ptr %.sroa.035.041, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 4
   %.not = icmp eq ptr %40, %28
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -335,7 +335,7 @@ define void @_Z14pr_listoflistsP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEEb(ptr nound
 9:                                                ; preds = %7
   %10 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %11 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %10)
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -353,7 +353,7 @@ define void @_Z14pr_listoflistsP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEEb(ptr nound
 
 _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = %7, %9
   %.0.i = phi i32 [ %10, %9 ], [ %1, %7 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %3, align 8
   %29 = ptrtoint ptr %27 to i64
@@ -363,7 +363,7 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   br i1 %32, label %.lr.ph51, label %.loopexit
 
 .lr.ph51:                                         ; preds = %_ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %34 = add nsw i32 %.0.i, 3
   br label %35
 
@@ -432,7 +432,7 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   %.3 = phi i32 [ %63, %62 ], [ %.2, %60 ]
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %56) #6
   %66 = add nsw i32 %65, %.3
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 4
   %.not = icmp eq ptr %67, %46
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

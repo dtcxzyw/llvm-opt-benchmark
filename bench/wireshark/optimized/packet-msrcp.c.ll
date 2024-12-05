@@ -132,16 +132,16 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 18:                                               ; preds = %12, %4
   %.0132 = phi ptr [ %11, %4 ], [ %14, %12 ]
   store i32 1, ptr %6, align 16
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %6, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %24, align 8
   %25 = zext i8 %7 to i32
   %26 = icmp eq i8 %7, 0
@@ -150,9 +150,9 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond, label %28, label %.thread
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not140 = icmp eq i16 %33, 0
@@ -166,15 +166,15 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %37 = call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 32) #3
   %38 = load i32, ptr %21, align 4
   store i32 %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
   %42 = load i32, ptr %5, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 28
   store i32 0, ptr %44, align 4
   %45 = load ptr, ptr %.0132, align 8
   call void @wmem_tree_insert32_array(ptr noundef %45, ptr noundef nonnull %6, ptr noundef nonnull %37) #3
@@ -187,14 +187,14 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not141, label %.thread154, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %48, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr %5, align 4
   %.not142 = icmp eq i32 %51, %52
   br i1 %.not142, label %53, label %.thread154
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %48, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.thread
@@ -202,7 +202,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 57:                                               ; preds = %53
   %58 = load i32, ptr %21, align 4
   store i32 %58, ptr %54, align 4
-  %59 = getelementptr inbounds i8, ptr %48, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 1, ptr %59, align 4
   br label %.thread
 
@@ -213,7 +213,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not143, label %.thread154, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = load i32, ptr %5, align 4
   %.not144 = icmp ne i32 %65, %66
@@ -227,15 +227,15 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not145, label %.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %1, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %72 = load ptr, ptr %71, align 8
   %73 = call noalias ptr @wmem_alloc(ptr noundef %72, i64 noundef 32) #3
   %74 = load i32, ptr %62, align 8
   store i32 %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
   br label %.thread
 
@@ -243,22 +243,22 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not144, label %.thread154, label %.thread
 
 .thread154:                                       ; preds = %49, %46, %60, %78
-  %79 = getelementptr inbounds i8, ptr %1, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = call noalias ptr @wmem_alloc(ptr noundef %80, i64 noundef 32) #3
   store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 0, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false)
-  %85 = getelementptr inbounds i8, ptr %81, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 28
   store i32 0, ptr %85, align 4
   br label %.thread
 
 .thread:                                          ; preds = %53, %57, %35, %67, %70, %78, %.thread154, %18
   %.0 = phi ptr [ %62, %78 ], [ %81, %.thread154 ], [ null, %18 ], [ %48, %53 ], [ %48, %57 ], [ %37, %35 ], [ %62, %67 ], [ %73, %70 ]
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8
   call void @col_set_str(ptr noundef %87, i32 noundef 34, ptr noundef nonnull @.str.29) #3
   %88 = load ptr, ptr %86, align 8
@@ -290,7 +290,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %109 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %108, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #3
   %110 = load i32, ptr @hf_msrcp_seq, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %110, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #3
-  %112 = getelementptr inbounds i8, ptr %.0, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %113 = load i32, ptr %112, align 4
   %.not147 = icmp eq i32 %113, 0
   br i1 %.not147, label %141, label %114
@@ -308,20 +308,20 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %119, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8
   %.not5.i = icmp eq ptr %122, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %122, i64 28
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 2
   store i32 %126, ptr %124, align 4
   br label %proto_item_set_generated.exit
 
 127:                                              ; preds = %114
-  %128 = getelementptr inbounds i8, ptr %.0, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp ne i32 %129, 0
   %or.cond11 = select i1 %130, i1 %26, i1 false
@@ -334,13 +334,13 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i148, label %proto_item_set_generated.exit, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %133, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %136 = load ptr, ptr %135, align 8
   %.not5.i149 = icmp eq ptr %136, null
   br i1 %.not5.i149, label %proto_item_set_generated.exit, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %136, i64 28
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
   store i32 %140, ptr %138, align 4

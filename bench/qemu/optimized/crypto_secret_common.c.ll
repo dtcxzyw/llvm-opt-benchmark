@@ -61,7 +61,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %rawdata = getelementptr inbounds i8, ptr %call2, i64 40
+  %rawdata = getelementptr inbounds nuw i8, ptr %call2, i64 40
   %0 = load ptr, ptr %rawdata, align 8
   %tobool6.not = icmp eq ptr %0, null
   br i1 %tobool6.not, label %if.then7, label %if.end8
@@ -71,7 +71,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %rawlen = getelementptr inbounds i8, ptr %call2, i64 48
+  %rawlen = getelementptr inbounds nuw i8, ptr %call2, i64 48
   %1 = load i64, ptr %rawlen, align 8
   %add = add i64 %1, 1
   %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %add, i64 noundef 1) #6
@@ -178,13 +178,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qcrypto_secret_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %iv = getelementptr inbounds i8, ptr %call.i, i64 72
+  %iv = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %iv, align 8
   tail call void @g_free(ptr noundef %0) #5
-  %keyid = getelementptr inbounds i8, ptr %call.i, i64 64
+  %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %1 = load ptr, ptr %keyid, align 8
   tail call void @g_free(ptr noundef %1) #5
-  %rawdata = getelementptr inbounds i8, ptr %call.i, i64 40
+  %rawdata = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %2 = load ptr, ptr %rawdata, align 8
   tail call void @g_free(ptr noundef %2) #5
   ret void
@@ -194,7 +194,7 @@ entry:
 define internal void @qcrypto_secret_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
-  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qcrypto_secret_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.9, ptr noundef nonnull @qcrypto_secret_prop_get_loaded, ptr noundef null) #5
   %call2 = tail call ptr @object_class_property_add_enum(ptr noundef %oc, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @QCryptoSecretFormat_lookup, ptr noundef nonnull @qcrypto_secret_prop_get_format, ptr noundef nonnull @qcrypto_secret_prop_set_format) #5
@@ -223,7 +223,7 @@ entry:
   store ptr null, ptr %input, align 8
   store i64 0, ptr %inputlen, align 8
   store i64 0, ptr %outputlen, align 8
-  %load_data = getelementptr inbounds i8, ptr %call1.i, i64 96
+  %load_data = getelementptr inbounds nuw i8, ptr %call1.i, i64 96
   %0 = load ptr, ptr %load_data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -244,7 +244,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %if.then
-  %keyid = getelementptr inbounds i8, ptr %call.i, i64 64
+  %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %2 = load ptr, ptr %keyid, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.else12, label %if.then8
@@ -272,7 +272,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %cleanup.thread.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %iv4.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %iv4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %6 = load ptr, ptr %iv4.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.then5.i, label %if.end6.i
@@ -308,7 +308,7 @@ if.end18.i:                                       ; preds = %if.end14.i
   br i1 %cmp20.i, label %if.then.i.i.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end18.i
-  %format.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %format.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %10 = load i32, ptr %format.i, align 8
   %cmp23.i = icmp eq i32 %10, 1
   br i1 %cmp23.i, label %if.then24.i, label %if.else.i
@@ -407,7 +407,7 @@ if.end11:                                         ; preds = %qcrypto_secret_decr
   br label %if.end18
 
 if.else12:                                        ; preds = %if.end6
-  %format = getelementptr inbounds i8, ptr %call.i, i64 56
+  %format = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %19 = load i32, ptr %format, align 8
   %cmp = icmp eq i32 %19, 1
   %.pre = load ptr, ptr %input, align 8
@@ -433,9 +433,9 @@ if.end16:                                         ; preds = %if.then13
 if.end18:                                         ; preds = %if.else12, %if.end16, %if.end11
   %23 = phi i64 [ %.pre19, %if.else12 ], [ %22, %if.end16 ], [ %18, %if.end11 ]
   %24 = phi ptr [ %.pre, %if.else12 ], [ %call.i17, %if.end16 ], [ %output.1, %if.end11 ]
-  %rawdata = getelementptr inbounds i8, ptr %call.i, i64 40
+  %rawdata = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %24, ptr %rawdata, align 8
-  %rawlen = getelementptr inbounds i8, ptr %call.i, i64 48
+  %rawlen = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 %23, ptr %rawlen, align 8
   br label %return
 
@@ -449,7 +449,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @qcrypto_secret_prop_get_loaded(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %rawdata = getelementptr inbounds i8, ptr %call.i, i64 40
+  %rawdata = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %rawdata, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -461,7 +461,7 @@ declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @qcrypto_secret_prop_get_format(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %format = getelementptr inbounds i8, ptr %call.i, i64 56
+  %format = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i32, ptr %format, align 8
   ret i32 %0
 }
@@ -470,7 +470,7 @@ entry:
 define internal void @qcrypto_secret_prop_set_format(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %format = getelementptr inbounds i8, ptr %call.i, i64 56
+  %format = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i32 %value, ptr %format, align 8
   ret void
 }
@@ -481,7 +481,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qcrypto_secret_prop_get_keyid(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %keyid = getelementptr inbounds i8, ptr %call.i, i64 64
+  %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %keyid, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -491,7 +491,7 @@ entry:
 define internal void @qcrypto_secret_prop_set_keyid(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %keyid = getelementptr inbounds i8, ptr %call.i, i64 64
+  %keyid = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %keyid, align 8
   tail call void @g_free(ptr noundef %0) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -503,7 +503,7 @@ entry:
 define internal noalias ptr @qcrypto_secret_prop_get_iv(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %iv = getelementptr inbounds i8, ptr %call.i, i64 72
+  %iv = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %iv, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -513,7 +513,7 @@ entry:
 define internal void @qcrypto_secret_prop_set_iv(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 29, ptr noundef nonnull @__func__.QCRYPTO_SECRET_COMMON) #5
-  %iv = getelementptr inbounds i8, ptr %call.i, i64 72
+  %iv = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %iv, align 8
   tail call void @g_free(ptr noundef %0) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5

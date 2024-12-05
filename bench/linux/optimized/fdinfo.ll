@@ -64,23 +64,23 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
-  %9 = getelementptr inbounds i8, ptr %5, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
-  %12 = getelementptr inbounds i8, ptr %5, i64 404
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 404
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
   %15 = load volatile i32, ptr %7, align 64
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %17 = load volatile i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load volatile i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %21 = load volatile i32, ptr %20, align 4
   %22 = load i32, ptr %5, align 64
   %23 = and i32 %22, 2048
@@ -92,13 +92,13 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %11) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %15) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %17) #4
-  %29 = getelementptr inbounds i8, ptr %5, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %30 = load i32, ptr %29, align 16
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %30) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %14) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %19) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %21) #4
-  %31 = getelementptr inbounds i8, ptr %5, i64 400
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %32 = load i32, ptr %31, align 16
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %32) #4
   %33 = sub i32 %17, %15
@@ -109,8 +109,8 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %36, label %.loopexit22, label %37
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %5, i64 96
-  %39 = getelementptr inbounds i8, ptr %5, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 104
   br label %40
 
 40:                                               ; preds = %84, %37
@@ -137,21 +137,21 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %56 = getelementptr %struct.io_uring_sqe, ptr %53, i64 %55
   %57 = load i8, ptr %56, align 8
   %58 = tail call ptr @io_uring_get_opcode(i8 noundef zeroext %57) #4
-  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %56, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %56, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %56, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %56, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %56, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %71 = load i16, ptr %70, align 8
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %56, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %74 = load i64, ptr %73, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %50, ptr noundef %58, i32 noundef %60, i32 noundef %63, i64 noundef %65, i64 noundef %67, i32 noundef %69, i32 noundef %72, i64 noundef %74) #4
   br i1 %27, label %.loopexit21, label %75
@@ -188,7 +188,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %90, label %.loopexit20, label %91
 
 91:                                               ; preds = %.loopexit22
-  %92 = getelementptr inbounds i8, ptr %7, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 64
   br label %93
 
 93:                                               ; preds = %110, %91
@@ -199,15 +199,15 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %98 = zext i32 %97 to i64
   %99 = getelementptr [0 x %struct.io_uring_cqe], ptr %92, i64 0, i64 %98
   %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %99, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 12
   %104 = load i32, ptr %103, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %96, i64 noundef %100, i32 noundef %102, i32 noundef %104) #4
   br i1 %24, label %110, label %105
 
 105:                                              ; preds = %93
-  %106 = getelementptr inbounds i8, ptr %99, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = getelementptr i8, ptr %99, i64 24
   %109 = load i64, ptr %108, align 8
@@ -221,7 +221,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %112, label %.loopexit20, label %93, !llvm.loop !9
 
 .loopexit20:                                      ; preds = %110, %.loopexit22
-  %113 = tail call i32 @mutex_trylock(ptr noundef %8) #4
+  %113 = tail call i32 @mutex_trylock(ptr noundef nonnull %8) #4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %126, label %115
 
@@ -232,11 +232,11 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %118, label %126, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %5, i64 960
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 960
   %121 = load ptr, ptr %120, align 64
-  %122 = getelementptr inbounds i8, ptr %121, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 96
   %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %121, i64 92
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 92
   %125 = load i32, ptr %124, align 4
   br label %126
 
@@ -245,19 +245,19 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %128 = phi i32 [ %123, %119 ], [ -1, %115 ], [ -1, %.loopexit20 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %128) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %127) #4
-  %129 = getelementptr inbounds i8, ptr %5, i64 160
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %130 = load i32, ptr %129, align 32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %130) #4
   br i1 %114, label %.thread, label %133
 
 .thread:                                          ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %5, i64 164
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %132 = load i32, ptr %131, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %132) #4
   br label %198
 
 133:                                              ; preds = %126
-  %134 = getelementptr inbounds i8, ptr %5, i64 136
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %135 = load i32, ptr %129, align 32
   %.not26 = icmp eq i32 %135, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -273,7 +273,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %142, label %161, label %143
 
 143:                                              ; preds = %.lr.ph
-  %144 = getelementptr inbounds i8, ptr %141, i64 160
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 160
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %145, align 8
   %147 = and i32 %146, 67108864
@@ -281,20 +281,20 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %148, label %157, label %149, !prof !10
 
 149:                                              ; preds = %143
-  %150 = getelementptr inbounds i8, ptr %141, i64 168
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 168
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %145, i64 104
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 104
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 96
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 96
   %155 = load ptr, ptr %154, align 32
   %156 = tail call ptr %155(ptr noundef %145, ptr noundef %151) #4
   br label %157
 
 157:                                              ; preds = %149, %143
   %158 = phi ptr [ %156, %149 ], [ %145, %143 ]
-  %159 = getelementptr inbounds i8, ptr %158, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %160 = trunc nuw i64 %136 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %160, ptr noundef %159) #4
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %160, ptr noundef nonnull %159) #4
   br label %163
 
 161:                                              ; preds = %.lr.ph
@@ -310,10 +310,10 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %167, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %163, %133
-  %168 = getelementptr inbounds i8, ptr %5, i64 164
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %169 = load i32, ptr %168, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %169) #4
-  %170 = getelementptr inbounds i8, ptr %5, i64 168
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %171 = load i32, ptr %168, align 4
   %.not27 = icmp eq i32 %171, 0
   br i1 %.not27, label %._crit_edge25, label %.lr.ph24
@@ -323,7 +323,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %173 = load ptr, ptr %170, align 8
   %174 = getelementptr ptr, ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i64, ptr %176, align 8
   %178 = load i64, ptr %175, align 8
   %179 = sub i64 %177, %178
@@ -337,8 +337,8 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %185, label %.lr.ph24, label %._crit_edge25
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
-  %186 = getelementptr inbounds i8, ptr %5, i64 1016
-  %187 = getelementptr inbounds i8, ptr %5, i64 1024
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 1016
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 1024
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %198, label %190
@@ -347,7 +347,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22) #4
   store i64 0, ptr %3, align 8
-  %191 = call ptr @xa_find(ptr noundef %186, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #4
+  %191 = call ptr @xa_find(ptr noundef nonnull %186, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #4
   %192 = icmp eq ptr %191, null
   br i1 %192, label %.loopexit19, label %.preheader18
 
@@ -356,7 +356,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %194 = load i64, ptr %3, align 8
   %195 = trunc i64 %194 to i32
   call fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %195, ptr noundef nonnull %193) #5
-  %196 = call ptr @xa_find_after(ptr noundef %186, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #4
+  %196 = call ptr @xa_find_after(ptr noundef nonnull %186, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #4
   %197 = icmp eq ptr %196, null
   br i1 %197, label %.loopexit19, label %.preheader18, !llvm.loop !11
 
@@ -366,9 +366,9 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
 
 198:                                              ; preds = %.thread, %.loopexit19, %._crit_edge25
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.23) #4
-  %199 = getelementptr inbounds i8, ptr %5, i64 904
-  %200 = getelementptr inbounds i8, ptr %5, i64 896
-  %201 = getelementptr inbounds i8, ptr %5, i64 288
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 904
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 896
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 288
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %198
@@ -378,7 +378,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %205 = getelementptr %struct.io_hash_bucket, ptr %203, i64 %204
   %206 = load ptr, ptr %201, align 32
   call void @_raw_spin_lock(ptr noundef %205) #4
-  %207 = getelementptr inbounds i8, ptr %205, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
   %210 = getelementptr i8, ptr %208, i64 -160
@@ -388,17 +388,17 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
 
 .preheader16:                                     ; preds = %.backedge, %.preheader16
   %213 = phi ptr [ %226, %.preheader16 ], [ %210, %.backedge ]
-  %214 = getelementptr inbounds i8, ptr %213, i64 64
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 64
   %215 = load i8, ptr %214, align 8
   %216 = zext i8 %215 to i32
-  %217 = getelementptr inbounds i8, ptr %213, i64 96
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 96
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 1968
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1968
   %220 = load volatile ptr, ptr %219, align 16
   %221 = icmp ne ptr %220, null
   %222 = zext i1 %221 to i32
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %216, i32 noundef %222) #4
-  %223 = getelementptr inbounds i8, ptr %213, i64 160
+  %223 = getelementptr inbounds nuw i8, ptr %213, i64 160
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, null
   %226 = getelementptr i8, ptr %224, i64 -160
@@ -421,17 +421,17 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
 
 .preheader15:                                     ; preds = %229, %.preheader15
   %236 = phi ptr [ %249, %.preheader15 ], [ %233, %229 ]
-  %237 = getelementptr inbounds i8, ptr %236, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 64
   %238 = load i8, ptr %237, align 8
   %239 = zext i8 %238 to i32
-  %240 = getelementptr inbounds i8, ptr %236, i64 96
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 96
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 1968
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 1968
   %243 = load volatile ptr, ptr %242, align 16
   %244 = icmp ne ptr %243, null
   %245 = zext i1 %244 to i32
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %239, i32 noundef %245) #4
-  %246 = getelementptr inbounds i8, ptr %236, i64 160
+  %246 = getelementptr inbounds nuw i8, ptr %236, i64 160
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   %249 = getelementptr i8, ptr %247, i64 -160
@@ -465,25 +465,25 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %264, label %.backedge.backedge, label %.thread12
 
 .thread12:                                        ; preds = %252, %.thread11
-  call void @mutex_unlock(ptr noundef %8) #4
+  call void @mutex_unlock(ptr noundef nonnull %8) #4
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread13, %.thread12
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.25) #4
-  %265 = getelementptr inbounds i8, ptr %5, i64 832
-  call void @_raw_spin_lock(ptr noundef %265) #4
-  %266 = getelementptr inbounds i8, ptr %5, i64 880
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 832
+  call void @_raw_spin_lock(ptr noundef nonnull %265) #4
+  %266 = getelementptr inbounds nuw i8, ptr %5, i64 880
   %267 = load ptr, ptr %266, align 8
   %268 = icmp eq ptr %267, %266
   br i1 %268, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.thread14, %.preheader
   %269 = phi ptr [ %276, %.preheader ], [ %267, %.thread14 ]
-  %270 = getelementptr inbounds i8, ptr %269, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %269, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 24
   %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %269, i64 28
+  %274 = getelementptr inbounds nuw i8, ptr %269, i64 28
   %275 = load i32, ptr %274, align 4
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %271, i32 noundef %273, i32 noundef %275) #4
   %276 = load ptr, ptr %269, align 8
@@ -491,7 +491,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   br i1 %277, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %.thread14
-  call void @_raw_spin_unlock(ptr noundef %265) #4
+  call void @_raw_spin_unlock(ptr noundef nonnull %265) #4
   ret void
 }
 
@@ -516,56 +516,56 @@ declare dso_local ptr @xa_find(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %1) #4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = load i32, ptr @overflowuid, align 4
   %8 = select i1 %6, i32 %7, i32 %5
   %9 = zext i32 %8 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %9) #4
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   %13 = load i32, ptr @overflowuid, align 4
   %14 = select i1 %12, i32 %13, i32 %11
   %15 = zext i32 %14 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %15) #4
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, -1
   %19 = load i32, ptr @overflowuid, align 4
   %20 = select i1 %18, i32 %19, i32 %17
   %21 = zext i32 %20 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, -1
   %25 = load i32, ptr @overflowuid, align 4
   %26 = select i1 %24, i32 %25, i32 %23
   %27 = zext i32 %26 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %27) #4
-  %28 = getelementptr inbounds i8, ptr %2, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, -1
   %31 = load i32, ptr @overflowgid, align 4
   %32 = select i1 %30, i32 %31, i32 %29
   %33 = zext i32 %32 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef %33) #4
-  %34 = getelementptr inbounds i8, ptr %2, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, -1
   %37 = load i32, ptr @overflowgid, align 4
   %38 = select i1 %36, i32 %37, i32 %35
   %39 = zext i32 %38 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %39) #4
-  %40 = getelementptr inbounds i8, ptr %2, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, -1
   %43 = load i32, ptr @overflowgid, align 4
   %44 = select i1 %42, i32 %43, i32 %41
   %45 = zext i32 %44 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %45) #4
-  %46 = getelementptr inbounds i8, ptr %2, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, -1
   %49 = load i32, ptr @overflowgid, align 4
@@ -573,15 +573,15 @@ define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, 
   %51 = zext i32 %50 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef %51) #4
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.31) #4
-  %52 = getelementptr inbounds i8, ptr %2, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %3
-  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br label %59
 
 59:                                               ; preds = %59, %57
@@ -603,7 +603,7 @@ define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, 
 
 .loopexit:                                        ; preds = %59, %3
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.34) #4
-  %73 = getelementptr inbounds i8, ptr %2, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %74 = load i64, ptr %73, align 8
   tail call void @seq_put_hex_ll(ptr noundef %0, ptr noundef null, i64 noundef %74, i32 noundef 16) #4
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #4

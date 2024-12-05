@@ -126,8 +126,8 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %79 = getelementptr inbounds float, ptr %25, i64 %indvars.iv301
-  %80 = getelementptr inbounds float, ptr %26, i64 %indvars.iv301
+  %79 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv301
+  %80 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv301
   call void @slartg_(ptr noundef nonnull %79, ptr noundef nonnull %80, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %81 = load float, ptr %18, align 4
   store float %81, ptr %79, align 4
@@ -141,7 +141,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %87 = load float, ptr %83, align 4
   %88 = fmul float %86, %87
   store float %88, ptr %83, align 4
-  %89 = getelementptr inbounds float, ptr %36, i64 %indvars.iv301
+  %89 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv301
   store float %86, ptr %89, align 4
   %90 = load i32, ptr %2, align 4
   %91 = trunc nuw nsw i64 %indvars.iv301 to i32
@@ -154,8 +154,8 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 1, %.lr.ph ]
-  %95 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  %96 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
   call void @slartg_(ptr noundef nonnull %95, ptr noundef nonnull %96, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %97 = load float, ptr %18, align 4
   store float %97, ptr %95, align 4
@@ -230,8 +230,8 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph280.split.us:                               ; preds = %.lr.ph280, %.lr.ph280.split.us
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph280.split.us ], [ 1, %.lr.ph280 ]
-  %135 = getelementptr inbounds float, ptr %25, i64 %indvars.iv311
-  %136 = getelementptr inbounds float, ptr %26, i64 %indvars.iv311
+  %135 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv311
+  %136 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv311
   call void @slartg_(ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %137 = load float, ptr %18, align 4
   store float %137, ptr %135, align 4
@@ -245,7 +245,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %143 = load float, ptr %139, align 4
   %144 = fmul float %142, %143
   store float %144, ptr %139, align 4
-  %145 = getelementptr inbounds float, ptr %36, i64 %indvars.iv311
+  %145 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv311
   store float %142, ptr %145, align 4
   %146 = load i32, ptr %2, align 4
   %147 = trunc nuw nsw i64 %indvars.iv311 to i32
@@ -258,8 +258,8 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph280.split:                                  ; preds = %.lr.ph280, %.lr.ph280.split
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.lr.ph280.split ], [ 1, %.lr.ph280 ]
-  %151 = getelementptr inbounds float, ptr %25, i64 %indvars.iv306
-  %152 = getelementptr inbounds float, ptr %26, i64 %indvars.iv306
+  %151 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv306
+  %152 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv306
   call void @slartg_(ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %153 = load float, ptr %18, align 4
   store float %153, ptr %151, align 4
@@ -367,7 +367,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .lr.ph296:                                        ; preds = %.lr.ph296.preheader, %239
   %indvars.iv322 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next323, %239 ]
   %indvars.iv316 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next317, %239 ]
-  %205 = getelementptr inbounds float, ptr %25, i64 %indvars.iv322
+  %205 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv322
   %206 = load float, ptr %205, align 4
   %207 = load i32, ptr %2, align 4
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
@@ -384,7 +384,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv318 = phi i64 [ %indvars.iv316, %.lr.ph288.preheader ], [ %indvars.iv.next319, %.lr.ph288 ]
   %.0247286 = phi float [ %206, %.lr.ph288.preheader ], [ %.1, %.lr.ph288 ]
   %.0248285 = phi i32 [ %209, %.lr.ph288.preheader ], [ %.1249, %.lr.ph288 ]
-  %211 = getelementptr inbounds float, ptr %25, i64 %indvars.iv318
+  %211 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv318
   %212 = load float, ptr %211, align 4
   %213 = fcmp olt float %212, %.0247286
   %214 = trunc nuw i64 %indvars.iv318 to i32

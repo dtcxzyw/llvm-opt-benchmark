@@ -74,7 +74,7 @@ define internal range(i32 -2, 1) i32 @mca_mpool_hugepage_open() #0 {
 7:                                                ; preds = %6, %0
   store ptr @opal_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 280), align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 288), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -83,7 +83,7 @@ define internal range(i32 -2, 1) i32 @mca_mpool_hugepage_open() #0 {
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %7 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %7 ]
   tail call void %10(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 280)) #14
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -102,20 +102,20 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   br i1 %.not44.i, label %opal_obj_new.exit.thread.i, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.preheader.i
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %17
 
 17:                                               ; preds = %.backedge.i, %.lr.ph.i12
   %18 = phi ptr [ %15, %.lr.ph.i12 ], [ %110, %.backedge.i ]
   store i64 0, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(10) @.str.8) #15
   %.not35.i = icmp eq i32 %21, 0
   br i1 %.not35.i, label %22, label %.backedge.i
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @strdup(ptr noundef %24) #14
   %26 = icmp eq ptr %25, null
@@ -141,7 +141,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   br i1 %.not37.i, label %35, label %29, !llvm.loop !6
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %18, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @statfs(ptr noundef %37, ptr noundef nonnull %3) #14
   %39 = load i64, ptr %16, align 8
@@ -177,9 +177,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 
 52:                                               ; preds = %51
   store ptr @mca_mpool_hugepage_hugepage_t_class, ptr %47, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store volatile i32 1, ptr %53, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_hugepage_t_class, i64 40), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_hugepage_hugepage_t_class, i64 40), align 8
   %55 = load ptr, ptr %54, align 8
   %.not6.i.i.i = icmp eq ptr %55, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i
@@ -188,19 +188,19 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
   %56 = phi ptr [ %58, %.lr.ph.i.i.i ], [ %55, %52 ]
   %.07.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i ], [ %54, %52 ]
   call void %56(ptr noundef nonnull %47) #14
-  %57 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
-  %59 = getelementptr inbounds i8, ptr %18, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call noalias ptr @strdup(ptr noundef %60) #14
-  %62 = getelementptr inbounds i8, ptr %47, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr %61, ptr %62, align 8
   %63 = load i64, ptr %2, align 8
-  %64 = getelementptr inbounds i8, ptr %47, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store i64 %63, ptr %64, align 8
   %65 = call i32 @access(ptr noundef %61, i32 noundef 6) #14
   %66 = icmp eq i32 %65, 0
@@ -215,19 +215,19 @@ opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
   %71 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
   %72 = load i64, ptr %64, align 8
   %73 = load ptr, ptr %62, align 8
-  %74 = getelementptr inbounds i8, ptr %47, i64 60
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %75 = load i32, ptr %74, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %71, ptr noundef nonnull @.str.12, i64 noundef %72, ptr noundef %73, i32 noundef %75) #14
   br label %76
 
 76:                                               ; preds = %70, %69
   %77 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 320), align 8
-  %78 = getelementptr inbounds i8, ptr %47, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store volatile ptr %77, ptr %78, align 8
   %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 320), align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store volatile ptr %47, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %47, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store volatile ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 296), ptr %81, align 8
   store volatile ptr %47, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 320), align 8
   %82 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 336), align 8
@@ -242,7 +242,7 @@ opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %52
   %86 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
   %87 = load i64, ptr %64, align 8
   %88 = load ptr, ptr %62, align 8
-  %89 = getelementptr inbounds i8, ptr %47, i64 60
+  %89 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %90 = load i32, ptr %89, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %86, ptr noundef nonnull @.str.13, i64 noundef %87, ptr noundef %88, i32 noundef %90) #14
   br label %91
@@ -271,7 +271,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %97, %94
 
 102:                                              ; preds = %opal_thread_add_fetch_32.exit.i
   %103 = load ptr, ptr %47, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   %.not6.i.i = icmp eq ptr %106, null
@@ -281,7 +281,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %97, %94
   %107 = phi ptr [ %109, %.lr.ph.i.i ], [ %106, %102 ]
   %.07.i.i = phi ptr [ %108, %.lr.ph.i.i ], [ %105, %102 ]
   call void %107(ptr noundef nonnull %47) #14
-  %108 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not.i39.i = icmp eq ptr %109, null
   br i1 %.not.i39.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -325,12 +325,12 @@ mca_mpool_hugepage_find_hugepages.exit:           ; preds = %opal_obj_run_constr
   %.0817 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 344), align 8
   %120 = zext nneg i32 %.0817 to i64
-  %121 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw %struct.mca_mpool_hugepage_module_t, ptr %119, i64 %120
   %122 = call i32 @mca_mpool_hugepage_module_init(ptr noundef %121, ptr noundef %.0918) #14
   %.not11 = icmp eq i32 %122, 0
   %123 = zext i1 %.not11 to i32
   %spec.select = add nuw nsw i32 %.0817, %123
-  %124 = getelementptr inbounds i8, ptr %.0918, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
   %.09 = load volatile ptr, ptr %124, align 8
   %.not10 = icmp eq ptr %.09, getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 296)
   br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -361,15 +361,15 @@ define internal noundef i32 @mca_mpool_hugepage_close() #0 {
   %6 = add i64 %5, -1
   store volatile i64 %6, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 336), align 8
   %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 312), align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load volatile ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store volatile ptr %9, ptr %12, align 8
   %13 = load volatile ptr, ptr %10, align 8
   store volatile ptr %13, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 312), align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i8, ptr @opal_uses_threads, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %20
@@ -393,7 +393,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %17, %20
 
 25:                                               ; preds = %opal_thread_add_fetch_32.exit
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i = icmp eq ptr %29, null
@@ -403,7 +403,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %17, %20
   %30 = phi ptr [ %32, %.lr.ph.i ], [ %29, %25 ]
   %.07.i = phi ptr [ %31, %.lr.ph.i ], [ %28, %25 ]
   tail call void %30(ptr noundef nonnull %7) #14
-  %31 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
@@ -419,7 +419,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
 
 opal_list_remove_first.exit.thread:               ; preds = %33, %.preheader, %0
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 280), align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i11 = icmp eq ptr %39, null
@@ -429,7 +429,7 @@ opal_list_remove_first.exit.thread:               ; preds = %33, %.preheader, %0
   %40 = phi ptr [ %42, %.lr.ph.i12 ], [ %39, %opal_list_remove_first.exit.thread ]
   %.07.i13 = phi ptr [ %41, %.lr.ph.i12 ], [ %38, %opal_list_remove_first.exit.thread ]
   tail call void %40(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 280)) #14
-  %41 = getelementptr inbounds i8, ptr %.07.i13, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.07.i13, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i14 = icmp eq ptr %42, null
   br i1 %.not.i14, label %opal_obj_run_destructors.exit15, label %.lr.ph.i12, !llvm.loop !7
@@ -442,8 +442,8 @@ opal_obj_run_destructors.exit15:                  ; preds = %.lr.ph.i12, %opal_l
 .lr.ph19:                                         ; preds = %opal_obj_run_destructors.exit15, %.lr.ph19
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %opal_obj_run_destructors.exit15 ]
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 344), align 8
-  %46 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %45, i64 %indvars.iv
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %46 = getelementptr inbounds nuw %struct.mca_mpool_hugepage_module_t, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef %46) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -507,7 +507,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
   br i1 %.not68, label %.thread, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %14, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 0, ptr %14, align 1
   %17 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.14, ptr noundef nonnull %13) #15
   %18 = icmp eq i32 %17, 0
@@ -602,7 +602,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 54:                                               ; preds = %34, %49, %52
   %.5 = phi i64 [ %.4, %52 ], [ %.4, %49 ], [ %.193, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
+  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8
   %.not64 = icmp eq ptr %56, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -645,16 +645,16 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 
 69:                                               ; preds = %.lr.ph98, %68
   %indvars.iv104 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next105, %68 ]
-  %70 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %67, i64 %indvars.iv104
-  %71 = getelementptr inbounds i8, ptr %70, i64 72
+  %70 = getelementptr inbounds nuw %struct.mca_mpool_hugepage_module_t, ptr %67, i64 %indvars.iv104
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i64, ptr %73, align 8
   %.not65 = icmp eq i64 %74, %.6
   br i1 %.not65, label %75, label %68
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %70, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %77 = tail call i32 @llvm.smin.i32(i32 %.355, i32 80)
   %78 = add nsw i32 %77, 20
   %.not66 = icmp eq ptr %2, null
@@ -672,9 +672,9 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 83:                                               ; preds = %80
   %84 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
   %85 = load ptr, ptr %76, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 60
   %89 = load i32, ptr %88, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %84, ptr noundef nonnull @.str.20, i64 noundef %.6, ptr noundef %87, i32 noundef %89) #14
   br label %94
@@ -753,9 +753,9 @@ declare i32 @opal_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @page_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0

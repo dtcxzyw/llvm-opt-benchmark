@@ -33,7 +33,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.i28.not, label %if.end7.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 if.end7.i:                                        ; preds = %if.then3.i
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %0, i64 16
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %cmp.i96373 = icmp eq ptr %add.ptr.i3, %2
   br i1 %cmp.i96373, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit, label %_ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEEEclILi0EEEbNS9_10UnrollStepIXT_EEE.exit
 
@@ -50,7 +50,7 @@ _ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDeleg
   %or.i.i344345 = or <16 x i1> %cmp.i12.i, %cmp.i.i
   %7 = bitcast <16 x i1> %or.i.i344345 to i16
   %tobool.i113.not = icmp eq i16 %7, 0
-  %add.ptr.i101 = getelementptr inbounds i8, ptr %af.i.0374, i64 16
+  %add.ptr.i101 = getelementptr inbounds nuw i8, ptr %af.i.0374, i64 16
   br i1 %tobool.i113.not, label %lor.rhs.i, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 lor.rhs.i:                                        ; preds = %_ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEEEclILi0EEEbNS9_10UnrollStepIXT_EEE.exit
@@ -64,7 +64,7 @@ _ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDeleg
   %or.i.i137346347 = or <16 x i1> %cmp.i12.i133, %cmp.i.i135
   %9 = bitcast <16 x i1> %or.i.i137346347 to i16
   %tobool.i.i.not = icmp eq i16 %9, 0
-  %add.ptr.i124 = getelementptr inbounds i8, ptr %af.i.0374, i64 32
+  %add.ptr.i124 = getelementptr inbounds nuw i8, ptr %af.i.0374, i64 32
   br i1 %tobool.i.i.not, label %lor.rhs.i107, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 lor.rhs.i107:                                     ; preds = %_ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEEEclILi1EEEbNS9_10UnrollStepIXT_EEE.exit
@@ -78,7 +78,7 @@ _ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDeleg
   %or.i.i162348349 = or <16 x i1> %cmp.i12.i158, %cmp.i.i160
   %11 = bitcast <16 x i1> %or.i.i162348349 to i16
   %tobool.i.i163.not = icmp eq i16 %11, 0
-  %add.ptr.i149 = getelementptr inbounds i8, ptr %af.i.0374, i64 48
+  %add.ptr.i149 = getelementptr inbounds nuw i8, ptr %af.i.0374, i64 48
   br i1 %tobool.i.i163.not, label %lor.rhs.i130, label %_ZN5folly11simd_detail19simdForEachAligningILi4EKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS2_NS_6detail25SimpleSimdStringUtilsImplIS6_E28HasSpaceOrCntrlSymbolsLambdaEEEEEviPT0_SE_RT1_.exit
 
 lor.rhs.i130:                                     ; preds = %_ZN5folly11simd_detail19SimdForEachMainLoop16SmallStepsLambdaIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEEEclILi2EEEbNS9_10UnrollStepIXT_EEE.exit
@@ -109,7 +109,7 @@ _ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdF
   br label %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit
 
 for.cond.i:                                       ; preds = %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit
-  %add.ptr.i250 = getelementptr inbounds i8, ptr %af.i.8371, i64 64
+  %add.ptr.i250 = getelementptr inbounds nuw i8, ptr %af.i.8371, i64 64
   %dec.i = add nsw i64 %bigStepsCount.0.i372, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %while.body.i.loopexit, label %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit, !llvm.loop !10
@@ -117,9 +117,9 @@ for.cond.i:                                       ; preds = %_ZN5folly6detail11U
 _ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit: ; preds = %for.cond.i, %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit.preheader
   %bigStepsCount.0.i372 = phi i64 [ %dec.i, %for.cond.i ], [ %div.i, %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit.preheader ]
   %af.i.8371 = phi ptr [ %add.ptr.i250, %for.cond.i ], [ %add.ptr.i175, %_ZN5folly6detail11UnrollUtils15unrollUntilImplILi4ELi0EZNKS_11simd_detail19SimdForEachMainLoopclIKcNS3_13AnyOfDelegateINS3_22SimdCharPlatformCommonINS3_28SimdCharSse2PlatformSpecificEEEPS6_NS0_25SimpleSimdStringUtilsImplISA_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SH_RT0_NS0_10UnrollStepIXT1_EEEEUlSG_E_EENSt9enable_ifIXneT0_T_EbE4typeET1_.exit.preheader ]
-  %add.ptr.i242 = getelementptr inbounds i8, ptr %af.i.8371, i64 16
-  %add.ptr.i244 = getelementptr inbounds i8, ptr %af.i.8371, i64 32
-  %add.ptr.i247 = getelementptr inbounds i8, ptr %af.i.8371, i64 48
+  %add.ptr.i242 = getelementptr inbounds nuw i8, ptr %af.i.8371, i64 16
+  %add.ptr.i244 = getelementptr inbounds nuw i8, ptr %af.i.8371, i64 32
+  %add.ptr.i247 = getelementptr inbounds nuw i8, ptr %af.i.8371, i64 48
   %15 = load <16 x i8>, ptr %af.i.8371, align 1, !tbaa !7, !noalias !12
   %16 = load <16 x i8>, ptr %add.ptr.i242, align 1, !tbaa !7, !noalias !12
   %17 = load <16 x i8>, ptr %add.ptr.i244, align 1, !tbaa !7, !noalias !12
@@ -150,7 +150,7 @@ _ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdC
 if.end16.i:                                       ; preds = %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit, %if.end.i
   %af.i.13 = phi ptr [ %0, %if.end.i ], [ %2, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit ]
   %ignore.sroa.0.0.i = phi i64 [ %sub.ptr.sub.i, %if.end.i ], [ 0, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS0_13AnyOfDelegateINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEEPS3_NS_6detail25SimpleSimdStringUtilsImplIS7_E28HasSpaceOrCntrlSymbolsLambdaEEELi4EEEbiRPT_SF_RT0_NS9_10UnrollStepIXT1_EEE.exit ]
-  %add.ptr18.i = getelementptr inbounds i8, ptr %af.i.13, i64 16
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %af.i.13, i64 16
   %sub.ptr.lhs.cast19.i = ptrtoint ptr %add.ptr18.i to i64
   %20 = load <16 x i8>, ptr %af.i.13, align 1, !tbaa !7
   %cmp.i55 = icmp ult <16 x i8> %20, splat (i8 33)

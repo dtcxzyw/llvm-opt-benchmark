@@ -3115,7 +3115,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @uat_dhcp_records_text_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -3124,7 +3124,7 @@ define internal void @uat_dhcp_records_text_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_dhcp_records_text_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -3154,9 +3154,9 @@ declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr 
 define internal void @uat_dhcp_records_ftype_set_cb(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -3171,7 +3171,7 @@ define internal void @uat_dhcp_records_ftype_set_cb(ptr nocapture noundef writeo
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -3194,13 +3194,13 @@ define internal void @uat_dhcp_records_ftype_set_cb(ptr nocapture noundef writeo
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_dhcp_records_ftype_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
@@ -3211,7 +3211,7 @@ define internal void @uat_dhcp_records_ftype_tostr_cb(ptr nocapture noundef read
   %12 = add i32 %.01519, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !6
@@ -3248,7 +3248,7 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %.loopexit, label %7
@@ -3261,9 +3261,9 @@ define internal void @dhcp_stat_init(ptr noundef %0) #0 {
   %9 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.1859, i32 noundef 2, i32 noundef 0, ptr noundef null) #9
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %9) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %13
 
 13:                                               ; preds = %8, %13
@@ -3292,12 +3292,12 @@ define internal range(i32 0, 2) i32 @dhcp_stat_packet(ptr nocapture noundef read
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @stat_tap_get_field_data(ptr noundef %13, i32 noundef %6, i32 noundef 1) #9
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
@@ -3311,7 +3311,7 @@ define internal range(i32 0, 2) i32 @dhcp_stat_packet(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @dhcp_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3319,7 +3319,7 @@ define internal void @dhcp_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 1) #9
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 1, ptr noundef %4) #9
   %6 = add nuw i32 %.08, 1
@@ -3385,7 +3385,7 @@ define internal void @dhcp_init_protocol() #0 {
   %17 = zext i32 %16 to i64
   %18 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %17
   store ptr %13, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %16 to i64
   %22 = getelementptr [256 x %struct.opt_info], ptr @dhcp_opt, i64 0, i64 %21, i32 1
@@ -3447,13 +3447,13 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 8), align 8
   store i32 0, ptr @rfc3396_sip_server, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 8), align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 284
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4011
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 4011
   br i1 %15, label %16, label %20
@@ -3470,7 +3470,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 20:                                               ; preds = %12, %18
   %.not212 = phi ptr [ @.str.1942, %18 ], [ @.str.1858, %12 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.1937) #9
   %23 = load ptr, ptr %21, align 8
@@ -3494,7 +3494,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i8 %25 to i16
   %37 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %35, ptr noundef %0, i32 noundef 28, i32 noundef 6, i16 noundef zeroext %36) #9
@@ -3505,7 +3505,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 39:                                               ; preds = %28
   %40 = zext i8 %26 to i32
   %41 = load ptr, ptr %21, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = zext i8 %25 to i16
   %45 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %43, ptr noundef %0, i32 noundef 28, i32 noundef %40, i16 noundef zeroext %44) #9
@@ -3657,7 +3657,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 126:                                              ; preds = %120
   %127 = load i32, ptr @hf_dhcp_hw_addr, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 408
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %129 = load ptr, ptr %128, align 8
   %130 = zext i8 %25 to i16
   %131 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %129, ptr noundef %0, i32 noundef 28, i32 noundef %83, i16 noundef zeroext %130) #9
@@ -3734,13 +3734,13 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %167, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not5.i = icmp eq ptr %170, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = or i32 %173, 1
   store i32 %174, ptr %172, align 4
@@ -3842,10 +3842,10 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @uat_dhcp_record_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   ret ptr %0
 }
@@ -3868,7 +3868,7 @@ define internal noundef zeroext i1 @uat_dhcp_record_update_cb(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_dhcp_record_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #9
   ret void
@@ -4061,10 +4061,10 @@ define internal i32 @dissect_dhcpopt_basic_type(ptr noundef %0, ptr noundef %1, 
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %2, ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 0, i32 noundef %12, ptr noundef %14, ptr noundef nonnull @__const.dissect_dhcpopt_basic_type.default_hfs)
   br label %16
@@ -4188,7 +4188,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
 15:                                               ; preds = %4
   %16 = load i32, ptr @hf_dhcp_option_option_overload, align 4
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #9
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, -1
@@ -4202,7 +4202,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   br i1 %.not39, label %42, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @ett_dhcp_server_hostname, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %27, i32 noundef 44, i32 noundef 64, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull @.str.1968) #9
@@ -4210,8 +4210,8 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   store i32 0, ptr %5, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
-  %30 = getelementptr inbounds i8, ptr %3, i64 24
-  %31 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %32
 
 32:                                               ; preds = %25, %32
@@ -4240,7 +4240,7 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   br i1 %.not41, label %62, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr @ett_dhcp_filename_option, align 4
   %49 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %47, i32 noundef 108, i32 noundef 128, i32 noundef %48, ptr noundef nonnull %9, ptr noundef nonnull @.str.1969) #9
@@ -4248,8 +4248,8 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   store i32 0, ptr %5, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
-  %51 = getelementptr inbounds i8, ptr %3, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %52
 
 52:                                               ; preds = %45, %52
@@ -4367,7 +4367,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_dhcp_client_hardware_address, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i8 %8 to i16
   %23 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 6, i16 noundef zeroext %22) #9
@@ -4392,7 +4392,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_dhcp_client_id_iaid, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef 4, i16 noundef zeroext 255) #9
   %39 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef %38) #9
@@ -4553,13 +4553,13 @@ define internal i32 @dissect_dhcpopt_netware_ip(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %28
 
 28:                                               ; preds = %13
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i.i = icmp eq ptr %30, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -4572,9 +4572,9 @@ proto_item_set_hidden.exit.i:                     ; preds = %31, %28, %13
 36:                                               ; preds = %proto_item_set_hidden.exit.i
   %37 = zext nneg i8 %8 to i64
   %38 = getelementptr [12 x %struct.opt_info], ptr @dissect_netware_ip_suboption.o63_opt, i64 0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %22, ptr noundef %20, ptr noundef %0, i32 noundef %40, i32 noundef %25, i32 noundef %16, ptr noundef %42, ptr noundef nonnull @__const.dissect_netware_ip_suboption.default_hfs)
   %44 = icmp eq i32 %43, 0
@@ -4828,7 +4828,7 @@ define internal i32 @dissect_dhcpopt_client_full_domain_name(ptr noundef %0, ptr
   %23 = add nsw i32 %7, -3
   %24 = call i32 @get_dns_name(ptr noundef %0, i32 noundef 3, i32 noundef %23, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %25 = load i32, ptr @hf_dhcp_fqdn_name, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %6, align 4
@@ -4922,13 +4922,13 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i.i = icmp eq ptr %44, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -4936,7 +4936,7 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
 
 proto_item_set_hidden.exit.i:                     ; preds = %45, %42, %41
   %49 = getelementptr [23 x %struct.opt82_info], ptr @dhcp_dhcp_decode_agent_info.o82_opt, i64 0, i64 %indvars.iv.i, i32 1
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 16
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %153
@@ -5101,7 +5101,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %45, %42, %41
   br label %.loopexit186.i
 
 144:                                              ; preds = %53
-  %145 = getelementptr inbounds i8, ptr %49, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %146 = load ptr, ptr %145, align 8
   %.not185.i = icmp eq ptr %146, null
   br i1 %.not185.i, label %150, label %147
@@ -5117,7 +5117,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %45, %42, %41
   br label %.loopexit186.i
 
 153:                                              ; preds = %proto_item_set_hidden.exit.i
-  %154 = getelementptr inbounds i8, ptr %49, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %22, ptr noundef %20, ptr noundef %0, i32 noundef %51, i32 noundef %25, i32 noundef %15, ptr noundef %155, ptr noundef nonnull @__const.dhcp_dhcp_decode_agent_info.default_hfs)
   br label %.loopexit186.i
@@ -5354,7 +5354,7 @@ define internal i32 @dissect_dhcpopt_dhcp_authentication(ptr noundef %0, ptr nou
   br i1 %cond3, label %25, label %40
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
@@ -5498,7 +5498,7 @@ define internal i32 @dissect_dhcpopt_client_identifier_uuid(ptr noundef %0, ptr 
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_dhcp_client_hardware_address, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i8 %8 to i16
   %23 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 6, i16 noundef zeroext %22) #9
@@ -5587,13 +5587,13 @@ define internal i32 @dissect_dhcpopt_dhcp_captive_portal(ptr noundef %0, ptr noc
   br i1 %.not.i, label %proto_item_set_url.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i = icmp eq ptr %10, null
   br i1 %.not5.i, label %proto_item_set_url.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 4
   store i32 %14, ptr %12, align 4
@@ -5698,7 +5698,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
 
 12:                                               ; preds = %4
   %13 = load i32, ptr @hf_dhcp_option_dhcp_dns_domain_search_list_rfc_3396_detected, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.1993, i32 noundef %9, i32 noundef %10) #9
   %17 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef %16) #9
@@ -5753,7 +5753,7 @@ define internal i32 @dissect_dhcpopt_dhcp_domain_search(ptr noundef %0, ptr noca
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %44
 
 44:                                               ; preds = %.lr.ph, %60
@@ -5809,7 +5809,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %4
   %13 = load i32, ptr @hf_dhcp_option_sip_server_rfc_3396_detected, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.1993, i32 noundef %9, i32 noundef %10) #9
   %17 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef %16) #9
@@ -5884,7 +5884,7 @@ define internal i32 @dissect_dhcpopt_sip_servers(ptr noundef %0, ptr noundef %1,
   br i1 %54, label %.lr.ph65, label %._crit_edge
 
 .lr.ph65:                                         ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %1, i64 408
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %59
 
 56:                                               ; preds = %48
@@ -6011,7 +6011,7 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
   br i1 %8, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %.preheader54
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %12
 
 10:                                               ; preds = %4
@@ -6117,7 +6117,7 @@ define internal i32 @dissect_dhcpopt_packetcable_ccc(ptr noundef %0, ptr noundef
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %dissect_packetcable_i05_ccc.exit
@@ -6596,19 +6596,19 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 13:                                               ; preds = %8
   %14 = zext i8 %10 to i64
   %15 = shl nuw nsw i64 %14, 32
-  %16 = getelementptr inbounds i8, ptr %5, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %18, 24
-  %20 = getelementptr inbounds i8, ptr %5, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %21 = load i8, ptr %20, align 2
   %22 = zext i8 %21 to i64
   %23 = shl nuw nsw i64 %22, 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i8, ptr %28, align 4
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %15, %19
@@ -6622,22 +6622,22 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
   %37 = and i8 %10, 1
   %38 = zext nneg i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 32
-  %40 = getelementptr inbounds i8, ptr %5, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 24
   %44 = or disjoint i64 %43, %39
-  %45 = getelementptr inbounds i8, ptr %5, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %46 = load i8, ptr %45, align 2
   %47 = zext i8 %46 to i64
   %48 = shl nuw nsw i64 %47, 16
   %49 = or disjoint i64 %44, %48
-  %50 = getelementptr inbounds i8, ptr %5, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
   %54 = or disjoint i64 %49, %53
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = load i8, ptr %55, align 4
   %57 = zext i8 %56 to i64
   %58 = or disjoint i64 %54, %57
@@ -6645,7 +6645,7 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 
 59:                                               ; preds = %36, %13
   %storemerge.i = phi i64 [ %58, %36 ], [ %35, %13 ]
-  %60 = getelementptr inbounds i8, ptr %5, i64 5
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %61 = load i8, ptr %60, align 1
   %62 = lshr i8 %61, 2
   %63 = and i8 %61, 2
@@ -6655,19 +6655,19 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 64:                                               ; preds = %59
   %65 = zext i8 %61 to i64
   %66 = shl nuw nsw i64 %65, 32
-  %67 = getelementptr inbounds i8, ptr %5, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %68 = load i8, ptr %67, align 2
   %69 = zext i8 %68 to i64
   %70 = shl nuw nsw i64 %69, 24
-  %71 = getelementptr inbounds i8, ptr %5, i64 7
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i64
   %74 = shl nuw nsw i64 %73, 16
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %76 = load i8, ptr %75, align 8
   %77 = zext i8 %76 to i64
   %78 = shl nuw nsw i64 %77, 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 9
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
   %82 = or disjoint i64 %66, %70
@@ -6681,22 +6681,22 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
   %88 = and i8 %61, 1
   %89 = zext nneg i8 %88 to i64
   %90 = shl nuw nsw i64 %89, 32
-  %91 = getelementptr inbounds i8, ptr %5, i64 6
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %92 = load i8, ptr %91, align 2
   %93 = zext i8 %92 to i64
   %94 = shl nuw nsw i64 %93, 24
   %95 = or disjoint i64 %94, %90
-  %96 = getelementptr inbounds i8, ptr %5, i64 7
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %98, 16
   %100 = or disjoint i64 %95, %99
-  %101 = getelementptr inbounds i8, ptr %5, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %102 = load i8, ptr %101, align 8
   %103 = zext i8 %102 to i64
   %104 = shl nuw nsw i64 %103, 8
   %105 = or disjoint i64 %100, %104
-  %106 = getelementptr inbounds i8, ptr %5, i64 9
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i64
   %109 = or disjoint i64 %105, %108
@@ -6704,12 +6704,12 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 
 110:                                              ; preds = %87, %64
   %.sink.i = phi i64 [ %109, %87 ], [ %86, %64 ]
-  %111 = getelementptr inbounds i8, ptr %5, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %112 = load i8, ptr %111, align 2
   %113 = lshr i8 %112, 4
   %114 = shl i8 %112, 2
   %115 = and i8 %114, 60
-  %116 = getelementptr inbounds i8, ptr %5, i64 11
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %117 = load i8, ptr %116, align 1
   %118 = lshr i8 %117, 6
   %119 = or disjoint i8 %115, %118
@@ -6720,15 +6720,15 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
   br i1 %.not49.i, label %139, label %123
 
 123:                                              ; preds = %110
-  %124 = getelementptr inbounds i8, ptr %5, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %125 = load i8, ptr %124, align 4
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %126, 16
-  %128 = getelementptr inbounds i8, ptr %5, i64 13
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 8
-  %132 = getelementptr inbounds i8, ptr %5, i64 14
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %133 = load i8, ptr %132, align 2
   %134 = zext i8 %133 to i32
   %135 = or i32 %122, -1073741824
@@ -6739,17 +6739,17 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 
 139:                                              ; preds = %110
   %140 = and i32 %122, 520093696
-  %141 = getelementptr inbounds i8, ptr %5, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %142 = load i8, ptr %141, align 4
   %143 = zext i8 %142 to i32
   %144 = shl nuw nsw i32 %143, 16
   %145 = or disjoint i32 %144, %140
-  %146 = getelementptr inbounds i8, ptr %5, i64 13
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 8
   %150 = or disjoint i32 %145, %149
-  %151 = getelementptr inbounds i8, ptr %5, i64 14
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %152 = load i8, ptr %151, align 2
   %153 = zext i8 %152 to i32
   %154 = or disjoint i32 %150, %153
@@ -6757,7 +6757,7 @@ define internal i32 @dissect_dhcpopt_coordinate_based_location(ptr noundef %0, p
 
 rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
   %.sink50.i = phi i32 [ %154, %139 ], [ %138, %123 ]
-  %155 = getelementptr inbounds i8, ptr %5, i64 15
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %156 = load i8, ptr %155, align 1
   %157 = sitofp i64 %storemerge.i to double
   %158 = fmul double %157, 0x3E60000000000000
@@ -7209,7 +7209,7 @@ define internal i32 @dissect_dhcpopt_rdnss(ptr noundef %0, ptr noundef %1, ptr n
   %21 = call i32 @get_dns_name(ptr noundef %0, i32 noundef 9, i32 noundef %20, i32 noundef 9, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %22 = load i32, ptr @hf_dhcp_option_rdnss_domain, align 4
   %23 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 9) #9
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %5, align 8
   %27 = load i32, ptr %6, align 4
@@ -7477,7 +7477,7 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
 10:                                               ; preds = %4
   %11 = load i32, ptr @hf_dhcp_option242_avaya, align 4
   %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef %12, i32 noundef 0, ptr noundef %14, ptr noundef nonnull %5) #9
   %16 = load i32, ptr @ett_dhcp_option242_suboption, align 4
@@ -7573,7 +7573,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %10, label %184, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #9
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.2098) #10
@@ -7619,7 +7619,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %39, label %.lr.ph198.i, label %dissect_packetcable_mta_cap.exit
 
 .lr.ph198.i:                                      ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %7, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %41
 
 41:                                               ; preds = %.loopexit.i, %.lr.ph198.i
@@ -7881,7 +7881,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 
 switch.lookup:                                    ; preds = %172
   %174 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_packetcable_mta_vendor_id_heur, i64 0, i64 %174
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_packetcable_mta_vendor_id_heur, i64 0, i64 %174
   %switch.load = load ptr, ptr %switch.gep, align 8
   %175 = load i32, ptr %6, align 4
   %176 = zext i32 %175 to i64
@@ -7921,7 +7921,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_cm_vendor_id_heur(ptr n
   br i1 %6, label %25, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef 0) #9
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(11) @.str.2133) #10
@@ -8148,7 +8148,7 @@ test_encapsulated_vendor_options.exit:            ; preds = %16, %15, %dissect_v
 define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -8215,13 +8215,13 @@ define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noun
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %44
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i.i = icmp eq ptr %46, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -8238,10 +8238,10 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
 54:                                               ; preds = %proto_item_set_hidden.exit.i
   %55 = zext i8 %18 to i64
   %56 = getelementptr [195 x %struct.opt_info], ptr @dissect_vendor_pxeclient_suboption.o43pxeclient_opt, i64 0, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
-  %60 = getelementptr inbounds i8, ptr %56, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %61 = load ptr, ptr %60, align 8
   br i1 %59, label %62, label %135
 
@@ -8391,7 +8391,7 @@ dissect_vendor_pxeclient_suboption.exit:          ; preds = %21, %24, %28, %.loo
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_cablelabs_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %7
@@ -8425,49 +8425,49 @@ sub_0:                                            ; preds = %16
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds i8, ptr %6, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %21 = load i8, ptr %20, align 1
   %.not46 = icmp eq i8 %21, 80
   br i1 %.not46, label %.tail, label %sub_127
 
 .tail:                                            ; preds = %sub_1
-  %22 = getelementptr inbounds i8, ptr %6, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 68
   br i1 %24, label %49, label %sub_127
 
 sub_127:                                          ; preds = %.tail, %sub_1
-  %25 = getelementptr inbounds i8, ptr %6, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %26 = load i8, ptr %25, align 1
   %.not48 = icmp eq i8 %26, 77
   br i1 %.not48, label %.tail25, label %.tail35.thread
 
 .tail25:                                          ; preds = %sub_127
-  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 68
   br i1 %29, label %49, label %.tail35.thread
 
 sub_132:                                          ; preds = %sub_0
-  %30 = getelementptr inbounds i8, ptr %6, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %31 = load i8, ptr %30, align 1
   %.not50 = icmp eq i8 %31, 67
   br i1 %.not50, label %.tail30, label %.tail35.thread
 
 .tail30:                                          ; preds = %sub_132
-  %32 = getelementptr inbounds i8, ptr %6, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 77
   br i1 %34, label %49, label %.tail35.thread
 
 sub_137:                                          ; preds = %sub_0
-  %35 = getelementptr inbounds i8, ptr %6, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %36 = load i8, ptr %35, align 1
   %.not52 = icmp eq i8 %36, 84
   br i1 %.not52, label %.tail35, label %.tail35.thread
 
 .tail35:                                          ; preds = %sub_137
-  %37 = getelementptr inbounds i8, ptr %6, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 65
   br i1 %39, label %49, label %.thread
@@ -8487,7 +8487,7 @@ sub_041:                                          ; preds = %.tail35.thread
   br i1 %.not53, label %.tail40, label %.tail40.thread
 
 .tail40:                                          ; preds = %sub_041
-  %44 = getelementptr inbounds i8, ptr %6, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 82
   br i1 %46, label %49, label %.tail40.thread
@@ -8566,7 +8566,7 @@ sub_041:                                          ; preds = %.tail35.thread
 88:                                               ; preds = %83
   %89 = zext nneg i8 %55 to i64
   %90 = getelementptr [56 x %struct.opt_info], ptr @dissect_vendor_cablelabs_suboption.o43cablelabs_opt, i64 0, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %127
@@ -8619,7 +8619,7 @@ sub_041:                                          ; preds = %.tail35.thread
   br label %134
 
 118:                                              ; preds = %94
-  %119 = getelementptr inbounds i8, ptr %90, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %120 = load ptr, ptr %119, align 8
   %.not108.i = icmp eq ptr %120, null
   br i1 %.not108.i, label %124, label %121
@@ -8635,7 +8635,7 @@ sub_041:                                          ; preds = %.tail35.thread
   br label %134
 
 127:                                              ; preds = %88
-  %128 = getelementptr inbounds i8, ptr %90, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %129 = load ptr, ptr %128, align 8
   %130 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %75, ptr noundef %73, ptr noundef %0, i32 noundef %92, i32 noundef %78, i32 noundef %70, ptr noundef %129, ptr noundef nonnull @__const.dissect_vendor_cablelabs_suboption.default_hfs)
   %131 = icmp eq i32 %130, 0
@@ -8662,7 +8662,7 @@ dissect_vendor_cablelabs_suboption.exit:          ; preds = %58, %61, %65, %81, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_aruba_ap_vendor_info_heur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
@@ -8689,7 +8689,7 @@ define internal range(i32 0, 2) i32 @dissect_aruba_ap_vendor_info_heur(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_aruba_instant_ap_vendor_info_heur(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %31, label %9
@@ -8729,7 +8729,7 @@ define internal range(i32 0, 2) i32 @dissect_aruba_instant_ap_vendor_info_heur(p
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -8959,7 +8959,7 @@ dissect_vendor_bsdp_suboption.exit:               ; preds = %21, %27, %41, %.loo
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -9036,7 +9036,7 @@ dissect_vendor_aerohive_suboption.exit:           ; preds = %18, %36, %38
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -9095,7 +9095,7 @@ define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef 
 
 switch.lookup:                                    ; preds = %38
   %40 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_cisco_vendor_info_heur, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_cisco_vendor_info_heur, i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %41
 
@@ -9156,9 +9156,9 @@ define internal range(i32 1, 258) i32 @dissect_vendor_cl_suboption(ptr noundef %
 29:                                               ; preds = %27
   %30 = zext nneg i8 %5 to i64
   %31 = getelementptr [6 x %struct.opt_info], ptr @dissect_vendor_cl_suboption.o125_cl_opt, i64 0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %20, ptr noundef %18, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef %14, ptr noundef %35, ptr noundef nonnull @__const.dissect_vendor_cl_suboption.default_hfs)
   %37 = icmp eq i32 %36, 0
@@ -9232,13 +9232,13 @@ define internal range(i32 1, 258) i32 @dissect_vendor_tr111_suboption(ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not5.i = icmp eq ptr %32, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = or i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -9251,9 +9251,9 @@ proto_item_set_hidden.exit:                       ; preds = %27, %30, %33
 38:                                               ; preds = %proto_item_set_hidden.exit
   %39 = zext nneg i8 %5 to i64
   %40 = getelementptr [7 x %struct.opt_info], ptr @dissect_vendor_tr111_suboption.o125_tr111_opt, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call fastcc i32 @dhcp_handle_basic_types(ptr noundef %1, ptr noundef %20, ptr noundef %18, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef %14, ptr noundef %44, ptr noundef nonnull @__const.dissect_vendor_tr111_suboption.default_hfs)
   %46 = icmp eq i32 %45, 0
@@ -9280,7 +9280,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %30, %33
   br label %68
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @tvb_get_string_enc(ptr noundef %57, ptr noundef %0, i32 noundef 2, i32 noundef %14, i32 noundef 0) #9
   %59 = tail call i64 @strtol(ptr nocapture noundef %58, ptr noundef null, i32 noundef 16) #9
@@ -9494,7 +9494,7 @@ define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noun
   br label %proto_item_set_visible.exit
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @tvb_get_string_enc(ptr noundef %57, ptr noundef %0, i32 noundef %46, i32 noundef %44, i32 noundef 0) #9
   store ptr %58, ptr %8, align 8
@@ -9536,13 +9536,13 @@ define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %83
 
 83:                                               ; preds = %72
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i = icmp eq ptr %85, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 1
   store i32 %89, ptr %87, align 4
@@ -9551,15 +9551,15 @@ define internal fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noun
 proto_item_set_hidden.exit:                       ; preds = %72, %83, %86
   %90 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %81, i32 noundef %67) #9
   store i8 %12, ptr %11, align 8
-  %91 = getelementptr inbounds i8, ptr %11, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %91, align 8
   %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %92, ptr %93, align 8
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds i8, ptr %11, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %11, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %0, ptr %96, align 8
   %97 = load ptr, ptr @dhcp_option_table, align 8
   %98 = call i32 @dissector_try_uint_new(ptr noundef %97, i32 noundef %13, ptr noundef %90, ptr noundef %1, ptr noundef %77, i32 noundef 0, ptr noundef nonnull %11) #9
@@ -9568,13 +9568,13 @@ proto_item_set_hidden.exit:                       ; preds = %72, %83, %86
   br i1 %brmerge, label %proto_item_set_visible.exit, label %99
 
 99:                                               ; preds = %proto_item_set_hidden.exit
-  %100 = getelementptr inbounds i8, ptr %82, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %101 = load ptr, ptr %100, align 8
   %.not5.i106 = icmp eq ptr %101, null
   br i1 %.not5.i106, label %proto_item_set_visible.exit, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, -2
   store i32 %105, ptr %103, align 4
@@ -9648,7 +9648,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader223
   %.not200 = icmp eq ptr %7, null
-  %11 = getelementptr inbounds i8, ptr %8, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   br i1 %.not200, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
@@ -9681,7 +9681,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
 
 .lr.ph234:                                        ; preds = %.preheader
   %.not216 = icmp eq ptr %7, null
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %.not216, label %.lr.ph234.split.us, label %.lr.ph234.split
 
 .lr.ph234.split.us:                               ; preds = %.lr.ph234, %31
@@ -9740,7 +9740,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br i1 %.not219, label %48, label %.sink.split
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not220 = icmp eq ptr %50, null
   br i1 %.not220, label %53, label %.sink.split
@@ -9752,7 +9752,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %53
 
 53:                                               ; preds = %.sink.split, %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @tvb_address_to_str(ptr noundef %55, ptr noundef %3, i32 noundef 2, i32 noundef %5) #9
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.1943, ptr noundef %56) #9
@@ -9789,7 +9789,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %8, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %71 = load ptr, ptr %70, align 8
   %.not215 = icmp eq ptr %71, null
   br i1 %.not215, label %.loopexit, label %72
@@ -9817,7 +9817,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %8, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not213 = icmp eq ptr %84, null
   br i1 %.not213, label %.loopexit, label %85
@@ -9845,7 +9845,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %8, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not210 = icmp eq ptr %97, null
   br i1 %.not210, label %.loopexit, label %98
@@ -9873,7 +9873,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %8, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %110 = load ptr, ptr %109, align 8
   %.not207 = icmp eq ptr %110, null
   br i1 %.not207, label %.loopexit, label %111
@@ -9901,7 +9901,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %8, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %123 = load ptr, ptr %122, align 8
   %.not204 = icmp eq ptr %123, null
   br i1 %.not204, label %.loopexit, label %124
@@ -9950,7 +9950,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %8, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %145 = load ptr, ptr %144, align 8
   %.not199 = icmp eq ptr %145, null
   br i1 %.not199, label %.loopexit, label %146
@@ -9978,7 +9978,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %8, i64 72
+  %157 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %158 = load ptr, ptr %157, align 8
   %.not196 = icmp eq ptr %158, null
   br i1 %.not196, label %.loopexit, label %159
@@ -10006,7 +10006,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %8, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %171 = load ptr, ptr %170, align 8
   %.not193 = icmp eq ptr %171, null
   br i1 %.not193, label %.loopexit, label %172
@@ -10375,7 +10375,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_docsis_cm_cap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 4) #9
   %.not = icmp eq i32 %4, 0

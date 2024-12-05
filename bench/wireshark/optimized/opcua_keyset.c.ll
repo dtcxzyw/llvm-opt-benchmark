@@ -64,9 +64,9 @@ define hidden noundef ptr @ua_keysets_add() local_unnamed_addr #1 {
   %11 = zext i32 %9 to i64
   %12 = getelementptr %struct.ua_keyset, ptr %6, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 112, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 32, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 116
   store i32 32, ptr %14, align 4
   br label %15
 
@@ -148,7 +148,7 @@ define hidden void @ua_keysets_dump() local_unnamed_addr #4 {
   %10 = trunc nuw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %10, i64 noundef %6, i32 noundef %8, i32 noundef %9)
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %10)
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
@@ -163,10 +163,10 @@ define hidden void @ua_keysets_dump() local_unnamed_addr #4 {
 
 print_hex.exit:                                   ; preds = %.lr.ph.i
   %putchar.i = tail call i32 @putchar(i32 10)
-  %18 = getelementptr inbounds i8, ptr %5, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %10, i32 noundef %19)
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %22 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %print_hex.exit29, label %.lr.ph.preheader.i
@@ -187,11 +187,11 @@ print_hex.exit:                                   ; preds = %.lr.ph.i
 
 print_hex.exit29:                                 ; preds = %.lr.ph.i24, %print_hex.exit
   %putchar.i28 = tail call i32 @putchar(i32 10)
-  %27 = getelementptr inbounds i8, ptr %5, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %10, i32 noundef %28)
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %10)
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31, %print_hex.exit29
@@ -206,10 +206,10 @@ print_hex.exit29:                                 ; preds = %.lr.ph.i24, %print_
 
 print_hex.exit36:                                 ; preds = %.lr.ph.i31
   %putchar.i35 = tail call i32 @putchar(i32 10)
-  %36 = getelementptr inbounds i8, ptr %5, i64 108
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %10, i32 noundef %37)
-  %39 = getelementptr inbounds i8, ptr %5, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %40 = load i32, ptr %36, align 4
   %.not.i37 = icmp eq i32 %40, 0
   br i1 %.not.i37, label %print_hex.exit45, label %.lr.ph.preheader.i38
@@ -230,7 +230,7 @@ print_hex.exit36:                                 ; preds = %.lr.ph.i31
 
 print_hex.exit45:                                 ; preds = %.lr.ph.i40, %print_hex.exit36
   %putchar.i44 = tail call i32 @putchar(i32 10)
-  %45 = getelementptr inbounds i8, ptr %5, i64 116
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %46 = load i32, ptr %45, align 4
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %10, i32 noundef %46)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

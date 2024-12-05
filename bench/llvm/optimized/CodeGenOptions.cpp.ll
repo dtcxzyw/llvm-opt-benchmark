@@ -17,7 +17,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm6driver10createTLIIERNS_6TripleENS
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm6driver10createTLIIERNS_6TripleENS0_13VectorLibraryE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm6driver10createTLIIERNS_6TripleENS0_13VectorLibraryE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN4llvm21TargetLibraryInfoImpl34addVectorizableFunctionsFromVecLibENS0_13VectorLibraryERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(208) %3, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(56) %0) #4
   br label %6

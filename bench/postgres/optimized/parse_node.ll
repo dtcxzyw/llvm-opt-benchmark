@@ -22,41 +22,41 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @make_parsestate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 224) #7
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 153
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 153
   store i8 1, ptr %4, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %25, ptr %26, align 8
   br label %27
 
@@ -68,7 +68,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_parsestate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
   %5 = icmp sgt i32 %4, 1664
@@ -83,7 +83,7 @@ define dso_local void @free_parsestate(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
@@ -118,7 +118,7 @@ define dso_local i32 @parser_errposition(ptr noundef readonly %0, i32 noundef %1
   br i1 %or.cond, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
@@ -141,12 +141,12 @@ declare i32 @errposition(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @setup_parser_errposition_callback(ptr noundef initializes((0, 12), (24, 32)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @pcb_error_callback, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr @error_context_stack, align 8
   store ptr %8, ptr %5, align 8
@@ -162,7 +162,7 @@ define internal void @pcb_error_callback(ptr nocapture noundef readonly %0) #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 0
   %8 = icmp eq ptr %4, null
@@ -170,7 +170,7 @@ define internal void @pcb_error_callback(ptr nocapture noundef readonly %0) #0 {
   br i1 %or.cond.i, label %parser_errposition.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %parser_errposition.exit, label %13
@@ -187,7 +187,7 @@ parser_errposition.exit:                          ; preds = %13, %9, %3, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define dso_local void @cancel_parser_errposition_callback(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @error_context_stack, align 8
   ret void
@@ -248,13 +248,13 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   br i1 %.not27, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph46, label %.thread
 
 .lr.ph46:                                         ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %25
@@ -274,7 +274,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -286,21 +286,21 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %.0 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
   %31 = call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 12, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %.034, ptr %32, align 4
   %33 = load i32, ptr %8, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %33, ptr %34, align 8
   %35 = load i32, ptr %7, align 4
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %31, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr null, ptr %38, align 8
   %39 = load ptr, ptr %12, align 8
   call void %39(ptr noundef nonnull %31, ptr noundef %4, ptr noundef %0, i1 noundef zeroext %.0, i1 noundef zeroext %5) #7
-  %40 = getelementptr inbounds i8, ptr %31, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %41 = load i32, ptr %40, align 4
   %.not29 = icmp eq i32 %41, 0
   br i1 %.not29, label %42, label %47
@@ -328,7 +328,7 @@ declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ParseCallbackState, align 8
   %4 = alloca %struct.ErrorSaveContext, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -338,7 +338,7 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   br label %67
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %61 [
     i32 448, label %13
@@ -349,17 +349,17 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   br label %65
 
 17:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.make_const.escontext, i64 16, i1 false)
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i64 @pg_strtoint64_safe(ptr noundef %19, ptr noundef nonnull %4) #7
-  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
   br i1 %23, label %27, label %24
@@ -372,15 +372,15 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   br label %65
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %1, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %29 = load i32, ptr %28, align 4
   store ptr %0, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @pcb_error_callback, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %3, ptr %33, align 8
   %34 = load ptr, ptr @error_context_stack, align 8
   store ptr %34, ptr %31, align 8
@@ -393,33 +393,33 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   br label %65
 
 39:                                               ; preds = %10
-  %40 = getelementptr inbounds i8, ptr %1, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %41 = load i8, ptr %40, align 4
   %42 = and i8 %41, 1
   %43 = zext nneg i8 %42 to i64
   br label %65
 
 44:                                               ; preds = %10
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   br label %65
 
 48:                                               ; preds = %10
-  %49 = getelementptr inbounds i8, ptr %1, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %50 = load i32, ptr %49, align 4
   store ptr %0, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
-  %53 = getelementptr inbounds i8, ptr %3, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @pcb_error_callback, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %3, ptr %54, align 8
   %55 = load ptr, ptr @error_context_stack, align 8
   store ptr %55, ptr %52, align 8
   store ptr %52, ptr @error_context_stack, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @bit_in, i32 noundef 0, i64 noundef %58, i64 noundef 0, i64 noundef -1) #7
@@ -445,9 +445,9 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
 
 67:                                               ; preds = %65, %8
   %.sink34 = phi ptr [ %66, %65 ], [ %9, %8 ]
-  %68 = getelementptr inbounds i8, ptr %1, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.sink34, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %.sink34, i64 36
   store i32 %69, ptr %70, align 4
   ret ptr %.sink34
 }

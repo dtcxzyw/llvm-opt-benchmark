@@ -89,7 +89,7 @@ define i32 @PMPI_Type_indexed(i32 noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %32
@@ -142,7 +142,7 @@ define i32 @PMPI_Type_indexed(i32 noundef %0, ptr noundef %1, ptr noundef %2, pt
 54:                                               ; preds = %52, %.lr.ph.i
   %55 = phi i8 [ %48, %.lr.ph.i ], [ %.pre.i.i, %52 ]
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = trunc i8 %55 to i1
   br i1 %59, label %60, label %opal_pointer_array_get_item.exit.i
@@ -154,13 +154,13 @@ define i32 @PMPI_Type_indexed(i32 noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 opal_pointer_array_get_item.exit.i:               ; preds = %60, %54
   %62 = phi i8 [ %55, %54 ], [ %.pre.i, %60 ]
-  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, %38
   br i1 %65, label %66, label %44
 
 66:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %67 = getelementptr inbounds i8, ptr %58, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %68 = load i32, ptr %67, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
@@ -171,9 +171,9 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %44, %39, %.preheade
 
 70:                                               ; preds = %.loopexit
   store ptr %6, ptr %8, align 16
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %72, align 16
   %73 = load ptr, ptr %4, align 8
   %74 = shl nsw i32 %0, 1

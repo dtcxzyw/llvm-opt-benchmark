@@ -14,22 +14,22 @@ define range(i32 300, 1000) i32 @gvlayout_select(ptr noundef %0, ptr noundef %1)
   br i1 %.not, label %18, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %9, align 8
   %13 = load i32, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %16, ptr %17, align 8
   br label %18
 
@@ -43,9 +43,9 @@ declare ptr @gvplugin_load(ptr noundef, i32 noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 408, i32 noundef 1) #2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %0, ptr %6, align 8
   %7 = tail call ptr @agroot(ptr noundef %1) #2
   %.not = icmp eq ptr %1, %7
@@ -55,16 +55,16 @@ define range(i32 -1, 1) i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_
   %9 = tail call ptr @agroot(ptr noundef nonnull %1) #2
   %10 = tail call ptr @agbindrec(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 408, i32 noundef 1) #2
   %11 = tail call ptr @agroot(ptr noundef nonnull %1) #2
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store ptr %0, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %8, %2
   %16 = tail call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #2
   %.not34 = icmp eq ptr %16, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 312
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
   br i1 %.not34, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %15
@@ -78,21 +78,21 @@ define range(i32 -1, 1) i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not.i, label %31, label %gvlayout_select.exit
 
 gvlayout_select.exit:                             ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %.phi.trans.insert, align 8
   %26 = load i32, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 320
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 328
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %29, ptr %30, align 8
   br label %34
 
@@ -108,19 +108,19 @@ gvlayout_select.exit:                             ; preds = %17
 
 36:                                               ; preds = %34
   tail call void @gv_fixLocale(i32 noundef 1) #2
-  %37 = getelementptr inbounds i8, ptr %0, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1
   %41 = icmp ne i32 %40, 0
   tail call void @graph_init(ptr noundef nonnull %1, i1 noundef zeroext %41) #2
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @agroot(ptr noundef nonnull %1) #2
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %44, ptr %48, align 8
   tail call void @gv_initShapes() #2
   %49 = load ptr, ptr %35, align 8
@@ -129,14 +129,14 @@ gvlayout_select.exit:                             ; preds = %17
 
 50:                                               ; preds = %36
   tail call void %49(ptr noundef nonnull %1) #2
-  %51 = getelementptr inbounds i8, ptr %35, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not37 = icmp eq ptr %52, null
   br i1 %.not37, label %56, label %53
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 176
   store ptr %52, ptr %55, align 8
   br label %56
 
@@ -172,9 +172,9 @@ define zeroext i1 @gvLayoutDone(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   br label %9
@@ -191,9 +191,9 @@ define noundef i32 @gvFreeLayout(ptr nocapture noundef readnone %0, ptr noundef 
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %8 = load ptr, ptr %7, align 8
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %12, label %9
@@ -201,7 +201,7 @@ define noundef i32 @gvFreeLayout(ptr nocapture noundef readnone %0, ptr noundef 
 9:                                                ; preds = %4
   tail call void %8(ptr noundef nonnull %1) #2
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store ptr null, ptr %11, align 8
   br label %12
 

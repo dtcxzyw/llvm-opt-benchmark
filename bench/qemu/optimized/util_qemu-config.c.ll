@@ -186,7 +186,7 @@ for.body.i:                                       ; preds = %if.then15, %for.inc
   %i.010.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.then15 ]
   %head.09.i = phi ptr [ %head.1.i, %for.inc.i ], [ null, %if.then15 ]
   %tobool.not.i = icmp eq ptr %head.09.i, null
-  %desc.i = getelementptr inbounds i8, ptr %8, i64 40
+  %desc.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load ptr, ptr %desc.i, align 8
   %cmp.not20.i = icmp eq ptr %9, null
   br i1 %cmp.not20.i, label %query_option_descs.exit, label %for.body.i31
@@ -199,29 +199,29 @@ for.body.i31:                                     ; preds = %for.body.i, %sw.epi
   %10 = load ptr, ptr %arrayidx23.i, align 8
   %call4.i = tail call noalias ptr @g_strdup(ptr noundef %10) #13
   store ptr %call4.i, ptr %call.i32, align 8
-  %type.i33 = getelementptr inbounds i8, ptr %arrayidx23.i, i64 8
+  %type.i33 = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 8
   %11 = load i32, ptr %type.i33, align 8
   %switch = icmp ult i32 %11, 4
   br i1 %switch, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
 sw.epilog.sink.split.i:                           ; preds = %for.body.i31
-  %type14.i = getelementptr inbounds i8, ptr %call.i32, i64 8
+  %type14.i = getelementptr inbounds nuw i8, ptr %call.i32, i64 8
   store i32 %11, ptr %type14.i, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %for.body.i31, %sw.epilog.sink.split.i
-  %help.i34 = getelementptr inbounds i8, ptr %arrayidx23.i, i64 16
+  %help.i34 = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 16
   %12 = load ptr, ptr %help.i34, align 8
   %call17.i35 = tail call noalias ptr @g_strdup(ptr noundef %12) #13
-  %help18.i = getelementptr inbounds i8, ptr %call.i32, i64 16
+  %help18.i = getelementptr inbounds nuw i8, ptr %call.i32, i64 16
   store ptr %call17.i35, ptr %help18.i, align 8
-  %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 24
+  %def_value_str.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 24
   %13 = load ptr, ptr %def_value_str.i, align 8
   %call21.i = tail call noalias ptr @g_strdup(ptr noundef %13) #13
-  %q_default.i = getelementptr inbounds i8, ptr %call.i32, i64 24
+  %q_default.i = getelementptr inbounds nuw i8, ptr %call.i32, i64 24
   store ptr %call21.i, ptr %q_default.i, align 8
   %call22.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value.i36 = getelementptr inbounds i8, ptr %call22.i, i64 8
+  %value.i36 = getelementptr inbounds nuw i8, ptr %call22.i, i64 8
   store ptr %call.i32, ptr %value.i36, align 8
   store ptr %param_list.022.i, ptr %call22.i, align 8
   %inc.i37 = add i32 %i.021.i, 1
@@ -266,14 +266,14 @@ while.cond1.preheader.i.i:                        ; preds = %for.end.i, %while.e
   br i1 %cmp.not11.i.i, label %while.end.i.i, label %while.body3.lr.ph.i.i
 
 while.body3.lr.ph.i.i:                            ; preds = %while.cond1.preheader.i.i
-  %value5.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %value5.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load ptr, ptr %value5.i.i, align 8
   %20 = load ptr, ptr %19, align 8
   br label %while.body3.i.i
 
 while.body3.i.i:                                  ; preds = %if.end.i.i, %while.body3.lr.ph.i.i
   %pre_entry.012.i.i = phi ptr [ %head.1.i, %while.body3.lr.ph.i.i ], [ %24, %if.end.i.i ]
-  %value.i.i = getelementptr inbounds i8, ptr %pre_entry.012.i.i, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %pre_entry.012.i.i, i64 8
   %21 = load ptr, ptr %value.i.i, align 8
   %22 = load ptr, ptr %21, align 8
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %20) #14
@@ -300,16 +300,16 @@ while.end.i.i:                                    ; preds = %if.end.i.i, %if.the
   br i1 %tobool.not.i7.i, label %do.body, label %while.cond1.preheader.i.i, !llvm.loop !12
 
 if.else:                                          ; preds = %if.then
-  %desc = getelementptr inbounds i8, ptr %5, i64 40
+  %desc = getelementptr inbounds nuw i8, ptr %5, i64 40
   %call19 = tail call fastcc ptr @query_option_descs(ptr noundef nonnull %desc)
   br label %do.body
 
 do.body:                                          ; preds = %while.end.i.i, %for.end.i, %if.else
   %head.0.lcssa.i.sink = phi ptr [ %call19, %if.else ], [ %head.1.i, %for.end.i ], [ %head.1.i, %while.end.i.i ]
-  %parameters = getelementptr inbounds i8, ptr %call4, i64 8
+  %parameters = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %head.0.lcssa.i.sink, ptr %parameters, align 8
   %call21 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value = getelementptr inbounds i8, ptr %call21, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call21, i64 8
   store ptr %call4, ptr %value, align 8
   store ptr %conf_list.048, ptr %call21, align 8
   br label %for.inc
@@ -367,7 +367,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool3.not.i, label %for.inc21.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %set.i = getelementptr inbounds i8, ptr %call2.i, i64 32
+  %set.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 32
   %29 = load ptr, ptr %set.i, align 8
   %tobool4.not.i = icmp eq ptr %29, null
   br i1 %tobool4.not.i, label %while.cond.i, label %for.cond7.preheader.i, !llvm.loop !14
@@ -377,7 +377,7 @@ for.cond7.preheader.i:                            ; preds = %while.body.i
 
 for.body8.i:                                      ; preds = %for.cond7.preheader.i, %for.inc.i26
   %clpiter.022.i = phi ptr [ %33, %for.inc.i26 ], [ %params.1.ph.i.ph, %for.cond7.preheader.i ]
-  %value.i = getelementptr inbounds i8, ptr %clpiter.022.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %clpiter.022.i, i64 8
   %30 = load ptr, ptr %value.i, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %call2.i, align 8
@@ -395,7 +395,7 @@ if.then15.i:                                      ; preds = %for.cond7.preheader
   %34 = load ptr, ptr %call2.i, align 8
   %call1.i.i = call noalias ptr @g_strdup(ptr noundef %34) #13
   store ptr %call1.i.i, ptr %call.i.i28, align 8
-  %type.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %type.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %35 = load ptr, ptr %type.i.i, align 8
   %call3.i.i = call i32 @g_str_equal(ptr noundef %35, ptr noundef nonnull @.str.12) #13
   %tobool.not.i.i29 = icmp eq i32 %call3.i.i, 0
@@ -408,7 +408,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then15.i
   br i1 %tobool6.not.i.i, label %if.else.i.i, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %lor.lhs.false.i.i, %if.then15.i
-  %type7.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
+  %type7.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 8
   store i32 1, ptr %type7.i.i, align 8
   br label %if.end22.i.i
 
@@ -419,7 +419,7 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
   br i1 %tobool10.not.i.i, label %if.else13.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.else.i.i
-  %type12.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
+  %type12.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 8
   store i32 2, ptr %type12.i.i, align 8
   br label %if.end22.i.i
 
@@ -427,7 +427,7 @@ if.else13.i.i:                                    ; preds = %if.else.i.i
   %38 = load ptr, ptr %type.i.i, align 8
   %call15.i.i = call i32 @g_str_equal(ptr noundef %38, ptr noundef nonnull @.str.15) #13
   %tobool16.not.i.i = icmp eq i32 %call15.i.i, 0
-  %type20.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
+  %type20.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 8
   br i1 %tobool16.not.i.i, label %if.else19.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.else13.i.i
@@ -439,26 +439,26 @@ if.else19.i.i:                                    ; preds = %if.else13.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.else19.i.i, %if.then17.i.i, %if.then11.i.i, %if.then.i.i30
-  %description.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %description.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   %39 = load ptr, ptr %description.i.i, align 8
   %tobool23.not.i.i = icmp eq ptr %39, null
   br i1 %tobool23.not.i.i, label %objprop_to_cmdline_prop.exit.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end22.i.i
   %call26.i.i = call noalias ptr @g_strdup(ptr noundef nonnull %39) #13
-  %help.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 16
+  %help.i.i = getelementptr inbounds nuw i8, ptr %call.i.i28, i64 16
   store ptr %call26.i.i, ptr %help.i.i, align 8
   br label %objprop_to_cmdline_prop.exit.i
 
 objprop_to_cmdline_prop.exit.i:                   ; preds = %if.then24.i.i, %if.end22.i.i
   %call17.i = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value18.i = getelementptr inbounds i8, ptr %call17.i, i64 8
+  %value18.i = getelementptr inbounds nuw i8, ptr %call17.i, i64 8
   store ptr %call.i.i28, ptr %value18.i, align 8
   store ptr %params.1.ph.i.ph, ptr %call17.i, align 8
   br label %while.cond.outer.i.outer, !llvm.loop !14
 
 for.inc21.i:                                      ; preds = %while.cond.i
-  %next22.i = getelementptr inbounds i8, ptr %curr_mach.023.i, i64 8
+  %next22.i = getelementptr inbounds nuw i8, ptr %curr_mach.023.i, i64 8
   %40 = load ptr, ptr %next22.i, align 8
   %tobool1.not.i = icmp eq ptr %40, null
   br i1 %tobool1.not.i, label %if.end39.thread, label %for.body.i25, !llvm.loop !16
@@ -468,20 +468,20 @@ if.end39.thread:                                  ; preds = %for.inc21.i
   %call24.i = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #16
   %call25.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10) #13
   store ptr %call25.i, ptr %call24.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call24.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call24.i, i64 8
   store i32 0, ptr %type.i, align 8
   %call27.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str.11) #13
-  %help.i = getelementptr inbounds i8, ptr %call24.i, i64 16
+  %help.i = getelementptr inbounds nuw i8, ptr %call24.i, i64 16
   store ptr %call27.i, ptr %help.i, align 8
   %call30.i = call noalias noundef dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value31.i = getelementptr inbounds i8, ptr %call30.i, i64 8
+  %value31.i = getelementptr inbounds nuw i8, ptr %call30.i, i64 8
   store ptr %call24.i, ptr %value31.i, align 8
   store ptr %params.1.ph.i.ph, ptr %call30.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %op_iter.i)
-  %parameters32 = getelementptr inbounds i8, ptr %call28, i64 8
+  %parameters32 = getelementptr inbounds nuw i8, ptr %call28, i64 8
   store ptr %call30.i, ptr %parameters32, align 8
   %call35 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value36 = getelementptr inbounds i8, ptr %call35, i64 8
+  %value36 = getelementptr inbounds nuw i8, ptr %call35, i64 8
   store ptr %call28, ptr %value36, align 8
   store ptr %conf_list.0.lcssa, ptr %call35, align 8
   br label %if.end42
@@ -522,29 +522,29 @@ for.body:                                         ; preds = %entry, %sw.epilog
   %1 = load ptr, ptr %arrayidx23, align 8
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %1) #13
   store ptr %call4, ptr %call, align 8
-  %type = getelementptr inbounds i8, ptr %arrayidx23, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 8
   %2 = load i32, ptr %type, align 8
   %switch = icmp ult i32 %2, 4
   br i1 %switch, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.epilog.sink.split:                             ; preds = %for.body
-  %type14 = getelementptr inbounds i8, ptr %call, i64 8
+  %type14 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %2, ptr %type14, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %sw.epilog.sink.split
-  %help = getelementptr inbounds i8, ptr %arrayidx23, i64 16
+  %help = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 16
   %3 = load ptr, ptr %help, align 8
   %call17 = tail call noalias ptr @g_strdup(ptr noundef %3) #13
-  %help18 = getelementptr inbounds i8, ptr %call, i64 16
+  %help18 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call17, ptr %help18, align 8
-  %def_value_str = getelementptr inbounds i8, ptr %arrayidx23, i64 24
+  %def_value_str = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 24
   %4 = load ptr, ptr %def_value_str, align 8
   %call21 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
-  %q_default = getelementptr inbounds i8, ptr %call, i64 24
+  %q_default = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call21, ptr %q_default, align 8
   %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
-  %value = getelementptr inbounds i8, ptr %call22, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call22, i64 8
   store ptr %call, ptr %value, align 8
   store ptr %param_list.022, ptr %call22, align 8
   %inc = add i32 %i.021, 1
@@ -732,7 +732,7 @@ entry:
   %value = alloca [1024 x i8], align 16
   %loc = alloca %struct.Location, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -795,7 +795,7 @@ if.then42:                                        ; preds = %if.end39
 
 lor.lhs.false.i:                                  ; preds = %if.then42
   call void %cb(ptr noundef nonnull %prev_group, ptr noundef nonnull %qdict.0.ph66, ptr noundef %opaque, ptr noundef %spec.select) #13
-  %refcnt.i = getelementptr inbounds i8, ptr %qdict.0.ph66, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %qdict.0.ph66, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -901,7 +901,7 @@ out_no_loc:                                       ; preds = %out, %if.then80
   br i1 %tobool90.not, label %qobject_unref_impl.exit39, label %lor.lhs.false.i31
 
 lor.lhs.false.i31:                                ; preds = %out_no_loc
-  %refcnt.i32 = getelementptr inbounds i8, ptr %qdict.4, i64 8
+  %refcnt.i32 = getelementptr inbounds nuw i8, ptr %qdict.4, i64 8
   %4 = load i64, ptr %refcnt.i32, align 8
   %tobool1.not.i33 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i33, label %if.else.i38, label %land.lhs.true.i34
@@ -1044,13 +1044,13 @@ if.then19.i:                                      ; preds = %if.then16.i
 
 if.end23.i:                                       ; preds = %if.then16.i
   %15 = load ptr, ptr %list.i, align 8
-  %head.i = getelementptr inbounds i8, ptr %15, i64 16
+  %head.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %list_entry.044.i = load ptr, ptr %head.i, align 8
   %tobool24.not45.i = icmp eq ptr %list_entry.044.i, null
   br i1 %tobool24.not45.i, label %if.then.i.i.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end39.i
-  %next.i = getelementptr inbounds i8, ptr %list_entry.047.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %list_entry.047.i, i64 8
   %list_entry.0.i = load ptr, ptr %next.i, align 8
   %tobool24.not.i = icmp eq ptr %list_entry.0.i, null
   br i1 %tobool24.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !21

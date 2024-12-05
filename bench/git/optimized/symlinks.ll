@@ -104,7 +104,7 @@ entry:
 define dso_local void @schedule_dir_for_removal(ptr noundef %name, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @startup_info, align 8
-  %original_cwd = getelementptr inbounds i8, ptr %0, i64 16
+  %original_cwd = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %original_cwd, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -130,9 +130,9 @@ land.rhs.preheader.i:                             ; preds = %if.end
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
   %indvars.iv.i = phi i64 [ 0, %land.rhs.preheader.i ], [ %indvars.iv.next.i, %while.body.i ]
   %match_len.029.i = phi i32 [ 0, %land.rhs.preheader.i ], [ %spec.select.i, %while.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %name, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.i = icmp eq i8 %4, %5
   br i1 %cmp5.i, label %while.body.i, label %longest_path_match.exit
@@ -217,7 +217,7 @@ while.body.i16:                                   ; preds = %land.lhs.true12, %w
   %arrayidx.i17 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 0, ptr %arrayidx.i17, align 1
   %14 = load ptr, ptr @startup_info, align 8
-  %original_cwd.i = getelementptr inbounds i8, ptr %14, i64 16
+  %original_cwd.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %original_cwd.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
@@ -234,8 +234,8 @@ lor.lhs.false.i19:                                ; preds = %land.lhs.true.i18, 
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i19
-  store i64 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 8), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @default_cache, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 16), align 8
   %cmp3.not.i.i.i.i.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i.i.i, label %lstat_cache_aware_rmdir.exit.i, label %if.then4.i.i.i.i.i
 
@@ -244,7 +244,7 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
   br label %lstat_cache_aware_rmdir.exit.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %if.then4.i.i.i.i.i, %if.then.i.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
   %.promoted.i = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
   br label %do.body.i
@@ -302,7 +302,7 @@ while.body.i:                                     ; preds = %while.body.i.loopex
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %2
   store i8 0, ptr %arrayidx.i, align 1
   %3 = load ptr, ptr @startup_info, align 8
-  %original_cwd.i = getelementptr inbounds i8, ptr %3, i64 16
+  %original_cwd.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %original_cwd.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %.pre8.i = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
@@ -319,8 +319,8 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %w
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 8), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @default_cache, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 16), align 8
   %cmp3.not.i.i.i.i.i = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i.i.i, label %lstat_cache_aware_rmdir.exit.i, label %if.then4.i.i.i.i.i
 
@@ -329,7 +329,7 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
   br label %lstat_cache_aware_rmdir.exit.i
 
 lstat_cache_aware_rmdir.exit.i:                   ; preds = %if.then4.i.i.i.i.i, %if.then.i.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
   %.promoted.i = load i64, ptr getelementptr inbounds (i8, ptr @removal, i64 8), align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @removal, i64 16), align 8
   br label %do.body.i
@@ -355,8 +355,8 @@ do_remove_scheduled_dirs.exit:                    ; preds = %land.lhs.true.i, %l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @invalidate_lstat_cache() local_unnamed_addr #4 {
 entry:
-  store i64 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_cache, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %reset_lstat_cache.exit, label %if.then4.i.i
 
@@ -365,7 +365,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %reset_lstat_cache.exit
 
 reset_lstat_cache.exit:                           ; preds = %entry, %if.then4.i.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
   ret void
 }
 
@@ -377,8 +377,8 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i64 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @default_cache, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %invalidate_lstat_cache.exit, label %if.then4.i.i.i
 
@@ -387,7 +387,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
   br label %invalidate_lstat_cache.exit
 
 invalidate_lstat_cache.exit:                      ; preds = %if.then, %if.then4.i.i.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @default_cache, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @default_cache, i64 24), align 8
   br label %if.end
 
 if.end:                                           ; preds = %invalidate_lstat_cache.exit, %entry
@@ -401,21 +401,21 @@ declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #5
 define internal fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr nocapture noundef readonly %name, i32 noundef %len, ptr nocapture noundef nonnull %ret_flags, i32 noundef range(i32 5, 34) %track_flags, i32 noundef %prefix_len_stat_func) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
-  %track_flags1 = getelementptr inbounds i8, ptr %cache, i64 28
+  %track_flags1 = getelementptr inbounds nuw i8, ptr %cache, i64 28
   %0 = load i32, ptr %track_flags1, align 4
   %cmp.not = icmp eq i32 %0, %track_flags
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %prefix_len_stat_func2 = getelementptr inbounds i8, ptr %cache, i64 32
+  %prefix_len_stat_func2 = getelementptr inbounds nuw i8, ptr %cache, i64 32
   %1 = load i32, ptr %prefix_len_stat_func2, align 8
   %cmp3.not = icmp eq i32 %1, %prefix_len_stat_func
   br i1 %cmp3.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %len2.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %cache, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %cache, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %reset_lstat_cache.exit, label %if.then4.i.i
@@ -425,17 +425,17 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %reset_lstat_cache.exit
 
 reset_lstat_cache.exit:                           ; preds = %if.then, %if.then4.i.i
-  %flags.i = getelementptr inbounds i8, ptr %cache, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %cache, i64 24
   store i32 0, ptr %flags.i, align 8
   store i32 %track_flags, ptr %track_flags1, align 4
-  %prefix_len_stat_func5 = getelementptr inbounds i8, ptr %cache, i64 32
+  %prefix_len_stat_func5 = getelementptr inbounds nuw i8, ptr %cache, i64 32
   store i32 %prefix_len_stat_func, ptr %prefix_len_stat_func5, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %lor.lhs.false
-  %buf = getelementptr inbounds i8, ptr %cache, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %len7 = getelementptr inbounds i8, ptr %cache, i64 8
+  %len7 = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %4 = load i64, ptr %len7, align 8
   %conv = trunc i64 %4 to i32
   %cmp.i = icmp slt i32 %len, %conv
@@ -451,9 +451,9 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %indvars.iv.i = phi i64 [ 0, %land.rhs.preheader.i ], [ %indvars.iv.next.i, %while.body.i ]
   %match_len_prev.030.i = phi i32 [ 0, %land.rhs.preheader.i ], [ %spec.select24.i, %while.body.i ]
   %match_len.029.i = phi i32 [ 0, %land.rhs.preheader.i ], [ %spec.select.i, %while.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %name, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %6 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.i = icmp eq i8 %5, %6
   br i1 %cmp5.i, label %while.body.i, label %longest_path_match.exit
@@ -502,7 +502,7 @@ if.then33.i:                                      ; preds = %lor.lhs.false30.i, 
 longest_path_match.exit:                          ; preds = %land.rhs.i, %land.lhs.true24.i, %lor.lhs.false30.i, %if.then33.i
   %match_len.2.i = phi i32 [ %i.0.lcssa.i, %if.then33.i ], [ %match_len.0.lcssa.i, %lor.lhs.false30.i ], [ %match_len.0.lcssa.i, %land.lhs.true24.i ], [ %match_len.029.i, %land.rhs.i ]
   %match_len_prev.2.i = phi i32 [ %match_len.0.lcssa.i, %if.then33.i ], [ %match_len_prev.0.lcssa.i, %lor.lhs.false30.i ], [ %match_len_prev.0.lcssa.i, %land.lhs.true24.i ], [ %match_len_prev.030.i, %land.rhs.i ]
-  %flags = getelementptr inbounds i8, ptr %cache, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %cache, i64 24
   %10 = load i32, ptr %flags, align 8
   %and = and i32 %track_flags, 6
   %and8 = and i32 %and, %10
@@ -532,7 +532,7 @@ if.end29:                                         ; preds = %if.end21, %reset_ls
   %last_slash.0 = phi i32 [ 0, %reset_lstat_cache.exit ], [ %last_slash.1, %if.end21 ]
   store i32 1, ptr %ret_flags, align 4
   %conv30 = sext i32 %len to i64
-  %len32 = getelementptr inbounds i8, ptr %cache, i64 8
+  %len32 = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %12 = load i64, ptr %len32, align 8
   %cmp33 = icmp ult i64 %12, %conv30
   br i1 %cmp33, label %if.then35, label %if.end40
@@ -543,9 +543,9 @@ if.then35:                                        ; preds = %if.end29
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %if.end29
-  %buf44 = getelementptr inbounds i8, ptr %cache, i64 16
+  %buf44 = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %tobool58.not = icmp samesign ult i32 %track_flags, 32
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   br i1 %tobool58.not, label %while.cond.preheader, label %while.cond.us.preheader
 
 while.cond.us.preheader:                          ; preds = %if.end40
@@ -729,7 +729,7 @@ while.end:                                        ; preds = %while.cond.us, %whi
 if.then105:                                       ; preds = %while.end
   %38 = load ptr, ptr %buf44, align 8
   %idxprom108 = zext nneg i32 %last_slash.3 to i64
-  %arrayidx109 = getelementptr inbounds i8, ptr %38, i64 %idxprom108
+  %arrayidx109 = getelementptr inbounds nuw i8, ptr %38, i64 %idxprom108
   store i8 0, ptr %arrayidx109, align 1
   store i64 %idxprom108, ptr %len32, align 8
   br label %if.end131
@@ -744,7 +744,7 @@ if.else114:                                       ; preds = %while.end
 if.then120:                                       ; preds = %if.else114
   %39 = load ptr, ptr %buf44, align 8
   %idxprom123 = zext nneg i32 %last_slash_dir.089 to i64
-  %arrayidx124 = getelementptr inbounds i8, ptr %39, i64 %idxprom123
+  %arrayidx124 = getelementptr inbounds nuw i8, ptr %39, i64 %idxprom123
   store i8 0, ptr %arrayidx124, align 1
   store i64 %idxprom123, ptr %len32, align 8
   br label %if.end131
@@ -761,7 +761,7 @@ if.then4.i.i81:                                   ; preds = %if.else129
 
 if.end131:                                        ; preds = %if.then4.i.i81, %if.else129, %if.then120, %if.then105
   %.sink = phi i32 [ 1, %if.then120 ], [ %and100, %if.then105 ], [ 0, %if.else129 ], [ 0, %if.then4.i.i81 ]
-  %flags128 = getelementptr inbounds i8, ptr %cache, i64 24
+  %flags128 = getelementptr inbounds nuw i8, ptr %cache, i64 24
   store i32 %.sink, ptr %flags128, align 8
   %tobool132.not = icmp eq i32 %saved_errno.0, 0
   br i1 %tobool132.not, label %return, label %if.then133

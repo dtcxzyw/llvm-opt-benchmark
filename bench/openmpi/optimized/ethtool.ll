@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ifreq, align 8
   %3 = alloca %struct.ethtool_cmd, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 40, i1 false)
   store i32 1, ptr %3, align 4
   %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
@@ -23,16 +23,16 @@ define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   call void @pmix_string_copy(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 256) #4
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %8, align 8
   %9 = call i32 (i32, i64, ...) @ioctl(i32 noundef %5, i64 noundef 35142, ptr noundef nonnull %2) #4
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.val = load i16, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.val8 = load i16, ptr %13, align 4
   %14 = zext i16 %.val8 to i32
   %15 = shl nuw i32 %14, 16

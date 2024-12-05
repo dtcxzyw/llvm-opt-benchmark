@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1448
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1448
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %21
@@ -38,16 +38,16 @@ define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr nocapture noundef readonly %0, ptr
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1448
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1448
   %18 = load ptr, ptr %17, align 8
   store ptr %1, ptr %18, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1440
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1440
   store i32 1, ptr %20, align 8
   br label %.loopexit
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %4, i64 1440
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1440
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 16
   br i1 %24, label %.preheader, label %43
@@ -60,9 +60,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr nocapture noundef readonly %0, ptr
 .preheader:                                       ; preds = %21, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 15, %21 ]
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1448
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1448
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @H5HG_get_free_size(ptr noundef %30) #7
   %32 = tail call i64 @H5HG_get_free_size(ptr noundef %1) #7
@@ -71,28 +71,28 @@ define range(i32 -1, 1) i32 @H5F_cwfs_add(ptr nocapture noundef readonly %0, ptr
 
 34:                                               ; preds = %.preheader
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1448
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1448
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = shl nuw nsw i64 %indvars.iv, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %37, i64 %39, i1 false)
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1448
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1448
   %42 = load ptr, ptr %41, align 8
   store ptr %1, ptr %42, align 8
   br label %.loopexit
 
 43:                                               ; preds = %21
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = zext i32 %23 to i64
   %46 = shl nuw nsw i64 %45, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %6, i64 %46, i1 false)
   %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1448
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1448
   %49 = load ptr, ptr %48, align 8
   store ptr %1, ptr %49, align 8
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1440
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1440
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 8
@@ -115,9 +115,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1440
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1440
   %7 = load i32, ptr %6, align 8
   %.not72 = icmp eq i32 %7, 0
   br i1 %.not72, label %.loopexit.thread, label %.lr.ph
@@ -129,9 +129,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 .lr.ph:                                           ; preds = %3, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %3 ]
   %9 = phi ptr [ %16, %15 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 1448
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1448
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @H5HG_get_free_size(ptr noundef %13) #7
   %.not = icmp ult i64 %14, %1
@@ -140,7 +140,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 15:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1440
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1440
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
@@ -149,16 +149,16 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 .lr.ph71:                                         ; preds = %.preheader, %86
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %86 ], [ 0, %.preheader ]
   %21 = phi ptr [ %87, %86 ], [ %16, %.preheader ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 1448
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1448
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv85
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv85
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @H5HG_get_free_size(ptr noundef %25) #7
   %27 = sub i64 %1, %26
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1448
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1448
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv85
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv85
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @H5HG_get_size(ptr noundef %32) #7
   %34 = icmp ugt i64 %33, %27
@@ -166,9 +166,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 
 35:                                               ; preds = %.lr.ph71
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1448
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1448
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv85
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @H5HG_get_size(ptr noundef %40) #7
   br label %42
@@ -176,9 +176,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 42:                                               ; preds = %.lr.ph71, %35
   %43 = phi i64 [ %41, %35 ], [ %27, %.lr.ph71 ]
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1448
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1448
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv85
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv85
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 @H5HG_get_size(ptr noundef %48) #7
   %50 = add i64 %49, %43
@@ -187,15 +187,15 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1448
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1448
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv85
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv85
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i64 @H5HG_get_addr(ptr noundef %57) #7
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1448
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1448
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv85
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv85
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i64 @H5HG_get_size(ptr noundef %63) #7
   %65 = tail call i32 @H5MF_try_extend(ptr noundef nonnull %0, i32 noundef 4, i64 noundef %58, i64 noundef %64, i64 noundef %43) #7
@@ -214,9 +214,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1448
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1448
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv85
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv85
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i64 @H5HG_get_addr(ptr noundef %78) #7
   %80 = tail call i32 @H5HG_extend(ptr noundef nonnull %0, i64 noundef %79, i64 noundef %43) #7
@@ -232,7 +232,7 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 86:                                               ; preds = %42, %71
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1440
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1440
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
   %91 = icmp samesign ult i64 %indvars.iv.next86, %90
@@ -241,9 +241,9 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 .loopexit:                                        ; preds = %.lr.ph, %73
   %indvars.iv.lcssa.sink101 = phi i64 [ %indvars.iv85, %73 ], [ %indvars.iv, %.lr.ph ]
   %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 1448
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1448
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv.lcssa.sink101
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.lcssa.sink101
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 @H5HG_get_addr(ptr noundef %96) #7
   store i64 %97, ptr %2, align 8
@@ -252,20 +252,20 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
 
 98:                                               ; preds = %.loopexit
   %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 1448
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1448
   %101 = load ptr, ptr %100, align 8
   %102 = and i64 %indvars.iv.lcssa.sink101, 4294967295
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = add nuw i64 %indvars.iv.lcssa.sink101, 4294967295
   %106 = and i64 %105, 4294967295
-  %107 = getelementptr inbounds ptr, ptr %101, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr %101, i64 %106
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %103, align 8
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1448
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1448
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %106
+  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %106
   store ptr %104, ptr %112, align 8
   br label %.loopexit.thread
 
@@ -284,22 +284,22 @@ declare i32 @H5HG_extend(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5F_cwfs_advance_heap(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1440
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1440
   %7 = load i32, ptr %6, align 8
   %.not35 = icmp eq i32 %7, 0
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 1448
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1448
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %26
   %.034 = phi i32 [ 0, %.lr.ph ], [ %27, %26 ]
   %11 = zext i32 %.034 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %26
@@ -309,16 +309,16 @@ define noundef i32 @H5F_cwfs_advance_heap(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %.loopexit, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %18 = add i32 %.034, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %17, align 8
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1448
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1448
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %19
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %19
   store ptr %1, ptr %25, align 8
   br label %.loopexit
 
@@ -333,7 +333,7 @@ define noundef i32 @H5F_cwfs_advance_heap(ptr nocapture noundef readonly %0, ptr
 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1440
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1440
   %31 = load i32, ptr %30, align 8
   %.not26 = icmp ult i32 %.029, %31
   br i1 %.not26, label %42, label %32
@@ -343,13 +343,13 @@ define noundef i32 @H5F_cwfs_advance_heap(ptr nocapture noundef readonly %0, ptr
   %spec.select = tail call i32 @llvm.umin.i32(i32 %33, i32 16)
   store i32 %spec.select, ptr %30, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1448
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1448
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 1440
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 1440
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
   store ptr %1, ptr %41, align 8
   br label %42
 
@@ -359,30 +359,30 @@ define noundef i32 @H5F_cwfs_advance_heap(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5F_cwfs_remove_heap(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext i32 %4 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %4, -1
   store i32 %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = sub i32 %14, %13
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3

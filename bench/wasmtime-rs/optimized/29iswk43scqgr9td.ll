@@ -12,9 +12,9 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   %4 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [55 x i8] }, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.not = icmp ult i64 %8, %10
   br i1 %.not, label %11, label %27
@@ -27,9 +27,9 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !5
   %12 = load i8, ptr %5, align 8, !range !10, !noalias !8, !noundef !4
   %trunc.i = trunc nuw i8 %12 to i1
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !8, !nonnull !4, !align !11
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %16 = load i8, ptr %15, align 1, !noalias !8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8
   br i1 %trunc.i, label %22, label %17
@@ -37,35 +37,35 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !8
   call void @_ZN10wasmparser13binary_reader12BinaryReader11read_reader17hbfc6f32615b48c9dE(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.0, i64 noundef 25), !noalias !5
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i8, ptr %18, align 8, !range !12, !noalias !8, !noundef !4
   %20 = icmp eq i8 %19, 2
   %21 = load ptr, ptr %4, align 8, !noalias !8
   br i1 %20, label %25, label %24
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %23, align 8, !alias.scope !5, !noalias !13
   store i8 12, ptr %6, align 8, !alias.scope !5, !noalias !13
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
 24:                                               ; preds = %17
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.7.0..sroa_idx4.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, i64 24, i1 false), !noalias !8
-  %.sroa.612.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 33
-  %.sroa.9.0..sroa_idx8.i = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.612.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 33
+  %.sroa.9.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %3, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx8.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.612.0..sroa_idx.i, i64 7, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !8
   store ptr %21, ptr %3, align 8, !noalias !8
-  %.sroa.75.0..sroa_idx6.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.75.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %19, ptr %.sroa.75.0..sroa_idx6.i, align 8, !noalias !8
   call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias nocapture noundef nonnull sret({ i8, [55 x i8] }) align 8 dereferenceable(56) %6, i8 noundef %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
 25:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %21, ptr %26, align 8, !alias.scope !5, !noalias !13
   store i8 12, ptr %6, align 8, !alias.scope !5, !noalias !13
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
@@ -93,9 +93,9 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %6 = load i8, ptr %5, align 8, !range !10, !noundef !4
   %trunc = trunc nuw i8 %6 to i1
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !11
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %trunc, label %16, label %11
@@ -103,35 +103,35 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN10wasmparser13binary_reader12BinaryReader11read_reader17hbfc6f32615b48c9dE(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.0, i64 noundef 25)
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i8, ptr %12, align 8, !range !12, !noundef !4
   %14 = icmp eq i8 %13, 2
   %15 = load ptr, ptr %4, align 8
   br i1 %14, label %19, label %18
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %17, align 8
   store i8 12, ptr %0, align 8
   br label %21
 
 18:                                               ; preds = %11
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.7.0..sroa_idx4 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i64 24, i1 false)
-  %.sroa.612.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 33
-  %.sroa.9.0..sroa_idx8 = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 33
+  %.sroa.9.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %3, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.612.0..sroa_idx, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   store ptr %15, ptr %3, align 8
-  %.sroa.75.0..sroa_idx6 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.75.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %13, ptr %.sroa.75.0..sroa_idx6, align 8
   call void @"_ZN90_$LT$wasmparser..readers..core..names..Name$u20$as$u20$wasmparser..readers..Subsection$GT$11from_reader17hdc488886eebd226eE"(ptr noalias nocapture noundef nonnull sret({ i8, [55 x i8] }) align 8 dereferenceable(56) %0, i8 noundef %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3)
   br label %21
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %20, align 8
   store i8 12, ptr %0, align 8
   br label %21
@@ -143,34 +143,34 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a53bc099d80731aE"(ptr noalias nocapture noundef writeonly sret({ [20 x i8], i8, [3 x i8] }) align 8 dereferenceable(24) initializes((20, 21)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { [20 x i8], i8, [3 x i8] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %18
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 6, ptr %12, align 4
   br label %31
 
 13:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %.not2 = icmp ult i64 %15, %17
   br i1 %.not2, label %24, label %29
 
 18:                                               ; preds = %7
   call void @"_ZN94_$LT$wasmparser..readers..core..exports..Export$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h0af74a0ee9dea409E"(ptr noalias nocapture noundef nonnull sret({ [20 x i8], i8, [3 x i8] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-  %19 = getelementptr inbounds i8, ptr %3, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %20 = load i8, ptr %19, align 4, !range !14, !noundef !4
   %.not = icmp eq i8 %20, 5
   %21 = zext i1 %.not to i8
@@ -182,17 +182,17 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %31
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = add i64 %26, %15
   %28 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %27)
   store ptr %28, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 5, ptr %.sroa.41.0..sroa_idx, align 4
   br label %31
 
 29:                                               ; preds = %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 6, ptr %30, align 4
   br label %31
 
@@ -203,13 +203,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14e5039106bcca39E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i32, [3 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -220,9 +220,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not = icmp ult i64 %14, %16
   br i1 %.not, label %22, label %27
@@ -239,12 +239,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i32 1, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.41.0..sroa_idx, align 8
   br label %28
 
@@ -259,13 +259,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18cb6e630c953f37E"(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i64, [8 x i64] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -276,9 +276,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not1 = icmp ult i64 %14, %16
   br i1 %.not1, label %22, label %27
@@ -296,12 +296,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i64 7, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
   br label %28
 
@@ -316,13 +316,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h197b7f8a92326d19E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i64, [4 x i64] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -333,9 +333,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not1 = icmp ult i64 %14, %16
   br i1 %.not1, label %22, label %27
@@ -353,12 +353,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i64 2, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
   br label %28
 
@@ -373,34 +373,34 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d937959a2c50519E"(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) initializes((24, 25)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { [24 x i8], i8, [7 x i8] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %18
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 3, ptr %12, align 8
   br label %31
 
 13:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %.not2 = icmp ult i64 %15, %17
   br i1 %.not2, label %24, label %29
 
 18:                                               ; preds = %7
   call void @"_ZN94_$LT$wasmparser..readers..core..globals..Global$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h2e0b7506d394fd62E"(ptr noalias nocapture noundef nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i8, ptr %19, align 8, !range !12, !noundef !4
   %.not = icmp eq i8 %20, 2
   %21 = zext i1 %.not to i8
@@ -412,17 +412,17 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %31
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = add i64 %26, %15
   %28 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %27)
   store ptr %28, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 2, ptr %.sroa.41.0..sroa_idx, align 8
   br label %31
 
 29:                                               ; preds = %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 3, ptr %30, align 8
   br label %31
 
@@ -433,13 +433,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88fd814abf57eae5E"(ptr noalias nocapture noundef writeonly sret({ i32, [25 x i32] }) align 8 dereferenceable(104) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i32, [25 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -450,9 +450,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not2 = icmp ult i64 %14, %16
   br i1 %.not2, label %22, label %27
@@ -470,12 +470,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i32 5, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.41.0..sroa_idx, align 8
   br label %28
 
@@ -490,13 +490,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha70d263f2a9e9465E"(ptr noalias nocapture noundef writeonly sret({ i32, [9 x i32] }) align 8 dereferenceable(40) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i32, [9 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -507,9 +507,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not2 = icmp ult i64 %14, %16
   br i1 %.not2, label %22, label %27
@@ -527,12 +527,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i32 2, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.41.0..sroa_idx, align 8
   br label %28
 
@@ -547,22 +547,22 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9180fea423e4393E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [2 x i64] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !4
   %.not1 = icmp ult i64 %13, %15
   br i1 %.not1, label %22, label %28
@@ -576,18 +576,18 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   %19 = load i32, ptr %8, align 8, !noundef !4
   %20 = add i32 %19, -1
   store i32 %20, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %28
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %13
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %27, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
   br label %28
 
@@ -600,34 +600,34 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4989871e5bea53eE.llvm.1622313557807394724"(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56) initializes((8, 12)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { [2 x i32], i32, [11 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %18
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %12, align 8
   br label %31
 
 13:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %.not1 = icmp ult i64 %15, %17
   br i1 %.not1, label %24, label %29
 
 18:                                               ; preds = %7
   call void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i32, ptr %19, align 8, !range !20, !noundef !4
   %.not = icmp eq i32 %20, 3
   %21 = zext i1 %.not to i8
@@ -639,17 +639,17 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %31
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = add i64 %26, %15
   %28 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %27)
   store ptr %28, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %.sroa.4.0..sroa_idx, align 8
   br label %31
 
 29:                                               ; preds = %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %30, align 8
   br label %31
 
@@ -660,13 +660,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5ef785b488ba856E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i32, [15 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -677,9 +677,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not2 = icmp ult i64 %14, %16
   br i1 %.not2, label %22, label %27
@@ -697,12 +697,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i32 2, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.41.0..sroa_idx, align 8
   br label %28
 
@@ -717,22 +717,22 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9c4de0ec8d7dbadE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [2 x i64] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !4
   %.not1 = icmp ult i64 %13, %15
   br i1 %.not1, label %22, label %28
@@ -746,18 +746,18 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   %19 = load i32, ptr %8, align 8, !noundef !4
   %20 = add i32 %19, -1
   store i32 %20, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %28
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %13
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %27, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
   br label %28
 
@@ -770,34 +770,34 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd884a440251af73fE"(ptr noalias nocapture noundef writeonly sret({ [32 x i8], i8, [23 x i8] }) align 8 dereferenceable(56) initializes((32, 33)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { [32 x i8], i8, [23 x i8] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %18
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 3, ptr %12, align 8
   br label %31
 
 13:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
   %.not2 = icmp ult i64 %15, %17
   br i1 %.not2, label %24, label %29
 
 18:                                               ; preds = %7
   call void @"_ZN100_$LT$wasmparser..readers..core..names..IndirectNaming$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17ha85d17ab0b2a95bbE"(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [23 x i8] }) align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = load i8, ptr %19, align 8, !range !12, !noundef !4
   %.not = icmp eq i8 %20, 2
   %21 = zext i1 %.not to i8
@@ -809,17 +809,17 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %31
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = add i64 %26, %15
   %28 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %27)
   store ptr %28, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 2, ptr %.sroa.41.0..sroa_idx, align 8
   br label %31
 
 29:                                               ; preds = %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 3, ptr %30, align 8
   br label %31
 
@@ -830,13 +830,13 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he174e1c85987eed0E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca { i32, [3 x i32] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i8, ptr %4, align 4, !range !10, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %17
@@ -847,9 +847,9 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
 
 12:                                               ; preds = %7
   store i8 1, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not = icmp ult i64 %14, %16
   br i1 %.not, label %22, label %27
@@ -866,12 +866,12 @@ define hidden void @"_ZN111_$LT$wasmparser..readers..SectionLimitedIntoIter$LT$T
   br label %28
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !noundef !4
   %25 = add i64 %24, %14
   %26 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.1.llvm.1622313557807394724, i64 noundef 64, i64 noundef %25)
   store i32 1, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.41.0..sroa_idx, align 8
   br label %28
 
@@ -888,35 +888,35 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   %3 = alloca { [2 x i32], i32, [11 x i32] }, align 8
   %.sroa.9 = alloca [11 x i32], align 4
   %.sroa.78 = alloca [11 x i32], align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = add i64 %7, %5
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %.sroa.78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %1, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %10 = load i8, ptr %9, align 4, !range !10, !alias.scope !21, !noalias !24, !noundef !4
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i32, ptr %13, align 8, !alias.scope !21, !noalias !24, !noundef !4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %12
   store i8 1, ptr %9, align 4, !alias.scope !21, !noalias !24
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !21, !noalias !24, !noundef !4
   %.not1.i = icmp ult i64 %7, %18
   br i1 %.not1.i, label %25, label %31
 
 19:                                               ; preds = %12
   call void @"_ZN94_$LT$wasmparser..readers..core..types..RecGroup$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h11ffba07e717482aE"(ptr noalias nocapture noundef nonnull sret({ [2 x i32], i32, [11 x i32] }) align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !24
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %20, align 8, !range !20, !noalias !26, !noundef !4
   %.not.i = icmp eq i32 %21, 3
   %22 = zext i1 %.not.i to i8
@@ -925,7 +925,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   %24 = add i32 %23, -1
   store i32 %24, ptr %13, align 8, !alias.scope !21, !noalias !24
   %.sroa.09.0.copyload = load i64, ptr %3, align 8, !noalias !21
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.9.0..sroa_idx, i64 44, i1 false)
   br label %28
 
@@ -949,17 +949,17 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   %.sroa.5.014 = phi i64 [ %.sroa.09.0, %30 ], [ undef, %28 ]
   %.sink.i = phi i64 [ %8, %30 ], [ %.sroa.09.0, %28 ]
   store i64 %.sink.i, ptr %0, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.014, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.510.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.78.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.78.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78, i64 44, i1 false)
   br label %33
 
 31:                                               ; preds = %2, %16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 4, ptr %32, align 8
   br label %33
 
@@ -972,7 +972,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
 define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithOffsets$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hfa91386e72fcc23fE.llvm.1622313557807394724"(ptr noalias nocapture noundef writeonly sret({ i64, { { [2 x i32], i32, [11 x i32] } } }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #1 {
   %4 = load i64, ptr %1, align 8, !noundef !4
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   ret void
 }
@@ -981,7 +981,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
 define hidden { ptr, ptr } @_ZN3std9panicking3try17he21b38db8396aed1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !31, !noundef !4
   store i64 0, ptr %.val.i, align 8, !noalias !34
-  %2 = getelementptr inbounds i8, ptr %.val.i, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   store i8 2, ptr %2, align 1, !noalias !34
   ret { ptr, ptr } { ptr null, ptr undef }
 }
@@ -991,7 +991,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h97ad023fecac69deE.llvm.16223
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !11, !noundef !4
   %.val = load ptr, ptr %2, align 8, !alias.scope !37, !noundef !4
   store i64 0, ptr %.val, align 8, !noalias !40
-  %3 = getelementptr inbounds i8, ptr %.val, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store i8 2, ptr %3, align 1, !noalias !40
   ret void
 }
@@ -1015,28 +1015,28 @@ define hidden void @_ZN3std9panicking3try8do_catch17h08da204a58e3cd89E.llvm.1622
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724"(ptr noalias nocapture noundef writeonly sret({ [4 x i32], i32, [11 x i32] }) align 8 dereferenceable(64) initializes((0, 8), (16, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !range !20, !noundef !4
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %2, align 8, !alias.scope !43, !noalias !46, !noundef !4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   br label %13
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !11, !noundef !4
   %11 = ptrtoint ptr %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 3, ptr %12, align 8
   br label %13
 

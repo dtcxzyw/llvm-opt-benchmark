@@ -12,11 +12,11 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) @Lpk_MuxAnalize.Res, i8 0, i64 40, i1 false)
   store i32 -1, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 148
-  %7 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   br label %8
 
 8:                                                ; preds = %2, %221
@@ -30,7 +30,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 
 13:                                               ; preds = %8
   %14 = shl nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1431655765
   %18 = lshr i32 %16, 1
@@ -52,7 +52,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %34 = lshr i32 %32, 16
   %35 = add nuw nsw i32 %33, %34
   %36 = or disjoint i64 %14, 1
-  %37 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 1431655765
   %40 = lshr i32 %38, 1
@@ -334,18 +334,18 @@ declare i32 @Lpk_SuppDelay(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_MuxSplit(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 228
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 228
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 7
   %9 = and i32 %8, 31
   %10 = tail call i32 @llvm.usub.sat.i32(i32 %9, i32 5)
   %11 = shl nuw nsw i32 1, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
   %14 = shl nuw nsw i32 2, %10
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
   tail call void @Kit_TruthCofactor0New(ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef %9, i32 noundef %2) #4
   %17 = load i32, ptr %6, align 8
   %18 = lshr i32 %17, 7
@@ -359,7 +359,7 @@ define ptr @Lpk_MuxSplit(ptr nocapture noundef readnone %0, ptr noundef %1, i32 
   %24 = lshr i32 %23, 7
   %25 = and i32 %24, 31
   %26 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %22, i32 noundef %25) #4
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %28 = shl nuw i32 1, %2
   %29 = or i32 %26, %28
   br label %30
@@ -406,7 +406,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
 
 50:                                               ; preds = %50, %.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next26.i, %50 ]
-  %51 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv25.i
+  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv25.i
   store i32 %49, ptr %51, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count29.i
@@ -418,7 +418,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
   %54 = and i32 %46, %53
   %.not.i79 = icmp ne i32 %54, 0
   %spec.select.i = sext i1 %.not.i79 to i32
-  %55 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %55, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -436,18 +436,18 @@ Kit_TruthIthVar.exit:                             ; preds = %52, %50
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = getelementptr inbounds i8, ptr %21, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = trunc i32 %60 to i8
   %62 = and i8 %61, 127
-  %63 = getelementptr inbounds i8, ptr %1, i64 212
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %64 = sext i32 %.06.i to i64
   %65 = getelementptr inbounds [16 x i8], ptr %63, i64 0, i64 %64
   store i8 %62, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %1, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, -1
-  %69 = getelementptr inbounds i8, ptr %1, i64 148
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %70 = getelementptr inbounds [16 x i32], ptr %69, i64 0, i64 %64
   store i32 %68, ptr %70, align 4
   %71 = load i32, ptr %6, align 8
@@ -457,7 +457,7 @@ Kit_TruthIthVar.exit:                             ; preds = %52, %50
   %74 = tail call i32 @Lpk_FunSuppMinimize(ptr noundef %21) #4
   %75 = load i32, ptr %66, align 8
   %76 = add i32 %75, -1
-  %77 = getelementptr inbounds i8, ptr %21, i64 144
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store i32 %76, ptr %77, align 8
   %78 = load i32, ptr %59, align 8
   %79 = lshr i32 %78, 7

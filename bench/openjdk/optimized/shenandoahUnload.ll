@@ -111,9 +111,9 @@ define hidden void @_ZN16ShenandoahUnload6unloadEv(ptr nocapture noundef nonnull
   %10 = alloca %class.ShenandoahTimingsTracker, align 8
   %11 = alloca %class.ShenandoahTimingsTracker, align 8
   %12 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 504
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 504
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   call void @_ZN21ClassUnloadingContextC1Ejbb(ptr noundef nonnull align 8 dereferenceable(26) %2, i32 noundef %16, i1 noundef zeroext true, i1 noundef zeroext true) #6
   call void @_ZN24ShenandoahTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 104) #6
@@ -293,33 +293,33 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK30ShenandoahIsUnloadingBehaviour12has_dead_oopEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca %class.ShenandoahIsUnloadingOopClosure, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(112) %6) #6
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV31ShenandoahIsUnloadingOopClosure, i64 16), ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2248
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2248
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %3, align 8
   %23 = load ptr, ptr %22, align 8
@@ -332,14 +332,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK30ShenandoahIsUnloadingBehavi
 
 ._crit_edge.i:                                    ; preds = %18, %2
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %27, i64 180
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 180
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %34
   %.not18.i = icmp eq i16 %33, 0
   br i1 %.not18.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, label %.lr.ph16.i
 
@@ -357,7 +357,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK30ShenandoahIsUnloadingBehavi
   br label %41
 
 41:                                               ; preds = %38, %.lr.ph16.i
-  %42 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %43 = icmp ult ptr %42, %35
   br i1 %43, label %.lr.ph16.i, label %_ZN25ShenandoahReentrantLockerD2Ev.exit, !llvm.loop !8
 
@@ -365,7 +365,7 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %41, %._crit_edge.i
   %44 = load i8, ptr %13, align 8
   %45 = trunc i8 %44 to i1
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(112) %6) #6
   ret i1 %45
@@ -373,9 +373,9 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %41, %._crit_edge.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN39ShenandoahCompiledICProtectionBehaviour4lockEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(112) %5) #6
@@ -384,11 +384,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN39ShenandoahCompiledICProtecti
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN39ShenandoahCompiledICProtectionBehaviour6unlockEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(112) %5) #6
   ret void
@@ -405,9 +405,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN39ShenandoahCompiledICProtecti
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = tail call noundef zeroext i1 @_ZNK23ShenandoahReentrantLock13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(112) %10) #6
   br label %12
 
@@ -428,7 +428,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN31ShenandoahIsUnloadingOopClosure6do_oopEPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, label %6
@@ -439,12 +439,12 @@ define linkonce_odr hidden void @_ZN31ShenandoahIsUnloadingOopClosure6do_oopEPP7
   br i1 %8, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %7 to i64
   %13 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %14 = lshr i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %11, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
@@ -452,7 +452,7 @@ define linkonce_odr hidden void @_ZN31ShenandoahIsUnloadingOopClosure6do_oopEPP7
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %12, %21
@@ -463,10 +463,10 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %9
   %27 = lshr i64 %24, %26
   %28 = and i64 %27, 63
   %29 = shl i64 3, %28
-  %30 = getelementptr inbounds i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = lshr i64 %27, 6
-  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %29, %34
   %.not = icmp eq i64 %35, 0

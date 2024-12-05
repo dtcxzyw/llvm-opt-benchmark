@@ -192,16 +192,16 @@ define internal range(i32 0, 2) i32 @dissect_esl_heur(ptr noundef %0, ptr nounde
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 50
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 50
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8
   %.not34 = icmp eq i16 %13, 0
   br i1 %.not34, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @ref_time_frame, i64 32), align 8
   %.not35 = icmp ugt i32 %16, %17
@@ -344,20 +344,20 @@ define internal fastcc void @modify_times(ptr noundef %0, i32 noundef range(i32 
   %9 = add nuw i32 %1, 8
   %10 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %9) #3
   store i64 %10, ptr getelementptr inbounds (i8, ptr @ref_time_frame, i64 8), align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr @ref_time_frame, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr getelementptr inbounds (i8, ptr @ref_time_frame, i64 32), align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ref_time_frame, i64 16), ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   br label %45
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
@@ -374,7 +374,7 @@ define internal fastcc void @modify_times(ptr noundef %0, i32 noundef range(i32 
   %29 = add i64 %.neg, %26
   %30 = trunc i64 %29 to i32
   %31 = add i32 %28, %30
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %31, ptr %32, align 8
   %33 = icmp sgt i32 %31, 1000000000
   br i1 %33, label %34, label %37
@@ -392,13 +392,13 @@ define internal fastcc void @modify_times(ptr noundef %0, i32 noundef range(i32 
   %39 = ashr exact i64 %sext, 32
   %40 = add i64 %39, %38
   store i64 %40, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %41) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %44 = getelementptr inbounds i8, ptr %2, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @nstime_sum(ptr noundef nonnull %44, ptr noundef nonnull %44, ptr noundef nonnull %5) #3
   br label %45
 

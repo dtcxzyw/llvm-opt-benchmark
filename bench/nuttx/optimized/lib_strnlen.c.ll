@@ -21,7 +21,7 @@ define noundef i64 @strnlen(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 4:                                                ; preds = %.lr.ph
   %5 = add i64 %.069, -1
-  %6 = getelementptr inbounds i8, ptr %.010, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 

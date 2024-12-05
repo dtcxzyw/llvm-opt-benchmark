@@ -80,7 +80,7 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr nocapture nounde
   %.355.i = phi i64 [ %26, %.lr.ph57.i ], [ %.138.i, %19 ]
   %21 = add i64 %.13356.i, -1
   %22 = urem i64 %.355.i, 10
-  %23 = getelementptr inbounds i8, ptr @.str, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @.str, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds i8, ptr %1, i64 %21
   store i8 %24, ptr %25, align 1
@@ -159,7 +159,7 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr nocapture nound
   %.355 = phi i64 [ %26, %.lr.ph57 ], [ %.138, %19 ]
   %21 = add i64 %.13356, -1
   %22 = urem i64 %.355, 10
-  %23 = getelementptr inbounds i8, ptr @.str, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr @.str, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds i8, ptr %1, i64 %21
   store i8 %24, ptr %25, align 1
@@ -188,7 +188,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 
 8:                                                ; preds = %7, %2
   %.071 = phi i1 [ false, %2 ], [ true, %7 ]
-  %9 = getelementptr inbounds i8, ptr %4, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %9, ptr %0, align 8
   br label %10
 
@@ -224,7 +224,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 21:                                               ; preds = %18, %19
   %.179 = phi i32 [ %.07894, %18 ], [ %20, %19 ]
   %.174.idx = phi i64 [ %.073.add, %18 ], [ %.073.idx95, %19 ]
-  %22 = getelementptr inbounds i8, ptr %.06496, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.06496, i64 1
   %.073.ptr.ptr = getelementptr inbounds i8, ptr %3, i64 %.174.idx
   %23 = icmp ult ptr %22, %5
   br i1 %23, label %.lr.ph, label %.critedge
@@ -234,7 +234,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br i1 %25, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %24
-  %.266100 = getelementptr inbounds i8, ptr %.06496, i64 1
+  %.266100 = getelementptr inbounds nuw i8, ptr %.06496, i64 1
   %.376.ptr101 = getelementptr inbounds i8, ptr %3, i64 %.073.idx95
   %26 = icmp ult ptr %.266100, %5
   br i1 %26, label %.lr.ph106, label %.critedge
@@ -262,7 +262,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 34:                                               ; preds = %32, %30
   %.477.idx = phi i64 [ %.376.add, %32 ], [ %.376.idx102, %30 ]
   %.2 = phi i32 [ %33, %32 ], [ %.1103, %30 ]
-  %.266 = getelementptr inbounds i8, ptr %.266104, i64 1
+  %.266 = getelementptr inbounds nuw i8, ptr %.266104, i64 1
   %.376.ptr = getelementptr inbounds i8, ptr %3, i64 %.477.idx
   %35 = icmp ult ptr %.266, %5
   br i1 %35, label %.lr.ph106, label %.critedge
@@ -272,7 +272,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   %.275 = phi ptr [ %.073.ptr.ptr97, %24 ], [ %.376.ptr101, %.preheader ], [ %3, %10 ], [ %.376.ptr105, %.lr.ph106 ], [ %.376.ptr, %34 ], [ %.073.ptr.ptr, %21 ]
   %.165 = phi ptr [ %.06496, %24 ], [ %.266100, %.preheader ], [ %11, %10 ], [ %.266104, %.lr.ph106 ], [ %.266, %34 ], [ %22, %21 ]
   %.0 = phi i32 [ 0, %24 ], [ 0, %.preheader ], [ 0, %10 ], [ %.1103, %.lr.ph106 ], [ %.2, %34 ], [ 0, %21 ]
-  %36 = getelementptr inbounds i8, ptr %.165, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   %37 = icmp ult ptr %36, %5
   br i1 %37, label %38, label %64
 
@@ -284,7 +284,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   ]
 
 40:                                               ; preds = %38, %38
-  %41 = getelementptr inbounds i8, ptr %.165, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.165, i64 2
   %42 = icmp ult ptr %41, %5
   br i1 %42, label %43, label %46
 
@@ -311,7 +311,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 
 50:                                               ; preds = %46
   %51 = zext nneg i8 %48 to i32
-  %.4114 = getelementptr inbounds i8, ptr %.068, i64 1
+  %.4114 = getelementptr inbounds nuw i8, ptr %.068, i64 1
   %52 = icmp ult ptr %.4114, %5
   br i1 %52, label %.lr.ph117, label %._crit_edge
 
@@ -327,7 +327,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   %57 = zext nneg i8 %54 to i32
   %58 = mul nsw i32 %.063115, 10
   %59 = add nsw i32 %58, %57
-  %.4 = getelementptr inbounds i8, ptr %.4116, i64 1
+  %.4 = getelementptr inbounds nuw i8, ptr %.4116, i64 1
   %60 = icmp ult ptr %.4, %5
   br i1 %60, label %.lr.ph117, label %._crit_edge
 
@@ -383,7 +383,7 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr nocapture noundef %0, i64 nound
   br label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %.02127, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.02127, i64 1
   %18 = icmp ult ptr %17, %4
   br i1 %18, label %.lr.ph, label %.loopexit
 
@@ -409,7 +409,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 nounde
 
 7:                                                ; preds = %6, %2
   %.019 = phi i1 [ false, %2 ], [ true, %6 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %9
 
 9:                                                ; preds = %2, %7
@@ -439,7 +439,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 nounde
   br label %.loopexit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %.12127, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.12127, i64 1
   %23 = icmp ult ptr %22, %4
   br i1 %23, label %.lr.ph, label %.loopexit
 
@@ -480,7 +480,7 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr nocapture noundef %0, i64 nounde
   br label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %.02127, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.02127, i64 1
   %18 = icmp ult ptr %17, %4
   br i1 %18, label %.lr.ph, label %.loopexit
 
@@ -519,7 +519,7 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr nocapture noundef 
   %8 = and i32 %.01826, 15
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i32 %.01826, 4
-  %11 = getelementptr inbounds [17 x i8], ptr @lexbor_conv_dec_to_hex.map_str, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw [17 x i8], ptr @lexbor_conv_dec_to_hex.map_str, i64 0, i64 %9
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr inbounds i8, ptr %1, i64 %.017
   store i8 %12, ptr %13, align 1

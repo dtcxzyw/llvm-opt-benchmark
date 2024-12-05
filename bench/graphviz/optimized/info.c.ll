@@ -23,7 +23,7 @@ declare void @freeinit(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @nodeInfo, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds %struct.Info_t, ptr %4, i64 %6, i32 4
   %8 = load ptr, ptr %7, align 8
@@ -31,10 +31,10 @@ define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, dou
   br i1 %9, label %select.unfold, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load double, ptr %11, align 8
   %13 = fcmp oeq double %1, %12
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %2, %15
   %or.cond.i = select i1 %13, i1 %16, i1 false
@@ -43,7 +43,7 @@ define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, dou
 ._crit_edge.i:                                    ; preds = %10
   %17 = load double, ptr %0, align 8
   %18 = fsub double %1, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fsub double %2, %20
   %22 = fsub double %12, %17
@@ -129,9 +129,9 @@ select.unfold49:                                  ; preds = %41, %47, %38, %45, 
 
 select.unfold:                                    ; preds = %55, %35, %38, %45, %51, %47, %41, %31, %25, %3
   %64 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store double %1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store double %2, ptr %66, align 8
   store ptr %8, ptr %64, align 8
   store ptr %64, ptr %7, align 8
@@ -140,10 +140,10 @@ select.unfold:                                    ; preds = %55, %35, %38, %45, 
 67:                                               ; preds = %.lr.ph, %compare.exit46
   %.03173 = phi ptr [ %.03171, %.lr.ph ], [ %.031, %compare.exit46 ]
   %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.exit46 ]
-  %68 = getelementptr inbounds i8, ptr %.03173, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.03173, i64 8
   %69 = load double, ptr %68, align 8
   %70 = fcmp oeq double %1, %69
-  %71 = getelementptr inbounds i8, ptr %.03173, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.03173, i64 16
   %72 = load double, ptr %71, align 8
   %73 = fcmp oeq double %2, %72
   %or.cond.i37 = select i1 %70, i1 %73, i1 false
@@ -221,9 +221,9 @@ select.unfold55:                                  ; preds = %compare.exit46, %76
   %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %101 ], [ %.072, %84 ], [ %.072, %93 ], [ %.072, %87 ], [ %.072, %98 ], [ %.072, %95 ], [ %.072, %90 ], [ %.072, %81 ], [ %.072, %76 ], [ %.03173, %compare.exit46 ]
   %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %101 ], [ %.03173, %84 ], [ %.03173, %93 ], [ %.03173, %87 ], [ %.03173, %98 ], [ %.03173, %95 ], [ %.03173, %90 ], [ %.03173, %81 ], [ %.03173, %76 ], [ null, %compare.exit46 ]
   %105 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store double %1, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %105, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store double %2, ptr %107, align 8
   store ptr %105, ptr %.0.lcssa, align 8
   store ptr %.031.lcssa, ptr %105, align 8

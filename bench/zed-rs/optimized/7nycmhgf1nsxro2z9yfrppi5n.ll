@@ -58,9 +58,9 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %.sroa.0.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %3 = icmp ult i32 %1, 128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
-  %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 3
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
   br i1 %3, label %49, label %4
 
 4:                                                ; preds = %2
@@ -89,7 +89,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !7, !noalias !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
@@ -103,13 +103,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !7, !noalias !4
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !7, !noalias !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
@@ -120,7 +120,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
   store i8 %36, ptr %.sink.i.sroa.phi.i, align 1, !alias.scope !7, !noalias !4
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i64, ptr %37, align 8, !alias.scope !10, !noundef !13
   %39 = load i64, ptr %0, align 8, !alias.scope !10, !noundef !13
   %40 = sub i64 %39, %38
@@ -134,7 +134,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h0354464e39337e62E.exit.i": ; preds = %42, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %38, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !10, !nonnull !13, !noundef !13
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %33, i1 false)
@@ -146,7 +146,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20
 
 49:                                               ; preds = %2
   %50 = trunc nuw nsw i32 %1 to i8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !14, !noundef !13
   %53 = load i64, ptr %0, align 8, !alias.scope !14, !noundef !13
   %54 = icmp eq i64 %52, %53
@@ -157,7 +157,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcd683bbb20ad2c54E.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcd683bbb20ad2c54E.exit.i": ; preds = %55, %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !14, !nonnull !13, !noundef !13
   %58 = getelementptr inbounds i8, ptr %57, i64 %52
   store i8 %50, ptr %58, align 1
@@ -171,7 +171,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %"_ZN5alloc3vec
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h2ba0f20a474d1c4aE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !17, !noalias !22, !noundef !13
   %6 = load i64, ptr %0, align 8, !alias.scope !17, !noalias !22, !noundef !13
   %7 = sub i64 %6, %5
@@ -185,7 +185,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 _ZN5alloc6string6String8push_str17hf8d74d98e42ef13fE.exit: ; preds = %3, %9
   %10 = phi i64 [ %.pre.i.i, %9 ], [ %5, %3 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !17, !noalias !22, !nonnull !13, !noundef !13
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
@@ -206,9 +206,9 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
   %2 = alloca [48 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !13, !align !24, !noundef !13
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !13
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !13
   switch i64 %6, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h15d61db285940f9eE.exit" [
     i64 0, label %9
@@ -231,7 +231,7 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %4, align 8, !nonnull !13, !align !25, !noundef !13
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8, !noundef !13
   br label %11
 
@@ -267,7 +267,7 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
   store ptr %3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i8 0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8
   %10 = load i64, ptr %2, align 8, !range !26, !noundef !13
   %11 = icmp eq i64 %10, -9223372036854775808
@@ -294,10 +294,10 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   ret void
@@ -328,7 +328,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %10, label %8
@@ -338,7 +338,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %10
 
 10:                                               ; preds = %1, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4git24repo10Repository5index17h689671cc0b9d806aE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
           to label %17 unwind label %15
 
@@ -364,7 +364,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noundef !13
   store ptr %22, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -379,7 +379,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 25:                                               ; preds = %20
   %.val10 = load ptr, ptr %2, align 8, !noundef !13
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val11 = load i64, ptr %26, align 8
   %27 = icmp eq ptr %.val10, null
   %28 = icmp eq i64 %.val11, 0
@@ -418,7 +418,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ret void
 
 .thread:                                          ; preds = %17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
@@ -480,7 +480,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %40 = alloca [16 x i8], align 8
   %41 = alloca [48 x i8], align 8
   %42 = alloca [8 x i8], align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = cmpxchg weak ptr %43, i8 0, i8 1 acquire monotonic, align 1
   %45 = extractvalue { i8, i1 } %44, 1
   br i1 %45, label %48, label %46
@@ -490,7 +490,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %48
 
 48:                                               ; preds = %4, %46
-  %49 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38), !noalias !51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !51
@@ -500,11 +500,11 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 .noexc:                                           ; preds = %48
   %50 = load ptr, ptr %37, align 8, !noalias !51, !noundef !13
   %51 = icmp eq ptr %50, null
-  %.sink74.i.sroa.gep.i = getelementptr inbounds i8, ptr %19, i64 8
-  %.sink74.i.sroa.gep114.i = getelementptr inbounds i8, ptr %15, i64 8
-  %.sink74.i.sroa.gep115.i = getelementptr inbounds i8, ptr %11, i64 8
-  %.sink74.i.sroa.gep116.i = getelementptr inbounds i8, ptr %23, i64 8
-  %52 = getelementptr inbounds i8, ptr %37, i64 8
+  %.sink74.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sink74.i.sroa.gep114.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink74.i.sroa.gep115.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink74.i.sroa.gep116.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !51
   br i1 %51, label %54, label %88
 
@@ -535,13 +535,13 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 58:                                               ; preds = %.noexc59.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27), !noalias !56
   store ptr @anon.b954261911f1a69b15f2337178da659a.58, ptr %27, align 8, !noalias !56
-  %59 = getelementptr inbounds i8, ptr %27, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 1, ptr %59, align 8, !noalias !56
-  %60 = getelementptr inbounds i8, ptr %27, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %60, align 8, !noalias !56
-  %61 = getelementptr inbounds i8, ptr %27, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %61, align 8, !noalias !56
-  %62 = getelementptr inbounds i8, ptr %27, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 0, ptr %62, align 8, !noalias !56
   %63 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %27)
           to label %.noexc60.i unwind label %90, !noalias !59
@@ -573,17 +573,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 .noexc61.i:                                       ; preds = %70
   store ptr %23, ptr %24, align 8, !noalias !56
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !61
   store ptr @anon.b954261911f1a69b15f2337178da659a.61, ptr %10, align 8, !noalias !69
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !69
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %24, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !69
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !69
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !69
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %25, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
           to label %76 unwind label %74, !noalias !59
@@ -597,17 +597,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 .noexc62.i:                                       ; preds = %71
   store ptr %19, ptr %20, align 8, !noalias !56
-  %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !70
   store ptr @anon.b954261911f1a69b15f2337178da659a.63, ptr %9, align 8, !noalias !78
-  %.sroa.457.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.457.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %.sroa.457.0..sroa_idx.i.i, align 8, !noalias !78
-  %.sroa.558.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.558.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %.sroa.558.0..sroa_idx.i.i, align 8, !noalias !78
-  %.sroa.659.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.659.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 1, ptr %.sroa.659.0..sroa_idx.i.i, align 8, !noalias !78
-  %.sroa.760.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.760.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %.sroa.760.0..sroa_idx.i.i, align 8, !noalias !78
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %21, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
           to label %79 unwind label %77, !noalias !59
@@ -621,17 +621,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 .noexc63.i:                                       ; preds = %72
   store ptr %15, ptr %16, align 8, !noalias !56
-  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.411.0..sroa_idx.i.i, align 8, !noalias !56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !79
   store ptr @anon.b954261911f1a69b15f2337178da659a.65, ptr %8, align 8, !noalias !87
-  %.sroa.463.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.463.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %.sroa.463.0..sroa_idx.i.i, align 8, !noalias !87
-  %.sroa.564.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.564.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %16, ptr %.sroa.564.0..sroa_idx.i.i, align 8, !noalias !87
-  %.sroa.665.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.665.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %.sroa.665.0..sroa_idx.i.i, align 8, !noalias !87
-  %.sroa.766.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.766.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %.sroa.766.0..sroa_idx.i.i, align 8, !noalias !87
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %17, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
           to label %82 unwind label %80, !noalias !59
@@ -645,17 +645,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 .noexc64.i:                                       ; preds = %73
   store ptr %11, ptr %12, align 8, !noalias !56
-  %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !88
   store ptr @anon.b954261911f1a69b15f2337178da659a.67, ptr %7, align 8, !noalias !96
-  %.sroa.469.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.469.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %.sroa.469.0..sroa_idx.i.i, align 8, !noalias !96
-  %.sroa.570.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.570.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %12, ptr %.sroa.570.0..sroa_idx.i.i, align 8, !noalias !96
-  %.sroa.671.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.671.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %.sroa.671.0..sroa_idx.i.i, align 8, !noalias !96
-  %.sroa.772.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.772.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %.sroa.772.0..sroa_idx.i.i, align 8, !noalias !96
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
           to label %85 unwind label %83, !noalias !59
@@ -790,14 +790,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %93 unwind label %90, !noalias !59
 
 88:                                               ; preds = %.noexc
-  %.sroa.640.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.640.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.640.0.copyload.i = load i64, ptr %.sroa.640.0..sroa_idx.i, align 8, !noalias !51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37), !noalias !51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !51
   store ptr %50, ptr %32, align 8, !noalias !51
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %53, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 %.sroa.640.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !51
   %89 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %32)
           to label %.noexc12 unwind label %154
@@ -840,7 +840,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 94:                                               ; preds = %92
   %95 = load i64, ptr %35, align 8, !range !26, !noalias !51, !noundef !13
   %96 = icmp ne i64 %95, -9223372036854775808
-  %97 = getelementptr inbounds i8, ptr %35, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %98 = load i32, ptr %97, align 8, !noalias !51
   %99 = icmp ne i32 %98, 40960
   %or.cond.i = select i1 %96, i1 %99, i1 false
@@ -853,15 +853,15 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i": ; preds = %100
-  %101 = getelementptr inbounds i8, ptr %35, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.val58.i = load ptr, ptr %101, align 8, !noalias !51, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %.val58.i, i64 noundef %95, i64 noundef 1) #20, !noalias !133
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$git2..index..IndexEntry$GT$$GT$17h6f23f1bfa52603b8E.exit.i"
 
 102:                                              ; preds = %94
-  %.sroa.483.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.483.0.copyload.i = load ptr, ptr %.sroa.483.0..sroa_idx.i, align 8, !noalias !51
-  %103 = getelementptr inbounds i8, ptr %35, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %35, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(20) %103, i64 20, i1 false), !noalias !51
   %104 = icmp eq i64 %95, 0
   br i1 %104, label %"_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i"
@@ -882,7 +882,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 106:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i"
   %107 = load ptr, ptr %33, align 8, !noalias !51, !noundef !13
   %108 = icmp eq ptr %107, null
-  %109 = getelementptr inbounds i8, ptr %33, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %110 = load ptr, ptr %109, align 8, !noalias !51
   br i1 %108, label %111, label %113
 
@@ -893,14 +893,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %117 unwind label %115, !noalias !59
 
 113:                                              ; preds = %106
-  %.sroa.647.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.647.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.647.0.copyload.i = load i64, ptr %.sroa.647.0..sroa_idx.i, align 8, !noalias !51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !51
   store ptr %107, ptr %31, align 8, !noalias !51
-  %.sroa.223.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.223.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %110, ptr %.sroa.223.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.324.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.324.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %.sroa.647.0.copyload.i, ptr %.sroa.324.0..sroa_idx.i, align 8, !noalias !51
   %114 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31)
           to label %149 unwind label %90, !noalias !59
@@ -921,9 +921,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 .noexc73.i:                                       ; preds = %117
   %120 = load i64, ptr %6, align 8, !range !155, !noalias !151, !noundef !13
   %trunc.i.i = trunc nuw i64 %120 to i1
-  %121 = getelementptr inbounds i8, ptr %6, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %122 = load i64, ptr %121, align 8, !range !26, !noalias !151, !noundef !13
-  %123 = getelementptr inbounds i8, ptr %6, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %trunc.i.i, label %124, label %126
 
 124:                                              ; preds = %.noexc73.i
@@ -967,9 +967,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %138
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %5, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.8120.24.copyload.i = load i64, ptr %134, align 8, !noalias !157
-  %.sroa.10.24..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.10.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.10.24.copyload.i = load i64, ptr %.sroa.10.24..sroa_idx.i, align 8, !noalias !157
   %135 = ptrtoint ptr %127 to i64
   %136 = inttoptr i64 %119 to ptr
@@ -987,13 +987,13 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30), !noalias !51
   store i64 %122, ptr %30, align 8, !noalias !51
-  %.sroa.233.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.233.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %135, ptr %.sroa.233.0..sroa_idx.i, align 8, !noalias !51
-  %.sroa.233.sroa.2.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 16
+  %.sroa.233.sroa.2.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %136, ptr %.sroa.233.sroa.2.0..sroa.233.0..sroa_idx.sroa_idx.i, align 8, !noalias !51
-  %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 24
+  %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %.sroa.8120.24.copyload.i, ptr %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i, align 8, !noalias !51
-  %.sroa.334.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 32
+  %.sroa.334.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 %.sroa.10.24.copyload.i, ptr %.sroa.334.0..sroa_idx.i, align 8, !noalias !51
   %140 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h3db59cace7e94071E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %30)
           to label %143 unwind label %141, !noalias !59
@@ -1072,9 +1072,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 158:                                              ; preds = %156
   store i64 %.sroa.0.1, ptr %0, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx, align 8
   %159 = cmpxchg ptr %43, i8 1, i8 0 release monotonic, align 1
   %160 = extractvalue { i8, i1 } %159, 1
@@ -1109,16 +1109,16 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   store ptr %42, ptr %40, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.45.0..sroa_idx, align 8
   store ptr @anon.b954261911f1a69b15f2337178da659a.47, ptr %41, align 8
-  %169 = getelementptr inbounds i8, ptr %41, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 1, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %41, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %41, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %40, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %41, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 1, ptr %172, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
   %173 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.49)
@@ -1126,13 +1126,13 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 174:                                              ; preds = %168
   store ptr @anon.b954261911f1a69b15f2337178da659a.50, ptr %39, align 8
-  %175 = getelementptr inbounds i8, ptr %39, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 15, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %39, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr @anon.b954261911f1a69b15f2337178da659a.50, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %39, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 15, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %39, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %173, ptr %178, align 8
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %41, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %39, ptr noalias noundef readonly align 16 null, i64 undef)
           to label %179 unwind label %162
@@ -1176,7 +1176,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [8 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = cmpxchg weak ptr %8, i8 0, i8 1 acquire monotonic, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %13, label %11
@@ -1188,7 +1188,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 13:                                               ; preds = %4, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository11find_remote17h1e016d3e7c21ef28E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %20 unwind label %18
 
@@ -1213,7 +1213,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   store ptr %25, ptr %7, align 8
@@ -1225,7 +1225,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load i64, ptr %28, align 8, !alias.scope !188, !noundef !13
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$git2..remote..Remote$C$git2..error..Error$GT$$GT$17h97a75a891a8040d6E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i"
@@ -1258,9 +1258,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 .noexc15:                                         ; preds = %37
   %39 = load i64, ptr %5, align 8, !range !155, !noalias !189, !noundef !13
   %trunc.i = trunc nuw i64 %39 to i1
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i64, ptr %40, align 8, !range !26, !noalias !189, !noundef !13
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %trunc.i, label %43, label %46
 
 43:                                               ; preds = %.noexc15
@@ -1280,9 +1280,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !189
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %34, i64 %38, i1 false), !noalias !193
   store i64 %41, ptr %0, align 8
-  %.sroa.423.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %.sroa.423.0..sroa_idx, align 8
-  %.sroa.524.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %38, ptr %.sroa.524.0..sroa_idx, align 8
   br label %45
 
@@ -1329,7 +1329,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = cmpxchg weak ptr %9, i8 0, i8 1 acquire monotonic, align 1
   %11 = extractvalue { i8, i1 } %10, 1
   br i1 %11, label %14, label %12
@@ -1341,7 +1341,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 14:                                               ; preds = %2, %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository4head17h4f3a3fd2b5ff80f7E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
           to label %21 unwind label %19
 
@@ -1389,7 +1389,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19"
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !194, !noalias !197, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -1418,9 +1418,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %38 unwind label %33
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val16 = load ptr, ptr %39, align 8, !nonnull !13, !noundef !13
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val17 = load i64, ptr %40, align 8, !noundef !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !200
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %.val17, i1 noundef zeroext false)
@@ -1429,9 +1429,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 .noexc21:                                         ; preds = %38
   %41 = load i64, ptr %3, align 8, !range !155, !noalias !200, !noundef !13
   %trunc.i.i = trunc nuw i64 %41 to i1
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8, !range !26, !noalias !200, !noundef !13
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %trunc.i.i, label %45, label %49
 
 45:                                               ; preds = %.noexc21
@@ -1460,9 +1460,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !200
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %.val16, i64 %.val17, i1 false), !noalias !215
   store i64 %43, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.val17, ptr %.sroa.5.0..sroa_idx, align 8
   %.val12 = load i64, ptr %6, align 8, !range !26, !noundef !13
   switch i64 %.val12, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i23" [
@@ -1512,7 +1512,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = cmpxchg weak ptr %10, i8 0, i8 1 acquire monotonic, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %15, label %13
@@ -1522,7 +1522,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %15
 
 15:                                               ; preds = %2, %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository4head17h4f3a3fd2b5ff80f7E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16)
           to label %22 unwind label %20
 
@@ -1547,7 +1547,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %26, align 8, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   store ptr %27, ptr %7, align 8
@@ -1559,7 +1559,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i64, ptr %29, align 8, !alias.scope !237, !noundef !13
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$git2..reference..Reference$C$git2..error..Error$GT$$GT$17h68a6f1e188310b1aE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i"
@@ -1590,28 +1590,28 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit17" unwind label %20
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull align 1 dereferenceable(20) %38, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !239
   store i64 0, ptr %5, align 8, !noalias !239
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !239
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !239
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !239
-  %39 = getelementptr inbounds i8, ptr %4, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %39, align 4, !noalias !239
-  %40 = getelementptr inbounds i8, ptr %4, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 32, ptr %40, align 8, !noalias !239
-  %41 = getelementptr inbounds i8, ptr %4, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 3, ptr %41, align 8, !noalias !239
   store i64 0, ptr %4, align 8, !noalias !239
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %42, align 8, !noalias !239
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %43, align 8, !noalias !239
-  %44 = getelementptr inbounds i8, ptr %4, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @anon.b954261911f1a69b15f2337178da659a.2, ptr %44, align 8, !noalias !239
   %45 = invoke noundef zeroext i1 @"_ZN53_$LT$git2..oid..Oid$u20$as$u20$core..fmt..Display$GT$3fmt17hee2fe65b6490271cE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(20) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %51 unwind label %46, !noalias !243
@@ -1691,7 +1691,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = cmpxchg weak ptr %7, i8 0, i8 1 acquire monotonic, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %12, label %10
@@ -1701,7 +1701,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %12
 
 12:                                               ; preds = %4, %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = invoke { ptr, i64 } @_ZN4git24repo10Repository7workdir17h540b55c96e962b83E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
           to label %20 unwind label %15
 
@@ -1737,7 +1737,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 26:                                               ; preds = %.noexc9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !262
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %27, align 8
   store ptr null, ptr %0, align 8
   %28 = cmpxchg ptr %7, i8 1, i8 0 release monotonic, align 1
@@ -1771,19 +1771,19 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %38, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i": ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !285, !noalias !288, !nonnull !13, !noundef !13
   tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef 1) #20, !noalias !290
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit13": ; preds = %31, %34
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load i64, ptr %43, align 8, !noundef !13
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !13
   invoke void @_ZN3git6status9GitStatus3new17hd9ccae08e92b60cdE(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %44, ptr noalias noundef nonnull readonly align 1 %46, i64 noundef %48, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3)
           to label %49 unwind label %35
@@ -1823,7 +1823,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = cmpxchg weak ptr %6, i8 0, i8 1 acquire monotonic, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %11, label %9
@@ -1834,7 +1834,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 11:                                               ; preds = %2, %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository8branches17hc1e49331889ff3edE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, i8 noundef 0)
           to label %18 unwind label %13
 
@@ -1852,7 +1852,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 18:                                               ; preds = %11
   %19 = load ptr, ptr %5, align 8, !noundef !13
   %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8
   br i1 %20, label %23, label %24
 
@@ -1862,14 +1862,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h691da245781e0ae0E.exit" unwind label %13
 
 24:                                               ; preds = %18
-  %.sroa.612.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.612.0.copyload = load i64, ptr %.sroa.612.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %19, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %22, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.612.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   %25 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
           to label %28 unwind label %13
@@ -1888,7 +1888,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ret void
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %29, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -1919,7 +1919,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   %12 = alloca [8 x i8], align 8
   %13 = alloca [24 x i8], align 8
   %14 = alloca [8 x i8], align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = cmpxchg weak ptr %15, i8 0, i8 1 acquire monotonic, align 1
   %17 = extractvalue { i8, i1 } %16, 1
   br i1 %17, label %20, label %18
@@ -1931,7 +1931,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 20:                                               ; preds = %3, %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4git24repo10Repository11find_branch17ha577345f7a6dddbeE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false)
           to label %27 unwind label %25
 
@@ -1953,7 +1953,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 27:                                               ; preds = %20
   %28 = load ptr, ptr %13, align 8, !noundef !13
   %29 = icmp eq ptr %28, null
-  %30 = getelementptr inbounds i8, ptr %13, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %33
 
@@ -1966,14 +1966,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %37 unwind label %35
 
 33:                                               ; preds = %27
-  %.sroa.632.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.632.0.copyload = load i64, ptr %.sroa.632.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr %28, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %31, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.632.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   %34 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
           to label %82 unwind label %25
@@ -1991,7 +1991,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 37:                                               ; preds = %32
   %38 = load ptr, ptr %11, align 8, !noundef !13
   %39 = icmp eq ptr %38, null
-  %40 = getelementptr inbounds i8, ptr %11, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %41 = load ptr, ptr %40, align 8
   br i1 %39, label %42, label %43
 
@@ -2003,14 +2003,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %47 unwind label %45
 
 43:                                               ; preds = %37
-  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.638.0.copyload = load i64, ptr %.sroa.638.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store ptr %38, ptr %7, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %41, ptr %.sroa.217.0..sroa_idx, align 8
-  %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.638.0.copyload, ptr %.sroa.318.0..sroa_idx, align 8
   %44 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
           to label %79 unwind label %35
@@ -2047,13 +2047,13 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.b954261911f1a69b15f2337178da659a.54, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %61, align 8
   %62 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %5)
           to label %65 unwind label %45
@@ -2160,7 +2160,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   %10 = alloca [8 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [8 x i8], align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = cmpxchg weak ptr %13, i8 0, i8 1 acquire monotonic, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %18, label %16
@@ -2174,7 +2174,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4git24repo10Repository4head17h4f3a3fd2b5ff80f7E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19)
           to label %25 unwind label %23
 
@@ -2196,7 +2196,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 25:                                               ; preds = %18
   %26 = load ptr, ptr %9, align 8, !noundef !13
   %27 = icmp eq ptr %26, null
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %29 = load ptr, ptr %28, align 8
   br i1 %27, label %30, label %31
 
@@ -2207,14 +2207,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %35 unwind label %33
 
 31:                                               ; preds = %25
-  %.sroa.635.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.635.0.copyload = load i64, ptr %.sroa.635.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %26, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.635.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
   %32 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
           to label %61 unwind label %23
@@ -2228,7 +2228,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 35:                                               ; preds = %30
   %36 = load ptr, ptr %11, align 8, !noundef !13
   %37 = icmp eq ptr %36, null
-  %38 = getelementptr inbounds i8, ptr %11, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load ptr, ptr %38, align 8
   br i1 %37, label %40, label %41
 
@@ -2239,14 +2239,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit55" unwind label %43
 
 41:                                               ; preds = %35
-  %.sroa.641.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.641.0.copyload = load i64, ptr %.sroa.641.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %36, ptr %5, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %39, ptr %.sroa.217.0..sroa_idx, align 8
-  %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sroa.641.0.copyload, ptr %.sroa.318.0..sroa_idx, align 8
   %42 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
           to label %60 unwind label %33
@@ -2267,7 +2267,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 45:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit55"
   %46 = load ptr, ptr %7, align 8, !noundef !13
   %47 = icmp eq ptr %46, null
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %49 = load ptr, ptr %48, align 8
   br i1 %47, label %50, label %51
 
@@ -2278,14 +2278,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit" unwind label %43
 
 51:                                               ; preds = %45
-  %.sroa.647.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.647.0.copyload = load i64, ptr %.sroa.647.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %46, ptr %4, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %49, ptr %.sroa.228.0..sroa_idx, align 8
-  %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.647.0.copyload, ptr %.sroa.329.0..sroa_idx, align 8
   %52 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
           to label %55 unwind label %43
@@ -2361,11 +2361,11 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %14 = alloca [8 x i8], align 8
   %15 = alloca [16 x i8], align 8
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %3, ptr %16, align 8
   store ptr %4, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = cmpxchg weak ptr %17, i8 0, i8 1 acquire monotonic, align 1
   %19 = extractvalue { i8, i1 } %18, 1
   br i1 %19, label %28, label %26
@@ -2396,7 +2396,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %28 unwind label %24
 
 28:                                               ; preds = %5, %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = invoke { ptr, i64 } @_ZN4git24repo10Repository7workdir17h540b55c96e962b83E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %29)
           to label %36 unwind label %31
 
@@ -2425,16 +2425,16 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !333
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !333
   store ptr %15, ptr %7, align 8, !noalias !333
-  %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae99b62eb0c41279E.llvm.5252317761193634178", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !333
   store ptr @anon.6a5672c8816792c87f4d95c51e30c5e3.59.llvm.5252317761193634178, ptr %8, align 8, !noalias !333
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %40, align 8, !noalias !333
-  %41 = getelementptr inbounds i8, ptr %8, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %41, align 8, !noalias !333
-  %42 = getelementptr inbounds i8, ptr %8, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %42, align 8, !noalias !333
-  %43 = getelementptr inbounds i8, ptr %8, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %43, align 8, !noalias !333
   invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h15d61db285940f9eE.llvm.5252317761193634178"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8)
           to label %.noexc10 unwind label %31
@@ -2467,7 +2467,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %49, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i": ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !353, !noalias !356, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef %48, i64 noundef 1) #20, !noalias !358
   br label %.body
@@ -2481,7 +2481,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !328
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !328
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !328
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %54, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   %55 = cmpxchg ptr %17, i8 1, i8 0 release monotonic, align 1
@@ -2515,7 +2515,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %65, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i": ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !377, !noalias !380, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %67, i64 noundef %64, i64 noundef 1) #20, !noalias !382
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit"
@@ -2525,15 +2525,15 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %68 unwind label %62
 
 68:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit15"
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !nonnull !13, !noundef !13
-  %71 = getelementptr inbounds i8, ptr %1, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load i64, ptr %71, align 8, !noundef !13
-  %73 = getelementptr inbounds i8, ptr %13, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %74 = load ptr, ptr %73, align 8, !nonnull !13, !noundef !13
-  %75 = getelementptr inbounds i8, ptr %13, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %76 = load i64, ptr %75, align 8, !noundef !13
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = load ptr, ptr %77, align 8, !nonnull !13, !noundef !13
   %79 = atomicrmw add ptr %78, i64 1 monotonic, align 8
   %80 = icmp slt i64 %79, 0
@@ -2610,9 +2610,9 @@ define { ptr, ptr } @_ZN3git10repository17FakeGitRepository4open17hcfbedda8733c8
   %2 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i64 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !433
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #20, !noalias !433
@@ -2667,7 +2667,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %7 = alloca [8 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = cmpxchg weak ptr %10, i8 0, i8 1 acquire monotonic, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %15, label %13
@@ -2677,9 +2677,9 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %15
 
 15:                                               ; preds = %4, %13
-  %16 = getelementptr inbounds i8, ptr %9, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %18 = load i64, ptr %17, align 8, !alias.scope !445, !noalias !448, !noundef !13
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %select.unfold, label %20
@@ -2697,7 +2697,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   call void @llvm.experimental.noalias.scope.decl(metadata !459)
   %22 = lshr i64 %21, 57
   %23 = trunc nuw nsw i64 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %9, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %25 = load i64, ptr %24, align 8, !alias.scope !462, !noalias !463, !noundef !13
   %26 = load ptr, ptr %16, align 8, !alias.scope !462, !noalias !463, !nonnull !13, !noundef !13
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %23, i64 0
@@ -2829,7 +2829,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repository..GitRepository$GT$11branch_name17he72d21e956f35f9eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %10, label %8
@@ -2839,7 +2839,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %10
 
 10:                                               ; preds = %2, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8, !range !26, !noundef !13
   %13 = icmp eq i64 %12, -9223372036854775808
   br i1 %13, label %14, label %15
@@ -2904,7 +2904,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %7 = alloca [56 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = cmpxchg weak ptr %10, i8 0, i8 1 acquire monotonic, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %21, label %13
@@ -2930,10 +2930,10 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 21:                                               ; preds = %13, %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %22 = getelementptr inbounds i8, ptr %9, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   %23 = load ptr, ptr %22, align 8, !alias.scope !487, !noalias !490, !nonnull !13, !noundef !13
-  %24 = getelementptr inbounds i8, ptr %9, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %25 = load i64, ptr %24, align 8, !alias.scope !487, !noalias !490, !noundef !13
   %26 = getelementptr i8, ptr %23, i64 %25
   %27 = getelementptr i8, ptr %26, i64 1
@@ -2941,29 +2941,29 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %29 = icmp slt <16 x i8> %28, zeroinitializer
   %30 = bitcast <16 x i1> %29 to i16
   %31 = xor i16 %30, -1
-  %32 = getelementptr inbounds i8, ptr %23, i64 16
-  %33 = getelementptr inbounds i8, ptr %9, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %34 = load i64, ptr %33, align 8, !alias.scope !487, !noalias !490, !noundef !13
   store ptr %23, ptr %7, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %32, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %27, ptr %.sroa.521.0..sroa_idx, align 8
-  %.sroa.622.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i16 %31, ptr %.sroa.622.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %34, ptr %.sroa.8.0..sroa_idx, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %3, ptr %36, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h6ba32ebce1f8ca3bE.llvm.5337210721387809739"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %7)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdb4fc6578e9f7bebE.exit" unwind label %19
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdb4fc6578e9f7bebE.exit": ; preds = %21
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !13, !noundef !13
-  %39 = getelementptr inbounds i8, ptr %8, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !13
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !497
@@ -2987,8 +2987,8 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.loopexit26 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %42
-  %45 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %38, i64 %40
-  %46 = getelementptr inbounds i8, ptr %38, i64 32
+  %45 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %38, i64 %40
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc7, %.lr.ph.preheader.i.i
@@ -2997,7 +2997,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %.lr.ph.i.i
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 32
   %.not.i.i = icmp eq ptr %47, %45
   br i1 %.not.i.i, label %.loopexit26, label %.lr.ph.i.i
 
@@ -3048,9 +3048,9 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbcf881fa99feec33E.llvm.8787335230632349188.exit.i.i": ; preds = %.noexc11
   store i64 1, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %38, i64 %50, i1 false)
   %60 = icmp eq i64 %.sroa.014.0.copyload28, 0
   br i1 %60, label %63, label %61
@@ -3062,7 +3062,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 63:                                               ; preds = %61, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbcf881fa99feec33E.llvm.8787335230632349188.exit.i.i"
   store ptr %55, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %40, ptr %64, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %65 = cmpxchg ptr %10, i8 1, i8 0 release monotonic, align 1
@@ -3104,9 +3104,9 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repository..GitRepository$GT$8branches17h2c623157db664ec0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture readonly align 8 %1) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -3115,7 +3115,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repository..GitRepository$GT$13change_branch17he9c3c2d5186c3096E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = cmpxchg weak ptr %6, i8 0, i8 1 acquire monotonic, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %11, label %9
@@ -3132,9 +3132,9 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 .noexc:                                           ; preds = %11
   %12 = load i64, ptr %4, align 8, !range !155, !noalias !510, !noundef !13
   %trunc.i = trunc nuw i64 %12 to i1
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8, !range !26, !noalias !510, !noundef !13
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %trunc.i, label %16, label %23
 
 16:                                               ; preds = %.noexc
@@ -3160,7 +3160,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
   %24 = load ptr, ptr %15, align 8, !noalias !510, !nonnull !13, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !510
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !514
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.val4 = load i64, ptr %25, align 8, !range !26, !noundef !13
   %26 = getelementptr i8, ptr %5, i64 32
   switch i64 %.val4, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i" [
@@ -3176,7 +3176,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hfd1a3921334c30a4E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i", %23, %23
   store i64 %14, ptr %25, align 8
   store ptr %24, ptr %26, align 8
-  %.sroa.6.0..sroa_idx18 = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.6.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %2, ptr %.sroa.6.0..sroa_idx18, align 8
   %27 = cmpxchg ptr %6, i8 1, i8 0 release monotonic, align 1
   %28 = extractvalue { i8, i1 } %27, 1
@@ -3203,7 +3203,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repository..GitRepository$GT$13create_branch17hed36a2fc78ac8354E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = cmpxchg weak ptr %6, i8 0, i8 1 acquire monotonic, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %11, label %9
@@ -3220,9 +3220,9 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 .noexc:                                           ; preds = %11
   %12 = load i64, ptr %4, align 8, !range !155, !noalias !524, !noundef !13
   %trunc.i = trunc nuw i64 %12 to i1
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8, !range !26, !noalias !524, !noundef !13
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %trunc.i, label %16, label %23
 
 16:                                               ; preds = %.noexc
@@ -3248,7 +3248,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
   %24 = load ptr, ptr %15, align 8, !noalias !524, !nonnull !13, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !524
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !528
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.val4 = load i64, ptr %25, align 8, !range !26, !noundef !13
   %26 = getelementptr i8, ptr %5, i64 32
   switch i64 %.val4, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i" [
@@ -3264,7 +3264,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hfd1a3921334c30a4E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i", %23, %23
   store i64 %14, ptr %25, align 8
   store ptr %24, ptr %26, align 8
-  %.sroa.6.0..sroa_idx18 = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.6.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %2, ptr %.sroa.6.0..sroa_idx18, align 8
   %27 = cmpxchg ptr %6, i8 1, i8 0 release monotonic, align 1
   %28 = extractvalue { i8, i1 } %27, 1
@@ -3304,11 +3304,11 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %17 = alloca [8 x i8], align 8
   %18 = alloca [16 x i8], align 8
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %3, ptr %19, align 8
   store ptr %4, ptr %17, align 8
   %20 = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = cmpxchg weak ptr %21, i8 0, i8 1 acquire monotonic, align 1
   %23 = extractvalue { i8, i1 } %22, 1
   br i1 %23, label %32, label %30
@@ -3339,11 +3339,11 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %32 unwind label %28
 
 32:                                               ; preds = %5, %30
-  %33 = getelementptr inbounds i8, ptr %20, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %34 = load ptr, ptr %18, align 8, !nonnull !13, !align !25, !noundef !13
   %35 = load i64, ptr %19, align 8, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
-  %36 = getelementptr inbounds i8, ptr %20, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %37 = load i64, ptr %36, align 8, !alias.scope !551, !noalias !554, !noundef !13
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfcbbc95e255f493cE.exit", label %39
@@ -3361,7 +3361,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   call void @llvm.experimental.noalias.scope.decl(metadata !565)
   %41 = lshr i64 %40, 57
   %42 = trunc nuw nsw i64 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %20, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %44 = load i64, ptr %43, align 8, !alias.scope !568, !noalias !569, !noundef !13
   %45 = load ptr, ptr %33, align 8, !alias.scope !568, !noalias !569, !nonnull !13, !noundef !13
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %42, i64 0
@@ -3456,7 +3456,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfcbbc95e255f493cE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he4f82cd6cb52ed9bE.exit.i", %32
   %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he4f82cd6cb52ed9bE.exit.i" ], [ null, %32 ]
   %75 = icmp eq ptr %.sroa.0.0.i, null
-  %76 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %.sroa.02.0 = select i1 %75, ptr null, ptr %76
   %77 = invoke { i64, ptr } @"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$12with_context17h767865d1260e6017E"(ptr noalias noundef readonly align 8 dereferenceable_or_null(112) %.sroa.02.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
           to label %78 unwind label %.loopexit.split-lp
@@ -3474,8 +3474,8 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !596
-  %83 = getelementptr inbounds i8, ptr %80, i64 16
-  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !598, !noalias !601, !nonnull !13, !noundef !13
   %86 = load i64, ptr %83, align 8, !alias.scope !598, !noalias !601, !noundef !13
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h07e75a18c8536f74E.llvm.5337210721387809739"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 %85, i64 noundef %86)
@@ -3483,10 +3483,10 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 .noexc17:                                         ; preds = %82
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !596
-  %87 = getelementptr inbounds i8, ptr %80, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
-  %88 = getelementptr inbounds i8, ptr %80, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %89 = load i64, ptr %88, align 8, !alias.scope !609, !noalias !610, !noundef !13
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %92
@@ -3508,7 +3508,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 94:                                               ; preds = %.noexc.i
   %95 = landingpad { ptr, i32 }
           cleanup
-  %96 = getelementptr inbounds i8, ptr %8, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h6787093fcc8446a4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %96, i64 noundef 48, i64 noundef 16)
           to label %.body.i unwind label %97, !noalias !610
 
@@ -3536,10 +3536,10 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 101:                                              ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h7be703a7032c02e4E.llvm.16588787651046433735.exit.i.i.i", %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !596
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !596
-  %102 = getelementptr inbounds i8, ptr %80, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %80, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !615)
   call void @llvm.experimental.noalias.scope.decl(metadata !618)
-  %103 = getelementptr inbounds i8, ptr %80, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %104 = load i64, ptr %103, align 8, !alias.scope !621, !noalias !622, !noundef !13
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %106, label %107
@@ -3561,7 +3561,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 109:                                              ; preds = %.noexc6.i
   %110 = landingpad { ptr, i32 }
           cleanup
-  %111 = getelementptr inbounds i8, ptr %6, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h84de44b64f45d9c6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %111, i64 noundef 112, i64 noundef 16)
           to label %.body7.i unwind label %112, !noalias !622
 
@@ -3578,7 +3578,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 .body7.i:                                         ; preds = %122, %115, %109
   %.pn.i = phi { ptr, i32 } [ %116, %115 ], [ %110, %109 ], [ %123, %122 ]
-  %114 = getelementptr inbounds i8, ptr %12, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h6787093fcc8446a4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %114, i64 noundef 48, i64 noundef 16)
           to label %.body.i unwind label %126, !noalias !614
 
@@ -3589,7 +3589,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 117:                                              ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h6c1e9bd886e95431E.llvm.16588787651046433735.exit.i.i.i", %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !596
-  %118 = getelementptr inbounds i8, ptr %80, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %119 = load i64, ptr %118, align 8, !range !26, !alias.scope !593, !noalias !614, !noundef !13
   %120 = icmp eq i64 %119, -9223372036854775808
   br i1 %120, label %130, label %121
@@ -3602,13 +3602,13 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 122:                                              ; preds = %121
   %123 = landingpad { ptr, i32 }
           cleanup
-  %124 = getelementptr inbounds i8, ptr %11, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %11, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h84de44b64f45d9c6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %124, i64 noundef 112, i64 noundef 16)
           to label %.body7.i unwind label %126, !noalias !614
 
 125:                                              ; preds = %121
   %.sroa.0.0.copyload1.i = load i64, ptr %10, align 8, !noalias !596
-  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !596
   br label %130
@@ -3620,7 +3620,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   unreachable
 
 128:                                              ; preds = %78
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %80, ptr %129, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %131
@@ -3628,18 +3628,18 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 130:                                              ; preds = %125, %117
   %.sroa.0.0.i16 = phi i64 [ %.sroa.0.0.copyload1.i, %125 ], [ -9223372036854775808, %117 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !596
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !596
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !596
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.0.0.i16, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
   br label %131
 
@@ -3729,18 +3729,18 @@ define void @"_ZN91_$LT$git..repository..RepoPath$u20$as$u20$core..convert..From
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN68_$LT$git..repository..RepoPath$u20$as$u20$core..default..Default$GT$7default17h1b6e72245c2ff34cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.59.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN89_$LT$git..repository..RepoPath$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17hacb8a7c997ee5c73E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !13, !noundef !13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !13
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -3756,12 +3756,12 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN69_$LT$git..reposito
 define noundef range(i8 -1, 2) i8 @"_ZN123_$LT$git..repository..RepoPathDescendants$u20$as$u20$sum_tree..tree_map..MapSeekTarget$LT$git..repository..RepoPath$GT$$GT$10cmp_cursor17hb2182fe40d454b28E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !13, !noundef !13
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !13
   %9 = load ptr, ptr %0, align 8, !nonnull !13, !align !25, !noundef !13
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !13
   %12 = tail call noundef zeroext i1 @_ZN3std4path4Path12_starts_with17h08372f6eea1d554fE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
   br i1 %12, label %15, label %13

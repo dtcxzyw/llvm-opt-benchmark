@@ -147,8 +147,8 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph45, label %._crit_edge
@@ -275,7 +275,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   store volatile i64 0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
@@ -286,7 +286,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   %13 = xor i1 %12, true
@@ -309,16 +309,16 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
 
 22:                                               ; preds = %14
   %23 = call ptr @plpgsql_compile(ptr noundef nonnull %0, i1 noundef zeroext false) #10
-  %24 = getelementptr inbounds i8, ptr %23, i64 536
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 536
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 544
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 544
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
   br i1 %15, label %29, label %35
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %23, i64 532
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 532
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -449,10 +449,10 @@ define i64 @plpgsql_inline_handler(ptr nocapture noundef readonly %0) local_unna
   %2 = alloca %union.anon, align 8
   %3 = alloca %struct.FmgrInfo, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 21
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
   %11 = xor i8 %10, 1
@@ -470,19 +470,19 @@ define i64 @plpgsql_inline_handler(ptr nocapture noundef readonly %0) local_unna
   unreachable
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @plpgsql_compile_inline(ptr noundef %20) #10
-  %22 = getelementptr inbounds i8, ptr %21, i64 544
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 544
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   store ptr %3, ptr %2, align 8
   %26 = load ptr, ptr @CurrentMemoryContext, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %26, ptr %27, align 8
   %28 = call ptr @CreateExecutorState() #10
   %29 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.18) #10
@@ -564,11 +564,11 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = alloca %struct.TriggerData, align 8
   %8 = alloca %struct.EventTriggerData, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = tail call zeroext i1 @CheckFunctionValidatorAccess(i32 noundef %14, i32 noundef %11) #10
   br i1 %15, label %16, label %88
@@ -587,13 +587,13 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 22
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i64
   %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 108
   %30 = load i32, ptr %29, align 4
   %31 = tail call signext i8 @get_typtype(i32 noundef %30) #10
   %32 = icmp eq i8 %31, 112
@@ -710,14 +710,14 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %5, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store ptr %6, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %11, ptr %73, align 8
   %74 = load ptr, ptr @CurrentMemoryContext, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %74, ptr %75, align 8
   br i1 %.0123, label %76, label %77
 
@@ -736,7 +736,7 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
 
 .sink.split:                                      ; preds = %76, %78
   %.sink = phi ptr [ %8, %78 ], [ %7, %76 ]
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sink, ptr %79, align 8
   br label %80
 

@@ -207,7 +207,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinter(ptr noundef %0, ptr
 define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #5
   %8 = icmp eq ptr %7, null
@@ -222,7 +222,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1376
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1376
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef nonnull %0, i32 noundef %11, ptr noundef nonnull %7, ptr noundef null) #5
   %19 = icmp eq ptr %18, null
@@ -245,7 +245,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.cups_dest_s, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.cups_dest_s, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef %26) #5
   %28 = icmp eq ptr %27, null
@@ -253,7 +253,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
   br i1 %28, label %30, label %50
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %29, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %0) #5
   %.not = icmp eq i64 %indvars.iv, 0
@@ -267,15 +267,15 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
   %.046.in53 = phi i32 [ %.046, %.lr.ph55 ], [ %33, %.lr.ph55.preheader ]
   %.046 = add nsw i32 %.046.in53, -1
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1384
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1384
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr %36(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %.046) #5
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1392
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1392
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %.046, ptr noundef null) #5
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull %0, ptr noundef %37) #5
   %44 = icmp sgt i32 %.046.in53, 1
@@ -286,18 +286,18 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
   %46 = load ptr, ptr %3, align 8
   call void %45(i32 noundef %11, ptr noundef %46) #5
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull %0, ptr noundef nonnull %18) #5
   br label %59
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %29, i64 1392
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 1392
   %52 = load ptr, ptr %51, align 8
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   call void %52(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %53, ptr noundef nonnull %27) #5
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 184
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef nonnull %27) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,7 +318,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1352
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %.not = icmp eq ptr %8, null
@@ -328,7 +328,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noun
   %10 = load ptr, ptr @j2d_httpConnect, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %8, i32 noundef %3) #5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1360
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1360
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %8) #5
   %.not14 = icmp eq ptr %11, null
@@ -347,7 +347,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noun
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %8 = icmp eq ptr %7, null
@@ -355,7 +355,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
@@ -365,7 +365,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %14 = load ptr, ptr @j2d_cupsGetPPD, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %7) #5
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1360
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1360
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #5
   %19 = icmp eq ptr %15, null
@@ -373,7 +373,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #5
   %25 = icmp eq ptr %24, null
@@ -396,7 +396,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %38 = load i32, ptr %37, align 8
   br label %39
 
@@ -408,7 +408,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %41, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 176
   %45 = load i32, ptr %44, align 8
   br label %46
 
@@ -421,7 +421,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 49:                                               ; preds = %46
   %50 = shl nuw nsw i32 %47, 1
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1376
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1376
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, i32 noundef %50, ptr noundef nonnull %24, ptr noundef null) #5
   %55 = icmp eq ptr %54, null
@@ -433,7 +433,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   br i1 %57, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader139
-  %58 = getelementptr inbounds i8, ptr %34, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %wide.trip.count = zext nneg i32 %.0118 to i64
   br label %71
 
@@ -442,7 +442,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %61 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %61(ptr noundef nonnull %28) #5
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = tail call zeroext i8 %64(ptr noundef nonnull %0) #5
   %.not138 = icmp eq i8 %65, 0
@@ -458,7 +458,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   br i1 %68, label %.lr.ph144, label %.loopexit
 
 .lr.ph144:                                        ; preds = %.preheader
-  %69 = getelementptr inbounds i8, ptr %41, i64 184
+  %69 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %70 = sext i32 %.0118 to i64
   %wide.trip.count153 = zext nneg i32 %.0119 to i64
   br label %112
@@ -466,8 +466,8 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 71:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %72 = load ptr, ptr %58, align 8
-  %73 = getelementptr inbounds %struct.ppd_choice_s, ptr %72, i64 %indvars.iv
-  %74 = getelementptr inbounds i8, ptr %73, i64 42
+  %73 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %72, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 42
   %75 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %74) #5
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.split, label %84
@@ -477,7 +477,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %78 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %78(ptr noundef nonnull %28) #5
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1824
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1824
   %81 = load ptr, ptr %80, align 8
   %82 = tail call zeroext i8 %81(ptr noundef nonnull %0) #5
   %.not137 = icmp eq i8 %82, 0
@@ -489,16 +489,16 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 84:                                               ; preds = %71
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1392
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1392
   %87 = load ptr, ptr %86, align 8
   %88 = shl nuw nsw i64 %indvars.iv, 1
   %89 = trunc nuw i64 %88 to i32
   tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %89, ptr noundef nonnull %75) #5
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 184
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 184
   %92 = load ptr, ptr %91, align 8
   tail call void %92(ptr noundef nonnull %0, ptr noundef nonnull %75) #5
-  %93 = getelementptr inbounds i8, ptr %73, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %94 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %93) #5
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.split142, label %103
@@ -508,7 +508,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %97 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %97(ptr noundef nonnull %28) #5
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1824
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1824
   %100 = load ptr, ptr %99, align 8
   %101 = tail call zeroext i8 %100(ptr noundef nonnull %0) #5
   %.not136 = icmp eq i8 %101, 0
@@ -520,13 +520,13 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 103:                                              ; preds = %84
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1392
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1392
   %106 = load ptr, ptr %105, align 8
   %107 = trunc i64 %88 to i32
   %108 = or disjoint i32 %107, 1
   tail call void %106(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %108, ptr noundef nonnull %94) #5
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 184
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 184
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %0, ptr noundef nonnull %94) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -536,8 +536,8 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 112:                                              ; preds = %.lr.ph144, %145
   %indvars.iv150 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next151, %145 ]
   %113 = load ptr, ptr %69, align 8
-  %114 = getelementptr inbounds %struct.ppd_choice_s, ptr %113, i64 %indvars.iv150
-  %115 = getelementptr inbounds i8, ptr %114, i64 42
+  %114 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %113, i64 %indvars.iv150
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 42
   %116 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %115) #5
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.split146, label %125
@@ -547,7 +547,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %119 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %119(ptr noundef nonnull %28) #5
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1824
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1824
   %122 = load ptr, ptr %121, align 8
   %123 = tail call zeroext i8 %122(ptr noundef nonnull %0) #5
   %.not135 = icmp eq i8 %123, 0
@@ -559,17 +559,17 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 125:                                              ; preds = %112
   %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1392
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1392
   %128 = load ptr, ptr %127, align 8
   %129 = add nsw i64 %indvars.iv150, %70
   %130 = shl nsw i64 %129, 1
   %131 = trunc nsw i64 %130 to i32
   tail call void %128(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %131, ptr noundef nonnull %116) #5
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 184
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 184
   %134 = load ptr, ptr %133, align 8
   tail call void %134(ptr noundef nonnull %0, ptr noundef nonnull %116) #5
-  %135 = getelementptr inbounds i8, ptr %114, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %114, i64 1
   %136 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %135) #5
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.split148, label %145
@@ -579,7 +579,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
   %139 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %139(ptr noundef nonnull %28) #5
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 1824
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 1824
   %142 = load ptr, ptr %141, align 8
   %143 = tail call zeroext i8 %142(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %143, 0
@@ -591,13 +591,13 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 
 145:                                              ; preds = %125
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 1392
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1392
   %148 = load ptr, ptr %147, align 8
   %149 = trunc i64 %130 to i32
   %150 = or disjoint i32 %149, 1
   tail call void %148(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %150, ptr noundef nonnull %136) #5
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 184
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 184
   %153 = load ptr, ptr %152, align 8
   tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %136) #5
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
@@ -624,7 +624,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %8 = icmp eq ptr %7, null
@@ -632,7 +632,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
@@ -642,7 +642,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   %14 = load ptr, ptr @j2d_cupsGetPPD, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %7) #5
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1360
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1360
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #5
   %19 = icmp eq ptr %15, null
@@ -650,7 +650,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #5
   %25 = icmp eq ptr %24, null
@@ -673,14 +673,14 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   br i1 %.not87, label %.thread, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 176
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1376
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1376
   %42 = load ptr, ptr %41, align 8
   %43 = shl nuw nsw i32 %37, 1
   %44 = tail call ptr %42(ptr noundef nonnull %0, i32 noundef %43, ptr noundef nonnull %24, ptr noundef null) #5
@@ -688,7 +688,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   br i1 %45, label %47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %34, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %wide.trip.count = zext nneg i32 %37 to i64
   br label %55
 
@@ -697,7 +697,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   %49 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %49(ptr noundef nonnull %28) #5
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1824
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i8 %52(ptr noundef nonnull %0) #5
   %.not85 = icmp eq i8 %53, 0
@@ -710,8 +710,8 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 55:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %56 = load ptr, ptr %46, align 8
-  %57 = getelementptr inbounds %struct.ppd_choice_s, ptr %56, i64 %indvars.iv
-  %58 = getelementptr inbounds i8, ptr %57, i64 42
+  %57 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 42
   %59 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %58) #5
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %69
@@ -721,7 +721,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   %63 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %63(ptr noundef nonnull %28) #5
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1824
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1824
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 %66(ptr noundef nonnull %0) #5
   %.not84 = icmp eq i8 %67, 0
@@ -733,16 +733,16 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 
 69:                                               ; preds = %55
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1392
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1392
   %72 = load ptr, ptr %71, align 8
   %73 = shl nuw nsw i64 %indvars.iv, 1
   %74 = trunc nuw i64 %73 to i32
   tail call void %72(ptr noundef nonnull %0, ptr noundef nonnull %44, i32 noundef %74, ptr noundef nonnull %59) #5
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 184
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 184
   %77 = load ptr, ptr %76, align 8
   tail call void %77(ptr noundef nonnull %0, ptr noundef nonnull %59) #5
-  %78 = getelementptr inbounds i8, ptr %57, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %79 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %78) #5
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %89
@@ -752,7 +752,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
   %83 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %83(ptr noundef nonnull %28) #5
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1824
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1824
   %86 = load ptr, ptr %85, align 8
   %87 = tail call zeroext i8 %86(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %87, 0
@@ -764,13 +764,13 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 
 89:                                               ; preds = %69
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1392
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1392
   %92 = load ptr, ptr %91, align 8
   %93 = trunc i64 %73 to i32
   %94 = or disjoint i32 %93, 1
   tail call void %92(ptr noundef nonnull %0, ptr noundef nonnull %44, i32 noundef %94, ptr noundef nonnull %79) #5
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 184
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 184
   %97 = load ptr, ptr %96, align 8
   tail call void %97(ptr noundef nonnull %0, ptr noundef nonnull %79) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -792,7 +792,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %8 = icmp eq ptr %7, null
@@ -800,7 +800,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
@@ -810,7 +810,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   %14 = load ptr, ptr @j2d_cupsGetPPD, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %7) #5
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1360
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1360
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #5
   %19 = icmp eq ptr %15, null
@@ -833,14 +833,14 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   br i1 %.not, label %105, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %105
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1448
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1448
   %36 = load ptr, ptr %35, align 8
   %37 = mul nuw nsw i32 %31, 6
   %38 = or disjoint i32 %37, 1
@@ -853,7 +853,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   %43 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %43(ptr noundef nonnull %22) #5
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #5
@@ -861,7 +861,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
 
 47:                                               ; preds = %33
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1512
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1512
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef null) #5
   %52 = icmp eq ptr %51, null
@@ -873,8 +873,8 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %28, i64 184
-  %56 = getelementptr inbounds i8, ptr %28, i64 42
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 42
   br label %63
 
 57:                                               ; preds = %47
@@ -882,7 +882,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   %59 = load ptr, ptr @j2d_ppdClose, align 8
   tail call void %59(ptr noundef nonnull %22) #5
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 136
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
@@ -892,7 +892,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %64 = phi i32 [ %53, %.lr.ph ], [ %99, %98 ]
   %65 = load ptr, ptr %55, align 8
-  %66 = getelementptr inbounds %struct.ppd_choice_s, ptr %65, i64 %indvars.iv, i32 1
+  %66 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %65, i64 %indvars.iv, i32 1
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #6
   %.not85 = icmp eq i32 %67, 0
   br i1 %.not85, label %68, label %74
@@ -913,31 +913,31 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
   br i1 %.not86, label %98, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %79 = load float, ptr %78, align 4
   %80 = mul nuw nsw i64 %indvars.iv, 6
-  %81 = getelementptr inbounds float, ptr %51, i64 %80
+  %81 = getelementptr inbounds nuw float, ptr %51, i64 %80
   store float %79, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %76, i64 52
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 52
   %83 = load float, ptr %82, align 4
   %84 = or disjoint i64 %80, 1
-  %85 = getelementptr inbounds float, ptr %51, i64 %84
+  %85 = getelementptr inbounds nuw float, ptr %51, i64 %84
   store float %83, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %76, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %81, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %76, i64 68
+  %89 = getelementptr inbounds nuw i8, ptr %76, i64 68
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %81, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store float %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %76, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %81, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store float %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %76, i64 60
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 60
   %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %81, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store float %96, ptr %97, align 4
   br label %98
 
@@ -950,7 +950,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
 
 ._crit_edge:                                      ; preds = %98, %.preheader
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1576
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1576
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %51, i32 noundef 0) #5
   br label %105
@@ -981,7 +981,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #5
   %13 = icmp eq ptr %12, null
@@ -989,7 +989,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #5
   %19 = icmp eq ptr %18, null
@@ -997,7 +997,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #5
   %25 = icmp eq ptr %24, null
@@ -1005,7 +1005,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 264
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 264
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #5
   %31 = icmp eq ptr %30, null
@@ -1013,7 +1013,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1352
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1352
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #5
   %37 = icmp eq ptr %36, null
@@ -1021,7 +1021,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
@@ -1031,7 +1031,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
   %43 = load ptr, ptr @j2d_cupsGetPPD, align 8
   %44 = tail call ptr %43(ptr noundef nonnull %36) #5
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1360
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1360
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %36) #5
   %48 = icmp eq ptr %44, null
@@ -1054,7 +1054,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
   br i1 %.not, label %.loopexit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 42
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 42
   %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %59, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %62, label %68
@@ -1097,7 +1097,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 .thread:                                          ; preds = %62, %75, %76
   %78 = phi i32 [ %71, %76 ], [ %63, %62 ], [ %71, %75 ]
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 224
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 224
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr (ptr, ptr, ptr, ...) %81(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %78) #5
   %83 = icmp eq ptr %82, null
@@ -1105,7 +1105,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 84:                                               ; preds = %.thread
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 224
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 224
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %6, align 4
   %89 = call ptr (ptr, ptr, ptr, ...) %87(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %88) #5
@@ -1114,29 +1114,29 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 91:                                               ; preds = %84
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 296
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 296
   %94 = load ptr, ptr %93, align 8
   %95 = call zeroext i8 (ptr, ptr, ptr, ...) %94(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %82) #5
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 296
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 296
   %98 = load ptr, ptr %97, align 8
   %99 = call zeroext i8 (ptr, ptr, ptr, ...) %98(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %89) #5
   br label %.thread106
 
 .thread106:                                       ; preds = %67, %74, %91, %76
-  %100 = getelementptr inbounds i8, ptr %57, i64 176
+  %100 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %101 = load i32, ptr %100, align 8
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread106
-  %103 = getelementptr inbounds i8, ptr %57, i64 184
+  %103 = getelementptr inbounds nuw i8, ptr %57, i64 184
   br label %104
 
 104:                                              ; preds = %.lr.ph, %.thread113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread113 ]
   %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds %struct.ppd_choice_s, ptr %105, i64 %indvars.iv, i32 1
+  %106 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %105, i64 %indvars.iv, i32 1
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %106, ptr noundef nonnull @.str.27, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %108 = icmp eq i32 %107, 2
   br i1 %108, label %109, label %115
@@ -1190,7 +1190,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 130:                                              ; preds = %127, %.thread111
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 224
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 224
   %133 = load ptr, ptr %132, align 8
   %134 = call ptr (ptr, ptr, ptr, ...) %133(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %125) #5
   %135 = icmp eq ptr %134, null
@@ -1198,7 +1198,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 136:                                              ; preds = %130
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 224
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 224
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %8, align 4
   %141 = call ptr (ptr, ptr, ptr, ...) %139(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %140) #5
@@ -1207,11 +1207,11 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 
 143:                                              ; preds = %136
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 296
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 296
   %146 = load ptr, ptr %145, align 8
   %147 = call zeroext i8 (ptr, ptr, ptr, ...) %146(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %134) #5
   %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 296
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 296
   %150 = load ptr, ptr %149, align 8
   %151 = call zeroext i8 (ptr, ptr, ptr, ...) %150(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %141) #5
   br label %.thread113

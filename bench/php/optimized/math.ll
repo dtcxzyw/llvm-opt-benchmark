@@ -67,7 +67,7 @@ define double @_php_math_round(double noundef %0, i32 noundef %1, i32 noundef %2
 
 12:                                               ; preds = %5
   %13 = zext nneg i32 %7 to i64
-  %14 = getelementptr inbounds [23 x double], ptr @php_intpow10.powers, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [23 x double], ptr @php_intpow10.powers, i64 0, i64 %13
   %15 = load double, ptr %14, align 8
   br label %php_intpow10.exit
 
@@ -266,7 +266,7 @@ php_round_helper.exit:                            ; preds = %32, %34, %42, %45, 
 127:                                              ; preds = %php_round_helper.exit
   %128 = sub nsw i32 0, %6
   %129 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i40, i32 noundef %128) #15
-  %130 = getelementptr inbounds i8, ptr %4, i64 39
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 39
   store i8 0, ptr %130, align 1
   %131 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #15
   %132 = call double @llvm.fabs.f64(double %131)
@@ -307,7 +307,7 @@ declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -317,8 +317,8 @@ define hidden void @zif_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread88
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, -2
   %switch65 = icmp eq i8 %11, 4
@@ -347,7 +347,7 @@ define hidden void @zif_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 .thread81:                                        ; preds = %..thread81_crit_edge, %.thread77
   %14 = phi ptr [ %.pre, %..thread81_crit_edge ], [ %8, %.thread77 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %switch = icmp eq i8 %16, 4
   br i1 %switch, label %17, label %25
@@ -359,14 +359,14 @@ define hidden void @zif_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 20:                                               ; preds = %17
   store double 0x43E0000000000000, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %21, align 8
   br label %29
 
 22:                                               ; preds = %17
   %23 = call i64 @llvm.abs.i64(i64 %18, i1 true)
   store i64 %23, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %24, align 8
   br label %29
 
@@ -374,7 +374,7 @@ define hidden void @zif_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %26 = load double, ptr %14, align 8
   %27 = call double @llvm.fabs.f64(double %26)
   store double %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %28, align 8
   br label %29
 
@@ -392,7 +392,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -402,8 +402,8 @@ define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread89
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, -2
   %switch66 = icmp eq i8 %11, 4
@@ -432,7 +432,7 @@ define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 .thread82:                                        ; preds = %..thread82_crit_edge, %.thread78
   %14 = phi ptr [ %.pre, %..thread82_crit_edge ], [ %8, %.thread78 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %switch = icmp eq i8 %16, 4
   br i1 %switch, label %17, label %20
@@ -440,7 +440,7 @@ define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1)
 17:                                               ; preds = %.thread82
   %18 = call double @zval_get_double_func(ptr noundef nonnull %14) #15
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %19, align 8
   br label %24
 
@@ -448,7 +448,7 @@ define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %21 = load double, ptr %14, align 8
   %22 = call double @llvm.ceil.f64(double %21)
   store double %22, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %23, align 8
   br label %24
 
@@ -459,7 +459,7 @@ define hidden void @zif_ceil(ptr noundef %0, ptr nocapture noundef writeonly %1)
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_floor(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -469,8 +469,8 @@ define hidden void @zif_floor(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread89
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, -2
   %switch66 = icmp eq i8 %11, 4
@@ -499,7 +499,7 @@ define hidden void @zif_floor(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread82:                                        ; preds = %..thread82_crit_edge, %.thread78
   %14 = phi ptr [ %.pre, %..thread82_crit_edge ], [ %8, %.thread78 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %switch = icmp eq i8 %16, 4
   br i1 %switch, label %17, label %20
@@ -507,7 +507,7 @@ define hidden void @zif_floor(ptr noundef %0, ptr nocapture noundef writeonly %1
 17:                                               ; preds = %.thread82
   %18 = call double @zval_get_double_func(ptr noundef nonnull %14) #15
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %19, align 8
   br label %24
 
@@ -515,7 +515,7 @@ define hidden void @zif_floor(ptr noundef %0, ptr nocapture noundef writeonly %1
   %21 = load double, ptr %14, align 8
   %22 = call double @llvm.floor.f64(double %21)
   store double %22, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %23, align 8
   br label %24
 
@@ -530,7 +530,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   %5 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -4
   %or.cond = icmp ult i32 %8, -3
@@ -541,8 +541,8 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread177
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, -2
   %switch161 = icmp eq i8 %14, 4
@@ -561,8 +561,8 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %18, label %.thread187, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 4
   br i1 %23, label %.critedge155, label %25
@@ -581,8 +581,8 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %.not, label %28, label %.thread187
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 4
   br i1 %32, label %.thread166, label %34
@@ -641,7 +641,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 8
   %switch158 = icmp eq i8 %55, 4
   %56 = icmp sgt i32 %.0144, -1
@@ -651,7 +651,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
 57:                                               ; preds = %52
   %58 = call double @zval_get_double_func(ptr noundef nonnull %53) #15
   store double %58, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %59, align 8
   br label %72
 
@@ -674,7 +674,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
   %69 = trunc i64 %67 to i32
   %70 = call double @_php_math_round(double noundef %68, i32 noundef %.0144, i32 noundef %69)
   store double %70, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %71, align 8
   br label %72
 
@@ -687,7 +687,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_sin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -697,8 +697,8 @@ define hidden void @zif_sin(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -721,7 +721,7 @@ define hidden void @zif_sin(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %14 = load double, ptr %.in, align 8
   %15 = call double @sin(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -735,7 +735,7 @@ declare double @sin(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_cos(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -745,8 +745,8 @@ define hidden void @zif_cos(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -769,7 +769,7 @@ define hidden void @zif_cos(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %14 = load double, ptr %.in, align 8
   %15 = call double @cos(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -783,7 +783,7 @@ declare double @cos(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_tan(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -793,8 +793,8 @@ define hidden void @zif_tan(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -817,7 +817,7 @@ define hidden void @zif_tan(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %14 = load double, ptr %.in, align 8
   %15 = call double @tan(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -831,7 +831,7 @@ declare double @tan(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_asin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -841,8 +841,8 @@ define hidden void @zif_asin(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -865,7 +865,7 @@ define hidden void @zif_asin(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @asin(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -879,7 +879,7 @@ declare double @asin(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_acos(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -889,8 +889,8 @@ define hidden void @zif_acos(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -913,7 +913,7 @@ define hidden void @zif_acos(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @acos(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -927,7 +927,7 @@ declare double @acos(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_atan(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -937,8 +937,8 @@ define hidden void @zif_atan(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -961,7 +961,7 @@ define hidden void @zif_atan(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @atan(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -976,7 +976,7 @@ declare double @atan(double noundef) local_unnamed_addr #6
 define hidden void @zif_atan2(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -986,8 +986,8 @@ define hidden void @zif_atan2(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread103
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %.critedge, label %14
@@ -1002,8 +1002,8 @@ define hidden void @zif_atan2(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %15, label %16, label %.thread103
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 5
   br i1 %20, label %.thread115, label %21
@@ -1027,7 +1027,7 @@ define hidden void @zif_atan2(ptr noundef %0, ptr nocapture noundef writeonly %1
   %24 = load double, ptr %3, align 8
   %25 = call double @atan2(double noundef %24, double noundef %23) #15
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8
   br label %27
 
@@ -1041,7 +1041,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_sinh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1051,8 +1051,8 @@ define hidden void @zif_sinh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1075,7 +1075,7 @@ define hidden void @zif_sinh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @sinh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1089,7 +1089,7 @@ declare double @sinh(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_cosh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1099,8 +1099,8 @@ define hidden void @zif_cosh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1123,7 +1123,7 @@ define hidden void @zif_cosh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @cosh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1137,7 +1137,7 @@ declare double @cosh(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_tanh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1147,8 +1147,8 @@ define hidden void @zif_tanh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1171,7 +1171,7 @@ define hidden void @zif_tanh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @tanh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1185,7 +1185,7 @@ declare double @tanh(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_asinh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1195,8 +1195,8 @@ define hidden void @zif_asinh(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1219,7 +1219,7 @@ define hidden void @zif_asinh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @asinh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1233,7 +1233,7 @@ declare double @asinh(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_acosh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1243,8 +1243,8 @@ define hidden void @zif_acosh(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1267,7 +1267,7 @@ define hidden void @zif_acosh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @acosh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1281,7 +1281,7 @@ declare double @acosh(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_atanh(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1291,8 +1291,8 @@ define hidden void @zif_atanh(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1315,7 +1315,7 @@ define hidden void @zif_atanh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @atanh(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1328,7 +1328,7 @@ declare double @atanh(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_pi(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1339,7 +1339,7 @@ define hidden void @zif_pi(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 6:                                                ; preds = %2
   store double 0x400921FB54442D18, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %7, align 8
   br label %8
 
@@ -1352,7 +1352,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_is_finite(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1362,8 +1362,8 @@ define hidden void @zif_is_finite(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.thread77
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread70, label %12
@@ -1387,7 +1387,7 @@ define hidden void @zif_is_finite(ptr noundef %0, ptr nocapture noundef writeonl
   %15 = call double @llvm.fabs.f64(double %14)
   %16 = fcmp one double %15, 0x7FF0000000000000
   %17 = select i1 %16, i32 3, i32 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   br label %19
 
@@ -1398,7 +1398,7 @@ define hidden void @zif_is_finite(ptr noundef %0, ptr nocapture noundef writeonl
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_is_infinite(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1408,8 +1408,8 @@ define hidden void @zif_is_infinite(ptr noundef %0, ptr nocapture noundef writeo
   br label %.thread77
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread70, label %12
@@ -1433,7 +1433,7 @@ define hidden void @zif_is_infinite(ptr noundef %0, ptr nocapture noundef writeo
   %15 = call double @llvm.fabs.f64(double %14) #17
   %16 = fcmp oeq double %15, 0x7FF0000000000000
   %17 = select i1 %16, i32 3, i32 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   br label %19
 
@@ -1444,7 +1444,7 @@ define hidden void @zif_is_infinite(ptr noundef %0, ptr nocapture noundef writeo
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_is_nan(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1454,8 +1454,8 @@ define hidden void @zif_is_nan(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread77
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread70, label %12
@@ -1478,7 +1478,7 @@ define hidden void @zif_is_nan(ptr noundef %0, ptr nocapture noundef writeonly %
   %14 = load double, ptr %.in, align 8
   %15 = fcmp uno double %14, 0.000000e+00
   %16 = select i1 %15, i32 3, i32 2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %16, ptr %17, align 8
   br label %18
 
@@ -1488,7 +1488,7 @@ define hidden void @zif_is_nan(ptr noundef %0, ptr nocapture noundef writeonly %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_pow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 2
   br i1 %.not, label %6, label %5
@@ -1499,8 +1499,8 @@ define hidden void @zif_pow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = tail call i32 @pow_function(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #15
   br label %10
 
@@ -1513,7 +1513,7 @@ declare i32 @pow_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_exp(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1523,8 +1523,8 @@ define hidden void @zif_exp(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1547,7 +1547,7 @@ define hidden void @zif_exp(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %14 = load double, ptr %.in, align 8
   %15 = call double @exp(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1561,7 +1561,7 @@ declare double @exp(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_expm1(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1571,8 +1571,8 @@ define hidden void @zif_expm1(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1595,7 +1595,7 @@ define hidden void @zif_expm1(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @expm1(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1609,7 +1609,7 @@ declare double @expm1(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_log1p(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1619,8 +1619,8 @@ define hidden void @zif_log1p(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1643,7 +1643,7 @@ define hidden void @zif_log1p(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @log1p(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1659,7 +1659,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   store double 0.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, -2
@@ -1670,8 +1670,8 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %.thread123
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 5
   br i1 %13, label %.critedge, label %15
@@ -1690,8 +1690,8 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %18, label %.thread116, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 5
   br i1 %23, label %.thread112, label %25
@@ -1723,7 +1723,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %30 = load double, ptr %3, align 8
   %31 = call double @log(double noundef %30) #15
   store double %31, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %32, align 8
   br label %62
 
@@ -1736,7 +1736,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %37 = load double, ptr %3, align 8
   %38 = call double @log2(double noundef %37) #15
   store double %38, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %39, align 8
   br label %62
 
@@ -1748,7 +1748,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %43 = load double, ptr %3, align 8
   %44 = call double @log10(double noundef %43) #15
   store double %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %45, align 8
   br label %62
 
@@ -1758,7 +1758,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 48:                                               ; preds = %46
   store double 0x7FF8000000000000, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %49, align 8
   br label %62
 
@@ -1780,7 +1780,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %59 = call double @log(double noundef %58) #15
   %60 = fdiv double %57, %59
   store double %60, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %61, align 8
   br label %62
 
@@ -1800,7 +1800,7 @@ declare double @log10(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_log10(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1810,8 +1810,8 @@ define hidden void @zif_log10(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1834,7 +1834,7 @@ define hidden void @zif_log10(ptr noundef %0, ptr nocapture noundef writeonly %1
   %14 = load double, ptr %.in, align 8
   %15 = call double @log10(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1845,7 +1845,7 @@ define hidden void @zif_log10(ptr noundef %0, ptr nocapture noundef writeonly %1
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_sqrt(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1855,8 +1855,8 @@ define hidden void @zif_sqrt(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1879,7 +1879,7 @@ define hidden void @zif_sqrt(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %14 = load double, ptr %.in, align 8
   %15 = call double @sqrt(double noundef %14) #15
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %16, align 8
   br label %17
 
@@ -1894,7 +1894,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #6
 define hidden void @zif_hypot(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -1904,8 +1904,8 @@ define hidden void @zif_hypot(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread103
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %.critedge, label %14
@@ -1920,8 +1920,8 @@ define hidden void @zif_hypot(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %15, label %16, label %.thread103
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 5
   br i1 %20, label %.thread115, label %21
@@ -1945,7 +1945,7 @@ define hidden void @zif_hypot(ptr noundef %0, ptr nocapture noundef writeonly %1
   %24 = load double, ptr %3, align 8
   %25 = call double @hypot(double noundef %24, double noundef %23) #15
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8
   br label %27
 
@@ -1959,7 +1959,7 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -1969,8 +1969,8 @@ define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -1994,7 +1994,7 @@ define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly 
   %15 = fdiv double %14, 1.800000e+02
   %16 = fmul double %15, 0x400921FB54442D18
   store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %17, align 8
   br label %18
 
@@ -2005,7 +2005,7 @@ define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_rad2deg(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -2015,8 +2015,8 @@ define hidden void @zif_rad2deg(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread79
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 5
   br i1 %11, label %.thread72, label %12
@@ -2040,7 +2040,7 @@ define hidden void @zif_rad2deg(ptr noundef %0, ptr nocapture noundef writeonly 
   %15 = fdiv double %14, 0x400921FB54442D18
   %16 = fmul double %15, 1.800000e+02
   store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %17, align 8
   br label %18
 
@@ -2050,7 +2050,7 @@ define hidden void @zif_rad2deg(ptr noundef %0, ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define i64 @_php_math_basetolong(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp ne i8 %4, 6
   %6 = add i32 %1, -37
@@ -2060,13 +2060,13 @@ define i64 @_php_math_basetolong(ptr nocapture noundef readonly %0, i32 noundef 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = zext nneg i32 %1 to i64
   br label %15
 
@@ -2074,7 +2074,7 @@ define i64 @_php_math_basetolong(ptr nocapture noundef readonly %0, i32 noundef 
   %.052 = phi ptr [ %13, %.lr.ph ], [ %16, %38 ]
   %.04251 = phi i64 [ %11, %.lr.ph ], [ %39, %38 ]
   %.04350 = phi i64 [ 0, %.lr.ph ], [ %.1, %38 ]
-  %16 = getelementptr inbounds i8, ptr %.052, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.052, i64 1
   %17 = load i8, ptr %.052, align 1
   %18 = sext i8 %17 to i32
   %19 = add i8 %17, -48
@@ -2132,8 +2132,8 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 
 ; Function Attrs: nounwind uwtable
 define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 %5
   %.ptr132 = getelementptr i8, ptr %6, i64 24
@@ -2156,7 +2156,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %.087109, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.087109, i64 1
   %18 = icmp ult ptr %17, %.ptr132
   br i1 %18, label %10, label %.critedge
 
@@ -2201,7 +2201,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %37, label %38, label %.thread105
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.087.lcssa, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 1
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %.thread105 [
     i8 120, label %41
@@ -2209,7 +2209,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   ]
 
 41:                                               ; preds = %38, %38
-  %42 = getelementptr inbounds i8, ptr %.087.lcssa, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 2
   br label %.thread105
 
 43:                                               ; preds = %34
@@ -2218,7 +2218,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %45, label %46, label %.thread105
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.087.lcssa, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 1
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %.thread105 [
     i8 111, label %49
@@ -2226,7 +2226,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   ]
 
 49:                                               ; preds = %46, %46
-  %50 = getelementptr inbounds i8, ptr %.087.lcssa, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 2
   br label %.thread105
 
 51:                                               ; preds = %34
@@ -2235,7 +2235,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %53, label %54, label %.thread105
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.087.lcssa, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 1
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %.thread105 [
     i8 98, label %57
@@ -2243,7 +2243,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   ]
 
 57:                                               ; preds = %54, %54
-  %58 = getelementptr inbounds i8, ptr %.087.lcssa, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.087.lcssa, i64 2
   br label %.thread105
 
 .thread105:                                       ; preds = %34, %35, %41, %38, %43, %49, %46, %54, %51, %57, %.critedge2
@@ -2270,7 +2270,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
 65:                                               ; preds = %.lr.ph114, %.backedge
   %.081113 = phi i32 [ %.081.ph125, %.lr.ph114 ], [ %.081.be, %.backedge ]
   %.4112 = phi ptr [ %.4.ph123, %.lr.ph114 ], [ %66, %.backedge ]
-  %66 = getelementptr inbounds i8, ptr %.4112, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.4112, i64 1
   %67 = load i8, ptr %.4112, align 1
   %68 = add i8 %67, -48
   %or.cond = icmp ult i8 %68, 10
@@ -2365,7 +2365,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %.0.ph.lcssa.sink = phi i64 [ 0, %.thread105 ], [ %spec.select, %97 ]
   %.sink = phi i32 [ 4, %.thread105 ], [ %spec.select158, %97 ]
   store i64 %.0.ph.lcssa.sink, ptr %2, align 8
-  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.sink, ptr %100, align 8
   ret void
 }
@@ -2390,7 +2390,7 @@ define ptr @_php_math_longtobase(i64 noundef %0, i32 noundef %1) local_unnamed_a
   br label %29
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %8, align 16
   %9 = zext nneg i32 %1 to i64
   br label %10
@@ -2401,7 +2401,7 @@ define ptr @_php_math_longtobase(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %11 = icmp ugt ptr %.070, %3
   call void @llvm.assume(i1 %11)
   %12 = urem i64 %.0, %9
-  %13 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds i8, ptr %.070, i64 -1
   store i8 %14, ptr %15, align 1
@@ -2417,13 +2417,13 @@ define ptr @_php_math_longtobase(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %22 = add i64 %21, 32
   %23 = call noalias ptr @_emalloc(i64 noundef %22) #19
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 22, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %20, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %15, i64 %20, i1 false)
   %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 %20
   store i8 0, ptr %28, align 1
@@ -2438,7 +2438,7 @@ define ptr @_php_math_longtobase(i64 noundef %0, i32 noundef %1) local_unnamed_a
 define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [65 x i8], align 16
   %4 = alloca [65 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 4
   br i1 %.not, label %11, label %7
@@ -2471,7 +2471,7 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
   br label %69
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %4, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %21, align 16
   %22 = uitofp nneg i32 %1 to double
   br label %23
@@ -2501,13 +2501,13 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
   %40 = add i64 %39, 32
   %41 = call noalias ptr @_emalloc(i64 noundef %40) #19
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %38, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %45, ptr noundef nonnull align 1 dereferenceable(1) %29, i64 %38, i1 false)
   %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %38
   store i8 0, ptr %46, align 1
@@ -2516,7 +2516,7 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
 47:                                               ; preds = %11
   %48 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3)
-  %49 = getelementptr inbounds i8, ptr %3, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %49, align 16
   %50 = zext nneg i32 %1 to i64
   br label %51
@@ -2527,7 +2527,7 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
   %52 = icmp ugt ptr %.070.i, %3
   call void @llvm.assume(i1 %52)
   %53 = urem i64 %.0.i, %50
-  %54 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds i8, ptr %.070.i, i64 -1
   store i8 %55, ptr %56, align 1
@@ -2543,13 +2543,13 @@ _php_math_longtobase.exit:                        ; preds = %51
   %62 = add i64 %61, 32
   %63 = call noalias ptr @_emalloc(i64 noundef %62) #19
   store i32 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 22, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 %60, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %56, i64 %60, i1 false)
   %68 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %60
   store i8 0, ptr %68, align 1
@@ -2569,7 +2569,7 @@ declare double @fmod(double noundef, double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_bindec(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -2579,8 +2579,8 @@ define hidden void @zif_bindec(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread82
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread71, label %13
@@ -2619,7 +2619,7 @@ define hidden void @zif_bindec(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_hexdec(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -2629,8 +2629,8 @@ define hidden void @zif_hexdec(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread82
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread71, label %13
@@ -2669,7 +2669,7 @@ define hidden void @zif_hexdec(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_octdec(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %7, label %6
@@ -2679,8 +2679,8 @@ define hidden void @zif_octdec(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread82
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread71, label %13
@@ -2719,14 +2719,14 @@ define hidden void @zif_octdec(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %.thread156
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %.thread146, label %12
@@ -2766,14 +2766,14 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
   %20 = and i64 %19, 248
   %21 = call noalias ptr @_emalloc(i64 noundef %20) #19
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 22, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %.0127, ptr %24, align 8
   %.add = add nuw nsw i64 %.0127, 24
-  %.ptr138 = getelementptr inbounds i8, ptr %21, i64 %.add
+  %.ptr138 = getelementptr inbounds nuw i8, ptr %21, i64 %.add
   store i8 0, ptr %.ptr138, align 1
   br label %25
 
@@ -2783,7 +2783,7 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
   %26 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %26)
   %27 = and i64 %.0125, 1
-  %28 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %.0128.add = add nsw i64 %.0128.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %21, i64 %.0128.add
@@ -2794,7 +2794,7 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
 
 31:                                               ; preds = %25
   store ptr %21, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %32, align 8
   br label %33
 
@@ -2805,14 +2805,14 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %.thread156
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %.thread146, label %12
@@ -2861,14 +2861,14 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
   %23 = and i64 %22, 248
   %24 = call noalias ptr @_emalloc(i64 noundef %23) #19
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 22, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %.0127, ptr %27, align 8
   %.add = add nuw nsw i64 %.0127, 24
-  %.ptr138 = getelementptr inbounds i8, ptr %24, i64 %.add
+  %.ptr138 = getelementptr inbounds nuw i8, ptr %24, i64 %.add
   store i8 0, ptr %.ptr138, align 1
   br label %28
 
@@ -2878,7 +2878,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
   %29 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %29)
   %30 = and i64 %.0125, 7
-  %31 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %.0128.add = add nsw i64 %.0128.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %24, i64 %.0128.add
@@ -2889,7 +2889,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
 
 34:                                               ; preds = %28
   store ptr %24, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %35, align 8
   br label %36
 
@@ -2900,14 +2900,14 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %.thread156
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %.thread146, label %12
@@ -2948,14 +2948,14 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
   %21 = or disjoint i64 %20, 32
   %22 = call noalias ptr @_emalloc(i64 noundef %21) #19
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %.0127, ptr %25, align 8
   %.add = add nuw nsw i64 %.0127, 24
-  %.ptr138 = getelementptr inbounds i8, ptr %22, i64 %.add
+  %.ptr138 = getelementptr inbounds nuw i8, ptr %22, i64 %.add
   store i8 0, ptr %.ptr138, align 1
   br label %26
 
@@ -2965,7 +2965,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
   %27 = icmp sgt i64 %.0128.idx, 24
   call void @llvm.assume(i1 %27)
   %28 = and i64 %.0125, 15
-  %29 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
   %.0128.add = add nsw i64 %.0128.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %22, i64 %.0128.add
@@ -2976,7 +2976,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
 
 32:                                               ; preds = %26
   store ptr %22, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %33, align 8
   br label %34
 
@@ -2987,7 +2987,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
 ; Function Attrs: nounwind uwtable
 define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 4
   br i1 %6, label %.critedge, label %8
@@ -3020,14 +3020,14 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
   %18 = or disjoint i64 %17, 32
   %19 = call noalias ptr @_emalloc(i64 noundef %18) #19
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 22, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %.092, ptr %22, align 8
   %.add = add nuw nsw i64 %.092, 24
-  %.ptr98 = getelementptr inbounds i8, ptr %19, i64 %.add
+  %.ptr98 = getelementptr inbounds nuw i8, ptr %19, i64 %.add
   store i8 0, ptr %.ptr98, align 1
   br label %23
 
@@ -3037,7 +3037,7 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
   %24 = icmp sgt i64 %.093.idx, 24
   call void @llvm.assume(i1 %24)
   %25 = and i64 %.091, 15
-  %26 = getelementptr inbounds [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
   %.093.add = add nsw i64 %.093.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %19, i64 %.093.add
@@ -3048,7 +3048,7 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
 
 29:                                               ; preds = %23
   store ptr %19, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %30, align 8
   br label %31
 
@@ -3064,7 +3064,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 3
   br i1 %.not, label %10, label %9
@@ -3074,8 +3074,8 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
   br label %.thread164
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.critedge, label %16
@@ -3090,8 +3090,8 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
   br i1 %17, label %18, label %.thread164
 
 18:                                               ; preds = %16, %.critedge
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 4
   br i1 %22, label %.critedge154, label %24
@@ -3106,8 +3106,8 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
   br i1 %25, label %26, label %.thread164
 
 26:                                               ; preds = %24, %.critedge154
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 4
   br i1 %30, label %.thread160, label %32
@@ -3174,12 +3174,12 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
 
 54:                                               ; preds = %45
   store ptr %50, ptr %1, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 64
   %.not151 = icmp eq i32 %57, 0
   %58 = select i1 %.not151, i32 262, i32 6
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %58, ptr %59, align 8
   br label %60
 
@@ -3211,7 +3211,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 13:                                               ; preds = %6
   %14 = tail call ptr @__ctype_b_loc() #18
   %15 = load ptr, ptr %14, align 8
-  %.ptr231 = getelementptr inbounds i8, ptr %11, i64 24
+  %.ptr231 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i8, ptr %.ptr231, align 8
   %17 = sext i8 %16 to i64
   %18 = getelementptr inbounds i16, ptr %15, i64 %17
@@ -3237,7 +3237,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br label %31
 
 .thread:                                          ; preds = %21, %23
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %30 = load i64, ptr %29, align 8
   br label %31
 
@@ -3291,15 +3291,15 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   %47 = add i64 %46, 32
   %48 = tail call noalias ptr @_emalloc(i64 noundef %47) #19
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
-  %52 = getelementptr inbounds i8, ptr %11, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %53 = load i64, ptr %52, align 8
   %.add229 = add nsw i64 %53, 23
-  %54 = getelementptr inbounds i8, ptr %48, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %55 = getelementptr inbounds i8, ptr %54, i64 %spec.select
   %56 = getelementptr inbounds i8, ptr %55, i64 -1
   store i8 0, ptr %55, align 1
@@ -3335,8 +3335,8 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   %.add230 = add nsw i64 %.add229, %69
   %70 = sub i64 0, %60
   %71 = getelementptr inbounds i8, ptr %.1191.lcssa, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
-  %73 = getelementptr inbounds i8, ptr %.0189239, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.0189239, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %73, i64 %60, i1 false)
   br label %74
 
@@ -3349,7 +3349,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 75:                                               ; preds = %74
   %76 = sub i64 0, %3
   %77 = getelementptr inbounds i8, ptr %.2, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %2, i64 %3, i1 false)
   br label %79
 
@@ -3366,7 +3366,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 .lr.ph251.split.us:                               ; preds = %.lr.ph251, %.lr.ph251.split.us
   %.3248.us = phi ptr [ %82, %.lr.ph251.split.us ], [ %.0190, %.lr.ph251 ]
   %.2194.idx247.us = phi i64 [ %.2194.add.us, %.lr.ph251.split.us ], [ %.0192.idx, %.lr.ph251 ]
-  %.2194.ptr.us = getelementptr inbounds i8, ptr %11, i64 %.2194.idx247.us
+  %.2194.ptr.us = getelementptr inbounds nuw i8, ptr %11, i64 %.2194.idx247.us
   %.2194.add.us = add nsw i64 %.2194.idx247.us, -1
   %81 = load i8, ptr %.2194.ptr.us, align 1
   %82 = getelementptr inbounds i8, ptr %.3248.us, i64 -1
@@ -3378,7 +3378,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   %.0184249 = phi i32 [ %85, %91 ], [ 0, %.lr.ph251 ]
   %.3248 = phi ptr [ %.4, %91 ], [ %.0190, %.lr.ph251 ]
   %.2194.idx247 = phi i64 [ %.2194.add, %91 ], [ %.0192.idx, %.lr.ph251 ]
-  %.2194.ptr = getelementptr inbounds i8, ptr %11, i64 %.2194.idx247
+  %.2194.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.2194.idx247
   %.2194.add = add nsw i64 %.2194.idx247, -1
   %83 = load i8, ptr %.2194.ptr, align 1
   %84 = getelementptr inbounds i8, ptr %.3248, i64 -1
@@ -3392,7 +3392,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 
 88:                                               ; preds = %.lr.ph251.split
   %89 = getelementptr inbounds i8, ptr %84, i64 %80
-  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull align 1 %4, i64 %5, i1 false)
   br label %91
 
@@ -3411,7 +3411,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 
 93:                                               ; preds = %92, %._crit_edge252
   store i64 %spec.select, ptr %51, align 8
-  %94 = getelementptr inbounds i8, ptr %11, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 64
   %.not235 = icmp eq i32 %96, 0
@@ -3457,7 +3457,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 
 10:                                               ; preds = %8
   %11 = sub nsw i64 0, %1
-  %12 = getelementptr inbounds [20 x i64], ptr @_php_math_number_format_long.powers, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [20 x i64], ptr @_php_math_number_format_long.powers, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = lshr i64 %13, 1
   %15 = urem i64 %.0177, %13
@@ -3475,7 +3475,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   %.1181 = phi i32 [ %.0180, %6 ], [ 0, %8 ], [ %spec.select, %10 ]
   %.1178 = phi i64 [ %.0177, %6 ], [ 0, %8 ], [ %.2179.fr, %10 ]
   %19 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %.1178) #15
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %.not195 = icmp eq ptr %4, null
   br i1 %.not195, label %27, label %22
@@ -3522,14 +3522,14 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   %38 = add i64 %37, 32
   %39 = tail call noalias ptr @_emalloc(i64 noundef %38) #19
   store i32 1, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 22, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load i64, ptr %20, align 8
   %.add205 = add nsw i64 %43, 23
-  %44 = getelementptr inbounds i8, ptr %39, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %45 = getelementptr inbounds i8, ptr %44, i64 %.1171
   %46 = getelementptr inbounds i8, ptr %45, i64 -1
   store i8 0, ptr %45, align 1
@@ -3549,7 +3549,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 51:                                               ; preds = %.preheader.preheader
   %52 = sub i64 0, %3
   %53 = getelementptr inbounds i8, ptr %scevgep227, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %2, i64 %3, i1 false)
   br label %55
 
@@ -3565,7 +3565,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.2223.us = phi ptr [ %58, %.lr.ph.split.us ], [ %.0167, %.lr.ph ]
   %.0169.idx222.us = phi i64 [ %.0169.add.us, %.lr.ph.split.us ], [ %.add205, %.lr.ph ]
-  %.0169.ptr.us = getelementptr inbounds i8, ptr %19, i64 %.0169.idx222.us
+  %.0169.ptr.us = getelementptr inbounds nuw i8, ptr %19, i64 %.0169.idx222.us
   %.0169.add.us = add nsw i64 %.0169.idx222.us, -1
   %57 = load i8, ptr %.0169.ptr.us, align 1
   %58 = getelementptr inbounds i8, ptr %.2223.us, i64 -1
@@ -3577,7 +3577,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   %.0166224 = phi i32 [ %61, %67 ], [ 0, %.lr.ph ]
   %.2223 = phi ptr [ %.3, %67 ], [ %.0167, %.lr.ph ]
   %.0169.idx222 = phi i64 [ %.0169.add, %67 ], [ %.add205, %.lr.ph ]
-  %.0169.ptr = getelementptr inbounds i8, ptr %19, i64 %.0169.idx222
+  %.0169.ptr = getelementptr inbounds nuw i8, ptr %19, i64 %.0169.idx222
   %.0169.add = add nsw i64 %.0169.idx222, -1
   %59 = load i8, ptr %.0169.ptr, align 1
   %60 = getelementptr inbounds i8, ptr %.2223, i64 -1
@@ -3591,7 +3591,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 
 64:                                               ; preds = %.lr.ph.split
   %65 = getelementptr inbounds i8, ptr %60, i64 %56
-  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull align 1 %4, i64 %5, i1 false)
   br label %67
 
@@ -3611,7 +3611,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 
 69:                                               ; preds = %68, %._crit_edge
   store i64 %.1171, ptr %42, align 8
-  %70 = getelementptr inbounds i8, ptr %19, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 64
   %.not210 = icmp eq i32 %72, 0
@@ -3641,7 +3641,7 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -5
   %or.cond = icmp ult i32 %9, -4
@@ -3652,8 +3652,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = and i8 %14, -2
   %switch = icmp eq i8 %15, 4
@@ -3672,8 +3672,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %19, label %.thread269, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 4
   br i1 %24, label %.critedge242, label %26
@@ -3692,8 +3692,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %29, label %.thread269, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load i8, ptr %32, align 8
   switch i8 %33, label %36 [
     i8 6, label %34
@@ -3722,8 +3722,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %or.cond249.not, label %41, label %45
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 24
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i64, ptr %43, align 8
   br label %45
 
@@ -3737,8 +3737,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not232, label %47, label %.thread269
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
-  %49 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %50 = load i8, ptr %49, align 8
   switch i8 %50, label %53 [
     i8 6, label %51
@@ -3767,8 +3767,8 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %or.cond250.not, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 24
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -3797,7 +3797,7 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   %.3222 = select i1 %64, i64 1, i64 %.0219279
   %.3218 = select i1 %64, ptr @.str.12, ptr %.0215280
   %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i8, ptr %66, align 8
   %switch252 = icmp eq i8 %67, 4
   br i1 %switch252, label %68, label %77
@@ -3807,12 +3807,12 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   %70 = load i64, ptr %6, align 8
   %71 = call ptr @_php_math_number_format_long(i64 noundef %69, i64 noundef %70, ptr noundef nonnull %spec.select245, i64 noundef %spec.select, ptr noundef nonnull %.3218, i64 noundef %.3222)
   store ptr %71, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 64
   %.not238 = icmp eq i32 %74, 0
   %75 = select i1 %.not238, i32 262, i32 6
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %75, ptr %76, align 8
   br label %105
 
@@ -3837,12 +3837,12 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   %85 = fptosi double %78 to i64
   %86 = call ptr @_php_math_number_format_long(i64 noundef %85, i64 noundef %.pre285, ptr noundef nonnull %spec.select245, i64 noundef %spec.select, ptr noundef nonnull %.3218, i64 noundef %.3222)
   store ptr %86, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 64
   %.not237 = icmp eq i32 %89, 0
   %90 = select i1 %.not237, i32 262, i32 6
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %90, ptr %91, align 8
   br label %105
 
@@ -3864,12 +3864,12 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   %.0194 = trunc nsw i64 %.0194.in to i32
   %99 = call ptr @_php_math_number_format_ex(double noundef %78, i32 noundef %.0194, ptr noundef nonnull %spec.select245, i64 noundef %spec.select, ptr noundef nonnull %.3218, i64 noundef %.3222)
   store ptr %99, ptr %1, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 64
   %.not236 = icmp eq i32 %102, 0
   %103 = select i1 %.not236, i32 262, i32 6
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %103, ptr %104, align 8
   br label %105
 
@@ -3881,7 +3881,7 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
 define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -3891,8 +3891,8 @@ define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread103
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %.critedge, label %14
@@ -3907,8 +3907,8 @@ define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %15, label %16, label %.thread103
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 5
   br i1 %20, label %.thread115, label %21
@@ -3932,7 +3932,7 @@ define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %24 = load double, ptr %3, align 8
   %25 = call double @fmod(double noundef %24, double noundef %23) #15
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8
   br label %27
 
@@ -3944,7 +3944,7 @@ define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1)
 define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -3954,8 +3954,8 @@ define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %.thread103
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %.critedge, label %14
@@ -3970,8 +3970,8 @@ define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %15, label %16, label %.thread103
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 5
   br i1 %20, label %.thread115, label %21
@@ -3995,7 +3995,7 @@ define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %24 = load double, ptr %3, align 8
   %25 = fdiv double %24, %23
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8
   br label %27
 
@@ -4007,7 +4007,7 @@ define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1)
 define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -4017,8 +4017,8 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread116
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 4
   br i1 %12, label %.critedge, label %14
@@ -4033,8 +4033,8 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %15, label %16, label %.thread116
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 4
   br i1 %20, label %.thread112, label %22
@@ -4091,7 +4091,7 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
 40:                                               ; preds = %31
   %41 = sdiv i64 %33, %24
   store i64 %41, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %42, align 8
   br label %43
 

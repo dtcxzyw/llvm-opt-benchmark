@@ -26,9 +26,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @get_io_graph_index(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.0.copyload.lobit = ashr i32 %.sroa.5.0.copyload, 31
   %4 = sext i32 %.sroa.5.0.copyload.lobit to i64
@@ -87,13 +87,13 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly %1, i3
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %1, align 4
   br label %21
 
 21:                                               ; preds = %18, %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %33 [
     i32 4, label %24
@@ -174,13 +174,13 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   br label %107
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = uitofp i64 %15 to double
   br label %107
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %19, 3
   %21 = uitofp i64 %20 to double
@@ -192,7 +192,7 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   br label %107
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = uitofp i64 %27 to double
   br label %107
@@ -234,28 +234,28 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %9, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %36 = load double, ptr %35, align 8
   br label %107
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %9, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %39 = load double, ptr %38, align 8
   br label %107
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %9, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %42 = load double, ptr %41, align 8
   br label %107
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %9, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %45 = load i64, ptr %44, align 8
   %.not52 = icmp eq i64 %45, 0
   br i1 %.not52, label %107, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %9, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %48 = load double, ptr %47, align 8
   %49 = uitofp i64 %45 to double
   %50 = fdiv double %48, %49
@@ -270,31 +270,31 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %9, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %54 = load float, ptr %53, align 8
   %55 = fpext float %54 to double
   br label %107
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %9, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %58 = load float, ptr %57, align 8
   %59 = fpext float %58 to double
   br label %107
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %9, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %62 = load float, ptr %61, align 4
   %63 = fpext float %62 to double
   br label %107
 
 64:                                               ; preds = %51
-  %65 = getelementptr inbounds i8, ptr %9, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %66 = load i64, ptr %65, align 8
   %.not51 = icmp eq i64 %66, 0
   br i1 %.not51, label %107, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %9, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %69 = load float, ptr %68, align 8
   %70 = fpext float %69 to double
   %71 = uitofp i64 %66 to double
@@ -311,28 +311,28 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   ]
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %9, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %76 = tail call double @nstime_to_sec(ptr noundef nonnull %75) #3
   br label %107
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %9, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %79 = tail call double @nstime_to_sec(ptr noundef nonnull %78) #3
   br label %107
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %9, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %82 = tail call double @nstime_to_sec(ptr noundef nonnull %81) #3
   br label %107
 
 83:                                               ; preds = %73
-  %84 = getelementptr inbounds i8, ptr %9, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %85 = load i64, ptr %84, align 8
   %.not = icmp eq i64 %85, 0
   br i1 %.not, label %107, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %9, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %88 = tail call double @nstime_to_sec(ptr noundef nonnull %87) #3
   %89 = load i64, ptr %84, align 8
   %90 = uitofp i64 %89 to double
@@ -346,7 +346,7 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond, label %95, label %102
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %4, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %97 = tail call double @nstime_to_msec(ptr noundef nonnull %96) #3
   %98 = fadd double %97, 5.000000e-01
   %99 = fptoui double %98 to i32
@@ -356,7 +356,7 @@ define hidden double @get_io_graph_item(ptr noundef %0, i32 noundef %1, i32 noun
 
 102:                                              ; preds = %92, %95
   %.0 = phi i32 [ %101, %95 ], [ %5, %92 ]
-  %103 = getelementptr inbounds i8, ptr %9, i64 120
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %104 = tail call double @nstime_to_msec(ptr noundef nonnull %103) #3
   %105 = uitofp i32 %.0 to double
   %106 = fdiv double %104, %105

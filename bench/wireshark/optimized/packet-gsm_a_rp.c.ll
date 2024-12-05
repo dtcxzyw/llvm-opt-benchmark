@@ -191,7 +191,7 @@ define internal noundef zeroext i16 @de_rp_cause(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @rp_data_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -358,7 +358,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.72) #4
   store ptr %2, ptr @g_tree, align 8
@@ -444,7 +444,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rp_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_json, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #4
@@ -541,7 +541,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @rp_data_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -644,7 +644,7 @@ define internal void @rp_data_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef i
 
 ; Function Attrs: nounwind uwtable
 define internal void @rp_ack_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -689,7 +689,7 @@ define internal void @rp_ack_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef in
 
 ; Function Attrs: nounwind uwtable
 define internal void @rp_ack_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -734,7 +734,7 @@ define internal void @rp_ack_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef in
 
 ; Function Attrs: nounwind uwtable
 define internal void @rp_error_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 1, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -801,7 +801,7 @@ define internal void @rp_error_ms_n(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @rp_error_n_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((348, 352)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 348
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14

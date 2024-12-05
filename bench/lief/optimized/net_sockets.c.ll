@@ -21,11 +21,11 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %
   %7 = tail call ptr @__sysv_signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %8 = icmp eq i32 %3, 1
   %9 = select i1 %8, i32 2, i32 1
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   store i32 %9, ptr %10, align 8
   %11 = select i1 %8, i32 17, i32 6
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %11, ptr %12, align 4
   %13 = call i32 @getaddrinfo(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %13, 0
@@ -38,11 +38,11 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %.024 = phi ptr [ %.0, %32 ], [ %.022, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.024, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.024, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %.024, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.024, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.024, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = call i32 @socket(i32 noundef %15, i32 noundef %17, i32 noundef %19) #8
   store i32 %20, ptr %0, align 4
@@ -50,9 +50,9 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.024, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.024, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = call i32 @connect(i32 noundef %20, ptr noundef %24, i32 noundef %26) #8
   %28 = icmp eq i32 %27, 0
@@ -65,7 +65,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %
 
 32:                                               ; preds = %.lr.ph, %29
   %.2 = phi i32 [ -68, %29 ], [ -66, %.lr.ph ]
-  %33 = getelementptr inbounds i8, ptr %.024, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.024, i64 40
   %.0 = load ptr, ptr %33, align 8
   %.not21 = icmp eq ptr %.0, null
   br i1 %.not21, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -109,11 +109,11 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
   %8 = tail call ptr @__sysv_signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
   %9 = icmp eq i32 %3, 1
   %10 = select i1 %9, i32 2, i32 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store i32 %10, ptr %11, align 8
   %12 = select i1 %9, i32 17, i32 6
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %12, ptr %13, align 4
   %14 = icmp eq ptr %1, null
   br i1 %14, label %15, label %16
@@ -138,11 +138,11 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
   %.032.us = phi ptr [ %.0.us, %42 ], [ %.030, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.032.us, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.032.us, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %.032.us, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.032.us, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.032.us, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.032.us, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @socket(i32 noundef %20, i32 noundef %22, i32 noundef %24) #8
   store i32 %25, ptr %0, align 4
@@ -157,9 +157,9 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
   br i1 %.not27.us, label %30, label %.sink.split
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.032.us, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.032.us, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.032.us, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.032.us, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = call i32 @bind(i32 noundef %29, ptr noundef %32, i32 noundef %34) #8
   %.not28.us = icmp eq i32 %35, 0
@@ -183,18 +183,18 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
 
 42:                                               ; preds = %.sink.split, %.lr.ph.split.us
   %.2.us = phi i32 [ -66, %.lr.ph.split.us ], [ %.2.us.ph, %.sink.split ]
-  %43 = getelementptr inbounds i8, ptr %.032.us, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.032.us, i64 40
   %.0.us = load ptr, ptr %43, align 8
   %.not26.us = icmp eq ptr %.0.us, null
   br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %64
   %.032 = phi ptr [ %.0, %64 ], [ %.030, %.lr.ph ]
-  %44 = getelementptr inbounds i8, ptr %.032, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.032, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.032, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.032, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @socket(i32 noundef %45, i32 noundef %47, i32 noundef %49) #8
   store i32 %50, ptr %0, align 4
@@ -209,9 +209,9 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
   br i1 %.not27, label %55, label %.sink.split42
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.032, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.032, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = call i32 @bind(i32 noundef %54, ptr noundef %57, i32 noundef %59) #8
   %.not28 = icmp eq i32 %60, 0
@@ -229,7 +229,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
 
 64:                                               ; preds = %.sink.split42, %.lr.ph.split
   %.2 = phi i32 [ -66, %.lr.ph.split ], [ %.2.ph, %.sink.split42 ]
-  %65 = getelementptr inbounds i8, ptr %.032, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %.0 = load ptr, ptr %65, align 8
   %.not26 = icmp eq ptr %.0, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
@@ -369,7 +369,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr nocapture noundef
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %7, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %2, align 1
   br label %68
@@ -380,7 +380,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr nocapture noundef
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false)
   br label %68
 
@@ -486,7 +486,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef read
   %37 = urem i32 %2, 1000
   %38 = mul nuw nsw i32 %37, 1000
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %39, ptr %40, align 8
   %41 = add nsw i32 %7, 1
   %42 = icmp eq i32 %2, -1
@@ -534,7 +534,7 @@ define hidden void @mbedtls_net_usleep(i64 noundef %0) local_unnamed_addr #1 {
   %3 = udiv i64 %0, 1000000
   store i64 %3, ptr %2, align 8
   %4 = srem i64 %0, 1000000
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %4, ptr %5, align 8
   %6 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #8
   ret void
@@ -617,7 +617,7 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
   %20 = urem i32 %3, 1000
   %21 = mul nuw nsw i32 %20, 1000
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %22, ptr %23, align 8
   %24 = add nsw i32 %7, 1
   %25 = icmp eq i32 %3, 0

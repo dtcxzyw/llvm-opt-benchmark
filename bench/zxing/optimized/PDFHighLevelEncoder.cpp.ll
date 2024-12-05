@@ -62,8 +62,8 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %10 = alloca %"class.std::__cxx11::basic_string.3", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !3
   invoke void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14) #13
           to label %15 unwind label %103
@@ -84,14 +84,14 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %12, align 8, !tbaa !12
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = icmp eq ptr %22, %24
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %21
   store i32 927, ptr %22, align 4, !tbaa !10
-  %27 = getelementptr inbounds i8, ptr %22, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store ptr %27, ptr %12, align 8, !tbaa !15
   br label %32
 
@@ -112,7 +112,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 36:                                               ; preds = %32
   store i32 %18, ptr %34, align 4, !tbaa !10
-  %37 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store ptr %37, ptr %12, align 8, !tbaa !15
   br label %102
 
@@ -127,14 +127,14 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %12, align 8, !tbaa !12
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !13
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %42
   store i32 926, ptr %43, align 4, !tbaa !10
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store ptr %48, ptr %12, align 8, !tbaa !15
   br label %53
 
@@ -160,7 +160,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 60:                                               ; preds = %53
   store i32 %58, ptr %55, align 4, !tbaa !10
-  %61 = getelementptr inbounds i8, ptr %55, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store ptr %61, ptr %12, align 8, !tbaa !15
   br label %66
 
@@ -184,7 +184,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 70:                                               ; preds = %66
   store i32 %57, ptr %68, align 4, !tbaa !10
-  %71 = getelementptr inbounds i8, ptr %68, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store ptr %71, ptr %12, align 8, !tbaa !15
   br label %73
 
@@ -203,14 +203,14 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %12, align 8, !tbaa !12
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !13
   %81 = icmp eq ptr %78, %80
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %77
   store i32 925, ptr %78, align 4, !tbaa !10
-  %83 = getelementptr inbounds i8, ptr %78, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store ptr %83, ptr %12, align 8, !tbaa !15
   br label %88
 
@@ -233,7 +233,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 92:                                               ; preds = %88
   store i32 %75, ptr %90, align 4, !tbaa !10
-  %93 = getelementptr inbounds i8, ptr %90, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store ptr %93, ptr %12, align 8, !tbaa !15
   br label %95
 
@@ -286,11 +286,11 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   br i1 %109, label %110, label %.loopexit
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %11, i64 16
-  %112 = getelementptr inbounds i8, ptr %11, i64 8
-  %113 = getelementptr inbounds i8, ptr %10, i64 8
-  %114 = getelementptr inbounds i8, ptr %10, i64 16
-  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %156
 
 116:                                              ; preds = %105
@@ -308,7 +308,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
           to label %121 unwind label %134
 
 121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %9, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !16
   %124 = trunc i64 %123 to i32
   invoke fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiRSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %124, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0) #13
@@ -316,7 +316,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %9, align 8, !tbaa !19
-  %127 = getelementptr inbounds i8, ptr %9, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %128 = icmp eq ptr %126, %127
   br i1 %128, label %129, label %132
 
@@ -343,7 +343,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
   %137 = landingpad { ptr, i32 }
           cleanup
   %138 = load ptr, ptr %9, align 8, !tbaa !19
-  %139 = getelementptr inbounds i8, ptr %9, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %140 = icmp eq ptr %138, %139
   br i1 %140, label %141, label %144
 
@@ -364,14 +364,14 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 147:                                              ; preds = %105
   %148 = load ptr, ptr %12, align 8, !tbaa !12
-  %149 = getelementptr inbounds i8, ptr %0, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !13
   %151 = icmp eq ptr %148, %150
   br i1 %151, label %154, label %152
 
 152:                                              ; preds = %147
   store i32 902, ptr %148, align 4, !tbaa !10
-  %153 = getelementptr inbounds i8, ptr %148, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store ptr %153, ptr %12, align 8, !tbaa !15
   br label %155
 
@@ -437,7 +437,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 194:                                              ; preds = %190
   store i32 902, ptr %191, align 4, !tbaa !10
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store ptr %195, ptr %12, align 8, !tbaa !15
   br label %197
 
@@ -548,7 +548,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 
 256:                                              ; preds = %252
   store i32 900, ptr %253, align 4, !tbaa !10
-  %257 = getelementptr inbounds i8, ptr %253, i64 4
+  %257 = getelementptr inbounds nuw i8, ptr %253, i64 4
   store ptr %257, ptr %12, align 8, !tbaa !15
   br label %261
 
@@ -759,7 +759,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = load ptr, ptr %0, align 8, !tbaa !29
   %9 = ptrtoint ptr %7 to i64
@@ -770,7 +770,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   br i1 %13, label %14, label %35
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %10
@@ -801,7 +801,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE7reserveEm(ptr noundef nonnull ali
   store ptr %19, ptr %0, align 8, !tbaa !29
   %33 = getelementptr inbounds i8, ptr %19, i64 %18
   store ptr %33, ptr %15, align 8, !tbaa !15
-  %34 = getelementptr inbounds i32, ptr %19, i64 %1
+  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %1
   store ptr %34, ptr %6, align 8, !tbaa !13
   br label %35
 
@@ -848,8 +848,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
           to label %29 unwind label %40
 
 29:                                               ; preds = %5
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %invariant.op = add nsw i32 %1, 1
   br label %32
 
@@ -890,7 +890,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 52:                                               ; preds = %47
   store i32 %48, ptr %49, align 4, !tbaa !10
-  %53 = getelementptr inbounds i8, ptr %49, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store ptr %53, ptr %30, align 8, !tbaa !15
   br label %55
 
@@ -923,7 +923,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 65:                                               ; preds = %61
   store i32 27, ptr %62, align 4, !tbaa !10
-  %66 = getelementptr inbounds i8, ptr %62, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store ptr %66, ptr %30, align 8, !tbaa !15
   br label %68
 
@@ -952,7 +952,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 76:                                               ; preds = %71
   %77 = zext nneg i32 %39 to i64
-  %78 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !30
   %80 = icmp eq i8 %79, -1
   %81 = load ptr, ptr %30, align 8, !tbaa !12
@@ -967,7 +967,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 85:                                               ; preds = %83
   store i32 28, ptr %81, align 4, !tbaa !10
-  %86 = getelementptr inbounds i8, ptr %81, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store ptr %86, ptr %30, align 8, !tbaa !15
   br label %88
 
@@ -995,7 +995,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 95:                                               ; preds = %91
   store i32 29, ptr %93, align 4, !tbaa !10
-  %96 = getelementptr inbounds i8, ptr %93, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store ptr %96, ptr %30, align 8, !tbaa !15
   br label %101
 
@@ -1023,7 +1023,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 109:                                              ; preds = %101
   store i32 %107, ptr %103, align 4, !tbaa !10
-  %110 = getelementptr inbounds i8, ptr %103, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store ptr %110, ptr %30, align 8, !tbaa !15
   br label %112
 
@@ -1065,7 +1065,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 127:                                              ; preds = %122
   store i32 %123, ptr %124, align 4, !tbaa !10
-  %128 = getelementptr inbounds i8, ptr %124, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store ptr %128, ptr %30, align 8, !tbaa !15
   br label %130
 
@@ -1098,7 +1098,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 140:                                              ; preds = %136
   store i32 27, ptr %137, align 4, !tbaa !10
-  %141 = getelementptr inbounds i8, ptr %137, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 4
   store ptr %141, ptr %30, align 8, !tbaa !15
   br label %146
 
@@ -1122,7 +1122,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 150:                                              ; preds = %146
   store i32 %134, ptr %148, align 4, !tbaa !10
-  %151 = getelementptr inbounds i8, ptr %148, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store ptr %151, ptr %30, align 8, !tbaa !15
   br label %153
 
@@ -1157,7 +1157,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 163:                                              ; preds = %158
   %164 = zext nneg i32 %39 to i64
-  %165 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %164
   %166 = load i8, ptr %165, align 1, !tbaa !30
   %167 = icmp eq i8 %166, -1
   %168 = load ptr, ptr %30, align 8, !tbaa !12
@@ -1172,7 +1172,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 172:                                              ; preds = %170
   store i32 28, ptr %168, align 4, !tbaa !10
-  %173 = getelementptr inbounds i8, ptr %168, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 4
   store ptr %173, ptr %30, align 8, !tbaa !15
   br label %175
 
@@ -1200,7 +1200,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 182:                                              ; preds = %178
   store i32 29, ptr %180, align 4, !tbaa !10
-  %183 = getelementptr inbounds i8, ptr %180, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store ptr %183, ptr %30, align 8, !tbaa !15
   br label %188
 
@@ -1228,7 +1228,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 196:                                              ; preds = %188
   store i32 %194, ptr %190, align 4, !tbaa !10
-  %197 = getelementptr inbounds i8, ptr %190, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 4
   store ptr %197, ptr %30, align 8, !tbaa !15
   br label %199
 
@@ -1258,7 +1258,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 206:                                              ; preds = %204
   %207 = zext nneg i32 %39 to i64
-  %208 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L5MIXEDE, i64 0, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !30
   %210 = icmp eq i8 %209, -1
   br i1 %210, label %222, label %211
@@ -1274,7 +1274,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 216:                                              ; preds = %211
   store i32 %212, ptr %213, align 4, !tbaa !10
-  %217 = getelementptr inbounds i8, ptr %213, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 4
   store ptr %217, ptr %30, align 8, !tbaa !15
   br label %219
 
@@ -1309,7 +1309,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 231:                                              ; preds = %227
   store i32 28, ptr %228, align 4, !tbaa !10
-  %232 = getelementptr inbounds i8, ptr %228, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 4
   store ptr %232, ptr %30, align 8, !tbaa !15
   br label %234
 
@@ -1342,7 +1342,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 244:                                              ; preds = %240
   store i32 27, ptr %241, align 4, !tbaa !10
-  %245 = getelementptr inbounds i8, ptr %241, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 4
   store ptr %245, ptr %30, align 8, !tbaa !15
   br label %247
 
@@ -1374,7 +1374,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 257:                                              ; preds = %252
   %258 = zext nneg i32 %255 to i64
-  %259 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !30
   %261 = icmp eq i8 %260, -1
   br i1 %261, label %272, label %262
@@ -1389,7 +1389,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 266:                                              ; preds = %262
   store i32 25, ptr %263, align 4, !tbaa !10
-  %267 = getelementptr inbounds i8, ptr %263, i64 4
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store ptr %267, ptr %30, align 8, !tbaa !15
   br label %271
 
@@ -1417,7 +1417,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 276:                                              ; preds = %272
   store i32 29, ptr %273, align 4, !tbaa !10
-  %277 = getelementptr inbounds i8, ptr %273, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %273, i64 4
   store ptr %277, ptr %30, align 8, !tbaa !15
   br label %282
 
@@ -1445,7 +1445,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 290:                                              ; preds = %282
   store i32 %288, ptr %284, align 4, !tbaa !10
-  %291 = getelementptr inbounds i8, ptr %284, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %284, i64 4
   store ptr %291, ptr %30, align 8, !tbaa !15
   br label %293
 
@@ -1480,7 +1480,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 303:                                              ; preds = %298
   %304 = zext nneg i32 %39 to i64
-  %305 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %304
   %306 = load i8, ptr %305, align 1, !tbaa !30
   %307 = icmp eq i8 %306, -1
   %308 = load ptr, ptr %30, align 8, !tbaa !12
@@ -1496,7 +1496,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 313:                                              ; preds = %310
   store i32 %311, ptr %308, align 4, !tbaa !10
-  %314 = getelementptr inbounds i8, ptr %308, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %308, i64 4
   store ptr %314, ptr %30, align 8, !tbaa !15
   br label %316
 
@@ -1524,7 +1524,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 323:                                              ; preds = %319
   store i32 29, ptr %321, align 4, !tbaa !10
-  %324 = getelementptr inbounds i8, ptr %321, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 4
   store ptr %324, ptr %30, align 8, !tbaa !15
   br label %326
 
@@ -1565,8 +1565,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 339:                                              ; preds = %332
   %340 = ashr exact i64 %337, 2
-  %341 = getelementptr inbounds i8, ptr %4, i64 8
-  %342 = getelementptr inbounds i8, ptr %4, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %343 = call i64 @llvm.umax.i64(i64 %340, i64 1)
   br label %347
 
@@ -1596,7 +1596,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 361:                                              ; preds = %351
   store i32 %357, ptr %358, align 4, !tbaa !10
-  %362 = getelementptr inbounds i8, ptr %358, i64 4
+  %362 = getelementptr inbounds nuw i8, ptr %358, i64 4
   store ptr %362, ptr %341, align 8, !tbaa !15
   br label %370
 
@@ -1634,7 +1634,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 380:                                              ; preds = %373
   store i32 %376, ptr %377, align 4, !tbaa !10
-  %381 = getelementptr inbounds i8, ptr %377, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %377, i64 4
   store ptr %381, ptr %341, align 8, !tbaa !15
   br label %383
 
@@ -1692,9 +1692,9 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !33
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !16
   store i8 0, ptr %4, align 8, !tbaa !30
   invoke void @_ZN5ZXing11TextEncoder8GetBytesERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS_12CharacterSetERNS2_IcS3_IcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %0) #13
@@ -1734,16 +1734,16 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !12
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %10
   store i32 913, ptr %12, align 4, !tbaa !10
-  %17 = getelementptr inbounds i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store ptr %17, ptr %11, align 8, !tbaa !15
   br label %82
 
@@ -1754,9 +1754,9 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 19:                                               ; preds = %4
   %20 = srem i32 %1, 6
   %21 = icmp eq i32 %20, 0
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !12
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = icmp eq ptr %23, %25
   br i1 %21, label %27, label %31
@@ -1766,7 +1766,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 28:                                               ; preds = %27
   store i32 924, ptr %23, align 4, !tbaa !10
-  %29 = getelementptr inbounds i8, ptr %23, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store ptr %29, ptr %22, align 8, !tbaa !15
   br label %35
 
@@ -1779,7 +1779,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 32:                                               ; preds = %31
   store i32 901, ptr %23, align 4, !tbaa !10
-  %33 = getelementptr inbounds i8, ptr %23, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store ptr %33, ptr %22, align 8, !tbaa !15
   br label %35
 
@@ -1821,7 +1821,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   %56 = phi i64 [ %60, %.preheader10 ], [ %52, %45 ]
   %57 = srem i64 %56, 900
   %58 = trunc nsw i64 %57 to i32
-  %59 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %55
+  %59 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %55
   store i32 %58, ptr %59, align 4, !tbaa !10
   %60 = sdiv i64 %56, 900
   %61 = add nuw nsw i64 %55, 1
@@ -1846,7 +1846,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 73:                                               ; preds = %.preheader
   %74 = load i32, ptr %69, align 4, !tbaa !10
   store i32 %74, ptr %70, align 4, !tbaa !10
-  %75 = getelementptr inbounds i8, ptr %70, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store ptr %75, ptr %22, align 8, !tbaa !15
   br label %77
 
@@ -1870,8 +1870,8 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %3, i64 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %88 = zext i32 %83 to i64
   br label %89
 
@@ -1882,7 +1882,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
   %90 = phi i64 [ %88, %85 ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   %91 = load ptr, ptr %0, align 8, !tbaa !19
-  %92 = getelementptr inbounds i8, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
   %93 = load i8, ptr %92, align 1, !tbaa !30
   %94 = zext i8 %93 to i32
   store i32 %94, ptr %6, align 4, !tbaa !10
@@ -1893,7 +1893,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 98:                                               ; preds = %89
   store i32 %94, ptr %95, align 4, !tbaa !10
-  %99 = getelementptr inbounds i8, ptr %95, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store ptr %99, ptr %86, align 8, !tbaa !15
   br label %101
 
@@ -1934,32 +1934,32 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
 17:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14
   store i8 0, ptr %8, align 8, !tbaa !39
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
           to label %20 unwind label %103
 
 20:                                               ; preds = %17
   store ptr %19, ptr %18, align 8, !tbaa !46
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %21, ptr %22, align 8, !tbaa !47
   store i64 900, ptr %19, align 8, !tbaa !48
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %21, ptr %23, align 8, !tbaa !49
   %24 = icmp sgt i32 %2, 0
   br i1 %24, label %25, label %149
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %32 = getelementptr inbounds i8, ptr %11, i64 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 16
-  %35 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %36
 
 36:                                               ; preds = %99, %25
@@ -2033,7 +2033,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L13EncodeNumericERKNSt7__cxx1112bas
 
 65:                                               ; preds = %61
   store i32 %60, ptr %62, align 4, !tbaa !10
-  %66 = getelementptr inbounds i8, ptr %62, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store ptr %66, ptr %26, align 8, !tbaa !15
   br label %68
 
@@ -2278,64 +2278,56 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #13
   %5 = load ptr, ptr %0, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 2
-  %12 = icmp eq i64 %4, 0
-  br i1 %12, label %15, label %13
+  %11 = icmp ne i64 %4, 0
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
+  %13 = getelementptr inbounds i8, ptr %12, i64 %10
+  %14 = load i32, ptr %2, align 4, !tbaa !10
+  store i32 %14, ptr %13, align 4, !tbaa !10
+  %15 = icmp sgt i64 %10, 0
+  br i1 %15, label %16, label %17
 
-13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
-  br label %15
+16:                                               ; preds = %3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %5, i64 %10, i1 false)
+  br label %17
 
-15:                                               ; preds = %13, %3
-  %16 = phi ptr [ %14, %13 ], [ null, %3 ]
-  %17 = getelementptr inbounds i32, ptr %16, i64 %11
-  %18 = load i32, ptr %2, align 4, !tbaa !10
-  store i32 %18, ptr %17, align 4, !tbaa !10
-  %19 = icmp sgt i64 %10, 0
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %16, %3
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %19 = ptrtoint ptr %7 to i64
+  %20 = sub i64 %19, %8
+  %21 = icmp sgt i64 %20, 0
+  br i1 %21, label %22, label %23
 
-20:                                               ; preds = %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %5, i64 %10, i1 false)
-  br label %21
+22:                                               ; preds = %17
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %20, i1 false)
+  br label %23
 
-21:                                               ; preds = %20, %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 %10
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = ptrtoint ptr %7 to i64
-  %25 = sub i64 %24, %8
-  %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %22, %17
+  %24 = icmp eq ptr %5, null
+  br i1 %24, label %26, label %25
 
-27:                                               ; preds = %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %1, i64 %25, i1 false)
-  br label %28
-
-28:                                               ; preds = %27, %21
-  %29 = icmp eq ptr %5, null
-  br i1 %29, label %31, label %30
-
-30:                                               ; preds = %28
+25:                                               ; preds = %23
   tail call void @_ZdlPv(ptr noundef nonnull %5) #16
-  br label %31
+  br label %26
 
-31:                                               ; preds = %30, %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = getelementptr inbounds i8, ptr %23, i64 %25
-  store ptr %16, ptr %0, align 8, !tbaa !29
-  store ptr %33, ptr %6, align 8, !tbaa !15
-  %34 = getelementptr inbounds i32, ptr %16, i64 %4
-  store ptr %34, ptr %32, align 8, !tbaa !13
+26:                                               ; preds = %25, %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds i8, ptr %18, i64 %20
+  store ptr %12, ptr %0, align 8, !tbaa !29
+  store ptr %28, ptr %6, align 8, !tbaa !15
+  %29 = getelementptr inbounds i32, ptr %12, i64 %4
+  store ptr %29, ptr %27, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = load ptr, ptr %0, align 8, !tbaa !29
   %7 = ptrtoint ptr %5 to i64
@@ -2430,9 +2422,9 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %10, %8
   %12 = ashr exact i64 %11, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = ptrtoint ptr %14 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -2485,7 +2477,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   %50 = getelementptr inbounds i8, ptr %47, i64 -4
   %51 = load i32, ptr %50, align 4, !tbaa !10
   store i32 %51, ptr %49, align 4, !tbaa !10
-  %52 = getelementptr inbounds i8, ptr %49, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %53 = add nsw i64 %48, -1
   %54 = icmp ugt i64 %48, 1
   br i1 %54, label %46, label %.loopexit14, !llvm.loop !59
@@ -2506,7 +2498,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   %65 = getelementptr inbounds i8, ptr %62, i64 -4
   %66 = load i32, ptr %65, align 4, !tbaa !10
   store i32 %66, ptr %64, align 4, !tbaa !10
-  %67 = getelementptr inbounds i8, ptr %64, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %68 = add nsw i64 %63, -1
   %69 = icmp ugt i64 %63, 1
   br i1 %69, label %.preheader, label %.loopexit16, !llvm.loop !59
@@ -2544,7 +2536,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   %88 = getelementptr inbounds i8, ptr %85, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !10
   store i32 %89, ptr %87, align 4, !tbaa !10
-  %90 = getelementptr inbounds i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = add nsw i64 %86, -1
   %92 = icmp ugt i64 %86, 1
   br i1 %92, label %84, label %.loopexit14, !llvm.loop !59
@@ -2591,7 +2583,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
   %119 = getelementptr inbounds i8, ptr %116, i64 -4
   %120 = load i32, ptr %119, align 4, !tbaa !10
   store i32 %120, ptr %118, align 4, !tbaa !10
-  %121 = getelementptr inbounds i8, ptr %118, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %122 = add nsw i64 %117, -1
   %123 = icmp ugt i64 %117, 1
   br i1 %123, label %115, label %.loopexit, !llvm.loop !59
@@ -2630,58 +2622,50 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE15_M_range_insertISt16reverse_iter
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = tail call noundef i64 @_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.1) #13
   %5 = load ptr, ptr %0, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 2
-  %12 = icmp eq i64 %4, 0
-  br i1 %12, label %15, label %13
+  %11 = icmp ne i64 %4, 0
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
+  %13 = getelementptr inbounds i8, ptr %12, i64 %10
+  %14 = load i32, ptr %2, align 4, !tbaa !10
+  store i32 %14, ptr %13, align 4, !tbaa !10
+  %15 = icmp sgt i64 %10, 0
+  br i1 %15, label %16, label %17
 
-13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #13
-  br label %15
+16:                                               ; preds = %3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %5, i64 %10, i1 false)
+  br label %17
 
-15:                                               ; preds = %13, %3
-  %16 = phi ptr [ %14, %13 ], [ null, %3 ]
-  %17 = getelementptr inbounds i32, ptr %16, i64 %11
-  %18 = load i32, ptr %2, align 4, !tbaa !10
-  store i32 %18, ptr %17, align 4, !tbaa !10
-  %19 = icmp sgt i64 %10, 0
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %16, %3
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %19 = ptrtoint ptr %7 to i64
+  %20 = sub i64 %19, %8
+  %21 = icmp sgt i64 %20, 0
+  br i1 %21, label %22, label %23
 
-20:                                               ; preds = %15
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %5, i64 %10, i1 false)
-  br label %21
+22:                                               ; preds = %17
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %20, i1 false)
+  br label %23
 
-21:                                               ; preds = %20, %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 %10
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = ptrtoint ptr %7 to i64
-  %25 = sub i64 %24, %8
-  %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %22, %17
+  %24 = icmp eq ptr %5, null
+  br i1 %24, label %26, label %25
 
-27:                                               ; preds = %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %1, i64 %25, i1 false)
-  br label %28
-
-28:                                               ; preds = %27, %21
-  %29 = icmp eq ptr %5, null
-  br i1 %29, label %31, label %30
-
-30:                                               ; preds = %28
+25:                                               ; preds = %23
   tail call void @_ZdlPv(ptr noundef nonnull %5) #16
-  br label %31
+  br label %26
 
-31:                                               ; preds = %30, %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = getelementptr inbounds i8, ptr %23, i64 %25
-  store ptr %16, ptr %0, align 8, !tbaa !29
-  store ptr %33, ptr %6, align 8, !tbaa !15
-  %34 = getelementptr inbounds i32, ptr %16, i64 %4
-  store ptr %34, ptr %32, align 8, !tbaa !13
+26:                                               ; preds = %25, %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds i8, ptr %18, i64 %20
+  store ptr %12, ptr %0, align 8, !tbaa !29
+  store ptr %28, ptr %6, align 8, !tbaa !15
+  %29 = getelementptr inbounds i32, ptr %12, i64 %4
+  store ptr %29, ptr %27, align 8, !tbaa !13
   ret void
 }
 

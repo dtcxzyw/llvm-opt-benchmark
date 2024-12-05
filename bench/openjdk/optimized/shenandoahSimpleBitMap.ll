@@ -11,11 +11,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ShenandoahSimpleBitMapC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = shl nuw nsw i64 %5, 3
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %7, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr %8, ptr %6, align 8
@@ -41,7 +41,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ShenandoahSimpleBitMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -59,7 +59,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = ashr i64 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = and i64 %1, 63
   %notmask = shl nsw i64 -1, %6
@@ -94,7 +94,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap19count_trailing_onesEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = ashr i64 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = and i64 %1, 63
   %7 = icmp eq i64 %6, 63
@@ -136,7 +136,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_conse
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -177,7 +177,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_cons
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -222,7 +222,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap31find_first_consecutive_
 7:                                                ; preds = %4
   %8 = ashr i64 %1, 6
   %9 = and i64 %1, 63
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i64, ptr %11, i64 %8
   %13 = load i64, ptr %12, align 8
@@ -375,7 +375,7 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_s
 7:                                                ; preds = %4
   %8 = ashr i64 %2, 6
   %9 = and i64 %2, 63
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i64, ptr %11, i64 %8
   %13 = load i64, ptr %12, align 8

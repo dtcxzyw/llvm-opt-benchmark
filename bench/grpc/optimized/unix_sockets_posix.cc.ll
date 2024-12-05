@@ -78,13 +78,13 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %if.th
   br label %ehcleanup16
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %if.then
-  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 132
+  %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(132) %addr, i64 132, i1 false)
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %2, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %agg.result, align 8
   br label %cleanup
@@ -243,13 +243,13 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %if.th
   br label %ehcleanup16
 
 _ZNSt6vectorI21grpc_resolved_addressSaIS0_EED2Ev.exit: ; preds = %if.then
-  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 132
+  %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %call5.i.i.i.i2.i, ptr noundef nonnull align 4 dereferenceable(132) %addr, i64 132, i1 false)
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %2, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %agg.result, align 8
   br label %cleanup
@@ -374,13 +374,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.end21
 
 if.end:                                           ; preds = %entry
-  %sun_path = getelementptr inbounds i8, ptr %resolved_addr, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 2
   %1 = load i8, ptr %sun_path, align 2
   %cmp5 = icmp eq i8 %1, 0
   br i1 %cmp5, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx7 = getelementptr inbounds i8, ptr %resolved_addr, i64 3
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 3
   %2 = load i8, ptr %arrayidx7, align 1
   %cmp9.not = icmp eq i8 %2, 0
   br i1 %cmp9.not, label %if.end11, label %if.end21
@@ -391,7 +391,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp14, label %land.lhs.true15, label %if.end21
 
 land.lhs.true15:                                  ; preds = %if.end11
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %3 = load i32, ptr %st_mode, align 8
   %and = and i32 %3, 61440
   %cmp16 = icmp eq i32 %and, 49152

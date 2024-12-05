@@ -451,7 +451,7 @@ define i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %6 = alloca %struct.gnutls_datum_t, align 8
   %7 = alloca %struct.gnutls_datum_t, align 8
   store ptr %1, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr @rsa_privkeys, align 8
@@ -466,7 +466,7 @@ define i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = call ptr @g_memdup2(ptr noundef %15, i64 noundef %18) #15
@@ -706,7 +706,7 @@ define internal void @rsa_privkeys_uats_uri_tostr_cb(ptr nocapture noundef reado
 define internal void @rsa_privkeys_uats_password_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -715,7 +715,7 @@ define internal void @rsa_privkeys_uats_password_set_cb(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @rsa_privkeys_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -744,10 +744,10 @@ define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned wr
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   ret ptr %0
 }
@@ -756,7 +756,7 @@ define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned wr
 define internal void @uat_rsa_privkey_free_str_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #13
   ret void
@@ -790,7 +790,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   store ptr null, ptr %8, align 8
   %15 = call i32 @g_str_has_prefix(ptr noundef %14, ptr noundef nonnull @.str) #13
   %.not15 = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   br i1 %.not15, label %91, label %18
 
@@ -975,10 +975,10 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
 
 97:                                               ; preds = %95, %94
   %.1 = phi ptr [ %.019, %94 ], [ %96, %95 ]
-  %98 = getelementptr inbounds i8, ptr %.1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 1
-  %101 = getelementptr inbounds i8, ptr %.1, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %102 = load i64, ptr %101, align 8
   %103 = icmp ult i64 %100, %102
   br i1 %103, label %104, label %110

@@ -36,9 +36,9 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %.05969 = phi <2 x i64> [ %.05965, %.lr.ph.preheader ], [ %.059, %.lr.ph ]
   %.05868 = phi <2 x i64> [ %.05864, %.lr.ph.preheader ], [ %.058, %.lr.ph ]
   %8 = phi <4 x i32> [ zeroinitializer, %.lr.ph.preheader ], [ %39, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load <16 x i8>, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %12 = load <16 x i8>, ptr %11, align 1
   %13 = add nuw nsw i64 %indvars.iv, 16
   %14 = bitcast <2 x i64> %.05969 to <16 x i8>
@@ -52,8 +52,8 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %22 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %21, <8 x i16> %21)
   %23 = bitcast <16 x i8> %20 to <8 x i16>
   %24 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %23, <8 x i16> %23)
-  %25 = getelementptr inbounds i8, ptr %0, i64 %13
-  %26 = getelementptr inbounds i8, ptr %1, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %13
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %27 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %10, <16 x i8> %12)
   %28 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %12, <16 x i8> %10)
@@ -118,10 +118,10 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv85 = phi i64 [ %60, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
   %.15673 = phi i32 [ %.055, %.lr.ph76.preheader ], [ %69, %.lr.ph76 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv85
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv85
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv85
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv85
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = sub nsw i32 %63, %66
@@ -301,7 +301,7 @@ define internal double @SSIMGet_SSE2(ptr nocapture noundef readonly %0, i32 noun
   %.sroa.0.0.vec.extract.i = extractelement <8 x i16> %156, i64 0
   %162 = zext i16 %.sroa.0.0.vec.extract.i to i32
   %163 = add nuw nsw i32 %161, %162
-  %164 = getelementptr inbounds i8, ptr %5, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %163, ptr %164, align 4
   %165 = shufflevector <8 x i16> %148, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %166 = add <8 x i16> %148, %165
@@ -316,28 +316,28 @@ define internal double @SSIMGet_SSE2(ptr nocapture noundef readonly %0, i32 noun
   %.sroa.0.0.vec.extract.i510 = extractelement <8 x i16> %166, i64 0
   %172 = zext i16 %.sroa.0.0.vec.extract.i510 to i32
   %173 = add nuw nsw i32 %171, %172
-  %174 = getelementptr inbounds i8, ptr %5, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %173, ptr %174, align 4
   %175 = shufflevector <4 x i32> %150, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %176 = add <4 x i32> %150, %175
   %177 = shufflevector <4 x i32> %176, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %178 = add <4 x i32> %176, %177
   %179 = extractelement <4 x i32> %178, i64 0
-  %180 = getelementptr inbounds i8, ptr %5, i64 12
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %179, ptr %180, align 4
   %181 = shufflevector <4 x i32> %152, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %182 = add <4 x i32> %152, %181
   %183 = shufflevector <4 x i32> %182, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %184 = add <4 x i32> %182, %183
   %185 = extractelement <4 x i32> %184, i64 0
-  %186 = getelementptr inbounds i8, ptr %5, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %185, ptr %186, align 4
   %187 = shufflevector <4 x i32> %154, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %188 = add <4 x i32> %154, %187
   %189 = shufflevector <4 x i32> %188, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %190 = add <4 x i32> %188, %189
   %191 = extractelement <4 x i32> %190, i64 0
-  %192 = getelementptr inbounds i8, ptr %5, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %191, ptr %192, align 4
   %193 = call double @VP8SSIMFromStats(ptr noundef nonnull %5) #6
   ret double %193

@@ -139,7 +139,7 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct._rtp_info, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.33) #2
   %10 = load ptr, ptr %8, align 8
@@ -222,20 +222,20 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
 
 51:                                               ; preds = %.lr.ph, %59
   %.097119 = phi ptr [ %.097117, %.lr.ph ], [ %.097, %59 ]
-  %52 = getelementptr inbounds i8, ptr %.097119, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.097119, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not111 = icmp eq ptr %53, null
   br i1 %.not111, label %59, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, %50
   br i1 %58, label %._crit_edge, label %59
 
 59:                                               ; preds = %51, %54
-  %60 = getelementptr inbounds i8, ptr %.097119, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.097119, i64 16
   %.097 = load ptr, ptr %60, align 8
   %.not110 = icmp eq ptr %.097, null
   br i1 %.not110, label %._crit_edge, label %51, !llvm.loop !4
@@ -305,14 +305,14 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
   %92 = load ptr, ptr %8, align 8
   call void @col_set_str(ptr noundef %92, i32 noundef 34, ptr noundef nonnull @.str.57) #2
   %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds i8, ptr %7, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %7, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %99 = load i16, ptr %98, align 4
   %100 = zext i16 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %7, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %102 = load i32, ptr %101, align 4
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %93, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef %95, i32 noundef %97, i32 noundef %100, i32 noundef %102) #2
   %103 = add i32 %91, 8

@@ -16,18 +16,18 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture nound
   br i1 %or.cond37, label %6, label %38
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 2, ptr %11, align 4
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds [10 x i8], ptr @lzma_lzma_preset.dict_pow2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [10 x i8], ptr @lzma_lzma_preset.dict_pow2, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext nneg i8 %14 to i32
   %16 = shl nuw i32 1, %15
@@ -40,7 +40,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture nound
   %20 = select i1 %19, i32 3, i32 4
   %21 = icmp samesign ult i32 %3, 2
   %22 = select i1 %21, i32 128, i32 273
-  %23 = getelementptr inbounds [4 x i8], ptr @lzma_lzma_preset.depths, i64 0, i64 %12
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @lzma_lzma_preset.depths, i64 0, i64 %12
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   br label %31
@@ -57,13 +57,13 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture nound
   %.sink39 = phi i32 [ %20, %18 ], [ 20, %26 ]
   %.sink38 = phi i32 [ %22, %18 ], [ %30, %26 ]
   %.sink = phi i32 [ %25, %18 ], [ 0, %26 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sink40, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink39, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink38, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.sink, ptr %35, align 4
   %.not36 = icmp sgt i32 %1, -1
   br i1 %.not36, label %38, label %36

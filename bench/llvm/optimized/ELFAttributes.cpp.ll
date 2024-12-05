@@ -32,25 +32,25 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br i1 %9, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit", label %10
 
 10:                                               ; preds = %.lr.ph.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 24
   %.sroa.0.0.copyload.i36.i.i.i.i = load i32, ptr %11, align 8
   %12 = icmp eq i32 %.sroa.0.0.copyload.i36.i.i.i.i, %0
   br i1 %12, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 48
   %.sroa.0.0.copyload.i37.i.i.i.i = load i32, ptr %14, align 8
   %15 = icmp eq i32 %.sroa.0.0.copyload.i37.i.i.i.i, %0
   br i1 %15, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit23", label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 72
   %.sroa.0.0.copyload.i38.i.i.i.i = load i32, ptr %17, align 8
   %18 = icmp eq i32 %.sroa.0.0.copyload.i38.i.i.i.i, %0
   br i1 %18, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit25", label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 96
   %21 = add nsw i64 %.059.i.i.i.i, -1
   %22 = icmp sgt i64 %.059.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !4
@@ -75,7 +75,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br i1 %25, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit", label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 24
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i.i.i.i
@@ -85,7 +85,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br i1 %29, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit", label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i.i.i.i
@@ -98,15 +98,15 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit": ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit23": ; preds = %13
-  %36 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit25": ; preds = %16
-  %37 = getelementptr inbounds i8, ptr %.02958.i.i.i.i, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %.02958.i.i.i.i, i64 72
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit23", %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit25", %24, %28, %32, %34
@@ -118,13 +118,13 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
 40:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs16attrTypeAsStringEjS3_bE3$_0EEDaOT_T0_.exit"
   %41 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %41, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br i1 %3, label %45, label %42
 
 42:                                               ; preds = %40
   %.sroa.speculated5.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.3.0.copyload, i64 4)
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.sroa.speculated5.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.speculated5.i.i
   %44 = sub i64 %.sroa.3.0.copyload, %.sroa.speculated5.i.i
   br label %45
 
@@ -162,13 +162,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i", %.lr.ph.i.i.i.i
   %.0145.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i" ]
   %.029144.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i" ]
-  %.sroa.1.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 8
+  %.sroa.1.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 8
   %.sroa.1.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %13 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i.i.i.i.i = select i1 %7, i64 0, i64 %13
-  %14 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i.i.i.i.i
   %15 = sub i64 %.sroa.2.0.copyload.i.i.i.i.i, %.sroa.speculated5.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %15, %1
   br i1 %.not.i.i.i.i.i.i.i, label %16, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread103.i.i.i.i"
@@ -183,13 +183,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %18, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread103.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread103.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.i.i.i.i", %12
-  %.sroa.1.0..sroa_idx.i30.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 32
+  %.sroa.1.0..sroa_idx.i30.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 32
   %.sroa.1.0.copyload.i31.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i30.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i32.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 40
+  %.sroa.2.0..sroa_idx.i32.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 40
   %.sroa.2.0.copyload.i33.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i32.i.i.i.i, align 8
   %19 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i33.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i34.i.i.i.i = select i1 %7, i64 0, i64 %19
-  %20 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i31.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i34.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i31.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i34.i.i.i.i
   %21 = sub i64 %.sroa.2.0.copyload.i33.i.i.i.i, %.sroa.speculated5.i.i.i.i34.i.i.i.i
   %.not.i.i.i38.i.i.i.i = icmp eq i64 %21, %1
   br i1 %.not.i.i.i38.i.i.i.i, label %22, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.thread106.i.i.i.i"
@@ -204,13 +204,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %24, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit124.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.thread106.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.thread106.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread103.i.i.i.i"
-  %.sroa.1.0..sroa_idx.i42.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 56
+  %.sroa.1.0..sroa_idx.i42.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 56
   %.sroa.1.0.copyload.i43.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i42.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i44.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 64
+  %.sroa.2.0..sroa_idx.i44.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 64
   %.sroa.2.0.copyload.i45.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i44.i.i.i.i, align 8
   %25 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i45.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i46.i.i.i.i = select i1 %7, i64 0, i64 %25
-  %26 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i43.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i46.i.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i43.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i46.i.i.i.i
   %27 = sub i64 %.sroa.2.0.copyload.i45.i.i.i.i, %.sroa.speculated5.i.i.i.i46.i.i.i.i
   %.not.i.i.i50.i.i.i.i = icmp eq i64 %27, %1
   br i1 %.not.i.i.i50.i.i.i.i, label %28, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.thread109.i.i.i.i"
@@ -225,13 +225,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %30, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit126.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.thread109.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.thread109.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.thread106.i.i.i.i"
-  %.sroa.1.0..sroa_idx.i54.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 80
+  %.sroa.1.0..sroa_idx.i54.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 80
   %.sroa.1.0.copyload.i55.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i54.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i56.i.i.i.i = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 88
+  %.sroa.2.0..sroa_idx.i56.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 88
   %.sroa.2.0.copyload.i57.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i56.i.i.i.i, align 8
   %31 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i57.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i58.i.i.i.i = select i1 %7, i64 0, i64 %31
-  %32 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i55.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i58.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i55.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i58.i.i.i.i
   %33 = sub i64 %.sroa.2.0.copyload.i57.i.i.i.i, %.sroa.speculated5.i.i.i.i58.i.i.i.i
   %.not.i.i.i62.i.i.i.i = icmp eq i64 %33, %1
   br i1 %.not.i.i.i62.i.i.i.i, label %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i"
@@ -246,7 +246,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %36, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit128.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.thread112.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.thread109.i.i.i.i"
-  %37 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 96
   %38 = add nsw i64 %.0145.i.i.i.i, -1
   %39 = icmp sgt i64 %.0145.i.i.i.i, 1
   br i1 %39, label %12, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !6
@@ -266,13 +266,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   ]
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
-  %.sroa.1.0..sroa_idx.i66.i.i.i.i = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  %.sroa.1.0..sroa_idx.i66.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
   %.sroa.1.0.copyload.i67.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i66.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i68.i.i.i.i = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i68.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i69.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i68.i.i.i.i, align 8
   %42 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i69.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i70.i.i.i.i = select i1 %7, i64 0, i64 %42
-  %43 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i67.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i70.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i67.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i70.i.i.i.i
   %44 = sub i64 %.sroa.2.0.copyload.i69.i.i.i.i, %.sroa.speculated5.i.i.i.i70.i.i.i.i
   %.not.i.i.i74.i.i.i.i = icmp eq i64 %44, %1
   br i1 %.not.i.i.i74.i.i.i.i, label %45, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.thread115.i.i.i.i"
@@ -287,18 +287,18 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %47, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.thread115.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.thread115.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.i.i.i.i", %41
-  %48 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 24
   br label %._crit_edge._crit_edge.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.thread115.i.i.i.i"
   %.1.i.i.i.i = phi ptr [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.thread115.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.1.0..sroa_idx.i78.i.i.i.i = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
+  %.sroa.1.0..sroa_idx.i78.i.i.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
   %.sroa.1.0.copyload.i79.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i78.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i80.i.i.i.i = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i80.i.i.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i81.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i80.i.i.i.i, align 8
   %49 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i81.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i82.i.i.i.i = select i1 %7, i64 0, i64 %49
-  %50 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i79.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i82.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i79.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i82.i.i.i.i
   %51 = sub i64 %.sroa.2.0.copyload.i81.i.i.i.i, %.sroa.speculated5.i.i.i.i82.i.i.i.i
   %.not.i.i.i86.i.i.i.i = icmp eq i64 %51, %1
   br i1 %.not.i.i.i86.i.i.i.i, label %52, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.thread118.i.i.i.i"
@@ -313,18 +313,18 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br i1 %54, label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.thread118.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.thread118.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i
-  %55 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %._crit_edge._crit_edge155.i.i.i.i
 
 ._crit_edge._crit_edge155.i.i.i.i:                ; preds = %._crit_edge.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.thread118.i.i.i.i"
   %.2.i.i.i.i = phi ptr [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.thread118.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %.sroa.1.0..sroa_idx.i90.i.i.i.i = getelementptr inbounds i8, ptr %.2.i.i.i.i, i64 8
+  %.sroa.1.0..sroa_idx.i90.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 8
   %.sroa.1.0.copyload.i91.i.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i90.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i92.i.i.i.i = getelementptr inbounds i8, ptr %.2.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i92.i.i.i.i = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i93.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i92.i.i.i.i, align 8
   %56 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i93.i.i.i.i, i64 4)
   %.sroa.speculated5.i.i.i.i94.i.i.i.i = select i1 %7, i64 0, i64 %56
-  %57 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i91.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i94.i.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload.i91.i.i.i.i, i64 %.sroa.speculated5.i.i.i.i94.i.i.i.i
   %58 = sub i64 %.sroa.2.0.copyload.i93.i.i.i.i, %.sroa.speculated5.i.i.i.i94.i.i.i.i
   %.not.i.i.i98.i.i.i.i = icmp eq i64 %58, %1
   br i1 %.not.i.i.i98.i.i.i.i, label %59, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit101.thread121.i.i.i.i"
@@ -342,27 +342,27 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit124.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit41.i.i.i.i"
-  %62 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit126.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit53.i.i.i.i"
-  %63 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit128.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit65.i.i.i.i"
-  %64 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 72
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit132.i.i.i.i": ; preds = %22
-  %65 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit134.i.i.i.i": ; preds = %28
-  %66 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit136.i.i.i.i": ; preds = %34
-  %67 = getelementptr inbounds i8, ptr %.029144.i.i.i.i, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %.029144.i.i.i.i, i64 72
   br label %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit": ; preds = %16, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.i.i.i.i", %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.i.i.i.i", %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.i.i.i.i", %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit101.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit101.thread121.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit124.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit126.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit128.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit132.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit134.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit136.i.i.i.i"

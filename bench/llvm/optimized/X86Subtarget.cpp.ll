@@ -202,8 +202,6 @@ $_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M
 
 $_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPKS1_vEEvT_S6_ = comdat any
 
-$_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_ = comdat any
-
 $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
@@ -258,7 +256,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm15MCSubtargetInfo19InitMCProcessorInfoENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #21
+  tail call void @_ZN4llvm15MCSubtargetInfo19InitMCProcessorInfoENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
@@ -915,7 +913,7 @@ define dso_local void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9String
   br label %272
 
 272:                                              ; preds = %270, %269
-  %273 = getelementptr inbounds i8, ptr %0, i64 224
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %274 = load i64, ptr %273, align 8
   %275 = and i64 %274, 1
   %.not261 = icmp eq i64 %275, 0
@@ -1586,7 +1584,7 @@ define dso_local void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9String
   br label %547
 
 547:                                              ; preds = %545, %544
-  %548 = getelementptr inbounds i8, ptr %0, i64 232
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %549 = load i64, ptr %548, align 8
   %550 = and i64 %549, 1
   %.not325 = icmp eq i64 %550, 0
@@ -2236,7 +2234,7 @@ define dso_local void @_ZN4llvm19X86GenSubtargetInfoC2ERKNS_6TripleENS_9StringRe
   store ptr @_ZN4llvm12X86SubTypeKVE, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 127, ptr %11, align 8
-  tail call void @_ZN4llvm19TargetSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::ArrayRef.0") align 8 %9, ptr noundef nonnull @_ZN4llvm20X86WriteProcResTableE, ptr noundef nonnull @_ZN4llvm20X86WriteLatencyTableE, ptr noundef nonnull @_ZN4llvm19X86ReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  tail call void @_ZN4llvm19TargetSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::ArrayRef.0") align 8 %9, ptr noundef nonnull @_ZN4llvm20X86WriteProcResTableE, ptr noundef nonnull @_ZN4llvm20X86WriteLatencyTableE, ptr noundef nonnull @_ZN4llvm19X86ReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #22
   store ptr getelementptr inbounds inrange(-16, 488) (i8, ptr @_ZTVN4llvm19X86GenSubtargetInfoE, i64 16), ptr %0, align 8
   ret void
 }
@@ -2617,9 +2615,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 36
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 68
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 68
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %87, %89
   %.1122 = select i1 %90, i32 2449, i32 2444
@@ -2628,9 +2626,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 91:                                               ; preds = %80
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 36
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 36
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %93, i64 68
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 68
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %95, %97
   %.1123 = select i1 %98, i32 2446, i32 2444
@@ -2639,9 +2637,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 99:                                               ; preds = %80
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 36
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %101, i64 68
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 68
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %103, %105
   %.1124 = select i1 %106, i32 2450, i32 2444
@@ -2650,9 +2648,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 107:                                              ; preds = %80
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 36
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 36
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %109, i64 68
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 68
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %111, %113
   %.1125 = select i1 %114, i32 2452, i32 2444
@@ -2661,9 +2659,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 115:                                              ; preds = %80
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 36
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 36
   %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %117, i64 68
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 68
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %119, %121
   %.1126 = select i1 %122, i32 2443, i32 2444
@@ -2672,9 +2670,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 123:                                              ; preds = %80
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 36
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %125, i64 68
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 68
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %127, %129
   %.1127 = select i1 %130, i32 2445, i32 2444
@@ -2683,9 +2681,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 131:                                              ; preds = %80
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 36
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 36
   %135 = load i32, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %133, i64 68
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 68
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %135, %137
   %.1128 = select i1 %138, i32 2453, i32 2444
@@ -2694,9 +2692,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 139:                                              ; preds = %80
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 36
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 36
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %141, i64 68
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 68
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %143, %145
   %.1129 = select i1 %146, i32 2451, i32 2444
@@ -2705,9 +2703,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 147:                                              ; preds = %80
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 36
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 36
   %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %149, i64 68
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 68
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %151, %153
   %.1130 = select i1 %154, i32 2447, i32 2444
@@ -2716,9 +2714,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 155:                                              ; preds = %80
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 36
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 36
   %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds i8, ptr %157, i64 68
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 68
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %159, %161
   %.1131 = select i1 %162, i32 2448, i32 2444
@@ -2741,9 +2739,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 36
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 36
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds i8, ptr %168, i64 68
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 68
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %170, %172
   %.1132 = select i1 %173, i32 2449, i32 2454
@@ -2752,9 +2750,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 174:                                              ; preds = %163
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 36
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 36
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %176, i64 68
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 68
   %180 = load i32, ptr %179, align 4
   %181 = icmp eq i32 %178, %180
   %.1133 = select i1 %181, i32 2446, i32 2454
@@ -2763,9 +2761,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 182:                                              ; preds = %163
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 36
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 36
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %184, i64 68
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 68
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %186, %188
   %.1134 = select i1 %189, i32 2450, i32 2454
@@ -2774,9 +2772,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 190:                                              ; preds = %163
   %191 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 36
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 36
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %192, i64 68
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 68
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %194, %196
   %.1135 = select i1 %197, i32 2452, i32 2454
@@ -2785,9 +2783,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 198:                                              ; preds = %163
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 36
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 36
   %202 = load i32, ptr %201, align 4
-  %203 = getelementptr inbounds i8, ptr %200, i64 68
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 68
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %202, %204
   %.1136 = select i1 %205, i32 2443, i32 2454
@@ -2796,9 +2794,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 206:                                              ; preds = %163
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 36
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 36
   %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds i8, ptr %208, i64 68
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 68
   %212 = load i32, ptr %211, align 4
   %213 = icmp eq i32 %210, %212
   %.1137 = select i1 %213, i32 2445, i32 2454
@@ -2807,9 +2805,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 214:                                              ; preds = %163
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 36
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 36
   %218 = load i32, ptr %217, align 4
-  %219 = getelementptr inbounds i8, ptr %216, i64 68
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 68
   %220 = load i32, ptr %219, align 4
   %221 = icmp eq i32 %218, %220
   %.1138 = select i1 %221, i32 2453, i32 2454
@@ -2818,9 +2816,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 222:                                              ; preds = %163
   %223 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 36
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 36
   %226 = load i32, ptr %225, align 4
-  %227 = getelementptr inbounds i8, ptr %224, i64 68
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 68
   %228 = load i32, ptr %227, align 4
   %229 = icmp eq i32 %226, %228
   %.1139 = select i1 %229, i32 2451, i32 2454
@@ -2844,9 +2842,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 36
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 36
   %237 = load i32, ptr %236, align 4
-  %238 = getelementptr inbounds i8, ptr %235, i64 68
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 68
   %239 = load i32, ptr %238, align 4
   %240 = icmp eq i32 %237, %239
   %.1140 = select i1 %240, i32 2446, i32 2455
@@ -2855,9 +2853,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 241:                                              ; preds = %230
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 36
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 36
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %243, i64 68
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 68
   %247 = load i32, ptr %246, align 4
   %248 = icmp eq i32 %245, %247
   %.1141 = select i1 %248, i32 2456, i32 2455
@@ -2866,9 +2864,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 249:                                              ; preds = %230
   %250 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 36
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 36
   %253 = load i32, ptr %252, align 4
-  %254 = getelementptr inbounds i8, ptr %251, i64 68
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 68
   %255 = load i32, ptr %254, align 4
   %256 = icmp eq i32 %253, %255
   %.1142 = select i1 %256, i32 2452, i32 2455
@@ -2877,9 +2875,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 257:                                              ; preds = %230
   %258 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 36
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 36
   %261 = load i32, ptr %260, align 4
-  %262 = getelementptr inbounds i8, ptr %259, i64 68
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 68
   %263 = load i32, ptr %262, align 4
   %264 = icmp eq i32 %261, %263
   %.1143 = select i1 %264, i32 2443, i32 2455
@@ -2888,9 +2886,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 265:                                              ; preds = %230
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 36
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 36
   %269 = load i32, ptr %268, align 4
-  %270 = getelementptr inbounds i8, ptr %267, i64 68
+  %270 = getelementptr inbounds nuw i8, ptr %267, i64 68
   %271 = load i32, ptr %270, align 4
   %272 = icmp eq i32 %269, %271
   %.1144 = select i1 %272, i32 2445, i32 2455
@@ -2899,9 +2897,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 273:                                              ; preds = %230
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 36
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 36
   %277 = load i32, ptr %276, align 4
-  %278 = getelementptr inbounds i8, ptr %275, i64 68
+  %278 = getelementptr inbounds nuw i8, ptr %275, i64 68
   %279 = load i32, ptr %278, align 4
   %280 = icmp eq i32 %277, %279
   %.1145 = select i1 %280, i32 2453, i32 2455
@@ -2910,9 +2908,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 281:                                              ; preds = %230
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 36
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 36
   %285 = load i32, ptr %284, align 4
-  %286 = getelementptr inbounds i8, ptr %283, i64 68
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 68
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %285, %287
   %.1146 = select i1 %288, i32 2451, i32 2455
@@ -2921,9 +2919,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 289:                                              ; preds = %230
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 36
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 36
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %291, i64 68
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 68
   %295 = load i32, ptr %294, align 4
   %296 = icmp eq i32 %293, %295
   %.1147 = select i1 %296, i32 2447, i32 2455
@@ -2932,9 +2930,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 297:                                              ; preds = %230
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 36
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 36
   %301 = load i32, ptr %300, align 4
-  %302 = getelementptr inbounds i8, ptr %299, i64 68
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 68
   %303 = load i32, ptr %302, align 4
   %304 = icmp eq i32 %301, %303
   %.1148 = select i1 %304, i32 2448, i32 2455
@@ -2957,9 +2955,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 308:                                              ; preds = %305
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 36
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 36
   %312 = load i32, ptr %311, align 4
-  %313 = getelementptr inbounds i8, ptr %310, i64 68
+  %313 = getelementptr inbounds nuw i8, ptr %310, i64 68
   %314 = load i32, ptr %313, align 4
   %315 = icmp eq i32 %312, %314
   %.1149 = select i1 %315, i32 2449, i32 2457
@@ -2968,9 +2966,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 316:                                              ; preds = %305
   %317 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 36
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 36
   %320 = load i32, ptr %319, align 4
-  %321 = getelementptr inbounds i8, ptr %318, i64 68
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 68
   %322 = load i32, ptr %321, align 4
   %323 = icmp eq i32 %320, %322
   %.1150 = select i1 %323, i32 2446, i32 2457
@@ -2979,9 +2977,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 324:                                              ; preds = %305
   %325 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 36
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 36
   %328 = load i32, ptr %327, align 4
-  %329 = getelementptr inbounds i8, ptr %326, i64 68
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 68
   %330 = load i32, ptr %329, align 4
   %331 = icmp eq i32 %328, %330
   %.1151 = select i1 %331, i32 2450, i32 2457
@@ -2990,9 +2988,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 332:                                              ; preds = %305
   %333 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 36
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 36
   %336 = load i32, ptr %335, align 4
-  %337 = getelementptr inbounds i8, ptr %334, i64 68
+  %337 = getelementptr inbounds nuw i8, ptr %334, i64 68
   %338 = load i32, ptr %337, align 4
   %339 = icmp eq i32 %336, %338
   %.1152 = select i1 %339, i32 2452, i32 2457
@@ -3001,9 +2999,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 340:                                              ; preds = %305
   %341 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 36
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 36
   %344 = load i32, ptr %343, align 4
-  %345 = getelementptr inbounds i8, ptr %342, i64 68
+  %345 = getelementptr inbounds nuw i8, ptr %342, i64 68
   %346 = load i32, ptr %345, align 4
   %347 = icmp eq i32 %344, %346
   %.1153 = select i1 %347, i32 2443, i32 2457
@@ -3012,9 +3010,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 348:                                              ; preds = %305
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 36
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 36
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %350, i64 68
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 68
   %354 = load i32, ptr %353, align 4
   %355 = icmp eq i32 %352, %354
   %.1154 = select i1 %355, i32 2445, i32 2457
@@ -3023,9 +3021,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 356:                                              ; preds = %305
   %357 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 36
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 36
   %360 = load i32, ptr %359, align 4
-  %361 = getelementptr inbounds i8, ptr %358, i64 68
+  %361 = getelementptr inbounds nuw i8, ptr %358, i64 68
   %362 = load i32, ptr %361, align 4
   %363 = icmp eq i32 %360, %362
   %.1155 = select i1 %363, i32 2453, i32 2457
@@ -3034,9 +3032,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 364:                                              ; preds = %305
   %365 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 36
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 36
   %368 = load i32, ptr %367, align 4
-  %369 = getelementptr inbounds i8, ptr %366, i64 68
+  %369 = getelementptr inbounds nuw i8, ptr %366, i64 68
   %370 = load i32, ptr %369, align 4
   %371 = icmp eq i32 %368, %370
   %.1156 = select i1 %371, i32 2451, i32 2457
@@ -3059,9 +3057,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 375:                                              ; preds = %372
   %376 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 36
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 36
   %379 = load i32, ptr %378, align 4
-  %380 = getelementptr inbounds i8, ptr %377, i64 68
+  %380 = getelementptr inbounds nuw i8, ptr %377, i64 68
   %381 = load i32, ptr %380, align 4
   %382 = icmp eq i32 %379, %381
   %.1157 = select i1 %382, i32 2449, i32 2458
@@ -3070,9 +3068,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 383:                                              ; preds = %372
   %384 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 36
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 36
   %387 = load i32, ptr %386, align 4
-  %388 = getelementptr inbounds i8, ptr %385, i64 68
+  %388 = getelementptr inbounds nuw i8, ptr %385, i64 68
   %389 = load i32, ptr %388, align 4
   %390 = icmp eq i32 %387, %389
   %.1158 = select i1 %390, i32 2446, i32 2458
@@ -3081,9 +3079,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 391:                                              ; preds = %372
   %392 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 36
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 36
   %395 = load i32, ptr %394, align 4
-  %396 = getelementptr inbounds i8, ptr %393, i64 68
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 68
   %397 = load i32, ptr %396, align 4
   %398 = icmp eq i32 %395, %397
   %.1159 = select i1 %398, i32 2450, i32 2458
@@ -3092,9 +3090,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 399:                                              ; preds = %372
   %400 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 36
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 36
   %403 = load i32, ptr %402, align 4
-  %404 = getelementptr inbounds i8, ptr %401, i64 68
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 68
   %405 = load i32, ptr %404, align 4
   %406 = icmp eq i32 %403, %405
   %.1160 = select i1 %406, i32 2452, i32 2460
@@ -3103,9 +3101,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 407:                                              ; preds = %372
   %408 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 36
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 36
   %411 = load i32, ptr %410, align 4
-  %412 = getelementptr inbounds i8, ptr %409, i64 68
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 68
   %413 = load i32, ptr %412, align 4
   %414 = icmp eq i32 %411, %413
   %.1161 = select i1 %414, i32 2443, i32 2458
@@ -3114,9 +3112,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 415:                                              ; preds = %372
   %416 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 36
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 36
   %419 = load i32, ptr %418, align 4
-  %420 = getelementptr inbounds i8, ptr %417, i64 68
+  %420 = getelementptr inbounds nuw i8, ptr %417, i64 68
   %421 = load i32, ptr %420, align 4
   %422 = icmp eq i32 %419, %421
   %.1162 = select i1 %422, i32 2445, i32 2458
@@ -3125,9 +3123,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 423:                                              ; preds = %372
   %424 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 36
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 36
   %427 = load i32, ptr %426, align 4
-  %428 = getelementptr inbounds i8, ptr %425, i64 68
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 68
   %429 = load i32, ptr %428, align 4
   %430 = icmp eq i32 %427, %429
   %.1163 = select i1 %430, i32 2453, i32 2461
@@ -3136,9 +3134,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 431:                                              ; preds = %372
   %432 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 36
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 36
   %435 = load i32, ptr %434, align 4
-  %436 = getelementptr inbounds i8, ptr %433, i64 68
+  %436 = getelementptr inbounds nuw i8, ptr %433, i64 68
   %437 = load i32, ptr %436, align 4
   %438 = icmp eq i32 %435, %437
   %.1164 = select i1 %438, i32 2451, i32 2459
@@ -3161,9 +3159,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 442:                                              ; preds = %439
   %443 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %444, i64 36
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 36
   %446 = load i32, ptr %445, align 4
-  %447 = getelementptr inbounds i8, ptr %444, i64 68
+  %447 = getelementptr inbounds nuw i8, ptr %444, i64 68
   %448 = load i32, ptr %447, align 4
   %449 = icmp eq i32 %446, %448
   %.1165 = select i1 %449, i32 2449, i32 2458
@@ -3172,9 +3170,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 450:                                              ; preds = %439
   %451 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 36
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 36
   %454 = load i32, ptr %453, align 4
-  %455 = getelementptr inbounds i8, ptr %452, i64 68
+  %455 = getelementptr inbounds nuw i8, ptr %452, i64 68
   %456 = load i32, ptr %455, align 4
   %457 = icmp eq i32 %454, %456
   %.1166 = select i1 %457, i32 2446, i32 2458
@@ -3183,9 +3181,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 458:                                              ; preds = %439
   %459 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 36
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 36
   %462 = load i32, ptr %461, align 4
-  %463 = getelementptr inbounds i8, ptr %460, i64 68
+  %463 = getelementptr inbounds nuw i8, ptr %460, i64 68
   %464 = load i32, ptr %463, align 4
   %465 = icmp eq i32 %462, %464
   %.1167 = select i1 %465, i32 2450, i32 2458
@@ -3194,9 +3192,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 466:                                              ; preds = %439
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 36
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 36
   %470 = load i32, ptr %469, align 4
-  %471 = getelementptr inbounds i8, ptr %468, i64 68
+  %471 = getelementptr inbounds nuw i8, ptr %468, i64 68
   %472 = load i32, ptr %471, align 4
   %473 = icmp eq i32 %470, %472
   %.1168 = select i1 %473, i32 2452, i32 2460
@@ -3205,9 +3203,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 474:                                              ; preds = %439
   %475 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %476 = load ptr, ptr %475, align 8
-  %477 = getelementptr inbounds i8, ptr %476, i64 36
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 36
   %478 = load i32, ptr %477, align 4
-  %479 = getelementptr inbounds i8, ptr %476, i64 68
+  %479 = getelementptr inbounds nuw i8, ptr %476, i64 68
   %480 = load i32, ptr %479, align 4
   %481 = icmp eq i32 %478, %480
   %.1169 = select i1 %481, i32 2443, i32 2458
@@ -3216,9 +3214,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 482:                                              ; preds = %439
   %483 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %484 = load ptr, ptr %483, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 36
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 36
   %486 = load i32, ptr %485, align 4
-  %487 = getelementptr inbounds i8, ptr %484, i64 68
+  %487 = getelementptr inbounds nuw i8, ptr %484, i64 68
   %488 = load i32, ptr %487, align 4
   %489 = icmp eq i32 %486, %488
   %.1170 = select i1 %489, i32 2445, i32 2458
@@ -3227,9 +3225,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 490:                                              ; preds = %439
   %491 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %492 = load ptr, ptr %491, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 36
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 36
   %494 = load i32, ptr %493, align 4
-  %495 = getelementptr inbounds i8, ptr %492, i64 68
+  %495 = getelementptr inbounds nuw i8, ptr %492, i64 68
   %496 = load i32, ptr %495, align 4
   %497 = icmp eq i32 %494, %496
   %.1171 = select i1 %497, i32 2453, i32 2461
@@ -3238,9 +3236,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 498:                                              ; preds = %439
   %499 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %500 = load ptr, ptr %499, align 8
-  %501 = getelementptr inbounds i8, ptr %500, i64 36
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 36
   %502 = load i32, ptr %501, align 4
-  %503 = getelementptr inbounds i8, ptr %500, i64 68
+  %503 = getelementptr inbounds nuw i8, ptr %500, i64 68
   %504 = load i32, ptr %503, align 4
   %505 = icmp eq i32 %502, %504
   %.1172 = select i1 %505, i32 2451, i32 2459
@@ -3264,9 +3262,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 509:                                              ; preds = %506
   %510 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %511 = load ptr, ptr %510, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 36
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 36
   %513 = load i32, ptr %512, align 4
-  %514 = getelementptr inbounds i8, ptr %511, i64 68
+  %514 = getelementptr inbounds nuw i8, ptr %511, i64 68
   %515 = load i32, ptr %514, align 4
   %516 = icmp eq i32 %513, %515
   %.1173 = select i1 %516, i32 2446, i32 2464
@@ -3275,9 +3273,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 517:                                              ; preds = %506
   %518 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 36
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 36
   %521 = load i32, ptr %520, align 4
-  %522 = getelementptr inbounds i8, ptr %519, i64 68
+  %522 = getelementptr inbounds nuw i8, ptr %519, i64 68
   %523 = load i32, ptr %522, align 4
   %524 = icmp eq i32 %521, %523
   %.1174 = select i1 %524, i32 2450, i32 2458
@@ -3286,9 +3284,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 525:                                              ; preds = %506
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %527 = load ptr, ptr %526, align 8
-  %528 = getelementptr inbounds i8, ptr %527, i64 36
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 36
   %529 = load i32, ptr %528, align 4
-  %530 = getelementptr inbounds i8, ptr %527, i64 68
+  %530 = getelementptr inbounds nuw i8, ptr %527, i64 68
   %531 = load i32, ptr %530, align 4
   %532 = icmp eq i32 %529, %531
   %.1175 = select i1 %532, i32 2452, i32 2466
@@ -3297,9 +3295,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 533:                                              ; preds = %506
   %534 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %535 = load ptr, ptr %534, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 36
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 36
   %537 = load i32, ptr %536, align 4
-  %538 = getelementptr inbounds i8, ptr %535, i64 68
+  %538 = getelementptr inbounds nuw i8, ptr %535, i64 68
   %539 = load i32, ptr %538, align 4
   %540 = icmp eq i32 %537, %539
   %.1176 = select i1 %540, i32 2443, i32 2462
@@ -3308,9 +3306,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 541:                                              ; preds = %506
   %542 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 36
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 36
   %545 = load i32, ptr %544, align 4
-  %546 = getelementptr inbounds i8, ptr %543, i64 68
+  %546 = getelementptr inbounds nuw i8, ptr %543, i64 68
   %547 = load i32, ptr %546, align 4
   %548 = icmp eq i32 %545, %547
   %.1177 = select i1 %548, i32 2445, i32 2463
@@ -3319,9 +3317,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 549:                                              ; preds = %506
   %550 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %551 = load ptr, ptr %550, align 8
-  %552 = getelementptr inbounds i8, ptr %551, i64 36
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 36
   %553 = load i32, ptr %552, align 4
-  %554 = getelementptr inbounds i8, ptr %551, i64 68
+  %554 = getelementptr inbounds nuw i8, ptr %551, i64 68
   %555 = load i32, ptr %554, align 4
   %556 = icmp eq i32 %553, %555
   %.1178 = select i1 %556, i32 2453, i32 2467
@@ -3330,9 +3328,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 557:                                              ; preds = %506
   %558 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %559 = load ptr, ptr %558, align 8
-  %560 = getelementptr inbounds i8, ptr %559, i64 36
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 36
   %561 = load i32, ptr %560, align 4
-  %562 = getelementptr inbounds i8, ptr %559, i64 68
+  %562 = getelementptr inbounds nuw i8, ptr %559, i64 68
   %563 = load i32, ptr %562, align 4
   %564 = icmp eq i32 %561, %563
   %.1179 = select i1 %564, i32 2451, i32 2465
@@ -3341,9 +3339,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 565:                                              ; preds = %506
   %566 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %567 = load ptr, ptr %566, align 8
-  %568 = getelementptr inbounds i8, ptr %567, i64 36
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 36
   %569 = load i32, ptr %568, align 4
-  %570 = getelementptr inbounds i8, ptr %567, i64 68
+  %570 = getelementptr inbounds nuw i8, ptr %567, i64 68
   %571 = load i32, ptr %570, align 4
   %572 = icmp eq i32 %569, %571
   %.1180 = select i1 %572, i32 2447, i32 2458
@@ -3352,9 +3350,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 573:                                              ; preds = %506
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i64 36
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 36
   %577 = load i32, ptr %576, align 4
-  %578 = getelementptr inbounds i8, ptr %575, i64 68
+  %578 = getelementptr inbounds nuw i8, ptr %575, i64 68
   %579 = load i32, ptr %578, align 4
   %580 = icmp eq i32 %577, %579
   %.1181 = select i1 %580, i32 2448, i32 2458
@@ -3375,7 +3373,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 584:                                              ; preds = %581
   %585 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds i8, ptr %586, i64 112
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 112
   %588 = load i64, ptr %587, align 8
   %589 = icmp eq i64 %588, 7
   br i1 %589, label %.fold.split, label %590
@@ -3388,7 +3386,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 592:                                              ; preds = %581
   %593 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %594 = load ptr, ptr %593, align 8
-  %595 = getelementptr inbounds i8, ptr %594, i64 112
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 112
   %596 = load i64, ptr %595, align 8
   %597 = icmp eq i64 %596, 7
   br i1 %597, label %.fold.split, label %598
@@ -3401,7 +3399,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 600:                                              ; preds = %581
   %601 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %602 = load ptr, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %602, i64 112
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 112
   %604 = load i64, ptr %603, align 8
   %605 = icmp eq i64 %604, 7
   br i1 %605, label %.fold.split, label %606
@@ -3414,7 +3412,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 608:                                              ; preds = %581
   %609 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %610, i64 112
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 112
   %612 = load i64, ptr %611, align 8
   %613 = icmp eq i64 %612, 7
   br i1 %613, label %.fold.split, label %614
@@ -3427,7 +3425,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 616:                                              ; preds = %581
   %617 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %618, i64 112
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 112
   %620 = load i64, ptr %619, align 8
   %621 = icmp eq i64 %620, 7
   br i1 %621, label %.fold.split, label %622
@@ -3440,7 +3438,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 624:                                              ; preds = %581
   %625 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %626 = load ptr, ptr %625, align 8
-  %627 = getelementptr inbounds i8, ptr %626, i64 112
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 112
   %628 = load i64, ptr %627, align 8
   %629 = icmp eq i64 %628, 7
   br i1 %629, label %.fold.split, label %630
@@ -3466,7 +3464,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 635:                                              ; preds = %632
   %636 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %637 = load ptr, ptr %636, align 8
-  %638 = getelementptr inbounds i8, ptr %637, i64 240
+  %638 = getelementptr inbounds nuw i8, ptr %637, i64 240
   %639 = load i64, ptr %638, align 8
   %switch.tableidx = add i64 %639, -6
   %640 = icmp ult i64 %switch.tableidx, 9
@@ -3480,7 +3478,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 643:                                              ; preds = %632
   %644 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds i8, ptr %645, i64 240
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 240
   %647 = load i64, ptr %646, align 8
   %648 = icmp eq i64 %647, 7
   br i1 %648, label %.fold.split, label %649
@@ -3493,7 +3491,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 651:                                              ; preds = %632
   %652 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %653 = load ptr, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %653, i64 240
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 240
   %655 = load i64, ptr %654, align 8
   %656 = icmp eq i64 %655, 7
   br i1 %656, label %.fold.split, label %657
@@ -3506,7 +3504,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 659:                                              ; preds = %632
   %660 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds i8, ptr %661, i64 240
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 240
   %663 = load i64, ptr %662, align 8
   %664 = icmp eq i64 %663, 7
   br i1 %664, label %.fold.split, label %665
@@ -3519,7 +3517,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 667:                                              ; preds = %632
   %668 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %669 = load ptr, ptr %668, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 240
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 240
   %671 = load i64, ptr %670, align 8
   %672 = icmp eq i64 %671, 7
   br i1 %672, label %.fold.split, label %673
@@ -3532,7 +3530,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 675:                                              ; preds = %632
   %676 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %677 = load ptr, ptr %676, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 240
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 240
   %679 = load i64, ptr %678, align 8
   %680 = icmp eq i64 %679, 7
   br i1 %680, label %.fold.split, label %681
@@ -3545,7 +3543,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 683:                                              ; preds = %632
   %684 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds i8, ptr %685, i64 240
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 240
   %687 = load i64, ptr %686, align 8
   %688 = icmp eq i64 %687, 7
   br i1 %688, label %.fold.split, label %689
@@ -3570,7 +3568,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 694:                                              ; preds = %691
   %695 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %696 = load ptr, ptr %695, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 48
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 48
   %698 = load i64, ptr %697, align 8
   %699 = icmp eq i64 %698, 7
   br i1 %699, label %.fold.split, label %700
@@ -3583,7 +3581,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 702:                                              ; preds = %691
   %703 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %704 = load ptr, ptr %703, align 8
-  %705 = getelementptr inbounds i8, ptr %704, i64 48
+  %705 = getelementptr inbounds nuw i8, ptr %704, i64 48
   %706 = load i64, ptr %705, align 8
   %707 = icmp eq i64 %706, 7
   br i1 %707, label %.fold.split, label %708
@@ -3596,7 +3594,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 710:                                              ; preds = %691
   %711 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds i8, ptr %712, i64 48
+  %713 = getelementptr inbounds nuw i8, ptr %712, i64 48
   %714 = load i64, ptr %713, align 8
   %715 = icmp eq i64 %714, 7
   br i1 %715, label %.fold.split, label %716
@@ -3609,7 +3607,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 718:                                              ; preds = %691
   %719 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %720 = load ptr, ptr %719, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 48
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 48
   %722 = load i64, ptr %721, align 8
   %723 = icmp eq i64 %722, 7
   br i1 %723, label %.fold.split, label %724
@@ -3622,7 +3620,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 726:                                              ; preds = %691
   %727 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds i8, ptr %728, i64 48
+  %729 = getelementptr inbounds nuw i8, ptr %728, i64 48
   %730 = load i64, ptr %729, align 8
   %731 = icmp eq i64 %730, 7
   br i1 %731, label %.fold.split, label %732
@@ -3635,7 +3633,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 734:                                              ; preds = %691
   %735 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %736 = load ptr, ptr %735, align 8
-  %737 = getelementptr inbounds i8, ptr %736, i64 48
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 48
   %738 = load i64, ptr %737, align 8
   %739 = icmp eq i64 %738, 7
   br i1 %739, label %.fold.split, label %740
@@ -3661,7 +3659,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 745:                                              ; preds = %742
   %746 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %747 = load ptr, ptr %746, align 8
-  %748 = getelementptr inbounds i8, ptr %747, i64 176
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 176
   %749 = load i64, ptr %748, align 8
   %.off = add i64 %749, -13
   %switch = icmp ult i64 %.off, 3
@@ -3675,7 +3673,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 752:                                              ; preds = %742
   %753 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %754 = load ptr, ptr %753, align 8
-  %755 = getelementptr inbounds i8, ptr %754, i64 176
+  %755 = getelementptr inbounds nuw i8, ptr %754, i64 176
   %756 = load i64, ptr %755, align 8
   %757 = icmp eq i64 %756, 7
   br i1 %757, label %.fold.split, label %758
@@ -3688,7 +3686,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 760:                                              ; preds = %742
   %761 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %762 = load ptr, ptr %761, align 8
-  %763 = getelementptr inbounds i8, ptr %762, i64 176
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 176
   %764 = load i64, ptr %763, align 8
   %765 = icmp eq i64 %764, 7
   br i1 %765, label %.fold.split, label %766
@@ -3701,7 +3699,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 768:                                              ; preds = %742
   %769 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %770 = load ptr, ptr %769, align 8
-  %771 = getelementptr inbounds i8, ptr %770, i64 176
+  %771 = getelementptr inbounds nuw i8, ptr %770, i64 176
   %772 = load i64, ptr %771, align 8
   %773 = icmp eq i64 %772, 7
   br i1 %773, label %.fold.split, label %774
@@ -3714,7 +3712,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 776:                                              ; preds = %742
   %777 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds i8, ptr %778, i64 176
+  %779 = getelementptr inbounds nuw i8, ptr %778, i64 176
   %780 = load i64, ptr %779, align 8
   %781 = icmp eq i64 %780, 7
   br i1 %781, label %.fold.split, label %782
@@ -3727,7 +3725,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 784:                                              ; preds = %742
   %785 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %786 = load ptr, ptr %785, align 8
-  %787 = getelementptr inbounds i8, ptr %786, i64 176
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 176
   %788 = load i64, ptr %787, align 8
   %789 = icmp eq i64 %788, 7
   br i1 %789, label %.fold.split, label %790
@@ -3740,7 +3738,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 792:                                              ; preds = %742
   %793 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %794 = load ptr, ptr %793, align 8
-  %795 = getelementptr inbounds i8, ptr %794, i64 176
+  %795 = getelementptr inbounds nuw i8, ptr %794, i64 176
   %796 = load i64, ptr %795, align 8
   %797 = icmp eq i64 %796, 7
   br i1 %797, label %.fold.split, label %798
@@ -3766,9 +3764,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 803:                                              ; preds = %800
   %804 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %805 = load ptr, ptr %804, align 8
-  %806 = getelementptr inbounds i8, ptr %805, i64 36
+  %806 = getelementptr inbounds nuw i8, ptr %805, i64 36
   %807 = load i32, ptr %806, align 4
-  %808 = getelementptr inbounds i8, ptr %805, i64 68
+  %808 = getelementptr inbounds nuw i8, ptr %805, i64 68
   %809 = load i32, ptr %808, align 4
   %810 = icmp eq i32 %807, %809
   %.1184 = select i1 %810, i32 2446, i32 2498
@@ -3777,9 +3775,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 811:                                              ; preds = %800
   %812 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %813 = load ptr, ptr %812, align 8
-  %814 = getelementptr inbounds i8, ptr %813, i64 36
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 36
   %815 = load i32, ptr %814, align 4
-  %816 = getelementptr inbounds i8, ptr %813, i64 68
+  %816 = getelementptr inbounds nuw i8, ptr %813, i64 68
   %817 = load i32, ptr %816, align 4
   %818 = icmp eq i32 %815, %817
   %.1185 = select i1 %818, i32 2452, i32 2498
@@ -3788,9 +3786,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 819:                                              ; preds = %800
   %820 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %821 = load ptr, ptr %820, align 8
-  %822 = getelementptr inbounds i8, ptr %821, i64 36
+  %822 = getelementptr inbounds nuw i8, ptr %821, i64 36
   %823 = load i32, ptr %822, align 4
-  %824 = getelementptr inbounds i8, ptr %821, i64 68
+  %824 = getelementptr inbounds nuw i8, ptr %821, i64 68
   %825 = load i32, ptr %824, align 4
   %826 = icmp eq i32 %823, %825
   %.1186 = select i1 %826, i32 2445, i32 2498
@@ -3799,9 +3797,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 827:                                              ; preds = %800
   %828 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %829 = load ptr, ptr %828, align 8
-  %830 = getelementptr inbounds i8, ptr %829, i64 36
+  %830 = getelementptr inbounds nuw i8, ptr %829, i64 36
   %831 = load i32, ptr %830, align 4
-  %832 = getelementptr inbounds i8, ptr %829, i64 68
+  %832 = getelementptr inbounds nuw i8, ptr %829, i64 68
   %833 = load i32, ptr %832, align 4
   %834 = icmp eq i32 %831, %833
   %.1187 = select i1 %834, i32 2453, i32 2498
@@ -3810,9 +3808,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 835:                                              ; preds = %800
   %836 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %837 = load ptr, ptr %836, align 8
-  %838 = getelementptr inbounds i8, ptr %837, i64 36
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 36
   %839 = load i32, ptr %838, align 4
-  %840 = getelementptr inbounds i8, ptr %837, i64 68
+  %840 = getelementptr inbounds nuw i8, ptr %837, i64 68
   %841 = load i32, ptr %840, align 4
   %842 = icmp eq i32 %839, %841
   %.1188 = select i1 %842, i32 2451, i32 2498
@@ -3821,9 +3819,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 843:                                              ; preds = %800
   %844 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds i8, ptr %845, i64 36
+  %846 = getelementptr inbounds nuw i8, ptr %845, i64 36
   %847 = load i32, ptr %846, align 4
-  %848 = getelementptr inbounds i8, ptr %845, i64 68
+  %848 = getelementptr inbounds nuw i8, ptr %845, i64 68
   %849 = load i32, ptr %848, align 4
   %850 = icmp eq i32 %847, %849
   %.1189 = select i1 %850, i32 2447, i32 2498
@@ -3832,9 +3830,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 851:                                              ; preds = %800
   %852 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %853 = load ptr, ptr %852, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 36
+  %854 = getelementptr inbounds nuw i8, ptr %853, i64 36
   %855 = load i32, ptr %854, align 4
-  %856 = getelementptr inbounds i8, ptr %853, i64 68
+  %856 = getelementptr inbounds nuw i8, ptr %853, i64 68
   %857 = load i32, ptr %856, align 4
   %858 = icmp eq i32 %855, %857
   %.1190 = select i1 %858, i32 2448, i32 2498
@@ -3856,9 +3854,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 862:                                              ; preds = %859
   %863 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %864 = load ptr, ptr %863, align 8
-  %865 = getelementptr inbounds i8, ptr %864, i64 36
+  %865 = getelementptr inbounds nuw i8, ptr %864, i64 36
   %866 = load i32, ptr %865, align 4
-  %867 = getelementptr inbounds i8, ptr %864, i64 68
+  %867 = getelementptr inbounds nuw i8, ptr %864, i64 68
   %868 = load i32, ptr %867, align 4
   %869 = icmp eq i32 %866, %868
   %.1191 = select i1 %869, i32 2446, i32 2499
@@ -3867,9 +3865,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 870:                                              ; preds = %859
   %871 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %872 = load ptr, ptr %871, align 8
-  %873 = getelementptr inbounds i8, ptr %872, i64 36
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 36
   %874 = load i32, ptr %873, align 4
-  %875 = getelementptr inbounds i8, ptr %872, i64 68
+  %875 = getelementptr inbounds nuw i8, ptr %872, i64 68
   %876 = load i32, ptr %875, align 4
   %877 = icmp eq i32 %874, %876
   %.1192 = select i1 %877, i32 2452, i32 2460
@@ -3878,9 +3876,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 878:                                              ; preds = %859
   %879 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %880 = load ptr, ptr %879, align 8
-  %881 = getelementptr inbounds i8, ptr %880, i64 36
+  %881 = getelementptr inbounds nuw i8, ptr %880, i64 36
   %882 = load i32, ptr %881, align 4
-  %883 = getelementptr inbounds i8, ptr %880, i64 68
+  %883 = getelementptr inbounds nuw i8, ptr %880, i64 68
   %884 = load i32, ptr %883, align 4
   %885 = icmp eq i32 %882, %884
   %.1193 = select i1 %885, i32 2445, i32 2499
@@ -3889,9 +3887,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 886:                                              ; preds = %859
   %887 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %888 = load ptr, ptr %887, align 8
-  %889 = getelementptr inbounds i8, ptr %888, i64 36
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 36
   %890 = load i32, ptr %889, align 4
-  %891 = getelementptr inbounds i8, ptr %888, i64 68
+  %891 = getelementptr inbounds nuw i8, ptr %888, i64 68
   %892 = load i32, ptr %891, align 4
   %893 = icmp eq i32 %890, %892
   %.1194 = select i1 %893, i32 2453, i32 2461
@@ -3900,9 +3898,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 894:                                              ; preds = %859
   %895 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %896 = load ptr, ptr %895, align 8
-  %897 = getelementptr inbounds i8, ptr %896, i64 36
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 36
   %898 = load i32, ptr %897, align 4
-  %899 = getelementptr inbounds i8, ptr %896, i64 68
+  %899 = getelementptr inbounds nuw i8, ptr %896, i64 68
   %900 = load i32, ptr %899, align 4
   %901 = icmp eq i32 %898, %900
   %.1195 = select i1 %901, i32 2451, i32 2459
@@ -3911,9 +3909,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 902:                                              ; preds = %859
   %903 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %904 = load ptr, ptr %903, align 8
-  %905 = getelementptr inbounds i8, ptr %904, i64 36
+  %905 = getelementptr inbounds nuw i8, ptr %904, i64 36
   %906 = load i32, ptr %905, align 4
-  %907 = getelementptr inbounds i8, ptr %904, i64 68
+  %907 = getelementptr inbounds nuw i8, ptr %904, i64 68
   %908 = load i32, ptr %907, align 4
   %909 = icmp eq i32 %906, %908
   %.1196 = select i1 %909, i32 2447, i32 2499
@@ -3922,9 +3920,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 910:                                              ; preds = %859
   %911 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %912 = load ptr, ptr %911, align 8
-  %913 = getelementptr inbounds i8, ptr %912, i64 36
+  %913 = getelementptr inbounds nuw i8, ptr %912, i64 36
   %914 = load i32, ptr %913, align 4
-  %915 = getelementptr inbounds i8, ptr %912, i64 68
+  %915 = getelementptr inbounds nuw i8, ptr %912, i64 68
   %916 = load i32, ptr %915, align 4
   %917 = icmp eq i32 %914, %916
   %.1197 = select i1 %917, i32 2448, i32 2499
@@ -3946,9 +3944,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 921:                                              ; preds = %918
   %922 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %923 = load ptr, ptr %922, align 8
-  %924 = getelementptr inbounds i8, ptr %923, i64 36
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 36
   %925 = load i32, ptr %924, align 4
-  %926 = getelementptr inbounds i8, ptr %923, i64 68
+  %926 = getelementptr inbounds nuw i8, ptr %923, i64 68
   %927 = load i32, ptr %926, align 4
   %928 = icmp eq i32 %925, %927
   %.1198 = select i1 %928, i32 2446, i32 2464
@@ -3957,9 +3955,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 929:                                              ; preds = %918
   %930 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %931 = load ptr, ptr %930, align 8
-  %932 = getelementptr inbounds i8, ptr %931, i64 36
+  %932 = getelementptr inbounds nuw i8, ptr %931, i64 36
   %933 = load i32, ptr %932, align 4
-  %934 = getelementptr inbounds i8, ptr %931, i64 68
+  %934 = getelementptr inbounds nuw i8, ptr %931, i64 68
   %935 = load i32, ptr %934, align 4
   %936 = icmp eq i32 %933, %935
   %.1199 = select i1 %936, i32 2452, i32 2466
@@ -3968,9 +3966,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 937:                                              ; preds = %918
   %938 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %939 = load ptr, ptr %938, align 8
-  %940 = getelementptr inbounds i8, ptr %939, i64 36
+  %940 = getelementptr inbounds nuw i8, ptr %939, i64 36
   %941 = load i32, ptr %940, align 4
-  %942 = getelementptr inbounds i8, ptr %939, i64 68
+  %942 = getelementptr inbounds nuw i8, ptr %939, i64 68
   %943 = load i32, ptr %942, align 4
   %944 = icmp eq i32 %941, %943
   %.1200 = select i1 %944, i32 2445, i32 2463
@@ -3979,9 +3977,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 945:                                              ; preds = %918
   %946 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %947 = load ptr, ptr %946, align 8
-  %948 = getelementptr inbounds i8, ptr %947, i64 36
+  %948 = getelementptr inbounds nuw i8, ptr %947, i64 36
   %949 = load i32, ptr %948, align 4
-  %950 = getelementptr inbounds i8, ptr %947, i64 68
+  %950 = getelementptr inbounds nuw i8, ptr %947, i64 68
   %951 = load i32, ptr %950, align 4
   %952 = icmp eq i32 %949, %951
   %.1201 = select i1 %952, i32 2453, i32 2467
@@ -3990,9 +3988,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 953:                                              ; preds = %918
   %954 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %955 = load ptr, ptr %954, align 8
-  %956 = getelementptr inbounds i8, ptr %955, i64 36
+  %956 = getelementptr inbounds nuw i8, ptr %955, i64 36
   %957 = load i32, ptr %956, align 4
-  %958 = getelementptr inbounds i8, ptr %955, i64 68
+  %958 = getelementptr inbounds nuw i8, ptr %955, i64 68
   %959 = load i32, ptr %958, align 4
   %960 = icmp eq i32 %957, %959
   %.1202 = select i1 %960, i32 2451, i32 2465
@@ -4001,9 +3999,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 961:                                              ; preds = %918
   %962 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds i8, ptr %963, i64 36
+  %964 = getelementptr inbounds nuw i8, ptr %963, i64 36
   %965 = load i32, ptr %964, align 4
-  %966 = getelementptr inbounds i8, ptr %963, i64 68
+  %966 = getelementptr inbounds nuw i8, ptr %963, i64 68
   %967 = load i32, ptr %966, align 4
   %968 = icmp eq i32 %965, %967
   %.1203 = select i1 %968, i32 2447, i32 2499
@@ -4012,9 +4010,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 969:                                              ; preds = %918
   %970 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %971 = load ptr, ptr %970, align 8
-  %972 = getelementptr inbounds i8, ptr %971, i64 36
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 36
   %973 = load i32, ptr %972, align 4
-  %974 = getelementptr inbounds i8, ptr %971, i64 68
+  %974 = getelementptr inbounds nuw i8, ptr %971, i64 68
   %975 = load i32, ptr %974, align 4
   %976 = icmp eq i32 %973, %975
   %.1204 = select i1 %976, i32 2448, i32 2499
@@ -4029,13 +4027,13 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 981:                                              ; preds = %977
   %982 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %983 = load ptr, ptr %982, align 8
-  %984 = getelementptr inbounds i8, ptr %983, i64 80
+  %984 = getelementptr inbounds nuw i8, ptr %983, i64 80
   %985 = load i64, ptr %984, align 8
   %986 = icmp eq i64 %985, 0
   br i1 %986, label %987, label %.critedge
 
 987:                                              ; preds = %981
-  %988 = getelementptr inbounds i8, ptr %983, i64 36
+  %988 = getelementptr inbounds nuw i8, ptr %983, i64 36
   %989 = load i32, ptr %988, align 4
   switch i32 %989, label %.fold.split [
     i32 3, label %.critedge
@@ -4062,9 +4060,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 993:                                              ; preds = %990
   %994 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %995 = load ptr, ptr %994, align 8
-  %996 = getelementptr inbounds i8, ptr %995, i64 36
+  %996 = getelementptr inbounds nuw i8, ptr %995, i64 36
   %997 = load i32, ptr %996, align 4
-  %998 = getelementptr inbounds i8, ptr %995, i64 68
+  %998 = getelementptr inbounds nuw i8, ptr %995, i64 68
   %999 = load i32, ptr %998, align 4
   %1000 = icmp eq i32 %997, %999
   %.1205 = select i1 %1000, i32 2446, i32 2464
@@ -4073,9 +4071,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1001:                                             ; preds = %990
   %1002 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = getelementptr inbounds i8, ptr %1003, i64 36
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 36
   %1005 = load i32, ptr %1004, align 4
-  %1006 = getelementptr inbounds i8, ptr %1003, i64 68
+  %1006 = getelementptr inbounds nuw i8, ptr %1003, i64 68
   %1007 = load i32, ptr %1006, align 4
   %1008 = icmp eq i32 %1005, %1007
   %.1206 = select i1 %1008, i32 2450, i32 2458
@@ -4084,9 +4082,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1009:                                             ; preds = %990
   %1010 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1011 = load ptr, ptr %1010, align 8
-  %1012 = getelementptr inbounds i8, ptr %1011, i64 36
+  %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 36
   %1013 = load i32, ptr %1012, align 4
-  %1014 = getelementptr inbounds i8, ptr %1011, i64 68
+  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 68
   %1015 = load i32, ptr %1014, align 4
   %1016 = icmp eq i32 %1013, %1015
   %.1207 = select i1 %1016, i32 2452, i32 2466
@@ -4095,9 +4093,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1017:                                             ; preds = %990
   %1018 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1019 = load ptr, ptr %1018, align 8
-  %1020 = getelementptr inbounds i8, ptr %1019, i64 36
+  %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 36
   %1021 = load i32, ptr %1020, align 4
-  %1022 = getelementptr inbounds i8, ptr %1019, i64 68
+  %1022 = getelementptr inbounds nuw i8, ptr %1019, i64 68
   %1023 = load i32, ptr %1022, align 4
   %1024 = icmp eq i32 %1021, %1023
   %.1208 = select i1 %1024, i32 2443, i32 2462
@@ -4106,9 +4104,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1025:                                             ; preds = %990
   %1026 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1027 = load ptr, ptr %1026, align 8
-  %1028 = getelementptr inbounds i8, ptr %1027, i64 36
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 36
   %1029 = load i32, ptr %1028, align 4
-  %1030 = getelementptr inbounds i8, ptr %1027, i64 68
+  %1030 = getelementptr inbounds nuw i8, ptr %1027, i64 68
   %1031 = load i32, ptr %1030, align 4
   %1032 = icmp eq i32 %1029, %1031
   %.1209 = select i1 %1032, i32 2445, i32 2463
@@ -4117,9 +4115,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1033:                                             ; preds = %990
   %1034 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1035 = load ptr, ptr %1034, align 8
-  %1036 = getelementptr inbounds i8, ptr %1035, i64 36
+  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 36
   %1037 = load i32, ptr %1036, align 4
-  %1038 = getelementptr inbounds i8, ptr %1035, i64 68
+  %1038 = getelementptr inbounds nuw i8, ptr %1035, i64 68
   %1039 = load i32, ptr %1038, align 4
   %1040 = icmp eq i32 %1037, %1039
   %.1210 = select i1 %1040, i32 2453, i32 2467
@@ -4128,9 +4126,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1041:                                             ; preds = %990
   %1042 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1043 = load ptr, ptr %1042, align 8
-  %1044 = getelementptr inbounds i8, ptr %1043, i64 36
+  %1044 = getelementptr inbounds nuw i8, ptr %1043, i64 36
   %1045 = load i32, ptr %1044, align 4
-  %1046 = getelementptr inbounds i8, ptr %1043, i64 68
+  %1046 = getelementptr inbounds nuw i8, ptr %1043, i64 68
   %1047 = load i32, ptr %1046, align 4
   %1048 = icmp eq i32 %1045, %1047
   %.1211 = select i1 %1048, i32 2451, i32 2465
@@ -4145,15 +4143,15 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1053:                                             ; preds = %1049
   %1054 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1055 = load ptr, ptr %1054, align 8
-  %1056 = getelementptr inbounds i8, ptr %1055, i64 36
+  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 36
   %1057 = load i32, ptr %1056, align 4
-  %1058 = getelementptr inbounds i8, ptr %1055, i64 68
+  %1058 = getelementptr inbounds nuw i8, ptr %1055, i64 68
   %1059 = load i32, ptr %1058, align 4
   %1060 = icmp eq i32 %1057, %1059
   br i1 %1060, label %1061, label %.critedge2
 
 1061:                                             ; preds = %1053
-  %1062 = getelementptr inbounds i8, ptr %1055, i64 112
+  %1062 = getelementptr inbounds nuw i8, ptr %1055, i64 112
   %1063 = load i64, ptr %1062, align 8
   %1064 = icmp eq i64 %1063, 136
   br i1 %1064, label %.fold.split, label %.critedge2
@@ -4172,20 +4170,20 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   ]
 
 1068:                                             ; preds = %1065
-  %1069 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #21
+  %1069 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #22
   br i1 %1069, label %.fold.split, label %1070
 
 1070:                                             ; preds = %1068
   %1071 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1072 = load ptr, ptr %1071, align 8
-  %1073 = getelementptr inbounds i8, ptr %1072, i64 64
+  %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 64
   %1074 = load i32, ptr %1073, align 8
   %1075 = and i32 %1074, 255
   %1076 = icmp eq i32 %1075, 1
   br i1 %1076, label %1077, label %1080
 
 1077:                                             ; preds = %1070
-  %1078 = getelementptr inbounds i8, ptr %1072, i64 80
+  %1078 = getelementptr inbounds nuw i8, ptr %1072, i64 80
   %1079 = load i64, ptr %1078, align 8
   %.not1116 = icmp eq i64 %1079, 1
   br i1 %.not1116, label %1080, label %.fold.split
@@ -4194,20 +4192,20 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   br label %.fold.split
 
 1081:                                             ; preds = %1065
-  %1082 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #21
+  %1082 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #22
   br i1 %1082, label %.fold.split, label %1083
 
 1083:                                             ; preds = %1081
   %1084 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1085 = load ptr, ptr %1084, align 8
-  %1086 = getelementptr inbounds i8, ptr %1085, i64 64
+  %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 64
   %1087 = load i32, ptr %1086, align 8
   %1088 = and i32 %1087, 255
   %1089 = icmp eq i32 %1088, 1
   br i1 %1089, label %1090, label %1093
 
 1090:                                             ; preds = %1083
-  %1091 = getelementptr inbounds i8, ptr %1085, i64 80
+  %1091 = getelementptr inbounds nuw i8, ptr %1085, i64 80
   %1092 = load i64, ptr %1091, align 8
   %.not1115 = icmp eq i64 %1092, 1
   br i1 %.not1115, label %1093, label %.fold.split
@@ -4216,20 +4214,20 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   br label %.fold.split
 
 1094:                                             ; preds = %1065
-  %1095 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #21
+  %1095 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #22
   br i1 %1095, label %.fold.split, label %1096
 
 1096:                                             ; preds = %1094
   %1097 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1098 = load ptr, ptr %1097, align 8
-  %1099 = getelementptr inbounds i8, ptr %1098, i64 64
+  %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 64
   %1100 = load i32, ptr %1099, align 8
   %1101 = and i32 %1100, 255
   %1102 = icmp eq i32 %1101, 1
   br i1 %1102, label %1103, label %1106
 
 1103:                                             ; preds = %1096
-  %1104 = getelementptr inbounds i8, ptr %1098, i64 80
+  %1104 = getelementptr inbounds nuw i8, ptr %1098, i64 80
   %1105 = load i64, ptr %1104, align 8
   %.not1114 = icmp eq i64 %1105, 1
   br i1 %.not1114, label %1106, label %.fold.split
@@ -4238,20 +4236,20 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   br label %.fold.split
 
 1107:                                             ; preds = %1065
-  %1108 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #21
+  %1108 = tail call noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #22
   br i1 %1108, label %.fold.split, label %1109
 
 1109:                                             ; preds = %1107
   %1110 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1111 = load ptr, ptr %1110, align 8
-  %1112 = getelementptr inbounds i8, ptr %1111, i64 64
+  %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 64
   %1113 = load i32, ptr %1112, align 8
   %1114 = and i32 %1113, 255
   %1115 = icmp eq i32 %1114, 1
   br i1 %1115, label %1116, label %1119
 
 1116:                                             ; preds = %1109
-  %1117 = getelementptr inbounds i8, ptr %1111, i64 80
+  %1117 = getelementptr inbounds nuw i8, ptr %1111, i64 80
   %1118 = load i64, ptr %1117, align 8
   %.not = icmp eq i64 %1118, 1
   br i1 %.not, label %1119, label %.fold.split
@@ -4378,9 +4376,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1149:                                             ; preds = %1146
   %1150 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1151 = load ptr, ptr %1150, align 8
-  %1152 = getelementptr inbounds i8, ptr %1151, i64 36
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 36
   %1153 = load i32, ptr %1152, align 4
-  %1154 = getelementptr inbounds i8, ptr %1151, i64 68
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 68
   %1155 = load i32, ptr %1154, align 4
   %1156 = icmp eq i32 %1153, %1155
   %.1214 = select i1 %1156, i32 2447, i32 2444
@@ -4389,9 +4387,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1157:                                             ; preds = %1146
   %1158 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1159 = load ptr, ptr %1158, align 8
-  %1160 = getelementptr inbounds i8, ptr %1159, i64 36
+  %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 36
   %1161 = load i32, ptr %1160, align 4
-  %1162 = getelementptr inbounds i8, ptr %1159, i64 68
+  %1162 = getelementptr inbounds nuw i8, ptr %1159, i64 68
   %1163 = load i32, ptr %1162, align 4
   %1164 = icmp eq i32 %1161, %1163
   %.1215 = select i1 %1164, i32 2448, i32 2444
@@ -4410,7 +4408,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   %1170 = load ptr, ptr %1169, align 8
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 4
   %1172 = load i32, ptr %1171, align 4
-  %1173 = getelementptr inbounds i8, ptr %1170, i64 36
+  %1173 = getelementptr inbounds nuw i8, ptr %1170, i64 36
   %1174 = load i32, ptr %1173, align 4
   %1175 = icmp eq i32 %1172, %1174
   %.1216 = select i1 %1175, i32 2447, i32 2444
@@ -4421,7 +4419,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   %1178 = load ptr, ptr %1177, align 8
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 4
   %1180 = load i32, ptr %1179, align 4
-  %1181 = getelementptr inbounds i8, ptr %1178, i64 36
+  %1181 = getelementptr inbounds nuw i8, ptr %1178, i64 36
   %1182 = load i32, ptr %1181, align 4
   %1183 = icmp eq i32 %1180, %1182
   %.1217 = select i1 %1183, i32 2448, i32 2444
@@ -4446,9 +4444,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1187:                                             ; preds = %1184
   %1188 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1189 = load ptr, ptr %1188, align 8
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 36
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 36
   %1191 = load i32, ptr %1190, align 4
-  %1192 = getelementptr inbounds i8, ptr %1189, i64 68
+  %1192 = getelementptr inbounds nuw i8, ptr %1189, i64 68
   %1193 = load i32, ptr %1192, align 4
   %1194 = icmp eq i32 %1191, %1193
   %.1218 = select i1 %1194, i32 2449, i32 2454
@@ -4457,9 +4455,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1195:                                             ; preds = %1184
   %1196 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1197 = load ptr, ptr %1196, align 8
-  %1198 = getelementptr inbounds i8, ptr %1197, i64 36
+  %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 36
   %1199 = load i32, ptr %1198, align 4
-  %1200 = getelementptr inbounds i8, ptr %1197, i64 68
+  %1200 = getelementptr inbounds nuw i8, ptr %1197, i64 68
   %1201 = load i32, ptr %1200, align 4
   %1202 = icmp eq i32 %1199, %1201
   %.1219 = select i1 %1202, i32 2446, i32 2454
@@ -4468,9 +4466,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1203:                                             ; preds = %1184
   %1204 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1205 = load ptr, ptr %1204, align 8
-  %1206 = getelementptr inbounds i8, ptr %1205, i64 36
+  %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 36
   %1207 = load i32, ptr %1206, align 4
-  %1208 = getelementptr inbounds i8, ptr %1205, i64 68
+  %1208 = getelementptr inbounds nuw i8, ptr %1205, i64 68
   %1209 = load i32, ptr %1208, align 4
   %1210 = icmp eq i32 %1207, %1209
   %.1220 = select i1 %1210, i32 2450, i32 2454
@@ -4479,9 +4477,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1211:                                             ; preds = %1184
   %1212 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1213 = load ptr, ptr %1212, align 8
-  %1214 = getelementptr inbounds i8, ptr %1213, i64 36
+  %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 36
   %1215 = load i32, ptr %1214, align 4
-  %1216 = getelementptr inbounds i8, ptr %1213, i64 68
+  %1216 = getelementptr inbounds nuw i8, ptr %1213, i64 68
   %1217 = load i32, ptr %1216, align 4
   %1218 = icmp eq i32 %1215, %1217
   %.1221 = select i1 %1218, i32 2452, i32 2454
@@ -4490,9 +4488,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1219:                                             ; preds = %1184
   %1220 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1221 = load ptr, ptr %1220, align 8
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 36
+  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 36
   %1223 = load i32, ptr %1222, align 4
-  %1224 = getelementptr inbounds i8, ptr %1221, i64 68
+  %1224 = getelementptr inbounds nuw i8, ptr %1221, i64 68
   %1225 = load i32, ptr %1224, align 4
   %1226 = icmp eq i32 %1223, %1225
   %.1222 = select i1 %1226, i32 2443, i32 2454
@@ -4501,9 +4499,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1227:                                             ; preds = %1184
   %1228 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1229 = load ptr, ptr %1228, align 8
-  %1230 = getelementptr inbounds i8, ptr %1229, i64 36
+  %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 36
   %1231 = load i32, ptr %1230, align 4
-  %1232 = getelementptr inbounds i8, ptr %1229, i64 68
+  %1232 = getelementptr inbounds nuw i8, ptr %1229, i64 68
   %1233 = load i32, ptr %1232, align 4
   %1234 = icmp eq i32 %1231, %1233
   %.1223 = select i1 %1234, i32 2445, i32 2454
@@ -4512,9 +4510,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1235:                                             ; preds = %1184
   %1236 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1237 = load ptr, ptr %1236, align 8
-  %1238 = getelementptr inbounds i8, ptr %1237, i64 36
+  %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 36
   %1239 = load i32, ptr %1238, align 4
-  %1240 = getelementptr inbounds i8, ptr %1237, i64 68
+  %1240 = getelementptr inbounds nuw i8, ptr %1237, i64 68
   %1241 = load i32, ptr %1240, align 4
   %1242 = icmp eq i32 %1239, %1241
   %.1224 = select i1 %1242, i32 2453, i32 2454
@@ -4523,9 +4521,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1243:                                             ; preds = %1184
   %1244 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1245 = load ptr, ptr %1244, align 8
-  %1246 = getelementptr inbounds i8, ptr %1245, i64 36
+  %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 36
   %1247 = load i32, ptr %1246, align 4
-  %1248 = getelementptr inbounds i8, ptr %1245, i64 68
+  %1248 = getelementptr inbounds nuw i8, ptr %1245, i64 68
   %1249 = load i32, ptr %1248, align 4
   %1250 = icmp eq i32 %1247, %1249
   %.1225 = select i1 %1250, i32 2451, i32 2454
@@ -4534,9 +4532,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1251:                                             ; preds = %1184
   %1252 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1253 = load ptr, ptr %1252, align 8
-  %1254 = getelementptr inbounds i8, ptr %1253, i64 36
+  %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 36
   %1255 = load i32, ptr %1254, align 4
-  %1256 = getelementptr inbounds i8, ptr %1253, i64 68
+  %1256 = getelementptr inbounds nuw i8, ptr %1253, i64 68
   %1257 = load i32, ptr %1256, align 4
   %1258 = icmp eq i32 %1255, %1257
   %.1226 = select i1 %1258, i32 2447, i32 2454
@@ -4545,9 +4543,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1259:                                             ; preds = %1184
   %1260 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1261 = load ptr, ptr %1260, align 8
-  %1262 = getelementptr inbounds i8, ptr %1261, i64 36
+  %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 36
   %1263 = load i32, ptr %1262, align 4
-  %1264 = getelementptr inbounds i8, ptr %1261, i64 68
+  %1264 = getelementptr inbounds nuw i8, ptr %1261, i64 68
   %1265 = load i32, ptr %1264, align 4
   %1266 = icmp eq i32 %1263, %1265
   %.1227 = select i1 %1266, i32 2448, i32 2454
@@ -4566,9 +4564,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1270:                                             ; preds = %1267
   %1271 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1272 = load ptr, ptr %1271, align 8
-  %1273 = getelementptr inbounds i8, ptr %1272, i64 36
+  %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 36
   %1274 = load i32, ptr %1273, align 4
-  %1275 = getelementptr inbounds i8, ptr %1272, i64 68
+  %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 68
   %1276 = load i32, ptr %1275, align 4
   %1277 = icmp eq i32 %1274, %1276
   %.1228 = select i1 %1277, i32 2449, i32 2454
@@ -4577,9 +4575,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1278:                                             ; preds = %1267
   %1279 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1280 = load ptr, ptr %1279, align 8
-  %1281 = getelementptr inbounds i8, ptr %1280, i64 36
+  %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 36
   %1282 = load i32, ptr %1281, align 4
-  %1283 = getelementptr inbounds i8, ptr %1280, i64 68
+  %1283 = getelementptr inbounds nuw i8, ptr %1280, i64 68
   %1284 = load i32, ptr %1283, align 4
   %1285 = icmp eq i32 %1282, %1284
   %.1229 = select i1 %1285, i32 2450, i32 2454
@@ -4588,9 +4586,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1286:                                             ; preds = %1267
   %1287 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1288 = load ptr, ptr %1287, align 8
-  %1289 = getelementptr inbounds i8, ptr %1288, i64 36
+  %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 36
   %1290 = load i32, ptr %1289, align 4
-  %1291 = getelementptr inbounds i8, ptr %1288, i64 68
+  %1291 = getelementptr inbounds nuw i8, ptr %1288, i64 68
   %1292 = load i32, ptr %1291, align 4
   %1293 = icmp eq i32 %1290, %1292
   %.1230 = select i1 %1293, i32 2447, i32 2454
@@ -4599,9 +4597,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1294:                                             ; preds = %1267
   %1295 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1296 = load ptr, ptr %1295, align 8
-  %1297 = getelementptr inbounds i8, ptr %1296, i64 36
+  %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 36
   %1298 = load i32, ptr %1297, align 4
-  %1299 = getelementptr inbounds i8, ptr %1296, i64 68
+  %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 68
   %1300 = load i32, ptr %1299, align 4
   %1301 = icmp eq i32 %1298, %1300
   %.1231 = select i1 %1301, i32 2448, i32 2454
@@ -4619,9 +4617,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1305:                                             ; preds = %1302
   %1306 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1307 = load ptr, ptr %1306, align 8
-  %1308 = getelementptr inbounds i8, ptr %1307, i64 36
+  %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 36
   %1309 = load i32, ptr %1308, align 4
-  %1310 = getelementptr inbounds i8, ptr %1307, i64 68
+  %1310 = getelementptr inbounds nuw i8, ptr %1307, i64 68
   %1311 = load i32, ptr %1310, align 4
   %1312 = icmp eq i32 %1309, %1311
   %.1232 = select i1 %1312, i32 2456, i32 2455
@@ -4630,9 +4628,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1313:                                             ; preds = %1302
   %1314 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1315 = load ptr, ptr %1314, align 8
-  %1316 = getelementptr inbounds i8, ptr %1315, i64 36
+  %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 36
   %1317 = load i32, ptr %1316, align 4
-  %1318 = getelementptr inbounds i8, ptr %1315, i64 68
+  %1318 = getelementptr inbounds nuw i8, ptr %1315, i64 68
   %1319 = load i32, ptr %1318, align 4
   %1320 = icmp eq i32 %1317, %1319
   %.1233 = select i1 %1320, i32 2447, i32 2455
@@ -4641,9 +4639,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1321:                                             ; preds = %1302
   %1322 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1323 = load ptr, ptr %1322, align 8
-  %1324 = getelementptr inbounds i8, ptr %1323, i64 36
+  %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 36
   %1325 = load i32, ptr %1324, align 4
-  %1326 = getelementptr inbounds i8, ptr %1323, i64 68
+  %1326 = getelementptr inbounds nuw i8, ptr %1323, i64 68
   %1327 = load i32, ptr %1326, align 4
   %1328 = icmp eq i32 %1325, %1327
   %.1234 = select i1 %1328, i32 2448, i32 2455
@@ -4668,9 +4666,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1332:                                             ; preds = %1329
   %1333 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1334 = load ptr, ptr %1333, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 36
+  %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 36
   %1336 = load i32, ptr %1335, align 4
-  %1337 = getelementptr inbounds i8, ptr %1334, i64 68
+  %1337 = getelementptr inbounds nuw i8, ptr %1334, i64 68
   %1338 = load i32, ptr %1337, align 4
   %1339 = icmp eq i32 %1336, %1338
   %.1235 = select i1 %1339, i32 2449, i32 2457
@@ -4679,9 +4677,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1340:                                             ; preds = %1329
   %1341 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1342 = load ptr, ptr %1341, align 8
-  %1343 = getelementptr inbounds i8, ptr %1342, i64 36
+  %1343 = getelementptr inbounds nuw i8, ptr %1342, i64 36
   %1344 = load i32, ptr %1343, align 4
-  %1345 = getelementptr inbounds i8, ptr %1342, i64 68
+  %1345 = getelementptr inbounds nuw i8, ptr %1342, i64 68
   %1346 = load i32, ptr %1345, align 4
   %1347 = icmp eq i32 %1344, %1346
   %.1236 = select i1 %1347, i32 2446, i32 2457
@@ -4690,9 +4688,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1348:                                             ; preds = %1329
   %1349 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1350 = load ptr, ptr %1349, align 8
-  %1351 = getelementptr inbounds i8, ptr %1350, i64 36
+  %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 36
   %1352 = load i32, ptr %1351, align 4
-  %1353 = getelementptr inbounds i8, ptr %1350, i64 68
+  %1353 = getelementptr inbounds nuw i8, ptr %1350, i64 68
   %1354 = load i32, ptr %1353, align 4
   %1355 = icmp eq i32 %1352, %1354
   %.1237 = select i1 %1355, i32 2450, i32 2457
@@ -4701,9 +4699,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1356:                                             ; preds = %1329
   %1357 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1358 = load ptr, ptr %1357, align 8
-  %1359 = getelementptr inbounds i8, ptr %1358, i64 36
+  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 36
   %1360 = load i32, ptr %1359, align 4
-  %1361 = getelementptr inbounds i8, ptr %1358, i64 68
+  %1361 = getelementptr inbounds nuw i8, ptr %1358, i64 68
   %1362 = load i32, ptr %1361, align 4
   %1363 = icmp eq i32 %1360, %1362
   %.1238 = select i1 %1363, i32 2452, i32 2457
@@ -4712,9 +4710,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1364:                                             ; preds = %1329
   %1365 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1366 = load ptr, ptr %1365, align 8
-  %1367 = getelementptr inbounds i8, ptr %1366, i64 36
+  %1367 = getelementptr inbounds nuw i8, ptr %1366, i64 36
   %1368 = load i32, ptr %1367, align 4
-  %1369 = getelementptr inbounds i8, ptr %1366, i64 68
+  %1369 = getelementptr inbounds nuw i8, ptr %1366, i64 68
   %1370 = load i32, ptr %1369, align 4
   %1371 = icmp eq i32 %1368, %1370
   %.1239 = select i1 %1371, i32 2443, i32 2457
@@ -4723,9 +4721,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1372:                                             ; preds = %1329
   %1373 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1374 = load ptr, ptr %1373, align 8
-  %1375 = getelementptr inbounds i8, ptr %1374, i64 36
+  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 36
   %1376 = load i32, ptr %1375, align 4
-  %1377 = getelementptr inbounds i8, ptr %1374, i64 68
+  %1377 = getelementptr inbounds nuw i8, ptr %1374, i64 68
   %1378 = load i32, ptr %1377, align 4
   %1379 = icmp eq i32 %1376, %1378
   %.1240 = select i1 %1379, i32 2445, i32 2457
@@ -4734,9 +4732,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1380:                                             ; preds = %1329
   %1381 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1382 = load ptr, ptr %1381, align 8
-  %1383 = getelementptr inbounds i8, ptr %1382, i64 36
+  %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 36
   %1384 = load i32, ptr %1383, align 4
-  %1385 = getelementptr inbounds i8, ptr %1382, i64 68
+  %1385 = getelementptr inbounds nuw i8, ptr %1382, i64 68
   %1386 = load i32, ptr %1385, align 4
   %1387 = icmp eq i32 %1384, %1386
   %.1241 = select i1 %1387, i32 2453, i32 2457
@@ -4745,9 +4743,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1388:                                             ; preds = %1329
   %1389 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1390 = load ptr, ptr %1389, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 36
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 36
   %1392 = load i32, ptr %1391, align 4
-  %1393 = getelementptr inbounds i8, ptr %1390, i64 68
+  %1393 = getelementptr inbounds nuw i8, ptr %1390, i64 68
   %1394 = load i32, ptr %1393, align 4
   %1395 = icmp eq i32 %1392, %1394
   %.1242 = select i1 %1395, i32 2451, i32 2457
@@ -4756,9 +4754,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1396:                                             ; preds = %1329
   %1397 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1398 = load ptr, ptr %1397, align 8
-  %1399 = getelementptr inbounds i8, ptr %1398, i64 36
+  %1399 = getelementptr inbounds nuw i8, ptr %1398, i64 36
   %1400 = load i32, ptr %1399, align 4
-  %1401 = getelementptr inbounds i8, ptr %1398, i64 68
+  %1401 = getelementptr inbounds nuw i8, ptr %1398, i64 68
   %1402 = load i32, ptr %1401, align 4
   %1403 = icmp eq i32 %1400, %1402
   %.1243 = select i1 %1403, i32 2447, i32 2457
@@ -4767,9 +4765,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1404:                                             ; preds = %1329
   %1405 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1406 = load ptr, ptr %1405, align 8
-  %1407 = getelementptr inbounds i8, ptr %1406, i64 36
+  %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 36
   %1408 = load i32, ptr %1407, align 4
-  %1409 = getelementptr inbounds i8, ptr %1406, i64 68
+  %1409 = getelementptr inbounds nuw i8, ptr %1406, i64 68
   %1410 = load i32, ptr %1409, align 4
   %1411 = icmp eq i32 %1408, %1410
   %.1244 = select i1 %1411, i32 2448, i32 2457
@@ -4788,9 +4786,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1415:                                             ; preds = %1412
   %1416 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1417 = load ptr, ptr %1416, align 8
-  %1418 = getelementptr inbounds i8, ptr %1417, i64 36
+  %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 36
   %1419 = load i32, ptr %1418, align 4
-  %1420 = getelementptr inbounds i8, ptr %1417, i64 68
+  %1420 = getelementptr inbounds nuw i8, ptr %1417, i64 68
   %1421 = load i32, ptr %1420, align 4
   %1422 = icmp eq i32 %1419, %1421
   %.1245 = select i1 %1422, i32 2449, i32 2457
@@ -4799,9 +4797,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1423:                                             ; preds = %1412
   %1424 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1425 = load ptr, ptr %1424, align 8
-  %1426 = getelementptr inbounds i8, ptr %1425, i64 36
+  %1426 = getelementptr inbounds nuw i8, ptr %1425, i64 36
   %1427 = load i32, ptr %1426, align 4
-  %1428 = getelementptr inbounds i8, ptr %1425, i64 68
+  %1428 = getelementptr inbounds nuw i8, ptr %1425, i64 68
   %1429 = load i32, ptr %1428, align 4
   %1430 = icmp eq i32 %1427, %1429
   %.1246 = select i1 %1430, i32 2450, i32 2457
@@ -4810,9 +4808,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1431:                                             ; preds = %1412
   %1432 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1433 = load ptr, ptr %1432, align 8
-  %1434 = getelementptr inbounds i8, ptr %1433, i64 36
+  %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 36
   %1435 = load i32, ptr %1434, align 4
-  %1436 = getelementptr inbounds i8, ptr %1433, i64 68
+  %1436 = getelementptr inbounds nuw i8, ptr %1433, i64 68
   %1437 = load i32, ptr %1436, align 4
   %1438 = icmp eq i32 %1435, %1437
   %.1247 = select i1 %1438, i32 2447, i32 2457
@@ -4821,9 +4819,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1439:                                             ; preds = %1412
   %1440 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1441 = load ptr, ptr %1440, align 8
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 36
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 36
   %1443 = load i32, ptr %1442, align 4
-  %1444 = getelementptr inbounds i8, ptr %1441, i64 68
+  %1444 = getelementptr inbounds nuw i8, ptr %1441, i64 68
   %1445 = load i32, ptr %1444, align 4
   %1446 = icmp eq i32 %1443, %1445
   %.1248 = select i1 %1446, i32 2448, i32 2457
@@ -4840,9 +4838,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1450:                                             ; preds = %1447
   %1451 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1452 = load ptr, ptr %1451, align 8
-  %1453 = getelementptr inbounds i8, ptr %1452, i64 36
+  %1453 = getelementptr inbounds nuw i8, ptr %1452, i64 36
   %1454 = load i32, ptr %1453, align 4
-  %1455 = getelementptr inbounds i8, ptr %1452, i64 68
+  %1455 = getelementptr inbounds nuw i8, ptr %1452, i64 68
   %1456 = load i32, ptr %1455, align 4
   %1457 = icmp eq i32 %1454, %1456
   %.1249 = select i1 %1457, i32 2447, i32 2498
@@ -4851,9 +4849,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1458:                                             ; preds = %1447
   %1459 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1460 = load ptr, ptr %1459, align 8
-  %1461 = getelementptr inbounds i8, ptr %1460, i64 36
+  %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 36
   %1462 = load i32, ptr %1461, align 4
-  %1463 = getelementptr inbounds i8, ptr %1460, i64 68
+  %1463 = getelementptr inbounds nuw i8, ptr %1460, i64 68
   %1464 = load i32, ptr %1463, align 4
   %1465 = icmp eq i32 %1462, %1464
   %.1250 = select i1 %1465, i32 2448, i32 2498
@@ -4878,9 +4876,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1469:                                             ; preds = %1466
   %1470 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1471 = load ptr, ptr %1470, align 8
-  %1472 = getelementptr inbounds i8, ptr %1471, i64 36
+  %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 36
   %1473 = load i32, ptr %1472, align 4
-  %1474 = getelementptr inbounds i8, ptr %1471, i64 68
+  %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 68
   %1475 = load i32, ptr %1474, align 4
   %1476 = icmp eq i32 %1473, %1475
   %.1251 = select i1 %1476, i32 2449, i32 2458
@@ -4889,9 +4887,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1477:                                             ; preds = %1466
   %1478 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1479 = load ptr, ptr %1478, align 8
-  %1480 = getelementptr inbounds i8, ptr %1479, i64 36
+  %1480 = getelementptr inbounds nuw i8, ptr %1479, i64 36
   %1481 = load i32, ptr %1480, align 4
-  %1482 = getelementptr inbounds i8, ptr %1479, i64 68
+  %1482 = getelementptr inbounds nuw i8, ptr %1479, i64 68
   %1483 = load i32, ptr %1482, align 4
   %1484 = icmp eq i32 %1481, %1483
   %.1252 = select i1 %1484, i32 2446, i32 2458
@@ -4900,9 +4898,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1485:                                             ; preds = %1466
   %1486 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1487 = load ptr, ptr %1486, align 8
-  %1488 = getelementptr inbounds i8, ptr %1487, i64 36
+  %1488 = getelementptr inbounds nuw i8, ptr %1487, i64 36
   %1489 = load i32, ptr %1488, align 4
-  %1490 = getelementptr inbounds i8, ptr %1487, i64 68
+  %1490 = getelementptr inbounds nuw i8, ptr %1487, i64 68
   %1491 = load i32, ptr %1490, align 4
   %1492 = icmp eq i32 %1489, %1491
   %.1253 = select i1 %1492, i32 2450, i32 2458
@@ -4911,9 +4909,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1493:                                             ; preds = %1466
   %1494 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1495 = load ptr, ptr %1494, align 8
-  %1496 = getelementptr inbounds i8, ptr %1495, i64 36
+  %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 36
   %1497 = load i32, ptr %1496, align 4
-  %1498 = getelementptr inbounds i8, ptr %1495, i64 68
+  %1498 = getelementptr inbounds nuw i8, ptr %1495, i64 68
   %1499 = load i32, ptr %1498, align 4
   %1500 = icmp eq i32 %1497, %1499
   %.1254 = select i1 %1500, i32 2452, i32 2460
@@ -4922,9 +4920,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1501:                                             ; preds = %1466
   %1502 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1503 = load ptr, ptr %1502, align 8
-  %1504 = getelementptr inbounds i8, ptr %1503, i64 36
+  %1504 = getelementptr inbounds nuw i8, ptr %1503, i64 36
   %1505 = load i32, ptr %1504, align 4
-  %1506 = getelementptr inbounds i8, ptr %1503, i64 68
+  %1506 = getelementptr inbounds nuw i8, ptr %1503, i64 68
   %1507 = load i32, ptr %1506, align 4
   %1508 = icmp eq i32 %1505, %1507
   %.1255 = select i1 %1508, i32 2443, i32 2458
@@ -4933,9 +4931,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1509:                                             ; preds = %1466
   %1510 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1511 = load ptr, ptr %1510, align 8
-  %1512 = getelementptr inbounds i8, ptr %1511, i64 36
+  %1512 = getelementptr inbounds nuw i8, ptr %1511, i64 36
   %1513 = load i32, ptr %1512, align 4
-  %1514 = getelementptr inbounds i8, ptr %1511, i64 68
+  %1514 = getelementptr inbounds nuw i8, ptr %1511, i64 68
   %1515 = load i32, ptr %1514, align 4
   %1516 = icmp eq i32 %1513, %1515
   %.1256 = select i1 %1516, i32 2445, i32 2458
@@ -4944,9 +4942,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1517:                                             ; preds = %1466
   %1518 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1519 = load ptr, ptr %1518, align 8
-  %1520 = getelementptr inbounds i8, ptr %1519, i64 36
+  %1520 = getelementptr inbounds nuw i8, ptr %1519, i64 36
   %1521 = load i32, ptr %1520, align 4
-  %1522 = getelementptr inbounds i8, ptr %1519, i64 68
+  %1522 = getelementptr inbounds nuw i8, ptr %1519, i64 68
   %1523 = load i32, ptr %1522, align 4
   %1524 = icmp eq i32 %1521, %1523
   %.1257 = select i1 %1524, i32 2453, i32 2461
@@ -4955,9 +4953,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1525:                                             ; preds = %1466
   %1526 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1527 = load ptr, ptr %1526, align 8
-  %1528 = getelementptr inbounds i8, ptr %1527, i64 36
+  %1528 = getelementptr inbounds nuw i8, ptr %1527, i64 36
   %1529 = load i32, ptr %1528, align 4
-  %1530 = getelementptr inbounds i8, ptr %1527, i64 68
+  %1530 = getelementptr inbounds nuw i8, ptr %1527, i64 68
   %1531 = load i32, ptr %1530, align 4
   %1532 = icmp eq i32 %1529, %1531
   %.1258 = select i1 %1532, i32 2451, i32 2459
@@ -4966,9 +4964,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1533:                                             ; preds = %1466
   %1534 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1535 = load ptr, ptr %1534, align 8
-  %1536 = getelementptr inbounds i8, ptr %1535, i64 36
+  %1536 = getelementptr inbounds nuw i8, ptr %1535, i64 36
   %1537 = load i32, ptr %1536, align 4
-  %1538 = getelementptr inbounds i8, ptr %1535, i64 68
+  %1538 = getelementptr inbounds nuw i8, ptr %1535, i64 68
   %1539 = load i32, ptr %1538, align 4
   %1540 = icmp eq i32 %1537, %1539
   %.1259 = select i1 %1540, i32 2447, i32 2458
@@ -4977,9 +4975,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1541:                                             ; preds = %1466
   %1542 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1543 = load ptr, ptr %1542, align 8
-  %1544 = getelementptr inbounds i8, ptr %1543, i64 36
+  %1544 = getelementptr inbounds nuw i8, ptr %1543, i64 36
   %1545 = load i32, ptr %1544, align 4
-  %1546 = getelementptr inbounds i8, ptr %1543, i64 68
+  %1546 = getelementptr inbounds nuw i8, ptr %1543, i64 68
   %1547 = load i32, ptr %1546, align 4
   %1548 = icmp eq i32 %1545, %1547
   %.1260 = select i1 %1548, i32 2448, i32 2458
@@ -5012,9 +5010,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1562:                                             ; preds = %1559
   %1563 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1564 = load ptr, ptr %1563, align 8
-  %1565 = getelementptr inbounds i8, ptr %1564, i64 36
+  %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 36
   %1566 = load i32, ptr %1565, align 4
-  %1567 = getelementptr inbounds i8, ptr %1564, i64 68
+  %1567 = getelementptr inbounds nuw i8, ptr %1564, i64 68
   %1568 = load i32, ptr %1567, align 4
   %1569 = icmp eq i32 %1566, %1568
   %.1262 = select i1 %1569, i32 2449, i32 2454
@@ -5023,9 +5021,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1570:                                             ; preds = %1559
   %1571 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1572 = load ptr, ptr %1571, align 8
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 36
+  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 36
   %1574 = load i32, ptr %1573, align 4
-  %1575 = getelementptr inbounds i8, ptr %1572, i64 68
+  %1575 = getelementptr inbounds nuw i8, ptr %1572, i64 68
   %1576 = load i32, ptr %1575, align 4
   %1577 = icmp eq i32 %1574, %1576
   %.1263 = select i1 %1577, i32 2450, i32 2454
@@ -5042,9 +5040,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1581:                                             ; preds = %1578
   %1582 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1583 = load ptr, ptr %1582, align 8
-  %1584 = getelementptr inbounds i8, ptr %1583, i64 36
+  %1584 = getelementptr inbounds nuw i8, ptr %1583, i64 36
   %1585 = load i32, ptr %1584, align 4
-  %1586 = getelementptr inbounds i8, ptr %1583, i64 68
+  %1586 = getelementptr inbounds nuw i8, ptr %1583, i64 68
   %1587 = load i32, ptr %1586, align 4
   %1588 = icmp eq i32 %1585, %1587
   %.1264 = select i1 %1588, i32 2449, i32 2508
@@ -5053,9 +5051,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1589:                                             ; preds = %1578
   %1590 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1591 = load ptr, ptr %1590, align 8
-  %1592 = getelementptr inbounds i8, ptr %1591, i64 36
+  %1592 = getelementptr inbounds nuw i8, ptr %1591, i64 36
   %1593 = load i32, ptr %1592, align 4
-  %1594 = getelementptr inbounds i8, ptr %1591, i64 68
+  %1594 = getelementptr inbounds nuw i8, ptr %1591, i64 68
   %1595 = load i32, ptr %1594, align 4
   %1596 = icmp eq i32 %1593, %1595
   %.1265 = select i1 %1596, i32 2450, i32 2508
@@ -5072,9 +5070,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1600:                                             ; preds = %1597
   %1601 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1602 = load ptr, ptr %1601, align 8
-  %1603 = getelementptr inbounds i8, ptr %1602, i64 36
+  %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 36
   %1604 = load i32, ptr %1603, align 4
-  %1605 = getelementptr inbounds i8, ptr %1602, i64 68
+  %1605 = getelementptr inbounds nuw i8, ptr %1602, i64 68
   %1606 = load i32, ptr %1605, align 4
   %1607 = icmp eq i32 %1604, %1606
   %.1266 = select i1 %1607, i32 2449, i32 2457
@@ -5083,9 +5081,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1608:                                             ; preds = %1597
   %1609 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1610 = load ptr, ptr %1609, align 8
-  %1611 = getelementptr inbounds i8, ptr %1610, i64 36
+  %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 36
   %1612 = load i32, ptr %1611, align 4
-  %1613 = getelementptr inbounds i8, ptr %1610, i64 68
+  %1613 = getelementptr inbounds nuw i8, ptr %1610, i64 68
   %1614 = load i32, ptr %1613, align 4
   %1615 = icmp eq i32 %1612, %1614
   %.1267 = select i1 %1615, i32 2450, i32 2457
@@ -5102,9 +5100,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1619:                                             ; preds = %1616
   %1620 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1621 = load ptr, ptr %1620, align 8
-  %1622 = getelementptr inbounds i8, ptr %1621, i64 36
+  %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 36
   %1623 = load i32, ptr %1622, align 4
-  %1624 = getelementptr inbounds i8, ptr %1621, i64 68
+  %1624 = getelementptr inbounds nuw i8, ptr %1621, i64 68
   %1625 = load i32, ptr %1624, align 4
   %1626 = icmp eq i32 %1623, %1625
   %.1268 = select i1 %1626, i32 2449, i32 2509
@@ -5113,9 +5111,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1627:                                             ; preds = %1616
   %1628 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1629 = load ptr, ptr %1628, align 8
-  %1630 = getelementptr inbounds i8, ptr %1629, i64 36
+  %1630 = getelementptr inbounds nuw i8, ptr %1629, i64 36
   %1631 = load i32, ptr %1630, align 4
-  %1632 = getelementptr inbounds i8, ptr %1629, i64 68
+  %1632 = getelementptr inbounds nuw i8, ptr %1629, i64 68
   %1633 = load i32, ptr %1632, align 4
   %1634 = icmp eq i32 %1631, %1633
   %.1269 = select i1 %1634, i32 2450, i32 2509
@@ -5132,9 +5130,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1638:                                             ; preds = %1635
   %1639 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1640 = load ptr, ptr %1639, align 8
-  %1641 = getelementptr inbounds i8, ptr %1640, i64 36
+  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 36
   %1642 = load i32, ptr %1641, align 4
-  %1643 = getelementptr inbounds i8, ptr %1640, i64 68
+  %1643 = getelementptr inbounds nuw i8, ptr %1640, i64 68
   %1644 = load i32, ptr %1643, align 4
   %1645 = icmp eq i32 %1642, %1644
   %.1270 = select i1 %1645, i32 2449, i32 2509
@@ -5143,9 +5141,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1646:                                             ; preds = %1635
   %1647 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1648 = load ptr, ptr %1647, align 8
-  %1649 = getelementptr inbounds i8, ptr %1648, i64 36
+  %1649 = getelementptr inbounds nuw i8, ptr %1648, i64 36
   %1650 = load i32, ptr %1649, align 4
-  %1651 = getelementptr inbounds i8, ptr %1648, i64 68
+  %1651 = getelementptr inbounds nuw i8, ptr %1648, i64 68
   %1652 = load i32, ptr %1651, align 4
   %1653 = icmp eq i32 %1650, %1652
   %.1271 = select i1 %1653, i32 2450, i32 2509
@@ -5338,9 +5336,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1707:                                             ; preds = %1703
   %1708 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1709 = load ptr, ptr %1708, align 8
-  %1710 = getelementptr inbounds i8, ptr %1709, i64 36
+  %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 36
   %1711 = load i32, ptr %1710, align 4
-  %1712 = getelementptr inbounds i8, ptr %1709, i64 68
+  %1712 = getelementptr inbounds nuw i8, ptr %1709, i64 68
   %1713 = load i32, ptr %1712, align 4
   %1714 = icmp eq i32 %1711, %1713
   %.1276 = select i1 %1714, i32 2450, i32 2509
@@ -5355,9 +5353,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1719:                                             ; preds = %1715
   %1720 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1721 = load ptr, ptr %1720, align 8
-  %1722 = getelementptr inbounds i8, ptr %1721, i64 36
+  %1722 = getelementptr inbounds nuw i8, ptr %1721, i64 36
   %1723 = load i32, ptr %1722, align 4
-  %1724 = getelementptr inbounds i8, ptr %1721, i64 68
+  %1724 = getelementptr inbounds nuw i8, ptr %1721, i64 68
   %1725 = load i32, ptr %1724, align 4
   %1726 = icmp eq i32 %1723, %1725
   %.1277 = select i1 %1726, i32 2450, i32 2458
@@ -5374,9 +5372,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1730:                                             ; preds = %1727
   %1731 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1732 = load ptr, ptr %1731, align 8
-  %1733 = getelementptr inbounds i8, ptr %1732, i64 36
+  %1733 = getelementptr inbounds nuw i8, ptr %1732, i64 36
   %1734 = load i32, ptr %1733, align 4
-  %1735 = getelementptr inbounds i8, ptr %1732, i64 68
+  %1735 = getelementptr inbounds nuw i8, ptr %1732, i64 68
   %1736 = load i32, ptr %1735, align 4
   %1737 = icmp eq i32 %1734, %1736
   %.1278 = select i1 %1737, i32 2449, i32 2509
@@ -5385,9 +5383,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1738:                                             ; preds = %1727
   %1739 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1740 = load ptr, ptr %1739, align 8
-  %1741 = getelementptr inbounds i8, ptr %1740, i64 36
+  %1741 = getelementptr inbounds nuw i8, ptr %1740, i64 36
   %1742 = load i32, ptr %1741, align 4
-  %1743 = getelementptr inbounds i8, ptr %1740, i64 68
+  %1743 = getelementptr inbounds nuw i8, ptr %1740, i64 68
   %1744 = load i32, ptr %1743, align 4
   %1745 = icmp eq i32 %1742, %1744
   %.1279 = select i1 %1745, i32 2450, i32 2509
@@ -5410,9 +5408,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1749:                                             ; preds = %1746
   %1750 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1751 = load ptr, ptr %1750, align 8
-  %1752 = getelementptr inbounds i8, ptr %1751, i64 36
+  %1752 = getelementptr inbounds nuw i8, ptr %1751, i64 36
   %1753 = load i32, ptr %1752, align 4
-  %1754 = getelementptr inbounds i8, ptr %1751, i64 68
+  %1754 = getelementptr inbounds nuw i8, ptr %1751, i64 68
   %1755 = load i32, ptr %1754, align 4
   %1756 = icmp eq i32 %1753, %1755
   %.1280 = select i1 %1756, i32 2449, i32 2458
@@ -5421,9 +5419,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1757:                                             ; preds = %1746
   %1758 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1759 = load ptr, ptr %1758, align 8
-  %1760 = getelementptr inbounds i8, ptr %1759, i64 36
+  %1760 = getelementptr inbounds nuw i8, ptr %1759, i64 36
   %1761 = load i32, ptr %1760, align 4
-  %1762 = getelementptr inbounds i8, ptr %1759, i64 68
+  %1762 = getelementptr inbounds nuw i8, ptr %1759, i64 68
   %1763 = load i32, ptr %1762, align 4
   %1764 = icmp eq i32 %1761, %1763
   %.1281 = select i1 %1764, i32 2446, i32 2458
@@ -5432,9 +5430,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1765:                                             ; preds = %1746
   %1766 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1767 = load ptr, ptr %1766, align 8
-  %1768 = getelementptr inbounds i8, ptr %1767, i64 36
+  %1768 = getelementptr inbounds nuw i8, ptr %1767, i64 36
   %1769 = load i32, ptr %1768, align 4
-  %1770 = getelementptr inbounds i8, ptr %1767, i64 68
+  %1770 = getelementptr inbounds nuw i8, ptr %1767, i64 68
   %1771 = load i32, ptr %1770, align 4
   %1772 = icmp eq i32 %1769, %1771
   %.1282 = select i1 %1772, i32 2450, i32 2458
@@ -5443,9 +5441,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1773:                                             ; preds = %1746
   %1774 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1775 = load ptr, ptr %1774, align 8
-  %1776 = getelementptr inbounds i8, ptr %1775, i64 36
+  %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 36
   %1777 = load i32, ptr %1776, align 4
-  %1778 = getelementptr inbounds i8, ptr %1775, i64 68
+  %1778 = getelementptr inbounds nuw i8, ptr %1775, i64 68
   %1779 = load i32, ptr %1778, align 4
   %1780 = icmp eq i32 %1777, %1779
   %.1283 = select i1 %1780, i32 2452, i32 2458
@@ -5454,9 +5452,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1781:                                             ; preds = %1746
   %1782 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1783 = load ptr, ptr %1782, align 8
-  %1784 = getelementptr inbounds i8, ptr %1783, i64 36
+  %1784 = getelementptr inbounds nuw i8, ptr %1783, i64 36
   %1785 = load i32, ptr %1784, align 4
-  %1786 = getelementptr inbounds i8, ptr %1783, i64 68
+  %1786 = getelementptr inbounds nuw i8, ptr %1783, i64 68
   %1787 = load i32, ptr %1786, align 4
   %1788 = icmp eq i32 %1785, %1787
   %.1284 = select i1 %1788, i32 2443, i32 2458
@@ -5465,9 +5463,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1789:                                             ; preds = %1746
   %1790 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1791 = load ptr, ptr %1790, align 8
-  %1792 = getelementptr inbounds i8, ptr %1791, i64 36
+  %1792 = getelementptr inbounds nuw i8, ptr %1791, i64 36
   %1793 = load i32, ptr %1792, align 4
-  %1794 = getelementptr inbounds i8, ptr %1791, i64 68
+  %1794 = getelementptr inbounds nuw i8, ptr %1791, i64 68
   %1795 = load i32, ptr %1794, align 4
   %1796 = icmp eq i32 %1793, %1795
   %.1285 = select i1 %1796, i32 2445, i32 2458
@@ -5476,9 +5474,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1797:                                             ; preds = %1746
   %1798 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1799 = load ptr, ptr %1798, align 8
-  %1800 = getelementptr inbounds i8, ptr %1799, i64 36
+  %1800 = getelementptr inbounds nuw i8, ptr %1799, i64 36
   %1801 = load i32, ptr %1800, align 4
-  %1802 = getelementptr inbounds i8, ptr %1799, i64 68
+  %1802 = getelementptr inbounds nuw i8, ptr %1799, i64 68
   %1803 = load i32, ptr %1802, align 4
   %1804 = icmp eq i32 %1801, %1803
   %.1286 = select i1 %1804, i32 2453, i32 2458
@@ -5487,9 +5485,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1805:                                             ; preds = %1746
   %1806 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1807 = load ptr, ptr %1806, align 8
-  %1808 = getelementptr inbounds i8, ptr %1807, i64 36
+  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 36
   %1809 = load i32, ptr %1808, align 4
-  %1810 = getelementptr inbounds i8, ptr %1807, i64 68
+  %1810 = getelementptr inbounds nuw i8, ptr %1807, i64 68
   %1811 = load i32, ptr %1810, align 4
   %1812 = icmp eq i32 %1809, %1811
   %.1287 = select i1 %1812, i32 2451, i32 2458
@@ -5514,9 +5512,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1816:                                             ; preds = %1813
   %1817 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1818 = load ptr, ptr %1817, align 8
-  %1819 = getelementptr inbounds i8, ptr %1818, i64 36
+  %1819 = getelementptr inbounds nuw i8, ptr %1818, i64 36
   %1820 = load i32, ptr %1819, align 4
-  %1821 = getelementptr inbounds i8, ptr %1818, i64 68
+  %1821 = getelementptr inbounds nuw i8, ptr %1818, i64 68
   %1822 = load i32, ptr %1821, align 4
   %1823 = icmp eq i32 %1820, %1822
   %.1288 = select i1 %1823, i32 2449, i32 2458
@@ -5525,9 +5523,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1824:                                             ; preds = %1813
   %1825 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1826 = load ptr, ptr %1825, align 8
-  %1827 = getelementptr inbounds i8, ptr %1826, i64 36
+  %1827 = getelementptr inbounds nuw i8, ptr %1826, i64 36
   %1828 = load i32, ptr %1827, align 4
-  %1829 = getelementptr inbounds i8, ptr %1826, i64 68
+  %1829 = getelementptr inbounds nuw i8, ptr %1826, i64 68
   %1830 = load i32, ptr %1829, align 4
   %1831 = icmp eq i32 %1828, %1830
   %.1289 = select i1 %1831, i32 2446, i32 2458
@@ -5536,9 +5534,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1832:                                             ; preds = %1813
   %1833 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1834 = load ptr, ptr %1833, align 8
-  %1835 = getelementptr inbounds i8, ptr %1834, i64 36
+  %1835 = getelementptr inbounds nuw i8, ptr %1834, i64 36
   %1836 = load i32, ptr %1835, align 4
-  %1837 = getelementptr inbounds i8, ptr %1834, i64 68
+  %1837 = getelementptr inbounds nuw i8, ptr %1834, i64 68
   %1838 = load i32, ptr %1837, align 4
   %1839 = icmp eq i32 %1836, %1838
   %.1290 = select i1 %1839, i32 2450, i32 2458
@@ -5547,9 +5545,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1840:                                             ; preds = %1813
   %1841 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1842 = load ptr, ptr %1841, align 8
-  %1843 = getelementptr inbounds i8, ptr %1842, i64 36
+  %1843 = getelementptr inbounds nuw i8, ptr %1842, i64 36
   %1844 = load i32, ptr %1843, align 4
-  %1845 = getelementptr inbounds i8, ptr %1842, i64 68
+  %1845 = getelementptr inbounds nuw i8, ptr %1842, i64 68
   %1846 = load i32, ptr %1845, align 4
   %1847 = icmp eq i32 %1844, %1846
   %.1291 = select i1 %1847, i32 2452, i32 2458
@@ -5558,9 +5556,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1848:                                             ; preds = %1813
   %1849 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1850 = load ptr, ptr %1849, align 8
-  %1851 = getelementptr inbounds i8, ptr %1850, i64 36
+  %1851 = getelementptr inbounds nuw i8, ptr %1850, i64 36
   %1852 = load i32, ptr %1851, align 4
-  %1853 = getelementptr inbounds i8, ptr %1850, i64 68
+  %1853 = getelementptr inbounds nuw i8, ptr %1850, i64 68
   %1854 = load i32, ptr %1853, align 4
   %1855 = icmp eq i32 %1852, %1854
   %.1292 = select i1 %1855, i32 2443, i32 2458
@@ -5569,9 +5567,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1856:                                             ; preds = %1813
   %1857 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1858 = load ptr, ptr %1857, align 8
-  %1859 = getelementptr inbounds i8, ptr %1858, i64 36
+  %1859 = getelementptr inbounds nuw i8, ptr %1858, i64 36
   %1860 = load i32, ptr %1859, align 4
-  %1861 = getelementptr inbounds i8, ptr %1858, i64 68
+  %1861 = getelementptr inbounds nuw i8, ptr %1858, i64 68
   %1862 = load i32, ptr %1861, align 4
   %1863 = icmp eq i32 %1860, %1862
   %.1293 = select i1 %1863, i32 2445, i32 2458
@@ -5580,9 +5578,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1864:                                             ; preds = %1813
   %1865 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1866 = load ptr, ptr %1865, align 8
-  %1867 = getelementptr inbounds i8, ptr %1866, i64 36
+  %1867 = getelementptr inbounds nuw i8, ptr %1866, i64 36
   %1868 = load i32, ptr %1867, align 4
-  %1869 = getelementptr inbounds i8, ptr %1866, i64 68
+  %1869 = getelementptr inbounds nuw i8, ptr %1866, i64 68
   %1870 = load i32, ptr %1869, align 4
   %1871 = icmp eq i32 %1868, %1870
   %.1294 = select i1 %1871, i32 2453, i32 2458
@@ -5591,9 +5589,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1872:                                             ; preds = %1813
   %1873 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1874 = load ptr, ptr %1873, align 8
-  %1875 = getelementptr inbounds i8, ptr %1874, i64 36
+  %1875 = getelementptr inbounds nuw i8, ptr %1874, i64 36
   %1876 = load i32, ptr %1875, align 4
-  %1877 = getelementptr inbounds i8, ptr %1874, i64 68
+  %1877 = getelementptr inbounds nuw i8, ptr %1874, i64 68
   %1878 = load i32, ptr %1877, align 4
   %1879 = icmp eq i32 %1876, %1878
   %.1295 = select i1 %1879, i32 2451, i32 2458
@@ -5602,9 +5600,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1880:                                             ; preds = %1813
   %1881 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1882 = load ptr, ptr %1881, align 8
-  %1883 = getelementptr inbounds i8, ptr %1882, i64 36
+  %1883 = getelementptr inbounds nuw i8, ptr %1882, i64 36
   %1884 = load i32, ptr %1883, align 4
-  %1885 = getelementptr inbounds i8, ptr %1882, i64 68
+  %1885 = getelementptr inbounds nuw i8, ptr %1882, i64 68
   %1886 = load i32, ptr %1885, align 4
   %1887 = icmp eq i32 %1884, %1886
   %.1296 = select i1 %1887, i32 2447, i32 2458
@@ -5613,9 +5611,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1888:                                             ; preds = %1813
   %1889 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1890 = load ptr, ptr %1889, align 8
-  %1891 = getelementptr inbounds i8, ptr %1890, i64 36
+  %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 36
   %1892 = load i32, ptr %1891, align 4
-  %1893 = getelementptr inbounds i8, ptr %1890, i64 68
+  %1893 = getelementptr inbounds nuw i8, ptr %1890, i64 68
   %1894 = load i32, ptr %1893, align 4
   %1895 = icmp eq i32 %1892, %1894
   %.1297 = select i1 %1895, i32 2448, i32 2458
@@ -5637,9 +5635,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1899:                                             ; preds = %1896
   %1900 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1901 = load ptr, ptr %1900, align 8
-  %1902 = getelementptr inbounds i8, ptr %1901, i64 36
+  %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 36
   %1903 = load i32, ptr %1902, align 4
-  %1904 = getelementptr inbounds i8, ptr %1901, i64 68
+  %1904 = getelementptr inbounds nuw i8, ptr %1901, i64 68
   %1905 = load i32, ptr %1904, align 4
   %1906 = icmp eq i32 %1903, %1905
   %.1298 = select i1 %1906, i32 2446, i32 2499
@@ -5648,9 +5646,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1907:                                             ; preds = %1896
   %1908 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1909 = load ptr, ptr %1908, align 8
-  %1910 = getelementptr inbounds i8, ptr %1909, i64 36
+  %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 36
   %1911 = load i32, ptr %1910, align 4
-  %1912 = getelementptr inbounds i8, ptr %1909, i64 68
+  %1912 = getelementptr inbounds nuw i8, ptr %1909, i64 68
   %1913 = load i32, ptr %1912, align 4
   %1914 = icmp eq i32 %1911, %1913
   %.1299 = select i1 %1914, i32 2452, i32 2499
@@ -5659,9 +5657,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1915:                                             ; preds = %1896
   %1916 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1917 = load ptr, ptr %1916, align 8
-  %1918 = getelementptr inbounds i8, ptr %1917, i64 36
+  %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 36
   %1919 = load i32, ptr %1918, align 4
-  %1920 = getelementptr inbounds i8, ptr %1917, i64 68
+  %1920 = getelementptr inbounds nuw i8, ptr %1917, i64 68
   %1921 = load i32, ptr %1920, align 4
   %1922 = icmp eq i32 %1919, %1921
   %.1300 = select i1 %1922, i32 2445, i32 2499
@@ -5670,9 +5668,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1923:                                             ; preds = %1896
   %1924 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1925 = load ptr, ptr %1924, align 8
-  %1926 = getelementptr inbounds i8, ptr %1925, i64 36
+  %1926 = getelementptr inbounds nuw i8, ptr %1925, i64 36
   %1927 = load i32, ptr %1926, align 4
-  %1928 = getelementptr inbounds i8, ptr %1925, i64 68
+  %1928 = getelementptr inbounds nuw i8, ptr %1925, i64 68
   %1929 = load i32, ptr %1928, align 4
   %1930 = icmp eq i32 %1927, %1929
   %.1301 = select i1 %1930, i32 2453, i32 2499
@@ -5681,9 +5679,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1931:                                             ; preds = %1896
   %1932 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1933 = load ptr, ptr %1932, align 8
-  %1934 = getelementptr inbounds i8, ptr %1933, i64 36
+  %1934 = getelementptr inbounds nuw i8, ptr %1933, i64 36
   %1935 = load i32, ptr %1934, align 4
-  %1936 = getelementptr inbounds i8, ptr %1933, i64 68
+  %1936 = getelementptr inbounds nuw i8, ptr %1933, i64 68
   %1937 = load i32, ptr %1936, align 4
   %1938 = icmp eq i32 %1935, %1937
   %.1302 = select i1 %1938, i32 2451, i32 2499
@@ -5692,9 +5690,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1939:                                             ; preds = %1896
   %1940 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1941 = load ptr, ptr %1940, align 8
-  %1942 = getelementptr inbounds i8, ptr %1941, i64 36
+  %1942 = getelementptr inbounds nuw i8, ptr %1941, i64 36
   %1943 = load i32, ptr %1942, align 4
-  %1944 = getelementptr inbounds i8, ptr %1941, i64 68
+  %1944 = getelementptr inbounds nuw i8, ptr %1941, i64 68
   %1945 = load i32, ptr %1944, align 4
   %1946 = icmp eq i32 %1943, %1945
   %.1303 = select i1 %1946, i32 2447, i32 2499
@@ -5703,9 +5701,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1947:                                             ; preds = %1896
   %1948 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1949 = load ptr, ptr %1948, align 8
-  %1950 = getelementptr inbounds i8, ptr %1949, i64 36
+  %1950 = getelementptr inbounds nuw i8, ptr %1949, i64 36
   %1951 = load i32, ptr %1950, align 4
-  %1952 = getelementptr inbounds i8, ptr %1949, i64 68
+  %1952 = getelementptr inbounds nuw i8, ptr %1949, i64 68
   %1953 = load i32, ptr %1952, align 4
   %1954 = icmp eq i32 %1951, %1953
   %.1304 = select i1 %1954, i32 2448, i32 2499
@@ -5722,9 +5720,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1958:                                             ; preds = %1955
   %1959 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1960 = load ptr, ptr %1959, align 8
-  %1961 = getelementptr inbounds i8, ptr %1960, i64 36
+  %1961 = getelementptr inbounds nuw i8, ptr %1960, i64 36
   %1962 = load i32, ptr %1961, align 4
-  %1963 = getelementptr inbounds i8, ptr %1960, i64 68
+  %1963 = getelementptr inbounds nuw i8, ptr %1960, i64 68
   %1964 = load i32, ptr %1963, align 4
   %1965 = icmp eq i32 %1962, %1964
   %.1305 = select i1 %1965, i32 2452, i32 2454
@@ -5733,9 +5731,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1966:                                             ; preds = %1955
   %1967 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1968 = load ptr, ptr %1967, align 8
-  %1969 = getelementptr inbounds i8, ptr %1968, i64 36
+  %1969 = getelementptr inbounds nuw i8, ptr %1968, i64 36
   %1970 = load i32, ptr %1969, align 4
-  %1971 = getelementptr inbounds i8, ptr %1968, i64 68
+  %1971 = getelementptr inbounds nuw i8, ptr %1968, i64 68
   %1972 = load i32, ptr %1971, align 4
   %1973 = icmp eq i32 %1970, %1972
   %.1306 = select i1 %1973, i32 2453, i32 2454
@@ -5752,9 +5750,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1977:                                             ; preds = %1974
   %1978 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1979 = load ptr, ptr %1978, align 8
-  %1980 = getelementptr inbounds i8, ptr %1979, i64 36
+  %1980 = getelementptr inbounds nuw i8, ptr %1979, i64 36
   %1981 = load i32, ptr %1980, align 4
-  %1982 = getelementptr inbounds i8, ptr %1979, i64 68
+  %1982 = getelementptr inbounds nuw i8, ptr %1979, i64 68
   %1983 = load i32, ptr %1982, align 4
   %1984 = icmp eq i32 %1981, %1983
   %.1307 = select i1 %1984, i32 2452, i32 2455
@@ -5763,9 +5761,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1985:                                             ; preds = %1974
   %1986 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1987 = load ptr, ptr %1986, align 8
-  %1988 = getelementptr inbounds i8, ptr %1987, i64 36
+  %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 36
   %1989 = load i32, ptr %1988, align 4
-  %1990 = getelementptr inbounds i8, ptr %1987, i64 68
+  %1990 = getelementptr inbounds nuw i8, ptr %1987, i64 68
   %1991 = load i32, ptr %1990, align 4
   %1992 = icmp eq i32 %1989, %1991
   %.1308 = select i1 %1992, i32 2453, i32 2455
@@ -5782,9 +5780,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 1996:                                             ; preds = %1993
   %1997 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1998 = load ptr, ptr %1997, align 8
-  %1999 = getelementptr inbounds i8, ptr %1998, i64 36
+  %1999 = getelementptr inbounds nuw i8, ptr %1998, i64 36
   %2000 = load i32, ptr %1999, align 4
-  %2001 = getelementptr inbounds i8, ptr %1998, i64 68
+  %2001 = getelementptr inbounds nuw i8, ptr %1998, i64 68
   %2002 = load i32, ptr %2001, align 4
   %2003 = icmp eq i32 %2000, %2002
   %.1309 = select i1 %2003, i32 2452, i32 2512
@@ -5793,9 +5791,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2004:                                             ; preds = %1993
   %2005 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2006 = load ptr, ptr %2005, align 8
-  %2007 = getelementptr inbounds i8, ptr %2006, i64 36
+  %2007 = getelementptr inbounds nuw i8, ptr %2006, i64 36
   %2008 = load i32, ptr %2007, align 4
-  %2009 = getelementptr inbounds i8, ptr %2006, i64 68
+  %2009 = getelementptr inbounds nuw i8, ptr %2006, i64 68
   %2010 = load i32, ptr %2009, align 4
   %2011 = icmp eq i32 %2008, %2010
   %.1310 = select i1 %2011, i32 2453, i32 2512
@@ -5812,9 +5810,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2015:                                             ; preds = %2012
   %2016 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2017 = load ptr, ptr %2016, align 8
-  %2018 = getelementptr inbounds i8, ptr %2017, i64 36
+  %2018 = getelementptr inbounds nuw i8, ptr %2017, i64 36
   %2019 = load i32, ptr %2018, align 4
-  %2020 = getelementptr inbounds i8, ptr %2017, i64 68
+  %2020 = getelementptr inbounds nuw i8, ptr %2017, i64 68
   %2021 = load i32, ptr %2020, align 4
   %2022 = icmp eq i32 %2019, %2021
   %.1311 = select i1 %2022, i32 2452, i32 2457
@@ -5823,9 +5821,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2023:                                             ; preds = %2012
   %2024 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2025 = load ptr, ptr %2024, align 8
-  %2026 = getelementptr inbounds i8, ptr %2025, i64 36
+  %2026 = getelementptr inbounds nuw i8, ptr %2025, i64 36
   %2027 = load i32, ptr %2026, align 4
-  %2028 = getelementptr inbounds i8, ptr %2025, i64 68
+  %2028 = getelementptr inbounds nuw i8, ptr %2025, i64 68
   %2029 = load i32, ptr %2028, align 4
   %2030 = icmp eq i32 %2027, %2029
   %.1312 = select i1 %2030, i32 2453, i32 2457
@@ -5842,9 +5840,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2034:                                             ; preds = %2031
   %2035 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2036 = load ptr, ptr %2035, align 8
-  %2037 = getelementptr inbounds i8, ptr %2036, i64 36
+  %2037 = getelementptr inbounds nuw i8, ptr %2036, i64 36
   %2038 = load i32, ptr %2037, align 4
-  %2039 = getelementptr inbounds i8, ptr %2036, i64 68
+  %2039 = getelementptr inbounds nuw i8, ptr %2036, i64 68
   %2040 = load i32, ptr %2039, align 4
   %2041 = icmp eq i32 %2038, %2040
   %.1313 = select i1 %2041, i32 2452, i32 2498
@@ -5853,9 +5851,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2042:                                             ; preds = %2031
   %2043 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2044 = load ptr, ptr %2043, align 8
-  %2045 = getelementptr inbounds i8, ptr %2044, i64 36
+  %2045 = getelementptr inbounds nuw i8, ptr %2044, i64 36
   %2046 = load i32, ptr %2045, align 4
-  %2047 = getelementptr inbounds i8, ptr %2044, i64 68
+  %2047 = getelementptr inbounds nuw i8, ptr %2044, i64 68
   %2048 = load i32, ptr %2047, align 4
   %2049 = icmp eq i32 %2046, %2048
   %.1314 = select i1 %2049, i32 2453, i32 2498
@@ -5872,9 +5870,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2053:                                             ; preds = %2050
   %2054 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2055 = load ptr, ptr %2054, align 8
-  %2056 = getelementptr inbounds i8, ptr %2055, i64 36
+  %2056 = getelementptr inbounds nuw i8, ptr %2055, i64 36
   %2057 = load i32, ptr %2056, align 4
-  %2058 = getelementptr inbounds i8, ptr %2055, i64 68
+  %2058 = getelementptr inbounds nuw i8, ptr %2055, i64 68
   %2059 = load i32, ptr %2058, align 4
   %2060 = icmp eq i32 %2057, %2059
   %.1315 = select i1 %2060, i32 2452, i32 2513
@@ -5883,9 +5881,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2061:                                             ; preds = %2050
   %2062 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2063 = load ptr, ptr %2062, align 8
-  %2064 = getelementptr inbounds i8, ptr %2063, i64 36
+  %2064 = getelementptr inbounds nuw i8, ptr %2063, i64 36
   %2065 = load i32, ptr %2064, align 4
-  %2066 = getelementptr inbounds i8, ptr %2063, i64 68
+  %2066 = getelementptr inbounds nuw i8, ptr %2063, i64 68
   %2067 = load i32, ptr %2066, align 4
   %2068 = icmp eq i32 %2065, %2067
   %.1316 = select i1 %2068, i32 2453, i32 2513
@@ -5902,9 +5900,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2072:                                             ; preds = %2069
   %2073 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2074 = load ptr, ptr %2073, align 8
-  %2075 = getelementptr inbounds i8, ptr %2074, i64 36
+  %2075 = getelementptr inbounds nuw i8, ptr %2074, i64 36
   %2076 = load i32, ptr %2075, align 4
-  %2077 = getelementptr inbounds i8, ptr %2074, i64 68
+  %2077 = getelementptr inbounds nuw i8, ptr %2074, i64 68
   %2078 = load i32, ptr %2077, align 4
   %2079 = icmp eq i32 %2076, %2078
   %.1317 = select i1 %2079, i32 2452, i32 2460
@@ -5913,9 +5911,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2080:                                             ; preds = %2069
   %2081 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2082 = load ptr, ptr %2081, align 8
-  %2083 = getelementptr inbounds i8, ptr %2082, i64 36
+  %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 36
   %2084 = load i32, ptr %2083, align 4
-  %2085 = getelementptr inbounds i8, ptr %2082, i64 68
+  %2085 = getelementptr inbounds nuw i8, ptr %2082, i64 68
   %2086 = load i32, ptr %2085, align 4
   %2087 = icmp eq i32 %2084, %2086
   %.1318 = select i1 %2087, i32 2453, i32 2461
@@ -5932,9 +5930,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2091:                                             ; preds = %2088
   %2092 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2093 = load ptr, ptr %2092, align 8
-  %2094 = getelementptr inbounds i8, ptr %2093, i64 36
+  %2094 = getelementptr inbounds nuw i8, ptr %2093, i64 36
   %2095 = load i32, ptr %2094, align 4
-  %2096 = getelementptr inbounds i8, ptr %2093, i64 68
+  %2096 = getelementptr inbounds nuw i8, ptr %2093, i64 68
   %2097 = load i32, ptr %2096, align 4
   %2098 = icmp eq i32 %2095, %2097
   %.1319 = select i1 %2098, i32 2452, i32 2460
@@ -5943,9 +5941,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2099:                                             ; preds = %2088
   %2100 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2101 = load ptr, ptr %2100, align 8
-  %2102 = getelementptr inbounds i8, ptr %2101, i64 36
+  %2102 = getelementptr inbounds nuw i8, ptr %2101, i64 36
   %2103 = load i32, ptr %2102, align 4
-  %2104 = getelementptr inbounds i8, ptr %2101, i64 68
+  %2104 = getelementptr inbounds nuw i8, ptr %2101, i64 68
   %2105 = load i32, ptr %2104, align 4
   %2106 = icmp eq i32 %2103, %2105
   %.1320 = select i1 %2106, i32 2453, i32 2461
@@ -5962,9 +5960,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2110:                                             ; preds = %2107
   %2111 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2112 = load ptr, ptr %2111, align 8
-  %2113 = getelementptr inbounds i8, ptr %2112, i64 36
+  %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 36
   %2114 = load i32, ptr %2113, align 4
-  %2115 = getelementptr inbounds i8, ptr %2112, i64 68
+  %2115 = getelementptr inbounds nuw i8, ptr %2112, i64 68
   %2116 = load i32, ptr %2115, align 4
   %2117 = icmp eq i32 %2114, %2116
   %.1321 = select i1 %2117, i32 2452, i32 2460
@@ -5973,9 +5971,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2118:                                             ; preds = %2107
   %2119 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2120 = load ptr, ptr %2119, align 8
-  %2121 = getelementptr inbounds i8, ptr %2120, i64 36
+  %2121 = getelementptr inbounds nuw i8, ptr %2120, i64 36
   %2122 = load i32, ptr %2121, align 4
-  %2123 = getelementptr inbounds i8, ptr %2120, i64 68
+  %2123 = getelementptr inbounds nuw i8, ptr %2120, i64 68
   %2124 = load i32, ptr %2123, align 4
   %2125 = icmp eq i32 %2122, %2124
   %.1322 = select i1 %2125, i32 2453, i32 2461
@@ -6016,9 +6014,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2139:                                             ; preds = %2136
   %2140 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2141 = load ptr, ptr %2140, align 8
-  %2142 = getelementptr inbounds i8, ptr %2141, i64 36
+  %2142 = getelementptr inbounds nuw i8, ptr %2141, i64 36
   %2143 = load i32, ptr %2142, align 4
-  %2144 = getelementptr inbounds i8, ptr %2141, i64 68
+  %2144 = getelementptr inbounds nuw i8, ptr %2141, i64 68
   %2145 = load i32, ptr %2144, align 4
   %2146 = icmp eq i32 %2143, %2145
   %.1324 = select i1 %2146, i32 2449, i32 2444
@@ -6027,9 +6025,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2147:                                             ; preds = %2136
   %2148 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2149 = load ptr, ptr %2148, align 8
-  %2150 = getelementptr inbounds i8, ptr %2149, i64 36
+  %2150 = getelementptr inbounds nuw i8, ptr %2149, i64 36
   %2151 = load i32, ptr %2150, align 4
-  %2152 = getelementptr inbounds i8, ptr %2149, i64 68
+  %2152 = getelementptr inbounds nuw i8, ptr %2149, i64 68
   %2153 = load i32, ptr %2152, align 4
   %2154 = icmp eq i32 %2151, %2153
   %.1325 = select i1 %2154, i32 2446, i32 2444
@@ -6038,9 +6036,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2155:                                             ; preds = %2136
   %2156 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2157 = load ptr, ptr %2156, align 8
-  %2158 = getelementptr inbounds i8, ptr %2157, i64 36
+  %2158 = getelementptr inbounds nuw i8, ptr %2157, i64 36
   %2159 = load i32, ptr %2158, align 4
-  %2160 = getelementptr inbounds i8, ptr %2157, i64 68
+  %2160 = getelementptr inbounds nuw i8, ptr %2157, i64 68
   %2161 = load i32, ptr %2160, align 4
   %2162 = icmp eq i32 %2159, %2161
   %.1326 = select i1 %2162, i32 2450, i32 2444
@@ -6049,9 +6047,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2163:                                             ; preds = %2136
   %2164 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2165 = load ptr, ptr %2164, align 8
-  %2166 = getelementptr inbounds i8, ptr %2165, i64 36
+  %2166 = getelementptr inbounds nuw i8, ptr %2165, i64 36
   %2167 = load i32, ptr %2166, align 4
-  %2168 = getelementptr inbounds i8, ptr %2165, i64 68
+  %2168 = getelementptr inbounds nuw i8, ptr %2165, i64 68
   %2169 = load i32, ptr %2168, align 4
   %2170 = icmp eq i32 %2167, %2169
   %.1327 = select i1 %2170, i32 2452, i32 2444
@@ -6060,9 +6058,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2171:                                             ; preds = %2136
   %2172 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2173 = load ptr, ptr %2172, align 8
-  %2174 = getelementptr inbounds i8, ptr %2173, i64 36
+  %2174 = getelementptr inbounds nuw i8, ptr %2173, i64 36
   %2175 = load i32, ptr %2174, align 4
-  %2176 = getelementptr inbounds i8, ptr %2173, i64 68
+  %2176 = getelementptr inbounds nuw i8, ptr %2173, i64 68
   %2177 = load i32, ptr %2176, align 4
   %2178 = icmp eq i32 %2175, %2177
   %.1328 = select i1 %2178, i32 2443, i32 2444
@@ -6071,9 +6069,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2179:                                             ; preds = %2136
   %2180 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2181 = load ptr, ptr %2180, align 8
-  %2182 = getelementptr inbounds i8, ptr %2181, i64 36
+  %2182 = getelementptr inbounds nuw i8, ptr %2181, i64 36
   %2183 = load i32, ptr %2182, align 4
-  %2184 = getelementptr inbounds i8, ptr %2181, i64 68
+  %2184 = getelementptr inbounds nuw i8, ptr %2181, i64 68
   %2185 = load i32, ptr %2184, align 4
   %2186 = icmp eq i32 %2183, %2185
   %.1329 = select i1 %2186, i32 2445, i32 2444
@@ -6082,9 +6080,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2187:                                             ; preds = %2136
   %2188 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2189 = load ptr, ptr %2188, align 8
-  %2190 = getelementptr inbounds i8, ptr %2189, i64 36
+  %2190 = getelementptr inbounds nuw i8, ptr %2189, i64 36
   %2191 = load i32, ptr %2190, align 4
-  %2192 = getelementptr inbounds i8, ptr %2189, i64 68
+  %2192 = getelementptr inbounds nuw i8, ptr %2189, i64 68
   %2193 = load i32, ptr %2192, align 4
   %2194 = icmp eq i32 %2191, %2193
   %.1330 = select i1 %2194, i32 2453, i32 2444
@@ -6093,9 +6091,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2195:                                             ; preds = %2136
   %2196 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2197 = load ptr, ptr %2196, align 8
-  %2198 = getelementptr inbounds i8, ptr %2197, i64 36
+  %2198 = getelementptr inbounds nuw i8, ptr %2197, i64 36
   %2199 = load i32, ptr %2198, align 4
-  %2200 = getelementptr inbounds i8, ptr %2197, i64 68
+  %2200 = getelementptr inbounds nuw i8, ptr %2197, i64 68
   %2201 = load i32, ptr %2200, align 4
   %2202 = icmp eq i32 %2199, %2201
   %.1331 = select i1 %2202, i32 2451, i32 2444
@@ -6104,9 +6102,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2203:                                             ; preds = %2136
   %2204 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2205 = load ptr, ptr %2204, align 8
-  %2206 = getelementptr inbounds i8, ptr %2205, i64 36
+  %2206 = getelementptr inbounds nuw i8, ptr %2205, i64 36
   %2207 = load i32, ptr %2206, align 4
-  %2208 = getelementptr inbounds i8, ptr %2205, i64 68
+  %2208 = getelementptr inbounds nuw i8, ptr %2205, i64 68
   %2209 = load i32, ptr %2208, align 4
   %2210 = icmp eq i32 %2207, %2209
   %.1332 = select i1 %2210, i32 2447, i32 2444
@@ -6115,9 +6113,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2211:                                             ; preds = %2136
   %2212 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2213 = load ptr, ptr %2212, align 8
-  %2214 = getelementptr inbounds i8, ptr %2213, i64 36
+  %2214 = getelementptr inbounds nuw i8, ptr %2213, i64 36
   %2215 = load i32, ptr %2214, align 4
-  %2216 = getelementptr inbounds i8, ptr %2213, i64 68
+  %2216 = getelementptr inbounds nuw i8, ptr %2213, i64 68
   %2217 = load i32, ptr %2216, align 4
   %2218 = icmp eq i32 %2215, %2217
   %.1333 = select i1 %2218, i32 2448, i32 2444
@@ -6134,9 +6132,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2222:                                             ; preds = %2219
   %2223 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2224 = load ptr, ptr %2223, align 8
-  %2225 = getelementptr inbounds i8, ptr %2224, i64 36
+  %2225 = getelementptr inbounds nuw i8, ptr %2224, i64 36
   %2226 = load i32, ptr %2225, align 4
-  %2227 = getelementptr inbounds i8, ptr %2224, i64 68
+  %2227 = getelementptr inbounds nuw i8, ptr %2224, i64 68
   %2228 = load i32, ptr %2227, align 4
   %2229 = icmp eq i32 %2226, %2228
   %.1334 = select i1 %2229, i32 2447, i32 2444
@@ -6145,9 +6143,9 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
 2230:                                             ; preds = %2219
   %2231 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2232 = load ptr, ptr %2231, align 8
-  %2233 = getelementptr inbounds i8, ptr %2232, i64 36
+  %2233 = getelementptr inbounds nuw i8, ptr %2232, i64 36
   %2234 = load i32, ptr %2233, align 4
-  %2235 = getelementptr inbounds i8, ptr %2232, i64 68
+  %2235 = getelementptr inbounds nuw i8, ptr %2232, i64 68
   %2236 = load i32, ptr %2235, align 4
   %2237 = icmp eq i32 %2234, %2236
   %.1335 = select i1 %2237, i32 2448, i32 2444
@@ -6170,7 +6168,7 @@ define dso_local noundef range(i32 2411, 2514) i32 @_ZNK4llvm19X86GenSubtargetIn
   br label %.fold.split
 
 2248:                                             ; preds = %2219, %2136, %2107, %2088, %2069, %2050, %2031, %2012, %1993, %1974, %1955, %1896, %1813, %1746, %1727, %1635, %1616, %1597, %1578, %1559, %1466, %1447, %1412, %1329, %1302, %1267, %1184, %1165, %1146, %1065, %990, %918, %859, %800, %742, %691, %632, %581, %506, %439, %372, %305, %230, %163, %80, %2238, %2126, %1715, %1703, %1693, %1680, %1667, %1654, %1549, %1133, %1120, %1049, %977, %70, %57, %44, %31, %18, %5, %4
-  tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #22
+  tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #23
   unreachable
 
 .fold.split1802:                                  ; preds = %._crit_edge1939, %._crit_edge1939
@@ -6371,7 +6369,7 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm19X86GenSubtargetInfo24resolveVariantSchedClassEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
-  %6 = tail call noundef i32 @_ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #21
+  %6 = tail call noundef i32 @_ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #22
   ret i32 %6
 }
 
@@ -6514,15 +6512,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86GenSubtargetInfo11isZeroIdiom
 _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %16, %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %29, label %252
 
 29:                                               ; preds = %_ZN4llvm5APInt12clearAllBitsEv.exit
-  %30 = getelementptr inbounds i8, ptr %23, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 136
   br label %252
@@ -6554,9 +6552,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %16, %17
 _ZN4llvm5APInt12clearAllBitsEv.exit277:           ; preds = %39, %40
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %48, %50
   br label %252
@@ -6588,9 +6586,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit277:           ; preds = %39, %40
 _ZN4llvm5APInt12clearAllBitsEv.exit279:           ; preds = %58, %59
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %65, i64 68
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 68
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   br label %252
@@ -6625,9 +6623,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit279:           ; preds = %58, %59
 _ZN4llvm5APInt12clearAllBitsEv.exit281:           ; preds = %76, %77
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %83, i64 68
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 68
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %85, %87
   br label %252
@@ -6659,9 +6657,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit281:           ; preds = %76, %77
 _ZN4llvm5APInt12clearAllBitsEv.exit283:           ; preds = %95, %96
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 36
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 36
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %102, i64 68
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 68
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %104, %106
   br label %252
@@ -6696,9 +6694,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit283:           ; preds = %95, %96
 _ZN4llvm5APInt12clearAllBitsEv.exit285:           ; preds = %113, %114
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 36
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %120, i64 68
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 68
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %122, %124
   br label %252
@@ -6735,9 +6733,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit285:           ; preds = %113, %114
 _ZN4llvm5APInt12clearAllBitsEv.exit287:           ; preds = %131, %132
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 36
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 36
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %138, i64 68
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 68
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %140, %142
   br label %252
@@ -6776,9 +6774,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit287:           ; preds = %131, %132
 _ZN4llvm5APInt12clearAllBitsEv.exit289:           ; preds = %149, %150
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 36
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
   %158 = load i32, ptr %157, align 4
-  %159 = getelementptr inbounds i8, ptr %156, i64 68
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 68
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %158, %160
   br label %252
@@ -6818,9 +6816,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit289:           ; preds = %149, %150
 _ZN4llvm5APInt12clearAllBitsEv.exit291:           ; preds = %167, %168
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 36
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 36
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds i8, ptr %174, i64 68
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 68
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %176, %178
   br label %252
@@ -6862,9 +6860,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit291:           ; preds = %167, %168
 _ZN4llvm5APInt12clearAllBitsEv.exit293:           ; preds = %185, %186
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 36
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 36
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %192, i64 68
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 68
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %194, %196
   br label %252
@@ -6906,9 +6904,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit293:           ; preds = %185, %186
 _ZN4llvm5APInt12clearAllBitsEv.exit295:           ; preds = %203, %204
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 36
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 36
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds i8, ptr %210, i64 68
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 68
   %214 = load i32, ptr %213, align 4
   %215 = icmp eq i32 %212, %214
   br label %252
@@ -6951,9 +6949,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit295:           ; preds = %203, %204
 _ZN4llvm5APInt12clearAllBitsEv.exit297:           ; preds = %221, %222
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 36
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 36
   %230 = load i32, ptr %229, align 4
-  %231 = getelementptr inbounds i8, ptr %228, i64 68
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 68
   %232 = load i32, ptr %231, align 4
   %233 = icmp eq i32 %230, %232
   br label %252
@@ -6997,9 +6995,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit297:           ; preds = %221, %222
 _ZN4llvm5APInt12clearAllBitsEv.exit299:           ; preds = %239, %240
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 36
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 36
   %248 = load i32, ptr %247, align 4
-  %249 = getelementptr inbounds i8, ptr %246, i64 68
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 68
   %250 = load i32, ptr %249, align 4
   %251 = icmp eq i32 %248, %250
   br label %252
@@ -7012,9 +7010,9 @@ _ZN4llvm5APInt12clearAllBitsEv.exit299:           ; preds = %239, %240
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm19X86GenSubtargetInfo20isDependencyBreakingEPKNS_12MachineInstrERNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) #21
+  %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) #22
   br i1 %7, label %102, label %8
 
 8:                                                ; preds = %3
@@ -7245,9 +7243,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86GenSubtargetInfo20isDependenc
   %.sink128 = phi i64 [ 68, %21 ], [ 68, %22 ], [ 36, %33 ], [ 36, %34 ], [ 68, %45 ], [ 68, %46 ], [ 68, %56 ], [ 68, %57 ], [ 68, %67 ], [ 68, %68 ], [ 68, %78 ], [ 68, %79 ], [ 36, %89 ], [ 36, %90 ]
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 %.sink130
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.sink130
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %96, i64 %.sink128
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.sink128
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %98, %100
   br label %102
@@ -7351,7 +7349,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #21
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #22
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
@@ -7364,19 +7362,19 @@ _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
   br i1 %11, label %_ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i, label %12
 
 12:                                               ; preds = %_ZNSt8functionIFvRKbEED2Ev.exit
-  tail call void @free(ptr noundef %9) #21
+  tail call void @free(ptr noundef %9) #22
   br label %_ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKbEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #21
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #22
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
 18:                                               ; preds = %_ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i
-  tail call void @free(ptr noundef %15) #21
+  tail call void @free(ptr noundef %15) #22
   br label %_ZN4llvm2cl6OptionD2Ev.exit
 
 _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i, %18
@@ -7392,7 +7390,7 @@ define dso_local noundef zeroext range(i8 0, 5) i8 @_ZNK4llvm12X86Subtarget29cla
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 652
   %5 = load i32, ptr %4, align 4
-  %6 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %3) #21
+  %6 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %3) #22
   br i1 %6, label %7, label %_ZNK4llvm12X86Subtarget22classifyLocalReferenceEPKNS_11GlobalValueE.exit
 
 7:                                                ; preds = %1
@@ -7461,7 +7459,7 @@ define dso_local noundef zeroext range(i8 0, 20) i8 @_ZNK4llvm12X86Subtarget22cl
   br i1 %14, label %15, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit
 
 15:                                               ; preds = %12, %2
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %4) #21
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %4) #22
   br i1 %16, label %17, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit
 
 17:                                               ; preds = %15
@@ -7486,7 +7484,7 @@ define dso_local noundef zeroext range(i8 0, 20) i8 @_ZNK4llvm12X86Subtarget22cl
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %3, align 8
-  %30 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %29, ptr noundef nonnull %1) #21
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %29, ptr noundef nonnull %1) #22
   %31 = select i1 %30, i8 4, i8 0
   br label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit
 
@@ -7522,7 +7520,7 @@ define dso_local noundef zeroext range(i8 0, 20) i8 @_ZNK4llvm12X86Subtarget22cl
   br i1 %44, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %40
-  %45 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #21
+  %45 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #22
   br i1 %45, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit, label %46
 
 46:                                               ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
@@ -7557,7 +7555,7 @@ define dso_local noundef zeroext i8 @_ZNK4llvm12X86Subtarget23classifyGlobalRefe
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %7) #21
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %7) #22
   br i1 %12, label %13, label %100
 
 13:                                               ; preds = %11, %3
@@ -7565,21 +7563,21 @@ define dso_local noundef zeroext i8 @_ZNK4llvm12X86Subtarget23classifyGlobalRefe
   br i1 %.not, label %51, label %14
 
 14:                                               ; preds = %13
-  call void @_ZNK4llvm11GlobalValue22getAbsoluteSymbolRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.195") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %1) #21
+  call void @_ZNK4llvm11GlobalValue22getAbsoluteSymbolRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.195") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %1) #22
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %32
 
 18:                                               ; preds = %14
-  call void @_ZNK4llvm13ConstantRange14getUnsignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
+  call void @_ZNK4llvm13ConstantRange14getUnsignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp ult i32 %20, 65
   br i1 %21, label %_ZNK4llvm5APInt3ultEm.exit, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %18
-  %22 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #23
+  %22 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #24
   %23 = sub i32 %20, %22
   %24 = icmp ult i32 %23, 65
   %25 = load ptr, ptr %5, align 8
@@ -7596,14 +7594,14 @@ _ZNK4llvm5APInt3ultEm.exit:                       ; preds = %18
   br i1 %28, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZN4llvm5APIntD2Ev.exit.thread20
 
 _ZN4llvm5APIntD2Ev.exit.thread20:                 ; preds = %27
-  call void @_ZdaPv(ptr noundef nonnull %25) #24
+  call void @_ZdaPv(ptr noundef nonnull %25) #25
   br label %_ZN4llvm5APIntD2Ev.exit.thread
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
   %.0.i.i17 = load i64, ptr %25, align 8
   %.0.i.i17.fr = freeze i64 %.0.i.i17
   %29 = icmp ult i64 %.0.i.i17.fr, 128
-  call void @_ZdaPv(ptr noundef nonnull %25) #24
+  call void @_ZdaPv(ptr noundef nonnull %25) #25
   br i1 %29, label %30, label %_ZN4llvm5APIntD2Ev.exit.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInt3ultEm.exit, %_ZN4llvm5APIntD2Ev.exit
@@ -7634,7 +7632,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %27, %_ZN4llvm5APInt
   br i1 %42, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, label %43
 
 43:                                               ; preds = %39
-  call void @_ZdaPv(ptr noundef nonnull %41) #24
+  call void @_ZdaPv(ptr noundef nonnull %41) #25
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %43, %39, %35
@@ -7649,7 +7647,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %43, %39, %35
   br i1 %49, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit, label %50
 
 50:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %48) #24
+  call void @_ZdaPv(ptr noundef nonnull %48) #25
   br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
 
 _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %32, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %47, %50
@@ -7657,7 +7655,7 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %32, %_ZN4llvm5APInt
 
 51:                                               ; preds = %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit, %13
   %52 = load ptr, ptr %6, align 8
-  %53 = call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %52, ptr noundef %1) #21
+  %53 = call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %52, ptr noundef %1) #22
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
@@ -7737,13 +7735,13 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %32, %_ZN4llvm5APInt
 
 94:                                               ; preds = %93, %93, %93, %93, %93, %91
   %95 = load ptr, ptr %6, align 8
-  %96 = call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %95) #21
+  %96 = call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %95) #22
   %.8 = select i1 %96, i8 19, i8 18
   br label %100
 
 _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %93
   %97 = load ptr, ptr %6, align 8
-  %98 = call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %97) #21
+  %98 = call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %97) #22
   %99 = icmp eq i32 %98, 0
   %.9 = select i1 %99, i8 0, i8 3
   br label %100
@@ -7757,7 +7755,7 @@ _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %93
 define dso_local noundef zeroext i1 @_ZNK4llvm12X86Subtarget21isPositionIndependentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409248) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %3) #21
+  %4 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %3) #22
   ret i1 %4
 }
 
@@ -7783,7 +7781,7 @@ define dso_local noundef zeroext range(i8 0, 25) i8 @_ZNK4llvm12X86Subtarget31cl
 define dso_local noundef zeroext range(i8 0, 25) i8 @_ZNK4llvm12X86Subtarget31classifyGlobalFunctionReferenceEPKNS_11GlobalValueERKNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409248) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(857) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %5, ptr noundef %1) #21
+  %6 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine20shouldAssumeDSOLocalEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(1232) %5, ptr noundef %1) #22
   br i1 %6, label %52, label %7
 
 7:                                                ; preds = %3
@@ -7837,11 +7835,11 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit: ; preds
   br i1 %26, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %27, %32
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i, i32 noundef 40) #21
+  %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i, i32 noundef 40) #22
   br i1 %33, label %35, label %38
 
 .critedge:                                        ; preds = %32
-  %34 = tail call noundef zeroext i1 @_ZNK4llvm6Module14getRtLibUseGOTEv(ptr noundef nonnull align 8 dereferenceable(857) %2) #21
+  %34 = tail call noundef zeroext i1 @_ZNK4llvm6Module14getRtLibUseGOTEv(ptr noundef nonnull align 8 dereferenceable(857) %2) #22
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %.critedge, %.thread
@@ -7858,7 +7856,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %4, align 8
-  %44 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %43) #21
+  %44 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %43) #22
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %52, label %46
 
@@ -7873,7 +7871,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit: ; preds
   br i1 %.not, label %51, label %49
 
 49:                                               ; preds = %48
-  %50 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i, i32 noundef 40) #21
+  %50 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i, i32 noundef 40) #22
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %49, %48
@@ -7908,7 +7906,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86Subtarget26isLegalToCallImmed
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %14) #21
+  %15 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1232) %14) #22
   %16 = icmp eq i32 %15, 0
   br label %17
 
@@ -7936,7 +7934,7 @@ define dso_local void @_ZN4llvm12X86Subtarget21initSubtargetFeaturesENS_9StringR
   %.sroa.079.0 = select i1 %18, ptr @.str.4, ptr %3
   %.sroa.3.0 = select i1 %18, i64 4, i64 %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  call void @_ZN4llvm6X86_MC14ParseX86TripleB5cxx11ERKNS_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %19) #21
+  call void @_ZN4llvm6X86_MC14ParseX86TripleB5cxx11ERKNS_6TripleE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %19) #22
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
@@ -7954,15 +7952,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit45:                ; preds = %6
   store ptr %11, ptr %10, align 8, !alias.scope !9
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %26, ptr %27, align 8, !alias.scope !9
-  %.sroa.2.0..sroa_idx.i.i.i44 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i44 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %21, ptr %.sroa.2.0..sroa_idx.i.i.i44, align 8, !alias.scope !9
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 2, ptr %28, align 8, !alias.scope !9
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 5, ptr %29, align 1, !alias.scope !9
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) #21
-  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) #22
+  %30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   br label %31
 
 31:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit45, %6
@@ -7994,7 +7992,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit53:              ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %34, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit53, %_ZN4llvmeqENS_9StringRefES0_.exit49, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %35 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.8, i64 8) #21
+  %35 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.8, i64 8) #22
   %36 = load i64, ptr %20, align 8
   %.not.i54 = icmp ult i64 %36, 8
   br i1 %.not.i54, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread95, label %_ZNK4llvm9StringRef9ends_withES0_.exit
@@ -8012,13 +8010,13 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   br label %43
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread95:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit
-  %42 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.10, i64 9) #21
+  %42 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.10, i64 9) #22
   br label %43
 
 43:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread95, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread
   %44 = phi i64 [ %41, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %42, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread95 ]
-  %45 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.11, i64 8) #21
-  %46 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.12, i64 7) #21
+  %45 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.11, i64 8) #22
+  %46 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.12, i64 7) #22
   %.not = icmp eq i64 %46, -1
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93, label %47
 
@@ -8032,22 +8030,22 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread95:  ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %or.cond30, label %51, label %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93
 
 51:                                               ; preds = %47
-  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.13) #21
+  %52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.13) #22
   br label %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93
 
 _ZN4llvmeqENS_9StringRefES0_.exit53.thread93:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit49, %31, %_ZN4llvmeqENS_9StringRefES0_.exit.thread87, %47, %43, %51, %_ZN4llvmeqENS_9StringRefES0_.exit53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(144) @constinit, i64 144, i1 false)
-  %53 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(160) %12, ptr noundef nonnull %53, i64 noundef 9) #21
-  %54 = getelementptr inbounds i8, ptr %13, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(160) %12, ptr noundef nonnull %53, i64 noundef 9) #22
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 144
   call void @_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(160) %12, ptr noundef nonnull %13, ptr noundef nonnull %54)
-  %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.23, i64 noundef 0) #21
+  %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.23, i64 noundef 0) #22
   %.not26 = icmp eq i64 %55, -1
   br i1 %.not26, label %.loopexit, label %56
 
 56:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93
   %57 = load ptr, ptr %12, align 8
-  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #21
+  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #22
   %59 = getelementptr inbounds %"class.llvm::StringRef", ptr %57, i64 %58
   %.not2797 = icmp eq i64 %58, 0
   br i1 %.not2797, label %.loopexit, label %.lr.ph
@@ -8055,38 +8053,38 @@ _ZN4llvmeqENS_9StringRefES0_.exit53.thread93:     ; preds = %_ZN4llvmeqENS_9Stri
 .lr.ph:                                           ; preds = %56, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %.098 = phi ptr [ %64, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ], [ %57, %56 ]
   %.sroa.057.0.copyload = load ptr, ptr %.098, align 8
-  %.sroa.2.0..0.sroa_idx = getelementptr inbounds i8, ptr %.098, i64 8
+  %.sroa.2.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.098, i64 8
   %.sroa.2.0.copyload58 = load i64, ptr %.sroa.2.0..0.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %.not.i56 = icmp eq ptr %.sroa.057.0.copyload, null
   br i1 %.not.i56, label %60, label %61
 
 60:                                               ; preds = %.lr.ph
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 61:                                               ; preds = %.lr.ph
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21, !noalias !14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %.sroa.057.0.copyload, i64 noundef %.sroa.2.0.copyload58, ptr noundef nonnull align 1 dereferenceable(1) %7) #21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22, !noalias !14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %.sroa.057.0.copyload, i64 noundef %.sroa.2.0.copyload58, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %60, %61
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.24) #21, !noalias !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %62) #21
-  %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %14) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  %64 = getelementptr inbounds i8, ptr %.098, i64 16
+  %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.24) #22, !noalias !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %62) #22
+  %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %14) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
+  %64 = getelementptr inbounds nuw i8, ptr %.098, i64 16
   %.not27 = icmp eq ptr %64, %59
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %56, %_ZN4llvmeqENS_9StringRefES0_.exit53.thread93
-  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   store ptr %65, ptr %16, align 8
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   store i64 %67, ptr %66, align 8
   call void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr %spec.select, i64 %spec.select96, ptr %.sroa.079.0, i64 %.sroa.3.0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %16)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -8118,7 +8116,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %60, %61
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %81
-  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.25, i1 noundef zeroext true) #22
+  call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.25, i1 noundef zeroext true) #23
   unreachable
 
 86:                                               ; preds = %81, %77
@@ -8186,17 +8184,17 @@ _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread: ; preds = %98, %98, %98, 
   br label %113
 
 113:                                              ; preds = %.sink.split, %108
-  %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(160) %12) #21
+  %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(160) %12) #22
   %115 = load ptr, ptr %12, align 8
   %116 = icmp eq ptr %115, %53
   br i1 %116, label %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit, label %117
 
 117:                                              ; preds = %113
-  call void @free(ptr noundef %115) #21
+  call void @free(ptr noundef %115) #22
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit: ; preds = %113, %117
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   ret void
 }
 
@@ -8237,7 +8235,7 @@ define dso_local void @_ZN4llvm12X86SubtargetC2ERKNS_6TripleENS_9StringRefES4_S4
   store ptr @_ZN4llvm12X86SubTypeKVE, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 127, ptr %15, align 8
-  tail call void @_ZN4llvm19TargetSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::ArrayRef.0") align 8 %13, ptr noundef nonnull @_ZN4llvm20X86WriteProcResTableE, ptr noundef nonnull @_ZN4llvm20X86WriteLatencyTableE, ptr noundef nonnull @_ZN4llvm19X86ReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  tail call void @_ZN4llvm19TargetSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::ArrayRef.0") align 8 %13, ptr noundef nonnull @_ZN4llvm20X86WriteProcResTableE, ptr noundef nonnull @_ZN4llvm20X86WriteLatencyTableE, ptr noundef nonnull @_ZN4llvm19X86ReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   store ptr getelementptr inbounds inrange(-16, 488) (i8, ptr @_ZTVN4llvm12X86SubtargetE, i64 16), ptr %0, align 8
@@ -8266,7 +8264,7 @@ define dso_local void @_ZN4llvm12X86SubtargetC2ERKNS_6TripleENS_9StringRefES4_S4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 128, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %1) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %1) #22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
@@ -8287,16 +8285,16 @@ define dso_local void @_ZN4llvm12X86SubtargetC2ERKNS_6TripleENS_9StringRefES4_S4
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm19X86SelectionDAGInfoE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 608
   tail call void @_ZN4llvm12X86Subtarget21initSubtargetFeaturesENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6)
-  tail call void @_ZN4llvm12X86InstrInfoC1ERNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(416) %40, ptr noundef nonnull align 8 dereferenceable(409248) %0) #21
+  tail call void @_ZN4llvm12X86InstrInfoC1ERNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(416) %40, ptr noundef nonnull align 8 dereferenceable(409248) %0) #22
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  tail call void @_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(408160) %41, ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull align 8 dereferenceable(409248) %0) #21
+  tail call void @_ZN4llvm17X86TargetLoweringC1ERKNS_16X86TargetMachineERKNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(408160) %41, ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull align 8 dereferenceable(409248) %0) #22
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 409184
   %.sroa.0.0.copyload.i = load i8, ptr %25, align 2
   %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0.copyload.i to i16
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0.insert.ext, 256
-  tail call void @_ZN4llvm16X86FrameLoweringC1ERKNS_12X86SubtargetENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(60) %42, ptr noundef nonnull align 8 dereferenceable(409248) %0, i16 %.sroa.0.0.insert.insert) #21
+  tail call void @_ZN4llvm16X86FrameLoweringC1ERKNS_12X86SubtargetENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(60) %42, ptr noundef nonnull align 8 dereferenceable(409248) %0, i16 %.sroa.0.0.insert.insert) #22
   %43 = load ptr, ptr %17, align 8
-  %44 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %43) #21
+  %44 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1232) %43) #22
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 652
   %46 = load i32, ptr %45, align 4
   %47 = icmp ne i32 %46, 4
@@ -8341,8 +8339,8 @@ _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %60
   br label %62
 
 62:                                               ; preds = %.sink.split, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  tail call void @_ZN4llvm15X86CallLoweringC1ERKNS_17X86TargetLoweringE(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(408160) %41) #21
+  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  tail call void @_ZN4llvm15X86CallLoweringC1ERKNS_17X86TargetLoweringE(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(408160) %41) #22
   %64 = load ptr, ptr %31, align 8
   store ptr %63, ptr %31, align 8
   %.not.i.i = icmp eq ptr %64, null
@@ -8350,14 +8348,14 @@ _ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit:   ; preds = %60
 
 _ZNKSt14default_deleteIN4llvm12CallLoweringEEclEPS1_.exit.i.i: ; preds = %62
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %64) #21
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %64) #22
   br label %_ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %62, %_ZNKSt14default_deleteIN4llvm12CallLoweringEEclEPS1_.exit.i.i
-  %68 = tail call noalias noundef nonnull dereferenceable(121048) ptr @_Znwm(i64 noundef 121048) #25
-  tail call void @_ZN4llvm16X86LegalizerInfoC1ERKNS_12X86SubtargetERKNS_16X86TargetMachineE(ptr noundef nonnull align 8 dereferenceable(121048) %68, ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr noundef nonnull align 8 dereferenceable(1272) %7) #21
+  %68 = tail call noalias noundef nonnull dereferenceable(121048) ptr @_Znwm(i64 noundef 121048) #26
+  tail call void @_ZN4llvm16X86LegalizerInfoC1ERKNS_12X86SubtargetERKNS_16X86TargetMachineE(ptr noundef nonnull align 8 dereferenceable(121048) %68, ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr noundef nonnull align 8 dereferenceable(1272) %7) #22
   %69 = load ptr, ptr %32, align 8
   store ptr %68, ptr %32, align 8
   %.not.i.i24 = icmp eq ptr %69, null
@@ -8365,15 +8363,15 @@ _ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 _ZNKSt14default_deleteIN4llvm13LegalizerInfoEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EE5resetEPS1_.exit
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(121040) %69) #21
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(121040) %69) #22
   br label %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN4llvm13LegalizerInfoEEclEPS1_.exit.i.i
-  %73 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #25
+  %73 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #26
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  tail call void @_ZN4llvm19X86RegisterBankInfoC1ERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(168) %73, ptr noundef nonnull align 8 dereferenceable(308) %74) #21
+  tail call void @_ZN4llvm19X86RegisterBankInfoC1ERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(168) %73, ptr noundef nonnull align 8 dereferenceable(308) %74) #22
   %75 = load ptr, ptr %33, align 8
   store ptr %73, ptr %33, align 8
   %.not.i.i25 = icmp eq ptr %75, null
@@ -8381,13 +8379,13 @@ _ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNKSt14default_deleteIN4llvm16RegisterBankInfoEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EE5resetEPS1_.exit
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(160) %75) #21
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(160) %75) #22
   br label %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN4llvm16RegisterBankInfoEEclEPS1_.exit.i.i
-  %79 = tail call noundef ptr @_ZN4llvm28createX86InstructionSelectorERKNS_16X86TargetMachineERKNS_12X86SubtargetERKNS_19X86RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr noundef nonnull align 8 dereferenceable(168) %73) #21
+  %79 = tail call noundef ptr @_ZN4llvm28createX86InstructionSelectorERKNS_16X86TargetMachineERKNS_12X86SubtargetERKNS_19X86RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull align 8 dereferenceable(409248) %0, ptr noundef nonnull align 8 dereferenceable(168) %73) #22
   %80 = load ptr, ptr %34, align 8
   store ptr %79, ptr %34, align 8
   %.not.i.i26 = icmp eq ptr %80, null
@@ -8395,9 +8393,9 @@ _ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EE5resetEPS1_.e
 
 _ZNKSt14default_deleteIN4llvm19InstructionSelectorEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EE5resetEPS1_.exit
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef nonnull align 8 dereferenceable(80) %80) #21
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(80) %80) #22
   br label %_ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNKSt14default_deleteIN4llvm19InstructionSelectorEEclEPS1_.exit.i.i
@@ -8489,35 +8487,94 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread: ; preds = %1, %_ZNK4llvm12X86
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12X86Subtarget18getPostRAMutationsERSt6vectorISt10unique_ptrINS_19ScheduleDAGMutationESt14default_deleteIS3_EESaIS6_EE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12X86Subtarget18getPostRAMutationsERSt6vectorISt10unique_ptrINS_19ScheduleDAGMutationESt14default_deleteIS3_EESaIS6_EE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.275", align 8
-  call void @_ZN4llvm31createX86MacroFusionDAGMutationEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.275") align 8 %3) #21
+  call void @_ZN4llvm31createX86MacroFusionDAGMutationEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.275") align 8 %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %5, %7
-  br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.thread
+  br i1 %.not.i.i, label %11, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.thread: ; preds = %2
   %8 = load i64, ptr %3, align 8
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %4, align 8
   br label %_ZNSt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %2
-  call void @_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %1, align 8
+  %13 = ptrtoint ptr %5 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = icmp eq i64 %15, 9223372036854775800
+  br i1 %16, label %17, label %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
+
+17:                                               ; preds = %11
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #23
+  unreachable
+
+_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i: ; preds = %11
+  %18 = ashr exact i64 %15, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %18, i64 1)
+  %19 = add nsw i64 %.sroa.speculated.i.i, %18
+  %20 = icmp ult i64 %19, %18
+  %21 = call i64 @llvm.umin.i64(i64 %19, i64 1152921504606846975)
+  %22 = select i1 %20, i64 1152921504606846975, i64 %21
+  %.not.i.i1 = icmp ne i64 %22, 0
+  call void @llvm.assume(i1 %.not.i.i1)
+  %23 = shl nuw nsw i64 %22, 3
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
+  %25 = getelementptr inbounds i8, ptr %24, i64 %15
+  %26 = load i64, ptr %3, align 8
+  store i64 %26, ptr %25, align 8
+  store ptr null, ptr %3, align 8
+  %.not10.i.i.i.i = icmp eq ptr %12, %5
+  br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %24, %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %12, %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %27 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store i64 %27, ptr %.012.i.i.i.i, align 8, !alias.scope !20, !noalias !23
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %28, %5
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
+  %.0.lcssa.i.i.i.i = phi ptr [ %24, %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %29, %.lr.ph.i.i.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %12, null
+  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, label %31
+
+31:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
+  %32 = load ptr, ptr %6, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = sub i64 %33, %14
+  call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %34) #25
+  br label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
+
+_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %31, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
+  store ptr %24, ptr %1, align 8
+  store ptr %30, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %24, i64 %22
+  store ptr %35, ptr %6, align 8
   %.pr = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm19ScheduleDAGMutationEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm19ScheduleDAGMutationEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
-  %11 = load ptr, ptr %.pr, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #21
+  %36 = load ptr, ptr %.pr, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #22
   br label %_ZNSt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.thread, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, %_ZNKSt14default_deleteIN4llvm19ScheduleDAGMutationEEclEPS1_.exit.i
@@ -8530,14 +8587,14 @@ declare noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19X86GenSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #21
+  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19X86GenSubtargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #24
+  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #25
   ret void
 }
 
@@ -8554,13 +8611,13 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %9 = lshr i64 %.01116.i.i.i, 1
-  %10 = getelementptr inbounds %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %_ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i
-  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
+  %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #22
   br label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i:          ; preds = %12, %_ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i
@@ -8570,7 +8627,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i:          ; preds = %12, %_ZSt7advanceIP
   br i1 %15, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i
-  %16 = tail call i32 @memcmp(ptr noundef %11, ptr noundef %1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #23
+  %16 = tail call i32 @memcmp(ptr noundef %11, ptr noundef %1, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #24
   %.not.i.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %17
 
@@ -8584,13 +8641,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %17
   %.0.i.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i.i, %17 ], [ %18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds i8, ptr %10, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %20 = xor i64 %9, -1
   %21 = add nsw i64 %.01116.i.i.i, %20
   %.112.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i64 %21, i64 %9
   %.1.i.i.i = select i1 %.0.i.i.i.i.i.i.i, ptr %19, ptr %.017.i.i.i
   %22 = icmp sgt i64 %.112.i.i.i, 0
-  br i1 %22, label %_ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit, !llvm.loop !20
+  br i1 %22, label %_ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit, !llvm.loop !27
 
 _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i, %3
   %.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ]
@@ -8604,7 +8661,7 @@ _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEE
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %24
-  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #22
   %.not.i3 = icmp eq i64 %26, %2
   br i1 %.not.i3, label %27, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
@@ -8645,9 +8702,9 @@ declare i64 @_ZNK4llvm15MCSubtargetInfo16getCacheLineSizeEj(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm15MCSubtargetInfo16getCacheLineSizeEv(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef 0) #21
+  %5 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef 0) #22
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
   %6 = and i64 %5, 4294967296
   %.not = icmp eq i64 %6, 0
@@ -8774,7 +8831,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetSubtargetInfo19getAntiD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm19TargetSubtargetInfo18getCriticalPathRCsERNS_15SmallVectorImplIPKNS_19TargetRegisterClassEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void
@@ -8807,9 +8864,9 @@ declare noundef zeroext i1 @_ZNK4llvm19TargetSubtargetInfo5useAAEv(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetSubtargetInfo17addrSinkUsingGEPsEv(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 400
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(288) %0) #21
+  %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(288) %0) #22
   ret i1 %5
 }
 
@@ -8860,15 +8917,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetSubtargetInfo17s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12X86SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(409248) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 409184
-  tail call void @_ZN4llvm19TargetFrameLoweringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #21
+  tail call void @_ZN4llvm19TargetFrameLoweringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  tail call void @_ZN4llvm17X86TargetLoweringD2Ev(ptr noundef nonnull align 8 dereferenceable(408160) %3) #21
+  tail call void @_ZN4llvm17X86TargetLoweringD2Ev(ptr noundef nonnull align 8 dereferenceable(408160) %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  tail call void @_ZN4llvm18TargetRegisterInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #21
-  tail call void @_ZN4llvm15TargetInstrInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %4) #21
+  tail call void @_ZN4llvm18TargetRegisterInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #22
+  tail call void @_ZN4llvm15TargetInstrInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %4) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  tail call void @_ZN4llvm22SelectionDAGTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
+  tail call void @_ZN4llvm22SelectionDAGTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -8876,9 +8933,9 @@ define linkonce_odr hidden void @_ZN4llvm12X86SubtargetD2Ev(ptr noundef nonnull 
 
 _ZNKSt14default_deleteIN4llvm19InstructionSelectorEEclEPS1_.exit.i: ; preds = %1
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %8) #21
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %8) #22
   br label %_ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm19InstructionSelectorEEclEPS1_.exit.i
@@ -8890,9 +8947,9 @@ _ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EED2Ev.exit:
 
 _ZNKSt14default_deleteIN4llvm16RegisterBankInfoEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EED2Ev.exit
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(160) %13) #21
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(160) %13) #22
   br label %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm19InstructionSelectorESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm16RegisterBankInfoEEclEPS1_.exit.i
@@ -8904,9 +8961,9 @@ _ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EED2Ev.exit: ; 
 
 _ZNKSt14default_deleteIN4llvm13LegalizerInfoEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EED2Ev.exit
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(121040) %18) #21
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(121040) %18) #22
   br label %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm16RegisterBankInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm13LegalizerInfoEEclEPS1_.exit.i
@@ -8918,23 +8975,23 @@ _ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 _ZNKSt14default_deleteIN4llvm12CallLoweringEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EED2Ev.exit
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #21
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #22
   br label %_ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm12CallLoweringESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13LegalizerInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm12CallLoweringEEclEPS1_.exit.i
   store ptr null, ptr %22, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #21
-  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #21
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #22
+  tail call void @_ZN4llvm19TargetSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12X86SubtargetD0Ev(ptr noundef nonnull align 8 dereferenceable(409248) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm12X86SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(409248) %0) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 409248) #24
+  tail call void @_ZN4llvm12X86SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(409248) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 409248) #25
   ret void
 }
 
@@ -9043,7 +9100,7 @@ define linkonce_odr hidden void @_ZN4llvm17X86TargetLoweringD2Ev(ptr noundef non
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
-  %6 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #26
+  %6 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #27
   br label %7
 
 7:                                                ; preds = %_ZSt8_DestroyIN4llvm7APFloatEEvPT_.exit.i.i.i.i, %.lr.ph.i.i.i.i
@@ -9054,17 +9111,17 @@ define linkonce_odr hidden void @_ZN4llvm17X86TargetLoweringD2Ev(ptr noundef non
   br i1 %.not.i.i.i.i.i.i, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
   br label %_ZSt8_DestroyIN4llvm7APFloatEEvPT_.exit.i.i.i.i
 
 11:                                               ; preds = %7
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #22
   br label %_ZSt8_DestroyIN4llvm7APFloatEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN4llvm7APFloatEEvPT_.exit.i.i.i.i:  ; preds = %11, %10
-  %12 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %12, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %7, !llvm.loop !22
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %7, !llvm.loop !28
 
 _ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN4llvm7APFloatEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -9081,13 +9138,13 @@ _ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destro
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #25
   br label %_ZNSt6vectorIN4llvm7APFloatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm7APFloatESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exit.i, %14
   store ptr getelementptr inbounds inrange(-16, 1784) (i8, ptr @_ZTVN4llvm18TargetLoweringBaseE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 396824
-  %21 = getelementptr inbounds i8, ptr %0, i64 396840
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 396840
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZNSt8_Rb_treeISt4pairIjN4llvm3MVT15SimpleValueTypeEES0_IKS4_S3_ESt10_Select1stIS6_ESt4lessIS4_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %22)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9096,7 +9153,7 @@ _ZNSt6vectorIN4llvm7APFloatESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4ll
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %24, i64 noundef %28, i64 noundef 4) #21
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %24, i64 noundef %28, i64 noundef 4) #22
   ret void
 }
 
@@ -9121,7 +9178,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
-  %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #26
+  %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #27
   br label %10
 
 10:                                               ; preds = %.preheader, %_ZN4llvm7APFloatD2Ev.exit.i
@@ -9133,11 +9190,11 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #21
+  tail call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #22
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 16:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #21
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #22
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %16, %15
@@ -9147,7 +9204,7 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %16, %15
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
   %18 = shl i64 %6, 5
   %19 = or disjoint i64 %18, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %19) #24
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %19) #25
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -9173,9 +9230,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIjN4llvm3MVT15SimpleValueTypeEES
   tail call void @_ZNSt8_Rb_treeISt4pairIjN4llvm3MVT15SimpleValueTypeEES0_IKS4_S3_ESt10_Select1stIS6_ESt4lessIS4_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #25
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -9215,9 +9272,9 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -9229,26 +9286,26 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i32 0, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %23, align 8
-  %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneralCategoryEv() #21
-  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneralCategoryEv() #22
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   %26 = add i64 %25, 1
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   %.not.i.i.i = icmp ugt i64 %26, %27
   br i1 %.not.i.i.i, label %28, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_2cl14OptionCategoryELb1EE9push_backES3_.exit
 
 28:                                               ; preds = %3
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef %26, i64 noundef 8) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef %26, i64 noundef 8) #22
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_2cl14OptionCategoryELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_2cl14OptionCategoryELb1EE9push_backES3_.exit: ; preds = %3, %28
   %29 = load ptr, ptr %16, align 8
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   %31 = getelementptr inbounds ptr, ptr %29, i64 %30
   %32 = ptrtoint ptr %24 to i64
   store i64 %32, ptr %31, align 1
-  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
+  %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
   %34 = add i64 %33, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %34) #21
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %34) #22
   ret void
 }
 
@@ -9328,8 +9385,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_9StringRefEE6appen
   br i1 %4, label %_ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_S4_.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %_ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_S4_.exit
 
 _ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_S4_.exit: ; preds = %3, %5
@@ -9337,20 +9394,20 @@ _ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %13 = add i64 %12, %11
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %15 = icmp ult i64 %14, %13
   br i1 %15, label %16, label %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit
 
 16:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_S4_.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %13, i64 noundef 16) #21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %13, i64 noundef 16) #22
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonINS_9StringRefEvE20assertSafeToAddRangeEPKS1_S4_.exit, %16
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br i1 %4, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_copyIKS1_S1_EEvPT_S6_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS5_E4typeES7_EE5valueEvE4typeE.exit, label %20
 
 20:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit
@@ -9359,104 +9416,9 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit: ; preds = %_ZN4llvm25S
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_copyIKS1_S1_EEvPT_S6_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS5_E4typeES7_EE5valueEvE4typeE.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_copyIKS1_S1_EEvPT_S6_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS5_E4typeES7_EE5valueEvE4typeE.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit, %20
-  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %23 = add i64 %22, %11
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %23) #21
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %0, align 8
-  %7 = ptrtoint ptr %5 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub i64 %7, %8
-  %10 = icmp eq i64 %9, 9223372036854775800
-  br i1 %10, label %11, label %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
-
-11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #22
-  unreachable
-
-_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %3
-  %12 = ashr exact i64 %9, 3
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = add nsw i64 %.sroa.speculated.i, %12
-  %14 = icmp ult i64 %13, %12
-  %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 1152921504606846975)
-  %16 = select i1 %14, i64 1152921504606846975, i64 %15
-  %17 = ptrtoint ptr %1 to i64
-  %18 = sub i64 %17, %8
-  %19 = ashr exact i64 %18, 3
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, label %20
-
-20:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
-  %21 = shl nuw nsw i64 %16, 3
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"class.std::unique_ptr.275", ptr %23, i64 %19
-  %25 = load i64, ptr %2, align 8
-  store i64 %25, ptr %24, align 8
-  store ptr null, ptr %2, align 8
-  %.not10.i.i.i = icmp eq ptr %6, %1
-  br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %26 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !27, !noalias !24
-  store i64 %26, ptr %.012.i.i.i, align 8, !alias.scope !24, !noalias !27
-  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !27, !noalias !24
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %27, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !29
-
-_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
-  %.not10.i.i.i16 = icmp eq ptr %1, %5
-  br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
-
-.lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %32, %.lr.ph.i.i.i17 ], [ %29, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %31, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %30 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !33, !noalias !30
-  store i64 %30, ptr %.012.i.i.i18, align 8, !alias.scope !30, !noalias !33
-  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !33, !noalias !30
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 8
-  %.not.i.i.i20 = icmp eq ptr %31, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !29
-
-_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %29, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %32, %.lr.ph.i.i.i17 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %34
-
-34:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22
-  %35 = load ptr, ptr %33, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = sub i64 %36, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %37) #24
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit
-
-_ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %34
-  store ptr %23, ptr %0, align 8
-  store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %38 = getelementptr inbounds %"class.std::unique_ptr.275", ptr %23, i64 %16
-  store ptr %38, ptr %33, align 8
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %23) #22
   ret void
 }
 
@@ -9466,44 +9428,47 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_X86Subtarget.cpp() #16 section ".text.startup" {
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL14X86EarlyIfConv, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14X86EarlyIfConv, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL14X86EarlyIfConv, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL14X86EarlyIfConv, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14X86EarlyIfConv, align 8
-  tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14X86EarlyIfConv) #21
+  tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL14X86EarlyIfConv) #22
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14X86EarlyIfConv, ptr nonnull align 1 dereferenceable(16) @.str.1, i64 15) #21
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14X86EarlyIfConv, ptr nonnull align 1 dereferenceable(16) @.str.1, i64 15) #22
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 10), align 2
   %2 = and i16 %1, -97
   %3 = or disjoint i16 %2, 32
   store i16 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 10), align 2
   store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 32), align 8
-  store i64 33, ptr getelementptr inbounds (i8, ptr @_ZL14X86EarlyIfConv, i64 40), align 8
-  tail call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14X86EarlyIfConv) #21
-  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL14X86EarlyIfConv, ptr nonnull @__dso_handle) #21
+  store i64 33, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 40), align 8
+  tail call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL14X86EarlyIfConv) #22
+  %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL14X86EarlyIfConv, ptr nonnull @__dso_handle) #22
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #17
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9522,16 +9487,17 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { builtin nounwind }
-attributes #25 = { builtin nounwind allocsize(0) }
-attributes #26 = { nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nounwind }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { builtin nounwind }
+attributes #26 = { builtin nounwind allocsize(0) }
+attributes #27 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -9555,18 +9521,13 @@ attributes #26 = { nounwind willreturn memory(none) }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
 !19 = distinct !{!19, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!26 = distinct !{!26, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!27 = !{!28}
-!28 = distinct !{!28, !26, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!29 = distinct !{!29, !21}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!32 = distinct !{!32, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!33 = !{!34}
-!34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!22 = distinct !{!22, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!23 = !{!24}
+!24 = distinct !{!24, !22, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}

@@ -344,7 +344,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %10, label %239, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.121) #5
   %14 = load ptr, ptr %12, align 8
@@ -363,7 +363,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %26 = zext i32 %25 to i64
   %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #5
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 128) #5
   store i8 0, ptr %31, align 1
@@ -462,7 +462,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 90:                                               ; preds = %89, %83
   %.1165 = phi i32 [ 1, %89 ], [ %.0164, %83 ]
-  %91 = getelementptr inbounds i8, ptr %1, i64 272
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %92 = load i32, ptr %91, align 8
   %.not171 = icmp eq i32 %92, 0
   br i1 %.not171, label %93, label %102
@@ -472,7 +472,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not172 = icmp eq i32 %94, 0
   %95 = add i32 %21, 32
   %spec.select = select i1 %.not172, i32 %95, i32 32
-  %96 = getelementptr inbounds i8, ptr %8, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %spec.select, ptr %96, align 8
   %97 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select) #5
   store ptr %97, ptr %8, align 16
@@ -1052,7 +1052,7 @@ define internal fastcc range(i32 0, 29) i32 @dissect_xtp_traffic_cntl(ptr nounde
   %29 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 60) #5
   %30 = zext i32 %29 to i64
   %31 = or disjoint i64 %28, %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.183, i64 noundef %17) #5
   %34 = load ptr, ptr %32, align 8

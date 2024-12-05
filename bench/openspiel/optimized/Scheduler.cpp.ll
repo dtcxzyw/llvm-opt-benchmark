@@ -78,7 +78,7 @@ define void @_ZN9SchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(43416
   br i1 %.not19.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.preheader, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %13, i64 32768
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 32768
   %.not.i.i.i = icmp eq ptr %12, %23
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.preheader, label %24
 
@@ -104,7 +104,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt6vectorIiSaIiE
   %.1.i = or disjoint i32 %.3.i, %29
   %.4.i = add nuw nsw i32 %.1.i, %30
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   store i32 %.4.i, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8192
@@ -217,7 +217,7 @@ define void @_ZN9Scheduler13InitHighCardsEv(ptr noundef nonnull align 8 derefere
   br i1 %.not19, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.preheader, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 32768
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32768
   %.not.i.i = icmp eq ptr %4, %15
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.preheader, label %16
 
@@ -243,7 +243,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   %.2 = or disjoint i32 %.1, %21
   %.4 = add nuw nsw i32 %.2, %22
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   store i32 %.4, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8192
@@ -284,7 +284,7 @@ define void @_ZN9Scheduler15RegisterThreadsEi(ptr noundef nonnull align 8 derefe
   br i1 %20, label %21, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i32, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %23
 
@@ -314,7 +314,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   br i1 %36, label %37, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit7
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i32, ptr %27, i64 %8
+  %38 = getelementptr inbounds nuw i32, ptr %27, i64 %8
   %.not.i.i6 = icmp eq ptr %26, %38
   br i1 %.not.i.i6, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit7, label %39
 
@@ -344,7 +344,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit7:              ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit9
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i32, ptr %43, i64 %8
+  %54 = getelementptr inbounds nuw i32, ptr %43, i64 %8
   %.not.i.i8 = icmp eq ptr %42, %54
   br i1 %.not.i.i8, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit9, label %55
 
@@ -370,7 +370,7 @@ define linkonce_odr void @_ZNSt6vectorI5TimerSaIS0_EED2Ev(ptr noundef nonnull al
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i) #23
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -410,7 +410,7 @@ define void @_ZN9SchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(43416
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %1 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i) #23
-  %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -502,7 +502,7 @@ define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 derefer
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv
   store i32 -1, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
@@ -533,7 +533,7 @@ define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 derefer
 
 12:                                               ; preds = %.preheader16, %12
   %indvars.iv22 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next23, %12 ]
-  %13 = getelementptr inbounds [6 x [200 x %"struct.Scheduler::listType"]], ptr %7, i64 0, i64 %indvars.iv26, i64 %indvars.iv22
+  %13 = getelementptr inbounds nuw [6 x [200 x %"struct.Scheduler::listType"]], ptr %7, i64 0, i64 %indvars.iv26, i64 %indvars.iv22
   store i32 -1, ptr %13, align 4
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 200
@@ -547,10 +547,10 @@ define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 derefer
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %15 ]
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv30
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv30
   store i32 -1, ptr %17, align 4
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv30
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv30
   store i32 -1, ptr %19, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %20 = load i32, ptr %8, align 8
@@ -576,9 +576,9 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boardsRK13playTracesBin(ptr n
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [200 x %struct.playTraceBin], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [200 x %struct.playTraceBin], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv, i32 7
+  %11 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv, i32 7
   store i32 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %2, align 4
@@ -597,7 +597,7 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull al
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv.i
   store i32 -1, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
@@ -628,7 +628,7 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull al
 
 14:                                               ; preds = %14, %.preheader16.i
   %indvars.iv22.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next23.i, %14 ]
-  %15 = getelementptr inbounds [6 x [200 x %"struct.Scheduler::listType"]], ptr %9, i64 0, i64 %indvars.iv26.i, i64 %indvars.iv22.i
+  %15 = getelementptr inbounds nuw [6 x [200 x %"struct.Scheduler::listType"]], ptr %9, i64 0, i64 %indvars.iv26.i, i64 %indvars.iv22.i
   store i32 -1, ptr %15, align 4
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 200
@@ -642,10 +642,10 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull al
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv30.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next31.i, %17 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv30.i
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv30.i
   store i32 -1, ptr %19, align 4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv30.i
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv30.i
   store i32 -1, ptr %21, align 4
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %22 = load i32, ptr %10, align 8
@@ -699,18 +699,18 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr nocapture noundef nonnull a
 
 10:                                               ; preds = %.lr.ph, %100
   %indvars.iv65 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next66, %100 ]
-  %11 = getelementptr inbounds [200 x %struct.deal], ptr %6, i64 0, i64 %indvars.iv65
+  %11 = getelementptr inbounds nuw [200 x %struct.deal], ptr %6, i64 0, i64 %indvars.iv65
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 48
-  %16 = getelementptr inbounds i8, ptr %11, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %17 = load i32, ptr %16, align 4
   %18 = xor i32 %17, %14
-  %19 = getelementptr inbounds i8, ptr %11, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = load i32, ptr %19, align 4
   %21 = xor i32 %18, %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 92
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 92
   %23 = load i32, ptr %22, align 4
   %24 = xor i32 %21, %23
   %25 = lshr i32 %24, 2
@@ -718,19 +718,19 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr nocapture noundef nonnull a
   %27 = xor i32 %25, %26
   %28 = load i32, ptr %15, align 4
   %29 = shl i32 %28, 17
-  %30 = getelementptr inbounds i8, ptr %11, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %31 = load i32, ptr %30, align 4
   %32 = shl i32 %31, 11
   %33 = xor i32 %32, %29
-  %34 = getelementptr inbounds i8, ptr %11, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %35 = load i32, ptr %34, align 4
   %36 = shl i32 %35, 5
   %37 = xor i32 %33, %36
-  %38 = getelementptr inbounds i8, ptr %11, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = lshr i32 %39, 2
   %41 = xor i32 %37, %40
-  %42 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv65
+  %42 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv65
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %41, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -742,9 +742,9 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr nocapture noundef nonnull a
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv61, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv61, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds [4 x [4 x i32]], ptr %44, i64 0, i64 %indvars.iv61, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %44, i64 0, i64 %indvars.iv61, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -777,11 +777,11 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr nocapture noundef nonnull a
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %58 ]
   %.01821.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %58 ]
   %.01920.i = phi i32 [ 0, %.preheader.i ], [ %66, %58 ]
-  %59 = getelementptr inbounds [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv27.i, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv27.i, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4
   %61 = lshr i32 %60, 2
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %.01920.i, 1
   %66 = add i32 %65, %64
@@ -867,7 +867,7 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
 .lr.ph159:                                        ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 22400
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 27212
-  %7 = getelementptr inbounds i8, ptr %0, i64 39212
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 39212
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 27204
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 43212
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 41612
@@ -876,7 +876,7 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
 
 11:                                               ; preds = %.lr.ph159, %.loopexit
   %indvars.iv190 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next191, %.loopexit ]
-  %12 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv190
+  %12 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv190
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
@@ -918,9 +918,9 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.2132 = phi i8 [ %spec.select, %.lr.ph ], [ %.199134, %.preheader ]
-  %36 = getelementptr inbounds [4 x [4 x i32]], ptr %33, i64 0, i64 %indvars.iv168, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %33, i64 0, i64 %indvars.iv168, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds [4 x [4 x i32]], ptr %34, i64 0, i64 %indvars.iv168, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %34, i64 0, i64 %indvars.iv168, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %.not113 = icmp eq i32 %37, %39
   %spec.select = select i1 %.not113, i8 %.2132, i8 0
@@ -983,7 +983,7 @@ define void @_ZN9Scheduler14FinetuneGroupsEv(ptr noundef nonnull align 8 derefer
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %.lr.ph138 ], [ 0, %62 ]
   %.0106.in135 = phi ptr [ %67, %.lr.ph138 ], [ %18, %62 ]
   %.0106 = load i32, ptr %.0106.in135, align 4
-  %65 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv170
+  %65 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv170
   store i32 %.0106, ptr %65, align 4
   %66 = sext i32 %.0106 to i64
   %67 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %66
@@ -1013,9 +1013,9 @@ _ZNK9Scheduler8SameHandEii.exit.preheader:        ; preds = %.critedge
 
 .lr.ph141:                                        ; preds = %.preheader125, %.critedge
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.critedge ], [ 1, %.preheader125 ]
-  %77 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv173
+  %77 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv173
   %.sroa.0.0.copyload = load i32, ptr %77, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %77, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   br label %78
 
@@ -1041,7 +1041,7 @@ _ZNK9Scheduler8SameHandEii.exit.preheader:        ; preds = %.critedge
   %87 = ashr exact i64 %sext, 32
   %88 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %87
   store i32 %.sroa.0.0.copyload, ptr %88, align 4
-  %.sroa.2.0..sroa_idx49 = getelementptr inbounds i8, ptr %88, i64 4
+  %.sroa.2.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx49, align 8
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %89 = load i32, ptr %9, align 4
@@ -1055,10 +1055,10 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
 
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %_ZNK9Scheduler8SameHandEii.exit.loopexit
   %indvars.iv179 = phi i64 [ 0, %.lr.ph144.preheader ], [ %indvars.iv.next180, %_ZNK9Scheduler8SameHandEii.exit.loopexit ]
-  %92 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv179
+  %92 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv179
   %93 = load i32, ptr %92, align 4
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %94 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next180
+  %94 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next180
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %93 to i64
   %97 = sext i32 %95 to i64
@@ -1101,7 +1101,7 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
   %109 = load i32, ptr %10, align 4
   store i32 %109, ptr %18, align 4
   %110 = zext i32 %.0101130 to i64
-  %111 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %112, ptr %113, align 4
@@ -1114,7 +1114,7 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.lr.ph150 ], [ 0, %108 ]
   %.1107147 = phi i32 [ %116, %.lr.ph150 ], [ %109, %108 ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %115 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next183
+  %115 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv.next183
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %.1107147 to i64
   %118 = getelementptr inbounds [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %117
@@ -1138,7 +1138,7 @@ _ZNK9Scheduler8SameHandEii.exit.loopexit:         ; preds = %104
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %160
   %indvars.iv187 = phi i64 [ %123, %.lr.ph156.preheader ], [ %indvars.iv.next188, %160 ]
   %.0154 = phi ptr [ %18, %.lr.ph156.preheader ], [ %.1, %160 ]
-  %124 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv187
+  %124 = getelementptr inbounds nuw [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %indvars.iv187
   %125 = load i32, ptr %124, align 4
   %126 = add nsw i64 %indvars.iv187, -1
   %127 = getelementptr inbounds [200 x %"struct.Scheduler::sortType"], ptr %10, i64 0, i64 %126
@@ -1276,7 +1276,7 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
 9:                                                ; preds = %.lr.ph, %68
   %10 = phi i32 [ %3, %.lr.ph ], [ %69, %68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %11 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1336,23 +1336,23 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
   br i1 %49, label %68, label %50
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load double, ptr %51, align 8
   %53 = fcmp ogt double %52, %47
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fsub double %47, %48
   %58 = fmul double %57, %56
   br label %68
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %46, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %61 = load double, ptr %60, align 8
   %62 = fsub double %47, %52
-  %63 = getelementptr inbounds i8, ptr %46, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %64 = load double, ptr %63, align 8
   %65 = fdiv double %62, %64
   %66 = tail call double @exp(double noundef %65) #23
@@ -1376,11 +1376,11 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
 
 76:                                               ; preds = %.lr.ph68, %.critedge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next71, %.critedge ]
-  %77 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv70
+  %77 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv70
   %78 = load i64, ptr %77, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %77, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %77, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx, i64 12, i1 false)
   %.not62 = icmp eq i64 %indvars.iv70, 0
   br i1 %.not62, label %.critedge, label %.lr.ph64
@@ -1410,9 +1410,9 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
   %.0.lcssa = phi i64 [ 0, %76 ], [ %87, %.critedge.loopexit ]
   %88 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %.0.lcssa
   store i64 %78, ptr %88, align 8
-  %.sroa.2.0..sroa_idx10 = getelementptr inbounds i8, ptr %88, i64 8
+  %.sroa.2.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx10, align 8
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %88, i64 12
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %88, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, i64 12, i1 false)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %89 = load i32, ptr %2, align 8
@@ -1448,7 +1448,7 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
 9:                                                ; preds = %.lr.ph, %50
   %10 = phi i32 [ %3, %.lr.ph ], [ %51, %50 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %11 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1472,23 +1472,23 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
   br i1 %30, label %50, label %31
 
 31:                                               ; preds = %9
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load double, ptr %32, align 8
   %34 = fcmp ogt double %33, %28
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load double, ptr %36, align 8
   %38 = fsub double %28, %29
   %39 = fmul double %38, %37
   br label %50
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %27, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %42 = load double, ptr %41, align 8
   %43 = fsub double %28, %33
-  %44 = getelementptr inbounds i8, ptr %27, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %45 = load double, ptr %44, align 8
   %46 = fdiv double %43, %45
   %47 = tail call double @exp(double noundef %46) #23
@@ -1512,11 +1512,11 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
 
 57:                                               ; preds = %.lr.ph51, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next54, %.critedge ]
-  %58 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv53
+  %58 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv53
   %59 = load i64, ptr %58, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx, i64 12, i1 false)
   %.not45 = icmp eq i64 %indvars.iv53, 0
   br i1 %.not45, label %.critedge, label %.lr.ph47
@@ -1546,9 +1546,9 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
   %.0.lcssa = phi i64 [ 0, %57 ], [ %68, %.critedge.loopexit ]
   %69 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %.0.lcssa
   store i64 %59, ptr %69, align 8
-  %.sroa.2.0..sroa_idx10 = getelementptr inbounds i8, ptr %69, i64 8
+  %.sroa.2.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx10, align 8
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %69, i64 12
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %69, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, i64 12, i1 false)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %70 = load i32, ptr %2, align 8
@@ -1584,7 +1584,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
 9:                                                ; preds = %.lr.ph, %98
   %10 = phi i32 [ %3, %.lr.ph ], [ %99, %98 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
-  %11 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %5, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1650,7 +1650,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load double, ptr %53, align 8
   br label %68
 
@@ -1659,16 +1659,16 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %46, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %59 = load double, ptr %58, align 8
   br label %68
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %46, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %62 = load double, ptr %61, align 8
   %63 = add nsw i32 %43, -15
   %64 = uitofp nneg i32 %63 to double
-  %65 = getelementptr inbounds i8, ptr %46, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %66 = load double, ptr %65, align 16
   %67 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %62)
   br label %68
@@ -1690,23 +1690,23 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   br i1 %79, label %98, label %80
 
 80:                                               ; preds = %68
-  %81 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %82 = load double, ptr %81, align 8
   %83 = fcmp ogt double %82, %77
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %76, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fsub double %77, %78
   %88 = fmul double %87, %86
   br label %98
 
 89:                                               ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %76, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %91 = load double, ptr %90, align 8
   %92 = fsub double %77, %82
-  %93 = getelementptr inbounds i8, ptr %76, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %94 = load double, ptr %93, align 8
   %95 = fdiv double %92, %94
   %96 = tail call double @exp(double noundef %95) #23
@@ -1730,11 +1730,11 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
 
 106:                                              ; preds = %.lr.ph84, %.critedge
   %indvars.iv86 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next87, %.critedge ]
-  %107 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv86
+  %107 = getelementptr inbounds nuw [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %indvars.iv86
   %108 = load i64, ptr %107, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx, i64 12, i1 false)
   %.not78 = icmp eq i64 %indvars.iv86, 0
   br i1 %.not78, label %.critedge, label %.lr.ph80
@@ -1764,9 +1764,9 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   %.0.lcssa = phi i64 [ 0, %106 ], [ %117, %.critedge.loopexit ]
   %118 = getelementptr inbounds [200 x %"struct.Scheduler::groupType"], ptr %8, i64 0, i64 %.0.lcssa
   store i64 %108, ptr %118, align 8
-  %.sroa.2.0..sroa_idx10 = getelementptr inbounds i8, ptr %118, i64 8
+  %.sroa.2.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx10, align 8
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %118, i64 12
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %118, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.3, i64 12, i1 false)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %119 = load i32, ptr %2, align 8
@@ -1792,11 +1792,11 @@ define noundef i32 @_ZNK9Scheduler6FanoutERK4deal(ptr nocapture noundef nonnull 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
   %.01821 = phi i32 [ 0, %.preheader ], [ %spec.select, %4 ]
   %.01920 = phi i32 [ 0, %.preheader ], [ %12, %4 ]
-  %5 = getelementptr inbounds [4 x [4 x i32]], ptr %3, i64 0, i64 %indvars.iv27, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %3, i64 0, i64 %indvars.iv27, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 2
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %.01920, 1
   %12 = add i32 %11, %10
@@ -1865,41 +1865,41 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 define noundef range(i32 -2147483648, 50) i32 @_ZNK9Scheduler8StrengthERK4deal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43416) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, %4
   %8 = lshr i32 %7, 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, %10
   %14 = lshr i32 %13, 2
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, %16
   %20 = lshr i32 %19, 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, %22
   %26 = lshr i32 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 43296
   %28 = zext nneg i32 %8 to i64
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4
   %32 = zext nneg i32 %14 to i64
-  %33 = getelementptr inbounds i32, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext nneg i32 %20 to i64
-  %36 = getelementptr inbounds i32, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %29, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = zext nneg i32 %26 to i64
-  %39 = getelementptr inbounds i32, ptr %29, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %29, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %31, 13
   %42 = add nsw i32 %31, -14
@@ -1929,7 +1929,7 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dere
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 43216
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i32, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %._crit_edge
@@ -1956,11 +1956,11 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dere
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %4
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %4
   store i32 %17, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 43240
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %4
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %4
   store i32 %17, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 22400
   %26 = sext i32 %17 to i64
@@ -2041,7 +2041,7 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dere
   store i32 %45, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 43264
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i32, ptr %75, i64 %4
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %4
   store i32 %40, ptr %76, align 4
   %77 = load i32, ptr %39, align 4
   %78 = icmp eq i32 %77, -1
@@ -2049,7 +2049,7 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dere
 
 79:                                               ; preds = %71
   %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds i32, ptr %80, i64 %4
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %4
   store i32 -1, ptr %81, align 4
   br label %82
 
@@ -2076,41 +2076,41 @@ define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr nocapture noundef 
   %5 = icmp eq i32 %4, 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %7
   %11 = lshr i32 %10, 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, %13
   %17 = lshr i32 %16, 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, %19
   %23 = lshr i32 %22, 2
-  %24 = getelementptr inbounds i8, ptr %1, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, %25
   %29 = lshr i32 %28, 2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 43296
   %31 = zext nneg i32 %11 to i64
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = zext nneg i32 %17 to i64
-  %36 = getelementptr inbounds i32, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = zext nneg i32 %23 to i64
-  %39 = getelementptr inbounds i32, ptr %32, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = zext nneg i32 %29 to i64
-  %42 = getelementptr inbounds i32, ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %32, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %34, 13
   %45 = add nsw i32 %34, -14
@@ -2272,7 +2272,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 

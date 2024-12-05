@@ -160,7 +160,7 @@ sub_0:                                            ; preds = %43
   br i1 %.not91, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %64 = getelementptr inbounds i8, ptr %50, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %.tail.thread
@@ -177,7 +177,7 @@ sub_0:                                            ; preds = %43
 
 72:                                               ; preds = %.tail.thread, %67
   %.0 = phi ptr [ %69, %67 ], [ %71, %.tail.thread ]
-  %73 = getelementptr inbounds i8, ptr %11, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %74 = load ptr, ptr %73, align 8
   call void @g_free(ptr noundef %74) #9
   store ptr null, ptr %73, align 8
@@ -201,9 +201,9 @@ sub_0:                                            ; preds = %43
   br i1 %.not6284, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
-  %84 = getelementptr inbounds i8, ptr %6, i64 4
-  %85 = getelementptr inbounds i8, ptr %6, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %86
 
 86:                                               ; preds = %.lr.ph, %103
@@ -212,14 +212,14 @@ sub_0:                                            ; preds = %43
   %87 = call noalias dereferenceable_or_null(32) ptr @g_slice_alloc(i64 noundef 32) #12
   %88 = load i32, ptr %83, align 8
   %89 = add i32 %88, 1
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 %89, ptr %90, align 8
   %91 = load i64, ptr %10, align 8
   store i64 %91, ptr %87, align 8
   %92 = load i32, ptr %84, align 4
   %93 = and i32 %92, 1
   %.not66 = icmp eq i32 %93, 0
-  %94 = getelementptr inbounds i8, ptr %87, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 16
   br i1 %.not66, label %96, label %95
 
 95:                                               ; preds = %86
@@ -235,8 +235,8 @@ sub_0:                                            ; preds = %43
   br i1 %.not67, label %103, label %98
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %87, i64 16
-  %100 = getelementptr inbounds i8, ptr %.07985, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.07985, i64 16
   %101 = call i32 @nstime_cmp(ptr noundef nonnull %99, ptr noundef nonnull %100) #9
   %102 = lshr i32 %101, 31
   %spec.select = add i32 %102, %.05286
@@ -264,7 +264,7 @@ sub_0:                                            ; preds = %43
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge
-  %109 = getelementptr inbounds i8, ptr %81, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %110 = load i32, ptr %109, align 8
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %110, i32 noundef %.052.lcssa)
   %.not65 = icmp eq i32 %.052.lcssa, 0
@@ -284,8 +284,8 @@ sub_0:                                            ; preds = %43
   br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %6, i64 16
-  %117 = getelementptr inbounds i8, ptr %7, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %115, label %.lr.ph89.split.us, label %.lr.ph89.split
 
 .lr.ph89.split.us:                                ; preds = %.lr.ph89, %.lr.ph89.split.us
@@ -325,7 +325,7 @@ sub_0:                                            ; preds = %43
   unreachable
 
 137:                                              ; preds = %.lr.ph89.split
-  %138 = getelementptr inbounds i8, ptr %126, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull readonly align 8 dereferenceable(16) %138, i64 16, i1 false)
   %139 = load ptr, ptr %7, align 8
   %140 = load i64, ptr %117, align 8
@@ -337,7 +337,7 @@ sub_0:                                            ; preds = %43
 143:                                              ; preds = %137
   %144 = load i32, ptr %3, align 4
   %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds i8, ptr %126, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = call i32 @wtap_file_type_subtype(ptr noundef nonnull %51) #9
   call void @cfile_write_failure_message(ptr noundef %46, ptr noundef nonnull %50, i32 noundef %144, ptr noundef %145, i32 noundef %147, i32 noundef %148) #9
@@ -498,8 +498,8 @@ declare void @nstime_set_unset(ptr noundef) local_unnamed_addr #1
 define internal i32 @frames_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = tail call i32 @nstime_cmp(ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   ret i32 %7
 }

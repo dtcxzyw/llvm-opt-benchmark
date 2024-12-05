@@ -372,23 +372,23 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %ref.tmp.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 287948901175001088, ptr %agg.result, align 8, !alias.scope !5
   store i64 576460743847706622, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 8, !alias.scope !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.6.0.agg.result.sroa_idx, i8 0, i64 16, i1 false)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %lower.sroa.7.0.agg.result.sroa_idx265 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx271 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx265 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx271 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !8
   store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx265, align 8, !alias.scope !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx271, i8 0, i64 16, i1 false)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %dotall = getelementptr inbounds i8, ptr %mode, i64 1
+  %dotall = getelementptr inbounds nuw i8, ptr %mode, i64 1
   %0 = load i8, ptr %dotall, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -399,7 +399,7 @@ if.then:                                          ; preds = %sw.bb2
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.then
   %__begin0.0.idx5.i.i.i = phi i64 [ 0, %if.then ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i
+  %__begin0.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i
   %1 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !11
   %not.i.i.i = xor i64 %1, -1
   store i64 %not.i.i.i, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !11
@@ -409,13 +409,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 if.else:                                          ; preds = %sw.bb2
   store i64 1024, ptr %agg.result, align 8
-  %ref.tmp4.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp4.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.sroa.4.0.agg.result.sroa_idx, i8 0, i64 24, i1 false)
   br label %for.body.i.i.i46
 
 for.body.i.i.i46:                                 ; preds = %for.body.i.i.i46, %if.else
   %__begin0.0.idx5.i.i.i47 = phi i64 [ 0, %if.else ], [ %__begin0.0.add.i.i.i50, %for.body.i.i.i46 ]
-  %__begin0.0.ptr.i.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i47
+  %__begin0.0.ptr.i.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i47
   %2 = load i64, ptr %__begin0.0.ptr.i.i.i48, align 8, !alias.scope !14
   %not.i.i.i49 = xor i64 %2, -1
   store i64 %not.i.i.i49, ptr %__begin0.0.ptr.i.i.i48, align 8, !alias.scope !14
@@ -424,7 +424,7 @@ for.body.i.i.i46:                                 ; preds = %for.body.i.i.i46, %
   br i1 %cmp.not.i.i.i51, label %return, label %for.body.i.i.i46
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %entry
-  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 -1, i64 16, i1 false)
   br label %return
@@ -456,7 +456,7 @@ lpad9:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 sw.bb11:                                          ; preds = %entry
-  %ref.tmp12.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp12.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12.sroa.4.0.agg.result.sroa_idx, i8 0, i64 24, i1 false)
   store i64 4294967295, ptr %agg.result, align 8, !alias.scope !17
   store i64 -9223372036854775808, ptr %ref.tmp12.sroa.4.0.agg.result.sroa_idx, align 8, !alias.scope !17
@@ -464,15 +464,15 @@ sw.bb11:                                          ; preds = %entry
 
 sw.bb14:                                          ; preds = %entry
   store i64 287948901175001088, ptr %agg.result, align 8
-  %number.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %number.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %number.sroa.6.0.agg.result.sroa_idx, i8 0, i64 24, i1 false)
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store i64 -8589934592, ptr %agg.result, align 8
-  %arrayidx.i.i26.i.i.i71 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx.i.i26.i.i.i71 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i71, align 8
   br label %return
 
@@ -514,8 +514,8 @@ sw.bb30:                                          ; preds = %entry
   br i1 %tobool31, label %if.then32, label %if.else33
 
 if.then32:                                        ; preds = %sw.bb30
-  %lower.sroa.7.0.agg.result.sroa_idx267 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx273 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx267 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx273 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !20
   store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx267, align 8, !alias.scope !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx273, i8 0, i64 16, i1 false)
@@ -523,17 +523,17 @@ if.then32:                                        ; preds = %sw.bb30
 
 if.else33:                                        ; preds = %sw.bb30
   store i64 0, ptr %agg.result, align 8
-  %lower.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %lower.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 576460743713488896, ptr %lower.sroa.7.0.agg.result.sroa_idx, align 8
-  %lower.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx, i8 0, i64 16, i1 false)
   br label %return
 
 sw.bb34:                                          ; preds = %entry
-  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
   store i64 -4294967296, ptr %agg.result, align 8
-  %arrayidx.i.i26.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx.i.i26.i.i.i88 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i88, align 8
   br label %return
 
@@ -544,8 +544,8 @@ sw.bb35:                                          ; preds = %entry
   br label %return
 
 sw.bb40:                                          ; preds = %entry
-  %ref.tmp41.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %ref.tmp41.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp41.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %ref.tmp41.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 -287948909764935680, ptr %agg.result, align 8, !alias.scope !23
   store i64 8646911293007069185, ptr %ref.tmp41.sroa.4.0.agg.result.sroa_idx, align 8, !alias.scope !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41.sroa.7.0.agg.result.sroa_idx, i8 0, i64 16, i1 false)
@@ -589,8 +589,8 @@ sw.bb61:                                          ; preds = %entry
   br i1 %tobool63, label %if.then64, label %if.else65
 
 if.then64:                                        ; preds = %sw.bb61
-  %lower.sroa.7.0.agg.result.sroa_idx269 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx275 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx269 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx275 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !26
   store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx269, align 8, !alias.scope !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx275, i8 0, i64 16, i1 false)
@@ -598,9 +598,9 @@ if.then64:                                        ; preds = %sw.bb61
 
 if.else65:                                        ; preds = %sw.bb61
   store i64 0, ptr %agg.result, align 8
-  %upper.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %upper.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 134217726, ptr %upper.sroa.7.0.agg.result.sroa_idx, align 8
-  %upper.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %upper.sroa.14.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %upper.sroa.14.0.agg.result.sroa_idx, i8 0, i64 16, i1 false)
   br label %return
 
@@ -631,8 +631,8 @@ lpad71:                                           ; preds = %invoke.cont70
   br label %eh.resume
 
 sw.bb75:                                          ; preds = %entry
-  %ref.tmp76.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %ref.tmp76.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp76.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %ref.tmp76.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 287948901175001088, ptr %agg.result, align 8, !alias.scope !29
   store i64 576460745995190270, ptr %ref.tmp76.sroa.4.0.agg.result.sroa_idx, align 8, !alias.scope !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp76.sroa.7.0.agg.result.sroa_idx, i8 0, i64 16, i1 false)
@@ -883,21 +883,21 @@ sw.bb263:                                         ; preds = %entry, %entry
   %19 = load i64, ptr %agg.result, align 8, !alias.scope !32
   %or.i.i177 = or i64 %19, %18
   store i64 %or.i.i177, ptr %agg.result, align 8, !alias.scope !32
-  %arrayidx.i.i19.i.i178 = getelementptr inbounds i8, ptr %ref.tmp265, i64 8
+  %arrayidx.i.i19.i.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp265, i64 8
   %20 = load i64, ptr %arrayidx.i.i19.i.i178, align 8, !noalias !32
-  %arrayidx.i.i20.i.i179 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx.i.i20.i.i179 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %21 = load i64, ptr %arrayidx.i.i20.i.i179, align 8, !alias.scope !32
   %or10.i.i180 = or i64 %21, %20
   store i64 %or10.i.i180, ptr %arrayidx.i.i20.i.i179, align 8, !alias.scope !32
-  %arrayidx.i.i21.i.i181 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
+  %arrayidx.i.i21.i.i181 = getelementptr inbounds nuw i8, ptr %ref.tmp265, i64 16
   %22 = load i64, ptr %arrayidx.i.i21.i.i181, align 8, !noalias !32
-  %arrayidx.i.i22.i.i182 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx.i.i22.i.i182 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %23 = load i64, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
   %or17.i.i183 = or i64 %23, %22
   store i64 %or17.i.i183, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
-  %arrayidx.i.i23.i.i184 = getelementptr inbounds i8, ptr %ref.tmp265, i64 24
+  %arrayidx.i.i23.i.i184 = getelementptr inbounds nuw i8, ptr %ref.tmp265, i64 24
   %24 = load i64, ptr %arrayidx.i.i23.i.i184, align 8, !noalias !32
-  %arrayidx.i.i24.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %arrayidx.i.i24.i.i185 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %25 = load i64, ptr %arrayidx.i.i24.i.i185, align 8, !alias.scope !32
   %or24.i.i186 = or i64 %25, %24
   store i64 %or24.i.i186, ptr %arrayidx.i.i24.i.i185, align 8, !alias.scope !32
@@ -1509,7 +1509,7 @@ sw.bb766:                                         ; preds = %entry
 
 for.body.i.i.i187:                                ; preds = %for.body.i.i.i187, %sw.bb766
   %__begin0.0.idx5.i.i.i188 = phi i64 [ 0, %sw.bb766 ], [ %__begin0.0.add.i.i.i191, %for.body.i.i.i187 ]
-  %__begin0.0.ptr.i.i.i189 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i188
+  %__begin0.0.ptr.i.i.i189 = getelementptr inbounds nuw i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i188
   %26 = load i64, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
   %not.i.i.i190 = xor i64 %26, -1
   store i64 %not.i.i.i190, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
@@ -1580,22 +1580,22 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias nocapture align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %cps) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 24
+  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 8
   %cmp.i.not9 = icmp eq ptr %0, %add.ptr.i.i.i.i
   br i1 %cmp.i.not9, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN3ue29CharReach8setRangeEhh.exit
   %__begin1.sroa.0.010 = phi ptr [ %call.i, %_ZN3ue29CharReach8setRangeEhh.exit ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 32
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010, i64 32
   %1 = load i32, ptr %_M_storage.i.i, align 4
   %cmp = icmp ugt i32 %1, 255
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
   %conv7 = zext nneg i32 %1 to i64
-  %_upb.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 36
+  %_upb.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010, i64 36
   %2 = load i32, ptr %_upb.i.i.i, align 4
   %spec.select8 = tail call i32 @llvm.umin.i32(i32 %2, i32 255)
   %spec.select = zext nneg i32 %spec.select8 to i64
@@ -1625,7 +1625,7 @@ if.end8.i.i:                                      ; preds = %if.end
 
 if.then10.i.i:                                    ; preds = %if.end8.i.i
   %shl13.i.i = shl nsw i64 -1, %rem.i.i
-  %arrayidx.i.i22.i.i = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div18.i.i
+  %arrayidx.i.i22.i.i = getelementptr inbounds nuw [4 x i64], ptr %agg.result, i64 0, i64 %div18.i.i
   %3 = load i64, ptr %arrayidx.i.i22.i.i, align 8
   %or17.i.i = or i64 %3, %shl13.i.i
   store i64 %or17.i.i, ptr %arrayidx.i.i22.i.i, align 8
@@ -1669,7 +1669,7 @@ if.then29.i.i:                                    ; preds = %for.end.i.i
 if.end37.sink.split.i.i:                          ; preds = %if.then29.i.i, %if.then5.i.i, %if.then.i.i
   %div3420.sink.i.i = phi i64 [ %div3420.i.i, %if.then29.i.i ], [ %div18.i.i, %if.then5.i.i ], [ %div18.i.i, %if.then.i.i ]
   %sub32.sink.i.i = phi i64 [ %sub32.i.i, %if.then29.i.i ], [ %and.i.i, %if.then5.i.i ], [ %shl.i.i, %if.then.i.i ]
-  %arrayidx.i.i26.i.i = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div3420.sink.i.i
+  %arrayidx.i.i26.i.i = getelementptr inbounds nuw [4 x i64], ptr %agg.result, i64 0, i64 %div3420.sink.i.i
   %13 = load i64, ptr %arrayidx.i.i26.i.i, align 8
   %or36.i.i = or i64 %13, %sub32.sink.i.i
   store i64 %or36.i.i, ptr %arrayidx.i.i26.i.i, align 8
@@ -1689,7 +1689,7 @@ declare void @_ZN3ue225getPredefinedCodePointSetENS_15PredefinedClassERKNS_9Pars
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -1978,7 +1978,7 @@ declare void @_ZN3ue28getUcpYiEv(ptr sret(%"class.ue2::CodePointSet") align 8) l
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %utf8 = getelementptr inbounds i8, ptr %mode, i64 5
+  %utf8 = getelementptr inbounds nuw i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf8, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -2019,7 +2019,7 @@ return:                                           ; preds = %if.else, %if.then
 define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %c, i1 noundef zeroext %negate, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %utf8.i = getelementptr inbounds i8, ptr %mode, i64 5
+  %utf8.i = getelementptr inbounds nuw i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf8.i, align 1, !noalias !45
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
@@ -2058,14 +2058,14 @@ _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.then.i, %if.else
   %storemerge.i = phi ptr [ %call.i.i, %if.then.i ], [ %call.i3.i, %if.else.i ]
   store ptr %storemerge.i, ptr %agg.result, align 8, !alias.scope !45
   %vtable = load ptr, ptr %storemerge.i, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i, i32 noundef %c, i1 noundef zeroext %negate)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
 
 invoke.cont:                                      ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
   %vtable2 = load ptr, ptr %storemerge.i, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 144
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 144
   %4 = load ptr, ptr %vfn3, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i)
           to label %nrvo.skipdtor unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
@@ -2074,7 +2074,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %storemerge.i, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i) #19
   store ptr null, ptr %agg.result, align 8
@@ -2089,7 +2089,7 @@ define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr noalias nocapture w
 if.else.i:
   %mode = alloca %"struct.ue2::ParseMode", align 1
   %frombool = zext i1 %nocase to i8
-  %0 = getelementptr inbounds i8, ptr %mode, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %mode, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %0, i8 0, i64 5, i1 false)
   store i8 %frombool, ptr %mode, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
@@ -2109,7 +2109,7 @@ common.resume.i:                                  ; preds = %if.else.i
 
 _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.else.i
   %vtable.pre = load ptr, ptr %call.i3.i, align 8
-  %vfn.phi.trans.insert = getelementptr inbounds i8, ptr %vtable.pre, i64 136
+  %vfn.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vtable.pre, i64 136
   %.pre = load ptr, ptr %vfn.phi.trans.insert, align 8
   store ptr %call.i3.i, ptr %agg.result, align 8, !alias.scope !54
   %conv = zext i8 %c to i32
@@ -2118,7 +2118,7 @@ _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.else.i
 
 invoke.cont:                                      ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
   %vtable3 = load ptr, ptr %call.i3.i, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 144
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 144
   %2 = load ptr, ptr %vfn4, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i)
           to label %nrvo.skipdtor unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
@@ -2127,7 +2127,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %3 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call.i3.i, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i) #19
   store ptr null, ptr %agg.result, align 8
@@ -2142,15 +2142,15 @@ define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnu
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214ComponentClassE, i64 16), ptr %this, align 8
-  %m_negate = getelementptr inbounds i8, ptr %this, i64 16
+  %m_negate = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %m_negate, align 8
-  %mode = getelementptr inbounds i8, ptr %this, i64 17
+  %mode = getelementptr inbounds nuw i8, ptr %this, i64 17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode, ptr noundef nonnull align 1 dereferenceable(6) %mode_in, i64 6, i1 false)
-  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
+  %in_cand_range = getelementptr inbounds nuw i8, ptr %this, i64 23
   store i8 0, ptr %in_cand_range, align 1
-  %range_start = getelementptr inbounds i8, ptr %this, i64 24
+  %range_start = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 -1, ptr %range_start, align 8
-  %finalized = getelementptr inbounds i8, ptr %this, i64 28
+  %finalized = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i8 0, ptr %finalized, align 4
   ret void
 }
@@ -2180,13 +2180,13 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue214ComponentClass7addDashEv(ptr noundef nonnull align 8 dereferenceable(29) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
+  %in_cand_range = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %in_cand_range, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.else4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %range_start = getelementptr inbounds i8, ptr %this, i64 24
+  %range_start = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %range_start, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.else, label %if.then2
@@ -2197,7 +2197,7 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(29) %this, i32 noundef 45)
   br label %if.end8
@@ -2205,7 +2205,7 @@ if.else:                                          ; preds = %if.then
 if.else4:                                         ; preds = %entry
   store i8 0, ptr %in_cand_range, align 1
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 152
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 152
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(29) %this, i32 noundef 45)
   br label %if.end8
@@ -2217,7 +2217,7 @@ if.end8:                                          ; preds = %if.then2, %if.else,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue214ComponentClass6negateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((16, 17)) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_negate = getelementptr inbounds i8, ptr %this, i64 16
+  %m_negate = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %m_negate, align 8
   ret void
 }
@@ -2268,10 +2268,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
   %cmp.not = icmp eq ptr %1, null

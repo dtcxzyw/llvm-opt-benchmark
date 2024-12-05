@@ -16,15 +16,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27G1RedirtyCardsLocalQueueSetC2EP22G1RedirtyCardsQueueSet(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27G1RedirtyCardsLocalQueueSet, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN14BufferNodeListC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #6
   ret void
 }
@@ -35,22 +35,22 @@ declare void @_ZN14BufferNodeListC1Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN27G1RedirtyCardsLocalQueueSet24enqueue_completed_bufferEP10BufferNode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %6 = load i32, ptr %1, align 8
   %7 = zext i32 %6 to i64
   %8 = sub nsw i64 %5, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %8, %11
   store i64 %12, ptr %10, align 8
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile ptr %13, ptr %14, align 8
   store ptr %1, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
@@ -65,7 +65,7 @@ define hidden void @_ZN27G1RedirtyCardsLocalQueueSet24enqueue_completed_bufferEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = tail call noundef zeroext i1 @_ZN11PtrQueueSet11try_enqueueER8PtrQueuePv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %1) #6
   br i1 %4, label %11, label %5
 
@@ -97,27 +97,27 @@ declare void @_ZN11PtrQueueSet13retry_enqueueER8PtrQueuePv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BufferNodeList) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.BufferNodeList, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 272
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %10) #6, !srcloc !6
-  %14 = getelementptr inbounds i8, ptr %7, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load volatile ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %20
 
 20:                                               ; preds = %20, %9
@@ -129,13 +129,13 @@ define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind 
 
 _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit.i: ; preds = %20
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList.exit
 
 26:                                               ; preds = %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit.i
-  %27 = getelementptr inbounds i8, ptr %7, i64 400
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 400
   store ptr %22, ptr %27, align 8
   br label %_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeList.exit
 
@@ -157,16 +157,16 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeLi
   br i1 %.not, label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %5) #6, !srcloc !6
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load volatile ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %15
 
 15:                                               ; preds = %15, %4
@@ -178,13 +178,13 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet14add_bufferlistERK14BufferNodeLi
 
 _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit: ; preds = %15
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit
 
 21:                                               ; preds = %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 400
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %17, ptr %22, align 8
   br label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit
 
@@ -204,11 +204,11 @@ declare void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN22G1RedirtyCardsQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 400
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr null, ptr %5, align 8
   ret void
 }
@@ -225,18 +225,18 @@ declare void @_ZN11PtrQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef ptr @_ZNK22G1RedirtyCardsQueueSet21all_completed_buffersEv(ptr noundef nonnull align 8 dereferenceable(408) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSet26take_all_completed_buffersEv(ptr dead_on_unwind noalias writable sret(%struct.BufferNodeList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #6, !srcloc !10
-  %5 = getelementptr inbounds i8, ptr %1, i64 400
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %8 = load volatile i64, ptr %7, align 8
   tail call void @_ZN14BufferNodeListC1EP10BufferNodeS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %4, ptr noundef %6, i64 noundef %8) #6
   store ptr null, ptr %5, align 8
@@ -248,13 +248,13 @@ declare void @_ZN14BufferNodeListC1EP10BufferNodeS1_m(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 400
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -264,17 +264,17 @@ define hidden void @_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1RedirtyCardsQueueSet24enqueue_completed_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = load i32, ptr %1, align 8
   %8 = zext i32 %7 to i64
   %9 = sub nsw i64 %6, %8
   %10 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %9, ptr nonnull %3) #6, !srcloc !6
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load volatile ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %14, %2
@@ -290,7 +290,7 @@ _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE4pushES1_.exit: ; pred
   br i1 %17, label %18, label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit
 
 18:                                               ; preds = %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE4pushES1_.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 400
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %1, ptr %19, align 8
   br label %_ZN22G1RedirtyCardsQueueSet11update_tailEP10BufferNode.exit
 

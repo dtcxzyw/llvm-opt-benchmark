@@ -359,7 +359,7 @@ define internal noundef i32 @ancp_stats_tree_packet(ptr noundef %0, ptr nocaptur
 
 13:                                               ; preds = %5
   %14 = load i32, ptr @st_node_adj_pack_types, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @adj_code_names, ptr noundef nonnull @.str.190) #2
   %18 = tail call i32 @stats_tree_tick_pivot(ptr noundef %0, i32 noundef %14, ptr noundef %17) #2
@@ -401,15 +401,15 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %6, label %146
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.74) #2
   %9 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #2
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 8) #2
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4
   %14 = load i32, ptr @proto_ancp, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2

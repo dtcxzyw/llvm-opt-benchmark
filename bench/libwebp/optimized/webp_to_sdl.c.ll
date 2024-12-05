@@ -39,7 +39,7 @@ define hidden range(i32 0, 2) i32 @WebPToSDL(ptr noundef %0, i32 noundef %1) loc
 13:                                               ; preds = %10
   %14 = load i32, ptr %3, align 4
   store i32 %14, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %7, align 4
   %17 = call i32 @SDL_CreateWindowAndRenderer(i32 noundef %14, i32 noundef %16, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #4

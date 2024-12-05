@@ -11,28 +11,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Fraig_FeedBackInit(ptr nocapture noundef initializes((152, 192)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 500) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %3, align 8
   %4 = tail call ptr @Msat_IntVecAlloc(i32 noundef 1000) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %7) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %13, i1 false)
   %14 = load ptr, ptr %6, align 8
   %15 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %14) #12
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %17) #12
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %18, ptr %19, align 8
   ret void
 }
@@ -58,7 +58,7 @@ define void @Fraig_FeedBack(ptr noundef %0, ptr nocapture noundef readonly %1, p
 10:                                               ; preds = %5
   %11 = load i64, ptr %7, align 8
   %.neg40 = mul i64 %11, -1000000
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i64, ptr %12, align 8
   %.neg = sdiv i64 %13, -1000
   %.neg41 = add i64 %.neg, %.neg40
@@ -68,7 +68,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %.0.i.neg = phi i64 [ %.neg41, %10 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
@@ -76,17 +76,17 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 .lr.ph.i:                                         ; preds = %Abc_Clock.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %Abc_Clock.exit ]
   %18 = phi ptr [ %26, %.lr.ph.i ], [ %14, %Abc_Clock.exit ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, -129
   store i32 %25, ptr %23, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
@@ -99,7 +99,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %33, label %.lr.ph28.i, label %Fraig_FeedBackPrepare.exit
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count.i = zext nneg i32 %31 to i64
   br label %35
 
@@ -107,9 +107,9 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next32.i, %59 ]
   %.026.i = phi i32 [ 0, %.lr.ph28.i ], [ %.1.i, %59 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv31.i
+  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv31.i
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %38, i64 %41
@@ -119,7 +119,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %.not.i, label %59, label %45
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = or i32 %47, 128
   store i32 %48, ptr %46, align 8
@@ -153,20 +153,20 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i32
   %65 = add nsw i32 %61, %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 76
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 136
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load i32, ptr %68, align 8
   %70 = sub nsw i32 %67, %69
   %.1.i32 = call i32 @llvm.smin.i32(i32 %65, i32 %70)
   %71 = shl nsw i32 %.1.i32, 5
   %72 = add nsw i32 %71, -2
-  %73 = getelementptr inbounds i8, ptr %0, i64 160
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %74 = load ptr, ptr %73, align 8
   %75 = shl nsw i32 %69, 5
   call void @Msat_IntVecPush(ptr noundef %74, i32 noundef %75) #12
   %76 = load i32, ptr %68, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 168
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %76 to i64
   %80 = getelementptr inbounds i32, ptr %78, i64 %79
@@ -174,7 +174,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   %82 = or i32 %81, 1
   store i32 %82, ptr %80, align 4
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph88.preheader.i, label %Fraig_FeedBackInsert.exit
@@ -187,16 +187,16 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph88.preheader.i ], [ %indvars.iv.next96.i, %._crit_edge84.i ]
   %88 = phi ptr [ %83, %.lr.ph88.preheader.i ], [ %151, %._crit_edge84.i ]
   %.07186.i = phi i32 [ 1, %.lr.ph88.preheader.i ], [ %.172.i, %._crit_edge84.i ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv95.i
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv95.i
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %68, align 8
   br i1 %87, label %.lr.ph.i35, label %._crit_edge.i33
 
 .lr.ph.i35:                                       ; preds = %.lr.ph88.i
-  %94 = getelementptr inbounds i8, ptr %92, i64 24
-  %95 = getelementptr inbounds i8, ptr %92, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 112
   %96 = sext i32 %93 to i64
   br label %97
 
@@ -239,7 +239,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
 
 ._crit_edge.i33:                                  ; preds = %110, %.lr.ph88.i
   %.lcssa.i = phi i32 [ %93, %.lr.ph88.i ], [ %111, %110 ]
-  %115 = getelementptr inbounds i8, ptr %92, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 128
   %.not.i34 = icmp ne i32 %117, 0
@@ -250,7 +250,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
 119:                                              ; preds = %._crit_edge.i33
   %120 = and i32 %.07186.i, 31
   %121 = shl nuw i32 1, %120
-  %122 = getelementptr inbounds i8, ptr %92, i64 112
+  %122 = getelementptr inbounds nuw i8, ptr %92, i64 112
   %123 = load ptr, ptr %122, align 8
   %124 = sext i32 %.lcssa.i to i64
   %125 = getelementptr inbounds i32, ptr %123, i64 %124
@@ -273,8 +273,8 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
 
 .lr.ph83.i:                                       ; preds = %132
   %135 = load i32, ptr %68, align 8
-  %136 = getelementptr inbounds i8, ptr %92, i64 112
-  %137 = getelementptr inbounds i8, ptr %92, i64 100
+  %136 = getelementptr inbounds nuw i8, ptr %92, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %92, i64 100
   %138 = sext i32 %135 to i64
   %.pre98.i = load ptr, ptr %136, align 8
   %.pre99.i = load i32, ptr %137, align 4
@@ -300,16 +300,16 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
 ._crit_edge84.i:                                  ; preds = %139, %132
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next96.i, %154
   br i1 %155, label %.lr.ph88.i, label %Fraig_FeedBackInsert.exit, !llvm.loop !9
 
 Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %Fraig_FeedBackPrepare.exit
-  %156 = getelementptr inbounds i8, ptr %0, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = icmp sgt i32 %159, 1
   br i1 %160, label %.lr.ph, label %._crit_edge
@@ -317,9 +317,9 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
 .lr.ph:                                           ; preds = %Fraig_FeedBackInsert.exit, %175
   %indvars.iv = phi i64 [ %indvars.iv.next, %175 ], [ 1, %Fraig_FeedBackInsert.exit ]
   %161 = phi ptr [ %176, %175 ], [ %157, %Fraig_FeedBackInsert.exit ]
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds ptr, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = call i32 @Fraig_NodeIsAnd(ptr noundef %165) #12
   %.not31 = icmp eq i32 %166, 0
@@ -327,9 +327,9 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
 
 167:                                              ; preds = %.lr.ph
   %168 = load ptr, ptr %156, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8
   %173 = load i32, ptr %68, align 8
   %174 = add nsw i32 %173, %.1.i32
@@ -339,14 +339,14 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
 175:                                              ; preds = %.lr.ph, %167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %176 = load ptr, ptr %156, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = sext i32 %178 to i64
   %180 = icmp slt i64 %indvars.iv.next, %179
   br i1 %180, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %175, %Fraig_FeedBackInsert.exit
-  %181 = getelementptr inbounds i8, ptr %0, i64 100
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %182 = load i32, ptr %181, align 4
   %.not = icmp eq i32 %182, 0
   br i1 %.not, label %185, label %183
@@ -356,7 +356,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
   br label %185
 
 185:                                              ; preds = %183, %._crit_edge
-  %186 = getelementptr inbounds i8, ptr %0, i64 104
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %187 = load i32, ptr %186, align 8
   %.not30 = icmp eq i32 %187, 0
   br i1 %.not30, label %188, label %192
@@ -390,7 +390,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
 202:                                              ; preds = %199
   %203 = load i64, ptr %6, align 8
   %204 = mul nsw i64 %203, 1000000
-  %205 = getelementptr inbounds i8, ptr %6, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %206 = load i64, ptr %205, align 8
   %207 = sdiv i64 %206, 1000
   %208 = add nsw i64 %207, %204
@@ -400,7 +400,7 @@ Abc_Clock.exit39:                                 ; preds = %199, %202
   %.0.i38 = phi i64 [ %208, %202 ], [ -1, %199 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %209 = add i64 %.0.i38, %.0.i.neg
-  %210 = getelementptr inbounds i8, ptr %0, i64 392
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %211 = load i64, ptr %210, align 8
   %212 = add nsw i64 %209, %211
   store i64 %212, ptr %210, align 8
@@ -415,14 +415,14 @@ declare i32 @Fraig_TableRehashF0(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   tail call fastcc void @Fraig_FeedBackCheckTable(ptr noundef nonnull %0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
@@ -432,28 +432,28 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %5, %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 100) #12
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph149.i.i, label %._crit_edge150.i.i
 
 .lr.ph149.i.i:                                    ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %22
 
 22:                                               ; preds = %._crit_edge146.i.i, %.lr.ph149.i.i
   %23 = phi i32 [ %16, %.lr.ph149.i.i ], [ %90, %._crit_edge146.i.i ]
   %indvars.iv193.i.i = phi i64 [ 0, %.lr.ph149.i.i ], [ %indvars.iv.next194.i.i, %._crit_edge146.i.i ]
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv193.i.i
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv193.i.i
   %.0118141.i.i = load ptr, ptr %25, align 8
   %.not126142.i.i = icmp eq ptr %.0118141.i.i, null
   br i1 %.not126142.i.i, label %._crit_edge146.i.i, label %.lr.ph145.preheader.i.i
@@ -465,7 +465,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph145.i.i:                                    ; preds = %.loopexit133.i.i, %.lr.ph145.preheader.i.i
   %26 = phi ptr [ %88, %.loopexit133.i.i ], [ %.pre.i.i, %.lr.ph145.preheader.i.i ]
   %.0118143.i.i = phi ptr [ %.0118.i.i, %.loopexit133.i.i ], [ %.0118141.i.i, %.lr.ph145.preheader.i.i ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4
   br label %28
 
@@ -473,14 +473,14 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %.0116134.i.i = phi ptr [ %.0118143.i.i, %.lr.ph145.i.i ], [ %31, %28 ]
   %29 = load ptr, ptr %18, align 8
   tail call void @Fraig_NodeVecPush(ptr noundef %29, ptr noundef nonnull %.0116134.i.i) #12
-  %30 = getelementptr inbounds i8, ptr %.0116134.i.i, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %.0116134.i.i, i64 72
   %31 = load ptr, ptr %30, align 8
   %.not127.i.i = icmp eq ptr %31, null
   br i1 %.not127.i.i, label %32, label %28, !llvm.loop !11
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %18, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, -2
   %or.cond235.i.i = icmp ult i32 %36, 19
@@ -511,11 +511,11 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph138.i.i:                                    ; preds = %.lr.ph140.i.i, %82
   %indvars.iv187.i.i = phi i64 [ %indvars.iv.next188.i.i, %82 ], [ %indvars.iv185.i.i, %.lr.ph140.i.i ]
   %42 = phi ptr [ %83, %82 ], [ %39, %.lr.ph140.i.i ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv190.i.i
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv190.i.i
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv187.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv187.i.i
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %19, align 8
   %50 = load ptr, ptr %20, align 8
@@ -527,15 +527,15 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %53 = load ptr, ptr %21, align 8
   %54 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %53) #12
   %55 = load ptr, ptr %18, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv190.i.i
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv190.i.i
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv187.i.i
+  %62 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv187.i.i
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 112
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %19, align 8
   %67 = icmp sgt i32 %66, 0
@@ -543,17 +543,17 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %52 ]
-  %68 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i.i
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i.i
   %71 = load i32, ptr %70, align 4
   %72 = xor i32 %71, %69
   %73 = load ptr, ptr %20, align 8
-  %74 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i
   %75 = load i32, ptr %74, align 4
   %76 = xor i32 %75, -1
   %77 = and i32 %72, %76
-  %78 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i.i
   store i32 %77, ptr %78, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %79 = load i32, ptr %19, align 8
@@ -568,7 +568,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 82:                                               ; preds = %._crit_edge.i.i, %.lr.ph138.i.i
   %indvars.iv.next188.i.i = add nuw nsw i64 %indvars.iv187.i.i, 1
   %83 = load ptr, ptr %18, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = trunc nuw i64 %indvars.iv.next188.i.i to i32
   %87 = icmp sgt i32 %85, %86
@@ -576,7 +576,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit133.i.i:                                 ; preds = %.loopexit131.i.i, %32
   %88 = phi ptr [ %33, %32 ], [ %37, %.loopexit131.i.i ]
-  %89 = getelementptr inbounds i8, ptr %.0118143.i.i, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %.0118143.i.i, i64 64
   %.0118.i.i = load ptr, ptr %89, align 8
   %.not126.i.i = icmp eq ptr %.0118.i.i, null
   br i1 %.not126.i.i, label %._crit_edge146.loopexit.i.i, label %.lr.ph145.i.i, !llvm.loop !15
@@ -593,38 +593,38 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %92, label %22, label %._crit_edge150.i.i, !llvm.loop !16
 
 ._crit_edge150.i.i:                               ; preds = %._crit_edge146.i.i, %9
-  %93 = getelementptr inbounds i8, ptr %0, i64 100
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %94 = load i32, ptr %93, align 4
   %.not.i.i = icmp eq i32 %94, 0
   br i1 %.not.i.i, label %Fraig_FeedBackCoveringStart.exit.i, label %95
 
 95:                                               ; preds = %._crit_edge150.i.i
-  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph163.i.i, label %._crit_edge164.i.i
 
 .lr.ph163.i.i:                                    ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %0, i64 136
-  %102 = getelementptr inbounds i8, ptr %0, i64 168
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %103
 
 103:                                              ; preds = %._crit_edge160.i.i, %.lr.ph163.i.i
   %104 = phi i32 [ %99, %.lr.ph163.i.i ], [ %127, %._crit_edge160.i.i ]
   %indvars.iv199.i.i = phi i64 [ 0, %.lr.ph163.i.i ], [ %indvars.iv.next200.i.i, %._crit_edge160.i.i ]
   %105 = load ptr, ptr %97, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv199.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv199.i.i
   %.1119155.i.i = load ptr, ptr %106, align 8
   %.not125156.i.i = icmp eq ptr %.1119155.i.i, null
   br i1 %.not125156.i.i, label %._crit_edge160.i.i, label %.lr.ph159.i.i
 
 .lr.ph159.i.i:                                    ; preds = %103, %._crit_edge154.i.i
   %.1119157.i.i = phi ptr [ %.1119.i.i, %._crit_edge154.i.i ], [ %.1119155.i.i, %103 ]
-  %107 = getelementptr inbounds i8, ptr %.1119157.i.i, i64 112
+  %107 = getelementptr inbounds nuw i8, ptr %.1119157.i.i, i64 112
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.1119157.i.i, i64 100
+  %109 = getelementptr inbounds nuw i8, ptr %.1119157.i.i, i64 100
   store i32 0, ptr %109, align 4
   %110 = load i32, ptr %101, align 8
   %111 = icmp sgt i32 %110, 0
@@ -633,13 +633,13 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph153.i.i:                                    ; preds = %.lr.ph159.i.i, %.lr.ph153.i.i
   %112 = phi i32 [ %122, %.lr.ph153.i.i ], [ 0, %.lr.ph159.i.i ]
   %indvars.iv196.i.i = phi i64 [ %indvars.iv.next197.i.i, %.lr.ph153.i.i ], [ 0, %.lr.ph159.i.i ]
-  %113 = getelementptr inbounds i32, ptr %108, i64 %indvars.iv196.i.i
+  %113 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv196.i.i
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %102, align 8
-  %116 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv196.i.i
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv196.i.i
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, %114
-  %119 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv196.i.i
+  %119 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv196.i.i
   %120 = load i32, ptr %119, align 4
   %121 = mul i32 %118, %120
   %122 = xor i32 %121, %112
@@ -651,7 +651,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %125, label %.lr.ph153.i.i, label %._crit_edge154.i.i, !llvm.loop !17
 
 ._crit_edge154.i.i:                               ; preds = %.lr.ph153.i.i, %.lr.ph159.i.i
-  %126 = getelementptr inbounds i8, ptr %.1119157.i.i, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %.1119157.i.i, i64 64
   %.1119.i.i = load ptr, ptr %126, align 8
   %.not125.i.i = icmp eq ptr %.1119.i.i, null
   br i1 %.not125.i.i, label %._crit_edge160.loopexit.i.i, label %.lr.ph159.i.i, !llvm.loop !18
@@ -674,17 +674,17 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %132, label %.lr.ph183.i.i, label %Fraig_FeedBackCoveringStart.exit.i
 
 .lr.ph183.i.i:                                    ; preds = %._crit_edge164.i.i
-  %133 = getelementptr inbounds i8, ptr %0, i64 152
-  %134 = getelementptr inbounds i8, ptr %0, i64 224
-  %135 = getelementptr inbounds i8, ptr %0, i64 136
-  %136 = getelementptr inbounds i8, ptr %0, i64 168
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %137
 
 137:                                              ; preds = %._crit_edge180.i.i, %.lr.ph183.i.i
   %138 = phi i32 [ %131, %.lr.ph183.i.i ], [ %192, %._crit_edge180.i.i ]
   %indvars.iv213.i.i = phi i64 [ 0, %.lr.ph183.i.i ], [ %indvars.iv.next214.i.i, %._crit_edge180.i.i ]
   %139 = load ptr, ptr %97, align 8
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv213.i.i
+  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv213.i.i
   %.2120175.i.i = load ptr, ptr %140, align 8
   %.not123176.i.i = icmp eq ptr %.2120175.i.i, null
   br i1 %.not123176.i.i, label %._crit_edge180.i.i, label %.lr.ph179.preheader.i.i
@@ -696,7 +696,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph179.i.i:                                    ; preds = %.loopexit129.i.i, %.lr.ph179.preheader.i.i
   %141 = phi ptr [ %190, %.loopexit129.i.i ], [ %.pre219.i.i, %.lr.ph179.preheader.i.i ]
   %.2120177.i.i = phi ptr [ %.2120.i.i, %.loopexit129.i.i ], [ %.2120175.i.i, %.lr.ph179.preheader.i.i ]
-  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store i32 0, ptr %142, align 4
   br label %143
 
@@ -704,14 +704,14 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %.1117165.i.i = phi ptr [ %.2120177.i.i, %.lr.ph179.i.i ], [ %146, %143 ]
   %144 = load ptr, ptr %133, align 8
   tail call void @Fraig_NodeVecPush(ptr noundef %144, ptr noundef nonnull %.1117165.i.i) #12
-  %145 = getelementptr inbounds i8, ptr %.1117165.i.i, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %.1117165.i.i, i64 72
   %146 = load ptr, ptr %145, align 8
   %.not124.i.i = icmp eq ptr %146, null
   br i1 %.not124.i.i, label %147, label %143, !llvm.loop !20
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %133, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4
   %or.cond236.i.i = icmp sgt i32 %150, 1
   br i1 %or.cond236.i.i, label %.lr.ph174.i.i, label %.loopexit129.i.i
@@ -743,15 +743,15 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %156 = load ptr, ptr %134, align 8
   %157 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %156) #12
   %158 = load ptr, ptr %133, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv210.i.i
+  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv210.i.i
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 112
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 112
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv207.i.i
+  %165 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv207.i.i
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 112
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 112
   %168 = load ptr, ptr %167, align 8
   %169 = load i32, ptr %135, align 8
   %170 = icmp sgt i32 %169, 0
@@ -759,17 +759,17 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph168.i.i:                                    ; preds = %.lr.ph172.i.i, %.lr.ph168.i.i
   %indvars.iv202.i.i = phi i64 [ %indvars.iv.next203.i.i, %.lr.ph168.i.i ], [ 0, %.lr.ph172.i.i ]
-  %171 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv202.i.i
+  %171 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv202.i.i
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i32, ptr %168, i64 %indvars.iv202.i.i
+  %173 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv202.i.i
   %174 = load i32, ptr %173, align 4
   %175 = xor i32 %174, %172
   %176 = load ptr, ptr %136, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %indvars.iv202.i.i
+  %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv202.i.i
   %178 = load i32, ptr %177, align 4
   %179 = xor i32 %178, -1
   %180 = and i32 %175, %179
-  %181 = getelementptr inbounds i32, ptr %157, i64 %indvars.iv202.i.i
+  %181 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv202.i.i
   store i32 %180, ptr %181, align 4
   %indvars.iv.next203.i.i = add nuw nsw i64 %indvars.iv202.i.i, 1
   %182 = load i32, ptr %135, align 8
@@ -781,7 +781,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef %157) #12
   %indvars.iv.next208.i.i = add nuw nsw i64 %indvars.iv207.i.i, 1
   %185 = load ptr, ptr %133, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
   %188 = trunc nuw i64 %indvars.iv.next208.i.i to i32
   %189 = icmp sgt i32 %187, %188
@@ -789,7 +789,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit129.i.i:                                 ; preds = %.loopexit.i.i, %147
   %190 = phi ptr [ %148, %147 ], [ %151, %.loopexit.i.i ]
-  %191 = getelementptr inbounds i8, ptr %.2120177.i.i, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %.2120177.i.i, i64 64
   %.2120.i.i = load ptr, ptr %191, align 8
   %.not123.i.i = icmp eq ptr %.2120.i.i, null
   br i1 %.not123.i.i, label %._crit_edge180.loopexit.i.i, label %.lr.ph179.i.i, !llvm.loop !24
@@ -806,7 +806,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %194, label %137, label %Fraig_FeedBackCoveringStart.exit.i, !llvm.loop !25
 
 Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i, %._crit_edge164.i.i, %._crit_edge150.i.i
-  %195 = getelementptr inbounds i8, ptr %14, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   %198 = shl nsw i64 %197, 2
@@ -815,18 +815,18 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   br i1 %200, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Fraig_FeedBackCoveringStart.exit.i
-  %201 = getelementptr inbounds i8, ptr %14, i64 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 136
+  %201 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %203
 
 203:                                              ; preds = %203, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %203 ]
   %204 = load ptr, ptr %201, align 8
-  %205 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %202, align 8
   %208 = tail call i32 @Fraig_BitStringCountOnes(ptr noundef %206, i32 noundef %207) #12
-  %209 = getelementptr inbounds i32, ptr %199, i64 %indvars.iv.i
+  %209 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv.i
   store i32 %208, ptr %209, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %210 = load i32, ptr %195, align 4
@@ -836,8 +836,8 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
 
 ._crit_edge.i:                                    ; preds = %203, %Fraig_FeedBackCoveringStart.exit.i
   %213 = tail call i32 @Msat_IntVecReadSize(ptr noundef %11) #12
-  %214 = getelementptr inbounds i8, ptr %14, i64 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 136
+  %214 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %216 = load i32, ptr %195, align 4
   %217 = icmp sgt i32 %216, 0
   br i1 %217, label %.lr.ph.preheader.i.i, label %._crit_edge80.i
@@ -851,7 +851,7 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   %indvars.iv.i54.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i55.i, %224 ]
   %.023.i.i = phi i32 [ 1000000, %.lr.ph.preheader.i.i ], [ %.1.i.i, %224 ]
   %.01522.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i ], [ %.116.i.i, %224 ]
-  %219 = getelementptr inbounds i32, ptr %199, i64 %indvars.iv.i54.i
+  %219 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv.i54.i
   %220 = load i32, ptr %219, align 4
   %221 = trunc nuw nsw i64 %indvars.iv.i54.i to i32
   switch i32 %220, label %222 [
@@ -878,7 +878,7 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   br i1 %.not.i, label %.preheader.i, label %226
 
 .preheader.i:                                     ; preds = %Fraig_GetSmallestColumn.exit.i
-  %225 = getelementptr inbounds i8, ptr %0, i64 224
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %259
 
 226:                                              ; preds = %Fraig_GetSmallestColumn.exit.i
@@ -896,7 +896,7 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
 
 .lr.ph.i58.i:                                     ; preds = %.loopexit.i62.i, %.lr.ph.preheader.i56.i
   %indvars.iv.i59.i = phi i64 [ 0, %.lr.ph.preheader.i56.i ], [ %indvars.iv.next.i63.i, %.loopexit.i62.i ]
-  %233 = getelementptr inbounds i32, ptr %230, i64 %indvars.iv.i59.i
+  %233 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i59.i
   %234 = load i32, ptr %233, align 4
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %.loopexit.i62.i, label %.preheader.i.i
@@ -934,7 +934,7 @@ Fraig_GetHittingPattern.exit.i:                   ; preds = %.loopexit.i62.i, %2
 
 248:                                              ; preds = %256, %Fraig_GetHittingPattern.exit.i
   %indvars.iv.i66.i = phi i64 [ 0, %Fraig_GetHittingPattern.exit.i ], [ %indvars.iv.next.i69.i, %256 ]
-  %249 = getelementptr inbounds ptr, ptr %227, i64 %indvars.iv.i66.i
+  %249 = getelementptr inbounds nuw ptr, ptr %227, i64 %indvars.iv.i66.i
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i32, ptr %250, i64 %245
   %252 = load i32, ptr %251, align 4
@@ -943,7 +943,7 @@ Fraig_GetHittingPattern.exit.i:                   ; preds = %.loopexit.i62.i, %2
   br i1 %.not.i67.i, label %256, label %254
 
 254:                                              ; preds = %248
-  %255 = getelementptr inbounds i32, ptr %199, i64 %indvars.iv.i66.i
+  %255 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv.i66.i
   store i32 0, ptr %255, align 4
   br label %256
 
@@ -962,7 +962,7 @@ Fraig_CancelCoveredColumns.exit.i:                ; preds = %256
   %indvars.iv89.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next90.i, %259 ]
   %260 = load ptr, ptr %225, align 8
   %261 = load ptr, ptr %214, align 8
-  %262 = getelementptr inbounds ptr, ptr %261, i64 %indvars.iv89.i
+  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv89.i
   %263 = load ptr, ptr %262, align 8
   tail call void @Fraig_MemFixedEntryRecycle(ptr noundef %260, ptr noundef %263) #12
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
@@ -985,7 +985,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
   %269 = tail call i32 @Msat_IntVecReadSize(ptr noundef %268) #12
   %270 = load ptr, ptr %10, align 8
   %271 = tail call ptr @Msat_IntVecReadArray(ptr noundef %270) #12
-  %272 = getelementptr inbounds i8, ptr %0, i64 144
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %273 = load i32, ptr %272, align 8
   %274 = add nsw i32 %273, %269
   %275 = ashr i32 %274, 5
@@ -995,14 +995,14 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
   %279 = add nsw i32 %275, %278
   store i32 %279, ptr %215, align 8
   %280 = load ptr, ptr %0, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %.lr.ph141, label %._crit_edge142
 
 .lr.ph141:                                        ; preds = %Fraig_FeedBackCovering.exit
-  %284 = getelementptr inbounds i8, ptr %0, i64 140
-  %285 = getelementptr inbounds i8, ptr %0, i64 184
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %286 = icmp sgt i32 %269, 0
   %wide.trip.count = zext nneg i32 %269 to i64
   br label %287
@@ -1010,11 +1010,11 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 287:                                              ; preds = %.lr.ph141, %._crit_edge138
   %indvars.iv177 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next178, %._crit_edge138 ]
   %288 = phi ptr [ %280, %.lr.ph141 ], [ %355, %._crit_edge138 ]
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds ptr, ptr %290, i64 %indvars.iv177
+  %291 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv177
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 112
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 112
   %294 = load ptr, ptr %293, align 8
   %295 = load i32, ptr %284, align 4
   %296 = load i32, ptr %215, align 8
@@ -1042,7 +1042,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 .lr.ph131:                                        ; preds = %.preheader117, %330
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %330 ], [ 0, %.preheader117 ]
-  %305 = getelementptr inbounds i32, ptr %271, i64 %indvars.iv166
+  %305 = getelementptr inbounds nuw i32, ptr %271, i64 %indvars.iv166
   %306 = load i32, ptr %305, align 4
   %307 = ashr i32 %306, 5
   %308 = sext i32 %307 to i64
@@ -1123,9 +1123,9 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv172 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next173, %.lr.ph137 ]
   %.0136 = phi i32 [ 0, %.lr.ph137.preheader ], [ %348, %.lr.ph137 ]
-  %343 = getelementptr inbounds i32, ptr %294, i64 %indvars.iv172
+  %343 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv172
   %344 = load i32, ptr %343, align 4
-  %345 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv172
+  %345 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv172
   %346 = load i32, ptr %345, align 4
   %347 = mul i32 %346, %344
   %348 = xor i32 %347, %.0136
@@ -1136,15 +1136,15 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 ._crit_edge138:                                   ; preds = %.lr.ph137, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %348, %.lr.ph137 ]
   %349 = load ptr, ptr %0, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds ptr, ptr %351, i64 %indvars.iv177
+  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %indvars.iv177
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 100
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 100
   store i32 %.0.lcssa, ptr %354, align 4
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %357 = load i32, ptr %356, align 4
   %358 = sext i32 %357 to i64
   %359 = icmp slt i64 %indvars.iv.next178, %358
@@ -1159,12 +1159,12 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 ._crit_edge142:                                   ; preds = %._crit_edge142.loopexit, %Fraig_FeedBackCovering.exit
   %.pre-phi = phi i32 [ %.pre188, %._crit_edge142.loopexit ], [ %274, %Fraig_FeedBackCovering.exit ]
   %360 = phi i32 [ %.pre186, %._crit_edge142.loopexit ], [ %279, %Fraig_FeedBackCovering.exit ]
-  %361 = getelementptr inbounds i8, ptr %0, i64 140
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %360, ptr %361, align 4
   store i32 %.pre-phi, ptr %272, align 8
-  %362 = getelementptr inbounds i8, ptr %0, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
   %365 = load i32, ptr %364, align 4
   %366 = icmp sgt i32 %365, 1
   br i1 %366, label %.lr.ph145, label %._crit_edge146
@@ -1172,9 +1172,9 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 .lr.ph145:                                        ; preds = %._crit_edge142, %386
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %386 ], [ 1, %._crit_edge142 ]
   %367 = phi ptr [ %387, %386 ], [ %363, %._crit_edge142 ]
-  %368 = getelementptr inbounds i8, ptr %367, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds ptr, ptr %369, i64 %indvars.iv180
+  %370 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv180
   %371 = load ptr, ptr %370, align 8
   %372 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %371) #12
   %.not108 = icmp eq i32 %372, 0
@@ -1182,16 +1182,16 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 373:                                              ; preds = %.lr.ph145
   %374 = load ptr, ptr %362, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds ptr, ptr %376, i64 %indvars.iv180
+  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %indvars.iv180
   %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 100
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 100
   store i32 0, ptr %379, align 4
   %380 = load ptr, ptr %362, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds ptr, ptr %382, i64 %indvars.iv180
+  %383 = getelementptr inbounds nuw ptr, ptr %382, i64 %indvars.iv180
   %384 = load ptr, ptr %383, align 8
   %385 = load i32, ptr %361, align 4
   tail call void @Fraig_NodeSimulate(ptr noundef %384, i32 noundef 0, i32 noundef %385, i32 noundef 0) #12
@@ -1200,7 +1200,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 386:                                              ; preds = %.lr.ph145, %373
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %387 = load ptr, ptr %362, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
   %389 = load i32, ptr %388, align 4
   %390 = sext i32 %389 to i64
   %391 = icmp slt i64 %indvars.iv.next181, %390
@@ -1232,7 +1232,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 398:                                              ; preds = %.thread116, %.thread, %396, %392
   %399 = load i32, ptr %361, align 4
   %400 = add nsw i32 %399, 5
-  %401 = getelementptr inbounds i8, ptr %0, i64 76
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %402 = load i32, ptr %401, align 4
   %403 = icmp sgt i32 %400, %402
   br i1 %403, label %404, label %490
@@ -1240,20 +1240,20 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 404:                                              ; preds = %398
   %405 = shl nsw i32 %402, 1
   store i32 %405, ptr %401, align 4
-  %406 = getelementptr inbounds i8, ptr %0, i64 72
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %407 = load i32, ptr %406, align 8
   %408 = add nsw i32 %407, %405
   %409 = shl i32 %408, 2
   %410 = tail call ptr @Fraig_MemFixedStart(i32 noundef %409) #12
-  %411 = getelementptr inbounds i8, ptr %0, i64 24
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %412 = load ptr, ptr %411, align 8
   %413 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %414 = getelementptr inbounds i8, ptr %412, i64 104
+  %414 = getelementptr inbounds nuw i8, ptr %412, i64 104
   store ptr %413, ptr %414, align 8
   %415 = load i32, ptr %406, align 8
   %416 = sext i32 %415 to i64
   %417 = getelementptr inbounds i32, ptr %413, i64 %416
-  %418 = getelementptr inbounds i8, ptr %412, i64 112
+  %418 = getelementptr inbounds nuw i8, ptr %412, i64 112
   store ptr %417, ptr %418, align 8
   %419 = load i32, ptr %406, align 8
   %420 = sext i32 %419 to i64
@@ -1265,7 +1265,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
   %425 = shl nsw i64 %424, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %422, i8 0, i64 %425, i1 false)
   %426 = load ptr, ptr %0, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 4
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %428 = load i32, ptr %427, align 4
   %429 = icmp sgt i32 %428, 0
   br i1 %429, label %.lr.ph.i112, label %._crit_edge.i110
@@ -1273,12 +1273,12 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 .lr.ph.i112:                                      ; preds = %404, %.lr.ph.i112
   %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %.lr.ph.i112 ], [ 0, %404 ]
   %430 = phi ptr [ %447, %.lr.ph.i112 ], [ %426, %404 ]
-  %431 = getelementptr inbounds i8, ptr %430, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds ptr, ptr %432, i64 %indvars.iv.i113
+  %433 = getelementptr inbounds nuw ptr, ptr %432, i64 %indvars.iv.i113
   %434 = load ptr, ptr %433, align 8
   %435 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %436 = getelementptr inbounds i8, ptr %434, i64 104
+  %436 = getelementptr inbounds nuw i8, ptr %434, i64 104
   %437 = load ptr, ptr %436, align 8
   %438 = load i32, ptr %406, align 8
   %439 = load i32, ptr %215, align 8
@@ -1290,23 +1290,23 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
   %443 = load i32, ptr %406, align 8
   %444 = sext i32 %443 to i64
   %445 = getelementptr inbounds i32, ptr %435, i64 %444
-  %446 = getelementptr inbounds i8, ptr %434, i64 112
+  %446 = getelementptr inbounds nuw i8, ptr %434, i64 112
   store ptr %445, ptr %446, align 8
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %447 = load ptr, ptr %0, align 8
-  %448 = getelementptr inbounds i8, ptr %447, i64 4
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 4
   %449 = load i32, ptr %448, align 4
   %450 = sext i32 %449 to i64
   %451 = icmp slt i64 %indvars.iv.next.i114, %450
   br i1 %451, label %.lr.ph.i112, label %._crit_edge.i110, !llvm.loop !39
 
 ._crit_edge.i110:                                 ; preds = %.lr.ph.i112, %404
-  %452 = getelementptr inbounds i8, ptr %0, i64 224
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %453 = load ptr, ptr %452, align 8
   tail call void @Fraig_MemFixedStop(ptr noundef %453, i32 noundef 0) #12
   store ptr %410, ptr %452, align 8
   %454 = load ptr, ptr %362, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 4
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 4
   %456 = load i32, ptr %455, align 4
   %457 = icmp sgt i32 %456, 1
   br i1 %457, label %.lr.ph60.i, label %Fraig_ReallocateSimulationInfo.exit
@@ -1314,9 +1314,9 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 .lr.ph60.i:                                       ; preds = %._crit_edge.i110, %475
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %475 ], [ 1, %._crit_edge.i110 ]
   %458 = phi ptr [ %476, %475 ], [ %454, %._crit_edge.i110 ]
-  %459 = getelementptr inbounds i8, ptr %458, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds ptr, ptr %460, i64 %indvars.iv63.i
+  %461 = getelementptr inbounds nuw ptr, ptr %460, i64 %indvars.iv63.i
   %462 = load ptr, ptr %461, align 8
   %463 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %462) #12
   %.not.i111 = icmp eq i32 %463, 0
@@ -1324,18 +1324,18 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 464:                                              ; preds = %.lr.ph60.i
   %465 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %466 = getelementptr inbounds i8, ptr %462, i64 104
+  %466 = getelementptr inbounds nuw i8, ptr %462, i64 104
   store ptr %465, ptr %466, align 8
   %467 = load i32, ptr %406, align 8
   %468 = sext i32 %467 to i64
   %469 = getelementptr inbounds i32, ptr %465, i64 %468
-  %470 = getelementptr inbounds i8, ptr %462, i64 112
+  %470 = getelementptr inbounds nuw i8, ptr %462, i64 112
   store ptr %469, ptr %470, align 8
-  %471 = getelementptr inbounds i8, ptr %462, i64 96
+  %471 = getelementptr inbounds nuw i8, ptr %462, i64 96
   store i32 0, ptr %471, align 8
   %472 = load i32, ptr %406, align 8
   tail call void @Fraig_NodeSimulate(ptr noundef %462, i32 noundef 0, i32 noundef %472, i32 noundef 1) #12
-  %473 = getelementptr inbounds i8, ptr %462, i64 100
+  %473 = getelementptr inbounds nuw i8, ptr %462, i64 100
   store i32 0, ptr %473, align 4
   %474 = load i32, ptr %215, align 8
   tail call void @Fraig_NodeSimulate(ptr noundef %462, i32 noundef 0, i32 noundef %474, i32 noundef 0) #12
@@ -1344,7 +1344,7 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 475:                                              ; preds = %464, %.lr.ph60.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %476 = load ptr, ptr %362, align 8
-  %477 = getelementptr inbounds i8, ptr %476, i64 4
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 4
   %478 = load i32, ptr %477, align 4
   %479 = sext i32 %478 to i64
   %480 = icmp slt i64 %indvars.iv.next64.i, %479
@@ -1352,24 +1352,24 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 Fraig_ReallocateSimulationInfo.exit:              ; preds = %475, %._crit_edge.i110
   %481 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %482 = getelementptr inbounds i8, ptr %0, i64 168
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %481, ptr %482, align 8
   %483 = load i32, ptr %401, align 4
   %484 = sext i32 %483 to i64
   %485 = shl nsw i64 %484, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %481, i8 0, i64 %485, i1 false)
   %486 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %487 = getelementptr inbounds i8, ptr %0, i64 184
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %486, ptr %487, align 8
   %488 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %410) #12
-  %489 = getelementptr inbounds i8, ptr %0, i64 176
+  %489 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %488, ptr %489, align 8
   br label %490
 
 490:                                              ; preds = %Fraig_ReallocateSimulationInfo.exit, %398
   %491 = load ptr, ptr %10, align 8
   tail call void @Msat_IntVecClear(ptr noundef %491) #12
-  %492 = getelementptr inbounds i8, ptr %0, i64 168
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %493 = load ptr, ptr %492, align 8
   %494 = load i32, ptr %401, align 4
   %495 = sext i32 %494 to i64
@@ -1382,7 +1382,7 @@ Fraig_ReallocateSimulationInfo.exit:              ; preds = %475, %._crit_edge.i
 .lr.ph150:                                        ; preds = %490, %.lr.ph150
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.lr.ph150 ], [ 0, %490 ]
   %499 = load ptr, ptr %492, align 8
-  %500 = getelementptr inbounds i32, ptr %499, i64 %indvars.iv183
+  %500 = getelementptr inbounds nuw i32, ptr %499, i64 %indvars.iv183
   store i32 -1, ptr %500, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %501 = load i32, ptr %361, align 4
@@ -1414,23 +1414,23 @@ Fraig_ReallocateSimulationInfo.exit:              ; preds = %475, %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph55, label %._crit_edge56
 
 .lr.ph55:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %9
 
 9:                                                ; preds = %.lr.ph55, %._crit_edge
   %10 = phi i32 [ %5, %.lr.ph55 ], [ %56, %._crit_edge ]
   %indvars.iv63 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next64, %._crit_edge ]
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv63
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv63
   %.03546 = load ptr, ptr %12, align 8
   %.not47 = icmp eq ptr %.03546, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph50.preheader
@@ -1442,7 +1442,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.loopexit38
   %13 = phi ptr [ %54, %.loopexit38 ], [ %.pre, %.lr.ph50.preheader ]
   %.03549 = phi ptr [ %.035, %.loopexit38 ], [ %.03546, %.lr.ph50.preheader ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
   br label %15
 
@@ -1450,14 +1450,14 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
   %.03439 = phi ptr [ %.03549, %.lr.ph50 ], [ %18, %15 ]
   %16 = load ptr, ptr %7, align 8
   tail call void @Fraig_NodeVecPush(ptr noundef %16, ptr noundef nonnull %.03439) #12
-  %17 = getelementptr inbounds i8, ptr %.03439, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.03439, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not36 = icmp eq ptr %18, null
   br i1 %.not36, label %19, label %15, !llvm.loop !42
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %or.cond = icmp sgt i32 %22, 1
   br i1 %or.cond, label %.lr.ph44, label %.loopexit38
@@ -1487,11 +1487,11 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph44, %48
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %48 ], [ %indvars.iv, %.lr.ph44 ]
   %28 = phi ptr [ %49, %48 ], [ %25, %.lr.ph44 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv60
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv60
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv57
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv57
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %8, align 8
   %36 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %32, ptr noundef %34, i32 noundef %35, i32 noundef 0) #12
@@ -1500,12 +1500,12 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv60
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv60
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv57
+  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv57
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %43, i32 noundef %46)
@@ -1514,7 +1514,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 48:                                               ; preds = %37, %.lr.ph
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = trunc nuw i64 %indvars.iv.next58 to i32
   %53 = icmp sgt i32 %51, %52
@@ -1522,7 +1522,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 
 .loopexit38:                                      ; preds = %.loopexit, %19
   %54 = phi ptr [ %20, %19 ], [ %23, %.loopexit ]
-  %55 = getelementptr inbounds i8, ptr %.03549, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %.03549, i64 64
   %.035 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph50, !llvm.loop !45
@@ -1544,26 +1544,26 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.pre = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %.lr.ph48, %.loopexit33
   %10 = phi ptr [ %.pre, %.lr.ph48 ], [ %50, %.loopexit33 ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next57, %.loopexit33 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv56
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv56
   %.03134 = load ptr, ptr %13, align 8
   %.not35 = icmp eq ptr %.03134, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -1572,14 +1572,14 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef re
   %.03136 = phi ptr [ %.031, %.lr.ph ], [ %.03134, %9 ]
   %14 = load ptr, ptr %7, align 8
   tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef nonnull %.03136) #12
-  %15 = getelementptr inbounds i8, ptr %.03136, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.03136, i64 64
   %.031 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.031, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %or.cond = icmp sgt i32 %18, 1
   br i1 %or.cond, label %.lr.ph43, label %.loopexit33
@@ -1609,11 +1609,11 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef re
 .lr.ph40:                                         ; preds = %.lr.ph43, %44
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %44 ], [ %indvars.iv, %.lr.ph43 ]
   %24 = phi ptr [ %45, %44 ], [ %21, %.lr.ph43 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv53
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv53
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv50
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv50
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %8, align 8
   %32 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %28, ptr noundef %30, i32 noundef %31, i32 noundef 0) #12
@@ -1622,12 +1622,12 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef re
 
 33:                                               ; preds = %.lr.ph40
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv53
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv53
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv50
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv50
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %39, i32 noundef %42)
@@ -1636,7 +1636,7 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr nocapture noundef re
 44:                                               ; preds = %33, %.lr.ph40
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = trunc nuw i64 %indvars.iv.next51 to i32
   %49 = icmp sgt i32 %47, %48
@@ -1663,7 +1663,7 @@ declare void @Msat_IntVecClear(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Fraig_ManAllocCounterExample(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
@@ -1681,20 +1681,20 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr nou
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 6
   br label %36
 
 8:                                                ; preds = %2
   tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %13)
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -1709,7 +1709,7 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr nou
   %27 = trunc i64 %26 to i32
   %28 = xor i32 %20, %27
   %29 = and i32 %28, %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = shl i32 %29, 6
   %33 = and i32 %32, 64
@@ -1732,7 +1732,7 @@ declare void @Fraig_NodeSetTravIdCurrent(ptr noundef, ptr noundef) local_unnamed
 define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   tail call void @Fraig_ManIncrementTravId(ptr noundef %0) #12
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -1740,19 +1740,19 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %8 = phi ptr [ %26, %.lr.ph ], [ %4, %3 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef nonnull %0, ptr noundef %12) #12
-  %13 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = shl i32 %14, 6
   %23 = and i32 %22, 64
@@ -1761,7 +1761,7 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef
   store i32 %25, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
@@ -1787,16 +1787,16 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
   %5 = and i32 %4, 1
   %6 = xor i32 %5, 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 2
   %calloc.i = tail call noalias noundef ptr @calloc(i64 1, i64 %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = and i64 %3, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %13, ptr noundef %15, i32 noundef %6, i32 noundef %17, i32 noundef 1) #12
   %19 = icmp sgt i32 %18, -1
@@ -1804,13 +1804,13 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 
 .preheader:                                       ; preds = %2
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph45, label %.loopexit
 
 .lr.ph45:                                         ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = lshr i32 %18, 5
   %27 = zext nneg i32 %26 to i64
@@ -1821,18 +1821,18 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 
 30:                                               ; preds = %.lr.ph45, %40
   %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %40 ]
-  %31 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv48
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv48
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %27
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %27
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, %29
   %.not40 = icmp eq i32 %37, 0
   br i1 %.not40, label %40, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i32, ptr %calloc.i, i64 %indvars.iv48
+  %39 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %indvars.iv48
   store i32 1, ptr %39, align 4
   br label %40
 
@@ -1843,7 +1843,7 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 
 41:                                               ; preds = %2
   %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = load i32, ptr %43, align 8
   %45 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %42, ptr noundef %15, i32 noundef %6, i32 noundef %44, i32 noundef 0) #12
   %46 = icmp sgt i32 %45, -1
@@ -1851,13 +1851,13 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 
 .preheader41:                                     ; preds = %41
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader41
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = lshr i32 %45, 5
   %54 = zext nneg i32 %53 to i64
@@ -1868,18 +1868,18 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr nocapture noundef re
 
 57:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %58 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %54
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %54
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, %56
   %.not39 = icmp eq i32 %64, 0
   br i1 %.not39, label %67, label %65
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i32, ptr %calloc.i, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %indvars.iv
   store i32 1, ptr %66, align 4
   br label %67
 

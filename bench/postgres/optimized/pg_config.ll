@@ -132,13 +132,13 @@ sub_0:                                            ; preds = %.lr.ph
   br i1 %.not44, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1
   %.not45 = icmp eq i8 %15, 63
   br i1 %.not45, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %16 = getelementptr inbounds i8, ptr %10, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.tail.thread
@@ -180,7 +180,7 @@ sub_1:                                            ; preds = %sub_0
   %.141 = phi i32 [ %37, %.lr.ph42 ], [ 0, %.preheader ]
   %32 = getelementptr %struct.ConfigData, ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, ptr noundef %33, ptr noundef %35) #4
   %37 = add i32 %.141, 1
@@ -216,7 +216,7 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge65:                                    ; preds = %45, %.preheader34
   %.lcssa = phi ptr [ @info_items, %.preheader34 ], [ %46, %45 ]
-  %50 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %52, 0
@@ -232,7 +232,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.86, ptr noundef %60) #4
   br label %62

@@ -46,12 +46,12 @@ define hidden range(i32 -2147483648, 2147474816) i32 @mbedtls_x509_get_serial(pt
   ]
 
 11:                                               ; preds = %9, %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %12, ptr %0, align 8
   %13 = load i8, ptr %4, align 1
   %14 = zext i8 %13 to i32
   store i32 %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = tail call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %15) #12
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %19, label %17
@@ -62,7 +62,7 @@ define hidden range(i32 -2147483648, 2147474816) i32 @mbedtls_x509_get_serial(pt
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %20, ptr %21, align 8
   %22 = load i64, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
@@ -113,10 +113,10 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_ps
   br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
@@ -190,13 +190,13 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_ps
   br i1 %.not57, label %45, label %.critedge
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load i64, ptr %46, align 8
   %.not58 = icmp eq i64 %47, 9
   br i1 %.not58, label %48, label %.critedge
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %50 = load ptr, ptr %49, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.1, ptr noundef nonnull dereferenceable(9) %50, i64 9)
   %.not71 = icmp eq i32 %bcmp, 0
@@ -320,10 +320,10 @@ define internal fastcc range(i32 -2147483648, 2147474688) i32 @x509_get_hash_alg
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   %.not17 = icmp sgt i64 %11, 0
@@ -333,7 +333,7 @@ define internal fastcc range(i32 -2147483648, 2147474688) i32 @x509_get_hash_alg
   %14 = load i8, ptr %9, align 1
   %15 = zext i8 %14 to i32
   store i32 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef nonnull %16, i32 noundef 6) #12
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %20, label %18
@@ -344,7 +344,7 @@ define internal fastcc range(i32 -2147483648, 2147474688) i32 @x509_get_hash_alg
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8
   %23 = load i64, ptr %16, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
@@ -428,14 +428,14 @@ define hidden range(i32 -2147483648, 2147474560) i32 @mbedtls_x509_get_name(ptr 
   %23 = load i8, ptr %17, align 1
   %24 = zext i8 %23 to i32
   store i32 %24, ptr %.1, align 8
-  %25 = getelementptr inbounds i8, ptr %.1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %26 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %25, i32 noundef 6) #12
   %.not44.i = icmp eq i32 %26, 0
   br i1 %.not44.i, label %27, label %x509_get_attr_type_value.exit
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %.1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store ptr %28, ptr %29, align 8
   %30 = load i64, ptr %25, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
@@ -458,20 +458,20 @@ define hidden range(i32 -2147483648, 2147474560) i32 @mbedtls_x509_get_name(ptr 
   ]
 
 37:                                               ; preds = %35, %35, %35, %35, %35, %35, %35
-  %38 = getelementptr inbounds i8, ptr %.1, i64 24
-  %39 = getelementptr inbounds i8, ptr %31, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %39, ptr %0, align 8
   %40 = load i8, ptr %31, align 1
   %41 = zext i8 %40 to i32
   store i32 %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %.1, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %43 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %42) #12
   %.not52.i = icmp eq i32 %43, 0
   br i1 %.not52.i, label %44, label %x509_get_attr_type_value.exit
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %.1, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   store ptr %45, ptr %46, align 8
   %47 = load i64, ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
@@ -480,7 +480,7 @@ define hidden range(i32 -2147483648, 2147474560) i32 @mbedtls_x509_get_name(ptr 
   br i1 %.not53.i, label %x509_get_attr_type_value.exit.thread28, label %x509_get_attr_type_value.exit.thread
 
 x509_get_attr_type_value.exit.thread28:           ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.1, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   store ptr null, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %50
@@ -503,10 +503,10 @@ x509_get_attr_type_value.exit:                    ; preds = %37, %22, %14
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.1, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   store i8 1, ptr %54, align 8
   %55 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #13
-  %56 = getelementptr inbounds i8, ptr %.1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
   br i1 %57, label %.loopexit, label %14
@@ -517,7 +517,7 @@ x509_get_attr_type_value.exit:                    ; preds = %37, %22, %14
 
 60:                                               ; preds = %58
   %61 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #13
-  %62 = getelementptr inbounds i8, ptr %.1, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
   br i1 %63, label %.loopexit, label %6
@@ -553,7 +553,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
 13:                                               ; preds = %10, %12
   %14 = phi i1 [ false, %12 ], [ true, %10 ]
   %.013 = phi i64 [ 4, %12 ], [ 2, %10 ]
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %15, ptr %0, align 8
   %16 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %16, 0
@@ -587,7 +587,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   %31 = mul nsw i32 %26, 10
   store i32 %31, ptr %2, align 4
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %0, align 8
   %34 = load i8, ptr %32, align 1
   %35 = zext i8 %34 to i32
@@ -611,7 +611,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br label %45
 
 45:                                               ; preds = %41, %40
-  %46 = getelementptr inbounds i8, ptr %2, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %46, align 4
   br label %47
 
@@ -628,7 +628,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   %53 = mul nsw i32 %48, 10
   store i32 %53, ptr %46, align 4
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %0, align 8
   %56 = load i8, ptr %54, align 1
   %57 = zext i8 %56 to i32
@@ -641,7 +641,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br i1 %.not.i58.i, label %62, label %47, !llvm.loop !4
 
 62:                                               ; preds = %52
-  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %63, align 4
   br label %64
 
@@ -658,7 +658,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   %70 = mul nsw i32 %65, 10
   store i32 %70, ptr %63, align 4
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %0, align 8
   %73 = load i8, ptr %71, align 1
   %74 = zext i8 %73 to i32
@@ -671,7 +671,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br i1 %.not.i63.i, label %79, label %64, !llvm.loop !4
 
 79:                                               ; preds = %69
-  %80 = getelementptr inbounds i8, ptr %2, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %80, align 4
   br label %81
 
@@ -688,7 +688,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   %87 = mul nsw i32 %82, 10
   store i32 %87, ptr %80, align 4
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store ptr %89, ptr %0, align 8
   %90 = load i8, ptr %88, align 1
   %91 = zext i8 %90 to i32
@@ -701,7 +701,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br i1 %.not.i68.i, label %96, label %81, !llvm.loop !4
 
 96:                                               ; preds = %86
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %98 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %97)
   %.not52.i = icmp eq i32 %98, 0
   br i1 %.not52.i, label %99, label %x509_parse_time.exit
@@ -711,7 +711,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br i1 %100, label %101, label %x509_parse_time.exit
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %2, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %103 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %102)
   %.not53.i = icmp eq i32 %103, 0
   br i1 %.not53.i, label %104, label %x509_parse_time.exit
@@ -729,7 +729,7 @@ define hidden range(i32 -2147483648, 2147474432) i32 @mbedtls_x509_get_time(ptr 
   br i1 %108, label %.thread.i, label %x509_parse_time.exit
 
 .thread.i:                                        ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %106, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 1
   store ptr %109, ptr %0, align 8
   br label %110
 
@@ -766,10 +766,10 @@ define hidden range(i32 -2147483648, 2147474304) i32 @mbedtls_x509_get_sig(ptr n
   %16 = zext i8 %11 to i32
   store i32 %16, ptr %2, align 8
   %17 = load i64, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %17, ptr %18, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %21, ptr %0, align 8
@@ -808,7 +808,7 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_sig_alg(p
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = tail call i32 @mbedtls_x509_get_rsassa_pss_params(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %18)
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %21, label %20
@@ -829,7 +829,7 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_sig_alg(p
   ]
 
 24:                                               ; preds = %22, %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
   %.not26 = icmp eq i64 %26, 0
   br i1 %.not26, label %27, label %28
@@ -850,7 +850,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = or i32 %3, 160
   %8 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %7) #12
   %.not = icmp eq i32 %8, 0
@@ -863,7 +863,7 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_ext(ptr n
 11:                                               ; preds = %4
   store i32 %7, ptr %2, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %12, ptr %13, align 8
   %14 = load i64, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
@@ -906,13 +906,13 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 6:                                                ; preds = %.lr.ph, %9
   %.06398 = phi ptr [ %.063.ph109, %.lr.ph ], [ %11, %9 ]
-  %7 = getelementptr inbounds i8, ptr %.06398, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.06398, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not80 = icmp eq ptr %8, null
   br i1 %.not80, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.06398, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.06398, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !6
@@ -935,7 +935,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 19:                                               ; preds = %17
   %20 = sub nuw i64 %.066.ph107, %18
-  %21 = getelementptr inbounds i8, ptr %.0.ph110, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %.0.ph110, i64 %18
   br label %22
 
 22:                                               ; preds = %19, %12
@@ -966,14 +966,14 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 34:                                               ; preds = %32
   %35 = sub nuw i64 %.167, %33
-  %36 = getelementptr inbounds i8, ptr %.1, i64 %33
-  %37 = getelementptr inbounds i8, ptr %.06398, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 %33
+  %37 = getelementptr inbounds nuw i8, ptr %.06398, i64 32
   %38 = load i64, ptr %37, align 8
   %.not112 = icmp eq i64 %38, 0
   br i1 %.not112, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.06398, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.06398, i64 40
   br label %40
 
 40:                                               ; preds = %.lr.ph103, %.thread
@@ -1001,7 +1001,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 50:                                               ; preds = %48
   %51 = add nuw nsw i64 %.068101, 1
-  %52 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.068101
+  %52 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %.068101
   store i8 92, ptr %52, align 1
   br label %53
 
@@ -1038,10 +1038,10 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 .outer:                                           ; preds = %63
   %65 = sub nuw i64 %35, %64
-  %66 = getelementptr inbounds i8, ptr %36, i64 %64
-  %67 = getelementptr inbounds i8, ptr %.06398, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %36, i64 %64
+  %67 = getelementptr inbounds nuw i8, ptr %.06398, i64 56
   %68 = load i8, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.06398, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.06398, i64 48
   %70 = load ptr, ptr %69, align 8
   %.not97 = icmp eq ptr %70, null
   br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1067,7 +1067,7 @@ declare i32 @mbedtls_oid_get_attr_short_name(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 33
   %spec.select = select i1 %6, i64 %5, i64 28
@@ -1077,7 +1077,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 
 .lr.ph:                                           ; preds = %3
   %.not59 = icmp eq i64 %spec.select.fr, 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = add nsw i64 %spec.select.fr, -1
   br i1 %.not59, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1108,7 +1108,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %17, %.lr.ph.split
-  %21 = getelementptr inbounds i8, ptr %.pre, i64 %.04153
+  %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.04153
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp ult i64 %.04153, %8
@@ -1124,7 +1124,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 
 30:                                               ; preds = %28
   %31 = sub nuw i64 %.03954, %29
-  %32 = getelementptr inbounds i8, ptr %.055, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %.055, i64 %29
   br label %33
 
 33:                                               ; preds = %17, %30
@@ -1135,7 +1135,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %14
-  %35 = getelementptr inbounds i8, ptr %0, i64 %15
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %36 = sub nuw i64 %1, %15
   br label %._crit_edge
 
@@ -1204,14 +1204,14 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr nocapture noundef writeonly %0,
   br i1 %20, label %21, label %36
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %switch.tableidx = add i32 %4, -1
   %23 = icmp ult i32 %switch.tableidx, 7
   br i1 %23, label %switch.lookup, label %md_type_to_string.exit
 
 switch.lookup:                                    ; preds = %21
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %md_type_to_string.exit
 
@@ -1224,13 +1224,13 @@ md_type_to_string.exit:                           ; preds = %21, %switch.lookup
 
 switch.lookup48:                                  ; preds = %md_type_to_string.exit
   %27 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep50 = getelementptr inbounds [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %27
+  %switch.gep50 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.2, i64 0, i64 %27
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %md_type_to_string.exit47
 
 md_type_to_string.exit47:                         ; preds = %md_type_to_string.exit, %switch.lookup48
   %.not44 = phi ptr [ %switch.load51, %switch.lookup48 ], [ @.str.12, %md_type_to_string.exit ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %19, ptr noundef nonnull @.str.13, ptr noundef nonnull %.not43, ptr noundef nonnull %.not44, i32 noundef %29) #12
   %31 = icmp slt i32 %30, 0
@@ -1287,17 +1287,17 @@ x509_get_current_time.exit:                       ; preds = %1
   br label %x509_check_time.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1900
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
@@ -1311,7 +1311,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %24, label %25, label %54
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %.not = icmp slt i32 %12, %27
   br i1 %.not, label %28, label %x509_check_time.exit
@@ -1321,7 +1321,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %29, label %30, label %54
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %15, %32
   br i1 %33, label %x509_check_time.exit, label %34
@@ -1331,7 +1331,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %17, %38
   br i1 %39, label %x509_check_time.exit, label %40
@@ -1341,19 +1341,19 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %41, label %42, label %54
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %19, %44
   br i1 %45, label %x509_check_time.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %19, %48
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %20, %52
   br i1 %53, label %x509_check_time.exit, label %54
@@ -1384,17 +1384,17 @@ x509_get_current_time.exit:                       ; preds = %1
   br label %x509_check_time.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1900
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
@@ -1408,7 +1408,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, %13
   br i1 %28, label %x509_check_time.exit, label %29
@@ -1418,7 +1418,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %30, label %31, label %55
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, %15
   br i1 %34, label %x509_check_time.exit, label %35
@@ -1428,7 +1428,7 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %36, label %37, label %55
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, %17
   br i1 %40, label %x509_check_time.exit, label %41
@@ -1438,19 +1438,19 @@ x509_get_current_time.exit:                       ; preds = %1
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, %19
   br i1 %46, label %x509_check_time.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %19
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, %20
   br i1 %54, label %x509_check_time.exit, label %55
@@ -1481,7 +1481,7 @@ define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture nou
   %10 = mul nsw i32 %5, 10
   store i32 %10, ptr %2, align 4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %0, align 8
   %13 = load i8, ptr %11, align 1
   %14 = zext i8 %13 to i32
@@ -1505,25 +1505,25 @@ define internal fastcc range(i32 -9216, 1) i32 @x509_date_is_valid(ptr nocapture
   br i1 %or.cond, label %26, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %or.cond29 = icmp ugt i32 %5, 23
   br i1 %or.cond29, label %26, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 4
   %or.cond30 = icmp ugt i32 %8, 59
   br i1 %or.cond30, label %26, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %or.cond31 = icmp ugt i32 %11, 59
   br i1 %or.cond31, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %26 [
     i32 1, label %21
@@ -1560,7 +1560,7 @@ define internal fastcc range(i32 -9216, 1) i32 @x509_date_is_valid(ptr nocapture
 
 21:                                               ; preds = %19, %16, %12, %12, %12, %12, %12, %12, %12, %15
   %.0 = phi i32 [ 30, %15 ], [ 31, %12 ], [ 31, %12 ], [ 31, %12 ], [ 31, %12 ], [ 31, %12 ], [ 31, %12 ], [ 31, %12 ], [ 29, %16 ], [ %spec.select, %19 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %23, 1
   %25 = icmp sgt i32 %23, %.0

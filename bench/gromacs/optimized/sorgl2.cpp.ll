@@ -155,7 +155,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %reass.sub = sub i32 %81, %indvars128
   %82 = add i32 %reass.sub, 1
   store i32 %82, ptr %10, align 4
-  %83 = getelementptr inbounds float, ptr %15, i64 %indvars.iv126
+  %83 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv126
   %gep135 = getelementptr float, ptr %invariant.gep134, i64 %indvars.iv126
   %84 = getelementptr float, ptr %gep135, i64 %74
   call void @slarf_(ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %78, ptr noundef nonnull %4, ptr noundef nonnull %83, ptr noundef %84, ptr noundef nonnull %4, ptr noundef %6)
@@ -166,7 +166,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %86 = phi i32 [ %.pre130, %73 ], [ %66, %69 ]
   %87 = sub nsw i32 %86, %indvars128
   store i32 %87, ptr %9, align 4
-  %88 = getelementptr inbounds float, ptr %15, i64 %indvars.iv126
+  %88 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv126
   %89 = load float, ptr %88, align 4
   %90 = fneg float %89
   store float %90, ptr %11, align 4
@@ -179,7 +179,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %96
 
 96:                                               ; preds = %85, %65
-  %97 = getelementptr inbounds float, ptr %15, i64 %indvars.iv126
+  %97 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv126
   %98 = load float, ptr %97, align 4
   %99 = fsub float 1.000000e+00, %98
   %100 = mul i32 %62, %indvars128

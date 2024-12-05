@@ -33,7 +33,7 @@ declare void @p11ThrowNullPointerException(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i64 @Java_sun_security_pkcs11_Secmod_nssGetLibraryHandle(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #4
   %8 = icmp eq ptr %7, null
@@ -42,7 +42,7 @@ define i64 @Java_sun_security_pkcs11_Secmod_nssGetLibraryHandle(ptr noundef %0, 
 9:                                                ; preds = %3
   %10 = tail call ptr @dlopen(ptr noundef nonnull %7, i32 noundef 4) #4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1360
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1360
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #4
   %14 = ptrtoint ptr %10 to i64
@@ -59,7 +59,7 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i64 @Java_sun_security_pkcs11_Secmod_nssLoadLibrary(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #4
   %8 = icmp eq ptr %7, null
@@ -68,7 +68,7 @@ define i64 @Java_sun_security_pkcs11_Secmod_nssLoadLibrary(ptr noundef %0, ptr n
 9:                                                ; preds = %3
   %10 = tail call ptr @dlopen(ptr noundef nonnull %7, i32 noundef 1) #4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1360
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1360
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #4
   %14 = icmp eq ptr %10, null

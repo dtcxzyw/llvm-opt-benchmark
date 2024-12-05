@@ -58,10 +58,10 @@ entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i64 16), ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4cvc58internal6EnvObj18statisticsRegistryEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %d_out = getelementptr inbounds i8, ptr %this, i64 16
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
   tail call void @_ZN4cvc58internal6theory13OutputChannelC1ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(100) %d_out, ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef %engine, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %0)
-  %d_name = getelementptr inbounds i8, ptr %this, i64 120
+  %d_name = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #11
   %1 = load i64, ptr @_ZN4cvc58internal6theory18TheoryEngineModule11d_idCounterE, align 8
   %inc = add i64 %1, 1
@@ -125,7 +125,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK4cvc58internal6theory18TheoryEngineModule5getIdEv(ptr noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 16
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef i32 @_ZNK4cvc58internal6theory13OutputChannel5getIdEv(ptr noundef nonnull align 8 dereferenceable(100) %d_out)
   ret i32 %call
 }
@@ -136,11 +136,11 @@ declare noundef i32 @_ZNK4cvc58internal6theory13OutputChannel5getIdEv(ptr nounde
 define linkonce_odr hidden void @_ZN4cvc58internal6theory18TheoryEngineModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i64 16), ptr %this, align 8
-  %d_name = getelementptr inbounds i8, ptr %this, i64 120
+  %d_name = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #11
-  %d_out = getelementptr inbounds i8, ptr %this, i64 16
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %d_out, align 8
-  %d_name.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_name.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i) #11
   ret void
 }
@@ -149,11 +149,11 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal6theory18TheoryEngineModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory18TheoryEngineModuleE, i64 16), ptr %this, align 8
-  %d_name.i = getelementptr inbounds i8, ptr %this, i64 120
+  %d_name.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i) #11
-  %d_out.i = getelementptr inbounds i8, ptr %this, i64 16
+  %d_out.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %d_out.i, align 8
-  %d_name.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #12
   ret void
@@ -183,9 +183,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11

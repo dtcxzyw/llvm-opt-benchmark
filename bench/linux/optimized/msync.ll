@@ -18,11 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_msync(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i64 @__se_sys_msync(i64 noundef %3, i64 noundef %5, i64 noundef %7)
   ret i64 %8
@@ -33,7 +33,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   %4 = trunc i64 %2 to i32
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #3, !srcloc !5
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1192
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1192
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ult i32 %4, 8
   %10 = and i64 %0, 4095
@@ -68,8 +68,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = getelementptr inbounds i8, ptr %8, i64 176
-  tail call void @down_read(ptr noundef %28) #4
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  tail call void @down_read(ptr noundef nonnull %28) #4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
           to label %30 [label %29], !srcloc !6
 
@@ -103,7 +103,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %.lr.ph.split.us.split.us.split.us
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %43, %21
   br i1 %44, label %45, label %._crit_edge
@@ -127,7 +127,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 
 55:                                               ; preds = %53, %.lr.ph.split.us.split.us.split
   %56 = phi i32 [ %49, %.lr.ph.split.us.split.us.split ], [ -12, %53 ]
-  %57 = getelementptr inbounds i8, ptr %50, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = icmp ult i64 %58, %21
   br i1 %59, label %60, label %._crit_edge
@@ -151,14 +151,14 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 
 70:                                               ; preds = %68, %.lr.ph.split.us.split.split
   %71 = phi i32 [ %64, %.lr.ph.split.us.split.split ], [ -12, %68 ]
-  %72 = getelementptr inbounds i8, ptr %65, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, 8192
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %76, label %._crit_edge
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %65, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %78 = load i64, ptr %77, align 8
   %79 = icmp ult i64 %78, %21
   br i1 %79, label %80, label %._crit_edge
@@ -187,21 +187,21 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %34, label %98, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %85, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = and i64 %95, 8192
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %._crit_edge
 
 98:                                               ; preds = %93, %90
-  %99 = getelementptr inbounds i8, ptr %85, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 136
   %100 = load ptr, ptr %99, align 8
   %101 = sub i64 %92, %86
-  %102 = getelementptr inbounds i8, ptr %85, i64 128
+  %102 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %103 = load i64, ptr %102, align 8
   %104 = shl i64 %103, 12
   %105 = add i64 %104, %101
-  %106 = getelementptr inbounds i8, ptr %85, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = tail call i64 @llvm.umin.i64(i64 %21, i64 %107)
   %109 = xor i64 %92, -1
@@ -211,15 +211,15 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %.not, label %130, label %112
 
 112:                                              ; preds = %98
-  %113 = getelementptr inbounds i8, ptr %85, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, 8
   %116 = icmp eq i64 %115, 0
   br i1 %116, label %130, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %100, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, ptr elementtype(i64) %118) #4, !srcloc !7
+  %118 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, ptr nonnull elementtype(i64) %118) #4, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
           to label %120 [label %119], !srcloc !6
 
@@ -228,7 +228,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br label %120
 
 120:                                              ; preds = %119, %117
-  tail call void @up_read(ptr noundef %28) #4
+  tail call void @up_read(ptr noundef nonnull %28) #4
   %121 = tail call i32 @vfs_fsync_range(ptr noundef nonnull %100, i64 noundef %105, i64 noundef %111, i32 noundef 1) #4
   %122 = freeze i32 %121
   tail call void @fput(ptr noundef nonnull %100) #4
@@ -246,7 +246,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br label %128
 
 128:                                              ; preds = %127, %126
-  tail call void @down_read(ptr noundef %28) #4
+  tail call void @down_read(ptr noundef nonnull %28) #4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #4
           to label %132 [label %129], !srcloc !6
 
@@ -274,7 +274,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br label %136
 
 136:                                              ; preds = %135, %._crit_edge
-  tail call void @up_read(ptr noundef %28) #4
+  tail call void @up_read(ptr noundef nonnull %28) #4
   br label %.thread11
 
 .thread11:                                        ; preds = %120, %136
@@ -292,13 +292,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_msync(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = tail call fastcc i64 @__se_sys_msync(i64 noundef %4, i64 noundef %7, i64 noundef %10)

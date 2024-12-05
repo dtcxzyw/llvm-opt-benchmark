@@ -6,11 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i64 -549890064384, 549873283072) i64 @_ZN11MapDatabase17getBlockAsIntegerERKN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos) local_unnamed_addr #0 align 2 {
 entry:
-  %Z = getelementptr inbounds i8, ptr %pos, i64 4
+  %Z = getelementptr inbounds nuw i8, ptr %pos, i64 4
   %0 = load i16, ptr %Z, align 2, !tbaa !4
   %conv = sext i16 %0 to i64
   %mul = shl nsw i64 %conv, 24
-  %Y = getelementptr inbounds i8, ptr %pos, i64 2
+  %Y = getelementptr inbounds nuw i8, ptr %pos, i64 2
   %1 = load i16, ptr %Y, align 2, !tbaa !9
   %conv1 = sext i16 %1 to i64
   %mul2 = shl nsw i64 %conv1, 12

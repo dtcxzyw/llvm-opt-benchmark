@@ -196,7 +196,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -250,7 +250,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph:                                           ; preds = %34
   %38 = add nsw i32 %10, -8
   %.not277 = icmp eq ptr %2, null
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %40
 
 40:                                               ; preds = %.lr.ph, %199

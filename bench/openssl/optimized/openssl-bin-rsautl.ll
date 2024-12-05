@@ -338,7 +338,7 @@ for.cond.preheader:                               ; preds = %if.end100
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0110 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %call90, i64 %i.0110
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call90, i64 %i.0110
   %7 = load i8, ptr %arrayidx, align 1
   %8 = xor i64 %i.0110, -1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %8

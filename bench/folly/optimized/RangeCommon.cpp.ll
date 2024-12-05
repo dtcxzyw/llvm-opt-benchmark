@@ -28,13 +28,13 @@ for.body.prol:                                    ; preds = %for.body.preheader
   %1 = load i8, ptr %needles.coerce0, align 1, !tbaa !7
   %conv.prol = zext i8 %1 to i64
   %div1.i.i.i.i.prol = lshr i64 %conv.prol, 6
-  %arrayidx.i.i.i.prol = getelementptr inbounds [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i.prol
+  %arrayidx.i.i.i.prol = getelementptr inbounds nuw [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i.prol
   %rem.i.i.i.prol = and i64 %conv.prol, 63
   %shl.i.i.prol = shl nuw i64 1, %rem.i.i.i.prol
   %2 = load i64, ptr %arrayidx.i.i.i.prol, align 8, !tbaa !10
   %or.i.prol = or i64 %shl.i.i.prol, %2
   store i64 %or.i.prol, ptr %arrayidx.i.i.i.prol, align 8, !tbaa !10
-  %incdec.ptr.prol = getelementptr inbounds i8, ptr %needles.coerce0, i64 1
+  %incdec.ptr.prol = getelementptr inbounds nuw i8, ptr %needles.coerce0, i64 1
   br label %for.body.prol.loopexit
 
 for.body.prol.loopexit:                           ; preds = %for.body.prol, %for.body.preheader
@@ -59,23 +59,23 @@ for.body:                                         ; preds = %for.body.prol.loope
   %5 = load i8, ptr %__begin2.032, align 1, !tbaa !7
   %conv = zext i8 %5 to i64
   %div1.i.i.i.i = lshr i64 %conv, 6
-  %arrayidx.i.i.i = getelementptr inbounds [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i
   %rem.i.i.i = and i64 %conv, 63
   %shl.i.i = shl nuw i64 1, %rem.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !10
   %or.i = or i64 %shl.i.i, %6
   store i64 %or.i, ptr %arrayidx.i.i.i, align 8, !tbaa !10
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.032, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.032, i64 1
   %7 = load i8, ptr %incdec.ptr, align 1, !tbaa !7
   %conv.1 = zext i8 %7 to i64
   %div1.i.i.i.i.1 = lshr i64 %conv.1, 6
-  %arrayidx.i.i.i.1 = getelementptr inbounds [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i.1
+  %arrayidx.i.i.i.1 = getelementptr inbounds nuw [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i.1
   %rem.i.i.i.1 = and i64 %conv.1, 63
   %shl.i.i.1 = shl nuw i64 1, %rem.i.i.i.1
   %8 = load i64, ptr %arrayidx.i.i.i.1, align 8, !tbaa !10
   %or.i.1 = or i64 %shl.i.i.1, %8
   store i64 %or.i.1, ptr %arrayidx.i.i.i.1, align 8, !tbaa !10
-  %incdec.ptr.1 = getelementptr inbounds i8, ptr %__begin2.032, i64 2
+  %incdec.ptr.1 = getelementptr inbounds nuw i8, ptr %__begin2.032, i64 2
   %cmp.not.1 = icmp eq ptr %incdec.ptr.1, %needles.coerce1
   br i1 %cmp.not.1, label %for.cond3.preheader, label %for.body
 
@@ -85,7 +85,7 @@ for.body7:                                        ; preds = %for.inc12, %for.bod
   %9 = load i8, ptr %arrayidx.i, align 1, !tbaa !7
   %conv10 = zext i8 %9 to i64
   %div1.i.i.i.i23 = lshr i64 %conv10, 6
-  %arrayidx.i.i.i24 = getelementptr inbounds [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i23
+  %arrayidx.i.i.i24 = getelementptr inbounds nuw [4 x i64], ptr %s, i64 0, i64 %div1.i.i.i.i23
   %rem.i.i.i25 = and i64 %conv10, 63
   %10 = load i64, ptr %arrayidx.i.i.i24, align 8, !tbaa !10
   %shl.i.i29 = shl nuw i64 1, %rem.i.i.i25
@@ -122,13 +122,13 @@ entry:
   br i1 %cmp.not27, label %for.cond3.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sparse_.i.i = getelementptr inbounds i8, ptr %s, i64 2
-  %dense_.i.i = getelementptr inbounds i8, ptr %s, i64 258
+  %sparse_.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2
+  %dense_.i.i = getelementptr inbounds nuw i8, ptr %s, i64 258
   br label %for.body
 
 for.cond3.preheader:                              ; preds = %_ZN5folly13SparseByteSet3addEh.exit, %entry
   %0 = phi i16 [ 0, %entry ], [ %inc.i25, %_ZN5folly13SparseByteSet3addEh.exit ]
-  %dense_.i23 = getelementptr inbounds i8, ptr %s, i64 258
+  %dense_.i23 = getelementptr inbounds nuw i8, ptr %s, i64 258
   %cmp5.not30.not = icmp eq ptr %haystack.coerce1, %haystack.coerce0
   br i1 %cmp5.not30.not, label %cleanup, label %for.body7.lr.ph
 
@@ -136,7 +136,7 @@ for.body7.lr.ph:                                  ; preds = %for.cond3.preheader
   %sub.ptr.lhs.cast.i = ptrtoint ptr %haystack.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %haystack.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sparse_.i = getelementptr inbounds i8, ptr %s, i64 2
+  %sparse_.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i, i64 1)
   br label %for.body7
 
@@ -145,7 +145,7 @@ for.body:                                         ; preds = %_ZN5folly13SparseBy
   %inc.i2628 = phi i16 [ 0, %for.body.lr.ph ], [ %inc.i25, %_ZN5folly13SparseByteSet3addEh.exit ]
   %1 = load i8, ptr %__begin2.029, align 1, !tbaa !7
   %idxprom.i.i = zext i8 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr %sparse_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr %sparse_.i.i, i64 0, i64 %idxprom.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
   %3 = zext i8 %2 to i16
   %cmp.i.i = icmp ugt i16 %inc.i2628, %3
@@ -153,14 +153,14 @@ for.body:                                         ; preds = %_ZN5folly13SparseBy
 
 _ZNK5folly13SparseByteSet8containsEh.exit.i:      ; preds = %for.body
   %idxprom6.i.i = zext i8 %2 to i64
-  %arrayidx7.i.i = getelementptr inbounds [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom6.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom6.i.i
   %4 = load i8, ptr %arrayidx7.i.i, align 1, !tbaa !7
   %cmp10.i.i = icmp eq i8 %4, %1
   br i1 %cmp10.i.i, label %_ZN5folly13SparseByteSet3addEh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK5folly13SparseByteSet8containsEh.exit.i, %for.body
   %idxprom.i = zext i16 %inc.i2628 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr %dense_.i.i, i64 0, i64 %idxprom.i
   store i8 %1, ptr %arrayidx.i, align 1, !tbaa !7
   %conv.i = trunc i16 %inc.i2628 to i8
   store i8 %conv.i, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -169,7 +169,7 @@ if.then.i:                                        ; preds = %_ZNK5folly13SparseB
 
 _ZN5folly13SparseByteSet3addEh.exit:              ; preds = %if.then.i, %_ZNK5folly13SparseByteSet8containsEh.exit.i
   %inc.i25 = phi i16 [ %inc.i2628, %_ZNK5folly13SparseByteSet8containsEh.exit.i ], [ %inc.i, %if.then.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.029, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.029, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %needles.coerce1
   br i1 %cmp.not, label %for.cond3.preheader, label %for.body
 
@@ -178,7 +178,7 @@ for.body7:                                        ; preds = %for.inc10, %for.bod
   %arrayidx.i20 = getelementptr inbounds i8, ptr %haystack.coerce0, i64 %index.031
   %5 = load i8, ptr %arrayidx.i20, align 1, !tbaa !7
   %idxprom.i21 = zext i8 %5 to i64
-  %arrayidx.i22 = getelementptr inbounds [256 x i8], ptr %sparse_.i, i64 0, i64 %idxprom.i21
+  %arrayidx.i22 = getelementptr inbounds nuw [256 x i8], ptr %sparse_.i, i64 0, i64 %idxprom.i21
   %6 = load i8, ptr %arrayidx.i22, align 1, !tbaa !7
   %7 = zext i8 %6 to i16
   %cmp.i = icmp ugt i16 %0, %7
@@ -186,7 +186,7 @@ for.body7:                                        ; preds = %for.inc10, %for.bod
 
 _ZNK5folly13SparseByteSet8containsEh.exit:        ; preds = %for.body7
   %idxprom6.i = zext i8 %6 to i64
-  %arrayidx7.i = getelementptr inbounds [256 x i8], ptr %dense_.i23, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw [256 x i8], ptr %dense_.i23, i64 0, i64 %idxprom6.i
   %8 = load i8, ptr %arrayidx7.i, align 1, !tbaa !7
   %cmp10.i = icmp eq i8 %8, %5
   br i1 %cmp10.i, label %cleanup, label %for.inc10

@@ -171,7 +171,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ssl = getelementptr inbounds i8, ptr %call, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %call, i64 528
   %0 = load ptr, ptr %ssl, align 8
   br label %return
 
@@ -242,7 +242,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @bufferevent_get_output(ptr noundef %call) #4
   %call3 = tail call i64 @evbuffer_get_length(ptr noundef %call2) #4
-  %high = getelementptr inbounds i8, ptr %call, i64 296
+  %high = getelementptr inbounds nuw i8, ptr %call, i64 296
   %0 = load i64, ptr %high, align 8
   %tobool4.not = icmp eq i64 %0, 0
   br i1 %tobool4.not, label %do.end, label %land.lhs.true
@@ -531,7 +531,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @be_openssl_get_fd(ptr nocapture noundef readonly %bev_ssl) #0 {
 entry:
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8
   %call = tail call ptr @SSL_get_wbio(ptr noundef %0) #4
   %tobool.not = icmp eq ptr %call, null
@@ -550,14 +550,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @be_openssl_bio_set_fd(ptr nocapture noundef readonly %bev_ssl, i32 noundef %fd) #0 {
 entry:
-  %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
+  %underlying = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @BIO_new_socket(i32 noundef %fd, i32 noundef 0) #4
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %1 = load ptr, ptr %ssl, align 8
   tail call void @SSL_set_bio(ptr noundef %1, ptr noundef %call, ptr noundef %call) #4
   br label %return
@@ -568,7 +568,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.else
-  %ssl6 = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl6 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %2 = load ptr, ptr %ssl6, align 8
   tail call void @SSL_set_bio(ptr noundef %2, ptr noundef nonnull %call3, ptr noundef nonnull %call3) #4
   br label %return
@@ -581,7 +581,7 @@ return:                                           ; preds = %if.then, %if.end, %
 ; Function Attrs: nounwind uwtable
 define internal void @init_bio_counts(ptr nocapture noundef initializes((552, 568)) %bev_ssl) #0 {
 entry:
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8
   %call = tail call ptr @SSL_get_wbio(ptr noundef %0) #4
   %tobool.not = icmp eq ptr %call, null
@@ -593,7 +593,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %call1, %cond.true ], [ 0, %entry ]
-  %counts = getelementptr inbounds i8, ptr %bev_ssl, i64 552
+  %counts = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 552
   store i64 %cond, ptr %counts, align 8
   %1 = load ptr, ptr %ssl, align 8
   %call3 = tail call ptr @SSL_get_rbio(ptr noundef %1) #4
@@ -606,7 +606,7 @@ cond.true5:                                       ; preds = %cond.end
 
 cond.end8:                                        ; preds = %cond.end, %cond.true5
   %cond9 = phi i64 [ %call6, %cond.true5 ], [ 0, %cond.end ]
-  %n_read = getelementptr inbounds i8, ptr %bev_ssl, i64 560
+  %n_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 560
   store i64 %cond9, ptr %n_read, align 8
   ret void
 }
@@ -614,16 +614,16 @@ cond.end8:                                        ; preds = %cond.end, %cond.tru
 ; Function Attrs: nounwind uwtable
 define internal void @decrement_buckets(ptr noundef %bev_ssl) #0 {
 entry:
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8
   %call = tail call ptr @SSL_get_wbio(ptr noundef %0) #4
   %call1 = tail call i64 @BIO_number_written(ptr noundef %call) #4
   %1 = load ptr, ptr %ssl, align 8
   %call3 = tail call ptr @SSL_get_rbio(ptr noundef %1) #4
   %call4 = tail call i64 @BIO_number_read(ptr noundef %call3) #4
-  %counts = getelementptr inbounds i8, ptr %bev_ssl, i64 552
+  %counts = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 552
   %2 = load i64, ptr %counts, align 8
-  %n_read = getelementptr inbounds i8, ptr %bev_ssl, i64 560
+  %n_read = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 560
   %3 = load i64, ptr %n_read, align 8
   %sub6 = sub i64 %call4, %3
   %tobool.not = icmp eq i64 %call1, %2
@@ -659,7 +659,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8
   %call = tail call i32 @SSL_get_shutdown(ptr noundef %0) #4
   %and = and i32 %call, 2
@@ -690,7 +690,7 @@ sw.bb7:                                           ; preds = %entry
   br i1 %cmp8, label %land.lhs.true10, label %if.end16
 
 land.lhs.true10:                                  ; preds = %sw.bb7
-  %ssl11 = getelementptr inbounds i8, ptr %bev_ssl, i64 528
+  %ssl11 = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 528
   %2 = load ptr, ptr %ssl11, align 8
   %call12 = tail call i32 @SSL_is_init_finished(ptr noundef %2) #4
   %cmp13 = icmp eq i32 %call12, 0
@@ -729,7 +729,7 @@ while.end:                                        ; preds = %while.body, %sw.epi
   br i1 %tobool23.not, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %while.end
-  %flags = getelementptr inbounds i8, ptr %bev_ssl, i64 592
+  %flags = getelementptr inbounds nuw i8, ptr %bev_ssl, i64 592
   %3 = load i64, ptr %flags, align 8
   %and25 = and i64 %3, 1
   %tobool26.not = icmp eq i64 %and25, 0

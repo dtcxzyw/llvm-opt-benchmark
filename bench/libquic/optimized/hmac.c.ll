@@ -17,11 +17,11 @@ entry:
   %cmp = icmp eq ptr %out, null
   %spec.store.select = select i1 %cmp, ptr @HMAC.static_out_buffer, ptr %out
   store ptr null, ptr %ctx, align 8
-  %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %i_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
   %call = call i32 @HMAC_Init_ex(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %evp_md, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
@@ -79,11 +79,11 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 define hidden void @HMAC_CTX_init(ptr noundef initializes((0, 8)) %ctx) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %ctx, align 8
-  %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
+  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx) #5
-  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx) #5
-  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx) #5
   ret void
 }
@@ -108,7 +108,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then5
-  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call8 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %md_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false9
@@ -140,7 +140,7 @@ if.end20:                                         ; preds = %if.end20thread-pre-
 
 if.then23:                                        ; preds = %if.end20
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %idxprom
   %sub = sub nsw i64 128, %idxprom
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx, i8 0, i64 %sub, i1 false)
   br label %for.body.preheader
@@ -150,17 +150,17 @@ for.body.preheader:                               ; preds = %if.then23, %if.end2
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.034 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx28 = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %i.034
+  %arrayidx28 = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %i.034
   %1 = load i8, ptr %arrayidx28, align 1
   %2 = xor i8 %1, 54
-  %arrayidx31 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 %i.034
+  %arrayidx31 = getelementptr inbounds nuw [128 x i8], ptr %pad, i64 0, i64 %i.034
   store i8 %2, ptr %arrayidx31, align 1
   %inc = add nuw nsw i64 %i.034, 1
   %exitcond.not = icmp eq i64 %inc, 128
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
+  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call32 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %i_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %return, label %lor.lhs.false34
@@ -173,17 +173,17 @@ lor.lhs.false34:                                  ; preds = %for.end
 
 for.body45:                                       ; preds = %lor.lhs.false34, %for.body45
   %i.135 = phi i64 [ %inc52, %for.body45 ], [ 0, %lor.lhs.false34 ]
-  %arrayidx46 = getelementptr inbounds [128 x i8], ptr %key_block, i64 0, i64 %i.135
+  %arrayidx46 = getelementptr inbounds nuw [128 x i8], ptr %key_block, i64 0, i64 %i.135
   %3 = load i8, ptr %arrayidx46, align 1
   %4 = xor i8 %3, 92
-  %arrayidx50 = getelementptr inbounds [128 x i8], ptr %pad, i64 0, i64 %i.135
+  %arrayidx50 = getelementptr inbounds nuw [128 x i8], ptr %pad, i64 0, i64 %i.135
   store i8 %4, ptr %arrayidx50, align 1
   %inc52 = add nuw nsw i64 %i.135, 1
   %exitcond36.not = icmp eq i64 %inc52, 128
   br i1 %exitcond36.not, label %for.end53, label %for.body45, !llvm.loop !9
 
 for.end53:                                        ; preds = %for.body45
-  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %call54 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %o_ctx, ptr noundef %spec.select, ptr noundef %impl) #5
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %return, label %lor.lhs.false56
@@ -199,8 +199,8 @@ if.end63:                                         ; preds = %lor.lhs.false56
   br label %if.end65
 
 if.end65:                                         ; preds = %entry, %if.end63
-  %md_ctx66 = getelementptr inbounds i8, ptr %ctx, i64 8
-  %i_ctx67 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %md_ctx66 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
+  %i_ctx67 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call68 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx66, ptr noundef nonnull %i_ctx67) #5
   %tobool69.not = icmp ne i32 %call68, 0
   %. = zext i1 %tobool69.not to i32
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.end65, %for.end5
 ; Function Attrs: nounwind uwtable
 define hidden i32 @HMAC_Update(ptr noundef %ctx, ptr noundef %data, i64 noundef %data_len) local_unnamed_addr #0 {
 entry:
-  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %md_ctx, ptr noundef %data, i64 noundef %data_len) #5
   ret i32 %call
 }
@@ -224,13 +224,13 @@ define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %ctx, ptr noundef %out
 entry:
   %i = alloca i32, align 4
   %buf = alloca [64 x i8], align 16
-  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %buf, ptr noundef nonnull %i) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %call2 = call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %o_ctx) #5
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %lor.lhs.false4
@@ -259,11 +259,11 @@ return:                                           ; preds = %lor.lhs.false9, %if
 ; Function Attrs: nounwind uwtable
 define hidden void @HMAC_CTX_cleanup(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
+  %i_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %i_ctx) #5
-  %o_ctx = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %call1 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %o_ctx) #5
-  %md_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call2 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx) #5
   tail call void @OPENSSL_cleanse(ptr noundef %ctx, i64 noundef 104) #5
   ret void
@@ -304,22 +304,22 @@ declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @HMAC_CTX_copy_ex(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
-  %i_ctx = getelementptr inbounds i8, ptr %dest, i64 40
-  %i_ctx1 = getelementptr inbounds i8, ptr %src, i64 40
+  %i_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 40
+  %i_ctx1 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %i_ctx, ptr noundef nonnull %i_ctx1) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %o_ctx = getelementptr inbounds i8, ptr %dest, i64 72
-  %o_ctx2 = getelementptr inbounds i8, ptr %src, i64 72
+  %o_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 72
+  %o_ctx2 = getelementptr inbounds nuw i8, ptr %src, i64 72
   %call3 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %o_ctx, ptr noundef nonnull %o_ctx2) #5
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %md_ctx = getelementptr inbounds i8, ptr %dest, i64 8
-  %md_ctx6 = getelementptr inbounds i8, ptr %src, i64 8
+  %md_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 8
+  %md_ctx6 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %call7 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx, ptr noundef nonnull %md_ctx6) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end
@@ -344,11 +344,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %ctx, align 8
-  %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %i_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %o_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_ctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
   br label %if.end
 
@@ -362,25 +362,25 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef initializes((0, 8)) %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %dest, align 8
-  %i_ctx.i = getelementptr inbounds i8, ptr %dest, i64 40
+  %i_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 40
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %i_ctx.i) #5
-  %o_ctx.i = getelementptr inbounds i8, ptr %dest, i64 72
+  %o_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 72
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %o_ctx.i) #5
-  %md_ctx.i = getelementptr inbounds i8, ptr %dest, i64 8
+  %md_ctx.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
   tail call void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i) #5
-  %i_ctx1.i = getelementptr inbounds i8, ptr %src, i64 40
+  %i_ctx1.i = getelementptr inbounds nuw i8, ptr %src, i64 40
   %call.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %i_ctx.i, ptr noundef nonnull %i_ctx1.i) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %HMAC_CTX_copy_ex.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %o_ctx2.i = getelementptr inbounds i8, ptr %src, i64 72
+  %o_ctx2.i = getelementptr inbounds nuw i8, ptr %src, i64 72
   %call3.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %o_ctx.i, ptr noundef nonnull %o_ctx2.i) #5
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %HMAC_CTX_copy_ex.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %md_ctx6.i = getelementptr inbounds i8, ptr %src, i64 8
+  %md_ctx6.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %call7.i = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %md_ctx.i, ptr noundef nonnull %md_ctx6.i) #5
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %HMAC_CTX_copy_ex.exit, label %if.end.i

@@ -30,15 +30,15 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
   %.049107 = phi i32 [ 0, %.lr.ph ], [ %.1, %100 ]
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #9
   %.not55 = icmp eq ptr %12, null
@@ -49,7 +49,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = call i32 @llvm.smax.i32(i32 %17, i32 4)
   %20 = zext nneg i32 %19 to i64
   %21 = call i32 @xstrncasecmp(ptr noundef %11, ptr noundef nonnull @.str.2, i64 noundef %20) #8
@@ -57,7 +57,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   br i1 %22, label %30, label %46
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %24, align 8
@@ -78,14 +78,14 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   ]
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %33, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %37 = call i64 @strtol(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #8
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %7, align 4
   br label %100
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %41 = load ptr, ptr @stderr, align 8
   %42 = load ptr, ptr %40, align 8
@@ -106,7 +106,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   %52 = icmp eq i8 %51, 43
   %53 = icmp eq i8 %51, 45
   %brmerge = or i1 %52, %53
-  %54 = getelementptr inbounds i8, ptr %12, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %.050 = select i1 %brmerge, ptr %54, ptr %18
   %55 = call i32 @time_str2mins(ptr noundef nonnull %.050) #8
   %56 = icmp eq i32 %55, -2
@@ -133,27 +133,27 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
 
 .preheader.i:                                     ; preds = %60
   %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %.not18.i = icmp eq i32 %67, 0
   br i1 %.not18.i, label %_get_step_time.exit.thread60, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load ptr, ptr %68, align 8
   %wide.trip.count.i = zext i32 %67 to i64
   br label %70
 
 70:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %71 = getelementptr inbounds %struct.job_step_info_t, ptr %69, i64 %indvars.iv.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 160
+  %71 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %69, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 160
   %73 = load i32, ptr %72, align 8
   %.not.i = icmp eq i32 %73, %61
   br i1 %.not.i, label %74, label %77
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %71, i64 168
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 168
   %76 = load i32, ptr %75, align 8
   %.not14.i = icmp eq i32 %76, %62
   br i1 %.not14.i, label %_get_step_time.exit, label %77
@@ -172,7 +172,7 @@ _get_step_time.exit.thread60:                     ; preds = %.preheader.i, %77
   br label %.loopexit.sink.split
 
 _get_step_time.exit:                              ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %71, i64 188
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 188
   %80 = load i32, ptr %79, align 4
   call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %65) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -214,7 +214,7 @@ _get_step_time.exit:                              ; preds = %74
   br label %100
 
 93:                                               ; preds = %46
-  %94 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %95 = load ptr, ptr @stderr, align 8
   %96 = load ptr, ptr %94, align 8

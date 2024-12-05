@@ -21,9 +21,9 @@ define range(i32 -255, 256) i32 @strncmp(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not10, label %9, label %._crit_edge
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.0613, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0613, i64 1
   %11 = icmp eq i8 %4, 0
-  %12 = getelementptr inbounds i8, ptr %.0712, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0712, i64 1
   %13 = add i64 %.0514, -1
   %.not = icmp eq i64 %13, 0
   %or.cond = select i1 %11, i1 true, i1 %.not

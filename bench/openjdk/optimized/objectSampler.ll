@@ -115,10 +115,10 @@ define hidden void @_ZN13ObjectSamplerC2Em(ptr nocapture noundef nonnull writeon
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i64 %1, ptr %10, align 8
   store volatile i8 0, ptr @_ZL13_dead_samples, align 1
@@ -147,7 +147,7 @@ define hidden void @_ZN13ObjectSamplerD2Ev(ptr nocapture noundef nonnull align 8
 
 5:                                                ; preds = %4, %1
   store ptr null, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -189,10 +189,10 @@ define hidden noundef zeroext i1 @_ZN13ObjectSampler6createEm(i64 noundef %0) lo
   br label %_ZN13ObjectSamplerC2Em.exit
 
 _ZN13ObjectSamplerC2Em.exit:                      ; preds = %1, %6
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i64 %0, ptr %9, align 8
   store volatile i8 0, ptr @_ZL13_dead_samples, align 1
@@ -236,7 +236,7 @@ define hidden void @_ZN13ObjectSampler7destroyEv() local_unnamed_addr #0 align 2
 
 6:                                                ; preds = %5, %2
   store ptr null, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN13ObjectSamplerD2Ev.exit, label %10
@@ -286,7 +286,7 @@ define hidden void @_ZN13ObjectSampler6sampleEPP12HeapWordImplmP10JavaThread(ptr
   br i1 %7, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 584
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %10 = tail call noundef zeroext i1 @_ZNK14JfrThreadLocal11is_excludedEv(ptr noundef nonnull align 8 dereferenceable(195) %9) #11
   br i1 %10, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %_ZL13get_thread_idP10JavaThreadPb.exit
 
@@ -318,7 +318,7 @@ _ZL13get_thread_idP10JavaThreadPb.exit:           ; preds = %8
   br i1 %.not.i.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %22) #11, !noalias !11, !srcloc !14
   %24 = icmp eq i64 %23, 1
   br i1 %24, label %25, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit.i.i
@@ -350,13 +350,13 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
   br i1 %.not.i9.i, label %_ZL15get_thread_blobP10JavaThreadmb.exit, label %31
 
 31:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %32) #11, !noalias !11, !srcloc !14
   br label %_ZL15get_thread_blobP10JavaThreadmb.exit
 
 _ZL15get_thread_blobP10JavaThreadmb.exit:         ; preds = %15, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit.i, %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2224), align 8
+  %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2224), align 8
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %_ZN16RecordStackTraceC2EP10JavaThread.exit, label %35
 
@@ -370,7 +370,7 @@ _ZN16RecordStackTraceC2EP10JavaThread.exit:       ; preds = %_ZL15get_thread_blo
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %_ZN16RecordStackTraceC2EP10JavaThread.exit
-  %39 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_100ELS1_133ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_100ELS1_133ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not14 = icmp eq ptr %39, null
   br i1 %.not14, label %_ZN10JfrTryLockD2Ev.exit, label %40
 
@@ -390,9 +390,9 @@ _ZN10JfrTryLockD2Ev.exit:                         ; preds = %38, %40, %41
   br i1 %.not, label %_ZN16RecordStackTraceD2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN10JfrTryLockD2Ev.exit
-  %44 = getelementptr inbounds i8, ptr %2, i64 704
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 704
   store i64 -1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 712
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 712
   store i64 0, ptr %45, align 8
   br label %_ZN16RecordStackTraceD2Ev.exit
 
@@ -402,7 +402,7 @@ _ZN16RecordStackTraceD2Ev.exit:                   ; preds = %_ZN10JfrTryLockD2Ev
   br i1 %.not.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %47
 
 47:                                               ; preds = %_ZN16RecordStackTraceD2Ev.exit
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %48) #11, !srcloc !14
   %50 = icmp eq i64 %49, 1
   br i1 %50, label %51, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
@@ -447,7 +447,7 @@ define hidden void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandle
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %2
   store i64 %14, ptr %12, align 8
@@ -456,7 +456,7 @@ define hidden void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandle
   %17 = load ptr, ptr %0, align 8
   %18 = tail call noundef i32 @_ZNK19SamplePriorityQueue5countEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %19
   br i1 %22, label %23, label %36
@@ -465,13 +465,13 @@ define hidden void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandle
   %24 = sub i64 %14, %16
   %25 = load ptr, ptr %0, align 8
   %26 = tail call noundef ptr @_ZNK19SamplePriorityQueue4peekEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #11
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %28, %24
   br i1 %29, label %81, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = tail call noundef ptr @_ZN19SamplePriorityQueue3popEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #11
@@ -479,7 +479,7 @@ define hidden void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandle
   br label %40
 
 36:                                               ; preds = %11
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef ptr @_ZN10SampleList3getEv(ptr noundef nonnull align 8 dereferenceable(80) %38) #11
   br label %40
@@ -497,17 +497,17 @@ define hidden void @_ZN13ObjectSampler3addEPP12HeapWordImplmmbRK14RefCountHandle
   br label %_ZL23signal_unresolved_entryv.exit
 
 _ZL23signal_unresolved_entryv.exit:               ; preds = %40, %43
-  %44 = getelementptr inbounds i8, ptr %.0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store i64 %3, ptr %44, align 8
   br i1 %4, label %45, label %47
 
 45:                                               ; preds = %_ZL23signal_unresolved_entryv.exit
-  %46 = getelementptr inbounds i8, ptr %.0, i64 116
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 116
   store i8 1, ptr %46, align 4
   br label %47
 
 47:                                               ; preds = %45, %_ZL23signal_unresolved_entryv.exit
-  %48 = getelementptr inbounds i8, ptr %.0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %49, %50
@@ -518,7 +518,7 @@ _ZL23signal_unresolved_entryv.exit:               ; preds = %40, %43
   br i1 %.not.i.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %53) #11, !srcloc !14
   %.pr.i = load ptr, ptr %48, align 8
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
@@ -530,7 +530,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
   br i1 %.not.i3.i, label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit, label %56
 
 56:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %57) #11, !srcloc !14
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %60, label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
@@ -551,35 +551,35 @@ _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i: ; preds 
   br label %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
 
 _ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit: ; preds = %47, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i, %56, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i
-  %64 = getelementptr inbounds i8, ptr %6, i64 712
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %65 = load i64, ptr %64, align 8
   %.not = icmp eq i64 %65, 0
   br i1 %.not, label %71, label %66
 
 66:                                               ; preds = %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
-  %67 = getelementptr inbounds i8, ptr %6, i64 704
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 704
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.0, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.0, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   store i64 %65, ptr %70, align 8
   br label %71
 
 71:                                               ; preds = %66, %_ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
-  %72 = getelementptr inbounds i8, ptr %.0, i64 88
+  %72 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   store i64 %2, ptr %72, align 8
   tail call void @_ZN12ObjectSample10set_objectEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(117) %.0, ptr noundef %1) #11
-  %73 = getelementptr inbounds i8, ptr %.0, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   store i64 %2, ptr %73, align 8
   %74 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #11
-  %75 = getelementptr inbounds i8, ptr %.0, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   store i64 %74, ptr %75, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0, i64 56
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store i64 %74, ptr %.sroa.2.0..sroa_idx.i, align 8
   %76 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.0, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %.0, i64 104
   store i64 %78, ptr %79, align 8
   %80 = load ptr, ptr %0, align 8
   tail call void @_ZN19SamplePriorityQueue4pushEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull %.0) #11
@@ -591,7 +591,7 @@ _ZN12ObjectSample10set_threadERK14RefCountHandleI15RefCountPointerI7JfrBlob23Mul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ObjectSampler8scavengeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10SampleList4lastEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
   %.not6 = icmp eq ptr %4, null
@@ -605,7 +605,7 @@ define hidden void @_ZN13ObjectSampler8scavengeEv(ptr nocapture noundef nonnull 
 
 7:                                                ; preds = %.lr.ph
   tail call void @_ZN12ObjectSample7releaseEv(ptr noundef nonnull align 8 dereferenceable(117) %.07) #11
-  %8 = getelementptr inbounds i8, ptr %.07, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN13ObjectSampler11remove_deadEP12ObjectSample.exit, label %10
@@ -613,9 +613,9 @@ define hidden void @_ZN13ObjectSampler8scavengeEv(ptr nocapture noundef nonnull 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
   tail call void @_ZN19SamplePriorityQueue6removeEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %9) #11
-  %12 = getelementptr inbounds i8, ptr %.07, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %.07, i64 88
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
@@ -661,7 +661,7 @@ declare noundef zeroext i1 @_ZNK12ObjectSample7is_deadEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ObjectSampler11remove_deadEP12ObjectSample(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12ObjectSample7releaseEv(ptr noundef nonnull align 8 dereferenceable(117) %1) #11
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
@@ -669,9 +669,9 @@ define hidden void @_ZN13ObjectSampler11remove_deadEP12ObjectSample(ptr nocaptur
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
   tail call void @_ZN19SamplePriorityQueue6removeEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %4) #11
-  %7 = getelementptr inbounds i8, ptr %1, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %8
   store i64 %11, ptr %9, align 8
@@ -682,7 +682,7 @@ define hidden void @_ZN13ObjectSampler11remove_deadEP12ObjectSample(ptr nocaptur
 13:                                               ; preds = %5, %2
   %14 = load ptr, ptr %0, align 8
   tail call void @_ZN19SamplePriorityQueue6removeEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %1) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN10SampleList7releaseEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull %1) #11
   ret void
@@ -696,7 +696,7 @@ declare void @_ZN10SampleList7releaseEP12ObjectSample(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK13ObjectSampler4lastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10SampleList4lastEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
   ret ptr %4
@@ -704,7 +704,7 @@ define hidden noundef ptr @_ZNK13ObjectSampler4lastEv(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK13ObjectSampler5firstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10SampleList5firstEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
   ret ptr %4
@@ -714,7 +714,7 @@ declare noundef ptr @_ZNK10SampleList5firstEv(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK13ObjectSampler13last_resolvedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK10SampleList13last_resolvedEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
   ret ptr %4
@@ -724,7 +724,7 @@ declare noundef ptr @_ZNK10SampleList13last_resolvedEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ObjectSampler17set_last_resolvedEPK12ObjectSample(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN10SampleList17set_last_resolvedEPK12ObjectSample(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %1) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6

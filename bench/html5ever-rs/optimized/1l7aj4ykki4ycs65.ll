@@ -27,29 +27,29 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h03da423b4138a26
   %15 = udiv exact i64 %14, 40
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %15)
   store ptr %1, ptr %0, align 8, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %16, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %17, align 8, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %18, align 8, !alias.scope !4
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %19, align 8, !alias.scope !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.0.sroa.speculated.i.i, ptr %20, align 8, !alias.scope !4
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %10, ptr %21, align 8, !alias.scope !4
   ret void
 }
 
 ; Function Attrs: inlinehint nofree nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1d18af96b59eb2cbE.llvm.4428398105249161175(ptr noalias nocapture noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !alias.scope !7, !noundef !12
   %.promoted = load i64, ptr %2, align 8, !alias.scope !7
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !12
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %5, align 8, !nonnull !12
   br label %6
 
@@ -65,10 +65,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %12 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val.i.i, i64 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !13, !noalias !16, !noundef !12
   %15 = icmp eq i64 %14, 0
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !16, !noalias !13, !noundef !12
   br i1 %15, label %18, label %20
 
@@ -87,16 +87,16 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %24, label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 "_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i": ; preds = %.critedge.i.i.i.i
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = load i64, ptr %25, align 8, !alias.scope !13, !noalias !16, !noundef !12
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !16, !noalias !13, !noundef !12
   %29 = icmp eq i64 %26, %28
   br i1 %29, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 30:                                               ; preds = %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i"
-  %31 = getelementptr inbounds i8, ptr %11, i64 24
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %33 = load i64, ptr %31, align 8, !range !18, !noundef !12
   %34 = icmp eq i64 %33, 15
   br i1 %34, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i", label %35
@@ -113,22 +113,22 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not.i.i.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i", label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %11, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %43 = load i32, ptr %42, align 4, !noalias !19, !noundef !12
   %44 = zext i32 %43 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i": ; preds = %41, %37
   %.0.i17.i.i.i.i = phi i64 [ %44, %41 ], [ 0, %37 ]
-  %45 = getelementptr inbounds i8, ptr %39, i64 16
-  %46 = getelementptr inbounds i8, ptr %11, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %47 = load i32, ptr %46, align 4, !noundef !12
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %45, i64 %.0.i17.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.0.i17.i.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i"
 
 50:                                               ; preds = %35
-  %51 = getelementptr inbounds i8, ptr %11, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i": ; preds = %50, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i", %30
@@ -150,22 +150,22 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not.i.i5.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i", label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %12, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %62 = load i32, ptr %61, align 4, !noalias !22, !noundef !12
   %63 = zext i32 %62 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i": ; preds = %60, %56
   %.0.i17.i7.i.i.i = phi i64 [ %63, %60 ], [ 0, %56 ]
-  %64 = getelementptr inbounds i8, ptr %58, i64 16
-  %65 = getelementptr inbounds i8, ptr %12, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %66 = load i32, ptr %65, align 4, !noundef !12
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %64, i64 %.0.i17.i7.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.0.i17.i7.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i"
 
 69:                                               ; preds = %54
-  %70 = getelementptr inbounds i8, ptr %12, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i": ; preds = %69, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i"
@@ -206,10 +206,10 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %9 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %2, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !29, !noalias !34, !noundef !12
   %12 = icmp eq i64 %11, 0
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !32, !noalias !37, !noundef !12
   br i1 %12, label %15, label %17
 
@@ -228,16 +228,16 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %21, label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
 
 "_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i": ; preds = %.critedge.i.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !29, !noalias !34, !noundef !12
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i64, ptr %24, align 8, !alias.scope !32, !noalias !37, !noundef !12
   %26 = icmp eq i64 %23, %25
   br i1 %26, label %27, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
 
 27:                                               ; preds = %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i"
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
-  %29 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %30 = load i64, ptr %28, align 8, !range !18, !noalias !38, !noundef !12
   %31 = icmp eq i64 %30, 15
   br i1 %31, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i", label %32
@@ -254,22 +254,22 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not.i.i.i.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i.i", label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %8, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %40 = load i32, ptr %39, align 4, !noalias !39, !noundef !12
   %41 = zext i32 %40 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i.i": ; preds = %38, %34
   %.0.i17.i.i.i.i.i = phi i64 [ %41, %38 ], [ 0, %34 ]
-  %42 = getelementptr inbounds i8, ptr %36, i64 16
-  %43 = getelementptr inbounds i8, ptr %8, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %44 = load i32, ptr %43, align 8, !noalias !38, !noundef !12
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %42, i64 %.0.i17.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.0.i17.i.i.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i"
 
 47:                                               ; preds = %32
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i": ; preds = %47, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i.i.i.i.i", %27
@@ -291,22 +291,22 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not.i.i5.i.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i", label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %9, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %59 = load i32, ptr %58, align 4, !noalias !42, !noundef !12
   %60 = zext i32 %59 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i": ; preds = %57, %53
   %.0.i17.i7.i.i.i.i = phi i64 [ %60, %57 ], [ 0, %53 ]
-  %61 = getelementptr inbounds i8, ptr %55, i64 16
-  %62 = getelementptr inbounds i8, ptr %9, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %63 = load i32, ptr %62, align 8, !noalias !38, !noundef !12
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %61, i64 %.0.i17.i7.i.i.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.0.i17.i7.i.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i"
 
 66:                                               ; preds = %51
-  %67 = getelementptr inbounds i8, ptr %9, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i": ; preds = %66, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i"

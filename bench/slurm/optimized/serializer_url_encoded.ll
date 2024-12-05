@@ -69,7 +69,7 @@ switch.early.test.i:                              ; preds = %.lr.ph74
   br label %.lr.ph
 
 16:                                               ; preds = %switch.early.test.i
-  %17 = getelementptr inbounds i8, ptr %.0385473, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0385473, i64 1
   %18 = load i8, ptr %17, align 1
   %.fr22.i = freeze i8 %18
   %19 = add i8 %.fr22.i, -48
@@ -93,7 +93,7 @@ switch.early.test.i48:                            ; preds = %16
   ]
 
 _is_char_hex.exit.thread.i:                       ; preds = %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %switch.early.test.i48, %16
-  %20 = getelementptr inbounds i8, ptr %.0385473, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.0385473, i64 2
   %21 = load i8, ptr %20, align 1
   %.fr23.i = freeze i8 %21
   %22 = add i8 %.fr23.i, -48
@@ -234,7 +234,7 @@ _decode_seq.exit:                                 ; preds = %38, %35
 
 .lr.ph:                                           ; preds = %_decode_seq.exit, %47, %48, %58, %65, %61, %64, %15
   %.139 = phi ptr [ %.0385473, %15 ], [ %.0385473, %58 ], [ %.0385473, %64 ], [ %.0385473, %61 ], [ %.0385473, %65 ], [ %.0385473, %48 ], [ %.0385473, %47 ], [ %20, %_decode_seq.exit ]
-  %74 = getelementptr inbounds i8, ptr %.139, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.139, i64 1
   %75 = load i8, ptr %74, align 1
   %.not = icmp eq i8 %75, 0
   br i1 %.not, label %.critedge.thread, label %.lr.ph74, !llvm.loop !6

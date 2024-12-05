@@ -14,10 +14,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @decode_syn(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef initializes((92, 100), (112, 132), (232, 236)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %2, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %3
@@ -26,21 +26,21 @@ define hidden noundef i32 @decode_syn(ptr nocapture noundef readnone %0, ptr noc
 
 8:                                                ; preds = %3
   store i32 1, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 54
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 54
   %10 = load i16, ptr %9, align 2
   tail call void @add_detected_tcp_svc(i16 noundef zeroext %10) #4
   br label %11
 
 11:                                               ; preds = %8, %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %16, align 4
   ret i32 1
 }
@@ -62,7 +62,7 @@ define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr 
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 16
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %2, i64 82
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 82
   store i8 %13, ptr %14, align 2
   br label %15
 
@@ -78,7 +78,7 @@ define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr 
 .thread:                                          ; preds = %15
   %21 = load i32, ptr %4, align 16
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %2, i64 83
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 83
   store i8 %22, ptr %23, align 1
   br label %25
 
@@ -95,7 +95,7 @@ define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr 
   %or.cond5 = select i1 %28, i1 %30, i1 false
   %31 = load i32, ptr %4, align 16
   %spec.select = select i1 %or.cond5, i32 %31, i32 0
-  %32 = getelementptr inbounds i8, ptr %2, i64 83
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 83
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = call i32 @is_dcerpc_context_zero(i32 noundef %34) #4
@@ -104,7 +104,7 @@ define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr 
   %or.cond38 = select i1 %.not29, i1 true, i1 %.not30
   %36 = zext i32 %spec.select to i64
   %.sink = select i1 %or.cond38, i64 1, i64 %36
-  %37 = getelementptr inbounds i8, ptr %2, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 %.sink, ptr %37, align 8
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 416), align 16
   %39 = call i32 @extract_uint(ptr noundef %1, i32 noundef %38, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
@@ -117,36 +117,36 @@ define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr 
 43:                                               ; preds = %25
   %44 = load i32, ptr %4, align 16
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 %45, ptr %46, align 8
   br label %49
 
 47:                                               ; preds = %24
-  %48 = getelementptr inbounds i8, ptr %2, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   br label %49
 
 49:                                               ; preds = %25, %43, %47
-  %50 = getelementptr inbounds i8, ptr %2, i64 83
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 83
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = call i32 @is_dcerpc_req_pkt_type(i32 noundef %52) #4
   %.not31 = icmp ne i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %2, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %. = zext i1 %.not31 to i32
   %.41 = select i1 %.not31, i64 54, i64 52
   store i32 %., ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 %.41
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %.41
   %.sink34 = load ptr, ptr getelementptr inbounds (i8, ptr @preferences, i64 8), align 8
   %.sink37 = load i16, ptr %55, align 2
   %56 = zext i16 %.sink37 to i64
   %57 = inttoptr i64 %56 to ptr
   %58 = call ptr @wmem_map_insert(ptr noundef %.sink34, ptr noundef %57, ptr noundef nonnull inttoptr (i64 6 to ptr)) #4
-  %59 = getelementptr inbounds i8, ptr %2, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 6, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %61, align 4
   ret i32 1
 }
@@ -167,11 +167,11 @@ define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1,
   %8 = alloca i64, align 8
   %9 = alloca [16 x i64], align 16
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 54
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 54
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 445
   %spec.select = zext i1 %13 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %spec.select, ptr %14, align 8
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 320), align 16
   %16 = call i32 @extract_uint(ptr noundef %1, i32 noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
@@ -182,20 +182,20 @@ define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1,
   br i1 %or.cond, label %20, label %23
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %2, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 92
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 0, ptr %22, align 4
   br label %56
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %2, i64 112
-  %25 = getelementptr inbounds i8, ptr %2, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 5, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 92
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %27, align 4
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 352), align 16
   %29 = call i32 @extract_ui64(ptr noundef %1, i32 noundef %28, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
@@ -212,35 +212,35 @@ define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1,
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %2, i64 100
-  %36 = getelementptr inbounds i8, ptr %2, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 104
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
   %.039 = phi i64 [ 0, %.lr.ph ], [ %54, %37 ]
   %38 = load i32, ptr %14, align 8
   %39 = getelementptr %struct._PKT_INFO, ptr %3, i64 %.039
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i32 %38, ptr %40, align 8
   %41 = load i8, ptr %35, align 4
-  %42 = getelementptr inbounds i8, ptr %39, i64 100
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 100
   store i8 %41, ptr %42, align 4
   %43 = load i32, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 104
   store i32 %43, ptr %44, align 8
   %45 = getelementptr [16 x i64], ptr %7, i64 0, i64 %.039
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 112
   store i64 %46, ptr %47, align 8
   %48 = getelementptr [16 x i64], ptr %9, i64 0, i64 %.039
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %39, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 120
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 128
   store i32 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %39, i64 232
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 232
   store i32 5, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %39, i64 92
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 92
   store i32 1, ptr %53, align 4
   %54 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %54, %invariant.umin
@@ -272,20 +272,20 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %4, align 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %13, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %12, %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %17 = load i32, ptr %16, align 4
   %18 = trunc i32 %17 to i16
-  %19 = getelementptr inbounds i8, ptr %2, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i16 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %21 = load i32, ptr %20, align 8
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds i8, ptr %2, i64 54
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 54
   store i16 %22, ptr %23, align 2
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 192), align 16
   %25 = call i32 @extract_uint(ptr noundef %1, i32 noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %6) #4
@@ -298,7 +298,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 29:                                               ; preds = %15
   %30 = load i32, ptr %4, align 16
   %31 = trunc i32 %30 to i16
-  %32 = getelementptr inbounds i8, ptr %2, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i16 %31, ptr %32, align 8
   br label %33
 
@@ -313,7 +313,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 
 39:                                               ; preds = %33
   %40 = load i32, ptr %5, align 16
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %40, ptr %41, align 8
   br label %42
 
@@ -328,7 +328,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 
 48:                                               ; preds = %42
   %49 = load i32, ptr %5, align 16
-  %50 = getelementptr inbounds i8, ptr %2, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %49, ptr %50, align 4
   br label %51
 
@@ -343,7 +343,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 
 57:                                               ; preds = %51
   %58 = load i32, ptr %5, align 16
-  %59 = getelementptr inbounds i8, ptr %2, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %58, ptr %59, align 8
   br label %60
 
@@ -356,7 +356,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 .sink.split:                                      ; preds = %60
   %63 = load i64, ptr %6, align 8
   %.not44 = icmp ne i64 %63, 0
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %. = zext i1 %.not44 to i32
   store i32 %., ptr %64, align 8
   br label %65
@@ -370,7 +370,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
 .sink.split53:                                    ; preds = %65
   %68 = load i64, ptr %6, align 8
   %.not46 = icmp ne i64 %68, 0
-  %69 = getelementptr inbounds i8, ptr %2, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.58 = zext i1 %.not46 to i32
   store i32 %.58, ptr %69, align 8
   br label %70
@@ -387,7 +387,7 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
   %74 = load i32, ptr %4, align 16
   %75 = trunc i32 %74 to i8
   %.sink56 = select i1 %.not48, i8 0, i8 %75
-  %76 = getelementptr inbounds i8, ptr %2, i64 58
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 58
   store i8 %.sink56, ptr %76, align 2
   br label %77
 
@@ -419,28 +419,28 @@ define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0
   br i1 %.not51, label %97, label %95
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %2, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 1, ptr %96, align 8
   br label %97
 
 97:                                               ; preds = %95, %89
-  %98 = getelementptr inbounds i8, ptr %2, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %2, i64 132
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 %99, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %2, i64 112
-  %102 = getelementptr inbounds i8, ptr %2, i64 232
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   store i32 2, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %2, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 0, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %2, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %105 = load i16, ptr %104, align 8
   %.not52 = icmp eq i16 %105, 0
   br i1 %.not52, label %108, label %106
 
 106:                                              ; preds = %97
-  %107 = getelementptr inbounds i8, ptr %2, i64 92
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %107, align 4
   br label %108
 
@@ -470,18 +470,18 @@ define hidden noundef i32 @decode_dns(ptr nocapture noundef readnone %0, ptr nou
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 16
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %2, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 %13, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %11, %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 7, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %19, align 4
   ret i32 1
 }
@@ -490,15 +490,15 @@ define hidden noundef i32 @decode_dns(ptr nocapture noundef readnone %0, ptr nou
 define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((52, 56)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %2, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i16 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i16
-  %13 = getelementptr inbounds i8, ptr %2, i64 54
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 54
   store i16 %12, ptr %13, align 2
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @hf_of_interest, i64 240), align 16
   %15 = call i32 @extract_uint(ptr noundef %1, i32 noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
@@ -510,7 +510,7 @@ define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr no
 
 19:                                               ; preds = %3
   %20 = load i32, ptr %4, align 16
-  %21 = getelementptr inbounds i8, ptr %2, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %20, ptr %21, align 8
   br label %22
 
@@ -526,7 +526,7 @@ define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr no
 28:                                               ; preds = %22
   %29 = load i32, ptr %4, align 16
   %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds i8, ptr %2, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i16 %30, ptr %31, align 8
   br label %32
 
@@ -558,16 +558,16 @@ define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not21, label %52, label %50
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %2, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 1, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %50, %44
-  %53 = getelementptr inbounds i8, ptr %2, i64 112
-  %54 = getelementptr inbounds i8, ptr %2, i64 232
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, i8 0, i64 20, i1 false)
   store i32 3, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 92
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 1, ptr %55, align 4
   br label %56
 

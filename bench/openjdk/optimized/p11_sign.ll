@@ -12,14 +12,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignInit(ptr noundef %0,
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 344
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #5
   tail call void @freeCKMechanismPtr(ptr noundef %9) #5
@@ -52,7 +52,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Sign(ptr noundef %0, ptr 
 11:                                               ; preds = %4
   call void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = call zeroext i8 %14(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %15, 0
@@ -60,7 +60,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Sign(ptr noundef %0, ptr 
 
 16:                                               ; preds = %11
   store i64 4096, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 352
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 352
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = load i64, ptr %6, align 8
@@ -141,7 +141,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignUpdate(ptr noundef %
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 360
   %14 = load ptr, ptr %13, align 8
   %15 = inttoptr i64 %3 to ptr
   %16 = sext i32 %6 to i64
@@ -171,7 +171,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignUpdate(ptr noundef %
 .lr.ph.preheader:                                 ; preds = %21, %27
   %.04259 = phi i32 [ 4096, %27 ], [ %22, %21 ]
   %.04357 = phi ptr [ %8, %27 ], [ %24, %21 ]
-  %29 = getelementptr inbounds i8, ptr %9, i64 360
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 360
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
@@ -179,11 +179,11 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignUpdate(ptr noundef %
   %.04151 = phi i32 [ %45, %43 ], [ %6, %.lr.ph.preheader ]
   %30 = call i32 @llvm.smin.i32(i32 %.04259, i32 %.04151)
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1600
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1600
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %.052, i32 noundef %30, ptr noundef nonnull %.04357) #5
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1824
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1824
   %36 = load ptr, ptr %35, align 8
   %37 = call zeroext i8 %36(ptr noundef nonnull %0) #5
   %.not48 = icmp eq i8 %37, 0
@@ -235,7 +235,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignFinal(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 368
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 368
   %15 = load ptr, ptr %14, align 8
   %16 = call i64 %15(i64 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %17 = icmp eq i64 %16, 336
@@ -291,14 +291,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecoverInit(ptr noun
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 376
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #5
   tail call void @freeCKMechanismPtr(ptr noundef %9) #5
@@ -337,18 +337,18 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecover(ptr noundef %
   %.043 = phi ptr [ %10, %15 ], [ %19, %17 ]
   store i64 %storemerge, ptr %12, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1600
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1600
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.043) #5
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1824
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1824
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i8 %28(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %30, label %55
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %13, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 384
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %5 to i64
   %34 = call i64 %32(i64 noundef %2, ptr noundef nonnull %.043, i64 noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12) #5
@@ -384,7 +384,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecover(ptr noundef %
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1664
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1664
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %12, align 8
   %54 = trunc i64 %53 to i32
@@ -427,14 +427,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyInit(ptr noundef %
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #5
   tail call void @freeCKMechanismPtr(ptr noundef %9) #5
@@ -460,7 +460,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Verify(ptr noundef %0, p
 12:                                               ; preds = %5
   call void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %8) #5
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = call zeroext i8 %15(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %16, 0
@@ -469,14 +469,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Verify(ptr noundef %0, p
 17:                                               ; preds = %12
   call void @jByteArrayToCKByteArray(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not16 = icmp eq i8 %21, 0
   br i1 %.not16, label %22, label %30
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %10, i64 400
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 400
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = load i64, ptr %8, align 8
@@ -510,7 +510,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyUpdate(ptr noundef
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = inttoptr i64 %3 to ptr
   %16 = sext i32 %6 to i64
@@ -540,7 +540,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyUpdate(ptr noundef
 .lr.ph.preheader:                                 ; preds = %21, %26
   %.04264 = phi i32 [ 4096, %26 ], [ %22, %21 ]
   %.04362 = phi ptr [ %8, %26 ], [ %24, %21 ]
-  %28 = getelementptr inbounds i8, ptr %9, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 408
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
@@ -548,11 +548,11 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyUpdate(ptr noundef
   %.04155 = phi i32 [ %44, %42 ], [ %6, %.lr.ph.preheader ]
   %29 = call i32 @llvm.smin.i32(i32 %.04264, i32 %.04155)
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1600
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1600
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %.056, i32 noundef %29, ptr noundef nonnull %.04362) #5
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1824
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1824
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i8 %35(ptr noundef nonnull %0) #5
   %.not49 = icmp eq i8 %36, 0
@@ -597,14 +597,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyFinal(ptr noundef 
 9:                                                ; preds = %4
   call void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 416
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 416
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load i64, ptr %6, align 8
@@ -627,14 +627,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecoverInit(ptr no
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 424
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #5
   tail call void @freeCKMechanismPtr(ptr noundef %9) #5
@@ -673,18 +673,18 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
   %.043 = phi ptr [ %10, %15 ], [ %19, %17 ]
   store i64 %storemerge, ptr %12, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1600
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1600
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.043) #5
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1824
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1824
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i8 %28(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %29, 0
   br i1 %.not, label %30, label %55
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %13, i64 432
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 432
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %5 to i64
   %34 = call i64 %32(i64 noundef %2, ptr noundef nonnull %.043, i64 noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12) #5
@@ -720,7 +720,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1664
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1664
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %12, align 8
   %54 = trunc i64 %53 to i32

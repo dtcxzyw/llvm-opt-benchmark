@@ -74,7 +74,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_qtree_get_ne
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local noundef range(i32 0, 2) i32 @qtree_entry_unused(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.loopexit, label %.preheader
@@ -106,11 +106,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 116
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3136) #7
@@ -118,7 +118,7 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
   br i1 %12, label %53, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %28
@@ -126,7 +126,7 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 1, ptr %3, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 2
   br i1 %20, label %.thread, label %22
@@ -150,16 +150,16 @@ define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1
   br label %51
 
 28:                                               ; preds = %22, %13
-  %29 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @_raw_spin_lock(ptr noundef %29) #8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %29) #8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %11, ptr noundef %1) #8
-  tail call void @_raw_spin_unlock(ptr noundef %29) #8
-  %33 = getelementptr inbounds i8, ptr %7, i64 48
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr inbounds i8, ptr %34, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %8, align 4
   %38 = zext i32 %37 to i64
@@ -204,7 +204,7 @@ define dso_local i32 @qtree_delete_dquot(ptr nocapture noundef %0, ptr nocapture
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %9, label %7
@@ -222,7 +222,7 @@ define dso_local i32 @qtree_delete_dquot(ptr nocapture noundef %0, ptr nocapture
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #7
@@ -236,14 +236,14 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   %14 = load i32, ptr %6, align 8
   %15 = zext i32 %14 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %13, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %12 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %22, %25
@@ -253,19 +253,19 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %11
-  %31 = getelementptr inbounds i8, ptr %1, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %2, align 4
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %32, ptr noundef nonnull @__func__.remove_tree, ptr noundef nonnull @.str.18, i32 noundef %33) #8
   br label %335
 
 34:                                               ; preds = %11
-  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load i64, ptr %35, align 8
   %37 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %36) #8
   %38 = load i32, ptr %6, align 8
   %39 = lshr i32 %38, 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = xor i32 %3, -1
   %43 = add i32 %41, %42
@@ -287,8 +287,8 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   %53 = getelementptr i32, ptr %9, i64 %52
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %5, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 104
-  %56 = getelementptr inbounds i8, ptr %0, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, -1
   %59 = add i32 %54, -1
@@ -312,7 +312,7 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %69, label %243, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %1, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %72 = load i64, ptr %71, align 8
   %73 = load i32, ptr %23, align 8
   %74 = zext nneg i32 %73 to i64
@@ -332,9 +332,9 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   %83 = load i32, ptr %6, align 8
   %84 = zext i32 %83 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %68, i8 0, i64 %84, i1 false)
-  %85 = getelementptr inbounds i8, ptr %82, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %86 = load ptr, ptr %85, align 16
-  %87 = getelementptr inbounds i8, ptr %86, i64 160
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 160
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %20, align 8
   %90 = shl i64 %75, %74
@@ -354,7 +354,7 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %98, label %99, label %237
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %68, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %101 = load i16, ptr %100, align 8
   %102 = add i16 %101, -1
   store i16 %102, ptr %100, align 8
@@ -385,7 +385,7 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   %117 = zext nneg i32 %116 to i64
   %118 = and i64 %113, %117
   %119 = getelementptr i8, ptr %68, i64 %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = zext i32 %121 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %119, i8 0, i64 %122, i1 false)
@@ -406,15 +406,15 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %134, label %211, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %0, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %137 = load i32, ptr %136, align 4
   store i32 %137, ptr %68, align 8
-  %138 = getelementptr inbounds i8, ptr %68, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %138, align 4
   %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %141 = load ptr, ptr %140, align 16
-  %142 = getelementptr inbounds i8, ptr %141, i64 168
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 168
   %143 = load ptr, ptr %142, align 8
   %144 = load i32, ptr %20, align 8
   %145 = load i32, ptr %6, align 8
@@ -450,9 +450,9 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   %166 = load i32, ptr %6, align 8
   %167 = zext i32 %166 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %167, i1 false)
-  %168 = getelementptr inbounds i8, ptr %165, i64 48
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 48
   %169 = load ptr, ptr %168, align 16
-  %170 = getelementptr inbounds i8, ptr %169, i64 160
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 160
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %20, align 8
   %173 = zext i32 %162 to i64
@@ -465,13 +465,13 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %179, label %206, label %180
 
 180:                                              ; preds = %164
-  %181 = getelementptr inbounds i8, ptr %133, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %133, i64 4
   store i32 %54, ptr %181, align 4
   %182 = load i32, ptr %136, align 4
   %183 = load ptr, ptr %0, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 48
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 48
   %185 = load ptr, ptr %184, align 16
-  %186 = getelementptr inbounds i8, ptr %185, i64 168
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 168
   %187 = load ptr, ptr %186, align 8
   %188 = load i32, ptr %20, align 8
   %189 = load i32, ptr %6, align 8
@@ -519,9 +519,9 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
 
 213:                                              ; preds = %112
   %214 = load ptr, ptr %0, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 48
   %216 = load ptr, ptr %215, align 16
-  %217 = getelementptr inbounds i8, ptr %216, i64 168
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 168
   %218 = load ptr, ptr %217, align 8
   %219 = load i32, ptr %20, align 8
   %220 = zext nneg i32 %114 to i64
@@ -626,17 +626,17 @@ define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture 
   br i1 %or.cond, label %309, label %280
 
 280:                                              ; preds = %.loopexit
-  %281 = getelementptr inbounds i8, ptr %0, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %282 = load i32, ptr %281, align 8
   store i32 %282, ptr %9, align 8
-  %283 = getelementptr inbounds i8, ptr %9, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %283, align 4
-  %284 = getelementptr inbounds i8, ptr %9, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 0, ptr %284, align 8
   %285 = load ptr, ptr %0, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 48
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 48
   %287 = load ptr, ptr %286, align 16
-  %288 = getelementptr inbounds i8, ptr %287, i64 168
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 168
   %289 = load ptr, ptr %288, align 8
   %290 = load i32, ptr %20, align 8
   %291 = zext i32 %251 to i64
@@ -675,9 +675,9 @@ put_free_dqblk.exit:                              ; preds = %303, %306
 
 309:                                              ; preds = %.loopexit
   %310 = load ptr, ptr %0, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 48
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = load ptr, ptr %311, align 16
-  %313 = getelementptr inbounds i8, ptr %312, i64 168
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 168
   %314 = load ptr, ptr %313, align 8
   %315 = load i32, ptr %20, align 8
   %316 = zext i32 %251 to i64
@@ -722,12 +722,12 @@ put_free_dqblk.exit:                              ; preds = %303, %306
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 112
-  %4 = getelementptr inbounds i8, ptr %1, i64 116
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = sext i32 %5 to i64
   %10 = getelementptr [3 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
@@ -739,7 +739,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   br label %82
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %31
@@ -761,10 +761,10 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
 
 26:                                               ; preds = %23, %21
   store i64 0, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %27, i32 8, ptr elementtype(i8) %27) #8, !srcloc !12
-  %28 = getelementptr inbounds i8, ptr %1, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %28, i8 0, i64 72, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #8, !srcloc !12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 72, i1 false)
   %29 = trunc i64 %19 to i32
   br label %79
 
@@ -773,7 +773,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   br label %31
 
 31:                                               ; preds = %30, %14
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3136) #7
@@ -781,9 +781,9 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   br i1 %36, label %82, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %7, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %39 = load ptr, ptr %38, align 16
-  %40 = getelementptr inbounds i8, ptr %39, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %32, align 4
   %43 = zext i32 %42 to i64
@@ -792,7 +792,7 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   %46 = trunc i64 %45 to i32
   %47 = load i32, ptr %32, align 4
   %48 = icmp eq i32 %47, %46
-  %49 = getelementptr inbounds i8, ptr %1, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br i1 %48, label %56, label %50
 
 50:                                               ; preds = %37
@@ -801,18 +801,18 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   %53 = load i64, ptr %3, align 8
   %54 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %53) #8
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.4, i32 noundef %54) #8
-  %55 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55, i32 8, ptr elementtype(i8) %55) #8, !srcloc !12
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %49, i8 0, i64 72, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %55, i32 8, ptr nonnull elementtype(i8) %55) #8, !srcloc !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, i8 0, i64 72, i1 false)
   tail call void @kfree(ptr noundef nonnull %35) #8
   br label %79
 
 56:                                               ; preds = %37
-  %57 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @_raw_spin_lock(ptr noundef %57) #8
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %57) #8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef %1, ptr noundef nonnull %35) #8
   %62 = load i64, ptr %49, align 8
@@ -820,30 +820,30 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
   br i1 %63, label %64, label %78
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %1, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %1, i64 168
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %1, i64 176
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %77, i32 8, ptr elementtype(i8) %77) #8, !srcloc !12
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %77, i32 8, ptr nonnull elementtype(i8) %77) #8, !srcloc !12
   br label %78
 
 78:                                               ; preds = %76, %72, %68, %64, %56
-  tail call void @_raw_spin_unlock(ptr noundef %57) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %57) #8
   tail call void @kfree(ptr noundef nonnull %35) #8
   br label %79
 
@@ -867,16 +867,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @qtree_release_dquot(ptr nocapture noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %23, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, %10
   %14 = icmp eq i64 %13, 0
@@ -885,7 +885,7 @@ define dso_local i32 @qtree_release_dquot(ptr nocapture noundef %0, ptr noundef 
 15:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 1, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %21, label %19
@@ -916,7 +916,7 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr nocapture 
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 3
   br i1 %11, label %13, label %12
@@ -943,7 +943,7 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #7
@@ -953,7 +953,7 @@ define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr 
   br i1 %11, label %94, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, -1
   %16 = icmp ugt i32 %15, %3
@@ -972,14 +972,14 @@ define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr 
   %23 = load ptr, ptr %0, align 8
   %24 = zext i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %26 = load ptr, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %26, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = zext nneg i32 %33 to i64
   %35 = shl i64 %31, %34
@@ -1018,7 +1018,7 @@ define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr 
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %.loopexit15
-  %58 = getelementptr inbounds i8, ptr %0, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %59 = add i32 %3, 1
   %60 = zext nneg i32 %55 to i64
   %61 = zext nneg i32 %10 to i64
@@ -1095,7 +1095,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3136) #7
@@ -1125,14 +1125,14 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   %22 = load i32, ptr %6, align 8
   %23 = zext i32 %22 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %23, i1 false)
-  %24 = getelementptr inbounds i8, ptr %21, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %25 = load ptr, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %12 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %30, %33
@@ -1142,19 +1142,19 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %20
-  %39 = getelementptr inbounds i8, ptr %1, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %2, align 4
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %40, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.7, i32 noundef %41) #8
   br label %308
 
 42:                                               ; preds = %20, %17
-  %43 = getelementptr inbounds i8, ptr %1, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %44 = load i64, ptr %43, align 8
   %45 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %44) #8
   %46 = load i32, ptr %6, align 8
   %47 = lshr i32 %46, 2
-  %48 = getelementptr inbounds i8, ptr %0, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = xor i32 %3, -1
   %51 = add i32 %49, %50
@@ -1176,8 +1176,8 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   %61 = getelementptr i32, ptr %9, i64 %60
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %5, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 104
-  %64 = getelementptr inbounds i8, ptr %0, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, -1
   %67 = icmp ugt i32 %62, %66
@@ -1232,7 +1232,7 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   br i1 %96, label %219, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %0, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %122, label %101
@@ -1242,14 +1242,14 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   %103 = load i32, ptr %6, align 8
   %104 = zext i32 %103 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %95, i8 0, i64 %104, i1 false)
-  %105 = getelementptr inbounds i8, ptr %102, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %106 = load ptr, ptr %105, align 16
-  %107 = getelementptr inbounds i8, ptr %106, i64 160
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 160
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load i32, ptr %109, align 8
   %111 = zext i32 %99 to i64
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load i32, ptr %112, align 8
   %114 = zext nneg i32 %113 to i64
   %115 = shl i64 %111, %114
@@ -1274,21 +1274,21 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %95, i8 0, i64 %127, i1 false)
   store i32 %123, ptr %98, align 4
   %128 = load ptr, ptr %63, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 116
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %130 = load i32, ptr %129, align 4
   tail call void @mark_info_dirty(ptr noundef %128, i32 noundef %130) #8
   br label %131
 
 131:                                              ; preds = %125, %119
   %132 = phi i32 [ %99, %119 ], [ %123, %125 ]
-  %133 = getelementptr inbounds i8, ptr %95, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %134 = load i16, ptr %133, align 8
   %135 = zext i16 %134 to i32
   %136 = add nuw nsw i32 %135, 1
   %137 = load i32, ptr %6, align 8
   %138 = zext i32 %137 to i64
   %139 = add nsw i64 %138, -16
-  %140 = getelementptr inbounds i8, ptr %0, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %141 = load i32, ptr %140, align 4
   %142 = zext i32 %141 to i64
   %143 = udiv i64 %139, %142
@@ -1370,14 +1370,14 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
 
 180:                                              ; preds = %.loopexit33
   %181 = load ptr, ptr %0, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 48
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
   %183 = load ptr, ptr %182, align 16
-  %184 = getelementptr inbounds i8, ptr %183, i64 168
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 168
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %187 = load i32, ptr %186, align 8
   %188 = zext i32 %132 to i64
-  %189 = getelementptr inbounds i8, ptr %0, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %190 = load i32, ptr %189, align 8
   %191 = zext nneg i32 %190 to i64
   %192 = shl i64 %188, %191
@@ -1413,7 +1413,7 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   %212 = mul i32 %211, %176
   %213 = zext i32 %212 to i64
   %214 = add i64 %210, %213
-  %215 = getelementptr inbounds i8, ptr %1, i64 120
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %214, ptr %215, align 8
   br label %216
 
@@ -1467,15 +1467,15 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
   store i32 %230, ptr %246, align 4
   %247 = load i32, ptr %2, align 4
   %248 = load ptr, ptr %0, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 48
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %250 = load ptr, ptr %249, align 16
-  %251 = getelementptr inbounds i8, ptr %250, i64 168
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 168
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %0, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = zext i32 %233 to i64
   %256 = zext i32 %247 to i64
-  %257 = getelementptr inbounds i8, ptr %0, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %258 = load i32, ptr %257, align 8
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %256, %259
@@ -1503,24 +1503,24 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
 
 274:                                              ; preds = %271
   %275 = load i32, ptr %2, align 4
-  %276 = getelementptr inbounds i8, ptr %0, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %277 = load i32, ptr %276, align 8
   store i32 %277, ptr %9, align 8
-  %278 = getelementptr inbounds i8, ptr %9, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %278, align 4
-  %279 = getelementptr inbounds i8, ptr %9, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 0, ptr %279, align 8
   %280 = load ptr, ptr %0, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 48
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 48
   %282 = load ptr, ptr %281, align 16
-  %283 = getelementptr inbounds i8, ptr %282, i64 168
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 168
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %0, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %286 = load i32, ptr %285, align 8
   %287 = load i32, ptr %6, align 8
   %288 = zext i32 %287 to i64
   %289 = zext i32 %275 to i64
-  %290 = getelementptr inbounds i8, ptr %0, i64 24
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %291 = load i32, ptr %290, align 8
   %292 = zext nneg i32 %291 to i64
   %293 = shl i64 %289, %292
@@ -1562,7 +1562,7 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3136) #7
@@ -1570,7 +1570,7 @@ define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_add
   br i1 %6, label %93, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %56, label %11
@@ -1580,14 +1580,14 @@ define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_add
   %13 = load i32, ptr %2, align 8
   %14 = zext i32 %13 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %14, i1 false)
-  %15 = getelementptr inbounds i8, ptr %12, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %16 = load ptr, ptr %15, align 16
-  %17 = getelementptr inbounds i8, ptr %16, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %9 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = zext nneg i32 %23 to i64
   %25 = shl i64 %21, %24
@@ -1598,7 +1598,7 @@ define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_add
 
 29:                                               ; preds = %11
   %30 = load i32, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, -1
   %34 = icmp ugt i32 %30, %33
@@ -1610,7 +1610,7 @@ define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_add
   br label %check_dquot_block_header.exit.thread
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp ugt i32 %38, %33
   br i1 %39, label %.thread6.i, label %41
@@ -1621,13 +1621,13 @@ define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_add
   br label %check_dquot_block_header.exit.thread
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = load i16, ptr %42, align 8
   %44 = zext i16 %43 to i32
   %45 = load i32, ptr %2, align 8
   %46 = zext i32 %45 to i64
   %47 = add nsw i64 %46, -16
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
   %51 = udiv i64 %47, %50
@@ -1648,17 +1648,17 @@ check_dquot_block_header.exit:                    ; preds = %41
   %57 = load i32, ptr %2, align 8
   %58 = zext i32 %57 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %58, i1 false)
-  %59 = getelementptr inbounds i8, ptr %0, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 16
-  %64 = getelementptr inbounds i8, ptr %63, i64 168
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 168
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %60 to i64
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = zext nneg i32 %70 to i64
   %72 = shl i64 %68, %71
@@ -1689,7 +1689,7 @@ check_dquot_block_header.exit:                    ; preds = %41
 87:                                               ; preds = %84, %check_dquot_block_header.exit
   %88 = phi i32 [ %9, %check_dquot_block_header.exit ], [ %85, %84 ]
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i32, ptr %90, align 8
   tail call void @mark_info_dirty(ptr noundef %89, i32 noundef %91) #8
   br label %check_dquot_block_header.exit.thread
@@ -1706,25 +1706,25 @@ check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.threa
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef nonnull initializes((0, 10)) %1, i32 noundef %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 0, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %10, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %18, %21
@@ -1761,7 +1761,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocaptu
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 align 16 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
   %7 = icmp ugt i32 %3, %6
@@ -1773,7 +1773,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
   br label %30
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i32 %11, %6
   br i1 %12, label %.thread6, label %14
@@ -1784,14 +1784,14 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
   br label %30
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i16, ptr %15, align 4
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = add nsw i64 %20, -16
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = udiv i64 %21, %24
@@ -1814,12 +1814,12 @@ declare dso_local void @mark_info_dirty(ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef 3136) #7
   %8 = load i32, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq ptr %7, null
   br i1 %11, label %128, label %12
@@ -1833,14 +1833,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %16 = load i32, ptr %4, align 8
   %17 = zext i32 %16 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %17, i1 false)
-  %18 = getelementptr inbounds i8, ptr %15, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %19 = load ptr, ptr %18, align 16
-  %20 = getelementptr inbounds i8, ptr %19, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %8 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = zext nneg i32 %26 to i64
   %28 = shl i64 %24, %27
@@ -1851,12 +1851,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
 
 32:                                               ; preds = %14
   %33 = load i32, ptr %9, align 4
-  %34 = getelementptr inbounds i8, ptr %7, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %33, ptr %34, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 16
-  %38 = getelementptr inbounds i8, ptr %37, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %22, align 8
   %41 = load i32, ptr %4, align 8
@@ -1891,14 +1891,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %61 = load i32, ptr %4, align 8
   %62 = zext i32 %61 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %7, i8 0, i64 %62, i1 false)
-  %63 = getelementptr inbounds i8, ptr %60, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %64 = load ptr, ptr %63, align 16
-  %65 = getelementptr inbounds i8, ptr %64, i64 160
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 160
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %10 to i64
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = zext nneg i32 %71 to i64
   %73 = shl i64 %69, %72
@@ -1911,9 +1911,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   %78 = load i32, ptr %1, align 4
   store i32 %78, ptr %7, align 8
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 16
-  %82 = getelementptr inbounds i8, ptr %81, i64 168
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %67, align 8
   %85 = load i32, ptr %4, align 8
@@ -1940,10 +1940,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   br i1 %100, label %126, label %106
 
 101:                                              ; preds = %57
-  %102 = getelementptr inbounds i8, ptr %0, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %8, ptr %102, align 4
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load i32, ptr %104, align 8
   tail call void @mark_info_dirty(ptr noundef %103, i32 noundef %105) #8
   br label %106
@@ -1953,16 +1953,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr no
   store i32 0, ptr %9, align 4
   store i32 0, ptr %1, align 4
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = load ptr, ptr %108, align 16
-  %110 = getelementptr inbounds i8, ptr %109, i64 168
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 168
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = load i32, ptr %4, align 8
   %115 = zext i32 %114 to i64
   %116 = zext i32 %2 to i64
-  %117 = getelementptr inbounds i8, ptr %0, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = load i32, ptr %117, align 8
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %116, %119
@@ -1999,7 +1999,7 @@ declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3136) #7
@@ -2011,14 +2011,14 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   %12 = load i32, ptr %5, align 8
   %13 = zext i32 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %20, %23
@@ -2027,18 +2027,18 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds i8, ptr %1, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %29 = load ptr, ptr %28, align 8
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %29, ptr noundef nonnull @__func__.find_tree_dqentry, ptr noundef nonnull @.str.23, i32 noundef %2) #8
   br label %133
 
 30:                                               ; preds = %10
-  %31 = getelementptr inbounds i8, ptr %1, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load i64, ptr %31, align 8
   %33 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %32) #8
   %34 = load i32, ptr %5, align 8
   %35 = lshr i32 %34, 2
-  %36 = getelementptr inbounds i8, ptr %0, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = xor i32 %3, -1
   %39 = add i32 %37, %38
@@ -2063,8 +2063,8 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   br i1 %51, label %133, label %52
 
 52:                                               ; preds = %.loopexit10
-  %53 = getelementptr inbounds i8, ptr %1, i64 104
-  %54 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, -1
   %57 = icmp ugt i32 %50, %56
@@ -2096,9 +2096,9 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   %71 = load i32, ptr %5, align 8
   %72 = zext i32 %71 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %72, i1 false)
-  %73 = getelementptr inbounds i8, ptr %70, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %74 = load ptr, ptr %73, align 16
-  %75 = getelementptr inbounds i8, ptr %74, i64 160
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 160
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr %18, align 8
   %78 = zext i32 %50 to i64
@@ -2115,8 +2115,8 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   br label %131
 
 86:                                               ; preds = %69
-  %87 = getelementptr inbounds i8, ptr %0, i64 40
-  %88 = getelementptr inbounds i8, ptr %0, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %89 = load i32, ptr %5, align 8
   %90 = zext i32 %89 to i64
   %91 = add nsw i64 %90, -16
@@ -2135,7 +2135,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0,
   %100 = phi ptr [ %109, %107 ], [ %98, %97 ]
   %101 = phi i32 [ %110, %107 ], [ 0, %97 ]
   %102 = load ptr, ptr %87, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 %104(ptr noundef %100, ptr noundef %1) #8
   %106 = icmp eq i32 %105, 0

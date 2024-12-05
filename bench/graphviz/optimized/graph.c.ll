@@ -50,7 +50,7 @@ gv_calloc.exit.i:                                 ; preds = %3
   %11 = load ptr, ptr %2, align 8
   %.not11.i = icmp eq ptr %11, null
   %spec.select.i = select i1 %.not11.i, ptr @AgIdDisc, ptr %11
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not12.i = icmp eq ptr %13, null
   %spec.select13.i = select i1 %.not12.i, ptr @AgIoDisc, ptr %13
@@ -60,7 +60,7 @@ agclos.exit:                                      ; preds = %gv_calloc.exit.i, %
   %spec.select.sink.i = phi ptr [ %spec.select.i, %10 ], [ @AgIdDisc, %gv_calloc.exit.i ]
   %14 = phi ptr [ %spec.select13.i, %10 ], [ @AgIoDisc, %gv_calloc.exit.i ]
   store ptr %spec.select.sink.i, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %14, ptr %15, align 8
   %16 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #10
   %17 = icmp eq ptr %16, null
@@ -73,19 +73,19 @@ agclos.exit:                                      ; preds = %gv_calloc.exit.i, %
   unreachable
 
 gv_calloc.exit:                                   ; preds = %agclos.exit
-  %21 = getelementptr inbounds i8, ptr %16, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 128
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %1, ptr %22, align 8
   %23 = trunc i32 %1 to i8
   %24 = or i8 %23, 8
   store i8 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store ptr %16, ptr %25, align 8
   %26 = load ptr, ptr %spec.select.sink.i, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %16, ptr noundef %2) #13
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %27, ptr %29, align 8
   %30 = call i32 @agmapnametoid(ptr noundef nonnull %16, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext true) #13
   %.not = icmp eq i32 %30, 0
@@ -93,7 +93,7 @@ gv_calloc.exit:                                   ; preds = %agclos.exit
 
 31:                                               ; preds = %gv_calloc.exit
   %32 = load i64, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %32, ptr %33, align 8
   br label %34
 
@@ -109,42 +109,42 @@ declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 define noundef ptr @agopen1(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @Dttree, align 8
   %3 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull @Ag_subnode_seq_disc, ptr noundef %2) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %4, align 8
   %5 = load ptr, ptr @Dttree, align 8
   %6 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull @Ag_subnode_id_disc, ptr noundef %5) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @agroot(ptr noundef %0) #13
   %9 = icmp eq ptr %0, %8
   %10 = select i1 %9, ptr @Ag_mainedge_seq_disc, ptr @Ag_subedge_seq_disc
   %11 = load ptr, ptr @Dttree, align 8
   %12 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %11) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @agroot(ptr noundef %0) #13
   %15 = icmp eq ptr %0, %14
   %16 = select i1 %15, ptr @Ag_mainedge_id_disc, ptr @Ag_subedge_id_disc
   %17 = load ptr, ptr @Dttree, align 8
   %18 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %17) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr @Dttree, align 8
   %21 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull @Ag_subgraph_seq_disc, ptr noundef %20) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr @Dttree, align 8
   %24 = tail call ptr @agdtopen(ptr noundef %0, ptr noundef nonnull @Ag_subgraph_id_disc, ptr noundef %23) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %24, ptr %25, align 8
   %26 = tail call ptr @agparent(ptr noundef %0) #13
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %.critedge, label %27
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds i8, ptr %26, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8
@@ -154,15 +154,15 @@ define noundef ptr @agopen1(ptr noundef returned %0) local_unnamed_addr #0 {
   %36 = and i32 %34, 15
   %37 = or disjoint i32 %36, %35
   store i32 %37, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %39, ptr noundef nonnull %0, i32 noundef 1) #13
-  %42 = getelementptr inbounds i8, ptr %26, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %43, ptr noundef nonnull %0, i32 noundef 1) #13
-  %46 = getelementptr inbounds i8, ptr %26, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %47 = load i8, ptr %46, align 8
   %48 = and i8 %47, 32
   %.not32 = icmp eq i8 %48, 0
@@ -187,9 +187,9 @@ declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @agnextseq(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [3 x i64], ptr %5, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
@@ -231,49 +231,49 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge70:                                    ; preds = %.lr.ph69, %._crit_edge
   tail call void @aginternalmapclose(ptr noundef %0) #13
   tail call void @agmethod_delete(ptr noundef %0, ptr noundef %0) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @agdtclose(ptr noundef %0, ptr noundef %10) #13
   %.not52 = icmp eq i32 %11, 0
   br i1 %.not52, label %12, label %61
 
 12:                                               ; preds = %._crit_edge70
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @agdtclose(ptr noundef nonnull %0, ptr noundef %14) #13
   %.not53 = icmp eq i32 %15, 0
   br i1 %.not53, label %16, label %61
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @agdtclose(ptr noundef nonnull %0, ptr noundef %18) #13
   %.not54 = icmp eq i32 %19, 0
   br i1 %.not54, label %20, label %61
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @agdtclose(ptr noundef nonnull %0, ptr noundef %22) #13
   %.not55 = icmp eq i32 %23, 0
   br i1 %.not55, label %24, label %61
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @agdtclose(ptr noundef nonnull %0, ptr noundef %26) #13
   %.not56 = icmp eq i32 %27, 0
   br i1 %.not56, label %28, label %61
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @agdtclose(ptr noundef nonnull %0, ptr noundef %30) #13
   %.not57 = icmp eq i32 %31, 0
   br i1 %.not57, label %32, label %61
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 32
   %.not58 = icmp eq i8 %35, 0
@@ -286,16 +286,16 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
 
 38:                                               ; preds = %36, %32
   tail call void @agrecclose(ptr noundef nonnull %0) #13
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   tail call void @agfreeid(ptr noundef nonnull %0, i32 noundef 0, i64 noundef %40) #13
   %.not60 = icmp eq ptr %2, null
   br i1 %.not60, label %.preheader, label %45
 
 .preheader:                                       ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8
   %.not6171 = icmp eq ptr %44, null
   br i1 %.not6171, label %._crit_edge73, label %.lr.ph72
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @agpopdisc(ptr noundef nonnull %0, ptr noundef %48) #13
   %50 = load ptr, ptr %41, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8
   %.not61 = icmp eq ptr %52, null
   br i1 %.not61, label %._crit_edge73, label %.lr.ph72
@@ -318,9 +318,9 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge73:                                    ; preds = %.lr.ph72, %.preheader
   %.lcssa = phi ptr [ %42, %.preheader ], [ %50, %.lr.ph72 ]
   %53 = load ptr, ptr %.lcssa, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %57 = load ptr, ptr %56, align 8
   tail call void %55(ptr noundef %57) #13
   %58 = tail call i32 @agstrclose(ptr noundef nonnull %0) #13
@@ -373,7 +373,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @agnnodes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtsize(ptr noundef %3) #13
   ret i32 %4
@@ -388,7 +388,7 @@ define i32 @agnedges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %4
 
 4:                                                ; preds = %.lr.ph, %agdegree.exit
@@ -400,7 +400,7 @@ define i32 @agnedges(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @dtrestore(ptr noundef %7, ptr noundef %9) #13
   %11 = tail call i32 @dtsize(ptr noundef %7) #13
@@ -431,9 +431,9 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   br i1 %.not12, label %15, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @dtrestore(ptr noundef %9, ptr noundef %11) #13
   %13 = tail call i32 @dtsize(ptr noundef %9) #13
@@ -447,9 +447,9 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   br i1 %.not13, label %25, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @dtrestore(ptr noundef %18, ptr noundef %20) #13
   %22 = tail call i32 @dtsize(ptr noundef %18) #13
@@ -465,7 +465,7 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define i32 @agnsubg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtsize(ptr noundef %3) #13
   ret i32 %4
@@ -473,7 +473,7 @@ define i32 @agnsubg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @agisdirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
   %5 = zext nneg i8 %4 to i32
@@ -482,7 +482,7 @@ define range(i32 0, 2) i32 @agisdirected(ptr nocapture noundef readonly %0) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @agisundirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
   %5 = xor i8 %4, 1
@@ -492,7 +492,7 @@ define range(i32 0, 2) i32 @agisundirected(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @agisstrict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 1
   %5 = and i8 %4, 1
@@ -502,7 +502,7 @@ define range(i32 0, 2) i32 @agisstrict(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @agissimple(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
@@ -524,9 +524,9 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not19, label %.loopexit, label %14
 
 .thread:                                          ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @dtrestore(ptr noundef %8, ptr noundef %10) #13
   %12 = tail call i32 @dtsize(ptr noundef %8) #13
@@ -536,9 +536,9 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not1923, label %.loopexit, label %22
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @dtrestore(ptr noundef %16, ptr noundef %18) #13
   %20 = tail call i32 @dtsize(ptr noundef %16) #13
@@ -554,7 +554,7 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.230 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %22 ]
   %.01829 = phi ptr [ %27, %.lr.ph ], [ %23, %22 ]
-  %24 = getelementptr inbounds i8, ptr %.01829, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.01829, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not21 = icmp ne ptr %25, %1
   %26 = zext i1 %.not21 to i32
@@ -586,9 +586,9 @@ define internal range(i32 -1, 2) i32 @agraphseqcmpf(ptr nocapture readnone %0, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0

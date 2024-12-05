@@ -74,7 +74,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %19 = zext i16 %18 to i64
   %20 = and i64 %19, %7
   %21 = load ptr, ptr @XactCtlData, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr %union.LWLockPadded, ptr %23, i64 %20
   %25 = tail call zeroext i1 @LWLockAcquire(ptr noundef %24, i32 noundef 0) #9
@@ -127,7 +127,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %48 = zext i16 %47 to i64
   %49 = and i64 %.026.i, %48
   %50 = load ptr, ptr @XactCtlData, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr %union.LWLockPadded, ptr %52, i64 %49
   %54 = tail call zeroext i1 @LWLockAcquire(ptr noundef %53, i32 noundef 0) #9
@@ -184,7 +184,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %78 = zext i16 %77 to i64
   %79 = and i64 %.026.i40, %78
   %80 = load ptr, ptr @XactCtlData, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr %union.LWLockPadded, ptr %82, i64 %79
   %84 = tail call zeroext i1 @LWLockAcquire(ptr noundef %83, i32 noundef 0) #9
@@ -198,7 +198,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   %87 = zext i16 %86 to i64
   %88 = and i64 %87, %7
   %89 = load ptr, ptr @XactCtlData, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr %union.LWLockPadded, ptr %91, i64 %88
   %93 = tail call zeroext i1 @LWLockAcquire(ptr noundef %92, i32 noundef 0) #9
@@ -244,7 +244,7 @@ set_status_by_pages.exit50:                       ; preds = %74
   %112 = zext i16 %111 to i64
   %113 = and i64 %.026.i53, %112
   %114 = load ptr, ptr @XactCtlData, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr %union.LWLockPadded, ptr %116, i64 %113
   %118 = tail call zeroext i1 @LWLockAcquire(ptr noundef %117, i32 noundef 0) #9
@@ -258,7 +258,7 @@ set_status_by_pages.exit.critedge:                ; preds = %.split35
   %121 = zext i16 %120 to i64
   %122 = and i64 %121, %7
   %123 = load ptr, ptr @XactCtlData, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr %union.LWLockPadded, ptr %125, i64 %122
   %127 = tail call zeroext i1 @LWLockAcquire(ptr noundef %126, i32 noundef 0) #9
@@ -276,14 +276,14 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %9 = zext i16 %8 to i64
   %10 = and i64 %5, %9
   %11 = load ptr, ptr @XactCtlData, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr %union.LWLockPadded, ptr %13, i64 %10
   br i1 %6, label %15, label %131
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr @MyProc, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %0, %18
   %20 = icmp slt i32 %1, 6
@@ -291,7 +291,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %or.cond, label %21, label %131
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 440
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 440
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %1, %24
@@ -302,7 +302,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %16, i64 444
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 444
   %30 = zext nneg i32 %1 to i64
   %31 = shl nuw nsw i64 %30, 2
   %bcmp = tail call i32 @bcmp(ptr %2, ptr nonnull %29, i64 %31)
@@ -316,19 +316,19 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 35:                                               ; preds = %33
   %36 = load ptr, ptr @ProcGlobal, align 8
   %37 = load ptr, ptr @MyProc, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 716
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 716
   store i8 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 724
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 724
   store i32 %0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 728
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 728
   store i32 %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 736
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 736
   store i64 %5, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 744
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 744
   store i64 %4, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 108
   %44 = load volatile i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %37, i64 720
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 720
   br label %46
 
 46:                                               ; preds = %54, %35
@@ -362,7 +362,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 60:                                               ; preds = %59
   %61 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 134217783, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %37, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br label %63
 
 63:                                               ; preds = %63, %60
@@ -394,7 +394,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %77 = zext i16 %76 to i64
   %78 = and i64 %75, %77
   %79 = load ptr, ptr @XactCtlData, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr %union.LWLockPadded, ptr %81, i64 %78
   %83 = tail call zeroext i1 @LWLockAcquire(ptr noundef %82, i32 noundef 0) #9
@@ -414,7 +414,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %87 = load ptr, ptr %86, align 8
   %88 = zext i32 %storemerge79.i to i64
   %89 = getelementptr %struct.PGPROC, ptr %87, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 736
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 736
   %91 = load i64, ptr %90, align 8
   %92 = trunc i64 %91 to i32
   %.not67.i = icmp eq i32 %.05181.i, %92
@@ -425,7 +425,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %95 = zext i16 %94 to i64
   %96 = and i64 %91, %95
   %97 = load ptr, ptr @XactCtlData, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr %union.LWLockPadded, ptr %99, i64 %96
   %.not69.i = icmp eq ptr %.05280.i, %100
@@ -441,18 +441,18 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %104 = phi i64 [ %91, %.lr.ph82.i ], [ %.pre.i, %101 ], [ %91, %93 ]
   %.153.i = phi ptr [ %.05280.i, %.lr.ph82.i ], [ %100, %101 ], [ %100, %93 ]
   %.1.i = phi i32 [ %.05181.i, %.lr.ph82.i ], [ %92, %101 ], [ %92, %93 ]
-  %105 = getelementptr inbounds i8, ptr %89, i64 724
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 724
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %89, i64 440
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 440
   %108 = load i8, ptr %107, align 8
   %109 = zext i8 %108 to i32
-  %110 = getelementptr inbounds i8, ptr %89, i64 444
-  %111 = getelementptr inbounds i8, ptr %89, i64 728
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 444
+  %111 = getelementptr inbounds nuw i8, ptr %89, i64 728
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %89, i64 744
+  %113 = getelementptr inbounds nuw i8, ptr %89, i64 744
   %114 = load i64, ptr %113, align 8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %106, i32 noundef %109, ptr noundef nonnull %110, i32 noundef %112, i64 noundef %114, i64 noundef %104)
-  %115 = getelementptr inbounds i8, ptr %89, i64 720
+  %115 = getelementptr inbounds nuw i8, ptr %89, i64 720
   %116 = load volatile i32, ptr %115, align 4
   %.not63.i = icmp eq i32 %116, -1
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !11
@@ -475,18 +475,18 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %120 = load ptr, ptr %119, align 8
   %121 = zext i32 %.05084.i to i64
   %122 = getelementptr %struct.PGPROC, ptr %120, i64 %121
-  %123 = getelementptr inbounds i8, ptr %122, i64 720
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 720
   %124 = load volatile i32, ptr %123, align 4
   store volatile i32 -1, ptr %123, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
-  %125 = getelementptr inbounds i8, ptr %122, i64 716
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 716
   store i8 0, ptr %125, align 4
   %126 = load ptr, ptr @MyProc, align 8
   %.not66.i = icmp eq ptr %122, %126
   br i1 %.not66.i, label %130, label %127
 
 127:                                              ; preds = %.lr.ph86.i
-  %128 = getelementptr inbounds i8, ptr %122, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %129 = load ptr, ptr %128, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %129) #9
   br label %130
@@ -523,7 +523,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %8 = and i32 %7, 6
   %9 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @XactCtlData, i64 noundef %4, i32 noundef %0) #9
   %10 = load ptr, ptr @XactCtlData, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %9 to i64
   %14 = getelementptr ptr, ptr %12, i64 %13
@@ -537,7 +537,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %22 = shl i32 %9, 10
   %23 = lshr i32 %5, 5
   %24 = or disjoint i32 %22, %23
-  %25 = getelementptr inbounds i8, ptr %10, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %24 to i64
   %28 = getelementptr i64, ptr %26, i64 %27
@@ -547,7 +547,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %31 = zext i16 %30 to i64
   %32 = and i64 %31, %4
   %33 = load ptr, ptr @XactCtlData, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr %union.LWLockPadded, ptr %35, i64 %32
   tail call void @LWLockRelease(ptr noundef %36) #9
@@ -662,7 +662,7 @@ declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local void @BootStrapCLOG() local_unnamed_addr #0 {
   %1 = load ptr, ptr @XactCtlData, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #9
   %5 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef 0) #9
@@ -678,12 +678,12 @@ declare void @SimpleLruWritePage(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nounwind uwtable
 define dso_local void @StartupCLOG() local_unnamed_addr #2 {
   %1 = load ptr, ptr @TransamVariables, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 15
   %5 = and i64 %4, 131071
   %6 = load ptr, ptr @XactCtlData, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store volatile i64 %5, ptr %7, align 8
   ret void
 }
@@ -691,7 +691,7 @@ define dso_local void @StartupCLOG() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %1 = load ptr, ptr @TransamVariables, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i64 %3, 15
@@ -699,7 +699,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %7 = zext i16 %6 to i64
   %8 = and i64 %5, %7
   %9 = load ptr, ptr @XactCtlData, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr %union.LWLockPadded, ptr %11, i64 %8
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #9
@@ -714,7 +714,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %19 = and i32 %18, 6
   %20 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %16, i1 noundef zeroext false, i32 noundef %4) #9
   %21 = load ptr, ptr @XactCtlData, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %20 to i64
   %25 = getelementptr ptr, ptr %23, i64 %24
@@ -768,7 +768,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %44, %56
   %57 = load ptr, ptr @XactCtlData, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 %24
   store i8 1, ptr %60, align 1
@@ -808,7 +808,7 @@ define dso_local void @ExtendCLOG(i32 noundef %0) local_unnamed_addr #0 {
   %10 = zext i16 %9 to i64
   %11 = and i64 %10, %8
   %12 = load ptr, ptr @XactCtlData, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr %union.LWLockPadded, ptr %14, i64 %11
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #9
@@ -841,9 +841,9 @@ define dso_local void @TruncateCLOG(i32 noundef %0, i32 noundef %1) local_unname
   %9 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %1, ptr %11, align 4
   call void @XLogBeginInsert() #9
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #9
@@ -868,9 +868,9 @@ declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @clog_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -16
   switch i8 %6, label %22 [
@@ -879,14 +879,14 @@ define dso_local void @clog_redo(ptr nocapture noundef readonly %0) local_unname
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.0.copyload = load i64, ptr %9, align 1
   %10 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
   %11 = zext i16 %10 to i64
   %12 = and i64 %.0.copyload, %11
   %13 = load ptr, ptr @XactCtlData, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr %union.LWLockPadded, ptr %15, i64 %12
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 0) #9
@@ -896,10 +896,10 @@ define dso_local void @clog_redo(ptr nocapture noundef readonly %0) local_unname
   br label %26
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %3, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %21 = load ptr, ptr %20, align 8
   %.sroa.0.0.copyload = load i64, ptr %21, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   tail call void @AdvanceOldestClogXid(i32 noundef %.sroa.2.0.copyload) #9
   tail call void @SimpleLruTruncate(ptr noundef nonnull @XactCtlData, i64 noundef %.sroa.0.0.copyload) #9
@@ -975,7 +975,7 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %19 = and i32 %18, 8191
   %20 = shl i32 %17, 1
   %21 = and i32 %20, 6
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr ptr, ptr %23, i64 %12
   %25 = load ptr, ptr %24, align 8
@@ -1012,7 +1012,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %42 = shl i32 %0, 1
   %43 = and i32 %42, 6
   %44 = load ptr, ptr @XactCtlData, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %8 to i64
   %48 = getelementptr ptr, ptr %46, i64 %47
@@ -1047,7 +1047,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %70 = lshr i32 %40, 5
   %71 = or disjoint i32 %69, %70
   %72 = load ptr, ptr @XactCtlData, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %71 to i64
   %76 = getelementptr i64, ptr %74, i64 %75
@@ -1066,7 +1066,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %82 = lshr i32 %81, 2
   %83 = shl i32 %0, 1
   %84 = and i32 %83, 6
-  %85 = getelementptr inbounds i8, ptr %80, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr ptr, ptr %86, i64 %.pre-phi
   %88 = load ptr, ptr %87, align 8
@@ -1088,7 +1088,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %101 = lshr i32 %81, 5
   %102 = or disjoint i32 %100, %101
   %103 = load ptr, ptr @XactCtlData, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %102 to i64
   %107 = getelementptr i64, ptr %105, i64 %106
@@ -1109,7 +1109,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %115 = lshr i32 %114, 2
   %116 = shl i32 %113, 1
   %117 = and i32 %116, 6
-  %118 = getelementptr inbounds i8, ptr %111, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr ptr, ptr %119, i64 %12
   %121 = load ptr, ptr %120, align 8
@@ -1133,7 +1133,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %135 = lshr i32 %114, 5
   %136 = or disjoint i32 %135, %13
   %137 = load ptr, ptr @XactCtlData, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 72
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 72
   %139 = load ptr, ptr %138, align 8
   %140 = sext i32 %136 to i64
   %141 = getelementptr i64, ptr %139, i64 %140
@@ -1183,7 +1183,7 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %155 = and i32 %154, 8191
   %156 = shl i32 %153, 1
   %157 = and i32 %156, 6
-  %158 = getelementptr inbounds i8, ptr %151, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr ptr, ptr %159, i64 %147
   %161 = load ptr, ptr %160, align 8
@@ -1228,7 +1228,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %184 = lshr i32 %183, 2
   %185 = shl i32 %182, 1
   %186 = and i32 %185, 6
-  %187 = getelementptr inbounds i8, ptr %180, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr ptr, ptr %188, i64 %147
   %190 = load ptr, ptr %189, align 8
@@ -1257,7 +1257,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %208 = lshr i32 %183, 5
   %209 = or disjoint i32 %208, %149
   %210 = load ptr, ptr @XactCtlData, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 72
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 72
   %212 = load ptr, ptr %211, align 8
   %213 = sext i32 %209 to i64
   %214 = getelementptr i64, ptr %212, i64 %213
@@ -1279,7 +1279,7 @@ TransactionIdSetStatusBit.exit36:                 ; preds = %.lr.ph39.split, %20
 ._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit36, %TransactionIdSetStatusBit.exit36.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
   %.pre-phi73 = phi i64 [ %.pre72, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %147, %TransactionIdSetStatusBit.exit36.us ], [ %147, %TransactionIdSetStatusBit.exit36 ]
   %219 = phi ptr [ %.pre71, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %179, %TransactionIdSetStatusBit.exit36.us ], [ %218, %TransactionIdSetStatusBit.exit36 ]
-  %220 = getelementptr inbounds i8, ptr %219, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr i8, ptr %221, i64 %.pre-phi73
   store i8 1, ptr %222, align 1

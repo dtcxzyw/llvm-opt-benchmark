@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN8NMTUsageC2E15NMTUsageOptions(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(699) initializes((0, 699)) %0, i24 %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 696
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %0, i8 0, i64 696, i1 false)
   store i24 %1, ptr %3, align 8
   ret void
@@ -48,13 +48,13 @@ define hidden void @_ZN8NMTUsage19update_malloc_usageEv(ptr nocapture noundef no
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.016 = phi i64 [ 0, %1 ], [ %12, %3 ]
-  %4 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %4 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load volatile i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load volatile i64, ptr %7, align 8
   %9 = add i64 %8, %6
-  %10 = getelementptr inbounds [28 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [28 x i64], ptr %0, i64 0, i64 %indvars.iv
   store i64 %9, ptr %10, align 8
   %11 = load volatile i64, ptr %7, align 8
   %12 = add i64 %11, %.016
@@ -63,22 +63,22 @@ define hidden void @_ZN8NMTUsage19update_malloc_usageEv(ptr nocapture noundef no
   br i1 %exitcond.not, label %13, label %3, !llvm.loop !6
 
 13:                                               ; preds = %3
-  %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
-  %15 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
+  %14 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
+  %15 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
   %16 = shl i64 %15, 4
   %17 = add i64 %16, %14
   %18 = call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) @_ZN19MallocMemorySummary9_snapshotE) #8
   %19 = add i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %22, %12
   store i64 %23, ptr %21, align 8
   %24 = sub i64 %19, %12
   store i64 %24, ptr %20, align 8
-  %25 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
+  %25 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
   %26 = shl i64 %25, 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8
@@ -93,21 +93,21 @@ declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceabl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8NMTUsage15update_vm_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(699) initializes((680, 696)) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 680
-  %3 = getelementptr inbounds i8, ptr %0, i64 688
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %5
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds [28 x %struct.NMTUsagePair], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [28 x %struct.NMTUsagePair], ptr %4, i64 0, i64 %indvars.iv
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %10, ptr %11, align 8
   %12 = load i64, ptr %6, align 8
   %13 = load i64, ptr %2, align 8
@@ -128,8 +128,8 @@ define hidden void @_ZN8NMTUsage15update_vm_usageEv(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8NMTUsage7refreshEv(ptr nocapture noundef nonnull align 8 dereferenceable(699) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.ThreadCritical, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 696
-  %4 = getelementptr inbounds i8, ptr %0, i64 697
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 697
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %34
@@ -142,13 +142,13 @@ define hidden void @_ZN8NMTUsage7refreshEv(ptr nocapture noundef nonnull align 8
 8:                                                ; preds = %8, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %8 ]
   %.016.i = phi i64 [ 0, %7 ], [ %17, %8 ]
-  %9 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %indvars.iv.i
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %9 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load volatile i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load volatile i64, ptr %12, align 8
   %14 = add i64 %13, %11
-  %15 = getelementptr inbounds [28 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [28 x i64], ptr %0, i64 0, i64 %indvars.iv.i
   store i64 %14, ptr %15, align 8
   %16 = load volatile i64, ptr %12, align 8
   %17 = add i64 %16, %.016.i
@@ -157,12 +157,12 @@ define hidden void @_ZN8NMTUsage7refreshEv(ptr nocapture noundef nonnull align 8
   br i1 %exitcond.not.i, label %_ZN8NMTUsage19update_malloc_usageEv.exit, label %8, !llvm.loop !6
 
 _ZN8NMTUsage19update_malloc_usageEv.exit:         ; preds = %8
-  %18 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
-  %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
+  %18 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
+  %19 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
   %20 = shl i64 %19, 4
   %21 = call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) @_ZN19MallocMemorySummary9_snapshotE) #8
-  %22 = getelementptr inbounds i8, ptr %0, i64 224
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %24, %17
   store i64 %25, ptr %23, align 8
@@ -170,9 +170,9 @@ _ZN8NMTUsage19update_malloc_usageEv.exit:         ; preds = %8
   %27 = add i64 %26, %20
   %28 = add i64 %27, %21
   store i64 %28, ptr %22, align 8
-  %29 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
+  %29 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
   %30 = shl i64 %29, 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
@@ -181,7 +181,7 @@ _ZN8NMTUsage19update_malloc_usageEv.exit:         ; preds = %8
   br label %34
 
 34:                                               ; preds = %_ZN8NMTUsage19update_malloc_usageEv.exit, %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 698
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 698
   %36 = load i8, ptr %35, align 2
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %_ZN8NMTUsage15update_vm_usageEv.exit
@@ -196,21 +196,21 @@ _ZN8NMTUsage19update_malloc_usageEv.exit:         ; preds = %8
   br label %42
 
 42:                                               ; preds = %41, %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 680
-  %44 = getelementptr inbounds i8, ptr %0, i64 688
-  %45 = getelementptr inbounds i8, ptr %0, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %46
 
 46:                                               ; preds = %46, %42
   %indvars.iv.i1 = phi i64 [ 0, %42 ], [ %indvars.iv.next.i2, %46 ]
-  %47 = getelementptr inbounds [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %indvars.iv.i1
+  %47 = getelementptr inbounds nuw [28 x %class.VirtualMemory], ptr @_ZN20VirtualMemorySummary9_snapshotE, i64 0, i64 %indvars.iv.i1
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds [28 x %struct.NMTUsagePair], ptr %45, i64 0, i64 %indvars.iv.i1
+  %49 = getelementptr inbounds nuw [28 x %struct.NMTUsagePair], ptr %45, i64 0, i64 %indvars.iv.i1
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %51, ptr %52, align 8
   %53 = load i64, ptr %47, align 8
   %54 = load i64, ptr %43, align 8
@@ -230,9 +230,9 @@ _ZN8NMTUsage15update_vm_usageEv.exit:             ; preds = %46, %34
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8NMTUsage14total_reservedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(699) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %3
   ret i64 %6
@@ -240,9 +240,9 @@ define hidden noundef i64 @_ZNK8NMTUsage14total_reservedEv(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8NMTUsage15total_committedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(699) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 688
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %3
   ret i64 %6
@@ -251,10 +251,10 @@ define hidden noundef i64 @_ZNK8NMTUsage15total_committedEv(ptr nocapture nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8NMTUsage8reservedE8MEMFLAGS(ptr nocapture noundef nonnull readonly align 8 dereferenceable(699) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds [28 x i64], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [28 x i64], ptr %0, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = getelementptr inbounds [28 x %struct.NMTUsagePair], ptr %6, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw [28 x %struct.NMTUsagePair], ptr %6, i64 0, i64 %3
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   ret i64 %9
@@ -263,10 +263,10 @@ define hidden noundef i64 @_ZNK8NMTUsage8reservedE8MEMFLAGS(ptr nocapture nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8NMTUsage9committedE8MEMFLAGS(ptr nocapture noundef nonnull readonly align 8 dereferenceable(699) %0, i8 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds [28 x i64], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [28 x i64], ptr %0, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
   %.idx = shl nuw nsw i64 %3, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5

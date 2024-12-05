@@ -66,9 +66,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN11cmXMLParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cmXMLParser, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
 }
@@ -76,13 +76,13 @@ define dso_local void @_ZN11cmXMLParserC2Ev(ptr nocapture noundef nonnull writeo
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cmXMLParser, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %.not5.i = icmp eq i32 %6, 0
   br i1 %.not5.i, label %7, label %.noexc3
@@ -97,7 +97,7 @@ define dso_local void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 derefere
 
 9:                                                ; preds = %.noexc2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc3 unwind label %15
@@ -139,13 +139,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11cmXMLParserD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cmXMLParser, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN11cmXMLParserD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %.not5.i.i = icmp eq i32 %6, 0
   br i1 %.not5.i.i, label %7, label %.noexc3.i
@@ -160,7 +160,7 @@ define dso_local void @_ZN11cmXMLParserD0Ev(ptr noundef nonnull align 8 derefere
 
 9:                                                ; preds = %.noexc2.i
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %.noexc3.i unwind label %14
@@ -188,7 +188,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser5ParseEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.not = icmp eq i32 %6, 0
@@ -197,7 +197,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser5ParseEPKc(ptr nou
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %8)
   %.not3 = icmp eq i32 %12, 0
@@ -205,7 +205,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser5ParseEPKc(ptr nou
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %18 = icmp ne i32 %17, 0
@@ -264,7 +264,7 @@ define dso_local noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull
 21:                                               ; preds = %20
   %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = invoke noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %22)
           to label %27 unwind label %30
@@ -331,7 +331,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser16InitializeParserEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -354,7 +354,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser16InitializeParser
 11:                                               ; preds = %7, %4
   %.sink = phi i32 [ 0, %7 ], [ 1, %4 ]
   %.0 = phi i32 [ 1, %7 ], [ 0, %4 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %12, align 8
   ret i32 %.0
 }
@@ -406,7 +406,7 @@ define dso_local void @cmXMLParserStartElement(ptr noundef %0, ptr noundef %1, p
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %12
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %2)
           to label %18 unwind label %21
@@ -470,7 +470,7 @@ define dso_local void @cmXMLParserEndElement(ptr noundef %0, ptr noundef %1) #8 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %11
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %17 unwind label %20
@@ -502,7 +502,7 @@ declare void @XML_SetCharacterDataHandler(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress uwtable
 define dso_local void @cmXMLParserCharacterDataHandler(ptr noundef %0, ptr noundef %1, i32 noundef %2) #8 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2)
   ret void
@@ -512,7 +512,7 @@ declare void @XML_SetUserData(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN11cmXMLParser10ParseChunkEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
@@ -524,14 +524,14 @@ define dso_local noundef i32 @_ZN11cmXMLParser10ParseChunkEPKcm(ptr noundef nonn
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.sink.split, label %16
 
 .sink.split:                                      ; preds = %9, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %15, align 8
   br label %16
 
@@ -542,7 +542,7 @@ define dso_local noundef i32 @_ZN11cmXMLParser10ParseChunkEPKcm(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser13CleanupParserEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %8
@@ -550,12 +550,12 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser13CleanupParserEv(
 4:                                                ; preds = %1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.1)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %7, align 8
   br label %19
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %.not5 = icmp eq i32 %10, 0
   br i1 %.not5, label %11, label %17
@@ -567,7 +567,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser13CleanupParserEv(
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br label %17
@@ -590,7 +590,7 @@ declare void @XML_ParserFree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser11ParseBufferEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %2 to i32
   %7 = tail call i32 @XML_Parse(ptr noundef %5, ptr noundef %1, i32 noundef %6, i32 noundef 0)
@@ -599,7 +599,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11cmXMLParser11ParseBufferEPKcm
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br label %12
@@ -615,7 +615,7 @@ define dso_local noundef i32 @_ZN11cmXMLParser11ParseBufferEPKc(ptr noundef nonn
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %4)
   ret i32 %8
@@ -662,7 +662,7 @@ define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr nounde
   br i1 %.not17, label %.critedge, label %.lr.ph
 
 6:                                                ; preds = %12
-  %7 = getelementptr inbounds i8, ptr %.018, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !5
@@ -670,7 +670,7 @@ define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr nounde
 .lr.ph:                                           ; preds = %.preheader, %6
   %9 = phi ptr [ %8, %6 ], [ %5, %.preheader ]
   %.018 = phi ptr [ %7, %6 ], [ %0, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.018, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %.critedge, label %12
@@ -696,7 +696,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11cmXMLParser19ReportXmlParseErrorEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @XML_GetCurrentLineNumber(ptr noundef %3)
   %5 = trunc i64 %4 to i32
@@ -705,7 +705,7 @@ define dso_local void @_ZN11cmXMLParser19ReportXmlParseErrorEv(ptr noundef nonnu
   %8 = tail call i32 @XML_GetErrorCode(ptr noundef %3)
   %9 = tail call ptr @XML_ErrorString(i32 noundef %8)
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %5, i32 noundef %7, ptr noundef %9)
   ret void
@@ -721,13 +721,13 @@ declare i32 @XML_GetErrorCode(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11cmXMLParser11ReportErrorEiiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) unnamed_addr #8 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void %6(i32 noundef %1, ptr noundef %3, ptr noundef %9)
   br label %16

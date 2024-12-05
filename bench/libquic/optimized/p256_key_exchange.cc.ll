@@ -46,9 +46,9 @@ $_ZTIN3net11KeyExchangeE = comdat any
 define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %this, ptr noundef %private_key, ptr nocapture noundef readonly %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
-  %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
+  %private_key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %private_key, ptr %private_key_, align 8
-  %public_key_ = getelementptr inbounds i8, ptr %this, i64 16
+  %public_key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %public_key_, ptr noundef nonnull align 1 dereferenceable(65) %public_key, i64 65, i1 false)
   ret void
 }
@@ -60,7 +60,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
-  %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
+  %private_key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %private_key_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit, label %if.then.i
@@ -108,7 +108,7 @@ terminate.lpad:                                   ; preds = %if.then
 define dso_local void @_ZN3net15P256KeyExchangeD0Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
-  %private_key_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %private_key_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %private_key_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN3net15P256KeyExchangeD2Ev.exit, label %if.then.i.i
@@ -140,7 +140,7 @@ entry:
   %private_key = alloca %"class.std::unique_ptr", align 8
   %public_key = alloca [65 x i8], align 16
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds i8, ptr %key, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   br i1 %call, label %return, label %if.end
@@ -190,9 +190,9 @@ if.end19:                                         ; preds = %invoke.cont16
 
 cleanup:                                          ; preds = %if.end19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %call21, align 8
-  %private_key_.i = getelementptr inbounds i8, ptr %call21, i64 8
+  %private_key_.i = getelementptr inbounds nuw i8, ptr %call21, i64 8
   store ptr %call3, ptr %private_key_.i, align 8
-  %public_key_.i = getelementptr inbounds i8, ptr %call21, i64 16
+  %public_key_.i = getelementptr inbounds nuw i8, ptr %call21, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %public_key_.i, ptr noundef nonnull readonly align 16 dereferenceable(65) %public_key, i64 65, i1 false)
   br label %return
 
@@ -375,7 +375,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %3 = load i64, ptr %2, align 8
   %call = invoke noundef ptr @_ZN3net15P256KeyExchange3NewEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %1, i64 %3)
           to label %invoke.cont2 unwind label %lpad
@@ -403,14 +403,14 @@ entry:
   %point = alloca %"class.std::unique_ptr.10", align 8
   %result = alloca [32 x i8], align 16
   store ptr %peer_public_value.coerce0, ptr %peer_public_value, align 8
-  %0 = getelementptr inbounds i8, ptr %peer_public_value, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %peer_public_value, i64 8
   store i64 %peer_public_value.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %peer_public_value)
   %cmp.not = icmp eq i64 %call, 65
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
+  %private_key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %private_key_, align 8
   %call3 = call ptr @EC_KEY_get0_group(ptr noundef %1)
   %call4 = call ptr @EC_POINT_new(ptr noundef %call3)
@@ -510,11 +510,11 @@ terminate.lpad:                                   ; preds = %if.then
 define dso_local { ptr, i64 } @_ZNK3net15P256KeyExchange12public_valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #4 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %public_key_ = getelementptr inbounds i8, ptr %this, i64 16
+  %public_key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %public_key_, i64 noundef 65)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert

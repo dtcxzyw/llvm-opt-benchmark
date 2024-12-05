@@ -592,7 +592,7 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca [2 x i8], align 1
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.261) #3
   %11 = load ptr, ptr %9, align 8
@@ -656,7 +656,7 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
   %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
   %57 = call i32 @call_data_dissector(ptr noundef %56, ptr noundef nonnull %1, ptr noundef %2) #3
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 408
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @tvb_bytes_to_str_punct(ptr noundef %60, ptr noundef %0, i32 noundef 32, i32 noundef %43, i8 noundef signext 32) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.351, ptr noundef %61) #3
@@ -780,7 +780,7 @@ dissect_ebhscr_eth.exit:                          ; preds = %100, %107, %110
   %123 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
   %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
   %125 = call i32 @call_data_dissector(ptr noundef %124, ptr noundef nonnull %1, ptr noundef %2) #3
-  %126 = getelementptr inbounds i8, ptr %1, i64 408
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %127 = load ptr, ptr %126, align 8
   %128 = call ptr @tvb_get_string_enc(ptr noundef %127, ptr noundef %0, i32 noundef 32, i32 noundef %119, i32 noundef 2) #3
   %129 = load ptr, ptr %9, align 8
@@ -1020,7 +1020,7 @@ dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %251, %229
   %spec.select42.i.i = or disjoint i8 %spec.select41.i.i, %258
   %259 = and i8 %254, 24
   %storemerge.i.i = or disjoint i8 %spec.select42.i.i, %259
-  %260 = getelementptr inbounds i8, ptr %6, i64 1
+  %260 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %storemerge.i.i, ptr %260, align 1
   %261 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2) #3
   call void @tvb_composite_append(ptr noundef %248, ptr noundef %261) #3
@@ -1072,7 +1072,7 @@ dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %251, %229
 
 dissect_ebhscr_flexray_symbol_packet.exit.i:      ; preds = %290, %266
   %291 = and i8 %287, 127
-  %292 = getelementptr inbounds i8, ptr %5, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %291, ptr %292, align 1
   %293 = call ptr @tvb_new_real_data(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2) #3
   %294 = load ptr, ptr @flexray_handle, align 8

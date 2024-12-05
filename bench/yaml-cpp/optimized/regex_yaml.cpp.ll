@@ -44,11 +44,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i32 noundef %op) unnamed_addr #3 align 2 {
 entry:
   store i32 %op, ptr %this, align 8
-  %m_a = getelementptr inbounds i8, ptr %this, i64 4
+  %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 0, ptr %m_a, align 4
-  %m_z = getelementptr inbounds i8, ptr %this, i64 5
+  %m_z = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %m_z, align 1
-  %m_params = getelementptr inbounds i8, ptr %this, i64 8
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params, i8 0, i64 24, i1 false)
   ret void
 }
@@ -60,11 +60,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define void @_ZN4YAML5RegExC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %m_a.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_a.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 0, ptr %m_a.i, align 4
-  %m_z.i = getelementptr inbounds i8, ptr %this, i64 5
+  %m_z.i = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %m_z.i, align 1
-  %m_params.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i, i8 0, i64 24, i1 false)
   ret void
 }
@@ -73,11 +73,11 @@ entry:
 define void @_ZN4YAML5RegExC2Ec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %this, align 8
-  %m_a = getelementptr inbounds i8, ptr %this, i64 4
+  %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 %ch, ptr %m_a, align 4
-  %m_z = getelementptr inbounds i8, ptr %this, i64 5
+  %m_z = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %m_z, align 1
-  %m_params = getelementptr inbounds i8, ptr %this, i64 8
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params, i8 0, i64 24, i1 false)
   ret void
 }
@@ -86,11 +86,11 @@ entry:
 define void @_ZN4YAML5RegExC2Ecc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
 entry:
   store i32 2, ptr %this, align 8
-  %m_a = getelementptr inbounds i8, ptr %this, i64 4
+  %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 %a, ptr %m_a, align 4
-  %m_z = getelementptr inbounds i8, ptr %this, i64 5
+  %m_z = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 %z, ptr %m_z, align 1
-  %m_params = getelementptr inbounds i8, ptr %this, i64 8
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params, i8 0, i64 24, i1 false)
   ret void
 }
@@ -99,13 +99,13 @@ entry:
 define void @_ZN4YAML5RegExC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %op) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %op, ptr %this, align 8
-  %m_a = getelementptr inbounds i8, ptr %this, i64 4
+  %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 0, ptr %m_a, align 4
-  %m_z = getelementptr inbounds i8, ptr %this, i64 5
+  %m_z = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %m_z, align 1
-  %m_params = getelementptr inbounds i8, ptr %this, i64 8
-  %call = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #15
-  %call3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #15
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %call = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #16
+  %call3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_params, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EE19_M_range_initializeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvT_SG_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_params, ptr %call, ptr %call3)
           to label %invoke.cont unwind label %lpad.i
@@ -118,7 +118,7 @@ lpad.i:                                           ; preds = %entry
   br i1 %tobool.not.i.i.i, label %lpad.body, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %entry
@@ -140,24 +140,24 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN4YAMLntERKNS_5RegExE(ptr noalias sret(%"class.YAML::RegEx") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ex) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4YAML5RegExC1ENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i32 noundef 5)
-  %m_params = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_params = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex, i64 6, i1 false)
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 8
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %m_params3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %nrvo.skipdtor
 
@@ -168,7 +168,7 @@ if.else.i:                                        ; preds = %entry
 lpad:                                             ; preds = %if.else.i, %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #15
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #16
   resume { ptr, i32 } %3
 
 nrvo.skipdtor:                                    ; preds = %.noexc, %if.else.i
@@ -179,24 +179,24 @@ nrvo.skipdtor:                                    ; preds = %.noexc, %if.else.i
 define void @_ZN4YAMLorERKNS_5RegExES2_(ptr noalias sret(%"class.YAML::RegEx") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ex1, ptr noundef nonnull align 8 dereferenceable(32) %ex2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4YAML5RegExC1ENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i32 noundef 3)
-  %m_params = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_params = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %m_params3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont
 
@@ -216,14 +216,14 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
 
 if.then.i5:                                       ; preds = %invoke.cont
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
-  %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
-  %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
+  %m_params.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %m_params3.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
           to label %.noexc10 unwind label %lpad
 
 .noexc10:                                         ; preds = %if.then.i5
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %5, i64 32
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %incdec.ptr.i8, ptr %_M_finish.i, align 8
   br label %nrvo.skipdtor
 
@@ -234,7 +234,7 @@ if.else.i9:                                       ; preds = %invoke.cont
 lpad:                                             ; preds = %if.else.i9, %if.then.i5, %if.else.i, %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #15
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #16
   resume { ptr, i32 } %6
 
 nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.i9
@@ -245,24 +245,24 @@ nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.
 define void @_ZN4YAMLanERKNS_5RegExES2_(ptr noalias sret(%"class.YAML::RegEx") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ex1, ptr noundef nonnull align 8 dereferenceable(32) %ex2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4YAML5RegExC1ENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i32 noundef 4)
-  %m_params = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_params = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %m_params3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont
 
@@ -282,14 +282,14 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
 
 if.then.i5:                                       ; preds = %invoke.cont
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
-  %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
-  %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
+  %m_params.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %m_params3.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
           to label %.noexc10 unwind label %lpad
 
 .noexc10:                                         ; preds = %if.then.i5
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %5, i64 32
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %incdec.ptr.i8, ptr %_M_finish.i, align 8
   br label %nrvo.skipdtor
 
@@ -300,7 +300,7 @@ if.else.i9:                                       ; preds = %invoke.cont
 lpad:                                             ; preds = %if.else.i9, %if.then.i5, %if.else.i, %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #15
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #16
   resume { ptr, i32 } %6
 
 nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.i9
@@ -311,24 +311,24 @@ nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.
 define void @_ZN4YAMLplERKNS_5RegExES2_(ptr noalias sret(%"class.YAML::RegEx") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ex1, ptr noundef nonnull align 8 dereferenceable(32) %ex2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4YAML5RegExC1ENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i32 noundef 6)
-  %m_params = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %m_params = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ex1, i64 6, i1 false)
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %m_params3.i.i.i.i = getelementptr inbounds i8, ptr %ex1, i64 8
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %m_params3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ex1, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont
 
@@ -348,14 +348,14 @@ invoke.cont:                                      ; preds = %if.else.i.invoke.co
 
 if.then.i5:                                       ; preds = %invoke.cont
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %ex2, i64 6, i1 false)
-  %m_params.i.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 8
-  %m_params3.i.i.i.i7 = getelementptr inbounds i8, ptr %ex2, i64 8
+  %m_params.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %m_params3.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %ex2, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i6, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i7)
           to label %.noexc10 unwind label %lpad
 
 .noexc10:                                         ; preds = %if.then.i5
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %5, i64 32
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %incdec.ptr.i8, ptr %_M_finish.i, align 8
   br label %nrvo.skipdtor
 
@@ -366,7 +366,7 @@ if.else.i9:                                       ; preds = %invoke.cont
 lpad:                                             ; preds = %if.else.i9, %if.then.i5, %if.else.i, %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #15
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params) #16
   resume { ptr, i32 } %6
 
 nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.i9
@@ -377,16 +377,16 @@ nrvo.skipdtor:                                    ; preds = %.noexc10, %if.else.
 define linkonce_odr void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not.i.i1 = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i1, label %invoke.cont, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__first.addr.0.i.i2 = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %0, %entry ]
-  %m_params.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i2, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i) #15
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i2, i64 32
+  %m_params.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i.i2, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i) #16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i.i2, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.not.i.i, label %invoke.cont.loopexit, label %for.body.i.i, !llvm.loop !4
 
@@ -400,7 +400,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -409,8 +409,8 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -432,7 +432,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
   unreachable
 
 _ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ; preds = %entry
@@ -441,17 +441,17 @@ _ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ; preds = %en
 
 _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %this, align 8
-  %add.ptr5 = getelementptr inbounds %"class.YAML::RegEx", ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage6 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr5 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr null, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr5, ptr %_M_end_of_storage6, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   %mul.i.i.i = shl nuw nsw i64 %sub.ptr.sub.i.i.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr, ptr %_M_end_of_storage, align 8
   br label %for.body.i.i.i.i
 
@@ -463,8 +463,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit, label %for.body.i.i.i.i, !llvm.loop !6
 
@@ -472,20 +472,20 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #15
+  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #16
   %cmp.not.i1.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not.i1.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.0.i2.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i, %lpad.i.i.i.i ]
-  %m_params.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i, i64 32
+  %m_params.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i) #16
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
 invoke.cont5.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %lpad.i.i.i.i
-  invoke void @__cxa_rethrow() #18
+  invoke void @__cxa_rethrow() #19
           to label %unreachable.i.i.i.i unwind label %lpad4.i.i.i.i
 
 lpad4.i.i.i.i:                                    ; preds = %invoke.cont5.i.i.i.i
@@ -501,7 +501,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad4.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #17
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.i
@@ -509,7 +509,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit: ; preds = %for.inc.i.i.i.i, %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread
   %__cur.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ]
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i, ptr %_M_finish, align 8
   ret void
 }
@@ -533,7 +533,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -543,7 +543,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
 _ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -555,40 +555,33 @@ _ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %cond.i = select i1 %cmp7.i, i64 288230376151711743, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
-  br label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
-  %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i19, i64 %sub.ptr.div.i
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 6, i1 false)
-  %m_params.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %m_params3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %m_params.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
+  %m_params3.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i)
-          to label %invoke.cont unwind label %lpad
+          to label %invoke.cont unwind label %if.else.thread
 
-invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit
+invoke.cont:                                      ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
   %cmp.not8.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not8.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.inc.i.i.i.i.i
-  %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i19, %invoke.cont ]
+  %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %invoke.cont ]
   %__first.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i.i.i, i64 6, i1 false)
-  %m_params.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 8
-  %m_params3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 8
+  %m_params.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i.i, i64 8
+  %m_params3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i.i.i.i)
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 32
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -596,20 +589,20 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #15
-  %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %cond.i19, %__cur.010.i.i.i.i.i
+  %5 = tail call ptr @__cxa_begin_catch(ptr %4) #16
+  %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %call5.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not.i1.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
-  %__first.addr.0.i2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i19, %lpad.i.i.i.i.i ]
-  %m_params.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i.i, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i.i, i64 32
+  %__first.addr.0.i2.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %call5.i.i.i, %lpad.i.i.i.i.i ]
+  %m_params.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i.i, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i.i) #16
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !4
 
 invoke.cont3.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %lpad.i.i.i.i.i
-  invoke void @__cxa_rethrow() #18
+  invoke void @__cxa_rethrow() #19
           to label %unreachable.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.i.i
@@ -622,30 +615,30 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.i.i
   unreachable
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+  %incdec.ptr.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
   %cmp.not8.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i38
   %__cur.010.i.i.i.i.i22.idx = phi i64 [ %__cur.010.i.i.i.i.i22.add, %for.inc.i.i.i.i.i38 ], [ 32, %invoke.cont10 ]
   %__first.addr.09.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i39, %for.inc.i.i.i.i.i38 ], [ %__position.coerce, %invoke.cont10 ]
-  %__cur.010.i.i.i.i.i22.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.idx
+  %__cur.010.i.i.i.i.i22.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i.i.i.i.i22.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i.i.i23, i64 6, i1 false)
-  %m_params.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22.ptr, i64 8
-  %m_params3.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 8
+  %m_params.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i.i.i22.ptr, i64 8
+  %m_params3.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i23, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i.i.i.i.i.i25)
           to label %for.inc.i.i.i.i.i38 unwind label %lpad.i.i.i.i.i26
 
 for.inc.i.i.i.i.i38:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 32
+  %incdec.ptr.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i.i.i23, i64 32
   %__cur.010.i.i.i.i.i22.add = add nuw nsw i64 %__cur.010.i.i.i.i.i22.idx, 32
   %cmp.not.i.i.i.i.i41 = icmp eq ptr %incdec.ptr.i.i.i.i.i39, %0
   br i1 %cmp.not.i.i.i.i.i41, label %invoke.cont14.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !7
@@ -654,20 +647,20 @@ lpad.i.i.i.i.i26:                                 ; preds = %for.body.i.i.i.i.i2
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #15
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #16
   %cmp.not.i1.i.i.i.i.i.i27 = icmp eq i64 %__cur.010.i.i.i.i.i22.idx, 32
   br i1 %cmp.not.i1.i.i.i.i.i.i27, label %invoke.cont3.i.i.i.i.i33, label %for.body.i.i.i.i.i.i.i28
 
 for.body.i.i.i.i.i.i.i28:                         ; preds = %lpad.i.i.i.i.i26, %for.body.i.i.i.i.i.i.i28
   %__first.addr.0.i2.i.i.i.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i31, %for.body.i.i.i.i.i.i.i28 ], [ %incdec.ptr.ptr, %lpad.i.i.i.i.i26 ]
-  %m_params.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i.i29, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i.i30) #15
-  %incdec.ptr.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i.i.i29, i64 32
+  %m_params.i.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i.i29, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i.i.i.i.i30) #16
+  %incdec.ptr.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i.i.i.i.i29, i64 32
   %cmp.not.i.i.i.i.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i31, %__cur.010.i.i.i.i.i22.ptr
   br i1 %cmp.not.i.i.i.i.i.i.i32, label %invoke.cont3.i.i.i.i.i33, label %for.body.i.i.i.i.i.i.i28, !llvm.loop !4
 
 invoke.cont3.i.i.i.i.i33:                         ; preds = %for.body.i.i.i.i.i.i.i28, %lpad.i.i.i.i.i26
-  invoke void @__cxa_rethrow() #18
+  invoke void @__cxa_rethrow() #19
           to label %unreachable.i.i.i.i.i37 unwind label %lpad2.i.i.i.i.i34
 
 lpad2.i.i.i.i.i34:                                ; preds = %invoke.cont3.i.i.i.i.i33
@@ -680,14 +673,14 @@ terminate.lpad.i.i.i.i.i35:                       ; preds = %lpad2.i.i.i.i.i34
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #17
+  tail call void @__clang_call_terminate(ptr %14) #18
   unreachable
 
 unreachable.i.i.i.i.i37:                          ; preds = %invoke.cont3.i.i.i.i.i33
   unreachable
 
 invoke.cont14.loopexit:                           ; preds = %for.inc.i.i.i.i.i38
-  %incdec.ptr1.i.i.i.i.i40.ptr.le = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.add
+  %incdec.ptr1.i.i.i.i.i40.ptr.le = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 %__cur.010.i.i.i.i.i22.add
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %invoke.cont14.loopexit, %invoke.cont10
@@ -697,9 +690,9 @@ invoke.cont14:                                    ; preds = %invoke.cont14.loope
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.0.i2.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i, i64 32
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i) #16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !4
 
@@ -708,70 +701,63 @@ _ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit: ; preds = %for.body.i.i.i, 
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #17
   br label %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit, %if.then.i47
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i19, ptr %this, align 8
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i42, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i19, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit
+if.else.thread:                                   ; preds = %_ZNKSt6vectorIN4YAML5RegExESaIS1_EE12_M_check_lenEmPKc.exit
   %15 = landingpad { ptr, i32 }
           catch ptr null
-  br label %if.else
+  %16 = extractvalue { ptr, i32 } %15, 0
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #16
+  br label %invoke.cont21
 
 if.then:                                          ; preds = %lpad2.i.i.i.i.i
-  %16 = extractvalue { ptr, i32 } %6, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #15
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i) #15
-  br label %if.end
+  %18 = extractvalue { ptr, i32 } %6, 0
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #16
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i) #16
+  br label %invoke.cont21
 
-if.else:                                          ; preds = %lpad, %lpad2.i.i.i.i.i34
-  %__new_finish.0.lpad-body.ph = phi ptr [ %incdec.ptr.ptr, %lpad2.i.i.i.i.i34 ], [ %cond.i19, %lpad ]
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %12, %lpad2.i.i.i.i.i34 ], [ %15, %lpad ]
-  %18 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #15
-  %cmp.not.i1.i.i49 = icmp eq ptr %cond.i19, %__new_finish.0.lpad-body.ph
-  br i1 %cmp.not.i1.i.i49, label %if.end, label %for.body.i.i.i50
+if.else:                                          ; preds = %lpad2.i.i.i.i.i34
+  %20 = extractvalue { ptr, i32 } %12, 0
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #16
+  %cmp.not.i1.i.i49 = icmp eq ptr %call5.i.i.i, %incdec.ptr.ptr
+  br i1 %cmp.not.i1.i.i49, label %invoke.cont21, label %for.body.i.i.i50
 
 for.body.i.i.i50:                                 ; preds = %if.else, %for.body.i.i.i50
-  %__first.addr.0.i2.i.i51 = phi ptr [ %incdec.ptr.i.i.i53, %for.body.i.i.i50 ], [ %cond.i19, %if.else ]
-  %m_params.i.i.i.i52 = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i51, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i52) #15
-  %incdec.ptr.i.i.i53 = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i51, i64 32
-  %cmp.not.i.i.i54 = icmp eq ptr %incdec.ptr.i.i.i53, %__new_finish.0.lpad-body.ph
-  br i1 %cmp.not.i.i.i54, label %if.end, label %for.body.i.i.i50, !llvm.loop !4
+  %__first.addr.0.i2.i.i51 = phi ptr [ %incdec.ptr.i.i.i53, %for.body.i.i.i50 ], [ %call5.i.i.i, %if.else ]
+  %m_params.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i51, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i52) #16
+  %incdec.ptr.i.i.i53 = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i51, i64 32
+  %cmp.not.i.i.i54 = icmp eq ptr %__first.addr.0.i2.i.i51, %__cur.0.lcssa.i.i.i.i.i
+  br i1 %cmp.not.i.i.i54, label %invoke.cont21, label %for.body.i.i.i50, !llvm.loop !4
 
 lpad19:                                           ; preds = %invoke.cont21
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.end:                                           ; preds = %for.body.i.i.i50, %if.else, %if.then
-  %tobool.not.i56 = icmp eq ptr %cond.i19, null
-  br i1 %tobool.not.i56, label %invoke.cont21, label %if.then.i57
-
-if.then.i57:                                      ; preds = %if.end
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i19) #16
-  br label %invoke.cont21
-
-invoke.cont21:                                    ; preds = %if.then.i57, %if.end
-  invoke void @__cxa_rethrow() #18
+invoke.cont21:                                    ; preds = %for.body.i.i.i50, %if.else.thread, %if.else, %if.then
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #17
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad19
 
 eh.resume:                                        ; preds = %lpad19
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %22
 
 terminate.lpad:                                   ; preds = %lpad19
-  %21 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #17
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -781,36 +767,35 @@ unreachable:                                      ; preds = %invoke.cont21
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %entry
-  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i, 288230376151711743
+  %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775776
   br i1 %cmp.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.true.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #18
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
 _ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i: ; preds = %cond.true.i.i.i
-  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #19
+  %call5.i.i.i.i2.i6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #20
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i, %entry
   %cond.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6, %_ZNSt16allocator_traitsISaIN4YAML5RegExEEE8allocateERS2_m.exit.i.i.i ]
   store ptr %cond.i.i.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %cond.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %cond.i.i.i, i64 %sub.ptr.div.i
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %sub.ptr.sub.i
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -821,14 +806,14 @@ for.body.i:                                       ; preds = %invoke.cont, %for.i
   %__cur.010.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %cond.i.i.i, %invoke.cont ]
   %__first.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %2, %invoke.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.010.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.09.i, i64 6, i1 false)
-  %m_params.i.i = getelementptr inbounds i8, ptr %__cur.010.i, i64 8
-  %m_params3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i, i64 8
+  %m_params.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i, i64 8
+  %m_params3.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i, i64 8
   invoke void @_ZNSt6vectorIN4YAML5RegExESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_params3.i.i)
           to label %for.inc.i unwind label %lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i, i64 32
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.010.i, i64 32
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.09.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.010.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.not.i, label %invoke.cont11, label %for.body.i, !llvm.loop !8
 
@@ -836,20 +821,20 @@ lpad.i:                                           ; preds = %for.body.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #15
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #16
   %cmp.not.i1.i.i = icmp eq ptr %cond.i.i.i, %__cur.010.i
   br i1 %cmp.not.i1.i.i, label %invoke.cont5.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %lpad.i, %for.body.i.i.i
   %__first.addr.0.i2.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %cond.i.i.i, %lpad.i ]
-  %m_params.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i, i64 32
+  %m_params.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i.i.i.i) #16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.i2.i.i, i64 32
   %cmp.not.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i, %__cur.010.i
   br i1 %cmp.not.i.i.i10, label %invoke.cont5.i, label %for.body.i.i.i, !llvm.loop !4
 
 invoke.cont5.i:                                   ; preds = %for.body.i.i.i, %lpad.i
-  invoke void @__cxa_rethrow() #18
+  invoke void @__cxa_rethrow() #19
           to label %unreachable.i unwind label %lpad4.i
 
 lpad4.i:                                          ; preds = %invoke.cont5.i
@@ -862,7 +847,7 @@ terminate.lpad.i:                                 ; preds = %lpad4.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #18
   unreachable
 
 unreachable.i:                                    ; preds = %invoke.cont5.i
@@ -879,7 +864,7 @@ lpad10.body:                                      ; preds = %lpad4.i
   br i1 %tobool.not.i.i, label %eh.resume, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad10.body
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i, %lpad10.body
@@ -890,7 +875,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 define internal void @_GLOBAL__sub_I_regex_yaml.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
@@ -899,6 +884,9 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -915,11 +903,12 @@ attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

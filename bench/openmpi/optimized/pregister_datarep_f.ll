@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @intercept_extra_state_constructor(ptr nocapture noundef writeonly initializes((40, 72)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
 }
@@ -74,9 +74,9 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
 
 15:                                               ; preds = %14
   store ptr @ompi_intercept_extra_state_t_class, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_intercept_extra_state_t_class, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_intercept_extra_state_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread47, label %.lr.ph.i.i
@@ -85,7 +85,7 @@ define void @ompi_register_datarep_f(ptr noundef %0, ptr noundef %1, ptr noundef
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %15 ]
   %.07.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %17, %15 ]
   tail call void %19(ptr noundef nonnull %10) #9
-  %20 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread47, label %.lr.ph.i.i, !llvm.loop !4
@@ -126,7 +126,7 @@ opal_obj_new.exit.thread:                         ; preds = %14
 36:                                               ; preds = %34, %.lr.ph.i
   %37 = phi i8 [ %30, %.lr.ph.i ], [ %.pre.i.i, %34 ]
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i8 %37 to i1
   br i1 %41, label %42, label %opal_pointer_array_get_item.exit.i
@@ -138,13 +138,13 @@ opal_obj_new.exit.thread:                         ; preds = %14
 
 opal_pointer_array_get_item.exit.i:               ; preds = %42, %36
   %44 = phi i8 [ %37, %36 ], [ %.pre.i, %42 ]
-  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, -2
   br i1 %47, label %48, label %26
 
 48:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %49 = getelementptr inbounds i8, ptr %40, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %50 = load i32, ptr %49, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
@@ -160,12 +160,12 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %26, %opal_obj_new.e
 
 opal_obj_new.exit.thread47:                       ; preds = %.lr.ph.i.i, %15
   %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 40), align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile ptr %53, ptr %54, align 8
   %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 40), align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store volatile ptr %10, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store volatile ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 16), ptr %57, align 8
   store volatile ptr %10, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 40), align 8
   %58 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_registered_datareps, i64 56), align 8
@@ -215,7 +215,7 @@ opal_obj_new.exit.thread47:                       ; preds = %.lr.ph.i.i, %15
 77:                                               ; preds = %75, %.lr.ph.i39
   %78 = phi i8 [ %71, %.lr.ph.i39 ], [ %.pre.i.i45, %75 ]
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv.i40
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i40
   %81 = load ptr, ptr %80, align 8
   %82 = trunc i8 %78 to i1
   br i1 %82, label %83, label %opal_pointer_array_get_item.exit.i42
@@ -227,13 +227,13 @@ opal_obj_new.exit.thread47:                       ; preds = %.lr.ph.i.i, %15
 
 opal_pointer_array_get_item.exit.i42:             ; preds = %83, %77
   %85 = phi i8 [ %78, %77 ], [ %.pre.i44, %83 ]
-  %86 = getelementptr inbounds i8, ptr %81, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, %60
   br i1 %88, label %89, label %67
 
 89:                                               ; preds = %opal_pointer_array_get_item.exit.i42
-  %90 = getelementptr inbounds i8, ptr %81, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %91 = load i32, ptr %90, align 4
   br label %ompi_errcode_get_mpi_code.exit46
 
@@ -252,7 +252,7 @@ ompi_errcode_get_mpi_code.exit46:                 ; preds = %67, %61, %.preheade
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %10, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %1, ptr %97, align 8
   br label %98
 
@@ -262,15 +262,15 @@ ompi_errcode_get_mpi_code.exit46:                 ; preds = %67, %61, %.preheade
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %10, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %2, ptr %101, align 8
   br label %102
 
 102:                                              ; preds = %98, %100
   %.0 = phi ptr [ @write_intercept_fn, %100 ], [ null, %98 ]
-  %103 = getelementptr inbounds i8, ptr %10, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %3, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %10, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %4, ptr %104, align 8
   %105 = load ptr, ptr %8, align 8
   %106 = call i32 @PMPI_Register_datarep(ptr noundef %105, ptr noundef %.026, ptr noundef %.0, ptr noundef nonnull @extent_intercept_fn, ptr noundef nonnull %10) #9
@@ -306,9 +306,9 @@ define internal i32 @read_intercept_fn(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %2, ptr %9, align 4
   %11 = tail call i32 @PMPI_Type_c2f(ptr noundef %1) #9
   store i32 %11, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = load ptr, ptr %14, align 8
   call void %13(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %8) #9
   %16 = load i32, ptr %8, align 4
@@ -325,9 +325,9 @@ define internal i32 @write_intercept_fn(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %2, ptr %9, align 4
   %11 = tail call i32 @PMPI_Type_c2f(ptr noundef %1) #9
   store i32 %11, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = load ptr, ptr %14, align 8
   call void %13(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %8) #9
   %16 = load i32, ptr %8, align 4
@@ -342,9 +342,9 @@ define internal i32 @extent_intercept_fn(ptr noundef %0, ptr noundef %1, ptr noc
   %5 = alloca i32, align 4
   %6 = tail call i32 @PMPI_Type_c2f(ptr noundef %0) #9
   store i32 %6, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %10 = load ptr, ptr %9, align 8
   call void %8(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %10, ptr noundef nonnull %4) #9
   %11 = load i32, ptr %4, align 4

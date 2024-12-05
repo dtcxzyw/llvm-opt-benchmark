@@ -16,7 +16,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 
 .preheader:                                       ; preds = %9, %19
   %11 = phi i64 [ %20, %19 ], [ 0, %9 ]
-  %12 = getelementptr inbounds double, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw double, ptr %3, i64 %11
   br label %13
 
 13:                                               ; preds = %.preheader, %13
@@ -40,7 +40,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 .preheader9:                                      ; preds = %22, %.loopexit8
   %24 = phi ptr [ %36, %.loopexit8 ], [ %3, %22 ]
   %25 = phi i64 [ %37, %.loopexit8 ], [ 0, %22 ]
-  %26 = getelementptr inbounds double, ptr %3, i64 %25
+  %26 = getelementptr inbounds nuw double, ptr %3, i64 %25
   %27 = icmp slt i64 %25, %0
   br i1 %27, label %.preheader7, label %.loopexit8
 
@@ -49,7 +49,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   %29 = mul nsw i64 %28, %4
   %30 = getelementptr inbounds double, ptr %26, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds double, ptr %24, i64 %28
+  %32 = getelementptr inbounds nuw double, ptr %24, i64 %28
   %33 = load double, ptr %32, align 8, !tbaa !3
   store double %33, ptr %30, align 8, !tbaa !3
   store double %31, ptr %32, align 8, !tbaa !3
@@ -66,7 +66,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
 .preheader13:                                     ; preds = %22, %.loopexit12
   %39 = phi ptr [ %58, %.loopexit12 ], [ %3, %22 ]
   %40 = phi i64 [ %46, %.loopexit12 ], [ 0, %22 ]
-  %41 = getelementptr inbounds double, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw double, ptr %3, i64 %40
   %42 = mul nsw i64 %40, %4
   %43 = getelementptr inbounds double, ptr %41, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !3
@@ -81,7 +81,7 @@ define noundef i32 @dimatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   %49 = mul nsw i64 %48, %4
   %50 = getelementptr inbounds double, ptr %41, i64 %49
   %51 = load double, ptr %50, align 8, !tbaa !3
-  %52 = getelementptr inbounds double, ptr %39, i64 %48
+  %52 = getelementptr inbounds nuw double, ptr %39, i64 %48
   %53 = load double, ptr %52, align 8, !tbaa !3
   %54 = fmul double %2, %53
   store double %54, ptr %50, align 8, !tbaa !3

@@ -19,7 +19,7 @@ define hidden void @conversation_filters_init() local_unnamed_addr #0 {
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i
 
 1:                                                ; preds = %.lr.ph.i
-  %2 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
@@ -42,7 +42,7 @@ add_conversation_filter_protocol.exit:            ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not7.i2, label %._crit_edge.i7, label %.lr.ph.i3
 
 7:                                                ; preds = %.lr.ph.i3
-  %8 = getelementptr inbounds i8, ptr %.08.i4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.08.i4, i64 8
   %.0.i5 = load ptr, ptr %8, align 8
   %.not.i6 = icmp eq ptr %.0.i5, null
   br i1 %.not.i6, label %._crit_edge.i7, label %.lr.ph.i3, !llvm.loop !4
@@ -65,7 +65,7 @@ add_conversation_filter_protocol.exit8:           ; preds = %.lr.ph.i3, %._crit_
   br i1 %.not7.i10, label %._crit_edge.i15, label %.lr.ph.i11
 
 13:                                               ; preds = %.lr.ph.i11.tail
-  %14 = getelementptr inbounds i8, ptr %.08.i12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.08.i12, i64 8
   %.0.i13 = load ptr, ptr %14, align 8
   %.not.i14 = icmp eq ptr %.0.i13, null
   br i1 %.not.i14, label %._crit_edge.i15, label %.lr.ph.i11, !llvm.loop !4
@@ -80,7 +80,7 @@ add_conversation_filter_protocol.exit8:           ; preds = %.lr.ph.i3, %._crit_
   br i1 %.not, label %sub_1, label %.lr.ph.i11.tail
 
 sub_1:                                            ; preds = %.lr.ph.i11
-  %19 = getelementptr inbounds i8, ptr %15, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 112, %21
@@ -88,7 +88,7 @@ sub_1:                                            ; preds = %.lr.ph.i11
   br i1 %.not33, label %sub_2, label %.lr.ph.i11.tail
 
 sub_2:                                            ; preds = %sub_1
-  %23 = getelementptr inbounds i8, ptr %15, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 0, %25
@@ -110,7 +110,7 @@ add_conversation_filter_protocol.exit16:          ; preds = %.lr.ph.i11.tail, %.
   br i1 %.not7.i18, label %._crit_edge.i23, label %.lr.ph.i19
 
 30:                                               ; preds = %.lr.ph.i19
-  %31 = getelementptr inbounds i8, ptr %.08.i20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i20, i64 8
   %.0.i21 = load ptr, ptr %31, align 8
   %.not.i22 = icmp eq ptr %.0.i21, null
   br i1 %.not.i22, label %._crit_edge.i23, label %.lr.ph.i19, !llvm.loop !4
@@ -133,7 +133,7 @@ add_conversation_filter_protocol.exit24:          ; preds = %.lr.ph.i19, %._crit
   br i1 %.not7.i26, label %._crit_edge.i31, label %.lr.ph.i27
 
 36:                                               ; preds = %.lr.ph.i27
-  %37 = getelementptr inbounds i8, ptr %.08.i28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.08.i28, i64 8
   %.0.i29 = load ptr, ptr %37, align 8
   %.not.i30 = icmp eq ptr %.0.i29, null
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i27, !llvm.loop !4
@@ -161,7 +161,7 @@ define void @add_conversation_filter_protocol(ptr noundef %0) local_unnamed_addr
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
-  %3 = getelementptr inbounds i8, ptr %.08, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -186,13 +186,13 @@ define void @add_conversation_filter_protocol(ptr noundef %0) local_unnamed_addr
 define void @register_conversation_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #6
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr @packet_conv_filter_list, align 8
   %12 = tail call ptr @g_list_append(ptr noundef %11, ptr noundef nonnull %6) #5
@@ -204,13 +204,13 @@ define void @register_conversation_filter(ptr noundef %0, ptr noundef %1, ptr no
 define void @register_log_conversation_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #6
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr @log_conv_filter_list, align 8
   %12 = tail call ptr @g_list_append(ptr noundef %11, ptr noundef nonnull %6) #5
@@ -273,22 +273,22 @@ define ptr @conversation_filter_from_packet(ptr noundef %0) local_unnamed_addr #
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %.0912.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !6
 
 find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %11(ptr noundef %0, ptr noundef %13) #5
   %.not18.i = icmp eq i32 %14, 0
   br i1 %.not18.i, label %find_conversation_filter.exit.thread.i, label %15
 
 15:                                               ; preds = %find_conversation_filter.exit.i
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = tail call ptr %17(ptr noundef %0, ptr noundef %18) #5
@@ -296,7 +296,7 @@ find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
   br i1 %.not19.i, label %find_conversation_filter.exit.thread.i, label %conversation_filter_from_pinfo.exit
 
 find_conversation_filter.exit.thread.i:           ; preds = %7, %15, %find_conversation_filter.exit.i
-  %20 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !7
@@ -329,22 +329,22 @@ define ptr @conversation_filter_from_log(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %.0912.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !6
 
 find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %11(ptr noundef %0, ptr noundef %13) #5
   %.not18.i = icmp eq i32 %14, 0
   br i1 %.not18.i, label %find_conversation_filter.exit.thread.i, label %15
 
 15:                                               ; preds = %find_conversation_filter.exit.i
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = tail call ptr %17(ptr noundef %0, ptr noundef %18) #5
@@ -352,7 +352,7 @@ find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
   br i1 %.not19.i, label %find_conversation_filter.exit.thread.i, label %conversation_filter_from_pinfo.exit
 
 find_conversation_filter.exit.thread.i:           ; preds = %7, %15, %find_conversation_filter.exit.i
-  %20 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.0.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !7

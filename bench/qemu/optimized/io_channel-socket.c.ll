@@ -97,8 +97,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qio_channel_socket_get_local_address(ptr noundef %ioc, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %localAddr = getelementptr inbounds i8, ptr %ioc, i64 104
-  %localAddrLen = getelementptr inbounds i8, ptr %ioc, i64 232
+  %localAddr = getelementptr inbounds nuw i8, ptr %ioc, i64 104
+  %localAddrLen = getelementptr inbounds nuw i8, ptr %ioc, i64 232
   %0 = load i32, ptr %localAddrLen, align 8
   %call = tail call ptr @socket_sockaddr_to_address(ptr noundef nonnull %localAddr, i32 noundef %0, ptr noundef %errp) #9
   ret ptr %call
@@ -109,8 +109,8 @@ declare ptr @socket_sockaddr_to_address(ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qio_channel_socket_get_remote_address(ptr noundef %ioc, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %remoteAddr = getelementptr inbounds i8, ptr %ioc, i64 240
-  %remoteAddrLen = getelementptr inbounds i8, ptr %ioc, i64 368
+  %remoteAddr = getelementptr inbounds nuw i8, ptr %ioc, i64 240
+  %remoteAddrLen = getelementptr inbounds nuw i8, ptr %ioc, i64 368
   %0 = load i32, ptr %remoteAddrLen, align 8
   %call = tail call ptr @socket_sockaddr_to_address(ptr noundef nonnull %remoteAddr, i32 noundef %0, ptr noundef %errp) #9
   ret ptr %call
@@ -122,9 +122,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store i32 -1, ptr %fd, align 8
-  %zero_copy_queued = getelementptr inbounds i8, ptr %call.i, i64 376
+  %zero_copy_queued = getelementptr inbounds nuw i8, ptr %call.i, i64 376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %zero_copy_queued, i8 0, i64 16, i1 false)
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_feature(ptr noundef %call.i6, i32 noundef 1) #9
@@ -151,7 +151,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i) #9
   br label %trace_qio_channel_socket_new.exit
@@ -206,7 +206,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call, i32 noundef %fd) #9
   br label %trace_qio_channel_socket_new_fd.exit
@@ -227,7 +227,7 @@ return:                                           ; preds = %trace_qio_channel_s
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @qio_channel_socket_set_fd(ptr noundef %sioc, i32 noundef %fd, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %fd1 = getelementptr inbounds i8, ptr %sioc, i64 96
+  %fd1 = getelementptr inbounds nuw i8, ptr %sioc, i64 96
   %0 = load i32, ptr %fd1, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -238,11 +238,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 %fd, ptr %fd1, align 8
-  %remoteAddrLen = getelementptr inbounds i8, ptr %sioc, i64 368
+  %remoteAddrLen = getelementptr inbounds nuw i8, ptr %sioc, i64 368
   store i32 128, ptr %remoteAddrLen, align 8
-  %localAddrLen = getelementptr inbounds i8, ptr %sioc, i64 232
+  %localAddrLen = getelementptr inbounds nuw i8, ptr %sioc, i64 232
   store i32 128, ptr %localAddrLen, align 8
-  %remoteAddr = getelementptr inbounds i8, ptr %sioc, i64 240
+  %remoteAddr = getelementptr inbounds nuw i8, ptr %sioc, i64 240
   %call = tail call i32 @getpeername(i32 noundef %fd, ptr nonnull %remoteAddr, ptr noundef nonnull %remoteAddrLen) #9
   %cmp4 = icmp slt i32 %call, 0
   br i1 %cmp4, label %if.then5, label %if.end13
@@ -263,7 +263,7 @@ if.else:                                          ; preds = %if.then5
   br label %error
 
 if.end13:                                         ; preds = %if.then8, %if.end
-  %localAddr = getelementptr inbounds i8, ptr %sioc, i64 104
+  %localAddr = getelementptr inbounds nuw i8, ptr %sioc, i64 104
   %call17 = tail call i32 @getsockname(i32 noundef %fd, ptr nonnull %localAddr, ptr noundef nonnull %localAddrLen) #9
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end21
@@ -325,7 +325,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %addr) #9
   br label %trace_qio_channel_socket_connect_sync.exit
@@ -364,7 +364,7 @@ if.then8.i.i22:                                   ; preds = %if.then.i.i19
   %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #9
   %call10.i.i24 = tail call i32 @qemu_get_thread_id() #9
   %10 = load i64, ptr %_now.i.i12, align 8
-  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
+  %tv_usec.i.i25 = getelementptr inbounds nuw i8, ptr %_now.i.i12, i64 8
   %11 = load i64, ptr %tv_usec.i.i25, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i24, i64 noundef %10, i64 noundef %11, ptr noundef %ioc) #9
   br label %trace_qio_channel_socket_connect_fail.exit
@@ -401,7 +401,7 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i33
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #9
   %call10.i.i38 = tail call i32 @qemu_get_thread_id() #9
   %16 = load i64, ptr %_now.i.i26, align 8
-  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
+  %tv_usec.i.i39 = getelementptr inbounds nuw i8, ptr %_now.i.i26, i64 8
   %17 = load i64, ptr %tv_usec.i.i39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i38, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_connect_complete.exit
@@ -477,7 +477,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %addr) #9
   br label %trace_qio_channel_socket_connect_async.exit
@@ -544,7 +544,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %addr, i32 noundef %num) #9
   br label %trace_qio_channel_socket_listen_sync.exit
@@ -583,7 +583,7 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i18
   %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #9
   %call10.i.i23 = tail call i32 @qemu_get_thread_id() #9
   %10 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
+  %tv_usec.i.i24 = getelementptr inbounds nuw i8, ptr %_now.i.i11, i64 8
   %11 = load i64, ptr %tv_usec.i.i24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i23, i64 noundef %10, i64 noundef %11, ptr noundef %ioc) #9
   br label %trace_qio_channel_socket_listen_fail.exit
@@ -620,7 +620,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i32
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #9
   %call10.i.i37 = tail call i32 @qemu_get_thread_id() #9
   %16 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
+  %tv_usec.i.i38 = getelementptr inbounds nuw i8, ptr %_now.i.i25, i64 8
   %17 = load i64, ptr %tv_usec.i.i38, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i37, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_listen_complete.exit
@@ -659,7 +659,7 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   %call2 = tail call ptr @qapi_clone(ptr noundef %addr, ptr noundef nonnull @visit_type_SocketAddress) #9
   store ptr %call2, ptr %call1, align 8
-  %num4 = getelementptr inbounds i8, ptr %call1, i64 8
+  %num4 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i32 %num, ptr %num4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -684,7 +684,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %addr, i32 noundef %num) #9
   br label %trace_qio_channel_socket_listen_async.exit
@@ -710,7 +710,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %num = getelementptr inbounds i8, ptr %opaque, i64 8
+  %num = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load i32, ptr %num, align 8
   %call2 = call i32 @qio_channel_socket_listen_sync(ptr noundef %call.i, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %err)
   %2 = load ptr, ptr %err, align 8
@@ -756,7 +756,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %localAddr, ptr noundef %remoteAddr) #9
   br label %trace_qio_channel_socket_dgram_sync.exit
@@ -795,7 +795,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #9
   %call10.i.i22 = tail call i32 @qemu_get_thread_id() #9
   %10 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
+  %tv_usec.i.i23 = getelementptr inbounds nuw i8, ptr %_now.i.i10, i64 8
   %11 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i22, i64 noundef %10, i64 noundef %11, ptr noundef %ioc) #9
   br label %trace_qio_channel_socket_dgram_fail.exit
@@ -832,7 +832,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i31
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #9
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #9
   %16 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
+  %tv_usec.i.i37 = getelementptr inbounds nuw i8, ptr %_now.i.i24, i64 8
   %17 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i36, i64 noundef %16, i64 noundef %17, ptr noundef %ioc, i32 noundef range(i32 0, -2147483648) %call) #9
   br label %trace_qio_channel_socket_dgram_complete.exit
@@ -867,7 +867,7 @@ entry:
   %call2 = tail call ptr @qapi_clone(ptr noundef %localAddr, ptr noundef nonnull @visit_type_SocketAddress) #9
   store ptr %call2, ptr %call1, align 8
   %call4 = tail call ptr @qapi_clone(ptr noundef %remoteAddr, ptr noundef nonnull @visit_type_SocketAddress) #9
-  %remoteAddr5 = getelementptr inbounds i8, ptr %call1, i64 8
+  %remoteAddr5 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call4, ptr %remoteAddr5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -892,7 +892,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc, ptr noundef %localAddr, ptr noundef %remoteAddr) #9
   br label %trace_qio_channel_socket_dgram_async.exit
@@ -915,7 +915,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %remoteAddr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %remoteAddr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %remoteAddr, align 8
   %call2 = call i32 @qio_channel_socket_dgram_sync(ptr noundef %call.i, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %err)
   %2 = load ptr, ptr %err, align 8
@@ -928,7 +928,7 @@ define internal void @qio_channel_socket_dgram_worker_free(ptr noundef %opaque) 
 entry:
   %0 = load ptr, ptr %opaque, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %0) #9
-  %remoteAddr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %remoteAddr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %remoteAddr, align 8
   tail call void @qapi_free_SocketAddress(ptr noundef %1) #9
   tail call void @g_free(ptr noundef nonnull %opaque) #9
@@ -942,14 +942,14 @@ entry:
   %_now.i.i20 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qio_channel_socket_new()
-  %remoteAddrLen = getelementptr inbounds i8, ptr %call, i64 368
+  %remoteAddrLen = getelementptr inbounds nuw i8, ptr %call, i64 368
   store i32 128, ptr %remoteAddrLen, align 8
-  %localAddrLen = getelementptr inbounds i8, ptr %call, i64 232
+  %localAddrLen = getelementptr inbounds nuw i8, ptr %call, i64 232
   store i32 128, ptr %localAddrLen, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %fd = getelementptr inbounds i8, ptr %ioc, i64 96
-  %remoteAddr = getelementptr inbounds i8, ptr %call, i64 240
-  %fd3 = getelementptr inbounds i8, ptr %call, i64 96
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %fd = getelementptr inbounds nuw i8, ptr %ioc, i64 96
+  %remoteAddr = getelementptr inbounds nuw i8, ptr %call, i64 240
+  %fd3 = getelementptr inbounds nuw i8, ptr %call, i64 96
   br label %retry
 
 retry:                                            ; preds = %if.then, %entry
@@ -1023,7 +1023,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i27
   %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #9
   %call10.i.i32 = tail call i32 @qemu_get_thread_id() #9
   %12 = load i64, ptr %_now.i.i20, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
+  %tv_usec.i.i33 = getelementptr inbounds nuw i8, ptr %_now.i.i20, i64 8
   %13 = load i64, ptr %tv_usec.i.i33, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i32, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %ioc) #9
   br label %trace_qio_channel_socket_accept_fail.exit
@@ -1037,7 +1037,7 @@ trace_qio_channel_socket_accept_fail.exit:        ; preds = %if.end, %land.lhs.t
   br label %error
 
 if.end9:                                          ; preds = %trace_qio_channel_socket_accept.exit
-  %localAddr = getelementptr inbounds i8, ptr %call, i64 104
+  %localAddr = getelementptr inbounds nuw i8, ptr %call, i64 104
   %call12 = tail call i32 @getsockname(i32 noundef %call2, ptr nonnull %localAddr, ptr noundef nonnull %localAddrLen) #9
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end16
@@ -1085,7 +1085,7 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i42
   %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #9
   %call10.i.i47 = tail call i32 @qemu_get_thread_id() #9
   %21 = load i64, ptr %_now.i.i35, align 8
-  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
+  %tv_usec.i.i48 = getelementptr inbounds nuw i8, ptr %_now.i.i35, i64 8
   %22 = load i64, ptr %tv_usec.i.i48, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i47, i64 noundef %21, i64 noundef %22, ptr noundef nonnull %ioc, ptr noundef nonnull %call, i32 noundef %16) #9
   br label %trace_qio_channel_socket_accept_complete.exit
@@ -1162,7 +1162,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_channel_socket_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store i32 -1, ptr %fd, align 8
   ret void
 }
@@ -1172,7 +1172,7 @@ define internal void @qio_channel_socket_finalize(ptr noundef %obj) #0 {
 entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end10, label %if.then
@@ -1209,25 +1209,25 @@ if.end10:                                         ; preds = %if.end6, %entry
 define internal void @qio_channel_socket_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #9
-  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
+  %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr @qio_channel_socket_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
+  %io_readv = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @qio_channel_socket_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
+  %io_set_blocking = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr @qio_channel_socket_set_blocking, ptr %io_set_blocking, align 8
-  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
+  %io_close = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qio_channel_socket_close, ptr %io_close, align 8
-  %io_shutdown = getelementptr inbounds i8, ptr %call.i, i64 136
+  %io_shutdown = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @qio_channel_socket_shutdown, ptr %io_shutdown, align 8
-  %io_set_cork = getelementptr inbounds i8, ptr %call.i, i64 144
+  %io_set_cork = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @qio_channel_socket_set_cork, ptr %io_set_cork, align 8
-  %io_set_delay = getelementptr inbounds i8, ptr %call.i, i64 152
+  %io_set_delay = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @qio_channel_socket_set_delay, ptr %io_set_delay, align 8
-  %io_create_watch = getelementptr inbounds i8, ptr %call.i, i64 120
+  %io_create_watch = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @qio_channel_socket_create_watch, ptr %io_create_watch, align 8
-  %io_set_aio_fd_handler = getelementptr inbounds i8, ptr %call.i, i64 168
+  %io_set_aio_fd_handler = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @qio_channel_socket_set_aio_fd_handler, ptr %io_set_aio_fd_handler, align 8
-  %io_flush = getelementptr inbounds i8, ptr %call.i, i64 176
+  %io_flush = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   store ptr @qio_channel_socket_flush, ptr %io_flush, align 8
   ret void
 }
@@ -1247,9 +1247,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg, i8 0, i64 56, i1 false)
   %mul = shl i64 %nfds, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %control, i8 0, i64 80, i1 false)
-  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
+  %msg_iov = getelementptr inbounds nuw i8, ptr %msg, i64 16
   store ptr %iov, ptr %msg_iov, align 8
-  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
+  %msg_iovlen = getelementptr inbounds nuw i8, ptr %msg, i64 24
   store i64 %niov, ptr %msg_iovlen, align 8
   %tobool.not = icmp eq i64 %nfds, 0
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -1263,20 +1263,20 @@ if.then1:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_control = getelementptr inbounds nuw i8, ptr %msg, i64 32
   store ptr %control, ptr %msg_control, align 8
   %sub = add nuw nsw i64 %mul, 7
   %and = and i64 %sub, 248
   %add4 = add nuw nsw i64 %and, 16
-  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
+  %msg_controllen = getelementptr inbounds nuw i8, ptr %msg, i64 40
   store i64 %add4, ptr %msg_controllen, align 8
   %add8 = add nuw nsw i64 %mul, 16
   store i64 %add8, ptr %control, align 16
-  %cmsg_level = getelementptr inbounds i8, ptr %control, i64 8
+  %cmsg_level = getelementptr inbounds nuw i8, ptr %control, i64 8
   store i32 1, ptr %cmsg_level, align 8
-  %cmsg_type = getelementptr inbounds i8, ptr %control, i64 12
+  %cmsg_type = getelementptr inbounds nuw i8, ptr %control, i64 12
   store i32 1, ptr %cmsg_type, align 4
-  %__cmsg_data = getelementptr inbounds i8, ptr %control, i64 16
+  %__cmsg_data = getelementptr inbounds nuw i8, ptr %control, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %__cmsg_data, ptr align 4 %fds, i64 %mul, i1 false)
   br label %if.end10
 
@@ -1284,7 +1284,7 @@ if.end10:                                         ; preds = %if.end, %entry
   %and11 = and i32 %flags, 1
   %tobool12.not = icmp eq i32 %and11, 0
   %spec.select = shl nuw nsw i32 %and11, 26
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   br label %retry
 
 retry:                                            ; preds = %if.then17, %if.end10
@@ -1317,7 +1317,7 @@ if.end27:                                         ; preds = %retry
   br i1 %tobool12.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %zero_copy_queued = getelementptr inbounds i8, ptr %call.i, i64 376
+  %zero_copy_queued = getelementptr inbounds nuw i8, ptr %call.i, i64 376
   %2 = load i64, ptr %zero_copy_queued, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %zero_copy_queued, align 8
@@ -1336,9 +1336,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %control, i8 0, i64 80, i1 false)
-  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
+  %msg_iov = getelementptr inbounds nuw i8, ptr %msg, i64 16
   store ptr %iov, ptr %msg_iov, align 8
-  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
+  %msg_iovlen = getelementptr inbounds nuw i8, ptr %msg, i64 24
   store i64 %niov, ptr %msg_iovlen, align 8
   %tobool = icmp ne ptr %fds, null
   %tobool1 = icmp ne ptr %nfds, null
@@ -1346,9 +1346,9 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_control = getelementptr inbounds nuw i8, ptr %msg, i64 32
   store ptr %control, ptr %msg_control, align 8
-  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
+  %msg_controllen = getelementptr inbounds nuw i8, ptr %msg, i64 40
   store i64 80, ptr %msg_controllen, align 8
   br label %if.end
 
@@ -1357,7 +1357,7 @@ if.end:                                           ; preds = %if.then, %entry
   %and = shl i32 %flags, 1
   %0 = and i32 %and, 2
   %spec.select = or disjoint i32 %sflags.0, %0
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   br label %retry
 
 retry:                                            ; preds = %if.then8, %if.end
@@ -1384,10 +1384,10 @@ if.end18:                                         ; preds = %retry
 if.then22:                                        ; preds = %if.end18
   store i64 0, ptr %nfds, align 8
   store ptr null, ptr %fds, align 8
-  %msg_controllen.i = getelementptr inbounds i8, ptr %msg, i64 40
+  %msg_controllen.i = getelementptr inbounds nuw i8, ptr %msg, i64 40
   %3 = load i64, ptr %msg_controllen.i, align 8
   %cmp.i = icmp ult i64 %3, 16
-  %msg_control.i = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_control.i = getelementptr inbounds nuw i8, ptr %msg, i64 32
   %4 = load ptr, ptr %msg_control.i, align 8
   %tobool.not28.i = icmp eq ptr %4, null
   %or.cond10 = select i1 %cmp.i, i1 true, i1 %tobool.not28.i
@@ -1400,13 +1400,13 @@ for.body.i:                                       ; preds = %if.then22, %for.inc
   br i1 %cmp1.i, label %for.inc25.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %cmsg_level.i = getelementptr inbounds i8, ptr %cmsg.029.i, i64 8
+  %cmsg_level.i = getelementptr inbounds nuw i8, ptr %cmsg.029.i, i64 8
   %6 = load i32, ptr %cmsg_level.i, align 8
   %cmp2.not.i = icmp eq i32 %6, 1
   br i1 %cmp2.not.i, label %lor.lhs.false3.i, label %for.inc25.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %cmsg_type.i = getelementptr inbounds i8, ptr %cmsg.029.i, i64 12
+  %cmsg_type.i = getelementptr inbounds nuw i8, ptr %cmsg.029.i, i64 12
   %7 = load i32, ptr %cmsg_type.i, align 4
   %cmp4.not.i = icmp eq i32 %7, 1
   br i1 %cmp4.not.i, label %if.end.i, label %for.inc25.i
@@ -1428,7 +1428,7 @@ if.end8.i:                                        ; preds = %if.end.i
   store ptr %call.i9, ptr %fds, align 8
   %11 = load i64, ptr %nfds, align 8
   %add.ptr.i = getelementptr i32, ptr %call.i9, i64 %11
-  %__cmsg_data.i = getelementptr inbounds i8, ptr %cmsg.029.i, i64 16
+  %__cmsg_data.i = getelementptr inbounds nuw i8, ptr %cmsg.029.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr nonnull align 8 %__cmsg_data.i, i64 %conv9.i, i1 false)
   %cmp1426.i = icmp sgt i32 %conv10.i, 0
   br i1 %cmp1426.i, label %for.body16.preheader.i, label %for.end.i
@@ -1476,7 +1476,7 @@ return:                                           ; preds = %if.then8, %for.inc2
 define internal noundef i32 @qio_channel_socket_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   br i1 %enabled, label %if.then, label %if.else
 
@@ -1498,7 +1498,7 @@ entry:
   %err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   store ptr null, ptr %err, align 8
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %return, label %if.then
@@ -1540,7 +1540,7 @@ entry:
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 2
   %switch.selectcmp1 = icmp eq i32 %how, 1
   %switch.select2 = select i1 %switch.selectcmp1, i32 0, i32 %switch.select
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %call3 = tail call i32 @shutdown(i32 noundef %0, i32 noundef %switch.select2) #9
   %cmp = icmp slt i32 %call3, 0
@@ -1562,7 +1562,7 @@ define internal void @qio_channel_socket_set_cork(ptr noundef %ioc, i1 noundef z
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   %cond = zext i1 %enabled to i32
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %call1 = tail call i32 @socket_set_cork(i32 noundef %0, i32 noundef %cond) #9
   ret void
@@ -1576,7 +1576,7 @@ entry:
   %not.enabled = xor i1 %enabled, true
   %cond = zext i1 %not.enabled to i32
   store i32 %cond, ptr %v, align 4
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %call1 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %v, i32 noundef 4) #9
   ret void
@@ -1586,7 +1586,7 @@ entry:
 define internal ptr @qio_channel_socket_create_watch(ptr noundef %ioc, i32 noundef %condition) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   %call1 = tail call ptr @qio_channel_create_socket_watch(ptr noundef %ioc, i32 noundef %0, i32 noundef %condition) #9
   ret ptr %call1
@@ -1596,7 +1596,7 @@ entry:
 define internal void @qio_channel_socket_set_aio_fd_handler(ptr noundef %ioc, ptr noundef %read_ctx, ptr noundef %io_read, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i32, ptr %fd, align 8
   tail call void @qio_channel_util_set_aio_fd_handler(i32 noundef %0, ptr noundef %read_ctx, ptr noundef %io_read, i32 noundef %0, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #9
   ret void
@@ -1609,24 +1609,24 @@ entry:
   %control = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %msg, i8 0, i64 56, i1 false)
-  %zero_copy_queued = getelementptr inbounds i8, ptr %call.i, i64 376
+  %zero_copy_queued = getelementptr inbounds nuw i8, ptr %call.i, i64 376
   %0 = load i64, ptr %zero_copy_queued, align 8
-  %zero_copy_sent = getelementptr inbounds i8, ptr %call.i, i64 384
+  %zero_copy_sent = getelementptr inbounds nuw i8, ptr %call.i, i64 384
   %1 = load i64, ptr %zero_copy_sent, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_control = getelementptr inbounds nuw i8, ptr %msg, i64 32
   store ptr %control, ptr %msg_control, align 8
-  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
+  %msg_controllen = getelementptr inbounds nuw i8, ptr %msg, i64 40
   store i64 32, ptr %msg_controllen, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %control, i8 0, i64 32, i1 false)
   %cmp43941 = icmp slt i64 %1, %0
   br i1 %cmp43941, label %while.body.lr.ph.lr.ph, label %return
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end49
@@ -1667,7 +1667,7 @@ if.end12:                                         ; preds = %while.body
   %cmp14 = icmp ugt i64 %7, 15
   %8 = load ptr, ptr %msg_control, align 8
   %cond = select i1 %cmp14, ptr %8, ptr null
-  %cmsg_level = getelementptr inbounds i8, ptr %cond, i64 8
+  %cmsg_level = getelementptr inbounds nuw i8, ptr %cond, i64 8
   %9 = load i32, ptr %cmsg_level, align 8
   %.fr = freeze i32 %9
   switch i32 %.fr, label %switch.early.test [
@@ -1676,7 +1676,7 @@ if.end12:                                         ; preds = %while.body
   ]
 
 switch.early.test:                                ; preds = %if.end12
-  %cmsg_type = getelementptr inbounds i8, ptr %cond, i64 12
+  %cmsg_type = getelementptr inbounds nuw i8, ptr %cond, i64 12
   %10 = load i32, ptr %cmsg_type, align 4
   switch i32 %10, label %if.then29 [
     i32 25, label %if.end30
@@ -1688,7 +1688,7 @@ if.then29:                                        ; preds = %switch.early.test
   br label %return
 
 if.end30:                                         ; preds = %if.end12, %if.end12, %switch.early.test, %switch.early.test
-  %__cmsg_data = getelementptr inbounds i8, ptr %cond, i64 16
+  %__cmsg_data = getelementptr inbounds nuw i8, ptr %cond, i64 16
   %11 = load i32, ptr %__cmsg_data, align 4
   %cmp32.not = icmp eq i32 %11, 0
   br i1 %cmp32.not, label %if.end36, label %if.then34
@@ -1698,7 +1698,7 @@ if.then34:                                        ; preds = %if.end30
   br label %return
 
 if.end36:                                         ; preds = %if.end30
-  %ee_origin = getelementptr inbounds i8, ptr %cond, i64 20
+  %ee_origin = getelementptr inbounds nuw i8, ptr %cond, i64 20
   %12 = load i8, ptr %ee_origin, align 4
   %cmp38.not = icmp eq i8 %12, 5
   br i1 %cmp38.not, label %if.end43, label %if.then40
@@ -1709,9 +1709,9 @@ if.then40:                                        ; preds = %if.end36
   br label %return
 
 if.end43:                                         ; preds = %if.end36
-  %13 = getelementptr inbounds i8, ptr %cond, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %cond, i64 28
   %14 = load i32, ptr %13, align 4
-  %ee_info = getelementptr inbounds i8, ptr %cond, i64 24
+  %ee_info = getelementptr inbounds nuw i8, ptr %cond, i64 24
   %15 = load i32, ptr %ee_info, align 4
   %cmp44 = icmp ult i32 %14, %15
   br i1 %cmp44, label %if.then46, label %if.end49
@@ -1727,7 +1727,7 @@ if.end49:                                         ; preds = %if.end43
   %16 = load i64, ptr %zero_copy_sent, align 8
   %add53 = add i64 %16, %conv51
   store i64 %add53, ptr %zero_copy_sent, align 8
-  %ee_code = getelementptr inbounds i8, ptr %cond, i64 22
+  %ee_code = getelementptr inbounds nuw i8, ptr %cond, i64 22
   %17 = load i8, ptr %ee_code, align 2
   %cmp55.not = icmp eq i8 %17, 1
   %spec.select = select i1 %cmp55.not, i32 %ret.0.ph42, i32 0

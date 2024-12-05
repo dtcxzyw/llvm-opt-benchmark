@@ -59,12 +59,12 @@ archive_handle_type_name.exit:                    ; preds = %4
 
 13:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef %3, ptr noundef nonnull %.0.i.ph) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 32768, ptr %14, align 4
   br label %53
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, %2
   %19 = icmp eq i32 %18, 0
@@ -210,7 +210,7 @@ define internal fastcc void @errmsg(ptr nocapture noundef readonly %0) unnamed_a
   %.0811 = phi i64 [ %6, %.lr.ph ], [ %2, %1 ]
   %3 = tail call i64 @write(i32 noundef 2, ptr noundef %.012, i64 noundef %.0811) #9
   %4 = icmp slt i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %.012, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %.012, i64 %3
   %6 = sub i64 %.0811, %3
   %.not = icmp eq i64 %6, 0
   %or.cond = or i1 %4, %.not

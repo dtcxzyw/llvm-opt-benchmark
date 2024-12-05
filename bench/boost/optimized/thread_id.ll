@@ -60,7 +60,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %18 = load i8, ptr %17, align 16, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %18, ptr %3, align 16, !tbaa !19
-  %20 = getelementptr inbounds i8, ptr %17, i64 10
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %21 = load i8, ptr %20, align 2, !tbaa !19
   %22 = add i8 %21, 23
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -118,7 +118,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %19, ptr %3, align 16, !tbaa !22
-  %21 = getelementptr inbounds i8, ptr %17, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 10
   %22 = load i8, ptr %21, align 2, !tbaa !19
   %23 = sext i8 %22 to i32
   %24 = add nsw i32 %23, 23
@@ -270,7 +270,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux16format_thread_idEPcmNS2_2idI
   %4 = load i8, ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, align 16, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %4, ptr %0, align 1, !tbaa !19
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 10), align 2, !tbaa !19
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, i64 10), align 2, !tbaa !19
   %7 = add i8 %6, 23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %7, ptr %5, align 1, !tbaa !19

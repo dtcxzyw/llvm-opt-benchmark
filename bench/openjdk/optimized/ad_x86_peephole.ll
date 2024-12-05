@@ -125,7 +125,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %5
   br i1 %or.cond.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 15
   %15 = lshr i32 %12, 20
@@ -182,7 +182,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %5
   br i1 %or.cond.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 15
   %15 = lshr i32 %12, 20
@@ -301,7 +301,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %5
   br i1 %or.cond.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 15
   %15 = lshr i32 %12, 20
@@ -356,7 +356,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.i:  ; preds = %5
   br i1 %or.cond.not, label %_ZN10VM_Version20is_intel_family_coreEv.exit.i.i, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread
 
 _ZN10VM_Version20is_intel_family_coreEv.exit.i.i: ; preds = %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 16), align 8
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 15
   %15 = lshr i32 %12, 20
@@ -474,15 +474,15 @@ define hidden noundef range(i32 -1, 12) i32 @_ZN13testL_regNode8peepholeEP5Block
 define internal noundef ptr @"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -491,7 +491,7 @@ define internal noundef ptr @"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -506,15 +506,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -533,15 +533,15 @@ declare void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 
 define internal noundef ptr @"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -550,7 +550,7 @@ define internal noundef ptr @"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCF
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -565,15 +565,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -585,15 +585,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -602,7 +602,7 @@ define internal noundef ptr @"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -617,15 +617,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -637,15 +637,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -654,7 +654,7 @@ define internal noundef ptr @"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -669,15 +669,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaI_rReg_immI_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -689,15 +689,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -706,7 +706,7 @@ define internal noundef ptr @"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -721,15 +721,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV23leaL_rReg_rReg_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -741,15 +741,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -758,7 +758,7 @@ define internal noundef ptr @"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCF
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -773,15 +773,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -793,15 +793,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -810,7 +810,7 @@ define internal noundef ptr @"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -825,15 +825,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -845,15 +845,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -862,7 +862,7 @@ define internal noundef ptr @"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -877,15 +877,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV25leaL_rReg_immL32_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -897,15 +897,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -914,7 +914,7 @@ define internal noundef ptr @"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8Phase
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -929,15 +929,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV24leaI_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
@@ -949,15 +949,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 define internal noundef ptr @"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocEN3$_08__invokeEv"() #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -966,7 +966,7 @@ define internal noundef ptr @"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8Phase
   br i1 %.not.i.i.i.i, label %18, label %16
 
 16:                                               ; preds = %0
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %17, ptr %11, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -981,15 +981,15 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i.i, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 52
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 54
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %25, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV24leaL_rReg_immI2_peepNode, i64 16), ptr %.0.i.i.i.i, align 8
   store i16 3, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
   br label %"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 

@@ -173,14 +173,14 @@ define hidden void @_Z23install_smt2_extra_cmdsR11cmd_context(ptr noundef nonnul
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   store ptr getelementptr inbounds (i8, ptr @_ZTV3cmd, i64 16), ptr %call, align 8
-  %m_name.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_name.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i, ptr noundef nonnull @.str)
-  %m_line.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_line.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %m_line.i.i, align 8
-  %m_pos.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  %m_pos.i.i = getelementptr inbounds nuw i8, ptr %call, i64 20
   store i32 0, ptr %m_pos.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV11include_cmd, i64 16), ptr %call, align 8
-  %m_filename.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_filename.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %m_filename.i, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call)
   ret void
@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11include_cmd5resetER11cmd_context(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_filename = getelementptr inbounds i8, ptr %this, i64 24
+  %m_filename = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %m_filename, align 8
   ret void
 }
@@ -215,7 +215,7 @@ entry:
 define linkonce_odr hidden void @_ZN11include_cmd8finalizeER11cmd_context(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx)
   ret void
@@ -224,7 +224,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNK3cmd8get_nameEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_name = getelementptr inbounds i8, ptr %this, i64 8
+  %m_name = getelementptr inbounds nuw i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load ptr, ptr %m_name, align 8
   ret ptr %retval.sroa.0.0.copyload
 }
@@ -251,7 +251,7 @@ entry:
 define linkonce_odr hidden void @_ZN11include_cmd7prepareER11cmd_context(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx)
   ret void
@@ -298,7 +298,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11include_cmd12set_next_argER11cmd_contextPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %val) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_filename = getelementptr inbounds i8, ptr %this, i64 24
+  %m_filename = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %val, ptr %m_filename, align 8
   ret void
 }
@@ -406,7 +406,7 @@ entry:
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1
   %ref.tmp23 = alloca %class.params_ref, align 8
-  %m_filename = getelementptr inbounds i8, ptr %this, i64 24
+  %m_filename = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_filename, align 8
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %is, ptr noundef %0, i32 noundef 8)
   %vtable = load ptr, ptr %is, align 8
@@ -449,12 +449,12 @@ invoke.cont15:                                    ; preds = %invoke.cont12
 invoke.cont19:                                    ; preds = %invoke.cont15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i6) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTV13cmd_exception, i64 16), ptr %exception, align 8
-  %m_line.i = getelementptr inbounds i8, ptr %exception, i64 40
+  %m_line.i = getelementptr inbounds nuw i8, ptr %exception, i64 40
   store i32 -1, ptr %m_line.i, align 8
-  %m_pos.i = getelementptr inbounds i8, ptr %exception, i64 44
+  %m_pos.i = getelementptr inbounds nuw i8, ptr %exception, i64 44
   store i32 -1, ptr %m_pos.i, align 4
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN13cmd_exceptionD2Ev) #16
           to label %unreachable unwind label %lpad18
@@ -669,7 +669,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN13cmd_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #15
   ret void
 }
@@ -818,7 +818,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZN13cmd_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void

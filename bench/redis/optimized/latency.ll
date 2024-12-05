@@ -164,7 +164,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %ts.0 = phi ptr [ %call2, %if.then ], [ %call, %entry ]
-  %max5 = getelementptr inbounds i8, ptr %ts.0, i64 4
+  %max5 = getelementptr inbounds nuw i8, ptr %ts.0, i64 4
   %2 = load i32, ptr %max5, align 4
   %conv = zext i32 %2 to i64
   %cmp6 = icmp sgt i64 %latency, %conv
@@ -179,7 +179,7 @@ if.end11:                                         ; preds = %if.then8, %if.end
   %3 = load i32, ptr %ts.0, align 4
   %sub = add nsw i32 %3, 159
   %rem = srem i32 %sub, 160
-  %samples13 = getelementptr inbounds i8, ptr %ts.0, i64 8
+  %samples13 = getelementptr inbounds nuw i8, ptr %ts.0, i64 8
   %idxprom = sext i32 %rem to i64
   %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples13, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
@@ -188,7 +188,7 @@ if.end11:                                         ; preds = %if.then8, %if.end
   br i1 %cmp15, label %if.then17, label %if.end32
 
 if.then17:                                        ; preds = %if.end11
-  %latency21 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency21 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %latency21, align 4
   %conv22 = zext i32 %5 to i64
   %cmp23 = icmp sgt i64 %latency, %conv22
@@ -308,24 +308,24 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %max = getelementptr inbounds i8, ptr %call, i64 4
+  %max = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %max, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %1, %cond.true ], [ 0, %entry ]
   store i32 %cond, ptr %ls, align 8
-  %avg = getelementptr inbounds i8, ptr %ls, i64 4
-  %min = getelementptr inbounds i8, ptr %ls, i64 8
-  %max1 = getelementptr inbounds i8, ptr %ls, i64 12
-  %mad = getelementptr inbounds i8, ptr %ls, i64 16
-  %samples = getelementptr inbounds i8, ptr %ls, i64 20
-  %period = getelementptr inbounds i8, ptr %ls, i64 24
+  %avg = getelementptr inbounds nuw i8, ptr %ls, i64 4
+  %min = getelementptr inbounds nuw i8, ptr %ls, i64 8
+  %max1 = getelementptr inbounds nuw i8, ptr %ls, i64 12
+  %mad = getelementptr inbounds nuw i8, ptr %ls, i64 16
+  %samples = getelementptr inbounds nuw i8, ptr %ls, i64 20
+  %period = getelementptr inbounds nuw i8, ptr %ls, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %avg, i8 0, i64 28, i1 false)
   br i1 %tobool.not, label %if.end121, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cond.end
-  %samples3 = getelementptr inbounds i8, ptr %call, i64 8
+  %samples3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -335,7 +335,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %5 = phi i32 [ 0, %for.cond.preheader ], [ %16, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %sum.066 = phi i64 [ 0, %for.cond.preheader ], [ %sum.1, %for.inc ]
-  %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
   %cmp4 = icmp eq i32 %6, 0
   br i1 %cmp4, label %for.inc, label %if.end6
@@ -344,7 +344,7 @@ if.end6:                                          ; preds = %for.body
   %inc = add i32 %5, 1
   store i32 %inc, ptr %samples, align 4
   %cmp9 = icmp eq i32 %5, 0
-  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %latency, align 4
   br i1 %cmp9, label %if.then10, label %if.else
 
@@ -375,7 +375,7 @@ if.then35:                                        ; preds = %if.end28
 if.end42:                                         ; preds = %if.end28, %if.then35, %if.then10
   %10 = phi i32 [ %3, %if.end28 ], [ %8, %if.then35 ], [ %7, %if.then10 ]
   %11 = phi i32 [ %9, %if.end28 ], [ %9, %if.then35 ], [ %7, %if.then10 ]
-  %latency46 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency46 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %12 = load i32, ptr %latency46, align 4
   %conv = zext i32 %12 to i64
   %add = add i64 %sum.066, %conv
@@ -423,7 +423,7 @@ for.body87.preheader:                             ; preds = %if.then69, %for.end
 for.body87:                                       ; preds = %for.body87.preheader, %for.inc110
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.inc110 ], [ 0, %for.body87.preheader ]
   %sum.268 = phi i64 [ %sum.3, %for.inc110 ], [ 0, %for.body87.preheader ]
-  %arrayidx90 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv70
+  %arrayidx90 = getelementptr inbounds nuw [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv70
   %18 = load i32, ptr %arrayidx90, align 4
   %cmp92 = icmp eq i32 %18, 0
   br i1 %cmp92, label %for.inc110, label %if.end95
@@ -431,7 +431,7 @@ for.body87:                                       ; preds = %for.body87.preheade
 if.end95:                                         ; preds = %for.body87
   %19 = load i32, ptr %avg, align 4
   %conv97 = zext i32 %19 to i64
-  %latency101 = getelementptr inbounds i8, ptr %arrayidx90, i64 4
+  %latency101 = getelementptr inbounds nuw i8, ptr %arrayidx90, i64 4
   %20 = load i32, ptr %latency101, align 4
   %conv102 = zext i32 %20 to i64
   %sub103 = sub nsw i64 %conv97, %conv102
@@ -467,9 +467,9 @@ entry:
   %ls = alloca %struct.latencyStats, align 8
   %call = tail call ptr @sdsempty() #14
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
-  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = sub i64 0, %2
   %cmp = icmp eq i64 %1, %add
@@ -484,10 +484,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call5 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %0) #14
-  %samples = getelementptr inbounds i8, ptr %ls, i64 20
-  %avg = getelementptr inbounds i8, ptr %ls, i64 4
-  %mad = getelementptr inbounds i8, ptr %ls, i64 16
-  %period = getelementptr inbounds i8, ptr %ls, i64 24
+  %samples = getelementptr inbounds nuw i8, ptr %ls, i64 20
+  %avg = getelementptr inbounds nuw i8, ptr %ls, i64 4
+  %mad = getelementptr inbounds nuw i8, ptr %ls, i64 16
+  %period = getelementptr inbounds nuw i8, ptr %ls, i64 24
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end99, %if.end
@@ -543,7 +543,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   %conv18 = sitofp i64 %7 to double
   %conv20 = uitofp i32 %4 to double
   %div = fdiv double %conv18, %conv20
-  %max = getelementptr inbounds i8, ptr %call9, i64 4
+  %max = getelementptr inbounds nuw i8, ptr %call9, i64 4
   %8 = load i32, ptr %max, align 4
   %conv21 = zext i32 %8 to i64
   %call22 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.1, ptr noundef nonnull @.str.3, i32 noundef %inc, ptr noundef %call8, i32 noundef %4, i64 noundef %conv, i64 noundef %conv17, double noundef %div, i64 noundef %conv21) #14
@@ -918,7 +918,7 @@ entry:
   %iter = alloca %struct.hdr_iter, align 8
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef 2) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.43) #14
-  %total_count = getelementptr inbounds i8, ptr %histogram, i64 88
+  %total_count = getelementptr inbounds nuw i8, ptr %histogram, i64 88
   %0 = load i64, ptr %total_count, align 8
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %0) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.44) #14
@@ -928,8 +928,8 @@ entry:
   br i1 %call112, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cumulative_count2 = getelementptr inbounds i8, ptr %iter, i64 32
-  %highest_equivalent_value = getelementptr inbounds i8, ptr %iter, i64 48
+  %cumulative_count2 = getelementptr inbounds nuw i8, ptr %iter, i64 32
+  %highest_equivalent_value = getelementptr inbounds nuw i8, ptr %iter, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -987,13 +987,13 @@ entry:
 while.body:                                       ; preds = %entry, %if.end8
   %call112 = phi ptr [ %call1, %if.end8 ], [ %call110, %entry ]
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call112) #14
-  %latency_histogram = getelementptr inbounds i8, ptr %call2, i64 224
+  %latency_histogram = getelementptr inbounds nuw i8, ptr %call2, i64 224
   %0 = load ptr, ptr %latency_histogram, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %fullname = getelementptr inbounds i8, ptr %call2, i64 216
+  %fullname = getelementptr inbounds nuw i8, ptr %call2, i64 216
   %1 = load ptr, ptr %fullname, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -1046,13 +1046,13 @@ sdslen.exit:                                      ; preds = %if.then, %sw.bb.i, 
   br label %if.end
 
 if.end:                                           ; preds = %sdslen.exit, %while.body
-  %subcommands = getelementptr inbounds i8, ptr %call2, i64 160
+  %subcommands = getelementptr inbounds nuw i8, ptr %call2, i64 160
   %9 = load ptr, ptr %subcommands, align 8
   %tobool6.not = icmp eq ptr %9, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %subcommands_dict = getelementptr inbounds i8, ptr %call2, i64 288
+  %subcommands_dict = getelementptr inbounds nuw i8, ptr %call2, i64 288
   %10 = load ptr, ptr %subcommands_dict, align 8
   tail call void @latencyAllCommandsFillCDF(ptr noundef %c, ptr noundef %10, ptr noundef %command_with_data)
   br label %if.end8
@@ -1074,37 +1074,37 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %c) local_unna
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #14
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp45 = icmp sgt i32 %0, 2
   br i1 %cmp45, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
-  %cumulative_count2.i = getelementptr inbounds i8, ptr %iter.i, i64 32
-  %highest_equivalent_value.i = getelementptr inbounds i8, ptr %iter.i, i64 48
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
+  %cumulative_count2.i = getelementptr inbounds nuw i8, ptr %iter.i, i64 32
+  %highest_equivalent_value.i = getelementptr inbounds nuw i8, ptr %iter.i, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %command_with_data.047 = phi i32 [ 0, %for.body.lr.ph ], [ %command_with_data.1, %for.inc ]
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %2, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call1 = call ptr @lookupCommandBySds(ptr noundef %3) #14
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %latency_histogram = getelementptr inbounds i8, ptr %call1, i64 224
+  %latency_histogram = getelementptr inbounds nuw i8, ptr %call1, i64 224
   %4 = load ptr, ptr %latency_histogram, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %fullname = getelementptr inbounds i8, ptr %call1, i64 216
+  %fullname = getelementptr inbounds nuw i8, ptr %call1, i64 216
   %5 = load ptr, ptr %fullname, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -1156,7 +1156,7 @@ sdslen.exit:                                      ; preds = %if.then3, %sw.bb.i,
 
 if.end7:                                          ; preds = %sdslen.exit, %if.end
   %command_with_data.2 = phi i32 [ %inc, %sdslen.exit ], [ %command_with_data.047, %if.end ]
-  %subcommands_dict = getelementptr inbounds i8, ptr %call1, i64 288
+  %subcommands_dict = getelementptr inbounds nuw i8, ptr %call1, i64 288
   %12 = load ptr, ptr %subcommands_dict, align 8
   %tobool8.not = icmp eq ptr %12, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -1171,13 +1171,13 @@ while.body:                                       ; preds = %if.then9, %if.end23
   %call1244 = phi ptr [ %call12, %if.end23 ], [ %call1241, %if.then9 ]
   %command_with_data.343 = phi i32 [ %command_with_data.4, %if.end23 ], [ %command_with_data.2, %if.then9 ]
   %call14 = call ptr @dictGetVal(ptr noundef nonnull %call1244) #14
-  %latency_histogram15 = getelementptr inbounds i8, ptr %call14, i64 224
+  %latency_histogram15 = getelementptr inbounds nuw i8, ptr %call14, i64 224
   %13 = load ptr, ptr %latency_histogram15, align 8
   %tobool16.not = icmp eq ptr %13, null
   br i1 %tobool16.not, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %while.body
-  %fullname18 = getelementptr inbounds i8, ptr %call14, i64 216
+  %fullname18 = getelementptr inbounds nuw i8, ptr %call14, i64 216
   %14 = load ptr, ptr %fullname18, align 8
   %arrayidx.i22 = getelementptr inbounds i8, ptr %14, i64 -1
   %15 = load i8, ptr %arrayidx.i22, align 1
@@ -1226,7 +1226,7 @@ sdslen.exit40:                                    ; preds = %if.then17, %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   call void @addReplyMapLen(ptr noundef %c, i64 noundef 2) #14
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.43) #14
-  %total_count.i = getelementptr inbounds i8, ptr %20, i64 88
+  %total_count.i = getelementptr inbounds nuw i8, ptr %20, i64 88
   %21 = load i64, ptr %total_count.i, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %21) #14
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.44) #14
@@ -1301,7 +1301,7 @@ declare ptr @lookupCommandBySds(ptr noundef) local_unnamed_addr #3
 define dso_local void @latencyCommandReplyWithSamples(ptr noundef %c, ptr nocapture noundef readonly %ts) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #14
-  %samples1 = getelementptr inbounds i8, ptr %ts, i64 8
+  %samples1 = getelementptr inbounds nuw i8, ptr %ts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1321,7 +1321,7 @@ if.end:                                           ; preds = %for.body
   %2 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %2 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv) #14
-  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %latency, align 4
   %conv10 = zext i32 %3 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv10) #14
@@ -1348,9 +1348,9 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
-  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %2, %1
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %add) #14
@@ -1369,17 +1369,17 @@ while.body:                                       ; preds = %entry, %while.body
   %rem = srem i32 %sub, 160
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 4) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %call4) #14
-  %samples = getelementptr inbounds i8, ptr %call5, i64 8
+  %samples = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %idxprom = sext i32 %rem to i64
   %arrayidx7 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx7, align 4
   %conv = sext i32 %5 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv) #14
-  %latency = getelementptr inbounds i8, ptr %arrayidx7, i64 4
+  %latency = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 4
   %6 = load i32, ptr %latency, align 4
   %conv11 = zext i32 %6 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv11) #14
-  %max = getelementptr inbounds i8, ptr %call5, i64 4
+  %max = getelementptr inbounds nuw i8, ptr %call5, i64 4
   %7 = load i32, ptr %max, align 4
   %conv12 = zext i32 %7 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv12) #14
@@ -1400,7 +1400,7 @@ entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call ptr @createSparklineSequence() #14
   %call1 = tail call ptr @sdsempty() #14
-  %samples = getelementptr inbounds i8, ptr %ts, i64 8
+  %samples = getelementptr inbounds nuw i8, ptr %ts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1419,7 +1419,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %2 = load i32, ptr %call, align 8
   %cmp3 = icmp eq i32 %2, 0
-  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %latency, align 4
   br i1 %cmp3, label %if.end30, label %if.else
 
@@ -1468,7 +1468,7 @@ if.else54:                                        ; preds = %if.else47
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then44, %if.else54, %if.then50, %if.then39
-  %latency64 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %latency64 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %latency64, align 4
   %conv65 = uitofp i32 %6 to double
   call void @sparklineSequenceAddSample(ptr noundef nonnull %call, double noundef %conv65, ptr noundef nonnull %buf) #14
@@ -1484,7 +1484,7 @@ for.inc:                                          ; preds = %for.body, %if.end60
 for.end:                                          ; preds = %for.inc
   %conv67 = zext i32 %max.1 to i64
   %conv68 = zext i32 %min.1 to i64
-  %max69 = getelementptr inbounds i8, ptr %ts, i64 4
+  %max69 = getelementptr inbounds nuw i8, ptr %ts, i64 4
   %7 = load i32, ptr %max69, align 4
   %conv70 = zext i32 %7 to i64
   %call71 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.49, ptr noundef %event, i64 noundef %conv67, i64 noundef %conv68, i64 noundef %conv70) #14
@@ -1521,27 +1521,27 @@ define dso_local void @latencyCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %command_with_data = alloca i32, align 4
   %help = alloca [15 x ptr], align 16
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %1, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.51) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %entry
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %3, 3
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %land.lhs.true
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %arrayidx2, align 8
-  %ptr3 = getelementptr inbounds i8, ptr %5, i64 8
+  %ptr3 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr3, align 8
   %call4 = tail call ptr @dictFetchValue(ptr noundef %4, ptr noundef %6) #14
   %cmp5 = icmp eq ptr %call4, null
@@ -1553,7 +1553,7 @@ if.then6:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %call.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #14
-  %samples1.i = getelementptr inbounds i8, ptr %call4, i64 8
+  %samples1.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.else
@@ -1573,7 +1573,7 @@ if.end.i:                                         ; preds = %for.body.i
   %9 = load i32, ptr %arrayidx.i, align 4
   %conv.i = sext i32 %9 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv.i) #14
-  %latency.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %latency.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %10 = load i32, ptr %latency.i, align 4
   %conv10.i = zext i32 %10 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv10.i) #14
@@ -1597,16 +1597,16 @@ if.else7:                                         ; preds = %land.lhs.true, %ent
   br i1 %tobool12.not, label %land.lhs.true13, label %if.else28
 
 land.lhs.true13:                                  ; preds = %if.else7
-  %argc14 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc14 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %11 = load i32, ptr %argc14, align 8
   %cmp15 = icmp eq i32 %11, 3
   br i1 %cmp15, label %if.then16, label %if.else28
 
 if.then16:                                        ; preds = %land.lhs.true13
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %arrayidx18, align 8
-  %ptr19 = getelementptr inbounds i8, ptr %13, i64 8
+  %ptr19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr19, align 8
   %call20 = tail call ptr @dictFind(ptr noundef %12, ptr noundef %14) #14
   %cmp21 = icmp eq ptr %call20, null
@@ -1668,7 +1668,7 @@ if.else28:                                        ; preds = %land.lhs.true13, %i
   br i1 %tobool33.not, label %land.lhs.true34, label %if.else38
 
 land.lhs.true34:                                  ; preds = %if.else28
-  %argc35 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc35 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %20 = load i32, ptr %argc35, align 8
   %cmp36 = icmp eq i32 %20, 2
   br i1 %cmp36, label %if.then37, label %if.else38
@@ -1683,7 +1683,7 @@ if.else38:                                        ; preds = %land.lhs.true34, %i
   br i1 %tobool43.not, label %land.lhs.true44, label %if.else50
 
 land.lhs.true44:                                  ; preds = %if.else38
-  %argc45 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc45 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %21 = load i32, ptr %argc45, align 8
   %cmp46 = icmp eq i32 %21, 2
   br i1 %cmp46, label %if.then47, label %if.else50
@@ -1742,7 +1742,7 @@ if.else50:                                        ; preds = %land.lhs.true44, %i
   br i1 %tobool55.not, label %land.lhs.true56, label %if.else74
 
 land.lhs.true56:                                  ; preds = %if.else50
-  %argc57 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc57 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %27 = load i32, ptr %argc57, align 8
   %cmp58 = icmp sgt i32 %27, 1
   br i1 %cmp58, label %if.then59, label %if.else74
@@ -1783,9 +1783,9 @@ for.body:                                         ; preds = %if.then59, %for.bod
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 2, %if.then59 ]
   %resets.072 = phi i32 [ %add, %for.body ], [ 0, %if.then59 ]
   %31 = load ptr, ptr %argv, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
+  %arrayidx69 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx69, align 8
-  %ptr70 = getelementptr inbounds i8, ptr %32, i64 8
+  %ptr70 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %33 = load ptr, ptr %ptr70, align 8
   %call71 = tail call i32 @latencyResetEvent(ptr noundef %33)
   %add = add nsw i32 %call71, %resets.072
@@ -1806,7 +1806,7 @@ if.else74:                                        ; preds = %land.lhs.true56, %i
   br i1 %tobool79.not, label %land.lhs.true80, label %if.else93
 
 land.lhs.true80:                                  ; preds = %if.else74
-  %argc81 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc81 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %37 = load i32, ptr %argc81, align 8
   %cmp82 = icmp sgt i32 %37, 1
   br i1 %cmp82, label %if.then84, label %if.else93
@@ -1835,7 +1835,7 @@ if.else93:                                        ; preds = %land.lhs.true80, %i
   br i1 %tobool98.not, label %land.lhs.true99, label %if.else104
 
 land.lhs.true99:                                  ; preds = %if.else93
-  %argc100 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc100 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %40 = load i32, ptr %argc100, align 8
   %cmp101 = icmp eq i32 %40, 2
   br i1 %cmp101, label %if.then103, label %if.else104
@@ -1851,9 +1851,9 @@ if.else104:                                       ; preds = %land.lhs.true99, %i
 
 nodataerr:                                        ; preds = %if.then16
   %41 = load ptr, ptr %argv, align 8
-  %arrayidx113 = getelementptr inbounds i8, ptr %41, i64 16
+  %arrayidx113 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %42 = load ptr, ptr %arrayidx113, align 8
-  %ptr114 = getelementptr inbounds i8, ptr %42, i64 8
+  %ptr114 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %43 = load ptr, ptr %ptr114, align 8
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.73, ptr noundef %43) #14
   br label %return
@@ -1889,11 +1889,11 @@ if.end:                                           ; preds = %entry
   %0 = load i64, ptr %arrayidx, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %arrayidx, align 8
-  %sum = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %sum = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %sum, align 8
   %add = add i64 %1, %duration
   store i64 %add, ptr %sum, align 8
-  %max = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %max, align 8
   %cmp1 = icmp ugt i64 %duration, %2
   br i1 %cmp1, label %if.then2, label %if.end4

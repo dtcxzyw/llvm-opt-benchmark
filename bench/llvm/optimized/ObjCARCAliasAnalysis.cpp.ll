@@ -389,7 +389,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit: ; preds = %_ZN4llvm16dy
 
 switch.lookup:                                    ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit
   %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @switch.table._ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE, i64 0, i64 %22
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread
 

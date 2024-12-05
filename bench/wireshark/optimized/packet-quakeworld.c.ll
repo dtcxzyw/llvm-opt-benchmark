@@ -181,12 +181,12 @@ define internal i32 @dissect_quakeworld(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = alloca i32, align 4
   %9 = alloca [2049 x i8], align 16
   %10 = load ptr, ptr @gbl_quakeworldServerPorts, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @value_is_in_range(ptr noundef %10, i32 noundef %12) #4
   %.not = icmp eq i32 %13, 0
   %14 = zext i1 %.not to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.56) #4
   %17 = load ptr, ptr %15, align 8

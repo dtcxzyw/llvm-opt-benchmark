@@ -116,7 +116,7 @@ define internal fastcc void @proc_exit_prepare(i32 noundef %0) unnamed_addr #4 {
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [20 x %struct.ONEXIT], ptr @on_proc_exit_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   tail call void %13(i32 noundef %0, i64 noundef %15) #8
   %16 = load i32, ptr @on_proc_exit_index, align 4
@@ -157,7 +157,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [20 x %struct.ONEXIT], ptr @before_shmem_exit_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   tail call void %13(i32 noundef %0, i64 noundef %15) #8
   %16 = load i32, ptr @before_shmem_exit_index, align 4
@@ -190,7 +190,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr [20 x %struct.ONEXIT], ptr @on_shmem_exit_list, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   tail call void %30(i32 noundef %0, i64 noundef %32) #8
   %33 = load i32, ptr @on_shmem_exit_index, align 4
@@ -335,7 +335,7 @@ define dso_local void @cancel_before_shmem_exit(ptr noundef %0, i64 noundef %1) 
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, %1
   br i1 %14, label %15, label %16

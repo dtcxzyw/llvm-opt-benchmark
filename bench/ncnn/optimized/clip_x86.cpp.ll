@@ -102,7 +102,7 @@ define hidden noundef i32 @_ZNK4ncnn8Clip_x8615forward_inplaceERNS_3MatERKNS_6Op
   br label %46
 
 46:                                               ; preds = %45, %41
-  %47 = getelementptr inbounds i8, ptr %.1100.us, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.1100.us, i64 4
   %48 = add nuw nsw i32 %.17999.us, 1
   %exitcond117.not = icmp eq i32 %48, %16
   br i1 %exitcond117.not, label %._crit_edge.us, label %.lr.ph101.us, !llvm.loop !6
@@ -114,7 +114,7 @@ define hidden noundef i32 @_ZNK4ncnn8Clip_x8615forward_inplaceERNS_3MatERKNS_6Op
   %51 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %50, <4 x float> %33)
   %52 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %51, <4 x float> %36)
   store <4 x float> %52, ptr %.07797.us, align 16
-  %53 = getelementptr inbounds i8, ptr %.07797.us, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.07797.us, i64 16
   %54 = add nuw nsw i32 %.07896.us, 4
   %55 = or disjoint i32 %54, 3
   %56 = icmp slt i32 %55, %16
@@ -164,7 +164,7 @@ define hidden noundef i32 @_ZNK4ncnn8Clip_x8615forward_inplaceERNS_3MatERKNS_6Op
   br label %74
 
 74:                                               ; preds = %73, %69
-  %75 = getelementptr inbounds i8, ptr %.1100.us108, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.1100.us108, i64 4
   %76 = add nuw nsw i32 %.17999.us109, 1
   %exitcond.not = icmp eq i32 %76, %16
   br i1 %exitcond.not, label %._crit_edge.us111, label %64, !llvm.loop !6

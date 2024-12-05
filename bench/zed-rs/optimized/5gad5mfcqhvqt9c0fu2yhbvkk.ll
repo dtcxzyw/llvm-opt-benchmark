@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0e2cd512caa277b1E.llvm.12242758339832591459"(ptr noundef nonnull returned align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %5, label %4
@@ -57,7 +57,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9onc
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h902a3138c2697294E.llvm.12242758339832591459"(ptr noundef nonnull returned align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %5, label %4
@@ -72,7 +72,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9onc
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17ha520941ecc09c680E.llvm.12242758339832591459"(ptr noundef nonnull returned align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %5, label %4
@@ -87,7 +87,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9onc
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hd3ca4b797b6b1c12E.llvm.12242758339832591459"(ptr noundef nonnull returned align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %.not = icmp eq i32 %3, 4
   br i1 %.not, label %5, label %4
@@ -102,7 +102,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN3std4sync9onc
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hb9cda39b17385b18E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %4 = icmp eq i32 %3, 4
   %. = select i1 %4, ptr %0, ptr null
@@ -111,7 +111,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9onc
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$3get17hec7ceedb8bcb1ec3E.llvm.12242758339832591459"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load atomic i32, ptr %2 acquire, align 8
   %4 = icmp eq i32 %3, 4
   %. = select i1 %4, ptr %0, ptr null
@@ -140,13 +140,13 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.4) #11
   unreachable
@@ -158,13 +158,13 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.6, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.7) #11
   unreachable
@@ -180,7 +180,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10config_dir17h5cac3f5ca157a601E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths10config_dir10CONFIG_DIR17h4c43040866e04bdbE.llvm.12242758339832591459, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths10config_dir10CONFIG_DIR17h4c43040866e04bdbE.llvm.12242758339832591459, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h0e2cd512caa277b1E.llvm.12242758339832591459.exit", label %2
 
@@ -194,7 +194,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10config_dir17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11support_dir17h5321d64825bf33f4E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths11support_dir11SUPPORT_DIR17h44c34f9bc8817905E.llvm.12242758339832591459, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths11support_dir11SUPPORT_DIR17h44c34f9bc8817905E.llvm.12242758339832591459, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17ha520941ecc09c680E.llvm.12242758339832591459.exit", label %2
 
@@ -208,7 +208,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11support_dir17
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8temp_dir17ha2e31c43f46ca0f5E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths8temp_dir8TEMP_DIR17hd10d61c780e44e57E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths8temp_dir8TEMP_DIR17hd10d61c780e44e57E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h1c9406b367a990f8E.exit", label %2
 
@@ -222,7 +222,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8temp_dir17ha2e
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8logs_dir17h4bfd2f7af20ff4eeE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths8logs_dir8LOGS_DIR17h4f2b1b2400a4a132E.llvm.12242758339832591459, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths8logs_dir8LOGS_DIR17h4f2b1b2400a4a132E.llvm.12242758339832591459, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h902a3138c2697294E.llvm.12242758339832591459.exit", label %2
 
@@ -236,7 +236,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8logs_dir17h4bf
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8log_file17hc5c416373349b628E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths8log_file8LOG_FILE17h910e79af1fdfdac3E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths8log_file8LOG_FILE17h910e79af1fdfdac3E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h7ee758fb0cc87847E.exit", label %2
 
@@ -250,7 +250,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths8log_file17hc5c
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12old_log_file17h7bda2e4165d919c4E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths12old_log_file12OLD_LOG_FILE17ha7296ab9397412adE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths12old_log_file12OLD_LOG_FILE17ha7296ab9397412adE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h848845a0fb104df0E.exit", label %2
 
@@ -264,7 +264,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12old_log_file1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12database_dir17h67897226d86dcb1aE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths12database_dir12DATABASE_DIR17h7117a35002ae73daE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths12database_dir12DATABASE_DIR17h7117a35002ae73daE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h511edc130cf61a9eE.exit", label %2
 
@@ -278,7 +278,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12database_dir1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11crashes_dir17h03fecc3e7450ea06E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths11crashes_dir11CRASHES_DIR17h2051a93c14693c85E.llvm.12242758339832591459, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths11crashes_dir11CRASHES_DIR17h2051a93c14693c85E.llvm.12242758339832591459, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hd3ca4b797b6b1c12E.llvm.12242758339832591459.exit", label %2
 
@@ -292,7 +292,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11crashes_dir17
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths19crashes_retired_dir17h8dc973f56c4841baE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths19crashes_retired_dir19CRASHES_RETIRED_DIR17h2a3857ad73986d01E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths19crashes_retired_dir19CRASHES_RETIRED_DIR17h2a3857ad73986d01E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h804f1cf38fdf6e36E.exit", label %2
 
@@ -306,7 +306,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths19crashes_retir
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths13settings_file17h0d0fc1cb4fe31e24E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths13settings_file13SETTINGS_FILE17h7932f19c5f3cccc7E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths13settings_file13SETTINGS_FILE17h7932f19c5f3cccc7E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5921e720c3ef4171E.exit", label %2
 
@@ -320,7 +320,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths13settings_file
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11keymap_file17h64ae134dd3644264E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths11keymap_file11KEYMAP_FILE17h79ce58d78961ad4cE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths11keymap_file11KEYMAP_FILE17h79ce58d78961ad4cE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h3cf707b882ccca43E.exit", label %2
 
@@ -334,7 +334,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11keymap_file17
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10tasks_file17h0e0cc7a000625dbbE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths10tasks_file10TASKS_FILE17h353dbbd9c25e2935E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths10tasks_file10TASKS_FILE17h353dbbd9c25e2935E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hd9d1ebd2f758d0c8E.exit", label %2
 
@@ -348,7 +348,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10tasks_file17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14extensions_dir17h7a0b5b6a920a3d2fE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths14extensions_dir14EXTENSIONS_DIR17hba6a6f76779d7e69E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths14extensions_dir14EXTENSIONS_DIR17hba6a6f76779d7e69E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hbe3ae1cafd3a836aE.exit", label %2
 
@@ -362,7 +362,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14extensions_di
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10themes_dir17h48ff244cffa9589dE() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths10themes_dir10THEMES_DIR17hf9357994f561b7ddE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths10themes_dir10THEMES_DIR17hf9357994f561b7ddE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hc07b51e365a0a576E.exit", label %2
 
@@ -376,7 +376,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths10themes_dir17h
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12contexts_dir17h20a9e5490bfed8f4E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths12contexts_dir12CONTEXTS_DIR17h6105f0086780941eE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths12contexts_dir12CONTEXTS_DIR17h6105f0086780941eE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17he37cb83e188199bbE.exit", label %2
 
@@ -390,7 +390,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths12contexts_dir1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11prompts_dir17h5d96f77ad5c24bd2E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths11prompts_dir11PROMPTS_DIR17ha516e467e2451bf0E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths11prompts_dir11PROMPTS_DIR17ha516e467e2451bf0E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2af23c6a046826b3E.exit", label %2
 
@@ -416,15 +416,15 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.8, i64 noundef 6)
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   invoke void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 1 @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.9, i64 noundef 7)
           to label %_ZN3std4path4Path4join17h66074a45924d7ba7E.exit unwind label %27
 
 15:                                               ; preds = %3, %45
-  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 24) acquire, align 8
+  %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %16, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2fc3c80f5ecaee18E.exit", label %17
 
@@ -434,15 +434,15 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
 
 "_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2fc3c80f5ecaee18E.exit": ; preds = %15, %17
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 8), align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 16), align 8, !alias.scope !5, !noalias !8, !noundef !4
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 8), align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 16), align 8, !alias.scope !5, !noalias !8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !10
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hdb85840e548ef903E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, i64 noundef %19, i1 noundef zeroext false), !noalias !10
   %20 = load i64, ptr %6, align 8, !range !14, !noalias !10, !noundef !4
   %trunc.i.i = trunc nuw i64 %20 to i1
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !range !15, !noalias !10, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %trunc.i.i, label %24, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08240e43705a0e48E.exit"
 
 24:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2fc3c80f5ecaee18E.exit"
@@ -455,9 +455,9 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %18, i64 %19, i1 false), !noalias !16
   store i64 %22, ptr %0, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.424.0..sroa_idx, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %.sroa.525.0..sroa_idx, align 8
   br label %44
 
@@ -479,9 +479,9 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit8": ; preds = %_ZN3std4path4Path4join17h66074a45924d7ba7E.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5), !noalias !17
   invoke void @_ZN3std3sys3pal4unix2fs4stat17h09c19a476af93005E(ptr noalias nocapture noundef nonnull sret([176 x i8]) align 8 dereferenceable(176) %5, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %34)
@@ -493,7 +493,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %.noexc
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !17, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5), !noalias !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !22
@@ -506,7 +506,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
   br i1 %switch.not.i.i.i.i.i14, label %41, label %45
 
 41:                                               ; preds = %.noexc16
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hf64fb97f0d77aa32E.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(8) %42)
           to label %45 unwind label %29
 
@@ -538,7 +538,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14embeddings_dir17hdedc170e58801131E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths14embeddings_dir14EMBEDDINGS_DIR17h70cafb64d92323e0E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths14embeddings_dir14EMBEDDINGS_DIR17h70cafb64d92323e0E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5955e567b12842beE.exit", label %2
 
@@ -552,7 +552,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14embeddings_di
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths13languages_dir17h439e022ff4117eb3E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths13languages_dir13LANGUAGES_DIR17h9252cae8e362d167E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths13languages_dir13LANGUAGES_DIR17h9252cae8e362d167E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h6c5f60ce739549a5E.exit", label %2
 
@@ -566,7 +566,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths13languages_dir
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11copilot_dir17h2dea0c51df5c0bf2E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths11copilot_dir11COPILOT_DIR17h7056caf4234fbc16E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths11copilot_dir11COPILOT_DIR17h7056caf4234fbc16E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17ha97d8b29ff4fd61aE.exit", label %2
 
@@ -580,7 +580,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths11copilot_dir17
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14supermaven_dir17h345b600fe87e8f86E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths14supermaven_dir14SUPERMAVEN_DIR17hb597bf66d9e8ca8fE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths14supermaven_dir14SUPERMAVEN_DIR17hb597bf66d9e8ca8fE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h14d67c5ec272f363E.exit", label %2
 
@@ -594,7 +594,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths14supermaven_di
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths20default_prettier_dir17h2dd1a5b16ca9f7f3E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths20default_prettier_dir20DEFAULT_PRETTIER_DIR17hffa94af095131d61E, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20default_prettier_dir20DEFAULT_PRETTIER_DIR17hffa94af095131d61E, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h4a922181029db588E.exit", label %2
 
@@ -608,7 +608,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths20default_prett
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5paths18remote_servers_dir17h625b890b1ae70e95E() unnamed_addr #2 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5paths18remote_servers_dir18REMOTE_SERVERS_DIR17h4f8fe06019a41e7dE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths18remote_servers_dir18REMOTE_SERVERS_DIR17h4f8fe06019a41e7dE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h7cf461a042a95f96E.exit", label %2
 

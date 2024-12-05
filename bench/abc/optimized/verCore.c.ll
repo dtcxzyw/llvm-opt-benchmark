@@ -121,10 +121,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_ParseFile(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %calloc.i = tail call dereferenceable_or_null(2112) ptr @calloc(i64 1, i64 2112)
-  %5 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %0, ptr %5, align 8
   %6 = tail call ptr @Ver_StreamAlloc(ptr noundef %0) #19
-  %7 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %10
@@ -135,51 +135,51 @@ define ptr @Ver_ParseFile(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @stdout, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 64
   store ptr %11, ptr %12, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
   store i32 100, ptr %13, align 8
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %calloc.i, i64 2080
+  %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 2080
   store ptr %13, ptr %17, align 8
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4
   store i32 100, ptr %18, align 8
   %20 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 2088
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 2088
   store ptr %18, ptr %22, align 8
   %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %24, align 4
   store i32 100, ptr %23, align 8
   %25 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #20
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc.i, i64 2096
+  %27 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 2096
   store ptr %23, ptr %27, align 8
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4
   store i32 100, ptr %28, align 8
   %30 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #20
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %calloc.i, i64 2104
+  %32 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 2104
   store ptr %28, ptr %32, align 8
   %33 = tail call ptr @Abc_DesCreate(ptr noundef %0) #19
-  %34 = getelementptr inbounds i8, ptr %calloc.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store ptr %1, ptr %35, align 8
   %36 = tail call ptr (...) @Abc_FrameReadLibGen() #19
-  %37 = getelementptr inbounds i8, ptr %33, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %36, ptr %37, align 8
   br label %Ver_ParseStart.exit
 
@@ -187,38 +187,38 @@ Ver_ParseStart.exit:                              ; preds = %9, %10
   %.0.i = phi ptr [ %calloc.i, %10 ], [ null, %9 ]
   %38 = load i32, ptr @glo_fMapped, align 4
   store i32 %38, ptr %.0.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 %3, ptr %40, align 4
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %48, label %41
 
 41:                                               ; preds = %Ver_ParseStart.exit
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @Hop_ManStop(ptr noundef %45) #19
   %46 = load ptr, ptr %42, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr null, ptr %47, align 8
   br label %48
 
 48:                                               ; preds = %41, %Ver_ParseStart.exit
   %49 = load ptr, ptr @stdout, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @Ver_StreamGetFileSize(ptr noundef %51) #19
   %53 = tail call ptr @Extra_ProgressBarStart(ptr noundef %49, i32 noundef %52) #19
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store ptr %53, ptr %54, align 8
   %55 = tail call ptr @Ver_ParseGetName(ptr noundef nonnull %.0.i) #19
   %56 = icmp eq ptr %55, null
   br i1 %56, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   br label %58
 
 58:                                               ; preds = %Ver_ParseModule.exit.i, %.lr.ph.i
@@ -228,16 +228,16 @@ Ver_ParseStart.exit:                              ; preds = %9, %10
   br i1 %.not.i, label %79, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %62, ptr noundef nonnull align 1 dereferenceable(32) @.str.37, i64 32, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
   store i32 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %65 = load i32, ptr %64, align 8
   %.not.i.i = icmp eq i32 %65, 0
-  %66 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %69 = load ptr, ptr %68, align 8
   br i1 %.not.i.i, label %72, label %70
 
@@ -273,9 +273,9 @@ Ver_ParseStart.exit:                              ; preds = %9, %10
   %85 = load i32, ptr %40, align 4
   %86 = tail call ptr @Abc_NtkAlloc(i32 noundef 1, i32 noundef 6, i32 noundef %85) #19
   %87 = tail call ptr @Extra_UtilStrsav(ptr noundef %81) #19
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr null, ptr %89, align 8
   %90 = load ptr, ptr %57, align 8
   %91 = tail call i32 @Abc_DesAddModel(ptr noundef %90, ptr noundef %86) #19
@@ -288,18 +288,18 @@ Ver_ParseFindOrCreateNetwork.exit.i.i:            ; preds = %84, %79
   br i1 %.not.i29.i, label %.preheader174.i.i, label %93
 
 93:                                               ; preds = %Ver_ParseFindOrCreateNetwork.exit.i.i
-  %94 = getelementptr inbounds i8, ptr %.0.i, i64 80
-  %95 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %96) #19
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 76
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
   store i32 1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %100 = load i32, ptr %99, align 8
   %.not.i165.i.i = icmp eq i32 %100, 0
-  %101 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %104 = load ptr, ptr %103, align 8
   br i1 %.not.i165.i.i, label %107, label %105
 
@@ -344,16 +344,16 @@ Ver_ParseFindOrCreateNetwork.exit.i.i:            ; preds = %84, %79
   br i1 %.not132.i.i, label %.preheader172.i.i, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %124, ptr noundef nonnull align 1 dereferenceable(45) @.str.40, i64 45, i1 false)
-  %125 = getelementptr inbounds i8, ptr %.0.i, i64 76
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
   store i32 1, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %127 = load i32, ptr %126, align 8
   %.not.i166.i.i = icmp eq i32 %127, 0
-  %128 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %131 = load ptr, ptr %130, align 8
   br i1 %.not.i166.i.i, label %134, label %132
 
@@ -459,13 +459,13 @@ sub_0.i.i:                                        ; preds = %Extra_ProgressBarUp
   br i1 %.not188.i.i, label %sub_1.i.i, label %.tail.thread.i.i
 
 sub_1.i.i:                                        ; preds = %sub_0.i.i
-  %172 = getelementptr inbounds i8, ptr %.0126.i.i, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.0126.i.i, i64 1
   %173 = load i8, ptr %172, align 1
   %.not189.i.i = icmp eq i8 %173, 114
   br i1 %.not189.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
 .tail.i.i:                                        ; preds = %sub_1.i.i
-  %174 = getelementptr inbounds i8, ptr %.0126.i.i, i64 2
+  %174 = getelementptr inbounds nuw i8, ptr %.0126.i.i, i64 2
   %175 = load i8, ptr %174, align 1
   %176 = icmp eq i8 %175, 0
   br i1 %176, label %177, label %.tail.thread.i.i
@@ -571,7 +571,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
 
 220:                                              ; preds = %218
   %221 = load ptr, ptr %57, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 48
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 48
   %223 = load ptr, ptr %222, align 8
   %.not152.i.i = icmp eq ptr %223, null
   br i1 %.not152.i.i, label %228, label %224
@@ -615,7 +615,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   br i1 %241, label %Ver_ParseInternal.exit, label %.preheader.i.i
 
 242:                                              ; preds = %218
-  %243 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %244 = load i32, ptr %243, align 4
   %245 = icmp eq i32 %244, 6
   br i1 %245, label %246, label %Ver_ParseModule.exit.i
@@ -662,7 +662,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   %.val161182.i.i = phi ptr [ %.val161.i.i, %.lr.ph.i.i ], [ %.val161179.i.i, %256 ]
   %264 = getelementptr i8, ptr %.val161182.i.i, i64 8
   %.val162.val.i.i = load ptr, ptr %264, align 8
-  %265 = getelementptr inbounds ptr, ptr %.val162.val.i.i, i64 %indvars.iv.i.i
+  %265 = getelementptr inbounds nuw ptr, ptr %.val162.val.i.i, i64 %indvars.iv.i.i
   %266 = load ptr, ptr %265, align 8
   %267 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %.0.i.i.i, i32 noundef 4) #19
   %.val.i.i = load ptr, ptr %266, align 8
@@ -691,7 +691,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   %.val163186.i.i = phi ptr [ %.val163.i.i, %.critedge.i.i ], [ %.val163183.i.i, %.critedge.preheader.i.i ]
   %277 = getelementptr i8, ptr %.val163186.i.i, i64 8
   %.val164.val.i.i = load ptr, ptr %277, align 8
-  %278 = getelementptr inbounds ptr, ptr %.val164.val.i.i, i64 %indvars.iv195.i.i
+  %278 = getelementptr inbounds nuw ptr, ptr %.val164.val.i.i, i64 %indvars.iv195.i.i
   %279 = load ptr, ptr %278, align 8
   %280 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %.0.i.i.i, i32 noundef 5) #19
   tail call void @Abc_ObjAddFanin(ptr noundef %280, ptr noundef %257) #19
@@ -746,9 +746,9 @@ Ver_ParseModule.exit.i:                           ; preds = %.critedge.i.i, %.cr
 300:                                              ; preds = %.critedge2.i.i.i, %.lr.ph26.i.i.i
   %indvars.iv29.i.i.i = phi i64 [ 0, %.lr.ph26.i.i.i ], [ %indvars.iv.next30.i.i.i, %.critedge2.i.i.i ]
   %.025.i.i.i = phi i32 [ 0, %.lr.ph26.i.i.i ], [ %.1.lcssa.i.i.i, %.critedge2.i.i.i ]
-  %301 = getelementptr inbounds ptr, ptr %.val21.i.i.i, i64 %indvars.iv29.i.i.i
+  %301 = getelementptr inbounds nuw ptr, ptr %.val21.i.i.i, i64 %indvars.iv29.i.i.i
   %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 344
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 344
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr i8, ptr %304, i64 4
   %.val18.i.i.i = load i32, ptr %305, align 4
@@ -764,9 +764,9 @@ Ver_ParseModule.exit.i:                           ; preds = %.critedge.i.i, %.cr
 308:                                              ; preds = %308, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %308 ]
   %.123.i.i.i = phi i32 [ %.025.i.i.i, %.lr.ph.i.i.i ], [ %314, %308 ]
-  %309 = getelementptr inbounds ptr, ptr %.val20.i.i.i, i64 %indvars.iv.i.i.i
+  %309 = getelementptr inbounds nuw ptr, ptr %.val20.i.i.i, i64 %indvars.iv.i.i.i
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 64
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 64
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr i8, ptr %312, i64 4
   %.val17.i.i.i = load i32, ptr %313, align 4
@@ -802,9 +802,9 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 .preheader63.i.i:                                 ; preds = %318, %Ver_ParseGetNondrivenBundle.exit.thread.i.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %Ver_ParseGetNondrivenBundle.exit.thread.i.i ], [ 0, %318 ]
-  %320 = getelementptr inbounds ptr, ptr %.val21.i.i.i, i64 %indvars.iv.i35.i
+  %320 = getelementptr inbounds nuw ptr, ptr %.val21.i.i.i, i64 %indvars.iv.i35.i
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 344
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 344
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr i8, ptr %323, i64 4
   %.val31.i.i.i = load i32, ptr %324, align 4
@@ -819,9 +819,9 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 .lr.ph46.split.us.i.i.i:                          ; preds = %.critedge2.us.i.i.i, %.lr.ph46.split.us.preheader.i.i.i
   %indvars.iv53.i.i.i = phi i64 [ 0, %.lr.ph46.split.us.preheader.i.i.i ], [ %indvars.iv.next54.i.i.i, %.critedge2.us.i.i.i ]
-  %327 = getelementptr inbounds ptr, ptr %.val34.i.i.i, i64 %indvars.iv53.i.i.i
+  %327 = getelementptr inbounds nuw ptr, ptr %.val34.i.i.i, i64 %indvars.iv53.i.i.i
   %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 64
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 64
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr i8, ptr %330, i64 4
   %.val30.us.i.i.i = load i32, ptr %331, align 4
@@ -844,7 +844,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
   br i1 %exitcond57.not.i.i.i, label %Ver_ParseGetNondrivenBundle.exit.thread.i.i, label %.lr.ph46.split.us.i.i.i, !llvm.loop !10
 
 .preheader.us.i.i.i:                              ; preds = %332
-  %339 = getelementptr inbounds i8, ptr %337, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr i8, ptr %340, i64 4
   %.val28.us.i.i.i = load i32, ptr %341, align 4
@@ -859,7 +859,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 344:                                              ; preds = %Ver_ParseFormalNetsAreDriven.exit.us.us.i.i.i, %.lr.ph.us.i.i.i
   %indvars.iv.i53.i.i = phi i64 [ %indvars.iv.next.i54.i.i, %Ver_ParseFormalNetsAreDriven.exit.us.us.i.i.i ], [ 0, %.lr.ph.us.i.i.i ]
-  %345 = getelementptr inbounds ptr, ptr %.val32.us.i.i.i, i64 %indvars.iv.i53.i.i
+  %345 = getelementptr inbounds nuw ptr, ptr %.val32.us.i.i.i, i64 %indvars.iv.i53.i.i
   %346 = load ptr, ptr %345, align 8
   %347 = getelementptr i8, ptr %346, i64 28
   %.val.us.us.i.i.i = load i32, ptr %347, align 4
@@ -873,9 +873,9 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 349:                                              ; preds = %.critedge4.i.us.us.i.i.i, %.lr.ph49.i.us.us.i.i.i
   %indvars.iv55.i.us.us.i.i.i = phi i64 [ 0, %.lr.ph49.i.us.us.i.i.i ], [ %indvars.iv.next56.i.us.us.i.i.i, %.critedge4.i.us.us.i.i.i ]
   %.02847.i.us.us.i.i.i = phi ptr [ null, %.lr.ph49.i.us.us.i.i.i ], [ %.263.i.us.us.i.i.i, %.critedge4.i.us.us.i.i.i ]
-  %350 = getelementptr inbounds ptr, ptr %.val34.i.i.i, i64 %indvars.iv55.i.us.us.i.i.i
+  %350 = getelementptr inbounds nuw ptr, ptr %.val34.i.i.i, i64 %indvars.iv55.i.us.us.i.i.i
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 64
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 64
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr i8, ptr %353, i64 4
   %.val33.i.us.us.i.i.i = load i32, ptr %354, align 4
@@ -891,7 +891,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 358:                                              ; preds = %365, %.lr.ph.i.us.us.i.i.i
   %indvars.iv.i.us.us.i.i.i = phi i64 [ %357, %.lr.ph.i.us.us.i.i.i ], [ %indvars.iv.next.i.us.us.i.i.i, %365 ]
-  %359 = getelementptr inbounds ptr, ptr %.val36.i.us.us.i.i.i, i64 %indvars.iv.i.us.us.i.i.i
+  %359 = getelementptr inbounds nuw ptr, ptr %.val36.i.us.us.i.i.i, i64 %indvars.iv.i.us.us.i.i.i
   %360 = load ptr, ptr %359, align 8
   %.not.i.us.us.i.i.i = icmp eq ptr %360, null
   br i1 %.not.i.us.us.i.i.i, label %365, label %361
@@ -918,7 +918,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 .preheader.i.us.us.i.i.i:                         ; preds = %.critedge2.i.us.us.i.i.i, %349
   %.262.i.us.us.i.i.i = phi ptr [ %360, %.critedge2.i.us.us.i.i.i ], [ %.02847.i.us.us.i.i.i, %349 ]
-  %368 = getelementptr inbounds i8, ptr %.262.i.us.us.i.i.i, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %.262.i.us.us.i.i.i, i64 8
   %369 = load ptr, ptr %368, align 8
   %370 = getelementptr i8, ptr %369, i64 4
   %.val31.i.us.us.i.i.i = load i32, ptr %370, align 4
@@ -933,7 +933,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 
 373:                                              ; preds = %378, %.lr.ph46.i.us.us.i.i.i
   %indvars.iv52.i.us.us.i.i.i = phi i64 [ 0, %.lr.ph46.i.us.us.i.i.i ], [ %indvars.iv.next53.i.us.us.i.i.i, %378 ]
-  %374 = getelementptr inbounds ptr, ptr %.val35.i.us.us.i.i.i, i64 %indvars.iv52.i.us.us.i.i.i
+  %374 = getelementptr inbounds nuw ptr, ptr %.val35.i.us.us.i.i.i, i64 %indvars.iv52.i.us.us.i.i.i
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr i8, ptr %375, i64 28
   %.val.i.us.us.i.i.i = load i32, ptr %376, align 4
@@ -986,11 +986,11 @@ Ver_ParseGetNondrivenBundle.exit.thread.i.i:      ; preds = %.critedge2.us.i.i.i
 
 382:                                              ; preds = %Vec_PtrFree.exit.i.i, %.lr.ph72.i.i
   %indvars.iv83.i.i = phi i64 [ 0, %.lr.ph72.i.i ], [ %indvars.iv.next84.i.i, %Vec_PtrFree.exit.i.i ]
-  %383 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %indvars.iv83.i.i
+  %383 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %indvars.iv83.i.i
   %384 = load ptr, ptr %383, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 344
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 344
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
   %.not.i.i33.i = icmp eq ptr %388, null
   br i1 %.not.i.i33.i, label %Vec_PtrFree.exit.i.i, label %389
@@ -1023,9 +1023,9 @@ Ver_ParseAttachBoxes.exit.i:                      ; preds = %._crit_edge.i
   br i1 %.not24.i, label %Ver_ParseInternal.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %Ver_ParseAttachBoxes.exit.i, %Ver_ParseAttachBoxes.exit.thread.i
-  %390 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %390 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 24
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = load ptr, ptr %392, align 8
   %394 = getelementptr i8, ptr %393, i64 4
   %.val71.i = load i32, ptr %394, align 4
@@ -1037,7 +1037,7 @@ Ver_ParseAttachBoxes.exit.i:                      ; preds = %._crit_edge.i
   %396 = phi ptr [ %427, %424 ], [ %393, %.preheader.i ]
   %397 = getelementptr i8, ptr %396, i64 8
   %.val27.i = load ptr, ptr %397, align 8
-  %398 = getelementptr inbounds ptr, ptr %.val27.i, i64 %indvars.iv.i
+  %398 = getelementptr inbounds nuw ptr, ptr %.val27.i, i64 %indvars.iv.i
   %399 = load ptr, ptr %398, align 8
   tail call void @Abc_NtkFinalizeRead(ptr noundef %399) #19
   %400 = load i32, ptr %39, align 8
@@ -1050,19 +1050,19 @@ Ver_ParseAttachBoxes.exit.i:                      ; preds = %._crit_edge.i
   br i1 %.not26.i, label %403, label %424
 
 403:                                              ; preds = %401
-  %404 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %404 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   store i32 1, ptr %404, align 8
-  %405 = getelementptr inbounds i8, ptr %.0.i, i64 80
-  %406 = getelementptr inbounds i8, ptr %399, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
+  %406 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %407 = load ptr, ptr %406, align 8
   %408 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %405, ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %407) #19
-  %409 = getelementptr inbounds i8, ptr %.0.i, i64 76
+  %409 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
   store i32 1, ptr %409, align 4
   %410 = load i32, ptr %404, align 8
   %.not.i38.i = icmp eq i32 %410, 0
-  %411 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %411 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %414 = load ptr, ptr %413, align 8
   br i1 %.not.i38.i, label %417, label %415
 
@@ -1089,7 +1089,7 @@ Ver_ParseAttachBoxes.exit.i:                      ; preds = %._crit_edge.i
 424:                                              ; preds = %401, %.lr.ph73.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %425 = load ptr, ptr %390, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 24
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 24
   %427 = load ptr, ptr %426, align 8
   %428 = getelementptr i8, ptr %427, i64 4
   %.val.i = load i32, ptr %428, align 4
@@ -1098,7 +1098,7 @@ Ver_ParseAttachBoxes.exit.i:                      ; preds = %._crit_edge.i
   br i1 %430, label %.lr.ph73.i, label %Ver_ParseInternal.exit, !llvm.loop !18
 
 Ver_ParseInternal.exit:                           ; preds = %119, %253, %.preheader174.i.i, %Extra_ProgressBarUpdate.exit.i.i, %159, %235, %237, %239, %.critedge.i37.i, %424, %76, %78, %111, %113, %138, %140, %.split.i.i, %Ver_ParseAttachBoxes.exit.i, %.preheader.i, %421, %423
-  %431 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %431 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %432 = load ptr, ptr %431, align 8
   store ptr null, ptr %431, align 8
   %433 = load ptr, ptr %54, align 8
@@ -1112,9 +1112,9 @@ Ver_ParseInternal.exit:                           ; preds = %119, %253, %.prehea
 435:                                              ; preds = %434, %Ver_ParseInternal.exit
   %436 = load ptr, ptr %50, align 8
   tail call void @Ver_StreamFree(ptr noundef %436) #19
-  %437 = getelementptr inbounds i8, ptr %.0.i, i64 2080
+  %437 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2080
   %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load ptr, ptr %439, align 8
   %.not.i.i14 = icmp eq ptr %440, null
   br i1 %.not.i.i14, label %Vec_PtrFree.exit.i, label %441
@@ -1125,9 +1125,9 @@ Ver_ParseInternal.exit:                           ; preds = %119, %253, %.prehea
 
 Vec_PtrFree.exit.i:                               ; preds = %441, %435
   tail call void @free(ptr noundef nonnull %438) #19
-  %442 = getelementptr inbounds i8, ptr %.0.i, i64 2088
+  %442 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2088
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %443, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %445 = load ptr, ptr %444, align 8
   %.not.i11.i = icmp eq ptr %445, null
   br i1 %.not.i11.i, label %Vec_PtrFree.exit12.i, label %446
@@ -1138,9 +1138,9 @@ Vec_PtrFree.exit.i:                               ; preds = %441, %435
 
 Vec_PtrFree.exit12.i:                             ; preds = %446, %Vec_PtrFree.exit.i
   tail call void @free(ptr noundef nonnull %443) #19
-  %447 = getelementptr inbounds i8, ptr %.0.i, i64 2096
+  %447 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2096
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load ptr, ptr %449, align 8
   %.not.i13.i = icmp eq ptr %450, null
   br i1 %.not.i13.i, label %Vec_IntFree.exit.i, label %451
@@ -1151,9 +1151,9 @@ Vec_PtrFree.exit12.i:                             ; preds = %446, %Vec_PtrFree.e
 
 Vec_IntFree.exit.i:                               ; preds = %451, %Vec_PtrFree.exit12.i
   tail call void @free(ptr noundef nonnull %448) #19
-  %452 = getelementptr inbounds i8, ptr %.0.i, i64 2104
+  %452 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2104
   %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load ptr, ptr %454, align 8
   %.not.i14.i = icmp eq ptr %455, null
   br i1 %.not.i14.i, label %Ver_ParseStop.exit, label %456
@@ -1172,32 +1172,32 @@ declare void @Hop_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ver_ParsePrintErrorMessage(ptr noundef initializes((76, 80)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef %8, ptr noundef nonnull %10) #19
   br label %18
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %14) #19
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef %8, i32 noundef %15, ptr noundef nonnull %16) #19
   br label %18
 
 18:                                               ; preds = %12, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Ver_ParseFreeData.exit, label %21
@@ -1218,20 +1218,20 @@ declare i32 @Ver_StreamGetLineNumber(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_ParseFindOrCreateNetwork(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_DesFindModelByName(ptr noundef %4, ptr noundef %1) #19
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @Abc_NtkAlloc(i32 noundef 1, i32 noundef 6, i32 noundef %8) #19
   %10 = tail call ptr @Extra_UtilStrsav(ptr noundef %1) #19
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %3, align 8
   %14 = tail call i32 @Abc_DesAddModel(ptr noundef %13, ptr noundef %9) #19
@@ -1291,7 +1291,7 @@ declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   br i1 %.not, label %36, label %6
 
@@ -1303,27 +1303,27 @@ define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocaptur
 
 7:                                                ; preds = %6
   store i32 4, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %11, ptr %12, align 8
   br label %Ver_ParsePrintErrorMessage.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %16) #19
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   br i1 %.not.i, label %27, label %25
 
@@ -1332,14 +1332,14 @@ define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocaptur
   br label %32
 
 27:                                               ; preds = %13
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %29) #19
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef %24, i32 noundef %30, ptr noundef nonnull %14) #19
   br label %32
 
 32:                                               ; preds = %27, %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %35
@@ -1357,27 +1357,27 @@ define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocaptur
 
 37:                                               ; preds = %36
   store i32 3, ptr %4, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %41, ptr %42, align 8
   br label %Ver_ParsePrintErrorMessage.exit
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %46) #19
-  %48 = getelementptr inbounds i8, ptr %0, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load i32, ptr %49, align 8
   %.not.i21 = icmp eq i32 %50, 0
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   br i1 %.not.i21, label %57, label %55
 
@@ -1386,14 +1386,14 @@ define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr nocaptur
   br label %62
 
 57:                                               ; preds = %43
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %59) #19
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.1, ptr noundef %54, i32 noundef %60, ptr noundef nonnull %44) #19
   br label %62
 
 62:                                               ; preds = %57, %55
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
   %.not.i.i22 = icmp eq ptr %64, null
   br i1 %.not.i.i22, label %Ver_ParsePrintErrorMessage.exit, label %65
@@ -1416,7 +1416,7 @@ define noundef i32 @Ver_ParseLookupSuffix(ptr nocapture noundef readonly %0, ptr
   %5 = alloca i32, align 4
   store i32 -1, ptr %3, align 4
   store i32 -1, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -1443,7 +1443,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Ver_ParseInsertsSuffix(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -1482,7 +1482,7 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #21
   br label %8
 
@@ -1496,20 +1496,20 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   ]
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.039, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   br label %8, !llvm.loop !19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %13, ptr noundef nonnull align 1 dereferenceable(42) @.str.6, i64 42, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   br i1 %.not.i, label %23, label %21
 
@@ -1518,14 +1518,14 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %28
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %25) #19
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef %20, i32 noundef %26, ptr noundef nonnull %13) #19
   br label %28
 
 28:                                               ; preds = %23, %21
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %31
@@ -1536,7 +1536,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %Ver_ParsePrintErrorMessage.exit
 
 32:                                               ; preds = %8
-  %33 = getelementptr inbounds i8, ptr %.039, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %34 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #21
   br label %35
 
@@ -1549,21 +1549,21 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.2, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %.pre = load i8, ptr %38, align 1
   br label %35, !llvm.loop !20
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %40, ptr noundef nonnull align 1 dereferenceable(42) @.str.6, i64 42, i1 false)
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i32, ptr %42, align 8
   %.not.i50 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   br i1 %.not.i50, label %50, label %48
 
@@ -1572,14 +1572,14 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %55
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %52) #19
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.1, ptr noundef %47, i32 noundef %53, ptr noundef nonnull %40) #19
   br label %55
 
 55:                                               ; preds = %50, %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8
   %.not.i.i51 = icmp eq ptr %57, null
   br i1 %.not.i.i51, label %Ver_ParsePrintErrorMessage.exit, label %58
@@ -1590,13 +1590,13 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %Ver_ParsePrintErrorMessage.exit
 
 59:                                               ; preds = %35
-  %60 = getelementptr inbounds i8, ptr %.2, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 92
   br i1 %62, label %63, label %.loopexit
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.2, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   br label %65
 
 65:                                               ; preds = %67, %63
@@ -1608,7 +1608,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   ]
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.038, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   br label %65, !llvm.loop !21
 
 69:                                               ; preds = %65
@@ -1655,16 +1655,16 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %10, %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %1) #19
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   br i1 %.not.i, label %23, label %21
 
@@ -1673,14 +1673,14 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %28
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %25) #19
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef %20, i32 noundef %26, ptr noundef nonnull %12) #19
   br label %28
 
 28:                                               ; preds = %23, %21
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %31
@@ -1691,7 +1691,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %Ver_ParsePrintErrorMessage.exit
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.03448, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.03448, i64 1
   %34 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #21
   store i32 %34, ptr %3, align 4
   store i32 %34, ptr %2, align 4
@@ -1699,7 +1699,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %Ver_ParsePrintErrorMessage.exit
 
 .lr.ph52.preheader:                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.03448, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.03448, i64 1
   %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %35) #21
   store i32 %36, ptr %3, align 4
   br label %.lr.ph52
@@ -1716,16 +1716,16 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br i1 %.not38, label %._crit_edge53, label %.lr.ph52, !llvm.loop !23
 
 ._crit_edge53:                                    ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %1) #19
-  %43 = getelementptr inbounds i8, ptr %0, i64 76
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i32, ptr %44, align 8
   %.not.i39 = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   br i1 %.not.i39, label %52, label %50
 
@@ -1734,14 +1734,14 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %57
 
 52:                                               ; preds = %._crit_edge53
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %54) #19
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.1, ptr noundef %49, i32 noundef %55, ptr noundef nonnull %41) #19
   br label %57
 
 57:                                               ; preds = %52, %50
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   %.not.i.i40 = icmp eq ptr %59, null
   br i1 %.not.i.i40, label %Ver_ParsePrintErrorMessage.exit, label %60
@@ -1752,7 +1752,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   br label %Ver_ParsePrintErrorMessage.exit
 
 61:                                               ; preds = %.lr.ph52
-  %62 = getelementptr inbounds i8, ptr %.150, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.150, i64 1
   %63 = tail call i32 @atoi(ptr nocapture noundef nonnull %62) #21
   store i32 %63, ptr %2, align 4
   store i8 0, ptr %.150, align 1
@@ -1780,20 +1780,20 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.031, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.031, i64 1
   br label %4, !llvm.loop !24
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %9, ptr noundef nonnull align 1 dereferenceable(38) @.str.8, i64 38, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   br i1 %.not.i, label %19, label %17
 
@@ -1802,14 +1802,14 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br label %24
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %21) #19
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, ptr noundef %16, i32 noundef %22, ptr noundef nonnull %9) #19
   br label %24
 
 24:                                               ; preds = %19, %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %27
@@ -1820,22 +1820,22 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br label %Ver_ParsePrintErrorMessage.exit
 
 28:                                               ; preds = %4
-  %29 = getelementptr inbounds i8, ptr %.031, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.031, i64 1
   %30 = load i8, ptr %29, align 1
   %.not36 = icmp eq i8 %30, 98
   br i1 %.not36, label %51, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %32, ptr noundef nonnull align 1 dereferenceable(44) @.str.9, i64 44, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load i32, ptr %34, align 8
   %.not.i40 = icmp eq i32 %35, 0
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   br i1 %.not.i40, label %42, label %40
 
@@ -1844,14 +1844,14 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br label %47
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %44) #19
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.1, ptr noundef %39, i32 noundef %45, ptr noundef nonnull %32) #19
   br label %47
 
 47:                                               ; preds = %42, %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8
   %.not.i.i41 = icmp eq ptr %49, null
   br i1 %.not.i.i41, label %Ver_ParsePrintErrorMessage.exit, label %50
@@ -1862,10 +1862,10 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br label %Ver_ParsePrintErrorMessage.exit
 
 51:                                               ; preds = %28
-  %52 = getelementptr inbounds i8, ptr %.031, i64 2
-  %53 = getelementptr inbounds i8, ptr %0, i64 2080
+  %52 = getelementptr inbounds nuw i8, ptr %.031, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %55, align 4
   %56 = icmp sgt i32 %3, 0
   br i1 %56, label %.lr.ph.preheader, label %Ver_ParsePrintErrorMessage.exit
@@ -1876,7 +1876,7 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %144 ]
-  %57 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   switch i8 %58, label %59 [
     i8 120, label %79
@@ -1885,16 +1885,16 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   ]
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %60, ptr noundef nonnull align 1 dereferenceable(44) @.str.10, i64 44, i1 false)
-  %61 = getelementptr inbounds i8, ptr %0, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load i32, ptr %62, align 8
   %.not.i43 = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   br i1 %.not.i43, label %70, label %68
 
@@ -1903,14 +1903,14 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br label %75
 
 70:                                               ; preds = %59
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @Ver_StreamGetLineNumber(ptr noundef %72) #19
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.1, ptr noundef %67, i32 noundef %73, ptr noundef nonnull %60) #19
   br label %75
 
 75:                                               ; preds = %70, %68
-  %76 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8
   %.not.i.i44 = icmp eq ptr %77, null
   br i1 %.not.i.i44, label %Ver_ParsePrintErrorMessage.exit, label %78
@@ -1922,14 +1922,14 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
 
 79:                                               ; preds = %.lr.ph
   %80 = load ptr, ptr %53, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %80, align 8
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %79
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %80, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %80, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1938,7 +1938,7 @@ define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr nocapture noun
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %80, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not9.i.i = icmp eq ptr %89, null
   br i1 %.not9.i.i, label %92, label %90
@@ -1959,7 +1959,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %92, %90
 
 95:                                               ; preds = %85
   %96 = shl nuw nsw i32 %82, 1
-  %97 = getelementptr inbounds i8, ptr %80, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not9.i10.i = icmp eq ptr %98, null
   %99 = zext nneg i32 %96 to i64
@@ -1992,14 +1992,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %112 = load ptr, ptr %53, align 8
   %113 = add nsw i64 %111, -48
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %112, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = load i32, ptr %112, align 8
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %.Vec_PtrGrow.exit11_crit_edge.i46
 
 .Vec_PtrGrow.exit11_crit_edge.i46:                ; preds = %110
-  %.phi.trans.insert.i47 = getelementptr inbounds i8, ptr %112, i64 8
+  %.phi.trans.insert.i47 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %.pre.i48 = load ptr, ptr %.phi.trans.insert.i47, align 8
   br label %Vec_PtrPush.exit52
 
@@ -2008,7 +2008,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %112, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not9.i.i50 = icmp eq ptr %123, null
   br i1 %.not9.i.i50, label %126, label %124
@@ -2029,7 +2029,7 @@ Vec_PtrGrow.exit.i51:                             ; preds = %126, %124
 
 129:                                              ; preds = %119
   %130 = shl nuw nsw i32 %116, 1
-  %131 = getelementptr inbounds i8, ptr %112, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not9.i10.i49 = icmp eq ptr %132, null
   %133 = zext nneg i32 %130 to i64
@@ -2075,14 +2075,14 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %144, %51, %78, %75,
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_PtrGrow.exit11_crit_edge
 
 .Vec_PtrGrow.exit11_crit_edge:                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Vec_PtrGrow.exit11
 
@@ -2091,7 +2091,7 @@ define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -2112,7 +2112,7 @@ Vec_PtrGrow.exit:                                 ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -2212,9 +2212,9 @@ define void @Ver_ParseFreeBundle(ptr nocapture noundef %0) local_unnamed_addr #5
   br label %4
 
 4:                                                ; preds = %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %9
@@ -2235,9 +2235,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1000 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val134 = load i32, ptr %7, align 4
@@ -2251,9 +2251,9 @@ define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnam
   %.0136 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 1, %1 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val28 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv208
+  %12 = getelementptr inbounds nuw ptr, ptr %.val28, i64 %indvars.iv208
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 4
   %.val27131 = load i32, ptr %16, align 4
@@ -2266,7 +2266,7 @@ define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnam
   %.1133 = phi i32 [ %.2, %430 ], [ %.0136, %.lr.ph137 ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val29.val = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds ptr, ptr %.val29.val, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %.val29.val, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 20
   %.val30 = load i32, ptr %22, align 4
@@ -2275,7 +2275,7 @@ define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnam
   br i1 %.not, label %430, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %21, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %430, label %28
@@ -2296,7 +2296,7 @@ define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnam
 
 Ver_NtkIsDefined.exit.thread:                     ; preds = %28
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %2)
-  %33 = getelementptr inbounds i8, ptr %21, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %21, align 8
   %36 = getelementptr i8, ptr %34, i64 4
@@ -2317,8 +2317,8 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %28
   br label %85
 
 42:                                               ; preds = %Ver_NtkIsDefined.exit.thread
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  %44 = getelementptr inbounds i8, ptr %26, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
   %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) @.str.112, i32 noundef %.val334.i, i32 noundef %38, ptr noundef %45, ptr noundef %46) #19
@@ -2333,7 +2333,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %28
 50:                                               ; preds = %Ver_ParseFreeBundle.exit.i, %.lr.ph510.i
   %indvars.iv592.i = phi i64 [ 0, %.lr.ph510.i ], [ %indvars.iv.next593.i, %Ver_ParseFreeBundle.exit.i ]
   %.val351.i = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %.val351.i, i64 %indvars.iv592.i
+  %51 = getelementptr inbounds nuw ptr, ptr %.val351.i, i64 %indvars.iv592.i
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, null
@@ -2345,9 +2345,9 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %28
   br label %55
 
 55:                                               ; preds = %54, %50
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i, label %Ver_ParseFreeBundle.exit.i, label %60
@@ -2366,7 +2366,7 @@ Ver_ParseFreeBundle.exit.i:                       ; preds = %60, %55
   br i1 %62, label %50, label %.critedge.i, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %Ver_ParseFreeBundle.exit.i, %42
-  %63 = getelementptr inbounds i8, ptr %34, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not.i371.i = icmp eq ptr %64, null
   br i1 %.not.i371.i, label %Vec_PtrFree.exit.i, label %65
@@ -2378,14 +2378,14 @@ Ver_ParseFreeBundle.exit.i:                       ; preds = %60, %55
 Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
   call void @free(ptr noundef nonnull %34) #19
   store ptr null, ptr %33, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 76
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load i32, ptr %67, align 8
   %.not.i372.i = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   br i1 %.not.i372.i, label %75, label %73
 
@@ -2394,7 +2394,7 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
   br label %80
 
 75:                                               ; preds = %Vec_PtrFree.exit.i
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @Ver_StreamGetLineNumber(ptr noundef %77) #19
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.1, ptr noundef %72, i32 noundef %78, ptr noundef nonnull %43) #19
@@ -2420,14 +2420,14 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
 
 85:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
-  %86 = getelementptr inbounds ptr, ptr %.val350.i, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw ptr, ptr %.val350.i, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %82
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %26, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %92, ptr noundef %93)
@@ -2443,9 +2443,9 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
 96:                                               ; preds = %96, %.lr.ph480.i
   %indvars.iv569.i = phi i64 [ 0, %.lr.ph480.i ], [ %indvars.iv.next570.i, %96 ]
   %.0272479.i = phi i32 [ 0, %.lr.ph480.i ], [ %102, %96 ]
-  %97 = getelementptr inbounds ptr, ptr %.val349.i, i64 %indvars.iv569.i
+  %97 = getelementptr inbounds nuw ptr, ptr %.val349.i, i64 %indvars.iv569.i
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 4
   %.val328.i = load i32, ptr %101, align 4
@@ -2471,8 +2471,8 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
   br i1 %106, label %.lr.ph494.i, label %.critedge8.preheader.i
 
 107:                                              ; preds = %.critedge4.i
-  %108 = getelementptr inbounds i8, ptr %26, i64 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 80
+  %108 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %110 = load ptr, ptr %108, align 8
   %111 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
   %112 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %.val329.i, i32 noundef %105, ptr noundef %110, ptr noundef %111) #19
@@ -2483,7 +2483,7 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
 .lr.ph485.i:                                      ; preds = %107, %Ver_ParseFreeBundle.exit376.i
   %indvars.iv574.i = phi i64 [ %indvars.iv.next575.i, %Ver_ParseFreeBundle.exit376.i ], [ 0, %107 ]
   %.val348.i = load ptr, ptr %41, align 8
-  %114 = getelementptr inbounds ptr, ptr %.val348.i, i64 %indvars.iv574.i
+  %114 = getelementptr inbounds nuw ptr, ptr %.val348.i, i64 %indvars.iv574.i
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
   %.not.i374.i = icmp eq ptr %116, null
@@ -2495,9 +2495,9 @@ Vec_PtrFree.exit.i:                               ; preds = %65, %.critedge.i
   br label %118
 
 118:                                              ; preds = %117, %.lr.ph485.i
-  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.i.i375.i = icmp eq ptr %122, null
   br i1 %.not.i.i375.i, label %Ver_ParseFreeBundle.exit376.i, label %123
@@ -2527,14 +2527,14 @@ Ver_ParseFreeBundle.exit376.i:                    ; preds = %123, %118
 Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   call void @free(ptr noundef nonnull %34) #19
   store ptr null, ptr %33, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 76
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %130 = load i32, ptr %129, align 8
   %.not.i379.i = icmp eq i32 %130, 0
-  %131 = getelementptr inbounds i8, ptr %0, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load ptr, ptr %133, align 8
   br i1 %.not.i379.i, label %137, label %135
 
@@ -2543,7 +2543,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   br label %142
 
 137:                                              ; preds = %Vec_PtrFree.exit378.i
-  %138 = getelementptr inbounds i8, ptr %0, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = call i32 @Ver_StreamGetLineNumber(ptr noundef %139) #19
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.1, ptr noundef %134, i32 noundef %140, ptr noundef nonnull %109) #19
@@ -2587,9 +2587,9 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %.0280492.i = phi i32 [ %.1281.lcssa.i, %.critedge10.loopexit.i ], [ 0, %.critedge10.preheader.i ]
   %indvars.iv.next581.i = add nuw nsw i64 %indvars.iv580.i, 1
   %.val347.i = load ptr, ptr %41, align 8
-  %149 = getelementptr inbounds ptr, ptr %.val347.i, i64 %indvars.iv580.i
+  %149 = getelementptr inbounds nuw ptr, ptr %.val347.i, i64 %indvars.iv580.i
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr i8, ptr %152, i64 4
   %.val325.i = load i32, ptr %153, align 4
@@ -2606,7 +2606,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %156 = load ptr, ptr %151, align 8
   %157 = getelementptr i8, ptr %156, i64 8
   %.val346.i = load ptr, ptr %157, align 8
-  %158 = getelementptr inbounds ptr, ptr %.val346.i, i64 %indvars.iv.next578.i
+  %158 = getelementptr inbounds nuw ptr, ptr %.val346.i, i64 %indvars.iv.next578.i
   %159 = load ptr, ptr %158, align 8
   %160 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 4) #19
   call void @Abc_ObjAddFanin(ptr noundef nonnull %21, ptr noundef %160) #19
@@ -2638,9 +2638,9 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %.2282502.i = phi i32 [ %.3283.lcssa.i, %.critedge8.loopexit.i ], [ 0, %.critedge8.preheader.i ]
   %indvars.iv.next587.i = add nuw nsw i64 %indvars.iv586.i, 1
   %.val345.i = load ptr, ptr %41, align 8
-  %166 = getelementptr inbounds ptr, ptr %.val345.i, i64 %indvars.iv586.i
+  %166 = getelementptr inbounds nuw ptr, ptr %.val345.i, i64 %indvars.iv586.i
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr i8, ptr %169, i64 4
   %.val324.i = load i32, ptr %170, align 4
@@ -2657,7 +2657,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %173 = load ptr, ptr %168, align 8
   %174 = getelementptr i8, ptr %173, i64 8
   %.val344.i = load ptr, ptr %174, align 8
-  %175 = getelementptr inbounds ptr, ptr %.val344.i, i64 %indvars.iv.next584.i
+  %175 = getelementptr inbounds nuw ptr, ptr %.val344.i, i64 %indvars.iv.next584.i
   %176 = load ptr, ptr %175, align 8
   %177 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 5) #19
   call void @Abc_ObjAddFanin(ptr noundef %177, ptr noundef nonnull %21) #19
@@ -2668,7 +2668,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
 .lr.ph507.i:                                      ; preds = %.critedge12.preheader.i, %Ver_ParseFreeBundle.exit384.i
   %indvars.iv589.i = phi i64 [ %indvars.iv.next590.i, %Ver_ParseFreeBundle.exit384.i ], [ 0, %.critedge12.preheader.i ]
   %.val343.i = load ptr, ptr %41, align 8
-  %179 = getelementptr inbounds ptr, ptr %.val343.i, i64 %indvars.iv589.i
+  %179 = getelementptr inbounds nuw ptr, ptr %.val343.i, i64 %indvars.iv589.i
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %180, align 8
   %.not.i382.i = icmp eq ptr %181, null
@@ -2680,9 +2680,9 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   br label %183
 
 183:                                              ; preds = %182, %.lr.ph507.i
-  %184 = getelementptr inbounds i8, ptr %180, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %.not.i.i383.i = icmp eq ptr %187, null
   br i1 %.not.i.i383.i, label %Ver_ParseFreeBundle.exit384.i, label %188
@@ -2764,7 +2764,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 210:                                              ; preds = %215, %.lr.ph423.i
   %indvars.iv529.i = phi i64 [ 0, %.lr.ph423.i ], [ %indvars.iv.next530.i, %215 ]
-  %211 = getelementptr inbounds ptr, ptr %.val342.i, i64 %indvars.iv529.i
+  %211 = getelementptr inbounds nuw ptr, ptr %.val342.i, i64 %indvars.iv529.i
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %212, align 8
   %214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %208) #21
@@ -2808,7 +2808,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 229:                                              ; preds = %226
   %230 = add nsw i64 %indvars.iv534.i, -1
-  %231 = getelementptr inbounds i8, ptr %208, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %208, i64 %230
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 91
   br i1 %233, label %234, label %226, !llvm.loop !38
@@ -2827,7 +2827,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 237:                                              ; preds = %246, %.lr.ph431.i
   %indvars.iv538.i = phi i64 [ 0, %.lr.ph431.i ], [ %indvars.iv.next539.i, %246 ]
-  %238 = getelementptr inbounds ptr, ptr %.val341.i, i64 %indvars.iv538.i
+  %238 = getelementptr inbounds nuw ptr, ptr %.val341.i, i64 %indvars.iv538.i
   %239 = load ptr, ptr %238, align 8
   %240 = load ptr, ptr %239, align 8
   %241 = call i32 @strncmp(ptr noundef %240, ptr noundef %208, i64 noundef %236) #21
@@ -2851,19 +2851,19 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %248, label %.thread401.i, label %270
 
 .thread401.i:                                     ; preds = %.critedge22.i, %234, %.critedge20.thread.i, %226, %246
-  %249 = getelementptr inbounds i8, ptr %0, i64 80
-  %250 = getelementptr inbounds i8, ptr %26, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %250 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %251 = load ptr, ptr %250, align 8
   %252 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
   %253 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %249, ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %208, ptr noundef %251, ptr noundef %252) #19
-  %254 = getelementptr inbounds i8, ptr %0, i64 76
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %254, align 4
-  %255 = getelementptr inbounds i8, ptr %0, i64 72
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %256 = load i32, ptr %255, align 8
   %.not.i387.i = icmp eq i32 %256, 0
-  %257 = getelementptr inbounds i8, ptr %0, i64 64
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %260 = load ptr, ptr %259, align 8
   br i1 %.not.i387.i, label %263, label %261
 
@@ -2872,7 +2872,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br label %268
 
 263:                                              ; preds = %.thread401.i
-  %264 = getelementptr inbounds i8, ptr %0, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %265 = load ptr, ptr %264, align 8
   %266 = call i32 @Ver_StreamGetLineNumber(ptr noundef %265) #19
   %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.1, ptr noundef %260, i32 noundef %266, ptr noundef nonnull %249) #19
@@ -2885,7 +2885,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 270:                                              ; preds = %.critedge22.i, %.critedge20.i
   %.2291.i = phi ptr [ %.1290.i, %.critedge20.i ], [ %239, %.critedge22.i ]
-  %271 = getelementptr inbounds i8, ptr %.2291.i, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.2291.i, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %272, i64 4
   %.val318.i = load i32, ptr %273, align 4
@@ -2902,7 +2902,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %276 = load ptr, ptr %271, align 8
   %277 = getelementptr i8, ptr %276, i64 8
   %.val340.i = load ptr, ptr %277, align 8
-  %278 = getelementptr inbounds ptr, ptr %.val340.i, i64 %indvars.iv.next544.i
+  %278 = getelementptr inbounds nuw ptr, ptr %.val340.i, i64 %indvars.iv.next544.i
   %279 = load ptr, ptr %278, align 8
   %280 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 4) #19
   call void @Abc_ObjAddFanin(ptr noundef nonnull %21, ptr noundef %280) #19
@@ -2950,7 +2950,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 297:                                              ; preds = %302, %.lr.ph447.i
   %indvars.iv546.i = phi i64 [ 0, %.lr.ph447.i ], [ %indvars.iv.next547.i, %302 ]
-  %298 = getelementptr inbounds ptr, ptr %.val339.i, i64 %indvars.iv546.i
+  %298 = getelementptr inbounds nuw ptr, ptr %.val339.i, i64 %indvars.iv546.i
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %299, align 8
   %301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %300, ptr noundef nonnull dereferenceable(1) %295) #21
@@ -2994,7 +2994,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 316:                                              ; preds = %313
   %317 = add nsw i64 %indvars.iv551.i, -1
-  %318 = getelementptr inbounds i8, ptr %295, i64 %317
+  %318 = getelementptr inbounds nuw i8, ptr %295, i64 %317
   %319 = load i8, ptr %318, align 1
   %320 = icmp eq i8 %319, 91
   br i1 %320, label %321, label %313, !llvm.loop !42
@@ -3013,7 +3013,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 324:                                              ; preds = %333, %.lr.ph456.i
   %indvars.iv555.i = phi i64 [ 0, %.lr.ph456.i ], [ %indvars.iv.next556.i, %333 ]
-  %325 = getelementptr inbounds ptr, ptr %.val338.i, i64 %indvars.iv555.i
+  %325 = getelementptr inbounds nuw ptr, ptr %.val338.i, i64 %indvars.iv555.i
   %326 = load ptr, ptr %325, align 8
   %327 = load ptr, ptr %326, align 8
   %328 = call i32 @strncmp(ptr noundef %327, ptr noundef %295, i64 noundef %323) #21
@@ -3049,7 +3049,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 341:                                              ; preds = %.critedge30.i, %.critedge28.i
   %.8297.i = phi ptr [ %.7296.i, %.critedge28.i ], [ %326, %.critedge30.i ]
-  %342 = getelementptr inbounds i8, ptr %.8297.i, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %.8297.i, i64 8
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr i8, ptr %343, i64 4
   %.val313.i = load i32, ptr %344, align 4
@@ -3067,7 +3067,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %348 = load ptr, ptr %342, align 8
   %349 = getelementptr i8, ptr %348, i64 8
   %.val337.i = load ptr, ptr %349, align 8
-  %350 = getelementptr inbounds ptr, ptr %.val337.i, i64 %indvars.iv.next561.i
+  %350 = getelementptr inbounds nuw ptr, ptr %.val337.i, i64 %indvars.iv.next561.i
   %351 = load ptr, ptr %350, align 8
   %352 = call ptr @Abc_ObjName(ptr noundef %351) #19
   %353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(5) @.str.2) #21
@@ -3081,10 +3081,10 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %.not304.i, label %357, label %396
 
 357:                                              ; preds = %354, %.lr.ph465.i
-  %358 = getelementptr inbounds i8, ptr %0, i64 80
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %359 = load ptr, ptr %.8297.i, align 8
   %360 = call ptr @Abc_ObjName(ptr noundef %351) #19
-  %361 = getelementptr inbounds i8, ptr %26, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %362 = load ptr, ptr %361, align 8
   %363 = call ptr @Abc_ObjName(ptr noundef nonnull %21) #19
   %364 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %358, ptr noundef nonnull dereferenceable(1) @.str.117, ptr noundef %359, ptr noundef %360, ptr noundef %362, ptr noundef %363) #19
@@ -3095,7 +3095,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 .lr.ph477.i:                                      ; preds = %357, %Ver_ParseFreeBundle.exit392.i
   %indvars.iv563.i = phi i64 [ %indvars.iv.next564.i, %Ver_ParseFreeBundle.exit392.i ], [ 0, %357 ]
   %.val336.i = load ptr, ptr %196, align 8
-  %366 = getelementptr inbounds ptr, ptr %.val336.i, i64 %indvars.iv563.i
+  %366 = getelementptr inbounds nuw ptr, ptr %.val336.i, i64 %indvars.iv563.i
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %367, align 8
   %.not.i390.i = icmp eq ptr %368, null
@@ -3107,9 +3107,9 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br label %370
 
 370:                                              ; preds = %369, %.lr.ph477.i
-  %371 = getelementptr inbounds i8, ptr %367, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
   %.not.i.i391.i = icmp eq ptr %374, null
   br i1 %.not.i.i391.i, label %Ver_ParseFreeBundle.exit392.i, label %375
@@ -3139,14 +3139,14 @@ Ver_ParseFreeBundle.exit392.i:                    ; preds = %375, %370
 Vec_PtrFree.exit394.i:                            ; preds = %379, %.critedge34.i
   call void @free(ptr noundef nonnull %34) #19
   store ptr null, ptr %33, align 8
-  %380 = getelementptr inbounds i8, ptr %0, i64 76
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %380, align 4
-  %381 = getelementptr inbounds i8, ptr %0, i64 72
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %382 = load i32, ptr %381, align 8
   %.not.i395.i = icmp eq i32 %382, 0
-  %383 = getelementptr inbounds i8, ptr %0, i64 64
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %384 = load ptr, ptr %383, align 8
-  %385 = getelementptr inbounds i8, ptr %0, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %386 = load ptr, ptr %385, align 8
   br i1 %.not.i395.i, label %389, label %387
 
@@ -3155,7 +3155,7 @@ Vec_PtrFree.exit394.i:                            ; preds = %379, %.critedge34.i
   br label %394
 
 389:                                              ; preds = %Vec_PtrFree.exit394.i
-  %390 = getelementptr inbounds i8, ptr %0, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %391 = load ptr, ptr %390, align 8
   %392 = call i32 @Ver_StreamGetLineNumber(ptr noundef %391) #19
   %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %384, ptr noundef nonnull @.str.1, ptr noundef %386, i32 noundef %392, ptr noundef nonnull %358) #19
@@ -3184,7 +3184,7 @@ Vec_PtrFree.exit394.i:                            ; preds = %379, %.critedge34.i
 401:                                              ; preds = %Ver_ParseFreeBundle.exit400.i, %.lr.ph474.i
   %indvars.iv566.i = phi i64 [ 0, %.lr.ph474.i ], [ %indvars.iv.next567.i, %Ver_ParseFreeBundle.exit400.i ]
   %.val335.i = load ptr, ptr %283, align 8
-  %402 = getelementptr inbounds ptr, ptr %.val335.i, i64 %indvars.iv566.i
+  %402 = getelementptr inbounds nuw ptr, ptr %.val335.i, i64 %indvars.iv566.i
   %403 = load ptr, ptr %402, align 8
   %404 = load ptr, ptr %403, align 8
   %.not.i398.i = icmp eq ptr %404, null
@@ -3196,9 +3196,9 @@ Vec_PtrFree.exit394.i:                            ; preds = %379, %.critedge34.i
   br label %406
 
 406:                                              ; preds = %405, %401
-  %407 = getelementptr inbounds i8, ptr %403, i64 8
+  %407 = getelementptr inbounds nuw i8, ptr %403, i64 8
   %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr inbounds i8, ptr %408, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %410 = load ptr, ptr %409, align 8
   %.not.i.i399.i = icmp eq ptr %410, null
   br i1 %.not.i.i399.i, label %Ver_ParseFreeBundle.exit400.i, label %411
@@ -3217,7 +3217,7 @@ Ver_ParseFreeBundle.exit400.i:                    ; preds = %411, %406
   br i1 %413, label %401, label %.critedge36.i, !llvm.loop !47
 
 .critedge36.i:                                    ; preds = %Ver_ParseFreeBundle.exit400.i, %.critedge26.preheader.i
-  %414 = getelementptr inbounds i8, ptr %34, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %415 = load ptr, ptr %414, align 8
   %.not.i35 = icmp eq ptr %415, null
   br i1 %.not.i35, label %Vec_PtrFree.exit386.i, label %Vec_PtrFree.exit386.i.sink.split
@@ -3253,12 +3253,12 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
   %421 = or disjoint i32 %420, 9
   store i32 %421, ptr %22, align 4
   %422 = load ptr, ptr %21, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 136
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 136
   %424 = load i32, ptr %423, align 8
   %425 = add nsw i32 %424, -1
   store i32 %425, ptr %423, align 8
   %426 = load ptr, ptr %21, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 132
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 132
   %428 = load i32, ptr %427, align 4
   %429 = add nsw i32 %428, 1
   store i32 %429, ptr %427, align 4
@@ -3282,7 +3282,7 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
   %435 = phi ptr [ %9, %.lr.ph137 ], [ %.pre, %.critedge2.loopexit ]
   %.1.lcssa = phi i32 [ %.0136, %.lr.ph137 ], [ %.2, %.critedge2.loopexit ]
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %436 = getelementptr inbounds i8, ptr %435, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr i8, ptr %437, i64 4
   %.val = load i32, ptr %438, align 4
@@ -3297,9 +3297,9 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val3448 = load i32, ptr %6, align 4
@@ -3311,13 +3311,13 @@ define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef rea
   %8 = phi ptr [ %15, %.lr.ph ], [ %5, %1 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val36 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 344
   store ptr null, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 4
   %.val34 = load i32, ptr %16, align 4
@@ -3334,11 +3334,11 @@ define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef rea
   %20 = phi ptr [ %15, %.critedge.loopexit ], [ %5, %1 ]
   %21 = phi ptr [ %13, %.critedge.loopexit ], [ %3, %1 ]
   %22 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %23, align 4
   store i32 16, ptr %22, align 8
   %24 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %25, align 8
   br i1 %.val3353, label %.lr.ph55, label %.critedge2
 
@@ -3348,9 +3348,9 @@ define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef rea
   %27 = phi ptr [ %125, %.critedge4 ], [ %20, %.critedge ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val35 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv60
+  %29 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv60
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 4
   %.val50 = load i32, ptr %33, align 4
@@ -3362,7 +3362,7 @@ define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef rea
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %Ver_NtkIsDefined.exit.thread ], [ 0, %.lr.ph55 ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val37.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv57
+  %37 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv57
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 20
   %.val38 = load i32, ptr %39, align 4
@@ -3371,7 +3371,7 @@ define noalias noundef ptr @Ver_ParseCollectUndefBoxes(ptr nocapture noundef rea
   br i1 %.not, label %41, label %Ver_NtkIsDefined.exit.thread
 
 41:                                               ; preds = %.lr.ph52
-  %42 = getelementptr inbounds i8, ptr %38, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %Ver_NtkIsDefined.exit.thread, label %45
@@ -3393,7 +3393,7 @@ Ver_NtkIsDefined.exit:                            ; preds = %45
   br i1 %.not47, label %50, label %Ver_NtkIsDefined.exit.thread
 
 50:                                               ; preds = %Ver_NtkIsDefined.exit
-  %51 = getelementptr inbounds i8, ptr %43, i64 344
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 344
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %86
@@ -3461,25 +3461,25 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %81 = getelementptr inbounds ptr, ptr %78, i64 %80
   store ptr %43, ptr %81, align 8
   %82 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 0, ptr %83, align 4
   store i32 16, ptr %82, align 8
   %84 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %84, ptr %85, align 8
   store ptr %82, ptr %51, align 8
   br label %86
 
 86:                                               ; preds = %Vec_PtrPush.exit, %50
   %87 = phi ptr [ %82, %Vec_PtrPush.exit ], [ %52, %50 ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = load i32, ptr %87, align 8
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %92, label %.Vec_PtrGrow.exit11_crit_edge.i39
 
 .Vec_PtrGrow.exit11_crit_edge.i39:                ; preds = %86
-  %.phi.trans.insert.i40 = getelementptr inbounds i8, ptr %87, i64 8
+  %.phi.trans.insert.i40 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %.pre.i41 = load ptr, ptr %.phi.trans.insert.i40, align 8
   br label %Vec_PtrPush.exit45
 
@@ -3488,7 +3488,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %93, label %94, label %102
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %87, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not9.i.i43 = icmp eq ptr %96, null
   br i1 %.not9.i.i43, label %99, label %97
@@ -3509,7 +3509,7 @@ Vec_PtrGrow.exit.i44:                             ; preds = %99, %97
 
 102:                                              ; preds = %92
   %103 = shl nuw nsw i32 %89, 1
-  %104 = getelementptr inbounds i8, ptr %87, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not9.i10.i42 = icmp eq ptr %105, null
   %106 = zext nneg i32 %103 to i64
@@ -3557,7 +3557,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %45, %Vec_PtrPush.ex
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph55
   %123 = phi ptr [ %.pre64, %.critedge4.loopexit ], [ %26, %.lr.ph55 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr i8, ptr %125, i64 4
   %.val33 = load i32, ptr %126, align 4
@@ -3571,9 +3571,9 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %45, %Vec_PtrPush.ex
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Ver_ParseReportUndefBoxes(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val5582 = load i32, ptr %6, align 4
@@ -3590,9 +3590,9 @@ define void @Ver_ParseReportUndefBoxes(ptr nocapture noundef readonly %0) local_
   %.084 = phi i32 [ %19, %Ver_NtkIsDefined.exit.thread ], [ 0, %1 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val59 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 196
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 196
   store i32 0, ptr %13, align 4
   %14 = getelementptr i8, ptr %12, i64 40
   %.val.i = load ptr, ptr %14, align 8
@@ -3616,7 +3616,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %Ver_NtkIsDefined.ex
   %19 = phi i32 [ %.084, %.lr.ph ], [ %spec.select, %Ver_NtkIsDefined.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val55 = load i32, ptr %23, align 4
@@ -3630,9 +3630,9 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %Ver_NtkIsDefined.ex
   %27 = phi ptr [ %59, %.critedge4 ], [ %22, %.critedge.preheader ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val58 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val58, i64 %indvars.iv101
+  %29 = getelementptr inbounds nuw ptr, ptr %.val58, i64 %indvars.iv101
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 4
   %.val5385 = load i32, ptr %33, align 4
@@ -3644,7 +3644,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %Ver_NtkIsDefined.ex
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %Ver_NtkIsDefined.exit68.thread ], [ 0, %.lr.ph90 ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val60.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val60.val, i64 %indvars.iv98
+  %37 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv98
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 20
   %.val61 = load i32, ptr %39, align 4
@@ -3653,7 +3653,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %Ver_NtkIsDefined.ex
   br i1 %.not, label %41, label %Ver_NtkIsDefined.exit68.thread
 
 41:                                               ; preds = %.lr.ph87
-  %42 = getelementptr inbounds i8, ptr %38, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not49 = icmp eq ptr %43, null
   br i1 %.not49, label %Ver_NtkIsDefined.exit68.thread, label %44
@@ -3675,7 +3675,7 @@ Ver_NtkIsDefined.exit68:                          ; preds = %44
   br i1 %.not80, label %49, label %Ver_NtkIsDefined.exit68.thread
 
 49:                                               ; preds = %Ver_NtkIsDefined.exit68
-  %50 = getelementptr inbounds i8, ptr %43, i64 196
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 196
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -3698,7 +3698,7 @@ Ver_NtkIsDefined.exit68.thread:                   ; preds = %44, %.lr.ph87, %49,
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph90
   %57 = phi ptr [ %.pre111, %.critedge4.loopexit ], [ %26, %.lr.ph90 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 4
   %.val54 = load i32, ptr %60, align 4
@@ -3710,7 +3710,7 @@ Ver_NtkIsDefined.exit68.thread:                   ; preds = %44, %.lr.ph87, %49,
   %.0.lcssa115 = phi i32 [ %19, %.critedge.preheader ], [ 0, %1 ], [ %19, %.critedge4 ]
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0.lcssa115)
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 4
   %.val5291 = load i32, ptr %67, align 4
@@ -3723,7 +3723,7 @@ Ver_NtkIsDefined.exit68.thread:                   ; preds = %44, %.lr.ph87, %49,
   %70 = phi ptr [ %85, %Ver_NtkIsDefined.exit74.thread ], [ %66, %.critedge2 ]
   %71 = getelementptr i8, ptr %70, i64 8
   %.val57 = load ptr, ptr %71, align 8
-  %72 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv104
+  %72 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv104
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 40
   %.val.i69 = load ptr, ptr %74, align 8
@@ -3743,7 +3743,7 @@ Ver_NtkIsDefined.exit74:                          ; preds = %.lr.ph93
 78:                                               ; preds = %Ver_NtkIsDefined.exit74
   %79 = getelementptr i8, ptr %73, i64 8
   %.val62 = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %73, i64 196
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 196
   %81 = load i32, ptr %80, align 4
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %.val62, i32 noundef %81)
   %.pre112 = load ptr, ptr %2, align 8
@@ -3752,7 +3752,7 @@ Ver_NtkIsDefined.exit74:                          ; preds = %.lr.ph93
 Ver_NtkIsDefined.exit74.thread:                   ; preds = %.lr.ph93, %Ver_NtkIsDefined.exit74, %78
   %83 = phi ptr [ %69, %.lr.ph93 ], [ %69, %Ver_NtkIsDefined.exit74 ], [ %.pre112, %78 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 4
   %.val52 = load i32, ptr %86, align 4
@@ -3763,7 +3763,7 @@ Ver_NtkIsDefined.exit74.thread:                   ; preds = %.lr.ph93, %Ver_NtkI
 .critedge6:                                       ; preds = %Ver_NtkIsDefined.exit74.thread, %.critedge2
   %putchar = tail call i32 @putchar(i32 10)
   %89 = load ptr, ptr %2, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %91, i64 4
   %.val94 = load i32, ptr %92, align 4
@@ -3775,13 +3775,13 @@ Ver_NtkIsDefined.exit74.thread:                   ; preds = %.lr.ph93, %Ver_NtkI
   %94 = phi ptr [ %101, %.lr.ph96 ], [ %91, %.critedge6 ]
   %95 = getelementptr i8, ptr %94, i64 8
   %.val56 = load ptr, ptr %95, align 8
-  %96 = getelementptr inbounds ptr, ptr %.val56, i64 %indvars.iv107
+  %96 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %indvars.iv107
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 196
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 196
   store i32 0, ptr %98, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr i8, ptr %101, i64 4
   %.val = load i32, ptr %102, align 4
@@ -3811,9 +3811,9 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef re
   %.val4068 = phi i32 [ %.val4054, %.lr.ph56 ], [ %.val40, %.critedge2 ]
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next66, %.critedge2 ]
   %.val44 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv65
+  %6 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv65
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 344
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val3951 = load i32, ptr %10, align 4
@@ -3825,9 +3825,9 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef re
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.critedge4 ], [ 0, %5 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val43 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val43, i64 %indvars.iv62
+  %14 = getelementptr inbounds nuw ptr, ptr %.val43, i64 %indvars.iv62
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 4
   %.val38 = load i32, ptr %18, align 4
@@ -3844,13 +3844,13 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef re
   %21 = load ptr, ptr %16, align 8
   %22 = getelementptr i8, ptr %21, i64 8
   %.val42 = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val42, i64 %indvars.iv.next60
+  %23 = getelementptr inbounds nuw ptr, ptr %.val42, i64 %indvars.iv.next60
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge6, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph50
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 4
   %.val3746 = load i32, ptr %27, align 4
@@ -3862,7 +3862,7 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr nocapture noundef re
   %29 = phi ptr [ %42, %41 ], [ %26, %.preheader ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val41 = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 28
   %.val = load i32, ptr %33, align 4
@@ -3927,7 +3927,7 @@ declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val34 = load i32, ptr %5, align 4
@@ -3943,9 +3943,9 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 8:                                                ; preds = %.lr.ph49, %.critedge4
   %indvars.iv55 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next56, %.critedge4 ]
   %.02847 = phi ptr [ null, %.lr.ph49 ], [ %.263, %.critedge4 ]
-  %9 = getelementptr inbounds ptr, ptr %.val37, i64 %indvars.iv55
+  %9 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv55
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val33 = load i32, ptr %13, align 4
@@ -3961,7 +3961,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 
 17:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %18 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %23, label %20
@@ -3988,7 +3988,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 
 .preheader:                                       ; preds = %8, %.critedge2
   %.262 = phi ptr [ %19, %.critedge2 ], [ %.02847, %8 ]
-  %27 = getelementptr inbounds i8, ptr %.262, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.262, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 4
   %.val31 = load i32, ptr %29, align 4
@@ -4008,7 +4008,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 
 33:                                               ; preds = %.lr.ph46, %32
   %indvars.iv52 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next53, %32 ]
-  %34 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv52
+  %34 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv52
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 28
   %.val = load i32, ptr %36, align 4
@@ -4028,7 +4028,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef r
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val31 = load i32, ptr %5, align 4
@@ -4044,9 +4044,9 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 .lr.ph46.split.us:                                ; preds = %.lr.ph46.split.us.preheader, %.critedge2.us
   %indvars.iv53 = phi i64 [ 0, %.lr.ph46.split.us.preheader ], [ %indvars.iv.next54, %.critedge2.us ]
-  %9 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv53
+  %9 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv53
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val30.us = load i32, ptr %13, align 4
@@ -4069,7 +4069,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
   br i1 %exitcond57.not, label %.critedge, label %.lr.ph46.split.us, !llvm.loop !10
 
 .preheader.us:                                    ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val28.us = load i32, ptr %23, align 4
@@ -4084,7 +4084,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 26:                                               ; preds = %Ver_ParseFormalNetsAreDriven.exit.us.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %Ver_ParseFormalNetsAreDriven.exit.us.us ], [ 0, %.lr.ph.us ]
-  %27 = getelementptr inbounds ptr, ptr %.val32.us, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %.val32.us, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 28
   %.val.us.us = load i32, ptr %29, align 4
@@ -4098,9 +4098,9 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 31:                                               ; preds = %.critedge4.i.us.us, %.lr.ph49.i.us.us
   %indvars.iv55.i.us.us = phi i64 [ 0, %.lr.ph49.i.us.us ], [ %indvars.iv.next56.i.us.us, %.critedge4.i.us.us ]
   %.02847.i.us.us = phi ptr [ null, %.lr.ph49.i.us.us ], [ %.263.i.us.us, %.critedge4.i.us.us ]
-  %32 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv55.i.us.us
+  %32 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv55.i.us.us
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val33.i.us.us = load i32, ptr %36, align 4
@@ -4116,7 +4116,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 40:                                               ; preds = %47, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ %39, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %47 ]
-  %41 = getelementptr inbounds ptr, ptr %.val36.i.us.us, i64 %indvars.iv.i.us.us
+  %41 = getelementptr inbounds nuw ptr, ptr %.val36.i.us.us, i64 %indvars.iv.i.us.us
   %42 = load ptr, ptr %41, align 8
   %.not.i.us.us = icmp eq ptr %42, null
   br i1 %.not.i.us.us, label %47, label %43
@@ -4143,7 +4143,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 .preheader.i.us.us:                               ; preds = %.critedge2.i.us.us, %31
   %.262.i.us.us = phi ptr [ %42, %.critedge2.i.us.us ], [ %.02847.i.us.us, %31 ]
-  %50 = getelementptr inbounds i8, ptr %.262.i.us.us, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.262.i.us.us, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr i8, ptr %51, i64 4
   %.val31.i.us.us = load i32, ptr %52, align 4
@@ -4158,7 +4158,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
 
 55:                                               ; preds = %60, %.lr.ph46.i.us.us
   %indvars.iv52.i.us.us = phi i64 [ 0, %.lr.ph46.i.us.us ], [ %indvars.iv.next53.i.us.us, %60 ]
-  %56 = getelementptr inbounds ptr, ptr %.val35.i.us.us, i64 %indvars.iv52.i.us.us
+  %56 = getelementptr inbounds nuw ptr, ptr %.val35.i.us.us, i64 %indvars.iv52.i.us.us
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 28
   %.val.i.us.us = load i32, ptr %58, align 4
@@ -4189,7 +4189,7 @@ Ver_ParseFormalNetsAreDriven.exit.us.us:          ; preds = %55, %26
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val8599 = load i32, ptr %7, align 4
@@ -4250,7 +4250,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 .critedge:                                        ; preds = %25, %3
   %32 = load ptr, ptr %2, align 8
   %33 = call ptr @Extra_UtilStrsav(ptr noundef %32) #19
-  %34 = getelementptr inbounds i8, ptr %1, i64 344
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val83114 = load i32, ptr %36, align 4
@@ -4263,9 +4263,9 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   %.071115 = phi ptr [ %.3, %110 ], [ null, %.critedge ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val89 = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv126
+  %40 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv126
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 4
   %.val82 = load i32, ptr %44, align 4
@@ -4281,7 +4281,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 
 48:                                               ; preds = %.lr.ph104, %54
   %indvars.iv = phi i64 [ %47, %.lr.ph104 ], [ %indvars.iv.next, %54 ]
-  %49 = getelementptr inbounds ptr, ptr %.val88, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %.not76 = icmp eq ptr %50, null
   br i1 %.not76, label %54, label %51
@@ -4309,7 +4309,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 .preheader:                                       ; preds = %.lr.ph117, %.critedge4
   %.273132 = phi ptr [ %50, %.critedge4 ], [ %.071115, %.lr.ph117 ]
   %.068.lcssa131 = phi i32 [ %.068.lcssa, %.critedge4 ], [ %.068102, %.lr.ph117 ]
-  %58 = getelementptr inbounds i8, ptr %.273132, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.273132, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %59, i64 4
   %.val80 = load i32, ptr %60, align 4
@@ -4333,7 +4333,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 
 65:                                               ; preds = %.lr.ph110, %63
   %indvars.iv120 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next121, %63 ]
-  %66 = getelementptr inbounds ptr, ptr %.val87, i64 %indvars.iv120
+  %66 = getelementptr inbounds nuw ptr, ptr %.val87, i64 %indvars.iv120
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 28
   %.val = load i32, ptr %68, align 4
@@ -4341,18 +4341,18 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   br i1 %69, label %70, label %63
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = getelementptr i8, ptr %1, i64 8
   %.val93 = load ptr, ptr %72, align 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %.val93) #19
-  %74 = getelementptr inbounds i8, ptr %0, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %76 = load i32, ptr %75, align 8
   %.not.i = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8
   br i1 %.not.i, label %83, label %81
 
@@ -4361,14 +4361,14 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   br label %88
 
 83:                                               ; preds = %70
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 @Ver_StreamGetLineNumber(ptr noundef %85) #19
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.1, ptr noundef %80, i32 noundef %86, ptr noundef nonnull %71) #19
   br label %88
 
 88:                                               ; preds = %83, %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %90 = load ptr, ptr %89, align 8
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %91
@@ -4384,7 +4384,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   %92 = load ptr, ptr %58, align 8
   %93 = getelementptr i8, ptr %92, i64 8
   %.val86 = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv.next124
+  %94 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv.next124
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr @Abc_NtkCreateObj(ptr noundef %96, i32 noundef 5) #19
@@ -4405,7 +4405,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 
 101:                                              ; preds = %100, %.critedge8
   %102 = load ptr, ptr %58, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not.i.i96 = icmp eq ptr %104, null
   br i1 %.not.i.i96, label %Ver_ParseFreeBundle.exit, label %105
@@ -4466,9 +4466,9 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
 7:                                                ; preds = %.lr.ph162, %.critedge10
   %indvars.iv188 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next189, %.critedge10 ]
   %.val122 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val122, i64 %indvars.iv188
+  %8 = getelementptr inbounds nuw ptr, ptr %.val122, i64 %indvars.iv188
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 344
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 4
   %.val112 = load i32, ptr %12, align 4
@@ -4484,9 +4484,9 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
 15:                                               ; preds = %.lr.ph141, %55
   %indvars.iv171 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next172, %55 ]
   %.0140 = phi i32 [ -1, %.lr.ph141 ], [ %.1, %55 ]
-  %16 = getelementptr inbounds ptr, ptr %.val121, i64 %indvars.iv171
+  %16 = getelementptr inbounds nuw ptr, ptr %.val121, i64 %indvars.iv171
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 4
   %.val111 = load i32, ptr %20, align 4
@@ -4502,7 +4502,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.094138 = phi i32 [ 0, %.lr.ph ], [ %28, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %.val120, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ne ptr %25, null
   %27 = zext i1 %26 to i32
@@ -4521,19 +4521,19 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   br i1 %.not105, label %55, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @Abc_ObjName(ptr noundef nonnull %17) #19
   %36 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.094.lcssa, i32 noundef %.0140, ptr noundef %34, ptr noundef %35) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 76
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i32, ptr %38, align 8
   %.not.i = icmp eq i32 %39, 0
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   br i1 %.not.i, label %46, label %44
 
@@ -4542,14 +4542,14 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   br label %51
 
 46:                                               ; preds = %31
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @Ver_StreamGetLineNumber(ptr noundef %48) #19
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %43, i32 noundef %49, ptr noundef nonnull %32) #19
   br label %51
 
 51:                                               ; preds = %46, %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %.critedge, label %54
@@ -4567,7 +4567,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
 
 .critedge2:                                       ; preds = %55, %7
   %56 = load ptr, ptr %.val121, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   %.val110147 = load i32, ptr %59, align 4
@@ -4595,13 +4595,13 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   %indvars.iv176 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next177, %.critedge8 ]
   %66 = getelementptr i8, ptr %65, i64 8
   %.val118 = load ptr, ptr %66, align 8
-  %67 = getelementptr inbounds ptr, ptr %.val118, i64 %indvars.iv176
+  %67 = getelementptr inbounds nuw ptr, ptr %.val118, i64 %indvars.iv176
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.critedge8, label %.preheader
 
 .preheader:                                       ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
   %.val109143 = load i32, ptr %72, align 4
@@ -4673,9 +4673,9 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   %99 = phi ptr [ %143, %Vec_PtrFree.exit ], [ %62, %.critedge6.preheader ]
   %100 = getelementptr i8, ptr %99, i64 8
   %.val116 = load ptr, ptr %100, align 8
-  %101 = getelementptr inbounds ptr, ptr %.val116, i64 %indvars.iv185
+  %101 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv185
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr i8, ptr %104, i64 4
   %.val106152 = load i32, ptr %105, align 4
@@ -4687,13 +4687,13 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %135 ], [ 0, %.lr.ph159 ]
   %108 = getelementptr i8, ptr %107, i64 8
   %.val115 = load ptr, ptr %108, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val115, i64 %indvars.iv182
+  %109 = getelementptr inbounds nuw ptr, ptr %.val115, i64 %indvars.iv182
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %135, label %112
 
 112:                                              ; preds = %.lr.ph154
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 4
   %.val = load i32, ptr %115, align 4
@@ -4710,7 +4710,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   %118 = load ptr, ptr %113, align 8
   %119 = getelementptr i8, ptr %118, i64 8
   %.val114 = load ptr, ptr %119, align 8
-  %120 = getelementptr inbounds ptr, ptr %.val114, i64 %indvars.iv.next180
+  %120 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv.next180
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = call ptr @Abc_NtkCreateObj(ptr noundef %122, i32 noundef 4) #19
@@ -4731,7 +4731,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
 
 127:                                              ; preds = %126, %.critedge14
   %128 = load ptr, ptr %113, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not.i.i127 = icmp eq ptr %130, null
   br i1 %.not.i.i127, label %Ver_ParseFreeBundle.exit, label %131
@@ -4746,7 +4746,7 @@ Ver_ParseFreeBundle.exit:                         ; preds = %127, %131
   %132 = load ptr, ptr %103, align 8
   %133 = getelementptr i8, ptr %132, i64 8
   %.val125 = load ptr, ptr %133, align 8
-  %134 = getelementptr inbounds ptr, ptr %.val125, i64 %indvars.iv182
+  %134 = getelementptr inbounds nuw ptr, ptr %.val125, i64 %indvars.iv182
   store ptr null, ptr %134, align 8
   %.pre195 = load ptr, ptr %103, align 8
   br label %135
@@ -4762,7 +4762,7 @@ Ver_ParseFreeBundle.exit:                         ; preds = %127, %131
 
 .critedge12:                                      ; preds = %135, %.lr.ph159
   %.lcssa134 = phi ptr [ %104, %.lr.ph159 ], [ %136, %135 ]
-  %140 = getelementptr inbounds i8, ptr %.lcssa134, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.lcssa134, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not.i128 = icmp eq ptr %141, null
   br i1 %.not.i128, label %Vec_PtrFree.exit, label %142
@@ -4810,9 +4810,9 @@ define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr nocapture noundef 
 5:                                                ; preds = %.lr.ph26, %.critedge2
   %indvars.iv29 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next30, %.critedge2 ]
   %.025 = phi i32 [ 0, %.lr.ph26 ], [ %.1.lcssa, %.critedge2 ]
-  %6 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv29
+  %6 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv29
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 344
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val18 = load i32, ptr %10, align 4
@@ -4828,9 +4828,9 @@ define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr nocapture noundef 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.123 = phi i32 [ %.025, %.lr.ph ], [ %spec.select, %13 ]
-  %14 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 4
   %.val17 = load i32, ptr %18, align 4
@@ -4853,7 +4853,7 @@ define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [1000 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Extra_FileNameGeneric(ptr noundef %4) #19
   %6 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %5) #19
@@ -4866,9 +4866,9 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
 
 8:                                                ; preds = %1, %7
   %9 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.19)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val188242 = load i32, ptr %14, align 4
@@ -4884,13 +4884,13 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   %17 = phi ptr [ %24, %.lr.ph ], [ %13, %8 ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val196 = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds ptr, ptr %.val196, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %.val196, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 192
   store i32 0, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 4
   %.val188 = load i32, ptr %25, align 4
@@ -4904,9 +4904,9 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   %29 = phi ptr [ %58, %.critedge4 ], [ %24, %.critedge.preheader ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val195 = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val195, i64 %indvars.iv288
+  %31 = getelementptr inbounds nuw ptr, ptr %.val195, i64 %indvars.iv288
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 4
   %.val186244 = load i32, ptr %35, align 4
@@ -4918,7 +4918,7 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %51 ], [ 0, %.lr.ph249 ]
   %38 = getelementptr i8, ptr %37, i64 8
   %.val210.val = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds ptr, ptr %.val210.val, i64 %indvars.iv285
+  %39 = getelementptr inbounds nuw ptr, ptr %.val210.val, i64 %indvars.iv285
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 20
   %.val213 = load i32, ptr %41, align 4
@@ -4927,13 +4927,13 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not239, label %51, label %43
 
 43:                                               ; preds = %.lr.ph246
-  %44 = getelementptr inbounds i8, ptr %40, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %49 = load i32, ptr %48, align 8
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8
@@ -4956,7 +4956,7 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph249
   %56 = phi ptr [ %.pre322, %.critedge4.loopexit ], [ %28, %.lr.ph249 ]
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   %.val187 = load i32, ptr %59, align 4
@@ -4969,7 +4969,7 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   %62 = load ptr, ptr %3, align 8
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.20, ptr noundef %62, i32 noundef %.val187.lcssa) #19
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 4
   %.val184250 = load i32, ptr %67, align 4
@@ -4986,7 +4986,7 @@ define void @Ver_ParsePrintLog(ptr nocapture noundef readonly %0) local_unnamed_
   %.0153252 = phi i32 [ %102, %81 ], [ 0, %.critedge2 ]
   %71 = getelementptr i8, ptr %70, i64 8
   %.val194 = load ptr, ptr %71, align 8
-  %72 = getelementptr inbounds ptr, ptr %.val194, i64 %indvars.iv291
+  %72 = getelementptr inbounds nuw ptr, ptr %.val194, i64 %indvars.iv291
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 8
   %.val217 = load ptr, ptr %74, align 8
@@ -5016,7 +5016,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
 81:                                               ; preds = %Ver_NtkIsDefined.exit.thread, %Ver_NtkIsDefined.exit
   %.str.23.sink = phi ptr [ @.str.22, %Ver_NtkIsDefined.exit ], [ %.str.23..str.24, %Ver_NtkIsDefined.exit.thread ]
   %82 = tail call i64 @fwrite(ptr nonnull %.str.23.sink, i64 8, i64 1, ptr %9)
-  %83 = getelementptr inbounds i8, ptr %73, i64 192
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 192
   %84 = load i32, ptr %83, align 8
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.25, i32 noundef %84) #19
   %.val199 = load ptr, ptr %76, align 8
@@ -5050,7 +5050,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   %102 = add nuw nsw i32 %.0153252, %101
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr i8, ptr %105, i64 4
   %.val184 = load i32, ptr %106, align 4
@@ -5063,13 +5063,13 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   %109 = phi ptr [ %116, %.critedge6 ], [ %105, %.critedge6.preheader ]
   %110 = getelementptr i8, ptr %109, i64 8
   %.val193 = load ptr, ptr %110, align 8
-  %111 = getelementptr inbounds ptr, ptr %.val193, i64 %indvars.iv294
+  %111 = getelementptr inbounds nuw ptr, ptr %.val193, i64 %indvars.iv294
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 192
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 192
   store i32 0, ptr %113, align 8
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %114 = load ptr, ptr %10, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr i8, ptr %116, i64 4
   %.val183 = load i32, ptr %117, align 4
@@ -5086,7 +5086,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   %123 = fdiv double %121, %122
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.31, i32 noundef %.0153.lcssa329, double noundef %123) #19
   %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 4
   %.val181 = load i32, ptr %128, align 4
@@ -5102,9 +5102,9 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
 131:                                              ; preds = %.preheader, %.critedge12
   %indvars.iv305 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next306, %.critedge12 ]
   %.0268 = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %.critedge12 ]
-  %132 = getelementptr inbounds ptr, ptr %.val192, i64 %indvars.iv305
+  %132 = getelementptr inbounds nuw ptr, ptr %.val192, i64 %indvars.iv305
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 80
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 80
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr i8, ptr %135, i64 4
   %.val179 = load i32, ptr %136, align 4
@@ -5120,7 +5120,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
 139:                                              ; preds = %.lr.ph265, %168
   %indvars.iv300 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next301, %168 ]
   %.1264 = phi i32 [ %.0268, %.lr.ph265 ], [ %.2, %168 ]
-  %140 = getelementptr inbounds ptr, ptr %.val209.val, i64 %indvars.iv300
+  %140 = getelementptr inbounds nuw ptr, ptr %.val209.val, i64 %indvars.iv300
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr i8, ptr %141, i64 20
   %.val212 = load i32, ptr %142, align 4
@@ -5129,9 +5129,9 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph253, %Ver_Ntk
   br i1 %.not235, label %168, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %141, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 64
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %141, i64 56
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 56
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %168, label %150
@@ -5167,9 +5167,9 @@ Ver_NtkIsDefined.exit225:                         ; preds = %150
 .critedge240:                                     ; preds = %.lr.ph261, %.critedge240
   %indvars.iv297 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next298, %.critedge240 ]
   %.0149260 = phi i32 [ 0, %.lr.ph261 ], [ %163, %.critedge240 ]
-  %158 = getelementptr inbounds ptr, ptr %.val191, i64 %indvars.iv297
+  %158 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv297
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr i8, ptr %161, i64 4
   %.val177 = load i32, ptr %162, align 4
@@ -5214,7 +5214,7 @@ Ver_NtkIsDefined.exit225:                         ; preds = %150
   %fputc = tail call i32 @fputc(i32 10, ptr %9)
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.33, i32 noundef %.1.lcssa) #19
   %174 = load ptr, ptr %10, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr i8, ptr %176, i64 4
   %.val176276 = load i32, ptr %177, align 4
@@ -5227,9 +5227,9 @@ Ver_NtkIsDefined.exit225:                         ; preds = %150
   %180 = phi ptr [ %233, %.critedge18 ], [ %176, %172 ]
   %181 = getelementptr i8, ptr %180, i64 8
   %.val190 = load ptr, ptr %181, align 8
-  %182 = getelementptr inbounds ptr, ptr %.val190, i64 %indvars.iv318
+  %182 = getelementptr inbounds nuw ptr, ptr %.val190, i64 %indvars.iv318
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 80
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 80
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr i8, ptr %185, i64 4
   %.val175273 = load i32, ptr %186, align 4
@@ -5245,7 +5245,7 @@ Ver_NtkIsDefined.exit225:                         ; preds = %150
   %indvars.iv315 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next316, %226 ]
   %191 = getelementptr i8, ptr %190, i64 8
   %.val208.val = load ptr, ptr %191, align 8
-  %192 = getelementptr inbounds ptr, ptr %.val208.val, i64 %indvars.iv315
+  %192 = getelementptr inbounds nuw ptr, ptr %.val208.val, i64 %indvars.iv315
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr i8, ptr %193, i64 20
   %.val211 = load i32, ptr %194, align 4
@@ -5254,9 +5254,9 @@ Ver_NtkIsDefined.exit225:                         ; preds = %150
   br i1 %.not233, label %226, label %196
 
 196:                                              ; preds = %189
-  %197 = getelementptr inbounds i8, ptr %193, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 64
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %193, i64 56
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 56
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, null
   br i1 %201, label %226, label %202
@@ -5292,9 +5292,9 @@ Ver_NtkIsDefined.exit231:                         ; preds = %202
 .critedge241:                                     ; preds = %.lr.ph271, %.critedge241
   %indvars.iv310 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next311, %.critedge241 ]
   %.1150270 = phi i32 [ 0, %.lr.ph271 ], [ %215, %.critedge241 ]
-  %210 = getelementptr inbounds ptr, ptr %.val189, i64 %indvars.iv310
+  %210 = getelementptr inbounds nuw ptr, ptr %.val189, i64 %indvars.iv310
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr i8, ptr %213, i64 4
   %.val = load i32, ptr %214, align 4
@@ -5345,7 +5345,7 @@ Ver_NtkIsDefined.exit231:                         ; preds = %202
 .critedge18:                                      ; preds = %.critedge18.loopexit, %.lr.ph278
   %231 = phi ptr [ %.pre325, %.critedge18.loopexit ], [ %179, %.lr.ph278 ]
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
-  %232 = getelementptr inbounds i8, ptr %231, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr i8, ptr %233, i64 4
   %.val176 = load i32, ptr %234, align 4
@@ -5402,7 +5402,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   store i32 -1, ptr %7, align 4
   store i32 -1, ptr %6, align 4
@@ -5412,8 +5412,8 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr 
   br i1 %11, label %Ver_ParsePrintErrorMessage.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = and i32 %2, 5
   %or.cond9 = icmp eq i32 %14, 1
   %15 = and i32 %2, 6
@@ -5637,16 +5637,16 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
   ]
 
 101:                                              ; preds = %.loopexit
-  %102 = getelementptr inbounds i8, ptr %0, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %102, ptr noundef nonnull align 1 dereferenceable(44) @.str.59, i64 44, i1 false)
-  %103 = getelementptr inbounds i8, ptr %0, i64 76
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %105 = load i32, ptr %104, align 8
   %.not.i59 = icmp eq i32 %105, 0
-  %106 = getelementptr inbounds i8, ptr %0, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %109 = load ptr, ptr %108, align 8
   br i1 %.not.i59, label %112, label %110
 
@@ -5661,7 +5661,7 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
   br label %116
 
 116:                                              ; preds = %112, %110
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %118 = load ptr, ptr %117, align 8
   %.not.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %119
@@ -5678,7 +5678,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %31, %.l
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %7 = tail call i32 @Ver_ParseConvertNetwork(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %6)
@@ -5692,16 +5692,16 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0
   br i1 %.not87, label %29, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) %11, ptr noundef nonnull align 1 dereferenceable(61) @.str.60, i64 61, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   br i1 %.not.i, label %21, label %19
 
@@ -5716,7 +5716,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGateStandard(ptr noundef %0
   br label %25
 
 25:                                               ; preds = %21, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %28
@@ -5765,16 +5765,16 @@ Ver_ParseFindNet.exit:                            ; preds = %38, %40, %42
   br i1 %45, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread113
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %42, %Ver_ParseFindNet.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull %36) #19
-  %48 = getelementptr inbounds i8, ptr %0, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load i32, ptr %49, align 8
   %.not.i103 = icmp eq i32 %50, 0
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   br i1 %.not.i103, label %57, label %55
 
@@ -5789,7 +5789,7 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %42, %Ver_ParseFindN
   br label %61
 
 61:                                               ; preds = %57, %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8
   %.not.i.i104 = icmp eq ptr %63, null
   br i1 %.not.i.i104, label %Ver_ParsePrintErrorMessage.exit, label %64
@@ -5822,7 +5822,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   ]
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val91 = load ptr, ptr %31, align 8
   %73 = getelementptr i8, ptr %31, i64 48
   %.val92 = load ptr, ptr %73, align 8
@@ -5836,14 +5836,14 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr @Abc_ObjName(ptr noundef %78) #19
   %80 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) @.str.62, ptr noundef %79) #19
-  %81 = getelementptr inbounds i8, ptr %0, i64 76
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %0, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %83 = load i32, ptr %82, align 8
   %.not.i106 = icmp eq i32 %83, 0
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load ptr, ptr %86, align 8
   br i1 %.not.i106, label %90, label %88
 
@@ -5858,7 +5858,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br label %94
 
 94:                                               ; preds = %90, %88
-  %95 = getelementptr inbounds i8, ptr %0, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = load ptr, ptr %95, align 8
   %.not.i.i107 = icmp eq ptr %96, null
   br i1 %.not.i.i107, label %Ver_ParsePrintErrorMessage.exit, label %97
@@ -5886,7 +5886,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br i1 %.not89, label %116, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val93 = load ptr, ptr %31, align 8
   %108 = getelementptr i8, ptr %31, i64 48
   %.val94 = load ptr, ptr %108, align 8
@@ -5910,7 +5910,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br i1 %.not90, label %146, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val95 = load ptr, ptr %31, align 8
   %121 = getelementptr i8, ptr %31, i64 48
   %.val96 = load ptr, ptr %121, align 8
@@ -5924,14 +5924,14 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   %126 = load ptr, ptr %125, align 8
   %127 = tail call ptr @Abc_ObjName(ptr noundef %126) #19
   %128 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef %127) #19
-  %129 = getelementptr inbounds i8, ptr %0, i64 76
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %0, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %131 = load i32, ptr %130, align 8
   %.not.i109 = icmp eq i32 %131, 0
-  %132 = getelementptr inbounds i8, ptr %0, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load ptr, ptr %134, align 8
   br i1 %.not.i109, label %138, label %136
 
@@ -5946,7 +5946,7 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br label %142
 
 142:                                              ; preds = %138, %136
-  %143 = getelementptr inbounds i8, ptr %0, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %144 = load ptr, ptr %143, align 8
   %.not.i.i110 = icmp eq ptr %144, null
   br i1 %.not.i.i110, label %Ver_ParsePrintErrorMessage.exit, label %145
@@ -5957,11 +5957,11 @@ Ver_ParseFindNet.exit.thread113:                  ; preds = %35, %Ver_ParseFindN
   br label %Ver_ParsePrintErrorMessage.exit
 
 146:                                              ; preds = %116
-  %147 = getelementptr inbounds i8, ptr %1, i64 256
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr i8, ptr %31, i64 28
   %.val100 = load i32, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %31, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %31, i64 56
   switch i32 %103, label %default.unreachable [
     i32 0, label %151
     i32 1, label %153
@@ -5998,7 +5998,7 @@ default.unreachable:                              ; preds = %146
   ]
 
 161:                                              ; preds = %159, %159
-  %162 = getelementptr inbounds i8, ptr %31, i64 56
+  %162 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %163 = ptrtoint ptr %.sink to i64
   %164 = xor i64 %163, 1
   %165 = inttoptr i64 %164 to ptr
@@ -6012,7 +6012,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %98, %29, %159, %145
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseFlopStandard(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @Ver_ParseConvertNetwork(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %5)
@@ -6025,16 +6025,16 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseFlopStandard(ptr noundef %0
   br i1 %.not51, label %28, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(61) %10, ptr noundef nonnull align 1 dereferenceable(61) @.str.60, i64 61, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   br i1 %.not.i, label %20, label %18
 
@@ -6049,7 +6049,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseFlopStandard(ptr noundef %0
   br label %24
 
 24:                                               ; preds = %20, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %27
@@ -6092,16 +6092,16 @@ Ver_ParseFindNet.exit:                            ; preds = %34, %36, %38
   br i1 %41, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread74
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %38, %Ver_ParseFindNet.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull %30) #19
-  %44 = getelementptr inbounds i8, ptr %0, i64 76
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load i32, ptr %45, align 8
   %.not.i56 = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
   br i1 %.not.i56, label %53, label %51
 
@@ -6116,7 +6116,7 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %38, %Ver_ParseFindN
   br label %57
 
 57:                                               ; preds = %53, %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   %.not.i.i57 = icmp eq ptr %59, null
   br i1 %.not.i.i57, label %Ver_ParsePrintErrorMessage.exit, label %60
@@ -6136,16 +6136,16 @@ Ver_ParseFindNet.exit.thread74:                   ; preds = %32, %Ver_ParseFindN
   ]
 
 63:                                               ; preds = %Ver_ParseFindNet.exit.thread74
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %64, ptr noundef nonnull align 1 dereferenceable(23) @.str.65, i64 23, i1 false)
-  %65 = getelementptr inbounds i8, ptr %0, i64 76
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %67 = load i32, ptr %66, align 8
   %.not.i59 = icmp eq i32 %67, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
   br i1 %.not.i59, label %74, label %72
 
@@ -6160,7 +6160,7 @@ Ver_ParseFindNet.exit.thread74:                   ; preds = %32, %Ver_ParseFindN
   br label %78
 
 78:                                               ; preds = %74, %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load ptr, ptr %79, align 8
   %.not.i.i60 = icmp eq ptr %80, null
   br i1 %.not.i.i60, label %Ver_ParsePrintErrorMessage.exit, label %81
@@ -6171,16 +6171,16 @@ Ver_ParseFindNet.exit.thread74:                   ; preds = %32, %Ver_ParseFindN
   br label %Ver_ParsePrintErrorMessage.exit
 
 82:                                               ; preds = %Ver_ParseFindNet.exit.thread74
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %83, ptr noundef nonnull align 1 dereferenceable(23) @.str.65, i64 23, i1 false)
-  %84 = getelementptr inbounds i8, ptr %0, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load i32, ptr %85, align 8
   %.not.i62 = icmp eq i32 %86, 0
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8
   br i1 %.not.i62, label %93, label %91
 
@@ -6195,7 +6195,7 @@ Ver_ParseFindNet.exit.thread74:                   ; preds = %32, %Ver_ParseFindN
   br label %97
 
 97:                                               ; preds = %93, %91
-  %98 = getelementptr inbounds i8, ptr %0, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %99 = load ptr, ptr %98, align 8
   %.not.i.i63 = icmp eq ptr %99, null
   br i1 %.not.i.i63, label %Ver_ParsePrintErrorMessage.exit, label %100
@@ -6238,7 +6238,7 @@ Ver_ParseFindNet.exit72:                          ; preds = %107, %109, %111
   br i1 %114, label %Ver_ParseFindNet.exit72.thread, label %Ver_ParseFindNet.exit72.thread78
 
 Ver_ParseFindNet.exit72.thread:                   ; preds = %111, %Ver_ParseFindNet.exit72
-  %115 = getelementptr inbounds i8, ptr %0, i64 80
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %116 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull %103) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -6251,7 +6251,7 @@ Ver_ParseFindNet.exit72.thread78:                 ; preds = %105, %Ver_ParseFind
   br i1 %.not53, label %121, label %119
 
 119:                                              ; preds = %Ver_ParseFindNet.exit72.thread78
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %120, ptr noundef nonnull align 1 dereferenceable(23) @.str.65, i64 23, i1 false)
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -6263,14 +6263,14 @@ Ver_ParseFindNet.exit72.thread78:                 ; preds = %105, %Ver_ParseFind
   br i1 %.not54, label %126, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %0, i64 80
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %125, ptr noundef nonnull align 1 dereferenceable(23) @.str.65, i64 23, i1 false)
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
 
 126:                                              ; preds = %121
   %127 = tail call fastcc ptr @Ver_ParseCreateLatch(ptr noundef %1, ptr noundef %.0.i6680, ptr noundef %.0.i76)
-  %128 = getelementptr inbounds i8, ptr %127, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %128, align 8
   br label %Ver_ParsePrintErrorMessage.exit
 
@@ -6284,7 +6284,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseAssign(ptr noundef %0, ptr 
   %3 = alloca i32, align 4
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [2000 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %0, align 8
   %9 = tail call i32 @Ver_ParseConvertNetwork(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %8)
@@ -6297,13 +6297,13 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseAssign(ptr noundef %0, ptr 
   br i1 %11, label %Ver_ParsePrintErrorMessage.exit, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader313
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 2080
-  %15 = getelementptr inbounds i8, ptr %1, i64 256
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = getelementptr inbounds i8, ptr %0, i64 2088
-  %18 = getelementptr inbounds i8, ptr %0, i64 2096
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
@@ -6313,13 +6313,13 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.back
   br i1 %.not355, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %21 = getelementptr inbounds i8, ptr %19, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %22 = load i8, ptr %21, align 1
   %.not356 = icmp eq i8 %22, 49
   br i1 %.not356, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %23 = getelementptr inbounds i8, ptr %19, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %.backedge, label %.tail.thread
@@ -6440,7 +6440,7 @@ Ver_ParseLookupSuffix.exit:                       ; preds = %.tail.thread, %30, 
   %74 = sub nuw nsw i64 %69, %indvars.iv390
   %75 = getelementptr i8, ptr %73, i64 8
   %.val205 = load ptr, ptr %75, align 8
-  %76 = getelementptr inbounds ptr, ptr %.val205, i64 %74
+  %76 = getelementptr inbounds nuw ptr, ptr %.val205, i64 %74
   %77 = load ptr, ptr %76, align 8
   %.not199 = icmp eq ptr %77, null
   br i1 %.not199, label %80, label %78
@@ -6491,14 +6491,14 @@ Ver_ParseFindNet.exit224:                         ; preds = %86, %87, %88
 
 Ver_ParseFindNet.exit224.thread:                  ; preds = %88, %Ver_ParseFindNet.exit224
   %91 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull %56) #19
-  %92 = getelementptr inbounds i8, ptr %0, i64 76
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %94 = load i32, ptr %93, align 8
   %.not.i225 = icmp eq i32 %94, 0
-  %95 = getelementptr inbounds i8, ptr %0, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
   br i1 %.not.i225, label %101, label %99
 
@@ -6513,7 +6513,7 @@ Ver_ParseFindNet.exit224.thread:                  ; preds = %88, %Ver_ParseFindN
   br label %105
 
 105:                                              ; preds = %101, %99
-  %106 = getelementptr inbounds i8, ptr %0, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8
   %.not.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %108
@@ -6546,7 +6546,7 @@ Ver_ParseFindNet.exit224.thread286:               ; preds = %Ver_ParseFindNet.ex
   br i1 %.not178.not, label %117, label %.thread
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %19, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #21
   %120 = getelementptr i8, ptr %19, i64 %119
   store i8 0, ptr %120, align 1
@@ -6615,7 +6615,7 @@ Ver_ParseFindNet.exit233.thread292:               ; preds = %.thread, %Ver_Parse
 
 142:                                              ; preds = %136
   %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 0, ptr %144, align 4
   %145 = load i32, ptr %0, align 8
   %.not182 = icmp eq i32 %145, 0
@@ -6647,7 +6647,7 @@ Ver_ParseFindNet.exit233.thread292:               ; preds = %.thread, %Ver_Parse
   br i1 %158, label %159, label %163
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %137, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %161 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %160) #21
   %162 = getelementptr i8, ptr %137, i64 %161
   store i8 0, ptr %162, align 1
@@ -6689,14 +6689,14 @@ Ver_ParseFindNet.exit241.thread296:               ; preds = %163, %Ver_ParseFind
   %173 = load ptr, ptr %14, align 8
   %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1158) #21
   %175 = inttoptr i64 %174 to ptr
-  %176 = getelementptr inbounds i8, ptr %173, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %177 = load i32, ptr %176, align 4
   %178 = load i32, ptr %173, align 8
   %179 = icmp eq i32 %177, %178
   br i1 %179, label %180, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Ver_ParseFindNet.exit241.thread296
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %173, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -6705,7 +6705,7 @@ Ver_ParseFindNet.exit241.thread296:               ; preds = %163, %Ver_ParseFind
   br i1 %181, label %182, label %190
 
 182:                                              ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %173, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not9.i.i = icmp eq ptr %184, null
   br i1 %.not9.i.i, label %187, label %185
@@ -6726,7 +6726,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %187, %185
 
 190:                                              ; preds = %180
   %191 = shl nuw nsw i32 %177, 1
-  %192 = getelementptr inbounds i8, ptr %173, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %193 = load ptr, ptr %192, align 8
   %.not9.i10.i = icmp eq ptr %193, null
   %194 = zext nneg i32 %191 to i64
@@ -6756,14 +6756,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %206 = getelementptr inbounds ptr, ptr %202, i64 %205
   store ptr %175, ptr %206, align 8
   %207 = load ptr, ptr %14, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = load i32, ptr %207, align 8
   %211 = icmp eq i32 %209, %210
   br i1 %211, label %212, label %.Vec_PtrGrow.exit11_crit_edge.i242
 
 .Vec_PtrGrow.exit11_crit_edge.i242:               ; preds = %Vec_PtrPush.exit
-  %.phi.trans.insert.i243 = getelementptr inbounds i8, ptr %207, i64 8
+  %.phi.trans.insert.i243 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %.pre.i244 = load ptr, ptr %.phi.trans.insert.i243, align 8
   br label %Vec_PtrPush.exit248
 
@@ -6772,7 +6772,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %213, label %214, label %222
 
 214:                                              ; preds = %212
-  %215 = getelementptr inbounds i8, ptr %207, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %216 = load ptr, ptr %215, align 8
   %.not9.i.i246 = icmp eq ptr %216, null
   br i1 %.not9.i.i246, label %219, label %217
@@ -6793,7 +6793,7 @@ Vec_PtrGrow.exit.i247:                            ; preds = %219, %217
 
 222:                                              ; preds = %212
   %223 = shl nuw nsw i32 %209, 1
-  %224 = getelementptr inbounds i8, ptr %207, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %225 = load ptr, ptr %224, align 8
   %.not9.i10.i245 = icmp eq ptr %225, null
   %226 = zext nneg i32 %223 to i64
@@ -6839,7 +6839,7 @@ sub_0306:                                         ; preds = %142
   br i1 %.not357, label %.tail305, label %.tail305.thread
 
 .tail305:                                         ; preds = %sub_0306
-  %246 = getelementptr inbounds i8, ptr %137, i64 1
+  %246 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %247 = load i8, ptr %246, align 1
   %248 = icmp eq i8 %247, 0
   br i1 %248, label %252, label %.tail305.thread
@@ -6868,7 +6868,7 @@ sub_0310:                                         ; preds = %250
   br i1 %.not358, label %.tail309, label %.tail309.thread
 
 .tail309:                                         ; preds = %sub_0310
-  %258 = getelementptr inbounds i8, ptr %137, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %259 = load i8, ptr %258, align 1
   %260 = icmp eq i8 %259, 0
   br i1 %260, label %262, label %.tail309.thread
@@ -6911,7 +6911,7 @@ sub_0310:                                         ; preds = %250
 277:                                              ; preds = %274, %148, %Vec_PtrPush.exit248, %153
   %.0155 = phi ptr [ %240, %Vec_PtrPush.exit248 ], [ %155, %153 ], [ %150, %148 ], [ %.1156, %274 ]
   %278 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
-  %279 = getelementptr inbounds i8, ptr %278, i64 56
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 56
   store ptr %.0155, ptr %279, align 8
   call void @Abc_ObjAddFanin(ptr noundef nonnull %.0.i227294, ptr noundef %278) #19
   %280 = load ptr, ptr %14, align 8
@@ -6926,11 +6926,11 @@ sub_0310:                                         ; preds = %250
   %284 = shl nuw nsw i64 %indvars.iv, 1
   %285 = getelementptr i8, ptr %283, i64 8
   %.val204 = load ptr, ptr %285, align 8
-  %286 = getelementptr inbounds ptr, ptr %.val204, i64 %284
+  %286 = getelementptr inbounds nuw ptr, ptr %.val204, i64 %284
   %287 = load ptr, ptr %286, align 8
   %288 = ptrtoint ptr %287 to i64
   %289 = or disjoint i64 %284, 1
-  %290 = getelementptr inbounds ptr, ptr %.val204, i64 %289
+  %290 = getelementptr inbounds nuw ptr, ptr %.val204, i64 %289
   %291 = load ptr, ptr %290, align 8
   %sext = shl i64 %288, 32
   %292 = ashr exact i64 %sext, 32
@@ -6983,14 +6983,14 @@ Ver_ParseFindNet.exit256:                         ; preds = %303, %305, %307, %2
 
 Ver_ParseFindNet.exit256.thread:                  ; preds = %307, %Ver_ParseFindNet.exit256
   %311 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.81, ptr noundef nonnull %.0161, ptr noundef nonnull %291) #19
-  %312 = getelementptr inbounds i8, ptr %0, i64 76
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %312, align 4
-  %313 = getelementptr inbounds i8, ptr %0, i64 72
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %314 = load i32, ptr %313, align 8
   %.not.i273 = icmp eq i32 %314, 0
-  %315 = getelementptr inbounds i8, ptr %0, i64 64
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %0, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %318 = load ptr, ptr %317, align 8
   br i1 %.not.i273, label %321, label %319
 
@@ -7005,7 +7005,7 @@ Ver_ParseFindNet.exit256.thread:                  ; preds = %307, %Ver_ParseFind
   br label %325
 
 325:                                              ; preds = %321, %319
-  %326 = getelementptr inbounds i8, ptr %0, i64 48
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %327 = load ptr, ptr %326, align 8
   %.not.i.i274 = icmp eq ptr %327, null
   br i1 %.not.i.i274, label %Ver_ParsePrintErrorMessage.exit, label %328
@@ -7039,7 +7039,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %55, %63
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseAlways(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Ver_ParseGetName(ptr noundef %0) #19
   %6 = icmp eq ptr %5, null
@@ -7105,16 +7105,16 @@ Ver_ParseFindNet.exit:                            ; preds = %24, %26, %28
   br i1 %31, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread81
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %28, %Ver_ParseFindNet.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.85, ptr noundef %.2) #19
-  %34 = getelementptr inbounds i8, ptr %0, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load i32, ptr %35, align 8
   %.not.i57 = icmp eq i32 %36, 0
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   br i1 %.not.i57, label %43, label %41
 
@@ -7129,7 +7129,7 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %28, %Ver_ParseFindN
   br label %47
 
 47:                                               ; preds = %43, %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %50
@@ -7147,16 +7147,16 @@ Ver_ParseFindNet.exit.thread81:                   ; preds = %22, %Ver_ParseFindN
   br i1 %or.cond, label %53, label %73
 
 53:                                               ; preds = %Ver_ParseFindNet.exit.thread81
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef %.2) #19
-  %56 = getelementptr inbounds i8, ptr %0, i64 76
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load i32, ptr %57, align 8
   %.not.i58 = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   br i1 %.not.i58, label %65, label %63
 
@@ -7171,7 +7171,7 @@ Ver_ParseFindNet.exit.thread81:                   ; preds = %22, %Ver_ParseFindN
   br label %69
 
 69:                                               ; preds = %65, %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8
   %.not.i.i59 = icmp eq ptr %71, null
   br i1 %.not.i.i59, label %Ver_ParsePrintErrorMessage.exit, label %72
@@ -7205,7 +7205,7 @@ Ver_ParseFindNet.exit.thread81:                   ; preds = %22, %Ver_ParseFindN
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %80, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %87 = tail call ptr @Abc_NtkFindNet(ptr noundef %1, ptr noundef nonnull %86) #19
   %.not.i61 = icmp eq ptr %87, null
   br i1 %.not.i61, label %88, label %Ver_ParseFindNet.exit68
@@ -7268,16 +7268,16 @@ Ver_ParseFindNet.exit76:                          ; preds = %.sink.split.i74, %V
   br i1 %106, label %Ver_ParseFindNet.exit76.thread, label %Ver_ParseFindNet.exit76.thread85
 
 Ver_ParseFindNet.exit76.thread:                   ; preds = %103, %Ver_ParseFindNet.exit76
-  %107 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %108 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef nonnull %80) #19
-  %109 = getelementptr inbounds i8, ptr %0, i64 76
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %0, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %111 = load i32, ptr %110, align 8
   %.not.i77 = icmp eq i32 %111, 0
-  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load ptr, ptr %114, align 8
   br i1 %.not.i77, label %118, label %116
 
@@ -7292,7 +7292,7 @@ Ver_ParseFindNet.exit76.thread:                   ; preds = %103, %Ver_ParseFind
   br label %122
 
 122:                                              ; preds = %118, %116
-  %123 = getelementptr inbounds i8, ptr %0, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %124 = load ptr, ptr %123, align 8
   %.not.i.i78 = icmp eq ptr %124, null
   br i1 %.not.i.i78, label %Ver_ParsePrintErrorMessage.exit, label %125
@@ -7313,7 +7313,7 @@ Ver_ParseFindNet.exit76.thread85:                 ; preds = %97, %Ver_ParseFindN
   tail call void @Abc_ObjAddFanin(ptr noundef nonnull %.0.i83, ptr noundef %128) #19
   %129 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0.i83) #19
   %130 = tail call ptr @Abc_ObjAssignName(ptr noundef %127, ptr noundef %129, ptr noundef nonnull @.str.66) #19
-  %131 = getelementptr inbounds i8, ptr %127, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 56
   store ptr inttoptr (i64 3 to ptr), ptr %131, align 8
   %132 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %4) #19
   br i1 %.not, label %16, label %Ver_ParsePrintErrorMessage.exit
@@ -7325,7 +7325,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %20, %Ver_ParseFindN
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseInitial(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Ver_ParseGetName(ptr noundef %0) #19
   %6 = icmp eq ptr %5, null
@@ -7378,16 +7378,16 @@ Ver_ParseFindNet.exit:                            ; preds = %17, %19, %21
   br i1 %24, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread68
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %21, %Ver_ParseFindNet.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef %.1) #19
-  %27 = getelementptr inbounds i8, ptr %0, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8
   %.not.i57 = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   br i1 %.not.i57, label %36, label %34
 
@@ -7402,7 +7402,7 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %21, %Ver_ParseFindN
   br label %40
 
 40:                                               ; preds = %36, %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %43
@@ -7420,16 +7420,16 @@ Ver_ParseFindNet.exit.thread68:                   ; preds = %15, %Ver_ParseFindN
   br i1 %or.cond, label %46, label %66
 
 46:                                               ; preds = %Ver_ParseFindNet.exit.thread68
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef %.1) #19
-  %49 = getelementptr inbounds i8, ptr %0, i64 76
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load i32, ptr %50, align 8
   %.not.i58 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   br i1 %.not.i58, label %58, label %56
 
@@ -7444,7 +7444,7 @@ Ver_ParseFindNet.exit.thread68:                   ; preds = %15, %Ver_ParseFindN
   br label %62
 
 62:                                               ; preds = %58, %56
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
   %.not.i.i59 = icmp eq ptr %64, null
   br i1 %.not.i.i59, label %Ver_ParsePrintErrorMessage.exit, label %65
@@ -7479,16 +7479,16 @@ Ver_ParseFindNet.exit.thread68:                   ; preds = %15, %Ver_ParseFindN
   br i1 %77, label %78, label %sub_0
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %0, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %79, ptr noundef nonnull align 1 dereferenceable(51) @.str.89, i64 51, i1 false)
-  %80 = getelementptr inbounds i8, ptr %0, i64 76
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load i32, ptr %81, align 8
   %.not.i61 = icmp eq i32 %82, 0
-  %83 = getelementptr inbounds i8, ptr %0, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load ptr, ptr %85, align 8
   br i1 %.not.i61, label %89, label %87
 
@@ -7503,7 +7503,7 @@ Ver_ParseFindNet.exit.thread68:                   ; preds = %15, %Ver_ParseFindN
   br label %93
 
 93:                                               ; preds = %89, %87
-  %94 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load ptr, ptr %94, align 8
   %.not.i.i62 = icmp eq ptr %95, null
   br i1 %.not.i.i62, label %Ver_ParsePrintErrorMessage.exit, label %96
@@ -7541,7 +7541,7 @@ sub_0:                                            ; preds = %75
   br i1 %.not80, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %110 = getelementptr inbounds i8, ptr %73, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 0
   br i1 %112, label %140, label %.thread
@@ -7561,7 +7561,7 @@ sub_072:                                          ; preds = %.tail.thread
   br i1 %.not81, label %.tail71, label %.tail71.thread
 
 .tail71:                                          ; preds = %sub_072
-  %115 = getelementptr inbounds i8, ptr %73, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %140, label %.tail71.thread
@@ -7572,17 +7572,17 @@ sub_072:                                          ; preds = %.tail.thread
   br i1 %.not52, label %140, label %119
 
 119:                                              ; preds = %.tail71.thread
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %121 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0.i70) #19
   %122 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %121) #19
-  %123 = getelementptr inbounds i8, ptr %0, i64 76
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 72
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %125 = load i32, ptr %124, align 8
   %.not.i64 = icmp eq i32 %125, 0
-  %126 = getelementptr inbounds i8, ptr %0, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load ptr, ptr %128, align 8
   br i1 %.not.i64, label %132, label %130
 
@@ -7597,7 +7597,7 @@ sub_072:                                          ; preds = %.tail.thread
   br label %136
 
 136:                                              ; preds = %132, %130
-  %137 = getelementptr inbounds i8, ptr %0, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
   %.not.i.i65 = icmp eq ptr %138, null
   br i1 %.not.i.i65, label %Ver_ParsePrintErrorMessage.exit, label %139
@@ -7609,7 +7609,7 @@ sub_072:                                          ; preds = %.tail.thread
 
 140:                                              ; preds = %.tail71, %.tail71.thread, %.tail, %.tail.thread, %.thread
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %.thread ], [ inttoptr (i64 1 to ptr), %.tail.thread ], [ inttoptr (i64 1 to ptr), %.tail ], [ inttoptr (i64 2 to ptr), %.tail71.thread ], [ inttoptr (i64 2 to ptr), %.tail71 ]
-  %141 = getelementptr inbounds i8, ptr %108, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %108, i64 56
   store ptr %.sink, ptr %141, align 8
   %142 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %4) #19
   br i1 %.not, label %9, label %Ver_ParsePrintErrorMessage.exit
@@ -7623,7 +7623,7 @@ declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @Mio_GateReadPinNum(ptr noundef nonnull %2) #19
   %7 = load i32, ptr %0, align 8
@@ -7631,16 +7631,16 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %.not, label %27, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(69) %9, ptr noundef nonnull align 1 dereferenceable(69) @.str.91, i64 69, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   br i1 %.not.i, label %19, label %17
 
@@ -7655,7 +7655,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br label %23
 
 23:                                               ; preds = %19, %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %26
@@ -7681,17 +7681,17 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %.not123, label %55, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %37 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) @.str.92, ptr noundef %36) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 76
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = load i32, ptr %39, align 8
   %.not.i140 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   br i1 %.not.i140, label %47, label %45
 
@@ -7706,7 +7706,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br label %51
 
 51:                                               ; preds = %47, %45
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %.not.i.i141 = icmp eq ptr %53, null
   br i1 %.not.i.i141, label %Ver_ParsePrintErrorMessage.exit, label %54
@@ -7719,7 +7719,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
 55:                                               ; preds = %32
   %56 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %0) #19
   %57 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
-  %58 = getelementptr inbounds i8, ptr %57, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store ptr %2, ptr %58, align 8
   %59 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %2) #19
   %.not124 = icmp eq ptr %59, null
@@ -7728,15 +7728,15 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
 60:                                               ; preds = %55
   %61 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
   %62 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %2) #19
-  %63 = getelementptr inbounds i8, ptr %61, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %62, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %60, %55
   %.0115 = phi ptr [ %61, %60 ], [ null, %55 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 2104
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 0, ptr %67, align 4
   %68 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %5) #19
   %.not125161 = icmp eq i8 %68, 46
@@ -7748,7 +7748,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br label %73
 
 ._crit_edge:                                      ; preds = %158, %64
-  %70 = getelementptr inbounds i8, ptr %0, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %72 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.93, ptr noundef %71) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7765,7 +7765,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %0, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %81 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #19
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef nonnull %74, ptr noundef %81) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7777,7 +7777,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr no
   br i1 %.not126, label %89, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %87 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %88 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) @.str.95, ptr noundef nonnull %74, ptr noundef %87) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7815,7 +7815,7 @@ Ver_ParseFindNet.exit:                            ; preds = %94, %96, %98
   br i1 %101, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread145
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %98, %Ver_ParseFindNet.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %103 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef nonnull %90) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
   br label %Ver_ParsePrintErrorMessage.exit
@@ -7827,7 +7827,7 @@ Ver_ParseFindNet.exit.thread145:                  ; preds = %92, %Ver_ParseFindN
   br i1 %.not127, label %109, label %105
 
 105:                                              ; preds = %Ver_ParseFindNet.exit.thread145
-  %106 = getelementptr inbounds i8, ptr %0, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %107 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %108 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef nonnull %90, ptr noundef %107) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7839,14 +7839,14 @@ Ver_ParseFindNet.exit.thread145:                  ; preds = %92, %Ver_ParseFindN
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr %65, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = load i32, ptr %112, align 8
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %117, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %111
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %112, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %112, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -7855,7 +7855,7 @@ Ver_ParseFindNet.exit.thread145:                  ; preds = %92, %Ver_ParseFindN
   br i1 %118, label %119, label %127
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %112, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %121 = load ptr, ptr %120, align 8
   %.not9.i.i = icmp eq ptr %121, null
   br i1 %.not9.i.i, label %124, label %122
@@ -7876,7 +7876,7 @@ Vec_IntGrow.exit.i:                               ; preds = %124, %122
 
 127:                                              ; preds = %117
   %128 = shl nuw nsw i32 %114, 1
-  %129 = getelementptr inbounds i8, ptr %112, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not9.i9.i = icmp eq ptr %130, null
   %131 = zext nneg i32 %128 to i64
@@ -7937,7 +7937,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   ]
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %0, i64 80
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %156 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %157 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef nonnull %90, ptr noundef %156) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7962,7 +7962,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %166, label %171, label %167
 
 167:                                              ; preds = %164, %161
-  %168 = getelementptr inbounds i8, ptr %0, i64 80
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %169 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %170 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %168, ptr noundef nonnull dereferenceable(1) @.str.98, ptr noundef %169) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -7988,7 +7988,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %183
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 80
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %180 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %2) #19
   %181 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %180) #19
   tail call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -8001,7 +8001,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 183:                                              ; preds = %.lr.ph163, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next, %182 ]
-  %184 = getelementptr inbounds i32, ptr %.val135, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw i32, ptr %.val135, i64 %indvars.iv
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
   %.not131 = icmp eq i64 %indvars.iv, %186
@@ -8025,7 +8025,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv183 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next184, %.critedge ]
   %191 = load ptr, ptr %65, align 8
   %.val138 = load ptr, ptr %188, align 8
-  %192 = getelementptr inbounds i32, ptr %.val138, i64 %indvars.iv183
+  %192 = getelementptr inbounds nuw i32, ptr %.val138, i64 %indvars.iv183
   %193 = load i32, ptr %192, align 4
   tail call fastcc void @Vec_IntPush(ptr noundef %191, i32 noundef %193)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -8037,10 +8037,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %195 = load ptr, ptr %65, align 8
   %196 = getelementptr i8, ptr %195, i64 8
   %.val136 = load ptr, ptr %196, align 8
-  %197 = getelementptr inbounds i32, ptr %.val136, i64 %indvars.iv188
+  %197 = getelementptr inbounds nuw i32, ptr %.val136, i64 %indvars.iv188
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i32, ptr %.val136, i64 %indvars.iv188
-  %200 = getelementptr inbounds i32, ptr %199, i64 %190
+  %199 = getelementptr inbounds nuw i32, ptr %.val136, i64 %indvars.iv188
+  %200 = getelementptr inbounds nuw i32, ptr %199, i64 %190
   %201 = load i32, ptr %200, align 4
   %.val139 = load ptr, ptr %189, align 8
   %202 = sext i32 %198 to i64
@@ -8062,7 +8062,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
   %6 = alloca [1000 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @Ver_ParseGetName(ptr noundef %0) #19
   %12 = icmp eq ptr %11, null
@@ -8070,7 +8070,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %3
   %14 = tail call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 10) #19
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %2, ptr %15, align 8
   %16 = tail call ptr @Abc_ObjAssignName(ptr noundef %14, ptr noundef nonnull %11, ptr noundef null) #19
   %17 = tail call signext i8 @Ver_StreamPopChar(ptr noundef %10) #19
@@ -8078,17 +8078,17 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
   br i1 %.not, label %39, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = tail call ptr @Abc_ObjName(ptr noundef nonnull %14) #19
   %21 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.100, ptr noundef %20) #19
-  %22 = getelementptr inbounds i8, ptr %0, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load i32, ptr %23, align 8
   %.not.i = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   br i1 %.not.i, label %31, label %29
 
@@ -8103,7 +8103,7 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
   br label %35
 
 35:                                               ; preds = %31, %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %Ver_ParsePrintErrorMessage.exit, label %38
@@ -8116,30 +8116,30 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
 39:                                               ; preds = %13
   %40 = tail call i32 @Ver_ParseSkipComments(ptr noundef nonnull %0) #19
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   store i32 16, ptr %41, align 8
   %43 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #20
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %14, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %41, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
-  %48 = getelementptr inbounds i8, ptr %0, i64 2080
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   br label %49
 
 49:                                               ; preds = %531, %39
   %50 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   store ptr null, ptr %50, align 8
   %51 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %52, align 4
   store i32 8, ptr %51, align 8
   %53 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %55, align 8
   %56 = load i32, ptr %42, align 4
   %57 = load i32, ptr %41, align 8
@@ -8213,7 +8213,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not215, label %91, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %89 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %90 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) @.str.101, ptr noundef %89) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -8232,7 +8232,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not216, label %101, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %99 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %100 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) @.str.102, ptr noundef nonnull %92, ptr noundef %99) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -8296,7 +8296,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %128 = phi ptr [ %193, %Vec_PtrPush.exit250 ], [ %125, %.preheader ]
   %129 = getelementptr i8, ptr %128, i64 8
   %.val239 = load ptr, ptr %129, align 8
-  %130 = getelementptr inbounds ptr, ptr %.val239, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw ptr, ptr %.val239, i64 %indvars.iv
   %131 = load ptr, ptr %130, align 8
   %132 = icmp ne ptr %131, null
   %133 = zext i1 %132 to i32
@@ -8327,17 +8327,17 @@ Ver_ParseFindNet.exit:                            ; preds = %136, %137, %138
   br i1 %140, label %Ver_ParseFindNet.exit.thread, label %Ver_ParseFindNet.exit.thread325
 
 Ver_ParseFindNet.exit.thread:                     ; preds = %138, %Ver_ParseFindNet.exit
-  %141 = getelementptr inbounds i8, ptr %0, i64 80
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %142 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %143 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) @.str.104, ptr noundef nonnull %6, ptr noundef %142) #19
-  %144 = getelementptr inbounds i8, ptr %0, i64 76
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %0, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %146 = load i32, ptr %145, align 8
   %.not.i241 = icmp eq i32 %146, 0
-  %147 = getelementptr inbounds i8, ptr %0, i64 64
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %150 = load ptr, ptr %149, align 8
   br i1 %.not.i241, label %153, label %151
 
@@ -8352,7 +8352,7 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %138, %Ver_ParseFind
   br label %157
 
 157:                                              ; preds = %153, %151
-  %158 = getelementptr inbounds i8, ptr %0, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %159 = load ptr, ptr %158, align 8
   %.not.i.i242 = icmp eq ptr %159, null
   br i1 %.not.i.i242, label %Ver_ParsePrintErrorMessage.exit, label %160
@@ -8365,14 +8365,14 @@ Ver_ParseFindNet.exit.thread:                     ; preds = %138, %Ver_ParseFind
 Ver_ParseFindNet.exit.thread325:                  ; preds = %.lr.ph, %Ver_ParseFindNet.exit
   %.0.i327 = phi ptr [ %139, %Ver_ParseFindNet.exit ], [ %135, %.lr.ph ]
   %161 = load ptr, ptr %55, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
   %164 = load i32, ptr %161, align 8
   %165 = icmp eq i32 %163, %164
   br i1 %165, label %166, label %.Vec_PtrGrow.exit11_crit_edge.i244
 
 .Vec_PtrGrow.exit11_crit_edge.i244:               ; preds = %Ver_ParseFindNet.exit.thread325
-  %.phi.trans.insert.i245 = getelementptr inbounds i8, ptr %161, i64 8
+  %.phi.trans.insert.i245 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %.pre.i246 = load ptr, ptr %.phi.trans.insert.i245, align 8
   br label %Vec_PtrPush.exit250
 
@@ -8381,7 +8381,7 @@ Ver_ParseFindNet.exit.thread325:                  ; preds = %.lr.ph, %Ver_ParseF
   br i1 %167, label %168, label %176
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds i8, ptr %161, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %170 = load ptr, ptr %169, align 8
   %.not9.i.i248 = icmp eq ptr %170, null
   br i1 %.not9.i.i248, label %173, label %171
@@ -8402,7 +8402,7 @@ Vec_PtrGrow.exit.i249:                            ; preds = %173, %171
 
 176:                                              ; preds = %166
   %177 = shl nuw nsw i32 %163, 1
-  %178 = getelementptr inbounds i8, ptr %161, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %179 = load ptr, ptr %178, align 8
   %.not9.i10.i247 = icmp eq ptr %179, null
   %180 = zext nneg i32 %177 to i64
@@ -8535,7 +8535,7 @@ Ver_ParseFindNet.exit259.thread:                  ; preds = %230, %Ver_ParseFind
   br label %Ver_ParseFindNet.exit259.thread329
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds i8, ptr %0, i64 80
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %241 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %242 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(1) @.str.107, ptr noundef nonnull %110, ptr noundef %241) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -8544,14 +8544,14 @@ Ver_ParseFindNet.exit259.thread:                  ; preds = %230, %Ver_ParseFind
 Ver_ParseFindNet.exit259.thread329:               ; preds = %224, %237, %Ver_ParseFindNet.exit259
   %.0192 = phi ptr [ %238, %237 ], [ %232, %Ver_ParseFindNet.exit259 ], [ %225, %224 ]
   %243 = load ptr, ptr %55, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = load i32, ptr %244, align 4
   %246 = load i32, ptr %243, align 8
   %247 = icmp eq i32 %245, %246
   br i1 %247, label %248, label %.Vec_PtrGrow.exit11_crit_edge.i260
 
 .Vec_PtrGrow.exit11_crit_edge.i260:               ; preds = %Ver_ParseFindNet.exit259.thread329
-  %.phi.trans.insert.i261 = getelementptr inbounds i8, ptr %243, i64 8
+  %.phi.trans.insert.i261 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %.pre.i262 = load ptr, ptr %.phi.trans.insert.i261, align 8
   br label %Vec_PtrPush.exit266
 
@@ -8560,7 +8560,7 @@ Ver_ParseFindNet.exit259.thread329:               ; preds = %224, %237, %Ver_Par
   br i1 %249, label %250, label %258
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %243, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %252 = load ptr, ptr %251, align 8
   %.not9.i.i264 = icmp eq ptr %252, null
   br i1 %.not9.i.i264, label %255, label %253
@@ -8581,7 +8581,7 @@ Vec_PtrGrow.exit.i265:                            ; preds = %255, %253
 
 258:                                              ; preds = %248
   %259 = shl nuw nsw i32 %245, 1
-  %260 = getelementptr inbounds i8, ptr %243, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %261 = load ptr, ptr %260, align 8
   %.not9.i10.i263 = icmp eq ptr %261, null
   %262 = zext nneg i32 %259 to i64
@@ -8663,17 +8663,17 @@ Ver_ParseFindNet.exit274.thread:                  ; preds = %283, %Ver_ParseFind
   br label %Ver_ParseFindNet.exit274.thread332
 
 291:                                              ; preds = %287
-  %292 = getelementptr inbounds i8, ptr %0, i64 80
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %293 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %294 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %292, ptr noundef nonnull dereferenceable(1) @.str.107, ptr noundef nonnull %110, ptr noundef %293) #19
-  %295 = getelementptr inbounds i8, ptr %0, i64 76
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %0, i64 72
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %297 = load i32, ptr %296, align 8
   %.not.i275 = icmp eq i32 %297, 0
-  %298 = getelementptr inbounds i8, ptr %0, i64 64
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %0, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %301 = load ptr, ptr %300, align 8
   br i1 %.not.i275, label %304, label %302
 
@@ -8688,7 +8688,7 @@ Ver_ParseFindNet.exit274.thread:                  ; preds = %283, %Ver_ParseFind
   br label %308
 
 308:                                              ; preds = %304, %302
-  %309 = getelementptr inbounds i8, ptr %0, i64 48
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %310 = load ptr, ptr %309, align 8
   %.not.i.i276 = icmp eq ptr %310, null
   br i1 %.not.i.i276, label %Ver_ParsePrintErrorMessage.exit, label %311
@@ -8701,14 +8701,14 @@ Ver_ParseFindNet.exit274.thread:                  ; preds = %283, %Ver_ParseFind
 Ver_ParseFindNet.exit274.thread332:               ; preds = %278, %289, %Ver_ParseFindNet.exit274
   %.1193 = phi ptr [ %290, %289 ], [ %284, %Ver_ParseFindNet.exit274 ], [ %280, %278 ]
   %312 = load ptr, ptr %55, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %314 = load i32, ptr %313, align 4
   %315 = load i32, ptr %312, align 8
   %316 = icmp eq i32 %314, %315
   br i1 %316, label %317, label %.Vec_PtrGrow.exit11_crit_edge.i278
 
 .Vec_PtrGrow.exit11_crit_edge.i278:               ; preds = %Ver_ParseFindNet.exit274.thread332
-  %.phi.trans.insert.i279 = getelementptr inbounds i8, ptr %312, i64 8
+  %.phi.trans.insert.i279 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %.pre.i280 = load ptr, ptr %.phi.trans.insert.i279, align 8
   br label %Vec_PtrPush.exit284
 
@@ -8717,7 +8717,7 @@ Ver_ParseFindNet.exit274.thread332:               ; preds = %278, %289, %Ver_Par
   br i1 %318, label %319, label %327
 
 319:                                              ; preds = %317
-  %320 = getelementptr inbounds i8, ptr %312, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %321 = load ptr, ptr %320, align 8
   %.not9.i.i282 = icmp eq ptr %321, null
   br i1 %.not9.i.i282, label %324, label %322
@@ -8738,7 +8738,7 @@ Vec_PtrGrow.exit.i283:                            ; preds = %324, %322
 
 327:                                              ; preds = %317
   %328 = shl nuw nsw i32 %314, 1
-  %329 = getelementptr inbounds i8, ptr %312, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %330 = load ptr, ptr %329, align 8
   %.not9.i10.i281 = icmp eq ptr %330, null
   %331 = zext nneg i32 %328 to i64
@@ -8784,7 +8784,7 @@ Vec_PtrPush.exit284:                              ; preds = %.Vec_PtrGrow.exit11
   ]
 
 350:                                              ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %0, i64 80
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %352 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %353 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %351, ptr noundef nonnull dereferenceable(1) @.str.108, ptr noundef nonnull %110, ptr noundef %352) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -8803,14 +8803,14 @@ Vec_PtrPush.exit284:                              ; preds = %.Vec_PtrGrow.exit11
 360:                                              ; preds = %357
   %361 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 6) #19
   %362 = load ptr, ptr %55, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 4
   %364 = load i32, ptr %363, align 4
   %365 = load i32, ptr %362, align 8
   %366 = icmp eq i32 %364, %365
   br i1 %366, label %367, label %.Vec_PtrGrow.exit11_crit_edge.i285
 
 .Vec_PtrGrow.exit11_crit_edge.i285:               ; preds = %360
-  %.phi.trans.insert.i286 = getelementptr inbounds i8, ptr %362, i64 8
+  %.phi.trans.insert.i286 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %.pre.i287 = load ptr, ptr %.phi.trans.insert.i286, align 8
   br label %Vec_PtrPush.exit291
 
@@ -8819,7 +8819,7 @@ Vec_PtrPush.exit284:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %368, label %369, label %377
 
 369:                                              ; preds = %367
-  %370 = getelementptr inbounds i8, ptr %362, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %371 = load ptr, ptr %370, align 8
   %.not9.i.i289 = icmp eq ptr %371, null
   br i1 %.not9.i.i289, label %374, label %372
@@ -8840,7 +8840,7 @@ Vec_PtrGrow.exit.i290:                            ; preds = %374, %372
 
 377:                                              ; preds = %367
   %378 = shl nuw nsw i32 %364, 1
-  %379 = getelementptr inbounds i8, ptr %362, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %380 = load ptr, ptr %379, align 8
   %.not9.i10.i288 = icmp eq ptr %380, null
   %381 = zext nneg i32 %378 to i64
@@ -8947,7 +8947,7 @@ Ver_ParseLookupSuffix.exit301:                    ; preds = %Ver_ParseFindNet.ex
   br label %.loopexit350
 
 423:                                              ; preds = %419
-  %424 = getelementptr inbounds i8, ptr %0, i64 80
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %425 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %426 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %424, ptr noundef nonnull dereferenceable(1) @.str.107, ptr noundef nonnull %355, ptr noundef %425) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef nonnull %0)
@@ -9006,7 +9006,7 @@ Ver_ParseFindNet.exit309.thread:                  ; preds = %437, %Ver_ParseFind
   br label %Ver_ParseFindNet.exit309.thread339
 
 445:                                              ; preds = %441
-  %446 = getelementptr inbounds i8, ptr %0, i64 80
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %447 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %448 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %446, ptr noundef nonnull dereferenceable(1) @.str.107, ptr noundef nonnull %355, ptr noundef %447) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -9015,14 +9015,14 @@ Ver_ParseFindNet.exit309.thread:                  ; preds = %437, %Ver_ParseFind
 Ver_ParseFindNet.exit309.thread339:               ; preds = %432, %443, %Ver_ParseFindNet.exit309
   %.2194 = phi ptr [ %444, %443 ], [ %438, %Ver_ParseFindNet.exit309 ], [ %434, %432 ]
   %449 = load ptr, ptr %55, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 4
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 4
   %451 = load i32, ptr %450, align 4
   %452 = load i32, ptr %449, align 8
   %453 = icmp eq i32 %451, %452
   br i1 %453, label %454, label %.Vec_PtrGrow.exit11_crit_edge.i310
 
 .Vec_PtrGrow.exit11_crit_edge.i310:               ; preds = %Ver_ParseFindNet.exit309.thread339
-  %.phi.trans.insert.i311 = getelementptr inbounds i8, ptr %449, i64 8
+  %.phi.trans.insert.i311 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %.pre.i312 = load ptr, ptr %.phi.trans.insert.i311, align 8
   br label %Vec_PtrPush.exit316
 
@@ -9031,7 +9031,7 @@ Ver_ParseFindNet.exit309.thread339:               ; preds = %432, %443, %Ver_Par
   br i1 %455, label %456, label %464
 
 456:                                              ; preds = %454
-  %457 = getelementptr inbounds i8, ptr %449, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %458 = load ptr, ptr %457, align 8
   %.not9.i.i314 = icmp eq ptr %458, null
   br i1 %.not9.i.i314, label %461, label %459
@@ -9052,7 +9052,7 @@ Vec_PtrGrow.exit.i315:                            ; preds = %461, %459
 
 464:                                              ; preds = %454
   %465 = shl nuw nsw i32 %451, 1
-  %466 = getelementptr inbounds i8, ptr %449, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %467 = load ptr, ptr %466, align 8
   %.not9.i10.i313 = icmp eq ptr %467, null
   %468 = zext nneg i32 %465 to i64
@@ -9089,14 +9089,14 @@ Vec_PtrPush.exit316:                              ; preds = %.Vec_PtrGrow.exit11
 Ver_ParseFindNet.exit299.thread335:               ; preds = %394, %Ver_ParseFindNet.exit299
   %.0.i293337 = phi ptr [ %402, %Ver_ParseFindNet.exit299 ], [ %395, %394 ]
   %484 = load ptr, ptr %55, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 4
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 4
   %486 = load i32, ptr %485, align 4
   %487 = load i32, ptr %484, align 8
   %488 = icmp eq i32 %486, %487
   br i1 %488, label %489, label %.Vec_PtrGrow.exit11_crit_edge.i317
 
 .Vec_PtrGrow.exit11_crit_edge.i317:               ; preds = %Ver_ParseFindNet.exit299.thread335
-  %.phi.trans.insert.i318 = getelementptr inbounds i8, ptr %484, i64 8
+  %.phi.trans.insert.i318 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %.pre.i319 = load ptr, ptr %.phi.trans.insert.i318, align 8
   br label %Vec_PtrPush.exit323
 
@@ -9105,7 +9105,7 @@ Ver_ParseFindNet.exit299.thread335:               ; preds = %394, %Ver_ParseFind
   br i1 %490, label %491, label %499
 
 491:                                              ; preds = %489
-  %492 = getelementptr inbounds i8, ptr %484, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %493 = load ptr, ptr %492, align 8
   %.not9.i.i321 = icmp eq ptr %493, null
   br i1 %.not9.i.i321, label %496, label %494
@@ -9126,7 +9126,7 @@ Vec_PtrGrow.exit.i322:                            ; preds = %496, %494
 
 499:                                              ; preds = %489
   %500 = shl nuw nsw i32 %486, 1
-  %501 = getelementptr inbounds i8, ptr %484, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %502 = load ptr, ptr %501, align 8
   %.not9.i10.i320 = icmp eq ptr %502, null
   %503 = zext nneg i32 %500 to i64
@@ -9168,7 +9168,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not235, label %523, label %519
 
 519:                                              ; preds = %516
-  %520 = getelementptr inbounds i8, ptr %0, i64 80
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %521 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %522 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %520, ptr noundef nonnull dereferenceable(1) @.str.109, ptr noundef nonnull %.0191, ptr noundef %521) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -9186,7 +9186,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   ]
 
 527:                                              ; preds = %525
-  %528 = getelementptr inbounds i8, ptr %0, i64 80
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %529 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %530 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %528, ptr noundef nonnull dereferenceable(1) @.str.110, ptr noundef nonnull %.0191, ptr noundef %529) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -9203,7 +9203,7 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not237, label %Ver_ParsePrintErrorMessage.exit, label %536
 
 536:                                              ; preds = %533
-  %537 = getelementptr inbounds i8, ptr %0, i64 80
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %538 = call ptr @Abc_ObjName(ptr noundef %14) #19
   %539 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %537, ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %538) #19
   call void @Ver_ParsePrintErrorMessage(ptr noundef %0)
@@ -9218,7 +9218,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %10
 define internal fastcc void @Ver_ParseRemoveSuffixTable(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
@@ -9278,7 +9278,7 @@ define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr nou
   tail call void @Abc_ObjAddFanin(ptr noundef nonnull %2, ptr noundef %6) #19
   %7 = tail call ptr @Abc_ObjName(ptr noundef nonnull %2) #19
   %8 = tail call ptr @Abc_ObjAssignName(ptr noundef %5, ptr noundef %7, ptr noundef nonnull @.str.66) #19
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr inttoptr (i64 3 to ptr), ptr %9, align 8
   ret ptr %5
 }
@@ -9312,14 +9312,14 @@ declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_IntPush(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_IntGrow.exit10_crit_edge
 
 .Vec_IntGrow.exit10_crit_edge:                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Vec_IntGrow.exit10
 
@@ -9328,7 +9328,7 @@ define internal fastcc void @Vec_IntPush(ptr nocapture noundef %0, i32 noundef %
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -9349,7 +9349,7 @@ Vec_IntGrow.exit:                                 ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i9 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64

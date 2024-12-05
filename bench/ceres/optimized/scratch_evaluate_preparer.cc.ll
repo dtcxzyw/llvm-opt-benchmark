@@ -58,7 +58,7 @@ _ZSt11make_uniqueIA_N5ceres8internal23ScratchEvaluatePreparerEENSt8__detail9_Mak
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %15
-  %17 = getelementptr inbounds %"class.ceres::internal::ScratchEvaluatePreparer", ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"class.ceres::internal::ScratchEvaluatePreparer", ptr %8, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %16, i8 0, i64 %14, i1 false), !noalias !7
   %18 = load ptr, ptr %17, align 8
   store ptr %16, ptr %17, align 8
@@ -162,10 +162,10 @@ _ZNKSt14default_deleteIA_N5ceres8internal23ScratchEvaluatePreparerEEclIS2_EENSt9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13ResidualBlockEiPNS0_12SparseMatrixEPPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -178,7 +178,7 @@ define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13
 
 .lr.ph:                                           ; preds = %5
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %wide.trip.count = and i64 %16, 2147483647
   br label %21
 
@@ -186,27 +186,27 @@ define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.018 = phi ptr [ %19, %.lr.ph ], [ %.1, %59 ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %28
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = load i32, ptr %33, align 8
   br label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(8) %30)
   br label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
@@ -217,25 +217,25 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit: ; preds = %32, %35
   br i1 %41, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %43
 
 _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %21, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
-  %42 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr null, ptr %42, align 8
   br label %59
 
 43:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
-  %44 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %.018, ptr %44, align 8
   %45 = load ptr, ptr %29, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %24, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %49 = load i32, ptr %48, align 8
   br label %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %45, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %45)
   br label %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit

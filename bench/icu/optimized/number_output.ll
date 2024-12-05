@@ -89,11 +89,11 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -101,11 +101,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -166,7 +166,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -176,7 +176,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -188,7 +188,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -201,7 +201,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -225,7 +225,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -256,21 +256,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -293,11 +293,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -305,7 +305,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -316,20 +316,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -357,7 +357,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -373,7 +373,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -405,7 +405,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -417,7 +417,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -432,7 +432,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -446,7 +446,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
@@ -463,9 +463,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -483,7 +483,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -495,7 +495,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -511,7 +511,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -528,12 +528,12 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 define void @_ZN6icu_756number15FormattedNumberC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
-  %fData2 = getelementptr inbounds i8, ptr %src, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fData2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %fData2, align 8
   store ptr %0, ptr %fData, align 8
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
-  %fErrorCode3 = getelementptr inbounds i8, ptr %src, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %fErrorCode3 = getelementptr inbounds nuw i8, ptr %src, i64 16
   %1 = load i32, ptr %fErrorCode3, align 8
   store i32 %1, ptr %fErrorCode, align 8
   store ptr null, ptr %fData2, align 8
@@ -545,14 +545,14 @@ entry:
 define void @_ZN6icu_756number15FormattedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(408) %0) #11
   br label %delete.end
@@ -580,26 +580,26 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number15FormattedNumberaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(408) %0) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fData2 = getelementptr inbounds i8, ptr %src, i64 8
+  %fData2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load ptr, ptr %fData2, align 8
   store ptr %2, ptr %fData, align 8
   store ptr null, ptr %fData2, align 8
-  %fErrorCode = getelementptr inbounds i8, ptr %src, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %src, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
-  %fErrorCode5 = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %3, ptr %fErrorCode5, align 8
   store i32 27, ptr %fErrorCode, align 8
   ret ptr %this
@@ -614,7 +614,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !4
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !4
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
@@ -630,17 +630,17 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !7
-  %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !7
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
@@ -652,7 +652,7 @@ lpad.i4:                                          ; preds = %if.then2
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(300) %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -670,7 +670,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !10
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !10
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
@@ -686,17 +686,17 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !13
-  %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !13
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
@@ -708,7 +708,7 @@ lpad.i4:                                          ; preds = %if.then2
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(300) %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -725,20 +725,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef nonnull align 8 dereferenceable(8) %appendable, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -756,20 +756,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -788,13 +788,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
@@ -802,7 +802,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   call void @_ZN6icu_756number4impl6DecNumC1Ev(ptr noundef nonnull align 8 dereferenceable(92) %decnum)
   %3 = load ptr, ptr %fData, align 8
-  %quantity = getelementptr inbounds i8, ptr %3, i64 304
+  %quantity = getelementptr inbounds nuw i8, ptr %3, i64 304
   %call5 = invoke noundef nonnull align 8 dereferenceable(92) ptr @_ZNK6icu_756number4impl15DecimalQuantity8toDecNumERNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 8 dereferenceable(92) %decnum, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -811,7 +811,7 @@ invoke.cont:                                      ; preds = %if.end3
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum, i64 12
+  %needToRelease.i.i.i = getelementptr inbounds nuw i8, ptr %decnum, i64 12
   %4 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -847,7 +847,7 @@ declare void @_ZNK6icu_756number4impl6DecNum8toStringERNS_8ByteSinkER10UErrorCod
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl6DecNumD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7524MaybeStackHeaderAndArrayI9decNumbercLi34EED2Ev.exit, label %if.then.i.i
@@ -876,13 +876,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
@@ -909,20 +909,20 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   tail call void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %agg.result)
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %outputUnit = getelementptr inbounds i8, ptr %1, i64 376
+  %outputUnit = getelementptr inbounds nuw i8, ptr %1, i64 376
   tail call void @_ZN6icu_7511MeasureUnitC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %agg.result, ptr noundef nonnull align 8 dereferenceable(19) %outputUnit)
   br label %return
 
@@ -942,19 +942,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %gender = getelementptr inbounds i8, ptr %1, i64 400
+  %gender = getelementptr inbounds nuw i8, ptr %1, i64 400
   %3 = load ptr, ptr %gender, align 8
   %call5 = tail call i32 @udispopt_fromNounClassIdentifier_75(ptr noundef %3)
   br label %return
@@ -974,19 +974,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %quantity = getelementptr inbounds i8, ptr %1, i64 304
+  %quantity = getelementptr inbounds nuw i8, ptr %1, i64 304
   %call5 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %output, ptr noundef nonnull align 8 dereferenceable(66) %quantity)
   br label %return
 
@@ -1000,9 +1000,9 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl1
 define void @_ZN6icu_756number4impl20UFormattedNumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %this, align 8
-  %outputUnit = getelementptr inbounds i8, ptr %this, i64 376
+  %outputUnit = getelementptr inbounds nuw i8, ptr %this, i64 376
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #11
-  %quantity = getelementptr inbounds i8, ptr %this, i64 304
+  %quantity = getelementptr inbounds nuw i8, ptr %this, i64 304
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity) #11
   tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %this) #11
   ret void
@@ -1029,12 +1029,12 @@ entry:
 define void @_ZN6icu_756number20FormattedNumberRangeC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
-  %fData2 = getelementptr inbounds i8, ptr %src, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fData2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %fData2, align 8
   store ptr %0, ptr %fData, align 8
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
-  %fErrorCode3 = getelementptr inbounds i8, ptr %src, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %fErrorCode3 = getelementptr inbounds nuw i8, ptr %src, i64 16
   %1 = load i32, ptr %fErrorCode3, align 8
   store i32 %1, ptr %fErrorCode, align 8
   store ptr null, ptr %fData2, align 8
@@ -1046,14 +1046,14 @@ entry:
 define void @_ZN6icu_756number20FormattedNumberRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(452) %0) #11
   br label %delete.end
@@ -1075,26 +1075,26 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number20FormattedNumberRangeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(452) %0) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %fData2 = getelementptr inbounds i8, ptr %src, i64 8
+  %fData2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load ptr, ptr %fData2, align 8
   store ptr %2, ptr %fData, align 8
   store ptr null, ptr %fData2, align 8
-  %fErrorCode = getelementptr inbounds i8, ptr %src, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %src, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
-  %fErrorCode5 = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %3, ptr %fErrorCode5, align 8
   store i32 27, ptr %fErrorCode, align 8
   ret ptr %this
@@ -1109,7 +1109,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !16
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !16
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
@@ -1125,17 +1125,17 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !19
-  %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !19
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
@@ -1147,7 +1147,7 @@ lpad.i4:                                          ; preds = %if.then2
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(300) %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1165,7 +1165,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !22
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !22
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
@@ -1181,17 +1181,17 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8, !alias.scope !25
-  %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !25
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
@@ -1203,7 +1203,7 @@ lpad.i4:                                          ; preds = %if.then2
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(300) %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1220,20 +1220,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef nonnull align 8 dereferenceable(8) %appendable, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1251,20 +1251,20 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -1284,13 +1284,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
@@ -1302,7 +1302,7 @@ if.end3:                                          ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.end3
   %3 = load ptr, ptr %fData, align 8
-  %quantity1 = getelementptr inbounds i8, ptr %3, i64 304
+  %quantity1 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %call7 = invoke noundef nonnull align 8 dereferenceable(92) ptr @_ZNK6icu_756number4impl15DecimalQuantity8toDecNumERNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %quantity1, ptr noundef nonnull align 8 dereferenceable(92) %decnum1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -1312,7 +1312,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %4 = load ptr, ptr %fData, align 8
-  %quantity2 = getelementptr inbounds i8, ptr %4, i64 376
+  %quantity2 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %call11 = invoke noundef nonnull align 8 dereferenceable(92) ptr @_ZNK6icu_756number4impl15DecimalQuantity8toDecNumERNS1_6DecNumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %quantity2, ptr noundef nonnull align 8 dereferenceable(92) %decnum2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont10 unwind label %lpad5
 
@@ -1321,7 +1321,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %decnum2, i64 12
+  %needToRelease.i.i.i = getelementptr inbounds nuw i8, ptr %decnum2, i64 12
   %5 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_756number4impl6DecNumD2Ev.exit, label %if.then.i.i.i
@@ -1339,7 +1339,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_756number4impl6DecNumD2Ev.exit:           ; preds = %invoke.cont12, %if.then.i.i.i
-  %needToRelease.i.i.i7 = getelementptr inbounds i8, ptr %decnum1, i64 12
+  %needToRelease.i.i.i7 = getelementptr inbounds nuw i8, ptr %decnum1, i64 12
   %9 = load i8, ptr %needToRelease.i.i.i7, align 4
   %tobool.not.i.i.i8 = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i8, label %return, label %if.then.i.i.i9
@@ -1384,19 +1384,19 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %identityResult = getelementptr inbounds i8, ptr %1, i64 448
+  %identityResult = getelementptr inbounds nuw i8, ptr %1, i64 448
   %3 = load i32, ptr %identityResult, align 8
   br label %return
 
@@ -1413,13 +1413,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 8
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fData, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
-  %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
+  %fErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %fErrorCode, align 8
   store i32 %2, ptr %status, align 4
   br label %return
@@ -1433,9 +1433,9 @@ return:                                           ; preds = %if.end, %entry, %if
 define void @_ZN6icu_756number4impl25UFormattedNumberRangeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(452) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl25UFormattedNumberRangeDataE, i64 16), ptr %this, align 8
-  %quantity2 = getelementptr inbounds i8, ptr %this, i64 376
+  %quantity2 = getelementptr inbounds nuw i8, ptr %this, i64 376
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity2) #11
-  %quantity1 = getelementptr inbounds i8, ptr %this, i64 304
+  %quantity1 = getelementptr inbounds nuw i8, ptr %this, i64 304
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity1) #11
   tail call void @_ZN6icu_7531FormattedValueStringBuilderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %this) #11
   ret void

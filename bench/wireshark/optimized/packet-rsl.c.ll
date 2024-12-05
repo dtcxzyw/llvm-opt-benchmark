@@ -1297,7 +1297,7 @@ switch.hole_check:
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %15 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %17
 
@@ -1309,7 +1309,7 @@ switch.hole_check8:                               ; preds = %4
 
 switch.lookup9:                                   ; preds = %switch.hole_check8
   %16 = zext nneg i32 %6 to i64
-  %switch.gep13 = getelementptr inbounds [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 0, i64 %16
+  %switch.gep13 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.req_ref_ra_est_cause_convert.55, i64 0, i64 %16
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   br label %17
 
@@ -1336,7 +1336,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rsl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.269) #5
   %7 = load ptr, ptr %5, align 8
@@ -2534,7 +2534,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   ]
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
   br label %38
@@ -2699,7 +2699,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   %.1165 = phi ptr [ %94, %89 ], [ %97, %95 ]
   %102 = load i32, ptr %7, align 4
   %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %.1165, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.1165, i64 1
   store i8 %103, ptr %104, align 1
   br label %139
 
@@ -2772,9 +2772,9 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 146:                                              ; preds = %._crit_edge
   store i32 2, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %8, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %8, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %148, align 8
   %149 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
   %150 = load i32, ptr @proto_rsl, align 4
@@ -2791,7 +2791,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 154:                                              ; preds = %152, %152
   %155 = call ptr @rtp_dyn_payload_new() #5
-  %156 = getelementptr inbounds i8, ptr %151, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   call void @rtp_dyn_payload_insert(ptr noundef %155, i32 noundef %158, ptr noundef nonnull @.str.718, i32 noundef 8000, i32 noundef 1) #5
@@ -2803,7 +2803,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   call void @conversation_delete_proto_data(ptr noundef nonnull %149, i32 noundef %160) #5
   %161 = call ptr @wmem_file_scope() #5
   call void @wmem_free(ptr noundef %161, ptr noundef %151) #5
-  %162 = getelementptr inbounds i8, ptr %1, i64 20
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %163 = load i32, ptr %162, align 4
   call void @rtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %8, i32 noundef %.0161.lcssa, i32 noundef 0, ptr noundef nonnull @.str.719, i32 noundef %163, i32 noundef 0, ptr noundef %.0166) #5
   %164 = add nuw nsw i32 %.0161.lcssa, 1
@@ -3162,13 +3162,13 @@ define internal fastcc noundef i32 @dissect_rsl_ie_req_ref(ptr noundef %0, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 2
   store i32 %33, ptr %31, align 4
@@ -4460,13 +4460,13 @@ define internal fastcc noundef i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %26
 
 26:                                               ; preds = %8
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 2
   store i32 %32, ptr %30, align 4

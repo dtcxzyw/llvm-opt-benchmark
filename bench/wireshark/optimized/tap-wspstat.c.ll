@@ -43,10 +43,10 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %.0 = select i1 %.not, ptr %4, ptr null
   %5 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #12
   %6 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @wsp_vals_status_ext, i64 16), align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4042 = icmp eq ptr %10, null
   br i1 %.not4042, label %.lr.ph46.preheader, label %.lr.ph
@@ -57,7 +57,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %.03843 = phi i32 [ %19, %.lr.ph ], [ 0, %2 ]
   %13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #12
   %14 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #12
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %15, align 8
   %16 = load ptr, ptr %11, align 8
   store ptr %16, ptr %13, align 8
@@ -67,16 +67,16 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %19 = add i32 %.03843, 1
   %20 = zext i32 %19 to i64
   %21 = getelementptr %struct._value_string, ptr %8, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not40 = icmp eq ptr %23, null
   br i1 %.not40, label %.lr.ph46.preheader, label %.lr.ph, !llvm.loop !5
 
 .lr.ph46.preheader:                               ; preds = %.lr.ph, %2
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 16, ptr %24, align 8
   %25 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 17, i64 noundef 16) #12
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
   %27 = tail call noalias ptr @g_strdup(ptr noundef %.0) #10
   store ptr %27, ptr %5, align 8
@@ -161,13 +161,13 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @wspstat_reset(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not6 = icmp eq i32 %3, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
@@ -182,7 +182,7 @@ define internal void @wspstat_reset(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @g_hash_table_foreach(ptr noundef %12, ptr noundef nonnull @wsp_reset_hash, ptr noundef null) #10
   ret void
@@ -190,7 +190,7 @@ define internal void @wspstat_reset(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @wspstat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
   %9 = icmp ult i8 %7, 10
@@ -222,7 +222,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
   br i1 %.not, label %38, label %20
 
 20:                                               ; preds = %pdut2index.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %19 to i64
   %24 = inttoptr i64 %23 to ptr
@@ -232,7 +232,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
 
 26:                                               ; preds = %20
   %27 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #12
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 1, ptr %28, align 8
   store ptr null, ptr %27, align 8
   %29 = load ptr, ptr %21, align 8
@@ -243,7 +243,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
   br label %38
 
 34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %25, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 8
@@ -255,7 +255,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
   br i1 %.not20, label %46, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %.0.i to i64
   %43 = getelementptr %struct._wsp_pdu_t, ptr %41, i64 %42, i32 1
@@ -275,14 +275,14 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
   %.not22 = icmp ult i32 %5, 2
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %29
@@ -294,7 +294,7 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr %struct._wsp_pdu_t, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %14, i32 noundef %16)
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
@@ -307,7 +307,7 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr %struct._wsp_pdu_t, ptr %22, i64 %11
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %24, i32 noundef %26)
   br label %29
@@ -328,7 +328,7 @@ define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
 ._crit_edge:                                      ; preds = %29, %1
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts19 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   tail call void @g_hash_table_foreach(ptr noundef %35, ptr noundef nonnull @wsp_print_statuscode, ptr noundef nonnull @.str.15) #10
   %puts20 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -357,7 +357,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @wsp_reset_hash(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #6 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -373,7 +373,7 @@ define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly 
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not7 = icmp eq i32 %6, 0
   br i1 %.not7, label %12, label %7

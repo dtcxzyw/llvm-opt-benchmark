@@ -10,10 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ecdh_compute_key(ptr noundef %psec, ptr noundef %pseclen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
 entry:
-  %group = getelementptr inbounds i8, ptr %ecdh, i64 24
+  %group = getelementptr inbounds nuw i8, ptr %ecdh, i64 24
   %0 = load ptr, ptr %group, align 8
   %1 = load ptr, ptr %0, align 8
-  %ecdh_compute_key = getelementptr inbounds i8, ptr %1, i64 368
+  %ecdh_compute_key = getelementptr inbounds nuw i8, ptr %1, i64 368
   %2 = load ptr, ptr %ecdh_compute_key, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -42,7 +42,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ecdh_simple_compute_key(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
 entry:
-  %libctx = getelementptr inbounds i8, ptr %ecdh, i64 80
+  %libctx = getelementptr inbounds nuw i8, ptr %ecdh, i64 80
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null

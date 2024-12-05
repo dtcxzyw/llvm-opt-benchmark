@@ -831,7 +831,7 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr %13, align 4
   br label %15
 
@@ -845,9 +845,9 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #3
   %21 = load i32, ptr @ett_broadcom, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #3
-  %23 = getelementptr inbounds i8, ptr %1, i64 348
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   switch i32 %24, label %479 [
     i32 0, label %27
@@ -892,24 +892,24 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   br i1 %.not685, label %63, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 32) #3
   store i32 %16, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %17, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i32 4, ptr %55, align 8
   %56 = lshr i16 %33, 10
   %57 = trunc nuw nsw i16 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %53, i64 10
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 10
   store i8 %57, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i16 %38, ptr %59, align 8
   %60 = tail call ptr @try_val_to_str(i32 noundef %39, ptr noundef nonnull @broadcom_opcode_ocf_vals) #3
   %.not686 = icmp eq ptr %60, null
   %spec.select = select i1 %.not686, ptr null, ptr %40
-  %61 = getelementptr inbounds i8, ptr %53, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %spec.select, ptr %61, align 8
   %62 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %62, ptr noundef nonnull %1, ptr noundef nonnull %53) #3
@@ -952,9 +952,9 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
 67:                                               ; preds = %63
   %68 = load i32, ptr @hf_broadcom_bd_addr, align 4
   %69 = call i32 @dissect_bd_addr(i32 noundef %68, ptr noundef nonnull %1, ptr noundef %22, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %16, i32 noundef %17, ptr noundef nonnull %5) #3
-  %70 = getelementptr inbounds i8, ptr %1, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 50
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 50
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 8
   %75 = icmp eq i16 %74, 0
@@ -962,34 +962,34 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   br i1 %or.cond, label %76, label %488
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %1, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %9, align 4
   store i32 1, ptr %8, align 16
-  %79 = getelementptr inbounds i8, ptr %8, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %8, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %8, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 1, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %8, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %9, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 0, ptr %84, align 16
-  %85 = getelementptr inbounds i8, ptr %8, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr null, ptr %85, align 8
   %86 = call ptr @wmem_file_scope() #3
   %87 = call noalias ptr @wmem_alloc(ptr noundef %86, i64 noundef 16) #3
   %88 = load i32, ptr %6, align 4
   store i32 %88, ptr %87, align 4
   %89 = load i32, ptr %7, align 4
-  %90 = getelementptr inbounds i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 %89, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %87, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %91, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 6, i1 false)
-  %92 = getelementptr inbounds i8, ptr %3, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %93 = load ptr, ptr %92, align 8
   call void @wmem_tree_insert32_array(ptr noundef %93, ptr noundef nonnull %8, ptr noundef nonnull %87) #3
   br label %488
@@ -1308,20 +1308,20 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   br i1 %.not, label %333, label %323
 
 323:                                              ; preds = %313
-  %324 = getelementptr inbounds i8, ptr %1, i64 408
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %325 = load ptr, ptr %324, align 8
   %326 = tail call noalias ptr @wmem_alloc(ptr noundef %325, i64 noundef 32) #3
   store i32 %16, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 4
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   store i32 %17, ptr %327, align 4
-  %328 = getelementptr inbounds i8, ptr %326, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %326, i64 24
   store i32 6, ptr %328, align 8
-  %329 = getelementptr inbounds i8, ptr %326, i64 11
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 11
   store i8 %315, ptr %329, align 1
   %330 = tail call ptr @try_val_to_str_ext(i32 noundef %316, ptr noundef nonnull @bthci_evt_evt_code_vals_ext) #3
   %.not677 = icmp eq ptr %330, null
   %spec.select691 = select i1 %.not677, ptr null, ptr %317
-  %331 = getelementptr inbounds i8, ptr %326, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %326, i64 16
   store ptr %spec.select691, ptr %331, align 8
   %332 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %332, ptr noundef nonnull %1, ptr noundef nonnull %326) #3
@@ -1371,24 +1371,24 @@ define internal i32 @dissect_bthci_vendor_broadcom(ptr noundef %0, ptr noundef %
   br i1 %.not680, label %374, label %361
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %1, i64 408
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %363 = load ptr, ptr %362, align 8
   %364 = tail call noalias ptr @wmem_alloc(ptr noundef %363, i64 noundef 32) #3
   store i32 %16, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 4
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
   store i32 %17, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %364, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %364, i64 24
   store i32 5, ptr %366, align 8
   %367 = lshr i16 %344, 10
   %368 = trunc nuw nsw i16 %367 to i8
-  %369 = getelementptr inbounds i8, ptr %364, i64 10
+  %369 = getelementptr inbounds nuw i8, ptr %364, i64 10
   store i8 %368, ptr %369, align 2
-  %370 = getelementptr inbounds i8, ptr %364, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store i16 %349, ptr %370, align 8
   %371 = tail call ptr @try_val_to_str(i32 noundef %350, ptr noundef nonnull @broadcom_opcode_ocf_vals) #3
   %.not681 = icmp eq ptr %371, null
   %spec.select692 = select i1 %.not681, ptr null, ptr %351
-  %372 = getelementptr inbounds i8, ptr %364, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %364, i64 16
   store ptr %spec.select692, ptr %372, align 8
   %373 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %373, ptr noundef nonnull %1, ptr noundef nonnull %364) #3
@@ -1656,7 +1656,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 
 5:                                                ; preds = %4
   %6 = load i32, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   br label %9
 
@@ -1668,9 +1668,9 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef 0) #3
   %13 = load i32, ptr @ett_intel, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
-  %15 = getelementptr inbounds i8, ptr %1, i64 348
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   switch i32 %16, label %443 [
     i32 0, label %19
@@ -1715,24 +1715,24 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br i1 %.not677, label %55, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr @wmem_alloc(ptr noundef %44, i64 noundef 32) #3
   store i32 %.0651, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %.0650, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i32 4, ptr %47, align 8
   %48 = lshr i16 %25, 10
   %49 = trunc nuw nsw i16 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %45, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 10
   store i8 %49, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i16 %30, ptr %51, align 8
   %52 = tail call ptr @try_val_to_str(i32 noundef %31, ptr noundef nonnull @intel_opcode_ocf_vals) #3
   %.not678 = icmp eq ptr %52, null
   %spec.select = select i1 %.not678, ptr null, ptr %32
-  %53 = getelementptr inbounds i8, ptr %45, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %spec.select, ptr %53, align 8
   %54 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %54, ptr noundef nonnull %1, ptr noundef nonnull %45) #3
@@ -1964,20 +1964,20 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br i1 %.not668, label %194, label %184
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %1, i64 408
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %186 = load ptr, ptr %185, align 8
   %187 = tail call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef 32) #3
   store i32 %.0651, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store i32 %.0650, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %187, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 24
   store i32 6, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %187, i64 11
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 11
   store i8 %171, ptr %190, align 1
   %191 = tail call ptr @try_val_to_str_ext(i32 noundef %172, ptr noundef nonnull @bthci_evt_evt_code_vals_ext) #3
   %.not669 = icmp eq ptr %191, null
   %spec.select686 = select i1 %.not669, ptr null, ptr %.0654
-  %192 = getelementptr inbounds i8, ptr %187, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 16
   store ptr %spec.select686, ptr %192, align 8
   %193 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %193, ptr noundef nonnull %1, ptr noundef nonnull %187) #3
@@ -2043,24 +2043,24 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br i1 %.not671, label %235, label %222
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %1, i64 408
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %224 = load ptr, ptr %223, align 8
   %225 = tail call noalias ptr @wmem_alloc(ptr noundef %224, i64 noundef 32) #3
   store i32 %.0651, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 4
   store i32 %.0650, ptr %226, align 4
-  %227 = getelementptr inbounds i8, ptr %225, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store i32 5, ptr %227, align 8
   %228 = lshr i16 %205, 10
   %229 = trunc nuw nsw i16 %228 to i8
-  %230 = getelementptr inbounds i8, ptr %225, i64 10
+  %230 = getelementptr inbounds nuw i8, ptr %225, i64 10
   store i8 %229, ptr %230, align 2
-  %231 = getelementptr inbounds i8, ptr %225, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i16 %210, ptr %231, align 8
   %232 = tail call ptr @try_val_to_str(i32 noundef %211, ptr noundef nonnull @intel_opcode_ocf_vals) #3
   %.not672 = icmp eq ptr %232, null
   %spec.select687 = select i1 %.not672, ptr null, ptr %212
-  %233 = getelementptr inbounds i8, ptr %225, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store ptr %spec.select687, ptr %233, align 8
   %234 = load i32, ptr @bluetooth_hci_summary_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %234, ptr noundef nonnull %1, ptr noundef nonnull %225) #3

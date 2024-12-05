@@ -90,7 +90,7 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 17:                                               ; preds = %13, %9
   %.0 = phi ptr [ %12, %9 ], [ %15, %13 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.15) #2
   %20 = load ptr, ptr %18, align 8
@@ -104,13 +104,13 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not81, label %54, label %26
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %25, %28
   br i1 %29, label %30, label %54
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %32 = load i32, ptr %31, align 4
   %.not82 = icmp eq i32 %32, 0
   br i1 %.not82, label %36, label %33
@@ -136,10 +136,10 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 332
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %46, align 4
   %47 = sub nuw i32 %43, %42
-  %48 = getelementptr inbounds i8, ptr %1, i64 336
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %47, ptr %48, align 8
   br label %98
 
@@ -175,9 +175,9 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 332
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 336
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %69, ptr %73, align 8
   br label %98
 
@@ -210,10 +210,10 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %1, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %94 = load i32, ptr %93, align 4
   store i32 %94, ptr %.0, align 4
-  %95 = getelementptr inbounds i8, ptr %.0, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %96 = load i32, ptr %95, align 4
   %.not85 = icmp eq i32 %96, 0
   %97 = zext i1 %.not85 to i32

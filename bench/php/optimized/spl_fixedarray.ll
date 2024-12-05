@@ -105,9 +105,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %3) #12
   %8 = icmp eq i32 %7, -1
@@ -155,13 +155,13 @@ define hidden void @zim_SplFixedArray___construct(ptr nocapture noundef readonly
   store i64 %13, ptr %20, align 8
   %28 = getelementptr inbounds i8, ptr %19, i64 -16
   store i64 -1, ptr %28, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %27, i64 %13
+  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %27, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.02.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %27, %.lr.ph.preheader.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.02.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.02.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 8
   store i32 1, ptr %31, align 8
   %.not.i5.i = icmp eq ptr %30, %29
   br i1 %.not.i5.i, label %spl_fixedarray_init.exit, label %.lr.ph.i.i
@@ -185,11 +185,11 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
   %6 = tail call ptr @zend_std_get_properties(ptr noundef %4) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -199,15 +199,15 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
-  br label %58
+  br label %59
 
 .critedge:                                        ; preds = %2
   %12 = load i64, ptr %5, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %58
+  br i1 %13, label %14, label %59
 
 14:                                               ; preds = %.critedge
-  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.preheader.i.i, label %25
@@ -221,13 +221,13 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
   store i64 %18, ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 -16
   store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds %struct._zval_struct, ptr %19, i64 %18
+  %22 = getelementptr inbounds nuw %struct._zval_struct, ptr %19, i64 %18
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.02.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %19, %.lr.ph.preheader.i.i ]
-  %23 = getelementptr inbounds i8, ptr %.02.i.i, i64 16
-  %24 = getelementptr inbounds i8, ptr %.02.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 8
   store i32 1, ptr %24, align 8
   %.not.i5.i = icmp eq ptr %23, %22
   br i1 %.not.i5.i, label %spl_fixedarray_init.exit, label %.lr.ph.i.i
@@ -239,41 +239,40 @@ define hidden void @zim_SplFixedArray___wakeup(ptr nocapture noundef readonly %0
   br label %spl_fixedarray_init.exit
 
 spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i, %25
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = shl i32 %30, 2
-  %32 = and i32 %31, 16
-  %33 = xor i32 %32, 16
-  %narrow = add nuw nsw i32 %33, 16
-  %34 = zext nneg i32 %narrow to i64
   %.not3436 = icmp eq i32 %28, 0
   br i1 %.not3436, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %spl_fixedarray_init.exit
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 -24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = shl i32 %32, 2
+  %34 = and i32 %33, 16
+  %35 = xor i32 %34, 16
+  %36 = getelementptr inbounds i8, ptr %4, i64 -24
+  %37 = zext nneg i32 %35 to i64
   br label %38
 
 38:                                               ; preds = %.lr.ph, %55
   %.039 = phi i32 [ 0, %.lr.ph ], [ %.1, %55 ]
-  %.03238 = phi i32 [ %28, %.lr.ph ], [ %57, %55 ]
-  %.03337 = phi ptr [ %36, %.lr.ph ], [ %56, %55 ]
-  %39 = getelementptr inbounds i8, ptr %.03337, i64 8
+  %.03238 = phi i32 [ %28, %.lr.ph ], [ %58, %55 ]
+  %.03337 = phi ptr [ %30, %.lr.ph ], [ %57, %55 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.03337, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %55, label %42
 
 42:                                               ; preds = %38
-  %43 = load ptr, ptr %37, align 8
+  %43 = load ptr, ptr %36, align 8
   %44 = sext i32 %.039 to i64
   %45 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %44
   %46 = load ptr, ptr %.03337, align 8
   %47 = load i32, ptr %39, align 8
   store ptr %46, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %47, ptr %48, align 8
   %49 = and i32 %47, 65280
   %.not35 = icmp eq i32 %49, 0
@@ -291,16 +290,17 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i, %25
 
 55:                                               ; preds = %38, %53
   %.1 = phi i32 [ %.039, %38 ], [ %54, %53 ]
-  %56 = getelementptr inbounds i8, ptr %.03337, i64 %34
-  %57 = add i32 %.03238, -1
-  %.not34 = icmp eq i32 %57, 0
+  %56 = getelementptr inbounds nuw i8, ptr %.03337, i64 %37
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = add i32 %.03238, -1
+  %.not34 = icmp eq i32 %58, 0
   br i1 %.not34, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %55, %spl_fixedarray_init.exit
   tail call void @zend_hash_clean(ptr noundef %6) #12
-  br label %58
+  br label %59
 
-58:                                               ; preds = %._crit_edge, %.critedge, %9
+59:                                               ; preds = %._crit_edge, %.critedge, %9
   ret void
 }
 
@@ -312,10 +312,10 @@ declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -329,14 +329,14 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
 
 .critedge:                                        ; preds = %2
   %11 = tail call ptr @zend_std_get_properties(ptr noundef nonnull %4) #12
-  %12 = getelementptr inbounds i8, ptr %11, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = load i64, ptr %5, align 8
   %15 = trunc i64 %14 to i32
   %16 = add i32 %13, %15
   %17 = tail call ptr @_zend_new_array(i32 noundef %16) #12
   store ptr %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %18, align 8
   %19 = load i64, ptr %5, align 8
   %20 = icmp sgt i64 %19, 0
@@ -349,10 +349,10 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
 22:                                               ; preds = %.lr.ph, %33
   %.06475 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds %struct._zval_struct, ptr %23, i64 %.06475
+  %24 = getelementptr inbounds nuw %struct._zval_struct, ptr %23, i64 %.06475
   %25 = load ptr, ptr %1, align 8
   %26 = tail call ptr @zend_hash_next_index_insert(ptr noundef %25, ptr noundef %24) #12
-  %27 = getelementptr inbounds i8, ptr %24, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %28 = load i8, ptr %27, align 1
   %.not74 = icmp eq i8 %28, 0
   br i1 %.not74, label %33, label %29
@@ -371,14 +371,14 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
   br i1 %36, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33, %.critedge
-  %37 = getelementptr inbounds i8, ptr %11, i64 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %39 = load i32, ptr %38, align 8
   %.not7076 = icmp eq i32 %39, 0
   br i1 %.not7076, label %.loopexit, label %.lr.ph82.preheader
 
 .lr.ph82.preheader:                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds i8, ptr %11, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %41 = load ptr, ptr %40, align 8
   br label %.lr.ph82
 
@@ -392,14 +392,14 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
   br i1 %.not71, label %46, label %44
 
 44:                                               ; preds = %.lr.ph82
-  %45 = getelementptr inbounds i8, ptr %.06379, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.06379, i64 16
   br label %55
 
 46:                                               ; preds = %.lr.ph82
-  %47 = getelementptr inbounds i8, ptr %.06379, i64 32
-  %48 = getelementptr inbounds i8, ptr %.06379, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.06379, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.06379, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.06379, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.06379, i64 8
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, 12
   br i1 %52, label %53, label %55
@@ -412,7 +412,7 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
   %.168 = phi ptr [ %.06777, %44 ], [ %49, %53 ], [ %49, %46 ]
   %.1 = phi ptr [ %45, %44 ], [ %47, %53 ], [ %47, %46 ]
   %.0 = phi ptr [ %.06379, %44 ], [ %54, %53 ], [ %.06379, %46 ]
-  %56 = getelementptr inbounds i8, ptr %.0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %57 = load i8, ptr %56, align 8
   %58 = icmp eq i8 %57, 0
   %.not72 = icmp eq ptr %.168, null
@@ -422,7 +422,7 @@ define hidden void @zim_SplFixedArray___serialize(ptr nocapture noundef readonly
 59:                                               ; preds = %55
   %60 = load ptr, ptr %1, align 8
   %61 = tail call ptr @zend_hash_add_new(ptr noundef %60, ptr noundef nonnull %.168, ptr noundef nonnull %.0) #12
-  %62 = getelementptr inbounds i8, ptr %.0, i64 9
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 9
   %63 = load i8, ptr %62, align 1
   %.not73 = icmp eq i8 %63, 0
   br i1 %.not73, label %68, label %64
@@ -455,10 +455,10 @@ declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unna
 define hidden void @zim_SplFixedArray___unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #12
   %11 = icmp eq i32 %10, -1
@@ -477,7 +477,7 @@ define hidden void @zim_SplFixedArray___unserialize(ptr nocapture noundef readon
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %.not.i = icmp eq i32 %21, 0
@@ -500,18 +500,18 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %18
   store i64 -1, ptr %28, align 8
   %29 = call ptr @_zend_new_array_0() #12
   store ptr %29, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %30, align 8
   store i64 0, ptr %7, align 8
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %34 = load i32, ptr %33, align 8
   %.not6874 = icmp eq i32 %34, 0
   br i1 %.not6874, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %36 = load ptr, ptr %35, align 8
   br label %.lr.ph
 
@@ -525,19 +525,19 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %18
   br i1 %.not71, label %41, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.06376, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.06376, i64 16
   br label %45
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.06376, i64 32
-  %43 = getelementptr inbounds i8, ptr %.06376, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.06376, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.06376, i64 24
   %44 = load ptr, ptr %43, align 8
   br label %45
 
 45:                                               ; preds = %41, %39
   %.164 = phi ptr [ %40, %39 ], [ %42, %41 ]
   %.1 = phi ptr [ %.078, %39 ], [ %44, %41 ]
-  %46 = getelementptr inbounds i8, ptr %.06376, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.06376, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %75, label %49
@@ -553,7 +553,7 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %18
   %55 = load ptr, ptr %.06376, align 8
   %56 = load i32, ptr %46, align 8
   store ptr %55, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %56, ptr %57, align 8
   %58 = and i32 %56, 65280
   %.not73 = icmp eq i32 %58, 0
@@ -572,7 +572,7 @@ spl_fixedarray_init_non_empty_struct.exit.thread: ; preds = %18
   br label %75
 
 65:                                               ; preds = %49
-  %66 = getelementptr inbounds i8, ptr %.06376, i64 9
+  %66 = getelementptr inbounds nuw i8, ptr %.06376, i64 9
   %67 = load i8, ptr %66, align 1
   %.not72 = icmp eq i8 %67, 0
   br i1 %.not72, label %72, label %68
@@ -642,7 +642,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -655,12 +655,12 @@ define hidden void @zim_SplFixedArray_count(ptr nocapture noundef readonly %0, p
   br label %13
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -32
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %12, align 8
   br label %13
 
@@ -670,7 +670,7 @@ define hidden void @zim_SplFixedArray_count(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -683,7 +683,7 @@ define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -32
   %11 = getelementptr inbounds i8, ptr %9, i64 -24
@@ -699,7 +699,7 @@ define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %.critedge
   %17 = tail call ptr @_zend_new_array_0() #12
   store ptr %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %18, align 8
   %19 = load i64, ptr %10, align 8
   %20 = icmp sgt i64 %19, 0
@@ -709,11 +709,11 @@ define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0,
   %.024 = phi i64 [ %34, %33 ], [ 0, %16 ]
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %.024
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %.024
   %24 = tail call ptr @zend_hash_index_update(ptr noundef %21, i64 noundef %.024, ptr noundef %23) #12
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i64 %.024
-  %27 = getelementptr inbounds i8, ptr %26, i64 9
+  %26 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %.024
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 9
   %28 = load i8, ptr %27, align 1
   %.not23 = icmp eq i8 %28, 0
   br i1 %.not23, label %33, label %29
@@ -733,7 +733,7 @@ define hidden void @zim_SplFixedArray_toArray(ptr nocapture noundef readonly %0,
 
 37:                                               ; preds = %.critedge
   store ptr @zend_empty_array, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 7, ptr %38, align 8
   br label %.loopexit
 
@@ -748,7 +748,7 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %8 = icmp eq i32 %7, -1
@@ -758,12 +758,12 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %158
+  br label %160
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %.critedge
@@ -774,34 +774,34 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   br i1 %20, label %21, label %.lr.ph.preheader.i.i141
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load i32, ptr %22, align 8
-  %.not135158 = icmp eq i32 %23, 0
-  br i1 %.not135158, label %.lr.ph.preheader.i.i, label %.lr.ph164
+  %.not135157 = icmp eq i32 %23, 0
+  br i1 %.not135157, label %.lr.ph.preheader.i.i, label %.lr.ph163
 
-.lr.ph164:                                        ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+.lr.ph163:                                        ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not140 = icmp eq i32 %28, 0
-  br i1 %.not140, label %.lr.ph164.split.us, label %.lr.ph164.split.split
+  br i1 %.not140, label %.lr.ph163.split.us, label %.lr.ph163.split.split
 
-.lr.ph164.split.us:                               ; preds = %.lr.ph164, %41
-  %.0163.us = phi i64 [ %.1.us, %41 ], [ 0, %.lr.ph164 ]
-  %.0119160.us = phi ptr [ %29, %41 ], [ %25, %.lr.ph164 ]
-  %.0123159.us = phi i32 [ %42, %41 ], [ %23, %.lr.ph164 ]
-  %29 = getelementptr inbounds i8, ptr %.0119160.us, i64 32
-  %30 = getelementptr inbounds i8, ptr %.0119160.us, i64 16
+.lr.ph163.split.us:                               ; preds = %.lr.ph163, %41
+  %.0162.us = phi i64 [ %.1.us, %41 ], [ 0, %.lr.ph163 ]
+  %.0119159.us = phi ptr [ %29, %41 ], [ %25, %.lr.ph163 ]
+  %.0123158.us = phi i32 [ %42, %41 ], [ %23, %.lr.ph163 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0119159.us, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0119159.us, i64 16
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0119160.us, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0119159.us, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %41, label %35
 
-35:                                               ; preds = %.lr.ph164.split.us
-  %36 = getelementptr inbounds i8, ptr %.0119160.us, i64 24
+35:                                               ; preds = %.lr.ph163.split.us
+  %36 = getelementptr inbounds nuw i8, ptr %.0119159.us, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ne ptr %37, null
   %39 = icmp slt i64 %31, 0
@@ -809,30 +809,30 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   br i1 %or.cond.us, label %.split.us, label %40
 
 40:                                               ; preds = %35
-  %spec.select.us = call i64 @llvm.umax.i64(i64 %31, i64 %.0163.us)
+  %spec.select.us = call i64 @llvm.umax.i64(i64 %31, i64 %.0162.us)
   br label %41
 
-41:                                               ; preds = %40, %.lr.ph164.split.us
-  %.1.us = phi i64 [ %.0163.us, %.lr.ph164.split.us ], [ %spec.select.us, %40 ]
-  %42 = add i32 %.0123159.us, -1
+41:                                               ; preds = %40, %.lr.ph163.split.us
+  %.1.us = phi i64 [ %.0162.us, %.lr.ph163.split.us ], [ %spec.select.us, %40 ]
+  %42 = add i32 %.0123158.us, -1
   %.not135.us = icmp eq i32 %42, 0
-  br i1 %.not135.us, label %._crit_edge, label %.lr.ph164.split.us
+  br i1 %.not135.us, label %._crit_edge, label %.lr.ph163.split.us
 
-.lr.ph164.split.split:                            ; preds = %.lr.ph164, %.lr.ph164.split.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph164.split.split ], [ 0, %.lr.ph164 ]
-  %.0163 = phi i64 [ %.1, %.lr.ph164.split.split ], [ 0, %.lr.ph164 ]
-  %.0119160 = phi ptr [ %43, %.lr.ph164.split.split ], [ %25, %.lr.ph164 ]
-  %.0123159 = phi i32 [ %47, %.lr.ph164.split.split ], [ %23, %.lr.ph164 ]
-  %43 = getelementptr inbounds i8, ptr %.0119160, i64 16
+.lr.ph163.split.split:                            ; preds = %.lr.ph163, %.lr.ph163.split.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph163.split.split ], [ 0, %.lr.ph163 ]
+  %.0162 = phi i64 [ %.1, %.lr.ph163.split.split ], [ 0, %.lr.ph163 ]
+  %.0119159 = phi ptr [ %43, %.lr.ph163.split.split ], [ %25, %.lr.ph163 ]
+  %.0123158 = phi i32 [ %47, %.lr.ph163.split.split ], [ %23, %.lr.ph163 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.0119159, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds i8, ptr %.0119160, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0119159, i64 8
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 0
-  %spec.select = call i64 @llvm.umax.i64(i64 %indvars.iv, i64 %.0163)
-  %.1 = select i1 %46, i64 %.0163, i64 %spec.select
-  %47 = add i32 %.0123159, -1
+  %spec.select = call i64 @llvm.umax.i64(i64 %indvars.iv, i64 %.0162)
+  %.1 = select i1 %46, i64 %.0162, i64 %spec.select
+  %47 = add i32 %.0123158, -1
   %.not135 = icmp eq i32 %47, 0
-  br i1 %.not135, label %._crit_edge, label %.lr.ph164.split.split
+  br i1 %.not135, label %._crit_edge, label %.lr.ph163.split.split
 
 .split.us:                                        ; preds = %35
   %48 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8
@@ -840,10 +840,10 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
-  br label %158
+  br label %160
 
-._crit_edge:                                      ; preds = %.lr.ph164.split.split, %41
-  %.0.lcssa = phi i64 [ %.1.us, %41 ], [ %.1, %.lr.ph164.split.split ]
+._crit_edge:                                      ; preds = %.lr.ph163.split.split, %41
+  %.0.lcssa = phi i64 [ %.1.us, %41 ], [ %.1, %.lr.ph163.split.split ]
   %52 = icmp ugt i64 %.0.lcssa, 9223372036854775806
   br i1 %52, label %53, label %.lr.ph.preheader.i.i
 
@@ -853,19 +853,19 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %57 = icmp ne ptr %56, null
   call void @llvm.assume(i1 %57)
-  br label %158
+  br label %160
 
 .lr.ph.preheader.i.i:                             ; preds = %21, %._crit_edge
-  %.0.lcssa174 = phi i64 [ %.0.lcssa, %._crit_edge ], [ 0, %21 ]
-  %58 = add nuw nsw i64 %.0.lcssa174, 1
+  %.0.lcssa173 = phi i64 [ %.0.lcssa, %._crit_edge ], [ 0, %21 ]
+  %58 = add nuw nsw i64 %.0.lcssa173, 1
   %59 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %58, i64 noundef 16, i64 noundef 0) #12
-  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw %struct._zval_struct, ptr %59, i64 %58
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.02.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %59, %.lr.ph.preheader.i.i ]
-  %61 = getelementptr inbounds i8, ptr %.02.i.i, i64 16
-  %62 = getelementptr inbounds i8, ptr %.02.i.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 8
   store i32 1, ptr %62, align 8
   %.not.i5.i = icmp eq ptr %61, %60
   br i1 %.not.i5.i, label %spl_fixedarray_init.exit, label %.lr.ph.i.i
@@ -873,43 +873,43 @@ define hidden void @zim_SplFixedArray_fromArray(ptr nocapture noundef readonly %
 spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
   %63 = load ptr, ptr %3, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %67 = load i32, ptr %66, align 8
-  %.not136165 = icmp eq i32 %67, 0
-  br i1 %.not136165, label %.critedge, label %.lr.ph169.preheader
+  %.not136164 = icmp eq i32 %67, 0
+  br i1 %.not136164, label %.critedge, label %.lr.ph168.preheader
 
-.lr.ph169.preheader:                              ; preds = %spl_fixedarray_init.exit
-  %68 = getelementptr inbounds i8, ptr %64, i64 16
+.lr.ph168.preheader:                              ; preds = %spl_fixedarray_init.exit
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %69 = load ptr, ptr %68, align 8
-  br label %.lr.ph169
+  br label %.lr.ph168
 
-.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %106
-  %.0125168 = phi i32 [ %.1126, %106 ], [ 0, %.lr.ph169.preheader ]
-  %.0127167 = phi ptr [ %.1128, %106 ], [ %69, %.lr.ph169.preheader ]
-  %.0130166 = phi i32 [ %107, %106 ], [ %67, %.lr.ph169.preheader ]
+.lr.ph168:                                        ; preds = %.lr.ph168.preheader, %106
+  %.0125167 = phi i32 [ %.1126, %106 ], [ 0, %.lr.ph168.preheader ]
+  %.0127166 = phi ptr [ %.1128, %106 ], [ %69, %.lr.ph168.preheader ]
+  %.0130165 = phi i32 [ %107, %106 ], [ %67, %.lr.ph168.preheader ]
   %70 = load i32, ptr %65, align 8
   %71 = and i32 %70, 4
   %.not137 = icmp eq i32 %71, 0
   br i1 %.not137, label %76, label %72
 
-72:                                               ; preds = %.lr.ph169
-  %73 = getelementptr inbounds i8, ptr %.0127167, i64 16
-  %74 = zext i32 %.0125168 to i64
-  %75 = add i32 %.0125168, 1
+72:                                               ; preds = %.lr.ph168
+  %73 = getelementptr inbounds nuw i8, ptr %.0127166, i64 16
+  %74 = zext i32 %.0125167 to i64
+  %75 = add i32 %.0125167, 1
   br label %80
 
-76:                                               ; preds = %.lr.ph169
-  %77 = getelementptr inbounds i8, ptr %.0127167, i64 32
-  %78 = getelementptr inbounds i8, ptr %.0127167, i64 16
+76:                                               ; preds = %.lr.ph168
+  %77 = getelementptr inbounds nuw i8, ptr %.0127166, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.0127166, i64 16
   %79 = load i64, ptr %78, align 8
   br label %80
 
 80:                                               ; preds = %76, %72
   %.1128 = phi ptr [ %73, %72 ], [ %77, %76 ]
-  %.1126 = phi i32 [ %75, %72 ], [ %.0125168, %76 ]
+  %.1126 = phi i32 [ %75, %72 ], [ %.0125167, %76 ]
   %.0124 = phi i64 [ %74, %72 ], [ %79, %76 ]
-  %81 = getelementptr inbounds i8, ptr %.0127167, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0127166, i64 8
   %82 = load i8, ptr %81, align 8
   %83 = icmp eq i8 %82, 0
   br i1 %83, label %106, label %84
@@ -926,18 +926,18 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
   br i1 %89, label %90, label %.sink.split
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %.0127167, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 16
+  %91 = load ptr, ptr %.0127166, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 65280
   %.not139 = icmp eq i32 %95, 0
   br i1 %.not139, label %100, label %.sink.split
 
 .sink.split:                                      ; preds = %87, %90
-  %.sink188 = phi i32 [ %94, %90 ], [ %85, %87 ]
-  %.sink.in = phi ptr [ %92, %90 ], [ %.0127167, %87 ]
-  %96 = and i32 %.sink188, 65280
+  %.sink187 = phi i32 [ %94, %90 ], [ %85, %87 ]
+  %.sink.in = phi ptr [ %92, %90 ], [ %.0127166, %87 ]
+  %96 = and i32 %.sink187, 65280
   %97 = icmp ne i32 %96, 0
   call void @llvm.assume(i1 %97)
   %.sink = load ptr, ptr %.sink.in, align 8
@@ -947,31 +947,31 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
   br label %100
 
 100:                                              ; preds = %.sink.split, %84, %90
-  %.0129 = phi ptr [ %92, %90 ], [ %.0127167, %84 ], [ %.sink.in, %.sink.split ]
+  %.0129 = phi ptr [ %92, %90 ], [ %.0127166, %84 ], [ %.sink.in, %.sink.split ]
   %101 = getelementptr inbounds %struct._zval_struct, ptr %59, i64 %.0124
   %102 = load ptr, ptr %.0129, align 8
-  %103 = getelementptr inbounds i8, ptr %.0129, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0129, i64 8
   %104 = load i32, ptr %103, align 8
   store ptr %102, ptr %101, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 %104, ptr %105, align 8
   br label %106
 
 106:                                              ; preds = %80, %100
-  %107 = add i32 %.0130166, -1
+  %107 = add i32 %.0130165, -1
   %.not136 = icmp eq i32 %107, 0
-  br i1 %.not136, label %.critedge, label %.lr.ph169
+  br i1 %.not136, label %.critedge, label %.lr.ph168
 
 .lr.ph.preheader.i.i141:                          ; preds = %18
   %108 = zext nneg i32 %16 to i64
   %109 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %108, i64 noundef 16, i64 noundef 0) #12
-  %110 = getelementptr inbounds %struct._zval_struct, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw %struct._zval_struct, ptr %109, i64 %108
   br label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %.lr.ph.i.i142, %.lr.ph.preheader.i.i141
   %.02.i.i143 = phi ptr [ %111, %.lr.ph.i.i142 ], [ %109, %.lr.ph.preheader.i.i141 ]
-  %111 = getelementptr inbounds i8, ptr %.02.i.i143, i64 16
-  %112 = getelementptr inbounds i8, ptr %.02.i.i143, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.02.i.i143, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.02.i.i143, i64 8
   store i32 1, ptr %112, align 8
   %.not.i5.i144 = icmp eq ptr %111, %110
   br i1 %.not.i5.i144, label %spl_fixedarray_init.exit145, label %.lr.ph.i.i142
@@ -979,98 +979,98 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
 spl_fixedarray_init.exit145:                      ; preds = %.lr.ph.i.i142
   %113 = load ptr, ptr %3, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
-  %118 = load i32, ptr %117, align 8
-  %119 = shl i32 %118, 2
-  %120 = and i32 %119, 16
-  %121 = xor i32 %120, 16
-  %narrow = add nuw nsw i32 %121, 16
-  %122 = zext nneg i32 %narrow to i64
   %.not153 = icmp eq i32 %116, 0
-  br i1 %.not153, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not153, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %spl_fixedarray_init.exit145
-  %123 = getelementptr inbounds i8, ptr %114, i64 16
-  %124 = load ptr, ptr %123, align 8
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %spl_fixedarray_init.exit145
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %120 = load i32, ptr %119, align 8
+  %121 = shl i32 %120, 2
+  %122 = and i32 %121, 16
+  %123 = xor i32 %122, 16
+  %124 = zext nneg i32 %123 to i64
+  br label %125
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %151
-  %.0115156 = phi ptr [ %152, %151 ], [ %124, %.lr.ph.preheader ]
-  %.0118155 = phi i32 [ %153, %151 ], [ %116, %.lr.ph.preheader ]
-  %.0121154 = phi i64 [ %.1122, %151 ], [ 0, %.lr.ph.preheader ]
-  %125 = getelementptr inbounds i8, ptr %.0115156, i64 8
-  %126 = load i8, ptr %125, align 8
-  %127 = icmp eq i8 %126, 0
-  br i1 %127, label %151, label %128
+125:                                              ; preds = %.lr.ph, %152
+  %.0115156 = phi ptr [ %118, %.lr.ph ], [ %154, %152 ]
+  %.0118155 = phi i32 [ %116, %.lr.ph ], [ %155, %152 ]
+  %.0121154 = phi i64 [ 0, %.lr.ph ], [ %.1122, %152 ]
+  %126 = getelementptr inbounds nuw i8, ptr %.0115156, i64 8
+  %127 = load i8, ptr %126, align 8
+  %128 = icmp eq i8 %127, 0
+  br i1 %128, label %152, label %129
 
-128:                                              ; preds = %.lr.ph
-  %129 = load i32, ptr %125, align 8
-  %130 = and i32 %129, 65280
-  %.not133 = icmp eq i32 %130, 0
-  br i1 %.not133, label %144, label %131
+129:                                              ; preds = %125
+  %130 = load i32, ptr %126, align 8
+  %131 = and i32 %130, 65280
+  %.not133 = icmp eq i32 %131, 0
+  br i1 %.not133, label %145, label %132
 
-131:                                              ; preds = %128
-  %132 = and i32 %129, 255
-  %133 = icmp eq i32 %132, 10
-  br i1 %133, label %134, label %.sink.split179
+132:                                              ; preds = %129
+  %133 = and i32 %130, 255
+  %134 = icmp eq i32 %133, 10
+  br i1 %134, label %135, label %.sink.split178
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %.0115156, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
-  %137 = getelementptr inbounds i8, ptr %135, i64 16
-  %138 = load i32, ptr %137, align 8
-  %139 = and i32 %138, 65280
-  %.not134 = icmp eq i32 %139, 0
-  br i1 %.not134, label %144, label %.sink.split179
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %.0115156, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %139 = load i32, ptr %138, align 8
+  %140 = and i32 %139, 65280
+  %.not134 = icmp eq i32 %140, 0
+  br i1 %.not134, label %145, label %.sink.split178
 
-.sink.split179:                                   ; preds = %131, %134
-  %.sink191 = phi i32 [ %138, %134 ], [ %129, %131 ]
-  %.sink183.in = phi ptr [ %136, %134 ], [ %.0115156, %131 ]
-  %140 = and i32 %.sink191, 65280
-  %141 = icmp ne i32 %140, 0
-  call void @llvm.assume(i1 %141)
-  %.sink183 = load ptr, ptr %.sink183.in, align 8
-  %142 = load i32, ptr %.sink183, align 4
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %.sink183, align 4
-  br label %144
+.sink.split178:                                   ; preds = %132, %135
+  %.sink190 = phi i32 [ %139, %135 ], [ %130, %132 ]
+  %.sink182.in = phi ptr [ %137, %135 ], [ %.0115156, %132 ]
+  %141 = and i32 %.sink190, 65280
+  %142 = icmp ne i32 %141, 0
+  call void @llvm.assume(i1 %142)
+  %.sink182 = load ptr, ptr %.sink182.in, align 8
+  %143 = load i32, ptr %.sink182, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %.sink182, align 4
+  br label %145
 
-144:                                              ; preds = %.sink.split179, %128, %134
-  %.0114 = phi ptr [ %136, %134 ], [ %.0115156, %128 ], [ %.sink183.in, %.sink.split179 ]
-  %145 = getelementptr inbounds %struct._zval_struct, ptr %109, i64 %.0121154
-  %146 = load ptr, ptr %.0114, align 8
-  %147 = getelementptr inbounds i8, ptr %.0114, i64 8
-  %148 = load i32, ptr %147, align 8
-  store ptr %146, ptr %145, align 8
-  %149 = getelementptr inbounds i8, ptr %145, i64 8
-  store i32 %148, ptr %149, align 8
-  %150 = add nsw i64 %.0121154, 1
-  br label %151
+145:                                              ; preds = %.sink.split178, %129, %135
+  %.0114 = phi ptr [ %137, %135 ], [ %.0115156, %129 ], [ %.sink182.in, %.sink.split178 ]
+  %146 = getelementptr inbounds %struct._zval_struct, ptr %109, i64 %.0121154
+  %147 = load ptr, ptr %.0114, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
+  %149 = load i32, ptr %148, align 8
+  store ptr %147, ptr %146, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store i32 %149, ptr %150, align 8
+  %151 = add nsw i64 %.0121154, 1
+  br label %152
 
-151:                                              ; preds = %.lr.ph, %144
-  %.1122 = phi i64 [ %.0121154, %.lr.ph ], [ %150, %144 ]
-  %152 = getelementptr inbounds i8, ptr %.0115156, i64 %122
-  %153 = add i32 %.0118155, -1
-  %.not = icmp eq i32 %153, 0
-  br i1 %.not, label %.critedge, label %.lr.ph
+152:                                              ; preds = %125, %145
+  %.1122 = phi i64 [ %.0121154, %125 ], [ %151, %145 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.0115156, i64 %124
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %155 = add i32 %.0118155, -1
+  %.not = icmp eq i32 %155, 0
+  br i1 %.not, label %.critedge, label %125
 
-.critedge:                                        ; preds = %151, %106, %spl_fixedarray_init.exit145, %spl_fixedarray_init.exit, %12
-  %.sroa.0.0 = phi i64 [ 0, %12 ], [ %58, %spl_fixedarray_init.exit ], [ %108, %spl_fixedarray_init.exit145 ], [ %58, %106 ], [ %108, %151 ]
-  %.sroa.8.0 = phi ptr [ null, %12 ], [ %59, %spl_fixedarray_init.exit ], [ %109, %spl_fixedarray_init.exit145 ], [ %59, %106 ], [ %109, %151 ]
-  %154 = load ptr, ptr @spl_ce_SplFixedArray, align 8
-  %155 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %154) #12
-  %156 = load ptr, ptr %1, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 -32
-  store i64 %.sroa.0.0, ptr %157, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 -24
+.critedge:                                        ; preds = %152, %106, %spl_fixedarray_init.exit145, %spl_fixedarray_init.exit, %12
+  %.sroa.0.0 = phi i64 [ 0, %12 ], [ %58, %spl_fixedarray_init.exit ], [ %108, %spl_fixedarray_init.exit145 ], [ %58, %106 ], [ %108, %152 ]
+  %.sroa.8.0 = phi ptr [ null, %12 ], [ %59, %spl_fixedarray_init.exit ], [ %109, %spl_fixedarray_init.exit145 ], [ %59, %106 ], [ %109, %152 ]
+  %156 = load ptr, ptr @spl_ce_SplFixedArray, align 8
+  %157 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %156) #12
+  %158 = load ptr, ptr %1, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 -32
+  store i64 %.sroa.0.0, ptr %159, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 -24
   store ptr %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 -16
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 -16
   store i64 -1, ptr %.sroa.12.0..sroa_idx, align 8
-  br label %158
+  br label %160
 
-158:                                              ; preds = %.critedge, %53, %.split.us, %9
+160:                                              ; preds = %.critedge, %53, %.split.us, %9
   ret void
 }
 
@@ -1083,7 +1083,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_getSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1096,12 +1096,12 @@ define hidden void @zim_SplFixedArray_getSize(ptr nocapture noundef readonly %0,
   br label %13
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -32
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %12, align 8
   br label %13
 
@@ -1112,8 +1112,8 @@ define hidden void @zim_SplFixedArray_getSize(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_setSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #12
   %8 = icmp eq i32 %7, -1
@@ -1164,13 +1164,13 @@ tailrecurse.i:                                    ; preds = %61, %18
   store ptr %29, ptr %22, align 8
   store i64 %.tr46.i, ptr %20, align 8
   store i64 -1, ptr %21, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %.tr46.i
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %.tr46.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.02.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %29, %.lr.ph.preheader.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 16
-  %32 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.02.i.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02.i.i.i, i64 8
   store i32 1, ptr %32, align 8
   %.not.i5.i.i = icmp eq ptr %31, %30
   br i1 %.not.i5.i.i, label %spl_fixedarray_resize.exit, label %.lr.ph.i.i.i
@@ -1194,7 +1194,7 @@ tailrecurse.i:                                    ; preds = %61, %18
   %40 = icmp sgt i64 %23, 0
   call void @llvm.assume(i1 %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %41 = getelementptr inbounds %struct._zval_struct, ptr %39, i64 %23
+  %41 = getelementptr inbounds nuw %struct._zval_struct, ptr %39, i64 %23
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -1230,8 +1230,8 @@ tailrecurse.i:                                    ; preds = %61, %18
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph.i39.i, %.lr.ph.preheader.i38.i
   %.02.i.i = phi ptr [ %52, %.lr.ph.i39.i ], [ %51, %.lr.ph.preheader.i38.i ]
-  %52 = getelementptr inbounds i8, ptr %.02.i.i, i64 16
-  %53 = getelementptr inbounds i8, ptr %.02.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 8
   store i32 1, ptr %53, align 8
   %.not.i40.i = icmp eq ptr %52, %50
   br i1 %.not.i40.i, label %spl_fixedarray_init_elems.exit.i, label %.lr.ph.i39.i
@@ -1249,7 +1249,7 @@ spl_fixedarray_init_elems.exit.i:                 ; preds = %.lr.ph.i39.i, %45
 
 .lr.ph.i43.i:                                     ; preds = %.lr.ph.i43.i, %.lr.ph.preheader.i42.i
   %.09.i.i = phi ptr [ %57, %.lr.ph.i43.i ], [ %56, %.lr.ph.preheader.i42.i ]
-  %57 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   call void @zval_ptr_dtor(ptr noundef nonnull %.09.i.i) #12
   %.not.i44.i = icmp eq ptr %57, %55
   br i1 %.not.i44.i, label %spl_fixedarray_dtor_range.exit.i, label %.lr.ph.i43.i
@@ -1273,7 +1273,7 @@ spl_fixedarray_init.exit.sink.split.i:            ; preds = %34, %33
   br label %spl_fixedarray_resize.exit
 
 spl_fixedarray_resize.exit:                       ; preds = %tailrecurse.i, %61, %.lr.ph.i.i.i, %spl_fixedarray_init.exit.sink.split.i
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %63, align 8
   br label %64
 
@@ -1284,7 +1284,7 @@ spl_fixedarray_resize.exit:                       ; preds = %tailrecurse.i, %61,
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
@@ -1297,7 +1297,7 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr nocapture noundef readonl
   br label %27
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef %14)
@@ -1316,7 +1316,7 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr nocapture noundef readonl
 spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 -24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %15, i32 1
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %15, i32 1
   %24 = load i8, ptr %23, align 8
   %.fr = freeze i8 %24
   %.not = icmp eq i8 %.fr, 1
@@ -1325,7 +1325,7 @@ spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %18
 
 spl_fixedarray_object_has_dimension_helper.exit.thread: ; preds = %spl_fixedarray_object_has_dimension_helper.exit, %18, %11
   %25 = phi i32 [ 2, %11 ], [ 2, %18 ], [ %spec.select, %spl_fixedarray_object_has_dimension_helper.exit ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %25, ptr %26, align 8
   br label %27
 
@@ -1336,7 +1336,7 @@ spl_fixedarray_object_has_dimension_helper.exit.thread: ; preds = %spl_fixedarra
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_offsetGet(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
@@ -1349,7 +1349,7 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr nocapture noundef readonly %
   br label %53
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -32
   %15 = load ptr, ptr %3, align 8
@@ -1383,12 +1383,12 @@ define hidden void @zim_SplFixedArray_offsetGet(ptr nocapture noundef readonly %
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %22
   %27 = getelementptr inbounds i8, ptr %13, i64 -24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i64 %18
+  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %18
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %spl_fixedarray_object_read_dimension_helper.exit.thread, label %30
 
 30:                                               ; preds = %spl_fixedarray_object_read_dimension_helper.exit
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 65280
   %.not26 = icmp eq i32 %33, 0
@@ -1401,8 +1401,8 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %22
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %29, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 65280
   %.not27 = icmp eq i32 %42, 0
@@ -1423,15 +1423,15 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %22
 47:                                               ; preds = %.sink.split, %30, %37
   %.0 = phi ptr [ %39, %37 ], [ %29, %30 ], [ %.sink.in, %.sink.split ]
   %48 = load ptr, ptr %.0, align 8
-  %49 = getelementptr inbounds i8, ptr %.0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %50 = load i32, ptr %49, align 8
   store ptr %48, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %53
 
 spl_fixedarray_object_read_dimension_helper.exit.thread: ; preds = %17, %16, %24, %spl_fixedarray_object_read_dimension_helper.exit
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %52, align 8
   br label %53
 
@@ -1443,7 +1443,7 @@ spl_fixedarray_object_read_dimension_helper.exit.thread: ; preds = %17, %16, %24
 define hidden void @zim_SplFixedArray_offsetSet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %8 = icmp eq i32 %7, -1
@@ -1456,7 +1456,7 @@ define hidden void @zim_SplFixedArray_offsetSet(ptr nocapture noundef readonly %
   br label %18
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -32
   %16 = load ptr, ptr %3, align 8
@@ -1499,16 +1499,16 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
   br label %44
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct._zval_struct, ptr %18, i64 %7
+  %19 = getelementptr inbounds nuw %struct._zval_struct, ptr %18, i64 %7
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   store ptr %20, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 65280
   %.not38 = icmp eq i32 %26, 0
@@ -1521,8 +1521,8 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 65280
   %.not39 = icmp eq i32 %35, 0
@@ -1543,7 +1543,7 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
 40:                                               ; preds = %.sink.split, %16, %30
   %.0 = phi ptr [ %32, %30 ], [ %2, %16 ], [ %.sink.in, %.sink.split ]
   %41 = load ptr, ptr %.0, align 8
-  %42 = getelementptr inbounds i8, ptr %.0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %43 = load i32, ptr %42, align 8
   store ptr %41, ptr %19, align 8
   store i32 %43, ptr %21, align 8
@@ -1557,7 +1557,7 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
@@ -1570,7 +1570,7 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr nocapture noundef readonly
   br label %spl_fixedarray_object_unset_dimension_helper.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -32
   %15 = load ptr, ptr %3, align 8
@@ -1596,10 +1596,10 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr nocapture noundef readonly
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %13, i64 -24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct._zval_struct, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw %struct._zval_struct, ptr %27, i64 %16
   call void @zval_ptr_dtor(ptr noundef %28) #12
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %16, i32 1
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %16, i32 1
   store i32 1, ptr %30, align 8
   br label %spl_fixedarray_object_unset_dimension_helper.exit
 
@@ -1609,7 +1609,7 @@ spl_fixedarray_object_unset_dimension_helper.exit: ; preds = %25, %22, %11, %8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_getIterator(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1622,7 +1622,7 @@ define hidden void @zim_SplFixedArray_getIterator(ptr noundef %0, ptr noundef %1
   br label %10
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = tail call i32 @zend_create_internal_iterator_zval(ptr noundef %1, ptr noundef nonnull %8) #12
   br label %10
 
@@ -1634,7 +1634,7 @@ declare i32 @zend_create_internal_iterator_zval(ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SplFixedArray_jsonSerialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1644,14 +1644,14 @@ define hidden void @zim_SplFixedArray_jsonSerialize(ptr nocapture noundef readon
   br label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -32
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = tail call ptr @_zend_new_array(i32 noundef %11) #12
   store ptr %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %13, align 8
   %14 = load i64, ptr %9, align 8
   %15 = icmp sgt i64 %14, 0
@@ -1665,11 +1665,11 @@ define hidden void @zim_SplFixedArray_jsonSerialize(ptr nocapture noundef readon
   %.024 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds %struct._zval_struct, ptr %19, i64 %.024
+  %20 = getelementptr inbounds nuw %struct._zval_struct, ptr %19, i64 %.024
   %21 = tail call ptr @zend_hash_next_index_insert_new(ptr noundef %18, ptr noundef %20) #12
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %.024
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %.024
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %.not23 = icmp eq i8 %25, 0
   br i1 %.not23, label %30, label %26
@@ -1704,21 +1704,21 @@ define hidden noundef i32 @zm_startup_spl_fixedarray(i32 noundef %0, i32 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %8 = load ptr, ptr @zend_string_init_interned, align 8
   %9 = tail call ptr %8(ptr noundef nonnull @.str.11, i64 noundef 13, i1 noundef zeroext true) #12
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 496
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_SplFixedArray_methods, ptr %12, align 8
   %13 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef null) #12
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %13, i32 noundef 4, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
   store ptr %13, ptr @spl_ce_SplFixedArray, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
   store ptr @spl_fixedarray_new, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 360
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 360
   store ptr @spl_handler_SplFixedArray, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 392
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 392
   store ptr @spl_fixedarray_get_iterator, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplFixedArray, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 192, i1 false)
   store i32 32, ptr @spl_handler_SplFixedArray, align 8
@@ -1736,9 +1736,9 @@ define hidden noundef i32 @zm_startup_spl_fixedarray(i32 noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
@@ -1749,7 +1749,7 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   %11 = add nsw i64 %10, 88
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #12
   tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef %0) #12
   %14 = load ptr, ptr @spl_ce_SplFixedArray, align 8
@@ -1763,7 +1763,7 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.03444.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %1 ]
-  %16 = getelementptr inbounds i8, ptr %.03444.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.03444.i, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   %19 = icmp ne ptr %17, %14
@@ -1772,19 +1772,19 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   tail call void @llvm.assume(i1 %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr @zend_known_strings, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 552
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 552
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @zend_hash_find(ptr noundef nonnull %20, ptr noundef %23) #12
   %.not38.i = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %.not38.i)
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %17
   %spec.store.select.i = select i1 %28, ptr null, ptr %25
-  %29 = getelementptr inbounds i8, ptr %12, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %spec.store.select.i, ptr %29, align 8
   br label %spl_fixedarray_object_new_ex.exit
 
@@ -1804,15 +1804,15 @@ define internal noundef ptr @spl_fixedarray_get_iterator(ptr nocapture readnone 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @_emalloc_96() #12
   tail call void @zend_iterator_init(ptr noundef %6) #12
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %1, align 8
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4
   store ptr %8, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 776, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr @spl_fixedarray_it_funcs, ptr %12, align 8
   br label %13
 
@@ -1823,7 +1823,7 @@ define internal noundef ptr @spl_fixedarray_get_iterator(ptr nocapture readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_fixedarray_object_clone(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @spl_fixedarray_object_new_ex(ptr noundef %3, ptr noundef %0, i1 noundef zeroext true)
   tail call void @zend_objects_clone_members(ptr noundef nonnull %4, ptr noundef %0) #12
@@ -1839,18 +1839,18 @@ define internal ptr @spl_fixedarray_object_read_dimension(ptr noundef %0, ptr no
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %.not.i = icmp eq ptr %10, %11
   br i1 %.not.i, label %.critedge.i, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 376
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 376
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not22.i = icmp eq ptr %18, %11
   br i1 %.not22.i, label %.critedge.i, label %19
@@ -1884,24 +1884,24 @@ spl_fixedarray_object_has_dimension.exit.thread:  ; preds = %.critedge.i, %24
 spl_fixedarray_object_has_dimension.exit:         ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 -24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i64 %21, i32 1
+  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %21, i32 1
   %30 = load i8, ptr %29, align 8
   %.not38 = icmp eq i8 %30, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %.not38, label %spl_fixedarray_object_read_dimension_helper.exit, label %31
 
 31:                                               ; preds = %19, %spl_fixedarray_object_has_dimension.exit, %4
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %.not30 = icmp eq ptr %33, %34
   br i1 %.not30, label %.critedge, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 376
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 376
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, %34
   br i1 %.not, label %.critedge, label %41
@@ -1911,14 +1911,14 @@ spl_fixedarray_object_has_dimension.exit:         ; preds = %24
   br i1 %.not31, label %42, label %44
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %42, %41
   %.026 = phi ptr [ %1, %41 ], [ %6, %42 ]
   call void @zend_call_known_function(ptr noundef nonnull %38, ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %.026, ptr noundef null) #12
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i8, ptr %45, align 8
   %47 = icmp eq i8 %46, 0
   %executor_globals. = select i1 %47, ptr @executor_globals, ptr %3
@@ -1956,7 +1956,7 @@ spl_fixedarray_object_has_dimension.exit:         ; preds = %24
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %0, i64 -24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct._zval_struct, ptr %62, i64 %51
+  %63 = getelementptr inbounds nuw %struct._zval_struct, ptr %62, i64 %51
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19, %60, %57, %50, %49, %spl_fixedarray_object_has_dimension.exit.thread, %44, %spl_fixedarray_object_has_dimension.exit
@@ -1967,18 +1967,18 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19, %60, %57, %50, 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_fixedarray_object_write_dimension(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 376
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, %7
   br i1 %.not15, label %.critedge, label %15
@@ -1988,7 +1988,7 @@ define internal void @spl_fixedarray_object_write_dimension(ptr noundef %0, ptr 
   br i1 %.not14, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %17, align 8
   br label %18
 
@@ -2008,18 +2008,18 @@ define internal void @spl_fixedarray_object_write_dimension(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_fixedarray_object_unset_dimension(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, %5
   br i1 %.not18, label %.critedge, label %13
@@ -2052,10 +2052,10 @@ define internal void @spl_fixedarray_object_unset_dimension(ptr noundef %0, ptr 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 -24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct._zval_struct, ptr %26, i64 %15
+  %27 = getelementptr inbounds nuw %struct._zval_struct, ptr %26, i64 %15
   tail call void @zval_ptr_dtor(ptr noundef %27) #12
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i64 %15, i32 1
+  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %15, i32 1
   store i32 1, ptr %29, align 8
   br label %spl_fixedarray_object_unset_dimension_helper.exit
 
@@ -2066,18 +2066,18 @@ spl_fixedarray_object_unset_dimension_helper.exit: ; preds = %24, %21, %.critedg
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @spl_fixedarray_object_has_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 376
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not22 = icmp eq ptr %14, %7
   br i1 %.not22, label %.critedge, label %15
@@ -2110,13 +2110,13 @@ define internal range(i32 0, 2) i32 @spl_fixedarray_object_has_dimension(ptr nou
   br i1 %.not23, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds %struct._zval_struct, ptr %26, i64 %18
+  %28 = getelementptr inbounds nuw %struct._zval_struct, ptr %26, i64 %18
   %29 = tail call i32 @zend_is_true(ptr noundef %28) #12
   %30 = icmp ne i32 %29, 0
   br label %spl_fixedarray_object_has_dimension_helper.exit
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %26, i64 %18, i32 1
+  %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %26, i64 %18, i32 1
   %33 = load i8, ptr %32, align 8
   %34 = icmp ne i8 %33, 1
   br label %spl_fixedarray_object_has_dimension_helper.exit
@@ -2136,10 +2136,10 @@ define internal noundef i32 @spl_fixedarray_object_count_elements(ptr noundef %0
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   call void @zend_call_known_function(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i8, ptr %9, align 8
   switch i8 %10, label %13 [
     i8 0, label %17
@@ -2179,15 +2179,15 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   %3 = icmp ne i32 %1, 2
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8
   %.not69 = icmp eq i32 %11, 0
   br i1 %.not69, label %.thread, label %12
@@ -2212,7 +2212,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br i1 %.not70, label %.thread79, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %15, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %23 = load i32, ptr %22, align 4
   %.not71 = icmp eq i32 %23, 0
   br i1 %.not71, label %.thread79, label %24
@@ -2229,8 +2229,8 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
 
 .lr.ph:                                           ; preds = %24, %39
   %.06481 = phi i64 [ %41, %39 ], [ 0, %24 ]
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %28, i64 %.06481
-  %33 = getelementptr inbounds i8, ptr %32, i64 9
+  %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %.06481
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 9
   %34 = load i8, ptr %33, align 1
   %.not78 = icmp eq i8 %34, 0
   br i1 %.not78, label %39, label %35
@@ -2253,19 +2253,19 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br i1 %.not72, label %.thread79, label %42
 
 42:                                               ; preds = %._crit_edge
-  %43 = getelementptr inbounds i8, ptr %26, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %44 = load i32, ptr %43, align 4
   %.not73 = icmp eq i32 %44, 0
   br i1 %.not73, label %.thread79, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %26, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %26, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds %struct._Bucket, ptr %47, i64 %50
-  %52 = getelementptr inbounds i8, ptr %26, i64 8
+  %51 = getelementptr inbounds nuw %struct._Bucket, ptr %47, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 4
   %.not74 = icmp eq i32 %54, 0
@@ -2275,14 +2275,14 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
 
 .lr.ph85:                                         ; preds = %45, %79
   %.06383 = phi ptr [ %80, %79 ], [ %47, %45 ]
-  %55 = getelementptr inbounds i8, ptr %.06383, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.06383, i64 8
   %56 = load i8, ptr %55, align 8
   %57 = icmp eq i8 %56, 12
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.lr.ph85
   %59 = load ptr, ptr %.06383, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %59, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %60
 
@@ -2293,11 +2293,11 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br i1 %62, label %79, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.06383, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.06383, i64 16
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.06383, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.06383, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.0, i64 9
+  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 9
   %69 = load i8, ptr %68, align 1
   %.not76 = icmp eq i8 %69, 0
   br i1 %.not76, label %74, label %70
@@ -2322,7 +2322,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   br label %79
 
 79:                                               ; preds = %75, %77, %60
-  %80 = getelementptr inbounds i8, ptr %.06383, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.06383, i64 32
   %.not75 = icmp eq ptr %80, %51
   br i1 %.not75, label %.thread79, label %.lr.ph85
 
@@ -2392,7 +2392,7 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
 
 3:                                                ; preds = %41, %1
   %.0 = phi ptr [ %0, %1 ], [ %43, %41 ]
-  %4 = getelementptr inbounds i8, ptr %.0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %.critedge [
     i8 6, label %6
@@ -2406,8 +2406,8 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %.0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i8, ptr %8, align 1
   %12 = icmp sgt i8 %11, 57
@@ -2422,7 +2422,7 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
   br i1 %.not, label %16, label %.critedge
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 25
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, -58
   %or.cond42 = icmp ult i8 %19, -10
@@ -2472,19 +2472,19 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
 
 41:                                               ; preds = %3
   %42 = load ptr, ptr %.0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   br label %3
 
 44:                                               ; preds = %3
   tail call void @zend_use_resource_as_offset(ptr noundef nonnull %.0) #12
   %45 = load ptr, ptr %.0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8
   br label %.loopexit
 
 .critedge:                                        ; preds = %3, %6, %15, %16, %20
   %48 = load ptr, ptr @spl_ce_SplFixedArray, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   call void @zend_illegal_container_offset(ptr noundef %50, ptr noundef nonnull %.0, i32 noundef 0) #12
   br label %.loopexit
@@ -2522,9 +2522,9 @@ declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 11
   %.lobit = and i32 %8, 1
@@ -2535,7 +2535,7 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
   %13 = add nsw i64 %12, 88
   %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   tail call void @zend_object_std_init(ptr noundef nonnull %15, ptr noundef %0) #12
   tail call void @object_properties_init(ptr noundef nonnull %15, ptr noundef %0) #12
   %.not = icmp ne ptr %1, null
@@ -2551,24 +2551,24 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
 .lr.ph.preheader.i.i.i:                           ; preds = %16
   store i64 0, ptr %14, align 8
   %20 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %18, i64 noundef 16, i64 noundef 0) #12
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %20, ptr %21, align 8
   store i64 %18, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 -1, ptr %22, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %20, i64 %18
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %20, i64 %18
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.02.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 16
-  %25 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.02.i.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.02.i.i.i, i64 8
   store i32 1, ptr %25, align 8
   %.not.i5.i.i = icmp eq ptr %24, %23
   br i1 %.not.i5.i.i, label %spl_fixedarray_init.exit.i, label %.lr.ph.i.i.i
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i64 -1, ptr %27, align 8
   br label %spl_fixedarray_init.exit.i
@@ -2587,13 +2587,13 @@ spl_fixedarray_init.exit.i:                       ; preds = %.lr.ph.i.i.i, %26
 .lr.ph.i.i:                                       ; preds = %42, %28
   %.03.i.i = phi ptr [ %33, %42 ], [ %30, %28 ]
   %.0192.i.i = phi ptr [ %32, %42 ], [ %.val9.i, %28 ]
-  %32 = getelementptr inbounds i8, ptr %.0192.i.i, i64 16
-  %33 = getelementptr inbounds i8, ptr %.03.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0192.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 16
   %34 = load ptr, ptr %.03.i.i, align 8
-  %35 = getelementptr inbounds i8, ptr %.03.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   %36 = load i32, ptr %35, align 8
   store ptr %34, ptr %.0192.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.0192.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0192.i.i, i64 8
   store i32 %36, ptr %37, align 8
   %38 = and i32 %36, 65280
   %.not20.i.i = icmp eq i32 %38, 0
@@ -2622,7 +2622,7 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray
 
 .lr.ph:                                           ; preds = %spl_fixedarray_copy_ctor.exit, %.lr.ph
   %.03444 = phi ptr [ %47, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
-  %46 = getelementptr inbounds i8, ptr %.03444, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.03444, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp ne ptr %47, null
   %49 = icmp ne ptr %47, %43
@@ -2631,19 +2631,19 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.assume(i1 %48)
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load ptr, ptr @zend_known_strings, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 552
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 552
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @zend_hash_find(ptr noundef nonnull %50, ptr noundef %53) #12
   %.not38 = icmp ne ptr %54, null
   tail call void @llvm.assume(i1 %.not38)
   %55 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %47
   %spec.store.select = select i1 %58, ptr null, ptr %55
-  %59 = getelementptr inbounds i8, ptr %14, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %spec.store.select, ptr %59, align 8
   br label %60
 
@@ -2666,20 +2666,20 @@ declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_fixedarray_it_dtor(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @spl_fixedarray_it_valid(ptr nocapture noundef readonly %0) #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, -1
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i64, ptr %8, align 8
@@ -2697,13 +2697,13 @@ define internal range(i32 -1, 1) i32 @spl_fixedarray_it_valid(ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @spl_fixedarray_it_get_current_data(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %8, align 8
   %9 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %2)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -2727,7 +2727,7 @@ define internal nonnull ptr @spl_fixedarray_it_get_current_data(ptr nocapture no
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %4, i64 -24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct._zval_struct, ptr %20, i64 %9
+  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %20, i64 %9
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
 spl_fixedarray_object_read_dimension_helper.exit: ; preds = %1, %15, %18
@@ -2739,17 +2739,17 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %1, %15, %18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @spl_fixedarray_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @spl_fixedarray_it_move_forward(ptr nocapture noundef %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = add nsw i64 %3, 1
   store i64 %4, ptr %2, align 8
@@ -2758,7 +2758,7 @@ define internal void @spl_fixedarray_it_move_forward(ptr nocapture noundef %0) #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @spl_fixedarray_it_rewind(ptr nocapture noundef writeonly initializes((88, 96)) %0) #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %2, align 8
   ret void
 }

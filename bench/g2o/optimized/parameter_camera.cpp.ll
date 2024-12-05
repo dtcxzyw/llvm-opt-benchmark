@@ -83,16 +83,16 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 48, i1 false)
   store double 1.000000e+00, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double 1.000000e+00, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store double 5.000000e-01, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store double 5.000000e-01, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store double 1.000000e+00, ptr %9, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load <2 x double>, ptr %5, align 16
   %13 = fmul <2 x double> %12, <double 1.000000e+00, double 0.000000e+00>
   %shift = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -109,33 +109,33 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %24 = fmul double %20, -5.000000e-01
   %25 = tail call noundef double @llvm.fmuladd.f64(double %17, double 5.000000e-01, double %24)
   %26 = fmul double %25, %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 352
-  %28 = getelementptr inbounds i8, ptr %0, i64 400
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store double %26, ptr %28, align 16
   %29 = fmul double %20, 0.000000e+00
   %30 = fsub double 0.000000e+00, %29
   %31 = fmul double %30, %16
-  %32 = getelementptr inbounds i8, ptr %0, i64 360
-  %33 = getelementptr inbounds i8, ptr %0, i64 384
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store double %31, ptr %33, align 16
   %34 = fsub double %20, %22
   %35 = fmul double %34, %16
-  %36 = getelementptr inbounds i8, ptr %0, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store double %35, ptr %36, align 8
   store double %19, ptr %27, align 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 376
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %21, ptr %37, align 8
   store double %23, ptr %32, align 8
   store double %16, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 368
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %39 = fmul double %16, 0.000000e+00
   store double %39, ptr %38, align 16
-  %40 = getelementptr inbounds i8, ptr %0, i64 392
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %41 = fmul double %16, -5.000000e-01
   store double %41, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %44 = load <2 x double>, ptr %11, align 8
   %45 = load <2 x double>, ptr %7, align 16
   br label %46
@@ -177,40 +177,40 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %72 = load <2 x double>, ptr %3, align 16
   store <2 x double> %72, ptr %71, align 16
-  %73 = getelementptr inbounds i8, ptr %0, i64 432
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %74 = load <2 x double>, ptr %43, align 16
   store <2 x double> %74, ptr %73, align 16
-  %75 = getelementptr inbounds i8, ptr %0, i64 448
-  %76 = getelementptr inbounds i8, ptr %3, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %77 = load <2 x double>, ptr %76, align 16
   store <2 x double> %77, ptr %75, align 16
-  %78 = getelementptr inbounds i8, ptr %0, i64 464
-  %79 = getelementptr inbounds i8, ptr %3, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %80 = load <2 x double>, ptr %79, align 16
   store <2 x double> %80, ptr %78, align 16
-  %81 = getelementptr inbounds i8, ptr %0, i64 480
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load double, ptr %82, align 16
   store double %83, ptr %81, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store double 1.000000e+00, ptr %4, align 16, !alias.scope !6
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false), !alias.scope !6
   store double 1.000000e+00, ptr %85, align 8, !alias.scope !6
-  %86 = getelementptr inbounds i8, ptr %4, i64 48
-  %87 = getelementptr inbounds i8, ptr %4, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %86, i8 0, i64 32, i1 false), !alias.scope !6
   store double 1.000000e+00, ptr %87, align 16, !alias.scope !6
-  %88 = getelementptr inbounds i8, ptr %4, i64 88
-  %89 = getelementptr inbounds i8, ptr %4, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false), !alias.scope !6
   store double 1.000000e+00, ptr %89, align 8, !alias.scope !6
   call void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(488) %0, ptr noundef nonnull align 16 dereferenceable(128) %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
-  %90 = getelementptr inbounds i8, ptr %2, i64 16
-  %91 = getelementptr inbounds i8, ptr %0, i64 288
-  %92 = getelementptr inbounds i8, ptr %0, i64 312
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %93 = load <2 x double>, ptr %5, align 16
   %94 = load <2 x double>, ptr %11, align 8
   %95 = load <2 x double>, ptr %7, align 16
@@ -258,13 +258,13 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   store <2 x double> %126, ptr %71, align 16
   %127 = load <2 x double>, ptr %90, align 16
   store <2 x double> %127, ptr %73, align 16
-  %128 = getelementptr inbounds i8, ptr %2, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %129 = load <2 x double>, ptr %128, align 16
   store <2 x double> %129, ptr %75, align 16
-  %130 = getelementptr inbounds i8, ptr %2, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %131 = load <2 x double>, ptr %130, align 16
   store <2 x double> %131, ptr %78, align 16
-  %132 = getelementptr inbounds i8, ptr %2, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %133 = load double, ptr %132, align 16
   store double %133, ptr %81, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
@@ -283,19 +283,19 @@ define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr nocapture noundef nonnull
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, i8 0, i64 48, i1 false)
   store double %1, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double %2, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store double %3, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store double %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store double 1.000000e+00, ptr %11, align 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %13 = fmul double %4, 0.000000e+00
   %14 = fsub double %2, %13
   %.sroa.0.0.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %16 = fmul double %3, 0.000000e+00
   %.sroa.0.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i.i.i.i, double %16, i64 1
   %17 = fneg double %2
@@ -324,37 +324,37 @@ define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr nocapture noundef nonnull
   %39 = fmul double %31, %38
   %40 = tail call noundef double @llvm.fmuladd.f64(double %3, double %27, double %39)
   %41 = fmul double %40, %26
-  %42 = getelementptr inbounds i8, ptr %0, i64 352
-  %43 = getelementptr inbounds i8, ptr %0, i64 400
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store double %41, ptr %43, align 16
   %44 = extractelement <2 x double> %20, i64 0
   %45 = fmul double %44, -0.000000e+00
   %46 = fadd double %45, 0.000000e+00
   %47 = fmul double %46, %26
-  %48 = getelementptr inbounds i8, ptr %0, i64 360
-  %49 = getelementptr inbounds i8, ptr %0, i64 384
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store double %47, ptr %49, align 16
   %50 = extractelement <2 x double> %20, i64 1
   %51 = fmul double %50, -0.000000e+00
   %52 = tail call noundef double @llvm.fmuladd.f64(double %44, double %2, double %51)
   %53 = fmul double %26, %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store double %53, ptr %54, align 8
   store double %30, ptr %42, align 16
-  %55 = getelementptr inbounds i8, ptr %0, i64 376
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %34, ptr %55, align 8
   store double %37, ptr %48, align 8
   %56 = fmul double %14, %26
   store double %56, ptr %12, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 368
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %58 = fmul double %16, %26
   store double %58, ptr %57, align 16
-  %59 = getelementptr inbounds i8, ptr %0, i64 392
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %60 = fmul double %19, %26
   store double %60, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %63 = load <2 x double>, ptr %15, align 8
   %64 = load <2 x double>, ptr %9, align 16
   br label %65
@@ -396,19 +396,19 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_5BlockIKNS0_IdLi4ELi
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %91 = load <2 x double>, ptr %6, align 16
   store <2 x double> %91, ptr %90, align 16
-  %92 = getelementptr inbounds i8, ptr %0, i64 432
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %93 = load <2 x double>, ptr %62, align 16
   store <2 x double> %93, ptr %92, align 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 448
-  %95 = getelementptr inbounds i8, ptr %6, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %96 = load <2 x double>, ptr %95, align 16
   store <2 x double> %96, ptr %94, align 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 464
-  %98 = getelementptr inbounds i8, ptr %6, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %99 = load <2 x double>, ptr %98, align 16
   store <2 x double> %99, ptr %97, align 16
-  %100 = getelementptr inbounds i8, ptr %0, i64 480
-  %101 = getelementptr inbounds i8, ptr %6, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %102 = load double, ptr %101, align 16
   store double %102, ptr %100, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
@@ -422,12 +422,12 @@ define void @_ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = load <2 x double>, ptr %4, align 16
   %13 = load <2 x double>, ptr %6, align 8
   %14 = load <2 x double>, ptr %7, align 16
@@ -474,19 +474,19 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_5BlockIKNS0_IdLi4ELi
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %45 = load <2 x double>, ptr %3, align 16
   store <2 x double> %45, ptr %44, align 16
-  %46 = getelementptr inbounds i8, ptr %0, i64 432
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %47 = load <2 x double>, ptr %8, align 16
   store <2 x double> %47, ptr %46, align 16
-  %48 = getelementptr inbounds i8, ptr %0, i64 448
-  %49 = getelementptr inbounds i8, ptr %3, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %50 = load <2 x double>, ptr %49, align 16
   store <2 x double> %50, ptr %48, align 16
-  %51 = getelementptr inbounds i8, ptr %0, i64 464
-  %52 = getelementptr inbounds i8, ptr %3, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %53 = load <2 x double>, ptr %52, align 16
   store <2 x double> %53, ptr %51, align 16
-  %54 = getelementptr inbounds i8, ptr %0, i64 480
-  %55 = getelementptr inbounds i8, ptr %3, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load double, ptr %55, align 16
   store double %56, ptr %54, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
@@ -517,7 +517,7 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   br i1 %16, label %17, label %.critedge.i
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
   %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
@@ -540,10 +540,10 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %.critedge.i, %25
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = load <2 x double>, ptr %31, align 8
   %33 = fmul <2 x double> %32, %32
-  %34 = getelementptr inbounds i8, ptr %5, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %35 = load <2 x double>, ptr %34, align 8
   %36 = fmul <2 x double> %35, %35
   %37 = fadd <2 x double> %33, %36
@@ -569,12 +569,12 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELi0ENS_6StrideIL
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %49 = getelementptr inbounds i8, ptr %0, i64 296
-  %50 = getelementptr inbounds i8, ptr %0, i64 320
-  %51 = getelementptr inbounds i8, ptr %4, i64 16
-  %52 = getelementptr inbounds i8, ptr %0, i64 288
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
-  %54 = getelementptr inbounds i8, ptr %0, i64 336
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %55 = load <2 x double>, ptr %47, align 16
   %56 = load <2 x double>, ptr %49, align 8
   %57 = load <2 x double>, ptr %50, align 16
@@ -621,19 +621,19 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %88 = load <2 x double>, ptr %4, align 16
   store <2 x double> %88, ptr %87, align 16
-  %89 = getelementptr inbounds i8, ptr %0, i64 432
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %90 = load <2 x double>, ptr %51, align 16
   store <2 x double> %90, ptr %89, align 16
-  %91 = getelementptr inbounds i8, ptr %0, i64 448
-  %92 = getelementptr inbounds i8, ptr %4, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %93 = load <2 x double>, ptr %92, align 16
   store <2 x double> %93, ptr %91, align 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 464
-  %95 = getelementptr inbounds i8, ptr %4, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %96 = load <2 x double>, ptr %95, align 16
   store <2 x double> %96, ptr %94, align 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 480
-  %98 = getelementptr inbounds i8, ptr %4, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %99 = load double, ptr %98, align 16
   store double %99, ptr %97, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
@@ -647,10 +647,10 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %107 = load double, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %47, i8 0, i64 48, i1 false)
   store double %104, ptr %47, align 16
-  %108 = getelementptr inbounds i8, ptr %0, i64 304
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double %105, ptr %108, align 16
   store double %106, ptr %50, align 16
-  %109 = getelementptr inbounds i8, ptr %0, i64 328
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store double %107, ptr %109, align 8
   store double 1.000000e+00, ptr %54, align 16
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -684,34 +684,34 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %135 = fmul double %128, %134
   %136 = call noundef double @llvm.fmuladd.f64(double %106, double %124, double %135)
   %137 = fmul double %136, %123
-  %138 = getelementptr inbounds i8, ptr %0, i64 352
-  %139 = getelementptr inbounds i8, ptr %0, i64 400
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store double %137, ptr %139, align 16
   %140 = fmul double %128, 0.000000e+00
   %141 = fsub double 0.000000e+00, %140
   %142 = fmul double %141, %123
-  %143 = getelementptr inbounds i8, ptr %0, i64 360
-  %144 = getelementptr inbounds i8, ptr %0, i64 384
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store double %142, ptr %144, align 16
   %145 = fmul double %124, -0.000000e+00
   %146 = call noundef double @llvm.fmuladd.f64(double %128, double %105, double %145)
   %147 = fmul double %146, %123
-  %148 = getelementptr inbounds i8, ptr %0, i64 408
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store double %147, ptr %148, align 8
   store double %127, ptr %138, align 16
-  %149 = getelementptr inbounds i8, ptr %0, i64 376
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %130, ptr %149, align 8
   store double %133, ptr %143, align 8
   %150 = fmul double %112, %123
   store double %150, ptr %110, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 368
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %152 = fmul double %113, %123
   store double %152, ptr %151, align 16
-  %153 = getelementptr inbounds i8, ptr %0, i64 392
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %154 = fmul double %116, %123
   store double %154, ptr %153, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %155 = getelementptr inbounds i8, ptr %3, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %156 = load <2 x double>, ptr %49, align 8
   %157 = load <2 x double>, ptr %50, align 16
   br label %158
@@ -754,13 +754,13 @@ _ZN3g2o15ParameterCamera7setKcamEdddd.exit:       ; preds = %158
   store <2 x double> %183, ptr %87, align 16
   %184 = load <2 x double>, ptr %155, align 16
   store <2 x double> %184, ptr %89, align 16
-  %185 = getelementptr inbounds i8, ptr %3, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %186 = load <2 x double>, ptr %185, align 16
   store <2 x double> %186, ptr %91, align 16
-  %187 = getelementptr inbounds i8, ptr %3, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %188 = load <2 x double>, ptr %187, align 16
   store <2 x double> %188, ptr %94, align 16
-  %189 = getelementptr inbounds i8, ptr %3, i64 64
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %190 = load double, ptr %189, align 16
   store double %190, ptr %97, align 16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
@@ -787,7 +787,7 @@ define noundef zeroext i1 @_ZNK3g2o15ParameterCamera5writeERSo(ptr noundef nonnu
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   %7 = load double, ptr %6, align 8
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %7)
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str)
@@ -805,15 +805,15 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_
   %16 = load double, ptr %15, align 16
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %16)
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str)
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load double, ptr %19, align 16
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %20)
   %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str)
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %24 = load double, ptr %23, align 16
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %24)
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str)
-  %27 = getelementptr inbounds i8, ptr %0, i64 328
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %28 = load double, ptr %27, align 8
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %28)
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str)
@@ -873,12 +873,12 @@ define void @_ZN3g2o11CacheCamera10updateImplEv(ptr noundef nonnull align 16 der
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %7 = getelementptr inbounds i8, ptr %4, i64 296
-  %8 = getelementptr inbounds i8, ptr %4, i64 320
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 288
-  %11 = getelementptr inbounds i8, ptr %4, i64 312
-  %12 = getelementptr inbounds i8, ptr %4, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %13 = load <2 x double>, ptr %5, align 1
   %14 = load <2 x double>, ptr %7, align 1
   %15 = load <2 x double>, ptr %8, align 1
@@ -930,7 +930,7 @@ _ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3E
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i, 5
   %46 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i, 24
-  %47 = getelementptr inbounds i8, ptr %2, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i
   %48 = load <2 x double>, ptr %47, align 8
   store <2 x double> %48, ptr %46, align 16
   %49 = getelementptr i8, ptr %46, i64 16

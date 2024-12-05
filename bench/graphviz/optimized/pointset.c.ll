@@ -47,7 +47,7 @@ define void @insertPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
   unreachable
 
 mkPair.exit:                                      ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #12
@@ -82,7 +82,7 @@ mkPair.exit:                                      ; preds = %3
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.0.0.insert.insert, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1) #12
@@ -100,7 +100,7 @@ mkPair.exit:                                      ; preds = %3
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @inPS(ptr noundef %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pair, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 4) #12
@@ -115,9 +115,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @isInPS(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pair, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 4) #12
@@ -176,8 +176,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %9
 .lr.ph:                                           ; preds = %gv_calloc.exit, %.lr.ph
   %.011 = phi ptr [ %18, %.lr.ph ], [ %16, %gv_calloc.exit ]
   %.0810 = phi ptr [ %21, %.lr.ph ], [ %17, %gv_calloc.exit ]
-  %18 = getelementptr inbounds i8, ptr %.011, i64 8
-  %19 = getelementptr inbounds i8, ptr %.0810, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0810, i64 16
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %.011, align 4
   %21 = load ptr, ptr %.0810, align 8
@@ -218,10 +218,10 @@ define void @clearPM(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @freePM(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtclose(ptr noundef %0) #12
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -241,15 +241,15 @@ define void @freePM(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @insertPM(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mpair, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %3, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 1) #12
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   ret i32 %12
 }
@@ -272,9 +272,9 @@ define internal range(i32 -1, 2) i32 @cmppair(ptr nocapture readnone %0, ptr noc
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %12, %14
   br i1 %15, label %18, label %16
@@ -306,7 +306,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define internal ptr @mkMPair(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -329,20 +329,20 @@ define internal ptr @mkMPair(ptr nocapture noundef readonly %0, ptr nocapture no
 
 gv_alloc.exit:                                    ; preds = %7, %5
   %.0 = phi ptr [ %4, %5 ], [ %8, %7 ]
-  %13 = getelementptr inbounds i8, ptr %.0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i32 %17, ptr %18, align 8
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @freeMPair(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
   store ptr %0, ptr %3, align 8

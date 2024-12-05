@@ -222,10 +222,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5MachO19getArchitectureNameENS0_12Archite
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -244,10 +244,10 @@ define dso_local range(i64 0, 137438953472) i64 @_ZN4llvm5MachO26getCPUTypeFromA
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep131 = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE.2, i64 0, i64 %4
+  %switch.gep131 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE.2, i64 0, i64 %4
   %switch.load132 = load i64, ptr %switch.gep131, align 8
   %5 = or disjoint i64 %switch.load132, %switch.load
   br label %6
@@ -284,10 +284,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5MachO
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 0, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE.exit
 
@@ -311,7 +311,7 @@ _ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE.exit: ; preds = %2, %swi
 16:                                               ; preds = %_ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.i, i64 %.sroa.18.0.i, i1 false)
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %.sroa.18.0.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.18.0.i
   store ptr %18, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 

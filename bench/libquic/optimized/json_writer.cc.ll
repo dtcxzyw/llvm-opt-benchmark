@@ -27,11 +27,11 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %json) #8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %json, i64 noundef 1024)
   store i8 0, ptr %writer.i, align 8
-  %omit_double_type_preservation_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 1
+  %omit_double_type_preservation_.i.i = getelementptr inbounds nuw i8, ptr %writer.i, i64 1
   store i8 0, ptr %omit_double_type_preservation_.i.i, align 1
-  %pretty_print_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 2
+  %pretty_print_.i.i = getelementptr inbounds nuw i8, ptr %writer.i, i64 2
   store i8 0, ptr %pretty_print_.i.i, align 2
-  %json_string_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 8
+  %json_string_.i.i = getelementptr inbounds nuw i8, ptr %writer.i, i64 8
   store ptr %json, ptr %json_string_.i.i, align 8
   %call.i = call noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %writer.i, ptr noundef nonnull align 8 dereferenceable(12) %node, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
@@ -47,15 +47,15 @@ entry:
   %0 = trunc i32 %options to i8
   %frombool.i = and i8 %0, 1
   store i8 %frombool.i, ptr %writer, align 8
-  %omit_double_type_preservation_.i = getelementptr inbounds i8, ptr %writer, i64 1
+  %omit_double_type_preservation_.i = getelementptr inbounds nuw i8, ptr %writer, i64 1
   %1 = lshr i8 %0, 1
   %frombool4.i = and i8 %1, 1
   store i8 %frombool4.i, ptr %omit_double_type_preservation_.i, align 1
-  %pretty_print_.i = getelementptr inbounds i8, ptr %writer, i64 2
+  %pretty_print_.i = getelementptr inbounds nuw i8, ptr %writer, i64 2
   %2 = lshr i8 %0, 2
   %frombool7.i = and i8 %2, 1
   store i8 %frombool7.i, ptr %pretty_print_.i, align 2
-  %json_string_.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %json_string_.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   store ptr %json, ptr %json_string_.i, align 8
   %call = call noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %writer, ptr noundef nonnull align 8 dereferenceable(12) %node, i64 noundef 0)
   %and = and i32 %options, 4
@@ -90,7 +90,7 @@ entry:
   %dict = alloca ptr, align 8
   %itr = alloca %"class.base::DictionaryValue::Iterator", align 8
   %ref.tmp187 = alloca %"class.base::BasicStringPiece", align 8
-  %type_.i = getelementptr inbounds i8, ptr %node, i64 8
+  %type_.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load i32, ptr %type_.i, align 8
   switch i32 %0, label %return [
     i32 0, label %sw.bb
@@ -104,17 +104,17 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %json_string_, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %vtable = load ptr, ptr %node, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call4 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %value)
-  %json_string_5 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %json_string_5, align 8
   %4 = load i8, ptr %value, align 1
   %tobool = trunc i8 %4 to i1
@@ -124,10 +124,10 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb8:                                           ; preds = %entry
   %vtable11 = load ptr, ptr %node, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 24
+  %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 24
   %5 = load ptr, ptr %vfn12, align 8
   %call13 = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %value9)
-  %json_string_15 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_15 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %json_string_15, align 8
   %7 = load i32, ptr %value9, align 4
   call void @_ZN4base11IntToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %7)
@@ -146,10 +146,10 @@ lpad:                                             ; preds = %sw.bb8
 
 sw.bb18:                                          ; preds = %entry
   %vtable21 = load ptr, ptr %node, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 32
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 32
   %9 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %value19)
-  %omit_double_type_preservation_ = getelementptr inbounds i8, ptr %this, i64 1
+  %omit_double_type_preservation_ = getelementptr inbounds nuw i8, ptr %this, i64 1
   %10 = load i8, ptr %omit_double_type_preservation_, align 1
   %tobool25 = trunc i8 %10 to i1
   %.pre39 = load double, ptr %value19, align 8
@@ -164,7 +164,7 @@ land.lhs.true:                                    ; preds = %sw.bb18
   br i1 %or.cond27, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %json_string_33 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_33 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load ptr, ptr %json_string_33, align 8
   %conv35 = fptosi double %.pre39 to i64
   call void @_ZN4base13Int64ToStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34, i64 noundef %conv35)
@@ -245,7 +245,7 @@ if.then72.invoke:                                 ; preds = %invoke.cont68, %inv
           to label %if.end76 unwind label %lpad49
 
 if.end76:                                         ; preds = %if.then72.invoke, %if.else, %invoke.cont63, %invoke.cont68
-  %json_string_77 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_77 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load ptr, ptr %json_string_77, align 8
   %call79 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %real)
           to label %invoke.cont78 unwind label %lpad49
@@ -257,7 +257,7 @@ invoke.cont78:                                    ; preds = %if.end76
 sw.bb81:                                          ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value82) #8
   %vtable84 = load ptr, ptr %node, align 8
-  %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 40
+  %vfn85 = getelementptr inbounds nuw i8, ptr %vtable84, i64 40
   %22 = load ptr, ptr %vfn85, align 8
   %call88 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %value82)
           to label %invoke.cont87 unwind label %lpad86
@@ -267,7 +267,7 @@ invoke.cont87:                                    ; preds = %sw.bb81
           to label %invoke.cont91 unwind label %lpad86
 
 invoke.cont91:                                    ; preds = %invoke.cont87
-  %json_string_92 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_92 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %23 = load ptr, ptr %json_string_92, align 8
   %call94 = invoke noundef zeroext i1 @_ZN4base16EscapeJSONStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp90, i1 noundef zeroext true, ptr noundef %23)
           to label %invoke.cont93 unwind label %lpad86
@@ -283,10 +283,10 @@ lpad86:                                           ; preds = %invoke.cont91, %inv
   br label %eh.resume
 
 sw.bb96:                                          ; preds = %entry
-  %json_string_97 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_97 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %25 = load ptr, ptr %json_string_97, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef signext 91)
-  %pretty_print_ = getelementptr inbounds i8, ptr %this, i64 2
+  %pretty_print_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %26 = load i8, ptr %pretty_print_, align 2
   %tobool98 = trunc i8 %26 to i1
   br i1 %tobool98, label %if.then99, label %if.end101
@@ -299,13 +299,13 @@ if.then99:                                        ; preds = %sw.bb96
 if.end101:                                        ; preds = %if.then99, %sw.bb96
   store ptr null, ptr %list, align 8
   %vtable103 = load ptr, ptr %node, align 8
-  %vfn104 = getelementptr inbounds i8, ptr %vtable103, i64 80
+  %vfn104 = getelementptr inbounds nuw i8, ptr %vtable103, i64 80
   %28 = load ptr, ptr %vfn104, align 8
   %call105 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %list)
   %29 = load ptr, ptr %list, align 8
-  %list_.i = getelementptr inbounds i8, ptr %29, i64 16
+  %list_.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %30 = load ptr, ptr %list_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %29, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not33 = icmp eq ptr %30, %31
   br i1 %cmp.i.not33, label %for.end, label %for.body
@@ -320,7 +320,7 @@ for.body:                                         ; preds = %if.end101, %for.inc
 
 land.lhs.true114:                                 ; preds = %for.body
   %33 = load ptr, ptr %__begin3.sroa.0.034, align 8
-  %type_.i15 = getelementptr inbounds i8, ptr %33, i64 8
+  %type_.i15 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %34 = load i32, ptr %type_.i15, align 8
   %cmp117 = icmp eq i32 %34, 5
   br i1 %cmp117, label %for.inc, label %if.end119
@@ -349,7 +349,7 @@ if.end128:                                        ; preds = %if.then121, %if.the
 for.inc:                                          ; preds = %land.lhs.true114, %if.end128
   %first_value_has_been_output.1 = phi i1 [ %first_value_has_been_output.035, %land.lhs.true114 ], [ true, %if.end128 ]
   %result102.1 = phi i1 [ %result102.036, %land.lhs.true114 ], [ %spec.select, %if.end128 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.034, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.034, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -370,10 +370,10 @@ if.end138:                                        ; preds = %if.then136, %for.en
   br label %return
 
 sw.bb141:                                         ; preds = %entry
-  %json_string_142 = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_142 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %42 = load ptr, ptr %json_string_142, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 noundef signext 123)
-  %pretty_print_143 = getelementptr inbounds i8, ptr %this, i64 2
+  %pretty_print_143 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %43 = load i8, ptr %pretty_print_143, align 2
   %tobool144 = trunc i8 %43 to i1
   br i1 %tobool144, label %if.then145, label %if.end148
@@ -386,14 +386,14 @@ if.then145:                                       ; preds = %sw.bb141
 if.end148:                                        ; preds = %if.then145, %sw.bb141
   store ptr null, ptr %dict, align 8
   %vtable151 = load ptr, ptr %node, align 8
-  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 96
+  %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 96
   %45 = load ptr, ptr %vfn152, align 8
   %call153 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(12) %node, ptr noundef nonnull %dict)
   %46 = load ptr, ptr %dict, align 8
   call void @_ZN4base15DictionaryValue8IteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %itr, ptr noundef nonnull align 8 dereferenceable(64) %46)
-  %it_.i = getelementptr inbounds i8, ptr %itr, i64 8
+  %it_.i = getelementptr inbounds nuw i8, ptr %itr, i64 8
   %47 = load ptr, ptr %itr, align 8
-  %add.ptr.i.i.i29 = getelementptr inbounds i8, ptr %47, i64 24
+  %add.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %48 = load ptr, ptr %it_.i, align 8
   %cmp.i.i30 = icmp eq ptr %48, %add.ptr.i.i.i29
   br i1 %cmp.i.i30, label %for.cond.cleanup, label %for.body159.lr.ph
@@ -427,9 +427,9 @@ for.body159:                                      ; preds = %for.body159.lr.ph, 
   br i1 %tobool161, label %land.lhs.true162, label %if.end169
 
 land.lhs.true162:                                 ; preds = %for.body159
-  %second.i = getelementptr inbounds i8, ptr %53, i64 64
+  %second.i = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %second.i, align 8
-  %type_.i17 = getelementptr inbounds i8, ptr %55, i64 8
+  %type_.i17 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %56 = load i32, ptr %type_.i17, align 8
   %cmp167 = icmp eq i32 %56, 5
   br i1 %cmp167, label %for.inc209, label %if.end169
@@ -464,7 +464,7 @@ if.then184:                                       ; preds = %if.end181
 
 if.end186:                                        ; preds = %if.then184, %if.end181
   %62 = load ptr, ptr %it_.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %62, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %62, i64 32
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
           to label %invoke.cont190 unwind label %lpad156
 
@@ -490,7 +490,7 @@ if.then198:                                       ; preds = %invoke.cont195
 
 if.end201:                                        ; preds = %if.then198, %invoke.cont195
   %67 = load ptr, ptr %it_.i, align 8
-  %second.i21 = getelementptr inbounds i8, ptr %67, i64 64
+  %second.i21 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %68 = load ptr, ptr %second.i21, align 8
   %call206 = invoke noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(12) %68, i64 noundef %add204)
           to label %invoke.cont205 unwind label %lpad156
@@ -508,7 +508,7 @@ for.inc209:                                       ; preds = %land.lhs.true162, %
   %result150.1 = phi i1 [ %result150.032, %land.lhs.true162 ], [ %spec.select14, %invoke.cont205 ]
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %70) #9
   store ptr %call.i.i, ptr %it_.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %69, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 24
   %cmp.i.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %for.cond.cleanup, label %for.body159, !llvm.loop !5
 
@@ -547,15 +547,15 @@ entry:
   %0 = trunc i32 %options to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %this, align 8
-  %omit_double_type_preservation_ = getelementptr inbounds i8, ptr %this, i64 1
+  %omit_double_type_preservation_ = getelementptr inbounds nuw i8, ptr %this, i64 1
   %1 = lshr i8 %0, 1
   %frombool4 = and i8 %1, 1
   store i8 %frombool4, ptr %omit_double_type_preservation_, align 1
-  %pretty_print_ = getelementptr inbounds i8, ptr %this, i64 2
+  %pretty_print_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %2 = lshr i8 %0, 2
   %frombool7 = and i8 %2, 1
   store i8 %frombool7, ptr %pretty_print_, align 2
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %json, ptr %json_string_, align 8
   ret void
 }
@@ -600,7 +600,7 @@ declare void @_ZN4base15DictionaryValue8IteratorC1ERKS0_(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base10JSONWriter10IndentLineEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %depth) local_unnamed_addr #0 align 2 {
 entry:
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_, align 8
   %mul = mul i64 %depth, 3
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %mul, i8 noundef signext 32)

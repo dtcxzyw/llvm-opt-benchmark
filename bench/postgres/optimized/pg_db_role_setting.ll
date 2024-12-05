@@ -28,12 +28,12 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %16 = tail call ptr @table_open(i32 noundef 2964, i32 noundef 3) #5
   %17 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #5
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %19 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #5
   %20 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef 2965, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #5
   %21 = call ptr @systable_getnext(ptr noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 5
   %.not57 = icmp eq ptr %21, null
@@ -43,7 +43,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not57, label %85, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %16, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc i64 @heap_getattr(ptr noundef %21, ptr noundef %28, ptr noundef %5)
   %30 = load i8, ptr %5, align 1
@@ -60,20 +60,20 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 36:                                               ; preds = %32
   store i16 0, ptr %8, align 2
   %37 = ptrtoint ptr %35 to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %37, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %8, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 1, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %7, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 0, ptr %40, align 1
   %41 = load ptr, ptr %27, align 8
   %42 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  %43 = getelementptr inbounds i8, ptr %21, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %43, ptr noundef %42) #5
   br label %85
 
 .thread:                                          ; preds = %26, %32
-  %44 = getelementptr inbounds i8, ptr %21, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %44) #5
   br label %85
 
@@ -82,11 +82,11 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 46:                                               ; preds = %45
   store i16 0, ptr %11, align 2
-  %47 = getelementptr inbounds i8, ptr %11, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i8 1, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %10, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 0, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %16, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %50 = load ptr, ptr %49, align 8
   %51 = call fastcc i64 @heap_getattr(ptr noundef %21, ptr noundef %50, ptr noundef %12)
   %52 = load i8, ptr %12, align 1
@@ -101,7 +101,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 57:                                               ; preds = %46, %54
   %58 = phi ptr [ %56, %54 ], [ null, %46 ]
   %.not55 = icmp eq ptr %15, null
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
   br i1 %.not55, label %63, label %61
 
@@ -120,16 +120,16 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 66:                                               ; preds = %65
   %67 = ptrtoint ptr %.050 to i64
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %67, ptr %68, align 16
   %69 = load ptr, ptr %49, align 8
   %70 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %69, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
-  %71 = getelementptr inbounds i8, ptr %21, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %71, ptr noundef %70) #5
   br label %85
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %21, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %73) #5
   br label %85
 
@@ -139,16 +139,16 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 75:                                               ; preds = %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %14, i8 0, i64 3, i1 false)
-  %76 = getelementptr inbounds i8, ptr %2, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr @GUCArrayAdd(ptr noundef null, ptr noundef %77, ptr noundef nonnull %15) #5
   store i64 %17, ptr %13, align 16
-  %79 = getelementptr inbounds i8, ptr %13, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %19, ptr %79, align 8
   %80 = ptrtoint ptr %78 to i64
-  %81 = getelementptr inbounds i8, ptr %13, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %80, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %16, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = call ptr @heap_form_tuple(ptr noundef %83, ptr noundef nonnull %13, ptr noundef nonnull %14) #5
   call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %84) #5
@@ -181,9 +181,9 @@ declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 2047
   %9 = icmp samesign ult i16 %8, 3
@@ -196,7 +196,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
 12:                                               ; preds = %3
   store i8 0, ptr %2, align 1
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 1
   %.not.i = icmp eq i16 %16, 0
@@ -209,7 +209,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %20, label %21, label %51
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 22
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
   %25 = getelementptr i8, ptr %13, i64 %24
@@ -266,7 +266,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br label %fastgetattr.exit
 
 53:                                               ; preds = %12
-  %54 = getelementptr inbounds i8, ptr %13, i64 23
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 23
   %.val.i = load i8, ptr %54, align 1
   %55 = and i8 %.val.i, 4
   %.not.i.i = icmp eq i8 %55, 0
@@ -346,7 +346,7 @@ define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %16 = phi ptr [ %18, %.lr.ph ], [ %15, %13 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @CatalogTupleDelete(ptr noundef %4, ptr noundef nonnull %17) #5
   %18 = call ptr @heap_getnext(ptr noundef %14, i32 noundef 1) #5
   %.not18 = icmp eq ptr %18, null
@@ -354,9 +354,9 @@ define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 312
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull %14) #5
   call void @table_close(ptr noundef %4, i32 noundef 3) #5
@@ -373,7 +373,7 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   %7 = alloca i8, align 1
   %8 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #5
-  %9 = getelementptr inbounds i8, ptr %6, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = zext i32 %2 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #5
   %11 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2965, i1 noundef zeroext true, ptr noundef %0, i32 noundef 2, ptr noundef nonnull %6) #5
@@ -382,7 +382,7 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %23

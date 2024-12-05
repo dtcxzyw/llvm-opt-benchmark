@@ -40,18 +40,18 @@ define i32 @lo_open(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unname
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %10, align 4
   store i32 4, ptr %6, align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %13, align 4
   store i32 4, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 864
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %18 = call ptr @PQfn(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 2) #10
@@ -73,11 +73,11 @@ define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnam
   br i1 %2, label %132, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1000
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   tail call void @resetPQExpBuffer(ptr noundef nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 864
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %132
@@ -101,7 +101,7 @@ define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnam
   br label %132
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %17 = load i32, ptr %16, align 8
   %.not109 = icmp eq i32 %17, 2
   br i1 %.not109, label %.preheader, label %32
@@ -116,18 +116,18 @@ define internal fastcc range(i32 -1, 1) i32 @lo_initialize(ptr noundef %0) unnam
   br label %115
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 48
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 44
-  %22 = getelementptr inbounds i8, ptr %calloc, i64 40
-  %23 = getelementptr inbounds i8, ptr %calloc, i64 36
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 32
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 28
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 24
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 20
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 16
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 12
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %calloc, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   br label %33
 
 32:                                               ; preds = %15
@@ -377,14 +377,14 @@ define i32 @lo_close(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %9, align 4
   store i32 4, ptr %3, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @PQfn(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1) #10
   %16 = call i32 @PQresultStatus(ptr noundef %15) #10
@@ -409,9 +409,9 @@ define i32 @lo_truncate(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_un
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 864
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
@@ -429,17 +429,17 @@ define i32 @lo_truncate(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_un
   br label %30
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %20, align 4
   store i32 4, ptr %4, align 16
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 1, ptr %23, align 4
   store i32 4, ptr %22, align 16
   %24 = trunc nuw nsw i64 %2 to i32
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %24, ptr %25, align 8
   %26 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %13, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 2) #10
   %27 = call i32 @PQresultStatus(ptr noundef %26) #10
@@ -467,9 +467,9 @@ define i32 @lo_truncate64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -479,18 +479,18 @@ define i32 @lo_truncate64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_
   br label %27
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %18, align 4
   store i32 4, ptr %5, align 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %19, align 8
   %.sroa.0.0.insert.insert.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   store i64 %.sroa.0.0.insert.insert.i, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
-  %21 = getelementptr inbounds i8, ptr %5, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %21, align 4
   store i32 8, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %22, align 8
   %23 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 2) #10
   %24 = call i32 @PQresultStatus(ptr noundef %23) #10
@@ -522,21 +522,21 @@ define i32 @lo_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef 
   br label %27
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %13, align 4
   store i32 4, ptr %5, align 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %16, align 4
   store i32 4, ptr %15, align 16
   %17 = trunc nuw nsw i64 %3 to i32
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 864
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %22 = load i32, ptr %21, align 4
   %23 = call ptr @PQfn(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 2) #10
   %24 = call i32 @PQresultStatus(ptr noundef %23) #10
@@ -569,21 +569,21 @@ define i32 @lo_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef
   br label %28
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %14, align 4
   store i32 4, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %17, align 4
   %18 = trunc nuw nsw i64 %3 to i32
   store i32 %18, ptr %16, align 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 864
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @PQfn(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 2) #10
   %25 = call i32 @PQresultStatus(ptr noundef %24) #10
@@ -608,26 +608,26 @@ define i32 @lo_lseek(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %11, align 4
   store i32 4, ptr %5, align 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %14, align 4
   store i32 4, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  %17 = getelementptr inbounds i8, ptr %5, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 1, ptr %17, align 4
   store i32 4, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 864
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = call ptr @PQfn(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 3) #10
   %24 = call i32 @PQresultStatus(ptr noundef %23) #10
@@ -653,9 +653,9 @@ define noundef i64 @lo_lseek64(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   br i1 %10, label %35, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 864
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
@@ -665,24 +665,24 @@ define noundef i64 @lo_lseek64(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   br label %35
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %19, align 4
   store i32 4, ptr %6, align 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %20, align 8
   %.sroa.0.0.insert.insert.i = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   store i64 %.sroa.0.0.insert.insert.i, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = getelementptr inbounds i8, ptr %6, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %22, align 4
   store i32 8, ptr %21, align 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
-  %25 = getelementptr inbounds i8, ptr %6, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 1, ptr %25, align 4
   store i32 4, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %3, ptr %26, align 8
   %27 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 3) #10
   %28 = call i32 @PQresultStatus(ptr noundef %27) #10
@@ -713,14 +713,14 @@ define i32 @lo_creat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %9, align 4
   store i32 4, ptr %3, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @PQfn(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1) #10
   %16 = call i32 @PQresultStatus(ptr noundef %15) #10
@@ -745,9 +745,9 @@ define i32 @lo_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %7, label %22, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 864
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
@@ -757,10 +757,10 @@ define i32 @lo_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %22
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %16, align 4
   store i32 4, ptr %3, align 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %17, align 8
   %18 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1) #10
   %19 = call i32 @PQresultStatus(ptr noundef %18) #10
@@ -785,14 +785,14 @@ define i32 @lo_tell(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %9, align 4
   store i32 4, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @PQfn(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 1) #10
   %16 = call i32 @PQresultStatus(ptr noundef %15) #10
@@ -817,9 +817,9 @@ define noundef i64 @lo_tell64(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 864
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
@@ -829,10 +829,10 @@ define noundef i64 @lo_tell64(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %26
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %16, align 4
   store i32 4, ptr %4, align 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %17, align 8
   %18 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 1) #10
   %19 = call i32 @PQresultStatus(ptr noundef %18) #10
@@ -863,14 +863,14 @@ define i32 @lo_unlink(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %9, align 4
   store i32 4, ptr %3, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @PQfn(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 1) #10
   %16 = call i32 @PQresultStatus(ptr noundef %15) #10
@@ -911,9 +911,9 @@ define internal fastcc i32 @lo_import_internal(ptr noundef %0, ptr noundef %1, i
   br i1 %18, label %108, label %19
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 1000
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   tail call void @resetPQExpBuffer(ptr noundef nonnull %20) #10
-  %21 = getelementptr inbounds i8, ptr %0, i64 1024
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %21, align 8
   %22 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 0, i32 noundef 438) #10
   %23 = icmp slt i32 %22, 0
@@ -939,14 +939,14 @@ define internal fastcc i32 @lo_import_internal(ptr noundef %0, ptr noundef %1, i
   br i1 %32, label %lo_creat.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %13, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %34, align 4
   store i32 4, ptr %13, align 16
-  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 393216, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 864
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %39, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 1) #10
   %41 = call i32 @PQresultStatus(ptr noundef %40) #10
@@ -985,18 +985,18 @@ lo_creat.exit:                                    ; preds = %30, %33
   br i1 %52, label %lo_open.exit.thread, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %12, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %54, align 4
   store i32 4, ptr %12, align 16
-  %55 = getelementptr inbounds i8, ptr %12, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %.037, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %12, i64 16
-  %57 = getelementptr inbounds i8, ptr %12, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 1, ptr %57, align 4
   store i32 4, ptr %56, align 16
-  %58 = getelementptr inbounds i8, ptr %12, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 131072, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 864
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 4
   %62 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %61, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %12, i32 noundef 2) #10
@@ -1054,13 +1054,13 @@ lo_open.exit:                                     ; preds = %53
   br i1 %83, label %lo_close.exit, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %7, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %85, align 4
   store i32 4, ptr %7, align 16
-  %86 = getelementptr inbounds i8, ptr %7, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %65, ptr %86, align 8
   %87 = load ptr, ptr %59, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %89, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 1) #10
   %91 = call i32 @PQresultStatus(ptr noundef %90) #10
@@ -1088,13 +1088,13 @@ lo_close.exit:                                    ; preds = %79, %84
   br i1 %97, label %lo_close.exit49.thread, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %4, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %99, align 4
   store i32 4, ptr %4, align 16
-  %100 = getelementptr inbounds i8, ptr %4, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %65, ptr %100, align 8
   %101 = load ptr, ptr %59, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %103, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 1) #10
   %105 = call i32 @PQresultStatus(ptr noundef %104) #10
@@ -1155,18 +1155,18 @@ define range(i32 -1, 2) i32 @lo_export(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %21, label %lo_open.exit.thread, label %22
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %17, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %23, align 4
   store i32 4, ptr %17, align 16
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 16
-  %26 = getelementptr inbounds i8, ptr %17, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 1, ptr %26, align 4
   store i32 4, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %17, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 262144, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 864
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %31 = call ptr @PQfn(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %15, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %17, i32 noundef 2) #10
@@ -1195,11 +1195,11 @@ lo_open.exit:                                     ; preds = %22
   br i1 %38, label %44, label %.preheader
 
 .preheader:                                       ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %10, i64 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 16
-  %42 = getelementptr inbounds i8, ptr %10, i64 20
-  %43 = getelementptr inbounds i8, ptr %10, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %60
 
 44:                                               ; preds = %36
@@ -1213,13 +1213,13 @@ lo_open.exit:                                     ; preds = %22
   br i1 %48, label %lo_close.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %12, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %50, align 4
   store i32 4, ptr %12, align 16
-  %51 = getelementptr inbounds i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %34, ptr %51, align 8
   %52 = load ptr, ptr %28, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 1, ptr noundef nonnull %12, i32 noundef 1) #10
   %56 = call i32 @PQresultStatus(ptr noundef %55) #10
@@ -1230,9 +1230,9 @@ lo_close.exit:                                    ; preds = %44, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %57 = getelementptr inbounds i8, ptr %0, i64 1000
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   call void @resetPQExpBuffer(ptr noundef nonnull %57) #10
-  %58 = getelementptr inbounds i8, ptr %0, i64 1024
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %58, align 8
   %59 = call ptr @pg_strerror_r(i32 noundef %46, ptr noundef nonnull %19, i64 noundef 256) #10
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %2, ptr noundef %59) #10
@@ -1253,7 +1253,7 @@ lo_close.exit:                                    ; preds = %44, %49
   store i32 4, ptr %41, align 16
   store i32 8192, ptr %43, align 8
   %64 = load ptr, ptr %28, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 44
   %66 = load i32, ptr %65, align 4
   %67 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %10, i32 noundef 2) #10
   %68 = call i32 @PQresultStatus(ptr noundef %67) #10
@@ -1291,13 +1291,13 @@ lo_read.exit:                                     ; preds = %63
   br i1 %80, label %lo_close.exit46, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %7, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %82, align 4
   store i32 4, ptr %7, align 16
-  %83 = getelementptr inbounds i8, ptr %7, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %34, ptr %83, align 8
   %84 = load ptr, ptr %28, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %86, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 1) #10
   %88 = call i32 @PQresultStatus(ptr noundef %87) #10
@@ -1309,9 +1309,9 @@ lo_close.exit46:                                  ; preds = %76, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %89 = call i32 @close(i32 noundef %37) #10
-  %90 = getelementptr inbounds i8, ptr %0, i64 1000
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   call void @resetPQExpBuffer(ptr noundef nonnull %90) #10
-  %91 = getelementptr inbounds i8, ptr %0, i64 1024
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %91, align 8
   %92 = call ptr @pg_strerror_r(i32 noundef %78, ptr noundef nonnull %19, i64 noundef 256) #10
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %2, ptr noundef %92) #10
@@ -1330,13 +1330,13 @@ lo_close.exit46:                                  ; preds = %76, %81
   br i1 %97, label %lo_close.exit49.thread, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %4, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %99, align 4
   store i32 4, ptr %4, align 16
-  %100 = getelementptr inbounds i8, ptr %4, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %34, ptr %100, align 8
   %101 = load ptr, ptr %28, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = call ptr @PQfn(ptr noundef nonnull %0, i32 noundef %103, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 1) #10
   %105 = call i32 @PQresultStatus(ptr noundef %104) #10

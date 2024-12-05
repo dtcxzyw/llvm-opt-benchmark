@@ -17,18 +17,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i8, ptr %7, align 8
   %9 = sub i8 1, %8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %11 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8
   %13 = icmp eq ptr %.val, null
   br i1 %13, label %mbedtls_cipher_get_key_bitlen.exit, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %.val, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %16 = load i32, ptr %15, align 8
   br label %mbedtls_cipher_get_key_bitlen.exit
 
@@ -50,13 +50,13 @@ mbedtls_cipher_get_key_bitlen.exit:               ; preds = %6, %14
 
 24:                                               ; preds = %22
   store i8 %9, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 212
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %5, ptr %25, align 4
   %26 = load i32, ptr %1, align 1
   store i32 %26, ptr %11, align 8
   %27 = tail call i64 @time(ptr noundef null) #7
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %11, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
 
@@ -79,7 +79,7 @@ define hidden i32 @mbedtls_ssl_ticket_setup(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %9, label %mbedtls_cipher_info_get_mode.exit35.thread, label %mbedtls_cipher_info_get_mode.exit
 
 mbedtls_cipher_info_get_mode.exit:                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %mbedtls_cipher_info_get_mode.exit35.thread [
     i32 6, label %mbedtls_cipher_info_get_key_bitlen.exit
@@ -88,25 +88,25 @@ mbedtls_cipher_info_get_mode.exit:                ; preds = %5
   ]
 
 mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %mbedtls_cipher_info_get_mode.exit, %mbedtls_cipher_info_get_mode.exit, %mbedtls_cipher_info_get_mode.exit
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 256
   br i1 %14, label %mbedtls_cipher_info_get_mode.exit35.thread, label %15
 
 15:                                               ; preds = %mbedtls_cipher_info_get_key_bitlen.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 212
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %4, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = tail call i32 @mbedtls_cipher_setup(ptr noundef nonnull %19, ptr noundef nonnull %8) #7
   %.not28 = icmp eq i32 %20, 0
   br i1 %.not28, label %21, label %mbedtls_cipher_info_get_mode.exit35.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = tail call i32 @mbedtls_cipher_setup(ptr noundef nonnull %22, ptr noundef nonnull %8) #7
   %.not29 = icmp eq i32 %23, 0
   br i1 %.not29, label %24, label %mbedtls_cipher_info_get_mode.exit35.thread
@@ -116,7 +116,7 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %mbedtls_cipher_info
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %25 = tail call i64 @time(ptr noundef null) #7
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %26, ptr %27, align 4
   %28 = load ptr, ptr %16, align 8
   %29 = load ptr, ptr %17, align 8
@@ -137,7 +137,7 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %mbedtls_cipher_info
   br i1 %36, label %ssl_ticket_gen_key.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %39 = load i32, ptr %38, align 8
   br label %ssl_ticket_gen_key.exit
 
@@ -157,10 +157,10 @@ ssl_ticket_gen_key.exit:                          ; preds = %35, %37
 41:                                               ; preds = %ssl_ticket_gen_key.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %43 = call i64 @time(ptr noundef null) #7
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %0, i64 108
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %44, ptr %45, align 4
   %46 = load ptr, ptr %16, align 8
   %47 = load ptr, ptr %17, align 8
@@ -181,7 +181,7 @@ ssl_ticket_gen_key.exit:                          ; preds = %35, %37
   br i1 %54, label %mbedtls_cipher_get_key_bitlen.exit.i42, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.val.i41, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.val.i41, i64 8
   %57 = load i32, ptr %56, align 8
   br label %mbedtls_cipher_get_key_bitlen.exit.i42
 
@@ -209,15 +209,15 @@ declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #
 define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i64 0, ptr %4, align 8
   %12 = icmp eq ptr %0, null
   br i1 %12, label %57, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %57, label %17
@@ -237,17 +237,17 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not43, label %25, label %57
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 208
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %27 = load i8, ptr %26, align 8
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 212
+  %29 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %5, align 4
   %32 = load i32, ptr %29, align 8
   store i32 %32, ptr %2, align 1
   %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 224
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %33(ptr noundef %35, ptr noundef nonnull %9, i64 noundef 12) #7
   %.not44 = icmp eq i32 %36, 0
@@ -268,9 +268,9 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   %46 = trunc nuw i64 %45 to i8
   store i8 %46, ptr %10, align 1
   %47 = trunc i64 %42 to i8
-  %48 = getelementptr inbounds i8, ptr %2, i64 17
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 17
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %29, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %50 = call i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef nonnull %49, ptr noundef nonnull %9, i64 noundef 12, ptr noundef nonnull %2, i64 noundef 18, ptr noundef nonnull %11, i64 noundef %42, ptr noundef nonnull %11, i64 noundef %39, ptr noundef nonnull %8, i64 noundef 16) #7
   %.not45 = icmp eq i32 %50, 0
   br i1 %.not45, label %51, label %57
@@ -295,7 +295,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnamed_addr #2 {
   %2 = alloca [32 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 212
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %40, label %5
@@ -303,10 +303,10 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
 5:                                                ; preds = %1
   %6 = tail call i64 @time(ptr noundef null) #7
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %10, i32 1
   %12 = load i32, ptr %11, align 4
   %.not14 = icmp ugt i32 %12, %7
   br i1 %.not14, label %17, label %13
@@ -323,14 +323,14 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %19
   %21 = tail call i64 @time(ptr noundef null) #7
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %25(ptr noundef %27, ptr noundef nonnull %20, i64 noundef 4) #7
   %.not.i = icmp eq i32 %28, 0
@@ -344,13 +344,13 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   br i1 %.not15.i, label %33, label %ssl_ticket_gen_key.exit
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %20, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.val.i = load ptr, ptr %34, align 8
   %35 = icmp eq ptr %.val.i, null
   br i1 %35, label %mbedtls_cipher_get_key_bitlen.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %38 = load i32, ptr %37, align 8
   br label %mbedtls_cipher_get_key_bitlen.exit.i
 
@@ -377,14 +377,14 @@ declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %9 = icmp eq ptr %0, null
   br i1 %9, label %ssl_ticket_select_key.exit.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = icmp ult i64 %3, 34
@@ -400,7 +400,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   %18 = load i8, ptr %7, align 1
   %19 = zext i8 %18 to i64
   %20 = shl nuw nsw i64 %19, 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
   %24 = or disjoint i64 %20, %23
@@ -414,13 +414,13 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
 .preheader:                                       ; preds = %17, %26
   %27 = phi i1 [ false, %26 ], [ true, %17 ]
   %indvars.iv.i = phi i64 [ 1, %26 ], [ 0, %17 ]
-  %28 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %0, i64 0, i64 %indvars.iv.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2, ptr noundef nonnull readonly dereferenceable(4) %28, i64 4)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %ssl_ticket_select_key.exit, label %26
 
 ssl_ticket_select_key.exit:                       ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = add nuw nsw i64 %24, 16
   %32 = call i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef nonnull %30, ptr noundef nonnull %6, i64 noundef 12, ptr noundef %2, i64 noundef 18, ptr noundef nonnull %8, i64 noundef %31, ptr noundef nonnull %8, i64 noundef %24, ptr noundef nonnull %5, i64 noundef 16) #7
   %.not43 = icmp eq i32 %32, 0
@@ -443,7 +443,7 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
 
 39:                                               ; preds = %37
   %40 = call i64 @time(ptr noundef null) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp slt i64 %40, %42
   br i1 %43, label %50, label %44
@@ -451,7 +451,7 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
 44:                                               ; preds = %39
   %45 = sub nsw i64 %40, %42
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 212
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %48 = load i32, ptr %47, align 4
   %49 = icmp ult i32 %48, %46
   br i1 %49, label %50, label %ssl_ticket_select_key.exit.thread
@@ -470,9 +470,9 @@ declare i32 @mbedtls_ssl_session_load(ptr noundef, ptr noundef, i64 noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ssl_ticket_free(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_cipher_free(ptr noundef nonnull %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @mbedtls_cipher_free(ptr noundef nonnull %3) #7
   tail call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 232) #7
   ret void

@@ -147,39 +147,39 @@ define hidden noundef range(i32 -1, 1) i32 @main() local_unnamed_addr #3 persona
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #6
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 16
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
-  %58 = getelementptr inbounds i8, ptr %8, i64 20
-  %59 = getelementptr inbounds i8, ptr %8, i64 8
-  %60 = getelementptr inbounds i8, ptr %9, i64 8
-  %61 = getelementptr inbounds i8, ptr %9, i64 16
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 16
-  %64 = getelementptr inbounds i8, ptr %11, i64 16
-  %65 = getelementptr inbounds i8, ptr %11, i64 20
-  %66 = getelementptr inbounds i8, ptr %11, i64 8
-  %67 = getelementptr inbounds i8, ptr %12, i64 8
-  %68 = getelementptr inbounds i8, ptr %12, i64 16
-  %69 = getelementptr inbounds i8, ptr %15, i64 16
-  %70 = getelementptr inbounds i8, ptr %15, i64 20
-  %71 = getelementptr inbounds i8, ptr %15, i64 8
-  %72 = getelementptr inbounds i8, ptr %16, i64 8
-  %73 = getelementptr inbounds i8, ptr %16, i64 16
-  %74 = getelementptr inbounds i8, ptr %17, i64 16
-  %75 = getelementptr inbounds i8, ptr %17, i64 20
-  %76 = getelementptr inbounds i8, ptr %17, i64 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 8
-  %78 = getelementptr inbounds i8, ptr %18, i64 16
-  %79 = getelementptr inbounds i8, ptr %2, i64 12
-  %80 = getelementptr inbounds i8, ptr %2, i64 8
-  %81 = getelementptr inbounds i8, ptr %4, i64 16
-  %82 = getelementptr inbounds i8, ptr %4, i64 72
-  %83 = getelementptr inbounds i8, ptr %2, i64 16
-  %84 = getelementptr inbounds i8, ptr %2, i64 72
-  %85 = getelementptr inbounds i8, ptr %21, i64 16
-  %86 = getelementptr inbounds i8, ptr %21, i64 20
-  %87 = getelementptr inbounds i8, ptr %21, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %88
 
 88:                                               ; preds = %200, %54
@@ -382,7 +382,7 @@ define hidden noundef range(i32 -1, 1) i32 @main() local_unnamed_addr #3 persona
   %146 = load i64, ptr %145, align 8
   %147 = mul i64 %146, %indvars.iv62
   %148 = getelementptr inbounds i8, ptr %144, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %indvars.iv
   %150 = load i8, ptr %149, align 1
   %151 = add i8 %150, -1
   %or.cond = icmp ult i8 %151, -2
@@ -394,7 +394,7 @@ define hidden noundef range(i32 -1, 1) i32 @main() local_unnamed_addr #3 persona
   %155 = load i64, ptr %154, align 8
   %156 = mul i64 %155, %indvars.iv62
   %157 = getelementptr inbounds i8, ptr %153, i64 %156
-  %158 = getelementptr inbounds %"class.cv::Vec", ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw %"class.cv::Vec", ptr %157, i64 %indvars.iv
   %159 = xor i8 %150, -1
   %160 = load i8, ptr %158, align 1
   %161 = uitofp i8 %160 to float
@@ -403,13 +403,13 @@ define hidden noundef range(i32 -1, 1) i32 @main() local_unnamed_addr #3 persona
   %164 = call float @llvm.fmuladd.f32(float %161, float 0x3FD9999980000000, float %163)
   %165 = fptoui float %164 to i8
   store i8 %165, ptr %158, align 1
-  %166 = getelementptr inbounds i8, ptr %158, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %167 = load i8, ptr %166, align 1
   %168 = uitofp i8 %167 to float
   %169 = call float @llvm.fmuladd.f32(float %168, float 0x3FD9999980000000, float %163)
   %170 = fptoui float %169 to i8
   store i8 %170, ptr %166, align 1
-  %171 = getelementptr inbounds i8, ptr %158, i64 2
+  %171 = getelementptr inbounds nuw i8, ptr %158, i64 2
   %172 = load i8, ptr %171, align 1
   %173 = uitofp i8 %172 to float
   %174 = call float @llvm.fmuladd.f32(float %173, float 0x3FD9999980000000, float %163)

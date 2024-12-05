@@ -239,7 +239,7 @@ land.lhs.true43:                                  ; preds = %invoke.cont40
 if.then46:                                        ; preds = %land.lhs.true43
   %14 = load i32, ptr %arenaForCurrent, align 4, !tbaa !16
   %conv47 = zext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 8
   store i64 %conv47, ptr %arrayidx, align 8, !tbaa !14
   %15 = load i64, ptr %miblen, align 8, !tbaa !14
   %call49 = call i32 @mallctlbymib(ptr noundef nonnull %mib, i64 noundef %15, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #22
@@ -295,7 +295,7 @@ invoke.cont98:                                    ; preds = %if.else95
 
 invoke.cont100:                                   ; preds = %invoke.cont98
   %vtable = load ptr, ptr %20, align 8, !tbaa !25
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %24 = load ptr, ptr %vfn, align 8
   %call102 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
   %call104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call101, ptr noundef %call102)

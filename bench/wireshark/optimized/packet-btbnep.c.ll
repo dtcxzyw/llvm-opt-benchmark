@@ -212,12 +212,12 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %8 = load i32, ptr @ett_btbnep, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.104) #2
   %12 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #2
-  %13 = getelementptr inbounds i8, ptr %1, i64 348
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %10, align 8
   %switch.selectcmp = icmp eq i32 %14, 1
@@ -252,22 +252,22 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 28:                                               ; preds = %27, %27, %27, %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %30 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef 6) #2
   store i32 1, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 140
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 6, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 236
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 6, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 240
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %30, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 248
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %37, align 8
   %38 = load i32, ptr @hf_btbnep_dst, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %38, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef 0) #2
@@ -291,22 +291,22 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 49:                                               ; preds = %48, %48, %48, %48
-  %50 = getelementptr inbounds i8, ptr %1, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %51 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 8) %.0, i32 noundef 6) #2
   store i32 1, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 116
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 6, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 212
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 6, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 216
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %51, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 224
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %58, align 8
   %59 = load i32, ptr @hf_btbnep_src, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %59, ptr noundef %0, i32 noundef %.0, i32 noundef 6, i32 noundef 0) #2
@@ -483,13 +483,13 @@ dissect_extension.exit:                           ; preds = %119, %101
   %151 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef %.0149) #2
   %152 = trunc nuw i32 %.0149 to i16
   store i16 %152, ptr %5, align 8
-  %153 = getelementptr inbounds i8, ptr %5, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.3, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %5, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %5, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %5, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %156, align 4
   %157 = load ptr, ptr @ethertype_handle, align 8
   %158 = call i32 @call_dissector_with_data(ptr noundef %157, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #2
@@ -579,7 +579,7 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #2
   %8 = zext i8 %7 to i32
   %9 = add i32 %3, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @control_type_vals, ptr noundef nonnull @.str.108) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.113, ptr noundef %12) #2

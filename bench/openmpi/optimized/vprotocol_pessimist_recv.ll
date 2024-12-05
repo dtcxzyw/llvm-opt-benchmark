@@ -58,7 +58,7 @@ define i32 @mca_vprotocol_pessimist_irecv(ptr noundef %0, i64 noundef %1, ptr no
   %18 = add i64 %17, 1
   store i64 %18, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 1
   %23 = ptrtoint ptr %19 to i64
@@ -67,7 +67,7 @@ define i32 @mca_vprotocol_pessimist_irecv(ptr noundef %0, i64 noundef %1, ptr no
   %.v = select i1 %22, i64 %24, i64 %25
   %26 = add i64 %.v, %23
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i64 %17, ptr %28, align 8
   %29 = load ptr, ptr %6, align 8
   call fastcc void @vprotocol_pessimist_matching_log_prepare(ptr noundef %29)
@@ -92,7 +92,7 @@ define internal fastcc void @vprotocol_pessimist_matching_log_prepare(ptr nounde
   %8 = alloca ptr, align 8
   %.sroa.4.i.i.i = alloca i64, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %160
@@ -111,7 +111,7 @@ define internal fastcc void @vprotocol_pessimist_matching_log_prepare(ptr nounde
   %17 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0.11.i.i.i = load volatile ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i.i.i, i64 8
   %19 = load volatile i64, ptr %18, align 8
   store volatile i64 %19, ptr %.sroa.4.i.i.i, align 8
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
@@ -122,7 +122,7 @@ define internal fastcc void @vprotocol_pessimist_matching_log_prepare(ptr nounde
   %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %16 ]
   %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %17, %16 ]
   %21 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i.i.i to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load volatile ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -156,7 +156,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   br i1 %29, label %.lr.ph.preheader.i.i, label %.lr.ph.i.i.i
 
 opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
-  %30 = getelementptr inbounds i8, ptr %21, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
   fence release
@@ -291,7 +291,7 @@ opal_condition_signal.exit.i.i:                   ; preds = %78, %76, %73, %71, 
   %84 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i25.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i = load volatile ptr, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i, i64 8
   %86 = load volatile i64, ptr %85, align 8
   store volatile i64 %86, ptr %.sroa.4.i24.i.i, align 8
   %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i27.i.i = load volatile i64, ptr %.sroa.4.i24.i.i, align 8
@@ -302,7 +302,7 @@ opal_condition_signal.exit.i.i:                   ; preds = %78, %76, %73, %71, 
   %.sroa.4.0..sroa.4.8.7.i29.i.i = phi i64 [ %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8..i44.i.i, %opal_update_counted_pointer.exit.i40.i.i ], [ %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i27.i.i, %83 ]
   %.sroa.0.06.i30.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i41.i.i, %opal_update_counted_pointer.exit.i40.i.i ], [ %84, %83 ]
   %88 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i29.i.i to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load volatile ptr, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
@@ -336,7 +336,7 @@ opal_update_counted_pointer.exit.i40.i.i:         ; preds = %.lr.ph.i28.i.i
   br i1 %96, label %.loopexit.i.i, label %.lr.ph.i28.i.i
 
 .thread21.i.i:                                    ; preds = %.lr.ph.i28.i.i
-  %97 = getelementptr inbounds i8, ptr %88, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
   fence release
@@ -359,7 +359,7 @@ opal_free_list_wait_mt.exit.i:                    ; preds = %opal_condition_sign
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %99 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 344), align 8
   %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load volatile ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   store volatile i64 %103, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 344), align 8
@@ -408,7 +408,7 @@ opal_lifo_pop.exit.thread16.i.i:                  ; preds = %98
   %119 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.10.i.i10.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i = load volatile ptr, ptr %3, align 8
-  %120 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i, i64 8
   %121 = load volatile i64, ptr %120, align 8
   store volatile i64 %121, ptr %.sroa.4.i.i8.i.i, align 8
   %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i12.i.i = load volatile i64, ptr %.sroa.4.i.i8.i.i, align 8
@@ -419,7 +419,7 @@ opal_lifo_pop.exit.thread16.i.i:                  ; preds = %98
   %.sroa.4.0..sroa.4.8.7.i.i14.i.i = phi i64 [ %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i, %opal_update_counted_pointer.exit.i.i25.i.i ], [ %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i12.i.i, %118 ]
   %.sroa.0.06.i.i15.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i26.i.i, %opal_update_counted_pointer.exit.i.i25.i.i ], [ %119, %118 ]
   %123 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i.i14.i.i to ptr
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load volatile ptr, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)
@@ -453,7 +453,7 @@ opal_update_counted_pointer.exit.i.i25.i.i:       ; preds = %.lr.ph.i.i13.i.i
   br i1 %131, label %opal_lifo_pop_atomic.exit.i30.i.i, label %.lr.ph.i.i13.i.i
 
 132:                                              ; preds = %.lr.ph.i.i13.i.i
-  %133 = getelementptr inbounds i8, ptr %123, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %123, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)
   fence release
@@ -469,7 +469,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
 134:                                              ; preds = %115
   %135 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 344), align 8
   %136 = inttoptr i64 %135 to ptr
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load volatile ptr, ptr %137, align 8
   %139 = ptrtoint ptr %138 to i64
   store volatile i64 %139, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 344), align 8
@@ -477,7 +477,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
   br i1 %140, label %142, label %.thread22.i.i
 
 .thread22.i.i:                                    ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %136, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store volatile ptr null, ptr %141, align 8
   br label %opal_free_list_wait_st.exit.sink.split.i
 
@@ -489,7 +489,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
 
 opal_free_list_wait_st.exit.sink.split.i:         ; preds = %.thread22.i.i, %opal_lifo_pop.exit.thread16.i.i
   %.sink50.i = phi ptr [ %100, %opal_lifo_pop.exit.thread16.i.i ], [ %136, %.thread22.i.i ]
-  %144 = getelementptr inbounds i8, ptr %.sink50.i, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %.sink50.i, i64 32
   store i32 1, ptr %144, align 8
   br label %opal_free_list_wait_st.exit.i
 
@@ -500,25 +500,25 @@ opal_free_list_wait_st.exit.i:                    ; preds = %142, %112, %opal_fr
 
 opal_free_list_wait.exit:                         ; preds = %opal_free_list_wait_mt.exit.i, %opal_free_list_wait_st.exit.i
   %.0.i = phi ptr [ %.lcssa6.i.i, %opal_free_list_wait_mt.exit.i ], [ %.lcssa4.i.i, %opal_free_list_wait_st.exit.i ]
-  %145 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   store i32 0, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
   store i32 -1, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   store ptr %0, ptr %147, align 8
   %148 = ptrtoint ptr %0 to i64
   %149 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 8), align 8
   %150 = add i64 %149, %148
   %151 = inttoptr i64 %150 to ptr
-  %152 = getelementptr inbounds i8, ptr %151, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 56
   store ptr %.0.i, ptr %152, align 8
   %153 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 256), align 16
-  %154 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store volatile ptr %153, ptr %154, align 8
   %155 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 256), align 16
-  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store volatile ptr %.0.i, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store volatile ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 232), ptr %157, align 8
   store volatile ptr %.0.i, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 256), align 16
   %158 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 272), align 16
@@ -555,7 +555,7 @@ define i32 @mca_vprotocol_pessimist_recv(ptr noundef %0, i64 noundef %1, ptr nou
   %19 = add i64 %18, 1
   store i64 %19, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 1
   %24 = ptrtoint ptr %20 to i64
@@ -564,7 +564,7 @@ define i32 @mca_vprotocol_pessimist_recv(ptr noundef %0, i64 noundef %1, ptr nou
   %.v = select i1 %23, i64 %25, i64 %26
   %27 = add i64 %.v, %24
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i64 %18, ptr %29, align 8
   call fastcc void @vprotocol_pessimist_matching_log_prepare(ptr noundef %20)
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8

@@ -48,11 +48,11 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %i.013.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.013.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.013.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %call2.i = call i64 @EVP_EncodeBlock(ptr noundef nonnull %out.i, ptr noundef %0, i64 noundef %call.i)
-  %encoded.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %encoded.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %1 = load ptr, ptr %encoded.i, align 8
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %cmp4.not.i = icmp eq i64 %call2.i, %call3.i
@@ -83,10 +83,10 @@ for.cond.i12:                                     ; preds = %lor.lhs.false45.i
 
 for.body.i2:                                      ; preds = %for.cond.i12, %lor.lhs.false
   %i.037.i = phi i64 [ 0, %lor.lhs.false ], [ %inc.i13, %for.cond.i12 ]
-  %arrayidx.i3 = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.037.i
+  %arrayidx.i3 = getelementptr inbounds nuw [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.037.i
   %3 = load ptr, ptr %arrayidx.i3, align 16
   %call.i4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
-  %encoded.i5 = getelementptr inbounds i8, ptr %arrayidx.i3, i64 8
+  %encoded.i5 = getelementptr inbounds nuw i8, ptr %arrayidx.i3, i64 8
   %4 = load ptr, ptr %encoded.i5, align 8
   %call2.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %call3.i7 = call i32 @EVP_DecodeBase64(ptr noundef nonnull %out.i1, ptr noundef nonnull %len.i, i64 noundef 6, ptr noundef %4, i64 noundef %call2.i6)

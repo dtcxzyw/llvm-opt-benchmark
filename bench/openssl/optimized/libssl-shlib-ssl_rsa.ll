@@ -41,7 +41,7 @@ cond.false:                                       ; preds = %entry
   ]
 
 cond.end10:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %return, label %if.end
@@ -69,9 +69,9 @@ if.then17:                                        ; preds = %if.end15
   br label %return
 
 if.end18:                                         ; preds = %if.end15
-  %cert = getelementptr inbounds i8, ptr %cond1116, i64 2048
+  %cert = getelementptr inbounds nuw i8, ptr %cond1116, i64 2048
   %2 = load ptr, ptr %cert, align 8
-  %ctx = getelementptr inbounds i8, ptr %cond1116, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %cond1116, i64 8
   %3 = load ptr, ptr %ctx, align 8
   %call20 = tail call fastcc i32 @ssl_set_cert(ptr noundef %2, ptr noundef %x, ptr noundef %3)
   br label %return
@@ -136,7 +136,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end8:                                          ; preds = %land.lhs.true.if.end8_crit_edge, %if.end4
   %1 = phi i64 [ %.pre, %land.lhs.true.if.end8_crit_edge ], [ %0, %if.end4 ]
-  %pkeys = getelementptr inbounds i8, ptr %c, i64 32
+  %pkeys = getelementptr inbounds nuw i8, ptr %c, i64 32
   %2 = load ptr, ptr %pkeys, align 8
   %privatekey = getelementptr inbounds %struct.cert_pkey_st, ptr %2, i64 %1, i32 1
   %3 = load ptr, ptr %privatekey, align 8
@@ -220,10 +220,10 @@ if.then5:                                         ; preds = %if.end
   br label %end
 
 if.end6:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %1 = load ptr, ptr %0, align 8
-  %propq = getelementptr inbounds i8, ptr %0, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq, align 8
   %call8 = tail call ptr @X509_new_ex(ptr noundef %1, ptr noundef %2) #6
   store ptr %call8, ptr %x, align 8
@@ -254,16 +254,16 @@ cond.false:                                       ; preds = %if.end12
   ]
 
 cond.end34:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %4 = load ptr, ptr %tls, align 8
   %cmp36 = icmp eq ptr %4, null
   br i1 %cmp36, label %end, label %if.end39
 
 if.end39:                                         ; preds = %cond.false, %cond.end34
   %cond3520 = phi ptr [ %4, %cond.end34 ], [ %ssl, %cond.false ]
-  %default_passwd_callback = getelementptr inbounds i8, ptr %cond3520, i64 5240
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %cond3520, i64 5240
   %5 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %cond3520, i64 5248
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %cond3520, i64 5248
   %6 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call40 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %call1, ptr noundef nonnull %x, ptr noundef %5, ptr noundef %6) #6
   br label %if.end43
@@ -321,10 +321,10 @@ entry:
   %d.addr = alloca ptr, align 8
   %x = alloca ptr, align 8
   store ptr %d, ptr %d.addr, align 8
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %1 = load ptr, ptr %0, align 8
-  %propq = getelementptr inbounds i8, ptr %0, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq, align 8
   %call = tail call ptr @X509_new_ex(ptr noundef %1, ptr noundef %2) #6
   store ptr %call, ptr %x, align 8
@@ -378,7 +378,7 @@ cond.false:                                       ; preds = %entry
   ]
 
 cond.end10:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %return, label %if.end
@@ -395,9 +395,9 @@ if.then14:                                        ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %cert = getelementptr inbounds i8, ptr %cond1113, i64 2048
+  %cert = getelementptr inbounds nuw i8, ptr %cond1113, i64 2048
   %2 = load ptr, ptr %cert, align 8
-  %ctx = getelementptr inbounds i8, ptr %cond1113, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %cond1113, i64 8
   %3 = load ptr, ptr %ctx, align 8
   %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef %pkey, ptr noundef %3)
   br label %return
@@ -422,7 +422,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkeys = getelementptr inbounds i8, ptr %c, i64 32
+  %pkeys = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %pkeys, align 8
   %1 = load i64, ptr %i, align 8
   %arrayidx = getelementptr inbounds %struct.cert_pkey_st, ptr %0, i64 %1
@@ -506,30 +506,30 @@ cond.false:                                       ; preds = %if.then9
   ]
 
 cond.end24:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp26 = icmp eq ptr %1, null
   br i1 %cmp26, label %end, label %if.end29
 
 if.end29:                                         ; preds = %cond.false, %cond.end24
   %cond2524 = phi ptr [ %1, %cond.end24 ], [ %ssl, %cond.false ]
-  %default_passwd_callback = getelementptr inbounds i8, ptr %cond2524, i64 5240
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %cond2524, i64 5240
   %2 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %cond2524, i64 5248
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %cond2524, i64 5248
   %3 = load ptr, ptr %default_passwd_callback_userdata, align 8
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %4 = load ptr, ptr %ctx, align 8
   %5 = load ptr, ptr %4, align 8
-  %propq = getelementptr inbounds i8, ptr %4, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %6 = load ptr, ptr %propq, align 8
   %call31 = tail call ptr @PEM_read_bio_PrivateKey_ex(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %6) #6
   br label %if.end42
 
 if.then34:                                        ; preds = %if.end6
-  %ctx35 = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx35 = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %7 = load ptr, ptr %ctx35, align 8
   %8 = load ptr, ptr %7, align 8
-  %propq38 = getelementptr inbounds i8, ptr %7, i64 1096
+  %propq38 = getelementptr inbounds nuw i8, ptr %7, i64 1096
   %9 = load ptr, ptr %propq38, align 8
   %call39 = tail call ptr @d2i_PrivateKey_ex_bio(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %8, ptr noundef %9) #6
   br label %if.end42
@@ -560,16 +560,16 @@ cond.false.i:                                     ; preds = %if.end42
   ]
 
 cond.end10.i:                                     ; preds = %cond.false.i
-  %tls.i = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls.i = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %11 = load ptr, ptr %tls.i, align 8
   %cmp12.i = icmp eq ptr %11, null
   br i1 %cmp12.i, label %SSL_use_PrivateKey.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %cond.false.i, %cond.end10.i
   %cond1113.i = phi ptr [ %11, %cond.end10.i ], [ %ssl, %cond.false.i ]
-  %cert.i = getelementptr inbounds i8, ptr %cond1113.i, i64 2048
+  %cert.i = getelementptr inbounds nuw i8, ptr %cond1113.i, i64 2048
   %12 = load ptr, ptr %cert.i, align 8
-  %ctx.i = getelementptr inbounds i8, ptr %cond1113.i, i64 8
+  %ctx.i = getelementptr inbounds nuw i8, ptr %cond1113.i, i64 8
   %13 = load ptr, ptr %ctx.i, align 8
   %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %12, ptr noundef nonnull %pkey.0, ptr noundef %13)
   br label %SSL_use_PrivateKey.exit
@@ -596,10 +596,10 @@ define range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %type, ptr nocap
 entry:
   %p = alloca ptr, align 8
   store ptr %d, ptr %p, align 8
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %1 = load ptr, ptr %0, align 8
-  %propq = getelementptr inbounds i8, ptr %0, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %2 = load ptr, ptr %propq, align 8
   %call = call ptr @d2i_PrivateKey_ex(i32 noundef %type, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, ptr noundef %1, ptr noundef %2) #6
   %cmp = icmp eq ptr %call, null
@@ -619,16 +619,16 @@ cond.false.i:                                     ; preds = %entry
   ]
 
 cond.end10.i:                                     ; preds = %cond.false.i
-  %tls.i = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls.i = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %4 = load ptr, ptr %tls.i, align 8
   %cmp12.i = icmp eq ptr %4, null
   br i1 %cmp12.i, label %SSL_use_PrivateKey.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %cond.false.i, %cond.end10.i
   %cond1113.i = phi ptr [ %4, %cond.end10.i ], [ %ssl, %cond.false.i ]
-  %cert.i = getelementptr inbounds i8, ptr %cond1113.i, i64 2048
+  %cert.i = getelementptr inbounds nuw i8, ptr %cond1113.i, i64 2048
   %5 = load ptr, ptr %cert.i, align 8
-  %ctx.i = getelementptr inbounds i8, ptr %cond1113.i, i64 8
+  %ctx.i = getelementptr inbounds nuw i8, ptr %cond1113.i, i64 8
   %6 = load ptr, ptr %ctx.i, align 8
   %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %5, ptr noundef nonnull %call, ptr noundef %6)
   br label %SSL_use_PrivateKey.exit
@@ -669,7 +669,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
   %call4 = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef %x, ptr noundef %ctx)
   br label %return
@@ -709,7 +709,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %0 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %ctx, i64 1096
   %1 = load ptr, ptr %propq, align 8
   %call7 = tail call ptr @X509_new_ex(ptr noundef %0, ptr noundef %1) #6
   store ptr %call7, ptr %x, align 8
@@ -733,9 +733,9 @@ if.then14:                                        ; preds = %if.end11
   br label %if.end22
 
 if.then18:                                        ; preds = %if.end11
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 184
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %2 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 192
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   %3 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call19 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %call1, ptr noundef nonnull %x, ptr noundef %2, ptr noundef %3) #6
   br label %if.end22
@@ -778,7 +778,7 @@ entry:
   %x = alloca ptr, align 8
   store ptr %d, ptr %d.addr, align 8
   %0 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %ctx, i64 1096
   %1 = load ptr, ptr %propq, align 8
   %call = tail call ptr @X509_new_ex(ptr noundef %0, ptr noundef %1) #6
   store ptr %call, ptr %x, align 8
@@ -829,7 +829,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
   %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %pkey, ptr noundef %ctx)
   br label %return
@@ -872,19 +872,19 @@ if.end6:                                          ; preds = %if.end
   ]
 
 if.then9:                                         ; preds = %if.end6
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 184
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %0 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 192
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   %1 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %2 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %ctx, i64 1096
   %3 = load ptr, ptr %propq, align 8
   %call10 = tail call ptr @PEM_read_bio_PrivateKey_ex(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %if.end19
 
 if.then13:                                        ; preds = %if.end6
   %4 = load ptr, ptr %ctx, align 8
-  %propq15 = getelementptr inbounds i8, ptr %ctx, i64 1096
+  %propq15 = getelementptr inbounds nuw i8, ptr %ctx, i64 1096
   %5 = load ptr, ptr %propq15, align 8
   %call16 = tail call ptr @d2i_PrivateKey_ex_bio(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %4, ptr noundef %5) #6
   br label %if.end19
@@ -908,7 +908,7 @@ if.then22:                                        ; preds = %if.end19
   br label %end
 
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %if.end19
-  %cert.i = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %6 = load ptr, ptr %cert.i, align 8
   %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %6, ptr noundef nonnull %pkey.0, ptr noundef nonnull %ctx)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %pkey.0) #6
@@ -926,7 +926,7 @@ entry:
   %p = alloca ptr, align 8
   store ptr %d, ptr %p, align 8
   %0 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %ctx, i64 1096
   %1 = load ptr, ptr %propq, align 8
   %call = call ptr @d2i_PrivateKey_ex(i32 noundef %type, ptr noundef null, ptr noundef nonnull %p, i64 noundef %len, ptr noundef %0, ptr noundef %1) #6
   %cmp = icmp eq ptr %call, null
@@ -939,7 +939,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %entry
-  %cert.i = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %2 = load ptr, ptr %cert.i, align 8
   %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef nonnull %call, ptr noundef nonnull %ctx)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #6
@@ -967,7 +967,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.end.thread
 
 cond.end.thread:                                  ; preds = %entry
-  %ctx1 = getelementptr inbounds i8, ptr %ssl, i64 8
+  %ctx1 = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %ctx1, align 8
   %cmp239 = icmp eq ptr %ctx, null
   tail call void @ERR_clear_error() #6
@@ -983,8 +983,8 @@ if.end:                                           ; preds = %cond.end
 
 if.then5:                                         ; preds = %if.end, %cond.end.thread
   %cond4147 = phi ptr [ %0, %cond.end.thread ], [ %ctx, %if.end ]
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 184
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 192
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 184
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   br label %if.end27
 
 cond.false8:                                      ; preds = %cond.end.thread
@@ -995,15 +995,15 @@ cond.false8:                                      ; preds = %cond.end.thread
   ]
 
 cond.end20:                                       ; preds = %cond.false8
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %2 = load ptr, ptr %tls, align 8
   %cmp22 = icmp eq ptr %2, null
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %cond.false8, %cond.end20
   %cond2164 = phi ptr [ %2, %cond.end20 ], [ %ssl, %cond.false8 ]
-  %default_passwd_callback25 = getelementptr inbounds i8, ptr %cond2164, i64 5240
-  %default_passwd_callback_userdata26 = getelementptr inbounds i8, ptr %cond2164, i64 5248
+  %default_passwd_callback25 = getelementptr inbounds nuw i8, ptr %cond2164, i64 5240
+  %default_passwd_callback_userdata26 = getelementptr inbounds nuw i8, ptr %cond2164, i64 5248
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end24, %if.then5
@@ -1038,7 +1038,7 @@ if.then35:                                        ; preds = %if.end31
 
 if.end36:                                         ; preds = %if.end31
   %3 = load ptr, ptr %cond4146, align 8
-  %propq = getelementptr inbounds i8, ptr %cond4146, i64 1096
+  %propq = getelementptr inbounds nuw i8, ptr %cond4146, i64 1096
   %4 = load ptr, ptr %propq, align 8
   %call37 = tail call ptr @X509_new_ex(ptr noundef %3, ptr noundef %4) #6
   store ptr %call37, ptr %x, align 8
@@ -1211,13 +1211,13 @@ common.ret55:                                     ; preds = %if.end17, %if.then5
 
 if.end9:                                          ; preds = %if.then5
   store i8 0, ptr %call6, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %call6, i64 1
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call6, i64 1
   store i8 0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %call6, i64 2
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call6, i64 2
   store i8 1, ptr %arrayidx2.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %call6, i64 3
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %call6, i64 3
   store i8 -48, ptr %arrayidx3.i, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %call6, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call6, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %call10 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull %call6, i64 noundef %add.i)
   tail call void @CRYPTO_free(ptr noundef nonnull %call6, ptr noundef nonnull @.str, i32 noundef 793) #6
@@ -1236,11 +1236,11 @@ while.body.us.i:                                  ; preds = %if.end11, %if.end21
   br i1 %switch.i, label %if.then13, label %lor.lhs.false.i.us.i
 
 lor.lhs.false.i.us.i:                             ; preds = %while.body.us.i
-  %add.ptr.i2.i20.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 6
+  %add.ptr.i2.i20.us.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.us.i, i64 6
   %0 = load i8, ptr %add.ptr.i2.i20.us.i, align 1
   %conv.i.i.i.us.i = zext i8 %0 to i64
   %shl.i.i.i.us.i = shl nuw nsw i64 %conv.i.i.i.us.i, 8
-  %add.ptr.i.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 7
+  %add.ptr.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.us.i, i64 7
   %1 = load i8, ptr %add.ptr.i.i.i.us.i, align 1
   %conv2.i.i.i.us.i = zext i8 %1 to i64
   %or.i.i.i.us.i = or disjoint i64 %shl.i.i.i.us.i, %conv2.i.i.i.us.i
@@ -1249,8 +1249,8 @@ lor.lhs.false.i.us.i:                             ; preds = %while.body.us.i
   br i1 %cmp.i.i4.i.us.i, label %if.then13, label %if.end21.us.i
 
 if.end21.us.i:                                    ; preds = %lor.lhs.false.i.us.i
-  %add.ptr.i2.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 8
-  %add.ptr.i.i6.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.us.i, i64 %or.i.i.i.us.i
+  %add.ptr.i2.i.i.us.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.us.i, i64 8
+  %add.ptr.i.i6.i.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.us.i, i64 %or.i.i.i.us.i
   %sub.i.i7.i.us.i = sub nuw i64 %sub.i.i.i.us.i, %or.i.i.i.us.i
   %tobool9.not.us.i = icmp eq i64 %sub.i.i7.i.us.i, 0
   br i1 %tobool9.not.us.i, label %if.end14, label %while.body.us.i, !llvm.loop !4
@@ -1262,7 +1262,7 @@ if.then13:                                        ; preds = %lor.lhs.false.i.us.
   br label %common.ret55
 
 if.end14:                                         ; preds = %if.end21.us.i
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %2 = load ptr, ptr %cert, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp15 = icmp eq ptr %3, null
@@ -1275,7 +1275,7 @@ if.then16:                                        ; preds = %if.end14
   br label %common.ret55
 
 if.end17:                                         ; preds = %if.end14
-  %serverinfo20 = getelementptr inbounds i8, ptr %3, i64 24
+  %serverinfo20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %serverinfo20, align 8
   %call21 = tail call ptr @CRYPTO_realloc(ptr noundef %4, i64 noundef %serverinfo_length, ptr noundef nonnull @.str, i32 noundef 806) #6
   %cmp22 = icmp eq ptr %call21, null
@@ -1284,16 +1284,16 @@ if.end17:                                         ; preds = %if.end14
 if.end24:                                         ; preds = %if.end17
   %5 = load ptr, ptr %cert, align 8
   %6 = load ptr, ptr %5, align 8
-  %serverinfo27 = getelementptr inbounds i8, ptr %6, i64 24
+  %serverinfo27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %call21, ptr %serverinfo27, align 8
   %7 = load ptr, ptr %cert, align 8
   %8 = load ptr, ptr %7, align 8
-  %serverinfo30 = getelementptr inbounds i8, ptr %8, i64 24
+  %serverinfo30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load ptr, ptr %serverinfo30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %10 = load ptr, ptr %cert, align 8
   %11 = load ptr, ptr %10, align 8
-  %serverinfo_length33 = getelementptr inbounds i8, ptr %11, i64 32
+  %serverinfo_length33 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %serverinfo_length, ptr %serverinfo_length33, align 8
   br label %while.body.i
 
@@ -1307,17 +1307,17 @@ lor.lhs.false14.i:                                ; preds = %while.body.i
   %12 = load i8, ptr %pkt.sroa.0.055.i, align 1
   %conv.i.i.i = zext i8 %12 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 1
   %13 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %13 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
   %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 2
+  %add.ptr5.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 2
   %14 = load i8, ptr %add.ptr5.i.i.i, align 1
   %conv6.i.i.i = zext i8 %14 to i64
   %shl7.i.i.i = shl nuw nsw i64 %conv6.i.i.i, 8
   %or8.i.i.i = or disjoint i64 %or.i.i.i, %shl7.i.i.i
-  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 3
+  %add.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 3
   %15 = load i8, ptr %add.ptr10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %15 to i64
   %or12.i.i.i = or disjoint i64 %or8.i.i.i, %conv11.i.i.i
@@ -1326,11 +1326,11 @@ lor.lhs.false14.i:                                ; preds = %while.body.i
   br i1 %cmp.i.i13.i, label %if.then36, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 4
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 4
   %17 = load i8, ptr %add.ptr.i2.i.i, align 1
   %conv.i.i15.i = zext i8 %17 to i32
   %shl.i.i16.i = shl nuw nsw i32 %conv.i.i15.i, 8
-  %add.ptr.i.i17.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 5
+  %add.ptr.i.i17.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 5
   %18 = load i8, ptr %add.ptr.i.i17.i, align 1
   %conv2.i.i18.i = zext i8 %18 to i32
   %or.i.i19.i = or disjoint i32 %shl.i.i16.i, %conv2.i.i18.i
@@ -1338,11 +1338,11 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
   br i1 %cmp.i.i.i.i, label %if.then36, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %lor.lhs.false17.i
-  %add.ptr.i2.i20.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 6
+  %add.ptr.i2.i20.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 6
   %19 = load i8, ptr %add.ptr.i2.i20.i, align 1
   %conv.i.i.i.i = zext i8 %19 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 7
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 7
   %20 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv2.i.i.i.i = zext i8 %20 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
@@ -1351,8 +1351,8 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false17.i
   br i1 %cmp.i.i4.i.i, label %if.then36, label %if.end21.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false.i.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 8
-  %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
+  %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.055.i, i64 8
+  %add.ptr.i.i6.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
   %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   %cmp27.i = icmp eq i64 %or12.i.i.i, 464
   br i1 %cmp27.i, label %if.then28.i, label %if.else.i
@@ -1506,11 +1506,11 @@ if.then44:                                        ; preds = %if.end25
 
 lor.lhs.false47:                                  ; preds = %if.then44
   %3 = load ptr, ptr %extension, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 2
+  %arrayidx = getelementptr inbounds nuw i8, ptr %3, i64 2
   %4 = load i8, ptr %arrayidx, align 1
   %conv48 = zext i8 %4 to i64
   %shl = shl nuw nsw i64 %conv48, 8
-  %arrayidx49 = getelementptr inbounds i8, ptr %3, i64 3
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %5 = load i8, ptr %arrayidx49, align 1
   %conv50 = zext i8 %5 to i64
   %add = or disjoint i64 %shl, %conv50
@@ -1535,11 +1535,11 @@ if.else56:                                        ; preds = %if.end35
 
 lor.lhs.false59:                                  ; preds = %if.else56
   %7 = load ptr, ptr %extension, align 8
-  %arrayidx60 = getelementptr inbounds i8, ptr %7, i64 6
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %8 = load i8, ptr %arrayidx60, align 1
   %conv61 = zext i8 %8 to i64
   %shl62 = shl nuw nsw i64 %conv61, 8
-  %arrayidx63 = getelementptr inbounds i8, ptr %7, i64 7
+  %arrayidx63 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %9 = load i8, ptr %arrayidx63, align 1
   %conv64 = zext i8 %9 to i64
   %add65 = or disjoint i64 %shl62, %conv64
@@ -1568,17 +1568,17 @@ if.end79:                                         ; preds = %if.end72
 
 if.then.i:                                        ; preds = %if.end79
   store i8 0, ptr %add.ptr, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 0, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store i8 1, ptr %arrayidx2.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 3
   store i8 -48, ptr %arrayidx3.i, align 1
   br label %extension_append.exit
 
 extension_append.exit:                            ; preds = %if.end79, %if.then.i
   %cond.i.i = phi i64 [ 4, %if.then.i ], [ 0, %if.end79 ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %cond.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %cond.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %10, i64 %11, i1 false)
   %12 = load ptr, ptr %name, align 8
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 925) #6
@@ -1647,7 +1647,7 @@ cond.false:                                       ; preds = %land.lhs.true
   ]
 
 cond.end11:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %ssl, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp13 = icmp eq ptr %1, null
   br i1 %cmp13, label %return, label %if.end
@@ -1655,8 +1655,8 @@ cond.end11:                                       ; preds = %cond.false
 if.end:                                           ; preds = %cond.false, %cond.end11, %entry
   %sc.0 = phi ptr [ %1, %cond.end11 ], [ null, %entry ], [ %ssl, %cond.false ]
   %cmp14.not = icmp eq ptr %sc.0, null
-  %cert = getelementptr inbounds i8, ptr %sc.0, i64 2048
-  %cert17 = getelementptr inbounds i8, ptr %ctx, i64 344
+  %cert = getelementptr inbounds nuw i8, ptr %sc.0, i64 2048
+  %cert17 = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %cond19.in = select i1 %cmp14.not, ptr %cert17, ptr %cert
   %cond19 = load ptr, ptr %cond19.in, align 8
   %call = tail call i32 @ssl_security_cert(ptr noundef %sc.0, ptr noundef %ctx, ptr noundef %x509, i32 noundef 0, i32 noundef 1) #6
@@ -1771,7 +1771,7 @@ if.end67:                                         ; preds = %if.end63
   br i1 %tobool68.not, label %land.lhs.true69, label %if.end82
 
 land.lhs.true69:                                  ; preds = %if.end67
-  %pkeys = getelementptr inbounds i8, ptr %cond19, i64 32
+  %pkeys = getelementptr inbounds nuw i8, ptr %cond19, i64 32
   %2 = load ptr, ptr %pkeys, align 8
   %3 = load i64, ptr %i, align 8
   %arrayidx = getelementptr inbounds %struct.cert_pkey_st, ptr %2, i64 %3
@@ -1780,13 +1780,13 @@ land.lhs.true69:                                  ; preds = %if.end67
   br i1 %cmp71.not, label %lor.lhs.false, label %if.then81
 
 lor.lhs.false:                                    ; preds = %land.lhs.true69
-  %privatekey74 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %privatekey74 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %5 = load ptr, ptr %privatekey74, align 8
   %cmp75.not = icmp eq ptr %5, null
   br i1 %cmp75.not, label %lor.lhs.false76, label %if.then81
 
 lor.lhs.false76:                                  ; preds = %lor.lhs.false
-  %chain79 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %chain79 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %chain79, align 8
   %cmp80.not = icmp eq ptr %6, null
   br i1 %cmp80.not, label %if.end82, label %if.then81
@@ -1814,7 +1814,7 @@ if.then87:                                        ; preds = %if.then84
 
 if.end89:                                         ; preds = %if.then84, %if.end82
   %dup_chain.0 = phi ptr [ %call85, %if.then84 ], [ null, %if.end82 ]
-  %pkeys90 = getelementptr inbounds i8, ptr %cond19, i64 32
+  %pkeys90 = getelementptr inbounds nuw i8, ptr %cond19, i64 32
   %7 = load ptr, ptr %pkeys90, align 8
   %8 = load i64, ptr %i, align 8
   %chain92 = getelementptr inbounds %struct.cert_pkey_st, ptr %7, i64 %8, i32 2
@@ -1916,7 +1916,7 @@ cond.false.i:                                     ; preds = %entry
   ]
 
 cond.end10.i:                                     ; preds = %cond.false.i
-  %tls.i = getelementptr inbounds i8, ptr %s, i64 64
+  %tls.i = getelementptr inbounds nuw i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls.i, align 8
   %cmp12.i = icmp eq ptr %1, null
   br i1 %cmp12.i, label %if.then.i, label %if.end.i
@@ -1954,11 +1954,11 @@ for.cond.i.i:                                     ; preds = %if.then18.i, %if.en
   ]
 
 lor.lhs.false13.i.i:                              ; preds = %for.cond.i.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i.i, i64 4
+  %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i.i, i64 4
   %5 = load i8, ptr %add.ptr.i2.i.i.i, align 1
   %conv.i.i11.i.i = zext i8 %5 to i32
   %shl.i.i12.i.i = shl nuw nsw i32 %conv.i.i11.i.i, 8
-  %add.ptr.i.i13.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i.i, i64 5
+  %add.ptr.i.i13.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i.i, i64 5
   %6 = load i8, ptr %add.ptr.i.i13.i.i, align 1
   %conv2.i.i14.i.i = zext i8 %6 to i32
   %or.i.i15.i.i = or disjoint i32 %shl.i.i12.i.i, %conv2.i.i14.i.i
@@ -1967,11 +1967,11 @@ lor.lhs.false13.i.i:                              ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then22.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %lor.lhs.false13.i.i
-  %add.ptr.i2.i16.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i.i, i64 6
+  %add.ptr.i2.i16.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i.i, i64 6
   %8 = load i8, ptr %add.ptr.i2.i16.i.i, align 1
   %conv.i.i.i.i.i = zext i8 %8 to i64
   %shl.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i.i, i64 7
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i.i, i64 7
   %9 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
   %conv2.i.i.i.i.i = zext i8 %9 to i64
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %conv2.i.i.i.i.i
@@ -1980,8 +1980,8 @@ lor.lhs.false.i.i.i:                              ; preds = %lor.lhs.false13.i.i
   br i1 %cmp.i.i4.i.i.i, label %if.then22.i, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %add.ptr.i2.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i.i, i64 8
-  %add.ptr.i.i6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i.i, i64 %or.i.i.i.i.i
+  %add.ptr.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.i.i, i64 %or.i.i.i.i.i
   %sub.i.i7.i.i.i = sub nuw i64 %sub.i.i.i.i.i, %or.i.i.i.i.i
   %cmp18.i.i = icmp eq i32 %or.i.i15.i.i, %ext_type
   br i1 %cmp18.i.i, label %if.end26.i, label %for.cond.i.i
@@ -2037,7 +2037,7 @@ cond.false:                                       ; preds = %entry
   ]
 
 cond.end10:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds i8, ptr %s, i64 64
+  %tls = getelementptr inbounds nuw i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %if.then, label %if.end
@@ -2082,11 +2082,11 @@ for.cond.i:                                       ; preds = %if.then18, %if.end1
   ]
 
 lor.lhs.false13.i:                                ; preds = %for.cond.i
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i, i64 4
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i, i64 4
   %5 = load i8, ptr %add.ptr.i2.i.i, align 1
   %conv.i.i11.i = zext i8 %5 to i32
   %shl.i.i12.i = shl nuw nsw i32 %conv.i.i11.i, 8
-  %add.ptr.i.i13.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i, i64 5
+  %add.ptr.i.i13.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i, i64 5
   %6 = load i8, ptr %add.ptr.i.i13.i, align 1
   %conv2.i.i14.i = zext i8 %6 to i32
   %or.i.i15.i = or disjoint i32 %shl.i.i12.i, %conv2.i.i14.i
@@ -2095,11 +2095,11 @@ lor.lhs.false13.i:                                ; preds = %for.cond.i
   br i1 %cmp.i.i.i.i, label %if.then22, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %lor.lhs.false13.i
-  %add.ptr.i2.i16.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i, i64 6
+  %add.ptr.i2.i16.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i, i64 6
   %8 = load i8, ptr %add.ptr.i2.i16.i, align 1
   %conv.i.i.i.i = zext i8 %8 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i, i64 7
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i, i64 7
   %9 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv2.i.i.i.i = zext i8 %9 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
@@ -2108,8 +2108,8 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false13.i
   br i1 %cmp.i.i4.i.i, label %if.then22, label %if.end17.i
 
 if.end17.i:                                       ; preds = %lor.lhs.false.i.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0.i, i64 8
-  %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
+  %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0.i, i64 8
+  %add.ptr.i.i6.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
   %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   %cmp18.i = icmp eq i32 %or.i.i15.i, %ext_type
   br i1 %cmp18.i, label %if.end26, label %for.cond.i

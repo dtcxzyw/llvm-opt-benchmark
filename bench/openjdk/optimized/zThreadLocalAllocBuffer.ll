@@ -178,7 +178,7 @@ define hidden void @_ZN23ZThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
 
 5:                                                ; preds = %2
   tail call void @_ZN21ThreadLocalAllocStats5resetEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 432
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats(ptr noundef nonnull align 8 dereferenceable(116) %6, ptr noundef nonnull %1) #4
   %7 = load i8, ptr @ResizeTLAB, align 1
   %8 = trunc i8 %7 to i1
@@ -206,16 +206,16 @@ define hidden void @_ZN23ZThreadLocalAllocBuffer12update_statsEP10JavaThread(ptr
   %5 = tail call noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr noundef %0) #4
   %.not7.i.i = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %.not7.i.i)
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN17StackWatermarkSet3getI15ZStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.08.i.i2 = phi ptr [ %10, %.lr.ph.i.i ], [ %5, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.08.i.i2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.08.i.i2, i64 24
   %10 = load ptr, ptr %9, align 8, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZN17StackWatermarkSet3getI15ZStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i

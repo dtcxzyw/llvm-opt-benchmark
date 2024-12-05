@@ -28,14 +28,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7944
-  tail call void @mutex_lock(ptr noundef %7) #8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %7) #8
   %8 = tail call fastcc i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 500, i32 noundef 20, i1 noundef zeroext true), !range !6
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 7944
-  tail call void @mutex_unlock(ptr noundef %10) #8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %10) #8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %21, label %12
 
@@ -45,7 +45,7 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_read(ptr noundef %0, 
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -69,7 +69,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 define internal fastcc noundef range(i32 -110, 1) i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 16 {
   %8 = alloca i32, align 4
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr i8, ptr %10, i64 1278244
   %12 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #8, !srcloc !7
@@ -120,7 +120,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @__snb_pcode_rw(ptr nounde
 
 .thread:                                          ; preds = %29, %34, %30
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 7176
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 7176
   %40 = load i8, ptr %39, align 8
   %41 = icmp ugt i8 %40, 6
   %42 = load i32, ptr %8, align 4
@@ -222,14 +222,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_write_timeout(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 7944
-  tail call void @mutex_lock(ptr noundef %9) #8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %9) #8
   %10 = call fastcc i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef null, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false), !range !6
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 7944
-  tail call void @mutex_unlock(ptr noundef %12) #8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %12) #8
   %13 = icmp eq i32 %10, 0
   br i1 %13, label %24, label %14
 
@@ -239,7 +239,7 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_write_timeout(ptr nou
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -259,10 +259,10 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 7944
-  tail call void @mutex_lock(ptr noundef %12) #8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %12) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %2, ptr %9, align 4
   %13 = call fastcc i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef null, i32 noundef 500, i32 noundef 0, i1 noundef zeroext true), !range !6
@@ -316,7 +316,7 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -332,13 +332,13 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
   store i1 true, ptr @skl_pcode_request.__already_done, align 1
   tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #8, !srcloc !21
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @dev_driver_string(ptr noundef %53) #8
   %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %63
@@ -402,16 +402,16 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
 
 86:                                               ; preds = %83, %79
   %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 7944
-  tail call void @mutex_unlock(ptr noundef %88) #8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %88) #8
   %89 = icmp eq i32 %69, 0
   %spec.select = select i1 %89, i32 %.ph, i32 %69
   br label %91
 
 .sink.split:                                      ; preds = %38, %.thread4
   %.sink10 = phi ptr [ %19, %.thread4 ], [ %39, %38 ]
-  %90 = getelementptr inbounds i8, ptr %.sink10, i64 7944
-  tail call void @mutex_unlock(ptr noundef %90) #8
+  %90 = getelementptr inbounds nuw i8, ptr %.sink10, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %90) #8
   br label %91
 
 91:                                               ; preds = %86, %.sink.split
@@ -439,11 +439,11 @@ declare void @llvm.write_register.i64(metadata, i64) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -517, 1) i32 @intel_pcode_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 7168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 7168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, 8
   %9 = icmp eq i64 %8, 0
@@ -465,7 +465,7 @@ define dso_local range(i32 -517, 1) i32 @intel_pcode_init(ptr noundef %0) local_
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %22
 
@@ -497,21 +497,21 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_read_p(ptr noundef %0
   %10 = shl i32 %3, 16
   %11 = and i32 %10, 16711680
   %12 = or disjoint i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @intel_runtime_pm_get(ptr noundef %14) #8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %36, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 7944
-  tail call void @mutex_lock(ptr noundef %20) #8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %20) #8
   %21 = tail call fastcc i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %12, ptr noundef %4, ptr noundef null, i32 noundef 500, i32 noundef 20, i1 noundef zeroext true), !range !6
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 7944
-  tail call void @mutex_unlock(ptr noundef %23) #8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %23) #8
   %24 = icmp eq i32 %21, 0
   br i1 %24, label %34, label %25
 
@@ -521,7 +521,7 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_read_p(ptr noundef %0
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -554,23 +554,23 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_write_p(ptr noundef %
   %11 = shl i32 %3, 16
   %12 = and i32 %11, 16711680
   %13 = or disjoint i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @intel_runtime_pm_get(ptr noundef %15) #8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %38, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %4, ptr %6, align 4
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 7944
-  tail call void @mutex_lock(ptr noundef %21) #8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %21) #8
   %22 = call fastcc i32 @__snb_pcode_rw(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %6, ptr noundef null, i32 noundef 500, i32 noundef 0, i1 noundef zeroext false), !range !6
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 7944
-  tail call void @mutex_unlock(ptr noundef %24) #8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %24) #8
   %25 = icmp eq i32 %22, 0
   br i1 %25, label %36, label %26
 
@@ -580,7 +580,7 @@ define dso_local noundef range(i32 -110, 1) i32 @snb_pcode_write_p(ptr noundef %
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   br label %32
 

@@ -279,13 +279,13 @@ declare void @register_ros_oid_dissector_handle(ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_rtse_RTORQapdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 285212672, ptr %10, align 4
   br label %11
 
@@ -301,13 +301,13 @@ declare i32 @dissect_ber_set(i1 noundef zeroext, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_rtse_RTOACapdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 553648128, ptr %10, align 4
   br label %11
 
@@ -319,9 +319,9 @@ define hidden i32 @dissect_rtse_RTOACapdu(i1 noundef zeroext %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_rtse_RTORJapdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2) #3
   %11 = load i32, ptr @ett_rtse_RTORJapdu, align 4
@@ -333,9 +333,9 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_rtse_RTABapdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.3) #3
   %11 = load i32, ptr @ett_rtse_RTABapdu, align 4
@@ -381,9 +381,9 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 9:                                                ; preds = %4
   store ptr %2, ptr @top_tree, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.93) #3
   %13 = load ptr, ptr %11, align 8
@@ -405,13 +405,13 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not85, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %21 = load i32, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %17, %19
   %.172 = phi i32 [ %21, %19 ], [ 0, %17 ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %23, align 4
   %.pr = load i32, ptr @rtse_reassemble, align 4
   %.not86 = icmp eq i32 %.pr, 0
@@ -457,7 +457,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 41:                                               ; preds = %37
   %42 = call i32 @tvb_captured_length_remaining(ptr noundef nonnull %40, i32 noundef 0) #3
-  %43 = getelementptr inbounds i8, ptr %7, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq i32 %42, 1
   %46 = select i1 %45, ptr @.str.126, ptr @.str.127
@@ -468,9 +468,9 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not91, label %58, label %49
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %1, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %48, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %53 = load i32, ptr %52, align 8
   %.not92 = icmp eq i32 %51, %53
   br i1 %.not92, label %58, label %54
@@ -482,7 +482,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %58
 
 58:                                               ; preds = %54, %49, %41
-  %59 = getelementptr inbounds i8, ptr %1, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %59, align 8
   br label %62
 
@@ -505,7 +505,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not87, label %.thread105, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %3, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 318767104, ptr %68, align 4
   %69 = call i32 @dissect_ber_external_type(i1 noundef zeroext false, ptr noundef %33, ptr noundef nonnull %.074, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1, ptr noundef nonnull @call_rtse_external_type_callback) #3
   store ptr null, ptr @top_tree, align 8
@@ -513,7 +513,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .thread105:                                       ; preds = %66
   %70 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  %71 = getelementptr inbounds i8, ptr %1, i64 272
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 0, ptr %71, align 8
   br label %.loopexit
 
@@ -599,7 +599,7 @@ declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rtse_T_open(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @app_proto, align 4
   switch i32 %9, label %11 [
@@ -615,14 +615,14 @@ define internal i32 @dissect_rtse_T_open(i1 zeroext %0, ptr noundef %1, i32 noun
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %8, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %14 = load i8, ptr %13, align 2
   %.not16 = icmp eq i8 %14, 0
   br i1 %.not16, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = zext i8 %14 to i32
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %18, i32 noundef %16) #3
   br label %20
@@ -631,7 +631,7 @@ define internal i32 @dissect_rtse_T_open(i1 zeroext %0, ptr noundef %1, i32 noun
   %.0 = phi ptr [ %19, %15 ], [ null, %12 ], [ null, %11 ], [ @.str.101, %10 ], [ @.str.100, %6 ]
   %.not17 = icmp eq ptr %.0, null
   %spec.store.select = select i1 %.not17, ptr @.str.101, ptr %.0
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @top_tree, align 8
   %.not18 = icmp eq ptr %23, null
@@ -646,9 +646,9 @@ define internal i32 @dissect_rtse_SessionConnectionIdentifier(i1 noundef zeroext
   br i1 %.b, label %7, label %12
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.104) #3
   br label %12
@@ -727,11 +727,11 @@ define internal i32 @dissect_rtse_T_t61String(i1 noundef zeroext %0, ptr noundef
   br i1 %or.cond, label %11, label %20
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef nonnull %9) #3
   %19 = call ptr @tvb_get_string_enc(ptr noundef %17, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %18, i32 noundef 54) #3
@@ -754,11 +754,11 @@ define internal i32 @dissect_rtse_T_octetString(i1 noundef zeroext %0, ptr nound
   br i1 %or.cond, label %11, label %20
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef nonnull %9) #3
   %19 = call ptr @tvb_format_text(ptr noundef %17, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %18) #3
@@ -793,9 +793,9 @@ define internal i32 @dissect_rtse_RefuseReason(i1 noundef zeroext %0, ptr nounde
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @rtse_RefuseReason_vals, ptr noundef nonnull @.str.107) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.106, ptr noundef %15) #3
@@ -807,7 +807,7 @@ define internal i32 @dissect_rtse_RefuseReason(i1 noundef zeroext %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rtse_T_userDataRJ(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @app_proto, align 4
   switch i32 %9, label %11 [
@@ -823,14 +823,14 @@ define internal i32 @dissect_rtse_T_userDataRJ(i1 zeroext %0, ptr noundef %1, i3
   br i1 %.not, label %.split, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %8, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %14 = load i8, ptr %13, align 2
   %.not20 = icmp eq i8 %14, 0
   br i1 %.not20, label %.thread, label %15
 
 15:                                               ; preds = %12
   %16 = zext i8 %14 to i32
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %18, i32 noundef %16) #3
   br label %.thread
@@ -848,7 +848,7 @@ define internal i32 @dissect_rtse_T_userDataRJ(i1 zeroext %0, ptr noundef %1, i3
 
 .split:                                           ; preds = %11, %20
   %spec.store.select35 = phi ptr [ %.0, %20 ], [ @.str.101, %11 ]
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @top_tree, align 8
   %.not23 = icmp eq ptr %23, null
@@ -858,9 +858,9 @@ define internal i32 @dissect_rtse_T_userDataRJ(i1 zeroext %0, ptr noundef %1, i3
 
 .split17:                                         ; preds = %.thread, %20
   %spec.store.select29 = phi ptr [ %spec.store.select27, %.thread ], [ %.0, %20 ]
-  %26 = getelementptr inbounds i8, ptr %8, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 822083584, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @top_tree, align 8
   %.not24 = icmp eq ptr %29, null
@@ -885,9 +885,9 @@ define internal i32 @dissect_rtse_AbortReason(i1 noundef zeroext %0, ptr noundef
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @rtse_AbortReason_vals, ptr noundef nonnull @.str.107) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.106, ptr noundef %15) #3
@@ -938,15 +938,15 @@ declare i32 @dissect_ber_external_type(i1 noundef zeroext, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @call_rtse_external_type_callback(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 62
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %12, i32 noundef %14) #3
   %.not = icmp eq ptr %15, null
@@ -960,25 +960,25 @@ define internal i32 @call_rtse_external_type_callback(i1 zeroext %0, ptr noundef
   br label %.thread
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %3, i64 61
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %3, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %27 = load ptr, ptr %26, align 8
   %.not22 = icmp eq ptr %27, null
   br i1 %.not22, label %.thread, label %.thread26
 
 .thread26:                                        ; preds = %10, %25
   %.029 = phi ptr [ %27, %25 ], [ %15, %10 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @top_tree, align 8
   %.not23 = icmp eq ptr %30, null
   %31 = select i1 %.not23, ptr %4, ptr %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = tail call fastcc i32 @call_rtse_oid_callback(ptr noundef nonnull %.029, ptr noundef %1, i32 noundef %2, ptr noundef %29, ptr noundef %31, ptr noundef %33)
   br label %.thread
@@ -1002,9 +1002,9 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 define internal i32 @dissect_rtse_RTTPapdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.130) #3
   %12 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
@@ -1014,7 +1014,7 @@ define internal i32 @dissect_rtse_RTTPapdu(i1 noundef zeroext %0, ptr noundef %1
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.131, i32 noundef %13) #3
   br label %18
@@ -1027,7 +1027,7 @@ define internal i32 @dissect_rtse_RTTPapdu(i1 noundef zeroext %0, ptr noundef %1
 define internal i32 @dissect_rtse_RTTRapdu(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
   %11 = load ptr, ptr %7, align 8
@@ -1039,7 +1039,7 @@ define internal i32 @dissect_rtse_RTTRapdu(i1 zeroext %0, ptr noundef %1, i32 no
   br i1 %.not11, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %9, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 318767104, ptr %14, align 4
   br label %15
 

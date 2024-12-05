@@ -90,7 +90,7 @@ define void @epan_register_plugin(ptr noundef %0) local_unnamed_addr #2 {
   %4 = load ptr, ptr @epan_plugins, align 8
   %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef %0) #15
   store ptr %5, ptr @epan_plugins, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %11, label %8
@@ -102,7 +102,7 @@ define void @epan_register_plugin(ptr noundef %0) local_unnamed_addr #2 {
   br label %11
 
 11:                                               ; preds = %8, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not7 = icmp eq ptr %13, null
   br i1 %.not7, label %17, label %14
@@ -136,10 +136,10 @@ define void @epan_plugins_get_descriptions(ptr noundef %0, ptr noundef %1) local
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %.0, %.lr.ph ], [ %.05, %2 ]
   %3 = load ptr, ptr %.07, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0, ptr noundef %1) #15
-  %6 = getelementptr inbounds i8, ptr %.07, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -157,10 +157,10 @@ define void @epan_plugins_dump_all() local_unnamed_addr #2 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %.07.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.05.i, %0 ]
   %1 = load ptr, ptr %.07.i, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void %3(ptr noundef nonnull @plugins_print_description, ptr noundef null) #15
-  %4 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.0.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %epan_plugins_get_descriptions.exit, label %.lr.ph.i, !llvm.loop !4
@@ -220,10 +220,10 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %22 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
   store volatile i32 0, ptr %6, align 4
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @epan_init.catch_spec, i64 noundef 1) #15
-  %23 = getelementptr inbounds i8, ptr %8, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %24 = call i32 @_setjmp(ptr noundef nonnull %23) #16
   %.not22 = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds i8, ptr %8, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not22, ptr null, ptr %25
   store volatile ptr %.sink, ptr %5, align 8
   %.0..0..0..0.2 = load volatile i32, ptr %6, align 4
@@ -288,7 +288,7 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 
 42:                                               ; preds = %41
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %44 = load volatile i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 6
   br i1 %45, label %46, label %55
@@ -298,7 +298,7 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %47 = or i32 %.0..0..0..0.7, 1
   store volatile i32 %47, ptr %6, align 4
   %.0..0..0..0.12 = load volatile ptr, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 16
   %49 = load volatile ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   %51 = select i1 %50, ptr @epan_init.dissector_error_nomsg, ptr %49
@@ -332,7 +332,7 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   unreachable
 
 59:                                               ; preds = %57, %55
-  %60 = getelementptr inbounds i8, ptr %8, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %61 = load volatile ptr, ptr %60, align 8
   call void @except_free(ptr noundef %61) #15
   %62 = call ptr @except_pop() #15
@@ -420,7 +420,7 @@ declare void @expert_packet_init() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @epan_plugin_post_init(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #15
   ret void
@@ -505,7 +505,7 @@ define void @epan_cleanup() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @epan_plugin_cleanup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void %4() #15
   ret void
@@ -565,7 +565,7 @@ declare void @plugins_cleanup(ptr noundef) local_unnamed_addr #3
 define noalias noundef ptr @epan_new(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc0(i64 noundef 40) #18
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @init_dissection() #15
   ret ptr %3
@@ -581,7 +581,7 @@ declare void @init_dissection() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @epan_get_modified_block(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -598,7 +598,7 @@ define ptr @epan_get_modified_block(ptr nocapture noundef readonly %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @epan_get_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
@@ -615,7 +615,7 @@ define ptr @epan_get_interface_name(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @epan_get_interface_description(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
@@ -636,7 +636,7 @@ define hidden ptr @epan_get_frame_ts(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %9, label %6
@@ -700,7 +700,7 @@ define void @epan_set_always_visible(i32 noundef %0) local_unnamed_addr #11 {
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_init(ptr noundef initializes((0, 8), (24, 464)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %5, i8 0, i64 440, i1 false)
   %6 = load ptr, ptr @pinfo_pool_cache, align 8
   %.not = icmp eq ptr %6, null
@@ -716,14 +716,14 @@ define void @epan_dissect_init(ptr noundef initializes((0, 8), (24, 464)) %0, pt
 
 10:                                               ; preds = %8, %7
   %.sink = phi ptr [ %9, %8 ], [ %6, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %.sink, ptr %11, align 8
   %.not12 = icmp eq i32 %2, 0
   br i1 %.not12, label %18, label %12
 
 12:                                               ; preds = %10
   %13 = tail call ptr @proto_tree_create_root(ptr noundef nonnull %5) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr @always_visible_refcount, align 4
   %.inv = icmp slt i32 %15, 1
@@ -732,12 +732,12 @@ define void @epan_dissect_init(ptr noundef initializes((0, 8), (24, 464)) %0, pt
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %18, %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %21, align 8
   %22 = load ptr, ptr @epan_plugins, align 8
   tail call void @g_slist_foreach(ptr noundef %22, ptr noundef nonnull @epan_plugin_dissect_init, ptr noundef nonnull %0) #15
@@ -755,7 +755,7 @@ declare i32 @proto_tree_set_visible(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @epan_plugin_dissect_init(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1) #15
   ret void
@@ -763,17 +763,17 @@ define internal void @epan_plugin_dissect_init(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_reset(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   tail call void @wtap_block_unref(ptr noundef %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %8 = load ptr, ptr %7, align 8
   tail call void @g_slist_free(ptr noundef %8) #15
   tail call void @free_data_sources(ptr noundef nonnull %2) #15
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -784,7 +784,7 @@ define void @epan_dissect_reset(ptr noundef %0) local_unnamed_addr #2 {
   br label %12
 
 12:                                               ; preds = %11, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %16, label %15
@@ -794,7 +794,7 @@ define void @epan_dissect_reset(ptr noundef %0) local_unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 432
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %18 = load ptr, ptr %17, align 8
   tail call void @wmem_free_all(ptr noundef %18) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %2, i8 0, i64 440, i1 false)
@@ -816,7 +816,7 @@ declare void @wmem_free_all(ptr noundef) local_unnamed_addr #3
 define noundef ptr @epan_dissect_new(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call noalias dereferenceable_or_null(464) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 464) #19
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %5, i8 0, i64 440, i1 false)
   %6 = load ptr, ptr @pinfo_pool_cache, align 8
   %.not.i = icmp eq ptr %6, null
@@ -832,14 +832,14 @@ define noundef ptr @epan_dissect_new(ptr noundef %0, i32 noundef %1, i32 noundef
 
 10:                                               ; preds = %8, %7
   %.sink.i = phi ptr [ %9, %8 ], [ %6, %7 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 432
   store ptr %.sink.i, ptr %11, align 8
   %.not12.i = icmp eq i32 %1, 0
   br i1 %.not12.i, label %18, label %12
 
 12:                                               ; preds = %10
   %13 = tail call ptr @proto_tree_create_root(ptr noundef nonnull %5) #15
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr @always_visible_refcount, align 4
   %.inv.i = icmp slt i32 %15, 1
@@ -848,12 +848,12 @@ define noundef ptr @epan_dissect_new(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %epan_dissect_init.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %19, align 8
   br label %epan_dissect_init.exit
 
 epan_dissect_init.exit:                           ; preds = %12, %18
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr @epan_plugins, align 8
   tail call void @g_slist_foreach(ptr noundef %21, ptr noundef nonnull @epan_plugin_dissect_init, ptr noundef nonnull %4) #15
@@ -869,7 +869,7 @@ define void @epan_dissect_fake_protocols(ptr noundef readonly %0, i32 noundef %1
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @proto_tree_set_fake_protocols(ptr noundef %5, i32 noundef %1) #15
   br label %6
@@ -885,7 +885,7 @@ define void @epan_dissect_run(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   tail call void @wmem_enter_packet_scope() #15
   tail call void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #15
   tail call void @wmem_leave_packet_scope() #15
-  %7 = getelementptr inbounds i8, ptr %2, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %8 = load ptr, ptr %7, align 8
   tail call void @wtap_block_unref(ptr noundef %8) #15
   store ptr null, ptr %7, align 8
@@ -905,7 +905,7 @@ define void @epan_dissect_run_with_taps(ptr noundef %0, i32 noundef %1, ptr noun
   tail call void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #15
   tail call void @tap_push_tapped_queue(ptr noundef %0) #15
   tail call void @wmem_leave_packet_scope() #15
-  %7 = getelementptr inbounds i8, ptr %2, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %8 = load ptr, ptr %7, align 8
   tail call void @wtap_block_unref(ptr noundef %8) #15
   store ptr null, ptr %7, align 8
@@ -921,7 +921,7 @@ define void @epan_dissect_file_run(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @wmem_enter_packet_scope() #15
   tail call void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #15
   tail call void @wmem_leave_packet_scope() #15
-  %6 = getelementptr inbounds i8, ptr %1, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load ptr, ptr %6, align 8
   tail call void @wtap_block_unref(ptr noundef %7) #15
   store ptr null, ptr %6, align 8
@@ -937,7 +937,7 @@ define void @epan_dissect_file_run_with_taps(ptr noundef %0, ptr noundef %1, ptr
   tail call void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #15
   tail call void @tap_push_tapped_queue(ptr noundef %0) #15
   tail call void @wmem_leave_packet_scope() #15
-  %6 = getelementptr inbounds i8, ptr %1, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load ptr, ptr %6, align 8
   tail call void @wtap_block_unref(ptr noundef %7) #15
   store ptr null, ptr %6, align 8
@@ -948,12 +948,12 @@ define void @epan_dissect_file_run_with_taps(ptr noundef %0, ptr noundef %1, ptr
 define void @epan_dissect_cleanup(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @epan_plugins, align 8
   tail call void @g_slist_foreach(ptr noundef %2, ptr noundef nonnull @epan_plugin_dissect_cleanup, ptr noundef %0) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %5 = load ptr, ptr %4, align 8
   tail call void @g_slist_free(ptr noundef %5) #15
   tail call void @free_data_sources(ptr noundef nonnull %3) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -963,7 +963,7 @@ define void @epan_dissect_cleanup(ptr noundef %0) local_unnamed_addr #2 {
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %13, label %12
@@ -975,7 +975,7 @@ define void @epan_dissect_cleanup(ptr noundef %0) local_unnamed_addr #2 {
 13:                                               ; preds = %12, %9
   %14 = load ptr, ptr @pinfo_pool_cache, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %18, label %20
 
@@ -995,7 +995,7 @@ define void @epan_dissect_cleanup(ptr noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @epan_plugin_dissect_cleanup(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1) #15
   ret void
@@ -1014,7 +1014,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_prime_with_dfilter(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @dfilter_prime_proto_tree(ptr noundef %1, ptr noundef %4) #15
   ret void
@@ -1024,7 +1024,7 @@ declare void @dfilter_prime_proto_tree(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_prime_with_hfid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @proto_tree_prime_with_hfid(ptr noundef %4, i32 noundef %1) #15
   ret void
@@ -1034,13 +1034,13 @@ declare void @proto_tree_prime_with_hfid(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_prime_with_hfid_array(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -1062,7 +1062,7 @@ define void @epan_dissect_prime_with_hfid_array(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @epan_custom_set(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @proto_custom_set(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #15
   ret ptr %9
@@ -1072,8 +1072,8 @@ declare ptr @proto_custom_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define void @epan_dissect_fill_in_columns(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @col_custom_set_edt(ptr noundef %0, ptr noundef %6) #15
   tail call void @col_fill_in(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #15
@@ -1090,7 +1090,7 @@ define range(i32 0, 2) i32 @epan_dissect_packet_contains_field(ptr noundef reado
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %16, label %6
@@ -1103,7 +1103,7 @@ define range(i32 0, 2) i32 @epan_dissect_packet_contains_field(ptr noundef reado
 9:                                                ; preds = %6
   %10 = load ptr, ptr %4, align 8
   %11 = tail call ptr @proto_find_finfo(ptr noundef %10, i32 noundef %7) #15
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not12 = icmp ne i32 %13, 0
   %14 = zext i1 %.not12 to i32

@@ -253,7 +253,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_suspend(ptr nocapture readn
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, i64 noundef %1, i32 noundef %2) #12
   %10 = getelementptr i8, ptr %6, i64 24
@@ -288,7 +288,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_fired(ptr nocapture readnon
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, i64 noundef %2) #12
   %10 = getelementptr i8, ptr %6, i64 24
@@ -317,7 +317,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_start(ptr nocapture readnon
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, i64 noundef %2) #12
   %10 = getelementptr i8, ptr %6, i64 24
@@ -346,7 +346,7 @@ define dso_local noundef i32 @__traceiter_alarmtimer_cancel(ptr nocapture readno
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, i64 noundef %2) #12
   %10 = getelementptr i8, ptr %6, i64 24
@@ -367,7 +367,7 @@ define dso_local void @__probestub_alarmtimer_cancel(ptr nocapture readnone %0, 
 define internal void @trace_event_raw_event_alarmtimer_suspend(ptr noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
@@ -389,10 +389,10 @@ define internal void @trace_event_raw_event_alarmtimer_suspend(ptr noundef %0, i
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %1, ptr %18, align 8
   %19 = trunc i32 %2 to i8
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 %19, ptr %20, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #12
   br label %21
@@ -409,11 +409,11 @@ define internal void @perf_trace_alarmtimer_suspend(ptr noundef %0, i64 noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8, !annotation !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #13, !srcloc !15
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -433,20 +433,20 @@ define internal void @perf_trace_alarmtimer_suspend(ptr noundef %0, i64 noundef 
   %20 = load ptr, ptr %4, align 8
   %21 = call ptr @llvm.returnaddress(i32 0)
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 128
   store i64 %22, ptr %23, align 8
   %24 = call ptr @llvm.frameaddress.p0(i32 0)
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %20, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 152
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 144
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %1, ptr %29, align 8
   %30 = trunc i32 %2 to i8
-  %31 = getelementptr inbounds i8, ptr %17, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 %30, ptr %31, align 8
   %32 = load i32, ptr %5, align 4
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 28, i32 noundef %32, ptr noundef %0, i64 noundef 1, ptr noundef %20, ptr noundef %9, ptr noundef null) #12
@@ -468,7 +468,7 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 define internal void @trace_event_raw_event_alarm_class(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
@@ -490,18 +490,18 @@ define internal void @trace_event_raw_event_alarm_class(ptr noundef %0, ptr noun
   br i1 %16, label %27, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %2, ptr %26, align 8
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #12
   br label %27
@@ -518,11 +518,11 @@ define internal void @perf_trace_alarm_class(ptr noundef %0, ptr noundef %1, i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr null, ptr %4, align 8, !annotation !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #13, !srcloc !16
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -542,28 +542,28 @@ define internal void @perf_trace_alarm_class(ptr noundef %0, ptr noundef %1, i64
   %20 = load ptr, ptr %4, align 8
   %21 = call ptr @llvm.returnaddress(i32 0)
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 128
   store i64 %22, ptr %23, align 8
   %24 = call ptr @llvm.frameaddress.p0(i32 0)
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %20, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 152
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 144
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %31 = load i32, ptr %30, align 8
   %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %17, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %17, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %2, ptr %37, align 8
   %38 = load i32, ptr %5, align 4
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 44, i32 noundef %38, ptr noundef %0, i64 noundef 1, ptr noundef %20, ptr noundef %9, ptr noundef null) #12
@@ -588,10 +588,10 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @alarm_expires_remaining(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %4, i32 2
   %8 = load ptr, ptr %7, align 8
@@ -602,20 +602,20 @@ define dso_local i64 @alarm_expires_remaining(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @alarm_init(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = zext i32 %1 to i64
   %6 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %5, i32 4
   %7 = load i32, ptr %6, align 8
-  tail call void @hrtimer_init(ptr noundef %4, i32 noundef %7, i32 noundef 0) #12
+  tail call void @hrtimer_init(ptr noundef nonnull %4, i32 noundef %7, i32 noundef 0) #12
   %8 = ptrtoint ptr %0 to i64
   store i64 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @alarmtimer_fired, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 108
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %12, align 4
   ret void
 }
@@ -625,35 +625,35 @@ declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @alarm_start(ptr noundef initializes((24, 32)) %0, i64 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = tail call zeroext i1 @timerqueue_del(ptr noundef %14, ptr noundef %0) #12
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %14, ptr noundef %0) #12
   br label %16
 
 16:                                               ; preds = %13, %2
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = tail call zeroext i1 @timerqueue_add(ptr noundef %17, ptr noundef %0) #12
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = tail call zeroext i1 @timerqueue_add(ptr noundef nonnull %17, ptr noundef %0) #12
   %19 = load i32, ptr %9, align 4
   %20 = or i32 %19, 1
   store i32 %20, ptr %9, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %8, align 8
-  tail call void @hrtimer_start_range_ns(ptr noundef %21, i64 noundef %22, i64 noundef 0, i32 noundef 0) #12
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %21, i64 noundef %22, i64 noundef 0, i32 noundef 0) #12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #12
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_alarmtimer_start, i64 8), i32 2) #12
@@ -676,7 +676,7 @@ define dso_local void @alarm_start(ptr noundef initializes((24, 32)) %0, i64 nou
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @__SCT__tp_func_alarmtimer_start(ptr noundef %37, ptr noundef %0, i64 noundef %25) #12
   br label %39
@@ -701,7 +701,7 @@ define dso_local void @alarm_start(ptr noundef initializes((24, 32)) %0, i64 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @alarm_start_relative(ptr noundef initializes((24, 32)) %0, i64 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %5, i32 2
@@ -717,33 +717,33 @@ declare dso_local i64 @ktime_add_safe(i64 noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @alarm_restart(ptr noundef initializes((56, 72)) %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %9, ptr %11, align 8
-  tail call void @hrtimer_start_range_ns(ptr noundef %7, i64 noundef %9, i64 noundef 0, i32 noundef 0) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 108
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %7, i64 noundef %9, i64 noundef 0, i32 noundef 0) #12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = tail call zeroext i1 @timerqueue_del(ptr noundef %17, ptr noundef %0) #12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %17, ptr noundef %0) #12
   br label %19
 
 19:                                               ; preds = %16, %1
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = tail call zeroext i1 @timerqueue_add(ptr noundef %20, ptr noundef %0) #12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = tail call zeroext i1 @timerqueue_add(ptr noundef nonnull %20, ptr noundef %0) #12
   %22 = load i32, ptr %12, align 4
   %23 = or i32 %22, 1
   store i32 %23, ptr %12, align 4
@@ -753,26 +753,26 @@ define dso_local void @alarm_restart(ptr noundef initializes((56, 72)) %0) #1 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @alarm_try_to_cancel(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = tail call i32 @hrtimer_try_to_cancel(ptr noundef %7) #12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = tail call i32 @hrtimer_try_to_cancel(ptr noundef nonnull %7) #12
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 108
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = tail call zeroext i1 @timerqueue_del(ptr noundef %16, ptr noundef %0) #12
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %16, ptr noundef %0) #12
   %18 = load i32, ptr %11, align 4
   %19 = and i32 %18, -2
   store i32 %19, ptr %11, align 4
@@ -780,7 +780,7 @@ define dso_local i32 @alarm_try_to_cancel(ptr noundef %0) #1 align 16 {
 
 20:                                               ; preds = %15, %10, %1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #12
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 %22() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_alarmtimer_cancel, i64 8), i32 2) #12
@@ -803,7 +803,7 @@ define dso_local i32 @alarm_try_to_cancel(ptr noundef %0) #1 align 16 {
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @__SCT__tp_func_alarmtimer_cancel(ptr noundef %35, ptr noundef %0, i64 noundef %23) #12
   br label %37
@@ -848,7 +848,7 @@ define dso_local range(i32 0, -2147483648) i32 @alarm_cancel(ptr noundef %0) #1 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @alarm_forward(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %1, %5
   %7 = icmp slt i64 %6, 0
@@ -894,13 +894,13 @@ define dso_local i64 @alarm_forward(ptr nocapture noundef %0, i64 noundef %1, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @alarm_forward_now(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %5, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 %7() #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   %12 = icmp slt i64 %11, 0
@@ -956,7 +956,7 @@ define internal noundef range(i32 -22, 1) i32 @alarm_clock_getres(i32 %0, ptr no
   store i64 0, ptr %1, align 8
   %7 = load i32, ptr @hrtimer_resolution, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
   br label %10
 
@@ -1024,27 +1024,27 @@ define internal noundef range(i32 -95, 1) i32 @alarm_timer_create(ptr noundef %0
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 9
   %11 = select i1 %10, i32 1, i32 -1
   %12 = icmp eq i32 %9, 8
   %13 = select i1 %12, i32 0, i32 %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
-  %15 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = zext i32 %13 to i64
   %17 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %16, i32 4
   %18 = load i32, ptr %17, align 8
-  tail call void @hrtimer_init(ptr noundef %15, i32 noundef %18, i32 noundef 0) #12
+  tail call void @hrtimer_init(ptr noundef nonnull %15, i32 noundef %18, i32 noundef 0) #12
   %19 = ptrtoint ptr %14 to i64
   store i64 %19, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @alarmtimer_fired, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @alarm_handle_timer, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %13, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 228
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %23, align 4
   br label %24
 
@@ -1062,7 +1062,7 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noca
   %8 = select i1 %7, i32 0, i32 %6
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !33
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1264
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1264
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #12
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %13 = load ptr, ptr @rtcdev, align 8
@@ -1080,23 +1080,23 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noca
 
 19:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false), !annotation !14
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = zext i32 %8 to i64
   %22 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %21, i32 4
   %23 = load i32, ptr %22, align 8
-  call void @hrtimer_init(ptr noundef %20, i32 noundef %23, i32 noundef 0) #12
+  call void @hrtimer_init(ptr noundef nonnull %20, i32 noundef %23, i32 noundef 0) #12
   %24 = ptrtoint ptr %4 to i64
   store i64 %24, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @alarmtimer_fired, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr @alarmtimer_nsleep_wakeup, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %8, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store i32 0, ptr %28, align 4
   %29 = load i64, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %29, 9223372035
   %33 = mul i64 %29, 1000000000
@@ -1113,16 +1113,16 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noca
   br label %51
 
 42:                                               ; preds = %19
-  %43 = getelementptr inbounds i8, ptr %10, i64 1872
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 1872
   %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, @init_time_ns
   br i1 %47, label %51, label %48, !prof !12
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %46, i64 40
-  %50 = call i64 @do_timens_ktime_to_host(i32 noundef %0, i64 noundef %35, ptr noundef %49) #12
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %50 = call i64 @do_timens_ktime_to_host(i32 noundef %0, i64 noundef %35, ptr noundef nonnull %49) #12
   br label %51
 
 51:                                               ; preds = %48, %42, %37
@@ -1134,13 +1134,13 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noca
   br i1 %55, label %64, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %10, i64 1280
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 1280
   store i32 %8, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 1296
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 1296
   store i64 %52, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 1272
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 1272
   store ptr @alarm_timer_nsleep_restart, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %10, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
   store i64 %63, ptr %11, align 8
@@ -1163,15 +1163,15 @@ declare dso_local void @common_timer_get(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @alarm_timer_rearm(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %6, i32 2
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8() #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   %13 = icmp slt i64 %12, 0
@@ -1213,20 +1213,20 @@ define internal void @alarm_timer_rearm(ptr noundef %0) #1 align 16 {
 31:                                               ; preds = %27, %19, %1
   %32 = phi i64 [ %30, %27 ], [ %23, %19 ], [ %11, %1 ]
   %33 = phi i64 [ %29, %27 ], [ %21, %19 ], [ 0, %1 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %33
   store i64 %37, ptr %35, align 8
-  tail call void @alarm_start(ptr noundef %34, i64 noundef %32)
+  tail call void @alarm_start(ptr noundef nonnull %34, i64 noundef %32)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @alarm_timer_forward(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %4, %6
   %8 = icmp slt i64 %7, 0
@@ -1272,7 +1272,7 @@ define internal i64 @alarm_timer_forward(ptr nocapture noundef %0, i64 noundef %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal i64 @alarm_timer_remaining(ptr nocapture noundef readonly %0, i64 noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %4, %1
   ret i64 %5
@@ -1280,18 +1280,18 @@ define internal i64 @alarm_timer_remaining(ptr nocapture noundef readonly %0, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @alarm_timer_try_to_cancel(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
-  %3 = tail call i32 @alarm_try_to_cancel(ptr noundef %2)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %3 = tail call i32 @alarm_try_to_cancel(ptr noundef nonnull %2)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @alarm_timer_arm(ptr noundef initializes((144, 152)) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br i1 %2, label %14, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %9, i32 2
@@ -1305,12 +1305,12 @@ define internal void @alarm_timer_arm(ptr noundef initializes((144, 152)) %0, i6
   br i1 %3, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %15, ptr %17, align 8
   br label %19
 
 18:                                               ; preds = %14
-  tail call void @alarm_start(ptr noundef %5, i64 noundef %15)
+  tail call void @alarm_start(ptr noundef nonnull %5, i64 noundef %15)
   br label %19
 
 19:                                               ; preds = %18, %16
@@ -1333,7 +1333,7 @@ define internal i32 @alarmtimer_init() #5 section ".init.text" align 16 {
   store i32 7, ptr getelementptr inbounds (i8, ptr @alarm_bases, i64 88), align 8
   store ptr @ktime_get_boottime, ptr getelementptr inbounds (i8, ptr @alarm_bases, i64 72), align 8
   store ptr @get_boottime_timespec, ptr getelementptr inbounds (i8, ptr @alarm_bases, i64 80), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @alarm_bases, i64 8), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @alarm_bases, i64 8), i8 0, i64 16, i1 false)
   store i32 0, ptr @alarm_bases, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @alarm_bases, i64 56), i8 0, i64 16, i1 false)
   store i32 0, ptr getelementptr inbounds (i8, ptr @alarm_bases, i64 48), align 16
@@ -1371,25 +1371,25 @@ declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_alarmtimer_suspend(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #12
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = getelementptr inbounds i8, ptr %0, i64 8344
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext nneg i8 %12 to i32
   %14 = shl nuw i32 1, %13
   %15 = sext i32 %14 to i64
-  %16 = tail call ptr @trace_print_flags_seq(ptr noundef %9, ptr noundef nonnull @.str.13, i64 noundef %15, ptr noundef nonnull @trace_raw_output_alarmtimer_suspend.__flags) #12
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = tail call ptr @trace_print_flags_seq(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i64 noundef %15, ptr noundef nonnull @trace_raw_output_alarmtimer_suspend.__flags) #12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %16, i64 noundef %18) #12
-  %19 = tail call i32 @trace_handle_return(ptr noundef %10) #12
+  %19 = tail call i32 @trace_handle_return(ptr noundef nonnull %10) #12
   br label %20
 
 20:                                               ; preds = %8, %3
@@ -1411,29 +1411,29 @@ declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_alarm_class(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #12
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = getelementptr inbounds i8, ptr %0, i64 8344
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = zext nneg i8 %14 to i32
   %16 = shl nuw i32 1, %15
   %17 = sext i32 %16 to i64
-  %18 = tail call ptr @trace_print_flags_seq(ptr noundef %9, ptr noundef nonnull @.str.13, i64 noundef %17, ptr noundef nonnull @trace_raw_output_alarm_class.__flags) #12
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = tail call ptr @trace_print_flags_seq(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i64 noundef %17, ptr noundef nonnull @trace_raw_output_alarm_class.__flags) #12
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %22 = load i64, ptr %21, align 8
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %12, ptr noundef %18, i64 noundef %20, i64 noundef %22) #12
-  %23 = tail call i32 @trace_handle_return(ptr noundef %10) #12
+  %23 = tail call i32 @trace_handle_return(ptr noundef nonnull %10) #12
   br label %24
 
 24:                                               ; preds = %8, %3
@@ -1471,8 +1471,8 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = tail call zeroext i1 @timerqueue_del(ptr noundef %13, ptr noundef %2) #12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %14 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %13, ptr noundef %2) #12
   %15 = load i32, ptr %8, align 4
   %16 = and i32 %15, -2
   store i32 %16, ptr %8, align 4
@@ -1490,7 +1490,7 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   br label %45
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24() #12
   %26 = tail call i32 %19(ptr noundef %2, i64 noundef %25) #12
@@ -1501,9 +1501,9 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
 29:                                               ; preds = %22
   %30 = getelementptr i8, ptr %0, i64 -8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %31, ptr %33, align 8
   %34 = load i32, ptr %8, align 4
   %35 = and i32 %34, 1
@@ -1511,13 +1511,13 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
-  %39 = tail call zeroext i1 @timerqueue_del(ptr noundef %38, ptr noundef %2) #12
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %39 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %38, ptr noundef %2) #12
   br label %40
 
 40:                                               ; preds = %37, %29
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  %42 = tail call zeroext i1 @timerqueue_add(ptr noundef %41, ptr noundef %2) #12
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %42 = tail call zeroext i1 @timerqueue_add(ptr noundef nonnull %41, ptr noundef %2) #12
   %43 = load i32, ptr %8, align 4
   %44 = or i32 %43, 1
   store i32 %44, ptr %8, align 4
@@ -1527,7 +1527,7 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   %46 = phi i64 [ %28, %40 ], [ %28, %22 ], [ %21, %.thread ]
   %47 = phi i32 [ 1, %40 ], [ 0, %22 ], [ 0, %.thread ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %46) #12
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 %49() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_alarmtimer_fired, i64 8), i32 2) #12
@@ -1550,7 +1550,7 @@ define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @__SCT__tp_func_alarmtimer_fired(ptr noundef %62, ptr noundef %2, i64 noundef %50) #12
   br label %64
@@ -1625,7 +1625,7 @@ define internal noundef range(i32 0, 2) i32 @alarm_handle_timer(ptr noundef %0, 
   br i1 %20, label %60, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %24, i32 2
@@ -1634,7 +1634,7 @@ define internal noundef range(i32 0, 2) i32 @alarm_handle_timer(ptr noundef %0, 
   %28 = icmp slt i64 %19, 1000000
   %29 = add i64 %27, 1000000
   %30 = select i1 %28, i64 %29, i64 %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = sub i64 %30, %32
   %34 = icmp slt i64 %33, 0
@@ -1697,7 +1697,7 @@ declare dso_local i32 @posix_timer_event(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @alarmtimer_nsleep_wakeup(ptr nocapture noundef %0, i64 %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1716,16 +1716,16 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
   %4 = alloca %struct.timespec64, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !33
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
   br label %12
 
 12:                                               ; preds = %66, %3
-  %13 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 1, ptr elementtype(i32) %8) #12, !srcloc !38
+  %13 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 1, ptr nonnull elementtype(i32) %8) #12, !srcloc !38
   tail call void @alarm_start(ptr noundef %0, i64 noundef %1)
   %14 = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %14, null
@@ -1746,7 +1746,7 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
   %21 = zext i32 %20 to i64
   %22 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %21
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %22) #12
-  %24 = tail call i32 @hrtimer_try_to_cancel(ptr noundef %10) #12
+  %24 = tail call i32 @hrtimer_try_to_cancel(ptr noundef nonnull %10) #12
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %35
 
@@ -1757,8 +1757,8 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
-  %32 = tail call zeroext i1 @timerqueue_del(ptr noundef %31, ptr noundef %0) #12
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %32 = tail call zeroext i1 @timerqueue_del(ptr noundef nonnull %31, ptr noundef %0) #12
   %33 = load i32, ptr %11, align 4
   %34 = and i32 %33, -2
   store i32 %34, ptr %11, align 4
@@ -1766,7 +1766,7 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
 
 35:                                               ; preds = %30, %26, %.preheader
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %22, i64 noundef %23) #12
-  %36 = getelementptr inbounds i8, ptr %22, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 %37() #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_alarmtimer_cancel, i64 8), i32 2) #12
@@ -1789,7 +1789,7 @@ define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @__SCT__tp_func_alarmtimer_cancel(ptr noundef %50, ptr noundef %0, i64 noundef %38) #12
   br label %52
@@ -1869,7 +1869,7 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 80:                                               ; preds = %76, %75
   %81 = phi ptr [ getelementptr inbounds (i8, ptr @alarm_bases, i64 48), %76 ], [ @alarm_bases, %75 ]
   %82 = phi i32 [ 4, %76 ], [ 3, %75 ]
-  %83 = getelementptr inbounds i8, ptr %81, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i64 %84() #12
   %86 = sub i64 %1, %85
@@ -1891,8 +1891,8 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
   br label %94
 
 94:                                               ; preds = %93, %79, %77, %73, %72
-  %95 = getelementptr inbounds i8, ptr %6, i64 1264
-  %96 = getelementptr inbounds i8, ptr %6, i64 1284
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 1264
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 1284
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %114, label %99
@@ -1912,9 +1912,9 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
   %108 = extractvalue { i64, i64 } %107, 0
   %109 = extractvalue { i64, i64 } %107, 1
   store i64 %108, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %4, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %109, ptr %110, align 8
-  %111 = call i32 @nanosleep_copyout(ptr noundef %95, ptr noundef nonnull %4) #12
+  %111 = call i32 @nanosleep_copyout(ptr noundef nonnull %95, ptr noundef nonnull %4) #12
   br label %112
 
 112:                                              ; preds = %106, %99
@@ -1930,26 +1930,26 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @alarm_timer_nsleep_restart(ptr nocapture noundef readonly %0) #1 section ".sched.text" align 16 {
   %2 = alloca %struct.alarm, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false), !annotation !14
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = zext i32 %4 to i64
   %9 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %8, i32 4
   %10 = load i32, ptr %9, align 8
-  call void @hrtimer_init(ptr noundef %7, i32 noundef %10, i32 noundef 0) #12
+  call void @hrtimer_init(ptr noundef nonnull %7, i32 noundef %10, i32 noundef 0) #12
   %11 = ptrtoint ptr %2 to i64
   store i64 %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr @alarmtimer_fired, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr @alarmtimer_nsleep_wakeup, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 108
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 0, ptr %15, align 4
   %16 = call fastcc i32 @alarmtimer_do_nsleep(ptr noundef nonnull %2, i64 noundef %6, i32 noundef %4)
   %17 = sext i32 %16 to i64
@@ -2001,17 +2001,17 @@ define internal void @get_boottime_timespec(ptr nocapture noundef writeonly init
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   store i64 %5, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !33
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1872
   %11 = load ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !14
@@ -2019,7 +2019,7 @@ define internal void @get_boottime_timespec(ptr nocapture noundef writeonly init
   %19 = add i64 %17, %6
   call void @set_normalized_timespec64(ptr noundef nonnull %2, i64 noundef %18, i64 noundef %19) #12
   %20 = load i64, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   store i64 %20, ptr %0, align 8
@@ -2050,51 +2050,51 @@ define internal noundef range(i32 -16, 1) i32 @alarmtimer_rtc_add_device(ptr nou
   br i1 %4, label %5, label %47
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %47, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 220
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 220
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 1
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %47, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %12, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %47, label %21
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #12
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 40, i1 false), !annotation !14
   store ptr %0, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @.str.22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %28 = call ptr @platform_device_register_full(ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #12
   %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
-  call void @device_set_wakeup_capable(ptr noundef %31, i1 noundef zeroext true) #12
-  %32 = call i32 @device_wakeup_enable(ptr noundef %31) #12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  call void @device_set_wakeup_capable(ptr noundef nonnull %31, i1 noundef zeroext true) #12
+  %32 = call i32 @device_wakeup_enable(ptr noundef nonnull %31) #12
   br label %33
 
 33:                                               ; preds = %30, %21
@@ -2105,7 +2105,7 @@ define internal noundef range(i32 -16, 1) i32 @alarmtimer_rtc_add_device(ptr nou
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 728
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %40 = load ptr, ptr %39, align 8
   %41 = call zeroext i1 @try_module_get(ptr noundef %40) #12
   br i1 %41, label %42, label %44
@@ -2173,16 +2173,16 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
   %14 = phi i64 [ %34, %33 ], [ %5, %.preheader.preheader ]
   %15 = getelementptr [2 x %struct.alarm_base], ptr @alarm_bases, i64 0, i64 %11
   %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %15) #12
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %15, i64 noundef %16) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24() #12
   %26 = sub i64 %22, %25
@@ -2231,7 +2231,7 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @__SCT__tp_func_alarmtimer_suspend(ptr noundef %53, i64 noundef %34, i32 noundef %35) #12
   br label %55
@@ -2254,7 +2254,7 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
   tail call void @rtc_timer_cancel(ptr noundef nonnull %8, ptr noundef nonnull @rtctimer) #12
   %63 = call i32 @rtc_read_time(ptr noundef nonnull %8, ptr noundef nonnull %2) #12
   %64 = call i64 @rtc_tm_to_ktime(ptr noundef nonnull byval(%struct.rtc_time) align 8 %2) #12
-  %65 = getelementptr inbounds i8, ptr %8, i64 1232
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 1232
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %74, label %68

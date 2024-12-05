@@ -29,22 +29,22 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @linkmodes_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %5, ptr %6, align 8
   %7 = tail call i32 @ethnl_ops_begin(ptr noundef %4) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @__ethtool_get_link_ksettings(ptr noundef %4, ptr noundef %5) #7
+  %10 = tail call i32 @__ethtool_get_link_ksettings(ptr noundef %4, ptr noundef nonnull %5) #7
   %11 = icmp slt i32 %10, 0
   %12 = icmp ne ptr %2, null
   %13 = and i1 %12, %11
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load ptr, ptr %15, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @linkmodes_prepare_data.__msg) #7
   %17 = icmp eq ptr %16, null
@@ -55,7 +55,7 @@ define internal i32 @linkmodes_prepare_data(ptr nocapture readnone %0, ptr nound
   br label %33
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %4, i64 760
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
@@ -63,15 +63,15 @@ define internal i32 @linkmodes_prepare_data(ptr nocapture readnone %0, ptr nound
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 0, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %25, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 88
-  %29 = tail call i64 @_find_first_bit(ptr noundef %28, i64 noundef 102) #7
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %29 = tail call i64 @_find_first_bit(ptr noundef nonnull %28, i64 noundef 102) #7
   %30 = icmp eq i64 %29, 102
-  %31 = getelementptr inbounds i8, ptr %1, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %32 = zext i1 %30 to i8
   store i8 %32, ptr %31, align 8
   br label %33
@@ -87,26 +87,26 @@ define internal i32 @linkmodes_prepare_data(ptr nocapture readnone %0, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @linkmodes_reply_size(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %6 = icmp ne i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  %9 = tail call i32 @ethnl_bitset_size(ptr noundef %8, ptr noundef %7, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %34, label %11
 
 11:                                               ; preds = %2
   %12 = add nuw i32 %9, 40
-  %13 = getelementptr inbounds i8, ptr %1, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 88
-  %18 = tail call i32 @ethnl_bitset_size(ptr noundef %17, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %18 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %17, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %34, label %20
 
@@ -116,12 +116,12 @@ define internal i32 @linkmodes_reply_size(ptr nocapture noundef readonly %0, ptr
 
 22:                                               ; preds = %20, %11
   %23 = phi i32 [ %12, %11 ], [ %21, %20 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   %27 = add i32 %23, 8
   %28 = select i1 %26, i32 %23, i32 %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %30 = load i8, ptr %29, align 2
   %31 = icmp eq i8 %30, 0
   %32 = add i32 %28, 8
@@ -142,11 +142,11 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %14 = icmp ne i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 19
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %16 = load i8, ptr %15, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
   store i8 %16, ptr %10, align 1
@@ -156,26 +156,26 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %18, label %19, label %69
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %2, i64 56
-  %21 = getelementptr inbounds i8, ptr %2, i64 72
-  %22 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 3, ptr noundef %21, ptr noundef %20, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %22 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %21, ptr noundef nonnull %20, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %69, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %2, i64 88
-  %30 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 4, ptr noundef %29, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %30 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %29, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %69, label %32
 
 32:                                               ; preds = %28, %24
-  %33 = getelementptr inbounds i8, ptr %2, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   store i32 %34, ptr %9, align 4
@@ -185,7 +185,7 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %36, label %37, label %69
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i8, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #7
   store i8 %39, ptr %8, align 1
@@ -195,7 +195,7 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %41, label %42, label %69
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %2, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %49, label %46
@@ -209,7 +209,7 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %46, %42
-  %50 = getelementptr inbounds i8, ptr %2, i64 25
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %56, label %53
@@ -223,7 +223,7 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %53, %49
-  %57 = getelementptr inbounds i8, ptr %2, i64 26
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %58 = load i8, ptr %57, align 2
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %63, label %60
@@ -237,7 +237,7 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %60, %56
-  %64 = getelementptr inbounds i8, ptr %2, i64 27
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 27
   %65 = load i8, ptr %64, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
   store i8 %65, ptr %4, align 1
@@ -255,9 +255,9 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -95, 2) i32 @ethnl_set_linkmodes_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
@@ -272,7 +272,7 @@ define internal range(i32 -95, 2) i32 @ethnl_set_linkmodes_validate(ptr nocaptur
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_check_linkmodes.__msg) #7
   %19 = icmp eq ptr %18, null
@@ -296,7 +296,7 @@ define internal range(i32 -95, 2) i32 @ethnl_set_linkmodes_validate(ptr nocaptur
   br i1 %29, label %41, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_check_linkmodes.__msg.1) #7
   %33 = icmp eq ptr %32, null
@@ -310,20 +310,20 @@ define internal range(i32 -95, 2) i32 @ethnl_set_linkmodes_validate(ptr nocaptur
   %36 = phi ptr [ %18, %20 ], [ %32, %34 ]
   %37 = phi ptr [ %9, %20 ], [ %23, %34 ]
   %38 = phi i32 [ -95, %20 ], [ -22, %34 ]
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %37, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr null, ptr %40, align 8
   br label %.thread
 
 41:                                               ; preds = %21, %25
-  %42 = getelementptr inbounds i8, ptr %5, i64 432
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 432
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %5, i64 440
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 440
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   %49 = select i1 %48, i32 -95, i32 1
@@ -342,7 +342,7 @@ define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false)
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   store i8 0, ptr %5, align 1
@@ -351,7 +351,7 @@ define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_set_linkmodes.__msg) #7
   %14 = icmp eq ptr %13, null
@@ -365,14 +365,14 @@ define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture
   %17 = getelementptr i8, ptr %8, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %4, i64 17
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   %23 = select i1 %19, i1 %22, i1 false
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = load ptr, ptr %25, align 8
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_linkmodes.__msg) #7
   %27 = icmp eq ptr %26, null
@@ -380,9 +380,9 @@ define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture
 
 28:                                               ; preds = %24
   store ptr @ethnl_update_linkmodes.__msg, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %18, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr null, ptr %30, align 8
   br label %.thread
 
@@ -400,7 +400,7 @@ define internal range(i32 -2147483648, 2) i32 @ethnl_set_linkmodes(ptr nocapture
   %39 = load ptr, ptr %38, align 8
   %.fr = freeze ptr %39
   %40 = icmp ne ptr %.fr, null
-  %41 = getelementptr inbounds i8, ptr %4, i64 11
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %42 = getelementptr i8, ptr %8, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
@@ -432,7 +432,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %54, label %56, label %75
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %6, i64 760
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %58, align 8
   %60 = and i8 %59, 1
@@ -440,7 +440,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %61, label %62, label %75
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %1, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %64 = load ptr, ptr %63, align 8
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_linkmodes.__msg.3) #7
   %65 = icmp eq ptr %64, null
@@ -448,9 +448,9 @@ thread-pre-split:                                 ; preds = %31
 
 66:                                               ; preds = %62
   store ptr @ethnl_update_linkmodes.__msg.3, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %.fr29, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr null, ptr %68, align 8
   br label %.thread
 
@@ -458,7 +458,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %54, label %70, label %75
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %4, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %75, label %74
@@ -469,17 +469,17 @@ thread-pre-split:                                 ; preds = %31
   br label %75
 
 75:                                               ; preds = %74, %70, %69, %56, %55
-  %76 = getelementptr inbounds i8, ptr %4, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %77 = getelementptr i8, ptr %8, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @ethnl_update_bitset(ptr noundef %76, i32 noundef 102, ptr noundef %78, ptr noundef nonnull @link_mode_names, ptr noundef %80, ptr noundef nonnull %5) #7
+  %81 = call i32 @ethnl_update_bitset(ptr noundef nonnull %76, i32 noundef 102, ptr noundef %78, ptr noundef nonnull @link_mode_names, ptr noundef %80, ptr noundef nonnull %5) #7
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %.thread, label %83
 
 83:                                               ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %4, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %85 = load ptr, ptr %32, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %93, label %87
@@ -497,7 +497,7 @@ thread-pre-split:                                 ; preds = %31
   br label %93
 
 93:                                               ; preds = %92, %87, %83
-  %94 = getelementptr inbounds i8, ptr %4, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 96
   br i1 %53, label %101, label %95
 
 95:                                               ; preds = %93
@@ -513,7 +513,7 @@ thread-pre-split:                                 ; preds = %31
   br label %101
 
 101:                                              ; preds = %100, %95, %93
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = load ptr, ptr %38, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %111, label %105
@@ -559,9 +559,9 @@ thread-pre-split:                                 ; preds = %31
   br i1 %126, label %127, label %209
 
 127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %4, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %76, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   br i1 %37, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %127, %155
@@ -572,7 +572,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %132, label %155, label %133
 
 133:                                              ; preds = %.split.us
-  %134 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, i64 %129) #7, !srcloc !8
+  %134 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %128, i64 %129) #7, !srcloc !8
   %135 = icmp ult i8 %134, 2
   call void @llvm.assume(i1 %135)
   %136 = icmp eq i8 %134, 0
@@ -585,7 +585,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %140, label %154, label %141
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %130, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %143 = load i8, ptr %142, align 4
   %144 = zext i8 %143 to i32
   %145 = load i32, ptr %94, align 8
@@ -596,18 +596,18 @@ thread-pre-split:                                 ; preds = %31
   br i1 %40, label %148, label %153
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %130, i64 5
+  %149 = getelementptr inbounds nuw i8, ptr %130, i64 5
   %150 = load i8, ptr %149, align 1
   %151 = load i8, ptr %102, align 8
   %152 = icmp eq i8 %150, %151
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %148, %147
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %129) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %129) #7, !srcloc !9
   br label %155
 
 154:                                              ; preds = %148, %141, %137, %133
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %129) #7, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %129) #7, !srcloc !10
   br label %155
 
 155:                                              ; preds = %154, %153, %.split.us
@@ -626,7 +626,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %161, label %177, label %162
 
 162:                                              ; preds = %.split.split.us
-  %163 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, i64 %158) #7, !srcloc !8
+  %163 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %128, i64 %158) #7, !srcloc !8
   %164 = icmp ult i8 %163, 2
   call void @llvm.assume(i1 %164)
   %165 = icmp eq i8 %163, 0
@@ -639,18 +639,18 @@ thread-pre-split:                                 ; preds = %31
   br i1 %169, label %176, label %170
 
 170:                                              ; preds = %166
-  %171 = getelementptr inbounds i8, ptr %159, i64 5
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 5
   %172 = load i8, ptr %171, align 1
   %173 = load i8, ptr %102, align 8
   %174 = icmp eq i8 %172, %173
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %170
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %158) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %158) #7, !srcloc !9
   br label %177
 
 176:                                              ; preds = %170, %166, %162
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %158) #7, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %158) #7, !srcloc !10
   br label %177
 
 177:                                              ; preds = %176, %175, %.split.split.us
@@ -669,18 +669,18 @@ thread-pre-split:                                 ; preds = %31
   br i1 %183, label %190, label %184
 
 184:                                              ; preds = %.split.split.split.us
-  %185 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, i64 %180) #7, !srcloc !8
+  %185 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %128, i64 %180) #7, !srcloc !8
   %186 = icmp ult i8 %185, 2
   call void @llvm.assume(i1 %186)
   %187 = icmp eq i8 %185, 0
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %184
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %180) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %180) #7, !srcloc !9
   br label %190
 
 189:                                              ; preds = %184
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %180) #7, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %180) #7, !srcloc !10
   br label %190
 
 190:                                              ; preds = %189, %188, %.split.split.split.us
@@ -696,7 +696,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %196, label %205, label %197
 
 197:                                              ; preds = %.split.split.split
-  %198 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, i64 %193) #7, !srcloc !8
+  %198 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %128, i64 %193) #7, !srcloc !8
   %199 = icmp ult i8 %198, 2
   call void @llvm.assume(i1 %199)
   %200 = icmp eq i8 %198, 0
@@ -706,11 +706,11 @@ thread-pre-split:                                 ; preds = %31
   br i1 %or.cond, label %204, label %203
 
 203:                                              ; preds = %197
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %193) #7, !srcloc !9
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %193) #7, !srcloc !9
   br label %205
 
 204:                                              ; preds = %197
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %76, i64 %193) #7, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %76, i64 %193) #7, !srcloc !10
   br label %205
 
 205:                                              ; preds = %204, %203, %.split.split.split
@@ -719,7 +719,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %207, label %.split25.us, label %.split.split.split, !llvm.loop !11
 
 .split25.us:                                      ; preds = %190, %205, %177, %155
-  %208 = call zeroext i1 @__bitmap_equal(ptr noundef nonnull %3, ptr noundef %76, i32 noundef 102) #7
+  %208 = call zeroext i1 @__bitmap_equal(ptr noundef nonnull %3, ptr noundef nonnull %76, i32 noundef 102) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   br i1 %208, label %209, label %.thread23
 
@@ -733,9 +733,9 @@ thread-pre-split:                                 ; preds = %31
   br i1 %210, label %.thread, label %211
 
 211:                                              ; preds = %.thread23, %209
-  %212 = getelementptr inbounds i8, ptr %6, i64 760
+  %212 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 440
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 440
   %215 = load ptr, ptr %214, align 8
   %216 = call i32 %215(ptr noundef %6, ptr noundef nonnull %4) #7
   %217 = icmp slt i32 %216, 0

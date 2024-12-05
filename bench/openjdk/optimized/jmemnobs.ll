@@ -35,9 +35,9 @@ define hidden void @jFreeLarge(ptr nocapture noundef readnone %0, ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @jMemAvail(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   %9 = sub i64 %8, %3
@@ -48,7 +48,7 @@ define hidden i64 @jMemAvail(ptr nocapture noundef readonly %0, i64 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden void @jOpenBackStore(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 49, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8

@@ -136,16 +136,16 @@ define internal i32 @dissect_btle_rf(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %7, label %103, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.45) #3
   %11 = load ptr, ptr %9, align 8
   tail call void @col_clear(ptr noundef %11, i32 noundef 25) #3
   %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 72, i1 false)
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = zext i16 %12 to i32
   %16 = lshr i16 %12, 9
   %17 = and i16 %16, 30
@@ -164,12 +164,12 @@ define internal i32 @dissect_btle_rf(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %5, i64 66
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 1, ptr %21, align 2
   %22 = lshr i16 %12, 12
   %23 = trunc nuw nsw i16 %22 to i8
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %5, i64 67
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 67
   store i8 %24, ptr %25, align 1
   %26 = and i16 %16, 6
   %27 = or disjoint i16 %26, 128
@@ -177,43 +177,43 @@ define internal i32 @dissect_btle_rf(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %46
 
 28:                                               ; preds = %8
-  %29 = getelementptr inbounds i8, ptr %5, i64 66
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 2, ptr %29, align 2
   %30 = or disjoint i16 %17, 32
   store i16 %30, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 348
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 0, ptr %31, align 4
   br label %46
 
 32:                                               ; preds = %8
-  %33 = getelementptr inbounds i8, ptr %5, i64 66
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 2, ptr %33, align 2
   %34 = or disjoint i16 %17, 64
   store i16 %34, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 348
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %35, align 4
   br label %46
 
 36:                                               ; preds = %8
-  %37 = getelementptr inbounds i8, ptr %5, i64 66
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 3, ptr %37, align 2
   %38 = or disjoint i16 %17, 32
   store i16 %38, ptr %14, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 348
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 0, ptr %39, align 4
   br label %46
 
 40:                                               ; preds = %8
-  %41 = getelementptr inbounds i8, ptr %5, i64 66
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 3, ptr %41, align 2
   %42 = or disjoint i16 %17, 64
   store i16 %42, ptr %14, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 348
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %43, align 4
   br label %46
 
 44:                                               ; preds = %8
-  %45 = getelementptr inbounds i8, ptr %5, i64 66
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 66
   store i8 4, ptr %45, align 2
   br label %46
 
@@ -283,7 +283,7 @@ btle_rf_channel_index.exit:                       ; preds = %46
 
 btle_rf_channel_index.exit70:                     ; preds = %.thread84, %61, %btle_rf_channel_index.exit, %62, %65, %.thread86
   %.0.i69 = phi i8 [ %63, %62 ], [ %66, %65 ], [ 37, %.thread86 ], [ 39, %61 ], [ -1, %btle_rf_channel_index.exit ], [ 38, %.thread84 ]
-  %68 = getelementptr inbounds i8, ptr %5, i64 68
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i8 %.0.i69, ptr %68, align 4
   %69 = and i32 %15, 64
   %.not = icmp eq i32 %69, 0
@@ -296,7 +296,7 @@ btle_rf_channel_index.exit70:                     ; preds = %.thread84, %61, %bt
 71:                                               ; preds = %70, %btle_rf_channel_index.exit70
   %72 = lshr i16 %12, 14
   %73 = trunc nuw nsw i16 %72 to i8
-  %74 = getelementptr inbounds i8, ptr %5, i64 69
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 69
   store i8 %73, ptr %74, align 1
   %75 = and i32 %15, 2
   %.not61 = icmp eq i32 %75, 0

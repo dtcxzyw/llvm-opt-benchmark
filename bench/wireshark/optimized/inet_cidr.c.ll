@@ -24,7 +24,7 @@ define void @ws_ipv4_addr_and_mask_init(ptr nocapture noundef writeonly initiali
   %5 = zext i32 %2 to i64
   %6 = getelementptr [33 x i32], ptr @ws_ipv4_get_subnet_mask.masks, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   ret void
 }
@@ -46,9 +46,9 @@ define zeroext i1 @ws_ipv4_addr_and_mask_contains(ptr nocapture noundef readonly
 define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = alloca %struct.ipv6_addr_and_prefix, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 128, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 4
   %..i = tail call i32 @llvm.umin.i32(i32 %6, i32 128)
   %7 = icmp ugt i32 %6, 7

@@ -50,7 +50,7 @@ define hidden void @_ZN5zxing6Reader6decodeENS_3RefINS_12BinaryBitmapEEE(ptr dea
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_12BinaryBitmapEEC2ERKS2_.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
@@ -59,7 +59,7 @@ define hidden void @_ZN5zxing6Reader6decodeENS_3RefINS_12BinaryBitmapEEE(ptr dea
 _ZN5zxing3RefINS_12BinaryBitmapEEC2ERKS2_.exit:   ; preds = %6, %3
   store ptr %5, ptr %4, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull %4, i8 0)
           to label %13 unwind label %24
@@ -70,7 +70,7 @@ _ZN5zxing3RefINS_12BinaryBitmapEEC2ERKS2_.exit:   ; preds = %6, %3
   br i1 %.not.i, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   store i32 %18, ptr %16, align 8
@@ -80,7 +80,7 @@ _ZN5zxing3RefINS_12BinaryBitmapEEC2ERKS2_.exit:   ; preds = %6, %3
 20:                                               ; preds = %15
   store i32 -559026175, ptr %16, align 8
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(12) %14) #7
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit
@@ -96,7 +96,7 @@ _ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit:       ; preds = %13, %15, %20
   br i1 %.not.i2, label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit3, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, -1
   store i32 %30, ptr %28, align 8
@@ -106,7 +106,7 @@ _ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit:       ; preds = %13, %15, %20
 32:                                               ; preds = %27
   store i32 -559026175, ptr %28, align 8
   %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(12) %26) #7
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit3

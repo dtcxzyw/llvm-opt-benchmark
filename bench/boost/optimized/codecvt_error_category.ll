@@ -77,7 +77,7 @@ define noundef nonnull align 8 dereferenceable(52) ptr @_ZN5boost10filesystem22c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #11
   %8 = extractvalue { i32, ptr } %7, 0
@@ -200,7 +200,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6system14error_category7messag
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
   %8 = load ptr, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1)
           to label %11 unwind label %22
@@ -296,10 +296,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 switch.lookup:                                    ; preds = %3
   %15 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5boost10filesystem12_GLOBAL__N_117codecvt_error_cat7messageB5cxx11Ei, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5boost10filesystem12_GLOBAL__N_117codecvt_error_cat7messageB5cxx11Ei, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = zext nneg i32 %2 to i64
-  %switch.gep7 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5boost10filesystem12_GLOBAL__N_117codecvt_error_cat7messageB5cxx11Ei.1, i64 0, i64 %16
+  %switch.gep7 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5boost10filesystem12_GLOBAL__N_117codecvt_error_cat7messageB5cxx11Ei.1, i64 0, i64 %16
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   br label %.invoke
 

@@ -30,7 +30,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.8 = phi i32 [ %54, %50 ], [ 0, %3 ]
   %.7 = phi i64 [ %55, %50 ], [ %5, %3 ]
   %8 = mul i32 %.8, 33
-  %9 = getelementptr inbounds i8, ptr %.744, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.744, i64 1
   %10 = load i8, ptr %.744, align 1
   %11 = zext i8 %10 to i32
   %12 = add i32 %8, %11
@@ -41,7 +41,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.037 = phi ptr [ %9, %7 ], [ %0, %3 ]
   %.130 = phi i32 [ %13, %7 ], [ 0, %3 ]
   %.0 = phi i64 [ %.7, %7 ], [ %5, %3 ]
-  %15 = getelementptr inbounds i8, ptr %.037, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.037, i64 1
   %16 = load i8, ptr %.037, align 1
   %17 = zext i8 %16 to i32
   %18 = add i32 %.130, %17
@@ -52,7 +52,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.138 = phi ptr [ %15, %14 ], [ %0, %3 ]
   %.231 = phi i32 [ %19, %14 ], [ 0, %3 ]
   %.1 = phi i64 [ %.0, %14 ], [ %5, %3 ]
-  %21 = getelementptr inbounds i8, ptr %.138, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   %22 = load i8, ptr %.138, align 1
   %23 = zext i8 %22 to i32
   %24 = add i32 %.231, %23
@@ -63,7 +63,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.239 = phi ptr [ %21, %20 ], [ %0, %3 ]
   %.332 = phi i32 [ %25, %20 ], [ 0, %3 ]
   %.2 = phi i64 [ %.1, %20 ], [ %5, %3 ]
-  %27 = getelementptr inbounds i8, ptr %.239, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.239, i64 1
   %28 = load i8, ptr %.239, align 1
   %29 = zext i8 %28 to i32
   %30 = add i32 %.332, %29
@@ -74,7 +74,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.340 = phi ptr [ %27, %26 ], [ %0, %3 ]
   %.433 = phi i32 [ %31, %26 ], [ 0, %3 ]
   %.3 = phi i64 [ %.2, %26 ], [ %5, %3 ]
-  %33 = getelementptr inbounds i8, ptr %.340, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.340, i64 1
   %34 = load i8, ptr %.340, align 1
   %35 = zext i8 %34 to i32
   %36 = add i32 %.433, %35
@@ -85,7 +85,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.441 = phi ptr [ %33, %32 ], [ %0, %3 ]
   %.534 = phi i32 [ %37, %32 ], [ 0, %3 ]
   %.4 = phi i64 [ %.3, %32 ], [ %5, %3 ]
-  %39 = getelementptr inbounds i8, ptr %.441, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.441, i64 1
   %40 = load i8, ptr %.441, align 1
   %41 = zext i8 %40 to i32
   %42 = add i32 %.534, %41
@@ -96,7 +96,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.542 = phi ptr [ %39, %38 ], [ %0, %3 ]
   %.635 = phi i32 [ %43, %38 ], [ 0, %3 ]
   %.5 = phi i64 [ %.4, %38 ], [ %5, %3 ]
-  %45 = getelementptr inbounds i8, ptr %.542, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.542, i64 1
   %46 = load i8, ptr %.542, align 1
   %47 = zext i8 %46 to i32
   %48 = add i32 %.635, %47
@@ -107,7 +107,7 @@ define internal i32 @hash4(ptr nocapture noundef readonly %0, i64 noundef %1) #0
   %.643 = phi ptr [ %0, %3 ], [ %45, %44 ]
   %.736 = phi i32 [ 0, %3 ], [ %49, %44 ]
   %.6 = phi i64 [ %5, %3 ], [ %.5, %44 ]
-  %51 = getelementptr inbounds i8, ptr %.643, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.643, i64 1
   %52 = load i8, ptr %.643, align 1
   %53 = zext i8 %52 to i32
   %54 = add i32 %.736, %53

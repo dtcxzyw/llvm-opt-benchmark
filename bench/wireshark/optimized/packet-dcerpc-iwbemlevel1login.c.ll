@@ -160,7 +160,7 @@ define hidden noundef i32 @IWbemLevel1Login_dissect_struct_ORPCTHAT(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @IWbemLevel1Login_dissect_struct_IWbemServices(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
   %.not = icmp eq ptr %3, null
@@ -231,7 +231,7 @@ declare i32 @dissect_dcom_OBJREF(ptr noundef, i32 noundef, ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.47, ptr %7, align 8
   ret i32 %1
 }
@@ -239,7 +239,7 @@ define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_re
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.47, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -248,7 +248,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %15) #3
@@ -260,7 +260,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_response(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.48, ptr %7, align 8
   ret i32 %1
 }
@@ -268,7 +268,7 @@ define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_re
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.48, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -277,7 +277,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %15) #3
@@ -289,7 +289,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_response(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.49, ptr %7, align 8
   ret i32 %1
 }
@@ -297,7 +297,7 @@ define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_re
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.49, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -306,7 +306,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %15) #3
@@ -318,7 +318,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_EstablishPosition_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.50, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemLevel1Login_EstablishPosition_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -338,7 +338,7 @@ define internal i32 @IWbemLevel1Login_dissect_EstablishPosition_request(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_EstablishPosition_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.50, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_EstablishPosition_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_EstablishPosition_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.58, i32 noundef %9) #3
@@ -353,7 +353,7 @@ define internal i32 @IWbemLevel1Login_dissect_EstablishPosition_response(ptr nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %21) #3
@@ -365,7 +365,7 @@ define internal i32 @IWbemLevel1Login_dissect_EstablishPosition_response(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_RequestChallenge_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.51, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemLevel1Login_RequestChallenge_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -385,7 +385,7 @@ define internal i32 @IWbemLevel1Login_dissect_RequestChallenge_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_RequestChallenge_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.51, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_RequestChallenge_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_RequestChallenge_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.58, i32 noundef %9) #3
@@ -400,7 +400,7 @@ define internal i32 @IWbemLevel1Login_dissect_RequestChallenge_response(ptr noun
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %21) #3
@@ -412,7 +412,7 @@ define internal i32 @IWbemLevel1Login_dissect_RequestChallenge_response(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_WBEMLogin_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.52, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemLevel1Login_WBEMLogin_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -438,7 +438,7 @@ define internal i32 @IWbemLevel1Login_dissect_WBEMLogin_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_WBEMLogin_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.52, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_WBEMLogin_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_WBEMLogin_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.58, i32 noundef %9) #3
@@ -453,7 +453,7 @@ define internal i32 @IWbemLevel1Login_dissect_WBEMLogin_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %21) #3
@@ -465,7 +465,7 @@ define internal i32 @IWbemLevel1Login_dissect_WBEMLogin_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_NTLMLogin_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.53, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemLevel1Login_NTLMLogin_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -491,7 +491,7 @@ define internal i32 @IWbemLevel1Login_dissect_NTLMLogin_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_NTLMLogin_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.53, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemLevel1Login_NTLMLogin_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_NTLMLogin_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.58, i32 noundef %9) #3
@@ -506,7 +506,7 @@ define internal i32 @IWbemLevel1Login_dissect_NTLMLogin_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.55) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.54, ptr noundef %21) #3
@@ -660,7 +660,7 @@ declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_element_WBEMLogin_ppNamespace__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_IWbemLevel1Login_WBEMLogin_ppNamespace, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8
   store i32 1, ptr %8, align 8
   %.not.i = icmp eq ptr %3, null
@@ -731,7 +731,7 @@ define internal i32 @IWbemLevel1Login_dissect_element_NTLMLogin_ppNamespace_(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemLevel1Login_dissect_element_NTLMLogin_ppNamespace__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_IWbemLevel1Login_NTLMLogin_ppNamespace, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8
   store i32 1, ptr %8, align 8
   %.not.i = icmp eq ptr %3, null

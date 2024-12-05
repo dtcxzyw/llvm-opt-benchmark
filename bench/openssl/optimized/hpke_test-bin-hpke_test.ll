@@ -617,14 +617,14 @@ entry:
   %cipher = alloca [512 x i8], align 16
   %clearlen = alloca i64, align 8
   %clear = alloca [512 x i8], align 16
-  %arrayidx23 = getelementptr inbounds i8, ptr %lpskid, i64 31
-  %0 = getelementptr inbounds i8, ptr %plain, i64 26
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %lpskid, i64 31
+  %0 = getelementptr inbounds nuw i8, ptr %plain, i64 26
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc240
   %overallresult.0123 = phi i32 [ 1, %entry ], [ %overallresult.1.lcssa, %for.inc240 ]
   %mind.0122 = phi i64 [ 0, %entry ], [ %inc241, %for.inc240 ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @hpke_mode_list, i64 0, i64 %mind.0122
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @hpke_mode_list, i64 0, i64 %mind.0122
   %1 = load i32, ptr %arrayidx, align 4
   store ptr null, ptr %privp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(486) %0, i8 0, i64 486, i1 false)
@@ -673,7 +673,7 @@ if.end25:                                         ; preds = %if.end14, %if.then1
 
 for.body29.lr.ph:                                 ; preds = %if.end25
   %or.cond1.not = icmp samesign ult i64 %mind.0122, 2
-  %arrayidx225 = getelementptr inbounds [4 x ptr], ptr @mode_str_list, i64 0, i64 %mind.0122
+  %arrayidx225 = getelementptr inbounds nuw [4 x ptr], ptr @mode_str_list, i64 0, i64 %mind.0122
   %conv226 = trunc nuw nsw i64 %mind.0122 to i32
   br label %for.body29
 
@@ -681,7 +681,7 @@ for.body29:                                       ; preds = %for.body29.lr.ph, %
   %kemind.0120 = phi i64 [ 0, %for.body29.lr.ph ], [ %inc238, %for.end236 ]
   %hpke_suite.sroa.7.0119 = phi i16 [ 1, %for.body29.lr.ph ], [ %hpke_suite.sroa.7.1.lcssa, %for.end236 ]
   %hpke_suite.sroa.8.0118 = phi i16 [ 1, %for.body29.lr.ph ], [ %hpke_suite.sroa.8.1.lcssa, %for.end236 ]
-  %arrayidx30 = getelementptr inbounds [5 x i16], ptr @hpke_kem_list, i64 0, i64 %kemind.0120
+  %arrayidx30 = getelementptr inbounds nuw [5 x i16], ptr @hpke_kem_list, i64 0, i64 %kemind.0120
   %3 = load i16, ptr %arrayidx30, align 2
   store i64 512, ptr %authpublen, align 8
   store ptr null, ptr %authpriv, align 8
@@ -711,24 +711,24 @@ for.body54.lr.ph:                                 ; preds = %if.end46.thread, %i
   %authpubp.0127 = phi ptr [ null, %if.end46.thread ], [ %authpub, %if.end46 ]
   %hpke_suite.sroa.0.0.insert.ext27 = zext i16 %3 to i48
   %cmp166 = icmp eq i64 %kemind.0120, 0
-  %arrayidx227 = getelementptr inbounds [15 x ptr], ptr @kem_str_list, i64 0, i64 %kemind.0120
+  %arrayidx227 = getelementptr inbounds nuw [15 x ptr], ptr @kem_str_list, i64 0, i64 %kemind.0120
   %conv228 = zext i16 %3 to i32
   br label %for.body54
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.inc234
   %kdfind.0114 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc235, %for.inc234 ]
-  %arrayidx55 = getelementptr inbounds [3 x i16], ptr @hpke_aead_list, i64 0, i64 %kdfind.0114
+  %arrayidx55 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %kdfind.0114
   %5 = load i16, ptr %arrayidx55, align 2
   %hpke_suite.sroa.7.0.insert.ext37 = zext i16 %5 to i48
   %hpke_suite.sroa.7.0.insert.shift38 = shl nuw nsw i48 %hpke_suite.sroa.7.0.insert.ext37, 16
   %hpke_suite.sroa.7.0.insert.insert40 = or disjoint i48 %hpke_suite.sroa.7.0.insert.shift38, %hpke_suite.sroa.0.0.insert.ext27
-  %arrayidx229 = getelementptr inbounds [12 x ptr], ptr @kdf_str_list, i64 0, i64 %kdfind.0114
+  %arrayidx229 = getelementptr inbounds nuw [12 x ptr], ptr @kdf_str_list, i64 0, i64 %kdfind.0114
   %conv230 = zext i16 %5 to i32
   br label %for.body64
 
 for.body64:                                       ; preds = %for.body54, %for.inc
   %aeadind.0112 = phi i64 [ 0, %for.body54 ], [ %inc, %for.inc ]
-  %arrayidx65 = getelementptr inbounds [3 x i16], ptr @hpke_aead_list, i64 0, i64 %aeadind.0112
+  %arrayidx65 = getelementptr inbounds nuw [3 x i16], ptr @hpke_aead_list, i64 0, i64 %aeadind.0112
   %6 = load i16, ptr %arrayidx65, align 2
   store i64 512, ptr %publen, align 8
   store i64 512, ptr %senderpublen, align 8
@@ -888,7 +888,7 @@ if.then222:                                       ; preds = %if.end185
   %26 = load ptr, ptr %arrayidx225, align 8
   %27 = load ptr, ptr %arrayidx227, align 8
   %28 = load ptr, ptr %arrayidx229, align 8
-  %arrayidx231 = getelementptr inbounds [15 x ptr], ptr @aead_str_list, i64 0, i64 %aeadind.0112
+  %arrayidx231 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %aeadind.0112
   %29 = load ptr, ptr %arrayidx231, align 8
   %conv232 = zext i16 %6 to i32
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.101, ptr noundef nonnull %cond, ptr noundef %26, i32 noundef %conv226, ptr noundef %27, i32 noundef %conv228, ptr noundef %28, i32 noundef %conv230, ptr noundef %29, i32 noundef %conv232) #6
@@ -940,21 +940,21 @@ entry:
 for.cond2.preheader:                              ; preds = %entry, %for.inc30
   %indvars.iv27 = phi i64 [ 0, %entry ], [ %indvars.iv.next28, %for.inc30 ]
   %overallresult.018 = phi i32 [ 1, %entry ], [ %overallresult.3, %for.inc30 ]
-  %arrayidx = getelementptr inbounds [15 x ptr], ptr @kem_str_list, i64 0, i64 %indvars.iv27
+  %arrayidx = getelementptr inbounds nuw [15 x ptr], ptr @kem_str_list, i64 0, i64 %indvars.iv27
   %0 = load ptr, ptr %arrayidx, align 8
   br label %for.cond7.preheader
 
 for.cond7.preheader:                              ; preds = %for.cond2.preheader, %for.inc27
   %indvars.iv24 = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next25, %for.inc27 ]
   %overallresult.115 = phi i32 [ %overallresult.018, %for.cond2.preheader ], [ %overallresult.3, %for.inc27 ]
-  %arrayidx13 = getelementptr inbounds [12 x ptr], ptr @kdf_str_list, i64 0, i64 %indvars.iv24
+  %arrayidx13 = getelementptr inbounds nuw [12 x ptr], ptr @kdf_str_list, i64 0, i64 %indvars.iv24
   %1 = load ptr, ptr %arrayidx13, align 8
   br label %for.body11
 
 for.body11:                                       ; preds = %for.cond7.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond7.preheader ], [ %indvars.iv.next, %for.inc ]
   %overallresult.213 = phi i32 [ %overallresult.115, %for.cond7.preheader ], [ %overallresult.3, %for.inc ]
-  %arrayidx15 = getelementptr inbounds [15 x ptr], ptr @aead_str_list, i64 0, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds nuw [15 x ptr], ptr @aead_str_list, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx15, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %sstr, i64 noundef 128, ptr noundef nonnull @.str.139, ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
   %call17 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %sstr, ptr noundef nonnull %stirred) #6
@@ -991,7 +991,7 @@ for.inc30:                                        ; preds = %for.inc27
 for.body37:                                       ; preds = %for.inc30, %for.inc53
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %for.inc53 ], [ 0, %for.inc30 ]
   %overallresult.421 = phi i32 [ %overallresult.5, %for.inc53 ], [ %overallresult.3, %for.inc30 ]
-  %arrayidx39 = getelementptr inbounds [35 x ptr], ptr @bogus_suite_strs, i64 0, i64 %indvars.iv30
+  %arrayidx39 = getelementptr inbounds nuw [35 x ptr], ptr @bogus_suite_strs, i64 0, i64 %indvars.iv30
   %3 = load ptr, ptr %arrayidx39, align 8
   %call40 = call i32 @OSSL_HPKE_str2suite(ptr noundef %3, ptr noundef nonnull %stirred) #6
   %cmp41 = icmp ne i32 %call40, 0
@@ -1032,7 +1032,7 @@ for.end55:                                        ; preds = %for.inc53
   %call73 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1244, ptr noundef nonnull @.str.147, i32 noundef %conv72) #6
   %tobool74.not = icmp eq i32 %call73, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2047) %giant, i8 65, i64 2047, i1 false)
-  %arrayidx78 = getelementptr inbounds i8, ptr %giant, i64 2047
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %giant, i64 2047
   store i8 0, ptr %arrayidx78, align 1
   %call80 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %giant, ptr noundef nonnull %stirred) #6
   %cmp81 = icmp ne i32 %call80, 0
@@ -1188,7 +1188,7 @@ if.end36:                                         ; preds = %if.end27
 if.end45:                                         ; preds = %if.end36
   store i64 200, ptr %enclen, align 8
   store i16 32, ptr %suite, align 2
-  %aead_id = getelementptr inbounds i8, ptr %suite, i64 4
+  %aead_id = getelementptr inbounds nuw i8, ptr %suite, i64 4
   store i16 4660, ptr %aead_id, align 2
   %6 = load ptr, ptr @testctx, align 8
   %call49 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %suite, ptr noundef nonnull %suite2, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %ct, i64 noundef 500, ptr noundef %6, ptr noundef null) #6
@@ -1200,10 +1200,10 @@ if.end45:                                         ; preds = %if.end36
 
 if.end55:                                         ; preds = %if.end45
   store i64 200, ptr %enclen, align 8
-  %aead_id56 = getelementptr inbounds i8, ptr %def_suite, i64 4
+  %aead_id56 = getelementptr inbounds nuw i8, ptr %def_suite, i64 4
   %7 = load i16, ptr %aead_id56, align 2
   store i16 %7, ptr %aead_id, align 2
-  %kdf_id = getelementptr inbounds i8, ptr %suite, i64 2
+  %kdf_id = getelementptr inbounds nuw i8, ptr %suite, i64 2
   store i16 13393, ptr %kdf_id, align 2
   %8 = load ptr, ptr @testctx, align 8
   %call60 = call i32 @OSSL_HPKE_get_grease_value(ptr noundef nonnull %suite, ptr noundef nonnull %suite2, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %ct, i64 noundef 500, ptr noundef %8, ptr noundef null) #6
@@ -1215,7 +1215,7 @@ if.end55:                                         ; preds = %if.end45
 
 if.end66:                                         ; preds = %if.end55
   store i64 200, ptr %enclen, align 8
-  %kdf_id67 = getelementptr inbounds i8, ptr %def_suite, i64 2
+  %kdf_id67 = getelementptr inbounds nuw i8, ptr %def_suite, i64 2
   %9 = load i16, ptr %kdf_id67, align 2
   store i16 %9, ptr %kdf_id, align 2
   store i16 17687, ptr %suite, align 2
@@ -1457,7 +1457,7 @@ if.end168:                                        ; preds = %if.end162
 
 if.end175:                                        ; preds = %if.end168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(75) %giant_pskid, i8 65, i64 75, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %giant_pskid, i64 75
+  %arrayidx = getelementptr inbounds nuw i8, ptr %giant_pskid, i64 75
   store i8 0, ptr %arrayidx, align 1
   %call178 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %call164, ptr noundef nonnull %giant_pskid, ptr noundef nonnull @.str.216, i64 noundef 3) #6
   %cmp179 = icmp ne i32 %call178, 0
@@ -2084,10 +2084,10 @@ entry:
   store i64 512, ptr %rpublen, align 8
   store ptr null, ptr %privR, align 8
   store i64 0, ptr %lastseq, align 8
-  %suite = getelementptr inbounds i8, ptr %base, i64 4
-  %ikmE = getelementptr inbounds i8, ptr %base, i64 16
+  %suite = getelementptr inbounds nuw i8, ptr %base, i64 4
+  %ikmE = getelementptr inbounds nuw i8, ptr %base, i64 16
   %1 = load ptr, ptr %ikmE, align 8
-  %ikmElen = getelementptr inbounds i8, ptr %base, i64 24
+  %ikmElen = getelementptr inbounds nuw i8, ptr %base, i64 24
   %2 = load i64, ptr %ikmElen, align 8
   %suite.coerce.0.copyload = load i48, ptr %suite, align 4
   %call = call i32 @OSSL_HPKE_keygen(i48 %suite.coerce.0.copyload, ptr noundef nonnull %pub, ptr noundef nonnull %publen, ptr noundef nonnull %privE, ptr noundef %1, i64 noundef %2, ptr noundef %0, ptr noundef nonnull @.str.62) #6
@@ -2099,9 +2099,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %privE, align 8
-  %expected_pkEm = getelementptr inbounds i8, ptr %base, i64 32
+  %expected_pkEm = getelementptr inbounds nuw i8, ptr %base, i64 32
   %4 = load ptr, ptr %expected_pkEm, align 8
-  %expected_pkEmlen = getelementptr inbounds i8, ptr %base, i64 40
+  %expected_pkEmlen = getelementptr inbounds nuw i8, ptr %base, i64 40
   %5 = load i64, ptr %expected_pkEmlen, align 8
   %call2 = call fastcc i32 @cmpkey(ptr noundef %3, ptr noundef %4, i64 noundef %5)
   %call5 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 123, ptr noundef nonnull @.str.33, i32 noundef %call2) #6
@@ -2133,13 +2133,13 @@ if.end23:                                         ; preds = %if.end14
   br i1 %switch, label %if.then30, label %if.end59
 
 if.then30:                                        ; preds = %if.end23
-  %ikmAuth = getelementptr inbounds i8, ptr %base, i64 128
+  %ikmAuth = getelementptr inbounds nuw i8, ptr %base, i64 128
   %11 = load ptr, ptr %ikmAuth, align 8
   %cmp31.not = icmp eq ptr %11, null
   br i1 %cmp31.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then30
-  %ikmAuthlen = getelementptr inbounds i8, ptr %base, i64 136
+  %ikmAuthlen = getelementptr inbounds nuw i8, ptr %base, i64 136
   %12 = load i64, ptr %ikmAuthlen, align 8
   %cmp33 = icmp ne i64 %12, 0
   %13 = zext i1 %cmp33 to i32
@@ -2153,7 +2153,7 @@ land.end:                                         ; preds = %land.rhs, %if.then3
 
 if.end40:                                         ; preds = %land.end
   %14 = load ptr, ptr %ikmAuth, align 8
-  %ikmAuthlen44 = getelementptr inbounds i8, ptr %base, i64 136
+  %ikmAuthlen44 = getelementptr inbounds nuw i8, ptr %base, i64 136
   %15 = load i64, ptr %ikmAuthlen44, align 8
   %suite41.coerce.0.copyload = load i48, ptr %suite, align 4
   %call45 = call i32 @OSSL_HPKE_keygen(i48 %suite41.coerce.0.copyload, ptr noundef nonnull %authpub, ptr noundef nonnull %authpublen, ptr noundef nonnull %authpriv, ptr noundef %14, i64 noundef %15, ptr noundef %0, ptr noundef nonnull @.str.62) #6
@@ -2173,9 +2173,9 @@ if.end51:                                         ; preds = %if.end40
   br i1 %tobool56.not, label %end, label %if.end59
 
 if.end59:                                         ; preds = %if.end23, %if.end51
-  %ikmR = getelementptr inbounds i8, ptr %base, i64 48
+  %ikmR = getelementptr inbounds nuw i8, ptr %base, i64 48
   %17 = load ptr, ptr %ikmR, align 8
-  %ikmRlen = getelementptr inbounds i8, ptr %base, i64 56
+  %ikmRlen = getelementptr inbounds nuw i8, ptr %base, i64 56
   %18 = load i64, ptr %ikmRlen, align 8
   %suite60.coerce.0.copyload = load i48, ptr %suite, align 4
   %call62 = call i32 @OSSL_HPKE_keygen(i48 %suite60.coerce.0.copyload, ptr noundef nonnull %rpub, ptr noundef nonnull %rpublen, ptr noundef nonnull %privR, ptr noundef %17, i64 noundef %18, ptr noundef %0, ptr noundef nonnull @.str.62) #6
@@ -2187,9 +2187,9 @@ if.end59:                                         ; preds = %if.end23, %if.end51
 
 if.end68:                                         ; preds = %if.end59
   %19 = load ptr, ptr %privR, align 8
-  %expected_pkRm = getelementptr inbounds i8, ptr %base, i64 64
+  %expected_pkRm = getelementptr inbounds nuw i8, ptr %base, i64 64
   %20 = load ptr, ptr %expected_pkRm, align 8
-  %expected_pkRmlen = getelementptr inbounds i8, ptr %base, i64 72
+  %expected_pkRmlen = getelementptr inbounds nuw i8, ptr %base, i64 72
   %21 = load i64, ptr %expected_pkRmlen, align 8
   %call69 = call fastcc i32 @cmpkey(ptr noundef %19, ptr noundef %20, i64 noundef %21)
   %call72 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 146, ptr noundef nonnull @.str.40, i32 noundef %call69) #6
@@ -2204,11 +2204,11 @@ if.end75:                                         ; preds = %if.end68
   ]
 
 if.then83:                                        ; preds = %if.end75, %if.end75
-  %pskid = getelementptr inbounds i8, ptr %base, i64 160
+  %pskid = getelementptr inbounds nuw i8, ptr %base, i64 160
   %23 = load ptr, ptr %pskid, align 8
-  %psk = getelementptr inbounds i8, ptr %base, i64 144
+  %psk = getelementptr inbounds nuw i8, ptr %base, i64 144
   %24 = load ptr, ptr %psk, align 8
-  %psklen = getelementptr inbounds i8, ptr %base, i64 152
+  %psklen = getelementptr inbounds nuw i8, ptr %base, i64 152
   %25 = load i64, ptr %psklen, align 8
   %call84 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %call10, ptr noundef %23, ptr noundef %24, i64 noundef %25) #6
   %cmp85 = icmp ne i32 %call84, 0
@@ -2219,9 +2219,9 @@ if.then83:                                        ; preds = %if.end75, %if.end75
 
 if.end91:                                         ; preds = %if.end75, %if.then83
   %26 = load i64, ptr %rpublen, align 8
-  %ksinfo = getelementptr inbounds i8, ptr %base, i64 112
+  %ksinfo = getelementptr inbounds nuw i8, ptr %base, i64 112
   %27 = load ptr, ptr %ksinfo, align 8
-  %ksinfolen = getelementptr inbounds i8, ptr %base, i64 120
+  %ksinfolen = getelementptr inbounds nuw i8, ptr %base, i64 120
   %28 = load i64, ptr %ksinfolen, align 8
   %call94 = call i32 @OSSL_HPKE_encap(ptr noundef %call10, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %rpub, i64 noundef %26, ptr noundef %27, i64 noundef %28) #6
   %cmp95 = icmp ne i32 %call94, 0
@@ -2246,14 +2246,14 @@ for.cond:                                         ; preds = %if.end100, %if.end1
 for.body:                                         ; preds = %for.cond
   store i64 256, ptr %ctlen, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ct, i8 0, i64 256, i1 false)
-  %arrayidx = getelementptr inbounds %struct.TEST_AEADDATA, ptr %aead, i64 %i.0
-  %aad = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %arrayidx = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %aead, i64 %i.0
+  %aad = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %31 = load ptr, ptr %aad, align 8
-  %aadlen = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %aadlen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %32 = load i64, ptr %aadlen, align 8
-  %pt = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %pt = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %33 = load ptr, ptr %pt, align 8
-  %ptlen = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ptlen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %34 = load i64, ptr %ptlen, align 8
   %call116 = call i32 @OSSL_HPKE_seal(ptr noundef %call10, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef %31, i64 noundef %32, ptr noundef %33, i64 noundef %34) #6
   %cmp117 = icmp ne i32 %call116, 0
@@ -2264,9 +2264,9 @@ for.body:                                         ; preds = %for.cond
 
 if.end122:                                        ; preds = %for.body
   %35 = load i64, ptr %ctlen, align 8
-  %expected_ct = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %expected_ct = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %36 = load ptr, ptr %expected_ct, align 8
-  %expected_ctlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %expected_ctlen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %37 = load i64, ptr %expected_ctlen, align 8
   %call126 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 168, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull %ct, i64 noundef %35, ptr noundef %36, i64 noundef %37) #6
   %tobool127.not = icmp eq i32 %call126, 0
@@ -2302,19 +2302,19 @@ if.end147:                                        ; preds = %for.end
   ]
 
 if.then155:                                       ; preds = %if.end147, %if.end147
-  %pskid156 = getelementptr inbounds i8, ptr %base, i64 160
+  %pskid156 = getelementptr inbounds nuw i8, ptr %base, i64 160
   %41 = load ptr, ptr %pskid156, align 8
   %cmp157.not = icmp eq ptr %41, null
   br i1 %cmp157.not, label %land.end166, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then155
-  %psk159 = getelementptr inbounds i8, ptr %base, i64 144
+  %psk159 = getelementptr inbounds nuw i8, ptr %base, i64 144
   %42 = load ptr, ptr %psk159, align 8
   %cmp160.not = icmp eq ptr %42, null
   br i1 %cmp160.not, label %land.end166, label %land.rhs162
 
 land.rhs162:                                      ; preds = %land.lhs.true
-  %psklen163 = getelementptr inbounds i8, ptr %base, i64 152
+  %psklen163 = getelementptr inbounds nuw i8, ptr %base, i64 152
   %43 = load i64, ptr %psklen163, align 8
   %cmp164 = icmp ne i64 %43, 0
   %44 = zext i1 %cmp164 to i32
@@ -2328,9 +2328,9 @@ land.end166:                                      ; preds = %land.rhs162, %land.
 
 if.end173:                                        ; preds = %land.end166
   %45 = load ptr, ptr %pskid156, align 8
-  %psk175 = getelementptr inbounds i8, ptr %base, i64 144
+  %psk175 = getelementptr inbounds nuw i8, ptr %base, i64 144
   %46 = load ptr, ptr %psk175, align 8
-  %psklen176 = getelementptr inbounds i8, ptr %base, i64 152
+  %psklen176 = getelementptr inbounds nuw i8, ptr %base, i64 152
   %47 = load i64, ptr %psklen176, align 8
   %call177 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %call143, ptr noundef %45, ptr noundef %46, i64 noundef %47) #6
   %cmp178 = icmp ne i32 %call177, 0
@@ -2382,14 +2382,14 @@ for.cond257.preheader:                            ; preds = %for.cond212
 for.body215:                                      ; preds = %for.cond212
   store i64 256, ptr %ptoutlen, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ptout, i8 0, i64 256, i1 false)
-  %arrayidx218 = getelementptr inbounds %struct.TEST_AEADDATA, ptr %aead, i64 %i.1
-  %aad219 = getelementptr inbounds i8, ptr %arrayidx218, i64 24
+  %arrayidx218 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %aead, i64 %i.1
+  %aad219 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 24
   %55 = load ptr, ptr %aad219, align 8
-  %aadlen221 = getelementptr inbounds i8, ptr %arrayidx218, i64 32
+  %aadlen221 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 32
   %56 = load i64, ptr %aadlen221, align 8
-  %expected_ct223 = getelementptr inbounds i8, ptr %arrayidx218, i64 40
+  %expected_ct223 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 40
   %57 = load ptr, ptr %expected_ct223, align 8
-  %expected_ctlen225 = getelementptr inbounds i8, ptr %arrayidx218, i64 48
+  %expected_ctlen225 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 48
   %58 = load i64, ptr %expected_ctlen225, align 8
   %call226 = call i32 @OSSL_HPKE_open(ptr noundef %call143, ptr noundef nonnull %ptout, ptr noundef nonnull %ptoutlen, ptr noundef %55, i64 noundef %56, ptr noundef %57, i64 noundef %58) #6
   %cmp227 = icmp ne i32 %call226, 0
@@ -2399,9 +2399,9 @@ for.body215:                                      ; preds = %for.cond212
   br i1 %tobool230.not, label %end, label %if.end232
 
 if.end232:                                        ; preds = %for.body215
-  %pt234 = getelementptr inbounds i8, ptr %arrayidx218, i64 8
+  %pt234 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 8
   %59 = load ptr, ptr %pt234, align 8
-  %ptlen236 = getelementptr inbounds i8, ptr %arrayidx218, i64 16
+  %ptlen236 = getelementptr inbounds nuw i8, ptr %arrayidx218, i64 16
   %60 = load i64, ptr %ptlen236, align 8
   %61 = load i64, ptr %ptoutlen, align 8
   %call238 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 205, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %59, i64 noundef %60, ptr noundef nonnull %ptout, i64 noundef %61) #6
@@ -2424,8 +2424,8 @@ if.end248:                                        ; preds = %if.end241
 
 for.body260:                                      ; preds = %for.cond257.preheader, %for.inc307
   %i.2118 = phi i64 [ 0, %for.cond257.preheader ], [ %inc308, %for.inc307 ]
-  %arrayidx261 = getelementptr inbounds %struct.TEST_EXPORTDATA, ptr %export, i64 %i.2118
-  %expected_secretlen = getelementptr inbounds i8, ptr %arrayidx261, i64 24
+  %arrayidx261 = getelementptr inbounds nuw %struct.TEST_EXPORTDATA, ptr %export, i64 %i.2118
+  %expected_secretlen = getelementptr inbounds nuw i8, ptr %arrayidx261, i64 24
   %63 = load i64, ptr %expected_secretlen, align 8
   %cmp262 = icmp ugt i64 %63, 512
   br i1 %cmp262, label %end, label %if.end265
@@ -2441,7 +2441,7 @@ if.end265:                                        ; preds = %for.body260
 
 if.end274:                                        ; preds = %if.end265
   %65 = load ptr, ptr %arrayidx261, align 8
-  %contextlen = getelementptr inbounds i8, ptr %arrayidx261, i64 8
+  %contextlen = getelementptr inbounds nuw i8, ptr %arrayidx261, i64 8
   %66 = load i64, ptr %contextlen, align 8
   %call279 = call i32 @OSSL_HPKE_export(ptr noundef %call10, ptr noundef nonnull %eval, i64 noundef %63, ptr noundef %65, i64 noundef %66) #6
   %cmp280 = icmp ne i32 %call279, 0
@@ -2451,7 +2451,7 @@ if.end274:                                        ; preds = %if.end265
   br i1 %tobool283.not, label %end, label %if.end285
 
 if.end285:                                        ; preds = %if.end274
-  %expected_secret = getelementptr inbounds i8, ptr %arrayidx261, i64 16
+  %expected_secret = getelementptr inbounds nuw i8, ptr %arrayidx261, i64 16
   %67 = load ptr, ptr %expected_secret, align 8
   %68 = load i64, ptr %expected_secretlen, align 8
   %call290 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 230, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %eval, i64 noundef %63, ptr noundef %67, i64 noundef %68) #6

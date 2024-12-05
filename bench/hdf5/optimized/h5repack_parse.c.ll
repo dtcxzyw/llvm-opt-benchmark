@@ -90,7 +90,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 .thread:                                          ; preds = %5, %.thread.loopexit, %18
   %22 = phi i32 [ %20, %18 ], [ 1, %5 ], [ %11, %.thread.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %23, align 4
   store i32 1, ptr %4, align 4
   br label %24
@@ -124,7 +124,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %indvars.iv = phi i64 [ 0, %.preheader337 ], [ %indvars.iv.next, %53 ]
   %.2364 = phi i32 [ 0, %.preheader337 ], [ %.3, %53 ]
   %.0262362 = phi i32 [ 0, %.preheader337 ], [ %54, %53 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = sext i32 %.0262362 to i64
   %39 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %38
@@ -150,7 +150,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 48:                                               ; preds = %44, %43
   %49 = zext i32 %.2364 to i64
-  %50 = getelementptr inbounds %struct.obj_list_t, ptr %28, i64 %49
+  %50 = getelementptr inbounds nuw %struct.obj_list_t, ptr %28, i64 %49
   %51 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %52 = add i32 %.2364, 1
@@ -191,7 +191,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %.1269366 = phi i64 [ %60, %.lr.ph368 ], [ %294, %293 ]
   %65 = getelementptr inbounds i8, ptr %0, i64 %.1269366
   %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %indvars.iv426
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv426
   store i8 %66, ptr %67, align 1
   %68 = icmp eq i8 %66, 61
   %69 = icmp eq i64 %.1269366, %62
@@ -202,7 +202,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %68, label %71, label %247
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %indvars.iv426
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv426
   store i8 0, ptr %72, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %7, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
   %73 = icmp eq i32 %bcmp, 0
@@ -215,8 +215,8 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph403:                                        ; preds = %.preheader
   %75 = tail call ptr @__ctype_b_loc() #16
-  %76 = getelementptr inbounds i8, ptr %9, i64 2
-  %77 = getelementptr inbounds i8, ptr %2, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %78
 
 78:                                               ; preds = %.lr.ph403, %116
@@ -283,7 +283,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 105:                                              ; preds = %103
   %106 = add i32 %.1243401, 1
   %107 = zext i32 %.1243401 to i64
-  %108 = getelementptr inbounds [20 x i32], ptr %77, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [20 x i32], ptr %77, i64 0, i64 %107
   store i32 32, ptr %108, align 4
   br label %116
 
@@ -295,7 +295,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 111:                                              ; preds = %109
   %112 = add i32 %.1243401, 1
   %113 = zext i32 %.1243401 to i64
-  %114 = getelementptr inbounds [20 x i32], ptr %77, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [20 x i32], ptr %77, i64 0, i64 %113
   store i32 4, ptr %114, align 4
   br label %116
 
@@ -324,8 +324,8 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph394:                                        ; preds = %.preheader332
   %122 = tail call ptr @__ctype_b_loc() #16
-  %123 = getelementptr inbounds i8, ptr %9, i64 2
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %125
 
 125:                                              ; preds = %.lr.ph394, %163
@@ -392,7 +392,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 152:                                              ; preds = %150
   %153 = add i32 %.4392, 1
   %154 = zext i32 %.4392 to i64
-  %155 = getelementptr inbounds [20 x i32], ptr %124, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [20 x i32], ptr %124, i64 0, i64 %154
   store i32 2, ptr %155, align 4
   br label %163
 
@@ -404,7 +404,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 158:                                              ; preds = %156
   %159 = add i32 %.4392, 1
   %160 = zext i32 %.4392 to i64
-  %161 = getelementptr inbounds [20 x i32], ptr %124, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [20 x i32], ptr %124, i64 0, i64 %160
   store i32 0, ptr %161, align 4
   br label %163
 
@@ -440,9 +440,9 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %168, label %.lr.ph383, label %.loopexit.sink.split
 
 .lr.ph383:                                        ; preds = %.preheader334
-  %171 = getelementptr inbounds i8, ptr %2, i64 8
-  %172 = getelementptr inbounds i8, ptr %2, i64 88
-  %173 = getelementptr inbounds i8, ptr %2, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %174 = tail call ptr @__ctype_b_loc() #16
   br label %175
 
@@ -496,7 +496,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %196 = trunc i64 %195 to i32
   %197 = add i32 %.6381, 1
   %198 = zext i32 %.6381 to i64
-  %199 = getelementptr inbounds [20 x i32], ptr %171, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [20 x i32], ptr %171, i64 0, i64 %198
   store i32 %196, ptr %199, align 4
   br label %200
 
@@ -597,12 +597,12 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %.3245 = phi i32 [ 0, %.preheader ], [ 0, %.preheader332 ], [ %.3245.ph, %.loopexit.sink.split ], [ %.2244, %116 ], [ %.5, %163 ]
   %235 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 0) #14
   %236 = trunc i64 %235 to i32
-  %237 = getelementptr inbounds i8, ptr %2, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %238 = add i32 %.3245, 1
   %239 = zext i32 %.3245 to i64
-  %240 = getelementptr inbounds [20 x i32], ptr %237, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [20 x i32], ptr %237, i64 0, i64 %239
   store i32 %236, ptr %240, align 4
-  %241 = getelementptr inbounds i8, ptr %2, i64 88
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %242 = load i64, ptr %241, align 8
   %243 = icmp eq i64 %242, 0
   %244 = zext i32 %238 to i64
@@ -616,7 +616,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 248:                                              ; preds = %247
   %249 = add i64 %indvars.iv426, 1
   %250 = and i64 %249, 4294967295
-  %251 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %250
   store i8 0, ptr %251, align 1
   br label %252
 
@@ -630,7 +630,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 254:                                              ; preds = %252
   store i32 0, ptr %2, align 8
-  %255 = getelementptr inbounds i8, ptr %2, i64 88
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %255, align 8
   br label %.thread329
 
@@ -641,7 +641,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 258:                                              ; preds = %256
   store i32 1, ptr %2, align 8
-  %259 = getelementptr inbounds i8, ptr %2, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 1, ptr %259, align 8
   br i1 %.not309, label %.thread330, label %260
 
@@ -658,7 +658,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 263:                                              ; preds = %261
   store i32 4, ptr %2, align 8
-  %264 = getelementptr inbounds i8, ptr %2, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 2, ptr %264, align 8
   br i1 %.not309, label %.thread331, label %265
 
@@ -675,7 +675,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 268:                                              ; preds = %266
   store i32 2, ptr %2, align 8
-  %269 = getelementptr inbounds i8, ptr %2, i64 88
+  %269 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %269, align 8
   br i1 %.5287, label %.thread329, label %270
 
@@ -692,7 +692,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 273:                                              ; preds = %271
   store i32 3, ptr %2, align 8
-  %274 = getelementptr inbounds i8, ptr %2, i64 88
+  %274 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %274, align 8
   br i1 %.5287, label %.thread329, label %275
 
@@ -709,7 +709,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 278:                                              ; preds = %276
   store i32 5, ptr %2, align 8
-  %279 = getelementptr inbounds i8, ptr %2, i64 88
+  %279 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %279, align 8
   br i1 %.5287, label %.thread329, label %280
 
@@ -726,7 +726,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 283:                                              ; preds = %281
   store i32 6, ptr %2, align 8
-  %284 = getelementptr inbounds i8, ptr %2, i64 88
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 2, ptr %284, align 8
   br i1 %.not309, label %.thread329, label %285
 
@@ -742,7 +742,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %287, label %288, label %292
 
 288:                                              ; preds = %286
-  %289 = getelementptr inbounds i8, ptr %2, i64 88
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %290 = load i64, ptr %289, align 8
   %.not308 = icmp eq i64 %290, %.10
   br i1 %.not308, label %.loopexit336, label %291
@@ -773,7 +773,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   ]
 
 .thread330:                                       ; preds = %258, %.loopexit336
-  %295 = getelementptr inbounds i8, ptr %2, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %296 = load i32, ptr %295, align 8
   %297 = icmp ugt i32 %296, 9
   br i1 %297, label %298, label %.thread329
@@ -785,7 +785,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   unreachable
 
 .thread331:                                       ; preds = %263, %.loopexit336
-  %299 = getelementptr inbounds i8, ptr %2, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %300 = load i32, ptr %299, align 8
   %301 = and i32 %300, 1
   %.not315 = icmp eq i32 %301, 0
@@ -876,7 +876,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %.0119150 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %4 ]
   %.0124149 = phi i32 [ %.1125, %.lr.ph ], [ 0, %4 ]
   %.0130148 = phi i32 [ %15, %.lr.ph ], [ 0, %4 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 58
   %spec.select = select i1 %12, i32 %.0130148, i32 %.0119150
@@ -895,7 +895,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %.0124.lcssa169 = phi i32 [ %18, %._crit_edge ], [ 1, %4 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %20, align 8
   br label %21
 
@@ -927,7 +927,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %indvars.iv = phi i64 [ 0, %.preheader145 ], [ %indvars.iv.next, %49 ]
   %.0121154 = phi i32 [ 0, %.preheader145 ], [ %50, %49 ]
   %.2126153 = phi i32 [ 0, %.preheader145 ], [ %.3127, %49 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1
   %34 = sext i32 %.0121154 to i64
   %35 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %34
@@ -953,7 +953,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 
 44:                                               ; preds = %40, %39
   %45 = zext i32 %.2126153 to i64
-  %46 = getelementptr inbounds %struct.obj_list_t, ptr %24, i64 %45
+  %46 = getelementptr inbounds nuw %struct.obj_list_t, ptr %24, i64 %45
   %47 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   %48 = add i32 %.2126153, 1
@@ -974,8 +974,8 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   br i1 %53, label %56, label %.preheader144
 
 .preheader144:                                    ; preds = %.loopexit146
-  %54 = getelementptr inbounds i8, ptr %7, i64 5
-  %55 = getelementptr inbounds i8, ptr %2, i64 836
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 836
   br label %66
 
 56:                                               ; preds = %.loopexit146
@@ -1017,9 +1017,9 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %.1129155177 = phi i32 [ %51, %.preheader144 ], [ %71, %66 ]
   %indvars.iv162176 = phi i64 [ 0, %.preheader144 ], [ %indvars.iv.next163, %66 ]
   %67 = zext i32 %.1129155177 to i64
-  %68 = getelementptr inbounds i8, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds [10 x i8], ptr %7, i64 0, i64 %indvars.iv162176
+  %70 = getelementptr inbounds nuw [10 x i8], ptr %7, i64 0, i64 %indvars.iv162176
   store i8 %69, ptr %70, align 1
   %71 = add i32 %.1129155177, 1
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162176, 1
@@ -1040,8 +1040,8 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 .lr.ph160:                                        ; preds = %.preheader
   %78 = tail call ptr @__ctype_b_loc() #16
   %79 = add nsw i64 %8, -1
-  %80 = getelementptr inbounds i8, ptr %2, i64 840
-  %81 = getelementptr inbounds i8, ptr %2, i64 1096
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 840
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   br label %83
 
 82:                                               ; preds = %73
@@ -1055,7 +1055,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %.0159 = phi i32 [ 0, %.lr.ph160 ], [ %.1, %123 ]
   %.2158 = phi i32 [ 0, %.lr.ph160 ], [ %.3, %123 ]
   %.1131157 = phi i32 [ %74, %.lr.ph160 ], [ %124, %123 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = sext i32 %.2158 to i64
   %88 = getelementptr inbounds [10 x i8], ptr %6, i64 0, i64 %87

@@ -124,11 +124,11 @@ entry:
 define dso_local void @_ZN16btITaskSchedulerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btITaskScheduler, i64 16), ptr %this, align 8
-  %m_name = getelementptr inbounds i8, ptr %this, i64 8
+  %m_name = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %name, ptr %m_name, align 8
-  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
+  %m_savedThreadCounter = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_savedThreadCounter, align 8
-  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
+  %m_isActive = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i8 0, ptr %m_isActive, align 4
   ret void
 }
@@ -136,13 +136,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btITaskScheduler8activateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
+  %m_isActive = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
+  %m_savedThreadCounter = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_savedThreadCounter, align 8
   store i32 %1, ptr @_ZL14gThreadCounter.0, align 4
   store i8 1, ptr %m_isActive, align 4
@@ -155,14 +155,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btITaskScheduler10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
+  %m_isActive = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr @_ZL14gThreadCounter.0, align 4
-  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
+  %m_savedThreadCounter = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %1, ptr %m_savedThreadCounter, align 8
   store i8 0, ptr %m_isActive, align 4
   br label %if.end
@@ -225,7 +225,7 @@ if.end:                                           ; preds = %_Z23btGetCurrentThr
 
 if.then1:                                         ; preds = %if.end
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(21) %3)
   br label %if.end2
@@ -237,7 +237,7 @@ if.end2:                                          ; preds = %if.then1, %if.end
 
 if.then4:                                         ; preds = %if.end2
   %vtable5 = load ptr, ptr %ts, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 64
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 64
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(21) %ts)
   br label %if.end7
@@ -257,7 +257,7 @@ entry:
 define dso_local void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef %iBegin, i32 noundef %iEnd, i32 noundef %grainSize, ptr noundef nonnull align 8 dereferenceable(8) %body) local_unnamed_addr #7 {
 entry:
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
   ret void
@@ -267,7 +267,7 @@ entry:
 define dso_local noundef float @_Z13btParallelSumiiiRK18btIParallelSumBody(i32 noundef %iBegin, i32 noundef %iEnd, i32 noundef %grainSize, ptr noundef nonnull align 8 dereferenceable(8) %body) local_unnamed_addr #7 {
 entry:
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
   ret float %call
@@ -286,9 +286,9 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 16), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 20), align 4
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, i64 20), align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV25btTaskSchedulerSequential, i64 16), ptr @_ZZ28btGetSequentialTaskSchedulervE14sTaskScheduler, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ28btGetSequentialTaskSchedulervE14sTaskScheduler) #15
   br label %init.end
@@ -381,7 +381,7 @@ entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.3)
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
           to label %invoke.cont unwind label %lpad
@@ -403,7 +403,7 @@ entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.4)
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef float %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
           to label %invoke.cont unwind label %lpad

@@ -47,7 +47,7 @@ define void @json_dumper_begin_object(ptr nocapture noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @json_dumper_begin_nested_element(ptr nocapture noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
   %.not.i = icmp eq i32 %5, 0
@@ -58,7 +58,7 @@ json_dumper_check_previous_error.exit:            ; preds = %2
   br label %87
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -1099
   %10 = icmp ult i32 %9, -1100
@@ -86,16 +86,16 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   br label %15
 
 15:                                               ; preds = %13, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i = icmp eq ptr %17, null
   br i1 %.not6.i, label %jd_putc.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 1
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %21, %23
   br i1 %24, label %25, label %31
@@ -125,16 +125,16 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   br label %37
 
 37:                                               ; preds = %35, %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i18 = icmp eq ptr %39, null
   br i1 %.not6.i18, label %jd_putc.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 1
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = icmp ult i64 %43, %45
   br i1 %46, label %47, label %53
@@ -155,9 +155,9 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   br label %jd_putc.exit
 
 55:                                               ; preds = %json_dumper_stack_would_overflow.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %57, align 4
   %58 = load ptr, ptr %0, align 8
   %.not.i20 = icmp eq ptr %58, null
@@ -168,16 +168,16 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   br label %61
 
 61:                                               ; preds = %59, %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not6.i21 = icmp eq ptr %63, null
   br i1 %.not6.i21, label %jd_putc.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, 1
-  %68 = getelementptr inbounds i8, ptr %63, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = icmp ult i64 %67, %69
   br i1 %70, label %71, label %77
@@ -202,7 +202,7 @@ default.unreachable23:                            ; preds = %json_dumper_stack_w
 
 jd_putc.exit:                                     ; preds = %77, %71, %61, %53, %47, %37, %31, %25, %15
   %79 = trunc nuw nsw i32 %1 to i8
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load i32, ptr %7, align 4
   %82 = zext i32 %81 to i64
   %83 = getelementptr [1100 x i8], ptr %80, i64 0, i64 %82
@@ -220,7 +220,7 @@ jd_putc.exit:                                     ; preds = %77, %71, %61, %53, 
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_set_member_name(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
   %.not.i = icmp eq i32 %5, 0
@@ -231,13 +231,13 @@ json_dumper_check_previous_error.exit:            ; preds = %2
   br label %73
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not.i16 = icmp eq i32 %8, 0
   br i1 %.not.i16, label %json_dumper_get_prev_state.exit.thread, label %json_dumper_get_prev_state.exit
 
 json_dumper_get_prev_state.exit:                  ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = add i32 %8, -1
   %11 = zext i32 %10 to i64
   %12 = getelementptr [1100 x i8], ptr %9, i64 0, i64 %11
@@ -275,16 +275,16 @@ json_dumper_get_prev_state.exit.thread:           ; preds = %6, %json_dumper_get
   br label %26
 
 26:                                               ; preds = %24, %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i = icmp eq ptr %28, null
   br i1 %.not6.i, label %jd_putc.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp ult i64 %32, %34
   br i1 %35, label %36, label %42
@@ -325,10 +325,10 @@ jd_putc.exit:                                     ; preds = %26, %36, %42
   br i1 %.not6.i19, label %jd_putc.exit20, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, 1
-  %56 = getelementptr inbounds i8, ptr %51, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = icmp ult i64 %55, %57
   br i1 %58, label %59, label %65
@@ -366,7 +366,7 @@ jd_putc.exit20:                                   ; preds = %65, %59, %50, %jd_p
 define internal fastcc void @json_dumper_bad(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [11 x i8], align 1
   %4 = alloca [11 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = or i32 %6, 65536
   store i32 %7, ptr %5, align 8
@@ -387,9 +387,9 @@ define internal fastcc void @json_dumper_bad(ptr nocapture noundef %0, ptr nound
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = zext i32 %16 to i64
   %19 = getelementptr [1100 x i8], ptr %17, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
@@ -445,13 +445,13 @@ json_dumper_get_prev_state.exit:                  ; preds = %30
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @prepare_token(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %43, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = add i32 %3, -1
   %8 = zext i32 %7 to i64
   %9 = getelementptr [1100 x i8], ptr %6, i64 0, i64 %8
@@ -487,16 +487,16 @@ define internal fastcc void @prepare_token(ptr nocapture noundef %0) unnamed_add
   br label %24
 
 24:                                               ; preds = %22, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not6.i = icmp eq ptr %26, null
   br i1 %.not6.i, label %jd_putc.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 1
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = icmp ult i64 %30, %32
   br i1 %33, label %34, label %40
@@ -540,7 +540,7 @@ define internal fastcc void @json_puts_string(ptr nocapture noundef readonly %0,
   br label %8
 
 8:                                                ; preds = %6, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not7.i = icmp eq ptr %10, null
   br i1 %.not7.i, label %jd_puts.exit, label %11
@@ -557,16 +557,16 @@ define internal fastcc void @json_puts_string(ptr nocapture noundef readonly %0,
   br label %16
 
 16:                                               ; preds = %14, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %jd_putc.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 1
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %22, %24
   br i1 %25, label %26, label %32
@@ -614,10 +614,10 @@ jd_putc.exit:                                     ; preds = %16, %26, %32
   br i1 %.not6.i37, label %jd_putc.exit38, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, 1
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp ult i64 %47, %49
   br i1 %50, label %51, label %57
@@ -711,10 +711,10 @@ jd_putc.exit38:                                   ; preds = %42, %51, %57
   br i1 %.not6.i46, label %jd_putc.exit47, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, 1
-  %96 = getelementptr inbounds i8, ptr %91, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %97 = load i64, ptr %96, align 8
   %98 = icmp ult i64 %95, %97
   br i1 %98, label %99, label %105
@@ -761,10 +761,10 @@ jd_putc.exit47._crit_edge:                        ; preds = %jd_putc.exit47
   br i1 %.not6.i49, label %jd_puts.exit41, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i64, ptr %115, align 8
   %117 = add i64 %116, 1
-  %118 = getelementptr inbounds i8, ptr %113, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %119 = load i64, ptr %118, align 8
   %120 = icmp ult i64 %117, %119
   br i1 %120, label %121, label %127
@@ -800,10 +800,10 @@ jd_putc.exit47._crit_edge:                        ; preds = %jd_putc.exit47
   br i1 %.not6.i52, label %jd_puts.exit41, label %136
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %138, 1
-  %140 = getelementptr inbounds i8, ptr %135, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %141 = load i64, ptr %140, align 8
   %142 = icmp ult i64 %139, %141
   br i1 %142, label %143, label %149
@@ -846,10 +846,10 @@ jd_puts.exit41:                                   ; preds = %149, %143, %134, %1
   br i1 %.not6.i55, label %jd_puts.exit, label %160
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %159, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, 1
-  %164 = getelementptr inbounds i8, ptr %159, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %165 = load i64, ptr %164, align 8
   %166 = icmp ult i64 %163, %165
   br i1 %166, label %167, label %173
@@ -882,7 +882,7 @@ define void @json_dumper_end_object(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 65536
   %.not.i = icmp eq i32 %6, 0
@@ -893,13 +893,13 @@ json_dumper_check_previous_error.exit:            ; preds = %2
   br label %115
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %.not.i31 = icmp eq i32 %9, 0
   br i1 %.not.i31, label %json_dumper_get_prev_state.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = add i32 %9, -1
   %13 = zext i32 %12 to i64
   %14 = getelementptr [1100 x i8], ptr %11, i64 0, i64 %13
@@ -961,7 +961,7 @@ json_dumper_stack_would_underflow.exit.thread:    ; preds = %29
   br label %115
 
 json_dumper_stack_would_underflow.exit:           ; preds = %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = zext i32 %9 to i64
   %32 = getelementptr [1100 x i8], ptr %30, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
@@ -990,16 +990,16 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %41
 
 41:                                               ; preds = %39, %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not6.i = icmp eq ptr %43, null
   br i1 %.not6.i, label %jd_putc.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, 1
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp ult i64 %47, %49
   br i1 %50, label %51, label %57
@@ -1029,16 +1029,16 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %63
 
 63:                                               ; preds = %61, %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not6.i34 = icmp eq ptr %65, null
   br i1 %.not6.i34, label %jd_putc.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, 1
-  %70 = getelementptr inbounds i8, ptr %65, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = icmp ult i64 %69, %71
   br i1 %72, label %73, label %79
@@ -1059,8 +1059,8 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %jd_putc.exit
 
 81:                                               ; preds = %36
-  %82 = getelementptr inbounds i8, ptr %0, i64 24
-  %83 = getelementptr inbounds i8, ptr %0, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %84 = call i64 @g_base64_encode_close(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %82, ptr noundef nonnull %83) #7
   %85 = load ptr, ptr %0, align 8
   %.not.i36 = icmp eq ptr %85, null
@@ -1071,7 +1071,7 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %88
 
 88:                                               ; preds = %86, %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not8.i = icmp eq ptr %90, null
   br i1 %.not8.i, label %jd_puts_len.exit, label %91
@@ -1095,10 +1095,10 @@ jd_puts_len.exit:                                 ; preds = %88, %91
   br i1 %.not6.i38, label %jd_putc.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, 1
-  %102 = getelementptr inbounds i8, ptr %97, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %103 = load i64, ptr %102, align 8
   %104 = icmp ult i64 %101, %103
   br i1 %104, label %105, label %111
@@ -1142,7 +1142,7 @@ define void @json_dumper_end_array(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_value_string(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65536
   %.not.i = icmp eq i32 %5, 0
@@ -1153,13 +1153,13 @@ json_dumper_check_previous_error.exit:            ; preds = %2
   br label %31
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %json_dumper_get_prev_state.exit.thread.i, label %json_dumper_get_prev_state.exit.i
 
 json_dumper_get_prev_state.exit.i:                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = add i32 %8, -1
   %11 = zext i32 %10 to i64
   %12 = getelementptr [1100 x i8], ptr %9, i64 0, i64 %11
@@ -1180,7 +1180,7 @@ json_dumper_get_prev_state.exit.i:                ; preds = %6
   br i1 %.not.i7, label %json_dumper_setting_value_ok.exit, label %26
 
 json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.i, %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = zext i32 %8 to i64
   %20 = getelementptr [1100 x i8], ptr %18, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -1210,7 +1210,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
 26:                                               ; preds = %json_dumper_get_prev_state.exit.thread.i, %json_dumper_get_prev_state.exit.i, %16
   tail call fastcc void @prepare_token(ptr noundef nonnull %0)
   tail call fastcc void @json_puts_string(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %7, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr [1100 x i8], ptr %27, i64 0, i64 %29
@@ -1224,7 +1224,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_value_double(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [39 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 65536
   %.not.i = icmp eq i32 %6, 0
@@ -1235,13 +1235,13 @@ json_dumper_check_previous_error.exit:            ; preds = %2
   br label %57
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %json_dumper_get_prev_state.exit.thread.i, label %json_dumper_get_prev_state.exit.i
 
 json_dumper_get_prev_state.exit.i:                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = add i32 %9, -1
   %12 = zext i32 %11 to i64
   %13 = getelementptr [1100 x i8], ptr %10, i64 0, i64 %12
@@ -1262,7 +1262,7 @@ json_dumper_get_prev_state.exit.i:                ; preds = %7
   br i1 %.not.i12, label %json_dumper_setting_value_ok.exit, label %27
 
 json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.i, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = zext i32 %9 to i64
   %21 = getelementptr [1100 x i8], ptr %19, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -1314,7 +1314,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br label %39
 
 39:                                               ; preds = %37, %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not7.i = icmp eq ptr %41, null
   br i1 %.not7.i, label %jd_puts.exit, label %42
@@ -1333,7 +1333,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br label %48
 
 48:                                               ; preds = %46, %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not7.i15 = icmp eq ptr %50, null
   br i1 %.not7.i15, label %jd_puts.exit, label %51
@@ -1343,7 +1343,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br label %jd_puts.exit
 
 jd_puts.exit:                                     ; preds = %51, %48, %42, %39
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %8, align 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr [1100 x i8], ptr %53, i64 0, i64 %55
@@ -1361,7 +1361,7 @@ declare ptr @g_ascii_dtostr(ptr noundef, i32 noundef, double noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_value_va_list(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 65536
   %.not.i = icmp eq i32 %6, 0
@@ -1372,13 +1372,13 @@ json_dumper_check_previous_error.exit:            ; preds = %3
   br label %39
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %json_dumper_get_prev_state.exit.thread.i, label %json_dumper_get_prev_state.exit.i
 
 json_dumper_get_prev_state.exit.i:                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = add i32 %9, -1
   %12 = zext i32 %11 to i64
   %13 = getelementptr [1100 x i8], ptr %10, i64 0, i64 %12
@@ -1399,7 +1399,7 @@ json_dumper_get_prev_state.exit.i:                ; preds = %7
   br i1 %.not.i8, label %json_dumper_setting_value_ok.exit, label %27
 
 json_dumper_get_prev_state.exit.thread.i:         ; preds = %json_dumper_get_prev_state.exit.i, %json_dumper_get_prev_state.exit.i, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = zext i32 %9 to i64
   %21 = getelementptr [1100 x i8], ptr %19, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -1437,7 +1437,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br label %31
 
 31:                                               ; preds = %29, %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not9.i = icmp eq ptr %33, null
   br i1 %.not9.i, label %jd_vprintf.exit, label %34
@@ -1447,7 +1447,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br label %jd_vprintf.exit
 
 jd_vprintf.exit:                                  ; preds = %31, %34
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %8, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr [1100 x i8], ptr %35, i64 0, i64 %37
@@ -1469,7 +1469,7 @@ define void @json_dumper_value_anyf(ptr nocapture noundef %0, ptr noundef %1, ..
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @json_dumper_finish(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 65536
   %.not.i = icmp eq i32 %4, 0
@@ -1480,7 +1480,7 @@ json_dumper_check_previous_error.exit:            ; preds = %1
   br label %32
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
@@ -1499,16 +1499,16 @@ json_dumper_check_previous_error.exit:            ; preds = %1
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
   br i1 %.not6.i, label %jd_putc.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %19, %21
   br i1 %22, label %23, label %29
@@ -1529,7 +1529,7 @@ json_dumper_check_previous_error.exit:            ; preds = %1
   br label %jd_putc.exit
 
 jd_putc.exit:                                     ; preds = %13, %23, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %31, align 8
   br label %32
 
@@ -1547,7 +1547,7 @@ define void @json_dumper_begin_base64(ptr nocapture noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @json_dumper_write_base64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1372 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 65536
   %.not.i = icmp eq i32 %7, 0
@@ -1558,13 +1558,13 @@ json_dumper_check_previous_error.exit:            ; preds = %3
   br label %35
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %.not.i20 = icmp eq i32 %10, 0
   br i1 %.not.i20, label %json_dumper_get_prev_state.exit.thread, label %json_dumper_get_prev_state.exit
 
 json_dumper_get_prev_state.exit:                  ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = add i32 %10, -1
   %13 = zext i32 %12 to i64
   %14 = getelementptr [1100 x i8], ptr %11, i64 0, i64 %13
@@ -1578,9 +1578,9 @@ json_dumper_get_prev_state.exit:                  ; preds = %8
   br i1 %.not1923, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
 json_dumper_get_prev_state.exit.thread:           ; preds = %8, %json_dumper_get_prev_state.exit
@@ -1649,7 +1649,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_newline_indent(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -1665,16 +1665,16 @@ define internal fastcc void @print_newline_indent(ptr nocapture noundef readonly
   br label %10
 
 10:                                               ; preds = %8, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %jd_putc.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %16, %18
   br i1 %19, label %20, label %26

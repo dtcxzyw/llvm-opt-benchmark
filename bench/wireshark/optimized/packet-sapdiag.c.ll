@@ -1623,7 +1623,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 209) i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_add_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.658) #2
   %7 = load ptr, ptr %5, align 8
@@ -1823,7 +1823,7 @@ check_sapdiag_dp.exit.thread:                     ; preds = %14, %4, %check_sapd
 178:                                              ; preds = %175
   %179 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %174) #2
   %180 = add i32 %179, -1
-  %181 = getelementptr inbounds i8, ptr %1, i64 408
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %182 = load ptr, ptr %181, align 8
   %183 = tail call ptr @tvb_get_string_enc(ptr noundef %182, ptr noundef %0, i32 noundef %174, i32 noundef %180, i32 noundef -2147483644) #2
   %184 = load i32, ptr @hf_sapdiag_error_message, align 4
@@ -2004,7 +2004,7 @@ define internal fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, 
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef %10) #2
   %13 = add nuw nsw i32 %4, 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.833, i32 noundef %10) #2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.834, i32 noundef %10) #2
   %16 = load i32, ptr @hf_sapdiag_algorithm, align 4
@@ -2112,7 +2112,7 @@ switch.hole_check:                                ; preds = %27
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %36 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.dissect_sapdiag_payload, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.dissect_sapdiag_payload, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %37 = zext i8 %34 to i32
   %38 = tail call ptr @val_to_str_const(i32 noundef %37, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.837) #2
@@ -4239,7 +4239,7 @@ define internal fastcc void @add_item_value_string(ptr noundef %0, ptr %.408.val
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %5) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = add i32 %8, -1
   %12 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef %5, i32 noundef %11, i32 noundef 0) #2
@@ -4250,7 +4250,7 @@ define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_item_value_hexstring(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_bytes_to_str(ptr noundef %8, ptr noundef %0, i32 noundef %5, i32 noundef 16) #2
   %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 16, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1064, ptr noundef %9) #2
@@ -4921,7 +4921,7 @@ define internal fastcc void @dissect_sapdiag_menu(ptr noundef %0, ptr nocapture 
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9

@@ -42,23 +42,23 @@ entry:
   %add = add i32 %max_frags, 3
   %conv = zext i32 %add to i64
   %call1 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #16
-  %vec = getelementptr inbounds i8, ptr %call, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %call1, ptr %vec, align 8
   %conv2 = zext i32 %max_frags to i64
   %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv2, i64 noundef 16) #16
-  %raw = getelementptr inbounds i8, ptr %call, i64 16
+  %raw = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call3, ptr %raw, align 8
-  %max_payload_frags = getelementptr inbounds i8, ptr %call, i64 65612
+  %max_payload_frags = getelementptr inbounds nuw i8, ptr %call, i64 65612
   store i32 %max_frags, ptr %max_payload_frags, align 4
-  %max_raw_frags = getelementptr inbounds i8, ptr %call, i64 28
+  %max_raw_frags = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 %max_frags, ptr %max_raw_frags, align 4
   store ptr %call, ptr %call1, align 8
-  %iov_len = getelementptr inbounds i8, ptr %call1, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i64 10, ptr %iov_len, align 8
-  %l2_hdr = getelementptr inbounds i8, ptr %call, i64 40
+  %l2_hdr = getelementptr inbounds nuw i8, ptr %call, i64 40
   %arrayidx8 = getelementptr i8, ptr %call1, i64 16
   store ptr %l2_hdr, ptr %arrayidx8, align 8
-  %l3_hdr = getelementptr inbounds i8, ptr %call, i64 68
+  %l3_hdr = getelementptr inbounds nuw i8, ptr %call, i64 68
   %arrayidx11 = getelementptr i8, ptr %call1, i64 32
   store ptr %l3_hdr, ptr %arrayidx11, align 8
   store ptr %call, ptr %pkt, align 8
@@ -78,10 +78,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   tail call void @g_free(ptr noundef %0) #17
-  %raw = getelementptr inbounds i8, ptr %pkt, i64 16
+  %raw = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %1 = load ptr, ptr %raw, align 8
   tail call void @g_free(ptr noundef %1) #17
   tail call void @g_free(ptr noundef nonnull %pkt) #17
@@ -104,20 +104,20 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %0 = load i32, ptr %payload_len, align 4
   %conv = zext i32 %0 to i64
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %1 = load ptr, ptr %vec, align 8
   %iov_len = getelementptr i8, ptr %1, i64 40
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %conv
   %conv1 = trunc i64 %add to i16
   %3 = tail call noundef i16 @llvm.bswap.i16(i16 %conv1)
-  %l3_hdr = getelementptr inbounds i8, ptr %pkt, i64 68
-  %ip_len = getelementptr inbounds i8, ptr %pkt, i64 70
+  %l3_hdr = getelementptr inbounds nuw i8, ptr %pkt, i64 68
+  %ip_len = getelementptr inbounds nuw i8, ptr %pkt, i64 70
   store i16 %3, ptr %ip_len, align 2
-  %ip_sum = getelementptr inbounds i8, ptr %pkt, i64 78
+  %ip_sum = getelementptr inbounds nuw i8, ptr %pkt, i64 78
   store i16 0, ptr %ip_sum, align 2
   %4 = load i64, ptr %iov_len, align 8
   %conv7 = trunc i64 %4 to i32
@@ -144,11 +144,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 32
   %1 = load ptr, ptr %arrayidx, align 8
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %2 = load i32, ptr %payload_len, align 4
   %conv3 = zext i32 %2 to i64
   %iov_len = getelementptr i8, ptr %0, i64 40
@@ -158,7 +158,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %gso_type1 = getelementptr inbounds i8, ptr %pkt, i64 1
+  %gso_type1 = getelementptr inbounds nuw i8, ptr %pkt, i64 1
   %4 = load i8, ptr %gso_type1, align 1
   %5 = and i8 %4, 125
   %or.cond = icmp eq i8 %5, 1
@@ -167,10 +167,10 @@ if.end8:                                          ; preds = %if.end
 net_tx_pkt_update_ip_hdr_checksum.exit:           ; preds = %if.end8
   %conv1.i = trunc nuw i64 %add to i16
   %6 = tail call noundef i16 @llvm.bswap.i16(i16 %conv1.i)
-  %l3_hdr.i = getelementptr inbounds i8, ptr %pkt, i64 68
-  %ip_len.i = getelementptr inbounds i8, ptr %pkt, i64 70
+  %l3_hdr.i = getelementptr inbounds nuw i8, ptr %pkt, i64 68
+  %ip_len.i = getelementptr inbounds nuw i8, ptr %pkt, i64 70
   store i16 %6, ptr %ip_len.i, align 2
-  %ip_sum.i = getelementptr inbounds i8, ptr %pkt, i64 78
+  %ip_sum.i = getelementptr inbounds nuw i8, ptr %pkt, i64 78
   store i16 0, ptr %ip_sum.i, align 2
   %7 = load i64, ptr %iov_len, align 8
   %conv7.i = trunc i64 %7 to i32
@@ -201,9 +201,9 @@ if.end37:                                         ; preds = %if.then26, %net_tx_
   store i16 %11, ptr %csum, align 2
   %12 = load ptr, ptr %vec, align 8
   %arrayidx39 = getelementptr i8, ptr %12, i64 48
-  %payload_frags = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %13 = load i32, ptr %payload_frags, align 8
-  %csum_offset = getelementptr inbounds i8, ptr %pkt, i64 8
+  %csum_offset = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   %14 = load i16, ptr %csum_offset, align 8
   %conv41 = zext i16 %14 to i64
   %tobool.i.not = icmp eq i32 %13, 0
@@ -243,10 +243,10 @@ define dso_local noundef zeroext i1 @net_tx_pkt_update_sctp_checksum(ptr nocaptu
 entry:
   %csum = alloca i32, align 4
   store i32 0, ptr %csum, align 4
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 48
-  %payload_frags = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %1 = load i32, ptr %payload_frags, align 8
   %tobool.i.not = icmp eq i32 %1, 0
   br i1 %tobool.i.not, label %iov_from_buf.exit, label %land.lhs.true1.i
@@ -321,20 +321,20 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %vec.i = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec.i, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %arrayidx2.i = getelementptr i8, ptr %0, i64 32
-  %raw.i = getelementptr inbounds i8, ptr %pkt, i64 16
+  %raw.i = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %1 = load ptr, ptr %raw.i, align 8
-  %raw_frags.i = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %2 = load i32, ptr %raw_frags.i, align 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i.not.i = icmp eq i32 %2, 0
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %if.end.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %iov_len.i.i, align 8
   %cmp5.not.i.i = icmp ult i64 %4, 22
   br i1 %cmp5.not.i.i, label %iov_to_buf.exit.i, label %iov_to_buf.exit.thread.i
@@ -359,7 +359,7 @@ if.end4.i:                                        ; preds = %iov_to_buf.exit.i, 
   %iov_len5.i = getelementptr i8, ptr %0, i64 24
   store i64 14, ptr %iov_len5.i, align 8
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %h_proto.i = getelementptr inbounds i8, ptr %6, i64 12
+  %h_proto.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %7 = load i16, ptr %h_proto.i, align 2
   %switch.selectcmp.i = icmp eq i16 %7, -22392
   %switch.select.i = select i1 %switch.selectcmp.i, i64 22, i64 14
@@ -372,7 +372,7 @@ if.then15.i:                                      ; preds = %if.end4.i
   store i64 0, ptr %iov_len5.i, align 8
   %iov_len17.i = getelementptr i8, ptr %0, i64 40
   store i64 0, ptr %iov_len17.i, align 8
-  %packet_type.i = getelementptr inbounds i8, ptr %pkt, i64 65620
+  %packet_type.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65620
   store i32 -1430533120, ptr %packet_type.i, align 4
   br label %net_tx_pkt_parse_headers.exit.thread
 
@@ -419,7 +419,7 @@ eth_get_l2_hdr_length.exit.i:                     ; preds = %sw.default.i.i, %sw
   %tobool4.not.i.i = icmp eq i8 %22, 0
   %..i62.i = select i1 %tobool4.not.i.i, i32 -1430533120, i32 -1430533118
   %retval.0.i63.i = select i1 %cmp.i.not.i.i, i32 -1430533119, i32 %..i62.i
-  %packet_type26.i = getelementptr inbounds i8, ptr %pkt, i64 65620
+  %packet_type26.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65620
   store i32 %retval.0.i63.i, ptr %packet_type26.i, align 4
   %23 = load i64, ptr %iov_len5.i, align 8
   %call29.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %arrayidx.i, i32 noundef 1, i64 noundef %23) #17
@@ -437,7 +437,7 @@ sw.bb31.i:                                        ; preds = %eth_get_l2_hdr_leng
   br i1 %tobool.i64.not.i, label %iov_to_buf.exit72.i, label %land.lhs.true1.i68.i
 
 land.lhs.true1.i68.i:                             ; preds = %sw.bb31.i
-  %iov_len.i69.i = getelementptr inbounds i8, ptr %24, i64 8
+  %iov_len.i69.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i64, ptr %iov_len.i69.i, align 8
   %cmp.not.i.i = icmp ugt i64 %26, %28
   %sub.i.i = sub nuw i64 %28, %26
@@ -480,7 +480,7 @@ if.then49.i:                                      ; preds = %if.end41.i
 if.end51.i:                                       ; preds = %if.end41.i
   %add.ptr53.i = getelementptr i8, ptr %30, i64 9
   %add.ptr53.val.i = load i8, ptr %add.ptr53.i, align 1
-  %l4proto.i = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   store i8 %add.ptr53.val.i, ptr %l4proto.i, align 8
   %31 = load ptr, ptr %arrayidx2.i, align 8
   %.val60.i = load i8, ptr %31, align 1
@@ -520,9 +520,9 @@ if.then86.i:                                      ; preds = %sw.bb81.i
 
 if.end88.i:                                       ; preds = %sw.bb81.i
   %41 = load i8, ptr %hdrinfo.i, align 8
-  %l4proto90.i = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto90.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   store i8 %41, ptr %l4proto90.i, align 8
-  %full_hdr_len.i = getelementptr inbounds i8, ptr %hdrinfo.i, i64 8
+  %full_hdr_len.i = getelementptr inbounds nuw i8, ptr %hdrinfo.i, i64 8
   %42 = load i64, ptr %full_hdr_len.i, align 8
   %cmp91.i = icmp ugt i64 %42, 65535
   br i1 %cmp91.i, label %if.then93.i, label %iov_to_buf.exit101.i
@@ -564,7 +564,7 @@ if.then:                                          ; preds = %sw.epilog109.sink.s
   %49 = load i64, ptr %iov_len3.i.i, align 8
   %add.i.i = add i64 %49, %48
   %conv.i103.i = trunc i64 %add.i.i to i16
-  %hdr_len.i.i = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   store i16 %conv.i103.i, ptr %hdr_len.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %hdrinfo.i)
   %50 = load ptr, ptr %raw.i, align 8
@@ -574,17 +574,17 @@ if.then:                                          ; preds = %sw.epilog109.sink.s
   %conv.i = zext i16 %52 to i64
   %sub.i4 = sub i64 %call.i, %conv.i
   %conv1.i = trunc i64 %sub.i4 to i32
-  %payload_len.i = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   store i32 %conv1.i, ptr %payload_len.i, align 4
   %53 = load ptr, ptr %vec.i, align 8
   %arrayidx.i6 = getelementptr i8, ptr %53, i64 48
-  %max_payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65612
+  %max_payload_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65612
   %54 = load i32, ptr %max_payload_frags.i, align 4
   %55 = load ptr, ptr %raw.i, align 8
   %56 = load i32, ptr %raw_frags.i, align 8
   %conv7.i = and i64 %sub.i4, 4294967295
   %call8.i = call i32 @iov_copy(ptr noundef %arrayidx.i6, i32 noundef %54, ptr noundef %55, i32 noundef %56, i64 noundef %conv.i, i64 noundef %conv7.i) #17
-  %payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   store i32 %call8.i, ptr %payload_frags.i, align 8
   br label %return
 
@@ -628,7 +628,7 @@ if.else5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %vec.i = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec.i, align 8
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %iov_len.i = getelementptr i8, ptr %0, i64 24
@@ -637,7 +637,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tso_enable, label %net_tx_pkt_get_gso_type.exit, label %net_tx_pkt_get_gso_type.exit.thread
 
 net_tx_pkt_get_gso_type.exit.thread:              ; preds = %if.end6
-  %gso_type31 = getelementptr inbounds i8, ptr %pkt, i64 1
+  %gso_type31 = getelementptr inbounds nuw i8, ptr %pkt, i64 1
   store i8 0, ptr %gso_type31, align 1
   br label %sw.bb
 
@@ -645,10 +645,10 @@ net_tx_pkt_get_gso_type.exit:                     ; preds = %if.end6
   %2 = load ptr, ptr %vec.i, align 8
   %arrayidx4.i = getelementptr i8, ptr %2, i64 32
   %3 = load ptr, ptr %arrayidx4.i, align 8
-  %l4proto.i = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   %4 = load i8, ptr %l4proto.i, align 8
   %call5.i = tail call zeroext i8 @eth_get_gso_type(i16 noundef zeroext %call.i, ptr noundef %3, i8 noundef zeroext %4) #17
-  %gso_type = getelementptr inbounds i8, ptr %pkt, i64 1
+  %gso_type = getelementptr inbounds nuw i8, ptr %pkt, i64 1
   store i8 %call5.i, ptr %gso_type, align 1
   %5 = and i8 %call5.i, 127
   switch i8 %5, label %do.body [
@@ -659,27 +659,27 @@ net_tx_pkt_get_gso_type.exit:                     ; preds = %if.end6
   ]
 
 sw.bb:                                            ; preds = %net_tx_pkt_get_gso_type.exit.thread, %net_tx_pkt_get_gso_type.exit
-  %hdr_len = getelementptr inbounds i8, ptr %pkt, i64 2
+  %hdr_len = getelementptr inbounds nuw i8, ptr %pkt, i64 2
   store i16 0, ptr %hdr_len, align 2
-  %gso_size12 = getelementptr inbounds i8, ptr %pkt, i64 4
+  %gso_size12 = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   store i16 0, ptr %gso_size12, align 4
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %net_tx_pkt_get_gso_type.exit
   %conv14 = trunc i32 %gso_size to i16
-  %gso_size16 = getelementptr inbounds i8, ptr %pkt, i64 4
+  %gso_size16 = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   store i16 %conv14, ptr %gso_size16, align 4
-  %hdr_len17 = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len17 = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %6 = load i16, ptr %hdr_len17, align 8
   %add = add i16 %6, 8
-  %hdr_len21 = getelementptr inbounds i8, ptr %pkt, i64 2
+  %hdr_len21 = getelementptr inbounds nuw i8, ptr %pkt, i64 2
   store i16 %add, ptr %hdr_len21, align 2
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %net_tx_pkt_get_gso_type.exit, %net_tx_pkt_get_gso_type.exit
   %7 = load ptr, ptr %vec.i, align 8
   %arrayidx = getelementptr i8, ptr %7, i64 48
-  %payload_frags = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %8 = load i32, ptr %payload_frags, align 8
   %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %iov_to_buf.exit, label %land.lhs.true1.i
@@ -701,7 +701,7 @@ iov_to_buf.exit:                                  ; preds = %sw.bb22, %land.lhs.
   br i1 %cmp, label %return, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
-  %th_off = getelementptr inbounds i8, ptr %l4hdr, i64 12
+  %th_off = getelementptr inbounds nuw i8, ptr %l4hdr, i64 12
   %bf.load = load i8, ptr %th_off, align 4
   %cmp27 = icmp ult i8 %bf.load, 80
   br i1 %cmp27, label %return, label %if.end30
@@ -710,13 +710,13 @@ if.end30:                                         ; preds = %lor.lhs.false25
   %11 = lshr i8 %bf.load, 2
   %12 = and i8 %11, 60
   %mul = zext nneg i8 %12 to i16
-  %hdr_len31 = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len31 = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %13 = load i16, ptr %hdr_len31, align 8
   %add38 = add i16 %13, %mul
-  %hdr_len41 = getelementptr inbounds i8, ptr %pkt, i64 2
+  %hdr_len41 = getelementptr inbounds nuw i8, ptr %pkt, i64 2
   store i16 %add38, ptr %hdr_len41, align 2
   %conv42 = trunc i32 %gso_size to i16
-  %gso_size44 = getelementptr inbounds i8, ptr %pkt, i64 4
+  %gso_size44 = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   store i16 %conv42, ptr %gso_size44, align 4
   br label %sw.epilog
 
@@ -728,7 +728,7 @@ sw.epilog:                                        ; preds = %if.end30, %sw.bb13,
   br i1 %csum_enable, label %if.then46, label %return
 
 if.then46:                                        ; preds = %sw.epilog
-  %l4proto = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   %14 = load i8, ptr %l4proto, align 8
   switch i8 %14, label %return [
     i8 6, label %sw.bb48
@@ -736,13 +736,13 @@ if.then46:                                        ; preds = %sw.epilog
   ]
 
 sw.bb48:                                          ; preds = %if.then46
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %15 = load i32, ptr %payload_len, align 4
   %cmp50 = icmp ult i32 %15, 20
   br i1 %cmp50, label %return, label %return.sink.split
 
 sw.bb58:                                          ; preds = %if.then46
-  %payload_len59 = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len59 = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %16 = load i32, ptr %payload_len59, align 4
   %cmp61 = icmp ult i32 %16, 8
   br i1 %cmp61, label %return, label %return.sink.split
@@ -750,11 +750,11 @@ sw.bb58:                                          ; preds = %if.then46
 return.sink.split:                                ; preds = %sw.bb58, %sw.bb48
   %.sink = phi i16 [ 16, %sw.bb48 ], [ 6, %sw.bb58 ]
   store i8 1, ptr %pkt, align 8
-  %hdr_len67 = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len67 = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %17 = load i16, ptr %hdr_len67, align 8
-  %csum_start69 = getelementptr inbounds i8, ptr %pkt, i64 6
+  %csum_start69 = getelementptr inbounds nuw i8, ptr %pkt, i64 6
   store i16 %17, ptr %csum_start69, align 2
-  %csum_offset71 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %csum_offset71 = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   store i16 %.sink, ptr %csum_offset71, align 8
   br label %return
 
@@ -777,13 +777,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %iov_len = getelementptr i8, ptr %0, i64 24
   tail call void @eth_setup_vlan_headers(ptr noundef %1, ptr noundef %iov_len, i16 noundef zeroext %vlan, i16 noundef zeroext %vlan_ethtype) #17
-  %hdr_len = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %2 = load i16, ptr %hdr_len, align 8
   %add = add i16 %2, 4
   store i16 %add, ptr %hdr_len, align 8
@@ -803,20 +803,20 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %raw_frags = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %0 = load i32, ptr %raw_frags, align 8
-  %max_raw_frags = getelementptr inbounds i8, ptr %pkt, i64 28
+  %max_raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 28
   %1 = load i32, ptr %max_raw_frags, align 4
   %cmp.not = icmp ult i32 %0, %1
   br i1 %cmp.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %raw = getelementptr inbounds i8, ptr %pkt, i64 16
+  %raw = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %2 = load ptr, ptr %raw, align 8
   %idxprom = zext i32 %0 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %2, i64 %idxprom
   store ptr %base, ptr %arrayidx, align 8
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i64 %len, ptr %iov_len, align 8
   %3 = load i32, ptr %raw_frags, align 8
   %inc = add i32 %3, 1
@@ -830,7 +830,7 @@ return:                                           ; preds = %if.end, %if.end2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @net_tx_pkt_has_fragments(ptr nocapture noundef readonly %pkt) local_unnamed_addr #6 {
 entry:
-  %raw_frags = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %0 = load i32, ptr %raw_frags, align 8
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -847,7 +847,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %packet_type = getelementptr inbounds i8, ptr %pkt, i64 65620
+  %packet_type = getelementptr inbounds nuw i8, ptr %pkt, i64 65620
   %0 = load i32, ptr %packet_type, align 4
   ret i32 %0
 }
@@ -863,10 +863,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %hdr_len = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %0 = load i16, ptr %hdr_len, align 8
   %conv = zext i16 %0 to i32
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %1 = load i32, ptr %payload_len, align 4
   %add = add i32 %1, %conv
   %conv1 = zext i32 %add to i64
@@ -887,7 +887,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %pkt, i8 0, i64 10, i1 false)
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.else, label %if.end3
@@ -897,23 +897,23 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   store i32 0, ptr %payload_len, align 4
-  %payload_frags = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   store i32 0, ptr %payload_frags, align 8
-  %max_raw_frags = getelementptr inbounds i8, ptr %pkt, i64 28
+  %max_raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 28
   %1 = load i32, ptr %max_raw_frags, align 4
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end22, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
-  %raw = getelementptr inbounds i8, ptr %pkt, i64 16
+  %raw = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %2 = load ptr, ptr %raw, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.else7, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then4
-  %raw_frags = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %3 = load i32, ptr %raw_frags, align 8
   %cmp918.not = icmp eq i32 %3, 0
   br i1 %cmp918.not, label %if.end22, label %for.body
@@ -936,7 +936,7 @@ if.else13:                                        ; preds = %for.body
   unreachable
 
 if.end14:                                         ; preds = %for.body
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %6 = load i64, ptr %iov_len, align 8
   tail call void %callback(ptr noundef %context, ptr noundef nonnull %5, i64 noundef %6) #17
   %inc = add nuw i32 %i.019, 1
@@ -945,11 +945,11 @@ if.end14:                                         ; preds = %for.body
   br i1 %cmp9, label %for.body, label %if.end22, !llvm.loop !5
 
 if.end22:                                         ; preds = %if.end14, %for.cond.preheader, %if.end3
-  %raw_frags23 = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags23 = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   store i32 0, ptr %raw_frags23, align 8
-  %hdr_len = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   store i16 0, ptr %hdr_len, align 8
-  %l4proto = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   store i8 0, ptr %l4proto, align 8
   br label %return
 
@@ -963,7 +963,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_tx_pkt_unmap_frag_pci(ptr noundef %context, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %bus_master_as.i.i = getelementptr inbounds i8, ptr %context, i64 576
+  %bus_master_as.i.i = getelementptr inbounds nuw i8, ptr %context, i64 576
   tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i, ptr noundef %base, i64 noundef %len, i1 noundef zeroext false, i64 noundef 0) #17
   ret void
 }
@@ -972,7 +972,7 @@ entry:
 define dso_local noundef zeroext i1 @net_tx_pkt_add_raw_fragment_pci(ptr noundef %pkt, ptr noundef %pci_dev, i64 noundef %pa, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %xlen.i.i = alloca i64, align 8
-  %bus_master_as.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 576
+  %bus_master_as.i.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i)
   store i64 %len, ptr %xlen.i.i, align 8
   %call.i.i = call ptr @address_space_map(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %pa, ptr noundef nonnull %xlen.i.i, i1 noundef zeroext false, i32 1) #17
@@ -994,20 +994,20 @@ if.else.i:                                        ; preds = %lor.lhs.false
   unreachable
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %raw_frags.i = getelementptr inbounds i8, ptr %pkt, i64 24
+  %raw_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %1 = load i32, ptr %raw_frags.i, align 8
-  %max_raw_frags.i = getelementptr inbounds i8, ptr %pkt, i64 28
+  %max_raw_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 28
   %2 = load i32, ptr %max_raw_frags.i, align 4
   %cmp.not.i = icmp ult i32 %1, %2
   br i1 %cmp.not.i, label %net_tx_pkt_add_raw_fragment.exit.thread, label %if.then2
 
 net_tx_pkt_add_raw_fragment.exit.thread:          ; preds = %if.end.i
-  %raw.i = getelementptr inbounds i8, ptr %pkt, i64 16
+  %raw.i = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %3 = load ptr, ptr %raw.i, align 8
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr %struct.iovec, ptr %3, i64 %idxprom.i
   store ptr %call.i.i, ptr %arrayidx.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i64 %len, ptr %iov_len.i, align 8
   %4 = load i32, ptr %raw_frags.i, align 8
   %inc.i = add i32 %4, 1
@@ -1026,7 +1026,7 @@ return:                                           ; preds = %net_tx_pkt_add_raw_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @net_tx_pkt_send(ptr noundef %pkt, ptr noundef %nc) local_unnamed_addr #0 {
 entry:
-  %peer = getelementptr inbounds i8, ptr %nc, i64 32
+  %peer = getelementptr inbounds nuw i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
   %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #17
   %call1 = tail call zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %call, ptr noundef nonnull @net_tx_pkt_sendv, ptr noundef %nc)
@@ -1048,7 +1048,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %gso_type1 = getelementptr inbounds i8, ptr %pkt, i64 1
+  %gso_type1 = getelementptr inbounds nuw i8, ptr %pkt, i64 1
   %0 = load i8, ptr %gso_type1, align 1
   %1 = and i8 %0, 127
   %cmp.not = icmp eq i8 %1, 0
@@ -1058,7 +1058,7 @@ if.then5:                                         ; preds = %if.end
   %payload_len = getelementptr i8, ptr %pkt, i64 65604
   %2 = load i32, ptr %payload_len, align 4
   %conv6 = zext i32 %2 to i64
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %3 = load ptr, ptr %vec, align 8
   %iov_len = getelementptr i8, ptr %3, i64 40
   %4 = load i64, ptr %iov_len, align 8
@@ -1079,20 +1079,20 @@ land.lhs.true:                                    ; preds = %if.then17
   br i1 %tobool22.not, label %if.end29, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true
-  %vec24 = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec24 = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %7 = load ptr, ptr %vec24, align 8
   %arrayidx25 = getelementptr i8, ptr %7, i64 16
-  %payload_frags = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %8 = load i32, ptr %payload_frags, align 8
   %sub26 = add i32 %8, 2
-  %payload_len27 = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len27 = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %9 = load i32, ptr %payload_len27, align 4
   %conv28 = trunc i32 %9 to i16
   tail call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef %pkt, ptr noundef %arrayidx25, i32 noundef %sub26, i16 noundef zeroext %conv28)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end11, %if.then23, %land.lhs.true, %if.then17
-  %vec.i = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec.i = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %10 = load ptr, ptr %vec.i, align 8
   %arrayidx.i = getelementptr i8, ptr %10, i64 16
   %iov_len.i = getelementptr i8, ptr %10, i64 24
@@ -1102,13 +1102,13 @@ if.end29:                                         ; preds = %if.end11, %if.then2
   br i1 %cmp.i, label %if.then.i, label %net_tx_pkt_fix_ip6_payload_len.exit
 
 if.then.i:                                        ; preds = %if.end29
-  %ip6_un1_plen.i = getelementptr inbounds i8, ptr %pkt, i64 72
+  %ip6_un1_plen.i = getelementptr inbounds nuw i8, ptr %pkt, i64 72
   %12 = load i16, ptr %ip6_un1_plen.i, align 4
   %cmp3.i = icmp eq i16 %12, 0
   br i1 %cmp3.i, label %if.then5.i, label %net_tx_pkt_fix_ip6_payload_len.exit
 
 if.then5.i:                                       ; preds = %if.then.i
-  %payload_len.i = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %13 = load i32, ptr %payload_len.i, align 4
   %cmp6.i = icmp ult i32 %13, 65536
   br i1 %cmp6.i, label %if.then8.i, label %net_tx_pkt_fix_ip6_payload_len.exit
@@ -1122,7 +1122,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 net_tx_pkt_fix_ip6_payload_len.exit:              ; preds = %if.end29, %if.then.i, %if.then5.i, %if.then8.i
   %14 = load ptr, ptr %vec.i, align 8
   %add.ptr = getelementptr i8, ptr %14, i64 16
-  %payload_frags31 = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags31 = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %15 = load i32, ptr %payload_frags31, align 8
   %add32 = add i32 %15, 3
   %sub33 = add i32 %15, 2
@@ -1136,15 +1136,15 @@ if.end39:                                         ; preds = %if.end11
   %17 = shl i8 %16, 1
   %18 = and i8 %17, 2
   store i8 %18, ptr %virt_hdr3.i, align 2
-  %gso_type9.i = getelementptr inbounds i8, ptr %virt_hdr3.i, i64 1
+  %gso_type9.i = getelementptr inbounds nuw i8, ptr %virt_hdr3.i, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %gso_type9.i, i8 0, i64 9, i1 false)
   store ptr %virt_hdr3.i, ptr %fragment.i, align 16
-  %iov_len.i19 = getelementptr inbounds i8, ptr %fragment.i, i64 8
+  %iov_len.i19 = getelementptr inbounds nuw i8, ptr %fragment.i, i64 8
   store i64 10, ptr %iov_len.i19, align 8
-  %arrayidx11.i = getelementptr inbounds i8, ptr %fragment.i, i64 16
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 16
   %arrayidx12.i = getelementptr i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i, i64 16, i1 false)
-  %arrayidx13.i = getelementptr inbounds i8, ptr %fragment.i, i64 32
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 32
   %arrayidx15.i = getelementptr i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx15.i, i64 16, i1 false)
   switch i8 %1, label %sw.default.i [
@@ -1154,21 +1154,21 @@ if.end39:                                         ; preds = %if.end11
   ]
 
 sw.bb.i:                                          ; preds = %if.end39, %if.end39
-  %payload_frags.i.i = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %19 = load i32, ptr %payload_frags.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i.i, label %net_tx_pkt_do_sw_fragmentation.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 48
-  %hdr_len.i.i = getelementptr inbounds i8, ptr %pkt, i64 2
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 48
+  %hdr_len.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 2
   %20 = load i16, ptr %hdr_len.i.i, align 2
   %conv.i.i = zext i16 %20 to i64
-  %hdr_len1.i.i = getelementptr inbounds i8, ptr %pkt, i64 65616
+  %hdr_len1.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65616
   %21 = load i16, ptr %hdr_len1.i.i, align 8
   %conv2.i.i = zext i16 %21 to i64
   %sub.i.i = sub nsw i64 %conv.i.i, %conv2.i.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 56
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 56
   store i64 %sub.i.i, ptr %iov_len.i.i, align 8
   %call.i.i = call noalias ptr @g_malloc(i64 noundef %sub.i.i) #15
   store ptr %call.i.i, ptr %add.ptr.i.i, align 16
@@ -1180,7 +1180,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   %bytes_read.0.i.i = phi i64 [ 0, %if.end.i.i ], [ %add.i.i, %while.body.i.i ]
   %idxprom.i.i = sext i32 %src_idx.2.i to i64
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %.pre.i, i64 %idxprom.i.i
-  %iov_len5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %iov_len5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %22 = load i64, ptr %iov_len5.i.i, align 8
   %sub7.i.i = sub i64 %sub.i.i, %bytes_read.0.i.i
   %cmp.i.i = icmp ult i64 %22, %sub7.i.i
@@ -1201,21 +1201,21 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 
 net_tx_pkt_tcp_fragment_init.exit.i:              ; preds = %while.cond.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i.i, ptr align 1 %23, i64 %sub7.i.i, i1 false)
-  %th_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  %th_flags.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 13
   %26 = load i8, ptr %th_flags.i.i, align 1
   %27 = and i8 %26, -10
   store i8 %27, ptr %th_flags.i.i, align 1
-  %gso_size.i.i = getelementptr inbounds i8, ptr %pkt, i64 4
+  %gso_size.i.i = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   %28 = load i16, ptr %gso_size.i.i, align 4
   br label %sw.epilog.i
 
 sw.bb17.i:                                        ; preds = %if.end39
-  %payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65608
+  %payload_frags.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
   %29 = load i32, ptr %payload_frags.i, align 8
   %sub.i = add i32 %29, 2
   %conv20.i = trunc i32 %2 to i16
   call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
-  %gso_size.i31.i = getelementptr inbounds i8, ptr %pkt, i64 4
+  %gso_size.i31.i = getelementptr inbounds nuw i8, ptr %pkt, i64 4
   %30 = load i16, ptr %gso_size.i31.i, align 4
   %31 = and i16 %30, -8
   br label %sw.epilog.i
@@ -1235,10 +1235,10 @@ sw.epilog.i:                                      ; preds = %sw.bb17.i, %net_tx_
   br i1 %cmp27.not.i.i, label %while.end.i, label %while.body.lr.ph.i.lr.ph.i
 
 while.body.lr.ph.i.lr.ph.i:                       ; preds = %sw.epilog.i
-  %payload_frags.i33.i = getelementptr inbounds i8, ptr %pkt, i64 65608
-  %iov_len.i55.i = getelementptr inbounds i8, ptr %fragment.i, i64 40
-  %iov_len3.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 56
-  %32 = getelementptr inbounds i8, ptr %fragment.i, i64 48
+  %payload_frags.i33.i = getelementptr inbounds nuw i8, ptr %pkt, i64 65608
+  %iov_len.i55.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 40
+  %iov_len3.i.i = getelementptr inbounds nuw i8, ptr %fragment.i, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %fragment.i, i64 48
   %cmp.i57.i = icmp eq i8 %1, 1
   br label %while.body.lr.ph.i.i
 
@@ -1325,7 +1325,7 @@ sw.bb27.i:                                        ; preds = %if.end25.i, %if.end
 sw.bb.i.i:                                        ; preds = %sw.bb27.i
   %conv5.i.i = trunc i64 %add4.i.i to i16
   %42 = call noundef i16 @llvm.bswap.i16(i16 %conv5.i.i)
-  %ip_len.i.i = getelementptr inbounds i8, ptr %39, i64 2
+  %ip_len.i.i = getelementptr inbounds nuw i8, ptr %39, i64 2
   store i16 %42, ptr %ip_len.i.i, align 2
   %43 = load ptr, ptr %arrayidx13.i, align 16
   %44 = load i64, ptr %iov_len.i55.i, align 8
@@ -1336,7 +1336,7 @@ sw.bb8.i.i:                                       ; preds = %sw.bb27.i
   %45 = trunc i64 %add4.i.i to i16
   %conv9.i.i = add i16 %45, -40
   %46 = call noundef i16 @llvm.bswap.i16(i16 %conv9.i.i)
-  %ip6_un1_plen.i.i = getelementptr inbounds i8, ptr %39, i64 4
+  %ip6_un1_plen.i.i = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i16 %46, ptr %ip6_un1_plen.i.i, align 4
   br label %net_tx_pkt_tcp_fragment_fix.exit.i
 
@@ -1373,7 +1373,7 @@ net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i50.i
   %add.i51.i = add i64 %fetched.0.lcssa.i.i, %fragment_offset.091.i
   %conv.i52.i = zext i32 %pkt.val.i to i64
   %cmp.i53.i = icmp ult i64 %add.i51.i, %conv.i52.i
-  %ip_off.i.i = getelementptr inbounds i8, ptr %47, i64 6
+  %ip_off.i.i = getelementptr inbounds nuw i8, ptr %47, i64 6
   %51 = load i16, ptr %ip_off.i.i, align 2
   %52 = shl i16 %51, 8
   %53 = and i16 %52, -16384
@@ -1387,7 +1387,7 @@ net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i50.i
   %add21.i.i = add i64 %56, %fetched.0.lcssa.i.i
   %conv22.i.i = trunc i64 %add21.i.i to i16
   %57 = call noundef i16 @llvm.bswap.i16(i16 %conv22.i.i)
-  %ip_len.i56.i = getelementptr inbounds i8, ptr %47, i64 2
+  %ip_len.i56.i = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i16 %57, ptr %ip_len.i56.i, align 2
   %58 = load ptr, ptr %arrayidx13.i, align 16
   %59 = load i64, ptr %iov_len.i55.i, align 8
@@ -1410,7 +1410,7 @@ if.then47.i:                                      ; preds = %sw.epilog35.i, %sw.
 
 if.then.i.i:                                      ; preds = %if.then47.i
   %fragment.val.i = load ptr, ptr %arrayidx13.i, align 16
-  %ip_id.i.i = getelementptr inbounds i8, ptr %fragment.val.i, i64 4
+  %ip_id.i.i = getelementptr inbounds nuw i8, ptr %fragment.val.i, i64 4
   %60 = load i16, ptr %ip_id.i.i, align 4
   %61 = call noundef i16 @llvm.bswap.i16(i16 %60)
   %add.i60.i = add i16 %61, 1
@@ -1419,14 +1419,14 @@ if.then.i.i:                                      ; preds = %if.then47.i
   br label %net_tx_pkt_tcp_fragment_advance.exit.i
 
 net_tx_pkt_tcp_fragment_advance.exit.i:           ; preds = %if.then.i.i, %if.then47.i
-  %th_seq.i.i = getelementptr inbounds i8, ptr %fragment.val29.i, i64 4
+  %th_seq.i.i = getelementptr inbounds nuw i8, ptr %fragment.val29.i, i64 4
   %63 = load i32, ptr %th_seq.i.i, align 4
   %64 = call noundef i32 @llvm.bswap.i32(i32 %63)
   %65 = trunc i64 %fetched.0.lcssa.i.i to i32
   %conv11.i.i = add i32 %64, %65
   %66 = call noundef i32 @llvm.bswap.i32(i32 %conv11.i.i)
   store i32 %66, ptr %th_seq.i.i, align 4
-  %th_flags.i59.i = getelementptr inbounds i8, ptr %fragment.val29.i, i64 13
+  %th_flags.i59.i = getelementptr inbounds nuw i8, ptr %fragment.val29.i, i64 13
   %67 = load i8, ptr %th_flags.i59.i, align 1
   %68 = and i8 %67, 127
   store i8 %68, ptr %th_flags.i59.i, align 1
@@ -1445,7 +1445,7 @@ while.end.i:                                      ; preds = %net_tx_pkt_fetch_fr
   ]
 
 if.then58.i:                                      ; preds = %while.end.i, %while.end.i, %while.end.i, %while.end.i
-  %69 = getelementptr inbounds i8, ptr %fragment.i, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %fragment.i, i64 48
   %fragment.val30.i = load ptr, ptr %69, align 16
   br label %return.sink.split.i
 
@@ -1469,7 +1469,7 @@ return:                                           ; preds = %if.then5, %net_tx_p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_tx_pkt_sendv(ptr noundef %opaque, ptr noundef %iov, i32 noundef %iov_cnt, ptr noundef %virt_iov, i32 noundef %virt_iov_cnt) #0 {
 entry:
-  %peer = getelementptr inbounds i8, ptr %opaque, i64 32
+  %peer = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %peer, align 8
   %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #17
   br i1 %call, label %if.then, label %if.else
@@ -1492,14 +1492,14 @@ entry:
   %csum = alloca i16, align 2
   %cso = alloca i32, align 4
   store i16 0, ptr %csum, align 2
-  %csum_start = getelementptr inbounds i8, ptr %pkt, i64 6
+  %csum_start = getelementptr inbounds nuw i8, ptr %pkt, i64 6
   %0 = load i16, ptr %csum_start, align 2
   %conv = zext i16 %0 to i64
-  %csum_offset2 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %csum_offset2 = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   %1 = load i16, ptr %csum_offset2, align 8
   %conv3 = zext i16 %1 to i64
   %add = add nuw nsw i64 %conv3, %conv
-  %iov_len5 = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len5 = getelementptr inbounds nuw i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len5, align 8
   %call = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %iov, i32 noundef 1, i64 noundef %2) #17
   %tobool.i.not = icmp eq i32 %iov_len, 0
@@ -1531,7 +1531,7 @@ iov_from_buf.exit:                                ; preds = %if.then.i, %if.else
   ]
 
 if.then:                                          ; preds = %iov_from_buf.exit
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %5 = load ptr, ptr %vec, align 8
   %arrayidx = getelementptr i8, ptr %5, i64 32
   %6 = load ptr, ptr %arrayidx, align 8
@@ -1539,11 +1539,11 @@ if.then:                                          ; preds = %iov_from_buf.exit
   br label %if.end18
 
 if.then13:                                        ; preds = %iov_from_buf.exit
-  %vec14 = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec14 = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %7 = load ptr, ptr %vec14, align 8
   %arrayidx15 = getelementptr i8, ptr %7, i64 32
   %8 = load ptr, ptr %arrayidx15, align 8
-  %l4proto = getelementptr inbounds i8, ptr %pkt, i64 65624
+  %l4proto = getelementptr inbounds nuw i8, ptr %pkt, i64 65624
   %9 = load i8, ptr %l4proto, align 8
   %call17 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef %8, i16 noundef zeroext %csl, i8 noundef zeroext %9, ptr noundef nonnull %cso) #17
   br label %if.end18
@@ -1588,7 +1588,7 @@ iov_from_buf.exit30:                              ; preds = %if.then.i28, %if.el
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_tx_pkt_fix_ip6_payload_len(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
+  %vec = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 16
   %iov_len = getelementptr i8, ptr %0, i64 24
@@ -1598,13 +1598,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
-  %ip6_un1_plen = getelementptr inbounds i8, ptr %pkt, i64 72
+  %ip6_un1_plen = getelementptr inbounds nuw i8, ptr %pkt, i64 72
   %2 = load i16, ptr %ip6_un1_plen, align 4
   %cmp3 = icmp eq i16 %2, 0
   br i1 %cmp3, label %if.then5, label %if.end16
 
 if.then5:                                         ; preds = %if.then
-  %payload_len = getelementptr inbounds i8, ptr %pkt, i64 65604
+  %payload_len = getelementptr inbounds nuw i8, ptr %pkt, i64 65604
   %3 = load i32, ptr %payload_len, align 4
   %cmp6 = icmp ult i32 %3, 65536
   br i1 %cmp6, label %if.then8, label %if.end16

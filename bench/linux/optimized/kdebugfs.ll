@@ -108,13 +108,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @create_setup_data_nodes(pt
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, -2147483648
   br i1 %17, label %18, label %43
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %11, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 16
   tail call void @memunmap(ptr noundef nonnull %11) #8
@@ -124,46 +124,46 @@ define internal fastcc noundef range(i32 -12, 1) i32 @create_setup_data_nodes(pt
   br i1 %24, label %54, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, -2147483648
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %23, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %8, align 8
   %32 = load i32, ptr %26, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i32
   br label %48
 
 37:                                               ; preds = %25
   store i64 %6, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %42 = load i32, ptr %41, align 4
   br label %48
 
 43:                                               ; preds = %13
   store i64 %6, ptr %8, align 8
   %44 = load i32, ptr %15, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %11, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %47 = load i32, ptr %46, align 4
   br label %48
 
 48:                                               ; preds = %43, %37, %29
   %49 = phi i32 [ %36, %29 ], [ %42, %37 ], [ %47, %43 ]
   %50 = phi ptr [ %23, %29 ], [ %23, %37 ], [ %11, %43 ]
-  %51 = getelementptr inbounds i8, ptr %8, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %49, ptr %51, align 4
   tail call fastcc void @create_setup_data_node(ptr noundef %2, i32 noundef %5, ptr noundef nonnull %8) #9
   tail call void @memunmap(ptr noundef nonnull %50) #8
@@ -203,8 +203,8 @@ define internal fastcc void @create_setup_data_node(ptr noundef %0, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !9
   %5 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1) #8
   %6 = call ptr @debugfs_create_dir(ptr noundef nonnull %4, ptr noundef %0) #8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @debugfs_create_x32(ptr noundef nonnull @.str.7, i16 noundef zeroext 292, ptr noundef %6, ptr noundef %7) #8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @debugfs_create_x32(ptr noundef nonnull @.str.7, i16 noundef zeroext 292, ptr noundef %6, ptr noundef nonnull %7) #8
   %8 = call ptr @debugfs_create_file(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %6, ptr noundef nonnull %2, ptr noundef nonnull @fops_setup_data) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   ret void
@@ -230,14 +230,14 @@ declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #6 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %3, align 8
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %7, %12
@@ -248,7 +248,7 @@ define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr noca
   %16 = tail call i64 @llvm.umin.i64(i64 %15, i64 %2)
   %17 = load i64, ptr %6, align 8
   %18 = add i64 %17, %7
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp ult i32 %20, -2147483647
   %22 = add i64 %18, 16

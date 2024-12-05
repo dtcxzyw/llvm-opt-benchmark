@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN7Imf_3_28TimeCodeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %_user, align 4
   ret void
 }
@@ -153,7 +153,7 @@ _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCod
   %and.i.i51 = or i32 %and.i.i48.masked, %and4.i.i52
   %or.i.i53 = or i32 %and.i.i51, %and.i.i30
   store i32 %or.i.i53, ptr %this, align 4
-  %_user.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_user.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %shl35.i.i = and i32 %binaryGroup1, 15
   %shl35.i.i59 = shl i32 %binaryGroup2, 4
   %and4.i.i60 = and i32 %shl35.i.i59, 240
@@ -409,7 +409,7 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %entry
   %sub = shl nuw nsw i32 %group, 2
   %mul = add nsw i32 %sub, -4
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %shl1.i = shl nuw i32 15, %mul
   %2 = load i32, ptr %_user, align 4
   %not2.i = xor i32 %shl1.i, -1
@@ -452,7 +452,7 @@ if.end23.sink.split.i:                            ; preds = %if.then17.i, %if.th
   br label %_ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE.exit
 
 _ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE.exit: ; preds = %if.then.i, %if.end23.sink.split.i
-  %_user.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_user.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %userData, ptr %_user.i, align 4
   ret void
 }
@@ -499,7 +499,7 @@ if.end23:                                         ; preds = %if.end23.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7Imf_3_28TimeCode11setUserDataEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %value, ptr %_user, align 4
   ret void
 }
@@ -509,9 +509,9 @@ define void @_ZN7Imf_3_28TimeCodeC2ERKS0_(ptr nocapture noundef nonnull writeonl
 entry:
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4
-  %_user = getelementptr inbounds i8, ptr %other, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %other, i64 4
   %1 = load i32, ptr %_user, align 4
-  %_user3 = getelementptr inbounds i8, ptr %this, i64 4
+  %_user3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %1, ptr %_user3, align 4
   ret void
 }
@@ -525,9 +525,9 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4
-  %_user = getelementptr inbounds i8, ptr %other, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %other, i64 4
   %1 = load i32, ptr %_user, align 4
-  %_user3 = getelementptr inbounds i8, ptr %this, i64 4
+  %_user3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %1, ptr %_user3, align 4
   br label %if.end
 
@@ -541,9 +541,9 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %c, align 4
   %cmp = icmp eq i32 %0, %1
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %_user, align 4
-  %_user3 = getelementptr inbounds i8, ptr %c, i64 4
+  %_user3 = getelementptr inbounds nuw i8, ptr %c, i64 4
   %3 = load i32, ptr %_user3, align 4
   %cmp4 = icmp eq i32 %2, %3
   %4 = select i1 %cmp, i1 %cmp4, i1 false
@@ -556,9 +556,9 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %c, align 4
   %cmp.not = icmp ne i32 %0, %1
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %_user, align 4
-  %_user3 = getelementptr inbounds i8, ptr %c, i64 4
+  %_user3 = getelementptr inbounds nuw i8, ptr %c, i64 4
   %3 = load i32, ptr %_user3, align 4
   %cmp4 = icmp ne i32 %2, %3
   %4 = select i1 %cmp.not, i1 true, i1 %cmp4
@@ -708,7 +708,7 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %entry
   %sub = shl nuw nsw i32 %group, 2
   %mul = add nsw i32 %sub, -4
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %_user, align 4
   %3 = lshr i32 %2, %mul
   %shr.i = and i32 %3, 15
@@ -746,7 +746,7 @@ return:                                           ; preds = %entry, %if.then15, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7Imf_3_28TimeCode8userDataEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_user, align 4
   ret i32 %0
 }

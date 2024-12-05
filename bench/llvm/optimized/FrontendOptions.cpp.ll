@@ -52,7 +52,7 @@ define dso_local range(i32 0, 65536) i32 @_ZN5clang15FrontendOptions24getInputKi
   %5 = alloca %"class.llvm::StringLiteral", align 8
   %6 = alloca %"class.llvm::StringSwitch", align 8
   store ptr %0, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %7, align 4
@@ -241,13 +241,13 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S2_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @.str.21, ptr %3, align 8
-  %.sroa.2283.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %.sroa.2283.0..sroa_idx, align 8
   store ptr @.str.20, ptr %4, align 8
-  %.sroa.2285.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %.sroa.2285.0..sroa_idx, align 8
   store ptr @.str.19, ptr %5, align 8
-  %.sroa.2287.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 3, ptr %.sroa.2287.0..sroa_idx, align 8
   %37 = trunc nuw i8 %36 to i1
   %or.cond383.not = or i1 %.not.i.i59411416421423426428, %37
@@ -275,7 +275,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S4_
   br i1 %43, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit137, label %44
 
 44:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S4_S2_.exit
-  %.sroa.22.0..sroa_idx.i131 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i131 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i132 = load i64, ptr %.sroa.22.0..sroa_idx.i131, align 8
   %.not.i.i133 = icmp eq i64 %.sroa.22.0.copyload.i132, 4
   br i1 %.not.i.i133, label %_ZN4llvmeqENS_9StringRefES0_.exit.i134, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit137
@@ -291,7 +291,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit13
   br i1 %46, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit156, label %47
 
 47:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit137
-  %.sroa.22.0..sroa_idx.i.i143 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i.i143 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i.i144 = load i64, ptr %.sroa.22.0..sroa_idx.i.i143, align 8
   %.not.i.i.i145 = icmp eq i64 %.sroa.22.0.copyload.i.i144, 3
   br i1 %.not.i.i.i145, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i154, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit156
@@ -313,7 +313,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.ex
   br i1 %50, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit164, label %51
 
 51:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit156
-  %.sroa.22.0..sroa_idx.i158 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i158 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i159 = load i64, ptr %.sroa.22.0..sroa_idx.i158, align 8
   %.not.i.i160 = icmp eq i64 %.sroa.22.0.copyload.i159, 2
   br i1 %.not.i.i160, label %_ZN4llvmeqENS_9StringRefES0_.exit.i161, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit164
@@ -329,7 +329,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit16
   br i1 %53, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit172, label %54
 
 54:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit164
-  %.sroa.22.0..sroa_idx.i166 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i166 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i167 = load i64, ptr %.sroa.22.0..sroa_idx.i166, align 8
   %.not.i.i168 = icmp eq i64 %.sroa.22.0.copyload.i167, 5
   br i1 %.not.i.i168, label %_ZN4llvmeqENS_9StringRefES0_.exit.i169, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit172
@@ -345,7 +345,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit17
   br i1 %56, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit187, label %57
 
 57:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit172
-  %.sroa.22.0..sroa_idx.i.i174 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i.i174 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i.i175 = load i64, ptr %.sroa.22.0..sroa_idx.i.i174, align 8
   switch i64 %.sroa.22.0.copyload.i.i175, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit187 [
     i64 2, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i185
@@ -369,7 +369,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.ex
   br i1 %60, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit195, label %61
 
 61:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit187
-  %.sroa.22.0..sroa_idx.i189 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i189 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i190 = load i64, ptr %.sroa.22.0..sroa_idx.i189, align 8
   %.not.i.i191 = icmp eq i64 %.sroa.22.0.copyload.i190, 3
   br i1 %.not.i.i191, label %_ZN4llvmeqENS_9StringRefES0_.exit.i192, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit195
@@ -385,7 +385,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit19
   br i1 %63, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit210, label %64
 
 64:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit195
-  %.sroa.22.0..sroa_idx.i.i197 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i.i197 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i.i198 = load i64, ptr %.sroa.22.0..sroa_idx.i.i197, align 8
   %.not.i.i.i199 = icmp eq i64 %.sroa.22.0.copyload.i.i198, 2
   br i1 %.not.i.i.i199, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i208, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit210
@@ -407,7 +407,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.ex
   br i1 %67, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit218, label %68
 
 68:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S2_.exit210
-  %.sroa.22.0..sroa_idx.i212 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i212 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i213 = load i64, ptr %.sroa.22.0..sroa_idx.i212, align 8
   %.not.i.i214 = icmp eq i64 %.sroa.22.0.copyload.i213, 4
   br i1 %.not.i.i214, label %_ZN4llvmeqENS_9StringRefES0_.exit.i215, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit218
@@ -423,7 +423,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit21
   br i1 %70, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit226, label %71
 
 71:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit218
-  %.sroa.22.0..sroa_idx.i220 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.22.0..sroa_idx.i220 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload.i221 = load i64, ptr %.sroa.22.0..sroa_idx.i220, align 8
   %.not.i.i222 = icmp eq i64 %.sroa.22.0.copyload.i221, 3
   br i1 %.not.i.i222, label %_ZN4llvmeqENS_9StringRefES0_.exit.i223, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit226
@@ -459,7 +459,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 14:                                               ; preds = %9
   %.sroa.01.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %2
   br i1 %.not.i.i, label %15, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit
@@ -475,20 +475,20 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %15
 
 _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit: ; preds = %9, %14, %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %.sroa.01.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.014.sroa.0.0.copyload = load ptr, ptr %6, align 8
-  %.sroa.014.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.014.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.014.sroa.2.0.copyload = load i64, ptr %.sroa.014.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.sroa.2.0.copyload = load i64, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %18 = trunc i8 %12 to i1
   br i1 %18, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S4_S2_.exit, label %19
 
 19:                                               ; preds = %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit
   %.sroa.01.0.copyload.i.i = load ptr, ptr %0, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %4
   br i1 %.not.i.i.i, label %20, label %23

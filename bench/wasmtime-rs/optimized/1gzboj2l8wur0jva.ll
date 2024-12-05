@@ -129,9 +129,9 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 83:                                               ; preds = %79
   %84 = extractvalue { i64, i64 } %82, 1
   store i64 %84, ptr %72, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %86 = load ptr, ptr %85, align 8, !nonnull !3, !noundef !3
-  %87 = getelementptr inbounds i8, ptr %2, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %88 = load i64, ptr %87, align 8, !noundef !3
   %89 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %86, i64 %88
   invoke void @"_ZN4witx6layout43_$LT$impl$u20$witx..ast..RecordDatatype$GT$13member_layout17h0f52dba4ff761f05E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %69, ptr nonnull align 8 %2)
@@ -395,7 +395,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 156:                                              ; preds = %155
   store ptr %86, ptr %49, align 8
-  %157 = getelementptr inbounds i8, ptr %49, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %89, ptr %157, align 8
   br label %158
 
@@ -875,7 +875,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 284:                                              ; preds = %283
   store ptr %86, ptr %18, align 8
-  %285 = getelementptr inbounds i8, ptr %18, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %89, ptr %285, align 8
   br label %286
 

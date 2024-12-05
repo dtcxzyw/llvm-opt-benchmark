@@ -10,9 +10,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %6 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %6)
   store i8 1, ptr %0, align 8, !alias.scope !3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8, !alias.scope !3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %8, align 8, !alias.scope !3
   ret void
 }
@@ -24,9 +24,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %6 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %6)
   store i8 0, ptr %0, align 8, !alias.scope !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8, !alias.scope !6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %8, align 8, !alias.scope !6
   ret void
 }

@@ -206,8 +206,8 @@ BufferGetPage.exit:                               ; preds = %9, %15
   br i1 %24, label %.loopexit, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %BufferGetPage.exit
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph59, %fsm_rebuild_page.exit

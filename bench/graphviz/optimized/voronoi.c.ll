@@ -23,7 +23,7 @@ define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %.sroa.3.0.ph = phi double [ %.sroa.3.1, %36 ], [ 0.000000e+00, %1 ]
   %.0.ph = phi ptr [ %37, %36 ], [ %3, %1 ]
   %.not = icmp eq ptr %.0.ph, null
-  %4 = getelementptr inbounds i8, ptr %.0.ph, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 8
   br label %5
 
 5:                                                ; preds = %.backedge, %.outer
@@ -105,27 +105,27 @@ define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %44 = tail call ptr @ELright(ptr noundef %43) #2
   %45 = tail call ptr @leftreg(ptr noundef %41) #2
   %46 = tail call ptr @rightreg(ptr noundef %43) #2
-  %47 = getelementptr inbounds i8, ptr %41, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %48 = load ptr, ptr %47, align 8
   tail call void @makevertex(ptr noundef %48) #2
-  %49 = getelementptr inbounds i8, ptr %41, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %41, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 28
   %52 = load i8, ptr %51, align 4
   %53 = sext i8 %52 to i32
   tail call void @endpoint(ptr noundef %50, i32 noundef %53, ptr noundef %48) #2
-  %54 = getelementptr inbounds i8, ptr %43, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %43, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %57 = load i8, ptr %56, align 4
   %58 = sext i8 %57 to i32
   tail call void @endpoint(ptr noundef %55, i32 noundef %58, ptr noundef %48) #2
   tail call void @ELdelete(ptr noundef %41) #2
   tail call void @PQdelete(ptr noundef %43) #2
   tail call void @ELdelete(ptr noundef %43) #2
-  %59 = getelementptr inbounds i8, ptr %45, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %46, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %60, %62
   %.084 = zext i1 %63 to i8
@@ -170,7 +170,7 @@ define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %75, %.lr.ph
   %.08396 = phi ptr [ %81, %.lr.ph ], [ %77, %75 ]
-  %79 = getelementptr inbounds i8, ptr %.08396, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.08396, i64 16
   %80 = load ptr, ptr %79, align 8
   tail call void @clip_line(ptr noundef %80) #2
   %81 = tail call ptr @ELright(ptr noundef %.08396) #2

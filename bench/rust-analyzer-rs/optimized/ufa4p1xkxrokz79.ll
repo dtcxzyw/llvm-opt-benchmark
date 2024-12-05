@@ -20,7 +20,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..Wai
   br i1 %switch, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -41,11 +41,11 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..Wai
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !alias.scope !16, !noundef !5
   %6 = icmp eq i64 %5, 0
   %.val.i = load ptr, ptr %0, align 8, !nonnull !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val5.i = load i64, ptr %7, align 8
   %invariant.gep.i.i.i = getelementptr i8, ptr %.val.i, i64 -56
   %invariant.gep = getelementptr i8, ptr %.val.i, i64 -8
@@ -138,13 +138,13 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %8, i64 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 6
   br label %37
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", %5
@@ -152,9 +152,9 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.0135, %5 ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   %.sroa.6.0.lcssa = phi i16 [ %.sroa.6.0137, %5 ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   %.sroa.8.0.lcssa = phi i16 [ %.sroa.8.0139, %5 ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
   %21 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %18, i64 %20
   %22 = icmp eq i64 %20, 0
@@ -163,15 +163,15 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a5bee93a37c1909E.exit.i.i.i"
   %.018.i.i.i = phi i64 [ %34, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a5bee93a37c1909E.exit.i.i.i" ], [ 0, %._crit_edge ]
   %23 = phi ptr [ %24, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a5bee93a37c1909E.exit.i.i.i" ], [ %18, %._crit_edge ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
-  %25 = getelementptr inbounds i8, ptr %23, i64 56
-  %26 = getelementptr inbounds i8, ptr %23, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %27 = load i16, ptr %26, align 4, !alias.scope !37, !noalias !40, !noundef !5
   %28 = icmp eq i16 %27, %.sroa.6.0.lcssa
   br i1 %28, label %29, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a5bee93a37c1909E.exit.i.i.i"
 
 29:                                               ; preds = %.lr.ph.i.i.i
-  %30 = getelementptr inbounds i8, ptr %23, i64 62
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 62
   %31 = load i16, ptr %30, align 2, !alias.scope !37, !noalias !40, !noundef !5
   %32 = icmp eq i16 %31, %.sroa.8.0.lcssa
   br i1 %32, label %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h7edd7d44b0608bafE.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3a5bee93a37c1909E.exit.i.i.i"
@@ -264,7 +264,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   br i1 %.not8.not.not.i.not.not.not.not.not, label %69, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4dd7ba157f204768E.exit"
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %68, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %71 = getelementptr i8, ptr %68, i64 64
   %.val.i64 = load ptr, ptr %71, align 8, !noalias !77, !noundef !5
   %.not.i = icmp eq ptr %.val.i64, null
@@ -307,15 +307,15 @@ select.unfold:                                    ; preds = %37, %51
 .lr.ph.i.i.i66:                                   ; preds = %75, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
   %.018.i.i.i68 = phi i64 [ %98, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i" ], [ 0, %75 ]
   %87 = phi ptr [ %88, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i" ], [ %78, %75 ]
-  %88 = getelementptr inbounds i8, ptr %87, i64 80
-  %89 = getelementptr inbounds i8, ptr %87, i64 56
-  %90 = getelementptr inbounds i8, ptr %87, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 60
   %91 = load i16, ptr %90, align 4, !alias.scope !80, !noalias !83, !noundef !5
   %92 = icmp eq i16 %91, %.sroa.6.0143
   br i1 %92, label %93, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 93:                                               ; preds = %.lr.ph.i.i.i66
-  %94 = getelementptr inbounds i8, ptr %87, i64 62
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 62
   %95 = load i16, ptr %94, align 2, !alias.scope !80, !noalias !83, !noundef !5
   %96 = icmp eq i16 %95, %.sroa.8.0144
   br i1 %96, label %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
@@ -481,7 +481,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 
 22:                                               ; preds = %16
   store i64 1, ptr %18, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %18, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -493,12 +493,12 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %9, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %2, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %18, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h17184119e765f9e1E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
@@ -542,14 +542,14 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$salsa..runtime..dependency_graph..Edge$GT$$GT$17h2dd0cdfdd8948b11E.exit": ; preds = %38, %41
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h32fd2590cfb1e1c8E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %42, i64 %2)
           to label %43 unwind label %36
 
 43:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$salsa..runtime..dependency_graph..Edge$GT$$GT$17h2dd0cdfdd8948b11E.exit"
   %44 = load i64, ptr %7, align 8, !range !118, !noundef !5
   %trunc = trunc nuw i64 %44 to i1
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.032.0.copyload = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   br i1 %trunc, label %47, label %46
 
@@ -558,14 +558,14 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   br label %78
 
 47:                                               ; preds = %43
-  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.433.0.copyload = load i64, ptr %.sroa.433.0..sroa_idx, align 8
-  %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !119
   store i64 %.sroa.534.0.copyload, ptr %6, align 8, !noalias !119
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !125
   %48 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17he8e89ab18b256145E.llvm.1614506159783340294(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.032.0.copyload, i64 noundef %.sroa.433.0.copyload)
           to label %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h4c6eaabfdd722ebfE.exit.i" unwind label %49, !noalias !126
@@ -573,7 +573,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           cleanup
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9861dd5efdf1397aE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51)
           to label %.body unwind label %52, !noalias !119
 
@@ -590,7 +590,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   %57 = lshr i64 %.sroa.433.0.copyload, 57
   %58 = trunc nuw nsw i64 %57 to i8
   %59 = add i64 %48, -16
-  %60 = getelementptr inbounds i8, ptr %.sroa.032.0.copyload, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 8
   %61 = load i64, ptr %60, align 8, !alias.scope !129, !noalias !126, !noundef !5
   %62 = and i64 %61, %59
   store i8 %58, ptr %55, align 1, !noalias !126
@@ -603,13 +603,13 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   %68 = getelementptr inbounds { { i32, i16, i16 }, { { [2 x i64] }, i64 } }, ptr %66, i64 %67
   %69 = and i8 %56, 1
   %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %.sroa.032.0.copyload, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 16
   %72 = load i64, ptr %71, align 8, !alias.scope !133, !noalias !126, !noundef !5
   %73 = sub i64 %72, %70
   store i64 %73, ptr %71, align 8, !alias.scope !133, !noalias !126
   %74 = getelementptr inbounds i8, ptr %68, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !119
-  %75 = getelementptr inbounds i8, ptr %.sroa.032.0.copyload, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 24
   %76 = load i64, ptr %75, align 8, !alias.scope !133, !noalias !126, !noundef !5
   %77 = add i64 %76, 1
   store i64 %77, ptr %75, align 8, !alias.scope !133, !noalias !126
@@ -687,9 +687,9 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   %8 = alloca { i32, i16, i16 }, align 8
   store i64 %1, ptr %8, align 8
   store i64 %2, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = lshr i64 %1, 32
   %12 = and i64 %11, 65535
   %13 = mul i64 %12, 5871781006564002453
@@ -724,11 +724,11 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   br label %.body
 
 27:                                               ; preds = %24
-  %.sroa.4.i.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.i.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.i.sroa.3.0.copyload = load i64, ptr %.sroa.4.i.sroa.3.0..sroa_idx, align 8, !noalias !155
-  %.sroa.4.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.4.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.i.sroa.4.0..sroa_idx, align 8, !noalias !155
-  %.sroa.4.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.4.i.sroa.5.0.copyload = load i64, ptr %.sroa.4.i.sroa.5.0..sroa_idx, align 8, !noalias !155
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !142
   %28 = icmp ugt i64 %.sroa.4.i.sroa.5.0.copyload, 4
@@ -744,13 +744,13 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   %.sroa.417.1 = phi i64 [ %.sroa.4.i.sroa.5.0.copyload, %27 ], [ 0, %.else ], [ 0, %.noexc ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   store i64 %.sroa.014.032, ptr %6, align 8
-  %.sroa.012.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.012.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.2.1, ptr %.sroa.012.sroa.4.0..sroa_idx, align 8
-  %.sroa.012.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.012.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.417.1, ptr %.sroa.012.sroa.5.0..sroa_idx, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %.sink4.i.i34, ptr %.sroa.5.0..sroa_idx, align 8
   br label %29
 
@@ -857,7 +857,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
   %11 = alloca i32, align 4
   store i32 %1, ptr %11, align 4
   store i64 %2, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.6.i)
@@ -876,9 +876,9 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
           to label %.noexc2 unwind label %85
 
 .noexc2:                                          ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h717442a0987903fbE.llvm.5552234135467064381.exit.i"
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !190
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i64 40, i1 false), !noalias !191
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !177
   %17 = icmp eq i64 %.sroa.3.0.copyload.i, -9223372036854775808
@@ -890,7 +890,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
           to label %24 unwind label %85
 
 19:                                               ; preds = %.noexc2
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
   store i64 %.sroa.3.0.copyload.i, ptr %9, align 8
@@ -898,11 +898,11 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
   %20 = load i32, ptr %11, align 4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb799cfe998f1f5cdE"(ptr noalias nocapture noundef nonnull sret({ [3 x i64], i64, [1 x i64] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7)
           to label %34 unwind label %25
 
@@ -916,7 +916,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 .body:                                            ; preds = %.body.i.i, %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %eh.lpad-body.i.i, %.body.i.i ]
-  %27 = getelementptr inbounds i8, ptr %9, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !192)
   call void @llvm.experimental.noalias.scope.decl(metadata !195)
   %28 = load ptr, ptr %27, align 8, !alias.scope !198, !nonnull !5, !noundef !5
@@ -933,7 +933,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 34:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  %35 = getelementptr inbounds i8, ptr %8, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = load i64, ptr %35, align 8, !range !202, !alias.scope !199, !noundef !5
   %37 = icmp eq i64 %36, 3
   br i1 %37, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17hb48d8406b963a492E.exit", label %38
@@ -941,9 +941,9 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 38:                                               ; preds = %34
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !209, !nonnull !5, !noundef !5
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !209, !noundef !5
   invoke void @"_ZN4core3ptr58drop_in_place$LT$$u5b$salsa..runtime..ActiveQuery$u5d$$GT$17h85c0ed062569fad7E.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 %40, i64 noundef %42)
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h583213b5f632638eE.llvm.12611796297594801985.exit.i.i.i" unwind label %43, !noalias !212
@@ -960,13 +960,13 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
           to label %.noexc.i.i unwind label %55
 
 .noexc.i.i:                                       ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h583213b5f632638eE.llvm.12611796297594801985.exit.i.i.i"
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = load i64, ptr %45, align 8, !range !114, !noalias !213, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %46, 0
   br i1 %.not.i.i.i.i.i, label %57, label %47
 
 47:                                               ; preds = %.noexc.i.i
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !213, !noundef !5
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %57, label %51
@@ -1000,7 +1000,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
   br i1 %switch.i.i.i, label %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17hb48d8406b963a492E.exit", label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %8, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -1026,9 +1026,9 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17hb48d8406b963a492E.exit": ; preds = %59, %57, %34, %.noexc4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  %69 = getelementptr inbounds i8, ptr %9, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %70 = load ptr, ptr %69, align 8, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load atomic i64, ptr %71 monotonic, align 8
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %_ZN11parking_lot7condvar7Condvar10notify_one17hd7cf2c1fd33a2bd6E.exit, label %74

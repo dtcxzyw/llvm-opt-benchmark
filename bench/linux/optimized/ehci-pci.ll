@@ -113,17 +113,17 @@ define internal noundef i32 @ehci_pci_resume(ptr noundef %0, i32 %1) #2 align 16
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 1300
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 32768
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 800
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 132
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 8323199, ptr elementtype(i32) %25) #5, !srcloc !5
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 132
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 8323199, ptr nonnull elementtype(i32) %25) #5, !srcloc !5
   br label %26
 
 26:                                               ; preds = %22, %17, %13, %7, %2
@@ -142,9 +142,9 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr i8, ptr %6, i64 -184
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 792
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %9, ptr %10, align 8
   %11 = getelementptr i8, ptr %6, i64 -124
   %12 = load i16, ptr %11, align 4
@@ -200,7 +200,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %29, label %30, label %142
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 1300
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -213,7 +213,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %37, label %38, label %142
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 340
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %40 = load i16, ptr %39, align 4
   %41 = or i16 %40, 64
   store i16 %41, ptr %39, align 4
@@ -226,7 +226,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %45, label %46, label %142
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 340
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %48 = load i16, ptr %47, align 4
   %49 = or i16 %48, 64
   store i16 %49, ptr %47, align 4
@@ -237,7 +237,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 1300
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 1024
   store i32 %55, ptr %53, align 4
@@ -257,7 +257,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br label %260
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 1300
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, 2048
   store i32 %64, ptr %62, align 4
@@ -301,7 +301,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %0, i64 1300
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 1024
   store i32 %89, ptr %87, align 4
@@ -314,7 +314,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %0, i64 1300
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %96 = load i32, ptr %95, align 4
   %97 = or i32 %96, 2048
   store i32 %97, ptr %95, align 4
@@ -348,7 +348,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
 
 109:                                              ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %6, ptr noundef nonnull @.str.6) #6
-  %110 = getelementptr inbounds i8, ptr %0, i64 1300
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, 8192
   store i32 %112, ptr %110, align 4
@@ -362,7 +362,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
 
 117:                                              ; preds = %113
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %6, ptr noundef nonnull @.str.7) #6
-  %118 = getelementptr inbounds i8, ptr %0, i64 1300
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, 4096
   store i32 %120, ptr %118, align 4
@@ -376,7 +376,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
 
 125:                                              ; preds = %121
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %6, ptr noundef nonnull @.str.8) #6
-  %126 = getelementptr inbounds i8, ptr %0, i64 1300
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, 131072
   store i32 %128, ptr %126, align 4
@@ -396,7 +396,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %133
-  %139 = getelementptr inbounds i8, ptr %0, i64 1300
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %140 = load i32, ptr %139, align 4
   %141 = or i32 %140, 262144
   store i32 %141, ptr %139, align 4
@@ -420,15 +420,15 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
-  %155 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %154) #5, !srcloc !7
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  %155 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %154) #5, !srcloc !7
   %156 = load i32, ptr %2, align 4
   %157 = and i32 %156, 8191
   store i32 %157, ptr %2, align 4
   %158 = load ptr, ptr %8, align 8
   %159 = zext nneg i32 %157 to i64
   %160 = getelementptr i8, ptr %158, i64 %159
-  %161 = getelementptr inbounds i8, ptr %0, i64 808
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr %160, ptr %161, align 8
   %162 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %160) #5, !srcloc !7
   store i32 %162, ptr %2, align 4
@@ -463,7 +463,7 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
   ]
 
 178:                                              ; preds = %176, %176, %176
-  %179 = getelementptr inbounds i8, ptr %0, i64 1300
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, -513
   store i32 %181, ptr %179, align 4
@@ -478,18 +478,18 @@ define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 a
 186:                                              ; preds = %182
   %187 = load ptr, ptr %0, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %187, ptr noundef nonnull @.str.12) #6
-  %188 = getelementptr inbounds i8, ptr %0, i64 1312
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %189 = load i8, ptr %188, align 8
   %190 = and i8 %189, -5
   store i8 %190, ptr %188, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 1296
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %192 = load i32, ptr %191, align 8
   %193 = and i32 %192, -32769
   store i32 %193, ptr %191, align 8
   br label %194
 
 194:                                              ; preds = %186, %182, %178, %176
-  %195 = getelementptr inbounds i8, ptr %0, i64 816
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %196 = load i32, ptr %195, align 8
   %197 = lshr i32 %196, 12
   %198 = lshr i32 %196, 8
@@ -533,12 +533,12 @@ thread-pre-split:                                 ; preds = %206, %194
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %210, %214, %thread-pre-split
-  %219 = getelementptr inbounds i8, ptr %0, i64 1313
-  %220 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 96, ptr noundef %219) #5
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  %220 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 96, ptr noundef nonnull %219) #5
   br label %221
 
 221:                                              ; preds = %218, %214, %210
-  %222 = getelementptr inbounds i8, ptr %6, i64 220
+  %222 = getelementptr inbounds nuw i8, ptr %6, i64 220
   %223 = load i16, ptr %222, align 4
   %224 = and i16 %223, 1
   %225 = icmp eq i16 %224, 0
@@ -563,7 +563,7 @@ thread-pre-split:                                 ; preds = %206, %194
   br label %233
 
 233:                                              ; preds = %232, %221
-  %234 = getelementptr inbounds i8, ptr %0, i64 1300
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %235 = load i32, ptr %234, align 4
   %236 = and i32 %235, 1
   %237 = icmp eq i32 %236, 0
@@ -599,10 +599,10 @@ thread-pre-split:                                 ; preds = %206, %194
   br i1 %255, label %256, label %260
 
 256:                                              ; preds = %252
-  %257 = getelementptr inbounds i8, ptr %0, i64 800
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 132
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 8323199, ptr elementtype(i32) %259) #5, !srcloc !5
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 132
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 8323199, ptr nonnull elementtype(i32) %259) #5, !srcloc !5
   br label %260
 
 260:                                              ; preds = %256, %252, %248, %244, %173, %59

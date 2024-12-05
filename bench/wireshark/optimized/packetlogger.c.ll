@@ -27,13 +27,13 @@ define hidden range(i32 -1, 2) i32 @packetlogger_open(ptr noundef %0, ptr nounde
   br i1 %.not.i, label %15, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = call i32 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
   %.not14.i = icmp eq i32 %11, 0
   br i1 %.not14.i, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = call i32 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %13, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
   %.not15.i = icmp eq i32 %14, 0
   br i1 %.not15.i, label %15, label %packetlogger_read_header.exit
@@ -265,18 +265,18 @@ packetlogger_check_record.exit72:                 ; preds = %61
 77:                                               ; preds = %.loopexit
   %78 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #6
   store i32 %.039, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %0, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 112
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @packetlogger_read, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @packetlogger_seek_read, ptr %81, align 8
   %82 = load i32, ptr @packetlogger_file_type_subtype, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %82, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %0, i64 144
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 118, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 148
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %85, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %.critedge
@@ -306,7 +306,7 @@ define internal i32 @packetlogger_read(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @packetlogger_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %10 = icmp eq i64 %9, -1
@@ -359,13 +359,13 @@ define internal fastcc i32 @packetlogger_read_packet(i32 %.96.val.0.val, ptr nou
   br i1 %.not.i, label %packetlogger_read_header.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 4, ptr noundef %3, ptr noundef %4) #5
   %.not14.i = icmp eq i32 %10, 0
   br i1 %.not14.i, label %packetlogger_read_header.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 4, ptr noundef %3, ptr noundef %4) #5
   %.not15.i = icmp eq i32 %13, 0
   br i1 %.not15.i, label %packetlogger_read_header.exit.thread, label %14
@@ -412,23 +412,23 @@ packetlogger_read_header.exit:                    ; preds = %15, %14
 31:                                               ; preds = %25
   store i32 0, ptr %1, align 8
   %32 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %33 = getelementptr inbounds i8, ptr %1, i64 232
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %34, align 4
   %35 = load i32, ptr %6, align 4
   %36 = add i32 %35, -8
-  %37 = getelementptr inbounds i8, ptr %1, i64 64
-  %38 = getelementptr inbounds i8, ptr %1, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %36, ptr %38, align 4
   store i32 %36, ptr %37, align 8
   %39 = load i32, ptr %9, align 4
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %40, ptr %41, align 8
   %42 = load i32, ptr %12, align 4
   %43 = mul i32 %42, 1000
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %43, ptr %44, align 8
   %45 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %36, ptr noundef %3, ptr noundef %4) #5
   br label %packetlogger_read_header.exit.thread

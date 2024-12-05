@@ -14,10 +14,10 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
   %14 = alloca %struct.Cut_ListStruct_t_, align 8
   %15 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef %0, i32 noundef %1) #5
   %16 = tail call i32 @Cut_CutCountList(ptr noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %16, ptr %17, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %.not = icmp slt i32 %16, %20
   br i1 %.not, label %21, label %248
@@ -27,7 +27,7 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 256
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -35,16 +35,16 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 27:                                               ; preds = %23, %21
   %28 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef nonnull %0, i32 noundef %2) #5
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %28, ptr %29, align 8
   %30 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef nonnull %0, i32 noundef %2) #5
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %30, ptr %31, align 8
   %32 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef nonnull %0, i32 noundef %3) #5
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %32, ptr %33, align 8
   %34 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef nonnull %0, i32 noundef %3) #5
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %34, ptr %35, align 8
   %36 = icmp eq i32 %1, %2
   %37 = icmp eq i32 %1, %3
@@ -79,14 +79,14 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .lr.ph17.i:                                       ; preds = %49, %64
   %.01215.i = phi ptr [ %66, %64 ], [ %50, %49 ]
-  %51 = getelementptr inbounds i8, ptr %.01215.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 4
   store i32 0, ptr %51, align 4
   %52 = load i32, ptr %.01215.i, align 8
   %.not19.i = icmp ult i32 %52, 268435456
   br i1 %.not19.i, label %64, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph17.i
-  %53 = getelementptr inbounds i8, ptr %.01215.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 24
   %54 = lshr i32 %52, 28
   %55 = zext nneg i32 %54 to i64
   br label %56
@@ -94,7 +94,7 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
 56:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
   %57 = phi i32 [ 0, %.lr.ph.i ], [ %63, %56 ]
-  %58 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [0 x i32], ptr %53, i64 0, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, %6
   store i32 %60, ptr %58, align 4
@@ -110,7 +110,7 @@ define void @Cut_NodeComputeCutsSeq(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %64
 
 64:                                               ; preds = %._crit_edge.i, %.lr.ph17.i
-  %65 = getelementptr inbounds i8, ptr %.01215.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 16
   %66 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %Cut_NodeShiftCutLeaves.exit, label %.lr.ph17.i, !llvm.loop !6
@@ -122,14 +122,14 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
 
 .lr.ph17.i141:                                    ; preds = %Cut_NodeShiftCutLeaves.exit, %81
   %.01215.i142 = phi ptr [ %83, %81 ], [ %67, %Cut_NodeShiftCutLeaves.exit ]
-  %68 = getelementptr inbounds i8, ptr %.01215.i142, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.01215.i142, i64 4
   store i32 0, ptr %68, align 4
   %69 = load i32, ptr %.01215.i142, align 8
   %.not19.i143 = icmp ult i32 %69, 268435456
   br i1 %.not19.i143, label %81, label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %.lr.ph17.i141
-  %70 = getelementptr inbounds i8, ptr %.01215.i142, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.01215.i142, i64 24
   %71 = lshr i32 %69, 28
   %72 = zext nneg i32 %71 to i64
   br label %73
@@ -137,7 +137,7 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
 73:                                               ; preds = %73, %.lr.ph.i144
   %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.i144 ], [ %indvars.iv.next.i146, %73 ]
   %74 = phi i32 [ 0, %.lr.ph.i144 ], [ %80, %73 ]
-  %75 = getelementptr inbounds [0 x i32], ptr %70, i64 0, i64 %indvars.iv.i145
+  %75 = getelementptr inbounds nuw [0 x i32], ptr %70, i64 0, i64 %indvars.iv.i145
   %76 = load i32, ptr %75, align 4
   %77 = add nsw i32 %76, %6
   store i32 %77, ptr %75, align 4
@@ -153,7 +153,7 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
   br label %81
 
 81:                                               ; preds = %._crit_edge.i147, %.lr.ph17.i141
-  %82 = getelementptr inbounds i8, ptr %.01215.i142, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.01215.i142, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not.i148 = icmp eq ptr %83, null
   br i1 %.not.i148, label %.critedge, label %.lr.ph17.i141, !llvm.loop !6
@@ -169,14 +169,14 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
 
 .lr.ph17.i151:                                    ; preds = %84, %99
   %.01215.i152 = phi ptr [ %101, %99 ], [ %85, %84 ]
-  %86 = getelementptr inbounds i8, ptr %.01215.i152, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.01215.i152, i64 4
   store i32 0, ptr %86, align 4
   %87 = load i32, ptr %.01215.i152, align 8
   %.not19.i153 = icmp ult i32 %87, 268435456
   br i1 %.not19.i153, label %99, label %.lr.ph.i154
 
 .lr.ph.i154:                                      ; preds = %.lr.ph17.i151
-  %88 = getelementptr inbounds i8, ptr %.01215.i152, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.01215.i152, i64 24
   %89 = lshr i32 %87, 28
   %90 = zext nneg i32 %89 to i64
   br label %91
@@ -184,7 +184,7 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
 91:                                               ; preds = %91, %.lr.ph.i154
   %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.i154 ], [ %indvars.iv.next.i156, %91 ]
   %92 = phi i32 [ 0, %.lr.ph.i154 ], [ %98, %91 ]
-  %93 = getelementptr inbounds [0 x i32], ptr %88, i64 0, i64 %indvars.iv.i155
+  %93 = getelementptr inbounds nuw [0 x i32], ptr %88, i64 0, i64 %indvars.iv.i155
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %94, %7
   store i32 %95, ptr %93, align 4
@@ -200,7 +200,7 @@ Cut_NodeShiftCutLeaves.exit:                      ; preds = %64, %49
   br label %99
 
 99:                                               ; preds = %._crit_edge.i157, %.lr.ph17.i151
-  %100 = getelementptr inbounds i8, ptr %.01215.i152, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.01215.i152, i64 16
   %101 = load ptr, ptr %100, align 8
   %.not.i158 = icmp eq ptr %101, null
   br i1 %.not.i158, label %Cut_NodeShiftCutLeaves.exit159, label %.lr.ph17.i151, !llvm.loop !6
@@ -212,14 +212,14 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %99, %84
 
 .lr.ph17.i161:                                    ; preds = %Cut_NodeShiftCutLeaves.exit159, %116
   %.01215.i162 = phi ptr [ %118, %116 ], [ %102, %Cut_NodeShiftCutLeaves.exit159 ]
-  %103 = getelementptr inbounds i8, ptr %.01215.i162, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.01215.i162, i64 4
   store i32 0, ptr %103, align 4
   %104 = load i32, ptr %.01215.i162, align 8
   %.not19.i163 = icmp ult i32 %104, 268435456
   br i1 %.not19.i163, label %116, label %.lr.ph.i164
 
 .lr.ph.i164:                                      ; preds = %.lr.ph17.i161
-  %105 = getelementptr inbounds i8, ptr %.01215.i162, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %.01215.i162, i64 24
   %106 = lshr i32 %104, 28
   %107 = zext nneg i32 %106 to i64
   br label %108
@@ -227,7 +227,7 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %99, %84
 108:                                              ; preds = %108, %.lr.ph.i164
   %indvars.iv.i165 = phi i64 [ 0, %.lr.ph.i164 ], [ %indvars.iv.next.i166, %108 ]
   %109 = phi i32 [ 0, %.lr.ph.i164 ], [ %115, %108 ]
-  %110 = getelementptr inbounds [0 x i32], ptr %105, i64 0, i64 %indvars.iv.i165
+  %110 = getelementptr inbounds nuw [0 x i32], ptr %105, i64 0, i64 %indvars.iv.i165
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, %7
   store i32 %112, ptr %110, align 4
@@ -243,17 +243,17 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %99, %84
   br label %116
 
 116:                                              ; preds = %._crit_edge.i167, %.lr.ph17.i161
-  %117 = getelementptr inbounds i8, ptr %.01215.i162, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.01215.i162, i64 16
   %118 = load ptr, ptr %117, align 8
   %.not.i168 = icmp eq ptr %118, null
   br i1 %.not.i168, label %.critedge133, label %.lr.ph17.i161, !llvm.loop !6
 
 .critedge133:                                     ; preds = %116, %Cut_NodeShiftCutLeaves.exit159, %.critedge
   %119 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef nonnull %0, i32 noundef %1) #5
-  %120 = getelementptr inbounds i8, ptr %0, i64 128
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %119, ptr %120, align 8
   %121 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef nonnull %0, i32 noundef %1) #5
-  %122 = getelementptr inbounds i8, ptr %0, i64 136
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %121, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #5
@@ -263,7 +263,7 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %99, %84
 125:                                              ; preds = %.critedge133
   %126 = load i64, ptr %13, align 8
   %.neg217 = mul i64 %126, -1000000
-  %127 = getelementptr inbounds i8, ptr %13, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %128 = load i64, ptr %127, align 8
   %.neg = sdiv i64 %128, -1000
   %.neg218 = add i64 %.neg, %.neg217
@@ -272,15 +272,15 @@ Cut_NodeShiftCutLeaves.exit159:                   ; preds = %99, %84
 Abc_Clock.exit:                                   ; preds = %.critedge133, %125
   %.0.i.neg = phi i64 [ %.neg218, %125 ], [ 1, %.critedge133 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %129 = getelementptr inbounds i8, ptr %14, i64 104
-  %scevgep.i = getelementptr inbounds i8, ptr %14, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %scevgep.i, i8 0, i64 96, i1 false)
   br label %130
 
 130:                                              ; preds = %130, %Abc_Clock.exit
   %indvars.iv.i170 = phi i64 [ 1, %Abc_Clock.exit ], [ %indvars.iv.next.i171, %130 ]
-  %131 = getelementptr inbounds [13 x ptr], ptr %14, i64 0, i64 %indvars.iv.i170
-  %132 = getelementptr inbounds [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i170
+  %131 = getelementptr inbounds nuw [13 x ptr], ptr %14, i64 0, i64 %indvars.iv.i170
+  %132 = getelementptr inbounds nuw [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i170
   store ptr %131, ptr %132, align 8
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i171, 13
@@ -303,14 +303,14 @@ Cut_ListStart.exit:                               ; preds = %130
 139:                                              ; preds = %146, %Cut_ListStart.exit
   %indvars.iv.i172 = phi i64 [ 1, %Cut_ListStart.exit ], [ %indvars.iv.next.i173, %146 ]
   %.0911.i = phi ptr [ %12, %Cut_ListStart.exit ], [ %.1.i, %146 ]
-  %140 = getelementptr inbounds [13 x ptr], ptr %14, i64 0, i64 %indvars.iv.i172
+  %140 = getelementptr inbounds nuw [13 x ptr], ptr %14, i64 0, i64 %indvars.iv.i172
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %139
   store ptr %141, ptr %.0911.i, align 8
-  %144 = getelementptr inbounds [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i172
+  %144 = getelementptr inbounds nuw [13 x ptr], ptr %129, i64 0, i64 %indvars.iv.i172
   %145 = load ptr, ptr %144, align 8
   br label %146
 
@@ -332,7 +332,7 @@ Cut_ListFinish.exit:                              ; preds = %146
 149:                                              ; preds = %Cut_ListFinish.exit
   %150 = load i64, ptr %11, align 8
   %151 = mul nsw i64 %150, 1000000
-  %152 = getelementptr inbounds i8, ptr %11, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %153 = load i64, ptr %152, align 8
   %154 = sdiv i64 %153, 1000
   %155 = add nsw i64 %154, %151
@@ -342,7 +342,7 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
   %.0.i175 = phi i64 [ %155, %149 ], [ -1, %Cut_ListFinish.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %156 = add i64 %.0.i175, %.0.i.neg
-  %157 = getelementptr inbounds i8, ptr %0, i64 272
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %158 = load i64, ptr %157, align 8
   %159 = add nsw i64 %156, %158
   store i64 %159, ptr %157, align 8
@@ -369,14 +369,14 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
 
 .lr.ph17.i178:                                    ; preds = %166, %181
   %.01215.i179 = phi ptr [ %183, %181 ], [ %167, %166 ]
-  %168 = getelementptr inbounds i8, ptr %.01215.i179, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.01215.i179, i64 4
   store i32 0, ptr %168, align 4
   %169 = load i32, ptr %.01215.i179, align 8
   %.not19.i180 = icmp ult i32 %169, 268435456
   br i1 %.not19.i180, label %181, label %.lr.ph.i181
 
 .lr.ph.i181:                                      ; preds = %.lr.ph17.i178
-  %170 = getelementptr inbounds i8, ptr %.01215.i179, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %.01215.i179, i64 24
   %171 = lshr i32 %169, 28
   %172 = zext nneg i32 %171 to i64
   br label %173
@@ -384,7 +384,7 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
 173:                                              ; preds = %173, %.lr.ph.i181
   %indvars.iv.i182 = phi i64 [ 0, %.lr.ph.i181 ], [ %indvars.iv.next.i183, %173 ]
   %174 = phi i32 [ 0, %.lr.ph.i181 ], [ %180, %173 ]
-  %175 = getelementptr inbounds [0 x i32], ptr %170, i64 0, i64 %indvars.iv.i182
+  %175 = getelementptr inbounds nuw [0 x i32], ptr %170, i64 0, i64 %indvars.iv.i182
   %176 = load i32, ptr %175, align 4
   %177 = sub nsw i32 %176, %6
   store i32 %177, ptr %175, align 4
@@ -400,7 +400,7 @@ Abc_Clock.exit176:                                ; preds = %Cut_ListFinish.exit
   br label %181
 
 181:                                              ; preds = %._crit_edge.i184, %.lr.ph17.i178
-  %182 = getelementptr inbounds i8, ptr %.01215.i179, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.01215.i179, i64 16
   %183 = load ptr, ptr %182, align 8
   %.not.i185 = icmp eq ptr %183, null
   br i1 %.not.i185, label %Cut_NodeShiftCutLeaves.exit186, label %.lr.ph17.i178, !llvm.loop !6
@@ -412,14 +412,14 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 
 .lr.ph17.i188:                                    ; preds = %Cut_NodeShiftCutLeaves.exit186, %198
   %.01215.i189 = phi ptr [ %200, %198 ], [ %184, %Cut_NodeShiftCutLeaves.exit186 ]
-  %185 = getelementptr inbounds i8, ptr %.01215.i189, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.01215.i189, i64 4
   store i32 0, ptr %185, align 4
   %186 = load i32, ptr %.01215.i189, align 8
   %.not19.i190 = icmp ult i32 %186, 268435456
   br i1 %.not19.i190, label %198, label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %.lr.ph17.i188
-  %187 = getelementptr inbounds i8, ptr %.01215.i189, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %.01215.i189, i64 24
   %188 = lshr i32 %186, 28
   %189 = zext nneg i32 %188 to i64
   br label %190
@@ -427,7 +427,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 190:                                              ; preds = %190, %.lr.ph.i191
   %indvars.iv.i192 = phi i64 [ 0, %.lr.ph.i191 ], [ %indvars.iv.next.i193, %190 ]
   %191 = phi i32 [ 0, %.lr.ph.i191 ], [ %197, %190 ]
-  %192 = getelementptr inbounds [0 x i32], ptr %187, i64 0, i64 %indvars.iv.i192
+  %192 = getelementptr inbounds nuw [0 x i32], ptr %187, i64 0, i64 %indvars.iv.i192
   %193 = load i32, ptr %192, align 4
   %194 = sub nsw i32 %193, %6
   store i32 %194, ptr %192, align 4
@@ -443,7 +443,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
   br label %198
 
 198:                                              ; preds = %._crit_edge.i194, %.lr.ph17.i188
-  %199 = getelementptr inbounds i8, ptr %.01215.i189, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.01215.i189, i64 16
   %200 = load ptr, ptr %199, align 8
   %.not.i195 = icmp eq ptr %200, null
   br i1 %.not.i195, label %.critedge137, label %.lr.ph17.i188, !llvm.loop !6
@@ -458,14 +458,14 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 
 .lr.ph17.i198:                                    ; preds = %201, %216
   %.01215.i199 = phi ptr [ %218, %216 ], [ %202, %201 ]
-  %203 = getelementptr inbounds i8, ptr %.01215.i199, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %.01215.i199, i64 4
   store i32 0, ptr %203, align 4
   %204 = load i32, ptr %.01215.i199, align 8
   %.not19.i200 = icmp ult i32 %204, 268435456
   br i1 %.not19.i200, label %216, label %.lr.ph.i201
 
 .lr.ph.i201:                                      ; preds = %.lr.ph17.i198
-  %205 = getelementptr inbounds i8, ptr %.01215.i199, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %.01215.i199, i64 24
   %206 = lshr i32 %204, 28
   %207 = zext nneg i32 %206 to i64
   br label %208
@@ -473,7 +473,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
 208:                                              ; preds = %208, %.lr.ph.i201
   %indvars.iv.i202 = phi i64 [ 0, %.lr.ph.i201 ], [ %indvars.iv.next.i203, %208 ]
   %209 = phi i32 [ 0, %.lr.ph.i201 ], [ %215, %208 ]
-  %210 = getelementptr inbounds [0 x i32], ptr %205, i64 0, i64 %indvars.iv.i202
+  %210 = getelementptr inbounds nuw [0 x i32], ptr %205, i64 0, i64 %indvars.iv.i202
   %211 = load i32, ptr %210, align 4
   %212 = sub nsw i32 %211, %7
   store i32 %212, ptr %210, align 4
@@ -489,7 +489,7 @@ Cut_NodeShiftCutLeaves.exit186:                   ; preds = %181, %166
   br label %216
 
 216:                                              ; preds = %._crit_edge.i204, %.lr.ph17.i198
-  %217 = getelementptr inbounds i8, ptr %.01215.i199, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %.01215.i199, i64 16
   %218 = load ptr, ptr %217, align 8
   %.not.i205 = icmp eq ptr %218, null
   br i1 %.not.i205, label %Cut_NodeShiftCutLeaves.exit206, label %.lr.ph17.i198, !llvm.loop !6
@@ -501,14 +501,14 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
 
 .lr.ph17.i208:                                    ; preds = %Cut_NodeShiftCutLeaves.exit206, %233
   %.01215.i209 = phi ptr [ %235, %233 ], [ %219, %Cut_NodeShiftCutLeaves.exit206 ]
-  %220 = getelementptr inbounds i8, ptr %.01215.i209, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %.01215.i209, i64 4
   store i32 0, ptr %220, align 4
   %221 = load i32, ptr %.01215.i209, align 8
   %.not19.i210 = icmp ult i32 %221, 268435456
   br i1 %.not19.i210, label %233, label %.lr.ph.i211
 
 .lr.ph.i211:                                      ; preds = %.lr.ph17.i208
-  %222 = getelementptr inbounds i8, ptr %.01215.i209, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %.01215.i209, i64 24
   %223 = lshr i32 %221, 28
   %224 = zext nneg i32 %223 to i64
   br label %225
@@ -516,7 +516,7 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
 225:                                              ; preds = %225, %.lr.ph.i211
   %indvars.iv.i212 = phi i64 [ 0, %.lr.ph.i211 ], [ %indvars.iv.next.i213, %225 ]
   %226 = phi i32 [ 0, %.lr.ph.i211 ], [ %232, %225 ]
-  %227 = getelementptr inbounds [0 x i32], ptr %222, i64 0, i64 %indvars.iv.i212
+  %227 = getelementptr inbounds nuw [0 x i32], ptr %222, i64 0, i64 %indvars.iv.i212
   %228 = load i32, ptr %227, align 4
   %229 = sub nsw i32 %228, %7
   store i32 %229, ptr %227, align 4
@@ -532,7 +532,7 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
   br label %233
 
 233:                                              ; preds = %._crit_edge.i214, %.lr.ph17.i208
-  %234 = getelementptr inbounds i8, ptr %.01215.i209, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %.01215.i209, i64 16
   %235 = load ptr, ptr %234, align 8
   %.not.i215 = icmp eq ptr %235, null
   br i1 %.not.i215, label %.critedge139, label %.lr.ph17.i208, !llvm.loop !6
@@ -552,13 +552,13 @@ Cut_NodeShiftCutLeaves.exit206:                   ; preds = %216, %201
 239:                                              ; preds = %238, %237
   %240 = load i32, ptr %17, align 4
   %241 = load ptr, ptr %0, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %243 = load i32, ptr %242, align 4
   %.not130 = icmp slt i32 %240, %243
   br i1 %.not130, label %248, label %244
 
 244:                                              ; preds = %239
-  %245 = getelementptr inbounds i8, ptr %0, i64 252
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %246 = load i32, ptr %245, align 4
   %247 = add nsw i32 %246, 1
   store i32 %247, ptr %245, align 4

@@ -32,20 +32,20 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %.08193 = phi i32 [ 1, %8 ], [ 0, %5 ]
   %10 = zext nneg i32 %.08193 to i64
   %11 = getelementptr [2 x %struct.AllocSetFreeList], ptr @context_freelists, i64 0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.thread94, label %14
 
 14:                                               ; preds = %.thread
-  %15 = getelementptr inbounds i8, ptr %13, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
   %17 = load i32, ptr %11, align 16
   %18 = add i32 %17, -1
   store i32 %18, ptr %11, align 16
   %19 = trunc i64 %4 to i32
-  %20 = getelementptr inbounds i8, ptr %13, i64 180
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 180
   store i32 %19, ptr %20, align 4
   tail call void @MemoryContextCreate(ptr noundef nonnull %13, i32 noundef 457, i32 noundef 3, ptr noundef %0, ptr noundef %1) #13
   %21 = getelementptr i8, ptr %13, i64 232
@@ -96,10 +96,10 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %44 = getelementptr i8, ptr %28, i64 232
   store ptr %43, ptr %44, align 8
   %45 = getelementptr i8, ptr %28, i64 208
-  %46 = getelementptr inbounds i8, ptr %28, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   store ptr %40, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %28, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %48 = getelementptr i8, ptr %28, i64 176
   %49 = icmp ult ptr %47, %48
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge
@@ -119,11 +119,11 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %56 = trunc i64 %3 to i32
   store i32 %56, ptr %48, align 8
   %57 = trunc i64 %4 to i32
-  %58 = getelementptr inbounds i8, ptr %28, i64 180
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 180
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %28, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %28, i64 184
   store i32 %56, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %28, i64 192
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 192
   store i32 %.0819296, ptr %60, align 8
   %61 = add i64 %4, -40
   %62 = lshr i64 %61, 2
@@ -138,7 +138,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   br i1 %65, label %63, label %67, !llvm.loop !5
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %28, i64 188
+  %68 = getelementptr inbounds nuw i8, ptr %28, i64 188
   store i32 %storemerge, ptr %68, align 4
   tail call void @MemoryContextCreate(ptr noundef nonnull %28, i32 noundef 457, i32 noundef 3, ptr noundef %0, ptr noundef %1) #13
   br label %69
@@ -146,7 +146,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
 69:                                               ; preds = %67, %14
   %.sink101 = phi ptr [ %28, %67 ], [ %13, %14 ]
   %.sink99 = phi i64 [ %27, %67 ], [ %25, %14 ]
-  %70 = getelementptr inbounds i8, ptr %.sink101, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sink101, i64 8
   store i64 %.sink99, ptr %70, align 8
   ret ptr %.sink101
 }
@@ -172,7 +172,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @AllocSetReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 200
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = getelementptr i8, ptr %0, i64 176
   %5 = icmp ult ptr %3, %4
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -190,33 +190,33 @@ define dso_local void @AllocSetReset(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   store ptr %2, ptr %13, align 8
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %._crit_edge43, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph42, %31
   %.040 = phi ptr [ %14, %.lr.ph42 ], [ %18, %31 ]
-  %17 = getelementptr inbounds i8, ptr %.040, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %.040, %2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %.040, i64 40
-  %22 = getelementptr inbounds i8, ptr %.040, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.040, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.040, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %31
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.040, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.040, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %.040 to i64
@@ -233,7 +233,7 @@ define dso_local void @AllocSetReset(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge43:                                    ; preds = %31, %._crit_edge
   %32 = load i32, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %32, ptr %33, align 8
   ret void
 }
@@ -243,10 +243,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 200
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %9, label %.preheader36
@@ -256,13 +256,13 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader36
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %30
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %6 to i64
   %11 = getelementptr [2 x %struct.AllocSetFreeList], ptr @context_freelists, i64 0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %16, label %15
@@ -277,14 +277,14 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.promoted = load ptr, ptr %19, align 8
   %.not3439 = icmp eq ptr %.promoted, null
   br i1 %.not3439, label %.loopexit, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
   %20 = phi ptr [ %22, %.lr.ph40 ], [ %.promoted, %.preheader ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %19, align 8
   %23 = load i32, ptr %11, align 16
@@ -300,9 +300,9 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %16
   %25 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %17, %.preheader ], [ %17, %16 ]
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %27, ptr %28, align 8
   store ptr %0, ptr %26, align 8
   %29 = add i32 %25, 1
@@ -311,13 +311,13 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %.lr.ph, %.critedge
   %.038 = phi ptr [ %3, %.lr.ph ], [ %32, %.critedge ]
-  %31 = getelementptr inbounds i8, ptr %.038, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %.038, %4
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.038, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.038, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %.038 to i64
@@ -344,7 +344,7 @@ declare void @MemoryContextResetOnly(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 188
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %1, %6
@@ -378,42 +378,42 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br label %AllocSetAllocLarge.exit
 
 22:                                               ; preds = %MemoryContextCheckSize.exit.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %17
   store i64 %25, ptr %23, align 8
   store ptr %0, ptr %18, align 8
   %26 = getelementptr i8, ptr %18, i64 %17
-  %27 = getelementptr inbounds i8, ptr %18, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %26, ptr %28, align 8
   %29 = getelementptr i8, ptr %18, i64 40
   store i64 -5645020766237429829, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
-  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br i1 %.not.i, label %42, label %33
 
 33:                                               ; preds = %22
   store ptr %31, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %18, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %35, ptr %36, align 8
   %.not39.i = icmp eq ptr %35, null
   br i1 %.not39.i, label %39, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %18, ptr %38, align 8
   %.pre.i = load ptr, ptr %30, align 8
   br label %39
 
 39:                                               ; preds = %37, %33
   %40 = phi ptr [ %.pre.i, %37 ], [ %31, %33 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %18, ptr %41, align 8
   br label %43
 
@@ -433,7 +433,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %50 = sub nsw i32 29, %49
   %.0.i32 = select i1 %46, i32 %50, i32 0
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = sext i32 %.0.i32 to i64
   %53 = getelementptr [11 x ptr], ptr %51, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
@@ -449,11 +449,11 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
 58:                                               ; preds = %45
   %59 = zext nneg i32 %.0.i32 to i64
   %60 = shl i64 8, %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = ptrtoint ptr %64 to i64
   %68 = ptrtoint ptr %66 to i64
@@ -509,11 +509,11 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br i1 %101, label %75, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %75, %72
-  %102 = getelementptr inbounds i8, ptr %0, i64 184
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
   %105 = shl i32 %103, 1
-  %106 = getelementptr inbounds i8, ptr %0, i64 180
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %107 = load i32, ptr %106, align 4
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %105, i32 %107)
   store i32 %spec.store.select.i, ptr %102, align 8
@@ -557,27 +557,27 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br label %AllocSetAllocLarge.exit
 
 125:                                              ; preds = %._crit_edge90.i
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %.1.lcssa.i
   store i64 %128, ptr %126, align 8
   store ptr %0, ptr %.072.lcssa.i, align 8
   %129 = getelementptr i8, ptr %.072.lcssa.i, i64 40
-  %130 = getelementptr inbounds i8, ptr %.072.lcssa.i, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.072.lcssa.i, i64 24
   store ptr %129, ptr %130, align 8
   %131 = getelementptr i8, ptr %.072.lcssa.i, i64 %.1.lcssa.i
-  %132 = getelementptr inbounds i8, ptr %.072.lcssa.i, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %.072.lcssa.i, i64 32
   store ptr %131, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %.072.lcssa.i, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.072.lcssa.i, i64 8
   store ptr null, ptr %133, align 8
   %134 = load ptr, ptr %61, align 8
-  %135 = getelementptr inbounds i8, ptr %.072.lcssa.i, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.072.lcssa.i, i64 16
   store ptr %134, ptr %135, align 8
   %.not.i33 = icmp eq ptr %134, null
   br i1 %.not.i33, label %138, label %136
 
 136:                                              ; preds = %125
-  %137 = getelementptr inbounds i8, ptr %134, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %.072.lcssa.i, ptr %137, align 8
   %.pre.i34 = load ptr, ptr %130, align 8
   br label %138
@@ -665,12 +665,12 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not36, label %26, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %23, ptr %25, align 8
   br label %28
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %7, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %23, ptr %27, align 8
   br label %28
 
@@ -680,7 +680,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds i8, ptr %23, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -689,7 +689,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %5 to i64
   %.neg = sub i64 %35, %34
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %.neg, %37
   store i64 %38, ptr %36, align 8
@@ -703,7 +703,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %43 = load ptr, ptr %42, align 8
   %44 = lshr i64 %.val, 4
   %45 = and i64 %44, 1073741823
-  %46 = getelementptr inbounds i8, ptr %43, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %47 = getelementptr [11 x ptr], ptr %46, i64 0, i64 %45
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %0, align 8
@@ -784,41 +784,41 @@ MemoryContextCheckSize.exit:                      ; preds = %21, %23
 35:                                               ; preds = %MemoryContextCheckSize.exit
   %36 = ptrtoint ptr %15 to i64
   %37 = ptrtoint ptr %7 to i64
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = load i64, ptr %38, align 8
   %.neg = add i64 %30, %37
   %40 = sub i64 %.neg, %36
   %41 = add i64 %40, %39
   store i64 %41, ptr %38, align 8
   %42 = getelementptr i8, ptr %31, i64 %30
-  %43 = getelementptr inbounds i8, ptr %31, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %42, ptr %44, align 8
   %45 = getelementptr i8, ptr %31, i64 48
-  %46 = getelementptr inbounds i8, ptr %31, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not75 = icmp eq ptr %47, null
   br i1 %.not75, label %50, label %48
 
 48:                                               ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %31, ptr %49, align 8
   br label %52
 
 50:                                               ; preds = %35
-  %51 = getelementptr inbounds i8, ptr %9, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %31, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = getelementptr inbounds i8, ptr %31, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not76 = icmp eq ptr %54, null
   br i1 %.not76, label %71, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %31, ptr %56, align 8
   br label %71
 
@@ -905,7 +905,7 @@ define dso_local i64 @AllocSetGetChunkSpace(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @AllocSetIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -914,7 +914,7 @@ define dso_local zeroext i1 @AllocSetIsEmpty(ptr nocapture noundef readonly %0) 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.04454 = load ptr, ptr %7, align 8
   %.not55 = icmp eq ptr %.04454, null
   br i1 %.not55, label %.preheader, label %.lr.ph
@@ -923,7 +923,7 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   %.047.lcssa = phi i64 [ 200, %5 ], [ %15, %.lr.ph ]
   %.045.lcssa = phi i64 [ 0, %5 ], [ %20, %.lr.ph ]
   %.0.lcssa = phi i64 [ 0, %5 ], [ %9, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %22
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -932,18 +932,18 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   %.04557 = phi i64 [ %20, %.lr.ph ], [ 0, %5 ]
   %.04756 = phi i64 [ %15, %.lr.ph ], [ 200, %5 ]
   %9 = add i64 %.058, 1
-  %10 = getelementptr inbounds i8, ptr %.04459, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.04459, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %.04459 to i64
   %14 = sub i64 %.04756, %13
   %15 = add i64 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.04459, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.04459, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = add i64 %.04557, %12
   %20 = sub i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.04459, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.04459, i64 16
   %.044 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.044, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !13
@@ -998,15 +998,15 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   %36 = load i64, ptr %3, align 8
   %37 = add i64 %36, %.0.lcssa
   store i64 %37, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %.1.lcssa
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %.047.lcssa
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %.2.lcssa
   store i64 %46, ptr %44, align 8

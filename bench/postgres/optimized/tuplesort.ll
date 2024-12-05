@@ -94,46 +94,46 @@ define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonl
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %13, i64 352
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 352
   tail call void @pg_rusage_init(ptr noundef nonnull %17) #12
   br label %18
 
 18:                                               ; preds = %16, %8
-  %19 = getelementptr inbounds i8, ptr %13, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 100
   store i8 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 344
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 344
   store i64 10, ptr %21, align 8
   %22 = tail call i32 @llvm.smax.i32(i32 %0, i32 64)
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 10
-  %25 = getelementptr inbounds i8, ptr %13, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %11, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %10, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 188
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 188
   store i32 1024, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %13, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 176
   store ptr null, ptr %29, align 8
   tail call fastcc void @tuplesort_begin_batch(ptr noundef %13)
   br i1 %.not, label %30, label %33
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %13, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 328
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 320
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 320
   store i32 -1, ptr %32, align 8
   br label %51
 
 33:                                               ; preds = %18
   %34 = load i8, ptr %1, align 8
   %35 = trunc i8 %34 to i1
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 328
   store ptr %37, ptr %38, align 8
   br i1 %35, label %39, label %47
 
@@ -147,26 +147,26 @@ define dso_local ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef readonl
   br label %worker_get_identifier.exit
 
 worker_get_identifier.exit:                       ; preds = %39, %41
-  %43 = getelementptr inbounds i8, ptr %37, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   store i8 0, ptr %37, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 320
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 320
   store i32 %44, ptr %46, align 8
   br label %51
 
 47:                                               ; preds = %33
-  %48 = getelementptr inbounds i8, ptr %13, i64 320
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 320
   store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = load i32, ptr %49, align 4
   br label %51
 
 51:                                               ; preds = %worker_get_identifier.exit, %47, %30
   %.sink = phi i32 [ -1, %worker_get_identifier.exit ], [ %50, %47 ], [ -1, %30 ]
-  %52 = getelementptr inbounds i8, ptr %13, i64 336
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 336
   store i32 %.sink, ptr %52, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
   ret ptr %13
@@ -189,15 +189,15 @@ declare void @pg_rusage_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef initializes((64, 72), (112, 118), (128, 136), (168, 176), (184, 188), (192, 194)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2
   %.not = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   br i1 %.not, label %12, label %10
 
@@ -211,30 +211,30 @@ define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef initial
 
 14:                                               ; preds = %12, %10
   %.sink = phi ptr [ %13, %12 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 117
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 117
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 193
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 193
   store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %27 = load ptr, ptr %26, align 8
   %.not30 = icmp eq ptr %27, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 188
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 188
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.not30, label %..thread_crit_edge34, label %30
 
@@ -281,9 +281,9 @@ thread-pre-split32:                               ; preds = %30, %.thread
   unreachable
 
 45:                                               ; preds = %39, %thread-pre-split32
-  %46 = getelementptr inbounds i8, ptr %0, i64 240
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr null, ptr %47, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   ret void
@@ -291,13 +291,13 @@ thread-pre-split32:                               ; preds = %30, %.thread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @tuplesort_set_bound(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   %9 = icmp sgt i64 %1, 1073741823
@@ -309,33 +309,33 @@ define dso_local void @tuplesort_set_bound(ptr nocapture noundef %0, i64 noundef
   br i1 %.old1, label %28, label %11
 
 11:                                               ; preds = %5, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 1, ptr %12, align 4
   %13 = trunc i64 %1 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %20, ptr %22, align 8
   %.pre = load ptr, ptr %15, align 8
   br label %23
 
 23:                                               ; preds = %21, %11
   %24 = phi ptr [ %.pre, %21 ], [ %18, %11 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store ptr null, ptr %27, align 8
   br label %28
 
@@ -345,7 +345,7 @@ define dso_local void @tuplesort_set_bound(ptr nocapture noundef %0, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @tuplesort_used_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 117
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -354,7 +354,7 @@ define dso_local zeroext i1 @tuplesort_used_bound(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_end(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @tuplesort_free(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @MemoryContextDelete(ptr noundef %3) #12
   ret void
@@ -362,19 +362,19 @@ define dso_local void @tuplesort_end(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %14
 
 .thread:                                          ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %8, 1023
   %12 = sub i64 %11, %10
@@ -407,13 +407,13 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   br i1 %22, label %24, label %45
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 328
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   %28 = select i1 %27, ptr @.str.15, ptr @.str.23
-  %29 = getelementptr inbounds i8, ptr %0, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 352
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %32 = tail call ptr @pg_rusage_show(ptr noundef nonnull %31) #12
   %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %28, i32 noundef %30, i64 noundef %.028, ptr noundef %32) #12
   br label %.sink.split
@@ -422,13 +422,13 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   br i1 %22, label %35, label %45
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 328
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   %39 = select i1 %38, ptr @.str.25, ptr @.str.26
-  %40 = getelementptr inbounds i8, ptr %0, i64 320
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 352
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %43 = tail call ptr @pg_rusage_show(ptr noundef nonnull %42) #12
   %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, ptr noundef nonnull %39, i32 noundef %41, i64 noundef %.028, ptr noundef %43) #12
   br label %.sink.split
@@ -439,7 +439,7 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   br label %45
 
 45:                                               ; preds = %.sink.split, %23, %34, %17
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8
   %.not25 = icmp eq ptr %47, null
   br i1 %.not25, label %49, label %48
@@ -459,18 +459,18 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_reset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp ne ptr %3, null
   br i1 %.not.i, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %tuplesort_updatemax.exit, label %19
@@ -478,37 +478,37 @@ define dso_local void @tuplesort_reset(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %1
   %14 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %3) #12
   %15 = shl i64 %14, 13
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %13, %4
   %.0151821.i = phi i64 [ %9, %4 ], [ %15, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load i64, ptr %20, align 8
   %22 = icmp sgt i64 %.0151821.i, %21
   br i1 %22, label %23, label %tuplesort_updatemax.exit
 
 23:                                               ; preds = %19, %13
   %.01520.i = phi i64 [ %.0151821.i, %19 ], [ %15, %13 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %.01520.i, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = zext i1 %.not.i to i8
   store i8 %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 164
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %28, ptr %29, align 4
   br label %tuplesort_updatemax.exit
 
 tuplesort_updatemax.exit:                         ; preds = %4, %19, %23
   tail call fastcc void @tuplesort_free(ptr noundef nonnull %0)
   tail call fastcc void @tuplesort_begin_batch(ptr noundef nonnull %0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   ret void
 }
@@ -516,7 +516,7 @@ tuplesort_updatemax.exit:                         ; preds = %4, %19, %23
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
@@ -526,7 +526,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
 
 9:                                                ; preds = %3
   %10 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %8) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %12, %10
   store i64 %13, ptr %11, align 8
@@ -536,16 +536,16 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br i1 %2, label %15, label %56
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 344
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %24 = load i64, ptr %23, align 8
   %.not.i = icmp sgt i64 %24, %22
   br i1 %.not.i, label %32, label %25
@@ -553,19 +553,19 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %19
   %26 = shl i64 %24, 1
   store i64 %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 %30(i32 noundef %21, ptr noundef %28) #12
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %25, %19, %15
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 %36(i64 noundef %38, ptr noundef %34) #12
   store i64 %39, ptr %37, align 8
@@ -573,29 +573,29 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
 
 40:                                               ; preds = %25
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr null, ptr %46, align 8
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr null, ptr %48, align 8
   %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %20, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %54, i32 noundef %55) #12
   br label %56
 
 56:                                               ; preds = %32, %40, %14
-  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %58 = load i32, ptr %57, align 8
   switch i32 %58, label %315 [
     i32 0, label %59
@@ -604,21 +604,21 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   ]
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 184
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 188
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, -1
   %.not55 = icmp slt i32 %61, %64
   br i1 %.not55, label %grow_memtuples.exit, label %65
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 128
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %69 = load i64, ptr %68, align 8
   %70 = sub i64 %67, %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 192
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %grow_memtuples.exit
@@ -674,7 +674,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br i1 %93, label %115, label %94
 
 94:                                               ; preds = %.thread44.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 176
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 @GetMemoryChunkSpace(ptr noundef %96) #12
   %98 = load i64, ptr %68, align 8
@@ -694,7 +694,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br i1 %107, label %108, label %grow_memtuples.exit
 
 108:                                              ; preds = %94
-  %109 = getelementptr inbounds i8, ptr %0, i64 193
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %110 = load i8, ptr %109, align 1
   %111 = trunc i8 %110 to i1
   br i1 %111, label %grow_memtuples.exit, label %112
@@ -711,7 +711,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br label %grow_memtuples.exit
 
 grow_memtuples.exit:                              ; preds = %115, %108, %94, %65, %59
-  %116 = getelementptr inbounds i8, ptr %0, i64 176
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr %60, align 8
   %119 = add i32 %118, 1
@@ -719,14 +719,14 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
   %120 = sext i32 %118 to i64
   %121 = getelementptr %struct.SortTuple, ptr %117, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %122 = getelementptr inbounds i8, ptr %0, i64 116
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %123 = load i8, ptr %122, align 4
   %124 = trunc i8 %123 to i1
   %.pre70 = load i32, ptr %60, align 8
   br i1 %124, label %125, label %241
 
 125:                                              ; preds = %grow_memtuples.exit
-  %126 = getelementptr inbounds i8, ptr %0, i64 120
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %127 = load i32, ptr %126, align 8
   %128 = shl i32 %127, 1
   %129 = icmp sgt i32 %.pre70, %128
@@ -737,13 +737,13 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
   br i1 %131, label %132, label %241
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %0, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %134 = load i64, ptr %133, align 8
   %135 = icmp slt i64 %134, 0
   br i1 %135, label %136, label %241
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %0, i64 193
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %138 = load i8, ptr %137, align 1
   %139 = trunc i8 %138 to i1
   br i1 %139, label %241, label %140
@@ -759,7 +759,7 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %0, i64 352
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %147 = tail call ptr @pg_rusage_show(ptr noundef nonnull %146) #12
   %148 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.pre72, ptr noundef %147) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1266, ptr noundef nonnull @__func__.tuplesort_puttuple_common) #12
@@ -769,25 +769,25 @@ grow_memtuples.exit:                              ; preds = %115, %108, %94, %65
 149:                                              ; preds = %145, %143, %140
   %150 = phi i32 [ %.pre71, %145 ], [ %.pre72, %143 ], [ %.pre70, %140 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %151 = getelementptr inbounds i8, ptr %0, i64 76
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %152 = load i32, ptr %151, align 4
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %.lr.ph.preheader.i.i, label %reversedirection.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %0, i64 80
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %155 = load ptr, ptr %154, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.010.i.i = phi i32 [ %164, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.089.i.i = phi ptr [ %165, %.lr.ph.i.i ], [ %155, %.lr.ph.preheader.i.i ]
-  %156 = getelementptr inbounds i8, ptr %.089.i.i, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 12
   %157 = load i8, ptr %156, align 4
   %158 = and i8 %157, 1
   %159 = xor i8 %158, 1
   store i8 %159, ptr %156, align 4
-  %160 = getelementptr inbounds i8, ptr %.089.i.i, i64 13
+  %160 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 13
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, 1
   %163 = xor i8 %162, 1
@@ -804,7 +804,7 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %149
   br i1 %168, label %.lr.ph.i, label %make_bounded_heap.exit
 
 .lr.ph.i:                                         ; preds = %reversedirection.exit.i
-  %169 = getelementptr inbounds i8, ptr %0, i64 128
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %wide.trip.count.i = zext nneg i32 %150 to i64
   br label %170
 
@@ -967,13 +967,13 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
   br i1 %243, label %244, label %252
 
 244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %0, i64 128
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %246 = load i64, ptr %245, align 8
   %247 = icmp slt i64 %246, 0
   br i1 %247, label %248, label %318
 
 248:                                              ; preds = %244
-  %249 = getelementptr inbounds i8, ptr %0, i64 193
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %250 = load i8, ptr %249, align 1
   %251 = trunc i8 %250 to i1
   br i1 %251, label %318, label %252
@@ -985,7 +985,7 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
 
 253:                                              ; preds = %56
   %254 = load ptr, ptr %0, align 8
-  %255 = getelementptr inbounds i8, ptr %0, i64 176
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %256 = load ptr, ptr %255, align 8
   %257 = tail call i32 %254(ptr noundef nonnull %1, ptr noundef %256, ptr noundef nonnull %0) #12
   %258 = icmp slt i32 %257, 1
@@ -998,7 +998,7 @@ make_bounded_heap.exit:                           ; preds = %240, %reversedirect
 
 261:                                              ; preds = %259
   %262 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %260) #12
-  %263 = getelementptr inbounds i8, ptr %0, i64 128
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %264 = load i64, ptr %263, align 8
   %265 = add i64 %264, %262
   store i64 %265, ptr %263, align 8
@@ -1024,7 +1024,7 @@ free_sort_tuple.exit:                             ; preds = %259, %261
 
 272:                                              ; preds = %269
   %273 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %271) #12
-  %274 = getelementptr inbounds i8, ptr %0, i64 128
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %275 = load i64, ptr %274, align 8
   %276 = add i64 %275, %273
   store i64 %276, ptr %274, align 8
@@ -1045,7 +1045,7 @@ free_sort_tuple.exit61:                           ; preds = %269, %272
   br label %281
 
 281:                                              ; preds = %280, %free_sort_tuple.exit61
-  %282 = getelementptr inbounds i8, ptr %0, i64 184
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %283 = load i32, ptr %282, align 8
   %.not3031.i = icmp ugt i32 %283, 1
   br i1 %.not3031.i, label %.lr.ph.i63, label %tuplesort_heap_replace_top.exit
@@ -1094,9 +1094,9 @@ tuplesort_heap_replace_top.exit:                  ; preds = %302, %296, %281
   br label %318
 
 307:                                              ; preds = %56
-  %308 = getelementptr inbounds i8, ptr %0, i64 176
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 184
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %311 = load i32, ptr %310, align 8
   %312 = add i32 %311, 1
   store i32 %312, ptr %310, align 8
@@ -1130,7 +1130,7 @@ define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i
   br i1 %1, label %3, label %10
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = sdiv i64 %5, 278528
   %7 = trunc i64 %6 to i32
@@ -1140,7 +1140,7 @@ define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i
 
 10:                                               ; preds = %2, %3
   %.sink = phi i32 [ %9, %3 ], [ 6, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.sink, ptr %11, align 8
   %12 = load i8, ptr @trace_sort, align 1
   %13 = trunc i8 %12 to i1
@@ -1152,9 +1152,9 @@ define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 320
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 352
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %20 = tail call ptr @pg_rusage_show(ptr noundef nonnull %19) #12
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %18, i32 noundef %.pre22, ptr noundef %20) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1907, ptr noundef nonnull @__func__.inittapes) #12
@@ -1165,17 +1165,17 @@ define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i
   %23 = phi i32 [ %.pre, %16 ], [ %.pre22, %14 ], [ %.sink, %10 ]
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 13
-  %26 = getelementptr inbounds i8, ptr %0, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @GetMemoryChunkSpace(ptr noundef %27) #12
   %29 = add i64 %28, %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load i64, ptr %30, align 8
   %32 = icmp ult i64 %29, %31
   br i1 %32, label %33, label %inittapestate.exit
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %35 = load i64, ptr %34, align 8
   %36 = sub i64 %35, %25
   store i64 %36, ptr %34, align 8
@@ -1183,38 +1183,38 @@ define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i
 
 inittapestate.exit:                               ; preds = %22, %33
   tail call void @PrepareTempTablespaces() #12
-  %37 = getelementptr inbounds i8, ptr %0, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %spec.select = select i1 %.not, ptr null, ptr %39
-  %40 = getelementptr inbounds i8, ptr %0, i64 320
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %41 = load i32, ptr %40, align 8
   %42 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext false, ptr noundef %spec.select, i32 noundef %41) #12
-  %43 = getelementptr inbounds i8, ptr %0, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 240
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 248
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = load i32, ptr %11, align 8
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 3
   %49 = tail call ptr @palloc0(i64 noundef %48) #12
-  %50 = getelementptr inbounds i8, ptr %0, i64 264
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 272
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 276
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 2, ptr %53, align 8
   %54 = load i32, ptr %11, align 8
   %55 = icmp sgt i32 %54, 0
   tail call void @llvm.assume(i1 %55)
   %56 = load ptr, ptr %43, align 8
   %57 = tail call ptr @LogicalTapeCreate(ptr noundef %56) #12
-  %58 = getelementptr inbounds i8, ptr %0, i64 280
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %50, align 8
   %60 = load i32, ptr %51, align 8
@@ -1233,21 +1233,21 @@ inittapestate.exit:                               ; preds = %22, %33
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 188
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i64, ptr %10, align 8
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 193
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   %.not40 = xor i1 %16, true
@@ -1259,7 +1259,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 
 18:                                               ; preds = %13, %17, %2
   %19 = icmp eq i32 %5, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %21 = load i32, ptr %20, align 8
   br i1 %19, label %22, label %25
 
@@ -1268,11 +1268,11 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   br i1 %23, label %130, label %.thread45
 
 .thread45:                                        ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %selectnewtape.exit
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 240
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = icmp eq i32 %21, 2147483647
   br i1 %27, label %28, label %32
 
@@ -1289,20 +1289,20 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   br i1 %33, label %34, label %selectnewtape.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %36, %38
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @LogicalTapeCreate(ptr noundef %42) #12
-  %44 = getelementptr inbounds i8, ptr %0, i64 280
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 264
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %35, align 8
   %48 = sext i32 %47 to i64
@@ -1311,7 +1311,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %50 = load i32, ptr %35, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %35, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 276
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
@@ -1319,15 +1319,15 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   br label %selectnewtape.exit
 
 55:                                               ; preds = %34
-  %56 = getelementptr inbounds i8, ptr %0, i64 264
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 276
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %59 = load i32, ptr %58, align 4
   %60 = srem i32 %59, %36
   %61 = sext i32 %60 to i64
   %62 = getelementptr ptr, ptr %57, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 280
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %63, ptr %64, align 8
   %65 = add i32 %59, 1
   store i32 %65, ptr %58, align 4
@@ -1347,10 +1347,10 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 320
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %75 = load i32, ptr %74, align 8
   %76 = load i32, ptr %66, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 352
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %78 = tail call ptr @pg_rusage_show(ptr noundef nonnull %77) #12
   %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %75, i32 noundef %76, ptr noundef %78) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2381, ptr noundef nonnull @__func__.dumptuples) #12
@@ -1367,10 +1367,10 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 320
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %66, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 352
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %90 = tail call ptr @pg_rusage_show(ptr noundef nonnull %89) #12
   %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %87, i32 noundef %88, ptr noundef %90) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2394, ptr noundef nonnull @__func__.dumptuples) #12
@@ -1382,10 +1382,10 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   br i1 %94, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 176
-  %96 = getelementptr inbounds i8, ptr %0, i64 24
-  %97 = getelementptr inbounds i8, ptr %0, i64 280
-  %98 = getelementptr inbounds i8, ptr %0, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %wide.trip.count = zext nneg i32 %93 to i64
   br label %99
 
@@ -1414,10 +1414,10 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
 
 ._crit_edge:                                      ; preds = %109, %92
   store i32 0, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %111 = load ptr, ptr %110, align 8
   tail call void @MemoryContextReset(ptr noundef %111) #12
-  %112 = getelementptr inbounds i8, ptr %0, i64 280
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %113 = load ptr, ptr %112, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -1432,15 +1432,15 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   br i1 %117, label %118, label %130
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %0, i64 320
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %120 = load i32, ptr %119, align 8
   %121 = load i32, ptr %66, align 8
   %122 = add i32 %121, -1
-  %123 = getelementptr inbounds i8, ptr %0, i64 272
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %124 = load i32, ptr %123, align 8
   %125 = srem i32 %122, %124
   %126 = add i32 %125, 1
-  %127 = getelementptr inbounds i8, ptr %0, i64 352
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %128 = call ptr @pg_rusage_show(ptr noundef nonnull %127) #12
   %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %120, i32 noundef %121, i32 noundef %126, ptr noundef %128) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2429, ptr noundef nonnull @__func__.dumptuples) #12
@@ -1456,7 +1456,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #2
 define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SortTuple, align 8
   %3 = alloca %struct.TapeShare, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
@@ -1469,16 +1469,16 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 352
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %15 = tail call ptr @pg_rusage_show(ptr noundef nonnull %14) #12
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %13, ptr noundef %15) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1389, ptr noundef nonnull @__func__.tuplesort_performsort) #12
   br label %17
 
 17:                                               ; preds = %11, %9, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %163 [
     i32 0, label %20
@@ -1487,7 +1487,7 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   ]
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -1498,7 +1498,7 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   br label %93
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %27 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %48, label %28
@@ -1506,17 +1506,17 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
 28:                                               ; preds = %25
   tail call fastcc void @inittapes(ptr noundef nonnull %0, i1 noundef zeroext false)
   tail call fastcc void @dumptuples(ptr noundef nonnull %0, i1 noundef zeroext true)
-  %29 = getelementptr inbounds i8, ptr %0, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %30, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %32 = load ptr, ptr %21, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %34 = load ptr, ptr %33, align 8
   tail call void @pfree(ptr noundef %34) #12
   store ptr null, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 188
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %31, align 8
   call void @LogicalTapeFreeze(ptr noundef %36, ptr noundef nonnull %3) #12
@@ -1529,13 +1529,13 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   br label %worker_nomergeruns.exit
 
 worker_nomergeruns.exit:                          ; preds = %28, %38
-  %40 = getelementptr inbounds i8, ptr %32, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %41 = load i32, ptr %26, align 8
   %42 = sext i32 %41 to i64
   %43 = getelementptr [0 x %struct.TapeShare], ptr %40, i64 0, i64 %42
   %44 = load i64, ptr %3, align 8
   store i64 %44, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %32, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 8
@@ -1546,7 +1546,7 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
   br label %93
 
 48:                                               ; preds = %25
-  %49 = getelementptr inbounds i8, ptr %0, i64 336
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %50 = load i32, ptr %49, align 8
   %51 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #12, !srcloc !5
   %.not.i = icmp eq i8 %51, 0
@@ -1557,7 +1557,7 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
   br label %54
 
 54:                                               ; preds = %52, %48
-  %55 = getelementptr inbounds i8, ptr %22, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %56 = load i32, ptr %55, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   store i8 0, ptr %22, align 8
@@ -1574,17 +1574,17 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
 60:                                               ; preds = %54
   %61 = sext i32 %50 to i64
   %62 = shl nsw i64 %61, 13
-  %63 = getelementptr inbounds i8, ptr %0, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i64 @GetMemoryChunkSpace(ptr noundef %64) #12
   %66 = add i64 %65, %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %68 = load i64, ptr %67, align 8
   %69 = icmp ult i64 %66, %68
   br i1 %69, label %70, label %inittapestate.exit.i
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds i8, ptr %0, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %72 = load i64, ptr %71, align 8
   %73 = sub i64 %72, %62
   store i64 %73, ptr %71, align 8
@@ -1592,27 +1592,27 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
 
 inittapestate.exit.i:                             ; preds = %70, %60
   tail call void @PrepareTempTablespaces() #12
-  %74 = getelementptr inbounds i8, ptr %22, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %75 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext false, ptr noundef nonnull %74, i32 noundef -1) #12
-  %76 = getelementptr inbounds i8, ptr %0, i64 168
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 240
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %50, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 248
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %79 = shl nsw i64 %61, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   %80 = tail call ptr @palloc0(i64 noundef %79) #12
-  %81 = getelementptr inbounds i8, ptr %0, i64 264
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 272
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %50, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 276
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 %50, ptr %83, align 4
   %84 = icmp sgt i32 %50, 0
   br i1 %84, label %.lr.ph.i, label %leader_takeover_tapes.exit
 
 .lr.ph.i:                                         ; preds = %inittapestate.exit.i
-  %85 = getelementptr inbounds i8, ptr %22, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %wide.trip.count.i = zext nneg i32 %50 to i64
   br label %86
 
@@ -1635,23 +1635,23 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   br label %93
 
 93:                                               ; preds = %worker_nomergeruns.exit, %leader_takeover_tapes.exit, %24
-  %94 = getelementptr inbounds i8, ptr %0, i64 296
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 300
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 304
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %96, align 8
   br label %166
 
 97:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %98 = getelementptr inbounds i8, ptr %0, i64 184
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 1
   br i1 %100, label %.lr.ph.i38, label %._crit_edge.i
 
 .lr.ph.i38:                                       ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %0, i64 176
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %102
 
 102:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %.lr.ph.i38
@@ -1728,25 +1728,25 @@ tuplesort_heap_delete_top.exit.i:                 ; preds = %130, %124, %110
 
 ._crit_edge.i:                                    ; preds = %tuplesort_heap_delete_top.exit.i, %97
   store i32 %99, ptr %98, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 76
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %141 = load i32, ptr %140, align 4
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph.preheader.i.i, label %sort_bounded_heap.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i
-  %143 = getelementptr inbounds i8, ptr %0, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %144 = load ptr, ptr %143, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.010.i.i = phi i32 [ %153, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %.089.i.i = phi ptr [ %154, %.lr.ph.i.i ], [ %144, %.lr.ph.preheader.i.i ]
-  %145 = getelementptr inbounds i8, ptr %.089.i.i, i64 12
+  %145 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 12
   %146 = load i8, ptr %145, align 4
   %147 = and i8 %146, 1
   %148 = xor i8 %147, 1
   store i8 %148, ptr %145, align 4
-  %149 = getelementptr inbounds i8, ptr %.089.i.i, i64 13
+  %149 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 13
   %150 = load i8, ptr %149, align 1
   %151 = and i8 %150, 1
   %152 = xor i8 %151, 1
@@ -1759,21 +1759,21 @@ tuplesort_heap_delete_top.exit.i:                 ; preds = %130, %124, %110
 
 sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit_edge.i
   store i32 3, ptr %18, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 117
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 117
   store i8 1, ptr %157, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %158 = getelementptr inbounds i8, ptr %0, i64 296
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 0, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 300
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %159, align 4
   br label %166
 
 160:                                              ; preds = %17
   tail call fastcc void @dumptuples(ptr noundef nonnull %0, i1 noundef zeroext true)
   tail call fastcc void @mergeruns(ptr noundef nonnull %0)
-  %161 = getelementptr inbounds i8, ptr %0, i64 300
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %0, i64 304
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %162, align 8
   br label %166
 
@@ -1785,9 +1785,9 @@ sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit
   unreachable
 
 166:                                              ; preds = %160, %sort_bounded_heap.exit, %93
-  %167 = getelementptr inbounds i8, ptr %0, i64 312
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 316
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i8 0, ptr %168, align 4
   %169 = load i8, ptr @trace_sort, align 1
   %170 = trunc i8 %169 to i1
@@ -1803,11 +1803,11 @@ sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit
   br i1 %174, label %176, label %191
 
 176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %0, i64 320
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 256
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %180 = load i32, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 352
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %182 = call ptr @pg_rusage_show(ptr noundef nonnull %181) #12
   %183 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %178, i32 noundef %180, ptr noundef %182) #12
   br label %.sink.split
@@ -1816,9 +1816,9 @@ sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit
   br i1 %174, label %185, label %191
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %0, i64 320
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %187 = load i32, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 352
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %189 = call ptr @pg_rusage_show(ptr noundef nonnull %188) #12
   %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %187, ptr noundef %189) #12
   br label %.sink.split
@@ -1835,31 +1835,31 @@ sort_bounded_heap.exit:                           ; preds = %.lr.ph.i.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %5, label %41
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %32
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %32, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @ssup_datum_unsigned_cmp
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %3 to i64
   tail call fastcc void @qsort_tuple_unsigned(ptr noundef %18, i64 noundef %19, ptr noundef nonnull %0)
@@ -1870,7 +1870,7 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %3 to i64
   tail call fastcc void @qsort_tuple_signed(ptr noundef %24, i64 noundef %25, ptr noundef nonnull %0)
@@ -1881,17 +1881,17 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %3 to i64
   tail call fastcc void @qsort_tuple_int32(ptr noundef %30, i64 noundef %31, ptr noundef nonnull %0)
   br label %41
 
 32:                                               ; preds = %26, %9, %5
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8
   %.not26 = icmp eq ptr %34, null
-  %35 = getelementptr inbounds i8, ptr %0, i64 176
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %3 to i64
   br i1 %.not26, label %39, label %38
@@ -1915,13 +1915,13 @@ define internal fastcc void @mergeruns(ptr noundef initializes((200, 224)) %0) u
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.SortTuple, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not86 = icmp eq ptr %10, null
   br i1 %.not86, label %20, label %11
@@ -1929,39 +1929,39 @@ define internal fastcc void @mergeruns(ptr noundef initializes((200, 224)) %0) u
 11:                                               ; preds = %8
   store ptr null, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr null, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %11, %8, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   tail call void @MemoryContextResetOnly(ptr noundef %22) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @GetMemoryChunkSpace(ptr noundef %24) #12
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8
   %29 = load ptr, ptr %23, align 8
   tail call void @pfree(ptr noundef %29) #12
   store ptr null, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 100
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %53
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds i8, ptr %0, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %35 = load i32, ptr %34, align 8
   %36 = icmp ult i32 %35, 2147483647
   br i1 %36, label %37, label %51
@@ -1971,12 +1971,12 @@ define internal fastcc void @mergeruns(ptr noundef initializes((200, 224)) %0) u
   %39 = add i32 %38, 1024
   %40 = sext i32 %39 to i64
   %41 = tail call ptr @palloc(i64 noundef %40) #12
-  %42 = getelementptr inbounds i8, ptr %0, i64 200
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %41, ptr %42, align 8
   %43 = getelementptr i8, ptr %41, i64 %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %41, ptr %45, align 8
   %46 = load i64, ptr %26, align 8
   %47 = sub i64 %46, %40
@@ -2003,23 +2003,23 @@ define internal fastcc void @mergeruns(ptr noundef initializes((200, 224)) %0) u
   br label %init_slab_allocator.exit
 
 51:                                               ; preds = %33
-  %52 = getelementptr inbounds i8, ptr %0, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   br label %init_slab_allocator.exit
 
 53:                                               ; preds = %20
-  %54 = getelementptr inbounds i8, ptr %0, i64 200
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   br label %init_slab_allocator.exit
 
 init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 193
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 193
   store i8 1, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 272
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 188
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
   %62 = mul nsw i64 %61, 24
@@ -2028,7 +2028,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %64 = tail call i64 @GetMemoryChunkSpace(ptr noundef %63) #12
   %65 = load i64, ptr %26, align 8
   %66 = sub i64 %65, %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 224
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %66, ptr %67, align 8
   store i64 0, ptr %26, align 8
   %68 = load i8, ptr @trace_sort, align 1
@@ -2040,7 +2040,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 320
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %74 = load i32, ptr %73, align 8
   %75 = load i64, ptr %67, align 8
   %76 = lshr i64 %75, 10
@@ -2049,25 +2049,25 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   br label %78
 
 78:                                               ; preds = %72, %70, %init_slab_allocator.exit
-  %79 = getelementptr inbounds i8, ptr %0, i64 260
-  %80 = getelementptr inbounds i8, ptr %0, i64 256
-  %81 = getelementptr inbounds i8, ptr %0, i64 248
-  %82 = getelementptr inbounds i8, ptr %0, i64 264
-  %83 = getelementptr inbounds i8, ptr %0, i64 276
-  %84 = getelementptr inbounds i8, ptr %0, i64 144
-  %85 = getelementptr inbounds i8, ptr %0, i64 352
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
-  %87 = getelementptr inbounds i8, ptr %0, i64 328
-  %88 = getelementptr inbounds i8, ptr %0, i64 320
-  %89 = getelementptr inbounds i8, ptr %0, i64 280
-  %90 = getelementptr inbounds i8, ptr %0, i64 168
-  %91 = getelementptr inbounds i8, ptr %0, i64 184
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
-  %93 = getelementptr inbounds i8, ptr %0, i64 200
-  %94 = getelementptr inbounds i8, ptr %0, i64 208
-  %95 = getelementptr inbounds i8, ptr %0, i64 216
-  %96 = getelementptr inbounds i8, ptr %0, i64 32
-  %97 = getelementptr inbounds i8, ptr %5, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.pre = load i32, ptr %79, align 4
   %98 = icmp eq i32 %.pre, 0
   br label %99
@@ -2186,7 +2186,7 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %159 = load ptr, ptr %90, align 8
   call void @LogicalTapeSetForgetFreeSpace(ptr noundef %159) #12
   call fastcc void @beginmerge(ptr noundef nonnull %0)
-  %160 = getelementptr inbounds i8, ptr %0, i64 112
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 5, ptr %160, align 8
   br label %.loopexit
 
@@ -2233,7 +2233,7 @@ selectnewtape.exit:                               ; preds = %165, %175
 
 .lr.ph.i93:                                       ; preds = %selectnewtape.exit, %275
   %184 = load ptr, ptr %23, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = load ptr, ptr %81, align 8
   %188 = sext i32 %186 to i64
@@ -2448,7 +2448,7 @@ mergeonerun.exit:                                 ; preds = %275, %selectnewtape
 284:                                              ; preds = %281
   %285 = load ptr, ptr %82, align 8
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %0, i64 288
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %286, ptr %287, align 8
   %288 = load ptr, ptr %87, align 8
   %.not90 = icmp eq ptr %288, null
@@ -2480,13 +2480,13 @@ mergeonerun.exit:                                 ; preds = %275, %selectnewtape
   br label %worker_freeze_result_tape.exit
 
 worker_freeze_result_tape.exit:                   ; preds = %292, %296
-  %298 = getelementptr inbounds i8, ptr %288, i64 72
+  %298 = getelementptr inbounds nuw i8, ptr %288, i64 72
   %299 = load i32, ptr %88, align 8
   %300 = sext i32 %299 to i64
   %301 = getelementptr [0 x %struct.TapeShare], ptr %298, i64 0, i64 %300
   %302 = load i64, ptr %2, align 8
   store i64 %302, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %288, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %304 = load i32, ptr %303, align 8
   %305 = add i32 %304, 1
   store i32 %305, ptr %303, align 8
@@ -2496,7 +2496,7 @@ worker_freeze_result_tape.exit:                   ; preds = %292, %296
   br label %306
 
 306:                                              ; preds = %worker_freeze_result_tape.exit, %291
-  %307 = getelementptr inbounds i8, ptr %0, i64 112
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 4, ptr %307, align 8
   %308 = load i32, ptr %80, align 8
   %309 = icmp sgt i32 %308, 0
@@ -2523,7 +2523,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.SortTuple, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %230 [
     i32 3, label %9
@@ -2532,18 +2532,18 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   ]
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = load i32, ptr %10, align 8
   br i1 %1, label %12, label %33
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %11, %14
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i32 %11, 1
   store i32 %19, ptr %10, align 8
@@ -2553,15 +2553,15 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   br label %233
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 300
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %233
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load i32, ptr %28, align 8
   %.not112 = icmp slt i32 %11, %29
   br i1 %.not112, label %233, label %30
@@ -2578,7 +2578,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   br i1 %34, label %233, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 300
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %37 = load i8, ptr %36, align 4
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %40
@@ -2595,7 +2595,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 
 43:                                               ; preds = %40, %39
   %44 = phi i32 [ %41, %40 ], [ %11, %39 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 176
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %44 to i64
   %48 = getelementptr %struct.SortTuple, ptr %46, i64 %47
@@ -2604,25 +2604,25 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   br label %233
 
 50:                                               ; preds = %3
-  %51 = getelementptr inbounds i8, ptr %0, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %52 = load ptr, ptr %51, align 8
   %.not105 = icmp eq ptr %52, null
   br i1 %.not105, label %65, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 200
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %55 = load ptr, ptr %54, align 8
   %.not106 = icmp ult ptr %52, %55
   br i1 %.not106, label %63, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ult ptr %52, %58
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 216
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %52, align 8
   store ptr %52, ptr %61, align 8
@@ -2637,7 +2637,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   br label %65
 
 65:                                               ; preds = %64, %50
-  %66 = getelementptr inbounds i8, ptr %0, i64 300
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
   br i1 %1, label %69, label %84
@@ -2646,7 +2646,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
   br i1 %68, label %233, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %72 = load ptr, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %73 = call i64 @LogicalTapeRead(ptr noundef %72, ptr noundef nonnull %5, i64 noundef 4) #12
@@ -2667,7 +2667,7 @@ getlen.exit:                                      ; preds = %70
   br i1 %.not111, label %83, label %78
 
 78:                                               ; preds = %getlen.exit
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %71, align 8
   call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %81, i32 noundef %77) #12
@@ -2680,7 +2680,7 @@ getlen.exit:                                      ; preds = %70
   br label %233
 
 84:                                               ; preds = %65
-  %85 = getelementptr inbounds i8, ptr %0, i64 288
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %86 = load ptr, ptr %85, align 8
   br i1 %68, label %87, label %93
 
@@ -2739,7 +2739,7 @@ getlen.exit:                                      ; preds = %70
   unreachable
 
 111:                                              ; preds = %107, %92
-  %112 = getelementptr inbounds i8, ptr %0, i64 288
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %113 = load ptr, ptr %112, align 8
   %114 = tail call fastcc i32 @getlen(ptr noundef %113, i1 noundef zeroext false)
   %115 = load ptr, ptr %112, align 8
@@ -2756,7 +2756,7 @@ getlen.exit:                                      ; preds = %70
   unreachable
 
 121:                                              ; preds = %111
-  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %112, align 8
   tail call void %123(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %124, i32 noundef %114) #12
@@ -2765,25 +2765,25 @@ getlen.exit:                                      ; preds = %70
   br label %233
 
 126:                                              ; preds = %3
-  %127 = getelementptr inbounds i8, ptr %0, i64 232
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %128 = load ptr, ptr %127, align 8
   %.not = icmp eq ptr %128, null
   br i1 %.not, label %141, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %0, i64 200
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %131 = load ptr, ptr %130, align 8
   %.not104 = icmp ult ptr %128, %131
   br i1 %.not104, label %139, label %132
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %0, i64 208
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %134 = load ptr, ptr %133, align 8
   %135 = icmp ult ptr %128, %134
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %0, i64 216
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %128, align 8
   store ptr %128, ptr %137, align 8
@@ -2798,17 +2798,17 @@ getlen.exit:                                      ; preds = %70
   br label %141
 
 141:                                              ; preds = %140, %126
-  %142 = getelementptr inbounds i8, ptr %0, i64 184
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %143 = load i32, ptr %142, align 8
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %233
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %0, i64 176
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 20
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %0, i64 248
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %151 = load ptr, ptr %150, align 8
   %152 = sext i32 %149 to i64
   %153 = getelementptr ptr, ptr %151, i64 %152
@@ -2903,7 +2903,7 @@ tuplesort_heap_replace_top.exit.i:                ; preds = %190, %184, %170
   br label %tuplesort_heap_delete_top.exit
 
 tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit, %tuplesort_heap_replace_top.exit.i
-  %195 = getelementptr inbounds i8, ptr %0, i64 260
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %196 = load i32, ptr %195, align 4
   %197 = add i32 %196, -1
   store i32 %197, ptr %195, align 4
@@ -2911,10 +2911,10 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
   br label %233
 
 198:                                              ; preds = %getlen.exit.i
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %200 = load ptr, ptr %199, align 8
   call void %200(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %154, i32 noundef %160) #12
-  %201 = getelementptr inbounds i8, ptr %6, i64 20
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %149, ptr %201, align 4
   %202 = load ptr, ptr %146, align 8
   %203 = load volatile i32, ptr @InterruptPending, align 4
@@ -3025,7 +3025,7 @@ declare void @LogicalTapeClose(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %41 [
     i32 3, label %7
@@ -3034,9 +3034,9 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   ]
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %11 = load i32, ptr %10, align 8
   %12 = sub i32 %9, %11
   %13 = sext i32 %12 to i64
@@ -3051,15 +3051,15 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
 
 17:                                               ; preds = %7
   store i32 %9, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 116
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %44
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load i32, ptr %23, align 8
   %.not21 = icmp slt i32 %9, %24
   br i1 %.not21, label %44, label %25
@@ -3072,7 +3072,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   unreachable
 
 28:                                               ; preds = %3, %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
@@ -3129,11 +3129,11 @@ define dso_local range(i32 6, 501) i32 @tuplesort_merge_order(i64 noundef %0) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_rescan(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %15 [
     i32 3, label %7
@@ -3141,19 +3141,19 @@ define dso_local void @tuplesort_rescan(ptr nocapture noundef %0) local_unnamed_
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 300
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %9, align 4
   br label %18
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load ptr, ptr %11, align 8
   tail call void @LogicalTapeRewindForRead(ptr noundef %12, i64 noundef 0) #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 300
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %14, align 8
   br label %18
 
@@ -3165,9 +3165,9 @@ define dso_local void @tuplesort_rescan(ptr nocapture noundef %0) local_unnamed_
   unreachable
 
 18:                                               ; preds = %10, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 316
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i8 0, ptr %20, align 4
   store ptr %4, ptr @CurrentMemoryContext, align 8
   ret void
@@ -3177,11 +3177,11 @@ declare void @LogicalTapeRewindForRead(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %16 [
     i32 3, label %7
@@ -3189,17 +3189,17 @@ define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %9, ptr %10, align 8
   br label %19
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @LogicalTapeTell(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #12
   br label %19
 
@@ -3211,9 +3211,9 @@ define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 19:                                               ; preds = %11, %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 300
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 316
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 4
   store ptr %4, ptr @CurrentMemoryContext, align 8
@@ -3224,11 +3224,11 @@ declare void @LogicalTapeTell(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_restorepos(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %18 [
     i32 3, label %7
@@ -3236,18 +3236,18 @@ define dso_local void @tuplesort_restorepos(ptr nocapture noundef %0) local_unna
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %9, ptr %10, align 8
   br label %21
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load i32, ptr %16, align 8
   tail call void @LogicalTapeSeek(ptr noundef %13, i64 noundef %15, i32 noundef %17) #12
   br label %21
@@ -3260,9 +3260,9 @@ define dso_local void @tuplesort_restorepos(ptr nocapture noundef %0) local_unna
   unreachable
 
 21:                                               ; preds = %11, %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 316
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %23 = load i8, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 300
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %25 = and i8 %23, 1
   store i8 %25, ptr %24, align 4
   store ptr %4, ptr @CurrentMemoryContext, align 8
@@ -3273,18 +3273,18 @@ declare void @LogicalTapeSeek(ptr noundef, i64 noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ne ptr %4, null
   br i1 %.not.i, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %tuplesort_updatemax.exit, label %20
@@ -3292,7 +3292,7 @@ define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocaptu
 14:                                               ; preds = %2
   %15 = tail call i64 @LogicalTapeSetBlocks(ptr noundef nonnull %4) #12
   %16 = shl i64 %15, 13
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %25
@@ -3300,21 +3300,21 @@ define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocaptu
 20:                                               ; preds = %14, %5
   %21 = phi i8 [ %12, %5 ], [ %18, %14 ]
   %.0151821.i = phi i64 [ %10, %5 ], [ %16, %14 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load i64, ptr %22, align 8
   %24 = icmp sgt i64 %.0151821.i, %23
   br i1 %24, label %25, label %tuplesort_updatemax.exit
 
 25:                                               ; preds = %20, %14
   %.01520.i = phi i64 [ %.0151821.i, %20 ], [ %16, %14 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %.01520.i, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %28 = zext i1 %.not.i to i8
   store i8 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 164
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %30, ptr %31, align 4
   br label %tuplesort_updatemax.exit
 
@@ -3323,15 +3323,15 @@ tuplesort_updatemax.exit:                         ; preds = %5, %20, %25
   %33 = and i8 %32, 1
   %34 = xor i8 %33, 1
   %spec.select = zext nneg i8 %34 to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %spec.select, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 1023
   %39 = sdiv i64 %38, 1024
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 164
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %48 [
     i32 3, label %43
@@ -3340,7 +3340,7 @@ tuplesort_updatemax.exit:                         ; preds = %5, %20, %25
   ]
 
 43:                                               ; preds = %tuplesort_updatemax.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 117
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   %. = select i1 %46, i32 1, i32 2
@@ -3365,7 +3365,7 @@ define dso_local noundef nonnull ptr @tuplesort_method_name(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.tuplesort_method_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.tuplesort_method_name, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3387,13 +3387,13 @@ define dso_local ptr @tuplesort_readtup_alloc(ptr nocapture noundef %0, i64 noun
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %1) #12
   br label %13
@@ -3428,19 +3428,19 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 define dso_local void @tuplesort_initialize_shared(ptr noundef initializes((0, 1), (4, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   store i8 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @SharedFileSetInit(ptr noundef nonnull %6, ptr noundef %2) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %7, align 8
   %8 = icmp sgt i32 %1, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = zext nneg i32 %1 to i64
   %11 = shl nuw nsw i64 %10, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %11, i1 false)
@@ -3454,7 +3454,7 @@ declare void @SharedFileSetInit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_attach_shared(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @SharedFileSetAttach(ptr noundef nonnull %3, ptr noundef %1) #12
   ret void
 }
@@ -3507,20 +3507,20 @@ declare void @LogicalTapeSetForgetFreeSpace(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @beginmerge(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.SortTuple, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 260
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = load i32, ptr %6, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %7)
   %8 = icmp sgt i32 %., 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 20
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %wide.trip.count = zext nneg i32 %. to i64
   br label %14
 
@@ -3621,17 +3621,17 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef ra
   %8 = alloca %struct.SortTuple, align 8
   %9 = alloca %struct.SortTuple, align 8
   %10 = alloca %struct.SortTuple, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
-  %12 = getelementptr inbounds i8, ptr %2, i64 88
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %236, %3
   %.0137.ph = phi ptr [ %238, %236 ], [ %0, %3 ]
   %.0.ph = phi i64 [ %220, %236 ], [ %1, %3 ]
   %14 = getelementptr i8, ptr %.0137.ph, i64 24
-  %15 = getelementptr inbounds i8, ptr %.0137.ph, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0137.ph, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 16
   %17 = ptrtoint ptr %.0137.ph to i64
   br label %18
 
@@ -3667,9 +3667,9 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef ra
   %29 = getelementptr i8, ptr %.0140284, i64 -8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds i8, ptr %.0140284, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0140284, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140284, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0140284, i64 16
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
@@ -3679,7 +3679,7 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef ra
   br i1 %36, label %ApplyUnsignedSortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 13
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %.critedge, label %qsort_tuple_unsigned_compare.exit.thread
@@ -3688,14 +3688,14 @@ define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef ra
   br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %37, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %qsort_tuple_unsigned_compare.exit.thread, label %.critedge
 
 48:                                               ; preds = %43
   %49 = tail call i32 @llvm.ucmp.i32.i64(i64 %28, i64 %33)
-  %50 = getelementptr inbounds i8, ptr %37, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %ApplyUnsignedSortComparator.exit.i
@@ -3759,9 +3759,9 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %44, %53, %39, %qsor
   %70 = getelementptr i8, ptr %.1253, i64 -8
   %71 = load i8, ptr %70, align 8
   %72 = trunc i8 %71 to i1
-  %73 = getelementptr inbounds i8, ptr %.1253, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.1253, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.1253, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.1253, i64 16
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
   %78 = load ptr, ptr %11, align 8
@@ -3771,7 +3771,7 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %44, %53, %39, %qsor
   br i1 %77, label %ApplyUnsignedSortComparator.exit.thread16.i175, label %80
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %78, i64 13
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 13
   %82 = load i8, ptr %81, align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %qsort_tuple_unsigned_compare.exit179.thread213, label %qsort_tuple_unsigned_compare.exit179.thread
@@ -3780,14 +3780,14 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %44, %53, %39, %qsor
   br i1 %77, label %85, label %89
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %78, i64 13
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 13
   %87 = load i8, ptr %86, align 1
   %88 = trunc i8 %87 to i1
   br i1 %88, label %qsort_tuple_unsigned_compare.exit179.thread, label %qsort_tuple_unsigned_compare.exit179.thread213
 
 89:                                               ; preds = %84
   %90 = tail call i32 @llvm.ucmp.i32.i64(i64 %69, i64 %74)
-  %91 = getelementptr inbounds i8, ptr %78, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %92 = load i8, ptr %91, align 4
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %ApplyUnsignedSortComparator.exit.i171
@@ -3826,62 +3826,60 @@ qsort_tuple_unsigned_compare.exit179.thread:      ; preds = %85, %94, %80, %qsor
   %104 = lshr i64 %.0, 1
   %105 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %104
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_unsigned_compare.exit179.thread._crit_edge, label %106
+  br i1 %.not163, label %125, label %106
 
 106:                                              ; preds = %qsort_tuple_unsigned_compare.exit179.thread
-  %107 = add nsw i64 %.0, -1
-  %108 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %107
-  %109 = icmp ugt i64 %.0, 40
-  br i1 %109, label %110, label %124
+  %107 = getelementptr i8, ptr %23, i64 -24
+  %108 = icmp ugt i64 %.0, 40
+  br i1 %108, label %109, label %123
 
-110:                                              ; preds = %106
-  %111 = lshr i64 %.0, 3
-  %112 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %111
-  %113 = shl nuw nsw i64 %111, 1
-  %114 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %113
-  %115 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.0137.ph, ptr noundef %112, ptr noundef %114, ptr noundef nonnull %2)
-  %116 = sub nsw i64 0, %111
-  %117 = getelementptr %struct.SortTuple, ptr %105, i64 %116
-  %118 = getelementptr %struct.SortTuple, ptr %105, i64 %111
-  %119 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %117, ptr noundef %105, ptr noundef %118, ptr noundef nonnull %2)
-  %120 = sub nsw i64 0, %113
-  %121 = getelementptr %struct.SortTuple, ptr %108, i64 %120
-  %122 = getelementptr %struct.SortTuple, ptr %108, i64 %116
-  %123 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %121, ptr noundef %122, ptr noundef %108, ptr noundef nonnull %2)
-  br label %124
+109:                                              ; preds = %106
+  %110 = lshr i64 %.0, 3
+  %111 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %110
+  %112 = shl nuw nsw i64 %110, 1
+  %113 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %112
+  %114 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.0137.ph, ptr noundef %111, ptr noundef %113, ptr noundef nonnull %2)
+  %115 = sub nsw i64 0, %110
+  %116 = getelementptr %struct.SortTuple, ptr %105, i64 %115
+  %117 = getelementptr %struct.SortTuple, ptr %105, i64 %110
+  %118 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %116, ptr noundef %105, ptr noundef %117, ptr noundef nonnull %2)
+  %119 = sub nsw i64 0, %112
+  %120 = getelementptr %struct.SortTuple, ptr %107, i64 %119
+  %121 = getelementptr %struct.SortTuple, ptr %107, i64 %115
+  %122 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %120, ptr noundef %121, ptr noundef %107, ptr noundef nonnull %2)
+  br label %123
 
-124:                                              ; preds = %110, %106
-  %.1141 = phi ptr [ %115, %110 ], [ %.0137.ph, %106 ]
-  %.3 = phi ptr [ %119, %110 ], [ %105, %106 ]
-  %.0138 = phi ptr [ %123, %110 ], [ %108, %106 ]
-  %125 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_unsigned_compare.exit179.thread._crit_edge
+123:                                              ; preds = %109, %106
+  %.1141 = phi ptr [ %114, %109 ], [ %.0137.ph, %106 ]
+  %.3 = phi ptr [ %118, %109 ], [ %105, %106 ]
+  %.0138 = phi ptr [ %122, %109 ], [ %107, %106 ]
+  %124 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
+  br label %125
 
-qsort_tuple_unsigned_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit179.thread, %124
-  %.pre-phi = phi i64 [ %107, %124 ], [ 6, %qsort_tuple_unsigned_compare.exit179.thread ]
-  %.2 = phi ptr [ %125, %124 ], [ %105, %qsort_tuple_unsigned_compare.exit179.thread ]
+125:                                              ; preds = %123, %qsort_tuple_unsigned_compare.exit179.thread
+  %.2 = phi ptr [ %124, %123 ], [ %105, %qsort_tuple_unsigned_compare.exit179.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %126 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
+  %126 = getelementptr i8, ptr %23, i64 -24
   br label %127
 
-127:                                              ; preds = %qsort_tuple_unsigned_compare.exit197.thread227, %qsort_tuple_unsigned_compare.exit179.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit179.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_unsigned_compare.exit197.thread227 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_unsigned_compare.exit179.thread._crit_edge ], [ %204, %qsort_tuple_unsigned_compare.exit197.thread227 ]
-  %.0145 = phi ptr [ %126, %qsort_tuple_unsigned_compare.exit179.thread._crit_edge ], [ %205, %qsort_tuple_unsigned_compare.exit197.thread227 ]
-  %.0142 = phi ptr [ %126, %qsort_tuple_unsigned_compare.exit179.thread._crit_edge ], [ %.1143274, %qsort_tuple_unsigned_compare.exit197.thread227 ]
+127:                                              ; preds = %qsort_tuple_unsigned_compare.exit197.thread227, %125
+  %.0149 = phi ptr [ %14, %125 ], [ %.1150.lcssa, %qsort_tuple_unsigned_compare.exit197.thread227 ]
+  %.0147 = phi ptr [ %14, %125 ], [ %204, %qsort_tuple_unsigned_compare.exit197.thread227 ]
+  %.0145 = phi ptr [ %126, %125 ], [ %205, %qsort_tuple_unsigned_compare.exit197.thread227 ]
+  %.0142 = phi ptr [ %126, %125 ], [ %.1143274, %qsort_tuple_unsigned_compare.exit197.thread227 ]
   %.not164256 = icmp ugt ptr %.0147, %.0145
   br i1 %.not164256, label %.critedge2, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %127, %165
   %.1148258 = phi ptr [ %162, %165 ], [ %.0147, %127 ]
   %.1150257 = phi ptr [ %.2151, %165 ], [ %.0149, %127 ]
-  %128 = getelementptr inbounds i8, ptr %.1148258, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.1148258, i64 8
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %.1148258, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.1148258, i64 16
   %131 = load i8, ptr %130, align 8
   %132 = trunc i8 %131 to i1
   %133 = load i64, ptr %15, align 8
@@ -3894,7 +3892,7 @@ qsort_tuple_unsigned_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_u
   br i1 %135, label %ApplyUnsignedSortComparator.exit.thread16.i184, label %138
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %136, i64 13
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 13
   %140 = load i8, ptr %139, align 1
   %141 = trunc i8 %140 to i1
   br i1 %141, label %qsort_tuple_unsigned_compare.exit188.thread.thread, label %.critedge2
@@ -3903,14 +3901,14 @@ qsort_tuple_unsigned_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_u
   br i1 %135, label %143, label %147
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %136, i64 13
+  %144 = getelementptr inbounds nuw i8, ptr %136, i64 13
   %145 = load i8, ptr %144, align 1
   %146 = trunc i8 %145 to i1
   br i1 %146, label %.critedge2, label %qsort_tuple_unsigned_compare.exit188.thread.thread
 
 147:                                              ; preds = %142
   %148 = tail call i32 @llvm.ucmp.i32.i64(i64 %129, i64 %133)
-  %149 = getelementptr inbounds i8, ptr %136, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %150 = load i8, ptr %149, align 4
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %ApplyUnsignedSortComparator.exit.i180
@@ -3977,9 +3975,9 @@ qsort_tuple_unsigned_compare.exit188.thread.thread: ; preds = %138, %143, %qsort
 .lr.ph275:                                        ; preds = %.critedge2, %203
   %.1143274 = phi ptr [ %.2144, %203 ], [ %.0142, %.critedge2 ]
   %.1146273 = phi ptr [ %200, %203 ], [ %.0145, %.critedge2 ]
-  %166 = getelementptr inbounds i8, ptr %.1146273, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.1146273, i64 8
   %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %.1146273, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.1146273, i64 16
   %169 = load i8, ptr %168, align 8
   %170 = trunc i8 %169 to i1
   %171 = load i64, ptr %15, align 8
@@ -3992,7 +3990,7 @@ qsort_tuple_unsigned_compare.exit188.thread.thread: ; preds = %138, %143, %qsort
   br i1 %173, label %ApplyUnsignedSortComparator.exit.thread16.i193, label %176
 
 176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %174, i64 13
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 13
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
   br i1 %179, label %qsort_tuple_unsigned_compare.exit197.thread227, label %qsort_tuple_unsigned_compare.exit197.thread.thread
@@ -4001,14 +3999,14 @@ qsort_tuple_unsigned_compare.exit188.thread.thread: ; preds = %138, %143, %qsort
   br i1 %173, label %181, label %185
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds i8, ptr %174, i64 13
+  %182 = getelementptr inbounds nuw i8, ptr %174, i64 13
   %183 = load i8, ptr %182, align 1
   %184 = trunc i8 %183 to i1
   br i1 %184, label %qsort_tuple_unsigned_compare.exit197.thread.thread, label %qsort_tuple_unsigned_compare.exit197.thread227
 
 185:                                              ; preds = %180
   %186 = tail call i32 @llvm.ucmp.i32.i64(i64 %167, i64 %171)
-  %187 = getelementptr inbounds i8, ptr %174, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %174, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = trunc i8 %188 to i1
   br i1 %189, label %190, label %ApplyUnsignedSortComparator.exit.i189
@@ -4180,17 +4178,17 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef rang
   %8 = alloca %struct.SortTuple, align 8
   %9 = alloca %struct.SortTuple, align 8
   %10 = alloca %struct.SortTuple, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
-  %12 = getelementptr inbounds i8, ptr %2, i64 88
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %236, %3
   %.0137.ph = phi ptr [ %238, %236 ], [ %0, %3 ]
   %.0.ph = phi i64 [ %220, %236 ], [ %1, %3 ]
   %14 = getelementptr i8, ptr %.0137.ph, i64 24
-  %15 = getelementptr inbounds i8, ptr %.0137.ph, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0137.ph, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 16
   %17 = ptrtoint ptr %.0137.ph to i64
   br label %18
 
@@ -4226,9 +4224,9 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef rang
   %29 = getelementptr i8, ptr %.0140284, i64 -8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds i8, ptr %.0140284, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0140284, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140284, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0140284, i64 16
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
@@ -4238,7 +4236,7 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef rang
   br i1 %36, label %ApplySignedSortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 13
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %.critedge, label %qsort_tuple_signed_compare.exit.thread
@@ -4247,14 +4245,14 @@ define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef rang
   br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %37, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %qsort_tuple_signed_compare.exit.thread, label %.critedge
 
 48:                                               ; preds = %43
   %49 = tail call i32 @llvm.scmp.i32.i64(i64 %28, i64 %33)
-  %50 = getelementptr inbounds i8, ptr %37, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %ApplySignedSortComparator.exit.i
@@ -4318,9 +4316,9 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %44, %53, %39, %qsor
   %70 = getelementptr i8, ptr %.1253, i64 -8
   %71 = load i8, ptr %70, align 8
   %72 = trunc i8 %71 to i1
-  %73 = getelementptr inbounds i8, ptr %.1253, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.1253, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.1253, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.1253, i64 16
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
   %78 = load ptr, ptr %11, align 8
@@ -4330,7 +4328,7 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %44, %53, %39, %qsor
   br i1 %77, label %ApplySignedSortComparator.exit.thread16.i175, label %80
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %78, i64 13
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 13
   %82 = load i8, ptr %81, align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %qsort_tuple_signed_compare.exit179.thread213, label %qsort_tuple_signed_compare.exit179.thread
@@ -4339,14 +4337,14 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %44, %53, %39, %qsor
   br i1 %77, label %85, label %89
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %78, i64 13
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 13
   %87 = load i8, ptr %86, align 1
   %88 = trunc i8 %87 to i1
   br i1 %88, label %qsort_tuple_signed_compare.exit179.thread, label %qsort_tuple_signed_compare.exit179.thread213
 
 89:                                               ; preds = %84
   %90 = tail call i32 @llvm.scmp.i32.i64(i64 %69, i64 %74)
-  %91 = getelementptr inbounds i8, ptr %78, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %92 = load i8, ptr %91, align 4
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %ApplySignedSortComparator.exit.i171
@@ -4385,62 +4383,60 @@ qsort_tuple_signed_compare.exit179.thread:        ; preds = %85, %94, %80, %qsor
   %104 = lshr i64 %.0, 1
   %105 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %104
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_signed_compare.exit179.thread._crit_edge, label %106
+  br i1 %.not163, label %125, label %106
 
 106:                                              ; preds = %qsort_tuple_signed_compare.exit179.thread
-  %107 = add nsw i64 %.0, -1
-  %108 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %107
-  %109 = icmp ugt i64 %.0, 40
-  br i1 %109, label %110, label %124
+  %107 = getelementptr i8, ptr %23, i64 -24
+  %108 = icmp ugt i64 %.0, 40
+  br i1 %108, label %109, label %123
 
-110:                                              ; preds = %106
-  %111 = lshr i64 %.0, 3
-  %112 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %111
-  %113 = shl nuw nsw i64 %111, 1
-  %114 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %113
-  %115 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.0137.ph, ptr noundef %112, ptr noundef %114, ptr noundef nonnull %2)
-  %116 = sub nsw i64 0, %111
-  %117 = getelementptr %struct.SortTuple, ptr %105, i64 %116
-  %118 = getelementptr %struct.SortTuple, ptr %105, i64 %111
-  %119 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %117, ptr noundef %105, ptr noundef %118, ptr noundef nonnull %2)
-  %120 = sub nsw i64 0, %113
-  %121 = getelementptr %struct.SortTuple, ptr %108, i64 %120
-  %122 = getelementptr %struct.SortTuple, ptr %108, i64 %116
-  %123 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %121, ptr noundef %122, ptr noundef %108, ptr noundef nonnull %2)
-  br label %124
+109:                                              ; preds = %106
+  %110 = lshr i64 %.0, 3
+  %111 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %110
+  %112 = shl nuw nsw i64 %110, 1
+  %113 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %112
+  %114 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.0137.ph, ptr noundef %111, ptr noundef %113, ptr noundef nonnull %2)
+  %115 = sub nsw i64 0, %110
+  %116 = getelementptr %struct.SortTuple, ptr %105, i64 %115
+  %117 = getelementptr %struct.SortTuple, ptr %105, i64 %110
+  %118 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %116, ptr noundef %105, ptr noundef %117, ptr noundef nonnull %2)
+  %119 = sub nsw i64 0, %112
+  %120 = getelementptr %struct.SortTuple, ptr %107, i64 %119
+  %121 = getelementptr %struct.SortTuple, ptr %107, i64 %115
+  %122 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %120, ptr noundef %121, ptr noundef %107, ptr noundef nonnull %2)
+  br label %123
 
-124:                                              ; preds = %110, %106
-  %.1141 = phi ptr [ %115, %110 ], [ %.0137.ph, %106 ]
-  %.3 = phi ptr [ %119, %110 ], [ %105, %106 ]
-  %.0138 = phi ptr [ %123, %110 ], [ %108, %106 ]
-  %125 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_signed_compare.exit179.thread._crit_edge
+123:                                              ; preds = %109, %106
+  %.1141 = phi ptr [ %114, %109 ], [ %.0137.ph, %106 ]
+  %.3 = phi ptr [ %118, %109 ], [ %105, %106 ]
+  %.0138 = phi ptr [ %122, %109 ], [ %107, %106 ]
+  %124 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
+  br label %125
 
-qsort_tuple_signed_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_signed_compare.exit179.thread, %124
-  %.pre-phi = phi i64 [ %107, %124 ], [ 6, %qsort_tuple_signed_compare.exit179.thread ]
-  %.2 = phi ptr [ %125, %124 ], [ %105, %qsort_tuple_signed_compare.exit179.thread ]
+125:                                              ; preds = %123, %qsort_tuple_signed_compare.exit179.thread
+  %.2 = phi ptr [ %124, %123 ], [ %105, %qsort_tuple_signed_compare.exit179.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %126 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
+  %126 = getelementptr i8, ptr %23, i64 -24
   br label %127
 
-127:                                              ; preds = %qsort_tuple_signed_compare.exit197.thread227, %qsort_tuple_signed_compare.exit179.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_signed_compare.exit179.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_signed_compare.exit197.thread227 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_signed_compare.exit179.thread._crit_edge ], [ %204, %qsort_tuple_signed_compare.exit197.thread227 ]
-  %.0145 = phi ptr [ %126, %qsort_tuple_signed_compare.exit179.thread._crit_edge ], [ %205, %qsort_tuple_signed_compare.exit197.thread227 ]
-  %.0142 = phi ptr [ %126, %qsort_tuple_signed_compare.exit179.thread._crit_edge ], [ %.1143274, %qsort_tuple_signed_compare.exit197.thread227 ]
+127:                                              ; preds = %qsort_tuple_signed_compare.exit197.thread227, %125
+  %.0149 = phi ptr [ %14, %125 ], [ %.1150.lcssa, %qsort_tuple_signed_compare.exit197.thread227 ]
+  %.0147 = phi ptr [ %14, %125 ], [ %204, %qsort_tuple_signed_compare.exit197.thread227 ]
+  %.0145 = phi ptr [ %126, %125 ], [ %205, %qsort_tuple_signed_compare.exit197.thread227 ]
+  %.0142 = phi ptr [ %126, %125 ], [ %.1143274, %qsort_tuple_signed_compare.exit197.thread227 ]
   %.not164256 = icmp ugt ptr %.0147, %.0145
   br i1 %.not164256, label %.critedge2, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %127, %165
   %.1148258 = phi ptr [ %162, %165 ], [ %.0147, %127 ]
   %.1150257 = phi ptr [ %.2151, %165 ], [ %.0149, %127 ]
-  %128 = getelementptr inbounds i8, ptr %.1148258, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.1148258, i64 8
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %.1148258, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.1148258, i64 16
   %131 = load i8, ptr %130, align 8
   %132 = trunc i8 %131 to i1
   %133 = load i64, ptr %15, align 8
@@ -4453,7 +4449,7 @@ qsort_tuple_signed_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_sig
   br i1 %135, label %ApplySignedSortComparator.exit.thread16.i184, label %138
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %136, i64 13
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 13
   %140 = load i8, ptr %139, align 1
   %141 = trunc i8 %140 to i1
   br i1 %141, label %qsort_tuple_signed_compare.exit188.thread.thread, label %.critedge2
@@ -4462,14 +4458,14 @@ qsort_tuple_signed_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_sig
   br i1 %135, label %143, label %147
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %136, i64 13
+  %144 = getelementptr inbounds nuw i8, ptr %136, i64 13
   %145 = load i8, ptr %144, align 1
   %146 = trunc i8 %145 to i1
   br i1 %146, label %.critedge2, label %qsort_tuple_signed_compare.exit188.thread.thread
 
 147:                                              ; preds = %142
   %148 = tail call i32 @llvm.scmp.i32.i64(i64 %129, i64 %133)
-  %149 = getelementptr inbounds i8, ptr %136, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %150 = load i8, ptr %149, align 4
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %ApplySignedSortComparator.exit.i180
@@ -4536,9 +4532,9 @@ qsort_tuple_signed_compare.exit188.thread.thread: ; preds = %138, %143, %qsort_t
 .lr.ph275:                                        ; preds = %.critedge2, %203
   %.1143274 = phi ptr [ %.2144, %203 ], [ %.0142, %.critedge2 ]
   %.1146273 = phi ptr [ %200, %203 ], [ %.0145, %.critedge2 ]
-  %166 = getelementptr inbounds i8, ptr %.1146273, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.1146273, i64 8
   %167 = load i64, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %.1146273, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.1146273, i64 16
   %169 = load i8, ptr %168, align 8
   %170 = trunc i8 %169 to i1
   %171 = load i64, ptr %15, align 8
@@ -4551,7 +4547,7 @@ qsort_tuple_signed_compare.exit188.thread.thread: ; preds = %138, %143, %qsort_t
   br i1 %173, label %ApplySignedSortComparator.exit.thread16.i193, label %176
 
 176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %174, i64 13
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 13
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
   br i1 %179, label %qsort_tuple_signed_compare.exit197.thread227, label %qsort_tuple_signed_compare.exit197.thread.thread
@@ -4560,14 +4556,14 @@ qsort_tuple_signed_compare.exit188.thread.thread: ; preds = %138, %143, %qsort_t
   br i1 %173, label %181, label %185
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds i8, ptr %174, i64 13
+  %182 = getelementptr inbounds nuw i8, ptr %174, i64 13
   %183 = load i8, ptr %182, align 1
   %184 = trunc i8 %183 to i1
   br i1 %184, label %qsort_tuple_signed_compare.exit197.thread.thread, label %qsort_tuple_signed_compare.exit197.thread227
 
 185:                                              ; preds = %180
   %186 = tail call i32 @llvm.scmp.i32.i64(i64 %167, i64 %171)
-  %187 = getelementptr inbounds i8, ptr %174, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %174, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = trunc i8 %188 to i1
   br i1 %189, label %190, label %ApplySignedSortComparator.exit.i189
@@ -4739,17 +4735,17 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range
   %8 = alloca %struct.SortTuple, align 8
   %9 = alloca %struct.SortTuple, align 8
   %10 = alloca %struct.SortTuple, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
-  %12 = getelementptr inbounds i8, ptr %2, i64 88
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %244, %3
   %.0137.ph = phi ptr [ %246, %244 ], [ %0, %3 ]
   %.0.ph = phi i64 [ %228, %244 ], [ %1, %3 ]
   %14 = getelementptr i8, ptr %.0137.ph, i64 24
-  %15 = getelementptr inbounds i8, ptr %.0137.ph, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0137.ph, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0137.ph, i64 16
   %17 = ptrtoint ptr %.0137.ph to i64
   br label %18
 
@@ -4785,9 +4781,9 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range
   %29 = getelementptr i8, ptr %.0140284, i64 -8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds i8, ptr %.0140284, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0140284, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0140284, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0140284, i64 16
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   %37 = load ptr, ptr %11, align 8
@@ -4797,7 +4793,7 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range
   br i1 %36, label %ApplyInt32SortComparator.exit.thread16.i, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 13
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %.critedge, label %qsort_tuple_int32_compare.exit.thread
@@ -4806,7 +4802,7 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range
   br i1 %36, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %37, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 13
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %qsort_tuple_int32_compare.exit.thread, label %.critedge
@@ -4815,7 +4811,7 @@ define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range
   %49 = trunc i64 %28 to i32
   %50 = trunc i64 %33 to i32
   %51 = tail call i32 @llvm.scmp.i32.i32(i32 %49, i32 %50)
-  %52 = getelementptr inbounds i8, ptr %37, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %53 = load i8, ptr %52, align 4
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %ApplyInt32SortComparator.exit.i
@@ -4879,9 +4875,9 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %44, %55, %39, %qsor
   %72 = getelementptr i8, ptr %.1253, i64 -8
   %73 = load i8, ptr %72, align 8
   %74 = trunc i8 %73 to i1
-  %75 = getelementptr inbounds i8, ptr %.1253, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.1253, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.1253, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.1253, i64 16
   %78 = load i8, ptr %77, align 8
   %79 = trunc i8 %78 to i1
   %80 = load ptr, ptr %11, align 8
@@ -4891,7 +4887,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %44, %55, %39, %qsor
   br i1 %79, label %ApplyInt32SortComparator.exit.thread16.i175, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %80, i64 13
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 13
   %84 = load i8, ptr %83, align 1
   %85 = trunc i8 %84 to i1
   br i1 %85, label %qsort_tuple_int32_compare.exit179.thread213, label %qsort_tuple_int32_compare.exit179.thread
@@ -4900,7 +4896,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %44, %55, %39, %qsor
   br i1 %79, label %87, label %91
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %80, i64 13
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 13
   %89 = load i8, ptr %88, align 1
   %90 = trunc i8 %89 to i1
   br i1 %90, label %qsort_tuple_int32_compare.exit179.thread, label %qsort_tuple_int32_compare.exit179.thread213
@@ -4909,7 +4905,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %44, %55, %39, %qsor
   %92 = trunc i64 %71 to i32
   %93 = trunc i64 %76 to i32
   %94 = tail call i32 @llvm.scmp.i32.i32(i32 %92, i32 %93)
-  %95 = getelementptr inbounds i8, ptr %80, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %96 = load i8, ptr %95, align 4
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %ApplyInt32SortComparator.exit.i171
@@ -4948,62 +4944,60 @@ qsort_tuple_int32_compare.exit179.thread:         ; preds = %87, %98, %82, %qsor
   %108 = lshr i64 %.0, 1
   %109 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %108
   %.not163 = icmp eq i64 %.0, 7
-  br i1 %.not163, label %qsort_tuple_int32_compare.exit179.thread._crit_edge, label %110
+  br i1 %.not163, label %129, label %110
 
 110:                                              ; preds = %qsort_tuple_int32_compare.exit179.thread
-  %111 = add nsw i64 %.0, -1
-  %112 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %111
-  %113 = icmp ugt i64 %.0, 40
-  br i1 %113, label %114, label %128
+  %111 = getelementptr i8, ptr %23, i64 -24
+  %112 = icmp ugt i64 %.0, 40
+  br i1 %112, label %113, label %127
 
-114:                                              ; preds = %110
-  %115 = lshr i64 %.0, 3
-  %116 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %115
-  %117 = shl nuw nsw i64 %115, 1
-  %118 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %117
-  %119 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.0137.ph, ptr noundef %116, ptr noundef %118, ptr noundef nonnull %2)
-  %120 = sub nsw i64 0, %115
-  %121 = getelementptr %struct.SortTuple, ptr %109, i64 %120
-  %122 = getelementptr %struct.SortTuple, ptr %109, i64 %115
-  %123 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %121, ptr noundef %109, ptr noundef %122, ptr noundef nonnull %2)
-  %124 = sub nsw i64 0, %117
-  %125 = getelementptr %struct.SortTuple, ptr %112, i64 %124
-  %126 = getelementptr %struct.SortTuple, ptr %112, i64 %120
-  %127 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %125, ptr noundef %126, ptr noundef %112, ptr noundef nonnull %2)
-  br label %128
+113:                                              ; preds = %110
+  %114 = lshr i64 %.0, 3
+  %115 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %114
+  %116 = shl nuw nsw i64 %114, 1
+  %117 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %116
+  %118 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.0137.ph, ptr noundef %115, ptr noundef %117, ptr noundef nonnull %2)
+  %119 = sub nsw i64 0, %114
+  %120 = getelementptr %struct.SortTuple, ptr %109, i64 %119
+  %121 = getelementptr %struct.SortTuple, ptr %109, i64 %114
+  %122 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %120, ptr noundef %109, ptr noundef %121, ptr noundef nonnull %2)
+  %123 = sub nsw i64 0, %116
+  %124 = getelementptr %struct.SortTuple, ptr %111, i64 %123
+  %125 = getelementptr %struct.SortTuple, ptr %111, i64 %119
+  %126 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %124, ptr noundef %125, ptr noundef %111, ptr noundef nonnull %2)
+  br label %127
 
-128:                                              ; preds = %114, %110
-  %.1141 = phi ptr [ %119, %114 ], [ %.0137.ph, %110 ]
-  %.3 = phi ptr [ %123, %114 ], [ %109, %110 ]
-  %.0138 = phi ptr [ %127, %114 ], [ %112, %110 ]
-  %129 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
-  br label %qsort_tuple_int32_compare.exit179.thread._crit_edge
+127:                                              ; preds = %113, %110
+  %.1141 = phi ptr [ %118, %113 ], [ %.0137.ph, %110 ]
+  %.3 = phi ptr [ %122, %113 ], [ %109, %110 ]
+  %.0138 = phi ptr [ %126, %113 ], [ %111, %110 ]
+  %128 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
+  br label %129
 
-qsort_tuple_int32_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_int32_compare.exit179.thread, %128
-  %.pre-phi = phi i64 [ %111, %128 ], [ 6, %qsort_tuple_int32_compare.exit179.thread ]
-  %.2 = phi ptr [ %129, %128 ], [ %109, %qsort_tuple_int32_compare.exit179.thread ]
+129:                                              ; preds = %127, %qsort_tuple_int32_compare.exit179.thread
+  %.2 = phi ptr [ %128, %127 ], [ %109, %qsort_tuple_int32_compare.exit179.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %130 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
+  %130 = getelementptr i8, ptr %23, i64 -24
   br label %131
 
-131:                                              ; preds = %qsort_tuple_int32_compare.exit197.thread227, %qsort_tuple_int32_compare.exit179.thread._crit_edge
-  %.0149 = phi ptr [ %14, %qsort_tuple_int32_compare.exit179.thread._crit_edge ], [ %.1150.lcssa, %qsort_tuple_int32_compare.exit197.thread227 ]
-  %.0147 = phi ptr [ %14, %qsort_tuple_int32_compare.exit179.thread._crit_edge ], [ %212, %qsort_tuple_int32_compare.exit197.thread227 ]
-  %.0145 = phi ptr [ %130, %qsort_tuple_int32_compare.exit179.thread._crit_edge ], [ %213, %qsort_tuple_int32_compare.exit197.thread227 ]
-  %.0142 = phi ptr [ %130, %qsort_tuple_int32_compare.exit179.thread._crit_edge ], [ %.1143274, %qsort_tuple_int32_compare.exit197.thread227 ]
+131:                                              ; preds = %qsort_tuple_int32_compare.exit197.thread227, %129
+  %.0149 = phi ptr [ %14, %129 ], [ %.1150.lcssa, %qsort_tuple_int32_compare.exit197.thread227 ]
+  %.0147 = phi ptr [ %14, %129 ], [ %212, %qsort_tuple_int32_compare.exit197.thread227 ]
+  %.0145 = phi ptr [ %130, %129 ], [ %213, %qsort_tuple_int32_compare.exit197.thread227 ]
+  %.0142 = phi ptr [ %130, %129 ], [ %.1143274, %qsort_tuple_int32_compare.exit197.thread227 ]
   %.not164256 = icmp ugt ptr %.0147, %.0145
   br i1 %.not164256, label %.critedge2, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %131, %171
   %.1148258 = phi ptr [ %168, %171 ], [ %.0147, %131 ]
   %.1150257 = phi ptr [ %.2151, %171 ], [ %.0149, %131 ]
-  %132 = getelementptr inbounds i8, ptr %.1148258, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.1148258, i64 8
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %.1148258, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %.1148258, i64 16
   %135 = load i8, ptr %134, align 8
   %136 = trunc i8 %135 to i1
   %137 = load i64, ptr %15, align 8
@@ -5016,7 +5010,7 @@ qsort_tuple_int32_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_int3
   br i1 %139, label %ApplyInt32SortComparator.exit.thread16.i184, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %140, i64 13
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 13
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
   br i1 %145, label %qsort_tuple_int32_compare.exit188.thread.thread, label %.critedge2
@@ -5025,7 +5019,7 @@ qsort_tuple_int32_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_int3
   br i1 %139, label %147, label %151
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds i8, ptr %140, i64 13
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 13
   %149 = load i8, ptr %148, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %.critedge2, label %qsort_tuple_int32_compare.exit188.thread.thread
@@ -5034,7 +5028,7 @@ qsort_tuple_int32_compare.exit179.thread._crit_edge: ; preds = %qsort_tuple_int3
   %152 = trunc i64 %133 to i32
   %153 = trunc i64 %137 to i32
   %154 = tail call i32 @llvm.scmp.i32.i32(i32 %152, i32 %153)
-  %155 = getelementptr inbounds i8, ptr %140, i64 12
+  %155 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %156 = load i8, ptr %155, align 4
   %157 = trunc i8 %156 to i1
   br i1 %157, label %158, label %ApplyInt32SortComparator.exit.i180
@@ -5101,9 +5095,9 @@ qsort_tuple_int32_compare.exit188.thread.thread:  ; preds = %142, %147, %qsort_t
 .lr.ph275:                                        ; preds = %.critedge2, %211
   %.1143274 = phi ptr [ %.2144, %211 ], [ %.0142, %.critedge2 ]
   %.1146273 = phi ptr [ %208, %211 ], [ %.0145, %.critedge2 ]
-  %172 = getelementptr inbounds i8, ptr %.1146273, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.1146273, i64 8
   %173 = load i64, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %.1146273, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.1146273, i64 16
   %175 = load i8, ptr %174, align 8
   %176 = trunc i8 %175 to i1
   %177 = load i64, ptr %15, align 8
@@ -5116,7 +5110,7 @@ qsort_tuple_int32_compare.exit188.thread.thread:  ; preds = %142, %147, %qsort_t
   br i1 %179, label %ApplyInt32SortComparator.exit.thread16.i193, label %182
 
 182:                                              ; preds = %181
-  %183 = getelementptr inbounds i8, ptr %180, i64 13
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 13
   %184 = load i8, ptr %183, align 1
   %185 = trunc i8 %184 to i1
   br i1 %185, label %qsort_tuple_int32_compare.exit197.thread227, label %qsort_tuple_int32_compare.exit197.thread.thread
@@ -5125,7 +5119,7 @@ qsort_tuple_int32_compare.exit188.thread.thread:  ; preds = %142, %147, %qsort_t
   br i1 %179, label %187, label %191
 
 187:                                              ; preds = %186
-  %188 = getelementptr inbounds i8, ptr %180, i64 13
+  %188 = getelementptr inbounds nuw i8, ptr %180, i64 13
   %189 = load i8, ptr %188, align 1
   %190 = trunc i8 %189 to i1
   br i1 %190, label %qsort_tuple_int32_compare.exit197.thread.thread, label %qsort_tuple_int32_compare.exit197.thread227
@@ -5134,7 +5128,7 @@ qsort_tuple_int32_compare.exit188.thread.thread:  ; preds = %142, %147, %qsort_t
   %192 = trunc i64 %173 to i32
   %193 = trunc i64 %177 to i32
   %194 = tail call i32 @llvm.scmp.i32.i32(i32 %192, i32 %193)
-  %195 = getelementptr inbounds i8, ptr %180, i64 12
+  %195 = getelementptr inbounds nuw i8, ptr %180, i64 12
   %196 = load i8, ptr %195, align 4
   %197 = trunc i8 %196 to i1
   br i1 %197, label %198, label %ApplyInt32SortComparator.exit.i189
@@ -5306,17 +5300,17 @@ define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef range(i64 -3
   %8 = alloca %struct.SortTuple, align 8
   %9 = alloca %struct.SortTuple, align 8
   %10 = alloca %struct.SortTuple, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
-  %13 = getelementptr inbounds i8, ptr %2, i64 13
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 13
   br label %.outer
 
 .outer:                                           ; preds = %207, %3
   %.0145.ph = phi ptr [ %209, %207 ], [ %0, %3 ]
   %.0.ph = phi i64 [ %191, %207 ], [ %1, %3 ]
   %14 = getelementptr i8, ptr %.0145.ph, i64 24
-  %15 = getelementptr inbounds i8, ptr %.0145.ph, i64 8
-  %16 = getelementptr inbounds i8, ptr %.0145.ph, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0145.ph, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0145.ph, i64 16
   %17 = ptrtoint ptr %.0145.ph to i64
   br label %18
 
@@ -5351,9 +5345,9 @@ define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef range(i64 -3
   %28 = getelementptr i8, ptr %.0148278, i64 -8
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
-  %31 = getelementptr inbounds i8, ptr %.0148278, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0148278, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0148278, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0148278, i64 16
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %30, label %36, label %40
@@ -5425,9 +5419,9 @@ ApplySortComparator.exit.thread:                  ; preds = %41, %49, %37, %Appl
   %62 = getelementptr i8, ptr %.1248, i64 -8
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
-  %65 = getelementptr inbounds i8, ptr %.1248, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.1248, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.1248, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.1248, i64 16
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
   br i1 %64, label %70, label %74
@@ -5474,62 +5468,60 @@ ApplySortComparator.exit182.thread:               ; preds = %75, %83, %71, %Appl
   %89 = lshr i64 %.0, 1
   %90 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %89
   %.not171 = icmp eq i64 %.0, 7
-  br i1 %.not171, label %ApplySortComparator.exit182.thread._crit_edge, label %91
+  br i1 %.not171, label %110, label %91
 
 91:                                               ; preds = %ApplySortComparator.exit182.thread
-  %92 = add nsw i64 %.0, -1
-  %93 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %92
-  %94 = icmp ugt i64 %.0, 40
-  br i1 %94, label %95, label %109
+  %92 = getelementptr i8, ptr %23, i64 -24
+  %93 = icmp ugt i64 %.0, 40
+  br i1 %93, label %94, label %108
 
-95:                                               ; preds = %91
-  %96 = lshr i64 %.0, 3
-  %97 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %96
-  %98 = shl nuw nsw i64 %96, 1
-  %99 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %98
-  %100 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.0145.ph, ptr noundef %97, ptr noundef %99, ptr noundef %2)
-  %101 = sub nsw i64 0, %96
-  %102 = getelementptr %struct.SortTuple, ptr %90, i64 %101
-  %103 = getelementptr %struct.SortTuple, ptr %90, i64 %96
-  %104 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %102, ptr noundef %90, ptr noundef %103, ptr noundef %2)
-  %105 = sub nsw i64 0, %98
-  %106 = getelementptr %struct.SortTuple, ptr %93, i64 %105
-  %107 = getelementptr %struct.SortTuple, ptr %93, i64 %101
-  %108 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %106, ptr noundef %107, ptr noundef %93, ptr noundef %2)
-  br label %109
+94:                                               ; preds = %91
+  %95 = lshr i64 %.0, 3
+  %96 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %95
+  %97 = shl nuw nsw i64 %95, 1
+  %98 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %97
+  %99 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.0145.ph, ptr noundef %96, ptr noundef %98, ptr noundef %2)
+  %100 = sub nsw i64 0, %95
+  %101 = getelementptr %struct.SortTuple, ptr %90, i64 %100
+  %102 = getelementptr %struct.SortTuple, ptr %90, i64 %95
+  %103 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %101, ptr noundef %90, ptr noundef %102, ptr noundef %2)
+  %104 = sub nsw i64 0, %97
+  %105 = getelementptr %struct.SortTuple, ptr %92, i64 %104
+  %106 = getelementptr %struct.SortTuple, ptr %92, i64 %100
+  %107 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %105, ptr noundef %106, ptr noundef %92, ptr noundef %2)
+  br label %108
 
-109:                                              ; preds = %95, %91
-  %.1149 = phi ptr [ %100, %95 ], [ %.0145.ph, %91 ]
-  %.3 = phi ptr [ %104, %95 ], [ %90, %91 ]
-  %.0146 = phi ptr [ %108, %95 ], [ %93, %91 ]
-  %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.3, ptr noundef %.0146, ptr noundef %2)
-  br label %ApplySortComparator.exit182.thread._crit_edge
+108:                                              ; preds = %94, %91
+  %.1149 = phi ptr [ %99, %94 ], [ %.0145.ph, %91 ]
+  %.3 = phi ptr [ %103, %94 ], [ %90, %91 ]
+  %.0146 = phi ptr [ %107, %94 ], [ %92, %91 ]
+  %109 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.3, ptr noundef %.0146, ptr noundef %2)
+  br label %110
 
-ApplySortComparator.exit182.thread._crit_edge:    ; preds = %ApplySortComparator.exit182.thread, %109
-  %.pre-phi = phi i64 [ %92, %109 ], [ 6, %ApplySortComparator.exit182.thread ]
-  %.2 = phi ptr [ %110, %109 ], [ %90, %ApplySortComparator.exit182.thread ]
+110:                                              ; preds = %108, %ApplySortComparator.exit182.thread
+  %.2 = phi ptr [ %109, %108 ], [ %90, %ApplySortComparator.exit182.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %111 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %.pre-phi
+  %111 = getelementptr i8, ptr %23, i64 -24
   br label %112
 
-112:                                              ; preds = %ApplySortComparator.exit190.thread223, %ApplySortComparator.exit182.thread._crit_edge
-  %.0157 = phi ptr [ %14, %ApplySortComparator.exit182.thread._crit_edge ], [ %.1158.lcssa, %ApplySortComparator.exit190.thread223 ]
-  %.0155 = phi ptr [ %14, %ApplySortComparator.exit182.thread._crit_edge ], [ %175, %ApplySortComparator.exit190.thread223 ]
-  %.0153 = phi ptr [ %111, %ApplySortComparator.exit182.thread._crit_edge ], [ %176, %ApplySortComparator.exit190.thread223 ]
-  %.0150 = phi ptr [ %111, %ApplySortComparator.exit182.thread._crit_edge ], [ %.1151268, %ApplySortComparator.exit190.thread223 ]
+112:                                              ; preds = %ApplySortComparator.exit190.thread223, %110
+  %.0157 = phi ptr [ %14, %110 ], [ %.1158.lcssa, %ApplySortComparator.exit190.thread223 ]
+  %.0155 = phi ptr [ %14, %110 ], [ %175, %ApplySortComparator.exit190.thread223 ]
+  %.0153 = phi ptr [ %111, %110 ], [ %176, %ApplySortComparator.exit190.thread223 ]
+  %.0150 = phi ptr [ %111, %110 ], [ %.1151268, %ApplySortComparator.exit190.thread223 ]
   %.not172250 = icmp ugt ptr %.0155, %.0153
   br i1 %.not172250, label %.critedge2, label %.lr.ph253
 
 .lr.ph253:                                        ; preds = %112, %143
   %.1156252 = phi ptr [ %140, %143 ], [ %.0155, %112 ]
   %.1158251 = phi ptr [ %.2159, %143 ], [ %.0157, %112 ]
-  %113 = getelementptr inbounds i8, ptr %.1156252, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.1156252, i64 8
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %.1156252, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.1156252, i64 16
   %116 = load i8, ptr %115, align 8
   %117 = trunc i8 %116 to i1
   %118 = load i64, ptr %15, align 8
@@ -5607,9 +5599,9 @@ ApplySortComparator.exit186.thread.thread:        ; preds = %122, %126, %ApplySo
 .lr.ph269:                                        ; preds = %.critedge2, %174
   %.1151268 = phi ptr [ %.2152, %174 ], [ %.0150, %.critedge2 ]
   %.1154267 = phi ptr [ %171, %174 ], [ %.0153, %.critedge2 ]
-  %144 = getelementptr inbounds i8, ptr %.1154267, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %.1154267, i64 8
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %.1154267, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.1154267, i64 16
   %147 = load i8, ptr %146, align 8
   %148 = trunc i8 %147 to i1
   %149 = load i64, ptr %15, align 8
@@ -5794,15 +5786,15 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   %11 = alloca %struct.SortTuple, align 8
   br label %.outer
 
-.outer:                                           ; preds = %174, %4
-  %.0147.ph = phi ptr [ %176, %174 ], [ %0, %4 ]
-  %.0.ph = phi i64 [ %158, %174 ], [ %1, %4 ]
+.outer:                                           ; preds = %173, %4
+  %.0147.ph = phi ptr [ %175, %173 ], [ %0, %4 ]
+  %.0.ph = phi i64 [ %157, %173 ], [ %1, %4 ]
   %12 = getelementptr i8, ptr %.0147.ph, i64 24
   %13 = ptrtoint ptr %.0147.ph to i64
   br label %14
 
-14:                                               ; preds = %.outer, %182
-  %.0 = phi i64 [ %149, %182 ], [ %.0.ph, %.outer ]
+14:                                               ; preds = %.outer, %181
+  %.0 = phi i64 [ %148, %181 ], [ %.0.ph, %.outer ]
   %15 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %16
@@ -5877,223 +5869,221 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   br i1 %.not173, label %qsort_tuple_med3.exit183, label %41
 
 41:                                               ; preds = %38
-  %42 = add nsw i64 %.0, -1
-  %43 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %42
-  %44 = icmp ugt i64 %.0, 40
-  br i1 %44, label %45, label %qsort_tuple_med3.exit182
+  %42 = getelementptr i8, ptr %19, i64 -24
+  %43 = icmp ugt i64 %.0, 40
+  br i1 %43, label %44, label %qsort_tuple_med3.exit182
 
-45:                                               ; preds = %41
-  %46 = lshr i64 %.0, 3
-  %47 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %46
-  %48 = shl nuw nsw i64 %46, 1
-  %49 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %48
-  %50 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %47, ptr noundef %3) #12
-  %51 = icmp slt i32 %50, 0
-  %52 = tail call i32 %2(ptr noundef %47, ptr noundef %49, ptr noundef %3) #12
-  br i1 %51, label %53, label %59
+44:                                               ; preds = %41
+  %45 = lshr i64 %.0, 3
+  %46 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %45
+  %47 = shl nuw nsw i64 %45, 1
+  %48 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %47
+  %49 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %46, ptr noundef %3) #12
+  %50 = icmp slt i32 %49, 0
+  %51 = tail call i32 %2(ptr noundef %46, ptr noundef %48, ptr noundef %3) #12
+  br i1 %50, label %52, label %58
 
-53:                                               ; preds = %45
-  %54 = icmp slt i32 %52, 0
-  br i1 %54, label %qsort_tuple_med3.exit, label %55
+52:                                               ; preds = %44
+  %53 = icmp slt i32 %51, 0
+  br i1 %53, label %qsort_tuple_med3.exit, label %54
 
-55:                                               ; preds = %53
-  %56 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %49, ptr noundef %3) #12
-  %57 = icmp slt i32 %56, 0
-  %58 = select i1 %57, ptr %49, ptr %.0147.ph
+54:                                               ; preds = %52
+  %55 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %48, ptr noundef %3) #12
+  %56 = icmp slt i32 %55, 0
+  %57 = select i1 %56, ptr %48, ptr %.0147.ph
   br label %qsort_tuple_med3.exit
 
-59:                                               ; preds = %45
-  %60 = icmp sgt i32 %52, 0
-  br i1 %60, label %qsort_tuple_med3.exit, label %61
+58:                                               ; preds = %44
+  %59 = icmp sgt i32 %51, 0
+  br i1 %59, label %qsort_tuple_med3.exit, label %60
 
-61:                                               ; preds = %59
-  %62 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %49, ptr noundef %3) #12
-  %63 = icmp slt i32 %62, 0
-  %64 = select i1 %63, ptr %.0147.ph, ptr %49
+60:                                               ; preds = %58
+  %61 = tail call i32 %2(ptr noundef %.0147.ph, ptr noundef %48, ptr noundef %3) #12
+  %62 = icmp slt i32 %61, 0
+  %63 = select i1 %62, ptr %.0147.ph, ptr %48
   br label %qsort_tuple_med3.exit
 
-qsort_tuple_med3.exit:                            ; preds = %53, %55, %59, %61
-  %65 = phi ptr [ %58, %55 ], [ %64, %61 ], [ %47, %53 ], [ %47, %59 ]
-  %66 = sub nsw i64 0, %46
-  %67 = getelementptr %struct.SortTuple, ptr %40, i64 %66
-  %68 = getelementptr %struct.SortTuple, ptr %40, i64 %46
-  %69 = tail call i32 %2(ptr noundef %67, ptr noundef %40, ptr noundef %3) #12
-  %70 = icmp slt i32 %69, 0
-  %71 = tail call i32 %2(ptr noundef %40, ptr noundef %68, ptr noundef %3) #12
-  br i1 %70, label %72, label %78
+qsort_tuple_med3.exit:                            ; preds = %52, %54, %58, %60
+  %64 = phi ptr [ %57, %54 ], [ %63, %60 ], [ %46, %52 ], [ %46, %58 ]
+  %65 = sub nsw i64 0, %45
+  %66 = getelementptr %struct.SortTuple, ptr %40, i64 %65
+  %67 = getelementptr %struct.SortTuple, ptr %40, i64 %45
+  %68 = tail call i32 %2(ptr noundef %66, ptr noundef %40, ptr noundef %3) #12
+  %69 = icmp slt i32 %68, 0
+  %70 = tail call i32 %2(ptr noundef %40, ptr noundef %67, ptr noundef %3) #12
+  br i1 %69, label %71, label %77
 
-72:                                               ; preds = %qsort_tuple_med3.exit
-  %73 = icmp slt i32 %71, 0
-  br i1 %73, label %qsort_tuple_med3.exit181, label %74
+71:                                               ; preds = %qsort_tuple_med3.exit
+  %72 = icmp slt i32 %70, 0
+  br i1 %72, label %qsort_tuple_med3.exit181, label %73
 
-74:                                               ; preds = %72
-  %75 = tail call i32 %2(ptr noundef %67, ptr noundef %68, ptr noundef %3) #12
-  %76 = icmp slt i32 %75, 0
-  %77 = select i1 %76, ptr %68, ptr %67
+73:                                               ; preds = %71
+  %74 = tail call i32 %2(ptr noundef %66, ptr noundef %67, ptr noundef %3) #12
+  %75 = icmp slt i32 %74, 0
+  %76 = select i1 %75, ptr %67, ptr %66
   br label %qsort_tuple_med3.exit181
 
-78:                                               ; preds = %qsort_tuple_med3.exit
-  %79 = icmp sgt i32 %71, 0
-  br i1 %79, label %qsort_tuple_med3.exit181, label %80
+77:                                               ; preds = %qsort_tuple_med3.exit
+  %78 = icmp sgt i32 %70, 0
+  br i1 %78, label %qsort_tuple_med3.exit181, label %79
 
-80:                                               ; preds = %78
-  %81 = tail call i32 %2(ptr noundef %67, ptr noundef %68, ptr noundef %3) #12
-  %82 = icmp slt i32 %81, 0
-  %83 = select i1 %82, ptr %67, ptr %68
+79:                                               ; preds = %77
+  %80 = tail call i32 %2(ptr noundef %66, ptr noundef %67, ptr noundef %3) #12
+  %81 = icmp slt i32 %80, 0
+  %82 = select i1 %81, ptr %66, ptr %67
   br label %qsort_tuple_med3.exit181
 
-qsort_tuple_med3.exit181:                         ; preds = %72, %74, %78, %80
-  %84 = phi ptr [ %77, %74 ], [ %83, %80 ], [ %40, %72 ], [ %40, %78 ]
-  %85 = sub nsw i64 0, %48
-  %86 = getelementptr %struct.SortTuple, ptr %43, i64 %85
-  %87 = getelementptr %struct.SortTuple, ptr %43, i64 %66
-  %88 = tail call i32 %2(ptr noundef %86, ptr noundef %87, ptr noundef %3) #12
-  %89 = icmp slt i32 %88, 0
-  %90 = tail call i32 %2(ptr noundef %87, ptr noundef %43, ptr noundef %3) #12
-  br i1 %89, label %91, label %97
+qsort_tuple_med3.exit181:                         ; preds = %71, %73, %77, %79
+  %83 = phi ptr [ %76, %73 ], [ %82, %79 ], [ %40, %71 ], [ %40, %77 ]
+  %84 = sub nsw i64 0, %47
+  %85 = getelementptr %struct.SortTuple, ptr %42, i64 %84
+  %86 = getelementptr %struct.SortTuple, ptr %42, i64 %65
+  %87 = tail call i32 %2(ptr noundef %85, ptr noundef %86, ptr noundef %3) #12
+  %88 = icmp slt i32 %87, 0
+  %89 = tail call i32 %2(ptr noundef %86, ptr noundef %42, ptr noundef %3) #12
+  br i1 %88, label %90, label %96
 
-91:                                               ; preds = %qsort_tuple_med3.exit181
-  %92 = icmp slt i32 %90, 0
-  br i1 %92, label %qsort_tuple_med3.exit182, label %93
+90:                                               ; preds = %qsort_tuple_med3.exit181
+  %91 = icmp slt i32 %89, 0
+  br i1 %91, label %qsort_tuple_med3.exit182, label %92
 
-93:                                               ; preds = %91
-  %94 = tail call i32 %2(ptr noundef %86, ptr noundef %43, ptr noundef %3) #12
-  %95 = icmp slt i32 %94, 0
-  %96 = select i1 %95, ptr %43, ptr %86
+92:                                               ; preds = %90
+  %93 = tail call i32 %2(ptr noundef %85, ptr noundef %42, ptr noundef %3) #12
+  %94 = icmp slt i32 %93, 0
+  %95 = select i1 %94, ptr %42, ptr %85
   br label %qsort_tuple_med3.exit182
 
-97:                                               ; preds = %qsort_tuple_med3.exit181
-  %98 = icmp sgt i32 %90, 0
-  br i1 %98, label %qsort_tuple_med3.exit182, label %99
+96:                                               ; preds = %qsort_tuple_med3.exit181
+  %97 = icmp sgt i32 %89, 0
+  br i1 %97, label %qsort_tuple_med3.exit182, label %98
 
-99:                                               ; preds = %97
-  %100 = tail call i32 %2(ptr noundef %86, ptr noundef %43, ptr noundef %3) #12
-  %101 = icmp slt i32 %100, 0
-  %102 = select i1 %101, ptr %86, ptr %43
+98:                                               ; preds = %96
+  %99 = tail call i32 %2(ptr noundef %85, ptr noundef %42, ptr noundef %3) #12
+  %100 = icmp slt i32 %99, 0
+  %101 = select i1 %100, ptr %85, ptr %42
   br label %qsort_tuple_med3.exit182
 
-qsort_tuple_med3.exit182:                         ; preds = %99, %97, %93, %91, %41
-  %.1151 = phi ptr [ %.0147.ph, %41 ], [ %65, %91 ], [ %65, %93 ], [ %65, %97 ], [ %65, %99 ]
-  %.3 = phi ptr [ %40, %41 ], [ %84, %91 ], [ %84, %93 ], [ %84, %97 ], [ %84, %99 ]
-  %.0148 = phi ptr [ %43, %41 ], [ %87, %91 ], [ %96, %93 ], [ %87, %97 ], [ %102, %99 ]
-  %103 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.3, ptr noundef %3) #12
-  %104 = icmp slt i32 %103, 0
-  %105 = tail call i32 %2(ptr noundef %.3, ptr noundef %.0148, ptr noundef %3) #12
-  br i1 %104, label %106, label %112
+qsort_tuple_med3.exit182:                         ; preds = %98, %96, %92, %90, %41
+  %.1151 = phi ptr [ %.0147.ph, %41 ], [ %64, %90 ], [ %64, %92 ], [ %64, %96 ], [ %64, %98 ]
+  %.3 = phi ptr [ %40, %41 ], [ %83, %90 ], [ %83, %92 ], [ %83, %96 ], [ %83, %98 ]
+  %.0148 = phi ptr [ %42, %41 ], [ %86, %90 ], [ %95, %92 ], [ %86, %96 ], [ %101, %98 ]
+  %102 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.3, ptr noundef %3) #12
+  %103 = icmp slt i32 %102, 0
+  %104 = tail call i32 %2(ptr noundef %.3, ptr noundef %.0148, ptr noundef %3) #12
+  br i1 %103, label %105, label %111
 
-106:                                              ; preds = %qsort_tuple_med3.exit182
-  %107 = icmp slt i32 %105, 0
-  br i1 %107, label %qsort_tuple_med3.exit183, label %108
+105:                                              ; preds = %qsort_tuple_med3.exit182
+  %106 = icmp slt i32 %104, 0
+  br i1 %106, label %qsort_tuple_med3.exit183, label %107
 
-108:                                              ; preds = %106
-  %109 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.0148, ptr noundef %3) #12
-  %110 = icmp slt i32 %109, 0
-  %111 = select i1 %110, ptr %.0148, ptr %.1151
+107:                                              ; preds = %105
+  %108 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.0148, ptr noundef %3) #12
+  %109 = icmp slt i32 %108, 0
+  %110 = select i1 %109, ptr %.0148, ptr %.1151
   br label %qsort_tuple_med3.exit183
 
-112:                                              ; preds = %qsort_tuple_med3.exit182
-  %113 = icmp sgt i32 %105, 0
-  br i1 %113, label %qsort_tuple_med3.exit183, label %114
+111:                                              ; preds = %qsort_tuple_med3.exit182
+  %112 = icmp sgt i32 %104, 0
+  br i1 %112, label %qsort_tuple_med3.exit183, label %113
 
-114:                                              ; preds = %112
-  %115 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.0148, ptr noundef %3) #12
-  %116 = icmp slt i32 %115, 0
-  %117 = select i1 %116, ptr %.1151, ptr %.0148
+113:                                              ; preds = %111
+  %114 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.0148, ptr noundef %3) #12
+  %115 = icmp slt i32 %114, 0
+  %116 = select i1 %115, ptr %.1151, ptr %.0148
   br label %qsort_tuple_med3.exit183
 
-qsort_tuple_med3.exit183:                         ; preds = %38, %114, %112, %108, %106
-  %.pre-phi = phi i64 [ %42, %114 ], [ %42, %112 ], [ %42, %108 ], [ %42, %106 ], [ 6, %38 ]
-  %.2 = phi ptr [ %117, %114 ], [ %.3, %112 ], [ %111, %108 ], [ %.3, %106 ], [ %40, %38 ]
+qsort_tuple_med3.exit183:                         ; preds = %113, %111, %107, %105, %38
+  %.2 = phi ptr [ %40, %38 ], [ %110, %107 ], [ %116, %113 ], [ %.3, %105 ], [ %.3, %111 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %118 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %.pre-phi
-  br label %119
+  %117 = getelementptr i8, ptr %19, i64 -24
+  br label %118
 
-119:                                              ; preds = %.critedge4, %qsort_tuple_med3.exit183
+118:                                              ; preds = %.critedge4, %qsort_tuple_med3.exit183
   %.0159 = phi ptr [ %12, %qsort_tuple_med3.exit183 ], [ %.1160.lcssa, %.critedge4 ]
-  %.0157 = phi ptr [ %12, %qsort_tuple_med3.exit183 ], [ %142, %.critedge4 ]
-  %.0155 = phi ptr [ %118, %qsort_tuple_med3.exit183 ], [ %143, %.critedge4 ]
-  %.0152 = phi ptr [ %118, %qsort_tuple_med3.exit183 ], [ %.1153218, %.critedge4 ]
+  %.0157 = phi ptr [ %12, %qsort_tuple_med3.exit183 ], [ %141, %.critedge4 ]
+  %.0155 = phi ptr [ %117, %qsort_tuple_med3.exit183 ], [ %142, %.critedge4 ]
+  %.0152 = phi ptr [ %117, %qsort_tuple_med3.exit183 ], [ %.1153218, %.critedge4 ]
   %.not174208 = icmp ugt ptr %.0157, %.0155
   br i1 %.not174208, label %.critedge2, label %.lr.ph211
 
-.lr.ph211:                                        ; preds = %119, %130
-  %.1158210 = phi ptr [ %127, %130 ], [ %.0157, %119 ]
-  %.1160209 = phi ptr [ %.2161, %130 ], [ %.0159, %119 ]
-  %120 = tail call i32 %2(ptr noundef %.1158210, ptr noundef %.0147.ph, ptr noundef %3) #12
-  %121 = icmp slt i32 %120, 1
-  br i1 %121, label %122, label %.critedge2
+.lr.ph211:                                        ; preds = %118, %129
+  %.1158210 = phi ptr [ %126, %129 ], [ %.0157, %118 ]
+  %.1160209 = phi ptr [ %.2161, %129 ], [ %.0159, %118 ]
+  %119 = tail call i32 %2(ptr noundef %.1158210, ptr noundef %.0147.ph, ptr noundef %3) #12
+  %120 = icmp slt i32 %119, 1
+  br i1 %120, label %121, label %.critedge2
 
-122:                                              ; preds = %.lr.ph211
-  %123 = icmp eq i32 %120, 0
-  br i1 %123, label %124, label %126
+121:                                              ; preds = %.lr.ph211
+  %122 = icmp eq i32 %119, 0
+  br i1 %122, label %123, label %125
 
-124:                                              ; preds = %122
+123:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.1160209, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1160209, ptr noundef nonnull align 8 dereferenceable(24) %.1158210, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158210, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %125 = getelementptr i8, ptr %.1160209, i64 24
-  br label %126
+  %124 = getelementptr i8, ptr %.1160209, i64 24
+  br label %125
 
-126:                                              ; preds = %124, %122
-  %.2161 = phi ptr [ %125, %124 ], [ %.1160209, %122 ]
-  %127 = getelementptr i8, ptr %.1158210, i64 24
-  %128 = load volatile i32, ptr @InterruptPending, align 4
-  %.not178 = icmp eq i32 %128, 0
-  br i1 %.not178, label %130, label %129
+125:                                              ; preds = %123, %121
+  %.2161 = phi ptr [ %124, %123 ], [ %.1160209, %121 ]
+  %126 = getelementptr i8, ptr %.1158210, i64 24
+  %127 = load volatile i32, ptr @InterruptPending, align 4
+  %.not178 = icmp eq i32 %127, 0
+  br i1 %.not178, label %129, label %128
 
-129:                                              ; preds = %126
+128:                                              ; preds = %125
   tail call void @ProcessInterrupts() #12
-  br label %130
+  br label %129
 
-130:                                              ; preds = %126, %129
-  %.not174 = icmp ugt ptr %127, %.0155
+129:                                              ; preds = %125, %128
+  %.not174 = icmp ugt ptr %126, %.0155
   br i1 %.not174, label %.critedge2, label %.lr.ph211, !llvm.loop !51
 
-.critedge2:                                       ; preds = %.lr.ph211, %130, %119
-  %.1160.lcssa = phi ptr [ %.0159, %119 ], [ %.2161, %130 ], [ %.1160209, %.lr.ph211 ]
-  %.1158.lcssa = phi ptr [ %.0157, %119 ], [ %127, %130 ], [ %.1158210, %.lr.ph211 ]
+.critedge2:                                       ; preds = %.lr.ph211, %129, %118
+  %.1160.lcssa = phi ptr [ %.0159, %118 ], [ %.2161, %129 ], [ %.1160209, %.lr.ph211 ]
+  %.1158.lcssa = phi ptr [ %.0157, %118 ], [ %126, %129 ], [ %.1158210, %.lr.ph211 ]
   %.not175216 = icmp ugt ptr %.1158.lcssa, %.0155
   br i1 %.not175216, label %.critedge2._crit_edge, label %.lr.ph219
 
-.lr.ph219:                                        ; preds = %.critedge2, %141
-  %.1153218 = phi ptr [ %.2154, %141 ], [ %.0152, %.critedge2 ]
-  %.1156217 = phi ptr [ %138, %141 ], [ %.0155, %.critedge2 ]
-  %131 = tail call i32 %2(ptr noundef %.1156217, ptr noundef %.0147.ph, ptr noundef %3) #12
-  %132 = icmp sgt i32 %131, -1
-  br i1 %132, label %133, label %.critedge4
+.lr.ph219:                                        ; preds = %.critedge2, %140
+  %.1153218 = phi ptr [ %.2154, %140 ], [ %.0152, %.critedge2 ]
+  %.1156217 = phi ptr [ %137, %140 ], [ %.0155, %.critedge2 ]
+  %130 = tail call i32 %2(ptr noundef %.1156217, ptr noundef %.0147.ph, ptr noundef %3) #12
+  %131 = icmp sgt i32 %130, -1
+  br i1 %131, label %132, label %.critedge4
 
-133:                                              ; preds = %.lr.ph219
-  %134 = icmp eq i32 %131, 0
-  br i1 %134, label %135, label %137
+132:                                              ; preds = %.lr.ph219
+  %133 = icmp eq i32 %130, 0
+  br i1 %133, label %134, label %136
 
-135:                                              ; preds = %133
+134:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1156217, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156217, ptr noundef nonnull align 8 dereferenceable(24) %.1153218, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1153218, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %136 = getelementptr i8, ptr %.1153218, i64 -24
-  br label %137
+  %135 = getelementptr i8, ptr %.1153218, i64 -24
+  br label %136
 
-137:                                              ; preds = %135, %133
-  %.2154 = phi ptr [ %136, %135 ], [ %.1153218, %133 ]
-  %138 = getelementptr i8, ptr %.1156217, i64 -24
-  %139 = load volatile i32, ptr @InterruptPending, align 4
-  %.not177 = icmp eq i32 %139, 0
-  br i1 %.not177, label %141, label %140
+136:                                              ; preds = %134, %132
+  %.2154 = phi ptr [ %135, %134 ], [ %.1153218, %132 ]
+  %137 = getelementptr i8, ptr %.1156217, i64 -24
+  %138 = load volatile i32, ptr @InterruptPending, align 4
+  %.not177 = icmp eq i32 %138, 0
+  br i1 %.not177, label %140, label %139
 
-140:                                              ; preds = %137
+139:                                              ; preds = %136
   tail call void @ProcessInterrupts() #12
-  br label %141
+  br label %140
 
-141:                                              ; preds = %137, %140
-  %.not175 = icmp ugt ptr %.1158.lcssa, %138
+140:                                              ; preds = %136, %139
+  %.not175 = icmp ugt ptr %.1158.lcssa, %137
   br i1 %.not175, label %.critedge2._crit_edge, label %.lr.ph219, !llvm.loop !52
 
 .critedge4:                                       ; preds = %.lr.ph219
@@ -6102,118 +6092,118 @@ qsort_tuple_med3.exit183:                         ; preds = %38, %114, %112, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1156217, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156217, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %142 = getelementptr i8, ptr %.1158.lcssa, i64 24
-  %143 = getelementptr i8, ptr %.1156217, i64 -24
-  br label %119
+  %141 = getelementptr i8, ptr %.1158.lcssa, i64 24
+  %142 = getelementptr i8, ptr %.1156217, i64 -24
+  br label %118
 
-.critedge2._crit_edge:                            ; preds = %.critedge2, %141
-  %.1156.lcssa = phi ptr [ %138, %141 ], [ %.0155, %.critedge2 ]
-  %.1153.lcssa = phi ptr [ %.2154, %141 ], [ %.0152, %.critedge2 ]
-  %144 = ptrtoint ptr %.1160.lcssa to i64
-  %145 = sub i64 %144, %13
-  %146 = sdiv exact i64 %145, 24
-  %147 = ptrtoint ptr %.1158.lcssa to i64
-  %148 = sub i64 %147, %144
-  %149 = sdiv exact i64 %148, 24
-  %. = tail call i64 @llvm.smin.i64(i64 %146, i64 %149)
-  %150 = sub nsw i64 0, %.
-  %151 = getelementptr %struct.SortTuple, ptr %.1158.lcssa, i64 %150
+.critedge2._crit_edge:                            ; preds = %.critedge2, %140
+  %.1156.lcssa = phi ptr [ %137, %140 ], [ %.0155, %.critedge2 ]
+  %.1153.lcssa = phi ptr [ %.2154, %140 ], [ %.0152, %.critedge2 ]
+  %143 = ptrtoint ptr %.1160.lcssa to i64
+  %144 = sub i64 %143, %13
+  %145 = sdiv exact i64 %144, 24
+  %146 = ptrtoint ptr %.1158.lcssa to i64
+  %147 = sub i64 %146, %143
+  %148 = sdiv exact i64 %147, 24
+  %. = tail call i64 @llvm.smin.i64(i64 %145, i64 %148)
+  %149 = sub nsw i64 0, %.
+  %150 = getelementptr %struct.SortTuple, ptr %.1158.lcssa, i64 %149
   %.not.i = icmp eq i64 %., 0
   br i1 %.not.i, label %qsort_tuple_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge2._crit_edge, %.lr.ph.i
-  %.06.i = phi i64 [ %154, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
-  %152 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %.06.i
-  %153 = getelementptr %struct.SortTuple, ptr %151, i64 %.06.i
+  %.06.i = phi i64 [ %153, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
+  %151 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %.06.i
+  %152 = getelementptr %struct.SortTuple, ptr %150, i64 %.06.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %153, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %151, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %154 = add nuw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %154, %.
+  %153 = add nuw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %153, %.
   br i1 %exitcond.not.i, label %qsort_tuple_swapn.exit, label %.lr.ph.i, !llvm.loop !53
 
 qsort_tuple_swapn.exit:                           ; preds = %.lr.ph.i, %.critedge2._crit_edge
-  %155 = ptrtoint ptr %.1153.lcssa to i64
-  %156 = ptrtoint ptr %.1156.lcssa to i64
-  %157 = sub i64 %155, %156
-  %158 = sdiv exact i64 %157, 24
-  %159 = ptrtoint ptr %19 to i64
-  %160 = sub i64 %159, %155
-  %161 = sdiv exact i64 %160, 24
-  %162 = add nsw i64 %161, -1
-  %163 = tail call i64 @llvm.smin.i64(i64 %158, i64 %162)
-  %164 = sub nsw i64 0, %163
-  %165 = getelementptr %struct.SortTuple, ptr %19, i64 %164
-  %.not.i184 = icmp eq i64 %163, 0
+  %154 = ptrtoint ptr %.1153.lcssa to i64
+  %155 = ptrtoint ptr %.1156.lcssa to i64
+  %156 = sub i64 %154, %155
+  %157 = sdiv exact i64 %156, 24
+  %158 = ptrtoint ptr %19 to i64
+  %159 = sub i64 %158, %154
+  %160 = sdiv exact i64 %159, 24
+  %161 = add nsw i64 %160, -1
+  %162 = tail call i64 @llvm.smin.i64(i64 %157, i64 %161)
+  %163 = sub nsw i64 0, %162
+  %164 = getelementptr %struct.SortTuple, ptr %19, i64 %163
+  %.not.i184 = icmp eq i64 %162, 0
   br i1 %.not.i184, label %qsort_tuple_swapn.exit188, label %.lr.ph.i185
 
 .lr.ph.i185:                                      ; preds = %qsort_tuple_swapn.exit, %.lr.ph.i185
-  %.06.i186 = phi i64 [ %168, %.lr.ph.i185 ], [ 0, %qsort_tuple_swapn.exit ]
-  %166 = getelementptr %struct.SortTuple, ptr %.1158.lcssa, i64 %.06.i186
-  %167 = getelementptr %struct.SortTuple, ptr %165, i64 %.06.i186
+  %.06.i186 = phi i64 [ %167, %.lr.ph.i185 ], [ 0, %qsort_tuple_swapn.exit ]
+  %165 = getelementptr %struct.SortTuple, ptr %.1158.lcssa, i64 %.06.i186
+  %166 = getelementptr %struct.SortTuple, ptr %164, i64 %.06.i186
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %166, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, ptr noundef nonnull align 8 dereferenceable(24) %167, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %165, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, ptr noundef nonnull align 8 dereferenceable(24) %166, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %168 = add nuw i64 %.06.i186, 1
-  %exitcond.not.i187 = icmp eq i64 %168, %163
+  %167 = add nuw i64 %.06.i186, 1
+  %exitcond.not.i187 = icmp eq i64 %167, %162
   br i1 %exitcond.not.i187, label %qsort_tuple_swapn.exit188, label %.lr.ph.i185, !llvm.loop !53
 
 qsort_tuple_swapn.exit188:                        ; preds = %.lr.ph.i185, %qsort_tuple_swapn.exit
-  %.not176 = icmp ugt i64 %149, %158
-  br i1 %.not176, label %177, label %169
+  %.not176 = icmp ugt i64 %148, %157
+  br i1 %.not176, label %176, label %168
 
-169:                                              ; preds = %qsort_tuple_swapn.exit188
-  %170 = icmp ugt i64 %149, 1
-  br i1 %170, label %171, label %172
+168:                                              ; preds = %qsort_tuple_swapn.exit188
+  %169 = icmp ugt i64 %148, 1
+  br i1 %169, label %170, label %171
 
-171:                                              ; preds = %169
-  tail call fastcc void @qsort_tuple(ptr noundef %.0147.ph, i64 noundef %149, ptr noundef %2, ptr noundef %3)
-  br label %172
+170:                                              ; preds = %168
+  tail call fastcc void @qsort_tuple(ptr noundef %.0147.ph, i64 noundef %148, ptr noundef %2, ptr noundef %3)
+  br label %171
 
-172:                                              ; preds = %171, %169
-  %173 = icmp ugt i64 %158, 1
-  br i1 %173, label %174, label %.critedge180
+171:                                              ; preds = %170, %168
+  %172 = icmp ugt i64 %157, 1
+  br i1 %172, label %173, label %.critedge180
 
-174:                                              ; preds = %172
-  %175 = sub nsw i64 0, %158
-  %176 = getelementptr %struct.SortTuple, ptr %19, i64 %175
+173:                                              ; preds = %171
+  %174 = sub nsw i64 0, %157
+  %175 = getelementptr %struct.SortTuple, ptr %19, i64 %174
   br label %.outer
 
-177:                                              ; preds = %qsort_tuple_swapn.exit188
-  %178 = icmp ugt i64 %158, 1
-  br i1 %178, label %179, label %182
+176:                                              ; preds = %qsort_tuple_swapn.exit188
+  %177 = icmp ugt i64 %157, 1
+  br i1 %177, label %178, label %181
 
-179:                                              ; preds = %177
-  %180 = sub nsw i64 0, %158
-  %181 = getelementptr %struct.SortTuple, ptr %19, i64 %180
-  tail call fastcc void @qsort_tuple(ptr noundef %181, i64 noundef %158, ptr noundef %2, ptr noundef %3)
-  br label %182
+178:                                              ; preds = %176
+  %179 = sub nsw i64 0, %157
+  %180 = getelementptr %struct.SortTuple, ptr %19, i64 %179
+  tail call fastcc void @qsort_tuple(ptr noundef %180, i64 noundef %157, ptr noundef %2, ptr noundef %3)
+  br label %181
 
-182:                                              ; preds = %179, %177
-  %183 = icmp ugt i64 %149, 1
-  br i1 %183, label %14, label %.critedge180
+181:                                              ; preds = %178, %176
+  %182 = icmp ugt i64 %148, 1
+  br i1 %182, label %14, label %.critedge180
 
-.critedge180:                                     ; preds = %172, %182, %28, %29, %.critedge, %.preheader189
+.critedge180:                                     ; preds = %171, %181, %28, %29, %.critedge, %.preheader189
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
   br i1 %9, label %17, label %22
 
@@ -6221,7 +6211,7 @@ define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, pt
   br i1 %14, label %ApplyUnsignedSortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %16, i64 13
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %qsort_tuple_unsigned_compare.exit.thread60, label %qsort_tuple_unsigned_compare.exit.thread
@@ -6230,14 +6220,14 @@ define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, pt
   br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %16, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %qsort_tuple_unsigned_compare.exit.thread, label %qsort_tuple_unsigned_compare.exit.thread60
 
 27:                                               ; preds = %22
   %28 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %11)
-  %29 = getelementptr inbounds i8, ptr %16, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %ApplyUnsignedSortComparator.exit.i
@@ -6253,13 +6243,13 @@ ApplyUnsignedSortComparator.exit.i:               ; preds = %32, %27
   br i1 %.not.i, label %ApplyUnsignedSortComparator.exit.thread16.i, label %qsort_tuple_unsigned_compare.exit
 
 ApplyUnsignedSortComparator.exit.thread16.i:      ; preds = %ApplyUnsignedSortComparator.exit.i, %17
-  %35 = getelementptr inbounds i8, ptr %3, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not13.i = icmp eq ptr %36, null
   br i1 %.not13.i, label %37, label %qsort_tuple_unsigned_compare.exit.thread
 
 37:                                               ; preds = %ApplyUnsignedSortComparator.exit.thread16.i
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
   %.pre96.pre = load i64, ptr %10, align 8
@@ -6280,9 +6270,9 @@ qsort_tuple_unsigned_compare.exit.thread60:       ; preds = %18, %23, %qsort_tup
   %43 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
   %44 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre96, %qsort_tuple_unsigned_compare.exit ]
   %45 = trunc i8 %43 to i1
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %45, label %51, label %56
@@ -6291,7 +6281,7 @@ qsort_tuple_unsigned_compare.exit.thread60:       ; preds = %18, %23, %qsort_tup
   br i1 %50, label %ApplyUnsignedSortComparator.exit.thread16.i25, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %42, i64 13
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 13
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %qsort_tuple_unsigned_compare.exit29.thread66, label %qsort_tuple_unsigned_compare.exit29.thread
@@ -6300,14 +6290,14 @@ qsort_tuple_unsigned_compare.exit.thread60:       ; preds = %18, %23, %qsort_tup
   br i1 %50, label %57, label %61
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %42, i64 13
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 13
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
   br i1 %60, label %qsort_tuple_unsigned_compare.exit29.thread, label %qsort_tuple_unsigned_compare.exit29.thread66
 
 61:                                               ; preds = %56
   %62 = tail call i32 @llvm.ucmp.i32.i64(i64 %44, i64 %47)
-  %63 = getelementptr inbounds i8, ptr %42, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %ApplyUnsignedSortComparator.exit.i21
@@ -6323,13 +6313,13 @@ ApplyUnsignedSortComparator.exit.i21:             ; preds = %66, %61
   br i1 %.not.i23, label %ApplyUnsignedSortComparator.exit.thread16.i25, label %qsort_tuple_unsigned_compare.exit29
 
 ApplyUnsignedSortComparator.exit.thread16.i25:    ; preds = %ApplyUnsignedSortComparator.exit.i21, %51
-  %69 = getelementptr inbounds i8, ptr %3, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %70 = load ptr, ptr %69, align 8
   %.not13.i26 = icmp eq ptr %70, null
   br i1 %.not13.i26, label %71, label %qsort_tuple_unsigned_compare.exit29.thread
 
 71:                                               ; preds = %ApplyUnsignedSortComparator.exit.thread16.i25
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 %73(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_unsigned_compare.exit29
@@ -6359,7 +6349,7 @@ qsort_tuple_unsigned_compare.exit29.thread:       ; preds = %qsort_tuple_unsigne
   br i1 %82, label %ApplyUnsignedSortComparator.exit.thread16.i34, label %84
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %76, i64 13
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 13
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   br i1 %87, label %qsort_tuple_unsigned_compare.exit38.thread73, label %qsort_tuple_unsigned_compare.exit29.thread66
@@ -6368,14 +6358,14 @@ qsort_tuple_unsigned_compare.exit29.thread:       ; preds = %qsort_tuple_unsigne
   br i1 %82, label %89, label %93
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %76, i64 13
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 13
   %91 = load i8, ptr %90, align 1
   %92 = trunc i8 %91 to i1
   br i1 %92, label %qsort_tuple_unsigned_compare.exit29.thread66, label %qsort_tuple_unsigned_compare.exit38.thread73
 
 93:                                               ; preds = %88
   %94 = tail call i32 @llvm.ucmp.i32.i64(i64 %79, i64 %78)
-  %95 = getelementptr inbounds i8, ptr %76, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %96 = load i8, ptr %95, align 4
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %ApplyUnsignedSortComparator.exit.i30
@@ -6391,13 +6381,13 @@ ApplyUnsignedSortComparator.exit.i30:             ; preds = %98, %93
   br i1 %.not.i32, label %ApplyUnsignedSortComparator.exit.thread16.i34, label %qsort_tuple_unsigned_compare.exit38
 
 ApplyUnsignedSortComparator.exit.thread16.i34:    ; preds = %ApplyUnsignedSortComparator.exit.i30, %83
-  %101 = getelementptr inbounds i8, ptr %3, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %102 = load ptr, ptr %101, align 8
   %.not13.i35 = icmp eq ptr %102, null
   br i1 %.not13.i35, label %103, label %qsort_tuple_unsigned_compare.exit29.thread66
 
 103:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i34
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_unsigned_compare.exit38
@@ -6416,9 +6406,9 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigne
   %109 = phi i8 [ %13, %23 ], [ %13, %32 ], [ %13, %18 ], [ %13, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_unsigned_compare.exit ]
   %110 = phi i64 [ %11, %23 ], [ %11, %32 ], [ %11, %18 ], [ %11, %ApplyUnsignedSortComparator.exit.thread16.i ], [ %.pre96, %qsort_tuple_unsigned_compare.exit ]
   %111 = trunc i8 %109 to i1
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %2, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %115 = load i8, ptr %114, align 8
   %116 = trunc i8 %115 to i1
   br i1 %111, label %117, label %122
@@ -6427,7 +6417,7 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigne
   br i1 %116, label %ApplyUnsignedSortComparator.exit.thread16.i43, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %108, i64 13
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 13
   %120 = load i8, ptr %119, align 1
   %121 = trunc i8 %120 to i1
   br i1 %121, label %qsort_tuple_unsigned_compare.exit47.thread80, label %qsort_tuple_unsigned_compare.exit29.thread66
@@ -6436,14 +6426,14 @@ qsort_tuple_unsigned_compare.exit.thread:         ; preds = %qsort_tuple_unsigne
   br i1 %116, label %123, label %127
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %108, i64 13
+  %124 = getelementptr inbounds nuw i8, ptr %108, i64 13
   %125 = load i8, ptr %124, align 1
   %126 = trunc i8 %125 to i1
   br i1 %126, label %qsort_tuple_unsigned_compare.exit29.thread66, label %qsort_tuple_unsigned_compare.exit47.thread80
 
 127:                                              ; preds = %122
   %128 = tail call i32 @llvm.ucmp.i32.i64(i64 %110, i64 %113)
-  %129 = getelementptr inbounds i8, ptr %108, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %130 = load i8, ptr %129, align 4
   %131 = trunc i8 %130 to i1
   br i1 %131, label %132, label %ApplyUnsignedSortComparator.exit.i39
@@ -6459,13 +6449,13 @@ ApplyUnsignedSortComparator.exit.i39:             ; preds = %132, %127
   br i1 %.not.i41, label %ApplyUnsignedSortComparator.exit.thread16.i43, label %qsort_tuple_unsigned_compare.exit47
 
 ApplyUnsignedSortComparator.exit.thread16.i43:    ; preds = %ApplyUnsignedSortComparator.exit.i39, %117
-  %135 = getelementptr inbounds i8, ptr %3, i64 88
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %136 = load ptr, ptr %135, align 8
   %.not13.i44 = icmp eq ptr %136, null
   br i1 %.not13.i44, label %137, label %qsort_tuple_unsigned_compare.exit47.thread80
 
 137:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i43
-  %138 = getelementptr inbounds i8, ptr %3, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %139(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_unsigned_compare.exit47
@@ -6495,7 +6485,7 @@ qsort_tuple_unsigned_compare.exit47.thread80:     ; preds = %qsort_tuple_unsigne
   br i1 %148, label %ApplyUnsignedSortComparator.exit.thread16.i52, label %150
 
 150:                                              ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 13
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 13
   %152 = load i8, ptr %151, align 1
   %153 = trunc i8 %152 to i1
   br i1 %153, label %qsort_tuple_unsigned_compare.exit56.thread88, label %qsort_tuple_unsigned_compare.exit29.thread66
@@ -6504,14 +6494,14 @@ qsort_tuple_unsigned_compare.exit47.thread80:     ; preds = %qsort_tuple_unsigne
   br i1 %148, label %155, label %159
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %142, i64 13
+  %156 = getelementptr inbounds nuw i8, ptr %142, i64 13
   %157 = load i8, ptr %156, align 1
   %158 = trunc i8 %157 to i1
   br i1 %158, label %qsort_tuple_unsigned_compare.exit29.thread66, label %qsort_tuple_unsigned_compare.exit56.thread88
 
 159:                                              ; preds = %154
   %160 = tail call i32 @llvm.ucmp.i32.i64(i64 %145, i64 %144)
-  %161 = getelementptr inbounds i8, ptr %142, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %162 = load i8, ptr %161, align 4
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %ApplyUnsignedSortComparator.exit.i48
@@ -6527,13 +6517,13 @@ ApplyUnsignedSortComparator.exit.i48:             ; preds = %164, %159
   br i1 %.not.i50, label %ApplyUnsignedSortComparator.exit.thread16.i52, label %qsort_tuple_unsigned_compare.exit56
 
 ApplyUnsignedSortComparator.exit.thread16.i52:    ; preds = %ApplyUnsignedSortComparator.exit.i48, %149
-  %167 = getelementptr inbounds i8, ptr %3, i64 88
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %168 = load ptr, ptr %167, align 8
   %.not13.i53 = icmp eq ptr %168, null
   br i1 %.not13.i53, label %169, label %qsort_tuple_unsigned_compare.exit29.thread66
 
 169:                                              ; preds = %ApplyUnsignedSortComparator.exit.thread16.i52
-  %170 = getelementptr inbounds i8, ptr %3, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 %171(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_unsigned_compare.exit56
@@ -6554,17 +6544,17 @@ qsort_tuple_unsigned_compare.exit29.thread66:     ; preds = %155, %164, %150, %A
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
   br i1 %9, label %17, label %22
 
@@ -6572,7 +6562,7 @@ define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr 
   br i1 %14, label %ApplySignedSortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %16, i64 13
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %qsort_tuple_signed_compare.exit.thread60, label %qsort_tuple_signed_compare.exit.thread
@@ -6581,14 +6571,14 @@ define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr 
   br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %16, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %qsort_tuple_signed_compare.exit.thread, label %qsort_tuple_signed_compare.exit.thread60
 
 27:                                               ; preds = %22
   %28 = tail call i32 @llvm.scmp.i32.i64(i64 %6, i64 %11)
-  %29 = getelementptr inbounds i8, ptr %16, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %ApplySignedSortComparator.exit.i
@@ -6604,13 +6594,13 @@ ApplySignedSortComparator.exit.i:                 ; preds = %32, %27
   br i1 %.not.i, label %ApplySignedSortComparator.exit.thread16.i, label %qsort_tuple_signed_compare.exit
 
 ApplySignedSortComparator.exit.thread16.i:        ; preds = %ApplySignedSortComparator.exit.i, %17
-  %35 = getelementptr inbounds i8, ptr %3, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not13.i = icmp eq ptr %36, null
   br i1 %.not13.i, label %37, label %qsort_tuple_signed_compare.exit.thread
 
 37:                                               ; preds = %ApplySignedSortComparator.exit.thread16.i
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
   %.pre96.pre = load i64, ptr %10, align 8
@@ -6631,9 +6621,9 @@ qsort_tuple_signed_compare.exit.thread60:         ; preds = %18, %23, %qsort_tup
   %43 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_signed_compare.exit ]
   %44 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre96, %qsort_tuple_signed_compare.exit ]
   %45 = trunc i8 %43 to i1
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %45, label %51, label %56
@@ -6642,7 +6632,7 @@ qsort_tuple_signed_compare.exit.thread60:         ; preds = %18, %23, %qsort_tup
   br i1 %50, label %ApplySignedSortComparator.exit.thread16.i25, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %42, i64 13
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 13
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %qsort_tuple_signed_compare.exit29.thread66, label %qsort_tuple_signed_compare.exit29.thread
@@ -6651,14 +6641,14 @@ qsort_tuple_signed_compare.exit.thread60:         ; preds = %18, %23, %qsort_tup
   br i1 %50, label %57, label %61
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %42, i64 13
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 13
   %59 = load i8, ptr %58, align 1
   %60 = trunc i8 %59 to i1
   br i1 %60, label %qsort_tuple_signed_compare.exit29.thread, label %qsort_tuple_signed_compare.exit29.thread66
 
 61:                                               ; preds = %56
   %62 = tail call i32 @llvm.scmp.i32.i64(i64 %44, i64 %47)
-  %63 = getelementptr inbounds i8, ptr %42, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %ApplySignedSortComparator.exit.i21
@@ -6674,13 +6664,13 @@ ApplySignedSortComparator.exit.i21:               ; preds = %66, %61
   br i1 %.not.i23, label %ApplySignedSortComparator.exit.thread16.i25, label %qsort_tuple_signed_compare.exit29
 
 ApplySignedSortComparator.exit.thread16.i25:      ; preds = %ApplySignedSortComparator.exit.i21, %51
-  %69 = getelementptr inbounds i8, ptr %3, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %70 = load ptr, ptr %69, align 8
   %.not13.i26 = icmp eq ptr %70, null
   br i1 %.not13.i26, label %71, label %qsort_tuple_signed_compare.exit29.thread
 
 71:                                               ; preds = %ApplySignedSortComparator.exit.thread16.i25
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 %73(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_signed_compare.exit29
@@ -6710,7 +6700,7 @@ qsort_tuple_signed_compare.exit29.thread:         ; preds = %qsort_tuple_signed_
   br i1 %82, label %ApplySignedSortComparator.exit.thread16.i34, label %84
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %76, i64 13
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 13
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   br i1 %87, label %qsort_tuple_signed_compare.exit38.thread73, label %qsort_tuple_signed_compare.exit29.thread66
@@ -6719,14 +6709,14 @@ qsort_tuple_signed_compare.exit29.thread:         ; preds = %qsort_tuple_signed_
   br i1 %82, label %89, label %93
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %76, i64 13
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 13
   %91 = load i8, ptr %90, align 1
   %92 = trunc i8 %91 to i1
   br i1 %92, label %qsort_tuple_signed_compare.exit29.thread66, label %qsort_tuple_signed_compare.exit38.thread73
 
 93:                                               ; preds = %88
   %94 = tail call i32 @llvm.scmp.i32.i64(i64 %79, i64 %78)
-  %95 = getelementptr inbounds i8, ptr %76, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %96 = load i8, ptr %95, align 4
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %ApplySignedSortComparator.exit.i30
@@ -6742,13 +6732,13 @@ ApplySignedSortComparator.exit.i30:               ; preds = %98, %93
   br i1 %.not.i32, label %ApplySignedSortComparator.exit.thread16.i34, label %qsort_tuple_signed_compare.exit38
 
 ApplySignedSortComparator.exit.thread16.i34:      ; preds = %ApplySignedSortComparator.exit.i30, %83
-  %101 = getelementptr inbounds i8, ptr %3, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %102 = load ptr, ptr %101, align 8
   %.not13.i35 = icmp eq ptr %102, null
   br i1 %.not13.i35, label %103, label %qsort_tuple_signed_compare.exit29.thread66
 
 103:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i34
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_signed_compare.exit38
@@ -6767,9 +6757,9 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_
   %109 = phi i8 [ %13, %23 ], [ %13, %32 ], [ %13, %18 ], [ %13, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_signed_compare.exit ]
   %110 = phi i64 [ %11, %23 ], [ %11, %32 ], [ %11, %18 ], [ %11, %ApplySignedSortComparator.exit.thread16.i ], [ %.pre96, %qsort_tuple_signed_compare.exit ]
   %111 = trunc i8 %109 to i1
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %2, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %115 = load i8, ptr %114, align 8
   %116 = trunc i8 %115 to i1
   br i1 %111, label %117, label %122
@@ -6778,7 +6768,7 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_
   br i1 %116, label %ApplySignedSortComparator.exit.thread16.i43, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %108, i64 13
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 13
   %120 = load i8, ptr %119, align 1
   %121 = trunc i8 %120 to i1
   br i1 %121, label %qsort_tuple_signed_compare.exit47.thread80, label %qsort_tuple_signed_compare.exit29.thread66
@@ -6787,14 +6777,14 @@ qsort_tuple_signed_compare.exit.thread:           ; preds = %qsort_tuple_signed_
   br i1 %116, label %123, label %127
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %108, i64 13
+  %124 = getelementptr inbounds nuw i8, ptr %108, i64 13
   %125 = load i8, ptr %124, align 1
   %126 = trunc i8 %125 to i1
   br i1 %126, label %qsort_tuple_signed_compare.exit29.thread66, label %qsort_tuple_signed_compare.exit47.thread80
 
 127:                                              ; preds = %122
   %128 = tail call i32 @llvm.scmp.i32.i64(i64 %110, i64 %113)
-  %129 = getelementptr inbounds i8, ptr %108, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %130 = load i8, ptr %129, align 4
   %131 = trunc i8 %130 to i1
   br i1 %131, label %132, label %ApplySignedSortComparator.exit.i39
@@ -6810,13 +6800,13 @@ ApplySignedSortComparator.exit.i39:               ; preds = %132, %127
   br i1 %.not.i41, label %ApplySignedSortComparator.exit.thread16.i43, label %qsort_tuple_signed_compare.exit47
 
 ApplySignedSortComparator.exit.thread16.i43:      ; preds = %ApplySignedSortComparator.exit.i39, %117
-  %135 = getelementptr inbounds i8, ptr %3, i64 88
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %136 = load ptr, ptr %135, align 8
   %.not13.i44 = icmp eq ptr %136, null
   br i1 %.not13.i44, label %137, label %qsort_tuple_signed_compare.exit47.thread80
 
 137:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i43
-  %138 = getelementptr inbounds i8, ptr %3, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %139(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_signed_compare.exit47
@@ -6846,7 +6836,7 @@ qsort_tuple_signed_compare.exit47.thread80:       ; preds = %qsort_tuple_signed_
   br i1 %148, label %ApplySignedSortComparator.exit.thread16.i52, label %150
 
 150:                                              ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %142, i64 13
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 13
   %152 = load i8, ptr %151, align 1
   %153 = trunc i8 %152 to i1
   br i1 %153, label %qsort_tuple_signed_compare.exit56.thread88, label %qsort_tuple_signed_compare.exit29.thread66
@@ -6855,14 +6845,14 @@ qsort_tuple_signed_compare.exit47.thread80:       ; preds = %qsort_tuple_signed_
   br i1 %148, label %155, label %159
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %142, i64 13
+  %156 = getelementptr inbounds nuw i8, ptr %142, i64 13
   %157 = load i8, ptr %156, align 1
   %158 = trunc i8 %157 to i1
   br i1 %158, label %qsort_tuple_signed_compare.exit29.thread66, label %qsort_tuple_signed_compare.exit56.thread88
 
 159:                                              ; preds = %154
   %160 = tail call i32 @llvm.scmp.i32.i64(i64 %145, i64 %144)
-  %161 = getelementptr inbounds i8, ptr %142, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %162 = load i8, ptr %161, align 4
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %ApplySignedSortComparator.exit.i48
@@ -6878,13 +6868,13 @@ ApplySignedSortComparator.exit.i48:               ; preds = %164, %159
   br i1 %.not.i50, label %ApplySignedSortComparator.exit.thread16.i52, label %qsort_tuple_signed_compare.exit56
 
 ApplySignedSortComparator.exit.thread16.i52:      ; preds = %ApplySignedSortComparator.exit.i48, %149
-  %167 = getelementptr inbounds i8, ptr %3, i64 88
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %168 = load ptr, ptr %167, align 8
   %.not13.i53 = icmp eq ptr %168, null
   br i1 %.not13.i53, label %169, label %qsort_tuple_signed_compare.exit29.thread66
 
 169:                                              ; preds = %ApplySignedSortComparator.exit.thread16.i52
-  %170 = getelementptr inbounds i8, ptr %3, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 %171(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_signed_compare.exit56
@@ -6905,17 +6895,17 @@ qsort_tuple_signed_compare.exit29.thread66:       ; preds = %155, %164, %150, %A
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load ptr, ptr %15, align 8
   br i1 %9, label %17, label %22
 
@@ -6923,7 +6913,7 @@ define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr n
   br i1 %14, label %ApplyInt32SortComparator.exit.thread16.i, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %16, i64 13
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %qsort_tuple_int32_compare.exit.thread60, label %qsort_tuple_int32_compare.exit.thread
@@ -6932,7 +6922,7 @@ define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr n
   br i1 %14, label %23, label %27
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %16, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %qsort_tuple_int32_compare.exit.thread, label %qsort_tuple_int32_compare.exit.thread60
@@ -6941,7 +6931,7 @@ define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr n
   %28 = trunc i64 %6 to i32
   %29 = trunc i64 %11 to i32
   %30 = tail call i32 @llvm.scmp.i32.i32(i32 %28, i32 %29)
-  %31 = getelementptr inbounds i8, ptr %16, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %ApplyInt32SortComparator.exit.i
@@ -6957,13 +6947,13 @@ ApplyInt32SortComparator.exit.i:                  ; preds = %34, %27
   br i1 %.not.i, label %ApplyInt32SortComparator.exit.thread16.i, label %qsort_tuple_int32_compare.exit
 
 ApplyInt32SortComparator.exit.thread16.i:         ; preds = %ApplyInt32SortComparator.exit.i, %17
-  %37 = getelementptr inbounds i8, ptr %3, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not13.i = icmp eq ptr %38, null
   br i1 %.not13.i, label %39, label %qsort_tuple_int32_compare.exit.thread
 
 39:                                               ; preds = %ApplyInt32SortComparator.exit.thread16.i
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3) #12
   %.pre96.pre = load i64, ptr %10, align 8
@@ -6984,9 +6974,9 @@ qsort_tuple_int32_compare.exit.thread60:          ; preds = %18, %23, %qsort_tup
   %45 = phi i8 [ %13, %18 ], [ %13, %23 ], [ %.pre, %qsort_tuple_int32_compare.exit ]
   %46 = phi i64 [ %11, %18 ], [ %11, %23 ], [ %.pre96, %qsort_tuple_int32_compare.exit ]
   %47 = trunc i8 %45 to i1
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %47, label %53, label %58
@@ -6995,7 +6985,7 @@ qsort_tuple_int32_compare.exit.thread60:          ; preds = %18, %23, %qsort_tup
   br i1 %52, label %ApplyInt32SortComparator.exit.thread16.i25, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %44, i64 13
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 13
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %qsort_tuple_int32_compare.exit29.thread66, label %qsort_tuple_int32_compare.exit29.thread
@@ -7004,7 +6994,7 @@ qsort_tuple_int32_compare.exit.thread60:          ; preds = %18, %23, %qsort_tup
   br i1 %52, label %59, label %63
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %44, i64 13
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 13
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %qsort_tuple_int32_compare.exit29.thread, label %qsort_tuple_int32_compare.exit29.thread66
@@ -7013,7 +7003,7 @@ qsort_tuple_int32_compare.exit.thread60:          ; preds = %18, %23, %qsort_tup
   %64 = trunc i64 %46 to i32
   %65 = trunc i64 %49 to i32
   %66 = tail call i32 @llvm.scmp.i32.i32(i32 %64, i32 %65)
-  %67 = getelementptr inbounds i8, ptr %44, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %68 = load i8, ptr %67, align 4
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %ApplyInt32SortComparator.exit.i21
@@ -7029,13 +7019,13 @@ ApplyInt32SortComparator.exit.i21:                ; preds = %70, %63
   br i1 %.not.i23, label %ApplyInt32SortComparator.exit.thread16.i25, label %qsort_tuple_int32_compare.exit29
 
 ApplyInt32SortComparator.exit.thread16.i25:       ; preds = %ApplyInt32SortComparator.exit.i21, %53
-  %73 = getelementptr inbounds i8, ptr %3, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %74 = load ptr, ptr %73, align 8
   %.not13.i26 = icmp eq ptr %74, null
   br i1 %.not13.i26, label %75, label %qsort_tuple_int32_compare.exit29.thread
 
 75:                                               ; preds = %ApplyInt32SortComparator.exit.thread16.i25
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 %77(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_int32_compare.exit29
@@ -7065,7 +7055,7 @@ qsort_tuple_int32_compare.exit29.thread:          ; preds = %qsort_tuple_int32_c
   br i1 %86, label %ApplyInt32SortComparator.exit.thread16.i34, label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %80, i64 13
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 13
   %90 = load i8, ptr %89, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %qsort_tuple_int32_compare.exit38.thread73, label %qsort_tuple_int32_compare.exit29.thread66
@@ -7074,7 +7064,7 @@ qsort_tuple_int32_compare.exit29.thread:          ; preds = %qsort_tuple_int32_c
   br i1 %86, label %93, label %97
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %80, i64 13
+  %94 = getelementptr inbounds nuw i8, ptr %80, i64 13
   %95 = load i8, ptr %94, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %qsort_tuple_int32_compare.exit29.thread66, label %qsort_tuple_int32_compare.exit38.thread73
@@ -7083,7 +7073,7 @@ qsort_tuple_int32_compare.exit29.thread:          ; preds = %qsort_tuple_int32_c
   %98 = trunc i64 %83 to i32
   %99 = trunc i64 %82 to i32
   %100 = tail call i32 @llvm.scmp.i32.i32(i32 %98, i32 %99)
-  %101 = getelementptr inbounds i8, ptr %80, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %102 = load i8, ptr %101, align 4
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %ApplyInt32SortComparator.exit.i30
@@ -7099,13 +7089,13 @@ ApplyInt32SortComparator.exit.i30:                ; preds = %104, %97
   br i1 %.not.i32, label %ApplyInt32SortComparator.exit.thread16.i34, label %qsort_tuple_int32_compare.exit38
 
 ApplyInt32SortComparator.exit.thread16.i34:       ; preds = %ApplyInt32SortComparator.exit.i30, %87
-  %107 = getelementptr inbounds i8, ptr %3, i64 88
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %108 = load ptr, ptr %107, align 8
   %.not13.i35 = icmp eq ptr %108, null
   br i1 %.not13.i35, label %109, label %qsort_tuple_int32_compare.exit29.thread66
 
 109:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i34
-  %110 = getelementptr inbounds i8, ptr %3, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 %111(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_int32_compare.exit38
@@ -7124,9 +7114,9 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_c
   %115 = phi i8 [ %13, %23 ], [ %13, %34 ], [ %13, %18 ], [ %13, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre, %qsort_tuple_int32_compare.exit ]
   %116 = phi i64 [ %11, %23 ], [ %11, %34 ], [ %11, %18 ], [ %11, %ApplyInt32SortComparator.exit.thread16.i ], [ %.pre96, %qsort_tuple_int32_compare.exit ]
   %117 = trunc i8 %115 to i1
-  %118 = getelementptr inbounds i8, ptr %2, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %2, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %121 = load i8, ptr %120, align 8
   %122 = trunc i8 %121 to i1
   br i1 %117, label %123, label %128
@@ -7135,7 +7125,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_c
   br i1 %122, label %ApplyInt32SortComparator.exit.thread16.i43, label %124
 
 124:                                              ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %114, i64 13
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 13
   %126 = load i8, ptr %125, align 1
   %127 = trunc i8 %126 to i1
   br i1 %127, label %qsort_tuple_int32_compare.exit47.thread80, label %qsort_tuple_int32_compare.exit29.thread66
@@ -7144,7 +7134,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_c
   br i1 %122, label %129, label %133
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %114, i64 13
+  %130 = getelementptr inbounds nuw i8, ptr %114, i64 13
   %131 = load i8, ptr %130, align 1
   %132 = trunc i8 %131 to i1
   br i1 %132, label %qsort_tuple_int32_compare.exit29.thread66, label %qsort_tuple_int32_compare.exit47.thread80
@@ -7153,7 +7143,7 @@ qsort_tuple_int32_compare.exit.thread:            ; preds = %qsort_tuple_int32_c
   %134 = trunc i64 %116 to i32
   %135 = trunc i64 %119 to i32
   %136 = tail call i32 @llvm.scmp.i32.i32(i32 %134, i32 %135)
-  %137 = getelementptr inbounds i8, ptr %114, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %114, i64 12
   %138 = load i8, ptr %137, align 4
   %139 = trunc i8 %138 to i1
   br i1 %139, label %140, label %ApplyInt32SortComparator.exit.i39
@@ -7169,13 +7159,13 @@ ApplyInt32SortComparator.exit.i39:                ; preds = %140, %133
   br i1 %.not.i41, label %ApplyInt32SortComparator.exit.thread16.i43, label %qsort_tuple_int32_compare.exit47
 
 ApplyInt32SortComparator.exit.thread16.i43:       ; preds = %ApplyInt32SortComparator.exit.i39, %123
-  %143 = getelementptr inbounds i8, ptr %3, i64 88
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %144 = load ptr, ptr %143, align 8
   %.not13.i44 = icmp eq ptr %144, null
   br i1 %.not13.i44, label %145, label %qsort_tuple_int32_compare.exit47.thread80
 
 145:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i43
-  %146 = getelementptr inbounds i8, ptr %3, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = tail call i32 %147(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_int32_compare.exit47
@@ -7205,7 +7195,7 @@ qsort_tuple_int32_compare.exit47.thread80:        ; preds = %qsort_tuple_int32_c
   br i1 %156, label %ApplyInt32SortComparator.exit.thread16.i52, label %158
 
 158:                                              ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %150, i64 13
+  %159 = getelementptr inbounds nuw i8, ptr %150, i64 13
   %160 = load i8, ptr %159, align 1
   %161 = trunc i8 %160 to i1
   br i1 %161, label %qsort_tuple_int32_compare.exit56.thread88, label %qsort_tuple_int32_compare.exit29.thread66
@@ -7214,7 +7204,7 @@ qsort_tuple_int32_compare.exit47.thread80:        ; preds = %qsort_tuple_int32_c
   br i1 %156, label %163, label %167
 
 163:                                              ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %150, i64 13
+  %164 = getelementptr inbounds nuw i8, ptr %150, i64 13
   %165 = load i8, ptr %164, align 1
   %166 = trunc i8 %165 to i1
   br i1 %166, label %qsort_tuple_int32_compare.exit29.thread66, label %qsort_tuple_int32_compare.exit56.thread88
@@ -7223,7 +7213,7 @@ qsort_tuple_int32_compare.exit47.thread80:        ; preds = %qsort_tuple_int32_c
   %168 = trunc i64 %153 to i32
   %169 = trunc i64 %152 to i32
   %170 = tail call i32 @llvm.scmp.i32.i32(i32 %168, i32 %169)
-  %171 = getelementptr inbounds i8, ptr %150, i64 12
+  %171 = getelementptr inbounds nuw i8, ptr %150, i64 12
   %172 = load i8, ptr %171, align 4
   %173 = trunc i8 %172 to i1
   br i1 %173, label %174, label %ApplyInt32SortComparator.exit.i48
@@ -7239,13 +7229,13 @@ ApplyInt32SortComparator.exit.i48:                ; preds = %174, %167
   br i1 %.not.i50, label %ApplyInt32SortComparator.exit.thread16.i52, label %qsort_tuple_int32_compare.exit56
 
 ApplyInt32SortComparator.exit.thread16.i52:       ; preds = %ApplyInt32SortComparator.exit.i48, %157
-  %177 = getelementptr inbounds i8, ptr %3, i64 88
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %178 = load ptr, ptr %177, align 8
   %.not13.i53 = icmp eq ptr %178, null
   br i1 %.not13.i53, label %179, label %qsort_tuple_int32_compare.exit29.thread66
 
 179:                                              ; preds = %ApplyInt32SortComparator.exit.thread16.i52
-  %180 = getelementptr inbounds i8, ptr %3, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = tail call i32 %181(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %qsort_tuple_int32_compare.exit56
@@ -7266,14 +7256,14 @@ qsort_tuple_int32_compare.exit29.thread66:        ; preds = %163, %174, %158, %A
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %9, label %15, label %20
@@ -7282,7 +7272,7 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
   br i1 %14, label %ApplySortComparator.exit.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %3, i64 13
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %ApplySortComparator.exit.thread51, label %ApplySortComparator.exit.thread
@@ -7291,16 +7281,16 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
   br i1 %14, label %21, label %25
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %3, i64 13
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit.thread51
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %27(i64 noundef %6, i64 noundef %11, ptr noundef nonnull %3) #12
-  %29 = getelementptr inbounds i8, ptr %3, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %ApplySortComparator.exit
@@ -7326,9 +7316,9 @@ ApplySortComparator.exit.thread51:                ; preds = %ApplySortComparator
   %36 = phi i8 [ %13, %16 ], [ %13, %21 ], [ %.pre89, %ApplySortComparator.exit ]
   %37 = phi i64 [ %11, %16 ], [ %11, %21 ], [ %.pre88, %ApplySortComparator.exit ]
   %38 = trunc i8 %36 to i1
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   br i1 %38, label %44, label %49
@@ -7337,7 +7327,7 @@ ApplySortComparator.exit.thread51:                ; preds = %ApplySortComparator
   br i1 %43, label %ApplySortComparator.exit34.thread, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %3, i64 13
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit34.thread
@@ -7346,16 +7336,16 @@ ApplySortComparator.exit.thread51:                ; preds = %ApplySortComparator
   br i1 %43, label %50, label %54
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %3, i64 13
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %ApplySortComparator.exit34.thread, label %ApplySortComparator.exit34.thread58
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 %56(i64 noundef %37, i64 noundef %40, ptr noundef nonnull %3) #12
-  %58 = getelementptr inbounds i8, ptr %3, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %ApplySortComparator.exit34
@@ -7383,7 +7373,7 @@ ApplySortComparator.exit34.thread:                ; preds = %50, %61, %45, %44, 
   br i1 %70, label %ApplySortComparator.exit34.thread58, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %3, i64 13
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %ApplySortComparator.exit38.thread66, label %ApplySortComparator.exit34.thread58
@@ -7392,16 +7382,16 @@ ApplySortComparator.exit34.thread:                ; preds = %50, %61, %45, %44, 
   br i1 %70, label %77, label %81
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %3, i64 13
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %79 = load i8, ptr %78, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit38.thread66
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %3, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 %83(i64 noundef %65, i64 noundef %68, ptr noundef nonnull %3) #12
-  %85 = getelementptr inbounds i8, ptr %3, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %86 = load i8, ptr %85, align 4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %ApplySortComparator.exit38
@@ -7424,9 +7414,9 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
   %92 = phi i8 [ %.pre, %.ApplySortComparator.exit.thread_crit_edge ], [ %13, %21 ], [ %13, %16 ], [ %13, %15 ], [ %.pre89, %ApplySortComparator.exit ]
   %93 = phi i64 [ %.pre87, %.ApplySortComparator.exit.thread_crit_edge ], [ %11, %21 ], [ %11, %16 ], [ %11, %15 ], [ %.pre88, %ApplySortComparator.exit ]
   %94 = trunc i8 %92 to i1
-  %95 = getelementptr inbounds i8, ptr %2, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
   br i1 %94, label %100, label %105
@@ -7435,7 +7425,7 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
   br i1 %99, label %ApplySortComparator.exit42.thread74, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %3, i64 13
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %ApplySortComparator.exit42.thread74, label %ApplySortComparator.exit34.thread58
@@ -7444,16 +7434,16 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
   br i1 %99, label %106, label %110
 
 106:                                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %3, i64 13
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %108 = load i8, ptr %107, align 1
   %109 = trunc i8 %108 to i1
   br i1 %109, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.thread74
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %3, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i32 %112(i64 noundef %93, i64 noundef %96, ptr noundef nonnull %3) #12
-  %114 = getelementptr inbounds i8, ptr %3, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %115 = load i8, ptr %114, align 4
   %116 = trunc i8 %115 to i1
   br i1 %116, label %117, label %ApplySortComparator.exit42
@@ -7486,7 +7476,7 @@ ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator
   br i1 %126, label %ApplySortComparator.exit34.thread58, label %128
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %3, i64 13
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %130 = load i8, ptr %129, align 1
   %131 = trunc i8 %130 to i1
   br i1 %131, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
@@ -7495,16 +7485,16 @@ ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator
   br i1 %126, label %133, label %137
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %3, i64 13
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %135 = load i8, ptr %134, align 1
   %136 = trunc i8 %135 to i1
   br i1 %136, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46.thread83
 
 137:                                              ; preds = %132
-  %138 = getelementptr inbounds i8, ptr %3, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %139(i64 noundef %123, i64 noundef %122, ptr noundef nonnull %3) #12
-  %141 = getelementptr inbounds i8, ptr %3, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1
   br i1 %143, label %144, label %ApplySortComparator.exit46

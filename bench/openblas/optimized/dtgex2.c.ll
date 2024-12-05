@@ -180,19 +180,19 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %116, label %117, label %282
 
 117:                                              ; preds = %89
-  %118 = getelementptr inbounds i8, ptr %31, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %119 = load double, ptr %118, align 8
   %120 = load double, ptr %32, align 16, !tbaa !7
-  %121 = getelementptr inbounds i8, ptr %32, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %122 = load double, ptr %121, align 8
   %123 = load double, ptr %31, align 16, !tbaa !7
   %124 = fneg double %122
   %125 = fmul double %123, %124
   %126 = call double @llvm.fmuladd.f64(double %119, double %120, double %125)
   store double %126, ptr %27, align 8, !tbaa !7
-  %127 = getelementptr inbounds i8, ptr %32, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %128 = load double, ptr %127, align 16, !tbaa !7
-  %129 = getelementptr inbounds i8, ptr %31, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %130 = load double, ptr %129, align 16, !tbaa !7
   %131 = fmul double %130, %124
   %132 = call double @llvm.fmuladd.f64(double %119, double %128, double %131)
@@ -202,32 +202,32 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %135 = fcmp oge double %119, 0.000000e+00
   %136 = fneg double %119
   %137 = select i1 %135, double %119, double %136
-  %138 = getelementptr inbounds i8, ptr %43, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @dlartg_(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %138, ptr noundef nonnull %43, ptr noundef nonnull %20) #5
   %139 = load double, ptr %138, align 16, !tbaa !7
   %140 = fneg double %139
-  %141 = getelementptr inbounds i8, ptr %43, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double %140, ptr %141, align 8, !tbaa !7
   %142 = load double, ptr %43, align 16, !tbaa !7
-  %143 = getelementptr inbounds i8, ptr %43, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store double %142, ptr %143, align 8, !tbaa !7
   call void @drot_(ptr noundef nonnull @c__2, ptr noundef nonnull %31, ptr noundef nonnull @c__1, ptr noundef nonnull %129, ptr noundef nonnull @c__1, ptr noundef nonnull %43, ptr noundef nonnull %141) #5
   call void @drot_(ptr noundef nonnull @c__2, ptr noundef nonnull %32, ptr noundef nonnull @c__1, ptr noundef nonnull %127, ptr noundef nonnull @c__1, ptr noundef nonnull %43, ptr noundef nonnull %141) #5
   %144 = fcmp ult double %137, %134
-  %145 = getelementptr inbounds i8, ptr %41, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %146 = select i1 %144, ptr %32, ptr %31
-  %.sroa.gep = getelementptr inbounds i8, ptr %32, i64 8
-  %.sroa.gep1 = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.gep1 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.sel = select i1 %144, ptr %.sroa.gep, ptr %.sroa.gep1
   call void @dlartg_(ptr noundef nonnull %146, ptr noundef nonnull %.sroa.sel, ptr noundef nonnull %41, ptr noundef nonnull %145, ptr noundef nonnull %20) #5
   call void @drot_(ptr noundef nonnull @c__2, ptr noundef nonnull %31, ptr noundef nonnull @c__4, ptr noundef nonnull %.sroa.gep1, ptr noundef nonnull @c__4, ptr noundef nonnull %41, ptr noundef nonnull %145) #5
   call void @drot_(ptr noundef nonnull @c__2, ptr noundef nonnull %32, ptr noundef nonnull @c__4, ptr noundef nonnull %.sroa.gep, ptr noundef nonnull @c__4, ptr noundef nonnull %41, ptr noundef nonnull %145) #5
   %147 = load double, ptr %41, align 16, !tbaa !7
-  %148 = getelementptr inbounds i8, ptr %41, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store double %147, ptr %148, align 8, !tbaa !7
   %149 = load double, ptr %145, align 8, !tbaa !7
   %150 = fneg double %149
-  %151 = getelementptr inbounds i8, ptr %41, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store double %150, ptr %151, align 16, !tbaa !7
   %152 = load double, ptr %.sroa.gep1, align 8
   %153 = fcmp oge double %152, 0.000000e+00
@@ -629,7 +629,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %412 = add nsw i32 %411, -1
   store i32 %412, ptr %18, align 4, !tbaa !3
   store i32 %412, ptr %19, align 4, !tbaa !3
-  %413 = getelementptr inbounds i8, ptr %32, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @dlaset_(ptr noundef nonnull @.str.8, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b5, ptr noundef nonnull @c_b5, ptr noundef nonnull %413, ptr noundef nonnull @c__4) #5
   %414 = load i32, ptr %11, align 4, !tbaa !3
   %415 = mul i32 %414, %91
@@ -725,7 +725,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %481 = mul i32 %477, %96
   %482 = sext i32 %481 to i64
   %483 = getelementptr inbounds double, ptr %51, i64 %482
-  %484 = getelementptr inbounds i8, ptr %14, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @dlagv2_(ptr noundef %480, ptr noundef nonnull %4, ptr noundef %483, ptr noundef nonnull %6, ptr noundef nonnull %40, ptr noundef nonnull %39, ptr noundef nonnull %38, ptr noundef nonnull %14, ptr noundef nonnull %484, ptr noundef nonnull %32, ptr noundef nonnull %413) #5
   %485 = load double, ptr %484, align 8, !tbaa !7
   %486 = fneg double %485
@@ -746,7 +746,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %493, ptr %498, align 8, !tbaa !7
   %499 = load double, ptr %413, align 8, !tbaa !7
   %500 = fneg double %499
-  %501 = getelementptr inbounds i8, ptr %32, i64 32
+  %501 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store double %500, ptr %501, align 16, !tbaa !7
   %.pre25 = mul nsw i32 %487, %487
   br label %502
@@ -756,7 +756,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %503 = phi i32 [ %494, %476 ], [ %474, %457 ]
   %504 = phi i32 [ %487, %476 ], [ %470, %457 ]
   %505 = zext nneg i32 %.pre-phi to i64
-  %506 = getelementptr inbounds double, ptr %60, i64 %505
+  %506 = getelementptr inbounds nuw double, ptr %60, i64 %505
   store double 1.000000e+00, ptr %506, align 8, !tbaa !7
   %507 = mul i32 %504, 5
   %508 = add nsw i32 %507, -5
@@ -802,7 +802,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %544 = load double, ptr %543, align 8, !tbaa !7
   %545 = mul nsw i32 %538, %538
   %546 = zext nneg i32 %545 to i64
-  %547 = getelementptr inbounds double, ptr %60, i64 %546
+  %547 = getelementptr inbounds nuw double, ptr %60, i64 %546
   store double %544, ptr %547, align 8, !tbaa !7
   %548 = getelementptr i8, ptr %542, i64 16
   %549 = load double, ptr %548, align 8, !tbaa !7

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 592
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %8, label %6
@@ -25,22 +25,22 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
 
 8:                                                ; preds = %6, %2
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 600
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 220
   %.val = load i32, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %.val to i64
   %16 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %14, i64 %15, i32 2
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
   %21 = srem i32 %19, 2
   %22 = shl nsw i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds i32, ptr %24, i64 %25
@@ -52,7 +52,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
 
 30:                                               ; preds = %8
   %31 = ashr i32 %9, 2
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i32, ptr %33, i64 %25
   %35 = sext i32 %31 to i64
@@ -92,7 +92,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not47, label %60, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %11, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %25
   %52 = atomicrmw volatile add ptr %51, i32 1 monotonic, align 4
@@ -138,7 +138,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
   %63 = trunc nuw i64 %indvars.iv to i32
   %64 = mul i32 %61, %63
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %.043, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %.043, i64 %65
   store volatile i32 1, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

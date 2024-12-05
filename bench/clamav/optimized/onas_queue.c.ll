@@ -47,7 +47,7 @@ define dso_local noalias noundef nonnull ptr @onas_scan_queue_th(ptr nocapture n
   %12 = call i32 @sigdelset(ptr noundef nonnull %3, i32 noundef 2) #9
   %13 = call i32 @sigdelset(ptr noundef nonnull %3, i32 noundef 7) #9
   %14 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 83
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %16 = load i32, ptr %15, align 1
   %17 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %16) #9
   %calloc.i.i = call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
@@ -62,7 +62,7 @@ define dso_local noalias noundef nonnull ptr @onas_scan_queue_th(ptr nocapture n
   br i1 %20, label %onas_init_event_queue.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %calloc.i1.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i1.i, i64 8
   store ptr %calloc.i.i, ptr %22, align 8
   store ptr %calloc.i1.i, ptr %calloc.i.i, align 8
   store ptr %calloc.i.i, ptr @g_onas_event_queue.0, align 8
@@ -109,13 +109,13 @@ onas_consume_event.exit:                          ; preds = %.lr.ph.i, %29
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %38, ptr %41, align 8
   %42 = load i64, ptr @g_onas_event_queue.2, align 8
   %43 = add i64 %42, -1
   store i64 %43, ptr @g_onas_event_queue.2, align 8
   %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_queue_lock) #9
-  %45 = getelementptr inbounds i8, ptr %39, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @thpool_add_work(ptr noundef %24, ptr noundef nonnull @onas_scan_worker, ptr noundef %46) #9
   call void @free(ptr noundef nonnull %39) #9
@@ -190,15 +190,15 @@ define dso_local range(i32 0, 21) i32 @onas_queue_event(ptr noundef %0) local_un
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_queue_lock) #9
   %5 = load ptr, ptr @g_onas_event_queue_tail, align 8
   store ptr %5, ptr %calloc.i, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %7, ptr %8, align 8
   store ptr %calloc.i, ptr %7, align 8
   %9 = load ptr, ptr @g_onas_event_queue_tail, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %calloc.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %0, ptr %11, align 8
   %12 = load i64, ptr @g_onas_event_queue.2, align 8
   %13 = add i64 %12, 1

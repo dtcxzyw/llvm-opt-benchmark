@@ -98,9 +98,9 @@ while.body.us:                                    ; preds = %_Z33grpc_base64_est
   %1 = load i8, ptr %arrayidx.us, align 1
   %2 = lshr i8 %1, 2
   %idxprom.us = zext nneg i8 %2 to i64
-  %arrayidx1.us = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom.us
+  %arrayidx1.us = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom.us
   %3 = load i8, ptr %arrayidx1.us, align 1
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %current.062.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %current.062.us, i64 1
   store i8 %3, ptr %current.062.us, align 1
   %4 = load i8, ptr %arrayidx.us, align 1
   %5 = shl i8 %4, 4
@@ -110,9 +110,9 @@ while.body.us:                                    ; preds = %_Z33grpc_base64_est
   %8 = lshr i8 %7, 4
   %or58.us = or disjoint i8 %6, %8
   %idxprom9.us = zext nneg i8 %or58.us to i64
-  %arrayidx10.us = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom9.us
+  %arrayidx10.us = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom9.us
   %9 = load i8, ptr %arrayidx10.us, align 1
-  %incdec.ptr11.us = getelementptr inbounds i8, ptr %current.062.us, i64 2
+  %incdec.ptr11.us = getelementptr inbounds nuw i8, ptr %current.062.us, i64 2
   store i8 %9, ptr %incdec.ptr.us, align 1
   %10 = load i8, ptr %arrayidx5.us, align 1
   %11 = shl i8 %10, 2
@@ -122,16 +122,16 @@ while.body.us:                                    ; preds = %_Z33grpc_base64_est
   %14 = lshr i8 %13, 6
   %or2259.us = or disjoint i8 %12, %14
   %idxprom23.us = zext nneg i8 %or2259.us to i64
-  %arrayidx24.us = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom23.us
+  %arrayidx24.us = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom23.us
   %15 = load i8, ptr %arrayidx24.us, align 1
-  %incdec.ptr25.us = getelementptr inbounds i8, ptr %current.062.us, i64 3
+  %incdec.ptr25.us = getelementptr inbounds nuw i8, ptr %current.062.us, i64 3
   store i8 %15, ptr %incdec.ptr11.us, align 1
   %16 = load i8, ptr %arrayidx18.us, align 1
   %17 = and i8 %16, 63
   %idxprom30.us = zext nneg i8 %17 to i64
-  %arrayidx31.us = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom30.us
+  %arrayidx31.us = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom30.us
   %18 = load i8, ptr %arrayidx31.us, align 1
-  %incdec.ptr32.us = getelementptr inbounds i8, ptr %current.062.us, i64 4
+  %incdec.ptr32.us = getelementptr inbounds nuw i8, ptr %current.062.us, i64 4
   store i8 %18, ptr %incdec.ptr25.us, align 1
   %sub.us = add i64 %data_size.addr.061.us, -3
   %add33.us = add i64 %i.064.us, 3
@@ -147,9 +147,9 @@ while.body:                                       ; preds = %_Z33grpc_base64_est
   %19 = load i8, ptr %arrayidx, align 1
   %20 = lshr i8 %19, 2
   %idxprom = zext nneg i8 %20 to i64
-  %arrayidx1 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom
   %21 = load i8, ptr %arrayidx1, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %current.062, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %current.062, i64 1
   store i8 %21, ptr %current.062, align 1
   %22 = load i8, ptr %arrayidx, align 1
   %23 = shl i8 %22, 4
@@ -159,9 +159,9 @@ while.body:                                       ; preds = %_Z33grpc_base64_est
   %26 = lshr i8 %25, 4
   %or58 = or disjoint i8 %24, %26
   %idxprom9 = zext nneg i8 %or58 to i64
-  %arrayidx10 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom9
   %27 = load i8, ptr %arrayidx10, align 1
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %current.062, i64 2
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %current.062, i64 2
   store i8 %27, ptr %incdec.ptr, align 1
   %28 = load i8, ptr %arrayidx5, align 1
   %29 = shl i8 %28, 2
@@ -171,16 +171,16 @@ while.body:                                       ; preds = %_Z33grpc_base64_est
   %32 = lshr i8 %31, 6
   %or2259 = or disjoint i8 %30, %32
   %idxprom23 = zext nneg i8 %or2259 to i64
-  %arrayidx24 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom23
   %33 = load i8, ptr %arrayidx24, align 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %current.062, i64 3
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %current.062, i64 3
   store i8 %33, ptr %incdec.ptr11, align 1
   %34 = load i8, ptr %arrayidx18, align 1
   %35 = and i8 %34, 63
   %idxprom30 = zext nneg i8 %35 to i64
-  %arrayidx31 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom30
   %36 = load i8, ptr %arrayidx31, align 1
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %current.062, i64 4
+  %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %current.062, i64 4
   store i8 %36, ptr %incdec.ptr25, align 1
   %sub = add i64 %data_size.addr.061, -3
   %add33 = add i64 %i.064, 3
@@ -189,9 +189,9 @@ while.body:                                       ; preds = %_Z33grpc_base64_est
   br i1 %cmp35, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %current.062, i64 5
+  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %current.062, i64 5
   store i8 13, ptr %incdec.ptr32, align 1
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %current.062, i64 6
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %current.062, i64 6
   store i8 10, ptr %incdec.ptr36, align 1
   br label %if.end
 
@@ -216,9 +216,9 @@ if.then39:                                        ; preds = %while.end
   %37 = load i8, ptr %arrayidx40, align 1
   %38 = lshr i8 %37, 2
   %idxprom44 = zext nneg i8 %38 to i64
-  %arrayidx45 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom44
   %39 = load i8, ptr %arrayidx45, align 1
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 1
+  %incdec.ptr46 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 1
   store i8 %39, ptr %current.0.lcssa, align 1
   %40 = load i8, ptr %arrayidx40, align 1
   %41 = shl i8 %40, 4
@@ -228,19 +228,19 @@ if.then39:                                        ; preds = %while.end
   %44 = lshr i8 %43, 4
   %or5657 = or disjoint i8 %42, %44
   %idxprom57 = zext nneg i8 %or5657 to i64
-  %arrayidx58 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom57
+  %arrayidx58 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom57
   %45 = load i8, ptr %arrayidx58, align 1
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 2
+  %incdec.ptr59 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 2
   store i8 %45, ptr %incdec.ptr46, align 1
   %46 = load i8, ptr %arrayidx52, align 1
   %47 = shl i8 %46, 2
   %48 = and i8 %47, 60
   %idxprom65 = zext nneg i8 %48 to i64
-  %arrayidx66 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom65
   %49 = load i8, ptr %arrayidx66, align 4
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 3
+  %incdec.ptr67 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 3
   store i8 %49, ptr %incdec.ptr59, align 1
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 4
+  %incdec.ptr68 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 4
   store i8 61, ptr %incdec.ptr67, align 1
   br label %do.body
 
@@ -249,21 +249,21 @@ if.then70:                                        ; preds = %while.end
   %50 = load i8, ptr %arrayidx71, align 1
   %51 = lshr i8 %50, 2
   %idxprom75 = zext nneg i8 %51 to i64
-  %arrayidx76 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom75
   %52 = load i8, ptr %arrayidx76, align 1
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 1
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 1
   store i8 %52, ptr %current.0.lcssa, align 1
   %53 = load i8, ptr %arrayidx71, align 1
   %54 = shl i8 %53, 4
   %55 = and i8 %54, 48
   %idxprom82 = zext nneg i8 %55 to i64
-  %arrayidx83 = getelementptr inbounds i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom82
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %_ZL21base64_url_safe_chars._ZL23base64_url_unsafe_chars, i64 %idxprom82
   %56 = load i8, ptr %arrayidx83, align 16
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 2
+  %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 2
   store i8 %56, ptr %incdec.ptr77, align 1
-  %incdec.ptr85 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 3
+  %incdec.ptr85 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 3
   store i8 61, ptr %incdec.ptr84, align 1
-  %incdec.ptr86 = getelementptr inbounds i8, ptr %current.0.lcssa, i64 4
+  %incdec.ptr86 = getelementptr inbounds nuw i8, ptr %current.0.lcssa, i64 4
   store i8 61, ptr %incdec.ptr85, align 1
   br label %do.body
 
@@ -312,21 +312,21 @@ entry:
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %result, i64 noundef %b64_len)
   %0 = load ptr, ptr %result, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %result, i64 8
-  %bytes = getelementptr inbounds i8, ptr %result, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %result, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %result, i64 16
   %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %result, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %bytes2.sroa.gep = getelementptr inbounds i8, ptr %result, i64 10
+  %bytes2.sroa.gep = getelementptr inbounds nuw i8, ptr %result, i64 10
   %.sroa.gep = getelementptr i8, ptr %1, i64 1
   %cond.sroa.sel = select i1 %tobool.not, ptr %bytes2.sroa.gep, ptr %.sroa.gep
-  %bytes2.sroa.gep124 = getelementptr inbounds i8, ptr %result, i64 11
+  %bytes2.sroa.gep124 = getelementptr inbounds nuw i8, ptr %result, i64 11
   %.sroa.gep125 = getelementptr i8, ptr %1, i64 2
   %cond.sroa.sel126 = select i1 %tobool.not, ptr %bytes2.sroa.gep124, ptr %.sroa.gep125
   %tobool4.not = icmp eq i32 %url_safe, 0
-  %arrayidx17.i = getelementptr inbounds i8, ptr %codes, i64 1
-  %arrayidx22.i = getelementptr inbounds i8, ptr %codes, i64 2
-  %arrayidx26.i = getelementptr inbounds i8, ptr %codes, i64 3
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %codes, i64 1
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %codes, i64 2
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %codes, i64 3
   br label %while.cond.outer.outer
 
 while.cond.outer.outer:                           ; preds = %while.cond.outer.outer.backedge, %entry
@@ -354,7 +354,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 
 while.body:                                       ; preds = %while.cond
   %dec = add i64 %b64_len.addr.0, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %b64.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %b64.addr.0, i64 1
   %2 = load i8, ptr %b64.addr.0, align 1
   %cmp = icmp slt i8 %2, 0
   br i1 %cmp, label %while.cond, label %if.end, !llvm.loop !6
@@ -384,7 +384,7 @@ if.else:                                          ; preds = %if.end12
 if.end21:                                         ; preds = %if.end12, %if.else, %if.end
   %c.0 = phi i8 [ %spec.store.select, %if.else ], [ %2, %if.end ], [ 43, %if.end12 ]
   %idxprom = zext nneg i8 %c.0 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL12base64_bytes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr @_ZL12base64_bytes, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx, align 1
   %cmp23 = icmp eq i8 %4, -1
   br i1 %cmp23, label %if.then24, label %if.else32
@@ -662,7 +662,7 @@ if.then.i70:                                      ; preds = %fail
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i70
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit

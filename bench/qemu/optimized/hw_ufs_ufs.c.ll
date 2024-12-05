@@ -166,18 +166,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ufs_build_upiu_header(ptr nocapture noundef %req, i8 noundef zeroext %trans_type, i8 noundef zeroext %flags, i8 noundef zeroext %response, i8 noundef zeroext %scsi_status, i16 noundef zeroext %data_segment_length) local_unnamed_addr #0 {
 entry:
-  %rsp_upiu = getelementptr inbounds i8, ptr %req, i64 336
-  %req_upiu = getelementptr inbounds i8, ptr %req, i64 48
+  %rsp_upiu = getelementptr inbounds nuw i8, ptr %req, i64 336
+  %req_upiu = getelementptr inbounds nuw i8, ptr %req, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu, i64 12, i1 false)
   store i8 %trans_type, ptr %rsp_upiu, align 8
-  %flags7 = getelementptr inbounds i8, ptr %req, i64 337
+  %flags7 = getelementptr inbounds nuw i8, ptr %req, i64 337
   store i8 %flags, ptr %flags7, align 1
-  %response10 = getelementptr inbounds i8, ptr %req, i64 342
+  %response10 = getelementptr inbounds nuw i8, ptr %req, i64 342
   store i8 %response, ptr %response10, align 2
-  %scsi_status13 = getelementptr inbounds i8, ptr %req, i64 343
+  %scsi_status13 = getelementptr inbounds nuw i8, ptr %req, i64 343
   store i8 %scsi_status, ptr %scsi_status13, align 1
   %0 = tail call noundef i16 @llvm.bswap.i16(i16 %data_segment_length)
-  %data_segment_length16 = getelementptr inbounds i8, ptr %req, i64 346
+  %data_segment_length16 = getelementptr inbounds nuw i8, ptr %req, i64 346
   store i16 %0, ptr %data_segment_length16, align 2
   ret void
 }
@@ -190,7 +190,7 @@ define dso_local void @ufs_complete_req(ptr nocapture noundef %req, i32 noundef 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
-  %state = getelementptr inbounds i8, ptr %req, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %req, i64 8
   %1 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.end, label %if.else
@@ -202,9 +202,9 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp1 = icmp ne i32 %req_result, 0
   %spec.select = zext i1 %cmp1 to i32
-  %2 = getelementptr inbounds i8, ptr %req, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %req, i64 24
   store i32 %spec.select, ptr %2, align 8
-  %slot = getelementptr inbounds i8, ptr %req, i64 12
+  %slot = getelementptr inbounds nuw i8, ptr %req, i64 12
   %3 = load i32, ptr %slot, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -229,7 +229,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %3) #14
   br label %trace_ufs_complete_req.exit
@@ -241,7 +241,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_ufs_complete_req.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 3, ptr %state, align 8
-  %complete_bh = getelementptr inbounds i8, ptr %0, i64 5648
+  %complete_bh = getelementptr inbounds nuw i8, ptr %0, i64 5648
   %10 = load ptr, ptr %complete_bh, align 16
   tail call void @qemu_bh_schedule(ptr noundef %10) #14
   ret void
@@ -286,24 +286,24 @@ define internal void @ufs_class_init(ptr noundef %oc, ptr nocapture readnone %da
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
-  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i9, i64 176
   store ptr @ufs_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i9, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i9, i64 184
   store ptr @ufs_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i9, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 210
   store i16 19, ptr %device_id, align 2
-  %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 214
   store i16 265, ptr %class_id, align 2
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.7, ptr %desc, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ufs_props) #14
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @ufs_vmstate, ptr %vmsd, align 8
   ret void
 }
@@ -312,7 +312,7 @@ entry:
 define internal void @ufs_realize(ptr noundef %pci_dev, ptr noundef %errp) #2 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1253, ptr noundef nonnull @__func__.ufs_realize) #14
-  %nutrs.i = getelementptr inbounds i8, ptr %call, i64 3280
+  %nutrs.i = getelementptr inbounds nuw i8, ptr %call, i64 3280
   %0 = load i8, ptr %nutrs.i, align 8
   %cmp.i = icmp ugt i8 %0, 32
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -322,7 +322,7 @@ if.then.i:                                        ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %nutmrs.i = getelementptr inbounds i8, ptr %call, i64 3281
+  %nutmrs.i = getelementptr inbounds nuw i8, ptr %call, i64 3281
   %1 = load i8, ptr %nutmrs.i, align 1
   %cmp4.i = icmp ugt i8 %1, 8
   br i1 %cmp4.i, label %if.then6.i, label %if.end
@@ -332,14 +332,14 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %bus = getelementptr inbounds i8, ptr %call, i64 2608
-  %id = getelementptr inbounds i8, ptr %call, i64 40
+  %bus = getelementptr inbounds nuw i8, ptr %call, i64 2608
+  %id = getelementptr inbounds nuw i8, ptr %call, i64 40
   %2 = load ptr, ptr %id, align 8
   tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 120, ptr noundef nonnull @.str.11, ptr noundef %pci_dev, ptr noundef %2) #14
   %3 = load i8, ptr %nutrs.i, align 8
   %conv.i = zext i8 %3 to i64
   %call.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i, i64 noundef 640) #15
-  %req_list.i = getelementptr inbounds i8, ptr %call, i64 3296
+  %req_list.i = getelementptr inbounds nuw i8, ptr %call, i64 3296
   store ptr %call.i, ptr %req_list.i, align 16
   %4 = load i8, ptr %nutrs.i, align 8
   %cmp22.not.i = icmp eq i8 %4, 0
@@ -368,18 +368,18 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 ufs_init_state.exit:                              ; preds = %for.body.i, %if.end
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %mem_reentrancy_guard.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
+  %mem_reentrancy_guard.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 152
   %call16.i = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ufs_process_req, ptr noundef nonnull %call, ptr noundef nonnull @.str.14, ptr noundef nonnull %mem_reentrancy_guard.i) #14
-  %doorbell_bh.i = getelementptr inbounds i8, ptr %call, i64 5640
+  %doorbell_bh.i = getelementptr inbounds nuw i8, ptr %call, i64 5640
   store ptr %call16.i, ptr %doorbell_bh.i, align 8
   %call.i20.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %mem_reentrancy_guard18.i = getelementptr inbounds i8, ptr %call.i20.i, i64 152
+  %mem_reentrancy_guard18.i = getelementptr inbounds nuw i8, ptr %call.i20.i, i64 152
   %call19.i = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ufs_sendback_req, ptr noundef nonnull %call, ptr noundef nonnull @.str.15, ptr noundef nonnull %mem_reentrancy_guard18.i) #14
-  %complete_bh.i = getelementptr inbounds i8, ptr %call, i64 5648
+  %complete_bh.i = getelementptr inbounds nuw i8, ptr %call, i64 5648
   store ptr %call19.i, ptr %complete_bh.i, align 16
-  %reg_size.i = getelementptr inbounds i8, ptr %call, i64 3288
+  %reg_size.i = getelementptr inbounds nuw i8, ptr %call, i64 3288
   store i32 512, ptr %reg_size.i, align 8
-  %reg.i = getelementptr inbounds i8, ptr %call, i64 3008
+  %reg.i = getelementptr inbounds nuw i8, ptr %call, i64 3008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(260) %reg.i, i8 0, i64 260, i1 false)
   %12 = load i8, ptr %nutrs.i, align 8
   %sub.i = add i8 %12, 31
@@ -393,98 +393,98 @@ ufs_init_state.exit:                              ; preds = %for.body.i, %if.end
   %or.i.i = or disjoint i32 %and6.i.i, %shl57.i.i
   %or.i60.i = or disjoint i32 %or.i.i, 16777728
   store i32 %or.i60.i, ptr %reg.i, align 16
-  %ver.i = getelementptr inbounds i8, ptr %call, i64 3016
+  %ver.i = getelementptr inbounds nuw i8, ptr %call, i64 3016
   store i32 784, ptr %ver.i, align 8
-  %device_desc.i = getelementptr inbounds i8, ptr %call, i64 5384
+  %device_desc.i = getelementptr inbounds nuw i8, ptr %call, i64 5384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %device_desc.i, i8 0, i64 89, i1 false)
   store i8 89, ptr %device_desc.i, align 8
-  %device_sub_class.i = getelementptr inbounds i8, ptr %call, i64 5388
+  %device_sub_class.i = getelementptr inbounds nuw i8, ptr %call, i64 5388
   store i8 1, ptr %device_sub_class.i, align 4
-  %number_wlu.i = getelementptr inbounds i8, ptr %call, i64 5391
+  %number_wlu.i = getelementptr inbounds nuw i8, ptr %call, i64 5391
   store i8 4, ptr %number_wlu.i, align 1
-  %init_power_mode.i = getelementptr inbounds i8, ptr %call, i64 5394
+  %init_power_mode.i = getelementptr inbounds nuw i8, ptr %call, i64 5394
   store i8 1, ptr %init_power_mode.i, align 2
-  %high_priority_lun.i = getelementptr inbounds i8, ptr %call, i64 5395
+  %high_priority_lun.i = getelementptr inbounds nuw i8, ptr %call, i64 5395
   store i8 127, ptr %high_priority_lun.i, align 1
-  %spec_version.i = getelementptr inbounds i8, ptr %call, i64 5400
+  %spec_version.i = getelementptr inbounds nuw i8, ptr %call, i64 5400
   store i16 4099, ptr %spec_version.i, align 8
-  %product_name.i = getelementptr inbounds i8, ptr %call, i64 5405
+  %product_name.i = getelementptr inbounds nuw i8, ptr %call, i64 5405
   store i8 1, ptr %product_name.i, align 1
-  %serial_number.i = getelementptr inbounds i8, ptr %call, i64 5406
+  %serial_number.i = getelementptr inbounds nuw i8, ptr %call, i64 5406
   store i8 2, ptr %serial_number.i, align 2
-  %oem_id.i = getelementptr inbounds i8, ptr %call, i64 5407
+  %oem_id.i = getelementptr inbounds nuw i8, ptr %call, i64 5407
   store i8 3, ptr %oem_id.i, align 1
-  %ud_0_base_offset.i = getelementptr inbounds i8, ptr %call, i64 5410
+  %ud_0_base_offset.i = getelementptr inbounds nuw i8, ptr %call, i64 5410
   store i8 22, ptr %ud_0_base_offset.i, align 2
-  %ud_config_p_length.i = getelementptr inbounds i8, ptr %call, i64 5411
+  %ud_config_p_length.i = getelementptr inbounds nuw i8, ptr %call, i64 5411
   store i8 26, ptr %ud_config_p_length.i, align 1
-  %device_rtt_cap.i = getelementptr inbounds i8, ptr %call, i64 5412
+  %device_rtt_cap.i = getelementptr inbounds nuw i8, ptr %call, i64 5412
   store i8 2, ptr %device_rtt_cap.i, align 4
-  %queue_depth.i = getelementptr inbounds i8, ptr %call, i64 5417
+  %queue_depth.i = getelementptr inbounds nuw i8, ptr %call, i64 5417
   store i8 %12, ptr %queue_depth.i, align 1
-  %product_revision_level.i = getelementptr inbounds i8, ptr %call, i64 5426
+  %product_revision_level.i = getelementptr inbounds nuw i8, ptr %call, i64 5426
   store i8 4, ptr %product_revision_level.i, align 2
-  %geometry_desc.i = getelementptr inbounds i8, ptr %call, i64 5473
-  %16 = getelementptr inbounds i8, ptr %call, i64 5475
+  %geometry_desc.i = getelementptr inbounds nuw i8, ptr %call, i64 5473
+  %16 = getelementptr inbounds nuw i8, ptr %call, i64 5475
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %16, i8 0, i64 85, i1 false)
   store i8 87, ptr %geometry_desc.i, align 1
-  %descriptor_idn86.i = getelementptr inbounds i8, ptr %call, i64 5474
+  %descriptor_idn86.i = getelementptr inbounds nuw i8, ptr %call, i64 5474
   store i8 7, ptr %descriptor_idn86.i, align 1
-  %max_number_lu.i = getelementptr inbounds i8, ptr %call, i64 5485
+  %max_number_lu.i = getelementptr inbounds nuw i8, ptr %call, i64 5485
   store i8 1, ptr %max_number_lu.i, align 1
-  %segment_size.i = getelementptr inbounds i8, ptr %call, i64 5486
+  %segment_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5486
   store i32 2097152, ptr %segment_size.i, align 1
-  %allocation_unit_size.i = getelementptr inbounds i8, ptr %call, i64 5490
+  %allocation_unit_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5490
   store i8 1, ptr %allocation_unit_size.i, align 1
-  %min_addr_block_size.i = getelementptr inbounds i8, ptr %call, i64 5491
+  %min_addr_block_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5491
   store i8 8, ptr %min_addr_block_size.i, align 1
-  %max_in_buffer_size.i = getelementptr inbounds i8, ptr %call, i64 5494
+  %max_in_buffer_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5494
   store i8 8, ptr %max_in_buffer_size.i, align 1
-  %max_out_buffer_size.i = getelementptr inbounds i8, ptr %call, i64 5495
+  %max_out_buffer_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5495
   store i8 8, ptr %max_out_buffer_size.i, align 1
-  %rpmb_read_write_size.i = getelementptr inbounds i8, ptr %call, i64 5496
+  %rpmb_read_write_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5496
   store i8 64, ptr %rpmb_read_write_size.i, align 1
-  %max_context_id_number.i = getelementptr inbounds i8, ptr %call, i64 5499
+  %max_context_id_number.i = getelementptr inbounds nuw i8, ptr %call, i64 5499
   store i8 5, ptr %max_context_id_number.i, align 1
-  %supported_memory_types.i = getelementptr inbounds i8, ptr %call, i64 5503
+  %supported_memory_types.i = getelementptr inbounds nuw i8, ptr %call, i64 5503
   store i16 384, ptr %supported_memory_types.i, align 1
-  %attributes.i = getelementptr inbounds i8, ptr %call, i64 5560
+  %attributes.i = getelementptr inbounds nuw i8, ptr %call, i64 5560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %attributes.i, i8 0, i64 52, i1 false)
-  %max_data_in_size.i = getelementptr inbounds i8, ptr %call, i64 5567
+  %max_data_in_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5567
   store i8 8, ptr %max_data_in_size.i, align 1
-  %max_data_out_size.i = getelementptr inbounds i8, ptr %call, i64 5568
+  %max_data_out_size.i = getelementptr inbounds nuw i8, ptr %call, i64 5568
   store i8 8, ptr %max_data_out_size.i, align 8
-  %ref_clk_freq.i = getelementptr inbounds i8, ptr %call, i64 5576
+  %ref_clk_freq.i = getelementptr inbounds nuw i8, ptr %call, i64 5576
   store i8 1, ptr %ref_clk_freq.i, align 8
-  %config_descr_lock.i = getelementptr inbounds i8, ptr %call, i64 5577
+  %config_descr_lock.i = getelementptr inbounds nuw i8, ptr %call, i64 5577
   store i8 1, ptr %config_descr_lock.i, align 1
-  %max_num_of_rtt.i = getelementptr inbounds i8, ptr %call, i64 5578
+  %max_num_of_rtt.i = getelementptr inbounds nuw i8, ptr %call, i64 5578
   store i8 2, ptr %max_num_of_rtt.i, align 2
-  %flags.i = getelementptr inbounds i8, ptr %call, i64 5612
+  %flags.i = getelementptr inbounds nuw i8, ptr %call, i64 5612
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(19) %flags.i, i8 0, i64 19, i1 false)
-  %permanently_disable_fw_update.i = getelementptr inbounds i8, ptr %call, i64 5623
+  %permanently_disable_fw_update.i = getelementptr inbounds nuw i8, ptr %call, i64 5623
   store i8 1, ptr %permanently_disable_fw_update.i, align 1
-  %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
+  %config.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 168
   %17 = load ptr, ptr %config.i, align 8
   %arrayidx.i16 = getelementptr i8, ptr %17, i64 61
   store i8 1, ptr %arrayidx.i16, align 1
   %arrayidx.i.i = getelementptr i8, ptr %17, i64 9
   store i8 1, ptr %arrayidx.i.i, align 1
-  %iomem.i = getelementptr inbounds i8, ptr %call, i64 2736
+  %iomem.i = getelementptr inbounds nuw i8, ptr %call, i64 2736
   %18 = load i32, ptr %reg_size.i, align 8
   %conv.i18 = zext i32 %18 to i64
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem.i, ptr noundef nonnull %call, ptr noundef nonnull @ufs_mmio_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.4, i64 noundef %conv.i18) #14
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %iomem.i) #14
   %call.i19 = tail call ptr @pci_allocate_irq(ptr noundef %pci_dev) #14
-  %irq.i = getelementptr inbounds i8, ptr %call, i64 5632
+  %irq.i = getelementptr inbounds nuw i8, ptr %call, i64 5632
   store ptr %call.i19, ptr %irq.i, align 16
-  %report_wlu = getelementptr inbounds i8, ptr %call, i64 3560
+  %report_wlu = getelementptr inbounds nuw i8, ptr %call, i64 3560
   tail call void @ufs_init_wlu(ptr noundef nonnull %report_wlu, i8 noundef zeroext -127) #14
-  %dev_wlu = getelementptr inbounds i8, ptr %call, i64 4016
+  %dev_wlu = getelementptr inbounds nuw i8, ptr %call, i64 4016
   tail call void @ufs_init_wlu(ptr noundef nonnull %dev_wlu, i8 noundef zeroext -48) #14
-  %boot_wlu = getelementptr inbounds i8, ptr %call, i64 4472
+  %boot_wlu = getelementptr inbounds nuw i8, ptr %call, i64 4472
   tail call void @ufs_init_wlu(ptr noundef nonnull %boot_wlu, i8 noundef zeroext -80) #14
-  %rpmb_wlu = getelementptr inbounds i8, ptr %call, i64 4928
+  %rpmb_wlu = getelementptr inbounds nuw i8, ptr %call, i64 4928
   tail call void @ufs_init_wlu(ptr noundef nonnull %rpmb_wlu, i8 noundef zeroext -60) #14
   br label %return
 
@@ -496,26 +496,26 @@ return:                                           ; preds = %if.then6.i, %if.the
 define internal void @ufs_exit(ptr noundef %pci_dev) #2 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1274, ptr noundef nonnull @__func__.ufs_exit) #14
-  %doorbell_bh = getelementptr inbounds i8, ptr %call, i64 5640
+  %doorbell_bh = getelementptr inbounds nuw i8, ptr %call, i64 5640
   %0 = load ptr, ptr %doorbell_bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %0) #14
-  %complete_bh = getelementptr inbounds i8, ptr %call, i64 5648
+  %complete_bh = getelementptr inbounds nuw i8, ptr %call, i64 5648
   %1 = load ptr, ptr %complete_bh, align 16
   tail call void @qemu_bh_delete(ptr noundef %1) #14
-  %nutrs = getelementptr inbounds i8, ptr %call, i64 3280
+  %nutrs = getelementptr inbounds nuw i8, ptr %call, i64 3280
   %2 = load i8, ptr %nutrs, align 8
   %cmp8.not = icmp eq i8 %2, 0
   br i1 %cmp8.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %req_list = getelementptr inbounds i8, ptr %call, i64 3296
+  %req_list = getelementptr inbounds nuw i8, ptr %call, i64 3296
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %ufs_clear_req.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %ufs_clear_req.exit ]
   %3 = load ptr, ptr %req_list, align 16
   %arrayidx = getelementptr %struct.UfsRequest, ptr %3, i64 %indvars.iv
-  %sg.i = getelementptr inbounds i8, ptr %arrayidx, i64 624
+  %sg.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 624
   %4 = load ptr, ptr %sg.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %ufs_clear_req.exit, label %if.then.i
@@ -525,12 +525,12 @@ if.then.i:                                        ; preds = %for.body
   %5 = load ptr, ptr %sg.i, align 8
   tail call void @g_free(ptr noundef %5) #14
   store ptr null, ptr %sg.i, align 8
-  %data_len.i = getelementptr inbounds i8, ptr %arrayidx, i64 632
+  %data_len.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 632
   store i32 0, ptr %data_len.i, align 8
   br label %ufs_clear_req.exit
 
 ufs_clear_req.exit:                               ; preds = %for.body, %if.then.i
-  %utrd.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %utrd.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %utrd.i, i8 0, i64 608, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i8, ptr %nutrs, align 8
@@ -539,7 +539,7 @@ ufs_clear_req.exit:                               ; preds = %for.body, %if.then.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %ufs_clear_req.exit, %entry
-  %req_list2 = getelementptr inbounds i8, ptr %call, i64 3296
+  %req_list2 = getelementptr inbounds nuw i8, ptr %call, i64 3296
   %8 = load ptr, ptr %req_list2, align 16
   tail call void @g_free(ptr noundef %8) #14
   ret void
@@ -580,35 +580,35 @@ entry:
   %_now.i.i.i8.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %nutrs = getelementptr inbounds i8, ptr %opaque, i64 3280
+  %nutrs = getelementptr inbounds nuw i8, ptr %opaque, i64 3280
   %0 = load i8, ptr %nutrs, align 8
   %cmp9.not = icmp eq i8 %0, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %req_list = getelementptr inbounds i8, ptr %opaque, i64 3296
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %tv_usec.i.i.i60.i.i = getelementptr inbounds i8, ptr %_now.i.i.i35.i.i, i64 8
-  %tv_usec.i.i.i62.i = getelementptr inbounds i8, ptr %_now.i.i.i27.i, i64 8
-  %tv_usec.i.i.i28.i.i = getelementptr inbounds i8, ptr %_now.i.i.i9.i.i, i64 8
-  %tv_usec.i.i.i47.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i29.i.i.i.i, i64 8
-  %tv_usec.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i.i.i, i64 8
-  %tv_usec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i.i, i64 8
-  %tv_usec.i.i.i.i51.i = getelementptr inbounds i8, ptr %_now.i.i.i.i26.i, i64 8
-  %tv_usec.i.i.i25.i = getelementptr inbounds i8, ptr %_now.i.i.i10.i, i64 8
-  %tv_usec.i.i31.i.i = getelementptr inbounds i8, ptr %_now.i.i17.i.i, i64 8
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %tv_usec.i.i44.i.i.i = getelementptr inbounds i8, ptr %_now.i.i31.i.i.i, i64 8
-  %tv_usec.i.i.i29.i.i = getelementptr inbounds i8, ptr %_now.i.i.i8.i.i, i64 8
-  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
+  %req_list = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i.i60.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i35.i.i, i64 8
+  %tv_usec.i.i.i62.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i27.i, i64 8
+  %tv_usec.i.i.i28.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i9.i.i, i64 8
+  %tv_usec.i.i.i47.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i29.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i51.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i26.i, i64 8
+  %tv_usec.i.i.i25.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i10.i, i64 8
+  %tv_usec.i.i31.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i17.i.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i44.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i31.i.i.i, i64 8
+  %tv_usec.i.i.i29.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i8.i.i, i64 8
+  %tv_usec.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %req_list, align 16
   %arrayidx = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv
-  %state = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %state, align 8
   %cmp2.not = icmp eq i32 %2, 1
   br i1 %cmp2.not, label %if.end, label %for.inc
@@ -651,19 +651,19 @@ trace_ufs_process_req.exit:                       ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 2, ptr %state, align 8
   %11 = load ptr, ptr %arrayidx, align 8
-  %slot.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %slot.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %12 = load i32, ptr %slot.i.i.i, align 4
   %13 = getelementptr i8, ptr %11, i64 3088
   %.val.i.i.i = load i64, ptr %13, align 16
   %conv3.i.i.i.i = zext i32 %12 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv3.i.i.i.i, 5
   %add4.i.i.i.i = add i64 %mul.i.i.i.i, %.val.i.i.i
-  %utrd.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %utrd.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %cmp.i.i.i.i = icmp ugt i64 %add4.i.i.i.i, -32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %trace_ufs_process_req.exit
-  %reg.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 3008
+  %reg.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 3008
   %14 = load i32, ptr %reg.i.i.i.i, align 16
   %15 = and i32 %14, 16777216
   %tobool.not.i.i.i.i = icmp ne i32 %15, 0
@@ -673,7 +673,7 @@ if.end.i.i.i.i:                                   ; preds = %trace_ufs_process_r
 
 ufs_addr_read.exit.i.i.i:                         ; preds = %if.end.i.i.i.i
   %call.i.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
+  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %add4.i.i.i.i, i32 1, ptr noundef nonnull %utrd.i.i.i, i64 noundef range(i64 1, 1048561) 32, i1 noundef zeroext false) #14
@@ -731,13 +731,13 @@ if.end.i.i:                                       ; preds = %ufs_addr_read.exit.
   %shl.i.i.i.i = shl nuw i64 %conv.i.i.i.i, 32
   %conv2.i.i.i.i = zext i32 %utrd.val.i.i.i to i64
   %add.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
-  %req_upiu1.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %req_upiu1.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %add.i15.i.i.i = add i64 %add.i.i.i.i, -1
   %cmp.i.i9.i.i = icmp ugt i64 %add.i.i.i.i, -12
   br i1 %cmp.i.i9.i.i, label %if.then.i15.i.i, label %if.end.i.i10.i.i
 
 if.end.i.i10.i.i:                                 ; preds = %if.end.i.i
-  %reg.i.i11.i.i = getelementptr inbounds i8, ptr %23, i64 3008
+  %reg.i.i11.i.i = getelementptr inbounds nuw i8, ptr %23, i64 3008
   %26 = load i32, ptr %reg.i.i11.i.i, align 16
   %27 = and i32 %26, 16777216
   %tobool.not.i.i12.i.i = icmp ne i32 %27, 0
@@ -747,7 +747,7 @@ if.end.i.i10.i.i:                                 ; preds = %if.end.i.i
 
 ufs_addr_read.exit.i30.i.i:                       ; preds = %if.end.i.i10.i.i
   %call.i.i.i31.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %23, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %call.i.i.i31.i.i, i64 576
+  %bus_master_as.i.i.i.i.i32.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i31.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i33.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i32.i.i, i64 noundef %add.i.i.i.i, i32 1, ptr noundef nonnull %req_upiu1.i.i.i, i64 noundef range(i64 1, 1048561) 12, i1 noundef zeroext false) #14
@@ -792,7 +792,7 @@ trace_ufs_err_dma_read_req_upiu.exit.i.i.i:       ; preds = %if.else.i.i.i25.i.i
   br label %for.inc
 
 if.end.i.i.i:                                     ; preds = %ufs_addr_read.exit.i30.i.i
-  %data_segment_length4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 58
+  %data_segment_length4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 58
   %35 = load i16, ptr %data_segment_length4.i.i.i, align 1
   %36 = tail call noundef i16 @llvm.bswap.i16(i16 %35)
   %conv.i.i.i = zext i16 %36 to i64
@@ -811,7 +811,7 @@ if.end.i20.i.i.i:                                 ; preds = %if.end.i.i.i
 
 ufs_addr_read.exit30.i.i.i:                       ; preds = %if.end.i20.i.i.i
   %call.i.i27.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %23, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i28.i.i.i = getelementptr inbounds i8, ptr %call.i.i27.i.i.i, i64 576
+  %bus_master_as.i.i.i.i28.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i27.i.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i29.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i28.i.i.i, i64 noundef %add.i.i.i.i, i32 1, ptr noundef nonnull %req_upiu1.i.i.i, i64 noundef range(i64 1, 1048561) %add.i.i.i, i1 noundef zeroext false) #14
@@ -857,14 +857,14 @@ trace_ufs_err_dma_read_req_upiu.exit45.i.i.i:     ; preds = %if.else.i.i40.i.i.i
 
 if.end4.i.i:                                      ; preds = %ufs_addr_read.exit30.i.i.i
   %46 = load ptr, ptr %arrayidx, align 8
-  %prd_table_length.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 44
+  %prd_table_length.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 44
   %47 = load i16, ptr %prd_table_length.i.i.i, align 4
-  %prd_table_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 46
+  %prd_table_offset.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 46
   %48 = load i16, ptr %prd_table_offset.i.i.i, align 2
   %mul.i.i.i = shl i16 %48, 2
   %conv4.i.i.i = zext i16 %47 to i32
   %mul5.i.i.i = shl nuw nsw i32 %conv4.i.i.i, 4
-  %sg.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 624
+  %sg.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 624
   %49 = load ptr, ptr %sg.i.i.i, align 8
   %tobool.not.i36.i.i = icmp eq ptr %49, null
   br i1 %tobool.not.i36.i.i, label %if.end.i37.i.i, label %if.else.i.i.i
@@ -889,7 +889,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i37.i.i
   br i1 %cmp.i.i40.i.i, label %if.then17.i.i.i, label %if.end.i.i41.i.i
 
 if.end.i.i41.i.i:                                 ; preds = %if.end9.i.i.i
-  %reg.i.i42.i.i = getelementptr inbounds i8, ptr %46, i64 3008
+  %reg.i.i42.i.i = getelementptr inbounds nuw i8, ptr %46, i64 3008
   %50 = load i32, ptr %reg.i.i42.i.i, align 16
   %51 = and i32 %50, 16777216
   %tobool.not.i.i43.i.i = icmp ne i32 %51, 0
@@ -899,7 +899,7 @@ if.end.i.i41.i.i:                                 ; preds = %if.end9.i.i.i
 
 ufs_addr_read.exit.i61.i.i:                       ; preds = %if.end.i.i41.i.i
   %call.i.i.i62.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %46, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i.i63.i.i = getelementptr inbounds i8, ptr %call.i.i.i62.i.i, i64 576
+  %bus_master_as.i.i.i.i.i63.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i62.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i64.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i63.i.i, i64 noundef %add.i39.i.i, i32 1, ptr noundef %call11.i.i.i, i64 noundef range(i64 1, 1048561) %conv10.i.i.i, i1 noundef zeroext false) #14
@@ -944,9 +944,9 @@ if.end18.i.i.i:                                   ; preds = %ufs_addr_read.exit.
   store ptr %call19.i.i.i, ptr %sg.i.i.i, align 8
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %46, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
   %call.i.i25.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
-  %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 576
+  %bus_master_as.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 576
   tail call void @qemu_sglist_init(ptr noundef %call19.i.i.i, ptr noundef %call.i.i25.i.i.i, i32 noundef range(i32 0, 65536) %conv4.i.i.i, ptr noundef nonnull %bus_master_as.i.i.i.i.i) #14
-  %data_len.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 632
+  %data_len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 632
   store i32 0, ptr %data_len.i.i.i, align 8
   %wide.trip.count.i.i.i = zext i16 %47 to i64
   br label %for.body.i.i.i
@@ -1018,25 +1018,25 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 ufs_exec_nop_cmd.exit.i:                          ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %rsp_upiu.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 336
+  %rsp_upiu.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu1.i.i.i, i64 12, i1 false)
   store i8 32, ptr %rsp_upiu.i.i.i, align 8
-  %flags7.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 337
+  %flags7.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 337
   store i8 0, ptr %flags7.i.i.i, align 1
-  %response10.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 342
+  %response10.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 342
   store i8 0, ptr %response10.i.i.i, align 2
-  %scsi_status13.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 343
+  %scsi_status13.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 343
   store i8 0, ptr %scsi_status13.i.i.i, align 1
-  %data_segment_length16.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
+  %data_segment_length16.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 346
   store i16 0, ptr %data_segment_length16.i.i.i, align 2
   br label %if.then10.i
 
 sw.bb2.i:                                         ; preds = %if.end.i
   %71 = load ptr, ptr %arrayidx, align 8
-  %lun1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 50
+  %lun1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 50
   %72 = load i8, ptr %lun1.i.i, align 2
   %73 = load i32, ptr %slot.i.i.i, align 4
-  %cdb.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %cdb.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %74 = load i8, ptr %cdb.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i10.i)
   %75 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1087,7 +1087,7 @@ land.lhs.true.i.i:                                ; preds = %trace_ufs_exec_scsi
   br i1 %cmp.i.i, label %if.then.i.i7, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
-  %lus.i.i = getelementptr inbounds i8, ptr %71, i64 3304
+  %lus.i.i = getelementptr inbounds nuw i8, ptr %71, i64 3304
   %idxprom.i.i = zext nneg i8 %72 to i64
   %arrayidx4.i.i = getelementptr [32 x ptr], ptr %lus.i.i, i64 0, i64 %idxprom.i.i
   %81 = load ptr, ptr %arrayidx4.i.i, align 8
@@ -1133,26 +1133,26 @@ trace_ufs_err_scsi_cmd_invalid_lun.exit.i.i:      ; preds = %if.else.i.i26.i.i, 
   br label %if.then10.i
 
 sw.bb.i.i:                                        ; preds = %trace_ufs_exec_scsi_cmd.exit.i.i
-  %report_wlu.i.i = getelementptr inbounds i8, ptr %71, i64 3560
+  %report_wlu.i.i = getelementptr inbounds nuw i8, ptr %71, i64 3560
   br label %sw.epilog.i
 
 sw.bb8.i.i:                                       ; preds = %trace_ufs_exec_scsi_cmd.exit.i.i
-  %dev_wlu.i.i = getelementptr inbounds i8, ptr %71, i64 4016
+  %dev_wlu.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4016
   br label %sw.epilog.i
 
 sw.bb9.i.i:                                       ; preds = %trace_ufs_exec_scsi_cmd.exit.i.i
-  %boot_wlu.i.i = getelementptr inbounds i8, ptr %71, i64 4472
+  %boot_wlu.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4472
   br label %sw.epilog.i
 
 sw.bb10.i.i:                                      ; preds = %trace_ufs_exec_scsi_cmd.exit.i.i
-  %rpmb_wlu.i.i = getelementptr inbounds i8, ptr %71, i64 4928
+  %rpmb_wlu.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4928
   br label %sw.epilog.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
-  %query_func1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 53
+  %query_func1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 53
   %88 = load i8, ptr %query_func1.i.i, align 1
   %89 = load i32, ptr %slot.i.i.i, align 4
-  %90 = getelementptr inbounds i8, ptr %arrayidx, i64 60
+  %90 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 60
   %91 = load i8, ptr %90, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i27.i)
   %92 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1205,9 +1205,9 @@ if.then.i38.i:                                    ; preds = %trace_ufs_exec_quer
 
 sw.bb1.i.i.i:                                     ; preds = %if.then.i38.i
   %99 = load ptr, ptr %arrayidx, align 8
-  %idn1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 61
+  %idn1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 61
   %100 = load i8, ptr %idn1.i.i.i.i, align 1
-  %length3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 66
+  %length3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 66
   %101 = load i16, ptr %length3.i.i.i.i, align 2
   %102 = tail call noundef i16 @llvm.bswap.i16(i16 %101)
   switch i8 %100, label %sw.default.i.i.i.i [
@@ -1221,13 +1221,13 @@ sw.bb1.i.i.i:                                     ; preds = %if.then.i38.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %sw.bb1.i.i.i
-  %data.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
-  %device_desc.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5384
+  %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
+  %device_desc.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(89) %data.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(89) %device_desc.i.i.i.i, i64 89, i1 false)
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb4.i.i.i.i:                                   ; preds = %sw.bb1.i.i.i
-  %index.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 62
+  %index.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 62
   %103 = load i8, ptr %index.i.i.i.i.i, align 2
   %cond.i.i.i.i.i = icmp eq i8 %103, -60
   br i1 %cond.i.i.i.i.i, label %if.then11.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i
@@ -1237,7 +1237,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %sw.bb4.i.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %if.then.i.i.i.i40.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i
-  %lus.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 3304
+  %lus.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 3304
   %idxprom.i.i.i.i.i = zext nneg i8 %103 to i64
   %arrayidx.i.i.i.i.i = getelementptr [32 x ptr], ptr %lus.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %104 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
@@ -1283,129 +1283,129 @@ trace_ufs_err_query_invalid_index.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i
   br label %ufs_read_desc.exit.i.i.i
 
 if.then11.i.i.i.i.i:                              ; preds = %sw.bb4.i.i.i.i
-  %data.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %data.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(35) @rpmb_unit_desc, i64 35, i1 false)
   br label %ufs_read_desc.exit.i.i.i
 
 if.else.i.i.i.i39.i:                              ; preds = %lor.lhs.false.i.i.i.i.i
-  %data13.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
-  %unit_desc.i.i.i.i.i = getelementptr inbounds i8, ptr %104, i64 161
+  %data13.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
+  %unit_desc.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %104, i64 161
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %data13.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(45) %unit_desc.i.i.i.i.i, i64 45, i1 false)
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb6.i.i.i.i:                                   ; preds = %sw.bb1.i.i.i
-  %data8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
-  %geometry_desc.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5473
+  %data8.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
+  %geometry_desc.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5473
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(87) %data8.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(87) %geometry_desc.i.i.i.i, i64 87, i1 false)
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb9.i.i.i.i:                                   ; preds = %sw.bb1.i.i.i
-  %data12.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data12.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i48 17611513463814, ptr %data12.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb13.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i
-  %index1.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 62
+  %index1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 62
   %111 = load i8, ptr %index1.i.i.i.i.i, align 2
-  %manufacturer_name.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5404
+  %manufacturer_name.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5404
   %112 = load i8, ptr %manufacturer_name.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i8 %111, %112
   br i1 %cmp.i.i.i.i.i, label %if.then.i51.i.i.i.i, label %if.else.i30.i.i.i.i
 
 if.then.i51.i.i.i.i:                              ; preds = %sw.bb13.i.i.i.i
-  %data.i52.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data.i52.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i8 18, ptr %data.i52.i.i.i.i, align 4
-  %desc.sroa.6.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
+  %desc.sroa.6.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data.sroa_idx.i.i.i.i.i, align 1
-  %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
+  %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 370
   store i16 20992, ptr %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.12.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  %desc.sroa.12.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 372
   store i16 17664, ptr %desc.sroa.12.0.data.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.15.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  %desc.sroa.15.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 374
   store i16 17408, ptr %desc.sroa.15.0.data.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.18.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  %desc.sroa.18.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 376
   store i16 18432, ptr %desc.sroa.18.0.data.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.21.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 378
+  %desc.sroa.21.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 378
   store i16 16640, ptr %desc.sroa.21.0.data.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.24.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 380
+  %desc.sroa.24.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 380
   store i16 21504, ptr %desc.sroa.24.0.data.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.26.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 382
+  %desc.sroa.26.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 382
   store i16 0, ptr %desc.sroa.26.0.data.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.28.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 384
+  %desc.sroa.28.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 384
   store i16 0, ptr %desc.sroa.28.0.data.sroa_idx.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 if.else.i30.i.i.i.i:                              ; preds = %sw.bb13.i.i.i.i
-  %product_name.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5405
+  %product_name.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5405
   %113 = load i8, ptr %product_name.i.i.i.i.i, align 1
   %cmp8.i.i.i.i.i = icmp eq i8 %111, %113
   br i1 %cmp8.i.i.i.i.i, label %if.then10.i.i.i.i.i, label %if.else16.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.else.i30.i.i.i.i
-  %data13.i50.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data13.i50.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i8 34, ptr %data13.i50.i.i.i.i, align 4
-  %desc.sroa.6.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
+  %desc.sroa.6.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data13.sroa_idx.i.i.i.i.i, align 1
-  %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
+  %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 370
   store i16 20736, ptr %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.12.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  %desc.sroa.12.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 372
   store i16 17664, ptr %desc.sroa.12.0.data13.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.15.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  %desc.sroa.15.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 374
   store i16 19712, ptr %desc.sroa.15.0.data13.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.18.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  %desc.sroa.18.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 376
   store i16 21760, ptr %desc.sroa.18.0.data13.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.21.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 378
+  %desc.sroa.21.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 378
   store i16 8192, ptr %desc.sroa.21.0.data13.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.24.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 380
+  %desc.sroa.24.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 380
   store i16 21760, ptr %desc.sroa.24.0.data13.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.26.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 382
+  %desc.sroa.26.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 382
   store i16 17920, ptr %desc.sroa.26.0.data13.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.28.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 384
+  %desc.sroa.28.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 384
   store i16 21248, ptr %desc.sroa.28.0.data13.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.29.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 386
+  %desc.sroa.29.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 386
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %desc.sroa.29.0.data13.sroa_idx.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %ufs_read_desc.exit.i.i.i
 
 if.else16.i.i.i.i.i:                              ; preds = %if.else.i30.i.i.i.i
-  %serial_number.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5406
+  %serial_number.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5406
   %114 = load i8, ptr %serial_number.i.i.i.i.i, align 2
   %cmp20.i.i.i.i.i = icmp eq i8 %111, %114
   br i1 %cmp20.i.i.i.i.i, label %if.then22.i.i.i.i.i, label %if.else25.i.i.i.i.i
 
 if.then22.i.i.i.i.i:                              ; preds = %if.else16.i.i.i.i.i
-  %data24.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data24.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i16 1282, ptr %data24.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 if.else25.i.i.i.i.i:                              ; preds = %if.else16.i.i.i.i.i
-  %oem_id.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5407
+  %oem_id.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5407
   %115 = load i8, ptr %oem_id.i.i.i.i.i, align 1
   %cmp29.i.i.i.i.i = icmp eq i8 %111, %115
   br i1 %cmp29.i.i.i.i.i, label %if.then31.i.i.i.i.i, label %if.else34.i.i.i.i.i
 
 if.then31.i.i.i.i.i:                              ; preds = %if.else25.i.i.i.i.i
-  %data33.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data33.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i16 1282, ptr %data33.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 if.else34.i.i.i.i.i:                              ; preds = %if.else25.i.i.i.i.i
-  %product_revision_level.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 5426
+  %product_revision_level.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 5426
   %116 = load i8, ptr %product_revision_level.i.i.i.i.i, align 2
   %cmp38.i.i.i.i.i = icmp eq i8 %111, %116
   br i1 %cmp38.i.i.i.i.i, label %if.then40.i.i.i.i.i, label %if.else46.i.i.i.i.i
 
 if.then40.i.i.i.i.i:                              ; preds = %if.else34.i.i.i.i.i
-  %data43.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data43.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   store i8 10, ptr %data43.i.i.i.i.i, align 4
-  %desc.sroa.6.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
+  %desc.sroa.6.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data43.sroa_idx.i.i.i.i.i, align 1
-  %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
+  %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 370
   store i16 12288, ptr %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.12.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  %desc.sroa.12.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 372
   store i16 12288, ptr %desc.sroa.12.0.data43.sroa_idx.i.i.i.i.i, align 4
-  %desc.sroa.15.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  %desc.sroa.15.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 374
   store i16 12288, ptr %desc.sroa.15.0.data43.sroa_idx.i.i.i.i.i, align 2
-  %desc.sroa.18.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  %desc.sroa.18.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 376
   store i16 12544, ptr %desc.sroa.18.0.data43.sroa_idx.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
@@ -1448,7 +1448,7 @@ trace_ufs_err_query_invalid_index.exit.i34.i.i.i.i: ; preds = %if.else.i.i.i41.i
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb15.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i
-  %data17.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data17.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(98) %data17.i.i.i.i, i8 0, i64 98, i1 false)
   store i8 98, ptr %data17.i.i.i.i, align 4
   %arrayidx22.i.i.i.i = getelementptr i8, ptr %arrayidx, i64 369
@@ -1456,7 +1456,7 @@ sw.bb15.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i
   br label %ufs_read_desc.exit.i.i.i
 
 sw.bb23.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i
-  %data25.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data25.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %data25.i.i.i.i, i8 0, i64 45, i1 false)
   store i8 45, ptr %data25.i.i.i.i, align 4
   %arrayidx31.i.i.i.i = getelementptr i8, ptr %arrayidx, i64 369
@@ -1504,26 +1504,26 @@ trace_ufs_err_query_invalid_idn.exit.i.i.i.i:     ; preds = %if.else.i.i.i.i.i.i
 ufs_read_desc.exit.i.i.i:                         ; preds = %trace_ufs_err_query_invalid_idn.exit.i.i.i.i, %sw.bb23.i.i.i.i, %sw.bb15.i.i.i.i, %trace_ufs_err_query_invalid_index.exit.i34.i.i.i.i, %if.then40.i.i.i.i.i, %if.then31.i.i.i.i.i, %if.then22.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then.i51.i.i.i.i, %sw.bb9.i.i.i.i, %sw.bb6.i.i.i.i, %if.else.i.i.i.i39.i, %if.then11.i.i.i.i.i, %trace_ufs_err_query_invalid_index.exit.i.i.i.i.i, %sw.bb.i.i.i.i
   %length.0.i.i.i.i = phi i16 [ 0, %trace_ufs_err_query_invalid_idn.exit.i.i.i.i ], [ %102, %sw.bb23.i.i.i.i ], [ %102, %sw.bb15.i.i.i.i ], [ %102, %sw.bb9.i.i.i.i ], [ %102, %sw.bb6.i.i.i.i ], [ %102, %sw.bb.i.i.i.i ], [ %102, %trace_ufs_err_query_invalid_index.exit.i.i.i.i.i ], [ %102, %if.then11.i.i.i.i.i ], [ %102, %if.else.i.i.i.i39.i ], [ %102, %if.then.i51.i.i.i.i ], [ %102, %if.then10.i.i.i.i.i ], [ %102, %if.then22.i.i.i.i.i ], [ %102, %if.then31.i.i.i.i.i ], [ %102, %if.then40.i.i.i.i.i ], [ %102, %trace_ufs_err_query_invalid_index.exit.i34.i.i.i.i ]
   %status.0.i.i.i.i = phi i32 [ 253, %trace_ufs_err_query_invalid_idn.exit.i.i.i.i ], [ 0, %sw.bb23.i.i.i.i ], [ 0, %sw.bb15.i.i.i.i ], [ 0, %sw.bb9.i.i.i.i ], [ 0, %sw.bb6.i.i.i.i ], [ 0, %sw.bb.i.i.i.i ], [ 252, %trace_ufs_err_query_invalid_index.exit.i.i.i.i.i ], [ 0, %if.then11.i.i.i.i.i ], [ 0, %if.else.i.i.i.i39.i ], [ 0, %if.then.i51.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ 0, %if.then22.i.i.i.i.i ], [ 0, %if.then31.i.i.i.i.i ], [ 0, %if.then40.i.i.i.i.i ], [ 252, %trace_ufs_err_query_invalid_index.exit.i34.i.i.i.i ]
-  %data35.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 368
+  %data35.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 368
   %129 = load i8, ptr %data35.i.i.i.i, align 4
   %130 = zext i8 %129 to i16
   %spec.select.i.i.i.i = tail call i16 @llvm.umin.i16(i16 %length.0.i.i.i.i, i16 %130)
-  %131 = getelementptr inbounds i8, ptr %arrayidx, i64 348
+  %131 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 348
   %132 = load i8, ptr %90, align 4
   store i8 %132, ptr %131, align 4
   %133 = load i8, ptr %idn1.i.i.i.i, align 1
-  %idn50.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 349
+  %idn50.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 349
   store i8 %133, ptr %idn50.i.i.i.i, align 1
-  %index.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 62
+  %index.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 62
   %134 = load i8, ptr %index.i.i.i.i, align 2
-  %index53.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 350
+  %index53.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 350
   store i8 %134, ptr %index53.i.i.i.i, align 2
-  %selector.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 63
+  %selector.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 63
   %135 = load i8, ptr %selector.i.i.i.i, align 1
-  %selector56.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 351
+  %selector56.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 351
   store i8 %135, ptr %selector56.i.i.i.i, align 1
   %136 = shl nuw i16 %spec.select.i.i.i.i, 8
-  %length59.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 354
+  %length59.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 354
   store i16 %136, ptr %length59.i.i.i.i, align 2
   br label %ufs_exec_query_cmd.exit.i
 
@@ -1644,19 +1644,19 @@ trace_ufs_err_query_invalid_opcode.exit.i17.i.i:  ; preds = %if.else.i.i.i23.i.i
 ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query_invalid_opcode.exit.i17.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i11.i.i, %sw.bb1.i12.i.i, %if.then7.i.i, %trace_ufs_err_query_invalid_opcode.exit.i.i.i, %sw.bb4.i.i.i, %sw.bb2.i.i.i, %ufs_read_desc.exit.i.i.i, %if.then.i38.i, %trace_ufs_exec_query_cmd.exit.i.i
   %status.0.i.i = phi i32 [ 255, %trace_ufs_exec_query_cmd.exit.i.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i.i.i ], [ %call5.i.i.i, %sw.bb4.i.i.i ], [ %call3.i.i.i, %sw.bb2.i.i.i ], [ %status.0.i.i.i.i, %ufs_read_desc.exit.i.i.i ], [ 0, %if.then.i38.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i17.i.i ], [ %call8.i.i.i, %sw.bb7.i.i.i ], [ %call6.i.i.i, %sw.bb5.i.i.i ], [ %call4.i.i.i, %sw.bb3.i.i.i ], [ %call.i.i.i, %sw.bb2.i11.i.i ], [ 247, %sw.bb1.i12.i.i ], [ 0, %if.then7.i.i ]
   %status.0.fr.i.i = freeze i32 %status.0.i.i
-  %length.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 354
+  %length.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 354
   %150 = load i16, ptr %length.i.i, align 2
   %conv12.i.i = trunc i32 %status.0.fr.i.i to i8
-  %rsp_upiu.i.i32.i = getelementptr inbounds i8, ptr %arrayidx, i64 336
+  %rsp_upiu.i.i32.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu.i.i32.i, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu1.i.i.i, i64 12, i1 false)
   store i8 54, ptr %rsp_upiu.i.i32.i, align 8
-  %flags7.i.i34.i = getelementptr inbounds i8, ptr %arrayidx, i64 337
+  %flags7.i.i34.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 337
   store i8 0, ptr %flags7.i.i34.i, align 1
-  %response10.i.i35.i = getelementptr inbounds i8, ptr %arrayidx, i64 342
+  %response10.i.i35.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 342
   store i8 %conv12.i.i, ptr %response10.i.i35.i, align 2
-  %scsi_status13.i.i36.i = getelementptr inbounds i8, ptr %arrayidx, i64 343
+  %scsi_status13.i.i36.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 343
   store i8 0, ptr %scsi_status13.i.i36.i, align 1
-  %data_segment_length16.i.i37.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
+  %data_segment_length16.i.i37.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 346
   store i16 %150, ptr %data_segment_length16.i.i37.i, align 2
   %cmp13.not.i.i = icmp ne i32 %status.0.fr.i.i, 0
   %spec.select.i.i = zext i1 %cmp13.not.i.i to i32
@@ -1703,7 +1703,7 @@ trace_ufs_err_invalid_trans_code.exit.i:          ; preds = %if.else.i.i65.i, %i
 
 sw.epilog.i:                                      ; preds = %sw.bb10.i.i, %sw.bb9.i.i, %sw.bb8.i.i, %sw.bb.i.i, %lor.lhs.false.i.i
   %lu.0.i.i = phi ptr [ %rpmb_wlu.i.i, %sw.bb10.i.i ], [ %boot_wlu.i.i, %sw.bb9.i.i ], [ %dev_wlu.i.i, %sw.bb8.i.i ], [ %report_wlu.i.i, %sw.bb.i.i ], [ %81, %lor.lhs.false.i.i ]
-  %scsi_op.i.i = getelementptr inbounds i8, ptr %lu.0.i.i, i64 448
+  %scsi_op.i.i = getelementptr inbounds nuw i8, ptr %lu.0.i.i, i64 448
   %158 = load ptr, ptr %scsi_op.i.i, align 8
   %call14.i.i = tail call i32 %158(ptr noundef nonnull %lu.0.i.i, ptr noundef nonnull %arrayidx) #14
   %cmp.not.i = icmp eq i32 %call14.i.i, 2
@@ -1731,26 +1731,26 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i3.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
-  %nutrs = getelementptr inbounds i8, ptr %opaque, i64 3280
+  %nutrs = getelementptr inbounds nuw i8, ptr %opaque, i64 3280
   %0 = load i8, ptr %nutrs, align 8
   %cmp24.not = icmp eq i8 %0, 0
   br i1 %cmp24.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %req_list = getelementptr inbounds i8, ptr %opaque, i64 3296
-  %is = getelementptr inbounds i8, ptr %opaque, i64 3040
-  %utrldbr = getelementptr inbounds i8, ptr %opaque, i64 3096
-  %utrlcnr = getelementptr inbounds i8, ptr %opaque, i64 3108
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %tv_usec.i.i.i24.i = getelementptr inbounds i8, ptr %_now.i.i.i3.i, i64 8
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %req_list = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
+  %is = getelementptr inbounds nuw i8, ptr %opaque, i64 3040
+  %utrldbr = getelementptr inbounds nuw i8, ptr %opaque, i64 3096
+  %utrlcnr = getelementptr inbounds nuw i8, ptr %opaque, i64 3108
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i.i24.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i3.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %req_list, align 16
   %arrayidx = getelementptr %struct.UfsRequest, ptr %1, i64 %indvars.iv
-  %state = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %state, align 8
   %cmp2.not = icmp eq i32 %2, 3
   br i1 %cmp2.not, label %if.end, label %for.inc
@@ -1759,17 +1759,17 @@ if.end:                                           ; preds = %for.body
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = getelementptr i8, ptr %arrayidx, i64 32
   %utrd.val.i.i.i = load i64, ptr %4, align 1
-  %response_upiu_offset.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 42
+  %response_upiu_offset.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 42
   %5 = load i16, ptr %response_upiu_offset.i.i.i, align 1
   %conv.i.i.i = zext i16 %5 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add i64 %mul.i.i.i, %utrd.val.i.i.i
-  %response_upiu_length.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %response_upiu_length.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %6 = load i16, ptr %response_upiu_length.i.i, align 8
   %conv.i.i = zext i16 %6 to i32
   %mul.i.i = shl nuw nsw i32 %conv.i.i, 2
-  %rsp_upiu.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 336
-  %data_segment_length4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
+  %rsp_upiu.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 336
+  %data_segment_length4.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 346
   %7 = load i16, ptr %data_segment_length4.i.i, align 2
   %8 = tail call noundef i16 @llvm.bswap.i16(i16 %7)
   %conv6.i.i = zext i16 %8 to i32
@@ -1782,7 +1782,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then11.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end
-  %reg.i.i.i = getelementptr inbounds i8, ptr %3, i64 3008
+  %reg.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 3008
   %9 = load i32, ptr %reg.i.i.i, align 16
   %10 = and i32 %9, 16777216
   %tobool.not.i.i.i = icmp ne i32 %10, 0
@@ -1792,7 +1792,7 @@ if.end.i.i.i:                                     ; preds = %if.end
 
 ufs_addr_write.exit.i.i:                          ; preds = %if.end.i.i.i
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 576
+  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef nonnull %rsp_upiu.i.i, i64 noundef range(i64 0, 65568) %conv.i10.i.i, i1 noundef zeroext true) #14
@@ -1800,7 +1800,7 @@ ufs_addr_write.exit.i.i:                          ; preds = %if.end.i.i.i
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %ufs_addr_write.exit.i.i, %if.end.i.i.i, %if.end
-  %slot.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %slot.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %11 = load i32, ptr %slot.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1839,19 +1839,19 @@ ufs_dma_write_rsp_upiu.exit.i:                    ; preds = %if.else.i.i.i.i, %i
 
 if.end.i:                                         ; preds = %ufs_addr_write.exit.i.i
   %18 = load ptr, ptr %arrayidx, align 8
-  %slot.i4.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %slot.i4.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %19 = load i32, ptr %slot.i4.i, align 4
   %20 = getelementptr i8, ptr %18, i64 3088
   %.val.i.i = load i64, ptr %20, align 16
   %conv3.i.i.i = zext i32 %19 to i64
   %mul.i.i5.i = shl nuw nsw i64 %conv3.i.i.i, 5
   %add4.i.i.i = add i64 %mul.i.i5.i, %.val.i.i
-  %utrd.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %utrd.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %cmp.i.i6.i = icmp ugt i64 %add4.i.i.i, -32
   br i1 %cmp.i.i6.i, label %if.then.i.i, label %if.end.i.i7.i
 
 if.end.i.i7.i:                                    ; preds = %if.end.i
-  %reg.i.i8.i = getelementptr inbounds i8, ptr %18, i64 3008
+  %reg.i.i8.i = getelementptr inbounds nuw i8, ptr %18, i64 3008
   %21 = load i32, ptr %reg.i.i8.i, align 16
   %22 = and i32 %21, 16777216
   %tobool.not.i.i9.i = icmp ne i32 %22, 0
@@ -1861,7 +1861,7 @@ if.end.i.i7.i:                                    ; preds = %if.end.i
 
 ufs_addr_write.exit.i25.i:                        ; preds = %if.end.i.i7.i
   %call.i.i.i26.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %18, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %bus_master_as.i.i.i.i.i27.i = getelementptr inbounds i8, ptr %call.i.i.i26.i, i64 576
+  %bus_master_as.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %call.i.i.i26.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   fence seq_cst
   %call.i.i.i.i.i.i28.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i27.i, i64 noundef %add4.i.i.i, i32 1, ptr noundef nonnull %utrd.i.i, i64 noundef range(i64 0, 65568) 32, i1 noundef zeroext true) #14
@@ -1910,7 +1910,7 @@ trace_ufs_err_dma_write_utrd.exit.i.i:            ; preds = %if.else.i.i.i20.i, 
   br label %for.inc.sink.split
 
 if.end6:                                          ; preds = %ufs_addr_write.exit.i25.i
-  %dword_2 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %dword_2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %30 = load i32, ptr %dword_2, align 8
   %cmp8.not = icmp eq i32 %30, 0
   br i1 %cmp8.not, label %lor.lhs.false, label %if.then14
@@ -1971,7 +1971,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i19
 
 trace_ufs_sendback_req.exit:                      ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %sg.i = getelementptr inbounds i8, ptr %arrayidx, i64 624
+  %sg.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 624
   %43 = load ptr, ptr %sg.i, align 8
   %cmp.not.i = icmp eq ptr %43, null
   br i1 %cmp.not.i, label %ufs_clear_req.exit, label %if.then.i
@@ -1981,7 +1981,7 @@ if.then.i:                                        ; preds = %trace_ufs_sendback_
   %44 = load ptr, ptr %sg.i, align 8
   tail call void @g_free(ptr noundef %44) #14
   store ptr null, ptr %sg.i, align 8
-  %data_len.i = getelementptr inbounds i8, ptr %arrayidx, i64 632
+  %data_len.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 632
   store i32 0, ptr %data_len.i, align 8
   br label %ufs_clear_req.exit
 
@@ -2026,7 +2026,7 @@ entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
-  %idn1 = getelementptr inbounds i8, ptr %req, i64 61
+  %idn1 = getelementptr inbounds nuw i8, ptr %req, i64 61
   %1 = load i8, ptr %idn1, align 1
   %cmp.i = icmp ugt i8 %1, 46
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2067,7 +2067,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext nneg i8 %1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i.i) #14
@@ -2106,7 +2106,7 @@ if.then8.i.i16.i:                                 ; preds = %if.then.i.i12.i
   %call9.i.i17.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i5.i, ptr noundef null) #14
   %call10.i.i18.i = tail call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i5.i, align 8
-  %tv_usec.i.i19.i = getelementptr inbounds i8, ptr %_now.i.i5.i, i64 8
+  %tv_usec.i.i19.i = getelementptr inbounds nuw i8, ptr %_now.i.i5.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i19.i, align 8
   %conv11.i.i20.i = zext nneg i8 %1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i18.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i20.i) #14
@@ -2160,197 +2160,197 @@ if.then2:                                         ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.then2
-  %attributes.i = getelementptr inbounds i8, ptr %0, i64 5560
+  %attributes.i = getelementptr inbounds nuw i8, ptr %0, i64 5560
   %15 = load i8, ptr %attributes.i, align 8
   %conv1.i = zext i8 %15 to i32
   br label %if.end7
 
 sw.bb2.i:                                         ; preds = %if.then2
-  %current_power_mode.i = getelementptr inbounds i8, ptr %0, i64 5562
+  %current_power_mode.i = getelementptr inbounds nuw i8, ptr %0, i64 5562
   %16 = load i8, ptr %current_power_mode.i, align 2
   %conv4.i = zext i8 %16 to i32
   br label %if.end7
 
 sw.bb5.i:                                         ; preds = %if.then2
-  %active_icc_level.i = getelementptr inbounds i8, ptr %0, i64 5563
+  %active_icc_level.i = getelementptr inbounds nuw i8, ptr %0, i64 5563
   %17 = load i8, ptr %active_icc_level.i, align 1
   %conv7.i = zext i8 %17 to i32
   br label %if.end7
 
 sw.bb8.i:                                         ; preds = %if.then2
-  %out_of_order_data_en.i = getelementptr inbounds i8, ptr %0, i64 5564
+  %out_of_order_data_en.i = getelementptr inbounds nuw i8, ptr %0, i64 5564
   %18 = load i8, ptr %out_of_order_data_en.i, align 4
   %conv10.i = zext i8 %18 to i32
   br label %if.end7
 
 sw.bb11.i:                                        ; preds = %if.then2
-  %background_op_status.i = getelementptr inbounds i8, ptr %0, i64 5565
+  %background_op_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5565
   %19 = load i8, ptr %background_op_status.i, align 1
   %conv13.i = zext i8 %19 to i32
   br label %if.end7
 
 sw.bb14.i:                                        ; preds = %if.then2
-  %purge_status.i = getelementptr inbounds i8, ptr %0, i64 5566
+  %purge_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5566
   %20 = load i8, ptr %purge_status.i, align 2
   %conv16.i = zext i8 %20 to i32
   br label %if.end7
 
 sw.bb17.i:                                        ; preds = %if.then2
-  %max_data_in_size.i = getelementptr inbounds i8, ptr %0, i64 5567
+  %max_data_in_size.i = getelementptr inbounds nuw i8, ptr %0, i64 5567
   %21 = load i8, ptr %max_data_in_size.i, align 1
   %conv19.i = zext i8 %21 to i32
   br label %if.end7
 
 sw.bb20.i:                                        ; preds = %if.then2
-  %max_data_out_size.i = getelementptr inbounds i8, ptr %0, i64 5568
+  %max_data_out_size.i = getelementptr inbounds nuw i8, ptr %0, i64 5568
   %22 = load i8, ptr %max_data_out_size.i, align 8
   %conv22.i = zext i8 %22 to i32
   br label %if.end7
 
 sw.bb23.i:                                        ; preds = %if.then2
-  %dyn_cap_needed.i = getelementptr inbounds i8, ptr %0, i64 5572
+  %dyn_cap_needed.i = getelementptr inbounds nuw i8, ptr %0, i64 5572
   %23 = load i32, ptr %dyn_cap_needed.i, align 4
   %24 = tail call noundef i32 @llvm.bswap.i32(i32 %23)
   br label %if.end7
 
 sw.bb25.i:                                        ; preds = %if.then2
-  %ref_clk_freq.i = getelementptr inbounds i8, ptr %0, i64 5576
+  %ref_clk_freq.i = getelementptr inbounds nuw i8, ptr %0, i64 5576
   %25 = load i8, ptr %ref_clk_freq.i, align 8
   %conv27.i = zext i8 %25 to i32
   br label %if.end7
 
 sw.bb28.i:                                        ; preds = %if.then2
-  %config_descr_lock.i = getelementptr inbounds i8, ptr %0, i64 5577
+  %config_descr_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 5577
   %26 = load i8, ptr %config_descr_lock.i, align 1
   %conv30.i = zext i8 %26 to i32
   br label %if.end7
 
 sw.bb31.i:                                        ; preds = %if.then2
-  %max_num_of_rtt.i = getelementptr inbounds i8, ptr %0, i64 5578
+  %max_num_of_rtt.i = getelementptr inbounds nuw i8, ptr %0, i64 5578
   %27 = load i8, ptr %max_num_of_rtt.i, align 2
   %conv33.i = zext i8 %27 to i32
   br label %if.end7
 
 sw.bb34.i:                                        ; preds = %if.then2
-  %exception_event_control.i = getelementptr inbounds i8, ptr %0, i64 5580
+  %exception_event_control.i = getelementptr inbounds nuw i8, ptr %0, i64 5580
   %28 = load i16, ptr %exception_event_control.i, align 4
   %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
   %conv37.i = zext i16 %29 to i32
   br label %if.end7
 
 sw.bb38.i:                                        ; preds = %if.then2
-  %exception_event_status.i = getelementptr inbounds i8, ptr %0, i64 5582
+  %exception_event_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5582
   %30 = load i16, ptr %exception_event_status.i, align 2
   %31 = tail call noundef i16 @llvm.bswap.i16(i16 %30)
   %conv41.i = zext i16 %31 to i32
   br label %if.end7
 
 sw.bb42.i:                                        ; preds = %if.then2
-  %seconds_passed.i = getelementptr inbounds i8, ptr %0, i64 5584
+  %seconds_passed.i = getelementptr inbounds nuw i8, ptr %0, i64 5584
   %32 = load i32, ptr %seconds_passed.i, align 8
   %33 = tail call noundef i32 @llvm.bswap.i32(i32 %32)
   br label %if.end7
 
 sw.bb45.i:                                        ; preds = %if.then2
-  %context_conf.i = getelementptr inbounds i8, ptr %0, i64 5588
+  %context_conf.i = getelementptr inbounds nuw i8, ptr %0, i64 5588
   %34 = load i16, ptr %context_conf.i, align 4
   %35 = tail call noundef i16 @llvm.bswap.i16(i16 %34)
   %conv48.i = zext i16 %35 to i32
   br label %if.end7
 
 sw.bb49.i:                                        ; preds = %if.then2
-  %device_ffu_status.i = getelementptr inbounds i8, ptr %0, i64 5590
+  %device_ffu_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5590
   %36 = load i8, ptr %device_ffu_status.i, align 2
   %conv51.i = zext i8 %36 to i32
   br label %if.end7
 
 sw.bb52.i:                                        ; preds = %if.then2
-  %psa_state.i = getelementptr inbounds i8, ptr %0, i64 5591
+  %psa_state.i = getelementptr inbounds nuw i8, ptr %0, i64 5591
   %37 = load i8, ptr %psa_state.i, align 1
   %conv54.i = zext i8 %37 to i32
   %38 = shl nuw i32 %conv54.i, 24
   br label %if.end7
 
 sw.bb56.i:                                        ; preds = %if.then2
-  %psa_data_size.i = getelementptr inbounds i8, ptr %0, i64 5592
+  %psa_data_size.i = getelementptr inbounds nuw i8, ptr %0, i64 5592
   %39 = load i32, ptr %psa_data_size.i, align 8
   %40 = tail call noundef i32 @llvm.bswap.i32(i32 %39)
   br label %if.end7
 
 sw.bb59.i:                                        ; preds = %if.then2
-  %ref_clk_gating_wait_time.i = getelementptr inbounds i8, ptr %0, i64 5596
+  %ref_clk_gating_wait_time.i = getelementptr inbounds nuw i8, ptr %0, i64 5596
   %41 = load i8, ptr %ref_clk_gating_wait_time.i, align 4
   %conv61.i = zext i8 %41 to i32
   br label %if.end7
 
 sw.bb62.i:                                        ; preds = %if.then2
-  %device_case_rough_temperaure.i = getelementptr inbounds i8, ptr %0, i64 5597
+  %device_case_rough_temperaure.i = getelementptr inbounds nuw i8, ptr %0, i64 5597
   %42 = load i8, ptr %device_case_rough_temperaure.i, align 1
   %conv64.i = zext i8 %42 to i32
   br label %if.end7
 
 sw.bb65.i:                                        ; preds = %if.then2
-  %device_too_high_temp_boundary.i = getelementptr inbounds i8, ptr %0, i64 5598
+  %device_too_high_temp_boundary.i = getelementptr inbounds nuw i8, ptr %0, i64 5598
   %43 = load i8, ptr %device_too_high_temp_boundary.i, align 2
   %conv67.i = zext i8 %43 to i32
   br label %if.end7
 
 sw.bb68.i:                                        ; preds = %if.then2
-  %device_too_low_temp_boundary.i = getelementptr inbounds i8, ptr %0, i64 5599
+  %device_too_low_temp_boundary.i = getelementptr inbounds nuw i8, ptr %0, i64 5599
   %44 = load i8, ptr %device_too_low_temp_boundary.i, align 1
   %conv70.i = zext i8 %44 to i32
   br label %if.end7
 
 sw.bb71.i:                                        ; preds = %if.then2
-  %throttling_status.i = getelementptr inbounds i8, ptr %0, i64 5600
+  %throttling_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5600
   %45 = load i8, ptr %throttling_status.i, align 8
   %conv73.i = zext i8 %45 to i32
   br label %if.end7
 
 sw.bb74.i:                                        ; preds = %if.then2
-  %wb_buffer_flush_status.i = getelementptr inbounds i8, ptr %0, i64 5601
+  %wb_buffer_flush_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5601
   %46 = load i8, ptr %wb_buffer_flush_status.i, align 1
   %conv76.i = zext i8 %46 to i32
   br label %if.end7
 
 sw.bb77.i:                                        ; preds = %if.then2
-  %available_wb_buffer_size.i = getelementptr inbounds i8, ptr %0, i64 5602
+  %available_wb_buffer_size.i = getelementptr inbounds nuw i8, ptr %0, i64 5602
   %47 = load i8, ptr %available_wb_buffer_size.i, align 2
   %conv79.i = zext i8 %47 to i32
   br label %if.end7
 
 sw.bb80.i:                                        ; preds = %if.then2
-  %wb_buffer_life_time_est.i = getelementptr inbounds i8, ptr %0, i64 5603
+  %wb_buffer_life_time_est.i = getelementptr inbounds nuw i8, ptr %0, i64 5603
   %48 = load i8, ptr %wb_buffer_life_time_est.i, align 1
   %conv82.i = zext i8 %48 to i32
   br label %if.end7
 
 sw.bb83.i:                                        ; preds = %if.then2
-  %current_wb_buffer_size.i = getelementptr inbounds i8, ptr %0, i64 5604
+  %current_wb_buffer_size.i = getelementptr inbounds nuw i8, ptr %0, i64 5604
   %49 = load i32, ptr %current_wb_buffer_size.i, align 4
   %50 = tail call noundef i32 @llvm.bswap.i32(i32 %49)
   br label %if.end7
 
 sw.bb86.i:                                        ; preds = %if.then2
-  %refresh_status.i = getelementptr inbounds i8, ptr %0, i64 5608
+  %refresh_status.i = getelementptr inbounds nuw i8, ptr %0, i64 5608
   %51 = load i8, ptr %refresh_status.i, align 8
   %conv88.i = zext i8 %51 to i32
   br label %if.end7
 
 sw.bb89.i:                                        ; preds = %if.then2
-  %refresh_freq.i = getelementptr inbounds i8, ptr %0, i64 5609
+  %refresh_freq.i = getelementptr inbounds nuw i8, ptr %0, i64 5609
   %52 = load i8, ptr %refresh_freq.i, align 1
   %conv91.i = zext i8 %52 to i32
   br label %if.end7
 
 sw.bb92.i:                                        ; preds = %if.then2
-  %refresh_unit.i = getelementptr inbounds i8, ptr %0, i64 5610
+  %refresh_unit.i = getelementptr inbounds nuw i8, ptr %0, i64 5610
   %53 = load i8, ptr %refresh_unit.i, align 2
   %conv94.i = zext i8 %53 to i32
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %value5 = getelementptr inbounds i8, ptr %req, i64 68
+  %value5 = getelementptr inbounds nuw i8, ptr %req, i64 68
   %54 = load i32, ptr %value5, align 4
   %55 = tail call noundef i32 @llvm.bswap.i32(i32 %54)
   switch i8 %1, label %if.end7 [
@@ -2367,61 +2367,61 @@ if.else:                                          ; preds = %if.end
 
 sw.bb.i27:                                        ; preds = %if.else
   %conv1.i28 = trunc i32 %55 to i8
-  %active_icc_level.i29 = getelementptr inbounds i8, ptr %0, i64 5563
+  %active_icc_level.i29 = getelementptr inbounds nuw i8, ptr %0, i64 5563
   store i8 %conv1.i28, ptr %active_icc_level.i29, align 1
   br label %if.end7
 
 sw.bb2.i25:                                       ; preds = %if.else
   %conv3.i = trunc i32 %55 to i8
-  %max_data_in_size.i26 = getelementptr inbounds i8, ptr %0, i64 5567
+  %max_data_in_size.i26 = getelementptr inbounds nuw i8, ptr %0, i64 5567
   store i8 %conv3.i, ptr %max_data_in_size.i26, align 1
   br label %if.end7
 
 sw.bb5.i23:                                       ; preds = %if.else
   %conv6.i = trunc i32 %55 to i8
-  %max_data_out_size.i24 = getelementptr inbounds i8, ptr %0, i64 5568
+  %max_data_out_size.i24 = getelementptr inbounds nuw i8, ptr %0, i64 5568
   store i8 %conv6.i, ptr %max_data_out_size.i24, align 8
   br label %if.end7
 
 sw.bb8.i21:                                       ; preds = %if.else
   %conv9.i = trunc i32 %55 to i8
-  %ref_clk_freq.i22 = getelementptr inbounds i8, ptr %0, i64 5576
+  %ref_clk_freq.i22 = getelementptr inbounds nuw i8, ptr %0, i64 5576
   store i8 %conv9.i, ptr %ref_clk_freq.i22, align 8
   br label %if.end7
 
 sw.bb11.i19:                                      ; preds = %if.else
   %conv12.i = trunc i32 %55 to i8
-  %max_num_of_rtt.i20 = getelementptr inbounds i8, ptr %0, i64 5578
+  %max_num_of_rtt.i20 = getelementptr inbounds nuw i8, ptr %0, i64 5578
   store i8 %conv12.i, ptr %max_num_of_rtt.i20, align 2
   br label %if.end7
 
 sw.bb14.i17:                                      ; preds = %if.else
   %56 = lshr i32 %54, 16
   %57 = trunc nuw i32 %56 to i16
-  %exception_event_control.i18 = getelementptr inbounds i8, ptr %0, i64 5580
+  %exception_event_control.i18 = getelementptr inbounds nuw i8, ptr %0, i64 5580
   store i16 %57, ptr %exception_event_control.i18, align 4
   br label %if.end7
 
 sw.bb17.i15:                                      ; preds = %if.else
-  %seconds_passed.i16 = getelementptr inbounds i8, ptr %0, i64 5584
+  %seconds_passed.i16 = getelementptr inbounds nuw i8, ptr %0, i64 5584
   store i32 %54, ptr %seconds_passed.i16, align 8
   br label %if.end7
 
 sw.bb20.i13:                                      ; preds = %if.else
   %conv21.i = trunc i32 %55 to i8
-  %psa_state.i14 = getelementptr inbounds i8, ptr %0, i64 5591
+  %psa_state.i14 = getelementptr inbounds nuw i8, ptr %0, i64 5591
   store i8 %conv21.i, ptr %psa_state.i14, align 1
   br label %if.end7
 
 sw.bb23.i11:                                      ; preds = %if.else
-  %psa_data_size.i12 = getelementptr inbounds i8, ptr %0, i64 5592
+  %psa_data_size.i12 = getelementptr inbounds nuw i8, ptr %0, i64 5592
   store i32 %54, ptr %psa_data_size.i12, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %sw.bb23.i11, %sw.bb20.i13, %sw.bb17.i15, %sw.bb14.i17, %sw.bb11.i19, %sw.bb8.i21, %sw.bb5.i23, %sw.bb2.i25, %sw.bb.i27, %if.else, %sw.bb92.i, %sw.bb89.i, %sw.bb86.i, %sw.bb83.i, %sw.bb80.i, %sw.bb77.i, %sw.bb74.i, %sw.bb71.i, %sw.bb68.i, %sw.bb65.i, %sw.bb62.i, %sw.bb59.i, %sw.bb56.i, %sw.bb52.i, %sw.bb49.i, %sw.bb45.i, %sw.bb42.i, %sw.bb38.i, %sw.bb34.i, %sw.bb31.i, %sw.bb28.i, %sw.bb25.i, %sw.bb23.i, %sw.bb20.i, %sw.bb17.i, %sw.bb14.i, %sw.bb11.i, %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb.i, %if.then2
   %value.0 = phi i32 [ %conv94.i, %sw.bb92.i ], [ %conv91.i, %sw.bb89.i ], [ %conv88.i, %sw.bb86.i ], [ %50, %sw.bb83.i ], [ %conv82.i, %sw.bb80.i ], [ %conv79.i, %sw.bb77.i ], [ %conv76.i, %sw.bb74.i ], [ %conv73.i, %sw.bb71.i ], [ %conv70.i, %sw.bb68.i ], [ %conv67.i, %sw.bb65.i ], [ %conv64.i, %sw.bb62.i ], [ %conv61.i, %sw.bb59.i ], [ %40, %sw.bb56.i ], [ %38, %sw.bb52.i ], [ %conv51.i, %sw.bb49.i ], [ %conv48.i, %sw.bb45.i ], [ %33, %sw.bb42.i ], [ %conv41.i, %sw.bb38.i ], [ %conv37.i, %sw.bb34.i ], [ %conv33.i, %sw.bb31.i ], [ %conv30.i, %sw.bb28.i ], [ %conv27.i, %sw.bb25.i ], [ %24, %sw.bb23.i ], [ %conv22.i, %sw.bb20.i ], [ %conv19.i, %sw.bb17.i ], [ %conv16.i, %sw.bb14.i ], [ %conv13.i, %sw.bb11.i ], [ %conv10.i, %sw.bb8.i ], [ %conv7.i, %sw.bb5.i ], [ %conv4.i, %sw.bb2.i ], [ %conv1.i, %sw.bb.i ], [ 0, %if.then2 ], [ %55, %if.else ], [ %55, %sw.bb.i27 ], [ %55, %sw.bb2.i25 ], [ %55, %sw.bb5.i23 ], [ %55, %sw.bb8.i21 ], [ %55, %sw.bb11.i19 ], [ %55, %sw.bb14.i17 ], [ %55, %sw.bb17.i15 ], [ %55, %sw.bb20.i13 ], [ %55, %sw.bb23.i11 ]
   %58 = tail call noundef i32 @llvm.bswap.i32(i32 %value.0)
-  %value9 = getelementptr inbounds i8, ptr %req, i64 356
+  %value9 = getelementptr inbounds nuw i8, ptr %req, i64 356
   store i32 %58, ptr %value9, align 4
   br label %return
 
@@ -2437,7 +2437,7 @@ entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %req, align 8
-  %idn1 = getelementptr inbounds i8, ptr %req, i64 61
+  %idn1 = getelementptr inbounds nuw i8, ptr %req, i64 61
   %1 = load i8, ptr %idn1, align 1
   %cmp.i = icmp ugt i8 %1, 18
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2478,7 +2478,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext nneg i8 %1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i.i) #14
@@ -2517,7 +2517,7 @@ if.then8.i.i16.i:                                 ; preds = %if.then.i.i12.i
   %call9.i.i17.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i5.i, ptr noundef null) #14
   %call10.i.i18.i = tail call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i5.i, align 8
-  %tv_usec.i.i19.i = getelementptr inbounds i8, ptr %_now.i.i5.i, i64 8
+  %tv_usec.i.i19.i = getelementptr inbounds nuw i8, ptr %_now.i.i5.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i19.i, align 8
   %conv11.i.i20.i = zext nneg i8 %1 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i18.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i20.i) #14
@@ -2545,7 +2545,7 @@ if.else:                                          ; preds = %if.end
   ]
 
 if.then6:                                         ; preds = %if.else
-  %flags = getelementptr inbounds i8, ptr %0, i64 5612
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 5612
   %add.ptr = getelementptr i8, ptr %flags, i64 %idxprom.i
   %15 = load i8, ptr %add.ptr, align 1
   %conv8 = zext i8 %15 to i32
@@ -2555,7 +2555,7 @@ if.then16:                                        ; preds = %if.else
   br label %if.end33
 
 if.then20:                                        ; preds = %if.else
-  %flags21 = getelementptr inbounds i8, ptr %0, i64 5612
+  %flags21 = getelementptr inbounds nuw i8, ptr %0, i64 5612
   %add.ptr24 = getelementptr i8, ptr %flags21, i64 %idxprom.i
   %16 = load i8, ptr %add.ptr24, align 1
   %tobool26.not = icmp eq i8 %16, 0
@@ -2586,7 +2586,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %op) #14
   br label %trace_ufs_err_query_invalid_opcode.exit
@@ -2602,11 +2602,11 @@ trace_ufs_err_query_invalid_opcode.exit:          ; preds = %if.else27, %land.lh
 if.end33:                                         ; preds = %if.else, %if.end, %if.then6, %if.then16, %if.then20
   %value.0 = phi i32 [ %conv8, %if.then6 ], [ 0, %if.then16 ], [ %lnot.ext, %if.then20 ], [ 0, %if.end ], [ 1, %if.else ]
   %conv34 = trunc nuw i32 %value.0 to i8
-  %flags35 = getelementptr inbounds i8, ptr %0, i64 5612
+  %flags35 = getelementptr inbounds nuw i8, ptr %0, i64 5612
   %add.ptr38 = getelementptr i8, ptr %flags35, i64 %idxprom.i
   store i8 %conv34, ptr %add.ptr38, align 1
   %23 = shl nuw i32 %value.0, 24
-  %value40 = getelementptr inbounds i8, ptr %req, i64 356
+  %value40 = getelementptr inbounds nuw i8, ptr %req, i64 356
   store i32 %23, ptr %value40, align 4
   br label %return
 
@@ -2627,10 +2627,10 @@ entry:
   %_now.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %u, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
-  %is = getelementptr inbounds i8, ptr %u, i64 3040
+  %is = getelementptr inbounds nuw i8, ptr %u, i64 3040
   %0 = load i32, ptr %is, align 16
   %and = and i32 %0, 466943
-  %ie = getelementptr inbounds i8, ptr %u, i64 3044
+  %ie = getelementptr inbounds nuw i8, ptr %u, i64 3044
   %1 = load i32, ptr %ie, align 4
   %and2 = and i32 %and, %1
   %tobool.not = icmp eq i32 %and2, 0
@@ -2660,7 +2660,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #14
   br label %trace_ufs_irq_raise.exit
@@ -2697,7 +2697,7 @@ if.then8.i.i14:                                   ; preds = %if.then.i.i11
   %call9.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4, ptr noundef null) #14
   %call10.i.i16 = tail call i32 @qemu_get_thread_id() #14
   %12 = load i64, ptr %_now.i.i4, align 8
-  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
+  %tv_usec.i.i17 = getelementptr inbounds nuw i8, ptr %_now.i.i4, i64 8
   %13 = load i64, ptr %tv_usec.i.i17, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i16, i64 noundef %12, i64 noundef %13) #14
   br label %trace_ufs_irq_lower.exit
@@ -2761,7 +2761,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv2) #14
   br label %trace_ufs_err_invalid_register_offset.exit
@@ -2775,7 +2775,7 @@ trace_ufs_err_invalid_register_offset.exit:       ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %reg = getelementptr inbounds i8, ptr %opaque, i64 3008
+  %reg = getelementptr inbounds nuw i8, ptr %opaque, i64 3008
   %add.ptr = getelementptr i8, ptr %reg, i64 %addr
   %6 = load i32, ptr %add.ptr, align 4
   %conv3 = zext i32 %6 to i64
@@ -2802,7 +2802,7 @@ if.then8.i.i16:                                   ; preds = %if.then.i.i13
   %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #14
   %call10.i.i18 = tail call i32 @qemu_get_thread_id() #14
   %11 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
+  %tv_usec.i.i19 = getelementptr inbounds nuw i8, ptr %_now.i.i6, i64 8
   %12 = load i64, ptr %tv_usec.i.i19, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i18, i64 noundef %11, i64 noundef %12, i64 noundef %addr, i64 noundef range(i64 0, 4294967296) %conv3, i32 noundef %size) #14
   br label %trace_ufs_mmio_read.exit
@@ -2862,7 +2862,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv2) #14
   br label %trace_ufs_err_invalid_register_offset.exit
@@ -2899,7 +2899,7 @@ if.then8.i.i17:                                   ; preds = %if.then.i.i14
   %call9.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i7, ptr noundef null) #14
   %call10.i.i19 = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i7, align 8
-  %tv_usec.i.i20 = getelementptr inbounds i8, ptr %_now.i.i7, i64 8
+  %tv_usec.i.i20 = getelementptr inbounds nuw i8, ptr %_now.i.i7, i64 8
   %11 = load i64, ptr %tv_usec.i.i20, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i19, i64 noundef %10, i64 noundef %11, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #14
   br label %trace_ufs_mmio_write.exit
@@ -2936,7 +2936,7 @@ trace_ufs_mmio_write.exit:                        ; preds = %if.end, %land.lhs.t
 
 sw.bb.i:                                          ; preds = %trace_ufs_mmio_write.exit
   %not.i = xor i32 %conv3, -1
-  %is.i = getelementptr inbounds i8, ptr %opaque, i64 3040
+  %is.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3040
   %14 = load i32, ptr %is.i, align 16
   %and.i = and i32 %14, %not.i
   store i32 %and.i, ptr %is.i, align 16
@@ -2944,13 +2944,13 @@ sw.bb.i:                                          ; preds = %trace_ufs_mmio_writ
   br label %return
 
 sw.bb1.i:                                         ; preds = %trace_ufs_mmio_write.exit
-  %ie.i = getelementptr inbounds i8, ptr %opaque, i64 3044
+  %ie.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3044
   store i32 %conv3, ptr %ie.i, align 4
   tail call fastcc void @ufs_irq_check(ptr noundef %opaque)
   br label %return
 
 sw.bb3.i:                                         ; preds = %trace_ufs_mmio_write.exit
-  %hce.i = getelementptr inbounds i8, ptr %opaque, i64 3060
+  %hce.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3060
   %15 = load i32, ptr %hce.i, align 4
   %and.i.i = and i32 %15, 1
   %tobool.not.i = icmp eq i32 %and.i.i, 0
@@ -2962,7 +2962,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb3.i
   br i1 %tobool6.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %hcs.i = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %hcs.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %16 = load i32, ptr %hcs.i, align 16
   %or.i.i = or i32 %16, 8
   store i32 %or.i.i, ptr %hcs.i, align 16
@@ -2974,7 +2974,7 @@ land.lhs.true26.i:                                ; preds = %sw.bb3.i
   br i1 %tobool6.not.i, label %if.then29.i, label %return
 
 if.then29.i:                                      ; preds = %land.lhs.true26.i
-  %hcs31.i = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %hcs31.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   store i32 0, ptr %hcs31.i, align 16
   %and.i48.i = and i32 %15, -2
   store i32 %and.i48.i, ptr %hce.i, align 4
@@ -2982,21 +2982,21 @@ if.then29.i:                                      ; preds = %land.lhs.true26.i
 
 sw.bb44.i:                                        ; preds = %trace_ufs_mmio_write.exit
   %and45.i = and i32 %conv3, -1024
-  %utrlba.i = getelementptr inbounds i8, ptr %opaque, i64 3088
+  %utrlba.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3088
   store i32 %and45.i, ptr %utrlba.i, align 16
   br label %return
 
 sw.bb47.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %utrlbau.i = getelementptr inbounds i8, ptr %opaque, i64 3092
+  %utrlbau.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3092
   store i32 %conv3, ptr %utrlbau.i, align 4
   br label %return
 
 sw.bb49.i:                                        ; preds = %trace_ufs_mmio_write.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %doorbell.i.i)
-  %nutrs1.i.i = getelementptr inbounds i8, ptr %opaque, i64 3280
+  %nutrs1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3280
   %17 = load i8, ptr %nutrs1.i.i, align 8
   %conv.i.i = zext i8 %17 to i32
-  %utrldbr.i.i = getelementptr inbounds i8, ptr %opaque, i64 3096
+  %utrldbr.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3096
   %18 = load i32, ptr %utrldbr.i.i, align 8
   %not.i.i = xor i32 %18, -1
   %and.i50.i = and i32 %not.i.i, %conv3
@@ -3022,8 +3022,8 @@ find_first_bit.exit.i.i:                          ; preds = %if.then.i.i.i, %if.
   br i1 %cmp50.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %find_first_bit.exit.i.i
-  %req_list.i.i = getelementptr inbounds i8, ptr %opaque, i64 3296
-  %tv_usec.i.i42.i.i = getelementptr inbounds i8, ptr %_now.i.i29.i.i, i64 8
+  %req_list.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
+  %tv_usec.i.i42.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i29.i.i, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %trace_ufs_process_db.exit.i.i, %while.body.lr.ph.i.i
@@ -3032,7 +3032,7 @@ while.body.i.i:                                   ; preds = %trace_ufs_process_d
   %20 = load ptr, ptr %req_list.i.i, align 16
   %idxprom.i.i = and i64 %slot.0.in51.i.i, 4294967295
   %arrayidx6.i.i = getelementptr %struct.UfsRequest, ptr %20, i64 %idxprom.i.i
-  %state.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i.i, i64 8
   %21 = load i32, ptr %state.i.i, align 8
   switch i32 %21, label %if.then15.i.i [
     i32 4, label %if.then9.i.i
@@ -3040,7 +3040,7 @@ while.body.i.i:                                   ; preds = %trace_ufs_process_d
   ]
 
 if.then9.i.i:                                     ; preds = %while.body.i.i
-  %slot10.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 12
+  %slot10.i.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i.i, i64 12
   %22 = load i32, ptr %slot10.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %23 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3065,7 +3065,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #14
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #14
   %27 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i.i.i, i64 noundef %27, i64 noundef %28, i32 noundef %22) #14
   br label %trace_ufs_err_utrl_slot_error.exit.i.i
@@ -3079,7 +3079,7 @@ trace_ufs_err_utrl_slot_error.exit.i.i:           ; preds = %if.else.i.i.i.i, %i
   br label %ufs_process_db.exit.i
 
 if.then15.i.i:                                    ; preds = %while.body.i.i
-  %slot16.i.i = getelementptr inbounds i8, ptr %arrayidx6.i.i, i64 12
+  %slot16.i.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i.i, i64 12
   %29 = load i32, ptr %slot16.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i15.i.i)
   %30 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3104,7 +3104,7 @@ if.then8.i.i25.i.i:                               ; preds = %if.then.i.i22.i.i
   %call9.i.i26.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i.i, ptr noundef null) #14
   %call10.i.i27.i.i = call i32 @qemu_get_thread_id() #14
   %34 = load i64, ptr %_now.i.i15.i.i, align 8
-  %tv_usec.i.i28.i.i = getelementptr inbounds i8, ptr %_now.i.i15.i.i, i64 8
+  %tv_usec.i.i28.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i15.i.i, i64 8
   %35 = load i64, ptr %tv_usec.i.i28.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i27.i.i, i64 noundef %34, i64 noundef %35, i32 noundef %29) #14
   br label %trace_ufs_err_utrl_slot_busy.exit.i.i
@@ -3160,7 +3160,7 @@ trace_ufs_process_db.exit.i.i:                    ; preds = %if.else.i.i38.i.i, 
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %trace_ufs_process_db.exit.i.i, %find_first_bit.exit.i.i
-  %doorbell_bh.i.i = getelementptr inbounds i8, ptr %opaque, i64 5640
+  %doorbell_bh.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 5640
   %42 = load ptr, ptr %doorbell_bh.i.i, align 8
   call void @qemu_bh_schedule(ptr noundef %42) #14
   br label %ufs_process_db.exit.i
@@ -3173,13 +3173,13 @@ ufs_process_db.exit.i:                            ; preds = %while.end.i.i, %tra
   br label %return
 
 sw.bb51.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %utrlrsr.i = getelementptr inbounds i8, ptr %opaque, i64 3104
+  %utrlrsr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3104
   store i32 %conv3, ptr %utrlrsr.i, align 16
   br label %return
 
 sw.bb53.i:                                        ; preds = %trace_ufs_mmio_write.exit
   %not54.i = xor i32 %conv3, -1
-  %utrlcnr.i = getelementptr inbounds i8, ptr %opaque, i64 3108
+  %utrlcnr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3108
   %44 = load i32, ptr %utrlcnr.i, align 4
   %and56.i = and i32 %44, %not54.i
   store i32 %and56.i, ptr %utrlcnr.i, align 4
@@ -3187,21 +3187,21 @@ sw.bb53.i:                                        ; preds = %trace_ufs_mmio_writ
 
 sw.bb57.i:                                        ; preds = %trace_ufs_mmio_write.exit
   %and58.i = and i32 %conv3, -1024
-  %utmrlba.i = getelementptr inbounds i8, ptr %opaque, i64 3120
+  %utmrlba.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3120
   store i32 %and58.i, ptr %utmrlba.i, align 16
   br label %return
 
 sw.bb60.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %utmrlbau.i = getelementptr inbounds i8, ptr %opaque, i64 3124
+  %utmrlbau.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3124
   store i32 %conv3, ptr %utmrlbau.i, align 4
   br label %return
 
 sw.bb62.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %ucmdarg1.i.i = getelementptr inbounds i8, ptr %opaque, i64 3156
+  %ucmdarg1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3156
   %45 = load i32, ptr %ucmdarg1.i.i, align 4
-  %ucmdarg2.i.i = getelementptr inbounds i8, ptr %opaque, i64 3160
+  %ucmdarg2.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
   %46 = load i32, ptr %ucmdarg2.i.i, align 8
-  %ucmdarg3.i.i = getelementptr inbounds i8, ptr %opaque, i64 3164
+  %ucmdarg3.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3164
   %47 = load i32, ptr %ucmdarg3.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i51.i)
   %48 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3226,7 +3226,7 @@ if.then8.i.i.i61.i:                               ; preds = %if.then.i.i.i58.i
   %call9.i.i.i62.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i51.i, ptr noundef null) #14
   %call10.i.i.i63.i = tail call i32 @qemu_get_thread_id() #14
   %52 = load i64, ptr %_now.i.i.i51.i, align 8
-  %tv_usec.i.i.i64.i = getelementptr inbounds i8, ptr %_now.i.i.i51.i, i64 8
+  %tv_usec.i.i.i64.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i51.i, i64 8
   %53 = load i64, ptr %tv_usec.i.i.i64.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i.i63.i, i64 noundef %52, i64 noundef %53, i32 noundef %conv3, i32 noundef %45, i32 noundef %46, i32 noundef %47) #14
   br label %trace_ufs_process_uiccmd.exit.i.i
@@ -3244,18 +3244,18 @@ trace_ufs_process_uiccmd.exit.i.i:                ; preds = %if.else.i.i.i60.i, 
   ]
 
 sw.bb.i.i:                                        ; preds = %trace_ufs_process_uiccmd.exit.i.i
-  %hcs.i.i = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %hcs.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %54 = load i32, ptr %hcs.i.i, align 16
   %or.i28.i.i = or i32 %54, 7
   store i32 %or.i28.i.i, ptr %hcs.i.i, align 16
   br label %ufs_process_uiccmd.exit.i
 
 sw.bb30.i.i:                                      ; preds = %trace_ufs_process_uiccmd.exit.i.i
-  %is.i.i = getelementptr inbounds i8, ptr %opaque, i64 3040
+  %is.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3040
   %55 = load i32, ptr %is.i.i, align 16
   %or.i30.i.i = or i32 %55, 64
   store i32 %or.i30.i.i, ptr %is.i.i, align 16
-  %hcs44.i.i = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %hcs44.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %56 = load i32, ptr %hcs44.i.i, align 16
   %and.i31.i.i = and i32 %56, -1793
   %or.i32.i.i = or disjoint i32 %and.i31.i.i, 256
@@ -3263,11 +3263,11 @@ sw.bb30.i.i:                                      ; preds = %trace_ufs_process_u
   br label %ufs_process_uiccmd.exit.i
 
 sw.bb54.i.i:                                      ; preds = %trace_ufs_process_uiccmd.exit.i.i
-  %is58.i.i = getelementptr inbounds i8, ptr %opaque, i64 3040
+  %is58.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3040
   %57 = load i32, ptr %is58.i.i, align 16
   %or.i34.i.i = or i32 %57, 32
   store i32 %or.i34.i.i, ptr %is58.i.i, align 16
-  %hcs69.i.i = getelementptr inbounds i8, ptr %opaque, i64 3056
+  %hcs69.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %58 = load i32, ptr %hcs69.i.i, align 16
   %and.i35.i.i = and i32 %58, -1793
   %or.i36.i.i = or disjoint i32 %and.i35.i.i, 256
@@ -3277,7 +3277,7 @@ sw.bb54.i.i:                                      ; preds = %trace_ufs_process_u
 ufs_process_uiccmd.exit.i:                        ; preds = %sw.bb54.i.i, %sw.bb30.i.i, %sw.bb.i.i, %trace_ufs_process_uiccmd.exit.i.i
   %.sink.i.i = phi i32 [ 0, %sw.bb54.i.i ], [ 0, %sw.bb30.i.i ], [ 0, %sw.bb.i.i ], [ 1, %trace_ufs_process_uiccmd.exit.i.i ]
   store i32 %.sink.i.i, ptr %ucmdarg2.i.i, align 8
-  %is84.i.i = getelementptr inbounds i8, ptr %opaque, i64 3040
+  %is84.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3040
   %59 = load i32, ptr %is84.i.i, align 16
   %or.i38.i.i = or i32 %59, 1024
   store i32 %or.i38.i.i, ptr %is84.i.i, align 16
@@ -3285,17 +3285,17 @@ ufs_process_uiccmd.exit.i:                        ; preds = %sw.bb54.i.i, %sw.bb
   br label %return
 
 sw.bb63.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %ucmdarg1.i = getelementptr inbounds i8, ptr %opaque, i64 3156
+  %ucmdarg1.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3156
   store i32 %conv3, ptr %ucmdarg1.i, align 4
   br label %return
 
 sw.bb65.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %ucmdarg2.i = getelementptr inbounds i8, ptr %opaque, i64 3160
+  %ucmdarg2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
   store i32 %conv3, ptr %ucmdarg2.i, align 8
   br label %return
 
 sw.bb67.i:                                        ; preds = %trace_ufs_mmio_write.exit
-  %ucmdarg3.i = getelementptr inbounds i8, ptr %opaque, i64 3164
+  %ucmdarg3.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3164
   store i32 %conv3, ptr %ucmdarg3.i, align 4
   br label %return
 
@@ -3324,7 +3324,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i65.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %64 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %65 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %call10.i.i.i, i64 noundef %64, i64 noundef %65, i32 noundef %conv.i) #14
   br label %trace_ufs_err_unsupport_register_offset.exit.i
@@ -3362,7 +3362,7 @@ if.then8.i.i76.i:                                 ; preds = %if.then.i.i73.i
   %call9.i.i77.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i66.i, ptr noundef null) #14
   %call10.i.i78.i = tail call i32 @qemu_get_thread_id() #14
   %70 = load i64, ptr %_now.i.i66.i, align 8
-  %tv_usec.i.i79.i = getelementptr inbounds i8, ptr %_now.i.i66.i, i64 8
+  %tv_usec.i.i79.i = getelementptr inbounds nuw i8, ptr %_now.i.i66.i, i64 8
   %71 = load i64, ptr %tv_usec.i.i79.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i78.i, i64 noundef %70, i64 noundef %71, i32 noundef %conv70.i) #14
   br label %trace_ufs_err_invalid_register_offset.exit.i
@@ -3390,9 +3390,9 @@ declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #4
 define internal void @ufs_bus_class_init(ptr noundef %class, ptr nocapture readnone %data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.9, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #14
-  %get_dev_path = getelementptr inbounds i8, ptr %call.i, i64 104
+  %get_dev_path = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @ufs_bus_get_dev_path, ptr %get_dev_path, align 8
-  %check_address = getelementptr inbounds i8, ptr %call.i, i64 128
+  %check_address = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr @ufs_bus_check_address, ptr %check_address, align 8
   ret void
 }
@@ -3401,7 +3401,7 @@ entry:
 define internal ptr @ufs_bus_get_dev_path(ptr noundef %dev) #2 {
 entry:
   %call = tail call ptr @qdev_get_parent_bus(ptr noundef %dev) #14
-  %parent = getelementptr inbounds i8, ptr %call, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call1 = tail call ptr @qdev_get_dev_path(ptr noundef %0) #14
   ret ptr %call1

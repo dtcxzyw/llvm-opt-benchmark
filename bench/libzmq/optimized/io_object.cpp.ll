@@ -29,7 +29,7 @@ $_ZTIN3zmq13i_poll_eventsE = comdat any
 define void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %io_thread_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11io_object_tE, i64 16), ptr %this, align 8
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_poller, align 8
   %tobool.not = icmp eq ptr %io_thread_, null
   br i1 %tobool.not, label %if.end, label %do.end11.i
@@ -58,7 +58,7 @@ if.then:                                          ; preds = %entry
   br label %do.body3
 
 do.body3:                                         ; preds = %if.then, %entry
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %_poller, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %do.end11, label %if.then7
@@ -109,7 +109,7 @@ declare noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t6unplugEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -130,7 +130,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN3zmq11io_object_t6add_fdEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %fd_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   %call = tail call noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %fd_, ptr noundef nonnull %this)
   ret ptr %call
@@ -141,7 +141,7 @@ declare noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t5rm_fdEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %handle_)
   ret void
@@ -152,7 +152,7 @@ declare void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t10set_pollinEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %handle_)
   ret void
@@ -163,7 +163,7 @@ declare void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t12reset_pollinEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %handle_)
   ret void
@@ -174,7 +174,7 @@ declare void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t11set_polloutEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %handle_)
   ret void
@@ -185,7 +185,7 @@ declare void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %handle_)
   ret void
@@ -196,7 +196,7 @@ declare void @_ZN3zmq7epoll_t13reset_polloutEPv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %timeout_, i32 noundef %id_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq13poller_base_t9add_timerEiPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %timeout_, ptr noundef nonnull %this, i32 noundef %id_)
   ret void
@@ -207,7 +207,7 @@ declare void @_ZN3zmq13poller_base_t9add_timerEiPNS_13i_poll_eventsEi(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_object_t12cancel_timerEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %id_) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 8
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %this, i32 noundef %id_)
   ret void

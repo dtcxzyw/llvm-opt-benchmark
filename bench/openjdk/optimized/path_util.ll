@@ -8,7 +8,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 47
   %.idx = zext i1 %3 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
@@ -22,7 +22,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 6:                                                ; preds = %.loopexit.i
-  %7 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %13 [
     i8 0, label %12
@@ -31,7 +31,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.015.i, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %13 [
     i8 0, label %12
@@ -55,7 +55,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   ], !llvm.loop !6
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.116.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.116.i, i64 1
   br label %.loopexit.i.backedge
 
 .loopexit.i.backedge:                             ; preds = %15, %17
@@ -63,7 +63,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit.i, !llvm.loop !6
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.116.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.116.i, i64 1
   %.pre.i = load i8, ptr %20, align 1
   br label %15, !llvm.loop !8
 
@@ -85,13 +85,13 @@ collapsible.exit:                                 ; preds = %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i48 ], [ 0, %23 ]
   %.0814.i = phi ptr [ %31, %.loopexit.i48 ], [ %4, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
   store ptr %.0814.i, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph.i
   %.08.pn.i = phi ptr [ %.0814.i, %.lr.ph.i ], [ %.1.i47, %29 ]
-  %.1.i47 = getelementptr inbounds i8, ptr %.08.pn.i, i64 1
+  %.1.i47 = getelementptr inbounds nuw i8, ptr %.08.pn.i, i64 1
   %30 = load i8, ptr %.1.i47, align 1
   switch i8 %30, label %29 [
     i8 0, label %splitNames.exit
@@ -99,7 +99,7 @@ collapsible.exit:                                 ; preds = %.loopexit.i
   ], !llvm.loop !9
 
 .loopexit.i48:                                    ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.08.pn.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.08.pn.i, i64 2
   store i8 0, ptr %.1.i47, align 1
   %.pre.i49 = load i8, ptr %31, align 1
   %32 = icmp eq i8 %.pre.i49, 0
@@ -123,7 +123,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %37, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %47 [
     i8 0, label %.thread
@@ -131,7 +131,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   ]
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %37, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %49, label %47
@@ -163,7 +163,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 55:                                               ; preds = %.preheader
   %56 = add nsw i64 %indvars.iv80, -1
-  %57 = getelementptr inbounds ptr, ptr %26, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %26, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not46 = icmp eq ptr %58, null
   br i1 %.not46, label %.preheader, label %62, !llvm.loop !12
@@ -175,7 +175,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 62:                                               ; preds = %55
   %63 = and i64 %56, 4294967295
-  %64 = getelementptr inbounds ptr, ptr %26, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %26, i64 %63
   store ptr null, ptr %64, align 8
   br label %.sink.split
 
@@ -199,7 +199,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 .thread84:                                        ; preds = %.thread84.preheader, %.loopexit.i55
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i57, %.loopexit.i55 ], [ 0, %.thread84.preheader ]
   %.01723.i = phi ptr [ %.1.i56, %.loopexit.i55 ], [ %4, %.thread84.preheader ]
-  %70 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i50
+  %70 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i50
   %71 = load ptr, ptr %70, align 8
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %.loopexit.i55, label %72
@@ -221,16 +221,16 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 78:                                               ; preds = %75
   %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01723.i) #2
-  %80 = add i64 %79, 1
-  %81 = getelementptr inbounds i8, ptr %.01723.i, i64 %80
+  %80 = getelementptr i8, ptr %.01723.i, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 1
   br label %.loopexit.i55
 
 .preheader.i:                                     ; preds = %75, %.preheader.i
   %.2.i52 = phi ptr [ %84, %.preheader.i ], [ %.01723.i, %75 ]
   %.0.i53 = phi ptr [ %82, %.preheader.i ], [ %76, %75 ]
-  %82 = getelementptr inbounds i8, ptr %.0.i53, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 1
   %83 = load i8, ptr %.0.i53, align 1
-  %84 = getelementptr inbounds i8, ptr %.2.i52, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.2.i52, i64 1
   store i8 %83, ptr %.2.i52, align 1
   %.not21.i54 = icmp eq i8 %83, 0
   br i1 %.not21.i54, label %.loopexit.i55, label %.preheader.i, !llvm.loop !14

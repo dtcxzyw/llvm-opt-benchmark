@@ -26,7 +26,7 @@ define range(i32 -1, 1) i32 @H5IMmake_image_8bit(i64 noundef %0, ptr noundef %1,
 
 8:                                                ; preds = %5
   store i64 %3, ptr %6, align 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %9, align 8
   %10 = tail call i32 @H5open() #7
   %11 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
@@ -83,9 +83,9 @@ define range(i32 -1, 1) i32 @H5IMmake_image_24bit(i64 noundef %0, ptr noundef %1
   %.sink23 = phi i64 [ %2, %10 ], [ %3, %13 ]
   %.sink = phi i64 [ 3, %10 ], [ %2, %13 ]
   store i64 %.sink25, ptr %7, align 16
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sink23, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sink, ptr %18, align 16
   %19 = tail call i32 @H5open() #7
   %20 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8
@@ -221,10 +221,10 @@ define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, 
 46:                                               ; preds = %43
   %47 = load i64, ptr %8, align 16
   store i64 %47, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %2, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %51 = load i64, ptr %50, align 16
   store i64 %51, ptr %4, align 8
   br label %65
@@ -237,10 +237,10 @@ define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, 
 55:                                               ; preds = %52
   %56 = load i64, ptr %8, align 16
   store i64 %56, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %60 = load i64, ptr %59, align 16
   store i64 %60, ptr %2, align 8
   br label %65
@@ -248,7 +248,7 @@ define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, 
 61:                                               ; preds = %42
   %62 = load i64, ptr %8, align 16
   store i64 %62, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr %2, align 8
   store i64 1, ptr %4, align 8

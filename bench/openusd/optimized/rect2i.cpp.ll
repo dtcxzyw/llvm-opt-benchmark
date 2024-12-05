@@ -42,9 +42,9 @@ define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__8GfRect2i13GetNormali
   %4 = load i32, ptr %0, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %spec.select4 = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.sroa.32.0 = tail call i32 @llvm.smin.i32(i32 %6, i32 %8)
   %.sroa.3.0 = tail call i32 @llvm.smax.i32(i32 %6, i32 %8)

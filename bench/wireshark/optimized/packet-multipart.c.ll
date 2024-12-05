@@ -191,7 +191,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %17 = icmp eq ptr %3, null
@@ -199,13 +199,13 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond.i, label %44, label %18
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %24, ptr noundef nonnull %20, ptr noundef %13)
   %26 = load ptr, ptr %23, align 8
@@ -229,7 +229,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   %35 = load ptr, ptr %23, align 8
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 56) #7
   store ptr %15, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %27, ptr %37, align 8
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #8
   %39 = trunc i64 %38 to i32
@@ -252,11 +252,11 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
 
 48:                                               ; preds = %41, %34
   %.sink.i = phi i32 [ %43, %41 ], [ -1, %34 ]
-  %49 = getelementptr inbounds i8, ptr %36, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %.031.i, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i32 %.sink.i, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %36, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %52 = load i32, ptr @proto_multipart, align 4
@@ -271,20 +271,20 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i52, label %proto_item_set_generated.exit, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not5.i = icmp eq ptr %61, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, 2
   store i32 %65, ptr %63, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %48, %59, %62
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
   tail call void @col_set_fence(ptr noundef %67, i32 noundef 25) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -380,11 +380,11 @@ process_preamble.exit:                            ; preds = %find_first_boundary
 
 .preheader:                                       ; preds = %process_preamble.exit.thread94, %process_preamble.exit
   %.0.i5396 = phi i32 [ %104, %process_preamble.exit.thread94 ], [ %99, %process_preamble.exit ]
-  %112 = getelementptr inbounds i8, ptr %7, i64 16
-  %113 = getelementptr inbounds i8, ptr %7, i64 8
-  %114 = getelementptr inbounds i8, ptr %36, i64 48
-  %115 = getelementptr inbounds i8, ptr %10, i64 40
-  %116 = getelementptr inbounds i8, ptr %10, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %119
 
 process_preamble.exit.thread:                     ; preds = %.thread.i, %101, %process_preamble.exit
@@ -592,7 +592,7 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br i1 %215, label %is_known_multipart_header.exit.i, label %216
 
 216:                                              ; preds = %213, %208
-  %217 = getelementptr inbounds i8, ptr %209, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %218 = load ptr, ptr %217, align 8
   %.not.i245.i = icmp eq ptr %218, null
   br i1 %.not.i245.i, label %225, label %219

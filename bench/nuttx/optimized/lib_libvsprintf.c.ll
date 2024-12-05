@@ -21,14 +21,14 @@ define i32 @lib_vsprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ptr 
 define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %union.anon, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = ptrtoint ptr %4 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %.backedge.outer.backedge, %3
@@ -38,7 +38,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 .backedge:                                        ; preds = %.backedge.outer, %512
   %.1 = phi ptr [ %510, %512 ], [ %.1.ph, %.backedge.outer ]
-  %14 = getelementptr inbounds i8, ptr %.1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %15 = load i8, ptr %.1, align 1
   switch i8 %15, label %19 [
     i8 0, label %.loopexit59
@@ -46,7 +46,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   ]
 
 16:                                               ; preds = %.backedge
-  %17 = getelementptr inbounds i8, ptr %.1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %18 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %18, 37
   br i1 %.not, label %19, label %.preheader58
@@ -237,7 +237,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %.1485 = phi i32 [ %.0484, %41 ], [ %46, %44 ], [ %.0484, %61 ], [ %79, %78 ], [ %75, %73 ], [ %.0484, %82 ], [ %.0484, %87 ], [ %.0484, %90 ], [ %.0484, %93 ], [ %.0484, %34 ], [ %.0484, %32 ], [ %.0484, %30 ], [ %.0484, %26 ]
   %.1477 = phi i32 [ %43, %41 ], [ %.0476, %44 ], [ %spec.store.select, %61 ], [ %.0476, %78 ], [ %.0476, %73 ], [ %.0476, %82 ], [ %.0476, %87 ], [ %.0476, %90 ], [ %.0476, %93 ], [ %.0476, %34 ], [ %.0476, %32 ], [ %.0476, %30 ], [ %.0476, %26 ]
   %.2443 = phi i16 [ %.0441, %41 ], [ %47, %44 ], [ %.0441, %61 ], [ %80, %78 ], [ %76, %73 ], [ %83, %82 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %27, %26 ]
-  %97 = getelementptr inbounds i8, ptr %.3, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %98 = load i8, ptr %.3, align 1
   %.not541 = icmp eq i8 %98, 0
   br i1 %.not541, label %.thread29, label %.preheader58, !llvm.loop !6
@@ -410,7 +410,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %174 = load ptr, ptr %6, align 8
   %175 = zext i8 %spec.select593 to i32
   call void %174(ptr noundef %0, i32 noundef %175) #5
-  %176 = getelementptr inbounds i8, ptr %.042884, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %.042884, i64 1
   %177 = load i8, ptr %176, align 1
   %.not587 = icmp eq i8 %177, 0
   br i1 %.not587, label %.loopexit44, label %170, !llvm.loop !9
@@ -429,7 +429,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %.343388 = phi i8 [ %189, %188 ], [ %140, %180 ]
   %183 = add nsw i32 %182, -1
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 48
   br i1 %187, label %188, label %.critedge
@@ -571,7 +571,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 240:                                              ; preds = %236
   %241 = zext nneg i32 %237 to i64
-  %242 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %241
   %243 = load i8, ptr %242, align 1
   br label %244
 
@@ -662,7 +662,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 287:                                              ; preds = %283
   %288 = zext i8 %.042596 to i64
-  %289 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 0, i64 %288
   %290 = load i8, ptr %289, align 1
   %291 = sext i8 %290 to i32
   br label %292
@@ -747,7 +747,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %327 = load ptr, ptr %6, align 8
   %328 = add nuw nsw i64 %indvars.iv162, 4294967295
   %329 = and i64 %328, 4294967295
-  %330 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %329
+  %330 = getelementptr inbounds nuw [22 x i8], ptr %4, i64 0, i64 %329
   %331 = load i8, ptr %330, align 1
   %332 = sext i8 %331 to i32
   call void %327(ptr noundef nonnull %0, i32 noundef %332) #5
@@ -1104,7 +1104,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br label %538
 
 509:                                              ; preds = %506
-  %510 = getelementptr inbounds i8, ptr %.4152540, i64 1
+  %510 = getelementptr inbounds nuw i8, ptr %.4152540, i64 1
   %511 = load i8, ptr %.4152540, align 1
   switch i8 %511, label %519 [
     i8 86, label %512
@@ -1114,7 +1114,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 
 512:                                              ; preds = %509
   %513 = inttoptr i64 %.0421 to ptr
-  %514 = getelementptr inbounds i8, ptr %513, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
   %515 = load ptr, ptr %514, align 8
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %515)
   %516 = load ptr, ptr %513, align 8
@@ -1388,7 +1388,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %627 = add nsw i32 %.24112, 1
   %628 = load ptr, ptr %6, align 8
   %629 = add nsw i64 %indvars.iv165, -1
-  %630 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %629
+  %630 = getelementptr inbounds nuw [22 x i8], ptr %4, i64 0, i64 %629
   %631 = load i8, ptr %630, align 1
   %632 = sext i8 %631 to i32
   call void %628(ptr noundef %0, i32 noundef %632) #5

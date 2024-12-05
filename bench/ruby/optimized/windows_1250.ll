@@ -40,11 +40,11 @@ define internal noundef i32 @cp1250_mbc_case_fold(i32 %0, ptr nocapture noundef 
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @EncCP1250_ToLowerCaseTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @EncCP1250_ToLowerCaseTable, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   store i8 %10, ptr %3, align 1
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %1, align 8
   ret i32 1
 }
@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @cp1250_is_code_ctype(i32 noundef %0, i32 no
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @EncCP1250_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncCP1250_CtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -101,7 +101,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %12 = phi ptr [ %56, %52 ], [ %8, %6 ]
   %.056 = phi i32 [ %spec.select, %52 ], [ %7, %6 ]
   %.04055 = phi ptr [ %53, %52 ], [ %3, %6 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
   %15 = icmp eq i8 %14, -33
@@ -114,7 +114,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 18:                                               ; preds = %16
   %19 = or i32 %.056, 262144
-  %20 = getelementptr inbounds i8, ptr %.04055, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.04055, i64 1
   store i8 83, ptr %.04055, align 1
   %21 = and i32 %.056, 32768
   %.not51 = icmp eq i32 %21, 0
@@ -128,13 +128,13 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 25:                                               ; preds = %23
   %26 = or i32 %.056, 262144
-  %27 = getelementptr inbounds i8, ptr %.04055, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.04055, i64 1
   store i8 115, ptr %.04055, align 1
   br label %52
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %14 to i64
-  %30 = getelementptr inbounds [256 x i16], ptr @EncCP1250_CtypeTable, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i16], ptr @EncCP1250_CtypeTable, i64 0, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0
@@ -145,7 +145,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 34:                                               ; preds = %28
   %35 = or i32 %.056, 262144
-  %36 = getelementptr inbounds [256 x i8], ptr @EncCP1250_ToLowerCaseTable, i64 0, i64 %29
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @EncCP1250_ToLowerCaseTable, i64 0, i64 %29
   %37 = load i8, ptr %36, align 1
   br label %52
 
@@ -188,7 +188,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %.042 = phi i8 [ %22, %18 ], [ 115, %25 ], [ -33, %23 ], [ %37, %34 ], [ -75, %38 ], [ -68, %45 ], [ %49, %48 ], [ %51, %50 ], [ %14, %40 ], [ -91, %43 ]
   %.141 = phi ptr [ %20, %18 ], [ %27, %25 ], [ %.04055, %23 ], [ %.04055, %34 ], [ %.04055, %38 ], [ %.04055, %45 ], [ %.04055, %48 ], [ %.04055, %50 ], [ %.04055, %40 ], [ %.04055, %43 ]
   %.1 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %.056, %23 ], [ %35, %34 ], [ %.056, %38 ], [ %44, %45 ], [ %44, %48 ], [ %44, %50 ], [ %.056, %40 ], [ %44, %43 ]
-  %53 = getelementptr inbounds i8, ptr %.141, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   store i8 %.042, ptr %.141, align 1
   %54 = and i32 %.1, 32768
   %.not52 = icmp eq i32 %54, 0

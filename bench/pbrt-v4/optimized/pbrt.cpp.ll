@@ -62,7 +62,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr @_ZN4pbrt7OptionsE, align 8
-  %nThreads = getelementptr inbounds i8, ptr %opt, i64 20
+  %nThreads = getelementptr inbounds nuw i8, ptr %opt, i64 20
   %0 = load i32, ptr %nThreads, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -75,7 +75,7 @@ cond.end:                                         ; preds = %invoke.cont, %cond.
   %cond = phi i32 [ %call2, %cond.false ], [ %0, %invoke.cont ]
   tail call void @_ZN7Imf_2_520setGlobalThreadCountEi(i32 noundef %cond)
   %1 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %quiet = getelementptr inbounds i8, ptr %1, i64 4
+  %quiet = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i8, ptr %quiet, align 4
   %tobool3 = trunc i8 %2 to i1
   br i1 %tobool3, label %if.then, label %if.end
@@ -91,15 +91,15 @@ lpad:                                             ; preds = %entry
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %logLevel = getelementptr inbounds i8, ptr %opt, i64 24
+  %logLevel = getelementptr inbounds nuw i8, ptr %opt, i64 24
   %4 = load i32, ptr %logLevel, align 8
-  %logFile = getelementptr inbounds i8, ptr %opt, i64 32
+  %logFile = getelementptr inbounds nuw i8, ptr %opt, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %logFile)
-  %logUtilization = getelementptr inbounds i8, ptr %opt, i64 64
+  %logUtilization = getelementptr inbounds nuw i8, ptr %opt, i64 64
   %5 = load i8, ptr %logUtilization, align 8
   %tobool4 = trunc i8 %5 to i1
   %6 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds i8, ptr %6, i64 10
+  %useGPU = getelementptr inbounds nuw i8, ptr %6, i64 10
   %7 = load i8, ptr %useGPU, align 2
   %tobool5 = trunc i8 %7 to i1
   invoke void @_ZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(i32 noundef %4, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5)
@@ -108,7 +108,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 invoke.cont7:                                     ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
   %8 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %nThreads9 = getelementptr inbounds i8, ptr %8, i64 20
+  %nThreads9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %nThreads9, align 4
   %cmp.not = icmp eq i32 %9, 0
   br i1 %cmp.not, label %cond.false12, label %cond.end14
@@ -121,7 +121,7 @@ cond.end14:                                       ; preds = %invoke.cont7, %cond
   %cond15 = phi i32 [ %call13, %cond.false12 ], [ %9, %invoke.cont7 ]
   call void @_ZN4pbrt12ParallelInitEi(i32 noundef %cond15)
   %10 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU16 = getelementptr inbounds i8, ptr %10, i64 10
+  %useGPU16 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %11 = load i8, ptr %useGPU16, align 2
   %tobool17 = trunc i8 %11 to i1
   br i1 %tobool17, label %if.then18, label %if.else
@@ -151,7 +151,7 @@ if.else:                                          ; preds = %cond.end14
   call void @_ZN4pbrt13BilinearPatch4InitEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr %call.i12)
   call void @_ZN4pbrt16InitBufferCachesEv()
   %13 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %interactive = getelementptr inbounds i8, ptr %13, i64 12
+  %interactive = getelementptr inbounds nuw i8, ptr %13, i64 12
   %14 = load i8, ptr %interactive, align 4
   %tobool31 = trunc i8 %14 to i1
   br i1 %tobool31, label %if.then32, label %if.end33
@@ -163,13 +163,13 @@ if.then32:                                        ; preds = %if.else
 
 if.end33:                                         ; preds = %if.then32, %if.else
   %15 = phi ptr [ %.pre, %if.then32 ], [ %13, %if.else ]
-  %displayServer = getelementptr inbounds i8, ptr %15, i64 216
+  %displayServer = getelementptr inbounds nuw i8, ptr %15, i64 216
   %call34 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %displayServer) #14
   br i1 %call34, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %16 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %displayServer36 = getelementptr inbounds i8, ptr %16, i64 216
+  %displayServer36 = getelementptr inbounds nuw i8, ptr %16, i64 216
   call void @_ZN4pbrt22ConnectToDisplayServerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %displayServer36)
   br label %if.end37
 
@@ -188,19 +188,19 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZN4pbrt11PBRTOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false)
-  %nThreads = getelementptr inbounds i8, ptr %this, i64 20
-  %nThreads2 = getelementptr inbounds i8, ptr %0, i64 20
+  %nThreads = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %nThreads2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %1 = load i64, ptr %nThreads2, align 4
   store i64 %1, ptr %nThreads, align 4
-  %logFile = getelementptr inbounds i8, ptr %this, i64 32
-  %logFile3 = getelementptr inbounds i8, ptr %0, i64 32
+  %logFile = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %logFile3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %logFile, ptr noundef nonnull align 8 dereferenceable(32) %logFile3)
-  %logUtilization = getelementptr inbounds i8, ptr %this, i64 64
-  %logUtilization4 = getelementptr inbounds i8, ptr %0, i64 64
+  %logUtilization = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %logUtilization4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %2 = load i32, ptr %logUtilization4, align 8
   store i32 %2, ptr %logUtilization, align 8
-  %set.i = getelementptr inbounds i8, ptr %this, i64 72
-  %set.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %set.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %set.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %set.i.i, align 8
   %frombool.i = and i8 %3, 1
   store i8 %frombool.i, ptr %set.i, align 8
@@ -209,15 +209,15 @@ entry:
   br i1 %tobool.i4.i, label %_ZNK4pstd8optionalIiE5valueEv.exit.i, label %invoke.cont
 
 _ZNK4pstd8optionalIiE5valueEv.exit.i:             ; preds = %entry
-  %pixelSamples5 = getelementptr inbounds i8, ptr %0, i64 68
-  %pixelSamples = getelementptr inbounds i8, ptr %this, i64 68
+  %pixelSamples5 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %pixelSamples = getelementptr inbounds nuw i8, ptr %this, i64 68
   %5 = load i32, ptr %pixelSamples5, align 4
   store i32 %5, ptr %pixelSamples, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pstd8optionalIiE5valueEv.exit.i, %entry
-  %set.i25 = getelementptr inbounds i8, ptr %this, i64 80
-  %set.i.i26 = getelementptr inbounds i8, ptr %0, i64 80
+  %set.i25 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %set.i.i26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %set.i.i26, align 8
   %frombool.i27 = and i8 %6, 1
   store i8 %frombool.i27, ptr %set.i25, align 8
@@ -226,49 +226,49 @@ invoke.cont:                                      ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.i28, label %_ZNK4pstd8optionalIiE5valueEv.exit.i29, label %invoke.cont8
 
 _ZNK4pstd8optionalIiE5valueEv.exit.i29:           ; preds = %invoke.cont
-  %gpuDevice6 = getelementptr inbounds i8, ptr %0, i64 76
-  %gpuDevice = getelementptr inbounds i8, ptr %this, i64 76
+  %gpuDevice6 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %gpuDevice = getelementptr inbounds nuw i8, ptr %this, i64 76
   %8 = load i32, ptr %gpuDevice6, align 4
   store i32 %8, ptr %gpuDevice, align 4
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZNK4pstd8optionalIiE5valueEv.exit.i29, %invoke.cont
-  %quickRender = getelementptr inbounds i8, ptr %this, i64 84
-  %quickRender9 = getelementptr inbounds i8, ptr %0, i64 84
+  %quickRender = getelementptr inbounds nuw i8, ptr %this, i64 84
+  %quickRender9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i16, ptr %quickRender9, align 4
   store i16 %9, ptr %quickRender, align 4
-  %imageFile = getelementptr inbounds i8, ptr %this, i64 88
-  %imageFile10 = getelementptr inbounds i8, ptr %0, i64 88
+  %imageFile = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %imageFile10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %imageFile, ptr noundef nonnull align 8 dereferenceable(32) %imageFile10)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %mseReferenceImage = getelementptr inbounds i8, ptr %this, i64 120
-  %mseReferenceImage13 = getelementptr inbounds i8, ptr %0, i64 120
+  %mseReferenceImage = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %mseReferenceImage13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage13)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %mseReferenceOutput = getelementptr inbounds i8, ptr %this, i64 152
-  %mseReferenceOutput16 = getelementptr inbounds i8, ptr %0, i64 152
+  %mseReferenceOutput = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %mseReferenceOutput16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput16)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  %debugStart = getelementptr inbounds i8, ptr %this, i64 184
-  %debugStart19 = getelementptr inbounds i8, ptr %0, i64 184
+  %debugStart = getelementptr inbounds nuw i8, ptr %this, i64 184
+  %debugStart19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugStart, ptr noundef nonnull align 8 dereferenceable(32) %debugStart19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
-  %displayServer = getelementptr inbounds i8, ptr %this, i64 216
-  %displayServer22 = getelementptr inbounds i8, ptr %0, i64 216
+  %displayServer = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %displayServer22 = getelementptr inbounds nuw i8, ptr %0, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %displayServer, ptr noundef nonnull align 8 dereferenceable(32) %displayServer22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  %set.i31 = getelementptr inbounds i8, ptr %this, i64 264
-  %set.i.i32 = getelementptr inbounds i8, ptr %0, i64 264
+  %set.i31 = getelementptr inbounds nuw i8, ptr %this, i64 264
+  %set.i.i32 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i8, ptr %set.i.i32, align 8
   %frombool.i33 = and i8 %10, 1
   store i8 %frombool.i33, ptr %set.i31, align 8
@@ -277,14 +277,14 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   br i1 %tobool.i4.i34, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i, label %invoke.cont27
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i: ; preds = %invoke.cont24
-  %cropWindow25 = getelementptr inbounds i8, ptr %0, i64 248
-  %cropWindow = getelementptr inbounds i8, ptr %this, i64 248
+  %cropWindow25 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %cropWindow = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %cropWindow, ptr noundef nonnull align 8 dereferenceable(17) %cropWindow25, i64 16, i1 false)
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i, %invoke.cont24
-  %set.i35 = getelementptr inbounds i8, ptr %this, i64 284
-  %set.i.i36 = getelementptr inbounds i8, ptr %0, i64 284
+  %set.i35 = getelementptr inbounds nuw i8, ptr %this, i64 284
+  %set.i.i36 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %12 = load i8, ptr %set.i.i36, align 4
   %frombool.i37 = and i8 %12, 1
   store i8 %frombool.i37, ptr %set.i35, align 4
@@ -293,14 +293,14 @@ invoke.cont27:                                    ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.i38, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i, label %invoke.cont30
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i: ; preds = %invoke.cont27
-  %pixelBounds28 = getelementptr inbounds i8, ptr %0, i64 268
-  %pixelBounds = getelementptr inbounds i8, ptr %this, i64 268
+  %pixelBounds28 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %pixelBounds = getelementptr inbounds nuw i8, ptr %this, i64 268
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %pixelBounds, ptr noundef nonnull align 4 dereferenceable(17) %pixelBounds28, i64 16, i1 false)
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i, %invoke.cont27
-  %set.i39 = getelementptr inbounds i8, ptr %this, i64 296
-  %set.i.i40 = getelementptr inbounds i8, ptr %0, i64 296
+  %set.i39 = getelementptr inbounds nuw i8, ptr %this, i64 296
+  %set.i.i40 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load i8, ptr %set.i.i40, align 8
   %frombool.i41 = and i8 %14, 1
   store i8 %frombool.i41, ptr %set.i39, align 8
@@ -309,15 +309,15 @@ invoke.cont30:                                    ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.i42, label %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i, label %invoke.cont33
 
 _ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i: ; preds = %invoke.cont30
-  %pixelMaterial31 = getelementptr inbounds i8, ptr %0, i64 288
-  %pixelMaterial = getelementptr inbounds i8, ptr %this, i64 288
+  %pixelMaterial31 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %pixelMaterial = getelementptr inbounds nuw i8, ptr %this, i64 288
   %16 = load i64, ptr %pixelMaterial31, align 8
   store i64 %16, ptr %pixelMaterial, align 8
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i, %invoke.cont30
-  %displacementEdgeScale = getelementptr inbounds i8, ptr %this, i64 300
-  %displacementEdgeScale34 = getelementptr inbounds i8, ptr %0, i64 300
+  %displacementEdgeScale = getelementptr inbounds nuw i8, ptr %this, i64 300
+  %displacementEdgeScale34 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %17 = load float, ptr %displacementEdgeScale34, align 4
   store float %17, ptr %displacementEdgeScale, align 4
   ret void
@@ -435,9 +435,9 @@ declare void @_ZN4pbrt22ConnectToDisplayServerERKNSt7__cxx1112basic_stringIcSt11
 define dso_local void @_ZN4pbrt11CleanupPBRTEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN4pbrt17ReportThreadStatsEv, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
@@ -463,7 +463,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i
   %4 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %recordPixelStatistics = getelementptr inbounds i8, ptr %4, i64 66
+  %recordPixelStatistics = getelementptr inbounds nuw i8, ptr %4, i64 66
   %5 = load i8, ptr %recordPixelStatistics, align 2
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -496,7 +496,7 @@ _ZNSt8functionIFvvEED2Ev.exit7:                   ; preds = %lpad, %if.then.i.i4
 
 if.end:                                           ; preds = %if.then, %_ZNSt8functionIFvvEED2Ev.exit
   %10 = phi ptr [ %.pre, %if.then ], [ %4, %_ZNSt8functionIFvvEED2Ev.exit ]
-  %printStatistics = getelementptr inbounds i8, ptr %10, i64 67
+  %printStatistics = getelementptr inbounds nuw i8, ptr %10, i64 67
   %11 = load i8, ptr %printStatistics, align 1
   %tobool1 = trunc i8 %11 to i1
   br i1 %tobool1, label %if.then2, label %if.end3
@@ -518,7 +518,7 @@ if.then4:                                         ; preds = %if.end3
 
 if.end5:                                          ; preds = %if.end3
   %14 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %displayServer = getelementptr inbounds i8, ptr %14, i64 216
+  %displayServer = getelementptr inbounds nuw i8, ptr %14, i64 216
   %call6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %displayServer) #14
   br i1 %call6, label %if.end8, label %if.then7
 

@@ -38,7 +38,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6410emitReturnERNS1_18AssemblyBuilderA6
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i64 137455376897)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 25, i64 137455337985)
   store i32 0, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %6, align 4
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 17, i8 25)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 10, ptr noundef nonnull align 4 dereferenceable(8) %3)
@@ -53,7 +53,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6410emitReturnERNS1_18AssemblyBuilderA6
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 18, i8 2, i16 noundef zeroext 40)
   store i32 0, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %8, align 4
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644tbnzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 25, i8 noundef zeroext 31, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 10, i64 68735865345)
@@ -63,7 +63,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6410emitReturnERNS1_18AssemblyBuilderA6
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 -54, i64 68735900161)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 10, i64 34376161793)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 33, i64 154635207169)
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644tbnzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 33, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 33, i64 154635211265)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tbzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 33, i8 noundef zeroext 2, ptr noundef nonnull align 4 dereferenceable(8) %1)
@@ -118,10 +118,10 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %3 = alloca %"class.Luau::CodeGen::A64::AssemblyBuilderA64", align 8
   %4 = alloca ptr, align 8
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C1Ebj(ptr noundef nonnull align 8 dereferenceable(176) %3, i1 noundef zeroext false, i32 noundef 0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1)
           to label %10 unwind label %62
@@ -240,38 +240,38 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
 
 .noexc36:                                         ; preds = %.noexc35
   %17 = load ptr, ptr %6, align 8, !noalias !5
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8, !noalias !5
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc37 unwind label %62
 
 .noexc37:                                         ; preds = %.noexc36
   store i8 -22, ptr %2, align 1, !noalias !5
-  %20 = getelementptr inbounds i8, ptr %2, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 -14, ptr %20, align 1, !noalias !5
-  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 -102, ptr %21, align 1, !noalias !5
-  %22 = getelementptr inbounds i8, ptr %2, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 -94, ptr %22, align 1, !noalias !5
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 -86, ptr %23, align 1, !noalias !5
-  %24 = getelementptr inbounds i8, ptr %2, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 -78, ptr %24, align 1, !noalias !5
-  %25 = getelementptr inbounds i8, ptr %2, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 -70, ptr %25, align 1, !noalias !5
-  %26 = getelementptr inbounds i8, ptr %2, i64 7
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 -62, ptr %26, align 1, !noalias !5
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 -54, ptr %27, align 1, !noalias !5
   %28 = load ptr, ptr %6, align 8, !noalias !5
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8, !noalias !5
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %15, i32 noundef 256, ptr nonnull %2, i64 9)
           to label %.noexc38 unwind label %62
 
 .noexc38:                                         ; preds = %.noexc37
   %31 = load ptr, ptr %6, align 8, !noalias !5
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8, !noalias !5
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %13, i32 noundef -1)
           to label %34 unwind label %62
@@ -283,25 +283,25 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %40 unwind label %62
 
 40:                                               ; preds = %36
   store ptr null, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %42 to i64
   %47 = sub i64 %45, %46
   %sext = shl i64 %47, 32
   %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds i8, ptr %3, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %50 to i64
@@ -309,8 +309,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %56 = shl i64 %55, 32
   %sext40 = ashr exact i64 %56, 32
   %57 = and i64 %sext40, -4
-  %58 = getelementptr inbounds i8, ptr %0, i64 136
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %60 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen13CodeAllocator8allocateEPKhmS3_mRPhRmS5_(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr noundef %42, i64 noundef %48, ptr noundef %50, i64 noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %61 unwind label %62
 
@@ -327,7 +327,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %65 = shl nuw nsw i64 %.sroa.3.8.extract.shift, 2
   %66 = and i64 %65, 4294967292
   %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %66)
           to label %70 unwind label %62
@@ -335,13 +335,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
 70:                                               ; preds = %64
   %71 = load ptr, ptr %4, align 8
   %72 = zext i32 %13 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 168
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %73, ptr %74, align 8
   %sh.diff = lshr i64 %16, 30
   %75 = and i64 %sh.diff, 4294967292
-  %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 176
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %76, ptr %77, align 8
   br label %78
 
@@ -364,7 +364,7 @@ declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuilderA64ERNS0_13ModuleHelpersE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(56) %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.Luau::CodeGen::Label", align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %8
@@ -374,7 +374,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %9)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i8 -62, i8 2, i32 noundef 0)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 10, i64 137455376897)
@@ -388,7 +388,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %14)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i64 137455376897)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 9, i64 154635207169)
@@ -417,7 +417,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %22
 
 22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %23)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i32 noundef 0)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 10, i64 34376163841)
@@ -431,11 +431,11 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %27
 
 27:                                               ; preds = %26, %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %29, align 4
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 -54, i8 10)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 18, i64 103095638529)
@@ -470,7 +470,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %33
 
 33:                                               ; preds = %32, %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %34)
   call void @_ZN4Luau7CodeGen3A6410emitReturnERNS1_18AssemblyBuilderA64ERNS0_13ModuleHelpersE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(56) %1)
   %35 = load i8, ptr %4, align 8
@@ -482,7 +482,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6415assembleHelpersERNS1_18AssemblyBuil
   br label %38
 
 38:                                               ; preds = %37, %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %39)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644tbnzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(8) %23)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 10, i64 103095599617)

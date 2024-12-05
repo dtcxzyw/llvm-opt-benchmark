@@ -84,9 +84,9 @@ define dso_local void @subsection_map_init(i64 noundef %0, i64 noundef %1) local
 
 32:                                               ; preds = %29, %25, %22, %19
   %33 = phi ptr [ %31, %29 ], [ null, %19 ], [ null, %25 ], [ null, %22 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = trunc i64 %11 to i32
   %38 = lshr i32 %37, 9
   %39 = and i32 %38, 63
@@ -97,7 +97,7 @@ define dso_local void @subsection_map_init(i64 noundef %0, i64 noundef %1) local
   %44 = and i32 %43, 63
   %reass.sub = sub nsw i32 %44, %39
   %45 = add nsw i32 %reass.sub, 1
-  tail call void @__bitmap_set(ptr noundef %36, i32 noundef %39, i32 noundef %45) #9
+  tail call void @__bitmap_set(ptr noundef nonnull %36, i32 noundef %39, i32 noundef %45) #9
   %46 = sub i64 %12, %16
   %47 = add i64 %13, 1
   %48 = icmp ugt i64 %47, %9
@@ -478,7 +478,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   %6 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = mul i64 %3, 56
-  %9 = getelementptr inbounds i8, ptr %7, i64 13120
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 13120
   %10 = load i32, ptr %9, align 64
   %11 = tail call ptr @memblock_alloc_try_nid(i64 noundef %8, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef %10) #9
   %12 = icmp eq ptr %11, null
@@ -609,7 +609,7 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   %79 = or disjoint i64 %72, %74
   %80 = or i64 %79, 10
   store i64 %80, ptr %70, align 8
-  %81 = getelementptr inbounds i8, ptr %70, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %45, ptr %81, align 8
   %82 = getelementptr i8, ptr %45, i64 56
   %83 = load i64, ptr @__highest_present_section_nr, align 8

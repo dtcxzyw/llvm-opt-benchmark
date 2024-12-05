@@ -556,7 +556,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lg8979(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.207) #2
   %7 = load ptr, ptr %5, align 8
@@ -1523,13 +1523,13 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %644
 
 644:                                              ; preds = %641
-  %645 = getelementptr inbounds i8, ptr %643, i64 32
+  %645 = getelementptr inbounds nuw i8, ptr %643, i64 32
   %646 = load ptr, ptr %645, align 8
   %.not5.i = icmp eq ptr %646, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %647
 
 647:                                              ; preds = %644
-  %648 = getelementptr inbounds i8, ptr %646, i64 28
+  %648 = getelementptr inbounds nuw i8, ptr %646, i64 28
   %649 = load i32, ptr %648, align 4
   %650 = or i32 %649, 2
   store i32 %650, ptr %648, align 4

@@ -127,7 +127,7 @@ entry:
   %c = alloca %struct.ssl_cipher_st, align 8
   %conv = zext i16 %value to i32
   %or = or disjoint i32 %conv, 50331648
-  %id = getelementptr inbounds i8, ptr %c, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %c, i64 8
   store i32 %or, ptr %id, align 8
   %call = call ptr @bsearch(ptr noundef nonnull %c, ptr noundef nonnull @kCiphers, i64 noundef 40, i64 noundef 32, ptr noundef nonnull @ssl_cipher_id_cmp) #14
   ret ptr %call
@@ -138,9 +138,9 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @ssl_cipher_id_cmp(ptr nocapture noundef readonly %in_a, ptr nocapture noundef readonly %in_b) #2 {
 entry:
-  %id = getelementptr inbounds i8, ptr %in_a, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %in_a, i64 8
   %0 = load i32, ptr %id, align 8
-  %id1 = getelementptr inbounds i8, ptr %in_b, i64 8
+  %id1 = getelementptr inbounds nuw i8, ptr %in_b, i64 8
   %1 = load i32, ptr %id1, align 8
   %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %retval.0
@@ -152,7 +152,7 @@ entry:
   store ptr null, ptr %out_aead, align 8
   store i64 0, ptr %out_mac_secret_len, align 8
   store i64 0, ptr %out_fixed_iv_len, align 8
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   switch i32 %0, label %return [
     i32 16, label %sw.bb
@@ -191,7 +191,7 @@ sw.bb5:                                           ; preds = %entry
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %1 = load i32, ptr %algorithm_mac, align 8
   switch i32 %1, label %return [
     i32 1, label %sw.bb8
@@ -235,7 +235,7 @@ if.end20:                                         ; preds = %if.else18, %if.then
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  %algorithm_mac22 = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac22 = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %2 = load i32, ptr %algorithm_mac22, align 8
   switch i32 %2, label %return [
     i32 2, label %sw.bb23
@@ -276,7 +276,7 @@ sw.bb39:                                          ; preds = %sw.bb21
   br label %return
 
 sw.bb42:                                          ; preds = %entry
-  %algorithm_mac43 = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac43 = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %3 = load i32, ptr %algorithm_mac43, align 8
   switch i32 %3, label %return [
     i32 2, label %sw.bb44
@@ -324,7 +324,7 @@ sw.bb62:                                          ; preds = %sw.bb42
   br label %return
 
 sw.bb65:                                          ; preds = %entry
-  %algorithm_mac66 = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac66 = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %4 = load i32, ptr %algorithm_mac66, align 8
   %cond1 = icmp eq i32 %4, 2
   br i1 %cond1, label %sw.bb67, label %return
@@ -357,7 +357,7 @@ if.end82:                                         ; preds = %if.then77, %if.else
   br label %return
 
 sw.bb84:                                          ; preds = %entry
-  %algorithm_mac85 = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac85 = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %5 = load i32, ptr %algorithm_mac85, align 8
   %cond = icmp eq i32 %5, 2
   br i1 %cond, label %sw.bb86, label %return
@@ -483,13 +483,13 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %supports_cipher.i = getelementptr inbounds i8, ptr %ssl_method, i64 88
+  %supports_cipher.i = getelementptr inbounds nuw i8, ptr %ssl_method, i64 88
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end4
   %co_list_num.039.i = phi i64 [ 0, %if.end4 ], [ %co_list_num.1.i, %for.inc.i ]
   %i.038.i = phi i64 [ 0, %if.end4 ], [ %inc7.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %i.038.i
+  %arrayidx.i = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %i.038.i
   %0 = load ptr, ptr %supports_cipher.i, align 8
   %call.i = tail call i32 %0(ptr noundef nonnull %arrayidx.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -498,7 +498,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end4
 if.then.i:                                        ; preds = %for.body.i
   %arrayidx1.i = getelementptr inbounds %struct.cipher_order_st, ptr %call, i64 %co_list_num.039.i
   store ptr %arrayidx.i, ptr %arrayidx1.i, align 8
-  %active.i = getelementptr inbounds i8, ptr %arrayidx1.i, i64 8
+  %active.i = getelementptr inbounds nuw i8, ptr %arrayidx1.i, i64 8
   %inc.i = add i64 %co_list_num.039.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %active.i, i8 0, i64 24, i1 false)
   br label %for.inc.i
@@ -514,14 +514,14 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp8.not.i, label %ssl_cipher_apply_rule.exit149, label %if.then9.i
 
 if.then9.i:                                       ; preds = %for.end.i
-  %prev11.i = getelementptr inbounds i8, ptr %call, i64 24
+  %prev11.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %prev11.i, align 8
   %cmp12.not.i = icmp eq i64 %co_list_num.1.i, 1
   br i1 %cmp12.not.i, label %ssl_cipher_collect_ciphers.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.then9.i
-  %arrayidx14.i = getelementptr inbounds i8, ptr %call, i64 32
-  %next16.i = getelementptr inbounds i8, ptr %call, i64 16
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %next16.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %arrayidx14.i, ptr %next16.i, align 8
   %sub.i = add i64 %co_list_num.1.i, -1
   %cmp1840.i = icmp ugt i64 %sub.i, 1
@@ -531,11 +531,11 @@ for.body19.i:                                     ; preds = %if.then13.i, %for.b
   %i.141.i = phi i64 [ %add.i, %for.body19.i ], [ 1, %if.then13.i ]
   %1 = getelementptr %struct.cipher_order_st, ptr %call, i64 %i.141.i
   %arrayidx21.i = getelementptr i8, ptr %1, i64 -32
-  %prev23.i = getelementptr inbounds i8, ptr %1, i64 24
+  %prev23.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %arrayidx21.i, ptr %prev23.i, align 8
   %add.i = add nuw i64 %i.141.i, 1
   %arrayidx24.i = getelementptr inbounds %struct.cipher_order_st, ptr %call, i64 %add.i
-  %next26.i = getelementptr inbounds i8, ptr %1, i64 16
+  %next26.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %arrayidx24.i, ptr %next26.i, align 8
   %exitcond42.not.i = icmp eq i64 %add.i, %sub.i
   br i1 %exitcond42.not.i, label %for.end29.i, label %for.body19.i, !llvm.loop !9
@@ -565,38 +565,38 @@ if.end29.lr.ph.i:                                 ; preds = %ssl_cipher_collect_
 
 if.end29.us.i:                                    ; preds = %if.then68.us.i, %if.end29.lr.ph.i
   %next.1116.us.i = phi ptr [ %cond.us.i, %if.then68.us.i ], [ %next.1.ph171.i, %if.end29.lr.ph.i ]
-  %next31.us.i = getelementptr inbounds i8, ptr %next.1116.us.i, i64 16
+  %next31.us.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i, i64 16
   %cond.us.i = load ptr, ptr %next31.us.i, align 8
   %4 = load ptr, ptr %next.1116.us.i, align 8
-  %algorithm_mkey.us.i = getelementptr inbounds i8, ptr %4, i64 12
+  %algorithm_mkey.us.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %5 = load i32, ptr %algorithm_mkey.us.i, align 4
   %and.us.i = and i32 %5, 4
   %tobool48.not.us.i = icmp eq i32 %and.us.i, 0
   br i1 %tobool48.not.us.i, label %if.then68.us.i, label %lor.lhs.false49.us.i
 
 lor.lhs.false49.us.i:                             ; preds = %if.end29.us.i
-  %algorithm_auth.us.i = getelementptr inbounds i8, ptr %4, i64 16
+  %algorithm_auth.us.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %algorithm_auth.us.i, align 8
   %and50.us.i = and i32 %6, 2
   %tobool51.not.us.i = icmp eq i32 %and50.us.i, 0
   br i1 %tobool51.not.us.i, label %if.then68.us.i, label %lor.lhs.false52.us.i
 
 lor.lhs.false52.us.i:                             ; preds = %lor.lhs.false49.us.i
-  %algorithm_enc.us.i = getelementptr inbounds i8, ptr %4, i64 20
+  %algorithm_enc.us.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   %7 = load i32, ptr %algorithm_enc.us.i, align 4
   %tobool54.not.us.i = icmp eq i32 %7, 0
   br i1 %tobool54.not.us.i, label %if.then68.us.i, label %lor.lhs.false55.us.i
 
 lor.lhs.false55.us.i:                             ; preds = %lor.lhs.false52.us.i
-  %algorithm_mac.us.i = getelementptr inbounds i8, ptr %4, i64 24
+  %algorithm_mac.us.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %algorithm_mac.us.i, align 8
   %tobool57.not.us.i = icmp eq i32 %8, 0
   br i1 %tobool57.not.us.i, label %if.then68.us.i, label %lor.lhs.false58.us.i
 
 lor.lhs.false58.us.i:                             ; preds = %lor.lhs.false55.us.i
-  %next31.us.i.le = getelementptr inbounds i8, ptr %next.1116.us.i, i64 16
-  %prev.us.i.le = getelementptr inbounds i8, ptr %next.1116.us.i, i64 24
-  %active.i46 = getelementptr inbounds i8, ptr %next.1116.us.i, i64 8
+  %next31.us.i.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i, i64 16
+  %prev.us.i.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i, i64 24
+  %active.i46 = getelementptr inbounds nuw i8, ptr %next.1116.us.i, i64 8
   %9 = load i32, ptr %active.i46, align 8
   %tobool75.not.i = icmp eq i32 %9, 0
   br i1 %tobool75.not.i, label %if.then76.i, label %if.end139.i
@@ -619,7 +619,7 @@ if.end.i61.i:                                     ; preds = %if.then76.i
   br i1 %cmp4.not.i.i, label %if.end9.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i61.i
-  %next8.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %next8.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %cond.us.i, ptr %next8.i.i, align 8
   br label %if.end9.i.i
 
@@ -629,12 +629,12 @@ if.end9.i.i:                                      ; preds = %if.then5.i.i, %if.e
 
 if.then12.i.i:                                    ; preds = %if.end9.i.i
   %11 = load ptr, ptr %prev.us.i.le, align 8
-  %prev15.i.i = getelementptr inbounds i8, ptr %cond.us.i, i64 24
+  %prev15.i.i = getelementptr inbounds nuw i8, ptr %cond.us.i, i64 24
   store ptr %11, ptr %prev15.i.i, align 8
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.then12.i.i, %if.end9.i.i
-  %next17.i.i = getelementptr inbounds i8, ptr %tail.0.ph168.i, i64 16
+  %next17.i.i = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i, i64 16
   store ptr %next.1116.us.i, ptr %next17.i.i, align 8
   store ptr %tail.0.ph168.i, ptr %prev.us.i.le, align 8
   store ptr null, ptr %next31.us.i.le, align 8
@@ -644,7 +644,7 @@ ll_append_tail.exit.i:                            ; preds = %if.end16.i.i, %if.t
   %head.4.i = phi ptr [ %head.0.ph165.i, %if.then76.i ], [ %.head.0.ph165.i, %if.end16.i.i ]
   %tail.3.i = phi ptr [ %tail.0.ph168.i, %if.then76.i ], [ %next.1116.us.i, %if.end16.i.i ]
   store i32 1, ptr %active.i46, align 8
-  %in_group78.i = getelementptr inbounds i8, ptr %next.1116.us.i, i64 12
+  %in_group78.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i, i64 12
   store i32 0, ptr %in_group78.i, align 4
   br label %if.end139.i
 
@@ -674,37 +674,37 @@ if.end29.lr.ph.i52:                               ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i56:                                  ; preds = %if.then68.us.i104, %if.end29.lr.ph.i52
   %next.1116.us.i57 = phi ptr [ %cond.us.i60, %if.then68.us.i104 ], [ %next.1.ph171.i53, %if.end29.lr.ph.i52 ]
-  %next31.us.i59 = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 16
+  %next31.us.i59 = getelementptr inbounds nuw i8, ptr %next.1116.us.i57, i64 16
   %cond.us.i60 = load ptr, ptr %next31.us.i59, align 8
   %12 = load ptr, ptr %next.1116.us.i57, align 8
-  %algorithm_mkey.us.i61 = getelementptr inbounds i8, ptr %12, i64 12
+  %algorithm_mkey.us.i61 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %13 = load i32, ptr %algorithm_mkey.us.i61, align 4
   %and.us.i62 = and i32 %13, 4
   %tobool48.not.us.i63 = icmp eq i32 %and.us.i62, 0
   br i1 %tobool48.not.us.i63, label %if.then68.us.i104, label %lor.lhs.false49.us.i64
 
 lor.lhs.false49.us.i64:                           ; preds = %if.end29.us.i56
-  %algorithm_auth.us.i65 = getelementptr inbounds i8, ptr %12, i64 16
+  %algorithm_auth.us.i65 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %algorithm_auth.us.i65, align 8
   %tobool51.not.us.i67 = icmp eq i32 %14, 0
   br i1 %tobool51.not.us.i67, label %if.then68.us.i104, label %lor.lhs.false52.us.i68
 
 lor.lhs.false52.us.i68:                           ; preds = %lor.lhs.false49.us.i64
-  %algorithm_enc.us.i69 = getelementptr inbounds i8, ptr %12, i64 20
+  %algorithm_enc.us.i69 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %15 = load i32, ptr %algorithm_enc.us.i69, align 4
   %tobool54.not.us.i70 = icmp eq i32 %15, 0
   br i1 %tobool54.not.us.i70, label %if.then68.us.i104, label %lor.lhs.false55.us.i71
 
 lor.lhs.false55.us.i71:                           ; preds = %lor.lhs.false52.us.i68
-  %algorithm_mac.us.i72 = getelementptr inbounds i8, ptr %12, i64 24
+  %algorithm_mac.us.i72 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i32, ptr %algorithm_mac.us.i72, align 8
   %tobool57.not.us.i73 = icmp eq i32 %16, 0
   br i1 %tobool57.not.us.i73, label %if.then68.us.i104, label %lor.lhs.false58.us.i74
 
 lor.lhs.false58.us.i74:                           ; preds = %lor.lhs.false55.us.i71
-  %next31.us.i59.le = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 16
-  %prev.us.i58.le = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 24
-  %active.i75 = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 8
+  %next31.us.i59.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i57, i64 16
+  %prev.us.i58.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i57, i64 24
+  %active.i75 = getelementptr inbounds nuw i8, ptr %next.1116.us.i57, i64 8
   %17 = load i32, ptr %active.i75, align 8
   %tobool75.not.i76 = icmp eq i32 %17, 0
   br i1 %tobool75.not.i76, label %if.then76.i86, label %if.end139.i77
@@ -727,7 +727,7 @@ if.end.i61.i88:                                   ; preds = %if.then76.i86
   br i1 %cmp4.not.i.i91, label %if.end9.i.i94, label %if.then5.i.i92
 
 if.then5.i.i92:                                   ; preds = %if.end.i61.i88
-  %next8.i.i93 = getelementptr inbounds i8, ptr %18, i64 16
+  %next8.i.i93 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %cond.us.i60, ptr %next8.i.i93, align 8
   br label %if.end9.i.i94
 
@@ -737,12 +737,12 @@ if.end9.i.i94:                                    ; preds = %if.then5.i.i92, %if
 
 if.then12.i.i96:                                  ; preds = %if.end9.i.i94
   %19 = load ptr, ptr %prev.us.i58.le, align 8
-  %prev15.i.i97 = getelementptr inbounds i8, ptr %cond.us.i60, i64 24
+  %prev15.i.i97 = getelementptr inbounds nuw i8, ptr %cond.us.i60, i64 24
   store ptr %19, ptr %prev15.i.i97, align 8
   br label %if.end16.i.i98
 
 if.end16.i.i98:                                   ; preds = %if.then12.i.i96, %if.end9.i.i94
-  %next17.i.i99 = getelementptr inbounds i8, ptr %tail.0.ph168.i54, i64 16
+  %next17.i.i99 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i54, i64 16
   store ptr %next.1116.us.i57, ptr %next17.i.i99, align 8
   store ptr %tail.0.ph168.i54, ptr %prev.us.i58.le, align 8
   store ptr null, ptr %next31.us.i59.le, align 8
@@ -752,7 +752,7 @@ ll_append_tail.exit.i100:                         ; preds = %if.end16.i.i98, %if
   %head.4.i101 = phi ptr [ %head.0.ph165.i55, %if.then76.i86 ], [ %.head.0.ph165.i90, %if.end16.i.i98 ]
   %tail.3.i102 = phi ptr [ %tail.0.ph168.i54, %if.then76.i86 ], [ %next.1116.us.i57, %if.end16.i.i98 ]
   store i32 1, ptr %active.i75, align 8
-  %in_group78.i103 = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 12
+  %in_group78.i103 = getelementptr inbounds nuw i8, ptr %next.1116.us.i57, i64 12
   store i32 0, ptr %in_group78.i103, align 4
   br label %if.end139.i77
 
@@ -782,37 +782,37 @@ if.end29.lr.ph.i113:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i117:                                 ; preds = %if.then68.us.i145, %if.end29.lr.ph.i113
   %next.1116.us.i118 = phi ptr [ %cond.us.i121, %if.then68.us.i145 ], [ %next.1.ph171.i114, %if.end29.lr.ph.i113 ]
-  %prev.us.i119 = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 24
+  %prev.us.i119 = getelementptr inbounds nuw i8, ptr %next.1116.us.i118, i64 24
   %cond.us.i121 = load ptr, ptr %prev.us.i119, align 8
   %20 = load ptr, ptr %next.1116.us.i118, align 8
-  %algorithm_mkey.us.i122 = getelementptr inbounds i8, ptr %20, i64 12
+  %algorithm_mkey.us.i122 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %21 = load i32, ptr %algorithm_mkey.us.i122, align 4
   %and.us.i123 = and i32 %21, 4
   %tobool48.not.us.i124 = icmp eq i32 %and.us.i123, 0
   br i1 %tobool48.not.us.i124, label %if.then68.us.i145, label %lor.lhs.false49.us.i125
 
 lor.lhs.false49.us.i125:                          ; preds = %if.end29.us.i117
-  %algorithm_auth.us.i126 = getelementptr inbounds i8, ptr %20, i64 16
+  %algorithm_auth.us.i126 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %algorithm_auth.us.i126, align 8
   %tobool51.not.us.i128 = icmp eq i32 %22, 0
   br i1 %tobool51.not.us.i128, label %if.then68.us.i145, label %lor.lhs.false52.us.i129
 
 lor.lhs.false52.us.i129:                          ; preds = %lor.lhs.false49.us.i125
-  %algorithm_enc.us.i130 = getelementptr inbounds i8, ptr %20, i64 20
+  %algorithm_enc.us.i130 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %23 = load i32, ptr %algorithm_enc.us.i130, align 4
   %tobool54.not.us.i131 = icmp eq i32 %23, 0
   br i1 %tobool54.not.us.i131, label %if.then68.us.i145, label %lor.lhs.false55.us.i132
 
 lor.lhs.false55.us.i132:                          ; preds = %lor.lhs.false52.us.i129
-  %algorithm_mac.us.i133 = getelementptr inbounds i8, ptr %20, i64 24
+  %algorithm_mac.us.i133 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load i32, ptr %algorithm_mac.us.i133, align 8
   %tobool57.not.us.i134 = icmp eq i32 %24, 0
   br i1 %tobool57.not.us.i134, label %if.then68.us.i145, label %lor.lhs.false58.us.i135
 
 lor.lhs.false58.us.i135:                          ; preds = %lor.lhs.false55.us.i132
-  %prev.us.i119.le = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 24
-  %next31.us.i120.le = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 16
-  %active93.i = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 8
+  %prev.us.i119.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i118, i64 24
+  %next31.us.i120.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i118, i64 16
+  %active93.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i118, i64 8
   %25 = load i32, ptr %active93.i, align 8
   %tobool94.not.i = icmp eq i32 %25, 0
   br i1 %tobool94.not.i, label %if.end139.i136, label %if.then95.i
@@ -835,7 +835,7 @@ if.end.i83.i:                                     ; preds = %if.then95.i
   br i1 %cmp4.not.i87.i, label %if.end9.i90.i, label %if.then5.i89.i
 
 if.then5.i89.i:                                   ; preds = %if.end.i83.i
-  %prev8.i.i = getelementptr inbounds i8, ptr %26, i64 24
+  %prev8.i.i = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %cond.us.i121, ptr %prev8.i.i, align 8
   br label %if.end9.i90.i
 
@@ -845,12 +845,12 @@ if.end9.i90.i:                                    ; preds = %if.then5.i89.i, %if
 
 if.then12.i92.i:                                  ; preds = %if.end9.i90.i
   %27 = load ptr, ptr %next31.us.i120.le, align 8
-  %next15.i.i = getelementptr inbounds i8, ptr %cond.us.i121, i64 16
+  %next15.i.i = getelementptr inbounds nuw i8, ptr %cond.us.i121, i64 16
   store ptr %27, ptr %next15.i.i, align 8
   br label %if.end16.i93.i
 
 if.end16.i93.i:                                   ; preds = %if.then12.i92.i, %if.end9.i90.i
-  %prev17.i.i = getelementptr inbounds i8, ptr %head.0.ph165.i116, i64 24
+  %prev17.i.i = getelementptr inbounds nuw i8, ptr %head.0.ph165.i116, i64 24
   store ptr %next.1116.us.i118, ptr %prev17.i.i, align 8
   store ptr %head.0.ph165.i116, ptr %next31.us.i120.le, align 8
   store ptr null, ptr %prev.us.i119.le, align 8
@@ -860,7 +860,7 @@ ll_append_head.exit.i:                            ; preds = %if.end16.i93.i, %if
   %head.7.i = phi ptr [ %head.0.ph165.i116, %if.then95.i ], [ %next.1116.us.i118, %if.end16.i93.i ]
   %tail.6.i = phi ptr [ %tail.0.ph168.i115, %if.then95.i ], [ %.tail.0.ph168.i, %if.end16.i93.i ]
   store i32 0, ptr %active93.i, align 8
-  %in_group97.i = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 12
+  %in_group97.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i118, i64 12
   store i32 0, ptr %in_group97.i, align 4
   br label %if.end139.i136
 
@@ -895,37 +895,37 @@ if.end29.lr.ph.i154:                              ; preds = %if.then6, %if.end13
 
 if.end29.us.i158:                                 ; preds = %if.then68.us.i206, %if.end29.lr.ph.i154
   %next.1116.us.i159 = phi ptr [ %cond.us.i162, %if.then68.us.i206 ], [ %next.1.ph171.i155, %if.end29.lr.ph.i154 ]
-  %next31.us.i161 = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 16
+  %next31.us.i161 = getelementptr inbounds nuw i8, ptr %next.1116.us.i159, i64 16
   %cond.us.i162 = load ptr, ptr %next31.us.i161, align 8
   %28 = load ptr, ptr %next.1116.us.i159, align 8
-  %algorithm_mkey.us.i163 = getelementptr inbounds i8, ptr %28, i64 12
+  %algorithm_mkey.us.i163 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %29 = load i32, ptr %algorithm_mkey.us.i163, align 4
   %tobool48.not.us.i165 = icmp eq i32 %29, 0
   br i1 %tobool48.not.us.i165, label %if.then68.us.i206, label %lor.lhs.false49.us.i166
 
 lor.lhs.false49.us.i166:                          ; preds = %if.end29.us.i158
-  %algorithm_auth.us.i167 = getelementptr inbounds i8, ptr %28, i64 16
+  %algorithm_auth.us.i167 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %algorithm_auth.us.i167, align 8
   %tobool51.not.us.i169 = icmp eq i32 %30, 0
   br i1 %tobool51.not.us.i169, label %if.then68.us.i206, label %lor.lhs.false52.us.i170
 
 lor.lhs.false52.us.i170:                          ; preds = %lor.lhs.false49.us.i166
-  %algorithm_enc.us.i171 = getelementptr inbounds i8, ptr %28, i64 20
+  %algorithm_enc.us.i171 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %31 = load i32, ptr %algorithm_enc.us.i171, align 4
   %and53.us.i = and i32 %31, 16
   %tobool54.not.us.i172 = icmp eq i32 %and53.us.i, 0
   br i1 %tobool54.not.us.i172, label %if.then68.us.i206, label %lor.lhs.false55.us.i173
 
 lor.lhs.false55.us.i173:                          ; preds = %lor.lhs.false52.us.i170
-  %algorithm_mac.us.i174 = getelementptr inbounds i8, ptr %28, i64 24
+  %algorithm_mac.us.i174 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = load i32, ptr %algorithm_mac.us.i174, align 8
   %tobool57.not.us.i175 = icmp eq i32 %32, 0
   br i1 %tobool57.not.us.i175, label %if.then68.us.i206, label %lor.lhs.false58.us.i176
 
 lor.lhs.false58.us.i176:                          ; preds = %lor.lhs.false55.us.i173
-  %next31.us.i161.le = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 16
-  %prev.us.i160.le = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 24
-  %active.i177 = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 8
+  %next31.us.i161.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i159, i64 16
+  %prev.us.i160.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i159, i64 24
+  %active.i177 = getelementptr inbounds nuw i8, ptr %next.1116.us.i159, i64 8
   %33 = load i32, ptr %active.i177, align 8
   %tobool75.not.i178 = icmp eq i32 %33, 0
   br i1 %tobool75.not.i178, label %if.then76.i188, label %if.end139.i179
@@ -948,7 +948,7 @@ if.end.i61.i190:                                  ; preds = %if.then76.i188
   br i1 %cmp4.not.i.i193, label %if.end9.i.i196, label %if.then5.i.i194
 
 if.then5.i.i194:                                  ; preds = %if.end.i61.i190
-  %next8.i.i195 = getelementptr inbounds i8, ptr %34, i64 16
+  %next8.i.i195 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %cond.us.i162, ptr %next8.i.i195, align 8
   br label %if.end9.i.i196
 
@@ -958,12 +958,12 @@ if.end9.i.i196:                                   ; preds = %if.then5.i.i194, %i
 
 if.then12.i.i198:                                 ; preds = %if.end9.i.i196
   %35 = load ptr, ptr %prev.us.i160.le, align 8
-  %prev15.i.i199 = getelementptr inbounds i8, ptr %cond.us.i162, i64 24
+  %prev15.i.i199 = getelementptr inbounds nuw i8, ptr %cond.us.i162, i64 24
   store ptr %35, ptr %prev15.i.i199, align 8
   br label %if.end16.i.i200
 
 if.end16.i.i200:                                  ; preds = %if.then12.i.i198, %if.end9.i.i196
-  %next17.i.i201 = getelementptr inbounds i8, ptr %tail.0.ph168.i156, i64 16
+  %next17.i.i201 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i156, i64 16
   store ptr %next.1116.us.i159, ptr %next17.i.i201, align 8
   store ptr %tail.0.ph168.i156, ptr %prev.us.i160.le, align 8
   store ptr null, ptr %next31.us.i161.le, align 8
@@ -973,7 +973,7 @@ ll_append_tail.exit.i202:                         ; preds = %if.end16.i.i200, %i
   %head.4.i203 = phi ptr [ %head.0.ph165.i157, %if.then76.i188 ], [ %.head.0.ph165.i192, %if.end16.i.i200 ]
   %tail.3.i204 = phi ptr [ %tail.0.ph168.i156, %if.then76.i188 ], [ %next.1116.us.i159, %if.end16.i.i200 ]
   store i32 1, ptr %active.i177, align 8
-  %in_group78.i205 = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 12
+  %in_group78.i205 = getelementptr inbounds nuw i8, ptr %next.1116.us.i159, i64 12
   store i32 0, ptr %in_group78.i205, align 4
   br label %if.end139.i179
 
@@ -1003,37 +1003,37 @@ if.end29.lr.ph.i215:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i219:                                 ; preds = %if.then68.us.i268, %if.end29.lr.ph.i215
   %next.1116.us.i220 = phi ptr [ %cond.us.i223, %if.then68.us.i268 ], [ %next.1.ph171.i216, %if.end29.lr.ph.i215 ]
-  %next31.us.i222 = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 16
+  %next31.us.i222 = getelementptr inbounds nuw i8, ptr %next.1116.us.i220, i64 16
   %cond.us.i223 = load ptr, ptr %next31.us.i222, align 8
   %36 = load ptr, ptr %next.1116.us.i220, align 8
-  %algorithm_mkey.us.i224 = getelementptr inbounds i8, ptr %36, i64 12
+  %algorithm_mkey.us.i224 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %37 = load i32, ptr %algorithm_mkey.us.i224, align 4
   %tobool48.not.us.i226 = icmp eq i32 %37, 0
   br i1 %tobool48.not.us.i226, label %if.then68.us.i268, label %lor.lhs.false49.us.i227
 
 lor.lhs.false49.us.i227:                          ; preds = %if.end29.us.i219
-  %algorithm_auth.us.i228 = getelementptr inbounds i8, ptr %36, i64 16
+  %algorithm_auth.us.i228 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %algorithm_auth.us.i228, align 8
   %tobool51.not.us.i230 = icmp eq i32 %38, 0
   br i1 %tobool51.not.us.i230, label %if.then68.us.i268, label %lor.lhs.false52.us.i231
 
 lor.lhs.false52.us.i231:                          ; preds = %lor.lhs.false49.us.i227
-  %algorithm_enc.us.i232 = getelementptr inbounds i8, ptr %36, i64 20
+  %algorithm_enc.us.i232 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %39 = load i32, ptr %algorithm_enc.us.i232, align 4
   %and53.us.i233 = and i32 %39, 32
   %tobool54.not.us.i234 = icmp eq i32 %and53.us.i233, 0
   br i1 %tobool54.not.us.i234, label %if.then68.us.i268, label %lor.lhs.false55.us.i235
 
 lor.lhs.false55.us.i235:                          ; preds = %lor.lhs.false52.us.i231
-  %algorithm_mac.us.i236 = getelementptr inbounds i8, ptr %36, i64 24
+  %algorithm_mac.us.i236 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load i32, ptr %algorithm_mac.us.i236, align 8
   %tobool57.not.us.i237 = icmp eq i32 %40, 0
   br i1 %tobool57.not.us.i237, label %if.then68.us.i268, label %lor.lhs.false58.us.i238
 
 lor.lhs.false58.us.i238:                          ; preds = %lor.lhs.false55.us.i235
-  %next31.us.i222.le = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 16
-  %prev.us.i221.le = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 24
-  %active.i239 = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 8
+  %next31.us.i222.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i220, i64 16
+  %prev.us.i221.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i220, i64 24
+  %active.i239 = getelementptr inbounds nuw i8, ptr %next.1116.us.i220, i64 8
   %41 = load i32, ptr %active.i239, align 8
   %tobool75.not.i240 = icmp eq i32 %41, 0
   br i1 %tobool75.not.i240, label %if.then76.i250, label %if.end139.i241
@@ -1056,7 +1056,7 @@ if.end.i61.i252:                                  ; preds = %if.then76.i250
   br i1 %cmp4.not.i.i255, label %if.end9.i.i258, label %if.then5.i.i256
 
 if.then5.i.i256:                                  ; preds = %if.end.i61.i252
-  %next8.i.i257 = getelementptr inbounds i8, ptr %42, i64 16
+  %next8.i.i257 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %cond.us.i223, ptr %next8.i.i257, align 8
   br label %if.end9.i.i258
 
@@ -1066,12 +1066,12 @@ if.end9.i.i258:                                   ; preds = %if.then5.i.i256, %i
 
 if.then12.i.i260:                                 ; preds = %if.end9.i.i258
   %43 = load ptr, ptr %prev.us.i221.le, align 8
-  %prev15.i.i261 = getelementptr inbounds i8, ptr %cond.us.i223, i64 24
+  %prev15.i.i261 = getelementptr inbounds nuw i8, ptr %cond.us.i223, i64 24
   store ptr %43, ptr %prev15.i.i261, align 8
   br label %if.end16.i.i262
 
 if.end16.i.i262:                                  ; preds = %if.then12.i.i260, %if.end9.i.i258
-  %next17.i.i263 = getelementptr inbounds i8, ptr %tail.0.ph168.i217, i64 16
+  %next17.i.i263 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i217, i64 16
   store ptr %next.1116.us.i220, ptr %next17.i.i263, align 8
   store ptr %tail.0.ph168.i217, ptr %prev.us.i221.le, align 8
   store ptr null, ptr %next31.us.i222.le, align 8
@@ -1081,7 +1081,7 @@ ll_append_tail.exit.i264:                         ; preds = %if.end16.i.i262, %i
   %head.4.i265 = phi ptr [ %head.0.ph165.i218, %if.then76.i250 ], [ %.head.0.ph165.i254, %if.end16.i.i262 ]
   %tail.3.i266 = phi ptr [ %tail.0.ph168.i217, %if.then76.i250 ], [ %next.1116.us.i220, %if.end16.i.i262 ]
   store i32 1, ptr %active.i239, align 8
-  %in_group78.i267 = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 12
+  %in_group78.i267 = getelementptr inbounds nuw i8, ptr %next.1116.us.i220, i64 12
   store i32 0, ptr %in_group78.i267, align 4
   br label %if.end139.i241
 
@@ -1111,37 +1111,37 @@ if.end29.lr.ph.i277:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i281:                                 ; preds = %if.then68.us.i330, %if.end29.lr.ph.i277
   %next.1116.us.i282 = phi ptr [ %cond.us.i285, %if.then68.us.i330 ], [ %next.1.ph171.i278, %if.end29.lr.ph.i277 ]
-  %next31.us.i284 = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 16
+  %next31.us.i284 = getelementptr inbounds nuw i8, ptr %next.1116.us.i282, i64 16
   %cond.us.i285 = load ptr, ptr %next31.us.i284, align 8
   %44 = load ptr, ptr %next.1116.us.i282, align 8
-  %algorithm_mkey.us.i286 = getelementptr inbounds i8, ptr %44, i64 12
+  %algorithm_mkey.us.i286 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %45 = load i32, ptr %algorithm_mkey.us.i286, align 4
   %tobool48.not.us.i288 = icmp eq i32 %45, 0
   br i1 %tobool48.not.us.i288, label %if.then68.us.i330, label %lor.lhs.false49.us.i289
 
 lor.lhs.false49.us.i289:                          ; preds = %if.end29.us.i281
-  %algorithm_auth.us.i290 = getelementptr inbounds i8, ptr %44, i64 16
+  %algorithm_auth.us.i290 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %algorithm_auth.us.i290, align 8
   %tobool51.not.us.i292 = icmp eq i32 %46, 0
   br i1 %tobool51.not.us.i292, label %if.then68.us.i330, label %lor.lhs.false52.us.i293
 
 lor.lhs.false52.us.i293:                          ; preds = %lor.lhs.false49.us.i289
-  %algorithm_enc.us.i294 = getelementptr inbounds i8, ptr %44, i64 20
+  %algorithm_enc.us.i294 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %47 = load i32, ptr %algorithm_enc.us.i294, align 4
   %and53.us.i295 = and i32 %47, 256
   %tobool54.not.us.i296 = icmp eq i32 %and53.us.i295, 0
   br i1 %tobool54.not.us.i296, label %if.then68.us.i330, label %lor.lhs.false55.us.i297
 
 lor.lhs.false55.us.i297:                          ; preds = %lor.lhs.false52.us.i293
-  %algorithm_mac.us.i298 = getelementptr inbounds i8, ptr %44, i64 24
+  %algorithm_mac.us.i298 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load i32, ptr %algorithm_mac.us.i298, align 8
   %tobool57.not.us.i299 = icmp eq i32 %48, 0
   br i1 %tobool57.not.us.i299, label %if.then68.us.i330, label %lor.lhs.false58.us.i300
 
 lor.lhs.false58.us.i300:                          ; preds = %lor.lhs.false55.us.i297
-  %next31.us.i284.le = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 16
-  %prev.us.i283.le = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 24
-  %active.i301 = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 8
+  %next31.us.i284.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i282, i64 16
+  %prev.us.i283.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i282, i64 24
+  %active.i301 = getelementptr inbounds nuw i8, ptr %next.1116.us.i282, i64 8
   %49 = load i32, ptr %active.i301, align 8
   %tobool75.not.i302 = icmp eq i32 %49, 0
   br i1 %tobool75.not.i302, label %if.then76.i312, label %if.end139.i303
@@ -1164,7 +1164,7 @@ if.end.i61.i314:                                  ; preds = %if.then76.i312
   br i1 %cmp4.not.i.i317, label %if.end9.i.i320, label %if.then5.i.i318
 
 if.then5.i.i318:                                  ; preds = %if.end.i61.i314
-  %next8.i.i319 = getelementptr inbounds i8, ptr %50, i64 16
+  %next8.i.i319 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %cond.us.i285, ptr %next8.i.i319, align 8
   br label %if.end9.i.i320
 
@@ -1174,12 +1174,12 @@ if.end9.i.i320:                                   ; preds = %if.then5.i.i318, %i
 
 if.then12.i.i322:                                 ; preds = %if.end9.i.i320
   %51 = load ptr, ptr %prev.us.i283.le, align 8
-  %prev15.i.i323 = getelementptr inbounds i8, ptr %cond.us.i285, i64 24
+  %prev15.i.i323 = getelementptr inbounds nuw i8, ptr %cond.us.i285, i64 24
   store ptr %51, ptr %prev15.i.i323, align 8
   br label %if.end16.i.i324
 
 if.end16.i.i324:                                  ; preds = %if.then12.i.i322, %if.end9.i.i320
-  %next17.i.i325 = getelementptr inbounds i8, ptr %tail.0.ph168.i279, i64 16
+  %next17.i.i325 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i279, i64 16
   store ptr %next.1116.us.i282, ptr %next17.i.i325, align 8
   store ptr %tail.0.ph168.i279, ptr %prev.us.i283.le, align 8
   store ptr null, ptr %next31.us.i284.le, align 8
@@ -1189,7 +1189,7 @@ ll_append_tail.exit.i326:                         ; preds = %if.end16.i.i324, %i
   %head.4.i327 = phi ptr [ %head.0.ph165.i280, %if.then76.i312 ], [ %.head.0.ph165.i316, %if.end16.i.i324 ]
   %tail.3.i328 = phi ptr [ %tail.0.ph168.i279, %if.then76.i312 ], [ %next.1116.us.i282, %if.end16.i.i324 ]
   store i32 1, ptr %active.i301, align 8
-  %in_group78.i329 = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 12
+  %in_group78.i329 = getelementptr inbounds nuw i8, ptr %next.1116.us.i282, i64 12
   store i32 0, ptr %in_group78.i329, align 4
   br label %if.end139.i303
 
@@ -1219,37 +1219,37 @@ if.end29.lr.ph.i339:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i343:                                 ; preds = %if.then68.us.i392, %if.end29.lr.ph.i339
   %next.1116.us.i344 = phi ptr [ %cond.us.i347, %if.then68.us.i392 ], [ %next.1.ph171.i340, %if.end29.lr.ph.i339 ]
-  %next31.us.i346 = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 16
+  %next31.us.i346 = getelementptr inbounds nuw i8, ptr %next.1116.us.i344, i64 16
   %cond.us.i347 = load ptr, ptr %next31.us.i346, align 8
   %52 = load ptr, ptr %next.1116.us.i344, align 8
-  %algorithm_mkey.us.i348 = getelementptr inbounds i8, ptr %52, i64 12
+  %algorithm_mkey.us.i348 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %53 = load i32, ptr %algorithm_mkey.us.i348, align 4
   %tobool48.not.us.i350 = icmp eq i32 %53, 0
   br i1 %tobool48.not.us.i350, label %if.then68.us.i392, label %lor.lhs.false49.us.i351
 
 lor.lhs.false49.us.i351:                          ; preds = %if.end29.us.i343
-  %algorithm_auth.us.i352 = getelementptr inbounds i8, ptr %52, i64 16
+  %algorithm_auth.us.i352 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %algorithm_auth.us.i352, align 8
   %tobool51.not.us.i354 = icmp eq i32 %54, 0
   br i1 %tobool51.not.us.i354, label %if.then68.us.i392, label %lor.lhs.false52.us.i355
 
 lor.lhs.false52.us.i355:                          ; preds = %lor.lhs.false49.us.i351
-  %algorithm_enc.us.i356 = getelementptr inbounds i8, ptr %52, i64 20
+  %algorithm_enc.us.i356 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %55 = load i32, ptr %algorithm_enc.us.i356, align 4
   %and53.us.i357 = and i32 %55, 64
   %tobool54.not.us.i358 = icmp eq i32 %and53.us.i357, 0
   br i1 %tobool54.not.us.i358, label %if.then68.us.i392, label %lor.lhs.false55.us.i359
 
 lor.lhs.false55.us.i359:                          ; preds = %lor.lhs.false52.us.i355
-  %algorithm_mac.us.i360 = getelementptr inbounds i8, ptr %52, i64 24
+  %algorithm_mac.us.i360 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = load i32, ptr %algorithm_mac.us.i360, align 8
   %tobool57.not.us.i361 = icmp eq i32 %56, 0
   br i1 %tobool57.not.us.i361, label %if.then68.us.i392, label %lor.lhs.false58.us.i362
 
 lor.lhs.false58.us.i362:                          ; preds = %lor.lhs.false55.us.i359
-  %next31.us.i346.le = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 16
-  %prev.us.i345.le = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 24
-  %active.i363 = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 8
+  %next31.us.i346.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i344, i64 16
+  %prev.us.i345.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i344, i64 24
+  %active.i363 = getelementptr inbounds nuw i8, ptr %next.1116.us.i344, i64 8
   %57 = load i32, ptr %active.i363, align 8
   %tobool75.not.i364 = icmp eq i32 %57, 0
   br i1 %tobool75.not.i364, label %if.then76.i374, label %if.end139.i365
@@ -1272,7 +1272,7 @@ if.end.i61.i376:                                  ; preds = %if.then76.i374
   br i1 %cmp4.not.i.i379, label %if.end9.i.i382, label %if.then5.i.i380
 
 if.then5.i.i380:                                  ; preds = %if.end.i61.i376
-  %next8.i.i381 = getelementptr inbounds i8, ptr %58, i64 16
+  %next8.i.i381 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %cond.us.i347, ptr %next8.i.i381, align 8
   br label %if.end9.i.i382
 
@@ -1282,12 +1282,12 @@ if.end9.i.i382:                                   ; preds = %if.then5.i.i380, %i
 
 if.then12.i.i384:                                 ; preds = %if.end9.i.i382
   %59 = load ptr, ptr %prev.us.i345.le, align 8
-  %prev15.i.i385 = getelementptr inbounds i8, ptr %cond.us.i347, i64 24
+  %prev15.i.i385 = getelementptr inbounds nuw i8, ptr %cond.us.i347, i64 24
   store ptr %59, ptr %prev15.i.i385, align 8
   br label %if.end16.i.i386
 
 if.end16.i.i386:                                  ; preds = %if.then12.i.i384, %if.end9.i.i382
-  %next17.i.i387 = getelementptr inbounds i8, ptr %tail.0.ph168.i341, i64 16
+  %next17.i.i387 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i341, i64 16
   store ptr %next.1116.us.i344, ptr %next17.i.i387, align 8
   store ptr %tail.0.ph168.i341, ptr %prev.us.i345.le, align 8
   store ptr null, ptr %next31.us.i346.le, align 8
@@ -1297,7 +1297,7 @@ ll_append_tail.exit.i388:                         ; preds = %if.end16.i.i386, %i
   %head.4.i389 = phi ptr [ %head.0.ph165.i342, %if.then76.i374 ], [ %.head.0.ph165.i378, %if.end16.i.i386 ]
   %tail.3.i390 = phi ptr [ %tail.0.ph168.i341, %if.then76.i374 ], [ %next.1116.us.i344, %if.end16.i.i386 ]
   store i32 1, ptr %active.i363, align 8
-  %in_group78.i391 = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 12
+  %in_group78.i391 = getelementptr inbounds nuw i8, ptr %next.1116.us.i344, i64 12
   store i32 0, ptr %in_group78.i391, align 4
   br label %if.end139.i365
 
@@ -1320,37 +1320,37 @@ if.end29.lr.ph.i401:                              ; preds = %if.else, %if.end139
 
 if.end29.us.i405:                                 ; preds = %if.then68.us.i454, %if.end29.lr.ph.i401
   %next.1116.us.i406 = phi ptr [ %cond.us.i409, %if.then68.us.i454 ], [ %next.1.ph171.i402, %if.end29.lr.ph.i401 ]
-  %next31.us.i408 = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 16
+  %next31.us.i408 = getelementptr inbounds nuw i8, ptr %next.1116.us.i406, i64 16
   %cond.us.i409 = load ptr, ptr %next31.us.i408, align 8
   %60 = load ptr, ptr %next.1116.us.i406, align 8
-  %algorithm_mkey.us.i410 = getelementptr inbounds i8, ptr %60, i64 12
+  %algorithm_mkey.us.i410 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %61 = load i32, ptr %algorithm_mkey.us.i410, align 4
   %tobool48.not.us.i412 = icmp eq i32 %61, 0
   br i1 %tobool48.not.us.i412, label %if.then68.us.i454, label %lor.lhs.false49.us.i413
 
 lor.lhs.false49.us.i413:                          ; preds = %if.end29.us.i405
-  %algorithm_auth.us.i414 = getelementptr inbounds i8, ptr %60, i64 16
+  %algorithm_auth.us.i414 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %algorithm_auth.us.i414, align 8
   %tobool51.not.us.i416 = icmp eq i32 %62, 0
   br i1 %tobool51.not.us.i416, label %if.then68.us.i454, label %lor.lhs.false52.us.i417
 
 lor.lhs.false52.us.i417:                          ; preds = %lor.lhs.false49.us.i413
-  %algorithm_enc.us.i418 = getelementptr inbounds i8, ptr %60, i64 20
+  %algorithm_enc.us.i418 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %63 = load i32, ptr %algorithm_enc.us.i418, align 4
   %and53.us.i419 = and i32 %63, 256
   %tobool54.not.us.i420 = icmp eq i32 %and53.us.i419, 0
   br i1 %tobool54.not.us.i420, label %if.then68.us.i454, label %lor.lhs.false55.us.i421
 
 lor.lhs.false55.us.i421:                          ; preds = %lor.lhs.false52.us.i417
-  %algorithm_mac.us.i422 = getelementptr inbounds i8, ptr %60, i64 24
+  %algorithm_mac.us.i422 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %64 = load i32, ptr %algorithm_mac.us.i422, align 8
   %tobool57.not.us.i423 = icmp eq i32 %64, 0
   br i1 %tobool57.not.us.i423, label %if.then68.us.i454, label %lor.lhs.false58.us.i424
 
 lor.lhs.false58.us.i424:                          ; preds = %lor.lhs.false55.us.i421
-  %next31.us.i408.le = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 16
-  %prev.us.i407.le = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 24
-  %active.i425 = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 8
+  %next31.us.i408.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i406, i64 16
+  %prev.us.i407.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i406, i64 24
+  %active.i425 = getelementptr inbounds nuw i8, ptr %next.1116.us.i406, i64 8
   %65 = load i32, ptr %active.i425, align 8
   %tobool75.not.i426 = icmp eq i32 %65, 0
   br i1 %tobool75.not.i426, label %if.then76.i436, label %if.end139.i427
@@ -1373,7 +1373,7 @@ if.end.i61.i438:                                  ; preds = %if.then76.i436
   br i1 %cmp4.not.i.i441, label %if.end9.i.i444, label %if.then5.i.i442
 
 if.then5.i.i442:                                  ; preds = %if.end.i61.i438
-  %next8.i.i443 = getelementptr inbounds i8, ptr %66, i64 16
+  %next8.i.i443 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %cond.us.i409, ptr %next8.i.i443, align 8
   br label %if.end9.i.i444
 
@@ -1383,12 +1383,12 @@ if.end9.i.i444:                                   ; preds = %if.then5.i.i442, %i
 
 if.then12.i.i446:                                 ; preds = %if.end9.i.i444
   %67 = load ptr, ptr %prev.us.i407.le, align 8
-  %prev15.i.i447 = getelementptr inbounds i8, ptr %cond.us.i409, i64 24
+  %prev15.i.i447 = getelementptr inbounds nuw i8, ptr %cond.us.i409, i64 24
   store ptr %67, ptr %prev15.i.i447, align 8
   br label %if.end16.i.i448
 
 if.end16.i.i448:                                  ; preds = %if.then12.i.i446, %if.end9.i.i444
-  %next17.i.i449 = getelementptr inbounds i8, ptr %tail.0.ph168.i403, i64 16
+  %next17.i.i449 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i403, i64 16
   store ptr %next.1116.us.i406, ptr %next17.i.i449, align 8
   store ptr %tail.0.ph168.i403, ptr %prev.us.i407.le, align 8
   store ptr null, ptr %next31.us.i408.le, align 8
@@ -1398,7 +1398,7 @@ ll_append_tail.exit.i450:                         ; preds = %if.end16.i.i448, %i
   %head.4.i451 = phi ptr [ %head.0.ph165.i404, %if.then76.i436 ], [ %.head.0.ph165.i440, %if.end16.i.i448 ]
   %tail.3.i452 = phi ptr [ %tail.0.ph168.i403, %if.then76.i436 ], [ %next.1116.us.i406, %if.end16.i.i448 ]
   store i32 1, ptr %active.i425, align 8
-  %in_group78.i453 = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 12
+  %in_group78.i453 = getelementptr inbounds nuw i8, ptr %next.1116.us.i406, i64 12
   store i32 0, ptr %in_group78.i453, align 4
   br label %if.end139.i427
 
@@ -1428,37 +1428,37 @@ if.end29.lr.ph.i463:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i467:                                 ; preds = %if.then68.us.i516, %if.end29.lr.ph.i463
   %next.1116.us.i468 = phi ptr [ %cond.us.i471, %if.then68.us.i516 ], [ %next.1.ph171.i464, %if.end29.lr.ph.i463 ]
-  %next31.us.i470 = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 16
+  %next31.us.i470 = getelementptr inbounds nuw i8, ptr %next.1116.us.i468, i64 16
   %cond.us.i471 = load ptr, ptr %next31.us.i470, align 8
   %68 = load ptr, ptr %next.1116.us.i468, align 8
-  %algorithm_mkey.us.i472 = getelementptr inbounds i8, ptr %68, i64 12
+  %algorithm_mkey.us.i472 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %69 = load i32, ptr %algorithm_mkey.us.i472, align 4
   %tobool48.not.us.i474 = icmp eq i32 %69, 0
   br i1 %tobool48.not.us.i474, label %if.then68.us.i516, label %lor.lhs.false49.us.i475
 
 lor.lhs.false49.us.i475:                          ; preds = %if.end29.us.i467
-  %algorithm_auth.us.i476 = getelementptr inbounds i8, ptr %68, i64 16
+  %algorithm_auth.us.i476 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %algorithm_auth.us.i476, align 8
   %tobool51.not.us.i478 = icmp eq i32 %70, 0
   br i1 %tobool51.not.us.i478, label %if.then68.us.i516, label %lor.lhs.false52.us.i479
 
 lor.lhs.false52.us.i479:                          ; preds = %lor.lhs.false49.us.i475
-  %algorithm_enc.us.i480 = getelementptr inbounds i8, ptr %68, i64 20
+  %algorithm_enc.us.i480 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %71 = load i32, ptr %algorithm_enc.us.i480, align 4
   %and53.us.i481 = and i32 %71, 64
   %tobool54.not.us.i482 = icmp eq i32 %and53.us.i481, 0
   br i1 %tobool54.not.us.i482, label %if.then68.us.i516, label %lor.lhs.false55.us.i483
 
 lor.lhs.false55.us.i483:                          ; preds = %lor.lhs.false52.us.i479
-  %algorithm_mac.us.i484 = getelementptr inbounds i8, ptr %68, i64 24
+  %algorithm_mac.us.i484 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %72 = load i32, ptr %algorithm_mac.us.i484, align 8
   %tobool57.not.us.i485 = icmp eq i32 %72, 0
   br i1 %tobool57.not.us.i485, label %if.then68.us.i516, label %lor.lhs.false58.us.i486
 
 lor.lhs.false58.us.i486:                          ; preds = %lor.lhs.false55.us.i483
-  %next31.us.i470.le = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 16
-  %prev.us.i469.le = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 24
-  %active.i487 = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 8
+  %next31.us.i470.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i468, i64 16
+  %prev.us.i469.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i468, i64 24
+  %active.i487 = getelementptr inbounds nuw i8, ptr %next.1116.us.i468, i64 8
   %73 = load i32, ptr %active.i487, align 8
   %tobool75.not.i488 = icmp eq i32 %73, 0
   br i1 %tobool75.not.i488, label %if.then76.i498, label %if.end139.i489
@@ -1481,7 +1481,7 @@ if.end.i61.i500:                                  ; preds = %if.then76.i498
   br i1 %cmp4.not.i.i503, label %if.end9.i.i506, label %if.then5.i.i504
 
 if.then5.i.i504:                                  ; preds = %if.end.i61.i500
-  %next8.i.i505 = getelementptr inbounds i8, ptr %74, i64 16
+  %next8.i.i505 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %cond.us.i471, ptr %next8.i.i505, align 8
   br label %if.end9.i.i506
 
@@ -1491,12 +1491,12 @@ if.end9.i.i506:                                   ; preds = %if.then5.i.i504, %i
 
 if.then12.i.i508:                                 ; preds = %if.end9.i.i506
   %75 = load ptr, ptr %prev.us.i469.le, align 8
-  %prev15.i.i509 = getelementptr inbounds i8, ptr %cond.us.i471, i64 24
+  %prev15.i.i509 = getelementptr inbounds nuw i8, ptr %cond.us.i471, i64 24
   store ptr %75, ptr %prev15.i.i509, align 8
   br label %if.end16.i.i510
 
 if.end16.i.i510:                                  ; preds = %if.then12.i.i508, %if.end9.i.i506
-  %next17.i.i511 = getelementptr inbounds i8, ptr %tail.0.ph168.i465, i64 16
+  %next17.i.i511 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i465, i64 16
   store ptr %next.1116.us.i468, ptr %next17.i.i511, align 8
   store ptr %tail.0.ph168.i465, ptr %prev.us.i469.le, align 8
   store ptr null, ptr %next31.us.i470.le, align 8
@@ -1506,7 +1506,7 @@ ll_append_tail.exit.i512:                         ; preds = %if.end16.i.i510, %i
   %head.4.i513 = phi ptr [ %head.0.ph165.i466, %if.then76.i498 ], [ %.head.0.ph165.i502, %if.end16.i.i510 ]
   %tail.3.i514 = phi ptr [ %tail.0.ph168.i465, %if.then76.i498 ], [ %next.1116.us.i468, %if.end16.i.i510 ]
   store i32 1, ptr %active.i487, align 8
-  %in_group78.i515 = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 12
+  %in_group78.i515 = getelementptr inbounds nuw i8, ptr %next.1116.us.i468, i64 12
   store i32 0, ptr %in_group78.i515, align 4
   br label %if.end139.i489
 
@@ -1536,37 +1536,37 @@ if.end29.lr.ph.i525:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i529:                                 ; preds = %if.then68.us.i578, %if.end29.lr.ph.i525
   %next.1116.us.i530 = phi ptr [ %cond.us.i533, %if.then68.us.i578 ], [ %next.1.ph171.i526, %if.end29.lr.ph.i525 ]
-  %next31.us.i532 = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 16
+  %next31.us.i532 = getelementptr inbounds nuw i8, ptr %next.1116.us.i530, i64 16
   %cond.us.i533 = load ptr, ptr %next31.us.i532, align 8
   %76 = load ptr, ptr %next.1116.us.i530, align 8
-  %algorithm_mkey.us.i534 = getelementptr inbounds i8, ptr %76, i64 12
+  %algorithm_mkey.us.i534 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %77 = load i32, ptr %algorithm_mkey.us.i534, align 4
   %tobool48.not.us.i536 = icmp eq i32 %77, 0
   br i1 %tobool48.not.us.i536, label %if.then68.us.i578, label %lor.lhs.false49.us.i537
 
 lor.lhs.false49.us.i537:                          ; preds = %if.end29.us.i529
-  %algorithm_auth.us.i538 = getelementptr inbounds i8, ptr %76, i64 16
+  %algorithm_auth.us.i538 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %algorithm_auth.us.i538, align 8
   %tobool51.not.us.i540 = icmp eq i32 %78, 0
   br i1 %tobool51.not.us.i540, label %if.then68.us.i578, label %lor.lhs.false52.us.i541
 
 lor.lhs.false52.us.i541:                          ; preds = %lor.lhs.false49.us.i537
-  %algorithm_enc.us.i542 = getelementptr inbounds i8, ptr %76, i64 20
+  %algorithm_enc.us.i542 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %79 = load i32, ptr %algorithm_enc.us.i542, align 4
   %and53.us.i543 = and i32 %79, 16
   %tobool54.not.us.i544 = icmp eq i32 %and53.us.i543, 0
   br i1 %tobool54.not.us.i544, label %if.then68.us.i578, label %lor.lhs.false55.us.i545
 
 lor.lhs.false55.us.i545:                          ; preds = %lor.lhs.false52.us.i541
-  %algorithm_mac.us.i546 = getelementptr inbounds i8, ptr %76, i64 24
+  %algorithm_mac.us.i546 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %80 = load i32, ptr %algorithm_mac.us.i546, align 8
   %tobool57.not.us.i547 = icmp eq i32 %80, 0
   br i1 %tobool57.not.us.i547, label %if.then68.us.i578, label %lor.lhs.false58.us.i548
 
 lor.lhs.false58.us.i548:                          ; preds = %lor.lhs.false55.us.i545
-  %next31.us.i532.le = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 16
-  %prev.us.i531.le = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 24
-  %active.i549 = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 8
+  %next31.us.i532.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i530, i64 16
+  %prev.us.i531.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i530, i64 24
+  %active.i549 = getelementptr inbounds nuw i8, ptr %next.1116.us.i530, i64 8
   %81 = load i32, ptr %active.i549, align 8
   %tobool75.not.i550 = icmp eq i32 %81, 0
   br i1 %tobool75.not.i550, label %if.then76.i560, label %if.end139.i551
@@ -1589,7 +1589,7 @@ if.end.i61.i562:                                  ; preds = %if.then76.i560
   br i1 %cmp4.not.i.i565, label %if.end9.i.i568, label %if.then5.i.i566
 
 if.then5.i.i566:                                  ; preds = %if.end.i61.i562
-  %next8.i.i567 = getelementptr inbounds i8, ptr %82, i64 16
+  %next8.i.i567 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %cond.us.i533, ptr %next8.i.i567, align 8
   br label %if.end9.i.i568
 
@@ -1599,12 +1599,12 @@ if.end9.i.i568:                                   ; preds = %if.then5.i.i566, %i
 
 if.then12.i.i570:                                 ; preds = %if.end9.i.i568
   %83 = load ptr, ptr %prev.us.i531.le, align 8
-  %prev15.i.i571 = getelementptr inbounds i8, ptr %cond.us.i533, i64 24
+  %prev15.i.i571 = getelementptr inbounds nuw i8, ptr %cond.us.i533, i64 24
   store ptr %83, ptr %prev15.i.i571, align 8
   br label %if.end16.i.i572
 
 if.end16.i.i572:                                  ; preds = %if.then12.i.i570, %if.end9.i.i568
-  %next17.i.i573 = getelementptr inbounds i8, ptr %tail.0.ph168.i527, i64 16
+  %next17.i.i573 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i527, i64 16
   store ptr %next.1116.us.i530, ptr %next17.i.i573, align 8
   store ptr %tail.0.ph168.i527, ptr %prev.us.i531.le, align 8
   store ptr null, ptr %next31.us.i532.le, align 8
@@ -1614,7 +1614,7 @@ ll_append_tail.exit.i574:                         ; preds = %if.end16.i.i572, %i
   %head.4.i575 = phi ptr [ %head.0.ph165.i528, %if.then76.i560 ], [ %.head.0.ph165.i564, %if.end16.i.i572 ]
   %tail.3.i576 = phi ptr [ %tail.0.ph168.i527, %if.then76.i560 ], [ %next.1116.us.i530, %if.end16.i.i572 ]
   store i32 1, ptr %active.i549, align 8
-  %in_group78.i577 = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 12
+  %in_group78.i577 = getelementptr inbounds nuw i8, ptr %next.1116.us.i530, i64 12
   store i32 0, ptr %in_group78.i577, align 4
   br label %if.end139.i551
 
@@ -1644,37 +1644,37 @@ if.end29.lr.ph.i587:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i591:                                 ; preds = %if.then68.us.i640, %if.end29.lr.ph.i587
   %next.1116.us.i592 = phi ptr [ %cond.us.i595, %if.then68.us.i640 ], [ %next.1.ph171.i588, %if.end29.lr.ph.i587 ]
-  %next31.us.i594 = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 16
+  %next31.us.i594 = getelementptr inbounds nuw i8, ptr %next.1116.us.i592, i64 16
   %cond.us.i595 = load ptr, ptr %next31.us.i594, align 8
   %84 = load ptr, ptr %next.1116.us.i592, align 8
-  %algorithm_mkey.us.i596 = getelementptr inbounds i8, ptr %84, i64 12
+  %algorithm_mkey.us.i596 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %85 = load i32, ptr %algorithm_mkey.us.i596, align 4
   %tobool48.not.us.i598 = icmp eq i32 %85, 0
   br i1 %tobool48.not.us.i598, label %if.then68.us.i640, label %lor.lhs.false49.us.i599
 
 lor.lhs.false49.us.i599:                          ; preds = %if.end29.us.i591
-  %algorithm_auth.us.i600 = getelementptr inbounds i8, ptr %84, i64 16
+  %algorithm_auth.us.i600 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i32, ptr %algorithm_auth.us.i600, align 8
   %tobool51.not.us.i602 = icmp eq i32 %86, 0
   br i1 %tobool51.not.us.i602, label %if.then68.us.i640, label %lor.lhs.false52.us.i603
 
 lor.lhs.false52.us.i603:                          ; preds = %lor.lhs.false49.us.i599
-  %algorithm_enc.us.i604 = getelementptr inbounds i8, ptr %84, i64 20
+  %algorithm_enc.us.i604 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %87 = load i32, ptr %algorithm_enc.us.i604, align 4
   %and53.us.i605 = and i32 %87, 32
   %tobool54.not.us.i606 = icmp eq i32 %and53.us.i605, 0
   br i1 %tobool54.not.us.i606, label %if.then68.us.i640, label %lor.lhs.false55.us.i607
 
 lor.lhs.false55.us.i607:                          ; preds = %lor.lhs.false52.us.i603
-  %algorithm_mac.us.i608 = getelementptr inbounds i8, ptr %84, i64 24
+  %algorithm_mac.us.i608 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %88 = load i32, ptr %algorithm_mac.us.i608, align 8
   %tobool57.not.us.i609 = icmp eq i32 %88, 0
   br i1 %tobool57.not.us.i609, label %if.then68.us.i640, label %lor.lhs.false58.us.i610
 
 lor.lhs.false58.us.i610:                          ; preds = %lor.lhs.false55.us.i607
-  %next31.us.i594.le = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 16
-  %prev.us.i593.le = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 24
-  %active.i611 = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 8
+  %next31.us.i594.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i592, i64 16
+  %prev.us.i593.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i592, i64 24
+  %active.i611 = getelementptr inbounds nuw i8, ptr %next.1116.us.i592, i64 8
   %89 = load i32, ptr %active.i611, align 8
   %tobool75.not.i612 = icmp eq i32 %89, 0
   br i1 %tobool75.not.i612, label %if.then76.i622, label %if.end139.i613
@@ -1697,7 +1697,7 @@ if.end.i61.i624:                                  ; preds = %if.then76.i622
   br i1 %cmp4.not.i.i627, label %if.end9.i.i630, label %if.then5.i.i628
 
 if.then5.i.i628:                                  ; preds = %if.end.i61.i624
-  %next8.i.i629 = getelementptr inbounds i8, ptr %90, i64 16
+  %next8.i.i629 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %cond.us.i595, ptr %next8.i.i629, align 8
   br label %if.end9.i.i630
 
@@ -1707,12 +1707,12 @@ if.end9.i.i630:                                   ; preds = %if.then5.i.i628, %i
 
 if.then12.i.i632:                                 ; preds = %if.end9.i.i630
   %91 = load ptr, ptr %prev.us.i593.le, align 8
-  %prev15.i.i633 = getelementptr inbounds i8, ptr %cond.us.i595, i64 24
+  %prev15.i.i633 = getelementptr inbounds nuw i8, ptr %cond.us.i595, i64 24
   store ptr %91, ptr %prev15.i.i633, align 8
   br label %if.end16.i.i634
 
 if.end16.i.i634:                                  ; preds = %if.then12.i.i632, %if.end9.i.i630
-  %next17.i.i635 = getelementptr inbounds i8, ptr %tail.0.ph168.i589, i64 16
+  %next17.i.i635 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i589, i64 16
   store ptr %next.1116.us.i592, ptr %next17.i.i635, align 8
   store ptr %tail.0.ph168.i589, ptr %prev.us.i593.le, align 8
   store ptr null, ptr %next31.us.i594.le, align 8
@@ -1722,7 +1722,7 @@ ll_append_tail.exit.i636:                         ; preds = %if.end16.i.i634, %i
   %head.4.i637 = phi ptr [ %head.0.ph165.i590, %if.then76.i622 ], [ %.head.0.ph165.i626, %if.end16.i.i634 ]
   %tail.3.i638 = phi ptr [ %tail.0.ph168.i589, %if.then76.i622 ], [ %next.1116.us.i592, %if.end16.i.i634 ]
   store i32 1, ptr %active.i611, align 8
-  %in_group78.i639 = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 12
+  %in_group78.i639 = getelementptr inbounds nuw i8, ptr %next.1116.us.i592, i64 12
   store i32 0, ptr %in_group78.i639, align 4
   br label %if.end139.i613
 
@@ -1752,37 +1752,37 @@ if.end29.lr.ph.i649:                              ; preds = %if.end7, %if.end139
 
 if.end29.us.i653:                                 ; preds = %if.then68.us.i702, %if.end29.lr.ph.i649
   %next.1116.us.i654 = phi ptr [ %cond.us.i657, %if.then68.us.i702 ], [ %next.1.ph171.i650, %if.end29.lr.ph.i649 ]
-  %next31.us.i656 = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 16
+  %next31.us.i656 = getelementptr inbounds nuw i8, ptr %next.1116.us.i654, i64 16
   %cond.us.i657 = load ptr, ptr %next31.us.i656, align 8
   %92 = load ptr, ptr %next.1116.us.i654, align 8
-  %algorithm_mkey.us.i658 = getelementptr inbounds i8, ptr %92, i64 12
+  %algorithm_mkey.us.i658 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %93 = load i32, ptr %algorithm_mkey.us.i658, align 4
   %tobool48.not.us.i660 = icmp eq i32 %93, 0
   br i1 %tobool48.not.us.i660, label %if.then68.us.i702, label %lor.lhs.false49.us.i661
 
 lor.lhs.false49.us.i661:                          ; preds = %if.end29.us.i653
-  %algorithm_auth.us.i662 = getelementptr inbounds i8, ptr %92, i64 16
+  %algorithm_auth.us.i662 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i32, ptr %algorithm_auth.us.i662, align 8
   %tobool51.not.us.i664 = icmp eq i32 %94, 0
   br i1 %tobool51.not.us.i664, label %if.then68.us.i702, label %lor.lhs.false52.us.i665
 
 lor.lhs.false52.us.i665:                          ; preds = %lor.lhs.false49.us.i661
-  %algorithm_enc.us.i666 = getelementptr inbounds i8, ptr %92, i64 20
+  %algorithm_enc.us.i666 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %95 = load i32, ptr %algorithm_enc.us.i666, align 4
   %and53.us.i667 = and i32 %95, 4
   %tobool54.not.us.i668 = icmp eq i32 %and53.us.i667, 0
   br i1 %tobool54.not.us.i668, label %if.then68.us.i702, label %lor.lhs.false55.us.i669
 
 lor.lhs.false55.us.i669:                          ; preds = %lor.lhs.false52.us.i665
-  %algorithm_mac.us.i670 = getelementptr inbounds i8, ptr %92, i64 24
+  %algorithm_mac.us.i670 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %96 = load i32, ptr %algorithm_mac.us.i670, align 8
   %tobool57.not.us.i671 = icmp eq i32 %96, 0
   br i1 %tobool57.not.us.i671, label %if.then68.us.i702, label %lor.lhs.false58.us.i672
 
 lor.lhs.false58.us.i672:                          ; preds = %lor.lhs.false55.us.i669
-  %next31.us.i656.le = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 16
-  %prev.us.i655.le = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 24
-  %active.i673 = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 8
+  %next31.us.i656.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i654, i64 16
+  %prev.us.i655.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i654, i64 24
+  %active.i673 = getelementptr inbounds nuw i8, ptr %next.1116.us.i654, i64 8
   %97 = load i32, ptr %active.i673, align 8
   %tobool75.not.i674 = icmp eq i32 %97, 0
   br i1 %tobool75.not.i674, label %if.then76.i684, label %if.end139.i675
@@ -1805,7 +1805,7 @@ if.end.i61.i686:                                  ; preds = %if.then76.i684
   br i1 %cmp4.not.i.i689, label %if.end9.i.i692, label %if.then5.i.i690
 
 if.then5.i.i690:                                  ; preds = %if.end.i61.i686
-  %next8.i.i691 = getelementptr inbounds i8, ptr %98, i64 16
+  %next8.i.i691 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %cond.us.i657, ptr %next8.i.i691, align 8
   br label %if.end9.i.i692
 
@@ -1815,12 +1815,12 @@ if.end9.i.i692:                                   ; preds = %if.then5.i.i690, %i
 
 if.then12.i.i694:                                 ; preds = %if.end9.i.i692
   %99 = load ptr, ptr %prev.us.i655.le, align 8
-  %prev15.i.i695 = getelementptr inbounds i8, ptr %cond.us.i657, i64 24
+  %prev15.i.i695 = getelementptr inbounds nuw i8, ptr %cond.us.i657, i64 24
   store ptr %99, ptr %prev15.i.i695, align 8
   br label %if.end16.i.i696
 
 if.end16.i.i696:                                  ; preds = %if.then12.i.i694, %if.end9.i.i692
-  %next17.i.i697 = getelementptr inbounds i8, ptr %tail.0.ph168.i651, i64 16
+  %next17.i.i697 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i651, i64 16
   store ptr %next.1116.us.i654, ptr %next17.i.i697, align 8
   store ptr %tail.0.ph168.i651, ptr %prev.us.i655.le, align 8
   store ptr null, ptr %next31.us.i656.le, align 8
@@ -1830,7 +1830,7 @@ ll_append_tail.exit.i698:                         ; preds = %if.end16.i.i696, %i
   %head.4.i699 = phi ptr [ %head.0.ph165.i652, %if.then76.i684 ], [ %.head.0.ph165.i688, %if.end16.i.i696 ]
   %tail.3.i700 = phi ptr [ %tail.0.ph168.i651, %if.then76.i684 ], [ %next.1116.us.i654, %if.end16.i.i696 ]
   store i32 1, ptr %active.i673, align 8
-  %in_group78.i701 = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 12
+  %in_group78.i701 = getelementptr inbounds nuw i8, ptr %next.1116.us.i654, i64 12
   store i32 0, ptr %in_group78.i701, align 4
   br label %if.end139.i675
 
@@ -1860,37 +1860,37 @@ if.end29.lr.ph.i711:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i715:                                 ; preds = %if.then68.us.i764, %if.end29.lr.ph.i711
   %next.1116.us.i716 = phi ptr [ %cond.us.i719, %if.then68.us.i764 ], [ %next.1.ph171.i712, %if.end29.lr.ph.i711 ]
-  %next31.us.i718 = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 16
+  %next31.us.i718 = getelementptr inbounds nuw i8, ptr %next.1116.us.i716, i64 16
   %cond.us.i719 = load ptr, ptr %next31.us.i718, align 8
   %100 = load ptr, ptr %next.1116.us.i716, align 8
-  %algorithm_mkey.us.i720 = getelementptr inbounds i8, ptr %100, i64 12
+  %algorithm_mkey.us.i720 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %101 = load i32, ptr %algorithm_mkey.us.i720, align 4
   %tobool48.not.us.i722 = icmp eq i32 %101, 0
   br i1 %tobool48.not.us.i722, label %if.then68.us.i764, label %lor.lhs.false49.us.i723
 
 lor.lhs.false49.us.i723:                          ; preds = %if.end29.us.i715
-  %algorithm_auth.us.i724 = getelementptr inbounds i8, ptr %100, i64 16
+  %algorithm_auth.us.i724 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i32, ptr %algorithm_auth.us.i724, align 8
   %tobool51.not.us.i726 = icmp eq i32 %102, 0
   br i1 %tobool51.not.us.i726, label %if.then68.us.i764, label %lor.lhs.false52.us.i727
 
 lor.lhs.false52.us.i727:                          ; preds = %lor.lhs.false49.us.i723
-  %algorithm_enc.us.i728 = getelementptr inbounds i8, ptr %100, i64 20
+  %algorithm_enc.us.i728 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %103 = load i32, ptr %algorithm_enc.us.i728, align 4
   %and53.us.i729 = and i32 %103, 8
   %tobool54.not.us.i730 = icmp eq i32 %and53.us.i729, 0
   br i1 %tobool54.not.us.i730, label %if.then68.us.i764, label %lor.lhs.false55.us.i731
 
 lor.lhs.false55.us.i731:                          ; preds = %lor.lhs.false52.us.i727
-  %algorithm_mac.us.i732 = getelementptr inbounds i8, ptr %100, i64 24
+  %algorithm_mac.us.i732 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %104 = load i32, ptr %algorithm_mac.us.i732, align 8
   %tobool57.not.us.i733 = icmp eq i32 %104, 0
   br i1 %tobool57.not.us.i733, label %if.then68.us.i764, label %lor.lhs.false58.us.i734
 
 lor.lhs.false58.us.i734:                          ; preds = %lor.lhs.false55.us.i731
-  %next31.us.i718.le = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 16
-  %prev.us.i717.le = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 24
-  %active.i735 = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 8
+  %next31.us.i718.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i716, i64 16
+  %prev.us.i717.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i716, i64 24
+  %active.i735 = getelementptr inbounds nuw i8, ptr %next.1116.us.i716, i64 8
   %105 = load i32, ptr %active.i735, align 8
   %tobool75.not.i736 = icmp eq i32 %105, 0
   br i1 %tobool75.not.i736, label %if.then76.i746, label %if.end139.i737
@@ -1913,7 +1913,7 @@ if.end.i61.i748:                                  ; preds = %if.then76.i746
   br i1 %cmp4.not.i.i751, label %if.end9.i.i754, label %if.then5.i.i752
 
 if.then5.i.i752:                                  ; preds = %if.end.i61.i748
-  %next8.i.i753 = getelementptr inbounds i8, ptr %106, i64 16
+  %next8.i.i753 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store ptr %cond.us.i719, ptr %next8.i.i753, align 8
   br label %if.end9.i.i754
 
@@ -1923,12 +1923,12 @@ if.end9.i.i754:                                   ; preds = %if.then5.i.i752, %i
 
 if.then12.i.i756:                                 ; preds = %if.end9.i.i754
   %107 = load ptr, ptr %prev.us.i717.le, align 8
-  %prev15.i.i757 = getelementptr inbounds i8, ptr %cond.us.i719, i64 24
+  %prev15.i.i757 = getelementptr inbounds nuw i8, ptr %cond.us.i719, i64 24
   store ptr %107, ptr %prev15.i.i757, align 8
   br label %if.end16.i.i758
 
 if.end16.i.i758:                                  ; preds = %if.then12.i.i756, %if.end9.i.i754
-  %next17.i.i759 = getelementptr inbounds i8, ptr %tail.0.ph168.i713, i64 16
+  %next17.i.i759 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i713, i64 16
   store ptr %next.1116.us.i716, ptr %next17.i.i759, align 8
   store ptr %tail.0.ph168.i713, ptr %prev.us.i717.le, align 8
   store ptr null, ptr %next31.us.i718.le, align 8
@@ -1938,7 +1938,7 @@ ll_append_tail.exit.i760:                         ; preds = %if.end16.i.i758, %i
   %head.4.i761 = phi ptr [ %head.0.ph165.i714, %if.then76.i746 ], [ %.head.0.ph165.i750, %if.end16.i.i758 ]
   %tail.3.i762 = phi ptr [ %tail.0.ph168.i713, %if.then76.i746 ], [ %next.1116.us.i716, %if.end16.i.i758 ]
   store i32 1, ptr %active.i735, align 8
-  %in_group78.i763 = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 12
+  %in_group78.i763 = getelementptr inbounds nuw i8, ptr %next.1116.us.i716, i64 12
   store i32 0, ptr %in_group78.i763, align 4
   br label %if.end139.i737
 
@@ -1968,37 +1968,37 @@ if.end29.lr.ph.i773:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i777:                                 ; preds = %if.then68.us.i826, %if.end29.lr.ph.i773
   %next.1116.us.i778 = phi ptr [ %cond.us.i781, %if.then68.us.i826 ], [ %next.1.ph171.i774, %if.end29.lr.ph.i773 ]
-  %next31.us.i780 = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 16
+  %next31.us.i780 = getelementptr inbounds nuw i8, ptr %next.1116.us.i778, i64 16
   %cond.us.i781 = load ptr, ptr %next31.us.i780, align 8
   %108 = load ptr, ptr %next.1116.us.i778, align 8
-  %algorithm_mkey.us.i782 = getelementptr inbounds i8, ptr %108, i64 12
+  %algorithm_mkey.us.i782 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %109 = load i32, ptr %algorithm_mkey.us.i782, align 4
   %tobool48.not.us.i784 = icmp eq i32 %109, 0
   br i1 %tobool48.not.us.i784, label %if.then68.us.i826, label %lor.lhs.false49.us.i785
 
 lor.lhs.false49.us.i785:                          ; preds = %if.end29.us.i777
-  %algorithm_auth.us.i786 = getelementptr inbounds i8, ptr %108, i64 16
+  %algorithm_auth.us.i786 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %algorithm_auth.us.i786, align 8
   %tobool51.not.us.i788 = icmp eq i32 %110, 0
   br i1 %tobool51.not.us.i788, label %if.then68.us.i826, label %lor.lhs.false52.us.i789
 
 lor.lhs.false52.us.i789:                          ; preds = %lor.lhs.false49.us.i785
-  %algorithm_enc.us.i790 = getelementptr inbounds i8, ptr %108, i64 20
+  %algorithm_enc.us.i790 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %111 = load i32, ptr %algorithm_enc.us.i790, align 4
   %and53.us.i791 = and i32 %111, 1
   %tobool54.not.us.i792 = icmp eq i32 %and53.us.i791, 0
   br i1 %tobool54.not.us.i792, label %if.then68.us.i826, label %lor.lhs.false55.us.i793
 
 lor.lhs.false55.us.i793:                          ; preds = %lor.lhs.false52.us.i789
-  %algorithm_mac.us.i794 = getelementptr inbounds i8, ptr %108, i64 24
+  %algorithm_mac.us.i794 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %112 = load i32, ptr %algorithm_mac.us.i794, align 8
   %tobool57.not.us.i795 = icmp eq i32 %112, 0
   br i1 %tobool57.not.us.i795, label %if.then68.us.i826, label %lor.lhs.false58.us.i796
 
 lor.lhs.false58.us.i796:                          ; preds = %lor.lhs.false55.us.i793
-  %next31.us.i780.le = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 16
-  %prev.us.i779.le = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 24
-  %active.i797 = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 8
+  %next31.us.i780.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i778, i64 16
+  %prev.us.i779.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i778, i64 24
+  %active.i797 = getelementptr inbounds nuw i8, ptr %next.1116.us.i778, i64 8
   %113 = load i32, ptr %active.i797, align 8
   %tobool75.not.i798 = icmp eq i32 %113, 0
   br i1 %tobool75.not.i798, label %if.then76.i808, label %if.end139.i799
@@ -2021,7 +2021,7 @@ if.end.i61.i810:                                  ; preds = %if.then76.i808
   br i1 %cmp4.not.i.i813, label %if.end9.i.i816, label %if.then5.i.i814
 
 if.then5.i.i814:                                  ; preds = %if.end.i61.i810
-  %next8.i.i815 = getelementptr inbounds i8, ptr %114, i64 16
+  %next8.i.i815 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %cond.us.i781, ptr %next8.i.i815, align 8
   br label %if.end9.i.i816
 
@@ -2031,12 +2031,12 @@ if.end9.i.i816:                                   ; preds = %if.then5.i.i814, %i
 
 if.then12.i.i818:                                 ; preds = %if.end9.i.i816
   %115 = load ptr, ptr %prev.us.i779.le, align 8
-  %prev15.i.i819 = getelementptr inbounds i8, ptr %cond.us.i781, i64 24
+  %prev15.i.i819 = getelementptr inbounds nuw i8, ptr %cond.us.i781, i64 24
   store ptr %115, ptr %prev15.i.i819, align 8
   br label %if.end16.i.i820
 
 if.end16.i.i820:                                  ; preds = %if.then12.i.i818, %if.end9.i.i816
-  %next17.i.i821 = getelementptr inbounds i8, ptr %tail.0.ph168.i775, i64 16
+  %next17.i.i821 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i775, i64 16
   store ptr %next.1116.us.i778, ptr %next17.i.i821, align 8
   store ptr %tail.0.ph168.i775, ptr %prev.us.i779.le, align 8
   store ptr null, ptr %next31.us.i780.le, align 8
@@ -2046,7 +2046,7 @@ ll_append_tail.exit.i822:                         ; preds = %if.end16.i.i820, %i
   %head.4.i823 = phi ptr [ %head.0.ph165.i776, %if.then76.i808 ], [ %.head.0.ph165.i812, %if.end16.i.i820 ]
   %tail.3.i824 = phi ptr [ %tail.0.ph168.i775, %if.then76.i808 ], [ %next.1116.us.i778, %if.end16.i.i820 ]
   store i32 1, ptr %active.i797, align 8
-  %in_group78.i825 = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 12
+  %in_group78.i825 = getelementptr inbounds nuw i8, ptr %next.1116.us.i778, i64 12
   store i32 0, ptr %in_group78.i825, align 4
   br label %if.end139.i799
 
@@ -2076,37 +2076,37 @@ if.end29.lr.ph.i835:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i839:                                 ; preds = %if.then68.us.i888, %if.end29.lr.ph.i835
   %next.1116.us.i840 = phi ptr [ %cond.us.i843, %if.then68.us.i888 ], [ %next.1.ph171.i836, %if.end29.lr.ph.i835 ]
-  %next31.us.i842 = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 16
+  %next31.us.i842 = getelementptr inbounds nuw i8, ptr %next.1116.us.i840, i64 16
   %cond.us.i843 = load ptr, ptr %next31.us.i842, align 8
   %116 = load ptr, ptr %next.1116.us.i840, align 8
-  %algorithm_mkey.us.i844 = getelementptr inbounds i8, ptr %116, i64 12
+  %algorithm_mkey.us.i844 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %117 = load i32, ptr %algorithm_mkey.us.i844, align 4
   %tobool48.not.us.i846 = icmp eq i32 %117, 0
   br i1 %tobool48.not.us.i846, label %if.then68.us.i888, label %lor.lhs.false49.us.i847
 
 lor.lhs.false49.us.i847:                          ; preds = %if.end29.us.i839
-  %algorithm_auth.us.i848 = getelementptr inbounds i8, ptr %116, i64 16
+  %algorithm_auth.us.i848 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i32, ptr %algorithm_auth.us.i848, align 8
   %tobool51.not.us.i850 = icmp eq i32 %118, 0
   br i1 %tobool51.not.us.i850, label %if.then68.us.i888, label %lor.lhs.false52.us.i851
 
 lor.lhs.false52.us.i851:                          ; preds = %lor.lhs.false49.us.i847
-  %algorithm_enc.us.i852 = getelementptr inbounds i8, ptr %116, i64 20
+  %algorithm_enc.us.i852 = getelementptr inbounds nuw i8, ptr %116, i64 20
   %119 = load i32, ptr %algorithm_enc.us.i852, align 4
   %and53.us.i853 = and i32 %119, 2
   %tobool54.not.us.i854 = icmp eq i32 %and53.us.i853, 0
   br i1 %tobool54.not.us.i854, label %if.then68.us.i888, label %lor.lhs.false55.us.i855
 
 lor.lhs.false55.us.i855:                          ; preds = %lor.lhs.false52.us.i851
-  %algorithm_mac.us.i856 = getelementptr inbounds i8, ptr %116, i64 24
+  %algorithm_mac.us.i856 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %120 = load i32, ptr %algorithm_mac.us.i856, align 8
   %tobool57.not.us.i857 = icmp ult i32 %120, 2
   br i1 %tobool57.not.us.i857, label %if.then68.us.i888, label %lor.lhs.false58.us.i858
 
 lor.lhs.false58.us.i858:                          ; preds = %lor.lhs.false55.us.i855
-  %next31.us.i842.le = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 16
-  %prev.us.i841.le = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 24
-  %active.i859 = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 8
+  %next31.us.i842.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i840, i64 16
+  %prev.us.i841.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i840, i64 24
+  %active.i859 = getelementptr inbounds nuw i8, ptr %next.1116.us.i840, i64 8
   %121 = load i32, ptr %active.i859, align 8
   %tobool75.not.i860 = icmp eq i32 %121, 0
   br i1 %tobool75.not.i860, label %if.then76.i870, label %if.end139.i861
@@ -2129,7 +2129,7 @@ if.end.i61.i872:                                  ; preds = %if.then76.i870
   br i1 %cmp4.not.i.i875, label %if.end9.i.i878, label %if.then5.i.i876
 
 if.then5.i.i876:                                  ; preds = %if.end.i61.i872
-  %next8.i.i877 = getelementptr inbounds i8, ptr %122, i64 16
+  %next8.i.i877 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr %cond.us.i843, ptr %next8.i.i877, align 8
   br label %if.end9.i.i878
 
@@ -2139,12 +2139,12 @@ if.end9.i.i878:                                   ; preds = %if.then5.i.i876, %i
 
 if.then12.i.i880:                                 ; preds = %if.end9.i.i878
   %123 = load ptr, ptr %prev.us.i841.le, align 8
-  %prev15.i.i881 = getelementptr inbounds i8, ptr %cond.us.i843, i64 24
+  %prev15.i.i881 = getelementptr inbounds nuw i8, ptr %cond.us.i843, i64 24
   store ptr %123, ptr %prev15.i.i881, align 8
   br label %if.end16.i.i882
 
 if.end16.i.i882:                                  ; preds = %if.then12.i.i880, %if.end9.i.i878
-  %next17.i.i883 = getelementptr inbounds i8, ptr %tail.0.ph168.i837, i64 16
+  %next17.i.i883 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i837, i64 16
   store ptr %next.1116.us.i840, ptr %next17.i.i883, align 8
   store ptr %tail.0.ph168.i837, ptr %prev.us.i841.le, align 8
   store ptr null, ptr %next31.us.i842.le, align 8
@@ -2154,7 +2154,7 @@ ll_append_tail.exit.i884:                         ; preds = %if.end16.i.i882, %i
   %head.4.i885 = phi ptr [ %head.0.ph165.i838, %if.then76.i870 ], [ %.head.0.ph165.i874, %if.end16.i.i882 ]
   %tail.3.i886 = phi ptr [ %tail.0.ph168.i837, %if.then76.i870 ], [ %next.1116.us.i840, %if.end16.i.i882 ]
   store i32 1, ptr %active.i859, align 8
-  %in_group78.i887 = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 12
+  %in_group78.i887 = getelementptr inbounds nuw i8, ptr %next.1116.us.i840, i64 12
   store i32 0, ptr %in_group78.i887, align 4
   br label %if.end139.i861
 
@@ -2184,38 +2184,38 @@ if.end29.lr.ph.i897:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i901:                                 ; preds = %if.then68.us.i951, %if.end29.lr.ph.i897
   %next.1116.us.i902 = phi ptr [ %cond.us.i905, %if.then68.us.i951 ], [ %next.1.ph171.i898, %if.end29.lr.ph.i897 ]
-  %next31.us.i904 = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 16
+  %next31.us.i904 = getelementptr inbounds nuw i8, ptr %next.1116.us.i902, i64 16
   %cond.us.i905 = load ptr, ptr %next31.us.i904, align 8
   %124 = load ptr, ptr %next.1116.us.i902, align 8
-  %algorithm_mkey.us.i906 = getelementptr inbounds i8, ptr %124, i64 12
+  %algorithm_mkey.us.i906 = getelementptr inbounds nuw i8, ptr %124, i64 12
   %125 = load i32, ptr %algorithm_mkey.us.i906, align 4
   %tobool48.not.us.i908 = icmp eq i32 %125, 0
   br i1 %tobool48.not.us.i908, label %if.then68.us.i951, label %lor.lhs.false49.us.i909
 
 lor.lhs.false49.us.i909:                          ; preds = %if.end29.us.i901
-  %algorithm_auth.us.i910 = getelementptr inbounds i8, ptr %124, i64 16
+  %algorithm_auth.us.i910 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i32, ptr %algorithm_auth.us.i910, align 8
   %tobool51.not.us.i912 = icmp eq i32 %126, 0
   br i1 %tobool51.not.us.i912, label %if.then68.us.i951, label %lor.lhs.false52.us.i913
 
 lor.lhs.false52.us.i913:                          ; preds = %lor.lhs.false49.us.i909
-  %algorithm_enc.us.i914 = getelementptr inbounds i8, ptr %124, i64 20
+  %algorithm_enc.us.i914 = getelementptr inbounds nuw i8, ptr %124, i64 20
   %127 = load i32, ptr %algorithm_enc.us.i914, align 4
   %and53.us.i915 = and i32 %127, 2
   %tobool54.not.us.i916 = icmp eq i32 %and53.us.i915, 0
   br i1 %tobool54.not.us.i916, label %if.then68.us.i951, label %lor.lhs.false55.us.i917
 
 lor.lhs.false55.us.i917:                          ; preds = %lor.lhs.false52.us.i913
-  %algorithm_mac.us.i918 = getelementptr inbounds i8, ptr %124, i64 24
+  %algorithm_mac.us.i918 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %128 = load i32, ptr %algorithm_mac.us.i918, align 8
   %and56.us.i919 = and i32 %128, 1
   %tobool57.not.us.i920 = icmp eq i32 %and56.us.i919, 0
   br i1 %tobool57.not.us.i920, label %if.then68.us.i951, label %lor.lhs.false58.us.i921
 
 lor.lhs.false58.us.i921:                          ; preds = %lor.lhs.false55.us.i917
-  %next31.us.i904.le = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 16
-  %prev.us.i903.le = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 24
-  %active.i922 = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 8
+  %next31.us.i904.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i902, i64 16
+  %prev.us.i903.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i902, i64 24
+  %active.i922 = getelementptr inbounds nuw i8, ptr %next.1116.us.i902, i64 8
   %129 = load i32, ptr %active.i922, align 8
   %tobool75.not.i923 = icmp eq i32 %129, 0
   br i1 %tobool75.not.i923, label %if.then76.i933, label %if.end139.i924
@@ -2238,7 +2238,7 @@ if.end.i61.i935:                                  ; preds = %if.then76.i933
   br i1 %cmp4.not.i.i938, label %if.end9.i.i941, label %if.then5.i.i939
 
 if.then5.i.i939:                                  ; preds = %if.end.i61.i935
-  %next8.i.i940 = getelementptr inbounds i8, ptr %130, i64 16
+  %next8.i.i940 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store ptr %cond.us.i905, ptr %next8.i.i940, align 8
   br label %if.end9.i.i941
 
@@ -2248,12 +2248,12 @@ if.end9.i.i941:                                   ; preds = %if.then5.i.i939, %i
 
 if.then12.i.i943:                                 ; preds = %if.end9.i.i941
   %131 = load ptr, ptr %prev.us.i903.le, align 8
-  %prev15.i.i944 = getelementptr inbounds i8, ptr %cond.us.i905, i64 24
+  %prev15.i.i944 = getelementptr inbounds nuw i8, ptr %cond.us.i905, i64 24
   store ptr %131, ptr %prev15.i.i944, align 8
   br label %if.end16.i.i945
 
 if.end16.i.i945:                                  ; preds = %if.then12.i.i943, %if.end9.i.i941
-  %next17.i.i946 = getelementptr inbounds i8, ptr %tail.0.ph168.i899, i64 16
+  %next17.i.i946 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i899, i64 16
   store ptr %next.1116.us.i902, ptr %next17.i.i946, align 8
   store ptr %tail.0.ph168.i899, ptr %prev.us.i903.le, align 8
   store ptr null, ptr %next31.us.i904.le, align 8
@@ -2263,7 +2263,7 @@ ll_append_tail.exit.i947:                         ; preds = %if.end16.i.i945, %i
   %head.4.i948 = phi ptr [ %head.0.ph165.i900, %if.then76.i933 ], [ %.head.0.ph165.i937, %if.end16.i.i945 ]
   %tail.3.i949 = phi ptr [ %tail.0.ph168.i899, %if.then76.i933 ], [ %next.1116.us.i902, %if.end16.i.i945 ]
   store i32 1, ptr %active.i922, align 8
-  %in_group78.i950 = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 12
+  %in_group78.i950 = getelementptr inbounds nuw i8, ptr %next.1116.us.i902, i64 12
   store i32 0, ptr %in_group78.i950, align 4
   br label %if.end139.i924
 
@@ -2293,36 +2293,36 @@ if.end29.lr.ph.i960:                              ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i964:                                 ; preds = %if.then68.us.i1014, %if.end29.lr.ph.i960
   %next.1116.us.i965 = phi ptr [ %cond.us.i968, %if.then68.us.i1014 ], [ %next.1.ph171.i961, %if.end29.lr.ph.i960 ]
-  %next31.us.i967 = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 16
+  %next31.us.i967 = getelementptr inbounds nuw i8, ptr %next.1116.us.i965, i64 16
   %cond.us.i968 = load ptr, ptr %next31.us.i967, align 8
   %132 = load ptr, ptr %next.1116.us.i965, align 8
-  %algorithm_mkey.us.i969 = getelementptr inbounds i8, ptr %132, i64 12
+  %algorithm_mkey.us.i969 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %133 = load i32, ptr %algorithm_mkey.us.i969, align 4
   %tobool48.not.us.i971 = icmp eq i32 %133, 0
   br i1 %tobool48.not.us.i971, label %if.then68.us.i1014, label %lor.lhs.false49.us.i972
 
 lor.lhs.false49.us.i972:                          ; preds = %if.end29.us.i964
-  %algorithm_auth.us.i973 = getelementptr inbounds i8, ptr %132, i64 16
+  %algorithm_auth.us.i973 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i32, ptr %algorithm_auth.us.i973, align 8
   %tobool51.not.us.i975 = icmp eq i32 %134, 0
   br i1 %tobool51.not.us.i975, label %if.then68.us.i1014, label %lor.lhs.false52.us.i976
 
 lor.lhs.false52.us.i976:                          ; preds = %lor.lhs.false49.us.i972
-  %algorithm_enc.us.i977 = getelementptr inbounds i8, ptr %132, i64 20
+  %algorithm_enc.us.i977 = getelementptr inbounds nuw i8, ptr %132, i64 20
   %135 = load i32, ptr %algorithm_enc.us.i977, align 4
   %tobool54.not.us.i979 = icmp eq i32 %135, 0
   br i1 %tobool54.not.us.i979, label %if.then68.us.i1014, label %lor.lhs.false55.us.i980
 
 lor.lhs.false55.us.i980:                          ; preds = %lor.lhs.false52.us.i976
-  %algorithm_mac.us.i981 = getelementptr inbounds i8, ptr %132, i64 24
+  %algorithm_mac.us.i981 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %136 = load i32, ptr %algorithm_mac.us.i981, align 8
   %tobool57.not.us.i983 = icmp eq i32 %136, 0
   br i1 %tobool57.not.us.i983, label %if.then68.us.i1014, label %lor.lhs.false58.us.i984
 
 lor.lhs.false58.us.i984:                          ; preds = %lor.lhs.false55.us.i980
-  %next31.us.i967.le = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 16
-  %prev.us.i966.le = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 24
-  %active.i985 = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 8
+  %next31.us.i967.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i965, i64 16
+  %prev.us.i966.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i965, i64 24
+  %active.i985 = getelementptr inbounds nuw i8, ptr %next.1116.us.i965, i64 8
   %137 = load i32, ptr %active.i985, align 8
   %tobool75.not.i986 = icmp eq i32 %137, 0
   br i1 %tobool75.not.i986, label %if.then76.i996, label %if.end139.i987
@@ -2345,7 +2345,7 @@ if.end.i61.i998:                                  ; preds = %if.then76.i996
   br i1 %cmp4.not.i.i1001, label %if.end9.i.i1004, label %if.then5.i.i1002
 
 if.then5.i.i1002:                                 ; preds = %if.end.i61.i998
-  %next8.i.i1003 = getelementptr inbounds i8, ptr %138, i64 16
+  %next8.i.i1003 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %cond.us.i968, ptr %next8.i.i1003, align 8
   br label %if.end9.i.i1004
 
@@ -2355,12 +2355,12 @@ if.end9.i.i1004:                                  ; preds = %if.then5.i.i1002, %
 
 if.then12.i.i1006:                                ; preds = %if.end9.i.i1004
   %139 = load ptr, ptr %prev.us.i966.le, align 8
-  %prev15.i.i1007 = getelementptr inbounds i8, ptr %cond.us.i968, i64 24
+  %prev15.i.i1007 = getelementptr inbounds nuw i8, ptr %cond.us.i968, i64 24
   store ptr %139, ptr %prev15.i.i1007, align 8
   br label %if.end16.i.i1008
 
 if.end16.i.i1008:                                 ; preds = %if.then12.i.i1006, %if.end9.i.i1004
-  %next17.i.i1009 = getelementptr inbounds i8, ptr %tail.0.ph168.i962, i64 16
+  %next17.i.i1009 = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i962, i64 16
   store ptr %next.1116.us.i965, ptr %next17.i.i1009, align 8
   store ptr %tail.0.ph168.i962, ptr %prev.us.i966.le, align 8
   store ptr null, ptr %next31.us.i967.le, align 8
@@ -2370,7 +2370,7 @@ ll_append_tail.exit.i1010:                        ; preds = %if.end16.i.i1008, %
   %head.4.i1011 = phi ptr [ %head.0.ph165.i963, %if.then76.i996 ], [ %.head.0.ph165.i1000, %if.end16.i.i1008 ]
   %tail.3.i1012 = phi ptr [ %tail.0.ph168.i962, %if.then76.i996 ], [ %next.1116.us.i965, %if.end16.i.i1008 ]
   store i32 1, ptr %active.i985, align 8
-  %in_group78.i1013 = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 12
+  %in_group78.i1013 = getelementptr inbounds nuw i8, ptr %next.1116.us.i965, i64 12
   store i32 0, ptr %in_group78.i1013, align 4
   br label %if.end139.i987
 
@@ -2400,37 +2400,37 @@ if.end29.lr.ph.i1023:                             ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i1027:                                ; preds = %if.then68.us.i1057, %if.end29.lr.ph.i1023
   %next.1116.us.i1028 = phi ptr [ %cond.us.i1031, %if.then68.us.i1057 ], [ %next.1.ph171.i1024, %if.end29.lr.ph.i1023 ]
-  %next31.us.i1030 = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 16
+  %next31.us.i1030 = getelementptr inbounds nuw i8, ptr %next.1116.us.i1028, i64 16
   %cond.us.i1031 = load ptr, ptr %next31.us.i1030, align 8
   %140 = load ptr, ptr %next.1116.us.i1028, align 8
-  %algorithm_mkey.us.i1032 = getelementptr inbounds i8, ptr %140, i64 12
+  %algorithm_mkey.us.i1032 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %141 = load i32, ptr %algorithm_mkey.us.i1032, align 4
   %and.us.i1033 = and i32 %141, -7
   %tobool48.not.us.i1034 = icmp eq i32 %and.us.i1033, 0
   br i1 %tobool48.not.us.i1034, label %if.then68.us.i1057, label %lor.lhs.false49.us.i1035
 
 lor.lhs.false49.us.i1035:                         ; preds = %if.end29.us.i1027
-  %algorithm_auth.us.i1036 = getelementptr inbounds i8, ptr %140, i64 16
+  %algorithm_auth.us.i1036 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load i32, ptr %algorithm_auth.us.i1036, align 8
   %tobool51.not.us.i1038 = icmp eq i32 %142, 0
   br i1 %tobool51.not.us.i1038, label %if.then68.us.i1057, label %lor.lhs.false52.us.i1039
 
 lor.lhs.false52.us.i1039:                         ; preds = %lor.lhs.false49.us.i1035
-  %algorithm_enc.us.i1040 = getelementptr inbounds i8, ptr %140, i64 20
+  %algorithm_enc.us.i1040 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %143 = load i32, ptr %algorithm_enc.us.i1040, align 4
   %tobool54.not.us.i1042 = icmp eq i32 %143, 0
   br i1 %tobool54.not.us.i1042, label %if.then68.us.i1057, label %lor.lhs.false55.us.i1043
 
 lor.lhs.false55.us.i1043:                         ; preds = %lor.lhs.false52.us.i1039
-  %algorithm_mac.us.i1044 = getelementptr inbounds i8, ptr %140, i64 24
+  %algorithm_mac.us.i1044 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %144 = load i32, ptr %algorithm_mac.us.i1044, align 8
   %tobool57.not.us.i1046 = icmp eq i32 %144, 0
   br i1 %tobool57.not.us.i1046, label %if.then68.us.i1057, label %lor.lhs.false58.us.i1047
 
 lor.lhs.false58.us.i1047:                         ; preds = %lor.lhs.false55.us.i1043
-  %next31.us.i1030.le = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 16
-  %prev.us.i1029.le = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 24
-  %active84.i = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 8
+  %next31.us.i1030.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i1028, i64 16
+  %prev.us.i1029.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i1028, i64 24
+  %active84.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i1028, i64 8
   %145 = load i32, ptr %active84.i, align 8
   %tobool85.not.i = icmp eq i32 %145, 0
   br i1 %tobool85.not.i, label %if.end139.i1048, label %if.then86.i
@@ -2453,7 +2453,7 @@ if.end.i63.i:                                     ; preds = %if.then86.i
   br i1 %cmp4.not.i67.i, label %if.end9.i72.i, label %if.then5.i70.i
 
 if.then5.i70.i:                                   ; preds = %if.end.i63.i
-  %next8.i71.i = getelementptr inbounds i8, ptr %146, i64 16
+  %next8.i71.i = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr %cond.us.i1031, ptr %next8.i71.i, align 8
   br label %if.end9.i72.i
 
@@ -2463,12 +2463,12 @@ if.end9.i72.i:                                    ; preds = %if.then5.i70.i, %if
 
 if.then12.i75.i:                                  ; preds = %if.end9.i72.i
   %147 = load ptr, ptr %prev.us.i1029.le, align 8
-  %prev15.i76.i = getelementptr inbounds i8, ptr %cond.us.i1031, i64 24
+  %prev15.i76.i = getelementptr inbounds nuw i8, ptr %cond.us.i1031, i64 24
   store ptr %147, ptr %prev15.i76.i, align 8
   br label %if.end16.i77.i
 
 if.end16.i77.i:                                   ; preds = %if.then12.i75.i, %if.end9.i72.i
-  %next17.i78.i = getelementptr inbounds i8, ptr %tail.0.ph168.i1025, i64 16
+  %next17.i78.i = getelementptr inbounds nuw i8, ptr %tail.0.ph168.i1025, i64 16
   store ptr %next.1116.us.i1028, ptr %next17.i78.i, align 8
   store ptr %tail.0.ph168.i1025, ptr %prev.us.i1029.le, align 8
   store ptr null, ptr %next31.us.i1030.le, align 8
@@ -2477,7 +2477,7 @@ if.end16.i77.i:                                   ; preds = %if.then12.i75.i, %i
 ll_append_tail.exit81.i:                          ; preds = %if.end16.i77.i, %if.then86.i
   %head.6.i = phi ptr [ %head.0.ph165.i1026, %if.then86.i ], [ %.head.0.ph165228.i, %if.end16.i77.i ]
   %tail.4.i = phi ptr [ %tail.0.ph168.i1025, %if.then86.i ], [ %next.1116.us.i1028, %if.end16.i77.i ]
-  %in_group87.i = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 12
+  %in_group87.i = getelementptr inbounds nuw i8, ptr %next.1116.us.i1028, i64 12
   store i32 0, ptr %in_group87.i, align 4
   br label %if.end139.i1048
 
@@ -2507,36 +2507,36 @@ if.end29.lr.ph.i1066:                             ; preds = %ssl_cipher_apply_ru
 
 if.end29.us.i1070:                                ; preds = %if.then68.us.i1120, %if.end29.lr.ph.i1066
   %next.1116.us.i1071 = phi ptr [ %cond.us.i1074, %if.then68.us.i1120 ], [ %next.1.ph171.i1067, %if.end29.lr.ph.i1066 ]
-  %prev.us.i1072 = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 24
+  %prev.us.i1072 = getelementptr inbounds nuw i8, ptr %next.1116.us.i1071, i64 24
   %cond.us.i1074 = load ptr, ptr %prev.us.i1072, align 8
   %148 = load ptr, ptr %next.1116.us.i1071, align 8
-  %algorithm_mkey.us.i1075 = getelementptr inbounds i8, ptr %148, i64 12
+  %algorithm_mkey.us.i1075 = getelementptr inbounds nuw i8, ptr %148, i64 12
   %149 = load i32, ptr %algorithm_mkey.us.i1075, align 4
   %tobool48.not.us.i1077 = icmp eq i32 %149, 0
   br i1 %tobool48.not.us.i1077, label %if.then68.us.i1120, label %lor.lhs.false49.us.i1078
 
 lor.lhs.false49.us.i1078:                         ; preds = %if.end29.us.i1070
-  %algorithm_auth.us.i1079 = getelementptr inbounds i8, ptr %148, i64 16
+  %algorithm_auth.us.i1079 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load i32, ptr %algorithm_auth.us.i1079, align 8
   %tobool51.not.us.i1081 = icmp eq i32 %150, 0
   br i1 %tobool51.not.us.i1081, label %if.then68.us.i1120, label %lor.lhs.false52.us.i1082
 
 lor.lhs.false52.us.i1082:                         ; preds = %lor.lhs.false49.us.i1078
-  %algorithm_enc.us.i1083 = getelementptr inbounds i8, ptr %148, i64 20
+  %algorithm_enc.us.i1083 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %151 = load i32, ptr %algorithm_enc.us.i1083, align 4
   %tobool54.not.us.i1085 = icmp eq i32 %151, 0
   br i1 %tobool54.not.us.i1085, label %if.then68.us.i1120, label %lor.lhs.false55.us.i1086
 
 lor.lhs.false55.us.i1086:                         ; preds = %lor.lhs.false52.us.i1082
-  %algorithm_mac.us.i1087 = getelementptr inbounds i8, ptr %148, i64 24
+  %algorithm_mac.us.i1087 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %152 = load i32, ptr %algorithm_mac.us.i1087, align 8
   %tobool57.not.us.i1089 = icmp eq i32 %152, 0
   br i1 %tobool57.not.us.i1089, label %if.then68.us.i1120, label %lor.lhs.false58.us.i1090
 
 lor.lhs.false58.us.i1090:                         ; preds = %lor.lhs.false55.us.i1086
-  %prev.us.i1072.le = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 24
-  %next31.us.i1073.le = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 16
-  %active93.i1091 = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 8
+  %prev.us.i1072.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i1071, i64 24
+  %next31.us.i1073.le = getelementptr inbounds nuw i8, ptr %next.1116.us.i1071, i64 16
+  %active93.i1091 = getelementptr inbounds nuw i8, ptr %next.1116.us.i1071, i64 8
   %153 = load i32, ptr %active93.i1091, align 8
   %tobool94.not.i1092 = icmp eq i32 %153, 0
   br i1 %tobool94.not.i1092, label %if.end139.i1111, label %if.then95.i1093
@@ -2559,7 +2559,7 @@ if.end.i83.i1095:                                 ; preds = %if.then95.i1093
   br i1 %cmp4.not.i87.i1098, label %if.end9.i90.i1101, label %if.then5.i89.i1099
 
 if.then5.i89.i1099:                               ; preds = %if.end.i83.i1095
-  %prev8.i.i1100 = getelementptr inbounds i8, ptr %154, i64 24
+  %prev8.i.i1100 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store ptr %cond.us.i1074, ptr %prev8.i.i1100, align 8
   br label %if.end9.i90.i1101
 
@@ -2569,12 +2569,12 @@ if.end9.i90.i1101:                                ; preds = %if.then5.i89.i1099,
 
 if.then12.i92.i1103:                              ; preds = %if.end9.i90.i1101
   %155 = load ptr, ptr %next31.us.i1073.le, align 8
-  %next15.i.i1104 = getelementptr inbounds i8, ptr %cond.us.i1074, i64 16
+  %next15.i.i1104 = getelementptr inbounds nuw i8, ptr %cond.us.i1074, i64 16
   store ptr %155, ptr %next15.i.i1104, align 8
   br label %if.end16.i93.i1105
 
 if.end16.i93.i1105:                               ; preds = %if.then12.i92.i1103, %if.end9.i90.i1101
-  %prev17.i.i1106 = getelementptr inbounds i8, ptr %head.0.ph165.i1069, i64 24
+  %prev17.i.i1106 = getelementptr inbounds nuw i8, ptr %head.0.ph165.i1069, i64 24
   store ptr %next.1116.us.i1071, ptr %prev17.i.i1106, align 8
   store ptr %head.0.ph165.i1069, ptr %next31.us.i1073.le, align 8
   store ptr null, ptr %prev.us.i1072.le, align 8
@@ -2584,7 +2584,7 @@ ll_append_head.exit.i1107:                        ; preds = %if.end16.i93.i1105,
   %head.7.i1108 = phi ptr [ %head.0.ph165.i1069, %if.then95.i1093 ], [ %next.1116.us.i1071, %if.end16.i93.i1105 ]
   %tail.6.i1109 = phi ptr [ %tail.0.ph168.i1068, %if.then95.i1093 ], [ %.tail.0.ph168.i1097, %if.end16.i93.i1105 ]
   store i32 0, ptr %active93.i1091, align 8
-  %in_group97.i1110 = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 12
+  %in_group97.i1110 = getelementptr inbounds nuw i8, ptr %next.1116.us.i1071, i64 12
   store i32 0, ptr %in_group97.i1110, align 4
   br label %if.end139.i1111
 
@@ -2607,10 +2607,10 @@ ssl_cipher_apply_rule.exit1124:                   ; preds = %if.end139.i1111, %i
 
 if.end16:                                         ; preds = %ssl_cipher_apply_rule.exit1124
   %call11 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.2, ptr noundef %head, ptr noundef %tail)
-  %add.ptr = getelementptr inbounds i8, ptr %rule_str, i64 7
+  %add.ptr = getelementptr inbounds nuw i8, ptr %rule_str, i64 7
   %156 = load i8, ptr %add.ptr, align 1
   %cmp12 = icmp eq i8 %156, 58
-  %incdec.ptr = getelementptr inbounds i8, ptr %rule_str, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %rule_str, i64 8
   %spec.select = select i1 %cmp12, ptr %incdec.ptr, ptr %add.ptr
   %tobool17.not = icmp eq i32 %call11, 0
   br i1 %tobool17.not, label %err, label %land.lhs.true
@@ -2644,7 +2644,7 @@ for.cond.preheader:                               ; preds = %if.end31
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %curr.01306 = phi ptr [ %curr.0, %for.inc ], [ %curr.01303, %for.cond.preheader ]
   %num_in_group_flags.01305 = phi i32 [ %num_in_group_flags.1, %for.inc ], [ 0, %for.cond.preheader ]
-  %active = getelementptr inbounds i8, ptr %curr.01306, i64 8
+  %active = getelementptr inbounds nuw i8, ptr %curr.01306, i64 8
   %158 = load i32, ptr %active, align 8
   %tobool38.not = icmp eq i32 %158, 0
   br i1 %tobool38.not, label %for.inc, label %if.then39
@@ -2656,18 +2656,18 @@ if.then39:                                        ; preds = %for.body
   br i1 %tobool41.not, label %err, label %if.end43
 
 if.end43:                                         ; preds = %if.then39
-  %in_group = getelementptr inbounds i8, ptr %curr.01306, i64 12
+  %in_group = getelementptr inbounds nuw i8, ptr %curr.01306, i64 12
   %160 = load i32, ptr %in_group, align 4
   %conv44 = trunc i32 %160 to i8
   %inc = add i32 %num_in_group_flags.01305, 1
   %idxprom = zext i32 %num_in_group_flags.01305 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %call32, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call32, i64 %idxprom
   store i8 %conv44, ptr %arrayidx, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end43
   %num_in_group_flags.1 = phi i32 [ %inc, %if.end43 ], [ %num_in_group_flags.01305, %for.body ]
-  %next = getelementptr inbounds i8, ptr %curr.01306, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %curr.01306, i64 16
   %curr.0 = load ptr, ptr %next, align 8
   %cmp36.not = icmp eq ptr %curr.0, null
   br i1 %cmp36.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
@@ -2691,7 +2691,7 @@ if.end50:                                         ; preds = %for.end
 if.end54:                                         ; preds = %if.end50
   store ptr %call27, ptr %call51, align 8
   %call56 = tail call noalias ptr @malloc(i64 noundef %num_in_group_flags.0.lcssa) #15
-  %in_group_flags57 = getelementptr inbounds i8, ptr %call51, i64 8
+  %in_group_flags57 = getelementptr inbounds nuw i8, ptr %call51, i64 8
   store ptr %call56, ptr %in_group_flags57, align 8
   %tobool59.not = icmp eq ptr %call56, null
   br i1 %tobool59.not, label %err, label %if.end61
@@ -2739,7 +2739,7 @@ err:                                              ; preds = %if.then39, %if.end1
   br i1 %tobool74.not, label %if.end77, label %if.then75
 
 if.then75:                                        ; preds = %err
-  %in_group_flags76 = getelementptr inbounds i8, ptr %pref_list.0, i64 8
+  %in_group_flags76 = getelementptr inbounds nuw i8, ptr %pref_list.0, i64 8
   %165 = load ptr, ptr %in_group_flags76, align 8
   tail call void @free(ptr noundef %165) #14
   br label %if.end77
@@ -2805,8 +2805,8 @@ if.end29.lr.ph.split.us:                          ; preds = %if.end29.lr.ph
 
 if.end29.us.us:                                   ; preds = %if.end29.lr.ph.split.us, %for.cond.backedge.us.us
   %next.1116.us.us = phi ptr [ %cond.us.us, %for.cond.backedge.us.us ], [ %next.1.ph171, %if.end29.lr.ph.split.us ]
-  %prev.us.us = getelementptr inbounds i8, ptr %next.1116.us.us, i64 24
-  %next31.us.us = getelementptr inbounds i8, ptr %next.1116.us.us, i64 16
+  %prev.us.us = getelementptr inbounds nuw i8, ptr %next.1116.us.us, i64 24
+  %next31.us.us = getelementptr inbounds nuw i8, ptr %next.1116.us.us, i64 16
   %cond.in.us.us = select i1 %cmp16.not, ptr %prev.us.us, ptr %next31.us.us
   %cond.us.us = load ptr, ptr %cond.in.us.us, align 8
   %2 = load ptr, ptr %next.1116.us.us, align 8
@@ -2814,7 +2814,7 @@ if.end29.us.us:                                   ; preds = %if.end29.lr.ph.spli
   br i1 %cmp.i.us.us, label %SSL_CIPHER_get_bits.exit.us.us, label %if.end.i.us.us
 
 if.end.i.us.us:                                   ; preds = %if.end29.us.us
-  %algorithm_enc.i.us.us = getelementptr inbounds i8, ptr %2, i64 20
+  %algorithm_enc.i.us.us = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %algorithm_enc.i.us.us, align 4
   switch i32 %3, label %sw.default.i.us.us [
     i32 4, label %SSL_CIPHER_get_bits.exit.us.us
@@ -2849,33 +2849,33 @@ for.cond.backedge.us.us:                          ; preds = %SSL_CIPHER_get_bits
 
 if.end29.us:                                      ; preds = %if.end29.lr.ph.split.us, %if.then68.us
   %next.1116.us = phi ptr [ %cond.us, %if.then68.us ], [ %next.1.ph171, %if.end29.lr.ph.split.us ]
-  %prev.us = getelementptr inbounds i8, ptr %next.1116.us, i64 24
-  %next31.us = getelementptr inbounds i8, ptr %next.1116.us, i64 16
+  %prev.us = getelementptr inbounds nuw i8, ptr %next.1116.us, i64 24
+  %next31.us = getelementptr inbounds nuw i8, ptr %next.1116.us, i64 16
   %cond.in.us = select i1 %cmp16.not, ptr %prev.us, ptr %next31.us
   %cond.us = load ptr, ptr %cond.in.us, align 8
   %4 = load ptr, ptr %next.1116.us, align 8
-  %algorithm_mkey.us = getelementptr inbounds i8, ptr %4, i64 12
+  %algorithm_mkey.us = getelementptr inbounds nuw i8, ptr %4, i64 12
   %5 = load i32, ptr %algorithm_mkey.us, align 4
   %and.us = and i32 %5, %alg_mkey
   %tobool48.not.us = icmp eq i32 %and.us, 0
   br i1 %tobool48.not.us, label %if.then68.us, label %lor.lhs.false49.us
 
 lor.lhs.false49.us:                               ; preds = %if.end29.us
-  %algorithm_auth.us = getelementptr inbounds i8, ptr %4, i64 16
+  %algorithm_auth.us = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %algorithm_auth.us, align 8
   %and50.us = and i32 %6, %alg_auth
   %tobool51.not.us = icmp eq i32 %and50.us, 0
   br i1 %tobool51.not.us, label %if.then68.us, label %lor.lhs.false52.us
 
 lor.lhs.false52.us:                               ; preds = %lor.lhs.false49.us
-  %algorithm_enc.us = getelementptr inbounds i8, ptr %4, i64 20
+  %algorithm_enc.us = getelementptr inbounds nuw i8, ptr %4, i64 20
   %7 = load i32, ptr %algorithm_enc.us, align 4
   %and53.us = and i32 %7, %alg_enc
   %tobool54.not.us = icmp eq i32 %and53.us, 0
   br i1 %tobool54.not.us, label %if.then68.us, label %lor.lhs.false55.us
 
 lor.lhs.false55.us:                               ; preds = %lor.lhs.false52.us
-  %algorithm_mac.us = getelementptr inbounds i8, ptr %4, i64 24
+  %algorithm_mac.us = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %algorithm_mac.us, align 8
   %and56.us = and i32 %8, %alg_mac
   %tobool57.not.us = icmp eq i32 %and56.us, 0
@@ -2885,7 +2885,7 @@ lor.lhs.false58.us:                               ; preds = %lor.lhs.false55.us
   br i1 %cmp3, label %if.end71, label %land.lhs.true62.us
 
 land.lhs.true62.us:                               ; preds = %lor.lhs.false58.us
-  %algorithm_prf.i.us = getelementptr inbounds i8, ptr %4, i64 28
+  %algorithm_prf.i.us = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %algorithm_prf.i.us, align 4
   %cmp.not.i.us = icmp eq i32 %9, 1
   %..i.us = select i1 %cmp.not.i.us, i16 768, i16 771
@@ -2903,10 +2903,10 @@ if.end29.lr.ph.split:                             ; preds = %if.end29.lr.ph
 
 if.end29.us129:                                   ; preds = %if.end29.lr.ph.split, %for.cond.backedge.us133
   %next.1116.us130 = phi ptr [ %cond.us137, %for.cond.backedge.us133 ], [ %next.1.ph171, %if.end29.lr.ph.split ]
-  %prev.us131 = getelementptr inbounds i8, ptr %next.1116.us130, i64 24
+  %prev.us131 = getelementptr inbounds nuw i8, ptr %next.1116.us130, i64 24
   %cond.us137 = load ptr, ptr %prev.us131, align 8
   %10 = load ptr, ptr %next.1116.us130, align 8
-  %id.us = getelementptr inbounds i8, ptr %10, i64 8
+  %id.us = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %id.us, align 8
   %cmp35.not.us = icmp eq i32 %cipher_id, %11
   br i1 %cmp35.not.us, label %if.end71.split.split.us, label %for.cond.backedge.us133
@@ -2918,16 +2918,16 @@ for.cond.backedge.us133:                          ; preds = %if.end29.us129
   br i1 %or.cond59.us136, label %for.end, label %if.end29.us129
 
 if.end71.split.split.us:                          ; preds = %if.end29.us129
-  %prev.us131.le = getelementptr inbounds i8, ptr %next.1116.us130, i64 24
-  %next31.us132.le = getelementptr inbounds i8, ptr %next.1116.us130, i64 16
+  %prev.us131.le = getelementptr inbounds nuw i8, ptr %next.1116.us130, i64 24
+  %next31.us132.le = getelementptr inbounds nuw i8, ptr %next.1116.us130, i64 16
   br label %if.end71
 
 if.end29:                                         ; preds = %if.end29.lr.ph.split, %for.cond.backedge
   %next.1116 = phi ptr [ %cond, %for.cond.backedge ], [ %next.1.ph171, %if.end29.lr.ph.split ]
-  %next31 = getelementptr inbounds i8, ptr %next.1116, i64 16
+  %next31 = getelementptr inbounds nuw i8, ptr %next.1116, i64 16
   %cond = load ptr, ptr %next31, align 8
   %12 = load ptr, ptr %next.1116, align 8
-  %id = getelementptr inbounds i8, ptr %12, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load i32, ptr %id, align 8
   %cmp35.not = icmp eq i32 %cipher_id, %13
   br i1 %cmp35.not, label %if.end71.split.split, label %for.cond.backedge
@@ -2939,8 +2939,8 @@ for.cond.backedge:                                ; preds = %if.end29
   br i1 %or.cond59, label %for.end, label %if.end29
 
 if.end71.split.split:                             ; preds = %if.end29
-  %next31.le = getelementptr inbounds i8, ptr %next.1116, i64 16
-  %prev.le = getelementptr inbounds i8, ptr %next.1116, i64 24
+  %next31.le = getelementptr inbounds nuw i8, ptr %next.1116, i64 16
+  %prev.le = getelementptr inbounds nuw i8, ptr %next.1116, i64 24
   br label %if.end71
 
 if.end71:                                         ; preds = %land.lhs.true62.us, %lor.lhs.false58.us, %SSL_CIPHER_get_bits.exit.us.us, %if.end71.split.split, %if.end71.split.split.us
@@ -2954,7 +2954,7 @@ if.end71:                                         ; preds = %land.lhs.true62.us,
   ]
 
 if.then74:                                        ; preds = %if.end71
-  %active = getelementptr inbounds i8, ptr %.us-phi122, i64 8
+  %active = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 8
   %14 = load i32, ptr %active, align 8
   %tobool75.not = icmp eq i32 %14, 0
   br i1 %tobool75.not, label %if.then76, label %if.end139
@@ -2972,7 +2972,7 @@ if.end.i61:                                       ; preds = %if.then76
   br i1 %cmp4.not.i, label %if.end9.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i61
-  %next8.i = getelementptr inbounds i8, ptr %16, i64 16
+  %next8.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %15, ptr %next8.i, align 8
   br label %if.end9.i
 
@@ -2982,12 +2982,12 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 
 if.then12.i:                                      ; preds = %if.end9.i
   %17 = load ptr, ptr %.us-phi, align 8
-  %prev15.i = getelementptr inbounds i8, ptr %15, i64 24
+  %prev15.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %17, ptr %prev15.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then12.i, %if.end9.i
-  %next17.i = getelementptr inbounds i8, ptr %tail.0.ph168, i64 16
+  %next17.i = getelementptr inbounds nuw i8, ptr %tail.0.ph168, i64 16
   store ptr %.us-phi122, ptr %next17.i, align 8
   store ptr %tail.0.ph168, ptr %.us-phi, align 8
   store ptr null, ptr %.us-phi120, align 8
@@ -2997,12 +2997,12 @@ ll_append_tail.exit:                              ; preds = %if.then76, %if.end1
   %head.4 = phi ptr [ %head.0.ph165, %if.then76 ], [ %.head.0.ph165, %if.end16.i ]
   %tail.3 = phi ptr [ %tail.0.ph168, %if.then76 ], [ %.us-phi122, %if.end16.i ]
   store i32 1, ptr %active, align 8
-  %in_group78 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
+  %in_group78 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 12
   store i32 %in_group, ptr %in_group78, align 4
   br label %if.end139
 
 if.then83:                                        ; preds = %if.end71
-  %active84 = getelementptr inbounds i8, ptr %.us-phi122, i64 8
+  %active84 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 8
   %18 = load i32, ptr %active84, align 8
   %tobool85.not = icmp eq i32 %18, 0
   br i1 %tobool85.not, label %if.end139, label %if.then86
@@ -3020,7 +3020,7 @@ if.end.i63:                                       ; preds = %if.then86
   br i1 %cmp4.not.i67, label %if.end9.i72, label %if.then5.i70
 
 if.then5.i70:                                     ; preds = %if.end.i63
-  %next8.i71 = getelementptr inbounds i8, ptr %20, i64 16
+  %next8.i71 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %19, ptr %next8.i71, align 8
   br label %if.end9.i72
 
@@ -3030,12 +3030,12 @@ if.end9.i72:                                      ; preds = %if.then5.i70, %if.e
 
 if.then12.i75:                                    ; preds = %if.end9.i72
   %21 = load ptr, ptr %.us-phi, align 8
-  %prev15.i76 = getelementptr inbounds i8, ptr %19, i64 24
+  %prev15.i76 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %21, ptr %prev15.i76, align 8
   br label %if.end16.i77
 
 if.end16.i77:                                     ; preds = %if.then12.i75, %if.end9.i72
-  %next17.i78 = getelementptr inbounds i8, ptr %tail.0.ph168, i64 16
+  %next17.i78 = getelementptr inbounds nuw i8, ptr %tail.0.ph168, i64 16
   store ptr %.us-phi122, ptr %next17.i78, align 8
   store ptr %tail.0.ph168, ptr %.us-phi, align 8
   store ptr null, ptr %.us-phi120, align 8
@@ -3044,7 +3044,7 @@ if.end16.i77:                                     ; preds = %if.then12.i75, %if.
 ll_append_tail.exit81:                            ; preds = %if.then86, %if.end16.i77
   %head.6 = phi ptr [ %head.0.ph165, %if.then86 ], [ %.head.0.ph165228, %if.end16.i77 ]
   %tail.4 = phi ptr [ %tail.0.ph168, %if.then86 ], [ %.us-phi122, %if.end16.i77 ]
-  %in_group87 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
+  %in_group87 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 12
   store i32 0, ptr %in_group87, align 4
   br label %if.end139
 
@@ -3052,7 +3052,7 @@ if.else89:                                        ; preds = %if.end71
   br i1 %cmp16.not, label %if.then92, label %if.else99
 
 if.then92:                                        ; preds = %if.else89
-  %active93 = getelementptr inbounds i8, ptr %.us-phi122, i64 8
+  %active93 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 8
   %22 = load i32, ptr %active93, align 8
   %tobool94.not = icmp eq i32 %22, 0
   br i1 %tobool94.not, label %if.end139, label %if.then95
@@ -3070,7 +3070,7 @@ if.end.i83:                                       ; preds = %if.then95
   br i1 %cmp4.not.i87, label %if.end9.i90, label %if.then5.i89
 
 if.then5.i89:                                     ; preds = %if.end.i83
-  %prev8.i = getelementptr inbounds i8, ptr %24, i64 24
+  %prev8.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %23, ptr %prev8.i, align 8
   br label %if.end9.i90
 
@@ -3080,12 +3080,12 @@ if.end9.i90:                                      ; preds = %if.then5.i89, %if.e
 
 if.then12.i92:                                    ; preds = %if.end9.i90
   %25 = load ptr, ptr %.us-phi120, align 8
-  %next15.i = getelementptr inbounds i8, ptr %23, i64 16
+  %next15.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %25, ptr %next15.i, align 8
   br label %if.end16.i93
 
 if.end16.i93:                                     ; preds = %if.then12.i92, %if.end9.i90
-  %prev17.i = getelementptr inbounds i8, ptr %head.0.ph165, i64 24
+  %prev17.i = getelementptr inbounds nuw i8, ptr %head.0.ph165, i64 24
   store ptr %.us-phi122, ptr %prev17.i, align 8
   store ptr %head.0.ph165, ptr %.us-phi120, align 8
   store ptr null, ptr %.us-phi, align 8
@@ -3095,7 +3095,7 @@ ll_append_head.exit:                              ; preds = %if.then95, %if.end1
   %head.7 = phi ptr [ %head.0.ph165, %if.then95 ], [ %.us-phi122, %if.end16.i93 ]
   %tail.6 = phi ptr [ %tail.0.ph168, %if.then95 ], [ %.tail.0.ph168, %if.end16.i93 ]
   store i32 0, ptr %active93, align 8
-  %in_group97 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
+  %in_group97 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 12
   store i32 0, ptr %in_group97, align 4
   br label %if.end139
 
@@ -3109,7 +3109,7 @@ if.then102:                                       ; preds = %if.else99
 
 if.else107:                                       ; preds = %if.then102
   %27 = load ptr, ptr %.us-phi, align 8
-  %next110 = getelementptr inbounds i8, ptr %27, i64 16
+  %next110 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %26, ptr %next110, align 8
   br label %if.end111
 
@@ -3124,7 +3124,7 @@ if.then114:                                       ; preds = %if.end111
 
 if.end116:                                        ; preds = %if.then114, %if.end111
   %tail.2 = phi ptr [ %28, %if.then114 ], [ %tail.0.ph168, %if.end111 ]
-  %active117 = getelementptr inbounds i8, ptr %.us-phi122, i64 8
+  %active117 = getelementptr inbounds nuw i8, ptr %.us-phi122, i64 8
   store i32 0, ptr %active117, align 8
   %29 = load ptr, ptr %.us-phi120, align 8
   %cmp119.not = icmp eq ptr %29, null
@@ -3132,7 +3132,7 @@ if.end116:                                        ; preds = %if.then114, %if.end
   br i1 %cmp119.not, label %if.end125, label %if.then121
 
 if.then121:                                       ; preds = %if.end116
-  %prev124 = getelementptr inbounds i8, ptr %29, i64 24
+  %prev124 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %.pre, ptr %prev124, align 8
   br label %if.end125
 
@@ -3142,7 +3142,7 @@ if.end125:                                        ; preds = %if.then121, %if.end
 
 if.then129:                                       ; preds = %if.end125
   %30 = load ptr, ptr %.us-phi120, align 8
-  %next132 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %next132 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   store ptr %30, ptr %next132, align 8
   br label %if.end133
 
@@ -3231,7 +3231,7 @@ if.then54.us:                                     ; preds = %if.end.us
 if.end83.us:                                      ; preds = %if.then54.us, %if.then60.us, %if.then66.us, %if.end.us
   %cmp144.us = phi i1 [ false, %if.then54.us ], [ false, %if.then60.us ], [ true, %if.then66.us ], [ false, %if.end.us ]
   %rule.0.us = phi i32 [ 4, %if.then54.us ], [ 2, %if.then60.us ], [ 5, %if.then66.us ], [ 3, %if.end.us ]
-  %l.1.us = getelementptr inbounds i8, ptr %l.054.us, i64 1
+  %l.1.us = getelementptr inbounds nuw i8, ptr %l.054.us, i64 1
   br i1 %tobool84.not.le, label %if.end89.us, label %if.then88
 
 if.end89.us:                                      ; preds = %if.end83.us, %if.end.us
@@ -3246,13 +3246,13 @@ if.end89.us:                                      ; preds = %if.end83.us, %if.en
   ]
 
 if.then104.us:                                    ; preds = %if.end89.us, %if.end89.us, %if.end89.us, %if.end89.us
-  %incdec.ptr105.us = getelementptr inbounds i8, ptr %l.17.us, i64 1
+  %incdec.ptr105.us = getelementptr inbounds nuw i8, ptr %l.17.us, i64 1
   %5 = load i8, ptr %incdec.ptr105.us, align 1
   %cmp.us = icmp eq i8 %5, 0
   br i1 %cmp.us, label %if.end274, label %if.end.us
 
 if.end75.split.us:                                ; preds = %if.end.us
-  %incdec.ptr76 = getelementptr inbounds i8, ptr %l.054.us, i64 1
+  %incdec.ptr76 = getelementptr inbounds nuw i8, ptr %l.054.us, i64 1
   %6 = load i8, ptr %incdec.ptr76, align 1
   %cmp5380 = icmp eq i8 %6, 0
   br i1 %cmp5380, label %if.then273, label %if.end.lr.ph.lr.ph
@@ -3271,13 +3271,13 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool8.not, label %for.cond.outer20.backedge, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %in_group10 = getelementptr inbounds i8, ptr %8, i64 12
+  %in_group10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %in_group10, align 4
   br label %for.cond.outer20.backedge
 
 for.cond.outer20.backedge:                        ; preds = %if.end, %if.then7, %if.then9
   %in_group.0.ph22.be = phi i32 [ 0, %if.then9 ], [ 0, %if.then7 ], [ 1, %if.end ]
-  %l.0.ph21.be = getelementptr inbounds i8, ptr %l.054, i64 1
+  %l.0.ph21.be = getelementptr inbounds nuw i8, ptr %l.054, i64 1
   %9 = load i8, ptr %l.0.ph21.be, align 1
   %cmp53 = icmp eq i8 %9, 0
   br i1 %cmp53, label %for.end271, label %if.end.lr.ph
@@ -3340,12 +3340,12 @@ while.end.us:                                     ; preds = %lor.lhs.false123.us
   br i1 %cmp139.us, label %if.then141, label %if.end226.fold.split
 
 while.body.us:                                    ; preds = %lor.lhs.false123.us, %while.cond.us
-  %incdec.ptr138.us = getelementptr inbounds i8, ptr %l.3.us, i64 1
+  %incdec.ptr138.us = getelementptr inbounds nuw i8, ptr %l.3.us, i64 1
   %inc.us = add i64 %buf_len.0.us, 1
   br label %while.cond.us, !llvm.loop !11
 
 if.then104:                                       ; preds = %if.end89, %if.end89, %if.end89, %if.end89
-  %incdec.ptr105 = getelementptr inbounds i8, ptr %l.054, i64 1
+  %incdec.ptr105 = getelementptr inbounds nuw i8, ptr %l.054, i64 1
   %18 = load i8, ptr %incdec.ptr105, align 1
   %cmp = icmp eq i8 %18, 0
   br i1 %cmp, label %if.then273, label %if.end
@@ -3382,7 +3382,7 @@ lor.lhs.false123:                                 ; preds = %while.cond
   br i1 %or.cond14, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond, %lor.lhs.false123
-  %incdec.ptr138 = getelementptr inbounds i8, ptr %l.3, i64 1
+  %incdec.ptr138 = getelementptr inbounds nuw i8, ptr %l.3, i64 1
   %inc = add i64 %buf_len.0, 1
   br label %while.cond, !llvm.loop !11
 
@@ -3403,7 +3403,7 @@ if.then141:                                       ; preds = %while.end, %while.e
   %.us-phi104 = phi i32 [ -1, %while.end.us ], [ %alg_mkey.0, %while.end ]
   %.us-phi105 = phi ptr [ %l.3.us, %while.end.us ], [ %l.3, %while.end ]
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1265) #14
-  %incdec.ptr142 = getelementptr inbounds i8, ptr %.us-phi105, i64 1
+  %incdec.ptr142 = getelementptr inbounds nuw i8, ptr %.us-phi105, i64 1
   br label %for.end211
 
 if.end143:                                        ; preds = %while.end
@@ -3413,7 +3413,7 @@ if.end143:                                        ; preds = %while.end
 
 for.body:                                         ; preds = %if.end143, %for.inc
   %j.095 = phi i64 [ %inc160, %for.inc ], [ 0, %if.end143 ]
-  %arrayidx = getelementptr inbounds [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %j.095
+  %arrayidx = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %j.095
   %24 = load ptr, ptr %arrayidx, align 16
   %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef range(i64 1, 0) %buf_len.0) #16
   %cmp.i = icmp eq i32 %call.i, 0
@@ -3426,7 +3426,7 @@ rule_equals.exit:                                 ; preds = %for.body
   br i1 %cmp1.i.not, label %if.then158, label %for.inc
 
 if.then158:                                       ; preds = %rule_equals.exit
-  %id = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %26 = load i32, ptr %id, align 8
   br label %if.end161
 
@@ -3442,7 +3442,7 @@ if.end161:                                        ; preds = %for.inc, %if.then15
 
 for.body168:                                      ; preds = %if.end161, %for.inc197
   %j.196 = phi i64 [ %inc198, %for.inc197 ], [ 0, %if.end161 ]
-  %arrayidx169 = getelementptr inbounds [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %j.196
+  %arrayidx169 = getelementptr inbounds nuw [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %j.196
   %27 = load ptr, ptr %arrayidx169, align 16
   %call.i105 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef range(i64 1, 0) %buf_len.0) #16
   %cmp.i106 = icmp eq i32 %call.i105, 0
@@ -3455,20 +3455,20 @@ rule_equals.exit111:                              ; preds = %for.body168
   br i1 %cmp1.i110.not, label %if.then173, label %for.inc197
 
 if.then173:                                       ; preds = %rule_equals.exit111
-  %algorithm_mkey = getelementptr inbounds i8, ptr %arrayidx169, i64 8
+  %algorithm_mkey = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 8
   %29 = load i32, ptr %algorithm_mkey, align 8
   %and = and i32 %29, %alg_mkey.0
-  %algorithm_auth = getelementptr inbounds i8, ptr %arrayidx169, i64 12
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 12
   %30 = load i32, ptr %algorithm_auth, align 4
   %and176 = and i32 %30, %alg_auth.0
-  %algorithm_enc = getelementptr inbounds i8, ptr %arrayidx169, i64 16
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 16
   %31 = load i32, ptr %algorithm_enc, align 16
   %and178 = and i32 %31, %alg_enc.0
-  %algorithm_mac = getelementptr inbounds i8, ptr %arrayidx169, i64 20
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 20
   %32 = load i32, ptr %algorithm_mac, align 4
   %and180 = and i32 %32, %alg_mac.0
   %cmp182.not = icmp eq i16 %min_version.0, 0
-  %min_version194.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx169, i64 24
+  %min_version194.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 24
   %.pre = load i16, ptr %min_version194.phi.trans.insert, align 8
   %cmp189.not = icmp eq i16 %min_version.0, %.pre
   %min_version.3 = select i1 %cmp182.not, i16 %.pre, i16 %min_version.0
@@ -3493,7 +3493,7 @@ if.end204:                                        ; preds = %for.inc197, %if.the
   br i1 %cmp151, label %for.end211, label %if.end209
 
 if.end209:                                        ; preds = %if.end204
-  %incdec.ptr210 = getelementptr inbounds i8, ptr %l.3, i64 1
+  %incdec.ptr210 = getelementptr inbounds nuw i8, ptr %l.3, i64 1
   br label %for.cond107
 
 for.end211:                                       ; preds = %if.end204, %if.then141
@@ -3563,7 +3563,7 @@ if.then235:                                       ; preds = %land.lhs.true232
 while.body.i:                                     ; preds = %if.then235, %if.end.i
   %curr.048.i = phi ptr [ %curr.0.i, %if.end.i ], [ %curr.045.i, %if.then235 ]
   %max_strength_bits.047.i = phi i32 [ %max_strength_bits.1.i, %if.end.i ], [ 0, %if.then235 ]
-  %active.i = getelementptr inbounds i8, ptr %curr.048.i, i64 8
+  %active.i = getelementptr inbounds nuw i8, ptr %curr.048.i, i64 8
   %34 = load i32, ptr %active.i, align 8
   %tobool.not.i = icmp eq i32 %34, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
@@ -3574,7 +3574,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp.i.i, label %SSL_CIPHER_get_bits.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %algorithm_enc.i.i = getelementptr inbounds i8, ptr %35, i64 20
+  %algorithm_enc.i.i = getelementptr inbounds nuw i8, ptr %35, i64 20
   %36 = load i32, ptr %algorithm_enc.i.i, align 4
   switch i32 %36, label %sw.default.i.i [
     i32 4, label %SSL_CIPHER_get_bits.exit.i
@@ -3628,7 +3628,7 @@ sw.default.i30.i:                                 ; preds = %if.end.i22.i
 
 if.end.i:                                         ; preds = %sw.default.i30.i, %sw.bb2.i24.i, %sw.bb1.i29.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %SSL_CIPHER_get_bits.exit.thread.i, %SSL_CIPHER_get_bits.exit.i, %while.body.i
   %max_strength_bits.1.i = phi i32 [ %max_strength_bits.047.i, %SSL_CIPHER_get_bits.exit.i ], [ %max_strength_bits.047.i, %while.body.i ], [ 0, %sw.default.i30.i ], [ 112, %sw.bb2.i24.i ], [ 256, %sw.bb1.i29.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ %spec.select.i, %SSL_CIPHER_get_bits.exit.thread.i ]
-  %next.i = getelementptr inbounds i8, ptr %curr.048.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %curr.048.i, i64 16
   %curr.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %curr.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
@@ -3655,7 +3655,7 @@ for.body.preheader.i:                             ; preds = %if.end20.i, %if.end
 
 while.body14.i:                                   ; preds = %if.end7.i, %if.end20.i
   %curr.151.i = phi ptr [ %curr.1.i, %if.end20.i ], [ %curr.045.i, %if.end7.i ]
-  %active15.i = getelementptr inbounds i8, ptr %curr.151.i, i64 8
+  %active15.i = getelementptr inbounds nuw i8, ptr %curr.151.i, i64 8
   %38 = load i32, ptr %active15.i, align 8
   %tobool16.not.i = icmp eq i32 %38, 0
   br i1 %tobool16.not.i, label %if.end20.i, label %if.then17.i
@@ -3666,7 +3666,7 @@ if.then17.i:                                      ; preds = %while.body14.i
   br i1 %cmp.i32.i, label %SSL_CIPHER_get_bits.exit42.i, label %if.end.i33.i
 
 if.end.i33.i:                                     ; preds = %if.then17.i
-  %algorithm_enc.i34.i = getelementptr inbounds i8, ptr %39, i64 20
+  %algorithm_enc.i34.i = getelementptr inbounds nuw i8, ptr %39, i64 20
   %40 = load i32, ptr %algorithm_enc.i34.i, align 4
   switch i32 %40, label %sw.default.i41.i [
     i32 4, label %SSL_CIPHER_get_bits.exit42.i
@@ -3690,21 +3690,21 @@ sw.default.i41.i:                                 ; preds = %if.end.i33.i
 
 SSL_CIPHER_get_bits.exit42.i:                     ; preds = %sw.default.i41.i, %sw.bb2.i35.i, %sw.bb1.i40.i, %if.end.i33.i, %if.end.i33.i, %if.end.i33.i, %if.then17.i
   %retval.0.i39.i = phi i64 [ 0, %if.then17.i ], [ 0, %sw.default.i41.i ], [ 112, %sw.bb2.i35.i ], [ 256, %sw.bb1.i40.i ], [ 128, %if.end.i33.i ], [ 128, %if.end.i33.i ], [ 128, %if.end.i33.i ]
-  %arrayidx.i112 = getelementptr inbounds i32, ptr %calloc.i, i64 %retval.0.i39.i
+  %arrayidx.i112 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %retval.0.i39.i
   %41 = load i32, ptr %arrayidx.i112, align 4
   %inc.i = add nsw i32 %41, 1
   store i32 %inc.i, ptr %arrayidx.i112, align 4
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %SSL_CIPHER_get_bits.exit42.i, %while.body14.i
-  %next21.i = getelementptr inbounds i8, ptr %curr.151.i, i64 16
+  %next21.i = getelementptr inbounds nuw i8, ptr %curr.151.i, i64 16
   %curr.1.i = load ptr, ptr %next21.i, align 8
   %cmp12.not.i = icmp eq ptr %curr.1.i, null
   br i1 %cmp12.not.i, label %for.body.preheader.i, label %while.body14.i, !llvm.loop !15
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %37, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx26.i = getelementptr inbounds i32, ptr %calloc.i, i64 %indvars.iv.i
+  %arrayidx26.i = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %indvars.iv.i
   %42 = load i32, ptr %arrayidx26.i, align 4
   %cmp27.i = icmp sgt i32 %42, 0
   br i1 %cmp27.i, label %if.then29.i, label %for.inc.i
@@ -3743,7 +3743,7 @@ while.cond243:                                    ; preds = %lor.rhs258, %44
   ]
 
 lor.rhs258:                                       ; preds = %while.cond243
-  %incdec.ptr264 = getelementptr inbounds i8, ptr %l.5, i64 1
+  %incdec.ptr264 = getelementptr inbounds nuw i8, ptr %l.5, i64 1
   br label %while.cond243, !llvm.loop !17
 
 if.else266:                                       ; preds = %if.end226.fold.split, %if.then224, %if.end226
@@ -3818,9 +3818,9 @@ define internal range(i32 -1, 2) i32 @ssl_cipher_ptr_id_cmp(ptr nocapture nounde
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
-  %id.i = getelementptr inbounds i8, ptr %0, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %id.i, align 8
-  %id1.i = getelementptr inbounds i8, ptr %1, i64 8
+  %id1.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %id1.i, align 8
   %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %2, i32 %3)
   ret i32 %retval.0.i
@@ -3831,7 +3831,7 @@ declare void @sk_sort(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @SSL_CIPHER_get_id(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %id = getelementptr inbounds i8, ptr %cipher, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load i32, ptr %id, align 8
   ret i32 %0
 }
@@ -3839,7 +3839,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i16 @ssl_cipher_get_value(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %id1 = getelementptr inbounds i8, ptr %cipher, i64 8
+  %id1 = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load i32, ptr %id1, align 8
   %conv = trunc i32 %0 to i16
   ret i16 %conv
@@ -3848,7 +3848,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = and i32 %0, 60
   %cmp = icmp ne i32 %1, 0
@@ -3859,7 +3859,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_MD5_HMAC(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load i32, ptr %algorithm_mac, align 8
   %1 = and i32 %0, 1
   ret i32 %1
@@ -3868,7 +3868,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA1_HMAC(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load i32, ptr %algorithm_mac, align 8
   %1 = lshr i32 %0, 1
   %.lobit = and i32 %1, 1
@@ -3878,7 +3878,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA256_HMAC(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load i32, ptr %algorithm_mac, align 8
   %1 = lshr i32 %0, 2
   %.lobit = and i32 %1, 1
@@ -3888,7 +3888,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AESGCM(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = and i32 %0, 48
   %cmp = icmp ne i32 %1, 0
@@ -3899,7 +3899,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128GCM(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = lshr i32 %0, 4
   %.lobit = and i32 %1, 1
@@ -3909,7 +3909,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128CBC(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = lshr i32 %0, 2
   %.lobit = and i32 %1, 1
@@ -3919,7 +3919,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES256CBC(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = lshr i32 %0, 3
   %.lobit = and i32 %1, 1
@@ -3929,7 +3929,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_CHACHA20POLY1305(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = and i32 %0, 320
   %cmp = icmp ne i32 %1, 0
@@ -3940,7 +3940,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_NULL(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = lshr i32 %0, 7
   %.lobit = and i32 %1, 1
@@ -3950,7 +3950,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_RC4(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = lshr i32 %0, 1
   %.lobit = and i32 %1, 1
@@ -3960,14 +3960,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_block_cipher(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   %1 = and i32 %0, 130
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %2 = load i32, ptr %algorithm_mac, align 8
   %cmp3 = icmp ne i32 %2, 16
   %3 = zext i1 %cmp3 to i32
@@ -3981,7 +3981,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDSA(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i32, ptr %algorithm_auth, align 8
   %1 = lshr i32 %0, 1
   %.lobit = and i32 %1, 1
@@ -3991,7 +3991,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDHE(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_mkey = getelementptr inbounds i8, ptr %cipher, i64 12
+  %algorithm_mkey = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %algorithm_mkey, align 4
   %1 = lshr i32 %0, 2
   %.lobit = and i32 %1, 1
@@ -4001,7 +4001,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext range(i16 768, 772) i16 @SSL_CIPHER_get_min_version(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_prf = getelementptr inbounds i8, ptr %cipher, i64 28
+  %algorithm_prf = getelementptr inbounds nuw i8, ptr %cipher, i64 28
   %0 = load i32, ptr %algorithm_prf, align 4
   %cmp.not = icmp eq i32 %0, 1
   %. = select i1 %cmp.not, i16 768, i16 771
@@ -4030,7 +4030,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %algorithm_mkey = getelementptr inbounds i8, ptr %cipher, i64 12
+  %algorithm_mkey = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %algorithm_mkey, align 4
   switch i32 %0, label %sw.default10 [
     i32 1, label %return
@@ -4040,14 +4040,14 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb1:                                           ; preds = %if.end
-  %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %1 = load i32, ptr %algorithm_auth, align 8
   %cond = icmp eq i32 %1, 1
   %.str.6..str.7 = select i1 %cond, ptr @.str.6, ptr @.str.7
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
-  %algorithm_auth4 = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth4 = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %2 = load i32, ptr %algorithm_auth4, align 8
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 4
@@ -4061,7 +4061,7 @@ sw.default10:                                     ; preds = %if.end
 
 switch.lookup:                                    ; preds = %sw.bb3
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -4077,7 +4077,7 @@ entry:
   br i1 %cmp, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %algorithm_mkey.i = getelementptr inbounds i8, ptr %cipher, i64 12
+  %algorithm_mkey.i = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %algorithm_mkey.i, align 4
   switch i32 %0, label %sw.default10.i [
     i32 1, label %SSL_CIPHER_get_kx_name.exit
@@ -4087,14 +4087,14 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.bb1.i:                                         ; preds = %if.end.i
-  %algorithm_auth.i = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth.i = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %1 = load i32, ptr %algorithm_auth.i, align 8
   %cond.i = icmp eq i32 %1, 1
   %.str.6..str.7.i = select i1 %cond.i, ptr @.str.6, ptr @.str.7
   br label %SSL_CIPHER_get_kx_name.exit
 
 sw.bb3.i:                                         ; preds = %if.end.i
-  %algorithm_auth4.i = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth4.i = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %2 = load i32, ptr %algorithm_auth4.i, align 8
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 4
@@ -4108,7 +4108,7 @@ sw.default10.i:                                   ; preds = %if.end.i
 
 switch.lookup:                                    ; preds = %sw.bb3.i
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_get_rfc_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SSL_CIPHER_get_kx_name.exit
 
@@ -4150,7 +4150,7 @@ sw.default.i:                                     ; preds = %SSL_CIPHER_get_kx_n
 
 ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_name.exit, %sw.bb1.i30, %sw.bb2.i, %sw.bb3.i29, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i27, %sw.default.i
   %retval.0.i28 = phi ptr [ @.str.7, %sw.default.i ], [ @.str.107, %sw.bb6.i27 ], [ @.str.106, %sw.bb5.i ], [ @.str.105, %sw.bb4.i ], [ @.str.104, %sw.bb3.i29 ], [ @.str.103, %sw.bb2.i ], [ @.str.89, %sw.bb1.i30 ], [ @.str.102, %SSL_CIPHER_get_kx_name.exit ]
-  %algorithm_prf.i = getelementptr inbounds i8, ptr %cipher, i64 28
+  %algorithm_prf.i = getelementptr inbounds nuw i8, ptr %cipher, i64 28
   %6 = load i32, ptr %algorithm_prf.i, align 4
   switch i32 %6, label %sw.epilog5.i [
     i32 1, label %sw.bb.i
@@ -4159,7 +4159,7 @@ ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_n
   ]
 
 sw.bb.i:                                          ; preds = %ssl_cipher_get_enc_name.exit
-  %algorithm_mac.i = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac.i = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %7 = load i32, ptr %algorithm_mac.i, align 8
   %switch.selectcmp.i = icmp eq i32 %7, 2
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.95, ptr @.str.7
@@ -4235,7 +4235,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   switch i32 %0, label %sw.default [
     i32 4, label %sw.epilog
@@ -4275,13 +4275,13 @@ return:                                           ; preds = %sw.epilog, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SSL_CIPHER_description(ptr nocapture noundef readonly %cipher, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %algorithm_mkey = getelementptr inbounds i8, ptr %cipher, i64 12
+  %algorithm_mkey = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %algorithm_mkey, align 4
-  %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %1 = load i32, ptr %algorithm_auth, align 8
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %2 = load i32, ptr %algorithm_enc, align 4
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %3 = load i32, ptr %algorithm_mac, align 8
   %switch.tableidx = add i32 %0, -1
   %4 = icmp ult i32 %switch.tableidx, 8
@@ -4289,7 +4289,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.SSL_CIPHER_description, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.SSL_CIPHER_description, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 
@@ -4301,7 +4301,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 
 switch.lookup10:                                  ; preds = %sw.epilog
   %7 = zext nneg i32 %switch.tableidx11 to i64
-  %switch.gep12 = getelementptr inbounds [4 x ptr], ptr @switch.table.SSL_CIPHER_description.3, i64 0, i64 %7
+  %switch.gep12 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.SSL_CIPHER_description.3, i64 0, i64 %7
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   br label %sw.epilog8
 
@@ -4427,7 +4427,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 409) i32 @ssl_cipher_get_key_type(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i32, ptr %algorithm_auth, align 8
   %conv = zext i32 %0 to i64
   %and = and i64 %conv, 2
@@ -4442,7 +4442,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @ssl_cipher_has_server_public_key(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 16
+  %algorithm_auth = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i32, ptr %algorithm_auth, align 8
   %1 = lshr i32 %0, 2
   %.lobit = and i32 %1, 1
@@ -4453,7 +4453,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @ssl_cipher_requires_server_key_exchange(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_mkey = getelementptr inbounds i8, ptr %cipher, i64 12
+  %algorithm_mkey = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %algorithm_mkey, align 4
   %1 = and i32 %0, 6
   %or.cond = icmp ne i32 %1, 0
@@ -4464,7 +4464,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 0, 38) i64 @ssl_cipher_get_record_split_len(ptr nocapture noundef readonly %cipher) local_unnamed_addr #2 {
 entry:
-  %algorithm_enc = getelementptr inbounds i8, ptr %cipher, i64 20
+  %algorithm_enc = getelementptr inbounds nuw i8, ptr %cipher, i64 20
   %0 = load i32, ptr %algorithm_enc, align 4
   switch i32 %0, label %return [
     i32 1, label %sw.epilog
@@ -4477,7 +4477,7 @@ sw.bb1:                                           ; preds = %entry, %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb1
   %block_size.0 = phi i64 [ 16, %sw.bb1 ], [ 8, %entry ]
-  %algorithm_mac = getelementptr inbounds i8, ptr %cipher, i64 24
+  %algorithm_mac = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %1 = load i32, ptr %algorithm_mac, align 8
   switch i32 %1, label %return [
     i32 1, label %sw.epilog5

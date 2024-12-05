@@ -107,11 +107,11 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.MultiXactMember], align 16
   store i32 %0, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %3, ptr %8, align 4
   %9 = call i32 @MultiXactIdCreateFromMembers(i32 noundef 2, ptr noundef nonnull %5)
   ret i32 %9
@@ -153,10 +153,10 @@ define dso_local i32 @MultiXactIdCreateFromMembers(i32 noundef %0, ptr noundef %
   br i1 %17, label %mXactCacheGetBySet.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %.sroa.0.019.i, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %.sroa.0.019.i, align 8
   store ptr %23, ptr %20, align 8
@@ -177,7 +177,7 @@ dlist_push_head.exit.i.i.i:                       ; preds = %26, %18
   br label %mXactCacheGetBySet.exit
 
 select.unfold.i:                                  ; preds = %12, %9
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not15.i = icmp eq ptr %29, @MXactCache
   br i1 %.not15.i, label %.preheader, label %9, !llvm.loop !5
@@ -244,20 +244,20 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
 
 52:                                               ; preds = %51, %44
   %53 = phi i32 [ 1, %51 ], [ %49, %44 ]
-  %54 = getelementptr inbounds i8, ptr %48, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = sub i32 %53, %55
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %110, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %48, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %48, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %48, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %48, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = load ptr, ptr @MainLWLockArray, align 8
   %68 = getelementptr i8, ptr %67, i64 1664
@@ -378,13 +378,13 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
 
 ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
   %125 = phi ptr [ %111, %110 ], [ %.pre.i, %115 ]
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 0
   %spec.select.i = call i32 @llvm.umax.i32(i32 %127, i32 1)
   %129 = zext i1 %128 to i32
   %spec.select63.i = add i32 %0, %129
-  %130 = getelementptr inbounds i8, ptr %125, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %131 = load i8, ptr %130, align 4
   %132 = trunc i8 %131 to i1
   br i1 %132, label %133, label %._crit_edge.i
@@ -394,7 +394,7 @@ ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
   br label %165
 
 133:                                              ; preds = %ExtendMultiXactOffset.exit.i
-  %134 = getelementptr inbounds i8, ptr %125, i64 44
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 44
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %spec.select63.i, %127
   %137 = icmp ult i32 %136, %127
@@ -420,21 +420,21 @@ MultiXactOffsetWouldWrap.exit.i:                  ; preds = %133
   %147 = call i32 @errcode(i32 noundef 261) #13
   %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #13
   %149 = load ptr, ptr @MultiXactState, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 44
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 44
   %151 = load i32, ptr %150, align 4
   %152 = xor i32 %127, -1
   %153 = add i32 %151, %152
   %154 = zext i32 %153 to i64
   %155 = call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %154, i32 noundef %spec.select63.i, i32 noundef %153) #13
   %156 = load ptr, ptr @MultiXactState, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load i32, ptr %157, align 4
   %159 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.34, i32 noundef %158) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1144, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
   unreachable
 
 160:                                              ; preds = %MultiXactOffsetWouldWrap.exit.i, %142
-  %161 = getelementptr inbounds i8, ptr %125, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %125, i64 20
   %162 = load i32, ptr %161, align 4
   %163 = sub i32 %127, %162
   %164 = icmp slt i32 %163, 0
@@ -450,7 +450,7 @@ MultiXactOffsetWouldWrap.exit.i:                  ; preds = %133
 168:                                              ; preds = %165
   call void @SendPostmasterSignal(i32 noundef 3) #13
   %.pre59.i = load ptr, ptr @MultiXactState, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre59.i, i64 24
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre59.i, i64 24
   %.pre60.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %169
 
@@ -461,7 +461,7 @@ MultiXactOffsetWouldWrap.exit.i:                  ; preds = %133
   br i1 %172, label %173, label %200
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %171, i64 44
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 44
   %175 = load i32, ptr %174, align 4
   %176 = add i32 %spec.select63.i, %127
   %177 = add i32 %176, 1047040
@@ -488,12 +488,12 @@ MultiXactOffsetWouldWrap.exit55.i:                ; preds = %173
 188:                                              ; preds = %186
   %189 = call i32 @errcode(i32 noundef 261) #13
   %190 = load ptr, ptr @MultiXactState, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 44
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 44
   %192 = load i32, ptr %191, align 4
   %193 = sub i32 %192, %127
   %194 = add i32 %193, %spec.select63.i
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds i8, ptr %190, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %197 = load i32, ptr %196, align 4
   %198 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i64 noundef %195, i32 noundef %197, i32 noundef %194) #13
   %199 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.37) #13
@@ -563,7 +563,7 @@ GetNewMultiXactId.exit:                           ; preds = %222, %200
   %229 = load i32, ptr %228, align 4
   %230 = add i32 %229, 1
   store i32 %230, ptr %228, align 4
-  %231 = getelementptr inbounds i8, ptr %228, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, %spec.select63.i
   store i32 %233, ptr %231, align 4
@@ -571,9 +571,9 @@ GetNewMultiXactId.exit:                           ; preds = %222, %200
   %235 = getelementptr i8, ptr %234, i64 1664
   call void @LWLockRelease(ptr noundef %235) #13
   store i32 %.046.i, ptr %5, align 4
-  %236 = getelementptr inbounds i8, ptr %5, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %spec.select.i, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %5, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %0, ptr %237, align 4
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 12) #13
@@ -611,7 +611,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
 
 8:                                                ; preds = %3
   store i32 %1, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %9, align 4
   %10 = call i32 @MultiXactIdCreateFromMembers(i32 noundef 1, ptr noundef nonnull %5)
   br label %50
@@ -624,7 +624,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %19, label %20
@@ -659,7 +659,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp ugt i32 %31, 3
   br i1 %32, label %33, label %44
@@ -677,7 +677,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   %40 = getelementptr %struct.MultiXactMember, ptr %.pre.pre, i64 %indvars.iv48, i32 1
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %.042, 1
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %41, ptr %43, align 4
   br label %44
 
@@ -693,7 +693,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   %46 = getelementptr %struct.MultiXactMember, ptr %24, i64 %45
   store i32 %1, ptr %46, align 4
   %47 = add i32 %.0.lcssa, 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %2, ptr %48, align 4
   %49 = tail call i32 @MultiXactIdCreateFromMembers(i32 noundef %47, ptr noundef %24)
   tail call void @pfree(ptr noundef %.pre.pre) #13
@@ -738,10 +738,10 @@ define dso_local i32 @GetMultiXactIdMembers(i32 noundef %0, ptr nocapture nounde
   br i1 %18, label %mXactCacheGetById.exit, label %19
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %.sroa.0.020.i, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %.sroa.0.020.i, align 8
   store ptr %24, ptr %21, align 8
@@ -762,7 +762,7 @@ dlist_push_head.exit.i.i.i:                       ; preds = %27, %19
   br label %mXactCacheGetById.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not17.i = icmp eq ptr %30, @MXactCache
   br i1 %.not17.i, label %mXactCacheGetById.exit.thread, label %.lr.ph.i, !llvm.loop !11
@@ -844,11 +844,11 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %70 = getelementptr i8, ptr %69, i64 1664
   %71 = tail call zeroext i1 @LWLockAcquire(ptr noundef %70, i32 noundef 1) #13
   %72 = load ptr, ptr @MultiXactState, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %72, align 4
   %.fr151 = freeze i32 %75
-  %76 = getelementptr inbounds i8, ptr %72, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr @MainLWLockArray, align 8
   %79 = getelementptr i8, ptr %78, i64 1664
@@ -903,7 +903,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
 .split.us:                                        ; preds = %103, %.preheader.split.us
   %105 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %90, i1 noundef zeroext true, i32 noundef %0) #13
   %106 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = sext i32 %105 to i64
   %110 = getelementptr ptr, ptr %108, i64 %109
@@ -938,7 +938,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
 124:                                              ; preds = %122, %.preheader.split
   %125 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %90, i1 noundef zeroext true, i32 noundef %0) #13
   %126 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %125 to i64
   %130 = getelementptr ptr, ptr %128, i64 %129
@@ -966,7 +966,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %.4 = phi ptr [ %138, %139 ], [ %121, %134 ]
   %142 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %96, i1 noundef zeroext true, i32 noundef %spec.store.select) #13
   %.pre = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre154 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre155 = sext i32 %142 to i64
   %.phi.trans.insert156 = getelementptr ptr, ptr %.pre154, i64 %.pre155
@@ -1066,7 +1066,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %.6 = phi ptr [ %.7, %173 ], [ %.5147, %.lr.ph ]
   %.3 = phi i32 [ %174, %173 ], [ %.2148, %.lr.ph ]
   %.1 = phi i64 [ %157, %173 ], [ %.0102149, %.lr.ph ]
-  %176 = getelementptr inbounds i8, ptr %.pre159162, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %.pre159162, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = sext i32 %.3 to i64
   %179 = getelementptr ptr, ptr %177, i64 %178
@@ -1087,7 +1087,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %190 = load i32, ptr %187, align 4
   %191 = lshr i32 %190, %185
   %192 = and i32 %191, 255
-  %193 = getelementptr inbounds i8, ptr %189, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i32 %192, ptr %193, align 4
   %194 = add i32 %.0111145, 1
   %.pre159.pre = load ptr, ptr @MultiXactMemberCtlData, align 8
@@ -1234,7 +1234,7 @@ define dso_local void @ReadMultiXactIdRange(ptr nocapture noundef initializes((0
   %4 = getelementptr i8, ptr %3, i64 1664
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #13
   %6 = load ptr, ptr @MultiXactState, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr %0, align 4
   %9 = load i32, ptr %6, align 4
@@ -1283,7 +1283,7 @@ define dso_local ptr @mxid_to_string(i32 noundef %0, i32 noundef %1, ptr nocaptu
 
 7:                                                ; preds = %6, %3
   call void @initStringInfo(ptr noundef nonnull %4) #13
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, 6
   br i1 %10, label %switch.lookup, label %11
@@ -1298,7 +1298,7 @@ define dso_local ptr @mxid_to_string(i32 noundef %0, i32 noundef %1, ptr nocaptu
 switch.lookup:                                    ; preds = %7
   %14 = load i32, ptr %2, align 4
   %15 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %1, i32 noundef %14, ptr noundef nonnull %switch.load) #13
   %16 = icmp sgt i32 %1, 1
@@ -1311,7 +1311,7 @@ switch.lookup:                                    ; preds = %7
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %switch.lookup18
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %switch.lookup18 ]
   %17 = getelementptr %struct.MultiXactMember, ptr %2, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 6
   br i1 %20, label %switch.lookup18, label %21
@@ -1326,7 +1326,7 @@ switch.lookup:                                    ; preds = %7
 switch.lookup18:                                  ; preds = %.lr.ph
   %24 = load i32, ptr %17, align 4
   %25 = zext nneg i32 %19 to i64
-  %switch.gep19 = getelementptr inbounds [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %25
+  %switch.gep19 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %25
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %24, ptr noundef nonnull %switch.load20) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1368,7 +1368,7 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0) #13
   %13 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %6, i1 noundef zeroext true, i32 noundef %0) #13
   %14 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %13 to i64
   %18 = getelementptr ptr, ptr %16, i64 %17
@@ -1377,7 +1377,7 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %21 = getelementptr i32, ptr %19, i64 %20
   store i32 %1, ptr %21, align 4
   %22 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 %17
   store i8 1, ptr %25, align 1
@@ -1441,7 +1441,7 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %.154 = phi i32 [ %46, %45 ], [ %.05367, %.lr.ph ]
   %.1 = phi i64 [ %28, %45 ], [ %.05268, %.lr.ph ]
   %48 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %.154 to i64
   %52 = getelementptr ptr, ptr %50, i64 %51
@@ -1452,7 +1452,7 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %55, align 4
   %58 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr ptr, ptr %60, i64 %51
   %62 = load ptr, ptr %61, align 8
@@ -1462,13 +1462,13 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %66 = shl nuw i32 255, %35
   %67 = xor i32 %66, -1
   %68 = and i32 %65, %67
-  %69 = getelementptr inbounds i8, ptr %56, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = shl i32 %70, %35
   %72 = or i32 %71, %68
   store i32 %72, ptr %64, align 4
   %73 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 %51
   store i8 1, ptr %76, align 1
@@ -1508,12 +1508,12 @@ define internal fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %1, ptr n
   %13 = add nsw i64 %12, 24
   %14 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef %13) #13
   store i32 %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 4 %2, i64 %12, i1 false)
   tail call void @pg_qsort(ptr noundef nonnull %16, i64 noundef %11, i64 noundef 8, ptr noundef nonnull @mxactMemberComparator) #13
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @MXactCache, i64 8), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %dclist_push_head.exit
@@ -1525,7 +1525,7 @@ define internal fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %1, ptr n
 
 dclist_push_head.exit:                            ; preds = %9, %20
   %21 = phi ptr [ @MXactCache, %20 ], [ %18, %9 ]
-  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %21, ptr %22, align 8
   store ptr @MXactCache, ptr %17, align 8
   store ptr %17, ptr %21, align 8
@@ -1538,10 +1538,10 @@ dclist_push_head.exit:                            ; preds = %9, %20
 
 26:                                               ; preds = %dclist_push_head.exit
   %27 = load ptr, ptr @MXactCache, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   %32 = load ptr, ptr %27, align 8
   store ptr %32, ptr %29, align 8
@@ -1782,7 +1782,7 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %27, %0
   %36 = load ptr, ptr @MultiXactState, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %37, ptr @OldestMemberMXactId, align 8
   %38 = load i32, ptr @MaxBackends, align 4
   %39 = load i32, ptr @max_prepared_xacts, align 4
@@ -1867,17 +1867,17 @@ declare void @SimpleLruWritePage(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @StartupMultiXact() local_unnamed_addr #6 {
   %1 = load ptr, ptr @MultiXactState, align 8
   %2 = load i32, ptr %1, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %2, 11
   %6 = zext nneg i32 %5 to i64
   %7 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store volatile i64 %6, ptr %8, align 8
   %9 = udiv i32 %4, 1636
   %10 = zext nneg i32 %9 to i64
   %11 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store volatile i64 %10, ptr %12, align 8
   ret void
 }
@@ -1889,11 +1889,11 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #13
   %4 = load ptr, ptr @MultiXactState, align 8
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr i8, ptr %12, i64 1664
@@ -1901,7 +1901,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %14 = lshr i32 %5, 11
   %15 = zext nneg i32 %14 to i64
   %16 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store volatile i64 %15, ptr %17, align 8
   %18 = and i32 %5, 2047
   %.not = icmp eq i32 %18, 0
@@ -1917,7 +1917,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef %23, i32 noundef 0) #13
   %25 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %15, i1 noundef zeroext true, i32 noundef %5) #13
   %26 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %25 to i64
   %30 = getelementptr ptr, ptr %28, i64 %29
@@ -1963,7 +1963,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
 
 .loopexit73:                                      ; preds = %.lr.ph.preheader, %44, %55
   %56 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 %29
   store i8 1, ptr %59, align 1
@@ -1974,7 +1974,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %61 = udiv i32 %7, 1636
   %62 = zext nneg i32 %61 to i64
   %63 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
   store volatile i64 %62, ptr %64, align 8
   %65 = lshr i32 %7, 2
   %66 = urem i32 %65, 409
@@ -1996,7 +1996,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %narrow = add nuw nsw i32 %76, %68
   %77 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %62, i1 noundef zeroext true, i32 noundef %7) #13
   %78 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = sext i32 %77 to i64
   %82 = getelementptr ptr, ptr %80, i64 %81
@@ -2043,7 +2043,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.lr.ph76.preheader, %96, %108
   %109 = load ptr, ptr @MultiXactMemberCtlData, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 %81
   store i8 1, ptr %112, align 1
@@ -2055,7 +2055,7 @@ define dso_local void @TrimMultiXact() local_unnamed_addr #0 {
   %115 = getelementptr i8, ptr %114, i64 1664
   %116 = tail call zeroext i1 @LWLockAcquire(ptr noundef %115, i32 noundef 0) #13
   %117 = load ptr, ptr @MultiXactState, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i8 1, ptr %118, align 4
   %119 = load ptr, ptr @MainLWLockArray, align 8
   %120 = getelementptr i8, ptr %119, i64 1664
@@ -2081,17 +2081,17 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %12 = getelementptr i8, ptr %11, i64 1664
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #13
   %14 = load ptr, ptr @MultiXactState, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %.037, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.038, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %14, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %.040, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %spec.select, ptr %20, align 4
   %21 = load i32, ptr %14, align 4
   %22 = load ptr, ptr @MainLWLockArray, align 8
@@ -2107,7 +2107,7 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
 
 27:                                               ; preds = %3, %25
   %28 = load ptr, ptr @MultiXactState, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %137
@@ -2120,17 +2120,17 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %37 = getelementptr i8, ptr %36, i64 1664
   %38 = tail call zeroext i1 @LWLockAcquire(ptr noundef %37, i32 noundef 1) #13
   %39 = load ptr, ptr @MultiXactState, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 4
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
-  %48 = getelementptr inbounds i8, ptr %39, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %39, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr @MainLWLockArray, align 8
   %53 = getelementptr i8, ptr %52, i64 1664
@@ -2150,7 +2150,7 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %60 = and i32 %41, 2047
   %61 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %57, i32 noundef %41) #13
   %62 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = sext i32 %61 to i64
   %66 = getelementptr ptr, ptr %64, i64 %65
@@ -2228,12 +2228,12 @@ SetOffsetVacuumLimit.exit:                        ; preds = %91, %93, %95, %98
   %100 = getelementptr i8, ptr %99, i64 1664
   %101 = tail call zeroext i1 @LWLockAcquire(ptr noundef %100, i32 noundef 0) #13
   %102 = load ptr, ptr @MultiXactState, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 20
   store i32 %.1.i, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %102, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %105 = zext i1 %.1.shrunk.i to i8
   store i8 %105, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %102, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 44
   store i32 %.019.i, ptr %106, align 4
   %107 = load ptr, ptr @MainLWLockArray, align 8
   %108 = getelementptr i8, ptr %107, i64 1664
@@ -2308,13 +2308,13 @@ define dso_local void @MultiXactGetCheckptMulti(i1 noundef zeroext %0, ptr nocap
   %9 = load ptr, ptr @MultiXactState, align 8
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %2, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %3, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %4, align 4
   %17 = load ptr, ptr @MainLWLockArray, align 8
@@ -2339,7 +2339,7 @@ define dso_local void @MultiXactSetNextMXact(i32 noundef %0, i32 noundef %1) loc
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0) #13
   %6 = load ptr, ptr @MultiXactState, align 8
   store i32 %0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr i8, ptr %8, i64 1664
@@ -2403,7 +2403,7 @@ define dso_local void @MultiXactAdvanceNextMXact(i32 noundef %0, i32 noundef %1)
   br label %11
 
 11:                                               ; preds = %10, %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 %13, %1
   %15 = icmp slt i32 %14, 0
@@ -2423,7 +2423,7 @@ define dso_local void @MultiXactAdvanceNextMXact(i32 noundef %0, i32 noundef %1)
 ; Function Attrs: nounwind uwtable
 define dso_local void @MultiXactAdvanceOldest(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MultiXactState, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 %5, %0
   %7 = icmp slt i32 %6, 0
@@ -2492,14 +2492,14 @@ define dso_local i32 @MultiXactMemberFreezeThreshold() local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %1, i64 1664
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #13
   %4 = load ptr, ptr @MultiXactState, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   %15 = load ptr, ptr @MainLWLockArray, align 8
@@ -2544,9 +2544,9 @@ define dso_local void @TruncateMultiXact(i32 noundef %0, i32 noundef %1) local_u
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef %9, i32 noundef 1) #13
   %11 = load ptr, ptr @MultiXactState, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr @MainLWLockArray, align 8
   %18 = getelementptr i8, ptr %17, i64 1664
@@ -2594,7 +2594,7 @@ find_multixact_start.exit.thread:                 ; preds = %35
   %39 = and i32 %16, 2047
   %40 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %37, i32 noundef %16) #13
   %41 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %40 to i64
   %45 = getelementptr ptr, ptr %43, i64 %44
@@ -2643,7 +2643,7 @@ find_multixact_start.exit30.thread:               ; preds = %62
   %66 = and i32 %0, 2047
   %67 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %64, i32 noundef %0) #13
   %68 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %67 to i64
   %72 = getelementptr ptr, ptr %70, i64 %71
@@ -2701,19 +2701,19 @@ find_multixact_start.exit30:                      ; preds = %62
   %97 = add i32 %96, 1
   store volatile i32 %97, ptr @CritSectionCount, align 4
   %98 = load ptr, ptr @MyProc, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 144
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 144
   %100 = load i32, ptr %99, align 8
   %101 = or i32 %100, 1
   store i32 %101, ptr %99, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  %102 = getelementptr inbounds i8, ptr %3, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %16, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %3, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %0, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %3, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.0, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %3, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.036, ptr %105, align 4
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 20) #13
@@ -2724,9 +2724,9 @@ find_multixact_start.exit30:                      ; preds = %62
   %108 = getelementptr i8, ptr %107, i64 1664
   %109 = call zeroext i1 @LWLockAcquire(ptr noundef %108, i32 noundef 0) #13
   %110 = load ptr, ptr @MultiXactState, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 %0, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %110, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i32 %1, ptr %112, align 4
   %113 = load ptr, ptr @MainLWLockArray, align 8
   %114 = getelementptr i8, ptr %113, i64 1664
@@ -2761,7 +2761,7 @@ PerformMembersTruncation.exit:                    ; preds = %118, %95
   %126 = zext nneg i32 %125 to i64
   call void @SimpleLruTruncate(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %126) #13
   %127 = load ptr, ptr @MyProc, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 144
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 144
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %129, -2
   store i32 %130, ptr %128, align 8
@@ -2793,7 +2793,7 @@ define internal noundef zeroext i1 @SlruScanDirCbFindEarliest(ptr nocapture noun
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i1 %9(i64 noundef %2, i64 noundef %5) #13
   br i1 %10, label %11, label %12
@@ -2808,9 +2808,9 @@ define internal noundef zeroext i1 @SlruScanDirCbFindEarliest(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multixact_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = lshr i8 %5, 4
   switch i8 %6, label %101 [
@@ -2821,7 +2821,7 @@ define dso_local void @multixact_redo(ptr nocapture noundef readonly %0) local_u
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.0.copyload34 = load i64, ptr %9, align 1
   %MultiXactOffsetCtlData.val = load ptr, ptr @MultiXactOffsetCtlData, align 8
@@ -2838,7 +2838,7 @@ define dso_local void @multixact_redo(ptr nocapture noundef readonly %0) local_u
   br label %106
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %3, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %18 = load ptr, ptr %17, align 8
   %.0.copyload = load i64, ptr %18, align 1
   %MultiXactMemberCtlData.val = load ptr, ptr @MultiXactMemberCtlData, align 8
@@ -2855,14 +2855,14 @@ define dso_local void @multixact_redo(ptr nocapture noundef readonly %0) local_u
   br label %106
 
 25:                                               ; preds = %1
-  %26 = getelementptr inbounds i8, ptr %3, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %27, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 12
   tail call fastcc void @RecordNewMultiXact(i32 noundef %28, i32 noundef %30, i32 noundef %32, ptr noundef nonnull %33)
   %34 = load i32, ptr %27, align 4
   %35 = add i32 %34, 1
@@ -2883,7 +2883,7 @@ define dso_local void @multixact_redo(ptr nocapture noundef readonly %0) local_u
   br label %47
 
 47:                                               ; preds = %46, %25
-  %48 = getelementptr inbounds i8, ptr %42, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = sub i32 %49, %38
   %51 = icmp slt i32 %50, 0
@@ -2898,7 +2898,7 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %47, %52
   %54 = getelementptr i8, ptr %53, i64 1664
   tail call void @LWLockRelease(ptr noundef %54) #13
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 44
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %31, align 4
   %59 = icmp sgt i32 %58, 0
@@ -2930,16 +2930,16 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %47, %52
   br label %106
 
 69:                                               ; preds = %1
-  %70 = getelementptr inbounds i8, ptr %3, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %71 = load ptr, ptr %70, align 8
   %.sroa.0.0.copyload = load i32, ptr %71, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 12
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 12
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 1
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 16
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 16
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 1
   %72 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %72, label %73, label %._crit_edge55
@@ -2991,7 +2991,7 @@ PerformMembersTruncation.exit:                    ; preds = %86, %79
   %90 = lshr i32 %.sroa.5.0.copyload, 11
   %91 = zext nneg i32 %90 to i64
   %92 = load ptr, ptr @MultiXactOffsetCtlData, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 88
   store volatile i64 %91, ptr %93, align 8
   %94 = icmp eq i32 %.sroa.5.0.copyload, 1
   %95 = add i32 %.sroa.5.0.copyload, -1
@@ -3028,7 +3028,7 @@ declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_add
 define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x ptr], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = icmp eq i32 %6, 0
@@ -3044,22 +3044,22 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %12
   %18 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #13
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
   %22 = tail call ptr @palloc(i64 noundef 16) #13
   %23 = tail call i32 @GetMultiXactIdMembers(i32 noundef %6, ptr noundef %22, i1 noundef zeroext false, i1 noundef zeroext false)
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 0, ptr %25, align 4
   %26 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %26, 1
@@ -3074,23 +3074,23 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %18, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %31, ptr %32, align 8
   %33 = call ptr @TupleDescGetAttInMetadata(ptr noundef %31) #13
-  %34 = getelementptr inbounds i8, ptr %18, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %18, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %22, ptr %35, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
   br label %36
 
 36:                                               ; preds = %30, %12
   %37 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #13
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %41, %43
   br i1 %44, label %45, label %75
@@ -3119,11 +3119,11 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %45
   %60 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_get_multixact_members, i64 0, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %37, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = call ptr @BuildTupleFromCStrings(ptr noundef %63, ptr noundef nonnull %3) #13
   %65 = load i32, ptr %40, align 4
@@ -3134,9 +3134,9 @@ switch.lookup:                                    ; preds = %45
   %68 = load i64, ptr %37, align 8
   %69 = add i64 %68, 1
   store i64 %69, ptr %37, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i32 1, ptr %72, align 8
   %73 = getelementptr i8, ptr %64, i64 16
   %.val = load ptr, ptr %73, align 8
@@ -3145,11 +3145,11 @@ switch.lookup:                                    ; preds = %45
 
 75:                                               ; preds = %36
   call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %37) #13
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i32 2, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %79, align 4
   br label %80
 
@@ -3195,10 +3195,10 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %.sroa.03.0.copyload = load i32, ptr %0, align 4
-  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.35.0.copyload = load i32, ptr %.sroa.35.0..sroa_idx, align 4
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %3 = icmp ugt i32 %.sroa.03.0.copyload, %.sroa.0.0.copyload
   br i1 %3, label %10, label %4

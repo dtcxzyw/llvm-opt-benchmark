@@ -100,21 +100,21 @@ define void @_ZNK5ZXing4OneD9ITFReader13decodePatternEiRNS_11PatternViewERSt10un
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   %18 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not1.i.i = icmp ult ptr %18, %20
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  %indvars.iv27.i.sroa.gep91 = getelementptr inbounds i8, ptr %9, i64 2
-  %indvars.iv27.i.sroa.gep94 = getelementptr inbounds i8, ptr %8, i64 2
-  %indvars.iv120.sroa.gep = getelementptr inbounds i8, ptr %13, i64 4
+  %indvars.iv27.i.sroa.gep91 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %indvars.iv27.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %indvars.iv120.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
   br i1 %or.cond.i.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit
 
 _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i16, ptr %18, i64 %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp ugt ptr %24, %26
   br i1 %.not, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %44
@@ -122,36 +122,36 @@ _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %5
 _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11PatternView7isValidEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %27) #15
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i16 -1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 98
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 98
   store i8 0, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, -1059028992
   %35 = or disjoint i32 %34, 527663
   store i32 %35, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 140
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 2, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 141
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 -1, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 142
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 142
   store i16 500, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 156
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 -1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #15
-  %43 = getelementptr inbounds i8, ptr %0, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %43, i8 0, i64 19, i1 false)
   br label %299
 
@@ -171,7 +171,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit.thread:    ; preds = %5, %_ZNK5ZXing11Pat
   %.057.i.i.i = phi i16 [ %49, %.lr.ph.i.i.i ], [ 0, %45 ]
   %48 = load i16, ptr %.08.i.i.i, align 2
   %49 = add i16 %48, %.057.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 2
   %.not.i.i.i = icmp eq ptr %50, %47
   br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -181,16 +181,16 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.
 
 52:                                               ; preds = %45, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i
   %.05.lcssa.i.i.i = phi i32 [ 0, %45 ], [ %51, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i ]
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %53, ptr %3, align 8
   store i32 10, ptr %21, align 8
   %.not1.i.i51112 = icmp ult ptr %53, %46
   br i1 %.not1.i.i51112, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph
 
 _ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph:   ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %13, i64 4
-  %55 = getelementptr inbounds i8, ptr %14, i64 4
-  %56 = getelementptr inbounds i8, ptr %47, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %57 = load ptr, ptr %25, align 8
   %.not102139 = icmp ugt ptr %56, %57
   br i1 %.not102139, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread, label %.lr.ph
@@ -212,7 +212,7 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.5)
   %63 = load i16, ptr %61, align 2
   store i16 %63, ptr %8, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %65 = load i16, ptr %64, align 2
   store i16 %65, ptr %indvars.iv27.i.sroa.gep94, align 2
   %66 = load i32, ptr %8, align 4
@@ -227,9 +227,9 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %68 = and i64 %indvars.iv.i, 1
-  %69 = getelementptr inbounds i16, ptr %8, i64 %68
-  %70 = getelementptr inbounds i16, ptr %9, i64 %68
-  %71 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw i16, ptr %8, i64 %68
+  %70 = getelementptr inbounds nuw i16, ptr %9, i64 %68
+  %71 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv.i
   %72 = load i16, ptr %71, align 2
   %73 = load i16, ptr %69, align 2
   %.sroa.speculated8.i.i = call i16 @llvm.umin.i16(i16 %72, i16 %73)
@@ -330,11 +330,11 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
 
 104:                                              ; preds = %103, %114
   %indvars.iv = phi i64 [ 0, %103 ], [ %indvars.iv.next, %114 ]
-  %105 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
   %108 = and i64 %indvars.iv, 1
-  %109 = getelementptr inbounds i16, ptr %12, i64 %108
+  %109 = getelementptr inbounds nuw i16, ptr %12, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = shl nuw nsw i32 %111, 1
@@ -344,16 +344,16 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
 114:                                              ; preds = %104
   %115 = icmp ugt i16 %106, %110
   %116 = zext i1 %115 to i32
-  %117 = getelementptr inbounds i32, ptr %14, i64 %108
+  %117 = getelementptr inbounds nuw i32, ptr %14, i64 %108
   %118 = load i32, ptr %117, align 4
   %119 = add nsw i32 %118, %116
   store i32 %119, ptr %117, align 4
   %120 = lshr i64 %indvars.iv, 1
   %121 = and i64 %120, 2147483647
-  %122 = getelementptr inbounds [5 x i32], ptr @__const._ZNK5ZXing4OneD9ITFReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EE.weights, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZNK5ZXing4OneD9ITFReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EE.weights, i64 0, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = select i1 %115, i32 %123, i32 0
-  %125 = getelementptr inbounds i32, ptr %13, i64 %108
+  %125 = getelementptr inbounds nuw i32, ptr %13, i64 %108
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %126, %124
   store i32 %127, ptr %125, align 4
@@ -390,11 +390,11 @@ _ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZN5ZXing11
 
 139:                                              ; preds = %137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %138, ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  %140 = getelementptr inbounds i8, ptr %138, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store ptr @.str.1, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %138, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 40
   store i16 103, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %138, i64 42
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 42
   store i8 1, ptr %142, align 2
   invoke void @__cxa_throw(ptr nonnull %138, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #16
           to label %147 unwind label %143
@@ -471,36 +471,36 @@ _ZNK5ZXing11PatternView7isValidEv.exit59.thread:  ; preds = %161, %_ZNK5ZXing11P
           to label %_ZN5ZXing6ResultC2Ev.exit unwind label %.loopexit.split-lp
 
 _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit59.thread
-  %168 = getelementptr inbounds i8, ptr %0, i64 56
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %168) #15
-  %169 = getelementptr inbounds i8, ptr %0, i64 88
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i16 -1, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 98
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 98
   store i8 0, ptr %171, align 2
-  %172 = getelementptr inbounds i8, ptr %0, i64 104
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, i8 0, i64 32, i1 false)
-  %173 = getelementptr inbounds i8, ptr %0, i64 136
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = load i32, ptr %173, align 8
   %175 = and i32 %174, -1059028992
   %176 = or disjoint i32 %175, 527663
   store i32 %176, ptr %173, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 140
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 2, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %0, i64 141
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 -1, ptr %178, align 1
-  %179 = getelementptr inbounds i8, ptr %0, i64 142
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 142
   store i16 500, ptr %179, align 2
-  %180 = getelementptr inbounds i8, ptr %0, i64 144
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 152
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 156
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 -1, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %0, i64 160
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %183) #15
-  %184 = getelementptr inbounds i8, ptr %0, i64 192
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %184, i8 0, i64 19, i1 false)
   br label %298
 
@@ -521,7 +521,7 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %_ZNK5ZXing11Pattern
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %191
   %.08.i.i.i.idx.i.i = phi i64 [ %.08.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %191 ]
   %.057.i.i.i.i.i = phi i16 [ %194, %.lr.ph.i.i.i.i.i ], [ 0, %191 ]
-  %.08.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %162, i64 %.08.i.i.i.idx.i.i
+  %.08.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %162, i64 %.08.i.i.i.idx.i.i
   %193 = load i16, ptr %.08.i.i.i.ptr.i.i, align 2
   %194 = add i16 %193, %.057.i.i.i.i.i
   %.08.i.i.i.add.i.i = add nuw nsw i64 %.08.i.i.i.idx.i.i, 2
@@ -550,10 +550,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 
 204:                                              ; preds = %203, %201
   %indvars.iv.i.i = phi i64 [ 0, %201 ], [ %indvars.iv.next.i.i, %203 ]
-  %205 = getelementptr inbounds i16, ptr %162, i64 %indvars.iv.i.i
+  %205 = getelementptr inbounds nuw i16, ptr %162, i64 %indvars.iv.i.i
   %206 = load i16, ptr %205, align 2
   %207 = uitofp i16 %206 to double
-  %208 = getelementptr inbounds [3 x i16], ptr @_ZN5ZXing4OneDL14STOP_PATTERN_1E, i64 0, i64 %indvars.iv.i.i
+  %208 = getelementptr inbounds nuw [3 x i16], ptr @_ZN5ZXing4OneDL14STOP_PATTERN_1E, i64 0, i64 %indvars.iv.i.i
   %209 = load i16, ptr %208, align 2
   %210 = uitofp i16 %209 to double
   %211 = fneg double %210
@@ -581,7 +581,7 @@ _ZN5ZXing12IsRightGuardILi3ELi4ELb0EEEbRKNS_11PatternViewERKNS_12FixedPatternIXT
 .lr.ph.i.i.i.i.i61:                               ; preds = %.lr.ph.i.i.i.i.i61, %219
   %.08.i.i.i.idx.i.i62 = phi i64 [ %.08.i.i.i.add.i.i65, %.lr.ph.i.i.i.i.i61 ], [ 0, %219 ]
   %.057.i.i.i.i.i63 = phi i16 [ %222, %.lr.ph.i.i.i.i.i61 ], [ 0, %219 ]
-  %.08.i.i.i.ptr.i.i64 = getelementptr inbounds i8, ptr %162, i64 %.08.i.i.i.idx.i.i62
+  %.08.i.i.i.ptr.i.i64 = getelementptr inbounds nuw i8, ptr %162, i64 %.08.i.i.i.idx.i.i62
   %221 = load i16, ptr %.08.i.i.i.ptr.i.i64, align 2
   %222 = add i16 %221, %.057.i.i.i.i.i63
   %.08.i.i.i.add.i.i65 = add nuw nsw i64 %.08.i.i.i.idx.i.i62, 2
@@ -610,10 +610,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i67:         ; preds = %.lr.ph.i.i.i.i.i61
 
 232:                                              ; preds = %231, %229
   %indvars.iv.i.i69 = phi i64 [ 0, %229 ], [ %indvars.iv.next.i.i70, %231 ]
-  %233 = getelementptr inbounds i16, ptr %162, i64 %indvars.iv.i.i69
+  %233 = getelementptr inbounds nuw i16, ptr %162, i64 %indvars.iv.i.i69
   %234 = load i16, ptr %233, align 2
   %235 = uitofp i16 %234 to double
-  %236 = getelementptr inbounds [3 x i16], ptr @_ZN5ZXing4OneDL14STOP_PATTERN_2E, i64 0, i64 %indvars.iv.i.i69
+  %236 = getelementptr inbounds nuw [3 x i16], ptr @_ZN5ZXing4OneDL14STOP_PATTERN_2E, i64 0, i64 %indvars.iv.i.i69
   %237 = load i16, ptr %236, align 2
   %238 = uitofp i16 %237 to double
   %239 = fneg double %238
@@ -632,41 +632,41 @@ _ZN5ZXing12IsRightGuardILi3ELi5ELb0EEEbRKNS_11PatternViewERKNS_12FixedPatternIXT
           to label %_ZN5ZXing6ResultC2Ev.exit74 unwind label %.loopexit.split-lp
 
 _ZN5ZXing6ResultC2Ev.exit74:                      ; preds = %_ZN5ZXing12IsRightGuardILi3ELi5ELb0EEEbRKNS_11PatternViewERKNS_12FixedPatternIXT_EXT0_EXT1_EEEdd.exit.thread100
-  %244 = getelementptr inbounds i8, ptr %0, i64 56
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %244) #15
-  %245 = getelementptr inbounds i8, ptr %0, i64 88
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 96
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i16 -1, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %0, i64 98
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 98
   store i8 0, ptr %247, align 2
-  %248 = getelementptr inbounds i8, ptr %0, i64 104
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %248, i8 0, i64 32, i1 false)
-  %249 = getelementptr inbounds i8, ptr %0, i64 136
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %250 = load i32, ptr %249, align 8
   %251 = and i32 %250, -1059028992
   %252 = or disjoint i32 %251, 527663
   store i32 %252, ptr %249, align 8
-  %253 = getelementptr inbounds i8, ptr %0, i64 140
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 2, ptr %253, align 4
-  %254 = getelementptr inbounds i8, ptr %0, i64 141
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 141
   store i8 -1, ptr %254, align 1
-  %255 = getelementptr inbounds i8, ptr %0, i64 142
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 142
   store i16 500, ptr %255, align 2
-  %256 = getelementptr inbounds i8, ptr %0, i64 144
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %0, i64 152
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 156
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 -1, ptr %258, align 4
-  %259 = getelementptr inbounds i8, ptr %0, i64 160
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %259) #15
-  %260 = getelementptr inbounds i8, ptr %0, i64 192
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %260, i8 0, i64 19, i1 false)
   br label %298
 
 261:                                              ; preds = %_ZN5ZXing12IsRightGuardILi3ELi5ELb0EEEbRKNS_11PatternViewERKNS_12FixedPatternIXT_EXT0_EXT1_EEEdd.exit, %_ZN5ZXing12IsRightGuardILi3ELi4ELb0EEEbRKNS_11PatternViewERKNS_12FixedPatternIXT_EXT0_EXT1_EEEdd.exit
-  %262 = getelementptr inbounds i8, ptr %1, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %263 = load ptr, ptr %262, align 8
   %264 = load i32, ptr %263, align 4
   %265 = and i32 %264, 128
@@ -683,11 +683,11 @@ _ZN5ZXing6ResultC2Ev.exit74:                      ; preds = %_ZN5ZXing12IsRightG
 269:                                              ; preds = %268
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %15, ptr noundef nonnull align 8 dereferenceable(32) %16) #15
-  %270 = getelementptr inbounds i8, ptr %15, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr @.str, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %15, i64 40
+  %271 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i16 66, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %15, i64 42
+  %272 = getelementptr inbounds nuw i8, ptr %15, i64 42
   store i8 2, ptr %272, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   br label %276
@@ -695,11 +695,11 @@ _ZN5ZXing6ResultC2Ev.exit74:                      ; preds = %_ZN5ZXing12IsRightG
 .critedge:                                        ; preds = %268, %261
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(43) %15) #15
-  %273 = getelementptr inbounds i8, ptr %15, i64 32
+  %273 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %15, i64 40
+  %274 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i16 -1, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %15, i64 42
+  %275 = getelementptr inbounds nuw i8, ptr %15, i64 42
   store i8 0, ptr %275, align 2
   br label %276
 
@@ -721,7 +721,7 @@ _ZN5ZXing6ResultC2Ev.exit74:                      ; preds = %_ZN5ZXing12IsRightG
   %.057.i.i.i78 = phi i16 [ %285, %.lr.ph.i.i.i76 ], [ 0, %278 ]
   %284 = load i16, ptr %.08.i.i.i77, align 2
   %285 = add i16 %284, %.057.i.i.i78
-  %286 = getelementptr inbounds i8, ptr %.08.i.i.i77, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %.08.i.i.i77, i64 2
   %.not.i.i.i79 = icmp eq ptr %286, %283
   br i1 %.not.i.i.i79, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i80, label %.lr.ph.i.i.i76, !llvm.loop !4
 
@@ -736,8 +736,8 @@ _ZNK5ZXing11PatternView13pixelsTillEndEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
           to label %289 unwind label %293
 
 289:                                              ; preds = %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit
-  %290 = getelementptr inbounds i8, ptr %17, i64 32
-  %291 = getelementptr inbounds i8, ptr %15, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %290, ptr noundef nonnull align 8 dereferenceable(11) %291, i64 11, i1 false)
   %.sroa.03.0.insert.insert = select i1 %277, i32 12617, i32 12361
   invoke void @_ZN5ZXing6ResultC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiiNS_13BarcodeFormatENS_19SymbologyIdentifierENS_5ErrorEb(ptr noundef nonnull align 8 dereferenceable(211) %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %2, i32 noundef %.05.lcssa.i.i.i, i32 noundef %.05.lcssa.i.i.i81, i32 noundef 1024, i32 %.sroa.03.0.insert.insert, ptr noundef nonnull %17, i1 noundef zeroext false)
@@ -807,11 +807,11 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %0)
 
 6:                                                ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @.str.1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i16 103, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 42
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 42
   store i8 1, ptr %9, align 2
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #16
           to label %18 unwind label %10
@@ -954,7 +954,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi4EZNS_13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS2_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdEUlS4_iE_EES2_S4_iT0_(ptr dead_on_unwind noalias writable sret(%"class.ZXing::PatternView") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr %3, double %4) local_unnamed_addr #0 comdat {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, %2
   br i1 %8, label %9, label %10
@@ -965,18 +965,18 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi4EZNS_13FindLeftGuardILi4EL
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %1, align 8, !noalias !14
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !14
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !noalias !14
-  %16 = getelementptr inbounds i8, ptr %13, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %17 = icmp eq ptr %11, %16
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %10, %.lr.ph.i.i.i.i.i
   %.08.i.i.i.idx.i.i = phi i64 [ %.08.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %10 ]
   %.057.i.i.i.i.i = phi i16 [ %19, %.lr.ph.i.i.i.i.i ], [ 0, %10 ]
-  %.08.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %.08.i.i.i.idx.i.i
+  %.08.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.08.i.i.i.idx.i.i
   %18 = load i16, ptr %.08.i.i.i.ptr.i.i, align 2
   %19 = add i16 %18, %.057.i.i.i.i.i
   %.08.i.i.i.add.i.i = add nuw nsw i64 %.08.i.i.i.idx.i.i, 2
@@ -1003,10 +1003,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 
 28:                                               ; preds = %27, %25
   %indvars.iv.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i, %27 ]
-  %29 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i.i
   %30 = load i16, ptr %29, align 2
   %31 = uitofp i16 %30 to double
-  %32 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
   %33 = load i16, ptr %32, align 2
   %34 = uitofp i16 %33 to double
   %35 = fneg double %34
@@ -1021,11 +1021,11 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 40:                                               ; preds = %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit
   store ptr %11, ptr %0, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.1227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.1227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.1227.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.14.0..sroa_idx, align 8
   br label %94
 
@@ -1051,7 +1051,7 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 .lr.ph.i.i.i.i.i5.us:                             ; preds = %.lr.ph.i.i.i.i.i5.us, %.lr.ph.split.us
   %.08.i.i.i.idx.i.i6.us = phi i64 [ %.08.i.i.i.add.i.i9.us, %.lr.ph.i.i.i.i.i5.us ], [ 0, %.lr.ph.split.us ]
   %.057.i.i.i.i.i7.us = phi i16 [ %51, %.lr.ph.i.i.i.i.i5.us ], [ 0, %.lr.ph.split.us ]
-  %.08.i.i.i.ptr.i.i8.us = getelementptr inbounds i8, ptr %.sroa.0.041.us, i64 %.08.i.i.i.idx.i.i6.us
+  %.08.i.i.i.ptr.i.i8.us = getelementptr inbounds nuw i8, ptr %.sroa.0.041.us, i64 %.08.i.i.i.idx.i.i6.us
   %50 = load i16, ptr %.08.i.i.i.ptr.i.i8.us, align 2
   %51 = add i16 %50, %.057.i.i.i.i.i7.us
   %.08.i.i.i.add.i.i9.us = add nuw nsw i64 %.08.i.i.i.idx.i.i6.us, 2
@@ -1072,10 +1072,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i11.us:      ; preds = %.lr.ph.i.i.i.i.i5.u
 
 59:                                               ; preds = %70, %57
   %indvars.iv.i.i12.us = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i13.us, %70 ]
-  %60 = getelementptr inbounds i16, ptr %.sroa.0.041.us, i64 %indvars.iv.i.i12.us
+  %60 = getelementptr inbounds nuw i16, ptr %.sroa.0.041.us, i64 %indvars.iv.i.i12.us
   %61 = load i16, ptr %60, align 2
   %62 = uitofp i16 %61 to double
-  %63 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i12.us
+  %63 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i12.us
   %64 = load i16, ptr %63, align 2
   %65 = uitofp i16 %64 to double
   %66 = fneg double %65
@@ -1094,7 +1094,7 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
   br i1 %71, label %.split.us, label %_ZN5ZXing11PatternView8skipPairEv.exit.us
 
 _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %59, %_ZNK5ZXing11PatternView3sumEi.exit.i.i11.us, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16.us
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.041.us, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.us, i64 4
   %73 = icmp ult ptr %72, %45
   br i1 %73, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
 
@@ -1105,7 +1105,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %59, %_ZNK5ZXing11Pa
 .lr.ph.i.i.i.i.i5:                                ; preds = %.lr.ph.i.i.i.i.i5, %.lr.ph.split
   %.08.i.i.i.idx.i.i6 = phi i64 [ %.08.i.i.i.add.i.i9, %.lr.ph.i.i.i.i.i5 ], [ 0, %.lr.ph.split ]
   %.057.i.i.i.i.i7 = phi i16 [ %75, %.lr.ph.i.i.i.i.i5 ], [ 0, %.lr.ph.split ]
-  %.08.i.i.i.ptr.i.i8 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 %.08.i.i.i.idx.i.i6
+  %.08.i.i.i.ptr.i.i8 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 %.08.i.i.i.idx.i.i6
   %74 = load i16, ptr %.08.i.i.i.ptr.i.i8, align 2
   %75 = add i16 %74, %.057.i.i.i.i.i7
   %.08.i.i.i.add.i.i9 = add nuw nsw i64 %.08.i.i.i.idx.i.i6, 2
@@ -1125,10 +1125,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i11:         ; preds = %.lr.ph.i.i.i.i.i5
 
 80:                                               ; preds = %79, %_ZNK5ZXing11PatternView3sumEi.exit.i.i11
   %indvars.iv.i.i12 = phi i64 [ 0, %_ZNK5ZXing11PatternView3sumEi.exit.i.i11 ], [ %indvars.iv.next.i.i13, %79 ]
-  %81 = getelementptr inbounds i16, ptr %.sroa.0.041, i64 %indvars.iv.i.i12
+  %81 = getelementptr inbounds nuw i16, ptr %.sroa.0.041, i64 %indvars.iv.i.i12
   %82 = load i16, ptr %81, align 2
   %83 = uitofp i16 %82 to double
-  %84 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i12
+  %84 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i12
   %85 = load i16, ptr %84, align 2
   %86 = uitofp i16 %85 to double
   %87 = fneg double %86
@@ -1144,16 +1144,16 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 .split.us:                                        ; preds = %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16.us
   %.us-phi = phi ptr [ %.sroa.0.041.us, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16.us ], [ %.sroa.0.041, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16 ]
   store ptr %.us-phi, ptr %0, align 8
-  %.sroa.10.0..sroa_idx23 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.10.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %.sroa.10.0..sroa_idx23, align 8
-  %.sroa.1227.0..sroa_idx28 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.1227.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %.sroa.1227.0..sroa_idx28, align 8
-  %.sroa.14.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.14.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.14.0..sroa_idx30, align 8
   br label %94
 
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %80, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit16
-  %92 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 4
   %93 = icmp ult ptr %92, %45
   br i1 %93, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
 

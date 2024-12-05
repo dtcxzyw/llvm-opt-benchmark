@@ -36,7 +36,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
 .preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us
   %indvars.iv72 = phi i64 [ %15, %.preheader54.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %indvars.iv65 = phi i64 [ %14, %.preheader54.us.preheader ], [ %indvars.iv.next66, %._crit_edge.us ]
-  %16 = getelementptr inbounds float, ptr %6, i64 %indvars.iv72
+  %16 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv72
   %.promoted.us = load float, ptr %16, align 4
   br label %17
 
@@ -46,7 +46,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
   %18 = phi float [ %.promoted.us, %.preheader54.us ], [ %23, %17 ]
   %19 = getelementptr inbounds float, ptr %1, i64 %indvars.iv67
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %22 = load float, ptr %21, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %20, float %22, float %18)
   store float %23, ptr %16, align 4
@@ -73,7 +73,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %._crit_edge, %.preheader52.preheader
   %indvars.iv88 = phi i64 [ 1, %.preheader52.preheader ], [ %indvars.iv.next89, %._crit_edge ]
   %indvars.iv77 = phi i64 [ 0, %.preheader52.preheader ], [ %indvars.iv.next78, %._crit_edge ]
-  %27 = getelementptr inbounds float, ptr %6, i64 %indvars.iv77
+  %27 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv77
   %.promoted = load float, ptr %27, align 4
   br label %29
 
@@ -89,9 +89,9 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
   %indvars.iv79 = phi i64 [ %indvars.iv77, %.lr.ph ], [ %indvars.iv.next80, %29 ]
   %indvars.iv75 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next76, %29 ]
   %30 = phi float [ %.promoted, %.lr.ph ], [ %35, %29 ]
-  %31 = getelementptr inbounds float, ptr %1, i64 %indvars.iv79
+  %31 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv79
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds float, ptr %3, i64 %indvars.iv75
+  %33 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv75
   %34 = load float, ptr %33, align 4
   %35 = tail call float @llvm.fmuladd.f32(float %32, float %34, float %30)
   store float %35, ptr %27, align 4
@@ -108,9 +108,9 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv95 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next96, %.lr.ph62 ]
-  %36 = getelementptr inbounds float, ptr %6, i64 %indvars.iv95
+  %36 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv95
   %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds float, ptr %1, i64 %indvars.iv95
+  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv95
   store float %37, ptr %38, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -155,7 +155,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
 
 .preheader40.us:                                  ; preds = %._crit_edge.us, %.split.us
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge.us ], [ 0, %.split.us ]
-  %13 = getelementptr inbounds float, ptr %12, i64 %indvars.iv45
+  %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv45
   %.promoted.us = load float, ptr %13, align 4
   %14 = trunc i64 %indvars.iv45 to i32
   %15 = add i32 %0, %14
@@ -166,7 +166,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
   %17 = phi float [ %.promoted.us, %.preheader40.us ], [ %26, %16 ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = sub i32 %15, %18
-  %20 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %21 = load float, ptr %20, align 4
   %22 = srem i32 %19, %0
   %23 = sext i32 %22 to i64
@@ -185,9 +185,9 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %._crit_edge.us, %.lr.ph
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph ], [ 0, %._crit_edge.us ]
-  %27 = getelementptr inbounds float, ptr %12, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv50
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds float, ptr %1, i64 %indvars.iv50
+  %29 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv50
   store float %28, ptr %29, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %11
@@ -230,7 +230,7 @@ define void @_Z11gausskernelPfif(ptr nocapture noundef %0, i32 noundef %1, float
   %13 = fdiv float %12, %6
   %14 = tail call noundef float @expf(float noundef %13) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %14, ptr %15, align 4
   %16 = fadd float %.022, %14
   %17 = add nsw i32 %.01721, 1
@@ -239,7 +239,7 @@ define void @_Z11gausskernelPfif(ptr nocapture noundef %0, i32 noundef %1, float
 
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
   %indvars.iv28 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next29, %.lr.ph25 ]
-  %18 = getelementptr inbounds float, ptr %0, i64 %indvars.iv28
+  %18 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv28
   %19 = load float, ptr %18, align 4
   %20 = fdiv float %19, %16
   store float %20, ptr %18, align 4

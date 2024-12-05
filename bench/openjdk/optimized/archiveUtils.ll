@@ -98,13 +98,13 @@ declare void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS1_(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 344
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %7 = load ptr, ptr %6, align 8
   store ptr %0, ptr @_ZN16ArchivePtrMarker10_rw_ptrmapE, align 8
   store ptr %1, ptr @_ZN16ArchivePtrMarker10_ro_ptrmapE, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %5 to i64
@@ -116,19 +116,19 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13, i1 noundef zeroext true) #10
   %17 = load ptr, ptr @_ZN16ArchivePtrMarker10_ro_ptrmapE, align 8
   %18 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %20, %16
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %21, i1 noundef zeroext true) #10
   %22 = load ptr, ptr @_ZN16ArchivePtrMarker10_rw_ptrmapE, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %2
   %25 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = icmp ult i64 %16, %27
   br i1 %28, label %.lr.ph18, label %._crit_edge
@@ -139,7 +139,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   %30 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = lshr i64 %.01516, 6
-  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %.01516, 63
   %36 = shl nuw i64 1, %35
@@ -148,7 +148,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %.01516, i1 noundef zeroext %38) #10
   %39 = add nuw i64 %.01516, 1
   %40 = load ptr, ptr @_ZN16ArchivePtrMarker10_rw_ptrmapE, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp ult i64 %39, %42
   br i1 %43, label %.lr.ph, label %.preheader, !llvm.loop !6
@@ -160,7 +160,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   %46 = sub nuw i64 %.017, %16
   %47 = load ptr, ptr %44, align 8
   %48 = lshr i64 %.017, 6
-  %49 = getelementptr inbounds i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %.017, 63
   %52 = shl nuw i64 1, %51
@@ -169,7 +169,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %46, i1 noundef zeroext %54) #10
   %55 = add nuw i64 %.017, 1
   %56 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = icmp ult i64 %55, %58
   br i1 %59, label %.lr.ph18, label %._crit_edge, !llvm.loop !8
@@ -183,13 +183,13 @@ declare void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN16ArchivePtrMarker3_vsE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ugt ptr %4, %0
   br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %0, %7
   br i1 %8, label %9, label %31
@@ -205,7 +205,7 @@ define hidden void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef %0) loca
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
   %16 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   %.not9 = icmp ugt i64 %18, %15
   br i1 %.not9, label %22, label %19
@@ -223,7 +223,7 @@ define hidden void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef %0) loca
   %25 = shl nuw i64 1, %24
   %26 = load ptr, ptr %23, align 8
   %27 = lshr i64 %15, 6
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %25
   store i64 %30, ptr %28, align 8
@@ -238,7 +238,7 @@ declare void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN16ArchivePtrMarker13clear_pointerEPPh(ptr noundef %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN16ArchivePtrMarker3_vsE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -250,7 +250,7 @@ define hidden void @_ZN16ArchivePtrMarker13clear_pointerEPPh(ptr noundef %0) loc
   %12 = xor i64 %11, -1
   %13 = load ptr, ptr %9, align 8
   %14 = lshr i64 %8, 6
-  %15 = getelementptr inbounds i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %12
   store i64 %17, ptr %15, align 8
@@ -262,20 +262,20 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   %3 = alloca %class.ArchivePtrBitmapCleaner, align 8
   %4 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
   %5 = load ptr, ptr @_ZN16ArchivePtrMarker3_vsE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ArchivePtrBitmapCleaner, i64 16), ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit, label %.lr.ph.i.i.i
@@ -289,7 +289,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   %.0917.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %42, %38 ]
   %18 = lshr i64 %.0917.i.i.i, 6
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i64, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %18
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %.0917.i.i.i, 63
   %23 = lshr i64 %21, %22
@@ -308,7 +308,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   br i1 %28, label %29, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit
 
 29:                                               ; preds = %.preheader.i.i.i
-  %30 = getelementptr inbounds i64, ptr %19, i64 %27
+  %30 = getelementptr inbounds nuw i64, ptr %19, i64 %27
   %31 = load i64, ptr %30, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %32, !llvm.loop !9
@@ -359,7 +359,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEm(i64 noundef %0) local_unname
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt ptr %1, %4
   br i1 %5, label %6, label %15
@@ -367,7 +367,7 @@ define hidden noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr nocapture nound
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %1 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -380,9 +380,9 @@ define hidden noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr nocapture nound
 
 15:                                               ; preds = %2
   tail call void @_ZN10DumpRegion9commit_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %29, label %19
@@ -396,7 +396,7 @@ define hidden noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr nocapture nound
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not6 = icmp eq ptr %26, null
   br i1 %.not6, label %28, label %27
 
@@ -420,13 +420,13 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10DumpRegion9commit_toEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %10) #10
   %12 = icmp ult i64 %8, %11
@@ -444,7 +444,7 @@ define hidden void @_ZN10DumpRegion9commit_toEPc(ptr nocapture noundef nonnull r
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %13
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %25, label %24
 
@@ -460,7 +460,7 @@ define hidden void @_ZN10DumpRegion9commit_toEPc(ptr nocapture noundef nonnull r
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @_ZN15MetaspaceShared10_symbol_rsE, align 8
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not17 = icmp eq ptr %30, null
   br i1 %.not17, label %38, label %31
 
@@ -470,7 +470,7 @@ define hidden void @_ZN10DumpRegion9commit_toEPc(ptr nocapture noundef nonnull r
   %33 = load ptr, ptr %9, align 8
   %34 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %33) #10
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.6..str.7, i64 noundef %19, i64 noundef %34, ptr noundef %37)
   br label %38
@@ -511,7 +511,7 @@ declare noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10DumpRegion8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = add i64 %5, 7
@@ -530,22 +530,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10DumpRegion15append_intptr_tElb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %6)
   store i64 %1, ptr %5, align 8
   br i1 %2, label %8, label %_ZN16ArchivePtrMarker12mark_pointerIlEEvPT_.exit
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @_ZN16ArchivePtrMarker3_vsE, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp ugt ptr %11, %5
   br i1 %.not.i.i, label %_ZN16ArchivePtrMarker12mark_pointerIlEEvPT_.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp uge ptr %5, %14
   %.not8.i.i = icmp eq i64 %1, 0
@@ -558,7 +558,7 @@ define hidden void @_ZN10DumpRegion15append_intptr_tElb(ptr nocapture noundef no
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %21 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %.not9.i.i = icmp ugt i64 %23, %20
   br i1 %.not9.i.i, label %27, label %24
@@ -576,7 +576,7 @@ define hidden void @_ZN10DumpRegion15append_intptr_tElb(ptr nocapture noundef no
   %30 = shl nuw i64 1, %29
   %31 = load ptr, ptr %28, align 8
   %32 = lshr i64 %20, 6
-  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = or i64 %34, %30
   store i64 %35, ptr %33, align 8
@@ -588,15 +588,15 @@ _ZN16ArchivePtrMarker12mark_pointerIlEEvPT_.exit: ; preds = %27, %12, %8, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK10DumpRegion5printEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %31, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -607,7 +607,7 @@ define hidden void @_ZNK10DumpRegion5printEm(ptr nocapture noundef nonnull reado
   %15 = fdiv double %13, %14
   %16 = fmul double %15, 1.000000e+02
   %17 = select i1 %.not.i, double 0.000000e+00, double %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %11
@@ -617,7 +617,7 @@ define hidden void @_ZNK10DumpRegion5printEm(ptr nocapture noundef nonnull reado
   %24 = fmul double %23, 1.000000e+02
   %25 = select i1 %.not.i1, double 0.000000e+00, double %24
   %26 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %9, i64 %28
   %30 = ptrtoint ptr %29 to i64
@@ -630,19 +630,19 @@ define hidden void @_ZNK10DumpRegion5printEm(ptr nocapture noundef nonnull reado
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10DumpRegion22print_out_of_space_msgEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %9
@@ -659,7 +659,7 @@ define hidden void @_ZN10DumpRegion22print_out_of_space_msgEPKcm(ptr nocapture n
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not2 = icmp eq ptr %25, null
   br i1 %.not2, label %28, label %26
 
@@ -677,9 +677,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10DumpRegion4initEP13ReservedSpaceP12VirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((48, 64)) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %5, align 8
   %6 = tail call noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %1, i64 noundef 0) #10
   br i1 %6, label %9, label %7
@@ -693,15 +693,15 @@ define hidden void @_ZN10DumpRegion4initEP13ReservedSpaceP12VirtualSpace(ptr noc
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %13, align 8
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %18, align 8
   ret void
 }
@@ -713,7 +713,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10DumpRegion4packEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 32), (40, 41)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() #10
   %6 = ptrtoint ptr %4 to i64
@@ -722,33 +722,33 @@ define hidden void @_ZN10DumpRegion4packEPS_(ptr nocapture noundef nonnull align
   %9 = sub i64 0, %5
   %10 = and i64 %8, %9
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %13, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %15, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %28, ptr %29, align 8
   br label %30
 
@@ -766,15 +766,15 @@ define hidden void @_ZN12WriteClosure6do_ptrEPPv(ptr nocapture noundef nonnull r
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp ugt ptr %7, %3
   br i1 %.not.i, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit
 
 _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit: ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %3, %11
   br i1 %12, label %.thread13, label %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread
@@ -796,11 +796,11 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread..thread13_crit_edge: ; p
 
 .thread:                                          ; preds = %2, %.thread13, %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread
   %.1 = phi i64 [ %15, %.thread13 ], [ 0, %_ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread ], [ 0, %2 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %20)
   store i64 %.1, ptr %19, align 8
   ret void
@@ -810,10 +810,10 @@ declare noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11ReadClosure6do_ptrEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %7, 0
@@ -827,10 +827,10 @@ define hidden void @_ZN11ReadClosure6do_ptrEPPv(ptr nocapture noundef nonnull re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11ReadClosure5do_u4EPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = trunc i64 %7 to i32
@@ -840,10 +840,10 @@ define hidden void @_ZN11ReadClosure5do_u4EPj(ptr nocapture noundef nonnull read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11ReadClosure6do_intEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = trunc i64 %7 to i32
@@ -853,10 +853,10 @@ define hidden void @_ZN11ReadClosure6do_intEPi(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11ReadClosure7do_boolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp ne i64 %7, 0
@@ -867,10 +867,10 @@ define hidden void @_ZN11ReadClosure7do_boolEPb(ptr nocapture noundef nonnull re
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ReadClosure6do_tagEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %4, align 8
   %7 = load i64, ptr %5, align 8
   %8 = trunc i64 %7 to i32
@@ -889,7 +889,7 @@ define hidden void @_ZN12ArchiveUtils16log_to_classlistEP13BootstrapInfoP10JavaT
   br i1 %.not.i, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN15ClassListWriter10is_enabledEv.exit
 
 _ZN15ClassListWriter10is_enabledEv.exit:          ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %7
@@ -899,27 +899,27 @@ _ZN15ClassListWriter10is_enabledEv.exit:          ; preds = %2
   br i1 %8, label %9, label %_ZN12ResourceMarkD2Ev.exit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared17is_builtin_loaderEP15ClassLoaderData(ptr noundef %15) #10
   br i1 %16, label %17, label %_ZN12ResourceMarkD2Ev.exit
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %1, i64 800
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr @ClassListFile_lock, align 8
   %.not.i.i.i = icmp eq ptr %30, null
@@ -935,15 +935,15 @@ _ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
   %34 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
   %35 = load ptr, ptr @_ZN15ClassListParser16LAMBDA_PROXY_TAGE, align 8
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %40) #10
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.13, ptr noundef %35, ptr noundef %41) #10
   store ptr null, ptr %3, align 8
   call void @_ZN15ClassListParser22populate_cds_indy_infoERK18constantPoolHandleiP11CDSIndyInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %1) #10
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not19 = icmp eq ptr %43, null
   br i1 %.not19, label %44, label %58
@@ -955,14 +955,14 @@ _ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.14, ptr noundef %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1027,13 +1027,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12WriteClosure7readingEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12WriteClosure5do_u4EPj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %9)
   store i64 %6, ptr %8, align 8
   ret void
@@ -1041,13 +1041,13 @@ define linkonce_odr hidden void @_ZN12WriteClosure5do_u4EPj(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12WriteClosure6do_intEPi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %9)
   store i64 %6, ptr %8, align 8
   ret void
@@ -1055,14 +1055,14 @@ define linkonce_odr hidden void @_ZN12WriteClosure6do_intEPi(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12WriteClosure7do_boolEPb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %1, align 1
   %6 = and i8 %5, 1
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %10)
   store i64 %7, ptr %9, align 8
   ret void
@@ -1070,21 +1070,21 @@ define linkonce_odr hidden void @_ZN12WriteClosure7do_boolEPb(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN12WriteClosure10region_topEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12WriteClosure6do_tagEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call noundef ptr @_ZN10DumpRegion13expand_top_toEPc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %8)
   store i64 %5, ptr %7, align 8
   ret void
@@ -1144,7 +1144,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE14ELS1_0ELS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN23ArchivePtrBitmapCleaner6do_bitEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds ptr, ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8
@@ -1152,7 +1152,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23ArchivePtrBitmapCleaner6do_b
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, %1
   br i1 %10, label %11, label %23
@@ -1162,14 +1162,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23ArchivePtrBitmapCleaner6do_b
   br label %23
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = and i64 %1, 63
   %16 = shl nuw i64 1, %15
   %17 = xor i64 %16, -1
   %18 = load ptr, ptr %14, align 8
   %19 = lshr i64 %1, 6
-  %20 = getelementptr inbounds i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %17
   store i64 %22, ptr %20, align 8

@@ -29,32 +29,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @git_inflate_init(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
   store ptr %0, ptr %strm, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
   %1 = load ptr, ptr %next_out.i, align 8
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %1, ptr %next_out3.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
   %2 = load i64, ptr %total_in.i, align 8
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   store i64 %2, ptr %total_in5.i, align 8
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
   %3 = load i64, ptr %total_out.i, align 8
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
   store i64 %3, ptr %total_out7.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
   %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
   %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit_(ptr noundef nonnull %strm, ptr noundef nonnull @.str, i32 noundef 112) #6
   %6 = load ptr, ptr %strm, align 8
@@ -107,7 +107,7 @@ if.then:                                          ; preds = %zlib_post_call.exit
 
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %16 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %16, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
@@ -129,7 +129,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.zerr_to_string, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.zerr_to_string, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -141,32 +141,32 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: nounwind uwtable
 define dso_local void @git_inflate_init_gzip_only(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
   store ptr %0, ptr %strm, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
   %1 = load ptr, ptr %next_out.i, align 8
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %1, ptr %next_out3.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
   %2 = load i64, ptr %total_in.i, align 8
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   store i64 %2, ptr %total_in5.i, align 8
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
   %3 = load i64, ptr %total_out.i, align 8
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
   store i64 %3, ptr %total_out7.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
   %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
   %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef 31, ptr noundef nonnull @.str, i32 noundef 112) #6
   %6 = load ptr, ptr %strm, align 8
@@ -219,7 +219,7 @@ if.then:                                          ; preds = %zlib_post_call.exit
 
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %16 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %16, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
@@ -232,32 +232,32 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define dso_local void @git_inflate_end(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
   store ptr %0, ptr %strm, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
   %1 = load ptr, ptr %next_out.i, align 8
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %1, ptr %next_out3.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
   %2 = load i64, ptr %total_in.i, align 8
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   store i64 %2, ptr %total_in5.i, align 8
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
   %3 = load i64, ptr %total_out.i, align 8
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
   store i64 %3, ptr %total_out7.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
   %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
   %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
@@ -328,7 +328,7 @@ sw.default.i:                                     ; preds = %zlib_post_call.exit
 
 zerr_to_string.exit:                              ; preds = %zlib_post_call.exit, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
   %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %sw.bb1.i ], [ @.str.14, %zlib_post_call.exit ]
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %16 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %16, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
@@ -346,17 +346,17 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -3, -4) i32 @git_inflate(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   %.pre = load ptr, ptr %next_in.i, align 8
   %.pre55 = load ptr, ptr %next_out.i, align 8
   %.pre56 = load i64, ptr %total_in.i, align 8
@@ -485,7 +485,7 @@ zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
 
 zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
   %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null
   %spec.select = select i1 %tobool18.not, ptr @.str.2, ptr %17
@@ -510,14 +510,14 @@ declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @git_deflate_init(ptr noundef initializes((0, 160)) %strm, i32 noundef %level) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %strm, i8 0, i64 160, i1 false)
   %call = tail call i32 @deflateInit_(ptr noundef nonnull %strm, i32 noundef %level, ptr noundef nonnull @.str, i32 noundef 112) #6
   %0 = load ptr, ptr %strm, align 8
@@ -541,7 +541,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   %6 = load i64, ptr %total_in5.i, align 8
   %7 = load i64, ptr %total_in.i, align 8
   %add11.i = add i64 %7, %sub.ptr.sub.i
@@ -571,7 +571,7 @@ if.then:                                          ; preds = %zlib_post_call.exit
 
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %10 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %10, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %10
@@ -594,14 +594,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_git_deflate_init(ptr noundef initializes((0, 160)) %strm, i32 noundef %level, i32 noundef range(i32 -15, 32) %windowBits) unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %strm, i8 0, i64 160, i1 false)
   %call = tail call i32 @deflateInit2_(ptr noundef nonnull %strm, i32 noundef %level, i32 noundef 8, i32 noundef %windowBits, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 112) #6
   %0 = load ptr, ptr %strm, align 8
@@ -625,7 +625,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   %6 = load i64, ptr %total_in5.i, align 8
   %7 = load i64, ptr %total_in.i, align 8
   %add11.i = add i64 %7, %sub.ptr.sub.i
@@ -655,7 +655,7 @@ if.then:                                          ; preds = %zlib_post_call.exit
 
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %10 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %10, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %10
@@ -673,32 +673,32 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @git_deflate_abort(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
   store ptr %0, ptr %strm, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
   %1 = load ptr, ptr %next_out.i, align 8
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %1, ptr %next_out3.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
   %2 = load i64, ptr %total_in.i, align 8
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   store i64 %2, ptr %total_in5.i, align 8
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
   %3 = load i64, ptr %total_out.i, align 8
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
   store i64 %3, ptr %total_out7.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
   %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
   %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
@@ -778,7 +778,7 @@ sw.default.i:                                     ; preds = %entry
 
 zerr_to_string.exit:                              ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
   %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %sw.bb1.i ], [ @.str.14, %entry ]
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %0 = load ptr, ptr %msg, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %0
@@ -792,32 +792,32 @@ return:                                           ; preds = %entry, %zerr_to_str
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @git_deflate_end_gently(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
   store ptr %0, ptr %strm, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
   %1 = load ptr, ptr %next_out.i, align 8
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %1, ptr %next_out3.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
   %2 = load i64, ptr %total_in.i, align 8
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
   store i64 %2, ptr %total_in5.i, align 8
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
   %3 = load i64, ptr %total_out.i, align 8
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
   store i64 %3, ptr %total_out7.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
   %4 = load i64, ptr %avail_in.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 1073741824)
   %conv.i.i = trunc nuw nsw i64 %cond.i.i to i32
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv.i.i, ptr %avail_in9.i, align 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
   %5 = load i64, ptr %avail_out.i, align 8
   %cond.i12.i = tail call i64 @llvm.umin.i64(i64 %5, i64 1073741824)
   %conv.i13.i = trunc nuw nsw i64 %cond.i12.i to i32
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
@@ -868,17 +868,17 @@ zlib_post_call.exit:                              ; preds = %if.end.i
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -3, -4) i32 @git_deflate(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
-  %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
-  %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
-  %next_out3.i = getelementptr inbounds i8, ptr %strm, i64 24
-  %total_in.i = getelementptr inbounds i8, ptr %strm, i64 128
-  %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
-  %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
-  %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
-  %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
-  %avail_in9.i = getelementptr inbounds i8, ptr %strm, i64 8
-  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
-  %avail_out12.i = getelementptr inbounds i8, ptr %strm, i64 32
+  %next_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 144
+  %next_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 152
+  %next_out3.i = getelementptr inbounds nuw i8, ptr %strm, i64 24
+  %total_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 128
+  %total_in5.i = getelementptr inbounds nuw i8, ptr %strm, i64 16
+  %total_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 136
+  %total_out7.i = getelementptr inbounds nuw i8, ptr %strm, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %strm, i64 112
+  %avail_in9.i = getelementptr inbounds nuw i8, ptr %strm, i64 8
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %strm, i64 120
+  %avail_out12.i = getelementptr inbounds nuw i8, ptr %strm, i64 32
   %.pre = load ptr, ptr %next_in.i, align 8
   %.pre55 = load ptr, ptr %next_out.i, align 8
   %.pre56 = load i64, ptr %total_in.i, align 8
@@ -1007,7 +1007,7 @@ zerr_to_string.exit.loopexit89:                   ; preds = %land.lhs.true9
 
 zerr_to_string.exit:                              ; preds = %land.lhs.true9, %zerr_to_string.exit.loopexit89, %for.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
   %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.15, %for.end ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %zerr_to_string.exit.loopexit89 ], [ @.str.16, %land.lhs.true9 ]
-  %msg = getelementptr inbounds i8, ptr %strm, i64 48
+  %msg = getelementptr inbounds nuw i8, ptr %strm, i64 48
   %17 = load ptr, ptr %msg, align 8
   %tobool18.not = icmp eq ptr %17, null
   %spec.select = select i1 %tobool18.not, ptr @.str.2, ptr %17

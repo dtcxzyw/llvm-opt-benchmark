@@ -542,7 +542,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph437:                                        ; preds = %.lr.ph437.preheader, %267
   %indvars.iv484 = phi i64 [ 1, %.lr.ph437.preheader ], [ %indvars.iv.next485, %267 ]
-  %260 = getelementptr inbounds double, ptr %16, i64 %indvars.iv484
+  %260 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv484
   %261 = load double, ptr %260, align 8
   %262 = call noundef double @llvm.fabs.f64(double %261)
   %263 = fcmp ogt double %262, 0x10000000000000

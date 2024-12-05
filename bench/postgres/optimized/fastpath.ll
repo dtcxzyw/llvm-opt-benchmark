@@ -85,19 +85,19 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 35:                                               ; preds = %.lr.ph.preheader.i
-  %36 = getelementptr inbounds i8, ptr %30, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 22
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 22
   %39 = load i8, ptr %38, align 2
   %40 = zext i8 %39 to i64
   %41 = getelementptr i8, ptr %37, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i8, ptr %42, align 4
   %.not42.i = icmp eq i8 %43, 102
   br i1 %.not42.i, label %44, label %48
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %41, i64 100
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 100
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %53
@@ -106,13 +106,13 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %49)
   %50 = call i32 @errcode(i32 noundef 1088) #12
-  %51 = getelementptr inbounds i8, ptr %41, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %51) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 150, ptr noundef nonnull @__func__.fetch_fp_info) #12
   unreachable
 
 53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %41, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %55 = load i16, ptr %54, align 4
   %56 = icmp sgt i16 %55, 100
   br i1 %56, label %57, label %fetch_fp_info.exit
@@ -120,31 +120,31 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
 57:                                               ; preds = %53
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds i8, ptr %41, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %60 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %59, i32 noundef 100) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @__func__.fetch_fp_info) #12
   unreachable
 
 fetch_fp_info.exit:                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %41, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 68
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %13, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %41, i64 108
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 108
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %13, i64 60
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %13, i64 64
-  %68 = getelementptr inbounds i8, ptr %41, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %69 = load i16, ptr %54, align 4
   %70 = sext i16 %69 to i64
   %71 = shl nsw i64 %70, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 4 %68, i64 %71, i1 false)
-  %72 = getelementptr inbounds i8, ptr %13, i64 464
-  %73 = getelementptr inbounds i8, ptr %41, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 464
+  %73 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %74 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %73, i64 noundef 64) #12
   call void @ReleaseSysCache(ptr noundef nonnull %30) #12
-  %75 = getelementptr inbounds i8, ptr %13, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @fmgr_info(i32 noundef %21, ptr noundef nonnull %75) #12
   store i32 %21, ptr %13, align 8
   %76 = load i32, ptr @log_statement, align 4
@@ -205,9 +205,9 @@ fetch_fp_info.exit:                               ; preds = %53
 
 102:                                              ; preds = %101, %99
   store ptr %75, ptr %12, align 8
-  %103 = getelementptr inbounds i8, ptr %12, i64 8
-  %104 = getelementptr inbounds i8, ptr %12, i64 28
-  %105 = getelementptr inbounds i8, ptr %12, i64 30
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %103, i8 0, i64 21, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -238,7 +238,7 @@ fetch_fp_info.exit:                               ; preds = %53
 .loopexit.i51:                                    ; preds = %112, %102
   %.066.i = phi ptr [ null, %102 ], [ %111, %112 ]
   %116 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #12
-  %117 = getelementptr inbounds i8, ptr %13, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %118 = load i16, ptr %117, align 4
   %119 = sext i16 %118 to i32
   %120 = icmp ne i32 %116, %119
@@ -278,10 +278,10 @@ fetch_fp_info.exit:                               ; preds = %53
   br i1 %136, label %.lr.ph.i, label %parse_fcall_arguments.exit
 
 .lr.ph.i:                                         ; preds = %135
-  %137 = getelementptr inbounds i8, ptr %12, i64 40
-  %138 = getelementptr inbounds i8, ptr %12, i64 32
-  %139 = getelementptr inbounds i8, ptr %7, i64 16
-  %140 = getelementptr inbounds i8, ptr %7, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %wide.trip.count101.i = zext nneg i32 %116 to i64
   br label %141
 
@@ -413,7 +413,7 @@ parse_fcall_arguments.exit:                       ; preds = %192, %135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @pq_getmsgend(ptr noundef %0) #12
-  %195 = getelementptr inbounds i8, ptr %13, i64 22
+  %195 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %196 = load i8, ptr %195, align 2
   %197 = trunc i8 %196 to i1
   %198 = icmp sgt i32 %116, 0
@@ -423,7 +423,7 @@ parse_fcall_arguments.exit:                       ; preds = %192, %135
 .lr.ph:                                           ; preds = %parse_fcall_arguments.exit
   %sext69 = shl i32 %116, 16
   %199 = ashr exact i32 %sext69, 16
-  %200 = getelementptr inbounds i8, ptr %12, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %wide.trip.count = zext i32 %199 to i64
   br label %202
 
@@ -476,7 +476,7 @@ parse_fcall_arguments.exit:                       ; preds = %192, %135
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %218 = load ptr, ptr %2, align 8, !alias.scope !9
-  %219 = getelementptr inbounds i8, ptr %2, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %220 = load i32, ptr %219, align 8, !alias.scope !9
   %221 = sext i32 %220 to i64
   %222 = getelementptr i8, ptr %218, i64 %221
@@ -512,14 +512,14 @@ parse_fcall_arguments.exit:                       ; preds = %192, %135
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %236 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %235)
   %237 = load ptr, ptr %2, align 8, !alias.scope !12
-  %238 = getelementptr inbounds i8, ptr %2, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %239 = load i32, ptr %238, align 8, !alias.scope !12
   %240 = sext i32 %239 to i64
   %241 = getelementptr i8, ptr %237, i64 %240
   store i32 %236, ptr %241, align 1, !noalias !12
   %242 = add i32 %239, 4
   store i32 %242, ptr %238, align 8, !alias.scope !12
-  %243 = getelementptr inbounds i8, ptr %232, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %244 = load i32, ptr %232, align 4
   %245 = lshr i32 %244, 2
   %246 = add nsw i32 %245, -4

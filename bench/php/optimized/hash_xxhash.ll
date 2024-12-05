@@ -34,15 +34,15 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly initializes((0, 48)) 
   br i1 %.not19, label %.sink.split, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %12
 
@@ -73,15 +73,15 @@ define void @PHP_XXH32Init(ptr nocapture noundef writeonly initializes((0, 48)) 
   %.sink35 = phi i32 [ -2048144777, %2 ], [ %.sink35.ph, %.sink.split ]
   %.sink34 = phi i32 [ 0, %2 ], [ %.sink34.ph, %.sink.split ]
   %.sink = phi i32 [ 1640531535, %2 ], [ %.sink.ph, %.sink.split ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink36, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink35, ptr %.sroa.3.0..sroa_idx.i, align 1
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink34, ptr %.sroa.4.0..sroa_idx.i, align 1
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %.sroa.6.0..sroa_idx.i, i8 0, i64 20, i1 false)
   ret void
 }
@@ -101,11 +101,11 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %11 = icmp ugt i32 %9, 15
   %12 = or i1 %10, %11
   %13 = zext i1 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, %13
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = add i64 %2, %19
@@ -113,8 +113,8 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %23, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %25 = load i32, ptr %17, align 4
   %26 = add i32 %25, %7
@@ -125,12 +125,12 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %.not.i, label %64, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %29, i64 %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %19
   %31 = sub i32 16, %18
   %32 = zext i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %1, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 4
   %.val.i = load i32, ptr %29, align 1
   %35 = mul i32 %.val.i, -2048144777
@@ -138,8 +138,8 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 13)
   %38 = mul i32 %37, -1640531535
   store i32 %38, ptr %33, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 28
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4
   %.val78.i = load i32, ptr %39, align 1
   %42 = mul i32 %.val78.i, -2048144777
@@ -147,8 +147,8 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %44 = tail call i32 @llvm.fshl.i32(i32 %43, i32 %43, i32 13)
   %45 = mul i32 %44, -1640531535
   store i32 %45, ptr %40, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i32, ptr %47, align 4
   %.val79.i = load i32, ptr %46, align 1
   %49 = mul i32 %.val79.i, -2048144777
@@ -156,8 +156,8 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %51 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 13)
   %52 = mul i32 %51, -1640531535
   store i32 %52, ptr %47, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 36
-  %54 = getelementptr inbounds i8, ptr %0, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4
   %.val80.i = load i32, ptr %53, align 1
   %56 = mul i32 %.val80.i, -2048144777
@@ -168,7 +168,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %60 = load i32, ptr %17, align 4
   %61 = sub i32 16, %60
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %1, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   store i32 0, ptr %17, align 4
   br label %64
 
@@ -179,10 +179,10 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %.not76.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 12
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = getelementptr inbounds i8, ptr %0, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.promoted.i = load i32, ptr %66, align 4
   %.promoted84.i = load i32, ptr %67, align 4
   %.promoted85.i = load i32, ptr %68, align 4
@@ -201,28 +201,28 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %77 = tail call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 13)
   %78 = mul i32 %77, -1640531535
   store i32 %78, ptr %66, align 4
-  %79 = getelementptr inbounds i8, ptr %.2.i, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
   %.val81.i = load i32, ptr %79, align 1
   %80 = mul i32 %.val81.i, -2048144777
   %81 = add i32 %80, %73
   %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 13)
   %83 = mul i32 %82, -1640531535
   store i32 %83, ptr %67, align 4
-  %84 = getelementptr inbounds i8, ptr %.2.i, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   %.val82.i = load i32, ptr %84, align 1
   %85 = mul i32 %.val82.i, -2048144777
   %86 = add i32 %85, %72
   %87 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 13)
   %88 = mul i32 %87, -1640531535
   store i32 %88, ptr %68, align 4
-  %89 = getelementptr inbounds i8, ptr %.2.i, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 12
   %.val83.i = load i32, ptr %89, align 1
   %90 = mul i32 %.val83.i, -2048144777
   %91 = add i32 %90, %71
   %92 = tail call i32 @llvm.fshl.i32(i32 %91, i32 %91, i32 13)
   %93 = mul i32 %92, -1640531535
   store i32 %93, ptr %69, align 4
-  %94 = getelementptr inbounds i8, ptr %.2.i, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %.not77.i = icmp ugt ptr %94, %65
   br i1 %.not77.i, label %.loopexit.i, label %70
 
@@ -232,7 +232,7 @@ define void @PHP_XXH32Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %95, label %96, label %XXH_INLINE_XXH32_update.exit
 
 96:                                               ; preds = %.loopexit.i
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = ptrtoint ptr %6 to i64
   %99 = ptrtoint ptr %.1.i to i64
   %100 = sub i64 %98, %99
@@ -251,31 +251,31 @@ XXH_INLINE_XXH32_update.exit:                     ; preds = %3, %.loopexit.i, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 1)
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 7)
   %12 = add i32 %11, %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 12)
   %16 = add i32 %12, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 18)
   %20 = add i32 %16, %19
   br label %25
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 374761393
   br label %25
@@ -284,8 +284,8 @@ define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.0.i = phi i32 [ %20, %5 ], [ %24, %21 ]
   %26 = load i32, ptr %1, align 4
   %27 = add i32 %26, %.0.i
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 15
   %32 = zext nneg i32 %31 to i64
@@ -306,7 +306,7 @@ define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.016.val.i.i = load i32, ptr %.01618.i.i, align 4
   %34 = mul i32 %.016.val.i.i, -1028477379
   %35 = add i32 %34, %.020.i.i
-  %36 = getelementptr inbounds i8, ptr %.01618.i.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.01618.i.i, i64 4
   %37 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 17)
   %38 = mul i32 %37, 668265263
   %39 = add nsw i64 %.01419.i.i, -4
@@ -317,7 +317,7 @@ define void @PHP_XXH32Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.126.i.i = phi i32 [ %47, %.lr.ph27.i.i ], [ %.0.lcssa.i.i, %.preheader.i.i ]
   %.11525.i.i = phi i64 [ %48, %.lr.ph27.i.i ], [ %.014.lcssa.i.i, %.preheader.i.i ]
   %.11724.i.i = phi ptr [ %41, %.lr.ph27.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.11724.i.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.11724.i.i, i64 1
   %42 = load i8, ptr %.11724.i.i, align 1
   %43 = zext i8 %42 to i32
   %44 = mul i32 %43, 374761393
@@ -353,7 +353,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
@@ -364,7 +364,7 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 16
   %spec.select = select i1 %13, i32 0, i32 -2000
@@ -393,15 +393,15 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly initializes((0, 88)) 
   br i1 %.not19, label %.sink.split, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %12
 
@@ -431,15 +431,15 @@ define void @PHP_XXH64Init(ptr nocapture noundef writeonly initializes((0, 88)) 
   %.sink35 = phi i64 [ -4417276706812531889, %2 ], [ %.sink35.ph, %.sink.split ]
   %.sink34 = phi i64 [ 0, %2 ], [ %.sink34.ph, %.sink.split ]
   %.sink = phi i64 [ 7046029288634856825, %2 ], [ %.sink.ph, %.sink.split ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink36, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink35, ptr %.sroa.3.0..sroa_idx.i, align 1
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sink34, ptr %.sroa.4.0..sroa_idx.i, align 1
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i8 0, i64 40, i1 false)
   ret void
 }
@@ -454,7 +454,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, %2
   store i64 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = add i64 %2, %11
@@ -462,8 +462,8 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = getelementptr inbounds i8, ptr %15, i64 %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = trunc i64 %2 to i32
   %18 = load i32, ptr %9, align 8
@@ -475,12 +475,12 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %.not.i, label %57, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %22, i64 %11
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %11
   %24 = sub i32 32, %10
   %25 = zext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %25, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.val.i = load i64, ptr %22, align 1
   %28 = mul i64 %.val.i, -4417276706812531889
@@ -488,27 +488,27 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 31)
   %31 = mul i64 %30, -7046029288634856825
   store i64 %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val71.i = load i64, ptr %34, align 1
   %35 = mul i64 %.val71.i, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
   %38 = mul i64 %37, -7046029288634856825
   store i64 %38, ptr %32, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val72.i = load i64, ptr %41, align 1
   %42 = mul i64 %.val72.i, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
   %45 = mul i64 %44, -7046029288634856825
   store i64 %45, ptr %39, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val73.i = load i64, ptr %48, align 1
   %49 = mul i64 %.val73.i, -4417276706812531889
   %50 = add i64 %49, %47
@@ -518,22 +518,22 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %53 = load i32, ptr %9, align 8
   %54 = sub i32 32, %53
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
   store i32 0, ptr %9, align 8
   br label %57
 
 57:                                               ; preds = %21, %20
   %.064.i = phi ptr [ %56, %21 ], [ %1, %20 ]
-  %58 = getelementptr inbounds i8, ptr %.064.i, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.064.i, i64 32
   %.not69.i = icmp ugt ptr %58, %6
   br i1 %.not69.i, label %.loopexit.i, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds i8, ptr %6, i64 -32
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted.i = load i64, ptr %61, align 8
   %.promoted77.i = load i64, ptr %62, align 8
   %.promoted78.i = load i64, ptr %63, align 8
@@ -552,28 +552,28 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   %72 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 31)
   %73 = mul i64 %72, -7046029288634856825
   store i64 %73, ptr %61, align 8
-  %74 = getelementptr inbounds i8, ptr %.2.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   %.val74.i = load i64, ptr %74, align 1
   %75 = mul i64 %.val74.i, -4417276706812531889
   %76 = add i64 %75, %68
   %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 31)
   %78 = mul i64 %77, -7046029288634856825
   store i64 %78, ptr %62, align 8
-  %79 = getelementptr inbounds i8, ptr %.2.i, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %.val75.i = load i64, ptr %79, align 1
   %80 = mul i64 %.val75.i, -4417276706812531889
   %81 = add i64 %80, %67
   %82 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 31)
   %83 = mul i64 %82, -7046029288634856825
   store i64 %83, ptr %63, align 8
-  %84 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
   %.val76.i = load i64, ptr %84, align 1
   %85 = mul i64 %.val76.i, -4417276706812531889
   %86 = add i64 %85, %66
   %87 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 31)
   %88 = mul i64 %87, -7046029288634856825
   store i64 %88, ptr %64, align 8
-  %89 = getelementptr inbounds i8, ptr %.2.i, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 32
   %.not70.i = icmp ugt ptr %89, %60
   br i1 %.not70.i, label %.loopexit.i, label %65
 
@@ -583,7 +583,7 @@ define void @PHP_XXH64Update(ptr nocapture noundef %0, ptr noundef %1, i64 nound
   br i1 %90, label %91, label %XXH_INLINE_XXH64_update.exit
 
 91:                                               ; preds = %.loopexit.i
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %93 = ptrtoint ptr %6 to i64
   %94 = ptrtoint ptr %.1.i to i64
   %95 = sub i64 %93, %94
@@ -607,18 +607,18 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   br i1 %4, label %5, label %45
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 1)
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 7)
   %12 = add i64 %11, %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 12)
   %16 = add i64 %12, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 18)
   %20 = add i64 %16, %19
@@ -649,7 +649,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   br label %49
 
 45:                                               ; preds = %2
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 2870177450012600261
   br label %49
@@ -657,7 +657,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
 49:                                               ; preds = %45, %5
   %.0.i = phi i64 [ %44, %5 ], [ %48, %45 ]
   %50 = add i64 %.0.i, %3
-  %51 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = and i64 %3, 31
   %53 = icmp samesign ugt i64 %52, 7
   br i1 %53, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -670,7 +670,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %54 = mul i64 %.022.val28.i.i, -4417276706812531889
   %55 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %54, i64 31)
   %56 = mul i64 %55, -7046029288634856825
-  %57 = getelementptr inbounds i8, ptr %.02230.i.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.02230.i.i, i64 8
   %58 = xor i64 %56, %.031.i.i
   %59 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 27)
   %60 = mul i64 %59, -7046029288634856825
@@ -691,7 +691,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %66 = zext i32 %.022.val.i.i to i64
   %67 = mul i64 %66, -7046029288634856825
   %68 = xor i64 %67, %.0.lcssa.i.i
-  %69 = getelementptr inbounds i8, ptr %.022.lcssa.i.i, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.022.lcssa.i.i, i64 4
   %70 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 23)
   %71 = mul i64 %70, -4417276706812531889
   %72 = add i64 %71, 1609587929392839161
@@ -709,7 +709,7 @@ define void @PHP_XXH64Final(ptr nocapture noundef writeonly %0, ptr nocapture no
   %.237.i.i = phi i64 [ %81, %.lr.ph39.i.i ], [ %.1.i.i, %74 ]
   %.22436.i.i = phi ptr [ %75, %.lr.ph39.i.i ], [ %.123.i.i, %74 ]
   %.22735.i.i = phi i64 [ %82, %.lr.ph39.i.i ], [ %.126.i.i, %74 ]
-  %75 = getelementptr inbounds i8, ptr %.22436.i.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.22436.i.i, i64 1
   %76 = load i8, ptr %.22436.i.i, align 1
   %77 = zext i8 %76 to i64
   %78 = mul i64 %77, 2870177450012600261
@@ -743,7 +743,7 @@ define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
@@ -754,7 +754,7 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = icmp ult i32 %12, 32
   %spec.select = select i1 %13, i32 0, i32 -2000
@@ -777,14 +777,14 @@ define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef 
   br i1 %.not61.not, label %.thread75, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
 
 12:                                               ; preds = %5, %9
@@ -800,14 +800,14 @@ define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef 
 
 15:                                               ; preds = %.thread75, %12
   %16 = phi ptr [ %14, %.thread75 ], [ %13, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 10
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %23
 
 23:                                               ; preds = %15, %20
@@ -819,7 +819,7 @@ define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef 
   br label %113
 
 .thread:                                          ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %.052, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 4
   br i1 %27, label %28, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit67
@@ -830,41 +830,41 @@ define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef 
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 512
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %36, align 32
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %40, align 8
   br label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit
 
 41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %0, i64 552
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %43 = load i64, ptr %42, align 8
   %.not.i = icmp eq i64 %29, %43
   br i1 %.not.i, label %44, label %47
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 568
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %46 = load ptr, ptr %45, align 8
   %.not12.i = icmp eq ptr %46, null
   br i1 %.not12.i, label %XXH3_initCustomSecret_sse2.exit.i, label %47
 
 47:                                               ; preds = %44, %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = sub i64 0, %29
   %50 = insertelement <2 x i64> poison, i64 %29, i64 0
   %51 = insertelement <2 x i64> %50, i64 %49, i64 1
@@ -873,50 +873,50 @@ define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef 
 
 53:                                               ; preds = %53, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %53 ]
-  %54 = getelementptr inbounds <2 x i64>, ptr @XXH3_kSecret, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw <2 x i64>, ptr @XXH3_kSecret, i64 %indvars.iv.i.i
   %55 = load <2 x i64>, ptr %54, align 16, !noalias !5
   %56 = add <2 x i64> %55, %51
-  %57 = getelementptr inbounds <2 x i64>, ptr %52, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw <2 x i64>, ptr %52, i64 %indvars.iv.i.i
   store <2 x i64> %56, ptr %57, align 16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
   br i1 %exitcond.not.i.i, label %XXH3_initCustomSecret_sse2.exit.i, label %53
 
 XXH3_initCustomSecret_sse2.exit.i:                ; preds = %53, %44
-  %58 = getelementptr inbounds i8, ptr %0, i64 512
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %62, align 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %65, align 8
   store i64 %29, ptr %42, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 516
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 516
   store i32 1, ptr %66, align 4
   br label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCustomSecret_sse2.exit.i
   %.sink.i = phi ptr [ null, %XXH3_initCustomSecret_sse2.exit.i ], [ @XXH3_kSecret, %31 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 568
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %.sink.i, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 544
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 128, ptr %68, align 32
-  %69 = getelementptr inbounds i8, ptr %0, i64 536
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 16, ptr %69, align 8
   br label %113
 
 70:                                               ; preds = %23
-  %71 = getelementptr inbounds i8, ptr %.054, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 6
   br i1 %73, label %.critedge, label %74
@@ -927,7 +927,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCusto
 
 .critedge:                                        ; preds = %70, %74
   %76 = load ptr, ptr %.054, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = icmp ult i64 %78, 136
   br i1 %79, label %80, label %81
@@ -948,63 +948,63 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %31, %XXH3_initCusto
 XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %83, %81
   %84 = phi ptr [ %.pre, %83 ], [ %76, %81 ]
   %.053 = phi i64 [ 256, %83 ], [ %78, %81 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 576
-  %86 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %85, ptr nonnull align 8 %86, i64 %.053, i1 false)
-  %87 = getelementptr inbounds i8, ptr %0, i64 512
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %91, align 32
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %93, align 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 552
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 568
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %85, ptr %96, align 8
   %97 = add nsw i64 %.053, -64
-  %98 = getelementptr inbounds i8, ptr %0, i64 544
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 %97, ptr %98, align 32
   %99 = lshr i64 %97, 3
-  %100 = getelementptr inbounds i8, ptr %0, i64 536
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 %99, ptr %100, align 8
   br label %113
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit67:     ; preds = %.thread, %.thread75, %2
-  %101 = getelementptr inbounds i8, ptr %0, i64 512
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %103, align 16
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %105, align 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %107, align 16
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 552
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 568
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr @XXH3_kSecret, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 544
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 128, ptr %111, align 32
-  %112 = getelementptr inbounds i8, ptr %0, i64 536
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 16, ptr %112, align 8
   br label %113
 
@@ -1024,12 +1024,12 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 568
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = select i1 %8, ptr %9, ptr %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %12 = load i64, ptr %11, align 16
   %13 = icmp ugt i64 %12, 240
   br i1 %13, label %14, label %103
@@ -1038,26 +1038,26 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = icmp ugt i32 %16, 63
-  %18 = getelementptr inbounds i8, ptr %1, i64 544
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 544
   br i1 %17, label %19, label %52
 
 19:                                               ; preds = %14
   %20 = add i32 %16, -1
   %21 = lshr i32 %20, 6
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 520
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 536
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
   call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
   %32 = getelementptr inbounds i8, ptr %10, i64 %28
   %33 = getelementptr inbounds i8, ptr %32, i64 -7
@@ -1068,9 +1068,9 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
 
 34:                                               ; preds = %34, %19
   %.031.i.i.i = phi i64 [ 0, %19 ], [ %51, %34 ]
-  %35 = getelementptr inbounds <2 x i64>, ptr %31, i64 %.031.i.i.i
+  %35 = getelementptr inbounds nuw <2 x i64>, ptr %31, i64 %.031.i.i.i
   %36 = load <2 x i64>, ptr %35, align 1, !alias.scope !11, !noalias !15
-  %37 = getelementptr inbounds <2 x i64>, ptr %33, i64 %.031.i.i.i
+  %37 = getelementptr inbounds nuw <2 x i64>, ptr %33, i64 %.031.i.i.i
   %38 = load <2 x i64>, ptr %37, align 1, !alias.scope !13, !noalias !16
   %39 = xor <2 x i64> %38, %36
   %40 = bitcast <2 x i64> %39 to <4 x i32>
@@ -1080,7 +1080,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %44 = and <2 x i64> %42, splat (i64 4294967295)
   %45 = mul nuw <2 x i64> %44, %43
   %46 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %47 = getelementptr inbounds <2 x i64>, ptr %5, i64 %.031.i.i.i
+  %47 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %.031.i.i.i
   %48 = load <2 x i64>, ptr %47, align 16, !alias.scope !8, !noalias !17
   %49 = add <2 x i64> %48, %46
   %50 = add <2 x i64> %49, %45
@@ -1092,11 +1092,11 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
 52:                                               ; preds = %14
   %53 = sub nuw nsw i32 64, %16
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %1, i64 256
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %56 = sub nsw i64 0, %54
   %57 = getelementptr inbounds i8, ptr %15, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %57, i64 %54, i1 false)
-  %58 = getelementptr inbounds i8, ptr %4, i64 %54
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %54
   %59 = zext nneg i32 %16 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
   %60 = load i64, ptr %18, align 32
@@ -1109,9 +1109,9 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
 
 63:                                               ; preds = %63, %52
   %.031.i25.i.i = phi i64 [ 0, %52 ], [ %80, %63 ]
-  %64 = getelementptr inbounds <2 x i64>, ptr %4, i64 %.031.i25.i.i
+  %64 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.031.i25.i.i
   %65 = load <2 x i64>, ptr %64, align 16, !alias.scope !21, !noalias !25
-  %66 = getelementptr inbounds <2 x i64>, ptr %62, i64 %.031.i25.i.i
+  %66 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %.031.i25.i.i
   %67 = load <2 x i64>, ptr %66, align 1, !alias.scope !23, !noalias !26
   %68 = xor <2 x i64> %67, %65
   %69 = bitcast <2 x i64> %68 to <4 x i32>
@@ -1121,7 +1121,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
   %73 = and <2 x i64> %71, splat (i64 4294967295)
   %74 = mul nuw <2 x i64> %73, %72
   %75 = shufflevector <2 x i64> %65, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %76 = getelementptr inbounds <2 x i64>, ptr %5, i64 %.031.i25.i.i
+  %76 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %.031.i25.i.i
   %77 = load <2 x i64>, ptr %76, align 16, !alias.scope !18, !noalias !27
   %78 = add <2 x i64> %77, %75
   %79 = add <2 x i64> %78, %74
@@ -1133,7 +1133,7 @@ define void @PHP_XXH3_64_Final(ptr nocapture noundef writeonly %0, ptr nocapture
 XXH3_digest_long.exit.i:                          ; preds = %63, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %81 = getelementptr inbounds i8, ptr %10, i64 11
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 11
   %82 = mul i64 %12, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -1143,8 +1143,8 @@ XXH3_digest_long.exit.i:                          ; preds = %63, %34
   %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %97, %83 ]
   %.0812.i.i = phi i64 [ %82, %XXH3_digest_long.exit.i ], [ %96, %83 ]
   %.idx.i.i = shl nuw nsw i64 %.013.i.i, 4
-  %84 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
-  %85 = getelementptr inbounds i8, ptr %81, i64 %.idx.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i.i
   %.val.i.i = load i64, ptr %84, align 16, !alias.scope !28, !noalias !31
   %86 = getelementptr i8, ptr %84, i64 8
   %.val9.i.i = load i64, ptr %86, align 8, !alias.scope !28, !noalias !31
@@ -1173,14 +1173,14 @@ XXH3_mergeAccs.exit.i:                            ; preds = %83
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 103:                                              ; preds = %2
-  %104 = getelementptr inbounds i8, ptr %1, i64 516
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 516
   %105 = load i32, ptr %104, align 4
   %.not.i = icmp eq i32 %105, 0
-  %106 = getelementptr inbounds i8, ptr %1, i64 256
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br i1 %.not.i, label %111, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %1, i64 552
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %109 = load i64, ptr %108, align 8
   %110 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef range(i64 0, 241) %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
@@ -1217,14 +1217,14 @@ define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef
   br i1 %.not61.not, label %.thread75, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
 
 12:                                               ; preds = %5, %9
@@ -1240,14 +1240,14 @@ define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef
 
 15:                                               ; preds = %.thread75, %12
   %16 = phi ptr [ %14, %.thread75 ], [ %13, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 10
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %23
 
 23:                                               ; preds = %15, %20
@@ -1259,7 +1259,7 @@ define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef
   br label %113
 
 .thread:                                          ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %.052, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 4
   br i1 %27, label %28, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit67
@@ -1270,41 +1270,41 @@ define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 512
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %36, align 32
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %40, align 8
   br label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit
 
 41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %0, i64 552
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %43 = load i64, ptr %42, align 8
   %.not.i.i = icmp eq i64 %29, %43
   br i1 %.not.i.i, label %44, label %47
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 568
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %46 = load ptr, ptr %45, align 8
   %.not12.i.i = icmp eq ptr %46, null
   br i1 %.not12.i.i, label %XXH3_initCustomSecret_sse2.exit.i.i, label %47
 
 47:                                               ; preds = %44, %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = sub i64 0, %29
   %50 = insertelement <2 x i64> poison, i64 %29, i64 0
   %51 = insertelement <2 x i64> %50, i64 %49, i64 1
@@ -1313,50 +1313,50 @@ define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef
 
 53:                                               ; preds = %53, %47
   %indvars.iv.i.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i.i, %53 ]
-  %54 = getelementptr inbounds <2 x i64>, ptr @XXH3_kSecret, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds nuw <2 x i64>, ptr @XXH3_kSecret, i64 %indvars.iv.i.i.i
   %55 = load <2 x i64>, ptr %54, align 16, !noalias !33
   %56 = add <2 x i64> %55, %51
-  %57 = getelementptr inbounds <2 x i64>, ptr %52, i64 %indvars.iv.i.i.i
+  %57 = getelementptr inbounds nuw <2 x i64>, ptr %52, i64 %indvars.iv.i.i.i
   store <2 x i64> %56, ptr %57, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 12
   br i1 %exitcond.not.i.i.i, label %XXH3_initCustomSecret_sse2.exit.i.i, label %53
 
 XXH3_initCustomSecret_sse2.exit.i.i:              ; preds = %53, %44
-  %58 = getelementptr inbounds i8, ptr %0, i64 512
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %62, align 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %65, align 8
   store i64 %29, ptr %42, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 516
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 516
   store i32 1, ptr %66, align 4
   br label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCustomSecret_sse2.exit.i.i
   %.sink.i.i = phi ptr [ null, %XXH3_initCustomSecret_sse2.exit.i.i ], [ @XXH3_kSecret, %31 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 568
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %.sink.i.i, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 544
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 128, ptr %68, align 32
-  %69 = getelementptr inbounds i8, ptr %0, i64 536
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 16, ptr %69, align 8
   br label %113
 
 70:                                               ; preds = %23
-  %71 = getelementptr inbounds i8, ptr %.054, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = icmp eq i8 %72, 6
   br i1 %73, label %.critedge, label %74
@@ -1367,7 +1367,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCusto
 
 .critedge:                                        ; preds = %70, %74
   %76 = load ptr, ptr %.054, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = icmp ult i64 %78, 136
   br i1 %79, label %80, label %81
@@ -1388,63 +1388,63 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %31, %XXH3_initCusto
 XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %83, %81
   %84 = phi ptr [ %.pre, %83 ], [ %76, %81 ]
   %.053 = phi i64 [ 256, %83 ], [ %78, %81 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 576
-  %86 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %85, ptr nonnull align 8 %86, i64 %.053, i1 false)
-  %87 = getelementptr inbounds i8, ptr %0, i64 512
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %91, align 32
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %93, align 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 552
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 568
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %85, ptr %96, align 8
   %97 = add nsw i64 %.053, -64
-  %98 = getelementptr inbounds i8, ptr %0, i64 544
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 %97, ptr %98, align 32
   %99 = lshr i64 %97, 3
-  %100 = getelementptr inbounds i8, ptr %0, i64 536
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 %99, ptr %100, align 8
   br label %113
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit67:    ; preds = %.thread, %.thread75, %2
-  %101 = getelementptr inbounds i8, ptr %0, i64 512
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %101, i8 0, i64 24, i1 false)
   store i64 3266489917, ptr %0, align 64
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -7046029288634856825, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -4417276706812531889, ptr %103, align 16
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1609587929392839161, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8796714831421723037, ptr %105, align 32
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2246822519, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2870177450012600261, ptr %107, align 16
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 552
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i64 0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 568
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr @XXH3_kSecret, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 544
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i64 128, ptr %111, align 32
-  %112 = getelementptr inbounds i8, ptr %0, i64 536
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 16, ptr %112, align 8
   br label %113
 
@@ -1464,12 +1464,12 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %4 = alloca [64 x i8], align 16
   %5 = alloca [8 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 568
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = select i1 %8, ptr %9, ptr %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %12 = load i64, ptr %11, align 16
   %13 = icmp ugt i64 %12, 240
   br i1 %13, label %14, label %130
@@ -1478,26 +1478,26 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = icmp ugt i32 %16, 63
-  %18 = getelementptr inbounds i8, ptr %1, i64 544
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 544
   br i1 %17, label %19, label %52
 
 19:                                               ; preds = %14
   %20 = add i32 %16, -1
   %21 = lshr i32 %20, 6
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 520
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 536
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %28 = load i64, ptr %18, align 32
   call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull readonly %27, i64 noundef %22, ptr noundef nonnull readonly %10, i64 noundef %28)
   %29 = zext i32 %16 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
   %32 = getelementptr inbounds i8, ptr %10, i64 %28
   %33 = getelementptr inbounds i8, ptr %32, i64 -7
@@ -1508,9 +1508,9 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 34:                                               ; preds = %34, %19
   %.031.i.i.i = phi i64 [ 0, %19 ], [ %51, %34 ]
-  %35 = getelementptr inbounds <2 x i64>, ptr %31, i64 %.031.i.i.i
+  %35 = getelementptr inbounds nuw <2 x i64>, ptr %31, i64 %.031.i.i.i
   %36 = load <2 x i64>, ptr %35, align 1, !alias.scope !39, !noalias !43
-  %37 = getelementptr inbounds <2 x i64>, ptr %33, i64 %.031.i.i.i
+  %37 = getelementptr inbounds nuw <2 x i64>, ptr %33, i64 %.031.i.i.i
   %38 = load <2 x i64>, ptr %37, align 1, !alias.scope !41, !noalias !44
   %39 = xor <2 x i64> %38, %36
   %40 = bitcast <2 x i64> %39 to <4 x i32>
@@ -1520,7 +1520,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %44 = and <2 x i64> %42, splat (i64 4294967295)
   %45 = mul nuw <2 x i64> %44, %43
   %46 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %47 = getelementptr inbounds <2 x i64>, ptr %5, i64 %.031.i.i.i
+  %47 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %.031.i.i.i
   %48 = load <2 x i64>, ptr %47, align 16, !alias.scope !36, !noalias !45
   %49 = add <2 x i64> %48, %46
   %50 = add <2 x i64> %49, %45
@@ -1532,11 +1532,11 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
 52:                                               ; preds = %14
   %53 = sub nuw nsw i32 64, %16
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %1, i64 256
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %56 = sub nsw i64 0, %54
   %57 = getelementptr inbounds i8, ptr %15, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %57, i64 %54, i1 false)
-  %58 = getelementptr inbounds i8, ptr %4, i64 %54
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %54
   %59 = zext nneg i32 %16 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull readonly align 1 %55, i64 %59, i1 false)
   %60 = load i64, ptr %18, align 32
@@ -1549,9 +1549,9 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 63:                                               ; preds = %63, %52
   %.031.i25.i.i = phi i64 [ 0, %52 ], [ %80, %63 ]
-  %64 = getelementptr inbounds <2 x i64>, ptr %4, i64 %.031.i25.i.i
+  %64 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.031.i25.i.i
   %65 = load <2 x i64>, ptr %64, align 16, !alias.scope !49, !noalias !53
-  %66 = getelementptr inbounds <2 x i64>, ptr %62, i64 %.031.i25.i.i
+  %66 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %.031.i25.i.i
   %67 = load <2 x i64>, ptr %66, align 1, !alias.scope !51, !noalias !54
   %68 = xor <2 x i64> %67, %65
   %69 = bitcast <2 x i64> %68 to <4 x i32>
@@ -1561,7 +1561,7 @@ define void @PHP_XXH3_128_Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   %73 = and <2 x i64> %71, splat (i64 4294967295)
   %74 = mul nuw <2 x i64> %73, %72
   %75 = shufflevector <2 x i64> %65, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %76 = getelementptr inbounds <2 x i64>, ptr %5, i64 %.031.i25.i.i
+  %76 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %.031.i25.i.i
   %77 = load <2 x i64>, ptr %76, align 16, !alias.scope !46, !noalias !55
   %78 = add <2 x i64> %77, %75
   %79 = add <2 x i64> %78, %74
@@ -1574,7 +1574,7 @@ XXH3_digest_long.exit.i:                          ; preds = %63, %34
   %81 = phi i64 [ %28, %34 ], [ %60, %63 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %82 = getelementptr inbounds i8, ptr %10, i64 11
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 11
   %83 = mul i64 %12, -7046029288634856825
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -1584,8 +1584,8 @@ XXH3_digest_long.exit.i:                          ; preds = %63, %34
   %.013.i.i = phi i64 [ 0, %XXH3_digest_long.exit.i ], [ %98, %84 ]
   %.0812.i.i = phi i64 [ %83, %XXH3_digest_long.exit.i ], [ %97, %84 ]
   %.idx.i.i = shl nuw nsw i64 %.013.i.i, 4
-  %85 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
-  %86 = getelementptr inbounds i8, ptr %82, i64 %.idx.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i
   %.val.i.i = load i64, ptr %85, align 16, !alias.scope !56, !noalias !59
   %87 = getelementptr i8, ptr %85, i64 8
   %.val9.i.i = load i64, ptr %87, align 8, !alias.scope !56, !noalias !59
@@ -1621,8 +1621,8 @@ XXH3_mergeAccs.exit.i:                            ; preds = %84
   %.013.i21.i = phi i64 [ 0, %XXH3_mergeAccs.exit.i ], [ %120, %106 ]
   %.0812.i22.i = phi i64 [ %105, %XXH3_mergeAccs.exit.i ], [ %119, %106 ]
   %.idx.i23.i = shl nuw nsw i64 %.013.i21.i, 4
-  %107 = getelementptr inbounds i8, ptr %5, i64 %.idx.i23.i
-  %108 = getelementptr inbounds i8, ptr %103, i64 %.idx.i23.i
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i23.i
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i23.i
   %.val.i24.i = load i64, ptr %107, align 16, !alias.scope !61, !noalias !64
   %109 = getelementptr i8, ptr %107, i64 8
   %.val9.i25.i = load i64, ptr %109, align 8, !alias.scope !61, !noalias !64
@@ -1655,10 +1655,10 @@ XXH3_mergeAccs.exit29.i:                          ; preds = %106
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
 130:                                              ; preds = %2
-  %131 = getelementptr inbounds i8, ptr %1, i64 552
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %132 = load i64, ptr %131, align 8
   %.not.i = icmp eq i64 %132, 0
-  %133 = getelementptr inbounds i8, ptr %1, i64 256
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br i1 %.not.i, label %136, label %134
 
 134:                                              ; preds = %130
@@ -1677,7 +1677,7 @@ XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit
   %140 = tail call noundef i64 @llvm.bswap.i64(i64 %139)
   %141 = tail call noundef i64 @llvm.bswap.i64(i64 %138)
   store i64 %140, ptr %0, align 1
-  %142 = getelementptr inbounds i8, ptr %0, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %141, ptr %142, align 1
   ret void
 }
@@ -1711,16 +1711,16 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 568
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = select i1 %9, ptr %10, ptr %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 528
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %13 = load i64, ptr %12, align 16
   %14 = add i64 %13, %2
   store i64 %14, ptr %12, align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %16 = load i32, ptr %15, align 64
   %17 = zext i32 %16 to i64
   %18 = add i64 %2, %17
@@ -1728,8 +1728,8 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 256
-  %22 = getelementptr inbounds i8, ptr %21, i64 %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = trunc i64 %2 to i32
   %24 = load i32, ptr %15, align 64
@@ -1743,14 +1743,14 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
 27:                                               ; preds = %26
   %28 = sub i32 256, %16
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 256
-  %31 = getelementptr inbounds i8, ptr %30, i64 %17
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %1, i64 %29, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 520
-  %34 = getelementptr inbounds i8, ptr %0, i64 536
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 544
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %37 = load i64, ptr %36, align 32
   tail call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef %35, ptr noundef nonnull %30, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %37)
   store i32 0, ptr %15, align 64
@@ -1761,7 +1761,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %39 = ptrtoint ptr %6 to i64
   %40 = ptrtoint ptr %.0105 to i64
   %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 536
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %43 = load i64, ptr %42, align 8
   %44 = shl i64 %43, 6
   %45 = icmp ugt i64 %41, %44
@@ -1772,7 +1772,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %48, %40
   %50 = lshr i64 %49, 6
-  %51 = getelementptr inbounds i8, ptr %0, i64 520
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %43, %52
   %54 = shl i64 %52, 3
@@ -1787,7 +1787,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %.01.i = phi i64 [ %79, %XXH3_accumulate_512_sse2.exit.i ], [ 0, %46 ]
   %56 = shl i64 %.01.i, 6
   %57 = getelementptr inbounds i8, ptr %.0105, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 320
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %58, i32 0, i32 3, i32 1), !noalias !73
   %59 = shl i64 %.01.i, 3
   %60 = getelementptr inbounds i8, ptr %55, i64 %59
@@ -1798,9 +1798,9 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
 
 61:                                               ; preds = %61, %.lr.ph.i
   %.031.i.i = phi i64 [ 0, %.lr.ph.i ], [ %78, %61 ]
-  %62 = getelementptr inbounds <2 x i64>, ptr %57, i64 %.031.i.i
+  %62 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %.031.i.i
   %63 = load <2 x i64>, ptr %62, align 1, !alias.scope !81, !noalias !82
-  %64 = getelementptr inbounds <2 x i64>, ptr %60, i64 %.031.i.i
+  %64 = getelementptr inbounds nuw <2 x i64>, ptr %60, i64 %.031.i.i
   %65 = load <2 x i64>, ptr %64, align 1, !alias.scope !83, !noalias !84
   %66 = xor <2 x i64> %65, %63
   %67 = bitcast <2 x i64> %66 to <4 x i32>
@@ -1810,7 +1810,7 @@ define internal fastcc void @XXH3_update(ptr noalias nocapture noundef %0, ptr n
   %71 = and <2 x i64> %69, splat (i64 4294967295)
   %72 = mul nuw <2 x i64> %71, %70
   %73 = shufflevector <2 x i64> %63, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %74 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i
+  %74 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i
   %75 = load <2 x i64>, ptr %74, align 16, !alias.scope !85, !noalias !86
   %76 = add <2 x i64> %75, %73
   %77 = add <2 x i64> %76, %72
@@ -1825,7 +1825,7 @@ XXH3_accumulate_512_sse2.exit.i:                  ; preds = %61
   br i1 %exitcond.not.i, label %XXH3_accumulate.exit, label %.lr.ph.i
 
 XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512_sse2.exit.i, %46
-  %80 = getelementptr inbounds i8, ptr %0, i64 544
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %81 = load i64, ptr %80, align 32
   %82 = getelementptr inbounds i8, ptr %11, i64 %81
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
@@ -1834,10 +1834,10 @@ XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512
 
 83:                                               ; preds = %83, %XXH3_accumulate.exit
   %.045.i = phi i64 [ 0, %XXH3_accumulate.exit ], [ %98, %83 ]
-  %84 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i
+  %84 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.045.i
   %85 = load <2 x i64>, ptr %84, align 16, !alias.scope !87, !noalias !90
   %86 = lshr <2 x i64> %85, splat (i64 47)
-  %87 = getelementptr inbounds <2 x i64>, ptr %82, i64 %.045.i
+  %87 = getelementptr inbounds nuw <2 x i64>, ptr %82, i64 %.045.i
   %88 = load <2 x i64>, ptr %87, align 1, !alias.scope !90, !noalias !87
   %89 = xor <2 x i64> %86, %88
   %90 = xor <2 x i64> %89, %85
@@ -1876,7 +1876,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
   %.01.i116 = phi i64 [ %126, %XXH3_accumulate_512_sse2.exit.i119 ], [ 0, %.lr.ph ]
   %103 = shl i64 %.01.i116, 6
   %104 = getelementptr inbounds i8, ptr %.13, i64 %103
-  %105 = getelementptr inbounds i8, ptr %104, i64 320
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !99
   %106 = shl i64 %.01.i116, 3
   %107 = getelementptr inbounds i8, ptr %11, i64 %106
@@ -1887,9 +1887,9 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
 
 108:                                              ; preds = %108, %.lr.ph.i115
   %.031.i.i117 = phi i64 [ 0, %.lr.ph.i115 ], [ %125, %108 ]
-  %109 = getelementptr inbounds <2 x i64>, ptr %104, i64 %.031.i.i117
+  %109 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.031.i.i117
   %110 = load <2 x i64>, ptr %109, align 1, !alias.scope !107, !noalias !108
-  %111 = getelementptr inbounds <2 x i64>, ptr %107, i64 %.031.i.i117
+  %111 = getelementptr inbounds nuw <2 x i64>, ptr %107, i64 %.031.i.i117
   %112 = load <2 x i64>, ptr %111, align 1, !alias.scope !109, !noalias !110
   %113 = xor <2 x i64> %112, %110
   %114 = bitcast <2 x i64> %113 to <4 x i32>
@@ -1899,7 +1899,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %83
   %118 = and <2 x i64> %116, splat (i64 4294967295)
   %119 = mul nuw <2 x i64> %118, %117
   %120 = shufflevector <2 x i64> %110, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %121 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i117
+  %121 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i117
   %122 = load <2 x i64>, ptr %121, align 16, !alias.scope !111, !noalias !112
   %123 = add <2 x i64> %122, %120
   %124 = add <2 x i64> %123, %119
@@ -1922,10 +1922,10 @@ XXH3_accumulate.exit121:                          ; preds = %XXH3_accumulate_512
 
 129:                                              ; preds = %129, %XXH3_accumulate.exit121
   %.045.i122 = phi i64 [ 0, %XXH3_accumulate.exit121 ], [ %144, %129 ]
-  %130 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i122
+  %130 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.045.i122
   %131 = load <2 x i64>, ptr %130, align 16, !alias.scope !113, !noalias !116
   %132 = lshr <2 x i64> %131, splat (i64 47)
-  %133 = getelementptr inbounds <2 x i64>, ptr %128, i64 %.045.i122
+  %133 = getelementptr inbounds nuw <2 x i64>, ptr %128, i64 %.045.i122
   %134 = load <2 x i64>, ptr %133, align 1, !alias.scope !116, !noalias !113
   %135 = xor <2 x i64> %132, %134
   %136 = xor <2 x i64> %135, %131
@@ -1962,7 +1962,7 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
   %.01.i127 = phi i64 [ %172, %XXH3_accumulate_512_sse2.exit.i130 ], [ 0, %._crit_edge ]
   %149 = shl i64 %.01.i127, 6
   %150 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %149
-  %151 = getelementptr inbounds i8, ptr %150, i64 320
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %151, i32 0, i32 3, i32 1), !noalias !125
   %152 = shl i64 %.01.i127, 3
   %153 = getelementptr inbounds i8, ptr %11, i64 %152
@@ -1973,9 +1973,9 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
 
 154:                                              ; preds = %154, %.lr.ph.i126
   %.031.i.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %171, %154 ]
-  %155 = getelementptr inbounds <2 x i64>, ptr %150, i64 %.031.i.i128
+  %155 = getelementptr inbounds nuw <2 x i64>, ptr %150, i64 %.031.i.i128
   %156 = load <2 x i64>, ptr %155, align 1, !alias.scope !133, !noalias !134
-  %157 = getelementptr inbounds <2 x i64>, ptr %153, i64 %.031.i.i128
+  %157 = getelementptr inbounds nuw <2 x i64>, ptr %153, i64 %.031.i.i128
   %158 = load <2 x i64>, ptr %157, align 1, !alias.scope !135, !noalias !136
   %159 = xor <2 x i64> %158, %156
   %160 = bitcast <2 x i64> %159 to <4 x i32>
@@ -1985,7 +1985,7 @@ XXH3_scrambleAcc_sse2.exit124:                    ; preds = %129
   %164 = and <2 x i64> %162, splat (i64 4294967295)
   %165 = mul nuw <2 x i64> %164, %163
   %166 = shufflevector <2 x i64> %156, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %167 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i128
+  %167 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i128
   %168 = load <2 x i64>, ptr %167, align 16, !alias.scope !137, !noalias !138
   %169 = add <2 x i64> %168, %166
   %170 = add <2 x i64> %169, %165
@@ -2003,7 +2003,7 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
   %173 = shl i64 %.0106.lcssa, 6
   %174 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %173
   store i64 %.0106.lcssa, ptr %51, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 448
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %176 = getelementptr inbounds i8, ptr %174, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %175, ptr noundef nonnull readonly align 1 dereferenceable(64) %176, i64 64, i1 false)
   br label %191
@@ -2014,8 +2014,8 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds i8, ptr %6, i64 -256
-  %181 = getelementptr inbounds i8, ptr %0, i64 520
-  %182 = getelementptr inbounds i8, ptr %0, i64 544
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %183
 
 183:                                              ; preds = %183, %179
@@ -2023,19 +2023,19 @@ XXH3_accumulate.exit132:                          ; preds = %XXH3_accumulate_512
   %184 = load i64, ptr %42, align 8
   %185 = load i64, ptr %182, align 32
   tail call fastcc void @XXH3_consumeStripes(ptr noundef nonnull %0, ptr noundef nonnull %181, i64 noundef %184, ptr noundef %.3, i64 noundef 4, ptr noundef nonnull %11, i64 noundef %185)
-  %186 = getelementptr inbounds i8, ptr %.3, i64 256
+  %186 = getelementptr inbounds nuw i8, ptr %.3, i64 256
   %187 = icmp ult ptr %186, %180
   br i1 %187, label %183, label %188
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds i8, ptr %0, i64 448
-  %190 = getelementptr inbounds i8, ptr %.3, i64 192
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %190 = getelementptr inbounds nuw i8, ptr %.3, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %189, ptr noundef nonnull readonly align 1 dereferenceable(64) %190, i64 64, i1 false)
   br label %191
 
 191:                                              ; preds = %177, %188, %XXH3_accumulate.exit132
   %.2 = phi ptr [ %174, %XXH3_accumulate.exit132 ], [ %186, %188 ], [ %.0105, %177 ]
-  %192 = getelementptr inbounds i8, ptr %0, i64 256
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %193 = ptrtoint ptr %.2 to i64
   %194 = sub i64 %39, %193
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %192, ptr readonly align 1 %.2, i64 %194, i1 false)
@@ -2072,7 +2072,7 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
   %.01.i = phi i64 [ %37, %XXH3_accumulate_512_sse2.exit.i ], [ 0, %10 ]
   %14 = shl i64 %.01.i, 6
   %15 = getelementptr inbounds i8, ptr %3, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 320
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %16, i32 0, i32 3, i32 1), !noalias !146
   %17 = shl i64 %.01.i, 3
   %18 = getelementptr inbounds i8, ptr %13, i64 %17
@@ -2083,9 +2083,9 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.031.i.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %19 ]
-  %20 = getelementptr inbounds <2 x i64>, ptr %15, i64 %.031.i.i
+  %20 = getelementptr inbounds nuw <2 x i64>, ptr %15, i64 %.031.i.i
   %21 = load <2 x i64>, ptr %20, align 1, !alias.scope !154, !noalias !155
-  %22 = getelementptr inbounds <2 x i64>, ptr %18, i64 %.031.i.i
+  %22 = getelementptr inbounds nuw <2 x i64>, ptr %18, i64 %.031.i.i
   %23 = load <2 x i64>, ptr %22, align 1, !alias.scope !156, !noalias !157
   %24 = xor <2 x i64> %23, %21
   %25 = bitcast <2 x i64> %24 to <4 x i32>
@@ -2095,7 +2095,7 @@ define internal fastcc void @XXH3_consumeStripes(ptr noalias nocapture noundef %
   %29 = and <2 x i64> %27, splat (i64 4294967295)
   %30 = mul nuw <2 x i64> %29, %28
   %31 = shufflevector <2 x i64> %21, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %32 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i
+  %32 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i
   %33 = load <2 x i64>, ptr %32, align 16, !alias.scope !158, !noalias !159
   %34 = add <2 x i64> %33, %31
   %35 = add <2 x i64> %34, %30
@@ -2117,10 +2117,10 @@ XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512
 
 39:                                               ; preds = %39, %XXH3_accumulate.exit
   %.045.i = phi i64 [ 0, %XXH3_accumulate.exit ], [ %54, %39 ]
-  %40 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.045.i
+  %40 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.045.i
   %41 = load <2 x i64>, ptr %40, align 16, !alias.scope !160, !noalias !163
   %42 = lshr <2 x i64> %41, splat (i64 47)
-  %43 = getelementptr inbounds <2 x i64>, ptr %38, i64 %.045.i
+  %43 = getelementptr inbounds nuw <2 x i64>, ptr %38, i64 %.045.i
   %44 = load <2 x i64>, ptr %43, align 1, !alias.scope !163, !noalias !160
   %45 = xor <2 x i64> %42, %44
   %46 = xor <2 x i64> %45, %41
@@ -2138,7 +2138,7 @@ XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512
 
 XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
   %55 = shl nuw nsw i64 %9, 6
-  %56 = getelementptr inbounds i8, ptr %3, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
@@ -2149,7 +2149,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
   %.01.i36 = phi i64 [ %80, %XXH3_accumulate_512_sse2.exit.i39 ], [ 0, %XXH3_scrambleAcc_sse2.exit ]
   %57 = shl i64 %.01.i36, 6
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 320
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %59, i32 0, i32 3, i32 1), !noalias !172
   %60 = shl i64 %.01.i36, 3
   %61 = getelementptr inbounds i8, ptr %5, i64 %60
@@ -2160,9 +2160,9 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
 
 62:                                               ; preds = %62, %.lr.ph.i35
   %.031.i.i37 = phi i64 [ 0, %.lr.ph.i35 ], [ %79, %62 ]
-  %63 = getelementptr inbounds <2 x i64>, ptr %58, i64 %.031.i.i37
+  %63 = getelementptr inbounds nuw <2 x i64>, ptr %58, i64 %.031.i.i37
   %64 = load <2 x i64>, ptr %63, align 1, !alias.scope !180, !noalias !181
-  %65 = getelementptr inbounds <2 x i64>, ptr %61, i64 %.031.i.i37
+  %65 = getelementptr inbounds nuw <2 x i64>, ptr %61, i64 %.031.i.i37
   %66 = load <2 x i64>, ptr %65, align 1, !alias.scope !182, !noalias !183
   %67 = xor <2 x i64> %66, %64
   %68 = bitcast <2 x i64> %67 to <4 x i32>
@@ -2172,7 +2172,7 @@ XXH3_scrambleAcc_sse2.exit:                       ; preds = %39
   %72 = and <2 x i64> %70, splat (i64 4294967295)
   %73 = mul nuw <2 x i64> %72, %71
   %74 = shufflevector <2 x i64> %64, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %75 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i37
+  %75 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i37
   %76 = load <2 x i64>, ptr %75, align 16, !alias.scope !184, !noalias !185
   %77 = add <2 x i64> %76, %74
   %78 = add <2 x i64> %77, %73
@@ -2199,7 +2199,7 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   %.01.i44 = phi i64 [ %107, %XXH3_accumulate_512_sse2.exit.i47 ], [ 0, %81 ]
   %84 = shl i64 %.01.i44, 6
   %85 = getelementptr inbounds i8, ptr %3, i64 %84
-  %86 = getelementptr inbounds i8, ptr %85, i64 320
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %86, i32 0, i32 3, i32 1), !noalias !193
   %87 = shl i64 %.01.i44, 3
   %88 = getelementptr inbounds i8, ptr %83, i64 %87
@@ -2210,9 +2210,9 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
 
 89:                                               ; preds = %89, %.lr.ph.i43
   %.031.i.i45 = phi i64 [ 0, %.lr.ph.i43 ], [ %106, %89 ]
-  %90 = getelementptr inbounds <2 x i64>, ptr %85, i64 %.031.i.i45
+  %90 = getelementptr inbounds nuw <2 x i64>, ptr %85, i64 %.031.i.i45
   %91 = load <2 x i64>, ptr %90, align 1, !alias.scope !201, !noalias !202
-  %92 = getelementptr inbounds <2 x i64>, ptr %88, i64 %.031.i.i45
+  %92 = getelementptr inbounds nuw <2 x i64>, ptr %88, i64 %.031.i.i45
   %93 = load <2 x i64>, ptr %92, align 1, !alias.scope !203, !noalias !204
   %94 = xor <2 x i64> %93, %91
   %95 = bitcast <2 x i64> %94 to <4 x i32>
@@ -2222,7 +2222,7 @@ XXH3_accumulate_512_sse2.exit.i39:                ; preds = %62
   %99 = and <2 x i64> %97, splat (i64 4294967295)
   %100 = mul nuw <2 x i64> %99, %98
   %101 = shufflevector <2 x i64> %91, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %102 = getelementptr inbounds <2 x i64>, ptr %0, i64 %.031.i.i45
+  %102 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.031.i.i45
   %103 = load <2 x i64>, ptr %102, align 16, !alias.scope !205, !noalias !206
   %104 = add <2 x i64> %103, %101
   %105 = add <2 x i64> %104, %100
@@ -2259,21 +2259,21 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   br i1 %7, label %8, label %36
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.val20.i.i = load i64, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val19.i.i = load i64, ptr %10, align 1
   %11 = xor i64 %.val19.i.i, %.val20.i.i
   %12 = add i64 %11, %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.val18.i.i = load i64, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.val17.i.i = load i64, ptr %14, align 1
   %15 = xor i64 %.val17.i.i, %.val18.i.i
   %16 = sub i64 %15, %2
   %.val16.i.i = load i64, ptr %0, align 1
   %17 = xor i64 %.val16.i.i, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %.val.i.i = load i64, ptr %19, align 1
   %20 = xor i64 %.val.i.i, %16
@@ -2309,7 +2309,7 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %44 = shl nuw i64 %43, 32
   %45 = xor i64 %44, %2
   %.val13.i.i = load i32, ptr %0, align 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 %1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %.val.i24.i = load i32, ptr %47, align 1
   %48 = xor i64 %.val21.i, %.val20.i
@@ -2342,7 +2342,7 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %.val23.i = load i32, ptr %68, align 1
   %69 = load i8, ptr %0, align 1
   %70 = lshr i64 %1, 1
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = getelementptr i8, ptr %0, i64 %1
   %74 = getelementptr i8, ptr %73, i64 -1
@@ -2371,9 +2371,9 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   br label %XXH3_len_0to16_64b.exit
 
 97:                                               ; preds = %66
-  %98 = getelementptr inbounds i8, ptr %3, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.val19.i = load i64, ptr %98, align 1
-  %99 = getelementptr inbounds i8, ptr %3, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.val.i = load i64, ptr %99, align 1
   %100 = xor i64 %.val19.i, %.val.i
   %101 = xor i64 %100, %2
@@ -2407,8 +2407,8 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   br i1 %118, label %119, label %151
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
-  %121 = getelementptr inbounds i8, ptr %3, i64 96
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.val.i25 = load i64, ptr %120, align 1, !alias.scope !207, !noalias !210
   %122 = getelementptr i8, ptr %0, i64 56
   %.val41.i = load i64, ptr %122, align 1, !alias.scope !207, !noalias !210
@@ -2426,9 +2426,9 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %132 = xor i128 %131, %130
   %133 = trunc i128 %132 to i64
   %134 = add i64 %112, %133
-  %135 = getelementptr inbounds i8, ptr %0, i64 %1
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %136 = getelementptr inbounds i8, ptr %135, i64 -64
-  %137 = getelementptr inbounds i8, ptr %3, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %.val44.i = load i64, ptr %136, align 1, !alias.scope !207, !noalias !210
   %138 = getelementptr i8, ptr %135, i64 -56
   %.val45.i = load i64, ptr %138, align 1, !alias.scope !207, !noalias !210
@@ -2450,8 +2450,8 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
 
 151:                                              ; preds = %119, %117
   %.2.i = phi i64 [ %150, %119 ], [ %112, %117 ]
-  %152 = getelementptr inbounds i8, ptr %0, i64 32
-  %153 = getelementptr inbounds i8, ptr %3, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.val48.i = load i64, ptr %152, align 1, !alias.scope !207, !noalias !210
   %154 = getelementptr i8, ptr %0, i64 40
   %.val49.i = load i64, ptr %154, align 1, !alias.scope !207, !noalias !210
@@ -2469,9 +2469,9 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %164 = xor i128 %163, %162
   %165 = trunc i128 %164 to i64
   %166 = add i64 %.2.i, %165
-  %167 = getelementptr inbounds i8, ptr %0, i64 %1
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %168 = getelementptr inbounds i8, ptr %167, i64 -48
-  %169 = getelementptr inbounds i8, ptr %3, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.val52.i = load i64, ptr %168, align 1, !alias.scope !207, !noalias !210
   %170 = getelementptr i8, ptr %167, i64 -40
   %.val53.i = load i64, ptr %170, align 1, !alias.scope !207, !noalias !210
@@ -2493,8 +2493,8 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
 
 183:                                              ; preds = %151, %115
   %.1.i = phi i64 [ %182, %151 ], [ %112, %115 ]
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
-  %185 = getelementptr inbounds i8, ptr %3, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val56.i = load i64, ptr %184, align 1, !alias.scope !207, !noalias !210
   %186 = getelementptr i8, ptr %0, i64 24
   %.val57.i = load i64, ptr %186, align 1, !alias.scope !207, !noalias !210
@@ -2512,9 +2512,9 @@ define internal fastcc i64 @XXH3_64bits_internal(ptr noalias nocapture noundef r
   %196 = xor i128 %195, %194
   %197 = trunc i128 %196 to i64
   %198 = add i64 %.1.i, %197
-  %199 = getelementptr inbounds i8, ptr %0, i64 %1
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %200 = getelementptr inbounds i8, ptr %199, i64 -32
-  %201 = getelementptr inbounds i8, ptr %3, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.val60.i = load i64, ptr %200, align 1, !alias.scope !207, !noalias !210
   %202 = getelementptr i8, ptr %199, i64 -24
   %.val61.i = load i64, ptr %202, align 1, !alias.scope !207, !noalias !210
@@ -2553,9 +2553,9 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   %225 = xor i128 %224, %223
   %226 = trunc i128 %225 to i64
   %227 = add i64 %.0.i24, %226
-  %228 = getelementptr inbounds i8, ptr %0, i64 %1
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %229 = getelementptr inbounds i8, ptr %228, i64 -16
-  %230 = getelementptr inbounds i8, ptr %3, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val68.i = load i64, ptr %229, align 1, !alias.scope !207, !noalias !210
   %231 = getelementptr i8, ptr %228, i64 -8
   %.val69.i = load i64, ptr %231, align 1, !alias.scope !207, !noalias !210
@@ -2589,8 +2589,8 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   %indvars.iv.i = phi i64 [ 0, %249 ], [ %indvars.iv.next.i, %250 ]
   %.02538.i = phi i64 [ %112, %249 ], [ %266, %250 ]
   %251 = shl nuw nsw i64 %indvars.iv.i, 4
-  %252 = getelementptr inbounds i8, ptr %0, i64 %251
-  %253 = getelementptr inbounds i8, ptr %3, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 %251
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 %251
   %.val.i26 = load i64, ptr %252, align 1, !alias.scope !212, !noalias !215
   %254 = getelementptr i8, ptr %252, i64 8
   %.val27.i = load i64, ptr %254, align 1, !alias.scope !212, !noalias !215
@@ -2631,7 +2631,7 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   %indvars.iv44.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %.lr.ph.i ]
   %.12640.i = phi i64 [ %274, %.lr.ph.preheader.i ], [ %291, %.lr.ph.i ]
   %275 = shl nsw i64 %indvars.iv44.i, 4
-  %276 = getelementptr inbounds i8, ptr %0, i64 %275
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 %275
   %277 = getelementptr i8, ptr %3, i64 %275
   %278 = getelementptr i8, ptr %277, i64 -125
   %.val30.i = load i64, ptr %276, align 1, !alias.scope !212, !noalias !215
@@ -2657,9 +2657,9 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
 
 XXH3_len_129to240_64b.exit:                       ; preds = %.lr.ph.i, %267
   %.126.lcssa.i = phi i64 [ %274, %267 ], [ %291, %.lr.ph.i ]
-  %292 = getelementptr inbounds i8, ptr %0, i64 %1
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %293 = getelementptr inbounds i8, ptr %292, i64 -16
-  %294 = getelementptr inbounds i8, ptr %3, i64 119
+  %294 = getelementptr inbounds nuw i8, ptr %3, i64 119
   %.val34.i = load i64, ptr %293, align 1, !alias.scope !212, !noalias !215
   %295 = getelementptr i8, ptr %292, i64 -8
   %.val35.i = load i64, ptr %295, align 1, !alias.scope !212, !noalias !215
@@ -2699,20 +2699,20 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   br i1 %7, label %8, label %51
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val28.i.i = load i64, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.val27.i.i = load i64, ptr %10, align 1
   %11 = xor i64 %.val27.i.i, %.val28.i.i
   %12 = sub i64 %11, %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.val26.i.i = load i64, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.val25.i.i = load i64, ptr %14, align 1
   %15 = xor i64 %.val25.i.i, %.val26.i.i
   %16 = add i64 %15, %2
   %.val24.i.i = load i64, ptr %0, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   %.val.i.i = load i64, ptr %18, align 1
   %19 = xor i64 %.val24.i.i, %12
@@ -2764,7 +2764,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %59 = shl nuw i64 %58, 32
   %60 = xor i64 %59, %2
   %.val21.i.i = load i32, ptr %0, align 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 %1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %62 = getelementptr inbounds i8, ptr %61, i64 -4
   %.val.i27.i = load i32, ptr %62, align 1
   %63 = zext i32 %.val21.i.i to i64
@@ -2803,7 +2803,7 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
 91:                                               ; preds = %90
   %92 = load i8, ptr %0, align 1
   %93 = lshr i64 %1, 1
-  %94 = getelementptr inbounds i8, ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = getelementptr i8, ptr %0, i64 %1
   %97 = getelementptr i8, ptr %96, i64 -1
@@ -2821,14 +2821,14 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   %109 = tail call noundef i32 @llvm.bswap.i32(i32 %108)
   %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 13)
   %.val23.i.i = load i32, ptr %3, align 1
-  %111 = getelementptr inbounds i8, ptr %3, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val22.i.i = load i32, ptr %111, align 1
   %112 = xor i32 %.val22.i.i, %.val23.i.i
   %113 = zext i32 %112 to i64
   %114 = add i64 %2, %113
-  %115 = getelementptr inbounds i8, ptr %3, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val21.i30.i = load i32, ptr %115, align 1
-  %116 = getelementptr inbounds i8, ptr %3, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.val.i31.i = load i32, ptr %116, align 1
   %117 = xor i32 %.val.i31.i, %.val21.i30.i
   %118 = zext i32 %117 to i64
@@ -2854,13 +2854,13 @@ define internal fastcc { i64, i64 } @XXH3_128bits_internal(ptr nocapture noundef
   br label %XXH3_len_0to16_128b.exit
 
 138:                                              ; preds = %90
-  %139 = getelementptr inbounds i8, ptr %3, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.val24.i = load i64, ptr %139, align 1
-  %140 = getelementptr inbounds i8, ptr %3, i64 72
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %.val23.i = load i64, ptr %140, align 1
-  %141 = getelementptr inbounds i8, ptr %3, i64 80
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.val22.i = load i64, ptr %141, align 1
-  %142 = getelementptr inbounds i8, ptr %3, i64 88
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %.val.i = load i64, ptr %142, align 1
   %143 = xor i64 %.val24.i, %.val23.i
   %144 = xor i64 %143, %2
@@ -2909,10 +2909,10 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   br i1 %171, label %172, label %207
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %0, i64 48
-  %174 = getelementptr inbounds i8, ptr %0, i64 %1
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %175 = getelementptr inbounds i8, ptr %174, i64 -64
-  %176 = getelementptr inbounds i8, ptr %3, i64 96
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.val.i23 = load i64, ptr %173, align 1, !alias.scope !217, !noalias !220
   %177 = getelementptr i8, ptr %0, i64 56
   %.val45.i = load i64, ptr %177, align 1, !alias.scope !217, !noalias !220
@@ -2935,7 +2935,7 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   %190 = add i64 %165, %189
   %191 = add i64 %.val47.i, %.val46.i
   %192 = xor i64 %190, %191
-  %193 = getelementptr inbounds i8, ptr %3, i64 112
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %.val17.i.i = load i64, ptr %193, align 1, !alias.scope !220, !noalias !217
   %194 = getelementptr i8, ptr %3, i64 120
   %.val18.i.i = load i64, ptr %194, align 1, !alias.scope !220, !noalias !217
@@ -2956,10 +2956,10 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
 207:                                              ; preds = %172, %170
   %.sroa.07.2.i = phi i64 [ %192, %172 ], [ %165, %170 ]
   %.sroa.11.2.i = phi i64 [ %206, %172 ], [ 0, %170 ]
-  %208 = getelementptr inbounds i8, ptr %0, i64 32
-  %209 = getelementptr inbounds i8, ptr %0, i64 %1
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %210 = getelementptr inbounds i8, ptr %209, i64 -48
-  %211 = getelementptr inbounds i8, ptr %3, i64 64
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.val48.i = load i64, ptr %208, align 1, !alias.scope !217, !noalias !220
   %212 = getelementptr i8, ptr %0, i64 40
   %.val49.i = load i64, ptr %212, align 1, !alias.scope !217, !noalias !220
@@ -2982,7 +2982,7 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   %225 = add i64 %.sroa.07.2.i, %224
   %226 = add i64 %.val51.i, %.val50.i
   %227 = xor i64 %225, %226
-  %228 = getelementptr inbounds i8, ptr %3, i64 80
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.val17.i62.i = load i64, ptr %228, align 1, !alias.scope !220, !noalias !217
   %229 = getelementptr i8, ptr %3, i64 88
   %.val18.i63.i = load i64, ptr %229, align 1, !alias.scope !220, !noalias !217
@@ -3004,10 +3004,10 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
 243:                                              ; preds = %207, %168
   %.sroa.07.1.i = phi i64 [ %227, %207 ], [ %165, %168 ]
   %.sroa.11.1.i = phi i64 [ %242, %207 ], [ 0, %168 ]
-  %244 = getelementptr inbounds i8, ptr %0, i64 16
-  %245 = getelementptr inbounds i8, ptr %0, i64 %1
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %246 = getelementptr inbounds i8, ptr %245, i64 -32
-  %247 = getelementptr inbounds i8, ptr %3, i64 32
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val52.i = load i64, ptr %244, align 1, !alias.scope !217, !noalias !220
   %248 = getelementptr i8, ptr %0, i64 24
   %.val53.i = load i64, ptr %248, align 1, !alias.scope !217, !noalias !220
@@ -3030,7 +3030,7 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
   %261 = add i64 %.sroa.07.1.i, %260
   %262 = add i64 %.val55.i, %.val54.i
   %263 = xor i64 %261, %262
-  %264 = getelementptr inbounds i8, ptr %3, i64 48
+  %264 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.val17.i68.i = load i64, ptr %264, align 1, !alias.scope !220, !noalias !217
   %265 = getelementptr i8, ptr %3, i64 56
   %.val18.i69.i = load i64, ptr %265, align 1, !alias.scope !220, !noalias !217
@@ -3052,7 +3052,7 @@ XXH3_len_0to16_128b.exit:                         ; preds = %8, %53, %91, %138
 XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %.sroa.07.0.i = phi i64 [ %263, %243 ], [ %165, %166 ]
   %.sroa.11.0.i = phi i64 [ %278, %243 ], [ 0, %166 ]
-  %279 = getelementptr inbounds i8, ptr %0, i64 %1
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %280 = getelementptr inbounds i8, ptr %279, i64 -16
   %.val56.i = load i64, ptr %0, align 1, !alias.scope !217, !noalias !220
   %281 = getelementptr i8, ptr %0, i64 8
@@ -3076,7 +3076,7 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %294 = add i64 %.sroa.07.0.i, %293
   %295 = add i64 %.val59.i, %.val58.i
   %296 = xor i64 %294, %295
-  %297 = getelementptr inbounds i8, ptr %3, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val17.i74.i = load i64, ptr %297, align 1, !alias.scope !220, !noalias !217
   %298 = getelementptr i8, ptr %3, i64 24
   %.val18.i75.i = load i64, ptr %298, align 1, !alias.scope !220, !noalias !217
@@ -3123,9 +3123,9 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %.sroa.11.071.i = phi i64 [ 0, %330 ], [ %366, %331 ]
   %.sroa.015.070.i = phi i64 [ %165, %330 ], [ %351, %331 ]
   %332 = shl nuw nsw i64 %indvars.iv.i, 5
-  %333 = getelementptr inbounds i8, ptr %0, i64 %332
-  %334 = getelementptr inbounds i8, ptr %333, i64 16
-  %335 = getelementptr inbounds i8, ptr %3, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 %332
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 %332
   %.val.i26 = load i64, ptr %333, align 1, !alias.scope !222, !noalias !225
   %336 = getelementptr i8, ptr %333, i64 8
   %.val46.i27 = load i64, ptr %336, align 1, !alias.scope !222, !noalias !225
@@ -3148,7 +3148,7 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %349 = add i64 %.sroa.015.070.i, %348
   %350 = add i64 %.val48.i29, %.val47.i28
   %351 = xor i64 %349, %350
-  %352 = getelementptr inbounds i8, ptr %335, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %335, i64 16
   %.val17.i.i32 = load i64, ptr %352, align 1, !alias.scope !225, !noalias !222
   %353 = getelementptr i8, ptr %335, i64 24
   %.val18.i.i33 = load i64, ptr %353, align 1, !alias.scope !225, !noalias !222
@@ -3186,7 +3186,7 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   br i1 %.not.i34, label %XXH3_len_129to240_128b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %367
-  %380 = getelementptr inbounds i8, ptr %3, i64 3
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %wide.trip.count.i = zext nneg i32 %369 to i64
   br label %381
 
@@ -3195,8 +3195,8 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   %.sroa.11.174.i = phi i64 [ %379, %.lr.ph.i ], [ %417, %381 ]
   %.sroa.015.173.i = phi i64 [ %374, %.lr.ph.i ], [ %402, %381 ]
   %382 = shl nsw i64 %indvars.iv80.i, 5
-  %383 = getelementptr inbounds i8, ptr %0, i64 %382
-  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 %382
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %385 = getelementptr i8, ptr %380, i64 %382
   %386 = getelementptr i8, ptr %385, i64 -128
   %.val49.i35 = load i64, ptr %383, align 1, !alias.scope !222, !noalias !225
@@ -3245,10 +3245,10 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
 XXH3_len_129to240_128b.exit:                      ; preds = %381, %367
   %.sroa.015.1.lcssa.i = phi i64 [ %374, %367 ], [ %402, %381 ]
   %.sroa.11.1.lcssa.i = phi i64 [ %379, %367 ], [ %417, %381 ]
-  %418 = getelementptr inbounds i8, ptr %0, i64 %1
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %419 = getelementptr inbounds i8, ptr %418, i64 -16
   %420 = getelementptr inbounds i8, ptr %418, i64 -32
-  %421 = getelementptr inbounds i8, ptr %3, i64 103
+  %421 = getelementptr inbounds nuw i8, ptr %3, i64 103
   %.val53.i39 = load i64, ptr %419, align 1, !alias.scope !222, !noalias !225
   %422 = getelementptr i8, ptr %418, i64 -8
   %.val54.i40 = load i64, ptr %422, align 1, !alias.scope !222, !noalias !225
@@ -3271,7 +3271,7 @@ XXH3_len_129to240_128b.exit:                      ; preds = %381, %367
   %435 = add i64 %.sroa.015.1.lcssa.i, %434
   %436 = add i64 %.val56.i42, %.val55.i41
   %437 = xor i64 %435, %436
-  %438 = getelementptr inbounds i8, ptr %3, i64 119
+  %438 = getelementptr inbounds nuw i8, ptr %3, i64 119
   %.val17.i65.i = load i64, ptr %438, align 1, !alias.scope !225, !noalias !222
   %439 = getelementptr i8, ptr %3, i64 127
   %.val18.i66.i = load i64, ptr %439, align 1, !alias.scope !225, !noalias !222

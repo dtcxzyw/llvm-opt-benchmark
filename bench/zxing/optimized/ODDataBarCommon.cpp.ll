@@ -15,7 +15,7 @@ define noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueERKSt5arrayIiLm4EEib(ptr noca
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %3
   %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %3 ]
   %.057.i.i.i = phi i32 [ %5, %.lr.ph.i.i.i ], [ 0, %3 ]
-  %.08.i.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.08.i.i.idx.i
+  %.08.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i.i.idx.i
   %4 = load i32, ptr %.08.i.i.ptr.i, align 4
   %5 = add nsw i32 %4, %.057.i.i.i
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 4
@@ -34,7 +34,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit.preheader: ; pre
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = shl nuw nsw i32 1, %6
   %8 = or i32 %7, %.064127
-  %9 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i32], ptr %0, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 1
   br i1 %11, label %.lr.ph120, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit
@@ -254,7 +254,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %78, 
 define noundef zeroext i1 @_ZN5ZXing4OneD7DataBar20ReadDataCharacterRawERKNS_11PatternViewEibRSt5arrayIiLm4EES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4) local_unnamed_addr #1 {
   %6 = alloca %"struct.ZXing::OneD::DataBar::OddEven", align 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
   br label %.lr.ph.i.i.i
@@ -262,7 +262,7 @@ define noundef zeroext i1 @_ZN5ZXing4OneD7DataBar20ReadDataCharacterRawERKNS_11P
 .lr.ph.i.i.i:                                     ; preds = %5, %.lr.ph.i.i.i
   %.08.i.i.i.idx = phi i64 [ %.08.i.i.i.add, %.lr.ph.i.i.i ], [ 0, %5 ]
   %.057.i.i.i = phi i16 [ %10, %.lr.ph.i.i.i ], [ 0, %5 ]
-  %.08.i.i.i.ptr = getelementptr inbounds i8, ptr %8, i64 %.08.i.i.i.idx
+  %.08.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.08.i.i.i.idx
   %9 = load i16, ptr %.08.i.i.i.ptr, align 2
   %10 = add i16 %9, %.057.i.i.i
   %.08.i.i.i.add = add nuw nsw i64 %.08.i.i.i.idx, 2
@@ -274,7 +274,7 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i
   %12 = sitofp i32 %1 to float
   %13 = fdiv float %11, %12
   %14 = select i1 %2, i64 7, i64 0
-  %15 = getelementptr inbounds i16, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr %8, i64 %14
   %16 = select i1 %2, i64 -1, i64 1
   br label %17
 
@@ -289,11 +289,11 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i
   %23 = shl nuw nsw i32 %.04988, 3
   %24 = and i32 %23, 8
   %.in.idx.i = zext nneg i32 %24 to i64
-  %.in.i = getelementptr inbounds i8, ptr %6, i64 %.in.idx.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %6, i64 %.in.idx.i
   %25 = load ptr, ptr %.in.i, align 8
   %26 = lshr i32 %.04988, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [4 x i32], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %27
   store i32 %22, ptr %28, align 4
   %29 = add nuw nsw i32 %.04988, 1
   %30 = getelementptr inbounds i16, ptr %.089, i64 %16
@@ -303,7 +303,7 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i
 .lr.ph.i.i.i53:                                   ; preds = %17, %.lr.ph.i.i.i53
   %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i53 ], [ 0, %17 ]
   %.057.i.i.i54 = phi i32 [ %32, %.lr.ph.i.i.i53 ], [ 0, %17 ]
-  %.08.i.i.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.08.i.i.idx.i
+  %.08.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i.i.idx.i
   %31 = load i32, ptr %.08.i.i.ptr.i, align 4
   %32 = add nsw i32 %31, %.057.i.i.i54
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 4
@@ -313,7 +313,7 @@ _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i
 .lr.ph.i.i.i56:                                   ; preds = %.lr.ph.i.i.i53, %.lr.ph.i.i.i56
   %.08.i.i.idx.i57 = phi i64 [ %.08.i.i.add.i60, %.lr.ph.i.i.i56 ], [ 0, %.lr.ph.i.i.i53 ]
   %.057.i.i.i58 = phi i32 [ %34, %.lr.ph.i.i.i56 ], [ 0, %.lr.ph.i.i.i53 ]
-  %.08.i.i.ptr.i59 = getelementptr inbounds i8, ptr %4, i64 %.08.i.i.idx.i57
+  %.08.i.i.ptr.i59 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.idx.i57
   %33 = load i32, ptr %.08.i.i.ptr.i59, align 4
   %34 = add nsw i32 %33, %.057.i.i.i58
   %.08.i.i.add.i60 = add nuw nsw i64 %.08.i.i.idx.i57, 4
@@ -362,17 +362,17 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit62: ; preds = %.l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZXing::Quadrilateral") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.val = load i32, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %.val14 = load i32, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = sub nsw i32 %7, %.val14
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %11, %13
   %15 = icmp sgt i32 %9, %14
@@ -387,7 +387,7 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
 19:                                               ; preds = %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
   %20 = add nsw i32 %7, %.val14
   %21 = sdiv i32 %20, 2
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load i32, ptr %22, align 4
   %.sroa.213.0.insert.ext.i = zext i32 %21 to i64
   %.sroa.213.0.insert.shift.i = shl nuw i64 %.sroa.213.0.insert.ext.i, 32
@@ -398,7 +398,7 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit: ; preds = %3
   br label %26
 
 _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread: ; preds = %3, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 4
   %.sroa.220.0.insert.ext = zext i32 %7 to i64
   %.sroa.220.0.insert.shift = shl nuw i64 %.sroa.220.0.insert.ext, 32
@@ -420,37 +420,37 @@ _ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread: ; preds = %3, %_Z
   %.sroa.015.0.insert.insert.sink = phi i64 [ %.sroa.015.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.010.0.insert.insert.i, %19 ]
   %.sroa.0.0.insert.insert.sink = phi i64 [ %.sroa.0.0.insert.insert, %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit.thread ], [ %.sroa.012.0.insert.insert.i, %19 ]
   store i64 %.sroa.019.0.insert.insert.sink, ptr %0, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.017.0.insert.insert.sink, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.015.0.insert.insert.sink, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.0.0.insert.insert.sink, ptr %29, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN5ZXing4OneD7DataBar17EstimateLineCountERKNS1_4PairES4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.val4 = load i32, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = sub nsw i32 %9, %.val4
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = sub nsw i32 %13, %15
   %17 = icmp sgt i32 %11, %16
   br i1 %17, label %_ZN5ZXing4OneD7DataBarL9IsStackedERKNS1_4PairES4_.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.val = load i32, ptr %19, align 4
   %20 = add nsw i32 %15, %13
   %21 = sdiv i32 %20, 2

@@ -78,26 +78,26 @@ define dso_local void @lolwutCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %verstr = alloca [64 x i8], align 16
   %ver = alloca i64, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 2
-  %v.0.sroa.gep = getelementptr inbounds i8, ptr %verstr, i64 1
-  %v.0.sroa.gep24 = getelementptr inbounds i8, ptr %verstr, i64 2
+  %v.0.sroa.gep = getelementptr inbounds nuw i8, ptr %verstr, i64 1
+  %v.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %verstr, i64 2
   br i1 %cmp, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %2, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.4) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx2 = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %ver, ptr noundef null) #13
   %cmp4.not = icmp eq i32 %call3, 0
@@ -108,7 +108,7 @@ if.end:                                           ; preds = %if.then
   %conv = trunc i64 %5 to i32
   %call6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %verstr, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %conv) #13
   %6 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %add.ptr, ptr %argv, align 8
   %7 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %7, -2
@@ -116,8 +116,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %v.0.sroa.phi = phi ptr [ getelementptr inbounds (i8, ptr @.str.1, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds (i8, ptr @.str.1, i64 1), %entry ]
-  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds (i8, ptr @.str.1, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds (i8, ptr @.str.1, i64 2), %entry ]
+  %v.0.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %entry ]
+  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %entry ]
   %v.0 = phi ptr [ @.str.1, %land.lhs.true ], [ %verstr, %if.end ], [ @.str.1, %entry ]
   %8 = load i8, ptr %v.0, align 1
   switch i8 %8, label %if.else70 [
@@ -173,7 +173,7 @@ if.end72:                                         ; preds = %if.then69, %if.else
   br i1 %cmp74, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end72
-  %argv77 = getelementptr inbounds i8, ptr %c, i64 96
+  %argv77 = getelementptr inbounds nuw i8, ptr %c, i64 96
   %15 = load ptr, ptr %argv77, align 8
   %add.ptr78 = getelementptr inbounds i8, ptr %15, i64 -16
   store ptr %add.ptr78, ptr %argv77, align 8
@@ -203,13 +203,13 @@ define dso_local noalias noundef ptr @lwCreateCanvas(i32 noundef %width, i32 nou
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #15
   store i32 %width, ptr %call, align 8
-  %height2 = getelementptr inbounds i8, ptr %call, i64 4
+  %height2 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %height, ptr %height2, align 4
   %conv = sext i32 %width to i64
   %conv3 = sext i32 %height to i64
   %mul = mul nsw i64 %conv3, %conv
   %call4 = tail call noalias ptr @zmalloc(i64 noundef %mul) #15
-  %pixels = getelementptr inbounds i8, ptr %call, i64 8
+  %pixels = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call4, ptr %pixels, align 8
   %0 = trunc i32 %bgcolor to i8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call4, i8 %0, i64 %mul, i1 false)
@@ -225,7 +225,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @lwFreeCanvas(ptr noundef %canvas) local_unnamed_addr #0 {
 entry:
-  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
+  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
   %0 = load ptr, ptr %pixels, align 8
   tail call void @zfree(ptr noundef %0) #13
   tail call void @zfree(ptr noundef %canvas) #13
@@ -248,19 +248,19 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
   %cmp5.not = icmp slt i32 %y, %1
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
   %conv = trunc i32 %color to i8
-  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
+  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
   %add = add nuw nsw i32 %mul, %x
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom
   store i8 %conv, ptr %arrayidx, align 1
   br label %return
 
@@ -282,18 +282,18 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %1 = load i32, ptr %height, align 4
   %cmp5.not = icmp slt i32 %y, %1
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %pixels = getelementptr inbounds i8, ptr %canvas, i64 8
+  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
   %2 = load ptr, ptr %pixels, align 8
   %mul = mul nsw i32 %0, %y
   %add = add nuw nsw i32 %mul, %x
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %3 to i32
   br label %return
@@ -315,9 +315,9 @@ entry:
   %cmp2 = icmp slt i32 %y1, %y2
   %cond3 = select i1 %cmp2, i32 1, i32 -1
   %sub4 = sub nsw i32 %0, %1
-  %height.i = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height.i = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %conv.i = trunc i32 %color to i8
-  %pixels.i = getelementptr inbounds i8, ptr %canvas, i64 8
+  %pixels.i = getelementptr inbounds nuw i8, ptr %canvas, i64 8
   %sub7 = sub nsw i32 0, %1
   br label %while.body
 
@@ -345,7 +345,7 @@ if.end.i:                                         ; preds = %lor.lhs.false4.i
   %mul.i = mul nsw i32 %2, %y1.addr.0
   %add.i = add nuw nsw i32 %mul.i, %x1.addr.0
   %idxprom.i = zext nneg i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   br label %lwDrawPixel.exit
 
@@ -393,9 +393,9 @@ entry:
   br label %for.body
 
 for.cond22.preheader:                             ; preds = %for.body
-  %height.i.i = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height.i.i = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %conv.i.i = trunc i32 %color to i8
-  %pixels.i.i = getelementptr inbounds i8, ptr %canvas, i64 8
+  %pixels.i.i = getelementptr inbounds nuw i8, ptr %canvas, i64 8
   br label %for.body25
 
 for.body:                                         ; preds = %entry, %for.body
@@ -407,13 +407,13 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = tail call double @llvm.fmuladd.f64(double %call, double %conv8, double %conv9)
   %2 = tail call double @llvm.round.f64(double %1)
   %conv10 = fptosi double %2 to i32
-  %arrayidx = getelementptr inbounds [4 x i32], ptr %px, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %indvars.iv
   store i32 %conv10, ptr %arrayidx, align 4
   %call12 = tail call double @cos(double noundef %conv7) #13
   %3 = tail call double @llvm.fmuladd.f64(double %call12, double %conv8, double %conv14)
   %4 = tail call double @llvm.round.f64(double %3)
   %conv15 = fptosi double %4 to i32
-  %arrayidx17 = getelementptr inbounds [4 x i32], ptr %py, i64 0, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %indvars.iv
   store i32 %conv15, ptr %arrayidx17, align 4
   %add19 = fadd double %conv7, 0x3FF921FB54442D18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -426,15 +426,15 @@ for.cond22.loopexit:                              ; preds = %lwDrawPixel.exit.i
 
 for.body25:                                       ; preds = %for.cond22.preheader, %for.cond22.loopexit
   %indvars.iv18 = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next19, %for.cond22.loopexit ]
-  %arrayidx27 = getelementptr inbounds [4 x i32], ptr %px, i64 0, i64 %indvars.iv18
+  %arrayidx27 = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %indvars.iv18
   %5 = load i32, ptr %arrayidx27, align 4
-  %arrayidx29 = getelementptr inbounds [4 x i32], ptr %py, i64 0, i64 %indvars.iv18
+  %arrayidx29 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %indvars.iv18
   %6 = load i32, ptr %arrayidx29, align 4
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %rem = and i64 %indvars.iv.next19, 3
-  %arrayidx32 = getelementptr inbounds [4 x i32], ptr %px, i64 0, i64 %rem
+  %arrayidx32 = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %rem
   %7 = load i32, ptr %arrayidx32, align 4
-  %arrayidx36 = getelementptr inbounds [4 x i32], ptr %py, i64 0, i64 %rem
+  %arrayidx36 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %rem
   %8 = load i32, ptr %arrayidx36, align 4
   %sub.i = sub nsw i32 %7, %5
   %9 = tail call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
@@ -472,7 +472,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
   %mul.i.i = mul nsw i32 %11, %y1.addr.0.i
   %add.i.i = add nuw nsw i32 %mul.i.i, %x1.addr.0.i
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %idxprom.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   br label %lwDrawPixel.exit.i
 

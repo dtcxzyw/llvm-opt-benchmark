@@ -42,9 +42,9 @@ define dso_local i32 @cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 960
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1128
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br label %14
@@ -80,7 +80,7 @@ define dso_local i32 @cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 nound
   %30 = phi ptr [ %.pre, %24 ], [ %15, %19 ]
   %31 = phi i32 [ %28, %24 ], [ %18, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds i8, ptr %30, i64 1128
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1128
   %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 0
   %35 = icmp samesign ugt i64 %indvars.iv, 13
@@ -94,16 +94,16 @@ define dso_local i32 @cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 960
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 32
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %129, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %129 [
     i32 3, label %14
@@ -120,7 +120,7 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %19, label %129, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 960
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_stop_ap, i64 8), i32 2) #6
           to label %42 [label %22], !srcloc !9
 
@@ -141,9 +141,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @__SCT__tp_func_rdev_stop_ap(ptr noundef %33, ptr noundef %21, ptr noundef %1, i32 noundef %2) #6
+  %34 = tail call i32 @__SCT__tp_func_rdev_stop_ap(ptr noundef %33, ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2) #6
   br label %35
 
 35:                                               ; preds = %31, %28
@@ -162,9 +162,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %39, %35, %22, %20
   %43 = load ptr, ptr %0, align 32
-  %44 = getelementptr inbounds i8, ptr %43, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef %21, ptr noundef %1, i32 noundef %2) #6
+  %46 = tail call i32 %45(ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #6
           to label %67 [label %47], !srcloc !9
 
@@ -185,9 +185,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %58, ptr noundef %21, i32 noundef %46) #6
+  %59 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %58, ptr noundef nonnull %21, i32 noundef %46) #6
   br label %60
 
 60:                                               ; preds = %56, %53
@@ -209,15 +209,15 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %68, label %69, label %126
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %6, i64 100
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 0, ptr %70, align 4
   store i32 0, ptr %17, align 8
-  %71 = getelementptr inbounds i8, ptr %17, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
-  %72 = getelementptr inbounds i8, ptr %6, i64 360
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 360
   store i8 0, ptr %72, align 8
   %73 = load ptr, ptr %0, align 32
-  %74 = getelementptr inbounds i8, ptr %73, i64 720
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 720
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %123, label %77
@@ -243,9 +243,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 @__SCT__tp_func_rdev_set_qos_map(ptr noundef %89, ptr noundef %21, ptr noundef %1, ptr noundef null) #6
+  %90 = tail call i32 @__SCT__tp_func_rdev_set_qos_map(ptr noundef %89, ptr noundef nonnull %21, ptr noundef %1, ptr noundef null) #6
   br label %91
 
 91:                                               ; preds = %87, %84
@@ -264,9 +264,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
 
 98:                                               ; preds = %95, %91, %78, %77
   %99 = load ptr, ptr %0, align 32
-  %100 = getelementptr inbounds i8, ptr %99, i64 720
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 720
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call i32 %101(ptr noundef %21, ptr noundef %1, ptr noundef null) #6
+  %102 = tail call i32 %101(ptr noundef nonnull %21, ptr noundef %1, ptr noundef null) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #6
           to label %123 [label %103], !srcloc !9
 
@@ -287,9 +287,9 @@ define internal fastcc i32 @___cfg80211_stop_ap(ptr noundef %0, ptr noundef %1, 
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %114, ptr noundef %21, i32 noundef %102) #6
+  %115 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %114, ptr noundef nonnull %21, i32 noundef %102) #6
   br label %116
 
 116:                                              ; preds = %112, %109

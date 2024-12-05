@@ -83,14 +83,14 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %.loopexit
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(184) %16, i8 0, i64 180, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %6, %15
   store i32 21, ptr %1, align 8
   %17 = load ptr, ptr @CurrentMemoryContext, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %17, ptr %18, align 8
   %19 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #10
   %sext87 = shl i32 %19, 24
@@ -98,22 +98,22 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br i1 %20, label %._crit_edge, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.loopexit
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 144
-  %25 = getelementptr inbounds i8, ptr %1, i64 136
-  %26 = getelementptr inbounds i8, ptr %1, i64 128
-  %27 = getelementptr inbounds i8, ptr %1, i64 120
-  %28 = getelementptr inbounds i8, ptr %1, i64 112
-  %29 = getelementptr inbounds i8, ptr %1, i64 88
-  %30 = getelementptr inbounds i8, ptr %1, i64 160
-  %31 = getelementptr inbounds i8, ptr %1, i64 156
-  %32 = getelementptr inbounds i8, ptr %1, i64 152
-  %33 = getelementptr inbounds i8, ptr %1, i64 80
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
-  %36 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %37
 
 ._crit_edge:                                      ; preds = %146, %.loopexit
@@ -434,11 +434,11 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 11:                                               ; preds = %10
   store i1 true, ptr @pq_mq_busy, align 1
   store ptr %4, ptr %5, align 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %14, align 8
   br label %15
 

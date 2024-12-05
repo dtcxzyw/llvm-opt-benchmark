@@ -45,11 +45,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = icmp eq i64 %3, 0
   br i1 %10, label %11, label %.lr.ph
 
@@ -58,7 +58,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
   br i1 %12, label %13, label %1105
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not1305 = icmp eq ptr %15, null
   br i1 %.not1305, label %1105, label %16
@@ -100,21 +100,21 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
   %38 = zext i8 %37 to i32
   %39 = zext i8 %6 to i32
   %40 = ptrtoint ptr %18 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 64
-  %43 = getelementptr inbounds i8, ptr %1, i64 72
-  %44 = getelementptr inbounds i8, ptr %1, i64 48
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
-  %46 = getelementptr inbounds i8, ptr %0, i64 22
-  %47 = getelementptr inbounds i8, ptr %0, i64 23
-  %48 = getelementptr inbounds i8, ptr %1, i64 56
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = getelementptr inbounds i8, ptr %0, i64 18
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %56
 
 56:                                               ; preds = %.lr.ph, %1042
@@ -520,7 +520,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 187:                                              ; preds = %185
   %188 = load i8, ptr %46, align 2
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds [27 x ptr], ptr @method_strings, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [27 x ptr], ptr @method_strings, i64 0, i64 %189
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq i8 %57, 32
   %.not1294 = icmp eq i8 %188, 26
@@ -531,7 +531,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 194:                                              ; preds = %193
   %195 = zext i32 %.010151870 to i64
-  %196 = getelementptr inbounds i8, ptr %191, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 %195
   %197 = load i8, ptr %196, align 1
   %.not1295 = icmp eq i8 %197, 0
   br i1 %.not1295, label %238, label %.sink.split
@@ -541,7 +541,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 199:                                              ; preds = %198
   %200 = zext i32 %.010151870 to i64
-  %201 = getelementptr inbounds i8, ptr %191, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr %191, i64 %200
   %202 = load i8, ptr %201, align 1
   %203 = icmp eq i8 %57, %202
   br i1 %203, label %238, label %204
@@ -768,7 +768,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 287:                                              ; preds = %66
   %288 = zext i8 %57 to i64
-  %289 = getelementptr inbounds [256 x i8], ptr @normal_url_char, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %288
   %290 = load i8, ptr %289, align 1
   %.not1263 = icmp eq i8 %290, 0
   br i1 %.not1263, label %291, label %1042
@@ -970,7 +970,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 382:                                              ; preds = %66
   %383 = zext i8 %57 to i64
-  %384 = getelementptr inbounds [256 x i8], ptr @normal_url_char, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %383
   %385 = load i8, ptr %384, align 1
   %.not1253 = icmp eq i8 %385, 0
   br i1 %.not1253, label %386, label %1042
@@ -1065,7 +1065,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 423:                                              ; preds = %66
   %424 = zext i8 %57 to i64
-  %425 = getelementptr inbounds [256 x i8], ptr @normal_url_char, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %424
   %426 = load i8, ptr %425, align 1
   %.not1231 = icmp eq i8 %426, 0
   br i1 %.not1231, label %427, label %1042
@@ -1245,7 +1245,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 507:                                              ; preds = %66
   %508 = zext i8 %57 to i64
-  %509 = getelementptr inbounds [256 x i8], ptr @normal_url_char, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %508
   %510 = load i8, ptr %509, align 1
   %.not1221 = icmp eq i8 %510, 0
   br i1 %.not1221, label %511, label %1042
@@ -1340,7 +1340,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 548:                                              ; preds = %66
   %549 = zext i8 %57 to i64
-  %550 = getelementptr inbounds [256 x i8], ptr @normal_url_char, i64 0, i64 %549
+  %550 = getelementptr inbounds nuw [256 x i8], ptr @normal_url_char, i64 0, i64 %549
   %551 = load i8, ptr %550, align 1
   %.not1202 = icmp eq i8 %551, 0
   br i1 %.not1202, label %552, label %1042
@@ -1594,7 +1594,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 659:                                              ; preds = %658
   %660 = zext i8 %57 to i64
-  %661 = getelementptr inbounds [256 x i8], ptr @tokens, i64 0, i64 %660
+  %661 = getelementptr inbounds nuw [256 x i8], ptr @tokens, i64 0, i64 %660
   %662 = load i8, ptr %661, align 1
   switch i8 %662, label %666 [
     i8 0, label %1101
@@ -1618,7 +1618,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 667:                                              ; preds = %66
   %668 = zext i8 %57 to i64
-  %669 = getelementptr inbounds [256 x i8], ptr @tokens, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw [256 x i8], ptr @tokens, i64 0, i64 %668
   %670 = load i8, ptr %669, align 1
   %.not1168 = icmp eq i8 %670, 0
   br i1 %.not1168, label %730, label %671
@@ -1671,7 +1671,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 687:                                              ; preds = %684
   %688 = zext nneg i32 %685 to i64
-  %689 = getelementptr inbounds [11 x i8], ptr @.str, i64 0, i64 %688
+  %689 = getelementptr inbounds nuw [11 x i8], ptr @.str, i64 0, i64 %688
   %690 = load i8, ptr %689, align 1
   %.not1182 = icmp eq i8 %670, %690
   br i1 %.not1182, label %691, label %1042
@@ -1688,7 +1688,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 696:                                              ; preds = %693
   %697 = zext nneg i32 %694 to i64
-  %698 = getelementptr inbounds [17 x i8], ptr @.str.1, i64 0, i64 %697
+  %698 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %697
   %699 = load i8, ptr %698, align 1
   %.not1181 = icmp eq i8 %670, %699
   br i1 %.not1181, label %700, label %1042
@@ -1705,7 +1705,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 705:                                              ; preds = %702
   %706 = zext nneg i32 %703 to i64
-  %707 = getelementptr inbounds [15 x i8], ptr @.str.2, i64 0, i64 %706
+  %707 = getelementptr inbounds nuw [15 x i8], ptr @.str.2, i64 0, i64 %706
   %708 = load i8, ptr %707, align 1
   %.not1180 = icmp eq i8 %670, %708
   br i1 %.not1180, label %709, label %1042
@@ -1722,7 +1722,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 714:                                              ; preds = %711
   %715 = zext nneg i32 %712 to i64
-  %716 = getelementptr inbounds [18 x i8], ptr @.str.3, i64 0, i64 %715
+  %716 = getelementptr inbounds nuw [18 x i8], ptr @.str.3, i64 0, i64 %715
   %717 = load i8, ptr %716, align 1
   %.not1179 = icmp eq i8 %670, %717
   br i1 %.not1179, label %718, label %1042
@@ -1739,7 +1739,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 723:                                              ; preds = %720
   %724 = zext nneg i32 %721 to i64
-  %725 = getelementptr inbounds [8 x i8], ptr @.str.4, i64 0, i64 %724
+  %725 = getelementptr inbounds nuw [8 x i8], ptr @.str.4, i64 0, i64 %724
   %726 = load i8, ptr %725, align 1
   %.not1178 = icmp eq i8 %670, %726
   br i1 %.not1178, label %727, label %1042
@@ -2002,7 +2002,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 834:                                              ; preds = %831
   %835 = zext nneg i32 %832 to i64
-  %836 = getelementptr inbounds [8 x i8], ptr @.str.5, i64 0, i64 %835
+  %836 = getelementptr inbounds nuw [8 x i8], ptr @.str.5, i64 0, i64 %835
   %837 = load i8, ptr %836, align 1
   %.not1156 = icmp eq i8 %798, %837
   br i1 %.not1156, label %838, label %1042
@@ -2019,7 +2019,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 843:                                              ; preds = %840
   %844 = zext nneg i32 %841 to i64
-  %845 = getelementptr inbounds [11 x i8], ptr @.str.6, i64 0, i64 %844
+  %845 = getelementptr inbounds nuw [11 x i8], ptr @.str.6, i64 0, i64 %844
   %846 = load i8, ptr %845, align 1
   %.not1155 = icmp eq i8 %798, %846
   br i1 %.not1155, label %847, label %1042
@@ -2036,7 +2036,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
 
 852:                                              ; preds = %849
   %853 = zext nneg i32 %850 to i64
-  %854 = getelementptr inbounds [6 x i8], ptr @.str.7, i64 0, i64 %853
+  %854 = getelementptr inbounds nuw [6 x i8], ptr @.str.7, i64 0, i64 %853
   %855 = load i8, ptr %854, align 1
   %.not1154 = icmp eq i8 %798, %855
   br i1 %.not1154, label %856, label %1042
@@ -2310,8 +2310,8 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
 
 969:                                              ; preds = %967, %965
   %970 = phi i64 [ %.pre1969, %967 ], [ %964, %965 ]
-  %971 = add i64 %.1319, -1
-  %972 = getelementptr inbounds i8, ptr %.010231866, i64 %971
+  %971 = getelementptr i8, ptr %.010231866, i64 %.1319
+  %972 = getelementptr i8, ptr %971, i64 -1
   %973 = sub i64 %970, %.1319
   store i64 %973, ptr %41, align 8
   %974 = icmp eq i64 %970, %.1319
@@ -2352,13 +2352,13 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br label %994
 
 994:                                              ; preds = %992, %988
-  %995 = add i64 %990, -1
-  %996 = getelementptr inbounds i8, ptr %.010231866, i64 %995
+  %995 = getelementptr i8, ptr %.010231866, i64 %990
+  %996 = getelementptr i8, ptr %995, i64 -1
   br label %1042
 
 997:                                              ; preds = %66
   %998 = zext i8 %57 to i64
-  %999 = getelementptr inbounds [256 x i8], ptr @unhex, i64 0, i64 %998
+  %999 = getelementptr inbounds nuw [256 x i8], ptr @unhex, i64 0, i64 %998
   %1000 = load i8, ptr %999, align 1
   %1001 = icmp eq i8 %1000, -1
   br i1 %1001, label %1101, label %1002
@@ -2374,7 +2374,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
 
 1006:                                             ; preds = %1004
   %1007 = zext i8 %57 to i64
-  %1008 = getelementptr inbounds [256 x i8], ptr @unhex, i64 0, i64 %1007
+  %1008 = getelementptr inbounds nuw [256 x i8], ptr @unhex, i64 0, i64 %1007
   %1009 = load i8, ptr %1008, align 1
   %1010 = icmp eq i8 %1009, -1
   br i1 %1010, label %1011, label %1012
@@ -2429,8 +2429,8 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
 
 1033:                                             ; preds = %1031, %1029
   %.pre = phi i64 [ %.pre.pre, %1031 ], [ %1028, %1029 ]
-  %1034 = add i64 %.1321, -1
-  %1035 = getelementptr inbounds i8, ptr %.010231866, i64 %1034
+  %1034 = getelementptr i8, ptr %.010231866, i64 %.1321
+  %1035 = getelementptr i8, ptr %1034, i64 -1
   br label %1036
 
 1036:                                             ; preds = %1033, %1025
@@ -2466,7 +2466,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   %.21002 = phi ptr [ %.110011875, %1040 ], [ %.110011875, %1036 ], [ %.110011875, %1022 ], [ %.110011875, %1012 ], [ %.110011875, %1002 ], [ %.110011875, %994 ], [ %.110011875, %983 ], [ %.110011875, %969 ], [ %.110011875, %961 ], [ %.110011875, %883 ], [ %.110011875, %914 ], [ %.110011875, %932 ], [ %.110011875, %958 ], [ %.110011875, %860 ], [ %.110011875, %867 ], [ %.110011875, %864 ], [ %.110011875, %861 ], [ %.110011875, %859 ], [ %.110011875, %822 ], [ %.110011875, %826 ], [ %.110011875, %821 ], [ %.110011875, %821 ], [ %.110011875, %821 ], [ %.110011875, %764 ], [ %.110011875, %795 ], [ %.110011875, %796 ], [ %.110011875, %792 ], [ %.110011875, %785 ], [ %.110011875, %671 ], [ %.110011875, %683 ], [ %.110011875, %682 ], [ %.110011875, %676 ], [ %.110011875, %672 ], [ %.110011875, %666 ], [ %.110011875, %665 ], [ %.110011875, %664 ], [ %.110011875, %663 ], [ %.110011875, %648 ], [ %.110011875, %651 ], [ %.110011875, %644 ], [ %.110011875, %636 ], [ %.110011875, %629 ], [ %.110011875, %626 ], [ %.110011875, %625 ], [ %.110011875, %624 ], [ %.110011875, %623 ], [ %.110011875, %621 ], [ %.110011875, %622 ], [ %.110011875, %548 ], [ %.110011875, %552 ], [ %.110011875, %552 ], [ %.110011875, %620 ], [ %.110011875, %597 ], [ %.110011875, %511 ], [ %.110011875, %547 ], [ %.110011875, %546 ], [ %.110011875, %534 ], [ %.110011875, %423 ], [ null, %495 ], [ null, %472 ], [ %.110011875, %427 ], [ %.110011875, %422 ], [ %.110011875, %421 ], [ %.110011875, %409 ], [ %.110011875, %386 ], [ %.110011875, %287 ], [ %.110011875, %359 ], [ %.110011875, %336 ], [ %.110011875, %273 ], [ %.110011875, %253 ], [ %.110011875, %256 ], [ %.110011875, %261 ], [ %.110011875, %252 ], [ %.110011875, %251 ], [ %.110011875, %244 ], [ %.110011875, %248 ], [ %.110011875, %240 ], [ %.110011875, %238 ], [ %.110011875, %158 ], [ %.110011875, %157 ], [ %.110011875, %156 ], [ %.110011875, %147 ], [ %.110011875, %146 ], [ %.110011875, %148 ], [ %.110011875, %138 ], [ %.110011875, %140 ], [ %.110011875, %130 ], [ %.110011875, %123 ], [ %.110011875, %115 ], [ %.110011875, %108 ], [ %.110011875, %105 ], [ %.110011875, %104 ], [ %.110011875, %103 ], [ %.110011875, %101 ], [ %.110011875, %101 ], [ %.110011875, %102 ], [ %.110011875, %84 ], [ %.110011875, %88 ], [ %.110011875, %67 ], [ %.110011875, %1041 ], [ %.110011875, %67 ], [ %.110011875, %78 ], [ %.110011875, %66 ], [ %.110011875, %111 ], [ %.110011875, %126 ], [ %.110011875, %145 ], [ %.110011875, %155 ], [ %.110011875, %.fold.split ], [ %.110011875, %158 ], [ %.110011875, %184 ], [ %.110011875, %183 ], [ %.110011875, %182 ], [ %.110011875, %181 ], [ %.110011875, %180 ], [ %.110011875, %179 ], [ %.110011875, %178 ], [ %.110011875, %177 ], [ %.110011875, %176 ], [ %.110011875, %175 ], [ %.110011875, %174 ], [ %.110011875, %173 ], [ %.110011875, %172 ], [ %.110011875, %241 ], [ %.110011875, %247 ], [ %.110011875, %249 ], [ %.110011875, %260 ], [ %.110011875, %262 ], [ %.110011875, %265 ], [ %.110011875, %263 ], [ %.110011875, %275 ], [ %.110011875, %276 ], [ %.110011875, %279 ], [ %.110011875, %277 ], [ %.110011875, %303 ], [ %.110011875, %306 ], [ %.110011875, %304 ], [ %.110011875, %360 ], [ %.110011875, %363 ], [ %.110011875, %361 ], [ %.110011875, %371 ], [ %.110011875, %374 ], [ %.110011875, %372 ], [ %.010231866, %382 ], [ %.110011875, %387 ], [ %.110011875, %390 ], [ %.110011875, %388 ], [ null, %439 ], [ null, %442 ], [ null, %440 ], [ null, %496 ], [ null, %499 ], [ null, %497 ], [ %.110011875, %507 ], [ %.110011875, %512 ], [ %.110011875, %515 ], [ %.110011875, %513 ], [ %.110011875, %564 ], [ %.110011875, %567 ], [ %.110011875, %565 ], [ %.110011875, %632 ], [ %.110011875, %647 ], [ %.110011875, %657 ], [ %.110011875, %658 ], [ %.110011875, %659 ], [ %.110011875, %680 ], [ %.110011875, %687 ], [ %.110011875, %684 ], [ %.110011875, %691 ], [ %.110011875, %696 ], [ %.110011875, %693 ], [ %.110011875, %700 ], [ %.110011875, %705 ], [ %.110011875, %702 ], [ %.110011875, %709 ], [ %.110011875, %714 ], [ %.110011875, %711 ], [ %.110011875, %718 ], [ %.110011875, %723 ], [ %.110011875, %720 ], [ %.110011875, %727 ], [ %.110011875, %729 ], [ %.110011875, %731 ], [ %.110011875, %734 ], [ %.110011875, %732 ], [ %.110011875, %742 ], [ %.110011875, %745 ], [ %.110011875, %743 ], [ %.110011875, %753 ], [ %.110011875, %756 ], [ %.110011875, %754 ], [ %.110011875, %770 ], [ %.110011875, %768 ], [ %.110011875, %778 ], [ %.110011875, %776 ], [ %.110011875, %788 ], [ %.110011875, %794 ], [ %.110011875, %784 ], [ %.110011875, %799 ], [ %.110011875, %802 ], [ %.110011875, %800 ], [ %.110011875, %834 ], [ %.110011875, %831 ], [ %.110011875, %838 ], [ %.110011875, %843 ], [ %.110011875, %840 ], [ %.110011875, %847 ], [ %.110011875, %852 ], [ %.110011875, %849 ], [ %.110011875, %856 ], [ %.110011875, %858 ], [ %.110011875, %919 ], [ %.110011875, %937 ], [ %.110011875, %php_http_should_keep_alive.exit ], [ %.110011875, %1004 ], [ %.110011875, %1011 ], [ %.110011875, %1011 ], [ %.110011875, %1017 ], [ %.110011875, %1019 ], [ %.110011875, %.fold.split1323 ], [ %.110011875, %171 ]
   %.2999 = phi ptr [ %.19981876, %1040 ], [ %.19981876, %1036 ], [ %.19981876, %1022 ], [ %.19981876, %1012 ], [ %.19981876, %1002 ], [ %.19981876, %994 ], [ %.19981876, %983 ], [ %.19981876, %969 ], [ %.19981876, %961 ], [ %.19981876, %883 ], [ %.19981876, %914 ], [ %.19981876, %932 ], [ %.19981876, %958 ], [ %.19981876, %860 ], [ %.19981876, %867 ], [ %.19981876, %864 ], [ %.19981876, %861 ], [ %.19981876, %859 ], [ %.19981876, %822 ], [ %.19981876, %826 ], [ %.19981876, %821 ], [ %.19981876, %821 ], [ %.19981876, %821 ], [ %.19981876, %764 ], [ %.19981876, %795 ], [ %.19981876, %796 ], [ %.19981876, %792 ], [ %.19981876, %785 ], [ %.19981876, %671 ], [ %.19981876, %683 ], [ %.19981876, %682 ], [ %.19981876, %676 ], [ %.19981876, %672 ], [ %.19981876, %666 ], [ %.19981876, %665 ], [ %.19981876, %664 ], [ %.19981876, %663 ], [ %.19981876, %648 ], [ %.19981876, %651 ], [ %.19981876, %644 ], [ %.19981876, %636 ], [ %.19981876, %629 ], [ %.19981876, %626 ], [ %.19981876, %625 ], [ %.19981876, %624 ], [ %.19981876, %623 ], [ %.19981876, %621 ], [ %.19981876, %622 ], [ %.19981876, %548 ], [ %.19981876, %552 ], [ %.19981876, %552 ], [ %.19981876, %620 ], [ %.19981876, %597 ], [ %.19981876, %511 ], [ %.19981876, %547 ], [ %.19981876, %546 ], [ %.19981876, %534 ], [ %.19981876, %423 ], [ %.19981876, %495 ], [ %.19981876, %472 ], [ %.19981876, %427 ], [ %.19981876, %422 ], [ %.19981876, %421 ], [ %.19981876, %409 ], [ %.19981876, %386 ], [ %.19981876, %287 ], [ null, %359 ], [ null, %336 ], [ %.19981876, %273 ], [ %.19981876, %253 ], [ %.19981876, %256 ], [ %.010231866, %261 ], [ %.19981876, %252 ], [ %.19981876, %251 ], [ %.19981876, %244 ], [ %.19981876, %248 ], [ %.19981876, %240 ], [ %.19981876, %238 ], [ %.19981876, %158 ], [ %.19981876, %157 ], [ %.19981876, %156 ], [ %.19981876, %147 ], [ %.19981876, %146 ], [ %.19981876, %148 ], [ %.19981876, %138 ], [ %.19981876, %140 ], [ %.19981876, %130 ], [ %.19981876, %123 ], [ %.19981876, %115 ], [ %.19981876, %108 ], [ %.19981876, %105 ], [ %.19981876, %104 ], [ %.19981876, %103 ], [ %.19981876, %101 ], [ %.19981876, %101 ], [ %.19981876, %102 ], [ %.19981876, %84 ], [ %.19981876, %88 ], [ %.19981876, %67 ], [ %.19981876, %1041 ], [ %.19981876, %67 ], [ %.19981876, %78 ], [ %.19981876, %66 ], [ %.19981876, %111 ], [ %.19981876, %126 ], [ %.19981876, %145 ], [ %.19981876, %155 ], [ %.19981876, %.fold.split ], [ %.19981876, %158 ], [ %.19981876, %184 ], [ %.19981876, %183 ], [ %.19981876, %182 ], [ %.19981876, %181 ], [ %.19981876, %180 ], [ %.19981876, %179 ], [ %.19981876, %178 ], [ %.19981876, %177 ], [ %.19981876, %176 ], [ %.19981876, %175 ], [ %.19981876, %174 ], [ %.19981876, %173 ], [ %.19981876, %172 ], [ %.19981876, %241 ], [ %.19981876, %247 ], [ %.19981876, %249 ], [ %.19981876, %260 ], [ %.19981876, %262 ], [ %.19981876, %265 ], [ %.19981876, %263 ], [ %.010231866, %275 ], [ %.19981876, %276 ], [ %.19981876, %279 ], [ %.19981876, %277 ], [ null, %303 ], [ null, %306 ], [ null, %304 ], [ null, %360 ], [ null, %363 ], [ null, %361 ], [ null, %371 ], [ null, %374 ], [ null, %372 ], [ %.19981876, %382 ], [ %.19981876, %387 ], [ %.19981876, %390 ], [ %.19981876, %388 ], [ %.19981876, %439 ], [ %.19981876, %442 ], [ %.19981876, %440 ], [ %.19981876, %496 ], [ %.19981876, %499 ], [ %.19981876, %497 ], [ %.19981876, %507 ], [ %.19981876, %512 ], [ %.19981876, %515 ], [ %.19981876, %513 ], [ %.19981876, %564 ], [ %.19981876, %567 ], [ %.19981876, %565 ], [ %.19981876, %632 ], [ %.19981876, %647 ], [ %.19981876, %657 ], [ %.19981876, %658 ], [ %.19981876, %659 ], [ %.19981876, %680 ], [ %.19981876, %687 ], [ %.19981876, %684 ], [ %.19981876, %691 ], [ %.19981876, %696 ], [ %.19981876, %693 ], [ %.19981876, %700 ], [ %.19981876, %705 ], [ %.19981876, %702 ], [ %.19981876, %709 ], [ %.19981876, %714 ], [ %.19981876, %711 ], [ %.19981876, %718 ], [ %.19981876, %723 ], [ %.19981876, %720 ], [ %.19981876, %727 ], [ %.19981876, %729 ], [ %.19981876, %731 ], [ %.19981876, %734 ], [ %.19981876, %732 ], [ %.19981876, %742 ], [ %.19981876, %745 ], [ %.19981876, %743 ], [ %.19981876, %753 ], [ %.19981876, %756 ], [ %.19981876, %754 ], [ %.19981876, %770 ], [ %.19981876, %768 ], [ %.19981876, %778 ], [ %.19981876, %776 ], [ %.19981876, %788 ], [ %.19981876, %794 ], [ %.19981876, %784 ], [ %.19981876, %799 ], [ %.19981876, %802 ], [ %.19981876, %800 ], [ %.19981876, %834 ], [ %.19981876, %831 ], [ %.19981876, %838 ], [ %.19981876, %843 ], [ %.19981876, %840 ], [ %.19981876, %847 ], [ %.19981876, %852 ], [ %.19981876, %849 ], [ %.19981876, %856 ], [ %.19981876, %858 ], [ %.19981876, %919 ], [ %.19981876, %937 ], [ %.19981876, %php_http_should_keep_alive.exit ], [ %.19981876, %1004 ], [ %.19981876, %1011 ], [ %.19981876, %1011 ], [ %.19981876, %1017 ], [ %.19981876, %1019 ], [ %.010231866, %.fold.split1323 ], [ %.19981876, %171 ]
   %.2 = phi ptr [ %.11877, %1040 ], [ %.11877, %1036 ], [ %.11877, %1022 ], [ %.11877, %1012 ], [ %.11877, %1002 ], [ %.11877, %994 ], [ %.11877, %983 ], [ %.11877, %969 ], [ %.11877, %961 ], [ %.11877, %883 ], [ %.11877, %914 ], [ %.11877, %932 ], [ %.11877, %958 ], [ %.11877, %860 ], [ %.11877, %867 ], [ %.11877, %864 ], [ %.11877, %861 ], [ %.11877, %859 ], [ %.11877, %822 ], [ %.11877, %826 ], [ %.11877, %821 ], [ %.11877, %821 ], [ %.11877, %821 ], [ %.11877, %764 ], [ %.11877, %795 ], [ %.11877, %796 ], [ %.11877, %792 ], [ %.11877, %785 ], [ %.11877, %671 ], [ %.11877, %683 ], [ %.11877, %682 ], [ %.11877, %676 ], [ %.11877, %672 ], [ %.11877, %666 ], [ %.11877, %665 ], [ %.11877, %664 ], [ %.11877, %663 ], [ %.11877, %648 ], [ %.11877, %651 ], [ %.11877, %644 ], [ %.11877, %636 ], [ %.11877, %629 ], [ %.11877, %626 ], [ %.11877, %625 ], [ %.11877, %624 ], [ %.11877, %623 ], [ %.11877, %621 ], [ %.11877, %622 ], [ %.11877, %548 ], [ %.11877, %552 ], [ %.11877, %552 ], [ null, %620 ], [ null, %597 ], [ %.11877, %511 ], [ %.11877, %547 ], [ null, %546 ], [ null, %534 ], [ %.11877, %423 ], [ null, %495 ], [ null, %472 ], [ %.11877, %427 ], [ %.11877, %422 ], [ null, %421 ], [ null, %409 ], [ %.11877, %386 ], [ %.11877, %287 ], [ null, %359 ], [ null, %336 ], [ %.11877, %273 ], [ %.11877, %253 ], [ %.11877, %256 ], [ %.11877, %261 ], [ %.11877, %252 ], [ %.11877, %251 ], [ %.11877, %244 ], [ %.11877, %248 ], [ %.11877, %240 ], [ %.11877, %238 ], [ %.11877, %158 ], [ %.11877, %157 ], [ %.11877, %156 ], [ %.11877, %147 ], [ %.11877, %146 ], [ %.11877, %148 ], [ %.11877, %138 ], [ %.11877, %140 ], [ %.11877, %130 ], [ %.11877, %123 ], [ %.11877, %115 ], [ %.11877, %108 ], [ %.11877, %105 ], [ %.11877, %104 ], [ %.11877, %103 ], [ %.11877, %101 ], [ %.11877, %101 ], [ %.11877, %102 ], [ %.11877, %84 ], [ %.11877, %88 ], [ %.11877, %67 ], [ %.11877, %1041 ], [ %.11877, %67 ], [ %.11877, %78 ], [ %.11877, %66 ], [ %.11877, %111 ], [ %.11877, %126 ], [ %.11877, %145 ], [ %.11877, %155 ], [ %.11877, %.fold.split ], [ %.11877, %158 ], [ %.11877, %184 ], [ %.11877, %183 ], [ %.11877, %182 ], [ %.11877, %181 ], [ %.11877, %180 ], [ %.11877, %179 ], [ %.11877, %178 ], [ %.11877, %177 ], [ %.11877, %176 ], [ %.11877, %175 ], [ %.11877, %174 ], [ %.11877, %173 ], [ %.11877, %172 ], [ %.010231866, %241 ], [ %.11877, %247 ], [ %.11877, %249 ], [ %.11877, %260 ], [ null, %262 ], [ null, %265 ], [ null, %263 ], [ %.11877, %275 ], [ null, %276 ], [ null, %279 ], [ null, %277 ], [ null, %303 ], [ null, %306 ], [ null, %304 ], [ %.11877, %360 ], [ %.11877, %363 ], [ %.11877, %361 ], [ %.11877, %371 ], [ %.11877, %374 ], [ %.11877, %372 ], [ %.11877, %382 ], [ null, %387 ], [ null, %390 ], [ null, %388 ], [ null, %439 ], [ null, %442 ], [ null, %440 ], [ %.11877, %496 ], [ %.11877, %499 ], [ %.11877, %497 ], [ %.11877, %507 ], [ null, %512 ], [ null, %515 ], [ null, %513 ], [ null, %564 ], [ null, %567 ], [ null, %565 ], [ %.11877, %632 ], [ %.11877, %647 ], [ %.11877, %657 ], [ %.11877, %658 ], [ %.11877, %659 ], [ %.11877, %680 ], [ %.11877, %687 ], [ %.11877, %684 ], [ %.11877, %691 ], [ %.11877, %696 ], [ %.11877, %693 ], [ %.11877, %700 ], [ %.11877, %705 ], [ %.11877, %702 ], [ %.11877, %709 ], [ %.11877, %714 ], [ %.11877, %711 ], [ %.11877, %718 ], [ %.11877, %723 ], [ %.11877, %720 ], [ %.11877, %727 ], [ %.11877, %729 ], [ %.11877, %731 ], [ %.11877, %734 ], [ %.11877, %732 ], [ %.11877, %742 ], [ %.11877, %745 ], [ %.11877, %743 ], [ %.11877, %753 ], [ %.11877, %756 ], [ %.11877, %754 ], [ %.11877, %770 ], [ %.11877, %768 ], [ %.11877, %778 ], [ %.11877, %776 ], [ %.11877, %788 ], [ %.11877, %794 ], [ %.11877, %784 ], [ %.11877, %799 ], [ %.11877, %802 ], [ %.11877, %800 ], [ %.11877, %834 ], [ %.11877, %831 ], [ %.11877, %838 ], [ %.11877, %843 ], [ %.11877, %840 ], [ %.11877, %847 ], [ %.11877, %852 ], [ %.11877, %849 ], [ %.11877, %856 ], [ %.11877, %858 ], [ %.11877, %919 ], [ %.11877, %937 ], [ %.11877, %php_http_should_keep_alive.exit ], [ %.11877, %1004 ], [ %.11877, %1011 ], [ %.11877, %1011 ], [ %.11877, %1017 ], [ %.11877, %1019 ], [ %.010231866, %.fold.split1323 ], [ %.11877, %171 ]
-  %1043 = getelementptr inbounds i8, ptr %.21025, i64 1
+  %1043 = getelementptr inbounds nuw i8, ptr %.21025, i64 1
   %.not = icmp eq ptr %1043, %18
   br i1 %.not, label %._crit_edge, label %56
 
@@ -2475,7 +2475,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1127, label %1052, label %1044
 
 1044:                                             ; preds = %._crit_edge
-  %1045 = getelementptr inbounds i8, ptr %1, i64 40
+  %1045 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %1046 = load ptr, ptr %1045, align 8
   %.not1128 = icmp eq ptr %1046, null
   br i1 %.not1128, label %1052, label %1047
@@ -2493,7 +2493,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1130, label %1061, label %1053
 
 1053:                                             ; preds = %1052
-  %1054 = getelementptr inbounds i8, ptr %1, i64 48
+  %1054 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1055 = load ptr, ptr %1054, align 8
   %.not1131 = icmp eq ptr %1055, null
   br i1 %.not1131, label %1061, label %1056
@@ -2511,7 +2511,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1133, label %1070, label %1062
 
 1062:                                             ; preds = %1061
-  %1063 = getelementptr inbounds i8, ptr %1, i64 32
+  %1063 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1064 = load ptr, ptr %1063, align 8
   %.not1134 = icmp eq ptr %1064, null
   br i1 %.not1134, label %1070, label %1065
@@ -2529,7 +2529,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1136, label %1079, label %1071
 
 1071:                                             ; preds = %1070
-  %1072 = getelementptr inbounds i8, ptr %1, i64 16
+  %1072 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1073 = load ptr, ptr %1072, align 8
   %.not1137 = icmp eq ptr %1073, null
   br i1 %.not1137, label %1079, label %1074
@@ -2547,7 +2547,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1139, label %1088, label %1080
 
 1080:                                             ; preds = %1079
-  %1081 = getelementptr inbounds i8, ptr %1, i64 8
+  %1081 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1082 = load ptr, ptr %1081, align 8
   %.not1140 = icmp eq ptr %1082, null
   br i1 %.not1140, label %1088, label %1083
@@ -2565,7 +2565,7 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
   br i1 %.not1142, label %1097, label %1089
 
 1089:                                             ; preds = %1088
-  %1090 = getelementptr inbounds i8, ptr %1, i64 24
+  %1090 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1091 = load ptr, ptr %1090, align 8
   %.not1143 = icmp eq ptr %1091, null
   br i1 %.not1143, label %1097, label %1092
@@ -2602,13 +2602,13 @@ php_http_should_keep_alive.exit:                  ; preds = %946, %948
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @php_http_should_keep_alive(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %.not = icmp eq i16 %3, 0
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 18
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %6 = load i16, ptr %5, align 2
   %.not4 = icmp eq i16 %6, 0
   br i1 %.not4, label %10, label %7
@@ -2635,7 +2635,7 @@ define hidden range(i32 0, 2) i32 @php_http_should_keep_alive(ptr nocapture noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden ptr @php_http_method_str(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [27 x ptr], ptr @method_strings, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [27 x ptr], ptr @method_strings, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -2648,14 +2648,14 @@ define hidden void @php_http_parser_init(ptr nocapture noundef writeonly initial
   %6 = icmp eq i32 %1, 1
   %7 = select i1 %6, i8 4, i8 2
   %8 = select i1 %5, i8 17, i8 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %8, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 23
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 0, ptr %11, align 1
   store i8 %4, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 0, ptr %12, align 2
   ret void
 }

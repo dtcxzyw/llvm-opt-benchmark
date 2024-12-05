@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define double @z_abs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load double, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8, !tbaa !3
   %5 = tail call double @llvm.fabs.f64(double %2)
   %6 = tail call double @llvm.fabs.f64(double %4)

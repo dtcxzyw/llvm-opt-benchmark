@@ -120,15 +120,15 @@ define zeroext i1 @_is_user_any_coord_internal(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %7, i32 noundef %9) #10
   br label %17
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not8 = icmp eq ptr %13, null
   br i1 %.not8, label %17, label %14
@@ -191,7 +191,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   %18 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 219, ptr noundef nonnull @__func__.addto_update_list) #10
   %19 = load i32, ptr %4, align 4
   %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i16 %20, ptr %21, align 8
   switch i32 %19, label %98 [
     i32 4, label %.sink.split
@@ -221,7 +221,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %.sink.split
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %2, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, -2
   br i1 %26, label %27, label %28
@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %28
 
 28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds i8, ptr %2, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -2
   br i1 %31, label %32, label %33
@@ -241,7 +241,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %33
 
 33:                                               ; preds = %32, %28
-  %34 = getelementptr inbounds i8, ptr %2, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, -2
   br i1 %36, label %37, label %38
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %38
 
 38:                                               ; preds = %37, %33
-  %39 = getelementptr inbounds i8, ptr %2, i64 168
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, -2
   br i1 %41, label %42, label %43
@@ -261,7 +261,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %43
 
 43:                                               ; preds = %42, %38
-  %44 = getelementptr inbounds i8, ptr %2, i64 172
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 172
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, -2
   br i1 %46, label %47, label %48
@@ -271,7 +271,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %48
 
 48:                                               ; preds = %47, %43
-  %49 = getelementptr inbounds i8, ptr %2, i64 252
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 252
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, -2
   br i1 %51, label %52, label %53
@@ -281,7 +281,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %53
 
 53:                                               ; preds = %52, %48
-  %54 = getelementptr inbounds i8, ptr %2, i64 176
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, -2
   br i1 %56, label %57, label %58
@@ -291,7 +291,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %58
 
 58:                                               ; preds = %57, %53
-  %59 = getelementptr inbounds i8, ptr %2, i64 248
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, -2
   br i1 %61, label %62, label %63
@@ -304,7 +304,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %.sink.split
 
 64:                                               ; preds = %17
-  %65 = getelementptr inbounds i8, ptr %2, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, -2
   br i1 %67, label %68, label %69
@@ -314,7 +314,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %69
 
 69:                                               ; preds = %68, %64
-  %70 = getelementptr inbounds i8, ptr %2, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, -2
   br i1 %72, label %73, label %74
@@ -324,7 +324,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %74
 
 74:                                               ; preds = %73, %69
-  %75 = getelementptr inbounds i8, ptr %2, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, -2
   br i1 %77, label %78, label %79
@@ -334,7 +334,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %79
 
 79:                                               ; preds = %78, %74
-  %80 = getelementptr inbounds i8, ptr %2, i64 100
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, -2
   br i1 %82, label %83, label %84
@@ -344,7 +344,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %84
 
 84:                                               ; preds = %83, %79
-  %85 = getelementptr inbounds i8, ptr %2, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, -2
   br i1 %87, label %88, label %89
@@ -354,7 +354,7 @@ define range(i32 -1, 1) i32 @addto_update_list(ptr noundef %0, i32 noundef %1, p
   br label %89
 
 89:                                               ; preds = %88, %84
-  %90 = getelementptr inbounds i8, ptr %2, i64 232
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, -2
   br i1 %92, label %93, label %94
@@ -459,10 +459,10 @@ define internal range(i32 -1, 2) i32 @_sort_update_object_dec(ptr nocapture noun
 .thread7:
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 5
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i16, ptr %7, align 8
   %.not = icmp ne i16 %8, 5
   %spec.select = zext i1 %.not to i32
@@ -505,7 +505,7 @@ define void @dump_update_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %15, label %.backedge
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.dump_update_list, i32 noundef %18) #10
@@ -517,7 +517,7 @@ define void @dump_update_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i16, ptr %21, align 8
   switch i16 %22, label %138 [
     i16 4, label %23
@@ -582,7 +582,7 @@ define void @dump_update_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %39, i64 132
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 132
   %44 = load i32, ptr %43, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.65, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_assoc_records, i32 noundef %44) #10
   br label %45
@@ -637,7 +637,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %.lr.ph.i13
-  %67 = getelementptr inbounds i8, ptr %63, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %68 = load ptr, ptr %67, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.66, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, ptr noundef %68) #10
   br label %69
@@ -648,7 +648,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %63, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %74 = load i32, ptr %73, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.67, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, i32 noundef %74) #10
   br label %75
@@ -659,7 +659,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %63, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %80 = load i32, ptr %79, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.68, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, i32 noundef %80) #10
   br label %81
@@ -670,7 +670,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %63, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %86 = load ptr, ptr %85, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.69, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, ptr noundef %86) #10
   br label %87
@@ -681,7 +681,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %63, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %92 = load ptr, ptr %91, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.70, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, ptr noundef %92) #10
   br label %93
@@ -692,13 +692,13 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %63, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %98 = load ptr, ptr %97, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.71, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_res_records, ptr noundef %98) #10
   br label %99
 
 99:                                               ; preds = %96, %93
-  %100 = getelementptr inbounds i8, ptr %63, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %101 = load ptr, ptr %100, align 8
   %.not16.i = icmp eq ptr %101, null
   br i1 %.not16.i, label %115, label %102
@@ -724,13 +724,13 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %111, label %112, label %_dump_slurmdb_clus_res_record.exit.i
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %101, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %114 = load i32, ptr %113, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.73, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_clus_res_record, i32 noundef %114) #10
   br label %_dump_slurmdb_clus_res_record.exit.i
 
 115:                                              ; preds = %102, %99
-  %116 = getelementptr inbounds i8, ptr %63, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not18.i = icmp eq ptr %117, null
   br i1 %.not18.i, label %_dump_slurmdb_clus_res_record.exit.i, label %118
@@ -758,7 +758,7 @@ _dump_slurmdb_assoc_records.exit:                 ; preds = %45, %35
   br i1 %128, label %129, label %_dump_slurmdb_clus_res_record.exit.i.i
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %121, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %131 = load i32, ptr %130, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.73, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._dump_slurmdb_clus_res_record, i32 noundef %131) #10
   br label %_dump_slurmdb_clus_res_record.exit.i.i
@@ -833,14 +833,14 @@ define range(i32 -1, 1) i32 @cluster_first_reg(ptr noundef %0, i16 noundef zeroe
 
 16:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %2, ptr %17, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #10
-  %18 = getelementptr inbounds i8, ptr %5, i64 204
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 10002, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store i16 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %6, ptr %20, align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %5, i32 noundef -1) #10
   %21 = call i32 @slurm_send_node_msg(i32 noundef %11, ptr noundef nonnull %5) #10
@@ -895,7 +895,7 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
   br label %100
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %20, align 8
   br label %26
 
@@ -911,7 +911,7 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
 
 26:                                               ; preds = %21, %19
   store i32 0, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %27, align 4
   %28 = call i64 @slurm_mktime(ptr noundef nonnull %9) #10
   store i64 %28, ptr %6, align 8
@@ -929,9 +929,9 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
   br label %100
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 4
@@ -949,7 +949,7 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
 
 44:                                               ; preds = %39, %34
   store i32 0, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %45, align 4
   %46 = call i64 @slurm_mktime(ptr noundef nonnull %8) #10
   store i64 %46, ptr %5, align 8
@@ -971,10 +971,10 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
   br label %100
 
 56:                                               ; preds = %50, %44
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp ne i32 %58, 0
-  %60 = getelementptr inbounds i8, ptr %9, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp ne i32 %61, 0
   %or.cond = select i1 %59, i1 true, i1 %62
@@ -1015,10 +1015,10 @@ define range(i32 -1, 1) i32 @set_usage_information(ptr nocapture noundef %0, i32
   br label %97
 
 80:                                               ; preds = %63
-  %81 = getelementptr inbounds i8, ptr %8, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %82 = load i32, ptr %81, align 4
   %83 = icmp ne i32 %82, 1
-  %84 = getelementptr inbounds i8, ptr %9, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %85 = load i32, ptr %84, align 4
   %86 = icmp ne i32 %85, 1
   %or.cond5.not32 = select i1 %83, i1 true, i1 %86
@@ -1091,11 +1091,11 @@ define void @merge_delta_qos_list(ptr noundef %0, ptr noundef %1) local_unnamed_
   ]
 
 .preheader26:                                     ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %16
 
 .preheader:                                       ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %10
 
 10:                                               ; preds = %.preheader, %12
@@ -1193,15 +1193,15 @@ define zeroext i1 @is_user_any_coord(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not.i, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %6, i32 noundef %8) #10
   br label %_is_user_any_coord_internal.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not8.i = icmp eq ptr %12, null
   br i1 %.not8.i, label %_is_user_any_coord_internal.exit, label %13
@@ -1223,15 +1223,15 @@ define zeroext i1 @is_user_any_coord_locked(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not.i, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %6, i32 noundef %8) #10
   br label %_is_user_any_coord_internal.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not8.i = icmp eq ptr %12, null
   br i1 %.not8.i, label %_is_user_any_coord_internal.exit, label %13
@@ -1249,14 +1249,14 @@ _is_user_any_coord_internal.exit:                 ; preds = %4, %10, %13
 ; Function Attrs: nounwind uwtable
 define ptr @acct_get_db_name() local_unnamed_addr #0 {
   %1 = load ptr, ptr @slurmdbd_conf, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %.preheader
 
 .preheader:                                       ; preds = %0, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %0 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %.thread
@@ -1265,7 +1265,7 @@ define ptr @acct_get_db_name() local_unnamed_addr #0 {
   ]
 
 6:                                                ; preds = %.preheader, %.preheader
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %8 = tail call i32 @get_log_level() #10
   %9 = icmp sgt i32 %8, 4
   br i1 %9, label %10, label %12
@@ -1326,14 +1326,14 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @archive_setup_e
 
 18:                                               ; preds = %13
   store i32 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %19, align 4
   %20 = and i32 %1, 65536
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = sub nsw i32 %23, %9
   store i32 %24, ptr %22, align 8
@@ -1345,9 +1345,9 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @archive_setup_e
   br i1 %.not17, label %32, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = sub nsw i32 %30, %9
   store i32 %31, ptr %29, align 4
@@ -1359,11 +1359,11 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @archive_setup_e
   br i1 %.not18, label %40, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = sub nsw i32 %38, %9
   store i32 %39, ptr %37, align 8
@@ -1393,10 +1393,10 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   %4 = alloca [2 x ptr], align 16
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
   %10 = call i32 @stat(ptr noundef %8, ptr noundef nonnull %5) #10
   %11 = icmp slt i32 %10, 0
@@ -1408,7 +1408,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %131
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 32768
   %.not = icmp eq i32 %18, 0
@@ -1438,7 +1438,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   %32 = tail call ptr @env_array_create() #10
   store ptr %32, ptr %6, align 8
   %33 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %1) #10
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %.not70 = icmp eq i32 %35, -2
   br i1 %.not70, label %46, label %36
@@ -1463,7 +1463,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %46
 
 46:                                               ; preds = %40, %31
-  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %48 = load i32, ptr %47, align 4
   %.not73 = icmp eq i32 %48, -2
   br i1 %.not73, label %59, label %49
@@ -1488,7 +1488,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %59
 
 59:                                               ; preds = %53, %46
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load i32, ptr %60, align 8
   %.not77 = icmp eq i32 %61, -2
   br i1 %.not77, label %73, label %62
@@ -1514,7 +1514,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %73
 
 73:                                               ; preds = %67, %59
-  %74 = getelementptr inbounds i8, ptr %0, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %75 = load i32, ptr %74, align 4
   %.not81 = icmp eq i32 %75, -2
   br i1 %.not81, label %86, label %76
@@ -1539,7 +1539,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %86
 
 86:                                               ; preds = %80, %73
-  %87 = getelementptr inbounds i8, ptr %0, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %88 = load i32, ptr %87, align 8
   %.not85 = icmp eq i32 %88, -2
   br i1 %.not85, label %99, label %89
@@ -1564,7 +1564,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %99
 
 99:                                               ; preds = %93, %86
-  %100 = getelementptr inbounds i8, ptr %0, i64 44
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %101 = load i32, ptr %100, align 4
   %.not89 = icmp eq i32 %101, -2
   br i1 %.not89, label %112, label %102
@@ -1589,7 +1589,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   br label %112
 
 112:                                              ; preds = %106, %99
-  %113 = getelementptr inbounds i8, ptr %0, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %114 = load i32, ptr %113, align 8
   %.not93 = icmp eq i32 %114, -2
   br i1 %.not93, label %125, label %115
@@ -1674,7 +1674,7 @@ define range(i32 -1, 1) i32 @archive_write_file(ptr nocapture noundef readonly %
   store ptr null, ptr %10, align 8
   %18 = call ptr @localtime_r(ptr noundef nonnull %8, ptr noundef nonnull %12) #10
   store i32 0, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %19, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.74, ptr noundef %4, ptr noundef %1, ptr noundef %5) #10
   %.not.i = icmp eq i32 %6, -2
@@ -1684,7 +1684,7 @@ define range(i32 -1, 1) i32 @archive_write_file(ptr nocapture noundef readonly %
   br i1 %or.cond.i, label %21, label %._crit_edge14.i
 
 ._crit_edge14.i:                                  ; preds = %17
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %26
 
@@ -1692,26 +1692,26 @@ define range(i32 -1, 1) i32 @archive_write_file(ptr nocapture noundef readonly %
   %22 = and i32 %6, 131072
   %.not9.i = icmp eq i32 %22, 0
   %or.cond11.i = or i1 %.not.i, %.not9.i
-  %23 = getelementptr inbounds i8, ptr %12, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %23, align 8
   br i1 %or.cond11.i, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %12, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %25, align 4
   br label %26
 
 26:                                               ; preds = %24, %21, %._crit_edge14.i
   %27 = phi i32 [ %.pre.i, %._crit_edge14.i ], [ 0, %24 ], [ 0, %21 ]
-  %28 = getelementptr inbounds i8, ptr %12, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 1900
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, 1
-  %34 = getelementptr inbounds i8, ptr %12, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %12, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %37 = load i32, ptr %19, align 4
   %38 = load i32, ptr %12, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.75, i32 noundef %30, i32 noundef %33, i32 noundef %35, i32 noundef %27, i32 noundef %37, i32 noundef %38) #10
@@ -1770,13 +1770,13 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %96
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.preheader, label %.outer._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   br label %.lr.ph.split.us
 
@@ -1820,7 +1820,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   %.us-phi = phi i64 [ %71, %.lr.ph.split.us ], [ %78, %77 ]
   %.us-phi52 = phi i32 [ %72, %.lr.ph.split.us ], [ %79, %77 ]
   %85 = and i64 %.us-phi, 2147483647
-  %86 = getelementptr inbounds i8, ptr %.036.ph64, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.036.ph64, i64 %85
   %87 = sub nsw i32 %.037.ph62, %.us-phi52
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %.outer._crit_edge

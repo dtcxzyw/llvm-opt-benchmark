@@ -13,13 +13,13 @@ define hidden noundef ptr @pj_geocent(ptr noundef writeonly %0) local_unnamed_ad
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 356
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr @_ZL7inverse5PJ_XYP8PJconsts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL7forward5PJ_LPP8PJconsts, ptr %6, align 8
   br label %.sink.split
 
@@ -29,20 +29,20 @@ define hidden noundef ptr @pj_geocent(ptr noundef writeonly %0) local_unnamed_ad
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZL11des_geocent, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 360
   store i32 0, ptr %13, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %10
   %.sink15 = phi ptr [ %8, %10 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %10 ], [ 3, %2 ]
-  %14 = getelementptr inbounds i8, ptr %.sink15, i64 380
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
   store i32 4, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %.sink15, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
   store i32 %.sink, ptr %15, align 8
   br label %16
 
@@ -53,17 +53,17 @@ define hidden noundef ptr @pj_geocent(ptr noundef writeonly %0) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef ptr @_Z36pj_projection_specific_setup_geocentP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (356, 360), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 356
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 456
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @_ZL7inverse5PJ_XYP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL7forward5PJ_LPP8PJconsts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 380
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 4, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 3, ptr %7, align 8
   ret ptr %0
 }

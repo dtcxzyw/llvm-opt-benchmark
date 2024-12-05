@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Hop_ObjCreatePi(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @Hop_ManFetchMemory(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -8
   %6 = or disjoint i32 %5, 2
@@ -14,17 +14,17 @@ define noundef ptr @Hop_ObjCreatePi(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val = load i32, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.val, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 8
   %14 = icmp eq i32 %12, %13
   br i1 %14, label %15, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %1
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -33,7 +33,7 @@ define noundef ptr @Hop_ObjCreatePi(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i.i = icmp eq ptr %19, null
   br i1 %.not9.i.i, label %22, label %20
@@ -54,7 +54,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
 
 25:                                               ; preds = %15
   %26 = shl nuw nsw i32 %12, 1
-  %27 = getelementptr inbounds i8, ptr %10, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i10.i = icmp eq ptr %28, null
   %29 = zext nneg i32 %26 to i64
@@ -83,7 +83,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -92,7 +92,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Hop_ManFetchMemory(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -107,20 +107,20 @@ define internal fastcc noundef ptr @Hop_ManFetchMemory(ptr noundef %0) unnamed_a
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %43, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %10, align 8
   %15 = icmp eq i32 %13, %14
   br i1 %15, label %16, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %11
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -129,7 +129,7 @@ define internal fastcc noundef ptr @Hop_ManFetchMemory(ptr noundef %0) unnamed_a
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i.i = icmp eq ptr %20, null
   br i1 %.not9.i.i, label %23, label %21
@@ -150,7 +150,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %23, %21
 
 26:                                               ; preds = %16
   %27 = shl nuw nsw i32 %13, 1
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not9.i10.i = icmp eq ptr %29, null
   %30 = zext nneg i32 %27 to i64
@@ -182,11 +182,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %43
 
 43:                                               ; preds = %Vec_PtrPush.exit, %6
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %45, ptr %47, align 4
   ret ptr %7
 }
@@ -194,21 +194,21 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Hop_ObjCreatePo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @Hop_ManFetchMemory(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -8
   %7 = or disjoint i32 %6, 3
   store i32 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %9, align 8
   %13 = icmp eq i32 %11, %12
   br i1 %13, label %14, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -217,7 +217,7 @@ define noundef ptr @Hop_ObjCreatePo(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not9.i.i = icmp eq ptr %18, null
   br i1 %.not9.i.i, label %21, label %19
@@ -238,7 +238,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %21, %19
 
 24:                                               ; preds = %14
   %25 = shl nuw nsw i32 %11, 1
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not9.i10.i = icmp eq ptr %27, null
   %28 = zext nneg i32 %25 to i64
@@ -267,9 +267,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds ptr, ptr %36, i64 %39
   store ptr %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 132
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %43 = load i32, ptr %42, align 4
   %.not = icmp eq i32 %43, 0
   %44 = ptrtoint ptr %1 to i64
@@ -302,14 +302,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 59:                                               ; preds = %57
   %60 = and i64 %44, -2
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 8
   %.lobit.i = and i32 %63, 8
   %64 = xor i32 %.lobit.i, 8
   br label %Hop_ObjPhaseCompl.exit
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 8
   br label %Hop_ObjPhaseCompl.exit
@@ -320,7 +320,7 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %59, %65
   %71 = and i32 %70, -9
   %72 = or disjoint i32 %71, %69
   store i32 %72, ptr %4, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 84
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %73, align 4
@@ -330,24 +330,24 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %59, %65
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Hop_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @Hop_ManFetchMemory(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 7
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, -8
   %10 = or disjoint i32 %9, %6
   store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void @Hop_ObjConnect(ptr noundef %0, ptr noundef %3, ptr noundef %12, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %16 = and i32 %.val, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds [6 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [6 x i32], ptr %15, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -356,11 +356,11 @@ define noundef ptr @Hop_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %31, label %9
@@ -373,7 +373,7 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -64
   %17 = add i32 %16, 64
@@ -391,7 +391,7 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
   %22 = ptrtoint ptr %.val18 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, -64
   %28 = add i32 %27, 64
@@ -409,13 +409,13 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
   %36 = ptrtoint ptr %2 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = lshr i32 %40, 6
   %42 = ptrtoint ptr %3 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 6
   %48 = tail call range(i32 0, 67108864) i32 @llvm.umax.i32(i32 range(i32 0, 67108864) %41, i32 range(i32 0, 67108864) %47)
@@ -435,14 +435,14 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
 56:                                               ; preds = %53
   %57 = and i64 %54, -2
   %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 8
   %.lobit.i = and i32 %60, 8
   %61 = xor i32 %.lobit.i, 8
   br label %Hop_ObjPhaseCompl.exit
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %2, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 8
   br label %Hop_ObjPhaseCompl.exit
@@ -457,14 +457,14 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %56, %62
 69:                                               ; preds = %Hop_ObjPhaseCompl.exit
   %70 = and i64 %67, -2
   %71 = inttoptr i64 %70 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8
   %.lobit.i20 = and i32 %73, 8
   %74 = xor i32 %.lobit.i20, 8
   br label %Hop_ObjPhaseCompl.exit21
 
 75:                                               ; preds = %Hop_ObjPhaseCompl.exit
-  %76 = getelementptr inbounds i8, ptr %3, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 8
   br label %Hop_ObjPhaseCompl.exit21
@@ -472,7 +472,7 @@ Hop_ObjPhaseCompl.exit:                           ; preds = %56, %62
 Hop_ObjPhaseCompl.exit21:                         ; preds = %69, %75
   %79 = phi i32 [ %74, %69 ], [ %78, %75 ]
   %80 = and i32 %79, %66
-  %81 = getelementptr inbounds i8, ptr %1, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, -9
   %84 = or disjoint i32 %83, %80
@@ -485,7 +485,7 @@ declare void @Hop_TableInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Hop_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %5
@@ -494,7 +494,7 @@ define void @Hop_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %6 = ptrtoint ptr %4 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -64
   %12 = add i32 %11, -64
@@ -504,7 +504,7 @@ define void @Hop_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %5, %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not8 = icmp eq ptr %17, null
   br i1 %.not8, label %28, label %18
@@ -513,7 +513,7 @@ define void @Hop_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %19 = ptrtoint ptr %17 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -64
   %25 = add i32 %24, -64
@@ -532,20 +532,20 @@ declare void @Hop_TableDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %26, label %16
@@ -554,7 +554,7 @@ define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %17 = ptrtoint ptr %15 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -64
   %23 = add i32 %22, -64
@@ -564,7 +564,7 @@ define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %26
 
 26:                                               ; preds = %16, %2
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not8.i = icmp eq ptr %28, null
   br i1 %.not8.i, label %Hop_ObjDisconnect.exit, label %29
@@ -573,7 +573,7 @@ define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %30 = ptrtoint ptr %28 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, -64
   %36 = add i32 %35, -64
@@ -592,9 +592,9 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
 
 40:                                               ; preds = %Hop_ObjDisconnect.exit
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = zext i32 %43 to i64
   %smin.i = tail call i32 @llvm.smin.i32(i32 %43, i32 0)
   br label %46
@@ -608,7 +608,7 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
 49:                                               ; preds = %46
   %50 = add nsw i64 %indvars.iv.i, -1
   %51 = load ptr, ptr %44, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %1
   br i1 %54, label %55, label %46, !llvm.loop !4
@@ -646,7 +646,7 @@ Vec_PtrRemove.exit:                               ; preds = %58, %55
   %68 = phi i32 [ %.pre, %Vec_PtrRemove.exit ], [ %.val, %Hop_ObjDisconnect.exit ]
   %69 = and i32 %68, -8
   store i32 %69, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 160
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %71 = load ptr, ptr %70, align 8
   store ptr %71, ptr %1, align 8
   store ptr %1, ptr %70, align 8

@@ -24,17 +24,17 @@ define dso_local void @_ZNK24cmDocumentationFormatter14PrintFormattedERSoRKNSt7_
 
 8:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #4
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 ptrtoint (ptr @_ZNK24cmDocumentationFormatter14PrintParagraphERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE to i64), ptr %9, align 16
-  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 40
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %.fca.1.gep, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  %11 = getelementptr inbounds i8, ptr %4, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 ptrtoint (ptr @_ZNK24cmDocumentationFormatter17PrintPreformattedERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE to i64), ptr %11, align 16
-  %.fca.1.gep32 = getelementptr inbounds i8, ptr %4, i64 88
+  %.fca.1.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 0, ptr %.fca.1.gep32, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #4
   %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -70,14 +70,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %23 = icmp eq i8 %22, 32
   %24 = zext i1 %23 to i64
   %25 = xor i64 %24, 1
-  %26 = getelementptr inbounds [2 x %struct.Buffer], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [2 x %struct.Buffer], ptr %4, i64 0, i64 %25
   %27 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #4
   br i1 %27, label %45, label %28
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.fca.0.load = load i64, ptr %29, align 16
-  %.fca.1.gep34 = getelementptr inbounds i8, ptr %26, i64 40
+  %.fca.1.gep34 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %.fca.1.load = load i64, ptr %.fca.1.gep34, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 %.fca.1.load
   %31 = and i64 %.fca.0.load, 1
@@ -130,7 +130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %85
 
 45:                                               ; preds = %43, %20
-  %46 = getelementptr inbounds [2 x %struct.Buffer], ptr %4, i64 0, i64 %24
+  %46 = getelementptr inbounds nuw [2 x %struct.Buffer], ptr %4, i64 0, i64 %24
   %47 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #4
   %or.cond.demorgan = or i1 %23, %47
   br i1 %or.cond.demorgan, label %51, label %48
@@ -162,19 +162,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
           to label %17 unwind label %.loopexit.split-lp, !llvm.loop !6
 
 62:                                               ; preds = %17
-  %63 = getelementptr inbounds i8, ptr %4, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 96
   br label %64
 
 64:                                               ; preds = %62, %79
   %.044.idx61 = phi i64 [ 0, %62 ], [ %.044.add, %79 ]
-  %.044.ptr62 = getelementptr inbounds i8, ptr %4, i64 %.044.idx61
+  %.044.ptr62 = getelementptr inbounds nuw i8, ptr %4, i64 %.044.idx61
   %65 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.044.ptr62) #4
   br i1 %65, label %79, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %.044.ptr62, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.044.ptr62, i64 32
   %.fca.0.load48 = load i64, ptr %67, align 16
-  %.fca.1.gep50 = getelementptr inbounds i8, ptr %.044.ptr62, i64 40
+  %.fca.1.gep50 = getelementptr inbounds nuw i8, ptr %.044.ptr62, i64 40
   %.fca.1.load51 = load i64, ptr %.fca.1.gep50, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 %.fca.1.load51
   %69 = and i64 %.fca.0.load48, 1
@@ -218,7 +218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 85:                                               ; preds = %44, %.body
   %.pn = phi { ptr, i32 } [ %lpad.phi, %44 ], [ %eh.lpad-body, %.body ]
-  %86 = getelementptr inbounds i8, ptr %4, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 96
   br label %87
 
 87:                                               ; preds = %87, %85
@@ -242,7 +242,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define dso_local void @_ZNK24cmDocumentationFormatter14PrintParagraphERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %18, label %8
@@ -344,7 +344,7 @@ define dso_local void @_ZNK24cmDocumentationFormatter11PrintColumnERSoRKNSt7__cx
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = load i64, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #4
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #4
@@ -360,7 +360,7 @@ define dso_local void @_ZNK24cmDocumentationFormatter11PrintColumnERSoRKNSt7__cx
   ]
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %13, !llvm.loop !8
 
 _ZN12_GLOBAL__N_111skipToSpaceEPKc.exit:          ; preds = %13, %13, %13
@@ -397,7 +397,7 @@ _ZN12_GLOBAL__N_111skipToSpaceEPKc.exit:          ; preds = %13, %13, %13
 30:                                               ; preds = %29
   %31 = xor i8 %.mask, 1
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds [3 x i8], ptr @.str, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [3 x i8], ptr @.str, i64 0, i64 %32
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %33)
   %35 = add i64 %.04982, 1
   %36 = add i64 %35, %22
@@ -469,7 +469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 59:                                               ; preds = %56
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 10)
-  %61 = getelementptr inbounds i8, ptr %.04684, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.04684, i64 1
   br label %83
 
 62:                                               ; preds = %56
@@ -537,7 +537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit71: ; p
   %.0.i72 = phi ptr [ %.147, %83 ], [ %87, %84 ]
   %85 = load i8, ptr %.0.i72, align 1
   %86 = icmp eq i8 %85, 32
-  %87 = getelementptr inbounds i8, ptr %.0.i72, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i72, i64 1
   br i1 %86, label %84, label %_ZN12_GLOBAL__N_110skipSpacesEPKc.exit, !llvm.loop !9
 
 _ZN12_GLOBAL__N_110skipSpacesEPKc.exit:           ; preds = %84, %89
@@ -550,7 +550,7 @@ _ZN12_GLOBAL__N_110skipSpacesEPKc.exit:           ; preds = %84, %89
   ]
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_110skipSpacesEPKc.exit
-  %90 = getelementptr inbounds i8, ptr %.0.i73, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i73, i64 1
   %.pr = load i8, ptr %90, align 1
   br label %_ZN12_GLOBAL__N_110skipSpacesEPKc.exit, !llvm.loop !8
 
@@ -578,7 +578,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24cmDocumentationFormatter12PrintSectionERSoRK22cmDocumentationSection(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -590,9 +590,9 @@ define dso_local void @_ZN24cmDocumentationFormatter12PrintSectionERSoRK22cmDocu
 
 10:                                               ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #4
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not31 = icmp eq ptr %12, %14
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -606,7 +606,7 @@ define dso_local void @_ZN24cmDocumentationFormatter12PrintSectionERSoRK22cmDocu
   store i64 33, ptr %5, align 8
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 2)
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
-  %19 = getelementptr inbounds i8, ptr %.sroa.026.032, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 64
   %20 = load i8, ptr %19, align 8
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %18, i8 noundef signext %20)
   %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026.032) #4
@@ -635,7 +635,7 @@ define dso_local void @_ZN24cmDocumentationFormatter12PrintSectionERSoRK22cmDocu
 
 37:                                               ; preds = %28, %16
   %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1)
-  %39 = getelementptr inbounds i8, ptr %.sroa.026.032, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 32
   call void @_ZNK24cmDocumentationFormatter11PrintColumnERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %39)
   %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 10)
   br label %44
@@ -643,12 +643,12 @@ define dso_local void @_ZN24cmDocumentationFormatter12PrintSectionERSoRK22cmDocu
 41:                                               ; preds = %.lr.ph
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 10)
   store i64 0, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %.sroa.026.032, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 32
   call void @_ZNK24cmDocumentationFormatter14PrintFormattedERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %43)
   br label %44
 
 44:                                               ; preds = %37, %41
-  %45 = getelementptr inbounds i8, ptr %.sroa.026.032, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 72
   %.not = icmp eq ptr %45, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -664,7 +664,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #0 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -177
   %5 = or disjoint i32 %4, 32

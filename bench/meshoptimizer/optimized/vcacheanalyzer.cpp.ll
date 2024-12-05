@@ -29,7 +29,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
+  %count.i = getelementptr inbounds nuw i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i53, ptr %allocator, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i53, i8 0, i64 %mul.i, i1 false)
@@ -66,7 +66,7 @@ for.body37.us.us:                                 ; preds = %for.inc.us.us, %for
   %arrayidx40.us.us = getelementptr i32, ptr %arrayidx.us.us, i64 %indvars.iv81
   %1 = load i32, ptr %arrayidx40.us.us, align 4
   %idxprom41.us.us = zext i32 %1 to i64
-  %arrayidx42.us.us = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom41.us.us
+  %arrayidx42.us.us = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom41.us.us
   %2 = load i32, ptr %arrayidx42.us.us, align 4
   %sub43.us.us = sub i32 %timestamp.256.us.us, %2
   %cmp44.us.us = icmp ugt i32 %sub43.us.us, %cache_size
@@ -126,7 +126,7 @@ for.body37.us:                                    ; preds = %for.inc.us, %if.end
   %arrayidx40.us = getelementptr i32, ptr %arrayidx.us, i64 %indvars.iv85
   %3 = load i32, ptr %arrayidx40.us, align 4
   %idxprom41.us = zext i32 %3 to i64
-  %arrayidx42.us = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom41.us
+  %arrayidx42.us = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom41.us
   %4 = load i32, ptr %arrayidx42.us, align 4
   %sub43.us = sub i32 %timestamp.256.us, %4
   %cmp44.us = icmp ugt i32 %sub43.us, %cache_size
@@ -170,20 +170,20 @@ lor.lhs.false:                                    ; preds = %for.body
   %arrayidx5 = getelementptr i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %arrayidx5, align 4
   %idxprom13 = zext i32 %5 to i64
-  %arrayidx14 = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom13
   %6 = load i32, ptr %arrayidx14, align 4
   %sub15 = sub i32 %timestamp.062, %6
   %cmp16 = icmp ugt i32 %sub15, %cache_size
   %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %arrayidx3, align 4
   %idxprom8 = zext i32 %7 to i64
-  %arrayidx9 = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom8
   %8 = load i32, ptr %arrayidx9, align 4
   %sub10 = sub i32 %timestamp.062, %8
   %cmp11 = icmp ugt i32 %sub10, %cache_size
   %9 = load i32, ptr %arrayidx, align 4
   %idxprom = zext i32 %9 to i64
-  %arrayidx6 = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom
   %10 = load i32, ptr %arrayidx6, align 4
   %sub = sub i32 %timestamp.062, %10
   %cmp7 = icmp ugt i32 %sub, %cache_size
@@ -224,7 +224,7 @@ for.body37:                                       ; preds = %if.end, %for.inc
   %arrayidx40 = getelementptr i32, ptr %arrayidx, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx40, align 4
   %idxprom41 = zext i32 %12 to i64
-  %arrayidx42 = getelementptr inbounds i32, ptr %call.i53, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw i32, ptr %call.i53, i64 %idxprom41
   %13 = load i32, ptr %arrayidx42, align 4
   %sub43 = sub i32 %timestamp.256, %13
   %cmp44 = icmp ugt i32 %sub43, %cache_size
@@ -326,7 +326,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count = getelementptr inbounds i8, ptr %this, i64 192
+  %count = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i64, ptr %count, align 8
   br label %for.cond
 

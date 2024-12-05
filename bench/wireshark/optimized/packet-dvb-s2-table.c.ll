@@ -1367,7 +1367,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %7 = load i32, ptr @ett_dvb_s2_hdr_table, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i8 %9 to i32
   %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @tabletype, ptr noundef nonnull @.str.887) #3
@@ -2477,7 +2477,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %switch.tableidx = add i8 %706, -1
   %784 = icmp ult i8 %switch.tableidx, 3
   %785 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dvb_s2_table, i64 0, i64 %785
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dvb_s2_table, i64 0, i64 %785
   br label %.lr.ph396.i
 
 .lr.ph396.i:                                      ; preds = %.lr.ph396.i.preheader, %787

@@ -2739,13 +2739,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2795,14 +2795,14 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -2828,13 +2828,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2884,14 +2884,14 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -2911,7 +2911,7 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_OPERATIONAL_VERSION_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2944,9 +2944,9 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_OPERATIONAL_VERSION_INFO(ptr n
   %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = sub i32 %28, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #4
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not52 = icmp eq i32 %34, 0
@@ -2972,7 +2972,7 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_OPERATIONAL_VERSION_INFO(ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_IDL_CLUSTER_SET_PASSWORD_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3001,9 +3001,9 @@ define hidden i32 @clusapi_dissect_struct_IDL_CLUSTER_SET_PASSWORD_STATUS(ptr no
   %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -3055,7 +3055,7 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3082,9 +3082,9 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noun
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -3111,7 +3111,7 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3159,13 +3159,13 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3213,14 +3213,14 @@ define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -3240,13 +3240,13 @@ define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_ENUM_LIST(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3293,14 +3293,14 @@ define hidden i32 @clusapi_dissect_struct_ENUM_LIST(ptr noundef %0, i32 noundef 
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %47, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not46 = icmp ne i32 %42, 0
   %43 = and i32 %34, 7
@@ -3320,13 +3320,13 @@ define hidden i32 @clusapi_dissect_struct_ENUM_LIST(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_ENTRY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not82 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3388,14 +3388,14 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_ENTRY(ptr noundef %0, i32 n
   %50 = sub i32 %49, %.0
   tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %50) #4
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %.not87 = icmp eq i32 %54, 0
   br i1 %.not87, label %62, label %55
 
 55:                                               ; preds = %31
-  %56 = getelementptr inbounds i8, ptr %4, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %57 = load i32, ptr %56, align 4
   %.not88 = icmp ne i32 %57, 0
   %58 = and i32 %49, 7
@@ -3415,13 +3415,13 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_ENTRY(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_ENTRY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not76 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3481,14 +3481,14 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_ENTRY(ptr noundef %0, i3
   %48 = sub i32 %47, %.0
   tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #4
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %.not81 = icmp eq i32 %52, 0
   br i1 %.not81, label %60, label %53
 
 53:                                               ; preds = %31
-  %54 = getelementptr inbounds i8, ptr %4, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %55 = load i32, ptr %54, align 4
   %.not82 = icmp ne i32 %55, 0
   %56 = and i32 %47, 7
@@ -3508,13 +3508,13 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_ENTRY(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_LIST(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3561,14 +3561,14 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_LIST(ptr noundef %0, i32 no
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %47, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not46 = icmp ne i32 %42, 0
   %43 = and i32 %34, 7
@@ -3588,13 +3588,13 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_LIST(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3641,14 +3641,14 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %47, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not46 = icmp ne i32 %42, 0
   %43 = and i32 %34, 7
@@ -3741,7 +3741,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterGroupState(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterGroupEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3832,7 +3832,7 @@ define hidden i32 @clusapi_dissect_enum_ResourceClass(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3862,9 +3862,9 @@ define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = sub i32 %23, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %24) #4
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not34 = icmp eq i32 %29, 0
@@ -4035,7 +4035,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterNetInterfaceState(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_bitmap_ClusterResTypeEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -4126,7 +4126,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_SYNTAX(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_bitmap_DesiredAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -4168,7 +4168,7 @@ define hidden i32 @clusapi_dissect_bitmap_DesiredAccessMask(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -4195,9 +4195,9 @@ define hidden i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef
   %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -4223,7 +4223,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -4260,9 +4260,9 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, 
   %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Type_, i32 noundef 2, ptr noundef nonnull @.str.1453, i32 noundef %31) #4
   %33 = sub i32 %32, %.0
   tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #4
-  %34 = getelementptr inbounds i8, ptr %4, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not64 = icmp eq i32 %38, 0
@@ -4288,7 +4288,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_NOTIFICATION_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -4315,9 +4315,9 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_RPC(ptr noundef %0, i32 n
   %22 = tail call i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -4343,7 +4343,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_RPC(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_DISKID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4380,9 +4380,9 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_DISKID(ptr noundef %0, i32 nou
 clusapi_dissect_element_CLUSTER_DISKID_DiskIdBlob.exit: ; preds = %21
   %25 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not34 = icmp eq i32 %30, 0
@@ -4408,13 +4408,13 @@ clusapi_dissect_element_CLUSTER_DISKID_DiskIdBlob.exit: ; preds = %21
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_NODE_RESPONSE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4466,14 +4466,14 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_NODE_RESPONSE(ptr noundef 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -4493,13 +4493,13 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_NODE_RESPONSE(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_RESPONSE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4547,14 +4547,14 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_RESPONSE(ptr noundef %0, i
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4574,13 +4574,13 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_RESPONSE(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4630,14 +4630,14 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr nounde
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -5449,14 +5449,14 @@ define internal i32 @clusapi_dissect_element_NOTIFICATION_DATA_ASYNC_RPC_Name_(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_OpenCluster_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1496, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenCluster_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1496, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenCluster_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenCluster_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -5469,7 +5469,7 @@ define internal i32 @clusapi_dissect_OpenCluster_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseCluster_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1497, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseCluster_Cluster, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseCluster_Cluster_, i32 noundef 1, ptr noundef nonnull @.str.1681, i32 noundef %8) #4
@@ -5480,7 +5480,7 @@ define internal i32 @clusapi_dissect_CloseCluster_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseCluster_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1497, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseCluster_Cluster, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseCluster_Cluster_, i32 noundef 1, ptr noundef nonnull @.str.1681, i32 noundef %9) #4
@@ -5492,7 +5492,7 @@ define internal i32 @clusapi_dissect_CloseCluster_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5504,7 +5504,7 @@ define internal i32 @clusapi_dissect_CloseCluster_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetClusterName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1498, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetClusterName_NewClusterName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetClusterName_NewClusterName_, i32 noundef 1, ptr noundef nonnull @.str.1684, i32 noundef %8) #4
@@ -5515,7 +5515,7 @@ define internal i32 @clusapi_dissect_SetClusterName_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetClusterName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1498, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetClusterName_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetClusterName_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -5527,7 +5527,7 @@ define internal i32 @clusapi_dissect_SetClusterName_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5539,7 +5539,7 @@ define internal i32 @clusapi_dissect_SetClusterName_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_GetClusterName_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1499, ptr %7, align 8
   ret i32 %1
 }
@@ -5547,7 +5547,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterName_request(ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetClusterName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1499, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterName_ClusterName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetClusterName_ClusterName_, i32 noundef 1, ptr noundef nonnull @.str.1686, i32 noundef %9) #4
@@ -5562,7 +5562,7 @@ define internal i32 @clusapi_dissect_GetClusterName_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -5574,7 +5574,7 @@ define internal i32 @clusapi_dissect_GetClusterName_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_GetClusterVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1500, ptr %7, align 8
   ret i32 %1
 }
@@ -5582,7 +5582,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterVersion_request(ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetClusterVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1500, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion_lpwMajorVersion, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetClusterVersion_lpwMajorVersion_, i32 noundef 1, ptr noundef nonnull @.str.1688, i32 noundef %9) #4
@@ -5606,7 +5606,7 @@ define internal i32 @clusapi_dissect_GetClusterVersion_response(ptr noundef %0, 
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %30) #4
@@ -5618,7 +5618,7 @@ define internal i32 @clusapi_dissect_GetClusterVersion_response(ptr noundef %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_GetQuorumResource_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1501, ptr %7, align 8
   ret i32 %1
 }
@@ -5626,7 +5626,7 @@ define internal noundef i32 @clusapi_dissect_GetQuorumResource_request(ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetQuorumResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1501, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetQuorumResource_lpszResourceName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetQuorumResource_lpszResourceName_, i32 noundef 1, ptr noundef nonnull @.str.1693, i32 noundef %9) #4
@@ -5647,7 +5647,7 @@ define internal i32 @clusapi_dissect_GetQuorumResource_response(ptr noundef %0, 
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -5659,7 +5659,7 @@ define internal i32 @clusapi_dissect_GetQuorumResource_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetQuorumResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1502, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetQuorumResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -5676,7 +5676,7 @@ define internal i32 @clusapi_dissect_SetQuorumResource_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetQuorumResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1502, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetQuorumResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetQuorumResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -5688,7 +5688,7 @@ define internal i32 @clusapi_dissect_SetQuorumResource_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5700,7 +5700,7 @@ define internal i32 @clusapi_dissect_SetQuorumResource_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1503, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateEnum_dwType, align 4
   %9 = tail call i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 poison)
@@ -5711,7 +5711,7 @@ define internal i32 @clusapi_dissect_CreateEnum_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1503, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -5726,7 +5726,7 @@ define internal i32 @clusapi_dissect_CreateEnum_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -5738,7 +5738,7 @@ define internal i32 @clusapi_dissect_CreateEnum_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1504, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResource_lpszResourceName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenResource_lpszResourceName_, i32 noundef 1, ptr noundef nonnull @.str.1693, i32 noundef %8) #4
@@ -5748,7 +5748,7 @@ define internal i32 @clusapi_dissect_OpenResource_request(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1504, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResource_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenResource_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -5765,7 +5765,7 @@ define internal i32 @clusapi_dissect_OpenResource_response(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1505, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResource_hGroup, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -5787,7 +5787,7 @@ define internal i32 @clusapi_dissect_CreateResource_request(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1505, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResource_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResource_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -5803,7 +5803,7 @@ define internal i32 @clusapi_dissect_CreateResource_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1506, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -5814,7 +5814,7 @@ define internal i32 @clusapi_dissect_DeleteResource_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1506, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -5826,7 +5826,7 @@ define internal i32 @clusapi_dissect_DeleteResource_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5838,7 +5838,7 @@ define internal i32 @clusapi_dissect_DeleteResource_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1507, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseResource_Resource, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseResource_Resource_, i32 noundef 1, ptr noundef nonnull @.str.1699, i32 noundef %8) #4
@@ -5849,7 +5849,7 @@ define internal i32 @clusapi_dissect_CloseResource_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1507, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseResource_Resource, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseResource_Resource_, i32 noundef 1, ptr noundef nonnull @.str.1699, i32 noundef %9) #4
@@ -5861,7 +5861,7 @@ define internal i32 @clusapi_dissect_CloseResource_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5873,7 +5873,7 @@ define internal i32 @clusapi_dissect_CloseResource_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1508, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -5884,7 +5884,7 @@ define internal i32 @clusapi_dissect_GetResourceState_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1508, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceState_State, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetResourceState_State_, i32 noundef 1, ptr noundef nonnull @.str.1700, i32 noundef %9) #4
@@ -5905,7 +5905,7 @@ define internal i32 @clusapi_dissect_GetResourceState_response(ptr noundef %0, i
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -5917,7 +5917,7 @@ define internal i32 @clusapi_dissect_GetResourceState_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetResourceName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1509, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetResourceName_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -5931,7 +5931,7 @@ define internal i32 @clusapi_dissect_SetResourceName_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetResourceName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1509, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetResourceName_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetResourceName_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -5943,7 +5943,7 @@ define internal i32 @clusapi_dissect_SetResourceName_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -5955,7 +5955,7 @@ define internal i32 @clusapi_dissect_SetResourceName_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1510, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceId_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -5966,7 +5966,7 @@ define internal i32 @clusapi_dissect_GetResourceId_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1510, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceId_pGuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetResourceId_pGuid_, i32 noundef 1, ptr noundef nonnull @.str.1702, i32 noundef %9) #4
@@ -5981,7 +5981,7 @@ define internal i32 @clusapi_dissect_GetResourceId_response(ptr noundef %0, i32 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -5993,7 +5993,7 @@ define internal i32 @clusapi_dissect_GetResourceId_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceType_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1511, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceType_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6004,7 +6004,7 @@ define internal i32 @clusapi_dissect_GetResourceType_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1511, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceType_lpszResourceType, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetResourceType_lpszResourceType_, i32 noundef 1, ptr noundef nonnull @.str.1698, i32 noundef %9) #4
@@ -6019,7 +6019,7 @@ define internal i32 @clusapi_dissect_GetResourceType_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -6031,7 +6031,7 @@ define internal i32 @clusapi_dissect_GetResourceType_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_FailResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1512, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_FailResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6042,7 +6042,7 @@ define internal i32 @clusapi_dissect_FailResource_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_FailResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1512, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_FailResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_FailResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6054,7 +6054,7 @@ define internal i32 @clusapi_dissect_FailResource_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6066,7 +6066,7 @@ define internal i32 @clusapi_dissect_FailResource_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1513, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OnlineResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6077,7 +6077,7 @@ define internal i32 @clusapi_dissect_OnlineResource_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1513, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OnlineResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6089,7 +6089,7 @@ define internal i32 @clusapi_dissect_OnlineResource_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6101,7 +6101,7 @@ define internal i32 @clusapi_dissect_OnlineResource_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1514, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OfflineResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6112,7 +6112,7 @@ define internal i32 @clusapi_dissect_OfflineResource_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1514, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OfflineResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6124,7 +6124,7 @@ define internal i32 @clusapi_dissect_OfflineResource_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6136,7 +6136,7 @@ define internal i32 @clusapi_dissect_OfflineResource_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddResourceDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1515, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddResourceDependency_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6150,7 +6150,7 @@ define internal i32 @clusapi_dissect_AddResourceDependency_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddResourceDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1515, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddResourceDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddResourceDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6162,7 +6162,7 @@ define internal i32 @clusapi_dissect_AddResourceDependency_response(ptr noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6174,7 +6174,7 @@ define internal i32 @clusapi_dissect_AddResourceDependency_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveResourceDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1516, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceDependency_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6188,7 +6188,7 @@ define internal i32 @clusapi_dissect_RemoveResourceDependency_request(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveResourceDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1516, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveResourceDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6200,7 +6200,7 @@ define internal i32 @clusapi_dissect_RemoveResourceDependency_response(ptr nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6212,7 +6212,7 @@ define internal i32 @clusapi_dissect_RemoveResourceDependency_response(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CanResourceBeDependent_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1517, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CanResourceBeDependent_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6226,7 +6226,7 @@ define internal i32 @clusapi_dissect_CanResourceBeDependent_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CanResourceBeDependent_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1517, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CanResourceBeDependent_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CanResourceBeDependent_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6238,7 +6238,7 @@ define internal i32 @clusapi_dissect_CanResourceBeDependent_response(ptr noundef
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6250,7 +6250,7 @@ define internal i32 @clusapi_dissect_CanResourceBeDependent_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1518, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResEnum_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6264,7 +6264,7 @@ define internal i32 @clusapi_dissect_CreateResEnum_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1518, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -6279,7 +6279,7 @@ define internal i32 @clusapi_dissect_CreateResEnum_response(ptr noundef %0, i32 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -6291,7 +6291,7 @@ define internal i32 @clusapi_dissect_CreateResEnum_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddResourceNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1519, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddResourceNode_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6305,7 +6305,7 @@ define internal i32 @clusapi_dissect_AddResourceNode_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddResourceNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1519, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddResourceNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddResourceNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6317,7 +6317,7 @@ define internal i32 @clusapi_dissect_AddResourceNode_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6329,7 +6329,7 @@ define internal i32 @clusapi_dissect_AddResourceNode_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveResourceNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1520, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceNode_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6343,7 +6343,7 @@ define internal i32 @clusapi_dissect_RemoveResourceNode_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveResourceNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1520, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveResourceNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveResourceNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6355,7 +6355,7 @@ define internal i32 @clusapi_dissect_RemoveResourceNode_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6367,7 +6367,7 @@ define internal i32 @clusapi_dissect_RemoveResourceNode_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeResourceGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1521, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ChangeResourceGroup_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6381,7 +6381,7 @@ define internal i32 @clusapi_dissect_ChangeResourceGroup_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeResourceGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1521, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeResourceGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ChangeResourceGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6393,7 +6393,7 @@ define internal i32 @clusapi_dissect_ChangeResourceGroup_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6405,7 +6405,7 @@ define internal i32 @clusapi_dissect_ChangeResourceGroup_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResourceType_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1522, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_lpszTypeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResourceType_lpszTypeName_, i32 noundef 1, ptr noundef nonnull @.str.1703, i32 noundef %8) #4
@@ -6428,7 +6428,7 @@ define internal i32 @clusapi_dissect_CreateResourceType_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1522, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResourceType_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResourceType_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6440,7 +6440,7 @@ define internal i32 @clusapi_dissect_CreateResourceType_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6452,7 +6452,7 @@ define internal i32 @clusapi_dissect_CreateResourceType_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteResourceType_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1523, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteResourceType_lpszTypeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteResourceType_lpszTypeName_, i32 noundef 1, ptr noundef nonnull @.str.1703, i32 noundef %8) #4
@@ -6463,7 +6463,7 @@ define internal i32 @clusapi_dissect_DeleteResourceType_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteResourceType_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1523, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteResourceType_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteResourceType_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6475,7 +6475,7 @@ define internal i32 @clusapi_dissect_DeleteResourceType_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6487,7 +6487,7 @@ define internal i32 @clusapi_dissect_DeleteResourceType_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetRootKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1524, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetRootKey_samDesired, align 4
   %9 = tail call i32 @winreg_dissect_bitmap_AccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6497,7 +6497,7 @@ define internal i32 @clusapi_dissect_GetRootKey_request(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetRootKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1524, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetRootKey_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetRootKey_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -6513,7 +6513,7 @@ define internal i32 @clusapi_dissect_GetRootKey_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1525, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateKey_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6535,7 +6535,7 @@ define internal i32 @clusapi_dissect_CreateKey_request(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1525, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateKey_lpdwDisposition, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateKey_lpdwDisposition_, i32 noundef 1, ptr noundef nonnull @.str.1709, i32 noundef %8) #4
@@ -6554,7 +6554,7 @@ define internal i32 @clusapi_dissect_CreateKey_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1526, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenKey_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6570,7 +6570,7 @@ define internal i32 @clusapi_dissect_OpenKey_request(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1526, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenKey_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenKey_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -6586,7 +6586,7 @@ define internal i32 @clusapi_dissect_OpenKey_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EnumKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1527, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_EnumKey_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6600,7 +6600,7 @@ define internal i32 @clusapi_dissect_EnumKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1527, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EnumKey_KeyName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_EnumKey_KeyName_, i32 noundef 1, ptr noundef nonnull @.str.1710, i32 noundef %9) #4
@@ -6618,7 +6618,7 @@ define internal i32 @clusapi_dissect_EnumKey_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -6630,7 +6630,7 @@ define internal i32 @clusapi_dissect_EnumKey_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1528, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetValue_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6653,7 +6653,7 @@ define internal i32 @clusapi_dissect_SetValue_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1528, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetValue_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetValue_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6665,7 +6665,7 @@ define internal i32 @clusapi_dissect_SetValue_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6677,7 +6677,7 @@ define internal i32 @clusapi_dissect_SetValue_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1529, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteValue_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6691,7 +6691,7 @@ define internal i32 @clusapi_dissect_DeleteValue_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1529, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteValue_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteValue_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6703,7 +6703,7 @@ define internal i32 @clusapi_dissect_DeleteValue_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6715,7 +6715,7 @@ define internal i32 @clusapi_dissect_DeleteValue_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1530, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_QueryValue_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6732,7 +6732,7 @@ define internal i32 @clusapi_dissect_QueryValue_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1530, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryValue_lpValueType, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_QueryValue_lpValueType_, i32 noundef 1, ptr noundef nonnull @.str.1714, i32 noundef %9) #4
@@ -6753,7 +6753,7 @@ define internal i32 @clusapi_dissect_QueryValue_response(ptr noundef %0, i32 nou
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -6765,7 +6765,7 @@ define internal i32 @clusapi_dissect_QueryValue_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1531, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteKey_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6779,7 +6779,7 @@ define internal i32 @clusapi_dissect_DeleteKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1531, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteKey_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteKey_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6791,7 +6791,7 @@ define internal i32 @clusapi_dissect_DeleteKey_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6803,7 +6803,7 @@ define internal i32 @clusapi_dissect_DeleteKey_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EnumValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1532, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_EnumValue_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6820,7 +6820,7 @@ define internal i32 @clusapi_dissect_EnumValue_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1532, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EnumValue_lpValueName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_EnumValue_lpValueName_, i32 noundef 1, ptr noundef nonnull @.str.1712, i32 noundef %9) #4
@@ -6847,7 +6847,7 @@ define internal i32 @clusapi_dissect_EnumValue_response(ptr noundef %0, i32 noun
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @val_to_str(i32 noundef %29, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %33) #4
@@ -6859,7 +6859,7 @@ define internal i32 @clusapi_dissect_EnumValue_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1533, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseKey_pKey, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseKey_pKey_, i32 noundef 1, ptr noundef nonnull @.str.1719, i32 noundef %8) #4
@@ -6870,7 +6870,7 @@ define internal i32 @clusapi_dissect_CloseKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1533, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseKey_pKey, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseKey_pKey_, i32 noundef 1, ptr noundef nonnull @.str.1719, i32 noundef %9) #4
@@ -6882,7 +6882,7 @@ define internal i32 @clusapi_dissect_CloseKey_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6894,7 +6894,7 @@ define internal i32 @clusapi_dissect_CloseKey_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryInfoKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1534, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_QueryInfoKey_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6905,7 +6905,7 @@ define internal i32 @clusapi_dissect_QueryInfoKey_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1534, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryInfoKey_lpcSubKeys, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_QueryInfoKey_lpcSubKeys_, i32 noundef 1, ptr noundef nonnull @.str.1720, i32 noundef %9) #4
@@ -6938,7 +6938,7 @@ define internal i32 @clusapi_dissect_QueryInfoKey_response(ptr noundef %0, i32 n
   br i1 %.not, label %40, label %36
 
 36:                                               ; preds = %6
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @val_to_str(i32 noundef %35, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %39) #4
@@ -6950,7 +6950,7 @@ define internal i32 @clusapi_dissect_QueryInfoKey_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1535, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetKeySecurity_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6967,7 +6967,7 @@ define internal i32 @clusapi_dissect_SetKeySecurity_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1535, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetKeySecurity_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetKeySecurity_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -6979,7 +6979,7 @@ define internal i32 @clusapi_dissect_SetKeySecurity_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -6991,7 +6991,7 @@ define internal i32 @clusapi_dissect_SetKeySecurity_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1536, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetKeySecurity_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7008,7 +7008,7 @@ define internal i32 @clusapi_dissect_GetKeySecurity_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1536, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetKeySecurity_pRpcSecurityDescriptor, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetKeySecurity_pRpcSecurityDescriptor_, i32 noundef 1, ptr noundef nonnull @.str.1726, i32 noundef %9) #4
@@ -7023,7 +7023,7 @@ define internal i32 @clusapi_dissect_GetKeySecurity_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7035,7 +7035,7 @@ define internal i32 @clusapi_dissect_GetKeySecurity_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1537, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroup_lpszGroupName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroup_lpszGroupName_, i32 noundef 1, ptr noundef nonnull @.str.1727, i32 noundef %8) #4
@@ -7045,7 +7045,7 @@ define internal i32 @clusapi_dissect_OpenGroup_request(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1537, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroup_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroup_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -7061,7 +7061,7 @@ define internal i32 @clusapi_dissect_OpenGroup_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1538, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroup_lpszGroupName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroup_lpszGroupName_, i32 noundef 1, ptr noundef nonnull @.str.1727, i32 noundef %8) #4
@@ -7071,7 +7071,7 @@ define internal i32 @clusapi_dissect_CreateGroup_request(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1538, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroup_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroup_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -7087,7 +7087,7 @@ define internal i32 @clusapi_dissect_CreateGroup_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1539, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteGroup_Group, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7101,7 +7101,7 @@ define internal i32 @clusapi_dissect_DeleteGroup_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1539, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7113,7 +7113,7 @@ define internal i32 @clusapi_dissect_DeleteGroup_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7125,7 +7125,7 @@ define internal i32 @clusapi_dissect_DeleteGroup_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1540, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseGroup_Group, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseGroup_Group_, i32 noundef 1, ptr noundef nonnull @.str.1729, i32 noundef %8) #4
@@ -7136,7 +7136,7 @@ define internal i32 @clusapi_dissect_CloseGroup_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1540, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseGroup_Group, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseGroup_Group_, i32 noundef 1, ptr noundef nonnull @.str.1729, i32 noundef %9) #4
@@ -7148,7 +7148,7 @@ define internal i32 @clusapi_dissect_CloseGroup_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7160,7 +7160,7 @@ define internal i32 @clusapi_dissect_CloseGroup_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetGroupState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1541, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetGroupState_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7171,7 +7171,7 @@ define internal i32 @clusapi_dissect_GetGroupState_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetGroupState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1541, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetGroupState_State, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetGroupState_State_, i32 noundef 1, ptr noundef nonnull @.str.1730, i32 noundef %9) #4
@@ -7189,7 +7189,7 @@ define internal i32 @clusapi_dissect_GetGroupState_response(ptr noundef %0, i32 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -7201,7 +7201,7 @@ define internal i32 @clusapi_dissect_GetGroupState_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1542, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupName_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7215,7 +7215,7 @@ define internal i32 @clusapi_dissect_SetGroupName_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1542, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupName_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetGroupName_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7227,7 +7227,7 @@ define internal i32 @clusapi_dissect_SetGroupName_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7239,7 +7239,7 @@ define internal i32 @clusapi_dissect_SetGroupName_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetGroupId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1543, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetGroupId_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7250,7 +7250,7 @@ define internal i32 @clusapi_dissect_GetGroupId_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetGroupId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1543, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetGroupId_pGuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetGroupId_pGuid_, i32 noundef 1, ptr noundef nonnull @.str.1702, i32 noundef %9) #4
@@ -7265,7 +7265,7 @@ define internal i32 @clusapi_dissect_GetGroupId_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7277,7 +7277,7 @@ define internal i32 @clusapi_dissect_GetGroupId_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNodeId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1544, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNodeId_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7288,7 +7288,7 @@ define internal i32 @clusapi_dissect_GetNodeId_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNodeId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1544, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNodeId_pGuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNodeId_pGuid_, i32 noundef 1, ptr noundef nonnull @.str.1702, i32 noundef %9) #4
@@ -7303,7 +7303,7 @@ define internal i32 @clusapi_dissect_GetNodeId_response(ptr noundef %0, i32 noun
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7315,7 +7315,7 @@ define internal i32 @clusapi_dissect_GetNodeId_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1545, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OnlineGroup_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7326,7 +7326,7 @@ define internal i32 @clusapi_dissect_OnlineGroup_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1545, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OnlineGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7338,7 +7338,7 @@ define internal i32 @clusapi_dissect_OnlineGroup_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7350,7 +7350,7 @@ define internal i32 @clusapi_dissect_OnlineGroup_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1546, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OfflineGroup_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7361,7 +7361,7 @@ define internal i32 @clusapi_dissect_OfflineGroup_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1546, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OfflineGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7373,7 +7373,7 @@ define internal i32 @clusapi_dissect_OfflineGroup_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7385,7 +7385,7 @@ define internal i32 @clusapi_dissect_OfflineGroup_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1547, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_MoveGroup_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7396,7 +7396,7 @@ define internal i32 @clusapi_dissect_MoveGroup_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1547, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_MoveGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7408,7 +7408,7 @@ define internal i32 @clusapi_dissect_MoveGroup_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7420,7 +7420,7 @@ define internal i32 @clusapi_dissect_MoveGroup_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1548, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNode_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7434,7 +7434,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNode_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1548, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_MoveGroupToNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7446,7 +7446,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNode_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7458,7 +7458,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNode_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupResourceEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1549, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupResourceEnum_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7472,7 +7472,7 @@ define internal i32 @clusapi_dissect_CreateGroupResourceEnum_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupResourceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1549, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupResourceEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupResourceEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -7487,7 +7487,7 @@ define internal i32 @clusapi_dissect_CreateGroupResourceEnum_response(ptr nounde
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7499,7 +7499,7 @@ define internal i32 @clusapi_dissect_CreateGroupResourceEnum_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupNodeList_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1550, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupNodeList_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7516,7 +7516,7 @@ define internal i32 @clusapi_dissect_SetGroupNodeList_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupNodeList_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1550, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupNodeList_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetGroupNodeList_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7528,7 +7528,7 @@ define internal i32 @clusapi_dissect_SetGroupNodeList_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7540,14 +7540,14 @@ define internal i32 @clusapi_dissect_SetGroupNodeList_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_CreateNotify_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1551, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1551, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNotify_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNotify_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -7563,7 +7563,7 @@ define internal i32 @clusapi_dissect_CreateNotify_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNotify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1552, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseNotify_Notify, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNotify_Notify_, i32 noundef 1, ptr noundef nonnull @.str.1733, i32 noundef %8) #4
@@ -7574,7 +7574,7 @@ define internal i32 @clusapi_dissect_CloseNotify_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1552, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNotify_Notify, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNotify_Notify_, i32 noundef 1, ptr noundef nonnull @.str.1733, i32 noundef %9) #4
@@ -7586,7 +7586,7 @@ define internal i32 @clusapi_dissect_CloseNotify_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7598,7 +7598,7 @@ define internal i32 @clusapi_dissect_CloseNotify_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyCluster_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1553, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyCluster_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7618,7 +7618,7 @@ define internal i32 @clusapi_dissect_AddNotifyCluster_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyCluster_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1553, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyCluster_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyCluster_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7630,7 +7630,7 @@ define internal i32 @clusapi_dissect_AddNotifyCluster_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7642,7 +7642,7 @@ define internal i32 @clusapi_dissect_AddNotifyCluster_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1554, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNode_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7662,7 +7662,7 @@ define internal i32 @clusapi_dissect_AddNotifyNode_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1554, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNode_dwStateSequence, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyNode_dwStateSequence_, i32 noundef 1, ptr noundef nonnull @.str.1734, i32 noundef %9) #4
@@ -7677,7 +7677,7 @@ define internal i32 @clusapi_dissect_AddNotifyNode_response(ptr noundef %0, i32 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7689,7 +7689,7 @@ define internal i32 @clusapi_dissect_AddNotifyNode_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1555, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyGroup_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7709,7 +7709,7 @@ define internal i32 @clusapi_dissect_AddNotifyGroup_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1555, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyGroup_dwStateSequence, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyGroup_dwStateSequence_, i32 noundef 1, ptr noundef nonnull @.str.1734, i32 noundef %9) #4
@@ -7724,7 +7724,7 @@ define internal i32 @clusapi_dissect_AddNotifyGroup_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7736,7 +7736,7 @@ define internal i32 @clusapi_dissect_AddNotifyGroup_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1556, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResource_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7756,7 +7756,7 @@ define internal i32 @clusapi_dissect_AddNotifyResource_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1556, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResource_dwStateSequence, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyResource_dwStateSequence_, i32 noundef 1, ptr noundef nonnull @.str.1734, i32 noundef %9) #4
@@ -7771,7 +7771,7 @@ define internal i32 @clusapi_dissect_AddNotifyResource_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -7783,7 +7783,7 @@ define internal i32 @clusapi_dissect_AddNotifyResource_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1557, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyKey_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7806,7 +7806,7 @@ define internal i32 @clusapi_dissect_AddNotifyKey_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1557, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyKey_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyKey_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7818,7 +7818,7 @@ define internal i32 @clusapi_dissect_AddNotifyKey_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7830,7 +7830,7 @@ define internal i32 @clusapi_dissect_AddNotifyKey_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1558, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNode_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7853,7 +7853,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNode_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1558, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ReAddNotifyNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7865,7 +7865,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNode_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7877,7 +7877,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNode_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1559, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyGroup_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7900,7 +7900,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyGroup_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1559, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyGroup_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ReAddNotifyGroup_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7912,7 +7912,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyGroup_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7924,7 +7924,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyGroup_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1560, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyResource_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7947,7 +7947,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyResource_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1560, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ReAddNotifyResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -7959,7 +7959,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyResource_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -7971,7 +7971,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyResource_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1561, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNotify_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -7982,7 +7982,7 @@ define internal i32 @clusapi_dissect_GetNotify_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1561, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotify_dwNotifyKey, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNotify_dwNotifyKey_, i32 noundef 1, ptr noundef nonnull @.str.1454, i32 noundef %9) #4
@@ -8006,7 +8006,7 @@ define internal i32 @clusapi_dissect_GetNotify_response(ptr noundef %0, i32 noun
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %30) #4
@@ -8018,7 +8018,7 @@ define internal i32 @clusapi_dissect_GetNotify_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1562, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNode_lpszNodeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNode_lpszNodeName_, i32 noundef 1, ptr noundef nonnull @.str.1736, i32 noundef %8) #4
@@ -8028,7 +8028,7 @@ define internal i32 @clusapi_dissect_OpenNode_request(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1562, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNode_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNode_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -8044,7 +8044,7 @@ define internal i32 @clusapi_dissect_OpenNode_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1563, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseNode_Node, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNode_Node_, i32 noundef 1, ptr noundef nonnull @.str.1738, i32 noundef %8) #4
@@ -8055,7 +8055,7 @@ define internal i32 @clusapi_dissect_CloseNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1563, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNode_Node, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNode_Node_, i32 noundef 1, ptr noundef nonnull @.str.1738, i32 noundef %9) #4
@@ -8067,7 +8067,7 @@ define internal i32 @clusapi_dissect_CloseNode_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8079,7 +8079,7 @@ define internal i32 @clusapi_dissect_CloseNode_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNodeState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1564, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNodeState_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8090,7 +8090,7 @@ define internal i32 @clusapi_dissect_GetNodeState_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNodeState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1564, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNodeState_State, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNodeState_State_, i32 noundef 1, ptr noundef nonnull @.str.1739, i32 noundef %9) #4
@@ -8105,7 +8105,7 @@ define internal i32 @clusapi_dissect_GetNodeState_response(ptr noundef %0, i32 n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -8117,7 +8117,7 @@ define internal i32 @clusapi_dissect_GetNodeState_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1565, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_PauseNode_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8128,7 +8128,7 @@ define internal i32 @clusapi_dissect_PauseNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1565, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_PauseNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -8140,7 +8140,7 @@ define internal i32 @clusapi_dissect_PauseNode_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8152,7 +8152,7 @@ define internal i32 @clusapi_dissect_PauseNode_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResumeNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1566, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ResumeNode_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8163,7 +8163,7 @@ define internal i32 @clusapi_dissect_ResumeNode_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResumeNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1566, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResumeNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResumeNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -8175,7 +8175,7 @@ define internal i32 @clusapi_dissect_ResumeNode_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8187,7 +8187,7 @@ define internal i32 @clusapi_dissect_ResumeNode_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EvictNode_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1567, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_EvictNode_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8198,7 +8198,7 @@ define internal i32 @clusapi_dissect_EvictNode_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_EvictNode_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1567, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_EvictNode_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_EvictNode_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -8210,7 +8210,7 @@ define internal i32 @clusapi_dissect_EvictNode_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8222,7 +8222,7 @@ define internal i32 @clusapi_dissect_EvictNode_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeResourceControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1568, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeResourceControl_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8248,7 +8248,7 @@ define internal i32 @clusapi_dissect_NodeResourceControl_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeResourceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1568, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeResourceControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeResourceControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8269,7 +8269,7 @@ define internal i32 @clusapi_dissect_NodeResourceControl_response(ptr noundef %0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8282,7 +8282,7 @@ define internal i32 @clusapi_dissect_NodeResourceControl_response(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResourceControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1569, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceControl_hResource, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -8308,7 +8308,7 @@ define internal i32 @clusapi_dissect_ResourceControl_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResourceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1569, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResourceControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8329,7 +8329,7 @@ define internal i32 @clusapi_dissect_ResourceControl_response(ptr noundef %0, i3
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8341,7 +8341,7 @@ define internal i32 @clusapi_dissect_ResourceControl_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeResourceTypeControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1570, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeResourceTypeControl_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8370,7 +8370,7 @@ define internal i32 @clusapi_dissect_NodeResourceTypeControl_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeResourceTypeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1570, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeResourceTypeControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeResourceTypeControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8391,7 +8391,7 @@ define internal i32 @clusapi_dissect_NodeResourceTypeControl_response(ptr nounde
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8404,7 +8404,7 @@ define internal i32 @clusapi_dissect_NodeResourceTypeControl_response(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResourceTypeControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1571, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_hCluster, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -8433,7 +8433,7 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResourceTypeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1571, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResourceTypeControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResourceTypeControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8454,7 +8454,7 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_response(ptr noundef %0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8466,7 +8466,7 @@ define internal i32 @clusapi_dissect_ResourceTypeControl_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeGroupControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1572, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeGroupControl_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8492,7 +8492,7 @@ define internal i32 @clusapi_dissect_NodeGroupControl_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeGroupControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1572, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeGroupControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeGroupControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8513,7 +8513,7 @@ define internal i32 @clusapi_dissect_NodeGroupControl_response(ptr noundef %0, i
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8526,7 +8526,7 @@ define internal i32 @clusapi_dissect_NodeGroupControl_response(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GroupControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1573, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GroupControl_hGroup, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -8552,7 +8552,7 @@ define internal i32 @clusapi_dissect_GroupControl_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GroupControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1573, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GroupControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GroupControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8573,7 +8573,7 @@ define internal i32 @clusapi_dissect_GroupControl_response(ptr noundef %0, i32 n
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8585,7 +8585,7 @@ define internal i32 @clusapi_dissect_GroupControl_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNodeControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1574, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeNodeControl_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8611,7 +8611,7 @@ define internal i32 @clusapi_dissect_NodeNodeControl_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNodeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1574, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNodeControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeNodeControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8632,7 +8632,7 @@ define internal i32 @clusapi_dissect_NodeNodeControl_response(ptr noundef %0, i3
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8645,7 +8645,7 @@ define internal i32 @clusapi_dissect_NodeNodeControl_response(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1575, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeControl_hNode, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -8671,7 +8671,7 @@ define internal i32 @clusapi_dissect_NodeControl_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1575, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -8692,7 +8692,7 @@ define internal i32 @clusapi_dissect_NodeControl_response(ptr noundef %0, i32 no
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -8704,7 +8704,7 @@ define internal i32 @clusapi_dissect_NodeControl_response(ptr noundef %0, i32 no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum80NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1576, ptr %7, align 8
   ret i32 %1
 }
@@ -8712,7 +8712,7 @@ define internal noundef i32 @clusapi_dissect_Opnum80NotUsedOnWire_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum80NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1576, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -8721,7 +8721,7 @@ define internal i32 @clusapi_dissect_Opnum80NotUsedOnWire_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -8733,7 +8733,7 @@ define internal i32 @clusapi_dissect_Opnum80NotUsedOnWire_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetwork_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1577, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetwork_lpszNetworkName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetwork_lpszNetworkName_, i32 noundef 1, ptr noundef nonnull @.str.1744, i32 noundef %8) #4
@@ -8743,7 +8743,7 @@ define internal i32 @clusapi_dissect_OpenNetwork_request(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1577, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetwork_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetwork_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -8759,7 +8759,7 @@ define internal i32 @clusapi_dissect_OpenNetwork_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNetwork_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1578, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseNetwork_Network, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNetwork_Network_, i32 noundef 1, ptr noundef nonnull @.str.1746, i32 noundef %8) #4
@@ -8770,7 +8770,7 @@ define internal i32 @clusapi_dissect_CloseNetwork_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1578, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNetwork_Network, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNetwork_Network_, i32 noundef 1, ptr noundef nonnull @.str.1746, i32 noundef %9) #4
@@ -8782,7 +8782,7 @@ define internal i32 @clusapi_dissect_CloseNetwork_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8794,7 +8794,7 @@ define internal i32 @clusapi_dissect_CloseNetwork_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetworkState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1579, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetworkState_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8805,7 +8805,7 @@ define internal i32 @clusapi_dissect_GetNetworkState_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetworkState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1579, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetworkState_State, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetworkState_State_, i32 noundef 1, ptr noundef nonnull @.str.1747, i32 noundef %9) #4
@@ -8820,7 +8820,7 @@ define internal i32 @clusapi_dissect_GetNetworkState_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -8832,7 +8832,7 @@ define internal i32 @clusapi_dissect_GetNetworkState_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetNetworkName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1580, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetNetworkName_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8846,7 +8846,7 @@ define internal i32 @clusapi_dissect_SetNetworkName_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetNetworkName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1580, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkName_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetNetworkName_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -8858,7 +8858,7 @@ define internal i32 @clusapi_dissect_SetNetworkName_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8870,7 +8870,7 @@ define internal i32 @clusapi_dissect_SetNetworkName_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNetworkEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1581, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNetworkEnum_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8884,7 +8884,7 @@ define internal i32 @clusapi_dissect_CreateNetworkEnum_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNetworkEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1581, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNetworkEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNetworkEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -8899,7 +8899,7 @@ define internal i32 @clusapi_dissect_CreateNetworkEnum_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -8911,7 +8911,7 @@ define internal i32 @clusapi_dissect_CreateNetworkEnum_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetworkId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1582, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetworkId_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -8922,7 +8922,7 @@ define internal i32 @clusapi_dissect_GetNetworkId_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetworkId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1582, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetworkId_pGuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetworkId_pGuid_, i32 noundef 1, ptr noundef nonnull @.str.1702, i32 noundef %9) #4
@@ -8937,7 +8937,7 @@ define internal i32 @clusapi_dissect_GetNetworkId_response(ptr noundef %0, i32 n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -8950,7 +8950,7 @@ define internal i32 @clusapi_dissect_GetNetworkId_response(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1583, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkPriorityOrder_NetworkCount, align 4
   %10 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -8968,7 +8968,7 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1583, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetNetworkPriorityOrder_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetNetworkPriorityOrder_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -8980,7 +8980,7 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_response(ptr nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -8992,7 +8992,7 @@ define internal i32 @clusapi_dissect_SetNetworkPriorityOrder_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNetworkControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1584, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeNetworkControl_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9018,7 +9018,7 @@ define internal i32 @clusapi_dissect_NodeNetworkControl_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNetworkControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1584, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNetworkControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeNetworkControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9039,7 +9039,7 @@ define internal i32 @clusapi_dissect_NodeNetworkControl_response(ptr noundef %0,
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9051,7 +9051,7 @@ define internal i32 @clusapi_dissect_NodeNetworkControl_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NetworkControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1585, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NetworkControl_hNetwork, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9074,7 +9074,7 @@ define internal i32 @clusapi_dissect_NetworkControl_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NetworkControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1585, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NetworkControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NetworkControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9095,7 +9095,7 @@ define internal i32 @clusapi_dissect_NetworkControl_response(ptr noundef %0, i32
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9107,7 +9107,7 @@ define internal i32 @clusapi_dissect_NetworkControl_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetwork_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1586, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetwork_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9127,7 +9127,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetwork_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1586, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetwork_dwStateSequence, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyNetwork_dwStateSequence_, i32 noundef 1, ptr noundef nonnull @.str.1734, i32 noundef %9) #4
@@ -9142,7 +9142,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetwork_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9154,7 +9154,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetwork_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetwork_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1587, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetwork_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9177,7 +9177,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetwork_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetwork_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1587, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetwork_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ReAddNotifyNetwork_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -9189,7 +9189,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetwork_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -9201,7 +9201,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetwork_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetInterface_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1588, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterface_lpszNetInterfaceName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetInterface_lpszNetInterfaceName_, i32 noundef 1, ptr noundef nonnull @.str.1748, i32 noundef %8) #4
@@ -9211,7 +9211,7 @@ define internal i32 @clusapi_dissect_OpenNetInterface_request(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1588, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterface_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetInterface_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -9227,7 +9227,7 @@ define internal i32 @clusapi_dissect_OpenNetInterface_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNetInterface_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1589, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseNetInterface_NetInterface, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNetInterface_NetInterface_, i32 noundef 1, ptr noundef nonnull @.str.1750, i32 noundef %8) #4
@@ -9238,7 +9238,7 @@ define internal i32 @clusapi_dissect_CloseNetInterface_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1589, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseNetInterface_NetInterface, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseNetInterface_NetInterface_, i32 noundef 1, ptr noundef nonnull @.str.1750, i32 noundef %9) #4
@@ -9250,7 +9250,7 @@ define internal i32 @clusapi_dissect_CloseNetInterface_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -9262,7 +9262,7 @@ define internal i32 @clusapi_dissect_CloseNetInterface_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1590, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceState_hNetInterface, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9273,7 +9273,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceState_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1590, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceState_State, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetInterfaceState_State_, i32 noundef 1, ptr noundef nonnull @.str.1751, i32 noundef %9) #4
@@ -9288,7 +9288,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceState_response(ptr noundef %
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9300,7 +9300,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceState_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterface_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1591, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lpszNodeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetInterface_lpszNodeName_, i32 noundef 1, ptr noundef nonnull @.str.1736, i32 noundef %8) #4
@@ -9314,7 +9314,7 @@ define internal i32 @clusapi_dissect_GetNetInterface_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1591, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterface_lppszInterfaceName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetInterface_lppszInterfaceName_, i32 noundef 1, ptr noundef nonnull @.str.1752, i32 noundef %9) #4
@@ -9329,7 +9329,7 @@ define internal i32 @clusapi_dissect_GetNetInterface_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9341,7 +9341,7 @@ define internal i32 @clusapi_dissect_GetNetInterface_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1592, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceId_hNetInterface, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9352,7 +9352,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceId_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNetInterfaceId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1592, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNetInterfaceId_pGuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNetInterfaceId_pGuid_, i32 noundef 1, ptr noundef nonnull @.str.1702, i32 noundef %9) #4
@@ -9367,7 +9367,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceId_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9379,7 +9379,7 @@ define internal i32 @clusapi_dissect_GetNetInterfaceId_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNetInterfaceControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1593, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeNetInterfaceControl_hNetInterface, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9405,7 +9405,7 @@ define internal i32 @clusapi_dissect_NodeNetInterfaceControl_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeNetInterfaceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1593, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeNetInterfaceControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeNetInterfaceControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9426,7 +9426,7 @@ define internal i32 @clusapi_dissect_NodeNetInterfaceControl_response(ptr nounde
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9438,7 +9438,7 @@ define internal i32 @clusapi_dissect_NodeNetInterfaceControl_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NetInterfaceControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1594, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NetInterfaceControl_hNetInterface, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9461,7 +9461,7 @@ define internal i32 @clusapi_dissect_NetInterfaceControl_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NetInterfaceControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1594, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NetInterfaceControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NetInterfaceControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9482,7 +9482,7 @@ define internal i32 @clusapi_dissect_NetInterfaceControl_response(ptr noundef %0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9494,7 +9494,7 @@ define internal i32 @clusapi_dissect_NetInterfaceControl_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetInterface_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1595, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetInterface_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9514,7 +9514,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetInterface_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1595, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyNetInterface_dwStateSequence, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyNetInterface_dwStateSequence_, i32 noundef 1, ptr noundef nonnull @.str.1734, i32 noundef %9) #4
@@ -9529,7 +9529,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetInterface_response(ptr noundef 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9541,7 +9541,7 @@ define internal i32 @clusapi_dissect_AddNotifyNetInterface_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1596, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetInterface_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9564,7 +9564,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1596, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ReAddNotifyNetInterface_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ReAddNotifyNetInterface_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -9576,7 +9576,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_response(ptr nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -9588,7 +9588,7 @@ define internal i32 @clusapi_dissect_ReAddNotifyNetInterface_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1597, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnum_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9602,7 +9602,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnum_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1597, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNodeEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -9617,7 +9617,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnum_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9629,7 +9629,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnum_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_GetClusterVersion2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1598, ptr %7, align 8
   ret i32 %1
 }
@@ -9637,7 +9637,7 @@ define internal noundef i32 @clusapi_dissect_GetClusterVersion2_request(ptr noca
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetClusterVersion2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1598, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetClusterVersion2_lpwMajorVersion, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetClusterVersion2_lpwMajorVersion_, i32 noundef 1, ptr noundef nonnull @.str.1688, i32 noundef %9) #4
@@ -9667,7 +9667,7 @@ define internal i32 @clusapi_dissect_GetClusterVersion2_response(ptr noundef %0,
   br i1 %.not, label %37, label %33
 
 33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %36) #4
@@ -9679,7 +9679,7 @@ define internal i32 @clusapi_dissect_GetClusterVersion2_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResTypeEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1599, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResTypeEnum_lpszTypeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResTypeEnum_lpszTypeName_, i32 noundef 1, ptr noundef nonnull @.str.1703, i32 noundef %8) #4
@@ -9693,7 +9693,7 @@ define internal i32 @clusapi_dissect_CreateResTypeEnum_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResTypeEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1599, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResTypeEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResTypeEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -9708,7 +9708,7 @@ define internal i32 @clusapi_dissect_CreateResTypeEnum_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -9720,7 +9720,7 @@ define internal i32 @clusapi_dissect_CreateResTypeEnum_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_BackupClusterDatabase_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1600, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_BackupClusterDatabase_lpszPathName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_BackupClusterDatabase_lpszPathName_, i32 noundef 1, ptr noundef nonnull @.str.1754, i32 noundef %8) #4
@@ -9731,7 +9731,7 @@ define internal i32 @clusapi_dissect_BackupClusterDatabase_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_BackupClusterDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1600, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_BackupClusterDatabase_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_BackupClusterDatabase_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -9743,7 +9743,7 @@ define internal i32 @clusapi_dissect_BackupClusterDatabase_response(ptr noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -9755,7 +9755,7 @@ define internal i32 @clusapi_dissect_BackupClusterDatabase_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeClusterControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1601, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeClusterControl_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9781,7 +9781,7 @@ define internal i32 @clusapi_dissect_NodeClusterControl_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeClusterControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1601, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeClusterControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeClusterControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9802,7 +9802,7 @@ define internal i32 @clusapi_dissect_NodeClusterControl_response(ptr noundef %0,
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9815,7 +9815,7 @@ define internal i32 @clusapi_dissect_NodeClusterControl_response(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ClusterControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1602, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ClusterControl_hCluster, align 4
   %10 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, i32 noundef 0) #4
@@ -9841,7 +9841,7 @@ define internal i32 @clusapi_dissect_ClusterControl_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ClusterControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1602, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ClusterControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ClusterControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -9862,7 +9862,7 @@ define internal i32 @clusapi_dissect_ClusterControl_response(ptr noundef %0, i32
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -9874,7 +9874,7 @@ define internal i32 @clusapi_dissect_ClusterControl_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_UnblockGetNotifyCall_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1603, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_UnblockGetNotifyCall_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9885,7 +9885,7 @@ define internal i32 @clusapi_dissect_UnblockGetNotifyCall_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_UnblockGetNotifyCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1603, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -9894,7 +9894,7 @@ define internal i32 @clusapi_dissect_UnblockGetNotifyCall_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -9907,7 +9907,7 @@ define internal i32 @clusapi_dissect_UnblockGetNotifyCall_response(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetServiceAccountPassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1604, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetServiceAccountPassword_lpszNewPassword, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetServiceAccountPassword_lpszNewPassword_, i32 noundef 1, ptr noundef nonnull @.str.1755, i32 noundef %9) #4
@@ -9927,7 +9927,7 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetServiceAccountPassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1604, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucvarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetServiceAccountPassword_ReturnStatusBufferPtr_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -9944,7 +9944,7 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_response(ptr noun
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %23) #4
@@ -9956,7 +9956,7 @@ define internal i32 @clusapi_dissect_SetServiceAccountPassword_response(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetResourceDependencyExpression_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1605, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetResourceDependencyExpression_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -9970,7 +9970,7 @@ define internal i32 @clusapi_dissect_SetResourceDependencyExpression_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetResourceDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1605, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetResourceDependencyExpression_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetResourceDependencyExpression_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -9982,7 +9982,7 @@ define internal i32 @clusapi_dissect_SetResourceDependencyExpression_response(pt
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -9994,7 +9994,7 @@ define internal i32 @clusapi_dissect_SetResourceDependencyExpression_response(pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceDependencyExpression_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1606, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceDependencyExpression_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10005,7 +10005,7 @@ define internal i32 @clusapi_dissect_GetResourceDependencyExpression_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1606, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceDependencyExpression_lpszDependencyExpression, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetResourceDependencyExpression_lpszDependencyExpression_, i32 noundef 1, ptr noundef nonnull @.str.1758, i32 noundef %9) #4
@@ -10020,7 +10020,7 @@ define internal i32 @clusapi_dissect_GetResourceDependencyExpression_response(pt
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -10032,7 +10032,7 @@ define internal i32 @clusapi_dissect_GetResourceDependencyExpression_response(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum111NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1607, ptr %7, align 8
   ret i32 %1
 }
@@ -10040,7 +10040,7 @@ define internal noundef i32 @clusapi_dissect_Opnum111NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum111NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1607, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -10049,7 +10049,7 @@ define internal i32 @clusapi_dissect_Opnum111NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -10061,7 +10061,7 @@ define internal i32 @clusapi_dissect_Opnum111NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceNetworkName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1608, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetResourceNetworkName_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10072,7 +10072,7 @@ define internal i32 @clusapi_dissect_GetResourceNetworkName_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetResourceNetworkName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1608, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetResourceNetworkName_lpszName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetResourceNetworkName_lpszName_, i32 noundef 1, ptr noundef nonnull @.str.1759, i32 noundef %9) #4
@@ -10087,7 +10087,7 @@ define internal i32 @clusapi_dissect_GetResourceNetworkName_response(ptr noundef
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -10099,7 +10099,7 @@ define internal i32 @clusapi_dissect_GetResourceNetworkName_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteBatch_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1609, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ExecuteBatch_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10116,7 +10116,7 @@ define internal i32 @clusapi_dissect_ExecuteBatch_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteBatch_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1609, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteBatch_pdwFailedCommand, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ExecuteBatch_pdwFailedCommand_, i32 noundef 1, ptr noundef nonnull @.str.1760, i32 noundef %9) #4
@@ -10131,7 +10131,7 @@ define internal i32 @clusapi_dissect_ExecuteBatch_response(ptr noundef %0, i32 n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -10143,7 +10143,7 @@ define internal i32 @clusapi_dissect_ExecuteBatch_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateBatchPort_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1610, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateBatchPort_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10154,7 +10154,7 @@ define internal i32 @clusapi_dissect_CreateBatchPort_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateBatchPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1610, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateBatchPort_phBatchPort, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateBatchPort_phBatchPort_, i32 noundef 1, ptr noundef nonnull @.str.1761, i32 noundef %9) #4
@@ -10169,7 +10169,7 @@ define internal i32 @clusapi_dissect_CreateBatchPort_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -10181,7 +10181,7 @@ define internal i32 @clusapi_dissect_CreateBatchPort_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetBatchNotification_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1611, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetBatchNotification_hBatchNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10192,7 +10192,7 @@ define internal i32 @clusapi_dissect_GetBatchNotification_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetBatchNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1611, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetBatchNotification_cbData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetBatchNotification_cbData_, i32 noundef 1, ptr noundef nonnull @.str.1762, i32 noundef %9) #4
@@ -10207,7 +10207,7 @@ define internal i32 @clusapi_dissect_GetBatchNotification_response(ptr noundef %
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -10219,7 +10219,7 @@ define internal i32 @clusapi_dissect_GetBatchNotification_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseBatchPort_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1612, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseBatchPort_phBatchPort, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseBatchPort_phBatchPort_, i32 noundef 1, ptr noundef nonnull @.str.1761, i32 noundef %8) #4
@@ -10230,7 +10230,7 @@ define internal i32 @clusapi_dissect_CloseBatchPort_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseBatchPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1612, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseBatchPort_phBatchPort, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseBatchPort_phBatchPort_, i32 noundef 1, ptr noundef nonnull @.str.1761, i32 noundef %9) #4
@@ -10242,7 +10242,7 @@ define internal i32 @clusapi_dissect_CloseBatchPort_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10254,7 +10254,7 @@ define internal i32 @clusapi_dissect_CloseBatchPort_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenClusterEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1613, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenClusterEx_dwDesiredAccess, align 4
   %9 = tail call i32 @clusapi_dissect_bitmap_DesiredAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 poison)
@@ -10264,7 +10264,7 @@ define internal i32 @clusapi_dissect_OpenClusterEx_request(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenClusterEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1613, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenClusterEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenClusterEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10280,7 +10280,7 @@ define internal i32 @clusapi_dissect_OpenClusterEx_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNodeEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1614, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNodeEx_lpszNodeName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNodeEx_lpszNodeName_, i32 noundef 1, ptr noundef nonnull @.str.1736, i32 noundef %8) #4
@@ -10293,7 +10293,7 @@ define internal i32 @clusapi_dissect_OpenNodeEx_request(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1614, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNodeEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNodeEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10312,7 +10312,7 @@ define internal i32 @clusapi_dissect_OpenNodeEx_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroupEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1615, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupEx_lpszGroupName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroupEx_lpszGroupName_, i32 noundef 1, ptr noundef nonnull @.str.1727, i32 noundef %8) #4
@@ -10325,7 +10325,7 @@ define internal i32 @clusapi_dissect_OpenGroupEx_request(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1615, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroupEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10344,7 +10344,7 @@ define internal i32 @clusapi_dissect_OpenGroupEx_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenResourceEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1616, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResourceEx_lpszResourceName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenResourceEx_lpszResourceName_, i32 noundef 1, ptr noundef nonnull @.str.1693, i32 noundef %8) #4
@@ -10357,7 +10357,7 @@ define internal i32 @clusapi_dissect_OpenResourceEx_request(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenResourceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1616, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenResourceEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenResourceEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10376,7 +10376,7 @@ define internal i32 @clusapi_dissect_OpenResourceEx_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetworkEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1617, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetworkEx_lpszNetworkName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetworkEx_lpszNetworkName_, i32 noundef 1, ptr noundef nonnull @.str.1744, i32 noundef %8) #4
@@ -10389,7 +10389,7 @@ define internal i32 @clusapi_dissect_OpenNetworkEx_request(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetworkEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1617, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetworkEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetworkEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10408,7 +10408,7 @@ define internal i32 @clusapi_dissect_OpenNetworkEx_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetInterfaceEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1618, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterfaceEx_lpszNetInterfaceName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetInterfaceEx_lpszNetInterfaceName_, i32 noundef 1, ptr noundef nonnull @.str.1748, i32 noundef %8) #4
@@ -10421,7 +10421,7 @@ define internal i32 @clusapi_dissect_OpenNetInterfaceEx_request(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenNetInterfaceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1618, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenNetInterfaceEx_lpdwGrantedAccess, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenNetInterfaceEx_lpdwGrantedAccess_, i32 noundef 1, ptr noundef nonnull @.str.1763, i32 noundef %8) #4
@@ -10440,7 +10440,7 @@ define internal i32 @clusapi_dissect_OpenNetInterfaceEx_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeCsvState_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1619, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvState_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10454,7 +10454,7 @@ define internal i32 @clusapi_dissect_ChangeCsvState_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeCsvState_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1619, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvState_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ChangeCsvState_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10466,7 +10466,7 @@ define internal i32 @clusapi_dissect_ChangeCsvState_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10478,7 +10478,7 @@ define internal i32 @clusapi_dissect_ChangeCsvState_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnumEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1620, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnumEx_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10495,7 +10495,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnumEx_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNodeEnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1620, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNodeEnumEx_ReturnIdEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNodeEnumEx_ReturnIdEnum_, i32 noundef 1, ptr noundef nonnull @.str.1765, i32 noundef %9) #4
@@ -10513,7 +10513,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnumEx_response(ptr noundef %0, i
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -10525,7 +10525,7 @@ define internal i32 @clusapi_dissect_CreateNodeEnumEx_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateEnumEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1621, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateEnumEx_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10542,7 +10542,7 @@ define internal i32 @clusapi_dissect_CreateEnumEx_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateEnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1621, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateEnumEx_ReturnIdEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateEnumEx_ReturnIdEnum_, i32 noundef 1, ptr noundef nonnull @.str.1765, i32 noundef %9) #4
@@ -10560,7 +10560,7 @@ define internal i32 @clusapi_dissect_CreateEnumEx_response(ptr noundef %0, i32 n
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -10572,7 +10572,7 @@ define internal i32 @clusapi_dissect_CreateEnumEx_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNodeEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1622, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_PauseNodeEx_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10589,7 +10589,7 @@ define internal i32 @clusapi_dissect_PauseNodeEx_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1622, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNodeEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_PauseNodeEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10601,7 +10601,7 @@ define internal i32 @clusapi_dissect_PauseNodeEx_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10613,7 +10613,7 @@ define internal i32 @clusapi_dissect_PauseNodeEx_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1623, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_PauseNodeWithDrainTarget_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10630,7 +10630,7 @@ define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_request(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1623, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_PauseNodeWithDrainTarget_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_PauseNodeWithDrainTarget_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10642,7 +10642,7 @@ define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_response(ptr nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10654,7 +10654,7 @@ define internal i32 @clusapi_dissect_PauseNodeWithDrainTarget_response(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResumeNodeEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1624, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ResumeNodeEx_hNode, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10671,7 +10671,7 @@ define internal i32 @clusapi_dissect_ResumeNodeEx_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ResumeNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1624, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ResumeNodeEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ResumeNodeEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10683,7 +10683,7 @@ define internal i32 @clusapi_dissect_ResumeNodeEx_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10695,7 +10695,7 @@ define internal i32 @clusapi_dissect_ResumeNodeEx_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1625, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEx_lpszGroupName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupEx_lpszGroupName_, i32 noundef 1, ptr noundef nonnull @.str.1727, i32 noundef %8) #4
@@ -10708,7 +10708,7 @@ define internal i32 @clusapi_dissect_CreateGroupEx_request(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1625, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEx_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupEx_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -10724,7 +10724,7 @@ define internal i32 @clusapi_dissect_CreateGroupEx_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineGroupEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1626, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OnlineGroupEx_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10744,7 +10744,7 @@ define internal i32 @clusapi_dissect_OnlineGroupEx_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1626, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineGroupEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OnlineGroupEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10756,7 +10756,7 @@ define internal i32 @clusapi_dissect_OnlineGroupEx_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10768,7 +10768,7 @@ define internal i32 @clusapi_dissect_OnlineGroupEx_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineGroupEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1627, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OfflineGroupEx_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10788,7 +10788,7 @@ define internal i32 @clusapi_dissect_OfflineGroupEx_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1627, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineGroupEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OfflineGroupEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10800,7 +10800,7 @@ define internal i32 @clusapi_dissect_OfflineGroupEx_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10812,7 +10812,7 @@ define internal i32 @clusapi_dissect_OfflineGroupEx_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1628, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_MoveGroupEx_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10832,7 +10832,7 @@ define internal i32 @clusapi_dissect_MoveGroupEx_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1628, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_MoveGroupEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10844,7 +10844,7 @@ define internal i32 @clusapi_dissect_MoveGroupEx_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10856,7 +10856,7 @@ define internal i32 @clusapi_dissect_MoveGroupEx_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNodeEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1629, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNodeEx_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10879,7 +10879,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNodeEx_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToNodeEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1629, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToNodeEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_MoveGroupToNodeEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10891,7 +10891,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNodeEx_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10903,7 +10903,7 @@ define internal i32 @clusapi_dissect_MoveGroupToNodeEx_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CancelClusterGroupOperation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1630, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CancelClusterGroupOperation_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10917,7 +10917,7 @@ define internal i32 @clusapi_dissect_CancelClusterGroupOperation_request(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CancelClusterGroupOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1630, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CancelClusterGroupOperation_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CancelClusterGroupOperation_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10929,7 +10929,7 @@ define internal i32 @clusapi_dissect_CancelClusterGroupOperation_response(ptr no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10941,7 +10941,7 @@ define internal i32 @clusapi_dissect_CancelClusterGroupOperation_response(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineResourceEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1631, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OnlineResourceEx_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -10961,7 +10961,7 @@ define internal i32 @clusapi_dissect_OnlineResourceEx_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OnlineResourceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1631, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OnlineResourceEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OnlineResourceEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -10973,7 +10973,7 @@ define internal i32 @clusapi_dissect_OnlineResourceEx_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -10985,7 +10985,7 @@ define internal i32 @clusapi_dissect_OnlineResourceEx_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineResourceEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1632, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OfflineResourceEx_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11005,7 +11005,7 @@ define internal i32 @clusapi_dissect_OfflineResourceEx_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OfflineResourceEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1632, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_OfflineResourceEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OfflineResourceEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -11017,7 +11017,7 @@ define internal i32 @clusapi_dissect_OfflineResourceEx_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -11029,14 +11029,14 @@ define internal i32 @clusapi_dissect_OfflineResourceEx_response(ptr noundef %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_CreateNotifyV2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1633, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNotifyV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1633, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNotifyV2_rpc_error, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNotifyV2_rpc_error_, i32 noundef 1, ptr noundef nonnull @.str.1768, i32 noundef %8) #4
@@ -11052,7 +11052,7 @@ define internal i32 @clusapi_dissect_CreateNotifyV2_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyV2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1634, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyV2_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11078,7 +11078,7 @@ define internal i32 @clusapi_dissect_AddNotifyV2_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1634, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyV2_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyV2_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -11090,7 +11090,7 @@ define internal i32 @clusapi_dissect_AddNotifyV2_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -11102,7 +11102,7 @@ define internal i32 @clusapi_dissect_AddNotifyV2_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotifyV2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1635, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNotifyV2_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11113,7 +11113,7 @@ define internal i32 @clusapi_dissect_GetNotifyV2_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotifyV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1635, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotifyV2_Notifications, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNotifyV2_Notifications_, i32 noundef 1, ptr noundef nonnull @.str.1769, i32 noundef %9) #4
@@ -11128,7 +11128,7 @@ define internal i32 @clusapi_dissect_GetNotifyV2_response(ptr noundef %0, i32 no
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -11140,7 +11140,7 @@ define internal i32 @clusapi_dissect_GetNotifyV2_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryAllValues_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1636, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_QueryAllValues_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11151,7 +11151,7 @@ define internal i32 @clusapi_dissect_QueryAllValues_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_QueryAllValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1636, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_QueryAllValues_pcbData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_QueryAllValues_pcbData_, i32 noundef 1, ptr noundef nonnull @.str.1771, i32 noundef %9) #4
@@ -11169,7 +11169,7 @@ define internal i32 @clusapi_dissect_QueryAllValues_response(ptr noundef %0, i32
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -11181,7 +11181,7 @@ define internal i32 @clusapi_dissect_QueryAllValues_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_StmFindDisk_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1637, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_StmFindDisk_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11204,7 +11204,7 @@ define internal i32 @clusapi_dissect_StmFindDisk_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_StmFindDisk_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1637, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_StmFindDisk_pDiskId, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_StmFindDisk_pDiskId_, i32 noundef 2, ptr noundef nonnull @.str.1773, i32 noundef %9) #4
@@ -11222,7 +11222,7 @@ define internal i32 @clusapi_dissect_StmFindDisk_response(ptr noundef %0, i32 no
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -11234,7 +11234,7 @@ define internal i32 @clusapi_dissect_StmFindDisk_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ClusterMrr_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1638, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ClusterMrr_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11266,7 +11266,7 @@ define internal i32 @clusapi_dissect_ClusterMrr_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ClusterMrr_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1638, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ClusterMrr_ppInfo, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ClusterMrr_ppInfo_, i32 noundef 1, ptr noundef nonnull @.str.1777, i32 noundef %9) #4
@@ -11281,7 +11281,7 @@ define internal i32 @clusapi_dissect_ClusterMrr_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -11293,7 +11293,7 @@ define internal i32 @clusapi_dissect_ClusterMrr_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1639, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEnum_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11316,7 +11316,7 @@ define internal i32 @clusapi_dissect_CreateGroupEnum_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1639, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupEnum_ppResultList, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupEnum_ppResultList_, i32 noundef 1, ptr noundef nonnull @.str.1780, i32 noundef %9) #4
@@ -11331,7 +11331,7 @@ define internal i32 @clusapi_dissect_CreateGroupEnum_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -11343,7 +11343,7 @@ define internal i32 @clusapi_dissect_CreateGroupEnum_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResourceEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1640, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateResourceEnum_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11366,7 +11366,7 @@ define internal i32 @clusapi_dissect_CreateResourceEnum_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateResourceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1640, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateResourceEnum_ppResultList, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateResourceEnum_ppResultList_, i32 noundef 1, ptr noundef nonnull @.str.1781, i32 noundef %9) #4
@@ -11381,7 +11381,7 @@ define internal i32 @clusapi_dissect_CreateResourceEnum_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -11393,7 +11393,7 @@ define internal i32 @clusapi_dissect_CreateResourceEnum_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatch_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1641, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatch_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11410,7 +11410,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatch_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatch_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1641, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatch_cbOutData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ExecuteReadBatch_cbOutData_, i32 noundef 1, ptr noundef nonnull @.str.1783, i32 noundef %9) #4
@@ -11428,7 +11428,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatch_response(ptr noundef %0, i
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -11440,7 +11440,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatch_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RestartResource_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1642, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RestartResource_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11454,7 +11454,7 @@ define internal i32 @clusapi_dissect_RestartResource_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RestartResource_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1642, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RestartResource_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RestartResource_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -11466,7 +11466,7 @@ define internal i32 @clusapi_dissect_RestartResource_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -11478,7 +11478,7 @@ define internal i32 @clusapi_dissect_RestartResource_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotifyAsync_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1643, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GetNotifyAsync_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11489,7 +11489,7 @@ define internal i32 @clusapi_dissect_GetNotifyAsync_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GetNotifyAsync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1643, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GetNotifyAsync_Notifications, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GetNotifyAsync_Notifications_, i32 noundef 1, ptr noundef nonnull @.str.1785, i32 noundef %9) #4
@@ -11504,7 +11504,7 @@ define internal i32 @clusapi_dissect_GetNotifyAsync_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -11516,7 +11516,7 @@ define internal i32 @clusapi_dissect_GetNotifyAsync_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum148NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1644, ptr %7, align 8
   ret i32 %1
 }
@@ -11524,7 +11524,7 @@ define internal noundef i32 @clusapi_dissect_Opnum148NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum148NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1644, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11533,7 +11533,7 @@ define internal i32 @clusapi_dissect_Opnum148NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11545,7 +11545,7 @@ define internal i32 @clusapi_dissect_Opnum148NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum149otUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1645, ptr %7, align 8
   ret i32 %1
 }
@@ -11553,7 +11553,7 @@ define internal noundef i32 @clusapi_dissect_Opnum149otUsedOnWire_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum149otUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1645, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11562,7 +11562,7 @@ define internal i32 @clusapi_dissect_Opnum149otUsedOnWire_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11574,7 +11574,7 @@ define internal i32 @clusapi_dissect_Opnum149otUsedOnWire_response(ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum150NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1646, ptr %7, align 8
   ret i32 %1
 }
@@ -11582,7 +11582,7 @@ define internal noundef i32 @clusapi_dissect_Opnum150NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum150NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1646, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11591,7 +11591,7 @@ define internal i32 @clusapi_dissect_Opnum150NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11603,7 +11603,7 @@ define internal i32 @clusapi_dissect_Opnum150NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum151NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1647, ptr %7, align 8
   ret i32 %1
 }
@@ -11611,7 +11611,7 @@ define internal noundef i32 @clusapi_dissect_Opnum151NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum151NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1647, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11620,7 +11620,7 @@ define internal i32 @clusapi_dissect_Opnum151NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11632,7 +11632,7 @@ define internal i32 @clusapi_dissect_Opnum151NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum152NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1648, ptr %7, align 8
   ret i32 %1
 }
@@ -11640,7 +11640,7 @@ define internal noundef i32 @clusapi_dissect_Opnum152NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum152NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1648, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11649,7 +11649,7 @@ define internal i32 @clusapi_dissect_Opnum152NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11661,7 +11661,7 @@ define internal i32 @clusapi_dissect_Opnum152NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum153NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1649, ptr %7, align 8
   ret i32 %1
 }
@@ -11669,7 +11669,7 @@ define internal noundef i32 @clusapi_dissect_Opnum153NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum153NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1649, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11678,7 +11678,7 @@ define internal i32 @clusapi_dissect_Opnum153NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11690,7 +11690,7 @@ define internal i32 @clusapi_dissect_Opnum153NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum154NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1650, ptr %7, align 8
   ret i32 %1
 }
@@ -11698,7 +11698,7 @@ define internal noundef i32 @clusapi_dissect_Opnum154NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum154NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1650, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11707,7 +11707,7 @@ define internal i32 @clusapi_dissect_Opnum154NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11719,7 +11719,7 @@ define internal i32 @clusapi_dissect_Opnum154NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1651, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResourceTypeV2_hNotify, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11742,7 +11742,7 @@ define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1651, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddNotifyResourceTypeV2_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddNotifyResourceTypeV2_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -11754,7 +11754,7 @@ define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_response(ptr nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -11766,7 +11766,7 @@ define internal i32 @clusapi_dissect_AddNotifyResourceTypeV2_response(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum156NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1652, ptr %7, align 8
   ret i32 %1
 }
@@ -11774,7 +11774,7 @@ define internal noundef i32 @clusapi_dissect_Opnum156NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum156NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1652, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11783,7 +11783,7 @@ define internal i32 @clusapi_dissect_Opnum156NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11795,7 +11795,7 @@ define internal i32 @clusapi_dissect_Opnum156NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatchEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1653, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatchEx_hKey, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -11815,7 +11815,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatchEx_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ExecuteReadBatchEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1653, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ExecuteReadBatchEx_cbOutData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ExecuteReadBatchEx_cbOutData_, i32 noundef 1, ptr noundef nonnull @.str.1783, i32 noundef %9) #4
@@ -11833,7 +11833,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatchEx_response(ptr noundef %0,
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %24) #4
@@ -11845,7 +11845,7 @@ define internal i32 @clusapi_dissect_ExecuteReadBatchEx_response(ptr noundef %0,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum158NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1654, ptr %7, align 8
   ret i32 %1
 }
@@ -11853,7 +11853,7 @@ define internal noundef i32 @clusapi_dissect_Opnum158NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum158NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1654, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11862,7 +11862,7 @@ define internal i32 @clusapi_dissect_Opnum158NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11874,7 +11874,7 @@ define internal i32 @clusapi_dissect_Opnum158NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum159NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1655, ptr %7, align 8
   ret i32 %1
 }
@@ -11882,7 +11882,7 @@ define internal noundef i32 @clusapi_dissect_Opnum159NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum159NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1655, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11891,7 +11891,7 @@ define internal i32 @clusapi_dissect_Opnum159NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11903,7 +11903,7 @@ define internal i32 @clusapi_dissect_Opnum159NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum160NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1656, ptr %7, align 8
   ret i32 %1
 }
@@ -11911,7 +11911,7 @@ define internal noundef i32 @clusapi_dissect_Opnum160NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum160NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1656, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11920,7 +11920,7 @@ define internal i32 @clusapi_dissect_Opnum160NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11932,7 +11932,7 @@ define internal i32 @clusapi_dissect_Opnum160NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum161NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1657, ptr %7, align 8
   ret i32 %1
 }
@@ -11940,7 +11940,7 @@ define internal noundef i32 @clusapi_dissect_Opnum161NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum161NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1657, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11949,7 +11949,7 @@ define internal i32 @clusapi_dissect_Opnum161NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11961,7 +11961,7 @@ define internal i32 @clusapi_dissect_Opnum161NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum162NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1658, ptr %7, align 8
   ret i32 %1
 }
@@ -11969,7 +11969,7 @@ define internal noundef i32 @clusapi_dissect_Opnum162NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum162NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1658, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -11978,7 +11978,7 @@ define internal i32 @clusapi_dissect_Opnum162NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -11990,7 +11990,7 @@ define internal i32 @clusapi_dissect_Opnum162NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1659, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSet_lpszGroupSetName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupSet_lpszGroupSetName_, i32 noundef 1, ptr noundef nonnull @.str.1787, i32 noundef %8) #4
@@ -12000,7 +12000,7 @@ define internal i32 @clusapi_dissect_CreateGroupSet_request(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1659, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSet_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupSet_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -12016,7 +12016,7 @@ define internal i32 @clusapi_dissect_CreateGroupSet_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1660, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupSet_lpszGroupSetName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroupSet_lpszGroupSetName_, i32 noundef 1, ptr noundef nonnull @.str.1787, i32 noundef %8) #4
@@ -12026,7 +12026,7 @@ define internal i32 @clusapi_dissect_OpenGroupSet_request(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_OpenGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1660, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_OpenGroupSet_Status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_OpenGroupSet_Status_, i32 noundef 1, ptr noundef nonnull @.str.1680, i32 noundef %8) #4
@@ -12042,7 +12042,7 @@ define internal i32 @clusapi_dissect_OpenGroupSet_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1661, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CloseGroupSet_GroupSet, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseGroupSet_GroupSet_, i32 noundef 1, ptr noundef nonnull @.str.1789, i32 noundef %8) #4
@@ -12053,7 +12053,7 @@ define internal i32 @clusapi_dissect_CloseGroupSet_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CloseGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1661, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CloseGroupSet_GroupSet, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CloseGroupSet_GroupSet_, i32 noundef 1, ptr noundef nonnull @.str.1789, i32 noundef %9) #4
@@ -12065,7 +12065,7 @@ define internal i32 @clusapi_dissect_CloseGroupSet_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12077,7 +12077,7 @@ define internal i32 @clusapi_dissect_CloseGroupSet_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1662, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_DeleteGroupSet_GroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12088,7 +12088,7 @@ define internal i32 @clusapi_dissect_DeleteGroupSet_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_DeleteGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1662, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_DeleteGroupSet_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_DeleteGroupSet_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12100,7 +12100,7 @@ define internal i32 @clusapi_dissect_DeleteGroupSet_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12112,7 +12112,7 @@ define internal i32 @clusapi_dissect_DeleteGroupSet_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1663, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSet_GroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12126,7 +12126,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSet_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1663, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSet_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddGroupToGroupSet_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12138,7 +12138,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSet_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12150,7 +12150,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSet_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1664, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupFromGroupSet_Group, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12161,7 +12161,7 @@ define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1664, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupFromGroupSet_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveGroupFromGroupSet_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12173,7 +12173,7 @@ define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_response(ptr nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12185,7 +12185,7 @@ define internal i32 @clusapi_dissect_RemoveGroupFromGroupSet_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToGroupSet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1665, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToGroupSet_GroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12199,7 +12199,7 @@ define internal i32 @clusapi_dissect_MoveGroupToGroupSet_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_MoveGroupToGroupSet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1665, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_MoveGroupToGroupSet_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_MoveGroupToGroupSet_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12211,7 +12211,7 @@ define internal i32 @clusapi_dissect_MoveGroupToGroupSet_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12223,7 +12223,7 @@ define internal i32 @clusapi_dissect_MoveGroupToGroupSet_response(ptr noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @clusapi_dissect_Opnum170NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1666, ptr %7, align 8
   ret i32 %1
 }
@@ -12231,7 +12231,7 @@ define internal noundef i32 @clusapi_dissect_Opnum170NotUsedOnWire_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_Opnum170NotUsedOnWire_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1666, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -12240,7 +12240,7 @@ define internal i32 @clusapi_dissect_Opnum170NotUsedOnWire_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %15) #4
@@ -12252,7 +12252,7 @@ define internal i32 @clusapi_dissect_Opnum170NotUsedOnWire_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupSetDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1667, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddGroupSetDependency_DependentGroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12266,7 +12266,7 @@ define internal i32 @clusapi_dissect_AddGroupSetDependency_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1667, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupSetDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddGroupSetDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12278,7 +12278,7 @@ define internal i32 @clusapi_dissect_AddGroupSetDependency_response(ptr noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12290,7 +12290,7 @@ define internal i32 @clusapi_dissect_AddGroupSetDependency_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1668, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetDependency_DependentGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12304,7 +12304,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1668, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddGroupToGroupSetDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12316,7 +12316,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_response(ptr n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12328,7 +12328,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetDependency_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeGroupSetControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1669, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_NodeGroupSetControl_hGroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12354,7 +12354,7 @@ define internal i32 @clusapi_dissect_NodeGroupSetControl_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_NodeGroupSetControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1669, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_NodeGroupSetControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NodeGroupSetControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -12375,7 +12375,7 @@ define internal i32 @clusapi_dissect_NodeGroupSetControl_response(ptr noundef %0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -12387,7 +12387,7 @@ define internal i32 @clusapi_dissect_NodeGroupSetControl_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GroupSetControl_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1670, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_GroupSetControl_hGroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12410,7 +12410,7 @@ define internal i32 @clusapi_dissect_GroupSetControl_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_GroupSetControl_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1670, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_GroupSetControl_lpOutBuffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GroupSetControl_lpOutBuffer_, i32 noundef 1, ptr noundef nonnull @.str.1741, i32 noundef %9) #4
@@ -12431,7 +12431,7 @@ define internal i32 @clusapi_dissect_GroupSetControl_response(ptr noundef %0, i3
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %27) #4
@@ -12443,7 +12443,7 @@ define internal i32 @clusapi_dissect_GroupSetControl_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupDependencyExpression_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1671, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupDependencyExpression_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12457,7 +12457,7 @@ define internal i32 @clusapi_dissect_SetGroupDependencyExpression_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1671, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupDependencyExpression_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetGroupDependencyExpression_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12469,7 +12469,7 @@ define internal i32 @clusapi_dissect_SetGroupDependencyExpression_response(ptr n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12481,7 +12481,7 @@ define internal i32 @clusapi_dissect_SetGroupDependencyExpression_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1672, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupDependency_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12495,7 +12495,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1672, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveClusterGroupDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12507,7 +12507,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_response(ptr n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12519,7 +12519,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupDependency_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1673, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_SetGroupSetDependencyExpression_hGroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12533,7 +12533,7 @@ define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1673, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_SetGroupSetDependencyExpression_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_SetGroupSetDependencyExpression_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12545,7 +12545,7 @@ define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_response(pt
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12557,7 +12557,7 @@ define internal i32 @clusapi_dissect_SetGroupSetDependencyExpression_response(pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveGroupSetDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1674, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupSetDependency_hGroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12571,7 +12571,7 @@ define internal i32 @clusapi_dissect_RemoveGroupSetDependency_request(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1674, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveGroupSetDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveGroupSetDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12583,7 +12583,7 @@ define internal i32 @clusapi_dissect_RemoveGroupSetDependency_response(ptr nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12595,7 +12595,7 @@ define internal i32 @clusapi_dissect_RemoveGroupSetDependency_response(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1675, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupToGroupSetDependency_hGroup, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12609,7 +12609,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1675, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_RemoveClusterGroupToGroupSetDependency_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RemoveClusterGroupToGroupSetDependency_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12621,7 +12621,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_resp
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12633,7 +12633,7 @@ define internal i32 @clusapi_dissect_RemoveClusterGroupToGroupSetDependency_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupSetEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1676, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSetEnum_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12644,7 +12644,7 @@ define internal i32 @clusapi_dissect_CreateGroupSetEnum_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateGroupSetEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1676, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateGroupSetEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateGroupSetEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -12659,7 +12659,7 @@ define internal i32 @clusapi_dissect_CreateGroupSetEnum_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -12671,7 +12671,7 @@ define internal i32 @clusapi_dissect_CreateGroupSetEnum_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1677, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_CreateNetInterfaceEnum_hCluster, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12688,7 +12688,7 @@ define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1677, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_CreateNetInterfaceEnum_ReturnEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CreateNetInterfaceEnum_ReturnEnum_, i32 noundef 1, ptr noundef nonnull @.str.1696, i32 noundef %9) #4
@@ -12703,7 +12703,7 @@ define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_response(ptr noundef
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %21) #4
@@ -12715,7 +12715,7 @@ define internal i32 @clusapi_dissect_CreateNetInterfaceEnum_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeCsvStateEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1678, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvStateEx_hResource, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12732,7 +12732,7 @@ define internal i32 @clusapi_dissect_ChangeCsvStateEx_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_ChangeCsvStateEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1678, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_ChangeCsvStateEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ChangeCsvStateEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12744,7 +12744,7 @@ define internal i32 @clusapi_dissect_ChangeCsvStateEx_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4
@@ -12756,7 +12756,7 @@ define internal i32 @clusapi_dissect_ChangeCsvStateEx_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1679, ptr %7, align 8
   %8 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetEx_GroupSet, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -12782,7 +12782,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1679, ptr %8, align 8
   %9 = load i32, ptr @hf_clusapi_clusapi_AddGroupToGroupSetEx_rpc_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_AddGroupToGroupSetEx_rpc_status_, i32 noundef 1, ptr noundef nonnull @.str.1685, i32 noundef %9) #4
@@ -12794,7 +12794,7 @@ define internal i32 @clusapi_dissect_AddGroupToGroupSetEx_response(ptr noundef %
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1683) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1682, ptr noundef %18) #4

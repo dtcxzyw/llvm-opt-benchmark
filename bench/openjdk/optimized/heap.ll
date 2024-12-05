@@ -54,17 +54,17 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8CodeHeapC2EPKc12CodeBlobType(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
-  %8 = getelementptr inbounds i8, ptr %0, i64 256
-  %9 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 316
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 316
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
@@ -80,7 +80,7 @@ define hidden void @_ZN8CodeHeap20init_segmap_templateEv() local_unnamed_addr #2
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = trunc i64 %indvars.iv to i8
-  %3 = getelementptr inbounds [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv
   store i8 %2, ptr %3, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -96,7 +96,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_freeEmm(ptr nocapture noundef n
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   %gepdiff = sub nuw nsw i64 %2, %1
@@ -116,7 +116,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %1
   %10 = getelementptr inbounds i8, ptr %8, i64 %2
@@ -131,7 +131,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
   %16 = add i8 %14, 1
   %storemerge = select i1 %15, i8 %16, i8 1
   store i8 %storemerge, ptr %9, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 332
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -153,7 +153,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
   br label %.loopexit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %9, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %9, align 1
   %29 = icmp ult ptr %28, %10
   br i1 %29, label %.lr.ph, label %.loopexit
@@ -164,7 +164,7 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
 
 31:                                               ; preds = %.lr.ph, %35
   %.037 = phi ptr [ %28, %.lr.ph ], [ %32, %35 ]
-  %32 = getelementptr inbounds i8, ptr %.037, i64 254
+  %32 = getelementptr inbounds nuw i8, ptr %.037, i64 254
   %.not = icmp ugt ptr %32, %10
   br i1 %.not, label %.thread, label %35
 
@@ -185,18 +185,18 @@ define hidden void @_ZN8CodeHeap19mark_segmap_as_usedEmmb(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not3543 = icmp eq ptr %6, null
   %.not35 = select i1 %.not.i, i1 true, i1 %.not3543
   br i1 %.not35, label %select.unfold._crit_edge, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load i32, ptr %7, align 8
   br label %9
 
@@ -250,7 +250,7 @@ define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr nocapture noundef n
 
 _ZN8CodeHeap11segmap_hopsEmm.exit:                ; preds = %9, %._crit_edge.i
   %.019.i = phi i32 [ %38, %._crit_edge.i ], [ 0, %9 ]
-  %39 = getelementptr inbounds i8, ptr %.02537, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.02537, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
   %42 = select i1 %41, i32 0, i32 %.019.i
@@ -274,7 +274,7 @@ _ZN8CodeHeap11segmap_hopsEmm.exit:                ; preds = %9, %._crit_edge.i
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 0, ptr %47, align 1
   %53 = icmp ult ptr %52, %48
   br i1 %53, label %.lr.ph, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
@@ -285,7 +285,7 @@ _ZN8CodeHeap11segmap_hopsEmm.exit:                ; preds = %9, %._crit_edge.i
 
 55:                                               ; preds = %.lr.ph, %59
   %.0.i2934 = phi ptr [ %52, %.lr.ph ], [ %56, %59 ]
-  %56 = getelementptr inbounds i8, ptr %.0.i2934, i64 254
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i2934, i64 254
   %.not.i30 = icmp ugt ptr %56, %48
   br i1 %.not.i30, label %.thread, label %59
 
@@ -341,7 +341,7 @@ define hidden void @_ZN8CodeHeap5clearEmm(ptr nocapture noundef nonnull readonly
   br i1 %4, label %5, label %_ZN8CodeHeap19mark_segmap_as_freeEmm.exit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   %gepdiff.i = sub nuw nsw i64 %2, %1
@@ -354,15 +354,15 @@ _ZN8CodeHeap19mark_segmap_as_freeEmm.exit:        ; preds = %3, %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8CodeHeap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((256, 264)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %_ZN8CodeHeap5clearEmm.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 -1, i64 %4, i1 false)
   br label %_ZN8CodeHeap5clearEmm.exit
@@ -383,22 +383,22 @@ declare void @_Z15linux_wrap_codePcm(ptr noundef, i64 noundef) local_unnamed_add
 define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(336) initializes((240, 252)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.ReservedSpace, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %3, ptr %7, align 8
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
   %9 = trunc nuw nsw i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %14 = add i64 %2, -1
   %15 = add i64 %14, %12
   %16 = sub i64 0, %12
   %17 = and i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 304
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load ptr, ptr %1, align 8
   tail call void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef %19, i64 noundef %17, i64 noundef %21, ptr noundef %22, i64 noundef %21, i64 noundef %12) #16
@@ -406,7 +406,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
   br i1 %23, label %24, label %_ZN8CodeHeap20init_segmap_templateEv.exit
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #16
   tail call void @_Z15linux_wrap_codePcm(ptr noundef %26, i64 noundef %27) #16
@@ -417,7 +417,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
   %32 = load i32, ptr %10, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %31, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %34, ptr %35, align 8
   %36 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #16
   %37 = load i64, ptr %7, align 8
@@ -426,7 +426,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
   %40 = load i32, ptr %10, align 8
   %41 = zext nneg i32 %40 to i64
   %42 = lshr i64 %39, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %42, ptr %43, align 8
   %44 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %45 = tail call noundef i64 @llvm.umax.i64(i64 %44, i64 %13)
@@ -440,7 +440,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
   %53 = sub i64 0, %44
   %54 = and i64 %52, %53
   call void @_ZN13ReservedSpaceC1Em(ptr noundef nonnull align 8 dereferenceable(49) %6, i64 noundef %49) #16
-  %55 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %56 = call noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(112) %55, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %6, i64 noundef %54) #16
   br i1 %56, label %57, label %_ZN8CodeHeap20init_segmap_templateEv.exit
 
@@ -461,14 +461,14 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %57, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %63 = getelementptr inbounds i8, ptr %0, i64 256
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %63, align 8
   %64 = load i64, ptr %35, align 8
   %.not.i = icmp eq i64 %64, 0
   br i1 %.not.i, label %_ZN8CodeHeap5clearEv.exit.preheader, label %65
 
 65:                                               ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
-  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %67, i8 -1, i64 %64, i1 false)
   br label %_ZN8CodeHeap5clearEv.exit.preheader
@@ -479,7 +479,7 @@ _ZN8CodeHeap5clearEv.exit.preheader:              ; preds = %_ZN10MemTracker26re
 _ZN8CodeHeap5clearEv.exit:                        ; preds = %_ZN8CodeHeap5clearEv.exit.preheader, %_ZN8CodeHeap5clearEv.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN8CodeHeap5clearEv.exit ], [ 0, %_ZN8CodeHeap5clearEv.exit.preheader ]
   %68 = trunc i64 %indvars.iv.i to i8
-  %69 = getelementptr inbounds [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8CodeHeap15segmap_templateE, i64 0, i64 %indvars.iv.i
   store i8 %68, ptr %69, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -530,7 +530,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
 
 19:                                               ; preds = %17, %14, %12
   %.010 = phi i64 [ %18, %17 ], [ %11, %14 ], [ %11, %12 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #16
   %23 = tail call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.010, i1 noundef zeroext false) #16
@@ -539,14 +539,14 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %21, i64 %22
   tail call void @_Z15linux_wrap_codePcm(ptr noundef %25, i64 noundef %.010) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %27 = load i64, ptr %26, align 8
   %28 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #16
-  %29 = getelementptr inbounds i8, ptr %0, i64 240
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %28, -1
   %32 = add i64 %31, %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 248
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %34 = load i32, ptr %33, align 8
   %35 = zext nneg i32 %34 to i64
   %36 = lshr i64 %32, %35
@@ -556,7 +556,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
   %39 = add i64 %38, %37
   %40 = sub i64 0, %37
   %41 = and i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %42) #16
   %.not14 = icmp eq i64 %41, %43
   br i1 %.not14, label %47, label %44
@@ -572,7 +572,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap9expand_byEm(ptr noundef nonnull a
   br i1 %49, label %50, label %_ZN8CodeHeap5clearEmm.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 %27
   %gepdiff.i.i = sub nuw nsw i64 %48, %27
@@ -590,11 +590,11 @@ declare noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %1, 7
   %6 = add i64 %5, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %6, %9
@@ -605,7 +605,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8
   %.not23 = icmp uge ptr %11, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ult ptr %11, %15
   %or.cond = select i1 %.not23, i1 %16, i1 false
@@ -623,11 +623,11 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   unreachable
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %0, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 %28, %30
   %32 = load i32, ptr %7, align 8
@@ -643,10 +643,10 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   %39 = trunc i64 %10 to i32
   %40 = tail call noundef i32 @llvm.smax.i32(i32 %38, i32 %39)
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %46 = load i64, ptr %45, align 8
   %.not21 = icmp ugt i64 %44, %46
   br i1 %.not21, label %101, label %47
@@ -656,7 +656,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   br i1 %48, label %49, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %43
   %53 = getelementptr inbounds i8, ptr %51, i64 %44
@@ -668,7 +668,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %52, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store i8 0, ptr %52, align 1
   %58 = icmp ult ptr %57, %53
   br i1 %58, label %.lr.ph.i, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
@@ -679,7 +679,7 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
 
 60:                                               ; preds = %64, %.lr.ph.i
   %.037.i = phi ptr [ %57, %.lr.ph.i ], [ %61, %64 ]
-  %61 = getelementptr inbounds i8, ptr %.037.i, i64 254
+  %61 = getelementptr inbounds nuw i8, ptr %.037.i, i64 254
   %.not.i = icmp ugt ptr %61, %53
   br i1 %.not.i, label %.thread.i, label %64
 
@@ -696,21 +696,21 @@ define hidden noundef ptr @_ZN8CodeHeap8allocateEm(ptr nocapture noundef nonnull
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, %.thread.i
   %66 = load i64, ptr %42, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %7, align 8
   %70 = zext nneg i32 %69 to i64
   %71 = shl i64 %66, %70
   %72 = getelementptr inbounds i8, ptr %68, i64 %71
   store i32 %40, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i8 1, ptr %73, align 4
   %74 = load i64, ptr %42, align 8
   %75 = add i64 %74, %41
   store i64 %75, ptr %42, align 8
   %76 = load ptr, ptr %0, align 8
   %.not22 = icmp uge ptr %72, %76
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = icmp ult ptr %72, %78
   %or.cond28 = select i1 %.not22, i1 %79, i1 false
@@ -728,9 +728,9 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, 
   unreachable
 
 87:                                               ; preds = %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
-  %88 = getelementptr inbounds i8, ptr %0, i64 296
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 280
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %91 = load i64, ptr %90, align 8
   %92 = sub i64 %75, %91
   %93 = load i32, ptr %7, align 8
@@ -742,11 +742,11 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, 
 
 .sink.split:                                      ; preds = %24, %87
   %.sink = phi ptr [ %72, %87 ], [ %11, %24 ]
-  %97 = getelementptr inbounds i8, ptr %0, i64 316
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %98 = load i32, ptr %97, align 4
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 4
-  %100 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   br label %101
 
 101:                                              ; preds = %.sink.split, %36
@@ -756,7 +756,7 @@ _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %64, %47, %55, %56, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr @CodeCacheMinBlockLength, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 %5)
@@ -764,7 +764,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br i1 %.not60, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph
 
@@ -786,7 +786,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   %.242 = select i1 %or.cond, ptr %.03365, ptr %.04061
   %.239 = select i1 %or.cond, ptr %.03464, ptr %.03762
   %.2 = select i1 %or.cond, i64 %10, i64 %.03663
-  %15 = getelementptr inbounds i8, ptr %.03365, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.03365, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -804,7 +804,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %.thread
-  %21 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 8
@@ -812,25 +812,25 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %3, align 8
   br label %76
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %.14151, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.14151, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.13852, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.13852, i64 8
   store ptr %30, ptr %31, align 8
   br label %76
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %.14151 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 248
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %39 = load i32, ptr %38, align 8
   %40 = zext nneg i32 %39 to i64
   %41 = ashr i64 %37, %40
@@ -854,7 +854,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br i1 %57, label %58, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
 
 58:                                               ; preds = %32
-  %59 = getelementptr inbounds i8, ptr %0, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %55
   %62 = getelementptr inbounds i8, ptr %60, i64 %56
@@ -866,7 +866,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %61, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 0, ptr %61, align 1
   %67 = icmp ult ptr %66, %62
   br i1 %67, label %.lr.ph.i.i, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
@@ -877,7 +877,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
 
 69:                                               ; preds = %73, %.lr.ph.i.i
   %.037.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %70, %73 ]
-  %70 = getelementptr inbounds i8, ptr %.037.i.i, i64 254
+  %70 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 254
   %.not.i.i = icmp ugt ptr %70, %62
   br i1 %.not.i.i, label %.thread.i.i, label %73
 
@@ -900,9 +900,9 @@ _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %73, %32, %64, %65, 
 76:                                               ; preds = %25, %28, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
   %.043 = phi i64 [ %6, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.153, %28 ], [ %.153, %25 ]
   %.035 = phi ptr [ %47, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.14151, %28 ], [ %.14151, %25 ]
-  %77 = getelementptr inbounds i8, ptr %.035, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.035, i64 4
   store i8 1, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 280
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %79 = load i64, ptr %78, align 8
   %80 = sub i64 %79, %.043
   store i64 %80, ptr %78, align 8
@@ -918,12 +918,12 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %6, %9
@@ -936,12 +936,12 @@ define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr nocapture 
   br i1 %4, label %49, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load i32, ptr %11, align 8
   %13 = zext nneg i32 %12 to i64
   %14 = ashr i64 %10, %13
@@ -965,7 +965,7 @@ define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr nocapture 
   br i1 %30, label %31, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 31:                                               ; preds = %5
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %28
   %35 = getelementptr inbounds i8, ptr %33, i64 %29
@@ -977,7 +977,7 @@ define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr nocapture 
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 0, ptr %34, align 1
   %40 = icmp ult ptr %39, %35
   br i1 %40, label %.lr.ph.i, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
@@ -988,7 +988,7 @@ define hidden noundef ptr @_ZN8CodeHeap11split_blockEP9HeapBlockm(ptr nocapture 
 
 42:                                               ; preds = %46, %.lr.ph.i
   %.037.i = phi ptr [ %39, %.lr.ph.i ], [ %43, %46 ]
-  %43 = getelementptr inbounds i8, ptr %.037.i, i64 254
+  %43 = getelementptr inbounds nuw i8, ptr %.037.i, i64 254
   %.not.i = icmp ugt ptr %43, %35
   br i1 %.not.i, label %.thread.i, label %46
 
@@ -1018,11 +1018,11 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %2, 7
   %10 = add i64 %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load i32, ptr %11, align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %10, %13
@@ -1036,7 +1036,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   unreachable
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %4 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -1060,7 +1060,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   br i1 %37, label %38, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
 
 38:                                               ; preds = %17
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %35
   %42 = getelementptr inbounds i8, ptr %40, i64 %36
@@ -1072,7 +1072,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
   br label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %41, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 0, ptr %41, align 1
   %47 = icmp ult ptr %46, %42
   br i1 %47, label %.lr.ph.i.i, label %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
@@ -1083,7 +1083,7 @@ define hidden void @_ZN8CodeHeap15deallocate_tailEPvm(ptr nocapture noundef nonn
 
 49:                                               ; preds = %53, %.lr.ph.i.i
   %.037.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %50, %53 ]
-  %50 = getelementptr inbounds i8, ptr %.037.i.i, i64 254
+  %50 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 254
   %.not.i.i = icmp ugt ptr %50, %42
   br i1 %.not.i.i, label %.thread.i.i, label %53
 
@@ -1107,31 +1107,31 @@ _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %53, %17, %44, %45, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef initializes((4, 5)) %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 316
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4
   %11 = load i32, ptr %1, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %12
   store i64 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %21, align 8
   store ptr %1, ptr %17, align 8
   br label %82
@@ -1141,21 +1141,21 @@ define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noun
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %18, ptr %25, align 8
   store ptr %1, ptr %17, align 8
   %26 = tail call noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %1)
   br label %82
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %5, align 8
   %31 = icmp sgt i32 %30, 100
   br i1 %31, label %32, label %67
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 272
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %67, label %35
@@ -1163,14 +1163,14 @@ define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noun
 35:                                               ; preds = %32
   %36 = load ptr, ptr %3, align 8
   %.not.i.i = icmp ule ptr %36, %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ult ptr %34, %38
   %40 = select i1 %.not.i.i, i1 %39, i1 false
   br i1 %40, label %41, label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %34 to i64
   %45 = ptrtoint ptr %36 to i64
@@ -1204,7 +1204,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   br i1 %.not30, label %67, label %59
 
 59:                                               ; preds = %_ZNK8CodeHeap14find_block_forEPv.exit
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
   %63 = icmp uge ptr %58, %1
@@ -1212,7 +1212,7 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   br i1 %or.cond.not, label %67, label %64
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %58, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -1225,13 +1225,13 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
   br i1 %70, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %67
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.022, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
   %.134 = phi ptr [ %72, %.lr.ph ], [ %.0, %67 ]
-  %71 = getelementptr inbounds i8, ptr %.134, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.134, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp ne ptr %72, null
   %74 = icmp ult ptr %72, %1
@@ -1241,13 +1241,13 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %76 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %72, %.lr.ph ]
   %.123.lcssa = phi ptr [ %.022, %.._crit_edge_crit_edge ], [ %.134, %.lr.ph ]
-  %77 = getelementptr inbounds i8, ptr %.123.lcssa, i64 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.123.lcssa, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %76, ptr %78, align 8
   store ptr %1, ptr %77, align 8
   %79 = tail call noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %1)
   %80 = tail call noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %.123.lcssa)
-  %81 = getelementptr inbounds i8, ptr %0, i64 272
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %.123.lcssa, ptr %81, align 8
   br label %82
 
@@ -1260,7 +1260,7 @@ define hidden void @_ZN8CodeHeap10deallocateEPv(ptr nocapture noundef nonnull al
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp uge ptr %3, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %3, %6
   %or.cond = select i1 %.not, i1 %7, i1 false
@@ -1284,22 +1284,22 @@ define hidden void @_ZN8CodeHeap10deallocateEPv(ptr nocapture noundef nonnull al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ule ptr %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %1 to i64
   %13 = ptrtoint ptr %4 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load i32, ptr %15, align 8
   %17 = zext nneg i32 %16 to i64
   %18 = ashr i64 %14, %17
@@ -1329,22 +1329,22 @@ define hidden noundef ptr @_ZNK8CodeHeap14find_block_forEPv(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK8CodeHeap10find_startEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp ule ptr %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %1 to i64
   %13 = ptrtoint ptr %4 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load i32, ptr %15, align 8
   %17 = zext nneg i32 %16 to i64
   %18 = ashr i64 %14, %17
@@ -1369,10 +1369,10 @@ _ZNK8CodeHeap14find_block_forEPv.exit:            ; preds = %.preheader.i
 27:                                               ; preds = %_ZNK8CodeHeap14find_block_forEPv.exit
   %28 = shl i64 %.0.i, %17
   %29 = getelementptr inbounds i8, ptr %4, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %spec.select = select i1 %32, ptr %33, ptr null
   br label %_ZNK8CodeHeap14find_block_forEPv.exit.thread
 
@@ -1383,22 +1383,22 @@ _ZNK8CodeHeap14find_block_forEPv.exit.thread:     ; preds = %27, %9, %2, %_ZNK8C
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK8CodeHeap9find_blobEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp ule ptr %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap10find_startEPv.exit.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %1 to i64
   %13 = ptrtoint ptr %4 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load i32, ptr %15, align 8
   %17 = zext nneg i32 %16 to i64
   %18 = ashr i64 %14, %17
@@ -1423,15 +1423,15 @@ _ZNK8CodeHeap14find_block_forEPv.exit.i:          ; preds = %.preheader.i.i
 27:                                               ; preds = %_ZNK8CodeHeap14find_block_forEPv.exit.i
   %28 = shl i64 %.0.i.i, %17
   %29 = getelementptr inbounds i8, ptr %4, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %_ZNK8CodeHeap10find_startEPv.exit, label %_ZNK8CodeHeap10find_startEPv.exit.thread
 
 _ZNK8CodeHeap10find_startEPv.exit:                ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.not.i = icmp ule ptr %33, %1
-  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
@@ -1451,25 +1451,25 @@ define hidden noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr nocapture nou
   br i1 %.not, label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = load i32, ptr %13, align 8
   %15 = zext nneg i32 %14 to i64
   %16 = ashr i64 %12, %15
   %17 = load i32, ptr %1, align 8
   %18 = zext i32 %17 to i64
   %19 = add i64 %16, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = load i64, ptr %20, align 8
   %22 = icmp uge i64 %19, %21
   %23 = shl i64 %19, %15
@@ -1480,7 +1480,7 @@ define hidden noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr nocapture nou
 
 _ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8: ; preds = %7, %3
   %.010 = phi ptr [ %1, %3 ], [ %24, %7 ]
-  %26 = getelementptr inbounds i8, ptr %.010, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   br label %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread
 
 _ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread: ; preds = %7, %2, %_ZNK8CodeHeap10next_blockEP9HeapBlock.exit.thread8
@@ -1494,19 +1494,19 @@ define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr nocapture n
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = load i32, ptr %10, align 8
   %12 = zext nneg i32 %11 to i64
   %13 = ashr i64 %9, %12
   %14 = load i32, ptr %1, align 8
   %15 = zext i32 %14 to i64
   %16 = add i64 %13, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %16, %18
   br i1 %19, label %20, label %23
@@ -1523,10 +1523,10 @@ define hidden noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.0 = select i1 %.not, ptr null, ptr %5
   ret ptr %.0
@@ -1534,22 +1534,22 @@ define hidden noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp ule ptr %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %1, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %_ZNK8CodeHeap10find_startEPv.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %1 to i64
   %13 = ptrtoint ptr %4 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load i32, ptr %15, align 8
   %17 = zext nneg i32 %16 to i64
   %18 = ashr i64 %14, %17
@@ -1574,10 +1574,10 @@ _ZNK8CodeHeap14find_block_forEPv.exit.i:          ; preds = %.preheader.i.i
 27:                                               ; preds = %_ZNK8CodeHeap14find_block_forEPv.exit.i
   %28 = shl i64 %.0.i.i, %17
   %29 = getelementptr inbounds i8, ptr %4, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %spec.select.i = select i1 %32, ptr %33, ptr null
   br label %_ZNK8CodeHeap10find_startEPv.exit
 
@@ -1603,7 +1603,7 @@ define hidden noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -1611,12 +1611,12 @@ define hidden noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %6, %9
@@ -1625,7 +1625,7 @@ define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
   %6 = zext i32 %5 to i64
@@ -1636,9 +1636,9 @@ define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   store ptr %2, ptr %4, align 8
   %7 = tail call noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %2)
@@ -1648,31 +1648,31 @@ define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
   %6 = zext i32 %5 to i64
   %7 = mul i64 %4, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %12, label %68
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %8 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %19 = load i32, ptr %18, align 8
   %20 = zext nneg i32 %19 to i64
   %21 = ashr i64 %17, %20
   %22 = load i32, ptr %10, align 8
   %23 = add i32 %22, %5
   store i32 %23, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %9, align 8
   %26 = load ptr, ptr %13, align 8
@@ -1688,7 +1688,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noca
   br i1 %35, label %36, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 36:                                               ; preds = %12
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %21
   %40 = getelementptr inbounds i8, ptr %38, i64 %34
@@ -1702,7 +1702,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noca
   %45 = add i8 %43, 1
   %storemerge.i = select i1 %44, i8 %45, i8 1
   store i8 %storemerge.i, ptr %39, align 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 332
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %47 = load i32, ptr %46, align 4
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -1723,7 +1723,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noca
   br label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %39, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 0, ptr %39, align 1
   %57 = icmp ult ptr %56, %40
   br i1 %57, label %.lr.ph.i, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit
@@ -1734,7 +1734,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noca
 
 59:                                               ; preds = %63, %.lr.ph.i
   %.037.i = phi ptr [ %56, %.lr.ph.i ], [ %60, %63 ]
-  %60 = getelementptr inbounds i8, ptr %.037.i, i64 254
+  %60 = getelementptr inbounds nuw i8, ptr %.037.i, i64 254
   %.not.i = icmp ugt ptr %60, %40
   br i1 %.not.i, label %.thread.i, label %63
 
@@ -1750,7 +1750,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap11merge_rightEP9FreeBlock(ptr noca
   br i1 %64, label %59, label %_ZN8CodeHeap19mark_segmap_as_usedEmmb.exit, !llvm.loop !8
 
 _ZN8CodeHeap19mark_segmap_as_usedEmmb.exit:       ; preds = %63, %12, %41, %50, %54, %55, %.thread.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %66 = load i32, ptr %65, align 8
   %67 = add nsw i32 %66, -1
   store i32 %67, ptr %65, align 8
@@ -1766,7 +1766,7 @@ define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr nocapture noundef no
   br i1 %4, label %5, label %25
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   %9 = xor i64 %1, -1

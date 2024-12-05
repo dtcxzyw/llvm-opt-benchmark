@@ -48,14 +48,14 @@ define void @php_random_mt19937_seed32(ptr nocapture noundef initializes((0, 4))
   %7 = mul i32 %6, 1812433253
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = add i32 %7, %8
-  %10 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 624
   br i1 %exitcond.not, label %11, label %3
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 2496
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   store i32 624, ptr %12, align 4
   tail call fastcc void @mt19937_reload(ptr noundef nonnull %0)
   ret void
@@ -63,7 +63,7 @@ define void @php_random_mt19937_seed32(ptr nocapture noundef initializes((0, 4))
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2500
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2500
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
   %.pre61 = load i32, ptr %0, align 4
@@ -74,10 +74,10 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   %.04256 = phi i32 [ %6, %.preheader49 ], [ 227, %1 ]
   %.04355 = phi ptr [ %10, %.preheader49 ], [ %0, %1 ]
   %6 = add nsw i32 %.04256, -1
-  %7 = getelementptr inbounds i8, ptr %.04355, i64 1588
+  %7 = getelementptr inbounds nuw i8, ptr %.04355, i64 1588
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %5, -2147483648
-  %10 = getelementptr inbounds i8, ptr %.04355, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.04355, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 2147483646
   %13 = or disjoint i32 %12, %9
@@ -98,7 +98,7 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   %22 = getelementptr inbounds i8, ptr %.157, i64 -908
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %20, -2147483648
-  %25 = getelementptr inbounds i8, ptr %.157, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.157, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 2147483646
   %28 = or disjoint i32 %27, %24
@@ -134,10 +134,10 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   %.04053 = phi i32 [ %50, %.preheader51 ], [ 227, %1 ]
   %.252 = phi ptr [ %54, %.preheader51 ], [ %0, %1 ]
   %50 = add nsw i32 %.04053, -1
-  %51 = getelementptr inbounds i8, ptr %.252, i64 1588
+  %51 = getelementptr inbounds nuw i8, ptr %.252, i64 1588
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %49, -2147483648
-  %54 = getelementptr inbounds i8, ptr %.252, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.252, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 2147483646
   %57 = or disjoint i32 %56, %53
@@ -158,7 +158,7 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   %66 = getelementptr inbounds i8, ptr %.354, i64 -908
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %64, -2147483648
-  %69 = getelementptr inbounds i8, ptr %.354, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.354, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 2147483646
   %72 = or disjoint i32 %71, %68
@@ -190,14 +190,14 @@ define internal fastcc void @mt19937_reload(ptr nocapture noundef %0) unnamed_ad
   br label %93
 
 93:                                               ; preds = %80, %36
-  %94 = getelementptr inbounds i8, ptr %0, i64 2496
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   store i32 0, ptr %94, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal { i64, i64 } @generate(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2496
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 623
   br i1 %4, label %5, label %6
@@ -212,7 +212,7 @@ define internal { i64, i64 } @generate(ptr nocapture noundef %0) #0 {
   %8 = add i32 %7, 1
   store i32 %8, ptr %2, align 4
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 11
   %13 = xor i32 %12, %11
@@ -239,15 +239,15 @@ define internal i64 @range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %5
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %indvars.iv
   %7 = call ptr @php_random_bin2hex_le(ptr noundef %6, i64 noundef 4) #6
   store ptr %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %.not = icmp eq i32 %10, 0
@@ -259,13 +259,13 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #1
   br i1 %exitcond.not, label %13, label %5
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 2496
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   store i64 %16, ptr %3, align 8
   store i32 4, ptr %4, align 8
   %17 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %3) #6
-  %18 = getelementptr inbounds i8, ptr %0, i64 2500
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2500
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i64
   store i64 %20, ptr %3, align 8
@@ -276,7 +276,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 626
   br i1 %.not, label %.preheader, label %.loopexit
@@ -293,20 +293,20 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not40, label %.loopexit, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i8, ptr %8, align 8
   %.not41 = icmp eq i8 %9, 6
   br i1 %.not41, label %10, label %.loopexit
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not42 = icmp eq i64 %13, 8
   br i1 %.not42, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %indvars.iv
   %16 = tail call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %11, ptr noundef %15) #6
   br i1 %16, label %5, label %.loopexit
 
@@ -316,7 +316,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not34, label %.loopexit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i8, ptr %20, align 8
   %.not35 = icmp eq i8 %21, 4
   br i1 %.not35, label %22, label %.loopexit
@@ -324,7 +324,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
 22:                                               ; preds = %19
   %23 = load i64, ptr %18, align 8
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 2496
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   store i32 %24, ptr %25, align 4
   %26 = icmp ugt i32 %24, 624
   br i1 %26, label %.loopexit, label %27
@@ -335,7 +335,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not36, label %.loopexit, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i8, ptr %30, align 8
   %.not37 = icmp eq i8 %31, 4
   br i1 %.not37, label %32, label %.loopexit
@@ -343,7 +343,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
 32:                                               ; preds = %29
   %33 = load i64, ptr %28, align 8
   %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %0, i64 2500
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2500
   store i8 %34, ptr %35, align 4
   %36 = and i64 %33, 254
   %switch = icmp eq i64 %36, 0
@@ -391,14 +391,14 @@ define void @php_random_mt19937_seed_default(ptr nocapture noundef initializes((
   %21 = mul i32 %20, 1812433253
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = add i32 %21, %22
-  %24 = getelementptr inbounds [624 x i32], ptr %0, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [624 x i32], ptr %0, i64 0, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
   br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %17
 
 php_random_mt19937_seed32.exit:                   ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 2496
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   store i32 624, ptr %25, align 4
   call fastcc void @mt19937_reload(ptr noundef nonnull %0)
   ret void
@@ -416,12 +416,12 @@ declare double @php_combined_lcg() local_unnamed_addr #3
 define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 2
   br i1 %9, label %10, label %11
@@ -435,13 +435,13 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   br i1 %12, label %.thread140.thread.thread, label %14
 
 .thread140.thread.thread:                         ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 0, ptr %13, align 4
   br label %40
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8
   switch i8 %17, label %20 [
     i8 4, label %18
@@ -468,8 +468,8 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   br i1 %.not, label %23, label %.thread140.thread
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 4
   br i1 %27, label %.thread115, label %29
@@ -497,7 +497,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   br label %60
 
 .thread140.thread:                                ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 0, ptr %31, align 4
   br i1 %.3109, label %40, label %48
 
@@ -510,7 +510,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 
 33:                                               ; preds = %.thread140
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str) #6
-  %34 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 1, ptr %34, align 4
   br i1 %.3109, label %40, label %48
 
@@ -522,7 +522,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   br label %60
 
 38:                                               ; preds = %.thread140
-  %39 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 0, ptr %39, align 4
   br i1 %.3109, label %40, label %48
 
@@ -553,14 +553,14 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   %55 = mul i32 %54, 1812433253
   %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   %57 = add i32 %55, %56
-  %58 = getelementptr inbounds [624 x i32], ptr %.sroa.1.0.copyload, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [624 x i32], ptr %.sroa.1.0.copyload, i64 0, i64 %indvars.iv.i
   store i32 %57, ptr %58, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
   br i1 %exitcond.not.i, label %php_random_mt19937_seed32.exit, label %51
 
 php_random_mt19937_seed32.exit:                   ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2496
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 2496
   store i32 624, ptr %59, align 4
   call fastcc void @mt19937_reload(ptr noundef nonnull %.sroa.1.0.copyload)
   br label %60
@@ -584,7 +584,7 @@ declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -594,13 +594,13 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
   br label %36
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
   %.sroa.213.0.copyload = load ptr, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.012.0.copyload = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call { i64, i64 } %11(ptr noundef %.sroa.213.0.copyload) #6
   %13 = extractvalue { i64, i64 } %12, 0
@@ -614,17 +614,17 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
   %18 = add i64 %17, 32
   %19 = tail call noalias ptr @_emalloc(i64 noundef %18) #7
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 22, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %14, ptr %22, align 8
   %.not69 = icmp eq i64 %14, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -639,7 +639,7 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %16
-  %30 = getelementptr inbounds i8, ptr %19, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %31 = getelementptr inbounds [1 x i8], ptr %30, i64 0, i64 %14
   store i8 0, ptr %31, align 1
   store ptr %19, ptr %1, align 8
@@ -647,7 +647,7 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
   %33 = and i32 %32, 64
   %.not67 = icmp eq i32 %33, 0
   %34 = select i1 %.not67, i32 262, i32 6
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %34, ptr %35, align 8
   br label %36
 
@@ -660,7 +660,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -670,16 +670,16 @@ define hidden void @zim_Random_Engine_Mt19937___serialize(ptr nocapture noundef 
   br label %33
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -16
   %11 = tail call ptr @_zend_new_array_0() #6
   store ptr %11, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %12, align 8
   %13 = tail call ptr @zend_std_get_properties(ptr noundef nonnull %9) #6
   store ptr %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %14, align 8
   %15 = load i32, ptr %13, align 4
   %16 = add i32 %15, 1
@@ -690,7 +690,7 @@ define hidden void @zim_Random_Engine_Mt19937___serialize(ptr nocapture noundef 
   store ptr %19, ptr %3, align 8
   store i32 775, ptr %14, align 8
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %9, i64 -8
   %24 = load ptr, ptr %23, align 8
@@ -721,10 +721,10 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %cond = icmp eq i32 %7, 1
   br i1 %cond, label %8, label %.thread
@@ -734,8 +734,8 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %.not87 = icmp eq i8 %11, 7
   br i1 %.not87, label %13, label %12
@@ -750,17 +750,17 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %.not89 = icmp eq i32 %16, 2
   br i1 %.not89, label %26, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %22) #6
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -773,17 +773,17 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br i1 %.not90, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i8, ptr %29, align 8
   %.not91 = icmp eq i8 %30, 7
   br i1 %.not91, label %40, label %31
 
 31:                                               ; preds = %28, %26
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %36) #6
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
@@ -798,11 +798,11 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br i1 %.not92, label %52, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %48) #6
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
@@ -815,17 +815,17 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br i1 %.not93, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i8, ptr %55, align 8
   %.not94 = icmp eq i8 %56, 7
   br i1 %.not94, label %66, label %57
 
 57:                                               ; preds = %54, %52
-  %58 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %62) #6
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
@@ -834,7 +834,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 
 66:                                               ; preds = %54
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %4, i64 -8
   %71 = load ptr, ptr %70, align 8
@@ -843,11 +843,11 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   br i1 %73, label %83, label %74
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %4, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %79) #6
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %82 = icmp ne ptr %81, null
@@ -867,10 +867,10 @@ declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -880,7 +880,7 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef 
   br label %37
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %13, label %14
@@ -894,10 +894,10 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef 
   %15 = phi ptr [ %12, %10 ], [ %.pre, %13 ]
   %16 = tail call ptr @zend_array_dup(ptr noundef %15) #6
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %17, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
   br i1 %.not17, label %37, label %21
@@ -905,10 +905,10 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef 
 21:                                               ; preds = %14
   %22 = tail call ptr @_zend_new_array_0() #6
   store ptr %22, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %23, align 8
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 -8
   %28 = load ptr, ptr %27, align 8

@@ -55,37 +55,37 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN6google8protobuf2io15GzipInputStreamC2EPNS1_19ZeroCopyInputStreamENS2_6FormatEi(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 12), (16, 36), (40, 60), (64, 112), (136, 140), (144, 176)) %this, ptr noundef %sub_stream, i32 noundef %format, i32 noundef %buffer_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i64 16), ptr %this, align 8
-  %format_ = getelementptr inbounds i8, ptr %this, i64 8
+  %format_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %format, ptr %format_, align 8
-  %sub_stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %sub_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %sub_stream, ptr %sub_stream_, align 8
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 136
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 0, ptr %zerror_, align 8
-  %byte_count_ = getelementptr inbounds i8, ptr %this, i64 168
+  %byte_count_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i64 0, ptr %byte_count_, align 8
-  %zcontext_2 = getelementptr inbounds i8, ptr %this, i64 24
-  %total_out = getelementptr inbounds i8, ptr %this, i64 64
+  %zcontext_2 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %total_out = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %zcontext_2, align 8
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 32
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %avail_in, align 8
-  %total_in = getelementptr inbounds i8, ptr %this, i64 40
+  %total_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %total_in, align 8
   %cmp = icmp eq i32 %buffer_size, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %total_out, i8 0, i64 48, i1 false)
   %narrow = select i1 %cmp, i32 65536, i32 %buffer_size
   %spec.select = sext i32 %narrow to i64
-  %0 = getelementptr inbounds i8, ptr %this, i64 160
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %spec.select, ptr %0, align 8
   %call = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %spec.select) #16
-  %output_buffer_ = getelementptr inbounds i8, ptr %this, i64 144
+  %output_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %call, ptr %output_buffer_, align 8
-  %next_out = getelementptr inbounds i8, ptr %this, i64 48
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %call, ptr %next_out, align 8
   %1 = load i64, ptr %0, align 8
   %conv28 = trunc i64 %1 to i32
-  %avail_out = getelementptr inbounds i8, ptr %this, i64 56
+  %avail_out = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %conv28, ptr %avail_out, align 8
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call, ptr %output_position_, align 8
   ret void
 }
@@ -104,15 +104,15 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io15GzipInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %output_buffer_ = getelementptr inbounds i8, ptr %this, i64 144
+  %output_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %output_buffer_, align 8
   tail call void @_ZdlPv(ptr noundef %0) #17
-  %zcontext_ = getelementptr inbounds i8, ptr %this, i64 24
+  %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call = invoke i32 @inflateEnd(ptr noundef nonnull %zcontext_)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %entry
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 136
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %call, ptr %zerror_, align 8
   ret void
 
@@ -154,34 +154,34 @@ define noundef i32 @_ZN6google8protobuf2io15GzipInputStream7InflateEi(ptr nounde
 entry:
   %in = alloca ptr, align 8
   %in_size = alloca i32, align 4
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 136
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i32, ptr %zerror_, align 8
   %cmp = icmp eq i32 %0, 0
-  %avail_out = getelementptr inbounds i8, ptr %this, i64 56
+  %avail_out = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i32, ptr %avail_out, align 8
   %cmp2 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.end26, label %if.else
 
 if.else:                                          ; preds = %entry
-  %zcontext_3 = getelementptr inbounds i8, ptr %this, i64 24
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 32
+  %zcontext_3 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %avail_in, align 8
   %cmp4 = icmp eq i32 %2, 0
   br i1 %cmp4, label %if.then5, label %if.end26
 
 if.then5:                                         ; preds = %if.else
   %3 = load ptr, ptr %zcontext_3, align 8
-  %sub_stream_ = getelementptr inbounds i8, ptr %this, i64 16
+  %sub_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %sub_stream_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %in, ptr noundef nonnull %in_size)
   br i1 %call, label %if.end, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
-  %next_out = getelementptr inbounds i8, ptr %this, i64 48
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %next_out, align 8
   store i32 0, ptr %avail_out, align 8
   br label %return
@@ -195,7 +195,7 @@ if.end:                                           ; preds = %if.then5
   br i1 %cmp7, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.end
-  %format_ = getelementptr inbounds i8, ptr %this, i64 8
+  %format_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %format_, align 8
   %switch.selectcmp.i = icmp eq i32 %8, 0
   %switch.select.i = select i1 %switch.selectcmp.i, i32 47, i32 15
@@ -206,16 +206,16 @@ if.then18:                                        ; preds = %if.end
   br i1 %cmp21.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %entry, %if.else, %if.then18, %if.end
-  %output_buffer_ = getelementptr inbounds i8, ptr %this, i64 144
+  %output_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %9 = load ptr, ptr %output_buffer_, align 8
-  %zcontext_27 = getelementptr inbounds i8, ptr %this, i64 24
-  %next_out28 = getelementptr inbounds i8, ptr %this, i64 48
+  %zcontext_27 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %next_out28 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %9, ptr %next_out28, align 8
-  %output_buffer_length_ = getelementptr inbounds i8, ptr %this, i64 160
+  %output_buffer_length_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %10 = load i64, ptr %output_buffer_length_, align 8
   %conv = trunc i64 %10 to i32
   store i32 %conv, ptr %avail_out, align 8
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %9, ptr %output_position_, align 8
   %call34 = call i32 @inflate(ptr noundef nonnull %zcontext_27, i32 noundef %flush)
   br label %return
@@ -230,10 +230,10 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io15GzipInputStream12DoNextOutputEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %size) local_unnamed_addr #11 align 2 {
 entry:
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %output_position_, align 8
   store ptr %0, ptr %data, align 8
-  %next_out = getelementptr inbounds i8, ptr %this, i64 48
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %next_out, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = ptrtoint ptr %0 to i64
@@ -248,7 +248,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io15GzipInputStream4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #3 align 2 {
 entry:
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 136
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i32, ptr %zerror_, align 8
   switch i32 %0, label %return [
     i32 0, label %lor.lhs.false6.critedge
@@ -257,14 +257,14 @@ entry:
   ]
 
 lor.lhs.false6.critedge:                          ; preds = %entry, %entry, %entry
-  %zcontext_ = getelementptr inbounds i8, ptr %this, i64 24
-  %next_out = getelementptr inbounds i8, ptr %this, i64 48
+  %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %next_out, align 8
   %cmp7 = icmp eq ptr %1, null
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false6.critedge
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %2 = load ptr, ptr %output_position_, align 8
   %cmp10.not = icmp eq ptr %1, %2
   br i1 %cmp10.not, label %if.end12, label %return.sink.split
@@ -276,9 +276,9 @@ if.end12:                                         ; preds = %if.end
 if.then19:                                        ; preds = %if.end12
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %zcontext_)
   store i32 %call, ptr %zerror_, align 8
-  %total_out = getelementptr inbounds i8, ptr %this, i64 64
+  %total_out = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load i64, ptr %total_out, align 8
-  %byte_count_ = getelementptr inbounds i8, ptr %this, i64 168
+  %byte_count_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %4 = load i64, ptr %byte_count_, align 8
   %add = add i64 %4, %3
   store i64 %add, ptr %byte_count_, align 8
@@ -286,7 +286,7 @@ if.then19:                                        ; preds = %if.end12
   br i1 %cmp24.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then19
-  %format_ = getelementptr inbounds i8, ptr %this, i64 8
+  %format_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i32, ptr %format_, align 8
   %switch.selectcmp.i = icmp eq i32 %5, 0
   %switch.select.i = select i1 %switch.selectcmp.i, i32 47, i32 15
@@ -338,7 +338,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io15GzipInputStream6BackUpEi(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %count) unnamed_addr #11 align 2 {
 entry:
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %output_position_, align 8
   %1 = ptrtoint ptr %0 to i64
   %conv = sext i32 %count to i64
@@ -379,7 +379,7 @@ while.end:                                        ; preds = %while.body, %entry
 
 if.then:                                          ; preds = %while.end
   %sub5 = sub nsw i32 %.lcssa, %count.addr.0.lcssa
-  %output_position_.i = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %5 = load ptr, ptr %output_position_.i, align 8
   %6 = ptrtoint ptr %5 to i64
   %conv.i = sext i32 %sub5 to i64
@@ -395,18 +395,18 @@ if.end:                                           ; preds = %if.then, %while.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK6google8protobuf2io15GzipInputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) unnamed_addr #12 align 2 {
 entry:
-  %byte_count_ = getelementptr inbounds i8, ptr %this, i64 168
+  %byte_count_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i64, ptr %byte_count_, align 8
-  %total_out = getelementptr inbounds i8, ptr %this, i64 64
+  %total_out = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i64, ptr %total_out, align 8
   %add = add i64 %1, %0
-  %next_out = getelementptr inbounds i8, ptr %this, i64 48
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load ptr, ptr %next_out, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %output_position_ = getelementptr inbounds i8, ptr %this, i64 152
+  %output_position_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %3 = load ptr, ptr %output_position_, align 8
   %cmp3.not = icmp eq ptr %3, null
   br i1 %cmp3.not, label %if.end, label %if.then
@@ -427,11 +427,11 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #13 align 2 {
 entry:
   store i32 1, ptr %this, align 4
-  %buffer_size = getelementptr inbounds i8, ptr %this, i64 4
+  %buffer_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 65536, ptr %buffer_size, align 4
-  %compression_level = getelementptr inbounds i8, ptr %this, i64 8
+  %compression_level = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 -1, ptr %compression_level, align 4
-  %compression_strategy = getelementptr inbounds i8, ptr %this, i64 12
+  %compression_strategy = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %compression_strategy, align 4
   ret void
 }
@@ -442,39 +442,39 @@ entry:
   %ref.tmp = alloca %"struct.google::protobuf::io::GzipOutputStream::Options", align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 16), ptr %this, align 8
   call void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
-  %sub_stream_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %sub_stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %sub_stream, ptr %sub_stream_.i, align 8
-  %sub_data_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %sub_data_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %sub_data_.i, align 8
-  %sub_data_size_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %sub_data_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %sub_data_size_.i, align 8
-  %buffer_size.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %buffer_size.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %0 = load i32, ptr %buffer_size.i, align 4
   %conv.i = sext i32 %0 to i64
-  %input_buffer_length_.i = getelementptr inbounds i8, ptr %this, i64 160
+  %input_buffer_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %conv.i, ptr %input_buffer_length_.i, align 8
   %call.i1 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #16
-  %input_buffer_.i = getelementptr inbounds i8, ptr %this, i64 152
+  %input_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call.i1, ptr %input_buffer_.i, align 8
-  %zcontext_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %zalloc.i = getelementptr inbounds i8, ptr %this, i64 96
-  %total_out.i = getelementptr inbounds i8, ptr %this, i64 72
+  %zcontext_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %zalloc.i = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %total_out.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %zcontext_.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %avail_in.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %this, i64 48
+  %total_in.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %total_in.i, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc.i, i8 0, i64 24, i1 false)
   %1 = load i32, ptr %ref.tmp, align 4
   %cmp20.i = icmp eq i32 %1, 2
-  %compression_level.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %compression_level.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %2 = load i32, ptr %compression_level.i, align 4
   %or.i = select i1 %cmp20.i, i32 15, i32 31
-  %compression_strategy.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %compression_strategy.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   %3 = load i32, ptr %compression_strategy.i, align 4
   %call22.i2 = call i32 @deflateInit2_(ptr noundef nonnull %zcontext_.i, i32 noundef %2, i32 noundef 8, i32 noundef %or.i, i32 noundef 8, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef 112)
-  %zerror_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %call22.i2, ptr %zerror_.i, align 8
   ret void
 }
@@ -482,39 +482,39 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) initializes((8, 28), (32, 44), (48, 68), (72, 88), (96, 120), (152, 168)) %this, ptr noundef %sub_stream, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sub_stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %sub_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %sub_stream, ptr %sub_stream_, align 8
-  %sub_data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %sub_data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %sub_data_, align 8
-  %sub_data_size_ = getelementptr inbounds i8, ptr %this, i64 24
+  %sub_data_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %sub_data_size_, align 8
-  %buffer_size = getelementptr inbounds i8, ptr %options, i64 4
+  %buffer_size = getelementptr inbounds nuw i8, ptr %options, i64 4
   %0 = load i32, ptr %buffer_size, align 4
   %conv = sext i32 %0 to i64
-  %input_buffer_length_ = getelementptr inbounds i8, ptr %this, i64 160
+  %input_buffer_length_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %conv, ptr %input_buffer_length_, align 8
   %call = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #16
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 152
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call, ptr %input_buffer_, align 8
-  %zcontext_ = getelementptr inbounds i8, ptr %this, i64 32
-  %zalloc = getelementptr inbounds i8, ptr %this, i64 96
-  %total_out = getelementptr inbounds i8, ptr %this, i64 72
+  %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %zalloc = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %total_out = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %zcontext_, align 8
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %avail_in, align 8
-  %total_in = getelementptr inbounds i8, ptr %this, i64 48
+  %total_in = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %total_in, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %1 = load i32, ptr %options, align 4
   %cmp20 = icmp eq i32 %1, 2
-  %compression_level = getelementptr inbounds i8, ptr %options, i64 8
+  %compression_level = getelementptr inbounds nuw i8, ptr %options, i64 8
   %2 = load i32, ptr %compression_level, align 4
   %or = select i1 %cmp20, i32 15, i32 31
-  %compression_strategy = getelementptr inbounds i8, ptr %options, i64 12
+  %compression_strategy = getelementptr inbounds nuw i8, ptr %options, i64 12
   %3 = load i32, ptr %compression_strategy, align 4
   %call22 = tail call i32 @deflateInit2_(ptr noundef nonnull %zcontext_, i32 noundef %2, i32 noundef 8, i32 noundef %or, i32 noundef 8, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef 112)
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %call22, ptr %zerror_, align 8
   ret void
 }
@@ -523,39 +523,39 @@ entry:
 define void @_ZN6google8protobuf2io16GzipOutputStreamC2EPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 28), (32, 44), (48, 68), (72, 88), (96, 120), (152, 168)) %this, ptr noundef %sub_stream, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 16), ptr %this, align 8
-  %sub_stream_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %sub_stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %sub_stream, ptr %sub_stream_.i, align 8
-  %sub_data_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %sub_data_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %sub_data_.i, align 8
-  %sub_data_size_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %sub_data_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %sub_data_size_.i, align 8
-  %buffer_size.i = getelementptr inbounds i8, ptr %options, i64 4
+  %buffer_size.i = getelementptr inbounds nuw i8, ptr %options, i64 4
   %0 = load i32, ptr %buffer_size.i, align 4
   %conv.i = sext i32 %0 to i64
-  %input_buffer_length_.i = getelementptr inbounds i8, ptr %this, i64 160
+  %input_buffer_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %conv.i, ptr %input_buffer_length_.i, align 8
   %call.i1 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i) #16
-  %input_buffer_.i = getelementptr inbounds i8, ptr %this, i64 152
+  %input_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call.i1, ptr %input_buffer_.i, align 8
-  %zcontext_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %zalloc.i = getelementptr inbounds i8, ptr %this, i64 96
-  %total_out.i = getelementptr inbounds i8, ptr %this, i64 72
+  %zcontext_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %zalloc.i = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %total_out.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %zcontext_.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %avail_in.i, align 8
-  %total_in.i = getelementptr inbounds i8, ptr %this, i64 48
+  %total_in.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %total_in.i, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_out.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc.i, i8 0, i64 24, i1 false)
   %1 = load i32, ptr %options, align 4
   %cmp20.i = icmp eq i32 %1, 2
-  %compression_level.i = getelementptr inbounds i8, ptr %options, i64 8
+  %compression_level.i = getelementptr inbounds nuw i8, ptr %options, i64 8
   %2 = load i32, ptr %compression_level.i, align 4
   %or.i = select i1 %cmp20.i, i32 15, i32 31
-  %compression_strategy.i = getelementptr inbounds i8, ptr %options, i64 12
+  %compression_strategy.i = getelementptr inbounds nuw i8, ptr %options, i64 12
   %3 = load i32, ptr %compression_strategy.i, align 4
   %call22.i2 = tail call i32 @deflateInit2_(ptr noundef nonnull %zcontext_.i, i32 noundef %2, i32 noundef 8, i32 noundef %or.i, i32 noundef 8, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef 112)
-  %zerror_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %call22.i2, ptr %zerror_.i, align 8
   ret void
 }
@@ -565,7 +565,7 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io16GzipOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %zerror_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i32, ptr %zerror_.i, align 8
   switch i32 %0, label %invoke.cont [
     i32 0, label %do.body.i.preheader
@@ -585,7 +585,7 @@ call.i.noexc:                                     ; preds = %do.body.i
   br i1 %cmp6.i, label %do.body.i, label %do.end.i, !llvm.loop !6
 
 do.end.i:                                         ; preds = %call.i.noexc
-  %zcontext_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %zcontext_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call7.i2 = invoke i32 @deflateEnd(ptr noundef nonnull %zcontext_.i)
           to label %call7.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
@@ -594,7 +594,7 @@ call7.i.noexc:                                    ; preds = %do.end.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call7.i.noexc, %entry
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 152
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load ptr, ptr %input_buffer_, align 8
   tail call void @_ZdlPv(ptr noundef %1) #17
   ret void
@@ -619,7 +619,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16GzipOutputStream5CloseEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i32, ptr %zerror_, align 8
   switch i32 %0, label %return [
     i32 0, label %do.body.preheader
@@ -636,7 +636,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp6, label %do.body, label %do.end, !llvm.loop !6
 
 do.end:                                           ; preds = %do.body
-  %zcontext_ = getelementptr inbounds i8, ptr %this, i64 32
+  %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call7 = tail call i32 @deflateEnd(ptr noundef nonnull %zcontext_)
   %cmp10 = icmp eq i32 %call7, 0
   store i32 1, ptr %zerror_, align 8
@@ -659,12 +659,12 @@ entry:
 define noundef i32 @_ZN6google8protobuf2io16GzipOutputStream7DeflateEi(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %flush) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %sub_data_ = getelementptr inbounds i8, ptr %this, i64 16
-  %avail_out = getelementptr inbounds i8, ptr %this, i64 64
-  %sub_stream_ = getelementptr inbounds i8, ptr %this, i64 8
-  %sub_data_size_ = getelementptr inbounds i8, ptr %this, i64 24
-  %next_out = getelementptr inbounds i8, ptr %this, i64 56
-  %zcontext_20 = getelementptr inbounds i8, ptr %this, i64 32
+  %sub_data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %avail_out = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %sub_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %sub_data_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %zcontext_20 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %.pre = load i32, ptr %avail_out, align 8
   %0 = icmp eq i32 %.pre, 0
   br label %do.body
@@ -679,7 +679,7 @@ do.body:                                          ; preds = %if.end19, %entry
 if.then:                                          ; preds = %do.body
   %2 = load ptr, ptr %sub_stream_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %sub_data_, ptr noundef nonnull %sub_data_size_)
   br i1 %call, label %while.cond, label %return.sink.split
@@ -721,7 +721,7 @@ do.end:                                           ; preds = %if.end19
 if.then29:                                        ; preds = %do.end
   %10 = load ptr, ptr %sub_stream_, align 8
   %vtable33 = load ptr, ptr %10, align 8
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 24
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 24
   %11 = load ptr, ptr %vfn34, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %8)
   br label %return.sink.split
@@ -745,7 +745,7 @@ declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16GzipOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #3 align 2 {
 entry:
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i32, ptr %zerror_, align 8
   switch i32 %0, label %return [
     i32 0, label %if.end
@@ -753,8 +753,8 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry, %entry
-  %zcontext_ = getelementptr inbounds i8, ptr %this, i64 32
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %zcontext_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i32, ptr %avail_in, align 8
   %cmp4.not = icmp eq i32 %1, 0
   br i1 %cmp4.not, label %if.then15, label %if.then5
@@ -771,10 +771,10 @@ if.end11:                                         ; preds = %if.then5
   br i1 %cmp14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.end, %if.end11
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 152
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %2 = load ptr, ptr %input_buffer_, align 8
   store ptr %2, ptr %zcontext_, align 8
-  %input_buffer_length_ = getelementptr inbounds i8, ptr %this, i64 160
+  %input_buffer_length_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %3 = load i64, ptr %input_buffer_length_, align 8
   %conv = trunc i64 %3 to i32
   store i32 %conv, ptr %avail_in, align 8
@@ -793,7 +793,7 @@ return:                                           ; preds = %if.then15, %if.end1
 define void @_ZN6google8protobuf2io16GzipOutputStream6BackUpEi(ptr nocapture noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %avail_in, align 8
   %cmp.not.i = icmp ult i32 %0, %count
   br i1 %cmp.not.i, label %while.body, label %while.end
@@ -818,9 +818,9 @@ while.end:                                        ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK6google8protobuf2io16GzipOutputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this) unnamed_addr #12 align 2 {
 entry:
-  %total_in = getelementptr inbounds i8, ptr %this, i64 48
+  %total_in = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %total_in, align 8
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i32, ptr %avail_in, align 8
   %conv = zext i32 %1 to i64
   %add = add i64 %0, %conv
@@ -831,7 +831,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf2io16GzipOutputStream5FlushEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN6google8protobuf2io16GzipOutputStream7DeflateEi(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef 3)
-  %zerror_ = getelementptr inbounds i8, ptr %this, i64 144
+  %zerror_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %call, ptr %zerror_, align 8
   switch i32 %call, label %lor.end.fold.split [
     i32 0, label %lor.end
@@ -839,13 +839,13 @@ entry:
   ]
 
 land.lhs.true:                                    ; preds = %entry
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %avail_in, align 8
   %cmp5 = icmp eq i32 %0, 0
   br i1 %cmp5, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %avail_out = getelementptr inbounds i8, ptr %this, i64 64
+  %avail_out = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i32, ptr %avail_out, align 8
   %cmp7 = icmp ne i32 %1, 0
   br label %lor.end

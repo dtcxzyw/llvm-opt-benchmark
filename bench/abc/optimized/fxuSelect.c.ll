@@ -19,14 +19,14 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %9, i8 0, i64 160, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %10, i8 0, i64 160, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %11, i8 0, i64 160, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %13
 
 13:                                               ; preds = %3, %18
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %18 ]
   %14 = load ptr, ptr %12, align 8
   %15 = tail call ptr @Fxu_HeapSingleGetMax(ptr noundef %14) #6
-  %16 = getelementptr inbounds [20 x ptr], ptr %8, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [20 x ptr], ptr %8, i64 0, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %17 = icmp eq ptr %15, null
   br i1 %17, label %19, label %18
@@ -53,12 +53,12 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
 .preheader107:                                    ; preds = %.preheader107.loopexit, %19
   %.not124169 = phi i1 [ true, %19 ], [ false, %.preheader107.loopexit ]
   %.087.lcssa167 = phi i64 [ 0, %19 ], [ %21, %.preheader107.loopexit ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %29
 
 23:                                               ; preds = %.lr.ph, %28
   %indvars.iv131 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next132, %28 ]
-  %24 = getelementptr inbounds [20 x ptr], ptr %8, i64 0, i64 %indvars.iv131
+  %24 = getelementptr inbounds nuw [20 x ptr], ptr %8, i64 0, i64 %indvars.iv131
   %25 = load ptr, ptr %24, align 8
   %.not98 = icmp eq ptr %25, null
   br i1 %.not98, label %28, label %26
@@ -77,7 +77,7 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
   %indvars.iv135 = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next136, %34 ]
   %30 = load ptr, ptr %22, align 8
   %31 = tail call ptr @Fxu_HeapDoubleGetMax(ptr noundef %30) #6
-  %32 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %indvars.iv135
+  %32 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %indvars.iv135
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %35, label %34
@@ -108,7 +108,7 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
 
 38:                                               ; preds = %.lr.ph112, %43
   %indvars.iv139 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next140, %43 ]
-  %39 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %indvars.iv139
+  %39 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %indvars.iv139
   %40 = load ptr, ptr %39, align 8
   %.not97 = icmp eq ptr %40, null
   br i1 %.not97, label %43, label %41
@@ -127,12 +127,12 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
   br i1 %.not125176, label %.preheader104, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.preheader105
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %58
 
 .lr.ph114:                                        ; preds = %.preheader106, %57
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %57 ], [ 0, %.preheader106 ]
-  %45 = getelementptr inbounds [20 x ptr], ptr %8, i64 0, i64 %indvars.iv144
+  %45 = getelementptr inbounds nuw [20 x ptr], ptr %8, i64 0, i64 %indvars.iv144
   %46 = load ptr, ptr %45, align 8
   %.not96 = icmp eq ptr %46, null
   br i1 %.not96, label %57, label %47
@@ -163,7 +163,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   %.0.i = phi ptr [ %55, %54 ], [ null, %47 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %56 = getelementptr inbounds [20 x ptr], ptr %10, i64 0, i64 %indvars.iv144
+  %56 = getelementptr inbounds nuw [20 x ptr], ptr %10, i64 0, i64 %indvars.iv144
   store ptr %.0.i, ptr %56, align 8
   br label %57
 
@@ -177,20 +177,20 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
 
 58:                                               ; preds = %.lr.ph116, %127
   %indvars.iv149 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next150, %127 ]
-  %59 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %indvars.iv149
+  %59 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %indvars.iv149
   %60 = load ptr, ptr %59, align 8
   %.not95 = icmp eq ptr %60, null
   br i1 %.not95, label %127, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %.sink.split
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %63, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 1
   br i1 %69, label %70, label %.sink.split
@@ -236,14 +236,14 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %.043.i.i.ph, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.043.i.i.ph, i64 32
   %84 = load ptr, ptr %83, align 8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %82, %103
   %.043.i.i.ph.be = phi ptr [ null, %103 ], [ %84, %82 ]
   %.0.i.i.ph.be = phi i32 [ %105, %103 ], [ %.0.i.i, %82 ]
-  %.041.i.i.ph.be.in = getelementptr inbounds i8, ptr %.041.i.i, i64 32
+  %.041.i.i.ph.be.in = getelementptr inbounds nuw i8, ptr %.041.i.i, i64 32
   %.041.i.i.ph.be = load ptr, ptr %.041.i.i.ph.be.in, align 8
   br label %.outer
 
@@ -253,7 +253,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %.039.i.i.ph.ph to i64
-  %89 = getelementptr inbounds i32, ptr %4, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %88
   store i32 %79, ptr %89, align 4
   br label %.outer.outer.backedge
 
@@ -262,7 +262,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   %92 = sext i32 %.0.i.i to i64
   %93 = getelementptr inbounds i32, ptr %5, i64 %92
   store i32 %80, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %.041.i.i, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.041.i.i, i64 32
   %95 = load ptr, ptr %94, align 8
   br label %76
 
@@ -274,14 +274,14 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
 98:                                               ; preds = %96
   %99 = load i32, ptr %.043.i.i.ph, align 8
   %100 = zext nneg i32 %.039.i.i.ph.ph to i64
-  %101 = getelementptr inbounds i32, ptr %4, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %4, i64 %100
   store i32 %99, ptr %101, align 4
   br label %.outer.outer.backedge
 
 .outer.outer.backedge:                            ; preds = %98, %87
   %.041.i.i.ph.ph.be = phi ptr [ %.041.i.i, %87 ], [ null, %98 ]
   %.039.i.i.ph.ph.be = add nuw nsw i32 %.039.i.i.ph.ph, 1
-  %.043.i.i.ph.ph.be.in = getelementptr inbounds i8, ptr %.043.i.i.ph, i64 32
+  %.043.i.i.ph.ph.be.in = getelementptr inbounds nuw i8, ptr %.043.i.i.ph, i64 32
   %.043.i.i.ph.ph.be = load ptr, ptr %.043.i.i.ph.ph.be.in, align 8
   br label %.outer.outer
 
@@ -316,21 +316,21 @@ Fxu_MatrixGetDoubleVars.exit.i:                   ; preds = %102
 
 .lr.ph.i:                                         ; preds = %112, %124
   %.03.i = phi ptr [ %.0.i103, %124 ], [ %.01.i, %112 ]
-  %115 = getelementptr inbounds i8, ptr %.03.i, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, %spec.select.i
   br i1 %118, label %119, label %124
 
 119:                                              ; preds = %.lr.ph.i
-  %120 = getelementptr inbounds i8, ptr %.03.i, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, %spec.select27.i
   br i1 %123, label %Fxu_MatrixFindComplementDouble2.exit, label %124
 
 124:                                              ; preds = %119, %.lr.ph.i
-  %125 = getelementptr inbounds i8, ptr %.03.i, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %.03.i, i64 40
   %.0.i103 = load ptr, ptr %125, align 8
   %.not.i = icmp eq ptr %.0.i103, null
   br i1 %.not.i, label %Fxu_MatrixFindComplementDouble2.exit, label %.lr.ph.i, !llvm.loop !10
@@ -343,7 +343,7 @@ Fxu_MatrixFindComplementDouble2.exit:             ; preds = %119, %124, %Fxu_Mat
 
 .sink.split:                                      ; preds = %61, %66, %Fxu_MatrixFindComplementDouble2.exit
   %.sink = phi ptr [ %.024.i, %Fxu_MatrixFindComplementDouble2.exit ], [ null, %66 ], [ null, %61 ]
-  %126 = getelementptr inbounds [20 x ptr], ptr %11, i64 0, i64 %indvars.iv149
+  %126 = getelementptr inbounds nuw [20 x ptr], ptr %11, i64 0, i64 %indvars.iv149
   store ptr %.sink, ptr %126, align 8
   br label %127
 
@@ -359,22 +359,22 @@ Fxu_MatrixFindComplementDouble2.exit:             ; preds = %119, %124, %Fxu_Mat
 .lr.ph119:                                        ; preds = %.preheader104, %148
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %148 ], [ 0, %.preheader104 ]
   %.080118 = phi i32 [ %.181, %148 ], [ -1, %.preheader104 ]
-  %128 = getelementptr inbounds [20 x ptr], ptr %8, i64 0, i64 %indvars.iv154
+  %128 = getelementptr inbounds nuw [20 x ptr], ptr %8, i64 0, i64 %indvars.iv154
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i32, ptr %130, align 8
-  %132 = getelementptr inbounds [20 x ptr], ptr %10, i64 0, i64 %indvars.iv154
+  %132 = getelementptr inbounds nuw [20 x ptr], ptr %10, i64 0, i64 %indvars.iv154
   %133 = load ptr, ptr %132, align 8
   %.not94 = icmp eq ptr %133, null
   br i1 %.not94, label %145, label %134
 
 134:                                              ; preds = %.lr.ph119
-  %135 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %133, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %138, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = add i32 %136, %131
   %143 = add i32 %142, %139
@@ -400,22 +400,22 @@ Fxu_MatrixFindComplementDouble2.exit:             ; preds = %119, %124, %Fxu_Mat
 .lr.ph122:                                        ; preds = %.preheader, %169
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %169 ], [ 0, %.preheader ]
   %.2121 = phi i32 [ %.3, %169 ], [ %.080.lcssa, %.preheader ]
-  %149 = getelementptr inbounds [20 x ptr], ptr %9, i64 0, i64 %indvars.iv159
+  %149 = getelementptr inbounds nuw [20 x ptr], ptr %9, i64 0, i64 %indvars.iv159
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 8
-  %153 = getelementptr inbounds [20 x ptr], ptr %11, i64 0, i64 %indvars.iv159
+  %153 = getelementptr inbounds nuw [20 x ptr], ptr %11, i64 0, i64 %indvars.iv159
   %154 = load ptr, ptr %153, align 8
   %.not = icmp eq ptr %154, null
   br i1 %.not, label %166, label %155
 
 155:                                              ; preds = %.lr.ph122
-  %156 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load i32, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %150, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = load i32, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %159, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %162 = load i32, ptr %161, align 4
   %163 = add i32 %157, %152
   %164 = add i32 %163, %160
@@ -456,14 +456,14 @@ declare void @Fxu_HeapDoubleInsert(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   br label %.outer.outer
 
@@ -496,14 +496,14 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.043.ph, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.043.ph, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %23, %44
   %.043.ph.be = phi ptr [ null, %44 ], [ %25, %23 ]
   %.0.ph.be = phi i32 [ %46, %44 ], [ %.0, %23 ]
-  %.041.ph.be.in = getelementptr inbounds i8, ptr %.041, i64 32
+  %.041.ph.be.in = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %.041.ph.be = load ptr, ptr %.041.ph.be.in, align 8
   br label %.outer
 
@@ -513,7 +513,7 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %.039.ph.ph to i64
-  %30 = getelementptr inbounds i32, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %29
   store i32 %20, ptr %30, align 4
   br label %.outer.outer.backedge
 
@@ -522,7 +522,7 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
   %33 = sext i32 %.0 to i64
   %34 = getelementptr inbounds i32, ptr %3, i64 %33
   store i32 %21, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %.041, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %36 = load ptr, ptr %35, align 8
   br label %17
 
@@ -534,14 +534,14 @@ define void @Fxu_MatrixGetDoubleVars(ptr nocapture noundef readnone %0, ptr noca
 39:                                               ; preds = %37
   %40 = load i32, ptr %.043.ph, align 8
   %41 = zext nneg i32 %.039.ph.ph to i64
-  %42 = getelementptr inbounds i32, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %41
   store i32 %40, ptr %42, align 4
   br label %.outer.outer.backedge
 
 .outer.outer.backedge:                            ; preds = %39, %28
   %.041.ph.ph.be = phi ptr [ %.041, %28 ], [ null, %39 ]
   %.039.ph.ph.be = add nuw nsw i32 %.039.ph.ph, 1
-  %.043.ph.ph.be.in = getelementptr inbounds i8, ptr %.043.ph, i64 32
+  %.043.ph.ph.be.in = getelementptr inbounds nuw i8, ptr %.043.ph, i64 32
   br label %.outer.outer
 
 43:                                               ; preds = %37
@@ -567,13 +567,13 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %6 = alloca [100 x i32], align 16
   %7 = alloca [100 x i32], align 16
   %8 = tail call i32 @Fxu_PairHashKeyArray(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = urem i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds %struct.FxuListDouble, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw %struct.FxuListDouble, ptr %13, i64 %14
   %.03653 = load ptr, ptr %15, align 8
   %.not54 = icmp eq ptr %.03653, null
   br i1 %.not54, label %._crit_edge58, label %.lr.ph57
@@ -587,25 +587,25 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 18:                                               ; preds = %.lr.ph57, %77
   %.03655 = phi ptr [ %.03653, %.lr.ph57 ], [ %.036, %77 ]
-  %19 = getelementptr inbounds i8, ptr %.03655, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.03655, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %.not39 = icmp eq i32 %21, %3
   br i1 %.not39, label %22, label %77
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = load i32, ptr %23, align 4
   %.not40 = icmp eq i32 %24, %4
   br i1 %.not40, label %25, label %77
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %20, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %20, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   br label %.outer.outer
 
@@ -638,14 +638,14 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.043.i.ph, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.043.i.ph, i64 32
   %42 = load ptr, ptr %41, align 8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %40, %61
   %.043.i.ph.be = phi ptr [ null, %61 ], [ %42, %40 ]
   %.0.i.ph.be = phi i32 [ %63, %61 ], [ %.0.i, %40 ]
-  %.041.i.ph.be.in = getelementptr inbounds i8, ptr %.041.i, i64 32
+  %.041.i.ph.be.in = getelementptr inbounds nuw i8, ptr %.041.i, i64 32
   %.041.i.ph.be = load ptr, ptr %.041.i.ph.be.in, align 8
   br label %.outer
 
@@ -655,7 +655,7 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %.039.i.ph.ph to i64
-  %47 = getelementptr inbounds i32, ptr %6, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %6, i64 %46
   store i32 %37, ptr %47, align 4
   br label %.outer.outer.backedge
 
@@ -664,7 +664,7 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %50 = sext i32 %.0.i to i64
   %51 = getelementptr inbounds i32, ptr %7, i64 %50
   store i32 %38, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %.041.i, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.041.i, i64 32
   %53 = load ptr, ptr %52, align 8
   br label %34
 
@@ -676,14 +676,14 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 56:                                               ; preds = %54
   %57 = load i32, ptr %.043.i.ph, align 8
   %58 = zext nneg i32 %.039.i.ph.ph to i64
-  %59 = getelementptr inbounds i32, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %58
   store i32 %57, ptr %59, align 4
   br label %.outer.outer.backedge
 
 .outer.outer.backedge:                            ; preds = %56, %45
   %.041.i.ph.ph.be = phi ptr [ %.041.i, %45 ], [ null, %56 ]
   %.039.i.ph.ph.be = add nuw nsw i32 %.039.i.ph.ph, 1
-  %.043.i.ph.ph.be.in = getelementptr inbounds i8, ptr %.043.i.ph, i64 32
+  %.043.i.ph.ph.be.in = getelementptr inbounds nuw i8, ptr %.043.i.ph, i64 32
   br label %.outer.outer
 
 60:                                               ; preds = %54
@@ -703,9 +703,9 @@ Fxu_MatrixGetDoubleVars.exit.preheader:           ; preds = %60
 
 .lr.ph:                                           ; preds = %Fxu_MatrixGetDoubleVars.exit.preheader, %Fxu_MatrixGetDoubleVars.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Fxu_MatrixGetDoubleVars.exit ], [ 0, %Fxu_MatrixGetDoubleVars.exit.preheader ]
-  %66 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %.not41 = icmp eq i32 %67, %69
   br i1 %.not41, label %Fxu_MatrixGetDoubleVars.exit, label %._crit_edge.loopexit
@@ -729,9 +729,9 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
 
 .lr.ph48:                                         ; preds = %.preheader, %75
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %75 ], [ 0, %.preheader ]
-  %71 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv63
+  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv63
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv63
+  %73 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %indvars.iv63
   %74 = load i32, ptr %73, align 4
   %.not43 = icmp eq i32 %72, %74
   br i1 %.not43, label %75, label %._crit_edge49.loopexit
@@ -751,7 +751,7 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
   br i1 %.not44, label %._crit_edge58, label %77
 
 77:                                               ; preds = %._crit_edge49, %._crit_edge, %22, %18
-  %78 = getelementptr inbounds i8, ptr %.03655, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %.03655, i64 48
   %.036 = load ptr, ptr %78, align 8
   %.not = icmp eq ptr %.036, null
   br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !16
@@ -765,14 +765,14 @@ declare i32 @Fxu_PairHashKeyArray(ptr noundef, ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.04796 = load ptr, ptr %5, align 8
   %.not97 = icmp eq ptr %.04796, null
   br i1 %.not97, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %8
 
 8:                                                ; preds = %.lr.ph103, %.loopexit
@@ -780,23 +780,23 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   %.0100 = phi i32 [ -10, %.lr.ph103 ], [ %.1, %.loopexit ]
   store ptr %6, ptr %7, align 8
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %.047101, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.047101, i64 24
   %.05778 = load ptr, ptr %9, align 8
   %.not6279 = icmp eq ptr %.05778, null
   br i1 %.not6279, label %.loopexit72, label %.preheader
 
 .preheader:                                       ; preds = %8, %._crit_edge
   %.05781 = phi ptr [ %.057, %._crit_edge ], [ %.05778, %8 ]
-  %.056.in73 = getelementptr inbounds i8, ptr %.05781, i64 32
+  %.056.in73 = getelementptr inbounds nuw i8, ptr %.05781, i64 32
   %.05674 = load ptr, ptr %.056.in73, align 8
   %.not6975 = icmp eq ptr %.05674, null
   br i1 %.not6975, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.05677 = phi ptr [ %.056, %16 ], [ %.05674, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.05677, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.05677, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not70 = icmp eq ptr %13, null
   br i1 %.not70, label %14, label %16
@@ -809,13 +809,13 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br label %16
 
 16:                                               ; preds = %.lr.ph, %14
-  %.056.in = getelementptr inbounds i8, ptr %.05677, i64 32
+  %.056.in = getelementptr inbounds nuw i8, ptr %.05677, i64 32
   %.056 = load ptr, ptr %.056.in, align 8
   %.not69 = icmp eq ptr %.056, null
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  %17 = getelementptr inbounds i8, ptr %.05781, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.05781, i64 48
   %.057 = load ptr, ptr %17, align 8
   %.not62 = icmp eq ptr %.057, null
   br i1 %.not62, label %._crit_edge82, label %.preheader, !llvm.loop !18
@@ -840,7 +840,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
 
 22:                                               ; preds = %.lr.ph88, %21
   %.3 = phi i32 [ %19, %21 ], [ %.287, %.lr.ph88 ]
-  %23 = getelementptr inbounds i8, ptr %.05485, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.05485, i64 64
   %24 = load ptr, ptr %23, align 8
   %.not64 = icmp eq ptr %24, inttoptr (i64 1 to ptr)
   br i1 %.not64, label %.loopexit72.loopexit, label %.lr.ph88, !llvm.loop !19
@@ -859,7 +859,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   ]
 
 26:                                               ; preds = %.loopexit72
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %28 = load ptr, ptr %27, align 8
   br label %29
 
@@ -869,22 +869,22 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br i1 %.not6791, label %.loopexit, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %25, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr null, ptr %31, align 8
   %.not68110 = icmp eq ptr %30, inttoptr (i64 1 to ptr)
   br i1 %.not68110, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %.05892111 = phi ptr [ %33, %.lr.ph95 ], [ %30, %.lr.ph95.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.05892111, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.05892111, i64 64
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.05892111, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %.05892111, i64 64
   store ptr null, ptr %34, align 8
   %.not68 = icmp eq ptr %33, inttoptr (i64 1 to ptr)
   br i1 %.not68, label %.loopexit, label %.lr.ph95, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph95, %.lr.ph95.preheader, %29, %.loopexit72
-  %35 = getelementptr inbounds i8, ptr %.047101, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.047101, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %.047 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.047, null

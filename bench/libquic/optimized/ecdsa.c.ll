@@ -10,13 +10,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ECDSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
-  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %0, i64 40
+  %sign = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -39,13 +39,13 @@ define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest,
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %len = alloca i64, align 8
-  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %0, i64 40
+  %sign = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -207,7 +207,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false24
   br i1 %cmp31, label %if.then43, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false28
-  %s = getelementptr inbounds i8, ptr %sig, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %3 = load ptr, ptr %s, align 8
   %call33 = tail call i32 @BN_is_zero(ptr noundef %3) #4
   %tobool34.not = icmp eq i32 %call33, 0
@@ -336,13 +336,13 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %digest, i64 noundef %digest_len
 entry:
   %kinv = alloca ptr, align 8
   store ptr null, ptr %kinv, align 8
-  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %0, i64 40
+  %sign = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -373,7 +373,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %s11 = getelementptr inbounds i8, ptr %call7, i64 8
+  %s11 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %2 = load ptr, ptr %s11, align 8
   %call12 = tail call ptr @BN_CTX_new() #4
   %cmp13 = icmp eq ptr %call12, null

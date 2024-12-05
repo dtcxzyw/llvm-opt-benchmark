@@ -94,7 +94,7 @@ define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, 
   br i1 %21, label %74, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %24, 15
   br i1 %25, label %74, label %26
@@ -103,7 +103,7 @@ define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, 
   br i1 %7, label %27, label %31
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %74, label %31
@@ -125,7 +125,7 @@ define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, 
 
 40:                                               ; preds = %33
   %41 = sub i64 %36, %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %42, align 8
   %43 = icmp ugt i64 %3, 9223372036854774716
   br i1 %43, label %lzma2_bound.exit.thread, label %44
@@ -139,14 +139,14 @@ define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, 
   br i1 %49, label %lzma2_bound.exit.thread, label %lzma2_bound.exit
 
 lzma2_bound.exit.thread:                          ; preds = %40, %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %50, align 8
   br label %74
 
 lzma2_bound.exit:                                 ; preds = %44
   %51 = add nuw nsw i64 %3, 1
   %52 = add nuw i64 %51, %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %52, ptr %53, align 8
   br i1 %7, label %54, label %.thread
 
@@ -191,7 +191,7 @@ lzma2_bound.exit:                                 ; preds = %44
   call void @lzma_check_update(ptr noundef nonnull %9, i32 noundef %67, ptr noundef %2, i64 noundef %3) #9
   %68 = load i32, ptr %23, align 8
   call void @lzma_check_finish(ptr noundef nonnull %9, i32 noundef %68) #9
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %9, i64 %38, i1 false)
   %70 = load i64, ptr %5, align 8
   %71 = getelementptr inbounds i8, ptr %4, i64 %70
@@ -229,7 +229,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
 11:                                               ; preds = %7
   %12 = load i64, ptr %5, align 8
   %13 = sub i64 %6, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %.not45 = icmp ugt i64 %13, %16
@@ -238,12 +238,12 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
 17:                                               ; preds = %11
   %18 = add i64 %12, %16
   store i64 %18, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @lzma_raw_encoder_init(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %23) #9
   %25 = icmp eq i32 %24, 0
@@ -255,7 +255,7 @@ define internal fastcc i32 @block_encode_normal(ptr noundef nonnull %0, ptr noun
   %29 = add i64 %20, %18
   %spec.select = select i1 %28, i64 %29, i64 %6
   store i64 0, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = call i32 %31(ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %spec.select, i32 noundef 3) #9
@@ -301,11 +301,11 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
   store i32 4096, ptr %7, align 8
   store i64 33, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 -1, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   store ptr %8, ptr %11, align 8
   %13 = call i32 @lzma_block_header_size(ptr noundef nonnull %0) #9
@@ -319,10 +319,10 @@ define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr nound
 15:                                               ; preds = %6
   %16 = load i64, ptr %4, align 8
   %17 = sub i64 %5, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
   %24 = icmp ult i64 %17, %23

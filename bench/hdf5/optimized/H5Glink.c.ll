@@ -56,17 +56,17 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0,
   br i1 %.not, label %61, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i8, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = and i8 %12, 1
   store i8 %14, ptr %13, align 4
   %15 = load i32, ptr %1, align 8
@@ -78,9 +78,9 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0,
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = tail call i32 @H5VL_native_addr_to_token(ptr noundef %17, i32 noundef 1, i64 noundef %19, ptr noundef nonnull %20) #9
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %61
@@ -92,11 +92,11 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0,
   br label %61
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #10
   %31 = add i64 %30, 1
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %31, ptr %32, align 8
   br label %61
 
@@ -117,17 +117,17 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0,
   br i1 %.not35, label %59, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not36 = icmp eq ptr %43, null
   br i1 %.not36, label %59, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = tail call i64 %43(ptr noundef %46, ptr noundef %48, i64 noundef %50, ptr noundef null, i64 noundef 0) #9
   %52 = icmp slt i64 %51, 0
@@ -140,12 +140,12 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr nocapture noundef readonly %0,
   br label %61
 
 57:                                               ; preds = %44
-  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %51, ptr %58, align 8
   br label %61
 
 59:                                               ; preds = %41, %39
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %60, align 8
   br label %61
 
@@ -170,7 +170,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   %9 = alloca %struct.H5O_stab_t, align 8
   %10 = alloca i64, align 8
   tail call void @H5G__ent_reset(ptr noundef %5) #9
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %14 = add i64 %13, 1
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
 
 21:                                               ; preds = %6
   %22 = load i64, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %22, ptr %23, align 8
   %24 = load i32, ptr %2, align 8
   switch i32 %24, label %111 [
@@ -201,15 +201,15 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   ]
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %5, align 8
   %.not48 = icmp eq i32 %28, 0
   br i1 %.not48, label %93, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   br label %93
 
@@ -226,9 +226,9 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
 
 39:                                               ; preds = %32
   store ptr %0, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %41, ptr %42, align 8
   %43 = call ptr @H5O_protect(ptr noundef nonnull %8, i32 noundef 128, i1 noundef zeroext false) #9
   %44 = icmp eq ptr %43, null
@@ -291,11 +291,11 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
 78:                                               ; preds = %64
   store i32 1, ptr %5, align 8
   %79 = load i64, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %82, ptr %83, align 8
   br label %85
 
@@ -319,14 +319,14 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   br label %93
 
 93:                                               ; preds = %92, %85, %26, %29
-  %94 = getelementptr inbounds i8, ptr %2, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %5, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %95, ptr %96, align 8
   br label %115
 
 97:                                               ; preds = %21
-  %98 = getelementptr inbounds i8, ptr %2, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #10
   %101 = add i64 %100, 1
@@ -343,7 +343,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
 108:                                              ; preds = %97
   store i32 2, ptr %5, align 8
   %109 = load i64, ptr %10, align 8
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %109, ptr %110, align 8
   br label %115
 
@@ -389,11 +389,11 @@ define range(i32 -1, 1) i32 @H5G__link_to_loc(ptr nocapture noundef readonly %0,
   br label %36
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @H5G_name_set(ptr noundef %12, ptr noundef %14, ptr noundef %16) #9
   %18 = icmp slt i32 %17, 0
@@ -411,17 +411,17 @@ define range(i32 -1, 1) i32 @H5G__link_to_loc(ptr nocapture noundef readonly %0,
   %26 = load ptr, ptr %2, align 8
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i8 0, ptr %28, align 8
   %29 = load i32, ptr %1, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %33, ptr %35, align 8
   br label %36
 
@@ -462,7 +462,7 @@ define noundef i32 @H5G__link_sort_table(ptr nocapture noundef readonly %0, i32 
 
 .sink.split:                                      ; preds = %10, %8, %11, %9
   %H5G__link_cmp_name_dec.sink = phi ptr [ @H5G__link_cmp_name_dec, %9 ], [ @H5G__link_cmp_corder_dec, %11 ], [ @H5G__link_cmp_name_inc, %8 ], [ @H5G__link_cmp_corder_inc, %10 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @qsort(ptr noundef %13, i64 noundef %4, i64 noundef 48, ptr noundef nonnull %H5G__link_cmp_name_dec.sink) #9
   br label %14
@@ -476,9 +476,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @H5G__link_cmp_name_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #10
   ret i32 %7
@@ -486,9 +486,9 @@ define internal i32 @H5G__link_cmp_name_inc(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @H5G__link_cmp_name_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #10
   ret i32 %7
@@ -496,9 +496,9 @@ define internal i32 @H5G__link_cmp_name_dec(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
@@ -506,9 +506,9 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %6, i64 %4)
   ret i32 %.0
@@ -533,11 +533,11 @@ define i32 @H5G__link_iterate_table(ptr nocapture noundef readonly %0, i64 nound
   br i1 %12, label %.lr.ph.split.preheader, label %._crit_edge.thread
 
 .lr.ph.split.preheader:                           ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
@@ -590,7 +590,7 @@ define range(i32 -1, 1) i32 @H5G__link_release_table(ptr nocapture noundef reado
   br i1 %.not, label %20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 4:                                                ; preds = %8
@@ -614,7 +614,7 @@ define range(i32 -1, 1) i32 @H5G__link_release_table(ptr nocapture noundef reado
   br label %20
 
 ._crit_edge:                                      ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @H5MM_xfree(ptr noundef %18) #9
   br label %20
@@ -634,7 +634,7 @@ define range(i32 -1, 1) i32 @H5G__link_name_replace(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @H5G_build_fullpath_refstr_str(ptr noundef nonnull %1, ptr noundef %6) #9
   %8 = tail call i32 @H5G_name_replace(ptr noundef %2, i32 noundef 1, ptr noundef %0, ptr noundef %7, ptr noundef null, ptr noundef null) #9

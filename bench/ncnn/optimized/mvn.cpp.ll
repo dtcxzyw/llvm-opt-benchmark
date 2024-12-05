@@ -134,7 +134,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %49 ]
   %.0409632 = phi float [ %58, %.lr.ph ], [ 0.000000e+00, %49 ]
-  %56 = getelementptr inbounds float, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   %57 = load float, ptr %56, align 4
   %58 = fadd fast float %57, %.0409632
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -144,7 +144,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.0409.lcssa = phi float [ 0.000000e+00, %49 ], [ %58, %.lr.ph ]
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds float, ptr %59, i64 %indvars.iv688
+  %60 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv688
   store float %.0409.lcssa, ptr %60, align 4
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %exitcond692.not = icmp eq i64 %indvars.iv.next689, %wide.trip.count691
@@ -178,7 +178,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 70:                                               ; preds = %.lr.ph638, %70
   %indvars.iv693 = phi i64 [ 0, %.lr.ph638 ], [ %indvars.iv.next694, %70 ]
   %.0413636 = phi float [ 0.000000e+00, %.lr.ph638 ], [ %73, %70 ]
-  %71 = getelementptr inbounds float, ptr %64, i64 %indvars.iv693
+  %71 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv693
   %72 = load float, ptr %71, align 4
   %73 = fadd fast float %72, %.0413636
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 1
@@ -214,10 +214,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 .lr.ph643:                                        ; preds = %80, %.lr.ph643
   %indvars.iv698 = phi i64 [ %indvars.iv.next699, %.lr.ph643 ], [ 0, %80 ]
-  %93 = getelementptr inbounds float, ptr %86, i64 %indvars.iv698
+  %93 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv698
   %94 = load float, ptr %93, align 4
   %95 = fsub fast float %94, %76
-  %96 = getelementptr inbounds float, ptr %92, i64 %indvars.iv698
+  %96 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv698
   store float %95, ptr %96, align 4
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %exitcond702.not = icmp eq i64 %indvars.iv.next699, %wide.trip.count701
@@ -243,17 +243,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
   %108 = mul i64 %106, %107
   %109 = getelementptr inbounds i8, ptr %104, i64 %108
   %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds float, ptr %110, i64 %indvars.iv713
+  %111 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv713
   %112 = load float, ptr %111, align 4
   %113 = fmul fast float %112, %69
   br i1 %68, label %.lr.ph650, label %._crit_edge651
 
 .lr.ph650:                                        ; preds = %97, %.lr.ph650
   %indvars.iv708 = phi i64 [ %indvars.iv.next709, %.lr.ph650 ], [ 0, %97 ]
-  %114 = getelementptr inbounds float, ptr %103, i64 %indvars.iv708
+  %114 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv708
   %115 = load float, ptr %114, align 4
   %116 = fsub fast float %115, %113
-  %117 = getelementptr inbounds float, ptr %109, i64 %indvars.iv708
+  %117 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv708
   store float %116, ptr %117, align 4
   %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
   %exitcond712.not = icmp eq i64 %indvars.iv.next709, %wide.trip.count711
@@ -319,7 +319,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 .lr.ph657:                                        ; preds = %139, %.lr.ph657
   %indvars.iv718 = phi i64 [ %indvars.iv.next719, %.lr.ph657 ], [ 0, %139 ]
   %.0401654 = phi float [ %149, %.lr.ph657 ], [ 0.000000e+00, %139 ]
-  %146 = getelementptr inbounds float, ptr %145, i64 %indvars.iv718
+  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv718
   %147 = load float, ptr %146, align 4
   %148 = fmul fast float %147, %147
   %149 = fadd fast float %148, %.0401654
@@ -330,7 +330,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 ._crit_edge658:                                   ; preds = %.lr.ph657, %139
   %.0401.lcssa = phi float [ 0.000000e+00, %139 ], [ %149, %.lr.ph657 ]
   %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds float, ptr %150, i64 %indvars.iv723
+  %151 = getelementptr inbounds nuw float, ptr %150, i64 %indvars.iv723
   store float %.0401.lcssa, ptr %151, align 4
   %indvars.iv.next724 = add nuw nsw i64 %indvars.iv723, 1
   %exitcond727.not = icmp eq i64 %indvars.iv.next724, %wide.trip.count726
@@ -365,7 +365,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 159:                                              ; preds = %.lr.ph665, %159
   %indvars.iv728 = phi i64 [ 0, %.lr.ph665 ], [ %indvars.iv.next729, %159 ]
   %.0399663 = phi float [ 0.000000e+00, %.lr.ph665 ], [ %162, %159 ]
-  %160 = getelementptr inbounds float, ptr %153, i64 %indvars.iv728
+  %160 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv728
   %161 = load float, ptr %160, align 4
   %162 = fadd fast float %161, %.0399663
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
@@ -402,7 +402,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 179:                                              ; preds = %.lr.ph670.us, %179
   %indvars.iv733 = phi i64 [ 0, %.lr.ph670.us ], [ %indvars.iv.next734, %179 ]
-  %180 = getelementptr inbounds float, ptr %178, i64 %indvars.iv733
+  %180 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv733
   %181 = load float, ptr %180, align 4
   %182 = fmul fast float %181, %172
   store float %182, ptr %180, align 4
@@ -427,7 +427,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 .lr.ph677.preheader:                              ; preds = %183
   %190 = load ptr, ptr %6, align 8
-  %191 = getelementptr inbounds float, ptr %190, i64 %indvars.iv748
+  %191 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv748
   %192 = load float, ptr %191, align 4
   %193 = fmul fast float %192, %158
   %194 = call fast noundef float @llvm.sqrt.f32(float %193)
@@ -438,7 +438,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 .lr.ph677:                                        ; preds = %.lr.ph677.preheader, %.lr.ph677
   %indvars.iv743 = phi i64 [ 0, %.lr.ph677.preheader ], [ %indvars.iv.next744, %.lr.ph677 ]
-  %198 = getelementptr inbounds float, ptr %189, i64 %indvars.iv743
+  %198 = getelementptr inbounds nuw float, ptr %189, i64 %indvars.iv743
   %199 = load float, ptr %198, align 4
   %200 = fmul fast float %199, %197
   store float %200, ptr %198, align 4
@@ -470,7 +470,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr %206, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load ptr, ptr %210, align 8
   invoke void %211(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef %207)
           to label %214 unwind label %215
@@ -518,7 +518,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %224, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %229 = load ptr, ptr %228, align 8
   invoke void %229(ptr noundef nonnull align 8 dereferenceable(8) %224, ptr noundef %225)
           to label %.critedge unwind label %232
@@ -551,7 +551,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %239, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %244 = load ptr, ptr %243, align 8
   invoke void %244(ptr noundef nonnull align 8 dereferenceable(8) %239, ptr noundef %240)
           to label %247 unwind label %248

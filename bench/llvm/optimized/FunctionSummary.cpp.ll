@@ -20,7 +20,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy22getTotalNumBa
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
   br i1 %4, label %._crit_edge, label %10
 
 10:                                               ; preds = %1
@@ -37,7 +37,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy22getTotalNumBa
   ]
 
 .critedge2.i8.i14.i6.i:                           ; preds = %.lr.ph.i6.i12.i3.i, %.lr.ph.i6.i12.i3.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 24
   %.not.i9.i15.i7.i = icmp eq ptr %12, %9
   br i1 %.not.i9.i15.i7.i, label %._crit_edge, label %.lr.ph.i6.i12.i3.i, !llvm.loop !4
 
@@ -54,7 +54,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 1073741823
   %17 = add i32 %16, %.010
-  %18 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 24
   %.not5.i3.i = icmp eq ptr %18, %9
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i
 
@@ -68,7 +68,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   ]
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
-  %20 = getelementptr inbounds i8, ptr %.sroa.05.1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.1, i64 24
   %.not.i7.i = icmp eq ptr %20, %9
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !4
 
@@ -91,7 +91,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy29getTotalNumVi
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
   br i1 %4, label %._crit_edge, label %10
 
 10:                                               ; preds = %1
@@ -108,7 +108,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy29getTotalNumVi
   ]
 
 .critedge2.i8.i14.i6.i:                           ; preds = %.lr.ph.i6.i12.i3.i, %.lr.ph.i6.i12.i3.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 24
   %.not.i9.i15.i7.i = icmp eq ptr %12, %9
   br i1 %.not.i9.i15.i7.i, label %._crit_edge, label %.lr.ph.i6.i12.i3.i, !llvm.loop !4
 
@@ -151,14 +151,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = add i32 %.012.i.i, %31
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
   %.not.i.i = icmp eq ptr %33, %28
   br i1 %.not.i.i, label %_ZNK4llvm14SmallBitVector5countEv.exit, label %.lr.ph.i.i
 
 _ZNK4llvm14SmallBitVector5countEv.exit:           ; preds = %.lr.ph.i.i, %16, %24
   %.0.i = phi i32 [ %23, %16 ], [ 0, %24 ], [ %32, %.lr.ph.i.i ]
   %34 = add i32 %.0.i, %.010
-  %35 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 24
   %.not5.i3.i = icmp eq ptr %35, %9
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i
 
@@ -172,7 +172,7 @@ _ZNK4llvm14SmallBitVector5countEv.exit:           ; preds = %.lr.ph.i.i, %16, %2
   ]
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.05.1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.1, i64 24
   %.not.i7.i = icmp eq ptr %37, %9
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !4
 

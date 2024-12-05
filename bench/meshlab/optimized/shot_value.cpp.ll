@@ -127,7 +127,7 @@ define linkonce_odr { <2 x float>, float } @_ZNK5Value9getPoint3Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK9ShotValue7getShotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Shot") align 4 initializes((0, 132)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, ptr noundef nonnull align 8 dereferenceable(132) %3, i64 132, i1 false)
   ret void
 }
@@ -135,9 +135,9 @@ define void @_ZNK9ShotValue7getShotEv(ptr dead_on_unwind noalias nocapture writa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK5Value8getColorEv(ptr dead_on_unwind noalias writable sret(%class.QColor) align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   store i32 0, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i64 0, ptr %4, align 2
   ret void
 }
@@ -193,10 +193,10 @@ define void @_ZNK9ShotValue8typeNameEv(ptr dead_on_unwind noalias nocapture writ
 define void @_ZN9ShotValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((8, 140)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %7, ptr noundef nonnull align 4 dereferenceable(132) %3, i64 132, i1 false)
   ret void
 }
@@ -205,8 +205,8 @@ define void @_ZN9ShotValue3setERK5Value(ptr nocapture noundef nonnull writeonly 
 define noalias noundef nonnull ptr @_ZNK9ShotValue5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %0) unnamed_addr #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTV9ShotValue, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %3, ptr noundef nonnull align 8 dereferenceable(132) %4, i64 132, i1 false)
   ret ptr %2
 }
@@ -215,15 +215,15 @@ define noalias noundef nonnull ptr @_ZNK9ShotValue5cloneEv(ptr nocapture noundef
 define noundef zeroext i1 @_ZNK9ShotValueeqERK5Value(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %13 = call noundef zeroext i1 @_ZNK3vcg4ShotIfNS_8Matrix44IfEEEeqERKS3_(ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 4 dereferenceable(132) %3)
@@ -250,7 +250,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9ShotValueC2ERKN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 140)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9ShotValue, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %3, ptr noundef nonnull align 4 dereferenceable(132) %1, i64 132, i1 false)
   ret void
 }
@@ -273,75 +273,75 @@ define linkonce_odr noundef zeroext i1 @_ZNK3vcg4ShotIfNS_8Matrix44IfEEEeqERKS3_
   br i1 %5, label %6, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %7, align 4
   %10 = load i32, ptr %8, align 4
   %11 = icmp eq i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %13, %15
   %17 = select i1 %11, i1 %16, i1 false
   br i1 %17, label %18, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load float, ptr %19, align 4
   %22 = load float, ptr %20, align 4
   %23 = fcmp oeq float %21, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load float, ptr %26, align 4
   %28 = fcmp oeq float %25, %27
   %29 = select i1 %23, i1 %28, i1 false
   br i1 %29, label %30, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load float, ptr %31, align 4
   %34 = load float, ptr %32, align 4
   %35 = fcmp oeq float %33, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load float, ptr %38, align 4
   %40 = fcmp oeq float %37, %39
   %41 = select i1 %35, i1 %40, i1 false
   br i1 %41, label %42, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
-  %44 = getelementptr inbounds i8, ptr %1, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %45 = load float, ptr %43, align 4
   %46 = load float, ptr %44, align 4
   %47 = fcmp oeq float %45, %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load float, ptr %50, align 4
   %52 = fcmp oeq float %49, %51
   %53 = select i1 %47, i1 %52, i1 false
   br i1 %53, label %54, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 54:                                               ; preds = %42
-  %55 = getelementptr inbounds i8, ptr %0, i64 36
-  %56 = getelementptr inbounds i8, ptr %1, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %54
   %.011.i.i.i.i.i.i = phi ptr [ %56, %54 ], [ %60, %.lr.ph.i.i.i.i.i.i ]
   %.0810.i.i.i.i.idx.i.i = phi i64 [ 0, %54 ], [ %.0810.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %55, i64 %.0810.i.i.i.i.idx.i.i
+  %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %55, i64 %.0810.i.i.i.i.idx.i.i
   %57 = load float, ptr %.0810.i.i.i.i.ptr.i.i, align 4
   %58 = load float, ptr %.011.i.i.i.i.i.i, align 4
   %59 = fcmp oeq float %57, %58
   %.0810.i.i.i.i.add.i.i = add nuw nsw i64 %.0810.i.i.i.i.idx.i.i, 4
-  %60 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp ne i64 %.0810.i.i.i.i.add.i.i, 16
   %or.cond.not.i.i = select i1 %59, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.not.i.i, label %.lr.ph.i.i.i.i.i.i, label %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i, !llvm.loop !5
@@ -350,16 +350,16 @@ _ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i:      ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %59, label %_ZNK3vcg6CameraIfEeqERKS1_.exit, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5arrayIT_XT0_EES4_.exit.i
-  %61 = getelementptr inbounds i8, ptr %0, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %62, %64
   br i1 %65, label %66, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 66:                                               ; preds = %_ZNK3vcg6CameraIfEeqERKS1_.exit
-  %67 = getelementptr inbounds i8, ptr %0, i64 56
-  %68 = getelementptr inbounds i8, ptr %1, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %78, %66
@@ -375,9 +375,9 @@ _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5
 71:                                               ; preds = %70, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %70 ]
   %72 = add nuw nsw i64 %indvars.iv.i.i, %69
-  %73 = getelementptr inbounds [16 x float], ptr %67, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [16 x float], ptr %67, i64 0, i64 %72
   %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds [16 x float], ptr %68, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw [16 x float], ptr %68, i64 0, i64 %72
   %76 = load float, ptr %75, align 4
   %77 = fcmp oeq float %74, %76
   br i1 %77, label %70, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
@@ -388,25 +388,25 @@ _ZNK3vcg6CameraIfEeqERKS1_.exit:                  ; preds = %_ZSteqIfLm4EEbRKSt5
   br i1 %exitcond22.i.i, label %79, label %.preheader.i.i, !llvm.loop !8
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %0, i64 120
-  %81 = getelementptr inbounds i8, ptr %1, i64 120
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %82 = load float, ptr %80, align 4
   %83 = load float, ptr %81, align 4
   %84 = fcmp oeq float %82, %83
   br i1 %84, label %85, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %0, i64 124
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 124
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %89 = load float, ptr %88, align 4
   %90 = fcmp oeq float %87, %89
   br i1 %90, label %91, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %0, i64 128
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %95 = load float, ptr %94, align 4
   %96 = fcmp oeq float %93, %95
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE14ReferenceFrameeqERKS4_.exit

@@ -28,7 +28,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
   %9 = alloca [32 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   invoke void @"_ZN94_$LT$proc_macro2..TokenStream$u20$as$u20$core..convert..From$LT$proc_macro2..TokenTree$GT$$GT$4from17h2ee72239b5c42312E"(ptr nonnull sret([32 x i8]) align 8 %11, ptr nonnull align 8 %10)
@@ -47,7 +47,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %6, ptr nonnull align 8 %5)
   call void @_ZN4core4iter6traits8iterator8Iterator7collect17h464d0dba6f1bbad9E(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %6)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   store i64 -9223372036854775804, ptr %0, align 8
   ret void
@@ -92,10 +92,10 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
           to label %9 unwind label %6
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 
@@ -156,16 +156,16 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
           to label %21 unwind label %12
 
 .thread:                                          ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   br label %25
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %3)
@@ -247,7 +247,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   ret void
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr align 8 %1)
@@ -263,7 +263,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   call void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %22, ptr nonnull align 8 %23)
   call void @_ZN4core4iter6traits8iterator8Iterator7collect17h464d0dba6f1bbad9E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %22)
   store i64 -9223372036854775804, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   br label %33
 
@@ -313,7 +313,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
 
 49:                                               ; preds = %46
   store i64 -9223372036854775804, ptr %0, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %25)
           to label %54 unwind label %52
@@ -391,21 +391,21 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   unreachable
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %21, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke void @_ZN11proc_macro25Group6stream17h5bcb6dbd247bf26fE(ptr nonnull sret([32 x i8]) align 8 %13, ptr nonnull align 8 %15)
           to label %75 unwind label %77
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds i8, ptr %21, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_keyword17h3a94fa3ad84ec177E(ptr noalias align 8 %11, ptr align 8 %1, ptr align 8 %10, ptr align 8 %12)
           to label %.sink.split unwind label %.thread47
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds i8, ptr %21, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13parse_literal17hfa46a50c521c66b5E(ptr noalias align 8 %17, ptr align 8 %1, ptr align 8 %16, ptr align 8 %18)
@@ -418,12 +418,12 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %.sink.split unwind label %.thread47
 
 75:                                               ; preds = %68
-  %.sroa.327.56..sroa_idx = getelementptr inbounds i8, ptr %.sroa.327, i64 16
+  %.sroa.327.56..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.327, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.327.56..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
-  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.327.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.327, i64 40, i1 false)
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr nonnull align 8 %15)
           to label %54 unwind label %.thread47
@@ -443,14 +443,14 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %.thread unwind label %57
 
 79:                                               ; preds = %62
-  %.sroa.3.56..sroa_idx = getelementptr inbounds i8, ptr %.sroa.3, i64 16
+  %.sroa.3.56..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.56..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.224, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   store i64 -9223372036854775807, ptr %0, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.224, i64 32, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %20)
           to label %54 unwind label %.thread47
@@ -505,17 +505,17 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   br i1 %.sroa.011.4, label %95, label %86
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %21, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr nonnull align 8 %92) #5
           to label %86 unwind label %57
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %21, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %94) #5
           to label %86 unwind label %57
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %21, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %21, i64 8
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17hf1b5a8db4b1639a6E"(ptr nonnull align 8 %96) #5
           to label %86 unwind label %57
 

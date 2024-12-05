@@ -1155,21 +1155,21 @@ define hidden i32 @dtls_dissect_hnd_hello_ext_use_srtp(ptr noundef %0, ptr nound
   %49 = call ptr @wmem_file_scope() #6
   %50 = call noalias ptr @wmem_alloc0(ptr noundef %49, i64 noundef 16) #6
   %51 = load i32, ptr %8, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 4
-  %53 = getelementptr inbounds i8, ptr %50, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %switch.tableidx = add i32 %51, -2
   %54 = icmp ult i32 %switch.tableidx, 7
   br i1 %54, label %switch.lookup, label %58
 
 switch.lookup:                                    ; preds = %48
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp, i64 0, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep77 = getelementptr inbounds [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 0, i64 %56
+  %switch.gep77 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 0, i64 %56
   %switch.load78 = load i32, ptr %switch.gep77, align 4
   %57 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep79 = getelementptr inbounds [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 0, i64 %57
+  %switch.gep79 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 0, i64 %57
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %58
 
@@ -1181,17 +1181,17 @@ switch.lookup:                                    ; preds = %48
   store i32 %.sink75, ptr %52, align 4
   store i32 %.sink, ptr %53, align 4
   %59 = load i32, ptr %9, align 4
-  %60 = getelementptr inbounds i8, ptr %50, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 160
-  %62 = getelementptr inbounds i8, ptr %0, i64 284
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 288
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %67 = load i32, ptr %66, align 4
   call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %61, i32 noundef %63, i32 noundef %65, ptr noundef nonnull @.str.2, i32 noundef %67, i32 noundef 1, ptr noundef null, ptr noundef nonnull %50, ptr noundef null) #6
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %69 = load i32, ptr %64, align 8
   %70 = load i32, ptr %62, align 4
   %71 = load i32, ptr %66, align 4
@@ -1261,13 +1261,13 @@ declare void @quic_transport_parameter_id_base_custom(ptr noundef, i64 noundef) 
 define internal ptr @dtls_src_value(ptr noundef %0) #0 {
   %2 = tail call ptr @wmem_file_scope() #6
   %3 = load i32, ptr @proto_dtls, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 376
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @p_get_proto_data(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %6) #6
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 284
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.0.in.in.in = select i1 %8, ptr %9, ptr %10
   %.0.in.in = load i32, ptr %.0.in.in.in, align 4
   %.0.in = zext i32 %.0.in.in to i64
@@ -1279,13 +1279,13 @@ define internal ptr @dtls_src_value(ptr noundef %0) #0 {
 define internal ptr @dtls_dst_value(ptr noundef %0) #0 {
   %2 = tail call ptr @wmem_file_scope() #6
   %3 = load i32, ptr @proto_dtls, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 376
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @p_get_proto_data(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %6) #6
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %.0.in.in.in = select i1 %8, ptr %9, ptr %10
   %.0.in.in = load i32, ptr %.0.in.in.in, align 4
   %.0.in = zext i32 %.0.in.in to i64
@@ -1295,11 +1295,11 @@ define internal ptr @dtls_dst_value(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtls_src_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 284
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = load i32, ptr @proto_dtls, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
   %10 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef %9) #6
@@ -1307,7 +1307,7 @@ define internal void @dtls_src_prompt(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %12, align 8
   br label %14
 
@@ -1319,11 +1319,11 @@ define internal void @dtls_src_prompt(ptr noundef %0, ptr nocapture noundef writ
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtls_dst_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = load i32, ptr @proto_dtls, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
   %10 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef %9) #6
@@ -1331,7 +1331,7 @@ define internal void @dtls_dst_prompt(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -1343,13 +1343,13 @@ define internal void @dtls_dst_prompt(ptr noundef %0, ptr nocapture noundef writ
 
 ; Function Attrs: nounwind uwtable
 define internal void @dtls_both_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 284
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   %7 = tail call ptr @wmem_file_scope() #6
   %8 = load i32, ptr @proto_dtls, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef %11) #6
@@ -1357,9 +1357,9 @@ define internal void @dtls_both_prompt(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -1552,7 +1552,7 @@ declare zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr noundef, ptr noundef, i32
 define internal void @sslkeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -1561,7 +1561,7 @@ define internal void @sslkeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1634,7 +1634,7 @@ define internal noundef zeroext i1 @dtlsdecrypt_uat_fld_protocol_chk_cb(ptr noca
 define internal void @sslkeylist_uats_protocol_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -1643,7 +1643,7 @@ define internal void @sslkeylist_uats_protocol_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @sslkeylist_uats_protocol_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1673,7 +1673,7 @@ declare zeroext i1 @ssldecrypt_uat_fld_fileopen_chk_cb(ptr noundef, ptr noundef,
 define internal void @sslkeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -1682,7 +1682,7 @@ define internal void @sslkeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1712,7 +1712,7 @@ declare zeroext i1 @ssldecrypt_uat_fld_password_chk_cb(ptr noundef, ptr noundef,
 define internal void @sslkeylist_uats_password_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -1721,7 +1721,7 @@ define internal void @sslkeylist_uats_password_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1752,25 +1752,25 @@ define internal noundef ptr @dtlsdecrypt_copy_cb(ptr noundef returned writeonly 
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #6
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @g_strdup(ptr noundef %11) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr @g_strdup(ptr noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %21, align 8
   ret ptr %0
 }
@@ -1779,16 +1779,16 @@ define internal noundef ptr @dtlsdecrypt_copy_cb(ptr noundef returned writeonly 
 define internal void @dtlsdecrypt_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #6
   ret void
@@ -1877,7 +1877,7 @@ define internal void @dtls_parse_uat() #0 {
   br i1 %.not11, label %42, label %33
 
 33:                                               ; preds = %.lr.ph16
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i1 @ws_strtou32(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1) #6
   br i1 %36, label %37, label %42
@@ -1927,7 +1927,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %6 = load i8, ptr %5, align 8
   store ptr %2, ptr @top_tree, align 8
   %7 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
@@ -1936,9 +1936,9 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 50
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 50
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8
   %.not = icmp eq i16 %15, 0
@@ -1962,20 +1962,20 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 24:                                               ; preds = %18, %21
   %.1 = phi ptr [ %23, %21 ], [ %17, %18 ]
-  %25 = getelementptr inbounds i8, ptr %.1, i64 648
-  %26 = getelementptr inbounds i8, ptr %.1, i64 728
+  %25 = getelementptr inbounds nuw i8, ptr %.1, i64 648
+  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 728
   %27 = load i32, ptr %26, align 8
   %.not61 = icmp eq i32 %27, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not62 = icmp ult i32 %27, %.pre
   %or.cond = select i1 %.not61, i1 true, i1 %.not62
   br i1 %or.cond, label %._crit_edge72, label %68
 
 ._crit_edge72:                                    ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 50
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 50
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8
   %.not63 = icmp eq i16 %32, 0
@@ -1984,12 +1984,12 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %34 = load ptr, ptr @dtls_associations, align 8
   %35 = tail call i32 @ssl_packet_from_server(ptr noundef nonnull %25, ptr noundef %34, ptr noundef nonnull %1) #6
   %36 = load ptr, ptr %28, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 50
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 50
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8
   %.not64 = icmp eq i16 %39, 0
   %spec.select = select i1 %.not64, ptr %.1, ptr null
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.794) #6
   %42 = load ptr, ptr %40, align 8
@@ -2003,7 +2003,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not6570, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge72
-  %48 = getelementptr inbounds i8, ptr %.1, i64 656
+  %48 = getelementptr inbounds nuw i8, ptr %.1, i64 656
   br label %49
 
 49:                                               ; preds = %.lr.ph, %64
@@ -2159,7 +2159,7 @@ looks_like_dtls.exit:                             ; preds = %12, %12, %12
   %18 = add i32 %.063, 11
   %19 = tail call ptr @ssl_get_session_by_cid(ptr noundef %0, i32 noundef %18) #6
   %.not71 = icmp eq ptr %19, null
-  %20 = getelementptr inbounds i8, ptr %19, i64 648
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 648
   %21 = select i1 %.not71, ptr null, ptr %20
   %22 = load ptr, ptr @dtls_associations, align 8
   %23 = tail call i32 @ssl_packet_from_server(ptr noundef %21, ptr noundef %22, ptr noundef %1) #6
@@ -2170,13 +2170,13 @@ looks_like_dtls.exit:                             ; preds = %12, %12, %12
   br i1 %.not71, label %31, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %19, i64 764
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 764
   %27 = load i32, ptr %26, align 4
   %.not11.i = icmp eq i32 %27, 0
   br i1 %.not11.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %19, i64 760
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 760
   %30 = load i8, ptr %29, align 8
   br label %dtls_cid_length.exit
 
@@ -2189,13 +2189,13 @@ looks_like_dtls.exit:                             ; preds = %12, %12, %12
   br i1 %.not71, label %41, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %19, i64 772
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 772
   %37 = load i32, ptr %36, align 4
   %.not9.i = icmp eq i32 %37, 0
   br i1 %.not9.i, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %19, i64 768
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 768
   %40 = load i8, ptr %39, align 8
   br label %dtls_cid_length.exit
 
@@ -2222,7 +2222,7 @@ dtls_cid_length.exit:                             ; preds = %28, %31, %38, %41
   br i1 %51, label %looks_like_dtls.exit76.thread.sink.split, label %.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %12, %9, %.preheader
-  %52 = getelementptr inbounds i8, ptr %1, i64 272
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 0
   %55 = icmp ugt i32 %.063, 12
@@ -2275,7 +2275,7 @@ looks_like_dtls.exit76:                           ; preds = %61, %61, %61
   br i1 %.not, label %77, label %looks_like_dtls.exit76.thread.sink.split
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %1, i64 272
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %79 = load i32, ptr %78, align 8
   %.not67 = icmp eq i32 %79, 0
   br i1 %.not67, label %looks_like_dtls.exit76.thread, label %looks_like_dtls.exit76.thread.sink.split
@@ -2390,13 +2390,13 @@ define internal fastcc i32 @dissect_dtls_record(ptr noundef %0, ptr noundef %1, 
   br i1 %.not8.i, label %18, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %14 = load i32, ptr %13, align 4
   %.not11.i = icmp eq i32 %14, 0
   br i1 %.not11.i, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %4, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %17 = load i8, ptr %16, align 8
   br label %dtls_cid_length.exit
 
@@ -2409,13 +2409,13 @@ define internal fastcc i32 @dissect_dtls_record(ptr noundef %0, ptr noundef %1, 
   br i1 %.not8.i, label %28, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 124
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 124
   %24 = load i32, ptr %23, align 4
   %.not9.i = icmp eq i32 %24, 0
   br i1 %.not9.i, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %4, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %27 = load i8, ptr %26, align 8
   br label %dtls_cid_length.exit
 
@@ -2441,7 +2441,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br i1 %or.cond, label %42, label %53
 
 42:                                               ; preds = %dtls_cid_length.exit
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = add i32 %3, 11
   %46 = zext i8 %.0.i to i64
@@ -2469,14 +2469,14 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br i1 %.not, label %60, label %73
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @col_append_sep_str(ptr noundef %62, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.863) #6
   %63 = load i32, ptr @hf_dtls_record, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %3, i32 noundef %.0259, i32 noundef 0) #6
   %65 = load i32, ptr @ett_dtls_record, align 4
   %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #6
-  %67 = getelementptr inbounds i8, ptr %4, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %68 = load i16, ptr %67, align 8
   %69 = zext i16 %68 to i32
   %70 = tail call ptr @val_to_str_const(i32 noundef %69, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
@@ -2494,13 +2494,13 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   br i1 %.not.i, label %78, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %6, i64 576
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 576
   %77 = load ptr, ptr %76, align 8
   %.not282 = icmp eq ptr %77, null
   br i1 %.not282, label %83, label %.sink.split
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %6, i64 584
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 584
   %80 = load ptr, ptr %79, align 8
   %.not281 = icmp eq ptr %80, null
   br i1 %.not281, label %83, label %.sink.split
@@ -2508,10 +2508,10 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 .sink.split:                                      ; preds = %78, %75
   %.sink311 = phi ptr [ %77, %75 ], [ %80, %78 ]
   %.sink309.in = phi ptr [ %76, %75 ], [ %79, %78 ]
-  %81 = getelementptr inbounds i8, ptr %.sink311, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %.sink311, i64 112
   store i64 %37, ptr %81, align 8
   %.sink309 = load ptr, ptr %.sink309.in, align 8
-  %82 = getelementptr inbounds i8, ptr %.sink309, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %.sink309, i64 120
   store i16 %35, ptr %82, align 8
   br label %83
 
@@ -2546,7 +2546,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
   %104 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %103, ptr noundef %0, i32 noundef %.0257, i32 noundef 2, i32 noundef %.0261) #6
   %105 = add i32 %.0257, 2
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %105) #6
-  %107 = getelementptr inbounds i8, ptr %4, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %108 = load i16, ptr %107, align 8
   %109 = icmp eq i16 %108, 0
   br i1 %109, label %110, label %111
@@ -2558,7 +2558,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 111:                                              ; preds = %110, %102
   %112 = phi i16 [ %.pre, %110 ], [ %108, %102 ]
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = zext i16 %112 to i32
   %116 = tail call ptr @val_to_str_const(i32 noundef %115, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
@@ -2568,7 +2568,7 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 117:                                              ; preds = %111
   %118 = trunc nuw i32 %.0261 to i16
-  %119 = getelementptr inbounds i8, ptr %6, i64 560
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 560
   %120 = load i32, ptr %119, align 8
   %121 = and i32 %120, 8
   %.not.i298 = icmp eq i32 %121, 0
@@ -2580,14 +2580,14 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 123:                                              ; preds = %117
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.877, i32 noundef %.0261, i32 noundef %120) #6
-  %124 = getelementptr inbounds i8, ptr %6, i64 648
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 648
   %125 = load ptr, ptr @dtls_associations, align 8
   %126 = tail call i32 @ssl_packet_from_server(ptr noundef nonnull %124, ptr noundef %125, ptr noundef nonnull %1) #6
   %.not43.i = icmp eq i32 %126, 0
   %.str.879..str.878.i = select i1 %.not43.i, ptr @.str.879, ptr @.str.878
   %..i = select i1 %.not43.i, i64 584, i64 576
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull %.str.879..str.878.i) #6
-  %127 = getelementptr inbounds i8, ptr %6, i64 %..i
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 %..i
   %.0.i299 = load ptr, ptr %127, align 8
   %.not44.i = icmp eq ptr %.0.i299, null
   br i1 %.not44.i, label %128, label %132
@@ -2720,7 +2720,7 @@ decrypt_dtls_record.exit:                         ; preds = %177, %169, %168, %1
 
 184:                                              ; preds = %183
   %185 = load ptr, ptr %9, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load i32, ptr %186, align 8
   %188 = trunc i32 %187 to i8
   %189 = load i32, ptr @hf_dtls_record_content_type, align 4
@@ -2729,13 +2729,13 @@ decrypt_dtls_record.exit:                         ; preds = %177, %169, %168, %1
   br i1 %.not.i300, label %proto_item_set_generated.exit, label %191
 
 191:                                              ; preds = %184
-  %192 = getelementptr inbounds i8, ptr %190, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %193 = load ptr, ptr %192, align 8
   %.not5.i = icmp eq ptr %193, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %193, i64 28
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = or i32 %196, 2
   store i32 %197, ptr %195, align 4
@@ -2786,7 +2786,7 @@ proto_item_set_generated.exit:                    ; preds = %194, %191, %184, %1
   br i1 %.not.i, label %316, label %214
 
 214:                                              ; preds = %213
-  %215 = getelementptr inbounds i8, ptr %4, i64 84
+  %215 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 0, ptr %215, align 4
   br label %316
 
@@ -2816,14 +2816,14 @@ proto_item_set_generated.exit:                    ; preds = %194, %191, %184, %1
 223:                                              ; preds = %proto_item_set_generated.exit
   %224 = load ptr, ptr %113, align 8
   call void @col_append_sep_str(ptr noundef %224, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.869) #6
-  %225 = getelementptr inbounds i8, ptr %4, i64 56
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %226 = load ptr, ptr %225, align 8
   %.not284 = icmp eq ptr %226, null
   br i1 %.not284, label %227, label %238
 
 227:                                              ; preds = %223
   %228 = load ptr, ptr @dtls_associations, align 8
-  %229 = getelementptr inbounds i8, ptr %1, i64 284
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %230 = load i32, ptr %229, align 4
   %231 = call ptr @dissector_get_uint_handle(ptr noundef %228, i32 noundef %230) #6
   %.not285 = icmp eq ptr %231, null
@@ -2831,7 +2831,7 @@ proto_item_set_generated.exit:                    ; preds = %194, %191, %184, %1
 
 232:                                              ; preds = %227
   %233 = load ptr, ptr @dtls_associations, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 288
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %235 = load i32, ptr %234, align 8
   %236 = call ptr @dissector_get_uint_handle(ptr noundef %233, i32 noundef %235) #6
   %.not286 = icmp eq ptr %236, null
@@ -2872,13 +2872,13 @@ proto_item_set_generated.exit:                    ; preds = %194, %191, %184, %1
   br i1 %.not.i301, label %proto_item_set_generated.exit303, label %255
 
 255:                                              ; preds = %251
-  %256 = getelementptr inbounds i8, ptr %254, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %257 = load ptr, ptr %256, align 8
   %.not5.i302 = icmp eq ptr %257, null
   br i1 %.not5.i302, label %proto_item_set_generated.exit303, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %257, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = or i32 %260, 2
   store i32 %261, ptr %259, align 4
@@ -2889,13 +2889,13 @@ proto_item_set_generated.exit303:                 ; preds = %258, %255, %251, %2
 
 262:                                              ; preds = %proto_item_set_generated.exit303
   %263 = load ptr, ptr %9, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load i32, ptr %264, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.872, ptr noundef nonnull @__func__.dissect_dtls_record, i32 noundef %265) #6
-  %266 = getelementptr inbounds i8, ptr %1, i64 292
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %267 = load i32, ptr %266, align 4
   %storemerge.in.v = select i1 %.not.i, i64 288, i64 284
-  %storemerge.in = getelementptr inbounds i8, ptr %1, i64 %storemerge.in.v
+  %storemerge.in = getelementptr inbounds nuw i8, ptr %1, i64 %storemerge.in.v
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %266, align 4
   %268 = load ptr, ptr %225, align 8
@@ -2907,7 +2907,7 @@ proto_item_set_generated.exit303:                 ; preds = %258, %255, %251, %2
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.873, ptr noundef nonnull @__func__.dissect_dtls_record, ptr noundef nonnull %268, ptr noundef %270) #6
   %271 = load ptr, ptr %9, align 8
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %271, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %274 = load i32, ptr %273, align 8
   %275 = zext i32 %274 to i64
   call void @ssl_print_data(ptr noundef nonnull @.str.874, ptr noundef %272, i64 noundef %275) #6
@@ -2921,12 +2921,12 @@ proto_item_set_generated.exit303:                 ; preds = %258, %255, %251, %2
   %280 = call ptr @dissector_handle_get_dissector_name(ptr noundef %279) #6
   %281 = call ptr @export_pdu_create_common_tags(ptr noundef nonnull %1, ptr noundef %280, i16 noundef zeroext 12) #6
   %282 = call i32 @tvb_captured_length(ptr noundef nonnull %182) #6
-  %283 = getelementptr inbounds i8, ptr %281, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i32 %282, ptr %283, align 8
   %284 = call i32 @tvb_reported_length(ptr noundef nonnull %182) #6
-  %285 = getelementptr inbounds i8, ptr %281, i64 20
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 20
   store i32 %284, ptr %285, align 4
-  %286 = getelementptr inbounds i8, ptr %281, i64 24
+  %286 = getelementptr inbounds nuw i8, ptr %281, i64 24
   store ptr %182, ptr %286, align 8
   %287 = load i32, ptr @exported_pdu_tap, align 4
   call void @tap_queue_packet(i32 noundef %287, ptr noundef nonnull %1, ptr noundef %281) #6
@@ -2956,7 +2956,7 @@ proto_item_set_generated.exit303:                 ; preds = %258, %255, %251, %2
 
 301:                                              ; preds = %298
   %302 = load ptr, ptr %10, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 32
   %304 = load ptr, ptr %303, align 8
   call fastcc void @export_pdu_packet(ptr noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 13, ptr noundef %304)
   br label %.critedge
@@ -3059,7 +3059,7 @@ define internal fastcc void @dissect_dtls_alert(ptr noundef %0, ptr nocapture no
   %17 = icmp ne ptr %12, null
   %18 = icmp ne ptr %16, null
   %or.cond = select i1 %17, i1 %18, i1 false
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %2, null
   br i1 %or.cond, label %21, label %.thread
@@ -3073,7 +3073,7 @@ define internal fastcc void @dissect_dtls_alert(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %35, label %.thread38
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
   %26 = tail call ptr @val_to_str_const(i32 noundef %25, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
@@ -3085,7 +3085,7 @@ define internal fastcc void @dissect_dtls_alert(ptr noundef %0, ptr nocapture no
   br label %35
 
 .thread38:                                        ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i16, ptr %31, align 8
   %33 = zext i16 %32 to i32
   %34 = tail call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
@@ -3106,18 +3106,18 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %10
   %.not = icmp ne i32 %5, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.not266 = icmp eq ptr %2, null
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = zext i8 %9 to i32
   %.not272 = icmp eq ptr %8, null
-  %18 = getelementptr inbounds i8, ptr %6, i64 84
-  %19 = getelementptr inbounds i8, ptr %8, i64 456
-  %20 = getelementptr inbounds i8, ptr %8, i64 448
-  %21 = getelementptr inbounds i8, ptr %1, i64 232
-  %22 = getelementptr inbounds i8, ptr %1, i64 280
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 456
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 448
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   br label %24
 
 24:                                               ; preds = %.lr.ph, %163
@@ -3394,7 +3394,7 @@ dissect_dtls_hnd_hello_verify_request.exit:       ; preds = %132, %137, %139
 
 142:                                              ; preds = %118
   %143 = call ptr @tls_get_master_key_map(i32 noundef 0) #6
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   call void @ssl_dissect_hnd_new_ses_ticket(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0247, ptr noundef nonnull %1, ptr noundef %29, i32 noundef 0, i32 noundef %46, ptr noundef %6, ptr noundef %8, i32 noundef 1, ptr noundef %145) #6
   br label %163
@@ -3476,12 +3476,12 @@ define internal fastcc void @export_pdu_packet(ptr noundef nonnull %0, ptr nound
   %5 = zext nneg i8 %2 to i16
   %6 = tail call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef %3, i16 noundef zeroext %5) #6
   %7 = tail call i32 @tvb_captured_length(ptr noundef nonnull %0) #6
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %7, ptr %8, align 8
   %9 = tail call i32 @tvb_reported_length(ptr noundef nonnull %0) #6
-  %10 = getelementptr inbounds i8, ptr %6, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %11, align 8
   %12 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %12, ptr noundef %1, ptr noundef %6) #6
@@ -3514,7 +3514,7 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
   %22 = add i32 %5, -19
   %.not65 = icmp ult i32 %22, %18
   %or.cond67 = select i1 %.not, i1 true, i1 %.not65
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   br i1 %or.cond67, label %26, label %25
 
@@ -3540,7 +3540,7 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %32, label %55
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i16, ptr %33, align 8
   %35 = zext i16 %34 to i32
   %36 = tail call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
@@ -3576,7 +3576,7 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
   br label %60
 
 55:                                               ; preds = %29, %28
-  %56 = getelementptr inbounds i8, ptr %4, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load i16, ptr %56, align 8
   %58 = zext i16 %57 to i32
   %59 = tail call ptr @val_to_str_const(i32 noundef %58, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6

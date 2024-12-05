@@ -137,7 +137,7 @@ define dso_local noundef double @_ZN4VlOs12DeltaCpuTime7gettimeEv() local_unname
 3:                                                ; preds = %0
   %4 = load i64, ptr %1, align 8
   %5 = sitofp i64 %4 to double
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = sitofp i64 %7 to double
   %9 = call double @llvm.fmuladd.f64(double %8, double 1.000000e-09, double %5)
@@ -164,7 +164,7 @@ define dso_local noundef double @_ZN4VlOs13DeltaWallTime7gettimeEv() local_unnam
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = sitofp i64 %5 to double
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
   %10 = call double @llvm.fmuladd.f64(double %9, double 1.000000e-09, double %6)
@@ -604,7 +604,7 @@ define dso_local void @_ZN4V3Os15filenameCleanupERKNSt7__cxx1112basic_stringIcSt
           to label %11 unwind label %.loopexit.split-lp.loopexit
 
 11:                                               ; preds = %.lr.ph, %9
-  %12 = getelementptr inbounds i8, ptr %.sroa.011.019, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 1
   %.not14 = icmp eq ptr %12, %6
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -728,7 +728,7 @@ define dso_local void @_ZN4V3Os12filenameJoinESt16initializer_listIKNSt7__cxx111
           to label %17 unwind label %9
 
 17:                                               ; preds = %15, %.lr.ph, %6
-  %18 = getelementptr inbounds i8, ptr %.013, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.013, i64 32
   %.not = icmp eq ptr %18, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -814,7 +814,7 @@ define dso_local void @_ZN4V3Os11filenameDirERKNSt7__cxx1112basic_stringIcSt11ch
           to label %.noexc11 unwind label %29
 
 .noexc11:                                         ; preds = %.noexc10
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %26, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx17__normal_iteratorIPKcS4_EEEEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %22, ptr nonnull %24)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %27
@@ -888,7 +888,7 @@ define dso_local void @_ZN4V3Os14filenameNonDirERKNSt7__cxx1112basic_stringIcSt1
           to label %.noexc5 unwind label %17
 
 .noexc5:                                          ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx17__normal_iteratorIPKcS4_EEEEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.sroa.0.0.copyload.i.i.i.lcssa, ptr %12)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKcS4_EEvEET_SB_RKS3_.exit unwind label %15
@@ -1591,7 +1591,7 @@ define dso_local void @_ZN4V3Os12unlinkRegexpERKNSt7__cxx1112basic_stringIcSt11c
 
 .lr.ph:                                           ; preds = %.preheader, %41
   %10 = phi ptr [ %42, %41 ], [ %9, %.preheader ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   %13 = call noundef zeroext i1 @_ZN7VString9wildmatchEPKcS1_(ptr noundef nonnull %11, ptr noundef %12)
   br i1 %13, label %14, label %41
@@ -1703,7 +1703,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i64 @_ZN4V3Os6rand64ERSt5arrayImLm2EE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 align 2 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %2
   %6 = xor i64 %4, %2
@@ -1836,7 +1836,7 @@ define dso_local noundef i64 @_ZN4V3Os9timeUsecsEv() local_unnamed_addr #14 alig
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = mul i64 %5, 1000000
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, %8
   br label %10
@@ -2002,7 +2002,7 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1558
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   ret i1 %4

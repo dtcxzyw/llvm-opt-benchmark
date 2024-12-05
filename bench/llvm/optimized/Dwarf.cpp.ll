@@ -2166,7 +2166,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm5dwarf10TagVersionENS0_3Ta
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds [76 x i32], ptr @switch.table._ZN4llvm5dwarf10TagVersionENS0_3TagE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [76 x i32], ptr @switch.table._ZN4llvm5dwarf10TagVersionENS0_3TagE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -3507,7 +3507,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm5dwarf16AttributeVersionEN
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [140 x i32], ptr @switch.table._ZN4llvm5dwarf16AttributeVersionENS0_9AttributeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [140 x i32], ptr @switch.table._ZN4llvm5dwarf16AttributeVersionENS0_9AttributeE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -3960,7 +3960,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm5dwarf11FormVersionENS0_4F
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [44 x i32], ptr @switch.table._ZN4llvm5dwarf11FormVersionENS0_4FormE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [44 x i32], ptr @switch.table._ZN4llvm5dwarf11FormVersionENS0_4FormE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -5760,7 +5760,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm5dwarf16OperationVersionEN
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [167 x i32], ptr @switch.table._ZN4llvm5dwarf16OperationVersionENS0_12LocationAtomE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [167 x i32], ptr @switch.table._ZN4llvm5dwarf16OperationVersionENS0_12LocationAtomE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -5777,10 +5777,10 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm5dwarf17OperationOperands
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [250 x i64], ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [250 x i64], ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep168 = getelementptr inbounds [250 x i64], ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE.1, i64 0, i64 %4
+  %switch.gep168 = getelementptr inbounds nuw [250 x i64], ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE.1, i64 0, i64 %4
   %switch.load169 = load i64, ptr %switch.gep168, align 8
   %5 = or disjoint i64 %switch.load169, %switch.load
   br label %6
@@ -5798,10 +5798,10 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm5dwarf14OperationArityENS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [250 x i64], ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [250 x i64], ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep167 = getelementptr inbounds [250 x i64], ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE.2, i64 0, i64 %4
+  %switch.gep167 = getelementptr inbounds nuw [250 x i64], ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE.2, i64 0, i64 %4
   %switch.load168 = load i64, ptr %switch.gep167, align 8
   %5 = or disjoint i64 %switch.load168, %switch.load
   br label %6
@@ -5819,7 +5819,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN4llvm5dwarf15OperationVendorEN
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [29 x i32], ptr @switch.table._ZN4llvm5dwarf15OperationVendorENS0_12LocationAtomE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [29 x i32], ptr @switch.table._ZN4llvm5dwarf15OperationVendorENS0_12LocationAtomE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -6153,10 +6153,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf17DecimalSignStringEj(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -6209,10 +6209,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf19AccessibilityStringEj(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -6231,10 +6231,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf21DefaultedMemberStringEj(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -6254,10 +6254,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VisibilityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -6276,10 +6276,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VirtualityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -6951,7 +6951,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm5dwarf15LanguageVersionENS
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [37 x i32], ptr @switch.table._ZN4llvm5dwarf15LanguageVersionENS0_14SourceLanguageE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [37 x i32], ptr @switch.table._ZN4llvm5dwarf15LanguageVersionENS0_14SourceLanguageE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -7069,10 +7069,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceL
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [40 x i64], ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [40 x i64], ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [40 x ptr], ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.8, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [40 x ptr], ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.8, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -7091,10 +7091,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf10CaseStringEj(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7437,10 +7437,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16InlineCodeStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7480,10 +7480,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16LNStandardStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [13 x i64], ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.11, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.11, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7503,10 +7503,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16LNExtendedStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.12, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.12, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7610,10 +7610,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf11MacroStringEj(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN4llvm5dwarf11MacroStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN4llvm5dwarf11MacroStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [12 x i64], ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.13, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.13, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7633,10 +7633,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf14GnuMacroStringEj(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.14, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.14, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7735,10 +7735,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf23RangeListEncodingStringEj(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7757,10 +7757,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf21LocListEncodingStringEj(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.16, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.16, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8004,10 +8004,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf14UnitTypeStringEj(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.17, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.17, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8026,10 +8026,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf14AtomTypeStringEj(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.18, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.18, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8176,64 +8176,64 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf20AttributeValueStringEtj(i16 nound
 
 switch.lookup:                                    ; preds = %3
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 0, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 0, i64 %43
+  %switch.gep45 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 0, i64 %43
   %switch.load46 = load i64, ptr %switch.gep45, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup47:                                  ; preds = %5
   %44 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 0, i64 %44
+  %switch.gep48 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 0, i64 %44
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   %45 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 0, i64 %45
+  %switch.gep50 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 0, i64 %45
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup52:                                  ; preds = %15
   %46 = zext nneg i32 %switch.tableidx53 to i64
-  %switch.gep54 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 0, i64 %46
+  %switch.gep54 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 0, i64 %46
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   %47 = zext nneg i32 %switch.tableidx53 to i64
-  %switch.gep56 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 0, i64 %47
+  %switch.gep56 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 0, i64 %47
   %switch.load57 = load i64, ptr %switch.gep56, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup58:                                  ; preds = %23
   %48 = zext nneg i32 %switch.tableidx59 to i64
-  %switch.gep60 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 0, i64 %48
+  %switch.gep60 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 0, i64 %48
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %49 = zext nneg i32 %switch.tableidx59 to i64
-  %switch.gep62 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 0, i64 %49
+  %switch.gep62 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 0, i64 %49
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup64:                                  ; preds = %25
   %50 = zext nneg i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 0, i64 %50
+  %switch.gep65 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 0, i64 %50
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   %51 = zext nneg i32 %1 to i64
-  %switch.gep67 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 0, i64 %51
+  %switch.gep67 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 0, i64 %51
   %switch.load68 = load i64, ptr %switch.gep67, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup69:                                  ; preds = %31
   %52 = zext nneg i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 0, i64 %52
+  %switch.gep70 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 0, i64 %52
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
   %53 = zext nneg i32 %1 to i64
-  %switch.gep72 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 0, i64 %53
+  %switch.gep72 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 0, i64 %53
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup74:                                  ; preds = %40
   %54 = zext nneg i32 %1 to i64
-  %switch.gep75 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 0, i64 %54
+  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 0, i64 %54
   %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %55 = zext nneg i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 0, i64 %55
+  %switch.gep77 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 0, i64 %55
   %switch.load78 = load i64, ptr %switch.gep77, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
@@ -8520,10 +8520,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf9RLEStringEj(i32 noundef %0) local_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.33, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 

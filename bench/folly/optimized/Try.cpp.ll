@@ -104,7 +104,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -113,7 +113,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -130,7 +130,7 @@ sw.bb:                                            ; preds = %entry
   ret void
 
 sw.bb2:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -278,7 +278,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -287,7 +287,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -301,7 +301,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -310,7 +310,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -324,7 +324,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -333,7 +333,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZNK5folly3TryINS_4UnitEE16throwUnlessValueEv.exit: ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -347,7 +347,7 @@ entry:
   ]
 
 sw.bb2.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -369,7 +369,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -378,7 +378,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -392,7 +392,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -401,7 +401,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -415,7 +415,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -424,7 +424,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -438,7 +438,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -447,7 +447,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -461,7 +461,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -470,7 +470,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNKR5folly3TryINS_4UnitEE5valueEv.exit:          ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -484,7 +484,7 @@ entry:
   ]
 
 sw.bb2.i.i:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNK5folly17exception_wrapper15throw_exceptionEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   unreachable
 
@@ -493,7 +493,7 @@ sw.default.i.i:                                   ; preds = %entry
   unreachable
 
 _ZNR5folly3TryINS_4UnitEE5valueEv.exit:           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %2
 }
 
@@ -525,7 +525,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -579,7 +579,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -595,7 +595,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -611,7 +611,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %1
 }
 
@@ -623,7 +623,7 @@ entry:
   br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
   br label %cond.end
 
@@ -643,7 +643,7 @@ entry:
   br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @_ZTISt9exception) #12
   br label %cond.end
 

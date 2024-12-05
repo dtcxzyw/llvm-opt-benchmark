@@ -31,7 +31,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %call2 = tail call ptr @CMAC_CTX_new() #3
-  %ctx = getelementptr inbounds i8, ptr %call1, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call2, ptr %ctx, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then4, label %if.else
@@ -69,22 +69,22 @@ if.end.i:                                         ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %call2.i = tail call ptr @CMAC_CTX_new() #3
-  %ctx.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %ctx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store ptr %call2.i, ptr %ctx.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %lor.lhs.false.i
   store ptr %0, ptr %call1.i, align 8
-  %ctx4 = getelementptr inbounds i8, ptr %vsrc, i64 8
+  %ctx4 = getelementptr inbounds nuw i8, ptr %vsrc, i64 8
   %1 = load ptr, ptr %ctx4, align 8
   %call5 = tail call i32 @CMAC_CTX_copy(ptr noundef nonnull %call2.i, ptr noundef %1) #3
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %cmac_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %cipher = getelementptr inbounds i8, ptr %call1.i, i64 16
-  %cipher7 = getelementptr inbounds i8, ptr %vsrc, i64 16
+  %cipher = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
+  %cipher7 = getelementptr inbounds nuw i8, ptr %vsrc, i64 16
   %call8 = tail call i32 @ossl_prov_cipher_copy(ptr noundef nonnull %cipher, ptr noundef nonnull %cipher7) #3
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %cmac_free.exit, label %return
@@ -92,7 +92,7 @@ lor.lhs.false:                                    ; preds = %if.end3
 cmac_free.exit:                                   ; preds = %lor.lhs.false, %if.end3
   %2 = load ptr, ptr %ctx.i, align 8
   tail call void @CMAC_CTX_free(ptr noundef %2) #3
-  %cipher.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %cipher.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i) #3
   br label %return.sink.split
 
@@ -113,10 +113,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   tail call void @CMAC_CTX_free(ptr noundef %0) #3
-  %cipher = getelementptr inbounds i8, ptr %vmacctx, i64 16
+  %cipher = getelementptr inbounds nuw i8, ptr %vmacctx, i64 16
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %vmacctx, ptr noundef nonnull @.str, i32 noundef 78) #3
   br label %if.end
@@ -139,12 +139,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %cmp.not = icmp eq ptr %key, null
-  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   br i1 %cmp.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cipher.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
+  %cipher.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 16
   %call.i = tail call ptr @ossl_prov_cipher_cipher(ptr noundef nonnull %cipher.i) #3
   %call2.i = tail call ptr @ossl_prov_cipher_engine(ptr noundef nonnull %cipher.i) #3
   %call3.i = tail call i32 @CMAC_Init(ptr noundef %0, ptr noundef nonnull %key, i64 noundef %keylen, ptr noundef %call.i, ptr noundef %call2.i) #3
@@ -163,7 +163,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmac_update(ptr nocapture noundef readonly %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
-  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @CMAC_Update(ptr noundef %0, ptr noundef %data, i64 noundef %datalen) #3
   ret i32 %call
@@ -177,7 +177,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   %call1 = tail call i32 @CMAC_Final(ptr noundef %0, ptr noundef %out, ptr noundef %outl) #3
   br label %return
@@ -271,7 +271,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end13, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cipher = getelementptr inbounds i8, ptr %vmacctx, i64 16
+  %cipher = getelementptr inbounds nuw i8, ptr %vmacctx, i64 16
   %call4 = tail call i32 @ossl_prov_cipher_load_from_params(ptr noundef nonnull %cipher, ptr noundef nonnull %params, ptr noundef %call) #3
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.end6
@@ -294,19 +294,19 @@ if.end13:                                         ; preds = %if.end6, %if.end
   br i1 %cmp15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %data_type = getelementptr inbounds i8, ptr %call14, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %1 = load i32, ptr %data_type, align 8
   %cmp17.not = icmp eq i32 %1, 5
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then16
-  %data = getelementptr inbounds i8, ptr %call14, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call14, i64 16
   %2 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds i8, ptr %call14, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call14, i64 24
   %3 = load i64, ptr %data_size, align 8
-  %ctx.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %ctx.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %4 = load ptr, ptr %ctx.i, align 8
-  %cipher.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
+  %cipher.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 16
   %call.i = tail call ptr @ossl_prov_cipher_cipher(ptr noundef nonnull %cipher.i) #3
   %call2.i = tail call ptr @ossl_prov_cipher_engine(ptr noundef nonnull %cipher.i) #3
   %call3.i = tail call i32 @CMAC_Init(ptr noundef %4, ptr noundef %2, i64 noundef %3, ptr noundef %call.i, ptr noundef %call2.i) #3

@@ -38,15 +38,15 @@ $_ZNK8Metadata8on_stackEv = comdat any
 define hidden void @_ZN14MethodCountersC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(46) initializes((0, 8), (16, 28), (40, 46)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV14MethodCounters, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %6, i8 0, i64 6, i1 false)
   tail call void @_ZN17InvocationCounter4initEv(ptr noundef nonnull align 4 dereferenceable(4) %7) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @_ZN17InvocationCounter4initEv(ptr noundef nonnull align 4 dereferenceable(4) %8) #4
   store double 1.000000e+00, ptr %3, align 8
   %9 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #4
@@ -68,7 +68,7 @@ define hidden void @_ZN14MethodCountersC2ERK12methodHandle(ptr noundef nonnull a
 
 20:                                               ; preds = %2, %14
   %21 = phi i32 [ %19, %14 ], [ -2, %2 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %21, ptr %22, align 4
   %23 = load i64, ptr @Tier0BackedgeNotifyFreqLog, align 8
   %24 = load double, ptr %3, align 8
@@ -88,7 +88,7 @@ define hidden void @_ZN14MethodCountersC2ERK12methodHandle(ptr noundef nonnull a
 
 33:                                               ; preds = %20, %27
   %34 = phi i32 [ %32, %27 ], [ -2, %20 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %34, ptr %35, align 8
   ret void
 }
@@ -102,13 +102,13 @@ declare noundef i64 @_ZN14CompilerConfig15scaled_freq_logEld(i64 noundef, double
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14MethodCounters21allocate_no_exceptionERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeE(i64 noundef 48, ptr noundef %10, i64 noundef 6, i32 noundef 13) #4
   %12 = icmp eq ptr %11, null
@@ -128,13 +128,13 @@ declare noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeE(i64 nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14MethodCounters23allocate_with_exceptionERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeEP10JavaThread(i64 noundef 48, ptr noundef %11, i64 noundef 6, i32 noundef 13, ptr noundef %1) #4
   %13 = icmp eq ptr %12, null
@@ -153,21 +153,21 @@ declare noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeEP10JavaThr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14MethodCounters14clear_countersEv(ptr noundef nonnull align 8 dereferenceable(46) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN17InvocationCounter5resetEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #4
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @_ZN17InvocationCounter5resetEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 45
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %9, align 1
   ret void
 }

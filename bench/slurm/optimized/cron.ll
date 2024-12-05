@@ -18,19 +18,19 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @new_cron_entry() local_unnamed_addr #0 {
   %1 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 53, ptr noundef nonnull @__func__.new_cron_entry) #6
   %2 = tail call ptr @bit_alloc(i64 noundef 61) #6
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %3, align 8
   %4 = tail call ptr @bit_alloc(i64 noundef 25) #6
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %5, align 8
   %6 = tail call ptr @bit_alloc(i64 noundef 32) #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @bit_alloc(i64 noundef 13) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @bit_alloc(i64 noundef 8) #6
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %10, ptr %11, align 8
   ret ptr %1
 }
@@ -47,19 +47,19 @@ define dso_local void @free_cron_entry(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %5) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %6) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %9) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @slurm_xfree(ptr noundef nonnull %10) #6
   call void @slurm_xfree(ptr noundef nonnull %2) #6
   br label %11
@@ -72,35 +72,35 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @valid_cron_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @bit_size(ptr noundef %3) #6
   %.not = icmp eq i64 %4, 61
   br i1 %.not, label %5, label %95
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @bit_size(ptr noundef %7) #6
   %.not35 = icmp eq i64 %8, 25
   br i1 %.not35, label %9, label %95
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @bit_size(ptr noundef %11) #6
   %.not36 = icmp eq i64 %12, 32
   br i1 %.not36, label %13, label %95
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @bit_size(ptr noundef %15) #6
   %.not37 = icmp eq i64 %16, 13
   br i1 %.not37, label %17, label %95
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @bit_size(ptr noundef %19) #6
   %.not38 = icmp eq i64 %20, 8
@@ -289,7 +289,7 @@ define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0
   br label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @bit_fmt_full(ptr noundef %9) #6
   store ptr %10, ptr %3, align 8
@@ -308,7 +308,7 @@ define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0
   br label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @bit_fmt_full(ptr noundef %17) #6
   store ptr %18, ptr %3, align 8
@@ -327,7 +327,7 @@ define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0
   br label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @bit_fmt_full(ptr noundef %25) #6
   store ptr %26, ptr %3, align 8
@@ -346,7 +346,7 @@ define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0
   br label %35
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @bit_fmt_full(ptr noundef %33) #6
   store ptr %34, ptr %3, align 8
@@ -365,7 +365,7 @@ define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0
   br label %43
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @bit_fmt_full(ptr noundef %41) #6
   store ptr %42, ptr %3, align 8
@@ -403,7 +403,7 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
 
 10:                                               ; preds = %2
   %11 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %3) #6
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -411,17 +411,17 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
 
 15:                                               ; preds = %10, %8
   store i32 0, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 12
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %3, i64 20
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %15
@@ -937,7 +937,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
 11:                                               ; preds = %3
   %12 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %12, ptr noundef %2) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not64 = icmp eq ptr %14, null
   br i1 %.not64, label %23, label %15
@@ -961,7 +961,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   br label %24
 
 24:                                               ; preds = %23, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not65 = icmp eq ptr %26, null
   br i1 %.not65, label %35, label %27
@@ -985,7 +985,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   br label %36
 
 36:                                               ; preds = %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not66 = icmp eq ptr %38, null
   br i1 %.not66, label %47, label %39
@@ -1009,7 +1009,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   br label %48
 
 48:                                               ; preds = %47, %39
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not67 = icmp eq ptr %50, null
   br i1 %.not67, label %59, label %51
@@ -1033,7 +1033,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   br label %60
 
 60:                                               ; preds = %59, %51
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
   %.not68 = icmp eq ptr %62, null
   br i1 %.not68, label %71, label %63
@@ -1057,7 +1057,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   br label %72
 
 72:                                               ; preds = %71, %63
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8
   %.not69 = icmp eq ptr %74, null
   br i1 %.not69, label %79, label %75
@@ -1071,10 +1071,10 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
 79:                                               ; preds = %75, %72
   %.0 = phi i32 [ %78, %75 ], [ 0, %72 ]
   call void @packmem(ptr noundef %74, i32 noundef %.0, ptr noundef %2) #6
-  %80 = getelementptr inbounds i8, ptr %0, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = load i32, ptr %80, align 8
   call void @pack32(i32 noundef %81, ptr noundef %2) #6
-  %82 = getelementptr inbounds i8, ptr %0, i64 68
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %83 = load i32, ptr %82, align 4
   call void @pack32(i32 noundef %83, ptr noundef %2) #6
   br label %84
@@ -1157,7 +1157,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
 37:                                               ; preds = %35
   %38 = zext i32 %36 to i64
   %39 = call ptr @bit_alloc(i64 noundef %38) #6
-  %40 = getelementptr inbounds i8, ptr %25, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr %6, align 8
   %42 = call i32 @bit_unfmt_hexmask(ptr noundef %39, ptr noundef %41) #6
@@ -1178,7 +1178,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %.sink.split
 
 47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %25, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %48, align 8
   br label %49
 
@@ -1187,7 +1187,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %52
 
 50:                                               ; preds = %31
-  %51 = getelementptr inbounds i8, ptr %25, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %51, align 8
   br label %52
 
@@ -1215,7 +1215,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
 60:                                               ; preds = %58
   %61 = zext i32 %59 to i64
   %62 = call ptr @bit_alloc(i64 noundef %61) #6
-  %63 = getelementptr inbounds i8, ptr %25, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %62, ptr %63, align 8
   %64 = load ptr, ptr %9, align 8
   %65 = call i32 @bit_unfmt_hexmask(ptr noundef %62, ptr noundef %64) #6
@@ -1236,7 +1236,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %.sink.split
 
 70:                                               ; preds = %58
-  %71 = getelementptr inbounds i8, ptr %25, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %71, align 8
   br label %72
 
@@ -1245,7 +1245,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %75
 
 73:                                               ; preds = %54
-  %74 = getelementptr inbounds i8, ptr %25, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %74, align 8
   br label %75
 
@@ -1273,7 +1273,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
 83:                                               ; preds = %81
   %84 = zext i32 %82 to i64
   %85 = call ptr @bit_alloc(i64 noundef %84) #6
-  %86 = getelementptr inbounds i8, ptr %25, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %85, ptr %86, align 8
   %87 = load ptr, ptr %12, align 8
   %88 = call i32 @bit_unfmt_hexmask(ptr noundef %85, ptr noundef %87) #6
@@ -1294,7 +1294,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %.sink.split
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds i8, ptr %25, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr null, ptr %94, align 8
   br label %95
 
@@ -1303,7 +1303,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %98
 
 96:                                               ; preds = %77
-  %97 = getelementptr inbounds i8, ptr %25, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr null, ptr %97, align 8
   br label %98
 
@@ -1331,7 +1331,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
 106:                                              ; preds = %104
   %107 = zext i32 %105 to i64
   %108 = call ptr @bit_alloc(i64 noundef %107) #6
-  %109 = getelementptr inbounds i8, ptr %25, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %108, ptr %109, align 8
   %110 = load ptr, ptr %15, align 8
   %111 = call i32 @bit_unfmt_hexmask(ptr noundef %108, ptr noundef %110) #6
@@ -1352,7 +1352,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %.sink.split
 
 116:                                              ; preds = %104
-  %117 = getelementptr inbounds i8, ptr %25, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %117, align 8
   br label %118
 
@@ -1361,7 +1361,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %121
 
 119:                                              ; preds = %100
-  %120 = getelementptr inbounds i8, ptr %25, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %120, align 8
   br label %121
 
@@ -1389,7 +1389,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
 129:                                              ; preds = %127
   %130 = zext i32 %128 to i64
   %131 = call ptr @bit_alloc(i64 noundef %130) #6
-  %132 = getelementptr inbounds i8, ptr %25, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %131, ptr %132, align 8
   %133 = load ptr, ptr %18, align 8
   %134 = call i32 @bit_unfmt_hexmask(ptr noundef %131, ptr noundef %133) #6
@@ -1410,7 +1410,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %.sink.split
 
 139:                                              ; preds = %127
-  %140 = getelementptr inbounds i8, ptr %25, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr null, ptr %140, align 8
   br label %141
 
@@ -1419,24 +1419,24 @@ define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef w
   br label %144
 
 142:                                              ; preds = %123
-  %143 = getelementptr inbounds i8, ptr %25, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr null, ptr %143, align 8
   br label %144
 
 144:                                              ; preds = %142, %141
-  %145 = getelementptr inbounds i8, ptr %25, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %146 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %145, ptr noundef nonnull %5, ptr noundef %2) #6
   %.not92 = icmp eq i32 %146, 0
   br i1 %.not92, label %147, label %153
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %25, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %149 = call i32 @unpack32(ptr noundef nonnull %148, ptr noundef %2) #6
   %.not93 = icmp eq i32 %149, 0
   br i1 %.not93, label %150, label %153
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %25, i64 68
+  %151 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %152 = call i32 @unpack32(ptr noundef nonnull %151, ptr noundef %2) #6
   %.not94 = icmp eq i32 %152, 0
   br i1 %.not94, label %154, label %153

@@ -40,7 +40,7 @@ define hidden noundef double @_ZN5ceres8internal17WallTimeInSecondsEv() local_un
   %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #10
   %3 = load i64, ptr %1, align 8
   %4 = sitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sitofp i64 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 0x3EB0C6F7A0B5ED8D, double %4)
@@ -57,7 +57,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 define hidden void @_ZN5ceres8internal11EventLoggerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   %6 = load ptr, ptr @_ZZN5ceres8internal11EventLoggerC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8vlocal__, align 8
   %7 = icmp eq ptr %6, null
@@ -86,13 +86,13 @@ define hidden void @_ZN5ceres8internal11EventLoggerC2ERKNSt7__cxx1112basic_strin
   %17 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   %18 = load i64, ptr %3, align 8
   %19 = sitofp i64 %18 to double
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = sitofp i64 %21 to double
   %23 = tail call noundef double @llvm.fmuladd.f64(double %22, double 0x3EB0C6F7A0B5ED8D, double %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store double %23, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %23, ptr %24, align 8
   %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.1, ptr noundef %25)
@@ -188,18 +188,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %26 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #10
   %27 = load i64, ptr %2, align 8
   %28 = sitofp i64 %27 to double
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = sitofp i64 %30 to double
   %32 = call noundef double @llvm.fmuladd.f64(double %31, double 0x3EB0C6F7A0B5ED8D, double %28)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load double, ptr %33, align 8
   %35 = fsub double %32, %34
   %36 = load double, ptr %0, align 8
   %37 = fsub double %32, %36
   store double %32, ptr %33, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %38, ptr noundef nonnull @.str.4, ptr noundef %39, double noundef %35, double noundef %37)
           to label %_ZN5ceres8internal11EventLogger8AddEventERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %60
@@ -236,7 +236,7 @@ _ZN5ceres8internal11EventLogger8AddEventERKNSt7__cxx1112basic_stringIcSt11char_t
           to label %53 unwind label %60
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(32) %54)
           to label %56 unwind label %60
 
@@ -249,7 +249,7 @@ _ZN5ceres8internal11EventLogger8AddEventERKNSt7__cxx1112basic_stringIcSt11char_t
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %10, %58, %47, %13
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #10
   ret void
 
@@ -298,18 +298,18 @@ define hidden void @_ZN5ceres8internal11EventLogger8AddEventERKNSt7__cxx1112basi
   %12 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   %13 = load i64, ptr %3, align 8
   %14 = sitofp i64 %13 to double
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = sitofp i64 %16 to double
   %18 = tail call noundef double @llvm.fmuladd.f64(double %17, double 0x3EB0C6F7A0B5ED8D, double %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fsub double %18, %20
   %22 = load double, ptr %0, align 8
   %23 = fsub double %18, %22
   store double %18, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   tail call void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %24, ptr noundef nonnull @.str.4, ptr noundef %25, double noundef %21, double noundef %23)
   br label %26

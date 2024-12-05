@@ -119,16 +119,16 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
   store i64 2, ptr %25, align 8
   store ptr null, ptr %24, align 8
   store i64 -9223372036854775806, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i8 2, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 9
-  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %12, i64 1
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.8.0..sroa_idx17 = getelementptr inbounds i8, ptr %15, i64 9
-  %.sroa.8.8..sroa_idx18 = getelementptr inbounds i8, ptr %17, i64 1
-  %.sroa.8.8..sroa_idx19 = getelementptr inbounds i8, ptr %19, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 9
+  %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.8.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %.sroa.8.8..sroa_idx18 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %.sroa.8.8..sroa_idx19 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %100, %3
@@ -203,8 +203,8 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %44 unwind label %37
 
 42:                                               ; preds = %39
-  %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.333.0..sroa_idx, i64 24, i1 false)
   store i64 %.sroa.031.0.copyload, ptr %9, align 8
   %.sroa.037.0.copyload = load ptr, ptr %24, align 8
@@ -213,7 +213,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..TracingConf$GT$$GT$17h04611f14f2191fdbE"(ptr nonnull align 8 %22)
@@ -224,8 +224,8 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %51 unwind label %49
 
 47:                                               ; preds = %42
-  %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.272.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.339.0..sroa_idx, i64 40, i1 false)
   store ptr %.sroa.037.0.copyload, ptr %8, align 8
   br label %56
@@ -249,9 +249,9 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
   %54 = extractvalue { i64, i64 } %52, 0
   %55 = extractvalue { i64, i64 } %52, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @anon.21000207f2688d89f8a4d64a0b8cf040.6, i64 32, i1 false)
-  %.sroa.073.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.073.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %54, ptr %.sroa.073.sroa.2.0..sroa_idx, align 8
-  %.sroa.073.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
+  %.sroa.073.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %55, ptr %.sroa.073.sroa.3.0..sroa_idx, align 8
   br label %56
 
@@ -266,8 +266,8 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %63 unwind label %61
 
 59:                                               ; preds = %56
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.281.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.343.0..sroa_idx, i64 72, i1 false)
   store i64 %.sroa.041.0.copyload, ptr %7, align 8
   br label %63
@@ -296,11 +296,11 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %71 unwind label %69
 
 68:                                               ; preds = %63
-  %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 49
+  %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false)
-  %.sroa.248.0..sroa_idx49 = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.248.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %.sroa.248.0.copyload, ptr %.sroa.248.0..sroa_idx49, align 8
-  %.sroa.351.0..sroa_idx52 = getelementptr inbounds i8, ptr %4, i64 49
+  %.sroa.351.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %4, i64 49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.351.0..sroa_idx52, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.351.0..sroa_idx, i64 7, i1 false)
   br label %71
 
@@ -315,16 +315,16 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
   %73 = and i8 %.085.ph, 1
   %.086 = select i1 %72, i8 1, i8 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %.sroa.023.168..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 168
+  %.sroa.023.168..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.023.168..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
-  %.sroa.023.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 32
+  %.sroa.023.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.023.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
-  %.sroa.023.112..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 112
+  %.sroa.023.112..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.023.112..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023, i64 216, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i8 %.087, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 217
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 217
   store i8 %.086, ptr %.sroa.6.0..sroa_idx, align 1
   br label %.invoke242
 
@@ -438,7 +438,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %109 unwind label %.thread129
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wiggle_generate..config..WitxConf$GT$17h4c69cf04633e3556E"(ptr nonnull align 8 %19)
@@ -446,7 +446,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
 
 .sink.split:                                      ; preds = %137, %128
   %.sink241 = phi ptr [ %13, %128 ], [ %10, %137 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %.sink241, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   br label %107
@@ -483,7 +483,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %117 unwind label %.thread131
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..ErrorConf$GT$17he6b978d4330e3cf2E"(ptr nonnull align 8 %17)
@@ -514,7 +514,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %125 unwind label %.thread133
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..AsyncConf$GT$17h56ec597a1ac5ebd7E"(ptr nonnull align 8 %15)
@@ -549,7 +549,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr no
           to label %134 unwind label %.thread135
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %0, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..TracingConf$GT$17he5b9cf45fb882391E"(ptr nonnull align 8 %12)
@@ -646,16 +646,16 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
   store i64 2, ptr %25, align 8
   store ptr null, ptr %24, align 8
   store i64 -9223372036854775806, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i8 2, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 9
-  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %12, i64 1
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.8.0..sroa_idx17 = getelementptr inbounds i8, ptr %15, i64 9
-  %.sroa.8.8..sroa_idx18 = getelementptr inbounds i8, ptr %17, i64 1
-  %.sroa.8.8..sroa_idx19 = getelementptr inbounds i8, ptr %19, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 9
+  %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.8.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  %.sroa.8.8..sroa_idx18 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %.sroa.8.8..sroa_idx19 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %100, %3
@@ -730,8 +730,8 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %44 unwind label %37
 
 42:                                               ; preds = %39
-  %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.333.0..sroa_idx, i64 24, i1 false)
   store i64 %.sroa.031.0.copyload, ptr %9, align 8
   %.sroa.037.0.copyload = load ptr, ptr %24, align 8
@@ -740,7 +740,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
   br i1 %43, label %46, label %47
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$wiggle_generate..config..TracingConf$GT$$GT$17h04611f14f2191fdbE"(ptr nonnull align 8 %22)
@@ -751,8 +751,8 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %51 unwind label %49
 
 47:                                               ; preds = %42
-  %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.272.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.339.0..sroa_idx, i64 40, i1 false)
   store ptr %.sroa.037.0.copyload, ptr %8, align 8
   br label %56
@@ -776,9 +776,9 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
   %54 = extractvalue { i64, i64 } %52, 0
   %55 = extractvalue { i64, i64 } %52, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @anon.21000207f2688d89f8a4d64a0b8cf040.6, i64 32, i1 false)
-  %.sroa.073.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.073.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %54, ptr %.sroa.073.sroa.2.0..sroa_idx, align 8
-  %.sroa.073.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
+  %.sroa.073.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %55, ptr %.sroa.073.sroa.3.0..sroa_idx, align 8
   br label %56
 
@@ -793,8 +793,8 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %63 unwind label %61
 
 59:                                               ; preds = %56
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.281.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.343.0..sroa_idx, i64 72, i1 false)
   store i64 %.sroa.041.0.copyload, ptr %7, align 8
   br label %63
@@ -823,11 +823,11 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %71 unwind label %69
 
 68:                                               ; preds = %63
-  %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 49
+  %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false)
-  %.sroa.248.0..sroa_idx49 = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.248.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %.sroa.248.0.copyload, ptr %.sroa.248.0..sroa_idx49, align 8
-  %.sroa.351.0..sroa_idx52 = getelementptr inbounds i8, ptr %4, i64 49
+  %.sroa.351.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %4, i64 49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.351.0..sroa_idx52, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.351.0..sroa_idx, i64 7, i1 false)
   br label %71
 
@@ -842,16 +842,16 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
   %73 = and i8 %.085.ph, 1
   %.086 = select i1 %72, i8 1, i8 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %.sroa.023.168..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 168
+  %.sroa.023.168..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.023.168..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
-  %.sroa.023.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 32
+  %.sroa.023.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.023.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
-  %.sroa.023.112..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 112
+  %.sroa.023.112..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.023.112..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.023, i64 216, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i8 %.087, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 217
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 217
   store i8 %.086, ptr %.sroa.6.0..sroa_idx, align 1
   br label %.invoke242
 
@@ -965,7 +965,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %109 unwind label %.thread129
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wiggle_generate..config..WitxConf$GT$17h4c69cf04633e3556E"(ptr nonnull align 8 %19)
@@ -973,7 +973,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
 
 .sink.split:                                      ; preds = %137, %128
   %.sink241 = phi ptr [ %13, %128 ], [ %10, %137 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %.sink241, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   br label %107
@@ -1010,7 +1010,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %117 unwind label %.thread131
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..ErrorConf$GT$17he6b978d4330e3cf2E"(ptr nonnull align 8 %17)
@@ -1041,7 +1041,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %125 unwind label %.thread133
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..AsyncConf$GT$17h56ec597a1ac5ebd7E"(ptr nonnull align 8 %15)
@@ -1076,7 +1076,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
           to label %134 unwind label %.thread135
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %0, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wiggle_generate..config..TracingConf$GT$17he5b9cf45fb882391E"(ptr nonnull align 8 %12)
@@ -1148,13 +1148,13 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr no
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden align 8 ptr @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7b$closure$u7d$$u7d$17h14b5b47e2e3e6b1fE"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr, {} }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %5, i64 %7
   store ptr %5, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   %10 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %10)
@@ -1167,11 +1167,11 @@ define hidden zeroext i1 @"_ZN15wiggle_generate6config9AsyncConf3get28_$u7b$$u7b
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !11, !noundef !7
   %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !11, !noundef !7
   %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !12, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !7
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !7
   %12 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr nonnull align 1 %9, i64 %11, ptr nonnull align 1 %5, i64 %7)
   ret i1 %12
@@ -1200,15 +1200,15 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   %16 = alloca { i64, [5 x i64] }, align 8
   store i64 -9223372036854775808, ptr %16, align 8
   store i64 0, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 56
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.4.0..sroa_idx5 = getelementptr inbounds i8, ptr %9, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
@@ -1263,14 +1263,14 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 26:                                               ; preds = %25
   %27 = load i64, ptr %8, align 8, !range !8, !noundef !7
   %.not64 = icmp eq i64 %27, 2
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %.not64, label %.thread92, label %29
 
 29:                                               ; preds = %26
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.313.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.343.0..sroa_idx, i64 192, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i64 %27, ptr %5, align 8
   %.sroa.026.0.copyload = load i64, ptr %16, align 8
@@ -1279,7 +1279,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   br i1 %30, label %32, label %37
 
 .thread92:                                        ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   br label %41
@@ -1301,19 +1301,19 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
   unreachable
 
 37:                                               ; preds = %29
-  %.sroa.328.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %5, i64 224, i1 false)
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %.sroa.026.0.copyload, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.336.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.328.0..sroa_idx, i64 24, i1 false)
-  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 256
+  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.437.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   br label %41
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wiggle_generate..config..Config$GT$17h0f06e2a1fa6058cdE"(ptr nonnull align 8 %5)
@@ -1356,7 +1356,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
           to label %57 unwind label %.thread93
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17ha3cbfeb3bfde8d31E"(ptr nonnull align 8 %12)
@@ -1408,13 +1408,13 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden align 8 ptr @"_ZN15wiggle_generate6config11TracingConf11enabled_for28_$u7b$$u7b$closure$u7d$$u7d$17h6ae9a19af6cdf8f9E"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr, {} }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !7
   %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %5, i64 %7
   store ptr %5, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   %10 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %10)
@@ -1427,11 +1427,11 @@ define hidden zeroext i1 @"_ZN15wiggle_generate6config11TracingConf11enabled_for
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !11, !noundef !7
   %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !11, !noundef !7
   %5 = load ptr, ptr %3, align 8, !nonnull !7, !align !12, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !7
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !7
   %12 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr nonnull align 1 %9, i64 %11, ptr nonnull align 1 %5, i64 %7)
   ret i1 %12

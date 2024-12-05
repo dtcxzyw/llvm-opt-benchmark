@@ -43,51 +43,51 @@ invoke.cont:
   %status.i28 = alloca i32, align 4
   %status.i19 = alloca i32, align 4
   %status.i = alloca i32, align 4
-  %norms.i = getelementptr inbounds i8, ptr %this, i64 8
+  %norms.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %n, ptr %norms.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ExtraDataE, i64 16), ptr %this, align 8
-  %maybeYesCompositions = getelementptr inbounds i8, ptr %this, i64 16
+  %maybeYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %maybeYesCompositions, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
-  %yesYesCompositions = getelementptr inbounds i8, ptr %this, i64 80
+  %yesYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 80
   invoke void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %yesYesCompositions, i32 noundef 1000, i32 noundef 65535, i32 noundef 2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %yesNoMappingsAndCompositions = getelementptr inbounds i8, ptr %this, i64 144
+  %yesNoMappingsAndCompositions = getelementptr inbounds nuw i8, ptr %this, i64 144
   invoke void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsAndCompositions, i32 noundef 1000, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %yesNoMappingsOnly = getelementptr inbounds i8, ptr %this, i64 208
+  %yesNoMappingsOnly = getelementptr inbounds nuw i8, ptr %this, i64 208
   invoke void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsOnly, i32 noundef 1000, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont15 unwind label %lpad6
 
 invoke.cont15:                                    ; preds = %invoke.cont5
-  %noNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 272
+  %noNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %noNoMappingsCompYes, align 8
-  %fUnion2.i13 = getelementptr inbounds i8, ptr %this, i64 280
+  %fUnion2.i13 = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i16 2, ptr %fUnion2.i13, align 8
-  %noNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 336
+  %noNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 336
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %noNoMappingsCompBoundaryBefore, align 8
-  %fUnion2.i14 = getelementptr inbounds i8, ptr %this, i64 344
+  %fUnion2.i14 = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i16 2, ptr %fUnion2.i14, align 8
-  %noNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 400
+  %noNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %noNoMappingsCompNoMaybeCC, align 8
-  %fUnion2.i15 = getelementptr inbounds i8, ptr %this, i64 408
+  %fUnion2.i15 = getelementptr inbounds nuw i8, ptr %this, i64 408
   store i16 2, ptr %fUnion2.i15, align 8
-  %noNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 464
+  %noNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 464
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %noNoMappingsEmpty, align 8
-  %fUnion2.i16 = getelementptr inbounds i8, ptr %this, i64 472
+  %fUnion2.i16 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i16 2, ptr %fUnion2.i16, align 8
-  %optimizeFast = getelementptr inbounds i8, ptr %this, i64 528
+  %optimizeFast = getelementptr inbounds nuw i8, ptr %this, i64 528
   store i8 %fast, ptr %optimizeFast, align 8
-  %previousNoNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 536
+  %previousNoNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 536
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store ptr null, ptr %previousNoNoMappingsCompYes, align 8
   store i32 0, ptr %status.i, align 4
-  %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 544
+  %hashObj.i.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   %call2.i.i17 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
           to label %call2.i.i.noexc unwind label %lpad16
 
@@ -103,11 +103,11 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 
 invoke.cont17:                                    ; preds = %call2.i.i.noexc, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 624
+  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 624
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i19)
   store ptr null, ptr %previousNoNoMappingsCompBoundaryBefore, align 8
   store i32 0, ptr %status.i19, align 4
-  %hashObj.i.i20 = getelementptr inbounds i8, ptr %this, i64 632
+  %hashObj.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %call2.i.i24 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i20, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i19)
           to label %call2.i.i.noexc23 unwind label %lpad18
 
@@ -123,11 +123,11 @@ if.then5.i.i22:                                   ; preds = %call2.i.i.noexc23
 
 invoke.cont19:                                    ; preds = %call2.i.i.noexc23, %if.then5.i.i22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i19)
-  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 712
+  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 712
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i28)
   store ptr null, ptr %previousNoNoMappingsCompNoMaybeCC, align 8
   store i32 0, ptr %status.i28, align 4
-  %hashObj.i.i29 = getelementptr inbounds i8, ptr %this, i64 720
+  %hashObj.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 720
   %call2.i.i33 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i29, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i28)
           to label %call2.i.i.noexc32 unwind label %lpad20
 
@@ -143,11 +143,11 @@ if.then5.i.i31:                                   ; preds = %call2.i.i.noexc32
 
 invoke.cont21:                                    ; preds = %call2.i.i.noexc32, %if.then5.i.i31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i28)
-  %previousNoNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 800
+  %previousNoNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 800
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i37)
   store ptr null, ptr %previousNoNoMappingsEmpty, align 8
   store i32 0, ptr %status.i37, align 4
-  %hashObj.i.i38 = getelementptr inbounds i8, ptr %this, i64 808
+  %hashObj.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 808
   %call2.i.i42 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i38, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status.i37)
           to label %call2.i.i.noexc41 unwind label %lpad22
 
@@ -297,31 +297,31 @@ entry:
   %srcChar.addr.i38 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
   %0 = load ptr, ptr %norm, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %0, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %trailCC = getelementptr inbounds i8, ptr %norm, i64 42
+  %trailCC = getelementptr inbounds nuw i8, ptr %norm, i64 42
   %4 = load i8, ptr %trailCC, align 2
   %conv = zext i8 %4 to i32
   %shl = shl nuw nsw i32 %conv, 8
   %or = or i32 %shl, %cond.i
-  %rawMapping = getelementptr inbounds i8, ptr %norm, i64 8
+  %rawMapping = getelementptr inbounds nuw i8, ptr %norm, i64 8
   %5 = load ptr, ptr %rawMapping, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fUnion.i.i25 = getelementptr inbounds i8, ptr %5, i64 8
+  %fUnion.i.i25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i16, ptr %fUnion.i.i25, align 8
   %cmp.i.i26 = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i27 = sext i16 %7 to i32
-  %fLength.i28 = getelementptr inbounds i8, ptr %5, i64 12
+  %fLength.i28 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %8 = load i32, ptr %fLength.i28, align 4
   %cond.i29 = select i1 %cmp.i.i26, i32 %8, i32 %shr.i.i27
   %cmp4 = icmp sgt i32 %cond.i29, 31
@@ -341,8 +341,8 @@ if.end:                                           ; preds = %if.then
 if.then.i.i:                                      ; preds = %if.end
   %10 = and i16 %6, 2
   %tobool.not.i.i.i = icmp eq i16 %10, 0
-  %fBuffer.i.i.i = getelementptr inbounds i8, ptr %5, i64 10
-  %fArray.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %fArray.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %11, ptr %fBuffer.i.i.i
   %12 = load i16, ptr %cond.i2.i.i, align 2
@@ -371,8 +371,8 @@ if.else.i.i:                                      ; preds = %land.lhs.true
   %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 99)
   %15 = and i16 %1, 2
   %tobool.not.i.i.i33 = icmp eq i16 %15, 0
-  %fBuffer.i.i.i34 = getelementptr inbounds i8, ptr %0, i64 10
-  %fArray.i.i.i35 = getelementptr inbounds i8, ptr %0, i64 24
+  %fBuffer.i.i.i34 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %fArray.i.i.i35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %fArray.i.i.i35, align 8
   %cond.i.i.i36 = select i1 %tobool.not.i.i.i33, ptr %16, ptr %fBuffer.i.i.i34
   %call5.i.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef 1, i32 noundef 99, ptr noundef %cond.i.i.i36, i32 noundef %spec.select.i.i, i32 noundef %spec.select9.i.i)
@@ -422,10 +422,10 @@ if.end21:                                         ; preds = %if.else, %if.then16
 if.end23:                                         ; preds = %if.end21, %entry
   %preMappingLength.0 = phi i32 [ %preMappingLength.1, %if.end21 ], [ 0, %entry ]
   %firstUnit.0 = phi i32 [ %or22, %if.end21 ], [ %or, %entry ]
-  %cc = getelementptr inbounds i8, ptr %norm, i64 40
+  %cc = getelementptr inbounds nuw i8, ptr %norm, i64 40
   %19 = load i8, ptr %cc, align 8
   %conv24 = zext i8 %19 to i32
-  %leadCC = getelementptr inbounds i8, ptr %norm, i64 41
+  %leadCC = getelementptr inbounds nuw i8, ptr %norm, i64 41
   %20 = load i8, ptr %leadCC, align 1
   %conv25 = zext i8 %20 to i32
   %shl26 = shl nuw nsw i32 %conv25, 8
@@ -474,7 +474,7 @@ entry:
   %found = alloca i8, align 1
   %errorCode = alloca %"class.icu_75::IcuToolErrorCode", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newMapping, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %newMapping, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %newMapping, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %newMapping)
           to label %invoke.cont unwind label %lpad
@@ -496,12 +496,12 @@ lpad:                                             ; preds = %invoke.cont4, %invo
   br label %ehcleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %fUnion.i.i = getelementptr inbounds i8, ptr %dataString, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %dataString, i64 8
   %3 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i = sext i16 %4 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %dataString, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %dataString, i64 12
   %5 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
   %add = add nsw i32 %cond.i, %call
@@ -509,17 +509,17 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %cmp.i.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds i8, ptr %newMapping, i64 12
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %newMapping, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
   %call2.i7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %dataString, ptr noundef nonnull align 8 dereferenceable(64) %newMapping, i32 noundef 0, i32 noundef %cond.i.i)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
-  %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
+  %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
-  %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
+  %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.1, ptr %location.i, align 8
   %9 = load ptr, ptr %previousMappings, align 8
   %call.i = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #11
@@ -571,7 +571,7 @@ declare void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(888) %this, i32 noundef %c, ptr nocapture noundef nonnull align 8 dereferenceable(64) %norm) local_unnamed_addr #0 align 2 {
 entry:
-  %mappingCP = getelementptr inbounds i8, ptr %norm, i64 16
+  %mappingCP = getelementptr inbounds nuw i8, ptr %norm, i64 16
   %0 = load i32, ptr %mappingCP, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %land.lhs.true, label %return
@@ -583,10 +583,10 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond9, label %return, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %norms = getelementptr inbounds i8, ptr %this, i64 8
+  %norms = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %norms, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %1, i32 noundef %0)
-  %type = getelementptr inbounds i8, ptr %call, i64 48
+  %type = getelementptr inbounds nuw i8, ptr %call, i64 48
   %2 = load i32, ptr %type, align 8
   %cmp8 = icmp slt i32 %2, 5
   br i1 %cmp8, label %if.then, label %return
@@ -599,9 +599,9 @@ if.then:                                          ; preds = %land.lhs.true6
   br i1 %or.cond, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.then
-  %type14 = getelementptr inbounds i8, ptr %norm, i64 48
+  %type14 = getelementptr inbounds nuw i8, ptr %norm, i64 48
   store i32 9, ptr %type14, align 8
-  %offset = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %sub, ptr %offset, align 4
   br label %return
 
@@ -618,7 +618,7 @@ entry:
   %srcChar.addr.i23 = alloca i16, align 2
   %srcChar.addr.i21 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
-  %cc = getelementptr inbounds i8, ptr %norm, i64 40
+  %cc = getelementptr inbounds nuw i8, ptr %norm, i64 40
   %0 = load i8, ptr %cc, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -631,22 +631,22 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %compositions.i = getelementptr inbounds i8, ptr %norm, i64 32
+  %compositions.i = getelementptr inbounds nuw i8, ptr %norm, i64 32
   %2 = load ptr, ptr %compositions.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %for.end, label %_ZNK6icu_754Norm19getCompositionPairsERi.exit
 
 _ZNK6icu_754Norm19getCompositionPairsERi.exit:    ; preds = %if.end
-  %count.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %count.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %count.i.i, align 8
-  %elements.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %elements.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %elements.i.i, align 8
   %cmp426 = icmp sgt i32 %3, 1
   br i1 %cmp426, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZNK6icu_754Norm19getCompositionPairsERi.exit
   %div.i32 = lshr i32 %3, 1
-  %norms = getelementptr inbounds i8, ptr %this, i64 8
+  %norms = getelementptr inbounds nuw i8, ptr %this, i64 8
   %sub = add nsw i32 %div.i32, -1
   %5 = zext nneg i32 %sub to i64
   %wide.trip.count = zext nneg i32 %div.i32 to i64
@@ -654,13 +654,13 @@ for.body.lr.ph:                                   ; preds = %_ZNK6icu_754Norm19g
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %"struct.icu_75::CompositionPair", ptr %4, i64 %indvars.iv
-  %composite = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx = getelementptr inbounds nuw %"struct.icu_75::CompositionPair", ptr %4, i64 %indvars.iv
+  %composite = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %composite, align 4
   %shl = shl i32 %6, 1
   %7 = load ptr, ptr %norms, align 8
   %call6 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %7, i32 noundef %6)
-  %compositions = getelementptr inbounds i8, ptr %call6, i64 32
+  %compositions = getelementptr inbounds nuw i8, ptr %call6, i64 32
   %8 = load ptr, ptr %compositions, align 8
   %cmp7.not = icmp ne ptr %8, null
   %or = zext i1 %cmp7.not to i32
@@ -740,7 +740,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %error = getelementptr inbounds i8, ptr %norm, i64 56
+  %error = getelementptr inbounds nuw i8, ptr %norm, i64 56
   %1 = load ptr, ptr %error, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end8, label %if.then4
@@ -760,7 +760,7 @@ if.end8:                                          ; preds = %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6icu_759ExtraData14writeExtraDataEiRNS_4NormE(ptr noundef nonnull align 8 dereferenceable(888) %this, i32 noundef %c, ptr nocapture noundef nonnull align 8 dereferenceable(64) %norm) local_unnamed_addr #0 align 2 {
 entry:
-  %type = getelementptr inbounds i8, ptr %norm, i64 48
+  %type = getelementptr inbounds nuw i8, ptr %norm, i64 48
   %0 = load i32, ptr %type, align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.epilog
@@ -777,61 +777,61 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry
-  %yesYesCompositions = getelementptr inbounds i8, ptr %this, i64 80
-  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %yesYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i = sext i16 %2 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 92
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %offset = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %cond.i, ptr %offset, align 4
   tail call void @_ZN6icu_759ExtraData17writeCompositionsEiRKNS_4NormERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(888) %this, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %yesYesCompositions)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %yesNoMappingsAndCompositions = getelementptr inbounds i8, ptr %this, i64 144
-  %fUnion.i.i30 = getelementptr inbounds i8, ptr %this, i64 152
+  %yesNoMappingsAndCompositions = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %fUnion.i.i30 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %4 = load i16, ptr %fUnion.i.i30, align 8
   %cmp.i.i31 = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i32 = sext i16 %5 to i32
-  %fLength.i33 = getelementptr inbounds i8, ptr %this, i64 156
+  %fLength.i33 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %6 = load i32, ptr %fLength.i33, align 4
   %cond.i34 = select i1 %cmp.i.i31, i32 %6, i32 %shr.i.i32
   %call7 = tail call noundef i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsAndCompositions)
   %add = add nsw i32 %cond.i34, %call7
-  %offset8 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset8 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %add, ptr %offset8, align 4
   tail call void @_ZN6icu_759ExtraData17writeCompositionsEiRKNS_4NormERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(888) %this, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsAndCompositions)
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %yesNoMappingsOnly = getelementptr inbounds i8, ptr %this, i64 208
-  %fUnion.i.i35 = getelementptr inbounds i8, ptr %this, i64 216
+  %yesNoMappingsOnly = getelementptr inbounds nuw i8, ptr %this, i64 208
+  %fUnion.i.i35 = getelementptr inbounds nuw i8, ptr %this, i64 216
   %7 = load i16, ptr %fUnion.i.i35, align 8
   %cmp.i.i36 = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
   %shr.i.i37 = sext i16 %8 to i32
-  %fLength.i38 = getelementptr inbounds i8, ptr %this, i64 220
+  %fLength.i38 = getelementptr inbounds nuw i8, ptr %this, i64 220
   %9 = load i32, ptr %fLength.i38, align 4
   %cond.i39 = select i1 %cmp.i.i36, i32 %9, i32 %shr.i.i37
   %call13 = tail call noundef i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsOnly)
   %add14 = add nsw i32 %cond.i39, %call13
-  %offset15 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset15 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %add14, ptr %offset15, align 4
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %optimizeFast = getelementptr inbounds i8, ptr %this, i64 528
+  %optimizeFast = getelementptr inbounds nuw i8, ptr %this, i64 528
   %10 = load i8, ptr %optimizeFast, align 8
   %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %sw.bb16
-  %mappingCP.i = getelementptr inbounds i8, ptr %norm, i64 16
+  %mappingCP.i = getelementptr inbounds nuw i8, ptr %norm, i64 16
   %11 = load i32, ptr %mappingCP.i, align 8
   %cmp.i = icmp sgt i32 %11, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
@@ -843,10 +843,10 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   br i1 %or.cond9.i, label %if.end, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
-  %norms.i = getelementptr inbounds i8, ptr %this, i64 8
+  %norms.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %norms.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %12, i32 noundef %11)
-  %type.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %13 = load i32, ptr %type.i, align 8
   %cmp8.i = icmp slt i32 %13, 5
   br i1 %cmp8.i, label %if.then.i, label %if.end
@@ -860,26 +860,26 @@ if.then.i:                                        ; preds = %land.lhs.true6.i
 
 _ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE.exit: ; preds = %if.then.i
   store i32 9, ptr %type, align 8
-  %offset.i = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset.i = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %sub.i, ptr %offset.i, align 4
   br label %sw.epilog
 
 if.end:                                           ; preds = %land.lhs.true, %land.lhs.true6.i, %if.then.i, %land.lhs.true.i, %sw.bb16
-  %noNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 272
-  %previousNoNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 536
+  %noNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 272
+  %previousNoNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 536
   %call19 = tail call noundef i32 @_ZN6icu_759ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompYes, ptr noundef nonnull align 8 dereferenceable(88) %previousNoNoMappingsCompYes)
-  %offset20 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset20 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %call19, ptr %offset20, align 4
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %optimizeFast22 = getelementptr inbounds i8, ptr %this, i64 528
+  %optimizeFast22 = getelementptr inbounds nuw i8, ptr %this, i64 528
   %16 = load i8, ptr %optimizeFast22, align 8
   %tobool23.not = icmp eq i8 %16, 0
   br i1 %tobool23.not, label %land.lhs.true24, label %if.end28
 
 land.lhs.true24:                                  ; preds = %sw.bb21
-  %mappingCP.i40 = getelementptr inbounds i8, ptr %norm, i64 16
+  %mappingCP.i40 = getelementptr inbounds nuw i8, ptr %norm, i64 16
   %17 = load i32, ptr %mappingCP.i40, align 8
   %cmp.i41 = icmp sgt i32 %17, -1
   br i1 %cmp.i41, label %land.lhs.true.i43, label %if.end28
@@ -891,10 +891,10 @@ land.lhs.true.i43:                                ; preds = %land.lhs.true24
   br i1 %or.cond9.i46, label %if.end28, label %land.lhs.true6.i47
 
 land.lhs.true6.i47:                               ; preds = %land.lhs.true.i43
-  %norms.i48 = getelementptr inbounds i8, ptr %this, i64 8
+  %norms.i48 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %18 = load ptr, ptr %norms.i48, align 8
   %call.i49 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_755Norms10getNormRefEi(ptr noundef nonnull align 8 dereferenceable(424) %18, i32 noundef %17)
-  %type.i50 = getelementptr inbounds i8, ptr %call.i49, i64 48
+  %type.i50 = getelementptr inbounds nuw i8, ptr %call.i49, i64 48
   %19 = load i32, ptr %type.i50, align 8
   %cmp8.i51 = icmp slt i32 %19, 5
   br i1 %cmp8.i51, label %if.then.i52, label %if.end28
@@ -908,45 +908,45 @@ if.then.i52:                                      ; preds = %land.lhs.true6.i47
 
 _ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE.exit58: ; preds = %if.then.i52
   store i32 9, ptr %type, align 8
-  %offset.i57 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset.i57 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %sub.i53, ptr %offset.i57, align 4
   br label %sw.epilog
 
 if.end28:                                         ; preds = %land.lhs.true24, %land.lhs.true6.i47, %if.then.i52, %land.lhs.true.i43, %sw.bb21
-  %noNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 336
-  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 624
+  %noNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 336
+  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 624
   %call29 = tail call noundef i32 @_ZN6icu_759ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompBoundaryBefore, ptr noundef nonnull align 8 dereferenceable(88) %previousNoNoMappingsCompBoundaryBefore)
-  %offset30 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset30 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %call29, ptr %offset30, align 4
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %noNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 400
-  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 712
+  %noNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 400
+  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 712
   %call32 = tail call noundef i32 @_ZN6icu_759ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompNoMaybeCC, ptr noundef nonnull align 8 dereferenceable(88) %previousNoNoMappingsCompNoMaybeCC)
-  %offset33 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset33 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %call32, ptr %offset33, align 4
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %entry
-  %noNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 464
-  %previousNoNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 800
+  %noNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 464
+  %previousNoNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 800
   %call35 = tail call noundef i32 @_ZN6icu_759ExtraData16writeNoNoMappingEiRKNS_4NormERNS_13UnicodeStringERNS_9HashtableE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsEmpty, ptr noundef nonnull align 8 dereferenceable(88) %previousNoNoMappingsEmpty)
-  %offset36 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset36 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %call35, ptr %offset36, align 4
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %entry
-  %maybeYesCompositions = getelementptr inbounds i8, ptr %this, i64 16
-  %fUnion.i.i59 = getelementptr inbounds i8, ptr %this, i64 24
+  %maybeYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %fUnion.i.i59 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %22 = load i16, ptr %fUnion.i.i59, align 8
   %cmp.i.i60 = icmp slt i16 %22, 0
   %23 = ashr i16 %22, 5
   %shr.i.i61 = sext i16 %23 to i32
-  %fLength.i62 = getelementptr inbounds i8, ptr %this, i64 28
+  %fLength.i62 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %24 = load i32, ptr %fLength.i62, align 4
   %cond.i63 = select i1 %cmp.i.i60, i32 %24, i32 %shr.i.i61
-  %offset39 = getelementptr inbounds i8, ptr %norm, i64 52
+  %offset39 = getelementptr inbounds nuw i8, ptr %norm, i64 52
   store i32 %cond.i63, ptr %offset39, align 4
   tail call void @_ZN6icu_759ExtraData17writeCompositionsEiRKNS_4NormERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(888) %this, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %maybeYesCompositions)
   br label %sw.epilog
@@ -963,7 +963,7 @@ sw.epilog:                                        ; preds = %_ZNK6icu_759ExtraDa
 define linkonce_odr dso_local void @_ZN6icu_759ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(888) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ExtraDataE, i64 16), ptr %this, align 8
-  %previousNoNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 800
+  %previousNoNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 800
   %0 = load ptr, ptr %previousNoNoMappingsEmpty, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
@@ -980,7 +980,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %entry, %if.then.i
-  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 712
+  %previousNoNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 712
   %3 = load ptr, ptr %previousNoNoMappingsCompNoMaybeCC, align 8
   %cmp.not.i1 = icmp eq ptr %3, null
   br i1 %cmp.not.i1, label %_ZN6icu_759HashtableD2Ev.exit4, label %if.then.i2
@@ -997,7 +997,7 @@ terminate.lpad.i3:                                ; preds = %if.then.i2
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit4:                   ; preds = %_ZN6icu_759HashtableD2Ev.exit, %if.then.i2
-  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 624
+  %previousNoNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 624
   %6 = load ptr, ptr %previousNoNoMappingsCompBoundaryBefore, align 8
   %cmp.not.i5 = icmp eq ptr %6, null
   br i1 %cmp.not.i5, label %_ZN6icu_759HashtableD2Ev.exit8, label %if.then.i6
@@ -1014,7 +1014,7 @@ terminate.lpad.i7:                                ; preds = %if.then.i6
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit8:                   ; preds = %_ZN6icu_759HashtableD2Ev.exit4, %if.then.i6
-  %previousNoNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 536
+  %previousNoNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 536
   %9 = load ptr, ptr %previousNoNoMappingsCompYes, align 8
   %cmp.not.i9 = icmp eq ptr %9, null
   br i1 %cmp.not.i9, label %_ZN6icu_759HashtableD2Ev.exit12, label %if.then.i10
@@ -1031,21 +1031,21 @@ terminate.lpad.i11:                               ; preds = %if.then.i10
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit12:                  ; preds = %_ZN6icu_759HashtableD2Ev.exit8, %if.then.i10
-  %noNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 464
+  %noNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 464
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsEmpty) #11
-  %noNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 400
+  %noNoMappingsCompNoMaybeCC = getelementptr inbounds nuw i8, ptr %this, i64 400
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompNoMaybeCC) #11
-  %noNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 336
+  %noNoMappingsCompBoundaryBefore = getelementptr inbounds nuw i8, ptr %this, i64 336
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompBoundaryBefore) #11
-  %noNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 272
+  %noNoMappingsCompYes = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %noNoMappingsCompYes) #11
-  %yesNoMappingsOnly = getelementptr inbounds i8, ptr %this, i64 208
+  %yesNoMappingsOnly = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsOnly) #11
-  %yesNoMappingsAndCompositions = getelementptr inbounds i8, ptr %this, i64 144
+  %yesNoMappingsAndCompositions = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %yesNoMappingsAndCompositions) #11
-  %yesYesCompositions = getelementptr inbounds i8, ptr %this, i64 80
+  %yesYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %yesYesCompositions) #11
-  %maybeYesCompositions = getelementptr inbounds i8, ptr %this, i64 16
+  %maybeYesCompositions = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %maybeYesCompositions) #11
   tail call void @_ZN6icu_755Norms10EnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #11
   ret void

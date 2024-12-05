@@ -59,7 +59,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNam
   %7 = icmp ne ptr %6, null
   %8 = zext i1 %7 to i64
   %spec.select = add i64 %.010, %8
-  %9 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 48
   %.not = icmp eq ptr %9, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateP
 
 29:                                               ; preds = %28, %25, %24
   %.1 = phi ptr [ %.019, %24 ], [ %.019, %25 ], [ %spec.select, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 48
   %.not16 = icmp eq ptr %30, %7
   br i1 %.not16, label %._crit_edge, label %16
 

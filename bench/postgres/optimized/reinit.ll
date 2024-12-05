@@ -56,25 +56,25 @@ define dso_local void @ResetUnloggedRelations(i32 noundef %0) local_unnamed_addr
 
 sub_0:                                            ; preds = %8, %.backedge
   %14 = phi ptr [ %25, %.backedge ], [ %13, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 19
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 19
   %16 = load i8, ptr %15, align 1
   %.not16 = icmp eq i8 %16, 46
   br i1 %.not16, label %.tail, label %.tail11.thread
 
 .tail:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds i8, ptr %14, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.backedge, label %sub_113
 
 sub_113:                                          ; preds = %.tail
-  %20 = getelementptr inbounds i8, ptr %14, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %21 = load i8, ptr %20, align 1
   %.not18 = icmp eq i8 %21, 46
   br i1 %.not18, label %.tail11, label %.tail11.thread
 
 .tail11:                                          ; preds = %sub_113
-  %22 = getelementptr inbounds i8, ptr %14, i64 21
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 21
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.backedge, label %.tail11.thread
@@ -161,14 +161,14 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   %.not13 = icmp eq i32 %36, 0
   %37 = and i32 %1, 1
   %.not14 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %12, i64 32
-  %39 = getelementptr inbounds i8, ptr %12, i64 40
-  %40 = getelementptr inbounds i8, ptr %12, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 80
   br label %41
 
 41:                                               ; preds = %.lr.ph, %.backedge
   %42 = phi ptr [ %35, %.lr.ph ], [ %303, %.backedge ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 19
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 19
   %44 = call i64 @strspn(ptr noundef nonnull %43, ptr noundef nonnull @.str.9) #11
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %.not12 = icmp eq i64 %44, %45
@@ -256,7 +256,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 
 .lr.ph.i:                                         ; preds = %68, %.backedge63.i
   %73 = phi ptr [ %119, %.backedge63.i ], [ %72, %68 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 19
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr %13, align 4
@@ -381,7 +381,7 @@ parse_filename_for_nontemp_relation.exit59:       ; preds = %112
 
 .lr.ph67.i:                                       ; preds = %124, %.backedge62.i
   %127 = phi ptr [ %184, %.backedge62.i ], [ %126, %124 ]
-  %128 = getelementptr inbounds i8, ptr %127, i64 19
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i32 0, ptr %14, align 4
@@ -525,7 +525,7 @@ parse_filename_for_nontemp_relation.exit44:       ; preds = %166
 
 .lr.ph71.i:                                       ; preds = %.thread94, %.backedge61.i
   %188 = phi ptr [ %245, %.backedge61.i ], [ %187, %.thread94 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 19
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %190 = load i8, ptr %189, align 1
@@ -663,7 +663,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
 
 .lr.ph75.i:                                       ; preds = %._crit_edge72.i, %.backedge.i
   %249 = phi ptr [ %301, %.backedge.i ], [ %248, %._crit_edge72.i ]
-  %250 = getelementptr inbounds i8, ptr %249, i64 19
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %251 = load i8, ptr %250, align 1

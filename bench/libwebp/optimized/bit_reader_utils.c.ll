@@ -9,37 +9,37 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @VP8BitReaderSetBuffer(ptr nocapture noundef writeonly initializes((16, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8
   %7 = icmp ugt i64 %2, 7
   %8 = getelementptr inbounds i8, ptr %5, i64 -7
   %9 = select i1 %7, ptr %8, ptr %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly initializes((0, 44)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 254, ptr %4, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -8, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %9, align 8
   %10 = icmp ugt i64 %2, 7
   %11 = getelementptr inbounds i8, ptr %8, i64 -7
   %12 = select i1 %10, ptr %11, ptr %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %14 = icmp ult ptr %1, %12
@@ -47,7 +47,7 @@ define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly initializes
 
 15:                                               ; preds = %3
   %.0.copyload.i = load i64, ptr %1, align 1, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store ptr %16, ptr %7, align 8, !alias.scope !4
   %17 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i)
   %18 = lshr i64 %17, 8
@@ -61,7 +61,7 @@ define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly initializes
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %22, ptr %7, align 8, !alias.scope !4
   %23 = load i8, ptr %1, align 1, !noalias !4
   %24 = zext i8 %23 to i64
@@ -78,7 +78,7 @@ VP8LoadNewBytes.exit:                             ; preds = %15, %21, %25
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @VP8RemapBitReader(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
@@ -86,11 +86,11 @@ define hidden void @VP8RemapBitReader(ptr nocapture noundef %0, i64 noundef %1) 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 %1
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %1
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %1
   store ptr %12, ptr %10, align 8
@@ -102,19 +102,19 @@ define hidden void @VP8RemapBitReader(ptr nocapture noundef %0, i64 noundef %1) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @VP8LoadFinalBytes(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %11, ptr %2, align 8
   %12 = load i8, ptr %3, align 1
   %13 = zext i8 %12 to i64
@@ -125,7 +125,7 @@ define hidden void @VP8LoadFinalBytes(ptr nocapture noundef %0) local_unnamed_ad
   br label %28
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %26
@@ -134,7 +134,7 @@ define hidden void @VP8LoadFinalBytes(ptr nocapture noundef %0) local_unnamed_ad
   %21 = load i64, ptr %0, align 8
   %22 = shl i64 %21, 8
   store i64 %22, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 8
   store i32 %25, ptr %23, align 4
@@ -142,7 +142,7 @@ define hidden void @VP8LoadFinalBytes(ptr nocapture noundef %0) local_unnamed_ad
   br label %28
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %27, align 4
   br label %28
 
@@ -156,12 +156,12 @@ define hidden i32 @VP8GetValue(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %3, label %.lr.ph, label %66
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.promoted = load i32, ptr %4, align 8, !alias.scope !7
   %.promoted7 = load i32, ptr %5, align 4, !alias.scope !7
   %.promoted9 = load i64, ptr %0, align 8, !alias.scope !7
@@ -187,7 +187,7 @@ define hidden i32 @VP8GetValue(ptr nocapture noundef %0, i32 noundef %1) local_u
 
 20:                                               ; preds = %16
   %.0.copyload.i.i = load i64, ptr %17, align 1, !noalias !13
-  %21 = getelementptr inbounds i8, ptr %17, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 7
   store ptr %21, ptr %6, align 8, !alias.scope !13
   %22 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %23 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %22, i64 56)
@@ -202,7 +202,7 @@ define hidden i32 @VP8GetValue(ptr nocapture noundef %0, i32 noundef %1) local_u
 
 28:                                               ; preds = %25
   %29 = add nsw i32 %12, 8
-  %30 = getelementptr inbounds i8, ptr %17, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %30, ptr %6, align 8, !alias.scope !13
   %31 = load i8, ptr %17, align 1, !noalias !13
   %32 = zext i8 %31 to i64
@@ -274,22 +274,22 @@ VP8GetBit.exit:                                   ; preds = %48, %54
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden i32 @VP8GetSignedValue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp sgt i32 %1, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %.lr.ph.i, label %.VP8GetValue.exit_crit_edge
 
 .VP8GetValue.exit_crit_edge:                      ; preds = %2
   %.promoted.i5.pre = load i32, ptr %4, align 8, !alias.scope !16
-  %.phi.trans.insert29 = getelementptr inbounds i8, ptr %0, i64 12
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.promoted7.i6.pre = load i32, ptr %.phi.trans.insert29, align 4, !alias.scope !16
   %.promoted9.i7.pre = load i64, ptr %0, align 8, !alias.scope !16
   br label %VP8GetValue.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.promoted.i = load i32, ptr %4, align 8, !alias.scope !19
   %.promoted7.i = load i32, ptr %5, align 4, !alias.scope !19
   %.promoted9.i = load i64, ptr %0, align 8, !alias.scope !19
@@ -315,7 +315,7 @@ define hidden i32 @VP8GetSignedValue(ptr nocapture noundef %0, i32 noundef %1) l
 
 20:                                               ; preds = %16
   %.0.copyload.i.i.i = load i64, ptr %17, align 1, !noalias !25
-  %21 = getelementptr inbounds i8, ptr %17, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 7
   store ptr %21, ptr %6, align 8, !alias.scope !25
   %22 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i)
   %23 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %22, i64 56)
@@ -330,7 +330,7 @@ define hidden i32 @VP8GetSignedValue(ptr nocapture noundef %0, i32 noundef %1) l
 
 28:                                               ; preds = %25
   %29 = add nsw i32 %12, 8
-  %30 = getelementptr inbounds i8, ptr %17, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %30, ptr %6, align 8, !alias.scope !25
   %31 = load i8, ptr %17, align 1, !noalias !25
   %32 = zext i8 %31 to i64
@@ -399,15 +399,15 @@ VP8GetValue.exit:                                 ; preds = %.VP8GetValue.exit_c
   %.promoted7.i6 = phi i32 [ %61, %._crit_edge.i ], [ %.promoted7.i6.pre, %.VP8GetValue.exit_crit_edge ]
   %.promoted.i5 = phi i32 [ %62, %._crit_edge.i ], [ %.promoted.i5.pre, %.VP8GetValue.exit_crit_edge ]
   %.0.lcssa.i = phi i32 [ %64, %._crit_edge.i ], [ 0, %.VP8GetValue.exit_crit_edge ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %69 = icmp slt i32 %.promoted7.i6, 0
   br i1 %69, label %70, label %VP8LoadNewBytes.exit.i.i10
 
 70:                                               ; preds = %VP8GetValue.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %72 = load ptr, ptr %66, align 8, !alias.scope !29
   %73 = load ptr, ptr %71, align 8, !alias.scope !29
@@ -416,7 +416,7 @@ VP8GetValue.exit:                                 ; preds = %.VP8GetValue.exit_c
 
 75:                                               ; preds = %70
   %.0.copyload.i.i.i16 = load i64, ptr %72, align 1, !noalias !29
-  %76 = getelementptr inbounds i8, ptr %72, i64 7
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 7
   store ptr %76, ptr %66, align 8, !alias.scope !29
   %77 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i16)
   %78 = tail call i64 @llvm.fshl.i64(i64 %.promoted9.i7, i64 %77, i64 56)
@@ -431,7 +431,7 @@ VP8GetValue.exit:                                 ; preds = %.VP8GetValue.exit_c
 
 83:                                               ; preds = %80
   %84 = add nsw i32 %.promoted7.i6, 8
-  %85 = getelementptr inbounds i8, ptr %72, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %85, ptr %66, align 8, !alias.scope !29
   %86 = load i8, ptr %72, align 1, !noalias !29
   %87 = zext i8 %86 to i64
@@ -478,8 +478,8 @@ VP8LoadNewBytes.exit.i.i10:                       ; preds = %92, %90, %83, %75, 
 
 VP8GetBit.exit.i11:                               ; preds = %108, %102
   %.0.i.i12 = phi i32 [ %103, %102 ], [ %109, %108 ]
-  %110 = getelementptr inbounds i8, ptr %0, i64 12
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i.i12, i1 true)
   %113 = xor i32 %112, 24
   %114 = shl i32 %.0.i.i12, %113
@@ -494,12 +494,12 @@ VP8GetBit.exit.i11:                               ; preds = %108, %102
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly initializes((0, 8), (16, 24), (32, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %4, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 8)
   %.not = icmp eq i64 %2, 0
@@ -508,7 +508,7 @@ define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly initialize
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.020 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
   %.01819 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.01819
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.01819
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
   %10 = shl i64 %.01819, 3
@@ -521,26 +521,26 @@ define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly initialize
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %12, %.lr.ph ]
   store i64 %.0.lcssa, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %spec.store.select, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @VP8LBitReaderSetBuffer(ptr nocapture noundef initializes((8, 24)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %7, %2
   br i1 %8, label %VP8LIsEndOfStream.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %VP8LIsEndOfStream.exit
@@ -550,7 +550,7 @@ define hidden void @VP8LBitReaderSetBuffer(ptr nocapture noundef initializes((8,
   br i1 %13, label %14, label %VP8LIsEndOfStream.exit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 64
   %18 = zext i1 %17 to i32
@@ -558,17 +558,17 @@ define hidden void @VP8LBitReaderSetBuffer(ptr nocapture noundef initializes((8,
 
 VP8LIsEndOfStream.exit:                           ; preds = %14, %12, %9, %3
   %19 = phi i32 [ 1, %3 ], [ 1, %9 ], [ 0, %12 ], [ %18, %14 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %19, ptr %20, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @VP8LDoFillBitWindow(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %21
@@ -577,11 +577,11 @@ define hidden void @VP8LDoFillBitWindow(ptr nocapture noundef %0) local_unnamed_
   %9 = load i64, ptr %0, align 8
   %10 = lshr i64 %9, 32
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, -32
   store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %3
   %.val = load i32, ptr %16, align 1
@@ -594,13 +594,13 @@ define hidden void @VP8LDoFillBitWindow(ptr nocapture noundef %0) local_unnamed_
   br label %ShiftBytes.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted.i = load i32, ptr %22, align 8
   %23 = icmp sgt i32 %.promoted.i, 7
   br i1 %23, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 25:                                               ; preds = %29, %.lr.ph.i
@@ -636,7 +636,7 @@ define hidden void @VP8LDoFillBitWindow(ptr nocapture noundef %0) local_unnamed_
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %21
   %43 = phi i64 [ %3, %21 ], [ %41, %.critedge.loopexit.i ]
   %.lcssa.i = phi i1 [ true, %21 ], [ %42, %.critedge.loopexit.i ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %.not.i.i = icmp eq i32 %45, 0
   %46 = icmp ne i64 %43, %6
@@ -655,7 +655,7 @@ ShiftBytes.exit:                                  ; preds = %.critedge.i, %VP8LI
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @VP8LReadBits(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   %6 = icmp slt i32 %1, 25
@@ -676,14 +676,14 @@ define hidden i32 @VP8LReadBits(ptr nocapture noundef %0, i32 noundef %1) local_
   %16 = and i32 %15, %12
   %17 = add nsw i32 %.val13, %1
   store i32 %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = icmp sgt i32 %17, 7
   br i1 %19, label %.lr.ph.i, label %ShiftBytes.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted19.i = load i64, ptr %18, align 8
   br label %23
 

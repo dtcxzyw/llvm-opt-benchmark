@@ -648,13 +648,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -700,14 +700,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info1(ptr noundef %0, i32 noundef %
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -730,7 +730,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -776,13 +776,13 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -834,14 +834,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info2(ptr noundef %0, i32 noundef %
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -862,7 +862,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info2(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -904,13 +904,13 @@ define hidden i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -960,14 +960,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 nou
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -987,13 +987,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1047,14 +1047,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info3(ptr noundef %0, i32 noundef %
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -1074,13 +1074,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info3(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not70 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1138,14 +1138,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info4(ptr noundef %0, i32 noundef %
   %46 = sub i32 %45, %.0
   tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #4
   %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1
   %.not75 = icmp eq i32 %50, 0
   br i1 %.not75, label %58, label %51
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %4, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %53 = load i32, ptr %52, align 4
   %.not76 = icmp ne i32 %53, 0
   %54 = and i32 %45, 7
@@ -1166,7 +1166,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info4(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1208,13 +1208,13 @@ define hidden i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not76 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1274,14 +1274,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info5(ptr noundef %0, i32 noundef %
   %48 = sub i32 %47, %.0
   tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #4
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %.not81 = icmp eq i32 %52, 0
   br i1 %.not81, label %60, label %53
 
 53:                                               ; preds = %31
-  %54 = getelementptr inbounds i8, ptr %4, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %55 = load i32, ptr %54, align 4
   %.not82 = icmp ne i32 %55, 0
   %56 = and i32 %47, 7
@@ -1326,7 +1326,7 @@ define hidden i32 @netdfs_dissect_enum_dfs_Target_PriorityClass(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1358,9 +1358,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32
   %25 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #4
   %26 = sub i32 %25, %.0
   call void @proto_item_set_len(ptr noundef %.036, i32 noundef %26) #4
-  %27 = getelementptr inbounds i8, ptr %4, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 1
   %.not40 = icmp eq i32 %31, 0
@@ -1386,13 +1386,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1440,14 +1440,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo2(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -1467,13 +1467,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo2(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not82 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1535,14 +1535,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info6(ptr noundef %0, i32 noundef %
   %50 = sub i32 %49, %.0
   tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %50) #4
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %.not87 = icmp eq i32 %54, 0
   br i1 %.not87, label %62, label %55
 
 55:                                               ; preds = %31
-  %56 = getelementptr inbounds i8, ptr %4, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %57 = load i32, ptr %56, align 4
   %.not88 = icmp ne i32 %57, 0
   %58 = and i32 %49, 7
@@ -1562,7 +1562,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info6(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1587,9 +1587,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info7(ptr noundef %0, i32 noundef %
   %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1615,13 +1615,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info7(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info100(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1667,14 +1667,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info100(ptr noundef %0, i32 noundef
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -1694,7 +1694,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info100(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info101(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1719,9 +1719,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info101(ptr noundef %0, i32 noundef
   %20 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1747,7 +1747,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info101(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info102(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1772,9 +1772,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info102(ptr noundef %0, i32 noundef
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1800,7 +1800,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info102(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info103(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1825,9 +1825,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info103(ptr noundef %0, i32 noundef
   %20 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1853,7 +1853,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info103(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info104(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1878,9 +1878,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info104(ptr noundef %0, i32 noundef
   %20 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1906,13 +1906,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info104(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info105(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1966,14 +1966,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info105(ptr noundef %0, i32 noundef
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -1993,7 +1993,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info105(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info106(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2020,9 +2020,9 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info106(ptr noundef %0, i32 noundef
   %22 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -2048,13 +2048,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info106(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info200(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2100,14 +2100,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info200(ptr noundef %0, i32 noundef
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -2154,13 +2154,13 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_Info300(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not40 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -2211,14 +2211,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info300(ptr noundef %0, i32 noundef
   %37 = sub i32 %36, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #4
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %49, label %42
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -2238,13 +2238,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info300(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2292,14 +2292,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray1(ptr noundef %0, i32 noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2319,13 +2319,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray1(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2373,14 +2373,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray2(ptr noundef %0, i32 noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2400,13 +2400,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray2(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2454,14 +2454,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray3(ptr noundef %0, i32 noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2481,13 +2481,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray3(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2535,14 +2535,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray4(ptr noundef %0, i32 noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2562,13 +2562,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray4(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray200(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2616,14 +2616,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray200(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2643,13 +2643,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray200(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_EnumArray300(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2697,14 +2697,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray300(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2726,13 +2726,13 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray300(ptr noundef %0, i32 no
 define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not40 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -2791,11 +2791,11 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   %.057.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not59.i.i = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not60.i.i = icmp ne i32 %47, 0
   br i1 %.not59.i.i, label %53, label %48
@@ -2874,7 +2874,7 @@ netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, 
   %80 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %80) #4
   %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 1
   %.not45 = icmp eq i32 %84, 0
@@ -2900,13 +2900,13 @@ netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @netdfs_dissect_struct_dfs_UnknownStruct(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2954,14 +2954,14 @@ define hidden i32 @netdfs_dissect_struct_dfs_UnknownStruct(ptr noundef %0, i32 n
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -3360,14 +3360,14 @@ define internal i32 @netdfs_dissect_element_dfs_UnknownStruct_unknown2_(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_GetManagerVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_GetManagerVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_GetManagerVersion_version, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_GetManagerVersion_version_, i32 noundef 1, ptr noundef nonnull @.str.334, i32 noundef %8) #4
@@ -3377,7 +3377,7 @@ define internal i32 @netdfs_dissect_dfs_GetManagerVersion_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Add_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.312, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Add_path, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Add_path_, i32 noundef 1, ptr noundef nonnull @.str.260, i32 noundef %8) #4
@@ -3400,7 +3400,7 @@ define internal i32 @netdfs_dissect_dfs_Add_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.312, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3409,7 +3409,7 @@ define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3421,7 +3421,7 @@ define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Remove_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.313, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Remove_dfs_entry_path, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Remove_dfs_entry_path_, i32 noundef 1, ptr noundef nonnull @.str.337, i32 noundef %8) #4
@@ -3438,7 +3438,7 @@ define internal i32 @netdfs_dissect_dfs_Remove_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.313, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3447,7 +3447,7 @@ define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3460,7 +3460,7 @@ define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_SetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_netdfs_dfs_SetInfo_dfs_entry_path, align 4
@@ -3487,7 +3487,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3496,7 +3496,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3509,7 +3509,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_GetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_netdfs_dfs_GetInfo_dfs_entry_path, align 4
@@ -3533,7 +3533,7 @@ define internal i32 @netdfs_dissect_dfs_GetInfo_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_dfs_GetInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_GetInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.340, i32 noundef %9) #4
@@ -3545,7 +3545,7 @@ define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %18) #4
@@ -3557,7 +3557,7 @@ define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Enum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.316, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Enum_level, align 4
   %9 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -3577,7 +3577,7 @@ define internal i32 @netdfs_dissect_dfs_Enum_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.316, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_dfs_Enum_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Enum_info_, i32 noundef 2, ptr noundef nonnull @.str.357, i32 noundef %9) #4
@@ -3592,7 +3592,7 @@ define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %21) #4
@@ -3604,7 +3604,7 @@ define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_Rename_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.317, ptr %7, align 8
   ret i32 %1
 }
@@ -3612,7 +3612,7 @@ define internal noundef i32 @netdfs_dissect_dfs_Rename_request(ptr nocapture rea
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.317, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3621,7 +3621,7 @@ define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3633,7 +3633,7 @@ define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_Move_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.318, ptr %7, align 8
   ret i32 %1
 }
@@ -3641,7 +3641,7 @@ define internal noundef i32 @netdfs_dissect_dfs_Move_request(ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.318, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3650,7 +3650,7 @@ define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3662,7 +3662,7 @@ define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.319, ptr %7, align 8
   ret i32 %1
 }
@@ -3670,7 +3670,7 @@ define internal noundef i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.319, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3679,7 +3679,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3691,7 +3691,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.320, ptr %7, align 8
   ret i32 %1
 }
@@ -3699,7 +3699,7 @@ define internal noundef i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_request(ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.320, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3708,7 +3708,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_response(ptr noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3726,7 +3726,7 @@ define internal i32 @netdfs_dissect_dfs_AddFtRoot_request(ptr noundef %0, i32 no
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.321, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %14 = load i32, ptr @hf_netdfs_dfs_AddFtRoot_servername, align 4
@@ -3785,7 +3785,7 @@ define internal i32 @netdfs_dissect_dfs_AddFtRoot_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_AddFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.321, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_dfs_AddFtRoot_unknown2, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_AddFtRoot_unknown2_, i32 noundef 2, ptr noundef nonnull @.str.359, i32 noundef %9) #4
@@ -3797,7 +3797,7 @@ define internal i32 @netdfs_dissect_dfs_AddFtRoot_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %18) #4
@@ -3813,7 +3813,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_request(ptr noundef %0, i32
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.322, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %12 = load i32, ptr @hf_netdfs_dfs_RemoveFtRoot_servername, align 4
@@ -3855,7 +3855,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.322, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_dfs_RemoveFtRoot_unknown, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_RemoveFtRoot_unknown_, i32 noundef 2, ptr noundef nonnull @.str.360, i32 noundef %9) #4
@@ -3867,7 +3867,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %18) #4
@@ -3882,7 +3882,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_request(ptr noundef %0, i32 n
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.323, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %11 = load i32, ptr @hf_netdfs_dfs_AddStdRoot_servername, align 4
@@ -3914,7 +3914,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.323, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3923,7 +3923,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3937,7 +3937,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 
 define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.324, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %10 = load i32, ptr @hf_netdfs_dfs_RemoveStdRoot_servername, align 4
@@ -3962,7 +3962,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.324, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3971,7 +3971,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -3983,7 +3983,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_ManagerInitialize_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.325, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_ManagerInitialize_servername, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_ManagerInitialize_servername_, i32 noundef 1, ptr noundef nonnull @.str.338, i32 noundef %8) #4
@@ -3997,7 +3997,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerInitialize_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_ManagerInitialize_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.325, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4006,7 +4006,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerInitialize_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4022,7 +4022,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_request(ptr noundef %0,
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.326, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %12 = load i32, ptr @hf_netdfs_dfs_AddStdRootForced_servername, align 4
@@ -4058,7 +4058,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.326, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4067,7 +4067,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4079,7 +4079,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_GetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.327, ptr %7, align 8
   ret i32 %1
 }
@@ -4087,7 +4087,7 @@ define internal noundef i32 @netdfs_dissect_dfs_GetDcAddress_request(ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.327, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4096,7 +4096,7 @@ define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4108,7 +4108,7 @@ define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_SetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.328, ptr %7, align 8
   ret i32 %1
 }
@@ -4116,7 +4116,7 @@ define internal noundef i32 @netdfs_dissect_dfs_SetDcAddress_request(ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.328, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4125,7 +4125,7 @@ define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4139,7 +4139,7 @@ define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i3
 define internal i32 @netdfs_dissect_dfs_FlushFtTable_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.329, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %10 = load i32, ptr @hf_netdfs_dfs_FlushFtTable_servername, align 4
@@ -4161,7 +4161,7 @@ define internal i32 @netdfs_dissect_dfs_FlushFtTable_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.329, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4170,7 +4170,7 @@ define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4182,7 +4182,7 @@ define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_Add2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.330, ptr %7, align 8
   ret i32 %1
 }
@@ -4190,7 +4190,7 @@ define internal noundef i32 @netdfs_dissect_dfs_Add2_request(ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.330, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4199,7 +4199,7 @@ define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4211,7 +4211,7 @@ define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_Remove2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.331, ptr %7, align 8
   ret i32 %1
 }
@@ -4219,7 +4219,7 @@ define internal noundef i32 @netdfs_dissect_dfs_Remove2_request(ptr nocapture re
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.331, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4228,7 +4228,7 @@ define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4241,7 +4241,7 @@ define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_EnumEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.332, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %9 = load i32, ptr @hf_netdfs_dfs_EnumEx_dfs_name, align 4
@@ -4268,7 +4268,7 @@ define internal i32 @netdfs_dissect_dfs_EnumEx_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.332, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_dfs_EnumEx_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumEx_info_, i32 noundef 2, ptr noundef nonnull @.str.357, i32 noundef %9) #4
@@ -4283,7 +4283,7 @@ define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noun
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %21) #4
@@ -4295,7 +4295,7 @@ define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @netdfs_dissect_dfs_SetInfo2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.333, ptr %7, align 8
   ret i32 %1
 }
@@ -4303,7 +4303,7 @@ define internal noundef i32 @netdfs_dissect_dfs_SetInfo2_request(ptr nocapture r
 ; Function Attrs: nounwind uwtable
 define internal i32 @netdfs_dissect_dfs_SetInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.333, ptr %8, align 8
   %9 = load i32, ptr @hf_netdfs_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4312,7 +4312,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo2_response(ptr noundef %0, i32 no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.336) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.335, ptr noundef %15) #4
@@ -4454,13 +4454,13 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
 13:                                               ; preds = %10, %7
   %.0111 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0111, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not113 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not114 = icmp ne i32 %21, 0
   br i1 %.not113, label %27, label %22

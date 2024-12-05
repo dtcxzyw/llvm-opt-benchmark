@@ -74,7 +74,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   br label %6
 
 6:                                                ; preds = %913, %3
@@ -98,7 +98,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %7, %6
   %.1 = phi ptr [ %8, %7 ], [ %.0337, %6 ]
-  %16 = getelementptr inbounds i8, ptr %.0338, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.0338, i64 12
   %17 = load i8, ptr %16, align 4
   switch i8 %17, label %doc_ast_copy.exit [
     i8 22, label %831
@@ -133,7 +133,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
   ]
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %copy_decl_list.exit, label %21
@@ -156,7 +156,7 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 
 24:                                               ; preds = %.lr.ph541
   %25 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 8, ptr %26, align 4
   br label %29
 
@@ -174,13 +174,13 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
   br i1 %32, label %33, label %expand_.exit
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.0.i473, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i473, i64 4
   %35 = shl i32 %30, 1
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 3
   %38 = or disjoint i64 %37, 8
   %39 = tail call ptr @calloc_arena(i64 noundef %38) #5
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %35, ptr %40, align 4
   %41 = load i32, ptr %34, align 4
   %42 = zext i32 %41 to i64
@@ -198,14 +198,14 @@ expand_.exit:                                     ; preds = %29, %33
   %.1.i = phi ptr [ %39, %33 ], [ %.0.i473, %29 ]
   %48 = add i32 %47, 1
   store i32 %48, ptr %.1.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %50 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv577
+  %49 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %50 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv577
   %51 = load ptr, ptr %50, align 8
   %52 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %51)
   %53 = load i32, ptr %.1.i, align 4
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %49, i64 %55
   store ptr %52, ptr %56, align 8
   %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
   %exitcond581.not = icmp eq i64 %indvars.iv.next578, %wide.trip.count580
@@ -217,10 +217,10 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   br label %doc_ast_copy.exit
 
 57:                                               ; preds = %15
-  %58 = getelementptr inbounds i8, ptr %.1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1
-  %61 = getelementptr inbounds i8, ptr %.1, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %62 = load ptr, ptr %61, align 8
   br i1 %60, label %63, label %65
 
@@ -235,7 +235,7 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   br label %doc_ast_copy.exit
 
 67:                                               ; preds = %15
-  %68 = getelementptr inbounds i8, ptr %.0338, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0338, i64 16
   %69 = load i8, ptr %68, align 8
   %70 = and i8 %69, 15
   switch i8 %70, label %doc_ast_copy.exit [
@@ -245,14 +245,14 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   ]
 
 71:                                               ; preds = %67, %67
-  %72 = getelementptr inbounds i8, ptr %.0338, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.0338, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %73)
   store ptr %74, ptr %72, align 8
   br label %doc_ast_copy.exit
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %.0338, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.0338, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not.i474 = icmp eq ptr %77, null
   br i1 %.not.i474, label %copy_ast_list.exit478, label %78
@@ -275,7 +275,7 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
 
 81:                                               ; preds = %.lr.ph537
   %82 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 8, ptr %83, align 4
   br label %86
 
@@ -293,13 +293,13 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   br i1 %89, label %90, label %expand_.exit.i
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %92 = shl i32 %87, 1
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = or disjoint i64 %94, 8
   %96 = tail call ptr @calloc_arena(i64 noundef %95) #5
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %92, ptr %97, align 4
   %98 = load i32, ptr %91, align 4
   %99 = zext i32 %98 to i64
@@ -317,14 +317,14 @@ expand_.exit.i:                                   ; preds = %90, %86
   %.1.i.i = phi ptr [ %96, %90 ], [ %.0.i.i, %86 ]
   %105 = add i32 %104, 1
   store i32 %105, ptr %.1.i.i, align 4
-  %106 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  %107 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv572
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %107 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv572
   %108 = load ptr, ptr %107, align 8
   %109 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %108)
   %110 = load i32, ptr %.1.i.i, align 4
   %111 = add i32 %110, -1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr %106, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %106, i64 %112
   store ptr %109, ptr %113, align 8
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %exitcond576.not = icmp eq i64 %indvars.iv.next573, %wide.trip.count575
@@ -336,14 +336,14 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br label %doc_ast_copy.exit
 
 114:                                              ; preds = %15
-  %115 = getelementptr inbounds i8, ptr %.1, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %116 = load i8, ptr %115, align 8
   %117 = and i8 %116, 8
   %.not438 = icmp eq i8 %117, 0
   br i1 %.not438, label %133, label %118
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %.1, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %120 = load i32, ptr %119, align 8
   %.not440 = icmp eq i32 %120, 0
   br i1 %.not440, label %132, label %121
@@ -351,7 +351,7 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
 121:                                              ; preds = %118
   %122 = load ptr, ptr @expr_arena, align 8
   %123 = zext i32 %120 to i64
-  %124 = getelementptr inbounds %struct.Expr_, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw %struct.Expr_, ptr %122, i64 %123
   %125 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %124)
   %126 = load ptr, ptr @expr_arena, align 8
   %127 = ptrtoint ptr %125 to i64
@@ -368,11 +368,11 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
 
 133:                                              ; preds = %114
   %134 = tail call ptr @calloc_arena(i64 noundef 64) #5
-  %135 = getelementptr inbounds i8, ptr %.1, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %136 = load ptr, ptr %135, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 8 dereferenceable(64) %136, i64 64, i1 false)
   store ptr %134, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %134, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %138 = load i32, ptr %137, align 8
   %.not439 = icmp eq i32 %138, 0
   br i1 %.not439, label %150, label %139
@@ -380,7 +380,7 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
 139:                                              ; preds = %133
   %140 = load ptr, ptr @ast_arena, align 8
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds %struct.Ast_, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw %struct.Ast_, ptr %140, i64 %141
   %143 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %142)
   %144 = load ptr, ptr @ast_arena, align 8
   %145 = ptrtoint ptr %143 to i64
@@ -396,7 +396,7 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br label %doc_ast_copy.exit
 
 151:                                              ; preds = %15
-  %152 = getelementptr inbounds i8, ptr %.1, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %153 = load ptr, ptr %152, align 8
   %.not.i443 = icmp eq ptr %153, null
   br i1 %.not.i443, label %copy_expr_list.exit, label %154
@@ -419,7 +419,7 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
 
 157:                                              ; preds = %.lr.ph533
   %158 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %159 = getelementptr inbounds i8, ptr %158, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i32 8, ptr %159, align 4
   br label %162
 
@@ -437,13 +437,13 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br i1 %165, label %166, label %expand_.exit485
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %.0.i482, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i482, i64 4
   %168 = shl i32 %163, 1
   %169 = zext i32 %168 to i64
   %170 = shl nuw nsw i64 %169, 3
   %171 = or disjoint i64 %170, 8
   %172 = tail call ptr @calloc_arena(i64 noundef %171) #5
-  %173 = getelementptr inbounds i8, ptr %172, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %168, ptr %173, align 4
   %174 = load i32, ptr %167, align 4
   %175 = zext i32 %174 to i64
@@ -461,14 +461,14 @@ expand_.exit485:                                  ; preds = %162, %166
   %.1.i483 = phi ptr [ %172, %166 ], [ %.0.i482, %162 ]
   %181 = add i32 %180, 1
   store i32 %181, ptr %.1.i483, align 4
-  %182 = getelementptr inbounds i8, ptr %.1.i483, i64 8
-  %183 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv567
+  %182 = getelementptr inbounds nuw i8, ptr %.1.i483, i64 8
+  %183 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv567
   %184 = load ptr, ptr %183, align 8
   %185 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %184)
   %186 = load i32, ptr %.1.i483, align 4
   %187 = add i32 %186, -1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %182, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr %182, i64 %188
   store ptr %185, ptr %189, align 8
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
   %exitcond571.not = icmp eq i64 %indvars.iv.next568, %wide.trip.count570
@@ -480,7 +480,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
   br label %doc_ast_copy.exit
 
 190:                                              ; preds = %15, %15
-  %191 = getelementptr inbounds i8, ptr %.1, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %192 = load i32, ptr %191, align 8
   %.not436 = icmp eq i32 %192, 0
   br i1 %.not436, label %204, label %193
@@ -488,7 +488,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 193:                                              ; preds = %190
   %194 = load ptr, ptr @expr_arena, align 8
   %195 = zext i32 %192 to i64
-  %196 = getelementptr inbounds %struct.Expr_, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw %struct.Expr_, ptr %194, i64 %195
   %197 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %196)
   %198 = load ptr, ptr @expr_arena, align 8
   %199 = ptrtoint ptr %197 to i64
@@ -501,7 +501,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 204:                                              ; preds = %190, %193
   %.0360 = phi i32 [ %203, %193 ], [ 0, %190 ]
   store i32 %.0360, ptr %191, align 8
-  %205 = getelementptr inbounds i8, ptr %.1, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %206 = load i32, ptr %205, align 4
   %.not437 = icmp eq i32 %206, 0
   br i1 %.not437, label %218, label %207
@@ -509,7 +509,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 207:                                              ; preds = %204
   %208 = load ptr, ptr @expr_arena, align 8
   %209 = zext i32 %206 to i64
-  %210 = getelementptr inbounds %struct.Expr_, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw %struct.Expr_, ptr %208, i64 %209
   %211 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %210)
   %212 = load ptr, ptr @expr_arena, align 8
   %213 = ptrtoint ptr %211 to i64
@@ -522,7 +522,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 218:                                              ; preds = %204, %207
   %.0362 = phi i32 [ %217, %207 ], [ 0, %204 ]
   store i32 %.0362, ptr %205, align 4
-  %219 = getelementptr inbounds i8, ptr %.1, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %220 = load ptr, ptr %219, align 8
   %.not.i447 = icmp eq ptr %220, null
   br i1 %.not.i447, label %copy_expr_list.exit451, label %221
@@ -545,7 +545,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 
 224:                                              ; preds = %.lr.ph529
   %225 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %226 = getelementptr inbounds i8, ptr %225, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 4
   store i32 8, ptr %226, align 4
   br label %229
 
@@ -563,13 +563,13 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
   br i1 %232, label %233, label %expand_.exit492
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %.0.i489, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %.0.i489, i64 4
   %235 = shl i32 %230, 1
   %236 = zext i32 %235 to i64
   %237 = shl nuw nsw i64 %236, 3
   %238 = or disjoint i64 %237, 8
   %239 = tail call ptr @calloc_arena(i64 noundef %238) #5
-  %240 = getelementptr inbounds i8, ptr %239, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 4
   store i32 %235, ptr %240, align 4
   %241 = load i32, ptr %234, align 4
   %242 = zext i32 %241 to i64
@@ -587,14 +587,14 @@ expand_.exit492:                                  ; preds = %229, %233
   %.1.i490 = phi ptr [ %239, %233 ], [ %.0.i489, %229 ]
   %248 = add i32 %247, 1
   store i32 %248, ptr %.1.i490, align 4
-  %249 = getelementptr inbounds i8, ptr %.1.i490, i64 8
-  %250 = getelementptr inbounds ptr, ptr %220, i64 %indvars.iv562
+  %249 = getelementptr inbounds nuw i8, ptr %.1.i490, i64 8
+  %250 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv562
   %251 = load ptr, ptr %250, align 8
   %252 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %251)
   %253 = load i32, ptr %.1.i490, align 4
   %254 = add i32 %253, -1
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds ptr, ptr %249, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %249, i64 %255
   store ptr %252, ptr %256, align 8
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %exitcond566.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count565
@@ -606,14 +606,14 @@ copy_expr_list.exit451:                           ; preds = %expand_.exit492, %2
   br label %doc_ast_copy.exit
 
 257:                                              ; preds = %15, %15
-  %258 = getelementptr inbounds i8, ptr %.1, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %259 = load i8, ptr %258, align 8
   %260 = and i8 %259, 2
   %.not433 = icmp eq i8 %260, 0
   br i1 %.not433, label %doc_ast_copy.exit, label %261
 
 261:                                              ; preds = %257
-  %262 = getelementptr inbounds i8, ptr %.1, i64 24
+  %262 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %263 = load i32, ptr %262, align 4
   %.not434 = icmp eq i32 %263, 0
   br i1 %.not434, label %doc_ast_copy.exit, label %264
@@ -621,7 +621,7 @@ copy_expr_list.exit451:                           ; preds = %expand_.exit492, %2
 264:                                              ; preds = %261
   %265 = load ptr, ptr @ast_arena, align 8
   %266 = zext i32 %263 to i64
-  %267 = getelementptr inbounds %struct.Ast_, ptr %265, i64 %266
+  %267 = getelementptr inbounds nuw %struct.Ast_, ptr %265, i64 %266
   %268 = load ptr, ptr %5, align 8
   br label %269
 
@@ -653,12 +653,12 @@ fixup.exit:                                       ; preds = %270
 
 282:                                              ; preds = %15
   %283 = load ptr, ptr %5, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr %.1, ptr %284, align 8
   %285 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %285, align 8
   %286 = load ptr, ptr %5, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
   store ptr %287, ptr %5, align 8
   %288 = icmp eq ptr %287, %5
   br i1 %288, label %289, label %copy_reg_ref.exit
@@ -668,8 +668,8 @@ fixup.exit:                                       ; preds = %270
   unreachable
 
 copy_reg_ref.exit:                                ; preds = %282
-  %290 = getelementptr inbounds i8, ptr %.1, i64 16
-  %291 = getelementptr inbounds i8, ptr %.1, i64 24
+  %290 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %292 = load ptr, ptr %291, align 8
   %293 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull %0, ptr noundef %292)
   store ptr %293, ptr %291, align 8
@@ -680,7 +680,7 @@ copy_reg_ref.exit:                                ; preds = %282
 295:                                              ; preds = %copy_reg_ref.exit
   %296 = load ptr, ptr @expr_arena, align 8
   %297 = zext i32 %294 to i64
-  %298 = getelementptr inbounds %struct.Expr_, ptr %296, i64 %297
+  %298 = getelementptr inbounds nuw %struct.Expr_, ptr %296, i64 %297
   %299 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %298)
   %300 = load ptr, ptr @expr_arena, align 8
   %301 = ptrtoint ptr %299 to i64
@@ -693,7 +693,7 @@ copy_reg_ref.exit:                                ; preds = %282
 306:                                              ; preds = %copy_reg_ref.exit, %295
   %.0363 = phi i32 [ %305, %295 ], [ 0, %copy_reg_ref.exit ]
   store i32 %.0363, ptr %290, align 8
-  %307 = getelementptr inbounds i8, ptr %.1, i64 20
+  %307 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %308 = load i32, ptr %307, align 4
   %.not432 = icmp eq i32 %308, 0
   br i1 %.not432, label %320, label %309
@@ -701,7 +701,7 @@ copy_reg_ref.exit:                                ; preds = %282
 309:                                              ; preds = %306
   %310 = load ptr, ptr @expr_arena, align 8
   %311 = zext i32 %308 to i64
-  %312 = getelementptr inbounds %struct.Expr_, ptr %310, i64 %311
+  %312 = getelementptr inbounds nuw %struct.Expr_, ptr %310, i64 %311
   %313 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %312)
   %314 = load ptr, ptr @expr_arena, align 8
   %315 = ptrtoint ptr %313 to i64
@@ -717,7 +717,7 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %doc_ast_copy.exit
 
 321:                                              ; preds = %15
-  %322 = getelementptr inbounds i8, ptr %.1, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %323 = load i32, ptr %322, align 8
   %.not430 = icmp eq i32 %323, 0
   br i1 %.not430, label %335, label %324
@@ -725,7 +725,7 @@ copy_reg_ref.exit:                                ; preds = %282
 324:                                              ; preds = %321
   %325 = load ptr, ptr @ast_arena, align 8
   %326 = zext i32 %323 to i64
-  %327 = getelementptr inbounds %struct.Ast_, ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw %struct.Ast_, ptr %325, i64 %326
   %328 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %327)
   %329 = load ptr, ptr @ast_arena, align 8
   %330 = ptrtoint ptr %328 to i64
@@ -741,11 +741,11 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %doc_ast_copy.exit
 
 336:                                              ; preds = %15
-  %337 = getelementptr inbounds i8, ptr %.1, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %338 = load ptr, ptr %337, align 8
   %339 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %338)
   store ptr %339, ptr %337, align 8
-  %340 = getelementptr inbounds i8, ptr %.1, i64 24
+  %340 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %341 = load i32, ptr %340, align 8
   %.not428 = icmp eq i32 %341, 0
   br i1 %.not428, label %353, label %342
@@ -753,7 +753,7 @@ copy_reg_ref.exit:                                ; preds = %282
 342:                                              ; preds = %336
   %343 = load ptr, ptr @ast_arena, align 8
   %344 = zext i32 %341 to i64
-  %345 = getelementptr inbounds %struct.Ast_, ptr %343, i64 %344
+  %345 = getelementptr inbounds nuw %struct.Ast_, ptr %343, i64 %344
   %346 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %345)
   %347 = load ptr, ptr @ast_arena, align 8
   %348 = ptrtoint ptr %346 to i64
@@ -766,7 +766,7 @@ copy_reg_ref.exit:                                ; preds = %282
 353:                                              ; preds = %336, %342
   %.0342 = phi i32 [ %352, %342 ], [ 0, %336 ]
   store i32 %.0342, ptr %340, align 8
-  %354 = getelementptr inbounds i8, ptr %.1, i64 28
+  %354 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %355 = load i32, ptr %354, align 4
   %.not429 = icmp eq i32 %355, 0
   br i1 %.not429, label %367, label %356
@@ -774,7 +774,7 @@ copy_reg_ref.exit:                                ; preds = %282
 356:                                              ; preds = %353
   %357 = load ptr, ptr @ast_arena, align 8
   %358 = zext i32 %355 to i64
-  %359 = getelementptr inbounds %struct.Ast_, ptr %357, i64 %358
+  %359 = getelementptr inbounds nuw %struct.Ast_, ptr %357, i64 %358
   %360 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %359)
   %361 = load ptr, ptr @ast_arena, align 8
   %362 = ptrtoint ptr %360 to i64
@@ -790,7 +790,7 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %doc_ast_copy.exit
 
 368:                                              ; preds = %15
-  %369 = getelementptr inbounds i8, ptr %.1, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %370 = load i32, ptr %369, align 8
   %.not427 = icmp eq i32 %370, 0
   br i1 %.not427, label %382, label %371
@@ -798,7 +798,7 @@ copy_reg_ref.exit:                                ; preds = %282
 371:                                              ; preds = %368
   %372 = load ptr, ptr @ast_arena, align 8
   %373 = zext i32 %370 to i64
-  %374 = getelementptr inbounds %struct.Ast_, ptr %372, i64 %373
+  %374 = getelementptr inbounds nuw %struct.Ast_, ptr %372, i64 %373
   %375 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %374)
   %376 = load ptr, ptr @ast_arena, align 8
   %377 = ptrtoint ptr %375 to i64
@@ -814,7 +814,7 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %doc_ast_copy.exit
 
 383:                                              ; preds = %15
-  %384 = getelementptr inbounds i8, ptr %.1, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %385 = load i32, ptr %384, align 8
   %.not423 = icmp eq i32 %385, 0
   br i1 %.not423, label %397, label %386
@@ -822,7 +822,7 @@ copy_reg_ref.exit:                                ; preds = %282
 386:                                              ; preds = %383
   %387 = load ptr, ptr @decl_arena, align 8
   %388 = zext i32 %385 to i64
-  %389 = getelementptr inbounds %struct.Decl_, ptr %387, i64 %388
+  %389 = getelementptr inbounds nuw %struct.Decl_, ptr %387, i64 %388
   %390 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef nonnull %389)
   %391 = load ptr, ptr @decl_arena, align 8
   %392 = ptrtoint ptr %390 to i64
@@ -835,7 +835,7 @@ copy_reg_ref.exit:                                ; preds = %282
 397:                                              ; preds = %383, %386
   %.0 = phi i32 [ %396, %386 ], [ 0, %383 ]
   store i32 %.0, ptr %384, align 8
-  %398 = getelementptr inbounds i8, ptr %.1, i64 20
+  %398 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %399 = load i32, ptr %398, align 4
   %.not424 = icmp eq i32 %399, 0
   br i1 %.not424, label %411, label %400
@@ -843,7 +843,7 @@ copy_reg_ref.exit:                                ; preds = %282
 400:                                              ; preds = %397
   %401 = load ptr, ptr @decl_arena, align 8
   %402 = zext i32 %399 to i64
-  %403 = getelementptr inbounds %struct.Decl_, ptr %401, i64 %402
+  %403 = getelementptr inbounds nuw %struct.Decl_, ptr %401, i64 %402
   %404 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef nonnull %403)
   %405 = load ptr, ptr @decl_arena, align 8
   %406 = ptrtoint ptr %404 to i64
@@ -856,7 +856,7 @@ copy_reg_ref.exit:                                ; preds = %282
 411:                                              ; preds = %397, %400
   %.0333 = phi i32 [ %410, %400 ], [ 0, %397 ]
   store i32 %.0333, ptr %398, align 4
-  %412 = getelementptr inbounds i8, ptr %.1, i64 24
+  %412 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %413 = load i32, ptr %412, align 8
   %.not425 = icmp eq i32 %413, 0
   br i1 %.not425, label %425, label %414
@@ -864,7 +864,7 @@ copy_reg_ref.exit:                                ; preds = %282
 414:                                              ; preds = %411
   %415 = load ptr, ptr @ast_arena, align 8
   %416 = zext i32 %413 to i64
-  %417 = getelementptr inbounds %struct.Ast_, ptr %415, i64 %416
+  %417 = getelementptr inbounds nuw %struct.Ast_, ptr %415, i64 %416
   %418 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %417)
   %419 = load ptr, ptr @ast_arena, align 8
   %420 = ptrtoint ptr %418 to i64
@@ -877,7 +877,7 @@ copy_reg_ref.exit:                                ; preds = %282
 425:                                              ; preds = %411, %414
   %.0347 = phi i32 [ %424, %414 ], [ 0, %411 ]
   store i32 %.0347, ptr %412, align 8
-  %426 = getelementptr inbounds i8, ptr %.1, i64 28
+  %426 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %427 = load i32, ptr %426, align 4
   %.not426 = icmp eq i32 %427, 0
   br i1 %.not426, label %439, label %428
@@ -885,7 +885,7 @@ copy_reg_ref.exit:                                ; preds = %282
 428:                                              ; preds = %425
   %429 = load ptr, ptr @expr_arena, align 8
   %430 = zext i32 %427 to i64
-  %431 = getelementptr inbounds %struct.Expr_, ptr %429, i64 %430
+  %431 = getelementptr inbounds nuw %struct.Expr_, ptr %429, i64 %430
   %432 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %431)
   %433 = load ptr, ptr @expr_arena, align 8
   %434 = ptrtoint ptr %432 to i64
@@ -901,7 +901,7 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %doc_ast_copy.exit
 
 440:                                              ; preds = %15
-  %441 = getelementptr inbounds i8, ptr %.1, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %442 = load i32, ptr %441, align 8
   %.not422 = icmp eq i32 %442, 0
   br i1 %.not422, label %454, label %443
@@ -909,7 +909,7 @@ copy_reg_ref.exit:                                ; preds = %282
 443:                                              ; preds = %440
   %444 = load ptr, ptr @expr_arena, align 8
   %445 = zext i32 %442 to i64
-  %446 = getelementptr inbounds %struct.Expr_, ptr %444, i64 %445
+  %446 = getelementptr inbounds nuw %struct.Expr_, ptr %444, i64 %445
   %447 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %446)
   %448 = load ptr, ptr @expr_arena, align 8
   %449 = ptrtoint ptr %447 to i64
@@ -922,7 +922,7 @@ copy_reg_ref.exit:                                ; preds = %282
 454:                                              ; preds = %440, %443
   %.0364 = phi i32 [ %453, %443 ], [ 0, %440 ]
   store i32 %.0364, ptr %441, align 8
-  %455 = getelementptr inbounds i8, ptr %.1, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %456 = load ptr, ptr %455, align 8
   %.not.i454 = icmp eq ptr %456, null
   br i1 %.not.i454, label %copy_ast_list.exit, label %457
@@ -945,7 +945,7 @@ copy_reg_ref.exit:                                ; preds = %282
 
 460:                                              ; preds = %.lr.ph
   %461 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %462 = getelementptr inbounds i8, ptr %461, i64 4
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 4
   store i32 8, ptr %462, align 4
   br label %465
 
@@ -963,13 +963,13 @@ copy_reg_ref.exit:                                ; preds = %282
   br i1 %468, label %469, label %expand_.exit499
 
 469:                                              ; preds = %465
-  %470 = getelementptr inbounds i8, ptr %.0.i496, i64 4
+  %470 = getelementptr inbounds nuw i8, ptr %.0.i496, i64 4
   %471 = shl i32 %466, 1
   %472 = zext i32 %471 to i64
   %473 = shl nuw nsw i64 %472, 3
   %474 = or disjoint i64 %473, 8
   %475 = tail call ptr @calloc_arena(i64 noundef %474) #5
-  %476 = getelementptr inbounds i8, ptr %475, i64 4
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 4
   store i32 %471, ptr %476, align 4
   %477 = load i32, ptr %470, align 4
   %478 = zext i32 %477 to i64
@@ -987,14 +987,14 @@ expand_.exit499:                                  ; preds = %465, %469
   %.1.i497 = phi ptr [ %475, %469 ], [ %.0.i496, %465 ]
   %484 = add i32 %483, 1
   store i32 %484, ptr %.1.i497, align 4
-  %485 = getelementptr inbounds i8, ptr %.1.i497, i64 8
-  %486 = getelementptr inbounds ptr, ptr %456, i64 %indvars.iv
+  %485 = getelementptr inbounds nuw i8, ptr %.1.i497, i64 8
+  %486 = getelementptr inbounds nuw ptr, ptr %456, i64 %indvars.iv
   %487 = load ptr, ptr %486, align 8
   %488 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %487)
   %489 = load i32, ptr %.1.i497, align 4
   %490 = add i32 %489, -1
   %491 = zext i32 %490 to i64
-  %492 = getelementptr inbounds ptr, ptr %485, i64 %491
+  %492 = getelementptr inbounds nuw ptr, ptr %485, i64 %491
   store ptr %488, ptr %492, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1006,22 +1006,22 @@ copy_ast_list.exit:                               ; preds = %expand_.exit499, %4
   br label %doc_ast_copy.exit
 
 493:                                              ; preds = %15
-  %494 = getelementptr inbounds i8, ptr %.1, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %495)
   store ptr %496, ptr %494, align 8
   br label %doc_ast_copy.exit
 
 497:                                              ; preds = %15
-  %498 = getelementptr inbounds i8, ptr %.1, i64 24
+  %498 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %499 = load ptr, ptr %498, align 8
   %500 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %499)
   store ptr %500, ptr %498, align 8
   br label %doc_ast_copy.exit
 
 501:                                              ; preds = %15
-  %502 = getelementptr inbounds i8, ptr %.1, i64 16
-  %503 = getelementptr inbounds i8, ptr %.1, i64 20
+  %502 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %503 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %504 = load i32, ptr %503, align 4
   %.not419 = icmp eq i32 %504, 0
   br i1 %.not419, label %516, label %505
@@ -1029,7 +1029,7 @@ copy_ast_list.exit:                               ; preds = %expand_.exit499, %4
 505:                                              ; preds = %501
   %506 = load ptr, ptr @ast_arena, align 8
   %507 = zext i32 %504 to i64
-  %508 = getelementptr inbounds %struct.Ast_, ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw %struct.Ast_, ptr %506, i64 %507
   %509 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %508)
   %510 = load ptr, ptr @ast_arena, align 8
   %511 = ptrtoint ptr %509 to i64
@@ -1043,12 +1043,12 @@ copy_ast_list.exit:                               ; preds = %expand_.exit499, %4
   %.0348 = phi i32 [ %515, %505 ], [ 0, %501 ]
   store i32 %.0348, ptr %503, align 4
   %517 = load ptr, ptr %5, align 8
-  %518 = getelementptr inbounds i8, ptr %517, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store ptr %.1, ptr %518, align 8
   %519 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %519, align 8
   %520 = load ptr, ptr %5, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 16
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 16
   store ptr %521, ptr %5, align 8
   %522 = icmp eq ptr %521, %5
   br i1 %522, label %523, label %copy_reg_ref.exit458
@@ -1065,7 +1065,7 @@ copy_reg_ref.exit458:                             ; preds = %516
 525:                                              ; preds = %copy_reg_ref.exit458
   %526 = load ptr, ptr @ast_arena, align 8
   %527 = zext i32 %524 to i64
-  %528 = getelementptr inbounds %struct.Ast_, ptr %526, i64 %527
+  %528 = getelementptr inbounds nuw %struct.Ast_, ptr %526, i64 %527
   br label %529
 
 529:                                              ; preds = %530, %525
@@ -1095,7 +1095,7 @@ fixup.exit462:                                    ; preds = %530
   br label %doc_ast_copy.exit
 
 542:                                              ; preds = %15, %15
-  %543 = getelementptr inbounds i8, ptr %.1, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %544 = load ptr, ptr %543, align 8
   %545 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %544)
   store ptr %545, ptr %543, align 8
@@ -1103,12 +1103,12 @@ fixup.exit462:                                    ; preds = %530
 
 546:                                              ; preds = %15, %15
   %547 = load ptr, ptr %5, align 8
-  %548 = getelementptr inbounds i8, ptr %547, i64 8
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
   store ptr %.1, ptr %548, align 8
   %549 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %549, align 8
   %550 = load ptr, ptr %5, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 16
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 16
   store ptr %551, ptr %5, align 8
   %552 = icmp eq ptr %551, %5
   br i1 %552, label %553, label %copy_reg_ref.exit463
@@ -1118,7 +1118,7 @@ fixup.exit462:                                    ; preds = %530
   unreachable
 
 copy_reg_ref.exit463:                             ; preds = %546
-  %554 = getelementptr inbounds i8, ptr %.1, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %555 = load i32, ptr %554, align 8
   %.not.i500 = icmp eq i32 %555, 0
   br i1 %.not.i500, label %decl_copy_label_from_macro.exit, label %556
@@ -1126,7 +1126,7 @@ copy_reg_ref.exit463:                             ; preds = %546
 556:                                              ; preds = %copy_reg_ref.exit463
   %557 = load ptr, ptr @decl_arena, align 8
   %558 = zext i32 %555 to i64
-  %559 = getelementptr inbounds %struct.Decl_, ptr %557, i64 %558
+  %559 = getelementptr inbounds nuw %struct.Decl_, ptr %557, i64 %558
   %560 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %559)
   %561 = load ptr, ptr @ast_arena, align 8
   %562 = ptrtoint ptr %.1 to i64
@@ -1134,7 +1134,7 @@ copy_reg_ref.exit463:                             ; preds = %546
   %564 = sub i64 %562, %563
   %565 = sdiv exact i64 %564, 48
   %566 = trunc i64 %565 to i32
-  %567 = getelementptr inbounds i8, ptr %560, i64 108
+  %567 = getelementptr inbounds nuw i8, ptr %560, i64 108
   store i32 %566, ptr %567, align 4
   %568 = load ptr, ptr @decl_arena, align 8
   %569 = ptrtoint ptr %560 to i64
@@ -1147,8 +1147,8 @@ copy_reg_ref.exit463:                             ; preds = %546
 decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit463, %556
   %.0.i501 = phi i32 [ %573, %556 ], [ 0, %copy_reg_ref.exit463 ]
   store i32 %.0.i501, ptr %554, align 8
-  %574 = getelementptr inbounds i8, ptr %.1, i64 24
-  %575 = getelementptr inbounds i8, ptr %.1, i64 32
+  %574 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %575 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %576 = load i32, ptr %575, align 8
   %.not415 = icmp eq i32 %576, 0
   br i1 %.not415, label %588, label %577
@@ -1156,7 +1156,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 577:                                              ; preds = %decl_copy_label_from_macro.exit
   %578 = load ptr, ptr @expr_arena, align 8
   %579 = zext i32 %576 to i64
-  %580 = getelementptr inbounds %struct.Expr_, ptr %578, i64 %579
+  %580 = getelementptr inbounds nuw %struct.Expr_, ptr %578, i64 %579
   %581 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %580)
   %582 = load ptr, ptr @expr_arena, align 8
   %583 = ptrtoint ptr %581 to i64
@@ -1176,7 +1176,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 590:                                              ; preds = %588
   %591 = load ptr, ptr @expr_arena, align 8
   %592 = zext i32 %589 to i64
-  %593 = getelementptr inbounds %struct.Expr_, ptr %591, i64 %592
+  %593 = getelementptr inbounds nuw %struct.Expr_, ptr %591, i64 %592
   %594 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %593)
   %595 = load ptr, ptr @expr_arena, align 8
   %596 = ptrtoint ptr %594 to i64
@@ -1189,7 +1189,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 601:                                              ; preds = %588, %590
   %.0358 = phi i32 [ %600, %590 ], [ 0, %588 ]
   store i32 %.0358, ptr %574, align 8
-  %602 = getelementptr inbounds i8, ptr %.1, i64 36
+  %602 = getelementptr inbounds nuw i8, ptr %.1, i64 36
   %603 = load i32, ptr %602, align 4
   %.not417 = icmp eq i32 %603, 0
   br i1 %.not417, label %615, label %604
@@ -1197,7 +1197,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 604:                                              ; preds = %601
   %605 = load ptr, ptr @ast_arena, align 8
   %606 = zext i32 %603 to i64
-  %607 = getelementptr inbounds %struct.Ast_, ptr %605, i64 %606
+  %607 = getelementptr inbounds nuw %struct.Ast_, ptr %605, i64 %606
   %608 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull %0, ptr noundef nonnull %607)
   %609 = load ptr, ptr @ast_arena, align 8
   %610 = ptrtoint ptr %608 to i64
@@ -1210,7 +1210,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 615:                                              ; preds = %601, %604
   %.0350 = phi i32 [ %614, %604 ], [ 0, %601 ]
   store i32 %.0350, ptr %602, align 4
-  %616 = getelementptr inbounds i8, ptr %.1, i64 28
+  %616 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %617 = load i32, ptr %616, align 4
   %.not418 = icmp eq i32 %617, 0
   br i1 %.not418, label %629, label %618
@@ -1218,7 +1218,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 618:                                              ; preds = %615
   %619 = load ptr, ptr @expr_arena, align 8
   %620 = zext i32 %617 to i64
-  %621 = getelementptr inbounds %struct.Expr_, ptr %619, i64 %620
+  %621 = getelementptr inbounds nuw %struct.Expr_, ptr %619, i64 %620
   %622 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %621)
   %623 = load ptr, ptr @expr_arena, align 8
   %624 = ptrtoint ptr %622 to i64
@@ -1236,12 +1236,12 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
 
 630:                                              ; preds = %15
   %631 = load ptr, ptr %5, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
   store ptr %.1, ptr %632, align 8
   %633 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %633, align 8
   %634 = load ptr, ptr %5, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 16
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
   store ptr %635, ptr %5, align 8
   %636 = icmp eq ptr %635, %5
   br i1 %636, label %637, label %copy_reg_ref.exit464
@@ -1251,7 +1251,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   unreachable
 
 copy_reg_ref.exit464:                             ; preds = %630
-  %638 = getelementptr inbounds i8, ptr %.1, i64 16
+  %638 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %639 = load i32, ptr %638, align 8
   %.not.i502 = icmp eq i32 %639, 0
   br i1 %.not.i502, label %decl_copy_label_from_macro.exit504, label %640
@@ -1259,7 +1259,7 @@ copy_reg_ref.exit464:                             ; preds = %630
 640:                                              ; preds = %copy_reg_ref.exit464
   %641 = load ptr, ptr @decl_arena, align 8
   %642 = zext i32 %639 to i64
-  %643 = getelementptr inbounds %struct.Decl_, ptr %641, i64 %642
+  %643 = getelementptr inbounds nuw %struct.Decl_, ptr %641, i64 %642
   %644 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %643)
   %645 = load ptr, ptr @ast_arena, align 8
   %646 = ptrtoint ptr %.1 to i64
@@ -1267,7 +1267,7 @@ copy_reg_ref.exit464:                             ; preds = %630
   %648 = sub i64 %646, %647
   %649 = sdiv exact i64 %648, 48
   %650 = trunc i64 %649 to i32
-  %651 = getelementptr inbounds i8, ptr %644, i64 108
+  %651 = getelementptr inbounds nuw i8, ptr %644, i64 108
   store i32 %650, ptr %651, align 4
   %652 = load ptr, ptr @decl_arena, align 8
   %653 = ptrtoint ptr %644 to i64
@@ -1280,7 +1280,7 @@ copy_reg_ref.exit464:                             ; preds = %630
 decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit464, %640
   %.0.i503 = phi i32 [ %657, %640 ], [ 0, %copy_reg_ref.exit464 ]
   store i32 %.0.i503, ptr %638, align 8
-  %658 = getelementptr inbounds i8, ptr %.1, i64 28
+  %658 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %659 = load i32, ptr %658, align 4
   %.not411 = icmp eq i32 %659, 0
   br i1 %.not411, label %671, label %660
@@ -1288,7 +1288,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 660:                                              ; preds = %decl_copy_label_from_macro.exit504
   %661 = load ptr, ptr @expr_arena, align 8
   %662 = zext i32 %659 to i64
-  %663 = getelementptr inbounds %struct.Expr_, ptr %661, i64 %662
+  %663 = getelementptr inbounds nuw %struct.Expr_, ptr %661, i64 %662
   %664 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %663)
   %665 = load ptr, ptr @expr_arena, align 8
   %666 = ptrtoint ptr %664 to i64
@@ -1301,7 +1301,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 671:                                              ; preds = %decl_copy_label_from_macro.exit504, %660
   %.0352 = phi i32 [ %670, %660 ], [ 0, %decl_copy_label_from_macro.exit504 ]
   store i32 %.0352, ptr %658, align 4
-  %672 = getelementptr inbounds i8, ptr %.1, i64 36
+  %672 = getelementptr inbounds nuw i8, ptr %.1, i64 36
   %673 = load i32, ptr %672, align 4
   %.not412 = icmp eq i32 %673, 0
   br i1 %.not412, label %685, label %674
@@ -1309,7 +1309,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 674:                                              ; preds = %671
   %675 = load ptr, ptr @decl_arena, align 8
   %676 = zext i32 %673 to i64
-  %677 = getelementptr inbounds %struct.Decl_, ptr %675, i64 %676
+  %677 = getelementptr inbounds nuw %struct.Decl_, ptr %675, i64 %676
   %678 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %677)
   %679 = load ptr, ptr @decl_arena, align 8
   %680 = ptrtoint ptr %678 to i64
@@ -1322,7 +1322,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 685:                                              ; preds = %671, %674
   %.0334 = phi i32 [ %684, %674 ], [ 0, %671 ]
   store i32 %.0334, ptr %672, align 4
-  %686 = getelementptr inbounds i8, ptr %.1, i64 40
+  %686 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %687 = load i32, ptr %686, align 8
   %.not413 = icmp eq i32 %687, 0
   br i1 %.not413, label %699, label %688
@@ -1330,7 +1330,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 688:                                              ; preds = %685
   %689 = load ptr, ptr @decl_arena, align 8
   %690 = zext i32 %687 to i64
-  %691 = getelementptr inbounds %struct.Decl_, ptr %689, i64 %690
+  %691 = getelementptr inbounds nuw %struct.Decl_, ptr %689, i64 %690
   %692 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %691)
   %693 = load ptr, ptr @decl_arena, align 8
   %694 = ptrtoint ptr %692 to i64
@@ -1343,7 +1343,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 699:                                              ; preds = %685, %688
   %.0335 = phi i32 [ %698, %688 ], [ 0, %685 ]
   store i32 %.0335, ptr %686, align 8
-  %700 = getelementptr inbounds i8, ptr %.1, i64 32
+  %700 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %701 = load i32, ptr %700, align 8
   %.not414 = icmp eq i32 %701, 0
   br i1 %.not414, label %713, label %702
@@ -1351,7 +1351,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 702:                                              ; preds = %699
   %703 = load ptr, ptr @ast_arena, align 8
   %704 = zext i32 %701 to i64
-  %705 = getelementptr inbounds %struct.Ast_, ptr %703, i64 %704
+  %705 = getelementptr inbounds nuw %struct.Ast_, ptr %703, i64 %704
   %706 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull %0, ptr noundef nonnull %705)
   %707 = load ptr, ptr @ast_arena, align 8
   %708 = ptrtoint ptr %706 to i64
@@ -1369,12 +1369,12 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
 
 714:                                              ; preds = %15
   %715 = load ptr, ptr %5, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
   store ptr %.1, ptr %716, align 8
   %717 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %717, align 8
   %718 = load ptr, ptr %5, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 16
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 16
   store ptr %719, ptr %5, align 8
   %720 = icmp eq ptr %719, %5
   br i1 %720, label %721, label %copy_reg_ref.exit465
@@ -1384,7 +1384,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   unreachable
 
 copy_reg_ref.exit465:                             ; preds = %714
-  %722 = getelementptr inbounds i8, ptr %.1, i64 16
+  %722 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %723 = load i32, ptr %722, align 8
   %.not.i505 = icmp eq i32 %723, 0
   br i1 %.not.i505, label %decl_copy_label_from_macro.exit507, label %724
@@ -1392,7 +1392,7 @@ copy_reg_ref.exit465:                             ; preds = %714
 724:                                              ; preds = %copy_reg_ref.exit465
   %725 = load ptr, ptr @decl_arena, align 8
   %726 = zext i32 %723 to i64
-  %727 = getelementptr inbounds %struct.Decl_, ptr %725, i64 %726
+  %727 = getelementptr inbounds nuw %struct.Decl_, ptr %725, i64 %726
   %728 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %727)
   %729 = load ptr, ptr @ast_arena, align 8
   %730 = ptrtoint ptr %.1 to i64
@@ -1400,7 +1400,7 @@ copy_reg_ref.exit465:                             ; preds = %714
   %732 = sub i64 %730, %731
   %733 = sdiv exact i64 %732, 48
   %734 = trunc i64 %733 to i32
-  %735 = getelementptr inbounds i8, ptr %728, i64 108
+  %735 = getelementptr inbounds nuw i8, ptr %728, i64 108
   store i32 %734, ptr %735, align 4
   %736 = load ptr, ptr @decl_arena, align 8
   %737 = ptrtoint ptr %728 to i64
@@ -1413,7 +1413,7 @@ copy_reg_ref.exit465:                             ; preds = %714
 decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit465, %724
   %.0.i506 = phi i32 [ %741, %724 ], [ 0, %copy_reg_ref.exit465 ]
   store i32 %.0.i506, ptr %722, align 8
-  %742 = getelementptr inbounds i8, ptr %.1, i64 24
+  %742 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %743 = load i32, ptr %742, align 8
   %.not408 = icmp eq i32 %743, 0
   br i1 %.not408, label %755, label %744
@@ -1421,7 +1421,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 744:                                              ; preds = %decl_copy_label_from_macro.exit507
   %745 = load ptr, ptr @expr_arena, align 8
   %746 = zext i32 %743 to i64
-  %747 = getelementptr inbounds %struct.Expr_, ptr %745, i64 %746
+  %747 = getelementptr inbounds nuw %struct.Expr_, ptr %745, i64 %746
   %748 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %747)
   %749 = load ptr, ptr @expr_arena, align 8
   %750 = ptrtoint ptr %748 to i64
@@ -1434,7 +1434,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 755:                                              ; preds = %decl_copy_label_from_macro.exit507, %744
   %.0349 = phi i32 [ %754, %744 ], [ 0, %decl_copy_label_from_macro.exit507 ]
   store i32 %.0349, ptr %742, align 8
-  %756 = getelementptr inbounds i8, ptr %.1, i64 32
+  %756 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %757 = load i32, ptr %756, align 8
   %.not409 = icmp eq i32 %757, 0
   br i1 %.not409, label %769, label %758
@@ -1442,7 +1442,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 758:                                              ; preds = %755
   %759 = load ptr, ptr @ast_arena, align 8
   %760 = zext i32 %757 to i64
-  %761 = getelementptr inbounds %struct.Ast_, ptr %759, i64 %760
+  %761 = getelementptr inbounds nuw %struct.Ast_, ptr %759, i64 %760
   %762 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull %0, ptr noundef nonnull %761)
   %763 = load ptr, ptr @ast_arena, align 8
   %764 = ptrtoint ptr %762 to i64
@@ -1455,7 +1455,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 769:                                              ; preds = %755, %758
   %.0353 = phi i32 [ %768, %758 ], [ 0, %755 ]
   store i32 %.0353, ptr %756, align 8
-  %770 = getelementptr inbounds i8, ptr %.1, i64 28
+  %770 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %771 = load i32, ptr %770, align 4
   %.not410 = icmp eq i32 %771, 0
   br i1 %.not410, label %783, label %772
@@ -1463,7 +1463,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 772:                                              ; preds = %769
   %773 = load ptr, ptr @ast_arena, align 8
   %774 = zext i32 %771 to i64
-  %775 = getelementptr inbounds %struct.Ast_, ptr %773, i64 %774
+  %775 = getelementptr inbounds nuw %struct.Ast_, ptr %773, i64 %774
   %776 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull %0, ptr noundef nonnull %775)
   %777 = load ptr, ptr @ast_arena, align 8
   %778 = ptrtoint ptr %776 to i64
@@ -1479,7 +1479,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %doc_ast_copy.exit
 
 784:                                              ; preds = %15
-  %785 = getelementptr inbounds i8, ptr %.1, i64 40
+  %785 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %786 = load i32, ptr %785, align 8
   %.not407 = icmp eq i32 %786, 0
   br i1 %.not407, label %798, label %787
@@ -1487,7 +1487,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 787:                                              ; preds = %784
   %788 = load ptr, ptr @expr_arena, align 8
   %789 = zext i32 %786 to i64
-  %790 = getelementptr inbounds %struct.Expr_, ptr %788, i64 %789
+  %790 = getelementptr inbounds nuw %struct.Expr_, ptr %788, i64 %789
   %791 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %790)
   %792 = load ptr, ptr @expr_arena, align 8
   %793 = ptrtoint ptr %791 to i64
@@ -1503,11 +1503,11 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %doc_ast_copy.exit
 
 799:                                              ; preds = %15, %15
-  %800 = getelementptr inbounds i8, ptr %.1, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %801 = load ptr, ptr %800, align 8
   %802 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %801)
   store ptr %802, ptr %800, align 8
-  %803 = getelementptr inbounds i8, ptr %.1, i64 24
+  %803 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %804 = load i32, ptr %803, align 8
   %.not405 = icmp eq i32 %804, 0
   br i1 %.not405, label %816, label %805
@@ -1515,7 +1515,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 805:                                              ; preds = %799
   %806 = load ptr, ptr @ast_arena, align 8
   %807 = zext i32 %804 to i64
-  %808 = getelementptr inbounds %struct.Ast_, ptr %806, i64 %807
+  %808 = getelementptr inbounds nuw %struct.Ast_, ptr %806, i64 %807
   %809 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %808)
   %810 = load ptr, ptr @ast_arena, align 8
   %811 = ptrtoint ptr %809 to i64
@@ -1528,7 +1528,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 816:                                              ; preds = %799, %805
   %.0356 = phi i32 [ %815, %805 ], [ 0, %799 ]
   store i32 %.0356, ptr %803, align 8
-  %817 = getelementptr inbounds i8, ptr %.1, i64 28
+  %817 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %818 = load i32, ptr %817, align 4
   %.not406 = icmp eq i32 %818, 0
   br i1 %.not406, label %830, label %819
@@ -1536,7 +1536,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 819:                                              ; preds = %816
   %820 = load ptr, ptr @ast_arena, align 8
   %821 = zext i32 %818 to i64
-  %822 = getelementptr inbounds %struct.Ast_, ptr %820, i64 %821
+  %822 = getelementptr inbounds nuw %struct.Ast_, ptr %820, i64 %821
   %823 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %822)
   %824 = load ptr, ptr @ast_arena, align 8
   %825 = ptrtoint ptr %823 to i64
@@ -1553,12 +1553,12 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
 
 831:                                              ; preds = %15, %15
   %832 = load ptr, ptr %5, align 8
-  %833 = getelementptr inbounds i8, ptr %832, i64 8
+  %833 = getelementptr inbounds nuw i8, ptr %832, i64 8
   store ptr %.1, ptr %833, align 8
   %834 = load ptr, ptr %5, align 8
   store ptr %.0338, ptr %834, align 8
   %835 = load ptr, ptr %5, align 8
-  %836 = getelementptr inbounds i8, ptr %835, i64 16
+  %836 = getelementptr inbounds nuw i8, ptr %835, i64 16
   store ptr %836, ptr %5, align 8
   %837 = icmp eq ptr %836, %5
   br i1 %837, label %838, label %copy_reg_ref.exit466
@@ -1568,7 +1568,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   unreachable
 
 copy_reg_ref.exit466:                             ; preds = %831
-  %839 = getelementptr inbounds i8, ptr %.1, i64 16
+  %839 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %840 = load i32, ptr %839, align 8
   %.not.i508 = icmp eq i32 %840, 0
   br i1 %.not.i508, label %decl_copy_label_from_macro.exit510, label %841
@@ -1576,7 +1576,7 @@ copy_reg_ref.exit466:                             ; preds = %831
 841:                                              ; preds = %copy_reg_ref.exit466
   %842 = load ptr, ptr @decl_arena, align 8
   %843 = zext i32 %840 to i64
-  %844 = getelementptr inbounds %struct.Decl_, ptr %842, i64 %843
+  %844 = getelementptr inbounds nuw %struct.Decl_, ptr %842, i64 %843
   %845 = tail call fastcc ptr @copy_decl(ptr noundef nonnull %0, ptr noundef nonnull %844)
   %846 = load ptr, ptr @ast_arena, align 8
   %847 = ptrtoint ptr %.1 to i64
@@ -1584,7 +1584,7 @@ copy_reg_ref.exit466:                             ; preds = %831
   %849 = sub i64 %847, %848
   %850 = sdiv exact i64 %849, 48
   %851 = trunc i64 %850 to i32
-  %852 = getelementptr inbounds i8, ptr %845, i64 108
+  %852 = getelementptr inbounds nuw i8, ptr %845, i64 108
   store i32 %851, ptr %852, align 4
   %853 = load ptr, ptr @decl_arena, align 8
   %854 = ptrtoint ptr %845 to i64
@@ -1597,7 +1597,7 @@ copy_reg_ref.exit466:                             ; preds = %831
 decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit466, %841
   %.0.i509 = phi i32 [ %858, %841 ], [ 0, %copy_reg_ref.exit466 ]
   store i32 %.0.i509, ptr %839, align 8
-  %859 = getelementptr inbounds i8, ptr %.1, i64 24
+  %859 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %860 = load i32, ptr %859, align 8
   %.not441 = icmp eq i32 %860, 0
   br i1 %.not441, label %872, label %861
@@ -1605,7 +1605,7 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
 861:                                              ; preds = %decl_copy_label_from_macro.exit510
   %862 = load ptr, ptr @expr_arena, align 8
   %863 = zext i32 %860 to i64
-  %864 = getelementptr inbounds %struct.Expr_, ptr %862, i64 %863
+  %864 = getelementptr inbounds nuw %struct.Expr_, ptr %862, i64 %863
   %865 = tail call fastcc ptr @copy_expr(ptr noundef nonnull %0, ptr noundef nonnull %864)
   %866 = load ptr, ptr @expr_arena, align 8
   %867 = ptrtoint ptr %865 to i64
@@ -1618,7 +1618,7 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
 872:                                              ; preds = %decl_copy_label_from_macro.exit510, %861
   %.0343 = phi i32 [ %871, %861 ], [ 0, %decl_copy_label_from_macro.exit510 ]
   store i32 %.0343, ptr %859, align 8
-  %873 = getelementptr inbounds i8, ptr %.1, i64 32
+  %873 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %874 = load ptr, ptr %873, align 8
   %.not.i467 = icmp eq ptr %874, null
   br i1 %.not.i467, label %copy_ast_list.exit471, label %875
@@ -1641,7 +1641,7 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
 
 878:                                              ; preds = %.lr.ph545
   %879 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %880 = getelementptr inbounds i8, ptr %879, i64 4
+  %880 = getelementptr inbounds nuw i8, ptr %879, i64 4
   store i32 8, ptr %880, align 4
   br label %883
 
@@ -1659,13 +1659,13 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
   br i1 %886, label %887, label %expand_.exit517
 
 887:                                              ; preds = %883
-  %888 = getelementptr inbounds i8, ptr %.0.i514, i64 4
+  %888 = getelementptr inbounds nuw i8, ptr %.0.i514, i64 4
   %889 = shl i32 %884, 1
   %890 = zext i32 %889 to i64
   %891 = shl nuw nsw i64 %890, 3
   %892 = or disjoint i64 %891, 8
   %893 = tail call ptr @calloc_arena(i64 noundef %892) #5
-  %894 = getelementptr inbounds i8, ptr %893, i64 4
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 4
   store i32 %889, ptr %894, align 4
   %895 = load i32, ptr %888, align 4
   %896 = zext i32 %895 to i64
@@ -1683,14 +1683,14 @@ expand_.exit517:                                  ; preds = %883, %887
   %.1.i515 = phi ptr [ %893, %887 ], [ %.0.i514, %883 ]
   %902 = add i32 %901, 1
   store i32 %902, ptr %.1.i515, align 4
-  %903 = getelementptr inbounds i8, ptr %.1.i515, i64 8
-  %904 = getelementptr inbounds ptr, ptr %874, i64 %indvars.iv582
+  %903 = getelementptr inbounds nuw i8, ptr %.1.i515, i64 8
+  %904 = getelementptr inbounds nuw ptr, ptr %874, i64 %indvars.iv582
   %905 = load ptr, ptr %904, align 8
   %906 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %905)
   %907 = load i32, ptr %.1.i515, align 4
   %908 = add i32 %907, -1
   %909 = zext i32 %908 to i64
-  %910 = getelementptr inbounds ptr, ptr %903, i64 %909
+  %910 = getelementptr inbounds nuw ptr, ptr %903, i64 %909
   store ptr %906, ptr %910, align 8
   %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
   %exitcond586.not = icmp eq i64 %indvars.iv.next583, %wide.trip.count585
@@ -1703,7 +1703,7 @@ copy_ast_list.exit471:                            ; preds = %expand_.exit517, %8
   br label %doc_ast_copy.exit
 
 doc_ast_copy.exit:                                ; preds = %529, %269, %copy_ast_list.exit478, %71, %67, %fixup.exit462, %536, %copy_reg_ref.exit458, %257, %261, %276, %fixup.exit, %132, %150, %63, %65, %copy_ast_list.exit471, %830, %798, %783, %713, %629, %542, %497, %493, %copy_ast_list.exit, %439, %382, %367, %335, %320, %copy_expr_list.exit451, %copy_expr_list.exit, %copy_decl_list.exit, %15
-  %911 = getelementptr inbounds i8, ptr %.1, i64 8
+  %911 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %912 = load i32, ptr %911, align 4
   %.not442 = icmp eq i32 %912, 0
   br i1 %.not442, label %.loopexit, label %913
@@ -1711,7 +1711,7 @@ doc_ast_copy.exit:                                ; preds = %529, %269, %copy_as
 913:                                              ; preds = %doc_ast_copy.exit
   %914 = load ptr, ptr @ast_arena, align 8
   %915 = zext i32 %912 to i64
-  %916 = getelementptr inbounds %struct.Ast_, ptr %914, i64 %915
+  %916 = getelementptr inbounds nuw %struct.Ast_, ptr %914, i64 %915
   br label %6
 
 .loopexit:                                        ; preds = %doc_ast_copy.exit, %2
@@ -1769,11 +1769,11 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %13)
   store ptr %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %copy_expr_list.exit, label %17
@@ -1796,7 +1796,7 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
 
 20:                                               ; preds = %.lr.ph
   %21 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 8, ptr %22, align 4
   br label %25
 
@@ -1814,13 +1814,13 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
   br i1 %28, label %29, label %expand_.exit.i
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %31 = shl i32 %26, 1
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 3
   %34 = or disjoint i64 %33, 8
   %35 = tail call ptr @calloc_arena(i64 noundef %34) #5
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %31, ptr %36, align 4
   %37 = load i32, ptr %30, align 4
   %38 = zext i32 %37 to i64
@@ -1838,14 +1838,14 @@ expand_.exit.i:                                   ; preds = %29, %25
   %.1.i.i = phi ptr [ %35, %29 ], [ %.0.i.i, %25 ]
   %44 = add i32 %43, 1
   store i32 %44, ptr %.1.i.i, align 4
-  %45 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  %46 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %46 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %47)
   %49 = load i32, ptr %.1.i.i, align 4
   %50 = add i32 %49, -1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %45, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %51
   store ptr %48, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1857,10 +1857,10 @@ copy_expr_list.exit:                              ; preds = %expand_.exit.i, %11
   br label %common.ret41
 
 53:                                               ; preds = %8, %8, %8, %8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %55)
-  %57 = getelementptr inbounds i8, ptr %4, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %56, ptr %57, align 8
   br label %common.ret41
 
@@ -1869,12 +1869,12 @@ common.ret41:                                     ; preds = %8, %8, %8, %3, %2, 
   ret ptr %common.ret41.op
 
 58:                                               ; preds = %8, %8
-  %59 = getelementptr inbounds i8, ptr %1, i64 24
-  %60 = getelementptr inbounds i8, ptr %1, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %61)
-  %63 = getelementptr inbounds i8, ptr %4, i64 24
-  %64 = getelementptr inbounds i8, ptr %4, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %62, ptr %64, align 8
   %65 = load ptr, ptr %59, align 8
   %66 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %65)
@@ -1882,18 +1882,18 @@ common.ret41:                                     ; preds = %8, %8, %8, %3, %2, 
   br label %common.ret41
 
 67:                                               ; preds = %8, %8, %8
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %69)
-  %71 = getelementptr inbounds i8, ptr %4, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %70, ptr %71, align 8
   br label %common.ret41
 
 72:                                               ; preds = %8
-  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %74)
-  %76 = getelementptr inbounds i8, ptr %4, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %75, ptr %76, align 8
   br label %common.ret41
 
@@ -1936,7 +1936,7 @@ define internal fastcc noundef ptr @copy_expr(ptr noundef %0, ptr noundef readon
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %trunc = trunc i16 %6 to i8
   switch i8 %trunc, label %665 [
@@ -2018,15 +2018,15 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   ret ptr %common.ret575.op
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %10)
   store ptr %11, ptr %9, align 8
   br label %common.ret575
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %15)
   store ptr %16, ptr %14, align 8
@@ -2036,7 +2036,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load i32, ptr %20, align 8
   %.not501 = icmp eq i32 %21, 0
   br i1 %.not501, label %33, label %22
@@ -2044,7 +2044,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 22:                                               ; preds = %19
   %23 = load ptr, ptr @expr_arena, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds %struct.Expr_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw %struct.Expr_, ptr %23, i64 %24
   %26 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %25)
   %27 = load ptr, ptr @expr_arena, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -2057,22 +2057,22 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 33:                                               ; preds = %19, %22
   %.0413 = phi i32 [ %32, %22 ], [ 0, %19 ]
   store i32 %.0413, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %35)
   store ptr %36, ptr %34, align 8
   br label %common.ret575
 
 37:                                               ; preds = %3
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %39)
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef %42)
   store ptr %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %45 = load i32, ptr %44, align 8
   %.not500 = icmp eq i32 %45, 0
   br i1 %.not500, label %57, label %46
@@ -2080,7 +2080,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 46:                                               ; preds = %37
   %47 = load ptr, ptr @ast_arena, align 8
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds %struct.Ast_, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw %struct.Ast_, ptr %47, i64 %48
   %50 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %49)
   %51 = load ptr, ptr @ast_arena, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -2096,11 +2096,11 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 58:                                               ; preds = %3
-  %59 = getelementptr inbounds i8, ptr %4, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %60)
   store ptr %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = tail call fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef %63)
   store ptr %64, ptr %62, align 8
@@ -2112,14 +2112,14 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br i1 %67, label %68, label %common.ret575
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %4, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %70)
   store ptr %71, ptr %69, align 8
   br label %common.ret575
 
 72:                                               ; preds = %3
-  %73 = getelementptr inbounds i8, ptr %4, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %74 = load i32, ptr %73, align 8
   %.not499 = icmp eq i32 %74, 0
   br i1 %.not499, label %86, label %75
@@ -2127,7 +2127,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 75:                                               ; preds = %72
   %76 = load ptr, ptr @expr_arena, align 8
   %77 = zext i32 %74 to i64
-  %78 = getelementptr inbounds %struct.Expr_, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw %struct.Expr_, ptr %76, i64 %77
   %79 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %78)
   %80 = load ptr, ptr @expr_arena, align 8
   %81 = ptrtoint ptr %79 to i64
@@ -2143,12 +2143,12 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 87:                                               ; preds = %3
-  %88 = getelementptr inbounds i8, ptr %4, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @copy_range(ptr noundef %0, ptr noundef nonnull %88)
   br label %common.ret575
 
 89:                                               ; preds = %3
-  %90 = getelementptr inbounds i8, ptr %4, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %91 = load i32, ptr %90, align 4
   %.not498 = icmp eq i32 %91, 0
   br i1 %.not498, label %103, label %92
@@ -2156,7 +2156,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 92:                                               ; preds = %89
   %93 = load ptr, ptr @expr_arena, align 8
   %94 = zext i32 %91 to i64
-  %95 = getelementptr inbounds %struct.Expr_, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw %struct.Expr_, ptr %93, i64 %94
   %96 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %95)
   %97 = load ptr, ptr @expr_arena, align 8
   %98 = ptrtoint ptr %96 to i64
@@ -2172,7 +2172,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 104:                                              ; preds = %3
-  %105 = getelementptr inbounds i8, ptr %4, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %106 = load i32, ptr %105, align 8
   %.not496 = icmp eq i32 %106, 0
   br i1 %.not496, label %118, label %107
@@ -2180,7 +2180,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 107:                                              ; preds = %104
   %108 = load ptr, ptr @expr_arena, align 8
   %109 = zext i32 %106 to i64
-  %110 = getelementptr inbounds %struct.Expr_, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw %struct.Expr_, ptr %108, i64 %109
   %111 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %110)
   %112 = load ptr, ptr @expr_arena, align 8
   %113 = ptrtoint ptr %111 to i64
@@ -2193,7 +2193,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 118:                                              ; preds = %104, %107
   %.0418 = phi i32 [ %117, %107 ], [ 0, %104 ]
   store i32 %.0418, ptr %105, align 8
-  %119 = getelementptr inbounds i8, ptr %4, i64 28
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %120 = load i32, ptr %119, align 4
   %.not497 = icmp eq i32 %120, 0
   br i1 %.not497, label %132, label %121
@@ -2201,7 +2201,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 121:                                              ; preds = %118
   %122 = load ptr, ptr @expr_arena, align 8
   %123 = zext i32 %120 to i64
-  %124 = getelementptr inbounds %struct.Expr_, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw %struct.Expr_, ptr %122, i64 %123
   %125 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %124)
   %126 = load ptr, ptr @expr_arena, align 8
   %127 = ptrtoint ptr %125 to i64
@@ -2217,7 +2217,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 133:                                              ; preds = %3
-  %134 = getelementptr inbounds i8, ptr %4, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %135 = load i32, ptr %134, align 4
   %.not495 = icmp eq i32 %135, 0
   br i1 %.not495, label %147, label %136
@@ -2225,7 +2225,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
 136:                                              ; preds = %133
   %137 = load ptr, ptr @expr_arena, align 8
   %138 = zext i32 %135 to i64
-  %139 = getelementptr inbounds %struct.Expr_, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw %struct.Expr_, ptr %137, i64 %138
   %140 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %139)
   %141 = load ptr, ptr @expr_arena, align 8
   %142 = ptrtoint ptr %140 to i64
@@ -2241,46 +2241,46 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 148:                                              ; preds = %3
-  %149 = getelementptr inbounds i8, ptr %4, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %150)
   store ptr %151, ptr %149, align 8
   br label %common.ret575
 
 152:                                              ; preds = %3
-  %153 = getelementptr inbounds i8, ptr %4, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %154 = load ptr, ptr %153, align 8
   %155 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %154)
   store ptr %155, ptr %153, align 8
   br label %common.ret575
 
 156:                                              ; preds = %3
-  %157 = getelementptr inbounds i8, ptr %4, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %158 = load i16, ptr %157, align 8
   %159 = and i16 %158, 3840
   %.not494 = icmp eq i16 %159, 512
   br i1 %.not494, label %167, label %160
 
 160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %4, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %162 = load ptr, ptr %161, align 8
   %163 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %162)
   store ptr %163, ptr %161, align 8
-  %164 = getelementptr inbounds i8, ptr %4, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %165 = load ptr, ptr %164, align 8
   %166 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %165)
   store ptr %166, ptr %164, align 8
   br label %common.ret575
 
 167:                                              ; preds = %156
-  %168 = getelementptr inbounds i8, ptr %4, i64 24
-  %169 = getelementptr inbounds i8, ptr %4, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %170 = load ptr, ptr %169, align 8
   %171 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %170)
   store ptr %171, ptr %169, align 8
   %172 = load i8, ptr %168, align 8
   %173 = trunc i8 %172 to i1
-  %174 = getelementptr inbounds i8, ptr %4, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %175 = load ptr, ptr %174, align 8
   br i1 %173, label %176, label %178
 
@@ -2295,34 +2295,34 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 180:                                              ; preds = %3
-  %181 = getelementptr inbounds i8, ptr %4, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %182 = load ptr, ptr %181, align 8
   %183 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %182)
   store ptr %183, ptr %181, align 8
   br label %common.ret575
 
 184:                                              ; preds = %3
-  %185 = getelementptr inbounds i8, ptr %4, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %186)
   store ptr %187, ptr %185, align 8
-  %188 = getelementptr inbounds i8, ptr %4, i64 32
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %189 = load ptr, ptr %188, align 8
   %190 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %189)
   store ptr %190, ptr %188, align 8
   br label %common.ret575
 
 191:                                              ; preds = %3
-  %192 = getelementptr inbounds i8, ptr %4, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %193 = load i16, ptr %192, align 8
   %194 = and i16 %193, 3840
   %195 = icmp eq i16 %194, 512
   br i1 %195, label %196, label %common.ret575
 
 196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %4, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %200 = load ptr, ptr %199, align 8
   br label %201
 
@@ -2348,25 +2348,25 @@ fixup.exit:                                       ; preds = %202
   br label %common.ret575
 
 209:                                              ; preds = %3
-  %210 = getelementptr inbounds i8, ptr %4, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %211 = load ptr, ptr %210, align 8
   %212 = tail call fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr noundef %211)
   store ptr %212, ptr %210, align 8
-  %213 = getelementptr inbounds i8, ptr %4, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %214 = load ptr, ptr %213, align 8
   %215 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %214)
   store ptr %215, ptr %213, align 8
   br label %common.ret575
 
 216:                                              ; preds = %3
-  %217 = getelementptr inbounds i8, ptr %4, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %218 = load ptr, ptr %217, align 8
   %219 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %218)
   store ptr %219, ptr %217, align 8
   br label %common.ret575
 
 220:                                              ; preds = %3, %3
-  %221 = getelementptr inbounds i8, ptr %4, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %222 = load i32, ptr %221, align 8
   %.not491 = icmp eq i32 %222, 0
   br i1 %.not491, label %234, label %223
@@ -2374,7 +2374,7 @@ fixup.exit:                                       ; preds = %202
 223:                                              ; preds = %220
   %224 = load ptr, ptr @expr_arena, align 8
   %225 = zext i32 %222 to i64
-  %226 = getelementptr inbounds %struct.Expr_, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw %struct.Expr_, ptr %224, i64 %225
   %227 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %226)
   %228 = load ptr, ptr @expr_arena, align 8
   %229 = ptrtoint ptr %227 to i64
@@ -2387,7 +2387,7 @@ fixup.exit:                                       ; preds = %202
 234:                                              ; preds = %220, %223
   %.0422 = phi i32 [ %233, %223 ], [ 0, %220 ]
   store i32 %.0422, ptr %221, align 8
-  %235 = getelementptr inbounds i8, ptr %4, i64 28
+  %235 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %236 = load i32, ptr %235, align 4
   %.not492 = icmp eq i32 %236, 0
   br i1 %.not492, label %248, label %237
@@ -2395,7 +2395,7 @@ fixup.exit:                                       ; preds = %202
 237:                                              ; preds = %234
   %238 = load ptr, ptr @expr_arena, align 8
   %239 = zext i32 %236 to i64
-  %240 = getelementptr inbounds %struct.Expr_, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw %struct.Expr_, ptr %238, i64 %239
   %241 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %240)
   %242 = load ptr, ptr @expr_arena, align 8
   %243 = ptrtoint ptr %241 to i64
@@ -2415,7 +2415,7 @@ fixup.exit:                                       ; preds = %202
   unreachable
 
 250:                                              ; preds = %3, %3, %3
-  %251 = getelementptr inbounds i8, ptr %4, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %252 = load i32, ptr %251, align 8
   %.not490 = icmp eq i32 %252, 0
   br i1 %.not490, label %264, label %253
@@ -2423,7 +2423,7 @@ fixup.exit:                                       ; preds = %202
 253:                                              ; preds = %250
   %254 = load ptr, ptr @expr_arena, align 8
   %255 = zext i32 %252 to i64
-  %256 = getelementptr inbounds %struct.Expr_, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw %struct.Expr_, ptr %254, i64 %255
   %257 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %256)
   %258 = load ptr, ptr @expr_arena, align 8
   %259 = ptrtoint ptr %257 to i64
@@ -2436,7 +2436,7 @@ fixup.exit:                                       ; preds = %202
 264:                                              ; preds = %250, %253
   %.0425 = phi i32 [ %263, %253 ], [ 0, %250 ]
   store i32 %.0425, ptr %251, align 8
-  %265 = getelementptr inbounds i8, ptr %4, i64 32
+  %265 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %266 = load i32, ptr %265, align 4
   %.not.i502 = icmp eq i32 %266, 0
   br i1 %.not.i502, label %278, label %267
@@ -2444,7 +2444,7 @@ fixup.exit:                                       ; preds = %202
 267:                                              ; preds = %264
   %268 = load ptr, ptr @expr_arena, align 8
   %269 = zext i32 %266 to i64
-  %270 = getelementptr inbounds %struct.Expr_, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw %struct.Expr_, ptr %268, i64 %269
   %271 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %270)
   %272 = load ptr, ptr @expr_arena, align 8
   %273 = ptrtoint ptr %271 to i64
@@ -2457,7 +2457,7 @@ fixup.exit:                                       ; preds = %202
 278:                                              ; preds = %267, %264
   %.0.i503 = phi i32 [ %277, %267 ], [ 0, %264 ]
   store i32 %.0.i503, ptr %265, align 4
-  %279 = getelementptr inbounds i8, ptr %4, i64 36
+  %279 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %280 = load i32, ptr %279, align 4
   %.not16.i = icmp eq i32 %280, 0
   br i1 %.not16.i, label %copy_range.exit, label %281
@@ -2465,7 +2465,7 @@ fixup.exit:                                       ; preds = %202
 281:                                              ; preds = %278
   %282 = load ptr, ptr @expr_arena, align 8
   %283 = zext i32 %280 to i64
-  %284 = getelementptr inbounds %struct.Expr_, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw %struct.Expr_, ptr %282, i64 %283
   %285 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %284)
   %286 = load ptr, ptr @expr_arena, align 8
   %287 = ptrtoint ptr %285 to i64
@@ -2481,7 +2481,7 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %common.ret575
 
 292:                                              ; preds = %3
-  %293 = getelementptr inbounds i8, ptr %4, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %294 = load i64, ptr %293, align 8
   %295 = trunc i64 %294 to i8
   switch i8 %295, label %311 [
@@ -2495,7 +2495,7 @@ copy_range.exit:                                  ; preds = %278, %281
   ]
 
 296:                                              ; preds = %292, %292
-  %297 = getelementptr inbounds i8, ptr %4, i64 32
+  %297 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %298 = load i32, ptr %297, align 8
   %.not489 = icmp eq i32 %298, 0
   br i1 %.not489, label %310, label %299
@@ -2503,7 +2503,7 @@ copy_range.exit:                                  ; preds = %278, %281
 299:                                              ; preds = %296
   %300 = load ptr, ptr @expr_arena, align 8
   %301 = zext i32 %298 to i64
-  %302 = getelementptr inbounds %struct.Expr_, ptr %300, i64 %301
+  %302 = getelementptr inbounds nuw %struct.Expr_, ptr %300, i64 %301
   %303 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %302)
   %304 = load ptr, ptr @expr_arena, align 8
   %305 = ptrtoint ptr %303 to i64
@@ -2523,7 +2523,7 @@ copy_range.exit:                                  ; preds = %278, %281
   unreachable
 
 312:                                              ; preds = %3
-  %313 = getelementptr inbounds i8, ptr %4, i64 28
+  %313 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %314 = load i32, ptr %313, align 4
   %.not486 = icmp eq i32 %314, 0
   br i1 %.not486, label %326, label %315
@@ -2531,7 +2531,7 @@ copy_range.exit:                                  ; preds = %278, %281
 315:                                              ; preds = %312
   %316 = load ptr, ptr @expr_arena, align 8
   %317 = zext i32 %314 to i64
-  %318 = getelementptr inbounds %struct.Expr_, ptr %316, i64 %317
+  %318 = getelementptr inbounds nuw %struct.Expr_, ptr %316, i64 %317
   %319 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %318)
   %320 = load ptr, ptr @expr_arena, align 8
   %321 = ptrtoint ptr %319 to i64
@@ -2544,7 +2544,7 @@ copy_range.exit:                                  ; preds = %278, %281
 326:                                              ; preds = %312, %315
   %.0428 = phi i32 [ %325, %315 ], [ 0, %312 ]
   store i32 %.0428, ptr %313, align 4
-  %327 = getelementptr inbounds i8, ptr %4, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %328 = load i32, ptr %327, align 8
   %.not487 = icmp eq i32 %328, 0
   br i1 %.not487, label %340, label %329
@@ -2552,7 +2552,7 @@ copy_range.exit:                                  ; preds = %278, %281
 329:                                              ; preds = %326
   %330 = load ptr, ptr @type_info_arena, align 8
   %331 = zext i32 %328 to i64
-  %332 = getelementptr inbounds %struct.TypeInfo_, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %330, i64 %331
   %333 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %332)
   %334 = load ptr, ptr @type_info_arena, align 8
   %335 = ptrtoint ptr %333 to i64
@@ -2568,28 +2568,28 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %common.ret575
 
 341:                                              ; preds = %3
-  %342 = getelementptr inbounds i8, ptr %4, i64 32
+  %342 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %343 = load ptr, ptr %342, align 8
   %344 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %343)
   store ptr %344, ptr %342, align 8
   br label %common.ret575
 
 345:                                              ; preds = %3, %3, %3, %3, %3, %3
-  %346 = getelementptr inbounds i8, ptr %4, i64 24
+  %346 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %347 = load ptr, ptr %346, align 8
   %348 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %347)
   store ptr %348, ptr %346, align 8
   br label %common.ret575
 
 349:                                              ; preds = %3
-  %350 = getelementptr inbounds i8, ptr %4, i64 24
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %351 = load ptr, ptr %350, align 8
   %352 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %351)
   store ptr %352, ptr %350, align 8
   br label %common.ret575
 
 353:                                              ; preds = %3
-  %354 = getelementptr inbounds i8, ptr %4, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %355 = load i32, ptr %354, align 8
   %.not485 = icmp eq i32 %355, 0
   br i1 %.not485, label %367, label %356
@@ -2597,7 +2597,7 @@ copy_range.exit:                                  ; preds = %278, %281
 356:                                              ; preds = %353
   %357 = load ptr, ptr @expr_arena, align 8
   %358 = zext i32 %355 to i64
-  %359 = getelementptr inbounds %struct.Expr_, ptr %357, i64 %358
+  %359 = getelementptr inbounds nuw %struct.Expr_, ptr %357, i64 %358
   %360 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %359)
   %361 = load ptr, ptr @expr_arena, align 8
   %362 = ptrtoint ptr %360 to i64
@@ -2613,15 +2613,15 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %common.ret575
 
 368:                                              ; preds = %3
-  %369 = getelementptr inbounds i8, ptr %4, i64 24
+  %369 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %370 = load ptr, ptr %369, align 8
   %371 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %370)
   store ptr %371, ptr %369, align 8
   br label %common.ret575
 
 372:                                              ; preds = %3
-  %373 = getelementptr inbounds i8, ptr %4, i64 24
-  %374 = getelementptr inbounds i8, ptr %4, i64 32
+  %373 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %375 = load ptr, ptr %374, align 8
   %376 = tail call fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef %375)
   store ptr %376, ptr %374, align 8
@@ -2632,7 +2632,7 @@ copy_range.exit:                                  ; preds = %278, %281
 378:                                              ; preds = %372
   %379 = load ptr, ptr @ast_arena, align 8
   %380 = zext i32 %377 to i64
-  %381 = getelementptr inbounds %struct.Ast_, ptr %379, i64 %380
+  %381 = getelementptr inbounds nuw %struct.Ast_, ptr %379, i64 %380
   %382 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %381)
   %383 = load ptr, ptr @ast_arena, align 8
   %384 = ptrtoint ptr %382 to i64
@@ -2645,25 +2645,25 @@ copy_range.exit:                                  ; preds = %278, %281
 389:                                              ; preds = %372, %378
   %.0410 = phi i32 [ %388, %378 ], [ 0, %372 ]
   store i32 %.0410, ptr %373, align 8
-  %390 = getelementptr inbounds i8, ptr %4, i64 40
+  %390 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %391 = load ptr, ptr %390, align 8
   %392 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %391)
   store ptr %392, ptr %390, align 8
   br label %common.ret575
 
 393:                                              ; preds = %3
-  %394 = getelementptr inbounds i8, ptr %4, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %395 = load ptr, ptr %394, align 8
   %396 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %395)
   store ptr %396, ptr %394, align 8
-  %397 = getelementptr inbounds i8, ptr %4, i64 32
+  %397 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %398 = load ptr, ptr %397, align 8
   %399 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %398)
   store ptr %399, ptr %397, align 8
   br label %common.ret575
 
 400:                                              ; preds = %3
-  %401 = getelementptr inbounds i8, ptr %4, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %402 = load i32, ptr %401, align 8
   %.not483 = icmp eq i32 %402, 0
   br i1 %.not483, label %414, label %403
@@ -2671,7 +2671,7 @@ copy_range.exit:                                  ; preds = %278, %281
 403:                                              ; preds = %400
   %404 = load ptr, ptr @ast_arena, align 8
   %405 = zext i32 %402 to i64
-  %406 = getelementptr inbounds %struct.Ast_, ptr %404, i64 %405
+  %406 = getelementptr inbounds nuw %struct.Ast_, ptr %404, i64 %405
   %407 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %406)
   %408 = load ptr, ptr @ast_arena, align 8
   %409 = ptrtoint ptr %407 to i64
@@ -2690,14 +2690,14 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %common.ret575
 
 416:                                              ; preds = %3
-  %417 = getelementptr inbounds i8, ptr %4, i64 24
+  %417 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %418 = load ptr, ptr %417, align 8
   %419 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %418)
   store ptr %419, ptr %417, align 8
   br label %common.ret575
 
 420:                                              ; preds = %3
-  %421 = getelementptr inbounds i8, ptr %4, i64 24
+  %421 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %422 = load i16, ptr %421, align 8
   %trunc480 = trunc i16 %422 to i8
   switch i8 %trunc480, label %common.ret575 [
@@ -2709,9 +2709,9 @@ copy_range.exit:                                  ; preds = %278, %281
   ]
 
 423:                                              ; preds = %420, %420
-  %424 = getelementptr inbounds i8, ptr %4, i64 32
+  %424 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %427 = load ptr, ptr %426, align 8
   br label %428
 
@@ -2737,21 +2737,21 @@ fixup.exit507:                                    ; preds = %429
   br label %common.ret575
 
 436:                                              ; preds = %420
-  %437 = getelementptr inbounds i8, ptr %4, i64 32
+  %437 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %437)
   br label %common.ret575
 
 438:                                              ; preds = %420
-  %439 = getelementptr inbounds i8, ptr %4, i64 32
+  %439 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %440 = load ptr, ptr %439, align 8
   %441 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %440)
   store ptr %441, ptr %439, align 8
   br label %common.ret575
 
 442:                                              ; preds = %420
-  %443 = getelementptr inbounds i8, ptr %4, i64 40
+  %443 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %445 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %446 = load ptr, ptr %445, align 8
   br label %447
 
@@ -2777,7 +2777,7 @@ fixup.exit511:                                    ; preds = %448
   br label %common.ret575
 
 455:                                              ; preds = %3, %3
-  %456 = getelementptr inbounds i8, ptr %4, i64 24
+  %456 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %457 = load i32, ptr %456, align 8
   %.not478 = icmp eq i32 %457, 0
   br i1 %.not478, label %469, label %458
@@ -2785,7 +2785,7 @@ fixup.exit511:                                    ; preds = %448
 458:                                              ; preds = %455
   %459 = load ptr, ptr @expr_arena, align 8
   %460 = zext i32 %457 to i64
-  %461 = getelementptr inbounds %struct.Expr_, ptr %459, i64 %460
+  %461 = getelementptr inbounds nuw %struct.Expr_, ptr %459, i64 %460
   %462 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %461)
   %463 = load ptr, ptr @expr_arena, align 8
   %464 = ptrtoint ptr %462 to i64
@@ -2798,7 +2798,7 @@ fixup.exit511:                                    ; preds = %448
 469:                                              ; preds = %455, %458
   %.0431 = phi i32 [ %468, %458 ], [ 0, %455 ]
   store i32 %.0431, ptr %456, align 8
-  %470 = getelementptr inbounds i8, ptr %4, i64 28
+  %470 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %471 = load i32, ptr %470, align 4
   %.not479 = icmp eq i32 %471, 0
   br i1 %.not479, label %483, label %472
@@ -2806,7 +2806,7 @@ fixup.exit511:                                    ; preds = %448
 472:                                              ; preds = %469
   %473 = load ptr, ptr @expr_arena, align 8
   %474 = zext i32 %471 to i64
-  %475 = getelementptr inbounds %struct.Expr_, ptr %473, i64 %474
+  %475 = getelementptr inbounds nuw %struct.Expr_, ptr %473, i64 %474
   %476 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %475)
   %477 = load ptr, ptr @expr_arena, align 8
   %478 = ptrtoint ptr %476 to i64
@@ -2822,7 +2822,7 @@ fixup.exit511:                                    ; preds = %448
   br label %common.ret575
 
 484:                                              ; preds = %3
-  %485 = getelementptr inbounds i8, ptr %4, i64 24
+  %485 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %486 = load i32, ptr %485, align 8
   %.not475 = icmp eq i32 %486, 0
   br i1 %.not475, label %498, label %487
@@ -2830,7 +2830,7 @@ fixup.exit511:                                    ; preds = %448
 487:                                              ; preds = %484
   %488 = load ptr, ptr @expr_arena, align 8
   %489 = zext i32 %486 to i64
-  %490 = getelementptr inbounds %struct.Expr_, ptr %488, i64 %489
+  %490 = getelementptr inbounds nuw %struct.Expr_, ptr %488, i64 %489
   %491 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %490)
   %492 = load ptr, ptr @expr_arena, align 8
   %493 = ptrtoint ptr %491 to i64
@@ -2843,7 +2843,7 @@ fixup.exit511:                                    ; preds = %448
 498:                                              ; preds = %484, %487
   %.0426 = phi i32 [ %497, %487 ], [ 0, %484 ]
   store i32 %.0426, ptr %485, align 8
-  %499 = getelementptr inbounds i8, ptr %4, i64 28
+  %499 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %500 = load i32, ptr %499, align 4
   %.not476 = icmp eq i32 %500, 0
   br i1 %.not476, label %512, label %501
@@ -2851,7 +2851,7 @@ fixup.exit511:                                    ; preds = %448
 501:                                              ; preds = %498
   %502 = load ptr, ptr @expr_arena, align 8
   %503 = zext i32 %500 to i64
-  %504 = getelementptr inbounds %struct.Expr_, ptr %502, i64 %503
+  %504 = getelementptr inbounds nuw %struct.Expr_, ptr %502, i64 %503
   %505 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %504)
   %506 = load ptr, ptr @expr_arena, align 8
   %507 = ptrtoint ptr %505 to i64
@@ -2864,7 +2864,7 @@ fixup.exit511:                                    ; preds = %448
 512:                                              ; preds = %498, %501
   %.0423 = phi i32 [ %511, %501 ], [ 0, %498 ]
   store i32 %.0423, ptr %499, align 4
-  %513 = getelementptr inbounds i8, ptr %4, i64 32
+  %513 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %514 = load i32, ptr %513, align 8
   %.not477 = icmp eq i32 %514, 0
   br i1 %.not477, label %526, label %515
@@ -2872,7 +2872,7 @@ fixup.exit511:                                    ; preds = %448
 515:                                              ; preds = %512
   %516 = load ptr, ptr @expr_arena, align 8
   %517 = zext i32 %514 to i64
-  %518 = getelementptr inbounds %struct.Expr_, ptr %516, i64 %517
+  %518 = getelementptr inbounds nuw %struct.Expr_, ptr %516, i64 %517
   %519 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %518)
   %520 = load ptr, ptr @expr_arena, align 8
   %521 = ptrtoint ptr %519 to i64
@@ -2888,22 +2888,22 @@ fixup.exit511:                                    ; preds = %448
   br label %common.ret575
 
 527:                                              ; preds = %3, %3
-  %528 = getelementptr inbounds i8, ptr %4, i64 24
+  %528 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %529 = load ptr, ptr %528, align 8
   %530 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %529)
   store ptr %530, ptr %528, align 8
   br label %common.ret575
 
 531:                                              ; preds = %3
-  %532 = getelementptr inbounds i8, ptr %4, i64 24
+  %532 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %533 = load ptr, ptr %532, align 8
   %534 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %533)
   store ptr %534, ptr %532, align 8
   br label %common.ret575
 
 535:                                              ; preds = %3
-  %536 = getelementptr inbounds i8, ptr %4, i64 24
-  %537 = getelementptr inbounds i8, ptr %4, i64 32
+  %536 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %537 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %538 = load i16, ptr %537, align 8
   %539 = and i16 %538, 64
   %.not468 = icmp eq i16 %539, 0
@@ -2917,8 +2917,8 @@ fixup.exit511:                                    ; preds = %448
 542:                                              ; preds = %540
   %543 = load ptr, ptr @decl_arena, align 8
   %544 = zext i32 %541 to i64
-  %545 = getelementptr inbounds %struct.Decl_, ptr %543, i64 %544
-  %546 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %545 = getelementptr inbounds nuw %struct.Decl_, ptr %543, i64 %544
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %547 = load ptr, ptr %546, align 8
   br label %548
 
@@ -2956,7 +2956,7 @@ fixup.exit515:                                    ; preds = %549
 563:                                              ; preds = %561
   %564 = load ptr, ptr @expr_arena, align 8
   %565 = zext i32 %562 to i64
-  %566 = getelementptr inbounds %struct.Expr_, ptr %564, i64 %565
+  %566 = getelementptr inbounds nuw %struct.Expr_, ptr %564, i64 %565
   %567 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %566)
   %568 = load ptr, ptr @expr_arena, align 8
   %569 = ptrtoint ptr %567 to i64
@@ -2972,7 +2972,7 @@ fixup.exit515:                                    ; preds = %549
   br label %fixup.exit515.thread
 
 fixup.exit515.thread:                             ; preds = %548, %fixup.exit515, %555, %540, %574
-  %575 = getelementptr inbounds i8, ptr %4, i64 28
+  %575 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %576 = load i32, ptr %575, align 4
   %.not472 = icmp eq i32 %576, 0
   br i1 %.not472, label %588, label %577
@@ -2980,7 +2980,7 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
 577:                                              ; preds = %fixup.exit515.thread
   %578 = load ptr, ptr @expr_arena, align 8
   %579 = zext i32 %576 to i64
-  %580 = getelementptr inbounds %struct.Expr_, ptr %578, i64 %579
+  %580 = getelementptr inbounds nuw %struct.Expr_, ptr %578, i64 %579
   %581 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %580)
   %582 = load ptr, ptr @expr_arena, align 8
   %583 = ptrtoint ptr %581 to i64
@@ -2993,11 +2993,11 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
 588:                                              ; preds = %fixup.exit515.thread, %577
   %.0414 = phi i32 [ %587, %577 ], [ 0, %fixup.exit515.thread ]
   store i32 %.0414, ptr %575, align 4
-  %589 = getelementptr inbounds i8, ptr %4, i64 40
+  %589 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %590 = load ptr, ptr %589, align 8
   %591 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %590)
   store ptr %591, ptr %589, align 8
-  %592 = getelementptr inbounds i8, ptr %4, i64 48
+  %592 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %593 = load ptr, ptr %592, align 8
   %.not473 = icmp eq ptr %593, null
   br i1 %.not473, label %common.ret575, label %594
@@ -3019,20 +3019,20 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
   br label %common.ret575
 
 601:                                              ; preds = %3, %3
-  %602 = getelementptr inbounds i8, ptr %4, i64 24
+  %602 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %603 = load ptr, ptr %602, align 8
   %604 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %603)
   store ptr %604, ptr %602, align 8
-  %605 = getelementptr inbounds i8, ptr %4, i64 16
+  %605 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %606 = load i16, ptr %605, align 8
   %607 = and i16 %606, 3840
   %608 = icmp eq i16 %607, 512
-  %609 = getelementptr inbounds i8, ptr %4, i64 32
+  %609 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %610 = load ptr, ptr %609, align 8
   br i1 %608, label %611, label %622
 
 611:                                              ; preds = %601
-  %612 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %612 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %613 = load ptr, ptr %612, align 8
   br label %614
 
@@ -3063,28 +3063,28 @@ fixup.exit519:                                    ; preds = %615
   br label %common.ret575
 
 624:                                              ; preds = %3
-  %625 = getelementptr inbounds i8, ptr %4, i64 24
+  %625 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %626 = load ptr, ptr %625, align 8
   %627 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %626)
   store ptr %627, ptr %625, align 8
   br label %common.ret575
 
 628:                                              ; preds = %3
-  %629 = getelementptr inbounds i8, ptr %4, i64 24
+  %629 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %630 = load ptr, ptr %629, align 8
   %631 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %630)
   store ptr %631, ptr %629, align 8
   br label %common.ret575
 
 632:                                              ; preds = %3
-  %633 = getelementptr inbounds i8, ptr %4, i64 24
+  %633 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %634 = load ptr, ptr %633, align 8
   %635 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %634)
   store ptr %635, ptr %633, align 8
   br label %common.ret575
 
 636:                                              ; preds = %3
-  %637 = getelementptr inbounds i8, ptr %4, i64 28
+  %637 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %638 = load i32, ptr %637, align 4
   %.not465 = icmp eq i32 %638, 0
   br i1 %.not465, label %650, label %639
@@ -3092,7 +3092,7 @@ fixup.exit519:                                    ; preds = %615
 639:                                              ; preds = %636
   %640 = load ptr, ptr @expr_arena, align 8
   %641 = zext i32 %638 to i64
-  %642 = getelementptr inbounds %struct.Expr_, ptr %640, i64 %641
+  %642 = getelementptr inbounds nuw %struct.Expr_, ptr %640, i64 %641
   %643 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %642)
   %644 = load ptr, ptr @expr_arena, align 8
   %645 = ptrtoint ptr %643 to i64
@@ -3105,7 +3105,7 @@ fixup.exit519:                                    ; preds = %615
 650:                                              ; preds = %636, %639
   %.0411 = phi i32 [ %649, %639 ], [ 0, %636 ]
   store i32 %.0411, ptr %637, align 4
-  %651 = getelementptr inbounds i8, ptr %4, i64 32
+  %651 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %652 = load i32, ptr %651, align 8
   %.not466 = icmp eq i32 %652, 0
   br i1 %.not466, label %664, label %653
@@ -3113,7 +3113,7 @@ fixup.exit519:                                    ; preds = %615
 653:                                              ; preds = %650
   %654 = load ptr, ptr @type_info_arena, align 8
   %655 = zext i32 %652 to i64
-  %656 = getelementptr inbounds %struct.TypeInfo_, ptr %654, i64 %655
+  %656 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %654, i64 %655
   %657 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %656)
   %658 = load ptr, ptr @type_info_arena, align 8
   %659 = ptrtoint ptr %657 to i64
@@ -3135,7 +3135,7 @@ fixup.exit519:                                    ; preds = %615
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
@@ -3143,7 +3143,7 @@ define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) loca
 5:                                                ; preds = %2
   %6 = load ptr, ptr @expr_arena, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds %struct.Expr_, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw %struct.Expr_, ptr %6, i64 %7
   %9 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %8)
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3156,7 +3156,7 @@ define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) loca
 16:                                               ; preds = %2, %5
   %.0 = phi i32 [ %15, %5 ], [ 0, %2 ]
   store i32 %.0, ptr %3, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 4
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %30, label %19
@@ -3164,7 +3164,7 @@ define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) loca
 19:                                               ; preds = %16
   %20 = load ptr, ptr @expr_arena, align 8
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.Expr_, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw %struct.Expr_, ptr %20, i64 %21
   %23 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef nonnull %22)
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -3191,14 +3191,14 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
   ]
 
 5:                                                ; preds = %2, %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %7)
   store ptr %8, ptr %6, align 8
   br label %49
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %copy_ast_list.exit, label %12
@@ -3221,7 +3221,7 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
 
 15:                                               ; preds = %.lr.ph.i
   %16 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 8, ptr %17, align 4
   br label %20
 
@@ -3239,13 +3239,13 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %23, label %24, label %38
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %26 = shl i32 %21, 1
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
   %29 = or disjoint i64 %28, 8
   %30 = tail call ptr @calloc_arena(i64 noundef %29) #5
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %26, ptr %31, align 4
   %32 = load i32, ptr %25, align 4
   %33 = zext i32 %32 to i64
@@ -3263,14 +3263,14 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
   %.1.i.i = phi ptr [ %30, %24 ], [ %.0.i.i, %20 ]
   %40 = add i32 %39, 1
   store i32 %40, ptr %.1.i.i, align 4
-  %41 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  %42 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %42 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %44 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %43)
   %45 = load i32, ptr %.1.i.i, align 4
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %41, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %41, i64 %47
   store ptr %44, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3308,7 +3308,7 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
 
 5:                                                ; preds = %.lr.ph.i
   %6 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 8, ptr %7, align 4
   br label %10
 
@@ -3326,13 +3326,13 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %16 = shl i32 %11, 1
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = or disjoint i64 %18, 8
   %20 = tail call ptr @calloc_arena(i64 noundef %19) #5
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %16, ptr %21, align 4
   %22 = load i32, ptr %15, align 4
   %23 = zext i32 %22 to i64
@@ -3350,14 +3350,14 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
   %.1.i.i = phi ptr [ %20, %14 ], [ %.0.i.i, %10 ]
   %30 = add i32 %29, 1
   store i32 %30, ptr %.1.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = tail call fastcc ptr @copy_decl(ptr noundef nonnull @copy_struct, ptr noundef %33) #7
   %35 = load i32, ptr %.1.i.i, align 4
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %37
   store ptr %34, ptr %38, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3391,7 +3391,7 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
 
 6:                                                ; preds = %.lr.ph
   %7 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 8, ptr %8, align 4
   br label %11
 
@@ -3409,13 +3409,13 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %17 = shl i32 %12, 1
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = or disjoint i64 %19, 8
   %21 = tail call ptr @calloc_arena(i64 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %17, ptr %22, align 4
   %23 = load i32, ptr %16, align 4
   %24 = zext i32 %23 to i64
@@ -3433,14 +3433,14 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
   %.1.i = phi ptr [ %21, %15 ], [ %.0.i, %11 ]
   %31 = add i32 %30, 1
   store i32 %31, ptr %.1.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %34)
   %36 = load i32, ptr %.1.i, align 4
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %38
   store ptr %35, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3477,7 +3477,7 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
 
 5:                                                ; preds = %.lr.ph.i.i
   %6 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 8, ptr %7, align 4
   br label %10
 
@@ -3495,13 +3495,13 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %16 = shl i32 %11, 1
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = or disjoint i64 %18, 8
   %20 = tail call ptr @calloc_arena(i64 noundef %19) #5
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %16, ptr %21, align 4
   %22 = load i32, ptr %15, align 4
   %23 = zext i32 %22 to i64
@@ -3519,14 +3519,14 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
   %.1.i.i.i = phi ptr [ %20, %14 ], [ %.0.i.i.i, %10 ]
   %30 = add i32 %29, 1
   store i32 %30, ptr %.1.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i.i
   %33 = load ptr, ptr %32, align 8
   %34 = tail call fastcc ptr @copy_decl(ptr noundef nonnull @copy_struct, ptr noundef %33) #7
   %35 = load i32, ptr %.1.i.i.i, align 4
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %37
   store ptr %34, ptr %38, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3559,11 +3559,11 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
   %.02936.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %73, %70 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @calloc_arena(i64 noundef 40) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %copy_expr_list.exit.i, label %10
@@ -3586,7 +3586,7 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
 
 13:                                               ; preds = %.lr.ph.i.i
   %14 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 8, ptr %15, align 4
   br label %18
 
@@ -3604,13 +3604,13 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %24 = shl i32 %19, 1
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 3
   %27 = or disjoint i64 %26, 8
   %28 = tail call ptr @calloc_arena(i64 noundef %27) #5
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %24, ptr %29, align 4
   %30 = load i32, ptr %23, align 4
   %31 = zext i32 %30 to i64
@@ -3628,14 +3628,14 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
   %.1.i.i.i = phi ptr [ %28, %22 ], [ %.0.i.i.i, %18 ]
   %38 = add i32 %37, 1
   store i32 %38, ptr %.1.i.i.i, align 4
-  %39 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
-  %40 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
   %41 = load ptr, ptr %40, align 8
   %42 = tail call fastcc ptr @copy_expr(ptr noundef nonnull @copy_struct, ptr noundef %41) #7
   %43 = load i32, ptr %.1.i.i.i, align 4
   %44 = add i32 %43, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %39, i64 %45
   store ptr %42, ptr %46, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3649,7 +3649,7 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
 
 47:                                               ; preds = %copy_expr_list.exit.i
   %48 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 8, ptr %49, align 4
   br label %52
 
@@ -3667,13 +3667,13 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   br i1 %55, label %56, label %70
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %58 = shl i32 %53, 1
   %59 = zext i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 3
   %61 = or disjoint i64 %60, 8
   %62 = tail call ptr @calloc_arena(i64 noundef %61) #5
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %58, ptr %63, align 4
   %64 = load i32, ptr %57, align 4
   %65 = zext i32 %64 to i64
@@ -3691,9 +3691,9 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   %.1.i.i = phi ptr [ %62, %56 ], [ %.0.i.i, %52 ]
   %72 = add i32 %71, 1
   store i32 %72, ptr %.1.i.i, align 4
-  %73 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %74 = zext i32 %71 to i64
-  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
   store ptr %7, ptr %75, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3733,7 +3733,7 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
 
 6:                                                ; preds = %.lr.ph.i.i
   %7 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 8, ptr %8, align 4
   br label %11
 
@@ -3751,13 +3751,13 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %17 = shl i32 %12, 1
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = or disjoint i64 %19, 8
   %21 = tail call ptr @calloc_arena(i64 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %17, ptr %22, align 4
   %23 = load i32, ptr %16, align 4
   %24 = zext i32 %23 to i64
@@ -3775,14 +3775,14 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
   %.1.i.i.i = phi ptr [ %21, %15 ], [ %.0.i.i.i, %11 ]
   %31 = add i32 %30, 1
   store i32 %31, ptr %.1.i.i.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8
   %35 = tail call fastcc ptr @copy_decl(ptr noundef nonnull @copy_struct, ptr noundef %34) #7
   %36 = load i32, ptr %.1.i.i.i, align 4
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %38
   store ptr %35, ptr %39, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3816,20 +3816,20 @@ define internal fastcc noundef ptr @copy_decl(ptr noundef %0, ptr noundef %1) un
   br i1 %.not, label %common.ret1025, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16777208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16777208
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %decl_is_resolved_static_var.exit.thread
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1023
   %or.cond.i = icmp eq i64 %10, 282
   br i1 %or.cond.i, label %11, label %decl_is_resolved_static_var.exit.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 2303
   %or.cond = icmp eq i32 %14, 2050
@@ -3838,14 +3838,14 @@ define internal fastcc noundef ptr @copy_decl(ptr noundef %0, ptr noundef %1) un
 decl_is_resolved_static_var.exit.thread:          ; preds = %11, %7, %3
   %15 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull readonly align 8 dereferenceable(136) %1, i64 136, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 16777200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16777200
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %15, ptr %18, align 8
   %19 = load ptr, ptr %16, align 8
   store ptr %1, ptr %19, align 8
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %21, ptr %16, align 8
   %22 = icmp eq ptr %21, %16
   br i1 %22, label %23, label %copy_reg_ref.exit
@@ -3855,7 +3855,7 @@ decl_is_resolved_static_var.exit.thread:          ; preds = %11, %7, %3
   unreachable
 
 copy_reg_ref.exit:                                ; preds = %decl_is_resolved_static_var.exit.thread
-  %24 = getelementptr inbounds i8, ptr %15, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %copy_attributes.exit, label %26
@@ -3873,11 +3873,11 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
 .lr.ph569:                                        ; preds = %.lr.ph569.preheader, %expand_.exit
   %indvars.iv721 = phi i64 [ 0, %.lr.ph569.preheader ], [ %indvars.iv.next722, %expand_.exit ]
   %.029.i568 = phi ptr [ null, %.lr.ph569.preheader ], [ %95, %expand_.exit ]
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv721
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv721
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @calloc_arena(i64 noundef 40) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %30, i64 40, i1 false)
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not.i441 = icmp eq ptr %33, null
   br i1 %.not.i441, label %copy_expr_list.exit452, label %34
@@ -3900,7 +3900,7 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
 
 37:                                               ; preds = %.lr.ph
   %38 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 8, ptr %39, align 4
   br label %42
 
@@ -3918,13 +3918,13 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
   br i1 %45, label %46, label %expand_.exit.i449
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.0.i.i448, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i448, i64 4
   %48 = shl i32 %43, 1
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = or disjoint i64 %50, 8
   %52 = tail call ptr @calloc_arena(i64 noundef %51) #5
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %48, ptr %53, align 4
   %54 = load i32, ptr %47, align 4
   %55 = zext i32 %54 to i64
@@ -3942,14 +3942,14 @@ expand_.exit.i449:                                ; preds = %46, %42
   %.1.i.i450 = phi ptr [ %52, %46 ], [ %.0.i.i448, %42 ]
   %61 = add i32 %60, 1
   store i32 %61, ptr %.1.i.i450, align 4
-  %62 = getelementptr inbounds i8, ptr %.1.i.i450, i64 8
-  %63 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i.i450, i64 8
+  %63 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %64)
   %66 = load i32, ptr %.1.i.i450, align 4
   %67 = add i32 %66, -1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %62, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %62, i64 %68
   store ptr %65, ptr %69, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3963,7 +3963,7 @@ copy_expr_list.exit452:                           ; preds = %expand_.exit.i449, 
 
 70:                                               ; preds = %copy_expr_list.exit452
   %71 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 8, ptr %72, align 4
   br label %75
 
@@ -3981,13 +3981,13 @@ copy_expr_list.exit452:                           ; preds = %expand_.exit.i449, 
   br i1 %78, label %79, label %expand_.exit
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %.0.i440, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i440, i64 4
   %81 = shl i32 %76, 1
   %82 = zext i32 %81 to i64
   %83 = shl nuw nsw i64 %82, 3
   %84 = or disjoint i64 %83, 8
   %85 = tail call ptr @calloc_arena(i64 noundef %84) #5
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %81, ptr %86, align 4
   %87 = load i32, ptr %80, align 4
   %88 = zext i32 %87 to i64
@@ -4005,9 +4005,9 @@ expand_.exit:                                     ; preds = %75, %79
   %.1.i = phi ptr [ %85, %79 ], [ %.0.i440, %75 ]
   %94 = add i32 %93, 1
   store i32 %94, ptr %.1.i, align 4
-  %95 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
   store ptr %31, ptr %97, align 8
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724
@@ -4016,7 +4016,7 @@ expand_.exit:                                     ; preds = %75, %79
 copy_attributes.exit:                             ; preds = %expand_.exit, %26, %copy_reg_ref.exit
   %.028.i = phi ptr [ null, %copy_reg_ref.exit ], [ null, %26 ], [ %95, %expand_.exit ]
   store ptr %.028.i, ptr %24, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 127
@@ -4047,7 +4047,7 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
   ]
 
 102:                                              ; preds = %copy_attributes.exit
-  %103 = getelementptr inbounds i8, ptr %15, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %104 = load ptr, ptr %103, align 8
   %.not.i242 = icmp eq ptr %104, null
   br i1 %.not.i242, label %type_info_copy_list_from_macro.exit, label %105
@@ -4070,7 +4070,7 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
 
 108:                                              ; preds = %.lr.ph645
   %109 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 8, ptr %110, align 4
   br label %113
 
@@ -4088,13 +4088,13 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
   br i1 %116, label %117, label %expand_.exit459
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %.0.i456, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i456, i64 4
   %119 = shl i32 %114, 1
   %120 = zext i32 %119 to i64
   %121 = shl nuw nsw i64 %120, 3
   %122 = or disjoint i64 %121, 8
   %123 = tail call ptr @calloc_arena(i64 noundef %122) #5
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 %119, ptr %124, align 4
   %125 = load i32, ptr %118, align 4
   %126 = zext i32 %125 to i64
@@ -4112,14 +4112,14 @@ expand_.exit459:                                  ; preds = %113, %117
   %.1.i457 = phi ptr [ %123, %117 ], [ %.0.i456, %113 ]
   %132 = add i32 %131, 1
   store i32 %132, ptr %.1.i457, align 4
-  %133 = getelementptr inbounds i8, ptr %.1.i457, i64 8
-  %134 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv816
+  %133 = getelementptr inbounds nuw i8, ptr %.1.i457, i64 8
+  %134 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv816
   %135 = load ptr, ptr %134, align 8
   %136 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %135)
   %137 = load i32, ptr %.1.i457, align 4
   %138 = add i32 %137, -1
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr %133, i64 %139
+  %140 = getelementptr inbounds nuw ptr, ptr %133, i64 %139
   store ptr %136, ptr %140, align 8
   %indvars.iv.next817 = add nuw nsw i64 %indvars.iv816, 1
   %exitcond820.not = icmp eq i64 %indvars.iv.next817, %wide.trip.count819
@@ -4128,7 +4128,7 @@ expand_.exit459:                                  ; preds = %113, %117
 type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %102, %105
   %.021.i.lcssa = phi ptr [ null, %105 ], [ null, %102 ], [ %133, %expand_.exit459 ]
   store ptr %.021.i.lcssa, ptr %103, align 8
-  %141 = getelementptr inbounds i8, ptr %15, i64 88
+  %141 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %142 = load ptr, ptr %141, align 8
   %.not.i244 = icmp eq ptr %142, null
   br i1 %.not.i244, label %copy_decl_list.exit, label %143
@@ -4151,7 +4151,7 @@ type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %1
 
 146:                                              ; preds = %.lr.ph649
   %147 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 8, ptr %148, align 4
   br label %151
 
@@ -4169,13 +4169,13 @@ type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %1
   br i1 %154, label %155, label %expand_.exit.i
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %157 = shl i32 %152, 1
   %158 = zext i32 %157 to i64
   %159 = shl nuw nsw i64 %158, 3
   %160 = or disjoint i64 %159, 8
   %161 = tail call ptr @calloc_arena(i64 noundef %160) #5
-  %162 = getelementptr inbounds i8, ptr %161, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   store i32 %157, ptr %162, align 4
   %163 = load i32, ptr %156, align 4
   %164 = zext i32 %163 to i64
@@ -4193,14 +4193,14 @@ expand_.exit.i:                                   ; preds = %155, %151
   %.1.i.i = phi ptr [ %161, %155 ], [ %.0.i.i, %151 ]
   %170 = add i32 %169, 1
   store i32 %170, ptr %.1.i.i, align 4
-  %171 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
-  %172 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv821
+  %171 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %172 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv821
   %173 = load ptr, ptr %172, align 8
   %174 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %173)
   %175 = load i32, ptr %.1.i.i, align 4
   %176 = add i32 %175, -1
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds ptr, ptr %171, i64 %177
+  %178 = getelementptr inbounds nuw ptr, ptr %171, i64 %177
   store ptr %174, ptr %178, align 8
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %exitcond825.not = icmp eq i64 %indvars.iv.next822, %wide.trip.count824
@@ -4209,7 +4209,7 @@ expand_.exit.i:                                   ; preds = %155, %151
 copy_decl_list.exit:                              ; preds = %expand_.exit.i, %type_info_copy_list_from_macro.exit, %143
   %.021.i246.lcssa = phi ptr [ null, %143 ], [ null, %type_info_copy_list_from_macro.exit ], [ %171, %expand_.exit.i ]
   store ptr %.021.i246.lcssa, ptr %141, align 8
-  %179 = getelementptr inbounds i8, ptr %15, i64 96
+  %179 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %180 = load ptr, ptr %179, align 8
   %.not.i248 = icmp eq ptr %180, null
   br i1 %.not.i248, label %copy_decl_list.exit259, label %181
@@ -4232,7 +4232,7 @@ copy_decl_list.exit:                              ; preds = %expand_.exit.i, %ty
 
 184:                                              ; preds = %.lr.ph653
   %185 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 8, ptr %186, align 4
   br label %189
 
@@ -4250,13 +4250,13 @@ copy_decl_list.exit:                              ; preds = %expand_.exit.i, %ty
   br i1 %192, label %193, label %expand_.exit.i256
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %.0.i.i255, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i255, i64 4
   %195 = shl i32 %190, 1
   %196 = zext i32 %195 to i64
   %197 = shl nuw nsw i64 %196, 3
   %198 = or disjoint i64 %197, 8
   %199 = tail call ptr @calloc_arena(i64 noundef %198) #5
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
   store i32 %195, ptr %200, align 4
   %201 = load i32, ptr %194, align 4
   %202 = zext i32 %201 to i64
@@ -4274,14 +4274,14 @@ expand_.exit.i256:                                ; preds = %193, %189
   %.1.i.i257 = phi ptr [ %199, %193 ], [ %.0.i.i255, %189 ]
   %208 = add i32 %207, 1
   store i32 %208, ptr %.1.i.i257, align 4
-  %209 = getelementptr inbounds i8, ptr %.1.i.i257, i64 8
-  %210 = getelementptr inbounds ptr, ptr %180, i64 %indvars.iv826
+  %209 = getelementptr inbounds nuw i8, ptr %.1.i.i257, i64 8
+  %210 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv826
   %211 = load ptr, ptr %210, align 8
   %212 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %211)
   %213 = load i32, ptr %.1.i.i257, align 4
   %214 = add i32 %213, -1
   %215 = zext i32 %214 to i64
-  %216 = getelementptr inbounds ptr, ptr %209, i64 %215
+  %216 = getelementptr inbounds nuw ptr, ptr %209, i64 %215
   store ptr %212, ptr %216, align 8
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %exitcond830.not = icmp eq i64 %indvars.iv.next827, %wide.trip.count829
@@ -4293,11 +4293,11 @@ copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, 
   br label %common.ret1025
 
 217:                                              ; preds = %copy_attributes.exit
-  %218 = getelementptr inbounds i8, ptr %15, i64 80
+  %218 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %219 = load ptr, ptr %218, align 8
   %220 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %219)
   store ptr %220, ptr %218, align 8
-  %221 = getelementptr inbounds i8, ptr %15, i64 88
+  %221 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %222 = load ptr, ptr %221, align 8
   %.not.i260 = icmp eq ptr %222, null
   br i1 %.not.i260, label %copy_expr_list.exit, label %223
@@ -4320,7 +4320,7 @@ copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, 
 
 226:                                              ; preds = %.lr.ph641
   %227 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %228 = getelementptr inbounds i8, ptr %227, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   store i32 8, ptr %228, align 4
   br label %231
 
@@ -4338,13 +4338,13 @@ copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, 
   br i1 %234, label %235, label %expand_.exit466
 
 235:                                              ; preds = %231
-  %236 = getelementptr inbounds i8, ptr %.0.i463, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %.0.i463, i64 4
   %237 = shl i32 %232, 1
   %238 = zext i32 %237 to i64
   %239 = shl nuw nsw i64 %238, 3
   %240 = or disjoint i64 %239, 8
   %241 = tail call ptr @calloc_arena(i64 noundef %240) #5
-  %242 = getelementptr inbounds i8, ptr %241, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   store i32 %237, ptr %242, align 4
   %243 = load i32, ptr %236, align 4
   %244 = zext i32 %243 to i64
@@ -4362,14 +4362,14 @@ expand_.exit466:                                  ; preds = %231, %235
   %.1.i464 = phi ptr [ %241, %235 ], [ %.0.i463, %231 ]
   %250 = add i32 %249, 1
   store i32 %250, ptr %.1.i464, align 4
-  %251 = getelementptr inbounds i8, ptr %.1.i464, i64 8
-  %252 = getelementptr inbounds ptr, ptr %222, i64 %indvars.iv811
+  %251 = getelementptr inbounds nuw i8, ptr %.1.i464, i64 8
+  %252 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv811
   %253 = load ptr, ptr %252, align 8
   %254 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %253)
   %255 = load i32, ptr %.1.i464, align 4
   %256 = add i32 %255, -1
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds ptr, ptr %251, i64 %257
+  %258 = getelementptr inbounds nuw ptr, ptr %251, i64 %257
   store ptr %254, ptr %258, align 8
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
   %exitcond815.not = icmp eq i64 %indvars.iv.next812, %wide.trip.count814
@@ -4381,14 +4381,14 @@ copy_expr_list.exit:                              ; preds = %expand_.exit466, %2
   br label %common.ret1025
 
 259:                                              ; preds = %copy_attributes.exit
-  %260 = getelementptr inbounds i8, ptr %15, i64 80
+  %260 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %261 = load ptr, ptr %260, align 8
   %262 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %261)
   store ptr %262, ptr %260, align 8
   br label %common.ret1025
 
 263:                                              ; preds = %copy_attributes.exit
-  %264 = getelementptr inbounds i8, ptr %15, i64 80
+  %264 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %265 = load ptr, ptr %264, align 8
   %.not.i264 = icmp eq ptr %265, null
   br i1 %.not.i264, label %copy_decl_list.exit275, label %266
@@ -4411,7 +4411,7 @@ copy_expr_list.exit:                              ; preds = %expand_.exit466, %2
 
 269:                                              ; preds = %.lr.ph637
   %270 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %271 = getelementptr inbounds i8, ptr %270, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 4
   store i32 8, ptr %271, align 4
   br label %274
 
@@ -4429,13 +4429,13 @@ copy_expr_list.exit:                              ; preds = %expand_.exit466, %2
   br i1 %277, label %278, label %expand_.exit.i272
 
 278:                                              ; preds = %274
-  %279 = getelementptr inbounds i8, ptr %.0.i.i271, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %.0.i.i271, i64 4
   %280 = shl i32 %275, 1
   %281 = zext i32 %280 to i64
   %282 = shl nuw nsw i64 %281, 3
   %283 = or disjoint i64 %282, 8
   %284 = tail call ptr @calloc_arena(i64 noundef %283) #5
-  %285 = getelementptr inbounds i8, ptr %284, i64 4
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 4
   store i32 %280, ptr %285, align 4
   %286 = load i32, ptr %279, align 4
   %287 = zext i32 %286 to i64
@@ -4453,14 +4453,14 @@ expand_.exit.i272:                                ; preds = %278, %274
   %.1.i.i273 = phi ptr [ %284, %278 ], [ %.0.i.i271, %274 ]
   %293 = add i32 %292, 1
   store i32 %293, ptr %.1.i.i273, align 4
-  %294 = getelementptr inbounds i8, ptr %.1.i.i273, i64 8
-  %295 = getelementptr inbounds ptr, ptr %265, i64 %indvars.iv806
+  %294 = getelementptr inbounds nuw i8, ptr %.1.i.i273, i64 8
+  %295 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv806
   %296 = load ptr, ptr %295, align 8
   %297 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %296)
   %298 = load i32, ptr %.1.i.i273, align 4
   %299 = add i32 %298, -1
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %294, i64 %300
+  %301 = getelementptr inbounds nuw ptr, ptr %294, i64 %300
   store ptr %297, ptr %301, align 8
   %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
   %exitcond810.not = icmp eq i64 %indvars.iv.next807, %wide.trip.count809
@@ -4472,32 +4472,32 @@ copy_decl_list.exit275:                           ; preds = %expand_.exit.i272, 
   br label %common.ret1025
 
 302:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
-  %303 = getelementptr inbounds i8, ptr %15, i64 72
+  %303 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %304 = load ptr, ptr %303, align 8
   %.not.i276 = icmp eq ptr %304, null
   br i1 %.not.i276, label %copy_decl_type.exit, label %305
 
 305:                                              ; preds = %302
   %306 = load i32, ptr %304, align 8
-  %307 = getelementptr inbounds i8, ptr %304, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %308 = load ptr, ptr %307, align 8
   %309 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %306, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   store ptr %308, ptr %310, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %309) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %309, ptr noundef nonnull align 8 dereferenceable(80) %304, i64 80, i1 false)
-  %311 = getelementptr inbounds i8, ptr %309, i64 24
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 24
   store ptr null, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %309, i64 56
+  %312 = getelementptr inbounds nuw i8, ptr %309, i64 56
   store ptr %15, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %309, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store ptr %309, ptr %313, align 8
   store ptr %309, ptr %303, align 8
   br label %copy_decl_type.exit
 
 copy_decl_type.exit:                              ; preds = %302, %305
-  %314 = getelementptr inbounds i8, ptr %15, i64 80
+  %314 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %315 = load ptr, ptr %314, align 8
   %.not.i277 = icmp eq ptr %315, null
   br i1 %.not.i277, label %type_info_copy_list_from_macro.exit281, label %316
@@ -4520,7 +4520,7 @@ copy_decl_type.exit:                              ; preds = %302, %305
 
 319:                                              ; preds = %.lr.ph625
   %320 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %321 = getelementptr inbounds i8, ptr %320, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
   store i32 8, ptr %321, align 4
   br label %324
 
@@ -4538,13 +4538,13 @@ copy_decl_type.exit:                              ; preds = %302, %305
   br i1 %327, label %328, label %expand_.exit473
 
 328:                                              ; preds = %324
-  %329 = getelementptr inbounds i8, ptr %.0.i470, i64 4
+  %329 = getelementptr inbounds nuw i8, ptr %.0.i470, i64 4
   %330 = shl i32 %325, 1
   %331 = zext i32 %330 to i64
   %332 = shl nuw nsw i64 %331, 3
   %333 = or disjoint i64 %332, 8
   %334 = tail call ptr @calloc_arena(i64 noundef %333) #5
-  %335 = getelementptr inbounds i8, ptr %334, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 4
   store i32 %330, ptr %335, align 4
   %336 = load i32, ptr %329, align 4
   %337 = zext i32 %336 to i64
@@ -4562,14 +4562,14 @@ expand_.exit473:                                  ; preds = %324, %328
   %.1.i471 = phi ptr [ %334, %328 ], [ %.0.i470, %324 ]
   %343 = add i32 %342, 1
   store i32 %343, ptr %.1.i471, align 4
-  %344 = getelementptr inbounds i8, ptr %.1.i471, i64 8
-  %345 = getelementptr inbounds ptr, ptr %315, i64 %indvars.iv791
+  %344 = getelementptr inbounds nuw i8, ptr %.1.i471, i64 8
+  %345 = getelementptr inbounds nuw ptr, ptr %315, i64 %indvars.iv791
   %346 = load ptr, ptr %345, align 8
   %347 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %346)
   %348 = load i32, ptr %.1.i471, align 4
   %349 = add i32 %348, -1
   %350 = zext i32 %349 to i64
-  %351 = getelementptr inbounds ptr, ptr %344, i64 %350
+  %351 = getelementptr inbounds nuw ptr, ptr %344, i64 %350
   store ptr %347, ptr %351, align 8
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 1
   %exitcond795.not = icmp eq i64 %indvars.iv.next792, %wide.trip.count794
@@ -4578,7 +4578,7 @@ expand_.exit473:                                  ; preds = %324, %328
 type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %copy_decl_type.exit, %316
   %.021.i279.lcssa = phi ptr [ null, %316 ], [ null, %copy_decl_type.exit ], [ %344, %expand_.exit473 ]
   store ptr %.021.i279.lcssa, ptr %314, align 8
-  %352 = getelementptr inbounds i8, ptr %15, i64 104
+  %352 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %353 = load ptr, ptr %352, align 8
   %.not.i282 = icmp eq ptr %353, null
   br i1 %.not.i282, label %copy_decl_list.exit293, label %354
@@ -4601,7 +4601,7 @@ type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %c
 
 357:                                              ; preds = %.lr.ph629
   %358 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %359 = getelementptr inbounds i8, ptr %358, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 4
   store i32 8, ptr %359, align 4
   br label %362
 
@@ -4619,13 +4619,13 @@ type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %c
   br i1 %365, label %366, label %expand_.exit.i290
 
 366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %.0.i.i289, i64 4
+  %367 = getelementptr inbounds nuw i8, ptr %.0.i.i289, i64 4
   %368 = shl i32 %363, 1
   %369 = zext i32 %368 to i64
   %370 = shl nuw nsw i64 %369, 3
   %371 = or disjoint i64 %370, 8
   %372 = tail call ptr @calloc_arena(i64 noundef %371) #5
-  %373 = getelementptr inbounds i8, ptr %372, i64 4
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 4
   store i32 %368, ptr %373, align 4
   %374 = load i32, ptr %367, align 4
   %375 = zext i32 %374 to i64
@@ -4643,14 +4643,14 @@ expand_.exit.i290:                                ; preds = %366, %362
   %.1.i.i291 = phi ptr [ %372, %366 ], [ %.0.i.i289, %362 ]
   %381 = add i32 %380, 1
   store i32 %381, ptr %.1.i.i291, align 4
-  %382 = getelementptr inbounds i8, ptr %.1.i.i291, i64 8
-  %383 = getelementptr inbounds ptr, ptr %353, i64 %indvars.iv796
+  %382 = getelementptr inbounds nuw i8, ptr %.1.i.i291, i64 8
+  %383 = getelementptr inbounds nuw ptr, ptr %353, i64 %indvars.iv796
   %384 = load ptr, ptr %383, align 8
   %385 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %384)
   %386 = load i32, ptr %.1.i.i291, align 4
   %387 = add i32 %386, -1
   %388 = zext i32 %387 to i64
-  %389 = getelementptr inbounds ptr, ptr %382, i64 %388
+  %389 = getelementptr inbounds nuw ptr, ptr %382, i64 %388
   store ptr %385, ptr %389, align 8
   %indvars.iv.next797 = add nuw nsw i64 %indvars.iv796, 1
   %exitcond800.not = icmp eq i64 %indvars.iv.next797, %wide.trip.count799
@@ -4659,7 +4659,7 @@ expand_.exit.i290:                                ; preds = %366, %362
 copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, %type_info_copy_list_from_macro.exit281, %354
   %.021.i284.lcssa = phi ptr [ null, %354 ], [ null, %type_info_copy_list_from_macro.exit281 ], [ %382, %expand_.exit.i290 ]
   store ptr %.021.i284.lcssa, ptr %352, align 8
-  %390 = getelementptr inbounds i8, ptr %15, i64 88
+  %390 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %391 = load ptr, ptr %390, align 8
   %.not.i294 = icmp eq ptr %391, null
   br i1 %.not.i294, label %copy_decl_list.exit305, label %392
@@ -4682,7 +4682,7 @@ copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, 
 
 395:                                              ; preds = %.lr.ph633
   %396 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %397 = getelementptr inbounds i8, ptr %396, i64 4
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 4
   store i32 8, ptr %397, align 4
   br label %400
 
@@ -4700,13 +4700,13 @@ copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, 
   br i1 %403, label %404, label %expand_.exit.i302
 
 404:                                              ; preds = %400
-  %405 = getelementptr inbounds i8, ptr %.0.i.i301, i64 4
+  %405 = getelementptr inbounds nuw i8, ptr %.0.i.i301, i64 4
   %406 = shl i32 %401, 1
   %407 = zext i32 %406 to i64
   %408 = shl nuw nsw i64 %407, 3
   %409 = or disjoint i64 %408, 8
   %410 = tail call ptr @calloc_arena(i64 noundef %409) #5
-  %411 = getelementptr inbounds i8, ptr %410, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 4
   store i32 %406, ptr %411, align 4
   %412 = load i32, ptr %405, align 4
   %413 = zext i32 %412 to i64
@@ -4724,14 +4724,14 @@ expand_.exit.i302:                                ; preds = %404, %400
   %.1.i.i303 = phi ptr [ %410, %404 ], [ %.0.i.i301, %400 ]
   %419 = add i32 %418, 1
   store i32 %419, ptr %.1.i.i303, align 4
-  %420 = getelementptr inbounds i8, ptr %.1.i.i303, i64 8
-  %421 = getelementptr inbounds ptr, ptr %391, i64 %indvars.iv801
+  %420 = getelementptr inbounds nuw i8, ptr %.1.i.i303, i64 8
+  %421 = getelementptr inbounds nuw ptr, ptr %391, i64 %indvars.iv801
   %422 = load ptr, ptr %421, align 8
   %423 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %422)
   %424 = load i32, ptr %.1.i.i303, align 4
   %425 = add i32 %424, -1
   %426 = zext i32 %425 to i64
-  %427 = getelementptr inbounds ptr, ptr %420, i64 %426
+  %427 = getelementptr inbounds nuw ptr, ptr %420, i64 %426
   store ptr %423, ptr %427, align 8
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
   %exitcond805.not = icmp eq i64 %indvars.iv.next802, %wide.trip.count804
@@ -4747,32 +4747,32 @@ copy_decl_list.exit305:                           ; preds = %expand_.exit.i302, 
   unreachable
 
 429:                                              ; preds = %copy_attributes.exit
-  %430 = getelementptr inbounds i8, ptr %15, i64 72
+  %430 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %431 = load ptr, ptr %430, align 8
   %.not.i306 = icmp eq ptr %431, null
   br i1 %.not.i306, label %copy_decl_type.exit307, label %432
 
 432:                                              ; preds = %429
   %433 = load i32, ptr %431, align 8
-  %434 = getelementptr inbounds i8, ptr %431, i64 16
+  %434 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %435 = load ptr, ptr %434, align 8
   %436 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %433, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 16
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   store ptr %435, ptr %437, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %436) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %436, ptr noundef nonnull align 8 dereferenceable(80) %431, i64 80, i1 false)
-  %438 = getelementptr inbounds i8, ptr %436, i64 24
+  %438 = getelementptr inbounds nuw i8, ptr %436, i64 24
   store ptr null, ptr %438, align 8
-  %439 = getelementptr inbounds i8, ptr %436, i64 56
+  %439 = getelementptr inbounds nuw i8, ptr %436, i64 56
   store ptr %15, ptr %439, align 8
-  %440 = getelementptr inbounds i8, ptr %436, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %436, i64 8
   store ptr %436, ptr %440, align 8
   store ptr %436, ptr %430, align 8
   br label %copy_decl_type.exit307
 
 copy_decl_type.exit307:                           ; preds = %429, %432
-  %441 = getelementptr inbounds i8, ptr %15, i64 80
+  %441 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %442 = load ptr, ptr %441, align 8
   %.not.i308 = icmp eq ptr %442, null
   br i1 %.not.i308, label %type_info_copy_list_from_macro.exit312, label %443
@@ -4795,7 +4795,7 @@ copy_decl_type.exit307:                           ; preds = %429, %432
 
 446:                                              ; preds = %.lr.ph613
   %447 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %448 = getelementptr inbounds i8, ptr %447, i64 4
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 4
   store i32 8, ptr %448, align 4
   br label %451
 
@@ -4813,13 +4813,13 @@ copy_decl_type.exit307:                           ; preds = %429, %432
   br i1 %454, label %455, label %expand_.exit480
 
 455:                                              ; preds = %451
-  %456 = getelementptr inbounds i8, ptr %.0.i477, i64 4
+  %456 = getelementptr inbounds nuw i8, ptr %.0.i477, i64 4
   %457 = shl i32 %452, 1
   %458 = zext i32 %457 to i64
   %459 = shl nuw nsw i64 %458, 3
   %460 = or disjoint i64 %459, 8
   %461 = tail call ptr @calloc_arena(i64 noundef %460) #5
-  %462 = getelementptr inbounds i8, ptr %461, i64 4
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 4
   store i32 %457, ptr %462, align 4
   %463 = load i32, ptr %456, align 4
   %464 = zext i32 %463 to i64
@@ -4837,14 +4837,14 @@ expand_.exit480:                                  ; preds = %451, %455
   %.1.i478 = phi ptr [ %461, %455 ], [ %.0.i477, %451 ]
   %470 = add i32 %469, 1
   store i32 %470, ptr %.1.i478, align 4
-  %471 = getelementptr inbounds i8, ptr %.1.i478, i64 8
-  %472 = getelementptr inbounds ptr, ptr %442, i64 %indvars.iv776
+  %471 = getelementptr inbounds nuw i8, ptr %.1.i478, i64 8
+  %472 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv776
   %473 = load ptr, ptr %472, align 8
   %474 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %473)
   %475 = load i32, ptr %.1.i478, align 4
   %476 = add i32 %475, -1
   %477 = zext i32 %476 to i64
-  %478 = getelementptr inbounds ptr, ptr %471, i64 %477
+  %478 = getelementptr inbounds nuw ptr, ptr %471, i64 %477
   store ptr %474, ptr %478, align 8
   %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
   %exitcond780.not = icmp eq i64 %indvars.iv.next777, %wide.trip.count779
@@ -4853,8 +4853,8 @@ expand_.exit480:                                  ; preds = %451, %455
 type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %copy_decl_type.exit307, %443
   %.021.i310.lcssa = phi ptr [ null, %443 ], [ null, %copy_decl_type.exit307 ], [ %471, %expand_.exit480 ]
   store ptr %.021.i310.lcssa, ptr %441, align 8
-  %479 = getelementptr inbounds i8, ptr %15, i64 96
-  %480 = getelementptr inbounds i8, ptr %15, i64 104
+  %479 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %480 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %481 = load ptr, ptr %480, align 8
   %.not.i313 = icmp eq ptr %481, null
   br i1 %.not.i313, label %copy_decl_list.exit324, label %482
@@ -4877,7 +4877,7 @@ type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %c
 
 485:                                              ; preds = %.lr.ph617
   %486 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %487 = getelementptr inbounds i8, ptr %486, i64 4
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 4
   store i32 8, ptr %487, align 4
   br label %490
 
@@ -4895,13 +4895,13 @@ type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %c
   br i1 %493, label %494, label %expand_.exit.i321
 
 494:                                              ; preds = %490
-  %495 = getelementptr inbounds i8, ptr %.0.i.i320, i64 4
+  %495 = getelementptr inbounds nuw i8, ptr %.0.i.i320, i64 4
   %496 = shl i32 %491, 1
   %497 = zext i32 %496 to i64
   %498 = shl nuw nsw i64 %497, 3
   %499 = or disjoint i64 %498, 8
   %500 = tail call ptr @calloc_arena(i64 noundef %499) #5
-  %501 = getelementptr inbounds i8, ptr %500, i64 4
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 4
   store i32 %496, ptr %501, align 4
   %502 = load i32, ptr %495, align 4
   %503 = zext i32 %502 to i64
@@ -4919,14 +4919,14 @@ expand_.exit.i321:                                ; preds = %494, %490
   %.1.i.i322 = phi ptr [ %500, %494 ], [ %.0.i.i320, %490 ]
   %509 = add i32 %508, 1
   store i32 %509, ptr %.1.i.i322, align 4
-  %510 = getelementptr inbounds i8, ptr %.1.i.i322, i64 8
-  %511 = getelementptr inbounds ptr, ptr %481, i64 %indvars.iv781
+  %510 = getelementptr inbounds nuw i8, ptr %.1.i.i322, i64 8
+  %511 = getelementptr inbounds nuw ptr, ptr %481, i64 %indvars.iv781
   %512 = load ptr, ptr %511, align 8
   %513 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %512)
   %514 = load i32, ptr %.1.i.i322, align 4
   %515 = add i32 %514, -1
   %516 = zext i32 %515 to i64
-  %517 = getelementptr inbounds ptr, ptr %510, i64 %516
+  %517 = getelementptr inbounds nuw ptr, ptr %510, i64 %516
   store ptr %513, ptr %517, align 8
   %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
   %exitcond785.not = icmp eq i64 %indvars.iv.next782, %wide.trip.count784
@@ -4938,7 +4938,7 @@ copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, 
   %518 = load ptr, ptr %479, align 8
   %519 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %518)
   store ptr %519, ptr %479, align 8
-  %520 = getelementptr inbounds i8, ptr %15, i64 88
+  %520 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %521 = load ptr, ptr %520, align 8
   %.not.i325 = icmp eq ptr %521, null
   br i1 %.not.i325, label %copy_decl_list.exit336, label %522
@@ -4961,7 +4961,7 @@ copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, 
 
 525:                                              ; preds = %.lr.ph621
   %526 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %527 = getelementptr inbounds i8, ptr %526, i64 4
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 4
   store i32 8, ptr %527, align 4
   br label %530
 
@@ -4979,13 +4979,13 @@ copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, 
   br i1 %533, label %534, label %expand_.exit.i333
 
 534:                                              ; preds = %530
-  %535 = getelementptr inbounds i8, ptr %.0.i.i332, i64 4
+  %535 = getelementptr inbounds nuw i8, ptr %.0.i.i332, i64 4
   %536 = shl i32 %531, 1
   %537 = zext i32 %536 to i64
   %538 = shl nuw nsw i64 %537, 3
   %539 = or disjoint i64 %538, 8
   %540 = tail call ptr @calloc_arena(i64 noundef %539) #5
-  %541 = getelementptr inbounds i8, ptr %540, i64 4
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 4
   store i32 %536, ptr %541, align 4
   %542 = load i32, ptr %535, align 4
   %543 = zext i32 %542 to i64
@@ -5003,14 +5003,14 @@ expand_.exit.i333:                                ; preds = %534, %530
   %.1.i.i334 = phi ptr [ %540, %534 ], [ %.0.i.i332, %530 ]
   %549 = add i32 %548, 1
   store i32 %549, ptr %.1.i.i334, align 4
-  %550 = getelementptr inbounds i8, ptr %.1.i.i334, i64 8
-  %551 = getelementptr inbounds ptr, ptr %521, i64 %indvars.iv786
+  %550 = getelementptr inbounds nuw i8, ptr %.1.i.i334, i64 8
+  %551 = getelementptr inbounds nuw ptr, ptr %521, i64 %indvars.iv786
   %552 = load ptr, ptr %551, align 8
   %553 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %552)
   %554 = load i32, ptr %.1.i.i334, align 4
   %555 = add i32 %554, -1
   %556 = zext i32 %555 to i64
-  %557 = getelementptr inbounds ptr, ptr %550, i64 %556
+  %557 = getelementptr inbounds nuw ptr, ptr %550, i64 %556
   store ptr %553, ptr %557, align 8
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
   %exitcond790.not = icmp eq i64 %indvars.iv.next787, %wide.trip.count789
@@ -5022,32 +5022,32 @@ copy_decl_list.exit336:                           ; preds = %expand_.exit.i333, 
   br label %common.ret1025
 
 558:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
-  %559 = getelementptr inbounds i8, ptr %15, i64 72
+  %559 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %560 = load ptr, ptr %559, align 8
   %.not.i337 = icmp eq ptr %560, null
   br i1 %.not.i337, label %copy_decl_type.exit338, label %561
 
 561:                                              ; preds = %558
   %562 = load i32, ptr %560, align 8
-  %563 = getelementptr inbounds i8, ptr %560, i64 16
+  %563 = getelementptr inbounds nuw i8, ptr %560, i64 16
   %564 = load ptr, ptr %563, align 8
   %565 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %562, ptr %565, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 16
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 16
   store ptr %564, ptr %566, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %565) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %565, ptr noundef nonnull align 8 dereferenceable(80) %560, i64 80, i1 false)
-  %567 = getelementptr inbounds i8, ptr %565, i64 24
+  %567 = getelementptr inbounds nuw i8, ptr %565, i64 24
   store ptr null, ptr %567, align 8
-  %568 = getelementptr inbounds i8, ptr %565, i64 56
+  %568 = getelementptr inbounds nuw i8, ptr %565, i64 56
   store ptr %15, ptr %568, align 8
-  %569 = getelementptr inbounds i8, ptr %565, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store ptr %565, ptr %569, align 8
   store ptr %565, ptr %559, align 8
   br label %copy_decl_type.exit338
 
 copy_decl_type.exit338:                           ; preds = %558, %561
-  %570 = getelementptr inbounds i8, ptr %15, i64 80
+  %570 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %571 = load ptr, ptr %570, align 8
   %.not.i339 = icmp eq ptr %571, null
   br i1 %.not.i339, label %type_info_copy_list_from_macro.exit343, label %572
@@ -5070,7 +5070,7 @@ copy_decl_type.exit338:                           ; preds = %558, %561
 
 575:                                              ; preds = %.lr.ph597
   %576 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %577 = getelementptr inbounds i8, ptr %576, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 4
   store i32 8, ptr %577, align 4
   br label %580
 
@@ -5088,13 +5088,13 @@ copy_decl_type.exit338:                           ; preds = %558, %561
   br i1 %583, label %584, label %expand_.exit487
 
 584:                                              ; preds = %580
-  %585 = getelementptr inbounds i8, ptr %.0.i484, i64 4
+  %585 = getelementptr inbounds nuw i8, ptr %.0.i484, i64 4
   %586 = shl i32 %581, 1
   %587 = zext i32 %586 to i64
   %588 = shl nuw nsw i64 %587, 3
   %589 = or disjoint i64 %588, 8
   %590 = tail call ptr @calloc_arena(i64 noundef %589) #5
-  %591 = getelementptr inbounds i8, ptr %590, i64 4
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 4
   store i32 %586, ptr %591, align 4
   %592 = load i32, ptr %585, align 4
   %593 = zext i32 %592 to i64
@@ -5112,14 +5112,14 @@ expand_.exit487:                                  ; preds = %580, %584
   %.1.i485 = phi ptr [ %590, %584 ], [ %.0.i484, %580 ]
   %599 = add i32 %598, 1
   store i32 %599, ptr %.1.i485, align 4
-  %600 = getelementptr inbounds i8, ptr %.1.i485, i64 8
-  %601 = getelementptr inbounds ptr, ptr %571, i64 %indvars.iv756
+  %600 = getelementptr inbounds nuw i8, ptr %.1.i485, i64 8
+  %601 = getelementptr inbounds nuw ptr, ptr %571, i64 %indvars.iv756
   %602 = load ptr, ptr %601, align 8
   %603 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %602)
   %604 = load i32, ptr %.1.i485, align 4
   %605 = add i32 %604, -1
   %606 = zext i32 %605 to i64
-  %607 = getelementptr inbounds ptr, ptr %600, i64 %606
+  %607 = getelementptr inbounds nuw ptr, ptr %600, i64 %606
   store ptr %603, ptr %607, align 8
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count759
@@ -5128,7 +5128,7 @@ expand_.exit487:                                  ; preds = %580, %584
 type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %copy_decl_type.exit338, %572
   %.021.i341.lcssa = phi ptr [ null, %572 ], [ null, %copy_decl_type.exit338 ], [ %600, %expand_.exit487 ]
   store ptr %.021.i341.lcssa, ptr %570, align 8
-  %608 = getelementptr inbounds i8, ptr %15, i64 88
+  %608 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %609 = load ptr, ptr %608, align 8
   %.not.i344 = icmp eq ptr %609, null
   br i1 %.not.i344, label %copy_decl_list.exit355, label %610
@@ -5151,7 +5151,7 @@ type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %c
 
 613:                                              ; preds = %.lr.ph601
   %614 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %615 = getelementptr inbounds i8, ptr %614, i64 4
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 4
   store i32 8, ptr %615, align 4
   br label %618
 
@@ -5169,13 +5169,13 @@ type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %c
   br i1 %621, label %622, label %expand_.exit.i352
 
 622:                                              ; preds = %618
-  %623 = getelementptr inbounds i8, ptr %.0.i.i351, i64 4
+  %623 = getelementptr inbounds nuw i8, ptr %.0.i.i351, i64 4
   %624 = shl i32 %619, 1
   %625 = zext i32 %624 to i64
   %626 = shl nuw nsw i64 %625, 3
   %627 = or disjoint i64 %626, 8
   %628 = tail call ptr @calloc_arena(i64 noundef %627) #5
-  %629 = getelementptr inbounds i8, ptr %628, i64 4
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 4
   store i32 %624, ptr %629, align 4
   %630 = load i32, ptr %623, align 4
   %631 = zext i32 %630 to i64
@@ -5193,14 +5193,14 @@ expand_.exit.i352:                                ; preds = %622, %618
   %.1.i.i353 = phi ptr [ %628, %622 ], [ %.0.i.i351, %618 ]
   %637 = add i32 %636, 1
   store i32 %637, ptr %.1.i.i353, align 4
-  %638 = getelementptr inbounds i8, ptr %.1.i.i353, i64 8
-  %639 = getelementptr inbounds ptr, ptr %609, i64 %indvars.iv761
+  %638 = getelementptr inbounds nuw i8, ptr %.1.i.i353, i64 8
+  %639 = getelementptr inbounds nuw ptr, ptr %609, i64 %indvars.iv761
   %640 = load ptr, ptr %639, align 8
   %641 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %640)
   %642 = load i32, ptr %.1.i.i353, align 4
   %643 = add i32 %642, -1
   %644 = zext i32 %643 to i64
-  %645 = getelementptr inbounds ptr, ptr %638, i64 %644
+  %645 = getelementptr inbounds nuw ptr, ptr %638, i64 %644
   store ptr %641, ptr %645, align 8
   %indvars.iv.next762 = add nuw nsw i64 %indvars.iv761, 1
   %exitcond765.not = icmp eq i64 %indvars.iv.next762, %wide.trip.count764
@@ -5209,8 +5209,8 @@ expand_.exit.i352:                                ; preds = %622, %618
 copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, %type_info_copy_list_from_macro.exit343, %610
   %.021.i346.lcssa = phi ptr [ null, %610 ], [ null, %type_info_copy_list_from_macro.exit343 ], [ %638, %expand_.exit.i352 ]
   store ptr %.021.i346.lcssa, ptr %608, align 8
-  %646 = getelementptr inbounds i8, ptr %15, i64 96
-  %647 = getelementptr inbounds i8, ptr %15, i64 104
+  %646 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %647 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %648 = load ptr, ptr %647, align 8
   %.not.i356 = icmp eq ptr %648, null
   br i1 %.not.i356, label %copy_decl_list.exit367, label %649
@@ -5233,7 +5233,7 @@ copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, 
 
 652:                                              ; preds = %.lr.ph605
   %653 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %654 = getelementptr inbounds i8, ptr %653, i64 4
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 4
   store i32 8, ptr %654, align 4
   br label %657
 
@@ -5251,13 +5251,13 @@ copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, 
   br i1 %660, label %661, label %expand_.exit.i364
 
 661:                                              ; preds = %657
-  %662 = getelementptr inbounds i8, ptr %.0.i.i363, i64 4
+  %662 = getelementptr inbounds nuw i8, ptr %.0.i.i363, i64 4
   %663 = shl i32 %658, 1
   %664 = zext i32 %663 to i64
   %665 = shl nuw nsw i64 %664, 3
   %666 = or disjoint i64 %665, 8
   %667 = tail call ptr @calloc_arena(i64 noundef %666) #5
-  %668 = getelementptr inbounds i8, ptr %667, i64 4
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 4
   store i32 %663, ptr %668, align 4
   %669 = load i32, ptr %662, align 4
   %670 = zext i32 %669 to i64
@@ -5275,14 +5275,14 @@ expand_.exit.i364:                                ; preds = %661, %657
   %.1.i.i365 = phi ptr [ %667, %661 ], [ %.0.i.i363, %657 ]
   %676 = add i32 %675, 1
   store i32 %676, ptr %.1.i.i365, align 4
-  %677 = getelementptr inbounds i8, ptr %.1.i.i365, i64 8
-  %678 = getelementptr inbounds ptr, ptr %648, i64 %indvars.iv766
+  %677 = getelementptr inbounds nuw i8, ptr %.1.i.i365, i64 8
+  %678 = getelementptr inbounds nuw ptr, ptr %648, i64 %indvars.iv766
   %679 = load ptr, ptr %678, align 8
   %680 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %679)
   %681 = load i32, ptr %.1.i.i365, align 4
   %682 = add i32 %681, -1
   %683 = zext i32 %682 to i64
-  %684 = getelementptr inbounds ptr, ptr %677, i64 %683
+  %684 = getelementptr inbounds nuw ptr, ptr %677, i64 %683
   store ptr %680, ptr %684, align 8
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %exitcond770.not = icmp eq i64 %indvars.iv.next767, %wide.trip.count769
@@ -5291,7 +5291,7 @@ expand_.exit.i364:                                ; preds = %661, %657
 copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, %copy_decl_list.exit355, %649
   %.021.i358.lcssa = phi ptr [ null, %649 ], [ null, %copy_decl_list.exit355 ], [ %677, %expand_.exit.i364 ]
   store ptr %.021.i358.lcssa, ptr %647, align 8
-  %685 = getelementptr inbounds i8, ptr %15, i64 112
+  %685 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %686 = load ptr, ptr %685, align 8
   %687 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %686)
   store ptr %687, ptr %685, align 8
@@ -5317,7 +5317,7 @@ copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, 
 
 692:                                              ; preds = %.lr.ph609
   %693 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %694 = getelementptr inbounds i8, ptr %693, i64 4
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 4
   store i32 8, ptr %694, align 4
   br label %697
 
@@ -5335,13 +5335,13 @@ copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, 
   br i1 %700, label %701, label %expand_.exit.i376
 
 701:                                              ; preds = %697
-  %702 = getelementptr inbounds i8, ptr %.0.i.i375, i64 4
+  %702 = getelementptr inbounds nuw i8, ptr %.0.i.i375, i64 4
   %703 = shl i32 %698, 1
   %704 = zext i32 %703 to i64
   %705 = shl nuw nsw i64 %704, 3
   %706 = or disjoint i64 %705, 8
   %707 = tail call ptr @calloc_arena(i64 noundef %706) #5
-  %708 = getelementptr inbounds i8, ptr %707, i64 4
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 4
   store i32 %703, ptr %708, align 4
   %709 = load i32, ptr %702, align 4
   %710 = zext i32 %709 to i64
@@ -5359,14 +5359,14 @@ expand_.exit.i376:                                ; preds = %701, %697
   %.1.i.i377 = phi ptr [ %707, %701 ], [ %.0.i.i375, %697 ]
   %716 = add i32 %715, 1
   store i32 %716, ptr %.1.i.i377, align 4
-  %717 = getelementptr inbounds i8, ptr %.1.i.i377, i64 8
-  %718 = getelementptr inbounds ptr, ptr %688, i64 %indvars.iv771
+  %717 = getelementptr inbounds nuw i8, ptr %.1.i.i377, i64 8
+  %718 = getelementptr inbounds nuw ptr, ptr %688, i64 %indvars.iv771
   %719 = load ptr, ptr %718, align 8
   %720 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %719)
   %721 = load i32, ptr %.1.i.i377, align 4
   %722 = add i32 %721, -1
   %723 = zext i32 %722 to i64
-  %724 = getelementptr inbounds ptr, ptr %717, i64 %723
+  %724 = getelementptr inbounds nuw ptr, ptr %717, i64 %723
   store ptr %720, ptr %724, align 8
   %indvars.iv.next772 = add nuw nsw i64 %indvars.iv771, 1
   %exitcond775.not = icmp eq i64 %indvars.iv.next772, %wide.trip.count774
@@ -5378,7 +5378,7 @@ copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, 
   br label %common.ret1025
 
 725:                                              ; preds = %copy_attributes.exit
-  %726 = getelementptr inbounds i8, ptr %15, i64 96
+  %726 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %727 = load ptr, ptr %726, align 8
   %.not.i488 = icmp eq ptr %727, null
   br i1 %.not.i488, label %copy_decl_list.exit499, label %728
@@ -5401,7 +5401,7 @@ copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, 
 
 731:                                              ; preds = %.lr.ph593
   %732 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %733 = getelementptr inbounds i8, ptr %732, i64 4
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 4
   store i32 8, ptr %733, align 4
   br label %736
 
@@ -5419,13 +5419,13 @@ copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, 
   br i1 %739, label %740, label %expand_.exit.i496
 
 740:                                              ; preds = %736
-  %741 = getelementptr inbounds i8, ptr %.0.i.i495, i64 4
+  %741 = getelementptr inbounds nuw i8, ptr %.0.i.i495, i64 4
   %742 = shl i32 %737, 1
   %743 = zext i32 %742 to i64
   %744 = shl nuw nsw i64 %743, 3
   %745 = or disjoint i64 %744, 8
   %746 = tail call ptr @calloc_arena(i64 noundef %745) #5
-  %747 = getelementptr inbounds i8, ptr %746, i64 4
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 4
   store i32 %742, ptr %747, align 4
   %748 = load i32, ptr %741, align 4
   %749 = zext i32 %748 to i64
@@ -5443,14 +5443,14 @@ expand_.exit.i496:                                ; preds = %740, %736
   %.1.i.i497 = phi ptr [ %746, %740 ], [ %.0.i.i495, %736 ]
   %755 = add i32 %754, 1
   store i32 %755, ptr %.1.i.i497, align 4
-  %756 = getelementptr inbounds i8, ptr %.1.i.i497, i64 8
-  %757 = getelementptr inbounds ptr, ptr %727, i64 %indvars.iv751
+  %756 = getelementptr inbounds nuw i8, ptr %.1.i.i497, i64 8
+  %757 = getelementptr inbounds nuw ptr, ptr %727, i64 %indvars.iv751
   %758 = load ptr, ptr %757, align 8
   %759 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %758)
   %760 = load i32, ptr %.1.i.i497, align 4
   %761 = add i32 %760, -1
   %762 = zext i32 %761 to i64
-  %763 = getelementptr inbounds ptr, ptr %756, i64 %762
+  %763 = getelementptr inbounds nuw ptr, ptr %756, i64 %762
   store ptr %759, ptr %763, align 8
   %indvars.iv.next752 = add nuw nsw i64 %indvars.iv751, 1
   %exitcond755.not = icmp eq i64 %indvars.iv.next752, %wide.trip.count754
@@ -5459,7 +5459,7 @@ expand_.exit.i496:                                ; preds = %740, %736
 copy_decl_list.exit499:                           ; preds = %expand_.exit.i496, %725, %728
   %.021.i490.lcssa = phi ptr [ null, %728 ], [ null, %725 ], [ %756, %expand_.exit.i496 ]
   store ptr %.021.i490.lcssa, ptr %726, align 8
-  %764 = getelementptr inbounds i8, ptr %15, i64 88
+  %764 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %765 = load i32, ptr %764, align 8
   %.not.i380 = icmp eq i32 %765, 0
   br i1 %.not.i380, label %copy_signature_deep.exit, label %766
@@ -5467,7 +5467,7 @@ copy_decl_list.exit499:                           ; preds = %expand_.exit.i496, 
 766:                                              ; preds = %copy_decl_list.exit499
   %767 = load ptr, ptr @type_info_arena, align 8
   %768 = zext i32 %765 to i64
-  %769 = getelementptr inbounds %struct.TypeInfo_, ptr %767, i64 %768
+  %769 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %767, i64 %768
   %770 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %769)
   %771 = load ptr, ptr @type_info_arena, align 8
   %772 = ptrtoint ptr %770 to i64
@@ -5483,32 +5483,32 @@ copy_signature_deep.exit:                         ; preds = %copy_decl_list.exit
   br label %common.ret1025
 
 777:                                              ; preds = %copy_attributes.exit
-  %778 = getelementptr inbounds i8, ptr %15, i64 72
+  %778 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %779 = load ptr, ptr %778, align 8
   %.not.i382 = icmp eq ptr %779, null
   br i1 %.not.i382, label %copy_decl_type.exit383, label %780
 
 780:                                              ; preds = %777
   %781 = load i32, ptr %779, align 8
-  %782 = getelementptr inbounds i8, ptr %779, i64 16
+  %782 = getelementptr inbounds nuw i8, ptr %779, i64 16
   %783 = load ptr, ptr %782, align 8
   %784 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %781, ptr %784, align 8
-  %785 = getelementptr inbounds i8, ptr %784, i64 16
+  %785 = getelementptr inbounds nuw i8, ptr %784, i64 16
   store ptr %783, ptr %785, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %784) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %784, ptr noundef nonnull align 8 dereferenceable(80) %779, i64 80, i1 false)
-  %786 = getelementptr inbounds i8, ptr %784, i64 24
+  %786 = getelementptr inbounds nuw i8, ptr %784, i64 24
   store ptr null, ptr %786, align 8
-  %787 = getelementptr inbounds i8, ptr %784, i64 56
+  %787 = getelementptr inbounds nuw i8, ptr %784, i64 56
   store ptr %15, ptr %787, align 8
-  %788 = getelementptr inbounds i8, ptr %784, i64 8
+  %788 = getelementptr inbounds nuw i8, ptr %784, i64 8
   store ptr %784, ptr %788, align 8
   store ptr %784, ptr %778, align 8
   br label %copy_decl_type.exit383
 
 copy_decl_type.exit383:                           ; preds = %777, %780
-  %789 = getelementptr inbounds i8, ptr %15, i64 80
+  %789 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %790 = load i32, ptr %789, align 8
   %.not239 = icmp eq i32 %790, 0
   br i1 %.not239, label %802, label %791
@@ -5516,7 +5516,7 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 791:                                              ; preds = %copy_decl_type.exit383
   %792 = load ptr, ptr @type_info_arena, align 8
   %793 = zext i32 %790 to i64
-  %794 = getelementptr inbounds %struct.TypeInfo_, ptr %792, i64 %793
+  %794 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %792, i64 %793
   %795 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %794)
   %796 = load ptr, ptr @type_info_arena, align 8
   %797 = ptrtoint ptr %795 to i64
@@ -5529,7 +5529,7 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 802:                                              ; preds = %copy_decl_type.exit383, %791
   %.0209 = phi i32 [ %801, %791 ], [ 0, %copy_decl_type.exit383 ]
   store i32 %.0209, ptr %789, align 8
-  %803 = getelementptr inbounds i8, ptr %15, i64 116
+  %803 = getelementptr inbounds nuw i8, ptr %15, i64 116
   %804 = load i32, ptr %803, align 4
   %.not240 = icmp eq i32 %804, 0
   br i1 %.not240, label %816, label %805
@@ -5537,7 +5537,7 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 805:                                              ; preds = %802
   %806 = load ptr, ptr @ast_arena, align 8
   %807 = zext i32 %804 to i64
-  %808 = getelementptr inbounds %struct.Ast_, ptr %806, i64 %807
+  %808 = getelementptr inbounds nuw %struct.Ast_, ptr %806, i64 %807
   %809 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %808)
   %810 = load ptr, ptr @ast_arena, align 8
   %811 = ptrtoint ptr %809 to i64
@@ -5550,7 +5550,7 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 816:                                              ; preds = %802, %805
   %.0213 = phi i32 [ %815, %805 ], [ 0, %802 ]
   store i32 %.0213, ptr %803, align 4
-  %817 = getelementptr inbounds i8, ptr %15, i64 104
+  %817 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %818 = load ptr, ptr %817, align 8
   %.not.i500 = icmp eq ptr %818, null
   br i1 %.not.i500, label %copy_decl_list.exit511, label %819
@@ -5573,7 +5573,7 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 
 822:                                              ; preds = %.lr.ph589
   %823 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %824 = getelementptr inbounds i8, ptr %823, i64 4
+  %824 = getelementptr inbounds nuw i8, ptr %823, i64 4
   store i32 8, ptr %824, align 4
   br label %827
 
@@ -5591,13 +5591,13 @@ copy_decl_type.exit383:                           ; preds = %777, %780
   br i1 %830, label %831, label %expand_.exit.i508
 
 831:                                              ; preds = %827
-  %832 = getelementptr inbounds i8, ptr %.0.i.i507, i64 4
+  %832 = getelementptr inbounds nuw i8, ptr %.0.i.i507, i64 4
   %833 = shl i32 %828, 1
   %834 = zext i32 %833 to i64
   %835 = shl nuw nsw i64 %834, 3
   %836 = or disjoint i64 %835, 8
   %837 = tail call ptr @calloc_arena(i64 noundef %836) #5
-  %838 = getelementptr inbounds i8, ptr %837, i64 4
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 4
   store i32 %833, ptr %838, align 4
   %839 = load i32, ptr %832, align 4
   %840 = zext i32 %839 to i64
@@ -5615,14 +5615,14 @@ expand_.exit.i508:                                ; preds = %831, %827
   %.1.i.i509 = phi ptr [ %837, %831 ], [ %.0.i.i507, %827 ]
   %846 = add i32 %845, 1
   store i32 %846, ptr %.1.i.i509, align 4
-  %847 = getelementptr inbounds i8, ptr %.1.i.i509, i64 8
-  %848 = getelementptr inbounds ptr, ptr %818, i64 %indvars.iv746
+  %847 = getelementptr inbounds nuw i8, ptr %.1.i.i509, i64 8
+  %848 = getelementptr inbounds nuw ptr, ptr %818, i64 %indvars.iv746
   %849 = load ptr, ptr %848, align 8
   %850 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %849)
   %851 = load i32, ptr %.1.i.i509, align 4
   %852 = add i32 %851, -1
   %853 = zext i32 %852 to i64
-  %854 = getelementptr inbounds ptr, ptr %847, i64 %853
+  %854 = getelementptr inbounds nuw ptr, ptr %847, i64 %853
   store ptr %850, ptr %854, align 8
   %indvars.iv.next747 = add nuw nsw i64 %indvars.iv746, 1
   %exitcond750.not = icmp eq i64 %indvars.iv.next747, %wide.trip.count749
@@ -5631,7 +5631,7 @@ expand_.exit.i508:                                ; preds = %831, %827
 copy_decl_list.exit511:                           ; preds = %expand_.exit.i508, %816, %819
   %.021.i502.lcssa = phi ptr [ null, %819 ], [ null, %816 ], [ %847, %expand_.exit.i508 ]
   store ptr %.021.i502.lcssa, ptr %817, align 8
-  %855 = getelementptr inbounds i8, ptr %15, i64 96
+  %855 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %856 = load i32, ptr %855, align 8
   %.not.i384 = icmp eq i32 %856, 0
   br i1 %.not.i384, label %copy_signature_deep.exit386, label %857
@@ -5639,7 +5639,7 @@ copy_decl_list.exit511:                           ; preds = %expand_.exit.i508, 
 857:                                              ; preds = %copy_decl_list.exit511
   %858 = load ptr, ptr @type_info_arena, align 8
   %859 = zext i32 %856 to i64
-  %860 = getelementptr inbounds %struct.TypeInfo_, ptr %858, i64 %859
+  %860 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %858, i64 %859
   %861 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %860)
   %862 = load ptr, ptr @type_info_arena, align 8
   %863 = ptrtoint ptr %861 to i64
@@ -5652,7 +5652,7 @@ copy_decl_list.exit511:                           ; preds = %expand_.exit.i508, 
 copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit511, %857
   %.0.i385 = phi i32 [ %867, %857 ], [ 0, %copy_decl_list.exit511 ]
   store i32 %.0.i385, ptr %855, align 8
-  %868 = getelementptr inbounds i8, ptr %15, i64 112
+  %868 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %869 = load i32, ptr %868, align 8
   %.not241 = icmp eq i32 %869, 0
   br i1 %.not241, label %881, label %870
@@ -5660,7 +5660,7 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
 870:                                              ; preds = %copy_signature_deep.exit386
   %871 = load ptr, ptr @ast_arena, align 8
   %872 = zext i32 %869 to i64
-  %873 = getelementptr inbounds %struct.Ast_, ptr %871, i64 %872
+  %873 = getelementptr inbounds nuw %struct.Ast_, ptr %871, i64 %872
   %874 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %873)
   %875 = load ptr, ptr @ast_arena, align 8
   %876 = ptrtoint ptr %874 to i64
@@ -5676,8 +5676,8 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
   br label %common.ret1025
 
 882:                                              ; preds = %copy_attributes.exit
-  %883 = getelementptr inbounds i8, ptr %15, i64 80
-  %884 = getelementptr inbounds i8, ptr %15, i64 84
+  %883 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %884 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %885 = load i32, ptr %884, align 4
   %.not237 = icmp eq i32 %885, 0
   br i1 %.not237, label %897, label %886
@@ -5685,7 +5685,7 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
 886:                                              ; preds = %882
   %887 = load ptr, ptr @type_info_arena, align 8
   %888 = zext i32 %885 to i64
-  %889 = getelementptr inbounds %struct.TypeInfo_, ptr %887, i64 %888
+  %889 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %887, i64 %888
   %890 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %889)
   %891 = load ptr, ptr @type_info_arena, align 8
   %892 = ptrtoint ptr %890 to i64
@@ -5710,7 +5710,7 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
   ret ptr %common.ret1025.op
 
 899:                                              ; preds = %897
-  %900 = getelementptr inbounds i8, ptr %15, i64 88
+  %900 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %901 = load ptr, ptr %900, align 8
   %902 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %901)
   store ptr %902, ptr %900, align 8
@@ -5722,26 +5722,26 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
   br i1 %.not238, label %common.ret1025, label %905
 
 905:                                              ; preds = %903
-  %906 = getelementptr inbounds i8, ptr %15, i64 96
+  %906 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %907 = load ptr, ptr %906, align 8
   %908 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %907)
   store ptr %908, ptr %906, align 8
-  %909 = getelementptr inbounds i8, ptr %15, i64 104
+  %909 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %910 = load ptr, ptr %909, align 8
   %911 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %910)
   store ptr %911, ptr %909, align 8
   br label %common.ret1025
 
 912:                                              ; preds = %897
-  %913 = getelementptr inbounds i8, ptr %15, i64 88
+  %913 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %914 = load ptr, ptr %913, align 8
   %915 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %914)
   store ptr %915, ptr %913, align 8
   br label %common.ret1025
 
 916:                                              ; preds = %copy_attributes.exit
-  %917 = getelementptr inbounds i8, ptr %15, i64 80
-  %918 = getelementptr inbounds i8, ptr %15, i64 92
+  %917 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %918 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %919 = load i32, ptr %918, align 4
   %.not235 = icmp eq i32 %919, 0
   br i1 %.not235, label %fixup.exit.thread, label %920
@@ -5749,7 +5749,7 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
 920:                                              ; preds = %916
   %921 = load ptr, ptr @decl_arena, align 8
   %922 = zext i32 %919 to i64
-  %923 = getelementptr inbounds %struct.Decl_, ptr %921, i64 %922
+  %923 = getelementptr inbounds nuw %struct.Decl_, ptr %921, i64 %922
   %924 = load ptr, ptr %16, align 8
   br label %925
 
@@ -5802,7 +5802,7 @@ fixup.exit.thread:                                ; preds = %925, %916, %932, %f
 
 942:                                              ; preds = %.lr.ph581
   %943 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %944 = getelementptr inbounds i8, ptr %943, i64 4
+  %944 = getelementptr inbounds nuw i8, ptr %943, i64 4
   store i32 8, ptr %944, align 4
   br label %947
 
@@ -5820,13 +5820,13 @@ fixup.exit.thread:                                ; preds = %925, %916, %932, %f
   br i1 %950, label %951, label %expand_.exit518
 
 951:                                              ; preds = %947
-  %952 = getelementptr inbounds i8, ptr %.0.i515, i64 4
+  %952 = getelementptr inbounds nuw i8, ptr %.0.i515, i64 4
   %953 = shl i32 %948, 1
   %954 = zext i32 %953 to i64
   %955 = shl nuw nsw i64 %954, 3
   %956 = or disjoint i64 %955, 8
   %957 = tail call ptr @calloc_arena(i64 noundef %956) #5
-  %958 = getelementptr inbounds i8, ptr %957, i64 4
+  %958 = getelementptr inbounds nuw i8, ptr %957, i64 4
   store i32 %953, ptr %958, align 4
   %959 = load i32, ptr %952, align 4
   %960 = zext i32 %959 to i64
@@ -5844,14 +5844,14 @@ expand_.exit518:                                  ; preds = %947, %951
   %.1.i516 = phi ptr [ %957, %951 ], [ %.0.i515, %947 ]
   %966 = add i32 %965, 1
   store i32 %966, ptr %.1.i516, align 4
-  %967 = getelementptr inbounds i8, ptr %.1.i516, i64 8
-  %968 = getelementptr inbounds ptr, ptr %938, i64 %indvars.iv736
+  %967 = getelementptr inbounds nuw i8, ptr %.1.i516, i64 8
+  %968 = getelementptr inbounds nuw ptr, ptr %938, i64 %indvars.iv736
   %969 = load ptr, ptr %968, align 8
   %970 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %969)
   %971 = load i32, ptr %.1.i516, align 4
   %972 = add i32 %971, -1
   %973 = zext i32 %972 to i64
-  %974 = getelementptr inbounds ptr, ptr %967, i64 %973
+  %974 = getelementptr inbounds nuw ptr, ptr %967, i64 %973
   store ptr %970, ptr %974, align 8
   %indvars.iv.next737 = add nuw nsw i64 %indvars.iv736, 1
   %exitcond740.not = icmp eq i64 %indvars.iv.next737, %wide.trip.count739
@@ -5863,7 +5863,7 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
   br label %common.ret1025
 
 975:                                              ; preds = %copy_attributes.exit
-  %976 = getelementptr inbounds i8, ptr %15, i64 92
+  %976 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %977 = load i32, ptr %976, align 4
   %.not233 = icmp eq i32 %977, 0
   br i1 %.not233, label %common.ret1025, label %978
@@ -5871,7 +5871,7 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
 978:                                              ; preds = %975
   %979 = load ptr, ptr @decl_arena, align 8
   %980 = zext i32 %977 to i64
-  %981 = getelementptr inbounds %struct.Decl_, ptr %979, i64 %980
+  %981 = getelementptr inbounds nuw %struct.Decl_, ptr %979, i64 %980
   %982 = load ptr, ptr %16, align 8
   br label %983
 
@@ -5902,35 +5902,35 @@ fixup.exit397:                                    ; preds = %984
   br label %common.ret1025
 
 996:                                              ; preds = %copy_attributes.exit
-  %997 = getelementptr inbounds i8, ptr %15, i64 72
+  %997 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %998 = load ptr, ptr %997, align 8
   %.not.i398 = icmp eq ptr %998, null
   br i1 %.not.i398, label %copy_decl_type.exit399, label %999
 
 999:                                              ; preds = %996
   %1000 = load i32, ptr %998, align 8
-  %1001 = getelementptr inbounds i8, ptr %998, i64 16
+  %1001 = getelementptr inbounds nuw i8, ptr %998, i64 16
   %1002 = load ptr, ptr %1001, align 8
   %1003 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %1000, ptr %1003, align 8
-  %1004 = getelementptr inbounds i8, ptr %1003, i64 16
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 16
   store ptr %1002, ptr %1004, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %1003) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1003, ptr noundef nonnull align 8 dereferenceable(80) %998, i64 80, i1 false)
-  %1005 = getelementptr inbounds i8, ptr %1003, i64 24
+  %1005 = getelementptr inbounds nuw i8, ptr %1003, i64 24
   store ptr null, ptr %1005, align 8
-  %1006 = getelementptr inbounds i8, ptr %1003, i64 56
+  %1006 = getelementptr inbounds nuw i8, ptr %1003, i64 56
   store ptr %15, ptr %1006, align 8
-  %1007 = getelementptr inbounds i8, ptr %1003, i64 8
+  %1007 = getelementptr inbounds nuw i8, ptr %1003, i64 8
   store ptr %1003, ptr %1007, align 8
   store ptr %1003, ptr %997, align 8
   br label %copy_decl_type.exit399
 
 copy_decl_type.exit399:                           ; preds = %996, %999
-  %1008 = getelementptr inbounds i8, ptr %15, i64 80
+  %1008 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %1009 = load i8, ptr %1008, align 8
   %1010 = trunc i8 %1009 to i1
-  %1011 = getelementptr inbounds i8, ptr %15, i64 88
+  %1011 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %1012 = load ptr, ptr %1011, align 8
   br i1 %1010, label %1013, label %1015
 
@@ -5945,32 +5945,32 @@ copy_decl_type.exit399:                           ; preds = %996, %999
   br label %common.ret1025
 
 1017:                                             ; preds = %copy_attributes.exit
-  %1018 = getelementptr inbounds i8, ptr %15, i64 72
+  %1018 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %1019 = load ptr, ptr %1018, align 8
   %.not.i400 = icmp eq ptr %1019, null
   br i1 %.not.i400, label %copy_decl_type.exit401, label %1020
 
 1020:                                             ; preds = %1017
   %1021 = load i32, ptr %1019, align 8
-  %1022 = getelementptr inbounds i8, ptr %1019, i64 16
+  %1022 = getelementptr inbounds nuw i8, ptr %1019, i64 16
   %1023 = load ptr, ptr %1022, align 8
   %1024 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %1021, ptr %1024, align 8
-  %1025 = getelementptr inbounds i8, ptr %1024, i64 16
+  %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 16
   store ptr %1023, ptr %1025, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %1024) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1024, ptr noundef nonnull align 8 dereferenceable(80) %1019, i64 80, i1 false)
-  %1026 = getelementptr inbounds i8, ptr %1024, i64 24
+  %1026 = getelementptr inbounds nuw i8, ptr %1024, i64 24
   store ptr null, ptr %1026, align 8
-  %1027 = getelementptr inbounds i8, ptr %1024, i64 56
+  %1027 = getelementptr inbounds nuw i8, ptr %1024, i64 56
   store ptr %15, ptr %1027, align 8
-  %1028 = getelementptr inbounds i8, ptr %1024, i64 8
+  %1028 = getelementptr inbounds nuw i8, ptr %1024, i64 8
   store ptr %1024, ptr %1028, align 8
   store ptr %1024, ptr %1018, align 8
   br label %copy_decl_type.exit401
 
 copy_decl_type.exit401:                           ; preds = %1017, %1020
-  %1029 = getelementptr inbounds i8, ptr %15, i64 80
+  %1029 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %1030 = load ptr, ptr %1029, align 8
   %.not.i402 = icmp eq ptr %1030, null
   br i1 %.not.i402, label %type_info_copy_list_from_macro.exit406, label %1031
@@ -5993,7 +5993,7 @@ copy_decl_type.exit401:                           ; preds = %1017, %1020
 
 1034:                                             ; preds = %.lr.ph573
   %1035 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1036 = getelementptr inbounds i8, ptr %1035, i64 4
+  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 4
   store i32 8, ptr %1036, align 4
   br label %1039
 
@@ -6011,13 +6011,13 @@ copy_decl_type.exit401:                           ; preds = %1017, %1020
   br i1 %1042, label %1043, label %expand_.exit525
 
 1043:                                             ; preds = %1039
-  %1044 = getelementptr inbounds i8, ptr %.0.i522, i64 4
+  %1044 = getelementptr inbounds nuw i8, ptr %.0.i522, i64 4
   %1045 = shl i32 %1040, 1
   %1046 = zext i32 %1045 to i64
   %1047 = shl nuw nsw i64 %1046, 3
   %1048 = or disjoint i64 %1047, 8
   %1049 = tail call ptr @calloc_arena(i64 noundef %1048) #5
-  %1050 = getelementptr inbounds i8, ptr %1049, i64 4
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 4
   store i32 %1045, ptr %1050, align 4
   %1051 = load i32, ptr %1044, align 4
   %1052 = zext i32 %1051 to i64
@@ -6035,14 +6035,14 @@ expand_.exit525:                                  ; preds = %1039, %1043
   %.1.i523 = phi ptr [ %1049, %1043 ], [ %.0.i522, %1039 ]
   %1058 = add i32 %1057, 1
   store i32 %1058, ptr %.1.i523, align 4
-  %1059 = getelementptr inbounds i8, ptr %.1.i523, i64 8
-  %1060 = getelementptr inbounds ptr, ptr %1030, i64 %indvars.iv726
+  %1059 = getelementptr inbounds nuw i8, ptr %.1.i523, i64 8
+  %1060 = getelementptr inbounds nuw ptr, ptr %1030, i64 %indvars.iv726
   %1061 = load ptr, ptr %1060, align 8
   %1062 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %1061)
   %1063 = load i32, ptr %.1.i523, align 4
   %1064 = add i32 %1063, -1
   %1065 = zext i32 %1064 to i64
-  %1066 = getelementptr inbounds ptr, ptr %1059, i64 %1065
+  %1066 = getelementptr inbounds nuw ptr, ptr %1059, i64 %1065
   store ptr %1062, ptr %1066, align 8
   %indvars.iv.next727 = add nuw nsw i64 %indvars.iv726, 1
   %exitcond730.not = icmp eq i64 %indvars.iv.next727, %wide.trip.count729
@@ -6051,7 +6051,7 @@ expand_.exit525:                                  ; preds = %1039, %1043
 type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %copy_decl_type.exit401, %1031
   %.021.i404.lcssa = phi ptr [ null, %1031 ], [ null, %copy_decl_type.exit401 ], [ %1059, %expand_.exit525 ]
   store ptr %.021.i404.lcssa, ptr %1029, align 8
-  %1067 = getelementptr inbounds i8, ptr %15, i64 88
+  %1067 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %1068 = load ptr, ptr %1067, align 8
   %.not.i407 = icmp eq ptr %1068, null
   br i1 %.not.i407, label %copy_decl_list.exit418, label %1069
@@ -6074,7 +6074,7 @@ type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %c
 
 1072:                                             ; preds = %.lr.ph577
   %1073 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1074 = getelementptr inbounds i8, ptr %1073, i64 4
+  %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 4
   store i32 8, ptr %1074, align 4
   br label %1077
 
@@ -6092,13 +6092,13 @@ type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %c
   br i1 %1080, label %1081, label %expand_.exit.i415
 
 1081:                                             ; preds = %1077
-  %1082 = getelementptr inbounds i8, ptr %.0.i.i414, i64 4
+  %1082 = getelementptr inbounds nuw i8, ptr %.0.i.i414, i64 4
   %1083 = shl i32 %1078, 1
   %1084 = zext i32 %1083 to i64
   %1085 = shl nuw nsw i64 %1084, 3
   %1086 = or disjoint i64 %1085, 8
   %1087 = tail call ptr @calloc_arena(i64 noundef %1086) #5
-  %1088 = getelementptr inbounds i8, ptr %1087, i64 4
+  %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 4
   store i32 %1083, ptr %1088, align 4
   %1089 = load i32, ptr %1082, align 4
   %1090 = zext i32 %1089 to i64
@@ -6116,14 +6116,14 @@ expand_.exit.i415:                                ; preds = %1081, %1077
   %.1.i.i416 = phi ptr [ %1087, %1081 ], [ %.0.i.i414, %1077 ]
   %1096 = add i32 %1095, 1
   store i32 %1096, ptr %.1.i.i416, align 4
-  %1097 = getelementptr inbounds i8, ptr %.1.i.i416, i64 8
-  %1098 = getelementptr inbounds ptr, ptr %1068, i64 %indvars.iv731
+  %1097 = getelementptr inbounds nuw i8, ptr %.1.i.i416, i64 8
+  %1098 = getelementptr inbounds nuw ptr, ptr %1068, i64 %indvars.iv731
   %1099 = load ptr, ptr %1098, align 8
   %1100 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %1099)
   %1101 = load i32, ptr %.1.i.i416, align 4
   %1102 = add i32 %1101, -1
   %1103 = zext i32 %1102 to i64
-  %1104 = getelementptr inbounds ptr, ptr %1097, i64 %1103
+  %1104 = getelementptr inbounds nuw ptr, ptr %1097, i64 %1103
   store ptr %1100, ptr %1104, align 8
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 1
   %exitcond735.not = icmp eq i64 %indvars.iv.next732, %wide.trip.count734
@@ -6132,28 +6132,28 @@ expand_.exit.i415:                                ; preds = %1081, %1077
 copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, %type_info_copy_list_from_macro.exit406, %1069
   %.021.i409.lcssa = phi ptr [ null, %1069 ], [ null, %type_info_copy_list_from_macro.exit406 ], [ %1097, %expand_.exit.i415 ]
   store ptr %.021.i409.lcssa, ptr %1067, align 8
-  %1105 = getelementptr inbounds i8, ptr %15, i64 96
+  %1105 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %1106 = load ptr, ptr %1105, align 8
   %1107 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %1106)
   store ptr %1107, ptr %1105, align 8
   br label %common.ret1025
 
 1108:                                             ; preds = %copy_attributes.exit
-  %1109 = getelementptr inbounds i8, ptr %1, i64 80
+  %1109 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1110 = load ptr, ptr %1109, align 8
   %1111 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1110)
   store ptr %1111, ptr %1109, align 8
   br label %common.ret1025
 
 1112:                                             ; preds = %copy_attributes.exit
-  %1113 = getelementptr inbounds i8, ptr %1, i64 80
+  %1113 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1114 = load ptr, ptr %1113, align 8
   %1115 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1114)
   store ptr %1115, ptr %1113, align 8
   br label %common.ret1025
 
 1116:                                             ; preds = %copy_attributes.exit
-  %1117 = getelementptr inbounds i8, ptr %15, i64 116
+  %1117 = getelementptr inbounds nuw i8, ptr %15, i64 116
   %1118 = load i32, ptr %1117, align 4
   %.not229 = icmp eq i32 %1118, 0
   br i1 %.not229, label %1130, label %1119
@@ -6161,7 +6161,7 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 1119:                                             ; preds = %1116
   %1120 = load ptr, ptr @ast_arena, align 8
   %1121 = zext i32 %1118 to i64
-  %1122 = getelementptr inbounds %struct.Ast_, ptr %1120, i64 %1121
+  %1122 = getelementptr inbounds nuw %struct.Ast_, ptr %1120, i64 %1121
   %1123 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %1122)
   %1124 = load ptr, ptr @ast_arena, align 8
   %1125 = ptrtoint ptr %1123 to i64
@@ -6174,7 +6174,7 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 1130:                                             ; preds = %1116, %1119
   %.0214 = phi i32 [ %1129, %1119 ], [ 0, %1116 ]
   store i32 %.0214, ptr %1117, align 4
-  %1131 = getelementptr inbounds i8, ptr %1, i64 80
+  %1131 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1132 = load i32, ptr %1131, align 8
   %.not230 = icmp eq i32 %1132, 0
   br i1 %.not230, label %1144, label %1133
@@ -6182,7 +6182,7 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 1133:                                             ; preds = %1130
   %1134 = load ptr, ptr @type_info_arena, align 8
   %1135 = zext i32 %1132 to i64
-  %1136 = getelementptr inbounds %struct.TypeInfo_, ptr %1134, i64 %1135
+  %1136 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %1134, i64 %1135
   %1137 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %1136)
   %1138 = load ptr, ptr @type_info_arena, align 8
   %1139 = ptrtoint ptr %1137 to i64
@@ -6195,7 +6195,7 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 1144:                                             ; preds = %1130, %1133
   %.0212 = phi i32 [ %1143, %1133 ], [ 0, %1130 ]
   store i32 %.0212, ptr %1131, align 8
-  %1145 = getelementptr inbounds i8, ptr %15, i64 104
+  %1145 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %1146 = load ptr, ptr %1145, align 8
   %.not.i526 = icmp eq ptr %1146, null
   br i1 %.not.i526, label %copy_decl_list.exit537, label %1147
@@ -6218,7 +6218,7 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 
 1150:                                             ; preds = %.lr.ph585
   %1151 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1152 = getelementptr inbounds i8, ptr %1151, i64 4
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 4
   store i32 8, ptr %1152, align 4
   br label %1155
 
@@ -6236,13 +6236,13 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
   br i1 %1158, label %1159, label %expand_.exit.i534
 
 1159:                                             ; preds = %1155
-  %1160 = getelementptr inbounds i8, ptr %.0.i.i533, i64 4
+  %1160 = getelementptr inbounds nuw i8, ptr %.0.i.i533, i64 4
   %1161 = shl i32 %1156, 1
   %1162 = zext i32 %1161 to i64
   %1163 = shl nuw nsw i64 %1162, 3
   %1164 = or disjoint i64 %1163, 8
   %1165 = tail call ptr @calloc_arena(i64 noundef %1164) #5
-  %1166 = getelementptr inbounds i8, ptr %1165, i64 4
+  %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 4
   store i32 %1161, ptr %1166, align 4
   %1167 = load i32, ptr %1160, align 4
   %1168 = zext i32 %1167 to i64
@@ -6260,14 +6260,14 @@ expand_.exit.i534:                                ; preds = %1159, %1155
   %.1.i.i535 = phi ptr [ %1165, %1159 ], [ %.0.i.i533, %1155 ]
   %1174 = add i32 %1173, 1
   store i32 %1174, ptr %.1.i.i535, align 4
-  %1175 = getelementptr inbounds i8, ptr %.1.i.i535, i64 8
-  %1176 = getelementptr inbounds ptr, ptr %1146, i64 %indvars.iv741
+  %1175 = getelementptr inbounds nuw i8, ptr %.1.i.i535, i64 8
+  %1176 = getelementptr inbounds nuw ptr, ptr %1146, i64 %indvars.iv741
   %1177 = load ptr, ptr %1176, align 8
   %1178 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %1177)
   %1179 = load i32, ptr %.1.i.i535, align 4
   %1180 = add i32 %1179, -1
   %1181 = zext i32 %1180 to i64
-  %1182 = getelementptr inbounds ptr, ptr %1175, i64 %1181
+  %1182 = getelementptr inbounds nuw ptr, ptr %1175, i64 %1181
   store ptr %1178, ptr %1182, align 8
   %indvars.iv.next742 = add nuw nsw i64 %indvars.iv741, 1
   %exitcond745.not = icmp eq i64 %indvars.iv.next742, %wide.trip.count744
@@ -6276,7 +6276,7 @@ expand_.exit.i534:                                ; preds = %1159, %1155
 copy_decl_list.exit537:                           ; preds = %expand_.exit.i534, %1144, %1147
   %.021.i528.lcssa = phi ptr [ null, %1147 ], [ null, %1144 ], [ %1175, %expand_.exit.i534 ]
   store ptr %.021.i528.lcssa, ptr %1145, align 8
-  %1183 = getelementptr inbounds i8, ptr %15, i64 96
+  %1183 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %1184 = load i32, ptr %1183, align 8
   %.not.i419 = icmp eq i32 %1184, 0
   br i1 %.not.i419, label %copy_signature_deep.exit421, label %1185
@@ -6284,7 +6284,7 @@ copy_decl_list.exit537:                           ; preds = %expand_.exit.i534, 
 1185:                                             ; preds = %copy_decl_list.exit537
   %1186 = load ptr, ptr @type_info_arena, align 8
   %1187 = zext i32 %1184 to i64
-  %1188 = getelementptr inbounds %struct.TypeInfo_, ptr %1186, i64 %1187
+  %1188 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %1186, i64 %1187
   %1189 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef nonnull %1188)
   %1190 = load ptr, ptr @type_info_arena, align 8
   %1191 = ptrtoint ptr %1189 to i64
@@ -6297,7 +6297,7 @@ copy_decl_list.exit537:                           ; preds = %expand_.exit.i534, 
 copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit537, %1185
   %.0.i420 = phi i32 [ %1195, %1185 ], [ 0, %copy_decl_list.exit537 ]
   store i32 %.0.i420, ptr %1183, align 8
-  %1196 = getelementptr inbounds i8, ptr %1, i64 112
+  %1196 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %1197 = load i32, ptr %1196, align 8
   %.not231 = icmp eq i32 %1197, 0
   br i1 %.not231, label %1209, label %1198
@@ -6305,7 +6305,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 1198:                                             ; preds = %copy_signature_deep.exit421
   %1199 = load ptr, ptr @ast_arena, align 8
   %1200 = zext i32 %1197 to i64
-  %1201 = getelementptr inbounds %struct.Ast_, ptr %1199, i64 %1200
+  %1201 = getelementptr inbounds nuw %struct.Ast_, ptr %1199, i64 %1200
   %1202 = tail call fastcc ptr @ast_copy_deep(ptr noundef %0, ptr noundef nonnull %1201)
   %1203 = load ptr, ptr @ast_arena, align 8
   %1204 = ptrtoint ptr %1202 to i64
@@ -6318,7 +6318,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 1209:                                             ; preds = %copy_signature_deep.exit421, %1198
   %.0211 = phi i32 [ %1208, %1198 ], [ 0, %copy_signature_deep.exit421 ]
   store i32 %.0211, ptr %1196, align 8
-  %1210 = getelementptr inbounds i8, ptr %1, i64 120
+  %1210 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %1211 = load i32, ptr %1210, align 8
   %.not232 = icmp eq i32 %1211, 0
   br i1 %.not232, label %1223, label %1212
@@ -6326,7 +6326,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 1212:                                             ; preds = %1209
   %1213 = load ptr, ptr @decl_arena, align 8
   %1214 = zext i32 %1211 to i64
-  %1215 = getelementptr inbounds %struct.Decl_, ptr %1213, i64 %1214
+  %1215 = getelementptr inbounds nuw %struct.Decl_, ptr %1213, i64 %1214
   %1216 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef nonnull %1215)
   %1217 = load ptr, ptr @decl_arena, align 8
   %1218 = ptrtoint ptr %1216 to i64
@@ -6342,7 +6342,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
   br label %common.ret1025
 
 1224:                                             ; preds = %copy_attributes.exit
-  %1225 = getelementptr inbounds i8, ptr %1, i64 80
+  %1225 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1226 = load ptr, ptr %1225, align 8
   %.not.i422 = icmp eq ptr %1226, null
   br i1 %.not.i422, label %copy_decl_list.exit433, label %1227
@@ -6365,7 +6365,7 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 
 1230:                                             ; preds = %.lr.ph657
   %1231 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1232 = getelementptr inbounds i8, ptr %1231, i64 4
+  %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 4
   store i32 8, ptr %1232, align 4
   br label %1235
 
@@ -6383,13 +6383,13 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
   br i1 %1238, label %1239, label %expand_.exit.i430
 
 1239:                                             ; preds = %1235
-  %1240 = getelementptr inbounds i8, ptr %.0.i.i429, i64 4
+  %1240 = getelementptr inbounds nuw i8, ptr %.0.i.i429, i64 4
   %1241 = shl i32 %1236, 1
   %1242 = zext i32 %1241 to i64
   %1243 = shl nuw nsw i64 %1242, 3
   %1244 = or disjoint i64 %1243, 8
   %1245 = tail call ptr @calloc_arena(i64 noundef %1244) #5
-  %1246 = getelementptr inbounds i8, ptr %1245, i64 4
+  %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 4
   store i32 %1241, ptr %1246, align 4
   %1247 = load i32, ptr %1240, align 4
   %1248 = zext i32 %1247 to i64
@@ -6407,14 +6407,14 @@ expand_.exit.i430:                                ; preds = %1239, %1235
   %.1.i.i431 = phi ptr [ %1245, %1239 ], [ %.0.i.i429, %1235 ]
   %1254 = add i32 %1253, 1
   store i32 %1254, ptr %.1.i.i431, align 4
-  %1255 = getelementptr inbounds i8, ptr %.1.i.i431, i64 8
-  %1256 = getelementptr inbounds ptr, ptr %1226, i64 %indvars.iv831
+  %1255 = getelementptr inbounds nuw i8, ptr %.1.i.i431, i64 8
+  %1256 = getelementptr inbounds nuw ptr, ptr %1226, i64 %indvars.iv831
   %1257 = load ptr, ptr %1256, align 8
   %1258 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %1257)
   %1259 = load i32, ptr %.1.i.i431, align 4
   %1260 = add i32 %1259, -1
   %1261 = zext i32 %1260 to i64
-  %1262 = getelementptr inbounds ptr, ptr %1255, i64 %1261
+  %1262 = getelementptr inbounds nuw ptr, ptr %1255, i64 %1261
   store ptr %1258, ptr %1262, align 8
   %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
   %exitcond835.not = icmp eq i64 %indvars.iv.next832, %wide.trip.count834
@@ -6423,7 +6423,7 @@ expand_.exit.i430:                                ; preds = %1239, %1235
 copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, %1224, %1227
   %.021.i424.lcssa = phi ptr [ null, %1227 ], [ null, %1224 ], [ %1255, %expand_.exit.i430 ]
   store ptr %.021.i424.lcssa, ptr %1225, align 8
-  %1263 = getelementptr inbounds i8, ptr %1, i64 88
+  %1263 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %1264 = load ptr, ptr %1263, align 8
   %.not.i434 = icmp eq ptr %1264, null
   br i1 %.not.i434, label %copy_attributes.exit438, label %1265
@@ -6441,11 +6441,11 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
 .lr.ph665:                                        ; preds = %.lr.ph665.preheader, %expand_.exit544
   %indvars.iv841 = phi i64 [ 0, %.lr.ph665.preheader ], [ %indvars.iv.next842, %expand_.exit544 ]
   %.029.i436664 = phi ptr [ null, %.lr.ph665.preheader ], [ %1334, %expand_.exit544 ]
-  %1268 = getelementptr inbounds ptr, ptr %1264, i64 %indvars.iv841
+  %1268 = getelementptr inbounds nuw ptr, ptr %1264, i64 %indvars.iv841
   %1269 = load ptr, ptr %1268, align 8
   %1270 = tail call ptr @calloc_arena(i64 noundef 40) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1270, ptr noundef nonnull align 8 dereferenceable(40) %1269, i64 40, i1 false)
-  %1271 = getelementptr inbounds i8, ptr %1270, i64 32
+  %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 32
   %1272 = load ptr, ptr %1271, align 8
   %.not.i545 = icmp eq ptr %1272, null
   br i1 %.not.i545, label %copy_expr_list.exit556, label %1273
@@ -6468,7 +6468,7 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
 
 1276:                                             ; preds = %.lr.ph661
   %1277 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1278 = getelementptr inbounds i8, ptr %1277, i64 4
+  %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 4
   store i32 8, ptr %1278, align 4
   br label %1281
 
@@ -6486,13 +6486,13 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
   br i1 %1284, label %1285, label %expand_.exit.i553
 
 1285:                                             ; preds = %1281
-  %1286 = getelementptr inbounds i8, ptr %.0.i.i552, i64 4
+  %1286 = getelementptr inbounds nuw i8, ptr %.0.i.i552, i64 4
   %1287 = shl i32 %1282, 1
   %1288 = zext i32 %1287 to i64
   %1289 = shl nuw nsw i64 %1288, 3
   %1290 = or disjoint i64 %1289, 8
   %1291 = tail call ptr @calloc_arena(i64 noundef %1290) #5
-  %1292 = getelementptr inbounds i8, ptr %1291, i64 4
+  %1292 = getelementptr inbounds nuw i8, ptr %1291, i64 4
   store i32 %1287, ptr %1292, align 4
   %1293 = load i32, ptr %1286, align 4
   %1294 = zext i32 %1293 to i64
@@ -6510,14 +6510,14 @@ expand_.exit.i553:                                ; preds = %1285, %1281
   %.1.i.i554 = phi ptr [ %1291, %1285 ], [ %.0.i.i552, %1281 ]
   %1300 = add i32 %1299, 1
   store i32 %1300, ptr %.1.i.i554, align 4
-  %1301 = getelementptr inbounds i8, ptr %.1.i.i554, i64 8
-  %1302 = getelementptr inbounds ptr, ptr %1272, i64 %indvars.iv836
+  %1301 = getelementptr inbounds nuw i8, ptr %.1.i.i554, i64 8
+  %1302 = getelementptr inbounds nuw ptr, ptr %1272, i64 %indvars.iv836
   %1303 = load ptr, ptr %1302, align 8
   %1304 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %1303)
   %1305 = load i32, ptr %.1.i.i554, align 4
   %1306 = add i32 %1305, -1
   %1307 = zext i32 %1306 to i64
-  %1308 = getelementptr inbounds ptr, ptr %1301, i64 %1307
+  %1308 = getelementptr inbounds nuw ptr, ptr %1301, i64 %1307
   store ptr %1304, ptr %1308, align 8
   %indvars.iv.next837 = add nuw nsw i64 %indvars.iv836, 1
   %exitcond840.not = icmp eq i64 %indvars.iv.next837, %wide.trip.count839
@@ -6531,7 +6531,7 @@ copy_expr_list.exit556:                           ; preds = %expand_.exit.i553, 
 
 1309:                                             ; preds = %copy_expr_list.exit556
   %1310 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %1311 = getelementptr inbounds i8, ptr %1310, i64 4
+  %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 4
   store i32 8, ptr %1311, align 4
   br label %1314
 
@@ -6549,13 +6549,13 @@ copy_expr_list.exit556:                           ; preds = %expand_.exit.i553, 
   br i1 %1317, label %1318, label %expand_.exit544
 
 1318:                                             ; preds = %1314
-  %1319 = getelementptr inbounds i8, ptr %.0.i541, i64 4
+  %1319 = getelementptr inbounds nuw i8, ptr %.0.i541, i64 4
   %1320 = shl i32 %1315, 1
   %1321 = zext i32 %1320 to i64
   %1322 = shl nuw nsw i64 %1321, 3
   %1323 = or disjoint i64 %1322, 8
   %1324 = tail call ptr @calloc_arena(i64 noundef %1323) #5
-  %1325 = getelementptr inbounds i8, ptr %1324, i64 4
+  %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 4
   store i32 %1320, ptr %1325, align 4
   %1326 = load i32, ptr %1319, align 4
   %1327 = zext i32 %1326 to i64
@@ -6573,9 +6573,9 @@ expand_.exit544:                                  ; preds = %1314, %1318
   %.1.i542 = phi ptr [ %1324, %1318 ], [ %.0.i541, %1314 ]
   %1333 = add i32 %1332, 1
   store i32 %1333, ptr %.1.i542, align 4
-  %1334 = getelementptr inbounds i8, ptr %.1.i542, i64 8
+  %1334 = getelementptr inbounds nuw i8, ptr %.1.i542, i64 8
   %1335 = zext i32 %1332 to i64
-  %1336 = getelementptr inbounds ptr, ptr %1334, i64 %1335
+  %1336 = getelementptr inbounds nuw ptr, ptr %1334, i64 %1335
   store ptr %1270, ptr %1336, align 8
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   %exitcond845.not = icmp eq i64 %indvars.iv.next842, %wide.trip.count844
@@ -6587,14 +6587,14 @@ copy_attributes.exit438:                          ; preds = %expand_.exit544, %1
   br label %common.ret1025
 
 1337:                                             ; preds = %copy_attributes.exit
-  %1338 = getelementptr inbounds i8, ptr %1, i64 80
+  %1338 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1339 = load i8, ptr %1338, align 8
   %1340 = and i8 %1339, 31
   %cond = icmp eq i8 %1340, 1
   br i1 %cond, label %1341, label %common.ret1025
 
 1341:                                             ; preds = %1337
-  %1342 = getelementptr inbounds i8, ptr %1, i64 112
+  %1342 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %1343 = load ptr, ptr %1342, align 8
   %1344 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %1343)
   store ptr %1344, ptr %1342, align 8
@@ -6603,26 +6603,26 @@ copy_attributes.exit438:                          ; preds = %expand_.exit544, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @copy_decl_type(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @calloc_arena(i64 noundef 80) #5
   store i32 %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %9, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %8) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %12, align 8
   store ptr %8, ptr %2, align 8
   br label %13
@@ -6660,7 +6660,7 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
 
 6:                                                ; preds = %.lr.ph
   %7 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 8, ptr %8, align 4
   br label %11
 
@@ -6678,13 +6678,13 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %17 = shl i32 %12, 1
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = or disjoint i64 %19, 8
   %21 = tail call ptr @calloc_arena(i64 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %17, ptr %22, align 4
   %23 = load i32, ptr %16, align 4
   %24 = zext i32 %23 to i64
@@ -6702,14 +6702,14 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
   %.1.i = phi ptr [ %21, %15 ], [ %.0.i, %11 ]
   %31 = add i32 %30, 1
   store i32 %31, ptr %.1.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %34)
   %36 = load i32, ptr %.1.i, align 4
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %38
   store ptr %35, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6739,7 +6739,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %.03239 = phi ptr [ null, %.lr.ph.preheader ], [ %46, %43 ]
   %6 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %9 = load i8, ptr %8, align 8
@@ -6751,7 +6751,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   ]
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %13)
   store ptr %14, ptr %12, align 8
@@ -6762,7 +6762,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   unreachable
 
 16:                                               ; preds = %.lr.ph, %11, %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %18)
   store ptr %19, ptr %17, align 8
@@ -6771,7 +6771,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %16
   %21 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 8, ptr %22, align 4
   br label %25
 
@@ -6789,13 +6789,13 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %31 = shl i32 %26, 1
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 3
   %34 = or disjoint i64 %33, 8
   %35 = tail call ptr @calloc_arena(i64 noundef %34) #5
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %31, ptr %36, align 4
   %37 = load i32, ptr %30, align 4
   %38 = zext i32 %37 to i64
@@ -6813,9 +6813,9 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   %.1.i = phi ptr [ %35, %29 ], [ %.0.i, %25 ]
   %45 = add i32 %44, 1
   store i32 %45, ptr %.1.i, align 4
-  %46 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   store ptr %6, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6855,15 +6855,15 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %13
 
 13:                                               ; preds = %.backedge, %9
   %.0.i.in = phi ptr [ %12, %9 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %type_flatten.exit [
@@ -6873,15 +6873,15 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %.backedge
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %17
@@ -6893,9 +6893,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 type_flatten.exit:                                ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %15, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
   %.not94 = icmp eq ptr %29, null
   br i1 %.not94, label %.thread, label %31
@@ -6915,12 +6915,12 @@ type_flatten.exit:                                ; preds = %13
 
 .lr.ph122:                                        ; preds = %31, %.lr.ph122
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph122 ], [ 0, %31 ]
-  %37 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv142
+  %37 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv142
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %5, align 8
   call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %5)
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv142
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv142
   store ptr %39, ptr %40, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %34
@@ -6932,18 +6932,18 @@ type_flatten.exit:                                ; preds = %13
   br label %.loopexit
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse
-  %.tr104.be = getelementptr inbounds i8, ptr %6, i64 16
+  %.tr104.be = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %tailrecurse
 
 42:                                               ; preds = %tailrecurse
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %44)
   store ptr %45, ptr %43, align 8
   br label %.loopexit
 
 46:                                               ; preds = %tailrecurse
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not92 = icmp eq ptr %48, null
   br i1 %.not92, label %._crit_edge118, label %49
@@ -6961,7 +6961,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %77
   %indvars.iv137 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next138, %77 ]
   %.078115 = phi ptr [ null, %.lr.ph117.preheader ], [ %80, %77 ]
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv137
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv137
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %3, align 8
   call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %3)
@@ -6970,7 +6970,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 54:                                               ; preds = %.lr.ph117
   %55 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 8, ptr %56, align 4
   br label %59
 
@@ -6988,13 +6988,13 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br i1 %62, label %63, label %77
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.0.i95, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 4
   %65 = shl i32 %60, 1
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = or disjoint i64 %67, 8
   %69 = tail call ptr @calloc_arena(i64 noundef %68) #5
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 %65, ptr %70, align 4
   %71 = load i32, ptr %64, align 4
   %72 = zext i32 %71 to i64
@@ -7012,10 +7012,10 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   %.1.i96 = phi ptr [ %69, %63 ], [ %.0.i95, %59 ]
   %79 = add i32 %78, 1
   store i32 %79, ptr %.1.i96, align 4
-  %80 = getelementptr inbounds i8, ptr %.1.i96, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.1.i96, i64 8
   %81 = load ptr, ptr %3, align 8
   %82 = zext i32 %78 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
   store ptr %81, ptr %83, align 8
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
@@ -7027,7 +7027,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %.loopexit
 
 84:                                               ; preds = %tailrecurse
-  %85 = getelementptr inbounds i8, ptr %6, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %86 = load ptr, ptr %85, align 8
   %.not = icmp eq ptr %86, null
   br i1 %.not, label %._crit_edge, label %87
@@ -7045,7 +7045,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %115 ]
   %.084113 = phi ptr [ null, %.lr.ph.preheader ], [ %118, %115 ]
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %4, align 8
   call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %4)
@@ -7054,7 +7054,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 92:                                               ; preds = %.lr.ph
   %93 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 8, ptr %94, align 4
   br label %97
 
@@ -7072,13 +7072,13 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br i1 %100, label %101, label %115
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.0.i100, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 4
   %103 = shl i32 %98, 1
   %104 = zext i32 %103 to i64
   %105 = shl nuw nsw i64 %104, 3
   %106 = or disjoint i64 %105, 8
   %107 = tail call ptr @calloc_arena(i64 noundef %106) #5
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %103, ptr %108, align 4
   %109 = load i32, ptr %102, align 4
   %110 = zext i32 %109 to i64
@@ -7096,10 +7096,10 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   %.1.i101 = phi ptr [ %107, %101 ], [ %.0.i100, %97 ]
   %117 = add i32 %116, 1
   store i32 %117, ptr %.1.i101, align 4
-  %118 = getelementptr inbounds i8, ptr %.1.i101, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.1.i101, i64 8
   %119 = load ptr, ptr %4, align 8
   %120 = zext i32 %116 to i64
-  %121 = getelementptr inbounds ptr, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %120
   store ptr %119, ptr %121, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

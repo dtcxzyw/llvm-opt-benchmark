@@ -9,7 +9,7 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
   br i1 %.not, label %66, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
   %8 = icmp ne ptr %1, null
@@ -17,13 +17,13 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
   br i1 %or.cond, label %9, label %66
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.fr = freeze ptr %17
   %18 = icmp sgt i32 %11, 0
@@ -39,10 +39,10 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
   %19 = phi i32 [ %26, %.loopexit.us ], [ %.pre76, %.lr.ph60 ]
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.loopexit.us ], [ 0, %.lr.ph60 ]
   %.04458.us = phi i32 [ %.1.lcssa.us, %.loopexit.us ], [ 0, %.lr.ph60 ]
-  %20 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv71
+  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv71
   store i32 %.04458.us, ptr %20, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %21 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next72
+  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next72
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %19, %22
   br i1 %23, label %.lr.ph.us.preheader, label %.loopexit.us
@@ -93,10 +93,10 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
   %40 = phi i32 [ %39, %.loopexit ], [ %.pre76, %.lr.ph60 ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.loopexit ], [ 0, %.lr.ph60 ]
   %.04458 = phi i32 [ %.1.lcssa, %.loopexit ], [ 0, %.lr.ph60 ]
-  %41 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv65
+  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv65
   store i32 %.04458, ptr %41, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %42 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next66
+  %42 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next66
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %40, %43
   br i1 %44, label %.thread.preheader, label %.loopexit

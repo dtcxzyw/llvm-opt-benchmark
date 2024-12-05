@@ -48,7 +48,7 @@ if.then12:                                        ; preds = %if.end7
   store double %div15, ptr %x, align 8
   %sub = fsub double %fneg13, %call
   %div19 = fdiv double %sub, %mul14
-  %arrayidx20 = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %x, i64 8
   store double %div19, ptr %arrayidx20, align 8
   br label %return
 
@@ -126,7 +126,7 @@ if.then.i:                                        ; preds = %if.then2
   %mul24.i = fmul double %add.i, 0x3FD5555555555555
   %call25.i = tail call double @cos(double noundef %mul24.i) #3
   %5 = tail call double @llvm.fmuladd.f64(double %mul19.i, double %call25.i, double %neg23.i)
-  %arrayidx28.i = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   store double %5, ptr %arrayidx28.i, align 8
   %sub.i = fadd double %call17.i, 0xC01921FB54442D18
   %mul29.i = fmul double %sub.i, 0x3FD5555555555555
@@ -169,7 +169,7 @@ return.sink.split.i:                              ; preds = %if.then51.i, %if.th
   %.sink44.i = phi i64 [ 8, %if.then51.i ], [ 16, %if.then.i ]
   %.sink.i = phi double [ %11, %if.then51.i ], [ %6, %if.then.i ]
   %retval.0.ph.i = phi i32 [ 2, %if.then51.i ], [ 3, %if.then.i ]
-  %arrayidx55.i = getelementptr inbounds i8, ptr %x, i64 %.sink44.i
+  %arrayidx55.i = getelementptr inbounds nuw i8, ptr %x, i64 %.sink44.i
   store double %.sink.i, ptr %arrayidx55.i, align 8
   br label %return
 
@@ -216,7 +216,7 @@ if.then12.i:                                      ; preds = %if.end7.i
   store double %div15.i, ptr %x, align 8
   %sub.i19 = fsub double %fneg13.i, %call.i17
   %div19.i = fdiv double %sub.i19, %mul14.i
-  %arrayidx20.i = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   store double %div19.i, ptr %arrayidx20.i, align 8
   br label %return
 

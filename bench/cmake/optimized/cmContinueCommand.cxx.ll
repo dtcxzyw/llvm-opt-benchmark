@@ -77,10 +77,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 42
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 42
   store i8 1, ptr %19, align 2
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %20, %22
   br i1 %23, label %33, label %24

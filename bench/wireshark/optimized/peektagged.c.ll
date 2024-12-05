@@ -253,23 +253,23 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   %77 = getelementptr [4 x i32], ptr @peektagged_open.peektagged_encap, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr @peektagged_file_type_subtype, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %78, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @peektagged_read, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @peektagged_seek_read, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 148
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %84, align 4
   %85 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %85, ptr %86, align 8
   %switch94.not = icmp eq i32 %65, 3
   %.95 = zext i1 %switch94.not to i32
   store i32 %.95, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %87, align 8
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %88
@@ -431,7 +431,7 @@ define internal range(i32 0, 2) i32 @peektagged_read(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @peektagged_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -487,7 +487,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [6 x i8], align 1
   %.sroa.53.sroa.8 = alloca [5 x i8], align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %.sroa.53.sroa.8, i8 0, i64 5, i1 false)
   %10 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 6, ptr noundef %4, ptr noundef %5) #7
@@ -495,8 +495,8 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   br i1 %.not289.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2
   br label %18
 
 13:                                               ; preds = %18, %68, %72, %70, %84, %88, %86, %62, %58, %54, %50, %46, %44, %40, %38, %36, %31, %26
@@ -785,12 +785,12 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
 104:                                              ; preds = %99
   store i32 0, ptr %2, align 8
   %105 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %106 = getelementptr inbounds i8, ptr %2, i64 232
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %2, i64 64
-  %109 = getelementptr inbounds i8, ptr %2, i64 68
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %.0163291, ptr %109, align 4
   store i32 %spec.select, ptr %108, align 8
   %.not178 = icmp eq i32 %.0155294, 0
@@ -807,7 +807,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   %115 = shl nuw i64 %114, 32
   %116 = zext i32 %.sroa.3.0295 to i64
   %117 = or disjoint i64 %115, %116
-  %118 = getelementptr inbounds i8, ptr %2, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %119 = call zeroext i1 @nsfiletime_to_nstime(ptr noundef nonnull %118, i64 noundef %117) #7
   br i1 %119, label %122, label %120
 
@@ -818,7 +818,7 @@ define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocaptur
   br label %._crit_edge.thread
 
 122:                                              ; preds = %113
-  %123 = getelementptr inbounds i8, ptr %0, i64 144
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %124 = load i32, ptr %123, align 8
   switch i32 %124, label %194 [
     i32 22, label %125
@@ -951,45 +951,45 @@ switch.lookup:                                    ; preds = %161
   %.sroa.53383.4 = phi i16 [ %.sroa.53383.3, %156 ], [ %159, %158 ], [ %.sroa.53383.3, %161 ], [ %.sroa.53383.3, %154 ], [ %spec.select548, %switch.lookup ]
   %.sroa.72.3 = phi i16 [ %.sroa.72.0, %156 ], [ %160, %158 ], [ %.sroa.72.0, %161 ], [ %.sroa.72.0, %154 ], [ %.sroa.72.0, %switch.lookup ]
   %.sroa.77.3 = phi i32 [ %.sroa.77.0, %156 ], [ %.sroa.77.0, %158 ], [ %.sroa.77.0, %161 ], [ %.sroa.77.0, %154 ], [ %spec.select549, %switch.lookup ]
-  %166 = getelementptr inbounds i8, ptr %2, i64 80
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 -1, ptr %166, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.5368.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.5368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
   store i32 %.sroa.5368.3, ptr %.sroa.5368.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 92
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 92
   %.sroa.16.sroa.28.0.insert.ext = zext nneg i8 %.sroa.16.sroa.28.0 to i16
   %.sroa.16.sroa.28.0.insert.shift = shl nuw nsw i16 %.sroa.16.sroa.28.0.insert.ext, 8
   %.sroa.16.sroa.0.0.insert.ext = zext i8 %.sroa.16.sroa.0.4 to i16
   %.sroa.16.sroa.0.0.insert.insert = or disjoint i16 %.sroa.16.sroa.28.0.insert.shift, %.sroa.16.sroa.0.0.insert.ext
   store i16 %.sroa.16.sroa.0.0.insert.insert, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 94
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 94
   store i16 %.sroa.42.0, ptr %.sroa.42.0..sroa_idx, align 2
-  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 96
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %.sroa.43.4, ptr %.sroa.43.0..sroa_idx, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 100
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i8 %.sroa.49.0, ptr %.sroa.49.0..sroa_idx, align 4
-  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 101
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 101
   store i16 0, ptr %.sroa.53.0..sroa_idx, align 1
-  %.sroa.53.sroa.8.0..sroa.53.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %2, i64 103
+  %.sroa.53.sroa.8.0..sroa.53.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.53.sroa.8.0..sroa.53.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(5) %.sroa.53.sroa.8, i64 5, i1 false)
-  %.sroa.53383.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 108
+  %.sroa.53383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i16 %.sroa.53383.4, ptr %.sroa.53383.0..sroa_idx, align 4
-  %.sroa.72.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 110
+  %.sroa.72.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 110
   store i16 %.sroa.72.3, ptr %.sroa.72.0..sroa_idx, align 2
-  %.sroa.77.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 112
+  %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %.sroa.77.3, ptr %.sroa.77.0..sroa_idx, align 8
-  %.sroa.81.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 116
+  %.sroa.81.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i16 %.sroa.81.0, ptr %.sroa.81.0..sroa_idx, align 4
-  %.sroa.82.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 118
+  %.sroa.82.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 118
   store i8 %.sroa.82.0, ptr %.sroa.82.0..sroa_idx, align 2
-  %.sroa.83.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 119
+  %.sroa.83.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 119
   store i8 %.sroa.83.0, ptr %.sroa.83.0..sroa_idx, align 1
-  %.sroa.84.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 120
+  %.sroa.84.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i8 %.sroa.84.0, ptr %.sroa.84.0..sroa_idx, align 8
-  %.sroa.85.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 121
+  %.sroa.85.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 121
   store i8 %.sroa.85.0, ptr %.sroa.85.0..sroa_idx, align 1
-  %.sroa.86.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 122
+  %.sroa.86.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.86.0..sroa_idx, i8 0, i64 30, i1 false)
   %167 = load i32, ptr %9, align 4
   %.not192 = icmp eq i32 %167, 0
@@ -1025,7 +1025,7 @@ switch.lookup:                                    ; preds = %161
 
 180:                                              ; preds = %177, %168
   %.1 = phi i32 [ 0, %168 ], [ 4, %177 ]
-  %181 = getelementptr inbounds i8, ptr %2, i64 84
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %181, align 4
   br label %194
 
@@ -1046,7 +1046,7 @@ switch.lookup:                                    ; preds = %161
   br label %._crit_edge.thread
 
 190:                                              ; preds = %185
-  %191 = getelementptr inbounds i8, ptr %2, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %191, align 8
   %192 = add i32 %183, -4
   store i32 %192, ptr %109, align 4

@@ -58,17 +58,17 @@ define dso_local void @aio_bh_schedule_oneshot_full(ptr noundef %ctx, ptr nounde
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %ctx, ptr %call, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %name, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %cb, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
+  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %opaque, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
-  %.compoundliteral.sroa.71.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 48
+  %.compoundliteral.sroa.71.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr null, ptr %.compoundliteral.sroa.71.0..sroa_idx, align 8
   %0 = atomicrmw or ptr %.compoundliteral.sroa.6.0..sroa_idx, i32 11 seq_cst, align 8
   %and.i = and i32 %0, 1
@@ -76,7 +76,7 @@ entry:
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds i8, ptr %ctx, i64 176
+  %bh_list.i = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %1 = ptrtoint ptr %call to i64
   br label %do.body2.i
 
@@ -95,17 +95,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds i8, ptr %ctx, i64 200
+  %notified.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds i8, ptr %ctx, i64 168
+  %notify_me.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %8 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds i8, ptr %ctx, i64 204
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
@@ -122,17 +122,17 @@ define dso_local noalias noundef ptr @aio_bh_new_full(ptr noundef %ctx, ptr noun
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %ctx, ptr %call, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %name, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %cb, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
+  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %opaque, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
-  %.compoundliteral.sroa.71.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 48
+  %.compoundliteral.sroa.71.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %reentrancy_guard, ptr %.compoundliteral.sroa.71.0..sroa_idx, align 8
   ret ptr %call
 }
@@ -141,15 +141,15 @@ entry:
 define dso_local void @aio_bh_call(ptr nocapture noundef readonly %bh) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %reentrancy_guard1 = getelementptr inbounds i8, ptr %bh, i64 48
+  %reentrancy_guard1 = getelementptr inbounds nuw i8, ptr %bh, i64 48
   %0 = load ptr, ptr %reentrancy_guard1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7.thread, label %if.then
 
 if.end7.thread:                                   ; preds = %entry
-  %cb11 = getelementptr inbounds i8, ptr %bh, i64 16
+  %cb11 = getelementptr inbounds nuw i8, ptr %bh, i64 16
   %1 = load ptr, ptr %cb11, align 8
-  %opaque12 = getelementptr inbounds i8, ptr %bh, i64 24
+  %opaque12 = getelementptr inbounds nuw i8, ptr %bh, i64 24
   %2 = load ptr, ptr %opaque12, align 8
   tail call void %1(ptr noundef %2) #13
   br label %if.end13
@@ -161,7 +161,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %bh, align 8
-  %name = getelementptr inbounds i8, ptr %bh, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %bh, i64 8
   %5 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -186,7 +186,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, ptr noundef %5) #13
   br label %trace_reentrant_aio.exit
@@ -202,9 +202,9 @@ trace_reentrant_aio.exit:                         ; preds = %if.then5, %land.lhs
 if.then9:                                         ; preds = %trace_reentrant_aio.exit, %if.then
   store i8 1, ptr %0, align 1
   %12 = and i8 %3, 1
-  %cb = getelementptr inbounds i8, ptr %bh, i64 16
+  %cb = getelementptr inbounds nuw i8, ptr %bh, i64 16
   %13 = load ptr, ptr %cb, align 8
-  %opaque = getelementptr inbounds i8, ptr %bh, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bh, i64 24
   %14 = load ptr, ptr %opaque, align 8
   tail call void %13(ptr noundef %14) #13
   store i8 %12, ptr %0, align 1
@@ -218,14 +218,14 @@ if.end13:                                         ; preds = %if.end7.thread, %if
 define dso_local range(i32 0, 2) i32 @aio_bh_poll(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %slice = alloca %struct.BHListSlice, align 8
-  %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
+  %bh_list = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %0 = atomicrmw xchg ptr %bh_list, i64 0 seq_cst, align 8
   %1 = inttoptr i64 %0 to ptr
   store ptr %1, ptr %slice, align 8
-  %next = getelementptr inbounds i8, ptr %slice, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %slice, i64 8
   store ptr null, ptr %next, align 8
-  %bh_slice_list = getelementptr inbounds i8, ptr %ctx, i64 184
-  %sqh_last = getelementptr inbounds i8, ptr %ctx, i64 192
+  %bh_slice_list = getelementptr inbounds nuw i8, ptr %ctx, i64 184
+  %sqh_last = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %slice, ptr %2, align 8
   store ptr %next, ptr %sqh_last, align 8
@@ -248,11 +248,11 @@ while.body14:                                     ; preds = %while.body14.lr.ph,
 aio_bh_dequeue.exit:                              ; preds = %while.body14
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %5, align 8
-  %next.i = getelementptr inbounds i8, ptr %8, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %9 = load ptr, ptr %next.i, align 8
   store ptr %9, ptr %5, align 8
   store ptr null, ptr %next.i, align 8
-  %flags7.i = getelementptr inbounds i8, ptr %7, i64 40
+  %flags7.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
   %and = and i32 %10, 6
   %cmp33 = icmp eq i32 %and, 2
@@ -260,7 +260,7 @@ aio_bh_dequeue.exit:                              ; preds = %while.body14
 
 do.body17:                                        ; preds = %while.body14
   %11 = load ptr, ptr %bh_slice_list, align 8
-  %next20 = getelementptr inbounds i8, ptr %11, i64 8
+  %next20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %next20, align 8
   store ptr %12, ptr %bh_slice_list, align 8
   %cmp = icmp eq ptr %12, null
@@ -309,15 +309,15 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @qemu_bh_schedule_idle(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
+  %flags.i = getelementptr inbounds nuw i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 19 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
-  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
+  %bh_list.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds nuw i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -336,17 +336,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %notified.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
+  %notify_me.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
@@ -359,15 +359,15 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 define dso_local void @qemu_bh_schedule(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
+  %flags.i = getelementptr inbounds nuw i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 3 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
-  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
+  %bh_list.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds nuw i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -386,17 +386,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %notified.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
+  %notify_me.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
@@ -408,7 +408,7 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @qemu_bh_cancel(ptr nocapture noundef %bh) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %bh, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %bh, i64 40
   %0 = atomicrmw and ptr %flags, i32 -3 seq_cst, align 8
   ret void
 }
@@ -417,15 +417,15 @@ entry:
 define dso_local void @qemu_bh_delete(ptr noundef %bh) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bh, align 8
-  %flags.i = getelementptr inbounds i8, ptr %bh, i64 40
+  %flags.i = getelementptr inbounds nuw i8, ptr %bh, i64 40
   %1 = atomicrmw or ptr %flags.i, i32 5 seq_cst, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %entry
-  %bh_list.i = getelementptr inbounds i8, ptr %0, i64 176
-  %next.i = getelementptr inbounds i8, ptr %bh, i64 32
+  %bh_list.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %next.i = getelementptr inbounds nuw i8, ptr %bh, i64 32
   %2 = ptrtoint ptr %bh to i64
   br label %do.body2.i
 
@@ -444,17 +444,17 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
 if.end.i:                                         ; preds = %do.body2.i, %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %notified.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
+  %notify_me.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i, label %aio_bh_enqueue.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %0, i64 204
   %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
@@ -466,7 +466,7 @@ aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @aio_compute_timeout(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
+  %bh_list = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %0 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i = icmp eq i64 %0, 0
@@ -476,7 +476,7 @@ for.body.i:                                       ; preds = %entry, %while.end10
   %bh.08.in.i = phi i64 [ %2, %while.end10.i ], [ %0, %entry ]
   %timeout.addr.07.i = phi i32 [ %timeout.addr.1.i, %while.end10.i ], [ -1, %entry ]
   %bh.08.i = inttoptr i64 %bh.08.in.i to ptr
-  %flags.i = getelementptr inbounds i8, ptr %bh.08.i, i64 40
+  %flags.i = getelementptr inbounds nuw i8, ptr %bh.08.i, i64 40
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 6
   %cmp.i = icmp eq i32 %and.i, 2
@@ -489,7 +489,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 while.end10.i:                                    ; preds = %if.then.i, %for.body.i
   %timeout.addr.1.i = phi i32 [ %timeout.addr.07.i, %for.body.i ], [ 10000000, %if.then.i ]
-  %next.i = getelementptr inbounds i8, ptr %bh.08.i, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %bh.08.i, i64 32
   %2 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i = icmp eq i64 %2, 0
@@ -502,7 +502,7 @@ aio_compute_bh_timeout.exit:                      ; preds = %while.end10.i
 
 if.end:                                           ; preds = %entry, %aio_compute_bh_timeout.exit
   %conv.i36 = phi i64 [ %conv.i, %aio_compute_bh_timeout.exit ], [ -1, %entry ]
-  %bh_slice_list = getelementptr inbounds i8, ptr %ctx, i64 184
+  %bh_slice_list = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %s.043 = load ptr, ptr %bh_slice_list, align 8
   %tobool.not44 = icmp eq ptr %s.043, null
   br i1 %tobool.not44, label %for.end, label %for.body.preheader
@@ -512,7 +512,7 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 for.cond:                                         ; preds = %aio_compute_bh_timeout.exit29
-  %next = getelementptr inbounds i8, ptr %s.046, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %s.046, i64 8
   %s.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
@@ -529,7 +529,7 @@ for.body.i11:                                     ; preds = %for.body, %while.en
   %bh.08.in.i12 = phi i64 [ %6, %while.end10.i18 ], [ %4, %for.body ]
   %timeout.addr.07.i13 = phi i32 [ %timeout.addr.1.i19, %while.end10.i18 ], [ %timeout.0.in45, %for.body ]
   %bh.08.i14 = inttoptr i64 %bh.08.in.i12 to ptr
-  %flags.i15 = getelementptr inbounds i8, ptr %bh.08.i14, i64 40
+  %flags.i15 = getelementptr inbounds nuw i8, ptr %bh.08.i14, i64 40
   %5 = load i32, ptr %flags.i15, align 8
   %and.i16 = and i32 %5, 6
   %cmp.i17 = icmp eq i32 %and.i16, 2
@@ -542,7 +542,7 @@ if.then.i26:                                      ; preds = %for.body.i11
 
 while.end10.i18:                                  ; preds = %if.then.i26, %for.body.i11
   %timeout.addr.1.i19 = phi i32 [ %timeout.addr.07.i13, %for.body.i11 ], [ 10000000, %if.then.i26 ]
-  %next.i20 = getelementptr inbounds i8, ptr %bh.08.i14, i64 32
+  %next.i20 = getelementptr inbounds nuw i8, ptr %bh.08.i14, i64 32
   %6 = load atomic i64, ptr %next.i20 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i21 = icmp eq i64 %6, 0
@@ -559,7 +559,7 @@ for.end.loopexit:                                 ; preds = %for.cond
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %timeout.0.in.lcssa = phi i64 [ %conv.i36, %if.end ], [ %conv.i24, %for.end.loopexit ]
-  %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
+  %tlg = getelementptr inbounds nuw i8, ptr %ctx, i64 480
   %call9 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #13
   %cmp10 = icmp eq i64 %call9, 0
   br i1 %cmp10, label %return, label %if.else
@@ -590,7 +590,7 @@ declare ptr @g_source_ref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @aio_get_thread_pool(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %thread_pool = getelementptr inbounds i8, ptr %ctx, i64 240
+  %thread_pool = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -610,7 +610,7 @@ declare ptr @thread_pool_new(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @aio_setup_linux_io_uring(ptr noundef %ctx, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %linux_io_uring = getelementptr inbounds i8, ptr %ctx, i64 248
+  %linux_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %0 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
@@ -638,7 +638,7 @@ declare void @luring_attach_aio_context(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local nonnull ptr @aio_get_linux_io_uring(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %linux_io_uring = getelementptr inbounds i8, ptr %ctx, i64 248
+  %linux_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %0 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -659,17 +659,17 @@ define dso_local void @aio_notify(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified = getelementptr inbounds i8, ptr %ctx, i64 200
+  %notified = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me = getelementptr inbounds i8, ptr %ctx, i64 168
+  %notify_me = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %notifier = getelementptr inbounds i8, ptr %ctx, i64 204
+  %notifier = getelementptr inbounds nuw i8, ptr %ctx, i64 204
   %call = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier) #13
   br label %if.end
 
@@ -682,7 +682,7 @@ declare i32 @event_notifier_set(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_notify_accept(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
-  %notified = getelementptr inbounds i8, ptr %ctx, i64 200
+  %notified = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store atomic i8 0, ptr %notified monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   fence seq_cst
@@ -693,13 +693,13 @@ entry:
 define dso_local noundef ptr @aio_context_new(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_source_new(ptr noundef nonnull @aio_source_funcs, i32 noundef 584) #13
-  %bh_list = getelementptr inbounds i8, ptr %call, i64 176
-  %bh_slice_list = getelementptr inbounds i8, ptr %call, i64 184
-  %sqh_last = getelementptr inbounds i8, ptr %call, i64 192
+  %bh_list = getelementptr inbounds nuw i8, ptr %call, i64 176
+  %bh_slice_list = getelementptr inbounds nuw i8, ptr %call, i64 184
+  %sqh_last = getelementptr inbounds nuw i8, ptr %call, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bh_list, i8 0, i64 16, i1 false)
   store ptr %bh_slice_list, ptr %sqh_last, align 8
   tail call void @aio_context_setup(ptr noundef %call) #13
-  %notifier = getelementptr inbounds i8, ptr %call, i64 204
+  %notifier = getelementptr inbounds nuw i8, ptr %call, i64 204
   %call6 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier, i32 noundef 0) #13
   %cmp = icmp slt i32 %call6, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -712,37 +712,37 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @g_source_set_can_recurse(ptr noundef nonnull %call, i32 noundef 1) #13
-  %list_lock = getelementptr inbounds i8, ptr %call, i64 172
+  %list_lock = getelementptr inbounds nuw i8, ptr %call, i64 172
   tail call void @qemu_lockcnt_init(ptr noundef nonnull %list_lock) #13
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %call, ptr %call.i, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @.str.3, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @co_schedule_bh_cb, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr null, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i32 0, ptr %.compoundliteral.sroa.6.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %.compoundliteral.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr null, ptr %.compoundliteral.sroa.71.0..sroa_idx.i, align 8
-  %co_schedule_bh = getelementptr inbounds i8, ptr %call, i64 224
+  %co_schedule_bh = getelementptr inbounds nuw i8, ptr %call, i64 224
   store ptr %call.i, ptr %co_schedule_bh, align 8
-  %scheduled_coroutines = getelementptr inbounds i8, ptr %call, i64 216
+  %scheduled_coroutines = getelementptr inbounds nuw i8, ptr %call, i64 216
   store ptr null, ptr %scheduled_coroutines, align 8
   tail call void @aio_set_event_notifier(ptr noundef nonnull %call, ptr noundef nonnull %notifier, ptr noundef nonnull @aio_context_notifier_cb, ptr noundef nonnull @aio_context_notifier_poll, ptr noundef nonnull @aio_context_notifier_poll_ready) #13
-  %thread_pool = getelementptr inbounds i8, ptr %call, i64 240
-  %lock = getelementptr inbounds i8, ptr %call, i64 96
+  %thread_pool = getelementptr inbounds nuw i8, ptr %call, i64 240
+  %lock = getelementptr inbounds nuw i8, ptr %call, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %thread_pool, i8 0, i64 16, i1 false)
   tail call void @qemu_rec_mutex_init(ptr noundef nonnull %lock) #13
-  %tlg = getelementptr inbounds i8, ptr %call, i64 480
+  %tlg = getelementptr inbounds nuw i8, ptr %call, i64 480
   tail call void @timerlistgroup_init(ptr noundef nonnull %tlg, ptr noundef nonnull @aio_timerlist_notify, ptr noundef nonnull %call) #13
-  %poll_ns = getelementptr inbounds i8, ptr %call, i64 520
-  %thread_pool_min = getelementptr inbounds i8, ptr %call, i64 232
+  %poll_ns = getelementptr inbounds nuw i8, ptr %call, i64 520
+  %thread_pool_min = getelementptr inbounds nuw i8, ptr %call, i64 232
   store i32 0, ptr %thread_pool_min, align 8
-  %thread_pool_max = getelementptr inbounds i8, ptr %call, i64 236
+  %thread_pool_max = getelementptr inbounds nuw i8, ptr %call, i64 236
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %poll_ns, i8 0, i64 40, i1 false)
   store i32 64, ptr %thread_pool_max, align 4
   tail call void @register_aiocontext(ptr noundef nonnull %call) #13
@@ -769,7 +769,7 @@ declare void @qemu_lockcnt_init(ptr noundef) local_unnamed_addr #2
 define internal void @co_schedule_bh_cb(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %scheduled_coroutines = getelementptr inbounds i8, ptr %opaque, i64 216
+  %scheduled_coroutines = getelementptr inbounds nuw i8, ptr %opaque, i64 216
   %0 = atomicrmw xchg ptr %scheduled_coroutines, i64 0 seq_cst, align 8
   %cmp.not16 = icmp eq i64 %0, 0
   br i1 %cmp.not16, label %while.end49, label %while.body10.preheader
@@ -779,14 +779,14 @@ while.body10.preheader:                           ; preds = %entry
   br label %while.body10
 
 while.body29.lr.ph:                               ; preds = %while.body10
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %lock.i = getelementptr inbounds i8, ptr %opaque, i64 96
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %lock.i = getelementptr inbounds nuw i8, ptr %opaque, i64 96
   br label %while.body29
 
 while.body10:                                     ; preds = %while.body10.preheader, %while.body10
   %straight.sroa.0.018 = phi ptr [ %reversed.sroa.0.017, %while.body10 ], [ null, %while.body10.preheader ]
   %reversed.sroa.0.017 = phi ptr [ %2, %while.body10 ], [ %1, %while.body10.preheader ]
-  %co_scheduled_next = getelementptr inbounds i8, ptr %reversed.sroa.0.017, i64 80
+  %co_scheduled_next = getelementptr inbounds nuw i8, ptr %reversed.sroa.0.017, i64 80
   %2 = load ptr, ptr %co_scheduled_next, align 8
   store ptr %straight.sroa.0.018, ptr %co_scheduled_next, align 8
   %cmp.not = icmp eq ptr %2, null
@@ -794,7 +794,7 @@ while.body10:                                     ; preds = %while.body10.prehea
 
 while.body29:                                     ; preds = %while.body29.lr.ph, %trace_aio_co_schedule_bh_cb.exit
   %straight.sroa.0.120 = phi ptr [ %reversed.sroa.0.017, %while.body29.lr.ph ], [ %3, %trace_aio_co_schedule_bh_cb.exit ]
-  %co_scheduled_next35 = getelementptr inbounds i8, ptr %straight.sroa.0.120, i64 80
+  %co_scheduled_next35 = getelementptr inbounds nuw i8, ptr %straight.sroa.0.120, i64 80
   %3 = load ptr, ptr %co_scheduled_next35, align 8
   store ptr null, ptr %co_scheduled_next35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -833,7 +833,7 @@ trace_aio_co_schedule_bh_cb.exit:                 ; preds = %while.body29, %land
   %10 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
   tail call void %11(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #13
-  %scheduled = getelementptr inbounds i8, ptr %straight.sroa.0.120, i64 48
+  %scheduled = getelementptr inbounds nuw i8, ptr %straight.sroa.0.120, i64 48
   store atomic i64 0, ptr %scheduled monotonic, align 8
   tail call void @qemu_aio_coroutine_enter(ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #13
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #13
@@ -877,17 +877,17 @@ define internal void @aio_timerlist_notify(ptr noundef %opaque, i32 %type) #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i = getelementptr inbounds i8, ptr %opaque, i64 200
+  %notified.i = getelementptr inbounds nuw i8, ptr %opaque, i64 200
   store atomic i8 1, ptr %notified.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i = getelementptr inbounds i8, ptr %opaque, i64 168
+  %notify_me.i = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %0 = load atomic i32, ptr %notify_me.i monotonic, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %aio_notify.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %notifier.i = getelementptr inbounds i8, ptr %opaque, i64 204
+  %notifier.i = getelementptr inbounds nuw i8, ptr %opaque, i64 204
   %call.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i) #13
   br label %aio_notify.exit
 
@@ -926,7 +926,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ctx, ptr noundef %co) #13
   br label %trace_aio_co_schedule.exit
@@ -937,7 +937,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_aio_co_schedule.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %scheduled1 = getelementptr inbounds i8, ptr %co, i64 48
+  %scheduled1 = getelementptr inbounds nuw i8, ptr %co, i64 48
   %6 = cmpxchg ptr %scheduled1, i64 0, i64 ptrtoint (ptr @__func__.aio_co_schedule to i64) seq_cst seq_cst, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %if.end, label %if.then
@@ -952,8 +952,8 @@ if.then:                                          ; preds = %trace_aio_co_schedu
 
 if.end:                                           ; preds = %trace_aio_co_schedule.exit
   %call.i = tail call ptr @g_source_ref(ptr noundef %ctx) #13
-  %scheduled_coroutines = getelementptr inbounds i8, ptr %ctx, i64 216
-  %co_scheduled_next = getelementptr inbounds i8, ptr %co, i64 80
+  %scheduled_coroutines = getelementptr inbounds nuw i8, ptr %ctx, i64 216
+  %co_scheduled_next = getelementptr inbounds nuw i8, ptr %co, i64 80
   %11 = ptrtoint ptr %co to i64
   br label %do.body5
 
@@ -970,18 +970,18 @@ do.body5:                                         ; preds = %do.body5, %if.end
   br i1 %cmp.not, label %do.end25, label %do.body5, !llvm.loop !18
 
 do.end25:                                         ; preds = %do.body5
-  %co_schedule_bh = getelementptr inbounds i8, ptr %ctx, i64 224
+  %co_schedule_bh = getelementptr inbounds nuw i8, ptr %ctx, i64 224
   %18 = load ptr, ptr %co_schedule_bh, align 8
   %19 = load ptr, ptr %18, align 8
-  %flags.i.i = getelementptr inbounds i8, ptr %18, i64 40
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = atomicrmw or ptr %flags.i.i, i32 3 seq_cst, align 8
   %and.i.i = and i32 %20, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %do.end25
-  %bh_list.i.i = getelementptr inbounds i8, ptr %19, i64 176
-  %next.i.i = getelementptr inbounds i8, ptr %18, i64 32
+  %bh_list.i.i = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %next.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = ptrtoint ptr %18 to i64
   br label %do.body2.i.i
 
@@ -1000,17 +1000,17 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %do.end25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds i8, ptr %19, i64 200
+  %notified.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds i8, ptr %19, i64 168
+  %notify_me.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 168
   %28 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %28, 0
   br i1 %tobool.not.i.i.i, label %qemu_bh_schedule.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds i8, ptr %19, i64 204
+  %notifier.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 204
   %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %qemu_bh_schedule.exit
 
@@ -1066,21 +1066,21 @@ qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %
 if.then:                                          ; preds = %qemu_get_current_aio_context.exit
   %call1 = tail call ptr @qemu_coroutine_self() #13
   store ptr %call1, ptr %data, align 8
-  %new_ctx2 = getelementptr inbounds i8, ptr %data, i64 8
+  %new_ctx2 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store ptr %new_ctx, ptr %new_ctx2, align 8
   %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %retval.0.i, ptr %call.i, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @.str.5, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @aio_co_reschedule_self_bh, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %data, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr null, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i32 0, ptr %.compoundliteral.sroa.6.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.71.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %.compoundliteral.sroa.71.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr null, ptr %.compoundliteral.sroa.71.0..sroa_idx.i, align 8
   %2 = atomicrmw or ptr %.compoundliteral.sroa.6.0..sroa_idx.i, i32 11 seq_cst, align 8
   %and.i.i = and i32 %2, 1
@@ -1088,7 +1088,7 @@ if.then:                                          ; preds = %qemu_get_current_ai
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %if.then
-  %bh_list.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 176
+  %bh_list.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 176
   %3 = ptrtoint ptr %call.i to i64
   br label %do.body2.i.i
 
@@ -1107,17 +1107,17 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.then
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 200
+  %notified.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 168
+  %notify_me.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 168
   %10 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i, label %aio_bh_schedule_oneshot_full.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 204
+  %notifier.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 204
   %call.i.i.i = call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %aio_bh_schedule_oneshot_full.exit
 
@@ -1157,7 +1157,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_co_reschedule_self_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %new_ctx = getelementptr inbounds i8, ptr %opaque, i64 8
+  %new_ctx = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %new_ctx, align 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void @aio_co_schedule(ptr noundef %0, ptr noundef %1)
@@ -1170,7 +1170,7 @@ declare void @qemu_coroutine_yield() #2
 define dso_local void @aio_co_wake(ptr noundef %co) local_unnamed_addr #0 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
-  %ctx1 = getelementptr inbounds i8, ptr %co, i64 40
+  %ctx1 = getelementptr inbounds nuw i8, ptr %co, i64 40
   %0 = load atomic i64, ptr %ctx1 monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void @aio_co_enter(ptr noundef %1, ptr noundef %co)
@@ -1217,9 +1217,9 @@ if.else:                                          ; preds = %if.then2
   unreachable
 
 do.body:                                          ; preds = %if.then2
-  %co_queue_next = getelementptr inbounds i8, ptr %co, i64 56
+  %co_queue_next = getelementptr inbounds nuw i8, ptr %co, i64 56
   store ptr null, ptr %co_queue_next, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %call3, i64 72
+  %sqh_last = getelementptr inbounds nuw i8, ptr %call3, i64 72
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %co, ptr %2, align 8
   store ptr %co_queue_next, ptr %sqh_last, align 8
@@ -1228,7 +1228,7 @@ do.body:                                          ; preds = %if.then2
 if.else11:                                        ; preds = %if.end
   %3 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  %lock.i = getelementptr inbounds i8, ptr %ctx, i64 96
+  %lock.i = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   tail call void %4(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #13
   tail call void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef %co) #13
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #13
@@ -1245,7 +1245,7 @@ define dso_local void @aio_context_acquire(ptr noundef %ctx) local_unnamed_addr 
 entry:
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds i8, ptr %ctx, i64 96
+  %lock = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 728) #13
   ret void
 }
@@ -1255,7 +1255,7 @@ declare void @qemu_aio_coroutine_enter(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_release(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %ctx, i64 96
+  %lock = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 733) #13
   ret void
 }
@@ -1305,12 +1305,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %min to i32
-  %thread_pool_min = getelementptr inbounds i8, ptr %ctx, i64 232
+  %thread_pool_min = getelementptr inbounds nuw i8, ptr %ctx, i64 232
   store i32 %conv, ptr %thread_pool_min, align 8
   %conv5 = trunc i64 %max to i32
-  %thread_pool_max = getelementptr inbounds i8, ptr %ctx, i64 236
+  %thread_pool_max = getelementptr inbounds nuw i8, ptr %ctx, i64 236
   store i32 %conv5, ptr %thread_pool_max, align 4
-  %thread_pool = getelementptr inbounds i8, ptr %ctx, i64 240
+  %thread_pool = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   %tobool6.not = icmp eq ptr %0, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -1339,13 +1339,13 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @aio_ctx_prepare(ptr noundef %source, ptr nocapture noundef %timeout) #0 {
 entry:
-  %notify_me = getelementptr inbounds i8, ptr %source, i64 168
+  %notify_me = getelementptr inbounds nuw i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %or = or i32 %0, 1
   store atomic i32 %or, ptr %notify_me monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !22
   fence seq_cst
-  %bh_list.i = getelementptr inbounds i8, ptr %source, i64 176
+  %bh_list.i = getelementptr inbounds nuw i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i.i = icmp eq i64 %1, 0
@@ -1355,7 +1355,7 @@ for.body.i.i:                                     ; preds = %entry, %while.end10
   %bh.08.in.i.i = phi i64 [ %3, %while.end10.i.i ], [ %1, %entry ]
   %timeout.addr.07.i.i = phi i32 [ %timeout.addr.1.i.i, %while.end10.i.i ], [ -1, %entry ]
   %bh.08.i.i = inttoptr i64 %bh.08.in.i.i to ptr
-  %flags.i.i = getelementptr inbounds i8, ptr %bh.08.i.i, i64 40
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %bh.08.i.i, i64 40
   %2 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %2, 6
   %cmp.i.i = icmp eq i32 %and.i.i, 2
@@ -1368,7 +1368,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 while.end10.i.i:                                  ; preds = %if.then.i.i, %for.body.i.i
   %timeout.addr.1.i.i = phi i32 [ %timeout.addr.07.i.i, %for.body.i.i ], [ 10000000, %if.then.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %bh.08.i.i, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %bh.08.i.i, i64 32
   %3 = load atomic i64, ptr %next.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i.i = icmp eq i64 %3, 0
@@ -1381,7 +1381,7 @@ aio_compute_bh_timeout.exit.i:                    ; preds = %while.end10.i.i
 
 if.end.i:                                         ; preds = %aio_compute_bh_timeout.exit.i, %entry
   %conv.i36.i = phi i64 [ %conv.i.i, %aio_compute_bh_timeout.exit.i ], [ -1, %entry ]
-  %bh_slice_list.i = getelementptr inbounds i8, ptr %source, i64 184
+  %bh_slice_list.i = getelementptr inbounds nuw i8, ptr %source, i64 184
   %s.043.i = load ptr, ptr %bh_slice_list.i, align 8
   %tobool.not44.i = icmp eq ptr %s.043.i, null
   br i1 %tobool.not44.i, label %for.end.i, label %for.body.preheader.i
@@ -1391,7 +1391,7 @@ for.body.preheader.i:                             ; preds = %if.end.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %aio_compute_bh_timeout.exit29.i
-  %next.i = getelementptr inbounds i8, ptr %s.046.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %s.046.i, i64 8
   %s.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !14
@@ -1408,7 +1408,7 @@ for.body.i11.i:                                   ; preds = %for.body.i, %while.
   %bh.08.in.i12.i = phi i64 [ %7, %while.end10.i18.i ], [ %5, %for.body.i ]
   %timeout.addr.07.i13.i = phi i32 [ %timeout.addr.1.i19.i, %while.end10.i18.i ], [ %timeout.0.in45.i, %for.body.i ]
   %bh.08.i14.i = inttoptr i64 %bh.08.in.i12.i to ptr
-  %flags.i15.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 40
+  %flags.i15.i = getelementptr inbounds nuw i8, ptr %bh.08.i14.i, i64 40
   %6 = load i32, ptr %flags.i15.i, align 8
   %and.i16.i = and i32 %6, 6
   %cmp.i17.i = icmp eq i32 %and.i16.i, 2
@@ -1421,7 +1421,7 @@ if.then.i26.i:                                    ; preds = %for.body.i11.i
 
 while.end10.i18.i:                                ; preds = %if.then.i26.i, %for.body.i11.i
   %timeout.addr.1.i19.i = phi i32 [ %timeout.addr.07.i13.i, %for.body.i11.i ], [ 10000000, %if.then.i26.i ]
-  %next.i20.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 32
+  %next.i20.i = getelementptr inbounds nuw i8, ptr %bh.08.i14.i, i64 32
   %7 = load atomic i64, ptr %next.i20.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i21.i = icmp eq i64 %7, 0
@@ -1438,7 +1438,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
   %timeout.0.in.lcssa.i = phi i64 [ %conv.i36.i, %if.end.i ], [ %conv.i24.i, %for.end.loopexit.i ]
-  %tlg.i = getelementptr inbounds i8, ptr %source, i64 480
+  %tlg.i = getelementptr inbounds nuw i8, ptr %source, i64 480
   %call9.i = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg.i) #13
   %cmp10.i = icmp eq i64 %call9.i, 0
   br i1 %cmp10.i, label %aio_compute_timeout.exit, label %if.else.i
@@ -1472,15 +1472,15 @@ if.end:                                           ; preds = %aio_compute_timeout
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @aio_ctx_check(ptr noundef %source) #0 {
 entry:
-  %notify_me = getelementptr inbounds i8, ptr %source, i64 168
+  %notify_me = getelementptr inbounds nuw i8, ptr %source, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %and = and i32 %0, -2
   store atomic i32 %and, ptr %notify_me release, align 8
-  %notified.i = getelementptr inbounds i8, ptr %source, i64 200
+  %notified.i = getelementptr inbounds nuw i8, ptr %source, i64 200
   store atomic i8 0, ptr %notified.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   fence seq_cst
-  %bh_list = getelementptr inbounds i8, ptr %source, i64 176
+  %bh_list = getelementptr inbounds nuw i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !23
   %tobool.not16 = icmp eq i64 %1, 0
@@ -1489,21 +1489,21 @@ entry:
 for.body:                                         ; preds = %entry, %while.end20
   %bh.017.in = phi i64 [ %3, %while.end20 ], [ %1, %entry ]
   %bh.017 = inttoptr i64 %bh.017.in to ptr
-  %flags = getelementptr inbounds i8, ptr %bh.017, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %bh.017, i64 40
   %2 = load i32, ptr %flags, align 8
   %and15 = and i32 %2, 6
   %cmp = icmp eq i32 %and15, 2
   br i1 %cmp, label %return, label %while.end20
 
 while.end20:                                      ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %bh.017, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %bh.017, i64 32
   %3 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !24
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %while.end20, %entry
-  %bh_slice_list = getelementptr inbounds i8, ptr %source, i64 184
+  %bh_slice_list = getelementptr inbounds nuw i8, ptr %source, i64 184
   %s.021 = load ptr, ptr %bh_slice_list, align 8
   %tobool23.not22 = icmp eq ptr %s.021, null
   br i1 %tobool23.not22, label %for.end53, label %while.end29
@@ -1518,21 +1518,21 @@ while.end29:                                      ; preds = %for.end, %for.inc51
 for.body35:                                       ; preds = %while.end29, %while.end46
   %bh.120.in = phi i64 [ %6, %while.end46 ], [ %4, %while.end29 ]
   %bh.120 = inttoptr i64 %bh.120.in to ptr
-  %flags36 = getelementptr inbounds i8, ptr %bh.120, i64 40
+  %flags36 = getelementptr inbounds nuw i8, ptr %bh.120, i64 40
   %5 = load i32, ptr %flags36, align 8
   %and37 = and i32 %5, 6
   %cmp38 = icmp eq i32 %and37, 2
   br i1 %cmp38, label %return, label %while.end46
 
 while.end46:                                      ; preds = %for.body35
-  %next47 = getelementptr inbounds i8, ptr %bh.120, i64 32
+  %next47 = getelementptr inbounds nuw i8, ptr %bh.120, i64 32
   %6 = load atomic i64, ptr %next47 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !27
   %tobool34.not = icmp eq i64 %6, 0
   br i1 %tobool34.not, label %for.inc51, label %for.body35, !llvm.loop !28
 
 for.inc51:                                        ; preds = %while.end46, %while.end29
-  %next52 = getelementptr inbounds i8, ptr %s.023, i64 8
+  %next52 = getelementptr inbounds nuw i8, ptr %s.023, i64 8
   %s.0 = load ptr, ptr %next52, align 8
   %tobool23.not = icmp eq ptr %s.0, null
   br i1 %tobool23.not, label %for.end53, label %while.end29, !llvm.loop !29
@@ -1542,7 +1542,7 @@ for.end53:                                        ; preds = %for.inc51, %for.end
   br i1 %call, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.end53
-  %tlg = getelementptr inbounds i8, ptr %source, i64 480
+  %tlg = getelementptr inbounds nuw i8, ptr %source, i64 480
   %call54 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #13
   %cmp55 = icmp eq i64 %call54, 0
   %7 = zext i1 %cmp55 to i32
@@ -1571,10 +1571,10 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_ctx_finalize(ptr noundef %source) #0 {
 entry:
-  %thread_pool = getelementptr inbounds i8, ptr %source, i64 240
+  %thread_pool = getelementptr inbounds nuw i8, ptr %source, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
   tail call void @thread_pool_free(ptr noundef %0) #13
-  %linux_io_uring = getelementptr inbounds i8, ptr %source, i64 248
+  %linux_io_uring = getelementptr inbounds nuw i8, ptr %source, i64 248
   %1 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1587,7 +1587,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %scheduled_coroutines = getelementptr inbounds i8, ptr %source, i64 216
+  %scheduled_coroutines = getelementptr inbounds nuw i8, ptr %source, i64 216
   %3 = load ptr, ptr %scheduled_coroutines, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.end5, label %if.else
@@ -1597,18 +1597,18 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %co_schedule_bh = getelementptr inbounds i8, ptr %source, i64 224
+  %co_schedule_bh = getelementptr inbounds nuw i8, ptr %source, i64 224
   %4 = load ptr, ptr %co_schedule_bh, align 8
   %5 = load ptr, ptr %4, align 8
-  %flags.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = atomicrmw or ptr %flags.i.i, i32 5 seq_cst, align 8
   %and.i.i = and i32 %6, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %do.body2.preheader.i.i, label %if.end.i.i
 
 do.body2.preheader.i.i:                           ; preds = %if.end5
-  %bh_list.i.i = getelementptr inbounds i8, ptr %5, i64 176
-  %next.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %bh_list.i.i = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %next.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = ptrtoint ptr %4 to i64
   br label %do.body2.i.i
 
@@ -1627,29 +1627,29 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.end5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
-  %notified.i.i.i = getelementptr inbounds i8, ptr %5, i64 200
+  %notified.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
-  %notify_me.i.i.i = getelementptr inbounds i8, ptr %5, i64 168
+  %notify_me.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 168
   %14 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
   %tobool.not.i.i.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i.i.i, label %qemu_bh_delete.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %notifier.i.i.i = getelementptr inbounds i8, ptr %5, i64 204
+  %notifier.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 204
   %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %qemu_bh_delete.exit
 
 qemu_bh_delete.exit:                              ; preds = %if.end.i.i, %if.then.i.i.i
   tail call void @icount_notify_exit() #13
-  %bh_slice_list = getelementptr inbounds i8, ptr %source, i64 184
+  %bh_slice_list = getelementptr inbounds nuw i8, ptr %source, i64 184
   %15 = load ptr, ptr %bh_slice_list, align 8
   %cmp6 = icmp eq ptr %15, null
   br i1 %cmp6, label %while.cond.preheader, label %if.else8
 
 while.cond.preheader:                             ; preds = %qemu_bh_delete.exit
-  %bh_list = getelementptr inbounds i8, ptr %source, i64 176
+  %bh_list = getelementptr inbounds nuw i8, ptr %source, i64 176
   %16 = load atomic i64, ptr %bh_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %tobool.not.i22 = icmp eq i64 %16, 0
@@ -1663,11 +1663,11 @@ aio_bh_dequeue.exit:                              ; preds = %while.cond.preheade
   %17 = phi i64 [ %24, %if.end17 ], [ %16, %while.cond.preheader ]
   %18 = inttoptr i64 %17 to ptr
   %19 = load ptr, ptr %bh_list, align 8
-  %next.i = getelementptr inbounds i8, ptr %19, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %20 = load ptr, ptr %next.i, align 8
   store ptr %20, ptr %bh_list, align 8
   store ptr null, ptr %next.i, align 8
-  %flags7.i = getelementptr inbounds i8, ptr %18, i64 40
+  %flags7.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   %21 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
   %and = and i32 %21, 4
   %tobool11.not = icmp eq i32 %and, 0
@@ -1675,7 +1675,7 @@ aio_bh_dequeue.exit:                              ; preds = %while.cond.preheade
 
 if.then15:                                        ; preds = %aio_bh_dequeue.exit
   %22 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds i8, ptr %18, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load ptr, ptr %name, align 8
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.aio_ctx_finalize, ptr noundef %23) #15
   tail call void @abort() #14
@@ -1689,14 +1689,14 @@ if.end17:                                         ; preds = %aio_bh_dequeue.exit
   br i1 %tobool.not.i, label %while.end, label %aio_bh_dequeue.exit, !llvm.loop !30
 
 while.end:                                        ; preds = %if.end17, %while.cond.preheader
-  %notifier = getelementptr inbounds i8, ptr %source, i64 204
+  %notifier = getelementptr inbounds nuw i8, ptr %source, i64 204
   tail call void @aio_set_event_notifier(ptr noundef nonnull %source, ptr noundef nonnull %notifier, ptr noundef null, ptr noundef null, ptr noundef null) #13
   tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #13
-  %lock = getelementptr inbounds i8, ptr %source, i64 96
+  %lock = getelementptr inbounds nuw i8, ptr %source, i64 96
   tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %lock) #13
-  %list_lock = getelementptr inbounds i8, ptr %source, i64 172
+  %list_lock = getelementptr inbounds nuw i8, ptr %source, i64 172
   tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %list_lock) #13
-  %tlg = getelementptr inbounds i8, ptr %source, i64 480
+  %tlg = getelementptr inbounds nuw i8, ptr %source, i64 480
   tail call void @timerlistgroup_deinit(ptr noundef nonnull %tlg) #13
   tail call void @unregister_aiocontext(ptr noundef nonnull %source) #13
   tail call void @aio_context_destroy(ptr noundef nonnull %source) #13

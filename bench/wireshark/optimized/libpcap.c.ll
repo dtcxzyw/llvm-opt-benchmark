@@ -144,15 +144,15 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   store i32 %29, ptr %4, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %.pre)
   store i16 %rev, ptr %5, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %31 = load i16, ptr %30, align 2
   %rev88 = call i16 @llvm.bswap.i16(i16 %31)
   store i16 %rev88, ptr %30, align 2
-  %32 = getelementptr inbounds i8, ptr %5, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   store i32 %34, ptr %32, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = load i32, ptr %35, align 4
   %37 = call i32 @llvm.bswap.i32(i32 %36)
   store i32 %37, ptr %35, align 4
@@ -171,18 +171,18 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %147
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @libpcap_read, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @libpcap_seek_read, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @libpcap_close, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %49, ptr %50, align 8
   %51 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %51, ptr %52, align 8
   store i32 %.082, ptr %51, align 8
   %53 = load i16, ptr %5, align 4
@@ -192,19 +192,19 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   ]
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %5, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = icmp ult i16 %56, 3
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %51, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %59, align 4
   br label %69
 
 60:                                               ; preds = %54
   %61 = icmp eq i16 %56, 3
-  %62 = getelementptr inbounds i8, ptr %51, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
   br i1 %61, label %63, label %64
 
 63:                                               ; preds = %60
@@ -216,21 +216,21 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %69
 
 65:                                               ; preds = %44
-  %66 = getelementptr inbounds i8, ptr %51, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 1, ptr %66, align 4
   br label %69
 
 67:                                               ; preds = %44
-  %68 = getelementptr inbounds i8, ptr %51, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %58, %64, %63, %67, %65
-  %70 = getelementptr inbounds i8, ptr %51, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i16 %53, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %72 = load i16, ptr %71, align 2
-  %73 = getelementptr inbounds i8, ptr %51, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %51, i64 10
   store i16 %72, ptr %73, align 2
   %74 = load i32, ptr %4, align 4
   %75 = icmp eq i32 %74, -1582119980
@@ -238,7 +238,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   %or.cond = and i1 %76, %75
   %77 = icmp eq i16 %72, 2
   %or.cond7 = select i1 %or.cond, i1 %77, i1 false
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %79 = load i32, ptr %78, align 4
   br i1 %or.cond7, label %80, label %._crit_edge
 
@@ -262,11 +262,11 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 .thread102:                                       ; preds = %80, %83, %82, %81
   %.sink = phi i32 [ 0, %83 ], [ 10, %82 ], [ 6, %81 ], [ 1, %80 ]
   store i32 %.sink, ptr %78, align 4
-  %84 = getelementptr inbounds i8, ptr %5, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %89
 
 ._crit_edge:                                      ; preds = %69, %80
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = and i32 %79, 67043328
   %.not95 = icmp eq i32 %86, 0
   br i1 %.not95, label %89, label %87
@@ -283,7 +283,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   %91 = phi i32 [ %.sink, %.thread102 ], [ %79, %._crit_edge ]
   %92 = and i32 %91, 65535
   %93 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %92) #7
-  %94 = getelementptr inbounds i8, ptr %0, i64 144
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %93, ptr %94, align 8
   %95 = icmp eq i32 %93, 0
   br i1 %95, label %96, label %99
@@ -296,7 +296,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %147
 
 99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %51, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 -1, ptr %100, align 8
   %101 = load i32, ptr %90, align 4
   %102 = and i32 %101, 67108864
@@ -310,7 +310,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %106
 
 106:                                              ; preds = %103, %99
-  %107 = getelementptr inbounds i8, ptr %51, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr null, ptr %107, align 8
   %108 = load i32, ptr %4, align 4
   switch i32 %108, label %.sink.split [
@@ -323,7 +323,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br i1 %110, label %111, label %.sink.split
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %113 = load i32, ptr %112, align 8
   %.not99 = icmp eq i32 %113, 0
   br i1 %.not99, label %114, label %.sink.split
@@ -334,7 +334,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br i1 %.not100, label %147, label %124
 
 116:                                              ; preds = %106
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %118 = load i32, ptr %117, align 8
   %.not97 = icmp eq i32 %118, 0
   br i1 %.not97, label %121, label %119
@@ -352,12 +352,12 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 
 .sink.split:                                      ; preds = %106, %109, %111
   %.1105.sink = phi i32 [ 0, %111 ], [ %.1105, %109 ], [ %.1105, %106 ]
-  %123 = getelementptr inbounds i8, ptr %51, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 %.1105.sink, ptr %123, align 4
   br label %124
 
 124:                                              ; preds = %.sink.split, %121, %114
-  %125 = getelementptr inbounds i8, ptr %51, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %126 = load i32, ptr %125, align 4
   switch i32 %126, label %138 [
     i32 0, label %.sink.split107
@@ -386,9 +386,9 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 
 132:                                              ; preds = %124
   %133 = load i32, ptr @pcap_nokia_file_type_subtype, align 4
-  %134 = getelementptr inbounds i8, ptr %0, i64 20
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %133, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %0, i64 148
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %135, align 4
   %136 = load i32, ptr %90, align 4
   %137 = icmp eq i32 %136, 13
@@ -406,9 +406,9 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   %pcap_aix_file_type_subtype.sink = phi ptr [ @pcap_aix_file_type_subtype, %131 ], [ @pcap_ss991029_file_type_subtype, %130 ], [ @pcap_ss990915_file_type_subtype, %129 ], [ @pcap_ss990417_file_type_subtype, %128 ], [ @pcap_nsec_file_type_subtype, %127 ], [ @pcap_file_type_subtype, %124 ]
   %.sink108 = phi i32 [ 9, %131 ], [ 6, %130 ], [ 6, %129 ], [ 6, %128 ], [ 9, %127 ], [ 6, %124 ]
   %139 = load i32, ptr %pcap_aix_file_type_subtype.sink, align 4
-  %140 = getelementptr inbounds i8, ptr %0, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %0, i64 148
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %.sink108, ptr %141, align 4
   br label %142
 
@@ -447,7 +447,7 @@ define internal range(i32 0, 2) i32 @libpcap_read(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -475,15 +475,15 @@ define internal range(i32 0, 2) i32 @libpcap_seek_read(ptr noundef %0, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @libpcap_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %cond = icmp eq i32 %8, 98
   br i1 %cond, label %9, label %11
@@ -508,11 +508,11 @@ declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 4) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i64 @file_tell(ptr noundef %9) #7
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %12
 
 12:                                               ; preds = %5, %27
@@ -665,25 +665,25 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
   br label %38
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %12, 999999
   %spec.select = zext i1 %13 to i32
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i32, ptr %16, align 8
   %18 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %17) #7
   %19 = icmp ugt i32 %15, %18
   %20 = select i1 %13, i32 2, i32 1
   %.1 = select i1 %19, i32 %20, i32 %spec.select
-  %21 = getelementptr inbounds i8, ptr %4, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp ugt i32 %22, 134217728
   %24 = zext i1 %23 to i32
   %.2 = add nuw nsw i32 %.1, %24
   %25 = load i32, ptr %14, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = icmp ugt i32 %25, %27
   %29 = zext i1 %28 to i32
@@ -713,7 +713,7 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @libpcap_read_header(ptr nocapture readonly %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %.96.val, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %.96.val, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 7
   br i1 %7, label %switch.lookup, label %8
@@ -724,7 +724,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_header(ptr nocapture re
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.libpcap_read_header, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.libpcap_read_header, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %switch.load, ptr noundef %1, ptr noundef %2) #7
   %.not = icmp eq i32 %10, 0
@@ -739,22 +739,22 @@ switch.lookup:                                    ; preds = %4
   %14 = load i32, ptr %3, align 4
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @llvm.bswap.i32(i32 %20)
   store i32 %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %22, align 4
   br label %25
 
 25:                                               ; preds = %13, %11
-  %26 = getelementptr inbounds i8, ptr %.96.val, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.96.val, i64 4
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %38 [
     i32 1, label %._crit_edge
@@ -762,16 +762,16 @@ switch.lookup:                                    ; preds = %4
   ]
 
 ._crit_edge:                                      ; preds = %25
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert1 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert1 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre2 = load i32, ptr %.phi.trans.insert1, align 4
   br label %33
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %32 = load i32, ptr %31, align 4
   %.not38 = icmp ugt i32 %30, %32
   br i1 %.not38, label %33, label %38
@@ -779,8 +779,8 @@ switch.lookup:                                    ; preds = %4
 33:                                               ; preds = %._crit_edge, %28
   %34 = phi i32 [ %.pre2, %._crit_edge ], [ %30, %28 ]
   %35 = phi i32 [ %.pre, %._crit_edge ], [ %32, %28 ]
-  %36 = getelementptr inbounds i8, ptr %3, i64 12
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %34, ptr %36, align 4
   store i32 %35, ptr %37, align 4
   br label %38
@@ -797,16 +797,16 @@ declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcaprec_ss990915_hdr, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = call fastcc i32 @libpcap_read_header(ptr %9, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %83, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %15) #7
   %17 = icmp ugt i32 %13, %16
@@ -827,9 +827,9 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
 
 24:                                               ; preds = %11
   %25 = load i32, ptr %12, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %9, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 2
   %.pre78 = load i32, ptr %14, align 8
@@ -868,9 +868,9 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
   %45 = sub i32 %.064, %41
   store i32 0, ptr %2, align 8
   %46 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %47 = getelementptr inbounds i8, ptr %2, i64 232
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %48, align 4
   %49 = load i32, ptr %14, align 8
   %.not72 = icmp eq i32 %49, 98
@@ -879,44 +879,44 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
 50:                                               ; preds = %43
   %51 = load i32, ptr %7, align 4
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %52, ptr %53, align 8
   %54 = load i32, ptr %28, align 4
   %.off75 = add i32 %54, -1
   %switch76 = icmp ult i32 %.off75, 2
-  %55 = getelementptr inbounds i8, ptr %7, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %56 = load i32, ptr %55, align 4
   br i1 %switch76, label %57, label %59
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %56, ptr %58, align 8
   br label %70
 
 59:                                               ; preds = %50
   %60 = mul i32 %56, 1000
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %60, ptr %61, align 8
   br label %70
 
 62:                                               ; preds = %43
   store i32 7, ptr %48, align 4
-  %63 = getelementptr inbounds i8, ptr %9, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %66 = call i32 @erf_populate_interface_from_header(ptr noundef %64, ptr noundef nonnull %0, ptr noundef nonnull %65, ptr noundef %4, ptr noundef %5) #7
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %83, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %2, i64 76
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 %66, ptr %69, align 4
   br label %70
 
 70:                                               ; preds = %57, %59, %68
-  %71 = getelementptr inbounds i8, ptr %2, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %45, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %44, ptr %72, align 4
   %73 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %45, ptr noundef %4, ptr noundef %5) #7
   %.not73 = icmp eq i32 %73, 0
@@ -925,11 +925,11 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
 74:                                               ; preds = %70
   %75 = load i32, ptr %14, align 8
   %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr i8, ptr %76, i64 %78
   %80 = load i32, ptr %9, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %82 = load i32, ptr %81, align 8
   call void @pcap_read_post_process(i32 noundef %40, i32 noundef %75, ptr noundef nonnull %2, ptr noundef %79, i32 noundef %80, i32 noundef %82) #7
   br label %83
@@ -973,7 +973,7 @@ define internal range(i32 -9, 1) i32 @libpcap_dump_can_write_encap(i32 noundef %
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -984,31 +984,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap(ptr noundef initiali
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1027,7 +1027,7 @@ declare i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1039,10 +1039,10 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap(ptr noundef %0, ptr nound
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sdiv i32 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
   %16 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   br label %17
@@ -1054,9 +1054,9 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 16, 29) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @pcap_get_phdr_size(i32 noundef %10, ptr noundef nonnull %8) #7
   %12 = load i32, ptr %1, align 8
@@ -1069,7 +1069,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr nounde
 
 14:                                               ; preds = %6
   %15 = load i32, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i32, ptr %16, align 8
   %.not31 = icmp eq i32 %15, %17
   br i1 %.not31, label %19, label %18
@@ -1095,12 +1095,12 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr nounde
 28:                                               ; preds = %19
   %29 = load i32, ptr %7, align 8
   %30 = add i32 %29, %11
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %11
-  %35 = getelementptr inbounds i8, ptr %2, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %34, ptr %35, align 4
   %36 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %5) #7
   %.not32 = icmp eq i32 %36, 0
@@ -1135,7 +1135,7 @@ declare i32 @pcap_write_phdr(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_nsec(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap_nsec, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -1146,31 +1146,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_nsec(ptr noundef ini
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1187,7 +1187,7 @@ libpcap_dump_write_file_header.exit:              ; preds = %3, %18
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nsec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1199,9 +1199,9 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nsec(ptr noundef %0, ptr 
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %13, ptr %14, align 4
   %15 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   br label %16
@@ -1215,7 +1215,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nsec(ptr noundef %0, ptr 
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss990417(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap_ss990417, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -1226,31 +1226,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss990417(ptr noundef
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1267,7 +1267,7 @@ libpcap_dump_write_file_header.exit:              ; preds = %3, %18
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990417(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_modified_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1279,16 +1279,16 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990417(ptr noundef %0, 
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sdiv i32 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 22
   store i8 0, ptr %18, align 2
   %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   br label %20
@@ -1302,7 +1302,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990417(ptr noundef %0, 
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss990915(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap_ss990915, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -1313,31 +1313,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss990915(ptr noundef
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1354,7 +1354,7 @@ libpcap_dump_write_file_header.exit:              ; preds = %3, %18
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990915(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_ss990915_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1366,12 +1366,12 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990915(ptr noundef %0, 
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sdiv i32 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %16, i8 0, i64 9, i1 false)
   %17 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 28, ptr noundef %2, ptr noundef %3)
   br label %18
@@ -1385,7 +1385,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990915(ptr noundef %0, 
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss991029(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap_ss991029, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -1396,31 +1396,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_ss991029(ptr noundef
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1437,7 +1437,7 @@ libpcap_dump_write_file_header.exit:              ; preds = %3, %18
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss991029(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_modified_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1449,16 +1449,16 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss991029(ptr noundef %0, 
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sdiv i32 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 22
   store i8 0, ptr %18, align 2
   %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   br label %20
@@ -1472,7 +1472,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss991029(ptr noundef %0, 
 define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_nokia(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.pcap_hdr, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @libpcap_dump_pcap_nokia, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
@@ -1483,31 +1483,31 @@ define internal range(i32 0, 2) i32 @libpcap_dump_open_pcap_nokia(ptr noundef in
 
 8:                                                ; preds = %3
   store i16 2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 4, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %.not9.i = icmp eq i32 %13, 0
   br i1 %.not9.i, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %16) #7
   br label %18
 
 18:                                               ; preds = %14, %8
   %19 = phi i32 [ %17, %14 ], [ %13, %8 ]
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 4
   %25 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 20, ptr noundef %1) #7
   %.not10.i = icmp ne i32 %25, 0
@@ -1524,7 +1524,7 @@ libpcap_dump_write_file_header.exit:              ; preds = %3, %18
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nokia(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.pcaprec_nokia_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp ugt i64 %8, 2147483647
   br i1 %or.cond, label %9, label %10
@@ -1536,13 +1536,13 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nokia(ptr noundef %0, ptr
 10:                                               ; preds = %5
   %11 = trunc nuw nsw i64 %8 to i32
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sdiv i32 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
   %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 20, ptr noundef %2, ptr noundef %3)

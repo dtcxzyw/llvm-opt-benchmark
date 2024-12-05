@@ -129,21 +129,21 @@ define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i32, ptr %13, align 8
   store ptr %12, ptr %10, align 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %14, ptr %15, align 8
   %.not60 = icmp eq i32 %6, 1
   br i1 %.not60, label %.thread, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i32, ptr %19, align 8
   store ptr %18, ptr %17, align 16
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %20, ptr %21, align 8
   br label %.thread
 
@@ -156,7 +156,7 @@ define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not55, label %26, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -175,15 +175,15 @@ define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not58, label %38, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %32 = tail call ptr @zend_hash_str_find_ptr_lc(ptr noundef nonnull %31, ptr noundef %3, i64 noundef %4) #9
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 16, ptr noundef nonnull @.str, ptr noundef nonnull %37, ptr noundef %3) #10
   unreachable
 
@@ -210,7 +210,7 @@ define noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not59, label %48, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -231,11 +231,11 @@ declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define void @zend_user_it_new_iterator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @zend_call_known_function(ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   ret void
@@ -243,13 +243,13 @@ define void @zend_user_it_new_iterator(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @zend_user_it_invalidate_current(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
   store i32 0, ptr %2, align 8
   br label %7
@@ -267,22 +267,22 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
   br i1 %.not, label %55, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 368
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 368
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @zend_call_known_function(ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   br label %14
 
 14:                                               ; preds = %52, %3
   %.0 = phi ptr [ %2, %3 ], [ %54, %52 ]
-  %15 = getelementptr inbounds i8, ptr %.0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %.loopexit.loopexit [
     i8 3, label %.loopexit
@@ -311,7 +311,7 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %.0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, 1
   br i1 %27, label %32, label %28
@@ -321,7 +321,7 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
   br i1 %.not35, label %.loopexit, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load i8, ptr %30, align 8
   %.not36 = icmp eq i8 %31, 48
   br i1 %.not36, label %.loopexit, label %32
@@ -331,7 +331,7 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 33:                                               ; preds = %14
   %34 = load ptr, ptr %.0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %36 = load i32, ptr %35, align 4
   %.not34 = icmp eq i32 %36, 0
   %spec.select38 = sext i1 %.not34 to i32
@@ -339,9 +339,9 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 37:                                               ; preds = %14
   %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, @zend_std_cast_object_tostring
   br i1 %43, label %.loopexit, label %44
@@ -354,7 +354,7 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 48:                                               ; preds = %14
   %49 = load ptr, ptr %.0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8
   %.not33 = icmp eq i64 %51, 0
   %spec.select39 = sext i1 %.not33 to i32
@@ -362,7 +362,7 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 52:                                               ; preds = %14
   %53 = load ptr, ptr %.0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br label %14
 
 .loopexit.loopexit:                               ; preds = %14
@@ -380,22 +380,22 @@ define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @zend_user_it_get_current_data(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @zend_call_known_function(ptr noundef %13, ptr noundef %14, ptr noundef %16, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   br label %17
@@ -406,18 +406,18 @@ define nonnull ptr @zend_user_it_get_current_data(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @zend_user_it_get_current_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 368
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 368
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @zend_call_known_function(ptr noundef %9, ptr noundef %10, ptr noundef %12, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef null) #9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 10
   br i1 %15, label %16, label %40
@@ -429,9 +429,9 @@ define void @zend_user_it_get_current_key(ptr nocapture noundef readonly %0, ptr
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load i32, ptr %23, align 8
   store ptr %22, ptr %1, align 8
   store i32 %24, ptr %13, align 8
@@ -439,7 +439,7 @@ define void @zend_user_it_get_current_key(ptr nocapture noundef readonly %0, ptr
   br label %40
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %1, i64 9
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %27 = load i8, ptr %26, align 1
   %28 = icmp ne i8 %27, 0
   tail call void @llvm.assume(i1 %28)
@@ -448,9 +448,9 @@ define void @zend_user_it_get_current_key(ptr nocapture noundef readonly %0, ptr
   %30 = add i32 %18, -1
   store i32 %30, ptr %17, align 4
   %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load i32, ptr %34, align 8
   store ptr %33, ptr %1, align 8
   store i32 %35, ptr %13, align 8
@@ -470,27 +470,27 @@ define void @zend_user_it_get_current_key(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define void @zend_user_it_move_forward(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %zend_user_it_invalidate_current.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
   store i32 0, ptr %2, align 8
   br label %zend_user_it_invalidate_current.exit
 
 zend_user_it_invalidate_current.exit:             ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @zend_call_known_function(ptr noundef %13, ptr noundef %14, ptr noundef %16, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   ret void
@@ -498,27 +498,27 @@ zend_user_it_invalidate_current.exit:             ; preds = %1, %5
 
 ; Function Attrs: nounwind uwtable
 define void @zend_user_it_rewind(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %zend_user_it_invalidate_current.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
   store i32 0, ptr %2, align 8
   br label %zend_user_it_invalidate_current.exit
 
 zend_user_it_invalidate_current.exit:             ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @zend_call_known_function(ptr noundef %13, ptr noundef %14, ptr noundef %16, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   ret void
@@ -526,29 +526,29 @@ zend_user_it_invalidate_current.exit:             ; preds = %1, %5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @zend_user_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %1, align 8
   br label %54
 
 10:                                               ; preds = %3
   %11 = tail call ptr @zend_get_gc_buffer_create() #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %0, i64 65
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %17, %19
   br i1 %20, label %21, label %22
@@ -563,22 +563,22 @@ define noalias noundef ptr @zend_user_it_get_gc(ptr noundef %0, ptr nocapture no
   %24 = load ptr, ptr %12, align 8
   %25 = load i32, ptr %13, align 8
   store ptr %24, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %25, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %28, ptr %11, align 8
   br label %29
 
 29:                                               ; preds = %22, %10
-  %30 = getelementptr inbounds i8, ptr %0, i64 105
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %31 = load i8, ptr %30, align 1
   %.not43 = icmp eq i8 %31, 0
   br i1 %.not43, label %45, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %33, %35
   br i1 %36, label %37, label %38
@@ -593,15 +593,15 @@ define noalias noundef ptr @zend_user_it_get_gc(ptr noundef %0, ptr nocapture no
   %40 = load ptr, ptr %4, align 8
   %41 = load i32, ptr %5, align 8
   store ptr %40, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %41, ptr %42, align 8
   %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %44, ptr %11, align 8
   br label %45
 
 45:                                               ; preds = %38, %29
-  %46 = getelementptr inbounds i8, ptr %11, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %1, align 8
   %48 = load ptr, ptr %11, align 8
@@ -623,27 +623,27 @@ declare ptr @zend_get_gc_buffer_create() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @zend_user_it_get_new_iterator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void @zend_call_known_function(ptr noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef null) #9
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %17, i64 392
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 392
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
   br i1 %.not17, label %.thread, label %21
@@ -663,9 +663,9 @@ define ptr @zend_user_it_get_new_iterator(ptr nocapture noundef readonly %0, ptr
   br i1 %.not18, label %27, label %32
 
 27:                                               ; preds = %.thread
-  %.pn.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pn = load ptr, ptr %.pn.in, align 8
-  %28 = getelementptr inbounds i8, ptr %.pn, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %29 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %28) #9
   br label %32
 
@@ -685,10 +685,10 @@ declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...)
 define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @zend_call_method(ptr noundef %6, ptr noundef %8, ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 9, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = icmp ne i8 %11, 0
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -708,13 +708,13 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = call noalias ptr @_estrndup(ptr noundef nonnull %18, i64 noundef %20) #9
   store ptr %21, ptr %1, align 8
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %2, align 8
   br label %25
@@ -734,9 +734,9 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
   br i1 %or.cond19, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %32) #9
   br label %34
 
@@ -759,21 +759,21 @@ define range(i32 -1, 1) i32 @zend_user_unserialize(ptr noundef %0, ptr noundef %
   %10 = add i64 %9, 32
   %11 = tail call noalias ptr @_emalloc(i64 noundef %10) #11
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 22, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %2, i64 %3, i1 false)
   %16 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %3
   store i8 0, ptr %16, align 1
   store ptr %11, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 262, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @zend_call_method(ptr noundef %18, ptr noundef %20, ptr noundef null, ptr noundef nonnull @.str.5, i64 noundef 11, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null)
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
@@ -792,16 +792,16 @@ declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @zend_create_internal_iterator_zval(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, @zend_user_it_get_new_iterator
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %9(ptr noundef %13, ptr noundef nonnull %1, i32 noundef 0) #9
   %.not = icmp eq ptr %14, null
@@ -811,14 +811,14 @@ define range(i32 -1, 1) i32 @zend_create_internal_iterator_zval(ptr nocapture no
   %16 = load ptr, ptr @zend_ce_internal_iterator, align 8
   %17 = tail call noalias ptr @_emalloc_80() #9
   tail call void @zend_object_std_init(ptr noundef %17, ptr noundef %16) #9
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i8 0, ptr %19, align 8
   store ptr %14, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store i64 0, ptr %20, align 8
   store ptr %17, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 776, ptr %21, align 8
   br label %22
 
@@ -834,9 +834,9 @@ declare void @llvm.assume(i1 noundef) #3
 define internal noundef ptr @zend_internal_iterator_create(ptr noundef %0) #0 {
   %2 = tail call noalias ptr @_emalloc_80() #9
   tail call void @zend_object_std_init(ptr noundef %2, ptr noundef %0) #9
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %4, align 8
   ret ptr %2
 }
@@ -851,7 +851,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InternalIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -861,9 +861,9 @@ define hidden void @zim_InternalIterator_current(ptr nocapture noundef readonly 
   br label %51
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %zend_internal_iterator_fetch.exit
@@ -876,16 +876,16 @@ define hidden void @zim_InternalIterator_current(ptr nocapture noundef readonly 
   br label %51
 
 zend_internal_iterator_fetch.exit:                ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not.i33 = icmp eq ptr %20, null
   br i1 %.not.i33, label %zend_internal_iterator_ensure_rewound.exit, label %21
@@ -902,16 +902,16 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iterator_ensure_rewound.exit_crit_edge, %16, %zend_internal_iterator_fetch.exit
   %23 = phi ptr [ %.pre, %.zend_internal_iterator_ensure_rewound.exit_crit_edge ], [ %9, %16 ], [ %9, %zend_internal_iterator_fetch.exit ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef %23) #9
   %.not30 = icmp eq ptr %28, null
   br i1 %.not30, label %51, label %29
 
 29:                                               ; preds = %zend_internal_iterator_ensure_rewound.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not31 = icmp eq i32 %32, 0
@@ -924,8 +924,8 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 65280
   %.not32 = icmp eq i32 %41, 0
@@ -946,10 +946,10 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
 46:                                               ; preds = %.sink.split, %29, %36
   %.0 = phi ptr [ %38, %36 ], [ %28, %29 ], [ %.sink.in, %.sink.split ]
   %47 = load ptr, ptr %.0, align 8
-  %48 = getelementptr inbounds i8, ptr %.0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %49 = load i32, ptr %48, align 8
   store ptr %47, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %49, ptr %50, align 8
   br label %51
 
@@ -961,7 +961,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InternalIterator_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -971,9 +971,9 @@ define hidden void @zim_InternalIterator_key(ptr nocapture noundef readonly %0, 
   br label %33
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %zend_internal_iterator_fetch.exit
@@ -986,16 +986,16 @@ define hidden void @zim_InternalIterator_key(ptr nocapture noundef readonly %0, 
   br label %33
 
 zend_internal_iterator_fetch.exit:                ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not.i15 = icmp eq ptr %20, null
   br i1 %.not.i15, label %zend_internal_iterator_ensure_rewound.exit, label %21
@@ -1012,9 +1012,9 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iterator_ensure_rewound.exit_crit_edge, %16, %zend_internal_iterator_fetch.exit
   %23 = phi ptr [ %.pre, %.zend_internal_iterator_ensure_rewound.exit_crit_edge ], [ %9, %16 ], [ %9, %zend_internal_iterator_fetch.exit ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %29, label %28
@@ -1024,10 +1024,10 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
   br label %33
 
 29:                                               ; preds = %zend_internal_iterator_ensure_rewound.exit
-  %30 = getelementptr inbounds i8, ptr %23, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %32, align 8
   br label %33
 
@@ -1037,7 +1037,7 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InternalIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1047,9 +1047,9 @@ define hidden void @zim_InternalIterator_next(ptr nocapture noundef readonly %0,
   br label %32
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %zend_internal_iterator_fetch.exit
@@ -1062,16 +1062,16 @@ define hidden void @zim_InternalIterator_next(ptr nocapture noundef readonly %0,
   br label %32
 
 zend_internal_iterator_fetch.exit:                ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not.i8 = icmp eq ptr %20, null
   br i1 %.not.i8, label %zend_internal_iterator_ensure_rewound.exit, label %21
@@ -1088,14 +1088,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iterator_ensure_rewound.exit_crit_edge, %16, %zend_internal_iterator_fetch.exit
   %23 = phi ptr [ %.pre, %.zend_internal_iterator_ensure_rewound.exit_crit_edge ], [ %9, %16 ], [ %9, %zend_internal_iterator_fetch.exit ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr %24, align 8
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef %27) #9
   br label %32
@@ -1106,7 +1106,7 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InternalIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1116,9 +1116,9 @@ define hidden void @zim_InternalIterator_valid(ptr nocapture noundef readonly %0
   br label %32
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %zend_internal_iterator_fetch.exit
@@ -1131,16 +1131,16 @@ define hidden void @zim_InternalIterator_valid(ptr nocapture noundef readonly %0
   br label %32
 
 zend_internal_iterator_fetch.exit:                ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %zend_internal_iterator_ensure_rewound.exit, label %16
 
 16:                                               ; preds = %zend_internal_iterator_fetch.exit
   store i8 1, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not.i8 = icmp eq ptr %20, null
   br i1 %.not.i8, label %zend_internal_iterator_ensure_rewound.exit, label %21
@@ -1157,14 +1157,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 
 zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iterator_ensure_rewound.exit_crit_edge, %16, %zend_internal_iterator_fetch.exit
   %23 = phi ptr [ %.pre, %.zend_internal_iterator_ensure_rewound.exit_crit_edge ], [ %9, %16 ], [ %9, %zend_internal_iterator_fetch.exit ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %27(ptr noundef %23) #9
   %29 = icmp eq i32 %28, 0
   %30 = select i1 %29, i32 3, i32 2
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %32
 
@@ -1174,7 +1174,7 @@ zend_internal_iterator_ensure_rewound.exit:       ; preds = %.zend_internal_iter
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InternalIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1184,9 +1184,9 @@ define hidden void @zim_InternalIterator_rewind(ptr nocapture noundef readonly %
   br label %27
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %zend_internal_iterator_fetch.exit
@@ -1199,17 +1199,17 @@ define hidden void @zim_InternalIterator_rewind(ptr nocapture noundef readonly %
   br label %27
 
 zend_internal_iterator_fetch.exit:                ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.val, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   store i8 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not12 = icmp eq ptr %17, null
   br i1 %.not12, label %18, label %24
 
 18:                                               ; preds = %zend_internal_iterator_fetch.exit
-  %19 = getelementptr inbounds i8, ptr %9, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %20 = load i64, ptr %19, align 8
   %.not13 = icmp eq i64 %20, 0
   br i1 %.not13, label %27, label %21
@@ -1224,7 +1224,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
 24:                                               ; preds = %zend_internal_iterator_fetch.exit
   tail call void %17(ptr noundef nonnull %9) #9
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   store i64 0, ptr %26, align 8
   br label %27
 
@@ -1246,89 +1246,89 @@ define void @zend_register_interfaces() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %8, i8 0, i64 512, i1 false)
   %9 = load ptr, ptr @zend_string_init_interned, align 8
   %10 = tail call ptr %9(ptr noundef nonnull @.str.9, i64 noundef 11, i1 noundef zeroext true) #9
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 360
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 360
   store ptr @std_object_handlers, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 496
   store ptr @class_Traversable_methods, ptr %13, align 8
   %14 = call ptr @zend_register_internal_interface(ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
   store ptr %14, ptr @zend_ce_traversable, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 384
   store ptr @zend_implement_traversable, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %16 = load ptr, ptr @zend_string_init_interned, align 8
   %17 = call ptr %16(ptr noundef nonnull @.str.11, i64 noundef 17, i1 noundef zeroext true) #9
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 360
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store ptr @std_object_handlers, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 496
   store ptr @class_IteratorAggregate_methods, ptr %20, align 8
   %21 = call ptr @zend_register_internal_interface(ptr noundef nonnull %7) #9
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %21, i32 noundef 1, ptr noundef %14) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
   store ptr %21, ptr @zend_ce_aggregate, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 384
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 384
   store ptr @zend_implement_aggregate, ptr %22, align 8
   %23 = load ptr, ptr @zend_ce_traversable, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %24 = load ptr, ptr @zend_string_init_interned, align 8
   %25 = call ptr %24(ptr noundef nonnull @.str.16, i64 noundef 8, i1 noundef zeroext true) #9
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 360
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 360
   store ptr @std_object_handlers, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 496
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 496
   store ptr @class_Iterator_methods, ptr %28, align 8
   %29 = call ptr @zend_register_internal_interface(ptr noundef nonnull %6) #9
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %29, i32 noundef 1, ptr noundef %23) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
   store ptr %29, ptr @zend_ce_iterator, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 384
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
   store ptr @zend_implement_iterator, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %31 = load ptr, ptr @zend_string_init_interned, align 8
   %32 = call ptr %31(ptr noundef nonnull @.str.23, i64 noundef 12, i1 noundef zeroext true) #9
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 360
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store ptr @std_object_handlers, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 496
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 496
   store ptr @class_Serializable_methods, ptr %35, align 8
   %36 = call ptr @zend_register_internal_interface(ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   store ptr %36, ptr @zend_ce_serializable, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 384
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 384
   store ptr @zend_implement_serializable, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %38 = load ptr, ptr @zend_string_init_interned, align 8
   %39 = call ptr %38(ptr noundef nonnull @.str.26, i64 noundef 11, i1 noundef zeroext true) #9
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 360
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 360
   store ptr @std_object_handlers, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 496
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 496
   store ptr @class_ArrayAccess_methods, ptr %42, align 8
   %43 = call ptr @zend_register_internal_interface(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   store ptr %43, ptr @zend_ce_arrayaccess, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 384
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 384
   store ptr @zend_implement_arrayaccess, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %45 = load ptr, ptr @zend_string_init_interned, align 8
   %46 = call ptr %45(ptr noundef nonnull @.str.38, i64 noundef 9, i1 noundef zeroext true) #9
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 360
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 496
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_Countable_methods, ptr %49, align 8
   %50 = call ptr @zend_register_internal_interface(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
@@ -1337,11 +1337,11 @@ define void @zend_register_interfaces() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %2, i8 0, i64 512, i1 false)
   %51 = load ptr, ptr @zend_string_init_interned, align 8
   %52 = call ptr %51(ptr noundef nonnull @.str.40, i64 noundef 10, i1 noundef zeroext true) #9
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 360
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 360
   store ptr @std_object_handlers, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 496
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 496
   store ptr @class_Stringable_methods, ptr %55, align 8
   %56 = call ptr @zend_register_internal_interface(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
@@ -1351,23 +1351,23 @@ define void @zend_register_interfaces() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %1, i8 0, i64 512, i1 false)
   %58 = load ptr, ptr @zend_string_init_interned, align 8
   %59 = call ptr %58(ptr noundef nonnull @.str.42, i64 noundef 16, i1 noundef zeroext true) #9
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 360
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store ptr @std_object_handlers, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 496
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 496
   store ptr @class_InternalIterator_methods, ptr %62, align 8
   %63 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %1, ptr noundef null) #9
-  %64 = getelementptr inbounds i8, ptr %63, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, 536870944
   store i32 %66, ptr %64, align 4
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %63, i32 noundef 1, ptr noundef %57) #9
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %1)
   store ptr %63, ptr @zend_ce_internal_iterator, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 384
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 384
   store ptr @zend_internal_iterator_create, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %63, i64 360
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 360
   store ptr @zend_internal_iterator_handlers, ptr %68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @zend_internal_iterator_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store ptr @zend_internal_iterator_free, ptr getelementptr inbounds (i8, ptr @zend_internal_iterator_handlers, i64 8), align 8
@@ -1376,14 +1376,14 @@ define void @zend_register_interfaces() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zend_implement_traversable(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 64
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.loopexit17
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %8 = load i32, ptr %7, align 8
   %.not15 = icmp eq i32 %8, 0
   br i1 %.not15, label %.loopexit, label %9
@@ -1392,7 +1392,7 @@ define internal noundef i32 @zend_implement_traversable(ptr nocapture readnone %
   %10 = and i32 %4, 262144
   %11 = icmp ne i32 %10, 0
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds i8, ptr %1, i64 432
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @zend_ce_aggregate, align 8
   %15 = load ptr, ptr @zend_ce_iterator, align 8
@@ -1406,7 +1406,7 @@ define internal noundef i32 @zend_implement_traversable(ptr nocapture readnone %
 
 17:                                               ; preds = %9, %16
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %16 ]
-  %18 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %14
   %21 = icmp eq ptr %19, %15
@@ -1415,21 +1415,21 @@ define internal noundef i32 @zend_implement_traversable(ptr nocapture readnone %
 
 .loopexit:                                        ; preds = %16, %6
   %22 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %1, i1 noundef zeroext true) #9
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr @zend_ce_traversable, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr @zend_ce_iterator, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr @zend_ce_aggregate, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %22, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef nonnull %33, ptr noundef nonnull %37) #10
   unreachable
 
@@ -1444,14 +1444,14 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %8) #10
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   tail call void @llvm.assume(i1 %.not)
@@ -1466,7 +1466,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
 16:                                               ; preds = %9
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
@@ -1475,7 +1475,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %26, ptr %17, align 8
   br label %36
 
@@ -1484,13 +1484,13 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   %29 = sub i64 %21, %28
   %. = tail call i64 @llvm.umax.i64(i64 %29, i64 72)
   %30 = tail call noalias ptr @_emalloc(i64 noundef %.) #11
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store ptr %32, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 %.
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %17, ptr %35, align 8
   store ptr %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %36
@@ -1499,7 +1499,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   %37 = phi ptr [ %15, %14 ], [ %18, %25 ], [ %31, %27 ]
   store ptr %37, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
-  %38 = getelementptr inbounds i8, ptr %1, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.15, i64 noundef 11) #9
   %.not94 = icmp eq ptr %39, null
   br i1 %.not94, label %42, label %40
@@ -1511,7 +1511,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
 42:                                               ; preds = %36, %40
   %.0 = phi ptr [ %41, %40 ], [ null, %36 ]
   store ptr %.0, ptr %37, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 392
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %44 = load ptr, ptr %43, align 8
   %.not95 = icmp eq ptr %44, null
   %.not96 = icmp eq ptr %44, @zend_user_it_get_new_iterator
@@ -1519,13 +1519,13 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   br i1 %or.cond, label %57, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
   %.not97 = icmp eq ptr %47, null
   br i1 %.not97, label %51, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %47, i64 392
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %50 = load ptr, ptr %49, align 8
   %.not98 = icmp eq ptr %50, %44
   br i1 %.not98, label %54, label %51
@@ -1537,7 +1537,7 @@ define internal noundef i32 @zend_implement_aggregate(ptr nocapture readnone %0,
   br label %58
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %.0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not99 = icmp eq ptr %56, %1
   br i1 %.not99, label %57, label %58
@@ -1557,14 +1557,14 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %8) #10
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   tail call void @llvm.assume(i1 %.not)
@@ -1579,7 +1579,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 16:                                               ; preds = %9
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
@@ -1588,7 +1588,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %26, ptr %17, align 8
   br label %36
 
@@ -1597,13 +1597,13 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   %29 = sub i64 %21, %28
   %. = tail call i64 @llvm.umax.i64(i64 %29, i64 72)
   %30 = tail call noalias ptr @_emalloc(i64 noundef %.) #11
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  %32 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store ptr %32, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 %.
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %17, ptr %35, align 8
   store ptr %30, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %36
@@ -1612,7 +1612,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   %37 = phi ptr [ %15, %14 ], [ %18, %25 ], [ %31, %27 ]
   store ptr %37, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
-  %38 = getelementptr inbounds i8, ptr %1, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.21, i64 noundef 6) #9
   %.not146 = icmp eq ptr %39, null
   br i1 %.not146, label %42, label %40
@@ -1623,7 +1623,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 42:                                               ; preds = %36, %40
   %.0130 = phi ptr [ %41, %40 ], [ null, %36 ]
-  %43 = getelementptr inbounds i8, ptr %37, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %.0130, ptr %43, align 8
   %44 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.20, i64 noundef 5) #9
   %.not147 = icmp eq ptr %44, null
@@ -1635,10 +1635,10 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 47:                                               ; preds = %42, %45
   %.0131 = phi ptr [ %46, %45 ], [ null, %42 ]
-  %48 = getelementptr inbounds i8, ptr %37, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.0131, ptr %48, align 8
   %49 = load ptr, ptr @zend_known_strings, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 168
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @zend_hash_find(ptr noundef nonnull %38, ptr noundef %51) #9
   %.not148 = icmp eq ptr %52, null
@@ -1650,7 +1650,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 55:                                               ; preds = %47, %53
   %.0 = phi ptr [ %54, %53 ], [ null, %47 ]
-  %56 = getelementptr inbounds i8, ptr %37, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %.0, ptr %56, align 8
   %57 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.17, i64 noundef 7) #9
   %.not149 = icmp eq ptr %57, null
@@ -1662,7 +1662,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 60:                                               ; preds = %55, %58
   %.0133 = phi ptr [ %59, %58 ], [ null, %55 ]
-  %61 = getelementptr inbounds i8, ptr %37, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %.0133, ptr %61, align 8
   %62 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.18, i64 noundef 4) #9
   %.not150 = icmp eq ptr %62, null
@@ -1674,9 +1674,9 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 65:                                               ; preds = %60, %63
   %.0134 = phi ptr [ %64, %63 ], [ null, %60 ]
-  %66 = getelementptr inbounds i8, ptr %37, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr %.0134, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 392
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %68 = load ptr, ptr %67, align 8
   %.not151 = icmp eq ptr %68, null
   %.not152 = icmp eq ptr %68, @zend_user_it_get_iterator
@@ -1684,13 +1684,13 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br i1 %or.cond, label %97, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not153 = icmp eq ptr %71, null
   br i1 %.not153, label %75, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 392
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 392
   %74 = load ptr, ptr %73, align 8
   %.not154 = icmp eq ptr %74, %68
   br i1 %.not154, label %78, label %75
@@ -1703,34 +1703,34 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr %43, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not155 = icmp eq ptr %81, %1
   br i1 %.not155, label %97, label %82
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %48, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not156 = icmp eq ptr %85, %1
   br i1 %.not156, label %97, label %86
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %56, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %.not157 = icmp eq ptr %89, %1
   br i1 %.not157, label %97, label %90
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %61, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %.not158 = icmp eq ptr %93, %1
   br i1 %.not158, label %97, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %.0134, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.0134, i64 16
   %96 = load ptr, ptr %95, align 8
   %.not159 = icmp eq ptr %96, %1
   br i1 %.not159, label %97, label %98
@@ -1745,19 +1745,19 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 416
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %10 = load ptr, ptr %9, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %14, label %11
@@ -1768,7 +1768,7 @@ define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture 
   br i1 %13, label %14, label %36
 
 14:                                               ; preds = %11, %8, %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %17, label %18
@@ -1778,7 +1778,7 @@ define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture 
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 416
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %20 = load ptr, ptr %19, align 8
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %21, label %22
@@ -1788,28 +1788,28 @@ define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture 
   br label %22
 
 22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 64
   %.not17 = icmp eq i32 %25, 0
   br i1 %.not17, label %26, label %36
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 344
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %28 = load ptr, ptr %27, align 8
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %32, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %31 = load ptr, ptr %30, align 8
   %.not19 = icmp eq ptr %31, null
   br i1 %.not19, label %32, label %36
 
 32:                                               ; preds = %29, %26
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.25, ptr noundef nonnull %35) #9
   br label %36
 
@@ -1820,7 +1820,7 @@ define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 376
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   tail call void @llvm.assume(i1 %.not)
@@ -1835,7 +1835,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
 9:                                                ; preds = %2
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -1844,7 +1844,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %11, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %19, ptr %10, align 8
   br label %29
 
@@ -1853,13 +1853,13 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   %22 = sub i64 %14, %21
   %. = tail call i64 @llvm.umax.i64(i64 %22, i64 56)
   %23 = tail call noalias ptr @_emalloc(i64 noundef %.) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  %25 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 %.
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %10, ptr %28, align 8
   store ptr %23, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
   br label %29
@@ -1867,7 +1867,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
 29:                                               ; preds = %18, %20, %7
   %30 = phi ptr [ %8, %7 ], [ %11, %18 ], [ %24, %20 ]
   store ptr %30, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %31, ptr noundef nonnull @.str.34, i64 noundef 9) #9
   %.not111 = icmp eq ptr %32, null
   br i1 %.not111, label %35, label %33
@@ -1889,7 +1889,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
 
 39:                                               ; preds = %35, %37
   %.0101 = phi ptr [ %38, %37 ], [ null, %35 ]
-  %40 = getelementptr inbounds i8, ptr %30, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.0101, ptr %40, align 8
   %41 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %31, ptr noundef nonnull @.str.36, i64 noundef 9) #9
   %.not113 = icmp eq ptr %41, null
@@ -1901,7 +1901,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
 
 44:                                               ; preds = %39, %42
   %.0102 = phi ptr [ %43, %42 ], [ null, %39 ]
-  %45 = getelementptr inbounds i8, ptr %30, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %.0102, ptr %45, align 8
   %46 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %31, ptr noundef nonnull @.str.37, i64 noundef 11) #9
   %.not114 = icmp eq ptr %46, null
@@ -1913,7 +1913,7 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
 
 49:                                               ; preds = %44, %47
   %.0103 = phi ptr [ %48, %47 ], [ null, %44 ]
-  %50 = getelementptr inbounds i8, ptr %30, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %.0103, ptr %50, align 8
   ret i32 0
 }
@@ -1923,7 +1923,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_internal_iterator_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1982,22 +1982,22 @@ define internal noundef ptr @zend_user_it_get_iterator(ptr nocapture readnone %0
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @_emalloc_112() #9
   tail call void @zend_iterator_init(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %1, align 8
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4
   store ptr %8, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 776, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr @zend_interface_iterator_funcs_iterator, ptr %12, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %17, align 8
   br label %18
 
@@ -2012,19 +2012,19 @@ declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_user_it_dtor(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %zend_user_it_invalidate_current.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @zval_ptr_dtor(ptr noundef nonnull %6) #9
   store i32 0, ptr %2, align 8
   br label %zend_user_it_invalidate_current.exit
 
 zend_user_it_invalidate_current.exit:             ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @zval_ptr_dtor(ptr noundef nonnull %7) #9
   ret void
 }

@@ -14,7 +14,7 @@ define range(i32 -1, 1) i32 @access(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 16384
   %.not2 = icmp ne i32 %8, 0
@@ -58,7 +58,7 @@ define range(i32 -1, 1) i32 @faccessat(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %.not.i, label %14, label %access.exit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 16384
   %.not2.i = icmp ne i32 %17, 0

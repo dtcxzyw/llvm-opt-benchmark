@@ -55,7 +55,7 @@ define noundef ptr @Llb4_Nonlin4TransformCex(ptr noundef %0, ptr nocapture nound
   %18 = tail call ptr @Abc_CexAlloc(i32 noundef %.val187, i32 noundef %.val192, i32 noundef %.val199) #10
   %.val200 = load i32, ptr %17, align 4
   %19 = add nsw i32 %.val200, -1
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %19, ptr %20, align 4
   store i32 -1, ptr %18, align 4
   %.val188 = load i32, ptr %5, align 8
@@ -67,7 +67,7 @@ define noundef ptr @Llb4_Nonlin4TransformCex(ptr noundef %0, ptr nocapture nound
   %25 = add i32 %23, -1
   %or.cond.i = icmp ult i32 %25, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %spec.store.select.i, ptr %24, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %27
@@ -80,19 +80,19 @@ define noundef ptr @Llb4_Nonlin4TransformCex(ptr noundef %0, ptr nocapture nound
 
 Vec_IntAlloc.exit:                                ; preds = %15, %27
   %31 = phi ptr [ %30, %27 ], [ null, %15 ]
-  %32 = getelementptr inbounds i8, ptr %24, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %31, ptr %32, align 8
   %.val201285 = load i32, ptr %17, align 4
   %33 = icmp sgt i32 %.val201285, 1
   br i1 %33, label %.lr.ph289, label %.critedge
 
 .lr.ph289:                                        ; preds = %Vec_IntAlloc.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = getelementptr i8, ptr %0, i64 112
   %38 = getelementptr i8, ptr %8, i64 328
-  %39 = getelementptr inbounds i8, ptr %18, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 20
   br label %40
 
 40:                                               ; preds = %.lr.ph289, %.critedge6
@@ -100,7 +100,7 @@ Vec_IntAlloc.exit:                                ; preds = %15, %27
   %.0168288 = phi i32 [ %.val188, %.lr.ph289 ], [ %179, %.critedge6 ]
   %.0171286 = phi ptr [ %22, %.lr.ph289 ], [ %42, %.critedge6 ]
   %.val203 = load ptr, ptr %21, align 8
-  %41 = getelementptr inbounds ptr, ptr %.val203, i64 %indvars.iv310
+  %41 = getelementptr inbounds nuw ptr, ptr %.val203, i64 %indvars.iv310
   %42 = load ptr, ptr %41, align 8
   store i32 0, ptr %26, align 4
   %.val189277 = load i32, ptr %5, align 8
@@ -129,7 +129,7 @@ Vec_IntAlloc.exit:                                ; preds = %15, %27
   %55 = load i32, ptr %54, align 4
   %56 = lshr i32 %.0169278, 5
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %.0171286, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %.0171286, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %.0169278, 31
   %61 = lshr i32 %59, %60
@@ -221,7 +221,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %.1280, 5
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds i32, ptr %42, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr %42, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %.1280, 31
   %111 = lshr i32 %109, %110
@@ -333,7 +333,7 @@ Vec_IntFree.exit:                                 ; preds = %149, %153
   %154 = load ptr, ptr %34, align 8
   %155 = getelementptr i8, ptr %154, i64 8
   %.val206 = load ptr, ptr %155, align 8
-  %156 = getelementptr inbounds ptr, ptr %.val206, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw ptr, ptr %.val206, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %35, align 8
   %159 = getelementptr i8, ptr %157, i64 36
@@ -392,16 +392,16 @@ Vec_IntFree.exit:                                 ; preds = %149, %153
   br i1 %184, label %.lr.ph294, label %.critedge8
 
 .lr.ph294:                                        ; preds = %.preheader271
-  %185 = getelementptr inbounds i8, ptr %0, i64 24
-  %186 = getelementptr inbounds i8, ptr %7, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %233
 
 .preheader270:                                    ; preds = %.critedge
   br i1 %184, label %.lr.ph297, label %.critedge8
 
 .lr.ph297:                                        ; preds = %.preheader270
-  %187 = getelementptr inbounds i8, ptr %0, i64 24
-  %188 = getelementptr inbounds i8, ptr %7, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %189 = zext nneg i32 %2 to i64
   br label %190
 
@@ -415,7 +415,7 @@ Vec_IntFree.exit:                                 ; preds = %149, %153
   %193 = load ptr, ptr %187, align 8
   %194 = getelementptr i8, ptr %193, i64 8
   %.val207 = load ptr, ptr %194, align 8
-  %195 = getelementptr inbounds ptr, ptr %.val207, i64 %189
+  %195 = getelementptr inbounds nuw ptr, ptr %.val207, i64 %189
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %188, align 8
   %198 = getelementptr i8, ptr %196, i64 36
@@ -500,7 +500,7 @@ Vec_IntPush.exit247:                              ; preds = %.Vec_IntGrow.exit10
   %234 = load ptr, ptr %185, align 8
   %235 = getelementptr i8, ptr %234, i64 8
   %.val208 = load ptr, ptr %235, align 8
-  %236 = getelementptr inbounds ptr, ptr %.val208, i64 %indvars.iv313
+  %236 = getelementptr inbounds nuw ptr, ptr %.val208, i64 %indvars.iv313
   %237 = load ptr, ptr %236, align 8
   %238 = load ptr, ptr %186, align 8
   %239 = getelementptr i8, ptr %237, i64 36
@@ -608,8 +608,8 @@ Vec_IntFree.exit256:                              ; preds = %277, %278
   br i1 %280, label %.lr.ph300, label %.critedge12
 
 .lr.ph300:                                        ; preds = %279
-  %281 = getelementptr inbounds i8, ptr %0, i64 16
-  %282 = getelementptr inbounds i8, ptr %7, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %283
 
 283:                                              ; preds = %.lr.ph300, %Vec_IntPush.exit263
@@ -630,7 +630,7 @@ Vec_IntFree.exit256:                              ; preds = %277, %278
   %294 = load i32, ptr %293, align 4
   %295 = lshr i32 %.5299, 5
   %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr inbounds i32, ptr %.0171.lcssa, i64 %296
+  %297 = getelementptr inbounds nuw i32, ptr %.0171.lcssa, i64 %296
   %298 = load i32, ptr %297, align 4
   %299 = and i32 %.5299, 31
   %300 = lshr i32 %298, %299
@@ -724,10 +724,10 @@ Vec_IntPush.exit263:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %337, label %.lr.ph303, label %.critedge14
 
 .lr.ph303:                                        ; preds = %.preheader
-  %338 = getelementptr inbounds i8, ptr %0, i64 16
-  %339 = getelementptr inbounds i8, ptr %7, i64 32
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %340 = getelementptr i8, ptr %8, i64 328
-  %341 = getelementptr inbounds i8, ptr %18, i64 20
+  %341 = getelementptr inbounds nuw i8, ptr %18, i64 20
   br label %344
 
 342:                                              ; preds = %.critedge12
@@ -752,7 +752,7 @@ Vec_IntFree.exit265:                              ; preds = %342, %343
   %345 = load ptr, ptr %338, align 8
   %346 = getelementptr i8, ptr %345, i64 8
   %.val210 = load ptr, ptr %346, align 8
-  %347 = getelementptr inbounds ptr, ptr %.val210, i64 %indvars.iv319
+  %347 = getelementptr inbounds nuw ptr, ptr %.val210, i64 %indvars.iv319
   %348 = load ptr, ptr %347, align 8
   %349 = load ptr, ptr %339, align 8
   %350 = getelementptr i8, ptr %348, i64 36
@@ -850,7 +850,7 @@ declare i32 @Saig_ManFindFailedPoCex(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Llb4_Nonlin4VerifyCex(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
   %6 = getelementptr i8, ptr %0, i64 104
@@ -878,7 +878,7 @@ define noalias noundef ptr @Llb4_Nonlin4VerifyCex(ptr noundef %0, ptr nocapture 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %20 = mul nsw i64 %indvars.iv.i, %12
   %21 = getelementptr inbounds i32, ptr %18, i64 %20
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   store ptr %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -886,10 +886,10 @@ define noalias noundef ptr @Llb4_Nonlin4VerifyCex(ptr noundef %0, ptr nocapture 
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %5, ptr %24, align 4
   store i32 %5, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %17, ptr %25, align 8
   br i1 %19, label %.lr.ph.i120, label %Vec_PtrCleanSimInfo.exit
 
@@ -900,7 +900,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
 
 28:                                               ; preds = %28, %.lr.ph.i120
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.i120 ], [ %indvars.iv.next.i122, %28 ]
-  %29 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i121
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i121
   %30 = load ptr, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 %27, i1 false)
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
@@ -911,7 +911,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   tail call void @Aig_ManCleanMarkB(ptr noundef %0) #10
   %31 = getelementptr i8, ptr %0, i64 48
   %.val107 = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.val107, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.val107, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %33, 32
   store i64 %34, ptr %32, align 8
@@ -920,7 +920,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   br i1 %35, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_PtrCleanSimInfo.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr i8, ptr %0, i64 108
   br label %38
 
@@ -934,7 +934,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds ptr, ptr %.val105, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, -33
   store i64 %47, ptr %45, align 8
@@ -950,13 +950,13 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   br i1 %.not151, label %.critedge8._crit_edge, label %.preheader129.lr.ph
 
 .preheader129.lr.ph:                              ; preds = %.critedge
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr i8, ptr %0, i64 16
   %54 = getelementptr i8, ptr %0, i64 108
-  %55 = getelementptr inbounds i8, ptr %1, i64 20
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = getelementptr i8, ptr %0, i64 112
   br label %.preheader129
 
@@ -968,7 +968,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   br i1 %59, label %.lr.ph137, label %.critedge2.preheader
 
 .lr.ph137:                                        ; preds = %.preheader129
-  %60 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv164
+  %60 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv164
   br label %62
 
 .critedge2.preheader:                             ; preds = %81, %.preheader129
@@ -987,7 +987,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds ptr, ptr %.val104, i64 %66
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 32
   %.not90 = icmp eq i64 %71, 0
@@ -999,7 +999,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %75 = shl nuw i32 1, %74
   %76 = lshr i32 %.082136, 5
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = or i32 %79, %75
   store i32 %80, ptr %78, align 4
@@ -1026,7 +1026,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %87 = load ptr, ptr %53, align 8
   %88 = getelementptr i8, ptr %87, i64 8
   %.val102 = load ptr, ptr %88, align 8
-  %89 = getelementptr inbounds ptr, ptr %.val102, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %.val102, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = add nsw i32 %.1140, 1
   %92 = ashr i32 %.1140, 5
@@ -1035,7 +1035,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %.1140, 31
   %97 = lshr i32 %95, %96
-  %98 = getelementptr inbounds i8, ptr %90, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = shl i32 %97, 5
   %101 = and i32 %100, 32
@@ -1061,7 +1061,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val101 = load ptr, ptr %111, align 8
-  %112 = getelementptr inbounds ptr, ptr %.val101, i64 %indvars.iv158
+  %112 = getelementptr inbounds nuw ptr, ptr %.val101, i64 %indvars.iv158
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.critedge4, label %115
@@ -1081,7 +1081,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %122 = ptrtoint ptr %.val109 to i64
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
   %128 = lshr i32 %127, 5
@@ -1092,7 +1092,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %132 = ptrtoint ptr %.val113 to i64
   %133 = and i64 %132, -2
   %134 = inttoptr i64 %133 to ptr
-  %135 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load i64, ptr %135, align 8
   %137 = trunc i64 %136 to i32
   %138 = lshr i32 %137, 5
@@ -1123,16 +1123,16 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %152 = phi ptr [ %168, %.critedge6 ], [ %107, %.critedge6.preheader ]
   %153 = getelementptr i8, ptr %152, i64 8
   %.val100 = load ptr, ptr %153, align 8
-  %154 = getelementptr inbounds ptr, ptr %.val100, i64 %indvars.iv161
+  %154 = getelementptr inbounds nuw ptr, ptr %.val100, i64 %indvars.iv161
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr i8, ptr %155, i64 8
   %.val110 = load ptr, ptr %156, align 8
   %157 = ptrtoint ptr %.val110 to i64
   %158 = and i64 %157, -2
   %159 = inttoptr i64 %158 to ptr
-  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %155, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %163 = load i64, ptr %162, align 8
   %164 = shl i64 %157, 5
   %.mask128 = xor i64 %164, %161
@@ -1177,10 +1177,10 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds ptr, ptr %.val117.val, i64 %183
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %180, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %187 = load i64, ptr %186, align 8
   %188 = and i64 %187, 32
-  %189 = getelementptr inbounds i8, ptr %185, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %190 = load i64, ptr %189, align 8
   %191 = and i64 %190, -33
   %192 = or disjoint i64 %191, %188
@@ -1220,9 +1220,9 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   %.val119 = load ptr, ptr %198, align 8
   %205 = getelementptr i8, ptr %.val119, i64 8
   %.val119.val = load ptr, ptr %205, align 8
-  %206 = getelementptr inbounds ptr, ptr %.val119.val, i64 %204
+  %206 = getelementptr inbounds nuw ptr, ptr %.val119.val, i64 %204
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load i64, ptr %208, align 8
   %210 = and i64 %209, 32
   %.not88 = icmp eq i64 %210, 0
@@ -1273,7 +1273,7 @@ define noundef ptr @Llb4_Nonlin4NormalizeCex(ptr noundef %0, ptr noundef %1, ptr
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %1, i64 108
   %.val17 = load i32, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4
   %.not14 = icmp eq i32 %.val17, %10
   br i1 %.not14, label %12, label %11
@@ -1294,7 +1294,7 @@ define noundef ptr @Llb4_Nonlin4NormalizeCex(ptr noundef %0, ptr noundef %1, ptr
 16:                                               ; preds = %12
   %17 = load i32, ptr %2, align 4
   %18 = tail call ptr @Llb4_Nonlin4TransformCex(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %17, i32 poison)
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %21

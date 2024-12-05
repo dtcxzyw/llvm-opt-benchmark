@@ -57,7 +57,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 
 .lr.ph84.i.i:                                     ; preds = %.lr.ph84.i.i, %.lr.ph84.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph84.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph84.i.i ]
-  %26 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
   %27 = load i32, ptr %26, align 4
   %28 = sdiv i32 %27, %16
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
@@ -79,7 +79,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 
 .lr.ph88.i.i:                                     ; preds = %.loopexit.i.i, %44
   %indvars.iv98.i.i = phi i64 [ %indvars.iv.next99.i.i, %44 ], [ 0, %.loopexit.i.i ]
-  %33 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv98.i.i
+  %33 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv98.i.i
   %34 = load i32, ptr %33, align 4
   %.not73.i.i = icmp slt i32 %34, %16
   br i1 %.not73.i.i, label %.preheader.i.i, label %44
@@ -109,7 +109,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 
 .lr.ph90.i.i:                                     ; preds = %.preheader80.i.i, %69
   %indvars.iv103.i.i = phi i64 [ %indvars.iv.next104.i.i, %69 ], [ 0, %.preheader80.i.i ]
-  %45 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv103.i.i
+  %45 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv103.i.i
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %48, label %69
@@ -118,14 +118,14 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
   br i1 %19, label %.lr.ph.i.i.i, label %allocate_vertex2.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %48
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv103.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv103.i.i
   br label %50
 
 50:                                               ; preds = %64, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %64 ]
   %.028.i.i.i = phi double [ -1.000000e+00, %.lr.ph.i.i.i ], [ %.1.i.i.i, %64 ]
   %.02226.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.123.i.i.i, %64 ]
-  %51 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i.i.i
   %52 = load i32, ptr %51, align 4
   %.not.i.i.i = icmp eq i32 %52, -1
   br i1 %.not.i.i.i, label %64, label %53
@@ -139,7 +139,7 @@ define hidden noalias ptr @tm_kPartitioning(ptr nocapture noundef readonly %0, i
 
 58:                                               ; preds = %53
   %59 = load ptr, ptr %49, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv.i.i.i
   %61 = load double, ptr %60, align 8
   %62 = fcmp ogt double %61, %.028.i.i.i
   br i1 %62, label %63, label %64
@@ -187,22 +187,22 @@ allocate_vertex2.exit.i.i:                        ; preds = %64, %48
   br i1 %70, label %.lr.ph.i77.i.i, label %.loopexit.i.i.i
 
 .lr.ph.i77.i.i:                                   ; preds = %.lr.ph22.i.i.i
-  %71 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv27.i.i.i
+  %71 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv27.i.i.i
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv27.i.i.i
+  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27.i.i.i
   br label %74
 
 74:                                               ; preds = %82, %.lr.ph.i77.i.i
   %indvars.iv24.i.i.i = phi i64 [ %indvars.iv.i75.i.i, %.lr.ph.i77.i.i ], [ %indvars.iv.next25.i.i.i, %82 ]
   %.118.i.i.i = phi double [ %.01620.i.i.i, %.lr.ph.i77.i.i ], [ %.2.i.i.i, %82 ]
-  %75 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv24.i.i.i
+  %75 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv24.i.i.i
   %76 = load i32, ptr %75, align 4
   %.not.i78.i.i = icmp eq i32 %72, %76
   br i1 %.not.i78.i.i, label %82, label %77
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv24.i.i.i
+  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv24.i.i.i
   %80 = load double, ptr %79, align 8
   %81 = fadd double %.118.i.i.i, %80
   br label %82
@@ -249,7 +249,7 @@ eval_cost2.exit.i.i:                              ; preds = %.loopexit.i.i.i, %.
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %96 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %97 = load i32, ptr %96, align 4
   %98 = sdiv i32 %97, %89
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
@@ -311,7 +311,7 @@ build_p_vector.exit:                              ; preds = %eval_cost2.exit.i.i
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i23
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %indvars.iv.next.i27, %.lr.ph.i25 ]
   %121 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #10
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i26
+  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i26
   store ptr %121, ptr %122, align 8
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i24
@@ -335,7 +335,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .lr.ph.i33:                                       ; preds = %.lr.ph.i33, %.lr.ph.preheader.i31
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i35, %.lr.ph.i33 ]
-  %125 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i34
+  %125 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i34
   %126 = call i32 @PQ_init(ptr noundef %125, i32 noundef %9) #11
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i32
@@ -343,17 +343,17 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .preheader67.us.i:                                ; preds = %.lr.ph72.i, %._crit_edge.us.i
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %._crit_edge.us.i ], [ 0, %.lr.ph72.i ]
-  %127 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv96.i
-  %128 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv96.i
+  %127 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv96.i
+  %128 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv96.i
   %129 = load ptr, ptr %128, align 8
   br label %130
 
 130:                                              ; preds = %130, %.preheader67.us.i
   %indvars.iv91.i = phi i64 [ 0, %.preheader67.us.i ], [ %indvars.iv.next92.i, %130 ]
   %131 = load ptr, ptr %127, align 8
-  %132 = getelementptr inbounds double, ptr %131, i64 %indvars.iv91.i
+  %132 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv91.i
   %133 = load double, ptr %132, align 8
-  %134 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv91.i
+  %134 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv91.i
   %135 = load i32, ptr %134, align 4
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds double, ptr %129, i64 %136
@@ -371,7 +371,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .lr.ph72.i:                                       ; preds = %.lr.ph72.i, %.lr.ph72.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph72.preheader.i ], [ %indvars.iv.next87.i, %.lr.ph72.i ]
-  %140 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv86.i
+  %140 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %117, i64 %indvars.iv86.i
   %141 = call i32 @PQ_init(ptr noundef %140, i32 noundef %2) #11
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count89.i
@@ -389,14 +389,14 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .preheader65.us.i:                                ; preds = %._crit_edge.us79.i, %.preheader65.us.preheader.i
   %indvars.iv106.i = phi i64 [ 0, %.preheader65.us.preheader.i ], [ %indvars.iv.next107.i, %._crit_edge.us79.i ]
-  %142 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv106.i
-  %143 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv106.i
+  %142 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %117, i64 %indvars.iv106.i
+  %143 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv106.i
   %144 = load ptr, ptr %143, align 8
   br label %145
 
 145:                                              ; preds = %145, %.preheader65.us.i
   %indvars.iv101.i = phi i64 [ 0, %.preheader65.us.i ], [ %indvars.iv.next102.i, %145 ]
-  %146 = getelementptr inbounds double, ptr %144, i64 %indvars.iv101.i
+  %146 = getelementptr inbounds nuw double, ptr %144, i64 %indvars.iv101.i
   %147 = load double, ptr %146, align 8
   %148 = trunc nuw nsw i64 %indvars.iv101.i to i32
   call void @PQ_insert(ptr noundef %142, i32 noundef %148, double noundef %147) #11
@@ -418,13 +418,13 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .lr.ph81.i:                                       ; preds = %.lr.ph81.i.preheader, %.lr.ph81.i
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %.lr.ph81.i ], [ 0, %.lr.ph81.i.preheader ]
-  %149 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv111.i
+  %149 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv111.i
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %151
-  %153 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv111.i
+  %153 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %117, i64 %indvars.iv111.i
   %154 = call double @PQ_findMaxKey(ptr noundef %153) #11
-  %155 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv111.i
+  %155 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv111.i
   %156 = load ptr, ptr %155, align 8
   %157 = load i32, ptr %149, align 4
   %158 = sext i32 %157 to i64
@@ -439,7 +439,7 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
 
 .lr.ph83.i:                                       ; preds = %.lr.ph83.i, %.lr.ph83.preheader.i
   %indvars.iv116.i = phi i64 [ 0, %.lr.ph83.preheader.i ], [ %indvars.iv.next117.i, %.lr.ph83.i ]
-  %163 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %indvars.iv116.i
+  %163 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %116, i64 %indvars.iv116.i
   %164 = call double @PQ_findMaxKey(ptr noundef %163) #11
   %165 = trunc nuw nsw i64 %indvars.iv116.i to i32
   call void @PQ_insert(ptr noundef nonnull %8, i32 noundef %165, double noundef %164) #11
@@ -526,28 +526,28 @@ initialization.exit:                              ; preds = %.lr.ph83.i, %.prehe
 203:                                              ; preds = %203, %.lr.ph.i38
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i41, %203 ]
   %204 = load i32, ptr %186, align 4
-  %205 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i40
+  %205 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i40
   %206 = load ptr, ptr %205, align 8
   %207 = sext i32 %204 to i64
   %208 = getelementptr inbounds double, ptr %206, i64 %207
   %209 = load double, ptr %208, align 8
   %210 = load ptr, ptr %201, align 8
-  %211 = getelementptr inbounds double, ptr %210, i64 %indvars.iv.i40
+  %211 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i40
   %212 = load double, ptr %211, align 8
   %213 = fsub double %209, %212
   store double %213, ptr %208, align 8
-  %214 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv.i40
+  %214 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %117, i64 %indvars.iv.i40
   call void @PQ_adjustKey(ptr noundef %214, i32 noundef %204, double noundef %213) #11
-  %215 = getelementptr inbounds double, ptr %206, i64 %202
+  %215 = getelementptr inbounds nuw double, ptr %206, i64 %202
   %216 = load double, ptr %215, align 8
   %217 = load ptr, ptr %201, align 8
-  %218 = getelementptr inbounds double, ptr %217, i64 %indvars.iv.i40
+  %218 = getelementptr inbounds nuw double, ptr %217, i64 %indvars.iv.i40
   %219 = load double, ptr %218, align 8
   %220 = fadd double %216, %219
   store double %220, ptr %215, align 8
   call void @PQ_adjustKey(ptr noundef %214, i32 noundef %192, double noundef %220) #11
   %221 = call double @PQ_findMaxKey(ptr noundef %214) #11
-  %222 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i40
+  %222 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv.i40
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds double, ptr %206, i64 %224
@@ -592,7 +592,7 @@ algo.exit:                                        ; preds = %._crit_edge.i37, %2
   call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %248, double noundef %242) #11
   %249 = icmp eq i32 %.1, %192
   %250 = zext nneg i32 %192 to i64
-  %251 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %250
+  %251 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %116, i64 %250
   %.sink.i = select i1 %249, ptr %8, ptr %251
   %252 = call double @PQ_findMaxKey(ptr noundef %.sink.i) #11
   %253 = fcmp ogt double %252, 0.000000e+00
@@ -613,17 +613,17 @@ algo.exit:                                        ; preds = %._crit_edge.i37, %2
 
 257:                                              ; preds = %270, %.lr.ph.i45
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i48, %270 ]
-  %258 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i47
+  %258 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv.i47
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, %192
   br i1 %260, label %261, label %270
 
 261:                                              ; preds = %257
-  %262 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i47
+  %262 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i47
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds double, ptr %263, i64 %256
   %265 = load double, ptr %264, align 8
-  %266 = getelementptr inbounds double, ptr %263, i64 %250
+  %266 = getelementptr inbounds nuw double, ptr %263, i64 %250
   %267 = load double, ptr %266, align 8
   %268 = fsub double %265, %267
   %269 = trunc nuw nsw i64 %indvars.iv.i47 to i32
@@ -654,7 +654,7 @@ balancing.exit:                                   ; preds = %._crit_edge.thread,
 
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53, %.lr.ph.preheader.i51
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i51 ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
-  %274 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i54
+  %274 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i54
   call void @PQ_exit(ptr noundef %274) #11
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i52
@@ -674,7 +674,7 @@ balancing.exit:                                   ; preds = %._crit_edge.thread,
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph22.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph22.i ]
-  %275 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv29.i
+  %275 = getelementptr inbounds nuw %struct.PriorityQueue_, ptr %117, i64 %indvars.iv29.i
   call void @PQ_exit(ptr noundef %275) #11
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
@@ -686,7 +686,7 @@ balancing.exit:                                   ; preds = %._crit_edge.thread,
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %._crit_edge23.i
   %indvars.iv34.i = phi i64 [ 0, %._crit_edge23.i ], [ %indvars.iv.next35.i, %.lr.ph26.i ]
-  %276 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv34.i
+  %276 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv34.i
   %277 = load ptr, ptr %276, align 8
   call void @free(ptr noundef %277) #11
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1

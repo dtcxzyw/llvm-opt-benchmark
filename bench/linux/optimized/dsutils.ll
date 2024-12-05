@@ -18,7 +18,7 @@ define dso_local void @acpi_ds_clear_implicit_return(ptr nocapture noundef %0) l
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 984
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -44,7 +44,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_do_implicit_return(p
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 984
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
@@ -84,7 +84,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
   br label %51
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 1056
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
   %9 = icmp ne i8 %8, 0
@@ -93,7 +93,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 984
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 984
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %19, label %16
@@ -117,14 +117,14 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
   br i1 %22, label %51, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 10
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 10
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, 16
   br i1 %26, label %51, label %27
 
 27:                                               ; preds = %23
   %28 = tail call ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %25) #5
-  %29 = getelementptr inbounds i8, ptr %28, i64 11
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 11
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %51 [
     i8 10, label %31
@@ -138,7 +138,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 10
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 10
   %35 = load i16, ptr %34, align 2
   switch i16 %35, label %50 [
     i16 164, label %51
@@ -147,22 +147,22 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ds_is_result_used(ptr n
   ]
 
 36:                                               ; preds = %32, %32
-  %37 = getelementptr inbounds i8, ptr %1, i64 968
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i16, ptr %39, align 4
   %41 = icmp eq i16 %40, 194
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %0
   br i1 %45, label %51, label %50
 
 46:                                               ; preds = %27
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 10
   %49 = load i16, ptr %48, align 2
   switch i16 %49, label %50 [
     i16 23424, label %51
@@ -234,8 +234,8 @@ declare dso_local i32 @acpi_ds_result_pop(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ds_resolve_operands(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
-  %3 = getelementptr inbounds i8, ptr %0, i64 13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit, label %.preheader
@@ -264,13 +264,13 @@ declare dso_local i32 @acpi_ex_resolve_to_value(ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ds_clear_operands(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 872
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -301,16 +301,16 @@ define dso_local i32 @acpi_ds_create_operand(ptr noundef %0, ptr noundef %1, i32
   store i32 0, ptr %5, align 4, !annotation !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   store ptr null, ptr %6, align 8, !annotation !6
-  %7 = getelementptr inbounds i8, ptr %1, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 45
   br i1 %9, label %10, label %.thread12
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 9
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.pre11 = and i8 %.pre, 16
   %14 = icmp eq i8 %.pre11, 0
@@ -325,19 +325,19 @@ define dso_local i32 @acpi_ds_create_operand(ptr noundef %0, ptr noundef %1, i32
   br i1 %18, label %19, label %96
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 976
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 14
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %29 = load i16, ptr %28, align 2
   %30 = icmp eq i16 %29, 23315
   %31 = select i1 %30, i32 3, i32 2
@@ -346,10 +346,10 @@ define dso_local i32 @acpi_ds_create_operand(ptr noundef %0, ptr noundef %1, i32
 
 33:                                               ; preds = %27, %23, %19
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 10
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 10
   %36 = load i16, ptr %35, align 2
   %37 = call ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %36) #5
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 128
   %41 = icmp eq i16 %40, 0
@@ -368,7 +368,7 @@ define dso_local i32 @acpi_ds_create_operand(ptr noundef %0, ptr noundef %1, i32
 
 45:                                               ; preds = %44, %42
   %46 = phi i32 [ 3, %44 ], [ 2, %42 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 1080
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %4, align 8
   %50 = call i32 @acpi_ns_lookup(ptr noundef %48, ptr noundef %49, i32 noundef 0, i32 noundef %46, i32 noundef 3, ptr noundef %0, ptr noundef nonnull %6) #5
@@ -421,21 +421,21 @@ define dso_local i32 @acpi_ds_create_operand(ptr noundef %0, ptr noundef %1, i32
 64:                                               ; preds = %.thread12, %63
   %65 = phi i16 [ %8, %.thread12 ], [ 0, %63 ]
   %66 = tail call ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %65) #5
-  %67 = getelementptr inbounds i8, ptr %66, i64 10
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 10
   %68 = load i8, ptr %67, align 2
   %69 = zext i8 %68 to i32
   %70 = icmp eq i8 %68, 30
   br i1 %70, label %96, label %71
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load i16, ptr %72, align 4
   %74 = and i16 %73, 1024
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %1, i64 9
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, 16
   %80 = icmp eq i8 %79, 0
@@ -512,17 +512,17 @@ define dso_local i32 @acpi_ds_create_operands(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !6
-  %6 = getelementptr inbounds i8, ptr %0, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %10 = zext i8 %7 to i64
   %11 = tail call i32 @llvm.usub.sat.i32(i32 8, i32 %8)
   br label %15
 
 12:                                               ; preds = %20
   %13 = trunc i64 %26 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 14
   br label %31
 
 15:                                               ; preds = %20, %5
@@ -537,7 +537,7 @@ define dso_local i32 @acpi_ds_create_operands(ptr noundef %0, ptr noundef %1) lo
   store ptr %18, ptr %21, align 8
   %22 = getelementptr [9 x ptr], ptr %9, i64 0, i64 %16
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = add nuw nsw i32 %17, 1
   %26 = add nuw nsw i64 %16, 1
@@ -582,9 +582,9 @@ declare dso_local void @acpi_ds_obj_stack_pop_and_delete(i32 noundef, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ds_evaluate_name_path(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1032
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store ptr null, ptr %2, align 8, !annotation !6
   %6 = load ptr, ptr %4, align 8
@@ -592,7 +592,7 @@ define dso_local i32 @acpi_ds_evaluate_name_path(ptr noundef %0) local_unnamed_a
   br i1 %7, label %47, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 10
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %10 = load i16, ptr %9, align 2
   switch i16 %10, label %11 [
     i16 18, label %47
@@ -606,7 +606,7 @@ define dso_local i32 @acpi_ds_evaluate_name_path(ptr noundef %0) local_unnamed_a
   br i1 %13, label %14, label %47
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 32
   %18 = icmp eq i8 %17, 0
@@ -618,9 +618,9 @@ define dso_local i32 @acpi_ds_evaluate_name_path(ptr noundef %0) local_unnamed_a
   br label %39
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %19, i64 9
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %23 = load i8, ptr %22, align 1
-  %24 = tail call i32 @acpi_ex_resolve_to_value(ptr noundef %5, ptr noundef %0) #5
+  %24 = tail call i32 @acpi_ex_resolve_to_value(ptr noundef nonnull %5, ptr noundef %0) #5
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %47
 
@@ -647,13 +647,13 @@ define dso_local i32 @acpi_ds_evaluate_name_path(ptr noundef %0) local_unnamed_a
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 1056
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr %.pre, ptr %38, align 8
   br label %47
 
 39:                                               ; preds = %34, %20
   %40 = phi ptr [ %.pre, %34 ], [ %19, %20 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 1056
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr %40, ptr %41, align 8
   %42 = call i32 @acpi_ds_result_push(ptr noundef %40, ptr noundef %0) #5
   %43 = icmp eq i32 %42, 0

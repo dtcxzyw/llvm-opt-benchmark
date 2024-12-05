@@ -25,7 +25,7 @@ define internal range(i32 -12, 1) i32 @mempool_open(ptr nocapture noundef writeo
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %8, align 8
   br label %9
 
@@ -36,7 +36,7 @@ define internal range(i32 -12, 1) i32 @mempool_open(ptr nocapture noundef writeo
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @mempool_close(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3)
   store ptr null, ptr %2, align 8
@@ -47,12 +47,12 @@ define internal noundef i32 @mempool_close(ptr nocapture noundef %0) #1 {
 define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.mempoolinfo_s, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = tail call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %10, i64 noundef 80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #13
   %12 = sext i32 %11 to i64
   %13 = call i64 @procfs_memcpy(ptr noundef nonnull %10, i64 noundef %12, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4) #13
@@ -61,11 +61,11 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %19
 
 19:                                               ; preds = %.lr.ph, %39
@@ -102,7 +102,7 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
   %.131 = phi i64 [ %37, %21 ], [ %.03038, %19 ]
   %.129 = phi i64 [ %38, %21 ], [ %.02839, %19 ]
   %.1 = phi ptr [ %25, %21 ], [ %.040, %19 ]
-  %40 = getelementptr inbounds i8, ptr %.03441, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.03441, i64 8
   %.034 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.034, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !6
@@ -118,7 +118,7 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #14
   %6 = icmp eq ptr %5, null
@@ -126,7 +126,7 @@ define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonl
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %5, ptr %8, align 8
   br label %9
 
@@ -138,7 +138,7 @@ define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @mempool_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33060, ptr %3, align 8
   ret i32 0
 }
@@ -147,7 +147,7 @@ define internal noundef i32 @mempool_stat(ptr nocapture readnone %0, ptr nocaptu
 define void @mempool_procfs_register(ptr noundef initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #4 {
   store ptr %1, ptr %0, align 8
   %3 = load ptr, ptr @g_mempool_procfs, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   store ptr %0, ptr @g_mempool_procfs, align 8
   ret void
@@ -165,7 +165,7 @@ define void @mempool_procfs_unregister(ptr noundef readonly %0) local_unnamed_ad
 
 .lr.ph14:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %4 = phi ptr [ %6, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -175,12 +175,12 @@ define void @mempool_procfs_unregister(ptr noundef readonly %0) local_unnamed_ad
   br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !8
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
   %.010.lcssa = phi ptr [ @g_mempool_procfs, %.lr.ph.preheader ], [ %8, %.lr.ph._crit_edge.loopexit ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %.010.lcssa, align 8
   br label %.loopexit

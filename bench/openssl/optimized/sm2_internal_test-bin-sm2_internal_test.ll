@@ -624,7 +624,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %inc = add i64 %spec.select, 1
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %spec.select
   %4 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.06, i64 1
   store i8 %4, ptr %buf.addr.06, align 1
   %cmp.not = icmp eq i64 %dec7, 0
   br i1 %cmp.not, label %while.cond.return.loopexit_crit_edge, label %while.body, !llvm.loop !5

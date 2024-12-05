@@ -56,9 +56,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 252
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %5 = load i8, ptr %4, align 4, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %108
@@ -77,31 +77,31 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
 14:                                               ; preds = %10
   store ptr %0, ptr %12, align 8
   tail call void @mutex_lock(ptr noundef nonnull @regmap_debugfs_early_lock) #12
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr @regmap_debugfs_early_list, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store ptr %16, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @regmap_debugfs_early_list, ptr %18, align 8
   store volatile ptr %15, ptr @regmap_debugfs_early_list, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @regmap_debugfs_early_lock) #12
   br label %108
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store volatile ptr %20, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store volatile ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 304
-  tail call void @__mutex_init(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @regmap_debugfs_init.__key) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  tail call void @__mutex_init(ptr noundef nonnull %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @regmap_debugfs_init.__key) #12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %24, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
@@ -116,7 +116,7 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
@@ -134,7 +134,7 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 264
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %48 = load ptr, ptr %47, align 8
   tail call void @kfree(ptr noundef %48) #12
   %49 = load i32, ptr @dummy_index, align 4
@@ -153,12 +153,12 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   %56 = phi ptr [ %43, %42 ], [ %50, %52 ]
   %57 = load ptr, ptr @regmap_debugfs_root, align 8
   %58 = tail call ptr @debugfs_create_dir(ptr noundef %56, ptr noundef %57) #12
-  %59 = getelementptr inbounds i8, ptr %0, i64 256
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %58, ptr %59, align 8
   %60 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.4, i16 noundef zeroext 256, ptr noundef %58, ptr noundef %0, ptr noundef nonnull @regmap_name_fops) #12
   %61 = load ptr, ptr %59, align 8
   %62 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.5, i16 noundef zeroext 256, ptr noundef %61, ptr noundef %0, ptr noundef nonnull @regmap_reg_ranges_fops) #12
-  %63 = getelementptr inbounds i8, ptr %0, i64 336
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %68
@@ -175,32 +175,32 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   br label %73
 
 73:                                               ; preds = %68, %66
-  %74 = getelementptr inbounds i8, ptr %0, i64 528
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %59, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 548
-  %80 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.8, i16 noundef zeroext 384, ptr noundef %78, ptr noundef %79, ptr noundef nonnull @regmap_cache_only_fops) #12
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %80 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.8, i16 noundef zeroext 384, ptr noundef %78, ptr noundef nonnull %79, ptr noundef nonnull @regmap_cache_only_fops) #12
   %81 = load ptr, ptr %59, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 576
-  tail call void @debugfs_create_bool(ptr noundef nonnull @.str.9, i16 noundef zeroext 256, ptr noundef %81, ptr noundef %82) #12
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  tail call void @debugfs_create_bool(ptr noundef nonnull @.str.9, i16 noundef zeroext 256, ptr noundef %81, ptr noundef nonnull %82) #12
   %83 = load ptr, ptr %59, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 549
-  %85 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.10, i16 noundef zeroext 384, ptr noundef %83, ptr noundef %84, ptr noundef nonnull @regmap_cache_bypass_fops) #12
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 549
+  %85 = tail call ptr @debugfs_create_file(ptr noundef nonnull @.str.10, i16 noundef zeroext 384, ptr noundef %83, ptr noundef nonnull %84, ptr noundef nonnull @regmap_cache_bypass_fops) #12
   br label %86
 
 86:                                               ; preds = %77, %73
-  %87 = getelementptr inbounds i8, ptr %0, i64 616
-  %88 = tail call ptr @rb_first(ptr noundef %87) #12
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %88 = tail call ptr @rb_first(ptr noundef nonnull %87) #12
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %86, %97
   %90 = phi ptr [ %98, %97 ], [ %88, %86 ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %97, label %94
@@ -216,13 +216,13 @@ define dso_local void @regmap_debugfs_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %97, %86
-  %100 = getelementptr inbounds i8, ptr %0, i64 520
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %.loopexit
-  %104 = getelementptr inbounds i8, ptr %101, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %108, label %107
@@ -279,26 +279,26 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regmap_debugfs_exit(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
   tail call void @debugfs_remove(ptr noundef nonnull %3) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
-  tail call void @mutex_lock(ptr noundef %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  tail call void @mutex_lock(ptr noundef nonnull %6) #12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit5, label %.preheader4
 
 .preheader4:                                      ; preds = %5, %.preheader4
   %10 = phi ptr [ %15, %.preheader4 ], [ %8, %5 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   store volatile ptr %13, ptr %12, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
@@ -309,8 +309,8 @@ define dso_local void @regmap_debugfs_exit(ptr noundef %0) local_unnamed_addr #0
   br i1 %16, label %.loopexit5, label %.preheader4, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %.preheader4, %5
-  tail call void @mutex_unlock(ptr noundef %6) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 264
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %18) #12
   store ptr null, ptr %17, align 8
@@ -331,9 +331,9 @@ define dso_local void @regmap_debugfs_exit(ptr noundef %0) local_unnamed_addr #0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %29, ptr %30, align 8
   store volatile ptr %24, ptr %29, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %22, align 8
@@ -371,10 +371,10 @@ define dso_local void @regmap_debugfs_initcall() local_unnamed_addr #0 align 16 
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
   tail call void @regmap_debugfs_init(ptr noundef %7)
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
@@ -399,7 +399,7 @@ declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @regmap_name_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 4096) #11
@@ -407,13 +407,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @regmap_name_read_file(pt
   br i1 %9, label %30, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -457,7 +457,7 @@ declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   %8 = load i64, ptr %3, align 8
@@ -479,22 +479,22 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr noc
   br i1 %19, label %68, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %7, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %7, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 336
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %26) #12
-  %28 = getelementptr inbounds i8, ptr %7, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   %32 = shl i32 %31, 1
-  %33 = getelementptr inbounds i8, ptr %7, i64 276
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 276
   store i32 %32, ptr %33, align 4
   %34 = add i32 %27, 3
   %35 = add i32 %34, %32
@@ -504,9 +504,9 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr noc
 36:                                               ; preds = %24, %20
   %37 = load i64, ptr %3, align 8
   %38 = call fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %7, i32 noundef 0, i64 noundef %37, ptr noundef nonnull %5)
-  %39 = getelementptr inbounds i8, ptr %7, i64 304
-  tail call void @mutex_lock(ptr noundef %39) #12
-  %40 = getelementptr inbounds i8, ptr %7, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 304
+  tail call void @mutex_lock(ptr noundef nonnull %39) #12
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %40
   br i1 %42, label %.loopexit, label %.preheader
@@ -515,9 +515,9 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr noc
   %43 = phi ptr [ %60, %.preheader._crit_edge ], [ %41, %36 ]
   %44 = phi i64 [ %58, %.preheader._crit_edge ], [ 0, %36 ]
   %45 = phi i64 [ %59, %.preheader._crit_edge ], [ 0, %36 ]
-  %46 = getelementptr inbounds i8, ptr %43, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.15, i32 noundef %47, i32 noundef %49) #12
   %51 = load i64, ptr %3, align 8
@@ -544,7 +544,7 @@ define internal range(i64 -22, 4194305) i64 @regmap_reg_ranges_read_file(ptr noc
 
 .loopexit:                                        ; preds = %.preheader._crit_edge, %53, %36
   %62 = phi i64 [ 0, %36 ], [ %44, %53 ], [ %58, %.preheader._crit_edge ]
-  tail call void @mutex_unlock(ptr noundef %39) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %39) #12
   tail call void @kfree(ptr noundef nonnull %18) #12
   %63 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %14, i64 noundef %62) #12
   %64 = icmp eq i64 %63, 0
@@ -573,18 +573,18 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   br i1 %5, label %6, label %109
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
-  tail call void @mutex_lock(ptr noundef %7) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  tail call void @mutex_lock(ptr noundef nonnull %7) #12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 336
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
-  %14 = getelementptr inbounds i8, ptr %0, i64 508
-  %15 = getelementptr inbounds i8, ptr %0, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %16
 
 16:                                               ; preds = %59, %11
@@ -612,16 +612,16 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 
 29:                                               ; preds = %27
   %30 = add i64 %18, -1
-  %31 = getelementptr inbounds i8, ptr %17, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %30, ptr %31, align 8
   %32 = load i32, ptr %14, align 4
   %33 = sub i32 %19, %32
-  %34 = getelementptr inbounds i8, ptr %17, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 %33, ptr %34, align 4
   %35 = load ptr, ptr %15, align 8
   store ptr %17, ptr %15, align 8
   store ptr %8, ptr %17, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %35, ptr %36, align 8
   store volatile ptr %17, ptr %35, align 8
   br label %59
@@ -639,10 +639,10 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 
 .preheader12:                                     ; preds = %41, %.preheader12
   %44 = phi ptr [ %49, %.preheader12 ], [ %42, %41 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %46, ptr %48, align 8
   store volatile ptr %47, ptr %46, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %44, align 8
@@ -653,13 +653,13 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   br i1 %50, label %.loopexit, label %.preheader12, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader12, %41
-  tail call void @mutex_unlock(ptr noundef %7) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
   br label %109
 
 51:                                               ; preds = %37
-  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %18, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %39, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i32 %19, ptr %53, align 8
   br label %54
 
@@ -685,16 +685,16 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 
 68:                                               ; preds = %66
   %69 = add i64 %60, -1
-  %70 = getelementptr inbounds i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i64 %69, ptr %70, align 8
   %71 = load i32, ptr %14, align 4
   %72 = sub i32 %63, %71
-  %73 = getelementptr inbounds i8, ptr %61, i64 36
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 36
   store i32 %72, ptr %73, align 4
   %74 = load ptr, ptr %15, align 8
   store ptr %61, ptr %15, align 8
   store ptr %8, ptr %61, align 8
-  %75 = getelementptr inbounds i8, ptr %61, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %74, ptr %75, align 8
   store volatile ptr %61, ptr %74, align 8
   br label %.thread
@@ -718,10 +718,10 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 
 .preheader:                                       ; preds = %79, %.preheader._crit_edge
   %82 = phi ptr [ %102, %.preheader._crit_edge ], [ %80, %79 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = icmp sgt i64 %84, %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %82, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %82, i64 24
   %.pre25 = load i64, ptr %.phi.trans.insert, align 8
   %86 = icmp slt i64 %.pre25, %2
   %or.cond = select i1 %85, i1 true, i1 %86
@@ -730,17 +730,17 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
 87:                                               ; preds = %.preheader
   %88 = sub i64 %2, %84
   %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds i8, ptr %0, i64 280
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %91 = load i32, ptr %90, align 8
   %92 = udiv i32 %89, %91
   %93 = mul i32 %92, %91
   %94 = zext i32 %93 to i64
   %95 = add i64 %84, %94
   store i64 %95, ptr %3, align 8
-  tail call void @mutex_unlock(ptr noundef %7) #12
-  %96 = getelementptr inbounds i8, ptr %82, i64 32
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 508
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %99 = load i32, ptr %98, align 4
   %100 = mul i32 %99, %92
   %101 = add i32 %100, %97
@@ -753,13 +753,13 @@ define internal fastcc i32 @regmap_debugfs_get_dump_start(ptr noundef %0, i32 no
   br i1 %103, label %104, label %.preheader, !llvm.loop !19
 
 104:                                              ; preds = %.preheader._crit_edge
-  %105 = getelementptr inbounds i8, ptr %82, i64 36
+  %105 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %106 = load i32, ptr %105, align 4
   br label %107
 
 107:                                              ; preds = %104, %79
   %108 = phi i32 [ %106, %104 ], [ 0, %79 ]
-  tail call void @mutex_unlock(ptr noundef %7) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
   br label %109
 
 109:                                              ; preds = %107, %87, %.loopexit, %4
@@ -781,9 +781,9 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -22, 2147483648) i64 @regmap_map_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %8 = load i32, ptr %7, align 8
   %9 = tail call fastcc i64 @regmap_read_debugfs(ptr noundef %6, i32 noundef 0, i32 noundef %8, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i64 %9
@@ -809,22 +809,22 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
   br i1 %16, label %132, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %23) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = shl i32 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 276
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 %29, ptr %30, align 4
   %31 = add i32 %24, 3
   %32 = add i32 %31, %29
@@ -841,12 +841,12 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 272
-  %41 = getelementptr inbounds i8, ptr %0, i64 276
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
-  %43 = getelementptr inbounds i8, ptr %0, i64 508
-  %44 = getelementptr inbounds i8, ptr %0, i64 304
-  %45 = getelementptr inbounds i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %46 = load i64, ptr %7, align 8
   br label %47
 
@@ -926,20 +926,20 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
   br label %115
 
 100:                                              ; preds = %95, %85
-  call void @mutex_lock(ptr noundef %44) #12
+  call void @mutex_lock(ptr noundef nonnull %44) #12
   %101 = load ptr, ptr %45, align 8
   %102 = icmp eq ptr %101, %45
   br i1 %102, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %100, %111
   %103 = phi ptr [ %112, %111 ], [ %101, %100 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 36
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 36
   %105 = load i32, ptr %104, align 4
   %106 = icmp ult i32 %105, %49
   br i1 %106, label %111, label %107
 
 107:                                              ; preds = %.preheader
-  %108 = getelementptr inbounds i8, ptr %103, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %109 = load i32, ptr %108, align 8
   %110 = icmp ugt i32 %109, %49
   br i1 %110, label %.loopexit, label %111
@@ -951,7 +951,7 @@ define internal fastcc range(i64 -22, 2147483648) i64 @regmap_read_debugfs(ptr n
 
 .loopexit:                                        ; preds = %111, %107, %100
   %114 = phi i32 [ -22, %100 ], [ %109, %107 ], [ -22, %111 ]
-  call void @mutex_unlock(ptr noundef %44) #12
+  call void @mutex_unlock(ptr noundef nonnull %44) #12
   br label %115
 
 115:                                              ; preds = %.loopexit, %97
@@ -1010,7 +1010,7 @@ declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regmap_access_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @regmap_access_show, ptr noundef %4) #12
   ret i32 %5
@@ -1024,12 +1024,12 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @regmap_access_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 336
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.16, i32 noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %4, i64 508
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 508
   br label %9
 
 9:                                                ; preds = %23, %2
@@ -1079,7 +1079,7 @@ declare dso_local i64 @debugfs_read_file_bool(ptr noundef, ptr noundef, i64 noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @regmap_cache_only_write_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -548
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
@@ -1089,7 +1089,7 @@ define internal i64 @regmap_cache_only_write_file(ptr nocapture noundef readonly
   br i1 %10, label %11, label %50
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @debugfs_file_get(ptr noundef %13) #12
   %15 = icmp eq i32 %14, 0
@@ -1187,7 +1187,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @regmap_cache_bypass_write_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
   store i8 0, ptr %5, align 1, !annotation !20
@@ -1196,7 +1196,7 @@ define internal i64 @regmap_cache_bypass_write_file(ptr nocapture noundef readon
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @debugfs_file_get(ptr noundef %12) #12
   %14 = icmp eq i32 %13, 0
@@ -1256,13 +1256,13 @@ define internal i64 @regmap_cache_bypass_write_file(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -22, 2147483648) i64 @regmap_range_read_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = tail call fastcc i64 @regmap_read_debugfs(ptr noundef %8, i32 noundef %10, i32 noundef %12, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   ret i64 %13

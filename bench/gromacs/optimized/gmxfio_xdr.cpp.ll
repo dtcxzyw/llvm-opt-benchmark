@@ -93,9 +93,9 @@ define linkonce_odr void @_ZN3gmx19FileIOXdrSerializerD0Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx19FileIOXdrSerializer7readingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   ret i1 %6
@@ -103,7 +103,7 @@ define noundef zeroext i1 @_ZNK3gmx19FileIOXdrSerializer7readingEv(ptr nocapture
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer6doBoolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_Z20gmx_fio_doe_gmx_boolP8t_fileioPbPKcS3_i(ptr noundef %4, ptr noundef %1, ptr nonnull poison, ptr nonnull poison, i32 poison)
   ret void
@@ -112,11 +112,11 @@ define void @_ZN3gmx19FileIOXdrSerializer6doBoolEPb(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer7doUCharEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -130,7 +130,7 @@ define void @_ZN3gmx19FileIOXdrSerializer7doUCharEPh(ptr nocapture noundef nonnu
   br i1 %.not179.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -159,11 +159,11 @@ _Z17gmx_fio_doe_ucharP8t_fileioPhPKcS3_i.exit:    ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer6doCharEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -177,7 +177,7 @@ define void @_ZN3gmx19FileIOXdrSerializer6doCharEPc(ptr nocapture noundef nonnul
   br i1 %.not178.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -206,11 +206,11 @@ _Z16gmx_fio_doe_charP8t_fileioPcPKcS3_i.exit:     ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer8doUShortEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -224,7 +224,7 @@ define void @_ZN3gmx19FileIOXdrSerializer8doUShortEPt(ptr nocapture noundef nonn
   br i1 %.not177.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -253,11 +253,11 @@ _Z18gmx_fio_doe_ushortP8t_fileioPtPKcS3_i.exit:   ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer5doIntEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -271,7 +271,7 @@ define void @_ZN3gmx19FileIOXdrSerializer5doIntEPi(ptr nocapture noundef nonnull
   br i1 %.not182.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -300,11 +300,11 @@ _Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i.exit:      ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer7doInt32EPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -318,7 +318,7 @@ define void @_ZN3gmx19FileIOXdrSerializer7doInt32EPi(ptr nocapture noundef nonnu
   br i1 %.not181.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -347,11 +347,11 @@ _Z17gmx_fio_doe_int32P8t_fileioPiPKcS3_i.exit:    ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer7doInt64EPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -365,7 +365,7 @@ define void @_ZN3gmx19FileIOXdrSerializer7doInt64EPl(ptr nocapture noundef nonnu
   br i1 %.not180.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -394,12 +394,12 @@ _Z17gmx_fio_doe_int64P8t_fileioPlPKcS3_i.exit:    ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer7doFloatEPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float 0.000000e+00, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -413,7 +413,7 @@ define void @_ZN3gmx19FileIOXdrSerializer7doFloatEPf(ptr nocapture noundef nonnu
   br i1 %.not184.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -442,12 +442,12 @@ _Z17gmx_fio_doe_floatP8t_fileioPfPKcS3_i.exit:    ; preds = %16, %18
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer8doDoubleEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store double 0.000000e+00, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %9
@@ -461,7 +461,7 @@ define void @_ZN3gmx19FileIOXdrSerializer8doDoubleEPd(ptr nocapture noundef nonn
   br i1 %.not183.i.i, label %16, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %18, label %14
@@ -489,7 +489,7 @@ _Z18gmx_fio_doe_doubleP8t_fileioPdPKcS3_i.exit:   ; preds = %16, %18
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer6doRealEPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %4)
   %5 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %4, ptr noundef %1, i64 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.2, i32 noundef 852)
@@ -499,7 +499,7 @@ define void @_ZN3gmx19FileIOXdrSerializer6doRealEPf(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer6doIvecEPA3_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %4)
   %5 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %4, ptr noundef %1, i64 noundef 1, i32 noundef 13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.2, i32 noundef 857)
@@ -509,7 +509,7 @@ define void @_ZN3gmx19FileIOXdrSerializer6doIvecEPA3_i(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer6doRvecEPA3_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %4)
   %5 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %4, ptr noundef %1, i64 noundef 1, i32 noundef 11, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.2, i32 noundef 862)
@@ -520,9 +520,9 @@ define void @_ZN3gmx19FileIOXdrSerializer6doRvecEPA3_f(ptr nocapture noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer8doStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = alloca [4096 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %13, label %9
@@ -530,7 +530,7 @@ define void @_ZN3gmx19FileIOXdrSerializer8doStringEPNSt7__cxx1112basic_stringIcS
 9:                                                ; preds = %2
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %11 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 4096) #15
-  %12 = getelementptr inbounds i8, ptr %3, i64 4095
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4095
   store i8 0, ptr %12, align 1
   %.pre = load ptr, ptr %4, align 8
   br label %13
@@ -541,7 +541,7 @@ define void @_ZN3gmx19FileIOXdrSerializer8doStringEPNSt7__cxx1112basic_stringIcS
   %15 = call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %14, ptr noundef nonnull %3, i64 noundef 1, i32 noundef 14, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.2, i32 noundef 890)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef %14)
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %22
@@ -556,7 +556,7 @@ define void @_ZN3gmx19FileIOXdrSerializer8doStringEPNSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer8doOpaqueEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   %6 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %5, ptr noundef %1, i64 noundef %2, i32 noundef 15, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.2, i32 noundef 899)
@@ -566,10 +566,10 @@ define void @_ZN3gmx19FileIOXdrSerializer8doOpaqueEPcm(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer11doCharArrayEPci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit.i.i
@@ -594,10 +594,10 @@ _Z17gmx_fio_ndoe_charP8t_fileioPciPKcS3_i.exit:   ; preds = %_ZL19gmx_fio_check_
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer12doUCharArrayEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit.i.i
@@ -622,7 +622,7 @@ _Z18gmx_fio_ndoe_ucharP8t_fileioPhiPKcS3_i.exit:  ; preds = %_ZL19gmx_fio_check_
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializer11doRvecArrayEPA3_fi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %5)
   %6 = sext i32 %2 to i64
@@ -635,7 +635,7 @@ define void @_ZN3gmx19FileIOXdrSerializer11doRvecArrayEPA3_fi(ptr nocapture noun
 define void @_Z20gmx_fio_setprecisionP8t_fileiob(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i1 %1 to i8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %3, ptr %4, align 1
   tail call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef %0)
   ret void
@@ -648,7 +648,7 @@ declare void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z17gmx_fio_is_doubleP8t_fileio(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   tail call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef %0)
@@ -658,7 +658,7 @@ define noundef zeroext i1 @_Z17gmx_fio_is_doubleP8t_fileio(ptr noundef %0) local
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -702,7 +702,7 @@ define internal fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputT
   %22 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store double 0.000000e+00, ptr %17, align 8
   store float 0.000000e+00, ptr %18, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -769,7 +769,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
 
 .preheader231:                                    ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
   %.not173 = icmp eq ptr %1, null
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not173, label %.preheader231.split.us, label %.preheader231.split
 
 .preheader231.split.us:                           ; preds = %.preheader231, %.preheader231.split.us
@@ -791,7 +791,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %207
 
 42:                                               ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 9
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %44 = load i8, ptr %43, align 1
   %45 = trunc i8 %44 to i1
   %.not186 = icmp eq ptr %1, null
@@ -801,7 +801,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not186, label %54, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %56, label %51
@@ -827,7 +827,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not186, label %67, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
   br i1 %64, label %69, label %65
@@ -852,7 +852,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not184, label %79, label %73
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1
   br i1 %76, label %81, label %77
@@ -877,7 +877,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not183, label %91, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
   br i1 %88, label %93, label %89
@@ -902,7 +902,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not182, label %103, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load i8, ptr %98, align 8
   %100 = trunc i8 %99 to i1
   br i1 %100, label %105, label %101
@@ -927,7 +927,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not181, label %115, label %109
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load i8, ptr %110, align 8
   %112 = trunc i8 %111 to i1
   br i1 %112, label %117, label %113
@@ -952,7 +952,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not180, label %127, label %121
 
 121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %0, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %123 = load i8, ptr %122, align 8
   %124 = trunc i8 %123 to i1
   br i1 %124, label %129, label %125
@@ -977,7 +977,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not179, label %139, label %133
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %135 = load i8, ptr %134, align 8
   %136 = trunc i8 %135 to i1
   br i1 %136, label %141, label %137
@@ -1002,7 +1002,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not178, label %151, label %145
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %0, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %147 = load i8, ptr %146, align 8
   %148 = trunc i8 %147 to i1
   br i1 %148, label %153, label %149
@@ -1053,7 +1053,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not177, label %175, label %169
 
 169:                                              ; preds = %168
-  %170 = getelementptr inbounds i8, ptr %0, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %171 = load i8, ptr %170, align 8
   %172 = trunc i8 %171 to i1
   br i1 %172, label %177, label %173
@@ -1074,7 +1074,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %.loopexit
 
 180:                                              ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
-  %181 = getelementptr inbounds i8, ptr %0, i64 9
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %182 = load i8, ptr %181, align 1
   %183 = trunc i8 %182 to i1
   %.not176 = icmp eq ptr %1, null
@@ -1088,17 +1088,17 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %.loopexit
 
 186:                                              ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %0, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %188 = load i8, ptr %187, align 8
   %189 = trunc i8 %188 to i1
   br i1 %189, label %.loopexit225, label %.preheader
 
 .preheader:                                       ; preds = %186, %.preheader
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %.preheader ], [ 0, %186 ]
-  %190 = getelementptr inbounds float, ptr %1, i64 %indvars.iv260
+  %190 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv260
   %191 = load float, ptr %190, align 4
   %192 = fpext float %191 to double
-  %193 = getelementptr inbounds [3 x double], ptr %12, i64 0, i64 %indvars.iv260
+  %193 = getelementptr inbounds nuw [3 x double], ptr %12, i64 0, i64 %indvars.iv260
   store double %192, ptr %193, align 8
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next261, 3
@@ -1110,10 +1110,10 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
 
 195:                                              ; preds = %.loopexit225, %195
   %indvars.iv263 = phi i64 [ 0, %.loopexit225 ], [ %indvars.iv.next264, %195 ]
-  %196 = getelementptr inbounds [3 x double], ptr %12, i64 0, i64 %indvars.iv263
+  %196 = getelementptr inbounds nuw [3 x double], ptr %12, i64 0, i64 %indvars.iv263
   %197 = load double, ptr %196, align 8
   %198 = fptrunc double %197 to float
-  %199 = getelementptr inbounds float, ptr %1, i64 %indvars.iv263
+  %199 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv263
   store float %198, ptr %199, align 4
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next264, 3
@@ -1127,7 +1127,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %.loopexit
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %0, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %204 = load i8, ptr %203, align 8
   %205 = trunc i8 %204 to i1
   br i1 %205, label %.loopexit228, label %.preheader227.preheader
@@ -1159,7 +1159,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %214, label %218, label %215
 
 215:                                              ; preds = %.preheader231.split
-  %216 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %217 = load i32, ptr %216, align 4
   store i32 %217, ptr %13, align 4
   br label %218
@@ -1168,7 +1168,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   %219 = load ptr, ptr %23, align 8
   %220 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %219, ptr noundef nonnull %13)
   %221 = load i32, ptr %13, align 4
-  %222 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %221, ptr %222, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %223 = icmp samesign ult i64 %indvars.iv, 2
@@ -1181,7 +1181,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %.not170, label %.thread222, label %227
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %0, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %229 = load i8, ptr %228, align 8
   %230 = trunc i8 %229 to i1
   br i1 %230, label %235, label %231
@@ -1220,7 +1220,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %common.resume
 
 .thread223:                                       ; preds = %.thread222
-  %245 = getelementptr inbounds i8, ptr %0, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %246 = load i8, ptr %245, align 8
   %247 = trunc i8 %246 to i1
   br i1 %247, label %248, label %.thread
@@ -1252,7 +1252,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
 
 .thread270:                                       ; preds = %248, %.thread, %.thread273
   %.3272 = phi i32 [ %254, %.thread273 ], [ 1, %.thread ], [ 1, %248 ]
-  %259 = getelementptr inbounds i8, ptr %0, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %260 = load i8, ptr %259, align 8
   %261 = trunc i8 %260 to i1
   br i1 %261, label %262, label %.loopexit
@@ -1349,7 +1349,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #15
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -1357,7 +1357,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -1408,7 +1408,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -1431,7 +1431,7 @@ declare noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef, ptr noundef, i32 nounde
 define internal fastcc void @_ZL10gmx_fio_feP8t_fileio15InputOutputTypePKcS3_i(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(127) @.str.2, i8 noundef zeroext 2)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = select i1 %9, ptr @.str.26, ptr @.str.27
@@ -1440,7 +1440,7 @@ define internal fastcc void @_ZL10gmx_fio_feP8t_fileio15InputOutputTypePKcS3_i(p
 
 11:                                               ; preds = %5
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds [16 x ptr], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x ptr], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -1455,7 +1455,7 @@ define internal fastcc void @_ZL10gmx_fio_feP8t_fileio15InputOutputTypePKcS3_i(p
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %22
@@ -1515,7 +1515,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_floatP8t_fileioPfPKcS3_i(ptr noundef 
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1529,7 +1529,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_floatP8t_fileioPfPKcS3_i(ptr noundef 
   br i1 %.not184.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1563,7 +1563,7 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_doubleP8t_fileioPdPKcS3_i(ptr noundef
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store double 0.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1577,7 +1577,7 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_doubleP8t_fileioPdPKcS3_i(ptr noundef
   br i1 %.not183.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1610,14 +1610,14 @@ define noundef zeroext i1 @_Z20gmx_fio_doe_gmx_boolP8t_fileioPbPKcS3_i(ptr nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
@@ -1638,7 +1638,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %11
 19:                                               ; preds = %5
   %20 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not.i13 = icmp eq ptr %22, null
   br i1 %.not.i13, label %23, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit14
@@ -1667,7 +1667,7 @@ define noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0
   %6 = alloca i32, align 4
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1681,7 +1681,7 @@ define noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0
   br i1 %.not182.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1714,7 +1714,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int32P8t_fileioPiPKcS3_i(ptr noundef 
   %6 = alloca i32, align 4
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1728,7 +1728,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int32P8t_fileioPiPKcS3_i(ptr noundef 
   br i1 %.not181.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1761,7 +1761,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int64P8t_fileioPlPKcS3_i(ptr noundef 
   %6 = alloca i64, align 8
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1775,7 +1775,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int64P8t_fileioPlPKcS3_i(ptr noundef 
   br i1 %.not180.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1808,7 +1808,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_ucharP8t_fileioPhPKcS3_i(ptr noundef 
   %6 = alloca i8, align 1
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1822,7 +1822,7 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_ucharP8t_fileioPhPKcS3_i(ptr noundef 
   br i1 %.not179.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1855,7 +1855,7 @@ define noundef zeroext i1 @_Z16gmx_fio_doe_charP8t_fileioPcPKcS3_i(ptr noundef %
   %6 = alloca i8, align 1
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1869,7 +1869,7 @@ define noundef zeroext i1 @_Z16gmx_fio_doe_charP8t_fileioPcPKcS3_i(ptr noundef %
   br i1 %.not178.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1902,7 +1902,7 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_ushortP8t_fileioPtPKcS3_i(ptr noundef
   %6 = alloca i16, align 2
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %10
@@ -1916,7 +1916,7 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_ushortP8t_fileioPtPKcS3_i(ptr noundef
   br i1 %.not177.i, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %19, label %15
@@ -1992,7 +1992,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_realP8t_fileioPfiPKcS3_i(ptr noundef
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 
@@ -2016,9 +2016,9 @@ define noundef zeroext i1 @_Z18gmx_fio_ndoe_floatP8t_fileioPfiPKcS3_i(ptr nounde
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not184.i = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not184.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -2055,7 +2055,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4
   %20 = load ptr, ptr %9, align 8
@@ -2104,9 +2104,9 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_doubleP8t_fileioPdiPKcS3_i(ptr nound
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not183.i = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not183.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -2143,7 +2143,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store double 0.000000e+00, ptr %7, align 8
   %20 = load ptr, ptr %9, align 8
@@ -2193,8 +2193,8 @@ define noundef zeroext i1 @_Z21gmx_fio_ndoe_gmx_boolP8t_fileioPbiPKcS3_i(ptr nou
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %12
 
@@ -2232,12 +2232,12 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17
 26:                                               ; preds = %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit, %15
   %.025 = phi i8 [ %25, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
   %27 = phi i8 [ %23, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %.025, ptr %28, align 1
   br label %41
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 1
   %33 = zext nneg i8 %32 to i32
@@ -2286,9 +2286,9 @@ define noundef zeroext i1 @_Z16gmx_fio_ndoe_intP8t_fileioPiiPKcS3_i(ptr noundef 
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not182.i = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not182.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -2324,7 +2324,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %20, null
@@ -2372,9 +2372,9 @@ define noundef zeroext i1 @_Z18gmx_fio_ndoe_int64P8t_fileioPliPKcS3_i(ptr nounde
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not180.i = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not180.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -2410,7 +2410,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %20, null
@@ -2453,7 +2453,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z18gmx_fio_ndoe_ucharP8t_fileioPhiPKcS3_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit.i
@@ -2480,7 +2480,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %_ZL19gmx_fio_ch
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z17gmx_fio_ndoe_charP8t_fileioPciPKcS3_i(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   tail call void @_Z12gmx_fio_lockP8t_fileio(ptr noundef %0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit.i
@@ -2512,9 +2512,9 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_ushortP8t_fileioPtiPKcS3_i(ptr nound
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not177.i = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not177.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -2550,7 +2550,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   br i1 %.01214, label %18, label %29
 
 18:                                               ; preds = %.lr.ph.split
-  %19 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   %20 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %20, null
@@ -2615,7 +2615,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_ivecP8t_fileioPA3_iiPKcS4_i(ptr noun
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds [3 x i32], ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 13, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 
@@ -2647,7 +2647,7 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_stringP8t_fileioPPciPKcS4_i(ptr noun
   br i1 %.01213, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %9, i64 noundef 1, i32 noundef 14, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %11
 
@@ -2666,7 +2666,7 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_stringP8t_fileioPPciPKcS4_i(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializerC2EP8t_fileio(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19FileIOXdrSerializerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.noexc, label %4

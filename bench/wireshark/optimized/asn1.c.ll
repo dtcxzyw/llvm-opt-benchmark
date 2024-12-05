@@ -17,14 +17,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @asn1_ctx_init(ptr nocapture noundef writeonly initializes((0, 208)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i1 %2 to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 200, i1 false)
   store i32 1094931544, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %9, align 8
   ret void
 }
@@ -49,35 +49,35 @@ define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly %0) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly initializes((56, 120)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @asn1_ctx_clean_epdv(ptr nocapture noundef writeonly initializes((144, 200)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 -1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @asn1_stack_frame_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #10
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %10, align 8
   store ptr %7, ptr %8, align 8
   ret void
@@ -87,7 +87,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @asn1_stack_frame_pop(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -107,7 +107,7 @@ define hidden void @asn1_stack_frame_pop(ptr nocapture noundef %0, ptr nocapture
   unreachable
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %3, align 8
   ret void
@@ -121,7 +121,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
@@ -141,7 +141,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   unreachable
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.024 = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %2, align 8
   %.not1925 = icmp eq ptr %13, null
@@ -159,13 +159,13 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
   unreachable
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.01526, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01526, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.027, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %18
   br i1 %23, label %25, label %24
@@ -177,7 +177,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
 25:                                               ; preds = %16, %20
   store ptr %14, ptr %.027, align 8
   %26 = getelementptr i8, ptr %.01526, i64 16
-  %27 = getelementptr inbounds i8, ptr %.027, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %.0 = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %26, align 8
   %.not19 = icmp eq ptr %28, null
@@ -198,7 +198,7 @@ define hidden void @asn1_stack_frame_check(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden void @asn1_param_push_boolean(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %6
@@ -208,35 +208,35 @@ define hidden void @asn1_param_push_boolean(ptr nocapture noundef readonly %0, i
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %14
 
 14:                                               ; preds = %14, %6
   %.0.i = phi ptr [ %13, %6 ], [ %16, %14 ]
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !6
 
 push_new_par.exit:                                ; preds = %14
   %17 = zext i1 %1 to i8
   store ptr %11, ptr %.0.i, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 %17, ptr %19, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @asn1_param_push_integer(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %6
@@ -246,27 +246,27 @@ define hidden void @asn1_param_push_integer(ptr nocapture noundef readonly %0, i
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %14
 
 14:                                               ; preds = %14, %6
   %.0.i = phi ptr [ %13, %6 ], [ %16, %14 ]
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !6
 
 push_new_par.exit:                                ; preds = %14
   store ptr %11, ptr %.0.i, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %1, ptr %18, align 8
   ret void
 }
@@ -283,7 +283,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %.val, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.01.i = load ptr, ptr %6, align 8
   %.not112.i = icmp eq ptr %.01.i, null
   br i1 %.not112.i, label %.loopexit, label %.lr.ph.i
@@ -296,7 +296,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.03.i, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
@@ -306,7 +306,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr nocapture noundef readonly 
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.03.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   ret i1 %13
@@ -324,7 +324,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %.val, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.01.i = load ptr, ptr %6, align 8
   %.not112.i = icmp eq ptr %.01.i, null
   br i1 %.not112.i, label %.loopexit, label %.lr.ph.i
@@ -337,7 +337,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.03.i, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
@@ -347,7 +347,7 @@ define hidden i32 @asn1_param_get_integer(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.03.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %12 = load i32, ptr %11, align 8
   ret i32 %12
 }
@@ -376,9 +376,9 @@ define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly %0) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @rose_ctx_clean_data(ptr nocapture noundef writeonly initializes((80, 112)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %3, align 4
   ret void
 }
@@ -412,7 +412,7 @@ asn1_ctx_check_signature.exit:                    ; preds = %1
   br i1 %3, label %.thread, label %rose_ctx_check_signature.exit
 
 .thread:                                          ; preds = %asn1_ctx_check_signature.exit
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %.not.i9 = icmp eq ptr %5, null
   br i1 %.not.i9, label %rose_ctx_check_signature.exit.thread, label %rose_ctx_check_signature.exitthread-pre-split

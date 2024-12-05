@@ -15,26 +15,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Dch_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 72)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 40, i1 false)
   store i32 8, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1000, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5000, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1000, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 100, ptr %11, align 4
   ret void
 }
@@ -44,7 +44,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Dch_ManReadVerbose(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -65,7 +65,7 @@ define ptr @Dch_ComputeChoices(ptr noundef %0, ptr noundef %1) local_unnamed_add
 11:                                               ; preds = %2
   %12 = load i64, ptr %8, align 8
   %.neg48 = mul i64 %12, -1000000
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
   %.neg47 = sdiv i64 %14, -1000
   %.neg49 = add i64 %.neg47, %.neg48
@@ -82,7 +82,7 @@ Abc_Clock.exit:                                   ; preds = %2, %11
 17:                                               ; preds = %Abc_Clock.exit
   %18 = load i64, ptr %7, align 8
   %.neg45 = mul i64 %18, -1000000
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i64, ptr %19, align 8
   %.neg44 = sdiv i64 %20, -1000
   %.neg46 = add i64 %.neg44, %.neg45
@@ -101,7 +101,7 @@ Abc_Clock.exit33:                                 ; preds = %Abc_Clock.exit, %17
 25:                                               ; preds = %Abc_Clock.exit33
   %26 = load i64, ptr %6, align 8
   %.neg42 = mul i64 %26, -1000000
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load i64, ptr %27, align 8
   %.neg = sdiv i64 %28, -1000
   %.neg43 = add i64 %.neg, %.neg42
@@ -111,10 +111,10 @@ Abc_Clock.exit35:                                 ; preds = %Abc_Clock.exit33, %
   %.0.i34.neg = phi i64 [ %.neg43, %25 ], [ 1, %Abc_Clock.exit33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %29 = load i32, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %31 = load i32, ptr %30, align 4
   %32 = call ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %29, i32 noundef %31) #11
-  %33 = getelementptr inbounds i8, ptr %22, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %32, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
@@ -124,7 +124,7 @@ Abc_Clock.exit35:                                 ; preds = %Abc_Clock.exit33, %
 36:                                               ; preds = %Abc_Clock.exit35
   %37 = load i64, ptr %5, align 8
   %38 = mul nsw i64 %37, 1000000
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = sdiv i64 %40, 1000
   %42 = add nsw i64 %41, %38
@@ -134,11 +134,11 @@ Abc_Clock.exit37:                                 ; preds = %Abc_Clock.exit35, %
   %.0.i36 = phi i64 [ %42, %36 ], [ -1, %Abc_Clock.exit35 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %43 = add i64 %.0.i36, %.0.i34.neg
-  %44 = getelementptr inbounds i8, ptr %22, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i64 %43, ptr %44, align 8
   %45 = load ptr, ptr %33, align 8
   %46 = call i32 @Dch_ClassesLitNum(ptr noundef %45) #11
-  %47 = getelementptr inbounds i8, ptr %22, i64 132
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 132
   store i32 %46, ptr %47, align 4
   call void @Dch_ManSweep(ptr noundef nonnull %22) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -149,7 +149,7 @@ Abc_Clock.exit37:                                 ; preds = %Abc_Clock.exit35, %
 50:                                               ; preds = %Abc_Clock.exit37
   %51 = load i64, ptr %4, align 8
   %52 = mul nsw i64 %51, 1000000
-  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = sdiv i64 %54, 1000
   %56 = add nsw i64 %55, %52
@@ -159,7 +159,7 @@ Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %
   %.0.i38 = phi i64 [ %56, %50 ], [ -1, %Abc_Clock.exit37 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %57 = add i64 %.0.i38, %.0.i32.neg
-  %58 = getelementptr inbounds i8, ptr %22, i64 216
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 216
   store i64 %57, ptr %58, align 8
   call void @Dch_ManStop(ptr noundef nonnull %22) #11
   %59 = load i32, ptr %30, align 4
@@ -175,7 +175,7 @@ Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %
 63:                                               ; preds = %60
   %64 = load i64, ptr %3, align 8
   %65 = mul nsw i64 %64, 1000000
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = sdiv i64 %67, 1000
   %69 = add nsw i64 %68, %65
@@ -192,7 +192,7 @@ Abc_Clock.exit41:                                 ; preds = %60, %63
   br label %73
 
 73:                                               ; preds = %Abc_Clock.exit41, %Abc_Clock.exit39
-  %74 = getelementptr inbounds i8, ptr %0, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %75 = load ptr, ptr %74, align 8
   %.not27 = icmp eq ptr %75, null
   br i1 %.not27, label %77, label %76
@@ -203,7 +203,7 @@ Abc_Clock.exit41:                                 ; preds = %60, %63
   br label %77
 
 77:                                               ; preds = %73, %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %79 = load i32, ptr %78, align 8
   %80 = call ptr @Dch_DeriveChoiceAig(ptr noundef nonnull %0, i32 noundef %79) #11
   %81 = load i32, ptr %30, align 4
@@ -303,7 +303,7 @@ define void @Dch_ComputeEquivalences(ptr noundef %0, ptr noundef %1) local_unnam
 9:                                                ; preds = %2
   %10 = load i64, ptr %6, align 8
   %.neg22 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg21 = sdiv i64 %12, -1000
   %.neg23 = add i64 %.neg21, %.neg22
@@ -322,7 +322,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 17:                                               ; preds = %Abc_Clock.exit
   %18 = load i64, ptr %5, align 8
   %.neg19 = mul i64 %18, -1000000
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8
   %.neg = sdiv i64 %20, -1000
   %.neg20 = add i64 %.neg, %.neg19
@@ -332,10 +332,10 @@ Abc_Clock.exit14:                                 ; preds = %Abc_Clock.exit, %17
   %.0.i13.neg = phi i64 [ %.neg20, %17 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %21 = load i32, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %21, i32 noundef %23) #11
-  %25 = getelementptr inbounds i8, ptr %14, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %24, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %26 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #11
@@ -345,7 +345,7 @@ Abc_Clock.exit14:                                 ; preds = %Abc_Clock.exit, %17
 28:                                               ; preds = %Abc_Clock.exit14
   %29 = load i64, ptr %4, align 8
   %30 = mul nsw i64 %29, 1000000
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = sdiv i64 %32, 1000
   %34 = add nsw i64 %33, %30
@@ -355,11 +355,11 @@ Abc_Clock.exit16:                                 ; preds = %Abc_Clock.exit14, %
   %.0.i15 = phi i64 [ %34, %28 ], [ -1, %Abc_Clock.exit14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %35 = add i64 %.0.i15, %.0.i13.neg
-  %36 = getelementptr inbounds i8, ptr %14, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store i64 %35, ptr %36, align 8
   %37 = load ptr, ptr %25, align 8
   %38 = call i32 @Dch_ClassesLitNum(ptr noundef %37) #11
-  %39 = getelementptr inbounds i8, ptr %14, i64 132
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 132
   store i32 %38, ptr %39, align 4
   call void @Dch_ManSweep(ptr noundef nonnull %14) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -370,7 +370,7 @@ Abc_Clock.exit16:                                 ; preds = %Abc_Clock.exit14, %
 42:                                               ; preds = %Abc_Clock.exit16
   %43 = load i64, ptr %3, align 8
   %44 = mul nsw i64 %43, 1000000
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = sdiv i64 %46, 1000
   %48 = add nsw i64 %47, %44
@@ -380,7 +380,7 @@ Abc_Clock.exit18:                                 ; preds = %Abc_Clock.exit16, %
   %.0.i17 = phi i64 [ %48, %42 ], [ -1, %Abc_Clock.exit16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %49 = add i64 %.0.i17, %.0.i.neg
-  %50 = getelementptr inbounds i8, ptr %14, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 216
   store i64 %49, ptr %50, align 8
   call void @Dch_ManStop(ptr noundef nonnull %14) #11
   ret void

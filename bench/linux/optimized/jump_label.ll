@@ -37,7 +37,7 @@ define dso_local noundef range(i32 2, 6) i32 @arch_jump_entry_size(ptr noundef %
   %6 = add i64 %5, %3
   %7 = inttoptr i64 %6 to ptr
   %8 = call i32 @insn_decode(ptr noundef nonnull %2, ptr noundef %7, i32 noundef 15, i32 noundef 2) #6
-  %9 = getelementptr inbounds i8, ptr %2, i64 82
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 82
   %10 = load i8, ptr %9, align 2
   switch i8 %10, label %11 [
     i8 5, label %12
@@ -151,7 +151,7 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   %6 = sext i32 %5 to i64
   %7 = add i64 %6, %4
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = ptrtoint ptr %9 to i64
   %11 = load i32, ptr %9, align 4
   %12 = sext i32 %11 to i64
@@ -160,7 +160,7 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   %15 = call i32 @insn_decode(ptr noundef nonnull %3, ptr noundef %8, i32 noundef 15, i32 noundef 2) #6
-  %16 = getelementptr inbounds i8, ptr %3, i64 82
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 82
   %17 = load i8, ptr %16, align 2
   switch i8 %17, label %18 [
     i8 5, label %19
@@ -190,7 +190,7 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %25, %27
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %22, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i32 %29, ptr %30, align 1
   %31 = ashr i32 %29, 31
   %32 = ashr i32 %29, 7
@@ -212,7 +212,7 @@ define internal fastcc { ptr, i32 } @__jump_label_patch(ptr noundef %0, i32 noun
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %39, %41
   %43 = trunc i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %36, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i32 %43, ptr %44, align 1
   br label %46
 

@@ -76,7 +76,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__acpi_device_uevent_modalias(pt
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %32, label %8
@@ -87,11 +87,11 @@ define dso_local range(i32 -2147483648, 1) i32 @__acpi_device_uevent_modalias(pt
   br i1 %10, label %11, label %32
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %1, i64 540
-  %16 = getelementptr inbounds i8, ptr %1, i64 2588
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 540
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2588
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %19 = sext i32 %18 to i64
@@ -134,9 +134,9 @@ define internal fastcc i32 @create_of_modalias(ptr nocapture noundef nonnull rea
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @acpi_get_name(ptr noundef %7, i32 noundef 1, ptr noundef nonnull %4) #6
   %9 = icmp eq i32 %8, 0
@@ -178,16 +178,16 @@ define internal fastcc i32 @create_of_modalias(ptr nocapture noundef nonnull rea
 
 30:                                               ; preds = %.loopexit7
   %31 = sub i32 %2, %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 552
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 4
   br i1 %35, label %36, label %.preheader.preheader
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %33, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp sgt i32 %38, 0
   br i1 %41, label %.preheader.preheader, label %.loopexit
@@ -205,7 +205,7 @@ define internal fastcc i32 @create_of_modalias(ptr nocapture noundef nonnull rea
   %48 = sext i32 %45 to i64
   %49 = getelementptr i8, ptr %1, i64 %48
   %50 = sext i32 %47 to i64
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %49, i64 noundef %50, ptr noundef nonnull @.str.7, ptr noundef %52) #6
   %54 = icmp slt i32 %53, %47
@@ -231,7 +231,7 @@ define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr noca
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %.loopexit, label %.preheader
@@ -239,7 +239,7 @@ define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr noca
 .preheader:                                       ; preds = %5, %.preheader
   %9 = phi ptr [ %17, %.preheader ], [ %7, %5 ]
   %10 = phi i32 [ %16, %.preheader ], [ 0, %5 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef %12, ptr noundef nonnull dereferenceable(8) @.str.8) #6
   %14 = icmp ne i32 %13, 0
@@ -272,7 +272,7 @@ define internal fastcc i32 @create_pnp_modalias(ptr noundef nonnull %0, ptr noca
   %31 = phi ptr [ %50, %47 ], [ %26, %28 ]
   %32 = phi i32 [ %49, %47 ], [ %29, %28 ]
   %33 = phi i32 [ %48, %47 ], [ %23, %28 ]
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @strcmp(ptr noundef %35, ptr noundef nonnull dereferenceable(8) @.str.8) #6
   %37 = icmp eq i32 %36, 0
@@ -313,7 +313,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_device_uevent_modalias(ptr 
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %33, label %9
@@ -324,11 +324,11 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_device_uevent_modalias(ptr 
   br i1 %11, label %12, label %33
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 552
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 540
-  %17 = getelementptr inbounds i8, ptr %1, i64 2588
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 540
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2588
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = sext i32 %19 to i64
@@ -370,7 +370,7 @@ define dso_local i32 @acpi_device_modalias(ptr noundef %0, ptr nocapture noundef
   br i1 %5, label %40, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %40, label %10
@@ -396,7 +396,7 @@ define dso_local i32 @acpi_device_modalias(ptr noundef %0, ptr nocapture noundef
 21:                                               ; preds = %16, %14
   %22 = phi i32 [ %20, %16 ], [ %2, %14 ]
   %23 = phi i32 [ %17, %16 ], [ 0, %14 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 552
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %40, label %27
@@ -431,33 +431,33 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
   %2 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   store i64 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 616
-  %9 = tail call i32 @device_create_file(ptr noundef %8, ptr noundef nonnull @dev_attr_path) #6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %9 = tail call i32 @device_create_file(ptr noundef nonnull %8, ptr noundef nonnull @dev_attr_path) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %105
 
 11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 616
-  %17 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_hid) #6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %17 = tail call i32 @device_create_file(ptr noundef nonnull %16, ptr noundef nonnull @dev_attr_hid) #6
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %105
 
 19:                                               ; preds = %15
-  %20 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_modalias) #6
+  %20 = tail call i32 @device_create_file(ptr noundef nonnull %16, ptr noundef nonnull @dev_attr_modalias) #6
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %105
 
@@ -482,35 +482,35 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
 
 30:                                               ; preds = %._crit_edge, %29
   %31 = phi ptr [ %.pre, %._crit_edge ], [ null, %29 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 616
-  %34 = call i32 @device_create_file(ptr noundef %33, ptr noundef nonnull @dev_attr_description) #6
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %34 = call i32 @device_create_file(ptr noundef nonnull %33, ptr noundef nonnull @dev_attr_description) #6
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %105
 
 36:                                               ; preds = %30, %22
-  %37 = getelementptr inbounds i8, ptr %0, i64 132
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 2
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 616
-  %43 = call i32 @device_create_file(ptr noundef %42, ptr noundef nonnull @dev_attr_adr) #6
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %43 = call i32 @device_create_file(ptr noundef nonnull %42, ptr noundef nonnull @dev_attr_adr) #6
   br label %44
 
 44:                                               ; preds = %41, %36
   %45 = phi i32 [ %43, %41 ], [ 0, %36 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 616
-  %51 = call i32 @device_create_file(ptr noundef %50, ptr noundef nonnull @dev_attr_uid) #6
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %51 = call i32 @device_create_file(ptr noundef nonnull %50, ptr noundef nonnull @dev_attr_uid) #6
   br label %52
 
 52:                                               ; preds = %49, %44
@@ -520,8 +520,8 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %0, i64 616
-  %58 = call i32 @device_create_file(ptr noundef %57, ptr noundef nonnull @dev_attr_sun) #6
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %58 = call i32 @device_create_file(ptr noundef nonnull %57, ptr noundef nonnull @dev_attr_sun) #6
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %105
 
@@ -532,8 +532,8 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 616
-  %66 = call i32 @device_create_file(ptr noundef %65, ptr noundef nonnull @dev_attr_hrv) #6
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %66 = call i32 @device_create_file(ptr noundef nonnull %65, ptr noundef nonnull @dev_attr_hrv) #6
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %105
 
@@ -544,8 +544,8 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %0, i64 616
-  %74 = call i32 @device_create_file(ptr noundef %73, ptr noundef nonnull @dev_attr_status) #6
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %74 = call i32 @device_create_file(ptr noundef nonnull %73, ptr noundef nonnull @dev_attr_status) #6
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %105
 
@@ -556,41 +556,41 @@ define dso_local i32 @acpi_device_setup_files(ptr noundef %0) local_unnamed_addr
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %0, i64 616
-  %82 = call i32 @device_create_file(ptr noundef %81, ptr noundef nonnull @dev_attr_eject) #6
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %82 = call i32 @device_create_file(ptr noundef nonnull %81, ptr noundef nonnull @dev_attr_eject) #6
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %105
 
 84:                                               ; preds = %80, %76
   %85 = phi i32 [ 0, %80 ], [ %77, %76 ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 116
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 8
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %101, label %90
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %0, i64 616
-  %92 = call i32 @device_create_file(ptr noundef %91, ptr noundef nonnull @dev_attr_power_state) #6
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %92 = call i32 @device_create_file(ptr noundef nonnull %91, ptr noundef nonnull @dev_attr_power_state) #6
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %105
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %0, i64 244
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, 2
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %101, label %99
 
 99:                                               ; preds = %94
-  %100 = call i32 @device_create_file(ptr noundef %91, ptr noundef nonnull @dev_attr_real_power_state) #6
+  %100 = call i32 @device_create_file(ptr noundef nonnull %91, ptr noundef nonnull @dev_attr_real_power_state) #6
   br label %101
 
 101:                                              ; preds = %99, %94, %84
   %102 = phi i32 [ %100, %99 ], [ 0, %94 ], [ %85, %84 ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 616
-  %104 = getelementptr inbounds i8, ptr %0, i64 528
-  call fastcc void @acpi_expose_nondev_subnodes(ptr noundef %103, ptr noundef %104)
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  call fastcc void @acpi_expose_nondev_subnodes(ptr noundef nonnull %103, ptr noundef nonnull %104)
   br label %105
 
 105:                                              ; preds = %101, %90, %80, %72, %64, %56, %30, %19, %15, %7
@@ -610,7 +610,7 @@ declare dso_local i32 @acpi_evaluate_object(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_expose_nondev_subnodes(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %.preheader
@@ -654,39 +654,39 @@ define internal fastcc void @acpi_expose_nondev_subnodes(ptr noundef %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 528
-  tail call fastcc void @acpi_hide_nondev_subnodes(ptr noundef %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  tail call fastcc void @acpi_hide_nondev_subnodes(ptr noundef nonnull %2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %8, ptr noundef nonnull @dev_attr_power_state) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 244
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %8, ptr noundef nonnull @dev_attr_power_state) #6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 2
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void @device_remove_file(ptr noundef %8, ptr noundef nonnull @dev_attr_real_power_state) #6
+  tail call void @device_remove_file(ptr noundef nonnull %8, ptr noundef nonnull @dev_attr_real_power_state) #6
   br label %14
 
 14:                                               ; preds = %13, %7, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @acpi_has_method(ptr noundef %16, ptr noundef nonnull @.str.1) #6
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %21, ptr noundef nonnull @dev_attr_description) #6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %21, ptr noundef nonnull @dev_attr_description) #6
   br label %22
 
 22:                                               ; preds = %18, %14
@@ -695,8 +695,8 @@ define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_ad
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %26, ptr noundef nonnull @dev_attr_eject) #6
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %26, ptr noundef nonnull @dev_attr_eject) #6
   br label %27
 
 27:                                               ; preds = %25, %22
@@ -705,8 +705,8 @@ define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_ad
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %31, ptr noundef nonnull @dev_attr_sun) #6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %31, ptr noundef nonnull @dev_attr_sun) #6
   br label %32
 
 32:                                               ; preds = %30, %27
@@ -715,43 +715,43 @@ define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_ad
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %36, ptr noundef nonnull @dev_attr_hrv) #6
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %36, ptr noundef nonnull @dev_attr_hrv) #6
   br label %37
 
 37:                                               ; preds = %35, %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %42, ptr noundef nonnull @dev_attr_uid) #6
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %42, ptr noundef nonnull @dev_attr_uid) #6
   br label %43
 
 43:                                               ; preds = %41, %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 2
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %49, ptr noundef nonnull @dev_attr_adr) #6
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %49, ptr noundef nonnull @dev_attr_adr) #6
   br label %50
 
 50:                                               ; preds = %48, %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_remove_file(ptr noundef %51, ptr noundef nonnull @dev_attr_modalias) #6
-  tail call void @device_remove_file(ptr noundef %51, ptr noundef nonnull @dev_attr_hid) #6
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @device_remove_file(ptr noundef nonnull %51, ptr noundef nonnull @dev_attr_modalias) #6
+  tail call void @device_remove_file(ptr noundef nonnull %51, ptr noundef nonnull @dev_attr_hid) #6
   %52 = load ptr, ptr %15, align 8
   %53 = tail call zeroext i1 @acpi_has_method(ptr noundef %52, ptr noundef nonnull @.str.4) #6
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %50
-  tail call void @device_remove_file(ptr noundef %51, ptr noundef nonnull @dev_attr_status) #6
+  tail call void @device_remove_file(ptr noundef nonnull %51, ptr noundef nonnull @dev_attr_status) #6
   br label %55
 
 55:                                               ; preds = %54, %50
@@ -760,7 +760,7 @@ define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_ad
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @device_remove_file(ptr noundef %51, ptr noundef nonnull @dev_attr_path) #6
+  tail call void @device_remove_file(ptr noundef nonnull %51, ptr noundef nonnull @dev_attr_path) #6
   br label %59
 
 59:                                               ; preds = %58, %55
@@ -769,13 +769,13 @@ define dso_local void @acpi_device_remove_files(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_hide_nondev_subnodes(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %2
   br i1 %8, label %.loopexit, label %.preheader
@@ -786,7 +786,7 @@ define internal fastcc void @acpi_hide_nondev_subnodes(ptr noundef %0) unnamed_a
   tail call fastcc void @acpi_hide_nondev_subnodes(ptr noundef %10)
   %11 = getelementptr i8, ptr %9, i64 16
   tail call void @kobject_put(ptr noundef %11) #6
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !12
@@ -820,7 +820,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @path_show(ptr nocapture 
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
   store i64 -1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
   %8 = call i32 @acpi_get_name(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %4) #6
   %9 = icmp eq i32 %8, 0
@@ -925,9 +925,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @description_show(ptr noc
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @utf16s_to_utf8s(ptr noundef %9, i32 noundef %11, i32 noundef 1, ptr noundef %2, i32 noundef 4095) #6
   %13 = add i32 %12, 1
@@ -1057,14 +1057,14 @@ define internal range(i64 1, 0) i64 @eject_store(ptr noundef %0, ptr nocapture r
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15, %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %49, label %24
@@ -1192,7 +1192,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @acpi_data_node_attr_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -1210,7 +1210,7 @@ define internal i64 @acpi_data_node_attr_show(ptr noundef %0, ptr nocapture noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @data_node_show_path(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %18, label %7
@@ -1218,7 +1218,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @data_node_show_path(ptr 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   store i64 -1, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %8, align 8
   %9 = call i32 @acpi_get_name(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %3) #6
   %10 = icmp eq i32 %9, 0

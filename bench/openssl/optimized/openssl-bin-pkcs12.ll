@@ -390,7 +390,7 @@ sw.bb25:                                          ; preds = %while.cond
 
 sw.bb26:                                          ; preds = %while.cond, %while.cond
   %call27 = tail call ptr @opt_flag() #5
-  %add.ptr = getelementptr inbounds i8, ptr %call27, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call27, i64 1
   store ptr null, ptr %enc, align 8
   br label %while.cond.backedge
 
@@ -1743,7 +1743,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.020 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.020) #5
-  %type = getelementptr inbounds i8, ptr %call5, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %call5, i64 24
   %0 = load ptr, ptr %type, align 8
   %call6 = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
   switch i32 %call6, label %for.inc [
@@ -1766,11 +1766,11 @@ if.then14:                                        ; preds = %for.body
 if.then17:                                        ; preds = %if.then14
   %2 = load ptr, ptr @bio_err, align 8
   %call18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.155) #5
-  %d = getelementptr inbounds i8, ptr %call5, i64 32
+  %d = getelementptr inbounds nuw i8, ptr %call5, i64 32
   %3 = load ptr, ptr %d, align 8
-  %enc_data = getelementptr inbounds i8, ptr %3, i64 8
+  %enc_data = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %enc_data, align 8
-  %algorithm = getelementptr inbounds i8, ptr %4, i64 8
+  %algorithm = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %algorithm, align 8
   tail call fastcc void @alg_print(ptr noundef %5)
   br label %if.end20
@@ -1879,7 +1879,7 @@ if.end10:                                         ; preds = %if.end
   call void @X509_ALGOR_get0(ptr noundef nonnull %aoid, ptr noundef nonnull %aparamtype, ptr noundef nonnull %aparam, ptr noundef %5) #5
   %6 = load ptr, ptr %aoid, align 8
   %call11 = call i32 @OBJ_obj2nid(ptr noundef %6) #5
-  %encryption = getelementptr inbounds i8, ptr %call6, i64 8
+  %encryption = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %7 = load ptr, ptr %encryption, align 8
   call void @X509_ALGOR_get0(ptr noundef nonnull %aoid, ptr noundef null, ptr noundef null, ptr noundef %7) #5
   %8 = load ptr, ptr %aoid, align 8
@@ -1911,7 +1911,7 @@ if.then24:                                        ; preds = %if.then17, %if.end2
   br label %done
 
 if.end26:                                         ; preds = %if.end22
-  %prf = getelementptr inbounds i8, ptr %call21, i64 24
+  %prf = getelementptr inbounds nuw i8, ptr %call21, i64 24
   %13 = load ptr, ptr %prf, align 8
   %cmp27 = icmp eq ptr %13, null
   br i1 %cmp27, label %if.end31, label %if.else
@@ -1925,7 +1925,7 @@ if.else:                                          ; preds = %if.end26
 if.end31:                                         ; preds = %if.end26, %if.else
   %prfnid.0 = phi i32 [ %call30, %if.else ], [ 163, %if.end26 ]
   %15 = load ptr, ptr @bio_err, align 8
-  %iter = getelementptr inbounds i8, ptr %call21, i64 8
+  %iter = getelementptr inbounds nuw i8, ptr %call21, i64 8
   %16 = load ptr, ptr %iter, align 8
   %call32 = call i64 @ASN1_INTEGER_get(ptr noundef %16) #5
   %call33 = call ptr @OBJ_nid2sn(i32 noundef %prfnid.0) #5
@@ -1954,13 +1954,13 @@ if.end47:                                         ; preds = %if.end43
   %20 = load ptr, ptr @bio_err, align 8
   %21 = load ptr, ptr %call42, align 8
   %call48 = call i32 @ASN1_STRING_length(ptr noundef %21) #5
-  %costParameter = getelementptr inbounds i8, ptr %call42, i64 8
+  %costParameter = getelementptr inbounds nuw i8, ptr %call42, i64 8
   %22 = load ptr, ptr %costParameter, align 8
   %call49 = call i64 @ASN1_INTEGER_get(ptr noundef %22) #5
-  %blockSize = getelementptr inbounds i8, ptr %call42, i64 16
+  %blockSize = getelementptr inbounds nuw i8, ptr %call42, i64 16
   %23 = load ptr, ptr %blockSize, align 8
   %call50 = call i64 @ASN1_INTEGER_get(ptr noundef %23) #5
-  %parallelizationParameter = getelementptr inbounds i8, ptr %call42, i64 24
+  %parallelizationParameter = getelementptr inbounds nuw i8, ptr %call42, i64 24
   %24 = load ptr, ptr %parallelizationParameter, align 8
   %call51 = call i64 @ASN1_INTEGER_get(ptr noundef %24) #5
   %call52 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.182, i32 noundef %call48, i64 noundef %call49, i64 noundef %call50, i64 noundef %call51) #5
@@ -1988,7 +1988,7 @@ if.then62:                                        ; preds = %if.else55, %if.end6
 
 if.end64:                                         ; preds = %if.end60
   %27 = load ptr, ptr @bio_err, align 8
-  %iter65 = getelementptr inbounds i8, ptr %call59, i64 8
+  %iter65 = getelementptr inbounds nuw i8, ptr %call59, i64 8
   %28 = load ptr, ptr %iter65, align 8
   %call66 = call i64 @ASN1_INTEGER_get(ptr noundef %28) #5
   %call67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %27, ptr noundef nonnull @.str.183, i64 noundef %call66) #5
@@ -2354,9 +2354,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value1 = getelementptr inbounds i8, ptr %av, i64 8
+  %value1 = getelementptr inbounds nuw i8, ptr %av, i64 8
   %1 = load ptr, ptr %value1, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %call = tail call ptr @OPENSSL_uni2asc(ptr noundef %2, i32 noundef %3) #5
@@ -2365,18 +2365,18 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %value5 = getelementptr inbounds i8, ptr %av, i64 8
+  %value5 = getelementptr inbounds nuw i8, ptr %av, i64 8
   %4 = load ptr, ptr %value5, align 8
   %5 = load i32, ptr %4, align 8
-  %data8 = getelementptr inbounds i8, ptr %4, i64 8
+  %data8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %data8, align 8
   %call9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.168, i32 noundef %5, ptr noundef %6) #5
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
-  %value11 = getelementptr inbounds i8, ptr %av, i64 8
+  %value11 = getelementptr inbounds nuw i8, ptr %av, i64 8
   %7 = load ptr, ptr %value11, align 8
-  %data12 = getelementptr inbounds i8, ptr %7, i64 8
+  %data12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %data12, align 8
   %9 = load i32, ptr %7, align 8
   %cmp3.i = icmp sgt i32 %9, 0
@@ -2388,7 +2388,7 @@ for.body.preheader.i:                             ; preds = %sw.bb10
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %10 to i32
   %call.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv.i) #5
@@ -2401,9 +2401,9 @@ hex_prin.exit:                                    ; preds = %for.body.i, %sw.bb1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %value17 = getelementptr inbounds i8, ptr %av, i64 8
+  %value17 = getelementptr inbounds nuw i8, ptr %av, i64 8
   %11 = load ptr, ptr %value17, align 8
-  %data18 = getelementptr inbounds i8, ptr %11, i64 8
+  %data18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %data18, align 8
   %13 = load i32, ptr %11, align 8
   %cmp3.i22 = icmp sgt i32 %13, 0
@@ -2415,7 +2415,7 @@ for.body.preheader.i23:                           ; preds = %sw.bb16
 
 for.body.i25:                                     ; preds = %for.body.i25, %for.body.preheader.i23
   %indvars.iv.i26 = phi i64 [ 0, %for.body.preheader.i23 ], [ %indvars.iv.next.i30, %for.body.i25 ]
-  %arrayidx.i27 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i26
+  %arrayidx.i27 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i26
   %14 = load i8, ptr %arrayidx.i27, align 1
   %conv.i28 = zext i8 %14 to i32
   %call.i29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv.i28) #5
@@ -2428,7 +2428,7 @@ hex_prin.exit32:                                  ; preds = %for.body.i25, %sw.b
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %entry
-  %value23 = getelementptr inbounds i8, ptr %av, i64 8
+  %value23 = getelementptr inbounds nuw i8, ptr %av, i64 8
   %15 = load ptr, ptr %value23, align 8
   %call24 = tail call i32 @OBJ_obj2nid(ptr noundef %15) #5
   %call25 = tail call ptr @OBJ_nid2ln(i32 noundef %call24) #5
@@ -2499,7 +2499,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.177, i32 noundef %conv) #5

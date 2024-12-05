@@ -97,10 +97,10 @@ define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr nocaptur
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01113 = phi i8 [ %9, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, %.01113
-  %14 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %13, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -133,10 +133,10 @@ define internal void @VerticalUnfilter_C(ptr noundef readonly %0, ptr nocapture 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01113.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %.01113.i
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -144,12 +144,12 @@ define internal void @VerticalUnfilter_C(ptr noundef readonly %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, %13
-  %17 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %16, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -175,10 +175,10 @@ define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr nocapture 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01113.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, %.01113.i
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   store i8 %10, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -196,9 +196,9 @@ define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr nocapture 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02025 = phi i8 [ %13, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %.02124 = phi i8 [ %13, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %.02025 to i32
   %19 = zext i8 %15 to i32
@@ -209,7 +209,7 @@ define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr nocapture 
   %24 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %23, i32 255)
   %25 = trunc nuw i32 %24 to i8
   %26 = add i8 %17, %25
-  %27 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -223,8 +223,8 @@ HorizontalUnfilter_C.exit:                        ; preds = %.lr.ph, %.lr.ph.i, 
 define internal void @HorizontalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = icmp sgt i32 %1, 1
   br i1 %9, label %.lr.ph.preheader.i.i, label %PredictLine_C.exit.thread.i
 
@@ -235,12 +235,12 @@ define internal void @HorizontalFilter_C(ptr nocapture noundef readonly %0, i32 
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %14 = load i8, ptr %13, align 1
   %15 = sub i8 %12, %14
-  %16 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   store i8 %15, ptr %16, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -269,18 +269,18 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   %22 = load i8, ptr %.166.us.pn.i, align 1
   %23 = sub i8 %21, %22
   store i8 %23, ptr %.14867.us.i, align 1
-  %24 = getelementptr inbounds i8, ptr %.166.us.i, i64 1
-  %25 = getelementptr inbounds i8, ptr %.14867.us.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.166.us.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.14867.us.i, i64 1
   br label %.lr.ph.i58.us.i
 
 .lr.ph.i58.us.i:                                  ; preds = %.lr.ph.i58.us.i, %.lr.ph.split.us.i
   %indvars.iv.i59.us.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %indvars.iv.next.i60.us.i, %.lr.ph.i58.us.i ]
-  %26 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.i59.us.i
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i59.us.i
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %.166.us.i, i64 %indvars.iv.i59.us.i
+  %28 = getelementptr inbounds nuw i8, ptr %.166.us.i, i64 %indvars.iv.i59.us.i
   %29 = load i8, ptr %28, align 1
   %30 = sub i8 %27, %29
-  %31 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv.i59.us.i
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i59.us.i
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i60.us.i = add nuw nsw i64 %indvars.iv.i59.us.i, 1
   %exitcond.not.i61.us.i = icmp eq i64 %indvars.iv.next.i60.us.i, %wide.trip.count.i.i
@@ -313,8 +313,8 @@ DoHorizontalFilter_C.exit:                        ; preds = %.lr.ph.split.i, %Pr
 define internal void @VerticalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = icmp sgt i32 %1, 1
   br i1 %9, label %.lr.ph.preheader.i.i, label %PredictLine_C.exit.i
 
@@ -325,12 +325,12 @@ define internal void @VerticalFilter_C(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %14 = load i8, ptr %13, align 1
   %15 = sub i8 %12, %14
-  %16 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   store i8 %15, ptr %16, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -356,12 +356,12 @@ PredictLine_C.exit.i:                             ; preds = %.lr.ph.i.i, %5
 
 .lr.ph.i47.us.i:                                  ; preds = %.lr.ph.i47.us.i, %.lr.ph.preheader.i45.us.i
   %indvars.iv.i48.us.i = phi i64 [ 0, %.lr.ph.preheader.i45.us.i ], [ %indvars.iv.next.i49.us.i, %.lr.ph.i47.us.i ]
-  %20 = getelementptr inbounds i8, ptr %.157.us.i, i64 %indvars.iv.i48.us.i
+  %20 = getelementptr inbounds nuw i8, ptr %.157.us.i, i64 %indvars.iv.i48.us.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %.157.us.pn.i, i64 %indvars.iv.i48.us.i
+  %22 = getelementptr inbounds nuw i8, ptr %.157.us.pn.i, i64 %indvars.iv.i48.us.i
   %23 = load i8, ptr %22, align 1
   %24 = sub i8 %21, %23
-  %25 = getelementptr inbounds i8, ptr %.14358.us.i, i64 %indvars.iv.i48.us.i
+  %25 = getelementptr inbounds nuw i8, ptr %.14358.us.i, i64 %indvars.iv.i48.us.i
   store i8 %24, ptr %25, align 1
   %indvars.iv.next.i49.us.i = add nuw nsw i64 %indvars.iv.i48.us.i, 1
   %exitcond.not.i50.us.i = icmp eq i64 %indvars.iv.next.i49.us.i, %wide.trip.count.i46.i
@@ -380,8 +380,8 @@ DoVerticalFilter_C.exit:                          ; preds = %PredictLine_C.exit5
 define internal void @GradientFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = icmp sgt i32 %1, 1
   br i1 %9, label %.lr.ph.preheader.i.i, label %PredictLine_C.exit.thread.i
 
@@ -392,12 +392,12 @@ define internal void @GradientFilter_C(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %14 = load i8, ptr %13, align 1
   %15 = sub i8 %12, %14
-  %16 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   store i8 %15, ptr %16, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -418,63 +418,63 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
 
 .lr.ph76.i:                                       ; preds = %PredictLine_C.exit.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  %21 = xor i64 %17, -1
   br label %.lr.ph76.split.us.i
 
 .lr.ph76.split.us.i:                              ; preds = %PredictLine_C.exit69._crit_edge.us.i, %.lr.ph76.i
   %.16075.us.pn.i = phi ptr [ %.16075.us.i, %PredictLine_C.exit69._crit_edge.us.i ], [ %4, %.lr.ph76.i ]
   %.174.us.pn.i = phi ptr [ %.174.us.i, %PredictLine_C.exit69._crit_edge.us.i ], [ %0, %.lr.ph76.i ]
-  %.15873.us.i = phi i32 [ %43, %PredictLine_C.exit69._crit_edge.us.i ], [ 1, %.lr.ph76.i ]
+  %.15873.us.i = phi i32 [ %41, %PredictLine_C.exit69._crit_edge.us.i ], [ 1, %.lr.ph76.i ]
   %.174.us.i = getelementptr i8, ptr %.174.us.pn.i, i64 %17
   %.16075.us.i = getelementptr inbounds i8, ptr %.16075.us.pn.i, i64 %17
-  %22 = load i8, ptr %.174.us.i, align 1
-  %23 = load i8, ptr %.174.us.pn.i, align 1
-  %24 = sub i8 %22, %23
-  store i8 %24, ptr %.16075.us.i, align 1
+  %21 = load i8, ptr %.174.us.i, align 1
+  %22 = load i8, ptr %.174.us.pn.i, align 1
+  %23 = sub i8 %21, %22
+  store i8 %23, ptr %.16075.us.i, align 1
+  %invariant.gep.us.i = getelementptr i8, ptr %.174.us.i, i64 -1
   br label %PredictLine_C.exit69.us.i
 
 PredictLine_C.exit69.us.i:                        ; preds = %PredictLine_C.exit69.us.i, %.lr.ph76.split.us.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph76.split.us.i ], [ %indvars.iv.next.i, %PredictLine_C.exit69.us.i ]
-  %25 = getelementptr i8, ptr %.174.us.i, i64 %indvars.iv.i
-  %26 = getelementptr i8, ptr %25, i64 -1
-  %27 = load i8, ptr %26, align 1
-  %28 = getelementptr i8, ptr %.174.us.pn.i, i64 %indvars.iv.i
-  %29 = load i8, ptr %28, align 1
-  %30 = getelementptr i8, ptr %25, i64 %21
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %27 to i32
-  %33 = zext i8 %29 to i32
-  %34 = add nuw nsw i32 %33, %32
-  %35 = zext i8 %31 to i32
-  %36 = sub nsw i32 %34, %35
-  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
-  %38 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %37, i32 255)
-  %39 = load i8, ptr %25, align 1
-  %40 = trunc nuw i32 %38 to i8
-  %41 = sub i8 %39, %40
-  %42 = getelementptr inbounds i8, ptr %.16075.us.i, i64 %indvars.iv.i
-  store i8 %41, ptr %42, align 1
+  %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %indvars.iv.i
+  %24 = load i8, ptr %gep.us.i, align 1
+  %25 = getelementptr i8, ptr %.174.us.pn.i, i64 %indvars.iv.i
+  %26 = load i8, ptr %25, align 1
+  %27 = getelementptr i8, ptr %25, i64 -1
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %24 to i32
+  %30 = zext i8 %26 to i32
+  %31 = add nuw nsw i32 %30, %29
+  %32 = zext i8 %28 to i32
+  %33 = sub nsw i32 %31, %32
+  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %35 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %34, i32 255)
+  %36 = getelementptr inbounds nuw i8, ptr %.174.us.i, i64 %indvars.iv.i
+  %37 = load i8, ptr %36, align 1
+  %38 = trunc nuw i32 %35 to i8
+  %39 = sub i8 %37, %38
+  %40 = getelementptr inbounds nuw i8, ptr %.16075.us.i, i64 %indvars.iv.i
+  store i8 %39, ptr %40, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond79.not.i, label %PredictLine_C.exit69._crit_edge.us.i, label %PredictLine_C.exit69.us.i, !llvm.loop !11
 
 PredictLine_C.exit69._crit_edge.us.i:             ; preds = %PredictLine_C.exit69.us.i
-  %43 = add nuw nsw i32 %.15873.us.i, 1
-  %exitcond80.not.i = icmp eq i32 %43, %2
+  %41 = add nuw nsw i32 %.15873.us.i, 1
+  %exitcond80.not.i = icmp eq i32 %41, %2
   br i1 %exitcond80.not.i, label %DoGradientFilter_C.exit, label %.lr.ph76.split.us.i, !llvm.loop !12
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.split.i, %.lr.ph76.thread.i
   %.16075.i.pn = phi ptr [ %.16075.i, %.lr.ph76.split.i ], [ %4, %.lr.ph76.thread.i ]
   %.174.i.pn = phi ptr [ %.174.i, %.lr.ph76.split.i ], [ %0, %.lr.ph76.thread.i ]
-  %.15873.i = phi i32 [ %47, %.lr.ph76.split.i ], [ 1, %.lr.ph76.thread.i ]
+  %.15873.i = phi i32 [ %45, %.lr.ph76.split.i ], [ 1, %.lr.ph76.thread.i ]
   %.174.i = getelementptr i8, ptr %.174.i.pn, i64 %20
   %.16075.i = getelementptr inbounds i8, ptr %.16075.i.pn, i64 %20
-  %44 = load i8, ptr %.174.i, align 1
-  %45 = load i8, ptr %.174.i.pn, align 1
-  %46 = sub i8 %44, %45
-  store i8 %46, ptr %.16075.i, align 1
-  %47 = add nuw nsw i32 %.15873.i, 1
-  %exitcond.not.i = icmp eq i32 %47, %2
+  %42 = load i8, ptr %.174.i, align 1
+  %43 = load i8, ptr %.174.i.pn, align 1
+  %44 = sub i8 %42, %43
+  store i8 %44, ptr %.16075.i, align 1
+  %45 = add nuw nsw i32 %.15873.i, 1
+  %exitcond.not.i = icmp eq i32 %45, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_C.exit, label %.lr.ph76.split.i, !llvm.loop !12
 
 DoGradientFilter_C.exit:                          ; preds = %.lr.ph76.split.i, %PredictLine_C.exit69._crit_edge.us.i, %PredictLine_C.exit.i, %PredictLine_C.exit.thread.i

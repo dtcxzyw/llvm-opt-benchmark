@@ -55,21 +55,21 @@ define internal i32 @cmac_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br i1 %9, label %54, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 552
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %13 = getelementptr i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #9
   %16 = load i32, ptr %3, align 4
   %17 = or i32 %16, 15
-  %18 = call i32 @crypto_grab_spawn(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 1, i32 noundef %17) #9
+  %18 = call i32 @crypto_grab_spawn(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %15, i32 noundef 1, i32 noundef %17) #9
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %8, i64 568
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 568
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %52 [
     i32 16, label %25
@@ -77,43 +77,43 @@ define internal i32 @cmac_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   ]
 
 25:                                               ; preds = %20, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = call i32 @crypto_inst_setname(ptr noundef %12, ptr noundef %26, ptr noundef %22) #9
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = call i32 @crypto_inst_setname(ptr noundef nonnull %12, ptr noundef nonnull %26, ptr noundef %22) #9
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %52
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %22, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 104
-  %34 = getelementptr inbounds i8, ptr %8, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store i32 %31, ptr %34, align 8
   %35 = load i32, ptr %23, align 4
-  %36 = getelementptr inbounds i8, ptr %8, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store i32 %35, ptr %36, align 4
   %37 = shl i32 %35, 1
   %38 = add i32 %37, 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 %38, ptr %39, align 8
   %40 = load i32, ptr %23, align 4
   store i32 %40, ptr %33, align 8
   %41 = shl i32 %40, 1
   %42 = add i32 %41, 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %42, ptr %43, align 8
   store ptr @crypto_cmac_digest_init, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @crypto_cmac_digest_update, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @crypto_cmac_digest_final, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @crypto_cmac_digest_setkey, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr @cmac_init_tfm, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %8, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr @cmac_clone_tfm, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr @cmac_exit_tfm, ptr %49, align 8
   store ptr @shash_free_singlespawn_instance, ptr %8, align 8
   %50 = call i32 @shash_register_instance(ptr noundef %0, ptr noundef nonnull %8) #9
@@ -145,13 +145,13 @@ declare dso_local i32 @crypto_inst_setname(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @crypto_cmac_digest_init(ptr nocapture noundef initializes((8, 12)) %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
   %10 = getelementptr [0 x i8], ptr %8, i64 0, i64 %9
   store i32 0, ptr %2, align 4
@@ -162,14 +162,14 @@ define internal noundef i32 @crypto_cmac_digest_init(ptr nocapture noundef initi
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @crypto_cmac_digest_update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = sext i32 %11 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
   %15 = load i32, ptr %6, align 4
@@ -195,7 +195,7 @@ define internal noundef i32 @crypto_cmac_digest_update(ptr noundef %0, ptr nound
   %29 = sub i32 %2, %28
   %30 = zext i32 %28 to i64
   %31 = getelementptr i8, ptr %1, i64 %30
-  tail call void @__crypto_xor(ptr noundef %14, ptr noundef %14, ptr noundef %12, i32 noundef %11) #9
+  tail call void @__crypto_xor(ptr noundef %14, ptr noundef %14, ptr noundef nonnull %12, i32 noundef %11) #9
   tail call void @crypto_cipher_encrypt_one(ptr noundef %7, ptr noundef %14, ptr noundef %14) #9
   store i32 0, ptr %6, align 4
   %32 = icmp ugt i32 %29, %11
@@ -219,7 +219,7 @@ define internal noundef i32 @crypto_cmac_digest_update(ptr noundef %0, ptr nound
 
 41:                                               ; preds = %.loopexit
   %42 = zext i32 %38 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %39, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %39, i64 %42, i1 false)
   br label %43
 
 43:                                               ; preds = %41, %20
@@ -234,14 +234,14 @@ define internal noundef i32 @crypto_cmac_digest_update(ptr noundef %0, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @crypto_cmac_digest_final(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %5, align 4
   %13 = icmp eq i32 %12, %10
   br i1 %13, label %25, label %14
@@ -269,8 +269,8 @@ define internal noundef i32 @crypto_cmac_digest_final(ptr noundef %0, ptr nounde
   %26 = phi i64 [ %24, %23 ], [ 0, %2 ]
   %27 = sext i32 %10 to i64
   %28 = getelementptr i8, ptr %11, i64 %27
-  tail call void @__crypto_xor(ptr noundef %28, ptr noundef %28, ptr noundef %11, i32 noundef %10) #9
-  %29 = getelementptr inbounds i8, ptr %3, i64 48
+  tail call void @__crypto_xor(ptr noundef %28, ptr noundef %28, ptr noundef nonnull %11, i32 noundef %10) #9
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %30 = getelementptr i8, ptr %29, i64 %26
   tail call void @__crypto_xor(ptr noundef %28, ptr noundef %28, ptr noundef %30, i32 noundef %10) #9
   tail call void @crypto_cipher_encrypt_one(ptr noundef %6, ptr noundef %1, ptr noundef %28) #9
@@ -279,12 +279,12 @@ define internal noundef i32 @crypto_cmac_digest_final(ptr noundef %0, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %4, align 8
   %11 = tail call i32 @crypto_cipher_setkey(ptr noundef %10, ptr noundef %1, i32 noundef %2) #9
   %12 = icmp eq i32 %11, 0
@@ -292,9 +292,9 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
 
 13:                                               ; preds = %3
   %14 = zext i32 %8 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %14, i1 false)
   %15 = load ptr, ptr %4, align 8
-  tail call void @crypto_cipher_encrypt_one(ptr noundef %15, ptr noundef %9, ptr noundef %9) #9
+  tail call void @crypto_cipher_encrypt_one(ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %9) #9
   switch i32 %8, label %.loopexit [
     i32 16, label %16
     i32 8, label %37
@@ -352,7 +352,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm(ptr noundef %4, i32 noundef 1, i32 noundef 15) #9
@@ -365,7 +365,7 @@ define internal i32 @cmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
   br label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -376,7 +376,7 @@ define internal i32 @cmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cmac_clone_tfm(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @crypto_clone_cipher(ptr noundef %4) #9
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
@@ -388,7 +388,7 @@ define internal i32 @cmac_clone_tfm(ptr nocapture noundef writeonly %0, ptr noca
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -399,7 +399,7 @@ define internal i32 @cmac_clone_tfm(ptr nocapture noundef writeonly %0, ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cmac_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #9
   ret void

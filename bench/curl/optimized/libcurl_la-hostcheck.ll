@@ -38,7 +38,7 @@ if.then:                                          ; preds = %land.lhs.true4
   br i1 %.not.i, label %entry.tail.i, label %if.then16.i
 
 entry.tail.i:                                     ; preds = %if.then
-  %6 = getelementptr inbounds i8, ptr %match, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %match, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 46
   br i1 %8, label %if.else.i, label %if.then16.i

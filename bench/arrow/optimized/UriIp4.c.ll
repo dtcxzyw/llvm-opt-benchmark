@@ -31,7 +31,7 @@ lor.lhs.false7:                                   ; preds = %if.end
 
 if.end11:                                         ; preds = %lor.lhs.false7
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %octetOutput) #2
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %call12 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef nonnull %afterLast)
   %cmp13 = icmp ne ptr %call12, null
   %cmp16.not = icmp ult ptr %call12, %afterLast
@@ -44,9 +44,9 @@ lor.lhs.false18:                                  ; preds = %if.end11
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %lor.lhs.false18
-  %add.ptr24 = getelementptr inbounds i8, ptr %octetOutput, i64 1
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 1
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr24) #2
-  %add.ptr25 = getelementptr inbounds i8, ptr %call12, i64 1
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %call12, i64 1
   %call26 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr25, ptr noundef nonnull %afterLast)
   %cmp27 = icmp ne ptr %call26, null
   %cmp30.not = icmp ult ptr %call26, %afterLast
@@ -59,15 +59,15 @@ lor.lhs.false32:                                  ; preds = %if.end23
   br i1 %cmp34.not, label %if.end37, label %return
 
 if.end37:                                         ; preds = %lor.lhs.false32
-  %add.ptr38 = getelementptr inbounds i8, ptr %octetOutput, i64 2
+  %add.ptr38 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 2
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr38) #2
-  %add.ptr39 = getelementptr inbounds i8, ptr %call26, i64 1
+  %add.ptr39 = getelementptr inbounds nuw i8, ptr %call26, i64 1
   %call40 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr39, ptr noundef nonnull %afterLast)
   %cmp41.not = icmp eq ptr %call40, %afterLast
   br i1 %cmp41.not, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.end37
-  %add.ptr45 = getelementptr inbounds i8, ptr %octetOutput, i64 3
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 3
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr45) #2
   br label %return
 
@@ -99,12 +99,12 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 0) #2
-  %add.ptr = getelementptr inbounds i8, ptr %first, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 1
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 1) #2
-  %add.ptr2 = getelementptr inbounds i8, ptr %first, i64 1
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %first, i64 1
   %cmp.not.i = icmp ult ptr %add.ptr2, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
 
@@ -116,7 +116,7 @@ if.end.i:                                         ; preds = %sw.bb1
 
 sw.bb.i:                                          ; preds = %if.end.i
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i) #2
-  %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first, i64 2
   %cmp.not.i.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
@@ -128,12 +128,12 @@ if.end.i.i:                                       ; preds = %sw.bb.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i.i) #2
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first, i64 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 3
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 2) #2
-  %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 1
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %first, i64 1
   %cmp.not.i16 = icmp ult ptr %add.ptr4, %afterLast
   br i1 %cmp.not.i16, label %if.end.i18, label %return
 
@@ -155,7 +155,7 @@ if.end.i18:                                       ; preds = %sw.bb3
 sw.bb.i19:                                        ; preds = %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18
   %sub.i = add nsw i8 %3, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %sub.i) #2
-  %add.ptr.i20 = getelementptr inbounds i8, ptr %first, i64 2
+  %add.ptr.i20 = getelementptr inbounds nuw i8, ptr %first, i64 2
   %cmp.not.i.i21 = icmp ult ptr %add.ptr.i20, %afterLast
   br i1 %cmp.not.i.i21, label %if.end.i.i22, label %return
 
@@ -167,7 +167,7 @@ if.end.i.i22:                                     ; preds = %sw.bb.i19
 
 sw.bb3.i:                                         ; preds = %if.end.i18
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 5) #2
-  %add.ptr4.i = getelementptr inbounds i8, ptr %first, i64 2
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %first, i64 2
   %cmp.not.i15.i = icmp ult ptr %add.ptr4.i, %afterLast
   br i1 %cmp.not.i15.i, label %if.end.i17.i, label %return
 
@@ -185,13 +185,13 @@ return.sink.split.i:                              ; preds = %sw.bb6.i, %if.end.i
   %.off.i18.sink.i = phi i8 [ %sub9.i, %sw.bb6.i ], [ %.off.i.i23, %if.end.i.i22 ], [ %.off.i18.i, %if.end.i17.i ]
   %.sink.i = phi i64 [ 1, %sw.bb6.i ], [ 2, %if.end.i.i22 ], [ 2, %if.end.i17.i ]
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i18.sink.i) #2
-  %add.ptr.i21.i = getelementptr inbounds i8, ptr %add.ptr4, i64 %.sink.i
+  %add.ptr.i21.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 %.sink.i
   br label %return
 
 sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %sub = add nsw i8 %0, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %sub) #2
-  %add.ptr9 = getelementptr inbounds i8, ptr %first, i64 1
+  %add.ptr9 = getelementptr inbounds nuw i8, ptr %first, i64 1
   %cmp.not.i25 = icmp ult ptr %add.ptr9, %afterLast
   br i1 %cmp.not.i25, label %if.end.i27, label %return
 
@@ -203,7 +203,7 @@ if.end.i27:                                       ; preds = %sw.bb6
 
 sw.bb.i30:                                        ; preds = %if.end.i27
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i28) #2
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %first, i64 2
+  %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %first, i64 2
   br label %return
 
 return:                                           ; preds = %sw.bb.i30, %if.end.i27, %sw.bb6, %return.sink.split.i, %if.end.i17.i, %sw.bb3.i, %if.end.i.i22, %sw.bb.i19, %if.end.i18, %sw.bb3, %sw.bb.i.i, %if.end.i.i, %sw.bb.i, %if.end.i, %sw.bb1, %if.end, %entry, %sw.bb
@@ -239,7 +239,7 @@ lor.lhs.false7:                                   ; preds = %if.end
 
 if.end10:                                         ; preds = %lor.lhs.false7
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %octetOutput) #2
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   %call11 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef nonnull %afterLast)
   %cmp12 = icmp ne ptr %call11, null
   %cmp14.not = icmp ult ptr %call11, %afterLast
@@ -252,9 +252,9 @@ lor.lhs.false15:                                  ; preds = %if.end10
   br i1 %cmp16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %lor.lhs.false15
-  %add.ptr19 = getelementptr inbounds i8, ptr %octetOutput, i64 1
+  %add.ptr19 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 1
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr19) #2
-  %add.ptr20 = getelementptr inbounds i8, ptr %call11, i64 4
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %call11, i64 4
   %call21 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr20, ptr noundef nonnull %afterLast)
   %cmp22 = icmp ne ptr %call21, null
   %cmp24.not = icmp ult ptr %call21, %afterLast
@@ -267,15 +267,15 @@ lor.lhs.false25:                                  ; preds = %if.end18
   br i1 %cmp26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %lor.lhs.false25
-  %add.ptr29 = getelementptr inbounds i8, ptr %octetOutput, i64 2
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 2
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr29) #2
-  %add.ptr30 = getelementptr inbounds i8, ptr %call21, i64 4
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %call21, i64 4
   %call31 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr30, ptr noundef nonnull %afterLast)
   %cmp32.not = icmp eq ptr %call31, %afterLast
   br i1 %cmp32.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.end28
-  %add.ptr35 = getelementptr inbounds i8, ptr %octetOutput, i64 3
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 3
   call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr35) #2
   br label %return
 
@@ -307,12 +307,12 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 0) #2
-  %add.ptr = getelementptr inbounds i8, ptr %first, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 4
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 1) #2
-  %add.ptr2 = getelementptr inbounds i8, ptr %first, i64 4
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %first, i64 4
   %cmp.not.i = icmp ult ptr %add.ptr2, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %return
 
@@ -326,7 +326,7 @@ sw.bb.i:                                          ; preds = %if.end.i
   %2 = trunc nuw i32 %1 to i8
   %conv.i = add nsw i8 %2, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i) #2
-  %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %cmp.not.i.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not.i.i, label %if.end.i.i, label %return
 
@@ -340,12 +340,12 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
   %4 = trunc nuw i32 %3 to i8
   %conv.i.i = add nsw i8 %4, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i.i) #2
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first, i64 12
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 12
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 2) #2
-  %add.ptr4 = getelementptr inbounds i8, ptr %first, i64 4
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %first, i64 4
   %cmp.not.i16 = icmp ult ptr %add.ptr4, %afterLast
   br i1 %cmp.not.i16, label %if.end.i18, label %return
 
@@ -368,7 +368,7 @@ sw.bb.i19:                                        ; preds = %if.end.i18, %if.end
   %6 = trunc i32 %5 to i8
   %conv.i20 = add nsw i8 %6, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i20) #2
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr.i21 = getelementptr inbounds nuw i8, ptr %first, i64 8
   %cmp.not.i.i22 = icmp ult ptr %add.ptr.i21, %afterLast
   br i1 %cmp.not.i.i22, label %if.end.i.i23, label %return
 
@@ -380,7 +380,7 @@ if.end.i.i23:                                     ; preds = %sw.bb.i19
 
 sw.bb1.i:                                         ; preds = %if.end.i18
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 5) #2
-  %add.ptr2.i = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %cmp.not.i15.i = icmp ult ptr %add.ptr2.i, %afterLast
   br i1 %cmp.not.i15.i, label %if.end.i17.i, label %return
 
@@ -396,14 +396,14 @@ return.sink.split.i:                              ; preds = %if.end.i17.i, %if.e
   %9 = trunc i32 %.sink24.i to i8
   %conv.i21.i = add nsw i8 %9, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i21.i) #2
-  %add.ptr.i22.i = getelementptr inbounds i8, ptr %add.ptr4, i64 %.sink.i
+  %add.ptr.i22.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 %.sink.i
   br label %return
 
 sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %10 = trunc i32 %0 to i8
   %conv = add nsw i8 %10, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv) #2
-  %add.ptr7 = getelementptr inbounds i8, ptr %first, i64 4
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %first, i64 4
   %cmp.not.i26 = icmp ult ptr %add.ptr7, %afterLast
   br i1 %cmp.not.i26, label %if.end.i28, label %return
 
@@ -417,7 +417,7 @@ sw.bb.i31:                                        ; preds = %if.end.i28
   %12 = trunc nuw i32 %11 to i8
   %conv.i32 = add nsw i8 %12, -48
   tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i32) #2
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %first, i64 8
   br label %return
 
 return:                                           ; preds = %sw.bb.i31, %if.end.i28, %sw.bb6, %return.sink.split.i, %if.end.i17.i, %sw.bb1.i, %if.end.i.i23, %sw.bb.i19, %if.end.i18, %sw.bb3, %sw.bb.i.i, %if.end.i.i, %sw.bb.i, %if.end.i, %sw.bb1, %if.end, %entry, %sw.bb

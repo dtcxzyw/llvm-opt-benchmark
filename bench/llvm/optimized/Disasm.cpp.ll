@@ -1756,7 +1756,7 @@ define dso_local void @_ZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamE(ptr
   %9 = alloca %"class.clang::interp::IntegralAP", align 8
   %10 = alloca %"class.clang::interp::IntegralAP.67", align 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr %13(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 10, i1 noundef zeroext true, i1 noundef zeroext false) #15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -1801,7 +1801,7 @@ _ZNK5clang6interp8Function7getNameB5cxx11Ev.exit: ; preds = %16, %20
 33:                                               ; preds = %_ZNK5clang6interp8Function7getNameB5cxx11Ev.exit
   store i8 32, ptr %29, align 1
   %34 = load ptr, ptr %28, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %35, ptr %28, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1822,14 +1822,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
 44:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 10, ptr %40, align 1
   %45 = load ptr, ptr %39, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %46, ptr %39, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %42, %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef nonnull align 8 dereferenceable(48) ptr %49(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1849,7 +1849,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %42, %44
 61:                                               ; preds = %_ZN5clang10ColorScopeD2Ev.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %54, ptr noundef nonnull align 1 dereferenceable(12) @.str.2, i64 12, i1 false)
   %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store ptr %63, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1572
 
@@ -1873,7 +1873,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1572:             ; preds = %59, %61
 75:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1572
   store i8 10, ptr %71, align 1
   %76 = load ptr, ptr %70, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %77, ptr %70, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1575
 
@@ -1893,7 +1893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1575:             ; preds = %73, %75
 86:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1575
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %79, ptr noundef nonnull align 1 dereferenceable(12) @.str.3, i64 12, i1 false)
   %87 = load ptr, ptr %53, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store ptr %88, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1578
 
@@ -1917,7 +1917,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1578:             ; preds = %84, %86
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1578
   store i8 10, ptr %96, align 1
   %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store ptr %102, ptr %95, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1581
 
@@ -1937,7 +1937,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1581:             ; preds = %98, %100
 111:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1581
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %104, ptr noundef nonnull align 1 dereferenceable(12) @.str.4, i64 12, i1 false)
   %112 = load ptr, ptr %53, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store ptr %113, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1584
 
@@ -1962,7 +1962,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1584:             ; preds = %109, %111
 126:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1584
   store i8 10, ptr %122, align 1
   %127 = load ptr, ptr %121, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   store ptr %128, ptr %121, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1587
 
@@ -1982,7 +1982,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1587:             ; preds = %124, %126
 137:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1587
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %130, ptr noundef nonnull align 1 dereferenceable(12) @.str.5, i64 12, i1 false)
   %138 = load ptr, ptr %53, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 12
   store ptr %139, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1590
 
@@ -2007,7 +2007,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1590:             ; preds = %135, %137
 152:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1590
   store i8 10, ptr %148, align 1
   %153 = load ptr, ptr %147, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   store ptr %154, ptr %147, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1593
 
@@ -2037,7 +2037,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1593:             ; preds = %150, %152
   %167 = ashr exact i64 %sext, 32
   call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %164, align 1
-  %168 = getelementptr inbounds i8, ptr %164, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %168, ptr %6, align 8
   store ptr @.str.6, ptr %159, align 8, !alias.scope !7
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %7, align 8, !alias.scope !7
@@ -2057,7 +2057,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1593:             ; preds = %150, %152
 177:                                              ; preds = %163
   store i8 32, ptr %173, align 1
   %178 = load ptr, ptr %172, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store ptr %179, ptr %172, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit1596
 
@@ -3767,7 +3767,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %250 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %250, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1597 = load i32, ptr %250, align 1
-  %251 = getelementptr inbounds i8, ptr %250, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store ptr %251, ptr %6, align 8
   %252 = zext i32 %.0.copyload.i.i.i.i.i.i1597 to i64
   %253 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %249, i64 noundef %252) #15
@@ -3782,7 +3782,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %259 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %259, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1598 = load i32, ptr %259, align 1
-  %260 = getelementptr inbounds i8, ptr %259, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr %260, ptr %6, align 8
   %261 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %258, i32 noundef %.0.copyload.i.i.i.i.i.i1598) #15
   %262 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %257, ptr noundef %261) #15
@@ -3797,7 +3797,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %268 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %268, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1599 = load i32, ptr %268, align 1
-  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %269, ptr %6, align 8
   %270 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %267, i32 noundef %.0.copyload.i.i.i.i.i.i1599) #15
   %271 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %266, ptr noundef %270) #15
@@ -3805,7 +3805,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %273 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %273, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1600 = load i8, ptr %273, align 1
-  %274 = getelementptr inbounds i8, ptr %273, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store ptr %274, ptr %6, align 8
   %275 = and i8 %.0.copyload.i.i.i.i.i.i1600, 1
   %276 = zext nneg i8 %275 to i64
@@ -3821,7 +3821,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %283 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %283, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1601 = load i32, ptr %283, align 1
-  %284 = getelementptr inbounds i8, ptr %283, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr %284, ptr %6, align 8
   %285 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %282, i32 noundef %.0.copyload.i.i.i.i.i.i1601) #15
   %286 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %281, ptr noundef %285) #15
@@ -3829,7 +3829,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %288 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %288, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1602 = load i8, ptr %288, align 1
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store ptr %289, ptr %6, align 8
   %290 = and i8 %.0.copyload.i.i.i.i.i.i1602, 1
   %291 = zext nneg i8 %290 to i64
@@ -3845,7 +3845,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %298 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %298, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1603 = load i32, ptr %298, align 1
-  %299 = getelementptr inbounds i8, ptr %298, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store ptr %299, ptr %6, align 8
   %300 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %297, i32 noundef %.0.copyload.i.i.i.i.i.i1603) #15
   %301 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %296, ptr noundef %300) #15
@@ -3853,7 +3853,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %303 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %303, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1604 = load i8, ptr %303, align 1
-  %304 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   store ptr %304, ptr %6, align 8
   %305 = and i8 %.0.copyload.i.i.i.i.i.i1604, 1
   %306 = zext nneg i8 %305 to i64
@@ -3869,7 +3869,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %313 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %313, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1605 = load i32, ptr %313, align 1
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store ptr %314, ptr %6, align 8
   %315 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %312, i32 noundef %.0.copyload.i.i.i.i.i.i1605) #15
   %316 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %311, ptr noundef %315) #15
@@ -3877,7 +3877,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %318 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %318, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1606 = load i8, ptr %318, align 1
-  %319 = getelementptr inbounds i8, ptr %318, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store ptr %319, ptr %6, align 8
   %320 = and i8 %.0.copyload.i.i.i.i.i.i1606, 1
   %321 = zext nneg i8 %320 to i64
@@ -3893,7 +3893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %328 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %328, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1607 = load i32, ptr %328, align 1
-  %329 = getelementptr inbounds i8, ptr %328, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store ptr %329, ptr %6, align 8
   %330 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %327, i32 noundef %.0.copyload.i.i.i.i.i.i1607) #15
   %331 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %326, ptr noundef %330) #15
@@ -3901,7 +3901,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %333 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %333, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1608 = load i8, ptr %333, align 1
-  %334 = getelementptr inbounds i8, ptr %333, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store ptr %334, ptr %6, align 8
   %335 = and i8 %.0.copyload.i.i.i.i.i.i1608, 1
   %336 = zext nneg i8 %335 to i64
@@ -3917,7 +3917,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %343 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %343, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1609 = load i32, ptr %343, align 1
-  %344 = getelementptr inbounds i8, ptr %343, i64 8
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
   store ptr %344, ptr %6, align 8
   %345 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %342, i32 noundef %.0.copyload.i.i.i.i.i.i1609) #15
   %346 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %341, ptr noundef %345) #15
@@ -3925,7 +3925,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %348 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %348, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1610 = load i8, ptr %348, align 1
-  %349 = getelementptr inbounds i8, ptr %348, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   store ptr %349, ptr %6, align 8
   %350 = and i8 %.0.copyload.i.i.i.i.i.i1610, 1
   %351 = zext nneg i8 %350 to i64
@@ -3941,7 +3941,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %358 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %358, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1611 = load i32, ptr %358, align 1
-  %359 = getelementptr inbounds i8, ptr %358, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store ptr %359, ptr %6, align 8
   %360 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %357, i32 noundef %.0.copyload.i.i.i.i.i.i1611) #15
   %361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %356, ptr noundef %360) #15
@@ -3949,7 +3949,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %363 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %363, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1612 = load i8, ptr %363, align 1
-  %364 = getelementptr inbounds i8, ptr %363, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store ptr %364, ptr %6, align 8
   %365 = and i8 %.0.copyload.i.i.i.i.i.i1612, 1
   %366 = zext nneg i8 %365 to i64
@@ -3965,7 +3965,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %373 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %373, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1613 = load i32, ptr %373, align 1
-  %374 = getelementptr inbounds i8, ptr %373, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store ptr %374, ptr %6, align 8
   %375 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %372, i32 noundef %.0.copyload.i.i.i.i.i.i1613) #15
   %376 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %371, ptr noundef %375) #15
@@ -3973,7 +3973,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %378 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %378, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1614 = load i8, ptr %378, align 1
-  %379 = getelementptr inbounds i8, ptr %378, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
   store ptr %379, ptr %6, align 8
   %380 = and i8 %.0.copyload.i.i.i.i.i.i1614, 1
   %381 = zext nneg i8 %380 to i64
@@ -3989,7 +3989,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %388 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %388, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1615 = load i32, ptr %388, align 1
-  %389 = getelementptr inbounds i8, ptr %388, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store ptr %389, ptr %6, align 8
   %390 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %387, i32 noundef %.0.copyload.i.i.i.i.i.i1615) #15
   %391 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %386, ptr noundef %390) #15
@@ -3997,7 +3997,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %393 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %393, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1616 = load i8, ptr %393, align 1
-  %394 = getelementptr inbounds i8, ptr %393, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store ptr %394, ptr %6, align 8
   %395 = and i8 %.0.copyload.i.i.i.i.i.i1616, 1
   %396 = zext nneg i8 %395 to i64
@@ -4013,7 +4013,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %403 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %403, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1617 = load i32, ptr %403, align 1
-  %404 = getelementptr inbounds i8, ptr %403, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store ptr %404, ptr %6, align 8
   %405 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %402, i32 noundef %.0.copyload.i.i.i.i.i.i1617) #15
   %406 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %401, ptr noundef %405) #15
@@ -4021,7 +4021,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %408 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %408, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1618 = load i8, ptr %408, align 1
-  %409 = getelementptr inbounds i8, ptr %408, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store ptr %409, ptr %6, align 8
   %410 = and i8 %.0.copyload.i.i.i.i.i.i1618, 1
   %411 = zext nneg i8 %410 to i64
@@ -4036,7 +4036,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %417 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %417, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1619 = load i32, ptr %417, align 1
-  %418 = getelementptr inbounds i8, ptr %417, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
   store ptr %418, ptr %6, align 8
   %419 = zext i32 %.0.copyload.i.i.i.i.i.i1619 to i64
   %420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %416, i64 noundef %419) #15
@@ -4045,7 +4045,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %423 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %423, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1620 = load i32, ptr %423, align 1
-  %424 = getelementptr inbounds i8, ptr %423, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
   store ptr %424, ptr %6, align 8
   %425 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %422, i32 noundef %.0.copyload.i.i.i.i.i.i1620) #15
   %426 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %421, ptr noundef %425) #15
@@ -4053,7 +4053,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %428 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %428, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1621 = load i8, ptr %428, align 1
-  %429 = getelementptr inbounds i8, ptr %428, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store ptr %429, ptr %6, align 8
   %430 = and i8 %.0.copyload.i.i.i.i.i.i1621, 1
   %431 = zext nneg i8 %430 to i64
@@ -4068,7 +4068,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %437 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %437, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1622 = load i32, ptr %437, align 1
-  %438 = getelementptr inbounds i8, ptr %437, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store ptr %438, ptr %6, align 8
   %439 = zext i32 %.0.copyload.i.i.i.i.i.i1622 to i64
   %440 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %436, i64 noundef %439) #15
@@ -4077,7 +4077,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %443 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %443, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1623 = load i32, ptr %443, align 1
-  %444 = getelementptr inbounds i8, ptr %443, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store ptr %444, ptr %6, align 8
   %445 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %442, i32 noundef %.0.copyload.i.i.i.i.i.i1623) #15
   %446 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %441, ptr noundef %445) #15
@@ -4085,7 +4085,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %448 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %448, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1624 = load i8, ptr %448, align 1
-  %449 = getelementptr inbounds i8, ptr %448, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store ptr %449, ptr %6, align 8
   %450 = and i8 %.0.copyload.i.i.i.i.i.i1624, 1
   %451 = zext nneg i8 %450 to i64
@@ -4100,7 +4100,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %457 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %457, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1625 = load i32, ptr %457, align 1
-  %458 = getelementptr inbounds i8, ptr %457, i64 8
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   store ptr %458, ptr %6, align 8
   %459 = zext i32 %.0.copyload.i.i.i.i.i.i1625 to i64
   %460 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %456, i64 noundef %459) #15
@@ -4109,7 +4109,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %463 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %463, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1626 = load i32, ptr %463, align 1
-  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store ptr %464, ptr %6, align 8
   %465 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %462, i32 noundef %.0.copyload.i.i.i.i.i.i1626) #15
   %466 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %461, ptr noundef %465) #15
@@ -4117,7 +4117,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %468 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %468, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1627 = load i8, ptr %468, align 1
-  %469 = getelementptr inbounds i8, ptr %468, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   store ptr %469, ptr %6, align 8
   %470 = and i8 %.0.copyload.i.i.i.i.i.i1627, 1
   %471 = zext nneg i8 %470 to i64
@@ -4132,7 +4132,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %477 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %477, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1628 = load i32, ptr %477, align 1
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   store ptr %478, ptr %6, align 8
   %479 = zext i32 %.0.copyload.i.i.i.i.i.i1628 to i64
   %480 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %476, i64 noundef %479) #15
@@ -4141,7 +4141,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %483 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %483, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1629 = load i32, ptr %483, align 1
-  %484 = getelementptr inbounds i8, ptr %483, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store ptr %484, ptr %6, align 8
   %485 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %482, i32 noundef %.0.copyload.i.i.i.i.i.i1629) #15
   %486 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %481, ptr noundef %485) #15
@@ -4149,7 +4149,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %488 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %488, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1630 = load i8, ptr %488, align 1
-  %489 = getelementptr inbounds i8, ptr %488, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
   store ptr %489, ptr %6, align 8
   %490 = and i8 %.0.copyload.i.i.i.i.i.i1630, 1
   %491 = zext nneg i8 %490 to i64
@@ -4164,7 +4164,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %497 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %497, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1631 = load i32, ptr %497, align 1
-  %498 = getelementptr inbounds i8, ptr %497, i64 8
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
   store ptr %498, ptr %6, align 8
   %499 = zext i32 %.0.copyload.i.i.i.i.i.i1631 to i64
   %500 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %496, i64 noundef %499) #15
@@ -4173,7 +4173,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %503 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %503, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1632 = load i32, ptr %503, align 1
-  %504 = getelementptr inbounds i8, ptr %503, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store ptr %504, ptr %6, align 8
   %505 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %502, i32 noundef %.0.copyload.i.i.i.i.i.i1632) #15
   %506 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %501, ptr noundef %505) #15
@@ -4181,7 +4181,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %508 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %508, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1633 = load i8, ptr %508, align 1
-  %509 = getelementptr inbounds i8, ptr %508, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store ptr %509, ptr %6, align 8
   %510 = and i8 %.0.copyload.i.i.i.i.i.i1633, 1
   %511 = zext nneg i8 %510 to i64
@@ -4196,7 +4196,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %517 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %517, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1634 = load i32, ptr %517, align 1
-  %518 = getelementptr inbounds i8, ptr %517, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store ptr %518, ptr %6, align 8
   %519 = zext i32 %.0.copyload.i.i.i.i.i.i1634 to i64
   %520 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %516, i64 noundef %519) #15
@@ -4205,7 +4205,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %523 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %523, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1635 = load i32, ptr %523, align 1
-  %524 = getelementptr inbounds i8, ptr %523, i64 8
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   store ptr %524, ptr %6, align 8
   %525 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %522, i32 noundef %.0.copyload.i.i.i.i.i.i1635) #15
   %526 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %521, ptr noundef %525) #15
@@ -4213,7 +4213,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %528 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %528, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1636 = load i8, ptr %528, align 1
-  %529 = getelementptr inbounds i8, ptr %528, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   store ptr %529, ptr %6, align 8
   %530 = and i8 %.0.copyload.i.i.i.i.i.i1636, 1
   %531 = zext nneg i8 %530 to i64
@@ -4228,7 +4228,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %537 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %537, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1637 = load i32, ptr %537, align 1
-  %538 = getelementptr inbounds i8, ptr %537, i64 8
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
   store ptr %538, ptr %6, align 8
   %539 = zext i32 %.0.copyload.i.i.i.i.i.i1637 to i64
   %540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %536, i64 noundef %539) #15
@@ -4237,7 +4237,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %543 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %543, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1638 = load i32, ptr %543, align 1
-  %544 = getelementptr inbounds i8, ptr %543, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
   store ptr %544, ptr %6, align 8
   %545 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %542, i32 noundef %.0.copyload.i.i.i.i.i.i1638) #15
   %546 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %541, ptr noundef %545) #15
@@ -4245,7 +4245,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %548 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %548, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1639 = load i8, ptr %548, align 1
-  %549 = getelementptr inbounds i8, ptr %548, i64 8
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store ptr %549, ptr %6, align 8
   %550 = and i8 %.0.copyload.i.i.i.i.i.i1639, 1
   %551 = zext nneg i8 %550 to i64
@@ -4260,7 +4260,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %557 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %557, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1640 = load i32, ptr %557, align 1
-  %558 = getelementptr inbounds i8, ptr %557, i64 8
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 8
   store ptr %558, ptr %6, align 8
   %559 = zext i32 %.0.copyload.i.i.i.i.i.i1640 to i64
   %560 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %556, i64 noundef %559) #15
@@ -4269,7 +4269,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %563 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %563, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1641 = load i32, ptr %563, align 1
-  %564 = getelementptr inbounds i8, ptr %563, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 8
   store ptr %564, ptr %6, align 8
   %565 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %562, i32 noundef %.0.copyload.i.i.i.i.i.i1641) #15
   %566 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %561, ptr noundef %565) #15
@@ -4277,7 +4277,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %568 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %568, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1642 = load i8, ptr %568, align 1
-  %569 = getelementptr inbounds i8, ptr %568, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 8
   store ptr %569, ptr %6, align 8
   %570 = and i8 %.0.copyload.i.i.i.i.i.i1642, 1
   %571 = zext nneg i8 %570 to i64
@@ -4292,7 +4292,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %577 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %577, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1643 = load i32, ptr %577, align 1
-  %578 = getelementptr inbounds i8, ptr %577, i64 8
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 8
   store ptr %578, ptr %6, align 8
   %579 = zext i32 %.0.copyload.i.i.i.i.i.i1643 to i64
   %580 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %576, i64 noundef %579) #15
@@ -4301,7 +4301,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %583 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %583, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1644 = load i32, ptr %583, align 1
-  %584 = getelementptr inbounds i8, ptr %583, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %583, i64 8
   store ptr %584, ptr %6, align 8
   %585 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %582, i32 noundef %.0.copyload.i.i.i.i.i.i1644) #15
   %586 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %581, ptr noundef %585) #15
@@ -4309,7 +4309,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %588 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %588, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1645 = load i8, ptr %588, align 1
-  %589 = getelementptr inbounds i8, ptr %588, i64 8
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
   store ptr %589, ptr %6, align 8
   %590 = and i8 %.0.copyload.i.i.i.i.i.i1645, 1
   %591 = zext nneg i8 %590 to i64
@@ -4324,7 +4324,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %597 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %597, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1646 = load i32, ptr %597, align 1
-  %598 = getelementptr inbounds i8, ptr %597, i64 8
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
   store ptr %598, ptr %6, align 8
   %599 = zext i32 %.0.copyload.i.i.i.i.i.i1646 to i64
   %600 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %596, i64 noundef %599) #15
@@ -4333,7 +4333,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %603 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %603, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1647 = load i32, ptr %603, align 1
-  %604 = getelementptr inbounds i8, ptr %603, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store ptr %604, ptr %6, align 8
   %605 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %602, i32 noundef %.0.copyload.i.i.i.i.i.i1647) #15
   %606 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %601, ptr noundef %605) #15
@@ -4341,7 +4341,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %608 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %608, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1648 = load i8, ptr %608, align 1
-  %609 = getelementptr inbounds i8, ptr %608, i64 8
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
   store ptr %609, ptr %6, align 8
   %610 = and i8 %.0.copyload.i.i.i.i.i.i1648, 1
   %611 = zext nneg i8 %610 to i64
@@ -4362,7 +4362,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %620 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %620, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1649 = load i32, ptr %620, align 1
-  %621 = getelementptr inbounds i8, ptr %620, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 8
   store ptr %621, ptr %6, align 8
   %622 = zext i32 %.0.copyload.i.i.i.i.i.i1649 to i64
   %623 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %619, i64 noundef %622) #15
@@ -4376,7 +4376,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %628 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %628, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1650 = load i32, ptr %628, align 1
-  %629 = getelementptr inbounds i8, ptr %628, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store ptr %629, ptr %6, align 8
   %630 = zext i32 %.0.copyload.i.i.i.i.i.i1650 to i64
   %631 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %627, i64 noundef %630) #15
@@ -4390,7 +4390,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %636 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %636, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1651 = load i32, ptr %636, align 1
-  %637 = getelementptr inbounds i8, ptr %636, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %636, i64 8
   store ptr %637, ptr %6, align 8
   %638 = zext i32 %.0.copyload.i.i.i.i.i.i1651 to i64
   %639 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %635, i64 noundef %638) #15
@@ -4404,7 +4404,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %644 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %644, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1652 = load i32, ptr %644, align 1
-  %645 = getelementptr inbounds i8, ptr %644, i64 8
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
   store ptr %645, ptr %6, align 8
   %646 = zext i32 %.0.copyload.i.i.i.i.i.i1652 to i64
   %647 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %643, i64 noundef %646) #15
@@ -4418,7 +4418,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %652 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %652, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1653 = load i32, ptr %652, align 1
-  %653 = getelementptr inbounds i8, ptr %652, i64 8
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 8
   store ptr %653, ptr %6, align 8
   %654 = zext i32 %.0.copyload.i.i.i.i.i.i1653 to i64
   %655 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %651, i64 noundef %654) #15
@@ -4432,7 +4432,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %660 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %660, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1654 = load i32, ptr %660, align 1
-  %661 = getelementptr inbounds i8, ptr %660, i64 8
+  %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   store ptr %661, ptr %6, align 8
   %662 = zext i32 %.0.copyload.i.i.i.i.i.i1654 to i64
   %663 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %659, i64 noundef %662) #15
@@ -4446,7 +4446,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %668 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %668, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1655 = load i32, ptr %668, align 1
-  %669 = getelementptr inbounds i8, ptr %668, i64 8
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
   store ptr %669, ptr %6, align 8
   %670 = zext i32 %.0.copyload.i.i.i.i.i.i1655 to i64
   %671 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %667, i64 noundef %670) #15
@@ -4460,7 +4460,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %676 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %676, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1656 = load i32, ptr %676, align 1
-  %677 = getelementptr inbounds i8, ptr %676, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %676, i64 8
   store ptr %677, ptr %6, align 8
   %678 = zext i32 %.0.copyload.i.i.i.i.i.i1656 to i64
   %679 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %675, i64 noundef %678) #15
@@ -4474,7 +4474,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %684 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %684, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1657 = load i32, ptr %684, align 1
-  %685 = getelementptr inbounds i8, ptr %684, i64 8
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
   store ptr %685, ptr %6, align 8
   %686 = zext i32 %.0.copyload.i.i.i.i.i.i1657 to i64
   %687 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %683, i64 noundef %686) #15
@@ -4488,7 +4488,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %692 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %692, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1658 = load i32, ptr %692, align 1
-  %693 = getelementptr inbounds i8, ptr %692, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
   store ptr %693, ptr %6, align 8
   %694 = zext i32 %.0.copyload.i.i.i.i.i.i1658 to i64
   %695 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %691, i64 noundef %694) #15
@@ -4502,7 +4502,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %700 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %700, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1659 = load i32, ptr %700, align 1
-  %701 = getelementptr inbounds i8, ptr %700, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %700, i64 8
   store ptr %701, ptr %6, align 8
   %702 = zext i32 %.0.copyload.i.i.i.i.i.i1659 to i64
   %703 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %699, i64 noundef %702) #15
@@ -4516,7 +4516,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %708 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %708, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1660 = load i32, ptr %708, align 1
-  %709 = getelementptr inbounds i8, ptr %708, i64 8
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 8
   store ptr %709, ptr %6, align 8
   %710 = zext i32 %.0.copyload.i.i.i.i.i.i1660 to i64
   %711 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %707, i64 noundef %710) #15
@@ -4530,7 +4530,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %716 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %716, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1661 = load i32, ptr %716, align 1
-  %717 = getelementptr inbounds i8, ptr %716, i64 8
+  %717 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store ptr %717, ptr %6, align 8
   %718 = zext i32 %.0.copyload.i.i.i.i.i.i1661 to i64
   %719 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %715, i64 noundef %718) #15
@@ -4544,7 +4544,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %724 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %724, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1662 = load i32, ptr %724, align 1
-  %725 = getelementptr inbounds i8, ptr %724, i64 8
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 8
   store ptr %725, ptr %6, align 8
   %726 = zext i32 %.0.copyload.i.i.i.i.i.i1662 to i64
   %727 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %723, i64 noundef %726) #15
@@ -4558,7 +4558,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %732 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %732, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1663 = load i32, ptr %732, align 1
-  %733 = getelementptr inbounds i8, ptr %732, i64 8
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   store ptr %733, ptr %6, align 8
   %734 = zext i32 %.0.copyload.i.i.i.i.i.i1663 to i64
   %735 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %731, i64 noundef %734) #15
@@ -4572,7 +4572,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %740 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %740, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1664 = load i32, ptr %740, align 1
-  %741 = getelementptr inbounds i8, ptr %740, i64 8
+  %741 = getelementptr inbounds nuw i8, ptr %740, i64 8
   store ptr %741, ptr %6, align 8
   %742 = zext i32 %.0.copyload.i.i.i.i.i.i1664 to i64
   %743 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %739, i64 noundef %742) #15
@@ -4586,7 +4586,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %748 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %748, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1665 = load i32, ptr %748, align 1
-  %749 = getelementptr inbounds i8, ptr %748, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %748, i64 8
   store ptr %749, ptr %6, align 8
   %750 = zext i32 %.0.copyload.i.i.i.i.i.i1665 to i64
   %751 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %747, i64 noundef %750) #15
@@ -4600,7 +4600,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %756 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %756, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1666 = load i32, ptr %756, align 1
-  %757 = getelementptr inbounds i8, ptr %756, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 8
   store ptr %757, ptr %6, align 8
   %758 = zext i32 %.0.copyload.i.i.i.i.i.i1666 to i64
   %759 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %755, i64 noundef %758) #15
@@ -4614,7 +4614,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %764 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %764, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1667 = load i32, ptr %764, align 1
-  %765 = getelementptr inbounds i8, ptr %764, i64 8
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 8
   store ptr %765, ptr %6, align 8
   %766 = zext i32 %.0.copyload.i.i.i.i.i.i1667 to i64
   %767 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %763, i64 noundef %766) #15
@@ -4628,7 +4628,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %772 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %772, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1668 = load i32, ptr %772, align 1
-  %773 = getelementptr inbounds i8, ptr %772, i64 8
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 8
   store ptr %773, ptr %6, align 8
   %774 = zext i32 %.0.copyload.i.i.i.i.i.i1668 to i64
   %775 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %771, i64 noundef %774) #15
@@ -4642,7 +4642,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %780 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %780, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1669 = load i32, ptr %780, align 1
-  %781 = getelementptr inbounds i8, ptr %780, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
   store ptr %781, ptr %6, align 8
   %782 = zext i32 %.0.copyload.i.i.i.i.i.i1669 to i64
   %783 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %779, i64 noundef %782) #15
@@ -4656,7 +4656,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %788 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %788, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1670 = load i32, ptr %788, align 1
-  %789 = getelementptr inbounds i8, ptr %788, i64 8
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 8
   store ptr %789, ptr %6, align 8
   %790 = zext i32 %.0.copyload.i.i.i.i.i.i1670 to i64
   %791 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %787, i64 noundef %790) #15
@@ -4670,7 +4670,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %796 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %796, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1671 = load i32, ptr %796, align 1
-  %797 = getelementptr inbounds i8, ptr %796, i64 8
+  %797 = getelementptr inbounds nuw i8, ptr %796, i64 8
   store ptr %797, ptr %6, align 8
   %798 = zext i32 %.0.copyload.i.i.i.i.i.i1671 to i64
   %799 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %795, i64 noundef %798) #15
@@ -4684,7 +4684,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %804 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %804, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1672 = load i32, ptr %804, align 1
-  %805 = getelementptr inbounds i8, ptr %804, i64 8
+  %805 = getelementptr inbounds nuw i8, ptr %804, i64 8
   store ptr %805, ptr %6, align 8
   %806 = zext i32 %.0.copyload.i.i.i.i.i.i1672 to i64
   %807 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %803, i64 noundef %806) #15
@@ -4698,7 +4698,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %812 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %812, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1673 = load i32, ptr %812, align 1
-  %813 = getelementptr inbounds i8, ptr %812, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %812, i64 8
   store ptr %813, ptr %6, align 8
   %814 = zext i32 %.0.copyload.i.i.i.i.i.i1673 to i64
   %815 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %811, i64 noundef %814) #15
@@ -4712,7 +4712,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %820 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %820, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1674 = load i32, ptr %820, align 1
-  %821 = getelementptr inbounds i8, ptr %820, i64 8
+  %821 = getelementptr inbounds nuw i8, ptr %820, i64 8
   store ptr %821, ptr %6, align 8
   %822 = zext i32 %.0.copyload.i.i.i.i.i.i1674 to i64
   %823 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %819, i64 noundef %822) #15
@@ -4726,7 +4726,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %828 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %828, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1675 = load i32, ptr %828, align 1
-  %829 = getelementptr inbounds i8, ptr %828, i64 8
+  %829 = getelementptr inbounds nuw i8, ptr %828, i64 8
   store ptr %829, ptr %6, align 8
   %830 = zext i32 %.0.copyload.i.i.i.i.i.i1675 to i64
   %831 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %827, i64 noundef %830) #15
@@ -4740,7 +4740,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %836 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %836, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1676 = load i32, ptr %836, align 1
-  %837 = getelementptr inbounds i8, ptr %836, i64 8
+  %837 = getelementptr inbounds nuw i8, ptr %836, i64 8
   store ptr %837, ptr %6, align 8
   %838 = zext i32 %.0.copyload.i.i.i.i.i.i1676 to i64
   %839 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %835, i64 noundef %838) #15
@@ -4754,7 +4754,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %844 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %844, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1677 = load i32, ptr %844, align 1
-  %845 = getelementptr inbounds i8, ptr %844, i64 8
+  %845 = getelementptr inbounds nuw i8, ptr %844, i64 8
   store ptr %845, ptr %6, align 8
   %846 = zext i32 %.0.copyload.i.i.i.i.i.i1677 to i64
   %847 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %843, i64 noundef %846) #15
@@ -4768,7 +4768,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %852 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %852, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1678 = load i32, ptr %852, align 1
-  %853 = getelementptr inbounds i8, ptr %852, i64 8
+  %853 = getelementptr inbounds nuw i8, ptr %852, i64 8
   store ptr %853, ptr %6, align 8
   %854 = zext i32 %.0.copyload.i.i.i.i.i.i1678 to i64
   %855 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %851, i64 noundef %854) #15
@@ -5101,7 +5101,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1020 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1020, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1679 = load i32, ptr %1020, align 1
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 8
+  %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 8
   store ptr %1021, ptr %6, align 8
   %1022 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1019, i32 noundef %.0.copyload.i.i.i.i.i.i1679) #15
   %1023 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1018, ptr noundef %1022) #15
@@ -5116,7 +5116,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1029 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1029, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1680 = load i32, ptr %1029, align 1
-  %1030 = getelementptr inbounds i8, ptr %1029, i64 8
+  %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 8
   store ptr %1030, ptr %6, align 8
   %1031 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1028, i32 noundef %.0.copyload.i.i.i.i.i.i1680) #15
   %1032 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1027, ptr noundef %1031) #15
@@ -5131,7 +5131,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1038 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1038, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1681 = load i32, ptr %1038, align 1
-  %1039 = getelementptr inbounds i8, ptr %1038, i64 8
+  %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 8
   store ptr %1039, ptr %6, align 8
   %1040 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1037, i32 noundef %.0.copyload.i.i.i.i.i.i1681) #15
   %1041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1036, ptr noundef %1040) #15
@@ -5146,7 +5146,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1047 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1047, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1682 = load i32, ptr %1047, align 1
-  %1048 = getelementptr inbounds i8, ptr %1047, i64 8
+  %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 8
   store ptr %1048, ptr %6, align 8
   %1049 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1046, i32 noundef %.0.copyload.i.i.i.i.i.i1682) #15
   %1050 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1045, ptr noundef %1049) #15
@@ -5161,7 +5161,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1056 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1056, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1683 = load i32, ptr %1056, align 1
-  %1057 = getelementptr inbounds i8, ptr %1056, i64 8
+  %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 8
   store ptr %1057, ptr %6, align 8
   %1058 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1055, i32 noundef %.0.copyload.i.i.i.i.i.i1683) #15
   %1059 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1054, ptr noundef %1058) #15
@@ -5176,7 +5176,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1065 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1065, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1684 = load i32, ptr %1065, align 1
-  %1066 = getelementptr inbounds i8, ptr %1065, i64 8
+  %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 8
   store ptr %1066, ptr %6, align 8
   %1067 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1064, i32 noundef %.0.copyload.i.i.i.i.i.i1684) #15
   %1068 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1063, ptr noundef %1067) #15
@@ -5191,7 +5191,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1074 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1074, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1685 = load i32, ptr %1074, align 1
-  %1075 = getelementptr inbounds i8, ptr %1074, i64 8
+  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 8
   store ptr %1075, ptr %6, align 8
   %1076 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1073, i32 noundef %.0.copyload.i.i.i.i.i.i1685) #15
   %1077 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1072, ptr noundef %1076) #15
@@ -5206,7 +5206,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1083 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1083, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1686 = load i32, ptr %1083, align 1
-  %1084 = getelementptr inbounds i8, ptr %1083, i64 8
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 8
   store ptr %1084, ptr %6, align 8
   %1085 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1082, i32 noundef %.0.copyload.i.i.i.i.i.i1686) #15
   %1086 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1081, ptr noundef %1085) #15
@@ -5221,7 +5221,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1092 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1092, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1687 = load i32, ptr %1092, align 1
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 8
+  %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 8
   store ptr %1093, ptr %6, align 8
   %1094 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1091, i32 noundef %.0.copyload.i.i.i.i.i.i1687) #15
   %1095 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1090, ptr noundef %1094) #15
@@ -5236,7 +5236,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1101 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1101, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1688 = load i32, ptr %1101, align 1
-  %1102 = getelementptr inbounds i8, ptr %1101, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 8
   store ptr %1102, ptr %6, align 8
   %1103 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1100, i32 noundef %.0.copyload.i.i.i.i.i.i1688) #15
   %1104 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1099, ptr noundef %1103) #15
@@ -5251,7 +5251,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1110 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1110, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1689 = load i32, ptr %1110, align 1
-  %1111 = getelementptr inbounds i8, ptr %1110, i64 8
+  %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 8
   store ptr %1111, ptr %6, align 8
   %1112 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1109, i32 noundef %.0.copyload.i.i.i.i.i.i1689) #15
   %1113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1108, ptr noundef %1112) #15
@@ -5266,7 +5266,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1119 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1119, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1690 = load i32, ptr %1119, align 1
-  %1120 = getelementptr inbounds i8, ptr %1119, i64 8
+  %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 8
   store ptr %1120, ptr %6, align 8
   %1121 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1118, i32 noundef %.0.copyload.i.i.i.i.i.i1690) #15
   %1122 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1117, ptr noundef %1121) #15
@@ -5281,7 +5281,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1128 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1128, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1691 = load i32, ptr %1128, align 1
-  %1129 = getelementptr inbounds i8, ptr %1128, i64 8
+  %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 8
   store ptr %1129, ptr %6, align 8
   %1130 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1127, i32 noundef %.0.copyload.i.i.i.i.i.i1691) #15
   %1131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1126, ptr noundef %1130) #15
@@ -5296,7 +5296,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1137 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1137, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1692 = load i32, ptr %1137, align 1
-  %1138 = getelementptr inbounds i8, ptr %1137, i64 8
+  %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 8
   store ptr %1138, ptr %6, align 8
   %1139 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1136, i32 noundef %.0.copyload.i.i.i.i.i.i1692) #15
   %1140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1135, ptr noundef %1139) #15
@@ -5311,7 +5311,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1146 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1146, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1693 = load i32, ptr %1146, align 1
-  %1147 = getelementptr inbounds i8, ptr %1146, i64 8
+  %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 8
   store ptr %1147, ptr %6, align 8
   %1148 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1145, i32 noundef %.0.copyload.i.i.i.i.i.i1693) #15
   %1149 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1144, ptr noundef %1148) #15
@@ -5319,7 +5319,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1151 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1151, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1694 = load i32, ptr %1151, align 1
-  %1152 = getelementptr inbounds i8, ptr %1151, i64 8
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 8
   store ptr %1152, ptr %6, align 8
   %1153 = zext i32 %.0.copyload.i.i.i.i.i.i1694 to i64
   %1154 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1150, i64 noundef %1153) #15
@@ -5334,7 +5334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1160 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1160, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1695 = load i32, ptr %1160, align 1
-  %1161 = getelementptr inbounds i8, ptr %1160, i64 8
+  %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 8
   store ptr %1161, ptr %6, align 8
   %1162 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1159, i32 noundef %.0.copyload.i.i.i.i.i.i1695) #15
   %1163 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1158, ptr noundef %1162) #15
@@ -5343,7 +5343,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1166 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1166, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1696 = load i32, ptr %1166, align 1
-  %1167 = getelementptr inbounds i8, ptr %1166, i64 8
+  %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 8
   store ptr %1167, ptr %6, align 8
   %1168 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1165, i32 noundef %.0.copyload.i.i.i.i.i.i1696) #15
   %1169 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1164, ptr noundef %1168) #15
@@ -5357,7 +5357,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1174 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1174, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1697 = load i32, ptr %1174, align 1
-  %1175 = getelementptr inbounds i8, ptr %1174, i64 8
+  %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 8
   store ptr %1175, ptr %6, align 8
   %1176 = zext i32 %.0.copyload.i.i.i.i.i.i1697 to i64
   %1177 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1173, i64 noundef %1176) #15
@@ -5366,7 +5366,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1180 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1180, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1698 = load i32, ptr %1180, align 1
-  %1181 = getelementptr inbounds i8, ptr %1180, i64 8
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 8
   store ptr %1181, ptr %6, align 8
   %1182 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1179, i32 noundef %.0.copyload.i.i.i.i.i.i1698) #15
   %1183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1178, ptr noundef %1182) #15
@@ -5381,7 +5381,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1189 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1189, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1699 = load i32, ptr %1189, align 1
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 8
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 8
   store ptr %1190, ptr %6, align 8
   %1191 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1188, i32 noundef %.0.copyload.i.i.i.i.i.i1699) #15
   %1192 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1187, ptr noundef %1191) #15
@@ -5389,7 +5389,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1194 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1194, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1700 = load i32, ptr %1194, align 1
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 8
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 8
   store ptr %1195, ptr %6, align 8
   %1196 = zext i32 %.0.copyload.i.i.i.i.i.i1700 to i64
   %1197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1193, i64 noundef %1196) #15
@@ -5404,7 +5404,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1203 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1203, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1701 = load i32, ptr %1203, align 1
-  %1204 = getelementptr inbounds i8, ptr %1203, i64 8
+  %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 8
   store ptr %1204, ptr %6, align 8
   %1205 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1202, i32 noundef %.0.copyload.i.i.i.i.i.i1701) #15
   %1206 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1201, ptr noundef %1205) #15
@@ -5412,7 +5412,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1208 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1208, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1702 = load i32, ptr %1208, align 1
-  %1209 = getelementptr inbounds i8, ptr %1208, i64 8
+  %1209 = getelementptr inbounds nuw i8, ptr %1208, i64 8
   store ptr %1209, ptr %6, align 8
   %1210 = zext i32 %.0.copyload.i.i.i.i.i.i1702 to i64
   %1211 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1207, i64 noundef %1210) #15
@@ -6020,7 +6020,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1513 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1513, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1703 = load i32, ptr %1513, align 1
-  %1514 = getelementptr inbounds i8, ptr %1513, i64 8
+  %1514 = getelementptr inbounds nuw i8, ptr %1513, i64 8
   store ptr %1514, ptr %6, align 8
   %1515 = zext i32 %.0.copyload.i.i.i.i.i.i1703 to i64
   %1516 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1512, i64 noundef %1515) #15
@@ -6034,7 +6034,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1521 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1521, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1704 = load i32, ptr %1521, align 1
-  %1522 = getelementptr inbounds i8, ptr %1521, i64 8
+  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 8
   store ptr %1522, ptr %6, align 8
   %1523 = zext i32 %.0.copyload.i.i.i.i.i.i1704 to i64
   %1524 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1520, i64 noundef %1523) #15
@@ -6048,7 +6048,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1529 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1529, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1705 = load i32, ptr %1529, align 1
-  %1530 = getelementptr inbounds i8, ptr %1529, i64 8
+  %1530 = getelementptr inbounds nuw i8, ptr %1529, i64 8
   store ptr %1530, ptr %6, align 8
   %1531 = zext i32 %.0.copyload.i.i.i.i.i.i1705 to i64
   %1532 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1528, i64 noundef %1531) #15
@@ -6062,7 +6062,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1537 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1537, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1706 = load i32, ptr %1537, align 1
-  %1538 = getelementptr inbounds i8, ptr %1537, i64 8
+  %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 8
   store ptr %1538, ptr %6, align 8
   %1539 = zext i32 %.0.copyload.i.i.i.i.i.i1706 to i64
   %1540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1536, i64 noundef %1539) #15
@@ -6076,7 +6076,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1545 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1545, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1707 = load i32, ptr %1545, align 1
-  %1546 = getelementptr inbounds i8, ptr %1545, i64 8
+  %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 8
   store ptr %1546, ptr %6, align 8
   %1547 = zext i32 %.0.copyload.i.i.i.i.i.i1707 to i64
   %1548 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1544, i64 noundef %1547) #15
@@ -6090,7 +6090,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1553 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1553, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1708 = load i32, ptr %1553, align 1
-  %1554 = getelementptr inbounds i8, ptr %1553, i64 8
+  %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 8
   store ptr %1554, ptr %6, align 8
   %1555 = zext i32 %.0.copyload.i.i.i.i.i.i1708 to i64
   %1556 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1552, i64 noundef %1555) #15
@@ -6104,7 +6104,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1561 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1561, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1709 = load i32, ptr %1561, align 1
-  %1562 = getelementptr inbounds i8, ptr %1561, i64 8
+  %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store ptr %1562, ptr %6, align 8
   %1563 = zext i32 %.0.copyload.i.i.i.i.i.i1709 to i64
   %1564 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1560, i64 noundef %1563) #15
@@ -6118,7 +6118,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1569 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1569, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1710 = load i32, ptr %1569, align 1
-  %1570 = getelementptr inbounds i8, ptr %1569, i64 8
+  %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 8
   store ptr %1570, ptr %6, align 8
   %1571 = zext i32 %.0.copyload.i.i.i.i.i.i1710 to i64
   %1572 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1568, i64 noundef %1571) #15
@@ -6132,7 +6132,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1577 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1577, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1711 = load i32, ptr %1577, align 1
-  %1578 = getelementptr inbounds i8, ptr %1577, i64 8
+  %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 8
   store ptr %1578, ptr %6, align 8
   %1579 = zext i32 %.0.copyload.i.i.i.i.i.i1711 to i64
   %1580 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1576, i64 noundef %1579) #15
@@ -6146,7 +6146,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1585 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1585, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1712 = load i32, ptr %1585, align 1
-  %1586 = getelementptr inbounds i8, ptr %1585, i64 8
+  %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 8
   store ptr %1586, ptr %6, align 8
   %1587 = zext i32 %.0.copyload.i.i.i.i.i.i1712 to i64
   %1588 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1584, i64 noundef %1587) #15
@@ -6160,7 +6160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1593 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1593, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1713 = load i32, ptr %1593, align 1
-  %1594 = getelementptr inbounds i8, ptr %1593, i64 8
+  %1594 = getelementptr inbounds nuw i8, ptr %1593, i64 8
   store ptr %1594, ptr %6, align 8
   %1595 = zext i32 %.0.copyload.i.i.i.i.i.i1713 to i64
   %1596 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1592, i64 noundef %1595) #15
@@ -6174,7 +6174,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1601 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1601, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1714 = load i32, ptr %1601, align 1
-  %1602 = getelementptr inbounds i8, ptr %1601, i64 8
+  %1602 = getelementptr inbounds nuw i8, ptr %1601, i64 8
   store ptr %1602, ptr %6, align 8
   %1603 = zext i32 %.0.copyload.i.i.i.i.i.i1714 to i64
   %1604 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1600, i64 noundef %1603) #15
@@ -6188,7 +6188,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1609 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1609, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1715 = load i32, ptr %1609, align 1
-  %1610 = getelementptr inbounds i8, ptr %1609, i64 8
+  %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 8
   store ptr %1610, ptr %6, align 8
   %1611 = zext i32 %.0.copyload.i.i.i.i.i.i1715 to i64
   %1612 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1608, i64 noundef %1611) #15
@@ -6202,7 +6202,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1617 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1617, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1716 = load i32, ptr %1617, align 1
-  %1618 = getelementptr inbounds i8, ptr %1617, i64 8
+  %1618 = getelementptr inbounds nuw i8, ptr %1617, i64 8
   store ptr %1618, ptr %6, align 8
   %1619 = zext i32 %.0.copyload.i.i.i.i.i.i1716 to i64
   %1620 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1616, i64 noundef %1619) #15
@@ -6216,7 +6216,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1625 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1625, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1717 = load i32, ptr %1625, align 1
-  %1626 = getelementptr inbounds i8, ptr %1625, i64 8
+  %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 8
   store ptr %1626, ptr %6, align 8
   %1627 = zext i32 %.0.copyload.i.i.i.i.i.i1717 to i64
   %1628 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1624, i64 noundef %1627) #15
@@ -6230,7 +6230,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1633 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1633, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1718 = load i32, ptr %1633, align 1
-  %1634 = getelementptr inbounds i8, ptr %1633, i64 8
+  %1634 = getelementptr inbounds nuw i8, ptr %1633, i64 8
   store ptr %1634, ptr %6, align 8
   %1635 = zext i32 %.0.copyload.i.i.i.i.i.i1718 to i64
   %1636 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1632, i64 noundef %1635) #15
@@ -6244,7 +6244,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1641 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1641, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1719 = load i32, ptr %1641, align 1
-  %1642 = getelementptr inbounds i8, ptr %1641, i64 8
+  %1642 = getelementptr inbounds nuw i8, ptr %1641, i64 8
   store ptr %1642, ptr %6, align 8
   %1643 = zext i32 %.0.copyload.i.i.i.i.i.i1719 to i64
   %1644 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1640, i64 noundef %1643) #15
@@ -6258,7 +6258,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1649 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1649, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1720 = load i32, ptr %1649, align 1
-  %1650 = getelementptr inbounds i8, ptr %1649, i64 8
+  %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 8
   store ptr %1650, ptr %6, align 8
   %1651 = zext i32 %.0.copyload.i.i.i.i.i.i1720 to i64
   %1652 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1648, i64 noundef %1651) #15
@@ -6272,7 +6272,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1657 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1657, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1721 = load i32, ptr %1657, align 1
-  %1658 = getelementptr inbounds i8, ptr %1657, i64 8
+  %1658 = getelementptr inbounds nuw i8, ptr %1657, i64 8
   store ptr %1658, ptr %6, align 8
   %1659 = zext i32 %.0.copyload.i.i.i.i.i.i1721 to i64
   %1660 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1656, i64 noundef %1659) #15
@@ -6286,7 +6286,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1665 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1665, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1722 = load i32, ptr %1665, align 1
-  %1666 = getelementptr inbounds i8, ptr %1665, i64 8
+  %1666 = getelementptr inbounds nuw i8, ptr %1665, i64 8
   store ptr %1666, ptr %6, align 8
   %1667 = zext i32 %.0.copyload.i.i.i.i.i.i1722 to i64
   %1668 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1664, i64 noundef %1667) #15
@@ -6300,7 +6300,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1673 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1673, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1723 = load i32, ptr %1673, align 1
-  %1674 = getelementptr inbounds i8, ptr %1673, i64 8
+  %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 8
   store ptr %1674, ptr %6, align 8
   %1675 = zext i32 %.0.copyload.i.i.i.i.i.i1723 to i64
   %1676 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1672, i64 noundef %1675) #15
@@ -6314,7 +6314,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1681 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1681, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1724 = load i32, ptr %1681, align 1
-  %1682 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1682 = getelementptr inbounds nuw i8, ptr %1681, i64 8
   store ptr %1682, ptr %6, align 8
   %1683 = zext i32 %.0.copyload.i.i.i.i.i.i1724 to i64
   %1684 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1680, i64 noundef %1683) #15
@@ -6329,7 +6329,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1690 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1690, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1725 = load i32, ptr %1690, align 1
-  %1691 = getelementptr inbounds i8, ptr %1690, i64 8
+  %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 8
   store ptr %1691, ptr %6, align 8
   %1692 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1689, i32 noundef %.0.copyload.i.i.i.i.i.i1725) #15
   %1693 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1688, ptr noundef %1692) #15
@@ -6337,7 +6337,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1695 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1695, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1726 = load i8, ptr %1695, align 1
-  %1696 = getelementptr inbounds i8, ptr %1695, i64 8
+  %1696 = getelementptr inbounds nuw i8, ptr %1695, i64 8
   store ptr %1696, ptr %6, align 8
   %1697 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE(ptr noundef nonnull align 8 dereferenceable(48) %1694, i8 noundef signext %.0.copyload.i.i.i.i.i.i1726)
   %1698 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1697, ptr noundef nonnull @.str)
@@ -6350,7 +6350,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1702 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1702, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1727 = load i32, ptr %1702, align 1
-  %1703 = getelementptr inbounds i8, ptr %1702, i64 8
+  %1703 = getelementptr inbounds nuw i8, ptr %1702, i64 8
   store ptr %1703, ptr %6, align 8
   %1704 = zext i32 %.0.copyload.i.i.i.i.i.i1727 to i64
   %1705 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1701, i64 noundef %1704) #15
@@ -6364,7 +6364,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1710 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1710, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1728 = load i32, ptr %1710, align 1
-  %1711 = getelementptr inbounds i8, ptr %1710, i64 8
+  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 8
   store ptr %1711, ptr %6, align 8
   %1712 = zext i32 %.0.copyload.i.i.i.i.i.i1728 to i64
   %1713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1709, i64 noundef %1712) #15
@@ -6378,7 +6378,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1718 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1718, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1729 = load i32, ptr %1718, align 1
-  %1719 = getelementptr inbounds i8, ptr %1718, i64 8
+  %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 8
   store ptr %1719, ptr %6, align 8
   %1720 = zext i32 %.0.copyload.i.i.i.i.i.i1729 to i64
   %1721 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1717, i64 noundef %1720) #15
@@ -6392,7 +6392,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1726 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1726, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1730 = load i32, ptr %1726, align 1
-  %1727 = getelementptr inbounds i8, ptr %1726, i64 8
+  %1727 = getelementptr inbounds nuw i8, ptr %1726, i64 8
   store ptr %1727, ptr %6, align 8
   %1728 = zext i32 %.0.copyload.i.i.i.i.i.i1730 to i64
   %1729 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1725, i64 noundef %1728) #15
@@ -6406,7 +6406,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1734 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1734, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1731 = load i32, ptr %1734, align 1
-  %1735 = getelementptr inbounds i8, ptr %1734, i64 8
+  %1735 = getelementptr inbounds nuw i8, ptr %1734, i64 8
   store ptr %1735, ptr %6, align 8
   %1736 = zext i32 %.0.copyload.i.i.i.i.i.i1731 to i64
   %1737 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1733, i64 noundef %1736) #15
@@ -6420,7 +6420,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1742 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1742, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1732 = load i32, ptr %1742, align 1
-  %1743 = getelementptr inbounds i8, ptr %1742, i64 8
+  %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 8
   store ptr %1743, ptr %6, align 8
   %1744 = zext i32 %.0.copyload.i.i.i.i.i.i1732 to i64
   %1745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1741, i64 noundef %1744) #15
@@ -6434,7 +6434,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1750 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1750, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1733 = load i32, ptr %1750, align 1
-  %1751 = getelementptr inbounds i8, ptr %1750, i64 8
+  %1751 = getelementptr inbounds nuw i8, ptr %1750, i64 8
   store ptr %1751, ptr %6, align 8
   %1752 = zext i32 %.0.copyload.i.i.i.i.i.i1733 to i64
   %1753 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1749, i64 noundef %1752) #15
@@ -6448,7 +6448,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1758 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1758, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1734 = load i32, ptr %1758, align 1
-  %1759 = getelementptr inbounds i8, ptr %1758, i64 8
+  %1759 = getelementptr inbounds nuw i8, ptr %1758, i64 8
   store ptr %1759, ptr %6, align 8
   %1760 = zext i32 %.0.copyload.i.i.i.i.i.i1734 to i64
   %1761 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1757, i64 noundef %1760) #15
@@ -6462,7 +6462,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1766 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1766, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1735 = load i32, ptr %1766, align 1
-  %1767 = getelementptr inbounds i8, ptr %1766, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 8
   store ptr %1767, ptr %6, align 8
   %1768 = zext i32 %.0.copyload.i.i.i.i.i.i1735 to i64
   %1769 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1765, i64 noundef %1768) #15
@@ -6476,7 +6476,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1774 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1774, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1736 = load i32, ptr %1774, align 1
-  %1775 = getelementptr inbounds i8, ptr %1774, i64 8
+  %1775 = getelementptr inbounds nuw i8, ptr %1774, i64 8
   store ptr %1775, ptr %6, align 8
   %1776 = zext i32 %.0.copyload.i.i.i.i.i.i1736 to i64
   %1777 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1773, i64 noundef %1776) #15
@@ -6484,7 +6484,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1779 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1779, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1737 = load i32, ptr %1779, align 1
-  %1780 = getelementptr inbounds i8, ptr %1779, i64 8
+  %1780 = getelementptr inbounds nuw i8, ptr %1779, i64 8
   store ptr %1780, ptr %6, align 8
   %1781 = zext i32 %.0.copyload.i.i.i.i.i.i1737 to i64
   %1782 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1778, i64 noundef %1781) #15
@@ -6498,7 +6498,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1787 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1787, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1738 = load i32, ptr %1787, align 1
-  %1788 = getelementptr inbounds i8, ptr %1787, i64 8
+  %1788 = getelementptr inbounds nuw i8, ptr %1787, i64 8
   store ptr %1788, ptr %6, align 8
   %1789 = zext i32 %.0.copyload.i.i.i.i.i.i1738 to i64
   %1790 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1786, i64 noundef %1789) #15
@@ -6506,7 +6506,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1792 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1792, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1739 = load i32, ptr %1792, align 1
-  %1793 = getelementptr inbounds i8, ptr %1792, i64 8
+  %1793 = getelementptr inbounds nuw i8, ptr %1792, i64 8
   store ptr %1793, ptr %6, align 8
   %1794 = zext i32 %.0.copyload.i.i.i.i.i.i1739 to i64
   %1795 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1791, i64 noundef %1794) #15
@@ -6521,7 +6521,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1801 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1801, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1740 = load i32, ptr %1801, align 1
-  %1802 = getelementptr inbounds i8, ptr %1801, i64 8
+  %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 8
   store ptr %1802, ptr %6, align 8
   %1803 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1800, i32 noundef %.0.copyload.i.i.i.i.i.i1740) #15
   %1804 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1799, ptr noundef %1803) #15
@@ -6529,7 +6529,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1806 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1806, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1741 = load i32, ptr %1806, align 1
-  %1807 = getelementptr inbounds i8, ptr %1806, i64 8
+  %1807 = getelementptr inbounds nuw i8, ptr %1806, i64 8
   store ptr %1807, ptr %6, align 8
   %1808 = zext i32 %.0.copyload.i.i.i.i.i.i1741 to i64
   %1809 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1805, i64 noundef %1808) #15
@@ -6544,7 +6544,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1815 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1815, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1742 = load i32, ptr %1815, align 1
-  %1816 = getelementptr inbounds i8, ptr %1815, i64 8
+  %1816 = getelementptr inbounds nuw i8, ptr %1815, i64 8
   store ptr %1816, ptr %6, align 8
   %1817 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1814, i32 noundef %.0.copyload.i.i.i.i.i.i1742) #15
   %1818 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1813, ptr noundef %1817) #15
@@ -6552,7 +6552,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1820 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1820, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1743 = load i32, ptr %1820, align 1
-  %1821 = getelementptr inbounds i8, ptr %1820, i64 8
+  %1821 = getelementptr inbounds nuw i8, ptr %1820, i64 8
   store ptr %1821, ptr %6, align 8
   %1822 = zext i32 %.0.copyload.i.i.i.i.i.i1743 to i64
   %1823 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1819, i64 noundef %1822) #15
@@ -6567,7 +6567,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1829 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1829, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1744 = load i32, ptr %1829, align 1
-  %1830 = getelementptr inbounds i8, ptr %1829, i64 8
+  %1830 = getelementptr inbounds nuw i8, ptr %1829, i64 8
   store ptr %1830, ptr %6, align 8
   %1831 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1828, i32 noundef %.0.copyload.i.i.i.i.i.i1744) #15
   %1832 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1827, ptr noundef %1831) #15
@@ -6575,7 +6575,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1834 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1834, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1745 = load i32, ptr %1834, align 1
-  %1835 = getelementptr inbounds i8, ptr %1834, i64 8
+  %1835 = getelementptr inbounds nuw i8, ptr %1834, i64 8
   store ptr %1835, ptr %6, align 8
   %1836 = zext i32 %.0.copyload.i.i.i.i.i.i1745 to i64
   %1837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1833, i64 noundef %1836) #15
@@ -6590,7 +6590,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1843 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1843, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1746 = load i32, ptr %1843, align 1
-  %1844 = getelementptr inbounds i8, ptr %1843, i64 8
+  %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 8
   store ptr %1844, ptr %6, align 8
   %1845 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1842, i32 noundef %.0.copyload.i.i.i.i.i.i1746) #15
   %1846 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1841, ptr noundef %1845) #15
@@ -6598,7 +6598,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1848 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1848, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1747 = load i32, ptr %1848, align 1
-  %1849 = getelementptr inbounds i8, ptr %1848, i64 8
+  %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 8
   store ptr %1849, ptr %6, align 8
   %1850 = zext i32 %.0.copyload.i.i.i.i.i.i1747 to i64
   %1851 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1847, i64 noundef %1850) #15
@@ -6613,7 +6613,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1857 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1857, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1748 = load i32, ptr %1857, align 1
-  %1858 = getelementptr inbounds i8, ptr %1857, i64 8
+  %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 8
   store ptr %1858, ptr %6, align 8
   %1859 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1856, i32 noundef %.0.copyload.i.i.i.i.i.i1748) #15
   %1860 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1855, ptr noundef %1859) #15
@@ -6621,7 +6621,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1862 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1862, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1749 = load i32, ptr %1862, align 1
-  %1863 = getelementptr inbounds i8, ptr %1862, i64 8
+  %1863 = getelementptr inbounds nuw i8, ptr %1862, i64 8
   store ptr %1863, ptr %6, align 8
   %1864 = zext i32 %.0.copyload.i.i.i.i.i.i1749 to i64
   %1865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1861, i64 noundef %1864) #15
@@ -6636,7 +6636,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1871 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1871, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1750 = load i32, ptr %1871, align 1
-  %1872 = getelementptr inbounds i8, ptr %1871, i64 8
+  %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 8
   store ptr %1872, ptr %6, align 8
   %1873 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1870, i32 noundef %.0.copyload.i.i.i.i.i.i1750) #15
   %1874 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1869, ptr noundef %1873) #15
@@ -6644,7 +6644,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1876 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1876, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1751 = load i32, ptr %1876, align 1
-  %1877 = getelementptr inbounds i8, ptr %1876, i64 8
+  %1877 = getelementptr inbounds nuw i8, ptr %1876, i64 8
   store ptr %1877, ptr %6, align 8
   %1878 = zext i32 %.0.copyload.i.i.i.i.i.i1751 to i64
   %1879 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1875, i64 noundef %1878) #15
@@ -6659,7 +6659,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1885 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1885, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1752 = load i32, ptr %1885, align 1
-  %1886 = getelementptr inbounds i8, ptr %1885, i64 8
+  %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 8
   store ptr %1886, ptr %6, align 8
   %1887 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1884, i32 noundef %.0.copyload.i.i.i.i.i.i1752) #15
   %1888 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1883, ptr noundef %1887) #15
@@ -6667,7 +6667,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1890 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1890, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1753 = load i32, ptr %1890, align 1
-  %1891 = getelementptr inbounds i8, ptr %1890, i64 8
+  %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 8
   store ptr %1891, ptr %6, align 8
   %1892 = zext i32 %.0.copyload.i.i.i.i.i.i1753 to i64
   %1893 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1889, i64 noundef %1892) #15
@@ -6682,7 +6682,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1899 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1899, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1754 = load i32, ptr %1899, align 1
-  %1900 = getelementptr inbounds i8, ptr %1899, i64 8
+  %1900 = getelementptr inbounds nuw i8, ptr %1899, i64 8
   store ptr %1900, ptr %6, align 8
   %1901 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1898, i32 noundef %.0.copyload.i.i.i.i.i.i1754) #15
   %1902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1897, ptr noundef %1901) #15
@@ -6690,7 +6690,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1904 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1904, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1755 = load i32, ptr %1904, align 1
-  %1905 = getelementptr inbounds i8, ptr %1904, i64 8
+  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 8
   store ptr %1905, ptr %6, align 8
   %1906 = zext i32 %.0.copyload.i.i.i.i.i.i1755 to i64
   %1907 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1903, i64 noundef %1906) #15
@@ -6705,7 +6705,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1913 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1913, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1756 = load i32, ptr %1913, align 1
-  %1914 = getelementptr inbounds i8, ptr %1913, i64 8
+  %1914 = getelementptr inbounds nuw i8, ptr %1913, i64 8
   store ptr %1914, ptr %6, align 8
   %1915 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1912, i32 noundef %.0.copyload.i.i.i.i.i.i1756) #15
   %1916 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1911, ptr noundef %1915) #15
@@ -6713,7 +6713,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1918 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1918, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1757 = load i32, ptr %1918, align 1
-  %1919 = getelementptr inbounds i8, ptr %1918, i64 8
+  %1919 = getelementptr inbounds nuw i8, ptr %1918, i64 8
   store ptr %1919, ptr %6, align 8
   %1920 = zext i32 %.0.copyload.i.i.i.i.i.i1757 to i64
   %1921 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1917, i64 noundef %1920) #15
@@ -6728,7 +6728,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1927 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1927, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1758 = load i32, ptr %1927, align 1
-  %1928 = getelementptr inbounds i8, ptr %1927, i64 8
+  %1928 = getelementptr inbounds nuw i8, ptr %1927, i64 8
   store ptr %1928, ptr %6, align 8
   %1929 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1926, i32 noundef %.0.copyload.i.i.i.i.i.i1758) #15
   %1930 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1925, ptr noundef %1929) #15
@@ -6736,7 +6736,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1932 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1932, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1759 = load i32, ptr %1932, align 1
-  %1933 = getelementptr inbounds i8, ptr %1932, i64 8
+  %1933 = getelementptr inbounds nuw i8, ptr %1932, i64 8
   store ptr %1933, ptr %6, align 8
   %1934 = zext i32 %.0.copyload.i.i.i.i.i.i1759 to i64
   %1935 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1931, i64 noundef %1934) #15
@@ -6751,7 +6751,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1941 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1941, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1760 = load i32, ptr %1941, align 1
-  %1942 = getelementptr inbounds i8, ptr %1941, i64 8
+  %1942 = getelementptr inbounds nuw i8, ptr %1941, i64 8
   store ptr %1942, ptr %6, align 8
   %1943 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %1940, i32 noundef %.0.copyload.i.i.i.i.i.i1760) #15
   %1944 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1939, ptr noundef %1943) #15
@@ -6759,7 +6759,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1946 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1946, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1761 = load i32, ptr %1946, align 1
-  %1947 = getelementptr inbounds i8, ptr %1946, i64 8
+  %1947 = getelementptr inbounds nuw i8, ptr %1946, i64 8
   store ptr %1947, ptr %6, align 8
   %1948 = zext i32 %.0.copyload.i.i.i.i.i.i1761 to i64
   %1949 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1945, i64 noundef %1948) #15
@@ -6833,7 +6833,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1984 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1984, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1762 = load i32, ptr %1984, align 1
-  %1985 = getelementptr inbounds i8, ptr %1984, i64 8
+  %1985 = getelementptr inbounds nuw i8, ptr %1984, i64 8
   store ptr %1985, ptr %6, align 8
   %1986 = zext i32 %.0.copyload.i.i.i.i.i.i1762 to i64
   %1987 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1983, i64 noundef %1986) #15
@@ -6847,7 +6847,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %1992 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %1992, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1763 = load i32, ptr %1992, align 1
-  %1993 = getelementptr inbounds i8, ptr %1992, i64 8
+  %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 8
   store ptr %1993, ptr %6, align 8
   %1994 = zext i32 %.0.copyload.i.i.i.i.i.i1763 to i64
   %1995 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1991, i64 noundef %1994) #15
@@ -6862,7 +6862,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2001 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2001, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1764 = load i32, ptr %2001, align 1
-  %2002 = getelementptr inbounds i8, ptr %2001, i64 8
+  %2002 = getelementptr inbounds nuw i8, ptr %2001, i64 8
   store ptr %2002, ptr %6, align 8
   %2003 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2000, i32 noundef %.0.copyload.i.i.i.i.i.i1764) #15
   %2004 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %1999, ptr noundef %2003) #15
@@ -6877,7 +6877,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2010 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2010, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1765 = load i32, ptr %2010, align 1
-  %2011 = getelementptr inbounds i8, ptr %2010, i64 8
+  %2011 = getelementptr inbounds nuw i8, ptr %2010, i64 8
   store ptr %2011, ptr %6, align 8
   %2012 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2009, i32 noundef %.0.copyload.i.i.i.i.i.i1765) #15
   %2013 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2008, ptr noundef %2012) #15
@@ -6892,7 +6892,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2019 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2019, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1766 = load i32, ptr %2019, align 1
-  %2020 = getelementptr inbounds i8, ptr %2019, i64 8
+  %2020 = getelementptr inbounds nuw i8, ptr %2019, i64 8
   store ptr %2020, ptr %6, align 8
   %2021 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2018, i32 noundef %.0.copyload.i.i.i.i.i.i1766) #15
   %2022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2017, ptr noundef %2021) #15
@@ -6907,7 +6907,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2028 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2028, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1767 = load i32, ptr %2028, align 1
-  %2029 = getelementptr inbounds i8, ptr %2028, i64 8
+  %2029 = getelementptr inbounds nuw i8, ptr %2028, i64 8
   store ptr %2029, ptr %6, align 8
   %2030 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2027, i32 noundef %.0.copyload.i.i.i.i.i.i1767) #15
   %2031 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2026, ptr noundef %2030) #15
@@ -6922,7 +6922,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2037 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2037, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1768 = load i32, ptr %2037, align 1
-  %2038 = getelementptr inbounds i8, ptr %2037, i64 8
+  %2038 = getelementptr inbounds nuw i8, ptr %2037, i64 8
   store ptr %2038, ptr %6, align 8
   %2039 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2036, i32 noundef %.0.copyload.i.i.i.i.i.i1768) #15
   %2040 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2035, ptr noundef %2039) #15
@@ -6937,7 +6937,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2046 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2046, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1769 = load i32, ptr %2046, align 1
-  %2047 = getelementptr inbounds i8, ptr %2046, i64 8
+  %2047 = getelementptr inbounds nuw i8, ptr %2046, i64 8
   store ptr %2047, ptr %6, align 8
   %2048 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2045, i32 noundef %.0.copyload.i.i.i.i.i.i1769) #15
   %2049 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2044, ptr noundef %2048) #15
@@ -6952,7 +6952,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2055 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2055, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1770 = load i32, ptr %2055, align 1
-  %2056 = getelementptr inbounds i8, ptr %2055, i64 8
+  %2056 = getelementptr inbounds nuw i8, ptr %2055, i64 8
   store ptr %2056, ptr %6, align 8
   %2057 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2054, i32 noundef %.0.copyload.i.i.i.i.i.i1770) #15
   %2058 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2053, ptr noundef %2057) #15
@@ -6967,7 +6967,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2064 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2064, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1771 = load i32, ptr %2064, align 1
-  %2065 = getelementptr inbounds i8, ptr %2064, i64 8
+  %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 8
   store ptr %2065, ptr %6, align 8
   %2066 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2063, i32 noundef %.0.copyload.i.i.i.i.i.i1771) #15
   %2067 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2062, ptr noundef %2066) #15
@@ -6982,7 +6982,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2073 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2073, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1772 = load i32, ptr %2073, align 1
-  %2074 = getelementptr inbounds i8, ptr %2073, i64 8
+  %2074 = getelementptr inbounds nuw i8, ptr %2073, i64 8
   store ptr %2074, ptr %6, align 8
   %2075 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2072, i32 noundef %.0.copyload.i.i.i.i.i.i1772) #15
   %2076 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2071, ptr noundef %2075) #15
@@ -6997,7 +6997,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2082 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2082, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1773 = load i32, ptr %2082, align 1
-  %2083 = getelementptr inbounds i8, ptr %2082, i64 8
+  %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 8
   store ptr %2083, ptr %6, align 8
   %2084 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2081, i32 noundef %.0.copyload.i.i.i.i.i.i1773) #15
   %2085 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2080, ptr noundef %2084) #15
@@ -7012,7 +7012,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2091 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2091, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1774 = load i32, ptr %2091, align 1
-  %2092 = getelementptr inbounds i8, ptr %2091, i64 8
+  %2092 = getelementptr inbounds nuw i8, ptr %2091, i64 8
   store ptr %2092, ptr %6, align 8
   %2093 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %2090, i32 noundef %.0.copyload.i.i.i.i.i.i1774) #15
   %2094 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %2089, ptr noundef %2093) #15
@@ -7104,7 +7104,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2138 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2138, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1775 = load i8, ptr %2138, align 1
-  %2139 = getelementptr inbounds i8, ptr %2138, i64 8
+  %2139 = getelementptr inbounds nuw i8, ptr %2138, i64 8
   store ptr %2139, ptr %6, align 8
   %2140 = and i8 %.0.copyload.i.i.i.i.i.i1775, 1
   %2141 = zext nneg i8 %2140 to i64
@@ -7130,7 +7130,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   %2153 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2153, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1776 = load i8, ptr %2153, align 1
-  %2154 = getelementptr inbounds i8, ptr %2153, i64 8
+  %2154 = getelementptr inbounds nuw i8, ptr %2153, i64 8
   store ptr %2154, ptr %6, align 8
   %2155 = getelementptr inbounds nuw i8, ptr %2152, i64 32
   %2156 = load ptr, ptr %2155, align 8
@@ -7144,7 +7144,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1596:             ; preds = %175, %177
   br label %_ZN4llvm11raw_ostreamlsEa.exit
 
 2161:                                             ; preds = %2151
-  %2162 = getelementptr inbounds i8, ptr %2156, i64 1
+  %2162 = getelementptr inbounds nuw i8, ptr %2156, i64 1
   store ptr %2162, ptr %2155, align 8
   store i8 %.0.copyload.i.i.i.i.i.i1776, ptr %2156, align 1
   br label %_ZN4llvm11raw_ostreamlsEa.exit
@@ -7161,7 +7161,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2159, %2161
   %2167 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2167, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1777 = load i16, ptr %2167, align 1
-  %2168 = getelementptr inbounds i8, ptr %2167, i64 8
+  %2168 = getelementptr inbounds nuw i8, ptr %2167, i64 8
   store ptr %2168, ptr %6, align 8
   %2169 = sext i16 %.0.copyload.i.i.i.i.i.i1777 to i64
   %2170 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %2166, i64 noundef %2169) #15
@@ -7175,7 +7175,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2159, %2161
   %2175 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2175, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1778 = load i32, ptr %2175, align 1
-  %2176 = getelementptr inbounds i8, ptr %2175, i64 8
+  %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 8
   store ptr %2176, ptr %6, align 8
   %2177 = sext i32 %.0.copyload.i.i.i.i.i.i1778 to i64
   %2178 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %2174, i64 noundef %2177) #15
@@ -7189,7 +7189,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2159, %2161
   %2183 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2183, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1779 = load i64, ptr %2183, align 1
-  %2184 = getelementptr inbounds i8, ptr %2183, i64 8
+  %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 8
   store ptr %2184, ptr %6, align 8
   %2185 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %2182, i64 noundef %.0.copyload.i.i.i.i.i.i1779) #15
   %2186 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2185, ptr noundef nonnull @.str)
@@ -7202,7 +7202,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2159, %2161
   %2190 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2190, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1780 = load i8, ptr %2190, align 1
-  %2191 = getelementptr inbounds i8, ptr %2190, i64 8
+  %2191 = getelementptr inbounds nuw i8, ptr %2190, i64 8
   store ptr %2191, ptr %6, align 8
   %2192 = getelementptr inbounds nuw i8, ptr %2189, i64 32
   %2193 = load ptr, ptr %2192, align 8
@@ -7216,7 +7216,7 @@ _ZN4llvm11raw_ostreamlsEa.exit:                   ; preds = %2159, %2161
   br label %_ZN4llvm11raw_ostreamlsEh.exit
 
 2198:                                             ; preds = %2188
-  %2199 = getelementptr inbounds i8, ptr %2193, i64 1
+  %2199 = getelementptr inbounds nuw i8, ptr %2193, i64 1
   store ptr %2199, ptr %2192, align 8
   store i8 %.0.copyload.i.i.i.i.i.i1780, ptr %2193, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit
@@ -7233,7 +7233,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2204 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2204, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1783 = load i16, ptr %2204, align 1
-  %2205 = getelementptr inbounds i8, ptr %2204, i64 8
+  %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 8
   store ptr %2205, ptr %6, align 8
   %2206 = zext i16 %.0.copyload.i.i.i.i.i.i1783 to i64
   %2207 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %2203, i64 noundef %2206) #15
@@ -7247,7 +7247,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2212 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2212, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1784 = load i32, ptr %2212, align 1
-  %2213 = getelementptr inbounds i8, ptr %2212, i64 8
+  %2213 = getelementptr inbounds nuw i8, ptr %2212, i64 8
   store ptr %2213, ptr %6, align 8
   %2214 = zext i32 %.0.copyload.i.i.i.i.i.i1784 to i64
   %2215 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2211, i64 noundef %2214) #15
@@ -7261,7 +7261,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2220 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2220, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1785 = load i64, ptr %2220, align 1
-  %2221 = getelementptr inbounds i8, ptr %2220, i64 8
+  %2221 = getelementptr inbounds nuw i8, ptr %2220, i64 8
   store ptr %2221, ptr %6, align 8
   %2222 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2219, i64 noundef %.0.copyload.i.i.i.i.i.i1785) #15
   %2223 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2222, ptr noundef nonnull @.str)
@@ -7274,7 +7274,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2227 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2227, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1786 = load i32, ptr %2227, align 1
-  %2228 = getelementptr inbounds i8, ptr %2227, i64 8
+  %2228 = getelementptr inbounds nuw i8, ptr %2227, i64 8
   store ptr %2228, ptr %6, align 8
   %2229 = zext i32 %.0.copyload.i.i.i.i.i.i1786 to i64
   %2230 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2226, i64 noundef %2229) #15
@@ -7282,7 +7282,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2232 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2232, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1787 = load i32, ptr %2232, align 1
-  %2233 = getelementptr inbounds i8, ptr %2232, i64 8
+  %2233 = getelementptr inbounds nuw i8, ptr %2232, i64 8
   store ptr %2233, ptr %6, align 8
   %2234 = zext i32 %.0.copyload.i.i.i.i.i.i1787 to i64
   %2235 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2231, i64 noundef %2234) #15
@@ -7290,7 +7290,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2237 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2237, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1788 = load i32, ptr %2237, align 1
-  %2238 = getelementptr inbounds i8, ptr %2237, i64 8
+  %2238 = getelementptr inbounds nuw i8, ptr %2237, i64 8
   store ptr %2238, ptr %6, align 8
   %2239 = zext i32 %.0.copyload.i.i.i.i.i.i1788 to i64
   %2240 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2236, i64 noundef %2239) #15
@@ -7304,7 +7304,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2245 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2245, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1789 = load i32, ptr %2245, align 1
-  %2246 = getelementptr inbounds i8, ptr %2245, i64 8
+  %2246 = getelementptr inbounds nuw i8, ptr %2245, i64 8
   store ptr %2246, ptr %6, align 8
   %2247 = zext i32 %.0.copyload.i.i.i.i.i.i1789 to i64
   %2248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2244, i64 noundef %2247) #15
@@ -7312,7 +7312,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2250 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2250, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1790 = load i32, ptr %2250, align 1
-  %2251 = getelementptr inbounds i8, ptr %2250, i64 8
+  %2251 = getelementptr inbounds nuw i8, ptr %2250, i64 8
   store ptr %2251, ptr %6, align 8
   %2252 = zext i32 %.0.copyload.i.i.i.i.i.i1790 to i64
   %2253 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2249, i64 noundef %2252) #15
@@ -7320,7 +7320,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2255 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2255, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1791 = load i32, ptr %2255, align 1
-  %2256 = getelementptr inbounds i8, ptr %2255, i64 8
+  %2256 = getelementptr inbounds nuw i8, ptr %2255, i64 8
   store ptr %2256, ptr %6, align 8
   %2257 = zext i32 %.0.copyload.i.i.i.i.i.i1791 to i64
   %2258 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2254, i64 noundef %2257) #15
@@ -7334,7 +7334,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2263 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2263, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1792 = load i32, ptr %2263, align 1
-  %2264 = getelementptr inbounds i8, ptr %2263, i64 8
+  %2264 = getelementptr inbounds nuw i8, ptr %2263, i64 8
   store ptr %2264, ptr %6, align 8
   %2265 = zext i32 %.0.copyload.i.i.i.i.i.i1792 to i64
   %2266 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2262, i64 noundef %2265) #15
@@ -7342,7 +7342,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2268 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2268, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1793 = load i32, ptr %2268, align 1
-  %2269 = getelementptr inbounds i8, ptr %2268, i64 8
+  %2269 = getelementptr inbounds nuw i8, ptr %2268, i64 8
   store ptr %2269, ptr %6, align 8
   %2270 = zext i32 %.0.copyload.i.i.i.i.i.i1793 to i64
   %2271 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2267, i64 noundef %2270) #15
@@ -7350,7 +7350,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2273 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2273, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1794 = load i32, ptr %2273, align 1
-  %2274 = getelementptr inbounds i8, ptr %2273, i64 8
+  %2274 = getelementptr inbounds nuw i8, ptr %2273, i64 8
   store ptr %2274, ptr %6, align 8
   %2275 = zext i32 %.0.copyload.i.i.i.i.i.i1794 to i64
   %2276 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2272, i64 noundef %2275) #15
@@ -7364,7 +7364,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2281 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2281, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1795 = load i32, ptr %2281, align 1
-  %2282 = getelementptr inbounds i8, ptr %2281, i64 8
+  %2282 = getelementptr inbounds nuw i8, ptr %2281, i64 8
   store ptr %2282, ptr %6, align 8
   %2283 = zext i32 %.0.copyload.i.i.i.i.i.i1795 to i64
   %2284 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2280, i64 noundef %2283) #15
@@ -7372,7 +7372,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2286 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2286, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1796 = load i32, ptr %2286, align 1
-  %2287 = getelementptr inbounds i8, ptr %2286, i64 8
+  %2287 = getelementptr inbounds nuw i8, ptr %2286, i64 8
   store ptr %2287, ptr %6, align 8
   %2288 = zext i32 %.0.copyload.i.i.i.i.i.i1796 to i64
   %2289 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2285, i64 noundef %2288) #15
@@ -7380,7 +7380,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2291 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2291, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1797 = load i32, ptr %2291, align 1
-  %2292 = getelementptr inbounds i8, ptr %2291, i64 8
+  %2292 = getelementptr inbounds nuw i8, ptr %2291, i64 8
   store ptr %2292, ptr %6, align 8
   %2293 = zext i32 %.0.copyload.i.i.i.i.i.i1797 to i64
   %2294 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2290, i64 noundef %2293) #15
@@ -7394,7 +7394,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2299 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2299, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1798 = load i32, ptr %2299, align 1
-  %2300 = getelementptr inbounds i8, ptr %2299, i64 8
+  %2300 = getelementptr inbounds nuw i8, ptr %2299, i64 8
   store ptr %2300, ptr %6, align 8
   %2301 = zext i32 %.0.copyload.i.i.i.i.i.i1798 to i64
   %2302 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2298, i64 noundef %2301) #15
@@ -7402,7 +7402,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2304 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2304, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1799 = load i32, ptr %2304, align 1
-  %2305 = getelementptr inbounds i8, ptr %2304, i64 8
+  %2305 = getelementptr inbounds nuw i8, ptr %2304, i64 8
   store ptr %2305, ptr %6, align 8
   %2306 = zext i32 %.0.copyload.i.i.i.i.i.i1799 to i64
   %2307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2303, i64 noundef %2306) #15
@@ -7410,7 +7410,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2309 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2309, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1800 = load i32, ptr %2309, align 1
-  %2310 = getelementptr inbounds i8, ptr %2309, i64 8
+  %2310 = getelementptr inbounds nuw i8, ptr %2309, i64 8
   store ptr %2310, ptr %6, align 8
   %2311 = zext i32 %.0.copyload.i.i.i.i.i.i1800 to i64
   %2312 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2308, i64 noundef %2311) #15
@@ -7424,7 +7424,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2317 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2317, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1801 = load i32, ptr %2317, align 1
-  %2318 = getelementptr inbounds i8, ptr %2317, i64 8
+  %2318 = getelementptr inbounds nuw i8, ptr %2317, i64 8
   store ptr %2318, ptr %6, align 8
   %2319 = zext i32 %.0.copyload.i.i.i.i.i.i1801 to i64
   %2320 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2316, i64 noundef %2319) #15
@@ -7432,7 +7432,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2322 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2322, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1802 = load i32, ptr %2322, align 1
-  %2323 = getelementptr inbounds i8, ptr %2322, i64 8
+  %2323 = getelementptr inbounds nuw i8, ptr %2322, i64 8
   store ptr %2323, ptr %6, align 8
   %2324 = zext i32 %.0.copyload.i.i.i.i.i.i1802 to i64
   %2325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2321, i64 noundef %2324) #15
@@ -7440,7 +7440,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2327 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2327, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1803 = load i32, ptr %2327, align 1
-  %2328 = getelementptr inbounds i8, ptr %2327, i64 8
+  %2328 = getelementptr inbounds nuw i8, ptr %2327, i64 8
   store ptr %2328, ptr %6, align 8
   %2329 = zext i32 %.0.copyload.i.i.i.i.i.i1803 to i64
   %2330 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2326, i64 noundef %2329) #15
@@ -7454,7 +7454,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2335 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2335, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1804 = load i32, ptr %2335, align 1
-  %2336 = getelementptr inbounds i8, ptr %2335, i64 8
+  %2336 = getelementptr inbounds nuw i8, ptr %2335, i64 8
   store ptr %2336, ptr %6, align 8
   %2337 = zext i32 %.0.copyload.i.i.i.i.i.i1804 to i64
   %2338 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2334, i64 noundef %2337) #15
@@ -7462,7 +7462,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2340 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2340, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1805 = load i32, ptr %2340, align 1
-  %2341 = getelementptr inbounds i8, ptr %2340, i64 8
+  %2341 = getelementptr inbounds nuw i8, ptr %2340, i64 8
   store ptr %2341, ptr %6, align 8
   %2342 = zext i32 %.0.copyload.i.i.i.i.i.i1805 to i64
   %2343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2339, i64 noundef %2342) #15
@@ -7470,7 +7470,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2345 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2345, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1806 = load i32, ptr %2345, align 1
-  %2346 = getelementptr inbounds i8, ptr %2345, i64 8
+  %2346 = getelementptr inbounds nuw i8, ptr %2345, i64 8
   store ptr %2346, ptr %6, align 8
   %2347 = zext i32 %.0.copyload.i.i.i.i.i.i1806 to i64
   %2348 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2344, i64 noundef %2347) #15
@@ -7484,7 +7484,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2353 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2353, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1807 = load i32, ptr %2353, align 1
-  %2354 = getelementptr inbounds i8, ptr %2353, i64 8
+  %2354 = getelementptr inbounds nuw i8, ptr %2353, i64 8
   store ptr %2354, ptr %6, align 8
   %2355 = zext i32 %.0.copyload.i.i.i.i.i.i1807 to i64
   %2356 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2352, i64 noundef %2355) #15
@@ -7492,7 +7492,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2358 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2358, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1808 = load i32, ptr %2358, align 1
-  %2359 = getelementptr inbounds i8, ptr %2358, i64 8
+  %2359 = getelementptr inbounds nuw i8, ptr %2358, i64 8
   store ptr %2359, ptr %6, align 8
   %2360 = zext i32 %.0.copyload.i.i.i.i.i.i1808 to i64
   %2361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2357, i64 noundef %2360) #15
@@ -7500,7 +7500,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2363 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2363, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1809 = load i32, ptr %2363, align 1
-  %2364 = getelementptr inbounds i8, ptr %2363, i64 8
+  %2364 = getelementptr inbounds nuw i8, ptr %2363, i64 8
   store ptr %2364, ptr %6, align 8
   %2365 = zext i32 %.0.copyload.i.i.i.i.i.i1809 to i64
   %2366 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2362, i64 noundef %2365) #15
@@ -7514,7 +7514,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2371 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2371, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1810 = load i32, ptr %2371, align 1
-  %2372 = getelementptr inbounds i8, ptr %2371, i64 8
+  %2372 = getelementptr inbounds nuw i8, ptr %2371, i64 8
   store ptr %2372, ptr %6, align 8
   %2373 = zext i32 %.0.copyload.i.i.i.i.i.i1810 to i64
   %2374 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2370, i64 noundef %2373) #15
@@ -7522,7 +7522,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2376 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2376, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1811 = load i32, ptr %2376, align 1
-  %2377 = getelementptr inbounds i8, ptr %2376, i64 8
+  %2377 = getelementptr inbounds nuw i8, ptr %2376, i64 8
   store ptr %2377, ptr %6, align 8
   %2378 = zext i32 %.0.copyload.i.i.i.i.i.i1811 to i64
   %2379 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2375, i64 noundef %2378) #15
@@ -7530,7 +7530,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2381 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2381, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1812 = load i32, ptr %2381, align 1
-  %2382 = getelementptr inbounds i8, ptr %2381, i64 8
+  %2382 = getelementptr inbounds nuw i8, ptr %2381, i64 8
   store ptr %2382, ptr %6, align 8
   %2383 = zext i32 %.0.copyload.i.i.i.i.i.i1812 to i64
   %2384 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2380, i64 noundef %2383) #15
@@ -7544,7 +7544,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2389 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2389, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1813 = load i32, ptr %2389, align 1
-  %2390 = getelementptr inbounds i8, ptr %2389, i64 8
+  %2390 = getelementptr inbounds nuw i8, ptr %2389, i64 8
   store ptr %2390, ptr %6, align 8
   %2391 = zext i32 %.0.copyload.i.i.i.i.i.i1813 to i64
   %2392 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2388, i64 noundef %2391) #15
@@ -7552,7 +7552,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2394 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2394, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1814 = load i32, ptr %2394, align 1
-  %2395 = getelementptr inbounds i8, ptr %2394, i64 8
+  %2395 = getelementptr inbounds nuw i8, ptr %2394, i64 8
   store ptr %2395, ptr %6, align 8
   %2396 = zext i32 %.0.copyload.i.i.i.i.i.i1814 to i64
   %2397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2393, i64 noundef %2396) #15
@@ -7560,7 +7560,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2399 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2399, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1815 = load i32, ptr %2399, align 1
-  %2400 = getelementptr inbounds i8, ptr %2399, i64 8
+  %2400 = getelementptr inbounds nuw i8, ptr %2399, i64 8
   store ptr %2400, ptr %6, align 8
   %2401 = zext i32 %.0.copyload.i.i.i.i.i.i1815 to i64
   %2402 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2398, i64 noundef %2401) #15
@@ -7574,7 +7574,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2407 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2407, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1816 = load i32, ptr %2407, align 1
-  %2408 = getelementptr inbounds i8, ptr %2407, i64 8
+  %2408 = getelementptr inbounds nuw i8, ptr %2407, i64 8
   store ptr %2408, ptr %6, align 8
   %2409 = zext i32 %.0.copyload.i.i.i.i.i.i1816 to i64
   %2410 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2406, i64 noundef %2409) #15
@@ -7582,7 +7582,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2412 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2412, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1817 = load i32, ptr %2412, align 1
-  %2413 = getelementptr inbounds i8, ptr %2412, i64 8
+  %2413 = getelementptr inbounds nuw i8, ptr %2412, i64 8
   store ptr %2413, ptr %6, align 8
   %2414 = zext i32 %.0.copyload.i.i.i.i.i.i1817 to i64
   %2415 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2411, i64 noundef %2414) #15
@@ -7590,7 +7590,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2417 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2417, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1818 = load i32, ptr %2417, align 1
-  %2418 = getelementptr inbounds i8, ptr %2417, i64 8
+  %2418 = getelementptr inbounds nuw i8, ptr %2417, i64 8
   store ptr %2418, ptr %6, align 8
   %2419 = zext i32 %.0.copyload.i.i.i.i.i.i1818 to i64
   %2420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2416, i64 noundef %2419) #15
@@ -7604,7 +7604,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2425 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2425, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1819 = load i32, ptr %2425, align 1
-  %2426 = getelementptr inbounds i8, ptr %2425, i64 8
+  %2426 = getelementptr inbounds nuw i8, ptr %2425, i64 8
   store ptr %2426, ptr %6, align 8
   %2427 = zext i32 %.0.copyload.i.i.i.i.i.i1819 to i64
   %2428 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2424, i64 noundef %2427) #15
@@ -7612,7 +7612,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2430 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2430, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1820 = load i32, ptr %2430, align 1
-  %2431 = getelementptr inbounds i8, ptr %2430, i64 8
+  %2431 = getelementptr inbounds nuw i8, ptr %2430, i64 8
   store ptr %2431, ptr %6, align 8
   %2432 = zext i32 %.0.copyload.i.i.i.i.i.i1820 to i64
   %2433 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2429, i64 noundef %2432) #15
@@ -7620,7 +7620,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2435 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2435, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1821 = load i32, ptr %2435, align 1
-  %2436 = getelementptr inbounds i8, ptr %2435, i64 8
+  %2436 = getelementptr inbounds nuw i8, ptr %2435, i64 8
   store ptr %2436, ptr %6, align 8
   %2437 = zext i32 %.0.copyload.i.i.i.i.i.i1821 to i64
   %2438 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2434, i64 noundef %2437) #15
@@ -7634,7 +7634,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2443 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2443, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1822 = load i32, ptr %2443, align 1
-  %2444 = getelementptr inbounds i8, ptr %2443, i64 8
+  %2444 = getelementptr inbounds nuw i8, ptr %2443, i64 8
   store ptr %2444, ptr %6, align 8
   %2445 = zext i32 %.0.copyload.i.i.i.i.i.i1822 to i64
   %2446 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2442, i64 noundef %2445) #15
@@ -7642,7 +7642,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2448 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2448, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1823 = load i32, ptr %2448, align 1
-  %2449 = getelementptr inbounds i8, ptr %2448, i64 8
+  %2449 = getelementptr inbounds nuw i8, ptr %2448, i64 8
   store ptr %2449, ptr %6, align 8
   %2450 = zext i32 %.0.copyload.i.i.i.i.i.i1823 to i64
   %2451 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2447, i64 noundef %2450) #15
@@ -7650,7 +7650,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2453 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2453, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1824 = load i32, ptr %2453, align 1
-  %2454 = getelementptr inbounds i8, ptr %2453, i64 8
+  %2454 = getelementptr inbounds nuw i8, ptr %2453, i64 8
   store ptr %2454, ptr %6, align 8
   %2455 = zext i32 %.0.copyload.i.i.i.i.i.i1824 to i64
   %2456 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2452, i64 noundef %2455) #15
@@ -7664,7 +7664,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2461 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2461, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1825 = load i32, ptr %2461, align 1
-  %2462 = getelementptr inbounds i8, ptr %2461, i64 8
+  %2462 = getelementptr inbounds nuw i8, ptr %2461, i64 8
   store ptr %2462, ptr %6, align 8
   %2463 = zext i32 %.0.copyload.i.i.i.i.i.i1825 to i64
   %2464 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2460, i64 noundef %2463) #15
@@ -7672,7 +7672,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2466 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2466, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1826 = load i32, ptr %2466, align 1
-  %2467 = getelementptr inbounds i8, ptr %2466, i64 8
+  %2467 = getelementptr inbounds nuw i8, ptr %2466, i64 8
   store ptr %2467, ptr %6, align 8
   %2468 = zext i32 %.0.copyload.i.i.i.i.i.i1826 to i64
   %2469 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2465, i64 noundef %2468) #15
@@ -7680,7 +7680,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2471 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2471, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1827 = load i32, ptr %2471, align 1
-  %2472 = getelementptr inbounds i8, ptr %2471, i64 8
+  %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 8
   store ptr %2472, ptr %6, align 8
   %2473 = zext i32 %.0.copyload.i.i.i.i.i.i1827 to i64
   %2474 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2470, i64 noundef %2473) #15
@@ -7694,7 +7694,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2479 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2479, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1828 = load i32, ptr %2479, align 1
-  %2480 = getelementptr inbounds i8, ptr %2479, i64 8
+  %2480 = getelementptr inbounds nuw i8, ptr %2479, i64 8
   store ptr %2480, ptr %6, align 8
   %2481 = zext i32 %.0.copyload.i.i.i.i.i.i1828 to i64
   %2482 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2478, i64 noundef %2481) #15
@@ -7702,7 +7702,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2484 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2484, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1829 = load i32, ptr %2484, align 1
-  %2485 = getelementptr inbounds i8, ptr %2484, i64 8
+  %2485 = getelementptr inbounds nuw i8, ptr %2484, i64 8
   store ptr %2485, ptr %6, align 8
   %2486 = zext i32 %.0.copyload.i.i.i.i.i.i1829 to i64
   %2487 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2483, i64 noundef %2486) #15
@@ -7710,7 +7710,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2489 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2489, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1830 = load i32, ptr %2489, align 1
-  %2490 = getelementptr inbounds i8, ptr %2489, i64 8
+  %2490 = getelementptr inbounds nuw i8, ptr %2489, i64 8
   store ptr %2490, ptr %6, align 8
   %2491 = zext i32 %.0.copyload.i.i.i.i.i.i1830 to i64
   %2492 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2488, i64 noundef %2491) #15
@@ -7916,7 +7916,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2593 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2593, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1831 = load i32, ptr %2593, align 1
-  %2594 = getelementptr inbounds i8, ptr %2593, i64 8
+  %2594 = getelementptr inbounds nuw i8, ptr %2593, i64 8
   store ptr %2594, ptr %6, align 8
   %2595 = zext i32 %.0.copyload.i.i.i.i.i.i1831 to i64
   %2596 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2592, i64 noundef %2595) #15
@@ -7930,7 +7930,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2601 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2601, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1832 = load i32, ptr %2601, align 1
-  %2602 = getelementptr inbounds i8, ptr %2601, i64 8
+  %2602 = getelementptr inbounds nuw i8, ptr %2601, i64 8
   store ptr %2602, ptr %6, align 8
   %2603 = zext i32 %.0.copyload.i.i.i.i.i.i1832 to i64
   %2604 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2600, i64 noundef %2603) #15
@@ -7944,7 +7944,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2609 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2609, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1833 = load i32, ptr %2609, align 1
-  %2610 = getelementptr inbounds i8, ptr %2609, i64 8
+  %2610 = getelementptr inbounds nuw i8, ptr %2609, i64 8
   store ptr %2610, ptr %6, align 8
   %2611 = zext i32 %.0.copyload.i.i.i.i.i.i1833 to i64
   %2612 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2608, i64 noundef %2611) #15
@@ -8084,7 +8084,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %2680 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %2680, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1834 = load i32, ptr %2680, align 1
-  %2681 = getelementptr inbounds i8, ptr %2680, i64 8
+  %2681 = getelementptr inbounds nuw i8, ptr %2680, i64 8
   store ptr %2681, ptr %6, align 8
   %2682 = zext i32 %.0.copyload.i.i.i.i.i.i1834 to i64
   %2683 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %2679, i64 noundef %2682) #15
@@ -9658,7 +9658,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3468 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3468, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1835 = load i8, ptr %3468, align 1
-  %3469 = getelementptr inbounds i8, ptr %3468, i64 8
+  %3469 = getelementptr inbounds nuw i8, ptr %3468, i64 8
   store ptr %3469, ptr %6, align 8
   %3470 = and i8 %.0.copyload.i.i.i.i.i.i1835, 1
   %3471 = zext nneg i8 %3470 to i64
@@ -9841,7 +9841,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3561 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3561, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1836 = load i32, ptr %3561, align 1
-  %3562 = getelementptr inbounds i8, ptr %3561, i64 8
+  %3562 = getelementptr inbounds nuw i8, ptr %3561, i64 8
   store ptr %3562, ptr %6, align 8
   %3563 = zext i32 %.0.copyload.i.i.i.i.i.i1836 to i64
   %3564 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3560, i64 noundef %3563) #15
@@ -9855,7 +9855,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3569 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3569, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1837 = load i32, ptr %3569, align 1
-  %3570 = getelementptr inbounds i8, ptr %3569, i64 8
+  %3570 = getelementptr inbounds nuw i8, ptr %3569, i64 8
   store ptr %3570, ptr %6, align 8
   %3571 = zext i32 %.0.copyload.i.i.i.i.i.i1837 to i64
   %3572 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3568, i64 noundef %3571) #15
@@ -9869,7 +9869,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3577 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3577, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1838 = load i32, ptr %3577, align 1
-  %3578 = getelementptr inbounds i8, ptr %3577, i64 8
+  %3578 = getelementptr inbounds nuw i8, ptr %3577, i64 8
   store ptr %3578, ptr %6, align 8
   %3579 = zext i32 %.0.copyload.i.i.i.i.i.i1838 to i64
   %3580 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3576, i64 noundef %3579) #15
@@ -9883,7 +9883,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3585 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3585, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1839 = load i32, ptr %3585, align 1
-  %3586 = getelementptr inbounds i8, ptr %3585, i64 8
+  %3586 = getelementptr inbounds nuw i8, ptr %3585, i64 8
   store ptr %3586, ptr %6, align 8
   %3587 = zext i32 %.0.copyload.i.i.i.i.i.i1839 to i64
   %3588 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3584, i64 noundef %3587) #15
@@ -9897,7 +9897,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3593 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3593, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1840 = load i32, ptr %3593, align 1
-  %3594 = getelementptr inbounds i8, ptr %3593, i64 8
+  %3594 = getelementptr inbounds nuw i8, ptr %3593, i64 8
   store ptr %3594, ptr %6, align 8
   %3595 = zext i32 %.0.copyload.i.i.i.i.i.i1840 to i64
   %3596 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3592, i64 noundef %3595) #15
@@ -9911,7 +9911,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3601 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3601, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1841 = load i32, ptr %3601, align 1
-  %3602 = getelementptr inbounds i8, ptr %3601, i64 8
+  %3602 = getelementptr inbounds nuw i8, ptr %3601, i64 8
   store ptr %3602, ptr %6, align 8
   %3603 = zext i32 %.0.copyload.i.i.i.i.i.i1841 to i64
   %3604 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3600, i64 noundef %3603) #15
@@ -9925,7 +9925,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3609 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3609, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1842 = load i32, ptr %3609, align 1
-  %3610 = getelementptr inbounds i8, ptr %3609, i64 8
+  %3610 = getelementptr inbounds nuw i8, ptr %3609, i64 8
   store ptr %3610, ptr %6, align 8
   %3611 = zext i32 %.0.copyload.i.i.i.i.i.i1842 to i64
   %3612 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3608, i64 noundef %3611) #15
@@ -9939,7 +9939,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3617 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3617, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1843 = load i32, ptr %3617, align 1
-  %3618 = getelementptr inbounds i8, ptr %3617, i64 8
+  %3618 = getelementptr inbounds nuw i8, ptr %3617, i64 8
   store ptr %3618, ptr %6, align 8
   %3619 = zext i32 %.0.copyload.i.i.i.i.i.i1843 to i64
   %3620 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3616, i64 noundef %3619) #15
@@ -9953,7 +9953,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3625 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3625, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1844 = load i32, ptr %3625, align 1
-  %3626 = getelementptr inbounds i8, ptr %3625, i64 8
+  %3626 = getelementptr inbounds nuw i8, ptr %3625, i64 8
   store ptr %3626, ptr %6, align 8
   %3627 = zext i32 %.0.copyload.i.i.i.i.i.i1844 to i64
   %3628 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3624, i64 noundef %3627) #15
@@ -9967,7 +9967,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3633 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3633, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1845 = load i32, ptr %3633, align 1
-  %3634 = getelementptr inbounds i8, ptr %3633, i64 8
+  %3634 = getelementptr inbounds nuw i8, ptr %3633, i64 8
   store ptr %3634, ptr %6, align 8
   %3635 = zext i32 %.0.copyload.i.i.i.i.i.i1845 to i64
   %3636 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3632, i64 noundef %3635) #15
@@ -9981,7 +9981,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3641 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3641, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1846 = load i32, ptr %3641, align 1
-  %3642 = getelementptr inbounds i8, ptr %3641, i64 8
+  %3642 = getelementptr inbounds nuw i8, ptr %3641, i64 8
   store ptr %3642, ptr %6, align 8
   %3643 = zext i32 %.0.copyload.i.i.i.i.i.i1846 to i64
   %3644 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3640, i64 noundef %3643) #15
@@ -9995,7 +9995,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3649 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3649, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1847 = load i32, ptr %3649, align 1
-  %3650 = getelementptr inbounds i8, ptr %3649, i64 8
+  %3650 = getelementptr inbounds nuw i8, ptr %3649, i64 8
   store ptr %3650, ptr %6, align 8
   %3651 = zext i32 %.0.copyload.i.i.i.i.i.i1847 to i64
   %3652 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3648, i64 noundef %3651) #15
@@ -10009,7 +10009,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3657 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3657, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1848 = load i32, ptr %3657, align 1
-  %3658 = getelementptr inbounds i8, ptr %3657, i64 8
+  %3658 = getelementptr inbounds nuw i8, ptr %3657, i64 8
   store ptr %3658, ptr %6, align 8
   %3659 = zext i32 %.0.copyload.i.i.i.i.i.i1848 to i64
   %3660 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3656, i64 noundef %3659) #15
@@ -10023,7 +10023,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3665 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3665, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1849 = load i32, ptr %3665, align 1
-  %3666 = getelementptr inbounds i8, ptr %3665, i64 8
+  %3666 = getelementptr inbounds nuw i8, ptr %3665, i64 8
   store ptr %3666, ptr %6, align 8
   %3667 = zext i32 %.0.copyload.i.i.i.i.i.i1849 to i64
   %3668 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3664, i64 noundef %3667) #15
@@ -10037,7 +10037,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3673 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3673, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1850 = load i32, ptr %3673, align 1
-  %3674 = getelementptr inbounds i8, ptr %3673, i64 8
+  %3674 = getelementptr inbounds nuw i8, ptr %3673, i64 8
   store ptr %3674, ptr %6, align 8
   %3675 = zext i32 %.0.copyload.i.i.i.i.i.i1850 to i64
   %3676 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3672, i64 noundef %3675) #15
@@ -10051,7 +10051,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3681 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3681, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1851 = load i32, ptr %3681, align 1
-  %3682 = getelementptr inbounds i8, ptr %3681, i64 8
+  %3682 = getelementptr inbounds nuw i8, ptr %3681, i64 8
   store ptr %3682, ptr %6, align 8
   %3683 = zext i32 %.0.copyload.i.i.i.i.i.i1851 to i64
   %3684 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3680, i64 noundef %3683) #15
@@ -10065,7 +10065,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3689 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3689, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1852 = load i32, ptr %3689, align 1
-  %3690 = getelementptr inbounds i8, ptr %3689, i64 8
+  %3690 = getelementptr inbounds nuw i8, ptr %3689, i64 8
   store ptr %3690, ptr %6, align 8
   %3691 = zext i32 %.0.copyload.i.i.i.i.i.i1852 to i64
   %3692 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3688, i64 noundef %3691) #15
@@ -10079,7 +10079,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3697 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3697, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1853 = load i32, ptr %3697, align 1
-  %3698 = getelementptr inbounds i8, ptr %3697, i64 8
+  %3698 = getelementptr inbounds nuw i8, ptr %3697, i64 8
   store ptr %3698, ptr %6, align 8
   %3699 = zext i32 %.0.copyload.i.i.i.i.i.i1853 to i64
   %3700 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3696, i64 noundef %3699) #15
@@ -10093,7 +10093,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3705 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3705, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1854 = load i32, ptr %3705, align 1
-  %3706 = getelementptr inbounds i8, ptr %3705, i64 8
+  %3706 = getelementptr inbounds nuw i8, ptr %3705, i64 8
   store ptr %3706, ptr %6, align 8
   %3707 = zext i32 %.0.copyload.i.i.i.i.i.i1854 to i64
   %3708 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3704, i64 noundef %3707) #15
@@ -10107,7 +10107,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3713 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3713, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1855 = load i32, ptr %3713, align 1
-  %3714 = getelementptr inbounds i8, ptr %3713, i64 8
+  %3714 = getelementptr inbounds nuw i8, ptr %3713, i64 8
   store ptr %3714, ptr %6, align 8
   %3715 = zext i32 %.0.copyload.i.i.i.i.i.i1855 to i64
   %3716 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3712, i64 noundef %3715) #15
@@ -10121,7 +10121,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3721 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3721, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1856 = load i32, ptr %3721, align 1
-  %3722 = getelementptr inbounds i8, ptr %3721, i64 8
+  %3722 = getelementptr inbounds nuw i8, ptr %3721, i64 8
   store ptr %3722, ptr %6, align 8
   %3723 = zext i32 %.0.copyload.i.i.i.i.i.i1856 to i64
   %3724 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3720, i64 noundef %3723) #15
@@ -10135,7 +10135,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3729 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3729, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1857 = load i32, ptr %3729, align 1
-  %3730 = getelementptr inbounds i8, ptr %3729, i64 8
+  %3730 = getelementptr inbounds nuw i8, ptr %3729, i64 8
   store ptr %3730, ptr %6, align 8
   %3731 = zext i32 %.0.copyload.i.i.i.i.i.i1857 to i64
   %3732 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3728, i64 noundef %3731) #15
@@ -10149,7 +10149,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3737 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3737, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1858 = load i32, ptr %3737, align 1
-  %3738 = getelementptr inbounds i8, ptr %3737, i64 8
+  %3738 = getelementptr inbounds nuw i8, ptr %3737, i64 8
   store ptr %3738, ptr %6, align 8
   %3739 = zext i32 %.0.copyload.i.i.i.i.i.i1858 to i64
   %3740 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3736, i64 noundef %3739) #15
@@ -10163,7 +10163,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3745 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3745, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1859 = load i32, ptr %3745, align 1
-  %3746 = getelementptr inbounds i8, ptr %3745, i64 8
+  %3746 = getelementptr inbounds nuw i8, ptr %3745, i64 8
   store ptr %3746, ptr %6, align 8
   %3747 = zext i32 %.0.copyload.i.i.i.i.i.i1859 to i64
   %3748 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3744, i64 noundef %3747) #15
@@ -10177,7 +10177,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3753 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3753, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1860 = load i32, ptr %3753, align 1
-  %3754 = getelementptr inbounds i8, ptr %3753, i64 8
+  %3754 = getelementptr inbounds nuw i8, ptr %3753, i64 8
   store ptr %3754, ptr %6, align 8
   %3755 = zext i32 %.0.copyload.i.i.i.i.i.i1860 to i64
   %3756 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3752, i64 noundef %3755) #15
@@ -10191,7 +10191,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3761 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3761, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1861 = load i32, ptr %3761, align 1
-  %3762 = getelementptr inbounds i8, ptr %3761, i64 8
+  %3762 = getelementptr inbounds nuw i8, ptr %3761, i64 8
   store ptr %3762, ptr %6, align 8
   %3763 = zext i32 %.0.copyload.i.i.i.i.i.i1861 to i64
   %3764 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3760, i64 noundef %3763) #15
@@ -10205,7 +10205,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3769 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3769, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1862 = load i32, ptr %3769, align 1
-  %3770 = getelementptr inbounds i8, ptr %3769, i64 8
+  %3770 = getelementptr inbounds nuw i8, ptr %3769, i64 8
   store ptr %3770, ptr %6, align 8
   %3771 = zext i32 %.0.copyload.i.i.i.i.i.i1862 to i64
   %3772 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3768, i64 noundef %3771) #15
@@ -10219,7 +10219,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3777 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3777, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1863 = load i32, ptr %3777, align 1
-  %3778 = getelementptr inbounds i8, ptr %3777, i64 8
+  %3778 = getelementptr inbounds nuw i8, ptr %3777, i64 8
   store ptr %3778, ptr %6, align 8
   %3779 = zext i32 %.0.copyload.i.i.i.i.i.i1863 to i64
   %3780 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3776, i64 noundef %3779) #15
@@ -10233,7 +10233,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3785 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3785, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1864 = load i32, ptr %3785, align 1
-  %3786 = getelementptr inbounds i8, ptr %3785, i64 8
+  %3786 = getelementptr inbounds nuw i8, ptr %3785, i64 8
   store ptr %3786, ptr %6, align 8
   %3787 = zext i32 %.0.copyload.i.i.i.i.i.i1864 to i64
   %3788 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3784, i64 noundef %3787) #15
@@ -10247,7 +10247,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3793 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3793, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1865 = load i32, ptr %3793, align 1
-  %3794 = getelementptr inbounds i8, ptr %3793, i64 8
+  %3794 = getelementptr inbounds nuw i8, ptr %3793, i64 8
   store ptr %3794, ptr %6, align 8
   %3795 = zext i32 %.0.copyload.i.i.i.i.i.i1865 to i64
   %3796 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3792, i64 noundef %3795) #15
@@ -10262,7 +10262,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3802 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3802, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1866 = load i32, ptr %3802, align 1
-  %3803 = getelementptr inbounds i8, ptr %3802, i64 8
+  %3803 = getelementptr inbounds nuw i8, ptr %3802, i64 8
   store ptr %3803, ptr %6, align 8
   %3804 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %3801, i32 noundef %.0.copyload.i.i.i.i.i.i1866) #15
   %3805 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %3800, ptr noundef %3804) #15
@@ -10276,7 +10276,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3810 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3810, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1867 = load i32, ptr %3810, align 1
-  %3811 = getelementptr inbounds i8, ptr %3810, i64 8
+  %3811 = getelementptr inbounds nuw i8, ptr %3810, i64 8
   store ptr %3811, ptr %6, align 8
   %3812 = zext i32 %.0.copyload.i.i.i.i.i.i1867 to i64
   %3813 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3809, i64 noundef %3812) #15
@@ -10290,7 +10290,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3818 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3818, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1868 = load i32, ptr %3818, align 1
-  %3819 = getelementptr inbounds i8, ptr %3818, i64 8
+  %3819 = getelementptr inbounds nuw i8, ptr %3818, i64 8
   store ptr %3819, ptr %6, align 8
   %3820 = zext i32 %.0.copyload.i.i.i.i.i.i1868 to i64
   %3821 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3817, i64 noundef %3820) #15
@@ -10304,7 +10304,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3826 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3826, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1869 = load i32, ptr %3826, align 1
-  %3827 = getelementptr inbounds i8, ptr %3826, i64 8
+  %3827 = getelementptr inbounds nuw i8, ptr %3826, i64 8
   store ptr %3827, ptr %6, align 8
   %3828 = zext i32 %.0.copyload.i.i.i.i.i.i1869 to i64
   %3829 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3825, i64 noundef %3828) #15
@@ -10318,7 +10318,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3834 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3834, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1870 = load i32, ptr %3834, align 1
-  %3835 = getelementptr inbounds i8, ptr %3834, i64 8
+  %3835 = getelementptr inbounds nuw i8, ptr %3834, i64 8
   store ptr %3835, ptr %6, align 8
   %3836 = zext i32 %.0.copyload.i.i.i.i.i.i1870 to i64
   %3837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3833, i64 noundef %3836) #15
@@ -10332,7 +10332,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3842 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3842, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1871 = load i32, ptr %3842, align 1
-  %3843 = getelementptr inbounds i8, ptr %3842, i64 8
+  %3843 = getelementptr inbounds nuw i8, ptr %3842, i64 8
   store ptr %3843, ptr %6, align 8
   %3844 = zext i32 %.0.copyload.i.i.i.i.i.i1871 to i64
   %3845 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3841, i64 noundef %3844) #15
@@ -10346,7 +10346,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3850 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3850, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1872 = load i32, ptr %3850, align 1
-  %3851 = getelementptr inbounds i8, ptr %3850, i64 8
+  %3851 = getelementptr inbounds nuw i8, ptr %3850, i64 8
   store ptr %3851, ptr %6, align 8
   %3852 = zext i32 %.0.copyload.i.i.i.i.i.i1872 to i64
   %3853 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3849, i64 noundef %3852) #15
@@ -10360,7 +10360,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3858 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3858, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1873 = load i32, ptr %3858, align 1
-  %3859 = getelementptr inbounds i8, ptr %3858, i64 8
+  %3859 = getelementptr inbounds nuw i8, ptr %3858, i64 8
   store ptr %3859, ptr %6, align 8
   %3860 = zext i32 %.0.copyload.i.i.i.i.i.i1873 to i64
   %3861 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3857, i64 noundef %3860) #15
@@ -10374,7 +10374,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3866 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3866, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1874 = load i32, ptr %3866, align 1
-  %3867 = getelementptr inbounds i8, ptr %3866, i64 8
+  %3867 = getelementptr inbounds nuw i8, ptr %3866, i64 8
   store ptr %3867, ptr %6, align 8
   %3868 = zext i32 %.0.copyload.i.i.i.i.i.i1874 to i64
   %3869 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3865, i64 noundef %3868) #15
@@ -10388,7 +10388,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3874 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3874, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1875 = load i32, ptr %3874, align 1
-  %3875 = getelementptr inbounds i8, ptr %3874, i64 8
+  %3875 = getelementptr inbounds nuw i8, ptr %3874, i64 8
   store ptr %3875, ptr %6, align 8
   %3876 = zext i32 %.0.copyload.i.i.i.i.i.i1875 to i64
   %3877 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3873, i64 noundef %3876) #15
@@ -10402,7 +10402,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3882 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3882, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1876 = load i32, ptr %3882, align 1
-  %3883 = getelementptr inbounds i8, ptr %3882, i64 8
+  %3883 = getelementptr inbounds nuw i8, ptr %3882, i64 8
   store ptr %3883, ptr %6, align 8
   %3884 = zext i32 %.0.copyload.i.i.i.i.i.i1876 to i64
   %3885 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3881, i64 noundef %3884) #15
@@ -10416,7 +10416,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3890 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3890, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1877 = load i32, ptr %3890, align 1
-  %3891 = getelementptr inbounds i8, ptr %3890, i64 8
+  %3891 = getelementptr inbounds nuw i8, ptr %3890, i64 8
   store ptr %3891, ptr %6, align 8
   %3892 = zext i32 %.0.copyload.i.i.i.i.i.i1877 to i64
   %3893 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3889, i64 noundef %3892) #15
@@ -10430,7 +10430,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3898 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3898, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1878 = load i32, ptr %3898, align 1
-  %3899 = getelementptr inbounds i8, ptr %3898, i64 8
+  %3899 = getelementptr inbounds nuw i8, ptr %3898, i64 8
   store ptr %3899, ptr %6, align 8
   %3900 = zext i32 %.0.copyload.i.i.i.i.i.i1878 to i64
   %3901 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3897, i64 noundef %3900) #15
@@ -10444,7 +10444,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3906 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3906, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1879 = load i32, ptr %3906, align 1
-  %3907 = getelementptr inbounds i8, ptr %3906, i64 8
+  %3907 = getelementptr inbounds nuw i8, ptr %3906, i64 8
   store ptr %3907, ptr %6, align 8
   %3908 = zext i32 %.0.copyload.i.i.i.i.i.i1879 to i64
   %3909 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3905, i64 noundef %3908) #15
@@ -10458,7 +10458,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3914 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3914, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1880 = load i32, ptr %3914, align 1
-  %3915 = getelementptr inbounds i8, ptr %3914, i64 8
+  %3915 = getelementptr inbounds nuw i8, ptr %3914, i64 8
   store ptr %3915, ptr %6, align 8
   %3916 = zext i32 %.0.copyload.i.i.i.i.i.i1880 to i64
   %3917 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3913, i64 noundef %3916) #15
@@ -10472,7 +10472,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3922 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3922, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1881 = load i32, ptr %3922, align 1
-  %3923 = getelementptr inbounds i8, ptr %3922, i64 8
+  %3923 = getelementptr inbounds nuw i8, ptr %3922, i64 8
   store ptr %3923, ptr %6, align 8
   %3924 = zext i32 %.0.copyload.i.i.i.i.i.i1881 to i64
   %3925 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3921, i64 noundef %3924) #15
@@ -10486,7 +10486,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3930 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3930, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1882 = load i32, ptr %3930, align 1
-  %3931 = getelementptr inbounds i8, ptr %3930, i64 8
+  %3931 = getelementptr inbounds nuw i8, ptr %3930, i64 8
   store ptr %3931, ptr %6, align 8
   %3932 = zext i32 %.0.copyload.i.i.i.i.i.i1882 to i64
   %3933 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3929, i64 noundef %3932) #15
@@ -10500,7 +10500,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3938 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3938, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1883 = load i32, ptr %3938, align 1
-  %3939 = getelementptr inbounds i8, ptr %3938, i64 8
+  %3939 = getelementptr inbounds nuw i8, ptr %3938, i64 8
   store ptr %3939, ptr %6, align 8
   %3940 = zext i32 %.0.copyload.i.i.i.i.i.i1883 to i64
   %3941 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3937, i64 noundef %3940) #15
@@ -10514,7 +10514,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3946 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3946, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1884 = load i32, ptr %3946, align 1
-  %3947 = getelementptr inbounds i8, ptr %3946, i64 8
+  %3947 = getelementptr inbounds nuw i8, ptr %3946, i64 8
   store ptr %3947, ptr %6, align 8
   %3948 = zext i32 %.0.copyload.i.i.i.i.i.i1884 to i64
   %3949 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3945, i64 noundef %3948) #15
@@ -10528,7 +10528,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3954 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3954, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1885 = load i32, ptr %3954, align 1
-  %3955 = getelementptr inbounds i8, ptr %3954, i64 8
+  %3955 = getelementptr inbounds nuw i8, ptr %3954, i64 8
   store ptr %3955, ptr %6, align 8
   %3956 = zext i32 %.0.copyload.i.i.i.i.i.i1885 to i64
   %3957 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3953, i64 noundef %3956) #15
@@ -10542,7 +10542,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3962 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3962, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1886 = load i32, ptr %3962, align 1
-  %3963 = getelementptr inbounds i8, ptr %3962, i64 8
+  %3963 = getelementptr inbounds nuw i8, ptr %3962, i64 8
   store ptr %3963, ptr %6, align 8
   %3964 = zext i32 %.0.copyload.i.i.i.i.i.i1886 to i64
   %3965 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3961, i64 noundef %3964) #15
@@ -10556,7 +10556,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3970 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3970, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1887 = load i32, ptr %3970, align 1
-  %3971 = getelementptr inbounds i8, ptr %3970, i64 8
+  %3971 = getelementptr inbounds nuw i8, ptr %3970, i64 8
   store ptr %3971, ptr %6, align 8
   %3972 = zext i32 %.0.copyload.i.i.i.i.i.i1887 to i64
   %3973 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3969, i64 noundef %3972) #15
@@ -10570,7 +10570,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3978 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3978, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1888 = load i32, ptr %3978, align 1
-  %3979 = getelementptr inbounds i8, ptr %3978, i64 8
+  %3979 = getelementptr inbounds nuw i8, ptr %3978, i64 8
   store ptr %3979, ptr %6, align 8
   %3980 = zext i32 %.0.copyload.i.i.i.i.i.i1888 to i64
   %3981 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3977, i64 noundef %3980) #15
@@ -10584,7 +10584,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3986 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3986, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1889 = load i32, ptr %3986, align 1
-  %3987 = getelementptr inbounds i8, ptr %3986, i64 8
+  %3987 = getelementptr inbounds nuw i8, ptr %3986, i64 8
   store ptr %3987, ptr %6, align 8
   %3988 = zext i32 %.0.copyload.i.i.i.i.i.i1889 to i64
   %3989 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3985, i64 noundef %3988) #15
@@ -10598,7 +10598,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %3994 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %3994, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1890 = load i32, ptr %3994, align 1
-  %3995 = getelementptr inbounds i8, ptr %3994, i64 8
+  %3995 = getelementptr inbounds nuw i8, ptr %3994, i64 8
   store ptr %3995, ptr %6, align 8
   %3996 = zext i32 %.0.copyload.i.i.i.i.i.i1890 to i64
   %3997 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %3993, i64 noundef %3996) #15
@@ -10612,7 +10612,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4002 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4002, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1891 = load i32, ptr %4002, align 1
-  %4003 = getelementptr inbounds i8, ptr %4002, i64 8
+  %4003 = getelementptr inbounds nuw i8, ptr %4002, i64 8
   store ptr %4003, ptr %6, align 8
   %4004 = zext i32 %.0.copyload.i.i.i.i.i.i1891 to i64
   %4005 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4001, i64 noundef %4004) #15
@@ -10626,7 +10626,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4010 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4010, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1892 = load i32, ptr %4010, align 1
-  %4011 = getelementptr inbounds i8, ptr %4010, i64 8
+  %4011 = getelementptr inbounds nuw i8, ptr %4010, i64 8
   store ptr %4011, ptr %6, align 8
   %4012 = zext i32 %.0.copyload.i.i.i.i.i.i1892 to i64
   %4013 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4009, i64 noundef %4012) #15
@@ -10640,7 +10640,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4018 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4018, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1893 = load i32, ptr %4018, align 1
-  %4019 = getelementptr inbounds i8, ptr %4018, i64 8
+  %4019 = getelementptr inbounds nuw i8, ptr %4018, i64 8
   store ptr %4019, ptr %6, align 8
   %4020 = zext i32 %.0.copyload.i.i.i.i.i.i1893 to i64
   %4021 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4017, i64 noundef %4020) #15
@@ -10654,7 +10654,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4026 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4026, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1894 = load i32, ptr %4026, align 1
-  %4027 = getelementptr inbounds i8, ptr %4026, i64 8
+  %4027 = getelementptr inbounds nuw i8, ptr %4026, i64 8
   store ptr %4027, ptr %6, align 8
   %4028 = zext i32 %.0.copyload.i.i.i.i.i.i1894 to i64
   %4029 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4025, i64 noundef %4028) #15
@@ -10668,7 +10668,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4034 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4034, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1895 = load i32, ptr %4034, align 1
-  %4035 = getelementptr inbounds i8, ptr %4034, i64 8
+  %4035 = getelementptr inbounds nuw i8, ptr %4034, i64 8
   store ptr %4035, ptr %6, align 8
   %4036 = zext i32 %.0.copyload.i.i.i.i.i.i1895 to i64
   %4037 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4033, i64 noundef %4036) #15
@@ -10682,7 +10682,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4042 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4042, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1896 = load i32, ptr %4042, align 1
-  %4043 = getelementptr inbounds i8, ptr %4042, i64 8
+  %4043 = getelementptr inbounds nuw i8, ptr %4042, i64 8
   store ptr %4043, ptr %6, align 8
   %4044 = zext i32 %.0.copyload.i.i.i.i.i.i1896 to i64
   %4045 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4041, i64 noundef %4044) #15
@@ -10697,7 +10697,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4051 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4051, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1897 = load i32, ptr %4051, align 1
-  %4052 = getelementptr inbounds i8, ptr %4051, i64 8
+  %4052 = getelementptr inbounds nuw i8, ptr %4051, i64 8
   store ptr %4052, ptr %6, align 8
   %4053 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4050, i32 noundef %.0.copyload.i.i.i.i.i.i1897) #15
   %4054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4049, ptr noundef %4053) #15
@@ -10712,7 +10712,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4060 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4060, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1898 = load i32, ptr %4060, align 1
-  %4061 = getelementptr inbounds i8, ptr %4060, i64 8
+  %4061 = getelementptr inbounds nuw i8, ptr %4060, i64 8
   store ptr %4061, ptr %6, align 8
   %4062 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4059, i32 noundef %.0.copyload.i.i.i.i.i.i1898) #15
   %4063 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4058, ptr noundef %4062) #15
@@ -10727,7 +10727,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4069 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4069, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1899 = load i32, ptr %4069, align 1
-  %4070 = getelementptr inbounds i8, ptr %4069, i64 8
+  %4070 = getelementptr inbounds nuw i8, ptr %4069, i64 8
   store ptr %4070, ptr %6, align 8
   %4071 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4068, i32 noundef %.0.copyload.i.i.i.i.i.i1899) #15
   %4072 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4067, ptr noundef %4071) #15
@@ -10742,7 +10742,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4078 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4078, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1900 = load i32, ptr %4078, align 1
-  %4079 = getelementptr inbounds i8, ptr %4078, i64 8
+  %4079 = getelementptr inbounds nuw i8, ptr %4078, i64 8
   store ptr %4079, ptr %6, align 8
   %4080 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4077, i32 noundef %.0.copyload.i.i.i.i.i.i1900) #15
   %4081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4076, ptr noundef %4080) #15
@@ -10757,7 +10757,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4087 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4087, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1901 = load i32, ptr %4087, align 1
-  %4088 = getelementptr inbounds i8, ptr %4087, i64 8
+  %4088 = getelementptr inbounds nuw i8, ptr %4087, i64 8
   store ptr %4088, ptr %6, align 8
   %4089 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4086, i32 noundef %.0.copyload.i.i.i.i.i.i1901) #15
   %4090 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4085, ptr noundef %4089) #15
@@ -10772,7 +10772,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4096 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4096, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1902 = load i32, ptr %4096, align 1
-  %4097 = getelementptr inbounds i8, ptr %4096, i64 8
+  %4097 = getelementptr inbounds nuw i8, ptr %4096, i64 8
   store ptr %4097, ptr %6, align 8
   %4098 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4095, i32 noundef %.0.copyload.i.i.i.i.i.i1902) #15
   %4099 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4094, ptr noundef %4098) #15
@@ -10787,7 +10787,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4105 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4105, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1903 = load i32, ptr %4105, align 1
-  %4106 = getelementptr inbounds i8, ptr %4105, i64 8
+  %4106 = getelementptr inbounds nuw i8, ptr %4105, i64 8
   store ptr %4106, ptr %6, align 8
   %4107 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4104, i32 noundef %.0.copyload.i.i.i.i.i.i1903) #15
   %4108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4103, ptr noundef %4107) #15
@@ -10802,7 +10802,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4114 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4114, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1904 = load i32, ptr %4114, align 1
-  %4115 = getelementptr inbounds i8, ptr %4114, i64 8
+  %4115 = getelementptr inbounds nuw i8, ptr %4114, i64 8
   store ptr %4115, ptr %6, align 8
   %4116 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4113, i32 noundef %.0.copyload.i.i.i.i.i.i1904) #15
   %4117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4112, ptr noundef %4116) #15
@@ -10817,7 +10817,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4123 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4123, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1905 = load i32, ptr %4123, align 1
-  %4124 = getelementptr inbounds i8, ptr %4123, i64 8
+  %4124 = getelementptr inbounds nuw i8, ptr %4123, i64 8
   store ptr %4124, ptr %6, align 8
   %4125 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4122, i32 noundef %.0.copyload.i.i.i.i.i.i1905) #15
   %4126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4121, ptr noundef %4125) #15
@@ -10832,7 +10832,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4132 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4132, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1906 = load i32, ptr %4132, align 1
-  %4133 = getelementptr inbounds i8, ptr %4132, i64 8
+  %4133 = getelementptr inbounds nuw i8, ptr %4132, i64 8
   store ptr %4133, ptr %6, align 8
   %4134 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4131, i32 noundef %.0.copyload.i.i.i.i.i.i1906) #15
   %4135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4130, ptr noundef %4134) #15
@@ -10847,7 +10847,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4141 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4141, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1907 = load i32, ptr %4141, align 1
-  %4142 = getelementptr inbounds i8, ptr %4141, i64 8
+  %4142 = getelementptr inbounds nuw i8, ptr %4141, i64 8
   store ptr %4142, ptr %6, align 8
   %4143 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4140, i32 noundef %.0.copyload.i.i.i.i.i.i1907) #15
   %4144 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4139, ptr noundef %4143) #15
@@ -10861,7 +10861,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4149 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4149, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1908 = load i32, ptr %4149, align 1
-  %4150 = getelementptr inbounds i8, ptr %4149, i64 8
+  %4150 = getelementptr inbounds nuw i8, ptr %4149, i64 8
   store ptr %4150, ptr %6, align 8
   %4151 = zext i32 %.0.copyload.i.i.i.i.i.i1908 to i64
   %4152 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4148, i64 noundef %4151) #15
@@ -10875,7 +10875,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4157 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4157, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1909 = load i32, ptr %4157, align 1
-  %4158 = getelementptr inbounds i8, ptr %4157, i64 8
+  %4158 = getelementptr inbounds nuw i8, ptr %4157, i64 8
   store ptr %4158, ptr %6, align 8
   %4159 = zext i32 %.0.copyload.i.i.i.i.i.i1909 to i64
   %4160 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4156, i64 noundef %4159) #15
@@ -10889,7 +10889,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4165 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4165, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1910 = load i32, ptr %4165, align 1
-  %4166 = getelementptr inbounds i8, ptr %4165, i64 8
+  %4166 = getelementptr inbounds nuw i8, ptr %4165, i64 8
   store ptr %4166, ptr %6, align 8
   %4167 = zext i32 %.0.copyload.i.i.i.i.i.i1910 to i64
   %4168 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4164, i64 noundef %4167) #15
@@ -10903,7 +10903,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4173 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4173, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1911 = load i32, ptr %4173, align 1
-  %4174 = getelementptr inbounds i8, ptr %4173, i64 8
+  %4174 = getelementptr inbounds nuw i8, ptr %4173, i64 8
   store ptr %4174, ptr %6, align 8
   %4175 = zext i32 %.0.copyload.i.i.i.i.i.i1911 to i64
   %4176 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4172, i64 noundef %4175) #15
@@ -10917,7 +10917,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4181 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4181, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1912 = load i32, ptr %4181, align 1
-  %4182 = getelementptr inbounds i8, ptr %4181, i64 8
+  %4182 = getelementptr inbounds nuw i8, ptr %4181, i64 8
   store ptr %4182, ptr %6, align 8
   %4183 = zext i32 %.0.copyload.i.i.i.i.i.i1912 to i64
   %4184 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4180, i64 noundef %4183) #15
@@ -10931,7 +10931,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4189 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4189, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1913 = load i32, ptr %4189, align 1
-  %4190 = getelementptr inbounds i8, ptr %4189, i64 8
+  %4190 = getelementptr inbounds nuw i8, ptr %4189, i64 8
   store ptr %4190, ptr %6, align 8
   %4191 = zext i32 %.0.copyload.i.i.i.i.i.i1913 to i64
   %4192 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4188, i64 noundef %4191) #15
@@ -10945,7 +10945,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4197 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4197, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1914 = load i32, ptr %4197, align 1
-  %4198 = getelementptr inbounds i8, ptr %4197, i64 8
+  %4198 = getelementptr inbounds nuw i8, ptr %4197, i64 8
   store ptr %4198, ptr %6, align 8
   %4199 = zext i32 %.0.copyload.i.i.i.i.i.i1914 to i64
   %4200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4196, i64 noundef %4199) #15
@@ -10959,7 +10959,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4205 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4205, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1915 = load i32, ptr %4205, align 1
-  %4206 = getelementptr inbounds i8, ptr %4205, i64 8
+  %4206 = getelementptr inbounds nuw i8, ptr %4205, i64 8
   store ptr %4206, ptr %6, align 8
   %4207 = zext i32 %.0.copyload.i.i.i.i.i.i1915 to i64
   %4208 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4204, i64 noundef %4207) #15
@@ -10973,7 +10973,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4213 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4213, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1916 = load i32, ptr %4213, align 1
-  %4214 = getelementptr inbounds i8, ptr %4213, i64 8
+  %4214 = getelementptr inbounds nuw i8, ptr %4213, i64 8
   store ptr %4214, ptr %6, align 8
   %4215 = zext i32 %.0.copyload.i.i.i.i.i.i1916 to i64
   %4216 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4212, i64 noundef %4215) #15
@@ -10987,7 +10987,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4221 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4221, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1917 = load i32, ptr %4221, align 1
-  %4222 = getelementptr inbounds i8, ptr %4221, i64 8
+  %4222 = getelementptr inbounds nuw i8, ptr %4221, i64 8
   store ptr %4222, ptr %6, align 8
   %4223 = zext i32 %.0.copyload.i.i.i.i.i.i1917 to i64
   %4224 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4220, i64 noundef %4223) #15
@@ -11001,7 +11001,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4229 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4229, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1918 = load i32, ptr %4229, align 1
-  %4230 = getelementptr inbounds i8, ptr %4229, i64 8
+  %4230 = getelementptr inbounds nuw i8, ptr %4229, i64 8
   store ptr %4230, ptr %6, align 8
   %4231 = zext i32 %.0.copyload.i.i.i.i.i.i1918 to i64
   %4232 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4228, i64 noundef %4231) #15
@@ -11015,7 +11015,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4237 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4237, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1919 = load i32, ptr %4237, align 1
-  %4238 = getelementptr inbounds i8, ptr %4237, i64 8
+  %4238 = getelementptr inbounds nuw i8, ptr %4237, i64 8
   store ptr %4238, ptr %6, align 8
   %4239 = zext i32 %.0.copyload.i.i.i.i.i.i1919 to i64
   %4240 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4236, i64 noundef %4239) #15
@@ -11029,7 +11029,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4245 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4245, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1920 = load i32, ptr %4245, align 1
-  %4246 = getelementptr inbounds i8, ptr %4245, i64 8
+  %4246 = getelementptr inbounds nuw i8, ptr %4245, i64 8
   store ptr %4246, ptr %6, align 8
   %4247 = zext i32 %.0.copyload.i.i.i.i.i.i1920 to i64
   %4248 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4244, i64 noundef %4247) #15
@@ -11043,7 +11043,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4253 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4253, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1921 = load i32, ptr %4253, align 1
-  %4254 = getelementptr inbounds i8, ptr %4253, i64 8
+  %4254 = getelementptr inbounds nuw i8, ptr %4253, i64 8
   store ptr %4254, ptr %6, align 8
   %4255 = zext i32 %.0.copyload.i.i.i.i.i.i1921 to i64
   %4256 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4252, i64 noundef %4255) #15
@@ -11057,7 +11057,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4261 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4261, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1922 = load i32, ptr %4261, align 1
-  %4262 = getelementptr inbounds i8, ptr %4261, i64 8
+  %4262 = getelementptr inbounds nuw i8, ptr %4261, i64 8
   store ptr %4262, ptr %6, align 8
   %4263 = zext i32 %.0.copyload.i.i.i.i.i.i1922 to i64
   %4264 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4260, i64 noundef %4263) #15
@@ -11072,7 +11072,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4270 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4270, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1923 = load i32, ptr %4270, align 1
-  %4271 = getelementptr inbounds i8, ptr %4270, i64 8
+  %4271 = getelementptr inbounds nuw i8, ptr %4270, i64 8
   store ptr %4271, ptr %6, align 8
   %4272 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4269, i32 noundef %.0.copyload.i.i.i.i.i.i1923) #15
   %4273 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4268, ptr noundef %4272) #15
@@ -11092,7 +11092,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4281 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4281, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1924 = load i32, ptr %4281, align 1
-  %4282 = getelementptr inbounds i8, ptr %4281, i64 8
+  %4282 = getelementptr inbounds nuw i8, ptr %4281, i64 8
   store ptr %4282, ptr %6, align 8
   %4283 = sext i32 %.0.copyload.i.i.i.i.i.i1924 to i64
   %4284 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %4280, i64 noundef %4283) #15
@@ -11112,7 +11112,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4292 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4292, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1925 = load i32, ptr %4292, align 1
-  %4293 = getelementptr inbounds i8, ptr %4292, i64 8
+  %4293 = getelementptr inbounds nuw i8, ptr %4292, i64 8
   store ptr %4293, ptr %6, align 8
   %4294 = zext i32 %.0.copyload.i.i.i.i.i.i1925 to i64
   %4295 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4291, i64 noundef %4294) #15
@@ -11126,7 +11126,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4300 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4300, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1926 = load i32, ptr %4300, align 1
-  %4301 = getelementptr inbounds i8, ptr %4300, i64 8
+  %4301 = getelementptr inbounds nuw i8, ptr %4300, i64 8
   store ptr %4301, ptr %6, align 8
   %4302 = zext i32 %.0.copyload.i.i.i.i.i.i1926 to i64
   %4303 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4299, i64 noundef %4302) #15
@@ -11140,7 +11140,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4308 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4308, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1927 = load i32, ptr %4308, align 1
-  %4309 = getelementptr inbounds i8, ptr %4308, i64 8
+  %4309 = getelementptr inbounds nuw i8, ptr %4308, i64 8
   store ptr %4309, ptr %6, align 8
   %4310 = zext i32 %.0.copyload.i.i.i.i.i.i1927 to i64
   %4311 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4307, i64 noundef %4310) #15
@@ -11154,7 +11154,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4316 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4316, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1928 = load i32, ptr %4316, align 1
-  %4317 = getelementptr inbounds i8, ptr %4316, i64 8
+  %4317 = getelementptr inbounds nuw i8, ptr %4316, i64 8
   store ptr %4317, ptr %6, align 8
   %4318 = zext i32 %.0.copyload.i.i.i.i.i.i1928 to i64
   %4319 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4315, i64 noundef %4318) #15
@@ -11168,7 +11168,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4324 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4324, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1929 = load i32, ptr %4324, align 1
-  %4325 = getelementptr inbounds i8, ptr %4324, i64 8
+  %4325 = getelementptr inbounds nuw i8, ptr %4324, i64 8
   store ptr %4325, ptr %6, align 8
   %4326 = zext i32 %.0.copyload.i.i.i.i.i.i1929 to i64
   %4327 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4323, i64 noundef %4326) #15
@@ -11182,7 +11182,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4332 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4332, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1930 = load i32, ptr %4332, align 1
-  %4333 = getelementptr inbounds i8, ptr %4332, i64 8
+  %4333 = getelementptr inbounds nuw i8, ptr %4332, i64 8
   store ptr %4333, ptr %6, align 8
   %4334 = zext i32 %.0.copyload.i.i.i.i.i.i1930 to i64
   %4335 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4331, i64 noundef %4334) #15
@@ -11196,7 +11196,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4340 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4340, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1931 = load i32, ptr %4340, align 1
-  %4341 = getelementptr inbounds i8, ptr %4340, i64 8
+  %4341 = getelementptr inbounds nuw i8, ptr %4340, i64 8
   store ptr %4341, ptr %6, align 8
   %4342 = zext i32 %.0.copyload.i.i.i.i.i.i1931 to i64
   %4343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4339, i64 noundef %4342) #15
@@ -11210,7 +11210,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4348 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4348, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1932 = load i32, ptr %4348, align 1
-  %4349 = getelementptr inbounds i8, ptr %4348, i64 8
+  %4349 = getelementptr inbounds nuw i8, ptr %4348, i64 8
   store ptr %4349, ptr %6, align 8
   %4350 = zext i32 %.0.copyload.i.i.i.i.i.i1932 to i64
   %4351 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4347, i64 noundef %4350) #15
@@ -11224,7 +11224,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4356 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4356, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1933 = load i32, ptr %4356, align 1
-  %4357 = getelementptr inbounds i8, ptr %4356, i64 8
+  %4357 = getelementptr inbounds nuw i8, ptr %4356, i64 8
   store ptr %4357, ptr %6, align 8
   %4358 = zext i32 %.0.copyload.i.i.i.i.i.i1933 to i64
   %4359 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4355, i64 noundef %4358) #15
@@ -11238,7 +11238,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4364 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4364, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1934 = load i32, ptr %4364, align 1
-  %4365 = getelementptr inbounds i8, ptr %4364, i64 8
+  %4365 = getelementptr inbounds nuw i8, ptr %4364, i64 8
   store ptr %4365, ptr %6, align 8
   %4366 = zext i32 %.0.copyload.i.i.i.i.i.i1934 to i64
   %4367 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4363, i64 noundef %4366) #15
@@ -11252,7 +11252,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4372 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4372, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1935 = load i32, ptr %4372, align 1
-  %4373 = getelementptr inbounds i8, ptr %4372, i64 8
+  %4373 = getelementptr inbounds nuw i8, ptr %4372, i64 8
   store ptr %4373, ptr %6, align 8
   %4374 = zext i32 %.0.copyload.i.i.i.i.i.i1935 to i64
   %4375 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4371, i64 noundef %4374) #15
@@ -11266,7 +11266,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4380 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4380, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1936 = load i32, ptr %4380, align 1
-  %4381 = getelementptr inbounds i8, ptr %4380, i64 8
+  %4381 = getelementptr inbounds nuw i8, ptr %4380, i64 8
   store ptr %4381, ptr %6, align 8
   %4382 = zext i32 %.0.copyload.i.i.i.i.i.i1936 to i64
   %4383 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4379, i64 noundef %4382) #15
@@ -11280,7 +11280,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4388 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4388, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1937 = load i32, ptr %4388, align 1
-  %4389 = getelementptr inbounds i8, ptr %4388, i64 8
+  %4389 = getelementptr inbounds nuw i8, ptr %4388, i64 8
   store ptr %4389, ptr %6, align 8
   %4390 = zext i32 %.0.copyload.i.i.i.i.i.i1937 to i64
   %4391 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4387, i64 noundef %4390) #15
@@ -11294,7 +11294,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4396 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4396, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1938 = load i32, ptr %4396, align 1
-  %4397 = getelementptr inbounds i8, ptr %4396, i64 8
+  %4397 = getelementptr inbounds nuw i8, ptr %4396, i64 8
   store ptr %4397, ptr %6, align 8
   %4398 = zext i32 %.0.copyload.i.i.i.i.i.i1938 to i64
   %4399 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4395, i64 noundef %4398) #15
@@ -11308,7 +11308,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4404 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4404, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1939 = load i32, ptr %4404, align 1
-  %4405 = getelementptr inbounds i8, ptr %4404, i64 8
+  %4405 = getelementptr inbounds nuw i8, ptr %4404, i64 8
   store ptr %4405, ptr %6, align 8
   %4406 = zext i32 %.0.copyload.i.i.i.i.i.i1939 to i64
   %4407 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4403, i64 noundef %4406) #15
@@ -11322,7 +11322,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4412 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4412, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1940 = load i32, ptr %4412, align 1
-  %4413 = getelementptr inbounds i8, ptr %4412, i64 8
+  %4413 = getelementptr inbounds nuw i8, ptr %4412, i64 8
   store ptr %4413, ptr %6, align 8
   %4414 = zext i32 %.0.copyload.i.i.i.i.i.i1940 to i64
   %4415 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4411, i64 noundef %4414) #15
@@ -11336,7 +11336,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4420 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4420, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1941 = load i32, ptr %4420, align 1
-  %4421 = getelementptr inbounds i8, ptr %4420, i64 8
+  %4421 = getelementptr inbounds nuw i8, ptr %4420, i64 8
   store ptr %4421, ptr %6, align 8
   %4422 = zext i32 %.0.copyload.i.i.i.i.i.i1941 to i64
   %4423 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4419, i64 noundef %4422) #15
@@ -11350,7 +11350,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4428 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4428, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1942 = load i32, ptr %4428, align 1
-  %4429 = getelementptr inbounds i8, ptr %4428, i64 8
+  %4429 = getelementptr inbounds nuw i8, ptr %4428, i64 8
   store ptr %4429, ptr %6, align 8
   %4430 = zext i32 %.0.copyload.i.i.i.i.i.i1942 to i64
   %4431 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4427, i64 noundef %4430) #15
@@ -11364,7 +11364,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4436 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4436, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1943 = load i32, ptr %4436, align 1
-  %4437 = getelementptr inbounds i8, ptr %4436, i64 8
+  %4437 = getelementptr inbounds nuw i8, ptr %4436, i64 8
   store ptr %4437, ptr %6, align 8
   %4438 = zext i32 %.0.copyload.i.i.i.i.i.i1943 to i64
   %4439 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4435, i64 noundef %4438) #15
@@ -11378,7 +11378,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4444 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4444, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1944 = load i32, ptr %4444, align 1
-  %4445 = getelementptr inbounds i8, ptr %4444, i64 8
+  %4445 = getelementptr inbounds nuw i8, ptr %4444, i64 8
   store ptr %4445, ptr %6, align 8
   %4446 = zext i32 %.0.copyload.i.i.i.i.i.i1944 to i64
   %4447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4443, i64 noundef %4446) #15
@@ -11392,7 +11392,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4452 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4452, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1945 = load i32, ptr %4452, align 1
-  %4453 = getelementptr inbounds i8, ptr %4452, i64 8
+  %4453 = getelementptr inbounds nuw i8, ptr %4452, i64 8
   store ptr %4453, ptr %6, align 8
   %4454 = zext i32 %.0.copyload.i.i.i.i.i.i1945 to i64
   %4455 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4451, i64 noundef %4454) #15
@@ -11406,7 +11406,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4460 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4460, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1946 = load i32, ptr %4460, align 1
-  %4461 = getelementptr inbounds i8, ptr %4460, i64 8
+  %4461 = getelementptr inbounds nuw i8, ptr %4460, i64 8
   store ptr %4461, ptr %6, align 8
   %4462 = zext i32 %.0.copyload.i.i.i.i.i.i1946 to i64
   %4463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4459, i64 noundef %4462) #15
@@ -11420,7 +11420,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4468 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4468, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1947 = load i32, ptr %4468, align 1
-  %4469 = getelementptr inbounds i8, ptr %4468, i64 8
+  %4469 = getelementptr inbounds nuw i8, ptr %4468, i64 8
   store ptr %4469, ptr %6, align 8
   %4470 = zext i32 %.0.copyload.i.i.i.i.i.i1947 to i64
   %4471 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4467, i64 noundef %4470) #15
@@ -11434,7 +11434,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4476 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4476, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1948 = load i32, ptr %4476, align 1
-  %4477 = getelementptr inbounds i8, ptr %4476, i64 8
+  %4477 = getelementptr inbounds nuw i8, ptr %4476, i64 8
   store ptr %4477, ptr %6, align 8
   %4478 = zext i32 %.0.copyload.i.i.i.i.i.i1948 to i64
   %4479 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4475, i64 noundef %4478) #15
@@ -11448,7 +11448,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4484 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4484, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1949 = load i32, ptr %4484, align 1
-  %4485 = getelementptr inbounds i8, ptr %4484, i64 8
+  %4485 = getelementptr inbounds nuw i8, ptr %4484, i64 8
   store ptr %4485, ptr %6, align 8
   %4486 = zext i32 %.0.copyload.i.i.i.i.i.i1949 to i64
   %4487 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4483, i64 noundef %4486) #15
@@ -11462,7 +11462,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4492 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4492, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1950 = load i32, ptr %4492, align 1
-  %4493 = getelementptr inbounds i8, ptr %4492, i64 8
+  %4493 = getelementptr inbounds nuw i8, ptr %4492, i64 8
   store ptr %4493, ptr %6, align 8
   %4494 = zext i32 %.0.copyload.i.i.i.i.i.i1950 to i64
   %4495 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4491, i64 noundef %4494) #15
@@ -11476,7 +11476,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4500 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4500, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1951 = load i32, ptr %4500, align 1
-  %4501 = getelementptr inbounds i8, ptr %4500, i64 8
+  %4501 = getelementptr inbounds nuw i8, ptr %4500, i64 8
   store ptr %4501, ptr %6, align 8
   %4502 = zext i32 %.0.copyload.i.i.i.i.i.i1951 to i64
   %4503 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4499, i64 noundef %4502) #15
@@ -11491,7 +11491,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4509 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4509, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1952 = load i32, ptr %4509, align 1
-  %4510 = getelementptr inbounds i8, ptr %4509, i64 8
+  %4510 = getelementptr inbounds nuw i8, ptr %4509, i64 8
   store ptr %4510, ptr %6, align 8
   %4511 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4508, i32 noundef %.0.copyload.i.i.i.i.i.i1952) #15
   %4512 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4507, ptr noundef %4511) #15
@@ -11506,7 +11506,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4518 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4518, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1953 = load i32, ptr %4518, align 1
-  %4519 = getelementptr inbounds i8, ptr %4518, i64 8
+  %4519 = getelementptr inbounds nuw i8, ptr %4518, i64 8
   store ptr %4519, ptr %6, align 8
   %4520 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4517, i32 noundef %.0.copyload.i.i.i.i.i.i1953) #15
   %4521 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4516, ptr noundef %4520) #15
@@ -11520,7 +11520,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4526 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4526, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1954 = load i32, ptr %4526, align 1
-  %4527 = getelementptr inbounds i8, ptr %4526, i64 8
+  %4527 = getelementptr inbounds nuw i8, ptr %4526, i64 8
   store ptr %4527, ptr %6, align 8
   %4528 = zext i32 %.0.copyload.i.i.i.i.i.i1954 to i64
   %4529 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4525, i64 noundef %4528) #15
@@ -11534,7 +11534,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4534 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4534, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1955 = load i32, ptr %4534, align 1
-  %4535 = getelementptr inbounds i8, ptr %4534, i64 8
+  %4535 = getelementptr inbounds nuw i8, ptr %4534, i64 8
   store ptr %4535, ptr %6, align 8
   %4536 = zext i32 %.0.copyload.i.i.i.i.i.i1955 to i64
   %4537 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4533, i64 noundef %4536) #15
@@ -11548,7 +11548,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4542 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4542, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1956 = load i32, ptr %4542, align 1
-  %4543 = getelementptr inbounds i8, ptr %4542, i64 8
+  %4543 = getelementptr inbounds nuw i8, ptr %4542, i64 8
   store ptr %4543, ptr %6, align 8
   %4544 = zext i32 %.0.copyload.i.i.i.i.i.i1956 to i64
   %4545 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4541, i64 noundef %4544) #15
@@ -11562,7 +11562,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4550 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4550, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1957 = load i32, ptr %4550, align 1
-  %4551 = getelementptr inbounds i8, ptr %4550, i64 8
+  %4551 = getelementptr inbounds nuw i8, ptr %4550, i64 8
   store ptr %4551, ptr %6, align 8
   %4552 = zext i32 %.0.copyload.i.i.i.i.i.i1957 to i64
   %4553 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4549, i64 noundef %4552) #15
@@ -11576,7 +11576,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4558 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4558, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1958 = load i32, ptr %4558, align 1
-  %4559 = getelementptr inbounds i8, ptr %4558, i64 8
+  %4559 = getelementptr inbounds nuw i8, ptr %4558, i64 8
   store ptr %4559, ptr %6, align 8
   %4560 = zext i32 %.0.copyload.i.i.i.i.i.i1958 to i64
   %4561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4557, i64 noundef %4560) #15
@@ -11590,7 +11590,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4566 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4566, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1959 = load i32, ptr %4566, align 1
-  %4567 = getelementptr inbounds i8, ptr %4566, i64 8
+  %4567 = getelementptr inbounds nuw i8, ptr %4566, i64 8
   store ptr %4567, ptr %6, align 8
   %4568 = zext i32 %.0.copyload.i.i.i.i.i.i1959 to i64
   %4569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4565, i64 noundef %4568) #15
@@ -11604,7 +11604,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4574 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4574, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1960 = load i32, ptr %4574, align 1
-  %4575 = getelementptr inbounds i8, ptr %4574, i64 8
+  %4575 = getelementptr inbounds nuw i8, ptr %4574, i64 8
   store ptr %4575, ptr %6, align 8
   %4576 = zext i32 %.0.copyload.i.i.i.i.i.i1960 to i64
   %4577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4573, i64 noundef %4576) #15
@@ -11618,7 +11618,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4582 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4582, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1961 = load i32, ptr %4582, align 1
-  %4583 = getelementptr inbounds i8, ptr %4582, i64 8
+  %4583 = getelementptr inbounds nuw i8, ptr %4582, i64 8
   store ptr %4583, ptr %6, align 8
   %4584 = zext i32 %.0.copyload.i.i.i.i.i.i1961 to i64
   %4585 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4581, i64 noundef %4584) #15
@@ -11632,7 +11632,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4590 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4590, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1962 = load i32, ptr %4590, align 1
-  %4591 = getelementptr inbounds i8, ptr %4590, i64 8
+  %4591 = getelementptr inbounds nuw i8, ptr %4590, i64 8
   store ptr %4591, ptr %6, align 8
   %4592 = zext i32 %.0.copyload.i.i.i.i.i.i1962 to i64
   %4593 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4589, i64 noundef %4592) #15
@@ -11646,7 +11646,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4598 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4598, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1963 = load i32, ptr %4598, align 1
-  %4599 = getelementptr inbounds i8, ptr %4598, i64 8
+  %4599 = getelementptr inbounds nuw i8, ptr %4598, i64 8
   store ptr %4599, ptr %6, align 8
   %4600 = zext i32 %.0.copyload.i.i.i.i.i.i1963 to i64
   %4601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4597, i64 noundef %4600) #15
@@ -11660,7 +11660,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4606 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4606, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1964 = load i32, ptr %4606, align 1
-  %4607 = getelementptr inbounds i8, ptr %4606, i64 8
+  %4607 = getelementptr inbounds nuw i8, ptr %4606, i64 8
   store ptr %4607, ptr %6, align 8
   %4608 = zext i32 %.0.copyload.i.i.i.i.i.i1964 to i64
   %4609 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4605, i64 noundef %4608) #15
@@ -11674,7 +11674,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4614 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4614, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1965 = load i32, ptr %4614, align 1
-  %4615 = getelementptr inbounds i8, ptr %4614, i64 8
+  %4615 = getelementptr inbounds nuw i8, ptr %4614, i64 8
   store ptr %4615, ptr %6, align 8
   %4616 = zext i32 %.0.copyload.i.i.i.i.i.i1965 to i64
   %4617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4613, i64 noundef %4616) #15
@@ -11688,7 +11688,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4622 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4622, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1966 = load i32, ptr %4622, align 1
-  %4623 = getelementptr inbounds i8, ptr %4622, i64 8
+  %4623 = getelementptr inbounds nuw i8, ptr %4622, i64 8
   store ptr %4623, ptr %6, align 8
   %4624 = zext i32 %.0.copyload.i.i.i.i.i.i1966 to i64
   %4625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4621, i64 noundef %4624) #15
@@ -11702,7 +11702,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4630 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4630, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1967 = load i32, ptr %4630, align 1
-  %4631 = getelementptr inbounds i8, ptr %4630, i64 8
+  %4631 = getelementptr inbounds nuw i8, ptr %4630, i64 8
   store ptr %4631, ptr %6, align 8
   %4632 = zext i32 %.0.copyload.i.i.i.i.i.i1967 to i64
   %4633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4629, i64 noundef %4632) #15
@@ -11716,7 +11716,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4638 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4638, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1968 = load i32, ptr %4638, align 1
-  %4639 = getelementptr inbounds i8, ptr %4638, i64 8
+  %4639 = getelementptr inbounds nuw i8, ptr %4638, i64 8
   store ptr %4639, ptr %6, align 8
   %4640 = zext i32 %.0.copyload.i.i.i.i.i.i1968 to i64
   %4641 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4637, i64 noundef %4640) #15
@@ -11868,7 +11868,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4715 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4715, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1969 = load i32, ptr %4715, align 1
-  %4716 = getelementptr inbounds i8, ptr %4715, i64 8
+  %4716 = getelementptr inbounds nuw i8, ptr %4715, i64 8
   store ptr %4716, ptr %6, align 8
   %4717 = zext i32 %.0.copyload.i.i.i.i.i.i1969 to i64
   %4718 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4714, i64 noundef %4717) #15
@@ -11882,7 +11882,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4723 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4723, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1970 = load i32, ptr %4723, align 1
-  %4724 = getelementptr inbounds i8, ptr %4723, i64 8
+  %4724 = getelementptr inbounds nuw i8, ptr %4723, i64 8
   store ptr %4724, ptr %6, align 8
   %4725 = zext i32 %.0.copyload.i.i.i.i.i.i1970 to i64
   %4726 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4722, i64 noundef %4725) #15
@@ -11987,7 +11987,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4777 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4777, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1971 = load i32, ptr %4777, align 1
-  %4778 = getelementptr inbounds i8, ptr %4777, i64 8
+  %4778 = getelementptr inbounds nuw i8, ptr %4777, i64 8
   store ptr %4778, ptr %6, align 8
   %4779 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4776, i32 noundef %.0.copyload.i.i.i.i.i.i1971) #15
   %4780 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4775, ptr noundef %4779) #15
@@ -12002,7 +12002,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4786 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4786, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1972 = load i32, ptr %4786, align 1
-  %4787 = getelementptr inbounds i8, ptr %4786, i64 8
+  %4787 = getelementptr inbounds nuw i8, ptr %4786, i64 8
   store ptr %4787, ptr %6, align 8
   %4788 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4785, i32 noundef %.0.copyload.i.i.i.i.i.i1972) #15
   %4789 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4784, ptr noundef %4788) #15
@@ -12017,7 +12017,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4795 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4795, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1973 = load i32, ptr %4795, align 1
-  %4796 = getelementptr inbounds i8, ptr %4795, i64 8
+  %4796 = getelementptr inbounds nuw i8, ptr %4795, i64 8
   store ptr %4796, ptr %6, align 8
   %4797 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4794, i32 noundef %.0.copyload.i.i.i.i.i.i1973) #15
   %4798 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4793, ptr noundef %4797) #15
@@ -12032,7 +12032,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4804 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4804, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1974 = load i32, ptr %4804, align 1
-  %4805 = getelementptr inbounds i8, ptr %4804, i64 8
+  %4805 = getelementptr inbounds nuw i8, ptr %4804, i64 8
   store ptr %4805, ptr %6, align 8
   %4806 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4803, i32 noundef %.0.copyload.i.i.i.i.i.i1974) #15
   %4807 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4802, ptr noundef %4806) #15
@@ -12047,7 +12047,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4813 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4813, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1975 = load i32, ptr %4813, align 1
-  %4814 = getelementptr inbounds i8, ptr %4813, i64 8
+  %4814 = getelementptr inbounds nuw i8, ptr %4813, i64 8
   store ptr %4814, ptr %6, align 8
   %4815 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4812, i32 noundef %.0.copyload.i.i.i.i.i.i1975) #15
   %4816 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4811, ptr noundef %4815) #15
@@ -12062,7 +12062,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4822 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4822, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1976 = load i32, ptr %4822, align 1
-  %4823 = getelementptr inbounds i8, ptr %4822, i64 8
+  %4823 = getelementptr inbounds nuw i8, ptr %4822, i64 8
   store ptr %4823, ptr %6, align 8
   %4824 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4821, i32 noundef %.0.copyload.i.i.i.i.i.i1976) #15
   %4825 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4820, ptr noundef %4824) #15
@@ -12077,7 +12077,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4831 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4831, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1977 = load i32, ptr %4831, align 1
-  %4832 = getelementptr inbounds i8, ptr %4831, i64 8
+  %4832 = getelementptr inbounds nuw i8, ptr %4831, i64 8
   store ptr %4832, ptr %6, align 8
   %4833 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4830, i32 noundef %.0.copyload.i.i.i.i.i.i1977) #15
   %4834 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4829, ptr noundef %4833) #15
@@ -12092,7 +12092,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4840 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4840, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1978 = load i32, ptr %4840, align 1
-  %4841 = getelementptr inbounds i8, ptr %4840, i64 8
+  %4841 = getelementptr inbounds nuw i8, ptr %4840, i64 8
   store ptr %4841, ptr %6, align 8
   %4842 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4839, i32 noundef %.0.copyload.i.i.i.i.i.i1978) #15
   %4843 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4838, ptr noundef %4842) #15
@@ -12107,7 +12107,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4849 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4849, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1979 = load i32, ptr %4849, align 1
-  %4850 = getelementptr inbounds i8, ptr %4849, i64 8
+  %4850 = getelementptr inbounds nuw i8, ptr %4849, i64 8
   store ptr %4850, ptr %6, align 8
   %4851 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4848, i32 noundef %.0.copyload.i.i.i.i.i.i1979) #15
   %4852 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4847, ptr noundef %4851) #15
@@ -12122,7 +12122,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4858 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4858, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1980 = load i32, ptr %4858, align 1
-  %4859 = getelementptr inbounds i8, ptr %4858, i64 8
+  %4859 = getelementptr inbounds nuw i8, ptr %4858, i64 8
   store ptr %4859, ptr %6, align 8
   %4860 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4857, i32 noundef %.0.copyload.i.i.i.i.i.i1980) #15
   %4861 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4856, ptr noundef %4860) #15
@@ -12137,7 +12137,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4867 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4867, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1981 = load i32, ptr %4867, align 1
-  %4868 = getelementptr inbounds i8, ptr %4867, i64 8
+  %4868 = getelementptr inbounds nuw i8, ptr %4867, i64 8
   store ptr %4868, ptr %6, align 8
   %4869 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %4866, i32 noundef %.0.copyload.i.i.i.i.i.i1981) #15
   %4870 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %4865, ptr noundef %4869) #15
@@ -12151,7 +12151,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4875 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4875, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1982 = load i32, ptr %4875, align 1
-  %4876 = getelementptr inbounds i8, ptr %4875, i64 8
+  %4876 = getelementptr inbounds nuw i8, ptr %4875, i64 8
   store ptr %4876, ptr %6, align 8
   %4877 = zext i32 %.0.copyload.i.i.i.i.i.i1982 to i64
   %4878 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4874, i64 noundef %4877) #15
@@ -12165,7 +12165,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4883 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4883, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1983 = load i32, ptr %4883, align 1
-  %4884 = getelementptr inbounds i8, ptr %4883, i64 8
+  %4884 = getelementptr inbounds nuw i8, ptr %4883, i64 8
   store ptr %4884, ptr %6, align 8
   %4885 = zext i32 %.0.copyload.i.i.i.i.i.i1983 to i64
   %4886 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4882, i64 noundef %4885) #15
@@ -12179,7 +12179,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4891 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4891, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1984 = load i32, ptr %4891, align 1
-  %4892 = getelementptr inbounds i8, ptr %4891, i64 8
+  %4892 = getelementptr inbounds nuw i8, ptr %4891, i64 8
   store ptr %4892, ptr %6, align 8
   %4893 = zext i32 %.0.copyload.i.i.i.i.i.i1984 to i64
   %4894 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4890, i64 noundef %4893) #15
@@ -12193,7 +12193,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4899 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4899, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1985 = load i32, ptr %4899, align 1
-  %4900 = getelementptr inbounds i8, ptr %4899, i64 8
+  %4900 = getelementptr inbounds nuw i8, ptr %4899, i64 8
   store ptr %4900, ptr %6, align 8
   %4901 = zext i32 %.0.copyload.i.i.i.i.i.i1985 to i64
   %4902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4898, i64 noundef %4901) #15
@@ -12207,7 +12207,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4907 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4907, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1986 = load i32, ptr %4907, align 1
-  %4908 = getelementptr inbounds i8, ptr %4907, i64 8
+  %4908 = getelementptr inbounds nuw i8, ptr %4907, i64 8
   store ptr %4908, ptr %6, align 8
   %4909 = zext i32 %.0.copyload.i.i.i.i.i.i1986 to i64
   %4910 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4906, i64 noundef %4909) #15
@@ -12221,7 +12221,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4915 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4915, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1987 = load i32, ptr %4915, align 1
-  %4916 = getelementptr inbounds i8, ptr %4915, i64 8
+  %4916 = getelementptr inbounds nuw i8, ptr %4915, i64 8
   store ptr %4916, ptr %6, align 8
   %4917 = zext i32 %.0.copyload.i.i.i.i.i.i1987 to i64
   %4918 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4914, i64 noundef %4917) #15
@@ -12235,7 +12235,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4923 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4923, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1988 = load i32, ptr %4923, align 1
-  %4924 = getelementptr inbounds i8, ptr %4923, i64 8
+  %4924 = getelementptr inbounds nuw i8, ptr %4923, i64 8
   store ptr %4924, ptr %6, align 8
   %4925 = zext i32 %.0.copyload.i.i.i.i.i.i1988 to i64
   %4926 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4922, i64 noundef %4925) #15
@@ -12249,7 +12249,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4931 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4931, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1989 = load i32, ptr %4931, align 1
-  %4932 = getelementptr inbounds i8, ptr %4931, i64 8
+  %4932 = getelementptr inbounds nuw i8, ptr %4931, i64 8
   store ptr %4932, ptr %6, align 8
   %4933 = zext i32 %.0.copyload.i.i.i.i.i.i1989 to i64
   %4934 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4930, i64 noundef %4933) #15
@@ -12263,7 +12263,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4939 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4939, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1990 = load i32, ptr %4939, align 1
-  %4940 = getelementptr inbounds i8, ptr %4939, i64 8
+  %4940 = getelementptr inbounds nuw i8, ptr %4939, i64 8
   store ptr %4940, ptr %6, align 8
   %4941 = zext i32 %.0.copyload.i.i.i.i.i.i1990 to i64
   %4942 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4938, i64 noundef %4941) #15
@@ -12277,7 +12277,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4947 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4947, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1991 = load i32, ptr %4947, align 1
-  %4948 = getelementptr inbounds i8, ptr %4947, i64 8
+  %4948 = getelementptr inbounds nuw i8, ptr %4947, i64 8
   store ptr %4948, ptr %6, align 8
   %4949 = zext i32 %.0.copyload.i.i.i.i.i.i1991 to i64
   %4950 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4946, i64 noundef %4949) #15
@@ -12291,7 +12291,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4955 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4955, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1992 = load i32, ptr %4955, align 1
-  %4956 = getelementptr inbounds i8, ptr %4955, i64 8
+  %4956 = getelementptr inbounds nuw i8, ptr %4955, i64 8
   store ptr %4956, ptr %6, align 8
   %4957 = zext i32 %.0.copyload.i.i.i.i.i.i1992 to i64
   %4958 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4954, i64 noundef %4957) #15
@@ -12305,7 +12305,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4963 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4963, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1993 = load i32, ptr %4963, align 1
-  %4964 = getelementptr inbounds i8, ptr %4963, i64 8
+  %4964 = getelementptr inbounds nuw i8, ptr %4963, i64 8
   store ptr %4964, ptr %6, align 8
   %4965 = zext i32 %.0.copyload.i.i.i.i.i.i1993 to i64
   %4966 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4962, i64 noundef %4965) #15
@@ -12319,7 +12319,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4971 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4971, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1994 = load i32, ptr %4971, align 1
-  %4972 = getelementptr inbounds i8, ptr %4971, i64 8
+  %4972 = getelementptr inbounds nuw i8, ptr %4971, i64 8
   store ptr %4972, ptr %6, align 8
   %4973 = zext i32 %.0.copyload.i.i.i.i.i.i1994 to i64
   %4974 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4970, i64 noundef %4973) #15
@@ -12333,7 +12333,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4979 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4979, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1995 = load i32, ptr %4979, align 1
-  %4980 = getelementptr inbounds i8, ptr %4979, i64 8
+  %4980 = getelementptr inbounds nuw i8, ptr %4979, i64 8
   store ptr %4980, ptr %6, align 8
   %4981 = zext i32 %.0.copyload.i.i.i.i.i.i1995 to i64
   %4982 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4978, i64 noundef %4981) #15
@@ -12347,7 +12347,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4987 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4987, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1996 = load i32, ptr %4987, align 1
-  %4988 = getelementptr inbounds i8, ptr %4987, i64 8
+  %4988 = getelementptr inbounds nuw i8, ptr %4987, i64 8
   store ptr %4988, ptr %6, align 8
   %4989 = zext i32 %.0.copyload.i.i.i.i.i.i1996 to i64
   %4990 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4986, i64 noundef %4989) #15
@@ -12361,7 +12361,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %4995 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4995, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1997 = load i32, ptr %4995, align 1
-  %4996 = getelementptr inbounds i8, ptr %4995, i64 8
+  %4996 = getelementptr inbounds nuw i8, ptr %4995, i64 8
   store ptr %4996, ptr %6, align 8
   %4997 = zext i32 %.0.copyload.i.i.i.i.i.i1997 to i64
   %4998 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %4994, i64 noundef %4997) #15
@@ -12375,7 +12375,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5003 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5003, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1998 = load i32, ptr %5003, align 1
-  %5004 = getelementptr inbounds i8, ptr %5003, i64 8
+  %5004 = getelementptr inbounds nuw i8, ptr %5003, i64 8
   store ptr %5004, ptr %6, align 8
   %5005 = zext i32 %.0.copyload.i.i.i.i.i.i1998 to i64
   %5006 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5002, i64 noundef %5005) #15
@@ -12389,7 +12389,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5011 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5011, i64 1) ]
   %.0.copyload.i.i.i.i.i.i1999 = load i32, ptr %5011, align 1
-  %5012 = getelementptr inbounds i8, ptr %5011, i64 8
+  %5012 = getelementptr inbounds nuw i8, ptr %5011, i64 8
   store ptr %5012, ptr %6, align 8
   %5013 = zext i32 %.0.copyload.i.i.i.i.i.i1999 to i64
   %5014 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5010, i64 noundef %5013) #15
@@ -12403,7 +12403,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5019 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5019, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2000 = load i32, ptr %5019, align 1
-  %5020 = getelementptr inbounds i8, ptr %5019, i64 8
+  %5020 = getelementptr inbounds nuw i8, ptr %5019, i64 8
   store ptr %5020, ptr %6, align 8
   %5021 = zext i32 %.0.copyload.i.i.i.i.i.i2000 to i64
   %5022 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5018, i64 noundef %5021) #15
@@ -12417,7 +12417,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5027 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5027, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2001 = load i32, ptr %5027, align 1
-  %5028 = getelementptr inbounds i8, ptr %5027, i64 8
+  %5028 = getelementptr inbounds nuw i8, ptr %5027, i64 8
   store ptr %5028, ptr %6, align 8
   %5029 = zext i32 %.0.copyload.i.i.i.i.i.i2001 to i64
   %5030 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5026, i64 noundef %5029) #15
@@ -12431,7 +12431,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5035 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5035, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2002 = load i32, ptr %5035, align 1
-  %5036 = getelementptr inbounds i8, ptr %5035, i64 8
+  %5036 = getelementptr inbounds nuw i8, ptr %5035, i64 8
   store ptr %5036, ptr %6, align 8
   %5037 = zext i32 %.0.copyload.i.i.i.i.i.i2002 to i64
   %5038 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5034, i64 noundef %5037) #15
@@ -12445,7 +12445,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5043 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5043, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2003 = load i32, ptr %5043, align 1
-  %5044 = getelementptr inbounds i8, ptr %5043, i64 8
+  %5044 = getelementptr inbounds nuw i8, ptr %5043, i64 8
   store ptr %5044, ptr %6, align 8
   %5045 = zext i32 %.0.copyload.i.i.i.i.i.i2003 to i64
   %5046 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5042, i64 noundef %5045) #15
@@ -12459,7 +12459,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5051 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5051, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2004 = load i32, ptr %5051, align 1
-  %5052 = getelementptr inbounds i8, ptr %5051, i64 8
+  %5052 = getelementptr inbounds nuw i8, ptr %5051, i64 8
   store ptr %5052, ptr %6, align 8
   %5053 = zext i32 %.0.copyload.i.i.i.i.i.i2004 to i64
   %5054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5050, i64 noundef %5053) #15
@@ -12473,7 +12473,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5059 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5059, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2005 = load i32, ptr %5059, align 1
-  %5060 = getelementptr inbounds i8, ptr %5059, i64 8
+  %5060 = getelementptr inbounds nuw i8, ptr %5059, i64 8
   store ptr %5060, ptr %6, align 8
   %5061 = zext i32 %.0.copyload.i.i.i.i.i.i2005 to i64
   %5062 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5058, i64 noundef %5061) #15
@@ -12487,7 +12487,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5067 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5067, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2006 = load i32, ptr %5067, align 1
-  %5068 = getelementptr inbounds i8, ptr %5067, i64 8
+  %5068 = getelementptr inbounds nuw i8, ptr %5067, i64 8
   store ptr %5068, ptr %6, align 8
   %5069 = zext i32 %.0.copyload.i.i.i.i.i.i2006 to i64
   %5070 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5066, i64 noundef %5069) #15
@@ -12501,7 +12501,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5075 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5075, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2007 = load i32, ptr %5075, align 1
-  %5076 = getelementptr inbounds i8, ptr %5075, i64 8
+  %5076 = getelementptr inbounds nuw i8, ptr %5075, i64 8
   store ptr %5076, ptr %6, align 8
   %5077 = zext i32 %.0.copyload.i.i.i.i.i.i2007 to i64
   %5078 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5074, i64 noundef %5077) #15
@@ -12515,7 +12515,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5083 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5083, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2008 = load i32, ptr %5083, align 1
-  %5084 = getelementptr inbounds i8, ptr %5083, i64 8
+  %5084 = getelementptr inbounds nuw i8, ptr %5083, i64 8
   store ptr %5084, ptr %6, align 8
   %5085 = zext i32 %.0.copyload.i.i.i.i.i.i2008 to i64
   %5086 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5082, i64 noundef %5085) #15
@@ -12529,7 +12529,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5091 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5091, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2009 = load i32, ptr %5091, align 1
-  %5092 = getelementptr inbounds i8, ptr %5091, i64 8
+  %5092 = getelementptr inbounds nuw i8, ptr %5091, i64 8
   store ptr %5092, ptr %6, align 8
   %5093 = zext i32 %.0.copyload.i.i.i.i.i.i2009 to i64
   %5094 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5090, i64 noundef %5093) #15
@@ -12543,7 +12543,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5099 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5099, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2010 = load i32, ptr %5099, align 1
-  %5100 = getelementptr inbounds i8, ptr %5099, i64 8
+  %5100 = getelementptr inbounds nuw i8, ptr %5099, i64 8
   store ptr %5100, ptr %6, align 8
   %5101 = zext i32 %.0.copyload.i.i.i.i.i.i2010 to i64
   %5102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5098, i64 noundef %5101) #15
@@ -12557,7 +12557,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5107 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5107, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2011 = load i32, ptr %5107, align 1
-  %5108 = getelementptr inbounds i8, ptr %5107, i64 8
+  %5108 = getelementptr inbounds nuw i8, ptr %5107, i64 8
   store ptr %5108, ptr %6, align 8
   %5109 = zext i32 %.0.copyload.i.i.i.i.i.i2011 to i64
   %5110 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5106, i64 noundef %5109) #15
@@ -12571,7 +12571,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5115 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5115, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2012 = load i32, ptr %5115, align 1
-  %5116 = getelementptr inbounds i8, ptr %5115, i64 8
+  %5116 = getelementptr inbounds nuw i8, ptr %5115, i64 8
   store ptr %5116, ptr %6, align 8
   %5117 = zext i32 %.0.copyload.i.i.i.i.i.i2012 to i64
   %5118 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5114, i64 noundef %5117) #15
@@ -12585,7 +12585,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5123 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5123, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2013 = load i32, ptr %5123, align 1
-  %5124 = getelementptr inbounds i8, ptr %5123, i64 8
+  %5124 = getelementptr inbounds nuw i8, ptr %5123, i64 8
   store ptr %5124, ptr %6, align 8
   %5125 = zext i32 %.0.copyload.i.i.i.i.i.i2013 to i64
   %5126 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5122, i64 noundef %5125) #15
@@ -12599,7 +12599,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5131 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5131, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2014 = load i32, ptr %5131, align 1
-  %5132 = getelementptr inbounds i8, ptr %5131, i64 8
+  %5132 = getelementptr inbounds nuw i8, ptr %5131, i64 8
   store ptr %5132, ptr %6, align 8
   %5133 = zext i32 %.0.copyload.i.i.i.i.i.i2014 to i64
   %5134 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5130, i64 noundef %5133) #15
@@ -12613,7 +12613,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5139 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5139, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2015 = load i32, ptr %5139, align 1
-  %5140 = getelementptr inbounds i8, ptr %5139, i64 8
+  %5140 = getelementptr inbounds nuw i8, ptr %5139, i64 8
   store ptr %5140, ptr %6, align 8
   %5141 = zext i32 %.0.copyload.i.i.i.i.i.i2015 to i64
   %5142 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5138, i64 noundef %5141) #15
@@ -12627,7 +12627,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5147 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5147, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2016 = load i32, ptr %5147, align 1
-  %5148 = getelementptr inbounds i8, ptr %5147, i64 8
+  %5148 = getelementptr inbounds nuw i8, ptr %5147, i64 8
   store ptr %5148, ptr %6, align 8
   %5149 = zext i32 %.0.copyload.i.i.i.i.i.i2016 to i64
   %5150 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5146, i64 noundef %5149) #15
@@ -12641,7 +12641,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5155 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5155, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2017 = load i32, ptr %5155, align 1
-  %5156 = getelementptr inbounds i8, ptr %5155, i64 8
+  %5156 = getelementptr inbounds nuw i8, ptr %5155, i64 8
   store ptr %5156, ptr %6, align 8
   %5157 = zext i32 %.0.copyload.i.i.i.i.i.i2017 to i64
   %5158 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5154, i64 noundef %5157) #15
@@ -12655,7 +12655,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5163 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5163, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2018 = load i32, ptr %5163, align 1
-  %5164 = getelementptr inbounds i8, ptr %5163, i64 8
+  %5164 = getelementptr inbounds nuw i8, ptr %5163, i64 8
   store ptr %5164, ptr %6, align 8
   %5165 = zext i32 %.0.copyload.i.i.i.i.i.i2018 to i64
   %5166 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5162, i64 noundef %5165) #15
@@ -12669,7 +12669,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5171 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5171, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2019 = load i32, ptr %5171, align 1
-  %5172 = getelementptr inbounds i8, ptr %5171, i64 8
+  %5172 = getelementptr inbounds nuw i8, ptr %5171, i64 8
   store ptr %5172, ptr %6, align 8
   %5173 = zext i32 %.0.copyload.i.i.i.i.i.i2019 to i64
   %5174 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5170, i64 noundef %5173) #15
@@ -12683,7 +12683,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5179 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5179, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2020 = load i32, ptr %5179, align 1
-  %5180 = getelementptr inbounds i8, ptr %5179, i64 8
+  %5180 = getelementptr inbounds nuw i8, ptr %5179, i64 8
   store ptr %5180, ptr %6, align 8
   %5181 = zext i32 %.0.copyload.i.i.i.i.i.i2020 to i64
   %5182 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5178, i64 noundef %5181) #15
@@ -12697,7 +12697,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5187 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5187, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2021 = load i32, ptr %5187, align 1
-  %5188 = getelementptr inbounds i8, ptr %5187, i64 8
+  %5188 = getelementptr inbounds nuw i8, ptr %5187, i64 8
   store ptr %5188, ptr %6, align 8
   %5189 = zext i32 %.0.copyload.i.i.i.i.i.i2021 to i64
   %5190 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5186, i64 noundef %5189) #15
@@ -12711,7 +12711,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5195 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5195, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2022 = load i32, ptr %5195, align 1
-  %5196 = getelementptr inbounds i8, ptr %5195, i64 8
+  %5196 = getelementptr inbounds nuw i8, ptr %5195, i64 8
   store ptr %5196, ptr %6, align 8
   %5197 = zext i32 %.0.copyload.i.i.i.i.i.i2022 to i64
   %5198 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5194, i64 noundef %5197) #15
@@ -12725,7 +12725,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5203 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5203, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2023 = load i32, ptr %5203, align 1
-  %5204 = getelementptr inbounds i8, ptr %5203, i64 8
+  %5204 = getelementptr inbounds nuw i8, ptr %5203, i64 8
   store ptr %5204, ptr %6, align 8
   %5205 = zext i32 %.0.copyload.i.i.i.i.i.i2023 to i64
   %5206 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5202, i64 noundef %5205) #15
@@ -12739,7 +12739,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5211 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5211, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2024 = load i32, ptr %5211, align 1
-  %5212 = getelementptr inbounds i8, ptr %5211, i64 8
+  %5212 = getelementptr inbounds nuw i8, ptr %5211, i64 8
   store ptr %5212, ptr %6, align 8
   %5213 = zext i32 %.0.copyload.i.i.i.i.i.i2024 to i64
   %5214 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5210, i64 noundef %5213) #15
@@ -12753,7 +12753,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5219 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5219, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2025 = load i32, ptr %5219, align 1
-  %5220 = getelementptr inbounds i8, ptr %5219, i64 8
+  %5220 = getelementptr inbounds nuw i8, ptr %5219, i64 8
   store ptr %5220, ptr %6, align 8
   %5221 = zext i32 %.0.copyload.i.i.i.i.i.i2025 to i64
   %5222 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5218, i64 noundef %5221) #15
@@ -12767,7 +12767,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5227 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5227, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2026 = load i32, ptr %5227, align 1
-  %5228 = getelementptr inbounds i8, ptr %5227, i64 8
+  %5228 = getelementptr inbounds nuw i8, ptr %5227, i64 8
   store ptr %5228, ptr %6, align 8
   %5229 = zext i32 %.0.copyload.i.i.i.i.i.i2026 to i64
   %5230 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5226, i64 noundef %5229) #15
@@ -12781,7 +12781,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5235 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5235, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2027 = load i32, ptr %5235, align 1
-  %5236 = getelementptr inbounds i8, ptr %5235, i64 8
+  %5236 = getelementptr inbounds nuw i8, ptr %5235, i64 8
   store ptr %5236, ptr %6, align 8
   %5237 = zext i32 %.0.copyload.i.i.i.i.i.i2027 to i64
   %5238 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5234, i64 noundef %5237) #15
@@ -12795,7 +12795,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5243 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5243, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2028 = load i32, ptr %5243, align 1
-  %5244 = getelementptr inbounds i8, ptr %5243, i64 8
+  %5244 = getelementptr inbounds nuw i8, ptr %5243, i64 8
   store ptr %5244, ptr %6, align 8
   %5245 = zext i32 %.0.copyload.i.i.i.i.i.i2028 to i64
   %5246 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5242, i64 noundef %5245) #15
@@ -12809,7 +12809,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5251 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5251, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2029 = load i32, ptr %5251, align 1
-  %5252 = getelementptr inbounds i8, ptr %5251, i64 8
+  %5252 = getelementptr inbounds nuw i8, ptr %5251, i64 8
   store ptr %5252, ptr %6, align 8
   %5253 = zext i32 %.0.copyload.i.i.i.i.i.i2029 to i64
   %5254 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5250, i64 noundef %5253) #15
@@ -12823,7 +12823,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5259 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5259, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2030 = load i32, ptr %5259, align 1
-  %5260 = getelementptr inbounds i8, ptr %5259, i64 8
+  %5260 = getelementptr inbounds nuw i8, ptr %5259, i64 8
   store ptr %5260, ptr %6, align 8
   %5261 = zext i32 %.0.copyload.i.i.i.i.i.i2030 to i64
   %5262 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5258, i64 noundef %5261) #15
@@ -12837,7 +12837,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5267 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5267, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2031 = load i32, ptr %5267, align 1
-  %5268 = getelementptr inbounds i8, ptr %5267, i64 8
+  %5268 = getelementptr inbounds nuw i8, ptr %5267, i64 8
   store ptr %5268, ptr %6, align 8
   %5269 = zext i32 %.0.copyload.i.i.i.i.i.i2031 to i64
   %5270 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5266, i64 noundef %5269) #15
@@ -12851,7 +12851,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5275 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5275, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2032 = load i32, ptr %5275, align 1
-  %5276 = getelementptr inbounds i8, ptr %5275, i64 8
+  %5276 = getelementptr inbounds nuw i8, ptr %5275, i64 8
   store ptr %5276, ptr %6, align 8
   %5277 = zext i32 %.0.copyload.i.i.i.i.i.i2032 to i64
   %5278 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5274, i64 noundef %5277) #15
@@ -12865,7 +12865,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5283 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5283, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2033 = load i32, ptr %5283, align 1
-  %5284 = getelementptr inbounds i8, ptr %5283, i64 8
+  %5284 = getelementptr inbounds nuw i8, ptr %5283, i64 8
   store ptr %5284, ptr %6, align 8
   %5285 = zext i32 %.0.copyload.i.i.i.i.i.i2033 to i64
   %5286 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5282, i64 noundef %5285) #15
@@ -12879,7 +12879,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5291 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5291, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2034 = load i32, ptr %5291, align 1
-  %5292 = getelementptr inbounds i8, ptr %5291, i64 8
+  %5292 = getelementptr inbounds nuw i8, ptr %5291, i64 8
   store ptr %5292, ptr %6, align 8
   %5293 = zext i32 %.0.copyload.i.i.i.i.i.i2034 to i64
   %5294 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5290, i64 noundef %5293) #15
@@ -12893,7 +12893,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5299 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5299, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2035 = load i32, ptr %5299, align 1
-  %5300 = getelementptr inbounds i8, ptr %5299, i64 8
+  %5300 = getelementptr inbounds nuw i8, ptr %5299, i64 8
   store ptr %5300, ptr %6, align 8
   %5301 = zext i32 %.0.copyload.i.i.i.i.i.i2035 to i64
   %5302 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5298, i64 noundef %5301) #15
@@ -12907,7 +12907,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5307 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5307, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2036 = load i32, ptr %5307, align 1
-  %5308 = getelementptr inbounds i8, ptr %5307, i64 8
+  %5308 = getelementptr inbounds nuw i8, ptr %5307, i64 8
   store ptr %5308, ptr %6, align 8
   %5309 = zext i32 %.0.copyload.i.i.i.i.i.i2036 to i64
   %5310 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5306, i64 noundef %5309) #15
@@ -12921,7 +12921,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5315 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5315, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2037 = load i32, ptr %5315, align 1
-  %5316 = getelementptr inbounds i8, ptr %5315, i64 8
+  %5316 = getelementptr inbounds nuw i8, ptr %5315, i64 8
   store ptr %5316, ptr %6, align 8
   %5317 = zext i32 %.0.copyload.i.i.i.i.i.i2037 to i64
   %5318 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5314, i64 noundef %5317) #15
@@ -12935,7 +12935,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5323 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5323, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2038 = load i32, ptr %5323, align 1
-  %5324 = getelementptr inbounds i8, ptr %5323, i64 8
+  %5324 = getelementptr inbounds nuw i8, ptr %5323, i64 8
   store ptr %5324, ptr %6, align 8
   %5325 = zext i32 %.0.copyload.i.i.i.i.i.i2038 to i64
   %5326 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5322, i64 noundef %5325) #15
@@ -12949,7 +12949,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5331 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5331, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2039 = load i32, ptr %5331, align 1
-  %5332 = getelementptr inbounds i8, ptr %5331, i64 8
+  %5332 = getelementptr inbounds nuw i8, ptr %5331, i64 8
   store ptr %5332, ptr %6, align 8
   %5333 = zext i32 %.0.copyload.i.i.i.i.i.i2039 to i64
   %5334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5330, i64 noundef %5333) #15
@@ -12963,7 +12963,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5339 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5339, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2040 = load i32, ptr %5339, align 1
-  %5340 = getelementptr inbounds i8, ptr %5339, i64 8
+  %5340 = getelementptr inbounds nuw i8, ptr %5339, i64 8
   store ptr %5340, ptr %6, align 8
   %5341 = zext i32 %.0.copyload.i.i.i.i.i.i2040 to i64
   %5342 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5338, i64 noundef %5341) #15
@@ -12977,7 +12977,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5347 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5347, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2041 = load i32, ptr %5347, align 1
-  %5348 = getelementptr inbounds i8, ptr %5347, i64 8
+  %5348 = getelementptr inbounds nuw i8, ptr %5347, i64 8
   store ptr %5348, ptr %6, align 8
   %5349 = zext i32 %.0.copyload.i.i.i.i.i.i2041 to i64
   %5350 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5346, i64 noundef %5349) #15
@@ -12991,7 +12991,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5355 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5355, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2042 = load i32, ptr %5355, align 1
-  %5356 = getelementptr inbounds i8, ptr %5355, i64 8
+  %5356 = getelementptr inbounds nuw i8, ptr %5355, i64 8
   store ptr %5356, ptr %6, align 8
   %5357 = zext i32 %.0.copyload.i.i.i.i.i.i2042 to i64
   %5358 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5354, i64 noundef %5357) #15
@@ -13000,7 +13000,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5361 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5361, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2043 = load i32, ptr %5361, align 1
-  %5362 = getelementptr inbounds i8, ptr %5361, i64 8
+  %5362 = getelementptr inbounds nuw i8, ptr %5361, i64 8
   store ptr %5362, ptr %6, align 8
   %5363 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5360, i32 noundef %.0.copyload.i.i.i.i.i.i2043) #15
   %5364 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5359, ptr noundef %5363) #15
@@ -13014,7 +13014,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5369 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5369, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2044 = load i32, ptr %5369, align 1
-  %5370 = getelementptr inbounds i8, ptr %5369, i64 8
+  %5370 = getelementptr inbounds nuw i8, ptr %5369, i64 8
   store ptr %5370, ptr %6, align 8
   %5371 = zext i32 %.0.copyload.i.i.i.i.i.i2044 to i64
   %5372 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5368, i64 noundef %5371) #15
@@ -13023,7 +13023,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5375 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5375, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2045 = load i32, ptr %5375, align 1
-  %5376 = getelementptr inbounds i8, ptr %5375, i64 8
+  %5376 = getelementptr inbounds nuw i8, ptr %5375, i64 8
   store ptr %5376, ptr %6, align 8
   %5377 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5374, i32 noundef %.0.copyload.i.i.i.i.i.i2045) #15
   %5378 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5373, ptr noundef %5377) #15
@@ -13037,7 +13037,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5383 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5383, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2046 = load i32, ptr %5383, align 1
-  %5384 = getelementptr inbounds i8, ptr %5383, i64 8
+  %5384 = getelementptr inbounds nuw i8, ptr %5383, i64 8
   store ptr %5384, ptr %6, align 8
   %5385 = zext i32 %.0.copyload.i.i.i.i.i.i2046 to i64
   %5386 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5382, i64 noundef %5385) #15
@@ -13046,7 +13046,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5389 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5389, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2047 = load i32, ptr %5389, align 1
-  %5390 = getelementptr inbounds i8, ptr %5389, i64 8
+  %5390 = getelementptr inbounds nuw i8, ptr %5389, i64 8
   store ptr %5390, ptr %6, align 8
   %5391 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5388, i32 noundef %.0.copyload.i.i.i.i.i.i2047) #15
   %5392 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5387, ptr noundef %5391) #15
@@ -13060,7 +13060,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5397 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5397, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2048 = load i32, ptr %5397, align 1
-  %5398 = getelementptr inbounds i8, ptr %5397, i64 8
+  %5398 = getelementptr inbounds nuw i8, ptr %5397, i64 8
   store ptr %5398, ptr %6, align 8
   %5399 = zext i32 %.0.copyload.i.i.i.i.i.i2048 to i64
   %5400 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5396, i64 noundef %5399) #15
@@ -13069,7 +13069,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5403 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5403, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2049 = load i32, ptr %5403, align 1
-  %5404 = getelementptr inbounds i8, ptr %5403, i64 8
+  %5404 = getelementptr inbounds nuw i8, ptr %5403, i64 8
   store ptr %5404, ptr %6, align 8
   %5405 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5402, i32 noundef %.0.copyload.i.i.i.i.i.i2049) #15
   %5406 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5401, ptr noundef %5405) #15
@@ -13083,7 +13083,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5411 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5411, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2050 = load i32, ptr %5411, align 1
-  %5412 = getelementptr inbounds i8, ptr %5411, i64 8
+  %5412 = getelementptr inbounds nuw i8, ptr %5411, i64 8
   store ptr %5412, ptr %6, align 8
   %5413 = zext i32 %.0.copyload.i.i.i.i.i.i2050 to i64
   %5414 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5410, i64 noundef %5413) #15
@@ -13092,7 +13092,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5417 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5417, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2051 = load i32, ptr %5417, align 1
-  %5418 = getelementptr inbounds i8, ptr %5417, i64 8
+  %5418 = getelementptr inbounds nuw i8, ptr %5417, i64 8
   store ptr %5418, ptr %6, align 8
   %5419 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5416, i32 noundef %.0.copyload.i.i.i.i.i.i2051) #15
   %5420 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5415, ptr noundef %5419) #15
@@ -13106,7 +13106,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5425 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5425, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2052 = load i32, ptr %5425, align 1
-  %5426 = getelementptr inbounds i8, ptr %5425, i64 8
+  %5426 = getelementptr inbounds nuw i8, ptr %5425, i64 8
   store ptr %5426, ptr %6, align 8
   %5427 = zext i32 %.0.copyload.i.i.i.i.i.i2052 to i64
   %5428 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5424, i64 noundef %5427) #15
@@ -13115,7 +13115,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5431 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5431, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2053 = load i32, ptr %5431, align 1
-  %5432 = getelementptr inbounds i8, ptr %5431, i64 8
+  %5432 = getelementptr inbounds nuw i8, ptr %5431, i64 8
   store ptr %5432, ptr %6, align 8
   %5433 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5430, i32 noundef %.0.copyload.i.i.i.i.i.i2053) #15
   %5434 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5429, ptr noundef %5433) #15
@@ -13129,7 +13129,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5439 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5439, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2054 = load i32, ptr %5439, align 1
-  %5440 = getelementptr inbounds i8, ptr %5439, i64 8
+  %5440 = getelementptr inbounds nuw i8, ptr %5439, i64 8
   store ptr %5440, ptr %6, align 8
   %5441 = zext i32 %.0.copyload.i.i.i.i.i.i2054 to i64
   %5442 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5438, i64 noundef %5441) #15
@@ -13138,7 +13138,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5445 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5445, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2055 = load i32, ptr %5445, align 1
-  %5446 = getelementptr inbounds i8, ptr %5445, i64 8
+  %5446 = getelementptr inbounds nuw i8, ptr %5445, i64 8
   store ptr %5446, ptr %6, align 8
   %5447 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5444, i32 noundef %.0.copyload.i.i.i.i.i.i2055) #15
   %5448 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5443, ptr noundef %5447) #15
@@ -13152,7 +13152,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5453 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5453, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2056 = load i32, ptr %5453, align 1
-  %5454 = getelementptr inbounds i8, ptr %5453, i64 8
+  %5454 = getelementptr inbounds nuw i8, ptr %5453, i64 8
   store ptr %5454, ptr %6, align 8
   %5455 = zext i32 %.0.copyload.i.i.i.i.i.i2056 to i64
   %5456 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5452, i64 noundef %5455) #15
@@ -13161,7 +13161,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5459 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5459, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2057 = load i32, ptr %5459, align 1
-  %5460 = getelementptr inbounds i8, ptr %5459, i64 8
+  %5460 = getelementptr inbounds nuw i8, ptr %5459, i64 8
   store ptr %5460, ptr %6, align 8
   %5461 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5458, i32 noundef %.0.copyload.i.i.i.i.i.i2057) #15
   %5462 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5457, ptr noundef %5461) #15
@@ -13175,7 +13175,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5467 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5467, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2058 = load i32, ptr %5467, align 1
-  %5468 = getelementptr inbounds i8, ptr %5467, i64 8
+  %5468 = getelementptr inbounds nuw i8, ptr %5467, i64 8
   store ptr %5468, ptr %6, align 8
   %5469 = zext i32 %.0.copyload.i.i.i.i.i.i2058 to i64
   %5470 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5466, i64 noundef %5469) #15
@@ -13184,7 +13184,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5473 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5473, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2059 = load i32, ptr %5473, align 1
-  %5474 = getelementptr inbounds i8, ptr %5473, i64 8
+  %5474 = getelementptr inbounds nuw i8, ptr %5473, i64 8
   store ptr %5474, ptr %6, align 8
   %5475 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5472, i32 noundef %.0.copyload.i.i.i.i.i.i2059) #15
   %5476 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5471, ptr noundef %5475) #15
@@ -13198,7 +13198,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5481 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5481, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2060 = load i32, ptr %5481, align 1
-  %5482 = getelementptr inbounds i8, ptr %5481, i64 8
+  %5482 = getelementptr inbounds nuw i8, ptr %5481, i64 8
   store ptr %5482, ptr %6, align 8
   %5483 = zext i32 %.0.copyload.i.i.i.i.i.i2060 to i64
   %5484 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5480, i64 noundef %5483) #15
@@ -13207,7 +13207,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5487 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5487, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2061 = load i32, ptr %5487, align 1
-  %5488 = getelementptr inbounds i8, ptr %5487, i64 8
+  %5488 = getelementptr inbounds nuw i8, ptr %5487, i64 8
   store ptr %5488, ptr %6, align 8
   %5489 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5486, i32 noundef %.0.copyload.i.i.i.i.i.i2061) #15
   %5490 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5485, ptr noundef %5489) #15
@@ -13221,7 +13221,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5495 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5495, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2062 = load i32, ptr %5495, align 1
-  %5496 = getelementptr inbounds i8, ptr %5495, i64 8
+  %5496 = getelementptr inbounds nuw i8, ptr %5495, i64 8
   store ptr %5496, ptr %6, align 8
   %5497 = zext i32 %.0.copyload.i.i.i.i.i.i2062 to i64
   %5498 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5494, i64 noundef %5497) #15
@@ -13230,7 +13230,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5501 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5501, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2063 = load i32, ptr %5501, align 1
-  %5502 = getelementptr inbounds i8, ptr %5501, i64 8
+  %5502 = getelementptr inbounds nuw i8, ptr %5501, i64 8
   store ptr %5502, ptr %6, align 8
   %5503 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5500, i32 noundef %.0.copyload.i.i.i.i.i.i2063) #15
   %5504 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5499, ptr noundef %5503) #15
@@ -13244,7 +13244,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5509 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5509, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2064 = load i32, ptr %5509, align 1
-  %5510 = getelementptr inbounds i8, ptr %5509, i64 8
+  %5510 = getelementptr inbounds nuw i8, ptr %5509, i64 8
   store ptr %5510, ptr %6, align 8
   %5511 = zext i32 %.0.copyload.i.i.i.i.i.i2064 to i64
   %5512 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5508, i64 noundef %5511) #15
@@ -13253,7 +13253,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5515 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5515, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2065 = load i32, ptr %5515, align 1
-  %5516 = getelementptr inbounds i8, ptr %5515, i64 8
+  %5516 = getelementptr inbounds nuw i8, ptr %5515, i64 8
   store ptr %5516, ptr %6, align 8
   %5517 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5514, i32 noundef %.0.copyload.i.i.i.i.i.i2065) #15
   %5518 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5513, ptr noundef %5517) #15
@@ -13267,7 +13267,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5523 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5523, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2066 = load i32, ptr %5523, align 1
-  %5524 = getelementptr inbounds i8, ptr %5523, i64 8
+  %5524 = getelementptr inbounds nuw i8, ptr %5523, i64 8
   store ptr %5524, ptr %6, align 8
   %5525 = zext i32 %.0.copyload.i.i.i.i.i.i2066 to i64
   %5526 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5522, i64 noundef %5525) #15
@@ -13276,7 +13276,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5529 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5529, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2067 = load i32, ptr %5529, align 1
-  %5530 = getelementptr inbounds i8, ptr %5529, i64 8
+  %5530 = getelementptr inbounds nuw i8, ptr %5529, i64 8
   store ptr %5530, ptr %6, align 8
   %5531 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5528, i32 noundef %.0.copyload.i.i.i.i.i.i2067) #15
   %5532 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5527, ptr noundef %5531) #15
@@ -13290,7 +13290,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5537 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5537, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2068 = load i32, ptr %5537, align 1
-  %5538 = getelementptr inbounds i8, ptr %5537, i64 8
+  %5538 = getelementptr inbounds nuw i8, ptr %5537, i64 8
   store ptr %5538, ptr %6, align 8
   %5539 = zext i32 %.0.copyload.i.i.i.i.i.i2068 to i64
   %5540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5536, i64 noundef %5539) #15
@@ -13299,7 +13299,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5543 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5543, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2069 = load i32, ptr %5543, align 1
-  %5544 = getelementptr inbounds i8, ptr %5543, i64 8
+  %5544 = getelementptr inbounds nuw i8, ptr %5543, i64 8
   store ptr %5544, ptr %6, align 8
   %5545 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5542, i32 noundef %.0.copyload.i.i.i.i.i.i2069) #15
   %5546 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5541, ptr noundef %5545) #15
@@ -13313,7 +13313,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5551 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5551, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2070 = load i32, ptr %5551, align 1
-  %5552 = getelementptr inbounds i8, ptr %5551, i64 8
+  %5552 = getelementptr inbounds nuw i8, ptr %5551, i64 8
   store ptr %5552, ptr %6, align 8
   %5553 = zext i32 %.0.copyload.i.i.i.i.i.i2070 to i64
   %5554 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5550, i64 noundef %5553) #15
@@ -13322,7 +13322,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5557 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5557, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2071 = load i32, ptr %5557, align 1
-  %5558 = getelementptr inbounds i8, ptr %5557, i64 8
+  %5558 = getelementptr inbounds nuw i8, ptr %5557, i64 8
   store ptr %5558, ptr %6, align 8
   %5559 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5556, i32 noundef %.0.copyload.i.i.i.i.i.i2071) #15
   %5560 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5555, ptr noundef %5559) #15
@@ -13337,7 +13337,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5566 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5566, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2072 = load i32, ptr %5566, align 1
-  %5567 = getelementptr inbounds i8, ptr %5566, i64 8
+  %5567 = getelementptr inbounds nuw i8, ptr %5566, i64 8
   store ptr %5567, ptr %6, align 8
   %5568 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5565, i32 noundef %.0.copyload.i.i.i.i.i.i2072) #15
   %5569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5564, ptr noundef %5568) #15
@@ -13441,7 +13441,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5619 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5619, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2073 = load i32, ptr %5619, align 1
-  %5620 = getelementptr inbounds i8, ptr %5619, i64 8
+  %5620 = getelementptr inbounds nuw i8, ptr %5619, i64 8
   store ptr %5620, ptr %6, align 8
   %5621 = zext i32 %.0.copyload.i.i.i.i.i.i2073 to i64
   %5622 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5618, i64 noundef %5621) #15
@@ -13456,7 +13456,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5628 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5628, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2074 = load i32, ptr %5628, align 1
-  %5629 = getelementptr inbounds i8, ptr %5628, i64 8
+  %5629 = getelementptr inbounds nuw i8, ptr %5628, i64 8
   store ptr %5629, ptr %6, align 8
   %5630 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5627, i32 noundef %.0.copyload.i.i.i.i.i.i2074) #15
   %5631 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5626, ptr noundef %5630) #15
@@ -13464,7 +13464,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5633 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5633, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2075 = load i32, ptr %5633, align 1
-  %5634 = getelementptr inbounds i8, ptr %5633, i64 8
+  %5634 = getelementptr inbounds nuw i8, ptr %5633, i64 8
   store ptr %5634, ptr %6, align 8
   %5635 = zext i32 %.0.copyload.i.i.i.i.i.i2075 to i64
   %5636 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5632, i64 noundef %5635) #15
@@ -13479,7 +13479,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5642 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5642, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2076 = load i32, ptr %5642, align 1
-  %5643 = getelementptr inbounds i8, ptr %5642, i64 8
+  %5643 = getelementptr inbounds nuw i8, ptr %5642, i64 8
   store ptr %5643, ptr %6, align 8
   %5644 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5641, i32 noundef %.0.copyload.i.i.i.i.i.i2076) #15
   %5645 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5640, ptr noundef %5644) #15
@@ -13487,7 +13487,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5647 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5647, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2077 = load i32, ptr %5647, align 1
-  %5648 = getelementptr inbounds i8, ptr %5647, i64 8
+  %5648 = getelementptr inbounds nuw i8, ptr %5647, i64 8
   store ptr %5648, ptr %6, align 8
   %5649 = zext i32 %.0.copyload.i.i.i.i.i.i2077 to i64
   %5650 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5646, i64 noundef %5649) #15
@@ -13502,7 +13502,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5656 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5656, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2078 = load i32, ptr %5656, align 1
-  %5657 = getelementptr inbounds i8, ptr %5656, i64 8
+  %5657 = getelementptr inbounds nuw i8, ptr %5656, i64 8
   store ptr %5657, ptr %6, align 8
   %5658 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5655, i32 noundef %.0.copyload.i.i.i.i.i.i2078) #15
   %5659 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5654, ptr noundef %5658) #15
@@ -13510,7 +13510,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5661 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5661, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2079 = load i32, ptr %5661, align 1
-  %5662 = getelementptr inbounds i8, ptr %5661, i64 8
+  %5662 = getelementptr inbounds nuw i8, ptr %5661, i64 8
   store ptr %5662, ptr %6, align 8
   %5663 = zext i32 %.0.copyload.i.i.i.i.i.i2079 to i64
   %5664 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5660, i64 noundef %5663) #15
@@ -13525,7 +13525,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5670 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5670, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2080 = load i32, ptr %5670, align 1
-  %5671 = getelementptr inbounds i8, ptr %5670, i64 8
+  %5671 = getelementptr inbounds nuw i8, ptr %5670, i64 8
   store ptr %5671, ptr %6, align 8
   %5672 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5669, i32 noundef %.0.copyload.i.i.i.i.i.i2080) #15
   %5673 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5668, ptr noundef %5672) #15
@@ -13533,7 +13533,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5675 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5675, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2081 = load i32, ptr %5675, align 1
-  %5676 = getelementptr inbounds i8, ptr %5675, i64 8
+  %5676 = getelementptr inbounds nuw i8, ptr %5675, i64 8
   store ptr %5676, ptr %6, align 8
   %5677 = zext i32 %.0.copyload.i.i.i.i.i.i2081 to i64
   %5678 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5674, i64 noundef %5677) #15
@@ -13548,7 +13548,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5684 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5684, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2082 = load i32, ptr %5684, align 1
-  %5685 = getelementptr inbounds i8, ptr %5684, i64 8
+  %5685 = getelementptr inbounds nuw i8, ptr %5684, i64 8
   store ptr %5685, ptr %6, align 8
   %5686 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5683, i32 noundef %.0.copyload.i.i.i.i.i.i2082) #15
   %5687 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5682, ptr noundef %5686) #15
@@ -13556,7 +13556,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5689 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5689, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2083 = load i32, ptr %5689, align 1
-  %5690 = getelementptr inbounds i8, ptr %5689, i64 8
+  %5690 = getelementptr inbounds nuw i8, ptr %5689, i64 8
   store ptr %5690, ptr %6, align 8
   %5691 = zext i32 %.0.copyload.i.i.i.i.i.i2083 to i64
   %5692 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5688, i64 noundef %5691) #15
@@ -13571,7 +13571,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5698 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5698, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2084 = load i32, ptr %5698, align 1
-  %5699 = getelementptr inbounds i8, ptr %5698, i64 8
+  %5699 = getelementptr inbounds nuw i8, ptr %5698, i64 8
   store ptr %5699, ptr %6, align 8
   %5700 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5697, i32 noundef %.0.copyload.i.i.i.i.i.i2084) #15
   %5701 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5696, ptr noundef %5700) #15
@@ -13579,7 +13579,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5703 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5703, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2085 = load i32, ptr %5703, align 1
-  %5704 = getelementptr inbounds i8, ptr %5703, i64 8
+  %5704 = getelementptr inbounds nuw i8, ptr %5703, i64 8
   store ptr %5704, ptr %6, align 8
   %5705 = zext i32 %.0.copyload.i.i.i.i.i.i2085 to i64
   %5706 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5702, i64 noundef %5705) #15
@@ -13594,7 +13594,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5712 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5712, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2086 = load i32, ptr %5712, align 1
-  %5713 = getelementptr inbounds i8, ptr %5712, i64 8
+  %5713 = getelementptr inbounds nuw i8, ptr %5712, i64 8
   store ptr %5713, ptr %6, align 8
   %5714 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5711, i32 noundef %.0.copyload.i.i.i.i.i.i2086) #15
   %5715 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5710, ptr noundef %5714) #15
@@ -13602,7 +13602,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5717 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5717, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2087 = load i32, ptr %5717, align 1
-  %5718 = getelementptr inbounds i8, ptr %5717, i64 8
+  %5718 = getelementptr inbounds nuw i8, ptr %5717, i64 8
   store ptr %5718, ptr %6, align 8
   %5719 = zext i32 %.0.copyload.i.i.i.i.i.i2087 to i64
   %5720 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5716, i64 noundef %5719) #15
@@ -13617,7 +13617,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5726 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5726, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2088 = load i32, ptr %5726, align 1
-  %5727 = getelementptr inbounds i8, ptr %5726, i64 8
+  %5727 = getelementptr inbounds nuw i8, ptr %5726, i64 8
   store ptr %5727, ptr %6, align 8
   %5728 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5725, i32 noundef %.0.copyload.i.i.i.i.i.i2088) #15
   %5729 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5724, ptr noundef %5728) #15
@@ -13625,7 +13625,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5731 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5731, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2089 = load i32, ptr %5731, align 1
-  %5732 = getelementptr inbounds i8, ptr %5731, i64 8
+  %5732 = getelementptr inbounds nuw i8, ptr %5731, i64 8
   store ptr %5732, ptr %6, align 8
   %5733 = zext i32 %.0.copyload.i.i.i.i.i.i2089 to i64
   %5734 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5730, i64 noundef %5733) #15
@@ -13640,7 +13640,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5740 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5740, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2090 = load i32, ptr %5740, align 1
-  %5741 = getelementptr inbounds i8, ptr %5740, i64 8
+  %5741 = getelementptr inbounds nuw i8, ptr %5740, i64 8
   store ptr %5741, ptr %6, align 8
   %5742 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5739, i32 noundef %.0.copyload.i.i.i.i.i.i2090) #15
   %5743 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5738, ptr noundef %5742) #15
@@ -13648,7 +13648,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5745 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5745, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2091 = load i32, ptr %5745, align 1
-  %5746 = getelementptr inbounds i8, ptr %5745, i64 8
+  %5746 = getelementptr inbounds nuw i8, ptr %5745, i64 8
   store ptr %5746, ptr %6, align 8
   %5747 = zext i32 %.0.copyload.i.i.i.i.i.i2091 to i64
   %5748 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5744, i64 noundef %5747) #15
@@ -13663,7 +13663,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5754 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5754, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2092 = load i32, ptr %5754, align 1
-  %5755 = getelementptr inbounds i8, ptr %5754, i64 8
+  %5755 = getelementptr inbounds nuw i8, ptr %5754, i64 8
   store ptr %5755, ptr %6, align 8
   %5756 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5753, i32 noundef %.0.copyload.i.i.i.i.i.i2092) #15
   %5757 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5752, ptr noundef %5756) #15
@@ -13671,7 +13671,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5759 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5759, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2093 = load i32, ptr %5759, align 1
-  %5760 = getelementptr inbounds i8, ptr %5759, i64 8
+  %5760 = getelementptr inbounds nuw i8, ptr %5759, i64 8
   store ptr %5760, ptr %6, align 8
   %5761 = zext i32 %.0.copyload.i.i.i.i.i.i2093 to i64
   %5762 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5758, i64 noundef %5761) #15
@@ -13686,7 +13686,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5768 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5768, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2094 = load i32, ptr %5768, align 1
-  %5769 = getelementptr inbounds i8, ptr %5768, i64 8
+  %5769 = getelementptr inbounds nuw i8, ptr %5768, i64 8
   store ptr %5769, ptr %6, align 8
   %5770 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5767, i32 noundef %.0.copyload.i.i.i.i.i.i2094) #15
   %5771 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5766, ptr noundef %5770) #15
@@ -13694,7 +13694,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5773 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5773, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2095 = load i32, ptr %5773, align 1
-  %5774 = getelementptr inbounds i8, ptr %5773, i64 8
+  %5774 = getelementptr inbounds nuw i8, ptr %5773, i64 8
   store ptr %5774, ptr %6, align 8
   %5775 = zext i32 %.0.copyload.i.i.i.i.i.i2095 to i64
   %5776 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5772, i64 noundef %5775) #15
@@ -13708,7 +13708,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5781 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5781, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2096 = load i32, ptr %5781, align 1
-  %5782 = getelementptr inbounds i8, ptr %5781, i64 8
+  %5782 = getelementptr inbounds nuw i8, ptr %5781, i64 8
   store ptr %5782, ptr %6, align 8
   %5783 = zext i32 %.0.copyload.i.i.i.i.i.i2096 to i64
   %5784 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5780, i64 noundef %5783) #15
@@ -13722,7 +13722,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5789 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5789, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2097 = load i32, ptr %5789, align 1
-  %5790 = getelementptr inbounds i8, ptr %5789, i64 8
+  %5790 = getelementptr inbounds nuw i8, ptr %5789, i64 8
   store ptr %5790, ptr %6, align 8
   %5791 = zext i32 %.0.copyload.i.i.i.i.i.i2097 to i64
   %5792 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5788, i64 noundef %5791) #15
@@ -13736,7 +13736,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5797 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5797, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2098 = load i32, ptr %5797, align 1
-  %5798 = getelementptr inbounds i8, ptr %5797, i64 8
+  %5798 = getelementptr inbounds nuw i8, ptr %5797, i64 8
   store ptr %5798, ptr %6, align 8
   %5799 = zext i32 %.0.copyload.i.i.i.i.i.i2098 to i64
   %5800 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5796, i64 noundef %5799) #15
@@ -13750,7 +13750,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5805 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5805, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2099 = load i32, ptr %5805, align 1
-  %5806 = getelementptr inbounds i8, ptr %5805, i64 8
+  %5806 = getelementptr inbounds nuw i8, ptr %5805, i64 8
   store ptr %5806, ptr %6, align 8
   %5807 = zext i32 %.0.copyload.i.i.i.i.i.i2099 to i64
   %5808 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5804, i64 noundef %5807) #15
@@ -13764,7 +13764,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5813 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5813, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2100 = load i32, ptr %5813, align 1
-  %5814 = getelementptr inbounds i8, ptr %5813, i64 8
+  %5814 = getelementptr inbounds nuw i8, ptr %5813, i64 8
   store ptr %5814, ptr %6, align 8
   %5815 = zext i32 %.0.copyload.i.i.i.i.i.i2100 to i64
   %5816 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5812, i64 noundef %5815) #15
@@ -13778,7 +13778,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5821 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5821, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2101 = load i32, ptr %5821, align 1
-  %5822 = getelementptr inbounds i8, ptr %5821, i64 8
+  %5822 = getelementptr inbounds nuw i8, ptr %5821, i64 8
   store ptr %5822, ptr %6, align 8
   %5823 = zext i32 %.0.copyload.i.i.i.i.i.i2101 to i64
   %5824 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5820, i64 noundef %5823) #15
@@ -13792,7 +13792,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5829 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5829, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2102 = load i32, ptr %5829, align 1
-  %5830 = getelementptr inbounds i8, ptr %5829, i64 8
+  %5830 = getelementptr inbounds nuw i8, ptr %5829, i64 8
   store ptr %5830, ptr %6, align 8
   %5831 = zext i32 %.0.copyload.i.i.i.i.i.i2102 to i64
   %5832 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5828, i64 noundef %5831) #15
@@ -13806,7 +13806,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5837 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5837, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2103 = load i32, ptr %5837, align 1
-  %5838 = getelementptr inbounds i8, ptr %5837, i64 8
+  %5838 = getelementptr inbounds nuw i8, ptr %5837, i64 8
   store ptr %5838, ptr %6, align 8
   %5839 = zext i32 %.0.copyload.i.i.i.i.i.i2103 to i64
   %5840 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5836, i64 noundef %5839) #15
@@ -13820,7 +13820,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5845 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5845, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2104 = load i32, ptr %5845, align 1
-  %5846 = getelementptr inbounds i8, ptr %5845, i64 8
+  %5846 = getelementptr inbounds nuw i8, ptr %5845, i64 8
   store ptr %5846, ptr %6, align 8
   %5847 = zext i32 %.0.copyload.i.i.i.i.i.i2104 to i64
   %5848 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5844, i64 noundef %5847) #15
@@ -13834,7 +13834,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5853 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5853, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2105 = load i32, ptr %5853, align 1
-  %5854 = getelementptr inbounds i8, ptr %5853, i64 8
+  %5854 = getelementptr inbounds nuw i8, ptr %5853, i64 8
   store ptr %5854, ptr %6, align 8
   %5855 = zext i32 %.0.copyload.i.i.i.i.i.i2105 to i64
   %5856 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5852, i64 noundef %5855) #15
@@ -13848,7 +13848,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5861 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5861, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2106 = load i32, ptr %5861, align 1
-  %5862 = getelementptr inbounds i8, ptr %5861, i64 8
+  %5862 = getelementptr inbounds nuw i8, ptr %5861, i64 8
   store ptr %5862, ptr %6, align 8
   %5863 = zext i32 %.0.copyload.i.i.i.i.i.i2106 to i64
   %5864 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5860, i64 noundef %5863) #15
@@ -13862,7 +13862,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5869 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5869, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2107 = load i32, ptr %5869, align 1
-  %5870 = getelementptr inbounds i8, ptr %5869, i64 8
+  %5870 = getelementptr inbounds nuw i8, ptr %5869, i64 8
   store ptr %5870, ptr %6, align 8
   %5871 = zext i32 %.0.copyload.i.i.i.i.i.i2107 to i64
   %5872 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5868, i64 noundef %5871) #15
@@ -13876,7 +13876,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5877 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5877, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2108 = load i32, ptr %5877, align 1
-  %5878 = getelementptr inbounds i8, ptr %5877, i64 8
+  %5878 = getelementptr inbounds nuw i8, ptr %5877, i64 8
   store ptr %5878, ptr %6, align 8
   %5879 = zext i32 %.0.copyload.i.i.i.i.i.i2108 to i64
   %5880 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5876, i64 noundef %5879) #15
@@ -13890,7 +13890,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5885 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5885, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2109 = load i32, ptr %5885, align 1
-  %5886 = getelementptr inbounds i8, ptr %5885, i64 8
+  %5886 = getelementptr inbounds nuw i8, ptr %5885, i64 8
   store ptr %5886, ptr %6, align 8
   %5887 = zext i32 %.0.copyload.i.i.i.i.i.i2109 to i64
   %5888 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5884, i64 noundef %5887) #15
@@ -13904,7 +13904,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5893 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5893, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2110 = load i32, ptr %5893, align 1
-  %5894 = getelementptr inbounds i8, ptr %5893, i64 8
+  %5894 = getelementptr inbounds nuw i8, ptr %5893, i64 8
   store ptr %5894, ptr %6, align 8
   %5895 = zext i32 %.0.copyload.i.i.i.i.i.i2110 to i64
   %5896 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %5892, i64 noundef %5895) #15
@@ -13930,14 +13930,14 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5907 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5907, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2111 = load i8, ptr %5907, align 1
-  %5908 = getelementptr inbounds i8, ptr %5907, i64 8
+  %5908 = getelementptr inbounds nuw i8, ptr %5907, i64 8
   store ptr %5908, ptr %6, align 8
   %5909 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang6interplsERN4llvm11raw_ostreamENS0_8CastKindE(ptr noundef nonnull align 8 dereferenceable(48) %5906, i8 noundef zeroext %.0.copyload.i.i.i.i.i.i2111)
   %5910 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %5909, ptr noundef nonnull @.str)
   %5911 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5911, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2112 = load i8, ptr %5911, align 1
-  %5912 = getelementptr inbounds i8, ptr %5911, i64 8
+  %5912 = getelementptr inbounds nuw i8, ptr %5911, i64 8
   store ptr %5912, ptr %6, align 8
   %5913 = and i8 %.0.copyload.i.i.i.i.i.i2112, 1
   %5914 = zext nneg i8 %5913 to i64
@@ -13953,7 +13953,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5921 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5921, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2113 = load i32, ptr %5921, align 1
-  %5922 = getelementptr inbounds i8, ptr %5921, i64 8
+  %5922 = getelementptr inbounds nuw i8, ptr %5921, i64 8
   store ptr %5922, ptr %6, align 8
   %5923 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %5920, i32 noundef %.0.copyload.i.i.i.i.i.i2113) #15
   %5924 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %5919, ptr noundef %5923) #15
@@ -13991,7 +13991,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5941 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5941, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2114 = load i32, ptr %5941, align 1
-  %5942 = getelementptr inbounds i8, ptr %5941, i64 8
+  %5942 = getelementptr inbounds nuw i8, ptr %5941, i64 8
   store ptr %5942, ptr %6, align 8
   %5943 = sext i32 %.0.copyload.i.i.i.i.i.i2114 to i64
   %5944 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %5940, i64 noundef %5943) #15
@@ -14005,7 +14005,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5949 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5949, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2115 = load i32, ptr %5949, align 1
-  %5950 = getelementptr inbounds i8, ptr %5949, i64 8
+  %5950 = getelementptr inbounds nuw i8, ptr %5949, i64 8
   store ptr %5950, ptr %6, align 8
   %5951 = sext i32 %.0.copyload.i.i.i.i.i.i2115 to i64
   %5952 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %5948, i64 noundef %5951) #15
@@ -14019,7 +14019,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %5957 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5957, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2116 = load i32, ptr %5957, align 1
-  %5958 = getelementptr inbounds i8, ptr %5957, i64 8
+  %5958 = getelementptr inbounds nuw i8, ptr %5957, i64 8
   store ptr %5958, ptr %6, align 8
   %5959 = sext i32 %.0.copyload.i.i.i.i.i.i2116 to i64
   %5960 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %5956, i64 noundef %5959) #15
@@ -14519,7 +14519,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6208 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6208, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2117 = load i32, ptr %6208, align 1
-  %6209 = getelementptr inbounds i8, ptr %6208, i64 8
+  %6209 = getelementptr inbounds nuw i8, ptr %6208, i64 8
   store ptr %6209, ptr %6, align 8
   %6210 = zext i32 %.0.copyload.i.i.i.i.i.i2117 to i64
   %6211 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6207, i64 noundef %6210) #15
@@ -14708,7 +14708,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6304 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6304, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2118 = load i32, ptr %6304, align 1
-  %6305 = getelementptr inbounds i8, ptr %6304, i64 8
+  %6305 = getelementptr inbounds nuw i8, ptr %6304, i64 8
   store ptr %6305, ptr %6, align 8
   %6306 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6303, i32 noundef %.0.copyload.i.i.i.i.i.i2118) #15
   %6307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6302, ptr noundef %6306) #15
@@ -14723,7 +14723,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6313 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6313, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2119 = load i32, ptr %6313, align 1
-  %6314 = getelementptr inbounds i8, ptr %6313, i64 8
+  %6314 = getelementptr inbounds nuw i8, ptr %6313, i64 8
   store ptr %6314, ptr %6, align 8
   %6315 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6312, i32 noundef %.0.copyload.i.i.i.i.i.i2119) #15
   %6316 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6311, ptr noundef %6315) #15
@@ -14738,7 +14738,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6322 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6322, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2120 = load i32, ptr %6322, align 1
-  %6323 = getelementptr inbounds i8, ptr %6322, i64 8
+  %6323 = getelementptr inbounds nuw i8, ptr %6322, i64 8
   store ptr %6323, ptr %6, align 8
   %6324 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6321, i32 noundef %.0.copyload.i.i.i.i.i.i2120) #15
   %6325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6320, ptr noundef %6324) #15
@@ -14753,7 +14753,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6331 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6331, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2121 = load i32, ptr %6331, align 1
-  %6332 = getelementptr inbounds i8, ptr %6331, i64 8
+  %6332 = getelementptr inbounds nuw i8, ptr %6331, i64 8
   store ptr %6332, ptr %6, align 8
   %6333 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6330, i32 noundef %.0.copyload.i.i.i.i.i.i2121) #15
   %6334 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6329, ptr noundef %6333) #15
@@ -14768,7 +14768,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6340 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6340, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2122 = load i32, ptr %6340, align 1
-  %6341 = getelementptr inbounds i8, ptr %6340, i64 8
+  %6341 = getelementptr inbounds nuw i8, ptr %6340, i64 8
   store ptr %6341, ptr %6, align 8
   %6342 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6339, i32 noundef %.0.copyload.i.i.i.i.i.i2122) #15
   %6343 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6338, ptr noundef %6342) #15
@@ -14783,7 +14783,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6349 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6349, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2123 = load i32, ptr %6349, align 1
-  %6350 = getelementptr inbounds i8, ptr %6349, i64 8
+  %6350 = getelementptr inbounds nuw i8, ptr %6349, i64 8
   store ptr %6350, ptr %6, align 8
   %6351 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6348, i32 noundef %.0.copyload.i.i.i.i.i.i2123) #15
   %6352 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6347, ptr noundef %6351) #15
@@ -14798,7 +14798,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6358 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6358, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2124 = load i32, ptr %6358, align 1
-  %6359 = getelementptr inbounds i8, ptr %6358, i64 8
+  %6359 = getelementptr inbounds nuw i8, ptr %6358, i64 8
   store ptr %6359, ptr %6, align 8
   %6360 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6357, i32 noundef %.0.copyload.i.i.i.i.i.i2124) #15
   %6361 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6356, ptr noundef %6360) #15
@@ -14813,7 +14813,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6367 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6367, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2125 = load i32, ptr %6367, align 1
-  %6368 = getelementptr inbounds i8, ptr %6367, i64 8
+  %6368 = getelementptr inbounds nuw i8, ptr %6367, i64 8
   store ptr %6368, ptr %6, align 8
   %6369 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6366, i32 noundef %.0.copyload.i.i.i.i.i.i2125) #15
   %6370 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6365, ptr noundef %6369) #15
@@ -14828,7 +14828,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6376 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6376, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2126 = load i32, ptr %6376, align 1
-  %6377 = getelementptr inbounds i8, ptr %6376, i64 8
+  %6377 = getelementptr inbounds nuw i8, ptr %6376, i64 8
   store ptr %6377, ptr %6, align 8
   %6378 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6375, i32 noundef %.0.copyload.i.i.i.i.i.i2126) #15
   %6379 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6374, ptr noundef %6378) #15
@@ -14843,7 +14843,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6385 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6385, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2127 = load i32, ptr %6385, align 1
-  %6386 = getelementptr inbounds i8, ptr %6385, i64 8
+  %6386 = getelementptr inbounds nuw i8, ptr %6385, i64 8
   store ptr %6386, ptr %6, align 8
   %6387 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6384, i32 noundef %.0.copyload.i.i.i.i.i.i2127) #15
   %6388 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6383, ptr noundef %6387) #15
@@ -14858,7 +14858,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6394 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6394, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2128 = load i32, ptr %6394, align 1
-  %6395 = getelementptr inbounds i8, ptr %6394, i64 8
+  %6395 = getelementptr inbounds nuw i8, ptr %6394, i64 8
   store ptr %6395, ptr %6, align 8
   %6396 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6393, i32 noundef %.0.copyload.i.i.i.i.i.i2128) #15
   %6397 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6392, ptr noundef %6396) #15
@@ -14873,7 +14873,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6403 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6403, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2129 = load i32, ptr %6403, align 1
-  %6404 = getelementptr inbounds i8, ptr %6403, i64 8
+  %6404 = getelementptr inbounds nuw i8, ptr %6403, i64 8
   store ptr %6404, ptr %6, align 8
   %6405 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6402, i32 noundef %.0.copyload.i.i.i.i.i.i2129) #15
   %6406 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6401, ptr noundef %6405) #15
@@ -14888,7 +14888,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6412 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6412, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2130 = load i32, ptr %6412, align 1
-  %6413 = getelementptr inbounds i8, ptr %6412, i64 8
+  %6413 = getelementptr inbounds nuw i8, ptr %6412, i64 8
   store ptr %6413, ptr %6, align 8
   %6414 = call noundef ptr @_ZN5clang6interp7Program16getNativePointerEj(ptr noundef nonnull align 8 dereferenceable(328) %6411, i32 noundef %.0.copyload.i.i.i.i.i.i2130) #15
   %6415 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %6410, ptr noundef %6414) #15
@@ -14992,7 +14992,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6465 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6465, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2131 = load i8, ptr %6465, align 1
-  %6466 = getelementptr inbounds i8, ptr %6465, i64 8
+  %6466 = getelementptr inbounds nuw i8, ptr %6465, i64 8
   store ptr %6466, ptr %6, align 8
   %6467 = and i8 %.0.copyload.i.i.i.i.i.i2131, 1
   %6468 = zext nneg i8 %6467 to i64
@@ -15175,7 +15175,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6558 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6558, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2132 = load i32, ptr %6558, align 1
-  %6559 = getelementptr inbounds i8, ptr %6558, i64 8
+  %6559 = getelementptr inbounds nuw i8, ptr %6558, i64 8
   store ptr %6559, ptr %6, align 8
   %6560 = zext i32 %.0.copyload.i.i.i.i.i.i2132 to i64
   %6561 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6557, i64 noundef %6560) #15
@@ -15189,7 +15189,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6566 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6566, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2133 = load i32, ptr %6566, align 1
-  %6567 = getelementptr inbounds i8, ptr %6566, i64 8
+  %6567 = getelementptr inbounds nuw i8, ptr %6566, i64 8
   store ptr %6567, ptr %6, align 8
   %6568 = zext i32 %.0.copyload.i.i.i.i.i.i2133 to i64
   %6569 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6565, i64 noundef %6568) #15
@@ -15203,7 +15203,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6574 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6574, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2134 = load i32, ptr %6574, align 1
-  %6575 = getelementptr inbounds i8, ptr %6574, i64 8
+  %6575 = getelementptr inbounds nuw i8, ptr %6574, i64 8
   store ptr %6575, ptr %6, align 8
   %6576 = zext i32 %.0.copyload.i.i.i.i.i.i2134 to i64
   %6577 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6573, i64 noundef %6576) #15
@@ -15217,7 +15217,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6582 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6582, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2135 = load i32, ptr %6582, align 1
-  %6583 = getelementptr inbounds i8, ptr %6582, i64 8
+  %6583 = getelementptr inbounds nuw i8, ptr %6582, i64 8
   store ptr %6583, ptr %6, align 8
   %6584 = zext i32 %.0.copyload.i.i.i.i.i.i2135 to i64
   %6585 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6581, i64 noundef %6584) #15
@@ -15231,7 +15231,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6590 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6590, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2136 = load i32, ptr %6590, align 1
-  %6591 = getelementptr inbounds i8, ptr %6590, i64 8
+  %6591 = getelementptr inbounds nuw i8, ptr %6590, i64 8
   store ptr %6591, ptr %6, align 8
   %6592 = zext i32 %.0.copyload.i.i.i.i.i.i2136 to i64
   %6593 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6589, i64 noundef %6592) #15
@@ -15245,7 +15245,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6598 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6598, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2137 = load i32, ptr %6598, align 1
-  %6599 = getelementptr inbounds i8, ptr %6598, i64 8
+  %6599 = getelementptr inbounds nuw i8, ptr %6598, i64 8
   store ptr %6599, ptr %6, align 8
   %6600 = zext i32 %.0.copyload.i.i.i.i.i.i2137 to i64
   %6601 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6597, i64 noundef %6600) #15
@@ -15259,7 +15259,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6606 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6606, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2138 = load i32, ptr %6606, align 1
-  %6607 = getelementptr inbounds i8, ptr %6606, i64 8
+  %6607 = getelementptr inbounds nuw i8, ptr %6606, i64 8
   store ptr %6607, ptr %6, align 8
   %6608 = zext i32 %.0.copyload.i.i.i.i.i.i2138 to i64
   %6609 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6605, i64 noundef %6608) #15
@@ -15273,7 +15273,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6614 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6614, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2139 = load i32, ptr %6614, align 1
-  %6615 = getelementptr inbounds i8, ptr %6614, i64 8
+  %6615 = getelementptr inbounds nuw i8, ptr %6614, i64 8
   store ptr %6615, ptr %6, align 8
   %6616 = zext i32 %.0.copyload.i.i.i.i.i.i2139 to i64
   %6617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6613, i64 noundef %6616) #15
@@ -15287,7 +15287,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6622 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6622, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2140 = load i32, ptr %6622, align 1
-  %6623 = getelementptr inbounds i8, ptr %6622, i64 8
+  %6623 = getelementptr inbounds nuw i8, ptr %6622, i64 8
   store ptr %6623, ptr %6, align 8
   %6624 = zext i32 %.0.copyload.i.i.i.i.i.i2140 to i64
   %6625 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6621, i64 noundef %6624) #15
@@ -15301,7 +15301,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6630 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6630, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2141 = load i32, ptr %6630, align 1
-  %6631 = getelementptr inbounds i8, ptr %6630, i64 8
+  %6631 = getelementptr inbounds nuw i8, ptr %6630, i64 8
   store ptr %6631, ptr %6, align 8
   %6632 = zext i32 %.0.copyload.i.i.i.i.i.i2141 to i64
   %6633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6629, i64 noundef %6632) #15
@@ -15315,7 +15315,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6638 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6638, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2142 = load i32, ptr %6638, align 1
-  %6639 = getelementptr inbounds i8, ptr %6638, i64 8
+  %6639 = getelementptr inbounds nuw i8, ptr %6638, i64 8
   store ptr %6639, ptr %6, align 8
   %6640 = zext i32 %.0.copyload.i.i.i.i.i.i2142 to i64
   %6641 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6637, i64 noundef %6640) #15
@@ -15329,7 +15329,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6646 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6646, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2143 = load i32, ptr %6646, align 1
-  %6647 = getelementptr inbounds i8, ptr %6646, i64 8
+  %6647 = getelementptr inbounds nuw i8, ptr %6646, i64 8
   store ptr %6647, ptr %6, align 8
   %6648 = zext i32 %.0.copyload.i.i.i.i.i.i2143 to i64
   %6649 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6645, i64 noundef %6648) #15
@@ -15343,7 +15343,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6654 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6654, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2144 = load i32, ptr %6654, align 1
-  %6655 = getelementptr inbounds i8, ptr %6654, i64 8
+  %6655 = getelementptr inbounds nuw i8, ptr %6654, i64 8
   store ptr %6655, ptr %6, align 8
   %6656 = zext i32 %.0.copyload.i.i.i.i.i.i2144 to i64
   %6657 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6653, i64 noundef %6656) #15
@@ -15357,7 +15357,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6662 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6662, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2145 = load i32, ptr %6662, align 1
-  %6663 = getelementptr inbounds i8, ptr %6662, i64 8
+  %6663 = getelementptr inbounds nuw i8, ptr %6662, i64 8
   store ptr %6663, ptr %6, align 8
   %6664 = zext i32 %.0.copyload.i.i.i.i.i.i2145 to i64
   %6665 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6661, i64 noundef %6664) #15
@@ -15371,7 +15371,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6670 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6670, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2146 = load i32, ptr %6670, align 1
-  %6671 = getelementptr inbounds i8, ptr %6670, i64 8
+  %6671 = getelementptr inbounds nuw i8, ptr %6670, i64 8
   store ptr %6671, ptr %6, align 8
   %6672 = zext i32 %.0.copyload.i.i.i.i.i.i2146 to i64
   %6673 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6669, i64 noundef %6672) #15
@@ -15385,7 +15385,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6678 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6678, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2147 = load i32, ptr %6678, align 1
-  %6679 = getelementptr inbounds i8, ptr %6678, i64 8
+  %6679 = getelementptr inbounds nuw i8, ptr %6678, i64 8
   store ptr %6679, ptr %6, align 8
   %6680 = zext i32 %.0.copyload.i.i.i.i.i.i2147 to i64
   %6681 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6677, i64 noundef %6680) #15
@@ -15399,7 +15399,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6686 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6686, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2148 = load i32, ptr %6686, align 1
-  %6687 = getelementptr inbounds i8, ptr %6686, i64 8
+  %6687 = getelementptr inbounds nuw i8, ptr %6686, i64 8
   store ptr %6687, ptr %6, align 8
   %6688 = zext i32 %.0.copyload.i.i.i.i.i.i2148 to i64
   %6689 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6685, i64 noundef %6688) #15
@@ -15413,7 +15413,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6694 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6694, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2149 = load i32, ptr %6694, align 1
-  %6695 = getelementptr inbounds i8, ptr %6694, i64 8
+  %6695 = getelementptr inbounds nuw i8, ptr %6694, i64 8
   store ptr %6695, ptr %6, align 8
   %6696 = zext i32 %.0.copyload.i.i.i.i.i.i2149 to i64
   %6697 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6693, i64 noundef %6696) #15
@@ -15427,7 +15427,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6702 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6702, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2150 = load i32, ptr %6702, align 1
-  %6703 = getelementptr inbounds i8, ptr %6702, i64 8
+  %6703 = getelementptr inbounds nuw i8, ptr %6702, i64 8
   store ptr %6703, ptr %6, align 8
   %6704 = zext i32 %.0.copyload.i.i.i.i.i.i2150 to i64
   %6705 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6701, i64 noundef %6704) #15
@@ -15441,7 +15441,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6710 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6710, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2151 = load i32, ptr %6710, align 1
-  %6711 = getelementptr inbounds i8, ptr %6710, i64 8
+  %6711 = getelementptr inbounds nuw i8, ptr %6710, i64 8
   store ptr %6711, ptr %6, align 8
   %6712 = zext i32 %.0.copyload.i.i.i.i.i.i2151 to i64
   %6713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6709, i64 noundef %6712) #15
@@ -15455,7 +15455,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6718 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6718, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2152 = load i32, ptr %6718, align 1
-  %6719 = getelementptr inbounds i8, ptr %6718, i64 8
+  %6719 = getelementptr inbounds nuw i8, ptr %6718, i64 8
   store ptr %6719, ptr %6, align 8
   %6720 = zext i32 %.0.copyload.i.i.i.i.i.i2152 to i64
   %6721 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6717, i64 noundef %6720) #15
@@ -15469,7 +15469,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6726 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6726, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2153 = load i32, ptr %6726, align 1
-  %6727 = getelementptr inbounds i8, ptr %6726, i64 8
+  %6727 = getelementptr inbounds nuw i8, ptr %6726, i64 8
   store ptr %6727, ptr %6, align 8
   %6728 = zext i32 %.0.copyload.i.i.i.i.i.i2153 to i64
   %6729 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6725, i64 noundef %6728) #15
@@ -15483,7 +15483,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6734 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6734, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2154 = load i32, ptr %6734, align 1
-  %6735 = getelementptr inbounds i8, ptr %6734, i64 8
+  %6735 = getelementptr inbounds nuw i8, ptr %6734, i64 8
   store ptr %6735, ptr %6, align 8
   %6736 = zext i32 %.0.copyload.i.i.i.i.i.i2154 to i64
   %6737 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6733, i64 noundef %6736) #15
@@ -15497,7 +15497,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6742 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6742, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2155 = load i32, ptr %6742, align 1
-  %6743 = getelementptr inbounds i8, ptr %6742, i64 8
+  %6743 = getelementptr inbounds nuw i8, ptr %6742, i64 8
   store ptr %6743, ptr %6, align 8
   %6744 = zext i32 %.0.copyload.i.i.i.i.i.i2155 to i64
   %6745 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6741, i64 noundef %6744) #15
@@ -15511,7 +15511,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6750 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6750, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2156 = load i32, ptr %6750, align 1
-  %6751 = getelementptr inbounds i8, ptr %6750, i64 8
+  %6751 = getelementptr inbounds nuw i8, ptr %6750, i64 8
   store ptr %6751, ptr %6, align 8
   %6752 = zext i32 %.0.copyload.i.i.i.i.i.i2156 to i64
   %6753 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6749, i64 noundef %6752) #15
@@ -15525,7 +15525,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6758 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6758, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2157 = load i32, ptr %6758, align 1
-  %6759 = getelementptr inbounds i8, ptr %6758, i64 8
+  %6759 = getelementptr inbounds nuw i8, ptr %6758, i64 8
   store ptr %6759, ptr %6, align 8
   %6760 = zext i32 %.0.copyload.i.i.i.i.i.i2157 to i64
   %6761 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6757, i64 noundef %6760) #15
@@ -15539,7 +15539,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6766 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6766, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2158 = load i32, ptr %6766, align 1
-  %6767 = getelementptr inbounds i8, ptr %6766, i64 8
+  %6767 = getelementptr inbounds nuw i8, ptr %6766, i64 8
   store ptr %6767, ptr %6, align 8
   %6768 = zext i32 %.0.copyload.i.i.i.i.i.i2158 to i64
   %6769 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6765, i64 noundef %6768) #15
@@ -15553,7 +15553,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6774 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6774, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2159 = load i32, ptr %6774, align 1
-  %6775 = getelementptr inbounds i8, ptr %6774, i64 8
+  %6775 = getelementptr inbounds nuw i8, ptr %6774, i64 8
   store ptr %6775, ptr %6, align 8
   %6776 = zext i32 %.0.copyload.i.i.i.i.i.i2159 to i64
   %6777 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6773, i64 noundef %6776) #15
@@ -15567,7 +15567,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6782 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6782, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2160 = load i32, ptr %6782, align 1
-  %6783 = getelementptr inbounds i8, ptr %6782, i64 8
+  %6783 = getelementptr inbounds nuw i8, ptr %6782, i64 8
   store ptr %6783, ptr %6, align 8
   %6784 = zext i32 %.0.copyload.i.i.i.i.i.i2160 to i64
   %6785 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6781, i64 noundef %6784) #15
@@ -15581,7 +15581,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6790 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6790, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2161 = load i32, ptr %6790, align 1
-  %6791 = getelementptr inbounds i8, ptr %6790, i64 8
+  %6791 = getelementptr inbounds nuw i8, ptr %6790, i64 8
   store ptr %6791, ptr %6, align 8
   %6792 = zext i32 %.0.copyload.i.i.i.i.i.i2161 to i64
   %6793 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6789, i64 noundef %6792) #15
@@ -15595,7 +15595,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6798 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6798, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2162 = load i32, ptr %6798, align 1
-  %6799 = getelementptr inbounds i8, ptr %6798, i64 8
+  %6799 = getelementptr inbounds nuw i8, ptr %6798, i64 8
   store ptr %6799, ptr %6, align 8
   %6800 = zext i32 %.0.copyload.i.i.i.i.i.i2162 to i64
   %6801 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6797, i64 noundef %6800) #15
@@ -15609,7 +15609,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6806 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6806, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2163 = load i32, ptr %6806, align 1
-  %6807 = getelementptr inbounds i8, ptr %6806, i64 8
+  %6807 = getelementptr inbounds nuw i8, ptr %6806, i64 8
   store ptr %6807, ptr %6, align 8
   %6808 = zext i32 %.0.copyload.i.i.i.i.i.i2163 to i64
   %6809 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6805, i64 noundef %6808) #15
@@ -15623,7 +15623,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6814 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6814, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2164 = load i32, ptr %6814, align 1
-  %6815 = getelementptr inbounds i8, ptr %6814, i64 8
+  %6815 = getelementptr inbounds nuw i8, ptr %6814, i64 8
   store ptr %6815, ptr %6, align 8
   %6816 = zext i32 %.0.copyload.i.i.i.i.i.i2164 to i64
   %6817 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6813, i64 noundef %6816) #15
@@ -15637,7 +15637,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6822 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6822, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2165 = load i32, ptr %6822, align 1
-  %6823 = getelementptr inbounds i8, ptr %6822, i64 8
+  %6823 = getelementptr inbounds nuw i8, ptr %6822, i64 8
   store ptr %6823, ptr %6, align 8
   %6824 = zext i32 %.0.copyload.i.i.i.i.i.i2165 to i64
   %6825 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6821, i64 noundef %6824) #15
@@ -15651,7 +15651,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6830 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6830, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2166 = load i32, ptr %6830, align 1
-  %6831 = getelementptr inbounds i8, ptr %6830, i64 8
+  %6831 = getelementptr inbounds nuw i8, ptr %6830, i64 8
   store ptr %6831, ptr %6, align 8
   %6832 = zext i32 %.0.copyload.i.i.i.i.i.i2166 to i64
   %6833 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6829, i64 noundef %6832) #15
@@ -15665,7 +15665,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6838 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6838, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2167 = load i32, ptr %6838, align 1
-  %6839 = getelementptr inbounds i8, ptr %6838, i64 8
+  %6839 = getelementptr inbounds nuw i8, ptr %6838, i64 8
   store ptr %6839, ptr %6, align 8
   %6840 = zext i32 %.0.copyload.i.i.i.i.i.i2167 to i64
   %6841 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6837, i64 noundef %6840) #15
@@ -15679,7 +15679,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6846 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6846, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2168 = load i32, ptr %6846, align 1
-  %6847 = getelementptr inbounds i8, ptr %6846, i64 8
+  %6847 = getelementptr inbounds nuw i8, ptr %6846, i64 8
   store ptr %6847, ptr %6, align 8
   %6848 = zext i32 %.0.copyload.i.i.i.i.i.i2168 to i64
   %6849 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6845, i64 noundef %6848) #15
@@ -15693,7 +15693,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6854 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6854, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2169 = load i32, ptr %6854, align 1
-  %6855 = getelementptr inbounds i8, ptr %6854, i64 8
+  %6855 = getelementptr inbounds nuw i8, ptr %6854, i64 8
   store ptr %6855, ptr %6, align 8
   %6856 = zext i32 %.0.copyload.i.i.i.i.i.i2169 to i64
   %6857 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6853, i64 noundef %6856) #15
@@ -15707,7 +15707,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6862 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6862, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2170 = load i32, ptr %6862, align 1
-  %6863 = getelementptr inbounds i8, ptr %6862, i64 8
+  %6863 = getelementptr inbounds nuw i8, ptr %6862, i64 8
   store ptr %6863, ptr %6, align 8
   %6864 = zext i32 %.0.copyload.i.i.i.i.i.i2170 to i64
   %6865 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6861, i64 noundef %6864) #15
@@ -15721,7 +15721,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6870 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6870, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2171 = load i32, ptr %6870, align 1
-  %6871 = getelementptr inbounds i8, ptr %6870, i64 8
+  %6871 = getelementptr inbounds nuw i8, ptr %6870, i64 8
   store ptr %6871, ptr %6, align 8
   %6872 = zext i32 %.0.copyload.i.i.i.i.i.i2171 to i64
   %6873 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6869, i64 noundef %6872) #15
@@ -15735,7 +15735,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6878 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6878, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2172 = load i32, ptr %6878, align 1
-  %6879 = getelementptr inbounds i8, ptr %6878, i64 8
+  %6879 = getelementptr inbounds nuw i8, ptr %6878, i64 8
   store ptr %6879, ptr %6, align 8
   %6880 = zext i32 %.0.copyload.i.i.i.i.i.i2172 to i64
   %6881 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6877, i64 noundef %6880) #15
@@ -15749,7 +15749,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6886 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6886, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2173 = load i32, ptr %6886, align 1
-  %6887 = getelementptr inbounds i8, ptr %6886, i64 8
+  %6887 = getelementptr inbounds nuw i8, ptr %6886, i64 8
   store ptr %6887, ptr %6, align 8
   %6888 = zext i32 %.0.copyload.i.i.i.i.i.i2173 to i64
   %6889 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6885, i64 noundef %6888) #15
@@ -15763,7 +15763,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6894 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6894, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2174 = load i32, ptr %6894, align 1
-  %6895 = getelementptr inbounds i8, ptr %6894, i64 8
+  %6895 = getelementptr inbounds nuw i8, ptr %6894, i64 8
   store ptr %6895, ptr %6, align 8
   %6896 = zext i32 %.0.copyload.i.i.i.i.i.i2174 to i64
   %6897 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6893, i64 noundef %6896) #15
@@ -15777,7 +15777,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6902 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6902, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2175 = load i32, ptr %6902, align 1
-  %6903 = getelementptr inbounds i8, ptr %6902, i64 8
+  %6903 = getelementptr inbounds nuw i8, ptr %6902, i64 8
   store ptr %6903, ptr %6, align 8
   %6904 = zext i32 %.0.copyload.i.i.i.i.i.i2175 to i64
   %6905 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6901, i64 noundef %6904) #15
@@ -15791,7 +15791,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6910 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6910, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2176 = load i32, ptr %6910, align 1
-  %6911 = getelementptr inbounds i8, ptr %6910, i64 8
+  %6911 = getelementptr inbounds nuw i8, ptr %6910, i64 8
   store ptr %6911, ptr %6, align 8
   %6912 = zext i32 %.0.copyload.i.i.i.i.i.i2176 to i64
   %6913 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6909, i64 noundef %6912) #15
@@ -15805,7 +15805,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6918 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6918, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2177 = load i32, ptr %6918, align 1
-  %6919 = getelementptr inbounds i8, ptr %6918, i64 8
+  %6919 = getelementptr inbounds nuw i8, ptr %6918, i64 8
   store ptr %6919, ptr %6, align 8
   %6920 = zext i32 %.0.copyload.i.i.i.i.i.i2177 to i64
   %6921 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6917, i64 noundef %6920) #15
@@ -15819,7 +15819,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6926 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6926, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2178 = load i32, ptr %6926, align 1
-  %6927 = getelementptr inbounds i8, ptr %6926, i64 8
+  %6927 = getelementptr inbounds nuw i8, ptr %6926, i64 8
   store ptr %6927, ptr %6, align 8
   %6928 = zext i32 %.0.copyload.i.i.i.i.i.i2178 to i64
   %6929 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6925, i64 noundef %6928) #15
@@ -15833,7 +15833,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6934 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6934, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2179 = load i32, ptr %6934, align 1
-  %6935 = getelementptr inbounds i8, ptr %6934, i64 8
+  %6935 = getelementptr inbounds nuw i8, ptr %6934, i64 8
   store ptr %6935, ptr %6, align 8
   %6936 = zext i32 %.0.copyload.i.i.i.i.i.i2179 to i64
   %6937 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6933, i64 noundef %6936) #15
@@ -15847,7 +15847,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6942 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6942, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2180 = load i32, ptr %6942, align 1
-  %6943 = getelementptr inbounds i8, ptr %6942, i64 8
+  %6943 = getelementptr inbounds nuw i8, ptr %6942, i64 8
   store ptr %6943, ptr %6, align 8
   %6944 = zext i32 %.0.copyload.i.i.i.i.i.i2180 to i64
   %6945 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6941, i64 noundef %6944) #15
@@ -15861,7 +15861,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6950 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6950, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2181 = load i32, ptr %6950, align 1
-  %6951 = getelementptr inbounds i8, ptr %6950, i64 8
+  %6951 = getelementptr inbounds nuw i8, ptr %6950, i64 8
   store ptr %6951, ptr %6, align 8
   %6952 = zext i32 %.0.copyload.i.i.i.i.i.i2181 to i64
   %6953 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6949, i64 noundef %6952) #15
@@ -15875,7 +15875,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6958 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6958, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2182 = load i32, ptr %6958, align 1
-  %6959 = getelementptr inbounds i8, ptr %6958, i64 8
+  %6959 = getelementptr inbounds nuw i8, ptr %6958, i64 8
   store ptr %6959, ptr %6, align 8
   %6960 = zext i32 %.0.copyload.i.i.i.i.i.i2182 to i64
   %6961 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6957, i64 noundef %6960) #15
@@ -15889,7 +15889,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6966 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6966, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2183 = load i32, ptr %6966, align 1
-  %6967 = getelementptr inbounds i8, ptr %6966, i64 8
+  %6967 = getelementptr inbounds nuw i8, ptr %6966, i64 8
   store ptr %6967, ptr %6, align 8
   %6968 = zext i32 %.0.copyload.i.i.i.i.i.i2183 to i64
   %6969 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6965, i64 noundef %6968) #15
@@ -15903,7 +15903,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6974 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6974, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2184 = load i32, ptr %6974, align 1
-  %6975 = getelementptr inbounds i8, ptr %6974, i64 8
+  %6975 = getelementptr inbounds nuw i8, ptr %6974, i64 8
   store ptr %6975, ptr %6, align 8
   %6976 = zext i32 %.0.copyload.i.i.i.i.i.i2184 to i64
   %6977 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6973, i64 noundef %6976) #15
@@ -15917,7 +15917,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6982 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6982, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2185 = load i32, ptr %6982, align 1
-  %6983 = getelementptr inbounds i8, ptr %6982, i64 8
+  %6983 = getelementptr inbounds nuw i8, ptr %6982, i64 8
   store ptr %6983, ptr %6, align 8
   %6984 = zext i32 %.0.copyload.i.i.i.i.i.i2185 to i64
   %6985 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6981, i64 noundef %6984) #15
@@ -15931,7 +15931,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6990 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6990, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2186 = load i32, ptr %6990, align 1
-  %6991 = getelementptr inbounds i8, ptr %6990, i64 8
+  %6991 = getelementptr inbounds nuw i8, ptr %6990, i64 8
   store ptr %6991, ptr %6, align 8
   %6992 = zext i32 %.0.copyload.i.i.i.i.i.i2186 to i64
   %6993 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6989, i64 noundef %6992) #15
@@ -15945,7 +15945,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %6998 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %6998, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2187 = load i32, ptr %6998, align 1
-  %6999 = getelementptr inbounds i8, ptr %6998, i64 8
+  %6999 = getelementptr inbounds nuw i8, ptr %6998, i64 8
   store ptr %6999, ptr %6, align 8
   %7000 = zext i32 %.0.copyload.i.i.i.i.i.i2187 to i64
   %7001 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %6997, i64 noundef %7000) #15
@@ -15959,7 +15959,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7006 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7006, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2188 = load i32, ptr %7006, align 1
-  %7007 = getelementptr inbounds i8, ptr %7006, i64 8
+  %7007 = getelementptr inbounds nuw i8, ptr %7006, i64 8
   store ptr %7007, ptr %6, align 8
   %7008 = zext i32 %.0.copyload.i.i.i.i.i.i2188 to i64
   %7009 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7005, i64 noundef %7008) #15
@@ -15973,7 +15973,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7014 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7014, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2189 = load i32, ptr %7014, align 1
-  %7015 = getelementptr inbounds i8, ptr %7014, i64 8
+  %7015 = getelementptr inbounds nuw i8, ptr %7014, i64 8
   store ptr %7015, ptr %6, align 8
   %7016 = zext i32 %.0.copyload.i.i.i.i.i.i2189 to i64
   %7017 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7013, i64 noundef %7016) #15
@@ -15987,7 +15987,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7022 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7022, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2190 = load i32, ptr %7022, align 1
-  %7023 = getelementptr inbounds i8, ptr %7022, i64 8
+  %7023 = getelementptr inbounds nuw i8, ptr %7022, i64 8
   store ptr %7023, ptr %6, align 8
   %7024 = zext i32 %.0.copyload.i.i.i.i.i.i2190 to i64
   %7025 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7021, i64 noundef %7024) #15
@@ -16001,7 +16001,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7030 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7030, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2191 = load i32, ptr %7030, align 1
-  %7031 = getelementptr inbounds i8, ptr %7030, i64 8
+  %7031 = getelementptr inbounds nuw i8, ptr %7030, i64 8
   store ptr %7031, ptr %6, align 8
   %7032 = zext i32 %.0.copyload.i.i.i.i.i.i2191 to i64
   %7033 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7029, i64 noundef %7032) #15
@@ -16015,7 +16015,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7038 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7038, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2192 = load i32, ptr %7038, align 1
-  %7039 = getelementptr inbounds i8, ptr %7038, i64 8
+  %7039 = getelementptr inbounds nuw i8, ptr %7038, i64 8
   store ptr %7039, ptr %6, align 8
   %7040 = zext i32 %.0.copyload.i.i.i.i.i.i2192 to i64
   %7041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7037, i64 noundef %7040) #15
@@ -16029,7 +16029,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7046 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7046, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2193 = load i32, ptr %7046, align 1
-  %7047 = getelementptr inbounds i8, ptr %7046, i64 8
+  %7047 = getelementptr inbounds nuw i8, ptr %7046, i64 8
   store ptr %7047, ptr %6, align 8
   %7048 = zext i32 %.0.copyload.i.i.i.i.i.i2193 to i64
   %7049 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7045, i64 noundef %7048) #15
@@ -16043,7 +16043,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7054 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7054, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2194 = load i32, ptr %7054, align 1
-  %7055 = getelementptr inbounds i8, ptr %7054, i64 8
+  %7055 = getelementptr inbounds nuw i8, ptr %7054, i64 8
   store ptr %7055, ptr %6, align 8
   %7056 = zext i32 %.0.copyload.i.i.i.i.i.i2194 to i64
   %7057 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7053, i64 noundef %7056) #15
@@ -16057,7 +16057,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7062 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7062, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2195 = load i32, ptr %7062, align 1
-  %7063 = getelementptr inbounds i8, ptr %7062, i64 8
+  %7063 = getelementptr inbounds nuw i8, ptr %7062, i64 8
   store ptr %7063, ptr %6, align 8
   %7064 = zext i32 %.0.copyload.i.i.i.i.i.i2195 to i64
   %7065 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7061, i64 noundef %7064) #15
@@ -16071,7 +16071,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7070 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7070, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2196 = load i32, ptr %7070, align 1
-  %7071 = getelementptr inbounds i8, ptr %7070, i64 8
+  %7071 = getelementptr inbounds nuw i8, ptr %7070, i64 8
   store ptr %7071, ptr %6, align 8
   %7072 = zext i32 %.0.copyload.i.i.i.i.i.i2196 to i64
   %7073 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7069, i64 noundef %7072) #15
@@ -16085,7 +16085,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7078 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7078, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2197 = load i32, ptr %7078, align 1
-  %7079 = getelementptr inbounds i8, ptr %7078, i64 8
+  %7079 = getelementptr inbounds nuw i8, ptr %7078, i64 8
   store ptr %7079, ptr %6, align 8
   %7080 = zext i32 %.0.copyload.i.i.i.i.i.i2197 to i64
   %7081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7077, i64 noundef %7080) #15
@@ -16099,7 +16099,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7086 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7086, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2198 = load i32, ptr %7086, align 1
-  %7087 = getelementptr inbounds i8, ptr %7086, i64 8
+  %7087 = getelementptr inbounds nuw i8, ptr %7086, i64 8
   store ptr %7087, ptr %6, align 8
   %7088 = zext i32 %.0.copyload.i.i.i.i.i.i2198 to i64
   %7089 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7085, i64 noundef %7088) #15
@@ -16113,7 +16113,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7094 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7094, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2199 = load i32, ptr %7094, align 1
-  %7095 = getelementptr inbounds i8, ptr %7094, i64 8
+  %7095 = getelementptr inbounds nuw i8, ptr %7094, i64 8
   store ptr %7095, ptr %6, align 8
   %7096 = zext i32 %.0.copyload.i.i.i.i.i.i2199 to i64
   %7097 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7093, i64 noundef %7096) #15
@@ -16127,7 +16127,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7102 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7102, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2200 = load i32, ptr %7102, align 1
-  %7103 = getelementptr inbounds i8, ptr %7102, i64 8
+  %7103 = getelementptr inbounds nuw i8, ptr %7102, i64 8
   store ptr %7103, ptr %6, align 8
   %7104 = zext i32 %.0.copyload.i.i.i.i.i.i2200 to i64
   %7105 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7101, i64 noundef %7104) #15
@@ -16141,7 +16141,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7110 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7110, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2201 = load i32, ptr %7110, align 1
-  %7111 = getelementptr inbounds i8, ptr %7110, i64 8
+  %7111 = getelementptr inbounds nuw i8, ptr %7110, i64 8
   store ptr %7111, ptr %6, align 8
   %7112 = zext i32 %.0.copyload.i.i.i.i.i.i2201 to i64
   %7113 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7109, i64 noundef %7112) #15
@@ -16155,7 +16155,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7118 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7118, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2202 = load i32, ptr %7118, align 1
-  %7119 = getelementptr inbounds i8, ptr %7118, i64 8
+  %7119 = getelementptr inbounds nuw i8, ptr %7118, i64 8
   store ptr %7119, ptr %6, align 8
   %7120 = zext i32 %.0.copyload.i.i.i.i.i.i2202 to i64
   %7121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7117, i64 noundef %7120) #15
@@ -16169,7 +16169,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7126 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7126, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2203 = load i32, ptr %7126, align 1
-  %7127 = getelementptr inbounds i8, ptr %7126, i64 8
+  %7127 = getelementptr inbounds nuw i8, ptr %7126, i64 8
   store ptr %7127, ptr %6, align 8
   %7128 = zext i32 %.0.copyload.i.i.i.i.i.i2203 to i64
   %7129 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7125, i64 noundef %7128) #15
@@ -16183,7 +16183,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7134 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7134, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2204 = load i32, ptr %7134, align 1
-  %7135 = getelementptr inbounds i8, ptr %7134, i64 8
+  %7135 = getelementptr inbounds nuw i8, ptr %7134, i64 8
   store ptr %7135, ptr %6, align 8
   %7136 = zext i32 %.0.copyload.i.i.i.i.i.i2204 to i64
   %7137 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7133, i64 noundef %7136) #15
@@ -16197,7 +16197,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7142 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7142, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2205 = load i32, ptr %7142, align 1
-  %7143 = getelementptr inbounds i8, ptr %7142, i64 8
+  %7143 = getelementptr inbounds nuw i8, ptr %7142, i64 8
   store ptr %7143, ptr %6, align 8
   %7144 = zext i32 %.0.copyload.i.i.i.i.i.i2205 to i64
   %7145 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7141, i64 noundef %7144) #15
@@ -16211,7 +16211,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %7150 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %7150, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2206 = load i32, ptr %7150, align 1
-  %7151 = getelementptr inbounds i8, ptr %7150, i64 8
+  %7151 = getelementptr inbounds nuw i8, ptr %7150, i64 8
   store ptr %7151, ptr %6, align 8
   %7152 = zext i32 %.0.copyload.i.i.i.i.i.i2206 to i64
   %7153 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %7149, i64 noundef %7152) #15
@@ -17935,7 +17935,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %8013 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %8013, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2207 = load i32, ptr %8013, align 1
-  %8014 = getelementptr inbounds i8, ptr %8013, i64 8
+  %8014 = getelementptr inbounds nuw i8, ptr %8013, i64 8
   store ptr %8014, ptr %6, align 8
   %8015 = zext i32 %.0.copyload.i.i.i.i.i.i2207 to i64
   %8016 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %8012, i64 noundef %8015) #15
@@ -18021,7 +18021,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %8057 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %8057, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2208 = load i32, ptr %8057, align 1
-  %8058 = getelementptr inbounds i8, ptr %8057, i64 8
+  %8058 = getelementptr inbounds nuw i8, ptr %8057, i64 8
   store ptr %8058, ptr %6, align 8
   %8059 = zext i32 %.0.copyload.i.i.i.i.i.i2208 to i64
   %8060 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %8056, i64 noundef %8059) #15
@@ -18035,7 +18035,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %2196, %2198
   %8065 = load ptr, ptr %6, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %8065, i64 1) ]
   %.0.copyload.i.i.i.i.i.i2209 = load i32, ptr %8065, align 1
-  %8066 = getelementptr inbounds i8, ptr %8065, i64 8
+  %8066 = getelementptr inbounds nuw i8, ptr %8065, i64 8
   store ptr %8066, ptr %6, align 8
   %8067 = zext i32 %.0.copyload.i.i.i.i.i.i2209 to i64
   %8068 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %8064, i64 noundef %8067) #15
@@ -18194,10 +18194,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.1, i64 0, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvmlsERNS_11raw_ostreamENS_12RoundingModeE.1, i64 0, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5spellENS_12RoundingModeE.exit
 
@@ -18221,7 +18221,7 @@ _ZN4llvm5spellENS_12RoundingModeE.exit:           ; preds = %2, %switch.lookup
 16:                                               ; preds = %_ZN4llvm5spellENS_12RoundingModeE.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %.sroa.8.0.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.8.0.i
   store ptr %18, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -18235,7 +18235,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang6interplsERN4l
 define linkonce_odr hidden void @_Z7ReadArgIN5clang6interp8FloatingEET_RNS1_7ProgramERNS1_7CodePtrE(ptr dead_on_unwind noalias writable sret(%"class.clang::interp::Floating") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat {
   %4 = load ptr, ptr %2, align 8
   %.0.copyload.i = load ptr, ptr %4, align 1, !noalias !12
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @_ZN5clang6interp8Floating17bitcastFromMemoryEPKSt4byteRKN4llvm12fltSemanticsE(ptr dead_on_unwind writable sret(%"class.clang::interp::Floating") align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull align 1 %.0.copyload.i)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -18245,7 +18245,7 @@ define linkonce_odr hidden void @_Z7ReadArgIN5clang6interp8FloatingEET_RNS1_7Pro
   %10 = and i32 %narrow, 1073741816
   %11 = load ptr, ptr %2, align 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store ptr %13, ptr %2, align 8
   ret void
 }
@@ -18299,7 +18299,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5
 14:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) @.str.1631, i64 16, i1 false)
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %16, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -18321,7 +18321,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5
 28:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %21, ptr noundef nonnull align 1 dereferenceable(6) @.str.1632, i64 6, i1 false)
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store ptr %30, ptr %20, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -18380,7 +18380,7 @@ _ZN5clang6interp10IntegralAPILb0EEC2EN4llvm5APIntE.exit.i: ; preds = %_ZN4llvm5A
   br label %_ZN5clang6interp10IntegralAPILb0EE11deserializeEPKSt4byte.exit
 
 _ZN5clang6interp10IntegralAPILb0EE11deserializeEPKSt4byte.exit: ; preds = %_ZN5clang6interp10IntegralAPILb0EEC2EN4llvm5APIntE.exit.thread.i, %_ZN5clang6interp10IntegralAPILb0EEC2EN4llvm5APIntE.exit.i, %13, %16
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %18 = lshr i32 %.0.copyload.i, 3
   call void @_ZN4llvm17LoadIntFromMemoryERNS_5APIntEPKhj(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %17, i32 noundef %18) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -18391,7 +18391,7 @@ _ZN5clang6interp10IntegralAPILb0EE11deserializeEPKSt4byte.exit: ; preds = %_ZN5c
   %22 = and i32 %narrow, 1073741816
   %23 = load ptr, ptr %2, align 8
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   store ptr %25, ptr %2, align 8
   ret void
 }
@@ -18447,7 +18447,7 @@ _ZN5clang6interp10IntegralAPILb1EEC2EN4llvm5APIntE.exit.i: ; preds = %_ZN4llvm5A
   br label %_ZN5clang6interp10IntegralAPILb1EE11deserializeEPKSt4byte.exit
 
 _ZN5clang6interp10IntegralAPILb1EE11deserializeEPKSt4byte.exit: ; preds = %_ZN5clang6interp10IntegralAPILb1EEC2EN4llvm5APIntE.exit.thread.i, %_ZN5clang6interp10IntegralAPILb1EEC2EN4llvm5APIntE.exit.i, %13, %16
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %18 = lshr i32 %.0.copyload.i, 3
   call void @_ZN4llvm17LoadIntFromMemoryERNS_5APIntEPKhj(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %17, i32 noundef %18) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -18458,7 +18458,7 @@ _ZN5clang6interp10IntegralAPILb1EE11deserializeEPKSt4byte.exit: ; preds = %_ZN5c
   %22 = and i32 %narrow, 1073741816
   %23 = load ptr, ptr %2, align 8
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   store ptr %25, ptr %2, align 8
   ret void
 }
@@ -18476,7 +18476,7 @@ define dso_local void @_ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE(ptr 
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr %8(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 9, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -18496,17 +18496,17 @@ define dso_local void @_ZNK5clang6interp7Program4dumpERN4llvm11raw_ostreamE(ptr 
 20:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %13, ptr noundef nonnull align 1 dereferenceable(12) @.str.1566, i64 12, i1 false)
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store ptr %22, ptr %12, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %18, %20
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef nonnull align 8 dereferenceable(48) ptr %25(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr %29(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %31 = load ptr, ptr %10, align 8
@@ -18524,7 +18524,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %18, %20
 39:                                               ; preds = %_ZN5clang10ColorScopeD2Ev.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.1567, i64 15, i1 false)
   %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 15
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 15
   store ptr %41, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit98
 
@@ -18554,7 +18554,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %37, %39
   %.sroa.speculated.i.i = zext nneg i32 %53 to i64
   %54 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
   %55 = add i64 %54, %.019.i
-  %56 = getelementptr inbounds i8, ptr %.01418.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 8
   %.not.i = icmp eq ptr %56, %45
   br i1 %.not.i, label %._crit_edge.i, label %48, !llvm.loop !21
 
@@ -18573,7 +18573,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %37, %39
   %61 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, %.122.i
-  %64 = getelementptr inbounds i8, ptr %.01521.i, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 16
   %.not16.i = icmp eq ptr %64, %60
   br i1 %.not16.i, label %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE14getTotalMemoryEv.exit, label %.lr.ph24.i
 
@@ -18597,7 +18597,7 @@ _ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE14getT
 76:                                               ; preds = %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE14getTotalMemoryEv.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %69, ptr noundef nonnull align 1 dereferenceable(7) @.str.1568, i64 7, i1 false)
   %77 = load ptr, ptr %68, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 7
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 7
   store ptr %78, ptr %68, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101
 
@@ -18617,7 +18617,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit101:              ; preds = %74, %76
 87:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %80, ptr noundef nonnull align 1 dereferenceable(18) @.str.1569, i64 18, i1 false)
   %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 18
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 18
   store ptr %89, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit104
 
@@ -18646,13 +18646,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit104:              ; preds = %85, %87
 106:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit104
   store i8 10, ptr %102, align 1
   %107 = load ptr, ptr %101, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
   store ptr %108, ptr %101, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit108
 
 _ZN5clang10ColorScopeD2Ev.exit108:                ; preds = %104, %106
   %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef nonnull align 8 dereferenceable(48) ptr %111(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %113 = load ptr, ptr %90, align 8
@@ -18697,7 +18697,7 @@ _ZN5clang10ColorScopeD2Ev.exit108:                ; preds = %104, %106
 139:                                              ; preds = %123
   store i16 8250, ptr %132, align 1
   %140 = load ptr, ptr %131, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 2
   store ptr %141, ptr %131, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit111
 
@@ -18718,7 +18718,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit111:              ; preds = %137, %139
 150:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit111
   store i8 32, ptr %146, align 1
   %151 = load ptr, ptr %145, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   store ptr %152, ptr %145, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit114
 
@@ -18726,7 +18726,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit114:              ; preds = %148, %150
   %153 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer13isInitializedEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #15
   %.sroa.0.0.extract.trunc.i = select i1 %153, i32 2, i32 1
   %154 = load ptr, ptr %1, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8
   %157 = call noundef nonnull align 8 dereferenceable(48) ptr %156(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %.sroa.0.0.extract.trunc.i, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %158 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer13isInitializedEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #15
@@ -18747,13 +18747,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit114:              ; preds = %148, %150
 169:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %162, ptr noundef nonnull align 1 dereferenceable(12) %159, i64 %160, i1 false)
   %170 = load ptr, ptr %12, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 %160
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %160
   store ptr %171, ptr %12, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit118
 
 _ZN5clang10ColorScopeD2Ev.exit118:                ; preds = %167, %169
   %172 = load ptr, ptr %1, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8
   %175 = call noundef nonnull align 8 dereferenceable(48) ptr %174(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   call void @_ZNK5clang6interp10Descriptor4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(80) %126, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -18814,13 +18814,13 @@ _ZN4llvm19dyn_cast_if_presentIN5clang24MaterializeTemporaryExprEKNS1_4ExprEEEDaP
 204:                                              ; preds = %195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %197, ptr noundef nonnull align 1 dereferenceable(26) @.str.1573, i64 26, i1 false)
   %205 = load ptr, ptr %12, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 26
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 26
   store ptr %206, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit128
 
 _ZN4llvm11raw_ostreamlsEPKc.exit128:              ; preds = %202, %204
   %207 = load ptr, ptr %1, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load ptr, ptr %208, align 8
   %210 = call noundef nonnull align 8 dereferenceable(48) ptr %209(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 13, i1 noundef zeroext true, i1 noundef zeroext false) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
@@ -18866,7 +18866,7 @@ _ZN5clang10ColorScopeD2Ev.exit129:                ; preds = %220, %_ZN4llvm11raw
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   %227 = load ptr, ptr %1, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %229 = load ptr, ptr %228, align 8
   %230 = call noundef nonnull align 8 dereferenceable(48) ptr %229(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %231 = load ptr, ptr %12, align 8
@@ -18879,7 +18879,7 @@ _ZN5clang10ColorScopeD2Ev.exit129:                ; preds = %220, %_ZN4llvm11raw
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 235:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit129
-  %236 = getelementptr inbounds i8, ptr %231, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %231, i64 1
   store ptr %236, ptr %12, align 8
   store i8 41, ptr %231, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -18897,7 +18897,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %181, %185, %235, %2
 242:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   store i8 10, ptr %238, align 1
   %243 = load ptr, ptr %12, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 1
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 1
   store ptr %244, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit134
 
@@ -18937,13 +18937,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit134:              ; preds = %240, %242
 265:                                              ; preds = %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %258, ptr noundef nonnull align 1 dereferenceable(3) @.str.1574, i64 3, i1 false)
   %266 = load ptr, ptr %12, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 3
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 3
   store ptr %267, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit138
 
 _ZN4llvm11raw_ostreamlsEPKc.exit138:              ; preds = %263, %265
   %268 = load ptr, ptr %1, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %270 = load ptr, ptr %269, align 8
   %271 = call noundef nonnull align 8 dereferenceable(48) ptr %270(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 14, i1 noundef zeroext false, i1 noundef zeroext false) #15
   %272 = getelementptr inbounds nuw i8, ptr %126, i64 40
@@ -18993,13 +18993,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit142:              ; preds = %282, %284, %285
   %295 = getelementptr inbounds nuw i8, ptr %.0.i.i141, i64 32
   store i8 32, ptr %288, align 1
   %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 1
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 1
   store ptr %297, ptr %295, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit146
 
 _ZN5clang10ColorScopeD2Ev.exit146:                ; preds = %292, %294
   %298 = load ptr, ptr %1, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 32
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 32
   %300 = load ptr, ptr %299, align 8
   %301 = call noundef nonnull align 8 dereferenceable(48) ptr %300(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %302 = load i32, ptr %272, align 4
@@ -19040,9 +19040,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i:     ; preds = %303
   %312 = icmp eq i32 %307, %311
   %313 = icmp eq i32 %307, 0
   %spec.select.i.i.i.i.i = or i1 %313, %312
-  %314 = getelementptr inbounds i8, ptr %306, i64 40
+  %314 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %315 = zext i32 %307 to i64
-  %316 = getelementptr inbounds i8, ptr %314, i64 %315
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %315
   %317 = getelementptr inbounds i8, ptr %316, i64 -8
   %.0.i.in.i.i.i = select i1 %spec.select.i.i.i.i.i, ptr %308, ptr %317
   %.0.i.i.i.i = load ptr, ptr %.0.i.in.i.i.i, align 8
@@ -19055,12 +19055,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i:     ; preds = %303
   br i1 %or.cond.i, label %323, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i
 
 323:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i
-  %324 = getelementptr inbounds i8, ptr %316, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %316, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i
   %325 = phi i64 [ %.pre3.i, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i ], [ %321, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i ]
-  %326 = getelementptr inbounds i8, ptr %306, i64 40
+  %326 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %327 = getelementptr inbounds i8, ptr %326, i64 %325
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
 
@@ -19077,7 +19077,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %
   br label %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
 
 333:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
-  %334 = getelementptr inbounds i8, ptr %329, i64 1
+  %334 = getelementptr inbounds nuw i8, ptr %329, i64 1
   store ptr %334, ptr %12, align 8
   store i8 %328, ptr %329, align 1
   br label %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
@@ -19101,9 +19101,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i152:  ; preds = %335
   %344 = icmp eq i32 %339, %343
   %345 = icmp eq i32 %339, 0
   %spec.select.i.i.i.i.i153 = or i1 %345, %344
-  %346 = getelementptr inbounds i8, ptr %338, i64 40
+  %346 = getelementptr inbounds nuw i8, ptr %338, i64 40
   %347 = zext i32 %339 to i64
-  %348 = getelementptr inbounds i8, ptr %346, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %346, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 -8
   %.0.i.in.i.i.i154 = select i1 %spec.select.i.i.i.i.i153, ptr %340, ptr %349
   %.0.i.i.i.i155 = load ptr, ptr %.0.i.in.i.i.i154, align 8
@@ -19116,12 +19116,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i152:  ; preds = %335
   br i1 %or.cond.i156, label %355, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i150
 
 355:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i152
-  %356 = getelementptr inbounds i8, ptr %348, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %348, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i150: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i152, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i148
   %357 = phi i64 [ %.pre3.i149, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i148 ], [ %353, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i152 ]
-  %358 = getelementptr inbounds i8, ptr %338, i64 40
+  %358 = getelementptr inbounds nuw i8, ptr %338, i64 40
   %359 = getelementptr inbounds i8, ptr %358, i64 %357
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
 
@@ -19138,7 +19138,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit: ; preds = %
   br label %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
 
 365:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
-  %366 = getelementptr inbounds i8, ptr %361, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %361, i64 1
   store ptr %366, ptr %12, align 8
   store i8 %360, ptr %361, align 1
   br label %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
@@ -19162,9 +19162,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i162:  ; preds = %367
   %376 = icmp eq i32 %371, %375
   %377 = icmp eq i32 %371, 0
   %spec.select.i.i.i.i.i163 = or i1 %377, %376
-  %378 = getelementptr inbounds i8, ptr %370, i64 40
+  %378 = getelementptr inbounds nuw i8, ptr %370, i64 40
   %379 = zext i32 %371 to i64
-  %380 = getelementptr inbounds i8, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %378, i64 %379
   %381 = getelementptr inbounds i8, ptr %380, i64 -8
   %.0.i.in.i.i.i164 = select i1 %spec.select.i.i.i.i.i163, ptr %372, ptr %381
   %.0.i.i.i.i165 = load ptr, ptr %.0.i.in.i.i.i164, align 8
@@ -19177,12 +19177,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i162:  ; preds = %367
   br i1 %or.cond.i166, label %387, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i160
 
 387:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i162
-  %388 = getelementptr inbounds i8, ptr %380, i64 32
+  %388 = getelementptr inbounds nuw i8, ptr %380, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i160: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i162, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i158
   %389 = phi i64 [ %.pre3.i159, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i158 ], [ %385, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i162 ]
-  %390 = getelementptr inbounds i8, ptr %370, i64 40
+  %390 = getelementptr inbounds nuw i8, ptr %370, i64 40
   %391 = getelementptr inbounds i8, ptr %390, i64 %389
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit
 
@@ -19212,9 +19212,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i171:  ; preds = %395
   %404 = icmp eq i32 %399, %403
   %405 = icmp eq i32 %399, 0
   %spec.select.i.i.i.i.i172 = or i1 %405, %404
-  %406 = getelementptr inbounds i8, ptr %398, i64 40
+  %406 = getelementptr inbounds nuw i8, ptr %398, i64 40
   %407 = zext i32 %399 to i64
-  %408 = getelementptr inbounds i8, ptr %406, i64 %407
+  %408 = getelementptr inbounds nuw i8, ptr %406, i64 %407
   %409 = getelementptr inbounds i8, ptr %408, i64 -8
   %.0.i.in.i.i.i173 = select i1 %spec.select.i.i.i.i.i172, ptr %400, ptr %409
   %.0.i.i.i.i174 = load ptr, ptr %.0.i.in.i.i.i173, align 8
@@ -19227,12 +19227,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i171:  ; preds = %395
   br i1 %or.cond.i175, label %415, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i169
 
 415:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i171
-  %416 = getelementptr inbounds i8, ptr %408, i64 32
+  %416 = getelementptr inbounds nuw i8, ptr %408, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i169: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i171, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i167
   %417 = phi i64 [ %.pre3.i168, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i167 ], [ %413, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i171 ]
-  %418 = getelementptr inbounds i8, ptr %398, i64 40
+  %418 = getelementptr inbounds nuw i8, ptr %398, i64 40
   %419 = getelementptr inbounds i8, ptr %418, i64 %417
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit
 
@@ -19262,9 +19262,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i180:  ; preds = %423
   %432 = icmp eq i32 %427, %431
   %433 = icmp eq i32 %427, 0
   %spec.select.i.i.i.i.i181 = or i1 %433, %432
-  %434 = getelementptr inbounds i8, ptr %426, i64 40
+  %434 = getelementptr inbounds nuw i8, ptr %426, i64 40
   %435 = zext i32 %427 to i64
-  %436 = getelementptr inbounds i8, ptr %434, i64 %435
+  %436 = getelementptr inbounds nuw i8, ptr %434, i64 %435
   %437 = getelementptr inbounds i8, ptr %436, i64 -8
   %.0.i.in.i.i.i182 = select i1 %spec.select.i.i.i.i.i181, ptr %428, ptr %437
   %.0.i.i.i.i183 = load ptr, ptr %.0.i.in.i.i.i182, align 8
@@ -19277,12 +19277,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i180:  ; preds = %423
   br i1 %or.cond.i184, label %443, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i178
 
 443:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i180
-  %444 = getelementptr inbounds i8, ptr %436, i64 32
+  %444 = getelementptr inbounds nuw i8, ptr %436, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i178: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i180, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i176
   %445 = phi i64 [ %.pre3.i177, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i176 ], [ %441, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i180 ]
-  %446 = getelementptr inbounds i8, ptr %426, i64 40
+  %446 = getelementptr inbounds nuw i8, ptr %426, i64 40
   %447 = getelementptr inbounds i8, ptr %446, i64 %445
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit
 
@@ -19312,9 +19312,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i189:  ; preds = %451
   %460 = icmp eq i32 %455, %459
   %461 = icmp eq i32 %455, 0
   %spec.select.i.i.i.i.i190 = or i1 %461, %460
-  %462 = getelementptr inbounds i8, ptr %454, i64 40
+  %462 = getelementptr inbounds nuw i8, ptr %454, i64 40
   %463 = zext i32 %455 to i64
-  %464 = getelementptr inbounds i8, ptr %462, i64 %463
+  %464 = getelementptr inbounds nuw i8, ptr %462, i64 %463
   %465 = getelementptr inbounds i8, ptr %464, i64 -8
   %.0.i.in.i.i.i191 = select i1 %spec.select.i.i.i.i.i190, ptr %456, ptr %465
   %.0.i.i.i.i192 = load ptr, ptr %.0.i.in.i.i.i191, align 8
@@ -19327,12 +19327,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i189:  ; preds = %451
   br i1 %or.cond.i193, label %471, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i187
 
 471:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i189
-  %472 = getelementptr inbounds i8, ptr %464, i64 32
+  %472 = getelementptr inbounds nuw i8, ptr %464, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i187: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i189, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i185
   %473 = phi i64 [ %.pre3.i186, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i185 ], [ %469, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i189 ]
-  %474 = getelementptr inbounds i8, ptr %454, i64 40
+  %474 = getelementptr inbounds nuw i8, ptr %454, i64 40
   %475 = getelementptr inbounds i8, ptr %474, i64 %473
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit
 
@@ -19362,9 +19362,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i198:  ; preds = %479
   %488 = icmp eq i32 %483, %487
   %489 = icmp eq i32 %483, 0
   %spec.select.i.i.i.i.i199 = or i1 %489, %488
-  %490 = getelementptr inbounds i8, ptr %482, i64 40
+  %490 = getelementptr inbounds nuw i8, ptr %482, i64 40
   %491 = zext i32 %483 to i64
-  %492 = getelementptr inbounds i8, ptr %490, i64 %491
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 %491
   %493 = getelementptr inbounds i8, ptr %492, i64 -8
   %.0.i.in.i.i.i200 = select i1 %spec.select.i.i.i.i.i199, ptr %484, ptr %493
   %.0.i.i.i.i201 = load ptr, ptr %.0.i.in.i.i.i200, align 8
@@ -19377,12 +19377,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i198:  ; preds = %479
   br i1 %or.cond.i202, label %499, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i196
 
 499:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i198
-  %500 = getelementptr inbounds i8, ptr %492, i64 32
+  %500 = getelementptr inbounds nuw i8, ptr %492, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i196: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i198, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i194
   %501 = phi i64 [ %.pre3.i195, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i194 ], [ %497, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i198 ]
-  %502 = getelementptr inbounds i8, ptr %482, i64 40
+  %502 = getelementptr inbounds nuw i8, ptr %482, i64 40
   %503 = getelementptr inbounds i8, ptr %502, i64 %501
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit
 
@@ -19411,9 +19411,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i207:  ; preds = %506
   %515 = icmp eq i32 %510, %514
   %516 = icmp eq i32 %510, 0
   %spec.select.i.i.i.i.i208 = or i1 %516, %515
-  %517 = getelementptr inbounds i8, ptr %509, i64 40
+  %517 = getelementptr inbounds nuw i8, ptr %509, i64 40
   %518 = zext i32 %510 to i64
-  %519 = getelementptr inbounds i8, ptr %517, i64 %518
+  %519 = getelementptr inbounds nuw i8, ptr %517, i64 %518
   %520 = getelementptr inbounds i8, ptr %519, i64 -8
   %.0.i.in.i.i.i209 = select i1 %spec.select.i.i.i.i.i208, ptr %511, ptr %520
   %.0.i.i.i.i210 = load ptr, ptr %.0.i.in.i.i.i209, align 8
@@ -19426,12 +19426,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i207:  ; preds = %506
   br i1 %or.cond.i211, label %526, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i205
 
 526:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i207
-  %527 = getelementptr inbounds i8, ptr %519, i64 32
+  %527 = getelementptr inbounds nuw i8, ptr %519, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i205: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i207, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i203
   %528 = phi i64 [ %.pre3.i204, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i203 ], [ %524, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i207 ]
-  %529 = getelementptr inbounds i8, ptr %509, i64 40
+  %529 = getelementptr inbounds nuw i8, ptr %509, i64 40
   %530 = getelementptr inbounds i8, ptr %529, i64 %528
   br label %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit
 
@@ -19460,9 +19460,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i216:  ; preds = %533
   %542 = icmp eq i32 %537, %541
   %543 = icmp eq i32 %537, 0
   %spec.select.i.i.i.i.i217 = or i1 %543, %542
-  %544 = getelementptr inbounds i8, ptr %536, i64 40
+  %544 = getelementptr inbounds nuw i8, ptr %536, i64 40
   %545 = zext i32 %537 to i64
-  %546 = getelementptr inbounds i8, ptr %544, i64 %545
+  %546 = getelementptr inbounds nuw i8, ptr %544, i64 %545
   %547 = getelementptr inbounds i8, ptr %546, i64 -8
   %.0.i.in.i.i.i218 = select i1 %spec.select.i.i.i.i.i217, ptr %538, ptr %547
   %.0.i.i.i.i219 = load ptr, ptr %.0.i.in.i.i.i218, align 8
@@ -19475,12 +19475,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i216:  ; preds = %533
   br i1 %or.cond.i220, label %553, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i214
 
 553:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i216
-  %554 = getelementptr inbounds i8, ptr %546, i64 32
+  %554 = getelementptr inbounds nuw i8, ptr %546, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i214: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i216, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i212
   %555 = phi i64 [ %.pre3.i213, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i212 ], [ %551, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i216 ]
-  %556 = getelementptr inbounds i8, ptr %536, i64 40
+  %556 = getelementptr inbounds nuw i8, ptr %536, i64 40
   %557 = getelementptr inbounds i8, ptr %556, i64 %555
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit
 
@@ -19508,9 +19508,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225:  ; preds = %558
   %567 = icmp eq i32 %562, %566
   %568 = icmp eq i32 %562, 0
   %spec.select.i.i.i.i.i226 = or i1 %568, %567
-  %569 = getelementptr inbounds i8, ptr %561, i64 40
+  %569 = getelementptr inbounds nuw i8, ptr %561, i64 40
   %570 = zext i32 %562 to i64
-  %571 = getelementptr inbounds i8, ptr %569, i64 %570
+  %571 = getelementptr inbounds nuw i8, ptr %569, i64 %570
   %572 = getelementptr inbounds i8, ptr %571, i64 -8
   %.0.i.in.i.i.i227 = select i1 %spec.select.i.i.i.i.i226, ptr %563, ptr %572
   %.0.i.i.i.i228 = load ptr, ptr %.0.i.in.i.i.i227, align 8
@@ -19523,12 +19523,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225:  ; preds = %558
   br i1 %or.cond.i229, label %578, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i223
 
 578:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225
-  %579 = getelementptr inbounds i8, ptr %571, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %571, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i223: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221
   %580 = phi i64 [ %.pre3.i222, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i221 ], [ %576, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i225 ]
-  %581 = getelementptr inbounds i8, ptr %561, i64 40
+  %581 = getelementptr inbounds nuw i8, ptr %561, i64 40
   %582 = getelementptr inbounds i8, ptr %581, i64 %580
   br label %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit
 
@@ -19556,9 +19556,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i234:  ; preds = %583
   %592 = icmp eq i32 %587, %591
   %593 = icmp eq i32 %587, 0
   %spec.select.i.i.i.i.i235 = or i1 %593, %592
-  %594 = getelementptr inbounds i8, ptr %586, i64 40
+  %594 = getelementptr inbounds nuw i8, ptr %586, i64 40
   %595 = zext i32 %587 to i64
-  %596 = getelementptr inbounds i8, ptr %594, i64 %595
+  %596 = getelementptr inbounds nuw i8, ptr %594, i64 %595
   %597 = getelementptr inbounds i8, ptr %596, i64 -8
   %.0.i.in.i.i.i236 = select i1 %spec.select.i.i.i.i.i235, ptr %588, ptr %597
   %.0.i.i.i.i237 = load ptr, ptr %.0.i.in.i.i.i236, align 8
@@ -19571,12 +19571,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i234:  ; preds = %583
   br i1 %or.cond.i238, label %603, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i232
 
 603:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i234
-  %604 = getelementptr inbounds i8, ptr %596, i64 32
+  %604 = getelementptr inbounds nuw i8, ptr %596, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_8FloatingEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i232: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i234, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i230
   %605 = phi i64 [ %.pre3.i231, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i230 ], [ %601, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i234 ]
-  %606 = getelementptr inbounds i8, ptr %586, i64 40
+  %606 = getelementptr inbounds nuw i8, ptr %586, i64 40
   %607 = getelementptr inbounds i8, ptr %606, i64 %605
   br label %_ZNK5clang6interp7Pointer5derefINS0_8FloatingEEERT_v.exit
 
@@ -19604,9 +19604,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i243:  ; preds = %608
   %617 = icmp eq i32 %612, %616
   %618 = icmp eq i32 %612, 0
   %spec.select.i.i.i.i.i244 = or i1 %618, %617
-  %619 = getelementptr inbounds i8, ptr %611, i64 40
+  %619 = getelementptr inbounds nuw i8, ptr %611, i64 40
   %620 = zext i32 %612 to i64
-  %621 = getelementptr inbounds i8, ptr %619, i64 %620
+  %621 = getelementptr inbounds nuw i8, ptr %619, i64 %620
   %622 = getelementptr inbounds i8, ptr %621, i64 -8
   %.0.i.in.i.i.i245 = select i1 %spec.select.i.i.i.i.i244, ptr %613, ptr %622
   %.0.i.i.i.i246 = load ptr, ptr %.0.i.in.i.i.i245, align 8
@@ -19619,12 +19619,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i243:  ; preds = %608
   br i1 %or.cond.i247, label %628, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i241
 
 628:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i243
-  %629 = getelementptr inbounds i8, ptr %621, i64 32
+  %629 = getelementptr inbounds nuw i8, ptr %621, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i241: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i243, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i239
   %630 = phi i64 [ %.pre3.i240, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i239 ], [ %626, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i243 ]
-  %631 = getelementptr inbounds i8, ptr %611, i64 40
+  %631 = getelementptr inbounds nuw i8, ptr %611, i64 40
   %632 = getelementptr inbounds i8, ptr %631, i64 %630
   br label %_ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit
 
@@ -19649,7 +19649,7 @@ _ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit: ; preds = %628, %_ZNK5
 645:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_7BooleanEEERT_v.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %638, ptr noundef nonnull align 1 dereferenceable(4) %635, i64 %636, i1 false)
   %646 = load ptr, ptr %12, align 8
-  %647 = getelementptr inbounds i8, ptr %646, i64 %636
+  %647 = getelementptr inbounds nuw i8, ptr %646, i64 %636
   store ptr %647, ptr %12, align 8
   br label %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
 
@@ -19672,9 +19672,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i252:  ; preds = %648
   %657 = icmp eq i32 %652, %656
   %658 = icmp eq i32 %652, 0
   %spec.select.i.i.i.i.i253 = or i1 %658, %657
-  %659 = getelementptr inbounds i8, ptr %651, i64 40
+  %659 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %660 = zext i32 %652 to i64
-  %661 = getelementptr inbounds i8, ptr %659, i64 %660
+  %661 = getelementptr inbounds nuw i8, ptr %659, i64 %660
   %662 = getelementptr inbounds i8, ptr %661, i64 -8
   %.0.i.in.i.i.i254 = select i1 %spec.select.i.i.i.i.i253, ptr %653, ptr %662
   %.0.i.i.i.i255 = load ptr, ptr %.0.i.in.i.i.i254, align 8
@@ -19687,12 +19687,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i252:  ; preds = %648
   br i1 %or.cond.i256, label %668, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i250
 
 668:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i252
-  %669 = getelementptr inbounds i8, ptr %661, i64 32
+  %669 = getelementptr inbounds nuw i8, ptr %661, i64 32
   br label %_ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i250: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i252, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i248
   %670 = phi i64 [ %.pre3.i249, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i248 ], [ %666, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i252 ]
-  %671 = getelementptr inbounds i8, ptr %651, i64 40
+  %671 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %672 = getelementptr inbounds i8, ptr %671, i64 %670
   br label %_ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit
 
@@ -19720,9 +19720,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i261:  ; preds = %673
   %682 = icmp eq i32 %677, %681
   %683 = icmp eq i32 %677, 0
   %spec.select.i.i.i.i.i262 = or i1 %683, %682
-  %684 = getelementptr inbounds i8, ptr %676, i64 40
+  %684 = getelementptr inbounds nuw i8, ptr %676, i64 40
   %685 = zext i32 %677 to i64
-  %686 = getelementptr inbounds i8, ptr %684, i64 %685
+  %686 = getelementptr inbounds nuw i8, ptr %684, i64 %685
   %687 = getelementptr inbounds i8, ptr %686, i64 -8
   %.0.i.in.i.i.i263 = select i1 %spec.select.i.i.i.i.i262, ptr %678, ptr %687
   %.0.i.i.i.i264 = load ptr, ptr %.0.i.in.i.i.i263, align 8
@@ -19735,12 +19735,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i261:  ; preds = %673
   br i1 %or.cond.i265, label %693, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i259
 
 693:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i261
-  %694 = getelementptr inbounds i8, ptr %686, i64 32
+  %694 = getelementptr inbounds nuw i8, ptr %686, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_15FunctionPointerEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i259: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i261, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i257
   %695 = phi i64 [ %.pre3.i258, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i257 ], [ %691, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i261 ]
-  %696 = getelementptr inbounds i8, ptr %676, i64 40
+  %696 = getelementptr inbounds nuw i8, ptr %676, i64 40
   %697 = getelementptr inbounds i8, ptr %696, i64 %695
   br label %_ZNK5clang6interp7Pointer5derefINS0_15FunctionPointerEEERT_v.exit
 
@@ -19768,9 +19768,9 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i270:  ; preds = %698
   %707 = icmp eq i32 %702, %706
   %708 = icmp eq i32 %702, 0
   %spec.select.i.i.i.i.i271 = or i1 %708, %707
-  %709 = getelementptr inbounds i8, ptr %701, i64 40
+  %709 = getelementptr inbounds nuw i8, ptr %701, i64 40
   %710 = zext i32 %702 to i64
-  %711 = getelementptr inbounds i8, ptr %709, i64 %710
+  %711 = getelementptr inbounds nuw i8, ptr %709, i64 %710
   %712 = getelementptr inbounds i8, ptr %711, i64 -8
   %.0.i.in.i.i.i272 = select i1 %spec.select.i.i.i.i.i271, ptr %703, ptr %712
   %.0.i.i.i.i273 = load ptr, ptr %.0.i.in.i.i.i272, align 8
@@ -19783,12 +19783,12 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i.i270:  ; preds = %698
   br i1 %or.cond.i274, label %718, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i268
 
 718:                                              ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i270
-  %719 = getelementptr inbounds i8, ptr %711, i64 32
+  %719 = getelementptr inbounds nuw i8, ptr %711, i64 32
   br label %_ZNK5clang6interp7Pointer5derefINS0_13MemberPointerEEERT_v.exit
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i268: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i270, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i266
   %720 = phi i64 [ %.pre3.i267, %._ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread_crit_edge.i266 ], [ %716, %_ZNK5clang6interp7Pointer7inArrayEv.exit.i.i270 ]
-  %721 = getelementptr inbounds i8, ptr %701, i64 40
+  %721 = getelementptr inbounds nuw i8, ptr %701, i64 40
   %722 = getelementptr inbounds i8, ptr %721, i64 %720
   br label %_ZNK5clang6interp7Pointer5derefINS0_13MemberPointerEEERT_v.exit
 
@@ -19810,20 +19810,20 @@ _ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit: ; preds =
 728:                                              ; preds = %_ZNK5clang6interp8IntegralILj8ELb1EE5printERN4llvm11raw_ostreamE.exit
   store i8 10, ptr %724, align 1
   %729 = load ptr, ptr %12, align 8
-  %730 = getelementptr inbounds i8, ptr %729, i64 1
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 1
   store ptr %730, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit277
 
 _ZN4llvm11raw_ostreamlsEPKc.exit277:              ; preds = %728, %726, %252, %246, %_ZN4llvm11raw_ostreamlsEPKc.exit134
   %731 = add i32 %.0320, 1
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #15
-  %732 = getelementptr inbounds i8, ptr %.sroa.0301.0319, i64 8
+  %732 = getelementptr inbounds nuw i8, ptr %.sroa.0301.0319, i64 8
   %.not = icmp eq ptr %732, %114
   br i1 %.not, label %._crit_edge, label %123
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit277, %_ZN5clang10ColorScopeD2Ev.exit108
   %733 = load ptr, ptr %1, align 8
-  %734 = getelementptr inbounds i8, ptr %733, i64 24
+  %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load ptr, ptr %734, align 8
   %736 = call noundef nonnull align 8 dereferenceable(48) ptr %735(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %737 = load ptr, ptr %10, align 8
@@ -19841,7 +19841,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit277:              ; preds = %728, %726, %252, %2
 745:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %738, ptr noundef nonnull align 1 dereferenceable(11) @.str.1575, i64 11, i1 false)
   %746 = load ptr, ptr %12, align 8
-  %747 = getelementptr inbounds i8, ptr %746, i64 11
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 11
   store ptr %747, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit280
 
@@ -19866,13 +19866,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit280:              ; preds = %743, %745
 760:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit280
   store i8 10, ptr %756, align 1
   %761 = load ptr, ptr %755, align 8
-  %762 = getelementptr inbounds i8, ptr %761, i64 1
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 1
   store ptr %762, ptr %755, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit284
 
 _ZN5clang10ColorScopeD2Ev.exit284:                ; preds = %758, %760
   %763 = load ptr, ptr %1, align 8
-  %764 = getelementptr inbounds i8, ptr %763, i64 32
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 32
   %765 = load ptr, ptr %764, align 8
   %766 = call noundef nonnull align 8 dereferenceable(48) ptr %765(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %767 = load i32, ptr %749, align 8
@@ -19881,7 +19881,7 @@ _ZN5clang10ColorScopeD2Ev.exit284:                ; preds = %758, %760
   %770 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %771 = load i32, ptr %770, align 8
   %772 = zext i32 %771 to i64
-  %773 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %769, i64 %772
+  %773 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %769, i64 %772
   br i1 %768, label %._crit_edge325, label %774
 
 774:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit284
@@ -19898,7 +19898,7 @@ _ZN5clang10ColorScopeD2Ev.exit284:                ; preds = %758, %760
   ]
 
 .critedge2.i8.i14.i6.i:                           ; preds = %.lr.ph.i6.i12.i3.i, %.lr.ph.i6.i12.i3.i
-  %776 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 16
   %.not.i9.i15.i7.i = icmp eq ptr %776, %773
   br i1 %.not.i9.i15.i7.i, label %._crit_edge325, label %.lr.ph.i6.i12.i3.i, !llvm.loop !23
 
@@ -19913,7 +19913,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_
   %778 = load ptr, ptr %777, align 8
   %779 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   call void @_ZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(512) %778, ptr noundef nonnull align 8 dereferenceable(48) %779)
-  %780 = getelementptr inbounds i8, ptr %.sroa.0289.0323, i64 16
+  %780 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0323, i64 16
   %.not5.i3.i = icmp eq ptr %780, %773
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang12FunctionDeclESt10unique_ptrINS1_6interp8FunctionESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
@@ -19927,7 +19927,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_
   ]
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
-  %782 = getelementptr inbounds i8, ptr %.sroa.0289.1, i64 16
+  %782 = getelementptr inbounds nuw i8, ptr %.sroa.0289.1, i64 16
   %.not.i7.i = icmp eq ptr %782, %773
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang12FunctionDeclESt10unique_ptrINS1_6interp8FunctionESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EELb1EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !23
 
@@ -19949,7 +19949,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang12FunctionDeclESt10unique_ptrINS1_6interp8Fu
   %787 = load ptr, ptr %.sroa.0285.0327, align 8
   %788 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #15
   call void @_ZNK5clang6interp8Function4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(512) %787, ptr noundef nonnull align 8 dereferenceable(48) %788)
-  %789 = getelementptr inbounds i8, ptr %.sroa.0285.0327, i64 8
+  %789 = getelementptr inbounds nuw i8, ptr %.sroa.0285.0327, i64 8
   %.not311 = icmp eq ptr %789, %786
   br i1 %.not311, label %._crit_edge330, label %.lr.ph329
 
@@ -19964,7 +19964,7 @@ declare noundef zeroext i1 @_ZNK5clang6interp7Pointer13isInitializedEv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6interp10Descriptor4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr %5(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %0, align 8
@@ -20011,7 +20011,7 @@ _ZN4llvm19dyn_cast_if_presentIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; pred
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.1576, i64 5, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -20028,7 +20028,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %27, %29
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm19dyn_cast_if_presentIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr %38(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 51
@@ -20058,7 +20058,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm1
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %50, ptr noundef nonnull align 1 dereferenceable(16) @.str.1577, i64 16, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -20085,7 +20085,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm1
 74:                                               ; preds = %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %67, ptr noundef nonnull align 1 dereferenceable(16) @.str.1578, i64 16, i1 false)
   %75 = load ptr, ptr %66, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %76, ptr %66, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -20111,7 +20111,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm1
 90:                                               ; preds = %79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %83, ptr noundef nonnull align 1 dereferenceable(6) @.str.1579, i64 6, i1 false)
   %91 = load ptr, ptr %82, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 6
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 6
   store ptr %92, ptr %82, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -20142,7 +20142,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm1
 110:                                              ; preds = %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %103, ptr noundef nonnull align 1 dereferenceable(7) @.str.1580, i64 7, i1 false)
   %111 = load ptr, ptr %102, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 7
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 7
   store ptr %112, ptr %102, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -20169,7 +20169,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %11, %17, %_ZN4llvm1
 125:                                              ; preds = %114
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %118, ptr noundef nonnull align 1 dereferenceable(10) @.str.1581, i64 10, i1 false)
   %126 = load ptr, ptr %117, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 10
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 10
   store ptr %127, ptr %117, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -20199,7 +20199,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %125, %123, %110, %1
 141:                                              ; preds = %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %134, ptr noundef nonnull align 1 dereferenceable(16) @.str.1582, i64 16, i1 false)
   %142 = load ptr, ptr %133, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store ptr %143, ptr %133, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40
 
@@ -20221,7 +20221,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %125, %123, %110, %1
 155:                                              ; preds = %144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %148, ptr noundef nonnull align 1 dereferenceable(19) @.str.1583, i64 19, i1 false)
   %156 = load ptr, ptr %147, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 19
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 19
   store ptr %157, ptr %147, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40
 
@@ -20249,7 +20249,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit40:               ; preds = %_ZN4llvm11raw_ostre
 172:                                              ; preds = %161
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %165, ptr noundef nonnull align 1 dereferenceable(6) @.str.1584, i64 6, i1 false)
   %173 = load ptr, ptr %164, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 6
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 6
   store ptr %174, ptr %164, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46
 
@@ -20273,7 +20273,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK5clang6interp8Floating5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.llvm::SmallVector.533", align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %4, i64 noundef 16) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20329,7 +20329,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp13MemberPointer5printERN4llvm1
 13:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, ptr noundef nonnull align 1 dereferenceable(10) @.str.1650, i64 10, i1 false)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store ptr %15, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -20350,7 +20350,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 32, ptr %19, align 1
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %25, ptr %18, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit4
 
@@ -20376,7 +20376,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %21, %23
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %32, ptr noundef nonnull align 1 dereferenceable(3) @.str.1651, i64 3, i1 false)
   %40 = load ptr, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 3
   store ptr %41, ptr %31, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -20400,7 +20400,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %37, %39
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit7
   store i8 41, ptr %49, align 1
   %54 = load ptr, ptr %48, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %48, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
@@ -20428,7 +20428,7 @@ define dso_local void @_ZNK5clang6interp10Descriptor4dumpEv(ptr noundef nonnull 
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %11, ptr %4, align 8
   store i8 10, ptr %5, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -20444,7 +20444,7 @@ declare noundef zeroext i1 @_ZNK5clang6interp10Descriptor7isUnionEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6interp16InlineDescriptor4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr %5(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20464,7 +20464,7 @@ define dso_local void @_ZNK5clang6interp16InlineDescriptor4dumpERN4llvm11raw_ost
 17:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %10, ptr noundef nonnull align 1 dereferenceable(17) @.str.1585, i64 17, i1 false)
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   store ptr %19, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -20485,13 +20485,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 10, ptr %24, align 1
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %23, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %26, %28
   %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef nonnull align 8 dereferenceable(48) ptr %33(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %35 = load ptr, ptr %7, align 8
@@ -20509,7 +20509,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %26, %28
 43:                                               ; preds = %_ZN5clang10ColorScopeD2Ev.exit
   store i64 2322296536939521615, ptr %36, align 1
   %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
@@ -20532,7 +20532,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %41, %43
 56:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19
   store i8 10, ptr %52, align 1
   %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %58, ptr %51, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
 
@@ -20552,7 +20552,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %54, %56
 67:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %60, ptr noundef nonnull align 1 dereferenceable(9) @.str.1587, i64 9, i1 false)
   %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 9
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 9
   store ptr %69, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit25
 
@@ -20577,7 +20577,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %65, %67
 82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
   store i8 10, ptr %78, align 1
   %83 = load ptr, ptr %77, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %77, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
 
@@ -20597,7 +20597,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %80, %82
 93:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %86, ptr noundef nonnull align 1 dereferenceable(15) @.str.1588, i64 15, i1 false)
   %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 15
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 15
   store ptr %95, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
 
@@ -20622,7 +20622,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %91, %93
 108:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31
   store i8 10, ptr %104, align 1
   %109 = load ptr, ptr %103, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1
   store ptr %110, ptr %103, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit34
 
@@ -20642,7 +20642,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %106, %108
 119:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34
   store i64 2322280104090301257, ptr %112, align 1
   %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %121, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit37
 
@@ -20667,7 +20667,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %117, %119
 134:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit37
   store i8 10, ptr %130, align 1
   %135 = load ptr, ptr %129, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store ptr %136, ptr %129, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40
 
@@ -20687,7 +20687,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit40:               ; preds = %132, %134
 145:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %138, ptr noundef nonnull align 1 dereferenceable(10) @.str.1590, i64 10, i1 false)
   %146 = load ptr, ptr %9, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 10
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 10
   store ptr %147, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit43
 
@@ -20712,7 +20712,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %143, %145
 160:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit43
   store i8 10, ptr %156, align 1
   %161 = load ptr, ptr %155, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 1
   store ptr %162, ptr %155, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46
 
@@ -20732,7 +20732,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46:               ; preds = %158, %160
 171:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %164, ptr noundef nonnull align 1 dereferenceable(9) @.str.1591, i64 9, i1 false)
   %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 9
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 9
   store ptr %173, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit49
 
@@ -20757,7 +20757,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49:               ; preds = %169, %171
 186:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit49
   store i8 10, ptr %182, align 1
   %187 = load ptr, ptr %181, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 1
   store ptr %188, ptr %181, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit52
 
@@ -20777,7 +20777,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %184, %186
 197:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %190, ptr noundef nonnull align 1 dereferenceable(16) @.str.1592, i64 16, i1 false)
   %198 = load ptr, ptr %9, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store ptr %199, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit55
 
@@ -20802,7 +20802,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %195, %197
 212:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55
   store i8 10, ptr %208, align 1
   %213 = load ptr, ptr %207, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1
   store ptr %214, ptr %207, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit58
 
@@ -20822,7 +20822,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %210, %212
 223:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %216, ptr noundef nonnull align 1 dereferenceable(6) @.str.1593, i64 6, i1 false)
   %224 = load ptr, ptr %9, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 6
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 6
   store ptr %225, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit61
 
@@ -20852,7 +20852,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %221, %223
 238:                                              ; preds = %229
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %231, ptr noundef nonnull align 1 dereferenceable(7) @.str.1594, i64 7, i1 false)
   %239 = load ptr, ptr %9, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 7
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 7
   store ptr %240, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit64
 
@@ -20869,7 +20869,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit64:               ; preds = %238, %236, %228
 246:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit64
   store i8 10, ptr %242, align 1
   %247 = load ptr, ptr %9, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 1
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 1
   store ptr %248, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit67
 
@@ -20883,7 +20883,7 @@ define dso_local void @_ZNK5clang6interp11InterpFrame4dumpERN4llvm11raw_ostreamE
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = shl i32 %2, 1
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(48) ptr %9(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %6) #15
@@ -20913,7 +20913,7 @@ define dso_local void @_ZNK5clang6interp11InterpFrame4dumpERN4llvm11raw_ostreamE
 25:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %18, ptr noundef nonnull align 1 dereferenceable(14) @.str.1595, i64 14, i1 false)
   %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 14
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 14
   store ptr %27, ptr %17, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -20937,7 +20937,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %25
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 41, ptr %35, align 1
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %34, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit39
 
@@ -20956,13 +20956,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %39, %37, %13
 49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit39
   store i8 10, ptr %45, align 1
   %50 = load ptr, ptr %44, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %51, ptr %44, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %47, %49
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef nonnull align 8 dereferenceable(48) ptr %54(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %56 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %6) #15
@@ -20983,7 +20983,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %47, %49
 67:                                               ; preds = %_ZN5clang10ColorScopeD2Ev.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %60, ptr noundef nonnull align 1 dereferenceable(10) @.str.1597, i64 10, i1 false)
   %68 = load ptr, ptr %59, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 10
   store ptr %69, ptr %59, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
@@ -21012,7 +21012,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %65, %67
 83:                                               ; preds = %74
   store i16 10272, ptr %76, align 1
   %84 = load ptr, ptr %44, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store ptr %85, ptr %44, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit48
 
@@ -21060,7 +21060,7 @@ _ZNK5clang6interp8Function7getNameB5cxx11Ev.exit: ; preds = %87, %91
 104:                                              ; preds = %_ZNK5clang6interp8Function7getNameB5cxx11Ev.exit
   store i8 41, ptr %100, align 1
   %105 = load ptr, ptr %99, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %106, ptr %99, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit51
 
@@ -21081,7 +21081,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %102, %104
 113:                                              ; preds = %107
   store i8 10, ptr %109, align 1
   %114 = load ptr, ptr %44, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %115, ptr %44, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
@@ -21104,7 +21104,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %111, %113
 127:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %120, ptr noundef nonnull align 1 dereferenceable(6) @.str.1599, i64 6, i1 false)
   %128 = load ptr, ptr %119, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 6
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 6
   store ptr %129, ptr %119, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit57
 
@@ -21126,7 +21126,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %125, %127
 138:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit57
   store i8 10, ptr %134, align 1
   %139 = load ptr, ptr %133, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
   store ptr %140, ptr %133, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit60
 
@@ -21149,7 +21149,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60:               ; preds = %136, %138
 152:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %145, ptr noundef nonnull align 1 dereferenceable(5) @.str.1600, i64 5, i1 false)
   %153 = load ptr, ptr %144, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 5
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 5
   store ptr %154, ptr %144, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63
 
@@ -21171,7 +21171,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %150, %152
 163:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit63
   store i8 10, ptr %159, align 1
   %164 = load ptr, ptr %158, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1
   store ptr %165, ptr %158, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit66
 
@@ -21194,7 +21194,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66:               ; preds = %161, %163
 177:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %170, ptr noundef nonnull align 1 dereferenceable(7) @.str.1601, i64 7, i1 false)
   %178 = load ptr, ptr %169, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 7
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 7
   store ptr %179, ptr %169, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit69
 
@@ -21218,7 +21218,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69:               ; preds = %175, %177
 191:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit69
   store i8 10, ptr %187, align 1
   %192 = load ptr, ptr %186, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 1
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store ptr %193, ptr %186, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit72
 
@@ -21241,7 +21241,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit72:               ; preds = %189, %191
 205:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %198, ptr noundef nonnull align 1 dereferenceable(9) @.str.1602, i64 9, i1 false)
   %206 = load ptr, ptr %197, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 9
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 9
   store ptr %207, ptr %197, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit75
 
@@ -21265,7 +21265,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit75:               ; preds = %203, %205
 219:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit75
   store i8 10, ptr %215, align 1
   %220 = load ptr, ptr %214, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 1
   store ptr %221, ptr %214, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit78
 
@@ -21288,7 +21288,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %217, %219
 233:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %226, ptr noundef nonnull align 1 dereferenceable(6) @.str.1603, i64 6, i1 false)
   %234 = load ptr, ptr %225, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 6
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 6
   store ptr %235, ptr %225, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit81
 
@@ -21311,7 +21311,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit81:               ; preds = %231, %233
 246:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit81
   store i8 10, ptr %242, align 1
   %247 = load ptr, ptr %241, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 1
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 1
   store ptr %248, ptr %241, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit84
 
@@ -21334,7 +21334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit84:               ; preds = %244, %246
 260:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %253, ptr noundef nonnull align 1 dereferenceable(13) @.str.1604, i64 13, i1 false)
   %261 = load ptr, ptr %252, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 13
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 13
   store ptr %262, ptr %252, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit87
 
@@ -21357,7 +21357,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87:               ; preds = %258, %260
 273:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87
   store i8 10, ptr %269, align 1
   %274 = load ptr, ptr %268, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 1
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 1
   store ptr %275, ptr %268, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit90
 
@@ -21380,7 +21380,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90:               ; preds = %271, %273
 287:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %280, ptr noundef nonnull align 1 dereferenceable(11) @.str.1605, i64 11, i1 false)
   %288 = load ptr, ptr %279, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 11
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 11
   store ptr %289, ptr %279, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit93
 
@@ -21413,7 +21413,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %285, %287
 305:                                              ; preds = %295
   store i8 10, ptr %301, align 1
   %306 = load ptr, ptr %300, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 1
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 1
   store ptr %307, ptr %300, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit96
 
@@ -21451,7 +21451,7 @@ define dso_local void @_ZNK5clang6interp6Record4dumpERN4llvm11raw_ostreamEjj(ptr
   %6 = shl i32 %2, 1
   %7 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %6) #15
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr %10(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false) #15
   call void @_ZNK5clang6interp6Record7getNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(656) %0) #15
@@ -21472,14 +21472,14 @@ define dso_local void @_ZNK5clang6interp6Record4dumpERN4llvm11raw_ostreamEjj(ptr
 22:                                               ; preds = %4
   store i8 10, ptr %18, align 1
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %24, ptr %17, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
 _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %20, %22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef nonnull align 8 dereferenceable(48) ptr %27(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21514,7 +21514,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %20, %22
 46:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %39, ptr noundef nonnull align 1 dereferenceable(7) @.str.1606, i64 7, i1 false)
   %47 = load ptr, ptr %38, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 7
   store ptr %48, ptr %38, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit71
 
@@ -21539,7 +21539,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit71:               ; preds = %44, %46
 61:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %54, ptr noundef nonnull align 1 dereferenceable(9) @.str.1607, i64 9, i1 false)
   %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 9
   store ptr %63, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit74
 
@@ -21564,7 +21564,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74:               ; preds = %59, %61
 76:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit74
   store i8 10, ptr %72, align 1
   %77 = load ptr, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store ptr %78, ptr %71, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit77
 
@@ -21575,7 +21575,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit77:               ; preds = %74, %76
   %82 = add i32 %81, %3
   call void @_ZNK5clang6interp6Record4dumpERN4llvm11raw_ostreamEjj(ptr noundef nonnull align 8 dereferenceable(656) %80, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %33, i32 noundef %82)
   %83 = add i32 %.0124, 1
-  %84 = getelementptr inbounds i8, ptr %.064123, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.064123, i64 32
   %.not = icmp eq ptr %84, %32
   br i1 %.not, label %._crit_edge, label %34
 
@@ -21613,7 +21613,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit77:               ; preds = %74, %76
 103:                                              ; preds = %91
   store i64 2334109689698459693, ptr %96, align 1
   %104 = load ptr, ptr %95, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %105, ptr %95, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit82
 
@@ -21638,13 +21638,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit82:               ; preds = %101, %103
 118:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit82
   store i16 8250, ptr %111, align 1
   %119 = load ptr, ptr %110, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
   store ptr %120, ptr %110, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit85
 
 _ZN4llvm11raw_ostreamlsEPKc.exit85:               ; preds = %116, %118
   %121 = load ptr, ptr %1, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef nonnull align 8 dereferenceable(48) ptr %123(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 9, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %125 = load ptr, ptr %.066126, align 8
@@ -21661,7 +21661,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN4llvm11raw_ostre
   %131 = inttoptr i64 %130 to ptr
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load i64, ptr %133, align 8
   %136 = and i64 %135, 4294967295
   %137 = load ptr, ptr %89, align 8
@@ -21683,13 +21683,13 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN4llvm11raw_ostre
 146:                                              ; preds = %145
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr nonnull align 1 %134, i64 %136, i1 false)
   %147 = load ptr, ptr %90, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 %136
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %136
   store ptr %148, ptr %90, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit87
 
 _ZN5clang10ColorScopeD2Ev.exit87:                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit85, %143, %145, %146
   %149 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = load ptr, ptr %150, align 8
   %152 = call noundef nonnull align 8 dereferenceable(48) ptr %151(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %153 = load ptr, ptr %89, align 8
@@ -21707,7 +21707,7 @@ _ZN5clang10ColorScopeD2Ev.exit87:                 ; preds = %_ZN4llvm11raw_ostre
 161:                                              ; preds = %_ZN5clang10ColorScopeD2Ev.exit87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %154, ptr noundef nonnull align 1 dereferenceable(9) @.str.1607, i64 9, i1 false)
   %162 = load ptr, ptr %90, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 9
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 9
   store ptr %163, ptr %90, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit90
 
@@ -21732,13 +21732,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90:               ; preds = %159, %161
 176:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit90
   store i8 10, ptr %172, align 1
   %177 = load ptr, ptr %171, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1
   store ptr %178, ptr %171, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit93
 
 _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %174, %176
   %179 = add i32 %.1127, 1
-  %180 = getelementptr inbounds i8, ptr %.066126, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %.066126, i64 24
   %.not67 = icmp eq ptr %180, %88
   br i1 %.not67, label %._crit_edge130, label %91
 
@@ -21775,7 +21775,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit93:               ; preds = %174, %176
 198:                                              ; preds = %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %191, ptr noundef nonnull align 1 dereferenceable(15) @.str.1609, i64 15, i1 false)
   %199 = load ptr, ptr %190, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 15
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 15
   store ptr %200, ptr %190, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit98
 
@@ -21800,7 +21800,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %196, %198
 213:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %206, ptr noundef nonnull align 1 dereferenceable(9) @.str.1607, i64 9, i1 false)
   %214 = load ptr, ptr %205, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 9
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 9
   store ptr %215, ptr %205, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101
 
@@ -21825,7 +21825,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit101:              ; preds = %211, %213
 228:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit101
   store i8 10, ptr %224, align 1
   %229 = load ptr, ptr %223, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 1
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 1
   store ptr %230, ptr %223, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit104
 
@@ -21836,7 +21836,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit104:              ; preds = %226, %228
   %234 = add i32 %233, %3
   call void @_ZNK5clang6interp6Record4dumpERN4llvm11raw_ostreamEjj(ptr noundef nonnull align 8 dereferenceable(656) %232, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %185, i32 noundef %234)
   %235 = add i32 %.2133, 1
-  %236 = getelementptr inbounds i8, ptr %.065132, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %.065132, i64 32
   %.not68 = icmp eq ptr %236, %184
   br i1 %.not68, label %._crit_edge136, label %186
 
@@ -21849,7 +21849,7 @@ declare void @_ZNK5clang6interp6Record7getNameB5cxx11Ev(ptr dead_on_unwind writa
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang6interp5Block4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr %5(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false) #15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -21869,7 +21869,7 @@ define dso_local void @_ZNK5clang6interp5Block4dumpERN4llvm11raw_ostreamE(ptr no
 17:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %10, ptr noundef nonnull align 1 dereferenceable(6) @.str.1610, i64 6, i1 false)
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 6
   store ptr %19, ptr %9, align 8
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
@@ -21877,7 +21877,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %15, %17
   %.0.i.i = phi ptr [ %16, %15 ], [ %1, %17 ]
   %20 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull %0) #15
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(48) ptr %23(ptr noundef nonnull align 8 dereferenceable(48) %1) #15
   %25 = load ptr, ptr %7, align 8
@@ -21895,7 +21895,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %15, %17
 33:                                               ; preds = %_ZN5clang10ColorScopeD2Ev.exit
   store i16 10272, ptr %26, align 1
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store ptr %35, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit17
 
@@ -21918,7 +21918,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %31, %33
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17
   store i16 2601, ptr %39, align 1
   %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store ptr %48, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit20
 
@@ -21958,7 +21958,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %44, %46
 61:                                               ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %54, ptr noundef nonnull align 1 dereferenceable(12) @.str.1612, i64 12, i1 false)
   %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store ptr %63, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit23
 
@@ -21979,7 +21979,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %59, %61
 72:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23
   store i8 10, ptr %68, align 1
   %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %74, ptr %67, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit26
 
@@ -21999,7 +21999,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %70, %72
 83:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit26
   store i64 2322278927336480800, ptr %76, align 1
   %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %85, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit29
 
@@ -22024,7 +22024,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %81, %83
 98:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29
   store i8 10, ptr %94, align 1
   %99 = load ptr, ptr %93, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store ptr %100, ptr %93, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit32
 
@@ -22044,7 +22044,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %96, %98
 109:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %102, ptr noundef nonnull align 1 dereferenceable(10) @.str.1614, i64 10, i1 false)
   %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 10
   store ptr %111, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit35
 
@@ -22069,7 +22069,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %107, %109
 124:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit35
   store i8 10, ptr %120, align 1
   %125 = load ptr, ptr %119, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store ptr %126, ptr %119, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit38
 
@@ -22089,7 +22089,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %122, %124
 135:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %128, ptr noundef nonnull align 1 dereferenceable(10) @.str.1615, i64 10, i1 false)
   %136 = load ptr, ptr %9, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 10
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 10
   store ptr %137, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit41
 
@@ -22114,7 +22114,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %133, %135
 150:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit41
   store i8 10, ptr %146, align 1
   %151 = load ptr, ptr %145, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   store ptr %152, ptr %145, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44
 
@@ -22134,7 +22134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %148, %150
 161:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %154, ptr noundef nonnull align 1 dereferenceable(15) @.str.1616, i64 15, i1 false)
   %162 = load ptr, ptr %9, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 15
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 15
   store ptr %163, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit47
 
@@ -22159,7 +22159,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit47:               ; preds = %159, %161
 176:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit47
   store i8 10, ptr %172, align 1
   %177 = load ptr, ptr %171, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1
   store ptr %178, ptr %171, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
 
@@ -22202,7 +22202,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult4dumpEv(ptr noundef no
 20:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) @.str.1617, i64 6, i1 false)
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 6
   store ptr %22, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -22224,7 +22224,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult4dumpEv(ptr noundef no
 34:                                               ; preds = %23
   store i64 2322280112866809426, ptr %27, align 1
   %35 = load ptr, ptr %26, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %36, ptr %26, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit38
 
@@ -22292,7 +22292,7 @@ _ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerE
 66:                                               ; preds = %55
   store i64 2322280112866809420, ptr %59, align 1
   %67 = load ptr, ptr %58, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %68, ptr %58, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44
 
@@ -22337,7 +22337,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang7APValueD2
 81:                                               ; preds = %_ZN5clang7APValueD2Ev.exit
   store i8 10, ptr %77, align 1
   %82 = load ptr, ptr %58, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %83, ptr %58, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -22359,7 +22359,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang7APValueD2
 95:                                               ; preds = %84
   store i64 748839352262880841, ptr %88, align 1
   %96 = load ptr, ptr %87, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %97, ptr %87, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -22381,7 +22381,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang7APValueD2
 109:                                              ; preds = %98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %102, ptr noundef nonnull align 1 dereferenceable(6) @.str.1621, i64 6, i1 false)
   %110 = load ptr, ptr %101, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 6
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 6
   store ptr %111, ptr %101, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

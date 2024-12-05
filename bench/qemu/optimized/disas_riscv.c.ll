@@ -1325,7 +1325,7 @@ entry:
   %buf = alloca [128 x i8], align 16
   %packet = alloca [2 x i8], align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %buf, i8 0, i64 128, i1 false)
-  %read_memory_func = getelementptr inbounds i8, ptr %info, i64 80
+  %read_memory_func = getelementptr inbounds nuw i8, ptr %info, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1343,7 +1343,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp2.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %if.then
-  %memory_error_func = getelementptr inbounds i8, ptr %info, i64 88
+  %memory_error_func = getelementptr inbounds nuw i8, ptr %info, i64 88
   %1 = load ptr, ptr %memory_error_func, align 8
   call void %1(i32 noundef %call, i64 noundef %memaddr, ptr noundef nonnull %info) #12
   br label %return
@@ -1394,28 +1394,28 @@ for.end:                                          ; preds = %for.inc, %if.then
 sw.bb:                                            ; preds = %if.then8, %for.end
   %inst.04059 = phi i64 [ %inst.040, %for.end ], [ %or, %if.then8 ]
   %4 = load ptr, ptr %info, align 8
-  %stream = getelementptr inbounds i8, ptr %info, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %info, i64 8
   %5 = load ptr, ptr %stream, align 8
   %call12 = call i32 (ptr, ptr, ...) %4(ptr noundef %5, ptr noundef nonnull @.str.947, i64 noundef %inst.04059) #12
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %for.end
   %6 = load ptr, ptr %info, align 8
-  %stream15 = getelementptr inbounds i8, ptr %info, i64 8
+  %stream15 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %7 = load ptr, ptr %stream15, align 8
   %call16 = call i32 (ptr, ptr, ...) %6(ptr noundef %7, ptr noundef nonnull @.str.948, i64 noundef %inst.040) #12
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %for.end
   %8 = load ptr, ptr %info, align 8
-  %stream19 = getelementptr inbounds i8, ptr %info, i64 8
+  %stream19 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %9 = load ptr, ptr %stream19, align 8
   %call20 = call i32 (ptr, ptr, ...) %8(ptr noundef %9, ptr noundef nonnull @.str.949, i64 noundef %inst.040) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.end
   %10 = load ptr, ptr %info, align 8
-  %stream22 = getelementptr inbounds i8, ptr %info, i64 8
+  %stream22 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %11 = load ptr, ptr %stream22, align 8
   %call23 = call i32 (ptr, ptr, ...) %10(ptr noundef %11, ptr noundef nonnull @.str.950, i64 noundef %inst.040) #12
   %12 = trunc nuw nsw i64 %len.038 to i32
@@ -1424,26 +1424,26 @@ sw.default:                                       ; preds = %for.end
 sw.epilog:                                        ; preds = %sw.default, %sw.bb17, %sw.bb13, %sw.bb
   %len.03860 = phi i32 [ %12, %sw.default ], [ 6, %sw.bb17 ], [ 4, %sw.bb13 ], [ 2, %sw.bb ]
   %inst.04058 = phi i64 [ %inst.040, %sw.default ], [ %inst.040, %sw.bb17 ], [ %inst.040, %sw.bb13 ], [ %inst.04059, %sw.bb ]
-  %target_info = getelementptr inbounds i8, ptr %info, i64 184
+  %target_info = getelementptr inbounds nuw i8, ptr %info, i64 184
   %13 = load ptr, ptr %target_info, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %dec.i)
-  %14 = getelementptr inbounds i8, ptr %dec.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %dec.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 40, i1 false)
-  %pc1.i = getelementptr inbounds i8, ptr %dec.i, i64 8
+  %pc1.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 8
   store i64 %memaddr, ptr %pc1.i, align 8
-  %inst2.i = getelementptr inbounds i8, ptr %dec.i, i64 16
+  %inst2.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 16
   store i64 %inst.04058, ptr %inst2.i, align 8
   store ptr %13, ptr %dec.i, align 8
-  %op.i = getelementptr inbounds i8, ptr %dec.i, i64 40
+  %op.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.backedge.i, %sw.epilog
   %i.068.i = phi i64 [ 0, %sw.epilog ], [ %i.068.be.i, %for.body.backedge.i ]
   %arrayidx.i = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.068.i
   %15 = load ptr, ptr %arrayidx.i, align 8
-  %opcode_data6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %opcode_data6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %16 = load ptr, ptr %opcode_data6.i, align 8
-  %decode_func8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %decode_func8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %17 = load ptr, ptr %decode_func8.i, align 8
   %call.i = call zeroext i1 %15(ptr noundef %13) #12
   br i1 %call.i, label %if.then.i, label %for.inc.i
@@ -1489,7 +1489,7 @@ if.end20.i:                                       ; preds = %if.then18.i, %for.e
   %codec.i.i = getelementptr %struct.rv_opcode_data, ptr %20, i64 %idxprom.i.i, i32 1
   %22 = load i32, ptr %codec.i.i, align 8
   %conv.i.i = trunc i32 %22 to i8
-  %codec3.i.i = getelementptr inbounds i8, ptr %dec.i, i64 42
+  %codec3.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 42
   store i8 %conv.i.i, ptr %codec3.i.i, align 2
   switch i8 %conv.i.i, label %decode_inst_operands.exit.i [
     i8 1, label %sw.bb.i.i
@@ -1564,13 +1564,13 @@ if.end20.i:                                       ; preds = %if.then18.i, %for.e
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end20.i
-  %rs2.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2.i.i, align 1
-  %rs1.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1.i.i, align 4
-  %rd.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd.i.i, align 1
-  %imm.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1579,14 +1579,14 @@ sw.bb6.i.i:                                       ; preds = %if.end20.i
   %24 = lshr i64 %21, 7
   %25 = trunc i64 %24 to i8
   %conv7.i.i = and i8 %25, 31
-  %rd8.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd8.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv7.i.i, ptr %rd8.i.i, align 1
-  %rs29.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs29.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs29.i.i, align 1
-  %rs110.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs110.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs110.i.i, align 4
   %conv.i438.i.i = and i32 %23, -4096
-  %imm12.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm12.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i438.i.i, ptr %imm12.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1594,11 +1594,11 @@ sw.bb13.i.i:                                      ; preds = %if.end20.i
   %26 = lshr i64 %21, 7
   %27 = trunc i64 %26 to i8
   %conv15.i.i = and i8 %27, 31
-  %rd16.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd16.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv15.i.i, ptr %rd16.i.i, align 1
-  %rs217.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs217.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs217.i.i, align 1
-  %rs118.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs118.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs118.i.i, align 4
   %shl.i.i.i = shl i64 %21, 32
   %28 = ashr i64 %shl.i.i.i, 43
@@ -1612,7 +1612,7 @@ sw.bb13.i.i:                                      ; preds = %if.end20.i
   %or8.i.i.i = or disjoint i64 %or.i.i.i, %shl7.i.i.i
   %or12.i.i.i = or disjoint i64 %or8.i.i.i, %shl1.i.i.i
   %conv.i440.i.i = trunc nuw i64 %or12.i.i.i to i32
-  %imm20.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm20.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i440.i.i, ptr %imm20.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1620,19 +1620,19 @@ sw.bb21.i.i:                                      ; preds = %if.end20.i
   %31 = lshr i64 %21, 7
   %32 = trunc i64 %31 to i8
   %conv23.i.i = and i8 %32, 31
-  %rd24.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd24.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv23.i.i, ptr %rd24.i.i, align 1
   %33 = lshr i64 %21, 15
   %34 = trunc i64 %33 to i8
   %conv26.i.i = and i8 %34, 31
-  %rs127.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs127.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv26.i.i, ptr %rs127.i.i, align 4
-  %rs228.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs228.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs228.i.i, align 1
   %shl.i443.i.i = shl i64 %21, 32
   %shr.i.i.i = ashr i64 %shl.i443.i.i, 52
   %conv.i444.i.i = trunc nsw i64 %shr.i.i.i to i32
-  %imm30.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm30.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i444.i.i, ptr %imm30.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1641,18 +1641,18 @@ sw.bb31.i.i:                                      ; preds = %if.end20.i
   %36 = lshr i64 %21, 7
   %37 = trunc i64 %36 to i8
   %conv33.i.i = and i8 %37, 31
-  %rd34.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd34.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv33.i.i, ptr %rd34.i.i, align 1
   %38 = lshr i64 %21, 15
   %39 = trunc i64 %38 to i8
   %conv36.i.i = and i8 %39, 31
-  %rs137.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs137.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv36.i.i, ptr %rs137.i.i, align 4
-  %rs238.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs238.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs238.i.i, align 1
   %40 = lshr i32 %35, 20
   %conv.i447.i.i = and i32 %40, 31
-  %imm40.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm40.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i447.i.i, ptr %imm40.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1661,18 +1661,18 @@ sw.bb41.i.i:                                      ; preds = %if.end20.i
   %42 = lshr i64 %21, 7
   %43 = trunc i64 %42 to i8
   %conv43.i.i = and i8 %43, 31
-  %rd44.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd44.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv43.i.i, ptr %rd44.i.i, align 1
   %44 = lshr i64 %21, 15
   %45 = trunc i64 %44 to i8
   %conv46.i.i = and i8 %45, 31
-  %rs147.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs147.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv46.i.i, ptr %rs147.i.i, align 4
-  %rs248.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs248.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs248.i.i, align 1
   %46 = lshr i32 %41, 20
   %conv.i450.i.i = and i32 %46, 63
-  %imm50.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm50.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i450.i.i, ptr %imm50.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1681,18 +1681,18 @@ sw.bb51.i.i:                                      ; preds = %if.end20.i
   %48 = lshr i64 %21, 7
   %49 = trunc i64 %48 to i8
   %conv53.i.i = and i8 %49, 31
-  %rd54.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd54.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv53.i.i, ptr %rd54.i.i, align 1
   %50 = lshr i64 %21, 15
   %51 = trunc i64 %50 to i8
   %conv56.i.i = and i8 %51, 31
-  %rs157.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs157.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv56.i.i, ptr %rs157.i.i, align 4
-  %rs258.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs258.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs258.i.i, align 1
   %52 = lshr i32 %47, 20
   %conv.i453.i.i = and i32 %52, 127
-  %imm60.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm60.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i453.i.i, ptr %imm60.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1701,32 +1701,32 @@ sw.bb61.i.i:                                      ; preds = %if.end20.i
   %54 = lshr i64 %21, 7
   %55 = trunc i64 %54 to i8
   %conv63.i.i = and i8 %55, 31
-  %rd64.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd64.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv63.i.i, ptr %rd64.i.i, align 1
   %56 = lshr i64 %21, 15
   %57 = trunc i64 %56 to i8
   %conv66.i.i = and i8 %57, 31
-  %rs167.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs167.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv66.i.i, ptr %rs167.i.i, align 4
-  %rs268.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs268.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs268.i.i, align 1
   %58 = lshr i32 %53, 20
-  %imm70.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm70.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %58, ptr %imm70.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb71.i.i:                                      ; preds = %if.end20.i
-  %rd72.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd72.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd72.i.i, align 1
   %59 = lshr i64 %21, 15
   %60 = trunc i64 %59 to i8
   %conv74.i.i = and i8 %60, 31
-  %rs175.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs175.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv74.i.i, ptr %rs175.i.i, align 4
   %61 = lshr i64 %21, 20
   %62 = trunc i64 %61 to i8
   %conv77.i.i = and i8 %62, 31
-  %rs278.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs278.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv77.i.i, ptr %rs278.i.i, align 1
   %shl.i458.i.i = shl i64 %21, 32
   %63 = ashr i64 %shl.i458.i.i, 52
@@ -1735,22 +1735,22 @@ sw.bb71.i.i:                                      ; preds = %if.end20.i
   %shr3.i.i.i = and i64 %64, 31
   %or.i460.i.i = or disjoint i64 %shl1.i459.i.i, %shr3.i.i.i
   %conv.i461.i.i = trunc nuw i64 %or.i460.i.i to i32
-  %imm80.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm80.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i461.i.i, ptr %imm80.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb81.i.i:                                      ; preds = %if.end20.i
-  %rd82.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd82.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd82.i.i, align 1
   %65 = lshr i64 %21, 15
   %66 = trunc i64 %65 to i8
   %conv84.i.i = and i8 %66, 31
-  %rs185.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs185.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv84.i.i, ptr %rs185.i.i, align 4
   %67 = lshr i64 %21, 20
   %68 = trunc i64 %67 to i8
   %conv87.i.i = and i8 %68, 31
-  %rs288.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs288.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv87.i.i, ptr %rs288.i.i, align 1
   %shl.i464.i.i = shl i64 %21, 32
   %69 = ashr i64 %shl.i464.i.i, 51
@@ -1764,7 +1764,7 @@ sw.bb81.i.i:                                      ; preds = %if.end20.i
   %or8.i469.i.i = or disjoint i64 %or.i468.i.i, %shl11.i.i.i
   %or12.i470.i.i = or disjoint i64 %or8.i469.i.i, %shl1.i465.i.i
   %conv.i471.i.i = trunc nuw i64 %or12.i470.i.i to i32
-  %imm90.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm90.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i471.i.i, ptr %imm90.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1772,19 +1772,19 @@ sw.bb91.i.i:                                      ; preds = %if.end20.i
   %72 = lshr i64 %21, 7
   %73 = trunc i64 %72 to i8
   %conv93.i.i = and i8 %73, 31
-  %rd94.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd94.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv93.i.i, ptr %rd94.i.i, align 1
   %74 = lshr i64 %21, 15
   %75 = trunc i64 %74 to i8
   %conv96.i.i = and i8 %75, 31
-  %rs197.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs197.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv96.i.i, ptr %rs197.i.i, align 4
   %76 = lshr i64 %21, 20
   %77 = trunc i64 %76 to i8
   %conv99.i.i = and i8 %77, 31
-  %rs2100.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2100.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv99.i.i, ptr %rs2100.i.i, align 1
-  %imm101.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm101.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm101.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1792,24 +1792,24 @@ sw.bb102.i.i:                                     ; preds = %if.end20.i
   %78 = lshr i64 %21, 7
   %79 = trunc i64 %78 to i8
   %conv104.i.i = and i8 %79, 31
-  %rd105.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd105.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv104.i.i, ptr %rd105.i.i, align 1
   %80 = lshr i64 %21, 15
   %81 = trunc i64 %80 to i8
   %conv107.i.i = and i8 %81, 31
-  %rs1108.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1108.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv107.i.i, ptr %rs1108.i.i, align 4
   %82 = lshr i64 %21, 20
   %83 = trunc i64 %82 to i8
   %conv110.i.i = and i8 %83, 31
-  %rs2111.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2111.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv110.i.i, ptr %rs2111.i.i, align 1
-  %imm112.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm112.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm112.i.i, align 8
   %84 = lshr i64 %21, 12
   %85 = trunc i64 %84 to i8
   %conv114.i.i = and i8 %85, 7
-  %rm.i.i = getelementptr inbounds i8, ptr %dec.i, i64 47
+  %rm.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 47
   store i8 %conv114.i.i, ptr %rm.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -1818,28 +1818,28 @@ sw.bb115.i.i:                                     ; preds = %if.end20.i
   %87 = lshr i64 %21, 7
   %88 = trunc i64 %87 to i8
   %conv117.i.i = and i8 %88, 31
-  %rd118.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd118.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv117.i.i, ptr %rd118.i.i, align 1
   %89 = lshr i64 %21, 15
   %90 = trunc i64 %89 to i8
   %conv120.i.i = and i8 %90, 31
-  %rs1121.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1121.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv120.i.i, ptr %rs1121.i.i, align 4
   %91 = lshr i64 %21, 20
   %92 = trunc i64 %91 to i8
   %conv123.i.i = and i8 %92, 31
-  %rs2124.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2124.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv123.i.i, ptr %rs2124.i.i, align 1
   %93 = lshr i32 %86, 27
   %conv126.i.i = trunc nuw nsw i32 %93 to i8
-  %rs3.i.i = getelementptr inbounds i8, ptr %dec.i, i64 46
+  %rs3.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 46
   store i8 %conv126.i.i, ptr %rs3.i.i, align 2
-  %imm127.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm127.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm127.i.i, align 8
   %94 = lshr i64 %21, 12
   %95 = trunc i64 %94 to i8
   %conv129.i.i = and i8 %95, 7
-  %rm130.i.i = getelementptr inbounds i8, ptr %dec.i, i64 47
+  %rm130.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 47
   store i8 %conv129.i.i, ptr %rm130.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -1848,29 +1848,29 @@ sw.bb131.i.i:                                     ; preds = %if.end20.i
   %97 = lshr i64 %21, 7
   %98 = trunc i64 %97 to i8
   %conv133.i.i = and i8 %98, 31
-  %rd134.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd134.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv133.i.i, ptr %rd134.i.i, align 1
   %99 = lshr i64 %21, 15
   %100 = trunc i64 %99 to i8
   %conv136.i.i = and i8 %100, 31
-  %rs1137.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1137.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv136.i.i, ptr %rs1137.i.i, align 4
   %101 = lshr i64 %21, 20
   %102 = trunc i64 %101 to i8
   %conv139.i.i = and i8 %102, 31
-  %rs2140.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2140.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv139.i.i, ptr %rs2140.i.i, align 1
-  %imm141.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm141.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm141.i.i, align 8
   %103 = lshr i32 %96, 26
   %104 = trunc nuw nsw i32 %103 to i8
   %conv143.i.i = and i8 %104, 1
-  %aq.i.i = getelementptr inbounds i8, ptr %dec.i, i64 50
+  %aq.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 50
   store i8 %conv143.i.i, ptr %aq.i.i, align 2
   %105 = lshr i32 %96, 25
   %106 = trunc nuw nsw i32 %105 to i8
   %conv145.i.i = and i8 %106, 1
-  %rl.i.i = getelementptr inbounds i8, ptr %dec.i, i64 51
+  %rl.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 51
   store i8 %conv145.i.i, ptr %rl.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -1879,60 +1879,60 @@ sw.bb146.i.i:                                     ; preds = %if.end20.i
   %108 = lshr i64 %21, 7
   %109 = trunc i64 %108 to i8
   %conv148.i.i = and i8 %109, 31
-  %rd149.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd149.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv148.i.i, ptr %rd149.i.i, align 1
   %110 = lshr i64 %21, 15
   %111 = trunc i64 %110 to i8
   %conv151.i.i = and i8 %111, 31
-  %rs1152.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1152.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv151.i.i, ptr %rs1152.i.i, align 4
-  %rs2153.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2153.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2153.i.i, align 1
-  %imm154.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm154.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm154.i.i, align 8
   %112 = lshr i32 %107, 26
   %113 = trunc nuw nsw i32 %112 to i8
   %conv156.i.i = and i8 %113, 1
-  %aq157.i.i = getelementptr inbounds i8, ptr %dec.i, i64 50
+  %aq157.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 50
   store i8 %conv156.i.i, ptr %aq157.i.i, align 2
   %114 = lshr i32 %107, 25
   %115 = trunc nuw nsw i32 %114 to i8
   %conv159.i.i = and i8 %115, 1
-  %rl160.i.i = getelementptr inbounds i8, ptr %dec.i, i64 51
+  %rl160.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 51
   store i8 %conv159.i.i, ptr %rl160.i.i, align 1
   br label %decode_inst_operands.exit.i
 
 sw.bb161.i.i:                                     ; preds = %if.end20.i
-  %rs2162.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2162.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2162.i.i, align 1
-  %rs1163.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1163.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1163.i.i, align 4
-  %rd164.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd164.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd164.i.i, align 1
   %116 = lshr i64 %21, 24
   %117 = trunc i64 %116 to i8
   %conv166.i.i = and i8 %117, 15
-  %pred.i.i = getelementptr inbounds i8, ptr %dec.i, i64 48
+  %pred.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 48
   store i8 %conv166.i.i, ptr %pred.i.i, align 8
   %118 = lshr i64 %21, 20
   %119 = trunc i64 %118 to i8
   %conv168.i.i = and i8 %119, 15
-  %succ.i.i = getelementptr inbounds i8, ptr %dec.i, i64 49
+  %succ.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 49
   store i8 %conv168.i.i, ptr %succ.i.i, align 1
-  %imm169.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm169.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm169.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb170.i.i:                                     ; preds = %if.end20.i
-  %rd171.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd171.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd171.i.i, align 1
   %120 = lshr i64 %21, 7
   %121 = trunc i64 %120 to i8
   %122 = and i8 %121, 7
   %conv173.i.i = or disjoint i8 %122, 8
-  %rs1174.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1174.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv173.i.i, ptr %rs1174.i.i, align 4
-  %rs2175.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2175.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2175.i.i, align 1
   %shl.i495.i.i = shl i64 %21, 51
   %123 = ashr i64 %shl.i495.i.i, 55
@@ -1949,7 +1949,7 @@ sw.bb170.i.i:                                     ; preds = %if.end20.i
   %or12.i502.i.i = or disjoint i64 %or8.i501.i.i, %shl15.i.i.i
   %or16.i.i.i = or disjoint i64 %or12.i502.i.i, %shl1.i496.i.i
   %conv.i503.i.i = trunc nuw i64 %or16.i.i.i to i32
-  %imm177.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm177.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i503.i.i, ptr %imm177.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1958,11 +1958,11 @@ sw.bb178.i.i:                                     ; preds = %if.end20.i
   %128 = trunc i64 %127 to i8
   %129 = and i8 %128, 7
   %conv181.i.i = or disjoint i8 %129, 8
-  %rs1182.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1182.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv181.i.i, ptr %rs1182.i.i, align 4
-  %rd183.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd183.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv181.i.i, ptr %rd183.i.i, align 1
-  %rs2184.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2184.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2184.i.i, align 1
   %shl.i505.i.i = shl i64 %21, 51
   %130 = ashr i64 %shl.i505.i.i, 58
@@ -1971,7 +1971,7 @@ sw.bb178.i.i:                                     ; preds = %if.end20.i
   %shr3.i507.i.i = and i64 %131, 31
   %or.i508.i.i = or disjoint i64 %shl1.i506.i.i, %shr3.i507.i.i
   %conv.i509.i.i = trunc nuw i64 %or.i508.i.i to i32
-  %imm186.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm186.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i509.i.i, ptr %imm186.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1981,15 +1981,15 @@ sw.bb187.i.i:                                     ; preds = %if.end20.i
   %134 = trunc i64 %133 to i8
   %135 = and i8 %134, 7
   %conv190.i.i = or disjoint i8 %135, 8
-  %rs1191.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1191.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv190.i.i, ptr %rs1191.i.i, align 4
-  %rd192.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd192.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv190.i.i, ptr %rd192.i.i, align 1
-  %rs2193.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2193.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2193.i.i, align 1
   %136 = lshr i32 %132, 2
   %conv.i511.i.i = and i32 %136, 31
-  %imm195.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm195.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i511.i.i, ptr %imm195.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -1998,11 +1998,11 @@ sw.bb196.i.i:                                     ; preds = %if.end20.i
   %138 = trunc i64 %137 to i8
   %139 = and i8 %138, 7
   %conv199.i.i = or disjoint i8 %139, 8
-  %rs1200.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1200.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv199.i.i, ptr %rs1200.i.i, align 4
-  %rd201.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd201.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv199.i.i, ptr %rd201.i.i, align 1
-  %rs2202.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2202.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2202.i.i, align 1
   %shl1.i513.i.i = and i64 %137, 32
   %140 = lshr i64 %21, 2
@@ -2022,7 +2022,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb196.i.i
 
 operand_cimmshr6.exit.i.i:                        ; preds = %if.then.i.i.i, %sw.bb196.i.i
   %imm.0.i.i.i = phi i32 [ %cond.i.i.i, %if.then.i.i.i ], [ %conv.i516.i.i, %sw.bb196.i.i ]
-  %imm204.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm204.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %imm.0.i.i.i, ptr %imm204.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2030,11 +2030,11 @@ sw.bb205.i.i:                                     ; preds = %if.end20.i
   %141 = lshr i64 %21, 7
   %142 = trunc i64 %141 to i8
   %conv207.i.i = and i8 %142, 31
-  %rs1208.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1208.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv207.i.i, ptr %rs1208.i.i, align 4
-  %rd209.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd209.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv207.i.i, ptr %rd209.i.i, align 1
-  %rs2210.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2210.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2210.i.i, align 1
   %shl.i518.i.i = shl i64 %21, 51
   %143 = ashr i64 %shl.i518.i.i, 58
@@ -2043,7 +2043,7 @@ sw.bb205.i.i:                                     ; preds = %if.end20.i
   %shr3.i520.i.i = and i64 %144, 31
   %or.i521.i.i = or disjoint i64 %shl1.i519.i.i, %shr3.i520.i.i
   %conv.i522.i.i = trunc nuw i64 %or.i521.i.i to i32
-  %imm212.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm212.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i522.i.i, ptr %imm212.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2052,15 +2052,15 @@ sw.bb213.i.i:                                     ; preds = %if.end20.i
   %146 = lshr i64 %21, 7
   %147 = trunc i64 %146 to i8
   %conv215.i.i = and i8 %147, 31
-  %rs1216.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1216.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv215.i.i, ptr %rs1216.i.i, align 4
-  %rd217.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd217.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv215.i.i, ptr %rd217.i.i, align 1
-  %rs2218.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2218.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2218.i.i, align 1
   %148 = lshr i32 %145, 2
   %conv.i524.i.i = and i32 %148, 31
-  %imm220.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm220.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i524.i.i, ptr %imm220.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2068,11 +2068,11 @@ sw.bb221.i.i:                                     ; preds = %if.end20.i
   %149 = lshr i64 %21, 7
   %150 = trunc i64 %149 to i8
   %conv223.i.i = and i8 %150, 31
-  %rs1224.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1224.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv223.i.i, ptr %rs1224.i.i, align 4
-  %rd225.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd225.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv223.i.i, ptr %rd225.i.i, align 1
-  %rs2226.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2226.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2226.i.i, align 1
   %shl1.i526.i.i = and i64 %149, 32
   %151 = lshr i64 %21, 2
@@ -2083,16 +2083,16 @@ sw.bb221.i.i:                                     ; preds = %if.end20.i
   %tobool.not.i531.i.i = icmp eq i64 %or.i528.i.i, 0
   %152 = select i1 %cmp.i530.i.i, i1 %tobool.not.i531.i.i, i1 false
   %imm.0.i532.i.i = select i1 %152, i32 64, i32 %conv.i529.i.i
-  %imm228.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm228.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %imm.0.i532.i.i, ptr %imm228.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb229.i.i:                                     ; preds = %if.end20.i
-  %rd230.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd230.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 2, ptr %rd230.i.i, align 1
-  %rs1231.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1231.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1231.i.i, align 4
-  %rs2232.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2232.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2232.i.i, align 1
   %shl.i533.i.i = shl i64 %21, 51
   %153 = ashr i64 %shl.i533.i.i, 54
@@ -2110,7 +2110,7 @@ sw.bb229.i.i:                                     ; preds = %if.end20.i
   %or12.i541.i.i = or disjoint i64 %or8.i540.i.i, %shl15.i538.i.i
   %or16.i542.i.i = or disjoint i64 %or12.i541.i.i, %shl1.i534.i.i
   %conv.i543.i.i = trunc nuw i64 %or16.i542.i.i to i32
-  %imm234.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm234.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i543.i.i, ptr %imm234.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2118,11 +2118,11 @@ sw.bb235.i.i:                                     ; preds = %if.end20.i
   %158 = lshr i64 %21, 7
   %159 = trunc i64 %158 to i8
   %conv237.i.i = and i8 %159, 31
-  %rd238.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd238.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv237.i.i, ptr %rd238.i.i, align 1
-  %rs1239.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1239.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1239.i.i, align 4
-  %rs2240.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2240.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2240.i.i, align 1
   %shl1.i545.i.i = and i64 %158, 32
   %160 = lshr i64 %21, 2
@@ -2132,7 +2132,7 @@ sw.bb235.i.i:                                     ; preds = %if.end20.i
   %shl7.i548.i.i = and i64 %161, 192
   %or8.i549.i.i = or disjoint i64 %or.i547.i.i, %shl7.i548.i.i
   %conv.i550.i.i = trunc nuw nsw i64 %or8.i549.i.i to i32
-  %imm242.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm242.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i550.i.i, ptr %imm242.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2140,11 +2140,11 @@ sw.bb243.i.i:                                     ; preds = %if.end20.i
   %162 = lshr i64 %21, 7
   %163 = trunc i64 %162 to i8
   %conv245.i.i = and i8 %163, 31
-  %rd246.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd246.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv245.i.i, ptr %rd246.i.i, align 1
-  %rs1247.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1247.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1247.i.i, align 4
-  %rs2248.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2248.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2248.i.i, align 1
   %shl1.i552.i.i = and i64 %162, 32
   %164 = lshr i64 %21, 2
@@ -2154,7 +2154,7 @@ sw.bb243.i.i:                                     ; preds = %if.end20.i
   %shl7.i555.i.i = and i64 %165, 448
   %or8.i556.i.i = or disjoint i64 %or.i554.i.i, %shl7.i555.i.i
   %conv.i557.i.i = trunc nuw nsw i64 %or8.i556.i.i to i32
-  %imm250.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm250.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i557.i.i, ptr %imm250.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2162,11 +2162,11 @@ sw.bb251.i.i:                                     ; preds = %if.end20.i
   %166 = lshr i64 %21, 7
   %167 = trunc i64 %166 to i8
   %conv253.i.i = and i8 %167, 31
-  %rd254.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd254.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv253.i.i, ptr %rd254.i.i, align 1
-  %rs1255.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1255.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1255.i.i, align 4
-  %rs2256.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2256.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2256.i.i, align 1
   %shl1.i559.i.i = and i64 %166, 32
   %168 = lshr i64 %21, 2
@@ -2176,7 +2176,7 @@ sw.bb251.i.i:                                     ; preds = %if.end20.i
   %shl7.i562.i.i = and i64 %169, 960
   %or8.i563.i.i = or disjoint i64 %or.i561.i.i, %shl7.i562.i.i
   %conv.i564.i.i = trunc nuw nsw i64 %or8.i563.i.i to i32
-  %imm258.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm258.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i564.i.i, ptr %imm258.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2184,11 +2184,11 @@ sw.bb259.i.i:                                     ; preds = %if.end20.i
   %170 = lshr i64 %21, 7
   %171 = trunc i64 %170 to i8
   %conv261.i.i = and i8 %171, 31
-  %rd262.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd262.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv261.i.i, ptr %rd262.i.i, align 1
-  %rs1263.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1263.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1263.i.i, align 4
-  %rs2264.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2264.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2264.i.i, align 1
   %shl.i566.i.i = shl i64 %21, 51
   %172 = ashr i64 %shl.i566.i.i, 58
@@ -2197,7 +2197,7 @@ sw.bb259.i.i:                                     ; preds = %if.end20.i
   %shr3.i568.i.i = and i64 %173, 31
   %or.i569.i.i = or disjoint i64 %shl1.i567.i.i, %shr3.i568.i.i
   %conv.i570.i.i = trunc nuw i64 %or.i569.i.i to i32
-  %imm266.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm266.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i570.i.i, ptr %imm266.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2205,11 +2205,11 @@ sw.bb267.i.i:                                     ; preds = %if.end20.i
   %174 = lshr i64 %21, 7
   %175 = trunc i64 %174 to i8
   %conv269.i.i = and i8 %175, 31
-  %rd270.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd270.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv269.i.i, ptr %rd270.i.i, align 1
-  %rs1271.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1271.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1271.i.i, align 4
-  %rs2272.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2272.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2272.i.i, align 1
   %shl.i572.i.i = shl i64 %21, 51
   %176 = ashr exact i64 %shl.i572.i.i, 46
@@ -2218,18 +2218,18 @@ sw.bb267.i.i:                                     ; preds = %if.end20.i
   %shl4.i574.i.i = and i64 %177, 126976
   %or.i575.i.i = or disjoint i64 %shl1.i573.i.i, %shl4.i574.i.i
   %conv.i576.i.i = trunc nuw i64 %or.i575.i.i to i32
-  %imm274.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm274.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i576.i.i, ptr %imm274.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb275.i.i:                                     ; preds = %if.end20.i
-  %rs2276.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2276.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2276.i.i, align 1
-  %rs1277.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1277.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1277.i.i, align 4
-  %rd278.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd278.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd278.i.i, align 1
-  %imm279.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm279.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm279.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2238,11 +2238,11 @@ sw.bb280.i.i:                                     ; preds = %if.end20.i
   %179 = lshr i8 %178, 2
   %180 = and i8 %179, 7
   %conv283.i.i = or disjoint i8 %180, 8
-  %rd284.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd284.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv283.i.i, ptr %rd284.i.i, align 1
-  %rs1285.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1285.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1285.i.i, align 4
-  %rs2286.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2286.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2286.i.i, align 1
   %181 = lshr i64 %21, 7
   %shl1.i578.i.i = and i64 %181, 48
@@ -2256,31 +2256,31 @@ sw.bb280.i.i:                                     ; preds = %if.end20.i
   %shl11.i583.i.i = and i64 %184, 8
   %or12.i584.i.i = or disjoint i64 %or8.i582.i.i, %shl11.i583.i.i
   %conv.i585.i.i = trunc nuw nsw i64 %or12.i584.i.i to i32
-  %imm288.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm288.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i585.i.i, ptr %imm288.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb289.i.i:                                     ; preds = %if.end20.i
-  %rs2290.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2290.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2290.i.i, align 1
-  %rs1291.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1291.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1291.i.i, align 4
-  %rd292.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd292.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd292.i.i, align 1
   %call293.i.i = call fastcc i32 @operand_cimmj(i64 noundef %21)
-  %imm294.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm294.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %call293.i.i, ptr %imm294.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb295.i.i:                                     ; preds = %if.end20.i
-  %rd296.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd296.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 1, ptr %rd296.i.i, align 1
-  %rs2297.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2297.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2297.i.i, align 1
-  %rs1298.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1298.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 0, ptr %rs1298.i.i, align 4
   %call299.i.i = call fastcc i32 @operand_cimmj(i64 noundef %21)
-  %imm300.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm300.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %call299.i.i, ptr %imm300.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2289,15 +2289,15 @@ sw.bb301.i.i:                                     ; preds = %if.end20.i
   %186 = lshr i8 %185, 2
   %187 = and i8 %186, 7
   %conv304.i.i = or disjoint i8 %187, 8
-  %rd305.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd305.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv304.i.i, ptr %rd305.i.i, align 1
   %188 = lshr i64 %21, 7
   %189 = trunc i64 %188 to i8
   %190 = and i8 %189, 7
   %conv308.i.i = or disjoint i8 %190, 8
-  %rs1309.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1309.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv308.i.i, ptr %rs1309.i.i, align 4
-  %rs2310.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2310.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2310.i.i, align 1
   %shl1.i588.i.i = and i64 %188, 56
   %191 = lshr i64 %21, 4
@@ -2307,7 +2307,7 @@ sw.bb301.i.i:                                     ; preds = %if.end20.i
   %shl7.i591.i.i = and i64 %192, 64
   %or8.i592.i.i = or disjoint i64 %or.i590.i.i, %shl7.i591.i.i
   %conv.i593.i.i = trunc nuw nsw i64 %or8.i592.i.i to i32
-  %imm312.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm312.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i593.i.i, ptr %imm312.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2316,22 +2316,22 @@ sw.bb313.i.i:                                     ; preds = %if.end20.i
   %194 = lshr i8 %193, 2
   %195 = and i8 %194, 7
   %conv316.i.i = or disjoint i8 %195, 8
-  %rd317.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd317.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv316.i.i, ptr %rd317.i.i, align 1
   %196 = lshr i64 %21, 7
   %197 = trunc i64 %196 to i8
   %198 = and i8 %197, 7
   %conv320.i.i = or disjoint i8 %198, 8
-  %rs1321.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1321.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv320.i.i, ptr %rs1321.i.i, align 4
-  %rs2322.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2322.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2322.i.i, align 1
   %shl1.i596.i.i = and i64 %196, 56
   %199 = shl i64 %21, 1
   %shl4.i597.i.i = and i64 %199, 192
   %or.i598.i.i = or disjoint i64 %shl1.i596.i.i, %shl4.i597.i.i
   %conv.i599.i.i = trunc nuw nsw i64 %or.i598.i.i to i32
-  %imm324.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm324.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i599.i.i, ptr %imm324.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2340,15 +2340,15 @@ sw.bb325.i.i:                                     ; preds = %if.end20.i
   %201 = lshr i8 %200, 2
   %202 = and i8 %201, 7
   %conv328.i.i = or disjoint i8 %202, 8
-  %rd329.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd329.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv328.i.i, ptr %rd329.i.i, align 1
   %203 = lshr i64 %21, 7
   %204 = trunc i64 %203 to i8
   %205 = and i8 %204, 7
   %conv332.i.i = or disjoint i8 %205, 8
-  %rs1333.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1333.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv332.i.i, ptr %rs1333.i.i, align 4
-  %rs2334.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2334.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2334.i.i, align 1
   %shl1.i602.i.i = and i64 %203, 48
   %206 = lshr i64 %21, 2
@@ -2358,7 +2358,7 @@ sw.bb325.i.i:                                     ; preds = %if.end20.i
   %shl7.i605.i.i = and i64 %207, 192
   %or8.i606.i.i = or disjoint i64 %or.i604.i.i, %shl7.i605.i.i
   %conv.i607.i.i = trunc nuw nsw i64 %or8.i606.i.i to i32
-  %imm336.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm336.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i607.i.i, ptr %imm336.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2366,16 +2366,16 @@ sw.bb337.i.i:                                     ; preds = %if.end20.i
   %208 = lshr i64 %21, 7
   %209 = trunc i64 %208 to i8
   %conv339.i.i = and i8 %209, 31
-  %rs1340.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1340.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv339.i.i, ptr %rs1340.i.i, align 4
-  %rd341.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd341.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv339.i.i, ptr %rd341.i.i, align 1
   %210 = trunc i64 %21 to i8
   %211 = lshr i8 %210, 2
   %conv343.i.i = and i8 %211, 31
-  %rs2344.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2344.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv343.i.i, ptr %rs2344.i.i, align 1
-  %imm345.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm345.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm345.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2383,44 +2383,44 @@ sw.bb346.i.i:                                     ; preds = %if.end20.i
   %212 = lshr i64 %21, 7
   %213 = trunc i64 %212 to i8
   %conv348.i.i = and i8 %213, 31
-  %rd349.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd349.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv348.i.i, ptr %rd349.i.i, align 1
   %214 = trunc i64 %21 to i8
   %215 = lshr i8 %214, 2
   %conv351.i.i = and i8 %215, 31
-  %rs1352.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1352.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv351.i.i, ptr %rs1352.i.i, align 4
-  %rs2353.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2353.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2353.i.i, align 1
-  %imm354.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm354.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm354.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb355.i.i:                                     ; preds = %if.end20.i
-  %rd356.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd356.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 1, ptr %rd356.i.i, align 1
   %216 = lshr i64 %21, 7
   %217 = trunc i64 %216 to i8
   %conv358.i.i = and i8 %217, 31
-  %rs1359.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1359.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv358.i.i, ptr %rs1359.i.i, align 4
-  %rs2360.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2360.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2360.i.i, align 1
-  %imm361.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm361.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm361.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb362.i.i:                                     ; preds = %if.end20.i
-  %rd363.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd363.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd363.i.i, align 1
   %218 = lshr i64 %21, 7
   %219 = trunc i64 %218 to i8
   %conv365.i.i = and i8 %219, 31
-  %rs1366.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1366.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv365.i.i, ptr %rs1366.i.i, align 4
-  %rs2367.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2367.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 0, ptr %rs2367.i.i, align 1
-  %imm368.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm368.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm368.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2429,34 +2429,34 @@ sw.bb369.i.i:                                     ; preds = %if.end20.i
   %221 = trunc i64 %220 to i8
   %222 = and i8 %221, 7
   %conv372.i.i = or disjoint i8 %222, 8
-  %rs1373.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1373.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv372.i.i, ptr %rs1373.i.i, align 4
-  %rd374.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd374.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv372.i.i, ptr %rd374.i.i, align 1
   %223 = trunc i64 %21 to i8
   %224 = lshr i8 %223, 2
   %225 = and i8 %224, 7
   %conv377.i.i = or disjoint i8 %225, 8
-  %rs2378.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2378.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv377.i.i, ptr %rs2378.i.i, align 1
-  %imm379.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm379.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 0, ptr %imm379.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb380.i.i:                                     ; preds = %if.end20.i
-  %rd381.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd381.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd381.i.i, align 1
   %226 = lshr i64 %21, 7
   %227 = trunc i64 %226 to i8
   %228 = and i8 %227, 7
   %conv384.i.i = or disjoint i8 %228, 8
-  %rs1385.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1385.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv384.i.i, ptr %rs1385.i.i, align 4
   %229 = trunc i64 %21 to i8
   %230 = lshr i8 %229, 2
   %231 = and i8 %230, 7
   %conv388.i.i = or disjoint i8 %231, 8
-  %rs2389.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2389.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv388.i.i, ptr %rs2389.i.i, align 1
   %shl1.i618.i.i = and i64 %226, 56
   %232 = lshr i64 %21, 4
@@ -2466,48 +2466,48 @@ sw.bb380.i.i:                                     ; preds = %if.end20.i
   %shl7.i621.i.i = and i64 %233, 64
   %or8.i622.i.i = or disjoint i64 %or.i620.i.i, %shl7.i621.i.i
   %conv.i623.i.i = trunc nuw nsw i64 %or8.i622.i.i to i32
-  %imm391.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm391.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i623.i.i, ptr %imm391.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb392.i.i:                                     ; preds = %if.end20.i
-  %rd393.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd393.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd393.i.i, align 1
   %234 = lshr i64 %21, 7
   %235 = trunc i64 %234 to i8
   %236 = and i8 %235, 7
   %conv396.i.i = or disjoint i8 %236, 8
-  %rs1397.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1397.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv396.i.i, ptr %rs1397.i.i, align 4
   %237 = trunc i64 %21 to i8
   %238 = lshr i8 %237, 2
   %239 = and i8 %238, 7
   %conv400.i.i = or disjoint i8 %239, 8
-  %rs2401.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2401.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv400.i.i, ptr %rs2401.i.i, align 1
   %shl1.i626.i.i = and i64 %234, 56
   %240 = shl i64 %21, 1
   %shl4.i627.i.i = and i64 %240, 192
   %or.i628.i.i = or disjoint i64 %shl1.i626.i.i, %shl4.i627.i.i
   %conv.i629.i.i = trunc nuw nsw i64 %or.i628.i.i to i32
-  %imm403.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm403.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i629.i.i, ptr %imm403.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb404.i.i:                                     ; preds = %if.end20.i
-  %rd405.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd405.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd405.i.i, align 1
   %241 = lshr i64 %21, 7
   %242 = trunc i64 %241 to i8
   %243 = and i8 %242, 7
   %conv408.i.i = or disjoint i8 %243, 8
-  %rs1409.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1409.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv408.i.i, ptr %rs1409.i.i, align 4
   %244 = trunc i64 %21 to i8
   %245 = lshr i8 %244, 2
   %246 = and i8 %245, 7
   %conv412.i.i = or disjoint i8 %246, 8
-  %rs2413.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2413.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv412.i.i, ptr %rs2413.i.i, align 1
   %shl1.i632.i.i = and i64 %241, 48
   %247 = lshr i64 %21, 2
@@ -2517,19 +2517,19 @@ sw.bb404.i.i:                                     ; preds = %if.end20.i
   %shl7.i635.i.i = and i64 %248, 192
   %or8.i636.i.i = or disjoint i64 %or.i634.i.i, %shl7.i635.i.i
   %conv.i637.i.i = trunc nuw nsw i64 %or8.i636.i.i to i32
-  %imm415.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm415.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i637.i.i, ptr %imm415.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb416.i.i:                                     ; preds = %if.end20.i
-  %rd417.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd417.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd417.i.i, align 1
-  %rs1418.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1418.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1418.i.i, align 4
   %249 = trunc i64 %21 to i8
   %250 = lshr i8 %249, 2
   %conv420.i.i = and i8 %250, 31
-  %rs2421.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2421.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv420.i.i, ptr %rs2421.i.i, align 1
   %251 = lshr i64 %21, 7
   %shl1.i639.i.i = and i64 %251, 60
@@ -2537,19 +2537,19 @@ sw.bb416.i.i:                                     ; preds = %if.end20.i
   %shl4.i640.i.i = and i64 %252, 192
   %or.i641.i.i = or disjoint i64 %shl1.i639.i.i, %shl4.i640.i.i
   %conv.i642.i.i = trunc nuw nsw i64 %or.i641.i.i to i32
-  %imm423.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm423.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i642.i.i, ptr %imm423.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb424.i.i:                                     ; preds = %if.end20.i
-  %rd425.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd425.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd425.i.i, align 1
-  %rs1426.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1426.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1426.i.i, align 4
   %253 = trunc i64 %21 to i8
   %254 = lshr i8 %253, 2
   %conv428.i.i = and i8 %254, 31
-  %rs2429.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2429.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv428.i.i, ptr %rs2429.i.i, align 1
   %255 = lshr i64 %21, 7
   %shl1.i644.i.i = and i64 %255, 56
@@ -2557,19 +2557,19 @@ sw.bb424.i.i:                                     ; preds = %if.end20.i
   %shl4.i645.i.i = and i64 %256, 448
   %or.i646.i.i = or disjoint i64 %shl1.i644.i.i, %shl4.i645.i.i
   %conv.i647.i.i = trunc nuw nsw i64 %or.i646.i.i to i32
-  %imm431.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm431.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i647.i.i, ptr %imm431.i.i, align 8
   br label %decode_inst_operands.exit.i
 
 sw.bb432.i.i:                                     ; preds = %if.end20.i
-  %rd433.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd433.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 0, ptr %rd433.i.i, align 1
-  %rs1434.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1434.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 2, ptr %rs1434.i.i, align 4
   %257 = trunc i64 %21 to i8
   %258 = lshr i8 %257, 2
   %conv436.i.i = and i8 %258, 31
-  %rs2437.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2437.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv436.i.i, ptr %rs2437.i.i, align 1
   %259 = lshr i64 %21, 7
   %shl1.i649.i.i = and i64 %259, 48
@@ -2577,7 +2577,7 @@ sw.bb432.i.i:                                     ; preds = %if.end20.i
   %shl4.i650.i.i = and i64 %260, 960
   %or.i651.i.i = or disjoint i64 %shl1.i649.i.i, %shl4.i650.i.i
   %conv.i652.i.i = trunc nuw nsw i64 %or.i651.i.i to i32
-  %imm439.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm439.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i652.i.i, ptr %imm439.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2586,16 +2586,16 @@ sw.bb440.i.i:                                     ; preds = %if.end20.i
   %262 = lshr i64 %21, 15
   %263 = trunc i64 %262 to i8
   %conv442.i.i = and i8 %263, 31
-  %rs1443.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1443.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv442.i.i, ptr %rs1443.i.i, align 4
   %264 = lshr i64 %21, 20
   %265 = trunc i64 %264 to i8
   %conv445.i.i = and i8 %265, 31
-  %rs2446.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2446.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv445.i.i, ptr %rs2446.i.i, align 1
   %266 = lshr i32 %261, 30
   %conv448.i.i = trunc nuw nsw i32 %266 to i8
-  %bs.i.i = getelementptr inbounds i8, ptr %dec.i, i64 52
+  %bs.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 52
   store i8 %conv448.i.i, ptr %bs.i.i, align 4
   br label %decode_inst_operands.exit.i
 
@@ -2603,17 +2603,17 @@ sw.bb449.i.i:                                     ; preds = %if.end20.i
   %267 = lshr i64 %21, 7
   %268 = trunc i64 %267 to i8
   %conv451.i.i = and i8 %268, 31
-  %rd452.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd452.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv451.i.i, ptr %rd452.i.i, align 1
   %269 = lshr i64 %21, 15
   %270 = trunc i64 %269 to i8
   %conv454.i.i = and i8 %270, 31
-  %rs1455.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1455.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv454.i.i, ptr %rs1455.i.i, align 4
   %271 = lshr i64 %21, 20
   %272 = trunc i64 %271 to i8
   %conv457.i.i = and i8 %272, 15
-  %rnum.i.i = getelementptr inbounds i8, ptr %dec.i, i64 53
+  %rnum.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 53
   store i8 %conv457.i.i, ptr %rnum.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -2622,22 +2622,22 @@ sw.bb458.i.i:                                     ; preds = %if.end20.i
   %274 = lshr i64 %21, 7
   %275 = trunc i64 %274 to i8
   %conv460.i.i = and i8 %275, 31
-  %rd461.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd461.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv460.i.i, ptr %rd461.i.i, align 1
   %276 = lshr i64 %21, 15
   %277 = trunc i64 %276 to i8
   %conv463.i.i = and i8 %277, 31
-  %rs1464.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1464.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv463.i.i, ptr %rs1464.i.i, align 4
   %278 = lshr i64 %21, 20
   %279 = trunc i64 %278 to i8
   %conv466.i.i = and i8 %279, 31
-  %rs2467.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2467.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv466.i.i, ptr %rs2467.i.i, align 1
   %280 = lshr i32 %273, 25
   %281 = trunc nuw nsw i32 %280 to i8
   %conv469.i.i = and i8 %281, 1
-  %vm.i.i = getelementptr inbounds i8, ptr %dec.i, i64 54
+  %vm.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 54
   store i8 %conv469.i.i, ptr %vm.i.i, align 2
   br label %decode_inst_operands.exit.i
 
@@ -2646,17 +2646,17 @@ sw.bb470.i.i:                                     ; preds = %if.end20.i
   %283 = lshr i64 %21, 7
   %284 = trunc i64 %283 to i8
   %conv472.i.i = and i8 %284, 31
-  %rd473.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd473.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv472.i.i, ptr %rd473.i.i, align 1
   %285 = lshr i64 %21, 15
   %286 = trunc i64 %285 to i8
   %conv475.i.i = and i8 %286, 31
-  %rs1476.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1476.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv475.i.i, ptr %rs1476.i.i, align 4
   %287 = lshr i32 %282, 25
   %288 = trunc nuw nsw i32 %287 to i8
   %conv478.i.i = and i8 %288, 1
-  %vm479.i.i = getelementptr inbounds i8, ptr %dec.i, i64 54
+  %vm479.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 54
   store i8 %conv478.i.i, ptr %vm479.i.i, align 2
   br label %decode_inst_operands.exit.i
 
@@ -2665,22 +2665,22 @@ sw.bb480.i.i:                                     ; preds = %if.end20.i
   %290 = lshr i64 %21, 7
   %291 = trunc i64 %290 to i8
   %conv482.i.i = and i8 %291, 31
-  %rd483.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd483.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv482.i.i, ptr %rd483.i.i, align 1
   %292 = lshr i64 %21, 20
   %293 = trunc i64 %292 to i8
   %conv485.i.i = and i8 %293, 31
-  %rs2486.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2486.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv485.i.i, ptr %rs2486.i.i, align 1
   %shl.i667.i.i = shl i64 %21, 44
   %shr.i668.i.i = ashr i64 %shl.i667.i.i, 59
   %conv.i669.i.i = trunc nsw i64 %shr.i668.i.i to i32
-  %imm488.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm488.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i669.i.i, ptr %imm488.i.i, align 8
   %294 = lshr i32 %289, 25
   %295 = trunc nuw nsw i32 %294 to i8
   %conv490.i.i = and i8 %295, 1
-  %vm491.i.i = getelementptr inbounds i8, ptr %dec.i, i64 54
+  %vm491.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 54
   store i8 %conv490.i.i, ptr %vm491.i.i, align 2
   br label %decode_inst_operands.exit.i
 
@@ -2689,12 +2689,12 @@ sw.bb492.i.i:                                     ; preds = %if.end20.i
   %297 = lshr i64 %21, 7
   %298 = trunc i64 %297 to i8
   %conv494.i.i = and i8 %298, 31
-  %rd495.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd495.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv494.i.i, ptr %rd495.i.i, align 1
   %299 = lshr i64 %21, 20
   %300 = trunc i64 %299 to i8
   %conv497.i.i = and i8 %300, 31
-  %rs2498.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2498.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv497.i.i, ptr %rs2498.i.i, align 1
   %301 = lshr i64 %21, 21
   %shl1.i673.i.i = and i64 %301, 32
@@ -2702,12 +2702,12 @@ sw.bb492.i.i:                                     ; preds = %if.end20.i
   %shr3.i674.i.i = and i64 %302, 31
   %or.i675.i.i = or disjoint i64 %shl1.i673.i.i, %shr3.i674.i.i
   %conv.i676.i.i = trunc nuw nsw i64 %or.i675.i.i to i32
-  %imm500.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm500.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i676.i.i, ptr %imm500.i.i, align 8
   %303 = lshr i32 %296, 25
   %304 = trunc nuw nsw i32 %303 to i8
   %conv502.i.i = and i8 %304, 1
-  %vm503.i.i = getelementptr inbounds i8, ptr %dec.i, i64 54
+  %vm503.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 54
   store i8 %conv502.i.i, ptr %vm503.i.i, align 2
   br label %decode_inst_operands.exit.i
 
@@ -2716,16 +2716,16 @@ sw.bb504.i.i:                                     ; preds = %if.end20.i
   %306 = lshr i64 %21, 7
   %307 = trunc i64 %306 to i8
   %conv506.i.i = and i8 %307, 31
-  %rd507.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd507.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv506.i.i, ptr %rd507.i.i, align 1
   %308 = lshr i64 %21, 15
   %309 = trunc i64 %308 to i8
   %conv509.i.i = and i8 %309, 31
-  %rs1510.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1510.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv509.i.i, ptr %rs1510.i.i, align 4
   %310 = lshr i32 %305, 20
   %conv.i680.i.i = and i32 %310, 2047
-  %vzimm.i.i = getelementptr inbounds i8, ptr %dec.i, i64 56
+  %vzimm.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 56
   store i32 %conv.i680.i.i, ptr %vzimm.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2734,16 +2734,16 @@ sw.bb512.i.i:                                     ; preds = %if.end20.i
   %312 = lshr i64 %21, 7
   %313 = trunc i64 %312 to i8
   %conv514.i.i = and i8 %313, 31
-  %rd515.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd515.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv514.i.i, ptr %rd515.i.i, align 1
   %shl.i682.i.i = shl i64 %21, 44
   %shr.i683.i.i = ashr i64 %shl.i682.i.i, 59
   %conv.i684.i.i = trunc nsw i64 %shr.i683.i.i to i32
-  %imm517.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm517.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i684.i.i, ptr %imm517.i.i, align 8
   %314 = lshr i32 %311, 20
   %conv.i685.i.i = and i32 %314, 1023
-  %vzimm519.i.i = getelementptr inbounds i8, ptr %dec.i, i64 56
+  %vzimm519.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 56
   store i32 %conv.i685.i.i, ptr %vzimm519.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2752,13 +2752,13 @@ sw.bb520.i.i:                                     ; preds = %if.end20.i
   %316 = trunc i64 %315 to i8
   %317 = and i8 %316, 7
   %conv523.i.i = or disjoint i8 %317, 8
-  %rs1524.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1524.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv523.i.i, ptr %rs1524.i.i, align 4
   %318 = trunc i64 %21 to i8
   %319 = lshr i8 %318, 2
   %320 = and i8 %319, 7
   %conv527.i.i = or disjoint i8 %320, 8
-  %rs2528.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2528.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv527.i.i, ptr %rs2528.i.i, align 1
   %321 = lshr i64 %21, 4
   %shl1.i688.i.i = and i64 %321, 2
@@ -2766,7 +2766,7 @@ sw.bb520.i.i:                                     ; preds = %if.end20.i
   %shr3.i689.i.i = and i64 %322, 1
   %or.i690.i.i = or disjoint i64 %shl1.i688.i.i, %shr3.i689.i.i
   %conv.i691.i.i = trunc nuw nsw i64 %or.i690.i.i to i32
-  %imm530.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm530.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i691.i.i, ptr %imm530.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2776,17 +2776,17 @@ sw.bb531.i.i:                                     ; preds = %if.end20.i
   %325 = trunc i64 %324 to i8
   %326 = and i8 %325, 7
   %conv534.i.i = or disjoint i8 %326, 8
-  %rs1535.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1535.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv534.i.i, ptr %rs1535.i.i, align 4
   %327 = trunc i64 %21 to i8
   %328 = lshr i8 %327, 2
   %329 = and i8 %328, 7
   %conv538.i.i = or disjoint i8 %329, 8
-  %rs2539.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2539.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv538.i.i, ptr %rs2539.i.i, align 1
   %330 = lshr i32 %323, 4
   %conv.i694.i.i = and i32 %330, 2
-  %imm541.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm541.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i694.i.i, ptr %imm541.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2795,7 +2795,7 @@ sw.bb542.i.i:                                     ; preds = %if.end20.i
   %332 = trunc i64 %331 to i8
   %333 = and i8 %332, 7
   %conv545.i.i = or disjoint i8 %333, 8
-  %rd546.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd546.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv545.i.i, ptr %rd546.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -2804,13 +2804,13 @@ sw.bb547.i.i:                                     ; preds = %if.end20.i
   %335 = trunc i64 %334 to i8
   %336 = and i8 %335, 7
   %conv550.i.i = or disjoint i8 %336, 8
-  %rd551.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd551.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv550.i.i, ptr %rd551.i.i, align 1
   %337 = trunc i64 %21 to i8
   %338 = lshr i8 %337, 2
   %339 = and i8 %338, 7
   %conv554.i.i = or disjoint i8 %339, 8
-  %rs2555.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2555.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv554.i.i, ptr %rs2555.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -2829,10 +2829,10 @@ sw.bb556.i.i:                                     ; preds = %if.end20.i
   %sub3.i.i.i.i = add nsw i32 %shl.i.i.i.i, 15
   %and.i.i.i.i = and i32 %sub3.i.i.i.i, -16
   %add4.i.i.i.i = add i32 %and.i.i.i.i, %conv.i2.i.i.i
-  %imm558.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm558.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %add4.i.i.i.i, ptr %imm558.i.i, align 8
   %conv560.i.i = trunc nuw nsw i32 %conv.i.i.i.i to i8
-  %rlist.i.i = getelementptr inbounds i8, ptr %dec.i, i64 60
+  %rlist.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 60
   store i8 %conv560.i.i, ptr %rlist.i.i, align 4
   br label %decode_inst_operands.exit.i
 
@@ -2844,7 +2844,7 @@ sw.bb561.i.i:                                     ; preds = %if.end20.i
   %cond.v.i.i.i.i = select i1 %cmp.i.i700.i.i, i32 8, i32 16
   %cond.i.i701.i.i = or disjoint i32 %cond.v.i.i.i.i, %conv.i699.i.i
   %conv563.i.i = trunc nuw nsw i32 %cond.i.i701.i.i to i8
-  %rd564.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd564.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv563.i.i, ptr %rd564.i.i, align 1
   %345 = lshr i32 %343, 2
   %conv.i702.i.i = and i32 %345, 7
@@ -2852,7 +2852,7 @@ sw.bb561.i.i:                                     ; preds = %if.end20.i
   %cond.v.i.i704.i.i = select i1 %cmp.i.i703.i.i, i32 8, i32 16
   %cond.i.i705.i.i = or disjoint i32 %cond.v.i.i704.i.i, %conv.i702.i.i
   %conv566.i.i = trunc nuw nsw i32 %cond.i.i705.i.i to i8
-  %rs2567.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2567.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv566.i.i, ptr %rs2567.i.i, align 1
   br label %decode_inst_operands.exit.i
 
@@ -2860,7 +2860,7 @@ sw.bb568.i.i:                                     ; preds = %if.end20.i
   %346 = trunc i64 %21 to i32
   %347 = lshr i32 %346, 2
   %conv.i706.i.i = and i32 %347, 255
-  %imm570.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm570.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i706.i.i, ptr %imm570.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2869,11 +2869,11 @@ sw.bb571.i.i:                                     ; preds = %if.end20.i
   %349 = lshr i64 %21, 7
   %350 = trunc i64 %349 to i8
   %conv573.i.i = and i8 %350, 31
-  %rd574.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd574.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv573.i.i, ptr %rd574.i.i, align 1
   %351 = lshr i32 %348, 15
   %conv.i708.i.i = and i32 %351, 31
-  %imm576.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm576.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i708.i.i, ptr %imm576.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2882,16 +2882,16 @@ sw.bb577.i.i:                                     ; preds = %if.end20.i
   %353 = lshr i64 %21, 7
   %354 = trunc i64 %353 to i8
   %conv579.i.i = and i8 %354, 31
-  %rd580.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd580.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv579.i.i, ptr %rd580.i.i, align 1
   %355 = lshr i64 %21, 15
   %356 = trunc i64 %355 to i8
   %conv582.i.i = and i8 %356, 31
-  %rs1583.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1583.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv582.i.i, ptr %rs1583.i.i, align 4
   %357 = lshr i32 %352, 20
   %conv.i711.i.i = and i32 %357, 31
-  %imm585.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm585.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i711.i.i, ptr %imm585.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2899,12 +2899,12 @@ sw.bb586.i.i:                                     ; preds = %if.end20.i
   %358 = lshr i64 %21, 7
   %359 = trunc i64 %358 to i8
   %conv588.i.i = and i8 %359, 31
-  %rd589.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd589.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv588.i.i, ptr %rd589.i.i, align 1
   %360 = lshr i64 %21, 15
   %361 = trunc i64 %360 to i8
   %conv591.i.i = and i8 %361, 31
-  %rs1592.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1592.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv591.i.i, ptr %rs1592.i.i, align 4
   br label %decode_inst_operands.exit.i
 
@@ -2913,16 +2913,16 @@ sw.bb593.i.i:                                     ; preds = %if.end20.i
   %363 = lshr i64 %21, 7
   %364 = trunc i64 %363 to i8
   %conv595.i.i = and i8 %364, 31
-  %rd596.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd596.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv595.i.i, ptr %rd596.i.i, align 1
   %365 = lshr i64 %21, 15
   %366 = trunc i64 %365 to i8
   %conv598.i.i = and i8 %366, 31
-  %rs1599.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1599.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv598.i.i, ptr %rs1599.i.i, align 4
   %367 = lshr i32 %362, 22
   %conv.i716.i.i = and i32 %367, 15
-  %imm601.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm601.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i716.i.i, ptr %imm601.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2931,21 +2931,21 @@ sw.bb602.i.i:                                     ; preds = %if.end20.i
   %369 = lshr i64 %21, 7
   %370 = trunc i64 %369 to i8
   %conv604.i.i = and i8 %370, 31
-  %rd605.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd605.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv604.i.i, ptr %rd605.i.i, align 1
   %371 = lshr i64 %21, 15
   %372 = trunc i64 %371 to i8
   %conv607.i.i = and i8 %372, 31
-  %rs1608.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1608.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv607.i.i, ptr %rs1608.i.i, align 4
   %373 = lshr i64 %21, 20
   %374 = trunc i64 %373 to i8
   %conv610.i.i = and i8 %374, 31
-  %rs2611.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
+  %rs2611.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
   store i8 %conv610.i.i, ptr %rs2611.i.i, align 1
   %375 = lshr i32 %368, 25
   %conv.i720.i.i = and i32 %375, 3
-  %imm613.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm613.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %conv.i720.i.i, ptr %imm613.i.i, align 8
   br label %decode_inst_operands.exit.i
 
@@ -2954,19 +2954,19 @@ sw.bb614.i.i:                                     ; preds = %if.end20.i
   %377 = lshr i64 %21, 7
   %378 = trunc i64 %377 to i8
   %conv616.i.i = and i8 %378, 31
-  %rd617.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd617.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv616.i.i, ptr %rd617.i.i, align 1
   %379 = lshr i64 %21, 15
   %380 = trunc i64 %379 to i8
   %conv619.i.i = and i8 %380, 31
-  %rs1620.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1620.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv619.i.i, ptr %rs1620.i.i, align 4
   %381 = lshr i32 %376, 26
-  %imm622.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm622.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %381, ptr %imm622.i.i, align 8
   %382 = lshr i32 %376, 20
   %conv.i723.i.i = and i32 %382, 63
-  %imm1.i.i = getelementptr inbounds i8, ptr %dec.i, i64 36
+  %imm1.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 36
   store i32 %conv.i723.i.i, ptr %imm1.i.i, align 4
   br label %decode_inst_operands.exit.i
 
@@ -2975,20 +2975,20 @@ sw.bb624.i.i:                                     ; preds = %if.end20.i
   %384 = lshr i64 %21, 7
   %385 = trunc i64 %384 to i8
   %conv626.i.i = and i8 %385, 31
-  %rd627.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
+  %rd627.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
   store i8 %conv626.i.i, ptr %rd627.i.i, align 1
   %386 = lshr i64 %21, 15
   %387 = trunc i64 %386 to i8
   %conv629.i.i = and i8 %387, 31
-  %rs1630.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
+  %rs1630.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
   store i8 %conv629.i.i, ptr %rs1630.i.i, align 4
   %388 = shl i32 %383, 7
   %shr.i728.i.i = ashr i32 %388, 27
-  %imm633.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm633.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   store i32 %shr.i728.i.i, ptr %imm633.i.i, align 8
   %389 = lshr i32 %383, 25
   %conv.i729.i.i = and i32 %389, 3
-  %imm1635.i.i = getelementptr inbounds i8, ptr %dec.i, i64 36
+  %imm1635.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 36
   store i32 %conv.i729.i.i, ptr %imm1635.i.i, align 4
   br label %decode_inst_operands.exit.i
 
@@ -3001,17 +3001,17 @@ decode_inst_operands.exit.i:                      ; preds = %sw.bb624.i.i, %sw.b
   ]
 
 sw.bb.i8.i:                                       ; preds = %decode_inst_operands.exit.i
-  %decomp_rv32.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
+  %decomp_rv32.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 32
   %390 = load i16, ptr %decomp_rv32.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i16 %390, 0
   br i1 %cmp.not.i.i.i, label %decode_inst_decompress.exit.i, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %sw.bb.i8.i
-  %decomp_data.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 38
+  %decomp_data.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 38
   %391 = load i16, ptr %decomp_data.i.i.i, align 2
   %392 = and i16 %391, 1
   %tobool.not.i.i10.i = icmp ne i16 %392, 0
-  %imm.i.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm.i.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   %393 = load i32, ptr %imm.i.i.i, align 8
   %cmp7.i.i.i = icmp eq i32 %393, 0
   %or.cond.i = select i1 %tobool.not.i.i10.i, i1 %cmp7.i.i.i, i1 false
@@ -3031,17 +3031,17 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i9.i
   br label %decode_inst_decompress.exit.i
 
 sw.bb1.i.i:                                       ; preds = %decode_inst_operands.exit.i
-  %decomp_rv64.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 34
+  %decomp_rv64.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 34
   %395 = load i16, ptr %decomp_rv64.i.i.i, align 2
   %cmp.not.i7.i.i = icmp eq i16 %395, 0
   br i1 %cmp.not.i7.i.i, label %decode_inst_decompress.exit.i, label %if.then.i8.i.i
 
 if.then.i8.i.i:                                   ; preds = %sw.bb1.i.i
-  %decomp_data.i9.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 38
+  %decomp_data.i9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 38
   %396 = load i16, ptr %decomp_data.i9.i.i, align 2
   %397 = and i16 %396, 1
   %tobool.not.i10.i.i = icmp ne i16 %397, 0
-  %imm.i12.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm.i12.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   %398 = load i32, ptr %imm.i12.i.i, align 8
   %cmp7.i13.i.i = icmp eq i32 %398, 0
   %or.cond62.i = select i1 %tobool.not.i10.i.i, i1 %cmp7.i13.i.i, i1 false
@@ -3061,17 +3061,17 @@ if.else.i14.i.i:                                  ; preds = %if.then.i8.i.i
   br label %decode_inst_decompress.exit.i
 
 sw.bb2.i.i:                                       ; preds = %decode_inst_operands.exit.i
-  %decomp_rv128.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 36
+  %decomp_rv128.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 36
   %400 = load i16, ptr %decomp_rv128.i.i.i, align 4
   %cmp.not.i24.i.i = icmp eq i16 %400, 0
   br i1 %cmp.not.i24.i.i, label %decode_inst_decompress.exit.i, label %if.then.i25.i.i
 
 if.then.i25.i.i:                                  ; preds = %sw.bb2.i.i
-  %decomp_data.i26.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 38
+  %decomp_data.i26.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 38
   %401 = load i16, ptr %decomp_data.i26.i.i, align 2
   %402 = and i16 %401, 1
   %tobool.not.i27.i.i = icmp ne i16 %402, 0
-  %imm.i29.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %imm.i29.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   %403 = load i32, ptr %imm.i29.i.i, align 8
   %cmp7.i30.i.i = icmp eq i32 %403, 0
   %or.cond63.i = select i1 %tobool.not.i27.i.i, i1 %cmp7.i30.i.i, i1 false
@@ -3102,16 +3102,16 @@ decode_inst_decompress.exit.i:                    ; preds = %if.else.i31.i.i, %i
   br i1 %tobool.not.i.i, label %decode_inst_lift_pseudo.exit.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %decode_inst_decompress.exit.i
-  %constraints17.i.i = getelementptr inbounds i8, ptr %406, i64 8
+  %constraints17.i.i = getelementptr inbounds nuw i8, ptr %406, i64 8
   %407 = load ptr, ptr %constraints17.i.i, align 8
   %tobool2.not18.i.i = icmp eq ptr %407, null
   br i1 %tobool2.not18.i.i, label %decode_inst_lift_pseudo.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %while.cond.preheader.i.i
-  %rs24.i.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
-  %rs13.i.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
-  %rd2.i.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
-  %imm1.i.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
+  %rs24.i.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
+  %rs13.i.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
+  %rd2.i.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
+  %imm1.i.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
   %408 = load i8, ptr %rs24.i.i.i, align 1
   %409 = load i8, ptr %rs13.i.i.i, align 4
   %410 = load i8, ptr %rd2.i.i.i, align 1
@@ -3251,22 +3251,22 @@ decode_inst_lift_pseudo.exit.i:                   ; preds = %if.end12.i.i, %if.t
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %nbuf.i.i)
   %format.i.i = getelementptr %struct.rv_opcode_data, ptr %20, i64 %idxprom.i19.pre-phi.i, i32 2
   %419 = load ptr, ptr %format.i.i, align 8
-  %imm316.i.i = getelementptr inbounds i8, ptr %dec.i, i64 32
-  %rlist.i20.i = getelementptr inbounds i8, ptr %dec.i, i64 60
-  %vzimm.i21.i = getelementptr inbounds i8, ptr %dec.i, i64 56
-  %rs3252.i.i = getelementptr inbounds i8, ptr %dec.i, i64 46
-  %rs2247.i.i = getelementptr inbounds i8, ptr %dec.i, i64 45
-  %rs1242.i.i = getelementptr inbounds i8, ptr %dec.i, i64 44
-  %rd237.i.i = getelementptr inbounds i8, ptr %dec.i, i64 43
-  %vm.i22.i = getelementptr inbounds i8, ptr %dec.i, i64 54
-  %rl.i23.i = getelementptr inbounds i8, ptr %dec.i, i64 51
-  %aq.i24.i = getelementptr inbounds i8, ptr %dec.i, i64 50
-  %succ.i25.i = getelementptr inbounds i8, ptr %dec.i, i64 49
-  %pred.i26.i = getelementptr inbounds i8, ptr %dec.i, i64 48
-  %rm.i27.i = getelementptr inbounds i8, ptr %dec.i, i64 47
-  %imm1.i28.i = getelementptr inbounds i8, ptr %dec.i, i64 36
-  %rnum.i29.i = getelementptr inbounds i8, ptr %dec.i, i64 53
-  %bs.i30.i = getelementptr inbounds i8, ptr %dec.i, i64 52
+  %imm316.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 32
+  %rlist.i20.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 60
+  %vzimm.i21.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 56
+  %rs3252.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 46
+  %rs2247.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 45
+  %rs1242.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 44
+  %rd237.i.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 43
+  %vm.i22.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 54
+  %rl.i23.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 51
+  %aq.i24.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 50
+  %succ.i25.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 49
+  %pred.i26.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 48
+  %rm.i27.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 47
+  %imm1.i28.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 36
+  %rnum.i29.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 53
+  %bs.i30.i = getelementptr inbounds nuw i8, ptr %dec.i, i64 52
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %sw.epilog321.i.i, %decode_inst_lift_pseudo.exit.i
@@ -3405,7 +3405,7 @@ sw.bb29.i.i:                                      ; preds = %while.cond.i.i
 
 if.then.i244.i.i:                                 ; preds = %sw.bb29.i.i
   %428 = load ptr, ptr %dec.i, align 8
-  %ext_zfinx.i.i = getelementptr inbounds i8, ptr %428, i64 45
+  %ext_zfinx.i.i = getelementptr inbounds nuw i8, ptr %428, i64 45
   %429 = load i8, ptr %ext_zfinx.i.i, align 1
   %tobool30.i.i = trunc i8 %429 to i1
   %rv_ireg_name_sym.rv_freg_name_sym.i.i = select i1 %tobool30.i.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
@@ -3421,7 +3421,7 @@ sw.bb40.i.i:                                      ; preds = %while.cond.i.i
 
 if.then.i250.i.i:                                 ; preds = %sw.bb40.i.i
   %431 = load ptr, ptr %dec.i, align 8
-  %ext_zfinx42.i.i = getelementptr inbounds i8, ptr %431, i64 45
+  %ext_zfinx42.i.i = getelementptr inbounds nuw i8, ptr %431, i64 45
   %432 = load i8, ptr %ext_zfinx42.i.i, align 1
   %tobool43.i.i = trunc i8 %432 to i1
   %rv_ireg_name_sym.rv_freg_name_sym568.i.i = select i1 %tobool43.i.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
@@ -3437,7 +3437,7 @@ sw.bb57.i.i:                                      ; preds = %while.cond.i.i
 
 if.then.i256.i.i:                                 ; preds = %sw.bb57.i.i
   %434 = load ptr, ptr %dec.i, align 8
-  %ext_zfinx59.i.i = getelementptr inbounds i8, ptr %434, i64 45
+  %ext_zfinx59.i.i = getelementptr inbounds nuw i8, ptr %434, i64 45
   %435 = load i8, ptr %ext_zfinx59.i.i, align 1
   %tobool60.i.i = trunc i8 %435 to i1
   %rv_ireg_name_sym.rv_freg_name_sym569.i.i = select i1 %tobool60.i.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
@@ -3453,7 +3453,7 @@ sw.bb74.i.i:                                      ; preds = %while.cond.i.i
 
 if.then.i262.i.i:                                 ; preds = %sw.bb74.i.i
   %437 = load ptr, ptr %dec.i, align 8
-  %ext_zfinx76.i.i = getelementptr inbounds i8, ptr %437, i64 45
+  %ext_zfinx76.i.i = getelementptr inbounds nuw i8, ptr %437, i64 45
   %438 = load i8, ptr %ext_zfinx76.i.i, align 1
   %tobool77.i.i = trunc i8 %438 to i1
   %rv_ireg_name_sym.rv_freg_name_sym570.i.i = select i1 %tobool77.i.i, ptr @rv_ireg_name_sym, ptr @rv_freg_name_sym
@@ -4819,7 +4819,7 @@ disasm_inst.exit:                                 ; preds = %while.cond.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %nbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %dec.i)
   %477 = load ptr, ptr %info, align 8
-  %stream26 = getelementptr inbounds i8, ptr %info, i64 8
+  %stream26 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %478 = load ptr, ptr %stream26, align 8
   %call28 = call i32 (ptr, ptr, ...) %477(ptr noundef %478, ptr noundef nonnull @.str.951, ptr noundef nonnull %buf) #12
   br label %return
@@ -4855,7 +4855,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @decode_inst_opcode(ptr nocapture noundef %dec, i32 noundef %isa) #3 {
 entry:
-  %inst1 = getelementptr inbounds i8, ptr %dec, i64 16
+  %inst1 = getelementptr inbounds nuw i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
   %and = and i64 %0, 3
   switch i64 %and, label %default.unreachable349 [
@@ -5082,7 +5082,7 @@ sw.bb132:                                         ; preds = %sw.bb96
 
 if.else135:                                       ; preds = %sw.bb132
   %9 = load ptr, ptr %dec, align 8
-  %ext_zcmp = getelementptr inbounds i8, ptr %9, i64 12
+  %ext_zcmp = getelementptr inbounds nuw i8, ptr %9, i64 12
   %10 = load i8, ptr %ext_zcmp, align 4
   %tobool = trunc i8 %10 to i1
   %11 = and i64 %0, 4096
@@ -5133,7 +5133,7 @@ if.else167:                                       ; preds = %if.else135
   ]
 
 sw.bb170:                                         ; preds = %if.else167
-  %ext_zcmt = getelementptr inbounds i8, ptr %9, i64 13
+  %ext_zcmt = getelementptr inbounds nuw i8, ptr %9, i64 13
   %16 = load i8, ptr %ext_zcmt, align 1
   %tobool172 = trunc i8 %16 to i1
   br i1 %tobool172, label %if.end174, label %sw.epilog1655
@@ -5198,7 +5198,7 @@ sw.bb202:                                         ; preds = %entry
 sw.bb205:                                         ; preds = %sw.bb202
   %shr206 = lshr i64 %0, 12
   %and207 = and i64 %shr206, 7
-  %switch.gep = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode, i64 0, i64 %and207
+  %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode, i64 0, i64 %and207
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %sw.epilog1655
 
@@ -5225,7 +5225,7 @@ sw.bb220:                                         ; preds = %sw.bb217
   br i1 %20, label %switch.lookup351, label %sw.epilog227
 
 switch.lookup351:                                 ; preds = %sw.bb220
-  %switch.gep352 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.4, i64 0, i64 %19
+  %switch.gep352 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.4, i64 0, i64 %19
   %switch.load353 = load i16, ptr %switch.gep352, align 2
   br label %sw.epilog227
 
@@ -5284,7 +5284,7 @@ sw.bb245:                                         ; preds = %sw.bb217
   br i1 %23, label %switch.lookup354, label %sw.epilog252
 
 switch.lookup354:                                 ; preds = %sw.bb245
-  %switch.gep355 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.5, i64 0, i64 %22
+  %switch.gep355 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.5, i64 0, i64 %22
   %switch.load356 = load i16, ptr %switch.gep355, align 2
   br label %sw.epilog252
 
@@ -5330,7 +5330,7 @@ sw.bb265:                                         ; preds = %sw.bb217
   br i1 %26, label %switch.lookup357, label %sw.epilog272
 
 switch.lookup357:                                 ; preds = %sw.bb265
-  %switch.gep358 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.6, i64 0, i64 %25
+  %switch.gep358 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.6, i64 0, i64 %25
   %switch.load359 = load i16, ptr %switch.gep358, align 2
   br label %sw.epilog272
 
@@ -5376,7 +5376,7 @@ sw.bb285:                                         ; preds = %sw.bb217
   br i1 %29, label %switch.lookup360, label %sw.epilog292
 
 switch.lookup360:                                 ; preds = %sw.bb285
-  %switch.gep361 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.7, i64 0, i64 %28
+  %switch.gep361 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.7, i64 0, i64 %28
   %switch.load362 = load i16, ptr %switch.gep361, align 2
   br label %sw.epilog292
 
@@ -5635,7 +5635,7 @@ sw.bb429:                                         ; preds = %sw.bb426
   br i1 %41, label %switch.lookup376, label %sw.epilog436
 
 switch.lookup376:                                 ; preds = %sw.bb429
-  %switch.gep377 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.11, i64 0, i64 %40
+  %switch.gep377 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.11, i64 0, i64 %40
   %switch.load378 = load i16, ptr %switch.gep377, align 2
   br label %sw.epilog436
 
@@ -8304,12 +8304,12 @@ switch.lookup363:                                 ; preds = %sw.bb306
   br label %sw.epilog1655
 
 switch.lookup364:                                 ; preds = %sw.bb326
-  %switch.gep365 = getelementptr inbounds [10 x i16], ptr @switch.table.decode_inst_opcode.8, i64 0, i64 %and328
+  %switch.gep365 = getelementptr inbounds nuw [10 x i16], ptr @switch.table.decode_inst_opcode.8, i64 0, i64 %and328
   %switch.load366 = load i16, ptr %switch.gep365, align 2
   br label %sw.epilog1655
 
 switch.lookup367:                                 ; preds = %sw.bb354
-  %switch.gep368 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.9, i64 0, i64 %and356
+  %switch.gep368 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.9, i64 0, i64 %and356
   %switch.load369 = load i16, ptr %switch.gep368, align 2
   br label %sw.epilog1655
 
@@ -8319,7 +8319,7 @@ switch.lookup370:                                 ; preds = %sw.bb401
   br label %sw.epilog1655
 
 switch.lookup373:                                 ; preds = %sw.bb417
-  %switch.gep374 = getelementptr inbounds [5 x i16], ptr @switch.table.decode_inst_opcode.10, i64 0, i64 %and419
+  %switch.gep374 = getelementptr inbounds nuw [5 x i16], ptr @switch.table.decode_inst_opcode.10, i64 0, i64 %and419
   %switch.load375 = load i16, ptr %switch.gep374, align 2
   br label %sw.epilog1655
 
@@ -8330,7 +8330,7 @@ switch.hole_check:                                ; preds = %sw.epilog607
   br i1 %switch.lobit, label %switch.lookup380, label %sw.epilog1655
 
 switch.lookup380:                                 ; preds = %switch.hole_check
-  %switch.gep381 = getelementptr inbounds [10 x i16], ptr @switch.table.decode_inst_opcode.12, i64 0, i64 %switch.tableidx
+  %switch.gep381 = getelementptr inbounds nuw [10 x i16], ptr @switch.table.decode_inst_opcode.12, i64 0, i64 %switch.tableidx
   %switch.load382 = load i16, ptr %switch.gep381, align 2
   br label %sw.epilog1655
 
@@ -8368,37 +8368,37 @@ switch.lookup416:                                 ; preds = %sw.bb733
   br label %sw.epilog1655
 
 switch.lookup420:                                 ; preds = %sw.bb741
-  %switch.gep422 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.13, i64 0, i64 %switch.tableidx421
+  %switch.gep422 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.13, i64 0, i64 %switch.tableidx421
   %switch.load423 = load i16, ptr %switch.gep422, align 2
   br label %sw.epilog1655
 
 switch.lookup424:                                 ; preds = %sw.bb750
-  %switch.gep425 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.14, i64 0, i64 %and752
+  %switch.gep425 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.14, i64 0, i64 %and752
   %switch.load426 = load i16, ptr %switch.gep425, align 2
   br label %sw.epilog1655
 
 switch.lookup427:                                 ; preds = %sw.bb758
-  %switch.gep429 = getelementptr inbounds [5 x i16], ptr @switch.table.decode_inst_opcode.15, i64 0, i64 %switch.tableidx428
+  %switch.gep429 = getelementptr inbounds nuw [5 x i16], ptr @switch.table.decode_inst_opcode.15, i64 0, i64 %switch.tableidx428
   %switch.load430 = load i16, ptr %switch.gep429, align 2
   br label %sw.epilog1655
 
 switch.lookup431:                                 ; preds = %sw.bb765
-  %switch.gep432 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.16, i64 0, i64 %and767
+  %switch.gep432 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.16, i64 0, i64 %and767
   %switch.load433 = load i16, ptr %switch.gep432, align 2
   br label %sw.epilog1655
 
 switch.lookup434:                                 ; preds = %sw.bb788
-  %switch.gep435 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.17, i64 0, i64 %and790
+  %switch.gep435 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.17, i64 0, i64 %and790
   %switch.load436 = load i16, ptr %switch.gep435, align 2
   br label %sw.epilog1655
 
 switch.lookup437:                                 ; preds = %sw.bb797
-  %switch.gep438 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.18, i64 0, i64 %and799
+  %switch.gep438 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.18, i64 0, i64 %and799
   %switch.load439 = load i16, ptr %switch.gep438, align 2
   br label %sw.epilog1655
 
 switch.lookup440:                                 ; preds = %sw.bb812
-  %switch.gep441 = getelementptr inbounds [6 x i16], ptr @switch.table.decode_inst_opcode.19, i64 0, i64 %and814
+  %switch.gep441 = getelementptr inbounds nuw [6 x i16], ptr @switch.table.decode_inst_opcode.19, i64 0, i64 %and814
   %switch.load442 = load i16, ptr %switch.gep441, align 2
   br label %sw.epilog1655
 
@@ -8409,7 +8409,7 @@ switch.lookup443:                                 ; preds = %sw.bb831
   br label %sw.epilog1655
 
 switch.lookup447:                                 ; preds = %sw.bb839
-  %switch.gep448 = getelementptr inbounds [9 x i16], ptr @switch.table.decode_inst_opcode.20, i64 0, i64 %and841
+  %switch.gep448 = getelementptr inbounds nuw [9 x i16], ptr @switch.table.decode_inst_opcode.20, i64 0, i64 %and841
   %switch.load449 = load i16, ptr %switch.gep448, align 2
   br label %sw.epilog1655
 
@@ -8438,30 +8438,30 @@ switch.lookup462:                                 ; preds = %sw.bb872
   br label %sw.epilog1655
 
 switch.lookup466:                                 ; preds = %sw.bb1048
-  %switch.gep467 = getelementptr inbounds [30 x i16], ptr @switch.table.decode_inst_opcode.21, i64 0, i64 %and1050
+  %switch.gep467 = getelementptr inbounds nuw [30 x i16], ptr @switch.table.decode_inst_opcode.21, i64 0, i64 %and1050
   %switch.load468 = load i16, ptr %switch.gep467, align 2
   br label %sw.epilog1655
 
 switch.lookup469:                                 ; preds = %sw.bb1139
-  %switch.gep471 = getelementptr inbounds [13 x i16], ptr @switch.table.decode_inst_opcode.22, i64 0, i64 %switch.tableidx470
+  %switch.gep471 = getelementptr inbounds nuw [13 x i16], ptr @switch.table.decode_inst_opcode.22, i64 0, i64 %switch.tableidx470
   %switch.load472 = load i16, ptr %switch.gep471, align 2
   br label %sw.epilog1655
 
 switch.lookup473:                                 ; preds = %sw.bb1290
-  %switch.gep474 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.23, i64 0, i64 %and1292
+  %switch.gep474 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.23, i64 0, i64 %and1292
   %switch.load475 = load i16, ptr %switch.gep474, align 2
   br label %sw.epilog1655
 
 switch.lookup476:                                 ; preds = %sw.bb202
   %shr1525 = lshr i64 %0, 12
   %and1526 = and i64 %shr1525, 7
-  %switch.gep477 = getelementptr inbounds [8 x i16], ptr @switch.table.decode_inst_opcode.24, i64 0, i64 %and1526
+  %switch.gep477 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.decode_inst_opcode.24, i64 0, i64 %and1526
   %switch.load478 = load i16, ptr %switch.gep477, align 2
   br label %sw.epilog1655
 
 sw.epilog1655:                                    ; preds = %switch.lookup476, %switch.lookup473, %sw.bb1290, %switch.lookup469, %sw.bb1139, %switch.lookup466, %sw.bb1048, %switch.lookup462, %sw.bb872, %switch.lookup458, %sw.bb864, %switch.lookup454, %sw.bb856, %switch.lookup450, %sw.bb848, %switch.lookup447, %sw.bb839, %switch.lookup443, %sw.bb831, %switch.lookup440, %sw.bb812, %switch.lookup437, %sw.bb797, %switch.lookup434, %sw.bb788, %switch.lookup431, %sw.bb765, %switch.lookup427, %sw.bb758, %switch.lookup424, %sw.bb750, %switch.lookup420, %sw.bb741, %switch.lookup416, %sw.bb733, %switch.lookup412, %sw.bb719, %switch.lookup408, %sw.bb711, %switch.lookup405, %sw.bb704, %switch.lookup402, %sw.bb697, %switch.lookup399, %sw.bb690, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb647, %switch.lookup380, %switch.hole_check, %sw.epilog607, %switch.lookup373, %sw.bb417, %switch.lookup370, %sw.bb401, %switch.lookup367, %sw.bb354, %switch.lookup364, %sw.bb326, %switch.lookup363, %sw.bb306, %sw.bb205, %switch.lookup, %sw.bb80, %sw.bb1451, %sw.bb1389, %sw.bb1038, %sw.bb1582, %sw.bb1577, %sw.bb1572, %sw.bb1565, %sw.bb1559, %sw.bb1534, %sw.bb1512, %if.else1499, %if.else1404, %if.else1346, %sw.bb1332, %sw.bb1325, %if.else1274, %sw.bb1261, %sw.bb1217, %sw.bb1211, %sw.bb1205, %sw.bb1199, %sw.bb1193, %sw.bb1187, %sw.bb1181, %sw.bb1175, %sw.bb1169, %sw.bb1162, %sw.bb1130, %if.else993, %sw.bb979, %sw.bb972, %sw.bb899, %sw.bb826, %sw.bb821, %sw.bb783, %sw.bb778, %sw.bb773, %sw.bb512, %sw.bb507, %sw.bb502, %sw.bb480, %sw.bb468, %sw.bb456, %sw.bb371, %sw.default345, %sw.bb321, %sw.bb160, %sw.bb154, %sw.bb148, %sw.bb142, %sw.bb24, %sw.bb1517, %if.else1494, %sw.bb1489, %sw.bb1399, %sw.bb1341, %sw.bb1269, %sw.bb988, %sw.bb944, %sw.bb935, %sw.bb926, %sw.bb917, %sw.bb880, %sw.bb806, %sw.bb727, %sw.bb633, %sw.bb426, %sw.bb341, %sw.bb313, %sw.bb217, %sw.bb196, %if.end186, %if.end174, %sw.bb132, %sw.bb120, %sw.bb123, %sw.bb114, %sw.bb106, %sw.bb100, %sw.bb96, %sw.bb68, %sw.bb62, %sw.bb56, %sw.bb42, %sw.bb50, %sw.bb45, %sw.bb36, %sw.bb30, %sw.bb16, %sw.bb7, %sw.bb5, %sw.bb, %sw.bb202, %sw.bb391, %sw.bb617, %sw.bb1539, %sw.epilog292, %sw.bb301, %sw.bb302, %sw.bb303, %sw.bb299, %sw.bb298, %sw.bb295, %sw.epilog272, %sw.bb281, %sw.bb282, %sw.bb283, %sw.bb279, %sw.bb278, %sw.bb275, %sw.epilog252, %sw.bb261, %sw.bb262, %sw.bb263, %sw.bb259, %sw.bb258, %sw.bb255, %sw.epilog227, %sw.bb237, %sw.bb238, %sw.bb239, %sw.bb235, %sw.bb234, %sw.bb233, %sw.bb230, %sw.bb244, %sw.bb243, %sw.bb242, %sw.bb367, %sw.bb370, %sw.bb376, %sw.bb377, %sw.bb378, %sw.bb379, %sw.bb385, %sw.bb383, %sw.bb380, %sw.bb317, %sw.bb320, %sw.bb340, %sw.bb352, %sw.bb353, %sw.bb389, %sw.bb388, %sw.bb366, %sw.bb365, %sw.bb364, %sw.bb409, %sw.bb412, %sw.bb413, %sw.bb414, %sw.bb396, %sw.bb399, %sw.bb400, %sw.bb395, %sw.bb392, %sw.bb477, %sw.bb485, %sw.bb486, %sw.bb487, %sw.bb465, %sw.bb473, %sw.bb474, %sw.bb475, %sw.bb453, %sw.bb461, %sw.bb462, %sw.bb463, %sw.epilog436, %sw.bb445, %sw.bb446, %sw.bb447, %sw.bb443, %sw.bb442, %sw.bb439, %sw.bb452, %sw.bb451, %sw.bb450, %sw.bb540, %sw.bb539, %sw.bb538, %sw.bb537, %sw.bb536, %sw.bb535, %sw.bb534, %sw.bb533, %sw.bb532, %sw.bb531, %sw.bb530, %sw.bb529, %sw.bb528, %sw.bb527, %sw.bb526, %sw.bb525, %sw.bb524, %sw.bb523, %sw.bb522, %sw.bb521, %sw.bb520, %sw.bb519, %sw.bb518, %sw.bb517, %sw.bb501, %sw.bb500, %sw.bb499, %sw.bb498, %sw.bb497, %sw.bb496, %sw.bb490, %sw.bb645, %sw.bb644, %sw.bb643, %sw.bb642, %sw.bb641, %sw.bb640, %sw.bb639, %sw.bb632, %sw.bb631, %sw.bb630, %sw.bb629, %sw.bb628, %sw.bb627, %sw.bb626, %sw.bb625, %sw.bb624, %sw.bb618, %sw.bb907, %sw.bb913, %sw.bb914, %sw.bb915, %sw.bb889, %sw.bb895, %sw.bb896, %sw.bb897, %sw.bb689, %sw.bb688, %sw.bb687, %sw.bb686, %sw.bb685, %sw.bb684, %sw.bb683, %sw.bb682, %sw.bb681, %sw.bb680, %sw.bb679, %sw.bb678, %sw.bb675, %sw.bb1440, %sw.bb1443, %sw.bb1444, %sw.bb1445, %sw.bb1446, %sw.bb1447, %sw.bb1448, %sw.bb1449, %sw.bb1450, %sw.bb1461, %sw.bb1462, %sw.bb1463, %sw.bb1464, %sw.bb1465, %sw.bb1466, %sw.bb1467, %sw.bb1468, %sw.bb1469, %sw.bb1470, %sw.bb1471, %sw.bb1472, %sw.bb1473, %sw.bb1474, %sw.bb1475, %sw.bb1476, %sw.bb1477, %sw.bb1478, %sw.bb1479, %sw.bb1480, %sw.bb1481, %sw.bb1482, %sw.bb1483, %sw.bb1484, %sw.bb1485, %sw.bb1486, %sw.bb1487, %sw.bb1377, %sw.bb1380, %sw.bb1381, %sw.bb1382, %sw.bb1383, %sw.bb1384, %sw.bb1385, %sw.bb1386, %sw.bb1387, %sw.bb1388, %sw.bb1411, %sw.bb1412, %sw.bb1413, %sw.bb1414, %sw.bb1415, %sw.bb1416, %sw.bb1417, %sw.bb1418, %sw.bb1419, %sw.bb1420, %sw.bb1421, %sw.bb1422, %sw.bb1423, %sw.bb1424, %sw.bb1425, %sw.bb1426, %sw.bb1427, %sw.bb1428, %sw.bb1429, %sw.bb1430, %sw.bb1431, %sw.bb1432, %sw.bb1433, %sw.bb1434, %sw.bb1435, %sw.bb1436, %sw.bb1437, %sw.bb1438, %sw.bb1308, %sw.bb1311, %sw.bb1312, %sw.bb1313, %sw.bb1314, %sw.bb1315, %sw.bb1316, %sw.bb1317, %sw.bb1318, %sw.bb1319, %sw.bb1320, %sw.bb1321, %sw.bb1322, %sw.bb1323, %sw.bb1324, %sw.bb1331, %sw.bb1338, %sw.bb1339, %sw.bb1340, %sw.bb1353, %sw.bb1354, %sw.bb1355, %sw.bb1356, %sw.bb1357, %sw.bb1358, %sw.bb1359, %sw.bb1360, %sw.bb1361, %sw.bb1362, %sw.bb1363, %sw.bb1364, %sw.bb1365, %sw.bb1366, %sw.bb1367, %sw.bb1368, %sw.bb1369, %sw.bb1370, %sw.bb1371, %sw.bb1372, %sw.bb1373, %sw.bb1374, %sw.bb1375, %sw.bb1250, %sw.bb1253, %sw.bb1254, %sw.bb1255, %sw.bb1256, %sw.bb1257, %sw.bb1258, %sw.bb1259, %sw.bb1260, %sw.bb1267, %sw.bb1268, %sw.bb1281, %sw.bb1282, %sw.bb1283, %sw.bb1284, %sw.bb1285, %sw.bb1286, %sw.bb1287, %sw.bb1288, %sw.bb1289, %sw.bb1298, %sw.bb1299, %sw.bb1300, %sw.bb1301, %sw.bb1302, %sw.bb1303, %sw.bb1304, %sw.bb1305, %sw.bb1306, %sw.bb1110, %sw.bb1113, %sw.bb1114, %sw.bb1115, %sw.bb1116, %sw.bb1117, %sw.bb1118, %sw.bb1119, %sw.bb1120, %sw.bb1121, %sw.bb1122, %sw.bb1123, %sw.bb1124, %sw.bb1125, %sw.bb1126, %sw.bb1223, %sw.bb1224, %sw.bb1225, %sw.bb1226, %sw.bb1227, %sw.bb1228, %sw.bb1229, %sw.bb1230, %sw.bb1231, %sw.bb1232, %sw.bb1233, %sw.bb1234, %sw.bb1235, %sw.bb1236, %sw.bb1237, %sw.bb1238, %sw.bb1239, %sw.bb1240, %sw.bb1241, %sw.bb1242, %sw.bb1243, %sw.bb1244, %sw.bb1245, %sw.bb1246, %sw.bb1247, %sw.bb1248, %sw.bb1137, %sw.bb1136, %sw.bb1127, %sw.bb1161, %sw.bb1160, %sw.bb1159, %sw.bb1158, %sw.bb1155, %sw.bb1024, %sw.bb1027, %sw.bb1028, %sw.bb1029, %sw.bb1030, %sw.bb1031, %sw.bb1032, %sw.bb1033, %sw.bb1034, %sw.bb1035, %sw.bb1036, %sw.bb1037, %sw.bb1083, %sw.bb1084, %sw.bb1085, %sw.bb1086, %sw.bb1087, %sw.bb1088, %sw.bb1089, %sw.bb1090, %sw.bb1091, %sw.bb1092, %sw.bb1093, %sw.bb1094, %sw.bb1095, %sw.bb1096, %sw.bb1097, %sw.bb1098, %sw.bb1099, %sw.bb1100, %sw.bb1101, %sw.bb1102, %sw.bb1103, %sw.bb1104, %sw.bb1105, %sw.bb1106, %sw.bb1107, %sw.bb1108, %sw.bb1081, %sw.bb1080, %sw.bb1079, %sw.bb1078, %sw.bb1075, %sw.bb957, %sw.bb960, %sw.bb961, %sw.bb962, %sw.bb963, %sw.bb964, %sw.bb965, %sw.bb966, %sw.bb967, %sw.bb968, %sw.bb969, %sw.bb970, %sw.bb971, %sw.bb978, %sw.bb985, %sw.bb986, %sw.bb987, %sw.bb1000, %sw.bb1001, %sw.bb1002, %sw.bb1003, %sw.bb1004, %sw.bb1005, %sw.bb1006, %sw.bb1007, %sw.bb1008, %sw.bb1009, %sw.bb1010, %sw.bb1011, %sw.bb1012, %sw.bb1013, %sw.bb1014, %sw.bb1015, %sw.bb1016, %sw.bb1017, %sw.bb1018, %sw.bb1019, %sw.bb1020, %sw.bb1021, %sw.bb1022, %sw.bb1511, %sw.bb1508, %sw.bb1543, %sw.bb1571, %sw.bb1554, %sw.bb1553, %sw.bb1552, %sw.bb1549, %sw.bb1564, %sw.bb1556, %sw.bb1540, %sw.bb1593, %sw.bb1592, %sw.bb1591, %sw.bb1590, %sw.bb1589, %sw.bb1588, %if.then1603, %sw.bb1606, %sw.bb1607, %sw.bb1608, %sw.bb1629, %sw.bb1630, %sw.bb1631, %sw.bb1632, %sw.bb1633, %sw.bb1634, %sw.bb1617, %sw.bb1616, %sw.bb1615, %sw.bb1614, %sw.bb1613, %sw.bb1612, %sw.bb1609, %sw.bb1627, %sw.bb1626, %sw.bb1625, %sw.bb1624, %sw.bb1623, %sw.bb1622, %sw.bb1619, %sw.bb1595, %sw.bb1652, %sw.bb1651, %sw.bb1650, %sw.bb1649, %sw.bb1648, %sw.bb1647, %sw.bb1646, %sw.bb1645, %sw.bb1644, %sw.bb1643, %sw.bb1637, %sw.bb105, %sw.bb195, %if.then139, %sw.bb181, %sw.bb170, %if.else167, %sw.bb92, %sw.bb93, %sw.bb94, %sw.bb74, %sw.bb75, %sw.bb76, %sw.bb77, %sw.bb78, %sw.bb79, %sw.bb67, %sw.bb66, %sw.bb6, %sw.bb35, %sw.bb23, %sw.bb15, %sw.bb12
   %op.0 = phi i16 [ 0, %sw.bb202 ], [ 0, %sw.bb1637 ], [ 63, %sw.bb1652 ], [ 60, %sw.bb1651 ], [ 81, %sw.bb1650 ], [ 80, %sw.bb1649 ], [ 79, %sw.bb1648 ], [ 78, %sw.bb1647 ], [ 77, %sw.bb1646 ], [ 62, %sw.bb1645 ], [ 61, %sw.bb1644 ], [ 59, %sw.bb1643 ], [ 0, %if.then1603 ], [ 865, %sw.bb1634 ], [ 864, %sw.bb1633 ], [ 866, %sw.bb1632 ], [ 856, %sw.bb1631 ], [ 867, %sw.bb1630 ], [ 843, %sw.bb1629 ], [ 0, %sw.bb1619 ], [ 871, %sw.bb1627 ], [ 844, %sw.bb1626 ], [ 839, %sw.bb1625 ], [ 841, %sw.bb1624 ], [ 835, %sw.bb1623 ], [ 837, %sw.bb1622 ], [ 0, %sw.bb1609 ], [ 857, %sw.bb1617 ], [ 870, %sw.bb1616 ], [ 838, %sw.bb1615 ], [ 840, %sw.bb1614 ], [ 834, %sw.bb1613 ], [ 836, %sw.bb1612 ], [ 842, %sw.bb1608 ], [ 869, %sw.bb1607 ], [ 868, %sw.bb1606 ], [ 0, %sw.bb1595 ], [ 0, %sw.bb1540 ], [ 130, %sw.bb1593 ], [ 129, %sw.bb1592 ], [ 128, %sw.bb1591 ], [ 127, %sw.bb1590 ], [ 126, %sw.bb1589 ], [ 125, %sw.bb1588 ], [ 0, %sw.bb1543 ], [ 123, %sw.bb1571 ], [ 0, %sw.bb1556 ], [ 122, %sw.bb1564 ], [ 0, %sw.bb1549 ], [ 117, %sw.bb1554 ], [ 116, %sw.bb1553 ], [ 115, %sw.bb1552 ], [ 3, %sw.bb1539 ], [ 0, %sw.bb1508 ], [ 55, %sw.bb1511 ], [ 0, %sw.bb1440 ], [ 577, %sw.bb1487 ], [ 578, %sw.bb1486 ], [ 575, %sw.bb1485 ], [ 573, %sw.bb1484 ], [ 563, %sw.bb1483 ], [ 561, %sw.bb1482 ], [ 559, %sw.bb1481 ], [ 479, %sw.bb1480 ], [ 477, %sw.bb1479 ], [ 475, %sw.bb1478 ], [ 473, %sw.bb1477 ], [ 471, %sw.bb1476 ], [ 469, %sw.bb1475 ], [ 467, %sw.bb1474 ], [ 465, %sw.bb1473 ], [ 567, %sw.bb1472 ], [ 565, %sw.bb1471 ], [ 571, %sw.bb1470 ], [ 569, %sw.bb1469 ], [ 545, %sw.bb1468 ], [ 549, %sw.bb1467 ], [ 543, %sw.bb1466 ], [ 547, %sw.bb1465 ], [ 557, %sw.bb1464 ], [ 555, %sw.bb1463 ], [ 553, %sw.bb1462 ], [ 551, %sw.bb1461 ], [ 750, %sw.bb1450 ], [ 747, %sw.bb1449 ], [ 852, %sw.bb1448 ], [ 850, %sw.bb1447 ], [ 600, %sw.bb1446 ], [ 602, %sw.bb1445 ], [ 596, %sw.bb1444 ], [ 598, %sw.bb1443 ], [ 0, %sw.bb1377 ], [ 660, %sw.bb1438 ], [ 658, %sw.bb1437 ], [ 656, %sw.bb1436 ], [ 654, %sw.bb1435 ], [ 796, %sw.bb1434 ], [ 636, %sw.bb1433 ], [ 629, %sw.bb1432 ], [ 625, %sw.bb1431 ], [ 627, %sw.bb1430 ], [ 623, %sw.bb1429 ], [ 644, %sw.bb1428 ], [ 642, %sw.bb1427 ], [ 640, %sw.bb1426 ], [ 638, %sw.bb1425 ], [ 652, %sw.bb1424 ], [ 650, %sw.bb1423 ], [ 648, %sw.bb1422 ], [ 646, %sw.bb1421 ], [ 621, %sw.bb1420 ], [ 631, %sw.bb1419 ], [ 634, %sw.bb1418 ], [ 633, %sw.bb1417 ], [ 685, %sw.bb1416 ], [ 684, %sw.bb1415 ], [ 679, %sw.bb1414 ], [ 681, %sw.bb1413 ], [ 683, %sw.bb1412 ], [ 677, %sw.bb1411 ], [ 675, %sw.bb1388 ], [ 674, %sw.bb1387 ], [ 673, %sw.bb1386 ], [ 671, %sw.bb1385 ], [ 669, %sw.bb1384 ], [ 667, %sw.bb1383 ], [ 665, %sw.bb1382 ], [ 620, %sw.bb1381 ], [ 618, %sw.bb1380 ], [ 0, %sw.bb1308 ], [ 873, %sw.bb1375 ], [ 615, %sw.bb1374 ], [ 612, %sw.bb1373 ], [ 512, %sw.bb1372 ], [ 509, %sw.bb1371 ], [ 609, %sw.bb1370 ], [ 606, %sw.bb1369 ], [ 506, %sw.bb1368 ], [ 503, %sw.bb1367 ], [ 604, %sw.bb1366 ], [ 500, %sw.bb1365 ], [ 594, %sw.bb1364 ], [ 592, %sw.bb1363 ], [ 589, %sw.bb1362 ], [ 586, %sw.bb1361 ], [ 532, %sw.bb1360 ], [ 530, %sw.bb1359 ], [ 528, %sw.bb1358 ], [ 525, %sw.bb1357 ], [ 523, %sw.bb1356 ], [ 521, %sw.bb1355 ], [ 518, %sw.bb1354 ], [ 515, %sw.bb1353 ], [ 860, %sw.bb1340 ], [ 862, %sw.bb1339 ], [ 489, %sw.bb1338 ], [ 484, %sw.bb1331 ], [ 748, %sw.bb1324 ], [ 745, %sw.bb1323 ], [ 753, %sw.bb1322 ], [ 497, %sw.bb1321 ], [ 494, %sw.bb1320 ], [ 491, %sw.bb1319 ], [ 541, %sw.bb1318 ], [ 539, %sw.bb1317 ], [ 537, %sw.bb1316 ], [ 535, %sw.bb1315 ], [ 462, %sw.bb1314 ], [ 461, %sw.bb1313 ], [ 846, %sw.bb1312 ], [ 458, %sw.bb1311 ], [ 0, %sw.bb1250 ], [ 874, %sw.bb1306 ], [ 616, %sw.bb1305 ], [ 613, %sw.bb1304 ], [ 513, %sw.bb1303 ], [ 510, %sw.bb1302 ], [ 610, %sw.bb1301 ], [ 607, %sw.bb1300 ], [ 507, %sw.bb1299 ], [ 504, %sw.bb1298 ], [ 0, %sw.bb1290 ], [ 501, %sw.bb1289 ], [ 590, %sw.bb1288 ], [ 587, %sw.bb1287 ], [ 533, %sw.bb1286 ], [ 531, %sw.bb1285 ], [ 529, %sw.bb1284 ], [ 526, %sw.bb1283 ], [ 519, %sw.bb1282 ], [ 516, %sw.bb1281 ], [ 863, %sw.bb1268 ], [ 485, %sw.bb1267 ], [ 749, %sw.bb1260 ], [ 746, %sw.bb1259 ], [ 754, %sw.bb1258 ], [ 498, %sw.bb1257 ], [ 495, %sw.bb1256 ], [ 492, %sw.bb1255 ], [ 463, %sw.bb1254 ], [ 459, %sw.bb1253 ], [ 0, %sw.bb1110 ], [ 576, %sw.bb1248 ], [ 574, %sw.bb1247 ], [ 572, %sw.bb1246 ], [ 562, %sw.bb1245 ], [ 560, %sw.bb1244 ], [ 558, %sw.bb1243 ], [ 478, %sw.bb1242 ], [ 476, %sw.bb1241 ], [ 474, %sw.bb1240 ], [ 472, %sw.bb1239 ], [ 470, %sw.bb1238 ], [ 468, %sw.bb1237 ], [ 466, %sw.bb1236 ], [ 464, %sw.bb1235 ], [ 566, %sw.bb1234 ], [ 564, %sw.bb1233 ], [ 570, %sw.bb1232 ], [ 568, %sw.bb1231 ], [ 544, %sw.bb1230 ], [ 548, %sw.bb1229 ], [ 542, %sw.bb1228 ], [ 546, %sw.bb1227 ], [ 556, %sw.bb1226 ], [ 554, %sw.bb1225 ], [ 552, %sw.bb1224 ], [ 550, %sw.bb1223 ], [ 0, %sw.bb1155 ], [ 739, %sw.bb1161 ], [ 737, %sw.bb1160 ], [ 738, %sw.bb1159 ], [ 736, %sw.bb1158 ], [ 0, %sw.bb1139 ], [ 0, %sw.bb1127 ], [ 735, %sw.bb1137 ], [ 734, %sw.bb1136 ], [ 851, %sw.bb1126 ], [ 849, %sw.bb1125 ], [ 599, %sw.bb1124 ], [ 601, %sw.bb1123 ], [ 595, %sw.bb1122 ], [ 597, %sw.bb1121 ], [ 717, %sw.bb1120 ], [ 716, %sw.bb1119 ], [ 715, %sw.bb1118 ], [ 714, %sw.bb1117 ], [ 713, %sw.bb1116 ], [ 712, %sw.bb1115 ], [ 711, %sw.bb1114 ], [ 710, %sw.bb1113 ], [ 0, %sw.bb1024 ], [ 659, %sw.bb1108 ], [ 657, %sw.bb1107 ], [ 655, %sw.bb1106 ], [ 653, %sw.bb1105 ], [ 795, %sw.bb1104 ], [ 635, %sw.bb1103 ], [ 628, %sw.bb1102 ], [ 624, %sw.bb1101 ], [ 725, %sw.bb1100 ], [ 626, %sw.bb1099 ], [ 724, %sw.bb1098 ], [ 622, %sw.bb1097 ], [ 643, %sw.bb1096 ], [ 641, %sw.bb1095 ], [ 639, %sw.bb1094 ], [ 637, %sw.bb1093 ], [ 651, %sw.bb1092 ], [ 649, %sw.bb1091 ], [ 647, %sw.bb1090 ], [ 645, %sw.bb1089 ], [ 630, %sw.bb1088 ], [ 632, %sw.bb1087 ], [ 678, %sw.bb1086 ], [ 680, %sw.bb1085 ], [ 682, %sw.bb1084 ], [ 676, %sw.bb1083 ], [ 0, %sw.bb1075 ], [ 686, %sw.bb1081 ], [ 663, %sw.bb1080 ], [ 662, %sw.bb1079 ], [ 661, %sw.bb1078 ], [ 0, %sw.bb1048 ], [ 672, %sw.bb1037 ], [ 670, %sw.bb1036 ], [ 668, %sw.bb1035 ], [ 723, %sw.bb1034 ], [ 666, %sw.bb1033 ], [ 722, %sw.bb1032 ], [ 664, %sw.bb1031 ], [ 721, %sw.bb1030 ], [ 619, %sw.bb1029 ], [ 720, %sw.bb1028 ], [ 617, %sw.bb1027 ], [ 0, %sw.bb957 ], [ 872, %sw.bb1022 ], [ 719, %sw.bb1021 ], [ 718, %sw.bb1020 ], [ 614, %sw.bb1019 ], [ 611, %sw.bb1018 ], [ 511, %sw.bb1017 ], [ 508, %sw.bb1016 ], [ 608, %sw.bb1015 ], [ 605, %sw.bb1014 ], [ 505, %sw.bb1013 ], [ 502, %sw.bb1012 ], [ 603, %sw.bb1011 ], [ 499, %sw.bb1010 ], [ 593, %sw.bb1009 ], [ 591, %sw.bb1008 ], [ 588, %sw.bb1007 ], [ 585, %sw.bb1006 ], [ 527, %sw.bb1005 ], [ 524, %sw.bb1004 ], [ 522, %sw.bb1003 ], [ 520, %sw.bb1002 ], [ 517, %sw.bb1001 ], [ 514, %sw.bb1000 ], [ 859, %sw.bb987 ], [ 861, %sw.bb986 ], [ 488, %sw.bb985 ], [ 483, %sw.bb978 ], [ 752, %sw.bb971 ], [ 751, %sw.bb970 ], [ 496, %sw.bb969 ], [ 493, %sw.bb968 ], [ 490, %sw.bb967 ], [ 540, %sw.bb966 ], [ 538, %sw.bb965 ], [ 536, %sw.bb964 ], [ 534, %sw.bb963 ], [ 460, %sw.bb962 ], [ 845, %sw.bb961 ], [ 457, %sw.bb960 ], [ 0, %sw.bb675 ], [ 0, %sw.bb907 ], [ 824, %sw.bb915 ], [ 220, %sw.bb914 ], [ 225, %sw.bb913 ], [ 0, %sw.bb889 ], [ 822, %sw.bb897 ], [ 186, %sw.bb896 ], [ 189, %sw.bb895 ], [ 0, %sw.bb872 ], [ 0, %sw.bb864 ], [ 0, %sw.bb856 ], [ 0, %sw.bb848 ], [ 0, %sw.bb839 ], [ 0, %sw.bb831 ], [ 0, %sw.bb812 ], [ 0, %sw.bb797 ], [ 0, %sw.bb788 ], [ 0, %sw.bb765 ], [ 0, %sw.bb758 ], [ 0, %sw.bb750 ], [ 0, %sw.bb741 ], [ 0, %sw.bb733 ], [ 0, %sw.bb719 ], [ 0, %sw.bb711 ], [ 0, %sw.bb704 ], [ 0, %sw.bb697 ], [ 0, %sw.bb690 ], [ 202, %sw.bb689 ], [ 170, %sw.bb688 ], [ 140, %sw.bb687 ], [ 201, %sw.bb686 ], [ 169, %sw.bb685 ], [ 139, %sw.bb684 ], [ 200, %sw.bb683 ], [ 168, %sw.bb682 ], [ 138, %sw.bb681 ], [ 199, %sw.bb680 ], [ 167, %sw.bb679 ], [ 137, %sw.bb678 ], [ 0, %sw.bb618 ], [ 353, %sw.bb645 ], [ 352, %sw.bb644 ], [ 51, %sw.bb643 ], [ 48, %sw.bb642 ], [ 339, %sw.bb641 ], [ 338, %sw.bb640 ], [ 337, %sw.bb639 ], [ 351, %sw.bb632 ], [ 76, %sw.bb631 ], [ 75, %sw.bb630 ], [ 74, %sw.bb629 ], [ 73, %sw.bb628 ], [ 72, %sw.bb627 ], [ 50, %sw.bb626 ], [ 49, %sw.bb625 ], [ 47, %sw.bb624 ], [ 1, %sw.bb617 ], [ %op.6, %sw.epilog607 ], [ 0, %sw.bb490 ], [ 114, %sw.bb540 ], [ 103, %sw.bb539 ], [ 92, %sw.bb538 ], [ 113, %sw.bb537 ], [ 102, %sw.bb536 ], [ 91, %sw.bb535 ], [ 112, %sw.bb534 ], [ 101, %sw.bb533 ], [ 90, %sw.bb532 ], [ 111, %sw.bb531 ], [ 100, %sw.bb530 ], [ 89, %sw.bb529 ], [ 110, %sw.bb528 ], [ 99, %sw.bb527 ], [ 88, %sw.bb526 ], [ 109, %sw.bb525 ], [ 98, %sw.bb524 ], [ 87, %sw.bb523 ], [ 108, %sw.bb522 ], [ 97, %sw.bb521 ], [ 86, %sw.bb520 ], [ 105, %sw.bb519 ], [ 94, %sw.bb518 ], [ 83, %sw.bb517 ], [ 106, %sw.bb501 ], [ 95, %sw.bb500 ], [ 84, %sw.bb499 ], [ 107, %sw.bb498 ], [ 96, %sw.bb497 ], [ 85, %sw.bb496 ], [ 0, %sw.bb477 ], [ 432, %sw.bb487 ], [ 416, %sw.bb486 ], [ 428, %sw.bb485 ], [ 0, %sw.bb465 ], [ 431, %sw.bb475 ], [ 415, %sw.bb474 ], [ 427, %sw.bb473 ], [ 0, %sw.bb453 ], [ 430, %sw.bb463 ], [ 414, %sw.bb462 ], [ 426, %sw.bb461 ], [ 194, %sw.bb452 ], [ 162, %sw.bb451 ], [ 132, %sw.bb450 ], [ %op.5, %sw.epilog436 ], [ 429, %sw.bb447 ], [ 413, %sw.bb446 ], [ 425, %sw.bb445 ], [ %op.5, %sw.bb439 ], [ 408, %sw.bb443 ], [ 403, %sw.bb442 ], [ 0, %sw.bb417 ], [ 0, %sw.bb392 ], [ 0, %sw.bb409 ], [ 356, %sw.bb414 ], [ 46, %sw.bb413 ], [ 45, %sw.bb412 ], [ 0, %sw.bb396 ], [ 0, %sw.bb401 ], [ 350, %sw.bb400 ], [ 44, %sw.bb399 ], [ 43, %sw.bb395 ], [ 2, %sw.bb391 ], [ 24, %sw.bb389 ], [ 23, %sw.bb388 ], [ 0, %sw.bb367 ], [ 0, %sw.bb380 ], [ 391, %sw.bb385 ], [ 354, %sw.bb383 ], [ 323, %sw.bb379 ], [ 322, %sw.bb378 ], [ 27, %sw.bb377 ], [ 357, %sw.bb376 ], [ 26, %sw.bb370 ], [ 22, %sw.bb366 ], [ 21, %sw.bb365 ], [ 20, %sw.bb364 ], [ 0, %sw.bb317 ], [ 0, %sw.bb354 ], [ 321, %sw.bb353 ], [ 320, %sw.bb352 ], [ 319, %sw.bb340 ], [ 0, %sw.bb326 ], [ 25, %sw.bb320 ], [ 0, %sw.bb306 ], [ %op.4, %sw.epilog292 ], [ 424, %sw.bb303 ], [ 412, %sw.bb302 ], [ 420, %sw.bb301 ], [ %op.4, %sw.bb295 ], [ 436, %sw.bb299 ], [ 402, %sw.bb298 ], [ %op.3, %sw.epilog272 ], [ 423, %sw.bb283 ], [ 411, %sw.bb282 ], [ 419, %sw.bb281 ], [ %op.3, %sw.bb275 ], [ 435, %sw.bb279 ], [ 401, %sw.bb278 ], [ %op.2, %sw.epilog252 ], [ 422, %sw.bb263 ], [ 410, %sw.bb262 ], [ 418, %sw.bb261 ], [ %op.2, %sw.bb255 ], [ 434, %sw.bb259 ], [ 400, %sw.bb258 ], [ 193, %sw.bb244 ], [ 161, %sw.bb243 ], [ 131, %sw.bb242 ], [ %op.1, %sw.epilog227 ], [ 421, %sw.bb239 ], [ 409, %sw.bb238 ], [ 417, %sw.bb237 ], [ %op.1, %sw.bb230 ], [ 433, %sw.bb235 ], [ 407, %sw.bb234 ], [ 399, %sw.bb233 ], [ 262, %sw.bb195 ], [ 261, %if.then139 ], [ 261, %if.else167 ], [ 261, %sw.bb181 ], [ 261, %sw.bb170 ], [ 254, %sw.bb105 ], [ 251, %sw.bb94 ], [ 250, %sw.bb93 ], [ 249, %sw.bb92 ], [ 0, %sw.bb80 ], [ 775, %sw.bb79 ], [ 248, %sw.bb78 ], [ 247, %sw.bb77 ], [ 246, %sw.bb76 ], [ 245, %sw.bb75 ], [ 244, %sw.bb74 ], [ 242, %sw.bb67 ], [ 241, %sw.bb66 ], [ 232, %sw.bb35 ], [ 0, %sw.bb12 ], [ 779, %sw.bb23 ], [ 776, %sw.bb15 ], [ 229, %sw.bb6 ], [ 227, %sw.bb ], [ %., %sw.bb5 ], [ %.246, %sw.bb7 ], [ %.247, %sw.bb16 ], [ %spec.select, %sw.bb24 ], [ %.248, %sw.bb30 ], [ %.249, %sw.bb36 ], [ %.250, %sw.bb45 ], [ %.251, %sw.bb50 ], [ 237, %sw.bb42 ], [ %.252, %sw.bb56 ], [ 240, %sw.bb62 ], [ 243, %sw.bb68 ], [ 252, %sw.bb96 ], [ %.253, %sw.bb100 ], [ %.254, %sw.bb106 ], [ %.255, %sw.bb114 ], [ %.256, %sw.bb123 ], [ 260, %sw.bb120 ], [ 272, %sw.bb132 ], [ %spec.select257, %sw.bb142 ], [ %spec.select258, %sw.bb148 ], [ %spec.select259, %sw.bb154 ], [ %spec.select260, %sw.bb160 ], [ %.261, %if.end174 ], [ %switch.select263, %if.end186 ], [ %.264, %sw.bb196 ], [ 797, %sw.bb217 ], [ 19, %sw.bb313 ], [ %spec.select265, %sw.bb321 ], [ 368, %sw.bb341 ], [ %spec.select266, %sw.default345 ], [ %spec.select267, %sw.bb371 ], [ 798, %sw.bb426 ], [ %spec.select268, %sw.bb456 ], [ %spec.select269, %sw.bb468 ], [ %spec.select270, %sw.bb480 ], [ %spec.select271, %sw.bb502 ], [ %spec.select272, %sw.bb507 ], [ %spec.select273, %sw.bb512 ], [ %.275, %sw.bb633 ], [ %switch.select279, %sw.bb727 ], [ %spec.select280, %sw.bb773 ], [ %spec.select281, %sw.bb778 ], [ %spec.select282, %sw.bb783 ], [ %switch.select286, %sw.bb806 ], [ %spec.select287, %sw.bb821 ], [ %spec.select288, %sw.bb826 ], [ %switch.select292, %sw.bb880 ], [ %spec.select293, %sw.bb899 ], [ %switch.select297, %sw.bb917 ], [ %switch.select301, %sw.bb926 ], [ %switch.select305, %sw.bb935 ], [ %switch.select309, %sw.bb944 ], [ %spec.select310, %sw.bb972 ], [ %spec.select311, %sw.bb979 ], [ 579, %sw.bb988 ], [ %spec.select312, %if.else993 ], [ %spec.select314, %sw.bb1130 ], [ %spec.select315, %sw.bb1162 ], [ %spec.select316, %sw.bb1169 ], [ %spec.select317, %sw.bb1175 ], [ %spec.select318, %sw.bb1181 ], [ %spec.select319, %sw.bb1187 ], [ %spec.select320, %sw.bb1193 ], [ %spec.select321, %sw.bb1199 ], [ %spec.select322, %sw.bb1205 ], [ %spec.select323, %sw.bb1211 ], [ %spec.select324, %sw.bb1217 ], [ %spec.select325, %sw.bb1261 ], [ 581, %sw.bb1269 ], [ %spec.select326, %if.else1274 ], [ %spec.select327, %sw.bb1325 ], [ %spec.select328, %sw.bb1332 ], [ 580, %sw.bb1341 ], [ %spec.select329, %if.else1346 ], [ 687, %sw.bb1399 ], [ %spec.select331, %if.else1404 ], [ 766, %sw.bb1489 ], [ 767, %if.else1494 ], [ %spec.select333, %if.else1499 ], [ %spec.select334, %sw.bb1512 ], [ %switch.select338, %sw.bb1517 ], [ %spec.select339, %sw.bb1534 ], [ %spec.select340, %sw.bb1559 ], [ %spec.select341, %sw.bb1565 ], [ %spec.select342, %sw.bb1572 ], [ %spec.select343, %sw.bb1577 ], [ %spec.select344, %sw.bb1582 ], [ %spec.select346, %sw.bb1038 ], [ %spec.select347, %sw.bb1389 ], [ %spec.select348, %sw.bb1451 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %sw.bb205 ], [ %switch.masked, %switch.lookup363 ], [ %switch.load366, %switch.lookup364 ], [ %switch.load369, %switch.lookup367 ], [ %switch.offset372, %switch.lookup370 ], [ %switch.load375, %switch.lookup373 ], [ %op.6, %switch.hole_check ], [ %switch.load382, %switch.lookup380 ], [ %switch.masked386, %sw.bb647 ], [ %switch.masked390, %sw.bb654 ], [ %switch.masked394, %sw.bb661 ], [ %switch.masked398, %sw.bb668 ], [ %switch.offset401, %switch.lookup399 ], [ %switch.offset404, %switch.lookup402 ], [ %switch.offset407, %switch.lookup405 ], [ %switch.masked411, %switch.lookup408 ], [ %switch.masked415, %switch.lookup412 ], [ %switch.masked419, %switch.lookup416 ], [ %switch.load423, %switch.lookup420 ], [ %switch.load426, %switch.lookup424 ], [ %switch.load430, %switch.lookup427 ], [ %switch.load433, %switch.lookup431 ], [ %switch.load436, %switch.lookup434 ], [ %switch.load439, %switch.lookup437 ], [ %switch.load442, %switch.lookup440 ], [ %switch.masked446, %switch.lookup443 ], [ %switch.load449, %switch.lookup447 ], [ %switch.masked453, %switch.lookup450 ], [ %switch.masked457, %switch.lookup454 ], [ %switch.masked461, %switch.lookup458 ], [ %switch.masked465, %switch.lookup462 ], [ %switch.load468, %switch.lookup466 ], [ %switch.load472, %switch.lookup469 ], [ %switch.load475, %switch.lookup473 ], [ %switch.load478, %switch.lookup476 ]
-  %op1656 = getelementptr inbounds i8, ptr %dec, i64 40
+  %op1656 = getelementptr inbounds nuw i8, ptr %dec, i64 40
   store i16 %op.0, ptr %op1656, align 8
   ret void
 }
@@ -8469,7 +8469,7 @@ sw.epilog1655:                                    ; preds = %switch.lookup476, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadba_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadba = getelementptr inbounds i8, ptr %cfg, i64 104
+  %ext_xtheadba = getelementptr inbounds nuw i8, ptr %cfg, i64 104
   %0 = load i8, ptr %ext_xtheadba, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8480,7 +8480,7 @@ declare void @decode_xtheadba(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadbb_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadbb = getelementptr inbounds i8, ptr %cfg, i64 105
+  %ext_xtheadbb = getelementptr inbounds nuw i8, ptr %cfg, i64 105
   %0 = load i8, ptr %ext_xtheadbb, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8491,7 +8491,7 @@ declare void @decode_xtheadbb(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadbs_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadbs = getelementptr inbounds i8, ptr %cfg, i64 106
+  %ext_xtheadbs = getelementptr inbounds nuw i8, ptr %cfg, i64 106
   %0 = load i8, ptr %ext_xtheadbs, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8502,7 +8502,7 @@ declare void @decode_xtheadbs(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadcmo_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadcmo = getelementptr inbounds i8, ptr %cfg, i64 107
+  %ext_xtheadcmo = getelementptr inbounds nuw i8, ptr %cfg, i64 107
   %0 = load i8, ptr %ext_xtheadcmo, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8513,7 +8513,7 @@ declare void @decode_xtheadcmo(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadcondmov_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadcondmov = getelementptr inbounds i8, ptr %cfg, i64 108
+  %ext_xtheadcondmov = getelementptr inbounds nuw i8, ptr %cfg, i64 108
   %0 = load i8, ptr %ext_xtheadcondmov, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8524,7 +8524,7 @@ declare void @decode_xtheadcondmov(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadfmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadfmemidx = getelementptr inbounds i8, ptr %cfg, i64 109
+  %ext_xtheadfmemidx = getelementptr inbounds nuw i8, ptr %cfg, i64 109
   %0 = load i8, ptr %ext_xtheadfmemidx, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8535,7 +8535,7 @@ declare void @decode_xtheadfmemidx(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadfmv_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadfmv = getelementptr inbounds i8, ptr %cfg, i64 110
+  %ext_xtheadfmv = getelementptr inbounds nuw i8, ptr %cfg, i64 110
   %0 = load i8, ptr %ext_xtheadfmv, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8546,7 +8546,7 @@ declare void @decode_xtheadfmv(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmac_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmac = getelementptr inbounds i8, ptr %cfg, i64 111
+  %ext_xtheadmac = getelementptr inbounds nuw i8, ptr %cfg, i64 111
   %0 = load i8, ptr %ext_xtheadmac, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8557,7 +8557,7 @@ declare void @decode_xtheadmac(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmemidx = getelementptr inbounds i8, ptr %cfg, i64 112
+  %ext_xtheadmemidx = getelementptr inbounds nuw i8, ptr %cfg, i64 112
   %0 = load i8, ptr %ext_xtheadmemidx, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8568,7 +8568,7 @@ declare void @decode_xtheadmemidx(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadmempair_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadmempair = getelementptr inbounds i8, ptr %cfg, i64 113
+  %ext_xtheadmempair = getelementptr inbounds nuw i8, ptr %cfg, i64 113
   %0 = load i8, ptr %ext_xtheadmempair, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8579,7 +8579,7 @@ declare void @decode_xtheadmempair(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_xtheadsync_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_xtheadsync = getelementptr inbounds i8, ptr %cfg, i64 114
+  %ext_xtheadsync = getelementptr inbounds nuw i8, ptr %cfg, i64 114
   %0 = load i8, ptr %ext_xtheadsync, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -8590,7 +8590,7 @@ declare void @decode_xtheadsync(ptr noundef, i32 noundef) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @has_XVentanaCondOps_p(ptr nocapture noundef readonly %cfg) #4 {
 entry:
-  %ext_XVentanaCondOps = getelementptr inbounds i8, ptr %cfg, i64 115
+  %ext_XVentanaCondOps = getelementptr inbounds nuw i8, ptr %cfg, i64 115
   %0 = load i8, ptr %ext_XVentanaCondOps, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool

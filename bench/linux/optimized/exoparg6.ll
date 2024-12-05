@@ -11,10 +11,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
   store ptr null, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2
   switch i16 %5, label %78 [
     i16 137, label %6
@@ -24,7 +24,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 880
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %10, 5
   br i1 %11, label %18, label %12
@@ -32,7 +32,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 12:                                               ; preds = %6
   %13 = getelementptr i8, ptr %0, i64 896
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, 5
   br i1 %17, label %18, label %19
@@ -44,10 +44,10 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 19:                                               ; preds = %12
   %20 = getelementptr i8, ptr %0, i64 912
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = icmp ult i64 %23, %27
@@ -68,7 +68,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %23, %40
@@ -82,7 +82,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 45:                                               ; preds = %71, %42
   %46 = phi ptr [ %37, %42 ], [ %73, %71 ]
   %47 = phi i64 [ %23, %42 ], [ %72, %71 ]
-  %48 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr ptr, ptr %49, i64 %47
   %51 = load ptr, ptr %50, align 8
@@ -91,7 +91,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
   %58 = load ptr, ptr %43, align 8
@@ -101,7 +101,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 
 61:                                               ; preds = %53
   %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %44, align 8
@@ -110,14 +110,14 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %34, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %47, ptr %70, align 8
   br label %.thread4
 
 71:                                               ; preds = %61, %53, %45
   %72 = add nuw nsw i64 %47, 1
   %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 44
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
   %77 = icmp samesign ult i64 %72, %76
@@ -142,7 +142,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
 
 .thread4:                                         ; preds = %71, %36, %69, %80
   %86 = phi ptr [ %83, %80 ], [ %34, %69 ], [ %34, %36 ], [ %34, %71 ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 1056
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr %86, ptr %87, align 8
   br label %88
 

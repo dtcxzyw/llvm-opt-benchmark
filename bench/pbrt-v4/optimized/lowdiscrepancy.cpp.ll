@@ -96,7 +96,7 @@ entry:
   %digitIndex = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %nDigits = getelementptr inbounds i8, ptr %this, i64 4
+  %nDigits = getelementptr inbounds nuw i8, ptr %this, i64 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #11
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %nDigits)
           to label %for.cond.preheader unwind label %lpad.i
@@ -108,7 +108,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp19, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %permutations = getelementptr inbounds i8, ptr %this, i64 8
+  %permutations = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body
 
 common.resume:                                    ; preds = %lpad3, %lpad12, %lpad.i6, %lpad.i9, %lpad.i5, %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit, %lpad.i
@@ -393,17 +393,17 @@ define dso_local noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pst
 if.end.i.i:
   %ref.tmp = alloca %"class.pbrt::DigitPermutation", align 8
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 32, i64 noundef 8)
   %1 = ptrtoint ptr %alloc.coerce to i64
   store i64 %1, ptr %call.i.i.i.i, align 8
-  %ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i.i, i8 0, i64 24, i1 false)
-  %nStored.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
-  %nAlloc.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %nStored.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 24
+  %nAlloc.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16000, i64 noundef 8)
   %.pre.i = load i64, ptr %nStored.i.i, align 8
@@ -412,9 +412,9 @@ if.end.i.i:
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %call.i.i.i.i.i, i64 %indvars.iv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %call.i.i.i.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %ptr.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %3, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %3, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %4 = load i64, ptr %nStored.i.i, align 8
@@ -432,7 +432,7 @@ if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
   %mul.i10.i.i = shl i64 %6, 4
   %7 = load ptr, ptr %call.i.i.i.i, align 8
   %vtable.i.i.i11.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i12.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i.i, i64 24
+  %vfn.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i11.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %mul.i10.i.i, i64 noundef 8)
   %.pre16.pre.i = load i64, ptr %nStored.i.i, align 8
@@ -460,11 +460,11 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6r
 
 for.body:                                         ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx, align 4
   call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %10, i32 noundef %seed, ptr nonnull %alloc.coerce)
   %11 = load ptr, ptr %ptr.i.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %11, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %11, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000
@@ -493,7 +493,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %nDigits = getelementptr inbounds i8, ptr %this, i64 4
+  %nDigits = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %nDigits, align 4
   %conv = sitofp i32 %base to float
   %div = fdiv float 1.000000e+00, %conv
@@ -527,7 +527,7 @@ if.end.i.i.i:                                     ; preds = %while.end
   %conv10 = sext i32 %mul9 to i64
   %mul.i = shl nsw i64 %conv10, 1
   %vtable.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i, i64 noundef 2)
   %.pre = load i32, ptr %nDigits, align 4
@@ -536,7 +536,7 @@ if.end.i.i.i:                                     ; preds = %while.end
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; preds = %while.end, %if.end.i.i.i
   %2 = phi i32 [ %.pre, %if.end.i.i.i ], [ %0, %while.end ]
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end.i.i.i ], [ null, %while.end ]
-  %permutations = getelementptr inbounds i8, ptr %this, i64 8
+  %permutations = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retval.0.i.i.i, ptr %permutations, align 8
   %cmp1224 = icmp sgt i32 %2, 0
   br i1 %cmp1224, label %for.body.lr.ph, label %for.end25
@@ -628,8 +628,8 @@ _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %do.body.i.us
   %rem.i.us = urem i32 %add.i.us, %base
   %conv20.us = trunc i32 %rem.i.us to i16
   %6 = load ptr, ptr %permutations, align 8
-  %7 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
-  %arrayidx.us = getelementptr inbounds i16, ptr %7, i64 %4
+  %7 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw i16, ptr %7, i64 %4
   store i16 %conv20.us, ptr %arrayidx.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %buf.sroa.0.0.insert.ext.i
@@ -720,7 +720,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %v)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -925,7 +925,7 @@ if.then18:                                        ; preds = %if.end16
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.then18
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %v)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -1095,7 +1095,7 @@ if.then16:                                        ; preds = %if.end14
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.then16
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %v)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -1260,7 +1260,7 @@ if.then23:                                        ; preds = %if.end21
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.then23
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont26 unwind label %lpad25
@@ -1463,7 +1463,7 @@ if.then12:                                        ; preds = %if.end10
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then12
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull %v)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -1631,7 +1631,7 @@ if.then21:                                        ; preds = %if.end19
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.then21
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont24 unwind label %lpad23
@@ -1902,7 +1902,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont23 unwind label %lpad22
@@ -2137,7 +2137,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont23 unwind label %lpad22
@@ -2297,7 +2297,7 @@ if.then21:                                        ; preds = %if.end19
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.then21
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i16, ptr %v, align 2
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i16 noundef zeroext %4)
           to label %invoke.cont24 unwind label %lpad23

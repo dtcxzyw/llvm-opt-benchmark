@@ -13,32 +13,32 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.Fraig_ParamsStruct_t_, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %9, %11
   br i1 %12, label %.lr.ph169, label %._crit_edge
 
 .lr.ph169:                                        ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 156
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
-  %19 = getelementptr inbounds i8, ptr %7, i64 48
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 12
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 224
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 164
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %31 = sext i32 %9 to i64
   br label %32
 
@@ -86,7 +86,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
   %indvars.iv199 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next200, %.critedge2.loopexit ]
   %indvars.iv194 = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next195, %.critedge2.loopexit ]
   %.val132 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i32, ptr %.val132, i64 %indvars.iv199
+  %52 = getelementptr inbounds nuw i32, ptr %.val132, i64 %indvars.iv199
   %53 = load i32, ptr %52, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %54 = sext i32 %.val125213 to i64
@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
 61:                                               ; preds = %.lr.ph164, %.critedge6
   %indvars.iv196 = phi i64 [ %indvars.iv194, %.lr.ph164 ], [ %indvars.iv.next197, %.critedge6 ]
   %.val133 = load ptr, ptr %48, align 8
-  %62 = getelementptr inbounds i32, ptr %.val133, i64 %indvars.iv196
+  %62 = getelementptr inbounds nuw i32, ptr %.val133, i64 %indvars.iv196
   %63 = load i32, ptr %62, align 4
   %64 = call i32 @Extra_BitMatrixLookup1(ptr noundef %37, i32 noundef %53, i32 noundef %63) #7
   %.not = icmp eq i32 %64, 0
@@ -120,10 +120,10 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %16, align 4
   %70 = load ptr, ptr %17, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 0, ptr %71, align 4
   %72 = load ptr, ptr %18, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 0, ptr %73, align 4
   %.val127154 = load i32, ptr %46, align 4
   %74 = icmp sgt i32 %.val127154, 0
@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
 .lr.ph:                                           ; preds = %67, %146
   %indvars.iv = phi i64 [ %indvars.iv.next, %146 ], [ 0, %67 ]
   %.val134 = load ptr, ptr %48, align 8
-  %75 = getelementptr inbounds i32, ptr %.val134, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %.val134, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4
   %77 = call i32 @Extra_BitMatrixLookup1(ptr noundef %37, i32 noundef %63, i32 noundef %76) #7
   %.not121 = icmp eq i32 %77, 0
@@ -140,14 +140,14 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
 
 78:                                               ; preds = %.lr.ph
   %79 = load ptr, ptr %17, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %79, align 8
   %83 = icmp eq i32 %81, %82
   br i1 %83, label %84, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %78
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %79, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -156,7 +156,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %79, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not9.i.i = icmp eq ptr %88, null
   br i1 %.not9.i.i, label %91, label %89
@@ -177,7 +177,7 @@ Vec_IntGrow.exit.i:                               ; preds = %91, %89
 
 94:                                               ; preds = %84
   %95 = shl nuw nsw i32 %81, 1
-  %96 = getelementptr inbounds i8, ptr %79, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %97 = load ptr, ptr %96, align 8
   %.not9.i9.i = icmp eq ptr %97, null
   %98 = zext nneg i32 %95 to i64
@@ -215,14 +215,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %18, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = load i32, ptr %114, align 8
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %.Vec_IntGrow.exit10_crit_edge.i139
 
 .Vec_IntGrow.exit10_crit_edge.i139:               ; preds = %113
-  %.phi.trans.insert.i140 = getelementptr inbounds i8, ptr %114, i64 8
+  %.phi.trans.insert.i140 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %.pre.i141 = load ptr, ptr %.phi.trans.insert.i140, align 8
   br label %Vec_IntPush.exit145
 
@@ -231,7 +231,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %114, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not9.i.i143 = icmp eq ptr %123, null
   br i1 %.not9.i.i143, label %126, label %124
@@ -252,7 +252,7 @@ Vec_IntGrow.exit.i144:                            ; preds = %126, %124
 
 129:                                              ; preds = %119
   %130 = shl nuw nsw i32 %116, 1
-  %131 = getelementptr inbounds i8, ptr %114, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not9.i9.i142 = icmp eq ptr %132, null
   %133 = zext nneg i32 %130 to i64
@@ -392,7 +392,7 @@ Abc_Clock.exit45.i:                               ; preds = %175, %Abc_Clock.exi
 
 .lr.ph.i:                                         ; preds = %185, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %185 ]
-  %191 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %191 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   store i32 0, ptr %191, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %192 = load i32, ptr %28, align 8
@@ -403,7 +403,7 @@ Abc_Clock.exit45.i:                               ; preds = %175, %Abc_Clock.exi
 .lr.ph53.i:                                       ; preds = %.preheader.i, %207
   %195 = phi i32 [ %208, %207 ], [ %189, %.preheader.i ]
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %207 ], [ 0, %.preheader.i ]
-  %196 = getelementptr inbounds i32, ptr %186, i64 %indvars.iv55.i
+  %196 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv55.i
   %197 = load i32, ptr %196, align 4
   %.not.i = icmp eq i32 %197, 0
   br i1 %.not.i, label %207, label %198
@@ -414,7 +414,7 @@ Abc_Clock.exit45.i:                               ; preds = %175, %Abc_Clock.exi
   %201 = shl nuw i32 1, %200
   %202 = lshr i64 %indvars.iv55.i, 5
   %203 = and i64 %202, 134217727
-  %204 = getelementptr inbounds i32, ptr %1, i64 %203
+  %204 = getelementptr inbounds nuw i32, ptr %1, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, %201
   store i32 %206, ptr %204, align 4
@@ -480,7 +480,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.critedge8 ], [ 0, %.lr.ph161 ]
   %236 = getelementptr i8, ptr %234, i64 8
   %.val135 = load ptr, ptr %236, align 8
-  %237 = getelementptr inbounds i32, ptr %.val135, i64 %indvars.iv191
+  %237 = getelementptr inbounds nuw i32, ptr %.val135, i64 %indvars.iv191
   %238 = load i32, ptr %237, align 4
   %239 = getelementptr i8, ptr %235, i64 4
   %.val129156 = load i32, ptr %239, align 4
@@ -492,7 +492,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   %241 = phi ptr [ %245, %.lr.ph158 ], [ %235, %.lr.ph161.split ]
   %242 = getelementptr i8, ptr %241, i64 8
   %.val136 = load ptr, ptr %242, align 8
-  %243 = getelementptr inbounds i32, ptr %.val136, i64 %indvars.iv188
+  %243 = getelementptr inbounds nuw i32, ptr %.val136, i64 %indvars.iv188
   %244 = load i32, ptr %243, align 4
   call void @Extra_BitMatrixInsert1(ptr noundef %37, i32 noundef %238, i32 noundef %244) #7
   call void @Extra_BitMatrixInsert2(ptr noundef %37, i32 noundef %238, i32 noundef %244) #7
@@ -520,7 +520,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   br i1 %253, label %.lr.ph161.split, label %.critedge6, !llvm.loop !10
 
 254:                                              ; preds = %Sim_SymmsSatProveOne.exit
-  %255 = getelementptr inbounds i8, ptr %0, i64 160
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %256 = load i32, ptr %255, align 8
   %257 = add nsw i32 %256, 1
   store i32 %257, ptr %255, align 8
@@ -543,7 +543,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.critedge12 ], [ 0, %.lr.ph177 ]
   %267 = getelementptr i8, ptr %265, i64 8
   %.val137 = load ptr, ptr %267, align 8
-  %268 = getelementptr inbounds i32, ptr %.val137, i64 %indvars.iv208
+  %268 = getelementptr inbounds nuw i32, ptr %.val137, i64 %indvars.iv208
   %269 = load i32, ptr %268, align 4
   %270 = getelementptr i8, ptr %266, i64 4
   %.val131170 = load i32, ptr %270, align 4
@@ -555,7 +555,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   %272 = phi ptr [ %276, %.lr.ph173 ], [ %266, %.lr.ph177.split ]
   %273 = getelementptr i8, ptr %272, i64 8
   %.val138 = load ptr, ptr %273, align 8
-  %274 = getelementptr inbounds i32, ptr %.val138, i64 %indvars.iv205
+  %274 = getelementptr inbounds nuw i32, ptr %.val138, i64 %indvars.iv205
   %275 = load i32, ptr %274, align 4
   call void @Extra_BitMatrixInsert1(ptr noundef %41, i32 noundef %269, i32 noundef %275) #7
   call void @Extra_BitMatrixInsert2(ptr noundef %41, i32 noundef %269, i32 noundef %275) #7
@@ -583,13 +583,13 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
 
 .critedge10:                                      ; preds = %.critedge12, %.lr.ph177, %254
   store i32 %49, ptr %8, align 8
-  %285 = getelementptr inbounds i8, ptr %0, i64 140
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %286 = load i32, ptr %285, align 4
-  %287 = getelementptr inbounds i8, ptr %0, i64 148
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %286, ptr %287, align 4
-  %288 = getelementptr inbounds i8, ptr %0, i64 144
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %289 = load i32, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %0, i64 152
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %289, ptr %290, align 8
   store i32 %53, ptr %285, align 4
   store i32 %63, ptr %288, align 8

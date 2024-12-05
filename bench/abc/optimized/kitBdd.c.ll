@@ -28,7 +28,7 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr nocapture noundef readonly 
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us ], [ 0, %.lr.ph48 ]
   %.03645.us = phi ptr [ %27, %._crit_edge.us ], [ %4, %.lr.ph48 ]
   %.val41.us = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %.val41.us, i64 %indvars.iv56
+  %9 = getelementptr inbounds nuw i32, ptr %.val41.us, i64 %indvars.iv56
   %10 = load i32, ptr %9, align 4
   %.not.us = icmp eq i32 %10, 0
   br i1 %.not.us, label %.critedge, label %.lr.ph.us
@@ -88,7 +88,7 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph48 ]
   %.03645 = phi ptr [ %34, %32 ], [ %4, %.lr.ph48 ]
   %.val41 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %.critedge, label %32
@@ -136,7 +136,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   br label %69
 
@@ -164,7 +164,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 .critedge.preheader:                              ; preds = %19, %.preheader
   %.049.lcssa = phi ptr [ null, %.preheader ], [ %20, %19 ]
   %.lcssa67 = phi i32 [ 0, %.preheader ], [ %24, %19 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %.lcssa67, %15
   br i1 %16, label %.lr.ph71, label %.critedge2
@@ -177,10 +177,10 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val59 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val59, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val59, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %21) #5
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
@@ -196,19 +196,19 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1073741823
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val60, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val60, i64 %31, i32 2
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i32 %28, 1
   %36 = zext nneg i32 %35 to i64
   %37 = xor i64 %34, %36
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = lshr i32 %40, 1
   %42 = and i32 %41, 1073741823
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val60, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val60, i64 %43, i32 2
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = and i32 %40, 1
@@ -216,7 +216,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %49 = xor i64 %46, %48
   %50 = inttoptr i64 %49 to ptr
   %51 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %38, ptr noundef %50) #5
-  %52 = getelementptr inbounds i8, ptr %27, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %51, ptr %52, align 8
   tail call void @Cudd_Ref(ptr noundef %51) #5
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
@@ -227,7 +227,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.150.lcssa = phi ptr [ %.049.lcssa, %.critedge.preheader ], [ %27, %.critedge ]
-  %56 = getelementptr inbounds i8, ptr %.150.lcssa, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.150.lcssa, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void @Cudd_Ref(ptr noundef %57) #5
   %58 = load i32, ptr %8, align 4
@@ -287,7 +287,7 @@ define ptr @Kit_TruthToBdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = xor i64 %22, 1
@@ -299,7 +299,7 @@ define ptr @Kit_TruthToBdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   br label %50
 
@@ -331,7 +331,7 @@ define ptr @Kit_TruthToBdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %phi.call = phi ptr [ %33, %.split ], [ %38, %.split43 ]
   %43 = phi i32 [ %31, %.split ], [ %37, %.split43 ]
   tail call void @Cudd_Ref(ptr noundef %phi.call44) #5
-  %44 = getelementptr inbounds i8, ptr %0, i64 344
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %43 to i64
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
@@ -375,7 +375,7 @@ define range(i32 0, 2) i32 @Kit_SopFactorVerify(ptr noundef %0, ptr nocapture no
   %12 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %12, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %13, align 4
   store i32 %spec.store.select.i, ptr %11, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @Kit_SopFactorVerify(ptr noundef %0, ptr nocapture no
 
 Vec_IntAlloc.exit:                                ; preds = %9, %14
   %18 = phi ptr [ %17, %14 ], [ null, %9 ]
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8
   call void @Kit_SopCreate(ptr noundef nonnull %4, ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %11) #5
   %20 = load ptr, ptr @Kit_SopFactorVerify.dd, align 8

@@ -837,7 +837,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca %struct.e_in6_addr, align 1
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca %struct.e_in6_addr, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_add_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.261) #4
   %10 = load ptr, ptr %8, align 8
@@ -1061,7 +1061,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 137:                                              ; preds = %94
   %138 = load i32, ptr @hf_sapms_opcode_value, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 408
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr @tvb_get_string_enc(ptr noundef %140, ptr noundef %0, i32 noundef 114, i32 noundef range(i32 1, -2147483648) %92, i32 noundef 0) #4
   %142 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %98, i32 noundef %138, ptr noundef %0, i32 noundef 114, i32 noundef range(i32 1, -2147483648) %92, ptr noundef nonnull @.str.627, ptr noundef %141) #4
@@ -1105,7 +1105,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %164, label %.lr.ph406.i, label %dissect_sapms_opcode.exit
 
 .lr.ph406.i:                                      ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %1, i64 408
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %166
 
 166:                                              ; preds = %175, %.lr.ph406.i
@@ -1731,7 +1731,7 @@ define internal fastcc range(i32 0, 161) i32 @dissect_sapms_client(ptr noundef %
 
 switch.lookup:                                    ; preds = %9
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_sapms_client, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_sapms_client, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 

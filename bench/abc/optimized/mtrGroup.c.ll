@@ -15,9 +15,9 @@ define ptr @Mtr_InitGroupTree(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 
 5:                                                ; preds = %2
   store i32 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %7, align 8
   br label %8
 
@@ -34,7 +34,7 @@ define ptr @Mtr_MakeGroup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br i1 %5, label %.loopexit, label %tailrecurse.preheader
 
 tailrecurse.preheader:                            ; preds = %4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %tailrecurse
 
@@ -45,7 +45,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, %7
   %13 = icmp ugt i32 %6, %12
@@ -62,15 +62,15 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %.loopexit
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %.preheader212.preheader
 
 .preheader212.preheader:                          ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, %23
   %.not190324 = icmp ult i32 %1, %26
@@ -82,23 +82,23 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.tr, i64 24
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %2, ptr %33, align 8
   store i32 %3, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %.tr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %28, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store ptr %28, ptr %31, align 8
   br label %.loopexit
 
 .preheader212:                                    ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %42, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %42, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, %37
   %.not190 = icmp ult i32 %1, %40
@@ -106,7 +106,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 .lr.ph:                                           ; preds = %.preheader212.preheader, %.preheader212
   %.0173244325 = phi ptr [ %42, %.preheader212 ], [ %20, %.preheader212.preheader ]
-  %41 = getelementptr inbounds i8, ptr %.0173244325, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.0173244325, i64 40
   %42 = load ptr, ptr %41, align 8
   %cond = icmp eq ptr %42, null
   br i1 %cond, label %43, label %.preheader212, !llvm.loop !4
@@ -117,20 +117,20 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.0173244325, i64 40
-  %48 = getelementptr inbounds i8, ptr %44, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.0173244325, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %2, ptr %49, align 8
   store i32 %3, ptr %44, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %.tr, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %44, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr %.0173244325, ptr %51, align 8
   store ptr %44, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %44, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr null, ptr %53, align 8
   br label %.loopexit
 
@@ -147,12 +147,12 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not192, label %.thread, label %tailrecurse
 
 55:                                               ; preds = %.critedge
-  %56 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.not193 = icmp ugt i32 %6, %.lcssa309
   br i1 %.not193, label %72, label %58
 
 .thread:                                          ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.old = icmp ugt i32 %1, %.lcssa309
   br i1 %.old, label %.loopexit, label %.preheader
 
@@ -162,26 +162,26 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %2, ptr %63, align 8
   store i32 %3, ptr %59, align 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %59, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %.tr, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %59, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %.0245.lcssa, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %59, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %.0173244.lcssa, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.0173244.lcssa, i64 32
   store ptr %59, ptr %68, align 8
   %.not200 = icmp eq ptr %.0245.lcssa, null
   br i1 %.not200, label %71, label %69
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %.0245.lcssa, i64 40
   store ptr %59, ptr %70, align 8
   br label %.loopexit
 
@@ -199,15 +199,15 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 75:                                               ; preds = %.preheader, %76
   %.0173.pn = phi ptr [ %.0172, %76 ], [ %.0173244.lcssa, %.preheader ]
-  %.0172.in = getelementptr inbounds i8, ptr %.0173.pn, i64 40
+  %.0172.in = getelementptr inbounds nuw i8, ptr %.0173.pn, i64 40
   %.0172 = load ptr, ptr %.0172.in, align 8
   %cond202 = icmp eq ptr %.0172, null
   br i1 %cond202, label %83, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %.0172, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.0172, i64 4
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.0172, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.0172, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = add i32 %80, %78
   %82 = icmp ult i32 %81, %6
@@ -219,26 +219,26 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %84, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %1, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 %2, ptr %88, align 8
   store i32 %3, ptr %84, align 8
-  %89 = getelementptr inbounds i8, ptr %84, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %.0173244.lcssa, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %84, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %.tr, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %84, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr %.0245.lcssa, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %84, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store ptr null, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.0173244.lcssa, i64 32
   store ptr null, ptr %93, align 8
   %.not198 = icmp eq ptr %.0245.lcssa, null
   br i1 %.not198, label %96, label %94
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %.0245.lcssa, i64 40
   store ptr %84, ptr %95, align 8
   br label %.preheader329
 
@@ -251,9 +251,9 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 97:                                               ; preds = %.preheader329, %97
   %.1249 = phi ptr [ %100, %97 ], [ %.0173244.lcssa, %.preheader329 ]
-  %98 = getelementptr inbounds i8, ptr %.1249, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.1249, i64 16
   store ptr %84, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.1249, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %.1249, i64 40
   %100 = load ptr, ptr %99, align 8
   %.not199 = icmp eq ptr %100, null
   br i1 %.not199, label %.loopexit, label %97, !llvm.loop !7
@@ -271,14 +271,14 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %104, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store i32 %1, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %104, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i32 %2, ptr %108, align 8
   store i32 %3, ptr %104, align 8
-  %109 = getelementptr inbounds i8, ptr %104, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr %.0173244.lcssa, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %104, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %.tr, ptr %110, align 8
   %111 = icmp eq ptr %.0245.lcssa, null
   br i1 %111, label %112, label %113
@@ -288,36 +288,36 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %115
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %.0245.lcssa, i64 40
   store ptr %104, ptr %114, align 8
   br label %115
 
 115:                                              ; preds = %113, %112
-  %116 = getelementptr inbounds i8, ptr %104, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr %.0245.lcssa, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %.0172, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %.0172, i64 40
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %104, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store ptr %118, ptr %119, align 8
   %.not196 = icmp eq ptr %118, null
   br i1 %.not196, label %122, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %118, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 32
   store ptr %104, ptr %121, align 8
   br label %122
 
 122:                                              ; preds = %120, %115
   store ptr null, ptr %117, align 8
-  %123 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %.0173244.lcssa, i64 32
   store ptr null, ptr %123, align 8
   br label %124
 
 124:                                              ; preds = %122, %124
   %.0174248 = phi ptr [ %.0173244.lcssa, %122 ], [ %127, %124 ]
-  %125 = getelementptr inbounds i8, ptr %.0174248, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.0174248, i64 16
   store ptr %104, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %.0174248, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %.0174248, i64 40
   %127 = load ptr, ptr %126, align 8
   %.not197 = icmp eq ptr %127, null
   br i1 %.not197, label %.loopexit, label %124, !llvm.loop !8
@@ -331,7 +331,7 @@ declare ptr @Mtr_AllocNode() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %37, label %5
@@ -343,13 +343,13 @@ define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %37
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %37, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not3134 = icmp eq ptr %13, null
   br i1 %.not3134, label %._crit_edge, label %.lr.ph
@@ -357,36 +357,36 @@ define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %14 = phi ptr [ %17, %.lr.ph ], [ %13, %.preheader ]
   %.035 = phi ptr [ %14, %.lr.ph ], [ %10, %.preheader ]
-  %15 = getelementptr inbounds i8, ptr %.035, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not31 = icmp eq ptr %17, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa33 = phi ptr [ %10, %.preheader ], [ %14, %.lr.ph ]
-  %18 = getelementptr inbounds i8, ptr %.0.lcssa33, i64 40
-  %19 = getelementptr inbounds i8, ptr %.0.lcssa33, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa33, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa33, i64 16
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %18, align 8
   %.not32 = icmp eq ptr %21, null
   br i1 %.not32, label %24, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %.0.lcssa33, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %22, %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %26, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %0, %30
   %32 = load ptr, ptr %9, align 8
@@ -397,7 +397,7 @@ define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
   br label %36
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %26, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %32, ptr %35, align 8
   br label %36
 
@@ -420,13 +420,13 @@ define ptr @Mtr_FindGroup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %
 
 tailrecurse:                                      ; preds = %3, %._crit_edge
   %.tr = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %1, %7
   br i1 %8, label %.split39, label %9
 
 9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, %7
   %13 = icmp ugt i32 %4, %12
@@ -439,15 +439,15 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
   br i1 %or.cond, label %.split39, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.split39, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %22
   %.not36 = icmp ult i32 %1, %25
@@ -455,11 +455,11 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.037 = phi ptr [ %27, %.lr.ph ], [ %19, %.preheader ]
-  %26 = getelementptr inbounds i8, ptr %.037, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.037, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
   %.not = icmp ult i32 %1, %32
@@ -478,13 +478,13 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, %1
   br i1 %.not, label %9, label %44
@@ -492,23 +492,23 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %2, %6
   %.035 = phi ptr [ %1, %6 ], [ %0, %2 ]
   %.034 = phi ptr [ %0, %6 ], [ %1, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.034, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.035, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.034, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %44, label %17
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %.035, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not40 = icmp eq ptr %19, %15
   br i1 %.not40, label %20, label %44
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %.034
   br i1 %23, label %24, label %25
@@ -518,31 +518,31 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
   br label %29
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %.034, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %.035, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %25, %24
-  %30 = getelementptr inbounds i8, ptr %.035, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not41 = icmp eq ptr %31, null
   br i1 %.not41, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %.034, ptr %33, align 8
   %.pre = load ptr, ptr %30, align 8
   br label %34
 
 34:                                               ; preds = %32, %29
   %35 = phi ptr [ %.pre, %32 ], [ null, %29 ]
-  %36 = getelementptr inbounds i8, ptr %.034, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.034, i64 40
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.034, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.035, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.035, i64 32
   store ptr %38, ptr %39, align 8
   store ptr %.035, ptr %37, align 8
   store ptr %.034, ptr %30, align 8
@@ -562,7 +562,7 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @mtrShiftHL(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, %1
   %6 = icmp slt i32 %5, 0
@@ -576,7 +576,7 @@ define internal fastcc range(i32 0, 2) i32 @mtrShiftHL(ptr nocapture noundef %0,
   br i1 %.not, label %10, label %.loopexit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %.loopexit, label %.preheader
@@ -588,7 +588,7 @@ define internal fastcc range(i32 0, 2) i32 @mtrShiftHL(ptr nocapture noundef %0,
   br i1 %.not20, label %.loopexit, label %14
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %.0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %.loopexit, label %.preheader, !llvm.loop !11
@@ -604,7 +604,7 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5)
   br label %7
@@ -616,7 +616,7 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not18, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.preheader
@@ -631,7 +631,7 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
 .preheader:                                       ; preds = %10, %.preheader
   %.030 = phi ptr [ %16, %.preheader ], [ %12, %10 ]
   tail call void @Mtr_PrintGroups(ptr noundef nonnull %.030, i32 noundef %1)
-  %15 = getelementptr inbounds i8, ptr %.030, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.030, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %17, label %.preheader, !llvm.loop !12
@@ -640,9 +640,9 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not, label %18, label %.critedge
 
 18:                                               ; preds = %.thread, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %20, -1
   %24 = add i32 %23, %22
@@ -686,7 +686,7 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 39:                                               ; preds = %35, %38, %18
   %putchar28 = tail call i32 @putchar(i32 41)
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %.critedge
@@ -713,9 +713,9 @@ define ptr @Mtr_ReadGroups(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 Mtr_InitGroupTree.exit:                           ; preds = %2
   store i32 0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %9, align 8
   br label %10
 
@@ -780,7 +780,7 @@ Mtr_InitGroupTree.exit:                           ; preds = %2
 
 34:                                               ; preds = %.preheader, %26, %28, %30, %32
   %.1 = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %.024, %.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.0, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !13
 
 36:                                               ; preds = %.preheader

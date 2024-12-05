@@ -19,7 +19,7 @@ define dso_local void @Curl_freeaddrinfo(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.06 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.06, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %.06, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
   tail call void %4(ptr noundef nonnull %.06) #7
@@ -47,7 +47,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   %.05889 = phi ptr [ %.058, %52 ], [ %.05885, %.preheader ]
   %.05988 = phi ptr [ %.160, %52 ], [ null, %.preheader ]
   %.06187 = phi ptr [ %.162, %52 ], [ null, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.05889, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.05889, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not72 = icmp eq ptr %8, null
   br i1 %.not72, label %12, label %9
@@ -59,7 +59,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
 
 12:                                               ; preds = %.lr.ph, %9
   %13 = phi i64 [ %11, %9 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %.05889, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.05889, i64 4
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %52 [
     i32 2, label %17
@@ -71,13 +71,13 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %12, %16
   %.057 = phi i64 [ 28, %16 ], [ 16, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.05889, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.05889, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not73 = icmp eq ptr %19, null
   br i1 %.not73, label %52, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.05889, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.05889, i64 16
   %22 = load i32, ptr %21, align 8
   %.not74 = icmp eq i32 %22, 0
   %23 = zext i32 %22 to i64
@@ -97,22 +97,22 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   %31 = load i32, ptr %.05889, align 8
   store i32 %31, ptr %29, align 8
   %32 = load i32, ptr %14, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.05889, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.05889, i64 8
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.05889, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %.05889, i64 12
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %29, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %38, ptr %39, align 4
   %40 = trunc nuw nsw i64 %.057 to i32
-  %41 = getelementptr inbounds i8, ptr %29, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %29, i64 32
-  %43 = getelementptr inbounds i8, ptr %29, i64 24
-  %44 = getelementptr inbounds i8, ptr %29, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store ptr %44, ptr %42, align 8
   %45 = load ptr, ptr %18, align 8
@@ -121,7 +121,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not79, label %49, label %46
 
 46:                                               ; preds = %30
-  %47 = getelementptr inbounds i8, ptr %44, i64 %.057
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.057
   store ptr %47, ptr %43, align 8
   %48 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %48, i64 %13, i1 false)
@@ -134,14 +134,14 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not81, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.05988, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.05988, i64 40
   store ptr %29, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %49, %50, %12, %17, %20
   %.162 = phi ptr [ %.06187, %20 ], [ %.06187, %17 ], [ %.06187, %12 ], [ %spec.select, %50 ], [ %spec.select, %49 ]
   %.160 = phi ptr [ %.05988, %20 ], [ %.05988, %17 ], [ %.05988, %12 ], [ %29, %50 ], [ %29, %49 ]
-  %53 = getelementptr inbounds i8, ptr %.05889, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.05889, i64 40
   %.058 = load ptr, ptr %53, align 8
   %.not71 = icmp eq ptr %.058, null
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -170,7 +170,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
   %.06.i = phi ptr [ %57, %.lr.ph.i ], [ %.06187, %55 ]
-  %56 = getelementptr inbounds i8, ptr %.06.i, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @Curl_cfree, align 8
   call void %58(ptr noundef nonnull %.06.i) #7
@@ -211,14 +211,14 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %.not5461 = icmp eq ptr %5, null
   br i1 %.not5461, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = trunc i32 %1 to i16
   br label %8
 
@@ -241,11 +241,11 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
 
 17:                                               ; preds = %8
   %18 = add i64 %11, 1
-  %19 = getelementptr inbounds i8, ptr %16, i64 48
-  %20 = getelementptr inbounds i8, ptr %16, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %.
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %23, i64 %18, i1 false)
@@ -255,18 +255,18 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %.not58, label %26, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.04764, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.04764, i64 40
   store ptr %16, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %24, %17
   %27 = load i32, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %16, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %16, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 1, ptr %29, align 8
   %30 = trunc nuw nsw i64 %. to i32
-  %31 = getelementptr inbounds i8, ptr %16, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %30, ptr %31, align 8
   switch i32 %27, label %43 [
     i32 2, label %32
@@ -275,14 +275,14 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %9, align 1
   store i32 %35, ptr %34, align 4
   br label %.sink.split
 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %9, i64 16, i1 false)
   br label %.sink.split
 
@@ -292,14 +292,14 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   %40 = trunc i32 %39 to i16
   store i16 %40, ptr %.sink72, align 4
   %41 = tail call zeroext i16 @htons(i16 noundef zeroext %7) #9
-  %42 = getelementptr inbounds i8, ptr %.sink72, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.sink72, i64 2
   store i16 %41, ptr %42, align 2
   br label %43
 
 43:                                               ; preds = %.sink.split, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.next
   %46 = load ptr, ptr %45, align 8
   %.not54 = icmp eq ptr %46, null
   br i1 %.not54, label %.critedge, label %8, !llvm.loop !8
@@ -310,7 +310,7 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
 
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %.06.i = phi ptr [ %49, %.lr.ph.i ], [ %.05062, %47 ]
-  %48 = getelementptr inbounds i8, ptr %.06.i, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @Curl_cfree, align 8
   tail call void %50(ptr noundef nonnull %.06.i) #7
@@ -345,13 +345,13 @@ define dso_local ptr @Curl_ip2addr(i32 noundef %0, ptr nocapture noundef readonl
   ]
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load i32, ptr %1, align 1
   store i32 %13, ptr %12, align 1
   br label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   br label %16
 
@@ -359,17 +359,17 @@ define dso_local ptr @Curl_ip2addr(i32 noundef %0, ptr nocapture noundef readonl
   %.032 = phi ptr [ %15, %14 ], [ %12, %11 ]
   %.0 = phi i32 [ 16, %14 ], [ 4, %11 ]
   store ptr %9, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %.0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 48
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %21, align 8
   store ptr %.032, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr null, ptr %22, align 8
   %23 = tail call ptr @Curl_he2ai(ptr noundef nonnull %6, i32 noundef %3)
   br label %.sink.split.sink.split
@@ -412,7 +412,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not35.i, label %Curl_ip2addr.exit.sink.split, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %3, align 4
   store i32 %15, ptr %14, align 1
   store ptr %12, ptr %9, align 8
@@ -436,7 +436,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not35.i7, label %Curl_ip2addr.exit.sink.split, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %21, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   store ptr %24, ptr %21, align 8
   br label %Curl_ip2addr.exit.sink.split.sink.split
@@ -447,17 +447,17 @@ Curl_ip2addr.exit.sink.split.sink.split:          ; preds = %13, %25
   %.sink24 = phi i32 [ 16, %25 ], [ 4, %13 ]
   %.sink18 = phi ptr [ %26, %25 ], [ %14, %13 ]
   %.sink13 = phi ptr [ %24, %25 ], [ %12, %13 ]
-  %27 = getelementptr inbounds i8, ptr %.sink31, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.sink31, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
   store i32 %.sink27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.sink31, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %.sink31, i64 20
   store i32 %.sink24, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %.sink31, i64 48
-  %31 = getelementptr inbounds i8, ptr %.sink31, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sink31, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.sink31, i64 24
   store ptr %30, ptr %31, align 8
   store ptr %.sink18, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.sink31, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %.sink31, i64 56
   store ptr null, ptr %32, align 8
   %33 = call ptr @Curl_he2ai(ptr noundef nonnull %.sink31, i32 noundef %1)
   %34 = load ptr, ptr @Curl_cfree, align 8

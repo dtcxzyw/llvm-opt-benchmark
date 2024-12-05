@@ -245,7 +245,7 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   br i1 %.not101106, label %._crit_edge111, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %._crit_edge
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %46
 
 46:                                               ; preds = %.lr.ph110, %46
@@ -266,7 +266,7 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
 ._crit_edge111:                                   ; preds = %46, %._crit_edge
   %.2.lcssa = phi i32 [ %42, %._crit_edge ], [ %47, %46 ]
   %54 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.2.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %12) #3
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %12, align 4
   %58 = call ptr @val_to_str(i32 noundef %57, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.27) #3

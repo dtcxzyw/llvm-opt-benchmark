@@ -79,7 +79,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %stack_size2 = getelementptr inbounds i8, ptr %params, i64 8
+  %stack_size2 = getelementptr inbounds nuw i8, ptr %params, i64 8
   %1 = load i64, ptr %stack_size2, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -241,7 +241,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 cond.true.i:                                      ; preds = %for.body.i
   %div1311.i = lshr i64 %indvars.iv.i, 6
-  %arrayidx.i = getelementptr inbounds i64, ptr %cpuset.i, i64 %div1311.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %cpuset.i, i64 %div1311.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %rem.i = and i64 %indvars.iv.i, 63
   %2 = lshr i64 %1, %rem.i
@@ -251,7 +251,7 @@ cond.true.i:                                      ; preds = %for.body.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %4, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx19.i = getelementptr inbounds i8, ptr %oldmask, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %oldmask, i64 %indvars.iv.i
   store i8 %cond.i, ptr %arrayidx19.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
@@ -284,7 +284,7 @@ for.body.preheader:                               ; preds = %do.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cpumask, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp ne i8 %5, 0
   %cmp18 = icmp samesign ult i64 %indvars.iv, 1024
@@ -295,7 +295,7 @@ cond.true:                                        ; preds = %for.body
   %rem = and i64 %indvars.iv, 63
   %shl = shl nuw i64 1, %rem
   %div2015 = lshr i64 %indvars.iv, 6
-  %arrayidx21 = getelementptr inbounds i64, ptr %cpuset, i64 %div2015
+  %arrayidx21 = getelementptr inbounds nuw i64, ptr %cpuset, i64 %div2015
   %6 = load i64, ptr %arrayidx21, align 8
   %or = or i64 %6, %shl
   store i64 %or, ptr %arrayidx21, align 8
@@ -354,7 +354,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 cond.true:                                        ; preds = %for.body
   %div1311 = lshr i64 %indvars.iv, 6
-  %arrayidx = getelementptr inbounds i64, ptr %cpuset, i64 %div1311
+  %arrayidx = getelementptr inbounds nuw i64, ptr %cpuset, i64 %div1311
   %1 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %indvars.iv, 63
   %2 = lshr i64 %1, %rem
@@ -364,7 +364,7 @@ cond.true:                                        ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond = phi i8 [ %4, %cond.true ], [ 0, %for.body ]
-  %arrayidx19 = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %cpumask, i64 %indvars.iv
   store i8 %cond, ptr %arrayidx19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -774,7 +774,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cond.i = getelementptr inbounds i8, ptr %call.i3, i64 40
+  %cond.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
   %call.i9.i = call i32 @pthread_condattr_init(ptr noundef nonnull %attr.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i9.i, 0
@@ -797,7 +797,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
 
 uv_cond_init.exit.thread.i:                       ; preds = %if.end8.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
-  %value10.i = getelementptr inbounds i8, ptr %call.i3, i64 88
+  %value10.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 88
   store i32 %value, ptr %value10.i, align 8
   store ptr %call.i3, ptr %sem, align 8
   br label %return
@@ -852,13 +852,13 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx2 = getelementptr inbounds i8, ptr %call, i64 1
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %call, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp4 = icmp eq i8 %1, 46
   br i1 %cmp4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 2
   %call6 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr) #14
   %cmp7 = icmp slt i32 %call6, 21
   %2 = zext i1 %cmp7 to i32
@@ -879,7 +879,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sem.val = load ptr, ptr %sem, align 8
-  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
+  %cond.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 40
   %call.i.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %uv_cond_destroy.exit.i, label %if.then.i.i
@@ -932,7 +932,7 @@ if.then.i.i:                                      ; preds = %if.then
   unreachable
 
 uv_mutex_lock.exit.i:                             ; preds = %if.then
-  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
+  %value.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 88
   %1 = load i32, ptr %value.i, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %value.i, align 8
@@ -940,7 +940,7 @@ uv_mutex_lock.exit.i:                             ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %uv_mutex_lock.exit.i
-  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
+  %cond.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 40
   %call.i5.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond.i) #11
   %tobool.not.i6.i = icmp eq i32 %call.i5.i, 0
   br i1 %tobool.not.i6.i, label %if.end.i, label %if.then.i7.i
@@ -985,8 +985,8 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %while.cond.preheader.i, label %if.then.i.i
 
 while.cond.preheader.i:                           ; preds = %if.then
-  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
-  %cond.i = getelementptr inbounds i8, ptr %sem.val, i64 40
+  %value.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 88
+  %cond.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 40
   br label %while.cond.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1060,7 +1060,7 @@ if.then2.i.i:                                     ; preds = %if.then
   unreachable
 
 if.end.i:                                         ; preds = %if.then
-  %value.i = getelementptr inbounds i8, ptr %sem.val, i64 88
+  %value.i = getelementptr inbounds nuw i8, ptr %sem.val, i64 88
   %1 = load i32, ptr %value.i, align 8
   %cmp1.i = icmp eq i32 %1, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
@@ -1251,7 +1251,7 @@ entry:
   %div = udiv i64 %add, 1000000000
   store i64 %div, ptr %ts, align 8
   %rem = urem i64 %add, 1000000000
-  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
   store i64 %rem, ptr %tv_nsec, align 8
   %call1 = call i32 @pthread_cond_timedwait(ptr noundef %cond, ptr noundef %mutex, ptr noundef nonnull %ts) #11
   switch i32 %call1, label %if.end4 [

@@ -167,7 +167,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 33:                                               ; preds = %.lr.ph, %39
   %34 = phi ptr [ %32, %.lr.ph ], [ %40, %39 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not61 = icmp eq ptr %36, null
   br i1 %.not61, label %39, label %37
@@ -183,8 +183,8 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not58, label %.outer._crit_edge, label %33, !llvm.loop !7
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %34, i64 16
-  %43 = getelementptr inbounds i8, ptr %36, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %44 = load i32, ptr %43, align 8
   %.not63 = icmp eq i32 %44, 0
   br i1 %.not63, label %.loopexit, label %.lr.ph77
@@ -203,14 +203,14 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 48:                                               ; preds = %47, %.lr.ph77
   %49 = phi ptr [ %.pre, %47 ], [ %45, %.lr.ph77 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds (i8, ptr @step, i64 64), ptr noundef nonnull @.str.56, i32 noundef %53) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load ptr, ptr %42, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
@@ -231,7 +231,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 
 64:                                               ; preds = %.loopexit
   %65 = call i32 @hostlist_push_host(ptr noundef %27, ptr noundef %62) #4
-  %66 = getelementptr inbounds i8, ptr %34, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, %.050.ph80
   %69 = load ptr, ptr %34, align 8
@@ -244,7 +244,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not65, label %72, label %82
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %69, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 128
   %74 = load ptr, ptr %73, align 8
   %.not66 = icmp eq ptr %74, null
   br i1 %.not66, label %82, label %75
@@ -253,12 +253,12 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) @__const._do_stat.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %9) #4
   %76 = load ptr, ptr %34, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 @assoc_mgr_post_tres_list(ptr noundef %78) #4
   call void @assoc_mgr_unlock(ptr noundef nonnull %9) #4
   %80 = load ptr, ptr %34, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
   store ptr null, ptr %81, align 8
   br label %82
 
@@ -442,13 +442,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not2635, label %._crit_edge, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %18
 
 18:                                               ; preds = %.lr.ph36, %.backedge
   %19 = phi ptr [ %16, %.lr.ph36 ], [ %27, %.backedge ]
   store ptr null, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
   %21 = load i32, ptr %3, align 4
   %22 = load i32, ptr %17, align 4
@@ -468,7 +468,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %.not31 = icmp eq i32 %31, 0
   br i1 %.not31, label %32, label %.lr.ph
@@ -497,9 +497,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 43:                                               ; preds = %.lr.ph
   %.not32 = icmp eq i32 %.pre42, 0
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.job_step_info_t, ptr %45, i64 %indvars.iv, i32 24, i32 2
+  %46 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %45, i64 %indvars.iv, i32 24, i32 2
   %47 = load i32, ptr %46, align 8
   %48 = icmp ugt i32 %47, -16
   %or.cond = select i1 %.not32, i1 %48, i1 false
@@ -514,28 +514,28 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not33, label %50, label %._crit_edge43
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %40, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.job_step_info_t, ptr %52, i64 %indvars.iv, i32 24
+  %53 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %52, i64 %indvars.iv, i32 24
   %54 = call zeroext i1 @verify_step_id(ptr noundef nonnull %53, ptr noundef nonnull %3) #4
   %.pre46 = load ptr, ptr %4, align 8
   br i1 %54, label %._crit_edge43, label %71
 
 ._crit_edge43:                                    ; preds = %50, %49
   %55 = phi ptr [ %40, %49 ], [ %.pre46, %50 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.job_step_info_t, ptr %57, i64 %indvars.iv
-  %59 = getelementptr inbounds i8, ptr %58, i64 160
-  %60 = getelementptr inbounds i8, ptr %58, i64 80
+  %58 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 80
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 152
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 152
   %69 = load i16, ptr %68, align 8
   %70 = call i32 @_do_stat(ptr noundef nonnull %59, ptr noundef %61, i32 noundef %63, i32 noundef %65, i32 noundef %67, i16 noundef zeroext %69)
   %.pre45 = load ptr, ptr %4, align 8
@@ -544,7 +544,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 71:                                               ; preds = %43, %50, %._crit_edge43
   %72 = phi ptr [ %.pre46, %50 ], [ %.pre45, %._crit_edge43 ], [ %40, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75

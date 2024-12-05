@@ -39,7 +39,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 define void @register_all_tap_listeners(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @tap_plugins, align 8
   tail call void @g_slist_foreach(ptr noundef %2, ptr noundef nonnull @call_plugin_register_tap_listener, ptr noundef null) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -89,7 +89,7 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %6
   %.127 = phi i32 [ %7, %6 ], [ 1, %1 ]
   %.11726 = phi ptr [ %8, %6 ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.11726, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.11726, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not22 = icmp eq i32 %5, 0
@@ -107,7 +107,7 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
   %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   store ptr null, ptr %9, align 8
   %10 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8
   %12 = load ptr, ptr @tap_dissector_list, align 8
   %.not21 = icmp eq ptr %12, null
@@ -147,15 +147,15 @@ define void @tap_queue_packet(i32 noundef %0, ptr noundef %1, ptr noundef %2) lo
   %9 = zext nneg i32 %5 to i64
   %10 = getelementptr [5000 x %struct._tap_packet_t], ptr @tap_packet_array, i64 0, i64 %9
   store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 276
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, 1
   %spec.store.select = zext nneg i8 %14 to i32
   store i32 %spec.store.select, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %16, align 8
   %17 = add nuw nsw i32 %5, 1
   store i32 %17, ptr @tap_packet_index, align 4
@@ -175,7 +175,7 @@ define void @tap_build_interesting(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %6
   %.09 = phi ptr [ %7, %6 ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.09, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %6, label %5
@@ -208,7 +208,7 @@ define hidden void @tap_queue_init(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %3, %7
   %.09.i = phi ptr [ %8, %7 ], [ %2, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not8.i = icmp eq ptr %5, null
   br i1 %.not8.i, label %7, label %6
@@ -253,9 +253,9 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr [5000 x %struct._tap_packet_t], ptr @tap_packet_array, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
@@ -266,7 +266,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.038, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %.038, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4
   %.not30 = icmp eq i32 %17, 0
@@ -274,27 +274,27 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 
 18:                                               ; preds = %14, %11
   %19 = load i32, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %.038, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %23, label %51
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %.038, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.038, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, null
   br i1 %.not31, label %51, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.038, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %28 = load i32, ptr %27, align 8
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %29, label %51
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.038, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.038, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %.038, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.038, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq ptr %33, null
   br i1 %.not33, label %41, label %34
@@ -316,7 +316,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 41:                                               ; preds = %34, %39, %29
   %.025 = phi i32 [ %31, %34 ], [ %40, %39 ], [ %31, %29 ]
   %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr inbounds i8, ptr %.038, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.038, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
@@ -327,7 +327,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   ]
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.038, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.038, i64 12
   store i32 1, ptr %49, align 4
   br label %51
 
@@ -383,7 +383,7 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   br label %.loopexit
 
@@ -406,21 +406,21 @@ define void @reset_tap_listeners() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %6
   %.011 = phi ptr [ %.0, %6 ], [ %.09, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.011, i64 48
+  %1 = getelementptr inbounds nuw i8, ptr %.011, i64 48
   %2 = load ptr, ptr %1, align 8
   %.not8 = icmp eq ptr %2, null
   br i1 %.not8, label %6, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.011, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.011, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void %2(ptr noundef %5) #8
   br label %6
 
 6:                                                ; preds = %3, %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.011, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %.011, i64 12
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %.011, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   store i32 0, ptr %8, align 8
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
@@ -438,20 +438,20 @@ define void @draw_tap_listeners(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %11
   %.012 = phi ptr [ %.0, %11 ], [ %.010, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.012, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %.012, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, %0
   %or.cond.not = icmp eq i32 %4, 0
   br i1 %or.cond.not, label %11, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.012, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %.012, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.012, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void %7(ptr noundef %10) #8
   br label %11
@@ -475,7 +475,7 @@ define ptr @get_tap_names() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.09 = phi ptr [ %.0, %.lr.ph ], [ %.06, %0 ]
   %.058 = phi ptr [ %3, %.lr.ph ], [ null, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.09, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = tail call ptr @g_list_prepend(ptr noundef %.058, ptr noundef %2) #8
   %.0 = load ptr, ptr %.09, align 8
@@ -501,7 +501,7 @@ define i32 @find_tap_id(ptr nocapture noundef readonly %0) local_unnamed_addr #6
 .lr.ph:                                           ; preds = %1, %5
   %.0612 = phi ptr [ %.06, %5 ], [ %.069, %1 ]
   %.011 = phi i32 [ %6, %5 ], [ 1, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.0612, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.0612, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not8 = icmp eq i32 %4, 0
@@ -530,7 +530,7 @@ define noundef ptr @register_tap_listener(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph.i:                                         ; preds = %8, %14
   %.0612.i = phi ptr [ %.06.i, %14 ], [ %.069.i, %8 ]
   %.011.i = phi i32 [ %15, %14 ], [ 1, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.0612.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0612.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %.not8.i = icmp eq i32 %13, 0
@@ -553,11 +553,11 @@ find_tap_id.exit.thread:                          ; preds = %14, %8, %find_tap_i
 
 17:                                               ; preds = %find_tap_id.exit
   %18 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #10
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 %3, ptr %21, align 4
   %.not35 = icmp eq ptr %2, null
   br i1 %.not35, label %45, label %22
@@ -574,26 +574,26 @@ find_tap_id.exit.thread:                          ; preds = %14, %8, %find_tap_i
 26:                                               ; preds = %24
   %27 = call ptr @g_string_new(ptr noundef nonnull @.str.3) #8
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %27, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %30) #8
   call void @df_error_free(ptr noundef nonnull %10) #8
-  %31 = getelementptr inbounds i8, ptr %18, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %32 = load ptr, ptr %31, align 8
   %.not.i37 = icmp eq ptr %32, null
   br i1 %.not.i37, label %free_tap_listener.exit, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %18, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %35 = load ptr, ptr %34, align 8
   call void %32(ptr noundef %35) #8
   br label %free_tap_listener.exit
 
 free_tap_listener.exit:                           ; preds = %26, %33
-  %36 = getelementptr inbounds i8, ptr %18, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %37 = load ptr, ptr %36, align 8
   call void @dfilter_free(ptr noundef %37) #8
-  %38 = getelementptr inbounds i8, ptr %18, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %39 = load ptr, ptr %38, align 8
   call void @g_free(ptr noundef %39) #8
   call void @g_free(ptr noundef nonnull %18) #8
@@ -601,25 +601,25 @@ free_tap_listener.exit:                           ; preds = %26, %33
 
 40:                                               ; preds = %24
   %41 = call noalias ptr @g_strdup(ptr noundef nonnull %2) #8
-  %42 = getelementptr inbounds i8, ptr %18, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %18, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %43, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %40, %22, %17
-  %46 = getelementptr inbounds i8, ptr %18, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.011.i, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %18, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %4, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %18, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %5, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %18, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %6, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %18, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %7, ptr %51, align 8
   %52 = load ptr, ptr @tap_listener_queue, align 8
   store ptr %52, ptr %18, align 8
@@ -652,7 +652,7 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone %0, ptr noundef %1) loc
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %.loopexit36, label %.preheader
@@ -664,14 +664,14 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone %0, ptr noundef %1) loc
   br i1 %.not29, label %.loopexit, label %11
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %.loopexit36, label %.preheader, !llvm.loop !16
 
 .loopexit36:                                      ; preds = %11, %6
   %.023.ph = phi ptr [ %5, %6 ], [ %10, %11 ]
-  %15 = getelementptr inbounds i8, ptr %.023.ph, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.023.ph, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not31 = icmp eq ptr %16, null
   br i1 %.not31, label %18, label %17
@@ -682,9 +682,9 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone %0, ptr noundef %1) loc
   br label %18
 
 18:                                               ; preds = %17, %.loopexit36
-  %19 = getelementptr inbounds i8, ptr %.023.ph, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.023.ph, i64 12
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %.023.ph, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.023.ph, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @g_free(ptr noundef %21) #8
   %.not32 = icmp eq ptr %1, null
@@ -698,7 +698,7 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone %0, ptr noundef %1) loc
   store ptr null, ptr %20, align 8
   %25 = call ptr @g_string_new(ptr noundef nonnull @.str.3) #8
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %25, ptr noundef nonnull @.str.5, ptr noundef nonnull %1, ptr noundef %28) #8
   call void @df_error_free(ptr noundef nonnull %4) #8
@@ -729,7 +729,7 @@ define void @tap_listeners_dfilter_recompile() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %13
   %.015 = phi ptr [ %.0, %13 ], [ %.013, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.015, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %.015, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %5, label %4
@@ -740,10 +740,10 @@ define void @tap_listeners_dfilter_recompile() local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.015, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %.015, i64 12
   store i32 1, ptr %6, align 4
   store ptr null, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %.015, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %13, label %9
@@ -774,7 +774,7 @@ define void @remove_tap_listener(ptr noundef readnone %0) local_unnamed_addr #0 
   br i1 %.not, label %23, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.loopexit, label %.preheader
@@ -786,7 +786,7 @@ define void @remove_tap_listener(ptr noundef readnone %0) local_unnamed_addr #0 
   br i1 %.not14, label %12, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !18
@@ -800,22 +800,22 @@ define void @remove_tap_listener(ptr noundef readnone %0) local_unnamed_addr #0 
   %.0.lcssa23.sink = phi ptr [ @tap_listener_queue, %3 ], [ %.0, %8 ]
   %13 = load ptr, ptr %.lcssa22.sink, align 8
   store ptr %13, ptr %.0.lcssa23.sink, align 8
-  %14 = getelementptr inbounds i8, ptr %.lcssa22.sink, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %free_tap_listener.exit, label %16
 
 16:                                               ; preds = %.loopexit
-  %17 = getelementptr inbounds i8, ptr %.lcssa22.sink, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void %15(ptr noundef %18) #8
   br label %free_tap_listener.exit
 
 free_tap_listener.exit:                           ; preds = %.loopexit, %16
-  %19 = getelementptr inbounds i8, ptr %.lcssa22.sink, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @dfilter_free(ptr noundef %20) #8
-  %21 = getelementptr inbounds i8, ptr %.lcssa22.sink, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22) #8
   tail call void @g_free(ptr noundef nonnull %.lcssa22.sink) #8
@@ -836,7 +836,7 @@ define range(i32 0, 2) i32 @tap_listeners_require_dissection() local_unnamed_add
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %.0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
   %.not4 = icmp eq i32 %5, 0
@@ -858,14 +858,14 @@ define range(i32 0, 2) i32 @tap_listeners_require_columns() local_unnamed_addr #
   br i1 %.not, label %10, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %.0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2
   %.not5 = icmp eq i32 %5, 0
   br i1 %.not5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 @dfilter_requires_columns(ptr noundef %8) #8
   br i1 %9, label %10, label %1, !llvm.loop !20
@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @have_tap_listener(i32 noundef %0) local_unnamed_addr
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2, !llvm.loop !21
@@ -909,7 +909,7 @@ define range(i32 0, 2) i32 @have_filtering_tap_listeners() local_unnamed_addr #7
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %.0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %1, label %5, !llvm.loop !22
@@ -927,7 +927,7 @@ define void @tap_listeners_load_field_references(ptr noundef %0) local_unnamed_a
 
 .lr.ph:                                           ; preds = %1, %5
   %.09 = phi ptr [ %.0, %5 ], [ %.07, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.09, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %5, label %4
@@ -956,7 +956,7 @@ define i32 @union_of_tap_listener_flags() local_unnamed_addr #7 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.048 = phi ptr [ %.04, %.lr.ph ], [ %.045, %0 ]
   %.07 = phi i32 [ %3, %.lr.ph ], [ 0, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.048, i64 20
+  %1 = getelementptr inbounds nuw i8, ptr %.048, i64 20
   %2 = load i32, ptr %1, align 4
   %3 = or i32 %2, %.07
   %.04 = load ptr, ptr %.048, align 8
@@ -978,22 +978,22 @@ define hidden void @tap_cleanup() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %free_tap_listener.exit
   %.0912 = phi ptr [ %3, %free_tap_listener.exit ], [ %1, %0 ]
   %3 = load ptr, ptr %.0912, align 8
-  %4 = getelementptr inbounds i8, ptr %.0912, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %.0912, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %free_tap_listener.exit, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.0912, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.0912, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %5(ptr noundef %8) #8
   br label %free_tap_listener.exit
 
 free_tap_listener.exit:                           ; preds = %.lr.ph, %6
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @dfilter_free(ptr noundef %10) #8
-  %11 = getelementptr inbounds i8, ptr %.0912, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.0912, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #8
   tail call void @g_free(ptr noundef nonnull %.0912) #8
@@ -1008,7 +1008,7 @@ free_tap_listener.exit:                           ; preds = %.lr.ph, %6
 .lr.ph16:                                         ; preds = %._crit_edge, %.lr.ph16
   %.014 = phi ptr [ %13, %.lr.ph16 ], [ %2, %._crit_edge ]
   %13 = load ptr, ptr %.014, align 8
-  %14 = getelementptr inbounds i8, ptr %.014, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #8
   tail call void @g_free(ptr noundef nonnull %.014) #8

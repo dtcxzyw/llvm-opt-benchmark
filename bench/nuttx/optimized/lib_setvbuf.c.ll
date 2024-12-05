@@ -20,7 +20,7 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
   br i1 %or.cond9, label %9, label %13
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
@@ -35,15 +35,15 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
   %.055 = phi ptr [ %1, %9 ], [ %spec.select, %13 ]
   %.053 = phi i64 [ 64, %9 ], [ %spec.select61, %13 ]
   tail call void @flockfile(ptr noundef %0)
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %17, %19
   br i1 %.not, label %20, label %45
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 194
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %22 = load i8, ptr %21, align 2
   %23 = and i8 %22, -13
   switch i32 %2, label %36 [
@@ -94,10 +94,10 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
 40:                                               ; preds = %39, %36
   store ptr %.052, ptr %18, align 8
   store ptr %.052, ptr %16, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %.052, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %.052, i64 %.053
-  %43 = getelementptr inbounds i8, ptr %0, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %42, ptr %43, align 8
   br label %44
 

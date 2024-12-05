@@ -743,7 +743,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %373
   %indvars.iv673 = phi i64 [ 1, %.lr.ph601.preheader ], [ %indvars.iv.next674, %373 ]
-  %366 = getelementptr inbounds double, ptr %27, i64 %indvars.iv673
+  %366 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv673
   %367 = load double, ptr %366, align 8
   %368 = call noundef double @llvm.fabs.f64(double %367)
   %369 = fcmp ogt double %368, 0x10000000000000
@@ -798,7 +798,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv680 = phi i64 [ %indvars.iv678, %.lr.ph607.preheader ], [ %indvars.iv.next681, %.lr.ph607 ]
   %.0456604 = phi i32 [ %383, %.lr.ph607.preheader ], [ %.1457, %.lr.ph607 ]
   %.2467603 = phi double [ %380, %.lr.ph607.preheader ], [ %.3468, %.lr.ph607 ]
-  %385 = getelementptr inbounds double, ptr %26, i64 %indvars.iv680
+  %385 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv680
   %386 = load double, ptr %385, align 8
   %387 = fcmp olt double %386, %.2467603
   %.3468 = select i1 %387, double %386, double %.2467603

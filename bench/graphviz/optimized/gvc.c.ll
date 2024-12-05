@@ -54,36 +54,36 @@ define range(i32 -1, 1) i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 81
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   %. = select i1 %20, i64 40, i64 32
   %.77 = select i1 %20, i64 32, i64 40
   %.78 = select i1 %20, i64 56, i64 48
   %.79 = select i1 %20, i64 48, i64 56
-  %21 = getelementptr inbounds i8, ptr %15, i64 %.
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %.
   %22 = load double, ptr %21, align 8
   %23 = fcmp ult double %22, 0.000000e+00
   %.in.v = select i1 %23, double -5.000000e-01, double 5.000000e-01
   %.in = fadd double %22, %.in.v
   %24 = fptosi double %.in to i32
-  %25 = getelementptr inbounds i8, ptr %15, i64 %.77
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.77
   %26 = load double, ptr %25, align 8
   %27 = fcmp ult double %26, 0.000000e+00
   %.in49.v = select i1 %27, double -5.000000e-01, double 5.000000e-01
   %.in49 = fadd double %26, %.in49.v
   %28 = fptosi double %.in49 to i32
-  %29 = getelementptr inbounds i8, ptr %15, i64 %.78
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 %.78
   %30 = load double, ptr %29, align 8
   %31 = fcmp ult double %30, 0.000000e+00
   %.in50.v = select i1 %31, double -5.000000e-01, double 5.000000e-01
   %.in50 = fadd double %30, %.in50.v
   %32 = fptosi double %.in50 to i32
-  %33 = getelementptr inbounds i8, ptr %15, i64 %.79
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 %.79
   %34 = load double, ptr %33, align 8
   %35 = fcmp ult double %34, 0.000000e+00
   %.in51.v = select i1 %35, double -5.000000e-01, double 5.000000e-01
@@ -114,7 +114,7 @@ declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %11, label %8
 
@@ -124,25 +124,25 @@ define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %36
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @gvrender_select(ptr noundef %7, ptr noundef %13) #8
-  %15 = getelementptr inbounds i8, ptr %7, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 %14, ptr %15, align 8
   %16 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 0, i32 noundef 1) #8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not22 = icmp eq ptr %21, null
   br i1 %.not22, label %22, label %27
 
 22:                                               ; preds = %17, %11
-  %23 = getelementptr inbounds i8, ptr %7, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 67108864
   %.not23 = icmp eq i32 %25, 0
@@ -153,13 +153,13 @@ define i32 @gvRender(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %36
 
 27:                                               ; preds = %22, %17
-  %28 = getelementptr inbounds i8, ptr %7, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %3, ptr %28, align 8
   %29 = icmp eq ptr %3, null
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %7, i64 272
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %32 = load i32, ptr %31, align 8
   %33 = or i32 %32, 134217728
   store i32 %33, ptr %31, align 8
@@ -193,7 +193,7 @@ declare void @gvjobs_delete(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @gvRenderFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %11, label %8
 
@@ -203,25 +203,25 @@ define i32 @gvRenderFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %29
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @gvrender_select(ptr noundef %7, ptr noundef %13) #8
-  %15 = getelementptr inbounds i8, ptr %7, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 %14, ptr %15, align 8
   %16 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 0, i32 noundef 1) #8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not21 = icmp eq ptr %21, null
   br i1 %.not21, label %22, label %27
 
 22:                                               ; preds = %17, %11
-  %23 = getelementptr inbounds i8, ptr %7, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 67108864
   %.not22 = icmp eq i32 %25, 0
@@ -251,7 +251,7 @@ declare void @gvdevice_finalize(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %11, label %8
 
@@ -261,25 +261,25 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %31
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @gvrender_select(ptr noundef %7, ptr noundef %13) #8
-  %15 = getelementptr inbounds i8, ptr %7, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 %14, ptr %15, align 8
   %16 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 0, i32 noundef 1) #8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not22 = icmp eq ptr %21, null
   br i1 %.not22, label %22, label %27
 
 22:                                               ; preds = %17, %11
-  %23 = getelementptr inbounds i8, ptr %7, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 67108864
   %.not23 = icmp eq i32 %25, 0
@@ -290,9 +290,9 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %31
 
 27:                                               ; preds = %22, %17
-  %28 = getelementptr inbounds i8, ptr %7, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store ptr %3, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store i8 1, ptr %29, align 8
   %30 = tail call i32 @gvRenderJobs(ptr noundef nonnull %0, ptr noundef %1) #8
   tail call void @gvrender_end_job(ptr noundef nonnull %7) #8
@@ -308,7 +308,7 @@ define i32 @gvRenderContext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %2) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %12, label %9
 
@@ -318,25 +318,25 @@ define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %43
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @gvrender_select(ptr noundef %8, ptr noundef %14) #8
-  %16 = getelementptr inbounds i8, ptr %8, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 %15, ptr %16, align 8
   %17 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 0, i32 noundef 1) #8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %23, label %28
 
 23:                                               ; preds = %18, %12
-  %24 = getelementptr inbounds i8, ptr %8, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 67108864
   %.not32 = icmp eq i32 %26, 0
@@ -361,11 +361,11 @@ define i32 @gvRenderData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %43
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %8, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %30, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 4096, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 92
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 92
   store i32 0, ptr %36, align 4
   %37 = tail call i32 @gvRenderJobs(ptr noundef nonnull %0, ptr noundef %1) #8
   tail call void @gvrender_end_job(ptr noundef nonnull %8) #8
@@ -417,7 +417,7 @@ define ptr @gvcInfo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @gvcVersion(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -425,7 +425,7 @@ define ptr @gvcVersion(ptr nocapture noundef readonly %0) local_unnamed_addr #7 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @gvcBuildDate(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

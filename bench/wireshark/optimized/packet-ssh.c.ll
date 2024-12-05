@@ -884,7 +884,7 @@ define internal i32 @ssh_hash(ptr noundef readonly %0) #2 {
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 4
   br i1 %6, label %.lr.ph.preheader, label %.loopexit
@@ -917,9 +917,9 @@ define internal range(i32 0, 2) i32 @ssh_equal(ptr noundef readonly %0, ptr noun
   br i1 %or.cond, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %11, label %15
@@ -963,7 +963,7 @@ define internal void @ssh_free_glib_allocated_entry(ptr noundef %0) #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %4) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %ssh_free_glib_allocated_bignum.exit, label %8
@@ -999,8 +999,8 @@ define internal void @ssh_secrets_block_callback(ptr noundef %0, i32 noundef %1)
   %8 = ptrtoint ptr %4 to i64
   br label %9
 
-9:                                                ; preds = %22, %.lr.ph.i
-  %.030.i = phi ptr [ %0, %.lr.ph.i ], [ %15, %22 ]
+9:                                                ; preds = %23, %.lr.ph.i
+  %.030.i = phi ptr [ %0, %.lr.ph.i ], [ %15, %23 ]
   %10 = ptrtoint ptr %.030.i to i64
   %11 = sub i64 %8, %10
   %12 = tail call ptr @memchr(ptr noundef nonnull %.030.i, i32 noundef 10, i64 noundef %11) #22
@@ -1011,29 +1011,30 @@ define internal void @ssh_secrets_block_callback(ptr noundef %0, i32 noundef %1)
   %.025.i = select i1 %.not.i, i64 %11, i64 %14
   %.1.i = select i1 %.not.i, ptr null, ptr %15
   %16 = icmp sgt i64 %.025.i, 0
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %9
-  %18 = add nsw i64 %.025.i, -1
-  %19 = getelementptr i8, ptr %.030.i, i64 %18
+  %18 = getelementptr i8, ptr %.030.i, i64 %.025.i
+  %19 = getelementptr i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 13
-  %spec.select.i = select i1 %21, i64 %18, i64 %.025.i
-  br label %22
+  %22 = sext i1 %21 to i64
+  %spec.select.i = add nsw i64 %.025.i, %22
+  br label %23
 
-22:                                               ; preds = %17, %9
+23:                                               ; preds = %17, %9
   %.126.i = phi i64 [ %.025.i, %9 ], [ %spec.select.i, %17 ]
-  %23 = trunc i64 %.126.i to i32
-  tail call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.398, i32 noundef %23, ptr noundef nonnull %.030.i)
-  %24 = tail call noalias ptr @g_strndup(ptr noundef nonnull %.030.i, i64 noundef %.126.i) #21
-  tail call fastcc void @ssh_keylog_process_line(ptr noundef %24)
-  tail call void @g_free(ptr noundef %24) #21
-  %25 = icmp ne ptr %.1.i, null
-  %26 = icmp ult ptr %.1.i, %4
-  %27 = and i1 %25, %26
-  br i1 %27, label %9, label %ssh_keylog_process_lines.exit, !llvm.loop !6
+  %24 = trunc i64 %.126.i to i32
+  tail call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.398, i32 noundef %24, ptr noundef nonnull %.030.i)
+  %25 = tail call noalias ptr @g_strndup(ptr noundef nonnull %.030.i, i64 noundef %.126.i) #21
+  tail call fastcc void @ssh_keylog_process_line(ptr noundef %25)
+  tail call void @g_free(ptr noundef %25) #21
+  %26 = icmp ne ptr %.1.i, null
+  %27 = icmp ult ptr %.1.i, %4
+  %28 = and i1 %26, %27
+  br i1 %28, label %9, label %ssh_keylog_process_lines.exit, !llvm.loop !6
 
-ssh_keylog_process_lines.exit:                    ; preds = %22, %2
+ssh_keylog_process_lines.exit:                    ; preds = %23, %2
   ret void
 }
 
@@ -1043,17 +1044,17 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 292
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %8, %10
   %12 = zext i1 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 50
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 50
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8
   %.not = icmp eq i16 %19, 0
@@ -1069,19 +1070,19 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %25 = tail call ptr @wmem_file_scope() #21
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 832) #21
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr @ssh_dissect_kex_dh, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 80
   store i32 -1, ptr %28, align 8
   %29 = getelementptr i8, ptr %26, i64 368
   store i32 -1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 168
   %31 = getelementptr i8, ptr %26, i64 456
-  %32 = getelementptr inbounds i8, ptr %26, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 216
   store ptr null, ptr %32, align 8
   %33 = getelementptr i8, ptr %26, i64 504
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 304
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %30, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %31, i8 0, i64 44, i1 false)
   store ptr %26, ptr %34, align 8
@@ -1089,43 +1090,43 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %26, ptr %35, align 8
   %36 = tail call ptr @wmem_file_scope() #21
   %37 = tail call noalias ptr @wmem_array_new(ptr noundef %36, i64 noundef 1) #21
-  %38 = getelementptr inbounds i8, ptr %26, i64 656
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 656
   store ptr %37, ptr %38, align 8
   %39 = tail call ptr @wmem_file_scope() #21
   %40 = tail call noalias ptr @wmem_array_new(ptr noundef %39, i64 noundef 1) #21
-  %41 = getelementptr inbounds i8, ptr %26, i64 664
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 664
   store ptr %40, ptr %41, align 8
   %42 = tail call ptr @wmem_file_scope() #21
   %43 = tail call noalias ptr @wmem_array_new(ptr noundef %42, i64 noundef 1) #21
-  %44 = getelementptr inbounds i8, ptr %26, i64 672
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 672
   store ptr %43, ptr %44, align 8
   %45 = tail call ptr @wmem_file_scope() #21
   %46 = tail call noalias ptr @wmem_array_new(ptr noundef %45, i64 noundef 1) #21
-  %47 = getelementptr inbounds i8, ptr %26, i64 680
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 680
   store ptr %46, ptr %47, align 8
   %48 = tail call ptr @wmem_file_scope() #21
   %49 = tail call noalias ptr @wmem_array_new(ptr noundef %48, i64 noundef 1) #21
-  %50 = getelementptr inbounds i8, ptr %26, i64 688
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 688
   store ptr %49, ptr %50, align 8
   %51 = tail call ptr @wmem_file_scope() #21
   %52 = tail call noalias ptr @wmem_array_new(ptr noundef %51, i64 noundef 1) #21
-  %53 = getelementptr inbounds i8, ptr %26, i64 696
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 696
   store ptr %52, ptr %53, align 8
   %54 = tail call ptr @wmem_file_scope() #21
   %55 = tail call noalias ptr @wmem_array_new(ptr noundef %54, i64 noundef 1) #21
-  %56 = getelementptr inbounds i8, ptr %26, i64 704
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 704
   store ptr %55, ptr %56, align 8
   %57 = tail call ptr @wmem_file_scope() #21
   %58 = tail call noalias ptr @wmem_array_new(ptr noundef %57, i64 noundef 1) #21
-  %59 = getelementptr inbounds i8, ptr %26, i64 712
+  %59 = getelementptr inbounds nuw i8, ptr %26, i64 712
   store ptr %58, ptr %59, align 8
   %60 = tail call ptr @wmem_file_scope() #21
   %61 = tail call noalias ptr @wmem_array_new(ptr noundef %60, i64 noundef 1) #21
-  %62 = getelementptr inbounds i8, ptr %26, i64 720
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 720
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %26, i64 728
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 728
   store i32 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %26, i64 732
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 732
   store i32 0, ptr %64, align 4
   %65 = load i32, ptr @proto_ssh, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %21, i32 noundef %65, ptr noundef %26) #21
@@ -1133,7 +1134,7 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 66:                                               ; preds = %24, %4
   %.0120 = phi ptr [ %23, %4 ], [ %26, %24 ]
-  %67 = getelementptr inbounds i8, ptr %.0120, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.0120, i64 24
   %68 = zext i1 %11 to i64
   %69 = getelementptr [2 x %struct.ssh_peer_data], ptr %67, i64 0, i64 %68
   %70 = load i32, ptr @proto_ssh, align 4
@@ -1146,30 +1147,30 @@ define internal i32 @dissect_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %66
   %76 = zext nneg i32 %74 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_ssh, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_ssh, i64 0, i64 %76
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   tail call void @col_set_str(ptr noundef %78, i32 noundef 34, ptr noundef nonnull %switch.load) #21
   br label %79
 
 79:                                               ; preds = %66, %switch.lookup
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @col_clear(ptr noundef %81, i32 noundef 25) #21
-  %82 = getelementptr inbounds i8, ptr %69, i64 4
-  %83 = getelementptr inbounds i8, ptr %69, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.not.i130 = icmp eq ptr %73, null
-  %84 = getelementptr inbounds i8, ptr %69, i64 80
-  %85 = getelementptr inbounds i8, ptr %69, i64 48
-  %86 = getelementptr inbounds i8, ptr %69, i64 104
-  %87 = getelementptr inbounds i8, ptr %69, i64 12
-  %88 = getelementptr inbounds i8, ptr %69, i64 16
-  %89 = getelementptr inbounds i8, ptr %69, i64 20
-  %90 = getelementptr inbounds i8, ptr %1, i64 328
-  %91 = getelementptr inbounds i8, ptr %.0120, i64 8
-  %92 = getelementptr inbounds i8, ptr %69, i64 184
-  %93 = getelementptr inbounds i8, ptr %69, i64 144
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %69, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %69, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %91 = getelementptr inbounds nuw i8, ptr %.0120, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %69, i64 184
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 144
   %94 = select i1 %11, ptr @.str.510, ptr @.str.414
   %95 = getelementptr i8, ptr %.0120, i64 312
   %96 = getelementptr i8, ptr %.0120, i64 752
@@ -1178,32 +1179,32 @@ switch.lookup:                                    ; preds = %66
   %99 = getelementptr i8, ptr %.0120, i64 816
   %100 = getelementptr i8, ptr %.0120, i64 524
   %101 = getelementptr i8, ptr %.0120, i64 572
-  %102 = getelementptr inbounds i8, ptr %.0120, i64 736
+  %102 = getelementptr inbounds nuw i8, ptr %.0120, i64 736
   %103 = getelementptr i8, ptr %.0120, i64 768
-  %104 = getelementptr inbounds i8, ptr %.0120, i64 144
+  %104 = getelementptr inbounds nuw i8, ptr %.0120, i64 144
   %105 = getelementptr i8, ptr %.0120, i64 800
-  %106 = getelementptr inbounds i8, ptr %.0120, i64 236
-  %107 = getelementptr inbounds i8, ptr %.0120, i64 284
-  %108 = getelementptr inbounds i8, ptr %69, i64 192
-  %109 = getelementptr inbounds i8, ptr %69, i64 24
-  %110 = getelementptr inbounds i8, ptr %69, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %.0120, i64 236
+  %107 = getelementptr inbounds nuw i8, ptr %.0120, i64 284
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 192
+  %109 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %111 = getelementptr i8, ptr %69, i64 72
   %.not.i130.i.i.i = icmp eq ptr %111, null
-  %112 = getelementptr inbounds i8, ptr %69, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %113 = getelementptr i8, ptr %69, i64 40
   %.not.i132.i.i.i = icmp eq ptr %113, null
-  %114 = getelementptr inbounds i8, ptr %69, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %69, i64 88
   %115 = getelementptr i8, ptr %69, i64 96
   %.not.i135.i.i.i = icmp eq ptr %115, null
-  %116 = getelementptr inbounds i8, ptr %.0120, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %.0120, i64 48
   %117 = getelementptr i8, ptr %.0120, i64 336
-  %118 = getelementptr inbounds i8, ptr %.0120, i64 16
-  %119 = getelementptr inbounds i8, ptr %.0120, i64 680
-  %120 = getelementptr inbounds i8, ptr %.0120, i64 672
-  %121 = getelementptr inbounds i8, ptr %69, i64 148
-  %122 = getelementptr inbounds i8, ptr %1, i64 408
-  %123 = getelementptr inbounds i8, ptr %.0120, i64 656
-  %124 = getelementptr inbounds i8, ptr %.0120, i64 664
+  %118 = getelementptr inbounds nuw i8, ptr %.0120, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.0120, i64 680
+  %120 = getelementptr inbounds nuw i8, ptr %.0120, i64 672
+  %121 = getelementptr inbounds nuw i8, ptr %69, i64 148
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %123 = getelementptr inbounds nuw i8, ptr %.0120, i64 656
+  %124 = getelementptr inbounds nuw i8, ptr %.0120, i64 664
   br label %125
 
 125:                                              ; preds = %.loopexit, %79
@@ -1335,7 +1336,7 @@ switch.lookup:                                    ; preds = %66
   %188 = call ptr @tvb_format_text(ptr noundef %187, ptr noundef %0, i32 noundef range(i32 0, -2147483648) %.0119, i32 noundef %.069.i) #21
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %186, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.498, ptr noundef %188) #21
   %189 = load ptr, ptr %15, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 50
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 50
   %191 = load i16, ptr %190, align 2
   %192 = and i16 %191, 8
   %.not76.i = icmp eq i16 %192, 0
@@ -1390,10 +1391,10 @@ ssh_hash_buffer_put_string.exit.i:                ; preds = %ssh_hash_buffer_put
   br label %223
 
 ssh_dissect_protocol.exit:                        ; preds = %172
-  %220 = getelementptr inbounds i8, ptr %1, i64 332
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0119, ptr %220, align 4
   %221 = sub i32 %168, %167
-  %222 = getelementptr inbounds i8, ptr %1, i64 336
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %221, ptr %222, align 8
   br label %ssh_dissect_ssh1.exit
 
@@ -1432,9 +1433,9 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %or.cond5.i, label %237, label %240
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %1, i64 332
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0119, ptr %238, align 4
-  %239 = getelementptr inbounds i8, ptr %1, i64 336
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %239, align 8
   br label %ssh_dissect_ssh1.exit
 
@@ -1459,11 +1460,11 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %250, label %251, label %256
 
 251:                                              ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %1, i64 332
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0119, ptr %252, align 4
   %253 = sub i32 %241, %231
   %254 = add i32 %253, %243
-  %255 = getelementptr inbounds i8, ptr %1, i64 336
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %254, ptr %255, align 8
   br label %ssh_dissect_ssh1.exit
 
@@ -1527,7 +1528,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   %289 = add nuw i32 %275, 1
   %290 = add i32 %.090.i, -1
   %291 = load ptr, ptr %15, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 50
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 50
   %293 = load i16, ptr %292, align 2
   %294 = and i16 %293, 8
   %.not103.i = icmp eq i16 %294, 0
@@ -1689,7 +1690,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %or.cond3.i.i, label %361, label %363
 
 361:                                              ; preds = %357
-  %362 = getelementptr inbounds i8, ptr %1, i64 332
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.095.i, ptr %362, align 4
   br label %ssh_dissect_key_exchange.exit.thread.i
 
@@ -1708,7 +1709,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %or.cond.i134, label %370, label %373
 
 370:                                              ; preds = %366
-  %371 = getelementptr inbounds i8, ptr %1, i64 332
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.095.i, ptr %371, align 4
   %372 = sub nuw i32 %368, %355
   br label %ssh_dissect_key_exchange.exit.thread.i
@@ -1775,7 +1776,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   %409 = load i32, ptr @ett_key_init, align 4
   %410 = call ptr @proto_tree_add_subtree(ptr noundef %395, ptr noundef %0, i32 noundef %405, i32 noundef -1, i32 noundef %409, ptr noundef nonnull %5, ptr noundef nonnull @.str.571) #21
   %411 = load ptr, ptr %15, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 50
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 50
   %413 = load i16, ptr %412, align 2
   %414 = and i16 %413, 8
   %.not.i.i.i = icmp eq i16 %414, 0
@@ -1796,7 +1797,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br label %ssh_kex_make_bignum.exit.i.i.i
 
 ssh_kex_make_bignum.exit.i.i.i:                   ; preds = %421, %415
-  %422 = getelementptr inbounds i8, ptr %418, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %418, i64 8
   store i32 16, ptr %422, align 8
   store ptr %418, ptr %108, align 8
   br label %423
@@ -1940,13 +1941,13 @@ ssh_dissect_proposal.exit136.i.i.i:               ; preds = %496, %ssh_dissect_p
   br i1 %.not.i137.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %533
 
 533:                                              ; preds = %523
-  %534 = getelementptr inbounds i8, ptr %532, i64 32
+  %534 = getelementptr inbounds nuw i8, ptr %532, i64 32
   %535 = load ptr, ptr %534, align 8
   %.not5.i.i.i.i = icmp eq ptr %535, null
   br i1 %.not5.i.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %536
 
 536:                                              ; preds = %533
-  %537 = getelementptr inbounds i8, ptr %535, i64 28
+  %537 = getelementptr inbounds nuw i8, ptr %535, i64 28
   %538 = load i32, ptr %537, align 4
   %539 = or i32 %538, 2
   store i32 %539, ptr %537, align 4
@@ -1959,7 +1960,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %536, %533, %523
   br i1 %.not.i138.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %542
 
 542:                                              ; preds = %proto_item_set_generated.exit.i.i.i
-  %543 = getelementptr inbounds i8, ptr %541, i64 32
+  %543 = getelementptr inbounds nuw i8, ptr %541, i64 32
   %544 = load ptr, ptr %543, align 8
   %.not5.i139.i.i.i = icmp eq ptr %544, null
   br i1 %.not5.i139.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
@@ -1979,13 +1980,13 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %536, %533, %523
   br i1 %.not.i141.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %555
 
 555:                                              ; preds = %545
-  %556 = getelementptr inbounds i8, ptr %554, i64 32
+  %556 = getelementptr inbounds nuw i8, ptr %554, i64 32
   %557 = load ptr, ptr %556, align 8
   %.not5.i142.i.i.i = icmp eq ptr %557, null
   br i1 %.not5.i142.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %558
 
 558:                                              ; preds = %555
-  %559 = getelementptr inbounds i8, ptr %557, i64 28
+  %559 = getelementptr inbounds nuw i8, ptr %557, i64 28
   %560 = load i32, ptr %559, align 4
   %561 = or i32 %560, 2
   store i32 %561, ptr %559, align 4
@@ -1998,7 +1999,7 @@ proto_item_set_generated.exit143.i.i.i:           ; preds = %558, %555, %545
   br i1 %.not.i144.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %564
 
 564:                                              ; preds = %proto_item_set_generated.exit143.i.i.i
-  %565 = getelementptr inbounds i8, ptr %563, i64 32
+  %565 = getelementptr inbounds nuw i8, ptr %563, i64 32
   %566 = load ptr, ptr %565, align 8
   %.not5.i145.i.i.i = icmp eq ptr %566, null
   br i1 %.not5.i145.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
@@ -2006,7 +2007,7 @@ proto_item_set_generated.exit143.i.i.i:           ; preds = %558, %555, %545
 proto_item_set_generated.exit140.sink.split.i.i.i: ; preds = %564, %542
   %.sink178.i.i.i = phi ptr [ %544, %542 ], [ %566, %564 ]
   %.sink.ph.i.i.i = phi ptr [ %529, %542 ], [ %551, %564 ]
-  %567 = getelementptr inbounds i8, ptr %.sink178.i.i.i, i64 28
+  %567 = getelementptr inbounds nuw i8, ptr %.sink178.i.i.i, i64 28
   %568 = load i32, ptr %567, align 4
   %569 = or i32 %568, 2
   store i32 %569, ptr %567, align 4
@@ -2107,7 +2108,7 @@ ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i
 
 612:                                              ; preds = %611, %ssh_set_kex_specific_dissector.exit.i.i.i
   %613 = load ptr, ptr %15, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 50
+  %614 = getelementptr inbounds nuw i8, ptr %613, i64 50
   %615 = load i16, ptr %614, align 2
   %616 = and i16 %615, 8
   %.not127.i.i.i = icmp eq i16 %616, 0
@@ -2173,7 +2174,7 @@ ssh_dissect_key_init.exit.i.i:                    ; preds = %ssh_hash_buffer_put
 
 650:                                              ; preds = %647, %ssh_dissect_key_init.exit.i.i
   %651 = load ptr, ptr %15, align 8
-  %652 = getelementptr inbounds i8, ptr %651, i64 50
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 50
   %653 = load i16, ptr %652, align 2
   %654 = and i16 %653, 8
   %.not163.i.i = icmp eq i16 %654, 0
@@ -2311,13 +2312,13 @@ ssh_decryption_setup_mac.exit.i.i:                ; preds = %ssh_decryption_setu
   br i1 %.not.i167.i.i, label %716, label %708
 
 708:                                              ; preds = %700
-  %709 = getelementptr inbounds i8, ptr %707, i64 32
+  %709 = getelementptr inbounds nuw i8, ptr %707, i64 32
   %710 = load ptr, ptr %709, align 8
   %.not5.i.i.i = icmp eq ptr %710, null
   br i1 %.not5.i.i.i, label %716, label %711
 
 711:                                              ; preds = %708
-  %712 = getelementptr inbounds i8, ptr %710, i64 28
+  %712 = getelementptr inbounds nuw i8, ptr %710, i64 28
   %713 = load i32, ptr %712, align 4
   %714 = or i32 %713, 2
   store i32 %714, ptr %712, align 4
@@ -2325,7 +2326,7 @@ ssh_decryption_setup_mac.exit.i.i:                ; preds = %ssh_decryption_setu
 
 ssh_dissect_key_exchange.exit.thread.i:           ; preds = %370, %361
   %.sink112.i = phi i32 [ 268435455, %361 ], [ %372, %370 ]
-  %715 = getelementptr inbounds i8, ptr %1, i64 336
+  %715 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %.sink112.i, ptr %715, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %ssh_dissect_ssh1.exit
@@ -2333,7 +2334,7 @@ ssh_dissect_key_exchange.exit.thread.i:           ; preds = %370, %361
 716:                                              ; preds = %700, %708, %711
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %717 = load ptr, ptr %15, align 8
-  %718 = getelementptr inbounds i8, ptr %717, i64 50
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 50
   %719 = load i16, ptr %718, align 2
   %720 = and i16 %719, 8
   %.not.i85.i = icmp eq i16 %720, 0
@@ -2350,7 +2351,7 @@ ssh_dissect_key_exchange.exit.thread.i:           ; preds = %370, %361
   %726 = call ptr @wmem_file_scope() #21
   %727 = call noalias ptr @wmem_alloc0(ptr noundef %726, i64 noundef 16) #21
   store i32 %12, ptr %727, align 8
-  %728 = getelementptr inbounds i8, ptr %727, i64 8
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 8
   store ptr null, ptr %728, align 8
   %729 = call ptr @wmem_file_scope() #21
   %730 = load i32, ptr @proto_ssh, align 4
@@ -2393,13 +2394,13 @@ ssh_increment_message_number.exit.i:              ; preds = %731, %725, %721, %7
   br i1 %.not.i138, label %proto_item_set_generated.exit, label %743
 
 743:                                              ; preds = %.thread
-  %744 = getelementptr inbounds i8, ptr %742, i64 32
+  %744 = getelementptr inbounds nuw i8, ptr %742, i64 32
   %745 = load ptr, ptr %744, align 8
   %.not5.i = icmp eq ptr %745, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %746
 
 746:                                              ; preds = %743
-  %747 = getelementptr inbounds i8, ptr %745, i64 28
+  %747 = getelementptr inbounds nuw i8, ptr %745, i64 28
   %748 = load i32, ptr %747, align 4
   %749 = or i32 %748, 2
   store i32 %749, ptr %747, align 4
@@ -2456,7 +2457,7 @@ sub_0:                                            ; preds = %1
   br i1 %.not8, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp ne i8 %4, 0
   br label %.tail
@@ -2581,7 +2582,7 @@ define internal fastcc void @ssh_keylog_process_line(ptr noundef %0) unnamed_add
   %25 = and i64 %18, 4294967295
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef %25) #21
   store ptr %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %19, ptr %27, align 8
   br label %ssh_kex_make_bignum.exit
 
@@ -2600,7 +2601,7 @@ ssh_kex_make_bignum.exit:                         ; preds = %17, %21
   %35 = and i64 %28, 4294967295
   %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef %35) #21
   store ptr %36, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %29, ptr %37, align 8
   br label %ssh_kex_make_bignum.exit160
 
@@ -2757,18 +2758,18 @@ ssh_kex_make_bignum.exit160:                      ; preds = %ssh_kex_make_bignum
 
 ._crit_edge:                                      ; preds = %104, %.preheader
   %110 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #24
-  %111 = getelementptr inbounds i8, ptr %.0.i159, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i159, i64 8
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 %112, ptr %113, align 8
   %114 = load ptr, ptr %.0.i159, align 8
   %115 = zext i32 %112 to i64
   %116 = tail call ptr @g_memdup2(ptr noundef %114, i64 noundef %115) #25
   store ptr %116, ptr %110, align 8
   %117 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #24
-  %118 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %119 = load i32, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 %119, ptr %120, align 8
   %121 = load ptr, ptr %.0.i, align 8
   %122 = zext i32 %119 to i64
@@ -2779,7 +2780,7 @@ ssh_kex_make_bignum.exit160:                      ; preds = %ssh_kex_make_bignum
   %126 = tail call ptr @g_memdup2(ptr noundef %.0142, i64 noundef %125) #25
   %127 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #24
   store ptr %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %110, ptr %128, align 8
   %129 = load ptr, ptr @ssh_master_key_map, align 8
   %130 = tail call i32 @g_hash_table_insert(ptr noundef %129, ptr noundef nonnull %117, ptr noundef nonnull %127) #21
@@ -2827,7 +2828,7 @@ define internal noundef i32 @ssh_dissect_kex_dh(i8 noundef zeroext %0, ptr nound
   %8 = load i32, ptr @hf_ssh2_kex_dh_msg_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
   %10 = add i32 %3, 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i8 %0 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ssh2_kex_dh_msg_vals, ptr noundef nonnull @.str.411) #21
@@ -2850,16 +2851,16 @@ ssh_read_e.exit:                                  ; preds = %15
   %21 = zext nneg i32 %16 to i64
   %22 = tail call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef %21) #21
   store ptr %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %16, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 616
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr %19, ptr %24, align 8
   %25 = add i32 %3, 5
   %26 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %22, i32 noundef %25, i64 noundef %21) #21
   br label %31
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %5, i64 616
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr null, ptr %28, align 8
   %29 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #21
   %30 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @ei_ssh_invalid_keylen, ptr noundef %1, i32 noundef %10, i32 noundef 2, ptr noundef nonnull @.str.412, i32 noundef %29) #21
@@ -2874,13 +2875,13 @@ ssh_read_e.exit:                                  ; preds = %15
   %35 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %34, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef %33) #21
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %32, ptr noundef %1, i32 noundef %.pre-phi, i32 noundef %33, i32 noundef 0) #21
   %37 = add i32 %.pre-phi, %33
-  %38 = getelementptr inbounds i8, ptr %5, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.sink.split
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %5, i64 168
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -2905,16 +2906,16 @@ ssh_read_f.exit:                                  ; preds = %45
   %54 = zext nneg i32 %49 to i64
   %55 = tail call noalias ptr @wmem_alloc0(ptr noundef %53, i64 noundef %54) #21
   store ptr %55, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %49, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 624
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr %52, ptr %57, align 8
   %58 = add i32 %48, 4
   %59 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %55, i32 noundef %58, i64 noundef %54) #21
   br label %64
 
 60:                                               ; preds = %45
-  %61 = getelementptr inbounds i8, ptr %5, i64 624
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr null, ptr %61, align 8
   %62 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %48) #21
   %63 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @ei_ssh_invalid_keylen, ptr noundef %1, i32 noundef %48, i32 noundef 2, ptr noundef nonnull @.str.412, i32 noundef %62) #21
@@ -2989,15 +2990,15 @@ define internal fastcc noundef i32 @ssh_try_dissect_encrypted_packet(ptr noundef
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   %16 = alloca [16 x i8], align 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %ssh_get_message.exit.thread, label %19
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 50
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 50
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8
   %.not26 = icmp eq i16 %24, 0
@@ -3011,18 +3012,18 @@ define internal fastcc noundef i32 @ssh_try_dissect_encrypted_packet(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %26 = getelementptr inbounds i8, ptr %1, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 292
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %29 = load i32, ptr %28, align 4
   %30 = icmp ne i32 %27, %29
   %31 = zext i1 %30 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, i8 0, i64 48, i1 false)
-  %32 = getelementptr inbounds i8, ptr %2, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 116
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %37 = load i32, ptr %36, align 4
   switch i32 %37, label %ssh_decrypt_packet.exit [
     i32 316, label %38
@@ -3038,24 +3039,24 @@ define internal fastcc noundef i32 @ssh_try_dissect_encrypted_packet(ptr noundef
 
 38:                                               ; preds = %25
   %39 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %3, i32 noundef 4) #21
-  %40 = getelementptr inbounds i8, ptr %2, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %41 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %42 = lshr i32 %35, 24
   %43 = trunc nuw i32 %42 to i8
-  %44 = getelementptr inbounds i8, ptr %9, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %9, align 4
   store i8 %43, ptr %44, align 4
   %45 = lshr i32 %35, 16
   %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds i8, ptr %9, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 5
   store i8 %46, ptr %47, align 1
   %48 = lshr i32 %35, 8
   %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %9, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i8 %49, ptr %50, align 2
   %51 = trunc i32 %35 to i8
-  %52 = getelementptr inbounds i8, ptr %9, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 7
   store i8 %51, ptr %52, align 1
   %53 = call i32 @gcry_cipher_setiv(ptr noundef %41, ptr noundef nonnull %9, i64 noundef 8) #21
   %54 = icmp eq i32 %53, 0
@@ -3079,17 +3080,17 @@ ssh_decrypt_chacha20.exit.i:                      ; preds = %38
   %59 = load i8, ptr %11, align 4
   %60 = zext i8 %59 to i32
   %61 = shl nuw i32 %60, 24
-  %62 = getelementptr inbounds i8, ptr %11, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 16
   %66 = or disjoint i32 %65, %61
-  %67 = getelementptr inbounds i8, ptr %11, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %68 = load i8, ptr %67, align 2
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 8
   %71 = or disjoint i32 %66, %70
-  %72 = getelementptr inbounds i8, ptr %11, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
@@ -3104,7 +3105,7 @@ ssh_decrypt_chacha20.exit.i:                      ; preds = %38
   br label %ssh_decrypt_packet.exit
 
 80:                                               ; preds = %58
-  %81 = getelementptr inbounds i8, ptr %1, i64 408
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %82 = load ptr, ptr %81, align 8
   %83 = add nuw nsw i32 %75, 4
   %84 = zext nneg i32 %83 to i64
@@ -3116,7 +3117,7 @@ ssh_decrypt_chacha20.exit.i:                      ; preds = %38
   %89 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i64 1, ptr %8, align 16
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %trunc.i = zext i32 %35 to i64
   %rev.i = call i64 @llvm.bswap.i64(i64 %trunc.i)
   store i64 %rev.i, ptr %90, align 8
@@ -3145,15 +3146,15 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
   %100 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %99, i32 noundef %33) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   store i64 0, ptr %13, align 16
-  %101 = getelementptr inbounds i8, ptr %13, i64 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %101, align 8
   store i8 %43, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %13, i64 13
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 13
   store i8 %46, ptr %103, align 1
-  %104 = getelementptr inbounds i8, ptr %13, i64 14
+  %104 = getelementptr inbounds nuw i8, ptr %13, i64 14
   store i8 %49, ptr %104, align 2
-  %105 = getelementptr inbounds i8, ptr %13, i64 15
+  %105 = getelementptr inbounds nuw i8, ptr %13, i64 15
   store i8 %51, ptr %105, align 1
   %106 = load ptr, ptr %17, align 8
   %107 = zext i32 %33 to i64
@@ -3201,7 +3202,7 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
 132:                                              ; preds = %131, %129
   %133 = add i32 %3, 4
   %134 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %133, i32 noundef %124) #21
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %136 = load ptr, ptr %135, align 8
   %137 = add i32 %124, 4
   %138 = zext i32 %137 to i64
@@ -3221,7 +3222,7 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
   %149 = getelementptr i8, ptr %139, i64 3
   store i8 %148, ptr %149, align 1
   %150 = load ptr, ptr %17, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 200
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %152 = tail call i32 @gcry_cipher_setiv(ptr noundef %150, ptr noundef nonnull %151, i64 noundef 12) #21
   %.not203.i = icmp eq i32 %152, 0
   br i1 %.not203.i, label %.preheader.i, label %153
@@ -3306,17 +3307,17 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
   %191 = load i8, ptr %16, align 16
   %192 = zext i8 %191 to i32
   %193 = shl nuw i32 %192, 24
-  %194 = getelementptr inbounds i8, ptr %16, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 16
   %198 = or disjoint i32 %197, %193
-  %199 = getelementptr inbounds i8, ptr %16, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %200 = load i8, ptr %199, align 2
   %201 = zext i8 %200 to i32
   %202 = shl nuw nsw i32 %201, 8
   %203 = or disjoint i32 %198, %202
-  %204 = getelementptr inbounds i8, ptr %16, i64 3
+  %204 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   %207 = or disjoint i32 %203, %206
@@ -3339,7 +3340,7 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
   br label %215
 
 215:                                              ; preds = %214, %212
-  %216 = getelementptr inbounds i8, ptr %1, i64 408
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %217 = load ptr, ptr %216, align 8
   %218 = add nuw nsw i32 %207, 4
   %219 = zext nneg i32 %218 to i64
@@ -3377,13 +3378,13 @@ ssh_decrypt_chacha20.exit215.i:                   ; preds = %80
   call fastcc void @ssh_print_data(ptr noundef nonnull @.str.505, ptr noundef nonnull %220, i64 noundef %219)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  %237 = getelementptr inbounds i8, ptr %2, i64 120
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %238 = load i32, ptr %237, align 8
   %239 = icmp eq i32 %238, 131073
   %..i.i.i = select i1 %239, i32 8, i32 -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, i8 0, i64 48, i1 false)
-  %240 = getelementptr inbounds i8, ptr %2, i64 212
-  %241 = getelementptr inbounds i8, ptr %2, i64 260
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 212
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 260
   %242 = load i32, ptr %241, align 4
   %243 = call i32 @gcry_md_open(ptr noundef nonnull %6, i32 noundef range(i32 -1, 9) %..i.i.i, i32 noundef 2) #21
   %.not.i.i.i = icmp eq i32 %243, 0
@@ -3414,14 +3415,14 @@ ssh_hmac_init.exit.i.i:                           ; preds = %247
   store i8 %255, ptr %7, align 16
   %256 = lshr i32 %35, 16
   %257 = trunc i32 %256 to i8
-  %258 = getelementptr inbounds i8, ptr %7, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %257, ptr %258, align 1
   %259 = lshr i32 %35, 8
   %260 = trunc i32 %259 to i8
-  %261 = getelementptr inbounds i8, ptr %7, i64 2
+  %261 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %260, ptr %261, align 2
   %262 = trunc i32 %35 to i8
-  %263 = getelementptr inbounds i8, ptr %7, i64 3
+  %263 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %262, ptr %263, align 1
   %264 = load i32, ptr %241, align 4
   %265 = zext i32 %264 to i64
@@ -3493,7 +3494,7 @@ ssh_calc_mac.exit.i:                              ; preds = %ssh_hmac_final.exit
   %288 = call ptr @wmem_file_scope() #21
   %289 = call noalias ptr @wmem_alloc0(ptr noundef %288, i64 noundef 16) #21
   store i32 %31, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr null, ptr %290, align 8
   %291 = call ptr @wmem_file_scope() #21
   %292 = load i32, ptr @proto_ssh, align 4
@@ -3513,27 +3514,27 @@ ssh_calc_mac.exit.i:                              ; preds = %ssh_hmac_final.exit
   %300 = call ptr @wmem_file_scope() #21
   %301 = zext i32 %.0189.i to i64
   %302 = call noalias ptr @wmem_memdup(ptr noundef %300, ptr noundef nonnull %.0187.i, i64 noundef %301) #21
-  %303 = getelementptr inbounds i8, ptr %297, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %302, ptr %303, align 8
-  %304 = getelementptr inbounds i8, ptr %297, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %297, i64 16
   store i32 %.0189.i, ptr %304, align 8
-  %305 = getelementptr inbounds i8, ptr %297, i64 20
+  %305 = getelementptr inbounds nuw i8, ptr %297, i64 20
   store i32 %295, ptr %305, align 4
-  %306 = getelementptr inbounds i8, ptr %297, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %297, i64 32
   store ptr null, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %297, i64 40
+  %307 = getelementptr inbounds nuw i8, ptr %297, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %307, ptr noundef nonnull align 16 dereferenceable(48) %10, i64 48, i1 false)
   %308 = select i1 %30, ptr @.str.510, ptr @.str.414
   %309 = load i32, ptr %34, align 8
   call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.509, ptr noundef nonnull %308, i32 noundef %309)
-  %310 = getelementptr inbounds i8, ptr %.0185.i, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %.0185.i, i64 8
   br label %311
 
 311:                                              ; preds = %311, %293
   %.0.i = phi ptr [ %310, %293 ], [ %313, %311 ]
   %312 = load ptr, ptr %.0.i, align 8
   %.not213.i = icmp eq ptr %312, null
-  %313 = getelementptr inbounds i8, ptr %312, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 32
   br i1 %.not213.i, label %314, label %311, !llvm.loop !12
 
 314:                                              ; preds = %311
@@ -3560,31 +3561,31 @@ ssh_decrypt_packet.exit:                          ; preds = %25, %282, %314, %56
   br i1 %.not.i28, label %ssh_get_message.exit.thread, label %321
 
 321:                                              ; preds = %315
-  %322 = getelementptr inbounds i8, ptr %320, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %.011.i = load ptr, ptr %322, align 8
   %.not1012.i = icmp eq ptr %.011.i, null
   br i1 %.not1012.i, label %ssh_get_message.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %321, %326
   %.013.i = phi ptr [ %.0.i29, %326 ], [ %.011.i, %321 ]
-  %323 = getelementptr inbounds i8, ptr %.013.i, i64 20
+  %323 = getelementptr inbounds nuw i8, ptr %.013.i, i64 20
   %324 = load i32, ptr %323, align 4
   %325 = icmp eq i32 %324, %317
   br i1 %325, label %ssh_get_message.exit, label %326
 
 326:                                              ; preds = %.lr.ph.i
-  %327 = getelementptr inbounds i8, ptr %.013.i, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   %.0.i29 = load ptr, ptr %327, align 8
   %.not10.i = icmp eq ptr %.0.i29, null
   br i1 %.not10.i, label %ssh_get_message.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 ssh_get_message.exit:                             ; preds = %.lr.ph.i
   %328 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3) #21
-  %329 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds i8, ptr %.013.i, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %.013.i, i64 16
   %332 = load i32, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %1, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %334 = load ptr, ptr %333, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %334, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.518, i32 noundef %332) #21
   %335 = call ptr @tvb_new_child_real_data(ptr noundef %328, ptr noundef %330, i32 noundef %332, i32 noundef %332) #21
@@ -3595,7 +3596,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   br i1 %.not.i30, label %346, label %338
 
 338:                                              ; preds = %ssh_get_message.exit
-  %339 = getelementptr inbounds i8, ptr %1, i64 328
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %340 = load i16, ptr %339, align 8
   %341 = icmp ne i16 %340, 0
   %342 = icmp ult i32 %336, 4
@@ -3603,9 +3604,9 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   br i1 %or.cond19.i, label %343, label %346
 
 343:                                              ; preds = %338
-  %344 = getelementptr inbounds i8, ptr %1, i64 332
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %344, align 4
-  %345 = getelementptr inbounds i8, ptr %1, i64 336
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %345, align 8
   br label %ssh_dissect_decrypted_packet.exit
 
@@ -3616,7 +3617,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   br i1 %.not244.i, label %359, label %349
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %1, i64 328
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %351 = load i16, ptr %350, align 8
   %.not245.i = icmp eq i16 %351, 0
   br i1 %.not245.i, label %359, label %352
@@ -3627,10 +3628,10 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   br i1 %354, label %355, label %359
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds i8, ptr %1, i64 332
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %356, align 4
   %357 = sub nuw i32 %353, %336
-  %358 = getelementptr inbounds i8, ptr %1, i64 336
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %357, ptr %358, align 8
   br label %ssh_dissect_decrypted_packet.exit
 
@@ -3746,7 +3747,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
   br i1 %.not.i.i, label %ssh_dissect_transport_generic.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %435
-  %439 = getelementptr inbounds i8, ptr %2, i64 280
+  %439 = getelementptr inbounds nuw i8, ptr %2, i64 280
   br label %440
 
 440:                                              ; preds = %ssh_dissect_rfc8308_extension.exit.i.i, %.lr.ph.i.i
@@ -3843,7 +3844,7 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
 
 502:                                              ; preds = %500
   %503 = load ptr, ptr %439, align 8
-  %504 = getelementptr inbounds i8, ptr %503, i64 732
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 732
   store i32 1, ptr %504, align 4
   %505 = add i32 %446, %457
   br label %ssh_dissect_rfc8308_extension.exit.i.i
@@ -4158,7 +4159,7 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
 708:                                              ; preds = %706, %705
   %709 = load i32, ptr @hf_ssh_padding_string, align 4
   %710 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %709, ptr noundef %335, i32 noundef %700, i32 noundef %369, i32 noundef 0) #21
-  %711 = getelementptr inbounds i8, ptr %2, i64 56
+  %711 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %712 = load i32, ptr %711, align 8
   %.not248.i = icmp eq i32 %712, 0
   br i1 %.not248.i, label %749, label %713
@@ -4166,7 +4167,7 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
 713:                                              ; preds = %708
   %714 = load i32, ptr @hf_ssh_mac_string, align 4
   %715 = load i32, ptr @hf_ssh_mac_status, align 4
-  %716 = getelementptr inbounds i8, ptr %.013.i, i64 40
+  %716 = getelementptr inbounds nuw i8, ptr %.013.i, i64 40
   %717 = call ptr @tvb_get_ptr(ptr noundef %328, i32 noundef %699, i32 noundef range(i32 1, 0) %712) #21
   %718 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %714, ptr noundef %328, i32 noundef %699, i32 noundef range(i32 1, 0) %712, i32 noundef 0) #21
   %719 = zext i32 %712 to i64
@@ -4185,13 +4186,13 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
   br i1 %.not.i.i251.i, label %ssh_tree_add_mac.exit.i, label %723
 
 723:                                              ; preds = %721
-  %724 = getelementptr inbounds i8, ptr %722, i64 32
+  %724 = getelementptr inbounds nuw i8, ptr %722, i64 32
   %725 = load ptr, ptr %724, align 8
   %.not5.i.i.i = icmp eq ptr %725, null
   br i1 %.not5.i.i.i, label %ssh_tree_add_mac.exit.i, label %726
 
 726:                                              ; preds = %723
-  %727 = getelementptr inbounds i8, ptr %725, i64 28
+  %727 = getelementptr inbounds nuw i8, ptr %725, i64 28
   %728 = load i32, ptr %727, align 4
   %729 = or i32 %728, 2
   store i32 %729, ptr %727, align 4
@@ -4207,13 +4208,13 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
   br i1 %.not.i71.i.i, label %proto_item_set_generated.exit73.i.i, label %732
 
 732:                                              ; preds = %730
-  %733 = getelementptr inbounds i8, ptr %731, i64 32
+  %733 = getelementptr inbounds nuw i8, ptr %731, i64 32
   %734 = load ptr, ptr %733, align 8
   %.not5.i72.i.i = icmp eq ptr %734, null
   br i1 %.not5.i72.i.i, label %proto_item_set_generated.exit73.i.i, label %735
 
 735:                                              ; preds = %732
-  %736 = getelementptr inbounds i8, ptr %734, i64 28
+  %736 = getelementptr inbounds nuw i8, ptr %734, i64 28
   %737 = load i32, ptr %736, align 4
   %738 = or i32 %737, 2
   store i32 %738, ptr %736, align 4
@@ -4246,13 +4247,13 @@ ssh_tree_add_mac.exit.i:                          ; preds = %proto_item_set_gene
   br i1 %.not.i252.i, label %ssh_dissect_decrypted_packet.exit, label %753
 
 753:                                              ; preds = %749
-  %754 = getelementptr inbounds i8, ptr %752, i64 32
+  %754 = getelementptr inbounds nuw i8, ptr %752, i64 32
   %755 = load ptr, ptr %754, align 8
   %.not5.i.i = icmp eq ptr %755, null
   br i1 %.not5.i.i, label %ssh_dissect_decrypted_packet.exit, label %756
 
 756:                                              ; preds = %753
-  %757 = getelementptr inbounds i8, ptr %755, i64 28
+  %757 = getelementptr inbounds nuw i8, ptr %755, i64 28
   %758 = load i32, ptr %757, align 4
   %759 = or i32 %758, 2
   store i32 %759, ptr %757, align 4
@@ -4305,7 +4306,7 @@ define internal fastcc noundef i32 @ssh_tree_add_hostkey(ptr noundef %0, i32 nou
   %18 = tail call ptr @wmem_packet_scope() #21
   %19 = zext i32 %6 to i64
   %20 = tail call ptr @tvb_memdup(ptr noundef %18, ptr noundef %0, i32 noundef %7, i64 noundef %19) #21
-  %21 = getelementptr inbounds i8, ptr %4, i64 688
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 688
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %ssh_hash_buffer_put_string.exit, label %23
@@ -4443,12 +4444,12 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %5, %23
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = getelementptr i8, ptr %0, i64 376
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr i8, ptr %0, i64 344
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = getelementptr i8, ptr %0, i64 400
   br label %10
 
@@ -4460,7 +4461,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call fastcc void @ssh_choose_algo(ptr noundef %14, ptr noundef %16, ptr noundef nonnull %17)
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
@@ -4479,11 +4480,11 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
 25:                                               ; preds = %22, %19
   %26 = call ptr @wmem_file_scope() #21
   %27 = call noalias ptr @wmem_strdup(ptr noundef %26, ptr noundef nonnull @.str.426) #21
-  %28 = getelementptr inbounds i8, ptr %12, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 16, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 1, ptr %30, align 8
   br label %78
 
@@ -4495,9 +4496,9 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
 34:                                               ; preds = %31
   %35 = call ptr @wmem_file_scope() #21
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.426) #21
-  %37 = getelementptr inbounds i8, ptr %12, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %12, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 16, ptr %38, align 8
   br label %78
 
@@ -4506,7 +4507,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %12, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 48
   call fastcc void @ssh_choose_algo(ptr noundef %40, ptr noundef %42, ptr noundef nonnull %43)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
@@ -4521,7 +4522,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
   br i1 %.not28.i, label %50, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %12, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 1, ptr %49, align 8
   br label %.sink.split.i
 
@@ -4577,7 +4578,7 @@ define internal fastcc void @ssh_choose_enc_mac(ptr noundef %0) unnamed_addr #0 
 
 .sink.split33.i:                                  ; preds = %73, %70, %67, %64, %62
   %.sink34.i = phi i32 [ %63, %62 ], [ 20, %64 ], [ 16, %67 ], [ 20, %70 ], [ 0, %73 ]
-  %76 = getelementptr inbounds i8, ptr %12, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 %.sink34.i, ptr %76, align 8
   br label %77
 
@@ -4594,13 +4595,13 @@ ssh_set_mac_length.exit:                          ; preds = %.thread, %77
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr [2 x ptr], ptr %9, i64 0, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %12, i64 104
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 104
   call fastcc void @ssh_choose_algo(ptr noundef %80, ptr noundef %82, ptr noundef nonnull %83)
   br i1 %11, label %10, label %84, !llvm.loop !15
 
 84:                                               ; preds = %78
   call fastcc void @ssh_decryption_set_cipher_id(ptr noundef nonnull %3)
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load ptr, ptr %85, align 8
   %.not.i36 = icmp eq ptr %86, null
   br i1 %.not.i36, label %ssh_decryption_set_mac_id.exit, label %87
@@ -4611,7 +4612,7 @@ ssh_set_mac_length.exit:                          ; preds = %.thread, %77
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %0, i64 144
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 131073, ptr %91, align 8
   br label %ssh_decryption_set_mac_id.exit
 
@@ -4759,7 +4760,7 @@ ssh_keylog_reset.exit18.i:                        ; preds = %28, %27
 
 ssh_keylog_read_file.exit:                        ; preds = %1, %6, %.thread.i, %._crit_edge.i, %ssh_keylog_reset.exit18.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i184 = icmp eq ptr %38, null
   br i1 %.not.i184, label %51, label %39
@@ -4833,7 +4834,7 @@ ssh_kex_hash_type.exit:                           ; preds = %54, %56, %.critedge
 
 63:                                               ; preds = %ssh_kex_hash_type.exit
   %64 = load ptr, ptr @ssh_master_key_map, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 216
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr @g_hash_table_lookup(ptr noundef %64, ptr noundef %66) #21
   %.not175 = icmp eq ptr %67, null
@@ -4859,10 +4860,10 @@ ssh_kex_hash_type.exit:                           ; preds = %54, %56, %.critedge
   br i1 %.not, label %76, label %ssh_derive_symmetric_keys.exit.sink.split
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %.0209214, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0209214, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, -1026
   %or.cond.i = icmp ult i32 %82, -1025
@@ -4883,18 +4884,18 @@ ssh_kex_hash_type.exit:                           ; preds = %54, %56, %.critedge
   br label %ssh_kex_make_bignum.exit.thread220
 
 ssh_kex_make_bignum.exit.thread220:               ; preds = %83, %89
-  %90 = getelementptr inbounds i8, ptr %85, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %81, ptr %90, align 8
   br label %98
 
 ssh_kex_make_bignum.exit:                         ; preds = %.thread210, %68
   %.sink = phi i64 [ 624, %68 ], [ 616, %.thread210 ]
   %.sink232 = phi ptr [ %67, %68 ], [ %62, %.thread210 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.sink232, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sink232, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 632
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %96 = load ptr, ptr %95, align 8
   %97 = call fastcc ptr @ssh_kex_shared_secret(i32 noundef %.0.i, ptr noundef %92, ptr noundef %94, ptr noundef %96)
   %.not178 = icmp eq ptr %97, null
@@ -4912,7 +4913,7 @@ ssh_kex_make_bignum.exit._crit_edge:              ; preds = %ssh_kex_make_bignum
   br i1 %.not179, label %112, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %.0167223, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0167223, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, 1
   %105 = call ptr @wmem_packet_scope() #21
@@ -4930,9 +4931,9 @@ ssh_kex_make_bignum.exit._crit_edge:              ; preds = %ssh_kex_make_bignum
 
 112:                                              ; preds = %101, %98
   %113 = phi ptr [ %107, %101 ], [ %99, %98 ]
-  %114 = getelementptr inbounds i8, ptr %0, i64 720
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %.0167223, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0167223, i64 8
   %.not.i196 = icmp eq ptr %115, null
   br i1 %.not.i196, label %ssh_hash_buffer_put_string.exit, label %117
 
@@ -4965,7 +4966,7 @@ ssh_kex_make_bignum.exit._crit_edge:              ; preds = %ssh_kex_make_bignum
 ssh_hash_buffer_put_string.exit:                  ; preds = %112, %117
   %135 = call ptr @wmem_packet_scope() #21
   %136 = call noalias ptr @wmem_array_new(ptr noundef %135, i64 noundef 1) #21
-  %137 = getelementptr inbounds i8, ptr %0, i64 632
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %138 = load ptr, ptr %137, align 8
   %.not180 = icmp eq ptr %138, null
   %.not.i197 = icmp eq ptr %136, null
@@ -4973,7 +4974,7 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %112, %117
   br i1 %or.cond, label %ssh_hash_buffer_put_string.exit198, label %139
 
 139:                                              ; preds = %ssh_hash_buffer_put_string.exit
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %141 = load i32, ptr %140, align 8
   %142 = load ptr, ptr %138, align 8
   %143 = call ptr @wmem_packet_scope() #21
@@ -5003,7 +5004,7 @@ ssh_hash_buffer_put_string.exit:                  ; preds = %112, %117
 ssh_hash_buffer_put_string.exit198:               ; preds = %139, %ssh_hash_buffer_put_string.exit
   %159 = call ptr @wmem_packet_scope() #21
   %160 = call noalias ptr @wmem_array_new(ptr noundef %159, i64 noundef 1) #21
-  %161 = getelementptr inbounds i8, ptr %0, i64 640
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %162 = load ptr, ptr %161, align 8
   %.not181 = icmp eq ptr %162, null
   %.not.i199 = icmp eq ptr %160, null
@@ -5011,7 +5012,7 @@ ssh_hash_buffer_put_string.exit198:               ; preds = %139, %ssh_hash_buff
   br i1 %or.cond225, label %ssh_hash_buffer_put_string.exit200, label %163
 
 163:                                              ; preds = %ssh_hash_buffer_put_string.exit198
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = load ptr, ptr %162, align 8
   %167 = call ptr @wmem_packet_scope() #21
@@ -5041,7 +5042,7 @@ ssh_hash_buffer_put_string.exit198:               ; preds = %139, %ssh_hash_buff
 ssh_hash_buffer_put_string.exit200:               ; preds = %163, %ssh_hash_buffer_put_string.exit198
   %183 = call ptr @wmem_packet_scope() #21
   %184 = call noalias ptr @wmem_array_new(ptr noundef %183, i64 noundef 1) #21
-  %185 = getelementptr inbounds i8, ptr %0, i64 616
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %186 = load ptr, ptr %185, align 8
   %.not182 = icmp eq ptr %186, null
   %.not.i201 = icmp eq ptr %184, null
@@ -5049,7 +5050,7 @@ ssh_hash_buffer_put_string.exit200:               ; preds = %163, %ssh_hash_buff
   br i1 %or.cond226, label %ssh_hash_buffer_put_string.exit202, label %187
 
 187:                                              ; preds = %ssh_hash_buffer_put_string.exit200
-  %188 = getelementptr inbounds i8, ptr %186, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %189 = load i32, ptr %188, align 8
   %190 = load ptr, ptr %186, align 8
   %191 = call ptr @wmem_packet_scope() #21
@@ -5079,7 +5080,7 @@ ssh_hash_buffer_put_string.exit200:               ; preds = %163, %ssh_hash_buff
 ssh_hash_buffer_put_string.exit202:               ; preds = %187, %ssh_hash_buffer_put_string.exit200
   %207 = call ptr @wmem_packet_scope() #21
   %208 = call noalias ptr @wmem_array_new(ptr noundef %207, i64 noundef 1) #21
-  %209 = getelementptr inbounds i8, ptr %0, i64 624
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %210 = load ptr, ptr %209, align 8
   %.not183 = icmp eq ptr %210, null
   %.not.i203 = icmp eq ptr %208, null
@@ -5087,7 +5088,7 @@ ssh_hash_buffer_put_string.exit202:               ; preds = %187, %ssh_hash_buff
   br i1 %or.cond227, label %ssh_hash_buffer_put_string.exit204, label %211
 
 211:                                              ; preds = %ssh_hash_buffer_put_string.exit202
-  %212 = getelementptr inbounds i8, ptr %210, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %213 = load i32, ptr %212, align 8
   %214 = load ptr, ptr %210, align 8
   %215 = call ptr @wmem_packet_scope() #21
@@ -5117,7 +5118,7 @@ ssh_hash_buffer_put_string.exit202:               ; preds = %187, %ssh_hash_buff
 ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buffer_put_string.exit202
   %231 = call ptr @wmem_packet_scope() #21
   %232 = call noalias ptr @wmem_array_new(ptr noundef %231, i64 noundef 1) #21
-  %233 = getelementptr inbounds i8, ptr %0, i64 656
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %234 = load ptr, ptr %233, align 8
   %235 = call ptr @wmem_array_get_raw(ptr noundef %234) #21
   %236 = load ptr, ptr %233, align 8
@@ -5129,7 +5130,7 @@ ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buff
   %241 = load ptr, ptr %233, align 8
   %242 = call i32 @wmem_array_get_count(ptr noundef %241) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %240, i32 noundef %242) #21
-  %243 = getelementptr inbounds i8, ptr %0, i64 664
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %244 = load ptr, ptr %243, align 8
   %245 = call ptr @wmem_array_get_raw(ptr noundef %244) #21
   %246 = load ptr, ptr %243, align 8
@@ -5141,7 +5142,7 @@ ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buff
   %251 = load ptr, ptr %243, align 8
   %252 = call i32 @wmem_array_get_count(ptr noundef %251) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %250, i32 noundef %252) #21
-  %253 = getelementptr inbounds i8, ptr %0, i64 672
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %254 = load ptr, ptr %253, align 8
   %255 = call ptr @wmem_array_get_raw(ptr noundef %254) #21
   %256 = load ptr, ptr %253, align 8
@@ -5153,7 +5154,7 @@ ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buff
   %261 = load ptr, ptr %253, align 8
   %262 = call i32 @wmem_array_get_count(ptr noundef %261) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %260, i32 noundef %262) #21
-  %263 = getelementptr inbounds i8, ptr %0, i64 680
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr @wmem_array_get_raw(ptr noundef %264) #21
   %266 = load ptr, ptr %263, align 8
@@ -5165,7 +5166,7 @@ ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buff
   %271 = load ptr, ptr %263, align 8
   %272 = call i32 @wmem_array_get_count(ptr noundef %271) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %270, i32 noundef %272) #21
-  %273 = getelementptr inbounds i8, ptr %0, i64 688
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %274 = load ptr, ptr %273, align 8
   %275 = call ptr @wmem_array_get_raw(ptr noundef %274) #21
   %276 = load ptr, ptr %273, align 8
@@ -5180,7 +5181,7 @@ ssh_hash_buffer_put_string.exit204:               ; preds = %211, %ssh_hash_buff
   br i1 %52, label %switch.early.test.thread, label %323
 
 switch.early.test.thread:                         ; preds = %ssh_hash_buffer_put_string.exit204
-  %283 = getelementptr inbounds i8, ptr %0, i64 696
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %284 = load ptr, ptr %283, align 8
   %285 = call ptr @wmem_array_get_raw(ptr noundef %284) #21
   %286 = load ptr, ptr %283, align 8
@@ -5192,7 +5193,7 @@ switch.early.test.thread:                         ; preds = %ssh_hash_buffer_put
   %291 = load ptr, ptr %283, align 8
   %292 = call i32 @wmem_array_get_count(ptr noundef %291) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %290, i32 noundef %292) #21
-  %293 = getelementptr inbounds i8, ptr %0, i64 704
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %294 = load ptr, ptr %293, align 8
   %295 = call ptr @wmem_array_get_raw(ptr noundef %294) #21
   %296 = load ptr, ptr %293, align 8
@@ -5204,7 +5205,7 @@ switch.early.test.thread:                         ; preds = %ssh_hash_buffer_put
   %301 = load ptr, ptr %293, align 8
   %302 = call i32 @wmem_array_get_count(ptr noundef %301) #21
   call void @wmem_array_append(ptr noundef %232, ptr noundef %300, i32 noundef %302) #21
-  %303 = getelementptr inbounds i8, ptr %0, i64 712
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %304 = load ptr, ptr %303, align 8
   %305 = call ptr @wmem_array_get_raw(ptr noundef %304) #21
   %306 = load ptr, ptr %303, align 8
@@ -5312,25 +5313,25 @@ switch.early.test:                                ; preds = %323
   %363 = load ptr, ptr %4, align 8
   call void @gcry_md_close(ptr noundef %363) #21
   call fastcc void @ssh_print_data(ptr noundef nonnull @.str.463, ptr noundef %356, i64 noundef %355)
-  %364 = getelementptr inbounds i8, ptr %0, i64 648
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store ptr %.0167223, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %0, i64 600
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %366 = load ptr, ptr %365, align 8
   %.not.i205 = icmp eq ptr %366, null
   br i1 %.not.i205, label %367, label %369
 
 367:                                              ; preds = %352
   store ptr %356, ptr %365, align 8
-  %368 = getelementptr inbounds i8, ptr %0, i64 608
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i32 %.0166, ptr %368, align 8
   br label %369
 
 369:                                              ; preds = %367, %352
-  %370 = getelementptr inbounds i8, ptr %0, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %373
 
 .preheader.i:                                     ; preds = %ssh_debug_flush.exit70.i
-  %371 = getelementptr inbounds i8, ptr %0, i64 736
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %372 = zext nneg i32 %spec.select.i to i64
   br label %392
 
@@ -5339,7 +5340,7 @@ switch.early.test:                                ; preds = %323
   %indvars.iv.i = phi i64 [ 0, %369 ], [ 1, %ssh_debug_flush.exit70.i ]
   %.06472.i = phi i32 [ 0, %369 ], [ %spec.select.i, %ssh_debug_flush.exit70.i ]
   %375 = getelementptr [2 x %struct.ssh_peer_data], ptr %370, i64 0, i64 %indvars.iv.i
-  %376 = getelementptr inbounds i8, ptr %375, i64 116
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 116
   %377 = load i32, ptr %376, align 4
   switch i32 %377, label %381 [
     i32 316, label %ssh_debug_flush.exit.i
@@ -5374,7 +5375,7 @@ switch.early.test:                                ; preds = %323
 
 ssh_debug_flush.exit.i:                           ; preds = %383, %381, %380, %379, %378, %373
   %.063.i = phi i32 [ 16, %378 ], [ 24, %379 ], [ 32, %380 ], [ 64, %373 ], [ 0, %381 ], [ 0, %383 ]
-  %385 = getelementptr inbounds i8, ptr %375, i64 120
+  %385 = getelementptr inbounds nuw i8, ptr %375, i64 120
   %386 = load i32, ptr %385, align 8
   %387 = icmp eq i32 %386, 131073
   br i1 %387, label %ssh_debug_flush.exit70.i, label %388
@@ -5464,9 +5465,9 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
   %431 = load ptr, ptr %2, align 8
   call void @gcry_md_write(ptr noundef %431, ptr noundef %356, i64 noundef %355) #21
   %432 = load ptr, ptr %2, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 8
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load i32, ptr %433, align 8
-  %435 = getelementptr inbounds i8, ptr %432, i64 12
+  %435 = getelementptr inbounds nuw i8, ptr %432, i64 12
   %436 = load i32, ptr %435, align 4
   %437 = icmp eq i32 %434, %436
   br i1 %437, label %438, label %439
@@ -5478,7 +5479,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
 
 439:                                              ; preds = %438, %426
   %440 = phi i32 [ %.pre.i.i, %438 ], [ %434, %426 ]
-  %441 = getelementptr inbounds i8, ptr %432, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %432, i64 16
   %442 = add i32 %440, 1
   store i32 %442, ptr %433, align 8
   %443 = sext i32 %440 to i64
@@ -5544,14 +5545,14 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.e
   br i1 %481, label %457, label %ssh_derive_symmetric_key.exit.i, !llvm.loop !18
 
 ssh_derive_symmetric_key.exit.i:                  ; preds = %479, %453
-  %482 = getelementptr inbounds i8, ptr %395, i64 8
+  %482 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i32 %spec.select.i, ptr %482, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %483 = icmp samesign ult i64 %indvars.iv75.i, 6
   br i1 %483, label %switch.lookup, label %485
 
 switch.lookup:                                    ; preds = %ssh_derive_symmetric_key.exit.i
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.ssh_keylog_hash_write_secret, i64 0, i64 %indvars.iv75.i
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ssh_keylog_hash_write_secret, i64 0, i64 %indvars.iv75.i
   %switch.load = load ptr, ptr %switch.gep, align 8
   %484 = load ptr, ptr %395, align 8
   call fastcc void @ssh_print_data(ptr noundef nonnull %switch.load, ptr noundef %484, i64 noundef %372)
@@ -5563,7 +5564,7 @@ switch.lookup:                                    ; preds = %ssh_derive_symmetri
   br i1 %exitcond.not.i, label %ssh_derive_symmetric_keys.exit, label %392, !llvm.loop !19
 
 ssh_derive_symmetric_keys.exit.sink.split:        ; preds = %ssh_kex_make_bignum.exit, %76, %73, %63
-  %486 = getelementptr inbounds i8, ptr %0, i64 728
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %486, align 8
   br label %ssh_derive_symmetric_keys.exit
 
@@ -5737,13 +5738,13 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef %0) unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %5, align 8
   br label %63
 
@@ -5753,7 +5754,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 316, ptr %10, align 4
   br label %63
 
@@ -5763,7 +5764,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 116
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 262145, ptr %15, align 4
   br label %63
 
@@ -5773,7 +5774,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 116
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 262145, ptr %20, align 4
   br label %63
 
@@ -5783,7 +5784,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 262148, ptr %25, align 4
   br label %63
 
@@ -5793,7 +5794,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 116
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 262148, ptr %30, align 4
   br label %63
 
@@ -5803,7 +5804,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 116
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 131073, ptr %35, align 4
   br label %63
 
@@ -5813,7 +5814,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 116
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 131074, ptr %40, align 4
   br label %63
 
@@ -5823,7 +5824,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 116
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 131076, ptr %45, align 4
   br label %63
 
@@ -5833,7 +5834,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 116
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 65537, ptr %50, align 4
   br label %63
 
@@ -5843,7 +5844,7 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 116
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 65539, ptr %55, align 4
   br label %63
 
@@ -5853,12 +5854,12 @@ define internal fastcc void @ssh_decryption_set_cipher_id(ptr nocapture noundef 
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 116
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 65540, ptr %60, align 4
   br label %63
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %62, align 8
   br label %63
 
@@ -5929,7 +5930,7 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef range(i32 
   unreachable
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -1026
   %or.cond.i = icmp ult i32 %19, -1025
@@ -5942,7 +5943,7 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef range(i32 
   %24 = zext nneg i32 %18 to i64
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef %24) #21
   store ptr %25, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %18, ptr %26, align 8
   switch i32 %0, label %ssh_kex_make_bignum.exit.thread [
     i32 131072, label %27
@@ -5966,12 +5967,12 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef range(i32 
   %33 = shl i32 %32, 3
   %34 = call ptr @gcry_mpi_new(i32 noundef %33) #21
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   %39 = call i32 @gcry_mpi_scan(ptr noundef nonnull %6, i32 noundef 5, ptr noundef %35, i64 noundef %38, ptr noundef null) #21
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = call i32 @gcry_mpi_scan(ptr noundef nonnull %7, i32 noundef 5, ptr noundef %40, i64 noundef %43, ptr noundef null) #21
@@ -6019,7 +6020,7 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef range(i32 
   %64 = shl i32 %63, 3
   %65 = call ptr @gcry_mpi_new(i32 noundef %64) #21
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
   %70 = call i32 @gcry_mpi_scan(ptr noundef nonnull %11, i32 noundef 5, ptr noundef %66, i64 noundef %69, ptr noundef null) #21
@@ -6214,7 +6215,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @ssh_dissect_encrypted_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #21
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %8, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.499, i32 noundef %6) #21
   %.not = icmp eq ptr %4, null
@@ -6225,7 +6226,7 @@ define internal fastcc noundef i32 @ssh_dissect_encrypted_packet(ptr noundef %0,
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %13 = load i32, ptr %12, align 8
   %.not40 = icmp eq i32 %13, 0
   br i1 %.not40, label %19, label %14
@@ -6245,7 +6246,7 @@ define internal fastcc noundef i32 @ssh_dissect_encrypted_packet(ptr noundef %0,
 
 .critedge:                                        ; preds = %9, %19, %14
   %.0 = phi i32 [ %18, %14 ], [ %22, %19 ], [ %6, %9 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %spec.select = sub i32 %.0, %25
@@ -6458,9 +6459,9 @@ define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr 
   %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #21
   %36 = load i32, ptr @hf_ssh_connection_sender_channel, align 4
   %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10) #21
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %.not127 = icmp eq i16 %42, 0
@@ -6469,7 +6470,7 @@ define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr 
 43:                                               ; preds = %33
   %44 = load i32, ptr %9, align 4
   %45 = load i32, ptr %10, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %52
@@ -6487,7 +6488,7 @@ define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr 
   %56 = zext i32 %44 to i64
   %57 = inttoptr i64 %56 to ptr
   %58 = call ptr @wmem_map_insert(ptr noundef %53, ptr noundef %55, ptr noundef %57) #21
-  %59 = getelementptr inbounds i8, ptr %2, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %65
@@ -6503,17 +6504,17 @@ define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr 
   %67 = call noalias ptr @wmem_alloc0(ptr noundef %66, i64 noundef 24) #21
   %68 = call ptr @wmem_file_scope() #21
   %69 = call noalias ptr @wmem_tree_new(ptr noundef %68) #21
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = load ptr, ptr %59, align 8
   %72 = call ptr @wmem_map_insert(ptr noundef %71, ptr noundef %57, ptr noundef %67) #21
-  %73 = getelementptr inbounds i8, ptr %2, i64 280
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i8, ptr %74, i64 312
   %76 = icmp eq ptr %75, %2
-  %77 = getelementptr inbounds i8, ptr %74, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %.0.i.i = select i1 %76, ptr %77, ptr %75
-  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 272
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 272
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %create_channel.exit, label %80
@@ -6524,9 +6525,9 @@ define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr 
   br i1 %.not18.i, label %create_channel.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %84, ptr %85, align 8
   br label %create_channel.exit
 
@@ -6565,9 +6566,9 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br i1 %.not, label %get_channel_info_for_channel.exit.thread, label %108
 
 108:                                              ; preds = %get_channel_info_for_channel.exit
-  %109 = getelementptr inbounds i8, ptr %1, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 50
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 50
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 8
   %.not126 = icmp eq i16 %113, 0
@@ -6575,17 +6576,17 @@ get_channel_info_for_channel.exit:                ; preds = %95
 
 114:                                              ; preds = %108
   %115 = load i32, ptr %107, align 8
-  %116 = getelementptr inbounds i8, ptr %5, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %115, ptr %116, align 8
   %117 = load i32, ptr %12, align 4
   %118 = add i32 %115, %117
   store i32 %118, ptr %107, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 28
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %118, ptr %119, align 4
   br label %120
 
 120:                                              ; preds = %114, %108
-  %121 = getelementptr inbounds i8, ptr %1, i64 328
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %122 = load i16, ptr %121, align 8
   %123 = load i32, ptr @ssh_desegment, align 4
   %.not.i128 = icmp eq i32 %123, 0
@@ -6593,13 +6594,13 @@ get_channel_info_for_channel.exit:                ; preds = %95
 
 124:                                              ; preds = %120
   store i16 2, ptr %121, align 8
-  %125 = getelementptr inbounds i8, ptr %5, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %126 = load i32, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %5, i64 28
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %1, i64 332
-  %130 = getelementptr inbounds i8, ptr %1, i64 336
-  %131 = getelementptr inbounds i8, ptr %107, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 332
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %131 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 0, ptr %129, align 4
   store i32 0, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
@@ -6608,11 +6609,11 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br i1 %.not404.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %124
-  %134 = getelementptr inbounds i8, ptr %1, i64 20
-  %135 = getelementptr inbounds i8, ptr %1, i64 24
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
-  %137 = getelementptr inbounds i8, ptr %107, i64 16
-  %138 = getelementptr inbounds i8, ptr %107, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %139 = add i32 %128, 1073741824
   %140 = add i32 %128, 1
   br label %184
@@ -6620,21 +6621,21 @@ get_channel_info_for_channel.exit:                ; preds = %95
 ._crit_edge.i.i:                                  ; preds = %402, %124
   %.0217.lcssa.i.i = phi i32 [ 0, %124 ], [ %405, %402 ]
   %.lcssa.i.i = phi ptr [ %133, %124 ], [ %408, %402 ]
-  %141 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %142, %144
   br i1 %145, label %146, label %proto_item_set_generated.exit.i.i
 
 146:                                              ; preds = %._crit_edge.i.i
-  %147 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, %142
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   call void @col_clear(ptr noundef %152, i32 noundef 25) #21
   br label %157
@@ -6643,7 +6644,7 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br i1 %.not404.i.i, label %157, label %154
 
 154:                                              ; preds = %153
-  %155 = getelementptr inbounds i8, ptr %1, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %156 = load ptr, ptr %155, align 8
   call void @col_append_sep_str(ptr noundef %156, i32 noundef 25, ptr noundef nonnull @.str.399, ptr noundef nonnull @.str.546) #21
   br label %157
@@ -6655,7 +6656,7 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br i1 %.not265.i.i, label %proto_item_set_generated.exit.i.i, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %159, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %162 = load i32, ptr %161, align 8
   %.not266.i.i = icmp eq i32 %162, 0
   br i1 %.not266.i.i, label %proto_item_set_generated.exit.i.i, label %163
@@ -6672,13 +6673,13 @@ get_channel_info_for_channel.exit:                ; preds = %95
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %167, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not5.i.i.i = icmp eq ptr %170, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = or i32 %173, 2
   store i32 %174, ptr %172, align 4
@@ -6719,14 +6720,14 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   br i1 %.not241.i.i, label %238, label %191
 
 191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %188, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = icmp ugt i32 %193, %.0411.i.i
   br i1 %194, label %195, label %238
 
 195:                                              ; preds = %191
   %196 = load ptr, ptr %109, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 50
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 50
   %198 = load i16, ptr %197, align 2
   %199 = and i16 %198, 8
   %.not244.i.i = icmp eq i16 %199, 0
@@ -6734,14 +6735,14 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
 
 200:                                              ; preds = %195
   %201 = load i32, ptr %134, align 4
-  %202 = getelementptr inbounds i8, ptr %188, i64 12
+  %202 = getelementptr inbounds nuw i8, ptr %188, i64 12
   store i32 %201, ptr %202, align 4
-  %203 = getelementptr inbounds i8, ptr %188, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %188, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false)
   br label %204
 
 204:                                              ; preds = %200, %195
-  %205 = getelementptr inbounds i8, ptr %188, i64 36
+  %205 = getelementptr inbounds nuw i8, ptr %188, i64 36
   %206 = load i32, ptr %205, align 4
   %207 = and i32 %206, 1
   %.not245.i.i = icmp eq i32 %207, 0
@@ -6772,7 +6773,7 @@ ssh_proto_tree_add_segment_data.exit.i.i:         ; preds = %178, %proto_item_se
   %.lobit.i.i = lshr i32 %220, 31
   %221 = call ptr @fragment_add(ptr noundef nonnull @ssh_reassembly_table, ptr noundef %101, i32 noundef %.0217406.i.i, ptr noundef nonnull %1, i32 noundef %.val.i.i, ptr noundef nonnull %188, i32 noundef %218, i32 noundef %.0211.i.i, i32 noundef %.lobit.i.i) #21
   %222 = load ptr, ptr %109, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 50
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 50
   %224 = load i16, ptr %223, align 2
   %225 = and i16 %224, 8
   %.not246.i.i = icmp eq i16 %225, 0
@@ -6829,7 +6830,7 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
 
 247:                                              ; preds = %ssh_process_payload.exit.i.i
   %248 = load ptr, ptr %109, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 50
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 50
   %250 = load i16, ptr %249, align 2
   %251 = and i16 %250, 8
   %.not243.i.i = icmp eq i16 %251, 0
@@ -6843,7 +6844,7 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   br i1 %.not248.i.i, label %proto_item_set_generated.exit278.i.i, label %255
 
 255:                                              ; preds = %254
-  %256 = getelementptr inbounds i8, ptr %221, i64 40
+  %256 = getelementptr inbounds nuw i8, ptr %221, i64 40
   %257 = load i32, ptr %256, align 8
   %258 = load i32, ptr %134, align 4
   %259 = icmp eq i32 %257, %258
@@ -6856,7 +6857,7 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   br i1 %261, label %.thread360.i.i, label %263
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %221, i64 56
+  %264 = getelementptr inbounds nuw i8, ptr %221, i64 56
   %265 = load ptr, ptr %264, align 8
   %266 = call ptr @tvb_new_chain(ptr noundef %101, ptr noundef %265) #21
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %266, ptr noundef nonnull @.str.548) #21
@@ -6975,11 +6976,11 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
 
 322:                                              ; preds = %print_ssh_fragment_tree.exit.i.i
   %323 = load ptr, ptr %109, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 50
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 50
   %325 = load i16, ptr %324, align 2
   %326 = and i16 %325, 8
   %.not252.i.i = icmp eq i16 %326, 0
-  %327 = getelementptr inbounds i8, ptr %221, i64 36
+  %327 = getelementptr inbounds nuw i8, ptr %221, i64 36
   %328 = load i32, ptr %327, align 4
   %329 = load i32, ptr %129, align 4
   %.neg.i.i = sub i32 %329, %328
@@ -7015,7 +7016,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
 
 342:                                              ; preds = %337
   %343 = load ptr, ptr %109, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 50
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 50
   %345 = load i16, ptr %344, align 2
   %346 = and i16 %345, 8
   %.not254.i.i = icmp eq i16 %346, 0
@@ -7031,7 +7032,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
 349:                                              ; preds = %347
   %350 = load ptr, ptr %131, align 8
   %351 = call ptr @pdu_store_sequencenumber_of_next_pdu(ptr noundef nonnull %1, i32 noundef %339, i32 noundef %140, ptr noundef %350) #21
-  %352 = getelementptr inbounds i8, ptr %351, i64 36
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 36
   %353 = load i32, ptr %352, align 4
   %354 = or i32 %353, 1
   store i32 %354, ptr %352, align 4
@@ -7052,7 +7053,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   %.0215.i.i = phi ptr [ %351, %349 ], [ %357, %355 ], [ %361, %358 ]
   %363 = getelementptr i8, ptr %.0215.i.i, i64 8
   %.0215.val.i.i = load i32, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %.0215.i.i, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %.0215.i.i, i64 4
   %365 = load i32, ptr %364, align 4
   %366 = sub i32 %128, %365
   %.lobit255.i.i = lshr i32 %366, 31
@@ -7076,7 +7077,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   %.1222308343369.i.i = phi i32 [ %.0221405.i.i, %368 ], [ %.0221405.i.i, %255 ], [ 1, %260 ]
   %.1224307345367.i.i = phi i32 [ %.1224307347.ph.i.i, %368 ], [ %.0223.i.i, %255 ], [ 0, %260 ]
   %.0210291305349366.i.i = phi ptr [ %.0210291305348.ph.i.i, %368 ], [ %221, %255 ], [ %221, %260 ]
-  %369 = getelementptr inbounds i8, ptr %.0210291305349366.i.i, i64 40
+  %369 = getelementptr inbounds nuw i8, ptr %.0210291305349366.i.i, i64 40
   %370 = load i32, ptr %369, align 8
   %.not258.i.i = icmp eq i32 %370, 0
   br i1 %.not258.i.i, label %proto_item_set_generated.exit278.i.i, label %371
@@ -7087,7 +7088,7 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   br i1 %.not259.i.i, label %proto_item_set_generated.exit278.i.i, label %373
 
 373:                                              ; preds = %371
-  %374 = getelementptr inbounds i8, ptr %.0210291305349366.i.i, i64 48
+  %374 = getelementptr inbounds nuw i8, ptr %.0210291305349366.i.i, i64 48
   %375 = load i32, ptr %374, align 8
   %376 = and i32 %375, 64
   %.not260.i.i = icmp eq i32 %376, 0
@@ -7100,13 +7101,13 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %320, %307
   br i1 %.not.i276.i.i, label %proto_item_set_generated.exit278.i.i, label %380
 
 380:                                              ; preds = %377
-  %381 = getelementptr inbounds i8, ptr %379, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 32
   %382 = load ptr, ptr %381, align 8
   %.not5.i277.i.i = icmp eq ptr %382, null
   br i1 %.not5.i277.i.i, label %proto_item_set_generated.exit278.i.i, label %383
 
 383:                                              ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %382, i64 28
+  %384 = getelementptr inbounds nuw i8, ptr %382, i64 28
   %385 = load i32, ptr %384, align 4
   %386 = or i32 %385, 2
   store i32 %386, ptr %384, align 4
@@ -7172,11 +7173,11 @@ ssh_proto_tree_add_segment_data.exit279.i.i:      ; preds = %396, %392
 
 409:                                              ; preds = %120
   store i16 0, ptr %121, align 8
-  %410 = getelementptr inbounds i8, ptr %1, i64 272
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %411 = load i32, ptr %410, align 8
   store i32 1, ptr %410, align 8
   %412 = call ptr @tvb_new_subset_remaining(ptr noundef %101, i32 noundef 0) #21
-  %413 = getelementptr inbounds i8, ptr %107, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %414 = load ptr, ptr %413, align 8
   %.not.i18.i = icmp eq ptr %414, null
   %415 = call ptr @proto_tree_get_root(ptr noundef %3) #21
@@ -7225,7 +7226,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   %435 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %434, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %14) #21
   %436 = load i32, ptr @hf_ssh_channel_request_name, align 4
   %437 = load i32, ptr %14, align 4
-  %438 = getelementptr inbounds i8, ptr %1, i64 408
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %439 = load ptr, ptr %438, align 8
   %440 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %436, ptr noundef %0, i32 noundef 14, i32 noundef %437, i32 noundef 2, ptr noundef %439, ptr noundef nonnull %13) #21
   %441 = load i32, ptr %14, align 4
@@ -7257,7 +7258,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   br i1 %.not.i129, label %set_subdissector_for_channel.exit, label %462
 
 462:                                              ; preds = %449
-  %463 = getelementptr inbounds i8, ptr %2, i64 272
+  %463 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %464 = load ptr, ptr %463, align 8
   %465 = icmp eq ptr %464, null
   br i1 %465, label %.thread.i, label %468
@@ -7283,7 +7284,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   %475 = call noalias ptr @wmem_alloc0(ptr noundef %474, i64 noundef 24) #21
   %476 = call ptr @wmem_file_scope() #21
   %477 = call noalias ptr @wmem_tree_new(ptr noundef %476) #21
-  %478 = getelementptr inbounds i8, ptr %475, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store ptr %477, ptr %478, align 8
   %479 = load ptr, ptr %463, align 8
   %480 = call ptr @wmem_map_insert(ptr noundef %479, ptr noundef %.pre-phi36.i, ptr noundef %475) #21
@@ -7291,15 +7292,15 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
 
 481:                                              ; preds = %473, %468
   %.1.i = phi ptr [ %475, %473 ], [ %471, %468 ]
-  %482 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %482 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   store ptr %461, ptr %482, align 8
-  %483 = getelementptr inbounds i8, ptr %2, i64 280
+  %483 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr i8, ptr %484, i64 312
   %486 = icmp eq ptr %485, %2
-  %487 = getelementptr inbounds i8, ptr %484, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %484, i64 24
   %.0.i.i130 = select i1 %486, ptr %487, ptr %485
-  %488 = getelementptr inbounds i8, ptr %.0.i.i130, i64 264
+  %488 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 264
   %489 = load ptr, ptr %488, align 8
   %.not30.i = icmp eq ptr %489, null
   br i1 %.not30.i, label %set_subdissector_for_channel.exit, label %490
@@ -7311,7 +7312,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   br i1 %493, label %494, label %set_subdissector_for_channel.exit
 
 494:                                              ; preds = %490
-  %495 = getelementptr inbounds i8, ptr %.0.i.i130, i64 272
+  %495 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 272
   %496 = load ptr, ptr %495, align 8
   %497 = icmp eq ptr %496, null
   br i1 %497, label %.thread32.i, label %500
@@ -7335,7 +7336,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
   %508 = call noalias ptr @wmem_alloc0(ptr noundef %507, i64 noundef 24) #21
   %509 = call ptr @wmem_file_scope() #21
   %510 = call noalias ptr @wmem_tree_new(ptr noundef %509) #21
-  %511 = getelementptr inbounds i8, ptr %508, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store ptr %510, ptr %511, align 8
   %512 = load ptr, ptr %495, align 8
   %513 = load i32, ptr %7, align 4
@@ -7346,7 +7347,7 @@ get_channel_info_for_channel.exit.thread:         ; preds = %95, %get_channel_in
 
 517:                                              ; preds = %506, %500
   %.3.i = phi ptr [ %508, %506 ], [ %504, %500 ]
-  %518 = getelementptr inbounds i8, ptr %.3.i, i64 16
+  %518 = getelementptr inbounds nuw i8, ptr %.3.i, i64 16
   store ptr %461, ptr %518, align 8
   br label %set_subdissector_for_channel.exit
 
@@ -7382,7 +7383,7 @@ define internal fastcc i32 @ssh_dissect_local_extension(ptr noundef %0, ptr noca
   %5 = icmp ne i32 %.280.val.732.val, 0
   %6 = icmp samesign ult i32 %3, 194
   %or.cond3 = select i1 %5, i1 %6, i1 false
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %or.cond3, label %9, label %26
 
@@ -7537,9 +7538,9 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr noc
   %8 = alloca [32 x i8], align 16
   %9 = alloca [16 x i8], align 16
   %10 = alloca [32 x i8], align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
-  %13 = getelementptr inbounds i8, ptr %0, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %141 [
     i32 316, label %15
@@ -7805,7 +7806,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr noc
   br i1 %.not95, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %0, i64 200
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %128, ptr noundef nonnull align 1 dereferenceable(12) %126, i64 12, i1 false)
   br label %129
 
@@ -7814,7 +7815,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr noc
   tail call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.597, i32 noundef %130)
   %131 = zext nneg i32 %115 to i64
   call fastcc void @ssh_print_data(ptr noundef nonnull @.str.594, ptr noundef nonnull %10, i64 noundef %131)
-  %132 = getelementptr inbounds i8, ptr %0, i64 200
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call fastcc void @ssh_print_data(ptr noundef nonnull @.str.595, ptr noundef nonnull %132, i64 noundef 12)
   %133 = load ptr, ptr %11, align 8
   %134 = call i32 @gcry_cipher_setkey(ptr noundef %133, ptr noundef nonnull %10, i64 noundef %131) #21
@@ -7853,7 +7854,7 @@ define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr n
   %11 = load i32, ptr @hf_ssh2_kex_dh_gex_msg_code, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %11, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
   %13 = add i32 %3, 1
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %0 to i32
   %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @ssh2_kex_dh_gex_msg_vals, ptr noundef nonnull @.str.411) #21
@@ -7889,7 +7890,7 @@ define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr n
   %29 = zext nneg i32 %23 to i64
   %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %28, i64 noundef %29) #21
   store ptr %30, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %23, ptr %31, align 8
   %32 = add i32 %3, 5
   %33 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %30, i32 noundef %32, i64 noundef %29) #21
@@ -7898,7 +7899,7 @@ define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr n
 ssh_read_mpint.exit:                              ; preds = %.ssh_read_mpint.exit_crit_edge, %25
   %.pre-phi135 = phi i32 [ %.pre134, %.ssh_read_mpint.exit_crit_edge ], [ %32, %25 ]
   %.0.i = phi ptr [ null, %.ssh_read_mpint.exit_crit_edge ], [ %27, %25 ]
-  %34 = getelementptr inbounds i8, ptr %5, i64 632
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 632
   store ptr %.0.i, ptr %34, align 8
   %35 = load i32, ptr @hf_ssh_dh_gex_p, align 4
   %36 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %13) #21
@@ -7922,7 +7923,7 @@ ssh_read_mpint.exit.ssh_read_mpint.exit118_crit_edge: ; preds = %ssh_read_mpint.
   %47 = zext nneg i32 %41 to i64
   %48 = tail call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef %47) #21
   store ptr %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %41, ptr %49, align 8
   %50 = add i32 %40, 4
   %51 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %48, i32 noundef %50, i64 noundef %47) #21
@@ -7931,7 +7932,7 @@ ssh_read_mpint.exit.ssh_read_mpint.exit118_crit_edge: ; preds = %ssh_read_mpint.
 ssh_read_mpint.exit118:                           ; preds = %ssh_read_mpint.exit.ssh_read_mpint.exit118_crit_edge, %43
   %.pre-phi137 = phi i32 [ %.pre136, %ssh_read_mpint.exit.ssh_read_mpint.exit118_crit_edge ], [ %50, %43 ]
   %.0.i117 = phi ptr [ null, %ssh_read_mpint.exit.ssh_read_mpint.exit118_crit_edge ], [ %45, %43 ]
-  %52 = getelementptr inbounds i8, ptr %5, i64 640
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 640
   store ptr %.0.i117, ptr %52, align 8
   %53 = load i32, ptr @hf_ssh_dh_gex_g, align 4
   %54 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %40) #21
@@ -7972,16 +7973,16 @@ ssh_read_e.exit:                                  ; preds = %68
   %74 = zext nneg i32 %69 to i64
   %75 = tail call noalias ptr @wmem_alloc0(ptr noundef %73, i64 noundef %74) #21
   store ptr %75, ptr %72, align 8
-  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 %69, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %5, i64 616
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr %72, ptr %77, align 8
   %78 = add i32 %3, 5
   %79 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %75, i32 noundef %78, i64 noundef %74) #21
   br label %84
 
 80:                                               ; preds = %68
-  %81 = getelementptr inbounds i8, ptr %5, i64 616
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr null, ptr %81, align 8
   %82 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %13) #21
   %83 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @ei_ssh_invalid_keylen, ptr noundef %1, i32 noundef %13, i32 noundef 2, ptr noundef nonnull @.str.412, i32 noundef %82) #21
@@ -7996,13 +7997,13 @@ ssh_read_e.exit:                                  ; preds = %68
   %88 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %87, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef %86) #21
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %85, ptr noundef %1, i32 noundef %.pre-phi, i32 noundef %86, i32 noundef 0) #21
   %90 = add i32 %.pre-phi, %86
-  %91 = getelementptr inbounds i8, ptr %5, i64 184
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %84
-  %95 = getelementptr inbounds i8, ptr %5, i64 168
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 8
@@ -8020,9 +8021,9 @@ ssh_read_e.exit:                                  ; preds = %68
   %101 = load i32, ptr @ett_key_exchange_host_key, align 4
   %102 = tail call fastcc i32 @ssh_tree_add_hostkey(ptr noundef %1, i32 noundef %13, ptr noundef %4, i32 noundef %101, ptr noundef %5)
   %103 = add i32 %102, %13
-  %104 = getelementptr inbounds i8, ptr %2, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 50
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 50
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, 8
   %.not114 = icmp eq i16 %108, 0
@@ -8035,7 +8036,7 @@ ssh_read_e.exit:                                  ; preds = %68
   br i1 %or.cond.i.i121, label %ssh_kex_make_bignum.exit.thread.i123, label %113
 
 ssh_kex_make_bignum.exit.thread.i123:             ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %5, i64 624
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr null, ptr %112, align 8
   br label %ssh_read_f.exit
 
@@ -8046,9 +8047,9 @@ ssh_kex_make_bignum.exit.thread.i123:             ; preds = %109
   %117 = zext nneg i32 %110 to i64
   %118 = tail call noalias ptr @wmem_alloc0(ptr noundef %116, i64 noundef %117) #21
   store ptr %118, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 %110, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %5, i64 624
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr %115, ptr %120, align 8
   %121 = add i32 %103, 4
   %122 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %118, i32 noundef %121, i64 noundef %117) #21
@@ -8091,16 +8092,16 @@ ssh_read_f.exit:                                  ; preds = %ssh_kex_make_bignum
   br label %223
 
 143:                                              ; preds = %7
-  %144 = getelementptr inbounds i8, ptr %2, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 50
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 50
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 8
   %.not = icmp eq i16 %148, 0
   br i1 %.not, label %149, label %164
 
 149:                                              ; preds = %143
-  %150 = getelementptr inbounds i8, ptr %5, i64 696
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 696
   %151 = load ptr, ptr %150, align 8
   %152 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %13) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -8113,14 +8114,14 @@ ssh_read_f.exit:                                  ; preds = %ssh_kex_make_bignum
   store i8 %155, ptr %10, align 1
   %156 = lshr i32 %152, 16
   %157 = trunc i32 %156 to i8
-  %158 = getelementptr inbounds i8, ptr %10, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %157, ptr %158, align 1
   %159 = lshr i32 %152, 8
   %160 = trunc i32 %159 to i8
-  %161 = getelementptr inbounds i8, ptr %10, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %160, ptr %161, align 1
   %162 = trunc i32 %152 to i8
-  %163 = getelementptr inbounds i8, ptr %10, i64 3
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %162, ptr %163, align 1
   call void @wmem_array_append(ptr noundef nonnull %151, ptr noundef nonnull %10, i32 noundef 4) #21
   br label %ssh_hash_buffer_put_uint32.exit
@@ -8134,14 +8135,14 @@ ssh_hash_buffer_put_uint32.exit:                  ; preds = %149, %153
   %166 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %165, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef 0) #21
   %167 = add i32 %3, 5
   %168 = load ptr, ptr %144, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 50
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 50
   %170 = load i16, ptr %169, align 2
   %171 = and i16 %170, 8
   %.not112 = icmp eq i16 %171, 0
   br i1 %.not112, label %172, label %187
 
 172:                                              ; preds = %164
-  %173 = getelementptr inbounds i8, ptr %5, i64 704
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %174 = load ptr, ptr %173, align 8
   %175 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %167) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -8154,14 +8155,14 @@ ssh_hash_buffer_put_uint32.exit:                  ; preds = %149, %153
   store i8 %178, ptr %9, align 1
   %179 = lshr i32 %175, 16
   %180 = trunc i32 %179 to i8
-  %181 = getelementptr inbounds i8, ptr %9, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %180, ptr %181, align 1
   %182 = lshr i32 %175, 8
   %183 = trunc i32 %182 to i8
-  %184 = getelementptr inbounds i8, ptr %9, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 %183, ptr %184, align 1
   %185 = trunc i32 %175 to i8
-  %186 = getelementptr inbounds i8, ptr %9, i64 3
+  %186 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 %185, ptr %186, align 1
   call void @wmem_array_append(ptr noundef nonnull %174, ptr noundef nonnull %9, i32 noundef 4) #21
   br label %ssh_hash_buffer_put_uint32.exit125
@@ -8175,14 +8176,14 @@ ssh_hash_buffer_put_uint32.exit125:               ; preds = %172, %176
   %189 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %188, ptr noundef %1, i32 noundef %167, i32 noundef 4, i32 noundef 0) #21
   %190 = add i32 %3, 9
   %191 = load ptr, ptr %144, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 50
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 50
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 8
   %.not113 = icmp eq i16 %194, 0
   br i1 %.not113, label %195, label %210
 
 195:                                              ; preds = %187
-  %196 = getelementptr inbounds i8, ptr %5, i64 712
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 712
   %197 = load ptr, ptr %196, align 8
   %198 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %190) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -8195,14 +8196,14 @@ ssh_hash_buffer_put_uint32.exit125:               ; preds = %172, %176
   store i8 %201, ptr %8, align 1
   %202 = lshr i32 %198, 16
   %203 = trunc i32 %202 to i8
-  %204 = getelementptr inbounds i8, ptr %8, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %203, ptr %204, align 1
   %205 = lshr i32 %198, 8
   %206 = trunc i32 %205 to i8
-  %207 = getelementptr inbounds i8, ptr %8, i64 2
+  %207 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %206, ptr %207, align 1
   %208 = trunc i32 %198 to i8
-  %209 = getelementptr inbounds i8, ptr %8, i64 3
+  %209 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 %208, ptr %209, align 1
   call void @wmem_array_append(ptr noundef nonnull %197, ptr noundef nonnull %8, i32 noundef 4) #21
   br label %ssh_hash_buffer_put_uint32.exit127
@@ -8215,13 +8216,13 @@ ssh_hash_buffer_put_uint32.exit127:               ; preds = %195, %199
   %211 = load i32, ptr @hf_ssh_dh_gex_max, align 4
   %212 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %211, ptr noundef %1, i32 noundef %190, i32 noundef 4, i32 noundef 0) #21
   %213 = add i32 %3, 13
-  %214 = getelementptr inbounds i8, ptr %5, i64 176
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %215 = load i32, ptr %214, align 8
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %221
 
 217:                                              ; preds = %210
-  %218 = getelementptr inbounds i8, ptr %5, i64 168
+  %218 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %219 = load i32, ptr %218, align 8
   %220 = add i32 %219, 1
   store i32 %220, ptr %218, align 8
@@ -8245,7 +8246,7 @@ define internal noundef i32 @ssh_dissect_kex_ecdh(i8 noundef zeroext %0, ptr nou
   %8 = load i32, ptr @hf_ssh2_kex_ecdh_msg_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
   %10 = add i32 %3, 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i8 %0 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ssh2_kex_ecdh_msg_vals, ptr noundef nonnull @.str.411) #21
@@ -8268,38 +8269,38 @@ ssh_read_e.exit:                                  ; preds = %15
   %21 = zext nneg i32 %16 to i64
   %22 = tail call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef %21) #21
   store ptr %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %16, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 616
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr %19, ptr %24, align 8
   %25 = add i32 %3, 5
   %26 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %22, i32 noundef %25, i64 noundef %21) #21
   br label %31
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %5, i64 616
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 616
   store ptr null, ptr %28, align 8
   %29 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #21
   %30 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @ei_ssh_invalid_keylen, ptr noundef %1, i32 noundef %10, i32 noundef 2, ptr noundef nonnull @.str.412, i32 noundef %29) #21
   br label %31
 
 31:                                               ; preds = %ssh_read_e.exit, %27
-  %32 = getelementptr inbounds i8, ptr %2, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 8
   %.not64 = icmp eq i16 %36, 0
   br i1 %.not64, label %37, label %45
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %5, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %5, i64 168
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %43 = load i32, ptr %42, align 8
   store i32 %43, ptr %38, align 8
   %44 = add i32 %43, 1
@@ -8308,7 +8309,7 @@ ssh_read_e.exit:                                  ; preds = %15
   br label %45
 
 45:                                               ; preds = %37, %41, %31
-  %46 = getelementptr inbounds i8, ptr %5, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %6, align 4
   %48 = load i32, ptr @hf_ssh_ecdh_q_c, align 4
@@ -8336,16 +8337,16 @@ ssh_read_f.exit:                                  ; preds = %55
   %64 = zext nneg i32 %59 to i64
   %65 = tail call noalias ptr @wmem_alloc0(ptr noundef %63, i64 noundef %64) #21
   store ptr %65, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %62, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %59, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 624
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr %62, ptr %67, align 8
   %68 = add i32 %58, 4
   %69 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef %65, i32 noundef %68, i64 noundef %64) #21
   br label %74
 
 70:                                               ; preds = %55
-  %71 = getelementptr inbounds i8, ptr %5, i64 624
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 624
   store ptr null, ptr %71, align 8
   %72 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %58) #21
   %73 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull @ei_ssh_invalid_keylen, ptr noundef %1, i32 noundef %58, i32 noundef 2, ptr noundef nonnull @.str.412, i32 noundef %72) #21

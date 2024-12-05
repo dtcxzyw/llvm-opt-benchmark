@@ -18,16 +18,16 @@ define i32 @mca_coll_inter_scatterv_inter(ptr noundef %0, ptr noundef %1, ptr no
   %11 = alloca ptr, align 8
   %12 = getelementptr i8, ptr %8, i64 220
   %.val = load i32, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 224
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %8, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   br label %ompi_comm_remote_size.exit
 
@@ -66,7 +66,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %16
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.080107 = phi i64 [ 0, %.lr.ph.preheader ], [ %36, %.lr.ph ]
-  %33 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = add i64 %.080107, %35
@@ -79,20 +79,20 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %16
   br i1 %.not97, label %._crit_edge.thread, label %37
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %opal_datatype_span.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = sub nsw i64 %45, %47
-  %49 = getelementptr inbounds i8, ptr %6, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = sub i64 %50, %43
   %52 = add i64 %36, -1
@@ -138,7 +138,7 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv112
   %66 = load i32, ptr %gep, align 4
   %67 = add nsw i32 %66, %65
-  %68 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv112
+  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv112
   store i32 %67, ptr %68, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
@@ -149,13 +149,13 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %.078 = phi ptr [ null, %24 ], [ %63, %62 ], [ %63, %.lr.ph110 ]
   %.076 = phi ptr [ null, %24 ], [ %.177, %62 ], [ %.177, %.lr.ph110 ]
   %.075 = phi ptr [ null, %24 ], [ %.1, %62 ], [ %.1, %.lr.ph110 ]
-  %69 = getelementptr inbounds i8, ptr %8, i64 264
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 328
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 328
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 256
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 256
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 264
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 264
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 %74(ptr noundef %.075, ptr noundef %.079, ptr noundef %.078, ptr noundef %6, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef 0, ptr noundef %70, ptr noundef %76) #5
   %.not99 = icmp eq i32 %77, 0

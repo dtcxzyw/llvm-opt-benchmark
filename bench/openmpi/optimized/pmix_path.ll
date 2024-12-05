@@ -64,7 +64,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 14:                                               ; preds = %.lr.ph, %pmix_path_access.exit51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pmix_path_access.exit51 ]
   %15 = phi ptr [ %7, %.lr.ph ], [ %69, %pmix_path_access.exit51 ]
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %17 = load i8, ptr %15, align 1
   %18 = icmp eq i8 %17, 36
   br i1 %18, label %19, label %63
@@ -81,7 +81,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 22:                                               ; preds = %21, %19
   %23 = phi ptr [ %.pre, %21 ], [ %15, %19 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   br i1 %.not.i47, label %.loopexit.i, label %25
 
 25:                                               ; preds = %22
@@ -105,11 +105,11 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %28, i64 %26
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   br label %list_env_get.exit
 
 38:                                               ; preds = %31, %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not15.i = icmp eq ptr %40, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
@@ -185,7 +185,7 @@ pmix_path_access.exit51.sink.split:               ; preds = %66, %62, %60, %55, 
 pmix_path_access.exit51:                          ; preds = %pmix_path_access.exit51.sink.split, %63, %43, %.thread, %42
   %.1 = phi ptr [ null, %42 ], [ null, %.thread ], [ null, %43 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit51.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %68 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8
   %70 = icmp ne ptr %69, null
   %71 = icmp eq ptr %.1, null
@@ -269,17 +269,17 @@ define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 61
   br i1 %15, label %list_env_get.exit.thread, label %17
 
 list_env_get.exit.thread:                         ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 5
   br label %21
 
 17:                                               ; preds = %12, %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not15.i = icmp eq ptr %19, null
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
@@ -309,7 +309,7 @@ list_env_get.exit:                                ; preds = %17, %4, %7
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.018.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %.pr.i = load i8, ptr %27, align 1
   br label %24, !llvm.loop !7
 
@@ -328,7 +328,7 @@ list_env_get.exit:                                ; preds = %17, %4, %7
 32:                                               ; preds = %28, %.critedge.i
   %.not24.i = phi i64 [ %31, %28 ], [ 1, %.critedge.i ]
   %.1.i = phi ptr [ %.018.i, %28 ], [ %.026.i, %.critedge.i ]
-  %spec.select.i = getelementptr inbounds i8, ptr %.1.i, i64 %.not24.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 %.not24.i
   %33 = load i8, ptr %spec.select.i, align 1
   %.not.i26 = icmp eq i8 %33, 0
   br i1 %.not.i26, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
@@ -356,14 +356,14 @@ sub_0.outer:                                      ; preds = %.thread41, %sub_0.p
 
 sub_0:                                            ; preds = %sub_0.outer, %.tail.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail.thread ], [ %indvars.iv.ph, %sub_0.outer ]
-  %38 = getelementptr inbounds ptr, ptr %.ph46, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %.ph46, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 46
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %41 = getelementptr inbounds i8, ptr %39, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %.tail.thread
@@ -372,10 +372,10 @@ sub_0:                                            ; preds = %sub_0.outer, %.tail
   call void @free(ptr noundef nonnull %39) #13
   %45 = call noalias ptr @strdup(ptr noundef nonnull %3) #13
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit, label %.thread41
@@ -534,7 +534,7 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not3033, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.backedge
@@ -561,7 +561,7 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not30, label %._crit_edge, label %25, !llvm.loop !10
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = call noalias ptr @strdup(ptr noundef %37) #13
   store ptr %38, ptr %1, align 8
@@ -572,7 +572,7 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr nocapture noundef w
 
 42:                                               ; preds = %42, %35
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds [7 x ptr], ptr @__const.pmix_path_nfs.fs_types, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [7 x ptr], ptr @__const.pmix_path_nfs.fs_types, i64 0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %41) #14
   %46 = icmp eq i32 %45, 0
@@ -648,9 +648,9 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
   br label %31
 
 20:                                               ; preds = %.critedge
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2147483648
   %.not = icmp eq i64 %25, 0

@@ -176,7 +176,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgI
   br i1 %or.cond, label %20, label %34
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not246 = icmp eq ptr %22, null
   br i1 %.not246, label %23, label %_ZL10_Py_DECREFP7_object.exit
@@ -197,7 +197,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgI
           to label %30 unwind label %31
 
 30:                                               ; preds = %28
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator) #13
   br label %_Z17GetNumpyAllocatorv.exit
 
@@ -212,12 +212,12 @@ common.resume:                                    ; preds = %57, %76, %141, %209
   br label %common.resume
 
 _Z17GetNumpyAllocatorv.exit:                      ; preds = %23, %26, %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, ptr %33, align 8
   br label %_ZL10_Py_DECREFP7_object.exit
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 168
   %.val = load i64, ptr %37, align 8
@@ -230,17 +230,17 @@ _Z17GetNumpyAllocatorv.exit:                      ; preds = %23, %26, %30
   %40 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %0)
   %41 = sitofp i64 %40 to double
   store double %41, ptr %4, align 16
-  %42 = getelementptr inbounds i8, ptr %2, i64 9
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %41, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %41, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %41, ptr %48, align 8
   br label %49
 
@@ -287,17 +287,17 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %60 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   store double %60, ptr %7, align 16
-  %61 = getelementptr inbounds i8, ptr %2, i64 9
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %60, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %7, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %60, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %7, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %60, ptr %67, align 8
   br label %68
 
@@ -342,7 +342,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
 81:                                               ; preds = %77
   %82 = tail call i64 @PyTuple_Size(ptr noundef nonnull %0)
   %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %2, i64 9
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %85 = load i8, ptr %84, align 1
   %86 = trunc i8 %85 to i1
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %83, i32 4)
@@ -350,33 +350,33 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %58, %_ZL
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %10, i32 noundef %87, i32 noundef 1, i32 noundef 6)
   %88 = load ptr, ptr %10, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(352) %10, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef -1)
           to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %141
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %81
-  %92 = getelementptr inbounds i8, ptr %10, i64 208
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %92) #13
-  %93 = getelementptr inbounds i8, ptr %10, i64 112
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #13
-  %94 = getelementptr inbounds i8, ptr %10, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %94) #13
   %95 = icmp sgt i32 %83, 0
   br i1 %95, label %.lr.ph, label %_ZL10_Py_DECREFP7_object.exit
 
 .lr.ph:                                           ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %96 = getelementptr inbounds i8, ptr %1, i64 64
-  %97 = getelementptr inbounds i8, ptr %1, i64 12
-  %98 = getelementptr inbounds i8, ptr %1, i64 16
-  %99 = getelementptr inbounds i8, ptr %1, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count = and i64 %82, 2147483647
   br label %100
 
 100:                                              ; preds = %.lr.ph, %181
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
   %101 = call ptr @PyTuple_GetItem(ptr noundef %0, i64 noundef %indvars.iv)
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 168
   %.val252 = load i64, ptr %104, align 8
@@ -400,11 +400,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %81
 
 115:                                              ; preds = %111, %106
   %116 = load ptr, ptr %98, align 8
-  %117 = getelementptr inbounds double, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit
 
 118:                                              ; preds = %111
-  %119 = getelementptr inbounds i8, ptr %112, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 1
   br i1 %121, label %122, label %128
@@ -468,11 +468,11 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread: ; preds = %143, 
 
 152:                                              ; preds = %148, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit269.thread
   %153 = load ptr, ptr %98, align 8
-  %154 = getelementptr inbounds double, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw double, ptr %153, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit272
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %149, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %159, label %165
@@ -519,7 +519,7 @@ _ZN2cv3Mat2atIdEERT_i.exit272:                    ; preds = %152, %159, %165
 
 182:                                              ; preds = %77
   %183 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
   %.not.i273 = icmp eq ptr %78, %185
   br i1 %.not.i273, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274
@@ -535,7 +535,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274: ; preds = %182
   br label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274
-  %190 = getelementptr inbounds i8, ptr %2, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %191 = load i8, ptr %190, align 8
   %192 = trunc i8 %191 to i1
   br i1 %192, label %193, label %199
@@ -635,13 +635,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit274.thread: ; preds = %182, 
   br i1 %223, label %224, label %232
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds i8, ptr %.val263, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %.val263, i64 16
   %226 = load i64, ptr %225, align 8
   %227 = icmp slt i64 %226, 513
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %2, i64 11
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %230 = load i8, ptr %229, align 1
   %231 = xor i8 %230, 1
   br label %232
@@ -670,7 +670,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread: ; preds = %235, 
 
 238:                                              ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit276.thread
   store ptr @.str.6, ptr %13, align 8
-  %239 = getelementptr inbounds i8, ptr %13, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %239, align 8
   %240 = call fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef %237, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(12) %13)
   %241 = load i64, ptr %237, align 8
@@ -712,8 +712,8 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 .lr.ph308.preheader:                              ; preds = %252
   %256 = zext nneg i32 %253 to i64
   %257 = zext nneg i32 %253 to i64
-  %258 = getelementptr inbounds i64, ptr %.val264, i64 %256
-  %259 = getelementptr inbounds i64, ptr %.val263, i64 %256
+  %258 = getelementptr inbounds nuw i64, ptr %.val264, i64 %256
+  %259 = getelementptr inbounds nuw i64, ptr %.val263, i64 %256
   %260 = trunc nuw i8 %.0205 to i1
   br label %.lr.ph308
 
@@ -737,15 +737,15 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   br i1 %268, label %269, label %279
 
 269:                                              ; preds = %267
-  %270 = getelementptr inbounds i64, ptr %.val263, i64 %indvars.iv319
+  %270 = getelementptr inbounds nuw i64, ptr %.val263, i64 %indvars.iv319
   %271 = load i64, ptr %270, align 8
   %272 = icmp sgt i64 %271, 1
   br i1 %272, label %273, label %279
 
 273:                                              ; preds = %269
-  %274 = getelementptr inbounds i64, ptr %.val264, i64 %indvars.iv319
+  %274 = getelementptr inbounds nuw i64, ptr %.val264, i64 %indvars.iv319
   %275 = load i64, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %274, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = icmp slt i64 %275, %277
   br i1 %278, label %._crit_edge, label %279
@@ -767,7 +767,7 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 
 284:                                              ; preds = %282
   %285 = zext nneg i32 %253 to i64
-  %286 = getelementptr inbounds i64, ptr %.val263, i64 %285
+  %286 = getelementptr inbounds nuw i64, ptr %.val263, i64 %285
   %287 = load i64, ptr %286, align 8
   %288 = trunc i64 %287 to i32
   %289 = icmp sgt i32 %288, 512
@@ -828,9 +828,9 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 
 318:                                              ; preds = %317
   %319 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 392
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 392
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %319, i64 360
+  %322 = getelementptr inbounds nuw i8, ptr %319, i64 360
   %323 = load ptr, ptr %322, align 8
   %324 = tail call noundef ptr %323(i32 noundef %.0213)
   %325 = tail call noundef ptr %321(ptr noundef %0, ptr noundef %324, i32 noundef 0)
@@ -851,7 +851,7 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 
 332:                                              ; preds = %326
   %333 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 680
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 680
   %335 = load ptr, ptr %334, align 8
   %336 = tail call noundef ptr %335(ptr noundef nonnull %0, i32 noundef 0)
   br label %337
@@ -878,16 +878,16 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   %indvars.iv321 = phi i64 [ %341, %.lr.ph313.preheader ], [ %indvars.iv.next322, %355 ]
   %.0197310 = phi i64 [ %.0208, %.lr.ph313.preheader ], [ %.1198, %355 ]
   %indvars.iv.next322 = add nsw i64 %indvars.iv321, -1
-  %342 = getelementptr inbounds i64, ptr %.val263, i64 %indvars.iv.next322
+  %342 = getelementptr inbounds nuw i64, ptr %.val263, i64 %indvars.iv.next322
   %343 = load i64, ptr %342, align 8
   %344 = trunc i64 %343 to i32
-  %345 = getelementptr inbounds [33 x i32], ptr %14, i64 0, i64 %indvars.iv.next322
+  %345 = getelementptr inbounds nuw [33 x i32], ptr %14, i64 0, i64 %indvars.iv.next322
   store i32 %344, ptr %345, align 4
   %346 = icmp sgt i32 %344, 1
   br i1 %346, label %347, label %352
 
 347:                                              ; preds = %.lr.ph313
-  %348 = getelementptr inbounds i64, ptr %.0204, i64 %indvars.iv.next322
+  %348 = getelementptr inbounds nuw i64, ptr %.0204, i64 %indvars.iv.next322
   %349 = load i64, ptr %348, align 8
   %350 = and i64 %343, 2147483647
   %351 = mul i64 %349, %350
@@ -902,14 +902,14 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
 355:                                              ; preds = %347, %352
   %.0197310.sink = phi i64 [ %349, %347 ], [ %.0197310, %352 ]
   %.1198 = phi i64 [ %351, %347 ], [ %354, %352 ]
-  %356 = getelementptr inbounds [33 x i64], ptr %15, i64 0, i64 %indvars.iv.next322
+  %356 = getelementptr inbounds nuw [33 x i64], ptr %15, i64 0, i64 %indvars.iv.next322
   store i64 %.0197310.sink, ptr %356, align 8
   %357 = icmp samesign ugt i64 %indvars.iv321, 1
   br i1 %357, label %.lr.ph313, label %._crit_edge314, !llvm.loop !8
 
 ._crit_edge314:                                   ; preds = %355
   %.pre = load i32, ptr %14, align 16
-  %358 = getelementptr inbounds i8, ptr %2, i64 9
+  %358 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %359 = load i8, ptr %358, align 1
   %360 = trunc i8 %359 to i1
   %361 = icmp eq i32 %.0209, 1
@@ -922,7 +922,7 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %16, i32 noundef 4, i32 noundef 1, i32 noundef 6)
   %364 = load ptr, ptr %16, align 8
   %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
   invoke void %367(ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull align 8 dereferenceable(352) %16, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef -1)
           to label %_ZN2cv3MataSERKNS_7MatExprE.exit280 unwind label %388
@@ -935,7 +935,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit280:              ; preds = %363
   br i1 %369, label %.lr.ph316, label %_ZL10_Py_DECREFP7_object.exit
 
 .lr.ph316:                                        ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit280
-  %370 = getelementptr inbounds i8, ptr %.0190, i64 56
+  %370 = getelementptr inbounds nuw i8, ptr %.0190, i64 56
   %wide.trip.count327 = zext nneg i32 %.pre to i64
   br label %371
 
@@ -945,12 +945,12 @@ _ZN2cv3MataSERKNS_7MatExprE.exit280:              ; preds = %363
   %373 = mul i64 %372, %indvars.iv324
   %374 = getelementptr inbounds i8, ptr %.0190.val, i64 %373
   %375 = load ptr, ptr %370, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 64
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 64
   %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 168
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 168
   %379 = load ptr, ptr %378, align 8
   %380 = call noundef ptr %379(ptr noundef %374, ptr noundef nonnull %.0190)
-  %381 = getelementptr inbounds i8, ptr %380, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8
   %383 = getelementptr i8, ptr %382, i64 168
   %.val253 = load i64, ptr %383, align 8
@@ -1018,7 +1018,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread: ; preds = %390, 
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #13
   %405 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
   %406 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull %.0190, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef nonnull %15)
-  %407 = getelementptr inbounds i8, ptr %1, i64 56
+  %407 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %406, ptr %407, align 8
   call void @_ZN2cv3Mat6addrefEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   br i1 %310, label %413, label %408
@@ -1037,7 +1037,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread: ; preds = %390, 
 
 413:                                              ; preds = %408, %404
   %414 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
-  %415 = getelementptr inbounds i8, ptr %1, i64 48
+  %415 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %414, ptr %415, align 8
   br label %_ZL10_Py_DECREFP7_object.exit
 
@@ -1063,7 +1063,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_Z17
           to label %7 unwind label %9
 
 7:                                                ; preds = %5
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator) #13
   br label %8
 
@@ -1101,11 +1101,11 @@ declare void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind writable sret(%"class.cv::
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
   ret void
 }
@@ -1120,29 +1120,29 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2c
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds double, ptr %12, i64 %13
   br label %43
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %23, align 8
   %25 = sext i32 %1 to i64
@@ -1151,14 +1151,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2c
   br label %43
 
 28:                                               ; preds = %15
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = sdiv i32 %1, %30
   %32 = mul nsw i32 %31, %30
   %.recomposed = srem i32 %1, %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = load i64, ptr %36, align 8
   %38 = sext i32 %31 to i64
@@ -1288,7 +1288,7 @@ define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.82, ptr noundef %15, ptr noundef %20)
@@ -1372,11 +1372,11 @@ declare void @_ZN2cv3Mat6addrefEv(ptr noundef nonnull align 8 dereferenceable(96
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv3MatEEP7_objectRKT_(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %.016.sroa.gep = getelementptr inbounds i8, ptr %2, i64 56
-  %.016.sroa.gep22 = getelementptr inbounds i8, ptr %0, i64 56
+  %.016.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %.016.sroa.gep22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
@@ -1392,7 +1392,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv3MatEEP7_objectRKT_(ptr noundef
   br i1 %.not23, label %23, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load atomic i8, ptr @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator acquire, align 8
   %15 = icmp eq i8 %14, 0
@@ -1409,7 +1409,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv3MatEEP7_objectRKT_(ptr noundef
           to label %20 unwind label %21
 
 20:                                               ; preds = %18
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator) #13
   br label %_Z17GetNumpyAllocatorv.exit
 
@@ -1439,7 +1439,7 @@ _Z17GetNumpyAllocatorv.exit:                      ; preds = %20, %16, %11
           to label %30 unwind label %31
 
 30:                                               ; preds = %28
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, i64 8), align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator) #13
   br label %_Z17GetNumpyAllocatorv.exit32
 
@@ -1450,14 +1450,14 @@ _Z17GetNumpyAllocatorv.exit:                      ; preds = %20, %16, %11
   br label %.body
 
 _Z17GetNumpyAllocatorv.exit32:                    ; preds = %30, %26, %23
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, ptr %33, align 8
   %34 = invoke ptr @PyEval_SaveThread()
           to label %35 unwind label %44
 
 35:                                               ; preds = %_Z17GetNumpyAllocatorv.exit32
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %37, align 8
   store i32 33619968, ptr %3, align 8
   store ptr %2, ptr %36, align 8
@@ -1524,7 +1524,7 @@ _ZN14PyAllowThreadsD2Ev.exit33:                   ; preds = %46, %44
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %58, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %58) #13
   invoke void @PyErr_SetString(ptr noundef %59, ptr noundef %64)
@@ -1559,7 +1559,7 @@ _ZN14PyAllowThreadsD2Ev.exit33:                   ; preds = %46, %44
 _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %38, %_Z17GetNumpyAllocatorv.exit
   %.016.sroa.phi = phi ptr [ %.016.sroa.gep22, %_Z17GetNumpyAllocatorv.exit ], [ %.016.sroa.gep, %38 ]
   %72 = load ptr, ptr %.016.sroa.phi, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = load ptr, ptr %73, align 8
   %75 = load i64, ptr %74, align 8
   %76 = add nsw i64 %75, 1
@@ -1624,7 +1624,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr 
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %11, align 8
@@ -1660,7 +1660,7 @@ _Z6isBoolP7_object.exit:                          ; preds = %_ZL19_PyObject_Type
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_Z6isBoolP7_object.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -1673,7 +1673,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %21
 _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %18, %_Z6isBoolP7_object.exit
   store i8 0, ptr %4, align 1
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1432
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1432
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %30 = icmp sgt i32 %29, -1
@@ -1715,7 +1715,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIPvEbP7_objectRT_RK7ArgInfo(ptr
   br i1 %or.cond, label %15, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 168
   %.val = load i64, ptr %9, align 8
@@ -1875,7 +1875,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38: ; preds = %44
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38.thread: ; preds = %44, %47, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit38
   %51 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0)
   store double %51, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   br label %.loopexit
 
@@ -1923,11 +1923,11 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %1, %0, %4
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Scalar_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, double noundef %2, double noundef %4, double noundef %6, double noundef %8)
   ret ptr %9
@@ -1946,7 +1946,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toImEbP7_objectRT_RK7ArgInfo(ptr 
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %12, align 8
@@ -1987,7 +1987,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %8, %_ZL19_PyObject_
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %.val.i, %27
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -2017,7 +2017,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 
 33:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %34 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i.i21 = icmp eq ptr %29, %36
   br i1 %.not.i.i21, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22
@@ -2029,7 +2029,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22: ; preds = %33
   br i1 %.not18.i, label %38, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22
-  %39 = getelementptr inbounds i8, ptr %.pre19.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 16
   %40 = load ptr, ptr %39, align 8
   %.val.i23 = load ptr, ptr %12, align 8
   %.not.i12.i = icmp eq ptr %.val.i23, %40
@@ -2052,24 +2052,24 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_Typ
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22, %33
   %44 = phi ptr [ %.pre.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge.i ], [ %34, %33 ], [ %.pre19.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i22 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 360
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 360
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr %46(i32 noundef 8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %48 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 456
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 456
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef ptr %50(ptr noundef nonnull %0)
   %52 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 424
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 424
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef zeroext i8 %54(ptr noundef %51, ptr noundef %47)
   %.not.i14.i = icmp eq i8 %55, 0
   br i1 %.not.i14.i, label %56, label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i
 
 56:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
-  %57 = getelementptr inbounds i8, ptr %51, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %59 [
     i32 1, label %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i
@@ -2082,9 +2082,9 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_
 59:                                               ; preds = %56
   store i64 0, ptr %5, align 8
   %60 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 504
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 504
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 360
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 360
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef ptr %64(i32 noundef 8)
   %66 = call noundef i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %65)
@@ -2098,9 +2098,9 @@ _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.
 _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; preds = %56, %56, %56, %56, %56
   store i64 0, ptr %4, align 8
   %67 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 504
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 504
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 360
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 360
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr %71(i32 noundef 7)
   %73 = call noundef i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %72)
@@ -2112,7 +2112,7 @@ _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; pr
 
 _ZN12_GLOBAL__N_116parseNumpyScalarImEEbP7_objectRT_.exit: ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.thread.i, %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i
   %76 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 504
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 504
   %78 = load ptr, ptr %77, align 8
   %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %47)
   br label %86
@@ -2157,7 +2157,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8
@@ -2198,7 +2198,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.pre17, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %.pre17, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -2214,7 +2214,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
   %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
   store i32 %29, ptr %1, align 4
@@ -2255,7 +2255,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIlEbP7_objectRT_RK7ArgInfo(ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8
@@ -2296,7 +2296,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.val.i, %25
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -2382,7 +2382,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIcEbP7_objectRT_RK7ArgInfo(ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8
@@ -2423,7 +2423,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %6, %_ZL19_PyObject_
   br i1 %.not, label %22, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.pre17, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %.pre17, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val.i, %24
   br i1 %.not.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
@@ -2439,7 +2439,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %22, %19
   %26 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %.pre17, %22 ], [ %.pre17, %19 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0)
   %30 = trunc i32 %29 to i8
@@ -2471,7 +2471,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8
@@ -2550,7 +2550,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i39 = icmp eq ptr %.pre, %36
   br i1 %.not.i39, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
@@ -2562,7 +2562,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40: ; preds = %33
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit40
   %39 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %.val32 = load ptr, ptr %10, align 8
   %.not.i41 = icmp eq ptr %.val32, %41
@@ -2613,7 +2613,7 @@ declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIdEEbP7_objectRT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 {
   %3 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 8
   %.val10 = load ptr, ptr %6, align 8
@@ -2627,7 +2627,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %9 = getelementptr inbounds i8, ptr %.pre18, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.pre18, i64 16
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %6, align 8
   %.not.i12 = icmp eq ptr %.val, %10
@@ -2650,13 +2650,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_Typ
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 360
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(i32 noundef 12)
   %18 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 424
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 424
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 456
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
@@ -2665,7 +2665,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 504
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %30
@@ -2693,7 +2693,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 8
   %.val2.i = load ptr, ptr %10, align 8
@@ -2772,7 +2772,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %21, %19,
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i41 = icmp eq ptr %.pre, %36
   br i1 %.not.i41, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
@@ -2784,7 +2784,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42: ; preds = %33
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42
   %39 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %.val34 = load ptr, ptr %10, align 8
   %.not.i43 = icmp eq ptr %.val34, %41
@@ -2834,7 +2834,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread: ; preds = %33, %_
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116parseNumpyScalarIfEEbP7_objectRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #3 {
   %3 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 8
   %.val10 = load ptr, ptr %6, align 8
@@ -2848,7 +2848,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %2
   br i1 %.not16, label %8, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
 
 8:                                                ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %9 = getelementptr inbounds i8, ptr %.pre18, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.pre18, i64 16
   %10 = load ptr, ptr %9, align 8
   %.val = load ptr, ptr %6, align 8
   %.not.i12 = icmp eq ptr %.val, %10
@@ -2871,13 +2871,13 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_Typ
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge, %2, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %14 = phi ptr [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit13.thread._ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread_crit_edge ], [ %3, %2 ], [ %.pre18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 360
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 360
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(i32 noundef 11)
   %18 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 424
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 424
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 456
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
   %24 = tail call noundef zeroext i8 %20(ptr noundef %23, ptr noundef %17)
@@ -2886,7 +2886,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 
 25:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread
   %26 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 504
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17)
   br label %30
@@ -2914,7 +2914,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt1
 
 7:                                                ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %8 = getelementptr inbounds i8, ptr %2, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %21
@@ -2963,9 +2963,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt1
   br i1 %.not14, label %29, label %36
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.012, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %2, align 8
   %35 = invoke noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.27, ptr noundef %33, ptr noundef %34)
@@ -2990,7 +2990,7 @@ declare ptr @PyOS_FSPath(ptr noundef) local_unnamed_addr #0
 define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 168
   %.val13 = load i64, ptr %7, align 8
@@ -3000,7 +3000,7 @@ define internal fastcc noundef zeroext i1 @_ZL16getUnicodeStringP7_objectRNSt7__
 
 9:                                                ; preds = %2
   %10 = tail call ptr @PyUnicode_AsUTF8String(ptr noundef nonnull %0)
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 168
   %.val = load i64, ptr %13, align 8
@@ -3073,8 +3073,8 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -3111,7 +3111,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -3164,7 +3164,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
@@ -3174,8 +3174,8 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -3212,7 +3212,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -3266,7 +3266,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.30, double noundef %3, double noundef %6)
@@ -3277,14 +3277,14 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -3320,7 +3320,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -3375,11 +3375,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %8)
   ret ptr %9
@@ -3389,14 +3389,14 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -3432,7 +3432,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -3488,13 +3488,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   %13 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %3, double noundef %6, double noundef %9, double noundef %12)
@@ -3505,14 +3505,14 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr no
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -3548,7 +3548,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -3603,11 +3603,11 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, double noundef %2, double noundef %4, double noundef %6, double noundef %8)
   ret ptr %9
@@ -3655,7 +3655,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectR
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %25, i64 20, i1 false)
   %26 = load i64, ptr %17, align 8
   %27 = add nsw i64 %26, -1
@@ -3722,7 +3722,7 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62: ; preds = %
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.35, ptr noundef %39)
   %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   store ptr %43, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %9, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %44, align 8
   %45 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 0)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit unwind label %49
@@ -3730,8 +3730,8 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62: ; preds = %
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 16
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %47, ptr %46, align 8
   %48 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(12) %9)
           to label %53 unwind label %51
@@ -3779,17 +3779,17 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %53, %54, %57
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.36, ptr noundef %62)
   %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %63, ptr %11, align 8
-  %64 = getelementptr inbounds i8, ptr %11, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %64, align 8
   %65 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 1)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55 unwind label %70
 
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55: ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %66, ptr %4, align 16
-  %67 = getelementptr inbounds i8, ptr %4, i64 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %68, ptr %67, align 8
   %69 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %11)
           to label %74 unwind label %72
@@ -3837,13 +3837,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58:        ; preds = %74, %75, %78
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.37, ptr noundef %83)
   %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
   store ptr %84, ptr %13, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %85, align 8
   %86 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 2)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59 unwind label %89
 
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %86, ptr noundef nonnull align 4 dereferenceable(4) %87, ptr noundef nonnull align 8 dereferenceable(12) %13)
           to label %93 unwind label %91
 
@@ -3874,8 +3874,8 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -3885,16 +3885,16 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_R
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv11RotatedRectEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   %16 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.38, double noundef %3, double noundef %6, double noundef %9, double noundef %12, double noundef %15)
@@ -3920,8 +3920,8 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7Ar
 
 11:                                               ; preds = %7
   store ptr %1, ptr %4, align 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %13, ptr %12, align 8
   %14 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   br label %15
@@ -3939,7 +3939,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
@@ -3949,8 +3949,8 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr nocap
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -3959,7 +3959,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_R
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
@@ -3969,7 +3969,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr n
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, double noundef %3, double noundef %6)
@@ -3980,8 +3980,8 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr n
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -4018,7 +4018,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -4071,7 +4071,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, double noundef %2, double noundef %4)
   ret ptr %5
@@ -4081,11 +4081,11 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr n
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4121,7 +4121,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -4176,9 +4176,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.40, i32 noundef %2, i32 noundef %4, i32 noundef %6)
   ret ptr %7
@@ -4188,11 +4188,11 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4228,7 +4228,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -4284,10 +4284,10 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   %10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, double noundef %3, double noundef %6, double noundef %9)
@@ -4298,11 +4298,11 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4338,7 +4338,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
-  %17 = getelementptr inbounds [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
+  %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %23
@@ -4393,9 +4393,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, double noundef %2, double noundef %4, double noundef %6)
   ret ptr %7
@@ -4405,14 +4405,14 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr 
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -4421,11 +4421,11 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, double noundef %2, double noundef %4, double noundef %6, double noundef %8)
   ret ptr %9
@@ -4435,14 +4435,14 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -4452,13 +4452,13 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7Arg
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   %13 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %3, double noundef %6, double noundef %9, double noundef %12)
@@ -4469,14 +4469,14 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store ptr %10, ptr %9, align 8
   %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %11
@@ -4485,11 +4485,11 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.31, i32 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %8)
   ret ptr %9
@@ -4499,11 +4499,11 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4512,9 +4512,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.41, double noundef %2, double noundef %4, double noundef %6)
   ret ptr %7
@@ -4524,11 +4524,11 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4538,10 +4538,10 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7Arg
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   %10 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.42, double noundef %3, double noundef %6, double noundef %9)
@@ -4552,11 +4552,11 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %7, align 16
   %9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %9
@@ -4565,9 +4565,9 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.40, i32 noundef %2, i32 noundef %4, i32 noundef %6)
   ret ptr %7
@@ -4577,8 +4577,8 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -4587,7 +4587,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, double noundef %2, double noundef %4)
   ret ptr %5
@@ -4597,8 +4597,8 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -4608,7 +4608,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7Arg
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.30, double noundef %3, double noundef %6)
@@ -4619,8 +4619,8 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr nocapture nou
 define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %6, ptr %5, align 8
   %7 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(12) %2)
   ret i1 %7
@@ -4629,7 +4629,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7Arg
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi2EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %2, i32 noundef %4)
   ret ptr %5
@@ -4672,7 +4672,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv12TermCriteriaEEbP7_object
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.45, ptr noundef %19)
   %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   store ptr %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %24, align 8
   %25 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 0)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit unwind label %27
@@ -4723,13 +4723,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %31, %32, %35
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.46, ptr noundef %40)
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   store ptr %41, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %42, align 8
   %43 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 1)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52 unwind label %46
 
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit52: ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 8 dereferenceable(12) %7)
           to label %50 unwind label %48
 
@@ -4775,13 +4775,13 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit55:        ; preds = %50, %51, %54
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.47, ptr noundef %59)
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   store ptr %60, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %9, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %61, align 8
   %62 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 2)
           to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56 unwind label %65
 
 _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit56: ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(12) %9)
           to label %69 unwind label %67
 
@@ -4836,9 +4836,9 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59:        ; preds = %69, %70, %73
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
   %7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.48, i32 noundef %2, i32 noundef %4, double noundef %6)
   ret ptr %7
@@ -4847,51 +4847,51 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(p
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 176
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = load double, ptr %47, align 8
   %49 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, double noundef %2, ptr noundef nonnull @.str.51, double noundef %4, ptr noundef nonnull @.str.52, double noundef %6, ptr noundef nonnull @.str.53, double noundef %8, ptr noundef nonnull @.str.54, double noundef %10, ptr noundef nonnull @.str.55, double noundef %12, ptr noundef nonnull @.str.56, double noundef %14, ptr noundef nonnull @.str.57, double noundef %16, ptr noundef nonnull @.str.58, double noundef %18, ptr noundef nonnull @.str.59, double noundef %20, ptr noundef nonnull @.str.60, double noundef %22, ptr noundef nonnull @.str.61, double noundef %24, ptr noundef nonnull @.str.62, double noundef %26, ptr noundef nonnull @.str.63, double noundef %28, ptr noundef nonnull @.str.64, double noundef %30, ptr noundef nonnull @.str.65, double noundef %32, ptr noundef nonnull @.str.66, double noundef %34, ptr noundef nonnull @.str.67, double noundef %36, ptr noundef nonnull @.str.68, double noundef %38, ptr noundef nonnull @.str.69, double noundef %40, ptr noundef nonnull @.str.70, double noundef %42, ptr noundef nonnull @.str.71, double noundef %44, ptr noundef nonnull @.str.72, double noundef %46, ptr noundef nonnull @.str.73, double noundef %48)
   ret ptr %49
@@ -4900,7 +4900,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr noc
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13pyopencv_fromISt4pairIidEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.74, i32 noundef %2, double noundef %4)
   ret ptr %5
@@ -5018,7 +5018,7 @@ define internal fastcc void @_ZL15getPyObjectAttrB5cxx11P7_objectPKc(ptr dead_on
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %18)
           to label %20 unwind label %10

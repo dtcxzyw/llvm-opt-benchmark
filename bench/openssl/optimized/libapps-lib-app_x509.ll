@@ -33,7 +33,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store i8 0, ptr %call1, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %call1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 1
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr) #4
   br label %if.end5
 

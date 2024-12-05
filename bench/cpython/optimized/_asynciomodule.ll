@@ -1134,7 +1134,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %TaskStepMethWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %TaskStepMethWrapper_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %2 = load ptr, ptr %TaskStepMethWrapper_Type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1145,7 +1145,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %FutureType = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %FutureType = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %3 = load ptr, ptr %FutureType, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1156,7 +1156,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %TaskType = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %TaskType = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %4 = load ptr, ptr %TaskType, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1167,7 +1167,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %asyncio_mod = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %asyncio_mod = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %5 = load ptr, ptr %asyncio_mod, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -1178,7 +1178,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %traceback_extract_stack = getelementptr inbounds i8, ptr %mod.val, i64 144
+  %traceback_extract_stack = getelementptr inbounds nuw i8, ptr %mod.val, i64 144
   %6 = load ptr, ptr %traceback_extract_stack, align 8
   %tobool51.not = icmp eq ptr %6, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -1189,7 +1189,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.body50
-  %asyncio_future_repr_func = getelementptr inbounds i8, ptr %mod.val, i64 88
+  %asyncio_future_repr_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 88
   %7 = load ptr, ptr %asyncio_future_repr_func, align 8
   %tobool62.not = icmp eq ptr %7, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -1200,7 +1200,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %asyncio_get_event_loop_policy = getelementptr inbounds i8, ptr %mod.val, i64 80
+  %asyncio_get_event_loop_policy = getelementptr inbounds nuw i8, ptr %mod.val, i64 80
   %8 = load ptr, ptr %asyncio_get_event_loop_policy, align 8
   %tobool73.not = icmp eq ptr %8, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -1211,7 +1211,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %asyncio_iscoroutine_func = getelementptr inbounds i8, ptr %mod.val, i64 136
+  %asyncio_iscoroutine_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 136
   %9 = load ptr, ptr %asyncio_iscoroutine_func, align 8
   %tobool84.not = icmp eq ptr %9, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -1222,7 +1222,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %asyncio_task_get_stack_func = getelementptr inbounds i8, ptr %mod.val, i64 112
+  %asyncio_task_get_stack_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 112
   %10 = load ptr, ptr %asyncio_task_get_stack_func, align 8
   %tobool95.not = icmp eq ptr %10, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -1233,7 +1233,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %asyncio_task_print_stack_func = getelementptr inbounds i8, ptr %mod.val, i64 120
+  %asyncio_task_print_stack_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 120
   %11 = load ptr, ptr %asyncio_task_print_stack_func, align 8
   %tobool106.not = icmp eq ptr %11, null
   br i1 %tobool106.not, label %do.body116, label %if.then107
@@ -1244,7 +1244,7 @@ if.then107:                                       ; preds = %do.body105
   br i1 %tobool111.not, label %do.body116, label %return
 
 do.body116:                                       ; preds = %if.then107, %do.body105
-  %asyncio_task_repr_func = getelementptr inbounds i8, ptr %mod.val, i64 128
+  %asyncio_task_repr_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 128
   %12 = load ptr, ptr %asyncio_task_repr_func, align 8
   %tobool117.not = icmp eq ptr %12, null
   br i1 %tobool117.not, label %do.body127, label %if.then118
@@ -1255,7 +1255,7 @@ if.then118:                                       ; preds = %do.body116
   br i1 %tobool122.not, label %do.body127, label %return
 
 do.body127:                                       ; preds = %if.then118, %do.body116
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %mod.val, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %mod.val, i64 104
   %13 = load ptr, ptr %asyncio_InvalidStateError, align 8
   %tobool128.not = icmp eq ptr %13, null
   br i1 %tobool128.not, label %do.body138, label %if.then129
@@ -1266,7 +1266,7 @@ if.then129:                                       ; preds = %do.body127
   br i1 %tobool133.not, label %do.body138, label %return
 
 do.body138:                                       ; preds = %if.then129, %do.body127
-  %asyncio_CancelledError = getelementptr inbounds i8, ptr %mod.val, i64 96
+  %asyncio_CancelledError = getelementptr inbounds nuw i8, ptr %mod.val, i64 96
   %14 = load ptr, ptr %asyncio_CancelledError, align 8
   %tobool139.not = icmp eq ptr %14, null
   br i1 %tobool139.not, label %do.body149, label %if.then140
@@ -1277,7 +1277,7 @@ if.then140:                                       ; preds = %do.body138
   br i1 %tobool144.not, label %do.body149, label %return
 
 do.body149:                                       ; preds = %if.then140, %do.body138
-  %scheduled_tasks = getelementptr inbounds i8, ptr %mod.val, i64 56
+  %scheduled_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 56
   %15 = load ptr, ptr %scheduled_tasks, align 8
   %tobool150.not = icmp eq ptr %15, null
   br i1 %tobool150.not, label %do.body160, label %if.then151
@@ -1288,7 +1288,7 @@ if.then151:                                       ; preds = %do.body149
   br i1 %tobool155.not, label %do.body160, label %return
 
 do.body160:                                       ; preds = %if.then151, %do.body149
-  %eager_tasks = getelementptr inbounds i8, ptr %mod.val, i64 64
+  %eager_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 64
   %16 = load ptr, ptr %eager_tasks, align 8
   %tobool161.not = icmp eq ptr %16, null
   br i1 %tobool161.not, label %do.body171, label %if.then162
@@ -1299,7 +1299,7 @@ if.then162:                                       ; preds = %do.body160
   br i1 %tobool166.not, label %do.body171, label %return
 
 do.body171:                                       ; preds = %if.then162, %do.body160
-  %current_tasks = getelementptr inbounds i8, ptr %mod.val, i64 48
+  %current_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 48
   %17 = load ptr, ptr %current_tasks, align 8
   %tobool172.not = icmp eq ptr %17, null
   br i1 %tobool172.not, label %do.body182, label %if.then173
@@ -1310,7 +1310,7 @@ if.then173:                                       ; preds = %do.body171
   br i1 %tobool177.not, label %do.body182, label %return
 
 do.body182:                                       ; preds = %if.then173, %do.body171
-  %iscoroutine_typecache = getelementptr inbounds i8, ptr %mod.val, i64 72
+  %iscoroutine_typecache = getelementptr inbounds nuw i8, ptr %mod.val, i64 72
   %18 = load ptr, ptr %iscoroutine_typecache, align 8
   %tobool183.not = icmp eq ptr %18, null
   br i1 %tobool183.not, label %do.body193, label %if.then184
@@ -1321,7 +1321,7 @@ if.then184:                                       ; preds = %do.body182
   br i1 %tobool188.not, label %do.body193, label %return
 
 do.body193:                                       ; preds = %if.then184, %do.body182
-  %context_kwname = getelementptr inbounds i8, ptr %mod.val, i64 40
+  %context_kwname = getelementptr inbounds nuw i8, ptr %mod.val, i64 40
   %19 = load ptr, ptr %context_kwname, align 8
   %tobool194.not = icmp eq ptr %19, null
   br i1 %tobool194.not, label %do.end203, label %if.then195
@@ -1332,13 +1332,13 @@ if.then195:                                       ; preds = %do.body193
   br i1 %tobool199.not, label %do.end203, label %return
 
 do.end203:                                        ; preds = %do.body193, %if.then195
-  %fi_freelist = getelementptr inbounds i8, ptr %mod.val, i64 176
+  %fi_freelist = getelementptr inbounds nuw i8, ptr %mod.val, i64 176
   %next.0118 = load ptr, ptr %fi_freelist, align 8
   %cmp.not119 = icmp eq ptr %next.0118, null
   br i1 %cmp.not119, label %return, label %if.then206
 
 while.cond:                                       ; preds = %if.then206
-  %future = getelementptr inbounds i8, ptr %next.0120, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %next.0120, i64 16
   %next.0 = load ptr, ptr %future, align 8
   %cmp.not = icmp eq ptr %next.0, null
   br i1 %cmp.not, label %return, label %if.then206, !llvm.loop !4
@@ -1381,7 +1381,7 @@ if.then1.i286:                                    ; preds = %if.end.i283
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i283, %if.then1.i286, %if.then, %entry
-  %TaskStepMethWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %TaskStepMethWrapper_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %4 = load ptr, ptr %TaskStepMethWrapper_Type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1404,7 +1404,7 @@ if.then1.i277:                                    ; preds = %if.end.i274
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i274, %if.then1.i277, %if.then5, %do.body1
-  %FutureType = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %FutureType = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %7 = load ptr, ptr %FutureType, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1427,7 +1427,7 @@ if.then1.i268:                                    ; preds = %if.end.i265
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i265, %if.then1.i268, %if.then12, %do.body8
-  %TaskType = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %TaskType = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %10 = load ptr, ptr %TaskType, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1450,7 +1450,7 @@ if.then1.i259:                                    ; preds = %if.end.i256
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i256, %if.then1.i259, %if.then19, %do.body15
-  %asyncio_mod = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %asyncio_mod = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %13 = load ptr, ptr %asyncio_mod, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -1473,7 +1473,7 @@ if.then1.i250:                                    ; preds = %if.end.i247
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i247, %if.then1.i250, %if.then26, %do.body22
-  %traceback_extract_stack = getelementptr inbounds i8, ptr %mod.val, i64 144
+  %traceback_extract_stack = getelementptr inbounds nuw i8, ptr %mod.val, i64 144
   %16 = load ptr, ptr %traceback_extract_stack, align 8
   %cmp32.not = icmp eq ptr %16, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -1496,7 +1496,7 @@ if.then1.i241:                                    ; preds = %if.end.i238
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i238, %if.then1.i241, %if.then33, %do.body29
-  %asyncio_future_repr_func = getelementptr inbounds i8, ptr %mod.val, i64 88
+  %asyncio_future_repr_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 88
   %19 = load ptr, ptr %asyncio_future_repr_func, align 8
   %cmp39.not = icmp eq ptr %19, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -1519,7 +1519,7 @@ if.then1.i232:                                    ; preds = %if.end.i229
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i229, %if.then1.i232, %if.then40, %do.body36
-  %asyncio_get_event_loop_policy = getelementptr inbounds i8, ptr %mod.val, i64 80
+  %asyncio_get_event_loop_policy = getelementptr inbounds nuw i8, ptr %mod.val, i64 80
   %22 = load ptr, ptr %asyncio_get_event_loop_policy, align 8
   %cmp46.not = icmp eq ptr %22, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -1542,7 +1542,7 @@ if.then1.i223:                                    ; preds = %if.end.i220
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i220, %if.then1.i223, %if.then47, %do.body43
-  %asyncio_iscoroutine_func = getelementptr inbounds i8, ptr %mod.val, i64 136
+  %asyncio_iscoroutine_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 136
   %25 = load ptr, ptr %asyncio_iscoroutine_func, align 8
   %cmp53.not = icmp eq ptr %25, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -1565,7 +1565,7 @@ if.then1.i214:                                    ; preds = %if.end.i211
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i211, %if.then1.i214, %if.then54, %do.body50
-  %asyncio_task_get_stack_func = getelementptr inbounds i8, ptr %mod.val, i64 112
+  %asyncio_task_get_stack_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 112
   %28 = load ptr, ptr %asyncio_task_get_stack_func, align 8
   %cmp60.not = icmp eq ptr %28, null
   br i1 %cmp60.not, label %do.body64, label %if.then61
@@ -1588,7 +1588,7 @@ if.then1.i205:                                    ; preds = %if.end.i202
   br label %do.body64
 
 do.body64:                                        ; preds = %if.end.i202, %if.then1.i205, %if.then61, %do.body57
-  %asyncio_task_print_stack_func = getelementptr inbounds i8, ptr %mod.val, i64 120
+  %asyncio_task_print_stack_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 120
   %31 = load ptr, ptr %asyncio_task_print_stack_func, align 8
   %cmp67.not = icmp eq ptr %31, null
   br i1 %cmp67.not, label %do.body71, label %if.then68
@@ -1611,7 +1611,7 @@ if.then1.i196:                                    ; preds = %if.end.i193
   br label %do.body71
 
 do.body71:                                        ; preds = %if.end.i193, %if.then1.i196, %if.then68, %do.body64
-  %asyncio_task_repr_func = getelementptr inbounds i8, ptr %mod.val, i64 128
+  %asyncio_task_repr_func = getelementptr inbounds nuw i8, ptr %mod.val, i64 128
   %34 = load ptr, ptr %asyncio_task_repr_func, align 8
   %cmp74.not = icmp eq ptr %34, null
   br i1 %cmp74.not, label %do.body78, label %if.then75
@@ -1634,7 +1634,7 @@ if.then1.i187:                                    ; preds = %if.end.i184
   br label %do.body78
 
 do.body78:                                        ; preds = %if.end.i184, %if.then1.i187, %if.then75, %do.body71
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %mod.val, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %mod.val, i64 104
   %37 = load ptr, ptr %asyncio_InvalidStateError, align 8
   %cmp81.not = icmp eq ptr %37, null
   br i1 %cmp81.not, label %do.body85, label %if.then82
@@ -1657,7 +1657,7 @@ if.then1.i178:                                    ; preds = %if.end.i175
   br label %do.body85
 
 do.body85:                                        ; preds = %if.end.i175, %if.then1.i178, %if.then82, %do.body78
-  %asyncio_CancelledError = getelementptr inbounds i8, ptr %mod.val, i64 96
+  %asyncio_CancelledError = getelementptr inbounds nuw i8, ptr %mod.val, i64 96
   %40 = load ptr, ptr %asyncio_CancelledError, align 8
   %cmp88.not = icmp eq ptr %40, null
   br i1 %cmp88.not, label %do.body92, label %if.then89
@@ -1680,7 +1680,7 @@ if.then1.i169:                                    ; preds = %if.end.i166
   br label %do.body92
 
 do.body92:                                        ; preds = %if.end.i166, %if.then1.i169, %if.then89, %do.body85
-  %scheduled_tasks = getelementptr inbounds i8, ptr %mod.val, i64 56
+  %scheduled_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 56
   %43 = load ptr, ptr %scheduled_tasks, align 8
   %cmp95.not = icmp eq ptr %43, null
   br i1 %cmp95.not, label %do.body99, label %if.then96
@@ -1703,7 +1703,7 @@ if.then1.i160:                                    ; preds = %if.end.i157
   br label %do.body99
 
 do.body99:                                        ; preds = %if.end.i157, %if.then1.i160, %if.then96, %do.body92
-  %eager_tasks = getelementptr inbounds i8, ptr %mod.val, i64 64
+  %eager_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 64
   %46 = load ptr, ptr %eager_tasks, align 8
   %cmp102.not = icmp eq ptr %46, null
   br i1 %cmp102.not, label %do.body106, label %if.then103
@@ -1726,7 +1726,7 @@ if.then1.i151:                                    ; preds = %if.end.i148
   br label %do.body106
 
 do.body106:                                       ; preds = %if.end.i148, %if.then1.i151, %if.then103, %do.body99
-  %current_tasks = getelementptr inbounds i8, ptr %mod.val, i64 48
+  %current_tasks = getelementptr inbounds nuw i8, ptr %mod.val, i64 48
   %49 = load ptr, ptr %current_tasks, align 8
   %cmp109.not = icmp eq ptr %49, null
   br i1 %cmp109.not, label %do.body113, label %if.then110
@@ -1749,7 +1749,7 @@ if.then1.i142:                                    ; preds = %if.end.i139
   br label %do.body113
 
 do.body113:                                       ; preds = %if.end.i139, %if.then1.i142, %if.then110, %do.body106
-  %iscoroutine_typecache = getelementptr inbounds i8, ptr %mod.val, i64 72
+  %iscoroutine_typecache = getelementptr inbounds nuw i8, ptr %mod.val, i64 72
   %52 = load ptr, ptr %iscoroutine_typecache, align 8
   %cmp116.not = icmp eq ptr %52, null
   br i1 %cmp116.not, label %do.body120, label %if.then117
@@ -1772,7 +1772,7 @@ if.then1.i133:                                    ; preds = %if.end.i130
   br label %do.body120
 
 do.body120:                                       ; preds = %if.end.i130, %if.then1.i133, %if.then117, %do.body113
-  %context_kwname = getelementptr inbounds i8, ptr %mod.val, i64 40
+  %context_kwname = getelementptr inbounds nuw i8, ptr %mod.val, i64 40
   %55 = load ptr, ptr %context_kwname, align 8
   %cmp123.not = icmp eq ptr %55, null
   br i1 %cmp123.not, label %do.end126, label %if.then124
@@ -1795,13 +1795,13 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end126
 
 do.end126:                                        ; preds = %do.body120, %if.then124, %if.then1.i, %if.end.i
-  %fi_freelist.i = getelementptr inbounds i8, ptr %mod.val, i64 176
+  %fi_freelist.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 176
   %58 = load ptr, ptr %fi_freelist.i, align 8
   %cmp.not5.i = icmp eq ptr %58, null
   br i1 %cmp.not5.i, label %module_free_freelists.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %do.end126
-  %fi_freelist_len.i = getelementptr inbounds i8, ptr %mod.val, i64 184
+  %fi_freelist_len.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 184
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -1809,7 +1809,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %59 = load i64, ptr %fi_freelist_len.i, align 8
   %dec.i114 = add i64 %59, -1
   store i64 %dec.i114, ptr %fi_freelist_len.i, align 8
-  %future.i = getelementptr inbounds i8, ptr %next.06.i, i64 16
+  %future.i = getelementptr inbounds nuw i8, ptr %next.06.i, i64 16
   %60 = load ptr, ptr %future.i, align 8
   tail call void @PyObject_GC_Del(ptr noundef nonnull %next.06.i) #6
   %cmp.not.i = icmp eq ptr %60, null
@@ -1892,7 +1892,7 @@ if.end.i.i:                                       ; preds = %if.else.i
 if.end4.i:                                        ; preds = %if.end.i.i, %if.else.i, %if.then.i
   %module.val27 = phi ptr [ %module.val28, %if.then.i ], [ %module.val, %if.else.i ], [ %module.val, %if.end.i.i ]
   %loop.addr.0.i = phi ptr [ %call1.i, %if.then.i ], [ %3, %if.else.i ], [ %3, %if.end.i.i ]
-  %current_tasks.i = getelementptr inbounds i8, ptr %module.val27, i64 48
+  %current_tasks.i = getelementptr inbounds nuw i8, ptr %module.val27, i64 48
   %6 = load ptr, ptr %current_tasks.i, align 8
   %call5.i = call i32 @PyDict_GetItemRef(ptr noundef %6, ptr noundef nonnull %loop.addr.0.i, ptr noundef nonnull %ret.i) #6
   %7 = load i64, ptr %loop.addr.0.i, align 8
@@ -1951,13 +1951,13 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %call.i.i.i = tail call ptr @_PyThreadState_GetCurrent() #6
   %call1.i.i = tail call i64 @PyThreadState_GetID(ptr noundef %call.i.i.i) #6
-  %cached_running_loop_tsid.i.i = getelementptr inbounds i8, ptr %module.val, i64 160
+  %cached_running_loop_tsid.i.i = getelementptr inbounds nuw i8, ptr %module.val, i64 160
   %1 = load volatile i64, ptr %cached_running_loop_tsid.i.i, align 8
   %cmp.i.i = icmp eq i64 %1, %call1.i.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %cached_running_loop.i.i = getelementptr inbounds i8, ptr %module.val, i64 152
+  %cached_running_loop.i.i = getelementptr inbounds nuw i8, ptr %module.val, i64 152
   %2 = load ptr, ptr %cached_running_loop.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i, label %if.else.i.i, label %if.end16.i.i
@@ -1973,7 +1973,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i
   br i1 %cmp8.i.i, label %get_running_loop.exit.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
-  %cached_running_loop14.i.i = getelementptr inbounds i8, ptr %module.val, i64 152
+  %cached_running_loop14.i.i = getelementptr inbounds nuw i8, ptr %module.val, i64 152
   store ptr %call7.i.i, ptr %cached_running_loop14.i.i, align 8
   store volatile i64 %call1.i.i, ptr %cached_running_loop_tsid.i.i, align 8
   br label %if.end16.i.i
@@ -2030,10 +2030,10 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %set_running_loop.exit.thread, label %2
 
 2:                                                ; preds = %if.end4.i
-  %cached_running_loop.i = getelementptr inbounds i8, ptr %module.val, i64 152
+  %cached_running_loop.i = getelementptr inbounds nuw i8, ptr %module.val, i64 152
   store ptr %loop, ptr %cached_running_loop.i, align 8
   %call9.i = tail call i64 @PyThreadState_GetID(ptr noundef nonnull %call.i.i) #6
-  %cached_running_loop_tsid.i = getelementptr inbounds i8, ptr %module.val, i64 160
+  %cached_running_loop_tsid.i = getelementptr inbounds nuw i8, ptr %module.val, i64 160
   store volatile i64 %call9.i, ptr %cached_running_loop_tsid.i, align 8
   br label %set_running_loop.exit.thread
 
@@ -2068,7 +2068,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %module.val.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i.i)
   store ptr %module.val.val, ptr %args.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %args.i.i.i, i64 8
+  %arrayinit.element.i.i.i = getelementptr inbounds nuw i8, ptr %args.i.i.i, i64 8
   store ptr %1, ptr %arrayinit.element.i.i.i, align 8
   %call.i.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37672), ptr noundef nonnull %args.i.i.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i.i)
@@ -2155,7 +2155,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %module.val.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i.i)
   store ptr %module.val.val, ptr %args.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %args.i.i.i, i64 8
+  %arrayinit.element.i.i.i = getelementptr inbounds nuw i8, ptr %args.i.i.i, i64 8
   store ptr %1, ptr %arrayinit.element.i.i.i, align 8
   %call.i.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 43320), ptr noundef nonnull %args.i.i.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i.i)
@@ -2277,7 +2277,7 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp.i.i, label %leave_task.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %current_tasks.i.i = getelementptr inbounds i8, ptr %module.val, i64 48
+  %current_tasks.i.i = getelementptr inbounds nuw i8, ptr %module.val, i64 48
   %4 = load ptr, ptr %current_tasks.i.i, align 8
   %call1.i.i = call ptr @_PyDict_GetItem_KnownHash(ptr noundef %4, ptr noundef %1, i64 noundef %call.i.i) #6
   %cmp2.not.i.i = icmp eq ptr %call1.i.i, %2
@@ -2343,13 +2343,13 @@ define internal fastcc ptr @_asyncio_get_running_loop_impl(ptr %module.32.val) u
 entry:
   %call.i.i = tail call ptr @_PyThreadState_GetCurrent() #6
   %call1.i = tail call i64 @PyThreadState_GetID(ptr noundef %call.i.i) #6
-  %cached_running_loop_tsid.i = getelementptr inbounds i8, ptr %module.32.val, i64 160
+  %cached_running_loop_tsid.i = getelementptr inbounds nuw i8, ptr %module.32.val, i64 160
   %0 = load volatile i64, ptr %cached_running_loop_tsid.i, align 8
   %cmp.i = icmp eq i64 %0, %call1.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %cached_running_loop.i = getelementptr inbounds i8, ptr %module.32.val, i64 152
+  %cached_running_loop.i = getelementptr inbounds nuw i8, ptr %module.32.val, i64 152
   %1 = load ptr, ptr %cached_running_loop.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.else.i, label %if.end16.i
@@ -2365,7 +2365,7 @@ if.end.i:                                         ; preds = %if.else.i
   br i1 %cmp8.i, label %get_running_loop.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %cached_running_loop14.i = getelementptr inbounds i8, ptr %module.32.val, i64 152
+  %cached_running_loop14.i = getelementptr inbounds nuw i8, ptr %module.32.val, i64 152
   store ptr %call7.i, ptr %cached_running_loop14.i, align 8
   store volatile i64 %call1.i, ptr %cached_running_loop_tsid.i, align 8
   br label %if.end16.i
@@ -2422,13 +2422,13 @@ entry:
   %self.addr.i = alloca ptr, align 8
   %call.i.i = tail call ptr @_PyThreadState_GetCurrent() #6
   %call1.i = tail call i64 @PyThreadState_GetID(ptr noundef %call.i.i) #6
-  %cached_running_loop_tsid.i = getelementptr inbounds i8, ptr %state, i64 160
+  %cached_running_loop_tsid.i = getelementptr inbounds nuw i8, ptr %state, i64 160
   %0 = load volatile i64, ptr %cached_running_loop_tsid.i, align 8
   %cmp.i6 = icmp eq i64 %0, %call1.i
   br i1 %cmp.i6, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %cached_running_loop.i = getelementptr inbounds i8, ptr %state, i64 152
+  %cached_running_loop.i = getelementptr inbounds nuw i8, ptr %state, i64 152
   %1 = load ptr, ptr %cached_running_loop.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.else.i, label %if.end16.i
@@ -2444,7 +2444,7 @@ if.end.i7:                                        ; preds = %if.else.i
   br i1 %cmp8.i, label %get_running_loop.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i7
-  %cached_running_loop14.i = getelementptr inbounds i8, ptr %state, i64 152
+  %cached_running_loop14.i = getelementptr inbounds nuw i8, ptr %state, i64 152
   store ptr %call7.i, ptr %cached_running_loop14.i, align 8
   store volatile i64 %call1.i, ptr %cached_running_loop_tsid.i, align 8
   br label %if.end16.i
@@ -2470,7 +2470,7 @@ get_running_loop.exit:                            ; preds = %if.end.i7
   br i1 %tobool.not.i.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end16.i, %if.else.i, %get_running_loop.exit
-  %asyncio_get_event_loop_policy = getelementptr inbounds i8, ptr %state, i64 80
+  %asyncio_get_event_loop_policy = getelementptr inbounds nuw i8, ptr %state, i64 80
   %3 = load ptr, ptr %asyncio_get_event_loop_policy, align 8
   %call3 = tail call ptr @PyObject_CallNoArgs(ptr noundef %3) #6
   %cmp4 = icmp eq ptr %call3, null
@@ -2513,7 +2513,7 @@ entry:
   %args.i = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %state.56.val, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %args.i, i64 8
   store ptr %task, ptr %arrayinit.element.i, align 8
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37672), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -2553,7 +2553,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_tasks = getelementptr inbounds i8, ptr %state, i64 48
+  %current_tasks = getelementptr inbounds nuw i8, ptr %state, i64 48
   %0 = load ptr, ptr %current_tasks, align 8
   %call1 = tail call ptr @_PyDict_GetItem_KnownHash(ptr noundef %0, ptr noundef %loop, i64 noundef %call) #6
   %cmp2.not = icmp eq ptr %call1, null
@@ -2620,7 +2620,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %current_tasks = getelementptr inbounds i8, ptr %state, i64 48
+  %current_tasks = getelementptr inbounds nuw i8, ptr %state, i64 48
   %0 = load ptr, ptr %current_tasks, align 8
   %call1 = tail call ptr @_PyDict_GetItem_KnownHash(ptr noundef %0, ptr noundef %loop, i64 noundef %call) #6
   %cmp2 = icmp eq ptr %call1, null
@@ -2684,7 +2684,7 @@ entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %mod, ptr noundef nonnull @TaskStepMethWrapper_spec, ptr noundef null) #6
-  %TaskStepMethWrapper_Type = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %TaskStepMethWrapper_Type = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   store ptr %call1, ptr %TaskStepMethWrapper_Type, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %do.body3
@@ -2697,14 +2697,14 @@ do.body3:                                         ; preds = %entry
 
 do.body10:                                        ; preds = %do.body3
   %call11 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %mod, ptr noundef nonnull @Future_spec, ptr noundef null) #6
-  %FutureType = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %FutureType = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   store ptr %call11, ptr %FutureType, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %return, label %do.body17
 
 do.body17:                                        ; preds = %do.body10
   %call19 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %mod, ptr noundef nonnull @Task_spec, ptr noundef nonnull %call11) #6
-  %TaskType = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %TaskType = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   store ptr %call19, ptr %TaskType, align 8
   %cmp21 = icmp eq ptr %call19, null
   br i1 %cmp21, label %return, label %do.end24
@@ -2723,28 +2723,28 @@ if.end29:                                         ; preds = %do.end24
 
 if.end34:                                         ; preds = %if.end29
   %call.i = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.106) #6
-  %asyncio_mod.i = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %asyncio_mod.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   store ptr %call.i, ptr %asyncio_mod.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end34
   %call2.i = tail call ptr @PyDict_New() #6
-  %current_tasks.i = getelementptr inbounds i8, ptr %mod.val, i64 48
+  %current_tasks.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 48
   store ptr %call2.i, ptr %current_tasks.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %return, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %call7.i = tail call ptr @PySet_New(ptr noundef null) #6
-  %iscoroutine_typecache.i = getelementptr inbounds i8, ptr %mod.val, i64 72
+  %iscoroutine_typecache.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 72
   store ptr %call7.i, ptr %iscoroutine_typecache.i, align 8
   %cmp9.i = icmp eq ptr %call7.i, null
   br i1 %cmp9.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
   %call12.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.66) #6
-  %context_kwname.i = getelementptr inbounds i8, ptr %mod.val, i64 40
+  %context_kwname.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 40
   store ptr %call12.i, ptr %context_kwname.i, align 8
   %cmp14.i = icmp eq ptr %call12.i, null
   br i1 %cmp14.i, label %return, label %do.end.i
@@ -2756,7 +2756,7 @@ do.end.i:                                         ; preds = %if.end11.i
 
 if.end23.i:                                       ; preds = %do.end.i
   %call24.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call20.i, ptr noundef nonnull @.str.109) #6
-  %asyncio_get_event_loop_policy.i = getelementptr inbounds i8, ptr %mod.val, i64 80
+  %asyncio_get_event_loop_policy.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 80
   store ptr %call24.i, ptr %asyncio_get_event_loop_policy.i, align 8
   %cmp26.i = icmp eq ptr %call24.i, null
   br i1 %cmp26.i, label %if.then160.i, label %if.then33.i
@@ -2784,7 +2784,7 @@ do.end35.i:                                       ; preds = %if.then1.i232.i, %i
 
 if.end39.i:                                       ; preds = %do.end35.i
   %call40.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call36.i, ptr noundef nonnull @.str.111) #6
-  %asyncio_future_repr_func.i = getelementptr inbounds i8, ptr %mod.val, i64 88
+  %asyncio_future_repr_func.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 88
   store ptr %call40.i, ptr %asyncio_future_repr_func.i, align 8
   %cmp42.i = icmp eq ptr %call40.i, null
   br i1 %cmp42.i, label %if.then160.i, label %if.then49.i
@@ -2812,14 +2812,14 @@ do.end51.i:                                       ; preds = %if.then1.i223.i, %i
 
 if.end55.i:                                       ; preds = %do.end51.i
   %call56.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call52.i, ptr noundef nonnull @.str.113) #6
-  %asyncio_InvalidStateError.i = getelementptr inbounds i8, ptr %mod.val, i64 104
+  %asyncio_InvalidStateError.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 104
   store ptr %call56.i, ptr %asyncio_InvalidStateError.i, align 8
   %cmp58.i = icmp eq ptr %call56.i, null
   br i1 %cmp58.i, label %if.then160.i, label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.end55.i
   %call61.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call52.i, ptr noundef nonnull @.str.114) #6
-  %asyncio_CancelledError.i = getelementptr inbounds i8, ptr %mod.val, i64 96
+  %asyncio_CancelledError.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 96
   store ptr %call61.i, ptr %asyncio_CancelledError.i, align 8
   %cmp63.i = icmp eq ptr %call61.i, null
   br i1 %cmp63.i, label %if.then160.i, label %if.then70.i
@@ -2847,21 +2847,21 @@ do.end72.i:                                       ; preds = %if.then1.i214.i, %i
 
 if.end76.i:                                       ; preds = %do.end72.i
   %call77.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call73.i, ptr noundef nonnull @.str.116) #6
-  %asyncio_task_repr_func.i = getelementptr inbounds i8, ptr %mod.val, i64 128
+  %asyncio_task_repr_func.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 128
   store ptr %call77.i, ptr %asyncio_task_repr_func.i, align 8
   %cmp79.i = icmp eq ptr %call77.i, null
   br i1 %cmp79.i, label %if.then160.i, label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.end76.i
   %call82.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call73.i, ptr noundef nonnull @.str.117) #6
-  %asyncio_task_get_stack_func.i = getelementptr inbounds i8, ptr %mod.val, i64 112
+  %asyncio_task_get_stack_func.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 112
   store ptr %call82.i, ptr %asyncio_task_get_stack_func.i, align 8
   %cmp84.i = icmp eq ptr %call82.i, null
   br i1 %cmp84.i, label %if.then160.i, label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.end81.i
   %call87.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call73.i, ptr noundef nonnull @.str.118) #6
-  %asyncio_task_print_stack_func.i = getelementptr inbounds i8, ptr %mod.val, i64 120
+  %asyncio_task_print_stack_func.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 120
   store ptr %call87.i, ptr %asyncio_task_print_stack_func.i, align 8
   %cmp89.i = icmp eq ptr %call87.i, null
   br i1 %cmp89.i, label %if.then160.i, label %if.then96.i
@@ -2889,7 +2889,7 @@ do.end98.i:                                       ; preds = %if.then1.i205.i, %i
 
 if.end102.i:                                      ; preds = %do.end98.i
   %call103.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call99.i, ptr noundef nonnull @.str.120) #6
-  %asyncio_iscoroutine_func.i = getelementptr inbounds i8, ptr %mod.val, i64 136
+  %asyncio_iscoroutine_func.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 136
   store ptr %call103.i, ptr %asyncio_iscoroutine_func.i, align 8
   %cmp105.i = icmp eq ptr %call103.i, null
   br i1 %cmp105.i, label %if.then160.i, label %if.then112.i
@@ -2917,7 +2917,7 @@ do.end114.i:                                      ; preds = %if.then1.i196.i, %i
 
 if.end118.i:                                      ; preds = %do.end114.i
   %call119.i = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call115.i, ptr noundef nonnull @.str.122) #6
-  %traceback_extract_stack.i = getelementptr inbounds i8, ptr %mod.val, i64 144
+  %traceback_extract_stack.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 144
   store ptr %call119.i, ptr %traceback_extract_stack.i, align 8
   %cmp121.i = icmp eq ptr %call119.i, null
   br i1 %cmp121.i, label %if.then160.i, label %if.then128.i
@@ -2950,7 +2950,7 @@ if.end134.i:                                      ; preds = %do.end130.i
 
 if.end138.i:                                      ; preds = %if.end134.i
   %call139.i = tail call ptr @PyObject_CallNoArgs(ptr noundef nonnull %call135.i) #6
-  %scheduled_tasks.i = getelementptr inbounds i8, ptr %mod.val, i64 56
+  %scheduled_tasks.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 56
   store ptr %call139.i, ptr %scheduled_tasks.i, align 8
   %15 = load i64, ptr %call135.i, align 8
   %16 = and i64 %15, 2147483648
@@ -2978,7 +2978,7 @@ do.end146.i:                                      ; preds = %do.end146thread-pre
 
 if.end150.i:                                      ; preds = %do.end146.i
   %call151.i = tail call ptr @PySet_New(ptr noundef null) #6
-  %eager_tasks.i = getelementptr inbounds i8, ptr %mod.val, i64 64
+  %eager_tasks.i = getelementptr inbounds nuw i8, ptr %mod.val, i64 64
   store ptr %call151.i, ptr %eager_tasks.i, align 8
   %cmp153.i = icmp eq ptr %call151.i, null
   br i1 %cmp153.i, label %if.then160.i, label %if.end155.i
@@ -3051,7 +3051,7 @@ entry:
   %0 = getelementptr i8, ptr %o, i64 8
   %o.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %o) #6
-  %sw_task.i = getelementptr inbounds i8, ptr %o, i64 16
+  %sw_task.i = getelementptr inbounds nuw i8, ptr %o, i64 16
   %1 = load ptr, ptr %sw_task.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %do.body1.i, label %if.then.i
@@ -3074,7 +3074,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %sw_arg.i = getelementptr inbounds i8, ptr %o, i64 24
+  %sw_arg.i = getelementptr inbounds nuw i8, ptr %o, i64 24
   %4 = load ptr, ptr %sw_arg.i, align 8
   %cmp4.not.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i, label %TaskStepMethWrapper_clear.exit, label %if.then5.i
@@ -3098,7 +3098,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 TaskStepMethWrapper_clear.exit:                   ; preds = %do.body1.i, %if.then5.i, %if.end.i.i, %if.then1.i.i
   %o.val7 = load ptr, ptr %0, align 8
-  %tp_free = getelementptr inbounds i8, ptr %o.val7, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %o.val7, i64 320
   %7 = load ptr, ptr %tp_free, align 8
   tail call void %7(ptr noundef nonnull %o) #6
   %8 = load i64, ptr %o.val, align 8
@@ -3158,9 +3158,9 @@ if.end7:                                          ; preds = %land.lhs.true3, %if
   %call1.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %o.val, ptr noundef nonnull @_asynciomodule) #6
   %5 = getelementptr i8, ptr %call1.i, i64 32
   %call1.val.i = load ptr, ptr %5, align 8
-  %sw_task = getelementptr inbounds i8, ptr %o, i64 16
+  %sw_task = getelementptr inbounds nuw i8, ptr %o, i64 16
   %6 = load ptr, ptr %sw_task, align 8
-  %sw_arg = getelementptr inbounds i8, ptr %o, i64 24
+  %sw_arg = getelementptr inbounds nuw i8, ptr %o, i64 24
   %7 = load ptr, ptr %sw_arg, align 8
   %call9 = tail call fastcc ptr @task_step(ptr noundef %call1.val.i, ptr noundef %6, ptr noundef %7)
   br label %return
@@ -3186,7 +3186,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %sw_task = getelementptr inbounds i8, ptr %o, i64 16
+  %sw_task = getelementptr inbounds nuw i8, ptr %o, i64 16
   %1 = load ptr, ptr %sw_task, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -3197,7 +3197,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %sw_arg = getelementptr inbounds i8, ptr %o, i64 24
+  %sw_arg = getelementptr inbounds nuw i8, ptr %o, i64 24
   %2 = load ptr, ptr %sw_arg, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.end27, label %if.then19
@@ -3218,7 +3218,7 @@ return:                                           ; preds = %if.then19, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @TaskStepMethWrapper_clear(ptr nocapture noundef %o) #0 {
 entry:
-  %sw_task = getelementptr inbounds i8, ptr %o, i64 16
+  %sw_task = getelementptr inbounds nuw i8, ptr %o, i64 16
   %0 = load ptr, ptr %sw_task, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -3241,7 +3241,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %sw_arg = getelementptr inbounds i8, ptr %o, i64 24
+  %sw_arg = getelementptr inbounds nuw i8, ptr %o, i64 24
   %3 = load ptr, ptr %sw_arg, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -3270,7 +3270,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @TaskStepMethWrapper_get___self__(ptr nocapture noundef readonly %o, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
-  %sw_task = getelementptr inbounds i8, ptr %o, i64 16
+  %sw_task = getelementptr inbounds nuw i8, ptr %o, i64 16
   %0 = load ptr, ptr %sw_task, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -3295,7 +3295,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @task_step(ptr nocapture noundef readonly %state, ptr noundef %task, ptr noundef %exc) unnamed_addr #0 {
 entry:
-  %task_loop = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop = getelementptr inbounds nuw i8, ptr %task, i64 16
   %0 = load ptr, ptr %task_loop, align 8
   %call = tail call fastcc i32 @enter_task(ptr noundef %state, ptr noundef %0, ptr noundef %task)
   %cmp = icmp slt i32 %call, 0
@@ -3314,7 +3314,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i14, label %leave_task.exit, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.then3
-  %current_tasks.i = getelementptr inbounds i8, ptr %state, i64 48
+  %current_tasks.i = getelementptr inbounds nuw i8, ptr %state, i64 48
   %2 = load ptr, ptr %current_tasks.i, align 8
   %call1.i = tail call ptr @_PyDict_GetItem_KnownHash(ptr noundef %2, ptr noundef %1, i64 noundef %call.i) #6
   %cmp2.not.i = icmp eq ptr %call1.i, %task
@@ -3343,7 +3343,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i17, label %if.then11, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.else
-  %current_tasks.i19 = getelementptr inbounds i8, ptr %state, i64 48
+  %current_tasks.i19 = getelementptr inbounds nuw i8, ptr %state, i64 48
   %6 = load ptr, ptr %current_tasks.i19, align 8
   %call1.i20 = tail call ptr @_PyDict_GetItem_KnownHash(ptr noundef %6, ptr noundef %5, i64 noundef %call.i16) #6
   %cmp2.not.i21 = icmp eq ptr %call1.i20, %task
@@ -3395,13 +3395,13 @@ entry:
   %args.i = alloca [2 x ptr], align 16
   %result = alloca ptr, align 8
   store ptr null, ptr %result, align 8
-  %task_state = getelementptr inbounds i8, ptr %task, i64 96
+  %task_state = getelementptr inbounds nuw i8, ptr %task, i64 96
   %0 = load i32, ptr %task_state, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %state, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %state, i64 104
   %1 = load ptr, ptr %asyncio_InvalidStateError, align 8
   %tobool.not = icmp eq ptr %exc, null
   %cond = select i1 %tobool.not, ptr @_Py_NoneStruct, ptr %exc
@@ -3409,7 +3409,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %task_must_cancel = getelementptr inbounds i8, ptr %task, i64 100
+  %task_must_cancel = getelementptr inbounds nuw i8, ptr %task, i64 100
   %bf.load = load i8, ptr %task_must_cancel, align 4
   %2 = and i8 %bf.load, 4
   %tobool1.not = icmp eq i8 %2, 0
@@ -3420,7 +3420,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool3.not, label %if.then14, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %asyncio_CancelledError = getelementptr inbounds i8, ptr %state, i64 96
+  %asyncio_CancelledError = getelementptr inbounds nuw i8, ptr %state, i64 96
   %3 = load ptr, ptr %asyncio_CancelledError, align 8
   %call5 = tail call i32 @PyObject_IsInstance(ptr noundef nonnull %exc, ptr noundef %3) #6
   switch i32 %call5, label %if.end19 [
@@ -3429,7 +3429,7 @@ if.then4:                                         ; preds = %if.then2
   ]
 
 if.then14:                                        ; preds = %if.then4, %if.then2
-  %fut_cancelled_exc.i = getelementptr inbounds i8, ptr %task, i64 88
+  %fut_cancelled_exc.i = getelementptr inbounds nuw i8, ptr %task, i64 88
   %4 = load ptr, ptr %fut_cancelled_exc.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end.i65, label %create_cancelled_error.exit.thread
@@ -3439,12 +3439,12 @@ create_cancelled_error.exit.thread:               ; preds = %if.then14
   br label %if.end19
 
 if.end.i65:                                       ; preds = %if.then14
-  %fut_cancel_msg.i = getelementptr inbounds i8, ptr %task, i64 80
+  %fut_cancel_msg.i = getelementptr inbounds nuw i8, ptr %task, i64 80
   %5 = load ptr, ptr %fut_cancel_msg.i, align 8
   %cmp3.i = icmp eq ptr %5, null
   %cmp4.i = icmp eq ptr %5, @_Py_NoneStruct
   %or.cond.i = or i1 %cmp3.i, %cmp4.i
-  %asyncio_CancelledError.i = getelementptr inbounds i8, ptr %state, i64 96
+  %asyncio_CancelledError.i = getelementptr inbounds nuw i8, ptr %state, i64 96
   %6 = load ptr, ptr %asyncio_CancelledError.i, align 8
   br i1 %or.cond.i, label %if.then5.i, label %if.else.i
 
@@ -3472,7 +3472,7 @@ if.end19:                                         ; preds = %create_cancelled_er
 do.body:                                          ; preds = %if.end, %if.end19
   %clear_exc.1 = phi i1 [ %tobool13.not121, %if.end19 ], [ true, %if.end ]
   %exc.addr.2 = phi ptr [ %exc.addr.1, %if.end19 ], [ %exc, %if.end ]
-  %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
+  %task_fut_waiter = getelementptr inbounds nuw i8, ptr %task, i64 112
   %7 = load ptr, ptr %task_fut_waiter, align 8
   %cmp24.not = icmp eq ptr %7, null
   br i1 %cmp24.not, label %do.end, label %if.then25
@@ -3495,7 +3495,7 @@ if.then1.i149:                                    ; preds = %if.end.i146
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then25, %if.then1.i149, %if.end.i146
-  %task_coro = getelementptr inbounds i8, ptr %task, i64 120
+  %task_coro = getelementptr inbounds nuw i8, ptr %task, i64 120
   %10 = load ptr, ptr %task_coro, align 8
   %cmp27 = icmp eq ptr %10, null
   br i1 %cmp27, label %if.then28, label %if.end32
@@ -3532,7 +3532,7 @@ if.then34:                                        ; preds = %if.end32
 if.else:                                          ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %10, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %args.i, i64 8
   store ptr %exc.addr.2, ptr %arrayinit.element.i, align 8
   %call.i66 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60520), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -3584,7 +3584,7 @@ if.then46:                                        ; preds = %if.then44
   br i1 %tobool52.not, label %if.else59, label %if.then53
 
 if.then53:                                        ; preds = %if.then46
-  %task_cancel_msg = getelementptr inbounds i8, ptr %task, i64 80
+  %task_cancel_msg = getelementptr inbounds nuw i8, ptr %task, i64 80
   %19 = load ptr, ptr %task_cancel_msg, align 8
   %bf.clear.i = and i8 %bf.load48, -6
   store i8 %bf.clear.i, ptr %task_must_cancel, align 4
@@ -3658,7 +3658,7 @@ if.end.i76:                                       ; preds = %if.else59
   br i1 %cmp.not.i78, label %if.end2.i, label %if.then1.i79
 
 if.then1.i79:                                     ; preds = %if.end.i76
-  %asyncio_InvalidStateError.i = getelementptr inbounds i8, ptr %state, i64 104
+  %asyncio_InvalidStateError.i = getelementptr inbounds nuw i8, ptr %state, i64 104
   %28 = load ptr, ptr %asyncio_InvalidStateError.i, align 8
   call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.28) #6
   br label %if.end61
@@ -3674,7 +3674,7 @@ if.end.i.i.i83:                                   ; preds = %if.end2.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i83, %if.end2.i
-  %fut_result.i = getelementptr inbounds i8, ptr %task, i64 64
+  %fut_result.i = getelementptr inbounds nuw i8, ptr %task, i64 64
   store ptr %17, ptr %fut_result.i, align 8
   store i32 2, ptr %task_state, align 8
   %call5.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %state, ptr noundef nonnull %task)
@@ -3721,7 +3721,7 @@ if.then1.i113:                                    ; preds = %if.end.i110
   br label %return
 
 if.end65:                                         ; preds = %if.then44
-  %asyncio_CancelledError66 = getelementptr inbounds i8, ptr %state, i64 96
+  %asyncio_CancelledError66 = getelementptr inbounds nuw i8, ptr %state, i64 96
   %35 = load ptr, ptr %asyncio_CancelledError66, align 8
   %call67 = call i32 @PyErr_ExceptionMatches(ptr noundef %35) #6
   %tobool68.not = icmp eq i32 %call67, 0
@@ -3729,7 +3729,7 @@ if.end65:                                         ; preds = %if.then44
   br i1 %tobool68.not, label %if.end73, label %if.then69
 
 if.then69:                                        ; preds = %if.end65
-  %fut_cancelled_exc = getelementptr inbounds i8, ptr %task, i64 88
+  %fut_cancelled_exc = getelementptr inbounds nuw i8, ptr %task, i64 88
   store ptr %call75, ptr %fut_cancelled_exc, align 8
   %bf.load.i85 = load i8, ptr %task_must_cancel, align 4
   %bf.clear.i86 = and i8 %bf.load.i85, -2
@@ -3740,7 +3740,7 @@ if.then69:                                        ; preds = %if.end65
 
 if.end.i90:                                       ; preds = %if.then69
   store i32 1, ptr %task_state, align 8
-  %fut_cancel_msg.i92 = getelementptr inbounds i8, ptr %task, i64 80
+  %fut_cancel_msg.i92 = getelementptr inbounds nuw i8, ptr %task, i64 80
   %37 = load ptr, ptr %fut_cancel_msg.i92, align 8
   store ptr null, ptr %fut_cancel_msg.i92, align 8
   %cmp.not.i7.i93 = icmp eq ptr %37, null
@@ -3844,7 +3844,7 @@ if.end87:                                         ; preds = %if.end41
   br i1 %cmp.i105, label %self_await.i, label %if.end.i106
 
 if.end.i106:                                      ; preds = %if.end87
-  %FutureType.i = getelementptr inbounds i8, ptr %state, i64 16
+  %FutureType.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %48 = load ptr, ptr %FutureType.i, align 8
   %49 = getelementptr i8, ptr %17, i64 8
   %result.val.i = load ptr, ptr %49, align 8
@@ -3852,21 +3852,21 @@ if.end.i106:                                      ; preds = %if.end87
   br i1 %cmp.i115.not.i, label %if.then3.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i106
-  %TaskType.i = getelementptr inbounds i8, ptr %state, i64 24
+  %TaskType.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %50 = load ptr, ptr %TaskType.i, align 8
   %cmp.i116.not.i = icmp eq ptr %result.val.i, %50
   br i1 %cmp.i116.not.i, label %if.then3.i, label %if.end43.i
 
 if.then3.i:                                       ; preds = %lor.lhs.false.i, %if.end.i106
-  %fut_loop.i = getelementptr inbounds i8, ptr %17, i64 16
+  %fut_loop.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %51 = load ptr, ptr %fut_loop.i, align 8
-  %task_loop.i = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop.i = getelementptr inbounds nuw i8, ptr %task, i64 16
   %52 = load ptr, ptr %task_loop.i, align 8
   %cmp4.not.i = icmp eq ptr %51, %52
   br i1 %cmp4.not.i, label %if.end6.i, label %different_loop.i
 
 if.end6.i:                                        ; preds = %if.then3.i
-  %fut_blocking.i = getelementptr inbounds i8, ptr %17, i64 100
+  %fut_blocking.i = getelementptr inbounds nuw i8, ptr %17, i64 100
   %bf.load.i116 = load i8, ptr %fut_blocking.i, align 4
   %53 = and i8 %bf.load.i116, 2
   %tobool7.not.i = icmp eq i8 %53, 0
@@ -3880,7 +3880,7 @@ if.end9.i:                                        ; preds = %if.end6.i
   br i1 %cmp14.i, label %if.then.i.i110, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %task_context.i = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context.i = getelementptr inbounds nuw i8, ptr %task, i64 136
   %54 = load ptr, ptr %task_context.i, align 8
   %call17.i = call fastcc ptr @future_add_done_callback(ptr noundef nonnull readonly %state, ptr noundef nonnull %17, ptr noundef nonnull %call13.i, ptr noundef %54)
   %55 = load i64, ptr %call13.i, align 8
@@ -3926,11 +3926,11 @@ Py_DECREF.exit259.i:                              ; preds = %if.then1.i257.i, %i
   br i1 %tobool25.not.i, label %task_step_handle_result_impl.exit, label %if.then26.i
 
 if.then26.i:                                      ; preds = %Py_DECREF.exit259.i
-  %task_cancel_msg.i = getelementptr inbounds i8, ptr %task, i64 80
+  %task_cancel_msg.i = getelementptr inbounds nuw i8, ptr %task, i64 80
   %60 = load ptr, ptr %task_cancel_msg.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %17, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %60, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40056), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -4017,7 +4017,7 @@ if.end63.i:                                       ; preds = %Py_DECREF.exit241.i
   br i1 %cmp65.i, label %fail.i, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.end63.i
-  %task_loop68.i = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop68.i = getelementptr inbounds nuw i8, ptr %task, i64 16
   %67 = load ptr, ptr %task_loop68.i, align 8
   %cmp69.not.i = icmp eq ptr %call64.i, %67
   %68 = load i64, ptr %call64.i, align 8
@@ -4088,11 +4088,11 @@ if.then1.i212.i:                                  ; preds = %if.end.i209.i
 
 if.end86.i:                                       ; preds = %if.end82.i
   store ptr %call79.i, ptr %stack.i, align 16
-  %task_context87.i = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context87.i = getelementptr inbounds nuw i8, ptr %task, i64 136
   %72 = load ptr, ptr %task_context87.i, align 8
-  %arrayidx88.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayidx88.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %72, ptr %arrayidx88.i, align 8
-  %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
+  %context_kwname.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %73 = load ptr, ptr %context_kwname.i, align 8
   %call89.i = call ptr @PyObject_Vectorcall(ptr noundef nonnull %call83.i, ptr noundef nonnull %stack.i, i64 noundef 1, ptr noundef %73) #6
   %74 = load i64, ptr %call83.i, align 8
@@ -4154,11 +4154,11 @@ Py_DECREF.exit187.i:                              ; preds = %if.then1.i185.i, %i
   br i1 %tobool99.not.i, label %task_step_handle_result_impl.exit, label %if.then100.i
 
 if.then100.i:                                     ; preds = %Py_DECREF.exit187.i
-  %task_cancel_msg103.i = getelementptr inbounds i8, ptr %task, i64 80
+  %task_cancel_msg103.i = getelementptr inbounds nuw i8, ptr %task, i64 80
   %81 = load ptr, ptr %task_cancel_msg103.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i118.i)
   store ptr %17, ptr %args.i118.i, align 16
-  %arrayinit.element.i119.i = getelementptr inbounds i8, ptr %args.i118.i, i64 8
+  %arrayinit.element.i119.i = getelementptr inbounds nuw i8, ptr %args.i118.i, i64 8
   store ptr %81, ptr %arrayinit.element.i119.i, align 8
   %call.i120.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40056), ptr noundef nonnull %args.i118.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i118.i)
@@ -4347,13 +4347,13 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @future_set_exception(ptr nocapture noundef readonly %state, ptr noundef %fut, ptr noundef %exc) unnamed_addr #0 {
 entry:
-  %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %fut, i64 96
   %0 = load i32, ptr %fut_state, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %state, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %state, i64 104
   %1 = load ptr, ptr %asyncio_InvalidStateError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.28) #6
   br label %return
@@ -4406,7 +4406,7 @@ if.then1.i45:                                     ; preds = %if.end.i42
   br label %Py_DECREF.exit47
 
 Py_DECREF.exit47:                                 ; preds = %if.then10, %if.then1.i45, %if.end.i42
-  %asyncio_InvalidStateError11 = getelementptr inbounds i8, ptr %state, i64 104
+  %asyncio_InvalidStateError11 = getelementptr inbounds nuw i8, ptr %state, i64 104
   %9 = load ptr, ptr %asyncio_InvalidStateError11, align 8
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.28) #6
   br label %return
@@ -4478,10 +4478,10 @@ Py_DECREF.exit:                                   ; preds = %if.then22, %if.then
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   store ptr %exc_val.0, ptr %fut_exception, align 8
   %call24 = tail call ptr @PyException_GetTraceback(ptr noundef nonnull %exc_val.0) #6
-  %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %fut, i64 56
   store ptr %call24, ptr %fut_exception_tb, align 8
   store i32 2, ptr %fut_state, align 8
   %call26 = tail call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %fut)
@@ -4489,7 +4489,7 @@ if.end23:                                         ; preds = %if.end19
   br i1 %cmp27, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end23
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %fut_log_tb, align 4
@@ -4541,15 +4541,15 @@ entry:
   %stack2.i56 = alloca [4 x ptr], align 16
   %stack.i = alloca [3 x ptr], align 16
   %stack2.i = alloca [4 x ptr], align 16
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %0 = load ptr, ptr %fut_callback0, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %1 = load ptr, ptr %fut_loop, align 8
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   %2 = load ptr, ptr %fut_context0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %stack2.i)
@@ -4558,22 +4558,22 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   store ptr %1, ptr %stack.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %0, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i8, ptr %stack.i, i64 16
+  %arrayinit.element1.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   store ptr %fut, ptr %arrayinit.element1.i, align 16
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack.i, i64 noundef -9223372036854775805, ptr noundef null) #6
   br label %if.end11.i
 
 if.end.i54:                                       ; preds = %if.then
-  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
-  %nargs.0.sroa.gep.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
+  %nargs.0.sroa.gep11.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 16
+  %nargs.0.sroa.gep.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 24
   store ptr %1, ptr %stack2.i, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 8
   store ptr %0, ptr %arrayidx3.i, align 8
   store ptr %fut, ptr %nargs.0.sroa.gep11.i, align 16
   store ptr %2, ptr %nargs.0.sroa.gep.i, align 8
-  %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
+  %context_kwname.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %3 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775805, ptr noundef %3) #6
   br label %if.end11.i
@@ -4649,7 +4649,7 @@ do.end12:                                         ; preds = %do.body5, %if.then1
   br i1 %cmp12.i.not, label %do.body14, label %if.end22
 
 do.body14:                                        ; preds = %do.end12
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %12 = load ptr, ptr %fut_callbacks, align 8
   %cmp17.not = icmp eq ptr %12, null
   br i1 %cmp17.not, label %return, label %if.then18
@@ -4668,7 +4668,7 @@ if.end.i88:                                       ; preds = %if.then18
   br i1 %cmp.i90, label %return.sink.split, label %return
 
 if.end22:                                         ; preds = %do.end12, %entry
-  %fut_callbacks23 = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks23 = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %15 = load ptr, ptr %fut_callbacks23, align 8
   %cmp24 = icmp eq ptr %15, null
   br i1 %cmp24, label %return, label %if.end26
@@ -4684,13 +4684,13 @@ for.cond.preheader:                               ; preds = %if.end26
   br i1 %cmp4086, label %for.body.lr.ph, label %if.then64
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %fut_loop46 = getelementptr inbounds i8, ptr %fut, i64 16
-  %nargs.0.sroa.gep11.i59 = getelementptr inbounds i8, ptr %stack2.i56, i64 16
-  %nargs.0.sroa.gep.i58 = getelementptr inbounds i8, ptr %stack2.i56, i64 24
-  %arrayidx3.i61 = getelementptr inbounds i8, ptr %stack2.i56, i64 8
-  %context_kwname.i67 = getelementptr inbounds i8, ptr %state, i64 40
-  %arrayinit.element.i80 = getelementptr inbounds i8, ptr %stack.i55, i64 8
-  %arrayinit.element1.i81 = getelementptr inbounds i8, ptr %stack.i55, i64 16
+  %fut_loop46 = getelementptr inbounds nuw i8, ptr %fut, i64 16
+  %nargs.0.sroa.gep11.i59 = getelementptr inbounds nuw i8, ptr %stack2.i56, i64 16
+  %nargs.0.sroa.gep.i58 = getelementptr inbounds nuw i8, ptr %stack2.i56, i64 24
+  %arrayidx3.i61 = getelementptr inbounds nuw i8, ptr %stack2.i56, i64 8
+  %context_kwname.i67 = getelementptr inbounds nuw i8, ptr %state, i64 40
+  %arrayinit.element.i80 = getelementptr inbounds nuw i8, ptr %stack.i55, i64 8
+  %arrayinit.element1.i81 = getelementptr inbounds nuw i8, ptr %stack.i55, i64 16
   br label %for.body
 
 if.then36:                                        ; preds = %if.end26
@@ -4709,11 +4709,11 @@ if.end.i79:                                       ; preds = %if.then36
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.087 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %19 = load ptr, ptr %fut_callbacks23, align 8
-  %ob_item = getelementptr inbounds i8, ptr %19, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %19, i64 24
   %20 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %20, i64 %i.087
   %21 = load ptr, ptr %arrayidx, align 8
-  %ob_item42 = getelementptr inbounds i8, ptr %21, i64 24
+  %ob_item42 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load ptr, ptr %ob_item42, align 8
   %arrayidx45 = getelementptr i8, ptr %21, i64 32
   %23 = load ptr, ptr %arrayidx45, align 8
@@ -4837,7 +4837,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %fut, i64 96
   %2 = load i32, ptr %fut_state, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.else, label %if.then1
@@ -4850,22 +4850,22 @@ if.then1:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then1
   store ptr %fut.val, ptr %stack.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %arg, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i8, ptr %stack.i, i64 16
+  %arrayinit.element1.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   store ptr %fut, ptr %arrayinit.element1.i, align 16
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack.i, i64 noundef -9223372036854775805, ptr noundef null) #6
   br label %if.end11.i
 
 if.end.i38:                                       ; preds = %if.then1
-  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
-  %nargs.0.sroa.gep.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
+  %nargs.0.sroa.gep11.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 16
+  %nargs.0.sroa.gep.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 24
   store ptr %fut.val, ptr %stack2.i, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 8
   store ptr %arg, ptr %arrayidx3.i, align 8
   store ptr %fut, ptr %nargs.0.sroa.gep11.i, align 16
   store ptr %ctx, ptr %nargs.0.sroa.gep.i, align 8
-  %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
+  %context_kwname.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %3 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775805, ptr noundef %3) #6
   br label %if.end11.i
@@ -4902,13 +4902,13 @@ call_soon.exit:                                   ; preds = %if.end11.i
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %6 = load ptr, ptr %fut_callbacks, align 8
   %cmp6 = icmp eq ptr %6, null
   br i1 %cmp6, label %land.lhs.true, label %if.else12
 
 land.lhs.true:                                    ; preds = %if.else
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %7 = load ptr, ptr %fut_callback0, align 8
   %cmp7 = icmp eq ptr %7, null
   br i1 %cmp7, label %if.then8, label %if.else12
@@ -4935,7 +4935,7 @@ if.end.i.i43:                                     ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit44
 
 _Py_NewRef.exit44:                                ; preds = %_Py_NewRef.exit, %if.end.i.i43
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   store ptr %ctx, ptr %fut_context0, align 8
   br label %return
 
@@ -4955,7 +4955,7 @@ if.end.i41:                                       ; preds = %if.end16
   br label %Py_INCREF.exit43
 
 Py_INCREF.exit43:                                 ; preds = %if.end16, %if.end.i41
-  %ob_item.i = getelementptr inbounds i8, ptr %call13, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call13, i64 24
   store ptr %arg, ptr %ob_item.i, align 8
   %11 = load i32, ptr %ctx, align 8
   %add.i = add i32 %11, 1
@@ -5052,7 +5052,7 @@ entry:
   %call1.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %task.val.i, ptr noundef nonnull @_asynciomodule) #6
   %1 = getelementptr i8, ptr %call1.i.i, i64 32
   %call1.val.i.i = load ptr, ptr %1, align 8
-  %TaskStepMethWrapper_Type.i = getelementptr inbounds i8, ptr %call1.val.i.i, i64 8
+  %TaskStepMethWrapper_Type.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i, i64 8
   %2 = load ptr, ptr %TaskStepMethWrapper_Type.i, align 8
   %call1.i = tail call ptr @_PyObject_GC_New(ptr noundef %2) #6
   %cmp.i7 = icmp eq ptr %call1.i, null
@@ -5069,7 +5069,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i8
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i8
-  %sw_task.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %sw_task.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   store ptr %task, ptr %sw_task.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i.i, label %if.end, label %if.then.i.i.i
@@ -5085,12 +5085,12 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %_Py_NewRef.exit.i
-  %sw_arg.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %sw_arg.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   store ptr %arg, ptr %sw_arg.i, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call1.i) #6
-  %task_loop = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop = getelementptr inbounds nuw i8, ptr %task, i64 16
   %5 = load ptr, ptr %task_loop, align 8
-  %task_context = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context = getelementptr inbounds nuw i8, ptr %task, i64 136
   %6 = load ptr, ptr %task_context, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %stack2.i)
@@ -5099,20 +5099,20 @@ if.end:                                           ; preds = %if.end.i.i.i.i, %if
 
 if.then.i:                                        ; preds = %if.end
   store ptr %5, ptr %stack.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i8, ptr %stack.i, i64 16
+  %arrayinit.element1.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   store ptr null, ptr %arrayinit.element1.i, align 16
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack.i, i64 noundef -9223372036854775805, ptr noundef null) #6
   br label %if.end11.i
 
 if.else.i:                                        ; preds = %if.end
-  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
+  %nargs.0.sroa.gep11.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 16
   store ptr %5, ptr %stack2.i, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %stack2.i, i64 8
   store ptr %call1.i, ptr %arrayidx3.i, align 8
   store ptr %6, ptr %nargs.0.sroa.gep11.i, align 16
-  %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
+  %context_kwname.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %7 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39944), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775806, ptr noundef %7) #6
   br label %if.end11.i
@@ -5168,7 +5168,7 @@ declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) loc
 define internal fastcc ptr @get_future_loop(ptr nocapture noundef readonly %state, ptr noundef %fut) unnamed_addr #0 {
 entry:
   %getloop = alloca ptr, align 8
-  %FutureType = getelementptr inbounds i8, ptr %state, i64 16
+  %FutureType = getelementptr inbounds nuw i8, ptr %state, i64 16
   %0 = load ptr, ptr %FutureType, align 8
   %1 = getelementptr i8, ptr %fut, i64 8
   %fut.val8 = load ptr, ptr %1, align 8
@@ -5176,13 +5176,13 @@ entry:
   br i1 %cmp.i9.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %TaskType = getelementptr inbounds i8, ptr %state, i64 24
+  %TaskType = getelementptr inbounds nuw i8, ptr %state, i64 24
   %2 = load ptr, ptr %TaskType, align 8
   %cmp.i10.not = icmp eq ptr %fut.val8, %2
   br i1 %cmp.i10.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %3 = load ptr, ptr %fut_loop, align 8
   %4 = load i32, ptr %3, align 8
   %add.i.i = add i32 %4, 1
@@ -5312,7 +5312,7 @@ entry:
   %call1.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %task.val, ptr noundef nonnull @_asynciomodule) #6
   %1 = getelementptr i8, ptr %call1.i, i64 32
   %call1.val.i = load ptr, ptr %1, align 8
-  %FutureType = getelementptr inbounds i8, ptr %call1.val.i, i64 16
+  %FutureType = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 16
   %2 = load ptr, ptr %FutureType, align 8
   %3 = getelementptr i8, ptr %o, i64 8
   %o.val25 = load ptr, ptr %3, align 8
@@ -5320,7 +5320,7 @@ entry:
   br i1 %cmp.i26.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %TaskType = getelementptr inbounds i8, ptr %call1.val.i, i64 24
+  %TaskType = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 24
   %4 = load ptr, ptr %TaskType, align 8
   %cmp.i27.not = icmp eq ptr %o.val25, %4
   br i1 %cmp.i27.not, label %if.then, label %if.else
@@ -5423,7 +5423,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @future_get_result(ptr nocapture noundef readonly %state, ptr nocapture noundef %fut, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
 entry:
-  %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %fut, i64 96
   %0 = load i32, ptr %fut_state, align 8
   switch i32 %0, label %if.then3 [
     i32 1, label %if.then
@@ -5431,7 +5431,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %fut_cancelled_exc.i.i = getelementptr inbounds i8, ptr %fut, i64 88
+  %fut_cancelled_exc.i.i = getelementptr inbounds nuw i8, ptr %fut, i64 88
   %1 = load ptr, ptr %fut_cancelled_exc.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.end.i6.i, label %create_cancelled_error.exit.thread.i
@@ -5441,12 +5441,12 @@ create_cancelled_error.exit.thread.i:             ; preds = %if.then
   br label %if.end.i19
 
 if.end.i6.i:                                      ; preds = %if.then
-  %fut_cancel_msg.i.i = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg.i.i = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %2 = load ptr, ptr %fut_cancel_msg.i.i, align 8
   %cmp3.i.i = icmp eq ptr %2, null
   %cmp4.i.i = icmp eq ptr %2, @_Py_NoneStruct
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp4.i.i
-  %asyncio_CancelledError.i.i = getelementptr inbounds i8, ptr %state, i64 96
+  %asyncio_CancelledError.i.i = getelementptr inbounds nuw i8, ptr %state, i64 96
   %3 = load ptr, ptr %asyncio_CancelledError.i.i, align 8
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.else.i.i
 
@@ -5465,7 +5465,7 @@ create_cancelled_error.exit.i:                    ; preds = %if.else.i.i, %if.th
 
 if.end.i19:                                       ; preds = %create_cancelled_error.exit.i, %create_cancelled_error.exit.thread.i
   %retval.0.i9.i = phi ptr [ %1, %create_cancelled_error.exit.thread.i ], [ %retval.0.i.i, %create_cancelled_error.exit.i ]
-  %asyncio_CancelledError.i = getelementptr inbounds i8, ptr %state, i64 96
+  %asyncio_CancelledError.i = getelementptr inbounds nuw i8, ptr %state, i64 96
   %4 = load ptr, ptr %asyncio_CancelledError.i, align 8
   tail call void @PyErr_SetObject(ptr noundef %4, ptr noundef nonnull %retval.0.i9.i) #6
   %5 = load i64, ptr %retval.0.i9.i, align 8
@@ -5484,23 +5484,23 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.then3:                                         ; preds = %entry
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %state, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %state, i64 104
   %7 = load ptr, ptr %asyncio_InvalidStateError, align 8
   tail call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.39) #6
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %fut_log_tb, align 4
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %8 = load ptr, ptr %fut_exception, align 8
   %cmp5.not = icmp eq ptr %8, null
   br i1 %cmp5.not, label %if.end20, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %fut, i64 56
   %9 = load ptr, ptr %fut_exception_tb, align 8
   %cmp7 = icmp eq ptr %9, null
   %spec.store.select = select i1 %cmp7, ptr @_Py_NoneStruct, ptr %9
@@ -5543,7 +5543,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end20:                                         ; preds = %if.end4
-  %fut_result = getelementptr inbounds i8, ptr %fut, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %fut, i64 64
   %15 = load ptr, ptr %fut_result, align 8
   %16 = load i32, ptr %15, align 8
   %add.i.i23 = add i32 %16, 1
@@ -5590,10 +5590,10 @@ entry:
   %1 = getelementptr i8, ptr %call1.i, i64 32
   %call1.val.i = load ptr, ptr %1, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %it) #6
-  %tp_clear = getelementptr inbounds i8, ptr %it.val, i64 192
+  %tp_clear = getelementptr inbounds nuw i8, ptr %it.val, i64 192
   %2 = load ptr, ptr %tp_clear, align 8
   %call2 = tail call i32 %2(ptr noundef %it) #6
-  %fi_freelist_len = getelementptr inbounds i8, ptr %call1.val.i, i64 184
+  %fi_freelist_len = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 184
   %3 = load i64, ptr %fi_freelist_len, align 8
   %cmp = icmp slt i64 %3, 255
   br i1 %cmp, label %if.then, label %if.else
@@ -5601,9 +5601,9 @@ entry:
 if.then:                                          ; preds = %entry
   %inc = add nsw i64 %3, 1
   store i64 %inc, ptr %fi_freelist_len, align 8
-  %fi_freelist = getelementptr inbounds i8, ptr %call1.val.i, i64 176
+  %fi_freelist = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 176
   %4 = load ptr, ptr %fi_freelist, align 8
-  %future = getelementptr inbounds i8, ptr %it, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %it, i64 16
   store ptr %4, ptr %future, align 8
   store ptr %it, ptr %fi_freelist, align 8
   br label %if.end
@@ -5643,7 +5643,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %future = getelementptr inbounds i8, ptr %it, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %it, i64 16
   %1 = load ptr, ptr %future, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -5664,7 +5664,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @FutureIter_clear(ptr nocapture noundef %it) #0 {
 entry:
-  %future = getelementptr inbounds i8, ptr %it, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %future, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -5736,20 +5736,20 @@ return:                                           ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @FutureIter_am_send(ptr nocapture noundef %it, ptr nocapture readnone %_unused_arg, ptr nocapture noundef writeonly initializes((0, 8)) %result) #0 {
 entry:
-  %future = getelementptr inbounds i8, ptr %it, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load ptr, ptr %future, align 8
   store ptr null, ptr %result, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fut_state = getelementptr inbounds i8, ptr %0, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load i32, ptr %fut_state, align 8
   %cmp1 = icmp eq i32 %1, 0
   br i1 %cmp1, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.end
-  %fut_blocking = getelementptr inbounds i8, ptr %0, i64 100
+  %fut_blocking = getelementptr inbounds nuw i8, ptr %0, i64 100
   %bf.load = load i8, ptr %fut_blocking, align 4
   %2 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %2, 0
@@ -6047,7 +6047,7 @@ if.then47:                                        ; preds = %Py_INCREF.exit
   br label %do.body
 
 do.body:                                          ; preds = %if.then36, %Py_INCREF.exit, %if.then47
-  %future = getelementptr inbounds i8, ptr %self, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %self, i64 16
   %26 = load ptr, ptr %future, align 8
   %cmp53.not = icmp eq ptr %26, null
   br i1 %cmp53.not, label %do.end, label %if.then54
@@ -6144,7 +6144,7 @@ return:                                           ; preds = %if.then1.i.i51, %if
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @FutureIter_close(ptr nocapture noundef %self, ptr nocapture readnone %arg) #0 {
 entry:
-  %future.i = getelementptr inbounds i8, ptr %self, i64 16
+  %future.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %future.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %FutureIter_clear.exit, label %if.then.i
@@ -6193,7 +6193,7 @@ entry:
   br i1 %cmp.i8.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %asyncio_InvalidStateError = getelementptr inbounds i8, ptr %call1.val.i, i64 104
+  %asyncio_InvalidStateError = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 104
   %3 = load ptr, ptr %asyncio_InvalidStateError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -6247,7 +6247,7 @@ if.end:                                           ; preds = %entry
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #6
   tail call void @PyObject_ClearWeakRefs(ptr noundef %self) #6
   %call2 = tail call i32 @FutureObj_clear(ptr noundef %self)
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #6
   %2 = load i64, ptr %self.val, align 8
@@ -6288,7 +6288,7 @@ future_ensure_alive.exit:                         ; preds = %entry
 do.end:                                           ; preds = %entry
   %3 = getelementptr i8, ptr %call1.i, i64 32
   %call1.val.i = load ptr, ptr %3, align 8
-  %asyncio_future_repr_func = getelementptr inbounds i8, ptr %call1.val.i, i64 88
+  %asyncio_future_repr_func = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 88
   %4 = load ptr, ptr %asyncio_future_repr_func, align 8
   %call2 = tail call ptr @PyObject_CallOneArg(ptr noundef %4, ptr noundef nonnull %fut) #6
   br label %return
@@ -6312,7 +6312,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %1 = load ptr, ptr %fut_loop, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -6323,7 +6323,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %2 = load ptr, ptr %fut_callback0, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -6334,7 +6334,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   %3 = load ptr, ptr %fut_context0, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -6345,7 +6345,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %4 = load ptr, ptr %fut_callbacks, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -6356,7 +6356,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %fut_result = getelementptr inbounds i8, ptr %fut, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %fut, i64 64
   %5 = load ptr, ptr %fut_result, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -6367,7 +6367,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.body50
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %6 = load ptr, ptr %fut_exception, align 8
   %tobool62.not = icmp eq ptr %6, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -6378,7 +6378,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %fut, i64 56
   %7 = load ptr, ptr %fut_exception_tb, align 8
   %tobool73.not = icmp eq ptr %7, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -6389,7 +6389,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %fut_source_tb = getelementptr inbounds i8, ptr %fut, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %fut, i64 72
   %8 = load ptr, ptr %fut_source_tb, align 8
   %tobool84.not = icmp eq ptr %8, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -6400,7 +6400,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %9 = load ptr, ptr %fut_cancel_msg, align 8
   %tobool95.not = icmp eq ptr %9, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -6411,7 +6411,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %fut_cancelled_exc = getelementptr inbounds i8, ptr %fut, i64 88
+  %fut_cancelled_exc = getelementptr inbounds nuw i8, ptr %fut, i64 88
   %10 = load ptr, ptr %fut_cancelled_exc, align 8
   %tobool106.not = icmp eq ptr %10, null
   br i1 %tobool106.not, label %do.end115, label %if.then107
@@ -6433,7 +6433,7 @@ return:                                           ; preds = %if.then107, %if.the
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @FutureObj_clear(ptr noundef %fut) #0 {
 entry:
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %0 = load ptr, ptr %fut_loop, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -6456,7 +6456,7 @@ if.then1.i142:                                    ; preds = %if.end.i139
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i139, %if.then1.i142, %if.then, %entry
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %3 = load ptr, ptr %fut_callback0, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -6479,7 +6479,7 @@ if.then1.i133:                                    ; preds = %if.end.i130
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i130, %if.then1.i133, %if.then5, %do.body1
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   %6 = load ptr, ptr %fut_context0, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -6502,7 +6502,7 @@ if.then1.i124:                                    ; preds = %if.end.i121
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i121, %if.then1.i124, %if.then12, %do.body8
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %9 = load ptr, ptr %fut_callbacks, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -6525,7 +6525,7 @@ if.then1.i115:                                    ; preds = %if.end.i112
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i112, %if.then1.i115, %if.then19, %do.body15
-  %fut_result = getelementptr inbounds i8, ptr %fut, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %fut, i64 64
   %12 = load ptr, ptr %fut_result, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -6548,7 +6548,7 @@ if.then1.i106:                                    ; preds = %if.end.i103
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i103, %if.then1.i106, %if.then26, %do.body22
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %15 = load ptr, ptr %fut_exception, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -6571,7 +6571,7 @@ if.then1.i97:                                     ; preds = %if.end.i94
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i94, %if.then1.i97, %if.then33, %do.body29
-  %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %fut, i64 56
   %18 = load ptr, ptr %fut_exception_tb, align 8
   %cmp39.not = icmp eq ptr %18, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -6594,7 +6594,7 @@ if.then1.i88:                                     ; preds = %if.end.i85
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i85, %if.then1.i88, %if.then40, %do.body36
-  %fut_source_tb = getelementptr inbounds i8, ptr %fut, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %fut, i64 72
   %21 = load ptr, ptr %fut_source_tb, align 8
   %cmp46.not = icmp eq ptr %21, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -6617,7 +6617,7 @@ if.then1.i79:                                     ; preds = %if.end.i76
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i76, %if.then1.i79, %if.then47, %do.body43
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %24 = load ptr, ptr %fut_cancel_msg, align 8
   %cmp53.not = icmp eq ptr %24, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -6640,7 +6640,7 @@ if.then1.i70:                                     ; preds = %if.end.i67
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i67, %if.then1.i70, %if.then54, %do.body50
-  %fut_cancelled_exc = getelementptr inbounds i8, ptr %fut, i64 88
+  %fut_cancelled_exc = getelementptr inbounds nuw i8, ptr %fut, i64 88
   %27 = load ptr, ptr %fut_cancelled_exc, align 8
   %cmp60.not = icmp eq ptr %27, null
   br i1 %cmp60.not, label %do.end63, label %if.then61
@@ -6686,7 +6686,7 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fi_freelist_len = getelementptr inbounds i8, ptr %call1.val.i, i64 184
+  %fi_freelist_len = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 184
   %4 = load i64, ptr %fi_freelist_len, align 8
   %tobool2.not = icmp eq i64 %4, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -6694,9 +6694,9 @@ do.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %do.end
   %dec = add i64 %4, -1
   store i64 %dec, ptr %fi_freelist_len, align 8
-  %fi_freelist = getelementptr inbounds i8, ptr %call1.val.i, i64 176
+  %fi_freelist = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 176
   %5 = load ptr, ptr %fi_freelist, align 8
-  %future = getelementptr inbounds i8, ptr %5, i64 16
+  %future = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %future, align 8
   store ptr %6, ptr %fi_freelist, align 8
   store ptr null, ptr %future, align 8
@@ -6721,7 +6721,7 @@ if.end.i.i:                                       ; preds = %if.end10
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end10, %if.end.i.i
-  %future12 = getelementptr inbounds i8, ptr %it.0, i64 16
+  %future12 = getelementptr inbounds nuw i8, ptr %it.0, i64 16
   store ptr %fut, ptr %future12, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %it.0) #6
   br label %return
@@ -6743,12 +6743,12 @@ entry:
 cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
-  %ob_item15 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item15 = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %2 = icmp eq i64 %args.val, 0
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -6784,7 +6784,7 @@ declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @FutureObj_finalize(ptr noundef %fut) #0 {
 entry:
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -6812,7 +6812,7 @@ if.end12:                                         ; preds = %if.end6
   br i1 %cmp14, label %if.then.i, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %1 = load ptr, ptr %fut_exception, align 8
   %call15 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44576), ptr noundef %1) #6
   %cmp16 = icmp slt i32 %call15, 0
@@ -6824,7 +6824,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false
   br i1 %cmp19, label %if.then.i, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false17
-  %fut_source_tb = getelementptr inbounds i8, ptr %fut, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %fut, i64 72
   %2 = load ptr, ptr %fut_source_tb, align 8
   %cmp22.not = icmp eq ptr %2, null
   br i1 %cmp22.not, label %if.end29, label %if.then23
@@ -6835,7 +6835,7 @@ if.then23:                                        ; preds = %if.end21
   br i1 %cmp26, label %if.then.i, label %if.end29
 
 if.end29:                                         ; preds = %if.then23, %if.end21
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %3 = load ptr, ptr %fut_loop, align 8
   %call30 = tail call ptr @PyObject_GetAttr(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39880)) #6
   %cmp31.not = icmp eq ptr %call30, null
@@ -6964,13 +6964,13 @@ if.then.i:                                        ; preds = %if.end
   %cls.val.i = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %cls.val.i, i64 32
   %cls.val.val.i = load ptr, ptr %3, align 8
-  %asyncio_InvalidStateError.i = getelementptr inbounds i8, ptr %cls.val.val.i, i64 104
+  %asyncio_InvalidStateError.i = getelementptr inbounds nuw i8, ptr %cls.val.val.i, i64 104
   %4 = load ptr, ptr %asyncio_InvalidStateError.i, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.29) #6
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %fut_state.i = getelementptr inbounds i8, ptr %self, i64 96
+  %fut_state.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %5 = load i32, ptr %fut_state.i, align 8
   switch i32 %5, label %if.then8.i [
     i32 1, label %if.then2.i
@@ -6982,7 +6982,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %cls.val9.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %cls.val9.i, i64 32
   %cls.val9.val.i = load ptr, ptr %7, align 8
-  %fut_cancelled_exc.i.i.i = getelementptr inbounds i8, ptr %self, i64 88
+  %fut_cancelled_exc.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 88
   %8 = load ptr, ptr %fut_cancelled_exc.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i, label %if.end.i6.i.i, label %create_cancelled_error.exit.thread.i.i
@@ -6992,12 +6992,12 @@ create_cancelled_error.exit.thread.i.i:           ; preds = %if.then2.i
   br label %if.end.i.i
 
 if.end.i6.i.i:                                    ; preds = %if.then2.i
-  %fut_cancel_msg.i.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %fut_cancel_msg.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %9 = load ptr, ptr %fut_cancel_msg.i.i.i, align 8
   %cmp3.i.i.i = icmp eq ptr %9, null
   %cmp4.i.i.i = icmp eq ptr %9, @_Py_NoneStruct
   %or.cond.i.i.i = or i1 %cmp3.i.i.i, %cmp4.i.i.i
-  %asyncio_CancelledError.i.i.i = getelementptr inbounds i8, ptr %cls.val9.val.i, i64 96
+  %asyncio_CancelledError.i.i.i = getelementptr inbounds nuw i8, ptr %cls.val9.val.i, i64 96
   %10 = load ptr, ptr %asyncio_CancelledError.i.i.i, align 8
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
@@ -7016,7 +7016,7 @@ create_cancelled_error.exit.i.i:                  ; preds = %if.else.i.i.i, %if.
 
 if.end.i.i:                                       ; preds = %create_cancelled_error.exit.i.i, %create_cancelled_error.exit.thread.i.i
   %retval.0.i9.i.i = phi ptr [ %8, %create_cancelled_error.exit.thread.i.i ], [ %retval.0.i.i.i, %create_cancelled_error.exit.i.i ]
-  %asyncio_CancelledError.i.i = getelementptr inbounds i8, ptr %cls.val9.val.i, i64 96
+  %asyncio_CancelledError.i.i = getelementptr inbounds nuw i8, ptr %cls.val9.val.i, i64 96
   %11 = load ptr, ptr %asyncio_CancelledError.i.i, align 8
   tail call void @PyErr_SetObject(ptr noundef %11, ptr noundef nonnull %retval.0.i9.i.i) #6
   %12 = load i64, ptr %retval.0.i9.i.i, align 8
@@ -7039,19 +7039,19 @@ if.then8.i:                                       ; preds = %if.end.i
   %cls.val10.i = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %cls.val10.i, i64 32
   %cls.val10.val.i = load ptr, ptr %15, align 8
-  %asyncio_InvalidStateError11.i = getelementptr inbounds i8, ptr %cls.val10.val.i, i64 104
+  %asyncio_InvalidStateError11.i = getelementptr inbounds nuw i8, ptr %cls.val10.val.i, i64 104
   %16 = load ptr, ptr %asyncio_InvalidStateError11.i, align 8
   tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.64) #6
   br label %return
 
 if.end12.i:                                       ; preds = %if.end.i
-  %fut_exception.i = getelementptr inbounds i8, ptr %self, i64 48
+  %fut_exception.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   %17 = load ptr, ptr %fut_exception.i, align 8
   %cmp13.not.i = icmp eq ptr %17, null
   br i1 %cmp13.not.i, label %return, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %fut_log_tb.i = getelementptr inbounds i8, ptr %self, i64 100
+  %fut_log_tb.i = getelementptr inbounds nuw i8, ptr %self, i64 100
   %bf.load.i = load i8, ptr %fut_log_tb.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %fut_log_tb.i, align 4
@@ -7103,13 +7103,13 @@ future_ensure_alive.exit.i:                       ; preds = %if.end
   br label %exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %fut_state.i.i = getelementptr inbounds i8, ptr %self, i64 96
+  %fut_state.i.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %6 = load i32, ptr %fut_state.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %asyncio_InvalidStateError.i.i = getelementptr inbounds i8, ptr %cls.val.val, i64 104
+  %asyncio_InvalidStateError.i.i = getelementptr inbounds nuw i8, ptr %cls.val.val, i64 104
   %7 = load ptr, ptr %asyncio_InvalidStateError.i.i, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.28) #6
   br label %exit
@@ -7125,7 +7125,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end2.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end2.i.i
-  %fut_result.i.i = getelementptr inbounds i8, ptr %self, i64 64
+  %fut_result.i.i = getelementptr inbounds nuw i8, ptr %self, i64 64
   store ptr %1, ptr %fut_result.i.i, align 8
   store i32 2, ptr %fut_state.i.i, align 8
   %call5.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self)
@@ -7295,7 +7295,7 @@ future_ensure_alive.exit.i:                       ; preds = %if.end
   br label %exit
 
 do.end.i:                                         ; preds = %if.end
-  %fut_callback0.i = getelementptr inbounds i8, ptr %self, i64 24
+  %fut_callback0.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %4 = load ptr, ptr %fut_callback0.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end25.i, label %if.then2.i
@@ -7330,7 +7330,7 @@ if.then1.i198.i:                                  ; preds = %if.end.i195.i
   br label %do.body17.i
 
 do.body17.i:                                      ; preds = %if.then1.i198.i, %if.end.i195.i, %if.then14.i, %do.body11.i
-  %fut_context0.i = getelementptr inbounds i8, ptr %self, i64 32
+  %fut_context0.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %8 = load ptr, ptr %fut_context0.i, align 8
   %cmp20.not.i = icmp eq ptr %8, null
   br i1 %cmp20.not.i, label %if.end25.i, label %if.then21.i
@@ -7354,7 +7354,7 @@ if.then1.i189.i:                                  ; preds = %if.end.i186.i
 
 if.end25.i:                                       ; preds = %if.then1.i189.i, %if.end.i186.i, %if.then21.i, %do.body17.i, %if.then2.i, %do.end.i
   %cleared_callback0.0.i = phi i64 [ 0, %do.end.i ], [ 0, %if.then2.i ], [ 1, %do.body17.i ], [ 1, %if.then21.i ], [ 1, %if.then1.i189.i ], [ 1, %if.end.i186.i ]
-  %fut_callbacks.i = getelementptr inbounds i8, ptr %self, i64 40
+  %fut_callbacks.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   %11 = load ptr, ptr %fut_callbacks.i, align 8
   %cmp26.i = icmp eq ptr %11, null
   br i1 %cmp26.i, label %if.then27.i, label %if.end29.i
@@ -7393,10 +7393,10 @@ do.end41.i:                                       ; preds = %if.then1.i180.i, %i
   br label %exit
 
 if.then45.i:                                      ; preds = %if.end29.i
-  %ob_item.i = getelementptr inbounds i8, ptr %11, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %ob_item.i, align 8
   %16 = load ptr, ptr %15, align 8
-  %ob_item48.i = getelementptr inbounds i8, ptr %16, i64 24
+  %ob_item48.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   %17 = load ptr, ptr %ob_item48.i, align 8
   %call50.i = call i32 @PyObject_RichCompareBool(ptr noundef %17, ptr noundef %1, i32 noundef 2) #6
   switch i32 %call50.i, label %if.end65.i [
@@ -7459,7 +7459,7 @@ land.rhs.i:                                       ; preds = %for.inc.i, %land.rh
   br i1 %cmp76.i, label %for.body.i, label %for.end.thread.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %ob_item78.i = getelementptr inbounds i8, ptr %23, i64 24
+  %ob_item78.i = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %ob_item78.i, align 8
   %arrayidx79.i = getelementptr ptr, ptr %25, i64 %i.010.i
   %26 = load ptr, ptr %arrayidx79.i, align 8
@@ -7473,7 +7473,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.body.i
-  %ob_item80.i = getelementptr inbounds i8, ptr %26, i64 24
+  %ob_item80.i = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %ob_item80.i, align 8
   %call82.i = call i32 @PyObject_RichCompareBool(ptr noundef %28, ptr noundef %1, i32 noundef 2) #6
   %cmp83.i = icmp eq i32 %call82.i, 0
@@ -7687,11 +7687,11 @@ future_ensure_alive.exit.i:                       ; preds = %skip_optional_pos
   br label %exit
 
 do.end.i:                                         ; preds = %skip_optional_pos
-  %fut_log_tb.i.i = getelementptr inbounds i8, ptr %self, i64 100
+  %fut_log_tb.i.i = getelementptr inbounds nuw i8, ptr %self, i64 100
   %bf.load.i.i = load i8, ptr %fut_log_tb.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
   store i8 %bf.clear.i.i, ptr %fut_log_tb.i.i, align 4
-  %fut_state.i.i = getelementptr inbounds i8, ptr %self, i64 96
+  %fut_state.i.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %7 = load i32, ptr %fut_state.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i, label %if.end.i.i, label %exit
@@ -7712,7 +7712,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %Py_XINCREF.exit.i.i
 
 Py_XINCREF.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
-  %fut_cancel_msg.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %fut_cancel_msg.i.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %9 = load ptr, ptr %fut_cancel_msg.i.i, align 8
   store ptr %msg.0, ptr %fut_cancel_msg.i.i, align 8
   %cmp.not.i7.i.i = icmp eq ptr %9, null
@@ -7754,7 +7754,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %fut_state.i = getelementptr inbounds i8, ptr %self, i64 96
+  %fut_state.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %1 = load i32, ptr %fut_state.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %_asyncio_Future_cancelled_impl.exit, label %if.else.i
@@ -7776,7 +7776,7 @@ entry:
   br i1 %cmp.i.not.i, label %_asyncio_Future_done_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %fut_state.i = getelementptr inbounds i8, ptr %self, i64 96
+  %fut_state.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %1 = load i32, ptr %fut_state.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   %spec.select.i = select i1 %cmp.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
@@ -7830,7 +7830,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
   %call1.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i, ptr noundef nonnull @_asynciomodule) #6
-  %fut_cancelled_exc.i.i = getelementptr inbounds i8, ptr %self, i64 88
+  %fut_cancelled_exc.i.i = getelementptr inbounds nuw i8, ptr %self, i64 88
   %1 = load ptr, ptr %fut_cancelled_exc.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -7842,12 +7842,12 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   %2 = getelementptr i8, ptr %call1.i.i, i64 32
   %call1.val.i.i = load ptr, ptr %2, align 8
-  %fut_cancel_msg.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %fut_cancel_msg.i.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %3 = load ptr, ptr %fut_cancel_msg.i.i, align 8
   %cmp3.i.i = icmp eq ptr %3, null
   %cmp4.i.i = icmp eq ptr %3, @_Py_NoneStruct
   %or.cond.i.i = or i1 %cmp3.i.i, %cmp4.i.i
-  %asyncio_CancelledError.i.i = getelementptr inbounds i8, ptr %call1.val.i.i, i64 96
+  %asyncio_CancelledError.i.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i, i64 96
   %4 = load ptr, ptr %asyncio_CancelledError.i.i, align 8
   br i1 %or.cond.i.i, label %if.then5.i.i, label %if.else.i.i
 
@@ -7891,14 +7891,14 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %fut, i64 96
   %3 = load i32, ptr %fut_state, align 8
   %4 = icmp ult i32 %3, 3
   br i1 %4, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %do.end
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.FutureObj_get_state, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.FutureObj_get_state, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -7916,7 +7916,7 @@ entry:
   br i1 %cmp.i.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fut_blocking = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_blocking = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_blocking, align 4
   %1 = and i8 %bf.load, 2
   %tobool1.not = icmp eq i8 %1, 0
@@ -7958,7 +7958,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %fut_blocking = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_blocking = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %3 = trunc i32 %call3 to i8
   %bf.load = load i8, ptr %fut_blocking, align 4
   %bf.value = shl i8 %3, 1
@@ -8013,10 +8013,10 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %3 = load ptr, ptr %fut_callback0, align 8
   %cmp = icmp eq ptr %3, null
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %4 = load ptr, ptr %fut_callbacks, align 8
   %cmp3 = icmp eq ptr %4, null
   br i1 %cmp, label %if.then2, label %if.end8
@@ -8084,9 +8084,9 @@ if.end.i48:                                       ; preds = %if.end22
 
 Py_INCREF.exit50:                                 ; preds = %if.end22, %if.end.i48
   %11 = phi ptr [ %9, %if.end22 ], [ %.pre, %if.end.i48 ]
-  %ob_item.i = getelementptr inbounds i8, ptr %call19, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call19, i64 24
   store ptr %11, ptr %ob_item.i, align 8
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   %12 = load ptr, ptr %fut_context0, align 8
   %13 = load i32, ptr %12, align 8
   %add.i38 = add i32 %13, 1
@@ -8118,7 +8118,7 @@ for.cond.preheader:                               ; preds = %Py_INCREF.exit42
 for.body:                                         ; preds = %for.cond.preheader, %Py_INCREF.exit
   %18 = phi ptr [ %22, %Py_INCREF.exit ], [ %16, %for.cond.preheader ]
   %i.045 = phi i64 [ %add33, %Py_INCREF.exit ], [ 0, %for.cond.preheader ]
-  %ob_item = getelementptr inbounds i8, ptr %18, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %18, i64 24
   %19 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %19, i64 %i.045
   %20 = load ptr, ptr %arrayidx, align 8
@@ -8164,7 +8164,7 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fut_result = getelementptr inbounds i8, ptr %fut, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %fut, i64 64
   %3 = load ptr, ptr %fut_result, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %if.end3
@@ -8201,7 +8201,7 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %3 = load ptr, ptr %fut_exception, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %if.end3
@@ -8238,7 +8238,7 @@ future_ensure_alive.exit:                         ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
@@ -8276,7 +8276,7 @@ if.then4:                                         ; preds = %if.end3
   br label %return
 
 if.end5:                                          ; preds = %if.end3
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %fut_log_tb, align 4
@@ -8296,7 +8296,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %fut_source_tb = getelementptr inbounds i8, ptr %fut, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %fut, i64 72
   %1 = load ptr, ptr %fut_source_tb, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -8319,7 +8319,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @FutureObj_get_cancel_message(ptr nocapture noundef readonly %fut, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %0 = load ptr, ptr %fut_cancel_msg, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -8361,7 +8361,7 @@ if.end.i:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i, %if.end
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %2 = load ptr, ptr %fut_cancel_msg, align 8
   store ptr %msg, ptr %fut_cancel_msg, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -8392,7 +8392,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 define internal fastcc range(i32 -1, 1) i32 @future_init(ptr nocapture noundef initializes((96, 100)) %fut, ptr noundef %loop) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %fut, i64 16
   %0 = load ptr, ptr %fut_loop, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -8415,7 +8415,7 @@ if.then1.i188:                                    ; preds = %if.end.i185
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i185, %if.then1.i188, %if.then, %entry
-  %fut_callback0 = getelementptr inbounds i8, ptr %fut, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %fut, i64 24
   %3 = load ptr, ptr %fut_callback0, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -8438,7 +8438,7 @@ if.then1.i179:                                    ; preds = %if.end.i176
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i176, %if.then1.i179, %if.then5, %do.body1
-  %fut_context0 = getelementptr inbounds i8, ptr %fut, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %fut, i64 32
   %6 = load ptr, ptr %fut_context0, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -8461,7 +8461,7 @@ if.then1.i170:                                    ; preds = %if.end.i167
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i167, %if.then1.i170, %if.then12, %do.body8
-  %fut_callbacks = getelementptr inbounds i8, ptr %fut, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %fut, i64 40
   %9 = load ptr, ptr %fut_callbacks, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -8484,7 +8484,7 @@ if.then1.i161:                                    ; preds = %if.end.i158
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i158, %if.then1.i161, %if.then19, %do.body15
-  %fut_result = getelementptr inbounds i8, ptr %fut, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %fut, i64 64
   %12 = load ptr, ptr %fut_result, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -8507,7 +8507,7 @@ if.then1.i152:                                    ; preds = %if.end.i149
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i149, %if.then1.i152, %if.then26, %do.body22
-  %fut_exception = getelementptr inbounds i8, ptr %fut, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %fut, i64 48
   %15 = load ptr, ptr %fut_exception, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %do.body36, label %if.then33
@@ -8530,7 +8530,7 @@ if.then1.i143:                                    ; preds = %if.end.i140
   br label %do.body36
 
 do.body36:                                        ; preds = %if.end.i140, %if.then1.i143, %if.then33, %do.body29
-  %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %fut, i64 56
   %18 = load ptr, ptr %fut_exception_tb, align 8
   %cmp39.not = icmp eq ptr %18, null
   br i1 %cmp39.not, label %do.body43, label %if.then40
@@ -8553,7 +8553,7 @@ if.then1.i134:                                    ; preds = %if.end.i131
   br label %do.body43
 
 do.body43:                                        ; preds = %if.end.i131, %if.then1.i134, %if.then40, %do.body36
-  %fut_source_tb = getelementptr inbounds i8, ptr %fut, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %fut, i64 72
   %21 = load ptr, ptr %fut_source_tb, align 8
   %cmp46.not = icmp eq ptr %21, null
   br i1 %cmp46.not, label %do.body50, label %if.then47
@@ -8576,7 +8576,7 @@ if.then1.i125:                                    ; preds = %if.end.i122
   br label %do.body50
 
 do.body50:                                        ; preds = %if.end.i122, %if.then1.i125, %if.then47, %do.body43
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %fut, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %fut, i64 80
   %24 = load ptr, ptr %fut_cancel_msg, align 8
   %cmp53.not = icmp eq ptr %24, null
   br i1 %cmp53.not, label %do.body57, label %if.then54
@@ -8599,7 +8599,7 @@ if.then1.i116:                                    ; preds = %if.end.i113
   br label %do.body57
 
 do.body57:                                        ; preds = %if.end.i113, %if.then1.i116, %if.then54, %do.body50
-  %fut_cancelled_exc = getelementptr inbounds i8, ptr %fut, i64 88
+  %fut_cancelled_exc = getelementptr inbounds nuw i8, ptr %fut, i64 88
   %27 = load ptr, ptr %fut_cancelled_exc, align 8
   %cmp60.not = icmp eq ptr %27, null
   br i1 %cmp60.not, label %do.end63, label %if.then61
@@ -8622,9 +8622,9 @@ if.then1.i107:                                    ; preds = %if.end.i104
   br label %do.end63
 
 do.end63:                                         ; preds = %do.body57, %if.then61, %if.then1.i107, %if.end.i104
-  %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
+  %fut_state = getelementptr inbounds nuw i8, ptr %fut, i64 96
   store i32 0, ptr %fut_state, align 8
-  %fut_log_tb = getelementptr inbounds i8, ptr %fut, i64 100
+  %fut_log_tb = getelementptr inbounds nuw i8, ptr %fut, i64 100
   %bf.load = load i8, ptr %fut_log_tb, align 4
   %bf.clear65 = and i8 %bf.load, -4
   store i8 %bf.clear65, ptr %fut_log_tb, align 4
@@ -8688,7 +8688,7 @@ if.end83:                                         ; preds = %Py_DECREF.exit
 
 land.lhs.true:                                    ; preds = %if.end83
   %call.i.i = call ptr @_PyThreadState_GetCurrent() #6
-  %interp.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   %35 = load ptr, ptr %interp.i, align 8
   %call85 = call i32 @_Py_IsInterpreterFinalizing(ptr noundef %35) #6
   %tobool86.not = icmp eq i32 %call85, 0
@@ -8700,7 +8700,7 @@ if.then87:                                        ; preds = %land.lhs.true
   %call1.i79 = call ptr @PyType_GetModuleByDef(ptr noundef %fut.val, ptr noundef nonnull @_asynciomodule) #6
   %37 = getelementptr i8, ptr %call1.i79, i64 32
   %call1.val.i80 = load ptr, ptr %37, align 8
-  %traceback_extract_stack = getelementptr inbounds i8, ptr %call1.val.i80, i64 144
+  %traceback_extract_stack = getelementptr inbounds nuw i8, ptr %call1.val.i80, i64 144
   %38 = load ptr, ptr %traceback_extract_stack, align 8
   %call90 = call ptr @PyObject_CallNoArgs(ptr noundef %38) #6
   store ptr %call90, ptr %fut_source_tb, align 8
@@ -8738,7 +8738,7 @@ if.end:                                           ; preds = %entry
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #6
   tail call void @PyObject_ClearWeakRefs(ptr noundef %self) #6
   %call2 = tail call i32 @TaskObj_clear(ptr noundef %self)
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #6
   %2 = load i64, ptr %self.val, align 8
@@ -8768,7 +8768,7 @@ entry:
   %call1.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %task.val, ptr noundef nonnull @_asynciomodule) #6
   %1 = getelementptr i8, ptr %call1.i, i64 32
   %call1.val.i = load ptr, ptr %1, align 8
-  %asyncio_task_repr_func = getelementptr inbounds i8, ptr %call1.val.i, i64 128
+  %asyncio_task_repr_func = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 128
   %2 = load ptr, ptr %asyncio_task_repr_func, align 8
   %call1 = tail call ptr @PyObject_CallOneArg(ptr noundef %2, ptr noundef %task) #6
   ret ptr %call1
@@ -8788,7 +8788,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %task_context = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context = getelementptr inbounds nuw i8, ptr %task, i64 136
   %1 = load ptr, ptr %task_context, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -8799,7 +8799,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %task_coro = getelementptr inbounds i8, ptr %task, i64 120
+  %task_coro = getelementptr inbounds nuw i8, ptr %task, i64 120
   %2 = load ptr, ptr %task_coro, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -8810,7 +8810,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %task_name = getelementptr inbounds i8, ptr %task, i64 128
+  %task_name = getelementptr inbounds nuw i8, ptr %task, i64 128
   %3 = load ptr, ptr %task_name, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -8821,7 +8821,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
+  %task_fut_waiter = getelementptr inbounds nuw i8, ptr %task, i64 112
   %4 = load ptr, ptr %task_fut_waiter, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.end49, label %if.then41
@@ -8832,7 +8832,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.end49, label %return
 
 do.end49:                                         ; preds = %do.body39, %if.then41
-  %fut_loop = getelementptr inbounds i8, ptr %task, i64 16
+  %fut_loop = getelementptr inbounds nuw i8, ptr %task, i64 16
   %5 = load ptr, ptr %fut_loop, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.body61, label %if.then52
@@ -8843,7 +8843,7 @@ if.then52:                                        ; preds = %do.end49
   br i1 %tobool56.not, label %do.body61, label %return
 
 do.body61:                                        ; preds = %if.then52, %do.end49
-  %fut_callback0 = getelementptr inbounds i8, ptr %task, i64 24
+  %fut_callback0 = getelementptr inbounds nuw i8, ptr %task, i64 24
   %6 = load ptr, ptr %fut_callback0, align 8
   %tobool62.not = icmp eq ptr %6, null
   br i1 %tobool62.not, label %do.body72, label %if.then63
@@ -8854,7 +8854,7 @@ if.then63:                                        ; preds = %do.body61
   br i1 %tobool67.not, label %do.body72, label %return
 
 do.body72:                                        ; preds = %if.then63, %do.body61
-  %fut_context0 = getelementptr inbounds i8, ptr %task, i64 32
+  %fut_context0 = getelementptr inbounds nuw i8, ptr %task, i64 32
   %7 = load ptr, ptr %fut_context0, align 8
   %tobool73.not = icmp eq ptr %7, null
   br i1 %tobool73.not, label %do.body83, label %if.then74
@@ -8865,7 +8865,7 @@ if.then74:                                        ; preds = %do.body72
   br i1 %tobool78.not, label %do.body83, label %return
 
 do.body83:                                        ; preds = %if.then74, %do.body72
-  %fut_callbacks = getelementptr inbounds i8, ptr %task, i64 40
+  %fut_callbacks = getelementptr inbounds nuw i8, ptr %task, i64 40
   %8 = load ptr, ptr %fut_callbacks, align 8
   %tobool84.not = icmp eq ptr %8, null
   br i1 %tobool84.not, label %do.body94, label %if.then85
@@ -8876,7 +8876,7 @@ if.then85:                                        ; preds = %do.body83
   br i1 %tobool89.not, label %do.body94, label %return
 
 do.body94:                                        ; preds = %if.then85, %do.body83
-  %fut_result = getelementptr inbounds i8, ptr %task, i64 64
+  %fut_result = getelementptr inbounds nuw i8, ptr %task, i64 64
   %9 = load ptr, ptr %fut_result, align 8
   %tobool95.not = icmp eq ptr %9, null
   br i1 %tobool95.not, label %do.body105, label %if.then96
@@ -8887,7 +8887,7 @@ if.then96:                                        ; preds = %do.body94
   br i1 %tobool100.not, label %do.body105, label %return
 
 do.body105:                                       ; preds = %if.then96, %do.body94
-  %fut_exception = getelementptr inbounds i8, ptr %task, i64 48
+  %fut_exception = getelementptr inbounds nuw i8, ptr %task, i64 48
   %10 = load ptr, ptr %fut_exception, align 8
   %tobool106.not = icmp eq ptr %10, null
   br i1 %tobool106.not, label %do.body116, label %if.then107
@@ -8898,7 +8898,7 @@ if.then107:                                       ; preds = %do.body105
   br i1 %tobool111.not, label %do.body116, label %return
 
 do.body116:                                       ; preds = %if.then107, %do.body105
-  %fut_exception_tb = getelementptr inbounds i8, ptr %task, i64 56
+  %fut_exception_tb = getelementptr inbounds nuw i8, ptr %task, i64 56
   %11 = load ptr, ptr %fut_exception_tb, align 8
   %tobool117.not = icmp eq ptr %11, null
   br i1 %tobool117.not, label %do.body127, label %if.then118
@@ -8909,7 +8909,7 @@ if.then118:                                       ; preds = %do.body116
   br i1 %tobool122.not, label %do.body127, label %return
 
 do.body127:                                       ; preds = %if.then118, %do.body116
-  %fut_source_tb = getelementptr inbounds i8, ptr %task, i64 72
+  %fut_source_tb = getelementptr inbounds nuw i8, ptr %task, i64 72
   %12 = load ptr, ptr %fut_source_tb, align 8
   %tobool128.not = icmp eq ptr %12, null
   br i1 %tobool128.not, label %do.body138, label %if.then129
@@ -8920,7 +8920,7 @@ if.then129:                                       ; preds = %do.body127
   br i1 %tobool133.not, label %do.body138, label %return
 
 do.body138:                                       ; preds = %if.then129, %do.body127
-  %fut_cancel_msg = getelementptr inbounds i8, ptr %task, i64 80
+  %fut_cancel_msg = getelementptr inbounds nuw i8, ptr %task, i64 80
   %13 = load ptr, ptr %fut_cancel_msg, align 8
   %tobool139.not = icmp eq ptr %13, null
   br i1 %tobool139.not, label %do.body149, label %if.then140
@@ -8931,7 +8931,7 @@ if.then140:                                       ; preds = %do.body138
   br i1 %tobool144.not, label %do.body149, label %return
 
 do.body149:                                       ; preds = %if.then140, %do.body138
-  %fut_cancelled_exc = getelementptr inbounds i8, ptr %task, i64 88
+  %fut_cancelled_exc = getelementptr inbounds nuw i8, ptr %task, i64 88
   %14 = load ptr, ptr %fut_cancelled_exc, align 8
   %tobool150.not = icmp eq ptr %14, null
   br i1 %tobool150.not, label %do.end159, label %if.then151
@@ -8954,7 +8954,7 @@ return:                                           ; preds = %if.then151, %if.the
 define internal noundef i32 @TaskObj_clear(ptr noundef %task) #0 {
 entry:
   %call = tail call i32 @FutureObj_clear(ptr noundef %task)
-  %task_context = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context = getelementptr inbounds nuw i8, ptr %task, i64 136
   %0 = load ptr, ptr %task_context, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -8977,7 +8977,7 @@ if.then1.i46:                                     ; preds = %if.end.i43
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i43, %if.then1.i46, %if.then, %entry
-  %task_coro = getelementptr inbounds i8, ptr %task, i64 120
+  %task_coro = getelementptr inbounds nuw i8, ptr %task, i64 120
   %3 = load ptr, ptr %task_coro, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -9000,7 +9000,7 @@ if.then1.i37:                                     ; preds = %if.end.i34
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i34, %if.then1.i37, %if.then5, %do.body1
-  %task_name = getelementptr inbounds i8, ptr %task, i64 128
+  %task_name = getelementptr inbounds nuw i8, ptr %task, i64 128
   %6 = load ptr, ptr %task_name, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -9023,7 +9023,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i25, %if.then1.i28, %if.then12, %do.body8
-  %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
+  %task_fut_waiter = getelementptr inbounds nuw i8, ptr %task, i64 112
   %9 = load ptr, ptr %task_fut_waiter, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.end21, label %if.then19
@@ -9063,12 +9063,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add27 = add i64 %kwargs.val, %args.val
-  %ob_item30 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item30 = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %2 = icmp eq i64 %args.val, 1
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br i1 %2, label %if.end.thread, label %cond.end15
 
 if.end.thread:                                    ; preds = %cond.end
@@ -9154,14 +9154,14 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
   br i1 %cmp.i.not.i.i, label %if.end8.i, label %if.end.i45.i
 
 if.end.i45.i:                                     ; preds = %if.end.i
-  %iscoroutine_typecache.i.i = getelementptr inbounds i8, ptr %call1.val.i.i, i64 72
+  %iscoroutine_typecache.i.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i, i64 72
   %13 = load ptr, ptr %iscoroutine_typecache.i.i, align 8
   %call2.i.i = call i32 @PySet_Contains(ptr noundef %13, ptr noundef %coro.val5.i.i) #6
   %cmp.i46.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp.i46.i, label %if.then3.i.i, label %is_coroutine.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i45.i
-  %asyncio_iscoroutine_func.i.i.i = getelementptr inbounds i8, ptr %call1.val.i.i, i64 136
+  %asyncio_iscoroutine_func.i.i.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i, i64 136
   %14 = load ptr, ptr %asyncio_iscoroutine_func.i.i.i, align 8
   %call.i.i.i = call ptr @PyObject_CallOneArg(ptr noundef %14, ptr noundef nonnull %9) #6
   %cmp.i6.i.i = icmp eq ptr %call.i.i.i, null
@@ -9209,7 +9209,7 @@ is_coroutine.exit.i:                              ; preds = %Py_DECREF.exit.i.i.
   ]
 
 if.then6.i:                                       ; preds = %is_coroutine.exit.i
-  %task_log_destroy_pending.i = getelementptr inbounds i8, ptr %self, i64 100
+  %task_log_destroy_pending.i = getelementptr inbounds nuw i8, ptr %self, i64 100
   %bf.load.i = load i8, ptr %task_log_destroy_pending.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -9
   store i8 %bf.clear.i, ptr %task_log_destroy_pending.i, align 4
@@ -9222,7 +9222,7 @@ if.end8.i:                                        ; preds = %is_coroutine.exit.i
   br i1 %cmp9.i, label %do.body.i, label %if.else.i
 
 do.body.i:                                        ; preds = %if.end8.i
-  %task_context.i = getelementptr inbounds i8, ptr %self, i64 136
+  %task_context.i = getelementptr inbounds nuw i8, ptr %self, i64 136
   %20 = load ptr, ptr %task_context.i, align 8
   %call11.i = call ptr @PyContext_CopyCurrent() #6
   store ptr %call11.i, ptr %task_context.i, align 8
@@ -9265,12 +9265,12 @@ if.end.i.i50.i:                                   ; preds = %if.else.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i50.i, %if.else.i
-  %task_context17.i = getelementptr inbounds i8, ptr %self, i64 136
+  %task_context17.i = getelementptr inbounds nuw i8, ptr %self, i64 136
   store ptr %context.0, ptr %task_context17.i, align 8
   br label %do.body19.i
 
 do.body19.i:                                      ; preds = %_Py_NewRef.exit.i, %Py_XDECREF.exit.i
-  %task_fut_waiter.i = getelementptr inbounds i8, ptr %self, i64 112
+  %task_fut_waiter.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %25 = load ptr, ptr %task_fut_waiter.i, align 8
   %cmp20.not.i = icmp eq ptr %25, null
   br i1 %cmp20.not.i, label %do.end23.i, label %if.then21.i
@@ -9293,12 +9293,12 @@ if.then1.i92.i:                                   ; preds = %if.end.i89.i
   br label %do.end23.i
 
 do.end23.i:                                       ; preds = %if.then1.i92.i, %if.end.i89.i, %if.then21.i, %do.body19.i
-  %task_must_cancel.i = getelementptr inbounds i8, ptr %self, i64 100
+  %task_must_cancel.i = getelementptr inbounds nuw i8, ptr %self, i64 100
   %bf.load24.i = load i8, ptr %task_must_cancel.i, align 4
   %bf.clear29.i = and i8 %bf.load24.i, -13
   %bf.set30.i = or disjoint i8 %bf.clear29.i, 8
   store i8 %bf.set30.i, ptr %task_must_cancel.i, align 4
-  %task_num_cancels_requested.i = getelementptr inbounds i8, ptr %self, i64 104
+  %task_num_cancels_requested.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   store i32 0, ptr %task_num_cancels_requested.i, align 8
   %28 = load i32, ptr %9, align 8
   %add.i77.i = add i32 %28, 1
@@ -9310,7 +9310,7 @@ if.end.i79.i:                                     ; preds = %do.end23.i
   br label %do.body31.i
 
 do.body31.i:                                      ; preds = %if.end.i79.i, %do.end23.i
-  %task_coro.i = getelementptr inbounds i8, ptr %self, i64 120
+  %task_coro.i = getelementptr inbounds nuw i8, ptr %self, i64 120
   %29 = load ptr, ptr %task_coro.i, align 8
   store ptr %9, ptr %task_coro.i, align 8
   %cmp.not.i51.i = icmp eq ptr %29, null
@@ -9337,7 +9337,7 @@ Py_XDECREF.exit59.i:                              ; preds = %if.then1.i.i58.i, %
   br i1 %cmp35.i, label %if.then36.i, label %if.else38.i
 
 if.then36.i:                                      ; preds = %Py_XDECREF.exit59.i
-  %task_name_counter.i = getelementptr inbounds i8, ptr %call1.val.i.i, i64 168
+  %task_name_counter.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i, i64 168
   %32 = load i64, ptr %task_name_counter.i, align 8
   %inc.i = add i64 %32, 1
   store i64 %inc.i, ptr %task_name_counter.i, align 8
@@ -9366,7 +9366,7 @@ if.end.i.i:                                       ; preds = %if.else43.i
 
 do.body46.i:                                      ; preds = %if.end.i.i, %if.else43.i, %if.then41.i, %if.then36.i
   %name.addr.0.i = phi ptr [ %call37.i, %if.then36.i ], [ %name.0, %if.else43.i ], [ %name.0, %if.end.i.i ], [ %call42.i, %if.then41.i ]
-  %task_name.i = getelementptr inbounds i8, ptr %self, i64 128
+  %task_name.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   %35 = load ptr, ptr %task_name.i, align 8
   store ptr %name.addr.0.i, ptr %task_name.i, align 8
   %cmp.not.i61.i = icmp eq ptr %35, null
@@ -9454,13 +9454,13 @@ exit:                                             ; preds = %if.end72.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @TaskObj_finalize(ptr noundef %task) #0 {
 entry:
-  %task_state = getelementptr inbounds i8, ptr %task, i64 96
+  %task_state = getelementptr inbounds nuw i8, ptr %task, i64 96
   %0 = load i32, ptr %task_state, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %done
 
 lor.lhs.false:                                    ; preds = %entry
-  %task_log_destroy_pending = getelementptr inbounds i8, ptr %task, i64 100
+  %task_log_destroy_pending = getelementptr inbounds nuw i8, ptr %task, i64 100
   %bf.load = load i8, ptr %task_log_destroy_pending, align 4
   %1 = and i8 %bf.load, 8
   %tobool.not = icmp eq i8 %1, 0
@@ -9488,7 +9488,7 @@ lor.lhs.false11:                                  ; preds = %if.end8
   br i1 %cmp13, label %if.then.i, label %if.end15
 
 if.end15:                                         ; preds = %lor.lhs.false11
-  %task_source_tb = getelementptr inbounds i8, ptr %task, i64 72
+  %task_source_tb = getelementptr inbounds nuw i8, ptr %task, i64 72
   %2 = load ptr, ptr %task_source_tb, align 8
   %cmp16.not = icmp eq ptr %2, null
   br i1 %cmp16.not, label %if.end23, label %if.then17
@@ -9499,7 +9499,7 @@ if.then17:                                        ; preds = %if.end15
   br i1 %cmp20, label %if.then.i, label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %if.end15
-  %task_loop = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop = getelementptr inbounds nuw i8, ptr %task, i64 16
   %3 = load ptr, ptr %task_loop, align 8
   %call24 = tail call ptr @PyObject_GetAttr(ptr noundef %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39880)) #6
   %cmp25.not = icmp eq ptr %call24, null
@@ -9644,21 +9644,21 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_pos:                                ; preds = %if.end, %if.end14
   %msg.0 = phi ptr [ %2, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
-  %task_log_tb.i = getelementptr inbounds i8, ptr %self, i64 100
+  %task_log_tb.i = getelementptr inbounds nuw i8, ptr %self, i64 100
   %bf.load.i = load i8, ptr %task_log_tb.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %task_log_tb.i, align 4
-  %task_state.i = getelementptr inbounds i8, ptr %self, i64 96
+  %task_state.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %3 = load i32, ptr %task_state.i, align 8
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %if.end.i, label %exit
 
 if.end.i:                                         ; preds = %skip_optional_pos
-  %task_num_cancels_requested.i = getelementptr inbounds i8, ptr %self, i64 104
+  %task_num_cancels_requested.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   %4 = load i32, ptr %task_num_cancels_requested.i, align 8
   %add.i = add i32 %4, 1
   store i32 %add.i, ptr %task_num_cancels_requested.i, align 8
-  %task_fut_waiter.i = getelementptr inbounds i8, ptr %self, i64 112
+  %task_fut_waiter.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   %5 = load ptr, ptr %task_fut_waiter.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %if.end13.i, label %if.then1.i
@@ -9666,7 +9666,7 @@ if.end.i:                                         ; preds = %skip_optional_pos
 if.then1.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %5, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %msg.0, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40056), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -9720,7 +9720,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %Py_XINCREF.exit.i
 
 Py_XINCREF.exit.i:                                ; preds = %if.end.i.i.i, %if.then.i.i, %if.end13.i
-  %task_cancel_msg.i = getelementptr inbounds i8, ptr %self, i64 80
+  %task_cancel_msg.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %9 = load ptr, ptr %task_cancel_msg.i, align 8
   store ptr %msg.0, ptr %task_cancel_msg.i, align 8
   %cmp.not.i16.i = icmp eq ptr %9, null
@@ -9760,7 +9760,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @_asyncio_Task_uncancel(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %task_num_cancels_requested.i = getelementptr inbounds i8, ptr %self, i64 104
+  %task_num_cancels_requested.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   %0 = load i32, ptr %task_num_cancels_requested.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %_asyncio_Task_uncancel_impl.exit
@@ -9823,7 +9823,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end14
   %cls.val.val.val = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack.i)
   store ptr %self, ptr %stack.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %limit.0, ptr %arrayinit.element.i, align 8
   %call1.i = call ptr @PyObject_Vectorcall(ptr noundef %cls.val.val.val, ptr noundef nonnull %stack.i, i64 noundef 2, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack.i)
@@ -9890,9 +9890,9 @@ skip_optional_kwonly:                             ; preds = %cond.end, %if.then1
   %cls.val.val.val = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack.i)
   store ptr %self, ptr %stack.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 8
   store ptr %limit.0, ptr %arrayinit.element.i, align 8
-  %arrayinit.element1.i = getelementptr inbounds i8, ptr %stack.i, i64 16
+  %arrayinit.element1.i = getelementptr inbounds nuw i8, ptr %stack.i, i64 16
   store ptr %file.0, ptr %arrayinit.element1.i, align 16
   %call2.i = call ptr @PyObject_Vectorcall(ptr noundef %cls.val.val.val, ptr noundef nonnull %stack.i, i64 noundef 3, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %stack.i)
@@ -9909,7 +9909,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i.i = load ptr, ptr %0, align 8
   %call1.i.i.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val.i.i, ptr noundef nonnull @_asynciomodule) #6
-  %fut_cancelled_exc.i.i.i = getelementptr inbounds i8, ptr %self, i64 88
+  %fut_cancelled_exc.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 88
   %1 = load ptr, ptr %fut_cancelled_exc.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -9921,12 +9921,12 @@ if.then.i.i.i:                                    ; preds = %entry
 if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr i8, ptr %call1.i.i.i, i64 32
   %call1.val.i.i.i = load ptr, ptr %2, align 8
-  %fut_cancel_msg.i.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %fut_cancel_msg.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %3 = load ptr, ptr %fut_cancel_msg.i.i.i, align 8
   %cmp3.i.i.i = icmp eq ptr %3, null
   %cmp4.i.i.i = icmp eq ptr %3, @_Py_NoneStruct
   %or.cond.i.i.i = or i1 %cmp3.i.i.i, %cmp4.i.i.i
-  %asyncio_CancelledError.i.i.i = getelementptr inbounds i8, ptr %call1.val.i.i.i, i64 96
+  %asyncio_CancelledError.i.i.i = getelementptr inbounds nuw i8, ptr %call1.val.i.i.i, i64 96
   %4 = load ptr, ptr %asyncio_CancelledError.i.i.i, align 8
   br i1 %or.cond.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
@@ -9946,7 +9946,7 @@ _asyncio_Task__make_cancelled_error_impl.exit:    ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_asyncio_Task_get_name(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %task_name.i = getelementptr inbounds i8, ptr %self, i64 128
+  %task_name.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   %0 = load ptr, ptr %task_name.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_asyncio_Task_get_name_impl.exit, label %if.then.i
@@ -10021,7 +10021,7 @@ if.end.i:                                         ; preds = %if.else
 
 do.body:                                          ; preds = %if.then, %if.else, %if.end.i
   %value.addr.0 = phi ptr [ %value, %if.else ], [ %value, %if.end.i ], [ %call1, %if.then ]
-  %task_name = getelementptr inbounds i8, ptr %self, i64 128
+  %task_name = getelementptr inbounds nuw i8, ptr %self, i64 128
   %2 = load ptr, ptr %task_name, align 8
   store ptr %value.addr.0, ptr %task_name, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -10091,7 +10091,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @TaskObj_get_log_destroy_pending(ptr nocapture noundef readonly %task, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %task_log_destroy_pending = getelementptr inbounds i8, ptr %task, i64 100
+  %task_log_destroy_pending = getelementptr inbounds nuw i8, ptr %task, i64 100
   %bf.load = load i8, ptr %task_log_destroy_pending, align 4
   %0 = and i8 %bf.load, 8
   %tobool.not = icmp eq i8 %0, 0
@@ -10116,7 +10116,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %task_log_destroy_pending = getelementptr inbounds i8, ptr %task, i64 100
+  %task_log_destroy_pending = getelementptr inbounds nuw i8, ptr %task, i64 100
   %1 = trunc i32 %call to i8
   %bf.load = load i8, ptr %task_log_destroy_pending, align 4
   %bf.value = shl i8 %1, 3
@@ -10134,7 +10134,7 @@ return:                                           ; preds = %if.end, %if.end3, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @TaskObj_get_must_cancel(ptr nocapture noundef readonly %task, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
-  %task_must_cancel = getelementptr inbounds i8, ptr %task, i64 100
+  %task_must_cancel = getelementptr inbounds nuw i8, ptr %task, i64 100
   %bf.load = load i8, ptr %task_must_cancel, align 4
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
@@ -10145,7 +10145,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @TaskObj_get_coro(ptr nocapture noundef readonly %task, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
-  %task_coro = getelementptr inbounds i8, ptr %task, i64 120
+  %task_coro = getelementptr inbounds nuw i8, ptr %task, i64 120
   %0 = load ptr, ptr %task_coro, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -10168,7 +10168,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @TaskObj_get_fut_waiter(ptr nocapture noundef readonly %task, ptr nocapture readnone %_unused_ignored) #2 {
 entry:
-  %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
+  %task_fut_waiter = getelementptr inbounds nuw i8, ptr %task, i64 112
   %0 = load ptr, ptr %task_fut_waiter, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -10194,7 +10194,7 @@ declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @task_eager_start(ptr nocapture noundef readonly %state, ptr noundef %task) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
-  %task_loop = getelementptr inbounds i8, ptr %task, i64 16
+  %task_loop = getelementptr inbounds nuw i8, ptr %task, i64 16
   %0 = load ptr, ptr %task_loop, align 8
   %call = tail call fastcc ptr @swap_current_task(ptr noundef %state, ptr noundef %0, ptr noundef %task)
   %cmp = icmp eq ptr %call, null
@@ -10224,7 +10224,7 @@ if.then1.i83:                                     ; preds = %if.end.i80
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %task_context = getelementptr inbounds i8, ptr %task, i64 136
+  %task_context = getelementptr inbounds nuw i8, ptr %task, i64 136
   %4 = load ptr, ptr %task_context, align 8
   %call5 = tail call i32 @PyContext_Enter(ptr noundef %4) #6
   %cmp6 = icmp eq i32 %call5, -1
@@ -10321,7 +10321,7 @@ if.end20:                                         ; preds = %Py_DECREF.exit58, %
   %cmp27 = icmp eq i32 %call26, -1
   %15 = select i1 %cmp27, i1 true, i1 %cmp22
   %retval9.3 = select i1 %15, i32 -1, i32 %retval9.1
-  %task_state = getelementptr inbounds i8, ptr %task, i64 96
+  %task_state = getelementptr inbounds nuw i8, ptr %task, i64 96
   %16 = load i32, ptr %task_state, align 8
   %cmp30 = icmp eq i32 %16, 0
   br i1 %cmp30, label %if.then31, label %do.body
@@ -10331,7 +10331,7 @@ if.then31:                                        ; preds = %if.end20
   %state.val38 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %state.val38, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %task, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37672), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -10355,7 +10355,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 do.body:                                          ; preds = %if.end20
-  %task_coro = getelementptr inbounds i8, ptr %task, i64 120
+  %task_coro = getelementptr inbounds nuw i8, ptr %task, i64 120
   %20 = load ptr, ptr %task_coro, align 8
   %cmp37.not = icmp eq ptr %20, null
   br i1 %cmp37.not, label %return, label %if.then38

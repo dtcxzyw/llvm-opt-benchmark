@@ -124,7 +124,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local noundef signext i8 @_ZN3net19HpackHuffmanDecoder17CanonicalToSourceEj(i32 noundef %canonical) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %idxprom = zext i32 %canonical to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   ret i8 %0
 }
@@ -255,9 +255,9 @@ do.body:                                          ; preds = %if.then15, %do.body
   br i1 %5, label %do.body, label %if.end31, !llvm.loop !5
 
 if.else22:                                        ; preds = %if.end14
-  %arrayidx.i = getelementptr inbounds [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %length.0.i
+  %arrayidx.i = getelementptr inbounds nuw [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %length.0.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx23.i = getelementptr inbounds [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %length.0.i
+  %arrayidx23.i = getelementptr inbounds nuw [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %length.0.i
   %7 = load i8, ptr %arrayidx23.i, align 1
   %conv.i = zext i8 %7 to i32
   %sub.i = sub i32 %2, %6
@@ -275,7 +275,7 @@ if.else22:                                        ; preds = %if.end14
 
 if.then25:                                        ; preds = %if.else22
   %idxprom.i = zext nneg i32 %add.i to i64
-  %arrayidx.i15 = getelementptr inbounds [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %idxprom.i
+  %arrayidx.i15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3net12_GLOBAL__N_118kCanonicalToSymbolE, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx.i15, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %9)
   br label %if.end28

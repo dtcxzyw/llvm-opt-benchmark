@@ -48,9 +48,9 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -63,9 +63,9 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 3344
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 3344
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %22
@@ -114,15 +114,15 @@ define internal noundef i32 @_ZL12coresumecontP9lua_Statei(ptr noundef %0, i32 %
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 6
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 3344
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 3344
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %14
@@ -140,9 +140,9 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %9, %14
   br i1 %switch.i, label %17, label %_ZL13auxresumecontP9lua_StateS0_.exit.thread
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -242,9 +242,9 @@ define internal noundef i32 @_ZL6cowrapP9lua_State(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL7coyieldP9lua_State(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -288,7 +288,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL7cocloseP9lua_State(ptr noundef 
   unreachable
 
 10:                                               ; preds = %4, %4, %4
-  %11 = getelementptr inbounds i8, ptr %2, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %12 = load i8, ptr %11, align 1
   %switch = icmp ult i8 %12, 2
   br i1 %switch, label %13, label %14
@@ -335,9 +335,9 @@ declare noundef i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef, ptr noundef) lo
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL8auxwrapyP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef %0, i32 noundef -10003)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -349,9 +349,9 @@ define internal noundef i32 @_ZL8auxwrapyP9lua_State(ptr noundef %0) #0 {
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 3344
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 3344
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %19
@@ -391,15 +391,15 @@ _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %21, %_ZL15interrupt
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11auxwrapcontP9lua_Statei(ptr noundef %0, i32 %1) #0 {
   %3 = tail call noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef %0, i32 noundef -10003)
-  %4 = getelementptr inbounds i8, ptr %3, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 6
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 3344
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 3344
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %12
@@ -417,9 +417,9 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %7, %12
   br i1 %switch.i, label %15, label %_ZL13auxresumecontP9lua_StateS0_.exit.thread
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -467,7 +467,7 @@ _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %_ZL13auxresumecontP
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 1
   br i1 %.not, label %13, label %6
@@ -502,9 +502,9 @@ define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %20 = load i8, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %22 = and i8 %20, 1
   store i8 %22, ptr %21, align 2
   %23 = tail call noundef i32 @_Z10lua_resumeP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2)
@@ -512,9 +512,9 @@ define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0,
   br i1 %or.cond, label %24, label %41
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %28 to i64

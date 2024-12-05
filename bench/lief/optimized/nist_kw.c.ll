@@ -43,7 +43,7 @@ define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 16
   br i1 %.not, label %11, label %17
@@ -110,7 +110,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 
 18:                                               ; preds = %15
   store i64 -6438275382588823898, ptr %4, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %2, i64 %3, i1 false)
   br label %41
 
@@ -131,22 +131,22 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   store i32 -1504093786, ptr %4, align 1
   %28 = lshr i64 %3, 24
   %29 = trunc nuw i64 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %29, ptr %30, align 1
   %31 = lshr i64 %3, 16
   %32 = trunc i64 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %4, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %32, ptr %33, align 1
   %34 = lshr i64 %3, 8
   %35 = trunc i64 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %4, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %35, ptr %36, align 1
   %37 = trunc i64 %3 to i8
-  %38 = getelementptr inbounds i8, ptr %4, i64 7
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %37, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %2, i64 %3, i1 false)
-  %40 = getelementptr inbounds i8, ptr %39, i64 %3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %40, i8 0, i64 %spec.select, i1 false)
   br label %41
 
@@ -168,15 +168,15 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not91, label %.loopexit, label %.loopexit100
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = icmp samesign ult i64 %42, 16
   br i1 %52, label %.loopexit100, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %55 = shl nuw nsw i64 %44, 3
-  %56 = getelementptr inbounds i8, ptr %4, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
   %umax = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %57
 
@@ -201,7 +201,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   %64 = shl nuw nsw i64 %.05.i, 3
   %65 = sub nuw nsw i64 56, %64
   %66 = lshr i64 %.073102, %65
-  %67 = getelementptr inbounds i8, ptr %4, i64 %.05.i
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.05.i
   %68 = load i8, ptr %67, align 1
   %69 = trunc i64 %66 to i8
   %70 = xor i8 %68, %69
@@ -213,7 +213,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 calc_a_xor_t.exit:                                ; preds = %63
   %72 = load i64, ptr %54, align 8
   store i64 %72, ptr %.072103, align 1
-  %73 = getelementptr inbounds i8, ptr %.072103, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.072103, i64 8
   %.not90 = icmp ult ptr %73, %56
   %spec.select94 = select i1 %.not90, ptr %73, ptr %51
   %74 = add nuw i64 %.073102, 1
@@ -311,7 +311,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 33:                                               ; preds = %31
   %34 = load i64, ptr %12, align 16
   store i64 %34, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %4, align 1
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #9
@@ -328,21 +328,21 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %41 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV2, ptr noundef nonnull %9, i64 noundef 4) #9
   %42 = and i32 %41, 255
   %.not74 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %9, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %44 = load i8, ptr %43, align 4
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 24
-  %47 = getelementptr inbounds i8, ptr %9, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
   %50 = shl nuw nsw i64 %49, 16
   %51 = or disjoint i64 %50, %46
-  %52 = getelementptr inbounds i8, ptr %9, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %53 = load i8, ptr %52, align 2
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 8
   %56 = or disjoint i64 %51, %55
-  %57 = getelementptr inbounds i8, ptr %9, i64 7
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
   %60 = or disjoint i64 %56, %59
@@ -381,7 +381,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not76, label %77, label %79
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %4, i64 %60
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 %60
   call void @llvm.memset.p0.i64(ptr align 1 %78, i8 0, i64 %62, i1 false)
   br label %select.unfold.sink.split
 
@@ -422,15 +422,15 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonl
   %11 = add nsw i64 %2, -1
   %12 = load i64, ptr %1, align 1
   store i64 %12, ptr %3, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = shl nuw nsw i64 %11, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %13, i64 %14, i1 false)
   %15 = shl nuw nsw i64 %2, 3
   %16 = getelementptr i8, ptr %4, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = mul nuw nsw i64 %11, 6
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %33
@@ -443,7 +443,7 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonl
   %22 = shl nuw nsw i64 %.05.i, 3
   %23 = sub nuw nsw i64 56, %22
   %24 = lshr i64 %.03245, %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 %.05.i
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i
   %26 = load i8, ptr %25, align 1
   %27 = trunc i64 %24 to i8
   %28 = xor i8 %26, %27
@@ -504,7 +504,7 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %1, %52
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %52 ]
-  %.phi.trans.insert = getelementptr inbounds [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre126 = shl i32 %.pre, 3
   br i1 %.not71, label %._crit_edge, label %6
@@ -514,13 +514,13 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %6
-  %8 = getelementptr inbounds [3 x [32 x i8]], ptr @kw_key, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kw_key, i64 0, i64 %indvars.iv
   %9 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre126, i32 noundef 1) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %mbedtls_nist_kw_setkey.exit.thread, label %11
 
 11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 16
   br i1 %.not.i, label %14, label %mbedtls_nist_kw_setkey.exit.thread
@@ -545,22 +545,22 @@ mbedtls_nist_kw_setkey.exit.thread:               ; preds = %14, %11, %._crit_ed
   br label %.loopexit
 
 19:                                               ; preds = %mbedtls_nist_kw_setkey.exit
-  %20 = getelementptr inbounds [3 x [40 x i8]], ptr @kw_msg, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds [3 x i64], ptr @kw_msg_len, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [3 x [40 x i8]], ptr @kw_msg, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [3 x i64], ptr @kw_msg_len, i64 0, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %20, i64 noundef %22, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
   %.not73 = icmp eq i32 %23, 0
   br i1 %.not73, label %24, label %30
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds [3 x i64], ptr @kw_out_len, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [3 x i64], ptr @kw_out_len, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %4, align 8
   %.not74 = icmp eq i64 %26, %27
   br i1 %.not74, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds [3 x [48 x i8]], ptr @kw_res, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kw_res, i64 0, i64 %indvars.iv
   %bcmp75 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %29, i64 %26)
   %.not76 = icmp eq i32 %bcmp75, 0
   br i1 %.not76, label %33, label %30
@@ -578,7 +578,7 @@ mbedtls_nist_kw_setkey.exit.thread:               ; preds = %14, %11, %._crit_ed
   br i1 %35, label %mbedtls_nist_kw_setkey.exit88.thread, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %38 = load i32, ptr %37, align 8
   %.not.i85 = icmp eq i32 %38, 16
   br i1 %.not.i85, label %39, label %mbedtls_nist_kw_setkey.exit88.thread
@@ -637,7 +637,7 @@ mbedtls_nist_kw_setkey.exit88.thread:             ; preds = %39, %36, %33, %mbed
 .preheader:                                       ; preds = %52, %100
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %100 ], [ 0, %52 ]
   store i64 48, ptr %4, align 8
-  %.phi.trans.insert124 = getelementptr inbounds [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv119
+  %.phi.trans.insert124 = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv119
   %.pre125 = load i32, ptr %.phi.trans.insert124, align 4
   %.pre127 = shl i32 %.pre125, 3
   br i1 %.not71, label %._crit_edge123, label %53
@@ -647,13 +647,13 @@ mbedtls_nist_kw_setkey.exit88.thread:             ; preds = %39, %36, %33, %mbed
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %.preheader, %53
-  %55 = getelementptr inbounds [3 x [32 x i8]], ptr @kwp_key, i64 0, i64 %indvars.iv119
+  %55 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kwp_key, i64 0, i64 %indvars.iv119
   %56 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre127, i32 noundef 1) #9
   %57 = icmp eq ptr %56, null
   br i1 %57, label %mbedtls_nist_kw_setkey.exit92.thread, label %58
 
 58:                                               ; preds = %._crit_edge123
-  %59 = getelementptr inbounds i8, ptr %56, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %60 = load i32, ptr %59, align 8
   %.not.i89 = icmp eq i32 %60, 16
   br i1 %.not.i89, label %61, label %mbedtls_nist_kw_setkey.exit92.thread
@@ -678,22 +678,22 @@ mbedtls_nist_kw_setkey.exit92.thread:             ; preds = %61, %58, %._crit_ed
   br label %.loopexit
 
 66:                                               ; preds = %mbedtls_nist_kw_setkey.exit92
-  %67 = getelementptr inbounds [3 x [31 x i8]], ptr @kwp_msg, i64 0, i64 %indvars.iv119
-  %68 = getelementptr inbounds [3 x i64], ptr @kwp_msg_len, i64 0, i64 %indvars.iv119
+  %67 = getelementptr inbounds nuw [3 x [31 x i8]], ptr @kwp_msg, i64 0, i64 %indvars.iv119
+  %68 = getelementptr inbounds nuw [3 x i64], ptr @kwp_msg_len, i64 0, i64 %indvars.iv119
   %69 = load i64, ptr %68, align 8
   %70 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %67, i64 noundef %69, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
   %.not63 = icmp eq i32 %70, 0
   br i1 %.not63, label %71, label %77
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds [3 x i64], ptr @kwp_out_len, i64 0, i64 %indvars.iv119
+  %72 = getelementptr inbounds nuw [3 x i64], ptr @kwp_out_len, i64 0, i64 %indvars.iv119
   %73 = load i64, ptr %72, align 8
   %74 = load i64, ptr %4, align 8
   %.not64 = icmp eq i64 %73, %74
   br i1 %.not64, label %75, label %77
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds [3 x [48 x i8]], ptr @kwp_res, i64 0, i64 %indvars.iv119
+  %76 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kwp_res, i64 0, i64 %indvars.iv119
   %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %76, i64 %73)
   %.not65 = icmp eq i32 %bcmp, 0
   br i1 %.not65, label %80, label %77
@@ -711,7 +711,7 @@ mbedtls_nist_kw_setkey.exit92.thread:             ; preds = %61, %58, %._crit_ed
   br i1 %82, label %mbedtls_nist_kw_setkey.exit96.thread, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %81, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %85 = load i32, ptr %84, align 8
   %.not.i93 = icmp eq i32 %85, 16
   br i1 %.not.i93, label %86, label %mbedtls_nist_kw_setkey.exit96.thread

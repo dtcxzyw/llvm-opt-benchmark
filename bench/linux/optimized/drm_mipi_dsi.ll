@@ -165,7 +165,7 @@ define dso_local ptr @mipi_dsi_device_register_full(ptr noundef %0, ptr noundef 
   br label %64
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %12, 3
   br i1 %13, label %14, label %20
@@ -191,15 +191,15 @@ define dso_local ptr @mipi_dsi_device_register_full(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %20
   store ptr %0, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store ptr @mipi_dsi_bus_type, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store ptr @mipi_dsi_device_type, ptr %29, align 8
-  tail call void @device_initialize(ptr noundef %25) #14
+  tail call void @device_initialize(ptr noundef nonnull %25) #14
   %30 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
   br i1 %30, label %.thread, label %38
 
@@ -219,15 +219,15 @@ define dso_local ptr @mipi_dsi_device_register_full(ptr noundef %0, ptr noundef 
   br label %64
 
 38:                                               ; preds = %24
-  tail call void @device_set_node(ptr noundef %25, ptr noundef null) #14
+  tail call void @device_set_node(ptr noundef nonnull %25, ptr noundef null) #14
   %39 = load i32, ptr %11, align 4
-  %40 = getelementptr inbounds i8, ptr %22, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 760
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %22, i64 737
-  %42 = tail call i64 @strscpy(ptr noundef %41, ptr noundef nonnull %1, i64 noundef 20) #14
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 737
+  %42 = tail call i64 @strscpy(ptr noundef nonnull %41, ptr noundef nonnull %1, i64 noundef 20) #14
   %43 = load ptr, ptr %22, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
@@ -239,8 +239,8 @@ define dso_local ptr @mipi_dsi_device_register_full(ptr noundef %0, ptr noundef 
 50:                                               ; preds = %48, %38
   %51 = phi ptr [ %49, %48 ], [ %46, %38 ]
   %52 = load i32, ptr %40, align 8
-  %53 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef %51, i32 noundef %52) #14
-  %54 = tail call i32 @device_add(ptr noundef %25) #14
+  %53 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %25, ptr noundef nonnull @.str.11, ptr noundef %51, i32 noundef %52) #14
+  %54 = tail call i32 @device_add(ptr noundef nonnull %25) #14
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %64, label %56
 
@@ -279,8 +279,8 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mipi_dsi_device_unregister(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @device_unregister(ptr noundef %2) #14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @device_unregister(ptr noundef nonnull %2) #14
   ret void
 }
 
@@ -299,8 +299,8 @@ define dso_local ptr @devm_mipi_dsi_device_register_full(ptr noundef %0, ptr nou
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @device_unregister(ptr noundef %10) #14
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @device_unregister(ptr noundef nonnull %10) #14
   %11 = sext i32 %7 to i64
   %12 = inttoptr i64 %11 to ptr
   br label %13
@@ -312,8 +312,8 @@ define dso_local ptr @devm_mipi_dsi_device_register_full(ptr noundef %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devm_mipi_dsi_device_unregister(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @device_unregister(ptr noundef %2) #14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @device_unregister(ptr noundef nonnull %2) #14
   ret void
 }
 
@@ -331,7 +331,7 @@ define dso_local noundef ptr @of_find_mipi_dsi_host_by_node(ptr noundef readnone
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 -16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 624
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 624
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %.split.loop.exit1.split.loop.exit4, label %2, !llvm.loop !5
@@ -355,11 +355,11 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @mipi_dsi_host_register(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @host_lock) #14
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @host_list, i64 8), align 8
   store ptr %2, ptr getelementptr inbounds (i8, ptr @host_list, i64 8), align 8
   store ptr @host_list, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
   store volatile ptr %2, ptr %3, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @host_lock) #14
@@ -371,11 +371,11 @@ define dso_local void @mipi_dsi_host_unregister(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @device_for_each_child(ptr noundef %2, ptr noundef null, ptr noundef nonnull @mipi_dsi_remove_device_fn) #14
   tail call void @mutex_lock(ptr noundef nonnull @host_lock) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
   store volatile ptr %4, ptr %4, align 8
@@ -397,13 +397,13 @@ define internal noundef i32 @mipi_dsi_remove_device_fn(ptr noundef %0, ptr nocap
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %19, label %16
@@ -422,7 +422,7 @@ define internal noundef i32 @mipi_dsi_remove_device_fn(ptr noundef %0, ptr nocap
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mipi_dsi_attach(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
@@ -438,7 +438,7 @@ define dso_local i32 @mipi_dsi_attach(ptr noundef %0) #0 align 16 {
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 736
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i8 1, ptr %13, align 8
   br label %14
 
@@ -450,9 +450,9 @@ define dso_local i32 @mipi_dsi_attach(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 736
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %6 = load i8, ptr %5, align 8, !range !8, !noundef !9
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %9, !prof !10
@@ -468,7 +468,7 @@ define dso_local i32 @mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -487,7 +487,7 @@ define dso_local i32 @mipi_dsi_detach(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
@@ -503,7 +503,7 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 736
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 736
   store i8 1, ptr %14, align 8
   %15 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_mipi_dsi_detach, ptr noundef %1, ptr noundef nonnull @.str.7) #14
   %16 = icmp eq i32 %15, 0
@@ -511,7 +511,7 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %14, align 8, !range !8, !noundef !9
   %22 = icmp eq i8 %21, 0
@@ -528,7 +528,7 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
@@ -547,9 +547,9 @@ define dso_local i32 @devm_mipi_dsi_attach(ptr noundef %0, ptr noundef %1) #0 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devm_mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 736
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %6 = load i8, ptr %5, align 8, !range !8, !noundef !9
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %9, !prof !10
@@ -565,7 +565,7 @@ define internal void @devm_mipi_dsi_detach(ptr noundef %0) #0 align 16 {
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -651,7 +651,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr nound
   br i1 %5, label %6, label %56
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %56 [
     i8 1, label %9
@@ -705,7 +705,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr nound
   %15 = load i8, ptr %7, align 1
   %16 = and i8 %15, 63
   %17 = or disjoint i8 %16, %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %17, ptr %18, align 8
   %19 = load i8, ptr %7, align 1
   switch i8 %19, label %20 [
@@ -728,15 +728,15 @@ define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr nound
   ]
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %43, label %41
 
 26:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i8
   %30 = getelementptr i8, ptr %0, i64 9
@@ -747,11 +747,11 @@ define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr nound
   %34 = getelementptr i8, ptr %0, i64 10
   store i8 %33, ptr %34, align 2
   %35 = load i64, ptr %27, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %38, ptr %39, align 8
   %40 = add i64 %35, 4
   br label %54
@@ -798,36 +798,36 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_shutdown_peripheral(ptr
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 34, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %3, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %11, align 1
   store ptr %3, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 776
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 2048
   %25 = icmp eq i64 %24, 0
@@ -855,36 +855,36 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_turn_on_peripheral(ptr 
   %3 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 50, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %3, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %11, align 1
   store ptr %3, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 776
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 2048
   %25 = icmp eq i64 %24, 0
@@ -913,39 +913,39 @@ define dso_local range(i32 -2147483648, 1) i32 @mipi_dsi_set_maximum_return_pack
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   %5 = trunc i16 %1 to i8
   store i8 %5, ptr %3, align 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = lshr i16 %1, 8
   %8 = trunc nuw i16 %7 to i8
   store i8 %8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %9 = getelementptr inbounds i8, ptr %0, i64 760
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %10 = load i32, ptr %9, align 8
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 55, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 776
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2048
   %29 = icmp eq i64 %28, 0
@@ -975,37 +975,37 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_compression_mode(ptr no
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %3, align 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 7, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 2
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %32, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 776
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2048
   %27 = icmp eq i64 %26, 0
@@ -1034,33 +1034,33 @@ define dso_local range(i64 -2147483648, 1) i64 @mipi_dsi_picture_parameter_set(p
   %3 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 10, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 128, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1088,18 +1088,18 @@ define dso_local i64 @mipi_dsi_generic_write(ptr nocapture noundef readonly %0, 
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   switch i64 %2, label %15 [
     i64 0, label %16
     i64 1, label %13
@@ -1119,19 +1119,19 @@ define dso_local i64 @mipi_dsi_generic_write(ptr nocapture noundef readonly %0, 
   %17 = phi i8 [ 41, %15 ], [ 35, %14 ], [ 19, %13 ], [ 3, %3 ]
   store i8 %17, ptr %8, align 1
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 776
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2048
   %30 = icmp eq i64 %29, 0
@@ -1156,19 +1156,19 @@ define dso_local i64 @mipi_dsi_generic_read(ptr nocapture noundef readonly %0, p
   %6 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   store i64 0, ptr %6, align 8, !annotation !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %15, align 8
   switch i64 %2, label %36 [
     i64 0, label %18
@@ -1186,19 +1186,19 @@ define dso_local i64 @mipi_dsi_generic_read(ptr nocapture noundef readonly %0, p
   %19 = phi i8 [ 36, %17 ], [ 20, %16 ], [ 4, %5 ]
   store i8 %19, ptr %10, align 1
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %36, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 776
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 2048
   %32 = icmp eq i64 %31, 0
@@ -1223,18 +1223,18 @@ define dso_local i64 @mipi_dsi_dcs_write_buffer(ptr nocapture noundef readonly %
   %4 = alloca %struct.mipi_dsi_msg, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   switch i64 %2, label %14 [
     i64 0, label %33
     i64 1, label %15
@@ -1251,19 +1251,19 @@ define dso_local i64 @mipi_dsi_dcs_write_buffer(ptr nocapture noundef readonly %
   %16 = phi i8 [ 57, %14 ], [ 21, %13 ], [ 5, %3 ]
   store i8 %16, ptr %8, align 1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 776
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2048
   %29 = icmp eq i64 %28, 0
@@ -1312,18 +1312,18 @@ define dso_local i64 @mipi_dsi_dcs_write(ptr nocapture noundef readonly %0, i8 n
 17:                                               ; preds = %15, %12
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #14
   store i64 0, ptr %5, align 8, !annotation !14
-  %18 = getelementptr inbounds i8, ptr %0, i64 760
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %19 = load i32, ptr %18, align 8
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 1
-  %22 = getelementptr inbounds i8, ptr %5, i64 2
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %7, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   switch i64 %3, label %27 [
     i64 -1, label %46
     i64 0, label %28
@@ -1340,19 +1340,19 @@ define dso_local i64 @mipi_dsi_dcs_write(ptr nocapture noundef readonly %0, i8 n
   %29 = phi i8 [ 57, %27 ], [ 21, %26 ], [ 5, %17 ]
   store i8 %29, ptr %21, align 1
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %46, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %46, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 776
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 2048
   %42 = icmp eq i64 %41, 0
@@ -1392,35 +1392,35 @@ define dso_local i64 @mipi_dsi_dcs_read(ptr nocapture noundef readonly %0, i8 no
   store i8 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   store i64 0, ptr %6, align 8, !annotation !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 6, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %2, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 776
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 2048
   %28 = icmp eq i64 %27, 0
@@ -1447,34 +1447,34 @@ define dso_local i32 @mipi_dsi_dcs_nop(ptr nocapture noundef readonly %0) #0 ali
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1505,34 +1505,34 @@ define dso_local i32 @mipi_dsi_dcs_soft_reset(ptr nocapture noundef readonly %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1564,35 +1564,35 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_power_mode(ptr nocapture noundef 
   store i8 10, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 6, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread3, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread3, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2048
   %26 = icmp eq i64 %25, 0
@@ -1634,35 +1634,35 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_pixel_format(ptr nocapture nounde
   store i8 12, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 6, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread3, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread3, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2048
   %26 = icmp eq i64 %25, 0
@@ -1703,34 +1703,34 @@ define dso_local i32 @mipi_dsi_dcs_enter_sleep_mode(ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1761,34 +1761,34 @@ define dso_local i32 @mipi_dsi_dcs_exit_sleep_mode(ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1819,34 +1819,34 @@ define dso_local i32 @mipi_dsi_dcs_set_display_off(ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1877,34 +1877,34 @@ define dso_local i32 @mipi_dsi_dcs_set_display_on(ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -1940,44 +1940,44 @@ define dso_local i32 @mipi_dsi_dcs_set_column_address(ptr nocapture noundef read
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 42, ptr %5, align 8, !annotation !14
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %7, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %8, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %10, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %11, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %16 = getelementptr inbounds i8, ptr %0, i64 760
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
   store i8 %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store i8 57, ptr %19, align 1
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 776
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 2048
   %36 = icmp eq i64 %35, 0
@@ -2012,44 +2012,44 @@ define dso_local i32 @mipi_dsi_dcs_set_page_address(ptr nocapture noundef readon
   %11 = trunc i16 %2 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 43, ptr %5, align 8, !annotation !14
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %7, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %8, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %10, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %11, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %16 = getelementptr inbounds i8, ptr %0, i64 760
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
   store i8 %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store i8 57, ptr %19, align 1
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 776
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 2048
   %36 = icmp eq i64 %35, 0
@@ -2079,34 +2079,34 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_off(ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
   store i64 0, ptr %2, align 8, !annotation !14
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i8 5, ptr %7, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 776
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2048
   %24 = icmp eq i64 %23, 0
@@ -2137,38 +2137,38 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_on(ptr nocapture noundef readonly %0
   %5 = trunc i32 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 53, ptr %4, align 8, !annotation !14
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %5, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i8 21, ptr %10, align 1
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %31, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 776
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2048
   %27 = icmp eq i64 %26, 0
@@ -2197,38 +2197,38 @@ define dso_local i32 @mipi_dsi_dcs_set_pixel_format(ptr nocapture noundef readon
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 58, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %6 = getelementptr inbounds i8, ptr %0, i64 760
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i8
   store i8 %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i8 21, ptr %9, align 1
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2048
   %26 = icmp eq i64 %25, 0
@@ -2260,40 +2260,40 @@ define dso_local i32 @mipi_dsi_dcs_set_tear_scanline(ptr nocapture noundef reado
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 68, ptr %4, align 8, !annotation !14
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %6, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %7, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 760
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i8 57, ptr %13, align 1
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 776
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2048
   %30 = icmp eq i64 %29, 0
@@ -2325,40 +2325,40 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness(ptr nocapture noundef 
   %7 = trunc nuw i16 %6 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 81, ptr %4, align 8, !annotation !14
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %5, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %7, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 760
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i8 57, ptr %13, align 1
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 776
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2048
   %30 = icmp eq i64 %29, 0
@@ -2389,35 +2389,35 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness(ptr nocapture 
   store i8 82, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 6, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread3, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread3, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 2048
   %26 = icmp eq i64 %25, 0
@@ -2460,40 +2460,40 @@ define dso_local i32 @mipi_dsi_dcs_set_display_brightness_large(ptr nocapture no
   %7 = trunc i16 %1 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 81, ptr %4, align 8, !annotation !14
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %6, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %7, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 760
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i8 57, ptr %13, align 1
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 776
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2048
   %30 = icmp eq i64 %29, 0
@@ -2526,35 +2526,35 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noca
   store i8 82, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !14
-  %6 = getelementptr inbounds i8, ptr %0, i64 760
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i8
   store i8 %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 6, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %14, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread2, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread2, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 776
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 2048
   %27 = icmp eq i64 %26, 0
@@ -2588,7 +2588,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noca
   %36 = load i8, ptr %5, align 2
   %37 = zext i8 %36 to i16
   %38 = shl nuw i16 %37, 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i16
   %42 = or disjoint i16 %38, %41
@@ -2603,39 +2603,39 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mipi_dsi_driver_register_full(ptr noundef initializes((8, 24)) %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @mipi_dsi_bus_type, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @mipi_dsi_drv_probe, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %8, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @mipi_dsi_drv_remove, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %14, %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @mipi_dsi_drv_shutdown, ptr %21, align 8
   br label %22
 
@@ -2646,10 +2646,10 @@ define dso_local i32 @mipi_dsi_driver_register_full(ptr noundef initializes((8, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @mipi_dsi_drv_probe(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -8
-  %5 = getelementptr inbounds i8, ptr %3, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %4) #14
   ret i32 %7
@@ -2657,10 +2657,10 @@ define internal i32 @mipi_dsi_drv_probe(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @mipi_dsi_drv_remove(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -8
-  %5 = getelementptr inbounds i8, ptr %3, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %4) #14
   ret i32 0
@@ -2668,10 +2668,10 @@ define internal noundef i32 @mipi_dsi_drv_remove(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mipi_dsi_drv_shutdown(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -8
-  %5 = getelementptr inbounds i8, ptr %3, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %4) #14
   ret void

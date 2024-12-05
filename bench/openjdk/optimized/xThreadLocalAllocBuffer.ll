@@ -226,7 +226,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
 
 5:                                                ; preds = %2
   tail call void @_ZN21ThreadLocalAllocStats5resetEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 432
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = icmp eq ptr %7, null
@@ -237,7 +237,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
   %14 = inttoptr i64 %13 to ptr
   %15 = select i1 %9, ptr null, ptr %14
   store ptr %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 440
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = icmp eq ptr %17, null
@@ -246,7 +246,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
   %22 = inttoptr i64 %21 to ptr
   %23 = select i1 %19, ptr null, ptr %22
   store ptr %23, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 448
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = icmp eq ptr %25, null
@@ -255,7 +255,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
   %30 = inttoptr i64 %29 to ptr
   %31 = select i1 %27, ptr null, ptr %30
   store ptr %31, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 456
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = icmp eq ptr %33, null
@@ -264,7 +264,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLo
   %38 = inttoptr i64 %37 to ptr
   %39 = select i1 %35, ptr null, ptr %38
   store ptr %39, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 464
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = icmp eq ptr %41, null
@@ -297,7 +297,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocaptu
   br i1 %3, label %4, label %47
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = icmp eq ptr %6, null
@@ -308,7 +308,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocaptu
   %13 = inttoptr i64 %12 to ptr
   %14 = select i1 %8, ptr null, ptr %13
   store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 440
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = icmp eq ptr %16, null
@@ -317,7 +317,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocaptu
   %21 = inttoptr i64 %20 to ptr
   %22 = select i1 %18, ptr null, ptr %21
   store ptr %22, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 448
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = icmp eq ptr %24, null
@@ -326,7 +326,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocaptu
   %29 = inttoptr i64 %28 to ptr
   %30 = select i1 %26, ptr null, ptr %29
   store ptr %30, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 456
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = icmp eq ptr %32, null
@@ -335,7 +335,7 @@ define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocaptu
   %37 = inttoptr i64 %36 to ptr
   %38 = select i1 %34, ptr null, ptr %37
   store ptr %38, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 464
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = icmp eq ptr %40, null
@@ -360,16 +360,16 @@ define hidden void @_ZN23XThreadLocalAllocBuffer12update_statsEP10JavaThread(ptr
   %5 = tail call noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr noundef %0) #6
   %.not7.i.i = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %.not7.i.i)
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN17StackWatermarkSet3getI15XStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.08.i.i2 = phi ptr [ %10, %.lr.ph.i.i ], [ %5, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.08.i.i2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.08.i.i2, i64 24
   %10 = load ptr, ptr %9, align 8, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZN17StackWatermarkSet3getI15XStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i

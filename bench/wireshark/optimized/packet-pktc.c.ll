@@ -240,7 +240,7 @@ define internal i32 @dissect_pktc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.64) #4
   %13 = load i32, ptr @proto_pktc, align 4
@@ -318,7 +318,7 @@ define internal i32 @dissect_pktc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %68) #4
   %71 = load i32, ptr @hf_pktc_sec_param_lifetime, align 4
   %72 = tail call ptr @proto_registrar_get_name(i32 noundef %71) #4
-  %73 = getelementptr inbounds i8, ptr %1, i64 408
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %68) #4
   %76 = tail call ptr @signed_time_secs_to_str(ptr noundef %74, i32 noundef %75) #4
@@ -357,7 +357,7 @@ define internal i32 @dissect_pktc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %99 = load i32, ptr @hf_pktc_server_principal, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %99, ptr noundef %0, i32 noundef 7, i32 noundef %98, i32 noundef 0) #4
   %101 = add i32 %98, 7
-  %102 = getelementptr inbounds i8, ptr %1, i64 408
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr @tvb_get_string_enc(ptr noundef %103, ptr noundef %0, i32 noundef %101, i32 noundef 13, i32 noundef 0) #4
   %105 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %104, ptr noundef nonnull @.str.126, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
@@ -448,7 +448,7 @@ define internal i32 @dissect_pktc_mtafqdn(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.64) #4
   %10 = load i32, ptr @proto_pktc, align 4
@@ -456,9 +456,9 @@ define internal i32 @dissect_pktc_mtafqdn(ptr noundef %0, ptr noundef %1, ptr no
   %12 = load i32, ptr @ett_pktc_mtafqdn, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 284
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 292
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
   %20 = select i1 %19, ptr @.str.133, ptr @.str.134
@@ -635,13 +635,13 @@ define internal fastcc noundef i32 @dissect_pktc_list_of_ciphersuites(ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -748,7 +748,7 @@ define internal noundef i32 @dissect_pktc_mtafqdn_krbsafeuserdata(ptr nocapture 
   %7 = load i32, ptr @hf_pktc_mtafqdn_msgtype, align 4
   %8 = zext i8 %6 to i32
   %9 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %7, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @pktc_mtafqdn_msgtype_vals, ptr noundef nonnull @.str.137) #4
   tail call void @col_add_str(ptr noundef %11, i32 noundef 25, ptr noundef %12) #4

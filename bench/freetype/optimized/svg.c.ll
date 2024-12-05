@@ -20,30 +20,30 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @ft_svg_init(ptr nocapture noundef writeonly initializes((128, 130)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
   store i8 0, ptr %3, align 1
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ft_svg_done(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 1
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 129
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void %11(ptr noundef nonnull %12) #7
   br label %13
 
@@ -61,30 +61,30 @@ define internal ptr @ft_svg_get_interface(ptr nocapture readnone %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_svg_render(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.0.0.copyload = load ptr, ptr %9, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %10, label %45
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 129
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %45, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = tail call i32 %.sroa.0.0.copyload(ptr noundef nonnull %19) #7
   store i32 %20, ptr %5, align 4
   store i8 1, ptr %15, align 8
@@ -93,29 +93,29 @@ define internal i32 @ft_svg_render(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %21, label %ft_svg_preset_slot.exit, label %.thread
 
 .thread:                                          ; preds = %14, %18
-  %.sroa.21.0.copyload.i32.in = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.21.0.copyload.i32.in = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.21.0.copyload.i32 = load ptr, ptr %.sroa.21.0.copyload.i32.in, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = tail call i32 %.sroa.21.0.copyload.i32(ptr noundef %1, i8 noundef zeroext 1, ptr noundef nonnull %22) #7
   br label %ft_svg_preset_slot.exit
 
 ft_svg_preset_slot.exit:                          ; preds = %18, %.thread
-  %24 = getelementptr inbounds i8, ptr %1, i64 152
-  %25 = getelementptr inbounds i8, ptr %1, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = load i32, ptr %24, align 8
   %29 = zext i32 %28 to i64
   %30 = mul nsw i64 %29, %27
   %31 = call ptr @ft_mem_alloc(ptr noundef %8, i64 noundef %30, ptr noundef nonnull %5) #7
-  %32 = getelementptr inbounds i8, ptr %1, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %31, ptr %32, align 8
   %33 = load i32, ptr %5, align 4
   %.not26 = icmp eq i32 %33, 0
   br i1 %.not26, label %34, label %45
 
 34:                                               ; preds = %ft_svg_preset_slot.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = call i32 %.sroa.21.0.copyload(ptr noundef nonnull %1, ptr noundef nonnull %35) #7
   store i32 %36, ptr %5, align 4
   %.not27 = icmp eq i32 %36, 0
@@ -129,9 +129,9 @@ ft_svg_preset_slot.exit:                          ; preds = %18, %.thread
   br label %45
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %1, i64 296
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -149,19 +149,19 @@ define internal noundef i32 @ft_svg_transform(ptr nocapture readnone %0, ptr noc
   %.sroa.2 = alloca i64, align 8
   %6 = alloca %struct.FT_Matrix_, align 8
   %7 = alloca %struct.FT_Matrix_, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %2, null
-  %.0.sroa.gep25 = getelementptr inbounds i8, ptr %2, i64 8
-  %.0.sroa.gep28 = getelementptr inbounds i8, ptr %2, i64 16
-  %.0.sroa.gep31 = getelementptr inbounds i8, ptr %2, i64 24
-  %.022.sroa.gep35 = getelementptr inbounds i8, ptr %3, i64 8
+  %.0.sroa.gep25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.0.sroa.gep28 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.0.sroa.gep31 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.022.sroa.gep35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %4
-  %.0.sroa.gep32 = getelementptr inbounds i8, ptr %5, i64 24
-  %.0.sroa.gep29 = getelementptr inbounds i8, ptr %5, i64 16
-  %.0.sroa.gep26 = getelementptr inbounds i8, ptr %5, i64 8
+  %.0.sroa.gep32 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.0.sroa.gep29 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.0.sroa.gep26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 65536, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.sroa.gep26, i8 0, i64 16, i1 false)
   store i64 65536, ptr %.0.sroa.gep32, align 8
@@ -183,12 +183,12 @@ define internal noundef i32 @ft_svg_transform(ptr nocapture readnone %0, ptr noc
 13:                                               ; preds = %12, %11
   %.022.sroa.phi = phi ptr [ %3, %11 ], [ %.sroa.0, %12 ]
   %.022.sroa.phi34 = phi ptr [ %.022.sroa.gep35, %11 ], [ %.sroa.2, %12 ]
-  %14 = getelementptr inbounds i8, ptr %9, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
   call void @FT_Matrix_Multiply(ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   %15 = load i64, ptr %.0, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %17 = load i64, ptr %16, align 8
   %sext = shl i64 %15, 32
   %18 = ashr exact i64 %sext, 32
@@ -201,7 +201,7 @@ define internal noundef i32 @ft_svg_transform(ptr nocapture readnone %0, ptr noc
   %24 = shl i64 %23, 16
   %25 = ashr i64 %24, 32
   %26 = load i64, ptr %.0.sroa.phi24, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %28 = load i64, ptr %27, align 8
   %sext42 = shl i64 %26, 32
   %29 = ashr exact i64 %sext42, 32
@@ -245,29 +245,29 @@ define internal noundef i32 @ft_svg_transform(ptr nocapture readnone %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_svg_preset_slot(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 129
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = tail call i32 %.sroa.0.0.copyload(ptr noundef nonnull %13) #7
   store i8 1, ptr %9, align 8
   br label %15
 
 15:                                               ; preds = %12, %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = tail call i32 %.sroa.21.0.copyload(ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %16) #7
   br label %18
 
@@ -297,27 +297,27 @@ define internal range(i32 0, 13) i32 @ft_svg_property_set(ptr nocapture noundef 
   br i1 %.not11, label %22, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %22, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %22, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 129
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 129
   store i8 1, ptr %21, align 1
   br label %22
 
@@ -333,7 +333,7 @@ define internal range(i32 0, 13) i32 @ft_svg_property_get(ptr nocapture noundef 
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %7
 

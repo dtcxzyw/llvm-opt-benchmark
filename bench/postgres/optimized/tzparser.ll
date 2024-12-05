@@ -468,7 +468,7 @@ validateTzEntry.exit:                             ; preds = %139, %146
   br label %203
 
 169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %160, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, null
   %173 = icmp eq ptr %.sroa.6.3.ph, null
@@ -478,13 +478,13 @@ validateTzEntry.exit:                             ; preds = %139, %146
   br i1 %173, label %175, label %.thread.i
 
 175:                                              ; preds = %174
-  %176 = getelementptr inbounds i8, ptr %160, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %177 = load i32, ptr %176, align 8
   %178 = icmp eq i32 %177, %.sroa.9.3.ph
   br i1 %178, label %179, label %.thread.i
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %160, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %181 = load i8, ptr %180, align 4
   %182 = xor i8 %181, %.sroa.15.3.ph
   %183 = and i8 %182, 1
@@ -505,9 +505,9 @@ validateTzEntry.exit:                             ; preds = %139, %146
 
 190:                                              ; preds = %.thread.i
   store ptr %189, ptr %170, align 8
-  %191 = getelementptr inbounds i8, ptr %160, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store i32 %.sroa.9.3.ph, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %160, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %193 = and i8 %.sroa.15.3.ph, 1
   store i8 %193, ptr %192, align 4
   br label %addToArray.exit
@@ -520,9 +520,9 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   store ptr %196, ptr @GUC_check_errmsg_string, align 8
   %197 = load i32, ptr %194, align 4
   call void @pre_format_elog_string(i32 noundef %197, ptr noundef null) #9
-  %198 = getelementptr inbounds i8, ptr %160, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %160, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %201 = load i32, ptr %200, align 8
   %202 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.23, ptr noundef %199, i32 noundef %201, ptr noundef nonnull %0, i32 noundef %55) #9
   store ptr %202, ptr @GUC_check_errdetail_string, align 8
@@ -560,15 +560,15 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   %218 = mul nsw i64 %217, 40
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %215, ptr align 8 %214, i64 %218, i1 false)
   store ptr %108, ptr %214, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 8
   store ptr %.sroa.6.3.ph, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 16
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 16
   store i32 %.sroa.9.3.ph, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 20
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 20
   store i8 %.sroa.15.3.ph, ptr %.sroa.15.0..sroa_idx, align 4
-  %.sroa.2086.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 24
+  %.sroa.2086.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 24
   store i32 %55, ptr %.sroa.2086.0..sroa_idx, align 8
-  %.sroa.2489.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 32
+  %.sroa.2489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 32
   store ptr %0, ptr %.sroa.2489.0..sroa_idx, align 8
   %219 = add nuw i32 %.052.ph126164, 1
   br label %addToArray.exit

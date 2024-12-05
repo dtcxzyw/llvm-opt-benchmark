@@ -603,7 +603,7 @@ define hidden noundef ptr @osd_lookup_attribute(i32 noundef %0, i32 noundef %1) 
 
 .preheader:                                       ; preds = %6, %2
   %.lcssa = phi ptr [ @user_object_info_attributes, %2 ], [ %5, %6 ]
-  %10 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not1623 = icmp eq ptr %11, null
   br i1 %.not1623, label %.thread, label %.lr.ph
@@ -648,19 +648,19 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond3, label %11, label %find_svcaction_dissector.exit.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %find_svcaction_dissector.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not101 = icmp eq ptr %16, null
   br i1 %.not101, label %find_svcaction_dissector.exit.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not102 = icmp eq ptr %19, null
   br i1 %.not102, label %find_svcaction_dissector.exit.thread, label %20
@@ -678,7 +678,7 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = tail call noalias ptr @wmem_tree_new(ptr noundef %26) #4
   store ptr %27, ptr %25, align 8
   %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @proto_scsi_osd, align 4
   tail call void @conversation_add_proto_data(ptr noundef %30, i32 noundef %31, ptr noundef nonnull %25) #4
@@ -688,7 +688,7 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   %.086 = phi ptr [ %22, %20 ], [ %25, %23 ]
   %33 = load ptr, ptr %.086, align 8
   %34 = load ptr, ptr %18, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i16, ptr %35, align 8
   %37 = zext i16 %36 to i32
   %38 = tail call ptr @wmem_tree_lookup32(ptr noundef %33, i32 noundef %37) #4
@@ -703,7 +703,7 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %43, ptr %41, align 8
   %44 = load ptr, ptr %.086, align 8
   %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
   tail call void @wmem_tree_insert32(ptr noundef %44, i32 noundef %48, ptr noundef nonnull %41) #4
@@ -729,16 +729,16 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not109, label %75, label %61
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 50
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 50
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8
   %.not110 = icmp eq i16 %66, 0
   br i1 %.not110, label %70, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %60, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %69 = load ptr, ptr %68, align 8
   %.not111 = icmp eq ptr %69, null
   br i1 %.not111, label %70, label %75
@@ -748,14 +748,14 @@ define internal void @dissect_osd_opcode(ptr noundef %0, ptr noundef %1, ptr nou
   %72 = tail call noalias ptr @wmem_alloc0(ptr noundef %71, i64 noundef 36) #4
   store i16 %59, ptr %72, align 4
   %73 = load ptr, ptr %18, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr %72, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %67, %70, %52
   %76 = load i32, ptr @hf_scsi_osd_svcaction, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %76, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef 0) #4
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = zext i16 %59 to i32
   %81 = tail call ptr @val_to_str_ext_const(i32 noundef %80, ptr noundef nonnull @scsi_osd_svcaction_vals_ext, ptr noundef nonnull @.str.271) #4
@@ -788,7 +788,7 @@ find_svcaction_dissector.exit:                    ; preds = %85, %75
   br i1 %.not105, label %97, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %91, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %94 = load ptr, ptr %93, align 8
   %.not106 = icmp eq ptr %94, null
   br i1 %.not106, label %97, label %95
@@ -799,7 +799,7 @@ find_svcaction_dissector.exit:                    ; preds = %85, %75
 
 97:                                               ; preds = %95, %92, %90
   %.0 = phi i16 [ %96, %95 ], [ 0, %92 ], [ 0, %90 ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = zext i16 %.0 to i32
   %101 = tail call ptr @val_to_str_ext_const(i32 noundef %100, ptr noundef nonnull @scsi_osd_svcaction_vals_ext, ptr noundef nonnull @.str.271) #4
@@ -814,13 +814,13 @@ find_svcaction_dissector.exit:                    ; preds = %85, %75
   br i1 %.not.i, label %proto_item_set_generated.exit, label %104
 
 104:                                              ; preds = %.split88
-  %105 = getelementptr inbounds i8, ptr %103, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %106 = load ptr, ptr %105, align 8
   %.not5.i = icmp eq ptr %106, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %106, i64 28
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 28
   %109 = load i32, ptr %108, align 4
   %110 = or i32 %109, 2
   store i32 %110, ptr %108, align 4
@@ -880,10 +880,10 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal void @generic_attribute_dissector(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #4
   ret void
@@ -893,7 +893,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @partition_id_attribute_dissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = tail call fastcc ptr @dissect_osd_partition_id(ptr noundef %1, ptr noundef %0, i32 noundef 0, ptr noundef %2, i32 noundef %8, ptr noundef %3, i32 noundef 0, i32 noundef 0)
@@ -909,7 +909,7 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
   store i32 %12, ptr %9, align 4
   %13 = add i32 %2, 4
   %14 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %13) #4
-  %15 = getelementptr inbounds i8, ptr %9, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %14, ptr %15, align 4
   %16 = icmp ne i32 %12, 0
   %17 = icmp ne i32 %14, 0
@@ -922,9 +922,9 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
 
 19:                                               ; preds = %8
   store i32 2, ptr %10, align 16
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %21, align 16
   %22 = load ptr, ptr %5, align 8
   %23 = call ptr @wmem_tree_lookup32_array(ptr noundef %22, ptr noundef nonnull %10) #4
@@ -935,7 +935,7 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
   %25 = call ptr @wmem_file_scope() #4
   %26 = call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 8) #4
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4
   store i32 2, ptr %10, align 16
   store ptr %9, ptr %20, align 8
@@ -950,7 +950,7 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
   br i1 %.not40, label %33, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %.0, align 4
   br label %33
@@ -960,9 +960,9 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
   br i1 %.not41, label %38, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %.0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 %36, ptr %37, align 4
   br label %38
 
@@ -988,20 +988,20 @@ define internal fastcc ptr @dissect_osd_partition_id(ptr nocapture noundef reado
   br i1 %.not.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not5.i = icmp eq ptr %49, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, 2
   store i32 %53, ptr %51, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %50, %47, %44, %42
-  %54 = getelementptr inbounds i8, ptr %.0, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %55 = load i32, ptr %54, align 4
   %.not44 = icmp eq i32 %55, 0
   br i1 %.not44, label %proto_item_set_generated.exit47, label %56
@@ -1013,13 +1013,13 @@ proto_item_set_generated.exit:                    ; preds = %50, %47, %44, %42
   br i1 %.not.i45, label %proto_item_set_generated.exit47, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not5.i46 = icmp eq ptr %61, null
   br i1 %.not5.i46, label %proto_item_set_generated.exit47, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, 2
   store i32 %65, ptr %63, align 4
@@ -1079,13 +1079,13 @@ define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -1094,7 +1094,7 @@ define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -1144,33 +1144,33 @@ define internal void @dissect_osd_format_osd(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond58, label %dissect_osd_attribute_data_in.exit, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not14.i = icmp eq ptr %57, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %60 = load ptr, ptr %59, align 8
   %.not15.i = icmp eq ptr %60, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %63 = load i8, ptr %62, align 2
   %cond.i = icmp eq i8 %63, 3
   br i1 %cond.i, label %64, label %dissect_osd_attribute_data_in.exit
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %60, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %66 = load i32, ptr %65, align 4
   %.not16.i = icmp eq i32 %66, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %60, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %60, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %71 = load i32, ptr %70, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %9, i32 noundef %71)
   br label %dissect_osd_attribute_data_in.exit
@@ -1193,13 +1193,13 @@ define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -1208,7 +1208,7 @@ define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -1264,33 +1264,33 @@ define internal void @dissect_osd_create(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond69, label %dissect_osd_attribute_data_in.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not14.i = icmp eq ptr %63, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %66 = load ptr, ptr %65, align 8
   %.not15.i = icmp eq ptr %66, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %69 = load i8, ptr %68, align 2
   %cond.i = icmp eq i8 %69, 3
   br i1 %cond.i, label %70, label %dissect_osd_attribute_data_in.exit
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %66, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %72 = load i32, ptr %71, align 4
   %.not16.i = icmp eq i32 %72, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %66, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %66, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %77 = load i32, ptr %76, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %9, i32 noundef %77)
   br label %dissect_osd_attribute_data_in.exit
@@ -1302,16 +1302,16 @@ dissect_osd_attribute_data_in.exit:               ; preds = %73, %70, %67, %64, 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = load i16, ptr %15, align 4
   %17 = and i16 %16, -129
   %18 = icmp eq i16 %17, -30697
   %19 = and i16 %16, 128
   %20 = zext nneg i16 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %15, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 %20, ptr %21, align 4
   %22 = icmp ne i32 %4, 0
   %23 = icmp ne i32 %5, 0
@@ -1334,7 +1334,7 @@ define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load ptr, ptr %32, align 8
   %.not12.i = icmp eq ptr %33, null
   br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %34
@@ -1343,7 +1343,7 @@ define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr nound
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #4
   %36 = lshr i8 %35, 4
   %37 = and i8 %36, 3
-  %38 = getelementptr inbounds i8, ptr %33, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %37, ptr %38, align 2
   br label %dissect_osd_getsetattrib.exit
 
@@ -1391,7 +1391,7 @@ dissect_osd_allocation_length.exit:               ; preds = %59
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %63, i64 4294967295)
   %64 = trunc nuw i64 %spec.store.select.i to i32
   %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %64, ptr %66, align 8
   %67 = add i32 %3, 30
   %68 = load i32, ptr @hf_scsi_osd_initial_object_id, align 4
@@ -1408,7 +1408,7 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
   %spec.store.select.i238 = tail call i64 @llvm.umin.i64(i64 %75, i64 4294967295)
   %76 = trunc nuw i64 %spec.store.select.i238 to i32
   %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store i32 %76, ptr %78, align 8
   br label %.thread
 
@@ -1459,27 +1459,27 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
-  %107 = getelementptr inbounds i8, ptr %106, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 64
   %108 = load ptr, ptr %107, align 8
   %.not15.i = icmp eq ptr %108, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %109
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %108, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %111 = load i8, ptr %110, align 2
   %cond.i = icmp eq i8 %111, 3
   br i1 %cond.i, label %112, label %dissect_osd_attribute_data_in.exit
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %108, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %114 = load i32, ptr %113, align 4
   %.not16.i = icmp eq i32 %114, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %108, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %108, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %119 = load i32, ptr %118, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %9, i32 noundef %119)
   %.pre = load ptr, ptr %12, align 8
@@ -1487,7 +1487,7 @@ dissect_osd_allocation_length.exit239:            ; preds = %59
 
 dissect_osd_attribute_data_in.exit:               ; preds = %105, %109, %112, %115
   %120 = phi ptr [ %106, %105 ], [ %106, %109 ], [ %106, %112 ], [ %.pre, %115 ]
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
   %124 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0243) #4
@@ -1687,13 +1687,13 @@ define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -1702,7 +1702,7 @@ define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -1761,33 +1761,33 @@ define internal void @dissect_osd_read(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond72, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %69 = load ptr, ptr %68, align 8
   %.not15.i = icmp eq ptr %69, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %72 = load i8, ptr %71, align 2
   %cond.i = icmp eq i8 %72, 3
   br i1 %cond.i, label %73, label %dissect_osd_attribute_data_in.exit
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %75 = load i32, ptr %74, align 4
   %.not16.i = icmp eq i32 %75, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %69, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %80 = load i32, ptr %79, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %9, i32 noundef %80)
   br label %dissect_osd_attribute_data_in.exit
@@ -1810,13 +1810,13 @@ define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -1825,7 +1825,7 @@ define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -1884,33 +1884,33 @@ define internal void @dissect_osd_write(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond72, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %69 = load ptr, ptr %68, align 8
   %.not15.i = icmp eq ptr %69, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %72 = load i8, ptr %71, align 2
   %cond.i = icmp eq i8 %72, 3
   br i1 %cond.i, label %73, label %dissect_osd_attribute_data_in.exit
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %75 = load i32, ptr %74, align 4
   %.not16.i = icmp eq i32 %75, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %69, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %80 = load i32, ptr %79, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %9, i32 noundef %80)
   br label %dissect_osd_attribute_data_in.exit
@@ -1933,13 +1933,13 @@ define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -1948,7 +1948,7 @@ define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -2004,33 +2004,33 @@ define internal void @dissect_osd_append(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond69, label %dissect_osd_attribute_data_in.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not14.i = icmp eq ptr %63, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %66 = load ptr, ptr %65, align 8
   %.not15.i = icmp eq ptr %66, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %69 = load i8, ptr %68, align 2
   %cond.i = icmp eq i8 %69, 3
   br i1 %cond.i, label %70, label %dissect_osd_attribute_data_in.exit
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %66, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %72 = load i32, ptr %71, align 4
   %.not16.i = icmp eq i32 %72, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %66, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %66, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %77 = load i32, ptr %76, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %9, i32 noundef %77)
   br label %dissect_osd_attribute_data_in.exit
@@ -2054,13 +2054,13 @@ define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not11.i = icmp eq ptr %19, null
   br i1 %.not11.i, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %.thread, label %23
@@ -2069,7 +2069,7 @@ define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noun
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #4
   %25 = lshr i8 %24, 4
   %26 = and i8 %25, 3
-  %27 = getelementptr inbounds i8, ptr %22, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 %26, ptr %27, align 2
   br label %.thread
 
@@ -2122,33 +2122,33 @@ define internal void @dissect_osd_flush(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond64, label %dissect_osd_attribute_data_in.exit, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not14.i = icmp eq ptr %62, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %65 = load ptr, ptr %64, align 8
   %.not15.i = icmp eq ptr %65, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %65, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %68 = load i8, ptr %67, align 2
   %cond.i = icmp eq i8 %68, 3
   br i1 %cond.i, label %69, label %dissect_osd_attribute_data_in.exit
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %65, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %71 = load i32, ptr %70, align 4
   %.not16.i = icmp eq i32 %71, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %65, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %65, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %76 = load i32, ptr %75, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %9, i32 noundef %76)
   br label %dissect_osd_attribute_data_in.exit
@@ -2171,13 +2171,13 @@ define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -2186,7 +2186,7 @@ define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -2239,33 +2239,33 @@ define internal void @dissect_osd_remove(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond64, label %dissect_osd_attribute_data_in.exit, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %7, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not14.i = icmp eq ptr %60, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %63 = load ptr, ptr %62, align 8
   %.not15.i = icmp eq ptr %63, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %66 = load i8, ptr %65, align 2
   %cond.i = icmp eq i8 %66, 3
   br i1 %cond.i, label %67, label %dissect_osd_attribute_data_in.exit
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %63, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %69 = load i32, ptr %68, align 4
   %.not16.i = icmp eq i32 %69, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %63, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %63, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %74 = load i32, ptr %73, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %9, i32 noundef %74)
   br label %dissect_osd_attribute_data_in.exit
@@ -2276,14 +2276,14 @@ dissect_osd_attribute_data_in.exit:               ; preds = %70, %67, %64, %61, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = zext nneg i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 4
   %19 = icmp ne i32 %4, 0
   %20 = icmp ne i32 %5, 0
@@ -2304,7 +2304,7 @@ define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %
   br i1 %.not11.i, label %35, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %26, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %29 = load ptr, ptr %28, align 8
   %.not12.i = icmp eq ptr %29, null
   br i1 %.not12.i, label %35, label %30
@@ -2313,7 +2313,7 @@ define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #4
   %32 = lshr i8 %31, 4
   %33 = and i8 %32, 3
-  %34 = getelementptr inbounds i8, ptr %29, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i8 %33, ptr %34, align 2
   br label %35
 
@@ -2335,13 +2335,13 @@ define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %
   br i1 %.not17.i, label %54, label %49
 
 49:                                               ; preds = %35
-  %50 = getelementptr inbounds i8, ptr %48, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not18.i = icmp eq ptr %51, null
   br i1 %.not18.i, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %45, ptr %53, align 4
   br label %54
 
@@ -2362,7 +2362,7 @@ define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %
   br i1 %.not11.i80, label %dissect_osd_getsetattrib.exit82, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %63 = load ptr, ptr %62, align 8
   %.not12.i81 = icmp eq ptr %63, null
   br i1 %.not12.i81, label %dissect_osd_getsetattrib.exit82, label %64
@@ -2371,7 +2371,7 @@ define internal void @dissect_osd_create_partition(ptr noundef %0, ptr noundef %
   %65 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #4
   %66 = lshr i8 %65, 4
   %67 = and i8 %66, 3
-  %68 = getelementptr inbounds i8, ptr %63, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store i8 %67, ptr %68, align 2
   br label %dissect_osd_getsetattrib.exit82
 
@@ -2429,27 +2429,27 @@ dissect_osd_getsetattrib.exit82:                  ; preds = %58, %61, %64
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %100, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %103 = load ptr, ptr %102, align 8
   %.not15.i = icmp eq ptr %103, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %103, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 2
   %106 = load i8, ptr %105, align 2
   %cond.i = icmp eq i8 %106, 3
   br i1 %cond.i, label %107, label %dissect_osd_attribute_data_in.exit
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %103, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %109 = load i32, ptr %108, align 4
   %.not16.i = icmp eq i32 %109, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %103, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %103, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %114 = load i32, ptr %113, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %112, ptr noundef %2, ptr noundef %9, i32 noundef %114)
   br label %dissect_osd_attribute_data_in.exit
@@ -2460,14 +2460,14 @@ dissect_osd_attribute_data_in.exit:               ; preds = %110, %107, %104, %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = zext nneg i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 4
   %19 = icmp ne i32 %4, 0
   %20 = icmp ne i32 %5, 0
@@ -2491,7 +2491,7 @@ define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %
   br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %30 = load ptr, ptr %29, align 8
   %.not12.i = icmp eq ptr %30, null
   br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %31
@@ -2500,7 +2500,7 @@ define internal void @dissect_osd_remove_partition(ptr noundef %0, ptr noundef %
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #4
   %33 = lshr i8 %32, 4
   %34 = and i8 %33, 3
-  %35 = getelementptr inbounds i8, ptr %30, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i8 %34, ptr %35, align 2
   br label %dissect_osd_getsetattrib.exit
 
@@ -2527,13 +2527,13 @@ dissect_osd_getsetattrib.exit:                    ; preds = %25, %28, %31
   br i1 %.not17.i, label %57, label %52
 
 52:                                               ; preds = %38
-  %53 = getelementptr inbounds i8, ptr %51, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not18.i = icmp eq ptr %54, null
   br i1 %.not18.i, label %57, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 28
   store i32 %48, ptr %56, align 4
   br label %57
 
@@ -2598,27 +2598,27 @@ dissect_osd_getsetattrib.exit:                    ; preds = %25, %28, %31
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %90, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %93 = load ptr, ptr %92, align 8
   %.not15.i = icmp eq ptr %93, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %96 = load i8, ptr %95, align 2
   %cond.i = icmp eq i8 %96, 3
   br i1 %cond.i, label %97, label %dissect_osd_attribute_data_in.exit
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %93, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %99 = load i32, ptr %98, align 4
   %.not16.i = icmp eq i32 %99, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %93, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %93, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %104 = load i32, ptr %103, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %102, ptr noundef %2, ptr noundef %9, i32 noundef %104)
   br label %dissect_osd_attribute_data_in.exit
@@ -2629,14 +2629,14 @@ dissect_osd_attribute_data_in.exit:               ; preds = %100, %97, %94, %91,
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = zext nneg i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 4
   %19 = icmp ne i32 %4, 0
   %20 = icmp ne i32 %5, 0
@@ -2651,7 +2651,7 @@ define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1,
   br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %26 = load ptr, ptr %25, align 8
   %.not12.i = icmp eq ptr %26, null
   br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %27
@@ -2660,7 +2660,7 @@ define internal void @dissect_osd_get_attributes(ptr noundef %0, ptr noundef %1,
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %29 = lshr i8 %28, 4
   %30 = and i8 %29, 3
-  %31 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i8 %30, ptr %31, align 2
   br label %dissect_osd_getsetattrib.exit
 
@@ -2689,13 +2689,13 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not17.i, label %54, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %48, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not18.i = icmp eq ptr %51, null
   br i1 %.not18.i, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %45, ptr %53, align 4
   br label %54
 
@@ -2750,27 +2750,27 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %81, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %84 = load ptr, ptr %83, align 8
   %.not15.i = icmp eq ptr %84, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %87 = load i8, ptr %86, align 2
   %cond.i = icmp eq i8 %87, 3
   br i1 %cond.i, label %88, label %dissect_osd_attribute_data_in.exit
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %84, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %90 = load i32, ptr %89, align 4
   %.not16.i = icmp eq i32 %90, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %84, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %95 = load i32, ptr %94, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %9, i32 noundef %95)
   br label %dissect_osd_attribute_data_in.exit
@@ -2781,14 +2781,14 @@ dissect_osd_attribute_data_in.exit:               ; preds = %91, %88, %85, %82, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = zext nneg i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 4
   %19 = icmp ne i32 %4, 0
   %20 = icmp ne i32 %5, 0
@@ -2803,7 +2803,7 @@ define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1,
   br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %26 = load ptr, ptr %25, align 8
   %.not12.i = icmp eq ptr %26, null
   br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %27
@@ -2812,7 +2812,7 @@ define internal void @dissect_osd_set_attributes(ptr noundef %0, ptr noundef %1,
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %29 = lshr i8 %28, 4
   %30 = and i8 %29, 3
-  %31 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i8 %30, ptr %31, align 2
   br label %dissect_osd_getsetattrib.exit
 
@@ -2841,13 +2841,13 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not17.i, label %54, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %48, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not18.i = icmp eq ptr %51, null
   br i1 %.not18.i, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %45, ptr %53, align 4
   br label %54
 
@@ -2902,27 +2902,27 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %81, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %84 = load ptr, ptr %83, align 8
   %.not15.i = icmp eq ptr %84, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %87 = load i8, ptr %86, align 2
   %cond.i = icmp eq i8 %87, 3
   br i1 %cond.i, label %88, label %dissect_osd_attribute_data_in.exit
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %84, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %90 = load i32, ptr %89, align 4
   %.not16.i = icmp eq i32 %90, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %84, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %95 = load i32, ptr %94, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %9, i32 noundef %95)
   br label %dissect_osd_attribute_data_in.exit
@@ -2945,13 +2945,13 @@ define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -2960,7 +2960,7 @@ define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -3019,33 +3019,33 @@ define internal void @dissect_osd_create_and_write(ptr noundef %0, ptr noundef %
   br i1 %or.cond72, label %dissect_osd_attribute_data_in.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not14.i = icmp eq ptr %66, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %69 = load ptr, ptr %68, align 8
   %.not15.i = icmp eq ptr %69, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %72 = load i8, ptr %71, align 2
   %cond.i = icmp eq i8 %72, 3
   br i1 %cond.i, label %73, label %dissect_osd_attribute_data_in.exit
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %75 = load i32, ptr %74, align 4
   %.not16.i = icmp eq i32 %75, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %69, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %80 = load i32, ptr %79, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %9, i32 noundef %80)
   br label %dissect_osd_attribute_data_in.exit
@@ -3068,13 +3068,13 @@ define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -3083,7 +3083,7 @@ define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef 
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -3138,33 +3138,33 @@ define internal void @dissect_osd_create_collection(ptr noundef %0, ptr noundef 
   br i1 %or.cond67, label %dissect_osd_attribute_data_in.exit, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not14.i = icmp eq ptr %62, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %65 = load ptr, ptr %64, align 8
   %.not15.i = icmp eq ptr %65, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %65, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %68 = load i8, ptr %67, align 2
   %cond.i = icmp eq i8 %68, 3
   br i1 %cond.i, label %69, label %dissect_osd_attribute_data_in.exit
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %65, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %71 = load i32, ptr %70, align 4
   %.not16.i = icmp eq i32 %71, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %65, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %65, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %76 = load i32, ptr %75, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %9, i32 noundef %76)
   br label %dissect_osd_attribute_data_in.exit
@@ -3175,14 +3175,14 @@ dissect_osd_attribute_data_in.exit:               ; preds = %72, %69, %66, %63, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = zext nneg i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 4
   %19 = icmp ne i32 %4, 0
   %20 = icmp ne i32 %5, 0
@@ -3197,7 +3197,7 @@ define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef 
   br i1 %.not11.i, label %dissect_osd_getsetattrib.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %26 = load ptr, ptr %25, align 8
   %.not12.i = icmp eq ptr %26, null
   br i1 %.not12.i, label %dissect_osd_getsetattrib.exit, label %27
@@ -3206,7 +3206,7 @@ define internal void @dissect_osd_remove_collection(ptr noundef %0, ptr noundef 
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #4
   %29 = lshr i8 %28, 4
   %30 = and i8 %29, 3
-  %31 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i8 %30, ptr %31, align 2
   br label %dissect_osd_getsetattrib.exit
 
@@ -3237,13 +3237,13 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not17.i, label %56, label %51
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %50, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %53 = load ptr, ptr %52, align 8
   %.not18.i = icmp eq ptr %53, null
   br i1 %.not18.i, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   store i32 %47, ptr %55, align 4
   br label %56
 
@@ -3299,27 +3299,27 @@ dissect_osd_getsetattrib.exit:                    ; preds = %21, %24, %27
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %83, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %86 = load ptr, ptr %85, align 8
   %.not15.i = icmp eq ptr %86, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %89 = load i8, ptr %88, align 2
   %cond.i = icmp eq i8 %89, 3
   br i1 %cond.i, label %90, label %dissect_osd_attribute_data_in.exit
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %86, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %92 = load i32, ptr %91, align 4
   %.not16.i = icmp eq i32 %92, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %86, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %86, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %97 = load i32, ptr %96, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %9, i32 noundef %97)
   br label %dissect_osd_attribute_data_in.exit
@@ -3341,13 +3341,13 @@ define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %.thread, label %21
@@ -3356,7 +3356,7 @@ define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr no
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %24, ptr %25, align 2
   br label %.thread
 
@@ -3417,33 +3417,33 @@ define internal void @dissect_osd_set_key(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond71, label %dissect_osd_attribute_data_in.exit, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not14.i = icmp eq ptr %68, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %71 = load ptr, ptr %70, align 8
   %.not15.i = icmp eq ptr %71, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %74 = load i8, ptr %73, align 2
   %cond.i = icmp eq i8 %74, 3
   br i1 %cond.i, label %75, label %dissect_osd_attribute_data_in.exit
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %71, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %77 = load i32, ptr %76, align 4
   %.not16.i = icmp eq i32 %77, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %71, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %71, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %82 = load i32, ptr %81, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %80, ptr noundef %2, ptr noundef %9, i32 noundef %82)
   br label %dissect_osd_attribute_data_in.exit
@@ -3467,13 +3467,13 @@ define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not11.i = icmp eq ptr %19, null
   br i1 %.not11.i, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %.thread, label %23
@@ -3482,7 +3482,7 @@ define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #4
   %25 = lshr i8 %24, 4
   %26 = and i8 %25, 3
-  %27 = getelementptr inbounds i8, ptr %22, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 %26, ptr %27, align 2
   br label %.thread
 
@@ -3537,33 +3537,33 @@ define internal void @dissect_osd_flush_collection(ptr noundef %0, ptr noundef %
   br i1 %or.cond67, label %dissect_osd_attribute_data_in.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not14.i = icmp eq ptr %64, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %67 = load ptr, ptr %66, align 8
   %.not15.i = icmp eq ptr %67, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %67, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %70 = load i8, ptr %69, align 2
   %cond.i = icmp eq i8 %70, 3
   br i1 %cond.i, label %71, label %dissect_osd_attribute_data_in.exit
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %67, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %73 = load i32, ptr %72, align 4
   %.not16.i = icmp eq i32 %73, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %67, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %67, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %78 = load i32, ptr %77, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %76, ptr noundef %2, ptr noundef %9, i32 noundef %78)
   br label %dissect_osd_attribute_data_in.exit
@@ -3587,13 +3587,13 @@ define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not11.i = icmp eq ptr %19, null
   br i1 %.not11.i, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %.thread, label %23
@@ -3602,7 +3602,7 @@ define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #4
   %25 = lshr i8 %24, 4
   %26 = and i8 %25, 3
-  %27 = getelementptr inbounds i8, ptr %22, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 %26, ptr %27, align 2
   br label %.thread
 
@@ -3652,33 +3652,33 @@ define internal void @dissect_osd_flush_partition(ptr noundef %0, ptr noundef %1
   br i1 %or.cond60, label %dissect_osd_attribute_data_in.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not14.i = icmp eq ptr %59, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %62 = load ptr, ptr %61, align 8
   %.not15.i = icmp eq ptr %62, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %65 = load i8, ptr %64, align 2
   %cond.i = icmp eq i8 %65, 3
   br i1 %cond.i, label %66, label %dissect_osd_attribute_data_in.exit
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %62, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %.not16.i = icmp eq i32 %68, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %62, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %62, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %73 = load i32, ptr %72, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %9, i32 noundef %73)
   br label %dissect_osd_attribute_data_in.exit
@@ -3702,13 +3702,13 @@ define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not11.i = icmp eq ptr %19, null
   br i1 %.not11.i, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %.thread, label %23
@@ -3717,7 +3717,7 @@ define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr 
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #4
   %25 = lshr i8 %24, 4
   %26 = and i8 %25, 3
-  %27 = getelementptr inbounds i8, ptr %22, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store i8 %26, ptr %27, align 2
   br label %.thread
 
@@ -3764,33 +3764,33 @@ define internal void @dissect_osd_flush_osd(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond53, label %dissect_osd_attribute_data_in.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not14.i = icmp eq ptr %56, null
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %59 = load ptr, ptr %58, align 8
   %.not15.i = icmp eq ptr %59, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %62 = load i8, ptr %61, align 2
   %cond.i = icmp eq i8 %62, 3
   br i1 %cond.i, label %63, label %dissect_osd_attribute_data_in.exit
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %59, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %65 = load i32, ptr %64, align 4
   %.not16.i = icmp eq i32 %65, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %59, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %59, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %70 = load i32, ptr %69, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %9, i32 noundef %70)
   br label %dissect_osd_attribute_data_in.exit
@@ -3801,11 +3801,11 @@ dissect_osd_attribute_data_in.exit:               ; preds = %66, %63, %60, %57, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %15, align 4
   %16 = icmp ne i32 %4, 0
   %17 = icmp ne i32 %5, 0
@@ -3822,7 +3822,7 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
   br i1 %.not11.i, label %31, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not12.i = icmp eq ptr %25, null
   br i1 %.not12.i, label %31, label %26
@@ -3831,7 +3831,7 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
   %28 = lshr i8 %27, 4
   %29 = and i8 %28, 3
-  %30 = getelementptr inbounds i8, ptr %25, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i8 %29, ptr %30, align 2
   br label %31
 
@@ -3859,13 +3859,13 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
   br i1 %.not17.i, label %56, label %51
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %50, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %53 = load ptr, ptr %52, align 8
   %.not18.i = icmp eq ptr %53, null
   br i1 %.not18.i, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   store i32 %47, ptr %55, align 4
   br label %56
 
@@ -3920,27 +3920,27 @@ define internal void @dissect_osd2_create_user_tracking_collection(ptr noundef %
   br i1 %.not14.i, label %dissect_osd_attribute_data_in.exit, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %82, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %85 = load ptr, ptr %84, align 8
   %.not15.i = icmp eq ptr %85, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %88 = load i8, ptr %87, align 2
   %cond.i = icmp eq i8 %88, 3
   br i1 %cond.i, label %89, label %dissect_osd_attribute_data_in.exit
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %85, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %91 = load i32, ptr %90, align 4
   %.not16.i = icmp eq i32 %91, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %85, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %85, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %96 = load i32, ptr %95, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %94, ptr noundef %2, ptr noundef %9, i32 noundef %96)
   br label %dissect_osd_attribute_data_in.exit
@@ -3951,11 +3951,11 @@ dissect_osd_attribute_data_in.exit:               ; preds = %92, %89, %86, %83, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef %7, ptr nocapture readnone %8, ptr noundef %9) #2 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %15, align 4
   %16 = icmp ne i32 %4, 0
   %17 = icmp ne i32 %5, 0
@@ -3973,7 +3973,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not11.i, label %33, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %24, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not12.i = icmp eq ptr %27, null
   br i1 %.not12.i, label %33, label %28
@@ -3982,7 +3982,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
   %30 = lshr i8 %29, 4
   %31 = and i8 %30, 3
-  %32 = getelementptr inbounds i8, ptr %27, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %31, ptr %32, align 2
   br label %33
 
@@ -4005,7 +4005,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967295)
   %49 = trunc nuw i64 %spec.store.select.i to i32
   %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 %49, ptr %51, align 8
   %52 = add i32 %3, 30
   %53 = load i32, ptr @hf_scsi_osd2_matches_collection_object_id, align 4
@@ -4019,13 +4019,13 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not17.i, label %65, label %60
 
 60:                                               ; preds = %33
-  %61 = getelementptr inbounds i8, ptr %59, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %62 = load ptr, ptr %61, align 8
   %.not18.i = icmp eq ptr %62, null
   br i1 %.not18.i, label %65, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
   store i32 %56, ptr %64, align 4
   br label %65
 
@@ -4078,27 +4078,27 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %93 = getelementptr inbounds i8, ptr %92, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %94 = load ptr, ptr %93, align 8
   %.not15.i = icmp eq ptr %94, null
   br i1 %.not15.i, label %dissect_osd_attribute_data_in.exit, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %94, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %97 = load i8, ptr %96, align 2
   %cond.i = icmp eq i8 %97, 3
   br i1 %cond.i, label %98, label %dissect_osd_attribute_data_in.exit
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %94, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %100 = load i32, ptr %99, align 4
   %.not16.i = icmp eq i32 %100, 0
   br i1 %.not16.i, label %dissect_osd_attribute_data_in.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %94, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %94, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %105 = load i32, ptr %104, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %9, i32 noundef %105)
   %.pre = load ptr, ptr %11, align 8
@@ -4106,7 +4106,7 @@ define internal void @dissect_osd2_query(ptr noundef %0, ptr noundef %1, ptr nou
 
 dissect_osd_attribute_data_in.exit:               ; preds = %91, %95, %98, %101
   %106 = phi ptr [ %92, %91 ], [ %92, %95 ], [ %92, %98 ], [ %.pre, %101 ]
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load i32, ptr %107, align 8
   %109 = zext i32 %108 to i64
   %110 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0128) #4
@@ -4199,21 +4199,21 @@ define internal fastcc void @dissect_osd_attribute_parameters(ptr noundef %0, pt
   br i1 %.not, label %136, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not119 = icmp eq ptr %10, null
   br i1 %.not119, label %136, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not120 = icmp eq ptr %13, null
   br i1 %.not120, label %136, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %16 = load i8, ptr %15, align 2
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load i32, ptr %17, align 4
   switch i8 %16, label %136 [
     i8 1, label %19
@@ -4266,11 +4266,11 @@ define internal fastcc void @dissect_osd_attribute_parameters(ptr noundef %0, pt
   %54 = load i32, ptr @hf_scsi_osd_get_attributes_list_length, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %54, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #4
   %56 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #4
-  %57 = getelementptr inbounds i8, ptr %13, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %56, ptr %57, align 4
   %58 = add i32 %2, 4
   %59 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %58) #4
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %59, ptr %60, align 4
   %61 = load i32, ptr @hf_scsi_osd_get_attributes_list_offset, align 4
   %.not.i = icmp eq i32 %59, -1
@@ -4331,11 +4331,11 @@ dissect_osd_offset.exit:                          ; preds = %68, %70
   %82 = load i32, ptr @hf_scsi_osd_get_attributes_allocation_length, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %82, ptr noundef %1, i32 noundef %81, i32 noundef 4, i32 noundef 0) #4
   %84 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %81) #4
-  %85 = getelementptr inbounds i8, ptr %13, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %84, ptr %85, align 4
   %86 = add i32 %2, 12
   %87 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %86) #4
-  %88 = getelementptr inbounds i8, ptr %13, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %87, ptr %88, align 4
   %89 = load i32, ptr @hf_scsi_osd_retrieved_attributes_offset, align 4
   %.not.i122 = icmp eq i32 %87, -1
@@ -4396,11 +4396,11 @@ dissect_osd_offset.exit130:                       ; preds = %96, %98
   %110 = load i32, ptr @hf_scsi_osd_set_attributes_list_length, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %110, ptr noundef %1, i32 noundef %109, i32 noundef 4, i32 noundef 0) #4
   %112 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %109) #4
-  %113 = getelementptr inbounds i8, ptr %13, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %112, ptr %113, align 4
   %114 = add i32 %2, 20
   %115 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %114) #4
-  %116 = getelementptr inbounds i8, ptr %13, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %115, ptr %116, align 4
   %117 = load i32, ptr @hf_scsi_osd_set_attributes_list_offset, align 4
   %.not.i131 = icmp eq i32 %115, -1
@@ -4648,53 +4648,53 @@ define internal fastcc void @dissect_osd_attribute_data_out(ptr noundef %0, ptr 
   br i1 %.not, label %37, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not31 = icmp eq ptr %8, null
   br i1 %.not31, label %37, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %37, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %14 = load i8, ptr %13, align 2
   %cond = icmp eq i8 %14, 3
   br i1 %cond, label %15, label %37
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %11, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %17 = load i32, ptr %16, align 4
   %.not33 = icmp eq i32 %17, 0
   br i1 %.not33, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr @ett_osd_get_attributes, align 4
   %22 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %1, i32 noundef %20, i32 noundef %17, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.289) #4
   %23 = load i32, ptr %19, align 4
-  %24 = getelementptr inbounds i8, ptr %11, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %25 = load i32, ptr %24, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr noundef %1, i32 noundef %23, ptr noundef %22, ptr noundef %4, i32 noundef %25)
   br label %26
 
 26:                                               ; preds = %18, %15
-  %27 = getelementptr inbounds i8, ptr %11, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %28 = load i32, ptr %27, align 4
   %.not34 = icmp eq i32 %28, 0
   br i1 %.not34, label %37, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr @ett_osd_get_attributes, align 4
   %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %1, i32 noundef %31, i32 noundef %28, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.290) #4
   %34 = load i32, ptr %30, align 4
-  %35 = getelementptr inbounds i8, ptr %11, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %36 = load i32, ptr %35, align 4
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr noundef %1, i32 noundef %34, ptr noundef %33, ptr noundef %4, i32 noundef %36)
   br label %37
@@ -4834,7 +4834,7 @@ define internal fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr nou
 
 .preheader.i:                                     ; preds = %62, %47
   %.lcssa = phi ptr [ @user_object_info_attributes, %47 ], [ %61, %62 ]
-  %66 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not1623.i = icmp eq ptr %67, null
   br i1 %.not1623.i, label %.loopexit, label %.lr.ph.i
@@ -4860,7 +4860,7 @@ define internal fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr nou
 
 osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
   %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %.124.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.124.i, i64 8
   %77 = load ptr, ptr %76, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.296, ptr noundef %77) #4
   %78 = load ptr, ptr %76, align 8
@@ -4928,7 +4928,7 @@ define internal fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %0, ptr
 
 .preheader.i:                                     ; preds = %23, %7
   %.lcssa = phi ptr [ @user_object_info_attributes, %7 ], [ %22, %23 ]
-  %27 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not1623.i = icmp eq ptr %28, null
   br i1 %.not1623.i, label %.loopexit, label %.lr.ph.i
@@ -4952,7 +4952,7 @@ define internal fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %0, ptr
   br label %49
 
 osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds i8, ptr %.124.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.124.i, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.296, ptr noundef %37) #4
   %.not62 = icmp eq i16 %15, 0
@@ -4960,7 +4960,7 @@ osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
 
 38:                                               ; preds = %osd_lookup_attribute.exit
   %39 = zext i16 %15 to i32
-  %40 = getelementptr inbounds i8, ptr %.124.i, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.124.i, i64 32
   %41 = load i32, ptr %40, align 8
   %.not63 = icmp eq i32 %41, %39
   br i1 %.not63, label %45, label %42
@@ -4972,7 +4972,7 @@ osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
 
 45:                                               ; preds = %38
   %46 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %18, i32 noundef %39) #4
-  %47 = getelementptr inbounds i8, ptr %.124.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.124.i, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef %46, ptr noundef %0, ptr noundef %2, ptr noundef %5, ptr noundef nonnull %.124.i) #4
   br label %49
@@ -5011,19 +5011,19 @@ define internal fastcc void @dissect_osd2_cdb_continuation(ptr noundef %0, ptr n
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not72 = icmp eq ptr %8, null
   br i1 %.not72, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not74 = icmp eq ptr %11, null
   br i1 %.not74, label %.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 40
   br i1 %15, label %.thread, label %16
@@ -5123,7 +5123,7 @@ define internal fastcc void @dissect_osd2_cdb_continuation(ptr noundef %0, ptr n
 
 .preheader.i.i:                                   ; preds = %69, %.lr.ph80.i
   %.lcssa.i = phi ptr [ @user_object_info_attributes, %.lr.ph80.i ], [ %68, %69 ]
-  %73 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not1623.i.i = icmp eq ptr %74, null
   br i1 %.not1623.i.i, label %.loopexit70.i, label %.lr.ph.i.i
@@ -5147,7 +5147,7 @@ define internal fastcc void @dissect_osd2_cdb_continuation(ptr noundef %0, ptr n
   br label %84
 
 osd_lookup_attribute.exit.i:                      ; preds = %.lr.ph.i.i
-  %82 = getelementptr inbounds i8, ptr %.124.i.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.124.i.i, i64 8
   %83 = load ptr, ptr %82, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.296, ptr noundef %83) #4
   br label %84

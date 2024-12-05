@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Sim_SymmsStructCompute(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Sim_ComputeStrSupp(ptr noundef %0) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %4, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 56
   %.val5992 = load ptr, ptr %6, align 8
@@ -20,10 +20,10 @@ define void @Sim_SymmsStructCompute(ptr noundef %0, ptr nocapture noundef readon
   %.val5995 = phi ptr [ %.val59, %.lr.ph ], [ %.val5992, %3 ]
   %9 = getelementptr i8, ptr %.val5995, i64 8
   %.val65.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val65.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val65.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %calloc, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val59 = load ptr, ptr %6, align 8
@@ -64,9 +64,9 @@ define void @Sim_SymmsStructCompute(ptr noundef %0, ptr nocapture noundef readon
 
 26:                                               ; preds = %26, %.lr.ph19.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph19.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds ptr, ptr %.val14.val.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw ptr, ptr %.val14.val.i, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %20, i64 %31
@@ -103,35 +103,35 @@ Sim_SymmsCreateMap.exit:                          ; preds = %26, %.preheader.i
 43:                                               ; preds = %.lr.ph99, %Sim_SymmsStructComputeOne.exit
   %indvars.iv119 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next120, %Sim_SymmsStructComputeOne.exit ]
   %.val61 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val61, i64 %indvars.iv119
+  %44 = getelementptr inbounds nuw ptr, ptr %.val61, i64 %indvars.iv119
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %47, align 4
   store i32 10, ptr %46, align 8
   %48 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #8
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %48, ptr %49, align 8
   %50 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4
   store i32 10, ptr %50, align 8
   %52 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %52, ptr %53, align 8
   %54 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %55, align 4
   store i32 10, ptr %54, align 8
   %56 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #8
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %56, ptr %57, align 8
   %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4
   store i32 10, ptr %58, align 8
   %60 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #8
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %60, ptr %61, align 8
   tail call fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %45, ptr noundef nonnull %46)
   %.val31.i.i = load i32, ptr %47, align 4
@@ -141,7 +141,7 @@ Sim_SymmsCreateMap.exit:                          ; preds = %26, %.preheader.i
 .lr.ph.i.i:                                       ; preds = %43, %150
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %150 ], [ 0, %43 ]
   %.val13.i.i = load ptr, ptr %49, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val13.i.i, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw ptr, ptr %.val13.i.i, i64 %indvars.iv.i.i
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, -2
@@ -356,11 +356,11 @@ Vec_PtrPush.exit28.i.i:                           ; preds = %146, %Vec_PtrGrow.e
 
 Sim_SymmsPartitionNodes.exit.i:                   ; preds = %150, %43
   %155 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 0, ptr %156, align 4
   store i32 16, ptr %155, align 8
   %157 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
-  %158 = getelementptr inbounds i8, ptr %155, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %157, ptr %158, align 8
   tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %155, ptr noundef readonly %20)
   tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %155, ptr noundef readonly %20)
@@ -372,27 +372,27 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %150, %43
   %161 = phi i32 [ %309, %Sim_SymmsAppendFromNode.exit.i ], [ %159, %Sim_SymmsPartitionNodes.exit.i ]
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %Sim_SymmsAppendFromNode.exit.i ], [ 0, %Sim_SymmsPartitionNodes.exit.i ]
   %162 = load ptr, ptr %61, align 8
-  %163 = getelementptr inbounds ptr, ptr %162, i64 %indvars.iv.i72
+  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.i72
   %164 = load ptr, ptr %163, align 8
   %165 = ptrtoint ptr %164 to i64
   %166 = and i64 %165, -2
   %167 = inttoptr i64 %166 to ptr
-  %168 = getelementptr inbounds i8, ptr %167, i64 64
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %.lr.ph.i33.i, label %Sim_SymmsAppendFromNode.exit.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i
-  %173 = getelementptr inbounds i8, ptr %169, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 8
   br label %174
 
 174:                                              ; preds = %Vec_IntPushUnique.exit.i.i, %.lr.ph.i33.i
   %175 = phi i32 [ %171, %.lr.ph.i33.i ], [ %306, %Vec_IntPushUnique.exit.i.i ]
   %indvars.iv.i34.i = phi i64 [ 0, %.lr.ph.i33.i ], [ %indvars.iv.next.i35.i, %Vec_IntPushUnique.exit.i.i ]
   %176 = load ptr, ptr %173, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %indvars.iv.i34.i
+  %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv.i34.i
   %178 = load i32, ptr %177, align 4
   %179 = load i32, ptr %59, align 4
   %180 = icmp sgt i32 %179, 0
@@ -402,7 +402,7 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %150, %43
   %181 = lshr i32 %178, 16
   %182 = load ptr, ptr %61, align 8
   %183 = load ptr, ptr %5, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = lshr i32 %178, 5
   %187 = and i32 %186, 2047
@@ -418,21 +418,21 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %150, %43
 
 195:                                              ; preds = %231, %.lr.ph8.i.i.i
   %indvars.iv15.i.i.i = phi i64 [ 0, %.lr.ph8.i.i.i ], [ %indvars.iv.next16.i.i.i, %231 ]
-  %196 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv15.i.i.i
+  %196 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv15.i.i.i
   %197 = load ptr, ptr %196, align 8
   %198 = ptrtoint ptr %197 to i64
   %199 = and i64 %198, -2
   %200 = inttoptr i64 %199 to ptr
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i32, ptr %201, align 8
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds ptr, ptr %185, i64 %203
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i32, ptr %205, i64 %188
+  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %188
   %207 = load i32, ptr %206, align 4
   %208 = and i32 %207, %190
   %209 = icmp ne i32 %208, 0
-  %210 = getelementptr inbounds i32, ptr %205, i64 %192
+  %210 = getelementptr inbounds nuw i32, ptr %205, i64 %192
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, %194
   %213 = icmp ne i32 %212, 0
@@ -444,22 +444,22 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %150, %43
   br i1 %215, label %Vec_IntPushUnique.exit.i.i, label %216
 
 216:                                              ; preds = %214
-  %217 = getelementptr inbounds i8, ptr %200, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %200, i64 64
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %220 = load i32, ptr %219, align 4
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %216
-  %222 = getelementptr inbounds i8, ptr %218, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %223 = load ptr, ptr %222, align 8
   %wide.trip.count.i.i.i = zext nneg i32 %220 to i64
   br label %224
 
 224:                                              ; preds = %228, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %228 ]
-  %225 = getelementptr inbounds i32, ptr %223, i64 %indvars.iv.i.i.i
+  %225 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv.i.i.i
   %226 = load i32, ptr %225, align 4
   %227 = icmp eq i32 %178, %226
   br i1 %227, label %._crit_edge.loopexit.i.i.i, label %228
@@ -503,12 +503,12 @@ Sim_SymmsIsCompatibleWithNodes.exit.i.i:          ; preds = %231, %174
   %indvars.iv.i22.i.i = phi i64 [ 0, %.lr.ph.i20.i.i ], [ %indvars.iv.next.i23.i.i, %239 ]
   %.023.i.i.i = phi i32 [ 0, %.lr.ph.i20.i.i ], [ %.1.i.i.i, %239 ]
   %.01622.i.i.i = phi i32 [ 0, %.lr.ph.i20.i.i ], [ %.117.i.i.i, %239 ]
-  %240 = getelementptr inbounds ptr, ptr %238, i64 %indvars.iv.i22.i.i
+  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %indvars.iv.i22.i.i
   %241 = load ptr, ptr %240, align 8
   %242 = ptrtoint ptr %241 to i64
   %243 = and i64 %242, -2
   %244 = inttoptr i64 %243 to ptr
-  %245 = getelementptr inbounds i8, ptr %244, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load i32, ptr %245, align 8
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i32, ptr %20, i64 %247
@@ -546,12 +546,12 @@ Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i:   ; preds = %Sim_SymmsIsCompatib
   %indvars.iv.i31.i.i = phi i64 [ 0, %.lr.ph.i29.i.i ], [ %indvars.iv.next.i37.i.i, %259 ]
   %.023.i32.i.i = phi i32 [ 0, %.lr.ph.i29.i.i ], [ %.1.i36.i.i, %259 ]
   %.01622.i33.i.i = phi i32 [ 0, %.lr.ph.i29.i.i ], [ %.117.i35.i.i, %259 ]
-  %260 = getelementptr inbounds ptr, ptr %258, i64 %indvars.iv.i31.i.i
+  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %indvars.iv.i31.i.i
   %261 = load ptr, ptr %260, align 8
   %262 = ptrtoint ptr %261 to i64
   %263 = and i64 %262, -2
   %264 = inttoptr i64 %263 to ptr
-  %265 = getelementptr inbounds i8, ptr %264, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %266 = load i32, ptr %265, align 8
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds i32, ptr %20, i64 %267
@@ -586,7 +586,7 @@ Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i: ; preds = %Sim_SymmsIsCompatib
 
 276:                                              ; preds = %275, %.lr.ph.i41.i.i
   %indvars.iv.i43.i.i = phi i64 [ 0, %.lr.ph.i41.i.i ], [ %indvars.iv.next.i44.i.i, %275 ]
-  %277 = getelementptr inbounds i32, ptr %274, i64 %indvars.iv.i43.i.i
+  %277 = getelementptr inbounds nuw i32, ptr %274, i64 %indvars.iv.i43.i.i
   %278 = load i32, ptr %277, align 4
   %279 = icmp eq i32 %278, %178
   br i1 %279, label %Vec_IntPushUnique.exit.i.i, label %275
@@ -714,7 +714,7 @@ Vec_PtrFree.exit40.i:                             ; preds = %317, %Vec_PtrFree.e
 
 Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.i, %319
   tail call void @free(ptr noundef nonnull %58) #7
-  %320 = getelementptr inbounds i8, ptr %45, i64 64
+  %320 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %155, ptr %320, align 8
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %.val = load i32, ptr %35, align 4
@@ -727,7 +727,7 @@ Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.
   %.val70103 = phi ptr [ %.val70100, %.lr.ph104 ], [ %.val70, %Sim_SymmsTransferToMatrix.exit ]
   %324 = getelementptr i8, ptr %.val70103, i64 8
   %.val71.val = load ptr, ptr %324, align 8
-  %325 = getelementptr inbounds ptr, ptr %.val71.val, i64 %indvars.iv122
+  %325 = getelementptr inbounds nuw ptr, ptr %.val71.val, i64 %indvars.iv122
   %326 = load ptr, ptr %325, align 8
   %.val68 = load ptr, ptr %326, align 8
   %327 = getelementptr i8, ptr %326, i64 32
@@ -752,7 +752,7 @@ Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.
   %336 = ptrtoint ptr %332 to i64
   %337 = and i64 %336, -2
   %338 = inttoptr i64 %337 to ptr
-  %339 = getelementptr inbounds i8, ptr %338, i64 20
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 20
   %340 = load i32, ptr %339, align 4
   %341 = and i32 %340, 15
   %.not87 = icmp eq i32 %341, 1
@@ -760,25 +760,25 @@ Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.
 
 342:                                              ; preds = %335
   %.val62 = load ptr, ptr %41, align 8
-  %343 = getelementptr inbounds ptr, ptr %.val62, i64 %indvars.iv122
+  %343 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv122
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %332, i64 64
+  %345 = getelementptr inbounds nuw i8, ptr %332, i64 64
   %346 = load ptr, ptr %345, align 8
   %.val63 = load ptr, ptr %42, align 8
-  %347 = getelementptr inbounds ptr, ptr %.val63, i64 %indvars.iv122
+  %347 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %indvars.iv122
   %348 = load ptr, ptr %347, align 8
   %349 = tail call i32 @Extra_BitMatrixReadSize(ptr noundef %344) #7
   %350 = icmp sgt i32 %349, 0
   br i1 %350, label %.lr.ph.i79, label %.preheader.i74
 
 .preheader.i74:                                   ; preds = %.lr.ph.i79, %342
-  %351 = getelementptr inbounds i8, ptr %346, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %346, i64 4
   %352 = load i32, ptr %351, align 4
   %353 = icmp sgt i32 %352, 0
   br i1 %353, label %.lr.ph28.i, label %Sim_SymmsTransferToMatrix.exit
 
 .lr.ph28.i:                                       ; preds = %.preheader.i74
-  %354 = getelementptr inbounds i8, ptr %346, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %346, i64 8
   br label %356
 
 .lr.ph.i79:                                       ; preds = %342, %.lr.ph.i79
@@ -792,13 +792,13 @@ Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.
   %357 = phi i32 [ %352, %.lr.ph28.i ], [ %380, %379 ]
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next.i78, %379 ]
   %358 = load ptr, ptr %354, align 8
-  %359 = getelementptr inbounds i32, ptr %358, i64 %indvars.iv.i76
+  %359 = getelementptr inbounds nuw i32, ptr %358, i64 %indvars.iv.i76
   %360 = load i32, ptr %359, align 4
   %361 = and i32 %360, 65535
   %362 = lshr i32 %360, 16
   %363 = lshr i32 %361, 5
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds i32, ptr %348, i64 %364
+  %365 = getelementptr inbounds nuw i32, ptr %348, i64 %364
   %366 = load i32, ptr %365, align 4
   %367 = and i32 %360, 31
   %368 = shl nuw i32 1, %367
@@ -809,7 +809,7 @@ Sim_SymmsStructComputeOne.exit:                   ; preds = %Vec_PtrFree.exit40.
 370:                                              ; preds = %356
   %371 = lshr i32 %360, 21
   %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr inbounds i32, ptr %348, i64 %372
+  %373 = getelementptr inbounds nuw i32, ptr %348, i64 %372
   %374 = load i32, ptr %373, align 4
   %375 = and i32 %362, 31
   %376 = shl nuw i32 1, %375
@@ -863,11 +863,11 @@ Sim_SymmsTransferToMatrix.exit:                   ; preds = %379, %323, %323, %.
   %.val60108 = phi ptr [ %.val60, %Vec_IntFree.exit ], [ %.val60105, %.critedge4 ]
   %391 = getelementptr i8, ptr %.val60108, i64 8
   %.val66.val = load ptr, ptr %391, align 8
-  %392 = getelementptr inbounds ptr, ptr %.val66.val, i64 %indvars.iv125
+  %392 = getelementptr inbounds nuw ptr, ptr %.val66.val, i64 %indvars.iv125
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 64
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 64
   %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load ptr, ptr %396, align 8
   %.not.i81 = icmp eq ptr %397, null
   br i1 %.not.i81, label %Vec_IntFree.exit, label %398
@@ -889,11 +889,11 @@ Vec_IntFree.exit:                                 ; preds = %.lr.ph109, %398
 402:                                              ; preds = %.lr.ph112, %Vec_IntFree.exit83
   %indvars.iv128 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next129, %Vec_IntFree.exit83 ]
   %.val64 = load ptr, ptr %390, align 8
-  %403 = getelementptr inbounds ptr, ptr %.val64, i64 %indvars.iv128
+  %403 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %indvars.iv128
   %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 64
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 64
   %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 8
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load ptr, ptr %407, align 8
   %.not.i82 = icmp eq ptr %408, null
   br i1 %.not.i82, label %Vec_IntFree.exit83, label %409
@@ -911,7 +911,7 @@ Vec_IntFree.exit83:                               ; preds = %402, %409
   br i1 %411, label %402, label %.critedge8, !llvm.loop !19
 
 .critedge8:                                       ; preds = %Vec_IntFree.exit83, %.critedge6.preheader
-  %412 = getelementptr inbounds i8, ptr %34, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %413 = load ptr, ptr %412, align 8
   %.not.i84 = icmp eq ptr %413, null
   br i1 %.not.i84, label %Vec_PtrFree.exit, label %414
@@ -1011,18 +1011,18 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %.lr.ph, %t
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph48, label %.loopexit44
 
 .lr.ph48:                                         ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 296
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %17
 
 .loopexit.loopexit:                               ; preds = %Vec_IntPushUnique.exit
@@ -1050,22 +1050,22 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   %22 = phi i32 [ %138, %Vec_IntPushUnique.exit ], [ %18, %17 ]
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %Vec_IntPushUnique.exit ], [ %indvars.iv, %17 ]
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv55
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv55
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv52
+  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv52
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %4, i64 %36
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %4, i64 %41
@@ -1084,7 +1084,7 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   %51 = lshr i32 %.030, 16
   %52 = load ptr, ptr %11, align 8
   %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = lshr i32 %.030, 5
   %57 = and i32 %56, 2047
@@ -1100,21 +1100,21 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
 
 65:                                               ; preds = %101, %.lr.ph8.i
   %indvars.iv15.i = phi i64 [ 0, %.lr.ph8.i ], [ %indvars.iv.next16.i, %101 ]
-  %66 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv15.i
+  %66 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv15.i
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %55, i64 %73
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i32, ptr %75, i64 %58
+  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %58
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, %60
   %79 = icmp ne i32 %78, 0
-  %80 = getelementptr inbounds i32, ptr %75, i64 %62
+  %80 = getelementptr inbounds nuw i32, ptr %75, i64 %62
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %64
   %83 = icmp ne i32 %82, 0
@@ -1126,22 +1126,22 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   br i1 %85, label %Vec_IntPushUnique.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %70, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8
   %wide.trip.count.i = zext nneg i32 %90 to i64
   br label %94
 
 94:                                               ; preds = %98, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
-  %95 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %.030, %96
   br i1 %97, label %._crit_edge.loopexit.i, label %98
@@ -1182,7 +1182,7 @@ Sim_SymmsIsCompatibleWithNodes.exit:              ; preds = %101, %.lr.ph
 
 106:                                              ; preds = %105, %.lr.ph.i35
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i38, %105 ]
-  %107 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i37
+  %107 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i37
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, %.030
   br i1 %109, label %Vec_IntPushUnique.exit, label %105
@@ -1266,13 +1266,13 @@ Vec_IntPushUnique.exit:                           ; preds = %._crit_edge.i, %84,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -1284,7 +1284,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -1295,7 +1295,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %14, label %15, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1304,7 +1304,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i.i = icmp eq ptr %19, null
   br i1 %.not9.i.i, label %22, label %20
@@ -1325,7 +1325,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
 
 25:                                               ; preds = %15
   %26 = shl nuw nsw i32 %4, 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i10.i = icmp eq ptr %28, null
   %29 = zext nneg i32 %26 to i64

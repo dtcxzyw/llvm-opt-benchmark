@@ -73,9 +73,9 @@ define dso_local void @_ZNK4llvm10AsmPrinter16emitEncodingByteEjPKc(ptr nocaptur
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %15, %16
   %.sink = phi i8 [ 1, %15 ], [ 3, %16 ]
   %.sroa.05.0.i.i13 = phi ptr [ @.str, %15 ], [ %5, %16 ]
-  %.sroa.459.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %.sroa.459.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 33
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %.sink, ptr %.sroa.8.0..sroa_idx, align 1
   switch i32 %1, label %36 [
     i32 0, label %_ZL19DecodeDWARFEncodingj.exit
@@ -271,16 +271,16 @@ _ZL19DecodeDWARFEncodingj.exit26:                 ; preds = %42, %43, %44, %45, 
 
 _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %_ZL19DecodeDWARFEncodingj.exit26, %63
   %.sink66 = phi i8 [ 3, %63 ], [ 1, %_ZL19DecodeDWARFEncodingj.exit26 ]
-  %.sroa.350.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %.sroa.350.0..sroa_idx, align 8
-  %.sroa.551.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 33
+  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 %.sink66, ptr %.sroa.551.0..sroa_idx, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit8, %38, %_ZN4llvmplERKNS_5TwineES2_.exit44
   %.sink67 = phi ptr [ %6, %_ZN4llvmplERKNS_5TwineES2_.exit44 ], [ %4, %38 ], [ %4, %_ZN4llvm5TwineC2EPKc.exit8 ]
   %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull align 8 dereferenceable(34) %.sink67, i1 noundef zeroext true) #6
   br label %68
@@ -290,7 +290,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %_ZL19DecodeDWARFEnc
   %70 = load ptr, ptr %69, align 8
   %71 = zext i32 %1 to i64
   %72 = load ptr, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 520
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 520
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(288) %70, i64 noundef %71, i32 noundef 1) #6
   ret void
@@ -345,7 +345,7 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitTTypeReferenceEPKNS_11GlobalVal
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull align 1 %7, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(288) %11) #6
   %16 = load ptr, ptr %10, align 8
@@ -416,7 +416,7 @@ _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %4, %18, %21, %26
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit8: ; preds = %28, %32, %35, %40, %41
   %.0.i7 = phi i32 [ 8, %41 ], [ 4, %40 ], [ %39, %35 ], [ 0, %28 ], [ %33, %32 ]
   %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 520
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 520
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(288) %30, i64 noundef 0, i32 noundef %.0.i7) #6
   br label %45
@@ -445,7 +445,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter24emitDwarfSymbolReferenceEPKNS_8MCS
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 368
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef %1, i64 noundef 0) #6
   br label %39
@@ -521,7 +521,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter21emitDwarfStringOffsetENS_20DwarfSt
   %12 = load i64, ptr %11, align 8
   %13 = tail call noundef i32 @_ZNK4llvm10AsmPrinter22getDwarfOffsetByteSizeEv(ptr noundef nonnull align 8 dereferenceable(785) %0) #6
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 520
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 520
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(288) %10, i64 noundef %12, i32 noundef %13) #6
   br label %17
@@ -545,7 +545,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter23emitDwarfLengthOrOffsetEm(ptr noun
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 @_ZNK4llvm10AsmPrinter22getDwarfOffsetByteSizeEv(ptr noundef nonnull align 8 dereferenceable(785) %0) #6
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 520
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 520
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(288) %4, i64 noundef %1, i32 noundef %5) #6
   ret void
@@ -556,7 +556,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter19emitDwarfUnitLengthEmRKNS_5TwineE(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1264
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(288) %5, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #6
   ret void
@@ -567,7 +567,7 @@ define dso_local noundef ptr @_ZNK4llvm10AsmPrinter19emitDwarfUnitLengthERKNS_5T
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1272
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) #6
   ret ptr %9
@@ -665,7 +665,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter17emitCallSiteValueEmj(ptr noundef n
 _ZNK4llvm10AsmPrinter21GetSizeOfEncodedValueEj.exit: ; preds = %7, %11, %13, %18, %19
   %.0.i = phi i32 [ 8, %19 ], [ 4, %18 ], [ %17, %13 ], [ 0, %7 ], [ %4, %11 ]
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 520
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 520
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(288) %9, i64 noundef %1, i32 noundef %.0.i) #6
   br label %23
@@ -711,7 +711,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i = load i64, ptr %.0.in.i, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 888
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %.0.i, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -720,7 +720,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i39 = load i64, ptr %.0.in.i38, align 8
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 976
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 976
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %.0.i39, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -732,7 +732,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i43 = load i64, ptr %.0.in.i42, align 8
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 880
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 880
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %19, i64 noundef %.0.i43, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -742,7 +742,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.i45 = load i32, ptr %.0.in.i44, align 8
   %24 = zext i32 %.0.i45 to i64
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 896
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 896
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %24, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -757,7 +757,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 904
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %29, i64 noundef %.0.i49, i64 noundef %32, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -769,7 +769,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i53 = load i64, ptr %.0.in.i52, align 8
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 912
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 912
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %37, i64 noundef %.0.i53, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -782,21 +782,21 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1024
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1024
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %42, i64 noundef %45, ptr %.sroa.0.0.copyload.i) #6
   br label %105
 
 49:                                               ; preds = %2
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1032
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1032
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr %.sroa.0.0.copyload.i) #6
   br label %105
 
 53:                                               ; preds = %2
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1040
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1040
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -806,7 +806,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.i57 = load i32, ptr %.0.in.i56, align 8
   %58 = zext i32 %.0.i57 to i64
   %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 952
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %58, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -815,7 +815,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i59 = load i64, ptr %.0.in.i58, align 8
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1000
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1000
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %.0.i59, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -832,7 +832,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %69, ptr %72, align 8
   %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 120
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 120
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull align 8 dereferenceable(34) %3, i1 noundef zeroext true) #6
   %76 = load ptr, ptr %7, align 8
@@ -844,7 +844,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %82 = ptrtoint ptr %78 to i64
   %83 = sub i64 %81, %82
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 984
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 984
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(288) %76, ptr %78, i64 %83, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -854,7 +854,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.i63 = load i32, ptr %.0.in.i62, align 8
   %88 = zext i32 %.0.i63 to i64
   %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 960
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 960
   %91 = load ptr, ptr %90, align 8
   tail call void %91(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %88, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -864,21 +864,21 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.i65 = load i32, ptr %.0.in.i64, align 8
   %93 = zext i32 %.0.i65 to i64
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1016
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1016
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull align 8 dereferenceable(288) %8, i64 noundef %93, ptr %.sroa.0.0.copyload.i) #6
   br label %105
 
 97:                                               ; preds = %2
   %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 936
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 936
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr %.sroa.0.0.copyload.i) #6
   br label %105
 
 101:                                              ; preds = %2
   %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 944
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 944
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(288) %8, ptr %.sroa.0.0.copyload.i) #6
   br label %105
@@ -975,14 +975,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit107:               ; preds = %2
   store ptr %4, ptr %3, align 8, !alias.scope !49
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %52, ptr %53, align 8, !alias.scope !49
-  %.sroa.2.0..sroa_idx.i.i.i106 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i106 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %51, ptr %.sroa.2.0..sroa_idx.i.i.i106, align 8, !alias.scope !49
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 2, ptr %54, align 8, !alias.scope !49
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 5, ptr %55, align 1, !alias.scope !49
   %56 = load ptr, ptr %19, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(288) %19, ptr noundef nonnull align 8 dereferenceable(34) %3, i1 noundef zeroext true) #6
   br label %59
@@ -992,7 +992,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit107:               ; preds = %2
   %61 = load i32, ptr %60, align 8
   %62 = zext i32 %61 to i64
   call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(785) %0, i64 noundef %62, ptr noundef null, i32 noundef 0) #6
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %select.unfold._crit_edge, label %_ZNK4llvm12DIEValueList6valuesEv.exit
@@ -1034,7 +1034,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %59
   store ptr %83, ptr %12, align 8
   store i64 %84, ptr %69, align 8
   %85 = load ptr, ptr %80, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 120
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(288) %80, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #6
   %88 = icmp eq i16 %79, 50
@@ -1053,7 +1053,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %59
   store ptr %95, ptr %13, align 8
   store i64 %96, ptr %72, align 8
   %97 = load ptr, ptr %90, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 120
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(288) %90, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #6
   br label %select.unfold
@@ -1109,7 +1109,7 @@ select.unfold135._crit_edge:                      ; preds = %select.unfold135, %
   store ptr @.str.6, ptr %14, align 8
   store i8 3, ptr %114, align 8
   %116 = load ptr, ptr %113, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 120
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 120
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(288) %113, ptr noundef nonnull align 8 dereferenceable(34) %14, i1 noundef zeroext true) #6
   call void @_ZNK4llvm10AsmPrinter8emitInt8Ei(ptr noundef nonnull align 8 dereferenceable(785) %0, i32 noundef 0) #6

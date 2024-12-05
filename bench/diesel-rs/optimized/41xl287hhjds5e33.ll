@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a78d19a38694946E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [11 x i64] }, align 8
   %4 = alloca { i64, [11 x i64] }, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %6 = load ptr, ptr %5, align 8, !noundef !3
   %7 = icmp eq ptr %6, null
@@ -59,7 +59,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h42d8c60fb28be8f6E.exit: ; pred
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h929be24131a8d523E"(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h916b2c8727918f7dE.exit, label %5
@@ -141,7 +141,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h728ee88dbe0c2149E.exit: ; preds = %9, %11
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3)
-  %18 = getelementptr inbounds i8, ptr %1, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 328
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hb5a75045c1a3cc1dE"(ptr sret({ i64, [40 x i64] }) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 8 %18)
   ret void
 }
@@ -155,7 +155,7 @@ define { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = tail call { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0db2f195dff8c13eE"(ptr nonnull align 4 %6)
   %.fca.0.extract = extractvalue { i64, ptr } %7, 0
   %.fca.1.extract = extractvalue { i64, ptr } %7, 1
@@ -178,7 +178,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52775377030e6f53E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nonnull align 8 %7)
   br label %9
 

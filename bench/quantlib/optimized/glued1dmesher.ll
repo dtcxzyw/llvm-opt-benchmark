@@ -370,7 +370,7 @@ invoke.cont79:                                    ; preds = %if.then.i.i.i.i.i, 
   %46 = phi i8 [ %.pre139, %if.then.i.i.i.i.i ], [ %storedv, %do.end ]
   %47 = phi ptr [ %.pre, %if.then.i.i.i.i.i ], [ %12, %do.end ]
   %conv91 = zext nneg i8 %46 to i64
-  %add.ptr.i = getelementptr inbounds double, ptr %47, i64 %conv91
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %47, i64 %conv91
   %48 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !13
   %tobool.not.i.i.i.i.i104 = icmp eq ptr %48, %add.ptr.i
   br i1 %tobool.not.i.i.i.i.i104, label %invoke.cont113, label %if.then.i.i.i.i.i105
@@ -640,7 +640,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !11
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -653,7 +653,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !11
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

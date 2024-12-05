@@ -30,20 +30,20 @@ define hidden void @_ZN25G1OldGenAllocationTrackerC2Ev(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25G1OldGenAllocationTracker14reset_after_gcEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %spec.select
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %6
   store i64 %11, ptr %0, align 8
   store i64 %1, ptr %3, align 8
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_146ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_146ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
 

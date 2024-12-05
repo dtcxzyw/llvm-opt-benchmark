@@ -72,14 +72,14 @@ define void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22InteractionDef
   %11 = load i32, ptr %0, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  %16 = getelementptr inbounds i8, ptr %3, i64 2696
-  %17 = getelementptr inbounds i8, ptr %3, i64 2320
-  %18 = getelementptr inbounds i8, ptr %0, i64 92
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2696
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2320
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.not99120.i = icmp slt i32 %11, 0
   br label %21
 
@@ -87,7 +87,7 @@ define void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22InteractionDef
   %indvars.iv144.i = phi i64 [ 0, %4 ], [ %indvars.iv.next145.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
   %.085129.i = phi i32 [ 0, %4 ], [ %.1.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
   %.089128.i = phi i64 [ 0, %4 ], [ %.190.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
-  %22 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv144.i, i32 5
+  %22 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv144.i, i32 5
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not.i.i = icmp eq i32 %24, 0
@@ -102,8 +102,8 @@ define void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22InteractionDef
   ]
 
 _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %25
-  %27 = getelementptr inbounds [94 x %struct.InteractionList], ptr %15, i64 0, i64 %indvars.iv144.i
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %27 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %15, i64 0, i64 %indvars.iv144.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %27, align 8
   %31 = ptrtoint ptr %29 to i64
@@ -116,7 +116,7 @@ _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %25
   br i1 %or.cond115.i, label %37, label %48
 
 37:                                               ; preds = %_ZL25ftype_is_bonded_potentiali.exit.i
-  %38 = getelementptr inbounds [8 x i32], ptr @_ZN3gmxL11fTypesOnGpuE, i64 0, i64 %.089128.i
+  %38 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3gmxL11fTypesOnGpuE, i64 0, i64 %.089128.i
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp eq i64 %indvars.iv144.i, %40
@@ -129,7 +129,7 @@ _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %25
   br i1 %.not.i101.i, label %.preheader117.i, label %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i
 
 _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
-  %45 = getelementptr inbounds [94 x i32], ptr %17, i64 0, i64 %indvars.iv144.i
+  %45 = getelementptr inbounds nuw [94 x i32], ptr %17, i64 0, i64 %indvars.iv144.i
   %46 = load i32, ptr %45, align 4
   %47 = icmp ne i32 %46, %35
   %cond.fr.i = freeze i1 %47
@@ -170,7 +170,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
   %60 = icmp sle i32 %11, %59
   %61 = icmp eq i64 %indvars.iv144.i, 54
   %or.cond.i = or i1 %61, %60
-  %62 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv144.i, i32 2
+  %62 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv144.i, i32 2
   %63 = load i32, ptr %62, align 16
   br i1 %or.cond.i, label %64, label %107
 
@@ -223,7 +223,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
 
 85:                                               ; preds = %.preheader.i
   %86 = load ptr, ptr %27, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds %union.t_iparams, ptr %13, i64 %89, i32 0, i32 1, i64 2
@@ -263,10 +263,10 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
 107:                                              ; preds = %58
   %108 = sext i32 %.085129.i to i64
   %109 = getelementptr inbounds [94 x %struct.ilist_data_t], ptr %7, i64 0, i64 %108
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 %26, ptr %110, align 8
   store ptr %27, ptr %109, align 16
-  %111 = getelementptr inbounds i8, ptr %109, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 %63, ptr %111, align 4
   %112 = load i32, ptr %19, align 8
   %113 = mul nsw i32 %112, %26
@@ -303,20 +303,20 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
 
 .lr.ph73.i.i:                                     ; preds = %.preheader62.i.i
   %.not116.i = icmp eq i32 %.1.i, 1
-  %124 = getelementptr inbounds i8, ptr %7, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %125 = load i32, ptr %124, align 4
   %126 = add i32 %125, 1
   %127 = load ptr, ptr %7, align 16
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = sext i32 %126 to i64
   br label %150
 
 130:                                              ; preds = %130, %120
   %indvars.iv.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i, %130 ]
   %.05264.i.i = phi i32 [ 0, %120 ], [ %146, %130 ]
-  %131 = getelementptr inbounds %struct.ilist_data_t, ptr %7, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw %struct.ilist_data_t, ptr %7, i64 %indvars.iv.i.i
   %132 = load ptr, ptr %131, align 16
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -324,15 +324,15 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
   %138 = sub i64 %136, %137
   %139 = lshr exact i64 %138, 2
   %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %131, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 12
   %142 = load i32, ptr %141, align 4
   %143 = add nsw i32 %142, 1
   %144 = sdiv i32 %140, %143
   %145 = mul nsw i32 %144, %142
   %146 = add nsw i32 %145, %.05264.i.i
-  %147 = getelementptr inbounds i8, ptr %135, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %149 = getelementptr inbounds nuw [94 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
   store i32 %148, ptr %149, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %121
@@ -398,10 +398,10 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.preheader60.i.i
   %indvars.iv76.i.i = phi i64 [ %indvars.iv.next77.i.i, %.lr.ph.i.i ], [ 1, %.preheader60.i.i ]
   %.066.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.preheader60.i.i ]
-  %169 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %indvars.iv76.i.i
+  %169 = getelementptr inbounds nuw [94 x i32], ptr %6, i64 0, i64 %indvars.iv76.i.i
   %170 = load i32, ptr %169, align 4
   %171 = zext nneg i32 %.066.i.i to i64
-  %172 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [94 x i32], ptr %6, i64 0, i64 %171
   %173 = load i32, ptr %172, align 4
   %174 = icmp slt i32 %170, %173
   %175 = trunc nuw nsw i64 %indvars.iv76.i.i to i32
@@ -412,17 +412,17 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %176 = zext nneg i32 %spec.select.i.i to i64
-  %177 = getelementptr inbounds %struct.ilist_data_t, ptr %7, i64 %176
-  %178 = getelementptr inbounds i8, ptr %177, i64 12
+  %177 = getelementptr inbounds nuw %struct.ilist_data_t, ptr %7, i64 %176
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 12
   %179 = load i32, ptr %178, align 4
   %180 = add nsw i32 %179, 1
-  %181 = getelementptr inbounds [94 x i32], ptr %5, i64 0, i64 %176
+  %181 = getelementptr inbounds nuw [94 x i32], ptr %5, i64 0, i64 %176
   %182 = load i32, ptr %181, align 4
   %183 = add nsw i32 %180, %182
   store i32 %183, ptr %181, align 4
   %184 = add nsw i32 %179, %.15767.i.i
   %185 = load ptr, ptr %177, align 16
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %185, align 8
   %189 = ptrtoint ptr %187 to i64
@@ -442,16 +442,16 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
 
 200:                                              ; preds = %195, %._crit_edge.loopexit.i.i
   %.sink.i.i = phi i32 [ %199, %195 ], [ 2147483647, %._crit_edge.loopexit.i.i ]
-  %201 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %176
+  %201 = getelementptr inbounds nuw [94 x i32], ptr %6, i64 0, i64 %176
   store i32 %.sink.i.i, ptr %201, align 4
   %202 = icmp slt i32 %184, %153
   br i1 %202, label %.preheader60.i.i, label %.preheader61.i.i, !llvm.loop !10
 
 203:                                              ; preds = %203, %.preheader61.i.i
   %indvars.iv81.i.i = phi i64 [ 0, %.preheader61.i.i ], [ %indvars.iv.next82.i.i, %203 ]
-  %204 = getelementptr inbounds %struct.ilist_data_t, ptr %7, i64 %indvars.iv81.i.i, i32 1
+  %204 = getelementptr inbounds nuw %struct.ilist_data_t, ptr %7, i64 %indvars.iv81.i.i, i32 1
   %205 = load i32, ptr %204, align 8
-  %206 = getelementptr inbounds [94 x i32], ptr %5, i64 0, i64 %indvars.iv81.i.i
+  %206 = getelementptr inbounds nuw [94 x i32], ptr %5, i64 0, i64 %indvars.iv81.i.i
   %207 = load i32, ptr %206, align 4
   %208 = load i32, ptr %19, align 8
   %209 = mul nsw i32 %208, %205
@@ -487,7 +487,7 @@ _ZL26divide_bondeds_by_localityP18bonded_threading_tiPK12ilist_data_t.exit.i: ; 
 
 222:                                              ; preds = %_ZL25ftype_is_bonded_potentiali.exit103.thread.i, %219
   %indvars.iv154.i = phi i64 [ 0, %219 ], [ %indvars.iv.next155.i, %_ZL25ftype_is_bonded_potentiali.exit103.thread.i ]
-  %223 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i, i32 5
+  %223 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i, i32 5
   %224 = load i32, ptr %223, align 4
   %225 = and i32 %224, 1
   %.not.i102.i = icmp eq i32 %225, 0
@@ -502,22 +502,22 @@ _ZL26divide_bondeds_by_localityP18bonded_threading_tiPK12ilist_data_t.exit.i: ; 
   ]
 
 _ZL25ftype_is_bonded_potentiali.exit103.i:        ; preds = %226
-  %228 = getelementptr inbounds [94 x %struct.InteractionList], ptr %15, i64 0, i64 %indvars.iv154.i
+  %228 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %15, i64 0, i64 %indvars.iv154.i
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %228, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %229, %231
   br i1 %232, label %_ZL25ftype_is_bonded_potentiali.exit103.thread.i, label %233
 
 233:                                              ; preds = %_ZL25ftype_is_bonded_potentiali.exit103.i
   %234 = load ptr, ptr @debug, align 8
-  %235 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i
+  %235 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i
   %236 = load ptr, ptr %235, align 16
   %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.1, ptr noundef %236) #2
   br i1 %221, label %.lr.ph132.i, label %._crit_edge.i
 
 .lr.ph132.i:                                      ; preds = %233
-  %238 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i, i32 2
+  %238 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv154.i, i32 2
   br label %239
 
 239:                                              ; preds = %239, %.lr.ph132.i
@@ -564,7 +564,7 @@ _ZL27divide_bondeds_over_threadsP18bonded_threading_tbRK22InteractionDefinitions
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %262)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_Z22setup_bonded_threadingP18bonded_threading_tibRK22InteractionDefinitions.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %3)
   %263 = load ptr, ptr %8, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   call void @_ZN3gmx19ThreadedForceBufferIA4_fE14setupReductionEv(ptr noundef nonnull align 8 dereferenceable(80) %264)
   br label %265
 
@@ -600,14 +600,14 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %4, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %88
   %.027 = phi i32 [ %19, %.lr.ph ], [ %38, %88 ]
   %22 = load i32, ptr %3, align 4
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = invoke noundef nonnull align 8 dereferenceable(284) ptr @_ZN3gmx19ThreadedForceBufferIA4_fE17threadForceBufferEi(ptr noundef nonnull align 8 dereferenceable(80) %24, i32 noundef %.027)
           to label %26 unwind label %.loopexit.split-lp.loopexit
 
@@ -642,14 +642,14 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %35
-  %36 = getelementptr inbounds i8, ptr %27, i64 96
-  %37 = getelementptr inbounds i8, ptr %27, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %38 = add nsw i32 %.027, 1
   br label %39
 
 39:                                               ; preds = %_ZL25ftype_is_bonded_potentiali.exit.thread.i, %.noexc19
   %indvars.iv44.i = phi i64 [ 0, %.noexc19 ], [ %indvars.iv.next45.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
-  %40 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv44.i, i32 5
+  %40 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv44.i, i32 5
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 1
   %.not.i.i = icmp eq i32 %42, 0
@@ -664,8 +664,8 @@ define internal void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22Inter
   ]
 
 _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %43
-  %45 = getelementptr inbounds [94 x %struct.InteractionList], ptr %20, i64 0, i64 %indvars.iv44.i
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %45 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %20, i64 0, i64 %indvars.iv44.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %45, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -677,7 +677,7 @@ _ZL25ftype_is_bonded_potentiali.exit.i:           ; preds = %43
   br i1 %54, label %55, label %_ZL25ftype_is_bonded_potentiali.exit.thread.i
 
 55:                                               ; preds = %_ZL25ftype_is_bonded_potentiali.exit.i
-  %56 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv44.i, i32 2
+  %56 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv44.i, i32 2
   %57 = load i32, ptr %56, align 16
   %58 = load i32, ptr %36, align 8
   %59 = mul nsw i32 %58, %44
@@ -848,7 +848,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #2
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -856,7 +856,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -905,7 +905,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -956,17 +956,17 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18bonded_threading_tC2EiiP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3gmx19ThreadedForceBufferIA4_fEC1Eibi(ptr noundef nonnull align 8 dereferenceable(80) %5, i32 noundef %1, i1 noundef zeroext true, i32 noundef %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %0, align 8
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = mul nsw i32 %10, 94
   %13 = sext i32 %12 to i64
   %14 = icmp slt i32 %9, -1
@@ -992,7 +992,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 .noexc13:                                         ; preds = %.noexc3.i
   store ptr %16, ptr %11, align 8
   %17 = getelementptr i32, ptr %16, i64 %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %17, ptr %18, align 8
   store i32 0, ptr %16, align 4
   %19 = getelementptr i8, ptr %16, i64 4
@@ -1003,21 +1003,21 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 21:                                               ; preds = %.noexc13, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %22 = phi ptr [ %16, %.noexc13 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.0.i.i.i.i.i.i = phi ptr [ %17, %.noexc13 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.0.i.i.i.i.i.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %26 = invoke noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #21
           to label %27 unwind label %39
 
 27:                                               ; preds = %21
   store ptr %26, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 752
-  %29 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 752
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(752) %26, i8 0, i64 752, i1 false)
   store ptr %28, ptr %30, align 8
   %31 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #2
@@ -1072,7 +1072,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19ThreadedForceBufferIA4_fED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, label %4
@@ -1082,7 +1082,7 @@ define linkonce_odr void @_ZN3gmx19ThreadedForceBufferIA4_fED2Ev(ptr noundef non
   br label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit:    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1 = icmp eq ptr %6, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %7
@@ -1092,9 +1092,9 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit:    ; preds = %1, %4
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not4.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1112,7 +1112,7 @@ _ZNKSt14default_deleteIN3gmx17ThreadForceBufferIA4_fEEEclEPS3_.exit.i.i.i.i.i.i:
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx17ThreadForceBufferIA4_fEEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i, align 8
-  %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %11
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ThreadForceBufferIA4_fEESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
@@ -1144,7 +1144,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17ThreadForceBufferIA4_fED2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %3
 
 3:                                                ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %1
@@ -1164,7 +1164,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %3
   br i1 %6, label %_ZN17gmx_grppairener_tD2Ev.exit, label %3
 
 _ZN17gmx_grppairener_tD2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %9
@@ -1174,7 +1174,7 @@ _ZN17gmx_grppairener_tD2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN17gmx_grppairener_tD2Ev.exit, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i1 = icmp eq ptr %11, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, label %12
@@ -1184,7 +1184,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN17gmx_grppairene
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i2 = icmp eq ptr %14, null
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %15
@@ -1194,7 +1194,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIfS
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i3 = icmp eq ptr %17, null
   br i1 %.not.i.i.i3, label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, label %18

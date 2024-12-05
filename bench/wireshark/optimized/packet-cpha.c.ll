@@ -297,7 +297,7 @@ define internal i32 @dissect_cpha(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not, label %10, label %65
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.72) #2
   %13 = load ptr, ptr %11, align 8

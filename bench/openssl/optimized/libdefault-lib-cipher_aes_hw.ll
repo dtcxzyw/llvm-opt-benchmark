@@ -98,17 +98,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cipher_hw_aesni_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks1 = getelementptr inbounds i8, ptr %dat, i64 192
-  %ks2 = getelementptr inbounds i8, ptr %dat, i64 176
+  %ks1 = getelementptr inbounds nuw i8, ptr %dat, i64 192
+  %ks2 = getelementptr inbounds nuw i8, ptr %dat, i64 176
   store ptr %ks1, ptr %ks2, align 8
-  %mode = getelementptr inbounds i8, ptr %dat, i64 64
+  %mode = getelementptr inbounds nuw i8, ptr %dat, i64 64
   %0 = load i32, ptr %mode, align 8
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %enc = getelementptr inbounds i8, ptr %dat, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %dat, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -118,12 +118,12 @@ if.then:                                          ; preds = %land.lhs.true
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
   %call = tail call i32 @aesni_set_decrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ks1) #5
-  %block = getelementptr inbounds i8, ptr %dat, i64 48
+  %block = getelementptr inbounds nuw i8, ptr %dat, i64 48
   store ptr @aesni_decrypt, ptr %block, align 8
   %2 = load i32, ptr %mode, align 8
   %cmp6 = icmp eq i32 %2, 2
   %cond = select i1 %cmp6, ptr @aesni_cbc_encrypt, ptr null
-  %stream = getelementptr inbounds i8, ptr %dat, i64 56
+  %stream = getelementptr inbounds nuw i8, ptr %dat, i64 56
   store ptr %cond, ptr %stream, align 8
   br label %if.end26
 
@@ -131,10 +131,10 @@ if.else:                                          ; preds = %entry, %land.lhs.tr
   %keylen.tr19 = trunc i64 %keylen to i32
   %conv9 = shl i32 %keylen.tr19, 3
   %call10 = tail call i32 @aesni_set_encrypt_key(ptr noundef %key, i32 noundef %conv9, ptr noundef nonnull %ks1) #5
-  %block11 = getelementptr inbounds i8, ptr %dat, i64 48
+  %block11 = getelementptr inbounds nuw i8, ptr %dat, i64 48
   store ptr @aesni_encrypt, ptr %block11, align 8
   %3 = load i32, ptr %mode, align 8
-  %stream24 = getelementptr inbounds i8, ptr %dat, i64 56
+  %stream24 = getelementptr inbounds nuw i8, ptr %dat, i64 56
   switch i32 %3, label %if.else23 [
     i32 2, label %if.then15
     i32 5, label %if.then21
@@ -171,10 +171,10 @@ return:                                           ; preds = %if.end26, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_aesni_cbc(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 176
+  %ks1 = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %0 = load ptr, ptr %ks1, align 8
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
@@ -187,8 +187,8 @@ entry:
 define internal void @cipher_hw_aes_copyctx(ptr noundef initializes((0, 448)) %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %dst, ptr noundef nonnull align 8 dereferenceable(448) %src, i64 448, i1 false)
-  %ks = getelementptr inbounds i8, ptr %dst, i64 192
-  %ks1 = getelementptr inbounds i8, ptr %dst, i64 176
+  %ks = getelementptr inbounds nuw i8, ptr %dst, i64 192
+  %ks1 = getelementptr inbounds nuw i8, ptr %dst, i64 176
   store ptr %ks, ptr %ks1, align 8
   ret void
 }
@@ -217,17 +217,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cipher_hw_aes_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks1 = getelementptr inbounds i8, ptr %dat, i64 192
-  %ks2 = getelementptr inbounds i8, ptr %dat, i64 176
+  %ks1 = getelementptr inbounds nuw i8, ptr %dat, i64 192
+  %ks2 = getelementptr inbounds nuw i8, ptr %dat, i64 176
   store ptr %ks1, ptr %ks2, align 8
-  %mode = getelementptr inbounds i8, ptr %dat, i64 64
+  %mode = getelementptr inbounds nuw i8, ptr %dat, i64 64
   %0 = load i32, ptr %mode, align 8
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %land.lhs.true, label %if.else32
 
 land.lhs.true:                                    ; preds = %entry
-  %enc = getelementptr inbounds i8, ptr %dat, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %dat, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -237,7 +237,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %2, 512
   %tobool5.not = icmp eq i32 %and, 0
-  %block25 = getelementptr inbounds i8, ptr %dat, i64 48
+  %block25 = getelementptr inbounds nuw i8, ptr %dat, i64 48
   br i1 %tobool5.not, label %if.else21, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.then
@@ -273,7 +273,7 @@ if.else32:                                        ; preds = %entry, %land.lhs.tr
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and33 = and i32 %5, 512
   %tobool34.not = icmp eq i32 %and33, 0
-  %block62 = getelementptr inbounds i8, ptr %dat, i64 48
+  %block62 = getelementptr inbounds nuw i8, ptr %dat, i64 48
   br i1 %tobool34.not, label %if.else58, label %land.lhs.true35
 
 land.lhs.true35:                                  ; preds = %if.else32
@@ -308,7 +308,7 @@ if.else58:                                        ; preds = %if.else32
 if.end70:                                         ; preds = %if.then39, %if.else58, %if.then48, %if.then9, %if.else21, %if.then12
   %ossl_bsaes_ctr32_encrypt_blocks.sink = phi ptr [ @ossl_bsaes_ctr32_encrypt_blocks, %if.then39 ], [ %cond66, %if.else58 ], [ %cond56, %if.then48 ], [ @ossl_bsaes_cbc_encrypt, %if.then9 ], [ %cond29, %if.else21 ], [ %cond, %if.then12 ]
   %ret.0 = phi i32 [ %call42, %if.then39 ], [ %call61, %if.else58 ], [ %call51, %if.then48 ], [ %call, %if.then9 ], [ %call24, %if.else21 ], [ %call15, %if.then12 ]
-  %stream44 = getelementptr inbounds i8, ptr %dat, i64 56
+  %stream44 = getelementptr inbounds nuw i8, ptr %dat, i64 56
   store ptr %ossl_bsaes_ctr32_encrypt_blocks.sink, ptr %stream44, align 8
   %cmp71 = icmp slt i32 %ret.0, 0
   br i1 %cmp71, label %if.then73, label %return
@@ -353,15 +353,15 @@ declare void @vpaes_encrypt(ptr noundef, ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cipher_hw_aesni_ecb(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %blocksize = getelementptr inbounds i8, ptr %ctx, i64 88
+  %blocksize = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
   %cmp = icmp ult i64 %len, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ks = getelementptr inbounds i8, ptr %ctx, i64 176
+  %ks = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %1 = load ptr, ptr %ks, align 8
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1

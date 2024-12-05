@@ -18,41 +18,41 @@ define dso_local i32 @uv_getnameinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 2 dereferenceable(16) %3, i64 16, i1 false)
   br label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 2 dereferenceable(28) %3, i64 28, i1 false)
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 9, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 248
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store i32 %4, ptr %20, align 8
   store i32 9, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 1312
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   store i32 0, ptr %22, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @uv__work_submit(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef 2, ptr noundef nonnull @uv__getnameinfo_work, ptr noundef nonnull @uv__getnameinfo_done) #4
   br label %43
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %1, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %27 = load i16, ptr %26, align 8
   switch i16 %27, label %29 [
     i16 2, label %uv__getnameinfo_work.exit
@@ -68,13 +68,13 @@ define dso_local i32 @uv_getnameinfo(ptr noundef %0, ptr noundef %1, ptr noundef
 
 uv__getnameinfo_work.exit:                        ; preds = %25, %28
   %.0.i = phi i32 [ 28, %28 ], [ 16, %25 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 252
-  %31 = getelementptr inbounds i8, ptr %1, i64 1277
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1277
   %32 = tail call i32 @getnameinfo(ptr noundef nonnull %26, i32 noundef %.0.i, ptr noundef nonnull %30, i32 noundef 1025, ptr noundef nonnull %31, i32 noundef 32, i32 noundef %4) #4
   %33 = tail call i32 @uv__getaddrinfo_translate_error(i32 noundef %32) #4
   store i32 %33, ptr %22, align 8
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %35, align 8
@@ -106,7 +106,7 @@ declare void @uv__work_submit(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__getnameinfo_work(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i16, ptr %2, align 8
   switch i16 %3, label %5 [
     i16 2, label %6
@@ -122,13 +122,13 @@ define internal void @uv__getnameinfo_work(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1, %4
   %.0 = phi i32 [ 28, %4 ], [ 16, %1 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 180
-  %8 = getelementptr inbounds i8, ptr %0, i64 1205
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1205
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @getnameinfo(ptr noundef nonnull %2, i32 noundef %.0, ptr noundef nonnull %7, i32 noundef 1025, ptr noundef nonnull %8, i32 noundef 32, i32 noundef %10) #4
   %12 = tail call i32 @uv__getaddrinfo_translate_error(i32 noundef %11) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1240
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   store i32 %12, ptr %13, align 8
   ret void
 }
@@ -138,12 +138,12 @@ define internal void @uv__getnameinfo_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -72
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 8
   %9 = icmp eq i32 %1, -125
-  %10 = getelementptr inbounds i8, ptr %0, i64 1240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %2
@@ -156,15 +156,15 @@ define internal void @uv__getnameinfo_done(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 180
-  %17 = getelementptr inbounds i8, ptr %0, i64 1205
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1205
   br label %18
 
 18:                                               ; preds = %12, %15, %11
   %19 = phi i32 [ -3003, %11 ], [ 0, %15 ], [ %13, %12 ]
   %.012 = phi ptr [ null, %11 ], [ %16, %15 ], [ null, %12 ]
   %.0 = phi ptr [ null, %11 ], [ %17, %15 ], [ null, %12 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %22

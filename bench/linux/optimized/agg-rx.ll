@@ -30,26 +30,26 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_rx
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_ampdu_params, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i32 1, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 2680
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i16 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 696
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %15 = zext i16 %1 to i64
   %16 = getelementptr [16 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 864
-  %19 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, i64 %15) #10, !srcloc !6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %19 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 %15) #10, !srcloc !6
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
@@ -57,8 +57,8 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
 
 22:                                               ; preds = %5
   store volatile ptr null, ptr %16, align 8
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, i64 %15) #10, !srcloc !7
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 %15) #10, !srcloc !7
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @drv_ampdu_action(ptr noundef %8, ptr noundef %24, ptr noundef nonnull %6) #10
   %26 = icmp eq i32 %25, 0
@@ -66,9 +66,9 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1280
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1280
   %30 = zext i16 %1 to i32
-  %31 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %29, ptr noundef %10, i32 noundef %30) #11
+  %31 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %29, ptr noundef nonnull %10, i32 noundef %30) #11
   br label %32
 
 32:                                               ; preds = %27, %22
@@ -78,7 +78,7 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %23, align 8
-  call void @ieee80211_send_delba(ptr noundef %36, ptr noundef %10, i16 noundef zeroext %1, i16 noundef zeroext 0, i16 noundef zeroext %3) #10
+  call void @ieee80211_send_delba(ptr noundef %36, ptr noundef nonnull %10, i16 noundef zeroext %1, i16 noundef zeroext 0, i16 noundef zeroext %3) #10
   br label %37
 
 37:                                               ; preds = %35, %32
@@ -86,17 +86,17 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %17, i64 56
-  %41 = call i32 @timer_delete_sync(ptr noundef %40) #10
-  %42 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @_raw_spin_lock_bh(ptr noundef %42) #10
-  %43 = getelementptr inbounds i8, ptr %17, i64 155
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %41 = call i32 @timer_delete_sync(ptr noundef nonnull %40) #10
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  call void @_raw_spin_lock_bh(ptr noundef nonnull %42) #10
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 155
   %44 = load i8, ptr %43, align 1
   %45 = or i8 %44, 2
   store i8 %45, ptr %43, align 1
-  call void @_raw_spin_unlock_bh(ptr noundef %42) #10
-  %46 = getelementptr inbounds i8, ptr %17, i64 96
-  %47 = call i32 @timer_delete_sync(ptr noundef %46) #10
+  call void @_raw_spin_unlock_bh(ptr noundef nonnull %42) #10
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  %47 = call i32 @timer_delete_sync(ptr noundef nonnull %46) #10
   call void @call_rcu(ptr noundef nonnull %17, ptr noundef nonnull @ieee80211_free_tid_rx) #10
   br label %48
 
@@ -125,13 +125,13 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 150
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 150
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %.loopexit3, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %7
 
 7:                                                ; preds = %.loopexit, %5
@@ -146,7 +146,7 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %18
 
 18:                                               ; preds = %18, %16
@@ -155,9 +155,9 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   %21 = add i32 %20, -1
   store volatile i32 %21, ptr %17, align 8
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store volatile ptr %24, ptr %25, align 8
   store volatile ptr %22, ptr %24, align 8
@@ -180,10 +180,10 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   br i1 %33, label %7, label %.loopexit3, !llvm.loop !11
 
 .loopexit3:                                       ; preds = %.loopexit, %1
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   tail call void @kfree(ptr noundef %35) #10
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   tail call void @kfree(ptr noundef %37) #10
   tail call void @kfree(ptr noundef %0) #10
@@ -203,7 +203,7 @@ define dso_local void @ieee80211_stop_rx_ba_session(ptr noundef %0, i16 noundef 
 
 7:                                                ; preds = %3
   %8 = zext i16 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %5, i64 848
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 848
   br label %10
 
 10:                                               ; preds = %16, %7
@@ -214,7 +214,7 @@ define dso_local void @ieee80211_stop_rx_ba_session(ptr noundef %0, i16 noundef 
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %9, i64 %11) #10, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 %11) #10, !srcloc !12
   br label %16
 
 16:                                               ; preds = %15, %10
@@ -223,12 +223,12 @@ define dso_local void @ieee80211_stop_rx_ba_session(ptr noundef %0, i16 noundef 
   br i1 %18, label %19, label %10, !llvm.loop !13
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 880
-  tail call void @wiphy_work_queue(ptr noundef %23, ptr noundef %24) #10
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 880
+  tail call void @wiphy_work_queue(ptr noundef %23, ptr noundef nonnull %24) #10
   br label %25
 
 25:                                               ; preds = %19, %3
@@ -246,55 +246,55 @@ declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed
 define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef readonly %9) local_unnamed_addr #0 align 16 {
   %11 = alloca %struct.ieee80211_ampdu_params, align 8
   %12 = zext i1 %8 to i8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1256
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1256
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 2680
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i16 %3, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %11, i64 20
-  %22 = getelementptr inbounds i8, ptr %11, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 22
   store i8 0, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %11, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i16 %2, ptr %23, align 8
   %24 = icmp ugt i16 %5, 7
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i8, ptr %0, i64 2916
-  %27 = getelementptr inbounds i8, ptr %0, i64 2918
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2916
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2918
   %28 = load i8, ptr %27, align 2, !range !14, !noundef !15
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 2956
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2956
   %32 = load i8, ptr %31, align 4, !range !14, !noundef !15
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %30, %25
-  %35 = getelementptr inbounds i8, ptr %0, i64 216
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %36 = load volatile i64, ptr %35, align 8
   %37 = and i64 %36, 256
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 3013
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3013
   %41 = load i8, ptr %40, align 1, !range !14, !noundef !15
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 2956
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2956
   %45 = load i8, ptr %44, align 4, !range !14, !noundef !15
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %46, i16 64, i16 256
@@ -320,27 +320,27 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 59:                                               ; preds = %57, %51
   %60 = icmp eq i16 %6, 0
   %61 = select i1 %60, i16 %49, i16 %6
-  %62 = getelementptr inbounds i8, ptr %0, i64 2688
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %63 = load i16, ptr %62, align 8
   %64 = tail call i16 @llvm.umin.i16(i16 %61, i16 %63)
   store i16 %64, ptr %21, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 864
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %66 = zext nneg i16 %5 to i64
-  %67 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %65, i64 %66) #10, !srcloc !6
+  %67 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %65, i64 %66) #10, !srcloc !6
   %68 = icmp ult i8 %67, 2
   tail call void @llvm.assume(i1 %68)
   %69 = icmp eq i8 %67, 0
   br i1 %69, label %85, label %70
 
 70:                                               ; preds = %59
-  %71 = getelementptr inbounds i8, ptr %0, i64 824
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %72 = getelementptr [16 x i8], ptr %71, i64 0, i64 %66
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, %1
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %0, i64 696
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @__rcu_read_lock() #10
   %77 = getelementptr [16 x ptr], ptr %76, i64 0, i64 %66
   %78 = load volatile ptr, ptr %77, align 8
@@ -348,7 +348,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br i1 %79, label %160, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %78, i64 152
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 152
   %82 = load i16, ptr %81, align 8
   %83 = icmp eq i16 %82, %2
   br i1 %83, label %.thread10, label %160
@@ -362,7 +362,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br label %85
 
 85:                                               ; preds = %84, %59
-  %86 = getelementptr inbounds i8, ptr %16, i64 88
+  %86 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %87 = load volatile i64, ptr %86, align 8
   %88 = and i64 %87, 8589934592
   %89 = icmp eq i64 %88, 0
@@ -381,20 +381,20 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %96, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i32 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %96, i64 56
-  tail call void @init_timer_key(ptr noundef %100, ptr noundef nonnull @sta_rx_agg_session_timer_expired, i32 noundef 524288, ptr noundef null, ptr noundef null) #10
-  %101 = getelementptr inbounds i8, ptr %96, i64 96
-  tail call void @init_timer_key(ptr noundef %101, ptr noundef nonnull @sta_rx_agg_reorder_timer_expired, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 56
+  tail call void @init_timer_key(ptr noundef nonnull %100, ptr noundef nonnull @sta_rx_agg_session_timer_expired, i32 noundef 524288, ptr noundef null, ptr noundef null) #10
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 96
+  tail call void @init_timer_key(ptr noundef nonnull %101, ptr noundef nonnull @sta_rx_agg_reorder_timer_expired, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %102 = zext nneg i16 %64 to i64
   %103 = mul nuw nsw i64 %102, 24
   %104 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %103, i32 noundef 3520) #13
-  %105 = getelementptr inbounds i8, ptr %96, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr %104, ptr %105, align 8
   %106 = shl nuw nsw i64 %102, 3
   %107 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %106, i32 noundef 3520) #13
-  %108 = getelementptr inbounds i8, ptr %96, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store ptr %107, ptr %108, align 8
   %109 = load ptr, ptr %105, align 8
   %110 = icmp eq ptr %109, null
@@ -423,9 +423,9 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %122 = load ptr, ptr %105, align 8
   %123 = getelementptr %struct.sk_buff_head, ptr %122, i64 %121
   store ptr %123, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 0, ptr %125, align 8
   %126 = add nuw nsw i64 %121, 1
   %127 = icmp eq i64 %126, %117
@@ -446,30 +446,30 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br label %.thread
 
 134:                                              ; preds = %.loopexit
-  %135 = getelementptr inbounds i8, ptr %96, i64 148
+  %135 = getelementptr inbounds nuw i8, ptr %96, i64 148
   store i16 %3, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %96, i64 144
+  %136 = getelementptr inbounds nuw i8, ptr %96, i64 144
   store i16 %3, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %96, i64 150
+  %137 = getelementptr inbounds nuw i8, ptr %96, i64 150
   store i16 %64, ptr %137, align 2
-  %138 = getelementptr inbounds i8, ptr %96, i64 152
+  %138 = getelementptr inbounds nuw i8, ptr %96, i64 152
   store i16 %2, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %96, i64 146
+  %139 = getelementptr inbounds nuw i8, ptr %96, i64 146
   store i16 0, ptr %139, align 2
-  %140 = getelementptr inbounds i8, ptr %96, i64 155
+  %140 = getelementptr inbounds nuw i8, ptr %96, i64 155
   %141 = load i8, ptr %140, align 1
   %142 = and i8 %141, -6
   %143 = or disjoint i8 %142, %12
   store i8 %143, ptr %140, align 1
-  %144 = getelementptr inbounds i8, ptr %96, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i64 0, ptr %144, align 8
   %145 = trunc nuw nsw i16 %5 to i8
-  %146 = getelementptr inbounds i8, ptr %96, i64 154
+  %146 = getelementptr inbounds nuw i8, ptr %96, i64 154
   store i8 %145, ptr %146, align 2
-  %147 = getelementptr inbounds i8, ptr %96, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %96, i64 48
   store ptr %0, ptr %147, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
-  %148 = getelementptr inbounds i8, ptr %0, i64 696
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %149 = getelementptr [16 x ptr], ptr %148, i64 0, i64 %66
   store volatile ptr %96, ptr %149, align 8
   %150 = icmp eq i16 %2, 0
@@ -481,9 +481,9 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %154 = shl nuw nsw i32 %153, 10
   %155 = call i64 @__usecs_to_jiffies(i32 noundef %154) #10
   %156 = add i64 %155, %152
-  %157 = call i32 @mod_timer(ptr noundef %100, i64 noundef %156) #10
+  %157 = call i32 @mod_timer(ptr noundef nonnull %100, i64 noundef %156) #10
   %158 = load volatile i64, ptr @jiffies, align 64
-  %159 = getelementptr inbounds i8, ptr %96, i64 136
+  %159 = getelementptr inbounds nuw i8, ptr %96, i64 136
   store i64 %158, ptr %159, align 8
   br label %.thread9
 
@@ -492,10 +492,10 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   br label %.thread
 
 .thread9:                                         ; preds = %90, %134, %151, %.thread10
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %65, i64 %66) #10, !srcloc !18
-  %161 = getelementptr inbounds i8, ptr %0, i64 872
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %161, i64 %66) #10, !srcloc !7
-  %162 = getelementptr inbounds i8, ptr %0, i64 824
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %65, i64 %66) #10, !srcloc !18
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %161, i64 %66) #10, !srcloc !7
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %163 = getelementptr [16 x i8], ptr %162, i64 0, i64 %66
   store i8 %1, ptr %163, align 1
   br label %.thread
@@ -507,11 +507,11 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 
 166:                                              ; preds = %.thread
   %167 = load ptr, ptr %13, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 1256
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 1256
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 88
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 88
   %171 = load volatile i64, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %169, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 96
   %173 = load i32, ptr %172, align 8
   %174 = add i32 %173, 53
   %175 = call ptr @__netdev_alloc_skb(ptr noundef null, i32 noundef %174, i32 noundef 2080) #10
@@ -520,23 +520,23 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 
 177:                                              ; preds = %166
   %178 = load i32, ptr %172, align 8
-  %179 = getelementptr inbounds i8, ptr %175, i64 200
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 200
   %180 = load ptr, ptr %179, align 8
   %181 = sext i32 %178 to i64
   %182 = getelementptr i8, ptr %180, i64 %181
   store ptr %182, ptr %179, align 8
-  %183 = getelementptr inbounds i8, ptr %175, i64 184
+  %183 = getelementptr inbounds nuw i8, ptr %175, i64 184
   %184 = load i32, ptr %183, align 8
   %185 = add i32 %184, %178
   store i32 %185, ptr %183, align 8
   %186 = call ptr @skb_put(ptr noundef nonnull %175, i32 noundef 24) #10
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(24) %186, i8 0, i64 24, i1 false)
-  %187 = getelementptr inbounds i8, ptr %186, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %187, ptr noundef align 1 dereferenceable(6) %18, i64 6, i1 false)
-  %188 = getelementptr inbounds i8, ptr %186, i64 10
-  %189 = getelementptr inbounds i8, ptr %167, i64 4056
-  %190 = getelementptr inbounds i8, ptr %167, i64 5062
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %188, ptr noundef align 2 dereferenceable(6) %190, i64 6, i1 false)
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %187, ptr noundef nonnull align 1 dereferenceable(6) %18, i64 6, i1 false)
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 10
+  %189 = getelementptr inbounds nuw i8, ptr %167, i64 4056
+  %190 = getelementptr inbounds nuw i8, ptr %167, i64 5062
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %188, ptr noundef nonnull align 2 dereferenceable(6) %190, i64 6, i1 false)
   %191 = load i32, ptr %189, align 8
   switch i32 %191, label %200 [
     i32 3, label %192
@@ -547,30 +547,30 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   ]
 
 192:                                              ; preds = %177, %177, %177
-  %193 = getelementptr inbounds i8, ptr %186, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %193, ptr noundef align 2 dereferenceable(6) %190, i64 6, i1 false)
+  %193 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %193, ptr noundef nonnull align 2 dereferenceable(6) %190, i64 6, i1 false)
   br label %200
 
 194:                                              ; preds = %177
-  %195 = getelementptr inbounds i8, ptr %186, i64 16
-  %196 = getelementptr inbounds i8, ptr %167, i64 4138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %195, ptr noundef align 2 dereferenceable(6) %196, i64 6, i1 false)
+  %195 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %167, i64 4138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %195, ptr noundef nonnull align 2 dereferenceable(6) %196, i64 6, i1 false)
   br label %200
 
 197:                                              ; preds = %177
-  %198 = getelementptr inbounds i8, ptr %186, i64 16
-  %199 = getelementptr inbounds i8, ptr %167, i64 1986
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %198, ptr noundef align 2 dereferenceable(6) %199, i64 6, i1 false)
+  %198 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %167, i64 1986
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %198, ptr noundef nonnull align 2 dereferenceable(6) %199, i64 6, i1 false)
   br label %200
 
 200:                                              ; preds = %197, %194, %192, %177
   store i16 208, ptr %186, align 2
   %201 = call ptr @skb_put(ptr noundef nonnull %175, i32 noundef 9) #10
-  %202 = getelementptr inbounds i8, ptr %186, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store i8 3, ptr %202, align 2
-  %203 = getelementptr inbounds i8, ptr %186, i64 25
+  %203 = getelementptr inbounds nuw i8, ptr %186, i64 25
   store i8 1, ptr %203, align 1
-  %204 = getelementptr inbounds i8, ptr %186, i64 26
+  %204 = getelementptr inbounds nuw i8, ptr %186, i64 26
   store i8 %1, ptr %204, align 1
   %205 = shl i16 %5, 2
   %206 = and i16 %205, 60
@@ -581,13 +581,13 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   %211 = shl i16 %164, 6
   %212 = or disjoint i16 %210, %211
   %213 = or disjoint i16 %212, 2
-  %214 = getelementptr inbounds i8, ptr %186, i64 29
+  %214 = getelementptr inbounds nuw i8, ptr %186, i64 29
   store i16 %213, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %186, i64 31
+  %215 = getelementptr inbounds nuw i8, ptr %186, i64 31
   store i16 %2, ptr %215, align 1
-  %216 = getelementptr inbounds i8, ptr %186, i64 27
+  %216 = getelementptr inbounds nuw i8, ptr %186, i64 27
   store i16 %165, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %0, i64 2956
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 2956
   %218 = load i8, ptr %217, align 4, !range !14, !noundef !15
   %219 = icmp ne i8 %218, 0
   %220 = icmp ne ptr %9, null
@@ -596,7 +596,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 
 222:                                              ; preds = %200
   %223 = call ptr @skb_put(ptr noundef nonnull %175, i32 noundef 3) #10
-  %224 = getelementptr inbounds i8, ptr %223, i64 2
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
   store i8 0, ptr %224, align 1
   %225 = getelementptr i8, ptr %223, i64 1
   store i8 -97, ptr %223, align 1
@@ -650,15 +650,15 @@ define internal void @sta_rx_agg_session_timer_expired(ptr noundef %0) #0 align 
   br label %27
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %3, i64 840
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 840
   %21 = zext i8 %5 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, i64 %21) #10, !srcloc !12
-  %22 = getelementptr inbounds i8, ptr %3, i64 72
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %21) #10, !srcloc !12
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 880
-  tail call void @wiphy_work_queue(ptr noundef %25, ptr noundef %26) #10
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 880
+  tail call void @wiphy_work_queue(ptr noundef %25, ptr noundef nonnull %26) #10
   br label %27
 
 27:                                               ; preds = %19, %17
@@ -687,14 +687,14 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_process_addba_request(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.ieee80211_elems_parse_params, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 29
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %9 = load i16, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 31
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %11 = load i16, ptr %10, align 1
   %12 = lshr i16 %11, 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 27
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 27
   %14 = load i16, ptr %13, align 1
   %15 = lshr i16 %14, 1
   %16 = and i16 %15, 1
@@ -707,19 +707,19 @@ define dso_local void @ieee80211_process_addba_request(ptr nocapture noundef rea
   br i1 %22, label %.thread4, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %2, i64 33
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %25 = sext i32 %21 to i64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #10
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 40, i1 false), !annotation !5
   store ptr %24, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 -1, ptr %30, align 8
   %31 = call ptr @ieee802_11_parse_elems_full(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #10
@@ -727,16 +727,16 @@ define dso_local void @ieee80211_process_addba_request(ptr nocapture noundef rea
   br i1 %32, label %51, label %33
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %31, i64 640
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 640
   %35 = load i8, ptr %34, align 8, !range !14, !noundef !15
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 3013
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 3013
   %39 = load i8, ptr %38, align 1, !range !14, !noundef !15
   %.not = icmp eq i8 %39, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 456
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 456
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %.thread4, label %40
 
@@ -774,15 +774,15 @@ define dso_local void @ieee80211_manage_rx_ba_offl(ptr noundef %0, ptr noundef %
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 856
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 856
   %9 = zext i32 %2 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 %9) #10, !srcloc !12
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 880
-  tail call void @wiphy_work_queue(ptr noundef %13, ptr noundef %14) #10
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 880
+  tail call void @wiphy_work_queue(ptr noundef %13, ptr noundef nonnull %14) #10
   br label %15
 
 15:                                               ; preds = %7, %3
@@ -799,15 +799,15 @@ define dso_local void @ieee80211_rx_ba_timer_expired(ptr noundef %0, ptr noundef
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 840
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 840
   %9 = zext i32 %2 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 %9) #10, !srcloc !12
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #10, !srcloc !12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 880
-  tail call void @wiphy_work_queue(ptr noundef %13, ptr noundef %14) #10
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 880
+  tail call void @wiphy_work_queue(ptr noundef %13, ptr noundef nonnull %14) #10
   br label %15
 
 15:                                               ; preds = %7, %3

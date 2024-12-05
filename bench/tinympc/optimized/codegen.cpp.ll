@@ -347,12 +347,12 @@ define noundef i32 @codegen_data_source(ptr nocapture noundef readonly %0, ptr n
   %49 = alloca %"class.Eigen::CwiseNullaryOp", align 8
   %50 = alloca %"class.Eigen::Matrix", align 8
   %51 = alloca %"class.Eigen::CwiseNullaryOp", align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %53, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef %1) #13
   %60 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.7)
@@ -381,16 +381,16 @@ define noundef i32 @codegen_data_source(ptr nocapture noundef readonly %0, ptr n
   %78 = load i32, ptr %77, align 8
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.25, i32 noundef %78) #13
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.26, i32 noundef %82) #13
   %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   %85 = sext i32 %54 to i64
   %86 = sext i32 %58 to i64
   store i64 %85, ptr %7, align 8, !alias.scope !4
-  %87 = getelementptr inbounds i8, ptr %7, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %86, ptr %87, align 8, !alias.scope !4
-  %88 = getelementptr inbounds i8, ptr %7, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double 0.000000e+00, ptr %88, align 8, !alias.scope !4
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %89 = mul nsw i32 %58, %54
@@ -398,8 +398,8 @@ define noundef i32 @codegen_data_source(ptr nocapture noundef readonly %0, ptr n
   br i1 %90, label %.lr.ph.i, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit
 
 .lr.ph.i:                                         ; preds = %65
-  %91 = getelementptr inbounds i8, ptr %6, i64 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %93 = add nsw i32 %89, -1
   %94 = zext nneg i32 %93 to i64
   %wide.trip.count.i = zext nneg i32 %89 to i64
@@ -438,9 +438,9 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit: ; p
   %113 = sext i32 %56 to i64
   %114 = sext i32 %111 to i64
   store i64 %113, ptr %9, align 8, !alias.scope !16
-  %115 = getelementptr inbounds i8, ptr %9, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %114, ptr %115, align 8, !alias.scope !16
-  %116 = getelementptr inbounds i8, ptr %9, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double 0.000000e+00, ptr %116, align 8, !alias.scope !16
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %117 = mul nsw i32 %111, %56
@@ -448,8 +448,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit: ; p
   br i1 %118, label %.lr.ph.i305, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit311
 
 .lr.ph.i305:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit
-  %119 = getelementptr inbounds i8, ptr %8, i64 8
-  %120 = getelementptr inbounds i8, ptr %8, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %121 = add nsw i32 %117, -1
   %122 = zext nneg i32 %121 to i64
   %wide.trip.count.i306 = zext nneg i32 %117 to i64
@@ -486,21 +486,21 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit311: 
   %139 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr %60)
   %140 = call i64 @fwrite(ptr nonnull @.str.30, i64 70, i64 1, ptr %60)
   %141 = call i64 @fwrite(ptr nonnull @.str.31, i64 20, i64 1, ptr %60)
-  %142 = getelementptr inbounds i8, ptr %0, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = load double, ptr %143, align 8
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.32, double noundef %144) #13
   %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %54) #13
   %147 = load ptr, ptr %142, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %148)
   %149 = mul nsw i32 %56, %54
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph.i312, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit318
 
 .lr.ph.i312:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit311
-  %151 = getelementptr inbounds i8, ptr %10, i64 8
-  %152 = getelementptr inbounds i8, ptr %10, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %153 = add nsw i32 %149, -1
   %154 = zext nneg i32 %153 to i64
   %wide.trip.count.i313 = zext nneg i32 %149 to i64
@@ -536,15 +536,15 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit318: 
   %170 = call i64 @fwrite(ptr nonnull @.str.33, i64 22, i64 1, ptr %60)
   %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %54) #13
   %172 = load ptr, ptr %142, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %173)
   %174 = mul nsw i32 %54, %54
   %.not501 = icmp eq i32 %54, 0
   br i1 %.not501, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit325, label %.lr.ph.i319
 
 .lr.ph.i319:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit318
-  %175 = getelementptr inbounds i8, ptr %11, i64 8
-  %176 = getelementptr inbounds i8, ptr %11, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %177 = add nsw i32 %174, -1
   %178 = zext nneg i32 %177 to i64
   %wide.trip.count.i320 = zext nneg i32 %174 to i64
@@ -580,15 +580,15 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit325: 
   %194 = call i64 @fwrite(ptr nonnull @.str.34, i64 22, i64 1, ptr %60)
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %56) #13
   %196 = load ptr, ptr %142, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 56
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 56
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %197)
   %.not502 = icmp eq i32 %56, 0
   br i1 %.not502, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit332, label %.lr.ph.i326
 
 .lr.ph.i326:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit325
   %198 = mul nsw i32 %56, %56
-  %199 = getelementptr inbounds i8, ptr %12, i64 8
-  %200 = getelementptr inbounds i8, ptr %12, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %201 = add nsw i32 %198, -1
   %202 = zext nneg i32 %201 to i64
   %wide.trip.count.i327 = zext nneg i32 %198 to i64
@@ -624,13 +624,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit332: 
   %218 = call i64 @fwrite(ptr nonnull @.str.35, i64 25, i64 1, ptr %60)
   %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %54) #13
   %220 = load ptr, ptr %142, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 80
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 80
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %221)
   br i1 %.not501, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit339, label %.lr.ph.i333
 
 .lr.ph.i333:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit332
-  %222 = getelementptr inbounds i8, ptr %13, i64 8
-  %223 = getelementptr inbounds i8, ptr %13, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %224 = add nsw i32 %174, -1
   %225 = zext nneg i32 %224 to i64
   %wide.trip.count.i334 = zext nneg i32 %174 to i64
@@ -667,28 +667,28 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit339: 
   %242 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr %60)
   %243 = call i64 @fwrite(ptr nonnull @.str.37, i64 20, i64 1, ptr %60)
   %244 = call i64 @fwrite(ptr nonnull @.str.38, i64 26, i64 1, ptr %60)
-  %245 = getelementptr inbounds i8, ptr %0, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %246 = load ptr, ptr %245, align 8
   %247 = load double, ptr %246, align 8
   %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.39, double noundef %247) #13
   %249 = load ptr, ptr %245, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load double, ptr %250, align 8
   %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.40, double noundef %251) #13
   %253 = load ptr, ptr %245, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load i32, ptr %254, align 8
   %256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.41, i32 noundef %255) #13
   %257 = load ptr, ptr %245, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 20
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 20
   %259 = load i32, ptr %258, align 4
   %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.42, i32 noundef %259) #13
   %261 = load ptr, ptr %245, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 24
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %263 = load i32, ptr %262, align 8
   %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.43, i32 noundef %263) #13
   %265 = load ptr, ptr %245, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 28
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 28
   %267 = load i32, ptr %266, align 4
   %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.44, i32 noundef %267) #13
   %269 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr %60)
@@ -699,16 +699,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit339: 
   %274 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.49, i32 noundef %58) #13
   %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %15, align 8, !alias.scope !38
-  %276 = getelementptr inbounds i8, ptr %15, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %86, ptr %276, align 8, !alias.scope !38
-  %277 = getelementptr inbounds i8, ptr %15, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 0.000000e+00, ptr %277, align 8, !alias.scope !38
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
   br i1 %90, label %.lr.ph.i340, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit346
 
 .lr.ph.i340:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit339
-  %278 = getelementptr inbounds i8, ptr %14, i64 8
-  %279 = getelementptr inbounds i8, ptr %14, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %280 = add nsw i32 %89, -1
   %281 = zext nneg i32 %280 to i64
   %wide.trip.count.i341 = zext nneg i32 %89 to i64
@@ -744,16 +744,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit346: 
   %297 = call i64 @fwrite(ptr nonnull @.str.28, i64 19, i64 1, ptr %60)
   %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %17, align 8, !alias.scope !48
-  %299 = getelementptr inbounds i8, ptr %17, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %114, ptr %299, align 8, !alias.scope !48
-  %300 = getelementptr inbounds i8, ptr %17, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store double 0.000000e+00, ptr %300, align 8, !alias.scope !48
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
   br i1 %118, label %.lr.ph.i347, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit353
 
 .lr.ph.i347:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit346
-  %301 = getelementptr inbounds i8, ptr %16, i64 8
-  %302 = getelementptr inbounds i8, ptr %16, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %303 = add nsw i32 %117, -1
   %304 = zext nneg i32 %303 to i64
   %wide.trip.count.i348 = zext nneg i32 %117 to i64
@@ -789,16 +789,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit353: 
   %320 = call i64 @fwrite(ptr nonnull @.str.50, i64 19, i64 1, ptr %60)
   %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %19, align 8, !alias.scope !58
-  %322 = getelementptr inbounds i8, ptr %19, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %86, ptr %322, align 8, !alias.scope !58
-  %323 = getelementptr inbounds i8, ptr %19, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 0.000000e+00, ptr %323, align 8, !alias.scope !58
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
   br i1 %90, label %.lr.ph.i354, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit360
 
 .lr.ph.i354:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit353
-  %324 = getelementptr inbounds i8, ptr %18, i64 8
-  %325 = getelementptr inbounds i8, ptr %18, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %326 = add nsw i32 %89, -1
   %327 = zext nneg i32 %326 to i64
   %wide.trip.count.i355 = zext nneg i32 %89 to i64
@@ -834,16 +834,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit360: 
   %343 = call i64 @fwrite(ptr nonnull @.str.51, i64 19, i64 1, ptr %60)
   %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %21, align 8, !alias.scope !68
-  %345 = getelementptr inbounds i8, ptr %21, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %114, ptr %345, align 8, !alias.scope !68
-  %346 = getelementptr inbounds i8, ptr %21, i64 16
+  %346 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double 0.000000e+00, ptr %346, align 8, !alias.scope !68
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
   br i1 %118, label %.lr.ph.i361, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit367
 
 .lr.ph.i361:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit360
-  %347 = getelementptr inbounds i8, ptr %20, i64 8
-  %348 = getelementptr inbounds i8, ptr %20, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %349 = add nsw i32 %117, -1
   %350 = zext nneg i32 %349 to i64
   %wide.trip.count.i362 = zext nneg i32 %117 to i64
@@ -879,16 +879,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit367: 
   %366 = call i64 @fwrite(ptr nonnull @.str.52, i64 19, i64 1, ptr %60)
   %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %23, align 8, !alias.scope !78
-  %368 = getelementptr inbounds i8, ptr %23, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %86, ptr %368, align 8, !alias.scope !78
-  %369 = getelementptr inbounds i8, ptr %23, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store double 0.000000e+00, ptr %369, align 8, !alias.scope !78
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 dereferenceable(1) %23)
   br i1 %90, label %.lr.ph.i368, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit374
 
 .lr.ph.i368:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit367
-  %370 = getelementptr inbounds i8, ptr %22, i64 8
-  %371 = getelementptr inbounds i8, ptr %22, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %372 = add nsw i32 %89, -1
   %373 = zext nneg i32 %372 to i64
   %wide.trip.count.i369 = zext nneg i32 %89 to i64
@@ -924,16 +924,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit374: 
   %389 = call i64 @fwrite(ptr nonnull @.str.53, i64 19, i64 1, ptr %60)
   %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %25, align 8, !alias.scope !88
-  %391 = getelementptr inbounds i8, ptr %25, i64 8
+  %391 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %114, ptr %391, align 8, !alias.scope !88
-  %392 = getelementptr inbounds i8, ptr %25, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store double 0.000000e+00, ptr %392, align 8, !alias.scope !88
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
   br i1 %118, label %.lr.ph.i375, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit381
 
 .lr.ph.i375:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit374
-  %393 = getelementptr inbounds i8, ptr %24, i64 8
-  %394 = getelementptr inbounds i8, ptr %24, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %395 = add nsw i32 %117, -1
   %396 = zext nneg i32 %395 to i64
   %wide.trip.count.i376 = zext nneg i32 %117 to i64
@@ -969,16 +969,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit381: 
   %412 = call i64 @fwrite(ptr nonnull @.str.54, i64 19, i64 1, ptr %60)
   %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %27, align 8, !alias.scope !98
-  %414 = getelementptr inbounds i8, ptr %27, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %86, ptr %414, align 8, !alias.scope !98
-  %415 = getelementptr inbounds i8, ptr %27, i64 16
+  %415 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store double 0.000000e+00, ptr %415, align 8, !alias.scope !98
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 1 dereferenceable(1) %27)
   br i1 %90, label %.lr.ph.i382, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit395.critedge
 
 .lr.ph.i382:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit381
-  %416 = getelementptr inbounds i8, ptr %26, i64 8
-  %417 = getelementptr inbounds i8, ptr %26, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %418 = add nsw i32 %89, -1
   %419 = zext nneg i32 %418 to i64
   %wide.trip.count.i383 = zext nneg i32 %89 to i64
@@ -1014,13 +1014,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit388: 
   %435 = call i64 @fwrite(ptr nonnull @.str.55, i64 19, i64 1, ptr %60)
   %436 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %29, align 8, !alias.scope !108
-  %437 = getelementptr inbounds i8, ptr %29, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %86, ptr %437, align 8, !alias.scope !108
-  %438 = getelementptr inbounds i8, ptr %29, i64 16
+  %438 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store double 0.000000e+00, ptr %438, align 8, !alias.scope !108
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 1 dereferenceable(1) %29)
-  %439 = getelementptr inbounds i8, ptr %28, i64 8
-  %440 = getelementptr inbounds i8, ptr %28, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %28, i64 16
   br label %441
 
 441:                                              ; preds = %454, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit388
@@ -1053,9 +1053,9 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit395.c
   %456 = call i64 @fwrite(ptr nonnull @.str.55, i64 19, i64 1, ptr %60)
   %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %29, align 8, !alias.scope !108
-  %458 = getelementptr inbounds i8, ptr %29, i64 8
+  %458 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %86, ptr %458, align 8, !alias.scope !108
-  %459 = getelementptr inbounds i8, ptr %29, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store double 0.000000e+00, ptr %459, align 8, !alias.scope !108
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 1 dereferenceable(1) %29)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit395
@@ -1066,16 +1066,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit395: 
   %461 = call i64 @fwrite(ptr nonnull @.str.56, i64 22, i64 1, ptr %60)
   %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %31, align 8, !alias.scope !118
-  %463 = getelementptr inbounds i8, ptr %31, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %114, ptr %463, align 8, !alias.scope !118
-  %464 = getelementptr inbounds i8, ptr %31, i64 16
+  %464 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store double 0.000000e+00, ptr %464, align 8, !alias.scope !118
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 1 dereferenceable(1) %31)
   br i1 %118, label %.lr.ph.i396, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit409.critedge
 
 .lr.ph.i396:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit395
-  %465 = getelementptr inbounds i8, ptr %30, i64 8
-  %466 = getelementptr inbounds i8, ptr %30, i64 16
+  %465 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %467 = add nsw i32 %117, -1
   %468 = zext nneg i32 %467 to i64
   %wide.trip.count.i397 = zext nneg i32 %117 to i64
@@ -1111,13 +1111,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit402: 
   %484 = call i64 @fwrite(ptr nonnull @.str.57, i64 19, i64 1, ptr %60)
   %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %33, align 8, !alias.scope !128
-  %486 = getelementptr inbounds i8, ptr %33, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %114, ptr %486, align 8, !alias.scope !128
-  %487 = getelementptr inbounds i8, ptr %33, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store double 0.000000e+00, ptr %487, align 8, !alias.scope !128
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 1 dereferenceable(1) %33)
-  %488 = getelementptr inbounds i8, ptr %32, i64 8
-  %489 = getelementptr inbounds i8, ptr %32, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %490
 
 490:                                              ; preds = %503, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit402
@@ -1150,9 +1150,9 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit409.c
   %505 = call i64 @fwrite(ptr nonnull @.str.57, i64 19, i64 1, ptr %60)
   %506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %33, align 8, !alias.scope !128
-  %507 = getelementptr inbounds i8, ptr %33, i64 8
+  %507 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %114, ptr %507, align 8, !alias.scope !128
-  %508 = getelementptr inbounds i8, ptr %33, i64 16
+  %508 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store double 0.000000e+00, ptr %508, align 8, !alias.scope !128
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 1 dereferenceable(1) %33)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit409
@@ -1163,16 +1163,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit409: 
   %510 = call i64 @fwrite(ptr nonnull @.str.58, i64 22, i64 1, ptr %60)
   %511 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %35, align 8, !alias.scope !138
-  %512 = getelementptr inbounds i8, ptr %35, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %86, ptr %512, align 8, !alias.scope !138
-  %513 = getelementptr inbounds i8, ptr %35, i64 16
+  %513 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store double 0.000000e+00, ptr %513, align 8, !alias.scope !138
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 1 dereferenceable(1) %35)
   br i1 %90, label %.lr.ph.i410, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit416
 
 .lr.ph.i410:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit409
-  %514 = getelementptr inbounds i8, ptr %34, i64 8
-  %515 = getelementptr inbounds i8, ptr %34, i64 16
+  %514 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %515 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %516 = add nsw i32 %89, -1
   %517 = zext nneg i32 %516 to i64
   %wide.trip.count.i411 = zext nneg i32 %89 to i64
@@ -1208,16 +1208,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit416: 
   %533 = call i64 @fwrite(ptr nonnull @.str.59, i64 19, i64 1, ptr %60)
   %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %37, align 8, !alias.scope !148
-  %535 = getelementptr inbounds i8, ptr %37, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %114, ptr %535, align 8, !alias.scope !148
-  %536 = getelementptr inbounds i8, ptr %37, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store double 0.000000e+00, ptr %536, align 8, !alias.scope !148
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 1 dereferenceable(1) %37)
   br i1 %118, label %.lr.ph.i417, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit423
 
 .lr.ph.i417:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit416
-  %537 = getelementptr inbounds i8, ptr %36, i64 8
-  %538 = getelementptr inbounds i8, ptr %36, i64 16
+  %537 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %538 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %539 = add nsw i32 %117, -1
   %540 = zext nneg i32 %539 to i64
   %wide.trip.count.i418 = zext nneg i32 %117 to i64
@@ -1253,14 +1253,14 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit423: 
   %556 = call i64 @fwrite(ptr nonnull @.str.60, i64 19, i64 1, ptr %60)
   %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.61, i32 noundef %54) #13
   %558 = load ptr, ptr %52, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 304
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 304
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS1_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 1 dereferenceable(1) %559)
   %560 = icmp sgt i32 %54, 0
   br i1 %560, label %.lr.ph.i424, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit430
 
 .lr.ph.i424:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit423
-  %561 = getelementptr inbounds i8, ptr %38, i64 8
-  %562 = getelementptr inbounds i8, ptr %38, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %563 = add nsw i32 %54, -1
   %564 = zext nneg i32 %563 to i64
   %wide.trip.count.i425 = zext nneg i32 %54 to i64
@@ -1296,14 +1296,14 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit430: 
   %580 = call i64 @fwrite(ptr nonnull @.str.62, i64 19, i64 1, ptr %60)
   %581 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.61, i32 noundef %56) #13
   %582 = load ptr, ptr %52, align 8
-  %583 = getelementptr inbounds i8, ptr %582, i64 320
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 320
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS1_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 1 dereferenceable(1) %583)
   %584 = icmp sgt i32 %56, 0
   br i1 %584, label %.lr.ph.i431, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit437
 
 .lr.ph.i431:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit430
-  %585 = getelementptr inbounds i8, ptr %39, i64 8
-  %586 = getelementptr inbounds i8, ptr %39, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %587 = add nsw i32 %56, -1
   %588 = zext nneg i32 %587 to i64
   %wide.trip.count.i432 = zext nneg i32 %56 to i64
@@ -1339,13 +1339,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit437: 
   %604 = call i64 @fwrite(ptr nonnull @.str.63, i64 19, i64 1, ptr %60)
   %605 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %54) #13
   %606 = load ptr, ptr %52, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 336
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 336
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %607)
   br i1 %.not501, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit444, label %.lr.ph.i438
 
 .lr.ph.i438:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit437
-  %608 = getelementptr inbounds i8, ptr %40, i64 8
-  %609 = getelementptr inbounds i8, ptr %40, i64 16
+  %608 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %609 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %610 = add nsw i32 %174, -1
   %611 = zext nneg i32 %610 to i64
   %wide.trip.count.i439 = zext nneg i32 %174 to i64
@@ -1381,13 +1381,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit444: 
   %627 = call i64 @fwrite(ptr nonnull @.str.64, i64 22, i64 1, ptr %60)
   %628 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %56) #13
   %629 = load ptr, ptr %52, align 8
-  %630 = getelementptr inbounds i8, ptr %629, i64 360
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 360
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %630)
   br i1 %150, label %.lr.ph.i445, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit451
 
 .lr.ph.i445:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit444
-  %631 = getelementptr inbounds i8, ptr %41, i64 8
-  %632 = getelementptr inbounds i8, ptr %41, i64 16
+  %631 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %633 = add nsw i32 %149, -1
   %634 = zext nneg i32 %633 to i64
   %wide.trip.count.i446 = zext nneg i32 %149 to i64
@@ -1423,13 +1423,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit451: 
   %650 = call i64 @fwrite(ptr nonnull @.str.65, i64 22, i64 1, ptr %60)
   %651 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   %652 = load ptr, ptr %52, align 8
-  %653 = getelementptr inbounds i8, ptr %652, i64 384
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 384
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %653)
   br i1 %90, label %.lr.ph.i452, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit465.critedge
 
 .lr.ph.i452:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit451
-  %654 = getelementptr inbounds i8, ptr %42, i64 8
-  %655 = getelementptr inbounds i8, ptr %42, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %656 = add nsw i32 %89, -1
   %657 = zext nneg i32 %656 to i64
   %wide.trip.count.i453 = zext nneg i32 %89 to i64
@@ -1465,10 +1465,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit458: 
   %673 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr %60)
   %674 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   %675 = load ptr, ptr %52, align 8
-  %676 = getelementptr inbounds i8, ptr %675, i64 408
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 408
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %676)
-  %677 = getelementptr inbounds i8, ptr %43, i64 8
-  %678 = getelementptr inbounds i8, ptr %43, i64 16
+  %677 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %678 = getelementptr inbounds nuw i8, ptr %43, i64 16
   br label %679
 
 679:                                              ; preds = %692, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit458
@@ -1501,7 +1501,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit465.c
   %694 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr %60)
   %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   %696 = load ptr, ptr %52, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 408
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 408
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %697)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit465
 
@@ -1511,13 +1511,13 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit465: 
   %699 = call i64 @fwrite(ptr nonnull @.str.67, i64 23, i64 1, ptr %60)
   %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   %701 = load ptr, ptr %52, align 8
-  %702 = getelementptr inbounds i8, ptr %701, i64 432
+  %702 = getelementptr inbounds nuw i8, ptr %701, i64 432
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %702)
   br i1 %118, label %.lr.ph.i466, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit479.critedge
 
 .lr.ph.i466:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit465
-  %703 = getelementptr inbounds i8, ptr %44, i64 8
-  %704 = getelementptr inbounds i8, ptr %44, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %705 = add nsw i32 %117, -1
   %706 = zext nneg i32 %705 to i64
   %wide.trip.count.i467 = zext nneg i32 %117 to i64
@@ -1553,10 +1553,10 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit472: 
   %722 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr %60)
   %723 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   %724 = load ptr, ptr %52, align 8
-  %725 = getelementptr inbounds i8, ptr %724, i64 456
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 456
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %725)
-  %726 = getelementptr inbounds i8, ptr %45, i64 8
-  %727 = getelementptr inbounds i8, ptr %45, i64 16
+  %726 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %727 = getelementptr inbounds nuw i8, ptr %45, i64 16
   br label %728
 
 728:                                              ; preds = %741, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit472
@@ -1589,7 +1589,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit479.c
   %743 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr %60)
   %744 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   %745 = load ptr, ptr %52, align 8
-  %746 = getelementptr inbounds i8, ptr %745, i64 456
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 456
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %746)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit479
 
@@ -1599,16 +1599,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit479: 
   %748 = call i64 @fwrite(ptr nonnull @.str.69, i64 23, i64 1, ptr %60)
   %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %58) #13
   store i64 %85, ptr %47, align 8, !alias.scope !182
-  %750 = getelementptr inbounds i8, ptr %47, i64 8
+  %750 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %86, ptr %750, align 8, !alias.scope !182
-  %751 = getelementptr inbounds i8, ptr %47, i64 16
+  %751 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store double 0.000000e+00, ptr %751, align 8, !alias.scope !182
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 dereferenceable(1) %47)
   br i1 %90, label %.lr.ph.i480, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit486
 
 .lr.ph.i480:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit479
-  %752 = getelementptr inbounds i8, ptr %46, i64 8
-  %753 = getelementptr inbounds i8, ptr %46, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %754 = add nsw i32 %89, -1
   %755 = zext nneg i32 %754 to i64
   %wide.trip.count.i481 = zext nneg i32 %89 to i64
@@ -1644,16 +1644,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit486: 
   %771 = call i64 @fwrite(ptr nonnull @.str.70, i64 22, i64 1, ptr %60)
   %772 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.27, i32 noundef %56, i32 noundef %111) #13
   store i64 %113, ptr %49, align 8, !alias.scope !192
-  %773 = getelementptr inbounds i8, ptr %49, i64 8
+  %773 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %114, ptr %773, align 8, !alias.scope !192
-  %774 = getelementptr inbounds i8, ptr %49, i64 16
+  %774 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store double 0.000000e+00, ptr %774, align 8, !alias.scope !192
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 1 dereferenceable(1) %49)
   br i1 %118, label %.lr.ph.i487, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit493
 
 .lr.ph.i487:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit486
-  %775 = getelementptr inbounds i8, ptr %48, i64 8
-  %776 = getelementptr inbounds i8, ptr %48, i64 16
+  %775 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %776 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %777 = add nsw i32 %117, -1
   %778 = zext nneg i32 %777 to i64
   %wide.trip.count.i488 = zext nneg i32 %117 to i64
@@ -1689,16 +1689,16 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit493: 
   %794 = call i64 @fwrite(ptr nonnull @.str.71, i64 22, i64 1, ptr %60)
   %795 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.61, i32 noundef %56) #13
   store i64 %113, ptr %51, align 8, !alias.scope !202
-  %796 = getelementptr inbounds i8, ptr %51, i64 8
+  %796 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 1, ptr %796, align 8, !alias.scope !202
-  %797 = getelementptr inbounds i8, ptr %51, i64 16
+  %797 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double 0.000000e+00, ptr %797, align 8, !alias.scope !202
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 1 dereferenceable(1) %51)
   br i1 %584, label %.lr.ph.i494, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit500
 
 .lr.ph.i494:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit493
-  %798 = getelementptr inbounds i8, ptr %50, i64 8
-  %799 = getelementptr inbounds i8, ptr %50, i64 16
+  %798 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %799 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %800 = add nsw i32 %56, -1
   %801 = zext nneg i32 %800 to i64
   %wide.trip.count.i495 = zext nneg i32 %56 to i64
@@ -1852,7 +1852,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, label %7
@@ -1870,10 +1870,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i
   %11 = load i64, ptr %1, align 8
   %12 = load i64, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq i64 %14, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %.not8.i.i.i.i.i = icmp eq i64 %16, %12
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %.not8.i.i.i.i.i, i1 false
@@ -1911,20 +1911,20 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_1
   %24 = phi i64 [ %12, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEEvRKNS_9EigenBaseIT_EE.exit ], [ %.pre6.i.i.i.i, %.noexc6 ]
   %25 = phi i64 [ %11, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEEvRKNS_9EigenBaseIT_EE.exit ], [ %.pre.i.i.i.i, %.noexc6 ]
   %26 = mul nsw i64 %25, %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load double, ptr %27, align 8
   %29 = icmp slt i64 %26, 1
   br i1 %29, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE12_set_noaliasINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERS2_RKNS_9DenseBaseIT_EE.exit, label %30
 
 30:                                               ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds double, ptr %31, i64 %26
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %26
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %30
   %.07.i.i.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i.i.i ], [ %31, %30 ]
   store double %28, ptr %.07.i.i.i.i.i.i.i.i, align 8
-  %33 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %32
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE12_set_noaliasINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERS2_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !212
 
@@ -1949,9 +1949,9 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
@@ -2001,9 +2001,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = mul nsw i64 %6, %4
   %8 = icmp eq i64 %7, 0
@@ -2034,10 +2034,10 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(
 _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit: ; preds = %2, %13
   %.0.i = phi ptr [ null, %2 ], [ %15, %13 ]
   store ptr %.0.i, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %3, align 8
   store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %5, align 8
   store i64 %22, ptr %21, align 8
   %23 = load i64, ptr %3, align 8
@@ -2061,7 +2061,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS1_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4, i64 noundef %4, i64 noundef 1)
           to label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS1_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS_9EigenBaseIT_EE.exit unwind label %30
@@ -2069,10 +2069,10 @@ define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0EL
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeINS1_IdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %2
   %5 = load ptr, ptr %1, align 8
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %.not.i.i.i.i.i = icmp eq i64 %8, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %.not8.i.i.i.i.i = icmp eq i64 %10, 1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %.not8.i.i.i.i.i, i1 false
@@ -2099,8 +2099,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %12, %.lr.ph.i.i.i.i.i
   %.011.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i ], [ 0, %12 ]
-  %20 = getelementptr inbounds double, ptr %15, i64 %.011.i.i.i.i.i
-  %21 = getelementptr inbounds double, ptr %5, i64 %.011.i.i.i.i.i
+  %20 = getelementptr inbounds nuw double, ptr %15, i64 %.011.i.i.i.i.i
+  %21 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i
   %22 = load <2 x double>, ptr %21, align 16
   store <2 x double> %22, ptr %20, align 16
   %23 = add nuw nsw i64 %.011.i.i.i.i.i, 2

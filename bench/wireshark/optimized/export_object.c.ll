@@ -29,11 +29,11 @@ define i32 @register_export_object(i32 noundef %0, ptr noundef %1, ptr noundef %
   %8 = tail call ptr @wmem_epan_scope() #7
   %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %0) #7
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %9) #7
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %2, ptr %13, align 8
   %14 = load ptr, ptr @registered_eo_tables, align 8
   %15 = icmp eq ptr %14, null
@@ -87,21 +87,21 @@ define i32 @get_eo_proto_id(ptr noundef readonly %0) local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_eo_tap_listener_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_eo_packet_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_eo_reset_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -155,7 +155,7 @@ define ptr @eo_massage_str(ptr noundef %0, i64 noundef %1, i32 noundef %2) local
   br i1 %.not22, label %16, label %.sink.split
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %1
   br i1 %19, label %.sink.split, label %21
@@ -203,7 +203,7 @@ define internal fastcc ptr @eo_rename(ptr noundef %0, i64 noundef %1, i32 nounde
 
 9:                                                ; preds = %6
   %10 = tail call ptr @g_string_new(ptr noundef nonnull %8) #7
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load ptr, ptr %4, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
@@ -212,11 +212,11 @@ define internal fastcc ptr @eo_rename(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %19, %12
   %21 = tail call ptr @g_string_truncate(ptr noundef nonnull %0, i64 noundef %20) #7
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %4, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
@@ -242,7 +242,7 @@ define internal fastcc ptr @eo_rename(ptr noundef %0, i64 noundef %1, i32 nounde
 35:                                               ; preds = %._crit_edge, %9
   %36 = phi ptr [ %13, %9 ], [ %.pre52, %._crit_edge ]
   %.0 = phi ptr [ %10, %9 ], [ null, %._crit_edge ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
   %40 = sub i64 %1, %39
@@ -280,16 +280,16 @@ define noundef ptr @eo_ct2ext(ptr noundef readnone returned %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @eo_free_entry(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #7
   tail call void @g_free(ptr noundef %0) #7

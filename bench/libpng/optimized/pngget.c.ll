@@ -19,13 +19,13 @@ define i32 @png_get_valid(ptr noalias noundef readonly %0, ptr noalias noundef r
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %8, %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %2
   br label %16
@@ -43,7 +43,7 @@ define i64 @png_get_rowbytes(ptr noalias noundef readnone %0, ptr noalias nounde
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   br label %8
 
@@ -60,7 +60,7 @@ define ptr @png_get_rows(ptr noalias noundef readnone %0, ptr noalias noundef re
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 352
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -93,7 +93,7 @@ define i32 @png_get_image_height(ptr noalias noundef readnone %0, ptr noalias no
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   br label %8
 
@@ -110,7 +110,7 @@ define zeroext i8 @png_get_bit_depth(ptr noalias noundef readnone %0, ptr noalia
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i8, ptr %6, align 4
   br label %8
 
@@ -127,7 +127,7 @@ define zeroext i8 @png_get_color_type(ptr noalias noundef readnone %0, ptr noali
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 37
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %7 = load i8, ptr %6, align 1
   br label %8
 
@@ -144,7 +144,7 @@ define zeroext i8 @png_get_filter_type(ptr noalias noundef readnone %0, ptr noal
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 39
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %7 = load i8, ptr %6, align 1
   br label %8
 
@@ -161,7 +161,7 @@ define zeroext i8 @png_get_interlace_type(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i8, ptr %6, align 8
   br label %8
 
@@ -178,7 +178,7 @@ define zeroext i8 @png_get_compression_type(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 38
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %7 = load i8, ptr %6, align 2
   br label %8
 
@@ -195,20 +195,20 @@ define i32 @png_get_x_pixels_per_meter(ptr noalias noundef readnone %0, ptr noal
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -225,20 +225,20 @@ define i32 @png_get_y_pixels_per_meter(ptr noalias noundef readnone %0, ptr noal
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 228
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -255,22 +255,22 @@ define i32 @png_get_pixels_per_meter(ptr noalias noundef readnone %0, ptr noalia
   br i1 %or.cond, label %5, label %19
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 228
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %20, label %19
@@ -291,20 +291,20 @@ define float @png_get_pixel_aspect_ratio(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond, label %5, label %18
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %11 = load i32, ptr %10, align 8
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %18, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 228
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %14 = load i32, ptr %13, align 4
   %15 = uitofp i32 %14 to float
   %16 = uitofp i32 %11 to float
@@ -325,20 +325,20 @@ define i32 @png_get_pixel_aspect_ratio_fixed(ptr noalias noundef readnone %0, pt
   br i1 %or.cond, label %6, label %21
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 128
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %12 = load i32, ptr %11, align 8
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 228
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %12, -1
   %17 = icmp sgt i32 %15, 0
@@ -367,20 +367,20 @@ define i32 @png_get_x_offset_microns(ptr noalias noundef readnone %0, ptr noalia
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 212
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -397,20 +397,20 @@ define i32 @png_get_y_offset_microns(ptr noalias noundef readnone %0, ptr noalia
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -427,20 +427,20 @@ define i32 @png_get_x_offset_pixels(ptr noalias noundef readnone %0, ptr noalias
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 212
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -457,20 +457,20 @@ define i32 @png_get_y_offset_pixels(ptr noalias noundef readnone %0, ptr noalias
   br i1 %or.cond, label %5, label %16
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -488,22 +488,22 @@ define i32 @png_get_pixels_per_inch(ptr noalias noundef readnone %0, ptr noalias
   br i1 %or.cond.i, label %6, label %png_get_pixels_per_meter.exit.thread
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !4, !noalias !7
   %9 = and i32 %8, 128
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_get_pixels_per_meter.exit.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %12 = load i8, ptr %11, align 8, !alias.scope !4, !noalias !7
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %14, label %png_get_pixels_per_meter.exit.thread
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %16 = load i32, ptr %15, align 8, !alias.scope !4, !noalias !7
-  %17 = getelementptr inbounds i8, ptr %1, i64 228
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %18 = load i32, ptr %17, align 4, !alias.scope !4, !noalias !7
   %19 = icmp eq i32 %16, %18
   br i1 %19, label %png_get_pixels_per_meter.exit, label %png_get_pixels_per_meter.exit.thread
@@ -540,14 +540,14 @@ define i32 @png_get_x_pixels_per_inch(ptr noalias noundef readnone %0, ptr noali
   br i1 %or.cond.i, label %6, label %png_get_x_pixels_per_meter.exit.thread
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !9, !noalias !12
   %9 = and i32 %8, 128
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_get_x_pixels_per_meter.exit.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %12 = load i8, ptr %11, align 8, !alias.scope !9, !noalias !12
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %png_get_x_pixels_per_meter.exit, label %png_get_x_pixels_per_meter.exit.thread
@@ -557,7 +557,7 @@ png_get_x_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
   br label %17
 
 png_get_x_pixels_per_meter.exit:                  ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8, !alias.scope !9, !noalias !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
@@ -586,14 +586,14 @@ define i32 @png_get_y_pixels_per_inch(ptr noalias noundef readnone %0, ptr noali
   br i1 %or.cond.i, label %6, label %png_get_y_pixels_per_meter.exit.thread
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !14, !noalias !17
   %9 = and i32 %8, 128
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_get_y_pixels_per_meter.exit.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %12 = load i8, ptr %11, align 8, !alias.scope !14, !noalias !17
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %png_get_y_pixels_per_meter.exit, label %png_get_y_pixels_per_meter.exit.thread
@@ -603,7 +603,7 @@ png_get_y_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
   br label %17
 
 png_get_y_pixels_per_meter.exit:                  ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 228
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %15 = load i32, ptr %14, align 4, !alias.scope !14, !noalias !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
@@ -631,20 +631,20 @@ define i32 @png_get_x_offset_inches_fixed(ptr noalias noundef %0, ptr noalias no
   br i1 %or.cond.i, label %5, label %png_get_x_offset_microns.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !19, !noalias !22
   %8 = and i32 %7, 256
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %png_get_x_offset_microns.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4, !alias.scope !19, !noalias !22
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %png_get_x_offset_microns.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 212
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %15 = load i32, ptr %14, align 4, !alias.scope !19, !noalias !22
   br label %png_get_x_offset_microns.exit
 
@@ -662,20 +662,20 @@ define i32 @png_get_y_offset_inches_fixed(ptr noalias noundef %0, ptr noalias no
   br i1 %or.cond.i, label %5, label %png_get_y_offset_microns.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !24, !noalias !27
   %8 = and i32 %7, 256
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %png_get_y_offset_microns.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4, !alias.scope !24, !noalias !27
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %png_get_y_offset_microns.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i32, ptr %14, align 8, !alias.scope !24, !noalias !27
   br label %png_get_y_offset_microns.exit
 
@@ -693,20 +693,20 @@ define float @png_get_x_offset_inches(ptr noalias noundef readnone %0, ptr noali
   br i1 %or.cond.i, label %5, label %png_get_x_offset_microns.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !29, !noalias !32
   %8 = and i32 %7, 256
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %png_get_x_offset_microns.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4, !alias.scope !29, !noalias !32
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %png_get_x_offset_microns.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 212
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %15 = load i32, ptr %14, align 4, !alias.scope !29, !noalias !32
   %16 = sitofp i32 %15 to double
   %17 = fmul double %16, 3.937000e-05
@@ -726,20 +726,20 @@ define float @png_get_y_offset_inches(ptr noalias noundef readnone %0, ptr noali
   br i1 %or.cond.i, label %5, label %png_get_y_offset_microns.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !34, !noalias !37
   %8 = and i32 %7, 256
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %png_get_y_offset_microns.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %11 = load i8, ptr %10, align 4, !alias.scope !34, !noalias !37
   %12 = icmp eq i8 %11, 1
   br i1 %12, label %13, label %png_get_y_offset_microns.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i32, ptr %14, align 8, !alias.scope !34, !noalias !37
   %16 = sitofp i32 %15 to double
   %17 = fmul double %16, 3.937000e-05
@@ -759,7 +759,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone %0, 
   br i1 %or.cond, label %8, label %38
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
   %.not = icmp eq i32 %11, 0
@@ -770,7 +770,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone %0, 
   br i1 %.not29, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %2, align 4
   br label %16
@@ -781,7 +781,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone %0, 
   br i1 %.not30, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 228
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %3, align 4
   br label %20
@@ -792,7 +792,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone %0, 
   br i1 %.not31, label %38, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
   store i32 %24, ptr %4, align 4
@@ -837,7 +837,7 @@ define zeroext i8 @png_get_channels(ptr noalias noundef readnone %0, ptr noalias
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 41
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %7 = load i8, ptr %6, align 1
   br label %8
 
@@ -851,7 +851,7 @@ define ptr @png_get_signature(ptr noalias noundef readnone %0, ptr noalias nound
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
-  %5 = getelementptr inbounds i8, ptr %1, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.0 = select i1 %or.cond, ptr %5, ptr null
   ret ptr %.0
 }
@@ -864,7 +864,7 @@ define range(i32 0, 33) i32 @png_get_bKGD(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond, label %6, label %14
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 32
   %10 = icmp ne i32 %9, 0
@@ -873,7 +873,7 @@ define range(i32 0, 33) i32 @png_get_bKGD(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond3, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 202
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 202
   store ptr %13, ptr %2, align 8
   br label %14
 
@@ -890,7 +890,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond, label %13, label %65
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 126
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2
   %.not = icmp eq i16 %16, 0
@@ -901,7 +901,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not37, label %23, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 4
   %21 = sitofp i32 %20 to double
   %22 = fmul double %21, 1.000000e-05
@@ -913,7 +913,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not38, label %29, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %26 = load i32, ptr %25, align 4
   %27 = sitofp i32 %26 to double
   %28 = fmul double %27, 1.000000e-05
@@ -925,7 +925,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not39, label %35, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load i32, ptr %31, align 4
   %33 = sitofp i32 %32 to double
   %34 = fmul double %33, 1.000000e-05
@@ -937,7 +937,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not40, label %41, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %1, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to double
   %40 = fmul double %39, 1.000000e-05
@@ -949,7 +949,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not41, label %47, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load i32, ptr %43, align 4
   %45 = sitofp i32 %44 to double
   %46 = fmul double %45, 1.000000e-05
@@ -961,7 +961,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not42, label %53, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %1, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = sitofp i32 %50 to double
   %52 = fmul double %51, 1.000000e-05
@@ -973,7 +973,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not43, label %59, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %1, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
   %58 = fmul double %57, 1.000000e-05
@@ -985,7 +985,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone %0, ptr no
   br i1 %.not44, label %65, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %1, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %62 = load i32, ptr %61, align 4
   %63 = sitofp i32 %62 to double
   %64 = fmul double %63, 1.000000e-05
@@ -1005,7 +1005,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %or.cond, label %14, label %72
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 126
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 2
   %.not = icmp eq i16 %17, 0
@@ -1016,7 +1016,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not41, label %24, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to double
   %23 = fmul double %22, 1.000000e-05
@@ -1028,7 +1028,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not42, label %30, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
   %29 = fmul double %28, 1.000000e-05
@@ -1040,7 +1040,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not43, label %36, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %33 = load i32, ptr %32, align 4
   %34 = sitofp i32 %33 to double
   %35 = fmul double %34, 1.000000e-05
@@ -1052,7 +1052,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not44, label %42, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 100
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %39 = load i32, ptr %38, align 4
   %40 = sitofp i32 %39 to double
   %41 = fmul double %40, 1.000000e-05
@@ -1064,7 +1064,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not45, label %48, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %45 = load i32, ptr %44, align 4
   %46 = sitofp i32 %45 to double
   %47 = fmul double %46, 1.000000e-05
@@ -1076,7 +1076,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not46, label %54, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %1, i64 108
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %51 = load i32, ptr %50, align 4
   %52 = sitofp i32 %51 to double
   %53 = fmul double %52, 1.000000e-05
@@ -1088,7 +1088,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not47, label %60, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %57 = load i32, ptr %56, align 4
   %58 = sitofp i32 %57 to double
   %59 = fmul double %58, 1.000000e-05
@@ -1100,7 +1100,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not48, label %66, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 116
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %63 = load i32, ptr %62, align 4
   %64 = sitofp i32 %63 to double
   %65 = fmul double %64, 1.000000e-05
@@ -1112,7 +1112,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone %0, pt
   br i1 %.not49, label %72, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %1, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %69 = load i32, ptr %68, align 4
   %70 = sitofp i32 %69 to double
   %71 = fmul double %70, 1.000000e-05
@@ -1132,7 +1132,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %or.cond, label %14, label %54
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 126
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 2
   %.not = icmp eq i16 %17, 0
@@ -1143,7 +1143,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not41, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %2, align 4
   br label %22
@@ -1153,7 +1153,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not42, label %26, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 92
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %3, align 4
   br label %26
@@ -1163,7 +1163,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not43, label %30, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %4, align 4
   br label %30
@@ -1173,7 +1173,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not44, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 100
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %5, align 4
   br label %34
@@ -1183,7 +1183,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not45, label %38, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %6, align 4
   br label %38
@@ -1193,7 +1193,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not46, label %42, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 108
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %7, align 4
   br label %42
@@ -1203,7 +1203,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not47, label %46, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %8, align 4
   br label %46
@@ -1213,7 +1213,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not48, label %50, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %1, i64 116
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %9, align 4
   br label %50
@@ -1223,7 +1223,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br i1 %.not49, label %54, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %10, align 4
   br label %54
@@ -1241,7 +1241,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %or.cond, label %13, label %49
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 126
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2
   %.not = icmp eq i16 %16, 0
@@ -1252,7 +1252,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not37, label %21, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %2, align 4
   br label %21
@@ -1262,7 +1262,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not38, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %3, align 4
   br label %25
@@ -1272,7 +1272,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not39, label %29, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %4, align 4
   br label %29
@@ -1282,7 +1282,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not40, label %33, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %5, align 4
   br label %33
@@ -1292,7 +1292,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not41, label %37, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %6, align 4
   br label %37
@@ -1302,7 +1302,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not42, label %41, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %7, align 4
   br label %41
@@ -1312,7 +1312,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not43, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %8, align 4
   br label %45
@@ -1322,7 +1322,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone %0, 
   br i1 %.not44, label %49, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 76
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %9, align 4
   br label %49
@@ -1340,7 +1340,7 @@ define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone %0, 
   br i1 %or.cond, label %6, label %15
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 126
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 1
   %10 = icmp ne i16 %9, 0
@@ -1349,7 +1349,7 @@ define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone %0, 
   br i1 %or.cond3, label %12, label %15
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %2, align 4
   br label %15
@@ -1367,7 +1367,7 @@ define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 126
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 1
   %10 = icmp ne i16 %9, 0
@@ -1376,7 +1376,7 @@ define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond3, label %12, label %17
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to double
   %16 = fmul double %15, 1.000000e-05
@@ -1396,7 +1396,7 @@ define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond, label %6, label %16
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2048
   %10 = icmp ne i32 %9, 0
@@ -1405,7 +1405,7 @@ define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond3, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 124
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
   store i32 %15, ptr %2, align 4
@@ -1424,7 +1424,7 @@ define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond, label %9, label %40
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 4096
   %13 = icmp ne i32 %12, 0
@@ -1437,26 +1437,26 @@ define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond7, label %17, label %40
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw i32 %23, 24
-  %25 = getelementptr inbounds i8, ptr %21, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 16
   %29 = or disjoint i32 %28, %24
-  %30 = getelementptr inbounds i8, ptr %21, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 8
   %34 = or disjoint i32 %29, %33
-  %35 = getelementptr inbounds i8, ptr %21, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %34, %37
@@ -1483,10 +1483,10 @@ define i32 @png_get_sPLT(ptr noalias noundef readnone %0, ptr noalias noundef re
   br i1 %or.cond3, label %7, label %12
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -1511,7 +1511,7 @@ define range(i32 0, 65537) i32 @png_get_eXIf_1(ptr noalias noundef readnone %0, 
   br i1 %or.cond, label %7, label %18
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 65536
   %11 = icmp ne i32 %10, 0
@@ -1520,10 +1520,10 @@ define range(i32 0, 65537) i32 @png_get_eXIf_1(ptr noalias noundef readnone %0, 
   br i1 %or.cond3, label %13, label %18
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 236
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %3, align 8
   br label %18
@@ -1541,7 +1541,7 @@ define range(i32 0, 65) i32 @png_get_hIST(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond, label %6, label %15
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 64
   %10 = icmp ne i32 %9, 0
@@ -1550,7 +1550,7 @@ define range(i32 0, 65) i32 @png_get_hIST(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond3, label %12, label %15
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %2, align 8
   br label %15
@@ -1581,7 +1581,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   br i1 %.not41, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %3, align 4
   br label %19
@@ -1591,7 +1591,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   br i1 %.not42, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %4, align 4
@@ -1602,7 +1602,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   br i1 %.not43, label %29, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 37
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   store i32 %28, ptr %5, align 4
@@ -1613,7 +1613,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   br i1 %.not44, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 38
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %32 = load i8, ptr %31, align 2
   %33 = zext i8 %32 to i32
   store i32 %33, ptr %7, align 4
@@ -1624,7 +1624,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   br i1 %.not45, label %39, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 39
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   store i32 %38, ptr %8, align 4
@@ -1632,7 +1632,7 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
 
 39:                                               ; preds = %35, %34
   %.not46 = icmp eq ptr %6, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   %.pre47 = zext i8 %.pre to i32
   br i1 %.not46, label %._crit_edge, label %40
@@ -1643,18 +1643,18 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
 
 ._crit_edge:                                      ; preds = %39, %40
   %41 = load i32, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %45 = load i8, ptr %44, align 4
   %46 = zext i8 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %1, i64 37
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %1, i64 38
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %51 = load i8, ptr %50, align 2
   %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %1, i64 39
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   tail call void @png_check_IHDR(ptr noundef nonnull %0, i32 noundef %41, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %.pre47, i32 noundef %52, i32 noundef %55) #10
@@ -1675,7 +1675,7 @@ define range(i32 0, 257) i32 @png_get_oFFs(ptr noalias noundef readnone %0, ptr 
   br i1 %or.cond, label %8, label %24
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 256
   %12 = icmp ne i32 %11, 0
@@ -1688,13 +1688,13 @@ define range(i32 0, 257) i32 @png_get_oFFs(ptr noalias noundef readnone %0, ptr 
   br i1 %or.cond7, label %16, label %24
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 212
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %3, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 220
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %22 = load i8, ptr %21, align 4
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %4, align 4
@@ -1713,7 +1713,7 @@ define range(i32 0, 1025) i32 @png_get_pCAL(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond, label %12, label %41
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1024
   %16 = icmp ne i32 %15, 0
@@ -1734,27 +1734,27 @@ define range(i32 0, 1025) i32 @png_get_pCAL(ptr noalias noundef readnone %0, ptr
   br i1 %or.cond15, label %24, label %41
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 272
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %3, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 276
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %4, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %32 = load i8, ptr %31, align 8
   %33 = zext i8 %32 to i32
   store i32 %33, ptr %5, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 297
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 297
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   store i32 %36, ptr %6, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %8, align 8
   br label %41
@@ -1772,23 +1772,23 @@ define range(i32 0, 16385) i32 @png_get_sCAL_fixed(ptr noalias noundef %0, ptr n
   br i1 %or.cond, label %8, label %24
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16384
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %24, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %14 = load i8, ptr %13, align 4
   %15 = zext i8 %14 to i32
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 336
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %17 = load ptr, ptr %16, align 8
   %18 = tail call double @atof(ptr noundef %17) #11
   %19 = tail call i32 @png_fixed(ptr noundef nonnull %0, double noundef %18, ptr noundef nonnull @.str.1) #10
   store i32 %19, ptr %3, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 344
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %21 = load ptr, ptr %20, align 8
   %22 = tail call double @atof(ptr noundef %21) #11
   %23 = tail call i32 @png_fixed(ptr noundef nonnull %0, double noundef %22, ptr noundef nonnull @.str.2) #10
@@ -1813,22 +1813,22 @@ define range(i32 0, 16385) i32 @png_get_sCAL(ptr noalias noundef readnone %0, pt
   br i1 %or.cond, label %8, label %22
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16384
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %22, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %14 = load i8, ptr %13, align 4
   %15 = zext i8 %14 to i32
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 336
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %17 = load ptr, ptr %16, align 8
   %18 = tail call double @atof(ptr noundef %17) #11
   store double %18, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 344
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %20 = load ptr, ptr %19, align 8
   %21 = tail call double @atof(ptr noundef %20) #11
   store double %21, ptr %4, align 8
@@ -1847,21 +1847,21 @@ define range(i32 0, 16385) i32 @png_get_sCAL_s(ptr noalias noundef readnone %0, 
   br i1 %or.cond, label %8, label %20
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16384
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %14 = load i8, ptr %13, align 4
   %15 = zext i8 %14 to i32
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 336
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 344
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %4, align 8
   br label %20
@@ -1879,7 +1879,7 @@ define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %0, ptr 
   br i1 %or.cond, label %8, label %25
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 128
   %.not = icmp eq i32 %11, 0
@@ -1890,7 +1890,7 @@ define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %0, ptr 
   br i1 %.not20, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %2, align 4
   br label %16
@@ -1901,7 +1901,7 @@ define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %0, ptr 
   br i1 %.not21, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 228
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %3, align 4
   br label %20
@@ -1912,7 +1912,7 @@ define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone %0, ptr 
   br i1 %.not22, label %25, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
   store i32 %24, ptr %4, align 4
@@ -1931,7 +1931,7 @@ define range(i32 0, 9) i32 @png_get_PLTE(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond, label %7, label %19
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 8
   %11 = icmp ne i32 %10, 0
@@ -1940,10 +1940,10 @@ define range(i32 0, 9) i32 @png_get_PLTE(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond3, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
   store i32 %18, ptr %3, align 4
@@ -1962,7 +1962,7 @@ define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond, label %6, label %14
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2
   %10 = icmp ne i32 %9, 0
@@ -1971,7 +1971,7 @@ define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone %0, ptr no
   br i1 %or.cond3, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %13, ptr %2, align 8
   br label %14
 
@@ -1988,7 +1988,7 @@ define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone 
   br i1 %or.cond, label %7, label %16
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 148
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %16
@@ -1998,7 +1998,7 @@ define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone 
   br i1 %.not16, label %15, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %2, align 8
   br label %15
@@ -2029,7 +2029,7 @@ define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone %0, ptr 
   br i1 %or.cond, label %6, label %14
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 512
   %10 = icmp ne i32 %9, 0
@@ -2038,7 +2038,7 @@ define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone %0, ptr 
   br i1 %or.cond3, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %13, ptr %2, align 8
   br label %14
 
@@ -2055,14 +2055,14 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr n
   br i1 %or.cond, label %8, label %33
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %33, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 37
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %16, label %23
@@ -2072,7 +2072,7 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr n
   br i1 %.not30, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %2, align 8
   br label %20
@@ -2083,7 +2083,7 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr n
   br i1 %.not31, label %28, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %22, ptr %4, align 8
   br label %28
 
@@ -2092,7 +2092,7 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr n
   br i1 %.not28, label %26, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %25, ptr %4, align 8
   br label %26
 
@@ -2111,7 +2111,7 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr n
   br i1 %.not32, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 34
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   store i32 %32, ptr %3, align 4
@@ -2132,10 +2132,10 @@ define i32 @png_get_unknown_chunks(ptr noalias noundef readnone %0, ptr noalias 
   br i1 %or.cond3, label %7, label %12
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -2150,7 +2150,7 @@ define zeroext i8 @png_get_rgb_to_gray_status(ptr noalias noundef readonly %0) l
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %4 = load i8, ptr %3, align 8
   br label %5
 
@@ -2165,7 +2165,7 @@ define ptr @png_get_user_chunk_ptr(ptr noalias noundef readonly %0) local_unname
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 944
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %4 = load ptr, ptr %3, align 8
   br label %5
 
@@ -2180,12 +2180,12 @@ define range(i64 0, 4294967296) i64 @png_get_compression_buffer_size(ptr noalias
   br i1 %2, label %9, label %.sink.split
 
 .sink.split:                                      ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 300
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 32768
   %.not = icmp eq i32 %5, 0
   %. = select i1 %.not, i64 440, i64 1136
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   br label %9
@@ -2201,7 +2201,7 @@ define i32 @png_get_user_width_max(ptr noalias noundef readonly %0) local_unname
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1060
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   %4 = load i32, ptr %3, align 4
   br label %5
 
@@ -2216,7 +2216,7 @@ define i32 @png_get_user_height_max(ptr noalias noundef readonly %0) local_unnam
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load i32, ptr %3, align 8
   br label %5
 
@@ -2231,7 +2231,7 @@ define i32 @png_get_chunk_cache_max(ptr noalias noundef readonly %0) local_unnam
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1068
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   %4 = load i32, ptr %3, align 4
   br label %5
 
@@ -2246,7 +2246,7 @@ define i64 @png_get_chunk_malloc_max(ptr noalias noundef readonly %0) local_unna
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load i64, ptr %3, align 8
   br label %5
 
@@ -2257,14 +2257,14 @@ define i64 @png_get_chunk_malloc_max(ptr noalias noundef readonly %0) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @png_get_io_state(ptr noalias nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1140
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @png_get_io_chunk_type(ptr noalias nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 536
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -2277,7 +2277,7 @@ define i32 @png_get_palette_max(ptr noundef readonly %0, ptr noundef readnone %1
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 604
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %7 = load i32, ptr %6, align 4
   br label %8
 

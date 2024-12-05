@@ -52,7 +52,7 @@ define dso_local void @v9fs_register_trans(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @v9fs_trans_list, i64 8), align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @v9fs_trans_list, i64 8), align 8
   store ptr @v9fs_trans_list, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   store volatile ptr %0, ptr %2, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_trans_lock) #5
@@ -62,10 +62,10 @@ define dso_local void @v9fs_register_trans(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @v9fs_unregister_trans(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @v9fs_trans_lock) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store volatile ptr %0, ptr %0, align 8
@@ -83,14 +83,14 @@ define dso_local ptr @v9fs_get_trans_by_name(ptr noundef %0) #0 align 16 {
 
 .preheader5:                                      ; preds = %1, %13
   %4 = phi ptr [ %14, %13 ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef %6, ptr noundef %0) #5
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %.preheader5
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @try_module_get(ptr noundef %11) #5
   br i1 %12, label %16, label %13
@@ -118,14 +118,14 @@ define dso_local ptr @v9fs_get_trans_by_name(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %18, %31
   %22 = phi ptr [ %32, %31 ], [ %20, %18 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef %24, ptr noundef %0) #5
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %22, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @try_module_get(ptr noundef %29) #5
   br i1 %30, label %.loopexit, label %31
@@ -157,13 +157,13 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
 
 .preheader6:                                      ; preds = %0, %11
   %3 = phi ptr [ %12, %11 ], [ %1, %0 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %.preheader6
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i1 @try_module_get(ptr noundef %9) #5
   br i1 %10, label %.loopexit7, label %11
@@ -195,7 +195,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   br label %.preheader.preheader
 
 18:                                               ; preds = %.preheader5
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @try_module_get(ptr noundef %20) #5
   br i1 %21, label %22, label %.preheader5, !llvm.loop !9
@@ -233,7 +233,7 @@ define dso_local void @v9fs_put_trans(ptr noundef readonly %0) local_unnamed_add
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @module_put(ptr noundef %5) #5
   br label %6

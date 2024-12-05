@@ -15,23 +15,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_inclusion_opcinfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @lookup_type_cache(i32 noundef 16, i32 noundef 0) #4
   %6 = tail call ptr @palloc0(i64 noundef 1680) #4
   store i16 3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 1, ptr %7, align 2
   %8 = getelementptr i8, ptr %6, i64 40
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %9, 7
   %11 = and i64 %10, -8
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #4
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr i8, ptr %6, i64 24
   store ptr %5, ptr %16, align 8
@@ -47,7 +47,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -55,29 +55,29 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture nou
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load i16, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = sext i16 %12 to i64
   %17 = add nsw i64 %16, -1
   %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %17
-  %19 = getelementptr inbounds i8, ptr %7, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %18, i64 86
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %24 = load i8, ptr %23, align 2
   %25 = trunc i8 %24 to i1
-  %26 = getelementptr inbounds i8, ptr %18, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %27 = load i16, ptr %26, align 4
   %28 = sext i16 %27 to i32
   %29 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %25, i32 noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8
   store i64 %29, ptr %31, align 8
   %32 = load ptr, ptr %30, align 8
@@ -90,7 +90,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture nou
   br label %36
 
 36:                                               ; preds = %22, %1
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
@@ -98,12 +98,12 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture nou
   br i1 %.not82, label %41, label %165
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %4, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %43 = zext i16 %12 to i64
   %44 = add nsw i64 %43, -1
   %45 = getelementptr [0 x ptr], ptr %42, i64 0, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %48, i64 195
   %50 = load i8, ptr %49, align 1
@@ -118,7 +118,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture nou
   br i1 %56, label %57, label %inclusion_get_procinfo.exit
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @index_getprocid(ptr noundef %59, i16 noundef signext %12, i16 noundef zeroext 14) #4
   %.not.i = icmp eq i32 %60, 0
@@ -160,7 +160,7 @@ inclusion_get_procinfo.exit.thread:               ; preds = %41, %65, %66, %incl
 
 73:                                               ; preds = %inclusion_get_procinfo.exit.thread
   %74 = load ptr, ptr %45, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 194
   %78 = load i8, ptr %77, align 1
@@ -175,7 +175,7 @@ inclusion_get_procinfo.exit.thread:               ; preds = %41, %65, %66, %incl
   br i1 %84, label %85, label %inclusion_get_procinfo.exit69
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %4, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 @index_getprocid(ptr noundef %87, i16 noundef signext %12, i16 noundef zeroext 13) #4
   %.not.i68 = icmp eq i32 %88, 0
@@ -205,7 +205,7 @@ inclusion_get_procinfo.exit69:                    ; preds = %80, %89
 
 inclusion_get_procinfo.exit69.thread:             ; preds = %73, %93, %94, %inclusion_get_procinfo.exit69
   %98 = load ptr, ptr %45, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 193
   %102 = load i8, ptr %101, align 1
@@ -220,7 +220,7 @@ inclusion_get_procinfo.exit69.thread:             ; preds = %73, %93, %94, %incl
   br i1 %108, label %109, label %inclusion_get_procinfo.exit72
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %4, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 @index_getprocid(ptr noundef %111, i16 noundef signext %12, i16 noundef zeroext 12) #4
   %.not.i71 = icmp eq i32 %112, 0
@@ -256,21 +256,21 @@ inclusion_get_procinfo.exit72:                    ; preds = %104, %113
 
 inclusion_get_procinfo.exit72.thread:             ; preds = %inclusion_get_procinfo.exit69.thread, %117, %118, %inclusion_get_procinfo.exit72
   %125 = load ptr, ptr %45, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 192
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 192
   %129 = load i8, ptr %128, align 1
   %130 = trunc i8 %129 to i1
   br i1 %130, label %inclusion_get_procinfo.exit75, label %131
 
 131:                                              ; preds = %inclusion_get_procinfo.exit72.thread
-  %132 = getelementptr inbounds i8, ptr %127, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %inclusion_get_procinfo.exit75
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = tail call i32 @index_getprocid(ptr noundef %137, i16 noundef signext %12, i16 noundef zeroext 11) #4
   %.not.i74 = icmp eq i32 %138, 0
@@ -292,7 +292,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   %144 = load ptr, ptr %37, align 8
   %145 = load i64, ptr %144, align 8
   %146 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i73, i32 noundef %11, i64 noundef %145, i64 noundef %9) #4
-  %147 = getelementptr inbounds i8, ptr %18, i64 86
+  %147 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %148 = load i8, ptr %147, align 2
   %149 = trunc i8 %148 to i1
   br i1 %149, label %163, label %150
@@ -312,7 +312,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
 156:                                              ; preds = %153
   %157 = load i8, ptr %147, align 2
   %158 = trunc i8 %157 to i1
-  %159 = getelementptr inbounds i8, ptr %18, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %160 = load i16, ptr %159, align 4
   %161 = sext i16 %160 to i32
   %162 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %158, i32 noundef %161) #4
@@ -339,15 +339,15 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
@@ -358,14 +358,14 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
   %15 = getelementptr i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i16, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %26 = load i16, ptr %25, align 2
   switch i16 %26, label %100 [
     i16 1, label %27
@@ -536,14 +536,14 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
   %8 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 196
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 196
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, %2
   br i1 %.not, label %19, label %.preheader
@@ -566,24 +566,24 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr nocapture nounde
   br label %19
 
 19:                                               ; preds = %18, %4
-  %20 = getelementptr inbounds i8, ptr %11, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %21 = zext i16 %3 to i32
   %22 = add nsw i32 %21, -1
   %23 = sext i32 %22 to i64
   %24 = getelementptr [30 x %struct.FmgrInfo], ptr %20, i64 0, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %54
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 352
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 352
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i32, ptr %32, i64 %7
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %34 to i64
   %.idx = mul nsw i64 %7, 104
@@ -627,7 +627,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -636,16 +636,16 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %8 = getelementptr i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = load i16, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = sext i16 %13 to i64
   %18 = add nsw i64 %17, -1
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
@@ -653,7 +653,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   br i1 %.not47, label %24, label %30
 
 24:                                               ; preds = %1
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
@@ -673,7 +673,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   br i1 %.not49, label %34, label %118
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
@@ -685,12 +685,12 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   br label %118
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %4, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %42 = zext i16 %13 to i64
   %43 = add nsw i64 %42, -1
   %44 = getelementptr [0 x ptr], ptr %41, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 193
   %49 = load i8, ptr %48, align 1
@@ -705,7 +705,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   br i1 %55, label %56, label %inclusion_get_procinfo.exit
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @index_getprocid(ptr noundef %58, i16 noundef signext %13, i16 noundef zeroext 12) #4
   %.not.i = icmp eq i32 %59, 0
@@ -743,21 +743,21 @@ inclusion_get_procinfo.exit:                      ; preds = %51, %60
 
 inclusion_get_procinfo.exit.thread:               ; preds = %40, %64, %65, %inclusion_get_procinfo.exit
   %74 = load ptr, ptr %44, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 192
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 192
   %78 = load i8, ptr %77, align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %inclusion_get_procinfo.exit44, label %80
 
 80:                                               ; preds = %inclusion_get_procinfo.exit.thread
-  %81 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %inclusion_get_procinfo.exit44
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %4, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 @index_getprocid(ptr noundef %86, i16 noundef signext %13, i16 noundef zeroext 11) #4
   %.not.i43 = icmp eq i32 %87, 0
@@ -781,7 +781,7 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
   %95 = load ptr, ptr %35, align 8
   %96 = load i64, ptr %95, align 8
   %97 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i42, i32 noundef %12, i64 noundef %94, i64 noundef %96) #4
-  %98 = getelementptr inbounds i8, ptr %19, i64 86
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 86
   %99 = load i8, ptr %98, align 2
   %100 = trunc i8 %99 to i1
   br i1 %100, label %116, label %101
@@ -803,7 +803,7 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
 109:                                              ; preds = %104
   %110 = load i8, ptr %98, align 2
   %111 = trunc i8 %110 to i1
-  %112 = getelementptr inbounds i8, ptr %19, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %113 = load i16, ptr %112, align 4
   %114 = sext i16 %113 to i32
   %115 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext %111, i32 noundef %114) #4

@@ -705,7 +705,7 @@ define internal range(i32 0, 2) i32 @hartip_stats_tree_packet(ptr noundef %0, pt
   %.010 = phi ptr [ @.str.375, %9 ], [ @.str.374, %8 ], [ @.str.373, %7 ], [ @.str.372, %5 ]
   %.0.in = phi ptr [ @st_node_errors, %9 ], [ @st_node_publish, %8 ], [ @st_node_responses, %7 ], [ @st_node_requests, %5 ]
   %.0 = load i32, ptr %.0.in, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @hartip_message_id_values, ptr noundef nonnull @.str.363) #4
@@ -746,7 +746,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_hartip_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.331) #4
   %7 = load ptr, ptr %5, align 8
@@ -778,7 +778,7 @@ define internal fastcc i32 @dissect_hartip_common(ptr noundef %0, ptr noundef %1
   %32 = tail call ptr @wmem_packet_scope() #4
   %33 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 2) #4
   store i8 %20, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %26, ptr %34, align 1
   %35 = load i32, ptr @hartip_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %35, ptr noundef %1, ptr noundef nonnull %33) #4
@@ -786,27 +786,27 @@ define internal fastcc i32 @dissect_hartip_common(ptr noundef %0, ptr noundef %1
   br i1 %36, label %37, label %hartip_set_conversation.exit
 
 37:                                               ; preds = %4
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %.not.i = icmp eq i16 %42, 0
   br i1 %.not.i, label %43, label %hartip_set_conversation.exit
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %1, i64 280
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 3
   br i1 %46, label %47, label %hartip_set_conversation.exit
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 208
-  %51 = getelementptr inbounds i8, ptr %1, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %52 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef 3) #4
-  %53 = getelementptr inbounds i8, ptr %1, i64 284
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %54 = load i32, ptr %53, align 4
   %55 = tail call ptr @find_conversation(i32 noundef %49, ptr noundef nonnull %50, ptr noundef nonnull %51, i32 noundef %52, i32 noundef %54, i32 noundef 0, i32 noundef 131072) #4
   %56 = icmp eq ptr %55, null
@@ -1937,9 +1937,9 @@ define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr nound
   %14 = zext nneg i8 %13 to i64
   %15 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef %14) #4
   %16 = zext nneg i8 %11 to i16
-  %17 = getelementptr inbounds i8, ptr %5, i64 2
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %invariant.gep = getelementptr i8, ptr %8, i64 1
   %invariant.gep56 = getelementptr i8, ptr %8, i64 2
   br label %20

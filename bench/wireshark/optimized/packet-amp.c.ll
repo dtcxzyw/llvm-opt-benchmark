@@ -184,15 +184,15 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %28 = load i32, ptr @ett_amp_proto, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %7, ptr noundef nonnull @.str) #5
   call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %0, i32 noundef %3)
-  %.sroa.3110.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 4
+  %.sroa.3110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.3110.0.copyload = load i32, ptr %.sroa.3110.0..sroa_idx, align 4
-  %.sroa.8124.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.8124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.8124.0.copyload = load i64, ptr %.sroa.8124.0..sroa_idx, align 8
   %30 = add i32 %.sroa.3110.0.copyload, %3
   call fastcc void @cbor_info(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %0, i32 noundef %30)
-  %.sroa.3110.0..sroa_idx111 = getelementptr inbounds i8, ptr %13, i64 4
+  %.sroa.3110.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.3110.0.copyload112 = load i32, ptr %.sroa.3110.0..sroa_idx111, align 4
-  %.sroa.8124.0..sroa_idx125 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.8124.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.8124.0.copyload126 = load i64, ptr %.sroa.8124.0..sroa_idx125, align 8
   %sext = shl i64 %.sroa.8124.0.copyload126, 32
   %31 = ashr exact i64 %sext, 32
@@ -203,7 +203,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %35 = icmp ult i64 %31, 558230400
   %spec.store.select.i = select i1 %35, i64 0, i64 %31
   store i64 %spec.store.select.i, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %36, align 8
   %37 = call ptr @proto_tree_add_time(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef %30, i32 noundef %33, ptr noundef nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -212,31 +212,31 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph342:                                        ; preds = %4
   %39 = add i32 %.sroa.3110.0.copyload112, %30
-  %.sroa.3110.0..sroa_idx113 = getelementptr inbounds i8, ptr %14, i64 4
-  %.sroa.395.0..sroa_idx96 = getelementptr inbounds i8, ptr %16, i64 4
-  %.sroa.6102.0..sroa_idx103 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
-  %.sroa.388.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
-  %.sroa.388.0..sroa_idx89 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
-  %.sroa.8.0..sroa_idx25 = getelementptr inbounds i8, ptr %20, i64 4
-  %.sroa.23.0..sroa_idx62 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.8.0..sroa_idx27 = getelementptr inbounds i8, ptr %21, i64 4
-  %.sroa.23.0..sroa_idx64 = getelementptr inbounds i8, ptr %21, i64 16
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.8.0..sroa_idx29 = getelementptr inbounds i8, ptr %22, i64 4
-  %.sroa.8.0..sroa_idx31 = getelementptr inbounds i8, ptr %23, i64 4
-  %.sroa.23.0..sroa_idx68 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sroa.8.0..sroa_idx33 = getelementptr inbounds i8, ptr %24, i64 4
-  %.sroa.23.0..sroa_idx70 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sroa.8.0..sroa_idx35 = getelementptr inbounds i8, ptr %25, i64 4
-  %.sroa.20.0..sroa_idx58 = getelementptr inbounds i8, ptr %25, i64 8
-  %.sroa.23.0..sroa_idx72 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sroa.3.0..sroa_idx12 = getelementptr inbounds i8, ptr %27, i64 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
-  %.sroa.395.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 4
-  %.sroa.6102.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3110.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.sroa.395.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.sroa.6102.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.sroa.388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.388.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sroa.8.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %.sroa.23.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.8.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.sroa.23.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.8.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.23.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sroa.8.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %.sroa.23.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.8.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %.sroa.20.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.23.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sroa.3.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %.sroa.395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %.sroa.6102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %41
 
 41:                                               ; preds = %.lr.ph342, %.loopexit
@@ -537,10 +537,10 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %6, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #5
   %8 = zext i8 %7 to i32
@@ -807,7 +807,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_amp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.68) #5
   %7 = load ptr, ptr %5, align 8

@@ -64,7 +64,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   %15 = phi i32 [ %21, %20 ], [ %13, %12 ]
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %20 ], [ 0, %12 ]
   %16 = load ptr, ptr @port_resv_table, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv40
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv40
   %18 = load ptr, ptr %17, align 8
   %.not31 = icmp eq ptr %18, null
   br i1 %.not31, label %20, label %19
@@ -78,7 +78,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
 20:                                               ; preds = %19, %.lr.ph37
   %21 = phi i32 [ %.pre43, %19 ], [ %15, %.lr.ph37 ]
   %22 = phi ptr [ %.pre, %19 ], [ %16, %.lr.ph37 ]
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv40
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv40
   store ptr null, ptr %23, align 8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %24 = sext i32 %21 to i64
@@ -93,7 +93,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   br label %153
 
 26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %5, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %28 = call i64 @strtol(ptr noundef nonnull %27, ptr noundef nonnull %3, i32 noundef 10) #9
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 1
@@ -115,7 +115,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   br label %153
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %32, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %39, ptr %3, align 8
   %40 = tail call i64 @strtol(ptr nocapture noundef nonnull %39, ptr noundef null, i32 noundef 10) #9
   %41 = trunc i64 %40 to i32
@@ -172,7 +172,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   %67 = sext i32 %66 to i64
   %68 = tail call ptr @bit_alloc(i64 noundef %67) #9
   %69 = load ptr, ptr @port_resv_table, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   store ptr %68, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr @port_resv_cnt, align 4
@@ -189,7 +189,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
 
 .lr.ph12.i:                                       ; preds = %._crit_edge, %._crit_edge.i
   %77 = phi ptr [ %152, %._crit_edge.i ], [ %76, %._crit_edge ]
-  %78 = getelementptr inbounds i8, ptr %77, i64 912
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 912
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr @list_iterator_create(ptr noundef %79) #9
   %81 = call ptr @list_next(ptr noundef %80) #9
@@ -198,19 +198,19 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
 
 .lr.ph.i:                                         ; preds = %.lr.ph12.i, %.backedge.i
   %82 = phi ptr [ %151, %.backedge.i ], [ %81, %.lr.ph12.i ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 284
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 284
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.backedge.i, label %86
 
 86:                                               ; preds = %.lr.ph.i
-  %87 = getelementptr inbounds i8, ptr %82, i64 232
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 232
   %88 = load i16, ptr %87, align 8
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %.backedge.i, label %90
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %82, i64 240
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 240
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.backedge.i, label %94
@@ -221,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   br i1 %96, label %.backedge.i, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %82, i64 224
+  %98 = getelementptr inbounds nuw i8, ptr %82, i64 224
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %.lr.ph.i.i
@@ -259,7 +259,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   %116 = add i16 %115, 1
   store i16 %116, ptr %87, align 8
   %117 = zext i16 %115 to i64
-  %118 = getelementptr inbounds i32, ptr %114, i64 %117
+  %118 = getelementptr inbounds nuw i32, ptr %114, i64 %117
   store i32 %111, ptr %118, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
   br label %119
@@ -294,7 +294,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
 
 .lr.ph.i.i:                                       ; preds = %124, %.thread28.i.i, %97
   %127 = phi i16 [ %.pre.pre.i.i, %124 ], [ %122, %.thread28.i.i ], [ %88, %97 ]
-  %128 = getelementptr inbounds i8, ptr %82, i64 312
+  %128 = getelementptr inbounds nuw i8, ptr %82, i64 312
   %.pre22.i.i = load i32, ptr @port_resv_min, align 4
   %.pre24.i.i = load i32, ptr @port_resv_max, align 4
   br label %129
@@ -305,7 +305,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_config(ptr noundef %0) local
   %132 = phi i32 [ %.pre22.i.i, %.lr.ph.i.i ], [ %148, %145 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %145 ]
   %133 = load ptr, ptr %98, align 8
-  %134 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i
   %135 = load i32, ptr %134, align 4
   %136 = icmp slt i32 %135, %132
   %137 = icmp sgt i32 %135, %131
@@ -387,7 +387,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br label %9
 
 9:                                                ; preds = %6, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
   %13 = load i32, ptr @port_resv_cnt, align 4
@@ -416,7 +416,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 312
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %29
 
 29:                                               ; preds = %.lr.ph, %46
@@ -483,14 +483,14 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br i1 %.not46, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 312
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %wide.trip.count = zext nneg i32 %.1 to i64
   br label %63
 
 63:                                               ; preds = %.lr.ph43, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %63 ]
   %64 = load ptr, ptr @port_resv_table, align 8
-  %65 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %64, i64 %67
@@ -511,10 +511,10 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   call void @hostlist_sort(ptr noundef %61) #9
   %76 = load i32, ptr @resv_port_alloc.dims, align 4
   %77 = call ptr @hostlist_ranged_string_xmalloc_dims(ptr noundef %61, i32 noundef %76, i32 noundef 0) #9
-  %78 = getelementptr inbounds i8, ptr %0, i64 240
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %77, ptr %78, align 8
   call void @hostlist_destroy(ptr noundef %61) #9
-  %79 = getelementptr inbounds i8, ptr %0, i64 224
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %25, ptr %79, align 8
   %80 = call i32 @get_log_level() #9
   %81 = icmp sgt i32 %80, 4
@@ -551,19 +551,19 @@ declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @resv_port_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i16, ptr %5, align 8
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre19 = load i32, ptr @port_resv_min, align 4
   %.pre21 = load i32, ptr @port_resv_max, align 4
   br label %8
@@ -574,7 +574,7 @@ define dso_local void @resv_port_free(ptr noundef %0) local_unnamed_addr #0 {
   %11 = phi i32 [ %.pre19, %.lr.ph ], [ %27, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %14, %11
   %16 = icmp sgt i32 %14, %10
@@ -610,7 +610,7 @@ define dso_local void @resv_port_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds i8, ptr %0, i64 240
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %34 = load ptr, ptr %33, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef %34, ptr noundef nonnull %0) #9
   br label %35

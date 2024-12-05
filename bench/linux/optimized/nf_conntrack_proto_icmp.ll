@@ -38,9 +38,9 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   %5 = alloca %struct.icmphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store i64 0, ptr %5, align 8, !annotation !5
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %1, %9
   %11 = sub i32 %7, %10
@@ -57,7 +57,7 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
   br i1 %17, label %.thread, label %.thread2, !prof !7
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %1 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
@@ -67,15 +67,15 @@ define dso_local noundef zeroext i1 @icmp_pkt_to_tuple(ptr noundef %0, i32 nound
 .thread2:                                         ; preds = %15, %18
   %23 = phi ptr [ %22, %18 ], [ %5, %15 ]
   %24 = load i8, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 37
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 %30, ptr %31, align 1
   br label %.thread
 
@@ -96,7 +96,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = icmp ugt i8 %4, 18
   br i1 %5, label %24, label %6
@@ -109,20 +109,20 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr nocaptur
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i16, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %13, ptr %14, align 4
   %15 = load i8, ptr %3, align 4
   %16 = zext i8 %15 to i64
   %17 = getelementptr [19 x i8], ptr @invmap, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, -1
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 37
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 37
   store i8 %22, ptr %23, align 1
   br label %24
 
@@ -133,13 +133,13 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmp_tuple(ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i8, ptr %9, align 4
   %11 = icmp ugt i8 %10, 17
   br i1 %11, label %22, label %12
@@ -152,9 +152,9 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmp_packet(ptr noun
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 2528
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2528
   %21 = load i32, ptr %20, align 4
   tail call void @__nf_ct_refresh_acct(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %21, i1 noundef zeroext true) #8
   br label %22
@@ -170,7 +170,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr nocap
   %8 = alloca %struct.nf_conntrack_tuple, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %10, 8
   br i1 %11, label %13, label %12, !prof !6
@@ -184,10 +184,10 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr nocap
 13:                                               ; preds = %12, %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !5
-  %14 = getelementptr inbounds i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = call zeroext i1 @nf_ct_get_tuplepr(ptr noundef %1, i32 noundef %2, i16 noundef zeroext %16, ptr noundef %18, ptr noundef nonnull %8) #8
   br i1 %19, label %20, label %.thread
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr nocap
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 55
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 55
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
   %30 = mul nsw i64 %29, -56
@@ -263,7 +263,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr nocap
   %59 = ptrtoint ptr %32 to i64
   %60 = select i1 %58, i64 4, i64 1
   %61 = or i64 %60, %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 129
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %63 = load i24, ptr %62, align 1
   %64 = or i24 %63, 1048576
   store i24 %64, ptr %62, align 1
@@ -296,9 +296,9 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   store i64 0, ptr %6, align 8, !annotation !5
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %2, %10
   %12 = sub i32 %8, %11
@@ -315,7 +315,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
   br i1 %18, label %.thread, label %.thread3, !prof !7
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %1, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %2 to i64
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -328,9 +328,9 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
 
 .thread3:                                         ; preds = %16, %19
   %25 = phi ptr [ %23, %19 ], [ %6, %16 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 2436
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 2436
   %29 = load i8, ptr %28, align 4
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %38, label %31
@@ -368,15 +368,15 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
   ]
 
 43:                                               ; preds = %42, %42, %42, %42, %42
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, i8 0, i64 12, i1 false)
-  %45 = getelementptr inbounds i8, ptr %1, i64 192
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 180
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i64
   %50 = getelementptr i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %5, align 4
   %53 = add i32 %2, 8
@@ -395,7 +395,7 @@ declare dso_local zeroext i16 @nf_ip_checksum(ptr noundef, i32 noundef, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @nf_conntrack_icmp_init_net(ptr nocapture noundef writeonly initializes((2528, 2532)) %0) local_unnamed_addr #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2528
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   store i32 30000, ptr %2, align 4
   ret void
 }
@@ -405,7 +405,7 @@ define internal noundef range(i32 -1, 1) i32 @icmp_tuple_to_nlattr(ptr noundef %
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i16, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #8
   store i16 %7, ptr %5, align 2
@@ -415,7 +415,7 @@ define internal noundef range(i32 -1, 1) i32 @icmp_tuple_to_nlattr(ptr noundef %
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
   store i8 %12, ptr %4, align 1
@@ -425,7 +425,7 @@ define internal noundef range(i32 -1, 1) i32 @icmp_tuple_to_nlattr(ptr noundef %
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 37
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %17 = load i8, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #8
   store i8 %17, ptr %3, align 1
@@ -473,7 +473,7 @@ define internal noundef range(i32 -22, 1) i32 @icmp_nlattr_to_tuple(ptr nocaptur
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %8, i64 4
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 %12, ptr %13, align 4
   %14 = icmp ugt i8 %12, 18
   br i1 %14, label %42, label %15
@@ -499,7 +499,7 @@ define internal noundef range(i32 -22, 1) i32 @icmp_nlattr_to_tuple(ptr nocaptur
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %25, i64 4
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 37
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 37
   store i8 %29, ptr %30, align 1
   br label %31
 
@@ -517,7 +517,7 @@ define internal noundef range(i32 -22, 1) i32 @icmp_nlattr_to_tuple(ptr nocaptur
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %36, i64 4
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %40, ptr %41, align 4
   br label %42
 

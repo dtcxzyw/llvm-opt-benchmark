@@ -130,7 +130,7 @@ define i64 @ossl_bn_new(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = inttoptr i64 %3 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %9, ptr %14, align 8
   ret i64 %3
 }
@@ -176,7 +176,7 @@ rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.e
   %17 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %16, ptr noundef null, ptr noundef nonnull @ossl_bn_type) #10
   %18 = tail call fastcc ptr @integer_to_bnptr(i64 noundef %2, ptr noundef null)
   %19 = inttoptr i64 %17 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %18, ptr %20, align 8
   br label %try_convert_to_bn.exit
 
@@ -400,7 +400,7 @@ define internal i64 @ossl_bn_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -541,7 +541,7 @@ rb_integer_type_p.exit.thread29:                  ; preds = %24, %rb_integer_typ
   %61 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #10
   %62 = load i64, ptr %5, align 8
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 2147483648
   %.not.i.i = icmp ult i64 %66, 4294967296
@@ -567,7 +567,7 @@ RSTRING_LENINT.exit:                              ; preds = %60
   %74 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #10
   %75 = load i64, ptr %5, align 8
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 2147483648
   %.not.i.i26 = icmp ult i64 %79, 4294967296
@@ -738,7 +738,7 @@ define internal i64 @ossl_bn_uplus(i64 noundef %0) #0 {
 
 11:                                               ; preds = %5
   %12 = inttoptr i64 %7 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %8, ptr %13, align 8
   ret i64 %7
 }
@@ -768,7 +768,7 @@ define internal i64 @ossl_bn_uminus(i64 noundef %0) #0 {
 
 11:                                               ; preds = %5
   %12 = inttoptr i64 %7 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %8, ptr %13, align 8
   %14 = tail call i32 @BN_is_negative(ptr noundef nonnull %8) #10
   %.not11 = icmp eq i32 %14, 0
@@ -821,7 +821,7 @@ define internal i64 @ossl_bn_abs(i64 noundef %0) #0 {
 
 ossl_bn_uplus.exit:                               ; preds = %13
   %19 = inttoptr i64 %15 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %16, ptr %20, align 8
   br label %21
 
@@ -869,7 +869,7 @@ define internal i64 @ossl_bn_add(i64 noundef %0, i64 noundef %1) #0 {
 
 19:                                               ; preds = %14
   %20 = inttoptr i64 %10 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %11, ptr %21, align 8
   ret i64 %10
 }
@@ -913,7 +913,7 @@ define internal i64 @ossl_bn_sub(i64 noundef %0, i64 noundef %1) #0 {
 
 19:                                               ; preds = %14
   %20 = inttoptr i64 %10 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %11, ptr %21, align 8
   ret i64 %10
 }
@@ -979,7 +979,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 
 27:                                               ; preds = %ossl_bn_ctx_get.exit
   %28 = inttoptr i64 %10 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %11, ptr %29, align 8
   ret i64 %10
 }
@@ -1042,7 +1042,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %11, %18
 
 24:                                               ; preds = %ossl_bn_ctx_get.exit
   %25 = inttoptr i64 %7 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %8, ptr %26, align 8
   ret i64 %7
 }
@@ -1121,10 +1121,10 @@ ossl_bn_ctx_get.exit:                             ; preds = %19, %26
 
 31:                                               ; preds = %ossl_bn_ctx_get.exit
   %32 = inttoptr i64 %10 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %12, ptr %33, align 8
   %34 = inttoptr i64 %11 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %16, ptr %35, align 8
   %36 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %10, i64 noundef %11) #10
   ret i64 %36
@@ -1191,7 +1191,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 
 27:                                               ; preds = %ossl_bn_ctx_get.exit
   %28 = inttoptr i64 %10 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %11, ptr %29, align 8
   ret i64 %10
 }
@@ -1260,7 +1260,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %17, %24
 
 30:                                               ; preds = %ossl_bn_ctx_get.exit
   %31 = inttoptr i64 %13 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %14, ptr %32, align 8
   ret i64 %13
 }
@@ -1329,7 +1329,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %17, %24
 
 30:                                               ; preds = %ossl_bn_ctx_get.exit
   %31 = inttoptr i64 %13 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %14, ptr %32, align 8
   ret i64 %13
 }
@@ -1398,7 +1398,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %17, %24
 
 30:                                               ; preds = %ossl_bn_ctx_get.exit
   %31 = inttoptr i64 %13 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %14, ptr %32, align 8
   ret i64 %13
 }
@@ -1464,7 +1464,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 
 27:                                               ; preds = %ossl_bn_ctx_get.exit
   %28 = inttoptr i64 %10 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %11, ptr %29, align 8
   ret i64 %10
 }
@@ -1519,7 +1519,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %8, %17
 
 22:                                               ; preds = %ossl_bn_ctx_get.exit
   %23 = inttoptr i64 %10 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %19, ptr %24, align 8
   ret i64 %10
 }
@@ -1585,7 +1585,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 
 27:                                               ; preds = %ossl_bn_ctx_get.exit
   %28 = inttoptr i64 %10 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %11, ptr %29, align 8
   ret i64 %10
 }
@@ -1654,7 +1654,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %17, %24
 
 30:                                               ; preds = %ossl_bn_ctx_get.exit
   %31 = inttoptr i64 %13 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr %14, ptr %32, align 8
   ret i64 %13
 }
@@ -1720,7 +1720,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %14, %21
 
 27:                                               ; preds = %ossl_bn_ctx_get.exit
   %28 = inttoptr i64 %10 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %11, ptr %29, align 8
   ret i64 %10
 }
@@ -1905,7 +1905,7 @@ rb_integer_type_p.exit.thread.i:                  ; preds = %rb_integer_type_p.e
   %21 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %20, ptr noundef null, ptr noundef nonnull @ossl_bn_type) #10
   %22 = tail call fastcc ptr @integer_to_bnptr(i64 noundef %1, ptr noundef null)
   %23 = inttoptr i64 %21 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %22, ptr %24, align 8
   br label %try_convert_to_bn.exit
 
@@ -2097,7 +2097,7 @@ rb_num2int_inline.exit15:                         ; preds = %23, %25
 
 37:                                               ; preds = %31
   %38 = inttoptr i64 %27 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %28, ptr %39, align 8
   ret i64 %27
 }
@@ -2130,7 +2130,7 @@ define internal i64 @ossl_bn_s_rand_range(i64 noundef %0, i64 noundef %1) #0 {
 
 14:                                               ; preds = %9
   %15 = inttoptr i64 %5 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %6, ptr %16, align 8
   ret i64 %5
 }
@@ -2203,7 +2203,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 
 35:                                               ; preds = %31
   %36 = inttoptr i64 %27 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %28, ptr %37, align 8
   ret i64 %27
 }
@@ -2483,7 +2483,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 23:                                               ; preds = %18
   %24 = inttoptr i64 %14 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %15, ptr %25, align 8
   ret i64 %14
 }
@@ -2539,7 +2539,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 23:                                               ; preds = %18
   %24 = inttoptr i64 %14 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %15, ptr %25, align 8
   ret i64 %14
 }
@@ -2745,7 +2745,7 @@ rb_num2int_inline.exit:                           ; preds = %10, %12
   %26 = load i64, ptr %25, align 8, !noalias !7
   %27 = and i64 %26, 8192
   %.not.i.i = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %29
 
 29:                                               ; preds = %21
@@ -2773,7 +2773,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %29
   %40 = load i64, ptr %39, align 8, !noalias !10
   %41 = and i64 %40, 8192
   %.not.i.i32 = icmp eq i64 %41, 0
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   br i1 %.not.i.i32, label %RSTRING_PTR.exit35, label %43
 
 43:                                               ; preds = %33
@@ -3010,7 +3010,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %8, %17
 
 22:                                               ; preds = %ossl_bn_ctx_get.exit
   %23 = inttoptr i64 %10 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %19, ptr %24, align 8
   ret i64 %10
 }
@@ -3042,7 +3042,7 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
   %.02634 = phi i64 [ 7, %6 ], [ %13, %9 ]
   %.02733 = phi i64 [ %8, %6 ], [ %12, %9 ]
   %10 = trunc i64 %.02733 to i8
-  %11 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %.02634
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.02634
   store i8 %10, ptr %11, align 1
   %12 = lshr i64 %.02733, 8
   %13 = add nsw i64 %.02634, -1

@@ -203,13 +203,13 @@ sub_0:                                            ; preds = %57
   br i1 %.not51, label %.tail.thread.thread, label %sub_1
 
 sub_1:                                            ; preds = %sub_0
-  %63 = getelementptr inbounds i8, ptr %59, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %64 = load i8, ptr %63, align 1
   %.not52 = icmp eq i8 %64, 63
   br i1 %.not52, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %65 = getelementptr inbounds i8, ptr %59, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %.thread
@@ -236,13 +236,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %75, label %81, label %sub_143
 
 sub_143:                                          ; preds = %.tail.thread, %.thread
-  %76 = getelementptr inbounds i8, ptr %59, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %77 = load i8, ptr %76, align 1
   %.not54 = icmp eq i8 %77, 86
   br i1 %.not54, label %.tail41, label %.tail41.thread
 
 .tail41:                                          ; preds = %sub_143
-  %78 = getelementptr inbounds i8, ptr %59, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %81, label %.tail41.thread
@@ -264,13 +264,13 @@ sub_143:                                          ; preds = %.tail.thread, %.thr
   br i1 %brmerge, label %.critedge, label %sub_148
 
 sub_148:                                          ; preds = %86
-  %87 = getelementptr inbounds i8, ptr %59, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %59, i64 1
   %88 = load i8, ptr %87, align 1
   %.not56 = icmp eq i8 %88, 67
   br i1 %.not56, label %.tail46, label %.critedge
 
 .tail46:                                          ; preds = %sub_148
-  %89 = getelementptr inbounds i8, ptr %59, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %.critedge30.thread, label %.critedge

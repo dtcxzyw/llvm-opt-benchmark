@@ -37,7 +37,7 @@ define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1
   %12 = udiv i64 %3, 1000
   %13 = urem i64 %3, 1000
   %14 = mul nuw nsw i64 %13, 1000
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
 16:                                               ; preds = %4
@@ -140,17 +140,17 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @onas_recvlninit(ptr noundef initializes((5128, 5140)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 5128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 5136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 5152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 5160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 5144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5144
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 5120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   store i32 %2, ptr %9, align 8
   ret void
 }
@@ -162,24 +162,24 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   %7 = alloca %struct.fd_set, align 8
   %8 = alloca %struct.fd_set, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 5128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %11, i32 noundef 5242924, ptr noundef nonnull %9) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 5136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   store i32 %12, ptr %13, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.preheader77, label %22
 
 .preheader77:                                     ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 5144
-  %15 = getelementptr inbounds i8, ptr %0, i64 5152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %16 = ptrtoint ptr %0 to i64
   %.neg = add i64 %16, 5120
   %17 = udiv i64 %3, 1000
   %18 = urem i64 %3, 1000
   %19 = mul nuw nsw i64 %18, 1000
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 5160
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   %.pre = load i64, ptr %14, align 8
   br label %25
 
@@ -281,7 +281,7 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   br i1 %.not69, label %79, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %65, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %63 to i64
   %.neg71 = add i64 %64, %69
@@ -359,12 +359,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 5144
-  %6 = getelementptr inbounds i8, ptr %0, i64 5120
-  %7 = getelementptr inbounds i8, ptr %0, i64 5152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %8 = ptrtoint ptr %0 to i64
   %.neg = add i64 %8, 5120
-  %9 = getelementptr inbounds i8, ptr %0, i64 5160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   %.pre = load i64, ptr %5, align 8
   %.pre84.pre = load ptr, ptr %7, align 8
   br label %10
@@ -411,7 +411,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef write
   br i1 %.not59, label %42, label %29
 
 29:                                               ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %28, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %.neg61 = add i64 %26, %32

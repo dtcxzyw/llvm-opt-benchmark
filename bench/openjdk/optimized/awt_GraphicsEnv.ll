@@ -137,7 +137,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Java_sun_awt_X11GraphicsConfig_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @x11GraphicsConfigIDs, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #17
   store ptr %6, ptr @x11GraphicsConfigIDs, align 8
@@ -146,7 +146,7 @@ define void @Java_sun_awt_X11GraphicsConfig_initIDs(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #17
   store ptr %12, ptr getelementptr inbounds (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
@@ -172,7 +172,7 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.preheader21, %resetNativeData.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %resetNativeData.exit ], [ 0, %.preheader21 ]
   %7 = load ptr, ptr @x11Screens, align 8
-  %8 = getelementptr inbounds %struct._AwtScreenData, ptr %7, i64 %indvars.iv, i32 5
+  %8 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %7, i64 %indvars.iv, i32 5
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %resetNativeData.exit, label %10
@@ -180,17 +180,17 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 10:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %9) #17
   %11 = load ptr, ptr @x11Screens, align 8
-  %12 = getelementptr inbounds %struct._AwtScreenData, ptr %11, i64 %indvars.iv, i32 5
+  %12 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %11, i64 %indvars.iv, i32 5
   store ptr null, ptr %12, align 8
   %.pre.i = load ptr, ptr @x11Screens, align 8
   br label %resetNativeData.exit
 
 resetNativeData.exit:                             ; preds = %.lr.ph, %10
   %13 = phi ptr [ %.pre.i, %10 ], [ %7, %.lr.ph ]
-  %14 = getelementptr inbounds %struct._AwtScreenData, ptr %13, i64 %indvars.iv, i32 4
+  %14 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %13, i64 %indvars.iv, i32 4
   store ptr null, ptr %14, align 8
   %15 = load ptr, ptr @x11Screens, align 8
-  %16 = getelementptr inbounds %struct._AwtScreenData, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %15, i64 %indvars.iv
   store i32 0, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @awt_numScreens, align 4
@@ -283,22 +283,22 @@ resetNativeData.exit:                             ; preds = %.lr.ph, %10
   %53 = load i32, ptr @usingXinerama, align 4
   %.not19 = icmp eq i32 %53, 0
   %54 = load ptr, ptr @awt_display, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr @x11Screens, align 8
-  %58 = getelementptr inbounds %struct._AwtScreenData, ptr %57, i64 %indvars.iv27, i32 1
-  %59 = getelementptr inbounds %struct.Screen, ptr %56, i64 %indvars.iv27, i32 2
-  %60 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %57, i64 %indvars.iv27, i32 1
+  %59 = getelementptr inbounds nuw %struct.Screen, ptr %56, i64 %indvars.iv27, i32 2
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %.sink.in = select i1 %.not19, ptr %59, ptr %60
   %.sink = load i64, ptr %.sink.in, align 8
   store i64 %.sink, ptr %58, align 8
   %61 = trunc nuw nsw i64 %indvars.iv27 to i32
   %62 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %61)
   %63 = load ptr, ptr @x11Screens, align 8
-  %64 = getelementptr inbounds %struct._AwtScreenData, ptr %63, i64 %indvars.iv27, i32 4
+  %64 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %63, i64 %indvars.iv27, i32 4
   store ptr %62, ptr %64, align 8
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1824
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1824
   %67 = load ptr, ptr %66, align 8
   %68 = call zeroext i8 %67(ptr noundef nonnull %0) #17
   %.not20 = icmp eq i8 %68, 0
@@ -331,14 +331,14 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 %1, i32 0
   %7 = load ptr, ptr @awt_display, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %6 to i64
   %11 = getelementptr inbounds %struct.Screen, ptr %9, i64 %10, i32 10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @XVisualIDFromVisual(ptr noundef %12) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %6, ptr %14, align 8
   %15 = tail call ptr @getenv(ptr noundef nonnull @.str.39) #17
   %.not35 = icmp eq ptr %15, null
@@ -350,7 +350,7 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   %19 = load i64, ptr %3, align 8
   %20 = icmp ne i64 %19, 0
   %or.cond = select i1 %18, i1 %20, i1 false
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %or.cond, label %22, label %23
 
 22:                                               ; preds = %16
@@ -372,14 +372,14 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   br i1 %.not37, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %27, ptr %29, align 8
   br label %33
 
 30:                                               ; preds = %26, %24
-  %31 = getelementptr inbounds i8, ptr %4, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 24, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 4, ptr %32, align 8
   br label %33
 
@@ -390,21 +390,21 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   br i1 %.not38, label %35, label %49
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %13, ptr %36, align 8
   %37 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 3)
   %.not39 = icmp eq ptr %37, null
   br i1 %.not39, label %38, label %49
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 4, ptr %39, align 8
   %40 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 10)
   %.not40 = icmp eq ptr %40, null
   br i1 %.not40, label %41, label %49
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %4, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 8, ptr %42, align 4
   store i32 3, ptr %39, align 8
   %43 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 14)
@@ -438,7 +438,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #17
   %10 = icmp eq ptr %9, null
@@ -446,7 +446,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 904
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 904
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #17
   store ptr %15, ptr @awtLockMID, align 8
@@ -455,7 +455,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 904
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 904
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6) #17
   store ptr %21, ptr @awtUnlockMID, align 8
@@ -464,7 +464,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 904
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 904
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #17
   store ptr %27, ptr @awtWaitMID, align 8
@@ -473,7 +473,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 904
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 904
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6) #17
   store ptr %33, ptr @awtNotifyMID, align 8
@@ -482,7 +482,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 904
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 904
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6) #17
   store ptr %39, ptr @awtNotifyAllMID, align 8
@@ -491,7 +491,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef nonnull %9) #17
   store ptr %45, ptr @tkClass, align 8
@@ -534,7 +534,7 @@ define hidden ptr @awt_init_Display(ptr noundef %0, ptr nocapture readnone %1) l
   %60 = ptrtoint ptr %59 to i64
   %61 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallStaticMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.9, i64 noundef %60) #17
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = tail call zeroext i8 %64(ptr noundef nonnull %0) #17
   %.not37 = icmp eq i8 %65, 0
@@ -624,7 +624,7 @@ define internal fastcc void @xineramaInit() unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_sun_awt_X11GraphicsEnvironment_getDefaultScreenNum(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr @awt_display, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
@@ -664,7 +664,7 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initDisplay(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %6, 0
@@ -672,20 +672,20 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %0) #17
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @tkClass, align 8
   %16 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #17
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #17
   %.not24 = icmp eq i8 %20, 0
@@ -693,7 +693,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #17
   br label %25
@@ -702,7 +702,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
   %26 = tail call zeroext i8 (...) @GLXGC_IsGLXAvailable() #17
   tail call void (...) @awt_output_flush() #17
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0) #17
   %.not25 = icmp eq ptr %30, null
@@ -710,20 +710,20 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0) #17
   br label %35
 
 35:                                               ; preds = %31, %25
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1128
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1128
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr @tkClass, align 8
   %40 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %38(ptr noundef nonnull %0, ptr noundef %39, ptr noundef %40) #17
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1824
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1824
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i8 %43(ptr noundef nonnull %0) #17
   %.not26 = icmp eq i8 %44, 0
@@ -731,7 +731,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0) #17
   br label %49
@@ -741,7 +741,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsEnvironment_initGLX(ptr noundef %0, p
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %30) #17
   br label %55
@@ -769,7 +769,7 @@ define i64 @Java_sun_awt_X11GraphicsDevice_getDisplay(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @XShmAttachXErrHandler(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %4 = load i8, ptr %3, align 2
   %5 = icmp eq i8 %4, 1
   br i1 %5, label %6, label %7
@@ -801,7 +801,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %10, 0
@@ -809,20 +809,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0) #17
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @tkClass, align 8
   %20 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20) #17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 %23(ptr noundef nonnull %0) #17
   %.not93 = icmp eq i8 %24, 0
@@ -830,7 +830,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0) #17
   br label %29
@@ -846,7 +846,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
   store i32 %32, ptr %2, align 4
   tail call void (...) @awt_output_flush() #17
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0) #17
   %.not105 = icmp eq ptr %36, null
@@ -854,20 +854,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0) #17
   br label %41
 
 41:                                               ; preds = %37, %31
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1128
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1128
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @tkClass, align 8
   %46 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %44(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %46) #17
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1824
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1824
   %49 = load ptr, ptr %48, align 8
   %50 = tail call zeroext i8 %49(ptr noundef nonnull %0) #17
   %.not106 = icmp eq i8 %50, 0
@@ -875,7 +875,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 51:                                               ; preds = %41
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull %0) #17
   br label %55
@@ -885,7 +885,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 104
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 %59(ptr noundef nonnull %0, ptr noundef nonnull %36) #17
   br label %229
@@ -901,7 +901,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = tail call ptr %67(ptr noundef nonnull %0) #17
   %.not103 = icmp eq ptr %68, null
@@ -909,20 +909,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 136
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 136
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %0) #17
   br label %73
 
 73:                                               ; preds = %69, %64
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1128
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1128
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr @tkClass, align 8
   %78 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %76(ptr noundef nonnull %0, ptr noundef %77, ptr noundef %78) #17
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1824
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1824
   %81 = load ptr, ptr %80, align 8
   %82 = tail call zeroext i8 %81(ptr noundef nonnull %0) #17
   %.not104 = icmp eq i8 %82, 0
@@ -930,7 +930,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 83:                                               ; preds = %73
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 136
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 136
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull %0) #17
   br label %87
@@ -940,7 +940,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 104
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 %91(ptr noundef nonnull %0, ptr noundef nonnull %68) #17
   br label %229
@@ -954,7 +954,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
   %96 = load i32, ptr @mitShmPermissionMask, align 4
   %97 = or i32 %96, 512
   %98 = tail call i32 @shmget(i32 noundef 0, i64 noundef 65536, i32 noundef %97) #17
-  %99 = getelementptr inbounds i8, ptr %4, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %98, ptr %99, align 8
   %100 = icmp slt i32 %98, 0
   br i1 %100, label %101, label %134
@@ -962,7 +962,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 101:                                              ; preds = %95
   tail call void (...) @awt_output_flush() #17
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 120
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 120
   %104 = load ptr, ptr %103, align 8
   %105 = tail call ptr %104(ptr noundef nonnull %0) #17
   %.not101 = icmp eq ptr %105, null
@@ -970,20 +970,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 136
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 136
   %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull %0) #17
   br label %110
 
 110:                                              ; preds = %106, %101
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1128
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1128
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr @tkClass, align 8
   %115 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %113(ptr noundef nonnull %0, ptr noundef %114, ptr noundef %115) #17
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 1824
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1824
   %118 = load ptr, ptr %117, align 8
   %119 = tail call zeroext i8 %118(ptr noundef nonnull %0) #17
   %.not102 = icmp eq i8 %119, 0
@@ -991,7 +991,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 120:                                              ; preds = %110
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 136
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 136
   %123 = load ptr, ptr %122, align 8
   tail call void %123(ptr noundef nonnull %0) #17
   br label %124
@@ -1001,7 +1001,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 125:                                              ; preds = %124
   %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 104
   %128 = load ptr, ptr %127, align 8
   %129 = tail call i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %105) #17
   br label %130
@@ -1015,7 +1015,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 134:                                              ; preds = %95
   %135 = tail call ptr @shmat(i32 noundef %98, ptr noundef null, i32 noundef 0) #17
-  %136 = getelementptr inbounds i8, ptr %4, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %135, ptr %136, align 8
   %137 = icmp eq ptr %135, inttoptr (i64 -1 to ptr)
   br i1 %137, label %138, label %172
@@ -1024,7 +1024,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
   %139 = tail call i32 @shmctl(i32 noundef %98, i32 noundef 0, ptr noundef null) #17
   tail call void (...) @awt_output_flush() #17
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 120
   %142 = load ptr, ptr %141, align 8
   %143 = tail call ptr %142(ptr noundef nonnull %0) #17
   %.not99 = icmp eq ptr %143, null
@@ -1032,20 +1032,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 144:                                              ; preds = %138
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 136
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 136
   %147 = load ptr, ptr %146, align 8
   tail call void %147(ptr noundef nonnull %0) #17
   br label %148
 
 148:                                              ; preds = %144, %138
   %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 1128
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 1128
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr @tkClass, align 8
   %153 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %153) #17
   %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1824
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1824
   %156 = load ptr, ptr %155, align 8
   %157 = tail call zeroext i8 %156(ptr noundef nonnull %0) #17
   %.not100 = icmp eq i8 %157, 0
@@ -1053,7 +1053,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 158:                                              ; preds = %148
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 136
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 136
   %161 = load ptr, ptr %160, align 8
   tail call void %161(ptr noundef nonnull %0) #17
   br label %162
@@ -1063,7 +1063,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 163:                                              ; preds = %162
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 104
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 104
   %166 = load ptr, ptr %165, align 8
   %167 = tail call i32 %166(ptr noundef nonnull %0, ptr noundef nonnull %143) #17
   br label %168
@@ -1076,7 +1076,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
   br label %229
 
 172:                                              ; preds = %134
-  %173 = getelementptr inbounds i8, ptr %4, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %173, align 8
   store i1 false, ptr @xshmAttachFailed, align 1
   %174 = load ptr, ptr @awt_display, align 8
@@ -1126,7 +1126,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 200:                                              ; preds = %93, %195
   call void (...) @awt_output_flush() #17
   %201 = load ptr, ptr %0, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 120
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 120
   %203 = load ptr, ptr %202, align 8
   %204 = call ptr %203(ptr noundef nonnull %0) #17
   %.not97 = icmp eq ptr %204, null
@@ -1134,20 +1134,20 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 205:                                              ; preds = %200
   %206 = load ptr, ptr %0, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 136
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 136
   %208 = load ptr, ptr %207, align 8
   call void %208(ptr noundef nonnull %0) #17
   br label %209
 
 209:                                              ; preds = %205, %200
   %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 1128
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 1128
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr @tkClass, align 8
   %214 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %212(ptr noundef nonnull %0, ptr noundef %213, ptr noundef %214) #17
   %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 1824
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 1824
   %217 = load ptr, ptr %216, align 8
   %218 = call zeroext i8 %217(ptr noundef nonnull %0) #17
   %.not98 = icmp eq i8 %218, 0
@@ -1155,7 +1155,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 219:                                              ; preds = %209
   %220 = load ptr, ptr %0, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 136
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 136
   %222 = load ptr, ptr %221, align 8
   call void %222(ptr noundef nonnull %0) #17
   br label %223
@@ -1165,7 +1165,7 @@ define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonl
 
 224:                                              ; preds = %223
   %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 104
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 104
   %227 = load ptr, ptr %226, align 8
   %228 = call i32 %227(ptr noundef nonnull %0, ptr noundef nonnull %204) #17
   br label %229
@@ -1219,10 +1219,10 @@ define i32 @Java_sun_awt_X11GraphicsEnvironment_checkShmExt(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_awt_X11GraphicsEnvironment_getDisplayString(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1336
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @awt_display, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %8) #17
   ret ptr %9
@@ -1307,7 +1307,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 27:                                               ; preds = %22, %20
   %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
   %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   ret i32 %31
@@ -1358,7 +1358,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 27:                                               ; preds = %22, %20
   %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
   %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i32, ptr %29, align 4
   ret i32 %30
 }
@@ -1408,7 +1408,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 27:                                               ; preds = %22, %20
   %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
   %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   ret i32 %31
@@ -1422,7 +1422,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %10, 0
@@ -1430,20 +1430,20 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0) #17
   br label %15
 
 15:                                               ; preds = %11, %6
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @tkClass, align 8
   %20 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20) #17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 %23(ptr noundef nonnull %0) #17
   %.not49 = icmp eq i8 %24, 0
@@ -1451,13 +1451,13 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0) #17
   br label %29
 
 29:                                               ; preds = %15, %25
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8
   %.not50 = icmp eq i64 %31, 0
   br i1 %.not50, label %35, label %32
@@ -1468,7 +1468,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
   br label %35
 
 35:                                               ; preds = %32, %29
-  %36 = getelementptr inbounds i8, ptr %4, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %37 = load ptr, ptr %36, align 8
   %.not51 = icmp eq ptr %37, null
   br i1 %.not51, label %39, label %38
@@ -1478,7 +1478,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
   br label %39
 
 39:                                               ; preds = %38, %35
-  %40 = getelementptr inbounds i8, ptr %4, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %41 = load ptr, ptr %40, align 8
   %.not52 = icmp eq ptr %41, null
   br i1 %.not52, label %44, label %42
@@ -1488,7 +1488,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
   br label %44
 
 44:                                               ; preds = %42, %39
-  %45 = getelementptr inbounds i8, ptr %4, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %46 = load i64, ptr %45, align 8
   %.not53 = icmp eq i64 %46, 0
   br i1 %.not53, label %50, label %47
@@ -1499,7 +1499,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
   br label %50
 
 50:                                               ; preds = %47, %44
-  %51 = getelementptr inbounds i8, ptr %4, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %52 = load ptr, ptr %51, align 8
   %.not54 = icmp eq ptr %52, null
   br i1 %.not54, label %56, label %53
@@ -1510,7 +1510,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
   br label %56
 
 56:                                               ; preds = %53, %50
-  %57 = getelementptr inbounds i8, ptr %4, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %58 = load ptr, ptr %57, align 8
   %.not55 = icmp eq ptr %58, null
   br i1 %.not55, label %60, label %59
@@ -1522,7 +1522,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 60:                                               ; preds = %56, %59
   tail call void (...) @awt_output_flush() #17
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 120
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 120
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr %63(ptr noundef nonnull %0) #17
   %.not56 = icmp eq ptr %64, null
@@ -1530,20 +1530,20 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 136
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull %0) #17
   br label %69
 
 69:                                               ; preds = %65, %60
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1128
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1128
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr @tkClass, align 8
   %74 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %72(ptr noundef nonnull %0, ptr noundef %73, ptr noundef %74) #17
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1824
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1824
   %77 = load ptr, ptr %76, align 8
   %78 = tail call zeroext i8 %77(ptr noundef nonnull %0) #17
   %.not57 = icmp eq i8 %78, 0
@@ -1551,7 +1551,7 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 79:                                               ; preds = %69
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull %0) #17
   br label %83
@@ -1561,13 +1561,13 @@ define void @Java_sun_awt_X11GraphicsConfig_dispose(ptr noundef %0, ptr nocaptur
 
 84:                                               ; preds = %83
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 104
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 104
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 %87(ptr noundef nonnull %0, ptr noundef nonnull %64) #17
   br label %89
 
 89:                                               ; preds = %84, %83
-  %90 = getelementptr inbounds i8, ptr %4, i64 152
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %91 = load ptr, ptr %90, align 8
   %.not58 = icmp eq ptr %91, null
   br i1 %.not58, label %95, label %92
@@ -1594,15 +1594,15 @@ declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr @awt_display, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.Screen, ptr %6, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to double
   %12 = fmul double %11, 2.540000e+01
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sitofp i32 %14 to double
   %16 = fdiv double %12, %15
@@ -1612,15 +1612,15 @@ define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr nocapture nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr @awt_display, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.Screen, ptr %6, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = sitofp i32 %10 to double
   %12 = fmul double %11, 2.540000e+01
-  %13 = getelementptr inbounds i8, ptr %8, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to double
   %16 = fdiv double %12, %15
@@ -1630,12 +1630,12 @@ define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define i32 @Java_sun_awt_X11GraphicsConfig_getNumColors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #17
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load i32, ptr %9, align 8
   ret i32 %10
 }
@@ -1662,7 +1662,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load ptr, ptr %15, align 8
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %18
@@ -1674,9 +1674,9 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = icmp eq i32 %2, %23
@@ -1688,30 +1688,30 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 880
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 880
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %30 = ptrtoint ptr %20 to i64
   tail call void %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29, i64 noundef %30) #17
-  %31 = getelementptr inbounds i8, ptr %20, i64 16
-  %32 = getelementptr inbounds i8, ptr %20, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = load ptr, ptr @awt_display, align 8
   %35 = load ptr, ptr %31, align 8
   %36 = tail call ptr @XCreateImage(ptr noundef %34, ptr noundef %35, i32 noundef %33, i32 noundef 2, i32 noundef 0, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 32, i32 noundef 0) #17
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 7
   %40 = sdiv i32 %39, 8
-  %41 = getelementptr inbounds i8, ptr %20, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i32 %40, ptr %41, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 872
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 872
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @x11GraphicsConfigIDs, i64 8), align 8
   %46 = load i32, ptr %37, align 8
   tail call void %44(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %45, i32 noundef %46) #17
-  %47 = getelementptr inbounds i8, ptr %36, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 %48(ptr noundef %36) #17
   br label %50
@@ -1744,13 +1744,13 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %14 = load i32, ptr @usingXinerama, align 4
   %.not = icmp eq i32 %14, 0
   %. = select i1 %.not, i32 %1, i32 0
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %., ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 8, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 256, ptr %18, align 8
   %19 = load ptr, ptr @awt_display, align 8
   %20 = call ptr @XGetVisualInfo(ptr noundef %19, i64 noundef 142, ptr noundef nonnull %10, ptr noundef nonnull %4) #17
@@ -1800,7 +1800,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %259
 
 49:                                               ; preds = %3
-  %50 = getelementptr inbounds i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %56
@@ -1842,14 +1842,14 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %57, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %.not211 = icmp eq ptr %.0185, null
   br label %70
 
 70:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %.1191241 = phi i32 [ 1, %.lr.ph ], [ %.2192, %103 ]
-  %71 = getelementptr inbounds %struct.XVisualInfo, ptr %24, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %24, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = call i64 @XVisualIDFromVisual(ptr noundef %72) #17
   %74 = load ptr, ptr %69, align 8
@@ -1858,7 +1858,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %76, label %103, label %77
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %71, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 12
   br i1 %80, label %103, label %81
@@ -1874,7 +1874,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 
 87:                                               ; preds = %81
   store i32 %79, ptr %83, align 8
-  %88 = getelementptr inbounds i8, ptr %83, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %71, i64 64, i1 false)
   br i1 %.not211, label %103, label %89
 
@@ -1886,21 +1886,21 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not212, label %103, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %92, i64 30
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 30
   %99 = load i16, ptr %98, align 2
   %.not213 = icmp eq i16 %99, 0
   br i1 %.not213, label %103, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %83, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %83, i64 160
   store i32 1, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %83, i64 168
+  %102 = getelementptr inbounds nuw i8, ptr %83, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(40) %92, i64 40, i1 false)
   br label %103
 
@@ -1927,7 +1927,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %111, label %.lr.ph246, label %.preheader229
 
 .lr.ph246:                                        ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %57, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %116
 
 .preheader229:                                    ; preds = %133, %109
@@ -1937,13 +1937,13 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %114, label %.lr.ph250, label %.preheader228
 
 .lr.ph250:                                        ; preds = %.preheader229
-  %115 = getelementptr inbounds i8, ptr %57, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %140
 
 116:                                              ; preds = %.lr.ph246, %133
   %indvars.iv274 = phi i64 [ 0, %.lr.ph246 ], [ %indvars.iv.next275, %133 ]
   %.3193243 = phi i32 [ %.1191.lcssa, %.lr.ph246 ], [ %.4194, %133 ]
-  %117 = getelementptr inbounds %struct.XVisualInfo, ptr %20, i64 %indvars.iv274
+  %117 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %20, i64 %indvars.iv274
   %118 = load ptr, ptr %117, align 8
   %119 = call i64 @XVisualIDFromVisual(ptr noundef %118) #17
   %120 = load ptr, ptr %112, align 8
@@ -1961,10 +1961,10 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %128, label %.sink.split, label %129
 
 129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %117, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %117, i64 20
   %131 = load i32, ptr %130, align 4
   store i32 %131, ptr %125, align 8
-  %132 = getelementptr inbounds i8, ptr %125, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %132, ptr noundef nonnull align 8 dereferenceable(64) %117, i64 64, i1 false)
   br label %133
 
@@ -1983,13 +1983,13 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %138, label %.lr.ph254, label %.preheader227
 
 .lr.ph254:                                        ; preds = %.preheader228
-  %139 = getelementptr inbounds i8, ptr %57, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %164
 
 140:                                              ; preds = %.lr.ph250, %157
   %indvars.iv277 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next278, %157 ]
   %.5195248 = phi i32 [ %.3193.lcssa, %.lr.ph250 ], [ %.6196, %157 ]
-  %141 = getelementptr inbounds %struct.XVisualInfo, ptr %22, i64 %indvars.iv277
+  %141 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %22, i64 %indvars.iv277
   %142 = load ptr, ptr %141, align 8
   %143 = call i64 @XVisualIDFromVisual(ptr noundef %142) #17
   %144 = load ptr, ptr %115, align 8
@@ -2007,10 +2007,10 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %152, label %.sink.split, label %153
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds i8, ptr %141, i64 20
+  %154 = getelementptr inbounds nuw i8, ptr %141, i64 20
   %155 = load i32, ptr %154, align 4
   store i32 %155, ptr %149, align 8
-  %156 = getelementptr inbounds i8, ptr %149, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %156, ptr noundef nonnull align 8 dereferenceable(64) %141, i64 64, i1 false)
   br label %157
 
@@ -2029,13 +2029,13 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %162, label %.lr.ph258, label %.preheader
 
 .lr.ph258:                                        ; preds = %.preheader227
-  %163 = getelementptr inbounds i8, ptr %57, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %188
 
 164:                                              ; preds = %.lr.ph254, %181
   %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %181 ]
   %.7197252 = phi i32 [ %.5195.lcssa, %.lr.ph254 ], [ %.8, %181 ]
-  %165 = getelementptr inbounds %struct.XVisualInfo, ptr %26, i64 %indvars.iv280
+  %165 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %26, i64 %indvars.iv280
   %166 = load ptr, ptr %165, align 8
   %167 = call i64 @XVisualIDFromVisual(ptr noundef %166) #17
   %168 = load ptr, ptr %139, align 8
@@ -2053,10 +2053,10 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %176, label %.sink.split, label %177
 
 177:                                              ; preds = %171
-  %178 = getelementptr inbounds i8, ptr %165, i64 20
+  %178 = getelementptr inbounds nuw i8, ptr %165, i64 20
   %179 = load i32, ptr %178, align 4
   store i32 %179, ptr %173, align 8
-  %180 = getelementptr inbounds i8, ptr %173, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %180, ptr noundef nonnull align 8 dereferenceable(64) %165, i64 64, i1 false)
   br label %181
 
@@ -2075,13 +2075,13 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %186, label %.lr.ph262, label %.thread224
 
 .lr.ph262:                                        ; preds = %.preheader
-  %187 = getelementptr inbounds i8, ptr %57, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %209
 
 188:                                              ; preds = %.lr.ph258, %205
   %indvars.iv283 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next284, %205 ]
   %.9256 = phi i32 [ %.7197.lcssa, %.lr.ph258 ], [ %.10, %205 ]
-  %189 = getelementptr inbounds %struct.XVisualInfo, ptr %28, i64 %indvars.iv283
+  %189 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %28, i64 %indvars.iv283
   %190 = load ptr, ptr %189, align 8
   %191 = call i64 @XVisualIDFromVisual(ptr noundef %190) #17
   %192 = load ptr, ptr %163, align 8
@@ -2099,10 +2099,10 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %200, label %.sink.split, label %201
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %189, i64 20
+  %202 = getelementptr inbounds nuw i8, ptr %189, i64 20
   %203 = load i32, ptr %202, align 4
   store i32 %203, ptr %197, align 8
-  %204 = getelementptr inbounds i8, ptr %197, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %197, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %204, ptr noundef nonnull align 8 dereferenceable(64) %189, i64 64, i1 false)
   br label %205
 
@@ -2117,7 +2117,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 209:                                              ; preds = %.lr.ph262, %226
   %indvars.iv286 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next287, %226 ]
   %.11260 = phi i32 [ %.9.lcssa, %.lr.ph262 ], [ %.12, %226 ]
-  %210 = getelementptr inbounds %struct.XVisualInfo, ptr %30, i64 %indvars.iv286
+  %210 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %30, i64 %indvars.iv286
   %211 = load ptr, ptr %210, align 8
   %212 = call i64 @XVisualIDFromVisual(ptr noundef %211) #17
   %213 = load ptr, ptr %187, align 8
@@ -2135,10 +2135,10 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %221, label %.sink.split, label %222
 
 222:                                              ; preds = %216
-  %223 = getelementptr inbounds i8, ptr %210, i64 20
+  %223 = getelementptr inbounds nuw i8, ptr %210, i64 20
   %224 = load i32, ptr %223, align 4
   store i32 %224, ptr %218, align 8
-  %225 = getelementptr inbounds i8, ptr %218, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %218, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %225, ptr noundef nonnull align 8 dereferenceable(64) %210, i64 64, i1 false)
   br label %226
 
@@ -2153,7 +2153,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 .thread224:                                       ; preds = %226, %.preheader
   %.11.lcssa = phi i32 [ %.9.lcssa, %.preheader ], [ %.12, %226 ]
   store i32 %.11.lcssa, ptr %2, align 8
-  %230 = getelementptr inbounds i8, ptr %2, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %44, ptr %230, align 8
   br label %235
 
@@ -2173,7 +2173,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266
   %indvars.iv289 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next290, %.lr.ph266 ]
-  %233 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv289
+  %233 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv289
   %234 = load ptr, ptr %233, align 8
   call void @free(ptr noundef %234) #17
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
@@ -2254,7 +2254,7 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1824
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #17
   %.not37 = icmp eq i8 %8, 0
@@ -2262,20 +2262,20 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #17
   br label %13
 
 13:                                               ; preds = %9, %4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @tkClass, align 8
   %18 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18) #17
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i8 %21(ptr noundef nonnull %0) #17
   %.not38 = icmp eq i8 %22, 0
@@ -2283,19 +2283,19 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0) #17
   br label %27
 
 27:                                               ; preds = %13, %23
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 808
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 808
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %32 = tail call i64 %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31) #17
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %38
@@ -2306,7 +2306,7 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 38:                                               ; preds = %37, %27
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1824
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1824
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i8 %41(ptr noundef nonnull %0) #17
   %.not39 = icmp eq i8 %42, 0
@@ -2320,7 +2320,7 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
   %46 = phi ptr [ %44, %43 ], [ null, %38 ]
   tail call void (...) @awt_output_flush() #17
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0) #17
   %.not40 = icmp eq ptr %50, null
@@ -2328,20 +2328,20 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 51:                                               ; preds = %45
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull %0) #17
   br label %55
 
 55:                                               ; preds = %51, %45
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1128
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1128
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @tkClass, align 8
   %60 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %58(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %60) #17
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1824
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1824
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i8 %63(ptr noundef nonnull %0) #17
   %.not41 = icmp eq i8 %64, 0
@@ -2349,7 +2349,7 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 65:                                               ; preds = %55
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 136
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull %0) #17
   br label %69
@@ -2359,7 +2359,7 @@ define ptr @Java_sun_awt_X11GraphicsConfig_makeColorModel(ptr noundef %0, ptr no
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 104
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 %73(ptr noundef nonnull %0, ptr noundef nonnull %50) #17
   br label %75
@@ -2379,7 +2379,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   %5 = alloca %struct.XWindowAttributes, align 8
   store i32 0, ptr %4, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #17
   %10 = icmp eq ptr %9, null
@@ -2387,7 +2387,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
   %.not = icmp eq ptr %15, null
@@ -2407,7 +2407,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   br i1 %or.cond112, label %23, label %81
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 1824
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i8 %25(ptr noundef nonnull %0) #17
   %.not100 = icmp eq i8 %26, 0
@@ -2415,20 +2415,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %0) #17
   br label %31
 
 31:                                               ; preds = %27, %23
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1128
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1128
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @tkClass, align 8
   %36 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %36) #17
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1824
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i8 %39(ptr noundef nonnull %0) #17
   %.not101 = icmp eq i8 %40, 0
@@ -2436,7 +2436,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull %0) #17
   br label %45
@@ -2447,7 +2447,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   %48 = call ptr %46(ptr noundef %47, ptr noundef nonnull %4) #17
   call void (...) @awt_output_flush() #17
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef nonnull %0) #17
   %.not102 = icmp eq ptr %52, null
@@ -2455,20 +2455,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0) #17
   br label %57
 
 57:                                               ; preds = %53, %45
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1128
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1128
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @tkClass, align 8
   %62 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %60(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62) #17
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = call zeroext i8 %65(ptr noundef nonnull %0) #17
   %.not103 = icmp eq i8 %66, 0
@@ -2476,7 +2476,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull %0) #17
   br label %71
@@ -2486,7 +2486,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %75(ptr noundef nonnull %0, ptr noundef nonnull %52) #17
   br label %77
@@ -2499,7 +2499,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   br i1 %or.cond, label %90, label %.thread
 
 81:                                               ; preds = %18
-  %82 = getelementptr inbounds i8, ptr %22, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #17
   %.not99 = icmp eq ptr %84, null
@@ -2507,7 +2507,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 112
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 %88(ptr noundef nonnull %0, ptr noundef nonnull %84, ptr noundef nonnull @.str.29) #17
   br label %.thread
@@ -2516,20 +2516,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   %.not104 = icmp samesign ult i32 %2, %79
   %spec.store.select = select i1 %.not104, i32 %2, i32 0
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 224
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 224
   %93 = load ptr, ptr %92, align 8
   %94 = zext nneg i32 %spec.store.select to i64
-  %95 = getelementptr inbounds %struct.XineramaScreenInfo, ptr %48, i64 %94
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %95 = getelementptr inbounds nuw %struct.XineramaScreenInfo, ptr %48, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i16, ptr %96, align 4
   %98 = sext i16 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %95, i64 6
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 6
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i32
-  %102 = getelementptr inbounds i8, ptr %95, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %103 = load i16, ptr %102, align 4
   %104 = sext i16 %103 to i32
-  %105 = getelementptr inbounds i8, ptr %95, i64 10
+  %105 = getelementptr inbounds nuw i8, ptr %95, i64 10
   %106 = load i16, ptr %105, align 2
   %107 = sext i16 %106 to i32
   %108 = call ptr (ptr, ptr, ptr, ...) %93(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef %98, i32 noundef %101, i32 noundef %104, i32 noundef %107) #17
@@ -2541,7 +2541,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   %.088116 = phi i32 [ %spec.store.select, %90 ], [ %2, %77 ], [ %2, %85 ], [ %2, %81 ], [ %2, %16 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1824
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1824
   %112 = load ptr, ptr %111, align 8
   %113 = call zeroext i8 %112(ptr noundef nonnull %0) #17
   %.not106 = icmp eq i8 %113, 0
@@ -2549,20 +2549,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 114:                                              ; preds = %.thread
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 136
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 136
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull %0) #17
   br label %118
 
 118:                                              ; preds = %114, %.thread
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1128
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1128
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr @tkClass, align 8
   %123 = load ptr, ptr @awtLockMID, align 8
   call void (ptr, ptr, ptr, ...) %121(ptr noundef nonnull %0, ptr noundef %122, ptr noundef %123) #17
   %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 1824
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1824
   %126 = load ptr, ptr %125, align 8
   %127 = call zeroext i8 %126(ptr noundef nonnull %0) #17
   %.not107 = icmp eq i8 %127, 0
@@ -2570,14 +2570,14 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 128:                                              ; preds = %118
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 136
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 136
   %131 = load ptr, ptr %130, align 8
   call void %131(ptr noundef nonnull %0) #17
   br label %132
 
 132:                                              ; preds = %118, %128
   %133 = load ptr, ptr @awt_display, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 232
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 232
   %135 = load ptr, ptr %134, align 8
   %136 = sext i32 %.088116 to i64
   %137 = getelementptr inbounds %struct.Screen, ptr %135, i64 %136, i32 2
@@ -2585,7 +2585,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   %139 = call i32 @XGetWindowAttributes(ptr noundef %133, i64 noundef %138, ptr noundef nonnull %5) #17
   call void (...) @awt_output_flush() #17
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 120
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr %142(ptr noundef nonnull %0) #17
   %.not108 = icmp eq ptr %143, null
@@ -2593,20 +2593,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 144:                                              ; preds = %132
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 136
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 136
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr noundef nonnull %0) #17
   br label %148
 
 148:                                              ; preds = %144, %132
   %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 1128
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 1128
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr @tkClass, align 8
   %153 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %153) #17
   %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1824
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1824
   %156 = load ptr, ptr %155, align 8
   %157 = call zeroext i8 %156(ptr noundef nonnull %0) #17
   %.not109 = icmp eq i8 %157, 0
@@ -2614,7 +2614,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 158:                                              ; preds = %148
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 136
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 136
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull %0) #17
   br label %162
@@ -2624,18 +2624,18 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 
 163:                                              ; preds = %162
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 104
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 104
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 %166(ptr noundef nonnull %0, ptr noundef nonnull %143) #17
   br label %168
 
 168:                                              ; preds = %163, %162
   %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 224
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 224
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %5, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %173 = load i32, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %5, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = call ptr (ptr, ptr, ptr, ...) %171(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, i32 noundef %173, i32 noundef %175) #17
   br label %177
@@ -2643,7 +2643,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
 177:                                              ; preds = %168, %90
   %.2 = phi ptr [ %108, %90 ], [ %176, %168 ]
   %178 = load ptr, ptr %0, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 120
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 120
   %180 = load ptr, ptr %179, align 8
   %181 = call ptr %180(ptr noundef nonnull %0) #17
   %.not110 = icmp eq ptr %181, null
@@ -2665,7 +2665,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %10, 0
@@ -2673,20 +2673,20 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0) #17
   br label %15
 
 15:                                               ; preds = %11, %4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @tkClass, align 8
   %20 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20) #17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 %23(ptr noundef nonnull %0) #17
   %.not45 = icmp eq i8 %24, 0
@@ -2694,7 +2694,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0) #17
   br label %29
@@ -2709,7 +2709,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #17
   call void (...) @awt_output_flush() #17
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0) #17
   %.not47 = icmp eq ptr %36, null
@@ -2717,20 +2717,20 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %0) #17
   br label %41
 
 41:                                               ; preds = %37, %32
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1128
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1128
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @tkClass, align 8
   %46 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %44(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %46) #17
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1824
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1824
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i8 %49(ptr noundef nonnull %0) #17
   %.not48 = icmp eq i8 %50, 0
@@ -2738,7 +2738,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 51:                                               ; preds = %41
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull %0) #17
   br label %55
@@ -2752,7 +2752,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
   %59 = call i64 @XdbeAllocateBackBufferName(ptr noundef %57, i64 noundef %2, i8 noundef zeroext %58) #17
   call void (...) @awt_output_flush() #17
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr %62(ptr noundef nonnull %0) #17
   %.not49 = icmp eq ptr %63, null
@@ -2760,20 +2760,20 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 64:                                               ; preds = %56
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 136
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %0) #17
   br label %68
 
 68:                                               ; preds = %64, %56
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1128
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1128
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr @tkClass, align 8
   %73 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %71(ptr noundef nonnull %0, ptr noundef %72, ptr noundef %73) #17
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1824
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1824
   %76 = load ptr, ptr %75, align 8
   %77 = call zeroext i8 %76(ptr noundef nonnull %0) #17
   %.not50 = icmp eq i8 %77, 0
@@ -2781,7 +2781,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
 
 78:                                               ; preds = %68
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0) #17
   br label %82
@@ -2793,7 +2793,7 @@ define i64 @Java_sun_awt_X11GraphicsConfig_createBackBuffer(ptr noundef %0, ptr 
   %.sink = phi ptr [ %36, %55 ], [ %63, %82 ]
   %.0.ph = phi i64 [ 0, %55 ], [ %59, %82 ]
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 104
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %85(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #17
   br label %87
@@ -2810,7 +2810,7 @@ declare i64 @XdbeAllocateBackBufferName(ptr noundef, i64 noundef, i8 noundef zer
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %7, 0
@@ -2818,20 +2818,20 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #17
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #17
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #17
   %.not24 = icmp eq i8 %21, 0
@@ -2839,7 +2839,7 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #17
   br label %26
@@ -2849,7 +2849,7 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
   %28 = tail call i32 @XdbeDeallocateBackBufferName(ptr noundef %27, i64 noundef %2) #17
   tail call void (...) @awt_output_flush() #17
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %0) #17
   %.not25 = icmp eq ptr %32, null
@@ -2857,20 +2857,20 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0) #17
   br label %37
 
 37:                                               ; preds = %33, %26
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1128
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1128
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @tkClass, align 8
   %42 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %40(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %42) #17
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1824
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1824
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i8 %45(ptr noundef nonnull %0) #17
   %.not26 = icmp eq i8 %46, 0
@@ -2878,7 +2878,7 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 
 47:                                               ; preds = %37
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull %0) #17
   br label %51
@@ -2888,7 +2888,7 @@ define void @Java_sun_awt_X11GraphicsConfig_destroyBackBuffer(ptr noundef %0, pt
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %32) #17
   br label %57
@@ -2903,7 +2903,7 @@ declare i32 @XdbeDeallocateBackBufferName(ptr noundef, i64 noundef) local_unname
 define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.XdbeSwapInfo, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %9, 0
@@ -2911,20 +2911,20 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #17
   br label %14
 
 14:                                               ; preds = %10, %4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #17
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #17
   %.not26 = icmp eq i8 %23, 0
@@ -2932,7 +2932,7 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #17
   br label %28
@@ -2942,7 +2942,7 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
   %30 = tail call i32 @XdbeBeginIdiom(ptr noundef %29) #17
   store i64 %2, ptr %5, align 8
   %31 = trunc i32 %3 to i8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %31, ptr %32, align 8
   %33 = load ptr, ptr @awt_display, align 8
   %34 = call i32 @XdbeSwapBuffers(ptr noundef %33, ptr noundef nonnull %5, i32 noundef 1) #17
@@ -2958,7 +2958,7 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
   %38 = call i32 @XdbeEndIdiom(ptr noundef %37) #17
   call void (...) @awt_output_flush() #17
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr %41(ptr noundef nonnull %0) #17
   %.not28 = icmp eq ptr %42, null
@@ -2966,20 +2966,20 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull %0) #17
   br label %47
 
 47:                                               ; preds = %43, %36
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1128
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1128
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr @tkClass, align 8
   %52 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %50(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %52) #17
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1824
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1824
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i8 %55(ptr noundef nonnull %0) #17
   %.not29 = icmp eq i8 %56, 0
@@ -2987,7 +2987,7 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 136
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull %0) #17
   br label %61
@@ -2997,7 +2997,7 @@ define void @Java_sun_awt_X11GraphicsConfig_swapBuffers(ptr noundef %0, ptr noca
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 104
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %42) #17
   br label %67
@@ -3021,7 +3021,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsConfig_isTranslucencyC
 
 5:                                                ; preds = %3
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %8 = load i32, ptr %7, align 8
   %.not = icmp ne i32 %8, 0
   %9 = zext i1 %.not to i8
@@ -3041,7 +3041,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %9, 0
@@ -3049,20 +3049,20 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #17
   br label %14
 
 14:                                               ; preds = %10, %2
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #17
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #17
   %.not24 = icmp eq i8 %23, 0
@@ -3070,7 +3070,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #17
   br label %28
@@ -3080,7 +3080,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
   %30 = call i32 @XQueryExtension(ptr noundef %29, ptr noundef nonnull @.str.33, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
   call void (...) @awt_output_flush() #17
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %0) #17
   %.not25 = icmp eq ptr %34, null
@@ -3088,20 +3088,20 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull %0) #17
   br label %39
 
 39:                                               ; preds = %35, %28
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1128
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1128
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @tkClass, align 8
   %44 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %42(ptr noundef nonnull %0, ptr noundef %43, ptr noundef %44) #17
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1824
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1824
   %47 = load ptr, ptr %46, align 8
   %48 = call zeroext i8 %47(ptr noundef nonnull %0) #17
   %.not26 = icmp eq i8 %48, 0
@@ -3109,7 +3109,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
 
 49:                                               ; preds = %39
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull %0) #17
   br label %53
@@ -3119,7 +3119,7 @@ define zeroext i8 @Java_sun_awt_X11GraphicsDevice_isDBESupported(ptr noundef %0,
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 104
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %0, ptr noundef nonnull %34) #17
   br label %59
@@ -3141,11 +3141,11 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %narrow = select i1 %.not, i32 %2, i32 0
   %.085 = sext i32 %narrow to i64
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %1) #17
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #17
   %15 = icmp eq ptr %14, null
@@ -3153,7 +3153,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #17
   %.not91 = icmp eq i8 %20, 0
@@ -3161,20 +3161,20 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #17
   br label %25
 
 25:                                               ; preds = %21, %16
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1128
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1128
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @tkClass, align 8
   %30 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %28(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %30) #17
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1824
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1824
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i8 %33(ptr noundef nonnull %0) #17
   %.not92 = icmp eq i8 %34, 0
@@ -3182,14 +3182,14 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 35:                                               ; preds = %25
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull %0) #17
   br label %39
 
 39:                                               ; preds = %25, %35
   %40 = load ptr, ptr @awt_display, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 232
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds %struct.Screen, ptr %42, i64 %.085, i32 2
   %44 = load i64, ptr %43, align 8
@@ -3202,7 +3202,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #17
   call void (...) @awt_output_flush() #17
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr %50(ptr noundef nonnull %0) #17
   %.not100 = icmp eq ptr %51, null
@@ -3210,20 +3210,20 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull %0) #17
   br label %56
 
 56:                                               ; preds = %52, %47
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1128
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1128
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr @tkClass, align 8
   %61 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %59(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %61) #17
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = call zeroext i8 %64(ptr noundef nonnull %0) #17
   %.not101 = icmp eq i8 %65, 0
@@ -3231,7 +3231,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 136
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull %0) #17
   br label %70
@@ -3242,7 +3242,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 71:                                               ; preds = %39
   call void (...) @awt_output_flush() #17
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0) #17
   %.not93 = icmp eq ptr %75, null
@@ -3250,20 +3250,20 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %0) #17
   br label %80
 
 80:                                               ; preds = %76, %71
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1128
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1128
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr @tkClass, align 8
   %85 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %83(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %85) #17
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1824
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
   %88 = load ptr, ptr %87, align 8
   %89 = call zeroext i8 %88(ptr noundef nonnull %0) #17
   %.not94 = icmp eq i8 %89, 0
@@ -3271,7 +3271,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull %0) #17
   br label %94
@@ -3281,13 +3281,13 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 %98(ptr noundef nonnull %0, ptr noundef nonnull %75) #17
   br label %100
 
 100:                                              ; preds = %95, %94
-  %101 = getelementptr inbounds i8, ptr %45, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %102 = load i32, ptr %45, align 8
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph, label %._crit_edge
@@ -3296,7 +3296,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %100 ]
   %104 = load ptr, ptr %101, align 8
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1824
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
   %107 = load ptr, ptr %106, align 8
   %108 = call zeroext i8 %107(ptr noundef nonnull %0) #17
   %.not95 = icmp eq i8 %108, 0
@@ -3304,9 +3304,9 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 109:                                              ; preds = %.lr.ph
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 488
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 488
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.XdbeVisualInfo, ptr %104, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw %struct.XdbeVisualInfo, ptr %104, i64 %indvars.iv
   %114 = load i64, ptr %113, align 8
   call void (ptr, ptr, ptr, ...) %112(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %14, i64 noundef %114) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3317,7 +3317,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %109, %100
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 1824
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1824
   %120 = load ptr, ptr %119, align 8
   %121 = call zeroext i8 %120(ptr noundef nonnull %0) #17
   %.not96 = icmp eq i8 %121, 0
@@ -3325,20 +3325,20 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 122:                                              ; preds = %._crit_edge
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 136
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull %0) #17
   br label %126
 
 126:                                              ; preds = %122, %._crit_edge
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1128
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1128
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr @tkClass, align 8
   %131 = load ptr, ptr @awtLockMID, align 8
   call void (ptr, ptr, ptr, ...) %129(ptr noundef nonnull %0, ptr noundef %130, ptr noundef %131) #17
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 1824
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1824
   %134 = load ptr, ptr %133, align 8
   %135 = call zeroext i8 %134(ptr noundef nonnull %0) #17
   %.not97 = icmp eq i8 %135, 0
@@ -3346,7 +3346,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 136:                                              ; preds = %126
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 136
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull %0) #17
   br label %140
@@ -3355,7 +3355,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   call void @XdbeFreeVisualInfo(ptr noundef nonnull %45) #17
   call void (...) @awt_output_flush() #17
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 120
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %143 = load ptr, ptr %142, align 8
   %144 = call ptr %143(ptr noundef nonnull %0) #17
   %.not98 = icmp eq ptr %144, null
@@ -3363,20 +3363,20 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 136
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 136
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull %0) #17
   br label %149
 
 149:                                              ; preds = %145, %140
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1128
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1128
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr @tkClass, align 8
   %154 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %152(ptr noundef nonnull %0, ptr noundef %153, ptr noundef %154) #17
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 1824
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1824
   %157 = load ptr, ptr %156, align 8
   %158 = call zeroext i8 %157(ptr noundef nonnull %0) #17
   %.not99 = icmp eq i8 %158, 0
@@ -3384,7 +3384,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 
 159:                                              ; preds = %149
   %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 136
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 136
   %162 = load ptr, ptr %161, align 8
   call void %162(ptr noundef nonnull %0) #17
   br label %163
@@ -3395,7 +3395,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
 .sink.split:                                      ; preds = %163, %70
   %.sink = phi ptr [ %51, %70 ], [ %144, %163 ]
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 104
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 104
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 %166(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #17
   br label %168
@@ -3427,7 +3427,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1824
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1824
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 %10(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %11, 0
@@ -3435,20 +3435,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0) #17
   br label %16
 
 16:                                               ; preds = %12, %2
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1128
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @tkClass, align 8
   %21 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %19(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %21) #17
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1824
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i8 %24(ptr noundef nonnull %0) #17
   %.not28 = icmp eq i8 %25, 0
@@ -3456,7 +3456,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %0) #17
   br label %30
@@ -3707,7 +3707,7 @@ X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, 
   %.0 = phi i8 [ %.040.i, %X11GD_InitXrandrFuncs.exit ], [ 0, %30 ]
   call void (...) @awt_output_flush() #17
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 120
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 120
   %138 = load ptr, ptr %137, align 8
   %139 = call ptr %138(ptr noundef nonnull %0) #17
   %.not30 = icmp eq ptr %139, null
@@ -3715,20 +3715,20 @@ X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, 
 
 140:                                              ; preds = %135
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 136
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 136
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull %0) #17
   br label %144
 
 144:                                              ; preds = %140, %135
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 1128
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 1128
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr @tkClass, align 8
   %149 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %147(ptr noundef nonnull %0, ptr noundef %148, ptr noundef %149) #17
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1824
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1824
   %152 = load ptr, ptr %151, align 8
   %153 = call zeroext i8 %152(ptr noundef nonnull %0) #17
   %.not31 = icmp eq i8 %153, 0
@@ -3736,7 +3736,7 @@ X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, 
 
 154:                                              ; preds = %144
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 136
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 136
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull %0) #17
   br label %158
@@ -3746,7 +3746,7 @@ X11GD_InitXrandrFuncs.exit:                       ; preds = %40, %43, %48, %58, 
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 104
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 104
   %162 = load ptr, ptr %161, align 8
   %163 = call i32 %162(ptr noundef nonnull %0, ptr noundef nonnull %139) #17
   br label %164
@@ -3760,7 +3760,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %9, 0
@@ -3768,20 +3768,20 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #17
   br label %14
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #17
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #17
   %.not41 = icmp eq i8 %23, 0
@@ -3789,21 +3789,21 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #17
   br label %28
 
 28:                                               ; preds = %14, %24
   %29 = load ptr, ptr @awt_display, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 228
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 228
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %2, %31
   br i1 %32, label %33, label %73
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds %struct.Screen, ptr %36, i64 %37, i32 2
@@ -3830,12 +3830,12 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
 
 52:                                               ; preds = %48
   %53 = zext i16 %43 to i64
-  %54 = getelementptr inbounds %struct.XRRScreenSize, ptr %45, i64 %53
+  %54 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %45, i64 %53
   %.sroa.0.0.copyload = load i32, ptr %54, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr %57(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
   %59 = icmp eq ptr %58, null
@@ -3843,7 +3843,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
 
 60:                                               ; preds = %52
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 264
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 264
   %63 = load ptr, ptr %62, align 8
   %64 = call ptr %63(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
   %65 = icmp eq ptr %64, null
@@ -3853,7 +3853,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   %67 = call i16 @llvm.smax.i16(i16 %47, i16 0)
   %spec.store.select.i = zext nneg i16 %67 to i32
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 224
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 224
   %70 = load ptr, ptr %69, align 8
   %71 = call ptr (ptr, ptr, ptr, ...) %70(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull %64, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i) #17
   br label %X11GD_CreateDisplayMode.exit
@@ -3868,7 +3868,7 @@ X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, 
   %.1 = phi ptr [ %.0, %X11GD_CreateDisplayMode.exit ], [ null, %33 ], [ null, %28 ]
   call void (...) @awt_output_flush() #17
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr %76(ptr noundef nonnull %0) #17
   %.not44 = icmp eq ptr %77, null
@@ -3876,20 +3876,20 @@ X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, 
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0) #17
   br label %82
 
 82:                                               ; preds = %78, %73
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1128
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1128
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr @tkClass, align 8
   %87 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %85(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %87) #17
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1824
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1824
   %90 = load ptr, ptr %89, align 8
   %91 = call zeroext i8 %90(ptr noundef nonnull %0) #17
   %.not45 = icmp eq i8 %91, 0
@@ -3897,7 +3897,7 @@ X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, 
 
 92:                                               ; preds = %82
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 136
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 136
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull %0) #17
   br label %96
@@ -3907,7 +3907,7 @@ X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, 
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 104
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 104
   %100 = load ptr, ptr %99, align 8
   %101 = call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %77) #17
   br label %102
@@ -3921,7 +3921,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %10, 0
@@ -3929,20 +3929,20 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0) #17
   br label %15
 
 15:                                               ; preds = %11, %4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @tkClass, align 8
   %20 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20) #17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 %23(ptr noundef nonnull %0) #17
   %.not46 = icmp eq i8 %24, 0
@@ -3950,7 +3950,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0) #17
   br label %29
@@ -3964,7 +3964,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 33:                                               ; preds = %29
   %34 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
   %35 = load ptr, ptr @awt_display, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 232
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %2 to i64
   %39 = getelementptr inbounds %struct.Screen, ptr %37, i64 %38, i32 2
@@ -3984,9 +3984,9 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 .lr.ph55:                                         ; preds = %42, %._crit_edge
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge ], [ 0, %42 ]
-  %47 = getelementptr inbounds %struct.XRRScreenSize, ptr %44, i64 %indvars.iv59
+  %47 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %44, i64 %indvars.iv59
   %.sroa.0.0.copyload = load i32, ptr %47, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %48 = load ptr, ptr @awt_XRRConfigRates, align 8
   %49 = trunc nuw nsw i64 %indvars.iv59 to i32
@@ -4004,10 +4004,10 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph55, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph55 ]
-  %57 = getelementptr inbounds i16, ptr %50, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
   %63 = icmp eq ptr %62, null
@@ -4015,7 +4015,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 64:                                               ; preds = %.lr.ph
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 264
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
   %69 = icmp eq ptr %68, null
@@ -4025,7 +4025,7 @@ X11GD_CreateDisplayMode.exit.i:                   ; preds = %64
   %70 = call i16 @llvm.smax.i16(i16 %58, i16 0)
   %spec.store.select.i.i = zext nneg i16 %70 to i32
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 224
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 224
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr (ptr, ptr, ptr, ...) %73(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull %68, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i.i) #17
   %75 = icmp eq ptr %74, null
@@ -4033,7 +4033,7 @@ X11GD_CreateDisplayMode.exit.i:                   ; preds = %64
 
 76:                                               ; preds = %X11GD_CreateDisplayMode.exit.i
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 248
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 248
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %3) #17
   %81 = icmp eq ptr %80, null
@@ -4045,7 +4045,7 @@ X11GD_CreateDisplayMode.exit.i:                   ; preds = %64
 
 83:                                               ; preds = %76
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 264
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 264
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #17
   %88 = icmp eq ptr %87, null
@@ -4053,18 +4053,18 @@ X11GD_CreateDisplayMode.exit.i:                   ; preds = %64
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 272
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 272
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr (ptr, ptr, ptr, ...) %92(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %87, ptr noundef nonnull %74) #17
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 184
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull %0, ptr noundef nonnull %74) #17
   br label %X11GD_AddDisplayMode.exit
 
 X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD_CreateDisplayMode.exit.i, %82, %83, %89
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1824
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1824
   %99 = load ptr, ptr %98, align 8
   %100 = call zeroext i8 %99(ptr noundef nonnull %0) #17
   %.not49 = icmp eq i8 %100, 0
@@ -4085,7 +4085,7 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
 105:                                              ; preds = %29, %.loopexit, %33
   call void (...) @awt_output_flush() #17
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 120
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 120
   %108 = load ptr, ptr %107, align 8
   %109 = call ptr %108(ptr noundef nonnull %0) #17
   %.not50 = icmp eq ptr %109, null
@@ -4093,20 +4093,20 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
 
 110:                                              ; preds = %105
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 136
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 136
   %113 = load ptr, ptr %112, align 8
   call void %113(ptr noundef nonnull %0) #17
   br label %114
 
 114:                                              ; preds = %110, %105
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 1128
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1128
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr @tkClass, align 8
   %119 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %117(ptr noundef nonnull %0, ptr noundef %118, ptr noundef %119) #17
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1824
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1824
   %122 = load ptr, ptr %121, align 8
   %123 = call zeroext i8 %122(ptr noundef nonnull %0) #17
   %.not51 = icmp eq i8 %123, 0
@@ -4114,7 +4114,7 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
 
 124:                                              ; preds = %114
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 136
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 136
   %127 = load ptr, ptr %126, align 8
   call void %127(ptr noundef nonnull %0) #17
   br label %128
@@ -4124,7 +4124,7 @@ X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD
 
 129:                                              ; preds = %128
   %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %132 = load ptr, ptr %131, align 8
   %133 = call i32 %132(ptr noundef nonnull %0, ptr noundef nonnull %109) #17
   br label %134
@@ -4140,7 +4140,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %9 = alloca i32, align 4
   store i16 1, ptr %7, align 2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %13, 0
@@ -4148,20 +4148,20 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0) #17
   br label %18
 
 18:                                               ; preds = %14, %6
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1128
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @tkClass, align 8
   %23 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %21(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %23) #17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1824
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1824
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i8 %26(ptr noundef nonnull %0) #17
   %.not64 = icmp eq i8 %27, 0
@@ -4169,14 +4169,14 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %0) #17
   br label %32
 
 32:                                               ; preds = %18, %28
   %33 = load ptr, ptr @awt_display, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 232
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %2 to i64
   %37 = getelementptr inbounds %struct.Screen, ptr %35, i64 %36, i32 2
@@ -4205,13 +4205,13 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %48 = getelementptr inbounds %struct.XRRScreenSize, ptr %43, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %43, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %48, align 4
   %49 = icmp eq i32 %.sroa.0.0.copyload, %3
   br i1 %49, label %50, label %63
 
 50:                                               ; preds = %.lr.ph
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %51 = icmp eq i32 %.sroa.2.0.copyload, %4
   br i1 %51, label %52, label %63
@@ -4235,7 +4235,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %58
   %indvars.iv84 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next85, %58 ]
-  %59 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv84
+  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv84
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i32
   %62 = icmp eq i32 %5, %61
@@ -4266,7 +4266,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %.1 = phi i1 [ %72, %.thread ], [ true, %32 ]
   call void (...) @awt_output_flush() #17
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 120
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr %77(ptr noundef nonnull %0) #17
   %.not68 = icmp eq ptr %78, null
@@ -4274,20 +4274,20 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull %0) #17
   br label %83
 
 83:                                               ; preds = %79, %74
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1128
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1128
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr @tkClass, align 8
   %88 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %0, ptr noundef %87, ptr noundef %88) #17
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1824
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
   %91 = load ptr, ptr %90, align 8
   %92 = call zeroext i8 %91(ptr noundef nonnull %0) #17
   %.not69 = icmp eq i8 %92, 0
@@ -4295,7 +4295,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 93:                                               ; preds = %83
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull %0) #17
   br label %97
@@ -4305,7 +4305,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 %101(ptr noundef nonnull %0, ptr noundef nonnull %78) #17
   br label %103
@@ -4315,7 +4315,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1824
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
   %107 = load ptr, ptr %106, align 8
   %108 = call zeroext i8 %107(ptr noundef nonnull %0) #17
   %.not71 = icmp eq i8 %108, 0
@@ -4332,7 +4332,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %7, 0
@@ -4340,20 +4340,20 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #17
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #17
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #17
   %.not25 = icmp eq i8 %21, 0
@@ -4361,7 +4361,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #17
   br label %26
@@ -4372,7 +4372,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
   tail call fastcc void @X11GD_SetFullscreenMode(i64 noundef %2, i8 noundef zeroext 1)
   tail call void (...) @awt_output_flush() #17
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %0) #17
   %.not26 = icmp eq ptr %32, null
@@ -4380,20 +4380,20 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 136
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0) #17
   br label %37
 
 37:                                               ; preds = %33, %26
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1128
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1128
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @tkClass, align 8
   %42 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %40(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %42) #17
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1824
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1824
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i8 %45(ptr noundef nonnull %0) #17
   %.not27 = icmp eq i8 %46, 0
@@ -4401,7 +4401,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 
 47:                                               ; preds = %37
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull %0) #17
   br label %51
@@ -4411,7 +4411,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %32) #17
   br label %57
@@ -4442,21 +4442,21 @@ define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef 
 14:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 192, i1 false)
   store i32 33, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %6, ptr %15, align 8
   %16 = load ptr, ptr @awt_display, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 32, ptr %19, align 8
   %20 = zext nneg i8 %1 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %8, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = call i32 @XSendEvent(ptr noundef %16, i64 noundef %24, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %4) #17
   %26 = load ptr, ptr @awt_display, align 8
@@ -4470,7 +4470,7 @@ define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #17
   %.not = icmp eq i8 %7, 0
@@ -4478,20 +4478,20 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #17
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #17
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #17
   %.not25 = icmp eq i8 %21, 0
@@ -4499,7 +4499,7 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #17
   br label %26
@@ -4508,7 +4508,7 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
   tail call fastcc void @X11GD_SetFullscreenMode(i64 noundef %2, i8 noundef zeroext 0)
   tail call void (...) @awt_output_flush() #17
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0) #17
   %.not26 = icmp eq ptr %30, null
@@ -4516,20 +4516,20 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0) #17
   br label %35
 
 35:                                               ; preds = %31, %26
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1128
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1128
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr @tkClass, align 8
   %40 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %38(ptr noundef nonnull %0, ptr noundef %39, ptr noundef %40) #17
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1824
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1824
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i8 %43(ptr noundef nonnull %0) #17
   %.not27 = icmp eq i8 %44, 0
@@ -4537,7 +4537,7 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0) #17
   br label %49
@@ -4547,7 +4547,7 @@ define void @Java_sun_awt_X11GraphicsDevice_exitFullScreenExclusive(ptr noundef 
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %30) #17
   br label %55
@@ -4582,9 +4582,9 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @awt_display, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 232
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.Screen, ptr %10, i64 %13, i32 10
@@ -4600,7 +4600,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %24
 
 22:                                               ; preds = %7
@@ -4610,9 +4610,9 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
 24:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.03850 = phi i32 [ -1, %.lr.ph ], [ %.2, %36 ]
-  %25 = getelementptr inbounds %struct.XVisualInfo, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %6, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false)
-  %26 = getelementptr inbounds i8, ptr %25, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %17, align 8
   %28 = call i32 @awtCreateX11Colormap(ptr noundef nonnull %17) #17
@@ -4620,7 +4620,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   br i1 %.not42, label %36, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, %16
   br i1 %32, label %.thread.loopexit, label %33
@@ -4649,28 +4649,28 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
 
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge
   %.146 = phi i32 [ %.2, %._crit_edge ], [ %40, %.thread.loopexit ]
-  %41 = getelementptr inbounds i8, ptr %17, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %42 = sext i32 %.146 to i64
   %43 = getelementptr inbounds %struct.XVisualInfo, ptr %6, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 64, i1 false)
-  %44 = getelementptr inbounds i8, ptr %43, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %17, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 14
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 14
   store i8 7, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %3, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i16 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %3, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i16 0, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 0, ptr %49, align 8
   %50 = load ptr, ptr @awt_display, align 8
-  %51 = getelementptr inbounds i8, ptr %17, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = call i32 @XAllocColor(ptr noundef %50, i64 noundef %52, ptr noundef nonnull %3) #17
   %54 = load i64, ptr %3, align 8
   %55 = load ptr, ptr @x11Screens, align 8
-  %56 = getelementptr inbounds i8, ptr %43, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %struct._AwtScreenData, ptr %55, i64 %58, i32 3

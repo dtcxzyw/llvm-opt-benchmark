@@ -41,7 +41,7 @@ entry:
 define internal void @connUnixEventHandler(ptr noundef %el, i32 noundef %fd, ptr noundef %clientData, i32 noundef %mask) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %ae_handler = getelementptr inbounds i8, ptr %call, i64 32
+  %ae_handler = getelementptr inbounds nuw i8, ptr %call, i64 32
   %0 = load ptr, ptr %ae_handler, align 8
   tail call void %0(ptr noundef %el, i32 noundef %fd, ptr noundef %clientData, i32 noundef %mask) #8
   ret void
@@ -84,11 +84,11 @@ if.end11:                                         ; preds = %do.body8
 do.end12:                                         ; preds = %do.body8, %if.end11
   %call.i.i = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #10
   store ptr @CT_Unix, ptr %call.i.i, align 8
-  %fd.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %iovcnt.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %iovcnt.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store i16 1024, ptr %iovcnt.i.i, align 8
   store i32 %call, ptr %fd.i.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 2, ptr %state.i, align 8
   tail call void @acceptCommonHandler(ptr noundef nonnull %call.i.i, i32 noundef 2048, ptr noundef null) #8
   %dec = add nsw i32 %dec2, -1
@@ -103,7 +103,7 @@ while.end:                                        ; preds = %do.end12, %if.then,
 define internal i32 @connUnixAddr(ptr noundef %conn, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %addr = getelementptr inbounds i8, ptr %call, i64 48
+  %addr = getelementptr inbounds nuw i8, ptr %call, i64 48
   %0 = load ptr, ptr %addr, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #8
   ret i32 %call1
@@ -118,22 +118,22 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @connUnixListen(ptr nocapture noundef %listener) #0 {
 entry:
-  %priv = getelementptr inbounds i8, ptr %listener, i64 96
+  %priv = getelementptr inbounds nuw i8, ptr %listener, i64 96
   %0 = load ptr, ptr %priv, align 8
-  %bindaddr_count = getelementptr inbounds i8, ptr %listener, i64 80
+  %bindaddr_count = getelementptr inbounds nuw i8, ptr %listener, i64 80
   %1 = load i32, ptr %bindaddr_count, align 8
   %cmp212 = icmp sgt i32 %1, 0
   br i1 %cmp212, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bindaddr = getelementptr inbounds i8, ptr %listener, i64 72
-  %count = getelementptr inbounds i8, ptr %listener, i64 64
+  %bindaddr = getelementptr inbounds nuw i8, ptr %listener, i64 72
+  %count = getelementptr inbounds nuw i8, ptr %listener, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end9
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end9 ]
   %2 = load ptr, ptr %bindaddr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @unlink(ptr noundef %3) #8
   %4 = load i32, ptr %0, align 4
@@ -179,9 +179,9 @@ define internal noalias noundef ptr @connCreateUnix() #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #10
   store ptr @CT_Unix, ptr %call, align 8
-  %fd = getelementptr inbounds i8, ptr %call, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 -1, ptr %fd, align 8
-  %iovcnt = getelementptr inbounds i8, ptr %call, i64 24
+  %iovcnt = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i16 1024, ptr %iovcnt, align 8
   ret ptr %call
 }
@@ -191,11 +191,11 @@ define internal noalias noundef ptr @connCreateAcceptedUnix(i32 noundef %fd, ptr
 entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #10
   store ptr @CT_Unix, ptr %call.i, align 8
-  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %iovcnt.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %fd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %iovcnt.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i16 1024, ptr %iovcnt.i, align 8
   store i32 %fd, ptr %fd.i, align 8
-  %state = getelementptr inbounds i8, ptr %call.i, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 2, ptr %state, align 8
   ret ptr %call.i
 }
@@ -204,7 +204,7 @@ entry:
 define internal void @connUnixShutdown(ptr noundef %conn) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %shutdown = getelementptr inbounds i8, ptr %call, i64 88
+  %shutdown = getelementptr inbounds nuw i8, ptr %call, i64 88
   %0 = load ptr, ptr %shutdown, align 8
   tail call void %0(ptr noundef %conn) #8
   ret void
@@ -214,7 +214,7 @@ entry:
 define internal void @connUnixClose(ptr noundef %conn) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %close = getelementptr inbounds i8, ptr %call, i64 96
+  %close = getelementptr inbounds nuw i8, ptr %call, i64 96
   %0 = load ptr, ptr %close, align 8
   tail call void %0(ptr noundef %conn) #8
   ret void
@@ -224,7 +224,7 @@ entry:
 define internal i32 @connUnixAccept(ptr noundef %conn, ptr noundef %accept_handler) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %accept = getelementptr inbounds i8, ptr %call, i64 120
+  %accept = getelementptr inbounds nuw i8, ptr %call, i64 120
   %0 = load ptr, ptr %accept, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %accept_handler) #8
   ret i32 %call1
@@ -234,7 +234,7 @@ entry:
 define internal i32 @connUnixWrite(ptr noundef %conn, ptr noundef %data, i64 noundef %data_len) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %write = getelementptr inbounds i8, ptr %call, i64 128
+  %write = getelementptr inbounds nuw i8, ptr %call, i64 128
   %0 = load ptr, ptr %write, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %data, i64 noundef %data_len) #8
   ret i32 %call1
@@ -244,7 +244,7 @@ entry:
 define internal i32 @connUnixWritev(ptr noundef %conn, ptr noundef %iov, i32 noundef %iovcnt) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %writev = getelementptr inbounds i8, ptr %call, i64 136
+  %writev = getelementptr inbounds nuw i8, ptr %call, i64 136
   %0 = load ptr, ptr %writev, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %iov, i32 noundef %iovcnt) #8
   ret i32 %call1
@@ -254,7 +254,7 @@ entry:
 define internal i32 @connUnixRead(ptr noundef %conn, ptr noundef %buf, i64 noundef %buf_len) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %read = getelementptr inbounds i8, ptr %call, i64 144
+  %read = getelementptr inbounds nuw i8, ptr %call, i64 144
   %0 = load ptr, ptr %read, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %buf, i64 noundef %buf_len) #8
   ret i32 %call1
@@ -264,7 +264,7 @@ entry:
 define internal i32 @connUnixSetWriteHandler(ptr noundef %conn, ptr noundef %func, i32 noundef %barrier) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %set_write_handler = getelementptr inbounds i8, ptr %call, i64 152
+  %set_write_handler = getelementptr inbounds nuw i8, ptr %call, i64 152
   %0 = load ptr, ptr %set_write_handler, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %func, i32 noundef %barrier) #8
   ret i32 %call1
@@ -274,7 +274,7 @@ entry:
 define internal i32 @connUnixSetReadHandler(ptr noundef %conn, ptr noundef %func) #0 {
 entry:
   %call = tail call ptr @connectionTypeTcp() #8
-  %set_read_handler = getelementptr inbounds i8, ptr %call, i64 160
+  %set_read_handler = getelementptr inbounds nuw i8, ptr %call, i64 160
   %0 = load ptr, ptr %set_read_handler, align 8
   %call1 = tail call i32 %0(ptr noundef %conn, ptr noundef %func) #8
   ret i32 %call1
@@ -283,7 +283,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @connUnixGetLastError(ptr nocapture noundef readonly %conn) #0 {
 entry:
-  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
+  %last_errno = getelementptr inbounds nuw i8, ptr %conn, i64 12
   %0 = load i32, ptr %last_errno, align 4
   %call = tail call ptr @strerror(i32 noundef %0) #8
   ret ptr %call
@@ -292,7 +292,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connUnixSyncWrite(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %conn, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncWrite(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #8
   ret i64 %call
@@ -301,7 +301,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connUnixSyncRead(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %conn, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncRead(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #8
   ret i64 %call
@@ -310,7 +310,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connUnixSyncReadLine(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %conn, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncReadLine(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #8
   ret i64 %call

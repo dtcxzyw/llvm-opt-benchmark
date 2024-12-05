@@ -80,7 +80,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %6 = phi i8 [ %23, %21 ], [ 0, %0 ]
   %7 = getelementptr [5 x %struct.amd_hostbridge], ptr @hb_probes, i64 0, i64 %5
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %8 to i8
   %12 = trunc i32 %10 to i8
@@ -93,7 +93,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 15:                                               ; preds = %.preheader52, %.preheader52
   %16 = lshr i32 %13, 16
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %16
   %20 = select i1 %19, i8 1, i8 %6
@@ -173,13 +173,13 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader50:                                     ; preds = %64, %80
   %72 = phi ptr [ %81, %80 ], [ %70, %64 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, %67
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %.preheader50
-  %77 = getelementptr inbounds i8, ptr %72, i64 116
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 116
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, %69
   br i1 %79, label %83, label %80
@@ -222,13 +222,13 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader48:                                     ; preds = %96, %111
   %103 = phi ptr [ %112, %111 ], [ %101, %96 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 112
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 112
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, %99
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.preheader48
-  %108 = getelementptr inbounds i8, ptr %103, i64 116
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 116
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, %100
   br i1 %110, label %114, label %111
@@ -245,7 +245,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 .preheader47:                                     ; preds = %114, %124
   %116 = phi i64 [ %125, %124 ], [ 0, %114 ]
   %117 = getelementptr [16 x %struct.range], ptr %1, i64 0, i64 %116
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i64, ptr %118, align 8
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %124, label %121
@@ -283,7 +283,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 137:                                              ; preds = %134
   %138 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %135) #10
   %139 = load i64, ptr %135, align 8
-  %140 = getelementptr inbounds i8, ptr %135, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, 1
   call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %139, i64 noundef %142) #9
@@ -326,13 +326,13 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader46:                                     ; preds = %157, %179
   %171 = phi ptr [ %180, %179 ], [ %169, %157 ]
-  %172 = getelementptr inbounds i8, ptr %171, i64 112
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 112
   %173 = load i32, ptr %172, align 8
   %174 = icmp eq i32 %173, %163
   br i1 %174, label %175, label %179
 
 175:                                              ; preds = %.preheader46
-  %176 = getelementptr inbounds i8, ptr %171, i64 116
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 116
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, %165
   br i1 %178, label %182, label %179
@@ -425,13 +425,13 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader44:                                     ; preds = %224, %235
   %227 = phi ptr [ %236, %235 ], [ %225, %224 ]
-  %228 = getelementptr inbounds i8, ptr %227, i64 112
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 112
   %229 = load i32, ptr %228, align 8
   %230 = icmp eq i32 %229, %99
   br i1 %230, label %231, label %235
 
 231:                                              ; preds = %.preheader44
-  %232 = getelementptr inbounds i8, ptr %227, i64 116
+  %232 = getelementptr inbounds nuw i8, ptr %227, i64 116
   %233 = load i32, ptr %232, align 4
   %234 = icmp eq i32 %233, %100
   br i1 %234, label %238, label %235
@@ -448,7 +448,7 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 .preheader43:                                     ; preds = %238, %248
   %240 = phi i64 [ %249, %248 ], [ 0, %238 ]
   %241 = getelementptr [16 x %struct.range], ptr %1, i64 0, i64 %240
-  %242 = getelementptr inbounds i8, ptr %241, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load i64, ptr %242, align 8
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %248, label %245
@@ -480,23 +480,23 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
 
 .preheader42:                                     ; preds = %.thread34, %.loopexit
   %254 = phi ptr [ %252, %.loopexit ], [ %.pr, %.thread34 ]
-  %255 = getelementptr inbounds i8, ptr %254, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
   %256 = load i64, ptr %255, align 8
   %257 = trunc i64 %256 to i32
-  %258 = getelementptr inbounds i8, ptr %254, i64 112
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 112
   %259 = load i32, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %254, i64 116
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 116
   %261 = load i32, ptr %260, align 4
-  %262 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %255, i32 noundef %259, i32 noundef %261) #10
-  %263 = getelementptr inbounds i8, ptr %254, i64 32
+  %262 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %255, i32 noundef %259, i32 noundef %261) #10
+  %263 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, %263
   br i1 %265, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader42, %.preheader
   %266 = phi ptr [ %269, %.preheader ], [ %264, %.preheader42 ]
-  %267 = getelementptr inbounds i8, ptr %266, i64 16
-  %268 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %257, ptr noundef %267) #10
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %268 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %257, ptr noundef nonnull %267) #10
   %269 = load ptr, ptr %266, align 8
   %270 = icmp eq ptr %269, %263
   br i1 %270, label %.loopexit, label %.preheader, !llvm.loop !16
@@ -599,7 +599,7 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @pci_enable_pci_io_ecs() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @amd_nb_bus_dev_ranges, i64 2), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @amd_nb_bus_dev_ranges, i64 2), align 1
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %.loopexit.loopexit._crit_edge, label %.lr.ph
 
@@ -608,7 +608,7 @@ define internal fastcc void @pci_enable_pci_io_ecs() unnamed_addr #0 section ".i
   %4 = phi ptr [ %28, %.backedge ], [ @amd_nb_bus_dev_ranges, %0 ]
   %5 = phi i32 [ %.be, %.backedge ], [ 0, %0 ]
   %6 = load i8, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp ult i8 %8, %3
   br i1 %9, label %.preheader, label %.backedge
@@ -649,7 +649,7 @@ define internal fastcc void @pci_enable_pci_io_ecs() unnamed_addr #0 section ".i
   %.be = add i32 %5, 1
   %27 = zext i32 %.be to i64
   %28 = getelementptr [0 x %struct.amd_nb_bus_dev_range], ptr @amd_nb_bus_dev_ranges, i64 0, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %.loopexit.loopexit._crit_edge, label %.lr.ph, !llvm.loop !24

@@ -45,7 +45,7 @@ if.end21:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end21, %if.then5
-  %modified29 = getelementptr inbounds i8, ptr %x, i64 128
+  %modified29 = getelementptr inbounds nuw i8, ptr %x, i64 128
   store i32 1, ptr %modified29, align 8
   br label %return
 
@@ -75,7 +75,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %serialNumber = getelementptr inbounds i8, ptr %x, i64 8
+  %serialNumber = getelementptr inbounds nuw i8, ptr %x, i64 8
   %cmp1.not = icmp eq ptr %serialNumber, %serial
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
@@ -84,7 +84,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -102,13 +102,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %issuer = getelementptr inbounds i8, ptr %x, i64 48
+  %issuer = getelementptr inbounds nuw i8, ptr %x, i64 48
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %issuer, ptr noundef %name) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -126,13 +126,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %subject = getelementptr inbounds i8, ptr %x, i64 72
+  %subject = getelementptr inbounds nuw i8, ptr %x, i64 72
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %subject, ptr noundef %name) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -184,8 +184,8 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
-  %validity = getelementptr inbounds i8, ptr %x, i64 56
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
+  %validity = getelementptr inbounds nuw i8, ptr %x, i64 56
   %0 = load ptr, ptr %validity, align 8
   %cmp.i = icmp eq ptr %0, %tm
   br i1 %cmp.i, label %return, label %if.end.i
@@ -216,8 +216,8 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
-  %notAfter = getelementptr inbounds i8, ptr %x, i64 64
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
+  %notAfter = getelementptr inbounds nuw i8, ptr %x, i64 64
   %0 = load ptr, ptr %notAfter, align 8
   %cmp.i = icmp eq ptr %0, %tm
   br i1 %cmp.i, label %return, label %if.end.i
@@ -246,13 +246,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %x, i64 80
+  %key = getelementptr inbounds nuw i8, ptr %x, i64 80
   %call = tail call i32 @X509_PUBKEY_set(ptr noundef nonnull %key, ptr noundef %pkey) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %x, i64 128
+  %modified = getelementptr inbounds nuw i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -266,7 +266,7 @@ declare i32 @X509_PUBKEY_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @X509_up_ref(ptr nocapture noundef %x) local_unnamed_addr #2 {
 entry:
-  %references = getelementptr inbounds i8, ptr %x, i64 192
+  %references = getelementptr inbounds nuw i8, ptr %x, i64 192
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp1 = icmp sgt i32 %0, 0
   %conv = zext i1 %cmp1 to i32
@@ -278,7 +278,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get0_notBefore(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %validity = getelementptr inbounds i8, ptr %x, i64 56
+  %validity = getelementptr inbounds nuw i8, ptr %x, i64 56
   %0 = load ptr, ptr %validity, align 8
   ret ptr %0
 }
@@ -286,7 +286,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get0_notAfter(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %notAfter = getelementptr inbounds i8, ptr %x, i64 64
+  %notAfter = getelementptr inbounds nuw i8, ptr %x, i64 64
   %0 = load ptr, ptr %notAfter, align 8
   ret ptr %0
 }
@@ -294,7 +294,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_getm_notBefore(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %validity = getelementptr inbounds i8, ptr %x, i64 56
+  %validity = getelementptr inbounds nuw i8, ptr %x, i64 56
   %0 = load ptr, ptr %validity, align 8
   ret ptr %0
 }
@@ -302,7 +302,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_getm_notAfter(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %notAfter = getelementptr inbounds i8, ptr %x, i64 64
+  %notAfter = getelementptr inbounds nuw i8, ptr %x, i64 64
   %0 = load ptr, ptr %notAfter, align 8
   ret ptr %0
 }
@@ -310,7 +310,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_get_signature_type(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds i8, ptr %x, i64 136
+  %sig_alg = getelementptr inbounds nuw i8, ptr %x, i64 136
   %0 = load ptr, ptr %sig_alg, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #8
   %call1 = tail call i32 @EVP_PKEY_type(i32 noundef %call) #8
@@ -324,7 +324,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get_X509_PUBKEY(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %key = getelementptr inbounds i8, ptr %x, i64 80
+  %key = getelementptr inbounds nuw i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
   ret ptr %0
 }
@@ -332,7 +332,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_get0_extensions(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %extensions = getelementptr inbounds i8, ptr %x, i64 104
+  %extensions = getelementptr inbounds nuw i8, ptr %x, i64 104
   %0 = load ptr, ptr %extensions, align 8
   ret ptr %0
 }
@@ -344,7 +344,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %issuerUID = getelementptr inbounds i8, ptr %x, i64 88
+  %issuerUID = getelementptr inbounds nuw i8, ptr %x, i64 88
   %0 = load ptr, ptr %issuerUID, align 8
   store ptr %0, ptr %piuid, align 8
   br label %if.end
@@ -354,7 +354,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %subjectUID = getelementptr inbounds i8, ptr %x, i64 96
+  %subjectUID = getelementptr inbounds nuw i8, ptr %x, i64 96
   %1 = load ptr, ptr %subjectUID, align 8
   store ptr %1, ptr %psuid, align 8
   br label %if.end4
@@ -366,7 +366,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @X509_get0_tbs_sigalg(ptr noundef readnone %x) local_unnamed_addr #5 {
 entry:
-  %signature = getelementptr inbounds i8, ptr %x, i64 32
+  %signature = getelementptr inbounds nuw i8, ptr %x, i64 32
   ret ptr %signature
 }
 
@@ -386,7 +386,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %pknid4 = getelementptr inbounds i8, ptr %siginf, i64 4
+  %pknid4 = getelementptr inbounds nuw i8, ptr %siginf, i64 4
   %1 = load i32, ptr %pknid4, align 4
   store i32 %1, ptr %pknid, align 4
   br label %if.end5
@@ -396,14 +396,14 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %secbits8 = getelementptr inbounds i8, ptr %siginf, i64 8
+  %secbits8 = getelementptr inbounds nuw i8, ptr %siginf, i64 8
   %2 = load i32, ptr %secbits8, align 4
   store i32 %2, ptr %secbits, align 4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
   %cmp10.not = icmp eq ptr %flags, null
-  %flags14.phi.trans.insert = getelementptr inbounds i8, ptr %siginf, i64 12
+  %flags14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %siginf, i64 12
   %.pre = load i32, ptr %flags14.phi.trans.insert, align 4
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
@@ -420,11 +420,11 @@ if.end13:                                         ; preds = %if.end9, %if.then11
 define void @X509_SIG_INFO_set(ptr nocapture noundef writeonly initializes((0, 16)) %siginf, i32 noundef %mdnid, i32 noundef %pknid, i32 noundef %secbits, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   store i32 %mdnid, ptr %siginf, align 4
-  %pknid2 = getelementptr inbounds i8, ptr %siginf, i64 4
+  %pknid2 = getelementptr inbounds nuw i8, ptr %siginf, i64 4
   store i32 %pknid, ptr %pknid2, align 4
-  %secbits3 = getelementptr inbounds i8, ptr %siginf, i64 8
+  %secbits3 = getelementptr inbounds nuw i8, ptr %siginf, i64 8
   store i32 %secbits, ptr %secbits3, align 4
-  %flags4 = getelementptr inbounds i8, ptr %siginf, i64 12
+  %flags4 = getelementptr inbounds nuw i8, ptr %siginf, i64 12
   store i32 %flags, ptr %flags4, align 4
   ret void
 }
@@ -437,7 +437,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %siginf = getelementptr inbounds i8, ptr %x, i64 176
+  %siginf = getelementptr inbounds nuw i8, ptr %x, i64 176
   %0 = load i32, ptr %siginf, align 4
   store i32 %0, ptr %mdnid, align 4
   br label %if.end.i
@@ -447,7 +447,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %pknid4.i = getelementptr inbounds i8, ptr %x, i64 180
+  %pknid4.i = getelementptr inbounds nuw i8, ptr %x, i64 180
   %1 = load i32, ptr %pknid4.i, align 4
   store i32 %1, ptr %pknid, align 4
   br label %if.end5.i
@@ -457,14 +457,14 @@ if.end5.i:                                        ; preds = %if.then3.i, %if.end
   br i1 %cmp6.not.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %secbits8.i = getelementptr inbounds i8, ptr %x, i64 184
+  %secbits8.i = getelementptr inbounds nuw i8, ptr %x, i64 184
   %2 = load i32, ptr %secbits8.i, align 4
   store i32 %2, ptr %secbits, align 4
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end5.i
   %cmp10.not.i = icmp eq ptr %flags, null
-  %flags14.phi.trans.insert.i = getelementptr inbounds i8, ptr %x, i64 188
+  %flags14.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %x, i64 188
   %.pre.i = load i32, ptr %flags14.phi.trans.insert.i, align 4
   br i1 %cmp10.not.i, label %X509_SIG_INFO_get.exit, label %if.then11.i
 
@@ -484,20 +484,20 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
 entry:
   %pknid.i = alloca i32, align 4
   %mdnid.i = alloca i32, align 4
-  %siginf = getelementptr inbounds i8, ptr %x, i64 176
-  %sig_alg = getelementptr inbounds i8, ptr %x, i64 136
-  %signature = getelementptr inbounds i8, ptr %x, i64 152
-  %key = getelementptr inbounds i8, ptr %x, i64 80
+  %siginf = getelementptr inbounds nuw i8, ptr %x, i64 176
+  %sig_alg = getelementptr inbounds nuw i8, ptr %x, i64 136
+  %signature = getelementptr inbounds nuw i8, ptr %x, i64 152
+  %key = getelementptr inbounds nuw i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
   %call = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pknid.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mdnid.i)
   store i32 0, ptr %siginf, align 4
-  %pknid2.i = getelementptr inbounds i8, ptr %x, i64 180
+  %pknid2.i = getelementptr inbounds nuw i8, ptr %x, i64 180
   store i32 0, ptr %pknid2.i, align 4
-  %secbits.i = getelementptr inbounds i8, ptr %x, i64 184
+  %secbits.i = getelementptr inbounds nuw i8, ptr %x, i64 184
   store i32 -1, ptr %secbits.i, align 4
-  %flags.i = getelementptr inbounds i8, ptr %x, i64 188
+  %flags.i = getelementptr inbounds nuw i8, ptr %x, i64 188
   store i32 0, ptr %flags.i, align 4
   %1 = load ptr, ptr %sig_alg, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %1) #8
@@ -531,7 +531,7 @@ sw.bb.i:                                          ; preds = %if.end.i
   br i1 %cmp7.not.i, label %if.end14.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb.i
-  %siginf_set.i = getelementptr inbounds i8, ptr %call6.i, i64 216
+  %siginf_set.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 216
   %4 = load ptr, ptr %siginf_set.i, align 8
   %cmp8.not.i = icmp eq ptr %4, null
   br i1 %cmp8.not.i, label %if.end14.i, label %land.lhs.true9.i

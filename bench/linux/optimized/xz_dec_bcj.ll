@@ -10,55 +10,55 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %32
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %10, %12
   %14 = tail call i64 @llvm.umin.i64(i64 %6, i64 %13)
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 8 %18, i64 %14, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 8 %18, i64 %14, i1 false)
   %19 = load i64, ptr %11, align 8
   %20 = add i64 %19, %14
   store i64 %20, ptr %11, align 8
   %21 = load i64, ptr %5, align 8
   %22 = sub i64 %21, %14
   store i64 %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %24, %14
   store i64 %25, ptr %23, align 8
   %26 = getelementptr i8, ptr %18, i64 %14
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %18, ptr align 1 %26, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %26, i64 %25, i1 false)
   %27 = icmp eq i64 %21, %14
   br i1 %27, label %28, label %122
 
 28:                                               ; preds = %8
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %122, label %32
 
 32:                                               ; preds = %._crit_edge, %28
   %33 = phi i64 [ %.pre, %._crit_edge ], [ %25, %28 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  %35 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %36, %38
   %40 = icmp ult i64 %33, %39
@@ -68,17 +68,17 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
 
 43:                                               ; preds = %32
   store i64 %38, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 %38
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 8 %47, i64 %33, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr nonnull align 8 %47, i64 %33, i1 false)
   %48 = load i64, ptr %34, align 8
   %49 = load i64, ptr %37, align 8
   %50 = add i64 %49, %48
   store i64 %50, ptr %37, align 8
   %51 = tail call i32 @xz_dec_lzma2_run(ptr noundef %1, ptr noundef %2) #9
-  %52 = getelementptr inbounds i8, ptr %0, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %51, ptr %52, align 4
   switch i32 %51, label %122 [
     i32 1, label %57
@@ -86,7 +86,7 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load i8, ptr %54, align 8, !range !5, !noundef !6
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %122
@@ -110,7 +110,7 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
   %68 = load ptr, ptr %44, align 8
   %69 = getelementptr i8, ptr %68, i64 %67
   %70 = load i64, ptr %34, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 1 %69, i64 %70, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 1 %69, i64 %70, i1 false)
   %71 = load i64, ptr %37, align 8
   %72 = add i64 %71, %70
   %73 = load i64, ptr %35, align 8
@@ -124,23 +124,23 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %78, label %79, label %119
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %2, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %81, ptr %82, align 8
   %83 = load i64, ptr %37, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %83, ptr %84, align 8
   %85 = load i64, ptr %35, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %87, ptr %80, align 8
   %88 = load i64, ptr %34, align 8
   store i64 %88, ptr %37, align 8
   store i64 16, ptr %35, align 8
   %89 = tail call i32 @xz_dec_lzma2_run(ptr noundef %1, ptr noundef %2) #9
-  %90 = getelementptr inbounds i8, ptr %0, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %89, ptr %90, align 4
   %91 = load i64, ptr %37, align 8
   store i64 %91, ptr %34, align 8
@@ -156,7 +156,7 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
 
 97:                                               ; preds = %79
   %98 = load i64, ptr %34, align 8
-  tail call fastcc void @bcj_apply(ptr noundef %0, ptr noundef %87, ptr noundef %5, i64 noundef %98)
+  tail call fastcc void @bcj_apply(ptr noundef %0, ptr noundef nonnull %87, ptr noundef nonnull %5, i64 noundef %98)
   %99 = load i32, ptr %90, align 4
   %100 = icmp eq i32 %99, 1
   br i1 %100, label %101, label %._crit_edge3
@@ -178,7 +178,7 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
   %108 = tail call i64 @llvm.umin.i64(i64 %104, i64 %107)
   %109 = load ptr, ptr %80, align 8
   %110 = getelementptr i8, ptr %109, i64 %106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr align 8 %87, i64 %108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr nonnull align 8 %87, i64 %108, i1 false)
   %111 = load i64, ptr %37, align 8
   %112 = add i64 %111, %108
   store i64 %112, ptr %37, align 8
@@ -189,12 +189,12 @@ define dso_local i32 @xz_dec_bcj_run(ptr noundef %0, ptr noundef %1, ptr noundef
   %116 = sub i64 %115, %108
   store i64 %116, ptr %34, align 8
   %117 = getelementptr i8, ptr %87, i64 %108
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr align 1 %117, i64 %116, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %87, ptr align 1 %117, i64 %116, i1 false)
   %118 = icmp eq i64 %113, %108
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %103, %75
-  %120 = getelementptr inbounds i8, ptr %0, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %121 = load i32, ptr %120, align 4
   br label %122
 
@@ -228,14 +228,14 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   ]
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = icmp ult i64 %7, 5
   br i1 %11, label %.loopexit24, label %12
 
 12:                                               ; preds = %9
   %13 = add i64 %7, -4
   %14 = load i32, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %16
 
 16:                                               ; preds = %97, %12
@@ -372,7 +372,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   br i1 %111, label %.loopexit24, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %0, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %114
 
 114:                                              ; preds = %131, %112
@@ -407,7 +407,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   br i1 %135, label %.loopexit24, label %136
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %0, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %138
 
 138:                                              ; preds = %172, %136
@@ -462,7 +462,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   br i1 %176, label %.loopexit24, label %177
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds i8, ptr %0, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %179
 
 179:                                              ; preds = %224, %177
@@ -533,7 +533,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   br i1 %230, label %.loopexit24, label %231
 
 231:                                              ; preds = %229
-  %232 = getelementptr inbounds i8, ptr %0, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %233
 
 233:                                              ; preds = %252, %231
@@ -574,7 +574,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   %256 = load i64, ptr %2, align 8
   %257 = add i64 %256, %255
   store i64 %257, ptr %2, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %259 = load i32, ptr %258, align 4
   %260 = trunc i64 %255 to i32
   %261 = add i32 %259, %260
@@ -594,7 +594,7 @@ define dso_local noalias noundef ptr @xz_dec_bcj_create(i1 noundef zeroext %0) l
 
 5:                                                ; preds = %1
   %6 = zext i1 %0 to i8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %6, ptr %7, align 8
   br label %8
 
@@ -615,14 +615,14 @@ define dso_local noundef range(i32 0, 7) i32 @xz_dec_bcj_reset(ptr nocapture nou
 3:                                                ; preds = %2, %2, %2, %2, %2
   %4 = zext nneg i8 %1 to i32
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %9
 
 9:                                                ; preds = %3, %2

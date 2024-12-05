@@ -31,7 +31,7 @@ define noundef i8 @_RNvMCslX9QWl1u5N5_20turborepo_vercel_apiNtB2_10Membership3ne
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvMs_CslX9QWl1u5N5_20turborepo_vercel_apiNtB4_4Team8is_owner(ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 92
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i8, ptr %2, align 4, !range !4, !noundef !5
   %4 = icmp eq i8 %3, 1
   ret i1 %4
@@ -39,7 +39,7 @@ define noundef zeroext i1 @_RNvMs_CslX9QWl1u5N5_20turborepo_vercel_apiNtB4_4Team
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvMs0_CslX9QWl1u5N5_20turborepo_vercel_apiNtB5_14AnalyticsEvent14set_session_id(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !range !6, !alias.scope !7, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775808
   br i1 %5, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEECslX9QWl1u5N5_20turborepo_vercel_api.exit, label %6

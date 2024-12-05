@@ -21,15 +21,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @linear_map(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, -2049
   store i16 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %6
   br i1 %12, label %15, label %13
@@ -42,12 +42,12 @@ define dso_local noundef i32 @linear_map(ptr nocapture noundef readonly %0, ptr 
 15:                                               ; preds = %13, %2
   store ptr %6, ptr %10, align 8
   tail call void @bio_associate_blkg(ptr noundef %1) #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %20, %17
   %24 = sub i64 %23, %22
@@ -103,7 +103,7 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.2, ptr %8, align 8
   br label %38
 
@@ -114,7 +114,7 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.3, ptr %14, align 8
   br label %38
 
@@ -129,7 +129,7 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 20:                                               ; preds = %15
   %21 = load i64, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = load ptr, ptr %0, align 8
@@ -139,22 +139,22 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %33, align 8
   br label %38
 
 34:                                               ; preds = %20, %15
   %35 = phi ptr [ @.str.5, %15 ], [ @.str.6, %20 ]
   %36 = phi i32 [ -22, %15 ], [ %26, %20 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %35, ptr %37, align 8
   call void @kfree(ptr noundef nonnull %11) #8
   br label %38
@@ -168,7 +168,7 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @linear_dtr(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @dm_put_device(ptr noundef %0, ptr noundef %4) #8
@@ -178,7 +178,7 @@ define internal void @linear_dtr(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @linear_status(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   switch i32 %1, label %45 [
     i32 0, label %8
@@ -197,10 +197,10 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
 11:                                               ; preds = %9
   %12 = zext i32 %4 to i64
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 28
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %12, ptr noundef nonnull @.str.8, ptr noundef %14, i64 noundef %16) #8
+  %17 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %3, i64 noundef %12, ptr noundef nonnull @.str.8, ptr noundef nonnull %14, i64 noundef %16) #8
   br label %45
 
 18:                                               ; preds = %5
@@ -209,11 +209,11 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr i8, ptr %23, i64 28
   %29 = load i32, ptr %28, align 4
@@ -232,10 +232,10 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
   %38 = getelementptr i8, ptr %3, i64 %35
   %39 = sub nuw nsw i64 %19, %35
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 28
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load i64, ptr %42, align 8
-  %44 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %38, i64 noundef %39, ptr noundef nonnull @.str.10, ptr noundef %41, i64 noundef %43) #8
+  %44 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %38, i64 noundef %39, ptr noundef nonnull @.str.10, ptr noundef nonnull %41, i64 noundef %43) #8
   br label %45
 
 45:                                               ; preds = %37, %34, %11, %9, %8, %5
@@ -244,20 +244,20 @@ define internal void @linear_status(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal range(i32 0, 2) i32 @linear_prepare_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ne i64 %12, %14
   %16 = zext i1 %15 to i32
@@ -270,12 +270,12 @@ define internal range(i32 0, 2) i32 @linear_prepare_ioctl(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @linear_iterate_devices(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 %1(ptr noundef %0, ptr noundef %6, i64 noundef %8, i64 noundef %10, ptr noundef %2) #8
   ret i32 %11

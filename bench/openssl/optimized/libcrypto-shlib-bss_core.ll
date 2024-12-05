@@ -41,7 +41,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
+  %c_bio_write_ex = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %c_bio_write_ex, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %land.lhs.true, label %if.end
@@ -57,7 +57,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %c_bio_up_ref = getelementptr inbounds i8, ptr %call.i, i64 40
+  %c_bio_up_ref = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %2 = load ptr, ptr %c_bio_up_ref, align 8
   %call8 = tail call i32 %2(ptr noundef %corebio) #3
   %tobool.not = icmp eq i32 %call8, 0
@@ -90,12 +90,12 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %c_bio_free = getelementptr inbounds i8, ptr %call.i, i64 48
-  %c_bio_up_ref = getelementptr inbounds i8, ptr %call.i, i64 40
-  %c_bio_ctrl = getelementptr inbounds i8, ptr %call.i, i64 32
-  %c_bio_puts = getelementptr inbounds i8, ptr %call.i, i64 24
-  %c_bio_gets = getelementptr inbounds i8, ptr %call.i, i64 16
-  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
+  %c_bio_free = getelementptr inbounds nuw i8, ptr %call.i, i64 48
+  %c_bio_up_ref = getelementptr inbounds nuw i8, ptr %call.i, i64 40
+  %c_bio_ctrl = getelementptr inbounds nuw i8, ptr %call.i, i64 32
+  %c_bio_puts = getelementptr inbounds nuw i8, ptr %call.i, i64 24
+  %c_bio_gets = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %c_bio_write_ex = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -190,7 +190,7 @@ if.then40:                                        ; preds = %sw.bb38
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %if.then4, %sw.bb, %if.then10, %sw.bb8, %if.then16, %sw.bb14, %if.then22, %sw.bb20, %if.then28, %sw.bb26, %if.then34, %sw.bb32, %if.then40, %sw.bb38
-  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 return:                                           ; preds = %for.cond, %entry
@@ -207,7 +207,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_write_ex = getelementptr inbounds i8, ptr %call.i, i64 8
+  %c_bio_write_ex = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %c_bio_write_ex, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -254,7 +254,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_puts = getelementptr inbounds i8, ptr %call.i, i64 24
+  %c_bio_puts = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %c_bio_puts, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -278,7 +278,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_gets = getelementptr inbounds i8, ptr %call.i, i64 16
+  %c_bio_gets = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %c_bio_gets, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -302,7 +302,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %c_bio_ctrl = getelementptr inbounds i8, ptr %call.i, i64 32
+  %c_bio_ctrl = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %1 = load ptr, ptr %c_bio_ctrl, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -335,7 +335,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @BIO_set_init(ptr noundef nonnull %bio, i32 noundef 0) #3
-  %c_bio_free = getelementptr inbounds i8, ptr %call.i, i64 48
+  %c_bio_free = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %c_bio_free, align 8
   %call1 = tail call ptr @BIO_get_data(ptr noundef nonnull %bio) #3
   %call2 = tail call i32 %1(ptr noundef %call1) #3

@@ -2515,7 +2515,7 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
   %10 = alloca %struct.nstime_t, align 8
   %11 = alloca %struct.camelsrt_call_info_key_t, align 4
   %12 = alloca %struct.nstime_t, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i8, ptr %13, align 8
   switch i8 %14, label %97 [
     i8 0, label %15
@@ -2566,7 +2566,7 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %camelsrt_close_call_matching.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = getelementptr i8, ptr %23, i64 56
   call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %25, ptr noundef %26) #8
   %27 = getelementptr i8, ptr %23, i64 72
@@ -2591,7 +2591,7 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
 camelsrt_close_call_matching.exit:                ; preds = %19, %24, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8
   call void @tcapsrt_close(ptr noundef %37, ptr noundef %1) #8
   br label %97
@@ -2636,7 +2636,7 @@ camelsrt_close_call_matching.exit:                ; preds = %19, %24, %33
   br i1 %.not.i69, label %camelsrt_close_call_matching.exit71, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = getelementptr i8, ptr %48, i64 56
   call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %50, ptr noundef %51) #8
   %52 = getelementptr i8, ptr %48, i64 72
@@ -2676,7 +2676,7 @@ camelsrt_close_call_matching.exit71:              ; preds = %44, %49, %58
   br i1 %.not.i72, label %camelsrt_close_call_matching.exit74, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %1, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = getelementptr i8, ptr %65, i64 56
   call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %67, ptr noundef %68) #8
   %69 = getelementptr i8, ptr %65, i64 72
@@ -2701,7 +2701,7 @@ camelsrt_close_call_matching.exit71:              ; preds = %44, %49, %58
 camelsrt_close_call_matching.exit74:              ; preds = %61, %66, %75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load ptr, ptr %78, align 8
   call void @tcapsrt_close(ptr noundef %79, ptr noundef %1) #8
   br label %97
@@ -2719,7 +2719,7 @@ camelsrt_close_call_matching.exit74:              ; preds = %61, %66, %75
   br i1 %.not.i75, label %camelsrt_close_call_matching.exit77, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %87 = getelementptr i8, ptr %84, i64 56
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %86, ptr noundef %87) #8
   %88 = getelementptr i8, ptr %84, i64 72
@@ -2776,11 +2776,11 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef 
   store i32 %14, ptr %13, align 8
   %16 = load ptr, ptr @srt_calls, align 8
   %17 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef nonnull %10, ptr noundef nonnull %13) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr i8, ptr %13, i64 48
   store i32 %22, ptr %23, align 8
@@ -2789,9 +2789,9 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef 
   %25 = getelementptr i8, ptr %13, i64 72
   store i32 0, ptr %25, align 8
   %26 = getelementptr i8, ptr %13, i64 56
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %19, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store ptr @camelsrt_tcap_matching, ptr %28, align 8
   br label %29
 
@@ -2843,7 +2843,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %.not74, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %28, %31
   br i1 %32, label %66, label %33
@@ -2861,7 +2861,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %.not75, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = icmp ult i32 %39, %42
   br i1 %43, label %66, label %44
@@ -2873,7 +2873,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %.not76, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = icmp ugt i32 %46, %49
   br i1 %50, label %66, label %.thread
@@ -2892,7 +2892,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
 
 56:                                               ; preds = %.thread, %51
   %57 = phi i32 [ %55, %.thread ], [ %53, %51 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = icmp ugt i32 %57, %59
   %brmerge = or i1 %.not76, %60
@@ -2900,7 +2900,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %brmerge, label %66, label %61
 
 ._crit_edge:                                      ; preds = %.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %61
 
@@ -2914,26 +2914,26 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
 
 66:                                               ; preds = %51, %56, %61, %47, %40, %29, %18, %16
   %.0 = phi i32 [ %4, %16 ], [ 3, %18 ], [ 4, %29 ], [ 5, %40 ], [ 3, %47 ], [ %.mux, %56 ], [ %spec.select, %61 ], [ 3, %51 ]
-  %67 = getelementptr inbounds i8, ptr %3, i64 17
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %68 = zext nneg i32 %.0 to i64
   %69 = getelementptr [10 x i8], ptr %67, i64 0, i64 %68
   store i8 1, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %9, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %71 = getelementptr [10 x %struct.camelsrt_category_t], ptr %70, i64 0, i64 %68
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
-  %74 = getelementptr inbounds i8, ptr %1, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %75 = load i32, ptr %74, align 4
   br i1 %73, label %76, label %81
 
 76:                                               ; preds = %66
   store i32 %75, ptr %71, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 0, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %71, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i32 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %71, i64 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 8 dereferenceable(16) %80, i64 16, i1 false)
   br label %proto_item_set_hidden.exit
 
@@ -2961,13 +2961,13 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %89, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %92 = load ptr, ptr %91, align 8
   %.not5.i = icmp eq ptr %92, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, 1
   store i32 %96, ptr %94, align 4
@@ -2987,7 +2987,7 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
   %103 = getelementptr i8, ptr %9, i64 232
   store i32 0, ptr %103, align 8
   %104 = getelementptr i8, ptr %9, i64 216
-  %105 = getelementptr inbounds i8, ptr %1, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull readonly align 8 dereferenceable(16) %105, i64 16, i1 false)
   br label %proto_item_set_hidden.exit
 
@@ -2997,7 +2997,7 @@ proto_item_set_hidden.exit:                       ; preds = %93, %90, %87, %81, 
   br i1 %.not82, label %proto_item_set_generated.exit, label %106
 
 106:                                              ; preds = %proto_item_set_hidden.exit
-  %107 = getelementptr inbounds i8, ptr %71, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %108 = load i32, ptr %107, align 4
   %.not83 = icmp eq i32 %108, 0
   br i1 %.not83, label %proto_item_set_generated.exit, label %109
@@ -3008,7 +3008,7 @@ proto_item_set_hidden.exit:                       ; preds = %93, %90, %87, %81, 
   br i1 %.not84, label %proto_item_set_generated.exit, label %111
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %1, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %110, %113
   br i1 %114, label %115, label %proto_item_set_generated.exit
@@ -3022,13 +3022,13 @@ proto_item_set_hidden.exit:                       ; preds = %93, %90, %87, %81, 
   br i1 %.not.i85, label %proto_item_set_generated.exit, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %119, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8
   %.not5.i86 = icmp eq ptr %122, null
   br i1 %.not5.i86, label %proto_item_set_generated.exit, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %122, i64 28
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 2
   store i32 %126, ptr %124, align 4
@@ -3073,7 +3073,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br i1 %.not77, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %21, %24
   br i1 %25, label %34, label %26
@@ -3085,7 +3085,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br i1 %.not78, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %28, %31
   br i1 %32, label %34, label %33
@@ -3095,13 +3095,13 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
 
 34:                                               ; preds = %33, %29, %22, %17
   %.0 = phi i32 [ %4, %17 ], [ 3, %22 ], [ 4, %29 ], [ 3, %33 ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 17
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %36 = zext nneg i32 %.0 to i64
   %37 = getelementptr [10 x i8], ptr %35, i64 0, i64 %36
   store i8 1, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %10, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %39 = getelementptr [10 x %struct.camelsrt_category_t], ptr %38, i64 0, i64 %36
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %50
@@ -3112,7 +3112,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br i1 %.not82, label %camelsrt_display_DeltaTime.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = icmp ugt i32 %47, %44
   br i1 %48, label %49, label %proto_item_set_hidden.exit
@@ -3122,7 +3122,7 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br label %proto_item_set_hidden.exit
 
 50:                                               ; preds = %34
-  %51 = getelementptr inbounds i8, ptr %1, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %52 = load i32, ptr %51, align 4
   %.not80 = icmp eq i32 %41, %52
   br i1 %.not80, label %proto_item_set_hidden.exit, label %53
@@ -3143,13 +3143,13 @@ define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr n
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = load ptr, ptr %61, align 8
   %.not5.i = icmp eq ptr %62, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -3166,15 +3166,15 @@ proto_item_set_hidden.exit:                       ; preds = %63, %60, %57, %50, 
   br i1 %.not84, label %camelsrt_display_DeltaTime.exit, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %1, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %68, %71
   br i1 %72, label %73, label %camelsrt_display_DeltaTime.exit
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %39, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 1, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %76 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %75, i64 0, i64 %36
   store i32 1, ptr %76, align 8
   %77 = load i32, ptr @gcamel_DisplaySRT, align 4
@@ -3191,27 +3191,27 @@ proto_item_set_hidden.exit:                       ; preds = %63, %60, %57, %50, 
   br i1 %.not.i86, label %proto_item_set_generated.exit, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not5.i87 = icmp eq ptr %86, null
   br i1 %.not5.i87, label %proto_item_set_generated.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, 2
   store i32 %90, ptr %88, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
-  %91 = getelementptr inbounds i8, ptr %1, i64 24
-  %92 = getelementptr inbounds i8, ptr %39, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %91, ptr noundef nonnull %92) #8
-  %93 = getelementptr inbounds i8, ptr %76, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 1, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %76, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %95 = getelementptr inbounds i8, ptr %76, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false)
   %96 = load i32, ptr @gcamel_DisplaySRT, align 4
   %.not.i88 = icmp eq i32 %96, 0
@@ -3236,7 +3236,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i.i, label %camelsrt_display_DeltaTime.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %103 = load ptr, ptr %102, align 8
   %.not5.i.i = icmp eq ptr %103, null
   br i1 %.not5.i.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3248,7 +3248,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i24.i, label %camelsrt_display_DeltaTime.exit, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %106, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not5.i25.i = icmp eq ptr %109, null
   br i1 %.not5.i25.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3260,7 +3260,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i27.i, label %camelsrt_display_DeltaTime.exit, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %112, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %115 = load ptr, ptr %114, align 8
   %.not5.i28.i = icmp eq ptr %115, null
   br i1 %.not5.i28.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3272,7 +3272,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i30.i, label %camelsrt_display_DeltaTime.exit, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not5.i31.i = icmp eq ptr %121, null
   br i1 %.not5.i31.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3284,7 +3284,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i33.i, label %camelsrt_display_DeltaTime.exit, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %124, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %127 = load ptr, ptr %126, align 8
   %.not5.i34.i = icmp eq ptr %127, null
   br i1 %.not5.i34.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3296,7 +3296,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %78, %73
   br i1 %.not.i36.i, label %camelsrt_display_DeltaTime.exit, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %130, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not5.i37.i = icmp eq ptr %133, null
   br i1 %.not5.i37.i, label %camelsrt_display_DeltaTime.exit, label %proto_item_set_generated.exit.sink.split.i
@@ -3306,7 +3306,7 @@ default.unreachable:                              ; preds = %97
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %131, %125, %119, %113, %107, %101
   %.sink42.i = phi ptr [ %103, %101 ], [ %109, %107 ], [ %115, %113 ], [ %121, %119 ], [ %127, %125 ], [ %133, %131 ]
-  %134 = getelementptr inbounds i8, ptr %.sink42.i, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %.sink42.i, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = or i32 %135, 2
   store i32 %136, ptr %134, align 4
@@ -3326,7 +3326,7 @@ define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
   %4 = sext i32 %spec.store.select to i64
   %5 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 -1, ptr %6, align 16
   ret ptr %5
 }
@@ -3531,7 +3531,7 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not24 = icmp eq ptr %6, null
   br i1 %.not24, label %.loopexit, label %7
@@ -3545,9 +3545,9 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %9) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store i32 3, ptr %2, align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %12
 
 12:                                               ; preds = %8, %18
@@ -3579,21 +3579,21 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @camel_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %10, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %15 = load i32, ptr %14, align 4
   %.not = icmp ugt i32 %15, %13
   br i1 %.not, label %16, label %23
 
 16:                                               ; preds = %5
   %17 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %10, i32 noundef %13, i32 noundef 1) #8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 8
@@ -3609,7 +3609,7 @@ define internal range(i32 0, 2) i32 @camel_stat_packet(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @camel_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3617,7 +3617,7 @@ define internal void @camel_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 1) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.08, i32 noundef 1, ptr noundef %4) #8
   %6 = add nuw i32 %.08, 1
@@ -3635,7 +3635,7 @@ define internal void @camel_stat_free_table_item(ptr nocapture readnone %0, i32 
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #8
   br label %8
@@ -3742,8 +3742,8 @@ declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 17
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %8
 
 8:                                                ; preds = %5, %26
@@ -3755,7 +3755,7 @@ define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %8
   %12 = getelementptr [10 x %struct.camelsrt_msginfo_t], ptr %7, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %26, label %15
@@ -3766,7 +3766,7 @@ define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0,
   br i1 %.not19, label %26, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %12, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load i32, ptr %18, align 4
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %20, label %26
@@ -3775,7 +3775,7 @@ define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0,
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @add_srt_table_data(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %24, ptr noundef %1) #8
   br label %26
@@ -3823,15 +3823,15 @@ define internal void @camelsrt_tcap_matching(ptr nocapture readnone %0, ptr noun
   %10 = sext i32 %spec.store.select.i to i64
   %11 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %11, i8 0, i64 512, i1 false)
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 -1, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %3, ptr %13, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %33, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %11, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3845,7 +3845,7 @@ define internal void @camelsrt_tcap_matching(ptr nocapture readnone %0, ptr noun
   br i1 %.not.i, label %camelsrt_close_call_matching.exit, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = getelementptr i8, ptr %19, i64 56
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef %22) #8
   %23 = getelementptr i8, ptr %19, i64 72
@@ -3933,7 +3933,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4) #8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef %1) #8
   store i32 %0, ptr @camel_ver, align 4
@@ -3958,7 +3958,7 @@ define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, pt
   %20 = sext i32 %spec.store.select.i to i64
   %21 = getelementptr [10 x %struct.camelsrt_info_t], ptr @camelsrt_global_info, i64 0, i64 %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %21, i8 0, i64 512, i1 false)
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 -1, ptr %22, align 16
   store ptr %21, ptr @gp_camelsrt_info, align 8
   store i32 0, ptr @opcode, align 4
@@ -3966,15 +3966,15 @@ define internal fastcc i32 @dissect_camel_all(i32 noundef range(i32 1, 5) %0, pt
   br i1 %.not.i, label %dissect_camel_camelPDU.exit, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %25, ptr %26, align 8
   %.not16.i = icmp eq ptr %25, null
   br i1 %.not16.i, label %dissect_camel_camelPDU.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %21, align 16
   br label %dissect_camel_camelPDU.exit
@@ -3984,23 +3984,23 @@ dissect_camel_camelPDU.exit:                      ; preds = %16, %23, %27
   %31 = and i8 %30, 15
   store i8 %31, ptr @camel_pdu_type, align 1
   %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef 1) #8
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr @camel_pdu_type, align 1
   %38 = zext nneg i8 %37 to i32
   %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @camel_Component_vals, ptr noundef nonnull @.str.1384) #8
   call void @col_add_str(ptr noundef %36, i32 noundef 25, ptr noundef %39) #8
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.1385) #8
   store i32 0, ptr @is_ExtensionField, align 4
   %43 = load i32, ptr @ett_camel_ROS, align 4
   %44 = call i32 @dissect_ber_choice(ptr noundef nonnull %8, ptr noundef %.0, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @ROS_choice, i32 noundef -1, i32 noundef %43, ptr noundef null) #8
   %45 = load ptr, ptr @gp_camelsrt_info, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not24 = icmp eq ptr %47, null
   br i1 %.not24, label %59, label %48
@@ -4126,7 +4126,7 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   %21 = alloca %struct._asn1_ctx_t, align 8
   %22 = alloca %struct._asn1_ctx_t, align 8
   %23 = load i32, ptr @opcode, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   switch i32 %23, label %176 [
     i32 47, label %26
@@ -4375,7 +4375,7 @@ define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32
   br i1 %.not.i.i.i.i, label %dissect_FurnishChargingInformationGPRSArg_PDU.exit.i, label %118
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %14, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = load i32, ptr @ett_camel_CAMEL_FCIGPRSBillingChargingCharacteristics, align 4
   %122 = call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121) #8
@@ -4447,7 +4447,7 @@ dissect_FurnishChargingInformationGPRSArg_PDU.exit.i: ; preds = %118, %114
   br i1 %.not.i.i.i151.i, label %dissect_ReleaseSMSArg_PDU.exit.i, label %153
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %10, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %155 = load ptr, ptr %154, align 8
   %156 = load i32, ptr @ett_camel_RPcause, align 4
   %157 = call ptr @proto_item_add_subtree(ptr noundef %155, i32 noundef %156) #8
@@ -4550,18 +4550,18 @@ define internal i32 @dissect_camel_T_local(i1 noundef zeroext %0, ptr noundef %1
 21:                                               ; preds = %18
   %22 = load i32, ptr @opcode, align 4
   store i32 %22, ptr @errorCode, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @camel_err_code_string_vals, ptr noundef nonnull @.str.1387) #8
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef %27) #8
   br label %35
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr @opcode, align 4
   %34 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull @camel_opr_code_strings, ptr noundef nonnull @.str.1388) #8
@@ -4571,17 +4571,17 @@ define internal i32 @dissect_camel_T_local(i1 noundef zeroext %0, ptr noundef %1
 35:                                               ; preds = %28, %21
   %.sink.in = phi ptr [ %29, %28 ], [ %23, %21 ]
   %.sink15 = load ptr, ptr %.sink.in, align 8
-  %36 = getelementptr inbounds i8, ptr %.sink15, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.1385) #8
   %.sink = load ptr, ptr %.sink.in, align 8
-  %38 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @col_set_fence(ptr noundef %39, i32 noundef 25) #8
   %40 = load i32, ptr @opcode, align 4
   %41 = trunc i32 %40 to i8
   %42 = load ptr, ptr @gp_camelsrt_info, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 %41, ptr %43, align 8
   br label %44
 
@@ -4666,7 +4666,7 @@ define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %0, p
   br i1 %.not.i.i, label %dissect_camel_ApplyChargingReportArg.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_camel_CAMEL_CallResult, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #8
@@ -4809,7 +4809,7 @@ define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr nounde
   br i1 %.not.i.i, label %dissect_camel_FurnishChargingInformationArg.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_camel_CAMEL_FCIBillingChargingCharacteristics, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #8
@@ -4997,7 +4997,7 @@ define internal fastcc i32 @dissect_FurnishChargingInformationSMSArg_PDU(ptr nou
   br i1 %.not.i.i, label %dissect_camel_FurnishChargingInformationSMSArg.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_camel_CAMEL_FCISMSBillingChargingCharacteristics, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #8
@@ -5173,7 +5173,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   %26 = load i32, ptr @ett_camel_correlationID, align 4
   %27 = load i32, ptr @opcode, align 4
   %28 = icmp eq i32 %27, 17
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %26) #8
   br i1 %28, label %54, label %57
@@ -5196,7 +5196,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 .thread:                                          ; preds = %19, %16, %13, %10
   %.023.ph.in = phi ptr [ @ett_camel_calledAddressValue, %10 ], [ @ett_camel_callingAddressValue, %13 ], [ @ett_camel_additionalcallingpartynumber, %16 ], [ @ett_camel_assistingSSPIPRoutingAddress, %19 ]
   %.023.ph = load i32, ptr %.023.ph.in, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %.023.ph) #8
   br label %57
@@ -5204,7 +5204,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 .thread31:                                        ; preds = %38, %35, %32
   %.023.ph30.in = phi ptr [ @ett_camel_dTMFDigitsCompleted, %32 ], [ @ett_camel_dTMFDigitsTimeOut, %35 ], [ @ett_camel_number, %38 ]
   %.023.ph30 = load i32, ptr %.023.ph30.in, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %.023.ph30) #8
   br label %54
@@ -5214,7 +5214,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   %49 = icmp eq i32 %5, %48
   %50 = load i32, ptr @ett_camel_digitsResponse, align 4
   %spec.select = select i1 %49, i32 %50, i32 -1
-  %51 = getelementptr inbounds i8, ptr %3, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %spec.select) #8
   br i1 %49, label %54, label %57
@@ -5228,7 +5228,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 57:                                               ; preds = %25, %.thread, %47
   %58 = phi ptr [ %43, %.thread ], [ %53, %47 ], [ %31, %25 ]
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = load ptr, ptr %60, align 8
   call void @dissect_isup_generic_number_parameter(ptr noundef %59, ptr noundef %61, ptr noundef %58, ptr noundef null) #8
   br label %62
@@ -5273,7 +5273,7 @@ define internal i32 @dissect_camel_T_value(i1 zeroext %0, ptr noundef %1, i32 no
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12
@@ -5327,7 +5327,7 @@ define internal i32 @dissect_camel_AChBillingChargingCharacteristics(i1 noundef 
   br i1 %.not, label %25, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_CAMEL_AChBillingChargingCharacteristics, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
@@ -5606,7 +5606,7 @@ define internal i32 @dissect_camel_Cause(i1 noundef zeroext %0, ptr noundef %1, 
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_camel_cause, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #8
@@ -5659,8 +5659,8 @@ define internal i32 @dissect_camel_INTEGER_0_255(i1 noundef zeroext %0, ptr noun
 define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 7
-  %.sink.sroa.gep34 = getelementptr inbounds i8, ptr %8, i64 5
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 7
+  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %8, i64 5
   br label %9
 
 9:                                                ; preds = %6, %9
@@ -5695,54 +5695,54 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   br i1 %exitcond.not, label %29, label %9, !llvm.loop !9
 
 29:                                               ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load i8, ptr %30, align 8
   store i8 %31, ptr %7, align 16
-  %32 = getelementptr inbounds i8, ptr %8, i64 9
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %7, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %33, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %7, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 58, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %8, i64 10
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %37 = load i8, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %7, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %37, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %8, i64 11
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 11
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %7, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %40, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 58, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %8, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %44 = load i8, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %7, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 %44, ptr %45, align 2
-  %46 = getelementptr inbounds i8, ptr %8, i64 13
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 13
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %7, i64 7
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 7
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 59, ptr %49, align 8
   %50 = load i32, ptr @date_format, align 4
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %29
-  %53 = getelementptr inbounds i8, ptr %8, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %54 = load i8, ptr %53, align 2
-  %55 = getelementptr inbounds i8, ptr %8, i64 7
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr inbounds i8, ptr %8, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %58 = load i8, ptr %57, align 4
   br label %66
 
 59:                                               ; preds = %29
-  %60 = getelementptr inbounds i8, ptr %8, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %61 = load i8, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %8, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %8, i64 6
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %65 = load i8, ptr %64, align 2
   br label %66
 
@@ -5752,34 +5752,34 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %.sink31 = phi i8 [ %63, %59 ], [ %56, %52 ]
   %.sink30 = phi i8 [ %65, %59 ], [ %58, %52 ]
   %67 = load i8, ptr %.sink.sroa.phi, align 1
-  %68 = getelementptr inbounds i8, ptr %7, i64 9
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %.sink32, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %7, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 %.sink31, ptr %69, align 2
-  %70 = getelementptr inbounds i8, ptr %7, i64 11
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i8 47, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %7, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %.sink30, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %7, i64 13
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 %67, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %7, i64 14
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 14
   store i8 47, ptr %73, align 2
   %74 = load i8, ptr %8, align 16
-  %75 = getelementptr inbounds i8, ptr %7, i64 15
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 15
   store i8 %74, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %8, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %77 = load i8, ptr %76, align 1
-  %78 = getelementptr inbounds i8, ptr %7, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 %77, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %8, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %80 = load i8, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %7, i64 17
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 17
   store i8 %80, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %8, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %83 = load i8, ptr %82, align 1
-  %84 = getelementptr inbounds i8, ptr %7, i64 18
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 %83, ptr %84, align 2
-  %85 = getelementptr inbounds i8, ptr %7, i64 19
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 19
   store i8 0, ptr %85, align 1
   %86 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7) #8
   ret i32 7
@@ -5829,12 +5829,12 @@ define internal i32 @dissect_camel_OriginalCalledPartyID(i1 noundef zeroext %0, 
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_originalcalledpartyid, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_original_called_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %18
@@ -5860,12 +5860,12 @@ define internal i32 @dissect_camel_RedirectingPartyID(i1 noundef zeroext %0, ptr
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_redirectingpartyid, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_redirecting_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %18
@@ -5900,12 +5900,12 @@ define internal i32 @dissect_camel_ChargeNumber(i1 noundef zeroext %0, ptr nound
   br i1 %.not.i, label %dissect_camel_LocationNumber.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_locationnumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_location_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %dissect_camel_LocationNumber.exit
@@ -5940,12 +5940,12 @@ define internal i32 @dissect_camel_CalledPartyNumber(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_calledpartybcdnumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_called_party_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %18
@@ -5971,7 +5971,7 @@ define internal i32 @dissect_camel_GenericNumber(i1 noundef zeroext %0, ptr noun
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_generic_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #8
   br label %13
@@ -6017,12 +6017,12 @@ define internal i32 @dissect_camel_LocationNumber(i1 noundef zeroext %0, ptr nou
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_locationnumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_location_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %18
@@ -6050,12 +6050,12 @@ define internal i32 @dissect_camel_IPRoutingAddress(i1 noundef zeroext %0, ptr n
   br i1 %.not.i, label %dissect_camel_CalledPartyNumber.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_calledpartybcdnumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_called_party_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %dissect_camel_CalledPartyNumber.exit
@@ -6136,12 +6136,12 @@ define internal i32 @dissect_camel_CallingPartyNumber(i1 noundef zeroext %0, ptr
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_callingpartynumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @dissect_isup_calling_party_number_parameter(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #8
   br label %18
@@ -6427,12 +6427,12 @@ define internal i32 @dissect_camel_CalledPartyBCDNumber(i1 noundef zeroext %0, p
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_calledpartybcdnumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef %15) #8
   %19 = call zeroext i16 @de_cld_party_bcd_num(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0) #8
@@ -6463,23 +6463,23 @@ define internal i32 @dissect_camel_TimeAndTimezone(i1 noundef zeroext %0, ptr no
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @expert_add_info(ptr noundef %22, ptr noundef %24, ptr noundef nonnull @ei_camel_par_wrong_length) #8
   br label %79
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @ett_camel_timeandtimezone, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #8
   %31 = load i32, ptr @hf_camel_timeandtimezone_time, align 4
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef 7, i32 noundef -2147483580, ptr noundef %36, ptr noundef nonnull %8) #8
   %38 = load ptr, ptr %7, align 8
@@ -6618,7 +6618,7 @@ define internal i32 @dissect_camel_AllCallSegments(i1 noundef zeroext %0, ptr no
   br i1 %.not.i, label %dissect_camel_Cause.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_camel_cause, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #8
@@ -6736,7 +6736,7 @@ define internal i32 @dissect_camel_SCIBillingChargingCharacteristics(i1 noundef 
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_CAMEL_SCIBillingChargingCharacteristics, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
@@ -6923,12 +6923,12 @@ define internal i32 @dissect_camel_AccessPointName(i1 noundef zeroext %0, ptr no
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_AccessPointName, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef %15) #8
   %19 = call zeroext i16 @de_sm_apn(ptr noundef %15, ptr noundef %14, ptr noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, i32 noundef 0) #8
@@ -7011,7 +7011,7 @@ define internal i32 @dissect_camel_LocationInformationGPRS(i1 noundef zeroext %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_camel_T_cellGlobalIdOrServiceAreaIdOrLAI(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @ett_camel_pdptypenumber, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #8
@@ -7087,7 +7087,7 @@ define internal i32 @dissect_camel_T_pDPTypeNumber(i1 noundef zeroext %0, ptr no
 10:                                               ; preds = %6
   %11 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef 0) #8
   store i8 %11, ptr @PDPTypeNumber, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_camel_pdptypenumber, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #8
@@ -7120,7 +7120,7 @@ define internal i32 @dissect_camel_T_pDPAddress(i1 noundef zeroext %0, ptr nound
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_pdptypenumber, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
@@ -7200,7 +7200,7 @@ define internal i32 @dissect_camel_SCIGPRSBillingChargingCharacteristics(i1 noun
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_camel_CAMEL_SCIGPRSBillingChargingCharacteristics, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
@@ -7339,7 +7339,7 @@ define internal i32 @dissect_camel_ResultArgument(i1 zeroext %0, ptr noundef %1,
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = load i32, ptr @opcode, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   switch i32 %9, label %20 [
     i32 48, label %12
@@ -7380,7 +7380,7 @@ define internal noundef i32 @dissect_camel_T_parameter(i1 zeroext %0, ptr nounde
   %9 = alloca %struct._asn1_ctx_t, align 8
   %10 = alloca %struct._asn1_ctx_t, align 8
   %11 = load i32, ptr @errorCode, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   switch i32 %11, label %27 [
     i32 1, label %14

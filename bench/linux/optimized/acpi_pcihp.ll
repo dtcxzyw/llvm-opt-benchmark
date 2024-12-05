@@ -42,12 +42,12 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
   store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @pci_find_host_bridge(ptr noundef %7) #4
-  %9 = getelementptr inbounds i8, ptr %8, i64 632
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 632
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %10) #4
   %12 = getelementptr i8, ptr %10, i64 -16
@@ -67,13 +67,13 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   br i1 %21, label %107, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %8, i64 832
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 832
   %28 = load i16, ptr %27, align 64
   %29 = and i16 %28, 32
   %30 = icmp eq i16 %29, 0
@@ -81,8 +81,8 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   br label %107
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
-  %34 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %35) #4
   %37 = getelementptr i8, ptr %35, i64 -16
@@ -111,29 +111,29 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %45, i64 272
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 272
   %53 = load ptr, ptr %52, align 8
   br label %60
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %45, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %71, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %56, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 184
   br label %60
 
 60:                                               ; preds = %58, %51
   %61 = phi ptr [ %53, %51 ], [ %59, %58 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 632
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 632
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %63) #4
   %65 = getelementptr i8, ptr %63, i64 -16
@@ -154,14 +154,14 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
 
 .thread:                                          ; preds = %71, %40
   %74 = phi ptr [ %42, %40 ], [ %72, %71 ]
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %76
 
 76:                                               ; preds = %99, %.thread
   %77 = phi ptr [ %103, %99 ], [ %74, %.thread ]
   %78 = call i32 @acpi_get_name(ptr noundef nonnull %77, i32 noundef 0, ptr noundef nonnull %4) #4
   %79 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef %79) #5
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %33, ptr noundef nonnull @.str, ptr noundef %79) #5
   %80 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
   store i64 -1, ptr %2, align 8
@@ -178,7 +178,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   call void @kfree(ptr noundef %83) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
   %84 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.2, ptr noundef %84) #5
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, ptr noundef %84) #5
   %85 = load ptr, ptr %5, align 8
   call void @kfree(ptr noundef %85) #4
   br label %107
@@ -217,7 +217,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   br i1 %105, label %76, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %99, %.thread4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.1) #5
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %33, ptr noundef nonnull @.str.1) #5
   %106 = load ptr, ptr %5, align 8
   call void @kfree(ptr noundef %106) #4
   br label %107
@@ -264,29 +264,29 @@ define dso_local range(i32 0, 2) i32 @acpi_pci_check_ejectable(ptr nocapture nou
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %10 = load ptr, ptr %9, align 8
   br label %17
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 184
   br label %17
 
 17:                                               ; preds = %15, %8
   %18 = phi ptr [ %10, %8 ], [ %16, %15 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 632
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 632
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %20) #4
   %22 = getelementptr i8, ptr %20, i64 -16

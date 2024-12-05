@@ -35,7 +35,7 @@ define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointM
   store ptr %1, ptr @_ZN17JfrRecorderThread9_post_boxE, align 8
   store i8 12, ptr %4, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePKcS3_S3_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(300) %5, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN17JfrRecorderThread5startEP20JfrCheckpointManagerP10JfrPostBoxP10JavaThreadE5klass, ptr noundef nonnull @_ZZN17JfrRecorderThread5startEP20JfrCheckpointManagerP10JfrPostBoxP10JavaThreadE6method, ptr noundef nonnull @_ZZN17JfrRecorderThread5startEP20JfrCheckpointManagerP10JfrPostBoxP10JavaThreadE9signature, ptr noundef %2) #4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %52
@@ -51,17 +51,17 @@ define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointM
   br i1 %.not11, label %15, label %52
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 808
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %25 to i64
@@ -70,7 +70,7 @@ define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointM
   br i1 %.not.i.i.i.i.i, label %31, label %29
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %30, ptr %24, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
@@ -87,14 +87,14 @@ _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %15, %_ZN10Hand
   %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %15 ]
   %33 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1800, i8 noundef zeroext 2, i32 noundef 0) #4
   call void @_ZN10JavaThreadC1EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %33, ptr noundef nonnull @_Z20recorderthread_entryP10JavaThreadS0_, i64 noundef 0, i8 noundef zeroext 2) #4
-  %34 = getelementptr inbounds i8, ptr %33, i64 792
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 792
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(1800) %33) #4
   call void @_ZN14JfrJavaSupport25throw_out_of_memory_errorEPKcP10JavaThread(ptr noundef nonnull @.str, ptr noundef nonnull %2) #4

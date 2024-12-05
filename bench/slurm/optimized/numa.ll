@@ -43,15 +43,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @slurm_chk_memset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [33 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 180
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 180
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
@@ -97,7 +97,7 @@ define void @slurm_chk_memset(ptr nocapture noundef readonly %0, ptr nocapture n
   %.0 = phi ptr [ @.str.1, %15 ], [ @.str.3, %17 ], [ @.str.3, %20 ], [ @.str.3, %22 ], [ @.str.3, %24 ], [ %.str.1..str.3, %26 ]
   %28 = load ptr, ptr @stderr, align 8
   %29 = load ptr, ptr @conf, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4128
   %31 = load ptr, ptr %30, align 8
   br label %nodemask_isset_compat.exit.i
 
@@ -106,7 +106,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %nodemask_isset_comp
   %.03382.i = phi ptr [ null, %27 ], [ %spec.select45.i, %nodemask_isset_compat.exit.i ]
   %.03681.i = phi ptr [ %3, %27 ], [ %55, %nodemask_isset_compat.exit.i ]
   %32 = lshr i64 %indvars.iv.i, 6
-  %33 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %indvars.iv.i, 60
   %36 = shl nuw nsw i64 1, %35
@@ -139,7 +139,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %nodemask_isset_comp
   %spec.select45.i = select i1 %or.cond7.i, ptr %.03681.i, ptr %.03382.i
   %53 = call i32 @slurm_hex_to_char(i32 noundef %50) #7
   %54 = trunc i32 %53 to i8
-  %55 = getelementptr inbounds i8, ptr %.03681.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.03681.i, i64 1
   store i8 %54, ptr %.03681.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -4
   %.not84.i = icmp eq i64 %indvars.iv.i, 0
@@ -170,24 +170,24 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %9 = alloca [33 x i8], align 16
   %10 = alloca %struct.nodemask_t, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 680
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @slurm_get_log_level() #7
   %17 = icmp sgt i32 %16, 6
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %22 = load ptr, ptr %21, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.get_memset, i32 noundef %20, ptr noundef %22) #7
   br label %23
 
 23:                                               ; preds = %18, %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %.not = icmp eq i32 %26, 0
@@ -199,17 +199,17 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   call void @copy_bitmask_to_nodemask(ptr noundef %28, ptr noundef nonnull %8) #7
   call void @numa_bitmask_free(ptr noundef %28) #7
   %.fca.0.load.i = load i64, ptr %8, align 8
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 %.fca.0.load.i, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.fca.1.load.i, ptr %.sroa.2.0..sroa_idx, align 8
   br label %_str_to_memset.exit.thread
 
 29:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %30, align 8
   store i64 128, ptr %7, align 8
   %31 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %7) #7
@@ -221,11 +221,11 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr @conf, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4158
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4158
   %37 = load i16, ptr %36, align 2
   %narrow = call i16 @llvm.umax.i16(i16 %37, i16 1)
   %spec.select = zext i16 %narrow to i32
-  %38 = getelementptr inbounds i8, ptr %1, i64 264
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %39 = load i16, ptr %38, align 8
   %40 = zext i16 %39 to i32
   %41 = mul nuw nsw i32 %spec.select, %40
@@ -243,14 +243,14 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %49 = and i64 %48, 63
   %50 = shl nuw i64 1, %49
   %51 = lshr i64 %48, 6
-  %52 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %53, %50
   store i64 %54, ptr %52, align 8
   br label %_str_to_memset.exit.thread
 
 55:                                               ; preds = %29
-  %56 = getelementptr inbounds i8, ptr %1, i64 336
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %57 = load ptr, ptr %56, align 8
   %.not81 = icmp eq ptr %57, null
   br i1 %.not81, label %60, label %.preheader
@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %66 = icmp eq i8 %63, 44
   %67 = zext i1 %66 to i32
   %spec.select92 = add nuw nsw i32 %.063108, %67
-  %68 = getelementptr inbounds i8, ptr %.066107, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.066107, i64 1
   %69 = load i8, ptr %68, align 1
   %.not82 = icmp eq i8 %69, 0
   br i1 %.not82, label %._crit_edge, label %62, !llvm.loop !8
@@ -296,7 +296,7 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %72 = icmp eq i8 %71, 44
   %73 = sext i1 %72 to i32
   %spec.select93 = add nsw i32 %.064110, %73
-  %74 = getelementptr inbounds i8, ptr %.167109, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.167109, i64 1
   %75 = load i8, ptr %74, align 1
   %76 = icmp ne i8 %75, 0
   %77 = icmp ne i32 %spec.select93, 0
@@ -336,8 +336,8 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
 
 83:                                               ; preds = %82
   %84 = add nuw nsw i32 %.2, 1
-  %85 = getelementptr inbounds i8, ptr %.271, i64 1
-  %86 = getelementptr inbounds i8, ptr %.268, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.271, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.268, i64 1
   store i8 %81, ptr %.268, align 1
   br label %.loopexit, !llvm.loop !10
 
@@ -359,9 +359,9 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %.not98 = icmp eq i16 %lhsv, 30768
   %95 = select i1 %94, i1 %.not98, i1 false
   %.048.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %95, i64 2, i64 0
-  %.048.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %9, i64 %.048.i.idx.sroa.sel.idx.sroa.sel.idx
+  %.048.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %9, i64 %.048.i.idx.sroa.sel.idx.sroa.sel.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %96, align 8
   store i64 128, ptr %6, align 8
   %97 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %6) #7
@@ -449,7 +449,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %125 = and i64 %indvars.iv.i, 60
   %126 = shl nuw nsw i64 1, %125
   %127 = lshr i64 %indvars.iv.i, 6
-  %128 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = or i64 %129, %126
   store i64 %130, ptr %128, align 8
@@ -462,7 +462,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %133 = and i64 %indvars.iv.i, 60
   %134 = shl nuw nsw i64 2, %133
   %135 = lshr i64 %indvars.iv.i, 6
-  %136 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %135
   %137 = load i64, ptr %136, align 8
   %138 = or i64 %137, %134
   store i64 %138, ptr %136, align 8
@@ -476,7 +476,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %141 = and i64 %114, 62
   %142 = shl nuw nsw i64 1, %141
   %143 = lshr i64 %indvars.iv.i, 6
-  %144 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %143
   %145 = load i64, ptr %144, align 8
   %146 = or i64 %145, %142
   store i64 %146, ptr %144, align 8
@@ -490,7 +490,7 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   %149 = and i64 %118, 63
   %150 = shl nuw i64 1, %149
   %151 = lshr i64 %indvars.iv.i, 6
-  %152 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = or i64 %153, %150
   store i64 %154, ptr %152, align 8
@@ -504,17 +504,17 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
 
 _str_to_memset.exit:                              ; preds = %155, %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %156 = getelementptr inbounds i8, ptr %5, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %156, align 8
   store i64 128, ptr %5, align 8
   %157 = call ptr @numa_bitmask_clearall(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %158 = getelementptr inbounds i8, ptr %3, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %158, align 8
   store i64 128, ptr %3, align 8
-  %159 = getelementptr inbounds i8, ptr %4, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %159, align 8
   store i64 128, ptr %4, align 8
   %160 = call i32 @numa_bitmask_equal(ptr noundef nonnull %3, ptr noundef nonnull %4) #7
@@ -540,7 +540,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %9, i64 2
+  %169 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %170 = call i64 @strtol(ptr noundef nonnull %169, ptr noundef nonnull %11, i32 noundef 16) #7
   br label %173
 
@@ -593,7 +593,7 @@ _str_to_memset.exit:                              ; preds = %155, %88
   %195 = and i64 %.0, 63
   %196 = shl nuw i64 1, %195
   %197 = lshr i64 %.0, 6
-  %198 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [2 x i64], ptr %0, i64 0, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = or i64 %199, %196
   store i64 %200, ptr %198, align 8
@@ -634,18 +634,18 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
 
 4:                                                ; preds = %1
   %5 = zext i16 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
   %7 = load i16, ptr %6, align 2
   br label %53
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4156
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4156
   %11 = load i16, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4184
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4184
   %13 = load i16, ptr %12, align 8
   %14 = mul i16 %13, %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 4158
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 4158
   %16 = load i16, ptr %15, align 2
   %17 = mul i16 %14, %16
   %18 = zext i16 %17 to i32
@@ -668,8 +668,8 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
   br i1 %.not3136, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader34
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext i16 %17 to i64
   br label %31
 
@@ -711,7 +711,7 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @numa_array, align 8
-  %45 = getelementptr inbounds i16, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv
   store i16 %37, ptr %45, align 2
   br label %46
 
@@ -729,7 +729,7 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
   call void @numa_bitmask_free(ptr noundef nonnull %24) #7
   %49 = load ptr, ptr @numa_array, align 8
   %50 = zext i16 %0 to i64
-  %51 = getelementptr inbounds i16, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   br label %53
 

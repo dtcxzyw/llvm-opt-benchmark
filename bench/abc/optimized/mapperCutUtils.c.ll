@@ -12,25 +12,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Map_CutAlloc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1776
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, i8 0, i64 144, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 116
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
   store float 0x47B9999980000000, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store float 0x47B9999980000000, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 108
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store float 0x47B9999980000000, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store float 0x47B9999980000000, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store float 0x47B9999980000000, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store float 0x47B9999980000000, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 148
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 148
   store float 0x47B9999980000000, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store float 0x47B9999980000000, ptr %12, align 8
   ret ptr %4
 }
@@ -46,7 +46,7 @@ define void @Map_CutFree(ptr nocapture noundef readonly %0, ptr noundef %1) loca
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1776
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %5 = load ptr, ptr %4, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %5, ptr noundef nonnull %1) #10
   br label %6
@@ -59,35 +59,35 @@ declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Map_CutPrint(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %5, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load float, ptr %8, align 8
   %10 = fpext float %9 to double
-  %11 = getelementptr inbounds i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds i8, ptr %7, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %10, double noundef %13, double noundef %16, i32 noundef %18)
-  %20 = getelementptr inbounds i8, ptr %2, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %21 = load i8, ptr %20, align 4
   %22 = icmp sgt i8 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -111,7 +111,7 @@ define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef 
   %4 = getelementptr i8, ptr %0, i64 96
   %5 = getelementptr i8, ptr %4, i64 %.idx
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 236
   %8 = load float, ptr %7, align 4
   ret float %8
 }
@@ -131,7 +131,7 @@ define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -175,7 +175,7 @@ define void @Map_CutListRecycle(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 1776
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   br label %5
 
 5:                                                ; preds = %8, %.lr.ph

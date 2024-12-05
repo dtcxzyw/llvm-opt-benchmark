@@ -21,7 +21,7 @@ define dso_local range(i32 -11, 1) i32 @task_current_syscall(ptr noundef %0, ptr
   br label %22
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load volatile i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %22, label %12, !prof !7
@@ -49,7 +49,7 @@ define dso_local range(i32 -11, 1) i32 @task_current_syscall(ptr noundef %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2688
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader
@@ -57,7 +57,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
 .preheader:                                       ; preds = %2, %11
   %6 = phi i32 [ %12, %11 ], [ %4, %2 ]
   %7 = add i32 %6, 1
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 %7, ptr elementtype(i32) %3, i32 %6) #5, !srcloc !9
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 %7, ptr nonnull elementtype(i32) %3, i32 %6) #5, !srcloc !9
   %9 = extractvalue { i8, i32 } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
@@ -77,7 +77,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
   br i1 %17, label %19, label %18, !prof !8
 
 18:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %3, i32 noundef 0) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %3, i32 noundef 0) #5
   br label %19
 
 19:                                               ; preds = %18, %.thread
@@ -85,14 +85,14 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21, %19
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -1, ptr %26, align 8
   br label %80
 
@@ -114,8 +114,8 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
   store i64 %36, ptr %1, align 8
   %37 = getelementptr i8, ptr %30, i64 -40
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %38, ptr %40, align 8
   %41 = getelementptr i8, ptr %30, i64 -48
   %42 = load i64, ptr %41, align 8
@@ -125,7 +125,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
   br i1 %44, label %67, label %45
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i32, ptr %46, align 16
   %48 = and i32 %47, 2
   %49 = icmp eq i32 %48, 0
@@ -155,7 +155,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr nounde
   %71 = phi i64 [ 0, %34 ], [ %62, %45 ]
   %72 = phi i64 [ 0, %34 ], [ %64, %45 ]
   %73 = phi i64 [ 0, %34 ], [ %66, %45 ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %68, ptr %74, align 8
   %75 = getelementptr i8, ptr %1, i64 32
   store i64 %69, ptr %75, align 8

@@ -97,21 +97,21 @@ define void @_ZNK5ZXing4OneD9ITFWriter6encodeERKNSt7__cxx1112basic_stringIwSt11c
 29:                                               ; preds = %22
   %30 = mul nuw nsw i64 %8, 9
   %31 = add nuw nsw i64 %30, 9
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
-  %35 = getelementptr inbounds i8, ptr %6, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %36 = add nuw nsw i64 %30, 72
   %37 = lshr i64 %36, 3
   %38 = and i64 %37, 504
   %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #9
   %40 = lshr i64 %36, 6
-  %41 = getelementptr inbounds i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
   store ptr %41, ptr %35, align 8
   store ptr %39, ptr %6, align 8
   store i32 0, ptr %32, align 8
   %.zext = lshr i64 %31, 6
-  %42 = getelementptr inbounds i64, ptr %39, i64 %.zext
+  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
   %43 = trunc nuw i64 %31 to i32
   %44 = and i32 %43, 63
   store ptr %42, ptr %33, align 8
@@ -166,22 +166,22 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm4EEEEiRSt6vectorIbSaIbEE
   %61 = add nsw i32 %47, -48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %62
   %64 = zext nneg i32 %60 to i64
-  %65 = getelementptr inbounds [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [10 x %"struct.std::array.13"], ptr @_ZN5ZXing4OneDL8PATTERNSE, i64 0, i64 %64
   br label %66
 
 66:                                               ; preds = %59, %66
   %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds [5 x i32], ptr %63, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [5 x i32], ptr %63, i64 0, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = shl nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %69
   store i32 %68, ptr %70, align 4
-  %71 = getelementptr inbounds [5 x i32], ptr %65, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [5 x i32], ptr %65, i64 0, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = or disjoint i64 %69, 1
-  %74 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %73
   store i32 %72, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

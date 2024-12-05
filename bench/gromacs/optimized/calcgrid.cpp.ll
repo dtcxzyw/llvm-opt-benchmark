@@ -79,13 +79,13 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 
 27:                                               ; preds = %.preheader131, %34
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %34 ], [ 0, %.preheader131 ]
-  %28 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %indvars.iv113
+  %28 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv113
   br label %29
 
 29:                                               ; preds = %27, %29
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %29 ]
   %30 = phi float [ 0.000000e+00, %27 ], [ %33, %29 ]
-  %31 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv113, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv113, i64 %indvars.iv
   %32 = load float, ptr %31, align 4
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -103,10 +103,10 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
   %37 = load i32, ptr %4, align 4
   store i32 %37, ptr %8, align 4
   %38 = load i32, ptr %5, align 4
-  %39 = getelementptr inbounds i8, ptr %8, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %38, ptr %39, align 4
   %40 = load i32, ptr %6, align 4
-  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %40, ptr %41, align 4
   %42 = icmp slt i32 %37, 1
   %43 = icmp slt i32 %38, 1
@@ -139,10 +139,10 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 56:                                               ; preds = %.preheader130, %.loopexit
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit ], [ 0, %.preheader130 ]
   %.099110 = phi float [ %.sroa.speculated, %.loopexit ], [ 0.000000e+00, %.preheader130 ]
-  %57 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv123
+  %57 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv123
   %58 = load i32, ptr %57, align 4
   %59 = icmp slt i32 %58, 1
-  %60 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %indvars.iv123
+  %60 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv123
   %61 = load float, ptr %60, align 4
   br i1 %59, label %62, label %.loopexit
 
@@ -162,7 +162,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 
 68:                                               ; preds = %.preheader
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, -1
-  %69 = getelementptr inbounds [15 x i32], ptr @_ZL9grid_init.const, i64 0, i64 %indvars.iv.next121
+  %69 = getelementptr inbounds nuw [15 x i32], ptr @_ZL9grid_init.const, i64 0, i64 %indvars.iv.next121
   %70 = load i32, ptr %69, align 4
   %.not84 = icmp slt i32 %70, %.sroa.speculated92
   br i1 %.not84, label %.critedge, label %.preheader, !llvm.loop !8
@@ -185,7 +185,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
 .preheader106:                                    ; preds = %.preheader107, %86
   %77 = phi i32 [ %87, %86 ], [ %58, %.preheader107 ]
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %86 ], [ 13, %.preheader107 ]
-  %78 = getelementptr inbounds [14 x i32], ptr @_ZL9grid_base.const, i64 0, i64 %indvars.iv117
+  %78 = getelementptr inbounds nuw [14 x i32], ptr @_ZL9grid_base.const, i64 0, i64 %indvars.iv117
   %79 = load i32, ptr %78, align 4
   %80 = mul nsw i32 %79, %.079
   %81 = and i32 %80, 3
@@ -212,7 +212,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
   %89 = phi i32 [ %73, %.critedge ], [ %58, %56 ], [ %87, %86 ]
   %90 = sitofp i32 %89 to float
   %91 = fdiv float %61, %90
-  %92 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %indvars.iv123
+  %92 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %indvars.iv123
   store float %91, ptr %92, align 4
   %93 = fcmp olt float %.099110, %91
   %.sroa.speculated = select i1 %93, float %91, float %.099110
@@ -235,10 +235,10 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef %0, 
   %100 = load i32, ptr %5, align 4
   %101 = load float, ptr %10, align 4
   %102 = fpext float %101 to double
-  %103 = getelementptr inbounds i8, ptr %10, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %104 = load float, ptr %103, align 4
   %105 = fpext float %104 to double
-  %106 = getelementptr inbounds i8, ptr %10, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %107 = load float, ptr %106, align 4
   %108 = fpext float %107 to double
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef %99, i32 noundef %100, i32 noundef %97, double noundef %102, double noundef %105, double noundef %108) #12
@@ -263,7 +263,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #12
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -271,7 +271,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -322,7 +322,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

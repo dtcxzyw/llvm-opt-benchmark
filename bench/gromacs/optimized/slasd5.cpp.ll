@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %10 = load float, ptr %1, align 4
   %11 = fsub float %9, %10
@@ -13,7 +13,7 @@ define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %13 = fmul float %11, %12
   %14 = load i32, ptr %0, align 4
   %15 = icmp eq i32 %14, 1
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fmul float %17, %17
   br i1 %15, label %19, label %121
@@ -69,7 +69,7 @@ define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %63 = fneg float %60
   store float %63, ptr %3, align 4
   %64 = fsub float %11, %60
-  %65 = getelementptr inbounds i8, ptr %3, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %64, ptr %65, align 4
   %66 = load float, ptr %1, align 4
   %67 = fpext float %66 to double
@@ -130,7 +130,7 @@ define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %109 = fneg float %108
   store float %109, ptr %3, align 4
   %110 = fneg float %106
-  %111 = getelementptr inbounds i8, ptr %3, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %110, ptr %111, align 4
   %112 = load float, ptr %1, align 4
   %113 = fadd float %112, %106
@@ -195,7 +195,7 @@ define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %160 = fneg float %159
   store float %160, ptr %3, align 4
   %161 = fneg float %156
-  %162 = getelementptr inbounds i8, ptr %3, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %161, ptr %162, align 4
   %163 = load float, ptr %1, align 4
   %164 = fadd float %156, %163
@@ -211,7 +211,7 @@ define void @slasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 172:                                              ; preds = %40, %101, %151
   %.sink = phi float [ %74, %40 ], [ %120, %101 ], [ %171, %151 ]
-  %173 = getelementptr inbounds i8, ptr %6, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %.sink, ptr %173, align 4
   ret void
 }

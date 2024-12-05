@@ -53,9 +53,9 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN22XOnStackNMethodClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22XOnStackNMethodClosure, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   ret void
@@ -63,7 +63,7 @@ define hidden void @_ZN22XOnStackNMethodClosureC2Ev(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22XOnStackNMethodClosure10do_nmethodEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -73,7 +73,7 @@ define hidden void @_ZN22XOnStackNMethodClosure10do_nmethodEP7nmethod(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN15XStackWatermark5statsEv(ptr noundef nonnull readnone align 8 dereferenceable(272) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   ret ptr %2
 }
 
@@ -90,18 +90,18 @@ define hidden void @_ZN15XStackWatermarkC2EP10JavaThread(ptr noundef nonnull ali
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef 0, i32 noundef %4) #7
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15XStackWatermark, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 0, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV22XLoadBarrierOopClosure, i64 16), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22XOnStackNMethodClosure, i64 16), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #7
   ret void
 }
@@ -113,25 +113,25 @@ declare void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN15XStackWatermark20closure_from_contextEPv(ptr noundef nonnull readnone align 8 dereferenceable(272) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.0 = select i1 %.not, ptr %3, ptr %1
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15XStackWatermark21start_processing_implEPv(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.0.i = select i1 %.not.i, ptr %5, ptr %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(1800) %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %6) #7
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
   %.not.i3 = icmp eq ptr %12, null
   %.pre5 = load i64, ptr @XAddressBadMask, align 8
@@ -155,7 +155,7 @@ define hidden void @_ZN15XStackWatermark21start_processing_implEPv(ptr noundef n
 _ZN16XThreadLocalData17do_invisible_rootIPFvPP7oopDescEEEvP6ThreadT_.exit: ; preds = %17, %13, %2
   %20 = phi i64 [ %.pre4, %17 ], [ %.pre5, %13 ], [ %.pre5, %2 ]
   %21 = phi ptr [ %.pre, %17 ], [ %10, %13 ], [ %10, %2 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %20, ptr %22, align 8
   %23 = load i32, ptr @XGlobalPhase, align 4
   %24 = icmp eq i32 %23, 0
@@ -163,7 +163,7 @@ _ZN16XThreadLocalData17do_invisible_rootIPFvPP7oopDescEEEvP6ThreadT_.exit: ; pre
   br i1 %24, label %26, label %28
 
 26:                                               ; preds = %_ZN16XThreadLocalData17do_invisible_rootIPFvPP7oopDescEEEvP6ThreadT_.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLocalAllocStats(ptr noundef %25, ptr noundef nonnull %27) #7
   br label %29
 
@@ -185,9 +185,9 @@ declare void @_ZN14StackWatermark21start_processing_implEPv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15XStackWatermark7processERK5frameR11RegisterMapPv(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %.not.i = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.0.i = select i1 %.not.i, ptr %5, ptr %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNK5frame16oops_do_internalEP10OopClosureP14NMethodClosureP17DerivedOopClosure27DerivedPointerIterationModePK11RegisterMapb(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.0.i, ptr noundef nonnull %6, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #7
   ret void
 }

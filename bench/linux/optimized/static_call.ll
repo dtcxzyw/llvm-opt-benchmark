@@ -191,7 +191,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %19, %21
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i32 %23, ptr %24, align 1
   %25 = icmp eq ptr %15, @__static_call_return0
   %26 = select i1 %25, ptr @text_gen_insn.insn, ptr null
@@ -212,7 +212,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %34, %36
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %31, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store i32 %38, ptr %39, align 1
   br label %68
 
@@ -231,7 +231,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %46, %48
   %50 = trunc i64 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %43, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store i32 %50, ptr %51, align 1
   br label %68
 
@@ -250,8 +250,8 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
 56:                                               ; preds = %53, %54, %.thread2
   %57 = phi ptr [ %2, %.thread2 ], [ %55, %54 ], [ @__static_call_return, %53 ]
   store i8 15, ptr %5, align 1
-  %58 = getelementptr inbounds i8, ptr %5, i64 1
-  %59 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %58) #8, !srcloc !10
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %59 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %58) #8, !srcloc !10
   %60 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %10) #8, !srcloc !11
   %61 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %57) #8, !srcloc !12
   store i8 %11, ptr %59, align 1
@@ -260,7 +260,7 @@ define internal fastcc void @__static_call_transform(ptr noundef %0, i32 noundef
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = trunc i64 %65 to i32
-  %67 = getelementptr inbounds i8, ptr %59, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i32 %66, ptr %67, align 1
   br label %68
 
@@ -360,8 +360,8 @@ define dso_local noundef zeroext i1 @__static_call_fixup(ptr noundef %0, i8 noun
 35:                                               ; preds = %33, %.thread2.i
   %36 = phi ptr [ %34, %33 ], [ @__static_call_return, %.thread2.i ]
   store i8 15, ptr %4, align 1
-  %37 = getelementptr inbounds i8, ptr %4, i64 1
-  %38 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %37) #8, !srcloc !10
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %38 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %37) #8, !srcloc !10
   %39 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %24) #8, !srcloc !11
   %40 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %36) #8, !srcloc !12
   store i8 %25, ptr %38, align 1
@@ -378,7 +378,7 @@ define dso_local noundef zeroext i1 @__static_call_fixup(ptr noundef %0, i8 noun
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %41, %43
   %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %.sink3, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.sink3, i64 1
   store i32 %45, ptr %46, align 1
   br label %47
 

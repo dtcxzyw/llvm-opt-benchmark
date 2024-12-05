@@ -571,31 +571,31 @@ define hidden void @_Z7ErosioniPv(i32 %0, ptr nocapture readnone %1) #4 personal
   %.sroa.218.0.insert.shift = shl nuw i64 %.sroa.218.0.insert.ext, 32
   %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.218.0.insert.shift, %.sroa.218.0.insert.ext
   call void @_ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, i32 noundef %switch.select16, i64 %.sroa.019.0.insert.insert, i64 %.sroa.017.0.insert.insert)
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %16, align 4
   store i32 16842752, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @src, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %19, align 8
   store i32 33619968, ptr %5, align 8
   store ptr @erosion_dst, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %21, align 4
   store i32 16842752, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %22, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %7, align 8, !alias.scope !5
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %23, align 8, !alias.scope !5
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %24, align 8, !alias.scope !5
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %25, align 8, !alias.scope !5
   invoke void @_ZN2cv5erodeERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %26 unwind label %32
@@ -606,12 +606,12 @@ define hidden void @_Z7ErosioniPv(i32 %0, ptr nocapture readnone %1) #4 personal
           to label %27 unwind label %34
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %29, align 4
   store i32 16842752, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @erosion_dst, ptr %30, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %31 unwind label %36
@@ -673,31 +673,31 @@ define hidden void @_Z8DilationiPv(i32 %0, ptr nocapture readnone %1) #4 persona
   %.sroa.218.0.insert.shift = shl nuw i64 %.sroa.218.0.insert.ext, 32
   %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.218.0.insert.shift, %.sroa.218.0.insert.ext
   call void @_ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, i32 noundef %switch.select16, i64 %.sroa.019.0.insert.insert, i64 %.sroa.017.0.insert.insert)
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %16, align 4
   store i32 16842752, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @src, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %19, align 8
   store i32 33619968, ptr %5, align 8
   store ptr @dilation_dst, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %21, align 4
   store i32 16842752, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %22, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %7, align 8, !alias.scope !10
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %23, align 8, !alias.scope !10
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %24, align 8, !alias.scope !10
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %25, align 8, !alias.scope !10
   invoke void @_ZN2cv6dilateERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %26 unwind label %32
@@ -708,12 +708,12 @@ define hidden void @_Z8DilationiPv(i32 %0, ptr nocapture readnone %1) #4 persona
           to label %27 unwind label %34
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %29, align 4
   store i32 16842752, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @dilation_dst, ptr %30, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %31 unwind label %36

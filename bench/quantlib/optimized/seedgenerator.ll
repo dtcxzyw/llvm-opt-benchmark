@@ -89,10 +89,10 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit20: ; preds = %_ZNK8Qua
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %init) #8
   %call5.i.i.i.i2.i.i21 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #9
   store ptr %call5.i.i.i.i2.i.i21, ptr %init, align 8, !tbaa !9
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i21, i64 32
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i21, i64 32
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %init, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !12
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i21, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i21, i64 8
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %init, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i.i21, i8 0, i64 32, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !13

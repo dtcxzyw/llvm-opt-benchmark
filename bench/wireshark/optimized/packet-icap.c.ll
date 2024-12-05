@@ -73,7 +73,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.13) #3
   %8 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
@@ -111,7 +111,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %8 to i64
   %30 = call ptr @format_text(ptr noundef %28, ptr noundef %9, i64 noundef %29) #3
@@ -276,7 +276,7 @@ is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink
   br i1 %.not.i81, label %proto_item_set_hidden.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not5.i = icmp eq ptr %93, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
@@ -288,7 +288,7 @@ is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink
   br i1 %.not.i82, label %proto_item_set_hidden.exit, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %96, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %99 = load ptr, ptr %98, align 8
   %.not5.i83 = icmp eq ptr %99, null
   br i1 %.not5.i83, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
@@ -300,7 +300,7 @@ is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink
   br i1 %.not.i85, label %proto_item_set_hidden.exit, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %105 = load ptr, ptr %104, align 8
   %.not5.i86 = icmp eq ptr %105, null
   br i1 %.not5.i86, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
@@ -312,14 +312,14 @@ is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink
   br i1 %.not.i88, label %proto_item_set_hidden.exit, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %108, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %111 = load ptr, ptr %110, align 8
   %.not5.i89 = icmp eq ptr %111, null
   br i1 %.not5.i89, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %109, %103, %97, %91
   %.sink136 = phi ptr [ %93, %91 ], [ %99, %97 ], [ %105, %103 ], [ %111, %109 ]
-  %112 = getelementptr inbounds i8, ptr %.sink136, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %.sink136, i64 28
   %113 = load i32, ptr %112, align 4
   %114 = or i32 %113, 1
   store i32 %114, ptr %112, align 4

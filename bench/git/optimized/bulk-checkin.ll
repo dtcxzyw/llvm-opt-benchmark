@@ -138,24 +138,24 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %call3.i = call i32 @format_object_header(ptr noundef nonnull %obuf.i, i64 noundef 16384, i32 noundef 3, i64 noundef %size) #13
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds i8, ptr %1, i64 40
+  %init_fn.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load ptr, ptr %init_fn.i, align 8
   call void %2(ptr noundef nonnull %ctx.i) #13
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo4.i = getelementptr inbounds i8, ptr %3, i64 256
+  %hash_algo4.i = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo4.i, align 8
-  %update_fn.i = getelementptr inbounds i8, ptr %4, i64 56
+  %update_fn.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %update_fn.i, align 8
   %conv.i = zext i32 %call3.i to i64
   call void %5(ptr noundef nonnull %ctx.i, ptr noundef nonnull %obuf.i, i64 noundef %conv.i) #13
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo6.i = getelementptr inbounds i8, ptr %6, i64 256
+  %hash_algo6.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = load ptr, ptr %hash_algo6.i, align 8
-  %init_fn7.i = getelementptr inbounds i8, ptr %7, i64 40
+  %init_fn7.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load ptr, ptr %init_fn7.i, align 8
-  %ctx8.i = getelementptr inbounds i8, ptr %checkpoint.i, i64 8
+  %ctx8.i = getelementptr inbounds nuw i8, ptr %checkpoint.i, i64 8
   call void %8(ptr noundef nonnull %ctx8.i) #13
   %and.i = and i32 %flags, 1
   %cmp9.not.i = icmp eq i32 %and.i, 0
@@ -169,11 +169,11 @@ if.end13.i:                                       ; preds = %if.then11.i, %if.en
   %idx.0.i = phi ptr [ %call12.i, %if.then11.i ], [ null, %if.end.i ]
   %tobool.not.i.i = icmp ne i32 %and.i, 0
   %tobool.not.i = icmp eq ptr %idx.0.i, null
-  %offset15.i = getelementptr inbounds i8, ptr %idx.0.i, i64 40
-  %next_out.i.i = getelementptr inbounds i8, ptr %s.i.i, i64 152
-  %avail_out.i.i = getelementptr inbounds i8, ptr %s.i.i, i64 120
-  %avail_in.i.i = getelementptr inbounds i8, ptr %s.i.i, i64 112
-  %next_in.i.i = getelementptr inbounds i8, ptr %s.i.i, i64 144
+  %offset15.i = getelementptr inbounds nuw i8, ptr %idx.0.i, i64 40
+  %next_out.i.i = getelementptr inbounds nuw i8, ptr %s.i.i, i64 152
+  %avail_out.i.i = getelementptr inbounds nuw i8, ptr %s.i.i, i64 120
+  %avail_in.i.i = getelementptr inbounds nuw i8, ptr %s.i.i, i64 112
+  %next_in.i.i = getelementptr inbounds nuw i8, ptr %s.i.i, i64 144
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %obuf.i.i to i64
   br label %while.body.i
 
@@ -218,7 +218,7 @@ if.end17.i:                                       ; preds = %if.then14.i, %prepa
   call void @git_deflate_init(ptr noundef nonnull %s.i.i, i32 noundef %14) #13
   %call.i42.i = call i32 @encode_in_pack_object_header(ptr noundef nonnull %obuf.i.i, i32 noundef 16384, i32 noundef 3, i64 noundef %size) #13
   %idx.ext.i.i = zext i32 %call.i42.i to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %obuf.i.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %obuf.i.i, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %next_out.i.i, align 8
   %sub.i.i = sub nsw i64 16384, %idx.ext.i.i
   store i64 %sub.i.i, ptr %avail_out.i.i, align 8
@@ -266,9 +266,9 @@ if.then18.i.i:                                    ; preds = %if.end15.i.i
 
 if.then25.i.i:                                    ; preds = %if.then18.i.i
   %16 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %16, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %16, i64 256
   %17 = load ptr, ptr %hash_algo.i.i, align 8
-  %update_fn.i.i = getelementptr inbounds i8, ptr %17, i64 56
+  %update_fn.i.i = getelementptr inbounds nuw i8, ptr %17, i64 56
   %18 = load ptr, ptr %update_fn.i.i, align 8
   call void %18(ptr noundef nonnull %ctx.i, ptr noundef nonnull %ibuf.i.i, i64 noundef %spec.select.i.i) #13
   br label %if.end28.i.i
@@ -372,9 +372,9 @@ while.end.i:                                      ; preds = %if.end64.i.i
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %ibuf.i.i)
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %obuf.i.i)
   %28 = load ptr, ptr @the_repository, align 8
-  %hash_algo36.i = getelementptr inbounds i8, ptr %28, i64 256
+  %hash_algo36.i = getelementptr inbounds nuw i8, ptr %28, i64 256
   %29 = load ptr, ptr %hash_algo36.i, align 8
-  %final_oid_fn.i = getelementptr inbounds i8, ptr %29, i64 72
+  %final_oid_fn.i = getelementptr inbounds nuw i8, ptr %29, i64 72
   %30 = load ptr, ptr %final_oid_fn.i, align 8
   call void %30(ptr noundef %oid, ptr noundef nonnull %ctx.i) #13
   br i1 %tobool.not.i, label %deflate_blob_to_pack.exit, label %if.end39.i
@@ -382,7 +382,7 @@ while.end.i:                                      ; preds = %if.end64.i.i
 if.end39.i:                                       ; preds = %while.end.i
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 8), align 8
   %call41.i = call i32 @crc32_end(ptr noundef %31) #13
-  %crc32.i = getelementptr inbounds i8, ptr %idx.0.i, i64 36
+  %crc32.i = getelementptr inbounds nuw i8, ptr %idx.0.i, i64 36
   store i32 %call41.i, ptr %crc32.i, align 4
   %32 = load ptr, ptr @the_repository, align 8
   %call.i45.i = call i32 @repo_has_object_file(ptr noundef %32, ptr noundef %oid) #13
@@ -397,7 +397,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end39.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
   %35 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %35, i64 256
+  %hash_algo.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 256
   %wide.trip.count.i.i = zext i32 %33 to i64
   br label %for.body.i.i
 
@@ -408,9 +408,9 @@ for.cond.i.i:                                     ; preds = %oideq.exit.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %arrayidx.i.i, align 8
-  %algo.i.i.i = getelementptr inbounds i8, ptr %36, i64 32
+  %algo.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 32
   %37 = load i32, ptr %algo.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %37, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -444,9 +444,9 @@ if.then44.i:                                      ; preds = %oideq.exit.i.i, %if
 
 if.else.i:                                        ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %idx.0.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %42 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds i8, ptr %idx.0.i, i64 32
+  %algo3.i.i = getelementptr inbounds nuw i8, ptr %idx.0.i, i64 32
   store i32 %42, ptr %algo3.i.i, align 4
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %add.i = add i32 %43, 1
@@ -475,7 +475,7 @@ do.end.i:                                         ; preds = %if.then51.i, %if.el
   %47 = phi ptr [ %.pre.i, %if.else.i ], [ %call72.i, %if.then51.i ]
   store i32 %inc.pre-phi.i, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 68), align 4
   %idxprom.i = zext i32 %46 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %47, i64 %idxprom.i
   store ptr %idx.0.i, ptr %arrayidx.i, align 8
   br label %deflate_blob_to_pack.exit
 
@@ -555,7 +555,7 @@ if.end20:                                         ; preds = %if.then6, %if.else9
 for.body:                                         ; preds = %if.end20, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end20 ]
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @bulk_checkin_packfile, i64 56), align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx, align 8
   call void @free(ptr noundef %13) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -601,7 +601,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i = tail call ptr @get_object_directory() #13
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %temp_path.i, ptr noundef nonnull @.str.14, ptr noundef %call.i) #13
-  %buf.i = getelementptr inbounds i8, ptr %temp_path.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %temp_path.i, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %call.i.i = call ptr @xmks_tempfile_m(ptr noundef %1, i32 noundef 384) #13
   store ptr %call.i.i, ptr %temp.i, align 8

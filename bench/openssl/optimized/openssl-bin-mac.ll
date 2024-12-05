@@ -315,7 +315,7 @@ if.then124:                                       ; preds = %if.end122
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx130 = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv
+  %arrayidx130 = getelementptr inbounds nuw i8, ptr %call1, i64 %indvars.iv
   %20 = load i8, ptr %arrayidx130, align 1
   %conv131 = zext i8 %20 to i32
   %call132 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call75, ptr noundef nonnull @.str.40, i32 noundef %conv131) #3

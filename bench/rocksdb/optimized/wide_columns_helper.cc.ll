@@ -30,7 +30,7 @@ $_ZN7rocksdblsERSoRKNS_10WideColumnE = comdat any
 define void @_ZN7rocksdb17WideColumnsHelper15DumpWideColumnsERKSt6vectorINS_10WideColumnESaIS2_EERSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %columns, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %hex) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %columns, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %columns, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %columns, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %for.end, label %if.end
@@ -46,7 +46,7 @@ if.then1:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.then1, %if.end
   %2 = phi ptr [ %.pre, %if.then1 ], [ %0, %if.end ]
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdblsERSoRKNS_10WideColumnE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %it.sroa.0.010 = getelementptr inbounds i8, ptr %2, i64 32
+  %it.sroa.0.010 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not11 = icmp eq ptr %it.sroa.0.010, %3
   br i1 %cmp.i.not11, label %for.end, label %for.body
@@ -55,7 +55,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %it.sroa.0.012 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.010, %if.end3 ]
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 32)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdblsERSoRKNS_10WideColumnE(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.012)
-  %it.sroa.0.0 = getelementptr inbounds i8, ptr %it.sroa.0.012, i64 32
+  %it.sroa.0.0 = getelementptr inbounds nuw i8, ptr %it.sroa.0.012, i64 32
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %4
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !4
@@ -69,7 +69,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #0 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -86,11 +86,11 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
-  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i = and i32 %0, 74
   %cmp = icmp eq i32 %and.i, 8
-  %size_.i = getelementptr inbounds i8, ptr %column, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %column, i64 8
   %1 = load i64, ptr %size_.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %if.end9, label %if.then
@@ -118,8 +118,8 @@ lpad:                                             ; preds = %if.end
 
 if.end9:                                          ; preds = %invoke.cont, %entry
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 58)
-  %value_.i = getelementptr inbounds i8, ptr %column, i64 16
-  %size_.i14 = getelementptr inbounds i8, ptr %column, i64 24
+  %value_.i = getelementptr inbounds nuw i8, ptr %column, i64 16
+  %size_.i14 = getelementptr inbounds nuw i8, ptr %column, i64 24
   %3 = load i64, ptr %size_.i14, align 8
   %cmp.i15 = icmp eq i64 %3, 0
   br i1 %cmp.i15, label %if.end24, label %if.then13
@@ -174,7 +174,7 @@ invoke.cont2:                                     ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont2
   %1 = load ptr, ptr %columns, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %columns, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %columns, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %nrvo.skipdtor, label %if.end.i
@@ -196,7 +196,7 @@ if.end3.i:                                        ; preds = %call2.i.noexc, %if.
           to label %call6.i.noexc unwind label %lpad1.loopexit.split-lp
 
 call6.i.noexc:                                    ; preds = %if.end3.i
-  %it.sroa.0.010.i = getelementptr inbounds i8, ptr %3, i64 32
+  %it.sroa.0.010.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %it.sroa.0.010.i, %4
   br i1 %cmp.i.not11.i, label %nrvo.skipdtorthread-pre-split, label %for.body.i
@@ -211,7 +211,7 @@ call11.i.noexc:                                   ; preds = %for.body.i
           to label %call13.i.noexc unwind label %lpad1.loopexit
 
 call13.i.noexc:                                   ; preds = %call11.i.noexc
-  %it.sroa.0.0.i = getelementptr inbounds i8, ptr %it.sroa.0.012.i, i64 32
+  %it.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.012.i, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.0.i, %5
   br i1 %cmp.i.not.i, label %nrvo.skipdtorthread-pre-split, label %for.body.i, !llvm.loop !4
@@ -233,7 +233,7 @@ lpad1.loopexit.split-lp:                          ; preds = %if.then1.i, %if.end
 
 lpad1:                                            ; preds = %lpad1.loopexit.split-lp, %lpad1.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
-  %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %7 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -288,7 +288,7 @@ define void @_ZN7rocksdb17WideColumnsHelper11SortColumnsERSt6vectorINS_10WideCol
 entry:
   %__val.sroa.4.i.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %0 = load ptr, ptr %columns, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %columns, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %columns, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEEZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EvT_SC_T0_.exit", label %if.then.i.i
@@ -306,7 +306,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i2.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 512
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_T0_"(ptr %0, ptr nonnull %add.ptr.i.i.i.i)
   %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %1
   br i1 %cmp.i.not2.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEEZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EvT_SC_T0_.exit", label %for.body.i.i.i.i
@@ -315,9 +315,9 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %"_Z
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %add.ptr.i.i.i.i, %if.then.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.4.i.i.i.i.i)
   %__val.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %__i.sroa.0.03.i.i.i.i, align 8
-  %__val.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 8
+  %__val.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i.i.i, i64 8
   %__val.sroa.3.0.copyload.i.i.i.i.i = load i64, ptr %__val.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
-  %__val.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 16
+  %__val.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.0..sroa_idx.i.i.i.i.i, i64 16, i1 false)
   %__next.sroa.0.011.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -32
   %call.val.i12.i.i.i.i.i = load ptr, ptr %__next.sroa.0.011.i.i.i.i.i, align 8
@@ -350,12 +350,12 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i, %
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i.i, %for.body.i.i.i.i
   %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.021.i.i.i.i.i, %while.body.i.i.i.i.i ]
   store ptr %__val.sroa.0.0.copyload.i.i.i.i.i, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, align 8
-  %__val.sroa.3.0..sroa_idx6.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, i64 8
+  %__val.sroa.3.0..sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, i64 8
   store i64 %__val.sroa.3.0.copyload.i.i.i.i.i, ptr %__val.sroa.3.0..sroa_idx6.i.i.i.i.i, align 8
-  %__val.sroa.4.0..sroa_idx8.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, i64 16
+  %__val.sroa.4.0..sroa_idx8.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.0..sroa_idx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.4.i.i.i.i.i)
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.03.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEEZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EvT_SC_T0_.exit", label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -401,7 +401,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %__first.coerce, i64 32
+  %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 32
   %0 = getelementptr i8, ptr %__first.coerce, i64 40
   %1 = getelementptr i8, ptr %__first.coerce, i64 8
   %cmp234 = icmp eq i64 %__depth_limit, 0
@@ -451,7 +451,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %sub.ptr.div.i2135 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i16, %while.body.lr.ph ]
   %dec = add nsw i64 %__depth_limit.addr.01936, -1
   %div.i78 = lshr i64 %sub.ptr.div.i2135, 1
-  %add.ptr.i.i = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %__first.coerce, i64 %div.i78
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %__first.coerce, i64 %div.i78
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge1837, i64 -32
   %call.val.i.i.i = load ptr, ptr %add.ptr.i2.i, align 8
   %call.val1.i.i.i = load i64, ptr %0, align 8
@@ -574,7 +574,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %cmp1.i.i.i13.i = icmp ult i64 %call.val1.i.i9.i, %call3.val2.i.i7.i
   %cmp2.i.i.i14.i = icmp slt i32 %call.i.i.i.i11.i, 0
   %cmp.i.i.i15.i = select i1 %cmp6.not.i.i.i.i12.i, i1 %cmp1.i.i.i13.i, i1 %cmp2.i.i.i14.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 32
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 32
   br i1 %cmp.i.i.i15.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !11
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
@@ -672,7 +672,7 @@ if.then20:                                        ; preds = %land.lhs.true
 if.end33:                                         ; preds = %if.then20, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub24, %if.then20 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   %agg.tmp35.sroa.0.0.copyload = load ptr, ptr %__value, align 8
-  %agg.tmp35.sroa.2.0.__value.sroa_idx = getelementptr inbounds i8, ptr %__value, i64 8
+  %agg.tmp35.sroa.2.0.__value.sroa_idx = getelementptr inbounds nuw i8, ptr %__value, i64 8
   %agg.tmp35.sroa.2.0.copyload = load i64, ptr %agg.tmp35.sroa.2.0.__value.sroa_idx, align 8
   %cmp6.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp6.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
@@ -701,12 +701,12 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %land.rhs.i, %while.body.i, %if.end33
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.07.i, %land.rhs.i ], [ %__parent.08.i, %while.body.i ]
-  %agg.tmp35.sroa.3.0.__value.sroa_idx = getelementptr inbounds i8, ptr %__value, i64 16
+  %agg.tmp35.sroa.3.0.__value.sroa_idx = getelementptr inbounds nuw i8, ptr %__value, i64 16
   %add.ptr.i10.i = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store ptr %agg.tmp35.sroa.0.0.copyload, ptr %add.ptr.i10.i, align 8
-  %agg.tmp3522.sroa.5.0.add.ptr.i10.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i10.i, i64 8
+  %agg.tmp3522.sroa.5.0.add.ptr.i10.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i, i64 8
   store i64 %agg.tmp35.sroa.2.0.copyload, ptr %agg.tmp3522.sroa.5.0.add.ptr.i10.i.sroa_idx, align 8
-  %agg.tmp3522.sroa.6.0.add.ptr.i10.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i10.i, i64 16
+  %agg.tmp3522.sroa.6.0.add.ptr.i10.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3522.sroa.6.0.add.ptr.i10.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp35.sroa.3.0.__value.sroa_idx, i64 16, i1 false)
   ret void
 }
@@ -726,7 +726,7 @@ entry:
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %__i.sroa.0.09 = getelementptr inbounds i8, ptr %__first.coerce, i64 32
+  %__i.sroa.0.09 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 32
   %cmp.i1.not10 = icmp eq ptr %__i.sroa.0.09, %__last.coerce
   br i1 %cmp.i1.not10, label %for.end, label %for.body.lr.ph
 
@@ -753,7 +753,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__val, ptr noundef nonnull align 8 dereferenceable(32) %__i.sroa.0.012, i64 32, i1 false)
-  %add.ptr.i2 = getelementptr inbounds i8, ptr %__first.coerce.pn11, i64 64
+  %add.ptr.i2 = getelementptr inbounds nuw i8, ptr %__first.coerce.pn11, i64 64
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.012 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
@@ -765,7 +765,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vec
 
 if.else:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.4.i)
-  %__val.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %__first.coerce.pn11, i64 48
+  %__val.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %__first.coerce.pn11, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.0..sroa_idx.i, i64 16, i1 false)
   %call.val.i12.i = load ptr, ptr %__first.coerce.pn11, align 8
   %2 = getelementptr i8, ptr %__first.coerce.pn11, i64 8
@@ -797,15 +797,15 @@ while.body.i:                                     ; preds = %if.else, %while.bod
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit": ; preds = %while.body.i, %if.else
   %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.012, %if.else ], [ %__next.sroa.0.021.i, %while.body.i ]
   store ptr %call.val.i, ptr %__last.sroa.0.0.lcssa.i, align 8
-  %__val.sroa.3.0..sroa_idx6.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i, i64 8
+  %__val.sroa.3.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i, i64 8
   store i64 %call.val1.i, ptr %__val.sroa.3.0..sroa_idx6.i, align 8
-  %__val.sroa.4.0..sroa_idx8.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i, i64 16
+  %__val.sroa.4.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %__last.sroa.0.0.lcssa.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.0..sroa_idx8.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.4.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.4.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit"
-  %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.012, i64 32
+  %__i.sroa.0.0 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.012, i64 32
   %cmp.i1.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
   br i1 %cmp.i1.not, label %for.end, label %for.body, !llvm.loop !16
 

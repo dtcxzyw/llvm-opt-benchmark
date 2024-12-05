@@ -130,7 +130,7 @@ define internal i32 @vpc_open(ptr noundef %bs, ptr noundef %options, i32 %flags,
 entry:
   %local_err = alloca ptr, align 8
   %dyndisk_header = alloca %struct.vhd_dyndisk_header, align 1
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.10, ptr noundef %bs, ptr noundef %errp) #15
@@ -155,7 +155,7 @@ if.else.i:                                        ; preds = %if.end5
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %force_use_sz.i = getelementptr inbounds i8, ptr %bs.val, i64 609
+  %force_use_sz.i = getelementptr inbounds nuw i8, ptr %bs.val, i64 609
   store i8 1, ptr %force_use_sz.i, align 1
   br label %if.end7
 
@@ -165,7 +165,7 @@ if.else4.i:                                       ; preds = %if.else.i
   br i1 %tobool6.not.i, label %if.then7.i, label %vpc_parse_options.exit
 
 if.then7.i:                                       ; preds = %if.else4.i
-  %force_use_chs.i = getelementptr inbounds i8, ptr %bs.val, i64 608
+  %force_use_chs.i = getelementptr inbounds nuw i8, ptr %bs.val, i64 608
   store i8 1, ptr %force_use_chs.i, align 8
   br label %if.end7
 
@@ -180,9 +180,9 @@ if.then6:                                         ; preds = %vpc_parse_options.e
   br label %fail
 
 if.end7:                                          ; preds = %if.then7.i, %if.then3.i, %if.end5, %vpc_parse_options.exit
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %footer8 = getelementptr inbounds i8, ptr %0, i64 48
+  %footer8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %call9 = call i32 @bdrv_pread(ptr noundef %1, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %footer8, i32 noundef 0) #15
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -229,7 +229,7 @@ if.end32:                                         ; preds = %if.end26
   br i1 %tobool36.not, label %lor.lhs.false, label %if.then40
 
 lor.lhs.false:                                    ; preds = %if.end32
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %5 = load i32, ptr %type, align 1
   %cmp38.not = icmp eq i32 %5, 33554432
   br i1 %cmp38.not, label %if.end42, label %if.then40
@@ -239,7 +239,7 @@ if.then40:                                        ; preds = %lor.lhs.false, %if.
   br label %fail
 
 if.end42:                                         ; preds = %lor.lhs.false, %if.end12
-  %checksum43 = getelementptr inbounds i8, ptr %0, i64 112
+  %checksum43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %checksum43, align 1
   store i32 0, ptr %checksum43, align 1
   br label %for.body.i
@@ -267,21 +267,21 @@ if.then49:                                        ; preds = %vpc_checksum.exit
 
 if.end50:                                         ; preds = %vpc_checksum.exit
   store i32 %6, ptr %checksum43, align 1
-  %cyls = getelementptr inbounds i8, ptr %0, i64 104
+  %cyls = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i16, ptr %cyls, align 1
   %11 = call noundef i16 @llvm.bswap.i16(i16 %10)
   %conv54 = zext i16 %11 to i64
-  %heads = getelementptr inbounds i8, ptr %0, i64 106
+  %heads = getelementptr inbounds nuw i8, ptr %0, i64 106
   %12 = load i8, ptr %heads, align 1
   %conv55 = zext i8 %12 to i64
   %mul = mul nuw nsw i64 %conv54, %conv55
-  %secs_per_cyl = getelementptr inbounds i8, ptr %0, i64 107
+  %secs_per_cyl = getelementptr inbounds nuw i8, ptr %0, i64 107
   %13 = load i8, ptr %secs_per_cyl, align 1
   %conv56 = zext i8 %13 to i64
   %mul57 = mul nuw nsw i64 %mul, %conv56
-  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   store i64 %mul57, ptr %total_sectors, align 8
-  %creator_app = getelementptr inbounds i8, ptr %0, i64 76
+  %creator_app = getelementptr inbounds nuw i8, ptr %0, i64 76
   %call59 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %creator_app, ptr noundef nonnull dereferenceable(5) @.str.18, i64 noundef 4) #16
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %lor.rhs, label %land.lhs.true
@@ -307,7 +307,7 @@ land.lhs.true75:                                  ; preds = %land.lhs.true70
   br i1 %tobool79.not, label %lor.rhs, label %lor.lhs.false83
 
 lor.rhs:                                          ; preds = %land.lhs.true75, %land.lhs.true70, %land.lhs.true65, %land.lhs.true, %if.end50
-  %force_use_chs = getelementptr inbounds i8, ptr %0, i64 608
+  %force_use_chs = getelementptr inbounds nuw i8, ptr %0, i64 608
   %14 = load i8, ptr %force_use_chs, align 8
   %tobool80 = trunc i8 %14 to i1
   %cmp85 = icmp ne i64 %mul57, 267382800
@@ -319,13 +319,13 @@ lor.lhs.false83:                                  ; preds = %land.lhs.true75
   br i1 %cmp85.old, label %if.end93, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.rhs, %lor.lhs.false83
-  %force_use_sz = getelementptr inbounds i8, ptr %0, i64 609
+  %force_use_sz = getelementptr inbounds nuw i8, ptr %0, i64 609
   %15 = load i8, ptr %force_use_sz, align 1
   %tobool88 = trunc i8 %15 to i1
   br i1 %tobool88, label %if.end93, label %if.end98
 
 if.end93:                                         ; preds = %lor.rhs, %lor.lhs.false83, %lor.lhs.false87
-  %current_size = getelementptr inbounds i8, ptr %0, i64 96
+  %current_size = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load i64, ptr %current_size, align 1
   %17 = call noundef i64 @llvm.bswap.i64(i64 %16)
   %div116 = lshr i64 %17, 9
@@ -338,7 +338,7 @@ if.end98:                                         ; preds = %lor.lhs.false87, %i
 
 if.then101:                                       ; preds = %if.end98
   %18 = load ptr, ptr %file, align 8
-  %data_offset = getelementptr inbounds i8, ptr %0, i64 64
+  %data_offset = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load i64, ptr %data_offset, align 1
   %20 = call noundef i64 @llvm.bswap.i64(i64 %19)
   %call104 = call i32 @bdrv_pread(ptr noundef %18, i64 noundef %20, i64 noundef 1024, ptr noundef nonnull %dyndisk_header, i32 noundef 0) #15
@@ -359,10 +359,10 @@ if.then112:                                       ; preds = %if.end108
   br label %fail
 
 if.end113:                                        ; preds = %if.end108
-  %block_size = getelementptr inbounds i8, ptr %dyndisk_header, i64 32
+  %block_size = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 32
   %21 = load i32, ptr %block_size, align 1
   %22 = call noundef i32 @llvm.bswap.i32(i32 %21)
-  %block_size115 = getelementptr inbounds i8, ptr %0, i64 600
+  %block_size115 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i32 %22, ptr %block_size115, align 8
   %conv117 = zext i32 %22 to i64
   %tobool.not.i119 = icmp eq i32 %21, 0
@@ -381,12 +381,12 @@ if.end126:                                        ; preds = %if.end113
   %div128118 = lshr i32 %22, 12
   %add = add nuw nsw i32 %div128118, 511
   %and = and i32 %add, 2096640
-  %bitmap_size = getelementptr inbounds i8, ptr %0, i64 604
+  %bitmap_size = getelementptr inbounds nuw i8, ptr %0, i64 604
   store i32 %and, ptr %bitmap_size, align 4
-  %max_table_entries = getelementptr inbounds i8, ptr %dyndisk_header, i64 28
+  %max_table_entries = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 28
   %24 = load i32, ptr %max_table_entries, align 1
   %25 = call noundef i32 @llvm.bswap.i32(i32 %24)
-  %max_table_entries130 = getelementptr inbounds i8, ptr %0, i64 568
+  %max_table_entries130 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 %25, ptr %max_table_entries130, align 8
   %26 = load i64, ptr %total_sectors, align 8
   %mul132 = shl i64 %26, 9
@@ -421,7 +421,7 @@ if.end161:                                        ; preds = %if.end150
   %27 = load ptr, ptr %file, align 8
   %28 = load ptr, ptr %27, align 8
   %call167 = call ptr @qemu_try_blockalign(ptr noundef %28, i64 noundef %mul164) #15
-  %pagetable = getelementptr inbounds i8, ptr %0, i64 576
+  %pagetable = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr %call167, ptr %pagetable, align 8
   %cmp169 = icmp eq ptr %call167, null
   br i1 %cmp169, label %if.then171, label %if.end172
@@ -431,10 +431,10 @@ if.then171:                                       ; preds = %if.end161
   br label %fail
 
 if.end172:                                        ; preds = %if.end161
-  %table_offset = getelementptr inbounds i8, ptr %dyndisk_header, i64 16
+  %table_offset = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 16
   %29 = load i64, ptr %table_offset, align 1
   %30 = call noundef i64 @llvm.bswap.i64(i64 %29)
-  %bat_offset = getelementptr inbounds i8, ptr %0, i64 584
+  %bat_offset = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 %30, ptr %bat_offset, align 8
   %31 = load ptr, ptr %file, align 8
   %call177 = call i32 @bdrv_pread(ptr noundef %31, i64 noundef %30, i64 noundef %mul164, ptr noundef nonnull %call167, i32 noundef 0) #15
@@ -450,7 +450,7 @@ if.end181:                                        ; preds = %if.end172
   %add183 = add nuw nsw i64 %mul164, 511
   %sub185 = add i64 %add183, %32
   %and186 = and i64 %sub185, -512
-  %free_data_block_offset = getelementptr inbounds i8, ptr %0, i64 560
+  %free_data_block_offset = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i64 %and186, ptr %free_data_block_offset, align 8
   %33 = load i32, ptr %max_table_entries130, align 8
   %cmp188125 = icmp sgt i32 %33, 0
@@ -520,12 +520,12 @@ if.then228:                                       ; preds = %if.end224
   br label %fail
 
 if.end229:                                        ; preds = %if.end224
-  %last_bitmap_offset = getelementptr inbounds i8, ptr %0, i64 592
+  %last_bitmap_offset = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 -1, ptr %last_bitmap_offset, align 8
   br label %if.end230
 
 if.end230:                                        ; preds = %if.end229, %if.end98
-  %migration_blocker = getelementptr inbounds i8, ptr %0, i64 616
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %0, i64 616
   %call231 = call ptr @bdrv_get_device_or_node_name(ptr noundef nonnull %bs) #15
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.11, i32 noundef 453, ptr noundef nonnull @__func__.vpc_open, ptr noundef nonnull @.str.34, ptr noundef %call231) #15
   %call233 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #15
@@ -540,7 +540,7 @@ if.end237:                                        ; preds = %if.end230
 fail:                                             ; preds = %if.end93, %if.end, %if.end230, %if.end26, %if.then228, %if.then220, %if.then180, %if.then171, %if.then159, %if.then149, %if.then138, %if.then124, %if.then112, %if.then107, %if.then49, %if.then40, %if.then24, %if.then21, %if.then11, %if.then6
   %ret.0 = phi i32 [ -22, %if.then6 ], [ %call9, %if.then11 ], [ %conv, %if.then21 ], [ -22, %if.then24 ], [ %call28, %if.end26 ], [ -22, %if.then40 ], [ -22, %if.then49 ], [ %call104, %if.then107 ], [ -22, %if.then112 ], [ -22, %if.then124 ], [ -22, %if.then138 ], [ -22, %if.then149 ], [ -22, %if.then159 ], [ -12, %if.then171 ], [ %call177, %if.then180 ], [ %46, %if.then220 ], [ -22, %if.then228 ], [ %call233, %if.end230 ], [ -22, %if.end ], [ -27, %if.end93 ]
   call void @qemu_opts_del(ptr noundef %call2) #15
-  %pagetable238 = getelementptr inbounds i8, ptr %0, i64 576
+  %pagetable238 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %48 = load ptr, ptr %pagetable238, align 8
   call void @qemu_vfree(ptr noundef %48) #15
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -558,12 +558,12 @@ return:                                           ; preds = %entry, %glib_autopt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vpc_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %pagetable = getelementptr inbounds i8, ptr %0, i64 576
+  %pagetable = getelementptr inbounds nuw i8, ptr %0, i64 576
   %1 = load ptr, ptr %pagetable, align 8
   tail call void @qemu_vfree(ptr noundef %1) #15
-  %migration_blocker = getelementptr inbounds i8, ptr %0, i64 616
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %0, i64 616
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #15
   ret void
 }
@@ -582,13 +582,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %opts, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %opts, i64 8
   %size = getelementptr i8, ptr %opts, i64 16
   %1 = load i64, ptr %size, align 8
-  %has_subformat = getelementptr inbounds i8, ptr %opts, i64 24
+  %has_subformat = getelementptr inbounds nuw i8, ptr %opts, i64 24
   %2 = load i8, ptr %has_subformat, align 8
   %tobool = trunc i8 %2 to i1
-  %subformat3.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 28
+  %subformat3.phi.trans.insert = getelementptr inbounds nuw i8, ptr %opts, i64 28
   br i1 %tobool, label %if.end2, label %if.end2.thread
 
 if.end2.thread:                                   ; preds = %if.end
@@ -729,47 +729,47 @@ if.then17:                                        ; preds = %if.end15
   br label %out
 
 if.end19:                                         ; preds = %if.end15
-  %6 = getelementptr inbounds i8, ptr %footer, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %footer, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 448, i1 false)
   store i64 8676594127358291811, ptr %footer, align 8
   %spec.select = select i1 %tobool.i, i32 846030193, i32 1970103665
-  %7 = getelementptr inbounds i8, ptr %footer, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %footer, i64 28
   store i32 %spec.select, ptr %7, align 4
-  %creator_os = getelementptr inbounds i8, ptr %footer, i64 36
+  %creator_os = getelementptr inbounds nuw i8, ptr %footer, i64 36
   store i32 1798465879, ptr %creator_os, align 4
-  %features = getelementptr inbounds i8, ptr %footer, i64 8
+  %features = getelementptr inbounds nuw i8, ptr %footer, i64 8
   store i32 33554432, ptr %features, align 8
-  %version = getelementptr inbounds i8, ptr %footer, i64 12
+  %version = getelementptr inbounds nuw i8, ptr %footer, i64 12
   store i32 256, ptr %version, align 4
   %.sink51 = select i1 %cmp30, i64 562949953421312, i64 -1
-  %8 = getelementptr inbounds i8, ptr %footer, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %footer, i64 16
   store i64 %.sink51, ptr %8, align 8
   %call37 = tail call i64 @time(ptr noundef null) #15
   %9 = trunc i64 %call37 to i32
   %conv = add i32 %9, -946684800
   %10 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
-  %timestamp = getelementptr inbounds i8, ptr %footer, i64 24
+  %timestamp = getelementptr inbounds nuw i8, ptr %footer, i64 24
   store i32 %10, ptr %timestamp, align 8
-  %major = getelementptr inbounds i8, ptr %footer, i64 32
+  %major = getelementptr inbounds nuw i8, ptr %footer, i64 32
   store i16 1280, ptr %major, align 8
-  %minor = getelementptr inbounds i8, ptr %footer, i64 34
+  %minor = getelementptr inbounds nuw i8, ptr %footer, i64 34
   store i16 768, ptr %minor, align 2
   %11 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
-  %orig_size = getelementptr inbounds i8, ptr %footer, i64 40
+  %orig_size = getelementptr inbounds nuw i8, ptr %footer, i64 40
   store i64 %11, ptr %orig_size, align 8
-  %current_size = getelementptr inbounds i8, ptr %footer, i64 48
+  %current_size = getelementptr inbounds nuw i8, ptr %footer, i64 48
   store i64 %11, ptr %current_size, align 8
   %12 = tail call noundef i16 @llvm.bswap.i16(i16 %cyls.1.i)
-  %cyls44 = getelementptr inbounds i8, ptr %footer, i64 56
+  %cyls44 = getelementptr inbounds nuw i8, ptr %footer, i64 56
   store i16 %12, ptr %cyls44, align 8
-  %heads45 = getelementptr inbounds i8, ptr %footer, i64 58
+  %heads45 = getelementptr inbounds nuw i8, ptr %footer, i64 58
   store i8 %heads.3.i, ptr %heads45, align 2
-  %secs_per_cyl46 = getelementptr inbounds i8, ptr %footer, i64 59
+  %secs_per_cyl46 = getelementptr inbounds nuw i8, ptr %footer, i64 59
   store i8 %secs_per_cyl.3.i, ptr %secs_per_cyl46, align 1
-  %type = getelementptr inbounds i8, ptr %footer, i64 60
+  %type = getelementptr inbounds nuw i8, ptr %footer, i64 60
   store i32 %disk_type.0, ptr %type, align 4
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid) #15
-  %uuid48 = getelementptr inbounds i8, ptr %footer, i64 68
+  %uuid48 = getelementptr inbounds nuw i8, ptr %footer, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid48, ptr noundef nonnull align 4 dereferenceable(16) %uuid, i64 16, i1 false)
   br label %for.body.i28
 
@@ -787,7 +787,7 @@ for.body.i28:                                     ; preds = %for.body.i28, %if.e
 vpc_checksum.exit:                                ; preds = %for.body.i28
   %not.i = xor i32 %add.i31, -1
   %14 = call noundef i32 @llvm.bswap.i32(i32 %not.i)
-  %checksum = getelementptr inbounds i8, ptr %footer, i64 64
+  %checksum = getelementptr inbounds nuw i8, ptr %footer, i64 64
   store i32 %14, ptr %checksum, align 8
   br i1 %cmp30, label %if.then53, label %if.else59
 
@@ -848,7 +848,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end4
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str) #15
-  %node_name = getelementptr inbounds i8, ptr %call5, i64 16600
+  %node_name = getelementptr inbounds nuw i8, ptr %call5, i64 16600
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef nonnull %node_name) #15
   %call9 = tail call ptr @qobject_input_visitor_new_flat_confused(ptr noundef %call, ptr noundef %errp) #15
   %tobool.not = icmp eq ptr %call9, null
@@ -965,7 +965,7 @@ if.end28:                                         ; preds = %if.else.i, %if.then
   %total_sectors.0.ph = phi i64 [ %6, %if.end.i ], [ %div1511.i, %if.then14.i ], [ 0, %if.else.i ]
   %mul = shl nuw i64 %total_sectors.0.ph, 9
   %7 = load ptr, ptr %create_options, align 8
-  %size30 = getelementptr inbounds i8, ptr %7, i64 16
+  %size30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %mul, ptr %size30, align 8
   br label %if.end31
 
@@ -981,7 +981,7 @@ fail:                                             ; preds = %calculate_rounded_i
   br i1 %tobool33.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %fail
-  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %9 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %9, 0
   br i1 %tobool1.not.i, label %if.else.i21, label %land.lhs.true.i
@@ -1010,15 +1010,15 @@ qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vpc_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %1 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %1, 33554432
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load ptr, ptr %2, align 8
   %call2 = tail call i32 @bdrv_has_zero_init(ptr noundef %3) #15
@@ -1054,30 +1054,30 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal i32 @vpc_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %1 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %1, 33554432
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_preadv(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef 0) #15
   br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %0) #15
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %3 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %local_qiov, i32 noundef %3) #15
   %cmp239 = icmp sgt i64 %bytes, 0
   br i1 %cmp239, label %while.body.lr.ph, label %fail
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %block_size = getelementptr inbounds i8, ptr %0, i64 600
-  %file13 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %file13 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
@@ -1085,19 +1085,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bytes.addr.042 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub21, %if.end20 ]
   %bytes_done.040 = phi i64 [ 0, %while.body.lr.ph ], [ %add22, %if.end20 ]
   %4 = load ptr, ptr %opaque, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %4, i64 600
+  %block_size.i = getelementptr inbounds nuw i8, ptr %4, i64 600
   %5 = load i32, ptr %block_size.i, align 8
   %conv.i = zext i32 %5 to i64
   %div.i = udiv i64 %offset.addr.043, %conv.i
   %conv1.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %offset.addr.043, %conv.i
-  %max_table_entries.i = getelementptr inbounds i8, ptr %4, i64 568
+  %max_table_entries.i = getelementptr inbounds nuw i8, ptr %4, i64 568
   %6 = load i32, ptr %max_table_entries.i, align 8
   %cmp5.not.i = icmp ugt i32 %6, %conv1.i
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %get_image_offset.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %while.body
-  %pagetable.i = getelementptr inbounds i8, ptr %4, i64 576
+  %pagetable.i = getelementptr inbounds nuw i8, ptr %4, i64 576
   %7 = load ptr, ptr %pagetable.i, align 8
   %idxprom.i = and i64 %div.i, 4294967295
   %arrayidx.i = getelementptr i32, ptr %7, i64 %idxprom.i
@@ -1117,7 +1117,7 @@ get_image_offset.exit.thread:                     ; preds = %lor.lhs.false.i, %w
 get_image_offset.exit:                            ; preds = %lor.lhs.false.i
   %conv14.i = zext i32 %8 to i64
   %mul.i = shl nuw nsw i64 %conv14.i, 9
-  %bitmap_size.i = getelementptr inbounds i8, ptr %4, i64 604
+  %bitmap_size.i = getelementptr inbounds nuw i8, ptr %4, i64 604
   %10 = load i32, ptr %bitmap_size.i, align 4
   %conv15.i = zext i32 %10 to i64
   %add.i = add nuw nsw i64 %mul.i, %rem.i
@@ -1159,30 +1159,30 @@ return:                                           ; preds = %fail, %if.then
 define internal i32 @vpc_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %1 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %1, 33554432
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef 0) #15
   br label %return
 
 if.end:                                           ; preds = %entry
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %0) #15
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %3 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %local_qiov, i32 noundef %3) #15
   %cmp257 = icmp sgt i64 %bytes, 0
   br i1 %cmp257, label %while.body.lr.ph, label %fail
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
-  %block_size41 = getelementptr inbounds i8, ptr %0, i64 600
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
+  %block_size41 = getelementptr inbounds nuw i8, ptr %0, i64 600
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end28
@@ -1190,19 +1190,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bytes.addr.059 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub29, %if.end28 ]
   %bytes_done.058 = phi i64 [ 0, %while.body.lr.ph ], [ %add30, %if.end28 ]
   %4 = load ptr, ptr %opaque, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %4, i64 600
+  %block_size.i = getelementptr inbounds nuw i8, ptr %4, i64 600
   %5 = load i32, ptr %block_size.i, align 8
   %conv.i = zext i32 %5 to i64
   %div.i = udiv i64 %offset.addr.060, %conv.i
   %conv1.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %offset.addr.060, %conv.i
-  %max_table_entries.i = getelementptr inbounds i8, ptr %4, i64 568
+  %max_table_entries.i = getelementptr inbounds nuw i8, ptr %4, i64 568
   %6 = load i32, ptr %max_table_entries.i, align 8
   %cmp5.not.i = icmp ugt i32 %6, %conv1.i
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %if.then13
 
 lor.lhs.false.i:                                  ; preds = %while.body
-  %pagetable.i = getelementptr inbounds i8, ptr %4, i64 576
+  %pagetable.i = getelementptr inbounds nuw i8, ptr %4, i64 576
   %7 = load ptr, ptr %pagetable.i, align 8
   %idxprom.i = and i64 %div.i, 4294967295
   %arrayidx.i = getelementptr i32, ptr %7, i64 %idxprom.i
@@ -1213,12 +1213,12 @@ lor.lhs.false.i:                                  ; preds = %while.body
 if.end10.i:                                       ; preds = %lor.lhs.false.i
   %conv14.i = zext i32 %8 to i64
   %mul.i = shl nuw nsw i64 %conv14.i, 9
-  %bitmap_size.i = getelementptr inbounds i8, ptr %4, i64 604
+  %bitmap_size.i = getelementptr inbounds nuw i8, ptr %4, i64 604
   %9 = load i32, ptr %bitmap_size.i, align 4
   %conv15.i = zext i32 %9 to i64
   %add.i = add nuw nsw i64 %mul.i, %rem.i
   %add17.i = add nuw nsw i64 %add.i, %conv15.i
-  %last_bitmap_offset.i = getelementptr inbounds i8, ptr %4, i64 592
+  %last_bitmap_offset.i = getelementptr inbounds nuw i8, ptr %4, i64 592
   %10 = load i64, ptr %last_bitmap_offset.i, align 8
   %cmp21.not.i = icmp eq i64 %10, %mul.i
   br i1 %cmp21.not.i, label %if.end20.sink.split, label %if.then23.i
@@ -1290,9 +1290,9 @@ return:                                           ; preds = %fail, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 2, 70) i32 @vpc_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %1 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %1, 33554432
   br i1 %cmp, label %if.then, label %if.end
@@ -1300,7 +1300,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i64 %bytes, ptr %pnum, align 8
   store i64 %offset, ptr %map, align 8
-  %file1 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file1 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file1, align 8
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %file, align 8
@@ -1309,19 +1309,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %0) #15
   %4 = load ptr, ptr %opaque, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %4, i64 600
+  %block_size.i = getelementptr inbounds nuw i8, ptr %4, i64 600
   %5 = load i32, ptr %block_size.i, align 8
   %conv.i = zext i32 %5 to i64
   %div.i = udiv i64 %offset, %conv.i
   %conv1.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %offset, %conv.i
-  %max_table_entries.i = getelementptr inbounds i8, ptr %4, i64 568
+  %max_table_entries.i = getelementptr inbounds nuw i8, ptr %4, i64 568
   %6 = load i32, ptr %max_table_entries.i, align 8
   %cmp5.not.i = icmp ugt i32 %6, %conv1.i
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %get_image_offset.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %pagetable.i = getelementptr inbounds i8, ptr %4, i64 576
+  %pagetable.i = getelementptr inbounds nuw i8, ptr %4, i64 576
   %7 = load ptr, ptr %pagetable.i, align 8
   %idxprom.i = and i64 %div.i, 4294967295
   %arrayidx.i = getelementptr i32, ptr %7, i64 %idxprom.i
@@ -1332,7 +1332,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 if.end10.i:                                       ; preds = %lor.lhs.false.i
   %conv14.i = zext i32 %8 to i64
   %mul.i = shl nuw nsw i64 %conv14.i, 9
-  %bitmap_size.i = getelementptr inbounds i8, ptr %4, i64 604
+  %bitmap_size.i = getelementptr inbounds nuw i8, ptr %4, i64 604
   %9 = load i32, ptr %bitmap_size.i, align 4
   %conv15.i = zext i32 %9 to i64
   %add.i = add nuw nsw i64 %mul.i, %rem.i
@@ -1343,7 +1343,7 @@ get_image_offset.exit:                            ; preds = %if.end, %lor.lhs.fa
   %retval.0.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %if.end ], [ %add17.i, %if.end10.i ]
   %cmp4.not = icmp eq i64 %retval.0.i, -1
   store i64 0, ptr %pnum, align 8
-  %block_size = getelementptr inbounds i8, ptr %0, i64 600
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 600
   %10 = load i32, ptr %block_size, align 8
   %conv52 = zext i32 %10 to i64
   %sub53 = add i64 %offset, %conv52
@@ -1368,18 +1368,18 @@ if.end23.us:                                      ; preds = %if.end23.us.prehead
   %add1461.us65 = phi i64 [ %add14.us, %get_image_offset.exit49.us ], [ %add1459, %if.end23.us.preheader ]
   %sub1562.us64 = phi i64 [ %sub15.us, %get_image_offset.exit49.us ], [ %sub1560, %if.end23.us.preheader ]
   %12 = load ptr, ptr %opaque, align 8
-  %block_size.i29.us = getelementptr inbounds i8, ptr %12, i64 600
+  %block_size.i29.us = getelementptr inbounds nuw i8, ptr %12, i64 600
   %13 = load i32, ptr %block_size.i29.us, align 8
   %conv.i30.us = zext i32 %13 to i64
   %div.i31.us = udiv i64 %add1461.us65, %conv.i30.us
   %conv1.i32.us = trunc i64 %div.i31.us to i32
-  %max_table_entries.i34.us = getelementptr inbounds i8, ptr %12, i64 568
+  %max_table_entries.i34.us = getelementptr inbounds nuw i8, ptr %12, i64 568
   %14 = load i32, ptr %max_table_entries.i34.us, align 8
   %cmp5.not.i35.us = icmp ugt i32 %14, %conv1.i32.us
   br i1 %cmp5.not.i35.us, label %lor.lhs.false.i37.us, label %get_image_offset.exit49.us
 
 lor.lhs.false.i37.us:                             ; preds = %if.end23.us
-  %pagetable.i38.us = getelementptr inbounds i8, ptr %12, i64 576
+  %pagetable.i38.us = getelementptr inbounds nuw i8, ptr %12, i64 576
   %15 = load ptr, ptr %pagetable.i38.us, align 8
   %idxprom.i39.us = and i64 %div.i31.us, 4294967295
   %arrayidx.i40.us = getelementptr i32, ptr %15, i64 %idxprom.i39.us
@@ -1403,7 +1403,7 @@ get_image_offset.exit49.us:                       ; preds = %lor.lhs.false.i37.u
   br i1 %cmp20.us, label %do.end, label %if.end23.us
 
 if.then16:                                        ; preds = %get_image_offset.exit
-  %file17 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file17 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %18 = load ptr, ptr %file17, align 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %file, align 8
@@ -1423,15 +1423,15 @@ return:                                           ; preds = %do.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @vpc_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #4 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 108
+  %type = getelementptr inbounds nuw i8, ptr %0, i64 108
   %1 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %1, 33554432
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %block_size = getelementptr inbounds i8, ptr %0, i64 600
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 600
   %2 = load i32, ptr %block_size, align 8
   store i32 %2, ptr %bdi, align 8
   br label %if.end
@@ -1557,20 +1557,20 @@ if.end20:                                         ; preds = %for.body
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end20, %if.end8
-  %0 = getelementptr inbounds i8, ptr %dyndisk_header, i64 36
+  %0 = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 988, i1 false)
   store i64 7310312382976456803, ptr %dyndisk_header, align 8
-  %data_offset = getelementptr inbounds i8, ptr %dyndisk_header, i64 8
+  %data_offset = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 8
   store i64 -1, ptr %data_offset, align 8
-  %table_offset = getelementptr inbounds i8, ptr %dyndisk_header, i64 16
+  %table_offset = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 16
   store i64 1688849860263936, ptr %table_offset, align 8
-  %version = getelementptr inbounds i8, ptr %dyndisk_header, i64 24
+  %version = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 24
   store i32 256, ptr %version, align 8
-  %block_size28 = getelementptr inbounds i8, ptr %dyndisk_header, i64 32
+  %block_size28 = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 32
   store i32 8192, ptr %block_size28, align 8
   %conv29 = trunc i64 %div218 to i32
   %1 = call noundef i32 @llvm.bswap.i32(i32 %conv29)
-  %max_table_entries = getelementptr inbounds i8, ptr %dyndisk_header, i64 28
+  %max_table_entries = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 28
   store i32 %1, ptr %max_table_entries, align 4
   br label %for.body.i
 
@@ -1588,7 +1588,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
 vpc_checksum.exit:                                ; preds = %for.body.i
   %not.i = xor i32 %add.i, -1
   %3 = call noundef i32 @llvm.bswap.i32(i32 %not.i)
-  %checksum = getelementptr inbounds i8, ptr %dyndisk_header, i64 36
+  %checksum = getelementptr inbounds nuw i8, ptr %dyndisk_header, i64 36
   store i32 %3, ptr %checksum, align 4
   %call33 = call i32 @blk_co_pwrite(ptr noundef %blk, i64 noundef 512, i64 noundef 1024, ptr noundef nonnull %dyndisk_header, i32 noundef 0) #15
   %spec.store.select = call i32 @llvm.smin.i32(i32 %call33, i32 0)
@@ -1661,7 +1661,7 @@ declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -2, 2207613189118) i64 @get_image_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %write, ptr noundef writeonly %err) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp eq ptr %err, null
   %or.cond = and i1 %write, %cmp
@@ -1672,19 +1672,19 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %block_size = getelementptr inbounds i8, ptr %0, i64 600
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 600
   %1 = load i32, ptr %block_size, align 8
   %conv = zext i32 %1 to i64
   %div = udiv i64 %offset, %conv
   %conv1 = trunc i64 %div to i32
   %rem = urem i64 %offset, %conv
-  %max_table_entries = getelementptr inbounds i8, ptr %0, i64 568
+  %max_table_entries = getelementptr inbounds nuw i8, ptr %0, i64 568
   %2 = load i32, ptr %max_table_entries, align 8
   %cmp5.not = icmp ugt i32 %2, %conv1
   br i1 %cmp5.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %pagetable = getelementptr inbounds i8, ptr %0, i64 576
+  %pagetable = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load ptr, ptr %pagetable, align 8
   %idxprom = and i64 %div, 4294967295
   %arrayidx = getelementptr i32, ptr %3, i64 %idxprom
@@ -1695,7 +1695,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end10:                                         ; preds = %lor.lhs.false
   %conv14 = zext i32 %4 to i64
   %mul = shl nuw nsw i64 %conv14, 9
-  %bitmap_size = getelementptr inbounds i8, ptr %0, i64 604
+  %bitmap_size = getelementptr inbounds nuw i8, ptr %0, i64 604
   %5 = load i32, ptr %bitmap_size, align 4
   %conv15 = zext i32 %5 to i64
   %add = add nuw nsw i64 %mul, %rem
@@ -1703,7 +1703,7 @@ if.end10:                                         ; preds = %lor.lhs.false
   br i1 %write, label %land.lhs.true20, label %return
 
 land.lhs.true20:                                  ; preds = %if.end10
-  %last_bitmap_offset = getelementptr inbounds i8, ptr %0, i64 592
+  %last_bitmap_offset = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load i64, ptr %last_bitmap_offset, align 8
   %cmp21.not = icmp eq i64 %6, %mul
   br i1 %cmp21.not, label %return, label %if.then23
@@ -1714,7 +1714,7 @@ if.then23:                                        ; preds = %land.lhs.true20
   %7 = load i32, ptr %bitmap_size, align 4
   %conv28 = zext i32 %7 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %call, i8 -1, i64 %conv28, i1 false)
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file, align 8
   %call31 = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %8, i64 noundef %mul, i64 noundef %conv28, ptr noundef %call, i32 noundef 0) #15
   %cmp32 = icmp slt i32 %call31, 0
@@ -1757,9 +1757,9 @@ declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 define internal range(i64 -2147483648, 2207613189118) i64 @alloc_block(ptr nocapture noundef readonly %bs, i64 noundef %offset) #0 {
 entry:
   %bat_value = alloca i32, align 4
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %bitmap_size = getelementptr inbounds i8, ptr %0, i64 604
+  %bitmap_size = getelementptr inbounds nuw i8, ptr %0, i64 604
   %1 = load i32, ptr %bitmap_size, align 4
   %conv = zext i32 %1 to i64
   %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #18
@@ -1767,18 +1767,18 @@ entry:
   br i1 %cmp, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
   %mul = shl i64 %2, 9
   %cmp2 = icmp ugt i64 %offset, %mul
   br i1 %cmp2, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %block_size = getelementptr inbounds i8, ptr %0, i64 600
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load i32, ptr %block_size, align 8
   %conv4 = zext i32 %3 to i64
   %div = udiv i64 %offset, %conv4
-  %pagetable = getelementptr inbounds i8, ptr %0, i64 576
+  %pagetable = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load ptr, ptr %pagetable, align 8
   %idxprom = and i64 %div, 4294967295
   %arrayidx = getelementptr i32, ptr %4, i64 %idxprom
@@ -1791,7 +1791,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %free_data_block_offset = getelementptr inbounds i8, ptr %0, i64 560
+  %free_data_block_offset = getelementptr inbounds nuw i8, ptr %0, i64 560
   %6 = load i64, ptr %free_data_block_offset, align 8
   %div1031 = lshr i64 %6, 9
   %conv11 = trunc i64 %div1031 to i32
@@ -1799,7 +1799,7 @@ if.end9:                                          ; preds = %if.end
   %7 = load i32, ptr %bitmap_size, align 4
   %conv16 = zext i32 %7 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %call, i8 -1, i64 %conv16, i1 false)
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %8 = load ptr, ptr %file, align 8
   %9 = load i64, ptr %free_data_block_offset, align 8
   %call20 = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %8, i64 noundef %9, i64 noundef %conv16, ptr noundef %call, i32 noundef 0) #15
@@ -1819,16 +1819,16 @@ if.end25:                                         ; preds = %if.end9
   %add30 = add i64 %12, %conv28
   store i64 %add30, ptr %free_data_block_offset, align 8
   %13 = load ptr, ptr %opaque, align 8
-  %free_data_block_offset.i = getelementptr inbounds i8, ptr %13, i64 560
+  %free_data_block_offset.i = getelementptr inbounds nuw i8, ptr %13, i64 560
   %14 = load i64, ptr %free_data_block_offset.i, align 8
   %15 = load ptr, ptr %file, align 8
-  %footer.i = getelementptr inbounds i8, ptr %13, i64 48
+  %footer.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   %call.i = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %15, i64 noundef %14, i64 noundef 512, ptr noundef nonnull %footer.i, i32 noundef 0) #15
   %cmp32 = icmp slt i32 %call.i, 0
   br i1 %cmp32, label %fail, label %if.end35
 
 if.end35:                                         ; preds = %if.end25
-  %bat_offset36 = getelementptr inbounds i8, ptr %0, i64 584
+  %bat_offset36 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %16 = load i64, ptr %bat_offset36, align 8
   %mul37 = shl i64 %div, 2
   %conv38 = and i64 %mul37, 4294967292
@@ -1845,19 +1845,19 @@ if.end35:                                         ; preds = %if.end25
 
 if.end49:                                         ; preds = %if.end35
   %21 = load ptr, ptr %opaque, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %21, i64 600
+  %block_size.i = getelementptr inbounds nuw i8, ptr %21, i64 600
   %22 = load i32, ptr %block_size.i, align 8
   %conv.i = zext i32 %22 to i64
   %div.i = udiv i64 %offset, %conv.i
   %conv1.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %offset, %conv.i
-  %max_table_entries.i = getelementptr inbounds i8, ptr %21, i64 568
+  %max_table_entries.i = getelementptr inbounds nuw i8, ptr %21, i64 568
   %23 = load i32, ptr %max_table_entries.i, align 8
   %cmp5.not.i = icmp ugt i32 %23, %conv1.i
   br i1 %cmp5.not.i, label %lor.lhs.false.i, label %cleanup
 
 lor.lhs.false.i:                                  ; preds = %if.end49
-  %pagetable.i = getelementptr inbounds i8, ptr %21, i64 576
+  %pagetable.i = getelementptr inbounds nuw i8, ptr %21, i64 576
   %24 = load ptr, ptr %pagetable.i, align 8
   %idxprom.i = and i64 %div.i, 4294967295
   %arrayidx.i = getelementptr i32, ptr %24, i64 %idxprom.i
@@ -1868,7 +1868,7 @@ lor.lhs.false.i:                                  ; preds = %if.end49
 if.end10.i:                                       ; preds = %lor.lhs.false.i
   %conv14.i = zext i32 %25 to i64
   %mul.i = shl nuw nsw i64 %conv14.i, 9
-  %bitmap_size.i = getelementptr inbounds i8, ptr %21, i64 604
+  %bitmap_size.i = getelementptr inbounds nuw i8, ptr %21, i64 604
   %26 = load i32, ptr %bitmap_size.i, align 4
   %conv15.i = zext i32 %26 to i64
   %add.i = add nuw nsw i64 %mul.i, %rem.i
@@ -1896,13 +1896,13 @@ cleanup:                                          ; preds = %if.end10.i, %lor.lh
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483648, 1) i32 @rewrite_footer(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %free_data_block_offset = getelementptr inbounds i8, ptr %0, i64 560
+  %free_data_block_offset = getelementptr inbounds nuw i8, ptr %0, i64 560
   %1 = load i64, ptr %free_data_block_offset, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
-  %footer = getelementptr inbounds i8, ptr %0, i64 48
+  %footer = getelementptr inbounds nuw i8, ptr %0, i64 48
   %call = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %2, i64 noundef %1, i64 noundef 512, ptr noundef nonnull %footer, i32 noundef 0) #15
   %call. = tail call i32 @llvm.smin.i32(i32 %call, i32 0)
   ret i32 %call.

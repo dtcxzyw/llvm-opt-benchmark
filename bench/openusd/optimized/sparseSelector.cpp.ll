@@ -75,7 +75,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
   %30 = load i8, ptr %29, align 1
   %31 = or i8 %30, 1
   store i8 %31, ptr %29, align 1
-  %32 = getelementptr inbounds i8, ptr %24, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 456
@@ -147,7 +147,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 432
@@ -157,7 +157,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
   %45 = load i8, ptr %44, align 1
   %46 = or i8 %45, 1
   store i8 %46, ptr %44, align 1
-  %47 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 456

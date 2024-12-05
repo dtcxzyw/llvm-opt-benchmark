@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @unregister_node(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @hugetlb_unregister_node(ptr noundef %0) #9
   tail call void @compaction_unregister_node(ptr noundef %0) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -728
   %5 = icmp eq ptr %4, %0
@@ -87,9 +87,9 @@ define dso_local void @unregister_node(ptr noundef %0) local_unnamed_addr #0 ali
   %6 = phi ptr [ %12, %.preheader ], [ %4, %1 ]
   %7 = phi ptr [ %8, %.preheader ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
   store volatile ptr %8, ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
@@ -191,7 +191,7 @@ define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i3
   br i1 %24, label %25, label %52
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %19, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
@@ -207,7 +207,7 @@ define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i3
   br i1 %34, label %35, label %52
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %16, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -243,7 +243,7 @@ define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @node_init_node_access(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 728
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
   br label %4
 
 4:                                                ; preds = %8, %2
@@ -265,13 +265,13 @@ define internal fastcc ptr @node_init_node_access(ptr noundef %0, i32 noundef %1
   br i1 %15, label %36, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 744
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 744
   store i32 %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 688
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 688
   store ptr @node_access_release, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 680
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 680
   store ptr @node_access_node_groups, ptr %20, align 8
   %21 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, i32 noundef %1) #9
   %22 = icmp eq i32 %21, 0
@@ -284,12 +284,12 @@ define internal fastcc ptr @node_init_node_access(ptr noundef %0, i32 noundef %1
 
 26:                                               ; preds = %23
   tail call void @pm_runtime_no_callbacks(ptr noundef nonnull %14) #9
-  %27 = getelementptr inbounds i8, ptr %14, i64 728
-  %28 = getelementptr inbounds i8, ptr %0, i64 736
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 728
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %29 = load ptr, ptr %28, align 8
   store ptr %27, ptr %28, align 8
   store ptr %3, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 736
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 736
   store ptr %29, ptr %30, align 8
   store volatile ptr %27, ptr %29, align 8
   br label %36
@@ -358,20 +358,20 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 728
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 736
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 736
   store volatile ptr %6, ptr %7, align 8
   %8 = sext i32 %0 to i64
   %9 = getelementptr [64 x ptr], ptr @node_devices, i64 0, i64 %8
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 648
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 648
   store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr @node_subsys, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 688
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 688
   store ptr @node_device_release, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 680
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 680
   store ptr @node_dev_groups, ptr %13, align 8
   %14 = tail call i32 @device_register(ptr noundef nonnull %3) #9
   %15 = icmp eq i32 %14, 0
@@ -462,7 +462,7 @@ define dso_local void @unregister_one_node(i32 noundef %0) local_unnamed_addr #0
 6:                                                ; preds = %1
   tail call void @hugetlb_unregister_node(ptr noundef nonnull %4) #9
   tail call void @compaction_unregister_node(ptr noundef nonnull %4) #9
-  %7 = getelementptr inbounds i8, ptr %4, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 728
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -728
   %10 = icmp eq ptr %9, %4
@@ -472,9 +472,9 @@ define dso_local void @unregister_one_node(i32 noundef %0) local_unnamed_addr #0
   %11 = phi ptr [ %17, %.preheader ], [ %9, %6 ]
   %12 = phi ptr [ %13, %.preheader ], [ %8, %6 ]
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
   store volatile ptr %13, ptr %15, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
@@ -606,7 +606,7 @@ declare dso_local i32 @compaction_register_node(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @node_read_meminfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.sysinfo, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %7
@@ -617,10 +617,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_meminfo(ptr no
   %10 = call i64 @node_page_state_pages(ptr noundef %9, i32 noundef 5) #9
   %11 = call i64 @node_page_state_pages(ptr noundef %9, i32 noundef 6) #9
   %12 = call i64 @node_page_state_pages(ptr noundef %9, i32 noundef 40) #9
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %14, 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = shl i64 %17, 2
   %19 = sub i64 %14, %17
@@ -657,7 +657,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_meminfo(ptr no
   %50 = shl i64 %49, 2
   %51 = call i64 @node_page_state(ptr noundef %9, i32 noundef 17) #9
   %52 = shl i64 %51, 2
-  %53 = getelementptr inbounds i8, ptr %4, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = shl i64 %54, 2
   %56 = call i64 @node_page_state(ptr noundef %9, i32 noundef 37) #9
@@ -709,7 +709,7 @@ declare dso_local i32 @hugetlb_report_node_meminfo(ptr noundef, i32 noundef, i32
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @node_read_numastat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   tail call void @fold_vm_numa_events() #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   %6 = tail call i64 @sum_zone_numa_event_state(i32 noundef %5, i32 noundef 0) #9
   %7 = load i32, ptr %4, align 8
@@ -738,7 +738,7 @@ declare dso_local i64 @sum_zone_numa_event_state(i32 noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
   %7 = icmp eq i64 %6, 0
@@ -789,7 +789,7 @@ declare dso_local i32 @__node_distance(i32 noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %6
@@ -850,7 +850,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr noc
 define internal range(i64 -2147483648, 2147483648) i64 @cpumap_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
   %7 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 648
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr [64 x [1 x %struct.cpumask]], ptr @node_to_cpumask_map, i64 0, i64 %10
@@ -873,7 +873,7 @@ declare dso_local i32 @bitmap_print_bitmask_to_buf(ptr noundef, ptr noundef, i32
 define internal range(i64 -2147483648, 2147483648) i64 @cpulist_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
   %7 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 648
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr [64 x [1 x %struct.cpumask]], ptr @node_to_cpumask_map, i64 0, i64 %10
@@ -894,7 +894,7 @@ declare dso_local i32 @bitmap_print_list_to_buf(ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @show_node_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = getelementptr [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 %6

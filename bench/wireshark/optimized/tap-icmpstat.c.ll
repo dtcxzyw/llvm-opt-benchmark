@@ -46,9 +46,9 @@ define internal void @icmpstat_init(ptr noundef %0, ptr nocapture readnone %1) #
   %.not = icmp eq ptr %3, null
   %8 = getelementptr i8, ptr %0, i64 9
   %spec.select = select i1 %.not, ptr null, ptr %8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 48, i1 false)
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0x41EFFFFFFFE00000, ptr %10, align 8
   %11 = tail call noalias ptr @g_strdup(ptr noundef %spec.select) #12
   store ptr %11, ptr %4, align 8
@@ -90,11 +90,11 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @icmpstat_reset(ptr nocapture noundef initializes((0, 8), (16, 56)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free(ptr noundef %3) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0x41EFFFFFFFE00000, ptr %4, align 8
   ret void
 }
@@ -105,13 +105,13 @@ define internal range(i32 0, 2) i32 @icmpstat_packet(ptr nocapture noundef %0, p
   br i1 %6, label %45, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %39, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = tail call double @nstime_to_msec(ptr noundef nonnull %11) #12
   %13 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #16
   %14 = icmp eq ptr %13, null
@@ -119,41 +119,41 @@ define internal range(i32 0, 2) i32 @icmpstat_packet(ptr nocapture noundef %0, p
 
 15:                                               ; preds = %10
   store double %12, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @g_slist_prepend(ptr noundef %17, ptr noundef nonnull %13) #12
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load double, ptr %22, align 8
   %24 = fcmp ogt double %23, %12
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
   %26 = load i32, ptr %8, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %26, ptr %27, align 8
   store double %12, ptr %22, align 8
   br label %28
 
 28:                                               ; preds = %25, %15
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load double, ptr %29, align 8
   %31 = fcmp olt double %30, %12
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %8, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %33, ptr %34, align 4
   store double %12, ptr %29, align 8
   br label %35
 
 35:                                               ; preds = %32, %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load double, ptr %36, align 8
   %38 = fadd double %12, %37
   store double %38, ptr %36, align 8
@@ -165,7 +165,7 @@ define internal range(i32 0, 2) i32 @icmpstat_packet(ptr nocapture noundef %0, p
   br i1 %.not31, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -186,16 +186,16 @@ define internal void @icmpstat_draw(ptr nocapture noundef %0) #0 {
   %spec.select = select i1 %.not, ptr @.str.9, ptr %2
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %spec.select)
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not19 = icmp eq i32 %6, 0
   br i1 %.not19, label %70, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = sub i32 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @g_slist_sort(ptr noundef %12, ptr noundef nonnull @compare_doubles) #12
   store ptr %13, ptr %11, align 8
@@ -206,7 +206,7 @@ define internal void @icmpstat_draw(ptr nocapture noundef %0) #0 {
   br i1 %or.cond.i, label %compute_stats.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load double, ptr %18, align 8
   %20 = uitofp i32 %14 to double
   %21 = fdiv double %19, %20
@@ -244,7 +244,7 @@ define internal void @icmpstat_draw(ptr nocapture noundef %0) #0 {
   %40 = load double, ptr %39, align 8
   %41 = fsub double %40, %21
   %42 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.041.i)
-  %43 = getelementptr inbounds i8, ptr %.03440.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.03440.i, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not38.i = icmp eq ptr %44, null
   br i1 %.not38.i, label %._crit_edge.i, label %38, !llvm.loop !5
@@ -274,15 +274,15 @@ compute_stats.exit:                               ; preds = %7, %._crit_edge.i, 
   %57 = fdiv double %55, %56
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %53, i32 noundef %52, i32 noundef %10, double noundef %57)
   %puts22 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load double, ptr %59, align 8
   %61 = fcmp ult double %60, 0x41EFFFFFFFE00000
   %62 = select i1 %61, double %60, double 0.000000e+00
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %68 = load i32, ptr %67, align 4
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, double noundef %62, double noundef %64, double noundef %.027, double noundef %.0, double noundef %.sink.i, i32 noundef %66, i32 noundef %68)
   br label %72

@@ -106,13 +106,13 @@ entry:
   %myArgv = alloca [3 x ptr], align 16
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   store ptr %argv0, ptr %myArgv, align 16
-  %arrayidx2 = getelementptr inbounds i8, ptr %argv0, i64 80
-  %arrayidx4 = getelementptr inbounds i8, ptr %myArgv, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv0, i64 80
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %myArgv, i64 8
   store ptr %arrayidx2, ptr %arrayidx4, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %argv0, i64 160
-  %arrayidx7 = getelementptr inbounds i8, ptr %myArgv, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %argv0, i64 160
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %myArgv, i64 16
   store ptr %arrayidx5, ptr %arrayidx7, align 16
-  %argv9 = getelementptr inbounds i8, ptr %args, i64 8
+  %argv9 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %myArgv, ptr %argv9, align 8
   %call12 = call i64 @wc_strlcpy(ptr noundef nonnull %argv0, ptr noundef nonnull @.str.1, i64 noundef 80) #16
   %call13 = call ptr @wolfSSLv23_client_method() #16
@@ -127,7 +127,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp16 = icmp sgt i32 %argc, 1
-  %return_code20 = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code20 = getelementptr inbounds nuw i8, ptr %args, i64 16
   br i1 %cmp16, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %if.end
@@ -307,9 +307,9 @@ if.then:                                          ; preds = %entry
   br label %if.end10
 
 if.end10.thread:                                  ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %vargs, i64 8
+  %argv = getelementptr inbounds nuw i8, ptr %vargs, i64 8
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %arrayidx, align 8
   br label %if.then13
 
@@ -328,9 +328,9 @@ if.end10:                                         ; preds = %if.then, %if.else4
 
 if.then13:                                        ; preds = %if.end10.thread, %if.end10
   %addArgs.0103 = phi ptr [ %2, %if.end10.thread ], [ null, %if.end10 ]
-  %argv14 = getelementptr inbounds i8, ptr %vargs, i64 8
+  %argv14 = getelementptr inbounds nuw i8, ptr %vargs, i64 8
   %4 = load ptr, ptr %argv14, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %4, i64 8
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   br label %if.end16
 
@@ -409,10 +409,10 @@ if.then55:                                        ; preds = %if.end52
 
 land.rhs.lr.ph:                                   ; preds = %if.end52
   %call60 = tail call i32 @fclose(ptr noundef nonnull %call17)
-  %arrayidx61 = getelementptr inbounds i8, ptr %call46, i64 %call31
+  %arrayidx61 = getelementptr inbounds nuw i8, ptr %call46, i64 %call31
   store i8 0, ptr %arrayidx61, align 1
   store ptr %call46, ptr %cursor, align 8
-  %argv62 = getelementptr inbounds i8, ptr %vargs, i64 8
+  %argv62 = getelementptr inbounds nuw i8, ptr %vargs, i64 8
   %16 = load ptr, ptr %argv62, align 8
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %svrArgs, align 16
@@ -449,7 +449,7 @@ land.lhs.true:                                    ; preds = %sw.bb
 if.end84:                                         ; preds = %land.lhs.true, %sw.bb
   %cliMode.1 = phi i32 [ %cliMode.097, %sw.bb ], [ %spec.select, %land.lhs.true ]
   %do_it.1 = phi i1 [ true, %sw.bb ], [ %spec.select93, %land.lhs.true ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %18, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %incdec.ptr, ptr %cursor, align 8
   br label %sw.epilog
 
@@ -614,7 +614,7 @@ while.end:                                        ; preds = %if.end190, %land.rh
 
 return:                                           ; preds = %while.end, %if.then55, %if.then48, %if.then40, %if.then33, %if.then25, %if.then19, %if.then7
   %.sink = phi i32 [ 0, %while.end ], [ 1, %if.then55 ], [ 1, %if.then48 ], [ 1, %if.then40 ], [ 1, %if.then33 ], [ 1, %if.then25 ], [ 1, %if.then19 ], [ 1, %if.then7 ]
-  %return_code191 = getelementptr inbounds i8, ptr %vargs, i64 16
+  %return_code191 = getelementptr inbounds nuw i8, ptr %vargs, i64 16
   store i32 %.sink, ptr %return_code191, align 8
   ret void
 }
@@ -667,18 +667,18 @@ entry:
   %commandLine = alloca [240 x i8], align 16
   %cipherSuite = alloca [201 x i8], align 16
   store i32 %cli_argc, ptr %cliArgs, align 8
-  %argv = getelementptr inbounds i8, ptr %cliArgs, i64 8
+  %argv = getelementptr inbounds nuw i8, ptr %cliArgs, i64 8
   store ptr %cli_argv, ptr %argv, align 8
-  %return_code = getelementptr inbounds i8, ptr %cliArgs, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %cliArgs, i64 16
   store i32 0, ptr %return_code, align 8
-  %signal = getelementptr inbounds i8, ptr %cliArgs, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %cliArgs, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %signal, i8 0, i64 16, i1 false)
   store i32 %svr_argc, ptr %svrArgs, align 8
-  %argv2 = getelementptr inbounds i8, ptr %svrArgs, i64 8
+  %argv2 = getelementptr inbounds nuw i8, ptr %svrArgs, i64 8
   store ptr %svr_argv, ptr %argv2, align 8
-  %return_code3 = getelementptr inbounds i8, ptr %svrArgs, i64 16
+  %return_code3 = getelementptr inbounds nuw i8, ptr %svrArgs, i64 16
   store i32 0, ptr %return_code3, align 8
-  %signal4 = getelementptr inbounds i8, ptr %svrArgs, i64 24
+  %signal4 = getelementptr inbounds nuw i8, ptr %svrArgs, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %signal4, i8 0, i64 16, i1 false)
   store i8 0, ptr %commandLine, align 16
   %cmp128 = icmp sgt i32 %svr_argc, 0
@@ -687,7 +687,7 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %entry ]
   %added.0130 = phi i64 [ %add8, %if.end ], [ 0, %entry ]
-  %arrayidx7 = getelementptr inbounds ptr, ptr %svr_argv, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %svr_argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx7, align 8
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %add = add i64 %added.0130, 2
@@ -715,7 +715,7 @@ for.end:                                          ; preds = %if.end, %entry, %if
   br i1 %tobool.not.i, label %return, label %if.then1.i
 
 if.then1.i:                                       ; preds = %for.end
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 32)
   %tobool3.not.i = icmp eq ptr %strchr.i, null
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
@@ -742,7 +742,7 @@ if.else.i:                                        ; preds = %if.then1.i
   br label %IsValidCipherSuite.exit
 
 IsValidCipherSuite.exit:                          ; preds = %if.end8.i, %if.else.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %cipherSuite, i64 200
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %cipherSuite, i64 200
   store i8 0, ptr %arrayidx12.i, align 8
   %3 = load ptr, ptr @cipherSuiteCtx, align 8
   %call16.i = call i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %3, ptr noundef nonnull %cipherSuite) #16
@@ -760,7 +760,7 @@ IsValidCert.exit.thread115:                       ; preds = %if.end21
   br label %if.end25
 
 if.end.i:                                         ; preds = %if.end21
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %call.i64, i64 3
+  %add.ptr.i65 = getelementptr inbounds nuw i8, ptr %call.i64, i64 3
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i, %if.end.i
@@ -773,8 +773,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i, %if.end
   ]
 
 for.body.i:                                       ; preds = %land.lhs.true.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.011.i, i64 1
-  %arrayidx.i = getelementptr inbounds [80 x i8], ptr %cert.i, i64 0, i64 %i.010.i
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %begin.011.i, i64 1
+  %arrayidx.i = getelementptr inbounds nuw [80 x i8], ptr %cert.i, i64 0, i64 %i.010.i
   store i8 %4, ptr %arrayidx.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 79
@@ -782,7 +782,7 @@ for.body.i:                                       ; preds = %land.lhs.true.i
 
 for.end.i:                                        ; preds = %for.body.i, %land.lhs.true.i, %land.lhs.true.i
   %i.0.lcssa.i = phi i64 [ %i.010.i, %land.lhs.true.i ], [ %i.010.i, %land.lhs.true.i ], [ 79, %for.body.i ]
-  %arrayidx7.i = getelementptr inbounds [80 x i8], ptr %cert.i, i64 0, i64 %i.0.lcssa.i
+  %arrayidx7.i = getelementptr inbounds nuw [80 x i8], ptr %cert.i, i64 0, i64 %i.0.lcssa.i
   store i8 0, ptr %arrayidx7.i, align 1
   %call8.i = call ptr @wolfSSLv23_server_method_ex(ptr noundef null) #16
   %call9.i = call ptr @wolfSSL_CTX_new(ptr noundef %call8.i) #16
@@ -806,11 +806,11 @@ if.end25:                                         ; preds = %IsValidCert.exit.th
   br i1 %tobool.not.i.i, label %if.end35, label %IsSslVersion.exit
 
 IsSslVersion.exit:                                ; preds = %if.end25
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 3
   %5 = load i8, ptr %add.ptr.i.i, align 1
   %6 = and i8 %5, -2
   %switch.i.i = icmp eq i8 %6, 100
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 5
+  %add.ptr6.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 5
   %spec.select.i.i = select i1 %switch.i.i, ptr %add.ptr6.i.i, ptr %add.ptr.i.i
   %call7.i.i = call i32 @atoi(ptr nocapture noundef nonnull %spec.select.i.i) #20
   %switch = icmp ult i32 %call7.i.i, 2
@@ -921,7 +921,7 @@ if.end95:                                         ; preds = %if.then83, %if.else
 for.body100:                                      ; preds = %if.end95, %if.end109
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %if.end109 ], [ 0, %if.end95 ]
   %added.1133 = phi i64 [ %add105, %if.end109 ], [ 0, %if.end95 ]
-  %arrayidx102 = getelementptr inbounds ptr, ptr %svr_argv, i64 %indvars.iv138
+  %arrayidx102 = getelementptr inbounds nuw ptr, ptr %svr_argv, i64 %indvars.iv138
   %15 = load ptr, ptr %arrayidx102, align 8
   %call103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #20
   %add104 = add i64 %added.1133, 2
@@ -951,11 +951,11 @@ for.end118:                                       ; preds = %if.end109, %if.end9
   %call123 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %commandLine, ptr noundef nonnull dereferenceable(1) @exitWithRetFlag) #20
   %cmp124.not = icmp eq ptr %call123, null
   store i16 0, ptr %ready, align 8
-  %port.i = getelementptr inbounds i8, ptr %ready, i64 2
+  %port.i = getelementptr inbounds nuw i8, ptr %ready, i64 2
   store i16 0, ptr %port.i, align 2
-  %srfName.i = getelementptr inbounds i8, ptr %ready, i64 8
+  %srfName.i = getelementptr inbounds nuw i8, ptr %ready, i64 8
   store ptr null, ptr %srfName.i, align 8
-  %mutex.i = getelementptr inbounds i8, ptr %ready, i64 16
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ready, i64 16
   %call.i76 = call i32 @wc_InitMutex(ptr noundef nonnull %mutex.i) #16
   %cmp.not.i = icmp eq i32 %call.i76, 0
   br i1 %cmp.not.i, label %do.body4.i, label %if.then.i
@@ -969,7 +969,7 @@ if.then.i:                                        ; preds = %for.end118
   unreachable
 
 do.body4.i:                                       ; preds = %for.end118
-  %cond.i = getelementptr inbounds i8, ptr %ready, i64 56
+  %cond.i = getelementptr inbounds nuw i8, ptr %ready, i64 56
   %call6.i = call i32 @wolfSSL_CondInit(ptr noundef nonnull %cond.i) #16
   %cmp7.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.not.i, label %InitTcpReady.exit, label %if.then8.i
@@ -1094,7 +1094,7 @@ for.body202.preheader:                            ; preds = %if.end196.thread, %
 for.body202:                                      ; preds = %for.body202.preheader, %if.end212
   %indvars.iv141 = phi i64 [ 0, %for.body202.preheader ], [ %indvars.iv.next142, %if.end212 ]
   %added.2136 = phi i64 [ 0, %for.body202.preheader ], [ %add207, %if.end212 ]
-  %arrayidx204 = getelementptr inbounds ptr, ptr %cli_argv, i64 %indvars.iv141
+  %arrayidx204 = getelementptr inbounds nuw ptr, ptr %cli_argv, i64 %indvars.iv141
   %33 = load ptr, ptr %arrayidx204, align 8
   %call205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %add206 = add i64 %added.2136, 2
@@ -1124,7 +1124,7 @@ IsValidCA.exit.thread124:                         ; preds = %for.end221
   br label %if.end226
 
 if.end.i82:                                       ; preds = %for.end221
-  %add.ptr.i83 = getelementptr inbounds i8, ptr %call.i80, i64 3
+  %add.ptr.i83 = getelementptr inbounds nuw i8, ptr %call.i80, i64 3
   br label %land.lhs.true.i84
 
 land.lhs.true.i84:                                ; preds = %for.body.i98, %if.end.i82
@@ -1137,8 +1137,8 @@ land.lhs.true.i84:                                ; preds = %for.body.i98, %if.e
   ]
 
 for.body.i98:                                     ; preds = %land.lhs.true.i84
-  %incdec.ptr.i99 = getelementptr inbounds i8, ptr %begin.011.i85, i64 1
-  %arrayidx.i100 = getelementptr inbounds [80 x i8], ptr %cert.i79, i64 0, i64 %i.010.i86
+  %incdec.ptr.i99 = getelementptr inbounds nuw i8, ptr %begin.011.i85, i64 1
+  %arrayidx.i100 = getelementptr inbounds nuw [80 x i8], ptr %cert.i79, i64 0, i64 %i.010.i86
   store i8 %34, ptr %arrayidx.i100, align 1
   %inc.i101 = add nuw nsw i64 %i.010.i86, 1
   %exitcond.not.i102 = icmp eq i64 %inc.i101, 79
@@ -1146,7 +1146,7 @@ for.body.i98:                                     ; preds = %land.lhs.true.i84
 
 for.end.i87:                                      ; preds = %for.body.i98, %land.lhs.true.i84, %land.lhs.true.i84
   %i.0.lcssa.i88 = phi i64 [ %i.010.i86, %land.lhs.true.i84 ], [ %i.010.i86, %land.lhs.true.i84 ], [ 79, %for.body.i98 ]
-  %arrayidx7.i89 = getelementptr inbounds [80 x i8], ptr %cert.i79, i64 0, i64 %i.0.lcssa.i88
+  %arrayidx7.i89 = getelementptr inbounds nuw [80 x i8], ptr %cert.i79, i64 0, i64 %i.0.lcssa.i88
   store i8 0, ptr %arrayidx7.i89, align 1
   %call8.i90 = call ptr @wolfSSLv23_server_method_ex(ptr noundef null) #16
   %call9.i91 = call ptr @wolfSSL_CTX_new(ptr noundef %call8.i90) #16

@@ -56,38 +56,38 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(92) ptr @_ZN4LIEF2PE17ResourceDirectoryaSES1_(ptr noundef nonnull returned align 8 dereferenceable(92) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(92) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
-  %4 = getelementptr inbounds i8, ptr %1, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
   store i32 %6, ptr %3, align 4
   store i32 %5, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i32, ptr %7, align 8
   %10 = load i32, ptr %8, align 4
   store i32 %10, ptr %7, align 8
   store i32 %9, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 84
-  %12 = getelementptr inbounds i8, ptr %1, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %13 = load i16, ptr %11, align 4
   %14 = load i16, ptr %12, align 2
   store i16 %14, ptr %11, align 4
   store i16 %13, ptr %12, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 86
-  %16 = getelementptr inbounds i8, ptr %1, i64 86
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %17 = load i16, ptr %15, align 2
   %18 = load i16, ptr %16, align 2
   store i16 %18, ptr %15, align 2
   store i16 %17, ptr %16, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i16, ptr %19, align 8
   %22 = load i16, ptr %20, align 2
   store i16 %22, ptr %19, align 8
   store i16 %21, ptr %20, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 90
-  %24 = getelementptr inbounds i8, ptr %1, i64 90
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %25 = load i16, ptr %23, align 2
   %26 = load i16, ptr %24, align 2
   store i16 %26, ptr %23, align 2
@@ -98,38 +98,38 @@ define noundef nonnull align 8 dereferenceable(92) ptr @_ZN4LIEF2PE17ResourceDir
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory4swapERS1_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(92) %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
-  %4 = getelementptr inbounds i8, ptr %1, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
   store i32 %6, ptr %3, align 4
   store i32 %5, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i32, ptr %7, align 8
   %10 = load i32, ptr %8, align 8
   store i32 %10, ptr %7, align 8
   store i32 %9, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 84
-  %12 = getelementptr inbounds i8, ptr %1, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %13 = load i16, ptr %11, align 4
   %14 = load i16, ptr %12, align 4
   store i16 %14, ptr %11, align 4
   store i16 %13, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 86
-  %16 = getelementptr inbounds i8, ptr %1, i64 86
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %17 = load i16, ptr %15, align 2
   %18 = load i16, ptr %16, align 2
   store i16 %18, ptr %15, align 2
   store i16 %17, ptr %16, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i16, ptr %19, align 8
   %22 = load i16, ptr %20, align 8
   store i16 %22, ptr %19, align 8
   store i16 %21, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 90
-  %24 = getelementptr inbounds i8, ptr %1, i64 90
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %25 = load i16, ptr %23, align 2
   %26 = load i16, ptr %24, align 2
   store i16 %26, ptr %23, align 2
@@ -141,28 +141,28 @@ define void @_ZN4LIEF2PE17ResourceDirectory4swapERS1_(ptr noundef nonnull align 
 define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(92) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
-  %4 = getelementptr inbounds i8, ptr %1, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
-  %10 = getelementptr inbounds i8, ptr %1, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %11 = load i16, ptr %10, align 4
   store i16 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 86
-  %13 = getelementptr inbounds i8, ptr %1, i64 86
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %14 = load i16, ptr %13, align 2
   store i16 %14, ptr %12, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i16, ptr %16, align 8
   store i16 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 90
-  %19 = getelementptr inbounds i8, ptr %1, i64 90
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %20 = load i16, ptr %19, align 2
   store i16 %20, ptr %18, align 2
   ret void
@@ -176,8 +176,8 @@ declare void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 de
 define void @_ZN4LIEF2PE17ResourceDirectoryC2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 2, ptr %3, align 8
   ret void
@@ -189,113 +189,113 @@ declare void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_directory_tableE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %1, align 1
   store i32 %4, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 1
   store i32 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 1
   store i16 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 86
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %12 = load i16, ptr %9, align 1
   store i16 %12, ptr %11, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i16, ptr %14, align 1
   store i16 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 90
-  %17 = getelementptr inbounds i8, ptr %1, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %18 = load i16, ptr %17, align 1
   store i16 %18, ptr %16, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %19, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15characteristicsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15time_date_stampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13major_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 84
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i16, ptr %2, align 4
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13minor_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 86
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory21numberof_name_entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i16, ptr %2, align 8
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory19numberof_id_entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 90
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory15characteristicsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory15time_date_stampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory13major_versionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((84, 86)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i16 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory13minor_versionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((86, 88)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 86
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 86
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory21numberof_name_entriesEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((88, 90)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF2PE17ResourceDirectory19numberof_id_entriesEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((90, 92)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 90
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i16 %1, ptr %3, align 2
   ret void
 }
@@ -303,7 +303,7 @@ define void @_ZN4LIEF2PE17ResourceDirectory19numberof_id_entriesEt(ptr nocapture
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE17ResourceDirectory6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 496
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 496
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(92) %0)
   ret void
@@ -318,7 +318,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %7, i8 32)
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.1)
-  %10 = getelementptr inbounds i8, ptr %1, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %11 = load i32, ptr %10, align 4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %11)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -327,7 +327,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 32)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.2)
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %20)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -336,7 +336,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.3)
-  %28 = getelementptr inbounds i8, ptr %1, i64 84
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %29 = load i16, ptr %28, align 4
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %27, i16 noundef zeroext %29)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -345,7 +345,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %34, i8 32)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.4)
-  %37 = getelementptr inbounds i8, ptr %1, i64 86
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %38 = load i16, ptr %37, align 2
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %36, i16 noundef zeroext %38)
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -354,7 +354,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 32)
   %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.5)
-  %46 = getelementptr inbounds i8, ptr %1, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %47 = load i16, ptr %46, align 8
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %45, i16 noundef zeroext %47)
   %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -363,7 +363,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_17
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %52, i8 32)
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.6)
-  %55 = getelementptr inbounds i8, ptr %1, i64 90
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %56 = load i16, ptr %55, align 2
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8) %54, i16 noundef zeroext %56)
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -386,7 +386,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -177
   %5 = or disjoint i32 %4, 32

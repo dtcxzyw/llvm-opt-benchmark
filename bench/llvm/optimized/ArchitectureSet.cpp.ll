@@ -48,7 +48,7 @@ _ZN4llvm5MachO15ArchitectureSet3setENS0_12ArchitectureE.exit: ; preds = %.lr.ph
 
 12:                                               ; preds = %.lr.ph, %_ZN4llvm5MachO15ArchitectureSet3setENS0_12ArchitectureE.exit
   %13 = phi i32 [ %6, %.lr.ph ], [ %11, %_ZN4llvm5MachO15ArchitectureSet3setENS0_12ArchitectureE.exit ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 1
   %.not = icmp eq ptr %14, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -260,7 +260,7 @@ _ZNK4llvm5MachO15ArchitectureSet5beginEv.exit:    ; preds = %6
 
 19:                                               ; preds = %17
   store i8 %15, ptr %13, align 1
-  %20 = getelementptr inbounds i8, ptr %13, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %20, ptr %10, align 8
   br label %.preheader.i.i
 
@@ -301,7 +301,7 @@ _ZNSt12_Vector_baseIN4llvm5MachO12ArchitectureESaIS2_EE11_M_allocateEm.exit.i.i:
   br label %_ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 _ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNSt12_Vector_baseIN4llvm5MachO12ArchitectureESaIS2_EE11_M_allocateEm.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %34, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %.not.i17.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
 
@@ -311,7 +311,7 @@ _ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 
 _ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 %30
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %30
   store ptr %39, ptr %11, align 8
   br label %.preheader.i.i
 

@@ -39,23 +39,23 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
 
 14:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %5, ptr %15, align 8
   %16 = select i1 %1, ptr null, ptr %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
   br label %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
 
 18:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %20, align 8
   %21 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 range(i64 16, 68719476721) %21, i1 false), !alias.scope !6
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %.promoted = load i32, ptr %22, align 4
   %.promoted101 = load i32, ptr %23, align 4
   br label %24
@@ -88,12 +88,12 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
 
 _ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge: ; preds = %31, %14
   %.04584 = phi ptr [ null, %14 ], [ %13, %31 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %37 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196643650, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %36)
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196445523, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %38)
   %.not54 = icmp eq ptr %8, null
   br i1 %.not54, label %81, label %.preheader
@@ -104,9 +104,9 @@ _ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge: ; preds = %31, %
   br i1 %.not55103, label %.loopexit92, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %2, i64 72
-  %42 = getelementptr inbounds i8, ptr %2, i64 56
-  %43 = getelementptr inbounds i8, ptr %2, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit
@@ -117,13 +117,13 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %_ZNK1
   br i1 %.not106, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %46 = getelementptr inbounds i8, ptr %44, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
   %.not107 = icmp eq i8 %47, 116
   br i1 %.not107, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %48 = getelementptr inbounds i8, ptr %44, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %51, label %.tail.thread
@@ -214,22 +214,22 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
   br label %119
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit: ; preds = %.thread.i.i64, %.lr.ph.i.i60, %.thread.i.i, %.lr.ph.i.i, %.tail.thread
-  %79 = getelementptr inbounds i8, ptr %.046104, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.046104, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not55 = icmp eq ptr %80, null
   br i1 %.not55, label %.loopexit92, label %sub_0, !llvm.loop !12
 
 81:                                               ; preds = %_ZN22hb_ot_shape_plan_key_t4initEP9hb_face_tPKij.exit.critedge
   %82 = tail call noundef ptr @_Z15_hb_shapers_getv()
-  %83 = getelementptr inbounds i8, ptr %2, i64 72
-  %84 = getelementptr inbounds i8, ptr %2, i64 56
-  %85 = getelementptr inbounds i8, ptr %2, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %86
 
 86:                                               ; preds = %81, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73
   %87 = phi i1 [ true, %81 ], [ false, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ]
   %indvars.iv = phi i64 [ 0, %81 ], [ 1, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ]
-  %88 = getelementptr inbounds %struct.hb_shaper_entry_t, ptr %82, i64 %indvars.iv, i32 1
+  %88 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %82, i64 %indvars.iv, i32 1
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, @_hb_ot_shape
   br i1 %90, label %91, label %104
@@ -351,9 +351,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %.preheader, label %.loopexit
@@ -363,9 +363,9 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %wide.trip.count = zext i32 %4 to i64
   br label %12
@@ -377,29 +377,29 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds %struct.hb_feature_t, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.hb_feature_t, ptr %8, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds %struct.hb_feature_t, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.hb_feature_t, ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %.not17 = icmp eq i32 %14, %16
   br i1 %.not17, label %17, label %.loopexit
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %13, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
   %.not18 = icmp eq i32 %19, %21
   br i1 %.not18, label %22, label %.loopexit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %13, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, -1
   %30 = zext i1 %29 to i32
@@ -407,13 +407,13 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
 
 31:                                               ; preds = %26, %22
   %32 = phi i32 [ 0, %22 ], [ %30, %26 ]
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %15, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, -1
   %40 = zext i1 %39 to i32
@@ -436,9 +436,9 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
   br i1 %.not, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %6, %8
   br i1 %.not.i, label %.preheader.i, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
@@ -448,9 +448,9 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
   br i1 %.not27.i, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count.i = zext i32 %6 to i64
   br label %14
@@ -462,29 +462,29 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds %struct.hb_feature_t, ptr %10, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.hb_feature_t, ptr %10, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds %struct.hb_feature_t, ptr %12, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw %struct.hb_feature_t, ptr %12, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %.not17.i = icmp eq i32 %16, %18
   br i1 %.not17.i, label %19, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %23 = load i32, ptr %22, align 4
   %.not18.i = icmp eq i32 %21, %23
   br i1 %.not18.i, label %24, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %15, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, -1
   %32 = zext i1 %31 to i32
@@ -492,13 +492,13 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
 
 33:                                               ; preds = %28, %24
   %34 = phi i32 [ 0, %24 ], [ %32, %28 ]
-  %35 = getelementptr inbounds i8, ptr %17, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %17, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, -1
   %42 = zext i1 %41 to i32
@@ -510,16 +510,16 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr nounde
   br i1 %.not19.i, label %13, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
 _ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit: ; preds = %13, %.preheader.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 44
-  %46 = getelementptr inbounds i8, ptr %1, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull dereferenceable(8) %46, i64 8)
   %47 = icmp eq i32 %bcmp.i, 0
   br i1 %47, label %48, label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
 48:                                               ; preds = %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %50, %52
   br label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
@@ -550,9 +550,9 @@ define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr nocapture n
 
 12:                                               ; preds = %10
   store atomic i32 1, ptr %11 monotonic, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store atomic i32 1, ptr %13 monotonic, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store atomic i64 0, ptr %14 monotonic, align 8
   %15 = load atomic i32, ptr %11 monotonic, align 4
   %.not27 = icmp eq ptr %0, null
@@ -565,19 +565,19 @@ define hidden nonnull ptr @hb_shape_plan_create2(ptr noundef %0, ptr nocapture n
 18:                                               ; preds = %16, %12
   %.024 = phi ptr [ %0, %12 ], [ %17, %16 ]
   tail call void @hb_face_make_immutable(ptr noundef %.024)
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %.024, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = tail call noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23hb_segment_properties_tPK12hb_feature_tjPKijPKPKc(ptr noundef nonnull align 8 dereferenceable(72) %20, i1 noundef zeroext true, ptr noundef %.024, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6)
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %11, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %24 = tail call noundef zeroext i1 @_ZN18hb_ot_shape_plan_t5init0EP9hb_face_tPK19hb_shape_plan_key_t(ptr noundef nonnull align 8 dereferenceable(170) %23, ptr noundef %.024, ptr noundef nonnull %20)
   br i1 %24, label %_ZL16hb_object_createI15hb_shape_plan_tJEEPT_DpT0_.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %11, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %27 = load ptr, ptr %26, align 8
   tail call void @free(ptr noundef %27) #19
   br label %28
@@ -639,14 +639,14 @@ define hidden void @hb_shape_plan_destroy(ptr noundef %0) local_unnamed_addr #0 
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not.i10.i = icmp eq i64 %9, 0
   br i1 %.not.i10.i, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #19
   tail call void @free(ptr noundef nonnull %11) #19
@@ -654,11 +654,11 @@ define hidden void @hb_shape_plan_destroy(ptr noundef %0) local_unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %10, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #19
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN18hb_ot_shape_plan_tD2Ev(ptr noundef nonnull align 8 dereferenceable(170) %17) #19
   tail call void @free(ptr noundef nonnull %0) #19
   br label %_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread
@@ -678,7 +678,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_set_user_data(ptr noundef %0, p
   br i1 %.not.i.i, label %_ZL23hb_object_set_user_dataI15hb_shape_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not1923.i = icmp eq i64 %9, 0
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -690,7 +690,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_set_user_data(ptr noundef %0, p
 
 11:                                               ; preds = %.lr.ph.i
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #19
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
   %15 = cmpxchg weak ptr %8, i64 0, i64 %14 acq_rel monotonic, align 8
@@ -732,7 +732,7 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly %0, ptr noun
   br i1 %.not.i.i, label %_ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not9.i = icmp eq i64 %7, 0
@@ -740,9 +740,9 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly %0, ptr noun
 
 9:                                                ; preds = %5
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
   %.not24.i.i.i.i.i.i = icmp eq i32 %14, 0
@@ -750,7 +750,7 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly %0, ptr noun
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -762,7 +762,7 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly %0, ptr noun
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
@@ -778,15 +778,15 @@ _ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hb_shape_plan_get_shaper(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10, label %9
@@ -802,8 +802,8 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr nou
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 176
-  %17 = getelementptr inbounds i8, ptr %1, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %18 = load atomic i64, ptr %16 acquire, align 8
   %.not23.i.i.i = icmp eq i64 %18, 0
   br i1 %.not23.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
@@ -848,8 +848,8 @@ _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1
   br i1 %32, label %33, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 184
-  %35 = getelementptr inbounds i8, ptr %1, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %36 = load atomic i64, ptr %34 acquire, align 8
   %.not23.i.i22.i = icmp eq i64 %36, 0
   br i1 %.not23.i.i22.i, label %.lr.ph.i.i24.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
@@ -890,7 +890,7 @@ _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tP
   br i1 %.not, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10
 
 _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10: ; preds = %5, %.loopexit.i, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
-  %49 = getelementptr inbounds i8, ptr %2, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %52, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
@@ -913,7 +913,7 @@ define hidden ptr @hb_shape_plan_create_cached(ptr noundef %0, ptr nocapture nou
 ; Function Attrs: mustprogress uwtable
 define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.hb_shape_plan_key_t, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load atomic i64, ptr %9 acquire, align 8
   %11 = load atomic i32, ptr %0 monotonic, align 4
   %12 = icmp sgt i32 %11, 0
@@ -936,7 +936,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture no
 .lr.ph:                                           ; preds = %.preheader, %27
   %.04149 = phi ptr [ %29, %27 ], [ %15, %.preheader ]
   %17 = load ptr, ptr %.04149, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = call noundef zeroext i1 @_ZN19hb_shape_plan_key_t5equalEPKS_(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull %8)
   br i1 %19, label %20, label %27
 
@@ -956,7 +956,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture no
   br label %hb_shape_plan_reference.exit
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.04149, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.04149, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -969,7 +969,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr nocapture no
 
 32:                                               ; preds = %._crit_edge
   store ptr %30, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %15, ptr %33, align 8
   %34 = ptrtoint ptr %31 to i64
   %35 = cmpxchg weak ptr %9, i64 %14, i64 %34 acq_rel monotonic, align 8
@@ -1022,7 +1022,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %10
@@ -1034,7 +1034,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
 
 7:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -1050,7 +1050,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph: ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
@@ -1058,10 +1058,10 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
-  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
-  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !17
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
@@ -1085,7 +1085,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 24:                                               ; preds = %._crit_edge
   store i32 0, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #19
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
@@ -1114,7 +1114,7 @@ define linkonce_odr hidden void @_ZN18hb_ot_shape_plan_tD2Ev(ptr noundef nonnull
           to label %2 unwind label %24
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
 
 4:                                                ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i, %2
@@ -1126,9 +1126,9 @@ define linkonce_odr hidden void @_ZN18hb_ot_shape_plan_tD2Ev(ptr noundef nonnull
   br i1 %.not.i.i.i, label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.ptr1.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %.ptr1.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #19
   br label %_ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i
@@ -1147,9 +1147,9 @@ _ZN11hb_vector_tIN11hb_ot_map_t11stage_map_tELb0EED2Ev.exit.i: ; preds = %6, %4
   br i1 %.not.i.i7.i, label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i, label %12
 
 12:                                               ; preds = %.preheader.i
-  %13 = getelementptr inbounds i8, ptr %.ptr5.i, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr5.i, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.ptr5.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr5.i, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #19
   br label %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i
@@ -1160,15 +1160,15 @@ _ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i: ; preds = %12, %
   br i1 %16, label %17, label %.preheader.i
 
 17:                                               ; preds = %_ZN11hb_vector_tIN11hb_ot_map_t12lookup_map_tELb0EED2Ev.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %.not.i.i8.i = icmp eq i32 %19, 0
   br i1 %.not.i.i8.i, label %_ZN11hb_ot_map_tD2Ev.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #19
   br label %_ZN11hb_ot_map_tD2Ev.exit
@@ -1219,9 +1219,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 12:                                               ; preds = %9
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %.sroa.2.8.insert.ext.i.i.i.i = zext i32 %17 to i64
   %.not24.i.i.i.i = icmp eq i32 %17, 0
@@ -1229,7 +1229,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -1241,14 +1241,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
+  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !21
   %.not.i.i = icmp eq i32 %26, 0
@@ -1273,11 +1273,11 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18h
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx, align 8
   %34 = tail call noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %8)
   %35 = icmp ne ptr %34, null
@@ -1294,9 +1294,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %9 to i64
   %.not24.i.i.i = icmp eq i32 %9, 0
@@ -1308,7 +1308,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -1320,13 +1320,13 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
@@ -1404,7 +1404,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 

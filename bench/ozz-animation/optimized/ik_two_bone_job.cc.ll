@@ -22,43 +22,43 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation12IKTwoBoneJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) initializes((0, 60), (64, 112)) %0) unnamed_addr #3 align 2 {
   store <4 x float> zeroinitializer, ptr %0, align 16
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float 0.000000e+00, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float 1.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store float 1.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob8ValidateEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(112) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 16
   %.not = icmp ne ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not45 = icmp ne ptr %5, null
   %or.cond.not = select i1 %.not, i1 %.not45, i1 false
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 16
   %8 = icmp ne ptr %7, null
   %narrow = select i1 %or.cond.not, i1 %8, i1 false
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   %.not46 = icmp ne ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 16
   %13 = icmp ne ptr %12, null
   %narrow48 = select i1 %.not46, i1 %13, i1 false
   %14 = and i1 %narrow, %narrow48
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load <4 x float>, ptr %15, align 16
   %17 = fmul <4 x float> %16, %16
   %shift = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -82,26 +82,26 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob8ValidateEv
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(112) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 16
   %.not.i = icmp ne ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not45.i = icmp ne ptr %5, null
   %or.cond.not.i = select i1 %.not.i, i1 %.not45.i, i1 false
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 16
   %8 = icmp ne ptr %7, null
   %narrow.i = select i1 %or.cond.not.i, i1 %8, i1 false
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   %.not46.i = icmp ne ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 16
   %13 = icmp ne ptr %12, null
   %narrow48.i = select i1 %.not46.i, i1 %13, i1 false
   %14 = and i1 %narrow.i, %narrow48.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load <4 x float>, ptr %15, align 16
   %17 = fmul <4 x float> %16, %16
   %shift = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   br i1 %31, label %32, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit
 
 32:                                               ; preds = %1
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load float, ptr %33, align 8
   %35 = fcmp ugt float %34, 0.000000e+00
   br i1 %35, label %41, label %36
@@ -132,7 +132,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %12, align 16
   %37 = load ptr, ptr %9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %37, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = load ptr, ptr %38, align 8
   %.not15 = icmp eq ptr %39, null
   br i1 %.not15, label %_ZN3ozz9animation12_GLOBAL__N_112WeightOutputERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionESB_.exit, label %40
@@ -143,12 +143,12 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
 
 41:                                               ; preds = %32
   %42 = load <4 x float>, ptr %3, align 16, !noalias !5
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %44 = load <4 x float>, ptr %43, align 16, !noalias !5
   %45 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %46 = getelementptr inbounds i8, ptr %3, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load <4 x float>, ptr %46, align 16, !noalias !5
-  %48 = getelementptr inbounds i8, ptr %3, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %49 = load <4 x float>, ptr %48, align 16, !noalias !5
   %50 = shufflevector <4 x float> %47, <4 x float> %49, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %51 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
@@ -248,11 +248,11 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %144 = fmul <4 x float> %112, %141
   %145 = fmul <4 x float> %123, %141
   %146 = load <4 x float>, ptr %5, align 16, !noalias !8
-  %147 = getelementptr inbounds i8, ptr %5, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %148 = load <4 x float>, ptr %147, align 16, !noalias !8
-  %149 = getelementptr inbounds i8, ptr %5, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %150 = load <4 x float>, ptr %149, align 16, !noalias !8
-  %151 = getelementptr inbounds i8, ptr %5, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %152 = load <4 x float>, ptr %151, align 16, !noalias !8
   %153 = shufflevector <4 x float> %146, <4 x float> %148, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %154 = shufflevector <4 x float> %150, <4 x float> %152, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -361,7 +361,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %256 = fmul <4 x float> %255, %247
   %257 = fadd <4 x float> %256, %251
   %258 = fadd <4 x float> %257, %254
-  %259 = getelementptr inbounds i8, ptr %7, i64 48
+  %259 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %260 = load <4 x float>, ptr %259, align 16
   %261 = shufflevector <4 x float> %260, <4 x float> poison, <4 x i32> zeroinitializer
   %262 = fmul <4 x float> %261, %246
@@ -407,7 +407,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   %shift49 = shufflevector <4 x float> %295, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %297 = fadd <4 x float> %shift49, %296
   %.val = load <4 x float>, ptr %0, align 16
-  %298 = getelementptr inbounds i8, ptr %0, i64 52
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.val16 = load float, ptr %298, align 4
   %299 = shufflevector <4 x float> %.val, <4 x float> poison, <4 x i32> zeroinitializer
   %300 = fmul <4 x float> %299, %142
@@ -475,7 +475,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
 _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit: ; preds = %41, %336
   %.040 = phi <4 x float> [ %351, %336 ], [ %311, %41 ]
   %.0 = phi <4 x float> [ %355, %336 ], [ %307, %41 ]
-  %356 = getelementptr inbounds i8, ptr %0, i64 104
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %357 = load ptr, ptr %356, align 8
   %.not = icmp eq ptr %357, null
   br i1 %.not, label %363, label %358
@@ -544,7 +544,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %412 = fmul <4 x float> %404, %411
   %413 = insertelement <4 x float> %412, float %410, i64 0
   %414 = shufflevector <4 x float> %412, <4 x float> %413, <4 x i32> <i32 0, i32 1, i32 6, i32 4>
-  %415 = getelementptr inbounds i8, ptr %0, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %416 = load <4 x float>, ptr %415, align 16
   %417 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> zeroinitializer
   %418 = fmul <4 x float> %142, %417
@@ -574,11 +574,11 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %442 = load <4 x float>, ptr %425, align 16
   %443 = shufflevector <4 x float> %441, <4 x float> poison, <4 x i32> zeroinitializer
   %444 = fmul <4 x float> %442, %443
-  %445 = getelementptr inbounds i8, ptr %425, i64 16
+  %445 = getelementptr inbounds nuw i8, ptr %425, i64 16
   %446 = load <4 x float>, ptr %445, align 16
   %447 = shufflevector <4 x float> %441, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %448 = fmul <4 x float> %446, %447
-  %449 = getelementptr inbounds i8, ptr %425, i64 32
+  %449 = getelementptr inbounds nuw i8, ptr %425, i64 32
   %450 = load <4 x float>, ptr %449, align 16
   %451 = shufflevector <4 x float> %441, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %452 = fmul <4 x float> %450, %451
@@ -771,7 +771,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %601 = fmul <4 x float> %600, %591
   %602 = shufflevector <4 x float> %599, <4 x float> %601, <4 x i32> <i32 0, i32 poison, i32 6, i32 poison>
   %603 = shufflevector <4 x float> %601, <4 x float> %602, <4 x i32> <i32 0, i32 1, i32 6, i32 4>
-  %604 = getelementptr inbounds i8, ptr %0, i64 48
+  %604 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %605 = load float, ptr %604, align 16
   %606 = fcmp une float %605, 0.000000e+00
   br i1 %606, label %607, label %651

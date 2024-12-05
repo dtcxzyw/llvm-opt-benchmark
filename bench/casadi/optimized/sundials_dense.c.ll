@@ -5,11 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i64 @DenseGETRF(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @denseGETRF(ptr noundef %4, i64 noundef %6, i64 noundef %8, ptr noundef %1)
   ret i64 %9
@@ -26,7 +26,7 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 .lr.ph91:                                         ; preds = %4, %.loopexit75
   %.06889 = phi i64 [ %8, %.loopexit75 ], [ 0, %4 ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %.06889
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06889
   %7 = load ptr, ptr %6, align 8
   %8 = add nuw nsw i64 %.06889, 1
   %9 = icmp slt i64 %8, %1
@@ -35,7 +35,7 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 .lr.ph:                                           ; preds = %.lr.ph91, %.lr.ph
   %.06679 = phi i64 [ %17, %.lr.ph ], [ %8, %.lr.ph91 ]
   %.06978 = phi i64 [ %.170, %.lr.ph ], [ %.06889, %.lr.ph91 ]
-  %10 = getelementptr inbounds double, ptr %7, i64 %.06679
+  %10 = getelementptr inbounds nuw double, ptr %7, i64 %.06679
   %11 = load double, ptr %10, align 8
   %12 = tail call double @SUNRabs(double noundef %11) #6
   %13 = getelementptr inbounds double, ptr %7, i64 %.06978
@@ -49,7 +49,7 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph91
   %.069.lcssa = phi i64 [ %.06889, %.lr.ph91 ], [ %.170, %.lr.ph ]
-  %18 = getelementptr inbounds i64, ptr %3, i64 %.06889
+  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %.06889
   store i64 %.069.lcssa, ptr %18, align 8
   %19 = getelementptr inbounds double, ptr %7, i64 %.069.lcssa
   %20 = load double, ptr %19, align 8
@@ -62,22 +62,22 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 .lr.ph81:                                         ; preds = %22, %.lr.ph81
   %.180 = phi i64 [ %31, %.lr.ph81 ], [ 0, %22 ]
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %.180
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %.180
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds double, ptr %24, i64 %.069.lcssa
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %24, i64 %.06889
+  %27 = getelementptr inbounds nuw double, ptr %24, i64 %.06889
   %28 = load double, ptr %27, align 8
   store double %28, ptr %25, align 8
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds double, ptr %29, i64 %.06889
+  %30 = getelementptr inbounds nuw double, ptr %29, i64 %.06889
   store double %26, ptr %30, align 8
   %31 = add nuw nsw i64 %.180, 1
   %exitcond99.not = icmp eq i64 %31, %2
   br i1 %exitcond99.not, label %.loopexit77, label %.lr.ph81, !llvm.loop !7
 
 .loopexit77:                                      ; preds = %.lr.ph81, %22
-  %32 = getelementptr inbounds double, ptr %7, i64 %.06889
+  %32 = getelementptr inbounds nuw double, ptr %7, i64 %.06889
   %33 = load double, ptr %32, align 8
   %34 = fdiv double 1.000000e+00, %33
   br i1 %9, label %.lr.ph84, label %.loopexit75
@@ -88,9 +88,9 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 .lr.ph88.split.us:                                ; preds = %.preheader74, %..loopexit_crit_edge.us
   %.06787.us = phi i64 [ %40, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.06787.us
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06787.us
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds double, ptr %36, i64 %.06889
+  %37 = getelementptr inbounds nuw double, ptr %36, i64 %.06889
   %38 = load double, ptr %37, align 8
   %39 = fcmp une double %38, 0.000000e+00
   br i1 %39, label %.preheader.us, label %..loopexit_crit_edge.us
@@ -102,9 +102,9 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 41:                                               ; preds = %.preheader.us, %41
   %.385.us = phi i64 [ %8, %.preheader.us ], [ %47, %41 ]
-  %42 = getelementptr inbounds double, ptr %7, i64 %.385.us
+  %42 = getelementptr inbounds nuw double, ptr %7, i64 %.385.us
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %36, i64 %.385.us
+  %44 = getelementptr inbounds nuw double, ptr %36, i64 %.385.us
   %45 = load double, ptr %44, align 8
   %46 = tail call double @llvm.fmuladd.f64(double %48, double %43, double %45)
   store double %46, ptr %44, align 8
@@ -118,7 +118,7 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 .lr.ph84:                                         ; preds = %.loopexit77, %.lr.ph84
   %.282 = phi i64 [ %52, %.lr.ph84 ], [ %8, %.loopexit77 ]
-  %49 = getelementptr inbounds double, ptr %7, i64 %.282
+  %49 = getelementptr inbounds nuw double, ptr %7, i64 %.282
   %50 = load double, ptr %49, align 8
   %51 = fmul double %34, %50
   store double %51, ptr %49, align 8
@@ -133,9 +133,9 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @DenseGETRS(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %.lr.ph.i, label %denseGETRS.exit
@@ -147,13 +147,13 @@ define void @DenseGETRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .lr.ph.i:                                         ; preds = %3, %17
   %.05056.i = phi i64 [ %18, %17 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i64, ptr %1, i64 %.05056.i
+  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %.05056.i
   %11 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %11, %.05056.i
   br i1 %.not.i, label %17, label %12
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds double, ptr %2, i64 %.05056.i
+  %13 = getelementptr inbounds nuw double, ptr %2, i64 %.05056.i
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds double, ptr %2, i64 %11
   %16 = load double, ptr %15, align 8
@@ -172,18 +172,18 @@ define void @DenseGETRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .lr.ph58.i:                                       ; preds = %.preheader55.i, %.loopexit.i
   %.15159.i = phi i64 [ %21, %.loopexit.i ], [ 0, %.preheader55.i ]
-  %19 = getelementptr inbounds ptr, ptr %5, i64 %.15159.i
+  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %.15159.i
   %20 = load ptr, ptr %19, align 8
   %21 = add nuw nsw i64 %.15159.i, 1
-  %22 = getelementptr inbounds double, ptr %2, i64 %.15159.i
+  %22 = getelementptr inbounds nuw double, ptr %2, i64 %.15159.i
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph58.i
   %.057.i = phi i64 [ %21, %.lr.ph58.i ], [ %31, %23 ]
-  %24 = getelementptr inbounds double, ptr %20, i64 %.057.i
+  %24 = getelementptr inbounds nuw double, ptr %20, i64 %.057.i
   %25 = load double, ptr %24, align 8
   %26 = load double, ptr %22, align 8
-  %27 = getelementptr inbounds double, ptr %2, i64 %.057.i
+  %27 = getelementptr inbounds nuw double, ptr %2, i64 %.057.i
   %28 = load double, ptr %27, align 8
   %29 = fneg double %25
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %26, double %28)
@@ -194,11 +194,11 @@ define void @DenseGETRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .lr.ph63.i:                                       ; preds = %.loopexit.i, %48
   %.262.i = phi i64 [ %49, %48 ], [ %9, %.loopexit.i ]
-  %32 = getelementptr inbounds ptr, ptr %5, i64 %.262.i
+  %32 = getelementptr inbounds nuw ptr, ptr %5, i64 %.262.i
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %.262.i
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %.262.i
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %2, i64 %.262.i
+  %36 = getelementptr inbounds nuw double, ptr %2, i64 %.262.i
   %37 = load double, ptr %36, align 8
   %38 = fdiv double %37, %35
   store double %38, ptr %36, align 8
@@ -206,10 +206,10 @@ define void @DenseGETRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 39:                                               ; preds = %39, %.lr.ph63.i
   %.161.i = phi i64 [ 0, %.lr.ph63.i ], [ %47, %39 ]
-  %40 = getelementptr inbounds double, ptr %33, i64 %.161.i
+  %40 = getelementptr inbounds nuw double, ptr %33, i64 %.161.i
   %41 = load double, ptr %40, align 8
   %42 = load double, ptr %36, align 8
-  %43 = getelementptr inbounds double, ptr %2, i64 %.161.i
+  %43 = getelementptr inbounds nuw double, ptr %2, i64 %.161.i
   %44 = load double, ptr %43, align 8
   %45 = fneg double %41
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %42, double %44)
@@ -244,13 +244,13 @@ define void @denseGETRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %4, %14
   %.05056 = phi i64 [ %15, %14 ], [ 0, %4 ]
-  %7 = getelementptr inbounds i64, ptr %2, i64 %.05056
+  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %.05056
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, %.05056
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds double, ptr %3, i64 %.05056
+  %10 = getelementptr inbounds nuw double, ptr %3, i64 %.05056
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds double, ptr %3, i64 %8
   %13 = load double, ptr %12, align 8
@@ -269,18 +269,18 @@ define void @denseGETRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 .lr.ph58:                                         ; preds = %.preheader55, %.loopexit
   %.15159 = phi i64 [ %18, %.loopexit ], [ 0, %.preheader55 ]
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %.15159
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %.15159
   %17 = load ptr, ptr %16, align 8
   %18 = add nuw nsw i64 %.15159, 1
-  %19 = getelementptr inbounds double, ptr %3, i64 %.15159
+  %19 = getelementptr inbounds nuw double, ptr %3, i64 %.15159
   br label %20
 
 20:                                               ; preds = %.lr.ph58, %20
   %.057 = phi i64 [ %18, %.lr.ph58 ], [ %28, %20 ]
-  %21 = getelementptr inbounds double, ptr %17, i64 %.057
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %.057
   %22 = load double, ptr %21, align 8
   %23 = load double, ptr %19, align 8
-  %24 = getelementptr inbounds double, ptr %3, i64 %.057
+  %24 = getelementptr inbounds nuw double, ptr %3, i64 %.057
   %25 = load double, ptr %24, align 8
   %26 = fneg double %22
   %27 = tail call double @llvm.fmuladd.f64(double %26, double %23, double %25)
@@ -291,11 +291,11 @@ define void @denseGETRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 .lr.ph63:                                         ; preds = %.loopexit, %45
   %.262 = phi i64 [ %46, %45 ], [ %6, %.loopexit ]
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.262
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %.262
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %.262
+  %31 = getelementptr inbounds nuw double, ptr %30, i64 %.262
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %3, i64 %.262
+  %33 = getelementptr inbounds nuw double, ptr %3, i64 %.262
   %34 = load double, ptr %33, align 8
   %35 = fdiv double %34, %32
   store double %35, ptr %33, align 8
@@ -303,10 +303,10 @@ define void @denseGETRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 36:                                               ; preds = %.lr.ph63, %36
   %.161 = phi i64 [ 0, %.lr.ph63 ], [ %44, %36 ]
-  %37 = getelementptr inbounds double, ptr %30, i64 %.161
+  %37 = getelementptr inbounds nuw double, ptr %30, i64 %.161
   %38 = load double, ptr %37, align 8
   %39 = load double, ptr %33, align 8
-  %40 = getelementptr inbounds double, ptr %3, i64 %.161
+  %40 = getelementptr inbounds nuw double, ptr %3, i64 %.161
   %41 = load double, ptr %40, align 8
   %42 = fneg double %38
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %39, double %41)
@@ -331,34 +331,34 @@ define void @denseGETRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define i64 @DensePOTRF(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
   br i1 %6, label %.lr.ph46.i, label %densePOTRF.exit
 
 .lr.ph46.i:                                       ; preds = %1, %._crit_edge.i
   %.03344.i = phi i64 [ %33, %._crit_edge.i ], [ 0, %1 ]
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %.03344.i
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.03344.i
   %8 = load ptr, ptr %7, align 8
   %.not.not.i = icmp eq i64 %.03344.i, 0
   br i1 %.not.not.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph46.i, %21
   %.03442.i = phi i64 [ %22, %21 ], [ %.03344.i, %.lr.ph46.i ]
-  %9 = getelementptr inbounds double, ptr %8, i64 %.03442.i
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %.03442.i
   %.promoted.i = load double, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %.041.i = phi i64 [ 0, %.preheader.i ], [ %20, %10 ]
   %11 = phi double [ %.promoted.i, %.preheader.i ], [ %19, %10 ]
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %.041.i
+  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %.041.i
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %13, i64 %.03442.i
+  %14 = getelementptr inbounds nuw double, ptr %13, i64 %.03442.i
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %13, i64 %.03344.i
+  %16 = getelementptr inbounds nuw double, ptr %13, i64 %.03344.i
   %17 = load double, ptr %16, align 8
   %18 = fneg double %15
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %17, double %11)
@@ -373,7 +373,7 @@ define i64 @DensePOTRF(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %exitcond48.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %21, %.lr.ph46.i
-  %23 = getelementptr inbounds double, ptr %8, i64 %.03344.i
+  %23 = getelementptr inbounds nuw double, ptr %8, i64 %.03344.i
   %24 = load double, ptr %23, align 8
   %25 = fcmp ugt double %24, 0.000000e+00
   br i1 %25, label %.lr.ph.preheader.i, label %26
@@ -388,7 +388,7 @@ define i64 @DensePOTRF(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.143.i = phi i64 [ %32, %.lr.ph.i ], [ %.03344.i, %.lr.ph.preheader.i ]
-  %29 = getelementptr inbounds double, ptr %8, i64 %.143.i
+  %29 = getelementptr inbounds nuw double, ptr %8, i64 %.143.i
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %30, %28
   store double %31, ptr %29, align 8
@@ -413,25 +413,25 @@ define i64 @densePOTRF(ptr nocapture noundef readonly %0, i64 noundef %1) local_
 
 .lr.ph46:                                         ; preds = %2, %._crit_edge
   %.03344 = phi i64 [ %30, %._crit_edge ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %.03344
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03344
   %5 = load ptr, ptr %4, align 8
   %.not.not = icmp eq i64 %.03344, 0
   br i1 %.not.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph46, %18
   %.03442 = phi i64 [ %19, %18 ], [ %.03344, %.lr.ph46 ]
-  %6 = getelementptr inbounds double, ptr %5, i64 %.03442
+  %6 = getelementptr inbounds nuw double, ptr %5, i64 %.03442
   %.promoted = load double, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %.041 = phi i64 [ 0, %.preheader ], [ %17, %7 ]
   %8 = phi double [ %.promoted, %.preheader ], [ %16, %7 ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %.041
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %.041
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %10, i64 %.03442
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %.03442
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %10, i64 %.03344
+  %13 = getelementptr inbounds nuw double, ptr %10, i64 %.03344
   %14 = load double, ptr %13, align 8
   %15 = fneg double %12
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %8)
@@ -446,7 +446,7 @@ define i64 @densePOTRF(ptr nocapture noundef readonly %0, i64 noundef %1) local_
   br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %18, %.lr.ph46
-  %20 = getelementptr inbounds double, ptr %5, i64 %.03344
+  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.03344
   %21 = load double, ptr %20, align 8
   %22 = fcmp ugt double %21, 0.000000e+00
   br i1 %22, label %.lr.ph.preheader, label %23
@@ -461,7 +461,7 @@ define i64 @densePOTRF(ptr nocapture noundef readonly %0, i64 noundef %1) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.143 = phi i64 [ %29, %.lr.ph ], [ %.03344, %.lr.ph.preheader ]
-  %26 = getelementptr inbounds double, ptr %5, i64 %.143
+  %26 = getelementptr inbounds nuw double, ptr %5, i64 %.143
   %27 = load double, ptr %26, align 8
   %28 = fdiv double %27, %25
   store double %28, ptr %26, align 8
@@ -481,9 +481,9 @@ define i64 @densePOTRF(ptr nocapture noundef readonly %0, i64 noundef %1) local_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @DensePOTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -1
   %8 = icmp sgt i64 %6, 1
@@ -495,11 +495,11 @@ define void @DensePOTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .lr.ph.preheader.i:                               ; preds = %2, %.loopexit.i
   %.053.i = phi i64 [ %16, %.loopexit.i ], [ 0, %2 ]
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %.053.i
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.053.i
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %10, i64 %.053.i
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %.053.i
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %1, i64 %.053.i
+  %13 = getelementptr inbounds nuw double, ptr %1, i64 %.053.i
   %14 = load double, ptr %13, align 8
   %15 = fdiv double %14, %12
   store double %15, ptr %13, align 8
@@ -509,9 +509,9 @@ define void @DensePOTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.04952.i = phi i64 [ %24, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
   %17 = load double, ptr %13, align 8
-  %18 = getelementptr inbounds double, ptr %10, i64 %.04952.i
+  %18 = getelementptr inbounds nuw double, ptr %10, i64 %.04952.i
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds double, ptr %1, i64 %.04952.i
+  %20 = getelementptr inbounds nuw double, ptr %1, i64 %.04952.i
   %21 = load double, ptr %20, align 8
   %22 = fneg double %17
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %19, double %21)
@@ -542,20 +542,20 @@ define void @DensePOTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 .lr.ph62.i:                                       ; preds = %._crit_edge59.i, %.lr.ph62.preheader.i
   %.15060.i = phi i64 [ %52, %._crit_edge59.i ], [ %36, %.lr.ph62.preheader.i ]
-  %37 = getelementptr inbounds ptr, ptr %4, i64 %.15060.i
+  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %.15060.i
   %38 = load ptr, ptr %37, align 8
   %.155.i = add nuw nsw i64 %.15060.i, 1
   %39 = icmp slt i64 %.155.i, %6
-  %40 = getelementptr inbounds double, ptr %1, i64 %.15060.i
+  %40 = getelementptr inbounds nuw double, ptr %1, i64 %.15060.i
   %.promoted.i = load double, ptr %40, align 8
   br i1 %39, label %.lr.ph58.i, label %._crit_edge59.i
 
 .lr.ph58.i:                                       ; preds = %.lr.ph62.i, %.lr.ph58.i
   %41 = phi double [ %47, %.lr.ph58.i ], [ %.promoted.i, %.lr.ph62.i ]
   %.156.i = phi i64 [ %.1.i, %.lr.ph58.i ], [ %.155.i, %.lr.ph62.i ]
-  %42 = getelementptr inbounds double, ptr %38, i64 %.156.i
+  %42 = getelementptr inbounds nuw double, ptr %38, i64 %.156.i
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %1, i64 %.156.i
+  %44 = getelementptr inbounds nuw double, ptr %1, i64 %.156.i
   %45 = load double, ptr %44, align 8
   %46 = fneg double %43
   %47 = tail call double @llvm.fmuladd.f64(double %46, double %45, double %41)
@@ -566,7 +566,7 @@ define void @DensePOTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 ._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %.lr.ph62.i
   %48 = phi double [ %.promoted.i, %.lr.ph62.i ], [ %47, %.lr.ph58.i ]
-  %49 = getelementptr inbounds double, ptr %38, i64 %.15060.i
+  %49 = getelementptr inbounds nuw double, ptr %38, i64 %.15060.i
   %50 = load double, ptr %49, align 8
   %51 = fdiv double %48, %50
   store double %51, ptr %40, align 8
@@ -590,11 +590,11 @@ define void @densePOTRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 .lr.ph.preheader:                                 ; preds = %3, %.loopexit
   %.053 = phi i64 [ %13, %.loopexit ], [ 0, %3 ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %.053
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.053
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %7, i64 %.053
+  %8 = getelementptr inbounds nuw double, ptr %7, i64 %.053
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %2, i64 %.053
+  %10 = getelementptr inbounds nuw double, ptr %2, i64 %.053
   %11 = load double, ptr %10, align 8
   %12 = fdiv double %11, %9
   store double %12, ptr %10, align 8
@@ -604,9 +604,9 @@ define void @densePOTRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04952 = phi i64 [ %21, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %14 = load double, ptr %10, align 8
-  %15 = getelementptr inbounds double, ptr %7, i64 %.04952
+  %15 = getelementptr inbounds nuw double, ptr %7, i64 %.04952
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds double, ptr %2, i64 %.04952
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %.04952
   %18 = load double, ptr %17, align 8
   %19 = fneg double %14
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %16, double %18)
@@ -637,20 +637,20 @@ define void @densePOTRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %._crit_edge59
   %.15060 = phi i64 [ %50, %._crit_edge59 ], [ %33, %.lr.ph62.preheader ]
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.15060
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %.15060
   %35 = load ptr, ptr %34, align 8
   %.155 = add nuw nsw i64 %.15060, 1
   %36 = icmp slt i64 %.155, %1
-  %37 = getelementptr inbounds double, ptr %2, i64 %.15060
+  %37 = getelementptr inbounds nuw double, ptr %2, i64 %.15060
   %.promoted = load double, ptr %37, align 8
   br i1 %36, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %.lr.ph62, %.lr.ph58
   %38 = phi double [ %44, %.lr.ph58 ], [ %.promoted, %.lr.ph62 ]
   %.156 = phi i64 [ %.1, %.lr.ph58 ], [ %.155, %.lr.ph62 ]
-  %39 = getelementptr inbounds double, ptr %35, i64 %.156
+  %39 = getelementptr inbounds nuw double, ptr %35, i64 %.156
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds double, ptr %2, i64 %.156
+  %41 = getelementptr inbounds nuw double, ptr %2, i64 %.156
   %42 = load double, ptr %41, align 8
   %43 = fneg double %40
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %42, double %38)
@@ -661,9 +661,9 @@ define void @densePOTRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %.lr.ph62
   %45 = phi double [ %.promoted, %.lr.ph62 ], [ %44, %.lr.ph58 ]
-  %46 = getelementptr inbounds double, ptr %35, i64 %.15060
+  %46 = getelementptr inbounds nuw double, ptr %35, i64 %.15060
   %47 = load double, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %2, i64 %.15060
+  %48 = getelementptr inbounds nuw double, ptr %2, i64 %.15060
   %49 = fdiv double %45, %47
   store double %49, ptr %48, align 8
   %50 = add nsw i64 %.15060, -1
@@ -676,11 +676,11 @@ define void @densePOTRS(ptr nocapture noundef readonly %0, i64 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @DenseGEQRF(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @denseGEQRF(ptr noundef %5, i64 noundef %7, i64 noundef %9, ptr noundef %1, ptr noundef %2)
   ret i32 0
@@ -698,9 +698,9 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 8:                                                ; preds = %.lr.ph126, %.loopexit
   %indvars.iv = phi i64 [ %1, %.lr.ph126 ], [ %indvars.iv.next, %.loopexit ]
   %.087124 = phi i64 [ 0, %.lr.ph126 ], [ %63, %.loopexit ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %.087124
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %.087124
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %10, i64 %.087124
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %.087124
   %12 = load double, ptr %11, align 8
   store double 1.000000e+00, ptr %4, align 8
   %13 = sub nsw i64 %1, %.087124
@@ -710,9 +710,9 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.08897 = phi i64 [ %18, %.lr.ph ], [ 1, %8 ]
   %.08996 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %8 ]
-  %gep = getelementptr inbounds double, ptr %11, i64 %.08897
+  %gep = getelementptr inbounds nuw double, ptr %11, i64 %.08897
   %15 = load double, ptr %gep, align 8
-  %16 = getelementptr inbounds double, ptr %4, i64 %.08897
+  %16 = getelementptr inbounds nuw double, ptr %4, i64 %.08897
   store double %15, ptr %16, align 8
   %17 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.08996)
   %18 = add nuw nsw i64 %.08897, 1
@@ -736,13 +736,13 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
   %30 = fmul double %29, 2.000000e+00
   %31 = fadd double %17, %29
   %32 = fdiv double %30, %31
-  %33 = getelementptr inbounds double, ptr %3, i64 %.087124
+  %33 = getelementptr inbounds nuw double, ptr %3, i64 %.087124
   store double %32, ptr %33, align 8
   br label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %20, %.lr.ph101
   %.199 = phi i64 [ %37, %.lr.ph101 ], [ 1, %20 ]
-  %34 = getelementptr inbounds double, ptr %4, i64 %.199
+  %34 = getelementptr inbounds nuw double, ptr %4, i64 %.199
   %35 = load double, ptr %34, align 8
   %36 = fdiv double %35, %28
   store double %36, ptr %34, align 8
@@ -751,28 +751,28 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %exitcond129.not, label %.lr.ph118, label %.lr.ph101, !llvm.loop !25
 
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge
-  %38 = getelementptr inbounds double, ptr %3, i64 %.087124
+  %38 = getelementptr inbounds nuw double, ptr %3, i64 %.087124
   store double 0.000000e+00, ptr %38, align 8
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph101, %._crit_edge.thread
   %39 = icmp sgt i64 %13, 0
-  %40 = getelementptr inbounds double, ptr %3, i64 %.087124
+  %40 = getelementptr inbounds nuw double, ptr %3, i64 %.087124
   br label %41
 
 41:                                               ; preds = %.lr.ph118, %._crit_edge115
   %.0116 = phi i64 [ %.087124, %.lr.ph118 ], [ %58, %._crit_edge115 ]
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %.0116
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0116
   %43 = load ptr, ptr %42, align 8
-  %invariant.gep102 = getelementptr inbounds double, ptr %43, i64 %.087124
+  %invariant.gep102 = getelementptr inbounds nuw double, ptr %43, i64 %.087124
   br i1 %39, label %.lr.ph107, label %._crit_edge115
 
 .lr.ph107:                                        ; preds = %41, %.lr.ph107
   %.2105 = phi i64 [ %48, %.lr.ph107 ], [ 0, %41 ]
   %.190104 = phi double [ %47, %.lr.ph107 ], [ 0.000000e+00, %41 ]
-  %gep103 = getelementptr inbounds double, ptr %invariant.gep102, i64 %.2105
+  %gep103 = getelementptr inbounds nuw double, ptr %invariant.gep102, i64 %.2105
   %44 = load double, ptr %gep103, align 8
-  %45 = getelementptr inbounds double, ptr %4, i64 %.2105
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.2105
   %46 = load double, ptr %45, align 8
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %.190104)
   %48 = add nuw nsw i64 %.2105, 1
@@ -787,9 +787,9 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 
 52:                                               ; preds = %.lr.ph114, %52
   %.3112 = phi i64 [ 0, %.lr.ph114 ], [ %57, %52 ]
-  %53 = getelementptr inbounds double, ptr %4, i64 %.3112
+  %53 = getelementptr inbounds nuw double, ptr %4, i64 %.3112
   %54 = load double, ptr %53, align 8
-  %gep111 = getelementptr inbounds double, ptr %invariant.gep102, i64 %.3112
+  %gep111 = getelementptr inbounds nuw double, ptr %invariant.gep102, i64 %.3112
   %55 = load double, ptr %gep111, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %51, double %54, double %55)
   store double %56, ptr %gep111, align 8
@@ -809,9 +809,9 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 
 .lr.ph123:                                        ; preds = %._crit_edge119, %.lr.ph123
   %.4122 = phi i64 [ %62, %.lr.ph123 ], [ 1, %._crit_edge119 ]
-  %60 = getelementptr inbounds double, ptr %4, i64 %.4122
+  %60 = getelementptr inbounds nuw double, ptr %4, i64 %.4122
   %61 = load double, ptr %60, align 8
-  %gep121 = getelementptr inbounds double, ptr %11, i64 %.4122
+  %gep121 = getelementptr inbounds nuw double, ptr %11, i64 %.4122
   store double %61, ptr %gep121, align 8
   %62 = add nuw nsw i64 %.4122, 1
   %exitcond134.not = icmp eq i64 %62, %indvars.iv
@@ -829,11 +829,11 @@ define noundef i32 @denseGEQRF(ptr nocapture noundef readonly %0, i64 noundef %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph.i, label %.preheader53.i
@@ -852,9 +852,9 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.04854.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %5 ]
-  %17 = getelementptr inbounds double, ptr %2, i64 %.04854.i
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %.04854.i
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %3, i64 %.04854.i
+  %19 = getelementptr inbounds nuw double, ptr %3, i64 %.04854.i
   store double %18, ptr %19, align 8
   %20 = add nuw nsw i64 %.04854.i, 1
   %exitcond.not.i = icmp eq i64 %20, %11
@@ -892,7 +892,7 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
   %30 = add nsw i64 %.258.i, %.065.i
   %31 = getelementptr inbounds double, ptr %25, i64 %30
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %4, i64 %.258.i
+  %33 = getelementptr inbounds nuw double, ptr %4, i64 %.258.i
   store double %32, ptr %33, align 8
   %34 = getelementptr inbounds double, ptr %3, i64 %30
   %35 = load double, ptr %34, align 8
@@ -915,7 +915,7 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
 
 44:                                               ; preds = %44, %.lr.ph63.i
   %.361.i = phi i64 [ 0, %.lr.ph63.i ], [ %49, %44 ]
-  %45 = getelementptr inbounds double, ptr %4, i64 %.361.i
+  %45 = getelementptr inbounds nuw double, ptr %4, i64 %.361.i
   %46 = load double, ptr %45, align 8
   %gep.i = getelementptr double, ptr %26, i64 %.361.i
   %47 = load double, ptr %gep.i, align 8
@@ -948,9 +948,9 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04854 = phi i64 [ %16, %.lr.ph ], [ 0, %7 ]
-  %13 = getelementptr inbounds double, ptr %4, i64 %.04854
+  %13 = getelementptr inbounds nuw double, ptr %4, i64 %.04854
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %5, i64 %.04854
+  %15 = getelementptr inbounds nuw double, ptr %5, i64 %.04854
   store double %14, ptr %15, align 8
   %16 = add nuw nsw i64 %.04854, 1
   %exitcond.not = icmp eq i64 %16, %2
@@ -988,7 +988,7 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
   %26 = add nsw i64 %.258, %.065
   %27 = getelementptr inbounds double, ptr %21, i64 %26
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %6, i64 %.258
+  %29 = getelementptr inbounds nuw double, ptr %6, i64 %.258
   store double %28, ptr %29, align 8
   %30 = getelementptr inbounds double, ptr %5, i64 %26
   %31 = load double, ptr %30, align 8
@@ -1011,7 +1011,7 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
 
 40:                                               ; preds = %.lr.ph63, %40
   %.361 = phi i64 [ 0, %.lr.ph63 ], [ %45, %40 ]
-  %41 = getelementptr inbounds double, ptr %6, i64 %.361
+  %41 = getelementptr inbounds nuw double, ptr %6, i64 %.361
   %42 = load double, ptr %41, align 8
   %gep = getelementptr double, ptr %22, i64 %.361
   %43 = load double, ptr %gep, align 8
@@ -1027,13 +1027,13 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @DenseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, 0
   %12 = icmp sgt i64 %8, 0
@@ -1042,17 +1042,17 @@ define void @DenseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 .lr.ph.us.i:                                      ; preds = %2, %._crit_edge.us.i
   %.01315.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %2 ]
-  %13 = getelementptr inbounds ptr, ptr %4, i64 %.01315.us.i
+  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01315.us.i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %.01315.us.i
+  %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01315.us.i
   %16 = load ptr, ptr %15, align 8
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.us.i
   %.014.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %21, %17 ]
-  %18 = getelementptr inbounds double, ptr %14, i64 %.014.us.i
+  %18 = getelementptr inbounds nuw double, ptr %14, i64 %.014.us.i
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds double, ptr %16, i64 %.014.us.i
+  %20 = getelementptr inbounds nuw double, ptr %16, i64 %.014.us.i
   store double %19, ptr %20, align 8
   %21 = add nuw nsw i64 %.014.us.i, 1
   %exitcond.not.i = icmp eq i64 %21, %8
@@ -1076,17 +1076,17 @@ define void @denseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 .lr.ph.us:                                        ; preds = %4, %._crit_edge.us
   %.01315.us = phi i64 [ %16, %._crit_edge.us ], [ 0, %4 ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %.01315.us
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01315.us
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %.01315.us
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01315.us
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %.lr.ph.us, %11
   %.014.us = phi i64 [ 0, %.lr.ph.us ], [ %15, %11 ]
-  %12 = getelementptr inbounds double, ptr %8, i64 %.014.us
+  %12 = getelementptr inbounds nuw double, ptr %8, i64 %.014.us
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %10, i64 %.014.us
+  %14 = getelementptr inbounds nuw double, ptr %10, i64 %.014.us
   store double %13, ptr %14, align 8
   %15 = add nuw nsw i64 %.014.us, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -1103,11 +1103,11 @@ define void @denseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @DenseScale(double noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
   %10 = icmp sgt i64 %6, 0
@@ -1116,13 +1116,13 @@ define void @DenseScale(double noundef %0, ptr nocapture noundef readonly %1) lo
 
 .lr.ph.us.i:                                      ; preds = %2, %._crit_edge.us.i
   %.01012.us.i = phi i64 [ %18, %._crit_edge.us.i ], [ 0, %2 ]
-  %11 = getelementptr inbounds ptr, ptr %4, i64 %.01012.us.i
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01012.us.i
   %12 = load ptr, ptr %11, align 8
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.us.i
   %.011.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %17, %13 ]
-  %14 = getelementptr inbounds double, ptr %12, i64 %.011.us.i
+  %14 = getelementptr inbounds nuw double, ptr %12, i64 %.011.us.i
   %15 = load double, ptr %14, align 8
   %16 = fmul double %0, %15
   store double %16, ptr %14, align 8
@@ -1148,13 +1148,13 @@ define void @denseScale(double noundef %0, ptr nocapture noundef readonly %1, i6
 
 .lr.ph.us:                                        ; preds = %4, %._crit_edge.us
   %.01012.us = phi i64 [ %14, %._crit_edge.us ], [ 0, %4 ]
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %.01012.us
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %.01012.us
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %.lr.ph.us, %9
   %.011.us = phi i64 [ 0, %.lr.ph.us ], [ %13, %9 ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %.011.us
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %.011.us
   %11 = load double, ptr %10, align 8
   %12 = fmul double %0, %11
   store double %12, ptr %10, align 8
@@ -1173,11 +1173,11 @@ define void @denseScale(double noundef %0, ptr nocapture noundef readonly %1, i6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @DenseMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %7, 0
   br i1 %10, label %.preheader.i, label %denseMatvec.exit
@@ -1190,17 +1190,17 @@ define void @DenseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
 
 .lr.ph22.us.i:                                    ; preds = %.preheader.i, %._crit_edge.us.i
   %.01823.us.i = phi i64 [ %24, %._crit_edge.us.i ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds ptr, ptr %5, i64 %.01823.us.i
+  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01823.us.i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %1, i64 %.01823.us.i
+  %15 = getelementptr inbounds nuw double, ptr %1, i64 %.01823.us.i
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph22.us.i
   %.121.us.i = phi i64 [ 0, %.lr.ph22.us.i ], [ %23, %16 ]
-  %17 = getelementptr inbounds double, ptr %14, i64 %.121.us.i
+  %17 = getelementptr inbounds nuw double, ptr %14, i64 %.121.us.i
   %18 = load double, ptr %17, align 8
   %19 = load double, ptr %15, align 8
-  %20 = getelementptr inbounds double, ptr %2, i64 %.121.us.i
+  %20 = getelementptr inbounds nuw double, ptr %2, i64 %.121.us.i
   %21 = load double, ptr %20, align 8
   %22 = tail call double @llvm.fmuladd.f64(double %18, double %19, double %21)
   store double %22, ptr %20, align 8
@@ -1230,17 +1230,17 @@ define void @denseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
 
 .lr.ph22.us:                                      ; preds = %.preheader, %._crit_edge.us
   %.01823.us = phi i64 [ %20, %._crit_edge.us ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %.01823.us
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01823.us
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %1, i64 %.01823.us
+  %11 = getelementptr inbounds nuw double, ptr %1, i64 %.01823.us
   br label %12
 
 12:                                               ; preds = %.lr.ph22.us, %12
   %.121.us = phi i64 [ 0, %.lr.ph22.us ], [ %19, %12 ]
-  %13 = getelementptr inbounds double, ptr %10, i64 %.121.us
+  %13 = getelementptr inbounds nuw double, ptr %10, i64 %.121.us
   %14 = load double, ptr %13, align 8
   %15 = load double, ptr %11, align 8
-  %16 = getelementptr inbounds double, ptr %2, i64 %.121.us
+  %16 = getelementptr inbounds nuw double, ptr %2, i64 %.121.us
   %17 = load double, ptr %16, align 8
   %18 = tail call double @llvm.fmuladd.f64(double %14, double %15, double %17)
   store double %18, ptr %16, align 8
@@ -1271,9 +1271,9 @@ define void @denseAddIdentity(ptr nocapture noundef readonly %0, i64 noundef %1)
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.05 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %.05
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.05
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds double, ptr %5, i64 %.05
+  %6 = getelementptr inbounds nuw double, ptr %5, i64 %.05
   %7 = load double, ptr %6, align 8
   %8 = fadd double %7, 1.000000e+00
   store double %8, ptr %6, align 8

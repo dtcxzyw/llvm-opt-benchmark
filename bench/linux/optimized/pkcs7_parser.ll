@@ -65,7 +65,7 @@ define dso_local void @pkcs7_free_message(ptr noundef %0) #0 align 16 {
   br i1 %5, label %.loopexit7, label %.preheader6
 
 .loopexit7:                                       ; preds = %.preheader6, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit5, label %.preheader4
@@ -80,7 +80,7 @@ define dso_local void @pkcs7_free_message(ptr noundef %0) #0 align 16 {
   br i1 %12, label %.loopexit7, label %.preheader6, !llvm.loop !5
 
 .loopexit5:                                       ; preds = %.preheader4, %.loopexit7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.preheader
@@ -98,7 +98,7 @@ define dso_local void @pkcs7_free_message(ptr noundef %0) #0 align 16 {
   %20 = phi ptr [ %24, %.preheader ], [ %14, %.loopexit5 ]
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %23 = load ptr, ptr %22, align 8
   tail call void @public_key_signature_free(ptr noundef %23) #12
   tail call void @kfree(ptr noundef nonnull %20) #12
@@ -143,7 +143,7 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
 10:                                               ; preds = %6
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 72) #13
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %75, label %15
@@ -152,24 +152,24 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %17 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 72) #13
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %17, ptr %19, align 8
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %68, label %24
 
 24:                                               ; preds = %15
   %25 = ptrtoint ptr %0 to i64
-  %26 = getelementptr inbounds i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %30, ptr %31, align 8
   %32 = tail call i32 @asn1_ber_decoder(ptr noundef nonnull @pkcs7_decoder, ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1) #12
   %33 = icmp slt i32 %32, 0
@@ -182,19 +182,19 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
 
 37:                                               ; preds = %24
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %40, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp ne ptr %44, null
   br i1 %45, label %46, label %.preheader6
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %38, i64 25
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 25
   store i8 1, ptr %47, align 1
   br label %.preheader6
 
@@ -208,7 +208,7 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
   br i1 %51, label %58, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %50, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = xor i1 %45, %55
@@ -249,7 +249,7 @@ thread-pre-split:                                 ; preds = %.preheader, %60
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %69, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %74 = load ptr, ptr %73, align 8
   tail call void @public_key_signature_free(ptr noundef %74) #12
   tail call void @kfree(ptr noundef nonnull %69) #12
@@ -276,21 +276,21 @@ declare dso_local i32 @asn1_ber_decoder(ptr noundef, ptr noundef, ptr noundef, i
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef range(i32 -61, 1) i32 @pkcs7_get_content_data(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) #3 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %4
   store ptr %6, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   %11 = icmp eq ptr %3, null
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %3, align 8
   br label %15
@@ -304,7 +304,7 @@ define dso_local noundef range(i32 -61, 1) i32 @pkcs7_get_content_data(ptr nocap
 define dso_local noundef i32 @pkcs7_note_OID(ptr nocapture noundef initializes((48, 52)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [50 x i8], align 16
   %7 = tail call i32 @look_up_OID(ptr noundef %3, i64 noundef %4) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %7, ptr %8, align 8
   %9 = icmp eq i32 %7, 98
   br i1 %9, label %10, label %17
@@ -314,7 +314,7 @@ define dso_local noundef i32 @pkcs7_note_OID(ptr nocapture noundef initializes((
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %6, i8 0, i64 50, i1 false), !annotation !12
   %11 = call i32 @sprint_oid(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 50) #12
   %12 = ptrtoint ptr %3 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %12, %14
   %16 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i64 noundef %15, ptr noundef nonnull %6) #14
@@ -339,7 +339,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_digest_algo(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %68 [
     i32 38, label %8
@@ -355,92 +355,92 @@ define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_digest_algo(ptr n
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr @.str.1, ptr %13, align 8
   br label %70
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr @.str.2, ptr %19, align 8
   br label %70
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store ptr @.str.3, ptr %25, align 8
   br label %70
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store ptr @.str.4, ptr %31, align 8
   br label %70
 
 32:                                               ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store ptr @.str.5, ptr %37, align 8
   br label %70
 
 38:                                               ; preds = %5
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store ptr @.str.6, ptr %43, align 8
   br label %70
 
 44:                                               ; preds = %5
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr @.str.7, ptr %49, align 8
   br label %70
 
 50:                                               ; preds = %5
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store ptr @.str.8, ptr %55, align 8
   br label %70
 
 56:                                               ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   store ptr @.str.9, ptr %61, align 8
   br label %70
 
 62:                                               ; preds = %5
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   store ptr @.str.10, ptr %67, align 8
   br label %70
 
@@ -455,7 +455,7 @@ define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_digest_algo(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_pkey_algo(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %48 [
     i32 8, label %8
@@ -472,58 +472,58 @@ define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_pkey_algo(ptr noc
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr @.str.12, ptr %13, align 8
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr @.str.13, ptr %17, align 8
   br label %50
 
 18:                                               ; preds = %5, %5, %5, %5, %5, %5, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr @.str.14, ptr %23, align 8
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr @.str.15, ptr %27, align 8
   br label %50
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr @.str.16, ptr %33, align 8
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr @.str.17, ptr %37, align 8
   br label %50
 
 38:                                               ; preds = %5, %5
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr @.str.18, ptr %43, align 8
   %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   store ptr @.str.17, ptr %47, align 8
   br label %50
 
@@ -538,7 +538,7 @@ define dso_local noundef range(i32 -65, 1) i32 @pkcs7_sig_note_pkey_algo(ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @pkcs7_check_content_type(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 14
   br i1 %8, label %11, label %9
@@ -560,7 +560,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pkcs7_note_signeddata_version(pt
 7:                                                ; preds = %5
   %8 = load i8, ptr %3, align 1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 %8, ptr %10, align 8
   switch i8 %8, label %11 [
     i8 1, label %13
@@ -590,25 +590,25 @@ define dso_local noundef range(i32 -74, 1) i32 @pkcs7_note_signerinfo_version(pt
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 100
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 0, ptr %15, align 4
   br label %27
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 1
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 1, ptr %22, align 4
   br label %27
 
@@ -649,13 +649,13 @@ define dso_local i32 @pkcs7_extract_cert(ptr nocapture noundef %0, i64 noundef %
   br label %28
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
-  %25 = getelementptr inbounds i8, ptr %16, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   store ptr %16, ptr %27, align 8
   store ptr %16, ptr %26, align 8
@@ -673,10 +673,10 @@ declare dso_local ptr @x509_cert_parse(ptr noundef, i64 noundef) local_unnamed_a
 define dso_local noundef i32 @pkcs7_note_certificate_list(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #6 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   store ptr %11, ptr %12, align 8
@@ -687,7 +687,7 @@ define dso_local noundef i32 @pkcs7_note_certificate_list(ptr noundef %0, i64 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @pkcs7_note_content(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
     i32 13, label %10
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pkcs7_note_content(ptr nocapture
 
 10:                                               ; preds = %5, %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %7, ptr %12, align 4
   br label %13
 
@@ -712,22 +712,22 @@ define dso_local noundef range(i32 -22, 1) i32 @pkcs7_note_content(ptr nocapture
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @pkcs7_note_data(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #7 align 16 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %4, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %1, ptr %11, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %75 [
     i32 16, label %10
@@ -739,8 +739,8 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
   ]
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
-  %12 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 0) #12, !srcloc !13
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %12 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 0) #12, !srcloc !13
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
@@ -749,33 +749,33 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
 15:                                               ; preds = %10
   %16 = tail call i32 @look_up_OID(ptr noundef %3, i64 noundef %4) #12
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %16, %19
   br i1 %20, label %75, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %19, i32 noundef %23, i32 noundef %16) #14
   br label %75
 
 25:                                               ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %7, i64 48
-  %27 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 1) #12, !srcloc !13
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %27 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 1) #12, !srcloc !13
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
   br i1 %29, label %30, label %73
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %7, i64 56
-  %32 = tail call i32 @x509_decode_time(ptr noundef %31, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) #12
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %32 = tail call i32 @x509_decode_time(ptr noundef nonnull %31, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) #12
   br label %75
 
 33:                                               ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %7, i64 48
-  %35 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 2) #12, !srcloc !13
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %35 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 2) #12, !srcloc !13
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
@@ -786,16 +786,16 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
   br i1 %39, label %40, label %75
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %41, align 8
   %42 = trunc i64 %4 to i32
-  %43 = getelementptr inbounds i8, ptr %7, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %42, ptr %43, align 8
   br label %75
 
 44:                                               ; preds = %5
-  %45 = getelementptr inbounds i8, ptr %7, i64 48
-  %46 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 3) #12, !srcloc !13
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %46 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 3) #12, !srcloc !13
   %47 = icmp ult i8 %46, 2
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i8 %46, 0
@@ -803,7 +803,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 24
   br i1 %53, label %75, label %54
@@ -813,16 +813,16 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
   br label %75
 
 56:                                               ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %7, i64 48
-  %58 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %57, i64 4) #12, !srcloc !13
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %58 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 4) #12, !srcloc !13
   %59 = icmp ult i8 %58, 2
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i8 %58, 0
   br i1 %60, label %66, label %73
 
 61:                                               ; preds = %5
-  %62 = getelementptr inbounds i8, ptr %7, i64 48
-  %63 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, i64 5) #12, !srcloc !13
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %63 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 5) #12, !srcloc !13
   %64 = icmp ult i8 %63, 2
   tail call void @llvm.assume(i1 %64)
   %65 = icmp eq i8 %63, 0
@@ -830,7 +830,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr nocapture noundef re
 
 66:                                               ; preds = %61, %56
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 24
   br i1 %70, label %75, label %71
@@ -853,9 +853,9 @@ declare dso_local i32 @x509_decode_time(ptr noundef, i64 noundef, i8 noundef zer
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -74, 1) i32 @pkcs7_sig_note_set_of_authattrs(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load volatile i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %11 = icmp eq i64 %10, 0
@@ -873,7 +873,7 @@ define dso_local noundef range(i32 -74, 1) i32 @pkcs7_sig_note_set_of_authattrs(
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 24
   br i1 %22, label %29, label %23
@@ -892,11 +892,11 @@ define dso_local noundef range(i32 -74, 1) i32 @pkcs7_sig_note_set_of_authattrs(
   %30 = add i64 %1, 4294967295
   %31 = sub i64 1, %1
   %32 = getelementptr i8, ptr %3, i64 %31
-  %33 = getelementptr inbounds i8, ptr %7, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %32, ptr %33, align 8
   %34 = add i64 %30, %4
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %7, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %35, ptr %36, align 4
   br label %37
 
@@ -907,30 +907,30 @@ define dso_local noundef range(i32 -74, 1) i32 @pkcs7_sig_note_set_of_authattrs(
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @pkcs7_sig_note_serial(ptr nocapture noundef writeonly initializes((64, 76)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %7, ptr %8, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @pkcs7_sig_note_issuer(ptr nocapture noundef writeonly initializes((76, 88)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %7, ptr %8, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @pkcs7_sig_note_skid(ptr nocapture noundef writeonly initializes((88, 100)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %7, ptr %8, align 8
   ret i32 0
 }
@@ -938,23 +938,23 @@ define dso_local noundef i32 @pkcs7_sig_note_skid(ptr nocapture noundef writeonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @pkcs7_sig_note_signature(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call ptr @kmemdup(ptr noundef %3, i64 noundef %4, i32 noundef 3264) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %6, ptr %11, align 8
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %5
   %19 = trunc i64 %4 to i32
-  %20 = getelementptr inbounds i8, ptr %14, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %19, ptr %20, align 8
   br label %21
 
@@ -968,16 +968,16 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pkcs7_note_signed_info(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readnone %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 24
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
@@ -987,29 +987,29 @@ define dso_local i32 @pkcs7_note_signed_info(ptr nocapture noundef %0, i64 nound
   br label %69
 
 18:                                               ; preds = %12, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 100
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %20 = load i8, ptr %19, align 4, !range !14, !noundef !15
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 76
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = tail call ptr @asymmetric_key_generate_id(ptr noundef %24, i64 noundef %27, ptr noundef %29, i64 noundef %32) #12
   br label %41
 
 34:                                               ; preds = %18
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = tail call ptr @asymmetric_key_generate_id(ptr noundef %36, i64 noundef %39, ptr noundef nonnull @.str.32, i64 noundef 0) #12
@@ -1026,16 +1026,16 @@ define dso_local i32 @pkcs7_note_signed_info(ptr nocapture noundef %0, i64 nound
   br label %69
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %7, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %49 = load ptr, ptr %48, align 8
   store ptr %42, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   store ptr %7, ptr %55, align 8
   store ptr %7, ptr %54, align 8
@@ -1049,10 +1049,10 @@ define dso_local i32 @pkcs7_note_signed_info(ptr nocapture noundef %0, i64 nound
   %60 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %61 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %60, i32 noundef 3520, i64 noundef 72) #13
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   store ptr %61, ptr %63, align 8
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   %68 = select i1 %67, i32 -12, i32 0

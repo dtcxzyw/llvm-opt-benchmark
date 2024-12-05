@@ -48,7 +48,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -78,13 +78,13 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   br i1 %2, label %33, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
   %29 = load i64, ptr %28, align 8
@@ -95,43 +95,43 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
 
 33:                                               ; preds = %25, %21, %13
   %34 = phi i8 [ 0, %21 ], [ 0, %13 ], [ %32, %25 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %34, ptr %35, align 1
   %36 = tail call noundef zeroext i1 @_Z17inputrecNeedMutotPK10t_inputrec(ptr noundef nonnull %1)
-  %37 = getelementptr inbounds i8, ptr %0, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 1
   %39 = xor i1 %6, true
-  %40 = getelementptr inbounds i8, ptr %0, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %41 = zext i1 %39 to i8
   store i8 %41, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %15, ptr %42, align 1
   %43 = icmp eq i32 %7, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %45 = zext i1 %43 to i8
   store i8 %45, ptr %44, align 1
   %46 = icmp eq i32 %7, 2
   %47 = and i32 %7, -2
   %48 = icmp eq i32 %47, 2
-  %49 = getelementptr inbounds i8, ptr %0, i64 6
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %52 = zext i1 %46 to i8
   store i8 %52, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %16, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 9
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %17, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %14, ptr %55, align 1
   %56 = xor i1 %10, true
   %57 = and i1 %4, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 13
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %59 = zext i1 %57 to i8
   store i8 %59, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 14
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %18, ptr %60, align 1
   %61 = icmp eq i32 %7, 0
   %brmerge.not = and i1 %5, %61
@@ -144,29 +144,29 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
 63:                                               ; preds = %33
   %64 = zext i1 %12 to i8
   %65 = zext i1 %5 to i8
-  %66 = getelementptr inbounds i8, ptr %0, i64 15
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %65, ptr %66, align 1
   %spec.select = and i1 %48, %11
   %spec.select44 = and i1 %5, %spec.select
-  %67 = getelementptr inbounds i8, ptr %0, i64 17
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %68 = zext i1 %spec.select44 to i8
   store i8 %68, ptr %67, align 1
   %69 = xor i1 %5, %spec.select44
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = zext i1 %69 to i8
   store i8 %71, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %0, i64 18
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %73 = select i1 %10, i8 1, i8 %68
   store i8 %73, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %0, i64 19
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %64, ptr %74, align 1
   %75 = tail call noundef zeroext i1 @_Z28haveEwaldSurfaceContributionRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856) %1)
-  %76 = getelementptr inbounds i8, ptr %0, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = zext i1 %75 to i8
   store i8 %77, ptr %76, align 1
-  %78 = getelementptr inbounds i8, ptr %1, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %79 = load i8, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 21
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %81 = and i8 %79, 1
   store i8 %81, ptr %80, align 1
   %82 = trunc nuw i8 %73 to i1
@@ -176,11 +176,11 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %brmerge39 = select i1 %85, i1 true, i1 %82
   %86 = xor i8 %81, 1
   %87 = select i1 %brmerge39, i8 %86, i8 0
-  %88 = getelementptr inbounds i8, ptr %0, i64 10
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %87, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %0, i64 11
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 %87, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %3, i64 3
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %91 = load i8, ptr %90, align 1
   %92 = trunc i8 %91 to i1
   %.not45 = xor i1 %5, true
@@ -191,12 +191,12 @@ define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23Development
   %94 = and i1 %brmerge48, %93
   %or.cond49 = and i1 %9, %94
   %95 = zext i1 %or.cond49 to i8
-  %96 = getelementptr inbounds i8, ptr %0, i64 22
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 %95, ptr %96, align 1
-  %97 = getelementptr inbounds i8, ptr %3, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %98 = load i8, ptr %97, align 1
   %99 = trunc i8 %98 to i1
-  %100 = getelementptr inbounds i8, ptr %0, i64 23
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %101 = select i1 %99, i8 %68, i8 0
   store i8 %101, ptr %100, align 1
   ret void
@@ -208,13 +208,13 @@ declare noundef zeroext i1 @_Z28haveEwaldSurfaceContributionRK10t_inputrec(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define range(i64 0, 144115188075855872) i64 @_ZN3gmx27setupDomainLifetimeWorkloadERK10t_inputrecRK10t_forcerecPK6pull_tPK9gmx_edsamRK9t_mdatomsRKNS_18SimulationWorkloadE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %1, ptr noundef %2, ptr noundef readnone %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(648) %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %5) local_unnamed_addr #3 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 480
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 @_ZNK3gmx14ForceProviders16hasForceProviderEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   br i1 %9, label %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 568
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %16
@@ -224,7 +224,7 @@ define range(i64 0, 144115188075855872) i64 @_ZN3gmx27setupDomainLifetimeWorkloa
   br i1 %15, label %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit, label %16
 
 16:                                               ; preds = %14, %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 600
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   %20 = icmp ne ptr %3, null
@@ -232,22 +232,22 @@ define range(i64 0, 144115188075855872) i64 @_ZN3gmx27setupDomainLifetimeWorkloa
   br i1 %or.cond.i, label %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 632
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br label %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit
 
 _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit: ; preds = %6, %14, %16, %21
   %25 = phi i1 [ true, %16 ], [ true, %14 ], [ true, %6 ], [ %24, %21 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 440
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 448
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %29 = load ptr, ptr %28, align 8
   %.not2426 = icmp eq ptr %27, %29
   br i1 %.not2426, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 432
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 432
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -259,14 +259,14 @@ _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_
   %spec.select = select i1 %33, i8 1, i8 %.sroa.6.027
   %34 = tail call noundef zeroext i1 @_ZNK12ListedForces14haveCpuBondedsEv(ptr noundef nonnull align 8 dereferenceable(2816) %.sroa.020.029)
   %.sroa.3.1 = select i1 %34, i8 1, i8 %.sroa.3.028
-  %35 = getelementptr inbounds i8, ptr %.sroa.020.029, i64 2816
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.020.029, i64 2816
   %.not24 = icmp eq ptr %35, %29
   br i1 %.not24, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit
   %.sroa.6.0.lcssa = phi i8 [ 0, %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit ], [ %spec.select, %31 ]
   %.sroa.3.0.lcssa = phi i8 [ 0, %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit ], [ %.sroa.3.1, %31 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 464
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %37 = load ptr, ptr %36, align 8
   %.not25 = icmp eq ptr %37, null
   br i1 %.not25, label %41, label %38
@@ -278,10 +278,10 @@ _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_
 
 41:                                               ; preds = %38, %._crit_edge
   %.sroa.023.0.insert.ext = phi i64 [ 0, %._crit_edge ], [ %40, %38 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %43 = load i32, ptr %42, align 8
   %.not = icmp ne i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = icmp ne i32 %45, 0
   %47 = select i1 %.not, i1 %46, i1 false
@@ -291,25 +291,25 @@ _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_
   br i1 %or.cond, label %67, label %50
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %5, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %67, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %5, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %67, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %5, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %60 = load i8, ptr %59, align 1
   %61 = trunc i8 %60 to i1
   br i1 %61, label %67, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 536
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %64 = load i32, ptr %63, align 8
   %65 = icmp sgt i32 %64, 0
   %66 = zext i1 %65 to i8
@@ -320,7 +320,7 @@ _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_
   %69 = trunc nuw i8 %.sroa.3.0.lcssa to i1
   %narrow = select i1 %69, i1 true, i1 %47
   %70 = trunc nuw i8 %68 to i1
-  %71 = getelementptr inbounds i8, ptr %5, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 1
   %74 = zext nneg i8 %73 to i64
@@ -357,7 +357,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = srem i64 %4, %12
@@ -367,42 +367,42 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
 15:                                               ; preds = %9, %7
   %16 = phi i1 [ true, %7 ], [ %14, %9 ]
   %17 = zext i1 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %0, i64 18
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 0, ptr %18, align 1
   %19 = trunc i32 %1 to i8
   %20 = and i8 %19, 1
   store i8 %20, ptr %0, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %22 = lshr i8 %19, 1
   %23 = and i8 %22, 1
   store i8 %23, ptr %21, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = lshr i8 %19, 2
   %26 = and i8 %25, 1
   store i8 %26, ptr %24, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %17, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = lshr i32 %1, 8
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 1
   store i8 %31, ptr %28, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %33 = lshr i32 %1, 9
   %34 = trunc i32 %33 to i8
   %35 = and i8 %34, 1
   store i8 %35, ptr %32, align 1
   %36 = and i32 %1, 128
   %37 = icmp ne i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %39 = zext i1 %37 to i8
   store i8 %39, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 7
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %41 = lshr i32 %1, 11
   %42 = trunc i32 %41 to i8
   %43 = and i8 %42, 1
   store i8 %43, ptr %40, align 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 9
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %45 = lshr i8 %19, 4
   %46 = and i8 %45, 1
   store i8 %46, ptr %44, align 1
@@ -416,7 +416,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %6, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = trunc i8 %53 to i1
   %.not30 = xor i1 %54, true
@@ -426,31 +426,31 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
 
 57:                                               ; preds = %51, %48, %15
   %58 = phi i8 [ 0, %48 ], [ 0, %15 ], [ %56, %51 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %58, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 10
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %61 = lshr i32 %1, 10
   %62 = trunc i32 %61 to i8
   %63 = and i8 %62, 1
   store i8 %63, ptr %60, align 1
-  %64 = getelementptr inbounds i8, ptr %6, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %65 = load i8, ptr %64, align 1
   %66 = trunc i8 %65 to i1
-  %67 = getelementptr inbounds i8, ptr %0, i64 11
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %68 = xor i8 %26, 1
   %69 = select i1 %66, i8 %68, i8 0
   store i8 %69, ptr %67, align 1
-  %70 = getelementptr inbounds i8, ptr %6, i64 11
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
   %73 = trunc i32 %29 to i1
   %74 = xor i1 %73, true
   %75 = and i1 %74, %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %77 = zext i1 %75 to i8
   store i8 %77, ptr %76, align 1
   %78 = select i1 %16, i1 %75, i1 false
-  %79 = getelementptr inbounds i8, ptr %6, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
   br i1 %78, label %82, label %.critedge2
@@ -459,13 +459,13 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br i1 %81, label %83, label %.critedge
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %6, i64 15
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %85 = load i8, ptr %84, align 1
   %86 = trunc i8 %85 to i1
   br i1 %86, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %82, %83
-  %87 = getelementptr inbounds i8, ptr %6, i64 17
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 1
   br label %.critedge2
@@ -473,32 +473,32 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
 .critedge2:                                       ; preds = %57, %83, %.critedge
   %.pre-phi = phi i1 [ true, %83 ], [ %81, %.critedge ], [ %81, %57 ]
   %90 = phi i8 [ 1, %83 ], [ %89, %.critedge ], [ 0, %57 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 13
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %90, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %6, i64 14
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
-  %95 = getelementptr inbounds i8, ptr %0, i64 14
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %96 = select i1 %94, i8 %68, i8 0
   store i8 %96, ptr %95, align 1
-  %97 = getelementptr inbounds i8, ptr %0, i64 15
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %98 = select i1 %94, i8 %77, i8 0
   store i8 %98, ptr %97, align 1
-  %99 = getelementptr inbounds i8, ptr %6, i64 15
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %100 = load i8, ptr %99, align 1
   %101 = trunc i8 %100 to i1
   %spec.select = select i1 %101, i8 0, i8 %17
   %cond.fr = freeze i1 %.pre-phi
   %spec.select41 = select i1 %cond.fr, i8 %spec.select, i8 0
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %spec.select41, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %0, i64 17
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %104 = select i1 %101, i8 %17, i8 0
   store i8 %104, ptr %103, align 1
   br i1 %37, label %105, label %118
 
 105:                                              ; preds = %.critedge2
-  %106 = getelementptr inbounds i8, ptr %6, i64 21
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %107 = load i8, ptr %106, align 1
   %108 = trunc i8 %107 to i1
   %109 = trunc i32 %41 to i1
@@ -509,7 +509,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br i1 %or.cond, label %118, label %113
 
 113:                                              ; preds = %105
-  %114 = getelementptr inbounds i8, ptr %6, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %115 = load i8, ptr %114, align 1
   %116 = trunc i8 %115 to i1
   %117 = xor i8 %spec.select41, 1
@@ -518,15 +518,15 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
 
 118:                                              ; preds = %113, %105, %.critedge2
   %119 = phi i8 [ 0, %105 ], [ 0, %.critedge2 ], [ %spec.select38, %113 ]
-  %120 = getelementptr inbounds i8, ptr %0, i64 18
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %119, ptr %120, align 1
   %121 = trunc nuw i8 %98 to i1
-  %122 = getelementptr inbounds i8, ptr %5, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %123 = load i8, ptr %122, align 1
   %124 = trunc i8 %123 to i1
   %spec.select39 = select i1 %124, i8 0, i8 %68
   %125 = select i1 %121, i8 %spec.select39, i8 0
-  %126 = getelementptr inbounds i8, ptr %0, i64 19
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %125, ptr %126, align 1
   ret void
 }

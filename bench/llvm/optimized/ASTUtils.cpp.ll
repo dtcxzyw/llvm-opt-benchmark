@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN5clang18tryToFindPtrOriginEPKNS_4ExprEbS
   br i1 %.not83, label %.loopexit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %28 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %27) #5
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
@@ -119,7 +119,7 @@ _ZNKSt8functionIFbPKN5clang4ExprEbEEclES3_b.exit: ; preds = %40
   br label %.backedge
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %.063147, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.063147, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -143,7 +143,7 @@ _ZNSt8functionIFbPKN5clang4ExprEbEEC2ERKS5_.exit: ; preds = %50, %55
   br i1 %62, label %63, label %_ZNSt8functionIFbPKN5clang4ExprEbEED2Ev.exit
 
 63:                                               ; preds = %_ZNSt8functionIFbPKN5clang4ExprEbEEC2ERKS5_.exit
-  %64 = getelementptr inbounds i8, ptr %.063147, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.063147, i64 40
   %65 = load ptr, ptr %64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %66 = load ptr, ptr %53, align 8
@@ -264,12 +264,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9NamedDeclEEEDaPT0_.exit.th
   %122 = load i32, ptr %.063147, align 8
   %123 = lshr i32 %122, 24
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %.063147, i64 %124
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.063147, i64 %124
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = lshr i32 %122, 18
   %128 = and i32 %127, 1
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %126, i64 %129
+  %130 = getelementptr inbounds nuw ptr, ptr %126, i64 %129
   %131 = load ptr, ptr %130, align 8
   br label %.backedge
 
@@ -277,7 +277,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_9NamedDeclEEEDaPT0_.exit.th
   %133 = load i32, ptr %.063147, align 8
   %134 = lshr i32 %133, 24
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %.063147, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %.063147, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %137) #5
   %.not.i.i.i = icmp eq ptr %138, null
@@ -306,12 +306,12 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %139
   %150 = load i32, ptr %.063147, align 8
   %151 = lshr i32 %150, 24
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds i8, ptr %.063147, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.063147, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = lshr i32 %150, 18
   %156 = and i32 %155, 1
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw ptr, ptr %154, i64 %157
   %159 = load ptr, ptr %158, align 8
   br label %.backedge
 
@@ -339,12 +339,12 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %139
   %171 = load i32, ptr %.063147, align 8
   %172 = lshr i32 %171, 24
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %.063147, i64 %173
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.063147, i64 %173
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = lshr i32 %171, 18
   %177 = and i32 %176, 1
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %175, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %175, i64 %178
   %180 = load ptr, ptr %179, align 8
   br label %.backedge
 
@@ -437,11 +437,11 @@ define dso_local noundef zeroext i1 @_ZN5clang14isASafeCallArgEPKNS_4ExprE(ptr n
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1048576
   %.not.i = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = lshr i32 %4, 18
   %.lobit.i.i.i.i.i = and i32 %7, 1
   %8 = zext nneg i32 %.lobit.i.i.i.i.i to i64
-  %9 = getelementptr inbounds %"class.clang::NestedNameSpecifierLoc", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.in.i = select i1 %.not.i, ptr %10, ptr %9
   %11 = load ptr, ptr %.in.i, align 8

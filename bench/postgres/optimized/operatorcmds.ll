@@ -64,8 +64,8 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br i1 %.not120, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph233, label %._crit_edge
@@ -84,7 +84,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv223
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(8) @.str) #7
   %21 = icmp eq i32 %20, 0
@@ -92,7 +92,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 22:                                               ; preds = %.lr.ph233
   %23 = call ptr @defGetTypeName(ptr noundef nonnull %17) #6
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %101
@@ -112,7 +112,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 34:                                               ; preds = %31
   %35 = call ptr @defGetTypeName(ptr noundef nonnull %17) #6
-  %36 = getelementptr inbounds i8, ptr %35, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %37 = load i8, ptr %36, align 4
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %101
@@ -339,7 +339,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br i1 %116, label %139, label %141
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %4, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0113, ptr %140, align 4
   br label %141
 
@@ -439,11 +439,11 @@ declare i32 @get_func_rettype(i32 noundef) local_unnamed_addr #1
 define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   store i32 2281, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 26, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2281, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 23, ptr %5, align 4
   %6 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext false) #6
   %7 = call i32 @get_func_rettype(i32 noundef %6) #6
@@ -478,13 +478,13 @@ define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef non
 define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [5 x i32], align 16
   store i32 2281, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 26, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2281, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 21, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 2281, ptr %6, align 16
   %7 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext true) #6
   %8 = call i32 @LookupFuncName(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext true) #6
@@ -559,16 +559,16 @@ define dso_local void @RemoveOperatorById(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %16 = load i32, ptr %15, align 4
   %.not24 = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %18 = load i32, ptr %17, align 4
   %.not25 = icmp eq i32 %18, 0
   %or.cond = select i1 %.not24, i1 %.not25, i1 false
@@ -581,7 +581,7 @@ define dso_local void @RemoveOperatorById(i32 noundef %0) local_unnamed_addr #0 
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %14, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %0, %23
   br i1 %24, label %25, label %30
@@ -601,7 +601,7 @@ define dso_local void @RemoveOperatorById(i32 noundef %0) local_unnamed_addr #0 
 
 30:                                               ; preds = %8, %21, %25
   %.0 = phi ptr [ %26, %25 ], [ %4, %21 ], [ %4, %8 ]
-  %31 = getelementptr inbounds i8, ptr %.0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %2, ptr noundef nonnull %31) #6
   tail call void @ReleaseSysCache(ptr noundef nonnull %.0) #6
   tail call void @table_close(ptr noundef %2, i32 noundef 3) #6
@@ -627,7 +627,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %2 = alloca [15 x i64], align 16
   %3 = alloca [15 x i8], align 1
   %4 = alloca [15 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @LookupOperWithArgs(ptr noundef %6, i1 noundef zeroext false) #6
   %8 = tail call ptr @table_open(i32 noundef 2617, i32 noundef 3) #6
@@ -644,20 +644,20 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
   %20 = getelementptr i8, ptr %16, i64 %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not138 = icmp eq ptr %22, null
   br i1 %.not138, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph235, label %._crit_edge
@@ -677,7 +677,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv224
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
@@ -688,7 +688,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
 
 35:                                               ; preds = %.lr.ph235, %33
   %.0113 = phi ptr [ %34, %33 ], [ null, %.lr.ph235 ]
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.8) #7
   %39 = icmp eq i32 %38, 0
@@ -738,7 +738,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br label %88
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %29, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(8) @.str) #7
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %78, label %69
@@ -809,7 +809,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds i8, ptr %20, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %20, i64 4
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef 25, ptr noundef nonnull %95) #6
   br label %96
 
@@ -836,9 +836,9 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.not142, label %109, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %20, i64 84
+  %104 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %20, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %107 = load i32, ptr %106, align 4
   %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0130.lcssa, i32 noundef %105, i32 noundef %107)
   br label %109
@@ -849,9 +849,9 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.not143, label %122, label %110
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %20, i64 80
+  %111 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %20, i64 84
+  %113 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %114 = load i32, ptr %113, align 4
   %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0127.lcssa, i32 noundef %112, i32 noundef %114)
   %116 = load i32, ptr %20, align 4
@@ -872,7 +872,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %123, label %124, label %131
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %20, i64 92
+  %125 = getelementptr inbounds nuw i8, ptr %20, i64 92
   %126 = load i32, ptr %125, align 4
   %.not144 = icmp eq i32 %126, 0
   %.not145 = icmp eq i32 %.0129, %126
@@ -892,7 +892,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %132, label %133, label %140
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %20, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %135 = load i32, ptr %134, align 4
   %.not146 = icmp eq i32 %135, 0
   %.not147 = icmp eq i32 %.0126, %135
@@ -911,7 +911,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0122.lcssa, label %141, label %151
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %20, i64 77
+  %142 = getelementptr inbounds nuw i8, ptr %20, i64 77
   %143 = load i8, ptr %142, align 1
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %151
@@ -932,7 +932,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0118.lcssa, label %152, label %162
 
 152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %20, i64 78
+  %153 = getelementptr inbounds nuw i8, ptr %20, i64 78
   %154 = load i8, ptr %153, align 2
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %162
@@ -950,11 +950,11 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 162:                                              ; preds = %156, %152, %151
-  %163 = getelementptr inbounds i8, ptr %20, i64 80
+  %163 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %20, i64 84
+  %165 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i8, ptr %20, i64 88
+  %167 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %168 = load i32, ptr %167, align 4
   %169 = icmp ne i32 %.0112, 0
   %170 = icmp ne i32 %.0132, 0
@@ -967,10 +967,10 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0110.lcssa, label %173, label %177
 
 173:                                              ; preds = %162
-  %174 = getelementptr inbounds i8, ptr %4, i64 13
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 1, ptr %174, align 1
   %175 = zext i32 %.0112 to i64
-  %176 = getelementptr inbounds i8, ptr %2, i64 104
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 %175, ptr %176, align 8
   br label %177
 
@@ -978,10 +978,10 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0116.lcssa, label %178, label %182
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds i8, ptr %4, i64 14
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 1, ptr %179, align 1
   %180 = zext i32 %.0132 to i64
-  %181 = getelementptr inbounds i8, ptr %2, i64 112
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 %180, ptr %181, align 16
   br label %182
 
@@ -989,10 +989,10 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %123, label %183, label %187
 
 183:                                              ; preds = %182
-  %184 = getelementptr inbounds i8, ptr %4, i64 10
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 1, ptr %184, align 1
   %185 = zext i32 %.0129 to i64
-  %186 = getelementptr inbounds i8, ptr %2, i64 80
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 %185, ptr %186, align 16
   br label %187
 
@@ -1000,10 +1000,10 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %132, label %188, label %192
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %4, i64 11
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 1, ptr %189, align 1
   %190 = zext i32 %.0126 to i64
-  %191 = getelementptr inbounds i8, ptr %2, i64 88
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 %190, ptr %191, align 8
   br label %192
 
@@ -1011,11 +1011,11 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0122.lcssa, label %193, label %197
 
 193:                                              ; preds = %192
-  %194 = getelementptr inbounds i8, ptr %4, i64 5
+  %194 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 1, ptr %194, align 1
   %.mask = and i8 %.0124.lcssa, 1
   %195 = zext nneg i8 %.mask to i64
-  %196 = getelementptr inbounds i8, ptr %2, i64 40
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %195, ptr %196, align 8
   br label %197
 
@@ -1023,19 +1023,19 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %.0118.lcssa, label %198, label %202
 
 198:                                              ; preds = %197
-  %199 = getelementptr inbounds i8, ptr %4, i64 6
+  %199 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 1, ptr %199, align 1
   %.mask152 = and i8 %.0120.lcssa, 1
   %200 = zext nneg i8 %.mask152 to i64
-  %201 = getelementptr inbounds i8, ptr %2, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %200, ptr %201, align 16
   br label %202
 
 202:                                              ; preds = %198, %197
-  %203 = getelementptr inbounds i8, ptr %8, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %204 = load ptr, ptr %203, align 8
   %205 = call ptr @heap_modify_tuple(ptr noundef nonnull %10, ptr noundef %204, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
-  %206 = getelementptr inbounds i8, ptr %205, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %206, ptr noundef %205) #6
   %207 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %205, i1 noundef zeroext false, i1 noundef zeroext true) #6
   %208 = or i32 %.0126, %.0129

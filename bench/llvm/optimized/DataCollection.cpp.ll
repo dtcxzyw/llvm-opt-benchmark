@@ -36,7 +36,7 @@ define dso_local void @_ZN5clang15data_collection13getMacroStackB5cxx11ENS_14Sou
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 2112
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 2112
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %16
@@ -85,7 +85,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %29, %28, %26
 37:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
   store i8 32, ptr %32, align 1
   %38 = load ptr, ptr %15, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %39, ptr %15, align 8
   br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
 

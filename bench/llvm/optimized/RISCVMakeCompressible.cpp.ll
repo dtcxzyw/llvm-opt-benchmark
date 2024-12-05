@@ -104,11 +104,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL42initializeRISCVMakeCompressibleOptPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
   store ptr @.str, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 24, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 23, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2IDE, ptr %4, align 8
@@ -178,19 +178,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_124RISCVMakeCompressibleOpt11getP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -254,7 +254,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(409192) %20) #11
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 310
@@ -274,16 +274,16 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
   br i1 %.not110123, label %.loopexit114, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %8, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %37 = getelementptr inbounds i8, ptr %7, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %7, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -300,8 +300,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
 
 57:                                               ; preds = %.lr.ph126, %._crit_edge
   %.sroa.097.0124 = phi ptr [ %.sroa.097.0122, %.lr.ph126 ], [ %.sroa.097.0, %._crit_edge ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.097.0124, i64 56
-  %59 = getelementptr inbounds i8, ptr %.sroa.097.0124, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.097.0124, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.097.0124, i64 48
   %.sroa.094.0117 = load ptr, ptr %58, align 8
   %.not111118 = icmp eq ptr %.sroa.094.0117, %59
   br i1 %.not111118, label %._crit_edge, label %.lr.ph121
@@ -326,10 +326,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 200
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 200
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(288) %71) #11
-  %76 = getelementptr inbounds i8, ptr %67, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %.not4853.i = icmp eq ptr %.sroa.094.0119, %76
   br i1 %.not4853.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -411,7 +411,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = zext nneg i32 %109 to i64
-  %117 = getelementptr inbounds i8, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 1, %113
@@ -432,7 +432,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit23.i: ; preds = %.thre
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = zext nneg i32 %109 to i64
-  %130 = getelementptr inbounds i8, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %133 = shl nuw nsw i32 1, %126
@@ -453,7 +453,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit26.i: ; preds = %.thre
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = zext nneg i32 %109 to i64
-  %143 = getelementptr inbounds i8, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 1, %139
@@ -534,7 +534,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %169
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = zext nneg i32 %109 to i64
-  %178 = getelementptr inbounds i8, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw nsw i32 1, %174
@@ -630,7 +630,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit54: ; preds = %.thread
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %210 = load ptr, ptr %209, align 8
   %211 = zext nneg i32 %109 to i64
-  %212 = getelementptr inbounds i8, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 %211
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
   %215 = shl nuw nsw i32 1, %208
@@ -805,12 +805,12 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %277, %273, %2
   %287 = getelementptr inbounds nuw i8, ptr %242, i64 40
   %288 = load i24, ptr %287, align 8
   %289 = zext i24 %288 to i64
-  %290 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %286, i64 %289
+  %290 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %286, i64 %289
   %.not31.i = icmp eq i64 %spec.select.i, %289
   br i1 %.not31.i, label %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit, label %.lr.ph.i67.preheader
 
 .lr.ph.i67.preheader:                             ; preds = %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i
-  %291 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %286, i64 %spec.select.i
+  %291 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %286, i64 %spec.select.i
   br label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %.lr.ph.i67.preheader, %.critedge.i
@@ -834,7 +834,7 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %277, %273, %2
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %301, %295, %.lr.ph.i67
-  %302 = getelementptr inbounds i8, ptr %.02132.i, i64 32
+  %302 = getelementptr inbounds nuw i8, ptr %.02132.i, i64 32
   %.not.i68 = icmp eq ptr %302, %290
   br i1 %.not.i68, label %._crit_edge.loopexit.i, label %.lr.ph.i67
 
@@ -844,7 +844,7 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %277, %273, %2
 
 _ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit: ; preds = %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i, %._crit_edge.loopexit.i
   %303 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %286, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i ]
-  %304 = getelementptr inbounds i8, ptr %303, i64 80
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 80
   %305 = load i64, ptr %304, align 8
   switch i16 %244, label %306 [
     i16 12786, label %_ZL10offsetMaskj.exit.i
@@ -907,7 +907,7 @@ _ZL24compressedLDSTOffsetMaskj.exit:              ; preds = %_ZL10offsetMaskj.ex
   %314 = zext i8 %313 to i64
   %315 = and i64 %305, %314
   store i64 %315, ptr %304, align 8
-  %316 = getelementptr inbounds i8, ptr %.044116, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.044116, i64 8
   %.not45 = icmp eq ptr %316, %239
   br i1 %.not45, label %.loopexit, label %241
 
@@ -1121,20 +1121,20 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit: ; preds = %68
 _ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread: ; preds = %64, %68, %25, %29, %48, %52, %72, %9, %13, %33, %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit, %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 255
   %88 = icmp eq i32 %87, 1
   br i1 %88, label %89, label %.split36
 
 89:                                               ; preds = %_ZL18isCompressibleLoadRKN4llvm12MachineInstrE.exit.thread
-  %90 = getelementptr inbounds i8, ptr %84, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %91 = load i64, ptr %90, align 8
   %92 = tail call fastcc noundef zeroext i8 @_ZL24compressedLDSTOffsetMaskj(i32 noundef %4)
   %93 = zext i8 %92 to i64
   %94 = xor i64 %93, -1
   %95 = and i64 %91, %94
-  %96 = getelementptr inbounds i8, ptr %84, i64 36
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 36
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, -1
   %99 = icmp ult i32 %98, 1073741823
@@ -1154,7 +1154,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %100
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = zext nneg i32 %102 to i64
-  %110 = getelementptr inbounds i8, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 1, %106
@@ -1219,7 +1219,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %127
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = zext nneg i32 %129 to i64
-  %137 = getelementptr inbounds i8, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = shl nuw nsw i32 1, %133
@@ -1240,7 +1240,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit8.i: ; preds = %.threa
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = zext nneg i32 %129 to i64
-  %150 = getelementptr inbounds i8, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = shl nuw nsw i32 1, %146
@@ -1261,7 +1261,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit8.i: ; preds = %.threa
   %161 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = zext nneg i32 %129 to i64
-  %164 = getelementptr inbounds i8, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %163
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   %167 = shl nuw nsw i32 1, %160
@@ -1287,7 +1287,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i51: ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = zext nneg i32 %173 to i64
-  %181 = getelementptr inbounds i8, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = shl nuw nsw i32 1, %177
@@ -1308,7 +1308,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit8.i49: ; preds = %.thr
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = zext nneg i32 %173 to i64
-  %194 = getelementptr inbounds i8, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 1, %190
@@ -1329,7 +1329,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit8.i49: ; preds = %.thr
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %206 = load ptr, ptr %205, align 8
   %207 = zext nneg i32 %173 to i64
-  %208 = getelementptr inbounds i8, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 %207
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
   %211 = shl nuw nsw i32 1, %204

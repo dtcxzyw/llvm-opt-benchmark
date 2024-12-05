@@ -29,14 +29,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #11
   %.not = icmp eq ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.029 = select i1 %.not, ptr %4, ptr %6
   %7 = add nsw i32 %0, -1
   %.not3353 = icmp eq i32 %7, 0
   br i1 %.not3353, label %42, label %sub_0.preheader
 
 sub_0.preheader:                                  ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.preheader, %34
@@ -48,13 +48,13 @@ sub_0:                                            ; preds = %sub_0.preheader, %3
   br i1 %.not56, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %12 = load i8, ptr %11, align 1
   %.not57 = icmp eq i8 %12, 104
   br i1 %.not57, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %13 = getelementptr inbounds i8, ptr %9, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %17, label %.tail.thread
@@ -84,13 +84,13 @@ sub_042:                                          ; preds = %19
   br i1 %.not56, label %sub_143, label %.tail41.thread
 
 sub_143:                                          ; preds = %sub_042
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %24 = load i8, ptr %23, align 1
   %.not59 = icmp eq i8 %24, 111
   br i1 %.not59, label %.tail41, label %.tail41.thread
 
 .tail41:                                          ; preds = %sub_143
-  %25 = getelementptr inbounds i8, ptr %9, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %.tail41.thread
@@ -109,7 +109,7 @@ sub_143:                                          ; preds = %sub_042
 
 34:                                               ; preds = %28
   %35 = add nsw i32 %.055, -2
-  %36 = getelementptr inbounds i8, ptr %.03054, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.03054, i64 16
   %.not33 = icmp eq i32 %35, 0
   br i1 %.not33, label %._crit_edge, label %sub_0, !llvm.loop !5
 
@@ -122,7 +122,7 @@ sub_143:                                          ; preds = %sub_042
   unreachable
 
 ._crit_edge:                                      ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %.03054, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.03054, i64 8
   %41 = load ptr, ptr %40, align 8
   br label %42
 

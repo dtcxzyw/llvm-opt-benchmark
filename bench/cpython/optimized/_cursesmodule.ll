@@ -1487,7 +1487,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @PyCursesWindow_Dealloc(ptr noundef %wo) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %wo, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %wo, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load ptr, ptr @stdscr, align 8
   %cmp.not = icmp eq ptr %0, %1
@@ -1498,7 +1498,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %encoding = getelementptr inbounds i8, ptr %wo, i64 24
+  %encoding = getelementptr inbounds nuw i8, ptr %wo, i64 24
   %2 = load ptr, ptr %encoding, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -3760,7 +3760,7 @@ if.then20.i.i:                                    ; preds = %if.then17.i.i
 
 if.else22.i.i:                                    ; preds = %if.else14.i.i
   %15 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i.i = getelementptr inbounds i8, ptr %obj.val14.i.i, i64 24
+  %tp_name.i.i = getelementptr inbounds nuw i8, ptr %obj.val14.i.i, i64 24
   %16 = load ptr, ptr %tp_name.i.i, align 8
   %call24.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.154, ptr noundef %16) #9
   br label %PyCurses_ConvertToCchar_t.exit.thread.i
@@ -3785,13 +3785,13 @@ if.then.i:                                        ; preds = %if.then.i.i
   store i32 %18, ptr %wstr.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
-  %arrayidx.i = getelementptr inbounds i8, ptr %wstr.i, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %wstr.i, i64 4
   store i32 0, ptr %arrayidx.i, align 4
   %conv.i = trunc i64 %5 to i32
   %19 = trunc i64 %5 to i16
   %20 = lshr i16 %19, 8
   %call4.i = call i32 @setcchar(ptr noundef nonnull %wcval.i, ptr noundef nonnull %wstr.i, i32 noundef %conv.i, i16 noundef signext %20, ptr noundef null) #9
-  %win11.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win11.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %21 = load ptr, ptr %win11.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
@@ -3813,7 +3813,7 @@ if.then16.i:                                      ; preds = %if.end27.i.i, %if.e
   %cch.0.ph.i = phi i32 [ %conv282.i.i, %if.end27.thread.i.i ], [ %conv28.i.i, %if.end27.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
-  %win31.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win31.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %23 = load ptr, ptr %win31.i, align 8
   br i1 %tobool.not.i, label %if.else30.i, label %if.then18.i
 
@@ -3925,13 +3925,13 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool.not.i, label %if.end6.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load ptr, ptr %win.i, align 8
   %cmp2.not.i = icmp eq ptr %7, null
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then1.i
-  %_attrs.i = getelementptr inbounds i8, ptr %7, i64 16
+  %_attrs.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load i32, ptr %_attrs.i, align 8
   br label %cond.end.i
 
@@ -3947,7 +3947,7 @@ if.end6.i:                                        ; preds = %cond.end.i, %if.end
   br i1 %cmp7.i, label %if.then9.i, label %if.else25.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %win22.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win22.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %9 = load ptr, ptr %win22.i, align 8
   br i1 %tobool28.not.i, label %if.else.i, label %if.then11.i
 
@@ -3975,8 +3975,8 @@ if.end24.i:                                       ; preds = %if.else.i, %cond.fa
 
 if.else25.i:                                      ; preds = %if.end6.i
   %13 = load ptr, ptr %bytesobj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %win41.i = getelementptr inbounds i8, ptr %self, i64 16
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %win41.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %14 = load ptr, ptr %win41.i, align 8
   br i1 %tobool28.not.i, label %if.end43.sink.split.i, label %if.then29.i
 
@@ -4017,7 +4017,7 @@ if.end44.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end44.i
-  %win47.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win47.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %18 = load ptr, ptr %win47.i, align 8
   %call48.i = call i32 @wattrset(ptr noundef %18, i32 noundef %attr_old.0.i) #9
   br label %if.end49.i
@@ -4107,13 +4107,13 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool.not.i, label %if.end6.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %win.i, align 8
   %cmp2.not.i = icmp eq ptr %6, null
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then1.i
-  %_attrs.i = getelementptr inbounds i8, ptr %6, i64 16
+  %_attrs.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load i32, ptr %_attrs.i, align 8
   br label %cond.end.i
 
@@ -4129,7 +4129,7 @@ if.end6.i:                                        ; preds = %cond.end.i, %if.end
   br i1 %cmp7.i, label %if.then9.i, label %if.else25.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %win22.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win22.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win22.i, align 8
   br i1 %tobool28.not.i, label %if.else.i, label %if.then11.i
 
@@ -4157,8 +4157,8 @@ if.end24.i:                                       ; preds = %if.else.i, %cond.fa
 
 if.else25.i:                                      ; preds = %if.end6.i
   %12 = load ptr, ptr %bytesobj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %win41.i = getelementptr inbounds i8, ptr %self, i64 16
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %win41.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %13 = load ptr, ptr %win41.i, align 8
   br i1 %tobool28.not.i, label %if.end43.sink.split.i, label %if.then29.i
 
@@ -4199,7 +4199,7 @@ if.end44.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end44.i
-  %win47.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win47.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %17 = load ptr, ptr %win47.i, align 8
   %call48.i = call i32 @wattrset(ptr noundef %17, i32 noundef %attr_old.0.i) #9
   br label %if.end49.i
@@ -4373,7 +4373,7 @@ skip_optional:                                    ; preds = %if.end4, %land.lhs.
   br i1 %tobool.not.i, label %_curses_window_bkgd_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win.i, align 8
   %4 = load i32, ptr %bkgd.i, align 4
   %5 = trunc i64 %attr.0 to i32
@@ -4440,7 +4440,7 @@ sw.default:                                       ; preds = %entry
 
 if.then25:                                        ; preds = %sw.bb8, %sw.bb14
   %attr.0.in = load i64, ptr %lattr, align 8
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %win, align 8
   %2 = load i32, ptr %y, align 4
   %3 = load i32, ptr %x, align 4
@@ -4464,7 +4464,7 @@ if.else:                                          ; preds = %sw.bb, %sw.bb2
   %8 = trunc i64 %attr.0.in19 to i16
   %9 = lshr i16 %8, 8
   %and2321 = and i32 %attr.020, -256
-  %win32 = getelementptr inbounds i8, ptr %self, i64 16
+  %win32 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %10 = load ptr, ptr %win32, align 8
   %cmp33.not = icmp eq ptr %10, null
   br i1 %cmp33.not, label %cond.end39.thread, label %cond.true44
@@ -4477,7 +4477,7 @@ cond.true44:                                      ; preds = %if.else
   %11 = load i16, ptr %10, align 8
   %conv37 = sext i16 %11 to i32
   store i32 %conv37, ptr %y, align 4
-  %_curx = getelementptr inbounds i8, ptr %10, i64 2
+  %_curx = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i16, ptr %_curx, align 2
   %conv46 = sext i16 %12 to i32
   br label %cond.end48
@@ -4546,7 +4546,7 @@ skip_optional:                                    ; preds = %if.end4, %land.lhs.
   br i1 %tobool.not.i, label %_curses_window_bkgdset_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win.i, align 8
   %4 = load i32, ptr %bkgd.i, align 4
   %5 = trunc i64 %attr.0 to i32
@@ -4654,7 +4654,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
   br i1 %cmp3.not.i, label %if.end9.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i
-  %arrayidx5.i = getelementptr inbounds i8, ptr %ch.i, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 4
   %call6.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %rs.0, ptr noundef nonnull %arrayidx5.i)
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %_curses_window_border_impl.exit, label %if.end9.i
@@ -4664,7 +4664,7 @@ if.end9.i:                                        ; preds = %land.lhs.true4.i, %
   br i1 %cmp10.not.i, label %if.end16.i, label %land.lhs.true11.i
 
 land.lhs.true11.i:                                ; preds = %if.end9.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %ch.i, i64 8
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 8
   %call13.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %ts.0, ptr noundef nonnull %arrayidx12.i)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %_curses_window_border_impl.exit, label %if.end16.i
@@ -4674,7 +4674,7 @@ if.end16.i:                                       ; preds = %land.lhs.true11.i, 
   br i1 %cmp17.not.i, label %if.end23.i, label %land.lhs.true18.i
 
 land.lhs.true18.i:                                ; preds = %if.end16.i
-  %arrayidx19.i = getelementptr inbounds i8, ptr %ch.i, i64 12
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 12
   %call20.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bs.0, ptr noundef nonnull %arrayidx19.i)
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %_curses_window_border_impl.exit, label %if.end23.i
@@ -4684,7 +4684,7 @@ if.end23.i:                                       ; preds = %land.lhs.true18.i, 
   br i1 %cmp24.not.i, label %if.end30.i, label %land.lhs.true25.i
 
 land.lhs.true25.i:                                ; preds = %if.end23.i
-  %arrayidx26.i = getelementptr inbounds i8, ptr %ch.i, i64 16
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 16
   %call27.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tl.0, ptr noundef nonnull %arrayidx26.i)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %_curses_window_border_impl.exit, label %if.end30.i
@@ -4694,7 +4694,7 @@ if.end30.i:                                       ; preds = %land.lhs.true25.i, 
   br i1 %cmp31.not.i, label %if.end37.i, label %land.lhs.true32.i
 
 land.lhs.true32.i:                                ; preds = %if.end30.i
-  %arrayidx33.i = getelementptr inbounds i8, ptr %ch.i, i64 20
+  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 20
   %call34.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %tr.0, ptr noundef nonnull %arrayidx33.i)
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %_curses_window_border_impl.exit, label %if.end37.i
@@ -4704,7 +4704,7 @@ if.end37.i:                                       ; preds = %land.lhs.true32.i, 
   br i1 %cmp38.not.i, label %if.end44.i, label %land.lhs.true39.i
 
 land.lhs.true39.i:                                ; preds = %if.end37.i
-  %arrayidx40.i = getelementptr inbounds i8, ptr %ch.i, i64 24
+  %arrayidx40.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 24
   %call41.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %bl.0, ptr noundef nonnull %arrayidx40.i)
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %_curses_window_border_impl.exit, label %if.end44.i
@@ -4714,28 +4714,28 @@ if.end44.i:                                       ; preds = %land.lhs.true39.i, 
   br i1 %cmp45.not.i, label %if.end51.i, label %land.lhs.true46.i
 
 land.lhs.true46.i:                                ; preds = %if.end44.i
-  %arrayidx47.i = getelementptr inbounds i8, ptr %ch.i, i64 28
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 28
   %call48.i = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef %self, ptr noundef nonnull %br.0, ptr noundef nonnull %arrayidx47.i)
   %tobool49.not.i = icmp eq i32 %call48.i, 0
   br i1 %tobool49.not.i, label %_curses_window_border_impl.exit, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.end44.i.thread, %land.lhs.true46.i, %if.end44.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win.i, align 8
   %9 = load i32, ptr %ch.i, align 16
-  %arrayidx53.i = getelementptr inbounds i8, ptr %ch.i, i64 4
+  %arrayidx53.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 4
   %10 = load i32, ptr %arrayidx53.i, align 4
-  %arrayidx54.i = getelementptr inbounds i8, ptr %ch.i, i64 8
+  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 8
   %11 = load i32, ptr %arrayidx54.i, align 8
-  %arrayidx55.i = getelementptr inbounds i8, ptr %ch.i, i64 12
+  %arrayidx55.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 12
   %12 = load i32, ptr %arrayidx55.i, align 4
-  %arrayidx56.i = getelementptr inbounds i8, ptr %ch.i, i64 16
+  %arrayidx56.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 16
   %13 = load i32, ptr %arrayidx56.i, align 16
-  %arrayidx57.i = getelementptr inbounds i8, ptr %ch.i, i64 20
+  %arrayidx57.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 20
   %14 = load i32, ptr %arrayidx57.i, align 4
-  %arrayidx58.i = getelementptr inbounds i8, ptr %ch.i, i64 24
+  %arrayidx58.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 24
   %15 = load i32, ptr %arrayidx58.i, align 8
-  %arrayidx59.i = getelementptr inbounds i8, ptr %ch.i, i64 28
+  %arrayidx59.i = getelementptr inbounds nuw i8, ptr %ch.i, i64 28
   %16 = load i32, ptr %arrayidx59.i, align 4
   %call60.i = tail call i32 @wborder(ptr noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) #9
   br label %_curses_window_border_impl.exit
@@ -4805,7 +4805,7 @@ if.end.if.end7_crit_edge.i:                       ; preds = %if.end.i
 if.end7.i:                                        ; preds = %sw.epilog.thread, %if.end.if.end7_crit_edge.i
   %4 = phi i32 [ %.pre3.i, %if.end.if.end7_crit_edge.i ], [ 0, %sw.epilog.thread ]
   %5 = phi i32 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ 0, %sw.epilog.thread ]
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %win.i, align 8
   %call8.i = call i32 @wborder(ptr noundef %6, i32 noundef %5, i32 noundef %5, i32 noundef %4, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   br label %_curses_window_box_impl.exit
@@ -4824,7 +4824,7 @@ exit:                                             ; preds = %sw.bb3, %_curses_wi
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wclear(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @wclear(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -4839,7 +4839,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -4860,7 +4860,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wclrtobot(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @wclrtobot(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -4869,7 +4869,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wclrtoeol(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @wclrtoeol(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -4878,7 +4878,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wcursyncup(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   tail call void @wcursyncup(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -4909,7 +4909,7 @@ sw.default:                                       ; preds = %entry
   br label %exit
 
 if.then.i:                                        ; preds = %entry
-  %win.i4 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load ptr, ptr %win.i4, align 8
   %call.i = tail call i32 @wdelch(ptr noundef %2) #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
@@ -4918,7 +4918,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %sw.bb1
   %3 = load i32, ptr %y, align 4
   %4 = load i32, ptr %x, align 4
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %5, i32 noundef %3, i32 noundef %4) #9
   %cmp.i = icmp eq i32 %call3.i, -1
@@ -4944,7 +4944,7 @@ exit:                                             ; preds = %return.sink.split.i
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_wdeleteln(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @winsdelln(ptr noundef %0, i32 noundef -1) #9
   %cmp.not.i = icmp eq i32 %call, -1
@@ -5032,10 +5032,10 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
   %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
-  %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
+  %win15.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 16
   store ptr %call.i, ptr %win15.i.i, align 8
   %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
-  %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
+  %encoding17.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
   br i1 %cmp19.i.i, label %if.then21.i.i, label %exit
@@ -5103,13 +5103,13 @@ skip_optional:                                    ; preds = %if.end4, %land.lhs.
   br i1 %tobool.not.i, label %_curses_window_echochar_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.else.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %_flags.i = getelementptr inbounds i8, ptr %3, i64 12
+  %_flags.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   %4 = load i16, ptr %_flags.i, align 4
   %5 = and i16 %4, 16
   %cmp2.not.i = icmp eq i16 %5, 0
@@ -5197,7 +5197,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_werase(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @werase(ptr noundef %0) #9
   %cmp.not.i = icmp eq i32 %call, -1
@@ -5216,16 +5216,16 @@ PyCursesCheckERR.exit:                            ; preds = %entry, %if.else.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_getbegyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end9, label %cond.true5
 
 cond.true5:                                       ; preds = %entry
-  %_begy = getelementptr inbounds i8, ptr %0, i64 8
+  %_begy = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i16, ptr %_begy, align 8
   %conv = sext i16 %1 to i32
-  %_begx = getelementptr inbounds i8, ptr %0, i64 10
+  %_begx = getelementptr inbounds nuw i8, ptr %0, i64 10
   %2 = load i16, ptr %_begx, align 2
   %conv7 = sext i16 %2 to i32
   br label %cond.end9
@@ -5246,7 +5246,7 @@ entry:
   br i1 %cmp.not.i, label %_curses_window_getbkgd_impl.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %_bkgd.i = getelementptr inbounds i8, ptr %self.val, i64 20
+  %_bkgd.i = getelementptr inbounds nuw i8, ptr %self.val, i64 20
   %1 = load i32, ptr %_bkgd.i, align 4
   %2 = zext i32 %1 to i64
   br label %_curses_window_getbkgd_impl.exit
@@ -5273,7 +5273,7 @@ entry:
 
 sw.epilog.thread:                                 ; preds = %entry
   %call.i9 = tail call ptr @PyEval_SaveThread() #9
-  %win.i10 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i10 = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %_curses_window_getch_impl.exit
 
 sw.bb1:                                           ; preds = %entry
@@ -5290,7 +5290,7 @@ if.else.i:                                        ; preds = %sw.bb1
   %.pre = load i32, ptr %y, align 4
   %.pre7 = load i32, ptr %x, align 4
   %call.i = call ptr @PyEval_SaveThread() #9
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %2, i32 noundef %.pre, i32 noundef %.pre7) #9
   %cmp.i = icmp eq i32 %call3.i, -1
@@ -5341,7 +5341,7 @@ entry:
 
 sw.epilog.thread:                                 ; preds = %entry
   %call.i4 = tail call ptr @PyEval_SaveThread() #9
-  %win.i5 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i5 = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %if.end.i
 
 sw.bb1:                                           ; preds = %entry
@@ -5358,7 +5358,7 @@ if.else.i:                                        ; preds = %sw.bb1
   %.pre = load i32, ptr %y, align 4
   %.pre2 = load i32, ptr %x, align 4
   %call.i = call ptr @PyEval_SaveThread() #9
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %2, i32 noundef %.pre, i32 noundef %.pre2) #9
   %cmp.i = icmp eq i32 %call3.i, -1
@@ -5426,7 +5426,7 @@ entry:
 sw.epilog.thread:                                 ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rtn.i)
   %call.i4 = tail call ptr @PyEval_SaveThread() #9
-  %win.i5 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i5 = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %if.end.i
 
 sw.bb1:                                           ; preds = %entry
@@ -5444,7 +5444,7 @@ if.else.i:                                        ; preds = %sw.bb1
   %.pre2 = load i32, ptr %x, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rtn.i)
   %call.i = call ptr @PyEval_SaveThread() #9
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %2, i32 noundef %.pre, i32 noundef %.pre2) #9
   %cmp.i = icmp eq i32 %call3.i, -1
@@ -5499,17 +5499,17 @@ exit:                                             ; preds = %sw.bb1, %_curses_wi
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_getmaxyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end10, label %cond.true5
 
 cond.true5:                                       ; preds = %entry
-  %_maxy = getelementptr inbounds i8, ptr %0, i64 4
+  %_maxy = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i16, ptr %_maxy, align 4
   %conv = sext i16 %1 to i32
   %add = add nsw i32 %conv, 1
-  %_maxx = getelementptr inbounds i8, ptr %0, i64 6
+  %_maxx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %2 = load i16, ptr %_maxx, align 2
   %conv7 = sext i16 %2 to i32
   %add8 = add nsw i32 %conv7, 1
@@ -5525,15 +5525,15 @@ cond.end10:                                       ; preds = %entry, %cond.true5
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_getparyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end7, label %cond.true4
 
 cond.true4:                                       ; preds = %entry
-  %_pary = getelementptr inbounds i8, ptr %0, i64 56
+  %_pary = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i32, ptr %_pary, align 8
-  %_parx = getelementptr inbounds i8, ptr %0, i64 52
+  %_parx = getelementptr inbounds nuw i8, ptr %0, i64 52
   %2 = load i32, ptr %_parx, align 4
   br label %cond.end7
 
@@ -5561,7 +5561,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %call1 = tail call ptr @PyEval_SaveThread() #9
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call2 = call i32 @wgetnstr(ptr noundef %0, ptr noundef nonnull %rtn, i32 noundef 1023) #9
   br label %sw.epilog
@@ -5583,7 +5583,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %call8 = call ptr @PyEval_SaveThread() #9
-  %win9 = getelementptr inbounds i8, ptr %self, i64 16
+  %win9 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win9, align 8
   %4 = load i32, ptr %n, align 4
   %cond = call i32 @llvm.smin.i32(i32 %4, i32 1023)
@@ -5597,7 +5597,7 @@ sw.bb13:                                          ; preds = %entry
 
 if.end17:                                         ; preds = %sw.bb13
   %call19 = call ptr @PyEval_SaveThread() #9
-  %win20 = getelementptr inbounds i8, ptr %self, i64 16
+  %win20 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load ptr, ptr %win20, align 8
   %6 = load i32, ptr %y, align 4
   %7 = load i32, ptr %x, align 4
@@ -5627,7 +5627,7 @@ if.then36:                                        ; preds = %if.end34
 
 if.end37:                                         ; preds = %if.end34
   %call39 = call ptr @PyEval_SaveThread() #9
-  %win40 = getelementptr inbounds i8, ptr %self, i64 16
+  %win40 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %11 = load ptr, ptr %win40, align 8
   %12 = load i32, ptr %y, align 4
   %13 = load i32, ptr %x, align 4
@@ -5670,7 +5670,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb13, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_getyx(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end9, label %cond.true5
@@ -5678,7 +5678,7 @@ entry:
 cond.true5:                                       ; preds = %entry
   %1 = load i16, ptr %0, align 8
   %conv = sext i16 %1 to i32
-  %_curx = getelementptr inbounds i8, ptr %0, i64 2
+  %_curx = getelementptr inbounds nuw i8, ptr %0, i64 2
   %2 = load i16, ptr %_curx, align 2
   %conv7 = sext i16 %2 to i32
   br label %cond.end9
@@ -5752,14 +5752,14 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool1.not.i, label %if.end7.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %7, i32 noundef %2, i32 noundef %3) #9
   %cmp.i = icmp eq i32 %call3.i, -1
   br i1 %cmp.i, label %return.sink.split.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then2.i, %if.end.i
-  %win8.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win8.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win8.i, align 8
   %9 = load i32, ptr %ch_.i, align 4
   %conv.i = trunc i64 %6 to i32
@@ -5793,7 +5793,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -5814,7 +5814,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -5841,7 +5841,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -5868,7 +5868,7 @@ entry:
   ]
 
 sw.epilog.thread:                                 ; preds = %entry
-  %win.i5 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i5 = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %if.end.sink.split.i
 
 sw.bb1:                                           ; preds = %entry
@@ -5884,7 +5884,7 @@ sw.default:                                       ; preds = %entry
 if.else.i:                                        ; preds = %sw.bb1
   %2 = load i32, ptr %y, align 4
   %3 = load i32, ptr %x, align 4
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %4 = load ptr, ptr %win.i, align 8
   %call2.i = call i32 @wmove(ptr noundef %4, i32 noundef %2, i32 noundef %3) #9
   %cmp.i = icmp eq i32 %call2.i, -1
@@ -5965,7 +5965,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   br i1 %tobool.not.i, label %_curses_window_insch_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %win.i, align 8
   br i1 %tobool1.not.i, label %if.end11.i, label %if.else.i
 
@@ -6011,7 +6011,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %call1 = call i32 @winsdelln(ptr noundef %0, i32 noundef %1) #9
@@ -6031,7 +6031,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_winsertln(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @winsdelln(ptr noundef %0, i32 noundef 1) #9
   %cmp.not.i = icmp eq i32 %call, -1
@@ -6114,13 +6114,13 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool.not.i, label %if.end6.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load ptr, ptr %win.i, align 8
   %cmp2.not.i = icmp eq ptr %7, null
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then1.i
-  %_attrs.i = getelementptr inbounds i8, ptr %7, i64 16
+  %_attrs.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load i32, ptr %_attrs.i, align 8
   br label %cond.end.i
 
@@ -6136,7 +6136,7 @@ if.end6.i:                                        ; preds = %cond.end.i, %if.end
   br i1 %cmp7.i, label %if.then9.i, label %if.else25.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %win22.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win22.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %9 = load ptr, ptr %win22.i, align 8
   br i1 %tobool28.not.i, label %if.else.i, label %if.then11.i
 
@@ -6164,8 +6164,8 @@ if.end24.i:                                       ; preds = %if.else.i, %cond.fa
 
 if.else25.i:                                      ; preds = %if.end6.i
   %13 = load ptr, ptr %bytesobj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %13, i64 32
-  %win41.i = getelementptr inbounds i8, ptr %self, i64 16
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %win41.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %14 = load ptr, ptr %win41.i, align 8
   br i1 %tobool28.not.i, label %if.end43.sink.split.i, label %if.then29.i
 
@@ -6206,7 +6206,7 @@ if.end44.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end44.i
-  %win47.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win47.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %18 = load ptr, ptr %win47.i, align 8
   %call48.i = call i32 @wattrset(ptr noundef %18, i32 noundef %attr_old.0.i) #9
   br label %if.end49.i
@@ -6296,13 +6296,13 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool.not.i, label %if.end6.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %win.i, align 8
   %cmp2.not.i = icmp eq ptr %6, null
   br i1 %cmp2.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then1.i
-  %_attrs.i = getelementptr inbounds i8, ptr %6, i64 16
+  %_attrs.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load i32, ptr %_attrs.i, align 8
   br label %cond.end.i
 
@@ -6318,7 +6318,7 @@ if.end6.i:                                        ; preds = %cond.end.i, %if.end
   br i1 %cmp7.i, label %if.then9.i, label %if.else25.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %win22.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win22.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win22.i, align 8
   br i1 %tobool28.not.i, label %if.else.i, label %if.then11.i
 
@@ -6346,8 +6346,8 @@ if.end24.i:                                       ; preds = %if.else.i, %cond.fa
 
 if.else25.i:                                      ; preds = %if.end6.i
   %12 = load ptr, ptr %bytesobj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %win41.i = getelementptr inbounds i8, ptr %self, i64 16
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %win41.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %13 = load ptr, ptr %win41.i, align 8
   br i1 %tobool28.not.i, label %if.end43.sink.split.i, label %if.then29.i
 
@@ -6388,7 +6388,7 @@ if.end44.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end44.i
-  %win47.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win47.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %17 = load ptr, ptr %win47.i, align 8
   %call48.i = call i32 @wattrset(ptr noundef %17, i32 noundef %attr_old.0.i) #9
   br label %if.end49.i
@@ -6429,7 +6429,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call1 = call i32 @winnstr(ptr noundef %0, ptr noundef nonnull %rtn, i32 noundef 1023) #9
   br label %sw.epilog
@@ -6450,7 +6450,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %win6 = getelementptr inbounds i8, ptr %self, i64 16
+  %win6 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win6, align 8
   %4 = call i32 @llvm.umin.i32(i32 %1, i32 1023)
   %call9 = call i32 @winnstr(ptr noundef %3, ptr noundef nonnull %rtn, i32 noundef %4) #9
@@ -6462,7 +6462,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %sw.bb10
-  %win15 = getelementptr inbounds i8, ptr %self, i64 16
+  %win15 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %5 = load ptr, ptr %win15, align 8
   %6 = load i32, ptr %y, align 4
   %7 = load i32, ptr %x, align 4
@@ -6491,7 +6491,7 @@ if.then31:                                        ; preds = %if.end29
   br label %return
 
 if.end32:                                         ; preds = %if.end29
-  %win33 = getelementptr inbounds i8, ptr %self, i64 16
+  %win33 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %11 = load ptr, ptr %win33, align 8
   %12 = load i32, ptr %y, align 4
   %13 = load i32, ptr %x, align 4
@@ -6543,7 +6543,7 @@ entry.split:                                      ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %entry.split
-  %_maxy.i = getelementptr inbounds i8, ptr %self.val4, i64 4
+  %_maxy.i = getelementptr inbounds nuw i8, ptr %self.val4, i64 4
   %1 = load i16, ptr %_maxy.i, align 4
   %conv.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv.i, 1
@@ -6581,7 +6581,7 @@ exit:                                             ; preds = %if.then.i, %cond.en
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_is_wintouched(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call zeroext i1 @is_wintouched(ptr noundef %0) #9
   %conv = zext i1 %call to i64
@@ -6598,7 +6598,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -6625,7 +6625,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -6653,7 +6653,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %2 = load i32, ptr %arg2, align 4
@@ -6681,7 +6681,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %2 = load i32, ptr %arg2, align 4
@@ -6709,7 +6709,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %2 = load i32, ptr %arg2, align 4
@@ -6736,7 +6736,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -6763,7 +6763,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -6830,13 +6830,13 @@ sw.epilog:                                        ; preds = %sw.bb1.sw.epilog_cr
   %6 = phi i32 [ 0, %entry ], [ %.pre2, %sw.bb1.sw.epilog_crit_edge ]
   %7 = phi i32 [ 0, %entry ], [ %.pre, %sw.bb1.sw.epilog_crit_edge ]
   %tobool.not.i = phi i1 [ true, %entry ], [ false, %sw.bb1.sw.epilog_crit_edge ]
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.end8.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %sw.epilog
-  %_flags.i = getelementptr inbounds i8, ptr %8, i64 12
+  %_flags.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   %9 = load i16, ptr %_flags.i, align 4
   %10 = and i16 %9, 16
   %cmp2.not.i = icmp eq i16 %10, 0
@@ -6929,9 +6929,9 @@ sw.default:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb2
   %2 = load ptr, ptr %destwin, align 8
-  %win3.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win3.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win3.i, align 8
-  %win4.i = getelementptr inbounds i8, ptr %2, i64 16
+  %win4.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %win4.i, align 8
   %5 = load i32, ptr %dmaxcol, align 4
   %6 = load i32, ptr %dmaxrow, align 4
@@ -6945,9 +6945,9 @@ if.then.i:                                        ; preds = %sw.bb2
 
 if.else.i:                                        ; preds = %sw.bb
   %11 = load ptr, ptr %destwin, align 8
-  %win3.i4 = getelementptr inbounds i8, ptr %self, i64 16
+  %win3.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %12 = load ptr, ptr %win3.i4, align 8
-  %win4.i5 = getelementptr inbounds i8, ptr %11, i64 16
+  %win4.i5 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %win4.i5, align 8
   %call5.i = call i32 @overlay(ptr noundef %12, ptr noundef %13) #9
   %cmp.not.i4.i = icmp eq i32 %call5.i, -1
@@ -7004,9 +7004,9 @@ sw.default:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb2
   %2 = load ptr, ptr %destwin, align 8
-  %win3.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win3.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load ptr, ptr %win3.i, align 8
-  %win4.i = getelementptr inbounds i8, ptr %2, i64 16
+  %win4.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %win4.i, align 8
   %5 = load i32, ptr %dmaxcol, align 4
   %6 = load i32, ptr %dmaxrow, align 4
@@ -7020,9 +7020,9 @@ if.then.i:                                        ; preds = %sw.bb2
 
 if.else.i:                                        ; preds = %sw.bb
   %11 = load ptr, ptr %destwin, align 8
-  %win3.i4 = getelementptr inbounds i8, ptr %self, i64 16
+  %win3.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %12 = load ptr, ptr %win3.i4, align 8
-  %win4.i5 = getelementptr inbounds i8, ptr %11, i64 16
+  %win4.i5 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %win4.i5, align 8
   %call5.i = call i32 @overwrite(ptr noundef %12, ptr noundef %13) #9
   %cmp.not.i4.i = icmp eq i32 %call5.i, -1
@@ -7059,7 +7059,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %exit, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %win, align 8
   %call7 = tail call i32 @putwin(ptr noundef %1, ptr noundef nonnull %call) #9
   %cmp.not.i = icmp eq i32 %call7, -1
@@ -7172,13 +7172,13 @@ exit:                                             ; preds = %exit.sink.split, %l
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_redrawwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %_maxy = getelementptr inbounds i8, ptr %0, i64 4
+  %_maxy = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i16, ptr %_maxy, align 4
   %conv = sext i16 %1 to i32
   %add = add nsw i32 %conv, 1
@@ -7249,13 +7249,13 @@ sw.epilog:                                        ; preds = %sw.bb1.sw.epilog_cr
   %6 = phi i32 [ 0, %entry ], [ %.pre2, %sw.bb1.sw.epilog_crit_edge ]
   %7 = phi i32 [ 0, %entry ], [ %.pre, %sw.bb1.sw.epilog_crit_edge ]
   %tobool.not.i = phi i1 [ true, %entry ], [ false, %sw.bb1.sw.epilog_crit_edge ]
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win.i, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.end8.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %sw.epilog
-  %_flags.i = getelementptr inbounds i8, ptr %8, i64 12
+  %_flags.i = getelementptr inbounds nuw i8, ptr %8, i64 12
   %9 = load i16, ptr %_flags.i, align 4
   %10 = and i16 %9, 16
   %cmp2.not.i = icmp eq i16 %10, 0
@@ -7318,7 +7318,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %2 = load i32, ptr %arg2, align 4
@@ -7359,7 +7359,7 @@ sw.default:                                       ; preds = %entry
   br label %exit
 
 if.then.i:                                        ; preds = %entry
-  %win.i4 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i4 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load ptr, ptr %win.i4, align 8
   %call.i = tail call i32 @wscrl(ptr noundef %2, i32 noundef 1) #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
@@ -7367,7 +7367,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %sw.bb1
   %3 = load i32, ptr %lines, align 4
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %4 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wscrl(ptr noundef %4, i32 noundef %3) #9
   %cmp.not.i2.i = icmp eq i32 %call3.i, -1
@@ -7392,7 +7392,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -7471,7 +7471,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wstandend(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @wattrset(ptr noundef %0, i32 noundef 0) #9
   ret ptr @_Py_NoneStruct
@@ -7480,7 +7480,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wstandout(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %call = tail call i32 @wattrset(ptr noundef %0, i32 noundef 65536) #9
   ret ptr @_Py_NoneStruct
@@ -7527,13 +7527,13 @@ sw.epilog:                                        ; preds = %sw.bb2.sw.epilog_cr
   %3 = phi i32 [ %.pre, %sw.bb2.sw.epilog_crit_edge ], [ 0, %sw.bb ]
   %4 = load i32, ptr %begin_y, align 4
   %5 = load i32, ptr %begin_x, align 4
-  %win1.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win1.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load ptr, ptr %win1.i, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.else.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %sw.epilog
-  %_flags.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_flags.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %7 = load i16, ptr %_flags.i, align 4
   %8 = and i16 %7, 16
   %cmp3.not.i = icmp eq i16 %8, 0
@@ -7558,7 +7558,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  %encoding.i = getelementptr inbounds i8, ptr %self, i64 24
+  %encoding.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %10 = load ptr, ptr %encoding.i, align 8
   %cmp.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end9.i.i
@@ -7587,10 +7587,10 @@ if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end
   br i1 %cmp11.i.i, label %exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end9.i.i
-  %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
+  %win15.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 16
   store ptr %win.0.i, ptr %win15.i.i, align 8
   %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %encoding.addr.0.i.i) #9
-  %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
+  %encoding17.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
   br i1 %cmp19.i.i, label %if.then21.i.i, label %exit
@@ -7623,7 +7623,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i.i,
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wsyncdown(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   tail call void @wsyncdown(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -7638,7 +7638,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   %tobool1 = icmp ne i32 %1, 0
@@ -7659,7 +7659,7 @@ return:                                           ; preds = %if.else.i, %if.end,
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @PyCursesWindow_wsyncup(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   tail call void @wsyncup(ptr noundef %0) #9
   ret ptr @_Py_NoneStruct
@@ -7674,7 +7674,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %1 = load i32, ptr %arg1, align 4
   call void @wtimeout(ptr noundef %0, i32 noundef %1) #9
@@ -7717,7 +7717,7 @@ sw.default:                                       ; preds = %entry
 if.then.i:                                        ; preds = %sw.bb
   %2 = load i32, ptr %start, align 4
   %3 = load i32, ptr %count, align 4
-  %win.i5 = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i5 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %4 = load ptr, ptr %win.i5, align 8
   %call.i = call i32 @wtouchln(ptr noundef %4, i32 noundef %2, i32 noundef %3, i32 noundef 1) #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
@@ -7727,7 +7727,7 @@ if.else.i:                                        ; preds = %sw.bb2
   %5 = load i32, ptr %start, align 4
   %6 = load i32, ptr %count, align 4
   %7 = load i32, ptr %changed, align 4
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wtouchln(ptr noundef %8, i32 noundef %5, i32 noundef %6, i32 noundef %7) #9
   %cmp.not.i4.i = icmp eq i32 %call3.i, -1
@@ -7746,13 +7746,13 @@ exit:                                             ; preds = %return.sink.split.i
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_touchwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %_maxy = getelementptr inbounds i8, ptr %0, i64 4
+  %_maxy = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i16, ptr %_maxy, align 4
   %conv = sext i16 %1 to i32
   %add = add nsw i32 %conv, 1
@@ -7777,13 +7777,13 @@ PyCursesCheckERR.exit:                            ; preds = %cond.end, %if.else.
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_untouchwin(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %win = getelementptr inbounds i8, ptr %self, i64 16
+  %win = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %win, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %_maxy = getelementptr inbounds i8, ptr %0, i64 4
+  %_maxy = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i16, ptr %_maxy, align 4
   %conv = sext i16 %1 to i32
   %add = add nsw i32 %conv, 1
@@ -7867,14 +7867,14 @@ if.end.i:                                         ; preds = %sw.epilog
   br i1 %tobool1.not.i, label %if.end7.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %win.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load ptr, ptr %win.i, align 8
   %call3.i = call i32 @wmove(ptr noundef %7, i32 noundef %2, i32 noundef %3) #9
   %cmp.i = icmp eq i32 %call3.i, -1
   br i1 %cmp.i, label %return.sink.split.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then2.i, %if.end.i
-  %win8.i = getelementptr inbounds i8, ptr %self, i64 16
+  %win8.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load ptr, ptr %win8.i, align 8
   %9 = load i32, ptr %ch_.i, align 4
   %conv.i = trunc i64 %6 to i32
@@ -7979,7 +7979,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end14:                                         ; preds = %if.else
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %obj.val11, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %obj.val11, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %call16 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.163, ptr noundef %8) #9
   br label %return
@@ -8058,7 +8058,7 @@ if.then11:                                        ; preds = %if.then7
   br label %return
 
 if.end:                                           ; preds = %if.then7
-  %state.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
@@ -8139,7 +8139,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit
 
 if.then18:                                        ; preds = %PyUnicode_READ_CHAR.exit
   %tobool19.not = icmp eq ptr %win, null
-  %encoding21 = getelementptr inbounds i8, ptr %win, i64 24
+  %encoding21 = getelementptr inbounds nuw i8, ptr %win, i64 24
   %encoding.0.in = select i1 %tobool19.not, ptr @screen_encoding, ptr %encoding21
   %encoding.0 = load ptr, ptr %encoding.0.in, align 8
   %call24 = tail call ptr @PyUnicode_AsEncodedString(ptr noundef nonnull %obj, ptr noundef %encoding.0, ptr noundef null) #9
@@ -8153,7 +8153,7 @@ if.end28:                                         ; preds = %if.then18
   br i1 %cmp30, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %if.end28
-  %ob_sval.i = getelementptr inbounds i8, ptr %call24, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %call24, i64 32
   %18 = load i8, ptr %ob_sval.i, align 1
   %conv35 = zext i8 %18 to i64
   br label %if.end37
@@ -8191,7 +8191,7 @@ if.then46:                                        ; preds = %if.else43
 
 if.else51:                                        ; preds = %if.else43
   %22 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %obj.val21, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %obj.val21, i64 24
   %23 = load ptr, ptr %tp_name, align 8
   %call53 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.154, ptr noundef %23) #9
   br label %return
@@ -8387,7 +8387,7 @@ declare i32 @wvline(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyCursesWindow_get_encoding(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %encoding = getelementptr inbounds i8, ptr %self, i64 24
+  %encoding = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %encoding, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %0) #9
   ret ptr %call
@@ -8424,7 +8424,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %ob_sval.i = getelementptr inbounds i8, ptr %call4, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %call4, i64 32
   %call9 = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %ob_sval.i) #9
   %5 = load i64, ptr %call4, align 8
   %6 = and i64 %5, 2147483648
@@ -8450,7 +8450,7 @@ if.then11:                                        ; preds = %Py_DECREF.exit
   br label %return
 
 if.end13:                                         ; preds = %Py_DECREF.exit
-  %encoding14 = getelementptr inbounds i8, ptr %self, i64 24
+  %encoding14 = getelementptr inbounds nuw i8, ptr %self, i64 24
   %7 = load ptr, ptr %encoding14, align 8
   tail call void @PyMem_Free(ptr noundef %7) #9
   store ptr %call9, ptr %encoding14, align 8
@@ -9151,13 +9151,13 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %2 = load i16, ptr %event.i, align 4
   %conv.i = sext i16 %2 to i32
-  %x.i = getelementptr inbounds i8, ptr %event.i, i64 4
+  %x.i = getelementptr inbounds nuw i8, ptr %event.i, i64 4
   %3 = load i32, ptr %x.i, align 4
-  %y.i = getelementptr inbounds i8, ptr %event.i, i64 8
+  %y.i = getelementptr inbounds nuw i8, ptr %event.i, i64 8
   %4 = load i32, ptr %y.i, align 4
-  %z.i = getelementptr inbounds i8, ptr %event.i, i64 12
+  %z.i = getelementptr inbounds nuw i8, ptr %event.i, i64 12
   %5 = load i32, ptr %z.i, align 4
-  %bstate.i = getelementptr inbounds i8, ptr %event.i, i64 16
+  %bstate.i = getelementptr inbounds nuw i8, ptr %event.i, i64 16
   %6 = load i32, ptr %bstate.i, align 4
   %conv4.i = zext i32 %6 to i64
   %call5.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.360, i32 noundef %conv.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %conv4.i) #9
@@ -9275,14 +9275,14 @@ if.then.i:                                        ; preds = %if.end50
 
 if.end.i:                                         ; preds = %if.end50
   store i16 %conv, ptr %event.i, align 4
-  %x2.i = getelementptr inbounds i8, ptr %event.i, i64 4
+  %x2.i = getelementptr inbounds nuw i8, ptr %event.i, i64 4
   store i32 %call18, ptr %x2.i, align 4
-  %y3.i = getelementptr inbounds i8, ptr %event.i, i64 8
+  %y3.i = getelementptr inbounds nuw i8, ptr %event.i, i64 8
   store i32 %call27, ptr %y3.i, align 4
-  %z4.i = getelementptr inbounds i8, ptr %event.i, i64 12
+  %z4.i = getelementptr inbounds nuw i8, ptr %event.i, i64 12
   store i32 %call36, ptr %z4.i, align 4
   %conv.i15 = trunc i64 %call52 to i32
-  %bstate5.i = getelementptr inbounds i8, ptr %event.i, i64 16
+  %bstate5.i = getelementptr inbounds nuw i8, ptr %event.i, i64 16
   store i32 %conv.i15, ptr %bstate5.i, align 4
   %call.i = call i32 @ungetmouse(ptr noundef nonnull %event.i) #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
@@ -9320,7 +9320,7 @@ do.body.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %do.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %do.body.i
-  %_leaveok.i = getelementptr inbounds i8, ptr %1, i64 26
+  %_leaveok.i = getelementptr inbounds nuw i8, ptr %1, i64 26
   %2 = load i8, ptr %_leaveok.i, align 2
   %tobool3.i = trunc i8 %2 to i1
   br i1 %tobool3.i, label %do.end.i, label %cond.true10.i
@@ -9328,7 +9328,7 @@ cond.true.i:                                      ; preds = %do.body.i
 cond.true10.i:                                    ; preds = %cond.true.i
   %3 = load i16, ptr %1, align 8
   %conv.i = sext i16 %3 to i32
-  %_curx.i = getelementptr inbounds i8, ptr %1, i64 2
+  %_curx.i = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %_curx.i, align 2
   %conv11.i = sext i16 %4 to i32
   br label %do.end.i
@@ -9387,7 +9387,7 @@ if.end13:                                         ; preds = %if.end9
 
 if.then16:                                        ; preds = %if.end13
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %call10.val21, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %call10.val21, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call18 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.367, ptr noundef %6) #9
   %7 = load i64, ptr %call10, align 8
@@ -9408,7 +9408,7 @@ if.then1.i49:                                     ; preds = %if.end.i46
 if.end19:                                         ; preds = %if.end13
   %9 = getelementptr i8, ptr %call10, i64 16
   %call10.val22 = load i64, ptr %9, align 8
-  %ob_sval.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   %call22 = tail call i64 @fwrite(ptr noundef nonnull %ob_sval.i, i64 noundef 1, i64 noundef %call10.val22, ptr noundef nonnull %call)
   %cmp23.not = icmp eq i64 %call22, %call10.val22
   br i1 %cmp23.not, label %if.end26, label %if.then24
@@ -9478,10 +9478,10 @@ if.end.i24:                                       ; preds = %land.lhs.true.i, %i
 if.end14.i:                                       ; preds = %if.end.i24
   %cmp5.i = icmp eq ptr %encoding.addr.1.i, null
   %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.1.i
-  %win15.i = getelementptr inbounds i8, ptr %call10.i, i64 16
+  %win15.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 16
   store ptr %call28, ptr %win15.i, align 8
   %call16.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i) #9
-  %encoding17.i = getelementptr inbounds i8, ptr %call10.i, i64 24
+  %encoding17.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
   store ptr %call16.i, ptr %encoding17.i, align 8
   %cmp19.i = icmp eq ptr %call16.i, null
   br i1 %cmp19.i, label %if.then21.i, label %error
@@ -10102,10 +10102,10 @@ if.end.i183.i:                                    ; preds = %land.lhs.true.i.i, 
 if.end14.i.i:                                     ; preds = %if.end.i183.i
   %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
   %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
-  %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
+  %win15.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 16
   store ptr %1, ptr %win15.i.i, align 8
   %call16.i.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
-  %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
+  %encoding17.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
   br i1 %cmp19.i.i, label %if.then21.i.i, label %_curses_initscr_impl.exit
@@ -11465,10 +11465,10 @@ if.end.i189.i:                                    ; preds = %land.lhs.true.i186.
   %call10.i193.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i194.i = icmp ne ptr %call10.i193.i, null
   tail call void @llvm.assume(i1 %cmp11.i194.i)
-  %win15.i196.i = getelementptr inbounds i8, ptr %call10.i193.i, i64 16
+  %win15.i196.i = getelementptr inbounds nuw i8, ptr %call10.i193.i, i64 16
   store ptr %call2.i, ptr %win15.i196.i, align 8
   %call16.i197.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i192.i) #9
-  %encoding17.i198.i = getelementptr inbounds i8, ptr %call10.i193.i, i64 24
+  %encoding17.i198.i = getelementptr inbounds nuw i8, ptr %call10.i193.i, i64 24
   store ptr %call16.i197.i, ptr %encoding17.i198.i, align 8
   %cmp19.i199.i = icmp eq ptr %call16.i197.i, null
   br i1 %cmp19.i199.i, label %if.then21.i201.i, label %PyCursesWindow_New.exit209.i
@@ -12013,10 +12013,10 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
   %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
-  %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
+  %win15.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 16
   store ptr %call.i, ptr %win15.i.i, align 8
   %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
-  %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
+  %encoding17.i.i = getelementptr inbounds nuw i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
   br i1 %cmp19.i.i, label %if.then21.i.i, label %exit
@@ -13786,7 +13786,7 @@ if.then16.i:                                      ; preds = %if.end12.i
 
 if.else19.i:                                      ; preds = %if.else.i
   %11 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %obj.val9.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %obj.val9.i, i64 24
   %12 = load ptr, ptr %tp_name.i, align 8
   %call21.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.452, ptr noundef %12) #9
   br label %PyCurses_ConvertToWchar_t.exit.thread
@@ -13985,10 +13985,10 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 if.end14.i:                                       ; preds = %if.end.i
   %cmp5.i = icmp eq ptr %encoding.addr.1.i, null
   %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.1.i
-  %win15.i = getelementptr inbounds i8, ptr %call10.i, i64 16
+  %win15.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 16
   store ptr %call, ptr %win15.i, align 8
   %call16.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i) #9
-  %encoding17.i = getelementptr inbounds i8, ptr %call10.i, i64 24
+  %encoding17.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
   store ptr %call16.i, ptr %encoding17.i, align 8
   %cmp19.i = icmp eq ptr %call16.i, null
   br i1 %cmp19.i, label %if.then21.i, label %return

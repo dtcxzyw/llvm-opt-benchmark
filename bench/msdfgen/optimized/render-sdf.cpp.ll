@@ -6,17 +6,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi1EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -178,17 +178,17 @@ for.end30:                                        ; preds = %for.inc28, %for.con
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi3EEERKNS_14BitmapConstRefIfLi1EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -335,7 +335,7 @@ _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.
   %mul2.i41 = mul nsw i32 %add.i40, 3
   %idx.ext.i42 = sext i32 %mul2.i41 to i64
   %add.ptr.i43 = getelementptr inbounds float, ptr %22, i64 %idx.ext.i42
-  %arrayidx29 = getelementptr inbounds i8, ptr %add.ptr.i43, i64 4
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %add.ptr.i43, i64 4
   store float %retval.0.i, ptr %arrayidx29, align 4
   %24 = load ptr, ptr %output, align 8
   %25 = load i32, ptr %width1, align 8
@@ -344,7 +344,7 @@ _ZN7msdfgenL7distValEfdf.exit:                    ; preds = %if.then.i, %if.end.
   %mul2.i47 = mul nsw i32 %add.i46, 3
   %idx.ext.i48 = sext i32 %mul2.i47 to i64
   %add.ptr.i49 = getelementptr inbounds float, ptr %24, i64 %idx.ext.i48
-  %arrayidx31 = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %add.ptr.i49, i64 8
   store float %retval.0.i, ptr %arrayidx31, align 4
   %inc = add nuw nsw i32 %x.051, 1
   %26 = load i32, ptr %width1, align 8
@@ -370,17 +370,17 @@ for.end34:                                        ; preds = %for.inc32, %for.con
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi3EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
   %sd = alloca [3 x float], align 4
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -394,8 +394,8 @@ entry:
   br i1 %cmp34, label %for.cond16.preheader.lr.ph, label %for.end33
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
-  %arrayidx26 = getelementptr inbounds i8, ptr %sd, i64 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %sd, i64 8
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %sd, i64 4
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %tobool.i = fcmp une double %mul, 0.000000e+00
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end33
@@ -482,18 +482,18 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 
 for.body.i:                                       ; preds = %for.body.i, %for.body19
   %indvars.iv.i = phi i64 [ 0, %for.body19 ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %add.ptr.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %indvars.iv.i
   %13 = load float, ptr %arrayidx.i, align 4
-  %arrayidx21.i = getelementptr inbounds float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
   %14 = load float, ptr %arrayidx21.i, align 4
   %conv.i.i = fpext float %13 to double
   %conv1.i.i = fpext float %14 to double
   %mul2.i53.i = fmul double %sub.i, %conv1.i.i
   %15 = tail call double @llvm.fmuladd.f64(double %sub.i52.i, double %conv.i.i, double %mul2.i53.i)
   %conv3.i.i = fptrunc double %15 to float
-  %arrayidx25.i = getelementptr inbounds float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds nuw float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
   %16 = load float, ptr %arrayidx25.i, align 4
-  %arrayidx28.i = getelementptr inbounds float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
+  %arrayidx28.i = getelementptr inbounds nuw float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
   %17 = load float, ptr %arrayidx28.i, align 4
   %conv.i67.i = fpext float %16 to double
   %conv1.i68.i = fpext float %17 to double
@@ -505,7 +505,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul2.i74.i = fmul double %sub7.i, %conv1.i73.i
   %19 = tail call double @llvm.fmuladd.f64(double %sub.i71.i, double %conv.i72.i, double %mul2.i74.i)
   %conv3.i75.i = fptrunc double %19 to float
-  %arrayidx32.i = getelementptr inbounds float, ptr %sd, i64 %indvars.iv.i
+  %arrayidx32.i = getelementptr inbounds nuw float, ptr %sd, i64 %indvars.iv.i
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -575,17 +575,17 @@ for.end33:                                        ; preds = %for.inc31, %for.con
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi3EEERKNS_14BitmapConstRefIfLi3EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
   %sd = alloca [3 x float], align 4
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -600,8 +600,8 @@ entry:
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
   %tobool.i = fcmp une double %mul, 0.000000e+00
-  %arrayidx29 = getelementptr inbounds i8, ptr %sd, i64 4
-  %arrayidx33 = getelementptr inbounds i8, ptr %sd, i64 8
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %sd, i64 4
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end39
 
@@ -687,18 +687,18 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 
 for.body.i:                                       ; preds = %for.body.i, %for.body19
   %indvars.iv.i = phi i64 [ 0, %for.body19 ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %add.ptr.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %indvars.iv.i
   %13 = load float, ptr %arrayidx.i, align 4
-  %arrayidx21.i = getelementptr inbounds float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
   %14 = load float, ptr %arrayidx21.i, align 4
   %conv.i.i = fpext float %13 to double
   %conv1.i.i = fpext float %14 to double
   %mul2.i53.i = fmul double %sub.i, %conv1.i.i
   %15 = tail call double @llvm.fmuladd.f64(double %sub.i52.i, double %conv.i.i, double %mul2.i53.i)
   %conv3.i.i = fptrunc double %15 to float
-  %arrayidx25.i = getelementptr inbounds float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds nuw float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
   %16 = load float, ptr %arrayidx25.i, align 4
-  %arrayidx28.i = getelementptr inbounds float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
+  %arrayidx28.i = getelementptr inbounds nuw float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
   %17 = load float, ptr %arrayidx28.i, align 4
   %conv.i67.i = fpext float %16 to double
   %conv1.i68.i = fpext float %17 to double
@@ -710,7 +710,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul2.i74.i = fmul double %sub7.i, %conv1.i73.i
   %19 = tail call double @llvm.fmuladd.f64(double %sub.i71.i, double %conv.i72.i, double %mul2.i74.i)
   %conv3.i75.i = fptrunc double %19 to float
-  %arrayidx32.i = getelementptr inbounds float, ptr %sd, i64 %indvars.iv.i
+  %arrayidx32.i = getelementptr inbounds nuw float, ptr %sd, i64 %indvars.iv.i
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -777,7 +777,7 @@ _ZN7msdfgenL7distValEfdf.exit55:                  ; preds = %if.then.i41, %if.en
   %mul2.i59 = mul nsw i32 %add.i58, 3
   %idx.ext.i60 = sext i32 %mul2.i59 to i64
   %add.ptr.i61 = getelementptr inbounds float, ptr %25, i64 %idx.ext.i60
-  %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 4
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %add.ptr.i61, i64 4
   store float %retval.0.i44, ptr %arrayidx32, align 4
   %27 = load float, ptr %arrayidx33, align 4
   br i1 %tobool.i, label %if.end.i67, label %if.then.i63
@@ -809,7 +809,7 @@ _ZN7msdfgenL7distValEfdf.exit77:                  ; preds = %if.then.i63, %if.en
   %mul2.i81 = mul nsw i32 %add.i80, 3
   %idx.ext.i82 = sext i32 %mul2.i81 to i64
   %add.ptr.i83 = getelementptr inbounds float, ptr %29, i64 %idx.ext.i82
-  %arrayidx36 = getelementptr inbounds i8, ptr %add.ptr.i83, i64 8
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %add.ptr.i83, i64 8
   store float %retval.0.i66, ptr %arrayidx36, align 4
   %inc = add nuw nsw i32 %x.085, 1
   %31 = load i32, ptr %width1, align 8
@@ -835,17 +835,17 @@ for.end39:                                        ; preds = %for.inc37, %for.con
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi1EEERKNS_14BitmapConstRefIfLi4EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
   %sd = alloca [4 x float], align 16
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -859,8 +859,8 @@ entry:
   br i1 %cmp34, label %for.cond16.preheader.lr.ph, label %for.end33
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
-  %arrayidx26 = getelementptr inbounds i8, ptr %sd, i64 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %sd, i64 8
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %sd, i64 4
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %tobool.i = fcmp une double %mul, 0.000000e+00
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end33
@@ -947,18 +947,18 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 
 for.body.i:                                       ; preds = %for.body.i, %for.body19
   %indvars.iv.i = phi i64 [ 0, %for.body19 ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %add.ptr.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %indvars.iv.i
   %13 = load float, ptr %arrayidx.i, align 4
-  %arrayidx21.i = getelementptr inbounds float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
   %14 = load float, ptr %arrayidx21.i, align 4
   %conv.i.i = fpext float %13 to double
   %conv1.i.i = fpext float %14 to double
   %mul2.i53.i = fmul double %sub.i, %conv1.i.i
   %15 = tail call double @llvm.fmuladd.f64(double %sub.i52.i, double %conv.i.i, double %mul2.i53.i)
   %conv3.i.i = fptrunc double %15 to float
-  %arrayidx25.i = getelementptr inbounds float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds nuw float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
   %16 = load float, ptr %arrayidx25.i, align 4
-  %arrayidx28.i = getelementptr inbounds float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
+  %arrayidx28.i = getelementptr inbounds nuw float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
   %17 = load float, ptr %arrayidx28.i, align 4
   %conv.i67.i = fpext float %16 to double
   %conv1.i68.i = fpext float %17 to double
@@ -970,7 +970,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul2.i74.i = fmul double %sub7.i, %conv1.i73.i
   %19 = tail call double @llvm.fmuladd.f64(double %sub.i71.i, double %conv.i72.i, double %mul2.i74.i)
   %conv3.i75.i = fptrunc double %19 to float
-  %arrayidx32.i = getelementptr inbounds float, ptr %sd, i64 %indvars.iv.i
+  %arrayidx32.i = getelementptr inbounds nuw float, ptr %sd, i64 %indvars.iv.i
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1040,17 +1040,17 @@ for.end33:                                        ; preds = %for.inc31, %for.con
 define dso_local void @_ZN7msdfgen9renderSDFERKNS_9BitmapRefIfLi4EEERKNS_14BitmapConstRefIfLi4EEEdf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sdf, double noundef %pxRange, float noundef %midValue) local_unnamed_addr #0 {
 entry:
   %sd = alloca [4 x float], align 16
-  %width = getelementptr inbounds i8, ptr %sdf, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
   %conv = sitofp i32 %0 to double
-  %width1 = getelementptr inbounds i8, ptr %output, i64 8
+  %width1 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %1 = load i32, ptr %width1, align 8
   %conv2 = sitofp i32 %1 to double
   %div = fdiv double %conv, %conv2
-  %height = getelementptr inbounds i8, ptr %sdf, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
   %2 = load i32, ptr %height, align 4
   %conv3 = sitofp i32 %2 to double
-  %height4 = getelementptr inbounds i8, ptr %output, i64 12
+  %height4 = getelementptr inbounds nuw i8, ptr %output, i64 12
   %3 = load i32, ptr %height4, align 4
   %conv5 = sitofp i32 %3 to double
   %div6 = fdiv double %conv3, %conv5
@@ -1065,9 +1065,9 @@ entry:
 
 for.cond16.preheader.lr.ph:                       ; preds = %entry
   %tobool.i = fcmp une double %mul, 0.000000e+00
-  %arrayidx29 = getelementptr inbounds i8, ptr %sd, i64 4
-  %arrayidx33 = getelementptr inbounds i8, ptr %sd, i64 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %sd, i64 12
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %sd, i64 4
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %sd, i64 8
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %sd, i64 12
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %for.cond16.preheader, label %for.end43
 
@@ -1153,18 +1153,18 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
 
 for.body.i:                                       ; preds = %for.body.i, %for.body19
   %indvars.iv.i = phi i64 [ 0, %for.body19 ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %add.ptr.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %indvars.iv.i
   %13 = load float, ptr %arrayidx.i, align 4
-  %arrayidx21.i = getelementptr inbounds float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw float, ptr %add.ptr.i51.i, i64 %indvars.iv.i
   %14 = load float, ptr %arrayidx21.i, align 4
   %conv.i.i = fpext float %13 to double
   %conv1.i.i = fpext float %14 to double
   %mul2.i53.i = fmul double %sub.i, %conv1.i.i
   %15 = tail call double @llvm.fmuladd.f64(double %sub.i52.i, double %conv.i.i, double %mul2.i53.i)
   %conv3.i.i = fptrunc double %15 to float
-  %arrayidx25.i = getelementptr inbounds float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds nuw float, ptr %add.ptr.i59.i, i64 %indvars.iv.i
   %16 = load float, ptr %arrayidx25.i, align 4
-  %arrayidx28.i = getelementptr inbounds float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
+  %arrayidx28.i = getelementptr inbounds nuw float, ptr %add.ptr.i65.i, i64 %indvars.iv.i
   %17 = load float, ptr %arrayidx28.i, align 4
   %conv.i67.i = fpext float %16 to double
   %conv1.i68.i = fpext float %17 to double
@@ -1176,7 +1176,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul2.i74.i = fmul double %sub7.i, %conv1.i73.i
   %19 = tail call double @llvm.fmuladd.f64(double %sub.i71.i, double %conv.i72.i, double %mul2.i74.i)
   %conv3.i75.i = fptrunc double %19 to float
-  %arrayidx32.i = getelementptr inbounds float, ptr %sd, i64 %indvars.iv.i
+  %arrayidx32.i = getelementptr inbounds nuw float, ptr %sd, i64 %indvars.iv.i
   store float %conv3.i75.i, ptr %arrayidx32.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1243,7 +1243,7 @@ _ZN7msdfgenL7distValEfdf.exit60:                  ; preds = %if.then.i46, %if.en
   %mul2.i64 = shl nsw i32 %add.i63, 2
   %idx.ext.i65 = sext i32 %mul2.i64 to i64
   %add.ptr.i66 = getelementptr inbounds float, ptr %25, i64 %idx.ext.i65
-  %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 4
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %add.ptr.i66, i64 4
   store float %retval.0.i49, ptr %arrayidx32, align 4
   %27 = load float, ptr %arrayidx33, align 8
   br i1 %tobool.i, label %if.end.i72, label %if.then.i68
@@ -1275,7 +1275,7 @@ _ZN7msdfgenL7distValEfdf.exit82:                  ; preds = %if.then.i68, %if.en
   %mul2.i86 = shl nsw i32 %add.i85, 2
   %idx.ext.i87 = sext i32 %mul2.i86 to i64
   %add.ptr.i88 = getelementptr inbounds float, ptr %29, i64 %idx.ext.i87
-  %arrayidx36 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 8
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %add.ptr.i88, i64 8
   store float %retval.0.i71, ptr %arrayidx36, align 4
   %31 = load float, ptr %arrayidx37, align 4
   br i1 %tobool.i, label %if.end.i94, label %if.then.i90
@@ -1307,7 +1307,7 @@ _ZN7msdfgenL7distValEfdf.exit104:                 ; preds = %if.then.i90, %if.en
   %mul2.i108 = shl nsw i32 %add.i107, 2
   %idx.ext.i109 = sext i32 %mul2.i108 to i64
   %add.ptr.i110 = getelementptr inbounds float, ptr %33, i64 %idx.ext.i109
-  %arrayidx40 = getelementptr inbounds i8, ptr %add.ptr.i110, i64 12
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %add.ptr.i110, i64 12
   store float %retval.0.i93, ptr %arrayidx40, align 4
   %inc = add nuw nsw i32 %x.0112, 1
   %35 = load i32, ptr %width1, align 8
@@ -1333,9 +1333,9 @@ for.end43:                                        ; preds = %for.inc41, %for.con
 define dso_local void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %2, %1
   %idx.ext = sext i32 %mul1 to i64
@@ -1358,7 +1358,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i7 = uitofp i8 %conv.i to float
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
@@ -1370,10 +1370,10 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi3EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
   %mul = mul nsw i32 %1, 3
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
@@ -1396,7 +1396,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i7 = uitofp i8 %conv.i to float
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
@@ -1408,10 +1408,10 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @_ZN7msdfgen12simulate8bitERKNS_9BitmapRefIfLi4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
   %mul = shl nsw i32 %1, 2
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
@@ -1434,7 +1434,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i7 = uitofp i8 %conv.i to float
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.010, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 

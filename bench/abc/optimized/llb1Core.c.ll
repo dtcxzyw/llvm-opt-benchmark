@@ -26,33 +26,33 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Llb_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 112)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 40, i1 false)
   store i32 10000000, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 10000000, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 20, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 100, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 30, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store i32 -1, ptr %15, align 8
   ret void
@@ -63,7 +63,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManPrintAig(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 108
   %.val = load i32, ptr %4, align 4
@@ -76,7 +76,7 @@ define void @Llb_ManPrintAig(ptr nocapture noundef readonly %0) local_unnamed_ad
   %8 = getelementptr i8, ptr %7, i64 104
   %.val11 = load i32, ptr %8, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %.val11)
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val13 = load i32, ptr %11, align 4
@@ -92,7 +92,7 @@ define void @Llb_ManPrintAig(ptr nocapture noundef readonly %0) local_unnamed_ad
   %18 = getelementptr i8, ptr %17, i64 4
   %.val14 = load i32, ptr %18, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.val14)
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val16 = load i32, ptr %21, align 4
@@ -161,7 +161,7 @@ define i32 @Llb_ManModelCheckAig(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 9:                                                ; preds = %4
   %10 = load i64, ptr %6, align 8
   %.neg54 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg55 = add i64 %.neg, %.neg54
@@ -170,7 +170,7 @@ define i32 @Llb_ManModelCheckAig(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 Abc_Clock.exit:                                   ; preds = %4, %9
   %.0.i.neg = phi i64 [ %.neg55, %9 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %13 = getelementptr inbounds i8, ptr %1, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
@@ -189,7 +189,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br label %27
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i32, ptr %22, align 8
   %.not36 = icmp eq i32 %23, 0
   br i1 %.not36, label %25, label %24
@@ -204,12 +204,12 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 27:                                               ; preds = %25, %19
   %.034 = phi ptr [ %20, %19 ], [ %26, %25 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
   %.not37 = icmp eq i32 %29, 0
   call void @llvm.assume(i1 %.not37)
   %30 = call ptr @Llb_ManStart(ptr noundef %0, ptr noundef %.034, ptr noundef nonnull %1) #11
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load i32, ptr %31, align 8
   %.not38 = icmp eq i32 %32, 0
   br i1 %.not38, label %41, label %33
@@ -217,10 +217,10 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 33:                                               ; preds = %27
   call void @Llb_ManPrintAig(ptr noundef %30)
   %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
-  %35 = getelementptr inbounds i8, ptr %30, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %36 = load ptr, ptr %35, align 8
   call void @Llb_MtrPrintMatrixStats(ptr noundef %36) #11
-  %37 = getelementptr inbounds i8, ptr %1, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %38 = load i32, ptr %37, align 4
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %41, label %39
@@ -231,13 +231,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br label %41
 
 41:                                               ; preds = %33, %39, %27
-  %42 = getelementptr inbounds i8, ptr %1, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %43 = load i32, ptr %42, align 4
   %.not40 = icmp eq i32 %43, 0
   br i1 %.not40, label %55, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %30, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %46 = load ptr, ptr %45, align 8
   call void @Llb_ManCluster(ptr noundef %46) #11
   %47 = load i32, ptr %31, align 8
@@ -248,7 +248,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   %50 = load ptr, ptr %45, align 8
   call void @Llb_MtrPrintMatrixStats(ptr noundef %50) #11
-  %51 = getelementptr inbounds i8, ptr %1, i64 68
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %52 = load i32, ptr %51, align 4
   %.not42 = icmp eq i32 %52, 0
   br i1 %.not42, label %55, label %53
@@ -259,13 +259,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br label %55
 
 55:                                               ; preds = %44, %53, %48, %41
-  %56 = getelementptr inbounds i8, ptr %1, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %57 = load i32, ptr %56, align 8
   %.not43 = icmp eq i32 %57, 0
   br i1 %.not43, label %69, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %30, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %60 = load ptr, ptr %59, align 8
   call void @Llb_MtrSchedule(ptr noundef %60) #11
   %61 = load i32, ptr %31, align 8
@@ -276,7 +276,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
   %64 = load ptr, ptr %59, align 8
   call void @Llb_MtrPrintMatrixStats(ptr noundef %64) #11
-  %65 = getelementptr inbounds i8, ptr %1, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %66 = load i32, ptr %65, align 4
   %.not45 = icmp eq i32 %66, 0
   br i1 %.not45, label %69, label %67
@@ -288,7 +288,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 69:                                               ; preds = %55, %62, %67, %58
   %70 = load ptr, ptr %30, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 76
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 76
   %72 = load i32, ptr %71, align 4
   %.not46 = icmp eq i32 %72, 0
   br i1 %.not46, label %73, label %75
@@ -308,7 +308,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 78:                                               ; preds = %75
   %79 = load i64, ptr %5, align 8
   %80 = mul nsw i64 %79, 1000000
-  %81 = getelementptr inbounds i8, ptr %5, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = sdiv i64 %82, 1000
   %84 = add nsw i64 %83, %80
@@ -328,7 +328,7 @@ Abc_Clock.exit49:                                 ; preds = %75, %78
   br i1 %brmerge, label %Vec_IntFreeP.exit, label %89
 
 89:                                               ; preds = %Abc_Clock.exit49
-  %90 = getelementptr inbounds i8, ptr %.0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %.thread.i, label %92
@@ -375,7 +375,7 @@ define i32 @Llb_ManModelCheckGia(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %3 = tail call ptr @Gia_ManDupDfs(ptr noundef %0) #11
   %4 = tail call ptr @Gia_ManToAigSimple(ptr noundef %3) #11
   tail call void @Gia_ManStop(ptr noundef %3) #11
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
@@ -390,9 +390,9 @@ define i32 @Llb_ManModelCheckGia(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 12:                                               ; preds = %10, %8
   %.0 = phi i32 [ %9, %8 ], [ %11, %10 ]
-  %13 = getelementptr inbounds i8, ptr %4, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %14, ptr %15, align 8
   store ptr null, ptr %13, align 8
   tail call void @Aig_ManStop(ptr noundef %4) #11

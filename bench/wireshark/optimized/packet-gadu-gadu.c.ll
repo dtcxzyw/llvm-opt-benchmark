@@ -410,12 +410,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gadu_gadu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 284
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 292
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
   br i1 %9, label %12, label %13
 
@@ -429,9 +429,9 @@ define internal i32 @dissect_gadu_gadu(ptr noundef %0, ptr noundef %1, ptr nound
 
 15:                                               ; preds = %13, %12
   %.sink = phi i32 [ 1, %12 ], [ 0, %13 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 348
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %.sink, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.114) #2
   %19 = load ptr, ptr %17, align 8
@@ -476,7 +476,7 @@ define internal i32 @get_gadu_gadu_pdu_len(ptr nocapture readnone %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
   %.not = icmp eq ptr %2, null
@@ -492,7 +492,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 12:                                               ; preds = %7, %4
   %.0 = phi ptr [ %11, %7 ], [ null, %4 ]
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #2
-  %14 = getelementptr inbounds i8, ptr %1, i64 348
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
   %17 = load i32, ptr @hf_gadu_gadu_header_type_recv, align 4
@@ -573,7 +573,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not52.i, label %dissect_gadu_gadu_user_data.exit, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %40
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %40
@@ -649,13 +649,13 @@ gadu_gadu_get_conversation_data.exit.i:           ; preds = %72
   br i1 %.not.i37.i, label %proto_item_set_generated.exit.i, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %80, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8
   %.not5.i.i = icmp eq ptr %83, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, 2
   store i32 %87, ptr %85, align 4
@@ -669,13 +669,13 @@ proto_item_set_generated.exit.i:                  ; preds = %84, %81, %77
   br i1 %.not.i38.i, label %proto_item_set_hidden.exit.i, label %91
 
 91:                                               ; preds = %proto_item_set_generated.exit.i
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not5.i39.i = icmp eq ptr %93, null
   br i1 %.not5.i39.i, label %proto_item_set_hidden.exit.i, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 28
   %96 = load i32, ptr %95, align 4
   %97 = or i32 %96, 2
   store i32 %97, ptr %95, align 4
@@ -684,7 +684,7 @@ proto_item_set_generated.exit.i:                  ; preds = %84, %81, %77
   br i1 %.not5.i42.i, label %proto_item_set_hidden.exit.i, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %.pre.i, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -697,13 +697,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %98, %94, %91, %prot
   br i1 %.not.i43.i, label %proto_item_set_hidden.exit45.i, label %104
 
 104:                                              ; preds = %proto_item_set_hidden.exit.i
-  %105 = getelementptr inbounds i8, ptr %103, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %106 = load ptr, ptr %105, align 8
   %.not5.i44.i = icmp eq ptr %106, null
   br i1 %.not5.i44.i, label %proto_item_set_hidden.exit45.i, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %106, i64 28
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 28
   %109 = load i32, ptr %108, align 4
   %110 = or i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -756,13 +756,13 @@ gadu_gadu_get_conversation_data.exit.i257:        ; preds = %128
   br i1 %.not.i39.i, label %proto_item_set_generated.exit.i260, label %137
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %136, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not5.i.i259 = icmp eq ptr %139, null
   br i1 %.not5.i.i259, label %proto_item_set_generated.exit.i260, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, 2
   store i32 %143, ptr %141, align 4
@@ -776,13 +776,13 @@ proto_item_set_generated.exit.i260:               ; preds = %140, %137, %133
   br i1 %.not.i40.i, label %proto_item_set_hidden.exit.i263, label %147
 
 147:                                              ; preds = %proto_item_set_generated.exit.i260
-  %148 = getelementptr inbounds i8, ptr %146, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %149 = load ptr, ptr %148, align 8
   %.not5.i41.i = icmp eq ptr %149, null
   br i1 %.not5.i41.i, label %proto_item_set_hidden.exit.i263, label %150
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %149, i64 28
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %152 = load i32, ptr %151, align 4
   %153 = or i32 %152, 2
   store i32 %153, ptr %151, align 4
@@ -791,7 +791,7 @@ proto_item_set_generated.exit.i260:               ; preds = %140, %137, %133
   br i1 %.not5.i44.i262, label %proto_item_set_hidden.exit.i263, label %154
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %.pre.i261, i64 28
+  %155 = getelementptr inbounds nuw i8, ptr %.pre.i261, i64 28
   %156 = load i32, ptr %155, align 4
   %157 = or i32 %156, 1
   store i32 %157, ptr %155, align 4
@@ -804,13 +804,13 @@ proto_item_set_hidden.exit.i263:                  ; preds = %154, %150, %147, %p
   br i1 %.not.i45.i, label %dissect_gadu_gadu_recv_msg80.exit, label %160
 
 160:                                              ; preds = %proto_item_set_hidden.exit.i263
-  %161 = getelementptr inbounds i8, ptr %159, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %162 = load ptr, ptr %161, align 8
   %.not5.i46.i = icmp eq ptr %162, null
   br i1 %.not5.i46.i, label %dissect_gadu_gadu_recv_msg80.exit, label %163
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %162, i64 28
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 28
   %165 = load i32, ptr %164, align 4
   %166 = or i32 %165, 1
   store i32 %166, ptr %164, align 4
@@ -1150,7 +1150,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
   %343 = load i32, ptr @hf_gadu_gadu_data, align 4
   %344 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %343, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
   %345 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
-  %346 = getelementptr inbounds i8, ptr %1, i64 408
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %347 = load ptr, ptr %346, align 8
   %348 = zext i8 %345 to i32
   %349 = tail call ptr @tvb_get_string_enc(ptr noundef %347, ptr noundef %0, i32 noundef 10, i32 noundef %348, i32 noundef 0) #2
@@ -1174,7 +1174,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
   %360 = load i32, ptr @hf_gadu_gadu_data, align 4
   %361 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %360, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
   %362 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
-  %363 = getelementptr inbounds i8, ptr %1, i64 408
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %364 = load ptr, ptr %363, align 8
   %365 = zext i8 %362 to i32
   %366 = tail call ptr @tvb_get_string_enc(ptr noundef %364, ptr noundef %0, i32 noundef 10, i32 noundef %365, i32 noundef 0) #2
@@ -1206,13 +1206,13 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
   br i1 %.not.i.i275, label %proto_item_set_hidden.exit.i277, label %380
 
 380:                                              ; preds = %376
-  %381 = getelementptr inbounds i8, ptr %379, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 32
   %382 = load ptr, ptr %381, align 8
   %.not5.i.i276 = icmp eq ptr %382, null
   br i1 %.not5.i.i276, label %proto_item_set_hidden.exit.i277, label %383
 
 383:                                              ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %382, i64 28
+  %384 = getelementptr inbounds nuw i8, ptr %382, i64 28
   %385 = load i32, ptr %384, align 4
   %386 = or i32 %385, 1
   store i32 %386, ptr %384, align 4
@@ -1239,13 +1239,13 @@ gadu_gadu_get_conversation_data.exit.i279:        ; preds = %proto_item_set_hidd
   br i1 %.not.i38.i281, label %proto_item_set_generated.exit.i283, label %396
 
 396:                                              ; preds = %392
-  %397 = getelementptr inbounds i8, ptr %395, i64 32
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 32
   %398 = load ptr, ptr %397, align 8
   %.not5.i39.i282 = icmp eq ptr %398, null
   br i1 %.not5.i39.i282, label %proto_item_set_generated.exit.i283, label %399
 
 399:                                              ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %398, i64 28
+  %400 = getelementptr inbounds nuw i8, ptr %398, i64 28
   %401 = load i32, ptr %400, align 4
   %402 = or i32 %401, 2
   store i32 %402, ptr %400, align 4
@@ -1259,13 +1259,13 @@ proto_item_set_generated.exit.i283:               ; preds = %399, %396, %392
   br i1 %.not.i40.i284, label %proto_item_set_hidden.exit45.i288, label %406
 
 406:                                              ; preds = %proto_item_set_generated.exit.i283
-  %407 = getelementptr inbounds i8, ptr %405, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %405, i64 32
   %408 = load ptr, ptr %407, align 8
   %.not5.i41.i285 = icmp eq ptr %408, null
   br i1 %.not5.i41.i285, label %proto_item_set_hidden.exit45.i288, label %409
 
 409:                                              ; preds = %406
-  %410 = getelementptr inbounds i8, ptr %408, i64 28
+  %410 = getelementptr inbounds nuw i8, ptr %408, i64 28
   %411 = load i32, ptr %410, align 4
   %412 = or i32 %411, 2
   store i32 %412, ptr %410, align 4
@@ -1274,7 +1274,7 @@ proto_item_set_generated.exit.i283:               ; preds = %399, %396, %392
   br i1 %.not5.i44.i287, label %proto_item_set_hidden.exit45.i288, label %413
 
 413:                                              ; preds = %409
-  %414 = getelementptr inbounds i8, ptr %.pre.i286, i64 28
+  %414 = getelementptr inbounds nuw i8, ptr %.pre.i286, i64 28
   %415 = load i32, ptr %414, align 4
   %416 = or i32 %415, 1
   store i32 %416, ptr %414, align 4
@@ -1284,19 +1284,19 @@ proto_item_set_hidden.exit45.i288:                ; preds = %413, %409, %406, %p
   %417 = load i32, ptr @hf_gadu_gadu_msg_seq, align 4
   %418 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %417, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
   %419 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
-  %420 = getelementptr inbounds i8, ptr %1, i64 24
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %421 = tail call ptr @proto_tree_add_time(ptr noundef %.0, i32 noundef %419, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %420) #2
   %.not.i46.i = icmp eq ptr %421, null
   br i1 %.not.i46.i, label %proto_item_set_generated.exit48.i, label %422
 
 422:                                              ; preds = %proto_item_set_hidden.exit45.i288
-  %423 = getelementptr inbounds i8, ptr %421, i64 32
+  %423 = getelementptr inbounds nuw i8, ptr %421, i64 32
   %424 = load ptr, ptr %423, align 8
   %.not5.i47.i = icmp eq ptr %424, null
   br i1 %.not5.i47.i, label %proto_item_set_generated.exit48.i, label %425
 
 425:                                              ; preds = %422
-  %426 = getelementptr inbounds i8, ptr %424, i64 28
+  %426 = getelementptr inbounds nuw i8, ptr %424, i64 28
   %427 = load i32, ptr %426, align 4
   %428 = or i32 %427, 2
   store i32 %428, ptr %426, align 4
@@ -1443,7 +1443,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 30, 94) i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.242) #2
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
@@ -1470,13 +1470,13 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %11
   br i1 %.not.i36, label %proto_item_set_generated.exit.preheader, label %19
 
 19:                                               ; preds = %gadu_gadu_create_conversation.exit
-  %20 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not5.i = icmp eq ptr %21, null
   br i1 %.not5.i, label %proto_item_set_generated.exit.preheader, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, 2
   store i32 %25, ptr %23, align 4
@@ -1513,13 +1513,13 @@ _tvb_memcpy_reverse.exit:                         ; preds = %proto_item_set_gene
   br i1 %.not.i.i, label %dissect_gadu_gadu_login_protocol.exit, label %42
 
 42:                                               ; preds = %_tvb_memcpy_reverse.exit
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i.i = icmp eq ptr %44, null
   br i1 %.not5.i.i, label %dissect_gadu_gadu_login_protocol.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 2
   store i32 %48, ptr %46, align 4
@@ -1535,7 +1535,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %_tvb_memcpy_reverse
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 92, 95) i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.270) #2
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
@@ -1572,13 +1572,13 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %11
   br i1 %.not.i.i, label %dissect_gadu_gadu_login_protocol.exit, label %28
 
 28:                                               ; preds = %gadu_gadu_create_conversation.exit
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i.i = icmp eq ptr %30, null
   br i1 %.not5.i.i, label %dissect_gadu_gadu_login_protocol.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 2
   store i32 %34, ptr %32, align 4
@@ -1600,7 +1600,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %gadu_gadu_create_co
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 81, 84) i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.271) #2
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
@@ -1633,7 +1633,7 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.276) #2
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #2
@@ -1641,7 +1641,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify105(ptr noundef %0, 
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -1699,7 +1699,7 @@ define internal fastcc void @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.284) #2
   %6 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
@@ -1708,13 +1708,13 @@ define internal fastcc void @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr no
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i = icmp eq ptr %10, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -1741,13 +1741,13 @@ gadu_gadu_get_conversation_data.exit:             ; preds = %proto_item_set_hidd
   br i1 %.not.i40, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i41 = icmp eq ptr %26, null
   br i1 %.not5.i41, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4
@@ -1761,13 +1761,13 @@ proto_item_set_generated.exit:                    ; preds = %20, %24, %27
   br i1 %.not.i42, label %proto_item_set_hidden.exit47, label %34
 
 34:                                               ; preds = %proto_item_set_generated.exit
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not5.i43 = icmp eq ptr %36, null
   br i1 %.not5.i43, label %proto_item_set_hidden.exit47, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %39, 2
   store i32 %40, ptr %38, align 4
@@ -1776,7 +1776,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %24, %27
   br i1 %.not5.i46, label %proto_item_set_hidden.exit47, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -1786,19 +1786,19 @@ proto_item_set_hidden.exit47:                     ; preds = %34, %proto_item_set
   %45 = load i32, ptr @hf_gadu_gadu_msg_seq, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #2
   %47 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = tail call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %48) #2
   %.not.i48 = icmp eq ptr %49, null
   br i1 %.not.i48, label %proto_item_set_generated.exit50, label %50
 
 50:                                               ; preds = %proto_item_set_hidden.exit47
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not5.i49 = icmp eq ptr %52, null
   br i1 %.not5.i49, label %proto_item_set_generated.exit50, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, 2
   store i32 %56, ptr %54, align 4
@@ -1913,7 +1913,7 @@ define internal fastcc void @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.291) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
@@ -1925,13 +1925,13 @@ define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist
   br i1 %.not.i, label %proto_item_set_generated.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not5.i = icmp eq ptr %13, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   store i32 %17, ptr %15, align 4
@@ -1952,7 +1952,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %11, %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.292) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2

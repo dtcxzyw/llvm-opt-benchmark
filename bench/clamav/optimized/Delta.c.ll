@@ -34,7 +34,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
   %.12846.us = phi i64 [ %12, %.preheader.us ], [ 0, %.preheader.us.preheader ]
   %7 = getelementptr inbounds i8, ptr %2, i64 %.12846.us
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = sub i8 %8, %10
   store i8 %11, ptr %7, align 1
@@ -108,7 +108,7 @@ MyMemCpy.exit.thread:                             ; preds = %4
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.us.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next.mux, %.preheader.us ], [ 0, %.preheader.us.preheader ]
   %.145.us = phi i64 [ %12, %.preheader.us ], [ 0, %.preheader.us.preheader ]
-  %7 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds i8, ptr %2, i64 %.145.us
   %10 = load i8, ptr %9, align 1

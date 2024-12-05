@@ -18,9 +18,9 @@ define i32 @agstrclose(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %6
 
 6:                                                ; preds = %2, %1
@@ -50,9 +50,9 @@ define ptr @agstrbind(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not.i, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %8
 
 8:                                                ; preds = %4, %2
@@ -70,7 +70,7 @@ define ptr @agstrbind(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 refdict.exit:                                     ; preds = %8, %11
   %14 = phi ptr [ %13, %11 ], [ %9, %8 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %1, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
   %17 = call ptr %16(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef 4) #8
@@ -79,7 +79,7 @@ refdict.exit:                                     ; preds = %8, %11
   br i1 %.not.i2, label %refstrbind.exit, label %18
 
 18:                                               ; preds = %refdict.exit
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load ptr, ptr %19, align 8
   br label %refstrbind.exit
 
@@ -105,9 +105,9 @@ define internal fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1
   br i1 %.not.i, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -125,7 +125,7 @@ define internal fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1
 refdict.exit:                                     ; preds = %11, %14
   %17 = phi ptr [ %16, %14 ], [ %12, %11 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %18, align 8
   %19 = load ptr, ptr %17, align 8
   %20 = call ptr %19(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 4) #8
@@ -134,7 +134,7 @@ refdict.exit:                                     ; preds = %11, %14
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %refdict.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
   %25 = and i64 %24, 9223372036854775807
@@ -161,12 +161,12 @@ refdict.exit:                                     ; preds = %11, %14
 
 37:                                               ; preds = %33, %31
   %.1 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  %38 = getelementptr inbounds i8, ptr %.1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %39 = select i1 %2, i64 -9223372036854775807, i64 1
   store i64 %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #8
-  %42 = getelementptr inbounds i8, ptr %.1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   store ptr %40, ptr %42, align 8
   %43 = load ptr, ptr %17, align 8
   %44 = call ptr %43(ptr noundef nonnull %17, ptr noundef %.1, i32 noundef 1) #8
@@ -174,7 +174,7 @@ refdict.exit:                                     ; preds = %11, %14
 
 45:                                               ; preds = %37, %21
   %.025 = phi ptr [ %20, %21 ], [ %.1, %37 ]
-  %46 = getelementptr inbounds i8, ptr %.025, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.025, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -200,9 +200,9 @@ define range(i32 -1, 1) i32 @agstrfree(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not.i, label %10, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %10
 
 10:                                               ; preds = %6, %5
@@ -220,7 +220,7 @@ define range(i32 -1, 1) i32 @agstrfree(ptr noundef %0, ptr noundef %1) local_unn
 refdict.exit:                                     ; preds = %10, %13
   %16 = phi ptr [ %15, %13 ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %1, ptr %17, align 8
   %18 = load ptr, ptr %16, align 8
   %19 = call ptr %18(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 4) #8
@@ -229,13 +229,13 @@ refdict.exit:                                     ; preds = %10, %13
   br i1 %cond, label %35, label %20
 
 20:                                               ; preds = %refdict.exit
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %24, label %35
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 9223372036854775807
   %28 = and i64 %27, 9223372036854775807

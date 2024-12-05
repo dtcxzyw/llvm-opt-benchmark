@@ -9,28 +9,28 @@ target triple = "x86_64-pc-linux-gnu"
 define void @group_leave(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %51, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %group_removemember.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %12
 
 12:                                               ; preds = %up_irq_restore.exit.i, %.lr.ph.i
   %13 = phi i8 [ %10, %.lr.ph.i ], [ %.pr, %up_irq_restore.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %up_irq_restore.exit.i ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %8
   br i1 %17, label %18, label %up_irq_restore.exit.i
@@ -47,7 +47,7 @@ define void @group_leave(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr i32, ptr %20, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
   store i32 %25, ptr %26, align 4
   %27 = load i8, ptr %9, align 1
   %28 = add i8 %27, -1
@@ -77,10 +77,10 @@ group_removemember.exit.thread:                   ; preds = %6, %group_removemem
   call void @group_remove_children(ptr noundef nonnull %5) #5
   call void @nxsig_release(ptr noundef nonnull %5) #5
   call void @pthread_release(ptr noundef nonnull %5) #5
-  %34 = getelementptr inbounds i8, ptr %5, i64 928
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 928
   call void @files_releaselist(ptr noundef nonnull %34) #5
   call void @env_release(ptr noundef nonnull %5) #5
-  %35 = getelementptr inbounds i8, ptr %5, i64 944
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 944
   call void @mm_map_destroy(ptr noundef nonnull %35) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !6
@@ -119,7 +119,7 @@ group_removemember.exit.thread:                   ; preds = %6, %group_removemem
   br label %group_remove.exit.i
 
 group_remove.exit.i:                              ; preds = %46, %44
-  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i7 = icmp eq ptr %48, null
   br i1 %.not.i7, label %group_release.exit, label %49
@@ -142,7 +142,7 @@ group_release.exit:                               ; preds = %group_remove.exit.i
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @group_drop(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 4
   %.not = icmp eq i8 %4, 0

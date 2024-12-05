@@ -137,25 +137,25 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  %2 = getelementptr inbounds i8, ptr %call, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %2, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %2, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %2, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !15
-  %3 = getelementptr inbounds i8, ptr %call, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i32 0, ptr %3, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call, i64 72
+  %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %_M_left.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr %3, ptr %_M_left.i.i.i.i.i2.i.i, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %_M_right.i.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %3, ptr %_M_right.i.i.i.i.i3.i.i, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %call, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib11SaudiArabia11TadawulImplE, i64 16), ptr %call, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_11SaudiArabia11TadawulImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib11SaudiArabiaC1ENS0_6MarketEE11tadawulImpl, ptr noundef nonnull %call)
@@ -203,7 +203,7 @@ if.then.i.i5.i:                                   ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i5.i
   %vtable.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -216,7 +216,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i5.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !16
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEaSERKS4_.exit unwind label %terminate.lpad.i.i.i
@@ -451,7 +451,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -464,7 +464,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i
@@ -573,7 +573,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -586,7 +586,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -630,7 +630,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -643,7 +643,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -747,127 +747,127 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 8
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 8
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element.i, i32 noundef 27, i32 noundef 3, i32 noundef 1999)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
-  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 16
+  %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 16
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element2.i, i32 noundef 16, i32 noundef 3, i32 noundef 2000)
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont1.i
-  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 24
+  %arrayinit.element4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 24
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element4.i, i32 noundef 5, i32 noundef 3, i32 noundef 2001)
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont3.i
-  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 32
+  %arrayinit.element6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 32
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element6.i, i32 noundef 23, i32 noundef 2, i32 noundef 2002)
           to label %invoke.cont7.i unwind label %lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont5.i
-  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 40
+  %arrayinit.element8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 40
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element8.i, i32 noundef 12, i32 noundef 2, i32 noundef 2003)
           to label %invoke.cont9.i unwind label %lpad.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont7.i
-  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 48
+  %arrayinit.element10.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 48
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element10.i, i32 noundef 1, i32 noundef 2, i32 noundef 2004)
           to label %invoke.cont11.i unwind label %lpad.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont9.i
-  %arrayinit.element12.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 56
+  %arrayinit.element12.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 56
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element12.i, i32 noundef 21, i32 noundef 1, i32 noundef 2005)
           to label %invoke.cont13.i unwind label %lpad.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont11.i
-  %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 64
+  %arrayinit.element14.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 64
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element14.i, i32 noundef 10, i32 noundef 1, i32 noundef 2006)
           to label %invoke.cont15.i unwind label %lpad.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont13.i
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 72
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 72
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element16.i, i32 noundef 31, i32 noundef 12, i32 noundef 2006)
           to label %invoke.cont17.i unwind label %lpad.i
 
 invoke.cont17.i:                                  ; preds = %invoke.cont15.i
-  %arrayinit.element18.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 80
+  %arrayinit.element18.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 80
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element18.i, i32 noundef 20, i32 noundef 12, i32 noundef 2007)
           to label %invoke.cont19.i unwind label %lpad.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont17.i
-  %arrayinit.element20.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 88
+  %arrayinit.element20.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 88
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element20.i, i32 noundef 8, i32 noundef 12, i32 noundef 2008)
           to label %invoke.cont21.i unwind label %lpad.i
 
 invoke.cont21.i:                                  ; preds = %invoke.cont19.i
-  %arrayinit.element22.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 96
+  %arrayinit.element22.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 96
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element22.i, i32 noundef 27, i32 noundef 11, i32 noundef 2009)
           to label %invoke.cont23.i unwind label %lpad.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont21.i
-  %arrayinit.element24.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 104
+  %arrayinit.element24.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 104
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element24.i, i32 noundef 16, i32 noundef 11, i32 noundef 2010)
           to label %invoke.cont25.i unwind label %lpad.i
 
 invoke.cont25.i:                                  ; preds = %invoke.cont23.i
-  %arrayinit.element26.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 112
+  %arrayinit.element26.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 112
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element26.i, i32 noundef 6, i32 noundef 11, i32 noundef 2011)
           to label %invoke.cont27.i unwind label %lpad.i
 
 invoke.cont27.i:                                  ; preds = %invoke.cont25.i
-  %arrayinit.element28.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 120
+  %arrayinit.element28.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 120
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element28.i, i32 noundef 26, i32 noundef 10, i32 noundef 2012)
           to label %invoke.cont29.i unwind label %lpad.i
 
 invoke.cont29.i:                                  ; preds = %invoke.cont27.i
-  %arrayinit.element30.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 128
+  %arrayinit.element30.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 128
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element30.i, i32 noundef 15, i32 noundef 10, i32 noundef 2013)
           to label %invoke.cont31.i unwind label %lpad.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont29.i
-  %arrayinit.element32.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 136
+  %arrayinit.element32.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 136
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element32.i, i32 noundef 4, i32 noundef 10, i32 noundef 2014)
           to label %invoke.cont33.i unwind label %lpad.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
-  %arrayinit.element34.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 144
+  %arrayinit.element34.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 144
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element34.i, i32 noundef 24, i32 noundef 9, i32 noundef 2015)
           to label %invoke.cont35.i unwind label %lpad.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont33.i
-  %arrayinit.element36.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 152
+  %arrayinit.element36.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 152
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element36.i, i32 noundef 11, i32 noundef 9, i32 noundef 2016)
           to label %invoke.cont37.i unwind label %lpad.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont35.i
-  %arrayinit.element38.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 160
+  %arrayinit.element38.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 160
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element38.i, i32 noundef 1, i32 noundef 9, i32 noundef 2017)
           to label %invoke.cont39.i unwind label %lpad.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont37.i
-  %arrayinit.element40.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 168
+  %arrayinit.element40.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 168
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element40.i, i32 noundef 23, i32 noundef 8, i32 noundef 2018)
           to label %invoke.cont41.i unwind label %lpad.i
 
 invoke.cont41.i:                                  ; preds = %invoke.cont39.i
-  %arrayinit.element42.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 176
+  %arrayinit.element42.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 176
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element42.i, i32 noundef 12, i32 noundef 8, i32 noundef 2019)
           to label %invoke.cont43.i unwind label %lpad.i
 
 invoke.cont43.i:                                  ; preds = %invoke.cont41.i
-  %arrayinit.element44.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 184
+  %arrayinit.element44.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 184
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element44.i, i32 noundef 31, i32 noundef 7, i32 noundef 2020)
           to label %invoke.cont45.i unwind label %lpad.i
 
 invoke.cont45.i:                                  ; preds = %invoke.cont43.i
-  %arrayinit.element46.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 192
+  %arrayinit.element46.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 192
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element46.i, i32 noundef 20, i32 noundef 7, i32 noundef 2021)
           to label %invoke.cont47.i unwind label %lpad.i
 
 invoke.cont47.i:                                  ; preds = %invoke.cont45.i
-  %arrayinit.element48.i = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 200
+  %arrayinit.element48.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 200
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element48.i, i32 noundef 10, i32 noundef 7, i32 noundef 2022)
           to label %invoke.cont49.i unwind label %lpad.i
 
@@ -878,7 +878,7 @@ invoke.cont49.i:                                  ; preds = %invoke.cont47.i
 
 invoke.cont52.i:                                  ; preds = %invoke.cont49.i
   store ptr %call5.i.i.i.i2.i2.i, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateEE9EidAlAdha, align 8, !tbaa !32
-  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i2.i, i64 208
+  %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i2.i, i64 208
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateEE9EidAlAdha, i64 16), align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %call5.i.i.i.i2.i2.i, ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp.i16, i64 208, i1 false), !tbaa !29
   store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlAdhaENS_4DateEE9EidAlAdha, i64 8), align 8, !tbaa !35
@@ -1121,142 +1121,142 @@ init.i111:                                        ; preds = %init.check.i109
           to label %invoke.cont.i115 unwind label %lpad.i112
 
 invoke.cont.i115:                                 ; preds = %init.i111
-  %arrayinit.element.i116 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 8
+  %arrayinit.element.i116 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 8
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element.i116, i32 noundef 5, i32 noundef 12, i32 noundef 2002)
           to label %invoke.cont1.i117 unwind label %lpad.i112
 
 invoke.cont1.i117:                                ; preds = %invoke.cont.i115
-  %arrayinit.element2.i118 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 16
+  %arrayinit.element2.i118 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 16
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element2.i118, i32 noundef 25, i32 noundef 11, i32 noundef 2003)
           to label %invoke.cont3.i119 unwind label %lpad.i112
 
 invoke.cont3.i119:                                ; preds = %invoke.cont1.i117
-  %arrayinit.element4.i120 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 24
+  %arrayinit.element4.i120 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 24
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element4.i120, i32 noundef 13, i32 noundef 11, i32 noundef 2004)
           to label %invoke.cont5.i121 unwind label %lpad.i112
 
 invoke.cont5.i121:                                ; preds = %invoke.cont3.i119
-  %arrayinit.element6.i122 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 32
+  %arrayinit.element6.i122 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 32
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element6.i122, i32 noundef 3, i32 noundef 11, i32 noundef 2005)
           to label %invoke.cont7.i123 unwind label %lpad.i112
 
 invoke.cont7.i123:                                ; preds = %invoke.cont5.i121
-  %arrayinit.element8.i124 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 40
+  %arrayinit.element8.i124 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 40
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element8.i124, i32 noundef 23, i32 noundef 10, i32 noundef 2006)
           to label %invoke.cont9.i125 unwind label %lpad.i112
 
 invoke.cont9.i125:                                ; preds = %invoke.cont7.i123
-  %arrayinit.element10.i126 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 48
+  %arrayinit.element10.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 48
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element10.i126, i32 noundef 12, i32 noundef 10, i32 noundef 2007)
           to label %invoke.cont11.i127 unwind label %lpad.i112
 
 invoke.cont11.i127:                               ; preds = %invoke.cont9.i125
-  %arrayinit.element12.i128 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 56
+  %arrayinit.element12.i128 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 56
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element12.i128, i32 noundef 30, i32 noundef 9, i32 noundef 2008)
           to label %invoke.cont13.i129 unwind label %lpad.i112
 
 invoke.cont13.i129:                               ; preds = %invoke.cont11.i127
-  %arrayinit.element14.i130 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 64
+  %arrayinit.element14.i130 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 64
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element14.i130, i32 noundef 20, i32 noundef 9, i32 noundef 2009)
           to label %invoke.cont15.i131 unwind label %lpad.i112
 
 invoke.cont15.i131:                               ; preds = %invoke.cont13.i129
-  %arrayinit.element16.i132 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 72
+  %arrayinit.element16.i132 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 72
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element16.i132, i32 noundef 10, i32 noundef 9, i32 noundef 2010)
           to label %invoke.cont17.i133 unwind label %lpad.i112
 
 invoke.cont17.i133:                               ; preds = %invoke.cont15.i131
-  %arrayinit.element18.i134 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 80
+  %arrayinit.element18.i134 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 80
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element18.i134, i32 noundef 30, i32 noundef 8, i32 noundef 2011)
           to label %invoke.cont19.i135 unwind label %lpad.i112
 
 invoke.cont19.i135:                               ; preds = %invoke.cont17.i133
-  %arrayinit.element20.i136 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 88
+  %arrayinit.element20.i136 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 88
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element20.i136, i32 noundef 19, i32 noundef 8, i32 noundef 2012)
           to label %invoke.cont21.i137 unwind label %lpad.i112
 
 invoke.cont21.i137:                               ; preds = %invoke.cont19.i135
-  %arrayinit.element22.i138 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 96
+  %arrayinit.element22.i138 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 96
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element22.i138, i32 noundef 8, i32 noundef 8, i32 noundef 2013)
           to label %invoke.cont23.i139 unwind label %lpad.i112
 
 invoke.cont23.i139:                               ; preds = %invoke.cont21.i137
-  %arrayinit.element24.i140 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 104
+  %arrayinit.element24.i140 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 104
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element24.i140, i32 noundef 28, i32 noundef 7, i32 noundef 2014)
           to label %invoke.cont25.i141 unwind label %lpad.i112
 
 invoke.cont25.i141:                               ; preds = %invoke.cont23.i139
-  %arrayinit.element26.i142 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 112
+  %arrayinit.element26.i142 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 112
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element26.i142, i32 noundef 17, i32 noundef 7, i32 noundef 2015)
           to label %invoke.cont27.i143 unwind label %lpad.i112
 
 invoke.cont27.i143:                               ; preds = %invoke.cont25.i141
-  %arrayinit.element28.i144 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 120
+  %arrayinit.element28.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 120
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element28.i144, i32 noundef 6, i32 noundef 7, i32 noundef 2016)
           to label %invoke.cont29.i145 unwind label %lpad.i112
 
 invoke.cont29.i145:                               ; preds = %invoke.cont27.i143
-  %arrayinit.element30.i146 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 128
+  %arrayinit.element30.i146 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 128
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element30.i146, i32 noundef 25, i32 noundef 6, i32 noundef 2017)
           to label %invoke.cont31.i147 unwind label %lpad.i112
 
 invoke.cont31.i147:                               ; preds = %invoke.cont29.i145
-  %arrayinit.element32.i148 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 136
+  %arrayinit.element32.i148 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 136
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element32.i148, i32 noundef 15, i32 noundef 6, i32 noundef 2018)
           to label %invoke.cont33.i149 unwind label %lpad.i112
 
 invoke.cont33.i149:                               ; preds = %invoke.cont31.i147
-  %arrayinit.element34.i150 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 144
+  %arrayinit.element34.i150 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 144
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element34.i150, i32 noundef 4, i32 noundef 6, i32 noundef 2019)
           to label %invoke.cont35.i151 unwind label %lpad.i112
 
 invoke.cont35.i151:                               ; preds = %invoke.cont33.i149
-  %arrayinit.element36.i152 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 152
+  %arrayinit.element36.i152 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 152
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element36.i152, i32 noundef 24, i32 noundef 5, i32 noundef 2020)
           to label %invoke.cont37.i153 unwind label %lpad.i112
 
 invoke.cont37.i153:                               ; preds = %invoke.cont35.i151
-  %arrayinit.element38.i154 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 160
+  %arrayinit.element38.i154 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 160
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element38.i154, i32 noundef 13, i32 noundef 5, i32 noundef 2021)
           to label %invoke.cont39.i155 unwind label %lpad.i112
 
 invoke.cont39.i155:                               ; preds = %invoke.cont37.i153
-  %arrayinit.element40.i156 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 168
+  %arrayinit.element40.i156 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 168
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element40.i156, i32 noundef 2, i32 noundef 5, i32 noundef 2022)
           to label %invoke.cont41.i157 unwind label %lpad.i112
 
 invoke.cont41.i157:                               ; preds = %invoke.cont39.i155
-  %arrayinit.element42.i158 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 176
+  %arrayinit.element42.i158 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 176
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element42.i158, i32 noundef 21, i32 noundef 4, i32 noundef 2023)
           to label %invoke.cont43.i159 unwind label %lpad.i112
 
 invoke.cont43.i159:                               ; preds = %invoke.cont41.i157
-  %arrayinit.element44.i160 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 184
+  %arrayinit.element44.i160 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 184
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element44.i160, i32 noundef 10, i32 noundef 4, i32 noundef 2024)
           to label %invoke.cont45.i161 unwind label %lpad.i112
 
 invoke.cont45.i161:                               ; preds = %invoke.cont43.i159
-  %arrayinit.element46.i162 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 192
+  %arrayinit.element46.i162 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 192
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element46.i162, i32 noundef 30, i32 noundef 3, i32 noundef 2025)
           to label %invoke.cont47.i163 unwind label %lpad.i112
 
 invoke.cont47.i163:                               ; preds = %invoke.cont45.i161
-  %arrayinit.element48.i164 = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 200
+  %arrayinit.element48.i164 = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 200
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element48.i164, i32 noundef 20, i32 noundef 3, i32 noundef 2026)
           to label %invoke.cont49.i165 unwind label %lpad.i112
 
 invoke.cont49.i165:                               ; preds = %invoke.cont47.i163
-  %arrayinit.element50.i = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 208
+  %arrayinit.element50.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 208
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element50.i, i32 noundef 9, i32 noundef 3, i32 noundef 2027)
           to label %invoke.cont51.i unwind label %lpad.i112
 
 invoke.cont51.i:                                  ; preds = %invoke.cont49.i165
-  %arrayinit.element52.i = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 216
+  %arrayinit.element52.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 216
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element52.i, i32 noundef 26, i32 noundef 2, i32 noundef 2028)
           to label %invoke.cont53.i unwind label %lpad.i112
 
 invoke.cont53.i:                                  ; preds = %invoke.cont51.i
-  %arrayinit.element54.i = getelementptr inbounds i8, ptr %ref.tmp.i31, i64 224
+  %arrayinit.element54.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i31, i64 224
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %arrayinit.element54.i, i32 noundef 14, i32 noundef 2, i32 noundef 2029)
           to label %invoke.cont55.i unwind label %lpad.i112
 
@@ -1267,7 +1267,7 @@ invoke.cont55.i:                                  ; preds = %invoke.cont53.i
 
 invoke.cont58.i:                                  ; preds = %invoke.cont55.i
   store ptr %call5.i.i.i.i2.i2.i166, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateEE9EidAlFitr, align 8, !tbaa !32
-  %add.ptr.i1.i.i167 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i2.i166, i64 232
+  %add.ptr.i1.i.i167 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i2.i166, i64 232
   store ptr %add.ptr.i1.i.i167, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateEE9EidAlFitr, i64 16), align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %call5.i.i.i.i2.i2.i166, ptr noundef nonnull align 8 dereferenceable(232) %ref.tmp.i31, i64 232, i1 false), !tbaa !29
   store ptr %add.ptr.i1.i.i167, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_111isEidAlFitrENS_4DateEE9EidAlFitr, i64 8), align 8, !tbaa !35
@@ -1526,7 +1526,7 @@ define linkonce_odr void @_ZN8QuantLib8Calendar4ImplD2Ev(ptr noundef nonnull ali
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1540,7 +1540,7 @@ terminate.lpad.i.i:                               ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %entry
   %addedHolidays = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays, ptr noundef %3)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit3 unwind label %terminate.lpad.i.i2
@@ -1561,7 +1561,7 @@ define linkonce_odr void @_ZN8QuantLib11SaudiArabia11TadawulImplD0Ev(ptr noundef
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1575,7 +1575,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1668,7 +1668,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %terminate.lpad
@@ -1681,7 +1681,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %.noexc
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end unwind label %terminate.lpad
@@ -1799,7 +1799,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %5, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -1812,7 +1812,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %5, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -1837,7 +1837,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1851,7 +1851,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1895,7 +1895,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -1909,7 +1909,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i
@@ -1933,7 +1933,7 @@ _ZN5boost14checked_deleteIN8QuantLib11SaudiArabia11TadawulImplEEEvPT_.exit: ; pr
 define linkonce_odr void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
   ret void

@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @archive_entry_sparse_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -19,7 +19,7 @@ define dso_local void @archive_entry_sparse_clear(ptr nocapture noundef %0) loca
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store ptr null, ptr %6, align 8
   ret void
 }
@@ -43,15 +43,15 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %25, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, %16
   %20 = icmp sgt i64 %19, %1
@@ -72,12 +72,12 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   br i1 %27, label %38, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %2, ptr %30, align 8
   store ptr null, ptr %26, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1240
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -109,7 +109,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -126,13 +126,13 @@ define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_a
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
   %.not11 = icmp slt i64 %14, %15
@@ -152,7 +152,7 @@ define dso_local i32 @archive_entry_sparse_count(ptr noundef %0) local_unnamed_a
   br i1 %.not.i, label %archive_entry_sparse_clear.exit, label %.lr.ph.i, !llvm.loop !5
 
 archive_entry_sparse_clear.exit:                  ; preds = %.lr.ph.i, %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 1248
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store ptr null, ptr %20, align 8
   br label %21
 
@@ -163,9 +163,9 @@ archive_entry_sparse_clear.exit:                  ; preds = %.lr.ph.i, %16
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @archive_entry_sparse_reset(ptr noundef initializes((1256, 1264)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store ptr %3, ptr %4, align 8
   %.not.i3 = icmp eq ptr %3, null
   br i1 %.not.i3, label %archive_entry_sparse_count.exit, label %thread-pre-split, !llvm.loop !7
@@ -183,13 +183,13 @@ thread-pre-split:                                 ; preds = %1, %thread-pre-spli
   br i1 %6, label %7, label %archive_entry_sparse_count.exit
 
 7:                                                ; preds = %._crit_edge
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %archive_entry_sparse_count.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 @archive_entry_size(ptr noundef nonnull %0) #5
   %.not11.i = icmp slt i64 %13, %14
@@ -209,7 +209,7 @@ thread-pre-split:                                 ; preds = %1, %thread-pre-spli
   br i1 %.not.i.i, label %archive_entry_sparse_clear.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 archive_entry_sparse_clear.exit.i:                ; preds = %.lr.ph.i.i, %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store ptr null, ptr %19, align 8
   br label %archive_entry_sparse_count.exit
 
@@ -220,17 +220,17 @@ archive_entry_sparse_count.exit:                  ; preds = %1, %._crit_edge, %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -20, 1) i32 @archive_entry_sparse_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %1, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %2, align 8
   %12 = load ptr, ptr %4, align 8

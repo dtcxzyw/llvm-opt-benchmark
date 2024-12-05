@@ -89,9 +89,9 @@ if.then.i7.i:                                     ; preds = %if.then6.i
   br label %return
 
 if.end:                                           ; preds = %if.end4.i
-  %crypter = getelementptr inbounds i8, ptr %c, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load ptr, ptr %crypter, align 8
-  %ctr = getelementptr inbounds i8, ptr %c, i64 16
+  %ctr = getelementptr inbounds nuw i8, ptr %c, i64 16
   %1 = load ptr, ptr %ctr, align 8
   %call1 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %1)
   %2 = load ptr, ptr %ctr, align 8

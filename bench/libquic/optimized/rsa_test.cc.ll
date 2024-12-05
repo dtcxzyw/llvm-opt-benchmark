@@ -121,7 +121,7 @@ _ZL14TestOnlyDGivenv.exit.thread:                 ; preds = %lor.lhs.false4
   br label %return
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false4
-  %n.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %n.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %call3.i = invoke i32 @BN_hex2bn(ptr noundef nonnull %n.i, ptr noundef nonnull @_ZZL14TestOnlyDGivenvE2kN)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -130,7 +130,7 @@ invoke.cont.i:                                    ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then.i4.i, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %invoke.cont.i
-  %e.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %e.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %call7.i = invoke i32 @BN_hex2bn(ptr noundef nonnull %e.i, ptr noundef nonnull @_ZZL14TestOnlyDGivenvE2kE)
           to label %invoke.cont6.i unwind label %lpad.i
 
@@ -139,7 +139,7 @@ invoke.cont6.i:                                   ; preds = %lor.lhs.false4.i
   br i1 %tobool8.not.i, label %if.then.i4.i, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %invoke.cont6.i
-  %d.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %d.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %call12.i = invoke i32 @BN_hex2bn(ptr noundef nonnull %d.i, ptr noundef nonnull @_ZZL14TestOnlyDGivenvE2kD)
           to label %invoke.cont11.i unwind label %lpad.i
 
@@ -217,7 +217,7 @@ invoke.cont49.i:                                  ; preds = %if.end48.i
   br i1 %cmp.i2.not.i, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i, label %lor.lhs.false52.i
 
 lor.lhs.false52.i:                                ; preds = %invoke.cont49.i
-  %n54.i = getelementptr inbounds i8, ptr %call50.i, i64 8
+  %n54.i = getelementptr inbounds nuw i8, ptr %call50.i, i64 8
   %call57.i = invoke i32 @BN_hex2bn(ptr noundef nonnull %n54.i, ptr noundef nonnull @_ZZL14TestOnlyDGivenvE2kN)
           to label %invoke.cont56.i unwind label %lpad55.i
 
@@ -226,7 +226,7 @@ invoke.cont56.i:                                  ; preds = %lor.lhs.false52.i
   br i1 %tobool58.not.i, label %if.then.i.i, label %lor.lhs.false59.i
 
 lor.lhs.false59.i:                                ; preds = %invoke.cont56.i
-  %d61.i = getelementptr inbounds i8, ptr %call50.i, i64 24
+  %d61.i = getelementptr inbounds nuw i8, ptr %call50.i, i64 24
   %call63.i = invoke i32 @BN_hex2bn(ptr noundef nonnull %d61.i, ptr noundef nonnull @_ZZL14TestOnlyDGivenvE2kD)
           to label %invoke.cont62.i unwind label %lpad55.i
 
@@ -241,7 +241,7 @@ lpad55.i:                                         ; preds = %if.then93.invoke.i,
   br label %ehcleanup.i
 
 if.end66.i:                                       ; preds = %invoke.cont62.i
-  %flags.i = getelementptr inbounds i8, ptr %call50.i, i64 92
+  %flags.i = getelementptr inbounds nuw i8, ptr %call50.i, i64 92
   %10 = load i32, ptr %flags.i, align 4
   %or.i = or i32 %10, 8
   store i32 %or.i, ptr %flags.i, align 4
@@ -423,29 +423,29 @@ invoke.cont29.i17:                                ; preds = %if.end28.i
   br i1 %cmp.i5.not.i, label %if.then.i7.i, label %if.end33.i
 
 if.end33.i:                                       ; preds = %invoke.cont29.i17
-  %n.i18 = getelementptr inbounds i8, ptr %call6.i, i64 8
+  %n.i18 = getelementptr inbounds nuw i8, ptr %call6.i, i64 8
   %29 = load ptr, ptr %n.i18, align 8
   %call37.i = invoke ptr @BN_dup(ptr noundef %29)
           to label %invoke.cont36.i unwind label %lpad35.i
 
 invoke.cont36.i:                                  ; preds = %if.end33.i
-  %n39.i = getelementptr inbounds i8, ptr %call30.i16, i64 8
+  %n39.i = getelementptr inbounds nuw i8, ptr %call30.i16, i64 8
   store ptr %call37.i, ptr %n39.i, align 8
-  %e41.i = getelementptr inbounds i8, ptr %call6.i, i64 16
+  %e41.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
   %30 = load ptr, ptr %e41.i, align 8
   %call43.i = invoke ptr @BN_dup(ptr noundef %30)
           to label %invoke.cont42.i unwind label %lpad35.i
 
 invoke.cont42.i:                                  ; preds = %invoke.cont36.i
-  %e45.i = getelementptr inbounds i8, ptr %call30.i16, i64 16
+  %e45.i = getelementptr inbounds nuw i8, ptr %call30.i16, i64 16
   store ptr %call43.i, ptr %e45.i, align 8
-  %d.i19 = getelementptr inbounds i8, ptr %call6.i, i64 24
+  %d.i19 = getelementptr inbounds nuw i8, ptr %call6.i, i64 24
   %31 = load ptr, ptr %d.i19, align 8
   %call48.i = invoke ptr @BN_dup(ptr noundef %31)
           to label %invoke.cont47.i unwind label %lpad35.i
 
 invoke.cont47.i:                                  ; preds = %invoke.cont42.i
-  %d50.i = getelementptr inbounds i8, ptr %call30.i16, i64 24
+  %d50.i = getelementptr inbounds nuw i8, ptr %call30.i16, i64 24
   store ptr %call48.i, ptr %d50.i, align 8
   %32 = load ptr, ptr %n39.i, align 8
   %cmp53.i = icmp eq ptr %32, null
@@ -658,7 +658,7 @@ if.then14.i:                                      ; preds = %invoke.cont11.i40
   br label %if.then27.invoke.i
 
 if.end18.i:                                       ; preds = %invoke.cont11.i40
-  %p.i = getelementptr inbounds i8, ptr %call.i29, i64 32
+  %p.i = getelementptr inbounds nuw i8, ptr %call.i29, i64 32
   %58 = load ptr, ptr %p.i, align 8
   %call23.i = invoke ptr @BN_value_one()
           to label %invoke.cont22.i unwind label %lpad6.i
@@ -941,7 +941,7 @@ if.end80:                                         ; preds = %invoke.cont68
 
 for.body:                                         ; preds = %if.end80, %invoke.cont95
   %i.033 = phi i64 [ 0, %if.end80 ], [ %inc, %invoke.cont95 ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 %i.033
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %ciphertext, i64 0, i64 %i.033
   %19 = load i8, ptr %arrayidx, align 1
   %20 = xor i8 %19, 1
   store i8 %20, ptr %arrayidx, align 1
@@ -1308,13 +1308,13 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
   br i1 %cmp.i7.not, label %cleanup64, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
-  %p = getelementptr inbounds i8, ptr %11, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %p, align 8
   %cmp22.not = icmp eq ptr %12, null
   br i1 %cmp22.not, label %lor.lhs.false23, label %cleanup64
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %q = getelementptr inbounds i8, ptr %11, i64 40
+  %q = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %q, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %if.end27, label %cleanup64

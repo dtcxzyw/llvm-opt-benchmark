@@ -28,13 +28,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @connection_key_hash(ptr nocapture noundef readonly %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opaque, align 1
-  %dst = getelementptr inbounds i8, ptr %opaque, i64 4
+  %dst = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i32, ptr %dst, align 1
   %add2 = add i32 %1, -559038724
-  %src_port = getelementptr inbounds i8, ptr %opaque, i64 8
+  %src_port = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load i16, ptr %src_port, align 1
   %conv = zext i16 %2 to i32
-  %dst_port = getelementptr inbounds i8, ptr %opaque, i64 10
+  %dst_port = getelementptr inbounds nuw i8, ptr %opaque, i64 10
   %3 = load i16, ptr %dst_port, align 1
   %conv3 = zext i16 %3 to i32
   %shl = shl nuw i32 %conv3, 16
@@ -64,7 +64,7 @@ entry:
   %or.i75 = tail call noundef i32 @llvm.fshl.i32(i32 %xor20, i32 %xor20, i32 4)
   %xor24 = xor i32 %sub22, %or.i75
   %add25 = add i32 %xor20, %add21
-  %ip_proto = getelementptr inbounds i8, ptr %opaque, i64 12
+  %ip_proto = getelementptr inbounds nuw i8, ptr %opaque, i64 12
   %4 = load i8, ptr %ip_proto, align 1
   %conv26 = zext i8 %4 to i32
   %add27 = add i32 %add21, %conv26
@@ -117,11 +117,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vnet_hdr_len = getelementptr inbounds i8, ptr %pkt, i64 40
+  %vnet_hdr_len = getelementptr inbounds nuw i8, ptr %pkt, i64 40
   %1 = load i32, ptr %vnet_hdr_len, align 8
   %conv = zext i32 %1 to i64
   %cmp = icmp ugt i32 %1, 20
-  %size10.phi.trans.insert = getelementptr inbounds i8, ptr %pkt, i64 24
+  %size10.phi.trans.insert = getelementptr inbounds nuw i8, ptr %pkt, i64 24
   %.pre = load i32, ptr %size10.phi.trans.insert, align 8
   %conv3 = sext i32 %.pre to i64
   %add = add nuw nsw i64 %conv, 18
@@ -153,7 +153,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %.pre) #15
   br label %trace_colo_proxy_main_vnet_info.exit
@@ -168,7 +168,7 @@ trace_colo_proxy_main_vnet_info.exit:             ; preds = %if.then8, %land.lhs
 
 if.end11:                                         ; preds = %if.end
   %add.ptr = getelementptr i8, ptr %0, i64 %conv
-  %h_proto.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %h_proto.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   %8 = load i16, ptr %h_proto.i, align 2
   %9 = tail call noundef i16 @llvm.bswap.i16(i16 %8)
   switch i16 %9, label %sw.default.i [
@@ -216,7 +216,7 @@ if.then8.i.i32:                                   ; preds = %if.then.i.i29
   %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #15
   %call10.i.i34 = tail call i32 @qemu_get_thread_id() #15
   %16 = load i64, ptr %_now.i.i22, align 8
-  %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
+  %tv_usec.i.i35 = getelementptr inbounds nuw i8, ptr %_now.i.i22, i64 8
   %17 = load i64, ptr %tv_usec.i.i35, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i34, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.3) #15
   br label %trace_colo_proxy_main.exit
@@ -231,10 +231,10 @@ trace_colo_proxy_main.exit:                       ; preds = %if.then16, %land.lh
 
 if.end17:                                         ; preds = %eth_get_l2_hdr_length.exit
   %add.ptr18 = getelementptr i8, ptr %add.ptr, i64 %retval.0.i
-  %18 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   store ptr %add.ptr18, ptr %18, align 8
   store ptr %add.ptr, ptr %l2vec, align 8
-  %iov_len = getelementptr inbounds i8, ptr %l2vec, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %l2vec, i64 8
   store i64 %retval.0.i, ptr %iov_len, align 8
   %call19 = call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %l2vec, i32 noundef 1, i64 noundef %retval.0.i) #15
   %cmp21.not = icmp eq i16 %call19, 2048
@@ -279,7 +279,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i43
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #15
   %call10.i.i48 = call i32 @qemu_get_thread_id() #15
   %27 = load i64, ptr %_now.i.i36, align 8
-  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
+  %tv_usec.i.i49 = getelementptr inbounds nuw i8, ptr %_now.i.i36, i64 8
   %28 = load i64, ptr %tv_usec.i.i49, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i48, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.4) #15
   br label %trace_colo_proxy_main.exit50
@@ -294,7 +294,7 @@ trace_colo_proxy_main.exit50:                     ; preds = %if.then35, %land.lh
 
 if.end36:                                         ; preds = %if.end24
   %add.ptr38 = getelementptr i8, ptr %19, i64 %conv28
-  %transport_header = getelementptr inbounds i8, ptr %pkt, i64 16
+  %transport_header = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   store ptr %add.ptr38, ptr %transport_header, align 8
   br label %return
 
@@ -311,27 +311,27 @@ declare zeroext i16 @eth_get_l3_proto(ptr noundef, i32 noundef, i64 noundef) loc
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @extract_ip_and_port(i32 noundef %tmp_ports, ptr nocapture noundef writeonly initializes((0, 12)) %key, ptr nocapture noundef readonly %pkt, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   %1 = load ptr, ptr %0, align 8
   br i1 %reverse, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %ip_dst = getelementptr inbounds i8, ptr %1, i64 16
+  %ip_dst = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i32, ptr %ip_dst, align 1
   store i32 %2, ptr %key, align 1
   %3 = load ptr, ptr %0, align 8
-  %ip_src = getelementptr inbounds i8, ptr %3, i64 12
+  %ip_src = getelementptr inbounds nuw i8, ptr %3, i64 12
   %conv = trunc i32 %tmp_ports to i16
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv) #16
   %shr = lshr i32 %tmp_ports, 16
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %ip_src4 = getelementptr inbounds i8, ptr %1, i64 12
+  %ip_src4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %ip_src4, align 1
   store i32 %4, ptr %key, align 1
   %5 = load ptr, ptr %0, align 8
-  %ip_dst6 = getelementptr inbounds i8, ptr %5, i64 16
+  %ip_dst6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %shr7 = lshr i32 %tmp_ports, 16
   %conv8 = trunc nuw i32 %shr7 to i16
   %call9 = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv8) #16
@@ -344,11 +344,11 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv12 = trunc i32 %tmp_ports.sink to i16
   %call13 = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv12) #16
   %.sink = load i32, ptr %.sink.in, align 1
-  %6 = getelementptr inbounds i8, ptr %key, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 %.sink, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %key, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i16 %call9.sink, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %key, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %key, i64 10
   store i16 %call13, ptr %8, align 1
   ret void
 }
@@ -359,11 +359,11 @@ declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @fill_connection_key(ptr nocapture noundef readonly %pkt, ptr nocapture noundef writeonly initializes((0, 13)) %key, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %pkt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   %1 = load ptr, ptr %0, align 8
-  %ip_p = getelementptr inbounds i8, ptr %1, i64 9
+  %ip_p = getelementptr inbounds nuw i8, ptr %1, i64 9
   %2 = load i8, ptr %ip_p, align 1
-  %ip_proto = getelementptr inbounds i8, ptr %key, i64 12
+  %ip_proto = getelementptr inbounds nuw i8, ptr %key, i64 12
   store i8 %2, ptr %ip_proto, align 1
   switch i8 %2, label %sw.epilog [
     i8 6, label %sw.bb
@@ -376,13 +376,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %transport_header = getelementptr inbounds i8, ptr %pkt, i64 16
+  %transport_header = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %3 = load ptr, ptr %transport_header, align 8
   %4 = load i32, ptr %3, align 4
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %transport_header3 = getelementptr inbounds i8, ptr %pkt, i64 16
+  %transport_header3 = getelementptr inbounds nuw i8, ptr %pkt, i64 16
   %5 = load ptr, ptr %transport_header3, align 8
   %add.ptr = getelementptr i8, ptr %5, i64 4
   %6 = load i32, ptr %add.ptr, align 4
@@ -394,22 +394,22 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw
   br i1 %reverse, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %ip_dst.i = getelementptr inbounds i8, ptr %7, i64 16
+  %ip_dst.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load i32, ptr %ip_dst.i, align 1
   store i32 %8, ptr %key, align 1
   %9 = load ptr, ptr %0, align 8
-  %ip_src.i = getelementptr inbounds i8, ptr %9, i64 12
+  %ip_src.i = getelementptr inbounds nuw i8, ptr %9, i64 12
   %conv.i = trunc i32 %tmp_ports.0 to i16
   %call.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv.i) #16
   %shr.i = lshr i32 %tmp_ports.0, 16
   br label %extract_ip_and_port.exit
 
 if.else.i:                                        ; preds = %sw.epilog
-  %ip_src4.i = getelementptr inbounds i8, ptr %7, i64 12
+  %ip_src4.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %ip_src4.i, align 1
   store i32 %10, ptr %key, align 1
   %11 = load ptr, ptr %0, align 8
-  %ip_dst6.i = getelementptr inbounds i8, ptr %11, i64 16
+  %ip_dst6.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %shr7.i = lshr i32 %tmp_ports.0, 16
   %conv8.i = trunc nuw i32 %shr7.i to i16
   %call9.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv8.i) #16
@@ -422,11 +422,11 @@ extract_ip_and_port.exit:                         ; preds = %if.then.i, %if.else
   %conv12.i = trunc i32 %tmp_ports.sink.i to i16
   %call13.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %conv12.i) #16
   %.sink.i = load i32, ptr %.sink.in.i, align 1
-  %12 = getelementptr inbounds i8, ptr %key, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 %.sink.i, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %key, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i16 %call9.sink.i, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %key, i64 10
+  %14 = getelementptr inbounds nuw i8, ptr %key, i64 10
   store i16 %call13.i, ptr %14, align 1
   ret void
 }
@@ -435,16 +435,16 @@ extract_ip_and_port.exit:                         ; preds = %if.then.i, %if.else
 define dso_local noundef ptr @connection_new(ptr nocapture noundef readonly %key) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_slice_alloc0(i64 noundef 80) #17
-  %ip_proto = getelementptr inbounds i8, ptr %key, i64 12
+  %ip_proto = getelementptr inbounds nuw i8, ptr %key, i64 12
   %0 = load i8, ptr %ip_proto, align 1
-  %ip_proto1 = getelementptr inbounds i8, ptr %call, i64 49
+  %ip_proto1 = getelementptr inbounds nuw i8, ptr %call, i64 49
   store i8 %0, ptr %ip_proto1, align 1
-  %processing = getelementptr inbounds i8, ptr %call, i64 48
+  %processing = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i8 0, ptr %processing, align 8
-  %tcp_state = getelementptr inbounds i8, ptr %call, i64 68
+  %tcp_state = getelementptr inbounds nuw i8, ptr %call, i64 68
   store i32 0, ptr %tcp_state, align 4
   tail call void @g_queue_init(ptr noundef %call) #15
-  %secondary_list = getelementptr inbounds i8, ptr %call, i64 24
+  %secondary_list = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @g_queue_init(ptr noundef nonnull %secondary_list) #15
   ret ptr %call
 }
@@ -459,7 +459,7 @@ define dso_local void @connection_destroy(ptr noundef %opaque) local_unnamed_add
 entry:
   tail call void @g_queue_foreach(ptr noundef %opaque, ptr noundef nonnull @packet_destroy, ptr noundef null) #15
   tail call void @g_queue_clear(ptr noundef %opaque) #15
-  %secondary_list = getelementptr inbounds i8, ptr %opaque, i64 24
+  %secondary_list = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   tail call void @g_queue_foreach(ptr noundef nonnull %secondary_list, ptr noundef nonnull @packet_destroy, ptr noundef null) #15
   tail call void @g_queue_clear(ptr noundef nonnull %secondary_list) #15
   tail call void @g_slice_free1(i64 noundef 80, ptr noundef %opaque) #15
@@ -487,13 +487,13 @@ entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_slice_alloc0(i64 noundef 64) #17
   %call1 = tail call ptr @g_memdup(ptr noundef %data, i32 noundef %size) #18
   store ptr %call1, ptr %call, align 8
-  %size3 = getelementptr inbounds i8, ptr %call, i64 24
+  %size3 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %size, ptr %size3, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #15
   %div.i = sdiv i64 %call.i, 1000000
-  %creation_ms = getelementptr inbounds i8, ptr %call, i64 32
+  %creation_ms = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %div.i, ptr %creation_ms, align 8
-  %vnet_hdr_len5 = getelementptr inbounds i8, ptr %call, i64 40
+  %vnet_hdr_len5 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 %vnet_hdr_len, ptr %vnet_hdr_len5, align 8
   ret ptr %call
 }
@@ -506,13 +506,13 @@ define dso_local noalias noundef ptr @packet_new_nocopy(ptr noundef %data, i32 n
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_slice_alloc0(i64 noundef 64) #17
   store ptr %data, ptr %call, align 8
-  %size2 = getelementptr inbounds i8, ptr %call, i64 24
+  %size2 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %size, ptr %size2, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #15
   %div.i = sdiv i64 %call.i, 1000000
-  %creation_ms = getelementptr inbounds i8, ptr %call, i64 32
+  %creation_ms = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %div.i, ptr %creation_ms, align 8
-  %vnet_hdr_len4 = getelementptr inbounds i8, ptr %call, i64 40
+  %vnet_hdr_len4 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 %vnet_hdr_len, ptr %vnet_hdr_len4, align 8
   ret ptr %call
 }
@@ -546,16 +546,16 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call dereferenceable_or_null(13) ptr @g_memdup(ptr noundef %key, i32 noundef 13) #18
   %call.i = tail call noalias dereferenceable_or_null(80) ptr @g_slice_alloc0(i64 noundef 80) #17
-  %ip_proto.i = getelementptr inbounds i8, ptr %key, i64 12
+  %ip_proto.i = getelementptr inbounds nuw i8, ptr %key, i64 12
   %0 = load i8, ptr %ip_proto.i, align 1
-  %ip_proto1.i = getelementptr inbounds i8, ptr %call.i, i64 49
+  %ip_proto1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 49
   store i8 %0, ptr %ip_proto1.i, align 1
-  %processing.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %processing.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i8 0, ptr %processing.i, align 8
-  %tcp_state.i = getelementptr inbounds i8, ptr %call.i, i64 68
+  %tcp_state.i = getelementptr inbounds nuw i8, ptr %call.i, i64 68
   store i32 0, ptr %tcp_state.i, align 4
   tail call void @g_queue_init(ptr noundef %call.i) #15
-  %secondary_list.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %secondary_list.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   tail call void @g_queue_init(ptr noundef nonnull %secondary_list.i) #15
   %call3 = tail call i32 @g_hash_table_size(ptr noundef %connection_track_table) #15
   %cmp4 = icmp ugt i32 %call3, 16384
@@ -585,7 +585,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.5) #15
   br label %trace_colo_proxy_main.exit
@@ -609,7 +609,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph.spli
   %call8 = tail call ptr @g_queue_pop_head(ptr noundef nonnull %conn_list) #15
   tail call void @g_queue_foreach(ptr noundef %call8, ptr noundef nonnull @packet_destroy, ptr noundef null) #15
   tail call void @g_queue_clear(ptr noundef %call8) #15
-  %secondary_list.i10 = getelementptr inbounds i8, ptr %call8, i64 24
+  %secondary_list.i10 = getelementptr inbounds nuw i8, ptr %call8, i64 24
   tail call void @g_queue_foreach(ptr noundef nonnull %secondary_list.i10, ptr noundef nonnull @packet_destroy, ptr noundef null) #15
   tail call void @g_queue_clear(ptr noundef nonnull %secondary_list.i10) #15
   tail call void @g_slice_free1(i64 noundef 80, ptr noundef %call8) #15

@@ -773,17 +773,17 @@ define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__32UsdImaging
   %indvars28 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars27 = trunc i64 %indvars.iv.next to i32
-  %8 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 3, ptr %8, align 4
   %9 = icmp eq i32 %indvars27, 10
   %10 = add nuw nsw i32 %indvars28, 2
   %11 = select i1 %9, i32 1, i32 %10
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv22
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv22
   store i32 %11, ptr %12, align 4
   %13 = getelementptr i8, ptr %12, i64 4
   store i32 %indvars27, ptr %13, align 4
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 3
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %14, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.preheader, label %.preheader2, !llvm.loop !5
@@ -1095,7 +1095,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc
   %.06.i.i.i.i.i.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 12, %.noexc ]
-  %.06.i.i.i.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %50, i64 %.06.i.i.i.i.i.i.i.i.i.idx
+  %.06.i.i.i.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %50, i64 %.06.i.i.i.i.i.i.i.i.i.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
   %.06.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.idx, 12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.add, 120
@@ -1132,9 +1132,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %69 = fadd float %59, %65
   %.sroa.0.4.vec.insert.i207 = insertelement <2 x float> %.sroa.0.0.vec.insert.i205, float %69, i64 1
   %70 = fadd float %61, %67
-  %71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i207, ptr %71, align 4
-  %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 8
+  %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   store float %70, ptr %.sroa.297.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -1165,9 +1165,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %.sroa.0.4.vec.insert.i216 = insertelement <2 x float> %.sroa.0.0.vec.insert.i214, float %82, i64 1
   %83 = fmul double %.sroa.8327.0, %80
   %84 = fptrunc double %83 to float
-  %85 = getelementptr inbounds i8, ptr %76, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store <2 x float> %.sroa.0.4.vec.insert.i216, ptr %76, align 4
-  %.sroa.276.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 8
+  %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   store float %84, ptr %.sroa.276.0..sroa_idx, align 4
   br label %86
 
@@ -1198,9 +1198,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
 102:                                              ; preds = %86, %102
   %indvars.iv353 = phi i64 [ 0, %86 ], [ %indvars.iv.next354, %102 ]
   %.1180339 = phi ptr [ %.0179341, %86 ], [ %110, %102 ]
-  %103 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv353
+  %103 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv353
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %103, align 4
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %103, i64 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.6.0.copyload.i.i334 = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 0
   %104 = fmul float %93, %.sroa.0.0.vec.extract.i.i
@@ -1212,9 +1212,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %108 = fadd float %99, %105
   %.sroa.0.4.vec.insert.i234 = insertelement <2 x float> %.sroa.0.0.vec.insert.i232, float %108, i64 1
   %109 = fadd float %106, %101
-  %110 = getelementptr inbounds i8, ptr %.1180339, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %.1180339, i64 12
   store <2 x float> %.sroa.0.4.vec.insert.i234, ptr %.1180339, align 4
-  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %.1180339, i64 8
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1180339, i64 8
   store float %109, ptr %.sroa.260.0..sroa_idx, align 4
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 10
@@ -1245,9 +1245,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
 121:                                              ; preds = %.preheader335, %121
   %indvars.iv358 = phi i64 [ 0, %.preheader335 ], [ %indvars.iv.next359, %121 ]
   %.3343 = phi ptr [ %.2345, %.preheader335 ], [ %129, %121 ]
-  %122 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv358
+  %122 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv358
   %.sroa.0.0.copyload.i.i237 = load <2 x float>, ptr %122, align 4
-  %.sroa.6.0..sroa_idx.i.i238 = getelementptr inbounds i8, ptr %122, i64 8
+  %.sroa.6.0..sroa_idx.i.i238 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.sroa.6.0.copyload.i.i239333 = load float, ptr %.sroa.6.0..sroa_idx.i.i238, align 4
   %.sroa.0.0.vec.extract.i.i240 = extractelement <2 x float> %.sroa.0.0.copyload.i.i237, i64 0
   %123 = fmul float %.sroa.0.0.vec.extract.i.i240, %6
@@ -1259,9 +1259,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %127 = fadd float %118, %124
   %.sroa.0.4.vec.insert.i261 = insertelement <2 x float> %.sroa.0.0.vec.insert.i259, float %127, i64 1
   %128 = fadd float %125, %120
-  %129 = getelementptr inbounds i8, ptr %.3343, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %.3343, i64 12
   store <2 x float> %.sroa.0.4.vec.insert.i261, ptr %.3343, align 4
-  %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %.3343, i64 8
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.3343, i64 8
   store float %128, ptr %.sroa.238.0..sroa_idx, align 4
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, 10
@@ -1296,9 +1296,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
 146:                                              ; preds = %131, %146
   %indvars.iv362 = phi i64 [ 0, %131 ], [ %indvars.iv.next363, %146 ]
   %.5347 = phi ptr [ %.4349, %131 ], [ %154, %146 ]
-  %147 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv362
+  %147 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %50, i64 %indvars.iv362
   %.sroa.0.0.copyload.i.i264 = load <2 x float>, ptr %147, align 4
-  %.sroa.6.0..sroa_idx.i.i265 = getelementptr inbounds i8, ptr %147, i64 8
+  %.sroa.6.0..sroa_idx.i.i265 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %.sroa.6.0.copyload.i.i266332 = load float, ptr %.sroa.6.0..sroa_idx.i.i265, align 4
   %.sroa.0.0.vec.extract.i.i267 = extractelement <2 x float> %.sroa.0.0.copyload.i.i264, i64 0
   %148 = fmul float %137, %.sroa.0.0.vec.extract.i.i267
@@ -1310,9 +1310,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %152 = fadd float %143, %149
   %.sroa.0.4.vec.insert.i288 = insertelement <2 x float> %.sroa.0.0.vec.insert.i286, float %152, i64 1
   %153 = fadd float %150, %145
-  %154 = getelementptr inbounds i8, ptr %.5347, i64 12
+  %154 = getelementptr inbounds nuw i8, ptr %.5347, i64 12
   store <2 x float> %.sroa.0.4.vec.insert.i288, ptr %.5347, align 4
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %.5347, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5347, i64 8
   store float %153, ptr %.sroa.216.0..sroa_idx, align 4
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, 10
@@ -1328,13 +1328,13 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %160 = fmul double %.sroa.8327.0, %157
   %161 = fptrunc double %160 to float
   store <2 x float> %.sroa.0.4.vec.insert.i297, ptr %154, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.5347, i64 20
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5347, i64 20
   store float %161, ptr %.sroa.22.0..sroa_idx, align 4
   %162 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE4dataEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %163 unwind label %111
 
 163:                                              ; preds = %155
-  %164 = getelementptr inbounds i8, ptr %.5347, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.5347, i64 24
   %165 = ptrtoint ptr %164 to i64
   %166 = ptrtoint ptr %162 to i64
   %167 = sub i64 %165, %166
@@ -1411,11 +1411,11 @@ define noundef nonnull align 8 dereferenceable(369) ptr @_ZN32pxrInternal_v0_24_
 
 15:                                               ; preds = %13
   store i32 0, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 3, ptr %18, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN32pxrInternal_v0_24__pxrReserved__26UsdImagingGetPlaneTopologyEvE5verts, ptr nonnull %2, i64 4)
           to label %19 unwind label %38
@@ -1489,7 +1489,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdImagingGeneratePlaneMeshP
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc
   %.06.i.i.i.i.i.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 12, %.noexc ]
-  %.06.i.i.i.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 %.06.i.i.i.i.i.i.i.i.i.idx
+  %.06.i.i.i.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.06.i.i.i.i.i.i.i.i.i.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %.06.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.idx, 12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.add, 48
@@ -1549,27 +1549,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   %33 = fmul double %1, -5.000000e-01
   %34 = fptrunc double %33 to float
   store float 0.000000e+00, ptr %5, align 4
-  %.sroa.2126.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.2126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %28, ptr %.sroa.2126.0..sroa_idx, align 4
-  %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %30, ptr %.sroa.3127.0..sroa_idx, align 4
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
+  %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float 0.000000e+00, ptr %.sroa.4128.0..sroa_idx, align 4
-  %.sroa.5129.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %32, ptr %.sroa.5129.0..sroa_idx, align 4
-  %.sroa.6130.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 20
+  %.sroa.6130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store float %30, ptr %.sroa.6130.0..sroa_idx, align 4
-  %.sroa.7131.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.7131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store float 0.000000e+00, ptr %.sroa.7131.0..sroa_idx, align 4
-  %.sroa.8132.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 28
+  %.sroa.8132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %32, ptr %.sroa.8132.0..sroa_idx, align 4
-  %.sroa.9133.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.9133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store float %34, ptr %.sroa.9133.0..sroa_idx, align 4
-  %.sroa.10134.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 36
+  %.sroa.10134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
   store float 0.000000e+00, ptr %.sroa.10134.0..sroa_idx, align 4
-  %.sroa.11135.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.11135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store float %28, ptr %.sroa.11135.0..sroa_idx, align 4
-  %.sroa.12136.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 44
+  %.sroa.12136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
   store float %34, ptr %.sroa.12136.0..sroa_idx, align 4
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEaSESt16initializer_listIS1_E.exit
 
@@ -1624,17 +1624,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   %59 = fptrunc double %58 to float
   %60 = fmul double %2, -5.000000e-01
   %61 = fptrunc double %60 to float
-  %.sroa.2114.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.4116.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %.sroa.5117.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.6118.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 20
-  %.sroa.7119.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.8120.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 28
-  %.sroa.9121.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.10122.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 36
-  %.sroa.11123.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.12124.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 44
+  %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %.sroa.7119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.8120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %.sroa.9121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.10122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %.sroa.11123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.12124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
   br i1 %57, label %62, label %67
 
 62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit54
@@ -1686,8 +1686,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEaSESt16initiali
 .preheader:                                       ; preds = %72, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %72 ]
   %.041110 = phi ptr [ %75, %.preheader ], [ %73, %72 ]
-  %74 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %5, i64 %indvars.iv
-  %75 = getelementptr inbounds i8, ptr %.041110, i64 12
+  %74 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %5, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %.041110, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.041110, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1736,16 +1736,16 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EED2Ev.exit60: ; 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdImagingGenerateSphereOrCubeTransformEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, double noundef %1) local_unnamed_addr #8 {
   store double %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   store double %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store double %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %8, align 8
   ret void
@@ -1801,18 +1801,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   store double 0.000000e+00, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %5, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   store double %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   store double 1.000000e+00, ptr %33, align 8
   br label %70
@@ -1858,35 +1858,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit14
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store double %5, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %5, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  %60 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   store double %1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
-  %62 = getelementptr inbounds i8, ptr %0, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 40, i1 false)
   store double 1.000000e+00, ptr %62, align 8
   br label %70
 
 63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit14
   store double %5, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false)
   store double %5, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
-  %67 = getelementptr inbounds i8, ptr %0, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   store double %1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 88
-  %69 = getelementptr inbounds i8, ptr %0, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %69, align 8
   br label %70
@@ -2010,7 +2010,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomTokensTy
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 

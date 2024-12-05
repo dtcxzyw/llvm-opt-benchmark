@@ -68,19 +68,19 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %linker = getelementptr inbounds i8, ptr %tables, i64 40
+  %linker = getelementptr inbounds nuw i8, ptr %tables, i64 40
   %1 = load ptr, ptr %linker, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = call ptr @acpi_add_rom_blob(ptr noundef nonnull @virt_acpi_build_update, ptr noundef nonnull %call, ptr noundef %2, ptr noundef nonnull @.str.3) #10
-  %linker_mr = getelementptr inbounds i8, ptr %call, i64 16
+  %linker_mr = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call3, ptr %linker_mr, align 8
-  %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
+  %rsdp = getelementptr inbounds nuw i8, ptr %tables, i64 8
   %3 = load ptr, ptr %rsdp, align 8
   %call4 = call ptr @acpi_add_rom_blob(ptr noundef nonnull @virt_acpi_build_update, ptr noundef nonnull %call, ptr noundef %3, ptr noundef nonnull @.str.4) #10
-  %rsdp_mr = getelementptr inbounds i8, ptr %call, i64 8
+  %rsdp_mr = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call4, ptr %rsdp_mr, align 8
   call void @qemu_register_reset(ptr noundef nonnull @virt_acpi_build_reset, ptr noundef nonnull %call) #10
-  %patched.i = getelementptr inbounds i8, ptr %call, i64 24
+  %patched.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 0, ptr %patched.i, align 8
   %call.i = call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef 0, ptr noundef nonnull @vmstate_virt_acpi_build, ptr noundef nonnull %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #10
   call void @acpi_build_tables_cleanup(ptr noundef nonnull %tables, i1 noundef zeroext false) #10
@@ -104,29 +104,29 @@ entry:
   %rsdp_data = alloca %struct.AcpiRsdpData, align 8
   %0 = load ptr, ptr %tables, align 8
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 4) #10
-  %linker = getelementptr inbounds i8, ptr %tables, i64 40
+  %linker = getelementptr inbounds nuw i8, ptr %tables, i64 40
   %1 = load ptr, ptr %linker, align 8
   tail call void @bios_linker_loader_alloc(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %0, i32 noundef 64, i1 noundef zeroext false) #10
-  %len = getelementptr inbounds i8, ptr %0, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %len, align 8
   %3 = load ptr, ptr %linker, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %table.i)
-  %memmap1.i = getelementptr inbounds i8, ptr %s, i64 3864
+  %memmap1.i = getelementptr inbounds nuw i8, ptr %s, i64 3864
   %4 = load ptr, ptr %memmap1.i, align 8
   store ptr @.str.7, ptr %table.i, align 8
-  %rev.i = getelementptr inbounds i8, ptr %table.i, i64 8
+  %rev.i = getelementptr inbounds nuw i8, ptr %table.i, i64 8
   store i8 2, ptr %rev.i, align 8
-  %oem_id.i = getelementptr inbounds i8, ptr %table.i, i64 16
-  %oem_id2.i = getelementptr inbounds i8, ptr %s, i64 3840
+  %oem_id.i = getelementptr inbounds nuw i8, ptr %table.i, i64 16
+  %oem_id2.i = getelementptr inbounds nuw i8, ptr %s, i64 3840
   %5 = load ptr, ptr %oem_id2.i, align 8
   store ptr %5, ptr %oem_id.i, align 8
-  %oem_table_id.i = getelementptr inbounds i8, ptr %table.i, i64 24
-  %oem_table_id3.i = getelementptr inbounds i8, ptr %s, i64 3848
+  %oem_table_id.i = getelementptr inbounds nuw i8, ptr %table.i, i64 24
+  %oem_table_id3.i = getelementptr inbounds nuw i8, ptr %s, i64 3848
   %6 = load ptr, ptr %oem_table_id3.i, align 8
   store ptr %6, ptr %oem_table_id.i, align 8
-  %array.i = getelementptr inbounds i8, ptr %table.i, i64 32
+  %array.i = getelementptr inbounds nuw i8, ptr %table.i, i64 32
   store ptr null, ptr %array.i, align 8
-  %table_offset.i = getelementptr inbounds i8, ptr %table.i, i64 40
+  %table_offset.i = getelementptr inbounds nuw i8, ptr %table.i, i64 40
   store i32 0, ptr %table_offset.i, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table.i, ptr noundef %0) #10
   %call.i = call ptr @init_aml_allocator() #10
@@ -134,7 +134,7 @@ entry:
   %call.i.i.i = call ptr @object_get_class(ptr noundef %s) #10
   %call1.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i14.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %possible_cpu_arch_ids.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 336
+  %possible_cpu_arch_ids.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 336
   %7 = load ptr, ptr %possible_cpu_arch_ids.i.i, align 8
   %call2.i.i = call ptr %7(ptr noundef %call.i14.i.i) #10
   %8 = load i32, ptr %call2.i.i, align 8
@@ -142,7 +142,7 @@ entry:
   br i1 %cmp15.i.i, label %for.body.lr.ph.i.i, label %build_dsdt.exit
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %cpus.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
+  %cpus.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -166,7 +166,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 1, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef %11, i32 noundef 8) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef %indvars.iv.i.i, i32 noundef 4) #10
-  %len9.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
+  %len9.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 8
   %12 = load i32, ptr %len9.i.i, align 8
   %13 = load ptr, ptr %call3.i.i, align 8
   %call10.i.i = call ptr @aml_buffer(i32 noundef %12, ptr noundef %13) #10
@@ -206,7 +206,7 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   call void @aml_append(ptr noundef %call.i, ptr noundef %call4.i) #10
   %18 = load ptr, ptr %call.i, align 8
   %19 = load ptr, ptr %18, align 8
-  %len.i = getelementptr inbounds i8, ptr %18, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %len.i, align 8
   %call6.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef %19, i32 noundef %20) #10
   call void @acpi_table_end(ptr noundef %3, ptr noundef nonnull %table.i) #10
@@ -220,13 +220,13 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %fadt.i)
   store i32 %2, ptr %dsdt_tbl_offset.addr.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %fadt.i, i8 0, i64 160, i1 false)
-  %rev.i33 = getelementptr inbounds i8, ptr %fadt.i, i64 113
+  %rev.i33 = getelementptr inbounds nuw i8, ptr %fadt.i, i64 113
   store i8 6, ptr %rev.i33, align 1
-  %flags.i = getelementptr inbounds i8, ptr %fadt.i, i64 116
+  %flags.i = getelementptr inbounds nuw i8, ptr %fadt.i, i64 116
   store i32 1048576, ptr %flags.i, align 4
-  %minor_ver.i = getelementptr inbounds i8, ptr %fadt.i, i64 138
+  %minor_ver.i = getelementptr inbounds nuw i8, ptr %fadt.i, i64 138
   store i8 5, ptr %minor_ver.i, align 2
-  %xdsdt_tbl_offset.i = getelementptr inbounds i8, ptr %fadt.i, i64 160
+  %xdsdt_tbl_offset.i = getelementptr inbounds nuw i8, ptr %fadt.i, i64 160
   store ptr %dsdt_tbl_offset.addr.i, ptr %xdsdt_tbl_offset.i, align 8
   call void @build_fadt(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %fadt.i, ptr noundef %s.val, ptr noundef %s.val32) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dsdt_tbl_offset.addr.i)
@@ -237,21 +237,21 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   %call.i.i35 = call ptr @object_get_class(ptr noundef %s) #10
   %call1.i.i36 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i35, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i10.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %possible_cpu_arch_ids.i = getelementptr inbounds i8, ptr %call1.i.i36, i64 336
+  %possible_cpu_arch_ids.i = getelementptr inbounds nuw i8, ptr %call1.i.i36, i64 336
   %23 = load ptr, ptr %possible_cpu_arch_ids.i, align 8
   %call2.i = call ptr %23(ptr noundef %call.i10.i) #10
   store ptr @.str.21, ptr %table.i34, align 8
-  %rev.i37 = getelementptr inbounds i8, ptr %table.i34, i64 8
+  %rev.i37 = getelementptr inbounds nuw i8, ptr %table.i34, i64 8
   store i8 6, ptr %rev.i37, align 8
-  %oem_id.i38 = getelementptr inbounds i8, ptr %table.i34, i64 16
+  %oem_id.i38 = getelementptr inbounds nuw i8, ptr %table.i34, i64 16
   %24 = load ptr, ptr %oem_id2.i, align 8
   store ptr %24, ptr %oem_id.i38, align 8
-  %oem_table_id.i39 = getelementptr inbounds i8, ptr %table.i34, i64 24
+  %oem_table_id.i39 = getelementptr inbounds nuw i8, ptr %table.i34, i64 24
   %25 = load ptr, ptr %oem_table_id3.i, align 8
   store ptr %25, ptr %oem_table_id.i39, align 8
-  %array.i40 = getelementptr inbounds i8, ptr %table.i34, i64 32
+  %array.i40 = getelementptr inbounds nuw i8, ptr %table.i34, i64 32
   store ptr null, ptr %array.i40, align 8
-  %table_offset.i41 = getelementptr inbounds i8, ptr %table.i34, i64 40
+  %table_offset.i41 = getelementptr inbounds nuw i8, ptr %table.i34, i64 40
   store i32 0, ptr %table_offset.i41, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table.i34, ptr noundef %0) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 4) #10
@@ -261,7 +261,7 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   br i1 %cmp11.i, label %for.body.lr.ph.i, label %build_madt.exit
 
 for.body.lr.ph.i:                                 ; preds = %build_dsdt.exit
-  %cpus.i.i42 = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %cpus.i.i42 = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -290,26 +290,26 @@ build_madt.exit:                                  ; preds = %for.body.i, %build_
   %call.i.i45 = call ptr @object_get_class(ptr noundef %s) #10
   %call1.i.i46 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i45, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i32.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %possible_cpu_arch_ids.i47 = getelementptr inbounds i8, ptr %call1.i.i46, i64 336
+  %possible_cpu_arch_ids.i47 = getelementptr inbounds nuw i8, ptr %call1.i.i46, i64 336
   %31 = load ptr, ptr %possible_cpu_arch_ids.i47, align 8
   %call2.i48 = call ptr %31(ptr noundef %call.i32.i) #10
   store ptr @.str.22, ptr %table.i44, align 8
-  %rev.i49 = getelementptr inbounds i8, ptr %table.i44, i64 8
+  %rev.i49 = getelementptr inbounds nuw i8, ptr %table.i44, i64 8
   store i8 1, ptr %rev.i49, align 8
-  %oem_id.i50 = getelementptr inbounds i8, ptr %table.i44, i64 16
+  %oem_id.i50 = getelementptr inbounds nuw i8, ptr %table.i44, i64 16
   %32 = load ptr, ptr %oem_id2.i, align 8
   store ptr %32, ptr %oem_id.i50, align 8
-  %oem_table_id.i52 = getelementptr inbounds i8, ptr %table.i44, i64 24
+  %oem_table_id.i52 = getelementptr inbounds nuw i8, ptr %table.i44, i64 24
   %33 = load ptr, ptr %oem_table_id3.i, align 8
   store ptr %33, ptr %oem_table_id.i52, align 8
-  %array.i54 = getelementptr inbounds i8, ptr %table.i44, i64 32
+  %array.i54 = getelementptr inbounds nuw i8, ptr %table.i44, i64 32
   store ptr null, ptr %array.i54, align 8
-  %table_offset.i55 = getelementptr inbounds i8, ptr %table.i44, i64 40
+  %table_offset.i55 = getelementptr inbounds nuw i8, ptr %table.i44, i64 40
   store i32 0, ptr %table_offset.i55, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table.i44, ptr noundef %0) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 10000000, i32 noundef 8) #10
-  %smp.i = getelementptr inbounds i8, ptr %call.i32.i, i64 288
+  %smp.i = getelementptr inbounds nuw i8, ptr %call.i32.i, i64 288
   %34 = load i32, ptr %smp.i, align 8
   %add.i = add i32 %34, 1
   %conv.i = zext i32 %add.i to i64
@@ -319,7 +319,7 @@ build_madt.exit:                                  ; preds = %for.body.i, %build_
   %36 = load i32, ptr %table_offset.i55, align 8
   %sub.i = sub i32 %35, %36
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 2) #10
-  %harts.i = getelementptr inbounds i8, ptr %s, i64 1216
+  %harts.i = getelementptr inbounds nuw i8, ptr %s, i64 1216
   %37 = load ptr, ptr %harts.i, align 8
   %call8.i = call ptr @riscv_isa_string(ptr noundef %37) #10
   %call9.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8.i) #12
@@ -377,13 +377,13 @@ build_rhct.exit:                                  ; preds = %for.body.i57, %if.e
   call void @build_xsdt(ptr noundef %0, ptr noundef %43, ptr noundef %call, ptr noundef %44, ptr noundef %45) #10
   %46 = load ptr, ptr %oem_id2.i, align 8
   store ptr %46, ptr %rsdp_data, align 8
-  %revision = getelementptr inbounds i8, ptr %rsdp_data, i64 8
+  %revision = getelementptr inbounds nuw i8, ptr %rsdp_data, i64 8
   store i8 2, ptr %revision, align 8
-  %rsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 16
+  %rsdt_tbl_offset = getelementptr inbounds nuw i8, ptr %rsdp_data, i64 16
   store ptr null, ptr %rsdt_tbl_offset, align 8
-  %xsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 24
+  %xsdt_tbl_offset = getelementptr inbounds nuw i8, ptr %rsdp_data, i64 24
   store ptr %xsdt, ptr %xsdt_tbl_offset, align 8
-  %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
+  %rsdp = getelementptr inbounds nuw i8, ptr %tables, i64 8
   %47 = load ptr, ptr %rsdp, align 8
   %48 = load ptr, ptr %linker, align 8
   call void @build_rsdp(ptr noundef %47, ptr noundef %48, ptr noundef nonnull %rsdp_data) #10
@@ -415,7 +415,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %patched = getelementptr inbounds i8, ptr %build_opaque, i64 24
+  %patched = getelementptr inbounds nuw i8, ptr %build_opaque, i64 24
   %0 = load i8, ptr %patched, align 8
   %tobool1 = trunc i8 %0 to i1
   br i1 %tobool1, label %return, label %if.end
@@ -435,9 +435,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %3 = load ptr, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i, ptr align 1 %3, i64 %conv.i, i1 false)
   call void @memory_region_set_dirty(ptr noundef %1, i64 noundef 0, i64 noundef %conv.i) #10
-  %rsdp_mr = getelementptr inbounds i8, ptr %build_opaque, i64 8
+  %rsdp_mr = getelementptr inbounds nuw i8, ptr %build_opaque, i64 8
   %4 = load ptr, ptr %rsdp_mr, align 8
-  %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
+  %rsdp = getelementptr inbounds nuw i8, ptr %tables, i64 8
   %5 = load ptr, ptr %rsdp, align 8
   %call.i7 = call i32 @acpi_data_len(ptr noundef %5) #10
   %conv.i8 = zext i32 %call.i7 to i64
@@ -446,9 +446,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %6 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1.i9, ptr align 1 %6, i64 %conv.i8, i1 false)
   call void @memory_region_set_dirty(ptr noundef %4, i64 noundef 0, i64 noundef %conv.i8) #10
-  %linker_mr = getelementptr inbounds i8, ptr %build_opaque, i64 16
+  %linker_mr = getelementptr inbounds nuw i8, ptr %build_opaque, i64 16
   %7 = load ptr, ptr %linker_mr, align 8
-  %linker = getelementptr inbounds i8, ptr %tables, i64 40
+  %linker = getelementptr inbounds nuw i8, ptr %tables, i64 40
   %8 = load ptr, ptr %linker, align 8
   %9 = load ptr, ptr %8, align 8
   %call.i10 = call i32 @acpi_data_len(ptr noundef %9) #10
@@ -473,7 +473,7 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @virt_acpi_build_reset(ptr nocapture noundef writeonly initializes((24, 25)) %build_opaque) #4 {
 entry:
-  %patched = getelementptr inbounds i8, ptr %build_opaque, i64 24
+  %patched = getelementptr inbounds nuw i8, ptr %build_opaque, i64 24
   store i8 0, ptr %patched, align 8
   ret void
 }

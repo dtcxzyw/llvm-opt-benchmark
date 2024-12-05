@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 
 
 .preheader140:                                    ; preds = %1, %.preheader140
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader140 ], [ 0, %1 ]
-  %11 = getelementptr inbounds [2 x i32], ptr %6, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv.i
   store i32 0, ptr %11, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -50,7 +50,7 @@ define range(i32 0, 2) i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %21, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds [2 x i32], ptr %6, i64 %indvars.iv28.i
+  %18 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv28.i
   %19 = load i32, ptr %18, align 8
   %20 = or i32 %19, %12
   store i32 %20, ptr %18, align 8
@@ -68,18 +68,18 @@ define range(i32 0, 2) i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 
 
 .preheader.i:                                     ; preds = %22, %.preheader.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.preheader.i ], [ 0, %22 ]
-  %24 = getelementptr inbounds [2 x i32], ptr %6, i64 %indvars.iv33.i
+  %24 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv33.i
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %25, ptr %26, align 4
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, 5
   br i1 %exitcond36.not.i, label %Abc_AttachSetupTruthTables.exit, label %.preheader.i, !llvm.loop !8
 
 Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
-  %27 = getelementptr inbounds i8, ptr %6, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 -1, ptr %28, align 4
   %29 = call ptr @Mio_CollectRoots(ptr noundef nonnull %8, i32 noundef 6, float noundef 0x4415AF1D80000000, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 0) #7
   %30 = load i32, ptr %7, align 4
@@ -107,7 +107,7 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = getelementptr ptr, ptr %33, i64 %indvars.iv
-  %41 = getelementptr inbounds i8, ptr %store_forwarded, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 8
   store ptr %41, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -115,10 +115,10 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
 
 .lr.ph157:                                        ; preds = %.preheader, %.lr.ph157
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph157 ], [ 0, %.preheader ]
-  %42 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv181
+  %42 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv181
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @Mio_GateReadPinNum(ptr noundef %43) #7
-  %45 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv181
+  %45 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv181
   %46 = load ptr, ptr %45, align 8
   call void @Mio_DeriveTruthTable(ptr noundef %43, ptr noundef nonnull %6, i32 noundef %44, i32 noundef 6, ptr noundef %46) #7
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
@@ -129,7 +129,7 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
 
 ._crit_edge:                                      ; preds = %.lr.ph157, %.preheader
   call void @Abc_NtkCleanCopy(ptr noundef %0) #7
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr i8, ptr %51, i64 4
   %.val158 = load i32, ptr %52, align 4
@@ -137,8 +137,8 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   br i1 %53, label %.lr.ph161, label %.critedge
 
 .lr.ph161:                                        ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %5, i64 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %56
 
 56:                                               ; preds = %.lr.ph161, %239
@@ -146,7 +146,7 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   %57 = phi ptr [ %51, %.lr.ph161 ], [ %240, %239 ]
   %58 = getelementptr i8, ptr %57, i64 8
   %.val123.val = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds ptr, ptr %.val123.val, i64 %indvars.iv184
+  %59 = getelementptr inbounds nuw ptr, ptr %.val123.val, i64 %indvars.iv184
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %239, label %62
@@ -167,11 +167,11 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   ]
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %60, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 @Abc_SopIsConst1(ptr noundef %69) #7
   %.not119 = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %60, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 64
   br i1 %.not119, label %74, label %72
 
 72:                                               ; preds = %67
@@ -185,11 +185,11 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   br label %239
 
 76:                                               ; preds = %65
-  %77 = getelementptr inbounds i8, ptr %60, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 @Abc_SopIsBuf(ptr noundef %78) #7
   %.not118 = icmp eq i32 %79, 0
-  %80 = getelementptr inbounds i8, ptr %60, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 64
   br i1 %.not118, label %83, label %81
 
 81:                                               ; preds = %76
@@ -231,7 +231,7 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %96 = getelementptr inbounds i8, ptr %60, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 @Abc_SopGetVarNum(ptr noundef %97) #7
   store i32 0, ptr %5, align 4
@@ -241,73 +241,73 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   br i1 %.not66.i.i, label %._crit_edge.i.i, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %94
-  %100 = add nsw i32 %98, 3
-  %101 = sext i32 %100 to i64
+  %100 = sext i32 %98 to i64
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge2.i.i, %.preheader.lr.ph.i.i
-  %102 = phi i8 [ %99, %.preheader.lr.ph.i.i ], [ %127, %.critedge2.i.i ]
-  %103 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %125, %.critedge2.i.i ]
-  %104 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %124, %.critedge2.i.i ]
+  %101 = phi i8 [ %99, %.preheader.lr.ph.i.i ], [ %127, %.critedge2.i.i ]
+  %102 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %124, %.critedge2.i.i ]
+  %103 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %123, %.critedge2.i.i ]
   %.16167.i.i = phi ptr [ %97, %.preheader.lr.ph.i.i ], [ %126, %.critedge2.i.i ]
-  br label %105
+  br label %104
 
-105:                                              ; preds = %123, %.preheader.i.i
-  %106 = phi i8 [ %102, %.preheader.i.i ], [ %.pre.i.i, %123 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %123 ]
-  %.sroa.0.2.i.i = phi i32 [ -1, %.preheader.i.i ], [ %.sroa.0.3.i.i, %123 ]
-  %.sroa.12.0.i.i = phi i32 [ -1, %.preheader.i.i ], [ %.sroa.12.1.i.i, %123 ]
-  switch i8 %106, label %123 [
+104:                                              ; preds = %122, %.preheader.i.i
+  %105 = phi i8 [ %101, %.preheader.i.i ], [ %.pre.i.i, %122 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %122 ]
+  %.sroa.0.2.i.i = phi i32 [ -1, %.preheader.i.i ], [ %.sroa.0.3.i.i, %122 ]
+  %.sroa.12.0.i.i = phi i32 [ -1, %.preheader.i.i ], [ %.sroa.12.1.i.i, %122 ]
+  switch i8 %105, label %122 [
     i8 32, label %.critedge2.i.i
     i8 0, label %.critedge2.i.i
-    i8 48, label %107
-    i8 49, label %116
+    i8 48, label %106
+    i8 49, label %115
   ]
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds [2 x i32], ptr %6, i64 %indvars.iv.i.i
-  %109 = load i32, ptr %108, align 8
-  %110 = xor i32 %109, -1
-  %111 = and i32 %.sroa.0.2.i.i, %110
-  %112 = getelementptr inbounds i8, ptr %108, i64 4
-  %113 = load i32, ptr %112, align 4
-  %114 = xor i32 %113, -1
-  %115 = and i32 %.sroa.12.0.i.i, %114
-  br label %123
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv.i.i
+  %108 = load i32, ptr %107, align 8
+  %109 = xor i32 %108, -1
+  %110 = and i32 %.sroa.0.2.i.i, %109
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %112 = load i32, ptr %111, align 4
+  %113 = xor i32 %112, -1
+  %114 = and i32 %.sroa.12.0.i.i, %113
+  br label %122
 
-116:                                              ; preds = %105
-  %117 = getelementptr inbounds [2 x i32], ptr %6, i64 %indvars.iv.i.i
-  %118 = load i32, ptr %117, align 8
-  %119 = and i32 %118, %.sroa.0.2.i.i
-  %120 = getelementptr inbounds i8, ptr %117, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = and i32 %121, %.sroa.12.0.i.i
-  br label %123
+115:                                              ; preds = %104
+  %116 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %indvars.iv.i.i
+  %117 = load i32, ptr %116, align 8
+  %118 = and i32 %117, %.sroa.0.2.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = and i32 %120, %.sroa.12.0.i.i
+  br label %122
 
-123:                                              ; preds = %116, %107, %105
-  %.sroa.0.3.i.i = phi i32 [ %111, %107 ], [ %119, %116 ], [ %.sroa.0.2.i.i, %105 ]
-  %.sroa.12.1.i.i = phi i32 [ %115, %107 ], [ %122, %116 ], [ %.sroa.12.0.i.i, %105 ]
+122:                                              ; preds = %115, %106, %104
+  %.sroa.0.3.i.i = phi i32 [ %110, %106 ], [ %118, %115 ], [ %.sroa.0.2.i.i, %104 ]
+  %.sroa.12.1.i.i = phi i32 [ %114, %106 ], [ %121, %115 ], [ %.sroa.12.0.i.i, %104 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.16167.i.i, i64 %indvars.iv.next.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.16167.i.i, i64 %indvars.iv.next.i.i
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
-  br label %105, !llvm.loop !11
+  br label %104, !llvm.loop !11
 
-.critedge2.i.i:                                   ; preds = %105, %105
-  %124 = or i32 %.sroa.0.2.i.i, %104
-  %125 = or i32 %.sroa.12.0.i.i, %103
-  %126 = getelementptr inbounds i8, ptr %.16167.i.i, i64 %101
+.critedge2.i.i:                                   ; preds = %104, %104
+  %123 = or i32 %.sroa.0.2.i.i, %103
+  %124 = or i32 %.sroa.12.0.i.i, %102
+  %125 = getelementptr i8, ptr %.16167.i.i, i64 %100
+  %126 = getelementptr i8, ptr %125, i64 3
   %127 = load i8, ptr %126, align 1
   %.not.i.i = icmp eq i8 %127, 0
   br i1 %.not.i.i, label %._crit_edge.i.loopexit.i, label %.preheader.i.i, !llvm.loop !12
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.critedge2.i.i
-  store i32 %124, ptr %5, align 4
-  store i32 %125, ptr %54, align 4
+  store i32 %123, ptr %5, align 4
+  store i32 %124, ptr %54, align 4
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %94
-  %128 = phi i32 [ %125, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
-  %129 = phi i32 [ %124, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
+  %128 = phi i32 [ %124, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
+  %129 = phi i32 [ %123, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
   %130 = call i32 @Abc_SopGetPhase(ptr noundef nonnull %97) #7
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %Abc_AttachComputeTruth.exit.i
@@ -332,14 +332,14 @@ Abc_AttachComputeTruth.exit.i:                    ; preds = %132, %._crit_edge.i
 
 138:                                              ; preds = %147, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %147 ]
-  %139 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i.i.i
+  %139 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i.i.i
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, %136
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %140, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %135
   br i1 %146, label %Abc_AttachCompare.exit.i.i, label %147
@@ -351,7 +351,7 @@ Abc_AttachComputeTruth.exit.i:                    ; preds = %132, %._crit_edge.i
 
 Abc_AttachCompare.exit.i.i:                       ; preds = %143, %Abc_AttachCompare.exit.i.i
   %indvars.iv56.i.i = phi i64 [ %indvars.iv.next57.i.i, %Abc_AttachCompare.exit.i.i ], [ 0, %143 ]
-  %148 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv56.i.i
+  %148 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv56.i.i
   %149 = trunc nuw nsw i64 %indvars.iv56.i.i to i32
   store i32 %149, ptr %148, align 4
   %indvars.iv.next57.i.i = add nuw nsw i64 %indvars.iv56.i.i, 1
@@ -387,7 +387,7 @@ Abc_AttachCompare.exit.thread._crit_edge.i.i:     ; preds = %Abc_AttachCompare.e
 
 159:                                              ; preds = %Abc_AttachCompare.exit38.thread.i.i, %.lr.ph.i.i
   %indvars.iv.i28.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i29.i, %Abc_AttachCompare.exit38.thread.i.i ]
-  %160 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv.i28.i
+  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv.i28.i
   %161 = load ptr, ptr %160, align 8
   store i32 0, ptr %55, align 4
   store i32 0, ptr %2, align 4
@@ -397,7 +397,7 @@ Abc_AttachCompare.exit.thread._crit_edge.i.i:     ; preds = %Abc_AttachCompare.e
   %.01923.i.i.i = phi i32 [ 0, %159 ], [ %190, %189 ]
   %163 = lshr i32 %.01923.i.i.i, 5
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds i32, ptr %5, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %5, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = and i32 %.01923.i.i.i, 31
   %168 = shl nuw i32 1, %167
@@ -415,7 +415,7 @@ Abc_AttachCompare.exit.thread._crit_edge.i.i:     ; preds = %Abc_AttachCompare.e
   br i1 %.not.i.i.i, label %180, label %174
 
 174:                                              ; preds = %.preheader.i.i.i
-  %175 = getelementptr inbounds i8, ptr %161, i64 %indvars.iv.i28.i.i
+  %175 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv.i28.i.i
   %176 = load i8, ptr %175, align 1
   %177 = zext nneg i8 %176 to i32
   %178 = shl nuw i32 1, %177
@@ -454,14 +454,14 @@ Abc_TruthPermute.exit.i.i:                        ; preds = %189
 
 193:                                              ; preds = %202, %.lr.ph.i32.i.i
   %indvars.iv.i34.i.i = phi i64 [ 0, %.lr.ph.i32.i.i ], [ %indvars.iv.next.i35.i.i, %202 ]
-  %194 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i34.i.i
+  %194 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i34.i.i
   %195 = load ptr, ptr %194, align 8
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %196, %191
   br i1 %197, label %198, label %202
 
 198:                                              ; preds = %193
-  %199 = getelementptr inbounds i8, ptr %195, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = icmp eq i32 %200, %192
   br i1 %201, label %Abc_AttachCompare.exit38.i.i, label %202
@@ -473,10 +473,10 @@ Abc_TruthPermute.exit.i.i:                        ; preds = %189
 
 Abc_AttachCompare.exit38.i.i:                     ; preds = %198, %Abc_AttachCompare.exit38.i.i
   %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %Abc_AttachCompare.exit38.i.i ], [ 0, %198 ]
-  %203 = getelementptr inbounds i8, ptr %161, i64 %indvars.iv52.i.i
+  %203 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv52.i.i
   %204 = load i8, ptr %203, align 1
   %205 = sext i8 %204 to i32
-  %206 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv52.i.i
+  %206 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv52.i.i
   store i32 %205, ptr %206, align 4
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, 6
@@ -494,7 +494,7 @@ Abc_AttachFind.exit.thread.i:                     ; preds = %155, %Abc_AttachCom
 Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.exit38.i.i, %Abc_AttachCompare.exit.i.i
   %indvars.iv.i34.lcssa.sink.i.i = phi i64 [ %indvars.iv.i.i.i, %Abc_AttachCompare.exit.i.i ], [ %indvars.iv.i34.i.i, %Abc_AttachCompare.exit38.i.i ]
   %207 = and i64 %indvars.iv.i34.lcssa.sink.i.i, 4294967295
-  %208 = getelementptr inbounds ptr, ptr %29, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %29, i64 %207
   %209 = load ptr, ptr %208, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %210 = icmp eq ptr %209, null
@@ -518,14 +518,14 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
 
 216:                                              ; preds = %216, %.lr.ph.i
   %indvars.iv.i130 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i131, %216 ]
-  %217 = getelementptr inbounds i32, ptr %.val26.i, i64 %indvars.iv.i130
+  %217 = getelementptr inbounds nuw i32, ptr %.val26.i, i64 %indvars.iv.i130
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds ptr, ptr %.val25.val.val.i, i64 %219
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds [10 x i32], ptr %4, i64 0, i64 %indvars.iv.i130
+  %224 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv.i130
   store i32 %223, ptr %224, align 4
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i
@@ -533,10 +533,10 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
 
 .critedge.i:                                      ; preds = %216, %.critedge.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.critedge.i ], [ 0, %216 ]
-  %225 = getelementptr inbounds [10 x i32], ptr %4, i64 0, i64 %indvars.iv47.i
+  %225 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv47.i
   %226 = load i32, ptr %225, align 4
   %227 = load ptr, ptr %213, align 8
-  %228 = getelementptr inbounds [10 x i32], ptr %3, i64 0, i64 %indvars.iv47.i
+  %228 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv47.i
   %229 = load i32, ptr %228, align 4
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds i32, ptr %227, i64 %230
@@ -546,7 +546,7 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
   br i1 %exitcond51.not.i, label %Abc_NodeAttach.exit, label %.critedge.i, !llvm.loop !20
 
 Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
-  %232 = getelementptr inbounds i8, ptr %60, i64 64
+  %232 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store ptr %209, ptr %232, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -628,7 +628,7 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
 
 256:                                              ; preds = %.lr.ph164, %268
   %indvars.iv187 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next188, %268 ]
-  %257 = getelementptr inbounds ptr, ptr %.val124.val, i64 %indvars.iv187
+  %257 = getelementptr inbounds nuw ptr, ptr %.val124.val, i64 %indvars.iv187
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
   br i1 %259, label %268, label %260
@@ -641,7 +641,7 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   br i1 %.not136, label %263, label %268
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %258, i64 64
+  %264 = getelementptr inbounds nuw i8, ptr %258, i64 64
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, null
   br i1 %266, label %267, label %268
@@ -660,7 +660,7 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.critedge2 ], [ 0, %268 ]
   %270 = getelementptr i8, ptr %269, i64 8
   %.val125.val = load ptr, ptr %270, align 8
-  %271 = getelementptr inbounds ptr, ptr %.val125.val, i64 %indvars.iv192
+  %271 = getelementptr inbounds nuw ptr, ptr %.val125.val, i64 %indvars.iv192
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %272, null
   br i1 %273, label %.critedge2, label %274
@@ -673,9 +673,9 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   br i1 %.not135, label %277, label %.critedge2
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %272, i64 64
+  %278 = getelementptr inbounds nuw i8, ptr %272, i64 64
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %272, i64 56
+  %280 = getelementptr inbounds nuw i8, ptr %272, i64 56
   store ptr %279, ptr %280, align 8
   store ptr null, ptr %278, align 8
   %.pre = load ptr, ptr %50, align 8
@@ -691,9 +691,9 @@ Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   br i1 %284, label %.lr.ph167, label %.critedge4, !llvm.loop !23
 
 .critedge4:                                       ; preds = %.critedge2, %251
-  %285 = getelementptr inbounds i8, ptr %0, i64 4
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 4, ptr %285, align 4
-  %286 = getelementptr inbounds i8, ptr %0, i64 256
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %287 = load ptr, ptr %286, align 8
   call void @Extra_MmFlexStop(ptr noundef %287) #7
   store ptr %8, ptr %286, align 8

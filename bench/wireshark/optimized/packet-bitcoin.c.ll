@@ -603,7 +603,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bitcoin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #4
   %7 = load i32, ptr @bitcoin_desegment, align 4
@@ -717,7 +717,7 @@ define internal range(i32 0, 2) i32 @dissect_bitcoin_heur(ptr noundef %0, ptr no
   %10 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
   %11 = load ptr, ptr @bitcoin_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %10, ptr noundef %11) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_clear(ptr noundef %13, i32 noundef 25) #4
   %14 = load i32, ptr @bitcoin_desegment, align 4
@@ -1864,7 +1864,7 @@ define internal i32 @get_bitcoin_pdu_length(ptr nocapture readnone %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bitcoin_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.248) #4
   %8 = load i32, ptr @proto_bitcoin, align 4
@@ -1874,7 +1874,7 @@ define internal i32 @dissect_bitcoin_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %12 = load i32, ptr @hf_bitcoin_magic, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
   %14 = load i32, ptr @hf_bitcoin_command, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @proto_tree_add_item_ret_string(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 4, i32 noundef 12, i32 noundef 0, ptr noundef %16, ptr noundef nonnull %5) #4
   %18 = load i32, ptr @hf_bitcoin_length, align 4

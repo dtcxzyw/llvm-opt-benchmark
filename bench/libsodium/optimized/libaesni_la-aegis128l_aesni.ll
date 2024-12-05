@@ -97,7 +97,7 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, i8 0, i64 %25, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr5, i64 %rem, i1 false)
   %src.0.src.0.src.val = load <2 x i64>, ptr %src, align 32
-  %src.16.src.16..sroa_idx = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16..sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.src.val21 = load <2 x i64>, ptr %src.16.src.16..sroa_idx, align 16
   %27 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.76.0.lcssa, <2 x i64> %state.sroa.90.0.lcssa)
   %28 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.62.0.lcssa, <2 x i64> %state.sroa.76.0.lcssa)
@@ -185,7 +185,7 @@ if.then21:                                        ; preds = %for.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, i8 0, i64 %48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr24, i64 %rem19, i1 false)
   %src.0.src.0.src.val23 = load <2 x i64>, ptr %src, align 32
-  %src.16.src.16..sroa_idx191 = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16..sroa_idx191 = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.src.val24 = load <2 x i64>, ptr %src.16.src.16..sroa_idx191, align 16
   %and.i38.i47 = and <2 x i64> %state.sroa.24.2.lcssa, %state.sroa.37.2.lcssa
   %50 = xor <2 x i64> %and.i38.i47, %state.sroa.76.2.lcssa
@@ -196,7 +196,7 @@ if.then21:                                        ; preds = %for.end18
   %53 = xor <2 x i64> %52, %state.sroa.24.2.lcssa
   %xor.i.i51 = xor <2 x i64> %53, %src.16.src.16.src.val24
   store <2 x i64> %xor.i21.i48, ptr %dst, align 32
-  %dst.16.dst.16.dst.16.add.ptr17.i52.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 16
+  %dst.16.dst.16.dst.16.add.ptr17.i52.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store <2 x i64> %xor.i.i51, ptr %dst.16.dst.16.dst.16.add.ptr17.i52.sroa_idx, align 16
   %54 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.76.2.lcssa, <2 x i64> %state.sroa.90.2.lcssa)
   %55 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.62.2.lcssa, <2 x i64> %state.sroa.76.2.lcssa)
@@ -381,7 +381,7 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, i8 0, i64 %25, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr5, i64 %rem, i1 false)
   %src.0.src.0.src.val = load <2 x i64>, ptr %src, align 32
-  %src.16.src.16..sroa_idx = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16..sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.src.val37 = load <2 x i64>, ptr %src.16.src.16..sroa_idx, align 16
   %27 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.108.0.lcssa, <2 x i64> %state.sroa.128.0.lcssa)
   %28 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.88.0.lcssa, <2 x i64> %state.sroa.108.0.lcssa)
@@ -536,7 +536,7 @@ if.then36:                                        ; preds = %if.end31.thread333,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, i8 0, i64 %63, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 range(i64 1, 32) %rem32312356, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %pad.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pad.i, i64 16
   %66 = load <2 x i64>, ptr %add.ptr.i, align 16
   %and.i53.i = and <2 x i64> %state.sroa.34.3308360, %state.sroa.53.3307361
   %67 = xor <2 x i64> %and.i53.i, %65
@@ -583,7 +583,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 0, i64 %81, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i81, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 range(i64 1, 32) %rem32312323, i1 false)
   %83 = load <2 x i64>, ptr %pad.i81, align 16
-  %add.ptr.i82 = getelementptr inbounds i8, ptr %pad.i81, i64 16
+  %add.ptr.i82 = getelementptr inbounds nuw i8, ptr %pad.i81, i64 16
   %84 = load <2 x i64>, ptr %add.ptr.i82, align 16
   %and.i53.i89 = and <2 x i64> %state.sroa.34.3308327, %state.sroa.53.3307328
   %85 = xor <2 x i64> %and.i53.i89, %83
@@ -676,7 +676,7 @@ if.then58:                                        ; preds = %for.end.i
   %xor.i37.i = xor <2 x i64> %107, %106
   %xor.i40.i = xor <2 x i64> %xor.i37.i, %105
   %xor.i.i111 = xor <2 x i64> %xor.i40.i, %xor.i.i.i108
-  %add.ptr.i112 = getelementptr inbounds i8, ptr %computed_mac, i64 16
+  %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %computed_mac, i64 16
   store <2 x i64> %xor.i.i111, ptr %add.ptr.i112, align 16
   %call60 = call i32 @crypto_verify_32(ptr noundef nonnull %computed_mac, ptr noundef %mac) #7
   br label %if.end63

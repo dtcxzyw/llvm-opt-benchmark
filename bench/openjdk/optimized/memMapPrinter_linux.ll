@@ -84,7 +84,7 @@ define hidden void @_ZN13MemMapPrinter21pd_print_all_mappingsERK19MappingPrintSe
 11:                                               ; preds = %1
   store ptr %0, ptr %3, align 8
   store i32 0, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   %13 = load ptr, ptr %0, align 8
   call void @_ZNK16ProcSmapsPrinter12print_legendEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -98,20 +98,20 @@ define hidden void @_ZN13MemMapPrinter21pd_print_all_mappingsERK19MappingPrintSe
   br i1 %16, label %_ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit.lr.ph, label %._crit_edge
 
 _ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit.lr.ph: ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 1072
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 1116
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  %22 = getelementptr inbounds i8, ptr %5, i64 1115
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
-  %24 = getelementptr inbounds i8, ptr %5, i64 1104
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
-  %26 = getelementptr inbounds i8, ptr %5, i64 1080
-  %27 = getelementptr inbounds i8, ptr %5, i64 1088
-  %28 = getelementptr inbounds i8, ptr %4, i64 48
-  %29 = getelementptr inbounds i8, ptr %5, i64 1096
-  %30 = getelementptr inbounds i8, ptr %4, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1072
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1116
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1115
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1104
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1080
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1096
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %_ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit
 
 _ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit: ; preds = %_ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit.lr.ph, %_ZN16ProcSmapsSummary11add_mappingERK13ProcSmapsInfo.exit
@@ -199,7 +199,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter12print_legendEv(ptr noun
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.16) #7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.17) #7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.18) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 16
   store i32 %6, ptr %4, align 8
@@ -224,7 +224,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.22, i64 noundef %6, i64 noundef %9) #7
@@ -254,7 +254,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   br label %24
 
 24:                                               ; preds = %23, %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %25) #7
   %26 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 56) #7
   %27 = icmp eq i32 %26, 0
@@ -265,7 +265,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   br label %29
 
 29:                                               ; preds = %28, %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 1072
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %31 = load i64, ptr %30, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.24, i64 noundef %31) #7
   %32 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 69) #7
@@ -277,7 +277,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   br label %35
 
 35:                                               ; preds = %34, %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 1080
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %37 = load i64, ptr %36, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.24, i64 noundef %37) #7
   %38 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 82) #7
@@ -289,7 +289,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   br label %41
 
 41:                                               ; preds = %40, %35
-  %42 = getelementptr inbounds i8, ptr %1, i64 1064
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %43 = load i64, ptr %42, align 8
   %44 = icmp ugt i64 %43, 1073741823
   %45 = and i64 %43, 1073741823
@@ -339,7 +339,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
   br label %64
 
 64:                                               ; preds = %63, %_Z24exact_unit_for_byte_sizem.exit
-  %65 = getelementptr inbounds i8, ptr %1, i64 1115
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1115
   %66 = load i8, ptr %65, align 1
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %69
@@ -350,7 +350,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
 
 69:                                               ; preds = %68, %64
   %.0 = phi i32 [ 1, %68 ], [ 0, %64 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 1116
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 1116
   %71 = load i8, ptr %70, align 4
   %72 = trunc i8 %71 to i1
   br i1 %72, label %76, label %73
@@ -363,7 +363,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
 
 76:                                               ; preds = %73, %69
   %.1 = phi i32 [ %.0, %69 ], [ %75, %73 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 1104
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 1104
   %78 = load i64, ptr %77, align 8
   %.not = icmp eq i64 %78, 0
   br i1 %.not, label %82, label %79
@@ -377,7 +377,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
 
 82:                                               ; preds = %79, %76
   %.2 = phi i32 [ %81, %79 ], [ %.1, %76 ]
-  %83 = getelementptr inbounds i8, ptr %1, i64 1118
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1118
   %84 = load i8, ptr %83, align 2
   %85 = trunc i8 %84 to i1
   br i1 %85, label %86, label %89
@@ -391,7 +391,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
 
 89:                                               ; preds = %86, %82
   %.3 = phi i32 [ %88, %86 ], [ %.2, %82 ]
-  %90 = getelementptr inbounds i8, ptr %1, i64 1096
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %91 = load i64, ptr %90, align 8
   %.not67 = icmp eq i64 %91, 0
   br i1 %.not67, label %94, label %92
@@ -405,13 +405,13 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
 94:                                               ; preds = %92, %89
   %.4 = phi i32 [ 1, %92 ], [ %.3, %89 ]
   %.4.fr = freeze i32 %.4
-  %95 = getelementptr inbounds i8, ptr %1, i64 1117
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 1117
   %96 = load i8, ptr %95, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %.thread82, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %1, i64 1119
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 1119
   %100 = load i8, ptr %99, align 1
   %101 = trunc i8 %100 to i1
   %.not79 = icmp eq i32 %.4.fr, 0
@@ -421,7 +421,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
   %.not78 = icmp eq i32 %.4.fr, 0
   %102 = select i1 %.not78, ptr @.str.29, ptr @.str.28
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.27, ptr noundef nonnull %102, ptr noundef nonnull @.str.35) #7
-  %103 = getelementptr inbounds i8, ptr %1, i64 1119
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 1119
   %104 = load i8, ptr %103, align 1
   %105 = trunc i8 %104 to i1
   br i1 %105, label %.thread.thread, label %.thread86
@@ -472,7 +472,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
   br label %122
 
 122:                                              ; preds = %121, %118
-  %123 = getelementptr inbounds i8, ptr %1, i64 37
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %124 = load i8, ptr %123, align 1
   %125 = icmp eq i8 %124, 0
   %126 = select i1 %125, ptr @.str.37, ptr %123
@@ -487,7 +487,7 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsSummary8print_onERK19MappingPrin
   %3 = load ptr, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.42, i32 noundef %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, 107374182399
   br i1 %7, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %8
@@ -515,7 +515,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   %.0.i49 = phi i64 [ %11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %12 ], [ %10, %.thread ]
   %.0.i10 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %12 ], [ @.str.39, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.43, i64 noundef %6, i64 noundef %.0.i49, ptr noundef nonnull %.0.i10) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, 107374182399
   br i1 %17, label %_Z24byte_size_in_proper_unitImET_S0_.exit13, label %18
@@ -543,7 +543,7 @@ _Z25proper_unit_for_byte_sizem.exit16:            ; preds = %.thread54, %_Z24byt
   %.0.i1253 = phi i64 [ %21, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %spec.select.i11, %22 ], [ %20, %.thread54 ]
   %.0.i15 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %.str.40..str.41.i14, %22 ], [ @.str.39, %.thread54 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.44, i64 noundef %16, i64 noundef %.0.i1253, ptr noundef nonnull %.0.i15) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, 107374182399
   br i1 %27, label %_Z24byte_size_in_proper_unitImET_S0_.exit19, label %28
@@ -571,7 +571,7 @@ _Z25proper_unit_for_byte_sizem.exit22:            ; preds = %.thread59, %_Z24byt
   %.0.i1858 = phi i64 [ %31, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %spec.select.i17, %32 ], [ %30, %.thread59 ]
   %.0.i21 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %.str.40..str.41.i20, %32 ], [ @.str.39, %.thread59 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.45, i64 noundef %26, i64 noundef %.0.i1858, ptr noundef nonnull %.0.i21) #7
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = icmp ugt i64 %36, 107374182399
   br i1 %37, label %_Z24byte_size_in_proper_unitImET_S0_.exit25, label %38
@@ -599,7 +599,7 @@ _Z25proper_unit_for_byte_sizem.exit28:            ; preds = %.thread64, %_Z24byt
   %.0.i2463 = phi i64 [ %41, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %spec.select.i23, %42 ], [ %40, %.thread64 ]
   %.0.i27 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %.str.40..str.41.i26, %42 ], [ @.str.39, %.thread64 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.46, i64 noundef %36, i64 noundef %.0.i2463, ptr noundef nonnull %.0.i27) #7
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i64, ptr %45, align 8
   %47 = icmp ugt i64 %46, 107374182399
   br i1 %47, label %_Z24byte_size_in_proper_unitImET_S0_.exit31, label %48
@@ -627,7 +627,7 @@ _Z25proper_unit_for_byte_sizem.exit34:            ; preds = %.thread69, %_Z24byt
   %.0.i3068 = phi i64 [ %51, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %spec.select.i29, %52 ], [ %50, %.thread69 ]
   %.0.i33 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %.str.40..str.41.i32, %52 ], [ @.str.39, %.thread69 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.47, i64 noundef %46, i64 noundef %.0.i3068, ptr noundef nonnull %.0.i33) #7
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i64, ptr %55, align 8
   %57 = icmp ugt i64 %56, 107374182399
   br i1 %57, label %_Z24byte_size_in_proper_unitImET_S0_.exit37, label %58
@@ -655,7 +655,7 @@ _Z25proper_unit_for_byte_sizem.exit40:            ; preds = %.thread74, %_Z24byt
   %.0.i3673 = phi i64 [ %61, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %spec.select.i35, %62 ], [ %60, %.thread74 ]
   %.0.i39 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %.str.40..str.41.i38, %62 ], [ @.str.39, %.thread74 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.48, i64 noundef %56, i64 noundef %.0.i3673, ptr noundef nonnull %.0.i39) #7
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load i64, ptr %65, align 8
   %67 = icmp ugt i64 %66, 107374182399
   br i1 %67, label %_Z24byte_size_in_proper_unitImET_S0_.exit43, label %68

@@ -36,26 +36,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @ompi_grequest_construct(ptr nocapture noundef writeonly initializes((56, 60), (120, 136), (152, 160), (192, 194)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ompi_grequest_free, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @ompi_grequest_cancel, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @ompi_mpi_comm_world, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 193
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 193
   store i8 0, ptr %7, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @ompi_grequest_destruct(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, -32766
   br i1 %.not, label %7, label %5
@@ -88,9 +88,9 @@ define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %11
   store ptr @ompi_grequest_t_class, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_grequest_t_class, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_grequest_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i
@@ -99,7 +99,7 @@ define range(i32 -2, 1) i32 @ompi_grequest_start(ptr noundef %0, ptr noundef %1,
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
   %.07.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %12 ]
   tail call void %16(ptr noundef nonnull %7) #8
-  %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread18, label %.lr.ph.i.i, !llvm.loop !4
@@ -121,19 +121,19 @@ opal_obj_new.exit.thread18:                       ; preds = %.lr.ph.i.i, %12
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %21, %23
-  %27 = getelementptr inbounds i8, ptr %7, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store volatile i32 2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 184
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store ptr %3, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr %0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store ptr %1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) @ompi_status_empty, i64 24, i1 false)
-  %33 = getelementptr inbounds i8, ptr %7, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr null, ptr %33, align 8
   store ptr %7, ptr %4, align 8
   br label %opal_obj_new.exit.thread
@@ -149,7 +149,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_grequest_complete(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.critedge.i, label %5
@@ -162,7 +162,7 @@ define i32 @ompi_grequest_complete(ptr noundef %0) local_unnamed_addr #1 {
 
 .critedge.i:                                      ; preds = %5, %1
   fence release
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr @opal_uses_threads, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %13
@@ -183,7 +183,7 @@ opal_thread_swap_ptr.exit.i:                      ; preds = %13, %11
 
 15:                                               ; preds = %opal_thread_swap_ptr.exit.i
   %16 = inttoptr i64 %.0.i.i to ptr
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %28
@@ -209,7 +209,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %24, %21
   br i1 %.not.i.i, label %31, label %ompi_request_complete.exit
 
 28:                                               ; preds = %15
-  %29 = getelementptr inbounds i8, ptr %16, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %18, ptr %29, align 4
   fence release
   %30 = atomicrmw volatile xchg ptr %16, i32 0 monotonic, align 4
@@ -221,33 +221,33 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %24, %21
   br i1 %33, label %34, label %ompi_request_complete.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %16, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %35) #8
-  %37 = getelementptr inbounds i8, ptr %16, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %38 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %37) #8
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #8
-  %40 = getelementptr inbounds i8, ptr %16, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store volatile i8 0, ptr %40, align 8
   br label %ompi_request_complete.exit
 
 ompi_request_complete.exit:                       ; preds = %5, %opal_thread_swap_ptr.exit.i, %opal_thread_add_fetch_32.exit.i.i, %31, %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 193
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %59
 
 44:                                               ; preds = %ompi_request_complete.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %45 = getelementptr inbounds i8, ptr %0, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %46 = load ptr, ptr %45, align 8
   %.not.i9 = icmp eq ptr %46, null
   br i1 %.not.i9, label %ompi_grequest_internal_free.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
-  %51 = getelementptr inbounds i8, ptr %0, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %52 = load ptr, ptr %51, align 8
   br i1 %50, label %53, label %55
 
@@ -262,7 +262,7 @@ ompi_request_complete.exit:                       ; preds = %5, %opal_thread_swa
 
 57:                                               ; preds = %55, %53
   %.sink.i = phi i32 [ %54, %53 ], [ %56, %55 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.sink.i, ptr %58, align 8
   br label %ompi_grequest_internal_free.exit
 
@@ -273,7 +273,7 @@ ompi_grequest_internal_free.exit:                 ; preds = %44, %57
 
 59:                                               ; preds = %ompi_request_complete.exit, %ompi_grequest_internal_free.exit
   %.0 = phi i32 [ %.0.i, %ompi_grequest_internal_free.exit ], [ 0, %ompi_request_complete.exit ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load i8, ptr @opal_uses_threads, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %66
@@ -297,7 +297,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %63, %66
 
 71:                                               ; preds = %opal_thread_add_fetch_32.exit
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
   %.not6.i = icmp eq ptr %75, null
@@ -307,7 +307,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %63, %66
   %76 = phi ptr [ %78, %.lr.ph.i ], [ %75, %71 ]
   %.07.i = phi ptr [ %77, %.lr.ph.i ], [ %74, %71 ]
   call void %76(ptr noundef nonnull %0) #8
-  %77 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not.i11 = icmp eq ptr %78, null
   br i1 %.not.i11, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -327,19 +327,19 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define i32 @ompi_grequest_invoke_query(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca [6 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %6(ptr noundef %13, ptr noundef %1) #8
   br label %22
@@ -347,7 +347,7 @@ define i32 @ompi_grequest_invoke_query(ptr nocapture noundef readonly %0, ptr no
 15:                                               ; preds = %7
   %16 = call i32 @MPI_Status_c2f(ptr noundef %1, ptr noundef nonnull %4) #8
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %19 = load ptr, ptr %18, align 8
   call void %17(ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %20 = call i32 @MPI_Status_f2c(ptr noundef nonnull %4, ptr noundef %1) #8
@@ -360,7 +360,7 @@ define i32 @ompi_grequest_invoke_query(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not14, label %.thread, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.0, ptr %24, align 8
   br label %.thread
 
@@ -377,7 +377,7 @@ declare i32 @MPI_Status_f2c(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 193
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 193
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %51, label %7
@@ -385,14 +385,14 @@ define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
 7:                                                ; preds = %1
   store i8 1, ptr %4, align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, inttoptr (i64 1 to ptr)
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %13 = getelementptr inbounds i8, ptr %3, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %.thread19, label %15
@@ -402,10 +402,10 @@ define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
   br label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  %19 = getelementptr inbounds i8, ptr %3, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %20 = load ptr, ptr %19, align 8
   br i1 %18, label %21, label %23
 
@@ -420,7 +420,7 @@ define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
 
 25:                                               ; preds = %21, %23
   %.sink.i = phi i32 [ %22, %21 ], [ %24, %23 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %.sink.i, ptr %26, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %27 = icmp eq i32 %.sink.i, 0
@@ -432,7 +432,7 @@ define internal i32 @ompi_grequest_free(ptr nocapture noundef %0) #1 {
 
 .thread:                                          ; preds = %..thread_crit_edge, %7, %.thread19
   %28 = phi ptr [ %.pre, %..thread_crit_edge ], [ %8, %7 ], [ %8, %.thread19 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %35
@@ -457,7 +457,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %32, %35
 40:                                               ; preds = %opal_thread_add_fetch_32.exit
   %41 = load ptr, ptr %0, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %.not6.i = icmp eq ptr %45, null
@@ -467,7 +467,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %32, %35
   %46 = phi ptr [ %48, %.lr.ph.i ], [ %45, %40 ]
   %.07.i = phi ptr [ %47, %.lr.ph.i ], [ %44, %40 ]
   call void %46(ptr noundef nonnull %41) #8
-  %47 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not.i16 = icmp eq ptr %48, null
   br i1 %.not.i16, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -494,21 +494,21 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 define internal i32 @ompi_grequest_cancel(ptr nocapture noundef readonly %0, i32 %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %27, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, inttoptr (i64 1 to ptr)
   %17 = zext i1 %16 to i32
@@ -516,12 +516,12 @@ define internal i32 @ompi_grequest_cancel(ptr nocapture noundef readonly %0, i32
   br label %27
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, inttoptr (i64 1 to ptr)
   %23 = zext i1 %22 to i32
   store i32 %23, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load ptr, ptr %24, align 8
   call void %6(ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %26 = load i32, ptr %3, align 4

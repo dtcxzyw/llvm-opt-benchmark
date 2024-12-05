@@ -20,7 +20,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %idxprom = zext nneg i32 %c to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %1 = lshr i8 %0, 1
   %2 = and i8 %1, 1
@@ -38,10 +38,10 @@ if.then11:                                        ; preds = %if.else9
   %sub = add nsw i32 %c, -8192
   %shr12 = lshr i32 %sub, 5
   %idxprom13 = zext nneg i32 %shr12 to i64
-  %arrayidx14 = getelementptr inbounds [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom13
   %3 = load i8, ptr %arrayidx14, align 1
   %idxprom15 = zext i8 %3 to i64
-  %arrayidx16 = getelementptr inbounds [10 x i32], ptr @_ZN6icu_75L10syntax2000E, i64 0, i64 %idxprom15
+  %arrayidx16 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_75L10syntax2000E, i64 0, i64 %idxprom15
   %4 = load i32, ptr %arrayidx16, align 4
   %and17 = and i32 %c, 31
   %shr18 = lshr i32 %4, %and17
@@ -77,7 +77,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %idxprom = zext nneg i32 %c to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 1
   br label %return
@@ -94,10 +94,10 @@ if.then9:                                         ; preds = %if.else7
   %sub = add nsw i32 %c, -8192
   %shr = lshr i32 %sub, 5
   %idxprom10 = zext nneg i32 %shr to i64
-  %arrayidx11 = getelementptr inbounds [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10
+  %arrayidx11 = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10
   %2 = load i8, ptr %arrayidx11, align 1
   %idxprom12 = zext i8 %2 to i64
-  %arrayidx13 = getelementptr inbounds [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12
   %3 = load i32, ptr %arrayidx13, align 4
   %and14 = and i32 %c, 31
   %shr15 = lshr i32 %3, %and14
@@ -133,7 +133,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %idxprom = zext nneg i32 %c to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 1
@@ -171,7 +171,7 @@ land.rhs:                                         ; preds = %entry, %while.body
 
 if.then2.i:                                       ; preds = %land.rhs
   %idxprom.i = zext nneg i16 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = lshr i8 %1, 2
   %3 = and i8 %2, 1
@@ -194,7 +194,7 @@ _ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.the
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.07, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.07, i64 2
   %dec = add nsw i32 %length.addr.08, -1
   %cmp = icmp sgt i32 %length.addr.08, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
@@ -207,12 +207,12 @@ while.end:                                        ; preds = %_ZN6icu_7512Pattern
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7512PatternProps14skipWhiteSpaceERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %s, i32 noundef %start) local_unnamed_addr #2 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp14 = icmp slt i32 %start, %cond.i
@@ -223,8 +223,8 @@ entry:
 _ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph:   ; preds = %entry
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
-  %fBuffer.i.i.i = getelementptr inbounds i8, ptr %s, i64 10
-  %fArray.i.i.i = getelementptr inbounds i8, ptr %s, i64 24
+  %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 10
+  %fArray.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
   %5 = sext i32 %start to i64
@@ -241,7 +241,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7513Unicod
 
 if.then2.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %idxprom.i = zext nneg i16 %7 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %9 = lshr i8 %8, 2
   %10 = and i8 %9, 1
@@ -299,7 +299,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then2.i:                                       ; preds = %lor.lhs.false
   %idxprom.i = zext nneg i16 %1 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = lshr i8 %2, 2
   %4 = and i8 %3, 1
@@ -332,7 +332,7 @@ land.lhs.true:                                    ; preds = %if.else6.i, %_ZN6ic
 
 if.then2.i24:                                     ; preds = %land.lhs.true
   %idxprom.i25 = zext nneg i16 %10 to i64
-  %arrayidx.i26 = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i25
+  %arrayidx.i26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i25
   %11 = load i8, ptr %arrayidx.i26, align 1
   %12 = lshr i8 %11, 2
   %13 = and i8 %12, 1
@@ -360,7 +360,7 @@ land.rhs.preheader:                               ; preds = %_ZN6icu_7512Pattern
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %arrayidx7 = getelementptr inbounds i16, ptr %s, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw i16, ptr %s, i64 %indvars.iv
   %17 = load i16, ptr %arrayidx7, align 2
   %conv8 = zext i16 %17 to i32
   %cmp1.i28 = icmp ult i16 %17, 256
@@ -368,7 +368,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 if.then2.i34:                                     ; preds = %land.rhs
   %idxprom.i35 = zext nneg i16 %17 to i64
-  %arrayidx.i36 = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i35
+  %arrayidx.i36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i35
   %18 = load i8, ptr %arrayidx.i36, align 1
   %19 = lshr i8 %18, 2
   %20 = and i8 %19, 1
@@ -411,7 +411,7 @@ while.cond13:                                     ; preds = %while.end, %while.b
 
 if.then2.i44:                                     ; preds = %while.cond13
   %idxprom.i45 = zext nneg i16 %26 to i64
-  %arrayidx.i46 = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i45
+  %arrayidx.i46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i45
   %27 = load i8, ptr %arrayidx.i46, align 1
   %28 = lshr i8 %27, 2
   %29 = and i8 %28, 1
@@ -447,7 +447,7 @@ if.end22:                                         ; preds = %while.body, %if.end
   %sub23 = sub nsw i32 %limit.0, %start.058
   store i32 %sub23, ptr %length, align 4
   %idx.ext = zext nneg i32 %start.058 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %s, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i16, ptr %s, i64 %idx.ext
   br label %return
 
 return:                                           ; preds = %if.else6.i19, %entry, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27, %if.end22
@@ -463,7 +463,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idx.ext = zext nneg i32 %length to i64
-  %add.ptr = getelementptr inbounds i16, ptr %s, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i16, ptr %s, i64 %idx.ext
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end
@@ -475,7 +475,7 @@ do.body:                                          ; preds = %do.cond, %if.end
 
 if.then2.i:                                       ; preds = %do.body
   %idxprom.i = zext nneg i16 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 1
   br label %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
@@ -492,10 +492,10 @@ if.then9.i:                                       ; preds = %if.else7.i
   %sub.i = add nsw i32 %conv, -8192
   %shr.i = lshr i32 %sub.i, 5
   %idxprom10.i = zext nneg i32 %shr.i to i64
-  %arrayidx11.i = getelementptr inbounds [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10.i
   %3 = load i8, ptr %arrayidx11.i, align 1
   %idxprom12.i = zext i8 %3 to i64
-  %arrayidx13.i = getelementptr inbounds [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12.i
   %4 = load i32, ptr %arrayidx13.i, align 4
   %and14.i = and i32 %conv, 31
   %shr15.i = lshr i32 %4, %and14.i
@@ -520,7 +520,7 @@ _ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %if.then2.i, %i
   br i1 %tobool.not, label %do.cond, label %return
 
 do.cond:                                          ; preds = %if.else18.i, %if.else4.i, %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 2
   %cmp3 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp3, label %do.body, label %return, !llvm.loop !9
 
@@ -545,7 +545,7 @@ land.rhs:                                         ; preds = %entry, %while.body
 
 if.then2.i:                                       ; preds = %land.rhs
   %idxprom.i = zext nneg i16 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN6icu_75L6latin1E, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 1
   br label %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
@@ -562,10 +562,10 @@ if.then9.i:                                       ; preds = %if.else7.i
   %sub.i = add nsw i32 %conv, -8192
   %shr.i = lshr i32 %sub.i, 5
   %idxprom10.i = zext nneg i32 %shr.i to i64
-  %arrayidx11.i = getelementptr inbounds [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds nuw [130 x i8], ptr @_ZN6icu_75L9index2000E, i64 0, i64 %idxprom10.i
   %3 = load i8, ptr %arrayidx11.i, align 1
   %idxprom12.i = zext i8 %3 to i64
-  %arrayidx13.i = getelementptr inbounds [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw [10 x i32], ptr @_ZN6icu_75L22syntaxOrWhiteSpace2000E, i64 0, i64 %idxprom12.i
   %4 = load i32, ptr %arrayidx13.i, align 4
   %and14.i = and i32 %conv, 31
   %shr15.i = lshr i32 %4, %and14.i
@@ -590,7 +590,7 @@ _ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %if.then2.i, %i
   br i1 %tobool.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.else18.i, %if.else4.i, %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.07, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.07, i64 2
   %dec = add nsw i32 %length.addr.08, -1
   %cmp = icmp sgt i32 %length.addr.08, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !10

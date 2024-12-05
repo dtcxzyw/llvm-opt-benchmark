@@ -95,7 +95,7 @@ define void @dlagge_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 59:                                               ; preds = %59, %55
   %60 = phi i64 [ 1, %55 ], [ %67, %59 ]
-  %61 = getelementptr inbounds double, ptr %15, i64 %60
+  %61 = getelementptr inbounds nuw double, ptr %15, i64 %60
   %62 = load double, ptr %61, align 8, !tbaa !7
   %63 = trunc i64 %60 to i32
   %64 = mul i32 %56, %63
@@ -112,7 +112,7 @@ define void @dlagge_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond, label %.loopexit31, label %70
 
 70:                                               ; preds = %.loopexit33
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %72 = add i32 %16, 1
   %73 = zext nneg i32 %53 to i64
   br label %74

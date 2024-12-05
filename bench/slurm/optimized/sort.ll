@@ -36,7 +36,7 @@ define dso_local void @sort_job_list(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.off = add i8 %14, -43
   %switch = icmp ult i8 %.off, 3
@@ -141,9 +141,9 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
   %.b3 = load i1, ptr @sort_descend, align 1
@@ -156,9 +156,9 @@ define internal i32 @_sort_by_cluster_name(ptr nocapture noundef readonly %0, pt
 define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   %.b4 = load i1, ptr @sort_descend, align 1
@@ -170,7 +170,7 @@ define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
@@ -178,7 +178,7 @@ define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %7 = load i32, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   br label %.thread
@@ -197,9 +197,9 @@ define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef 
 define internal i32 @_sort_by_qos_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
   %.b3 = load i1, ptr @sort_descend, align 1
@@ -225,9 +225,9 @@ define internal i32 @_sort_by_account(ptr nocapture noundef readonly %0, ptr noc
 define internal i32 @_sort_by_partition(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #7
   %.b3 = load i1, ptr @sort_descend, align 1
@@ -240,10 +240,10 @@ define internal i32 @_sort_by_partition(ptr nocapture noundef readonly %0, ptr n
 define internal i32 @_sort_by_username(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @uid_to_string_cached(i32 noundef %5) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @uid_to_string_cached(i32 noundef %8) #7
   %10 = tail call i32 @xstrcmp(ptr noundef %6, ptr noundef %9) #7
@@ -256,18 +256,18 @@ define internal i32 @_sort_by_username(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load double, ptr %11, align 8
   br label %.thread
 
@@ -290,18 +290,18 @@ define internal i32 @_sort_by_age_prio(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load double, ptr %11, align 8
   br label %.thread
 
@@ -324,18 +324,18 @@ define internal i32 @_sort_by_fairshare_prio(ptr nocapture noundef readonly %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load double, ptr %11, align 8
   br label %.thread
 
@@ -358,18 +358,18 @@ define internal i32 @_sort_by_jobsize_prio(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load double, ptr %11, align 8
   br label %.thread
 
@@ -392,18 +392,18 @@ define internal i32 @_sort_by_partition_prio(ptr nocapture noundef readonly %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load double, ptr %11, align 8
   br label %.thread
 
@@ -427,23 +427,23 @@ define internal i32 @_sort_by_qos_prio(ptr nocapture noundef readonly %0, ptr no
 define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %7, 0
   br i1 %12, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %20
@@ -454,9 +454,9 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
   br i1 %15, label %.lr.ph28, label %._crit_edge
 
 .lr.ph28:                                         ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %wide.trip.count35 = zext nneg i32 %11 to i64
   br label %24
@@ -464,7 +464,7 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.01524 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %20 ]
-  %21 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
   %23 = fadd double %.01524, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -474,7 +474,7 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
 24:                                               ; preds = %.lr.ph28, %24
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %24 ]
   %.01626 = phi double [ 0.000000e+00, %.lr.ph28 ], [ %27, %24 ]
-  %25 = getelementptr inbounds double, ptr %19, i64 %indvars.iv32
+  %25 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv32
   %26 = load double, ptr %25, align 8
   %27 = fadd double %.01626, %26
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1

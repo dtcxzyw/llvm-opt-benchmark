@@ -11,7 +11,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %.09198 = phi i32 [ %6, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %switch.selectcmp = icmp eq i8 %5, 0
   %switch.select = select i1 %switch.selectcmp, i32 4, i32 1
@@ -33,18 +33,18 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
   %.091.lcssa = phi i64 [ 32, %3 ], [ %9, %._crit_edge.loopexit ]
   %10 = tail call noalias ptr @_emalloc(i64 noundef %.091.lcssa) #2
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 126, ptr %13, align 1
   br i1 %.not106, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %._crit_edge, %26
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %26 ], [ 0, %._crit_edge ]
   %.2100 = phi i32 [ %29, %26 ], [ 1, %._crit_edge ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv109
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv109
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %26 [
     i8 126, label %.sink.split
@@ -116,7 +116,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
 
 44:                                               ; preds = %40, %38
   %.5 = phi i32 [ %41, %40 ], [ %.4, %38 ]
-  %45 = getelementptr inbounds i8, ptr %10, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %46 = sext i32 %.5 to i64
   %47 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %46
   store i8 0, ptr %47, align 1

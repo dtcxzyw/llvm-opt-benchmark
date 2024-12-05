@@ -19,15 +19,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   br label %12
@@ -40,7 +40,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %17, align 4
   br label %50
 
@@ -49,7 +49,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -60,26 +60,26 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %34, label %28
 
 28:                                               ; preds = %26, %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc ptr @domain_state_setup(i32 noundef %21, i1 noundef zeroext false, ptr noundef %30)
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %31, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %28, %26
   %.0 = phi ptr [ %31, %28 ], [ %24, %26 ]
-  %35 = getelementptr inbounds i8, ptr %.0, i64 16
-  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %35, ptr noundef %.026, i32 noundef %37, i32 noundef %39, ptr noundef %4, ptr noundef nonnull %2) #4
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %42, align 4
   br label %50
 
@@ -90,7 +90,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %47, align 4
   br label %50
 
@@ -107,7 +107,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 define internal fastcc ptr @domain_state_setup(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 144) #4
   %5 = tail call ptr @lookup_type_cache(i32 noundef %0, i32 noundef 4096) #4
-  %6 = getelementptr inbounds i8, ptr %5, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 100
   br i1 %.not, label %13, label %8
@@ -122,14 +122,14 @@ define internal fastcc ptr @domain_state_setup(i32 noundef %0, i1 noundef zeroex
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %5, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 452
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 452
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %1, label %21, label %22
 
 21:                                               ; preds = %13
@@ -141,15 +141,15 @@ define internal fastcc ptr @domain_state_setup(i32 noundef %0, i1 noundef zeroex
   br label %23
 
 23:                                               ; preds = %22, %21
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @fmgr_info_cxt(i32 noundef %25, ptr noundef nonnull %26, ptr noundef %2) #4
-  %27 = getelementptr inbounds i8, ptr %4, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @InitDomainConstraintRef(i32 noundef %0, ptr noundef nonnull %27, ptr noundef %2, i1 noundef zeroext true) #4
-  %28 = getelementptr inbounds i8, ptr %4, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %2, ptr %29, align 8
   store i32 %0, ptr %4, align 8
   ret ptr %4
@@ -160,19 +160,19 @@ declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = zext i1 %1 to i8
-  %6 = getelementptr inbounds i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @UpdateDomainConstraintRef(ptr noundef nonnull %8) #4
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 136
-  %13 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %14 = load i32, ptr %10, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %1, label %.lr.ph.split.us.split, label %.lr.ph.split.split.split
@@ -186,7 +186,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv115
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %.split.us [
     i32 0, label %.split70.us
@@ -208,11 +208,11 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 27:                                               ; preds = %23, %21
   %.2.us = phi ptr [ %26, %23 ], [ %.061.us97, %21 ]
-  %28 = getelementptr inbounds i8, ptr %.2.us, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %.2.us, i64 96
   store i64 %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.2.us, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %.2.us, i64 104
   store i8 %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @ExecCheck(ptr noundef %31, ptr noundef %.2.us) #4
   br i1 %32, label %33, label %.split66.us
@@ -234,7 +234,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %38 = load ptr, ptr %11, align 8
   %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %.split.us [
     i32 0, label %86
@@ -271,7 +271,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 57:                                               ; preds = %53, %51
   %.2 = phi ptr [ %56, %53 ], [ %.06187, %51 ]
   %58 = load ptr, ptr %13, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i16, ptr %59, align 8
   %.not41 = icmp eq i16 %60, -1
   br i1 %.not41, label %61, label %63
@@ -282,11 +282,11 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 63:                                               ; preds = %57, %61
   %64 = phi i64 [ %62, %61 ], [ %0, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.2, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 96
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %.2, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %.2, i64 104
   store i8 %5, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %40, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i1 @ExecCheck(ptr noundef %68, ptr noundef %.2) #4
   br i1 %69, label %._crit_edge, label %.split66.us
@@ -305,7 +305,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %72 = tail call i32 @errcode(i32 noundef 67391682) #4
   %73 = load i32, ptr %2, align 8
   %74 = tail call ptr @format_type_be(i32 noundef %73) #4
-  %75 = getelementptr inbounds i8, ptr %.us-phi67, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.us-phi67, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %74, ptr noundef %76) #4
   %78 = load i32, ptr %2, align 8
@@ -317,7 +317,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 .split.us:                                        ; preds = %.lr.ph89, %.lr.ph99
   %.us-phi64 = phi ptr [ %18, %.lr.ph99 ], [ %40, %.lr.ph89 ]
-  %82 = getelementptr inbounds i8, ptr %.us-phi64, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.us-phi64, i64 4
   %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %83)
   %84 = load i32, ptr %82, align 4
@@ -349,13 +349,13 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   br label %9
@@ -372,7 +372,7 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
@@ -383,20 +383,20 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %21, %13
-  %24 = getelementptr inbounds i8, ptr %17, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call fastcc ptr @domain_state_setup(i32 noundef %16, i1 noundef zeroext true, ptr noundef %25)
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %26, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %23, %21
   %.023 = phi ptr [ %26, %23 ], [ %19, %21 ]
-  %30 = getelementptr inbounds i8, ptr %.023, i64 16
-  %31 = getelementptr inbounds i8, ptr %.023, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.023, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.023, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = tail call i64 @ReceiveFunctionCall(ptr noundef nonnull %30, ptr noundef %.024, i32 noundef %32, i32 noundef %34) #4
   %36 = icmp eq ptr %.024, null
@@ -404,7 +404,7 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   br i1 %36, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %29, %9
-  %37 = getelementptr inbounds i8, ptr %0, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %37, align 4
   br label %38
 
@@ -487,7 +487,7 @@ define dso_local zeroext i1 @domain_check_safe(i64 noundef %0, i1 noundef zeroex
   br i1 %21, label %22, label %domain_check_internal.exit
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = trunc i8 %24 to i1
   %26 = xor i1 %25, true
@@ -513,17 +513,17 @@ define dso_local noundef i32 @errdatatype(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @get_namespace_name(i32 noundef %15) #4
   %17 = tail call i32 @err_generic_string(i32 noundef 115, ptr noundef %16) #4
-  %18 = getelementptr inbounds i8, ptr %13, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = tail call i32 @err_generic_string(i32 noundef 100, ptr noundef nonnull %18) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i32 0

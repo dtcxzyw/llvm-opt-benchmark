@@ -51,11 +51,11 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %5 = alloca [1025 x i8], align 16
   %6 = alloca ptr, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -68,29 +68,29 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %fill_hba_view.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
-  %25 = getelementptr inbounds i8, ptr %4, i64 3
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
-  %29 = getelementptr inbounds i8, ptr %4, i64 5
-  %30 = getelementptr inbounds i8, ptr %3, i64 48
-  %31 = getelementptr inbounds i8, ptr %4, i64 6
-  %32 = getelementptr inbounds i8, ptr %3, i64 56
-  %33 = getelementptr inbounds i8, ptr %4, i64 7
-  %34 = getelementptr inbounds i8, ptr %3, i64 64
-  %35 = getelementptr inbounds i8, ptr %3, i64 72
-  %36 = getelementptr inbounds i8, ptr %4, i64 9
-  %37 = getelementptr inbounds i8, ptr %3, i64 80
-  %38 = getelementptr inbounds i8, ptr %4, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %39 = load i32, ptr %20, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %fill_hba_view.exit
@@ -101,7 +101,7 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %41 = load ptr, ptr %21, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv.i6
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
@@ -117,9 +117,9 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %51 = icmp eq ptr %50, null
   %52 = add i32 %.02128.i7, 1
   %spec.select.i = select i1 %51, i32 %52, i32 %.02128.i7
-  %53 = getelementptr inbounds i8, ptr %43, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %43, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %56 = load i32, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4)
@@ -147,14 +147,14 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   br i1 %.not86.i.i, label %364, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp ult i32 %66, 6
   br i1 %67, label %switch.lookup, label %71
 
 switch.lookup:                                    ; preds = %64
   %68 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.pg_hba_file_rules, i64 0, i64 %68
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.pg_hba_file_rules, i64 0, i64 %68
   %switch.load = load ptr, ptr %switch.gep, align 8
   %69 = call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #4
   %70 = ptrtoint ptr %69 to i64
@@ -166,19 +166,19 @@ switch.lookup:                                    ; preds = %64
   br label %72
 
 72:                                               ; preds = %71, %switch.lookup
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not88.i.i = icmp eq ptr %74, null
   br i1 %.not88.i.i, label %88, label %.preheader122.i.i
 
 .preheader122.i.i:                                ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %.not90123.i.i = icmp sgt i32 %76, 0
   br i1 %.not90123.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader122.i.i
-  %77 = getelementptr inbounds i8, ptr %74, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   br label %78
 
 78:                                               ; preds = %78, %.lr.ph.i.i
@@ -207,19 +207,19 @@ switch.lookup:                                    ; preds = %64
   br label %89
 
 89:                                               ; preds = %88, %._crit_edge.i.i
-  %90 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %91 = load ptr, ptr %90, align 8
   %.not91.i.i = icmp eq ptr %91, null
   br i1 %.not91.i.i, label %105, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
   %.not93126.i.i = icmp sgt i32 %93, 0
   br i1 %.not93126.i.i, label %.lr.ph129.i.i, label %._crit_edge130.i.i
 
 .lr.ph129.i.i:                                    ; preds = %.preheader.i.i
-  %94 = getelementptr inbounds i8, ptr %91, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
   br label %95
 
 95:                                               ; preds = %95, %.lr.ph129.i.i
@@ -248,7 +248,7 @@ switch.lookup:                                    ; preds = %64
   br label %106
 
 106:                                              ; preds = %105, %._crit_edge130.i.i
-  %107 = getelementptr inbounds i8, ptr %.0.i, i64 316
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i, i64 316
   %108 = load i32, ptr %107, align 4
   switch i32 %108, label %.thread115.i.i [
     i32 0, label %109
@@ -258,19 +258,19 @@ switch.lookup:                                    ; preds = %64
   ]
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.0.i, i64 320
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i, i64 320
   %111 = load ptr, ptr %110, align 8
   %.not94.i.i = icmp eq ptr %111, null
   br i1 %.not94.i.i, label %112, label %.thread108.i.i
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %.0.i, i64 176
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 176
   %114 = load i32, ptr %113, align 8
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %116, label %125
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %118 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %117, i32 noundef %114, ptr noundef nonnull %5, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #4
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %123
@@ -287,13 +287,13 @@ switch.lookup:                                    ; preds = %64
 
 125:                                              ; preds = %123, %112
   %.175.i.i = phi ptr [ %124, %123 ], [ null, %112 ]
-  %126 = getelementptr inbounds i8, ptr %.0.i, i64 312
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 312
   %127 = load i32, ptr %126, align 8
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %129, label %140
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %.0.i, i64 184
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 184
   %131 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %130, i32 noundef %127, ptr noundef nonnull %5, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #4
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %136
@@ -348,7 +348,7 @@ switch.lookup:                                    ; preds = %64
   br label %148
 
 148:                                              ; preds = %147, %144
-  %149 = getelementptr inbounds i8, ptr %.0.i, i64 328
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i, i64 328
   %150 = load i32, ptr %149, align 8
   %151 = call ptr @hba_authname(i32 noundef %150) #4
   %152 = call ptr @cstring_to_text(ptr noundef %151) #4
@@ -361,7 +361,7 @@ switch.lookup:                                    ; preds = %64
   br i1 %switch.i.i.i, label %155, label %172
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %.0.i, i64 464
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i, i64 464
   %157 = load i8, ptr %156, align 8
   %158 = trunc i8 %157 to i1
   br i1 %158, label %159, label %162
@@ -374,7 +374,7 @@ switch.lookup:                                    ; preds = %64
 
 162:                                              ; preds = %159, %155
   %.1.i.i.i = phi i32 [ 1, %159 ], [ 0, %155 ]
-  %163 = getelementptr inbounds i8, ptr %.0.i, i64 456
+  %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 456
   %164 = load ptr, ptr %163, align 8
   %.not.i.i.i = icmp eq ptr %164, null
   br i1 %.not.i.i.i, label %172, label %165
@@ -391,7 +391,7 @@ switch.lookup:                                    ; preds = %64
 
 172:                                              ; preds = %165, %162, %148
   %.0.i.i.i = phi i32 [ %169, %165 ], [ %.1.i.i.i, %162 ], [ 0, %148 ]
-  %173 = getelementptr inbounds i8, ptr %.0.i, i64 336
+  %173 = getelementptr inbounds nuw i8, ptr %.0.i, i64 336
   %174 = load ptr, ptr %173, align 8
   %.not84.i.i.i = icmp eq ptr %174, null
   br i1 %.not84.i.i.i, label %182, label %175
@@ -408,7 +408,7 @@ switch.lookup:                                    ; preds = %64
 
 182:                                              ; preds = %175, %172
   %.2.i.i.i = phi i32 [ %179, %175 ], [ %.0.i.i.i, %172 ]
-  %183 = getelementptr inbounds i8, ptr %.0.i, i64 448
+  %183 = getelementptr inbounds nuw i8, ptr %.0.i, i64 448
   %184 = load i32, ptr %183, align 8
   %.not85.i.i.i = icmp eq i32 %184, 0
   br i1 %.not85.i.i.i, label %194, label %185
@@ -427,7 +427,7 @@ switch.lookup:                                    ; preds = %64
 
 194:                                              ; preds = %185, %182
   %.3.i.i.i = phi i32 [ %191, %185 ], [ %.2.i.i.i, %182 ]
-  %195 = getelementptr inbounds i8, ptr %.0.i, i64 344
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i, i64 344
   %196 = load ptr, ptr %195, align 8
   %.not86.i.i.i = icmp eq ptr %196, null
   br i1 %.not86.i.i.i, label %204, label %197
@@ -449,7 +449,7 @@ switch.lookup:                                    ; preds = %64
   br i1 %206, label %207, label %317
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %.0.i, i64 368
+  %208 = getelementptr inbounds nuw i8, ptr %.0.i, i64 368
   %209 = load ptr, ptr %208, align 8
   %.not87.i.i.i = icmp eq ptr %209, null
   br i1 %.not87.i.i.i, label %217, label %210
@@ -466,7 +466,7 @@ switch.lookup:                                    ; preds = %64
 
 217:                                              ; preds = %210, %207
   %.6.i.i.i = phi i32 [ %214, %210 ], [ %.4.i.i.i, %207 ]
-  %218 = getelementptr inbounds i8, ptr %.0.i, i64 376
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i, i64 376
   %219 = load i32, ptr %218, align 8
   %.not88.i.i.i = icmp eq i32 %219, 0
   br i1 %.not88.i.i.i, label %227, label %220
@@ -483,7 +483,7 @@ switch.lookup:                                    ; preds = %64
 
 227:                                              ; preds = %220, %217
   %.7.i.i.i = phi i32 [ %224, %220 ], [ %.6.i.i.i, %217 ]
-  %228 = getelementptr inbounds i8, ptr %.0.i, i64 353
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i, i64 353
   %229 = load i8, ptr %228, align 1
   %230 = trunc i8 %229 to i1
   br i1 %230, label %231, label %237
@@ -499,7 +499,7 @@ switch.lookup:                                    ; preds = %64
 
 237:                                              ; preds = %231, %227
   %.8.i.i.i = phi i32 [ %234, %231 ], [ %.7.i.i.i, %227 ]
-  %238 = getelementptr inbounds i8, ptr %.0.i, i64 432
+  %238 = getelementptr inbounds nuw i8, ptr %.0.i, i64 432
   %239 = load ptr, ptr %238, align 8
   %.not89.i.i.i = icmp eq ptr %239, null
   br i1 %.not89.i.i.i, label %247, label %240
@@ -516,7 +516,7 @@ switch.lookup:                                    ; preds = %64
 
 247:                                              ; preds = %240, %237
   %.9.i.i.i = phi i32 [ %244, %240 ], [ %.8.i.i.i, %237 ]
-  %248 = getelementptr inbounds i8, ptr %.0.i, i64 440
+  %248 = getelementptr inbounds nuw i8, ptr %.0.i, i64 440
   %249 = load ptr, ptr %248, align 8
   %.not90.i.i.i = icmp eq ptr %249, null
   br i1 %.not90.i.i.i, label %257, label %250
@@ -533,7 +533,7 @@ switch.lookup:                                    ; preds = %64
 
 257:                                              ; preds = %250, %247
   %.10.i.i.i = phi i32 [ %254, %250 ], [ %.9.i.i.i, %247 ]
-  %258 = getelementptr inbounds i8, ptr %.0.i, i64 416
+  %258 = getelementptr inbounds nuw i8, ptr %.0.i, i64 416
   %259 = load ptr, ptr %258, align 8
   %.not91.i.i.i = icmp eq ptr %259, null
   br i1 %.not91.i.i.i, label %267, label %260
@@ -550,7 +550,7 @@ switch.lookup:                                    ; preds = %64
 
 267:                                              ; preds = %260, %257
   %.11.i.i.i = phi i32 [ %264, %260 ], [ %.10.i.i.i, %257 ]
-  %268 = getelementptr inbounds i8, ptr %.0.i, i64 384
+  %268 = getelementptr inbounds nuw i8, ptr %.0.i, i64 384
   %269 = load ptr, ptr %268, align 8
   %.not92.i.i.i = icmp eq ptr %269, null
   br i1 %.not92.i.i.i, label %277, label %270
@@ -567,7 +567,7 @@ switch.lookup:                                    ; preds = %64
 
 277:                                              ; preds = %270, %267
   %.12.i.i.i = phi i32 [ %274, %270 ], [ %.11.i.i.i, %267 ]
-  %278 = getelementptr inbounds i8, ptr %.0.i, i64 392
+  %278 = getelementptr inbounds nuw i8, ptr %.0.i, i64 392
   %279 = load ptr, ptr %278, align 8
   %.not93.i.i.i = icmp eq ptr %279, null
   br i1 %.not93.i.i.i, label %287, label %280
@@ -584,7 +584,7 @@ switch.lookup:                                    ; preds = %64
 
 287:                                              ; preds = %280, %277
   %.13.i.i.i = phi i32 [ %284, %280 ], [ %.12.i.i.i, %277 ]
-  %288 = getelementptr inbounds i8, ptr %.0.i, i64 400
+  %288 = getelementptr inbounds nuw i8, ptr %.0.i, i64 400
   %289 = load ptr, ptr %288, align 8
   %.not94.i.i.i = icmp eq ptr %289, null
   br i1 %.not94.i.i.i, label %297, label %290
@@ -601,7 +601,7 @@ switch.lookup:                                    ; preds = %64
 
 297:                                              ; preds = %290, %287
   %.14.i.i.i = phi i32 [ %294, %290 ], [ %.13.i.i.i, %287 ]
-  %298 = getelementptr inbounds i8, ptr %.0.i, i64 408
+  %298 = getelementptr inbounds nuw i8, ptr %.0.i, i64 408
   %299 = load ptr, ptr %298, align 8
   %.not95.i.i.i = icmp eq ptr %299, null
   br i1 %.not95.i.i.i, label %307, label %300
@@ -618,7 +618,7 @@ switch.lookup:                                    ; preds = %64
 
 307:                                              ; preds = %300, %297
   %.15.i.i.i = phi i32 [ %304, %300 ], [ %.14.i.i.i, %297 ]
-  %308 = getelementptr inbounds i8, ptr %.0.i, i64 424
+  %308 = getelementptr inbounds nuw i8, ptr %.0.i, i64 424
   %309 = load i32, ptr %308, align 8
   %.not96.i.i.i = icmp eq i32 %309, 0
   br i1 %.not96.i.i.i, label %thread-pre-split.i.i.i, label %310
@@ -645,7 +645,7 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
   br i1 %319, label %320, label %359
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %.0.i, i64 480
+  %321 = getelementptr inbounds nuw i8, ptr %.0.i, i64 480
   %322 = load ptr, ptr %321, align 8
   %.not97.i.i.i = icmp eq ptr %322, null
   br i1 %.not97.i.i.i, label %330, label %323
@@ -662,7 +662,7 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
 
 330:                                              ; preds = %323, %320
   %.17.i.i.i = phi i32 [ %327, %323 ], [ %.5.i.i.i, %320 ]
-  %331 = getelementptr inbounds i8, ptr %.0.i, i64 496
+  %331 = getelementptr inbounds nuw i8, ptr %.0.i, i64 496
   %332 = load ptr, ptr %331, align 8
   %.not98.i.i.i = icmp eq ptr %332, null
   br i1 %.not98.i.i.i, label %340, label %333
@@ -679,7 +679,7 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
 
 340:                                              ; preds = %333, %330
   %.18.i.i.i = phi i32 [ %337, %333 ], [ %.17.i.i.i, %330 ]
-  %341 = getelementptr inbounds i8, ptr %.0.i, i64 512
+  %341 = getelementptr inbounds nuw i8, ptr %.0.i, i64 512
   %342 = load ptr, ptr %341, align 8
   %.not99.i.i.i = icmp eq ptr %342, null
   br i1 %.not99.i.i.i, label %350, label %343
@@ -696,7 +696,7 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
 
 350:                                              ; preds = %343, %340
   %.19.i.i.i = phi i32 [ %347, %343 ], [ %.18.i.i.i, %340 ]
-  %351 = getelementptr inbounds i8, ptr %.0.i, i64 528
+  %351 = getelementptr inbounds nuw i8, ptr %.0.i, i64 528
   %352 = load ptr, ptr %351, align 8
   %.not100.i.i.i = icmp eq ptr %352, null
   br i1 %.not100.i.i.i, label %359, label %.thread.i.i.i
@@ -770,7 +770,7 @@ fill_hba_view.exit:                               ; preds = %fill_hba_line.exit.
   store ptr %18, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %17) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %374 = getelementptr inbounds i8, ptr %0, i64 28
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %374, align 4
   ret i64 0
 }
@@ -783,11 +783,11 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %3 = alloca [7 x i8], align 1
   %4 = alloca ptr, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -800,20 +800,20 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %fill_ident_view.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
-  %23 = getelementptr inbounds i8, ptr %2, i64 32
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
-  %25 = getelementptr inbounds i8, ptr %3, i64 3
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
-  %27 = getelementptr inbounds i8, ptr %3, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %28 = load i32, ptr %18, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %fill_ident_view.exit
@@ -824,7 +824,7 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %30 = load ptr, ptr %19, align 8
   %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv.i5
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
@@ -840,9 +840,9 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %40 = icmp eq ptr %39, null
   %41 = add i32 %.02127.i6, 1
   %spec.select.i = select i1 %40, i32 %41, i32 %.02127.i6
-  %42 = getelementptr inbounds i8, ptr %32, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %45 = load i32, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
@@ -869,18 +869,18 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   br i1 %.not21.i.i, label %68, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr @cstring_to_text(ptr noundef %55) #4
   %57 = ptrtoint ptr %56 to i64
   store i64 %57, ptr %22, align 8
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @cstring_to_text(ptr noundef %60) #4
   %62 = ptrtoint ptr %61 to i64
   store i64 %62, ptr %23, align 16
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @cstring_to_text(ptr noundef %65) #4
@@ -921,7 +921,7 @@ fill_ident_view.exit:                             ; preds = %fill_ident_line.exi
   store ptr %16, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %15) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %78 = getelementptr inbounds i8, ptr %0, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %78, align 4
   ret i64 0
 }

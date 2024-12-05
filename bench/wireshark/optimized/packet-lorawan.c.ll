@@ -539,7 +539,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_lorawan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.nstime_t, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.235) #9
   %9 = load ptr, ptr %7, align 8
@@ -585,7 +585,7 @@ define internal i32 @dissect_lorawan(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 315964782
   store i64 %35, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i, align 8
   %36 = load i32, ptr @hf_lorawan_beacon_time_type, align 4
   %37 = call ptr @proto_tree_add_time(ptr noundef %13, i32 noundef %36, ptr noundef %0, i32 noundef %.sink57.i, i32 noundef 4, ptr noundef nonnull %6) #9
@@ -694,7 +694,7 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
 108:                                              ; preds = %115, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %115 ]
   %109 = getelementptr %struct._root_keys_t, ptr %107, i64 %indvars.iv.i.i
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   %.not.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i, label %115, label %112
@@ -718,7 +718,7 @@ get_root_key.exit.i:                              ; preds = %112
   %117 = load i32, ptr @hf_lorawan_mic_type, align 4
   %118 = load i32, ptr @hf_lorawan_mic_status_type, align 4
   %119 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 19) #9
-  %120 = getelementptr inbounds i8, ptr %109, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = tail call fastcc i32 @calculate_mic(ptr noundef %119, i8 noundef zeroext 19, ptr noundef %122)
@@ -756,7 +756,7 @@ dissect_lorawan_join_request.exit:                ; preds = %116, %get_root_key.
   br label %dissect_lorawan_join_accept.exit
 
 142:                                              ; preds = %130, %130
-  %143 = getelementptr inbounds i8, ptr %1, i64 408
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %144 = load ptr, ptr %143, align 8
   %145 = zext nneg i32 %131 to i64
   %146 = tail call noalias ptr @wmem_alloc0(ptr noundef %144, i64 noundef %145) #9
@@ -951,7 +951,7 @@ define internal void @root_keys_deveui_string_tostr_cb(ptr nocapture noundef rea
 define internal void @root_keys_appkey_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -960,7 +960,7 @@ define internal void @root_keys_appkey_string_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @root_keys_appkey_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1023,7 +1023,7 @@ define internal void @session_keys_dev_addr_string_tostr_cb(ptr nocapture nounde
 define internal void @session_keys_nwkskey_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1032,7 +1032,7 @@ define internal void @session_keys_nwkskey_string_set_cb(ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @session_keys_nwkskey_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1060,7 +1060,7 @@ define internal void @session_keys_nwkskey_string_tostr_cb(ptr nocapture noundef
 define internal void @session_keys_appskey_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1069,7 +1069,7 @@ define internal void @session_keys_appskey_string_set_cb(ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @session_keys_appskey_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1105,12 +1105,12 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned initializes(
   %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %4) #9
   store ptr %6, ptr %0, align 8
   %7 = tail call ptr @g_byte_array_new() #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 @hex_str_to_bytes(ptr noundef %9, ptr noundef %7, i32 noundef 0) #9
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ult i32 %13, 2
   br i1 %.not.i, label %byte_array_reverse.exit, label %.lr.ph.i
@@ -1143,31 +1143,31 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned initializes(
 
 33:                                               ; preds = %3
   store ptr null, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %34, align 8
   br label %byte_array_reverse.exit
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i, %5, %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not21 = icmp eq ptr %36, null
   br i1 %.not21, label %44, label %37
 
 37:                                               ; preds = %byte_array_reverse.exit
   %38 = tail call noalias ptr @g_strdup(ptr noundef nonnull %36) #9
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %39, align 8
   %40 = tail call ptr @g_byte_array_new() #9
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %39, align 8
   %43 = tail call i32 @hex_str_to_bytes(ptr noundef %42, ptr noundef %40, i32 noundef 0) #9
   br label %47
 
 44:                                               ; preds = %byte_array_reverse.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %46, align 8
   br label %47
 
@@ -1182,7 +1182,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr nocapture noundef %0
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
@@ -1202,7 +1202,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr nocapture noundef %0
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not23 = icmp eq i32 %17, 8
   br i1 %.not23, label %.lr.ph.i, label %.sink.split
@@ -1234,13 +1234,13 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr nocapture noundef %0
   br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.sink.split, label %40
 
 40:                                               ; preds = %byte_array_reverse.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not24 = icmp eq ptr %42, null
   br i1 %.not24, label %43, label %45
@@ -1260,7 +1260,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %41, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
   %.not26 = icmp eq i32 %52, 16
   br i1 %.not26, label %54, label %.sink.split
@@ -1281,13 +1281,13 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 define internal void @root_keys_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_byte_array_free(ptr noundef %4, i32 noundef 1) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_byte_array_free(ptr noundef %9, i32 noundef 1) #9
   ret void
@@ -1309,7 +1309,7 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned initializ
   br i1 %.not34, label %38, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %.lr.ph.i, label %36
@@ -1341,14 +1341,14 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned initializ
   br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr %34, align 1
   store i32 %35, ptr %33, align 8
   br label %38
 
 36:                                               ; preds = %10
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %37, align 8
   br label %38
 
@@ -1358,55 +1358,55 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 
 40:                                               ; preds = %3
   store ptr null, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %40, %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not35 = icmp eq ptr %44, null
   br i1 %.not35, label %52, label %45
 
 45:                                               ; preds = %42
   %46 = tail call noalias ptr @g_strdup(ptr noundef nonnull %44) #9
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %46, ptr %47, align 8
   %48 = tail call ptr @g_byte_array_new() #9
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %47, align 8
   %51 = tail call i32 @hex_str_to_bytes(ptr noundef %50, ptr noundef %48, i32 noundef 0) #9
   br label %55
 
 52:                                               ; preds = %42
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %52, %45
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
   %.not36 = icmp eq ptr %57, null
   br i1 %.not36, label %65, label %58
 
 58:                                               ; preds = %55
   %59 = tail call noalias ptr @g_strdup(ptr noundef nonnull %57) #9
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %59, ptr %60, align 8
   %61 = tail call ptr @g_byte_array_new() #9
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %60, align 8
   %64 = tail call i32 @hex_str_to_bytes(ptr noundef %63, ptr noundef %61, i32 noundef 0) #9
   br label %68
 
 65:                                               ; preds = %55
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %67, align 8
   br label %68
 
@@ -1428,7 +1428,7 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr nocapture noundef
   br i1 %.not, label %.sink.split.sink.split, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
   %.not34 = icmp eq i32 %11, 4
   br i1 %.not34, label %.lr.ph.i, label %.sink.split.sink.split
@@ -1460,18 +1460,18 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr nocapture noundef
   br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %6, align 8
   %33 = load i32, ptr %32, align 1
   store i32 %33, ptr %31, align 8
   %34 = tail call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #9
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.sink.split, label %38
 
 38:                                               ; preds = %byte_array_reverse.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not35 = icmp eq ptr %40, null
   br i1 %.not35, label %41, label %43
@@ -1491,19 +1491,19 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %.not37 = icmp eq i32 %50, 16
   br i1 %.not37, label %51, label %.sink.split
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.sink.split, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
   %.not38 = icmp eq ptr %57, null
   br i1 %.not38, label %58, label %60
@@ -1523,7 +1523,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %.not40 = icmp eq i32 %67, 16
   br i1 %.not40, label %70, label %.sink.split
@@ -1549,16 +1549,16 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 define internal void @session_keys_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @g_byte_array_free(ptr noundef %11, i32 noundef 1) #9
   ret void
@@ -1688,7 +1688,7 @@ define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1,
 51:                                               ; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   %52 = getelementptr %struct._session_keys_t, ptr %49, i64 %indvars.iv.i
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, %17
   br i1 %55, label %get_session_key.exit, label %50
@@ -1705,7 +1705,7 @@ get_session_key.exit:                             ; preds = %51
 57:                                               ; preds = %get_session_key.exit
   %58 = add i8 %40, 11
   %59 = and i8 %58, -16
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = zext i8 %59 to i64
   %63 = tail call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef %62) #9
@@ -1714,7 +1714,7 @@ get_session_key.exit:                             ; preds = %51
   %66 = zext i8 %41 to i64
   %67 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %65, i32 noundef %.1, i64 noundef %66) #9
   %.in.in.v = select i1 %.0131, i64 32, i64 40
-  %.in.in = getelementptr inbounds i8, ptr %52, i64 %.in.in.v
+  %.in.in = getelementptr inbounds nuw i8, ptr %52, i64 %.in.in.v
   %.in = load ptr, ptr %.in.in, align 8
   %68 = load ptr, ptr %.in, align 8
   %69 = trunc nuw nsw i32 %3 to i8
@@ -1722,14 +1722,14 @@ get_session_key.exit:                             ; preds = %51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i8 1, ptr %6, align 16
-  %71 = getelementptr inbounds i8, ptr %6, i64 1
-  %72 = getelementptr inbounds i8, ptr %6, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i32 0, ptr %71, align 1
   store i8 %70, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %6, i64 6
-  %74 = getelementptr inbounds i8, ptr %6, i64 10
-  %75 = getelementptr inbounds i8, ptr %6, i64 15
-  %76 = getelementptr inbounds i8, ptr %6, i64 14
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 14
   store i8 0, ptr %76, align 2
   store i8 1, ptr %75, align 1
   store i32 %17, ptr %73, align 2
@@ -1805,7 +1805,7 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %82
 99:                                               ; preds = %._crit_edge, %96, %93, %91
   %.pre-phi158 = phi i8 [ %.pre157, %._crit_edge ], [ %70, %96 ], [ %70, %93 ], [ %70, %91 ]
   %.2152 = phi i32 [ %.2, %._crit_edge ], [ %.2154, %96 ], [ %.2153, %93 ], [ %.2150, %91 ]
-  %100 = getelementptr inbounds i8, ptr %1, i64 408
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %101 = load ptr, ptr %100, align 8
   %102 = add i32 %.2152, 16
   %103 = sext i32 %102 to i64
@@ -1826,7 +1826,7 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %82
   %113 = load i32, ptr @hf_lorawan_mic_type, align 4
   %114 = load i32, ptr @hf_lorawan_mic_status_type, align 4
   %115 = trunc i32 %102 to i8
-  %116 = getelementptr inbounds i8, ptr %52, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = call fastcc i32 @calculate_mic(ptr noundef nonnull %104, i8 noundef zeroext %115, ptr noundef %118)

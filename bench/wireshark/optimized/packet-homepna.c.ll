@@ -77,7 +77,7 @@ define internal i32 @dissect_homepna(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %8, label %55, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.13) #2
   %12 = load ptr, ptr %10, align 8
@@ -129,14 +129,14 @@ define internal i32 @dissect_homepna(ptr noundef %0, ptr noundef %1, ptr noundef
 
 45:                                               ; preds = %28
   store i16 %39, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %37, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %16, ptr %47, align 8
   %48 = load i32, ptr @hf_homepna_trailer, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %50, align 4
   %51 = load ptr, ptr @ethertype_handle, align 8
   %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #2

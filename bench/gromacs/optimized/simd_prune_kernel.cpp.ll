@@ -30,9 +30,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %7 = alloca %"struct.std::array", align 32
   %.sroa.0207 = alloca <8 x float>, align 32
   %.sroa.2 = alloca <8 x float>, align 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -40,9 +40,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 4
   tail call void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  %19 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -54,7 +54,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %27 = load ptr, ptr %8, align 8
   %28 = load ptr, ptr %18, align 8
   %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 288
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %31 = load ptr, ptr %30, align 8
   %32 = fmul float %4, %4
   %33 = insertelement <8 x float> poison, float %32, i64 0
@@ -68,10 +68,10 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %invariant.gep176 = getelementptr i8, ptr %31, i64 16
   %invariant.gep178 = getelementptr i8, ptr %31, i64 32
   %41 = icmp sgt i32 %40, 0
-  %indvars.iv189.sroa.gep208 = getelementptr inbounds i8, ptr %7, i64 96
-  %indvars.iv192.sroa.gep = getelementptr inbounds i8, ptr %7, i64 96
-  %indvars.iv.sroa.gep211 = getelementptr inbounds i8, ptr %6, i64 96
-  %indvars.iv189.sroa.gep214 = getelementptr inbounds i8, ptr %6, i64 96
+  %indvars.iv189.sroa.gep208 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %indvars.iv192.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %indvars.iv.sroa.gep211 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %indvars.iv189.sroa.gep214 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br i1 %41, label %.lr.ph184, label %._crit_edge185
 
 .lr.ph184:                                        ; preds = %5
@@ -82,30 +82,30 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %indvars.iv201 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next202, %._crit_edge.thread ]
   %.0182 = phi i32 [ 0, %.lr.ph184 ], [ %.1, %._crit_edge.thread ]
   %.0138181 = phi i32 [ 0, %.lr.ph184 ], [ %.1139.lcssa205, %._crit_edge.thread ]
-  %43 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %26, i64 %indvars.iv201
+  %43 = getelementptr inbounds nuw %struct.nbnxn_ci_t, ptr %26, i64 %indvars.iv201
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %.0182 to i64
   %46 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %27, i64 %45
   store i32 %44, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %43, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %.0138181, ptr %50, align 4
   %51 = load i32, ptr %47, align 4
   %52 = and i32 %51, 127
   %53 = load i32, ptr %43, align 4
   %54 = zext nneg i32 %52 to i64
-  %55 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %54
+  %55 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %54
   %56 = load float, ptr %55, align 4
   %57 = insertelement <8 x float> poison, float %56, i64 0
   %58 = shufflevector <8 x float> %57, <8 x float> poison, <8 x i32> zeroinitializer
-  %59 = getelementptr inbounds i8, ptr %55, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %60 = load float, ptr %59, align 4
   %61 = insertelement <8 x float> poison, float %60, i64 0
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <8 x i32> zeroinitializer
-  %63 = getelementptr inbounds i8, ptr %55, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %64 = load float, ptr %63, align 4
   %65 = insertelement <8 x float> poison, float %64, i64 0
   %66 = shufflevector <8 x float> %65, <8 x float> poison, <8 x i32> zeroinitializer
@@ -120,7 +120,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %71 = phi i1 [ true, %42 ], [ false, %70 ]
   %indvars.iv.sroa.phi = phi ptr [ %6, %42 ], [ %indvars.iv.sroa.gep211, %70 ]
   %indvars.iv = phi i64 [ 0, %42 ], [ 2, %70 ]
-  %72 = getelementptr inbounds float, ptr %69, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
   %.val.i = load float, ptr %72, align 1
   %73 = getelementptr i8, ptr %72, i64 4
   %.val2.i = load float, ptr %73, align 1
@@ -129,7 +129,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %76 = shufflevector <4 x float> %74, <4 x float> %75, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %77 = fadd <8 x float> %58, %76
   store <8 x float> %77, ptr %indvars.iv.sroa.phi, align 32
-  %78 = getelementptr inbounds float, ptr %gep177, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw float, ptr %gep177, i64 %indvars.iv
   %.val.i148 = load float, ptr %78, align 1
   %79 = getelementptr i8, ptr %78, i64 4
   %.val2.i149 = load float, ptr %79, align 1
@@ -137,9 +137,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %81 = insertelement <4 x float> poison, float %.val2.i149, i64 0
   %82 = shufflevector <4 x float> %80, <4 x float> %81, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %83 = fadd <8 x float> %62, %82
-  %84 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 32
   store <8 x float> %83, ptr %84, align 32
-  %85 = getelementptr inbounds float, ptr %gep179, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw float, ptr %gep179, i64 %indvars.iv
   %.val.i150 = load float, ptr %85, align 1
   %86 = getelementptr i8, ptr %85, i64 4
   %.val2.i151 = load float, ptr %86, align 1
@@ -147,14 +147,14 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %88 = insertelement <4 x float> poison, float %.val2.i151, i64 0
   %89 = shufflevector <4 x float> %87, <4 x float> %88, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %90 = fadd <8 x float> %66, %89
-  %91 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 64
   store <8 x float> %90, ptr %91, align 32
   br i1 %71, label %70, label %92, !llvm.loop !5
 
 92:                                               ; preds = %70
-  %93 = getelementptr inbounds i8, ptr %43, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %43, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = icmp slt i32 %94, %96
   br i1 %97, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -188,15 +188,15 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %.sroa.037.0.copyload = load <8 x float>, ptr %indvars.iv189.sroa.phi212, align 32
   %109 = fsub <8 x float> %.sroa.037.0.copyload, %104
   store <8 x float> %109, ptr %indvars.iv189.sroa.phi, align 32
-  %110 = getelementptr inbounds i8, ptr %indvars.iv189.sroa.phi212, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %indvars.iv189.sroa.phi212, i64 32
   %.sroa.034.0.copyload = load <8 x float>, ptr %110, align 32
   %111 = fsub <8 x float> %.sroa.034.0.copyload, %105
-  %112 = getelementptr inbounds i8, ptr %indvars.iv189.sroa.phi, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %indvars.iv189.sroa.phi, i64 32
   store <8 x float> %111, ptr %112, align 32
-  %113 = getelementptr inbounds i8, ptr %indvars.iv189.sroa.phi212, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %indvars.iv189.sroa.phi212, i64 64
   %.sroa.031.0.copyload = load <8 x float>, ptr %113, align 32
   %114 = fsub <8 x float> %.sroa.031.0.copyload, %106
-  %115 = getelementptr inbounds i8, ptr %indvars.iv189.sroa.phi, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %indvars.iv189.sroa.phi, i64 64
   store <8 x float> %114, ptr %115, align 32
   br i1 %108, label %107, label %.preheader166, !llvm.loop !7
 
@@ -205,9 +205,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   %indvars.iv192.sroa.phi = phi ptr [ %.sroa.2, %.preheader166 ], [ %.sroa.0207, %107 ]
   %indvars.iv192.sroa.phi209 = phi ptr [ %indvars.iv192.sroa.gep, %.preheader166 ], [ %7, %107 ]
   %.sroa.022.0.copyload = load <8 x float>, ptr %indvars.iv192.sroa.phi209, align 32
-  %117 = getelementptr inbounds i8, ptr %indvars.iv192.sroa.phi209, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %indvars.iv192.sroa.phi209, i64 32
   %.sroa.021.0.copyload = load <8 x float>, ptr %117, align 32
-  %118 = getelementptr inbounds i8, ptr %indvars.iv192.sroa.phi209, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %indvars.iv192.sroa.phi209, i64 64
   %.sroa.020.0.copyload = load <8 x float>, ptr %118, align 32
   %119 = fmul <8 x float> %.sroa.022.0.copyload, %.sroa.022.0.copyload
   %120 = fmul <8 x float> %.sroa.021.0.copyload, %.sroa.021.0.copyload
@@ -243,7 +243,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
   br i1 %135, label %136, label %._crit_edge.thread
 
 136:                                              ; preds = %._crit_edge
-  %137 = getelementptr inbounds i8, ptr %46, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 %spec.select, ptr %137, align 4
   %138 = add nsw i32 %.0182, 1
   br label %._crit_edge.thread
@@ -270,7 +270,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairli
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -282,7 +282,7 @@ define linkonce_odr void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationA
 
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
@@ -323,8 +323,8 @@ _ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
   %.015.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %29, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i ]
   %.sroa.010.014.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i.i, i64 16, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i, i64 16
-  %32 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %31, %4
   br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_ci_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
@@ -340,7 +340,7 @@ _ZNSt12_Vector_baseI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_E
   store ptr %29, ptr %0, align 8
   %34 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %30, i64 %12
   store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw %struct.nbnxn_ci_t, ptr %29, i64 %27
   store ptr %35, ptr %13, align 8
   br label %_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE17_M_default_appendEm.exit
 
@@ -377,7 +377,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -389,7 +389,7 @@ define linkonce_odr void @_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationA
 
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
@@ -431,8 +431,8 @@ _ZNKSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
   %.sroa.010.014.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_M_check_lenEmPKc.exit.i ]
   %31 = load i64, ptr %.sroa.010.014.i.i.i, align 4
   store i64 %31, ptr %.015.i.i.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i, i64 8
-  %33 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %32, %4
   br i1 %.not.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_cj_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -448,7 +448,7 @@ _ZNSt12_Vector_baseI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_E
   store ptr %29, ptr %0, align 8
   %35 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %30, i64 %12
   store ptr %35, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw %struct.nbnxn_cj_t, ptr %29, i64 %27
   store ptr %36, ptr %13, align 8
   br label %_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE17_M_default_appendEm.exit
 
@@ -475,9 +475,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %7 = alloca %"struct.std::array.50", align 32
   %8 = alloca %"struct.std::array.51", align 32
   %9 = alloca %"struct.std::array.52", align 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -485,9 +485,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 4
   tail call void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -499,7 +499,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %29 = load ptr, ptr %10, align 8
   %30 = load ptr, ptr %20, align 8
   %31 = load ptr, ptr %19, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 288
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %33 = load ptr, ptr %32, align 8
   %34 = fmul float %4, %4
   %35 = insertelement <8 x float> poison, float %34, i64 0
@@ -525,26 +525,26 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %indvars.iv200 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next201, %._crit_edge.thread ]
   %.0175 = phi i32 [ 0, %.lr.ph177 ], [ %.1, %._crit_edge.thread ]
   %.0139174 = phi i32 [ 0, %.lr.ph177 ], [ %.1140.lcssa207, %._crit_edge.thread ]
-  %45 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %28, i64 %indvars.iv200
+  %45 = getelementptr inbounds nuw %struct.nbnxn_ci_t, ptr %28, i64 %indvars.iv200
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %.0175 to i64
   %48 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %29, i64 %47
   store i32 %46, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %45, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %.0139174, ptr %52, align 4
   %53 = load i32, ptr %49, align 4
   %54 = and i32 %53, 127
   %55 = load i32, ptr %45, align 4
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %56
+  %57 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %56
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load float, ptr %61, align 4
   %63 = shl i32 %55, 2
   %64 = and i32 %63, -8
@@ -566,30 +566,30 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   %.scalar = fadd float %58, %74
   %75 = insertelement <8 x float> poison, float %.scalar, i64 0
   %76 = shufflevector <8 x float> %75, <8 x float> poison, <8 x i32> zeroinitializer
-  %77 = getelementptr inbounds [4 x %"struct.std::array.46"], ptr %6, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x %"struct.std::array.46"], ptr %6, i64 0, i64 %indvars.iv
   store <8 x float> %76, ptr %77, align 32
   %gep211 = getelementptr float, ptr %gep217, i64 %indvars.iv
   %78 = load float, ptr %gep211, align 4
   %.scalar204 = fadd float %60, %78
   %79 = insertelement <8 x float> poison, float %.scalar204, i64 0
   %80 = shufflevector <8 x float> %79, <8 x float> poison, <8 x i32> zeroinitializer
-  %81 = getelementptr inbounds i8, ptr %77, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store <8 x float> %80, ptr %81, align 32
   %gep215 = getelementptr float, ptr %gep219, i64 %indvars.iv
   %82 = load float, ptr %gep215, align 4
   %.scalar205 = fadd float %62, %82
   %83 = insertelement <8 x float> poison, float %.scalar205, i64 0
   %84 = shufflevector <8 x float> %83, <8 x float> poison, <8 x i32> zeroinitializer
-  %85 = getelementptr inbounds i8, ptr %77, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 64
   store <8 x float> %84, ptr %85, align 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %86, label %71, !llvm.loop !13
 
 86:                                               ; preds = %71
-  %87 = getelementptr inbounds i8, ptr %45, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %45, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %90 = load i32, ptr %89, align 4
   %91 = icmp slt i32 %88, %90
   br i1 %91, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -615,20 +615,20 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
 
 98:                                               ; preds = %.lr.ph, %98
   %indvars.iv182 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next183, %98 ]
-  %99 = getelementptr inbounds [4 x %"struct.std::array.46"], ptr %6, i64 0, i64 %indvars.iv182
+  %99 = getelementptr inbounds nuw [4 x %"struct.std::array.46"], ptr %6, i64 0, i64 %indvars.iv182
   %.sroa.037.0.copyload = load <8 x float>, ptr %99, align 32
   %100 = fsub <8 x float> %.sroa.037.0.copyload, %.val.i
-  %101 = getelementptr inbounds [4 x %"struct.std::array.46"], ptr %7, i64 0, i64 %indvars.iv182
+  %101 = getelementptr inbounds nuw [4 x %"struct.std::array.46"], ptr %7, i64 0, i64 %indvars.iv182
   store <8 x float> %100, ptr %101, align 32
-  %102 = getelementptr inbounds i8, ptr %99, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %.sroa.034.0.copyload = load <8 x float>, ptr %102, align 32
   %103 = fsub <8 x float> %.sroa.034.0.copyload, %.val.i149
-  %104 = getelementptr inbounds i8, ptr %101, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store <8 x float> %103, ptr %104, align 32
-  %105 = getelementptr inbounds i8, ptr %99, i64 64
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %.sroa.031.0.copyload = load <8 x float>, ptr %105, align 32
   %106 = fsub <8 x float> %.sroa.031.0.copyload, %.val.i150
-  %107 = getelementptr inbounds i8, ptr %101, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 64
   store <8 x float> %106, ptr %107, align 32
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next183, 4
@@ -636,18 +636,18 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
 
 .preheader162:                                    ; preds = %98, %.preheader162
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.preheader162 ], [ 0, %98 ]
-  %108 = getelementptr inbounds [4 x %"struct.std::array.46"], ptr %7, i64 0, i64 %indvars.iv186
+  %108 = getelementptr inbounds nuw [4 x %"struct.std::array.46"], ptr %7, i64 0, i64 %indvars.iv186
   %.sroa.022.0.copyload = load <8 x float>, ptr %108, align 32
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %.sroa.021.0.copyload = load <8 x float>, ptr %109, align 32
-  %110 = getelementptr inbounds i8, ptr %108, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %.sroa.020.0.copyload = load <8 x float>, ptr %110, align 32
   %111 = fmul <8 x float> %.sroa.022.0.copyload, %.sroa.022.0.copyload
   %112 = fmul <8 x float> %.sroa.021.0.copyload, %.sroa.021.0.copyload
   %113 = fadd <8 x float> %111, %112
   %114 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
   %115 = fadd <8 x float> %114, %113
-  %116 = getelementptr inbounds [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv186
+  %116 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv186
   store <8 x float> %115, ptr %116, align 32
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 4
@@ -655,11 +655,11 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
 
 .preheader161:                                    ; preds = %.preheader162, %.preheader161
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.preheader161 ], [ 0, %.preheader162 ]
-  %117 = getelementptr inbounds [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv190
+  %117 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv190
   %.sroa.014.0.copyload = load <8 x float>, ptr %117, align 32
   %118 = fcmp olt <8 x float> %.sroa.014.0.copyload, %36
   %119 = sext <8 x i1> %118 to <8 x i32>
-  %120 = getelementptr inbounds [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv190
+  %120 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv190
   store <8 x i32> %119, ptr %120, align 32
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 4
@@ -676,10 +676,10 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
 
 126:                                              ; preds = %.preheader, %126
   %indvars.iv194 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next195, %126 ]
-  %127 = getelementptr inbounds [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv194
+  %127 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv194
   %.sroa.02.0.copyload159 = load <8 x i32>, ptr %127, align 32
   %128 = add nuw nsw i64 %indvars.iv194, %125
-  %129 = getelementptr inbounds [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %128
   %.sroa.01.0.copyload160 = load <8 x i32>, ptr %129, align 32
   %130 = or <8 x i32> %.sroa.01.0.copyload160, %.sroa.02.0.copyload159
   store <8 x i32> %130, ptr %127, align 32
@@ -713,7 +713,7 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
   br i1 %143, label %144, label %._crit_edge.thread
 
 144:                                              ; preds = %._crit_edge
-  %145 = getelementptr inbounds i8, ptr %48, i64 12
+  %145 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 %spec.select, ptr %145, align 4
   %146 = add nsw i32 %.0175, 1
   br label %._crit_edge.thread

@@ -48,24 +48,24 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.e98669aa63f2b25a9fa1b88de87a0a60.3, i64 9)
   br i1 %18, label %28, label %25
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %20, ptr nonnull align 1 @anon.e98669aa63f2b25a9fa1b88de87a0a60.3, i64 9)
   br i1 %21, label %33, label %25
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %2, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %24 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %23, ptr nonnull align 1 @anon.e98669aa63f2b25a9fa1b88de87a0a60.3, i64 9)
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %22, %19, %16
   call void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h97142dac29499f14E(ptr nonnull sret([32 x i8]) align 8 %11, ptr nonnull align 8 %2)
   %26 = load i64, ptr %11, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   switch i64 %26, label %36 [
     i64 -9223372036854775807, label %35
     i64 -9223372036854775808, label %38
@@ -73,9 +73,9 @@ default.unreachable:                              ; preds = %3
 
 28:                                               ; preds = %16
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %31, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32
@@ -96,15 +96,15 @@ default.unreachable:                              ; preds = %3
 
 36:                                               ; preds = %25
   store i64 %26, ptr %10, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   call void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4279a36d3fe55bb5E"(ptr nonnull sret([32 x i8]) align 8 %9, ptr nonnull align 8 %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %40
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %39, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32
@@ -126,7 +126,7 @@ default.unreachable:                              ; preds = %3
 
 46:                                               ; preds = %43
   call void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..IntoIter$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h9f9761abc1fe02e5E"(ptr nonnull align 8 %8)
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %47, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32

@@ -64,15 +64,15 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %act, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #23
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %4 = load ptr, ptr %arrayidx2, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %argv, i64 24
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %argv, i64 24
   %5 = load ptr, ptr %arrayidx3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %app_ctx.i)
   %call.i.i = call ptr @TLS_server_method() #23
@@ -120,11 +120,11 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end13.i.i
   call void @SSL_CTX_set_alpn_select_cb(ptr noundef nonnull %call1.i.i, ptr noundef nonnull @alpn_select_proto_cb, ptr noundef null) #23
   %call1.i = call ptr @event_base_new() #23
   store ptr %call1.i.i, ptr %app_ctx.i, align 8
-  %evbase2.i.i = getelementptr inbounds i8, ptr %app_ctx.i, i64 8
+  %evbase2.i.i = getelementptr inbounds nuw i8, ptr %app_ctx.i, i64 8
   store ptr %call1.i, ptr %evbase2.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hints.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i.i)
-  %ai_socktype.i.i = getelementptr inbounds i8, ptr %hints.i.i, i64 8
+  %ai_socktype.i.i = getelementptr inbounds nuw i8, ptr %hints.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints.i.i, i8 0, i64 48, i1 false)
   store i32 1, ptr %ai_socktype.i.i, align 8
   store i32 33, ptr %hints.i.i, align 8
@@ -142,16 +142,16 @@ if.then.i7.i:                                     ; preds = %create_ssl_ctx.exit
   unreachable
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %ai_next.i.i = getelementptr inbounds i8, ptr %rp.06.i.i, i64 40
+  %ai_next.i.i = getelementptr inbounds nuw i8, ptr %rp.06.i.i, i64 40
   %rp.0.i.i = load ptr, ptr %ai_next.i.i, align 8
   %tobool.not.i9.i = icmp eq ptr %rp.0.i.i, null
   br i1 %tobool.not.i9.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !5
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %rp.06.i.i = phi ptr [ %rp.0.i.i, %for.cond.i.i ], [ %rp.04.i.i, %for.cond.preheader.i.i ]
-  %ai_addr.i.i = getelementptr inbounds i8, ptr %rp.06.i.i, i64 24
+  %ai_addr.i.i = getelementptr inbounds nuw i8, ptr %rp.06.i.i, i64 24
   %6 = load ptr, ptr %ai_addr.i.i, align 8
-  %ai_addrlen.i.i = getelementptr inbounds i8, ptr %rp.06.i.i, i64 16
+  %ai_addrlen.i.i = getelementptr inbounds nuw i8, ptr %rp.06.i.i, i64 16
   %7 = load i32, ptr %ai_addrlen.i.i, align 8
   %call2.i8.i = call ptr @evconnlistener_new_bind(ptr noundef %call1.i, ptr noundef nonnull @acceptcb, ptr noundef nonnull %app_ctx.i, i32 noundef 10, i32 noundef 16, ptr noundef %6, i32 noundef %7) #23
   %tobool3.not.i.i = icmp eq ptr %call2.i8.i, null
@@ -250,20 +250,20 @@ if.then.i.i:                                      ; preds = %entry
 
 create_http2_session_data.exit:                   ; preds = %entry
   %calloc.i = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
-  %app_ctx2.i = getelementptr inbounds i8, ptr %calloc.i, i64 40
+  %app_ctx2.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   store ptr %arg, ptr %app_ctx2.i, align 8
   %call3.i = call i32 @setsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val.i, i32 noundef 4) #23
-  %evbase.i = getelementptr inbounds i8, ptr %arg, i64 8
+  %evbase.i = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %evbase.i, align 8
   %call4.i = call ptr @bufferevent_openssl_socket_new(ptr noundef %1, i32 noundef %fd, ptr noundef nonnull %call.i.i, i32 noundef 2, i32 noundef 5) #23
-  %bev.i = getelementptr inbounds i8, ptr %calloc.i, i64 32
+  %bev.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
   store ptr %call4.i, ptr %bev.i, align 8
   %call6.i = call i32 @bufferevent_enable(ptr noundef %call4.i, i16 noundef signext 6) #23
   %call7.i = call i32 @getnameinfo(ptr noundef %addr, i32 noundef %addrlen, ptr noundef nonnull %host.i, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #23
   %cmp.not.i = icmp eq i32 %call7.i, 0
   %host..str.8.i = select i1 %cmp.not.i, ptr %host.i, ptr @.str.8
   %call10.i = call noalias ptr @strdup(ptr noundef nonnull %host..str.8.i) #23
-  %2 = getelementptr inbounds i8, ptr %calloc.i, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 56
   store ptr %call10.i, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %host.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i)
@@ -279,12 +279,12 @@ declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal void @readcb(ptr nocapture readnone %bev, ptr nocapture noundef %ptr) #0 {
 entry:
-  %bev.i = getelementptr inbounds i8, ptr %ptr, i64 32
+  %bev.i = getelementptr inbounds nuw i8, ptr %ptr, i64 32
   %0 = load ptr, ptr %bev.i, align 8
   %call.i = tail call ptr @bufferevent_get_input(ptr noundef %0) #23
   %call1.i = tail call i64 @evbuffer_get_length(ptr noundef %call.i) #23
   %call2.i = tail call ptr @evbuffer_pullup(ptr noundef %call.i, i64 noundef -1) #23
-  %session.i = getelementptr inbounds i8, ptr %ptr, i64 48
+  %session.i = getelementptr inbounds nuw i8, ptr %ptr, i64 48
   %1 = load ptr, ptr %session.i, align 8
   %call3.i = tail call i64 @nghttp2_session_mem_recv(ptr noundef %1, ptr noundef %call2.i, i64 noundef %call1.i) #23
   %cmp.i = icmp slt i64 %call3.i, 0
@@ -333,7 +333,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.end12
 
 if.end:                                           ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %ptr, i64 48
+  %session = getelementptr inbounds nuw i8, ptr %ptr, i64 48
   %0 = load ptr, ptr %session, align 8
   %call2 = tail call i32 @nghttp2_session_want_read(ptr noundef %0) #23
   %cmp3 = icmp eq i32 %call2, 0
@@ -379,10 +379,10 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %alpn, align 8
   store i32 0, ptr %alpnlen, align 4
   %1 = load ptr, ptr @stderr, align 8
-  %client_addr = getelementptr inbounds i8, ptr %ptr, i64 56
+  %client_addr = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   %2 = load ptr, ptr %client_addr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %2) #21
-  %bev1 = getelementptr inbounds i8, ptr %ptr, i64 32
+  %bev1 = getelementptr inbounds nuw i8, ptr %ptr, i64 32
   %3 = load ptr, ptr %bev1, align 8
   %call2 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #23
   call void @SSL_get0_alpn_selected(ptr noundef %call2, ptr noundef nonnull %alpn, ptr noundef nonnull %alpnlen) #23
@@ -418,7 +418,7 @@ if.end:                                           ; preds = %lor.lhs.false6
   call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %11, ptr noundef nonnull @on_header_callback) #23
   %12 = load ptr, ptr %callbacks.i, align 8
   call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %12, ptr noundef nonnull @on_begin_headers_callback) #23
-  %session.i = getelementptr inbounds i8, ptr %ptr, i64 48
+  %session.i = getelementptr inbounds nuw i8, ptr %ptr, i64 48
   %13 = load ptr, ptr %callbacks.i, align 8
   %call1.i = call i32 @nghttp2_session_server_new(ptr noundef nonnull %session.i, ptr noundef %13, ptr noundef nonnull %ptr) #23
   %14 = load ptr, ptr %callbacks.i, align 8
@@ -471,7 +471,7 @@ if.else35:                                        ; preds = %if.else
 if.end44.sink.split:                              ; preds = %if.else35, %if.else, %if.end22
   %.str.17.sink = phi ptr [ @.str.16, %if.end22 ], [ @.str.17, %if.else ], [ @.str.18, %if.else35 ]
   %18 = load ptr, ptr @stderr, align 8
-  %client_addr33 = getelementptr inbounds i8, ptr %ptr, i64 56
+  %client_addr33 = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   %19 = load ptr, ptr %client_addr33, align 8
   %call34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.17.sink, ptr noundef %19) #21
   br label %if.end44
@@ -504,11 +504,11 @@ declare ptr @SSL_new(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: cold nounwind uwtable
 define internal fastcc void @delete_http2_session_data(ptr nocapture noundef %session_data) unnamed_addr #7 {
 entry:
-  %bev = getelementptr inbounds i8, ptr %session_data, i64 32
+  %bev = getelementptr inbounds nuw i8, ptr %session_data, i64 32
   %0 = load ptr, ptr %bev, align 8
   %call = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %0) #23
   %1 = load ptr, ptr @stderr, align 8
-  %client_addr = getelementptr inbounds i8, ptr %session_data, i64 56
+  %client_addr = getelementptr inbounds nuw i8, ptr %session_data, i64 56
   %2 = load ptr, ptr %client_addr, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %2) #21
   %tobool.not = icmp eq ptr %call, null
@@ -521,19 +521,19 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %bev, align 8
   tail call void @bufferevent_free(ptr noundef %3) #23
-  %session = getelementptr inbounds i8, ptr %session_data, i64 48
+  %session = getelementptr inbounds nuw i8, ptr %session_data, i64 48
   %4 = load ptr, ptr %session, align 8
   tail call void @nghttp2_session_del(ptr noundef %4) #23
-  %next = getelementptr inbounds i8, ptr %session_data, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %session_data, i64 8
   %5 = load ptr, ptr %next, align 8
   %tobool4.not10 = icmp eq ptr %5, null
   br i1 %tobool4.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %delete_http2_stream_data.exit
   %stream_data.011 = phi ptr [ %6, %delete_http2_stream_data.exit ], [ %5, %if.end ]
-  %next6 = getelementptr inbounds i8, ptr %stream_data.011, i64 8
+  %next6 = getelementptr inbounds nuw i8, ptr %stream_data.011, i64 8
   %6 = load ptr, ptr %next6, align 8
-  %fd.i = getelementptr inbounds i8, ptr %stream_data.011, i64 28
+  %fd.i = getelementptr inbounds nuw i8, ptr %stream_data.011, i64 28
   %7 = load i32, ptr %fd.i, align 4
   %cmp.not.i = icmp eq i32 %7, -1
   br i1 %cmp.not.i, label %delete_http2_stream_data.exit, label %if.then.i
@@ -543,7 +543,7 @@ if.then.i:                                        ; preds = %for.body
   br label %delete_http2_stream_data.exit
 
 delete_http2_stream_data.exit:                    ; preds = %for.body, %if.then.i
-  %request_path.i = getelementptr inbounds i8, ptr %stream_data.011, i64 16
+  %request_path.i = getelementptr inbounds nuw i8, ptr %stream_data.011, i64 16
   %8 = load ptr, ptr %request_path.i, align 8
   tail call void @free(ptr noundef %8) #23
   tail call void @free(ptr noundef nonnull %stream_data.011) #23
@@ -601,7 +601,7 @@ declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @send_callback(ptr nocapture readnone %session, ptr noundef %data, i64 noundef %length, i32 %flags, ptr nocapture noundef readonly %user_data) #0 {
 entry:
-  %bev1 = getelementptr inbounds i8, ptr %user_data, i64 32
+  %bev1 = getelementptr inbounds nuw i8, ptr %user_data, i64 32
   %0 = load ptr, ptr %bev1, align 8
   %call = tail call ptr @bufferevent_get_output(ptr noundef %0) #23
   %call3 = tail call i64 @evbuffer_get_length(ptr noundef %call) #23
@@ -624,20 +624,20 @@ define internal range(i32 -902, 1) i32 @on_frame_recv_callback(ptr noundef %sess
 entry:
   %data_prd.i.i = alloca %struct.nghttp2_data_provider, align 8
   %hdrs.i = alloca [1 x %struct.nghttp2_nv], align 16
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %switch = icmp ult i8 %0, 2
   br i1 %switch, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %frame, i64 13
+  %flags = getelementptr inbounds nuw i8, ptr %frame, i64 13
   %1 = load i8, ptr %flags, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %3 = load i32, ptr %stream_id, align 8
   %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %3) #23
   %tobool2.not = icmp eq ptr %call, null
@@ -646,7 +646,7 @@ if.then:                                          ; preds = %sw.bb
 if.end:                                           ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %hdrs.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %hdrs.i, ptr noundef nonnull align 16 dereferenceable(40) @__const.on_request_recv.hdrs, i64 40, i1 false)
-  %request_path.i = getelementptr inbounds i8, ptr %call, i64 16
+  %request_path.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %4 = load ptr, ptr %request_path.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end2.i
@@ -659,7 +659,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end2.i:                                        ; preds = %if.end
   %5 = load ptr, ptr @stderr, align 8
-  %client_addr.i = getelementptr inbounds i8, ptr %user_data, i64 56
+  %client_addr.i = getelementptr inbounds nuw i8, ptr %user_data, i64 56
   %6 = load ptr, ptr %client_addr.i, align 8
   %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21, ptr noundef %6, ptr noundef nonnull %4) #21
   %7 = load ptr, ptr %request_path.i, align 8
@@ -709,7 +709,7 @@ for.cond.i:                                       ; preds = %check_path.exit.i, 
   %rel_path.0.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %7, %check_path.exit.i ]
   %9 = load i8, ptr %rel_path.0.i, align 1
   %cmp15.i = icmp eq i8 %9, 47
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %rel_path.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %rel_path.0.i, i64 1
   br i1 %cmp15.i, label %for.cond.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.cond.i
@@ -724,13 +724,13 @@ if.then20.i:                                      ; preds = %for.end.i
   br label %on_request_recv.exit
 
 if.end26.i:                                       ; preds = %for.end.i
-  %fd27.i = getelementptr inbounds i8, ptr %call, i64 28
+  %fd27.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 %call17.i, ptr %fd27.i, align 4
-  %stream_id.i = getelementptr inbounds i8, ptr %call, i64 24
+  %stream_id.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %10 = load i32, ptr %stream_id.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data_prd.i.i)
   store i32 %call17.i, ptr %data_prd.i.i, align 8
-  %read_callback.i.i = getelementptr inbounds i8, ptr %data_prd.i.i, i64 8
+  %read_callback.i.i = getelementptr inbounds nuw i8, ptr %data_prd.i.i, i64 8
   store ptr @file_read_callback, ptr %read_callback.i.i, align 8
   %call.i19.i = call i32 @nghttp2_submit_response(ptr noundef %session, i32 noundef %10, ptr noundef nonnull %hdrs.i, i64 noundef 1, ptr noundef nonnull %data_prd.i.i) #23
   %cmp.not.i.i = icmp eq i32 %call.i19.i, 0
@@ -767,10 +767,10 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next.i = getelementptr inbounds i8, ptr %call, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %next.i, align 8
   %1 = load ptr, ptr %call, align 8
-  %next1.i = getelementptr inbounds i8, ptr %1, i64 8
+  %next1.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %next1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %remove_stream.exit, label %if.then.i
@@ -781,7 +781,7 @@ if.then.i:                                        ; preds = %if.end
   br label %remove_stream.exit
 
 remove_stream.exit:                               ; preds = %if.end, %if.then.i
-  %fd.i = getelementptr inbounds i8, ptr %call, i64 28
+  %fd.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   %3 = load i32, ptr %fd.i, align 4
   %cmp.not.i = icmp eq i32 %3, -1
   br i1 %cmp.not.i, label %delete_http2_stream_data.exit, label %if.then.i3
@@ -791,7 +791,7 @@ if.then.i3:                                       ; preds = %remove_stream.exit
   br label %delete_http2_stream_data.exit
 
 delete_http2_stream_data.exit:                    ; preds = %remove_stream.exit, %if.then.i3
-  %request_path.i = getelementptr inbounds i8, ptr %call, i64 16
+  %request_path.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %4 = load ptr, ptr %request_path.i, align 8
   tail call void @free(ptr noundef %4) #23
   tail call void @free(ptr noundef nonnull %call) #23
@@ -806,26 +806,26 @@ declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_header_callback(ptr noundef %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %name, i64 noundef %namelen, ptr nocapture noundef readonly %value, i64 noundef %valuelen, i8 zeroext %flags, ptr nocapture readnone %user_data) #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %cond = icmp eq i8 %0, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %cat = getelementptr inbounds i8, ptr %frame, i64 56
+  %cat = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %1 = load i32, ptr %cat, align 8
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %sw.bb
-  %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %2 = load i32, ptr %stream_id, align 8
   %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %2) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %sw.epilog, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %request_path = getelementptr inbounds i8, ptr %call, i64 16
+  %request_path = getelementptr inbounds nuw i8, ptr %call, i64 16
   %3 = load ptr, ptr %request_path, align 8
   %tobool2 = icmp eq ptr %3, null
   %cmp5 = icmp eq i64 %namelen, 5
@@ -882,7 +882,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   %arrayidx6.i = getelementptr i8, ptr %arrayidx.i, i64 1
   %7 = load i8, ptr %arrayidx6.i, align 1
   %idxprom.i = zext i8 %7 to i64
-  %arrayidx8.i = getelementptr inbounds i16, ptr %6, i64 %idxprom.i
+  %arrayidx8.i = getelementptr inbounds nuw i16, ptr %6, i64 %idxprom.i
   %8 = load i16, ptr %arrayidx8.i, align 2
   %9 = and i16 %8, 4096
   %tobool.not.i = icmp eq i16 %9, 0
@@ -892,7 +892,7 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
   %arrayidx13.i = getelementptr i8, ptr %arrayidx.i, i64 2
   %10 = load i8, ptr %arrayidx13.i, align 1
   %idxprom15.i = zext i8 %10 to i64
-  %arrayidx16.i = getelementptr inbounds i16, ptr %6, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds nuw i16, ptr %6, i64 %idxprom15.i
   %11 = load i16, ptr %arrayidx16.i, align 2
   %12 = and i16 %11, 4096
   %tobool19.not.i = icmp eq i16 %12, 0
@@ -975,7 +975,7 @@ if.else.i:                                        ; preds = %for.end.thread, %fo
   %call.i18 = phi ptr [ %call.i15, %for.end.thread ], [ %call.i, %for.end ]
   %j.0.lcssa17 = phi i64 [ 0, %for.end.thread ], [ %j.0.lcssa, %for.end ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i18, ptr readonly align 1 %value, i64 %j.0.lcssa17, i1 false)
-  %arrayidx41.i = getelementptr inbounds i8, ptr %call.i18, i64 %j.0.lcssa17
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %call.i18, i64 %j.0.lcssa17
   store i8 0, ptr %arrayidx41.i, align 1
   br label %percent_decode.exit
 
@@ -993,28 +993,28 @@ declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_begin_headers_callback(ptr noundef %session, ptr nocapture noundef readonly %frame, ptr noundef %user_data) #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %cmp.not = icmp eq i8 %0, 1
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %cat = getelementptr inbounds i8, ptr %frame, i64 56
+  %cat = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %1 = load i32, ptr %cat, align 8
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %2 = load i32, ptr %stream_id, align 8
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %stream_id1.i = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %stream_id1.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store i32 %2, ptr %stream_id1.i, align 8
-  %fd.i = getelementptr inbounds i8, ptr %calloc.i, i64 28
+  %fd.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 28
   store i32 -1, ptr %fd.i, align 4
-  %next.i.i = getelementptr inbounds i8, ptr %user_data, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %user_data, i64 8
   %3 = load ptr, ptr %next.i.i, align 8
-  %next1.i.i = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %next1.i.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %3, ptr %next1.i.i, align 8
   store ptr %calloc.i, ptr %next.i.i, align 8
   store ptr %user_data, ptr %calloc.i, align 8
@@ -1058,7 +1058,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void (ptr, ...) @warn(ptr noundef nonnull @.str.23) #23
-  %stream_id = getelementptr inbounds i8, ptr %stream_data, i64 24
+  %stream_id = getelementptr inbounds nuw i8, ptr %stream_data, i64 24
   %0 = load i32, ptr %stream_id, align 8
   %call1 = call i32 @nghttp2_submit_rst_stream(ptr noundef %session, i8 noundef zeroext 0, i32 noundef %0, i32 noundef 2) #23
   %cmp2.not = icmp eq i32 %call1, 0
@@ -1070,7 +1070,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %pipefd, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %pipefd, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   %call6 = call i64 @write(i32 noundef %1, ptr noundef nonnull @ERROR_HTML, i64 noundef 79) #23
   %2 = load i32, ptr %arrayidx, align 4
@@ -1084,13 +1084,13 @@ if.then10:                                        ; preds = %if.end5
   br label %return
 
 if.end13:                                         ; preds = %if.end5
-  %fd = getelementptr inbounds i8, ptr %stream_data, i64 28
+  %fd = getelementptr inbounds nuw i8, ptr %stream_data, i64 28
   store i32 %3, ptr %fd, align 4
-  %stream_id15 = getelementptr inbounds i8, ptr %stream_data, i64 24
+  %stream_id15 = getelementptr inbounds nuw i8, ptr %stream_data, i64 24
   %4 = load i32, ptr %stream_id15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data_prd.i)
   store i32 %3, ptr %data_prd.i, align 8
-  %read_callback.i = getelementptr inbounds i8, ptr %data_prd.i, i64 8
+  %read_callback.i = getelementptr inbounds nuw i8, ptr %data_prd.i, i64 8
   store ptr @file_read_callback, ptr %read_callback.i, align 8
   %call.i = call i32 @nghttp2_submit_response(ptr noundef %session, i32 noundef %4, ptr noundef nonnull %hdrs, i64 noundef 1, ptr noundef nonnull %data_prd.i) #23
   %cmp.not.i = icmp eq i32 %call.i, 0

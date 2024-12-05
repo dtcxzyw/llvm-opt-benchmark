@@ -42,15 +42,15 @@ define hidden noundef ptr @pj_molodensky(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL14des_molodensky, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -70,26 +70,26 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
   br label %75
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconsts, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconsts, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 380
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 4, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 4, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %16, ptr noundef %18, ptr noundef nonnull @.str.1)
   %20 = and i64 %19, 4294967295
@@ -122,7 +122,7 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %36 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %34, ptr noundef %35, ptr noundef nonnull @.str.6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %36, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %17, align 8
@@ -140,7 +140,7 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
   %45 = load ptr, ptr %0, align 8
   %46 = load ptr, ptr %17, align 8
   %47 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %45, ptr noundef %46, ptr noundef nonnull @.str.9)
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = load ptr, ptr %17, align 8
@@ -158,7 +158,7 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
   %56 = load ptr, ptr %0, align 8
   %57 = load ptr, ptr %17, align 8
   %58 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %56, ptr noundef %57, ptr noundef nonnull @.str.12)
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %58, ptr %59, align 8
   %60 = load ptr, ptr %0, align 8
   %61 = load ptr, ptr %17, align 8
@@ -176,13 +176,13 @@ define hidden noundef ptr @_Z39pj_projection_specific_setup_molodenskyP8PJconsts
   %67 = load ptr, ptr %0, align 8
   %68 = load ptr, ptr %17, align 8
   %69 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %67, ptr noundef %68, ptr noundef nonnull @.str.15)
-  %70 = getelementptr inbounds i8, ptr %2, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %69, ptr %70, align 8
   %71 = load ptr, ptr %0, align 8
   %72 = load ptr, ptr %17, align 8
   %73 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %71, ptr noundef %72, ptr noundef nonnull @.str.16)
   %.sroa.0.0.extract.trunc = trunc i64 %73 to i32
-  %74 = getelementptr inbounds i8, ptr %2, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %.sroa.0.0.extract.trunc, ptr %74, align 8
   br label %75
 
@@ -204,29 +204,29 @@ define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noca
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %union.PJ_COORD, align 8
   %.sroa.0.0.copyload8 = load double, ptr %0, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload9 = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.8.0.copyload10 = load double, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8, !noalias !4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
 
 10:                                               ; preds = %2
-  %.sink.i.sroa.gep14 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink.i.sroa.gep11 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
   br label %12
 
 11:                                               ; preds = %2
-  %.sink.i.sroa.gep13 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
   br label %12
 
@@ -242,9 +242,9 @@ define internal void @_ZL24pj_molodensky_forward_4dR8PJ_COORDP8PJconsts(ptr noca
   %15 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !4
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5), !noalias !4
   %.sroa.0.0.copyload3 = load double, ptr %5, align 8
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.3.0.copyload5 = load double, ptr %.sroa.3.0..sroa_idx4, align 8
-  %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.4.0.copyload7 = load double, ptr %.sroa.4.0..sroa_idx6, align 8
   br label %_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit
 
@@ -264,9 +264,9 @@ _ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit: ; preds = %14, %16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   store double %.sroa.0.0, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
 }
@@ -279,40 +279,40 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   %6 = alloca %struct.PJ_LPZ, align 8
   %7 = alloca %union.PJ_COORD, align 8
   %.sroa.010.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.311.0.copyload = load double, ptr %.sroa.311.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load ptr, ptr %8, align 8, !noalias !7
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i32, ptr %10, align 8, !noalias !7
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %2
-  %.sink27.i.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink27.i.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink27.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink27.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %.sroa.010.0.copyload, ptr %4, align 8, !noalias !7
-  %.sroa.7.0..sroa_idx11.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !7
-  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %.sroa.311.0.copyload, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !7
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull %1), !noalias !7
   br label %14
 
 13:                                               ; preds = %2
-  %.sink27.i.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink27.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink27.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %.sroa.010.0.copyload, ptr %6, align 8, !noalias !7
-  %.sroa.7.0..sroa_idx13.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.7.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !7
-  %.sroa.9.0..sroa_idx19.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.9.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.sroa.311.0.copyload, ptr %.sroa.9.0..sroa_idx19.i, align 8, !noalias !7
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %6, ptr noundef nonnull %1), !noalias !7
   br label %14
@@ -329,9 +329,9 @@ define internal void @_ZL24pj_molodensky_reverse_4dR8PJ_COORDP8PJconsts(ptr noca
   %17 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050), !noalias !7
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7), !noalias !7
   %.sroa.0.0.copyload3 = load double, ptr %7, align 8
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.3.0.copyload5 = load double, ptr %.sroa.3.0..sroa_idx4, align 8
-  %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.4.0.copyload7 = load double, ptr %.sroa.4.0..sroa_idx6, align 8
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
@@ -363,14 +363,14 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca %union.PJ_COORD, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load ptr, ptr %7, align 8
   %.sroa.0.0.copyload = load double, ptr %1, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
@@ -403,9 +403,9 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
   %22 = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %23 = fadd double %.sroa.7.0.copyload, %22
   store double %21, ptr %0, align 8
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %20, ptr %.sroa.5.0..sroa_idx2, align 8
-  %.sroa.7.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.7.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %23, ptr %.sroa.7.0..sroa_idx4, align 8
   br label %24
 
@@ -420,36 +420,36 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   %6 = alloca %struct.PJ_LPZ, align 8
   %7 = alloca %struct.PJ_LPZ, align 8
   %8 = alloca %union.PJ_COORD, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %10 = load ptr, ptr %9, align 8
   %.sroa.07.0.copyload = load double, ptr %1, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %3
-  %.sink27.sroa.gep31 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink27.sroa.gep28 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink27.sroa.gep31 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink27.sroa.gep28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.07.0.copyload, ptr %5, align 8
-  %.sroa.7.0..sroa_idx11 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.7.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx11, align 8
-  %.sroa.9.0..sroa_idx17 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.9.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx17, align 8
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2)
   br label %15
 
 14:                                               ; preds = %3
-  %.sink27.sroa.gep30 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink27.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink27.sroa.gep30 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink27.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.07.0.copyload, ptr %7, align 8
-  %.sroa.7.0..sroa_idx13 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.7.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx13, align 8
-  %.sroa.9.0..sroa_idx19 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.9.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx19, align 8
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2)
   br label %15
@@ -475,9 +475,9 @@ define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on
   %21 = fsub double %.sroa.07.0.copyload, %.sroa.0.0
   %22 = fsub double %.sroa.9.0.copyload, %.sroa.5.0.copyload6
   store double %21, ptr %0, align 8
-  %.sroa.7.0..sroa_idx15 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %20, ptr %.sroa.7.0..sroa_idx15, align 8
-  %.sroa.9.0..sroa_idx21 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.9.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %22, ptr %.sroa.9.0..sroa_idx21, align 8
   br label %23
 
@@ -496,13 +496,13 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store double %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %9 = load ptr, ptr %8, align 8, !noalias !10
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i32, ptr %10, align 8, !noalias !10
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %13, label %12
@@ -526,7 +526,7 @@ define internal { double, double } @_ZL24pj_molodensky_forward_2d5PJ_LPP8PJconst
   %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !10
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6), !noalias !10
   %.sroa.010.0.copyload = load double, ptr %6, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.311.0.copyload = load double, ptr %.sroa.311.0..sroa_idx, align 8
   br label %_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts.exit
 
@@ -560,29 +560,29 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %9 = getelementptr inbounds i8, ptr %2, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %10 = load ptr, ptr %9, align 8, !noalias !13
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !noalias !13
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %14, label %13
 
 13:                                               ; preds = %3
-  %.sink27.i.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink27.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %0, ptr %5, align 8, !noalias !13
-  %.sroa.7.0..sroa_idx11.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.7.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %1, ptr %.sroa.7.0..sroa_idx11.i, align 8, !noalias !13
-  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !13
   call fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %2), !noalias !13
   br label %15
 
 14:                                               ; preds = %3
-  %.sink27.i.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink27.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %0, ptr %7, align 8, !noalias !13
-  %.sroa.7.0..sroa_idx13.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.7.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.7.0..sroa_idx13.i, align 8, !noalias !13
-  %.sroa.9.0..sroa_idx19.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.9.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx19.i, align 8, !noalias !13
   call fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull %2), !noalias !13
   br label %15
@@ -598,7 +598,7 @@ define internal { double, double } @_ZL24pj_molodensky_reverse_2d5PJ_XYP8PJconst
   %18 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050), !noalias !13
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %8), !noalias !13
   %.sroa.011.0.copyload = load double, ptr %8, align 8
-  %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.312.0.copyload = load double, ptr %.sroa.312.0..sroa_idx, align 8
   br label %_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit
 
@@ -630,32 +630,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
   %7 = tail call double @sin(double noundef %6) #9
   %8 = tail call double @cos(double noundef %6) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = tail call double @sin(double noundef %10) #9
   %12 = tail call double @cos(double noundef %10) #9
   %13 = load double, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %25 = load double, ptr %24, align 8
   %26 = fmul double %10, 2.000000e+00
   %27 = tail call double @sin(double noundef %26) #9
   %28 = load double, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %30 = load double, ptr %29, align 8
   %31 = tail call double @sin(double noundef %10) #9
   %32 = fcmp oeq double %30, 0.000000e+00
@@ -741,7 +741,7 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
   %87 = tail call double @llvm.fmuladd.f64(double %86, double %11, double %85)
   store double %78, ptr %9, align 8
   store double %79, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %87, ptr %88, align 8
   br label %89
 
@@ -752,29 +752,29 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
   %7 = tail call double @sin(double noundef %6) #9
   %8 = tail call double @cos(double noundef %6) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = tail call double @sin(double noundef %10) #9
   %12 = tail call double @cos(double noundef %10) #9
-  %13 = getelementptr inbounds i8, ptr %2, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %16 = load double, ptr %15, align 8
   %17 = load double, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %27 = load double, ptr %26, align 8
   %28 = tail call double @sin(double noundef %10) #9
   %29 = fcmp oeq double %27, 0.000000e+00
@@ -828,7 +828,7 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %52
   %.0.i65 = phi double [ %57, %52 ], [ %16, %_ZL2RMddd.exit ]
   %58 = fneg double %17
   %59 = fsub double 1.000000e+00, %14
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load double, ptr %60, align 8
   %62 = fadd double %.0.i, %61
   %63 = fcmp oeq double %62, 0.000000e+00

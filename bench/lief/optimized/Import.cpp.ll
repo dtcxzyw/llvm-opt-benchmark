@@ -15,15 +15,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4LIEF2PE14init_c_importsEP11Pe_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((256, 264)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr null, ptr %8, align 8
   %.pre = load ptr, ptr %3, align 8, !noalias !4
   %.pre35 = load ptr, ptr %5, align 8
@@ -39,7 +39,7 @@ define hidden void @_ZN4LIEF2PE14init_c_importsEP11Pe_Binary_tPNS0_6BinaryE(ptr 
   %16 = shl nsw i64 %15, 3
   %17 = add nsw i64 %16, 8
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #5
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %5, align 8
   %21 = load ptr, ptr %3, align 8
@@ -64,30 +64,30 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE6ImportESaIS3_EES3_N9__gnu_cxx17__normal
   %33 = load ptr, ptr %19, align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %.032
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %32, ptr %36, align 8
   %37 = tail call noundef i32 @_ZNK4LIEF2PE6Import15forwarder_chainEv(ptr noundef nonnull align 8 dereferenceable(106) %23)
   %38 = load ptr, ptr %19, align 8
   %39 = getelementptr inbounds ptr, ptr %38, i64 %.032
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 %37, ptr %41, align 4
   %42 = tail call noundef i32 @_ZNK4LIEF2PE6Import24import_address_table_rvaEv(ptr noundef nonnull align 8 dereferenceable(106) %23)
   %43 = load ptr, ptr %19, align 8
   %44 = getelementptr inbounds ptr, ptr %43, i64 %.032
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i32 %42, ptr %46, align 8
   %47 = tail call noundef i32 @_ZNK4LIEF2PE6Import23import_lookup_table_rvaEv(ptr noundef nonnull align 8 dereferenceable(106) %23)
   %48 = load ptr, ptr %19, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %.032
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
   store i32 %47, ptr %51, align 4
   %52 = load ptr, ptr %19, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %.032
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr null, ptr %55, align 8
   %56 = load ptr, ptr %19, align 8
   %57 = getelementptr inbounds ptr, ptr %56, i64 %.032
@@ -133,7 +133,7 @@ declare void @_ZN4LIEF2PE21init_c_import_entriesEP11Pe_Import_tRNS0_6ImportE(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4LIEF2PE15destroy_importsEP11Pe_Binary_t(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %.preheader

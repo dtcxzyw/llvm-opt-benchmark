@@ -69,7 +69,7 @@ define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 123, ptr %0, align 1
   %5 = add i64 %2, -1
   %6 = icmp ugt i64 %5, 2
@@ -91,15 +91,15 @@ define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly initializes((
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.01922, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01922, i64 1
   store i8 125, ptr %.01922, align 1
   %13 = load i8, ptr %.01723, align 1
-  %14 = getelementptr inbounds i8, ptr %.01922, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01922, i64 2
   store i8 %13, ptr %12, align 1
   br label %17
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.01922, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01922, i64 1
   store i8 %7, ptr %.01922, align 1
   br label %17
 
@@ -107,14 +107,14 @@ define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly initializes((
   %.sink = phi i64 [ -2, %11 ], [ -1, %15 ]
   %.120 = phi ptr [ %14, %11 ], [ %16, %15 ]
   %18 = add i64 %.024, %.sink
-  %.118 = getelementptr inbounds i8, ptr %.01723, i64 1
+  %.118 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
   %19 = icmp ugt i64 %18, 2
   br i1 %19, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %17, %.lr.ph, %8, %3
   %.019.lcssa = phi ptr [ %4, %3 ], [ %.01922, %8 ], [ %.01922, %.lr.ph ], [ %.120, %17 ]
   %.017.lcssa = phi ptr [ %1, %3 ], [ %.01723, %8 ], [ %.01723, %.lr.ph ], [ %.118, %17 ]
-  %20 = getelementptr inbounds i8, ptr %.019.lcssa, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.019.lcssa, i64 1
   store i8 125, ptr %.019.lcssa, align 1
   store i8 0, ptr %20, align 1
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017.lcssa) #4

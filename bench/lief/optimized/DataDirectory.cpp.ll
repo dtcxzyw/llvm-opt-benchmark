@@ -12,16 +12,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((240, 248)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 352
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8, !noalias !4
-  %5 = getelementptr inbounds i8, ptr %1, i64 360
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
   %reass.sub = sub i64 %7, %8
   %9 = add i64 %reass.sub, 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %10, ptr %11, align 8
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %3, align 8
@@ -37,7 +37,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %17, i64 %.021
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.021
@@ -46,12 +46,12 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds %"class.std::unique_ptr.81", ptr %25, i64 %.021
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %11, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %.021
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %29, ptr %33, align 4
   %34 = add nuw i64 %.021, 1
   %35 = load ptr, ptr %5, align 8
@@ -80,7 +80,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %4, null

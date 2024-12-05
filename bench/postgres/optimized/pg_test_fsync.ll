@@ -104,13 +104,13 @@ sub_0.i:                                          ; preds = %10
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %16 = getelementptr inbounds i8, ptr %12, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %17 = load i8, ptr %16, align 1
   %.not22.i = icmp eq i8 %17, 63
   br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %18 = getelementptr inbounds i8, ptr %12, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread.i
@@ -140,7 +140,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
   br i1 %.not24.i, label %.tail17.i, label %.tail17.thread.i.preheader
 
 .tail17.i:                                        ; preds = %sub_119.i
-  %29 = getelementptr inbounds i8, ptr %12, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %.tail17.thread.i.preheader

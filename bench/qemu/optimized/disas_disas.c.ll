@@ -26,31 +26,31 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @disas_initialize_debug_target(ptr noundef initializes((0, 216)) %s, ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
-  %cap_arch.i = getelementptr inbounds i8, ptr %s, i64 192
+  %cap_arch.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i, align 8
-  %cap_insn_unit.i = getelementptr inbounds i8, ptr %s, i64 200
+  %cap_insn_unit.i = getelementptr inbounds nuw i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i, align 8
-  %cap_insn_split.i = getelementptr inbounds i8, ptr %s, i64 204
+  %cap_insn_split.i = getelementptr inbounds nuw i8, ptr %s, i64 204
   store i32 4, ptr %cap_insn_split.i, align 4
-  %memory_error_func.i = getelementptr inbounds i8, ptr %s, i64 88
+  %memory_error_func.i = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr @perror_memory, ptr %memory_error_func.i, align 8
-  %symbol_at_address_func.i = getelementptr inbounds i8, ptr %s, i64 112
+  %symbol_at_address_func.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   store ptr @symbol_at_address, ptr %symbol_at_address_func.i, align 8
-  %cpu1 = getelementptr inbounds i8, ptr %s, i64 208
+  %cpu1 = getelementptr inbounds nuw i8, ptr %s, i64 208
   store ptr %cpu, ptr %cpu1, align 8
-  %read_memory_func = getelementptr inbounds i8, ptr %s, i64 80
+  %read_memory_func = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr @target_read_memory, ptr %read_memory_func, align 8
-  %print_address_func = getelementptr inbounds i8, ptr %s, i64 96
+  %print_address_func = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr @print_address, ptr %print_address_func, align 8
   %call = tail call zeroext i1 @target_words_bigendian() #10
   %not.call = xor i1 %call, true
   %spec.select = zext i1 %not.call to i32
-  %0 = getelementptr inbounds i8, ptr %s, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %spec.select, ptr %0, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
-  %disas_set_info = getelementptr inbounds i8, ptr %call1.i, i64 296
+  %disas_set_info = getelementptr inbounds nuw i8, ptr %call1.i, i64 296
   %1 = load ptr, ptr %disas_set_info, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end10, label %if.then7
@@ -66,7 +66,7 @@ if.end10:                                         ; preds = %if.then7, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 6) i32 @target_read_memory(i64 noundef %memaddr, ptr noundef %myaddr, i32 noundef %length, ptr nocapture noundef readonly %info) #0 {
 entry:
-  %cpu = getelementptr inbounds i8, ptr %info, i64 208
+  %cpu = getelementptr inbounds nuw i8, ptr %info, i64 208
   %0 = load ptr, ptr %cpu, align 8
   %conv = sext i32 %length to i64
   %call = tail call i32 @cpu_memory_rw_debug(ptr noundef %0, i64 noundef %memaddr, ptr noundef %myaddr, i64 noundef %conv, i1 noundef zeroext false) #10
@@ -79,7 +79,7 @@ entry:
 define internal void @print_address(i64 noundef %addr, ptr nocapture noundef readonly %info) #0 {
 entry:
   %0 = load ptr, ptr %info, align 8
-  %stream = getelementptr inbounds i8, ptr %info, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %info, i64 8
   %1 = load ptr, ptr %stream, align 8
   %call = tail call i32 (ptr, ptr, ...) %0(ptr noundef %1, ptr noundef nonnull @.str.6, i64 noundef %addr) #10
   ret void
@@ -91,61 +91,61 @@ declare zeroext i1 @target_words_bigendian() local_unnamed_addr #1
 define dso_local void @target_disas(ptr noundef %out, ptr noundef %cpu, i64 noundef %code, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %s = alloca %struct.CPUDebug, align 8
-  %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
+  %cap_arch.i.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i.i, align 8
-  %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
+  %cap_insn_unit.i.i = getelementptr inbounds nuw i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i.i, align 8
-  %cap_insn_split.i.i = getelementptr inbounds i8, ptr %s, i64 204
+  %cap_insn_split.i.i = getelementptr inbounds nuw i8, ptr %s, i64 204
   store i32 4, ptr %cap_insn_split.i.i, align 4
-  %memory_error_func.i.i = getelementptr inbounds i8, ptr %s, i64 88
+  %memory_error_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr @perror_memory, ptr %memory_error_func.i.i, align 8
-  %symbol_at_address_func.i.i = getelementptr inbounds i8, ptr %s, i64 112
+  %symbol_at_address_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   store ptr @symbol_at_address, ptr %symbol_at_address_func.i.i, align 8
-  %cpu1.i = getelementptr inbounds i8, ptr %s, i64 208
+  %cpu1.i = getelementptr inbounds nuw i8, ptr %s, i64 208
   store ptr %cpu, ptr %cpu1.i, align 8
-  %read_memory_func.i = getelementptr inbounds i8, ptr %s, i64 80
+  %read_memory_func.i = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr @target_read_memory, ptr %read_memory_func.i, align 8
-  %print_address_func.i = getelementptr inbounds i8, ptr %s, i64 96
+  %print_address_func.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr @print_address, ptr %print_address_func.i, align 8
   %call.i = tail call zeroext i1 @target_words_bigendian() #10
   %not.call.i = xor i1 %call.i, true
   %spec.select.i = zext i1 %not.call.i to i32
-  %0 = getelementptr inbounds i8, ptr %s, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %spec.select.i, ptr %0, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
-  %disas_set_info.i = getelementptr inbounds i8, ptr %call1.i.i, i64 296
+  %disas_set_info.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 296
   %1 = load ptr, ptr %disas_set_info.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %disas_initialize_debug_target.exit.thread, label %disas_initialize_debug_target.exit
 
 disas_initialize_debug_target.exit.thread:        ; preds = %entry
   store ptr @fprintf, ptr %s, align 8
-  %stream17 = getelementptr inbounds i8, ptr %s, i64 8
+  %stream17 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %out, ptr %stream17, align 8
-  %buffer_vma18 = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma18 = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %code, ptr %buffer_vma18, align 8
   %conv19 = trunc i64 %size to i32
-  %buffer_length20 = getelementptr inbounds i8, ptr %s, i64 136
+  %buffer_length20 = getelementptr inbounds nuw i8, ptr %s, i64 136
   store i32 %conv19, ptr %buffer_length20, align 8
-  %print_insn21 = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn21 = getelementptr inbounds nuw i8, ptr %s, i64 104
   br label %if.then9
 
 disas_initialize_debug_target.exit:               ; preds = %entry
   call void %1(ptr noundef %cpu, ptr noundef nonnull %s) #10
-  %print_insn.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 104
   %.pre = load ptr, ptr %print_insn.phi.trans.insert, align 8
   %2 = icmp eq ptr %.pre, null
   store ptr @fprintf, ptr %s, align 8
-  %stream = getelementptr inbounds i8, ptr %s, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %out, ptr %stream, align 8
-  %buffer_vma = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %code, ptr %buffer_vma, align 8
   %conv = trunc i64 %size to i32
-  %buffer_length = getelementptr inbounds i8, ptr %s, i64 136
+  %buffer_length = getelementptr inbounds nuw i8, ptr %s, i64 136
   store i32 %conv, ptr %buffer_length, align 8
-  %print_insn = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn = getelementptr inbounds nuw i8, ptr %s, i64 104
   br i1 %2, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %disas_initialize_debug_target.exit.thread, %disas_initialize_debug_target.exit
@@ -193,11 +193,11 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @print_insn_od_target(i64 noundef %pc, ptr noundef %info) #0 {
 entry:
-  %buffer_length.i = getelementptr inbounds i8, ptr %info, i64 136
+  %buffer_length.i = getelementptr inbounds nuw i8, ptr %info, i64 136
   %0 = load i32, ptr %buffer_length.i, align 8
   %conv.i = sext i32 %0 to i64
   %call.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i) #11
-  %read_memory_func.i = getelementptr inbounds i8, ptr %info, i64 80
+  %read_memory_func.i = getelementptr inbounds nuw i8, ptr %info, i64 80
   %1 = load ptr, ptr %read_memory_func.i, align 8
   %call1.i = tail call i32 %1(i64 noundef %pc, ptr noundef %call.i, i32 noundef %0, ptr noundef %info) #10
   %cmp.i = icmp eq i32 %call1.i, 0
@@ -208,7 +208,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp315.i, label %for.body.lr.ph.i, label %print_insn_objdump.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %stream.i = getelementptr inbounds i8, ptr %info, i64 8
+  %stream.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
 
@@ -237,7 +237,7 @@ if.end.i:                                         ; preds = %if.then7.i, %for.bo
 
 if.else.i:                                        ; preds = %entry
   %8 = load ptr, ptr %info, align 8
-  %stream14.i = getelementptr inbounds i8, ptr %info, i64 8
+  %stream14.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %9 = load ptr, ptr %stream14.i, align 8
   %call15.i = tail call i32 (ptr, ptr, ...) %8(ptr noundef %9, ptr noundef nonnull @.str.12) #10
   br label %print_insn_objdump.exit
@@ -251,7 +251,7 @@ print_insn_objdump.exit:                          ; preds = %if.end.i, %for.cond
 define dso_local i32 @disas_gstring_printf(ptr noundef %stream, ptr noundef %fmt, ...) #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  %len = getelementptr inbounds i8, ptr %stream, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %stream, i64 8
   %0 = load i64, ptr %len, align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
   call void @g_string_append_vprintf(ptr noundef %stream, ptr noundef %fmt, ptr noundef nonnull %va) #10
@@ -269,58 +269,58 @@ define dso_local ptr @plugin_disas(ptr noundef %cpu, i64 noundef %addr, i64 noun
 entry:
   %s = alloca %struct.CPUDebug, align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #10
-  %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
+  %cap_arch.i.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)
   store i32 -1, ptr %cap_arch.i.i, align 8
-  %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
+  %cap_insn_unit.i.i = getelementptr inbounds nuw i8, ptr %s, i64 200
   store i32 4, ptr %cap_insn_unit.i.i, align 8
-  %cap_insn_split.i.i = getelementptr inbounds i8, ptr %s, i64 204
+  %cap_insn_split.i.i = getelementptr inbounds nuw i8, ptr %s, i64 204
   store i32 4, ptr %cap_insn_split.i.i, align 4
-  %memory_error_func.i.i = getelementptr inbounds i8, ptr %s, i64 88
+  %memory_error_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr @perror_memory, ptr %memory_error_func.i.i, align 8
-  %symbol_at_address_func.i.i = getelementptr inbounds i8, ptr %s, i64 112
+  %symbol_at_address_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   store ptr @symbol_at_address, ptr %symbol_at_address_func.i.i, align 8
-  %cpu1.i = getelementptr inbounds i8, ptr %s, i64 208
+  %cpu1.i = getelementptr inbounds nuw i8, ptr %s, i64 208
   store ptr %cpu, ptr %cpu1.i, align 8
-  %read_memory_func.i = getelementptr inbounds i8, ptr %s, i64 80
+  %read_memory_func.i = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr @target_read_memory, ptr %read_memory_func.i, align 8
-  %print_address_func.i = getelementptr inbounds i8, ptr %s, i64 96
+  %print_address_func.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr @print_address, ptr %print_address_func.i, align 8
   %call.i = tail call zeroext i1 @target_words_bigendian() #10
   %not.call.i = xor i1 %call.i, true
   %spec.select.i = zext i1 %not.call.i to i32
-  %0 = getelementptr inbounds i8, ptr %s, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %spec.select.i, ptr %0, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
-  %disas_set_info.i = getelementptr inbounds i8, ptr %call1.i.i, i64 296
+  %disas_set_info.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 296
   %1 = load ptr, ptr %disas_set_info.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %disas_initialize_debug_target.exit.thread, label %disas_initialize_debug_target.exit
 
 disas_initialize_debug_target.exit.thread:        ; preds = %entry
   store ptr @disas_gstring_printf, ptr %s, align 8
-  %stream3 = getelementptr inbounds i8, ptr %s, i64 8
+  %stream3 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %call, ptr %stream3, align 8
-  %buffer_vma4 = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma4 = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %addr, ptr %buffer_vma4, align 8
   %conv5 = trunc i64 %size to i32
-  %buffer_length6 = getelementptr inbounds i8, ptr %s, i64 136
+  %buffer_length6 = getelementptr inbounds nuw i8, ptr %s, i64 136
   store i32 %conv5, ptr %buffer_length6, align 8
   store ptr @plugin_print_address, ptr %print_address_func.i, align 8
   br label %if.end14
 
 disas_initialize_debug_target.exit:               ; preds = %entry
   call void %1(ptr noundef %cpu, ptr noundef nonnull %s) #10
-  %print_insn.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 104
   %.pre = load ptr, ptr %print_insn.phi.trans.insert, align 8
   store ptr @disas_gstring_printf, ptr %s, align 8
-  %stream = getelementptr inbounds i8, ptr %s, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %call, ptr %stream, align 8
-  %buffer_vma = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %addr, ptr %buffer_vma, align 8
   %conv = trunc i64 %size to i32
-  %buffer_length = getelementptr inbounds i8, ptr %s, i64 136
+  %buffer_length = getelementptr inbounds nuw i8, ptr %s, i64 136
   store i32 %conv, ptr %buffer_length, align 8
   store ptr @plugin_print_address, ptr %print_address_func.i, align 8
   %tobool.not = icmp eq ptr %.pre, null
@@ -349,38 +349,38 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @disas(ptr noundef %out, ptr noundef %code, i64 noundef %size) local_unnamed_addr #0 {
 if.end13:
   %s = alloca %struct.CPUDebug, align 8
-  %cap_arch.i.i = getelementptr inbounds i8, ptr %s, i64 192
-  %0 = getelementptr inbounds i8, ptr %s, i64 16
+  %cap_arch.i.i = getelementptr inbounds nuw i8, ptr %s, i64 192
+  %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 200, i1 false)
-  %cap_insn_unit.i.i = getelementptr inbounds i8, ptr %s, i64 200
-  %cap_insn_split.i.i = getelementptr inbounds i8, ptr %s, i64 204
-  %memory_error_func.i.i = getelementptr inbounds i8, ptr %s, i64 88
+  %cap_insn_unit.i.i = getelementptr inbounds nuw i8, ptr %s, i64 200
+  %cap_insn_split.i.i = getelementptr inbounds nuw i8, ptr %s, i64 204
+  %memory_error_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr @perror_memory, ptr %memory_error_func.i.i, align 8
-  %symbol_at_address_func.i.i = getelementptr inbounds i8, ptr %s, i64 112
+  %symbol_at_address_func.i.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   store ptr @symbol_at_address, ptr %symbol_at_address_func.i.i, align 8
-  %read_memory_func.i = getelementptr inbounds i8, ptr %s, i64 80
+  %read_memory_func.i = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr @host_read_memory, ptr %read_memory_func.i, align 8
-  %print_address_func.i = getelementptr inbounds i8, ptr %s, i64 96
+  %print_address_func.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr @host_print_address, ptr %print_address_func.i, align 8
-  %endian.i = getelementptr inbounds i8, ptr %s, i64 40
+  %endian.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 1, ptr %endian.i, align 8
-  %mach.i = getelementptr inbounds i8, ptr %s, i64 32
+  %mach.i = getelementptr inbounds nuw i8, ptr %s, i64 32
   store i64 3, ptr %mach.i, align 8
   store i32 -1, ptr %cap_arch.i.i, align 8
   store i32 1, ptr %cap_insn_unit.i.i, align 8
   store i32 8, ptr %cap_insn_split.i.i, align 4
   store ptr @fprintf, ptr %s, align 8
-  %stream = getelementptr inbounds i8, ptr %s, i64 8
+  %stream = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %out, ptr %stream, align 8
-  %buffer = getelementptr inbounds i8, ptr %s, i64 120
+  %buffer = getelementptr inbounds nuw i8, ptr %s, i64 120
   store ptr %code, ptr %buffer, align 8
   %1 = ptrtoint ptr %code to i64
-  %buffer_vma = getelementptr inbounds i8, ptr %s, i64 128
+  %buffer_vma = getelementptr inbounds nuw i8, ptr %s, i64 128
   store i64 %1, ptr %buffer_vma, align 8
   %conv = trunc i64 %size to i32
-  %buffer_length = getelementptr inbounds i8, ptr %s, i64 136
+  %buffer_length = getelementptr inbounds nuw i8, ptr %s, i64 136
   store i32 %conv, ptr %buffer_length, align 8
-  %print_insn = getelementptr inbounds i8, ptr %s, i64 104
+  %print_insn = getelementptr inbounds nuw i8, ptr %s, i64 104
   store ptr @print_insn_od_host, ptr %print_insn, align 8
   %cmp14.not11 = icmp eq i64 %size, 0
   br i1 %cmp14.not11, label %for.end, label %for.body
@@ -409,11 +409,11 @@ for.end:                                          ; preds = %for.inc, %for.body,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @print_insn_od_host(i64 noundef %pc, ptr noundef %info) #0 {
 entry:
-  %buffer_length.i = getelementptr inbounds i8, ptr %info, i64 136
+  %buffer_length.i = getelementptr inbounds nuw i8, ptr %info, i64 136
   %0 = load i32, ptr %buffer_length.i, align 8
   %conv.i = sext i32 %0 to i64
   %call.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i) #11
-  %read_memory_func.i = getelementptr inbounds i8, ptr %info, i64 80
+  %read_memory_func.i = getelementptr inbounds nuw i8, ptr %info, i64 80
   %1 = load ptr, ptr %read_memory_func.i, align 8
   %call1.i = tail call i32 %1(i64 noundef %pc, ptr noundef %call.i, i32 noundef %0, ptr noundef %info) #10
   %cmp.i = icmp eq i32 %call1.i, 0
@@ -424,7 +424,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp315.i, label %for.body.lr.ph.i, label %print_insn_objdump.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %stream.i = getelementptr inbounds i8, ptr %info, i64 8
+  %stream.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
 
@@ -453,7 +453,7 @@ if.end.i:                                         ; preds = %if.then7.i, %for.bo
 
 if.else.i:                                        ; preds = %entry
   %8 = load ptr, ptr %info, align 8
-  %stream14.i = getelementptr inbounds i8, ptr %info, i64 8
+  %stream14.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %9 = load ptr, ptr %stream14.i, align 8
   %call15.i = tail call i32 (ptr, ptr, ...) %8(ptr noundef %9, ptr noundef nonnull @.str.12) #10
   br label %print_insn_objdump.exit
@@ -471,7 +471,7 @@ entry:
   br i1 %tobool.not6, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %s.07, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %s.07, i64 32
   %s.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -497,7 +497,7 @@ define internal void @perror_memory(i32 noundef %status, i64 noundef %memaddr, p
 entry:
   %cmp.not = icmp eq i32 %status, 5
   %0 = load ptr, ptr %info, align 8
-  %stream2 = getelementptr inbounds i8, ptr %info, i64 8
+  %stream2 = getelementptr inbounds nuw i8, ptr %info, i64 8
   %1 = load ptr, ptr %stream2, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
@@ -533,7 +533,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 6) i32 @host_read_memory(i64 noundef %memaddr, ptr nocapture noundef writeonly %myaddr, i32 noundef %length, ptr nocapture noundef readonly %info) #6 {
 entry:
-  %buffer_vma = getelementptr inbounds i8, ptr %info, i64 128
+  %buffer_vma = getelementptr inbounds nuw i8, ptr %info, i64 128
   %0 = load i64, ptr %buffer_vma, align 8
   %cmp = icmp ult i64 %memaddr, %0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -541,7 +541,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %conv = sext i32 %length to i64
   %add = add i64 %memaddr, %conv
-  %buffer_length = getelementptr inbounds i8, ptr %info, i64 136
+  %buffer_length = getelementptr inbounds nuw i8, ptr %info, i64 136
   %1 = load i32, ptr %buffer_length, align 8
   %conv2 = sext i32 %1 to i64
   %add3 = add i64 %0, %conv2
@@ -549,7 +549,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buffer = getelementptr inbounds i8, ptr %info, i64 120
+  %buffer = getelementptr inbounds nuw i8, ptr %info, i64 120
   %2 = load ptr, ptr %buffer, align 8
   %sub = sub i64 %memaddr, %0
   %add.ptr = getelementptr i8, ptr %2, i64 %sub
@@ -565,7 +565,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define internal void @host_print_address(i64 noundef %addr, ptr nocapture noundef readonly %info) #0 {
 entry:
   %0 = load ptr, ptr %info, align 8
-  %stream.i = getelementptr inbounds i8, ptr %info, i64 8
+  %stream.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %1 = load ptr, ptr %stream.i, align 8
   %call.i = tail call i32 (ptr, ptr, ...) %0(ptr noundef %1, ptr noundef nonnull @.str.6, i64 noundef %addr) #10
   ret void

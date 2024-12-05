@@ -34,25 +34,25 @@ $_ZNSt6vectorIhSaIhEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7VersionENS0_20ErrorCorrectionLevelE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = load ptr, ptr %1, align 8, !tbaa !8
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %2, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %14 = load i32, ptr %13, align 8, !tbaa !9
   %15 = icmp eq i32 %14, %12
   br i1 %15, label %16, label %193
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %18 = sext i32 %3 to i64
   %19 = getelementptr inbounds [4 x %"struct.ZXing::QRCode::ECBlocks"], ptr %17, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !18
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = add nsw i32 %23, %21
   %25 = icmp eq i32 %24, 0
@@ -74,21 +74,21 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   br i1 %33, label %34, label %58
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %29, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %36 = sext i32 %30 to i64
   br label %63
 
 37:                                               ; preds = %58
   %38 = load ptr, ptr %0, align 8, !tbaa !20
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %42 = load ptr, ptr %39, align 8, !tbaa !8
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !22
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %38 to i64
@@ -106,7 +106,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 58:                                               ; preds = %56, %28
   %59 = phi i32 [ %30, %28 ], [ %57, %56 ]
   %60 = add nuw nsw i64 %31, 8
-  %61 = getelementptr inbounds i8, ptr %19, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 %60
   %62 = icmp eq i64 %60, 20
   br i1 %62, label %37, label %28
 
@@ -117,7 +117,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %67 = getelementptr inbounds %"class.ZXing::QRCode::DataBlock", ptr %66, i64 %64
   %68 = load i32, ptr %35, align 4, !tbaa !23
   store i32 %68, ptr %67, align 8, !tbaa !24
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i32, ptr %19, align 4, !tbaa !30
   %71 = add nsw i32 %70, %68
   %72 = sext i32 %71 to i64
@@ -146,7 +146,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 84:                                               ; preds = %80
   %85 = add nsw i64 %81, -1
   %86 = getelementptr inbounds %"class.ZXing::QRCode::DataBlock", ptr %38, i64 %85, i32 1
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !3
   %89 = load ptr, ptr %86, align 8, !tbaa !8
   %90 = ptrtoint ptr %88 to i64
@@ -208,9 +208,9 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %126 = getelementptr inbounds i8, ptr %125, i64 %122
   %127 = load i8, ptr %126, align 1, !tbaa !36
   %128 = load ptr, ptr %0, align 8, !tbaa !20
-  %129 = getelementptr inbounds %"class.ZXing::QRCode::DataBlock", ptr %128, i64 %123, i32 1
+  %129 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %128, i64 %123, i32 1
   %130 = load ptr, ptr %129, align 8, !tbaa !8
-  %131 = getelementptr inbounds i8, ptr %130, i64 %105
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %105
   store i8 %127, ptr %131, align 1, !tbaa !36
   %132 = add nuw nsw i64 %123, 1
   %133 = icmp eq i64 %132, %103
@@ -223,8 +223,8 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 136:                                              ; preds = %134, %.loopexit10
   %137 = phi i32 [ %109, %.loopexit10 ], [ %135, %134 ]
   %138 = load ptr, ptr %0, align 8, !tbaa !20
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
-  %140 = getelementptr inbounds i8, ptr %138, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !3
   %142 = load ptr, ptr %139, align 8, !tbaa !8
   %143 = ptrtoint ptr %141 to i64
@@ -286,7 +286,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %184 = getelementptr inbounds i8, ptr %183, i64 %177
   %185 = load i8, ptr %184, align 1, !tbaa !36
   %186 = load ptr, ptr %0, align 8, !tbaa !20
-  %187 = getelementptr inbounds %"class.ZXing::QRCode::DataBlock", ptr %186, i64 %178, i32 1
+  %187 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %186, i64 %178, i32 1
   %188 = sext i32 %181 to i64
   %189 = load ptr, ptr %187, align 8, !tbaa !8
   %190 = getelementptr inbounds i8, ptr %189, i64 %188
@@ -326,8 +326,8 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EEC2EmRKS3
 8:                                                ; preds = %6
   %9 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6QRCode9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null) #11
   store ptr %9, ptr %0, align 8, !tbaa !20
-  %10 = getelementptr inbounds %"class.ZXing::QRCode::DataBlock", ptr %9, i64 %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !41
   %12 = shl nuw nsw i64 %1, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %12, i1 false)
@@ -336,7 +336,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EEC2EmRKS3
 
 14:                                               ; preds = %6, %8
   %15 = phi ptr [ %13, %8 ], [ null, %6 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !22
   ret void
 }
@@ -348,7 +348,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = load ptr, ptr %0, align 8, !tbaa !8
   %6 = ptrtoint ptr %4 to i64
@@ -382,14 +382,14 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %16, label %.preheader
 
 .preheader:                                       ; preds = %1, %11
   %6 = phi ptr [ %12, %11 ], [ %2, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -399,7 +399,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EED2Ev(ptr
   br label %11
 
 11:                                               ; preds = %10, %.preheader
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = icmp eq ptr %12, %4
   br i1 %13, label %14, label %.preheader, !llvm.loop !42
 
@@ -464,13 +464,13 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
   br i1 %3, label %49, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = load ptr, ptr %0, align 8, !tbaa !8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %8
@@ -484,7 +484,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
 
 19:                                               ; preds = %4
   store i8 0, ptr %6, align 1, !tbaa !36
-  %20 = getelementptr inbounds i8, ptr %6, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %25, label %23
@@ -512,14 +512,14 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
   %32 = add nuw i64 %31, %10
   %33 = tail call i64 @llvm.umin.i64(i64 %32, i64 9223372036854775807)
   %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #15
-  %35 = getelementptr inbounds i8, ptr %34, i64 %10
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %10
   store i8 0, ptr %35, align 1, !tbaa !36
   %36 = add nsw i64 %1, -1
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %35, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %39, i8 0, i64 %36, i1 false)
   br label %40
 
@@ -543,7 +543,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
   store ptr %34, ptr %0, align 8, !tbaa !8
   %47 = getelementptr inbounds i8, ptr %35, i64 %1
   store ptr %47, ptr %5, align 8, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %34, i64 %33
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store ptr %48, ptr %11, align 8, !tbaa !44
   br label %49
 

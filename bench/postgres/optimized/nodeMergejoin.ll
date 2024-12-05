@@ -32,44 +32,44 @@ define dso_local noundef ptr @ExecInitMergeJoin(ptr noundef %0, ptr noundef %1, 
   %6 = alloca i32, align 4
   %7 = tail call noundef ptr @palloc0(i64 noundef 304) #7
   store i32 406, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @ExecMergeJoin, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 238
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 238
   store i8 0, ptr %14, align 2
   tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %7) #7
   %15 = tail call ptr @CreateExprContext(ptr noundef %1) #7
-  %16 = getelementptr inbounds i8, ptr %7, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store ptr %15, ptr %16, align 8
   %17 = tail call ptr @CreateExprContext(ptr noundef %1) #7
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = load i8, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 236
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %22 = and i8 %20, 1
   store i8 %22, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @ExecInitNode(ptr noundef %24, ptr noundef %1, i32 noundef %2) #7
-  %26 = getelementptr inbounds i8, ptr %7, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %25, ptr %26, align 8
   %27 = tail call ptr @ExecGetResultType(ptr noundef %25) #7
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = load i8, ptr %21, align 4
   %31 = trunc i8 %30 to i1
   %32 = or i32 %2, 16
   %33 = select i1 %31, i32 %2, i32 %32
   %34 = tail call ptr @ExecInitNode(ptr noundef %29, ptr noundef %1, i32 noundef %33) #7
-  %35 = getelementptr inbounds i8, ptr %7, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %34, ptr %35, align 8
   %36 = tail call ptr @ExecGetResultType(ptr noundef %34) #7
   %37 = load ptr, ptr %28, align 8
@@ -90,26 +90,26 @@ define dso_local noundef ptr @ExecInitMergeJoin(ptr noundef %0, ptr noundef %1, 
 
 46:                                               ; preds = %42, %45
   %.sink = phi i8 [ 0, %45 ], [ 1, %42 ]
-  %47 = getelementptr inbounds i8, ptr %7, i64 237
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 237
   store i8 %.sink, ptr %47, align 1
   tail call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %7, ptr noundef nonnull @TTSOpsVirtual) #7
   tail call void @ExecAssignProjectionInfo(ptr noundef nonnull %7, ptr noundef null) #7
   %48 = load ptr, ptr %35, align 8
   %49 = tail call ptr @ExecGetResultSlotOps(ptr noundef %48, ptr noundef null) #7
   %50 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef %1, ptr noundef %36, ptr noundef %49) #7
-  %51 = getelementptr inbounds i8, ptr %7, i64 264
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 264
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @ExecInitQual(ptr noundef %53, ptr noundef nonnull %7) #7
-  %55 = getelementptr inbounds i8, ptr %7, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @ExecInitQual(ptr noundef %57, ptr noundef nonnull %7) #7
-  %59 = getelementptr inbounds i8, ptr %7, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 108
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
   br i1 %62, label %67, label %63
@@ -122,7 +122,7 @@ define dso_local noundef ptr @ExecInitMergeJoin(ptr noundef %0, ptr noundef %1, 
 
 67:                                               ; preds = %63, %46
   %68 = phi i8 [ 1, %46 ], [ %66, %63 ]
-  %69 = getelementptr inbounds i8, ptr %7, i64 204
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i8 %68, ptr %69, align 4
   %70 = load i32, ptr %11, align 8
   switch i32 %70, label %145 [
@@ -136,33 +136,33 @@ define dso_local noundef ptr @ExecInitMergeJoin(ptr noundef %0, ptr noundef %1, 
   ]
 
 71:                                               ; preds = %67, %67
-  %72 = getelementptr inbounds i8, ptr %7, i64 239
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 239
   store i8 0, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %7, i64 240
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store i8 0, ptr %73, align 8
   br label %check_constant_qual.exit.thread
 
 74:                                               ; preds = %67, %67
-  %75 = getelementptr inbounds i8, ptr %7, i64 239
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 239
   store i8 1, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %7, i64 240
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store i8 0, ptr %76, align 8
   %77 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %36, ptr noundef nonnull @TTSOpsVirtual) #7
-  %78 = getelementptr inbounds i8, ptr %7, i64 280
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store ptr %77, ptr %78, align 8
   br label %check_constant_qual.exit.thread
 
 79:                                               ; preds = %67, %67
-  %80 = getelementptr inbounds i8, ptr %7, i64 239
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 239
   store i8 0, ptr %80, align 1
-  %81 = getelementptr inbounds i8, ptr %7, i64 240
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store i8 1, ptr %81, align 8
   %82 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @TTSOpsVirtual) #7
-  %83 = getelementptr inbounds i8, ptr %7, i64 272
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr %82, ptr %83, align 8
   %84 = load ptr, ptr %56, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
-  %86 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.not.i = icmp eq ptr %84, null
   br i1 %.not.i, label %check_constant_qual.exit.thread, label %.lr.ph.split.i
 
@@ -186,13 +186,13 @@ define dso_local noundef ptr @ExecInitMergeJoin(ptr noundef %0, ptr noundef %1, 
   br i1 %95, label %96, label %check_constant_qual.exit
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %92, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %92, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %102 = load i64, ptr %101, align 8
   %.not20.i = icmp eq i64 %102, 0
   br i1 %.not20.i, label %103, label %104
@@ -218,19 +218,19 @@ check_constant_qual.exit:                         ; preds = %93, %.lr.ph32.i
   unreachable
 
 111:                                              ; preds = %67
-  %112 = getelementptr inbounds i8, ptr %7, i64 239
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 239
   store i8 1, ptr %112, align 1
-  %113 = getelementptr inbounds i8, ptr %7, i64 240
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store i8 1, ptr %113, align 8
   %114 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @TTSOpsVirtual) #7
-  %115 = getelementptr inbounds i8, ptr %7, i64 272
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr %114, ptr %115, align 8
   %116 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %36, ptr noundef nonnull @TTSOpsVirtual) #7
-  %117 = getelementptr inbounds i8, ptr %7, i64 280
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store ptr %116, ptr %117, align 8
   %118 = load ptr, ptr %56, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
-  %120 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %.not.i90 = icmp eq ptr %118, null
   br i1 %.not.i90, label %check_constant_qual.exit.thread, label %.lr.ph.split.i91
 
@@ -254,13 +254,13 @@ check_constant_qual.exit:                         ; preds = %93, %.lr.ph32.i
   br i1 %129, label %130, label %check_constant_qual.exit99
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %126, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %132 = load i8, ptr %131, align 8
   %133 = trunc i8 %132 to i1
   br i1 %133, label %137, label %134
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %126, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %136 = load i64, ptr %135, align 8
   %.not20.i96 = icmp eq i64 %136, 0
   br i1 %.not20.i96, label %137, label %138
@@ -294,28 +294,28 @@ check_constant_qual.exit99:                       ; preds = %127, %.lr.ph32.i93
   unreachable
 
 check_constant_qual.exit.thread:                  ; preds = %138, %104, %.lr.ph.split.i91, %111, %.lr.ph.split.i, %79, %74, %71
-  %149 = getelementptr inbounds i8, ptr %0, i64 128
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %150 = load ptr, ptr %149, align 8
   %.not.i100 = icmp eq ptr %150, null
   br i1 %.not.i100, label %list_length.exit, label %151
 
 151:                                              ; preds = %check_constant_qual.exit.thread
-  %152 = getelementptr inbounds i8, ptr %150, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %153 = load i32, ptr %152, align 4
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %check_constant_qual.exit.thread, %151
   %154 = phi i32 [ %153, %151 ], [ 0, %check_constant_qual.exit.thread ]
-  %155 = getelementptr inbounds i8, ptr %7, i64 216
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 %154, ptr %155, align 8
   %156 = load ptr, ptr %149, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 136
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 144
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 152
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 160
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %164 = load ptr, ptr %163, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -328,12 +328,12 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   br label %MJExamineQuals.exit
 
 .lr.ph.i:                                         ; preds = %list_length.exit
-  %166 = getelementptr inbounds i8, ptr %156, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = sext i32 %167 to i64
   %169 = mul nsw i64 %168, 104
   %170 = tail call ptr @palloc0(i64 noundef %169) #7
-  %171 = getelementptr inbounds i8, ptr %156, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %172 = load i32, ptr %166, align 4
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.lr.ph, label %MJExamineQuals.exit
@@ -365,7 +365,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   %190 = getelementptr i32, ptr %160, i64 %indvars.iv.i101114
   %191 = load i32, ptr %190, align 4
   %192 = getelementptr %struct.MergeJoinClauseData, ptr %170, i64 %indvars.iv.i101114
-  %193 = getelementptr inbounds i8, ptr %176, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr i8, ptr %194, i64 16
   %.val.i = load ptr, ptr %195, align 8
@@ -378,12 +378,12 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   %200 = getelementptr i8, ptr %.val59.i, i64 8
   %201 = load ptr, ptr %200, align 8
   %202 = call ptr @ExecInitExpr(ptr noundef %201, ptr noundef %7) #7
-  %203 = getelementptr inbounds i8, ptr %192, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %202, ptr %203, align 8
   %204 = load ptr, ptr @CurrentMemoryContext, align 8
-  %205 = getelementptr inbounds i8, ptr %192, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %192, i64 40
   store ptr %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %192, i64 48
+  %206 = getelementptr inbounds nuw i8, ptr %192, i64 48
   store i32 %191, ptr %206, align 8
   %trunc.i = trunc i32 %189 to i16
   switch i16 %trunc.i, label %208 [
@@ -404,11 +404,11 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
 
 212:                                              ; preds = %207, %187
   %.sink.i = phi i8 [ 1, %207 ], [ 0, %187 ]
-  %213 = getelementptr inbounds i8, ptr %192, i64 52
+  %213 = getelementptr inbounds nuw i8, ptr %192, i64 52
   store i8 %.sink.i, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %192, i64 53
+  %214 = getelementptr inbounds nuw i8, ptr %192, i64 53
   store i8 %181, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %176, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %216 = load i32, ptr %215, align 4
   call void @get_op_opfamily_properties(i32 noundef %216, i32 noundef %178, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %217 = load i32, ptr %4, align 4
@@ -416,7 +416,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   br i1 %.not56.i, label %223, label %218
 
 218:                                              ; preds = %212
-  %219 = getelementptr inbounds i8, ptr %176, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %220 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %220)
   %221 = load i32, ptr %219, align 4
@@ -425,7 +425,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   unreachable
 
 223:                                              ; preds = %212
-  %224 = getelementptr inbounds i8, ptr %192, i64 72
+  %224 = getelementptr inbounds nuw i8, ptr %192, i64 72
   store i8 0, ptr %224, align 8
   %225 = load i32, ptr %5, align 4
   %226 = load i32, ptr %6, align 4
@@ -439,7 +439,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit
   br label %231
 
 231:                                              ; preds = %228, %223
-  %232 = getelementptr inbounds i8, ptr %192, i64 64
+  %232 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %233 = load ptr, ptr %232, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %235, label %245
@@ -476,15 +476,15 @@ MJExamineQuals.exit:                              ; preds = %245, %.lr.ph.i, %li
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %250 = getelementptr inbounds i8, ptr %7, i64 224
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store ptr %249, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %7, i64 232
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store i32 1, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %7, i64 241
+  %252 = getelementptr inbounds nuw i8, ptr %7, i64 241
   store i8 0, ptr %252, align 1
-  %253 = getelementptr inbounds i8, ptr %7, i64 242
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 242
   store i8 0, ptr %253, align 2
-  %254 = getelementptr inbounds i8, ptr %7, i64 248
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
   ret ptr %7
 }
@@ -503,51 +503,51 @@ define internal noundef ptr @ExecMergeJoin(ptr noundef %0) #0 {
   br label %7
 
 7:                                                ; preds = %1, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 239
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 239
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds i8, ptr %0, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  %24 = getelementptr inbounds i8, ptr %13, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %25 = load ptr, ptr %24, align 8
   tail call void @MemoryContextReset(ptr noundef %25) #7
-  %26 = getelementptr inbounds i8, ptr %0, i64 232
-  %27 = getelementptr inbounds i8, ptr %0, i64 241
-  %28 = getelementptr inbounds i8, ptr %11, i64 104
-  %29 = getelementptr inbounds i8, ptr %11, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 248
-  %31 = getelementptr inbounds i8, ptr %0, i64 242
-  %32 = getelementptr inbounds i8, ptr %0, i64 237
-  %33 = getelementptr inbounds i8, ptr %9, i64 104
-  %34 = getelementptr inbounds i8, ptr %9, i64 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 256
-  %36 = getelementptr inbounds i8, ptr %0, i64 296
-  %37 = getelementptr inbounds i8, ptr %0, i64 216
-  %38 = getelementptr inbounds i8, ptr %0, i64 224
-  %39 = getelementptr inbounds i8, ptr %0, i64 288
-  %40 = getelementptr inbounds i8, ptr %0, i64 238
-  %41 = getelementptr inbounds i8, ptr %0, i64 236
-  %42 = getelementptr inbounds i8, ptr %0, i64 264
-  %43 = getelementptr inbounds i8, ptr %13, i64 24
-  %44 = getelementptr inbounds i8, ptr %13, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 241
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 242
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 237
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 238
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = icmp eq ptr %15, null
-  %46 = getelementptr inbounds i8, ptr %15, i64 32
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
-  %48 = getelementptr inbounds i8, ptr %0, i64 200
-  %49 = getelementptr inbounds i8, ptr %0, i64 204
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %50 = icmp eq ptr %17, null
-  %51 = getelementptr inbounds i8, ptr %17, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 32
   br label %52
 
 52:                                               ; preds = %.backedge, %7
@@ -584,21 +584,21 @@ ExecProcNode.exit:                                ; preds = %54, %56
   br i1 %60, label %MJEvalOuterValues.exit.thread, label %61
 
 61:                                               ; preds = %ExecProcNode.exit
-  %62 = getelementptr inbounds i8, ptr %58, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %63 = load i16, ptr %62, align 4
   %64 = and i16 %63, 2
   %.not.i242 = icmp eq i16 %64, 0
   br i1 %.not.i242, label %65, label %MJEvalOuterValues.exit.thread
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %59, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %67 = load ptr, ptr %66, align 8
   call void @MemoryContextReset(ptr noundef %67) #7
   %68 = load ptr, ptr %66, align 8
   %69 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %68, ptr @CurrentMemoryContext, align 8
   %70 = load ptr, ptr %30, align 8
-  %71 = getelementptr inbounds i8, ptr %59, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %70, ptr %71, align 8
   %72 = load i32, ptr %37, align 8
   %73 = icmp sgt i32 %72, 0
@@ -614,11 +614,11 @@ MJEvalOuterValues.exit.thread386:                 ; preds = %65
   %74 = load ptr, ptr %38, align 8
   %75 = getelementptr %struct.MergeJoinClauseData, ptr %74, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = call i64 %79(ptr noundef %76, ptr noundef %59, ptr noundef nonnull %77) #7
-  %81 = getelementptr inbounds i8, ptr %75, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i64 %80, ptr %81, align 8
   %82 = load i8, ptr %77, align 8
   %83 = trunc i8 %82 to i1
@@ -629,7 +629,7 @@ MJEvalOuterValues.exit.thread386:                 ; preds = %65
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %75, i64 53
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 53
   %88 = load i8, ptr %87, align 1
   %89 = trunc i8 %88 to i1
   br i1 %89, label %93, label %90
@@ -697,20 +697,20 @@ ExecProcNode.exit244:                             ; preds = %103, %105
   br i1 %109, label %MJEvalInnerValues.exit.thread, label %110
 
 110:                                              ; preds = %ExecProcNode.exit244
-  %111 = getelementptr inbounds i8, ptr %107, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %112 = load i16, ptr %111, align 4
   %113 = and i16 %112, 2
   %.not.i245 = icmp eq i16 %113, 0
   br i1 %.not.i245, label %114, label %MJEvalInnerValues.exit.thread
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %108, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %116 = load ptr, ptr %115, align 8
   call void @MemoryContextReset(ptr noundef %116) #7
   %117 = load ptr, ptr %115, align 8
   %118 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %117, ptr @CurrentMemoryContext, align 8
-  %119 = getelementptr inbounds i8, ptr %108, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %107, ptr %119, align 8
   %120 = load i32, ptr %37, align 8
   %121 = icmp sgt i32 %120, 0
@@ -725,13 +725,13 @@ MJEvalInnerValues.exit.thread389:                 ; preds = %114
   %.02327.i251 = phi i32 [ %.1.i252, %143 ], [ 0, %114 ]
   %122 = load ptr, ptr %38, align 8
   %123 = getelementptr %struct.MergeJoinClauseData, ptr %122, i64 %indvars.iv.i250
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 33
-  %127 = getelementptr inbounds i8, ptr %125, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 33
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %128 = load ptr, ptr %127, align 8
   %129 = call i64 %128(ptr noundef %125, ptr noundef %108, ptr noundef nonnull %126) #7
-  %130 = getelementptr inbounds i8, ptr %123, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i64 %129, ptr %130, align 8
   %131 = load i8, ptr %126, align 1
   %132 = trunc i8 %131 to i1
@@ -742,7 +742,7 @@ MJEvalInnerValues.exit.thread389:                 ; preds = %114
   br i1 %134, label %135, label %142
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %123, i64 53
+  %136 = getelementptr inbounds nuw i8, ptr %123, i64 53
   %137 = load i8, ptr %136, align 1
   %138 = trunc i8 %137 to i1
   br i1 %138, label %142, label %139
@@ -862,36 +862,36 @@ ExecQual.exit257:                                 ; preds = %169
   br i1 %.not434, label %199, label %.critedge241
 
 .critedge241:                                     ; preds = %169, %ExecQual.exit257
-  %174 = getelementptr inbounds i8, ptr %0, i64 136
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %175 = load ptr, ptr %174, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %176 = getelementptr inbounds i8, ptr %175, i64 128
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 128
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %175, i64 8
-  %179 = getelementptr inbounds i8, ptr %175, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef %180) #7
-  %185 = getelementptr inbounds i8, ptr %177, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %186, ptr @CurrentMemoryContext, align 8
-  %188 = getelementptr inbounds i8, ptr %175, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %189 = load ptr, ptr %188, align 8
   %190 = call i64 %189(ptr noundef nonnull %178, ptr noundef %177, ptr noundef nonnull %2) #7
   store ptr %187, ptr @CurrentMemoryContext, align 8
-  %191 = getelementptr inbounds i8, ptr %180, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %192 = load i16, ptr %191, align 4
   %193 = and i16 %192, -3
   store i16 %193, ptr %191, align 4
-  %194 = getelementptr inbounds i8, ptr %180, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = load i32, ptr %195, align 8
   %197 = trunc i32 %196 to i16
-  %198 = getelementptr inbounds i8, ptr %180, i64 6
+  %198 = getelementptr inbounds nuw i8, ptr %180, i64 6
   store i16 %197, ptr %198, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %.loopexit
@@ -902,7 +902,7 @@ ExecQual.exit257:                                 ; preds = %169
   br i1 %.not237, label %.backedge, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %200, i64 240
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 240
   %203 = load double, ptr %202, align 8
   %204 = fadd double %203, 1.000000e+00
   store double %204, ptr %202, align 8
@@ -914,7 +914,7 @@ ExecQual.exit257:                                 ; preds = %169
   br i1 %.not236, label %.backedge, label %207
 
 207:                                              ; preds = %205
-  %208 = getelementptr inbounds i8, ptr %206, i64 232
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 232
   %209 = load double, ptr %208, align 8
   %210 = fadd double %209, 1.000000e+00
   store double %210, ptr %208, align 8
@@ -953,20 +953,20 @@ ExecProcNode.exit259:                             ; preds = %217, %219
   br i1 %223, label %MJEvalInnerValues.exit270.thread, label %224
 
 224:                                              ; preds = %ExecProcNode.exit259
-  %225 = getelementptr inbounds i8, ptr %221, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 4
   %226 = load i16, ptr %225, align 4
   %227 = and i16 %226, 2
   %.not.i260 = icmp eq i16 %227, 0
   br i1 %.not.i260, label %228, label %MJEvalInnerValues.exit270.thread
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %222, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %222, i64 40
   %230 = load ptr, ptr %229, align 8
   call void @MemoryContextReset(ptr noundef %230) #7
   %231 = load ptr, ptr %229, align 8
   %232 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %231, ptr @CurrentMemoryContext, align 8
-  %233 = getelementptr inbounds i8, ptr %222, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store ptr %221, ptr %233, align 8
   %234 = load i32, ptr %37, align 8
   %235 = icmp sgt i32 %234, 0
@@ -981,13 +981,13 @@ MJEvalInnerValues.exit270.thread392:              ; preds = %228
   %.02327.i266 = phi i32 [ %.1.i267, %257 ], [ 0, %228 ]
   %236 = load ptr, ptr %38, align 8
   %237 = getelementptr %struct.MergeJoinClauseData, ptr %236, i64 %indvars.iv.i265
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %237, i64 33
-  %241 = getelementptr inbounds i8, ptr %239, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 33
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %242 = load ptr, ptr %241, align 8
   %243 = call i64 %242(ptr noundef %239, ptr noundef %222, ptr noundef nonnull %240) #7
-  %244 = getelementptr inbounds i8, ptr %237, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %237, i64 24
   store i64 %243, ptr %244, align 8
   %245 = load i8, ptr %240, align 1
   %246 = trunc i8 %245 to i1
@@ -998,7 +998,7 @@ MJEvalInnerValues.exit270.thread392:              ; preds = %228
   br i1 %248, label %249, label %256
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %237, i64 53
+  %250 = getelementptr inbounds nuw i8, ptr %237, i64 53
   %251 = load i8, ptr %250, align 1
   %252 = trunc i8 %251 to i1
   br i1 %252, label %256, label %253
@@ -1030,7 +1030,7 @@ MJEvalInnerValues.exit270:                        ; preds = %257
 
 261:                                              ; preds = %MJEvalInnerValues.exit270.thread392, %MJEvalInnerValues.exit270
   %262 = load ptr, ptr %12, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 40
   %264 = load ptr, ptr %263, align 8
   call void @MemoryContextReset(ptr noundef %264) #7
   %265 = load ptr, ptr %263, align 8
@@ -1047,14 +1047,14 @@ MJEvalInnerValues.exit270:                        ; preds = %257
   %269 = load ptr, ptr %38, align 8
   %270 = sext i32 %.ph.i to i64
   %271 = getelementptr %struct.MergeJoinClauseData, ptr %269, i64 %indvars.iv.ph.i
-  %272 = getelementptr inbounds i8, ptr %271, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %273 = load i8, ptr %272, align 8
   %274 = trunc i8 %273 to i1
   br i1 %274, label %.lr.ph508, label %._crit_edge509
 
 275:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i
   %276 = getelementptr %struct.MergeJoinClauseData, ptr %269, i64 %indvars.iv.next43.i
-  %277 = getelementptr inbounds i8, ptr %276, i64 32
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 32
   %278 = load i8, ptr %277, align 8
   %279 = trunc i8 %278 to i1
   br i1 %279, label %.lr.ph508, label %._crit_edge509, !llvm.loop !8
@@ -1062,13 +1062,13 @@ MJEvalInnerValues.exit270:                        ; preds = %257
 .lr.ph508:                                        ; preds = %.outer.i, %275
   %280 = phi ptr [ %276, %275 ], [ %271, %.outer.i ]
   %indvars.iv.i272507 = phi i64 [ %indvars.iv.next43.i, %275 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %281 = getelementptr inbounds i8, ptr %280, i64 33
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 33
   %282 = load i8, ptr %281, align 1
   %283 = trunc i8 %282 to i1
   br i1 %283, label %ApplySortComparator.exit.thread27.thread.i, label %284
 
 284:                                              ; preds = %.lr.ph508
-  %285 = getelementptr inbounds i8, ptr %280, i64 53
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 53
   %286 = load i8, ptr %285, align 1
   %287 = trunc i8 %286 to i1
   br i1 %287, label %.thread399, label %.thread
@@ -1077,27 +1077,27 @@ MJEvalInnerValues.exit270:                        ; preds = %257
   %indvars.iv.i272.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next43.i, %275 ]
   %.02038.i.lcssa = phi i1 [ %.02038.ph.i, %.outer.i ], [ true, %275 ]
   %.lcssa468 = phi ptr [ %271, %.outer.i ], [ %276, %275 ]
-  %288 = getelementptr inbounds i8, ptr %.lcssa468, i64 33
+  %288 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 33
   %289 = load i8, ptr %288, align 1
   %290 = trunc i8 %289 to i1
   br i1 %290, label %291, label %295
 
 291:                                              ; preds = %._crit_edge509
-  %292 = getelementptr inbounds i8, ptr %.lcssa468, i64 53
+  %292 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 53
   %293 = load i8, ptr %292, align 1
   %294 = trunc i8 %293 to i1
   br i1 %294, label %.thread, label %.thread399
 
 295:                                              ; preds = %._crit_edge509
-  %296 = getelementptr inbounds i8, ptr %.lcssa468, i64 40
-  %297 = getelementptr inbounds i8, ptr %.lcssa468, i64 24
+  %296 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 40
+  %297 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 24
   %298 = load i64, ptr %297, align 8
-  %299 = getelementptr inbounds i8, ptr %.lcssa468, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 16
   %300 = load i64, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %.lcssa468, i64 64
+  %301 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 64
   %302 = load ptr, ptr %301, align 8
   %303 = call i32 %302(i64 noundef %300, i64 noundef %298, ptr noundef nonnull %296) #7
-  %304 = getelementptr inbounds i8, ptr %.lcssa468, i64 52
+  %304 = getelementptr inbounds nuw i8, ptr %.lcssa468, i64 52
   %305 = load i8, ptr %304, align 4
   %306 = trunc i8 %305 to i1
   br i1 %306, label %307, label %ApplySortComparator.exit.i
@@ -1203,21 +1203,21 @@ ExecProcNode.exit277:                             ; preds = %328, %330
   br i1 %334, label %MJEvalOuterValues.exit288.thread, label %335
 
 335:                                              ; preds = %ExecProcNode.exit277
-  %336 = getelementptr inbounds i8, ptr %332, i64 4
+  %336 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %337 = load i16, ptr %336, align 4
   %338 = and i16 %337, 2
   %.not.i278 = icmp eq i16 %338, 0
   br i1 %.not.i278, label %339, label %MJEvalOuterValues.exit288.thread
 
 339:                                              ; preds = %335
-  %340 = getelementptr inbounds i8, ptr %333, i64 40
+  %340 = getelementptr inbounds nuw i8, ptr %333, i64 40
   %341 = load ptr, ptr %340, align 8
   call void @MemoryContextReset(ptr noundef %341) #7
   %342 = load ptr, ptr %340, align 8
   %343 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %342, ptr @CurrentMemoryContext, align 8
   %344 = load ptr, ptr %30, align 8
-  %345 = getelementptr inbounds i8, ptr %333, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %333, i64 24
   store ptr %344, ptr %345, align 8
   %346 = load i32, ptr %37, align 8
   %347 = icmp sgt i32 %346, 0
@@ -1233,11 +1233,11 @@ MJEvalOuterValues.exit288.thread402:              ; preds = %339
   %348 = load ptr, ptr %38, align 8
   %349 = getelementptr %struct.MergeJoinClauseData, ptr %348, i64 %indvars.iv.i283
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %349, i64 32
-  %352 = getelementptr inbounds i8, ptr %350, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %350, i64 32
   %353 = load ptr, ptr %352, align 8
   %354 = call i64 %353(ptr noundef %350, ptr noundef %333, ptr noundef nonnull %351) #7
-  %355 = getelementptr inbounds i8, ptr %349, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %349, i64 16
   store i64 %354, ptr %355, align 8
   %356 = load i8, ptr %351, align 8
   %357 = trunc i8 %356 to i1
@@ -1248,7 +1248,7 @@ MJEvalOuterValues.exit288.thread402:              ; preds = %339
   br i1 %359, label %360, label %367
 
 360:                                              ; preds = %358
-  %361 = getelementptr inbounds i8, ptr %349, i64 53
+  %361 = getelementptr inbounds nuw i8, ptr %349, i64 53
   %362 = load i8, ptr %361, align 1
   %363 = trunc i8 %362 to i1
   br i1 %363, label %367, label %364
@@ -1293,7 +1293,7 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   br i1 %or.cond.not, label %376, label %.loopexit
 
 376:                                              ; preds = %MJEvalOuterValues.exit288.thread
-  %377 = getelementptr inbounds i8, ptr %374, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %374, i64 4
   %378 = load i16, ptr %377, align 4
   %379 = and i16 %378, 2
   %.not = icmp eq i16 %379, 0
@@ -1310,20 +1310,20 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   br i1 %384, label %MJEvalInnerValues.exit299, label %385
 
 385:                                              ; preds = %381
-  %386 = getelementptr inbounds i8, ptr %382, i64 4
+  %386 = getelementptr inbounds nuw i8, ptr %382, i64 4
   %387 = load i16, ptr %386, align 4
   %388 = and i16 %387, 2
   %.not.i289 = icmp eq i16 %388, 0
   br i1 %.not.i289, label %389, label %MJEvalInnerValues.exit299
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %383, i64 40
+  %390 = getelementptr inbounds nuw i8, ptr %383, i64 40
   %391 = load ptr, ptr %390, align 8
   call void @MemoryContextReset(ptr noundef %391) #7
   %392 = load ptr, ptr %390, align 8
   %393 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %392, ptr @CurrentMemoryContext, align 8
-  %394 = getelementptr inbounds i8, ptr %383, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %383, i64 16
   store ptr %382, ptr %394, align 8
   %395 = load i32, ptr %37, align 8
   %396 = icmp sgt i32 %395, 0
@@ -1333,13 +1333,13 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   %indvars.iv.i294 = phi i64 [ %indvars.iv.next.i297, %.lr.ph.i293 ], [ 0, %389 ]
   %397 = load ptr, ptr %38, align 8
   %398 = getelementptr %struct.MergeJoinClauseData, ptr %397, i64 %indvars.iv.i294
-  %399 = getelementptr inbounds i8, ptr %398, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds i8, ptr %398, i64 33
-  %402 = getelementptr inbounds i8, ptr %400, i64 32
+  %401 = getelementptr inbounds nuw i8, ptr %398, i64 33
+  %402 = getelementptr inbounds nuw i8, ptr %400, i64 32
   %403 = load ptr, ptr %402, align 8
   %404 = call i64 %403(ptr noundef %400, ptr noundef %383, ptr noundef nonnull %401) #7
-  %405 = getelementptr inbounds i8, ptr %398, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %398, i64 24
   store i64 %404, ptr %405, align 8
   %indvars.iv.next.i297 = add nuw nsw i64 %indvars.iv.i294, 1
   %406 = load i32, ptr %37, align 8
@@ -1353,7 +1353,7 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
 
 MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_edge.i291
   %409 = load ptr, ptr %12, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 40
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 40
   %411 = load ptr, ptr %410, align 8
   call void @MemoryContextReset(ptr noundef %411) #7
   %412 = load ptr, ptr %410, align 8
@@ -1370,14 +1370,14 @@ MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_
   %416 = load ptr, ptr %38, align 8
   %417 = sext i32 %.ph.i305 to i64
   %418 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.ph.i306
-  %419 = getelementptr inbounds i8, ptr %418, i64 32
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %420 = load i8, ptr %419, align 8
   %421 = trunc i8 %420 to i1
   br i1 %421, label %.lr.ph502, label %._crit_edge503
 
 422:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i319
   %423 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.next43.i320
-  %424 = getelementptr inbounds i8, ptr %423, i64 32
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 32
   %425 = load i8, ptr %424, align 8
   %426 = trunc i8 %425 to i1
   br i1 %426, label %.lr.ph502, label %._crit_edge503, !llvm.loop !8
@@ -1385,13 +1385,13 @@ MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_
 .lr.ph502:                                        ; preds = %.outer.i304, %422
   %427 = phi ptr [ %423, %422 ], [ %418, %.outer.i304 ]
   %indvars.iv.i308501 = phi i64 [ %indvars.iv.next43.i320, %422 ], [ %indvars.iv.ph.i306, %.outer.i304 ]
-  %428 = getelementptr inbounds i8, ptr %427, i64 33
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 33
   %429 = load i8, ptr %428, align 1
   %430 = trunc i8 %429 to i1
   br i1 %430, label %ApplySortComparator.exit.thread27.thread.i319, label %431
 
 431:                                              ; preds = %.lr.ph502
-  %432 = getelementptr inbounds i8, ptr %427, i64 53
+  %432 = getelementptr inbounds nuw i8, ptr %427, i64 53
   %433 = load i8, ptr %432, align 1
   %434 = trunc i8 %433 to i1
   br i1 %434, label %.thread412, label %.thread409
@@ -1400,27 +1400,27 @@ MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_
   %indvars.iv.i308.lcssa = phi i64 [ %indvars.iv.ph.i306, %.outer.i304 ], [ %indvars.iv.next43.i320, %422 ]
   %.02038.i309.lcssa = phi i1 [ %.02038.ph.i307, %.outer.i304 ], [ true, %422 ]
   %.lcssa454 = phi ptr [ %418, %.outer.i304 ], [ %423, %422 ]
-  %435 = getelementptr inbounds i8, ptr %.lcssa454, i64 33
+  %435 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 33
   %436 = load i8, ptr %435, align 1
   %437 = trunc i8 %436 to i1
   br i1 %437, label %438, label %442
 
 438:                                              ; preds = %._crit_edge503
-  %439 = getelementptr inbounds i8, ptr %.lcssa454, i64 53
+  %439 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 53
   %440 = load i8, ptr %439, align 1
   %441 = trunc i8 %440 to i1
   br i1 %441, label %.thread409, label %.thread412
 
 442:                                              ; preds = %._crit_edge503
-  %443 = getelementptr inbounds i8, ptr %.lcssa454, i64 40
-  %444 = getelementptr inbounds i8, ptr %.lcssa454, i64 24
+  %443 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 40
+  %444 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 24
   %445 = load i64, ptr %444, align 8
-  %446 = getelementptr inbounds i8, ptr %.lcssa454, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 16
   %447 = load i64, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %.lcssa454, i64 64
+  %448 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 64
   %449 = load ptr, ptr %448, align 8
   %450 = call i32 %449(i64 noundef %447, i64 noundef %445, ptr noundef nonnull %443) #7
-  %451 = getelementptr inbounds i8, ptr %.lcssa454, i64 52
+  %451 = getelementptr inbounds nuw i8, ptr %.lcssa454, i64 52
   %452 = load i8, ptr %451, align 4
   %453 = trunc i8 %452 to i1
   br i1 %453, label %454, label %ApplySortComparator.exit.i310
@@ -1490,20 +1490,20 @@ ApplySortComparator.exit.thread27.thread.i319:    ; preds = %.lr.ph502
   br i1 %472, label %MJEvalInnerValues.exit332.thread, label %473
 
 473:                                              ; preds = %469
-  %474 = getelementptr inbounds i8, ptr %470, i64 4
+  %474 = getelementptr inbounds nuw i8, ptr %470, i64 4
   %475 = load i16, ptr %474, align 4
   %476 = and i16 %475, 2
   %.not.i322 = icmp eq i16 %476, 0
   br i1 %.not.i322, label %477, label %MJEvalInnerValues.exit332.thread
 
 477:                                              ; preds = %473
-  %478 = getelementptr inbounds i8, ptr %471, i64 40
+  %478 = getelementptr inbounds nuw i8, ptr %471, i64 40
   %479 = load ptr, ptr %478, align 8
   call void @MemoryContextReset(ptr noundef %479) #7
   %480 = load ptr, ptr %478, align 8
   %481 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %480, ptr @CurrentMemoryContext, align 8
-  %482 = getelementptr inbounds i8, ptr %471, i64 16
+  %482 = getelementptr inbounds nuw i8, ptr %471, i64 16
   store ptr %470, ptr %482, align 8
   %483 = load i32, ptr %37, align 8
   %484 = icmp sgt i32 %483, 0
@@ -1518,13 +1518,13 @@ MJEvalInnerValues.exit332.thread415:              ; preds = %477
   %.02327.i328 = phi i32 [ %.1.i329, %506 ], [ 0, %477 ]
   %485 = load ptr, ptr %38, align 8
   %486 = getelementptr %struct.MergeJoinClauseData, ptr %485, i64 %indvars.iv.i327
-  %487 = getelementptr inbounds i8, ptr %486, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %488 = load ptr, ptr %487, align 8
-  %489 = getelementptr inbounds i8, ptr %486, i64 33
-  %490 = getelementptr inbounds i8, ptr %488, i64 32
+  %489 = getelementptr inbounds nuw i8, ptr %486, i64 33
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 32
   %491 = load ptr, ptr %490, align 8
   %492 = call i64 %491(ptr noundef %488, ptr noundef %471, ptr noundef nonnull %489) #7
-  %493 = getelementptr inbounds i8, ptr %486, i64 24
+  %493 = getelementptr inbounds nuw i8, ptr %486, i64 24
   store i64 %492, ptr %493, align 8
   %494 = load i8, ptr %489, align 1
   %495 = trunc i8 %494 to i1
@@ -1535,7 +1535,7 @@ MJEvalInnerValues.exit332.thread415:              ; preds = %477
   br i1 %497, label %498, label %505
 
 498:                                              ; preds = %496
-  %499 = getelementptr inbounds i8, ptr %486, i64 53
+  %499 = getelementptr inbounds nuw i8, ptr %486, i64 53
   %500 = load i8, ptr %499, align 1
   %501 = trunc i8 %500 to i1
   br i1 %501, label %505, label %502
@@ -1589,7 +1589,7 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
 
 515:                                              ; preds = %52
   %516 = load ptr, ptr %12, align 8
-  %517 = getelementptr inbounds i8, ptr %516, i64 40
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 40
   %518 = load ptr, ptr %517, align 8
   call void @MemoryContextReset(ptr noundef %518) #7
   %519 = load ptr, ptr %517, align 8
@@ -1606,14 +1606,14 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
   %523 = load ptr, ptr %38, align 8
   %524 = sext i32 %.ph.i338 to i64
   %525 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.ph.i339
-  %526 = getelementptr inbounds i8, ptr %525, i64 32
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 32
   %527 = load i8, ptr %526, align 8
   %528 = trunc i8 %527 to i1
   br i1 %528, label %.lr.ph, label %._crit_edge
 
 529:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i352
   %530 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.next43.i353
-  %531 = getelementptr inbounds i8, ptr %530, i64 32
+  %531 = getelementptr inbounds nuw i8, ptr %530, i64 32
   %532 = load i8, ptr %531, align 8
   %533 = trunc i8 %532 to i1
   br i1 %533, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -1621,13 +1621,13 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
 .lr.ph:                                           ; preds = %.outer.i337, %529
   %534 = phi ptr [ %530, %529 ], [ %525, %.outer.i337 ]
   %indvars.iv.i341498 = phi i64 [ %indvars.iv.next43.i353, %529 ], [ %indvars.iv.ph.i339, %.outer.i337 ]
-  %535 = getelementptr inbounds i8, ptr %534, i64 33
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 33
   %536 = load i8, ptr %535, align 1
   %537 = trunc i8 %536 to i1
   br i1 %537, label %ApplySortComparator.exit.thread27.thread.i352, label %538
 
 538:                                              ; preds = %.lr.ph
-  %539 = getelementptr inbounds i8, ptr %534, i64 53
+  %539 = getelementptr inbounds nuw i8, ptr %534, i64 53
   %540 = load i8, ptr %539, align 1
   %541 = trunc i8 %540 to i1
   br i1 %541, label %.thread425, label %.thread422
@@ -1636,27 +1636,27 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
   %indvars.iv.i341.lcssa = phi i64 [ %indvars.iv.ph.i339, %.outer.i337 ], [ %indvars.iv.next43.i353, %529 ]
   %.02038.i342.lcssa = phi i1 [ %.02038.ph.i340, %.outer.i337 ], [ true, %529 ]
   %.lcssa = phi ptr [ %525, %.outer.i337 ], [ %530, %529 ]
-  %542 = getelementptr inbounds i8, ptr %.lcssa, i64 33
+  %542 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 33
   %543 = load i8, ptr %542, align 1
   %544 = trunc i8 %543 to i1
   br i1 %544, label %545, label %549
 
 545:                                              ; preds = %._crit_edge
-  %546 = getelementptr inbounds i8, ptr %.lcssa, i64 53
+  %546 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 53
   %547 = load i8, ptr %546, align 1
   %548 = trunc i8 %547 to i1
   br i1 %548, label %.thread422, label %.thread425
 
 549:                                              ; preds = %._crit_edge
-  %550 = getelementptr inbounds i8, ptr %.lcssa, i64 40
-  %551 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %550 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
+  %551 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %552 = load i64, ptr %551, align 8
-  %553 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %553 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %554 = load i64, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %.lcssa, i64 64
+  %555 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 64
   %556 = load ptr, ptr %555, align 8
   %557 = call i32 %556(i64 noundef %554, i64 noundef %552, ptr noundef nonnull %550) #7
-  %558 = getelementptr inbounds i8, ptr %.lcssa, i64 52
+  %558 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 52
   %559 = load i8, ptr %558, align 4
   %560 = trunc i8 %559 to i1
   br i1 %560, label %561, label %ApplySortComparator.exit.i343
@@ -1704,9 +1704,9 @@ ApplySortComparator.exit.thread27.thread.i352:    ; preds = %.lr.ph
 573:                                              ; preds = %572, %569
   %574 = load ptr, ptr %42, align 8
   %575 = load ptr, ptr %35, align 8
-  %576 = getelementptr inbounds i8, ptr %574, i64 8
+  %576 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %577 = load ptr, ptr %576, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 56
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 56
   %579 = load ptr, ptr %578, align 8
   call void %579(ptr noundef %574, ptr noundef %575) #7
   store i32 3, ptr %26, align 8
@@ -1766,21 +1766,21 @@ ExecProcNode.exit356:                             ; preds = %590, %592
   br i1 %596, label %MJEvalOuterValues.exit367.thread, label %597
 
 597:                                              ; preds = %ExecProcNode.exit356
-  %598 = getelementptr inbounds i8, ptr %594, i64 4
+  %598 = getelementptr inbounds nuw i8, ptr %594, i64 4
   %599 = load i16, ptr %598, align 4
   %600 = and i16 %599, 2
   %.not.i357 = icmp eq i16 %600, 0
   br i1 %.not.i357, label %601, label %MJEvalOuterValues.exit367.thread
 
 601:                                              ; preds = %597
-  %602 = getelementptr inbounds i8, ptr %595, i64 40
+  %602 = getelementptr inbounds nuw i8, ptr %595, i64 40
   %603 = load ptr, ptr %602, align 8
   call void @MemoryContextReset(ptr noundef %603) #7
   %604 = load ptr, ptr %602, align 8
   %605 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %604, ptr @CurrentMemoryContext, align 8
   %606 = load ptr, ptr %30, align 8
-  %607 = getelementptr inbounds i8, ptr %595, i64 24
+  %607 = getelementptr inbounds nuw i8, ptr %595, i64 24
   store ptr %606, ptr %607, align 8
   %608 = load i32, ptr %37, align 8
   %609 = icmp sgt i32 %608, 0
@@ -1796,11 +1796,11 @@ MJEvalOuterValues.exit367.thread428:              ; preds = %601
   %610 = load ptr, ptr %38, align 8
   %611 = getelementptr %struct.MergeJoinClauseData, ptr %610, i64 %indvars.iv.i362
   %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds i8, ptr %611, i64 32
-  %614 = getelementptr inbounds i8, ptr %612, i64 32
+  %613 = getelementptr inbounds nuw i8, ptr %611, i64 32
+  %614 = getelementptr inbounds nuw i8, ptr %612, i64 32
   %615 = load ptr, ptr %614, align 8
   %616 = call i64 %615(ptr noundef %612, ptr noundef %595, ptr noundef nonnull %613) #7
-  %617 = getelementptr inbounds i8, ptr %611, i64 16
+  %617 = getelementptr inbounds nuw i8, ptr %611, i64 16
   store i64 %616, ptr %617, align 8
   %618 = load i8, ptr %613, align 8
   %619 = trunc i8 %618 to i1
@@ -1811,7 +1811,7 @@ MJEvalOuterValues.exit367.thread428:              ; preds = %601
   br i1 %621, label %622, label %629
 
 622:                                              ; preds = %620
-  %623 = getelementptr inbounds i8, ptr %611, i64 53
+  %623 = getelementptr inbounds nuw i8, ptr %611, i64 53
   %624 = load i8, ptr %623, align 1
   %625 = trunc i8 %624 to i1
   br i1 %625, label %629, label %626
@@ -1856,7 +1856,7 @@ MJEvalOuterValues.exit367.thread:                 ; preds = %ExecProcNode.exit35
   br i1 %or.cond4.not, label %638, label %.loopexit
 
 638:                                              ; preds = %MJEvalOuterValues.exit367.thread
-  %639 = getelementptr inbounds i8, ptr %636, i64 4
+  %639 = getelementptr inbounds nuw i8, ptr %636, i64 4
   %640 = load i16, ptr %639, align 4
   %641 = and i16 %640, 2
   %.not232 = icmp eq i16 %641, 0
@@ -1908,20 +1908,20 @@ ExecProcNode.exit369:                             ; preds = %653, %655
   br i1 %659, label %MJEvalInnerValues.exit380.thread, label %660
 
 660:                                              ; preds = %ExecProcNode.exit369
-  %661 = getelementptr inbounds i8, ptr %657, i64 4
+  %661 = getelementptr inbounds nuw i8, ptr %657, i64 4
   %662 = load i16, ptr %661, align 4
   %663 = and i16 %662, 2
   %.not.i370 = icmp eq i16 %663, 0
   br i1 %.not.i370, label %664, label %MJEvalInnerValues.exit380.thread
 
 664:                                              ; preds = %660
-  %665 = getelementptr inbounds i8, ptr %658, i64 40
+  %665 = getelementptr inbounds nuw i8, ptr %658, i64 40
   %666 = load ptr, ptr %665, align 8
   call void @MemoryContextReset(ptr noundef %666) #7
   %667 = load ptr, ptr %665, align 8
   %668 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %667, ptr @CurrentMemoryContext, align 8
-  %669 = getelementptr inbounds i8, ptr %658, i64 16
+  %669 = getelementptr inbounds nuw i8, ptr %658, i64 16
   store ptr %657, ptr %669, align 8
   %670 = load i32, ptr %37, align 8
   %671 = icmp sgt i32 %670, 0
@@ -1936,13 +1936,13 @@ MJEvalInnerValues.exit380.thread431:              ; preds = %664
   %.02327.i376 = phi i32 [ %.1.i377, %693 ], [ 0, %664 ]
   %672 = load ptr, ptr %38, align 8
   %673 = getelementptr %struct.MergeJoinClauseData, ptr %672, i64 %indvars.iv.i375
-  %674 = getelementptr inbounds i8, ptr %673, i64 8
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 8
   %675 = load ptr, ptr %674, align 8
-  %676 = getelementptr inbounds i8, ptr %673, i64 33
-  %677 = getelementptr inbounds i8, ptr %675, i64 32
+  %676 = getelementptr inbounds nuw i8, ptr %673, i64 33
+  %677 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %678 = load ptr, ptr %677, align 8
   %679 = call i64 %678(ptr noundef %675, ptr noundef %658, ptr noundef nonnull %676) #7
-  %680 = getelementptr inbounds i8, ptr %673, i64 24
+  %680 = getelementptr inbounds nuw i8, ptr %673, i64 24
   store i64 %679, ptr %680, align 8
   %681 = load i8, ptr %676, align 1
   %682 = trunc i8 %681 to i1
@@ -1953,7 +1953,7 @@ MJEvalInnerValues.exit380.thread431:              ; preds = %664
   br i1 %684, label %685, label %692
 
 685:                                              ; preds = %683
-  %686 = getelementptr inbounds i8, ptr %673, i64 53
+  %686 = getelementptr inbounds nuw i8, ptr %673, i64 53
   %687 = load i8, ptr %686, align 1
   %688 = trunc i8 %687 to i1
   br i1 %688, label %692, label %689
@@ -1998,7 +1998,7 @@ MJEvalInnerValues.exit380.thread:                 ; preds = %ExecProcNode.exit36
   br i1 %or.cond7.not, label %701, label %.loopexit
 
 701:                                              ; preds = %MJEvalInnerValues.exit380.thread
-  %702 = getelementptr inbounds i8, ptr %699, i64 4
+  %702 = getelementptr inbounds nuw i8, ptr %699, i64 4
   %703 = load i16, ptr %702, align 4
   %704 = and i16 %703, 2
   %.not229 = icmp eq i16 %704, 0
@@ -2046,7 +2046,7 @@ ExecProcNode.exit382:                             ; preds = %715, %717
   br i1 %720, label %.loopexit, label %721
 
 721:                                              ; preds = %ExecProcNode.exit382
-  %722 = getelementptr inbounds i8, ptr %719, i64 4
+  %722 = getelementptr inbounds nuw i8, ptr %719, i64 4
   %723 = load i16, ptr %722, align 4
   %724 = and i16 %723, 2
   %.not226 = icmp eq i16 %724, 0
@@ -2081,7 +2081,7 @@ ExecProcNode.exit384:                             ; preds = %730, %732
   br i1 %735, label %.loopexit, label %736
 
 736:                                              ; preds = %ExecProcNode.exit384
-  %737 = getelementptr inbounds i8, ptr %734, i64 4
+  %737 = getelementptr inbounds nuw i8, ptr %734, i64 4
   %738 = load i16, ptr %737, align 4
   %739 = and i16 %738, 2
   %.not224 = icmp eq i16 %739, 0
@@ -2136,10 +2136,10 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndMergeJoin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecEndNode(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   tail call void @ExecEndNode(ptr noundef %5) #7
   ret void
@@ -2149,25 +2149,25 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanMergeJoin(ptr nocapture noundef initializes((232, 236), (241, 243), (248, 264)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef %7) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 241
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 241
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 242
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i8 0, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -2178,7 +2178,7 @@ define dso_local void @ExecReScanMergeJoin(ptr nocapture noundef initializes((23
   br label %20
 
 20:                                               ; preds = %19, %1
-  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -2203,20 +2203,20 @@ declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @MJFillOuter(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @MemoryContextReset(ptr noundef %9) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %16 = icmp eq ptr %7, null
@@ -2230,7 +2230,7 @@ ExecQual.exit:                                    ; preds = %1
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call i64 %20(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   store ptr %18, ptr @CurrentMemoryContext, align 8
@@ -2239,48 +2239,48 @@ ExecQual.exit:                                    ; preds = %1
   br i1 %.not15, label %48, label %22
 
 22:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef %29) #7
-  %34 = getelementptr inbounds i8, ptr %26, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 %38(ptr noundef nonnull %27, ptr noundef %26, ptr noundef nonnull %2) #7
   store ptr %36, ptr @CurrentMemoryContext, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %41 = load i16, ptr %40, align 4
   %42 = and i16 %41, -3
   store i16 %42, ptr %40, align 4
-  %43 = getelementptr inbounds i8, ptr %29, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds i8, ptr %29, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %46, ptr %47, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %55
 
 48:                                               ; preds = %ExecQual.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %53 = load double, ptr %52, align 8
   %54 = fadd double %53, 1.000000e+00
   store double %54, ptr %52, align 8
@@ -2297,20 +2297,20 @@ declare void @ExecMarkPos(ptr noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @MJFillInner(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @MemoryContextReset(ptr noundef %9) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %16 = icmp eq ptr %7, null
@@ -2324,7 +2324,7 @@ ExecQual.exit:                                    ; preds = %1
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call i64 %20(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   store ptr %18, ptr @CurrentMemoryContext, align 8
@@ -2333,48 +2333,48 @@ ExecQual.exit:                                    ; preds = %1
   br i1 %.not15, label %48, label %22
 
 22:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef %29) #7
-  %34 = getelementptr inbounds i8, ptr %26, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 %38(ptr noundef nonnull %27, ptr noundef %26, ptr noundef nonnull %2) #7
   store ptr %36, ptr @CurrentMemoryContext, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %41 = load i16, ptr %40, align 4
   %42 = and i16 %41, -3
   store i16 %42, ptr %40, align 4
-  %43 = getelementptr inbounds i8, ptr %29, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds i8, ptr %29, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %46, ptr %47, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %55
 
 48:                                               ; preds = %ExecQual.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %53 = load double, ptr %52, align 8
   %54 = fadd double %53, 1.000000e+00
   store double %54, ptr %52, align 8

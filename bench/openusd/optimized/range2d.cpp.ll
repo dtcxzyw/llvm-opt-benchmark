@@ -53,7 +53,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 91)
   %.sroa.01.0.copyload = load double, ptr %1, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load double, ptr %.sroa.22.0..sroa_idx, align 8
   store double %.sroa.01.0.copyload, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -62,7 +62,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload = load double, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   store double %.sroa.0.0.copyload, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -83,20 +83,20 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2dC2ERKNS_9GfRange2fE(
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   store double %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
   %7 = fpext float %6 to double
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   store double %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %15, ptr %16, align 8
   ret void
 }
@@ -126,9 +126,9 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d18GetDist
 
 16:                                               ; preds = %9, %13, %6
   %.0 = phi double [ %8, %6 ], [ %15, %13 ], [ 0.000000e+00, %9 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %18, %20
   br i1 %21, label %22, label %26
@@ -140,7 +140,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d18GetDist
   br label %34
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %18, %28
   br i1 %29, label %30, label %34
@@ -190,7 +190,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetC
 15:                                               ; preds = %10, %5
   %.pn = phi ptr [ %0, %5 ], [ %14, %10 ]
   %.sroa.0.0 = phi double [ %.sroa.0.0.copyload, %5 ], [ %13, %10 ]
-  %.sroa.3.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.sroa.3.0 = load double, ptr %.sroa.3.0.in, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
@@ -227,12 +227,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit: ; preds = %3
   %13 = select i1 %.not.i, double %.val.i, double %.val5.i
   %.not4.i = icmp samesign ult i64 %2, 2
   %14 = select i1 %.not4.i, ptr %1, ptr %12
-  %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0.i = load double, ptr %.sroa.3.0.in.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
   %15 = fadd double %.val.i, %.val5.i
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
   %18 = fadd double %.sroa.4.0.copyload.i, %17
   %19 = fmul double %15, 5.000000e-01
@@ -250,10 +250,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit: ; preds = %3
   %.sink17 = phi double [ 0x47EFFFFFE0000000, %6 ], [ %22, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit ]
   %.sink16 = phi double [ 0xC7EFFFFFE0000000, %6 ], [ %26, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit ]
   %.sink = phi double [ 0xC7EFFFFFE0000000, %6 ], [ %25, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sink18, ptr %28, align 8
   store double %.sink17, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sink16, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sink, ptr %30, align 8

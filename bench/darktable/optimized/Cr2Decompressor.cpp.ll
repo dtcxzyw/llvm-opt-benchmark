@@ -101,22 +101,22 @@ $_ZZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKczE3buf = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEE9getSlicesEv(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !6
   store i32 %7, ptr %0, align 8, !tbaa !11
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8, !tbaa !12
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %9, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %7, ptr %10, align 8, !tbaa !11
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %11, align 8, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %4, ptr %12, align 8, !tbaa !11
   ret void
 }
@@ -129,55 +129,55 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEE17getAllOutputTilesEv(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::iterator_range.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4, !noalias !14
   %5 = icmp sgt i32 %4, -1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !6, !noalias !14
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store ptr %8, ptr %0, align 8, !tbaa !12
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %9, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %10, align 8, !tbaa !12
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %11, align 8, !tbaa !11
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %12, align 8, !tbaa !11
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %13, align 4, !tbaa !11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %14, align 8, !tbaa !11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %15, align 8, !tbaa !12
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %7, ptr %16, align 8, !tbaa !11
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %17, align 8, !tbaa !12
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %4, ptr %18, align 8, !tbaa !11
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %19, align 8, !tbaa !11
-  %20 = getelementptr inbounds i8, ptr %0, i64 84
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %20, align 4, !tbaa !11
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %21, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEE14getOutputTilesEv(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::iterator_range.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !6, !noalias !17
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = icmp ne i32 %4, 0
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = load i32, ptr %8, align 4
   %13 = tail call i32 @llvm.umin.i32(i32 %7, i32 %11)
@@ -218,7 +218,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i32 %33, %4
   %43 = select i1 %42, i64 8, i64 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !11
   %46 = icmp sgt i32 %36, -1
   tail call void @llvm.assume(i1 %46)
@@ -268,7 +268,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   tail call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %75, %4
   %82 = select i1 %81, i64 8, i64 4
-  %83 = getelementptr inbounds i8, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !11
   tail call void @llvm.assume(i1 %73)
   tail call void @llvm.assume(i1 %72)
@@ -285,27 +285,27 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   %93 = zext i32 %89 to i64
   %94 = or disjoint i64 %92, %93
   store ptr %8, ptr %0, align 8, !tbaa !12
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %95, align 8, !tbaa !11
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %96, align 8, !tbaa !12
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %97, align 8, !tbaa !11
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %98, align 8, !tbaa.struct !24
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %99, align 8, !tbaa !11
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %100, align 8, !tbaa !12
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %7, ptr %101, align 8, !tbaa !11
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %102, align 8, !tbaa !12
-  %103 = getelementptr inbounds i8, ptr %0, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %76, ptr %103, align 8, !tbaa !11
-  %104 = getelementptr inbounds i8, ptr %0, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %94, ptr %104, align 8, !tbaa.struct !24
-  %105 = getelementptr inbounds i8, ptr %0, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %77, ptr %105, align 8, !tbaa !11
   ret void
 }
@@ -318,16 +318,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEE23getVerticalOutputStripsEv(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::iterator_range.5") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4, !noalias !25
   %5 = icmp sgt i32 %4, -1
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !6, !noalias !28
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = icmp ne i32 %4, 0
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8, !noalias !25
   %12 = load i32, ptr %8, align 4, !noalias !25
   %13 = tail call i32 @llvm.umin.i32(i32 %7, i32 %11)
@@ -368,7 +368,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i32 %33, %4
   %43 = select i1 %42, i64 8, i64 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !11, !noalias !25
   %46 = icmp sgt i32 %36, -1
   tail call void @llvm.assume(i1 %46)
@@ -418,7 +418,7 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   tail call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %75, %4
   %82 = select i1 %81, i64 8, i64 4
-  %83 = getelementptr inbounds i8, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !11, !noalias !25
   tail call void @llvm.assume(i1 %73)
   tail call void @llvm.assume(i1 %72)
@@ -435,98 +435,98 @@ define weak_odr hidden void @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDe
   %93 = zext i32 %89 to i64
   %94 = or disjoint i64 %92, %93
   store ptr %8, ptr %0, align 8, !tbaa !12
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %95, align 8, !tbaa !11
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %96, align 8, !tbaa !12
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %97, align 8, !tbaa !11
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %98, align 8, !tbaa.struct !34
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %99, align 8, !tbaa !11
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %100, align 8, !tbaa !12
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %7, ptr %101, align 8, !tbaa !11
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %102, align 8, !tbaa !12
-  %103 = getelementptr inbounds i8, ptr %0, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %76, ptr %103, align 8, !tbaa !11
-  %104 = getelementptr inbounds i8, ptr %0, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %94, ptr %104, align 8, !tbaa.struct !24
-  %105 = getelementptr inbounds i8, ptr %0, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %77, ptr %105, align 8, !tbaa !11
-  %106 = getelementptr inbounds i8, ptr %0, i64 96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %8, ptr %106, align 8, !tbaa !12
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %7, ptr %107, align 8, !tbaa !11
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %3, ptr %108, align 8, !tbaa !12
-  %109 = getelementptr inbounds i8, ptr %0, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %76, ptr %109, align 8, !tbaa !11
-  %110 = getelementptr inbounds i8, ptr %0, i64 128
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %94, ptr %110, align 8, !tbaa.struct !34
-  %111 = getelementptr inbounds i8, ptr %0, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %77, ptr %111, align 8, !tbaa !11
-  %112 = getelementptr inbounds i8, ptr %0, i64 144
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %8, ptr %112, align 8, !tbaa !12
-  %113 = getelementptr inbounds i8, ptr %0, i64 152
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %7, ptr %113, align 8, !tbaa !11
-  %114 = getelementptr inbounds i8, ptr %0, i64 160
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %3, ptr %114, align 8, !tbaa !12
-  %115 = getelementptr inbounds i8, ptr %0, i64 168
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %76, ptr %115, align 8, !tbaa !11
-  %116 = getelementptr inbounds i8, ptr %0, i64 176
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %94, ptr %116, align 8, !tbaa.struct !24
-  %117 = getelementptr inbounds i8, ptr %0, i64 184
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %77, ptr %117, align 8, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 %4, i32 %5, ptr noundef %6, ptr noundef byval(%"class.rawspeed::Array1DRef") align 8 %7) unnamed_addr #0 comdat($_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC5ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) align 2 personality ptr @__gxx_personality_v0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8, !tbaa !35
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load <2 x ptr>, ptr %1, align 8, !tbaa !12
   store ptr null, ptr %10, align 8, !tbaa !35
   store <2 x ptr> %11, ptr %0, align 8, !tbaa !12
   store ptr null, ptr %1, align 8, !tbaa !37
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %2, align 4, !tbaa !11
   store i32 %13, ptr %12, align 8, !tbaa !11
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !11
   store i32 %16, ptr %14, align 4, !tbaa !11
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !11
   store i32 %19, ptr %17, align 8, !tbaa !11
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %20, align 4, !tbaa !39
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %21, align 8, !tbaa !6
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i64 %3, ptr %22, align 4, !tbaa.struct !40
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i64 %4, ptr %23, align 4, !tbaa.struct !24
-  %24 = getelementptr inbounds i8, ptr %0, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %5, ptr %24, align 4, !tbaa !11
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load <2 x ptr>, ptr %6, align 8, !tbaa !12
   store <2 x ptr> %27, ptr %25, align 8, !tbaa !12
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   store ptr %30, ptr %28, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !43
   %32 = load ptr, ptr %0, align 8, !tbaa !37
-  %33 = getelementptr inbounds i8, ptr %32, i64 548
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 548
   %34 = load i32, ptr %33, align 4, !tbaa !44
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %40, label %36
@@ -544,13 +544,13 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   br label %310
 
 40:                                               ; preds = %8
-  %41 = getelementptr inbounds i8, ptr %32, i64 584
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 584
   %42 = load i32, ptr %41, align 8, !tbaa !104
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %32, i64 588
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 588
   %46 = load i32, ptr %45, align 4, !tbaa !105
   %47 = icmp eq i32 %46, 2
   br i1 %47, label %50, label %48
@@ -617,7 +617,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %81 = or i1 %77, %79
   %82 = zext i1 %81 to i8
   %83 = mul nuw nsw i32 %78, %51
-  %84 = getelementptr inbounds i8, ptr %32, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %85 = load i64, ptr %84, align 8, !tbaa.struct !40
   store i64 %85, ptr %20, align 4, !tbaa.struct !40
   %86 = trunc i64 %85 to i32
@@ -646,7 +646,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   store i32 %97, ptr %20, align 4, !tbaa !106
   %102 = load i32, ptr %22, align 4, !tbaa !39
   %103 = icmp sgt i32 %102, 0
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load i32, ptr %104, align 8
   %106 = icmp sgt i32 %105, 0
   %107 = select i1 %103, i1 %106, i1 false
@@ -671,7 +671,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   store i32 %118, ptr %104, align 8, !tbaa !123
   %119 = load i32, ptr %84, align 8, !tbaa !124
   %120 = icmp sgt i32 %119, 19440
-  %121 = getelementptr inbounds i8, ptr %32, i64 44
+  %121 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %122 = load i32, ptr %121, align 4, !tbaa !125
   %123 = icmp sgt i32 %122, 5920
   %124 = select i1 %120, i1 true, i1 %123
@@ -695,7 +695,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   br i1 %132, label %133, label %137
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %32, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %135 = load i8, ptr %134, align 8, !tbaa !126, !range !127, !noundef !128
   %136 = icmp eq i8 %135, %82
   br i1 %136, label %193, label %148
@@ -704,7 +704,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %138 = add nuw i32 %131, 1
   %139 = icmp eq i32 %138, %126
   %140 = select i1 %139, i64 8, i64 4
-  %141 = getelementptr inbounds i8, ptr %23, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %23, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !11
   %143 = icmp slt i32 %142, 1
   br i1 %143, label %144, label %130, !llvm.loop !129
@@ -737,12 +737,12 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   br i1 %158, label %.loopexit16, label %.preheader
 
 159:                                              ; preds = %.preheader
-  %160 = getelementptr inbounds i8, ptr %167, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %161 = icmp eq ptr %160, %149
   br i1 %161, label %.loopexit16, label %.preheader
 
 .loopexit16:                                      ; preds = %159, %157
-  %162 = getelementptr inbounds i8, ptr %0, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %163 = load i32, ptr %162, align 8, !tbaa !11
   %164 = srem i32 %163, %83
   %165 = sdiv i32 %163, %83
@@ -752,7 +752,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 .preheader:                                       ; preds = %157, %159
   %167 = phi ptr [ %160, %159 ], [ %150, %157 ]
   %168 = load ptr, ptr %167, align 8, !tbaa !130
-  %169 = getelementptr inbounds i8, ptr %168, i64 72
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 72
   %170 = load i8, ptr %169, align 8, !tbaa !133, !range !127, !noundef !128
   %171 = icmp eq i8 %170, 0
   br i1 %171, label %172, label %159
@@ -817,7 +817,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 199:                                              ; preds = %196
   %200 = icmp eq i32 %126, 1
   %201 = select i1 %200, i64 8, i64 4
-  %202 = getelementptr inbounds i8, ptr %23, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %23, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !11
   %204 = icmp sgt i64 %85, -1
   tail call void @llvm.assume(i1 %204)
@@ -856,7 +856,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
   %230 = add nuw nsw i32 %228, 1
   %231 = icmp eq i32 %230, %126
   %232 = select i1 %231, i64 8, i64 4
-  %233 = getelementptr inbounds i8, ptr %23, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %23, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !11
   %235 = sub nsw i32 %89, %225
   %236 = icmp sgt i32 %235, -1
@@ -1016,13 +1016,13 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExc
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -1030,14 +1030,14 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !148
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !150
   %12 = load ptr, ptr %3, align 8, !tbaa !151
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   %15 = load ptr, ptr %3, align 8, !tbaa !151
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %29
@@ -1071,10 +1071,10 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEE10decompressEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !11
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !11
   switch i32 %4, label %unreachable [
     i32 3, label %7
@@ -1137,16 +1137,16 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %8 = alloca [20 x i8], align 8
   %9 = alloca %"class.rawspeed::Cr2VerticalOutputStripIterator", align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !37
-  %11 = getelementptr inbounds i8, ptr %10, i64 560
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !155, !noalias !156, !nonnull !128, !noundef !128
-  %13 = getelementptr inbounds i8, ptr %10, i64 584
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 584
   %14 = load i32, ptr %13, align 8, !tbaa !104, !noalias !156
-  %15 = getelementptr inbounds i8, ptr %10, i64 600
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 600
   %16 = load i32, ptr %15, align 8, !tbaa !159, !noalias !156
   %17 = mul nsw i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %10, i64 604
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 604
   %19 = load i32, ptr %18, align 4, !tbaa !160, !noalias !156
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !156
   %22 = ashr i32 %21, 1
   %23 = mul nuw nsw i32 %22, %19
@@ -1167,21 +1167,21 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = load ptr, ptr %33, align 8, !tbaa !130, !noalias !168
   store ptr %34, ptr %6, align 8, !alias.scope !168
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !130, !noalias !168
   store ptr %37, ptr %35, align 8, !alias.scope !168
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !130, !noalias !168
   store ptr %40, ptr %38, align 8, !alias.scope !168
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = icmp eq ptr %33, %42
   br i1 %43, label %106, label %44
@@ -1263,11 +1263,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 .loopexit44:                                      ; preds = %.loopexit44.preheader, %.loopexit44
   %97 = phi ptr [ %102, %.loopexit44 ], [ %.ph258, %.loopexit44.preheader ]
   %98 = phi ptr [ %101, %.loopexit44 ], [ %.ph259, %.loopexit44.preheader ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i16, ptr %99, align 8, !tbaa !169
   store i16 %100, ptr %97, align 2, !tbaa !170
-  %101 = getelementptr inbounds i8, ptr %98, i64 16
-  %102 = getelementptr inbounds i8, ptr %97, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %103 = icmp eq ptr %101, %42
   br i1 %103, label %104, label %.loopexit44, !llvm.loop !179
 
@@ -1285,9 +1285,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %109 = icmp samesign ugt i32 %17, 5
   tail call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
-  %110 = getelementptr inbounds i8, ptr %0, i64 80
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %111 = load ptr, ptr %110, align 8, !tbaa !12, !nonnull !128, !noundef !128
-  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load i32, ptr %112, align 8, !tbaa !11
   store i64 0, ptr %8, align 8
   %114 = icmp sgt i32 %113, -1
@@ -1300,18 +1300,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   unreachable
 
 117:                                              ; preds = %106
-  %.12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 -1, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !180
-  %118 = getelementptr inbounds i8, ptr %0, i64 44
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %119 = load i32, ptr %118, align 4, !noalias !182
   %120 = icmp sgt i32 %119, -1
   tail call void @llvm.assume(i1 %120)
-  %121 = getelementptr inbounds i8, ptr %0, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = load i32, ptr %121, align 8, !tbaa !6, !noalias !187
-  %123 = getelementptr inbounds i8, ptr %0, i64 28
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %124 = icmp ne i32 %119, 0
   tail call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = load i32, ptr %125, align 8, !noalias !182
   %127 = load i32, ptr %123, align 4, !noalias !182
   %128 = tail call i32 @llvm.umin.i32(i32 %122, i32 %126)
@@ -1352,7 +1352,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %156)
   %157 = icmp eq i32 %148, %119
   %158 = select i1 %157, i64 8, i64 4
-  %159 = getelementptr inbounds i8, ptr %118, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %118, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !11, !noalias !182
   %161 = icmp sgt i32 %151, -1
   tail call void @llvm.assume(i1 %161)
@@ -1402,7 +1402,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %195)
   %196 = icmp eq i32 %190, %119
   %197 = select i1 %196, i64 8, i64 4
-  %198 = getelementptr inbounds i8, ptr %118, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr %118, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11, !noalias !182
   tail call void @llvm.assume(i1 %188)
   tail call void @llvm.assume(i1 %187)
@@ -1420,27 +1420,27 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %209 = or disjoint i64 %207, %208
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #19
   store ptr %123, ptr %9, align 8, !tbaa !12
-  %210 = getelementptr inbounds i8, ptr %9, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %122, ptr %210, align 8, !tbaa !11
-  %211 = getelementptr inbounds i8, ptr %9, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %118, ptr %211, align 8, !tbaa !12
-  %212 = getelementptr inbounds i8, ptr %9, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %212, align 8, !tbaa !11
-  %213 = getelementptr inbounds i8, ptr %9, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %213, align 8, !tbaa.struct !34
-  %214 = getelementptr inbounds i8, ptr %9, i64 40
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %214, align 8, !tbaa !11
-  %215 = getelementptr inbounds i8, ptr %9, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %123, ptr %215, align 8, !tbaa !12
-  %216 = getelementptr inbounds i8, ptr %9, i64 56
+  %216 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %122, ptr %216, align 8, !tbaa !11
-  %217 = getelementptr inbounds i8, ptr %9, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %118, ptr %217, align 8, !tbaa !12
-  %218 = getelementptr inbounds i8, ptr %9, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %191, ptr %218, align 8, !tbaa !11
-  %219 = getelementptr inbounds i8, ptr %9, i64 80
+  %219 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 %209, ptr %219, align 8, !tbaa.struct !24
-  %220 = getelementptr inbounds i8, ptr %9, i64 88
+  %220 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %192, ptr %220, align 8, !tbaa !11
   %221 = or i32 %192, %191
   %222 = icmp eq i32 %221, 0
@@ -1451,19 +1451,19 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %238
 
 224:                                              ; preds = %.loopexit42
-  %225 = getelementptr inbounds i8, ptr %4, i64 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 36
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %227 = add nuw nsw i32 %113, 16
-  %228 = getelementptr inbounds i8, ptr %3, i64 16
-  %229 = getelementptr inbounds i8, ptr %9, i64 36
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %230 = zext nneg i32 %17 to i64
-  %231 = getelementptr inbounds i8, ptr %7, i64 2
-  %.12..12..12..12..sroa_idx260 = getelementptr inbounds i8, ptr %8, i64 12
-  %.12..12..12..12..sroa_idx261 = getelementptr inbounds i8, ptr %8, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %.12..12..12..12..sroa_idx260 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx261 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %240
 
 232:                                              ; preds = %.loopexit39
-  %.12..12..12..12..sroa_idx262 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx262 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.12..12..12..12.4 = load i32, ptr %.12..12..12..12..sroa_idx262, align 4
   %233 = freeze i32 %.12..12..12..12.4
   %234 = icmp ult i32 %263, 65
@@ -1530,7 +1530,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 274:                                              ; preds = %.loopexit40
   %275 = sext i32 %267 to i64
-  %276 = getelementptr inbounds i8, ptr %269, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %269, i64 4
   br label %277
 
 277:                                              ; preds = %318, %274
@@ -1544,7 +1544,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %284 = add nuw nsw i32 %279, 1
   %285 = icmp eq i32 %284, %282
   %286 = select i1 %285, i64 8, i64 4
-  %287 = getelementptr inbounds i8, ptr %271, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr %271, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !11
   %289 = load i64, ptr %213, align 8, !tbaa.struct !40
   %290 = lshr i64 %289, 32
@@ -1642,7 +1642,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %348 = add nuw nsw i32 %347, %17
   %349 = icmp ule i32 %348, %23
   %350 = zext nneg i32 %347 to i64
-  %351 = getelementptr inbounds i16, ptr %12, i64 %350
+  %351 = getelementptr inbounds nuw i16, ptr %12, i64 %350
   %352 = load i32, ptr %121, align 8
   br label %362
 
@@ -1676,7 +1676,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 372:                                              ; preds = %362
   %373 = load i16, ptr %365, align 2, !tbaa !170
   store i16 %373, ptr %7, align 8, !tbaa !170
-  %374 = getelementptr inbounds i8, ptr %365, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %365, i64 8
   %375 = load <2 x i16>, ptr %374, align 2, !tbaa !170
   store <2 x i16> %375, ptr %231, align 2, !tbaa !170
   call void @llvm.assume(i1 %345)
@@ -1691,7 +1691,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %380 = icmp samesign ule i32 %379, %17
   call void @llvm.assume(i1 %380)
   %381 = zext nneg i32 %378 to i64
-  %382 = getelementptr inbounds i16, ptr %351, i64 %381
+  %382 = getelementptr inbounds nuw i16, ptr %351, i64 %381
   %383 = add nsw i32 %363, 1
   %384 = icmp slt i32 %383, %352
   call void @llvm.assume(i1 %384)
@@ -1740,7 +1740,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %416 = select i1 %412, i64 0, i64 %415
   %417 = getelementptr inbounds [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
   %418 = load ptr, ptr %417, align 8, !tbaa !211
-  %419 = getelementptr inbounds i8, ptr %418, i64 72
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 72
   %420 = load i8, ptr %419, align 8, !tbaa !133, !range !127, !noundef !128
   %421 = icmp ne i8 %420, 0
   call void @llvm.assume(i1 %421)
@@ -1758,7 +1758,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 428:                                              ; preds = %425
   %429 = zext nneg i32 %409 to i64
-  %430 = getelementptr inbounds i8, ptr %111, i64 %429
+  %430 = getelementptr inbounds nuw i8, ptr %111, i64 %429
   br label %443
 
 431:                                              ; preds = %425
@@ -1778,7 +1778,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %439 = icmp ult i32 %438, 9
   call void @llvm.assume(i1 %439)
   %440 = zext nneg i32 %435 to i64
-  %441 = getelementptr inbounds i8, ptr %111, i64 %440
+  %441 = getelementptr inbounds nuw i8, ptr %111, i64 %440
   %442 = zext nneg i32 %438 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 1 %441, i64 %442, i1 false)
   br label %443
@@ -1847,7 +1847,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 489:                                              ; preds = %476, %458
   %490 = phi i32 [ 1, %458 ], [ 2, %476 ]
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %491
   %493 = load i8, ptr %492, align 1, !tbaa !153
   %494 = zext i8 %493 to i64
   %495 = add nuw nsw i32 %410, 16
@@ -1860,7 +1860,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 500:                                              ; preds = %489
   %501 = add nuw nsw i32 %490, 1
   %502 = zext nneg i32 %501 to i64
-  %503 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %502
   %504 = load i8, ptr %503, align 1, !tbaa !153
   %505 = icmp eq i8 %504, 0
   br i1 %505, label %506, label %478
@@ -1869,7 +1869,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %507 = phi i32 [ 1, %489 ], [ 2, %500 ]
   %508 = add nuw nsw i32 %507, %490
   %509 = zext nneg i32 %508 to i64
-  %510 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %509
   %511 = load i8, ptr %510, align 1, !tbaa !153
   %512 = zext i8 %511 to i64
   %513 = add nuw nsw i32 %410, 24
@@ -1882,7 +1882,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 518:                                              ; preds = %506
   %519 = add nuw nsw i32 %508, 1
   %520 = zext nneg i32 %519 to i64
-  %521 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %520
   %522 = load i8, ptr %521, align 1, !tbaa !153
   %523 = icmp eq i8 %522, 0
   br i1 %523, label %524, label %478
@@ -1891,7 +1891,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %525 = phi i32 [ 1, %506 ], [ 2, %518 ]
   %526 = add nuw nsw i32 %525, %508
   %527 = zext nneg i32 %526 to i64
-  %528 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %527
   %529 = load i8, ptr %528, align 1, !tbaa !153
   %530 = zext i8 %529 to i64
   %531 = or disjoint i32 %410, 32
@@ -1904,7 +1904,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 536:                                              ; preds = %524
   %537 = add nuw nsw i32 %526, 1
   %538 = zext nneg i32 %537 to i64
-  %539 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %538
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %538
   %540 = load i8, ptr %539, align 1, !tbaa !153
   %541 = icmp eq i8 %540, 0
   br i1 %541, label %542, label %478
@@ -1931,9 +1931,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %554 = phi i32 [ %547, %545 ], [ %410, %407 ]
   %555 = phi i32 [ %551, %545 ], [ %409, %407 ]
   %556 = lshr i64 %553, 53
-  %557 = getelementptr inbounds i8, ptr %418, i64 128
+  %557 = getelementptr inbounds nuw i8, ptr %418, i64 128
   %558 = load ptr, ptr %557, align 8, !tbaa !213
-  %559 = getelementptr inbounds i32, ptr %558, i64 %556
+  %559 = getelementptr inbounds nuw i32, ptr %558, i64 %556
   %560 = load i32, ptr %559, align 4, !tbaa !11
   %561 = ashr i32 %560, 9
   %562 = and i32 %560, 255
@@ -1963,8 +1963,8 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %577 = add nsw i32 %564, -11
   %578 = shl i64 %566, 11
   %579 = trunc nuw nsw i64 %556 to i32
-  %580 = getelementptr inbounds i8, ptr %418, i64 24
-  %581 = getelementptr inbounds i8, ptr %418, i64 32
+  %580 = getelementptr inbounds nuw i8, ptr %418, i64 24
+  %581 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %582 = load ptr, ptr %581, align 8, !tbaa !215
   %583 = load ptr, ptr %580, align 8, !tbaa !216
   %584 = ptrtoint ptr %582 to i64
@@ -1977,7 +1977,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %590, label %591, label %.loopexit
 
 591:                                              ; preds = %575
-  %592 = getelementptr inbounds i8, ptr %418, i64 80
+  %592 = getelementptr inbounds nuw i8, ptr %418, i64 80
   %593 = load ptr, ptr %592, align 8, !tbaa !217
   br label %594
 
@@ -1988,7 +1988,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %598 = phi i16 [ %589, %591 ], [ %616, %606 ]
   %599 = phi i8 [ 11, %591 ], [ %615, %606 ]
   %600 = phi i32 [ %579, %591 ], [ %614, %606 ]
-  %601 = getelementptr inbounds i16, ptr %593, i64 %597
+  %601 = getelementptr inbounds nuw i16, ptr %593, i64 %597
   %602 = load i16, ptr %601, align 2, !tbaa !170
   %603 = icmp eq i16 %602, -1
   %604 = icmp ult i16 %602, %598
@@ -2022,7 +2022,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %625, label %632, label %626
 
 626:                                              ; preds = %.loopexit
-  %627 = getelementptr inbounds i8, ptr %418, i64 80
+  %627 = getelementptr inbounds nuw i8, ptr %418, i64 80
   %628 = load ptr, ptr %627, align 8, !tbaa !217
   %629 = getelementptr inbounds i16, ptr %628, i64 %624
   %630 = load i16, ptr %629, align 2, !tbaa !170
@@ -2037,7 +2037,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 635:                                              ; preds = %626
   %636 = and i32 %621, 65535
-  %637 = getelementptr inbounds i8, ptr %418, i64 104
+  %637 = getelementptr inbounds nuw i8, ptr %418, i64 104
   %638 = load ptr, ptr %637, align 8, !tbaa !217
   %639 = getelementptr inbounds i16, ptr %638, i64 %624
   %640 = load i16, ptr %639, align 2, !tbaa !170
@@ -2045,7 +2045,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %642 = sub nsw i32 %636, %641
   %643 = zext i32 %642 to i64
   %644 = load ptr, ptr %418, align 8, !tbaa !220
-  %645 = getelementptr inbounds i8, ptr %644, i64 %643
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 %643
   %646 = load i8, ptr %645, align 1, !tbaa !153
   br label %647
 
@@ -2064,7 +2064,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   ]
 
 654:                                              ; preds = %647
-  %655 = getelementptr inbounds i8, ptr %418, i64 73
+  %655 = getelementptr inbounds nuw i8, ptr %418, i64 73
   %656 = load i8, ptr %655, align 1, !tbaa !221, !range !127, !noundef !128
   %657 = icmp eq i8 %656, 0
   br i1 %657, label %677, label %658
@@ -2112,7 +2112,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %345)
   call void @llvm.assume(i1 %346)
   call void @llvm.assume(i1 %349)
-  %689 = getelementptr inbounds i16, ptr %351, i64 %685
+  %689 = getelementptr inbounds nuw i16, ptr %351, i64 %685
   store i16 %684, ptr %689, align 2, !tbaa !170
   %690 = add nuw nsw i64 %408, 1
   %691 = icmp eq i64 %690, 6
@@ -2130,16 +2130,16 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %8 = alloca [20 x i8], align 8
   %9 = alloca %"class.rawspeed::Cr2VerticalOutputStripIterator", align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !37
-  %11 = getelementptr inbounds i8, ptr %10, i64 560
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !155, !noalias !223, !nonnull !128, !noundef !128
-  %13 = getelementptr inbounds i8, ptr %10, i64 584
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 584
   %14 = load i32, ptr %13, align 8, !tbaa !104, !noalias !223
-  %15 = getelementptr inbounds i8, ptr %10, i64 600
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 600
   %16 = load i32, ptr %15, align 8, !tbaa !159, !noalias !223
   %17 = mul nsw i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %10, i64 604
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 604
   %19 = load i32, ptr %18, align 4, !tbaa !160, !noalias !223
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !223
   %22 = ashr i32 %21, 1
   %23 = mul nuw nsw i32 %22, %19
@@ -2160,21 +2160,21 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = load ptr, ptr %33, align 8, !tbaa !130, !noalias !232
   store ptr %34, ptr %6, align 8, !alias.scope !232
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !130, !noalias !232
   store ptr %37, ptr %35, align 8, !alias.scope !232
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !130, !noalias !232
   store ptr %40, ptr %38, align 8, !alias.scope !232
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = icmp eq ptr %33, %42
   br i1 %43, label %106, label %44
@@ -2256,11 +2256,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 .loopexit44:                                      ; preds = %.loopexit44.preheader, %.loopexit44
   %97 = phi ptr [ %102, %.loopexit44 ], [ %.ph258, %.loopexit44.preheader ]
   %98 = phi ptr [ %101, %.loopexit44 ], [ %.ph259, %.loopexit44.preheader ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i16, ptr %99, align 8, !tbaa !169
   store i16 %100, ptr %97, align 2, !tbaa !170
-  %101 = getelementptr inbounds i8, ptr %98, i64 16
-  %102 = getelementptr inbounds i8, ptr %97, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %103 = icmp eq ptr %101, %42
   br i1 %103, label %104, label %.loopexit44, !llvm.loop !239
 
@@ -2278,9 +2278,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %109 = icmp samesign ugt i32 %17, 3
   tail call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
-  %110 = getelementptr inbounds i8, ptr %0, i64 80
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %111 = load ptr, ptr %110, align 8, !tbaa !12, !nonnull !128, !noundef !128
-  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load i32, ptr %112, align 8, !tbaa !11
   store i64 0, ptr %8, align 8
   %114 = icmp sgt i32 %113, -1
@@ -2293,18 +2293,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   unreachable
 
 117:                                              ; preds = %106
-  %.12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 -1, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !180
-  %118 = getelementptr inbounds i8, ptr %0, i64 44
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %119 = load i32, ptr %118, align 4, !noalias !240
   %120 = icmp sgt i32 %119, -1
   tail call void @llvm.assume(i1 %120)
-  %121 = getelementptr inbounds i8, ptr %0, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = load i32, ptr %121, align 8, !tbaa !6, !noalias !245
-  %123 = getelementptr inbounds i8, ptr %0, i64 28
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %124 = icmp ne i32 %119, 0
   tail call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = load i32, ptr %125, align 8, !noalias !240
   %127 = load i32, ptr %123, align 4, !noalias !240
   %128 = tail call i32 @llvm.umin.i32(i32 %122, i32 %126)
@@ -2345,7 +2345,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %156)
   %157 = icmp eq i32 %148, %119
   %158 = select i1 %157, i64 8, i64 4
-  %159 = getelementptr inbounds i8, ptr %118, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %118, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !11, !noalias !240
   %161 = icmp sgt i32 %151, -1
   tail call void @llvm.assume(i1 %161)
@@ -2395,7 +2395,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %195)
   %196 = icmp eq i32 %190, %119
   %197 = select i1 %196, i64 8, i64 4
-  %198 = getelementptr inbounds i8, ptr %118, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr %118, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !11, !noalias !240
   tail call void @llvm.assume(i1 %188)
   tail call void @llvm.assume(i1 %187)
@@ -2413,27 +2413,27 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %209 = or disjoint i64 %207, %208
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #19
   store ptr %123, ptr %9, align 8, !tbaa !12
-  %210 = getelementptr inbounds i8, ptr %9, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %122, ptr %210, align 8, !tbaa !11
-  %211 = getelementptr inbounds i8, ptr %9, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %118, ptr %211, align 8, !tbaa !12
-  %212 = getelementptr inbounds i8, ptr %9, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %212, align 8, !tbaa !11
-  %213 = getelementptr inbounds i8, ptr %9, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %213, align 8, !tbaa.struct !34
-  %214 = getelementptr inbounds i8, ptr %9, i64 40
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %214, align 8, !tbaa !11
-  %215 = getelementptr inbounds i8, ptr %9, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %123, ptr %215, align 8, !tbaa !12
-  %216 = getelementptr inbounds i8, ptr %9, i64 56
+  %216 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %122, ptr %216, align 8, !tbaa !11
-  %217 = getelementptr inbounds i8, ptr %9, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %118, ptr %217, align 8, !tbaa !12
-  %218 = getelementptr inbounds i8, ptr %9, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %191, ptr %218, align 8, !tbaa !11
-  %219 = getelementptr inbounds i8, ptr %9, i64 80
+  %219 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 %209, ptr %219, align 8, !tbaa.struct !24
-  %220 = getelementptr inbounds i8, ptr %9, i64 88
+  %220 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %192, ptr %220, align 8, !tbaa !11
   %221 = or i32 %192, %191
   %222 = icmp eq i32 %221, 0
@@ -2444,19 +2444,19 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %238
 
 224:                                              ; preds = %.loopexit42
-  %225 = getelementptr inbounds i8, ptr %4, i64 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 36
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %227 = add nuw nsw i32 %113, 16
-  %228 = getelementptr inbounds i8, ptr %3, i64 16
-  %229 = getelementptr inbounds i8, ptr %9, i64 36
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %230 = zext nneg i32 %17 to i64
-  %231 = getelementptr inbounds i8, ptr %7, i64 2
-  %.12..12..12..12..sroa_idx260 = getelementptr inbounds i8, ptr %8, i64 12
-  %.12..12..12..12..sroa_idx261 = getelementptr inbounds i8, ptr %8, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %.12..12..12..12..sroa_idx260 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx261 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %240
 
 232:                                              ; preds = %.loopexit39
-  %.12..12..12..12..sroa_idx262 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx262 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.12..12..12..12.4 = load i32, ptr %.12..12..12..12..sroa_idx262, align 4
   %233 = freeze i32 %.12..12..12..12.4
   %234 = icmp ult i32 %263, 65
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 274:                                              ; preds = %.loopexit40
   %275 = sext i32 %267 to i64
-  %276 = getelementptr inbounds i8, ptr %269, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %269, i64 4
   br label %277
 
 277:                                              ; preds = %318, %274
@@ -2537,7 +2537,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %284 = add nuw nsw i32 %279, 1
   %285 = icmp eq i32 %284, %282
   %286 = select i1 %285, i64 8, i64 4
-  %287 = getelementptr inbounds i8, ptr %271, i64 %286
+  %287 = getelementptr inbounds nuw i8, ptr %271, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !11
   %289 = load i64, ptr %213, align 8, !tbaa.struct !40
   %290 = lshr i64 %289, 32
@@ -2635,7 +2635,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %348 = add nuw nsw i32 %347, %17
   %349 = icmp ule i32 %348, %23
   %350 = zext nneg i32 %347 to i64
-  %351 = getelementptr inbounds i16, ptr %12, i64 %350
+  %351 = getelementptr inbounds nuw i16, ptr %12, i64 %350
   %352 = load i32, ptr %121, align 8
   br label %362
 
@@ -2669,7 +2669,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 372:                                              ; preds = %362
   %373 = load i16, ptr %365, align 2, !tbaa !170
   store i16 %373, ptr %7, align 8, !tbaa !170
-  %374 = getelementptr inbounds i8, ptr %365, i64 4
+  %374 = getelementptr inbounds nuw i8, ptr %365, i64 4
   %375 = load <2 x i16>, ptr %374, align 2, !tbaa !170
   store <2 x i16> %375, ptr %231, align 2, !tbaa !170
   call void @llvm.assume(i1 %345)
@@ -2684,7 +2684,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %380 = icmp samesign ule i32 %379, %17
   call void @llvm.assume(i1 %380)
   %381 = zext nneg i32 %378 to i64
-  %382 = getelementptr inbounds i16, ptr %351, i64 %381
+  %382 = getelementptr inbounds nuw i16, ptr %351, i64 %381
   %383 = add nsw i32 %363, 1
   %384 = icmp slt i32 %383, %352
   call void @llvm.assume(i1 %384)
@@ -2733,7 +2733,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %416 = select i1 %412, i64 0, i64 %415
   %417 = getelementptr inbounds [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
   %418 = load ptr, ptr %417, align 8, !tbaa !211
-  %419 = getelementptr inbounds i8, ptr %418, i64 72
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 72
   %420 = load i8, ptr %419, align 8, !tbaa !133, !range !127, !noundef !128
   %421 = icmp ne i8 %420, 0
   call void @llvm.assume(i1 %421)
@@ -2751,7 +2751,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 428:                                              ; preds = %425
   %429 = zext nneg i32 %409 to i64
-  %430 = getelementptr inbounds i8, ptr %111, i64 %429
+  %430 = getelementptr inbounds nuw i8, ptr %111, i64 %429
   br label %443
 
 431:                                              ; preds = %425
@@ -2771,7 +2771,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %439 = icmp ult i32 %438, 9
   call void @llvm.assume(i1 %439)
   %440 = zext nneg i32 %435 to i64
-  %441 = getelementptr inbounds i8, ptr %111, i64 %440
+  %441 = getelementptr inbounds nuw i8, ptr %111, i64 %440
   %442 = zext nneg i32 %438 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 1 %441, i64 %442, i1 false)
   br label %443
@@ -2840,7 +2840,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 489:                                              ; preds = %476, %458
   %490 = phi i32 [ 1, %458 ], [ 2, %476 ]
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %491
   %493 = load i8, ptr %492, align 1, !tbaa !153
   %494 = zext i8 %493 to i64
   %495 = add nuw nsw i32 %410, 16
@@ -2853,7 +2853,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 500:                                              ; preds = %489
   %501 = add nuw nsw i32 %490, 1
   %502 = zext nneg i32 %501 to i64
-  %503 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %502
   %504 = load i8, ptr %503, align 1, !tbaa !153
   %505 = icmp eq i8 %504, 0
   br i1 %505, label %506, label %478
@@ -2862,7 +2862,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %507 = phi i32 [ 1, %489 ], [ 2, %500 ]
   %508 = add nuw nsw i32 %507, %490
   %509 = zext nneg i32 %508 to i64
-  %510 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %509
   %511 = load i8, ptr %510, align 1, !tbaa !153
   %512 = zext i8 %511 to i64
   %513 = add nuw nsw i32 %410, 24
@@ -2875,7 +2875,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 518:                                              ; preds = %506
   %519 = add nuw nsw i32 %508, 1
   %520 = zext nneg i32 %519 to i64
-  %521 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %520
   %522 = load i8, ptr %521, align 1, !tbaa !153
   %523 = icmp eq i8 %522, 0
   br i1 %523, label %524, label %478
@@ -2884,7 +2884,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %525 = phi i32 [ 1, %506 ], [ 2, %518 ]
   %526 = add nuw nsw i32 %525, %508
   %527 = zext nneg i32 %526 to i64
-  %528 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %527
   %529 = load i8, ptr %528, align 1, !tbaa !153
   %530 = zext i8 %529 to i64
   %531 = or disjoint i32 %410, 32
@@ -2897,7 +2897,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 536:                                              ; preds = %524
   %537 = add nuw nsw i32 %526, 1
   %538 = zext nneg i32 %537 to i64
-  %539 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %538
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %538
   %540 = load i8, ptr %539, align 1, !tbaa !153
   %541 = icmp eq i8 %540, 0
   br i1 %541, label %542, label %478
@@ -2924,9 +2924,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %554 = phi i32 [ %547, %545 ], [ %410, %407 ]
   %555 = phi i32 [ %551, %545 ], [ %409, %407 ]
   %556 = lshr i64 %553, 53
-  %557 = getelementptr inbounds i8, ptr %418, i64 128
+  %557 = getelementptr inbounds nuw i8, ptr %418, i64 128
   %558 = load ptr, ptr %557, align 8, !tbaa !213
-  %559 = getelementptr inbounds i32, ptr %558, i64 %556
+  %559 = getelementptr inbounds nuw i32, ptr %558, i64 %556
   %560 = load i32, ptr %559, align 4, !tbaa !11
   %561 = ashr i32 %560, 9
   %562 = and i32 %560, 255
@@ -2956,8 +2956,8 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %577 = add nsw i32 %564, -11
   %578 = shl i64 %566, 11
   %579 = trunc nuw nsw i64 %556 to i32
-  %580 = getelementptr inbounds i8, ptr %418, i64 24
-  %581 = getelementptr inbounds i8, ptr %418, i64 32
+  %580 = getelementptr inbounds nuw i8, ptr %418, i64 24
+  %581 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %582 = load ptr, ptr %581, align 8, !tbaa !215
   %583 = load ptr, ptr %580, align 8, !tbaa !216
   %584 = ptrtoint ptr %582 to i64
@@ -2970,7 +2970,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %590, label %591, label %.loopexit
 
 591:                                              ; preds = %575
-  %592 = getelementptr inbounds i8, ptr %418, i64 80
+  %592 = getelementptr inbounds nuw i8, ptr %418, i64 80
   %593 = load ptr, ptr %592, align 8, !tbaa !217
   br label %594
 
@@ -2981,7 +2981,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %598 = phi i16 [ %589, %591 ], [ %616, %606 ]
   %599 = phi i8 [ 11, %591 ], [ %615, %606 ]
   %600 = phi i32 [ %579, %591 ], [ %614, %606 ]
-  %601 = getelementptr inbounds i16, ptr %593, i64 %597
+  %601 = getelementptr inbounds nuw i16, ptr %593, i64 %597
   %602 = load i16, ptr %601, align 2, !tbaa !170
   %603 = icmp eq i16 %602, -1
   %604 = icmp ult i16 %602, %598
@@ -3015,7 +3015,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %625, label %632, label %626
 
 626:                                              ; preds = %.loopexit
-  %627 = getelementptr inbounds i8, ptr %418, i64 80
+  %627 = getelementptr inbounds nuw i8, ptr %418, i64 80
   %628 = load ptr, ptr %627, align 8, !tbaa !217
   %629 = getelementptr inbounds i16, ptr %628, i64 %624
   %630 = load i16, ptr %629, align 2, !tbaa !170
@@ -3030,7 +3030,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 635:                                              ; preds = %626
   %636 = and i32 %621, 65535
-  %637 = getelementptr inbounds i8, ptr %418, i64 104
+  %637 = getelementptr inbounds nuw i8, ptr %418, i64 104
   %638 = load ptr, ptr %637, align 8, !tbaa !217
   %639 = getelementptr inbounds i16, ptr %638, i64 %624
   %640 = load i16, ptr %639, align 2, !tbaa !170
@@ -3038,7 +3038,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %642 = sub nsw i32 %636, %641
   %643 = zext i32 %642 to i64
   %644 = load ptr, ptr %418, align 8, !tbaa !220
-  %645 = getelementptr inbounds i8, ptr %644, i64 %643
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 %643
   %646 = load i8, ptr %645, align 1, !tbaa !153
   br label %647
 
@@ -3057,7 +3057,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   ]
 
 654:                                              ; preds = %647
-  %655 = getelementptr inbounds i8, ptr %418, i64 73
+  %655 = getelementptr inbounds nuw i8, ptr %418, i64 73
   %656 = load i8, ptr %655, align 1, !tbaa !221, !range !127, !noundef !128
   %657 = icmp eq i8 %656, 0
   br i1 %657, label %677, label %658
@@ -3105,7 +3105,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %345)
   call void @llvm.assume(i1 %346)
   call void @llvm.assume(i1 %349)
-  %689 = getelementptr inbounds i16, ptr %351, i64 %685
+  %689 = getelementptr inbounds nuw i16, ptr %351, i64 %685
   store i16 %684, ptr %689, align 2, !tbaa !170
   %690 = add nuw nsw i64 %408, 1
   %691 = icmp eq i64 %690, 4
@@ -3123,16 +3123,16 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %8 = alloca [20 x i8], align 8
   %9 = alloca %"class.rawspeed::Cr2VerticalOutputStripIterator", align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !37
-  %11 = getelementptr inbounds i8, ptr %10, i64 560
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !155, !noalias !257, !nonnull !128, !noundef !128
-  %13 = getelementptr inbounds i8, ptr %10, i64 584
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 584
   %14 = load i32, ptr %13, align 8, !tbaa !104, !noalias !257
-  %15 = getelementptr inbounds i8, ptr %10, i64 600
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 600
   %16 = load i32, ptr %15, align 8, !tbaa !159, !noalias !257
   %17 = mul nsw i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %10, i64 604
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 604
   %19 = load i32, ptr %18, align 4, !tbaa !160, !noalias !257
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !257
   %22 = ashr i32 %21, 1
   %23 = mul nuw nsw i32 %22, %19
@@ -3150,15 +3150,15 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %30 = icmp ne i32 %19, 0
   %31 = xor i1 %29, %30
   tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = load ptr, ptr %33, align 8, !tbaa !130
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !130
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !12
   %39 = icmp eq ptr %33, %38
   br i1 %39, label %102, label %40
@@ -3240,11 +3240,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 .loopexit43:                                      ; preds = %.loopexit43.preheader, %.loopexit43
   %93 = phi ptr [ %98, %.loopexit43 ], [ %.ph258, %.loopexit43.preheader ]
   %94 = phi ptr [ %97, %.loopexit43 ], [ %.ph259, %.loopexit43.preheader ]
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i16, ptr %95, align 8, !tbaa !169
   store i16 %96, ptr %93, align 2, !tbaa !170
-  %97 = getelementptr inbounds i8, ptr %94, i64 16
-  %98 = getelementptr inbounds i8, ptr %93, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %99 = icmp eq ptr %97, %38
   br i1 %99, label %100, label %.loopexit43, !llvm.loop !266
 
@@ -3266,9 +3266,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %108 = icmp samesign ugt i32 %17, 1
   tail call void @llvm.assume(i1 %108)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
-  %109 = getelementptr inbounds i8, ptr %0, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %110 = load ptr, ptr %109, align 8, !tbaa !12, !nonnull !128, !noundef !128
-  %111 = getelementptr inbounds i8, ptr %0, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %112 = load i32, ptr %111, align 8, !tbaa !11
   store i64 0, ptr %8, align 8
   %113 = icmp sgt i32 %112, -1
@@ -3281,18 +3281,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   unreachable
 
 116:                                              ; preds = %102
-  %.12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 -1, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !180
-  %117 = getelementptr inbounds i8, ptr %0, i64 44
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %118 = load i32, ptr %117, align 4, !noalias !267
   %119 = icmp sgt i32 %118, -1
   tail call void @llvm.assume(i1 %119)
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load i32, ptr %120, align 8, !tbaa !6, !noalias !272
-  %122 = getelementptr inbounds i8, ptr %0, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %123 = icmp ne i32 %118, 0
   tail call void @llvm.assume(i1 %123)
-  %124 = getelementptr inbounds i8, ptr %0, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %125 = load i32, ptr %124, align 8, !noalias !267
   %126 = load i32, ptr %122, align 4, !noalias !267
   %127 = tail call i32 @llvm.umin.i32(i32 %121, i32 %125)
@@ -3333,7 +3333,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %155)
   %156 = icmp eq i32 %147, %118
   %157 = select i1 %156, i64 8, i64 4
-  %158 = getelementptr inbounds i8, ptr %117, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %117, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !11, !noalias !267
   %160 = icmp sgt i32 %150, -1
   tail call void @llvm.assume(i1 %160)
@@ -3383,7 +3383,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %194)
   %195 = icmp eq i32 %189, %118
   %196 = select i1 %195, i64 8, i64 4
-  %197 = getelementptr inbounds i8, ptr %117, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr %117, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !11, !noalias !267
   tail call void @llvm.assume(i1 %187)
   tail call void @llvm.assume(i1 %186)
@@ -3401,27 +3401,27 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %208 = or disjoint i64 %206, %207
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #19
   store ptr %122, ptr %9, align 8, !tbaa !12
-  %209 = getelementptr inbounds i8, ptr %9, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %121, ptr %209, align 8, !tbaa !11
-  %210 = getelementptr inbounds i8, ptr %9, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %117, ptr %210, align 8, !tbaa !12
-  %211 = getelementptr inbounds i8, ptr %9, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %211, align 8, !tbaa !11
-  %212 = getelementptr inbounds i8, ptr %9, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %212, align 8, !tbaa.struct !34
-  %213 = getelementptr inbounds i8, ptr %9, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %213, align 8, !tbaa !11
-  %214 = getelementptr inbounds i8, ptr %9, i64 48
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %122, ptr %214, align 8, !tbaa !12
-  %215 = getelementptr inbounds i8, ptr %9, i64 56
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %121, ptr %215, align 8, !tbaa !11
-  %216 = getelementptr inbounds i8, ptr %9, i64 64
+  %216 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %117, ptr %216, align 8, !tbaa !12
-  %217 = getelementptr inbounds i8, ptr %9, i64 72
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %190, ptr %217, align 8, !tbaa !11
-  %218 = getelementptr inbounds i8, ptr %9, i64 80
+  %218 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 %208, ptr %218, align 8, !tbaa.struct !24
-  %219 = getelementptr inbounds i8, ptr %9, i64 88
+  %219 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %191, ptr %219, align 8, !tbaa !11
   %220 = or i32 %191, %190
   %221 = icmp eq i32 %220, 0
@@ -3432,18 +3432,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %236
 
 223:                                              ; preds = %.loopexit41
-  %224 = getelementptr inbounds i8, ptr %4, i64 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 36
+  %224 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %226 = add nuw nsw i32 %112, 16
-  %227 = getelementptr inbounds i8, ptr %3, i64 16
-  %228 = getelementptr inbounds i8, ptr %9, i64 36
+  %227 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %229 = zext nneg i32 %17 to i64
-  %.12..12..12..12..sroa_idx260 = getelementptr inbounds i8, ptr %8, i64 12
-  %.12..12..12..12..sroa_idx261 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx260 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx261 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %238
 
 230:                                              ; preds = %.loopexit38
-  %.12..12..12..12..sroa_idx262 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx262 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.12..12..12..12.4 = load i32, ptr %.12..12..12..12..sroa_idx262, align 4
   %231 = freeze i32 %.12..12..12..12.4
   %232 = icmp ult i32 %261, 65
@@ -3510,7 +3510,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 272:                                              ; preds = %.loopexit39
   %273 = sext i32 %265 to i64
-  %274 = getelementptr inbounds i8, ptr %267, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %267, i64 4
   br label %275
 
 275:                                              ; preds = %316, %272
@@ -3524,7 +3524,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %282 = add nuw nsw i32 %277, 1
   %283 = icmp eq i32 %282, %280
   %284 = select i1 %283, i64 8, i64 4
-  %285 = getelementptr inbounds i8, ptr %269, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %269, i64 %284
   %286 = load i32, ptr %285, align 4, !tbaa !11
   %287 = load i64, ptr %212, align 8, !tbaa.struct !40
   %288 = lshr i64 %287, 32
@@ -3622,7 +3622,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %346 = add nuw nsw i32 %345, %17
   %347 = icmp ule i32 %346, %23
   %348 = zext nneg i32 %345 to i64
-  %349 = getelementptr inbounds i16, ptr %12, i64 %348
+  %349 = getelementptr inbounds nuw i16, ptr %12, i64 %348
   %350 = load i32, ptr %120, align 8
   br label %360
 
@@ -3672,7 +3672,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %379 = icmp samesign ule i32 %378, %17
   call void @llvm.assume(i1 %379)
   %380 = zext nneg i32 %377 to i64
-  %381 = getelementptr inbounds i16, ptr %349, i64 %380
+  %381 = getelementptr inbounds nuw i16, ptr %349, i64 %380
   %382 = add nsw i32 %361, 1
   %383 = icmp slt i32 %382, %350
   call void @llvm.assume(i1 %383)
@@ -3720,7 +3720,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %412 = phi i32 [ %400, %399 ], [ %550, %672 ]
   %413 = phi i32 [ %401, %399 ], [ %674, %672 ]
   %414 = phi i64 [ %402, %399 ], [ %673, %672 ]
-  %415 = getelementptr inbounds i8, ptr %410, i64 72
+  %415 = getelementptr inbounds nuw i8, ptr %410, i64 72
   %416 = load i8, ptr %415, align 8, !tbaa !133, !range !127, !noundef !128
   %417 = icmp ne i8 %416, 0
   call void @llvm.assume(i1 %417)
@@ -3736,7 +3736,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 423:                                              ; preds = %420
   %424 = zext nneg i32 %412 to i64
-  %425 = getelementptr inbounds i8, ptr %110, i64 %424
+  %425 = getelementptr inbounds nuw i8, ptr %110, i64 %424
   br label %438
 
 426:                                              ; preds = %420
@@ -3756,7 +3756,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %434 = icmp ult i32 %433, 9
   call void @llvm.assume(i1 %434)
   %435 = zext nneg i32 %430 to i64
-  %436 = getelementptr inbounds i8, ptr %110, i64 %435
+  %436 = getelementptr inbounds nuw i8, ptr %110, i64 %435
   %437 = zext nneg i32 %433 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 1 %436, i64 %437, i1 false)
   br label %438
@@ -3825,7 +3825,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 484:                                              ; preds = %471, %453
   %485 = phi i32 [ 1, %453 ], [ 2, %471 ]
   %486 = zext nneg i32 %485 to i64
-  %487 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %486
   %488 = load i8, ptr %487, align 1, !tbaa !153
   %489 = zext i8 %488 to i64
   %490 = add nuw nsw i32 %413, 16
@@ -3838,7 +3838,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 495:                                              ; preds = %484
   %496 = add nuw nsw i32 %485, 1
   %497 = zext nneg i32 %496 to i64
-  %498 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %497
   %499 = load i8, ptr %498, align 1, !tbaa !153
   %500 = icmp eq i8 %499, 0
   br i1 %500, label %501, label %473
@@ -3847,7 +3847,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %502 = phi i32 [ 1, %484 ], [ 2, %495 ]
   %503 = add nuw nsw i32 %502, %485
   %504 = zext nneg i32 %503 to i64
-  %505 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %504
   %506 = load i8, ptr %505, align 1, !tbaa !153
   %507 = zext i8 %506 to i64
   %508 = add nuw nsw i32 %413, 24
@@ -3860,7 +3860,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 513:                                              ; preds = %501
   %514 = add nuw nsw i32 %503, 1
   %515 = zext nneg i32 %514 to i64
-  %516 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %515
   %517 = load i8, ptr %516, align 1, !tbaa !153
   %518 = icmp eq i8 %517, 0
   br i1 %518, label %519, label %473
@@ -3869,7 +3869,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %520 = phi i32 [ 1, %501 ], [ 2, %513 ]
   %521 = add nuw nsw i32 %520, %503
   %522 = zext nneg i32 %521 to i64
-  %523 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %522
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %522
   %524 = load i8, ptr %523, align 1, !tbaa !153
   %525 = zext i8 %524 to i64
   %526 = or disjoint i32 %413, 32
@@ -3882,7 +3882,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 531:                                              ; preds = %519
   %532 = add nuw nsw i32 %521, 1
   %533 = zext nneg i32 %532 to i64
-  %534 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %533
   %535 = load i8, ptr %534, align 1, !tbaa !153
   %536 = icmp eq i8 %535, 0
   br i1 %536, label %537, label %473
@@ -3909,9 +3909,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %549 = phi i32 [ %542, %540 ], [ %413, %407 ]
   %550 = phi i32 [ %546, %540 ], [ %412, %407 ]
   %551 = lshr i64 %548, 53
-  %552 = getelementptr inbounds i8, ptr %410, i64 128
+  %552 = getelementptr inbounds nuw i8, ptr %410, i64 128
   %553 = load ptr, ptr %552, align 8, !tbaa !213
-  %554 = getelementptr inbounds i32, ptr %553, i64 %551
+  %554 = getelementptr inbounds nuw i32, ptr %553, i64 %551
   %555 = load i32, ptr %554, align 4, !tbaa !11
   %556 = ashr i32 %555, 9
   %557 = and i32 %555, 255
@@ -3941,8 +3941,8 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %572 = add nsw i32 %559, -11
   %573 = shl i64 %561, 11
   %574 = trunc nuw nsw i64 %551 to i32
-  %575 = getelementptr inbounds i8, ptr %410, i64 24
-  %576 = getelementptr inbounds i8, ptr %410, i64 32
+  %575 = getelementptr inbounds nuw i8, ptr %410, i64 24
+  %576 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %577 = load ptr, ptr %576, align 8, !tbaa !215
   %578 = load ptr, ptr %575, align 8, !tbaa !216
   %579 = ptrtoint ptr %577 to i64
@@ -3955,7 +3955,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %585, label %586, label %.loopexit
 
 586:                                              ; preds = %570
-  %587 = getelementptr inbounds i8, ptr %410, i64 80
+  %587 = getelementptr inbounds nuw i8, ptr %410, i64 80
   %588 = load ptr, ptr %587, align 8, !tbaa !217
   br label %589
 
@@ -3966,7 +3966,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %593 = phi i16 [ %584, %586 ], [ %611, %601 ]
   %594 = phi i8 [ 11, %586 ], [ %610, %601 ]
   %595 = phi i32 [ %574, %586 ], [ %609, %601 ]
-  %596 = getelementptr inbounds i16, ptr %588, i64 %592
+  %596 = getelementptr inbounds nuw i16, ptr %588, i64 %592
   %597 = load i16, ptr %596, align 2, !tbaa !170
   %598 = icmp eq i16 %597, -1
   %599 = icmp ult i16 %597, %593
@@ -4000,7 +4000,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %620, label %627, label %621
 
 621:                                              ; preds = %.loopexit
-  %622 = getelementptr inbounds i8, ptr %410, i64 80
+  %622 = getelementptr inbounds nuw i8, ptr %410, i64 80
   %623 = load ptr, ptr %622, align 8, !tbaa !217
   %624 = getelementptr inbounds i16, ptr %623, i64 %619
   %625 = load i16, ptr %624, align 2, !tbaa !170
@@ -4015,7 +4015,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 630:                                              ; preds = %621
   %631 = and i32 %616, 65535
-  %632 = getelementptr inbounds i8, ptr %410, i64 104
+  %632 = getelementptr inbounds nuw i8, ptr %410, i64 104
   %633 = load ptr, ptr %632, align 8, !tbaa !217
   %634 = getelementptr inbounds i16, ptr %633, i64 %619
   %635 = load i16, ptr %634, align 2, !tbaa !170
@@ -4023,7 +4023,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %637 = sub nsw i32 %631, %636
   %638 = zext i32 %637 to i64
   %639 = load ptr, ptr %410, align 8, !tbaa !220
-  %640 = getelementptr inbounds i8, ptr %639, i64 %638
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 %638
   %641 = load i8, ptr %640, align 1, !tbaa !153
   br label %642
 
@@ -4042,7 +4042,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   ]
 
 649:                                              ; preds = %642
-  %650 = getelementptr inbounds i8, ptr %410, i64 73
+  %650 = getelementptr inbounds nuw i8, ptr %410, i64 73
   %651 = load i8, ptr %650, align 1, !tbaa !221, !range !127, !noundef !128
   %652 = icmp eq i8 %651, 0
   br i1 %652, label %672, label %653
@@ -4087,7 +4087,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %343)
   call void @llvm.assume(i1 %344)
   call void @llvm.assume(i1 %347)
-  %681 = getelementptr inbounds i16, ptr %349, i64 %679
+  %681 = getelementptr inbounds nuw i16, ptr %349, i64 %679
   store i16 %678, ptr %681, align 2, !tbaa !170
   br i1 %408, label %407, label %405, !llvm.loop !283
 }
@@ -4103,16 +4103,16 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %8 = alloca [20 x i8], align 8
   %9 = alloca %"class.rawspeed::Cr2VerticalOutputStripIterator", align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !37
-  %11 = getelementptr inbounds i8, ptr %10, i64 560
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !155, !noalias !284, !nonnull !128, !noundef !128
-  %13 = getelementptr inbounds i8, ptr %10, i64 584
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 584
   %14 = load i32, ptr %13, align 8, !tbaa !104, !noalias !284
-  %15 = getelementptr inbounds i8, ptr %10, i64 600
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 600
   %16 = load i32, ptr %15, align 8, !tbaa !159, !noalias !284
   %17 = mul nsw i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %10, i64 604
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 604
   %19 = load i32, ptr %18, align 4, !tbaa !160, !noalias !284
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !284
   %22 = ashr i32 %21, 1
   %23 = mul nuw nsw i32 %22, %19
@@ -4133,25 +4133,25 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = load ptr, ptr %33, align 8, !tbaa !130, !noalias !293
   store ptr %34, ptr %6, align 8, !alias.scope !293
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !130, !noalias !293
   store ptr %37, ptr %35, align 8, !alias.scope !293
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !130, !noalias !293
   store ptr %40, ptr %38, align 8, !alias.scope !293
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
-  %42 = getelementptr inbounds i8, ptr %33, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !130, !noalias !293
   store ptr %43, ptr %41, align 8, !alias.scope !293
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !12
   %46 = icmp eq ptr %33, %45
   br i1 %46, label %94, label %47
@@ -4217,11 +4217,11 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 .loopexit44:                                      ; preds = %.loopexit44.preheader, %.loopexit44
   %85 = phi ptr [ %90, %.loopexit44 ], [ %.ph258, %.loopexit44.preheader ]
   %86 = phi ptr [ %89, %.loopexit44 ], [ %.ph259, %.loopexit44.preheader ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i16, ptr %87, align 8, !tbaa !169
   store i16 %88, ptr %85, align 2, !tbaa !170
-  %89 = getelementptr inbounds i8, ptr %86, i64 16
-  %90 = getelementptr inbounds i8, ptr %85, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %91 = icmp eq ptr %89, %45
   br i1 %91, label %92, label %.loopexit44, !llvm.loop !300
 
@@ -4239,9 +4239,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %97 = icmp samesign ugt i32 %17, 3
   tail call void @llvm.assume(i1 %97)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %99 = load ptr, ptr %98, align 8, !tbaa !12, !nonnull !128, !noundef !128
-  %100 = getelementptr inbounds i8, ptr %0, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %101 = load i32, ptr %100, align 8, !tbaa !11
   store i64 0, ptr %8, align 8
   %102 = icmp sgt i32 %101, -1
@@ -4254,18 +4254,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   unreachable
 
 105:                                              ; preds = %94
-  %.12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 -1, ptr %.12..12..12..12..sroa_idx, align 4, !tbaa !180
-  %106 = getelementptr inbounds i8, ptr %0, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %107 = load i32, ptr %106, align 4, !noalias !301
   %108 = icmp sgt i32 %107, -1
   tail call void @llvm.assume(i1 %108)
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %110 = load i32, ptr %109, align 8, !tbaa !6, !noalias !306
-  %111 = getelementptr inbounds i8, ptr %0, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %112 = icmp ne i32 %107, 0
   tail call void @llvm.assume(i1 %112)
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load i32, ptr %113, align 8, !noalias !301
   %115 = load i32, ptr %111, align 4, !noalias !301
   %116 = tail call i32 @llvm.umin.i32(i32 %110, i32 %114)
@@ -4306,7 +4306,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %144)
   %145 = icmp eq i32 %136, %107
   %146 = select i1 %145, i64 8, i64 4
-  %147 = getelementptr inbounds i8, ptr %106, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %106, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !11, !noalias !301
   %149 = icmp sgt i32 %139, -1
   tail call void @llvm.assume(i1 %149)
@@ -4356,7 +4356,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   tail call void @llvm.assume(i1 %183)
   %184 = icmp eq i32 %178, %107
   %185 = select i1 %184, i64 8, i64 4
-  %186 = getelementptr inbounds i8, ptr %106, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %106, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !11, !noalias !301
   tail call void @llvm.assume(i1 %176)
   tail call void @llvm.assume(i1 %175)
@@ -4374,27 +4374,27 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %197 = or disjoint i64 %195, %196
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #19
   store ptr %111, ptr %9, align 8, !tbaa !12
-  %198 = getelementptr inbounds i8, ptr %9, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %110, ptr %198, align 8, !tbaa !11
-  %199 = getelementptr inbounds i8, ptr %9, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %106, ptr %199, align 8, !tbaa !12
-  %200 = getelementptr inbounds i8, ptr %9, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %200, align 8, !tbaa !11
-  %201 = getelementptr inbounds i8, ptr %9, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %201, align 8, !tbaa.struct !34
-  %202 = getelementptr inbounds i8, ptr %9, i64 40
+  %202 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %202, align 8, !tbaa !11
-  %203 = getelementptr inbounds i8, ptr %9, i64 48
+  %203 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %111, ptr %203, align 8, !tbaa !12
-  %204 = getelementptr inbounds i8, ptr %9, i64 56
+  %204 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %110, ptr %204, align 8, !tbaa !11
-  %205 = getelementptr inbounds i8, ptr %9, i64 64
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %106, ptr %205, align 8, !tbaa !12
-  %206 = getelementptr inbounds i8, ptr %9, i64 72
+  %206 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %179, ptr %206, align 8, !tbaa !11
-  %207 = getelementptr inbounds i8, ptr %9, i64 80
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 %197, ptr %207, align 8, !tbaa.struct !24
-  %208 = getelementptr inbounds i8, ptr %9, i64 88
+  %208 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %180, ptr %208, align 8, !tbaa !11
   %209 = or i32 %180, %179
   %210 = icmp eq i32 %209, 0
@@ -4405,18 +4405,18 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %225
 
 212:                                              ; preds = %.loopexit42
-  %213 = getelementptr inbounds i8, ptr %4, i64 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 36
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %215 = add nuw nsw i32 %101, 16
-  %216 = getelementptr inbounds i8, ptr %3, i64 16
-  %217 = getelementptr inbounds i8, ptr %9, i64 36
+  %216 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %218 = zext nneg i32 %17 to i64
-  %.12..12..12..12..sroa_idx260 = getelementptr inbounds i8, ptr %8, i64 12
-  %.12..12..12..12..sroa_idx261 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx260 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx261 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %227
 
 219:                                              ; preds = %.loopexit39
-  %.12..12..12..12..sroa_idx262 = getelementptr inbounds i8, ptr %8, i64 12
+  %.12..12..12..12..sroa_idx262 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.12..12..12..12.4 = load i32, ptr %.12..12..12..12..sroa_idx262, align 4
   %220 = freeze i32 %.12..12..12..12.4
   %221 = icmp ult i32 %250, 65
@@ -4483,7 +4483,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 261:                                              ; preds = %.loopexit40
   %262 = sext i32 %254 to i64
-  %263 = getelementptr inbounds i8, ptr %256, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %256, i64 4
   br label %264
 
 264:                                              ; preds = %305, %261
@@ -4497,7 +4497,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %271 = add nuw nsw i32 %266, 1
   %272 = icmp eq i32 %271, %269
   %273 = select i1 %272, i64 8, i64 4
-  %274 = getelementptr inbounds i8, ptr %258, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr %258, i64 %273
   %275 = load i32, ptr %274, align 4, !tbaa !11
   %276 = load i64, ptr %201, align 8, !tbaa.struct !40
   %277 = lshr i64 %276, 32
@@ -4595,7 +4595,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %335 = add nuw nsw i32 %334, %17
   %336 = icmp ule i32 %335, %23
   %337 = zext nneg i32 %334 to i64
-  %338 = getelementptr inbounds i16, ptr %12, i64 %337
+  %338 = getelementptr inbounds nuw i16, ptr %12, i64 %337
   %339 = load i32, ptr %109, align 8
   br label %349
 
@@ -4641,7 +4641,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %365 = icmp samesign ule i32 %364, %17
   call void @llvm.assume(i1 %365)
   %366 = zext nneg i32 %363 to i64
-  %367 = getelementptr inbounds i16, ptr %338, i64 %366
+  %367 = getelementptr inbounds nuw i16, ptr %338, i64 %366
   %368 = add nsw i32 %350, 1
   %369 = icmp slt i32 %368, %339
   call void @llvm.assume(i1 %369)
@@ -4683,9 +4683,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %394 = phi i32 [ %384, %382 ], [ %534, %656 ]
   %395 = phi i32 [ %385, %382 ], [ %658, %656 ]
   %396 = phi i64 [ %386, %382 ], [ %657, %656 ]
-  %397 = getelementptr inbounds [4 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %393
+  %397 = getelementptr inbounds nuw [4 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %393
   %398 = load ptr, ptr %397, align 8, !tbaa !211
-  %399 = getelementptr inbounds i8, ptr %398, i64 72
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 72
   %400 = load i8, ptr %399, align 8, !tbaa !133, !range !127, !noundef !128
   %401 = icmp ne i8 %400, 0
   call void @llvm.assume(i1 %401)
@@ -4701,7 +4701,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 407:                                              ; preds = %404
   %408 = zext nneg i32 %394 to i64
-  %409 = getelementptr inbounds i8, ptr %99, i64 %408
+  %409 = getelementptr inbounds nuw i8, ptr %99, i64 %408
   br label %422
 
 410:                                              ; preds = %404
@@ -4721,7 +4721,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %418 = icmp ult i32 %417, 9
   call void @llvm.assume(i1 %418)
   %419 = zext nneg i32 %414 to i64
-  %420 = getelementptr inbounds i8, ptr %99, i64 %419
+  %420 = getelementptr inbounds nuw i8, ptr %99, i64 %419
   %421 = zext nneg i32 %417 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 1 %420, i64 %421, i1 false)
   br label %422
@@ -4790,7 +4790,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 468:                                              ; preds = %455, %437
   %469 = phi i32 [ 1, %437 ], [ 2, %455 ]
   %470 = zext nneg i32 %469 to i64
-  %471 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %470
   %472 = load i8, ptr %471, align 1, !tbaa !153
   %473 = zext i8 %472 to i64
   %474 = add nuw nsw i32 %395, 16
@@ -4803,7 +4803,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 479:                                              ; preds = %468
   %480 = add nuw nsw i32 %469, 1
   %481 = zext nneg i32 %480 to i64
-  %482 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %481
   %483 = load i8, ptr %482, align 1, !tbaa !153
   %484 = icmp eq i8 %483, 0
   br i1 %484, label %485, label %457
@@ -4812,7 +4812,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %486 = phi i32 [ 1, %468 ], [ 2, %479 ]
   %487 = add nuw nsw i32 %486, %469
   %488 = zext nneg i32 %487 to i64
-  %489 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %488
   %490 = load i8, ptr %489, align 1, !tbaa !153
   %491 = zext i8 %490 to i64
   %492 = add nuw nsw i32 %395, 24
@@ -4825,7 +4825,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 497:                                              ; preds = %485
   %498 = add nuw nsw i32 %487, 1
   %499 = zext nneg i32 %498 to i64
-  %500 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %499
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %499
   %501 = load i8, ptr %500, align 1, !tbaa !153
   %502 = icmp eq i8 %501, 0
   br i1 %502, label %503, label %457
@@ -4834,7 +4834,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %504 = phi i32 [ 1, %485 ], [ 2, %497 ]
   %505 = add nuw nsw i32 %504, %487
   %506 = zext nneg i32 %505 to i64
-  %507 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %506
   %508 = load i8, ptr %507, align 1, !tbaa !153
   %509 = zext i8 %508 to i64
   %510 = or disjoint i32 %395, 32
@@ -4847,7 +4847,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 515:                                              ; preds = %503
   %516 = add nuw nsw i32 %505, 1
   %517 = zext nneg i32 %516 to i64
-  %518 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %517
   %519 = load i8, ptr %518, align 1, !tbaa !153
   %520 = icmp eq i8 %519, 0
   br i1 %520, label %521, label %457
@@ -4874,9 +4874,9 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %533 = phi i32 [ %526, %524 ], [ %395, %392 ]
   %534 = phi i32 [ %530, %524 ], [ %394, %392 ]
   %535 = lshr i64 %532, 53
-  %536 = getelementptr inbounds i8, ptr %398, i64 128
+  %536 = getelementptr inbounds nuw i8, ptr %398, i64 128
   %537 = load ptr, ptr %536, align 8, !tbaa !213
-  %538 = getelementptr inbounds i32, ptr %537, i64 %535
+  %538 = getelementptr inbounds nuw i32, ptr %537, i64 %535
   %539 = load i32, ptr %538, align 4, !tbaa !11
   %540 = ashr i32 %539, 9
   %541 = and i32 %539, 255
@@ -4906,8 +4906,8 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %556 = add nsw i32 %543, -11
   %557 = shl i64 %545, 11
   %558 = trunc nuw nsw i64 %535 to i32
-  %559 = getelementptr inbounds i8, ptr %398, i64 24
-  %560 = getelementptr inbounds i8, ptr %398, i64 32
+  %559 = getelementptr inbounds nuw i8, ptr %398, i64 24
+  %560 = getelementptr inbounds nuw i8, ptr %398, i64 32
   %561 = load ptr, ptr %560, align 8, !tbaa !215
   %562 = load ptr, ptr %559, align 8, !tbaa !216
   %563 = ptrtoint ptr %561 to i64
@@ -4920,7 +4920,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %569, label %570, label %.loopexit
 
 570:                                              ; preds = %554
-  %571 = getelementptr inbounds i8, ptr %398, i64 80
+  %571 = getelementptr inbounds nuw i8, ptr %398, i64 80
   %572 = load ptr, ptr %571, align 8, !tbaa !217
   br label %573
 
@@ -4931,7 +4931,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %577 = phi i16 [ %568, %570 ], [ %595, %585 ]
   %578 = phi i8 [ 11, %570 ], [ %594, %585 ]
   %579 = phi i32 [ %558, %570 ], [ %593, %585 ]
-  %580 = getelementptr inbounds i16, ptr %572, i64 %576
+  %580 = getelementptr inbounds nuw i16, ptr %572, i64 %576
   %581 = load i16, ptr %580, align 2, !tbaa !170
   %582 = icmp eq i16 %581, -1
   %583 = icmp ult i16 %581, %577
@@ -4965,7 +4965,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br i1 %604, label %611, label %605
 
 605:                                              ; preds = %.loopexit
-  %606 = getelementptr inbounds i8, ptr %398, i64 80
+  %606 = getelementptr inbounds nuw i8, ptr %398, i64 80
   %607 = load ptr, ptr %606, align 8, !tbaa !217
   %608 = getelementptr inbounds i16, ptr %607, i64 %603
   %609 = load i16, ptr %608, align 2, !tbaa !170
@@ -4980,7 +4980,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
 
 614:                                              ; preds = %605
   %615 = and i32 %600, 65535
-  %616 = getelementptr inbounds i8, ptr %398, i64 104
+  %616 = getelementptr inbounds nuw i8, ptr %398, i64 104
   %617 = load ptr, ptr %616, align 8, !tbaa !217
   %618 = getelementptr inbounds i16, ptr %617, i64 %603
   %619 = load i16, ptr %618, align 2, !tbaa !170
@@ -4988,7 +4988,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %621 = sub nsw i32 %615, %620
   %622 = zext i32 %621 to i64
   %623 = load ptr, ptr %398, align 8, !tbaa !220
-  %624 = getelementptr inbounds i8, ptr %623, i64 %622
+  %624 = getelementptr inbounds nuw i8, ptr %623, i64 %622
   %625 = load i8, ptr %624, align 1, !tbaa !153
   br label %626
 
@@ -5007,7 +5007,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   ]
 
 633:                                              ; preds = %626
-  %634 = getelementptr inbounds i8, ptr %398, i64 73
+  %634 = getelementptr inbounds nuw i8, ptr %398, i64 73
   %635 = load i8, ptr %634, align 1, !tbaa !221, !range !127, !noundef !128
   %636 = icmp eq i8 %635, 0
   br i1 %636, label %656, label %637
@@ -5041,7 +5041,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %657 = phi i64 [ %545, %531 ], [ %650, %641 ], [ %629, %626 ], [ %629, %633 ], [ %640, %637 ]
   %658 = phi i32 [ %543, %531 ], [ %648, %641 ], [ %630, %626 ], [ %630, %633 ], [ %639, %637 ]
   %659 = phi i32 [ %540, %531 ], [ %655, %641 ], [ 0, %626 ], [ -32768, %633 ], [ -32768, %637 ]
-  %660 = getelementptr inbounds [4 x i16], ptr %7, i64 0, i64 %393
+  %660 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %393
   %661 = load i16, ptr %660, align 2, !tbaa !170
   %662 = trunc i32 %659 to i16
   %663 = add i16 %661, %662
@@ -5055,7 +5055,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %332)
   call void @llvm.assume(i1 %333)
   call void @llvm.assume(i1 %336)
-  %668 = getelementptr inbounds i16, ptr %338, i64 %664
+  %668 = getelementptr inbounds nuw i16, ptr %338, i64 %664
   store i16 %663, ptr %668, align 2, !tbaa !170
   %669 = add nuw nsw i64 %393, 1
   %670 = icmp eq i64 %669, 4
@@ -5068,10 +5068,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !151
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !153
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -5093,7 +5093,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !151
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %20
@@ -5184,32 +5184,32 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8rawspeed30Cr2VerticalOutputStripIterator8coalesceEv(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 4 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !11
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !12
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa.struct !24
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !11
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !197
   %16 = icmp eq ptr %3, %15
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load i32, ptr %17, align 8, !tbaa !201
   %19 = icmp eq i32 %5, %18
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !202
   %22 = icmp eq ptr %7, %21
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %24 = load i32, ptr %23, align 8, !tbaa !203
   %25 = icmp ne i32 %9, %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = load i32, ptr %26, align 8
   %28 = icmp ne i32 %13, %27
   %29 = select i1 %25, i1 true, i1 %28
@@ -5222,11 +5222,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed30Cr2VerticalOutputStripIterator8c
   %33 = add nuw nsw i32 %9, 1
   %34 = icmp eq i32 %33, %31
   %35 = select i1 %34, i64 8, i64 4
-  %36 = getelementptr inbounds i8, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = lshr i64 %11, 32
   %39 = trunc nuw i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !6
   %42 = sub nsw i32 %41, %39
   %43 = icmp sgt i32 %42, -1
@@ -5271,7 +5271,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed30Cr2VerticalOutputStripIterator8c
   %73 = add nuw nsw i32 %71, 1
   %74 = icmp eq i32 %73, %31
   %75 = select i1 %74, i64 8, i64 4
-  %76 = getelementptr inbounds i8, ptr %7, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = sub nsw i32 %41, %66
   %79 = icmp sgt i32 %78, -1
@@ -5326,9 +5326,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed30Cr2VerticalOutputStripIterator8c
   %115 = phi i64 [ %50, %2 ], [ %101, %96 ], [ %69, %92 ]
   %116 = phi i32 [ 1, %2 ], [ %102, %96 ], [ %68, %92 ]
   store i64 %11, ptr %0, align 4, !tbaa.struct !193
-  %117 = getelementptr inbounds i8, ptr %0, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %115, ptr %117, align 4, !tbaa.struct !40
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %116, ptr %118, align 4, !tbaa !194
   ret void
 }

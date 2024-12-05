@@ -51,17 +51,17 @@ define dso_local void @RemoveObjects(ptr nocapture noundef readonly %0) local_un
   %4 = alloca %struct.ObjectAddress, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @new_object_addresses() #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %9, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph232, label %._crit_edge
@@ -147,15 +147,15 @@ define dso_local void @RemoveObjects(ptr nocapture noundef readonly %0) local_un
   ]
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %28 = load ptr, ptr %27, align 8
   br label %.thread201.sink.split.i
 
 29:                                               ; preds = %25, %25
-  %30 = getelementptr inbounds i8, ptr %17, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @makeRangeVarFromNameList(ptr noundef %31) #5
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %38, label %35
@@ -175,7 +175,7 @@ schema_does_not_exist_skipping.exit.i:            ; preds = %35
 
 40:                                               ; preds = %25
   %41 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not.i98.i = icmp eq ptr %43, null
   br i1 %.not.i98.i, label %47, label %44
@@ -195,7 +195,7 @@ schema_does_not_exist_skipping.exit101.i:         ; preds = %44
 
 49:                                               ; preds = %25
   %50 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not.i102.i = icmp eq ptr %52, null
   br i1 %.not.i102.i, label %56, label %53
@@ -214,13 +214,13 @@ schema_does_not_exist_skipping.exit105.i:         ; preds = %53
   br label %.thread201.sink.split.i
 
 58:                                               ; preds = %25
-  %59 = getelementptr inbounds i8, ptr %17, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %60 = load ptr, ptr %59, align 8
   br label %.thread201.sink.split.i
 
 61:                                               ; preds = %25
   %62 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not.i106.i = icmp eq ptr %64, null
   br i1 %.not.i106.i, label %68, label %65
@@ -240,7 +240,7 @@ schema_does_not_exist_skipping.exit109.i:         ; preds = %65
 
 70:                                               ; preds = %25
   %71 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not.i110.i = icmp eq ptr %73, null
   br i1 %.not.i110.i, label %77, label %74
@@ -260,7 +260,7 @@ schema_does_not_exist_skipping.exit113.i:         ; preds = %74
 
 79:                                               ; preds = %25
   %80 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not.i114.i = icmp eq ptr %82, null
   br i1 %.not.i114.i, label %86, label %83
@@ -280,7 +280,7 @@ schema_does_not_exist_skipping.exit117.i:         ; preds = %83
 
 88:                                               ; preds = %25
   %89 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not.i118.i = icmp eq ptr %91, null
   br i1 %.not.i118.i, label %95, label %92
@@ -300,7 +300,7 @@ schema_does_not_exist_skipping.exit121.i:         ; preds = %92
 
 97:                                               ; preds = %25
   %98 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not.i122.i = icmp eq ptr %100, null
   br i1 %.not.i122.i, label %104, label %101
@@ -319,15 +319,15 @@ schema_does_not_exist_skipping.exit125.i:         ; preds = %101
   br label %.thread201.sink.split.i
 
 106:                                              ; preds = %25
-  %107 = getelementptr inbounds i8, ptr %17, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %108 = load ptr, ptr %107, align 8
   br label %.thread201.sink.split.i
 
 109:                                              ; preds = %25
-  %110 = getelementptr inbounds i8, ptr %17, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr @makeRangeVarFromNameList(ptr noundef %111) #5
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not.i126.i = icmp eq ptr %114, null
   br i1 %.not.i126.i, label %118, label %115
@@ -342,14 +342,14 @@ schema_does_not_exist_skipping.exit129.i:         ; preds = %115
   br label %.thread201.sink.split.i
 
 118:                                              ; preds = %115, %109
-  %119 = getelementptr inbounds i8, ptr %17, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %120 = load ptr, ptr %119, align 8
   %.not.i108 = icmp eq ptr %120, null
   br i1 %.not.i108, label %.loopexit, label %.lr.ph.i109
 
 .lr.ph.i109:                                      ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
-  %122 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %123 = load i32, ptr %121, align 4
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %.lr.ph28.i111, label %.loopexit
@@ -373,10 +373,10 @@ schema_does_not_exist_skipping.exit129.i:         ; preds = %115
   br label %141
 
 .split.i118:                                      ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @makeRangeVarFromNameList(ptr noundef %132) #5
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8
   %.not.i.i119 = icmp eq ptr %135, null
   br i1 %.not.i.i119, label %139, label %136
@@ -418,10 +418,10 @@ type_in_list_does_not_exist_skipping.exit124:     ; preds = %schema_does_not_exi
   br label %486
 
 149:                                              ; preds = %25
-  %150 = getelementptr inbounds i8, ptr %17, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = call ptr @makeRangeVarFromNameList(ptr noundef %151) #5
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
   %.not.i130.i = icmp eq ptr %154, null
   br i1 %.not.i130.i, label %158, label %155
@@ -436,14 +436,14 @@ schema_does_not_exist_skipping.exit133.i:         ; preds = %155
   br label %.thread201.sink.split.i
 
 158:                                              ; preds = %155, %149
-  %159 = getelementptr inbounds i8, ptr %17, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %160 = load ptr, ptr %159, align 8
   %.not.i91 = icmp eq ptr %160, null
   br i1 %.not.i91, label %.loopexit134, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %160, i64 4
-  %162 = getelementptr inbounds i8, ptr %160, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %163 = load i32, ptr %161, align 4
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %.lr.ph28.i94, label %.loopexit134
@@ -467,10 +467,10 @@ schema_does_not_exist_skipping.exit133.i:         ; preds = %155
   br label %181
 
 .split.i101:                                      ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %168, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = call ptr @makeRangeVarFromNameList(ptr noundef %172) #5
-  %174 = getelementptr inbounds i8, ptr %173, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
   %.not.i.i102 = icmp eq ptr %175, null
   br i1 %.not.i.i102, label %179, label %176
@@ -512,10 +512,10 @@ type_in_list_does_not_exist_skipping.exit107:     ; preds = %schema_does_not_exi
   br label %486
 
 189:                                              ; preds = %25
-  %190 = getelementptr inbounds i8, ptr %17, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = call ptr @makeRangeVarFromNameList(ptr noundef %191) #5
-  %193 = getelementptr inbounds i8, ptr %192, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
   %.not.i134.i = icmp eq ptr %194, null
   br i1 %.not.i134.i, label %198, label %195
@@ -530,14 +530,14 @@ schema_does_not_exist_skipping.exit137.i:         ; preds = %195
   br label %.thread201.sink.split.i
 
 198:                                              ; preds = %195, %189
-  %199 = getelementptr inbounds i8, ptr %17, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %200 = load ptr, ptr %199, align 8
   %.not.i74 = icmp eq ptr %200, null
   br i1 %.not.i74, label %.loopexit135, label %.lr.ph.i75
 
 .lr.ph.i75:                                       ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %200, i64 4
-  %202 = getelementptr inbounds i8, ptr %200, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load i32, ptr %201, align 4
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %.lr.ph28.i77, label %.loopexit135
@@ -561,10 +561,10 @@ schema_does_not_exist_skipping.exit137.i:         ; preds = %195
   br label %221
 
 .split.i84:                                       ; preds = %209
-  %211 = getelementptr inbounds i8, ptr %208, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %212 = load ptr, ptr %211, align 8
   %213 = call ptr @makeRangeVarFromNameList(ptr noundef %212) #5
-  %214 = getelementptr inbounds i8, ptr %213, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8
   %.not.i.i85 = icmp eq ptr %215, null
   br i1 %.not.i.i85, label %219, label %216
@@ -606,10 +606,10 @@ type_in_list_does_not_exist_skipping.exit90:      ; preds = %schema_does_not_exi
   br label %486
 
 229:                                              ; preds = %25
-  %230 = getelementptr inbounds i8, ptr %17, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = call ptr @makeRangeVarFromNameList(ptr noundef %231) #5
-  %233 = getelementptr inbounds i8, ptr %232, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 8
   %.not.i138.i = icmp eq ptr %234, null
   br i1 %.not.i138.i, label %238, label %235
@@ -624,14 +624,14 @@ schema_does_not_exist_skipping.exit141.i:         ; preds = %235
   br label %.thread201.sink.split.i
 
 238:                                              ; preds = %235, %229
-  %239 = getelementptr inbounds i8, ptr %17, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %240 = load ptr, ptr %239, align 8
   %.not.i57 = icmp eq ptr %240, null
   br i1 %.not.i57, label %.loopexit136, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %238
-  %241 = getelementptr inbounds i8, ptr %240, i64 4
-  %242 = getelementptr inbounds i8, ptr %240, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %243 = load i32, ptr %241, align 4
   %244 = icmp sgt i32 %243, 0
   br i1 %244, label %.lr.ph28.i60, label %.loopexit136
@@ -655,10 +655,10 @@ schema_does_not_exist_skipping.exit141.i:         ; preds = %235
   br label %261
 
 .split.i67:                                       ; preds = %249
-  %251 = getelementptr inbounds i8, ptr %248, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %252 = load ptr, ptr %251, align 8
   %253 = call ptr @makeRangeVarFromNameList(ptr noundef %252) #5
-  %254 = getelementptr inbounds i8, ptr %253, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8
   %.not.i.i68 = icmp eq ptr %255, null
   br i1 %.not.i.i68, label %259, label %256
@@ -700,10 +700,10 @@ type_in_list_does_not_exist_skipping.exit73:      ; preds = %schema_does_not_exi
   br label %486
 
 269:                                              ; preds = %25
-  %270 = getelementptr inbounds i8, ptr %17, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %271 = load ptr, ptr %270, align 8
   %272 = call ptr @makeRangeVarFromNameList(ptr noundef %271) #5
-  %273 = getelementptr inbounds i8, ptr %272, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %274 = load ptr, ptr %273, align 8
   %.not.i142.i = icmp eq ptr %274, null
   br i1 %.not.i142.i, label %278, label %275
@@ -718,14 +718,14 @@ schema_does_not_exist_skipping.exit145.i:         ; preds = %275
   br label %.thread201.sink.split.i
 
 278:                                              ; preds = %275, %269
-  %279 = getelementptr inbounds i8, ptr %17, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %280 = load ptr, ptr %279, align 8
   %.not.i40 = icmp eq ptr %280, null
   br i1 %.not.i40, label %.loopexit137, label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %278
-  %281 = getelementptr inbounds i8, ptr %280, i64 4
-  %282 = getelementptr inbounds i8, ptr %280, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %283 = load i32, ptr %281, align 4
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %.lr.ph28.i43, label %.loopexit137
@@ -749,10 +749,10 @@ schema_does_not_exist_skipping.exit145.i:         ; preds = %275
   br label %301
 
 .split.i50:                                       ; preds = %289
-  %291 = getelementptr inbounds i8, ptr %288, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = call ptr @makeRangeVarFromNameList(ptr noundef %292) #5
-  %294 = getelementptr inbounds i8, ptr %293, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8
   %.not.i.i51 = icmp eq ptr %295, null
   br i1 %.not.i.i51, label %299, label %296
@@ -790,7 +790,7 @@ type_in_list_does_not_exist_skipping.exit56:      ; preds = %schema_does_not_exi
   br label %.thread201.sink.split.i
 
 307:                                              ; preds = %25
-  %308 = getelementptr inbounds i8, ptr %17, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %309 = load ptr, ptr %308, align 8
   br label %.thread201.sink.split.i
 
@@ -803,8 +803,8 @@ type_in_list_does_not_exist_skipping.exit56:      ; preds = %schema_does_not_exi
   br i1 %.not.i146.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %313, i64 4
-  %315 = getelementptr inbounds i8, ptr %313, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %316 = load i32, ptr %314, align 4
   %317 = icmp sgt i32 %316, 0
   br i1 %317, label %.lr.ph28.i.i, label %.loopexit.i
@@ -828,10 +828,10 @@ type_in_list_does_not_exist_skipping.exit56:      ; preds = %schema_does_not_exi
   br label %334
 
 .split.i.i:                                       ; preds = %322
-  %324 = getelementptr inbounds i8, ptr %321, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %325 = load ptr, ptr %324, align 8
   %326 = call ptr @makeRangeVarFromNameList(ptr noundef %325) #5
-  %327 = getelementptr inbounds i8, ptr %326, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
   %328 = load ptr, ptr %327, align 8
   %.not.i.i.i = icmp eq ptr %328, null
   br i1 %.not.i.i.i, label %332, label %329
@@ -872,8 +872,8 @@ type_in_list_does_not_exist_skipping.exit.i:      ; preds = %332, %schema_does_n
   br i1 %.not.i35, label %.loopexit138, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i
-  %341 = getelementptr inbounds i8, ptr %340, i64 4
-  %342 = getelementptr inbounds i8, ptr %340, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 4
+  %342 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %343 = load i32, ptr %341, align 4
   %344 = icmp sgt i32 %343, 0
   br i1 %344, label %.lr.ph28.i, label %.loopexit138
@@ -897,10 +897,10 @@ type_in_list_does_not_exist_skipping.exit.i:      ; preds = %332, %schema_does_n
   br label %361
 
 .split.i:                                         ; preds = %349
-  %351 = getelementptr inbounds i8, ptr %348, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %352 = load ptr, ptr %351, align 8
   %353 = call ptr @makeRangeVarFromNameList(ptr noundef %352) #5
-  %354 = getelementptr inbounds i8, ptr %353, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %355 = load ptr, ptr %354, align 8
   %.not.i.i36 = icmp eq ptr %355, null
   br i1 %.not.i.i36, label %359, label %356
@@ -953,8 +953,8 @@ type_in_list_does_not_exist_skipping.exit:        ; preds = %schema_does_not_exi
   br i1 %.not.i148.i, label %.loopexit204.i, label %.lr.ph.i149.i
 
 .lr.ph.i149.i:                                    ; preds = %370
-  %374 = getelementptr inbounds i8, ptr %373, i64 4
-  %375 = getelementptr inbounds i8, ptr %373, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %376 = load i32, ptr %374, align 4
   %377 = icmp sgt i32 %376, 0
   br i1 %377, label %.lr.ph28.i151.i, label %.loopexit204.i
@@ -978,10 +978,10 @@ type_in_list_does_not_exist_skipping.exit:        ; preds = %schema_does_not_exi
   br label %394
 
 .split.i158.i:                                    ; preds = %382
-  %384 = getelementptr inbounds i8, ptr %381, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %385 = load ptr, ptr %384, align 8
   %386 = call ptr @makeRangeVarFromNameList(ptr noundef %385) #5
-  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
   %.not.i.i159.i = icmp eq ptr %388, null
   br i1 %.not.i.i159.i, label %392, label %389
@@ -1022,7 +1022,7 @@ type_in_list_does_not_exist_skipping.exit164.i:   ; preds = %392, %schema_does_n
   %.val89.i = load ptr, ptr %371, align 8
   %400 = getelementptr i8, ptr %.val89.i, i64 8
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load ptr, ptr %402, align 8
   br label %486
 
@@ -1040,7 +1040,7 @@ list_length.exit.i:                               ; preds = %404
   %409 = sext i32 %408 to i64
   %410 = getelementptr %union.ListCell, ptr %.val93.i, i64 %409
   %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %413 = load ptr, ptr %412, align 8
   store ptr %413, ptr %3, align 8
   %414 = call ptr @list_copy_head(ptr noundef %17, i32 noundef %408) #5
@@ -1061,7 +1061,7 @@ list_length.exit167.i:                            ; preds = %416
   %421 = sext i32 %420 to i64
   %422 = getelementptr %union.ListCell, ptr %.val95.i, i64 %421
   %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
   %425 = load ptr, ptr %424, align 8
   store ptr %425, ptr %3, align 8
   %426 = call ptr @list_copy_head(ptr noundef %17, i32 noundef %420) #5
@@ -1069,7 +1069,7 @@ list_length.exit167.i:                            ; preds = %416
   br label %486
 
 428:                                              ; preds = %25
-  %429 = getelementptr inbounds i8, ptr %17, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %430 = load ptr, ptr %429, align 8
   br label %.thread201.sink.split.i
 
@@ -1087,7 +1087,7 @@ list_length.exit169.i:                            ; preds = %431
   %436 = sext i32 %435 to i64
   %437 = getelementptr %union.ListCell, ptr %.val97.i, i64 %436
   %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load ptr, ptr %439, align 8
   store ptr %440, ptr %3, align 8
   %441 = call ptr @list_copy_head(ptr noundef %17, i32 noundef %435) #5
@@ -1095,19 +1095,19 @@ list_length.exit169.i:                            ; preds = %431
   br label %486
 
 443:                                              ; preds = %25
-  %444 = getelementptr inbounds i8, ptr %17, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %445 = load ptr, ptr %444, align 8
   br label %.thread201.sink.split.i
 
 446:                                              ; preds = %25
-  %447 = getelementptr inbounds i8, ptr %17, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %448 = load ptr, ptr %447, align 8
   br label %.thread201.sink.split.i
 
 449:                                              ; preds = %25
   %450 = call ptr @list_copy_tail(ptr noundef %17, i32 noundef 1) #5
   %451 = call ptr @makeRangeVarFromNameList(ptr noundef %450) #5
-  %452 = getelementptr inbounds i8, ptr %451, i64 16
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %453 = load ptr, ptr %452, align 8
   %.not.i170.i = icmp eq ptr %453, null
   br i1 %.not.i170.i, label %457, label %454
@@ -1128,14 +1128,14 @@ schema_does_not_exist_skipping.exit173.i:         ; preds = %454
   %459 = getelementptr i8, ptr %17, i64 16
   %.val90.i = load ptr, ptr %459, align 8
   %460 = load ptr, ptr %.val90.i, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %462 = load ptr, ptr %461, align 8
   br label %486
 
 463:                                              ; preds = %25
   %464 = call ptr @list_copy_tail(ptr noundef %17, i32 noundef 1) #5
   %465 = call ptr @makeRangeVarFromNameList(ptr noundef %464) #5
-  %466 = getelementptr inbounds i8, ptr %465, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %467 = load ptr, ptr %466, align 8
   %.not.i174.i = icmp eq ptr %467, null
   br i1 %.not.i174.i, label %471, label %468
@@ -1156,12 +1156,12 @@ schema_does_not_exist_skipping.exit177.i:         ; preds = %468
   %473 = getelementptr i8, ptr %17, i64 16
   %.val91.i = load ptr, ptr %473, align 8
   %474 = load ptr, ptr %.val91.i, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
   %476 = load ptr, ptr %475, align 8
   br label %486
 
 477:                                              ; preds = %25
-  %478 = getelementptr inbounds i8, ptr %17, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %479 = load ptr, ptr %478, align 8
   br label %.thread201.sink.split.i
 
@@ -1244,7 +1244,7 @@ does_not_exist_skipping.exit:                     ; preds = %.thread201.i, %495,
   %506 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %506)
   %507 = call i32 @errcode(i32 noundef 151027844) #5
-  %508 = getelementptr inbounds i8, ptr %17, i64 8
+  %508 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %509 = load ptr, ptr %508, align 8
   %510 = call ptr @NameListToString(ptr noundef %509) #5
   %511 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %510) #5
@@ -1310,7 +1310,7 @@ does_not_exist_skipping.exit:                     ; preds = %.thread201.i, %495,
   br i1 %535, label %.lr.ph232, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %532, %.lr.ph, %1
-  %536 = getelementptr inbounds i8, ptr %0, i64 20
+  %536 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %537 = load i32, ptr %536, align 4
   call void @performMultipleDeletions(ptr noundef %6, i32 noundef %537, i32 noundef 0) #5
   call void @free_object_addresses(ptr noundef %6) #5
@@ -1368,7 +1368,7 @@ define internal fastcc noundef zeroext i1 @owningrel_does_not_exist_skipping(ptr
   br i1 %.not.i, label %list_length.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   br label %list_length.exit
@@ -1377,7 +1377,7 @@ list_length.exit:                                 ; preds = %3, %4
   %8 = phi i32 [ %7, %4 ], [ -1, %3 ]
   %9 = tail call ptr @list_copy_head(ptr noundef %0, i32 noundef %8) #5
   %10 = tail call ptr @makeRangeVarFromNameList(ptr noundef %9) #5
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i11 = icmp eq ptr %12, null
   br i1 %.not.i11, label %16, label %13

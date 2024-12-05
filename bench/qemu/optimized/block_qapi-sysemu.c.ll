@@ -622,7 +622,7 @@ define dso_local void @qmp_block_set_io_throttle(ptr nocapture noundef readonly 
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %0 = load ptr, ptr %arg, align 8
-  %id = getelementptr inbounds i8, ptr %arg, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %id, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   %2 = icmp ne ptr %0, null
@@ -664,194 +664,194 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   call void @throttle_config_init(ptr noundef nonnull %cfg) #4
-  %bps = getelementptr inbounds i8, ptr %arg, i64 16
+  %bps = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %3 = load i64, ptr %bps, align 8
   store i64 %3, ptr %cfg, align 8
-  %bps_rd = getelementptr inbounds i8, ptr %arg, i64 24
+  %bps_rd = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %4 = load i64, ptr %bps_rd, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %cfg, i64 40
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %cfg, i64 40
   store i64 %4, ptr %arrayidx7, align 8
-  %bps_wr = getelementptr inbounds i8, ptr %arg, i64 32
+  %bps_wr = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %5 = load i64, ptr %bps_wr, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %cfg, i64 80
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %cfg, i64 80
   store i64 %5, ptr %arrayidx10, align 8
-  %iops = getelementptr inbounds i8, ptr %arg, i64 40
+  %iops = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %6 = load i64, ptr %iops, align 8
-  %arrayidx13 = getelementptr inbounds i8, ptr %cfg, i64 120
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %cfg, i64 120
   store i64 %6, ptr %arrayidx13, align 8
-  %iops_rd = getelementptr inbounds i8, ptr %arg, i64 48
+  %iops_rd = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %7 = load i64, ptr %iops_rd, align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %cfg, i64 160
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %cfg, i64 160
   store i64 %7, ptr %arrayidx16, align 8
-  %iops_wr = getelementptr inbounds i8, ptr %arg, i64 56
+  %iops_wr = getelementptr inbounds nuw i8, ptr %arg, i64 56
   %8 = load i64, ptr %iops_wr, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %cfg, i64 200
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %cfg, i64 200
   store i64 %8, ptr %arrayidx19, align 8
-  %has_bps_max = getelementptr inbounds i8, ptr %arg, i64 64
+  %has_bps_max = getelementptr inbounds nuw i8, ptr %arg, i64 64
   %9 = load i8, ptr %has_bps_max, align 8
   %tobool21 = trunc i8 %9 to i1
   br i1 %tobool21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %if.end5
-  %bps_max = getelementptr inbounds i8, ptr %arg, i64 72
+  %bps_max = getelementptr inbounds nuw i8, ptr %arg, i64 72
   %10 = load i64, ptr %bps_max, align 8
-  %max = getelementptr inbounds i8, ptr %cfg, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %cfg, i64 8
   store i64 %10, ptr %max, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end5
-  %has_bps_rd_max = getelementptr inbounds i8, ptr %arg, i64 80
+  %has_bps_rd_max = getelementptr inbounds nuw i8, ptr %arg, i64 80
   %11 = load i8, ptr %has_bps_rd_max, align 8
   %tobool26 = trunc i8 %11 to i1
   br i1 %tobool26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25
-  %bps_rd_max = getelementptr inbounds i8, ptr %arg, i64 88
+  %bps_rd_max = getelementptr inbounds nuw i8, ptr %arg, i64 88
   %12 = load i64, ptr %bps_rd_max, align 8
-  %max30 = getelementptr inbounds i8, ptr %cfg, i64 48
+  %max30 = getelementptr inbounds nuw i8, ptr %cfg, i64 48
   store i64 %12, ptr %max30, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.end25
-  %has_bps_wr_max = getelementptr inbounds i8, ptr %arg, i64 96
+  %has_bps_wr_max = getelementptr inbounds nuw i8, ptr %arg, i64 96
   %13 = load i8, ptr %has_bps_wr_max, align 8
   %tobool32 = trunc i8 %13 to i1
   br i1 %tobool32, label %if.then33, label %if.end37
 
 if.then33:                                        ; preds = %if.end31
-  %bps_wr_max = getelementptr inbounds i8, ptr %arg, i64 104
+  %bps_wr_max = getelementptr inbounds nuw i8, ptr %arg, i64 104
   %14 = load i64, ptr %bps_wr_max, align 8
-  %max36 = getelementptr inbounds i8, ptr %cfg, i64 88
+  %max36 = getelementptr inbounds nuw i8, ptr %cfg, i64 88
   store i64 %14, ptr %max36, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %if.end31
-  %has_iops_max = getelementptr inbounds i8, ptr %arg, i64 112
+  %has_iops_max = getelementptr inbounds nuw i8, ptr %arg, i64 112
   %15 = load i8, ptr %has_iops_max, align 8
   %tobool38 = trunc i8 %15 to i1
   br i1 %tobool38, label %if.then39, label %if.end43
 
 if.then39:                                        ; preds = %if.end37
-  %iops_max = getelementptr inbounds i8, ptr %arg, i64 120
+  %iops_max = getelementptr inbounds nuw i8, ptr %arg, i64 120
   %16 = load i64, ptr %iops_max, align 8
-  %max42 = getelementptr inbounds i8, ptr %cfg, i64 128
+  %max42 = getelementptr inbounds nuw i8, ptr %cfg, i64 128
   store i64 %16, ptr %max42, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then39, %if.end37
-  %has_iops_rd_max = getelementptr inbounds i8, ptr %arg, i64 128
+  %has_iops_rd_max = getelementptr inbounds nuw i8, ptr %arg, i64 128
   %17 = load i8, ptr %has_iops_rd_max, align 8
   %tobool44 = trunc i8 %17 to i1
   br i1 %tobool44, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %if.end43
-  %iops_rd_max = getelementptr inbounds i8, ptr %arg, i64 136
+  %iops_rd_max = getelementptr inbounds nuw i8, ptr %arg, i64 136
   %18 = load i64, ptr %iops_rd_max, align 8
-  %max48 = getelementptr inbounds i8, ptr %cfg, i64 168
+  %max48 = getelementptr inbounds nuw i8, ptr %cfg, i64 168
   store i64 %18, ptr %max48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.end43
-  %has_iops_wr_max = getelementptr inbounds i8, ptr %arg, i64 144
+  %has_iops_wr_max = getelementptr inbounds nuw i8, ptr %arg, i64 144
   %19 = load i8, ptr %has_iops_wr_max, align 8
   %tobool50 = trunc i8 %19 to i1
   br i1 %tobool50, label %if.then51, label %if.end55
 
 if.then51:                                        ; preds = %if.end49
-  %iops_wr_max = getelementptr inbounds i8, ptr %arg, i64 152
+  %iops_wr_max = getelementptr inbounds nuw i8, ptr %arg, i64 152
   %20 = load i64, ptr %iops_wr_max, align 8
-  %max54 = getelementptr inbounds i8, ptr %cfg, i64 208
+  %max54 = getelementptr inbounds nuw i8, ptr %cfg, i64 208
   store i64 %20, ptr %max54, align 8
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then51, %if.end49
-  %has_bps_max_length = getelementptr inbounds i8, ptr %arg, i64 160
+  %has_bps_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 160
   %21 = load i8, ptr %has_bps_max_length, align 8
   %tobool56 = trunc i8 %21 to i1
   br i1 %tobool56, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.end55
-  %bps_max_length = getelementptr inbounds i8, ptr %arg, i64 168
+  %bps_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 168
   %22 = load i64, ptr %bps_max_length, align 8
-  %burst_length = getelementptr inbounds i8, ptr %cfg, i64 32
+  %burst_length = getelementptr inbounds nuw i8, ptr %cfg, i64 32
   store i64 %22, ptr %burst_length, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then57, %if.end55
-  %has_bps_rd_max_length = getelementptr inbounds i8, ptr %arg, i64 176
+  %has_bps_rd_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 176
   %23 = load i8, ptr %has_bps_rd_max_length, align 8
   %tobool61 = trunc i8 %23 to i1
   br i1 %tobool61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end60
-  %bps_rd_max_length = getelementptr inbounds i8, ptr %arg, i64 184
+  %bps_rd_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 184
   %24 = load i64, ptr %bps_rd_max_length, align 8
-  %burst_length65 = getelementptr inbounds i8, ptr %cfg, i64 72
+  %burst_length65 = getelementptr inbounds nuw i8, ptr %cfg, i64 72
   store i64 %24, ptr %burst_length65, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then62, %if.end60
-  %has_bps_wr_max_length = getelementptr inbounds i8, ptr %arg, i64 192
+  %has_bps_wr_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %25 = load i8, ptr %has_bps_wr_max_length, align 8
   %tobool67 = trunc i8 %25 to i1
   br i1 %tobool67, label %if.then68, label %if.end72
 
 if.then68:                                        ; preds = %if.end66
-  %bps_wr_max_length = getelementptr inbounds i8, ptr %arg, i64 200
+  %bps_wr_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 200
   %26 = load i64, ptr %bps_wr_max_length, align 8
-  %burst_length71 = getelementptr inbounds i8, ptr %cfg, i64 112
+  %burst_length71 = getelementptr inbounds nuw i8, ptr %cfg, i64 112
   store i64 %26, ptr %burst_length71, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then68, %if.end66
-  %has_iops_max_length = getelementptr inbounds i8, ptr %arg, i64 208
+  %has_iops_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 208
   %27 = load i8, ptr %has_iops_max_length, align 8
   %tobool73 = trunc i8 %27 to i1
   br i1 %tobool73, label %if.then74, label %if.end78
 
 if.then74:                                        ; preds = %if.end72
-  %iops_max_length = getelementptr inbounds i8, ptr %arg, i64 216
+  %iops_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 216
   %28 = load i64, ptr %iops_max_length, align 8
-  %burst_length77 = getelementptr inbounds i8, ptr %cfg, i64 152
+  %burst_length77 = getelementptr inbounds nuw i8, ptr %cfg, i64 152
   store i64 %28, ptr %burst_length77, align 8
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then74, %if.end72
-  %has_iops_rd_max_length = getelementptr inbounds i8, ptr %arg, i64 224
+  %has_iops_rd_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 224
   %29 = load i8, ptr %has_iops_rd_max_length, align 8
   %tobool79 = trunc i8 %29 to i1
   br i1 %tobool79, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %if.end78
-  %iops_rd_max_length = getelementptr inbounds i8, ptr %arg, i64 232
+  %iops_rd_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 232
   %30 = load i64, ptr %iops_rd_max_length, align 8
-  %burst_length83 = getelementptr inbounds i8, ptr %cfg, i64 192
+  %burst_length83 = getelementptr inbounds nuw i8, ptr %cfg, i64 192
   store i64 %30, ptr %burst_length83, align 8
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then80, %if.end78
-  %has_iops_wr_max_length = getelementptr inbounds i8, ptr %arg, i64 240
+  %has_iops_wr_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 240
   %31 = load i8, ptr %has_iops_wr_max_length, align 8
   %tobool85 = trunc i8 %31 to i1
   br i1 %tobool85, label %if.then86, label %if.end90
 
 if.then86:                                        ; preds = %if.end84
-  %iops_wr_max_length = getelementptr inbounds i8, ptr %arg, i64 248
+  %iops_wr_max_length = getelementptr inbounds nuw i8, ptr %arg, i64 248
   %32 = load i64, ptr %iops_wr_max_length, align 8
-  %burst_length89 = getelementptr inbounds i8, ptr %cfg, i64 232
+  %burst_length89 = getelementptr inbounds nuw i8, ptr %cfg, i64 232
   store i64 %32, ptr %burst_length89, align 8
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then86, %if.end84
-  %has_iops_size = getelementptr inbounds i8, ptr %arg, i64 256
+  %has_iops_size = getelementptr inbounds nuw i8, ptr %arg, i64 256
   %33 = load i8, ptr %has_iops_size, align 8
   %tobool91 = trunc i8 %33 to i1
   br i1 %tobool91, label %if.then92, label %if.end93
 
 if.then92:                                        ; preds = %if.end90
-  %iops_size = getelementptr inbounds i8, ptr %arg, i64 264
+  %iops_size = getelementptr inbounds nuw i8, ptr %arg, i64 264
   %34 = load i64, ptr %iops_size, align 8
-  %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
+  %op_size = getelementptr inbounds nuw i8, ptr %cfg, i64 240
   store i64 %34, ptr %op_size, align 8
   br label %if.end93
 
@@ -862,13 +862,13 @@ if.end93:                                         ; preds = %if.then92, %if.end9
 if.end96:                                         ; preds = %if.end93
   %call97 = call zeroext i1 @throttle_enabled(ptr noundef nonnull %cfg) #4
   %call99 = call ptr @blk_get_public(ptr noundef nonnull %retval.0.i57) #4
-  %throttle_state = getelementptr inbounds i8, ptr %call99, i64 96
+  %throttle_state = getelementptr inbounds nuw i8, ptr %call99, i64 96
   %35 = load ptr, ptr %throttle_state, align 8
   %tobool100.not = icmp eq ptr %35, null
   br i1 %call97, label %if.then98, label %if.else116
 
 if.then98:                                        ; preds = %if.end96
-  %group = getelementptr inbounds i8, ptr %arg, i64 272
+  %group = getelementptr inbounds nuw i8, ptr %arg, i64 272
   %36 = load ptr, ptr %group, align 8
   %tobool102.not = icmp eq ptr %36, null
   br i1 %tobool100.not, label %if.then101, label %if.else

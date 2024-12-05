@@ -1268,7 +1268,7 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1297,9 +1297,9 @@ define hidden i32 @wkssvc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef 
   %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_lsa_String_name_, i32 noundef 2, ptr noundef nonnull @.str.596, i32 noundef %23) #3
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #3
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -1332,13 +1332,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo100(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not58 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -1395,14 +1395,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo100(ptr noundef %0, i32 nou
   %43 = sub i32 %42, %.0
   call void @proto_item_set_len(ptr noundef %.056, i32 noundef %43) #3
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %55, label %48
 
 48:                                               ; preds = %32
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %50 = load i32, ptr %49, align 4
   %.not64 = icmp ne i32 %50, 0
   %51 = and i32 %42, 7
@@ -1423,13 +1423,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo100(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo101(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not64 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -1488,14 +1488,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo101(ptr noundef %0, i32 nou
   %45 = sub i32 %44, %.0
   call void @proto_item_set_len(ptr noundef %.062, i32 noundef %45) #3
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %.not69 = icmp eq i32 %49, 0
   br i1 %.not69, label %57, label %50
 
 50:                                               ; preds = %32
-  %51 = getelementptr inbounds i8, ptr %4, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %52 = load i32, ptr %51, align 4
   %.not70 = icmp ne i32 %52, 0
   %53 = and i32 %44, 7
@@ -1516,13 +1516,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo101(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo102(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not70 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -1583,14 +1583,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo102(ptr noundef %0, i32 nou
   %47 = sub i32 %46, %.0
   call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #3
   %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not75 = icmp eq i32 %51, 0
   br i1 %.not75, label %59, label %52
 
 52:                                               ; preds = %32
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not76 = icmp ne i32 %54, 0
   %55 = and i32 %46, 7
@@ -1610,7 +1610,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo102(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo502(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1703,9 +1703,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo502(ptr noundef %0, i32 nou
   %88 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %.0227, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, i32 noundef 0) #3
   %89 = sub i32 %88, %.0
   tail call void @proto_item_set_len(ptr noundef %.0228, i32 noundef %89) #3
-  %90 = getelementptr inbounds i8, ptr %4, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 96
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 1
   %.not232 = icmp eq i32 %94, 0
@@ -1731,7 +1731,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo502(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1010(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1756,9 +1756,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1010(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1784,7 +1784,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1010(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1011(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1809,9 +1809,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1011(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1837,7 +1837,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1011(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1012(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1862,9 +1862,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1012(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1890,7 +1890,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1012(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1013(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1915,9 +1915,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1013(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1943,7 +1943,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1013(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1018(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -1968,9 +1968,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1018(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -1996,7 +1996,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1018(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1023(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2021,9 +2021,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1023(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2049,7 +2049,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1023(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1027(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2074,9 +2074,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1027(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2102,7 +2102,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1027(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1028(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2127,9 +2127,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1028(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2155,7 +2155,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1028(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1032(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2180,9 +2180,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1032(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2208,7 +2208,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1032(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1033(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2233,9 +2233,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1033(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2261,7 +2261,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1033(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1041(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2286,9 +2286,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1041(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2314,7 +2314,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1041(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1042(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2339,9 +2339,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1042(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2367,7 +2367,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1042(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1043(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2392,9 +2392,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1043(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2420,7 +2420,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1043(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1044(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2445,9 +2445,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1044(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2473,7 +2473,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1044(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1045(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2498,9 +2498,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1045(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2526,7 +2526,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1045(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1046(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2551,9 +2551,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1046(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2579,7 +2579,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1046(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1047(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2604,9 +2604,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1047(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2632,7 +2632,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1047(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1048(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2657,9 +2657,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1048(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2685,7 +2685,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1048(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1049(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2710,9 +2710,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1049(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2738,7 +2738,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1049(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1050(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2763,9 +2763,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1050(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2791,7 +2791,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1050(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1051(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2816,9 +2816,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1051(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2844,7 +2844,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1051(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1052(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2869,9 +2869,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1052(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2897,7 +2897,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1052(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1053(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2922,9 +2922,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1053(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2950,7 +2950,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1053(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1054(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2975,9 +2975,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1054(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3003,7 +3003,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1054(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1055(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3028,9 +3028,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1055(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3056,7 +3056,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1055(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1056(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3081,9 +3081,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1056(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3109,7 +3109,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1056(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1057(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3134,9 +3134,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1057(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3162,7 +3162,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1057(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1058(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3187,9 +3187,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1058(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3215,7 +3215,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1058(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1059(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3240,9 +3240,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1059(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3268,7 +3268,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1059(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1060(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3293,9 +3293,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1060(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3321,7 +3321,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1060(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1061(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3346,9 +3346,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1061(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3374,7 +3374,7 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1061(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1062(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3399,9 +3399,9 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1062(ptr noundef %0, i32 no
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #3
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3427,13 +3427,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaInfo1062(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3479,14 +3479,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo0(ptr noundef %0, i32 
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -3506,13 +3506,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo0(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3560,14 +3560,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr0(ptr noundef %0, i
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -3587,13 +3587,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr0(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3645,14 +3645,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1(ptr noundef %0, i32 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #3
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -3672,13 +3672,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3726,14 +3726,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr1(ptr noundef %0, i
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -3755,13 +3755,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersCtr1(ptr noundef %0, i
 define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not47 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -3805,11 +3805,11 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   %34 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsersInfo_level, align 4
   %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not52 = icmp eq i32 %39, 0
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not53 = icmp ne i32 %41, 0
   br i1 %.not52, label %47, label %42
@@ -3854,11 +3854,11 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaEnumUsersInfo(ptr noundef %0, i
   %.033.i.i = phi ptr [ %56, %54 ], [ null, %52 ]
   %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %10) #3
   %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 96
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 1
   %.not35.i.i = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds i8, ptr %4, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %64 = load i32, ptr %63, align 4
   %.not36.i.i = icmp ne i32 %64, 0
   br i1 %.not35.i.i, label %70, label %65
@@ -3913,7 +3913,7 @@ wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit: ; preds = %75, %77, %80
   %85 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.045, i32 noundef %85) #3
   %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, 1
   %.not57 = icmp eq i32 %89, 0
@@ -3939,13 +3939,13 @@ wkssvc_dissect_element_NetWkstaEnumUsersInfo_ctr.exit: ; preds = %75, %77, %80
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1101(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3991,14 +3991,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1101(ptr noundef %0, i
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -4018,13 +4018,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrWkstaUserInfo1101(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4078,14 +4078,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo0(ptr noundef %0, 
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #3
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -4105,13 +4105,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo0(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportCtr0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4159,14 +4159,14 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportCtr0(ptr noundef %0, i
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4188,13 +4188,13 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportCtr0(ptr noundef %0, i
 define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not40 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -4253,11 +4253,11 @@ define hidden i32 @wkssvc_dissect_struct_NetWkstaTransportInfo(ptr noundef %0, i
   %.027.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #3
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not29.i.i = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not30.i.i = icmp ne i32 %47, 0
   br i1 %.not29.i.i, label %53, label %48
@@ -4305,7 +4305,7 @@ wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit: ; preds = %58, %60
   %65 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %65) #3
   %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 1
   %.not45 = icmp eq i32 %69, 0
@@ -4331,13 +4331,13 @@ wkssvc_dissect_element_NetWkstaTransportInfo_ctr.exit: ; preds = %58, %60
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseInfo3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4385,14 +4385,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo3(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4412,13 +4412,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo3(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseInfo2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not82 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4480,14 +4480,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo2(ptr noundef %0, i32 nounde
   %50 = sub i32 %49, %.0
   tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %50) #3
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %.not87 = icmp eq i32 %54, 0
   br i1 %.not87, label %62, label %55
 
 55:                                               ; preds = %31
-  %56 = getelementptr inbounds i8, ptr %4, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %57 = load i32, ptr %56, align 4
   %.not88 = icmp ne i32 %57, 0
   %58 = and i32 %49, 7
@@ -4507,13 +4507,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo2(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not70 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4571,14 +4571,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo1(ptr noundef %0, i32 nounde
   %46 = sub i32 %45, %.0
   tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #3
   %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1
   %.not75 = icmp eq i32 %50, 0
   br i1 %.not75, label %58, label %51
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %4, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %53 = load i32, ptr %52, align 4
   %.not76 = icmp ne i32 %53, 0
   %54 = and i32 %45, 7
@@ -4598,13 +4598,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo1(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseInfo0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4652,14 +4652,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo0(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4679,13 +4679,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseInfo0(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4733,14 +4733,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr2(ptr noundef %0, i32 nou
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4760,13 +4760,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr2(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4814,14 +4814,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr1(ptr noundef %0, i32 nou
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4841,13 +4841,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr1(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4895,14 +4895,14 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr0(ptr noundef %0, i32 nou
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4924,13 +4924,13 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumCtr0(ptr noundef %0, i32 nou
 define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not40 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -4989,11 +4989,11 @@ define hidden i32 @wkssvc_dissect_struct_NetrUseEnumInfo(ptr noundef %0, i32 nou
   %.039.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #3
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not41.i.i = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not42.i.i = icmp ne i32 %47, 0
   br i1 %.not41.i.i, label %53, label %48
@@ -5054,7 +5054,7 @@ wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit:  ; preds = %58, %60, %63, %66
   %71 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %71) #3
   %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not45 = icmp eq i32 %75, 0
@@ -5080,7 +5080,7 @@ wkssvc_dissect_element_NetrUseEnumInfo_ctr.exit:  ; preds = %58, %60, %63, %66
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_NetrWorkstationStatistics(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -5183,9 +5183,9 @@ define hidden i32 @wkssvc_dissect_struct_NetrWorkstationStatistics(ptr noundef %
   %98 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %96, ptr noundef %2, ptr noundef %.0257, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %97, i32 noundef 0) #3
   %99 = sub i32 %98, %.0
   tail call void @proto_item_set_len(ptr noundef %.0258, i32 noundef %99) #3
-  %100 = getelementptr inbounds i8, ptr %4, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 96
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 1
   %.not262 = icmp eq i32 %104, 0
@@ -5212,7 +5212,7 @@ define hidden i32 @wkssvc_dissect_struct_NetrWorkstationStatistics(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_bitmap_renameflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5340,7 +5340,7 @@ wkssvc_dissect_element_PasswordBuffer_data.exit:  ; preds = %14
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_bitmap_joinflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5406,13 +5406,13 @@ define hidden i32 @wkssvc_dissect_enum_ComputerNameType(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @wkssvc_dissect_struct_ComputerNamesCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5460,14 +5460,14 @@ define hidden i32 @wkssvc_dissect_struct_ComputerNamesCtr(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5949,7 +5949,7 @@ define internal i32 @wkssvc_dissect_element_ComputerNamesCtr_computer_name__(ptr
   %8 = load i32, ptr @hf_wkssvc_wkssvc_ComputerNamesCtr_computer_name, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -5995,7 +5995,7 @@ declare void @cb_wstr_postprocess(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.650, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaGetInfo_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaGetInfo_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6009,7 +6009,7 @@ define internal i32 @wkssvc_dissect_NetWkstaGetInfo_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.650, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaGetInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaGetInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.683, i32 noundef %9) #3
@@ -6021,7 +6021,7 @@ define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6033,7 +6033,7 @@ define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.651, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaSetInfo_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaSetInfo_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6053,7 +6053,7 @@ define internal i32 @wkssvc_dissect_NetWkstaSetInfo_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.651, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaSetInfo_parm_error, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaSetInfo_parm_error_, i32 noundef 1, ptr noundef nonnull @.str.721, i32 noundef %9) #3
@@ -6065,7 +6065,7 @@ define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6077,7 +6077,7 @@ define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.652, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsers_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaEnumUsers_server_name_, i32 noundef 2, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6097,7 +6097,7 @@ define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.652, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsers_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaEnumUsers_info_, i32 noundef 1, ptr noundef nonnull @.str.722, i32 noundef %9) #3
@@ -6115,7 +6115,7 @@ define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %24) #3
@@ -6127,7 +6127,7 @@ define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.653, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserGetInfo_unknown, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaUserGetInfo_unknown_, i32 noundef 1, ptr noundef nonnull @.str.725, i32 noundef %8) #3
@@ -6141,7 +6141,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.653, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserGetInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaUserGetInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.726, i32 noundef %9) #3
@@ -6153,7 +6153,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6165,7 +6165,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.654, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserSetInfo_unknown, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaUserSetInfo_unknown_, i32 noundef 1, ptr noundef nonnull @.str.725, i32 noundef %8) #3
@@ -6185,7 +6185,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.654, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserSetInfo_parm_err, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaUserSetInfo_parm_err_, i32 noundef 1, ptr noundef nonnull @.str.731, i32 noundef %9) #3
@@ -6197,7 +6197,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6209,7 +6209,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.655, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaTransportEnum_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaTransportEnum_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6229,7 +6229,7 @@ define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.655, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaTransportEnum_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetWkstaTransportEnum_info_, i32 noundef 1, ptr noundef nonnull @.str.732, i32 noundef %9) #3
@@ -6247,7 +6247,7 @@ define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %24) #3
@@ -6259,7 +6259,7 @@ define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.656, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaTransportAdd_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaTransportAdd_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6279,7 +6279,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.656, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaTransportAdd_parm_err, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaTransportAdd_parm_err_, i32 noundef 1, ptr noundef nonnull @.str.731, i32 noundef %9) #3
@@ -6291,7 +6291,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6303,7 +6303,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.657, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaTransportDel_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWkstaTransportDel_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6320,7 +6320,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.657, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6329,7 +6329,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6341,7 +6341,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.658, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseAdd_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseAdd_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6361,7 +6361,7 @@ define internal i32 @wkssvc_dissect_NetrUseAdd_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.658, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseAdd_parm_err, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseAdd_parm_err_, i32 noundef 1, ptr noundef nonnull @.str.731, i32 noundef %9) #3
@@ -6373,7 +6373,7 @@ define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6385,7 +6385,7 @@ define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.659, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseGetInfo_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseGetInfo_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6402,7 +6402,7 @@ define internal i32 @wkssvc_dissect_NetrUseGetInfo_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.659, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseGetInfo_ctr, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseGetInfo_ctr_, i32 noundef 1, ptr noundef nonnull @.str.736, i32 noundef %9) #3
@@ -6414,7 +6414,7 @@ define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6426,7 +6426,7 @@ define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.660, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseDel_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseDel_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6443,7 +6443,7 @@ define internal i32 @wkssvc_dissect_NetrUseDel_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.660, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6452,7 +6452,7 @@ define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6464,7 +6464,7 @@ define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.661, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnum_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseEnum_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6484,7 +6484,7 @@ define internal i32 @wkssvc_dissect_NetrUseEnum_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.661, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnum_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUseEnum_info_, i32 noundef 1, ptr noundef nonnull @.str.743, i32 noundef %9) #3
@@ -6502,7 +6502,7 @@ define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 nou
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %24) #3
@@ -6514,7 +6514,7 @@ define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrMessageBufferSend_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.662, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrMessageBufferSend_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrMessageBufferSend_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6537,7 +6537,7 @@ define internal i32 @wkssvc_dissect_NetrMessageBufferSend_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.662, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6546,7 +6546,7 @@ define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6558,7 +6558,7 @@ define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.663, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWorkstationStatisticsGet_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWorkstationStatisticsGet_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6578,7 +6578,7 @@ define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_request(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.663, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrWorkstationStatisticsGet_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrWorkstationStatisticsGet_info_, i32 noundef 1, ptr noundef nonnull @.str.747, i32 noundef %9) #3
@@ -6590,7 +6590,7 @@ define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -6602,7 +6602,7 @@ define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.664, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrLogonDomainNameAdd_domain_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrLogonDomainNameAdd_domain_name_, i32 noundef 1, ptr noundef nonnull @.str.599, i32 noundef %8) #3
@@ -6613,7 +6613,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.664, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6622,7 +6622,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6634,7 +6634,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.665, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrLogonDomainNameDel_domain_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrLogonDomainNameDel_domain_name_, i32 noundef 1, ptr noundef nonnull @.str.599, i32 noundef %8) #3
@@ -6645,7 +6645,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.665, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6654,7 +6654,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6666,7 +6666,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrJoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.666, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrJoinDomain_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrJoinDomain_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6692,7 +6692,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.666, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6701,7 +6701,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6713,7 +6713,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUnjoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.667, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUnjoinDomain_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUnjoinDomain_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6733,7 +6733,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.667, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6742,7 +6742,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6754,7 +6754,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.668, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRenameMachineInDomain_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrRenameMachineInDomain_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6777,7 +6777,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_request(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.668, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6786,7 +6786,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6799,7 +6799,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrValidateName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.669, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrValidateName_server_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrValidateName_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %9) #3
@@ -6825,7 +6825,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.669, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6834,7 +6834,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6846,7 +6846,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.670, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinInformation_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinInformation_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6860,7 +6860,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinInformation_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.670, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinInformation_name_buffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinInformation_name_buffer_, i32 noundef 1, ptr noundef nonnull @.str.751, i32 noundef %9) #3
@@ -6875,7 +6875,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %21) #3
@@ -6887,7 +6887,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinableOus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.671, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinableOus_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6910,7 +6910,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.671, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus_num_ous, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinableOus_num_ous_, i32 noundef 1, ptr noundef nonnull @.str.753, i32 noundef %9) #3
@@ -6925,7 +6925,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %21) #3
@@ -6937,7 +6937,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrJoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.672, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrJoinDomain2_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrJoinDomain2_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -6963,7 +6963,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain2_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.672, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -6972,7 +6972,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -6984,7 +6984,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.673, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUnjoinDomain2_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrUnjoinDomain2_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7004,7 +7004,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.673, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7013,7 +7013,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7025,7 +7025,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.674, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRenameMachineInDomain2_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrRenameMachineInDomain2_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7048,7 +7048,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.674, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7057,7 +7057,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7070,7 +7070,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrValidateName2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.675, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrValidateName2_server_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrValidateName2_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %9) #3
@@ -7096,7 +7096,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName2_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.675, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7105,7 +7105,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7117,7 +7117,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.676, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus2_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinableOus2_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7140,7 +7140,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.676, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus2_num_ous, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrGetJoinableOus2_num_ous_, i32 noundef 1, ptr noundef nonnull @.str.753, i32 noundef %9) #3
@@ -7155,7 +7155,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %21) #3
@@ -7167,7 +7167,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.677, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrAddAlternateComputerName_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrAddAlternateComputerName_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7190,7 +7190,7 @@ define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_request(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.677, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7199,7 +7199,7 @@ define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7211,7 +7211,7 @@ define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.678, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRemoveAlternateComputerName_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrRemoveAlternateComputerName_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7234,7 +7234,7 @@ define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_request(ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.678, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7243,7 +7243,7 @@ define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7255,7 +7255,7 @@ define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.679, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrSetPrimaryComputername_server_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrSetPrimaryComputername_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -7278,7 +7278,7 @@ define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.679, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -7287,7 +7287,7 @@ define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %15) #3
@@ -7300,7 +7300,7 @@ define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.680, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrEnumerateComputerNames_server_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrEnumerateComputerNames_server_name_, i32 noundef 1, ptr noundef nonnull @.str.598, i32 noundef %9) #3
@@ -7320,7 +7320,7 @@ define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.680, ptr %8, align 8
   %9 = load i32, ptr @hf_wkssvc_wkssvc_NetrEnumerateComputerNames_ctr, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @wkssvc_dissect_element_NetrEnumerateComputerNames_ctr_, i32 noundef 1, ptr noundef nonnull @.str.762, i32 noundef %9) #3
@@ -7332,7 +7332,7 @@ define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_response(ptr noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.682) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.681, ptr noundef %18) #3
@@ -7383,13 +7383,13 @@ define internal fastcc i32 @wkssvc_dissect_NetWkstaInfo(ptr noundef %0, i32 noun
 13:                                               ; preds = %10, %7
   %.0237 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0237, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #3
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not239 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not240 = icmp ne i32 %21, 0
   br i1 %.not239, label %27, label %22
@@ -7986,13 +7986,13 @@ define internal fastcc i32 @wkssvc_dissect_NetrWkstaUserInfo(ptr noundef %0, i32
 13:                                               ; preds = %10, %7
   %.039 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #3
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not41 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not42 = icmp ne i32 %21, 0
   br i1 %.not41, label %27, label %22
@@ -8204,13 +8204,13 @@ define internal fastcc i32 @wkssvc_dissect_NetrUseGetInfoCtr(ptr noundef %0, i32
 13:                                               ; preds = %10, %7
   %.045 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.045, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #3
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not47 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not48 = icmp ne i32 %21, 0
   br i1 %.not47, label %27, label %22

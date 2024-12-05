@@ -10,7 +10,7 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %5 = sext i32 %3 to i64
   %6 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %5
   %.sroa.012.0.copyload = load double, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -57,7 +57,7 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %6
   %.sroa.032.0.copyload = load double, ptr %7, align 8
-  %.sroa.936.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.936.0.copyload = load double, ptr %.sroa.936.0..sroa_idx, align 8
   %8 = icmp sgt i32 %3, 0
   %9 = fneg double %1
@@ -110,7 +110,7 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %33 = fmul double %1, %.sroa.032.0.lcssa
   %34 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.0.lcssa, double %33)
   store double %27, ptr %4, align 8
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %29, ptr %.sroa.6.0..sroa_idx6, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %32, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1

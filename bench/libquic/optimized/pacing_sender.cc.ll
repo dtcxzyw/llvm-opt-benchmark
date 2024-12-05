@@ -14,12 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net12PacingSenderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 20), (24, 41)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %max_pacing_rate_ = getelementptr inbounds i8, ptr %this, i64 8
+  %max_pacing_rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i64 @_ZN3net13QuicBandwidth4ZeroEv()
   store i64 %call, ptr %max_pacing_rate_, align 8
-  %burst_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %burst_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 10, ptr %burst_tokens_, align 8
-  %last_delayed_packet_sent_time_ = getelementptr inbounds i8, ptr %this, i64 24
+  %last_delayed_packet_sent_time_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %last_delayed_packet_sent_time_, i8 0, i64 17, i1 false)
   ret void
 }
@@ -43,20 +43,20 @@ entry:
 define dso_local void @_ZN3net12PacingSender17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr noundef nonnull align 8 dereferenceable(24) %acked_packets, ptr noundef nonnull align 8 dereferenceable(24) %lost_packets) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %lost_packets, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %lost_packets, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %lost_packets, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %burst_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %burst_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %burst_tokens_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr noundef nonnull align 8 dereferenceable(24) %acked_packets, ptr noundef nonnull align 8 dereferenceable(24) %lost_packets)
   ret void
@@ -69,7 +69,7 @@ entry:
   %ref.tmp28 = alloca %"class.net::QuicBandwidth", align 8
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %sent_time.coerce, i64 noundef %bytes_in_flight, i64 noundef %packet_number, i64 noundef %bytes, i8 noundef signext %has_retransmittable_data)
   %cmp.not = icmp eq i8 %has_retransmittable_data, 1
@@ -82,7 +82,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %2 = load ptr, ptr %this, align 8
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 112
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 112
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %call7, label %if.end15, label %if.then8
@@ -90,18 +90,18 @@ land.lhs.true:                                    ; preds = %if.end
 if.then8:                                         ; preds = %land.lhs.true
   %4 = load ptr, ptr %this, align 8
   %vtable10 = load ptr, ptr %4, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 96
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 96
   %5 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %div = udiv i64 %call12, 1460
   %conv13 = trunc i64 %div to i32
   %.sroa.speculated26 = tail call i32 @llvm.umin.i32(i32 %conv13, i32 10)
-  %burst_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %burst_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %.sroa.speculated26, ptr %burst_tokens_, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %land.lhs.true, %if.end
-  %burst_tokens_16 = getelementptr inbounds i8, ptr %this, i64 16
+  %burst_tokens_16 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load i32, ptr %burst_tokens_16, align 8
   %cmp17.not = icmp eq i32 %6, 0
   br i1 %cmp17.not, label %if.end27, label %if.then18
@@ -109,14 +109,14 @@ if.end15:                                         ; preds = %if.then8, %land.lhs
 if.then18:                                        ; preds = %if.end15
   %dec = add i32 %6, -1
   store i32 %dec, ptr %burst_tokens_16, align 8
-  %last_delayed_packet_sent_time_ = getelementptr inbounds i8, ptr %this, i64 24
+  %last_delayed_packet_sent_time_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %last_delayed_packet_sent_time_, i8 0, i64 17, i1 false)
   br label %return
 
 if.end27:                                         ; preds = %if.end15
   %add = add i64 %bytes, %bytes_in_flight
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp5.i)
-  %max_pacing_rate_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %max_pacing_rate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef zeroext i1 @_ZNK3net13QuicBandwidth6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(8) %max_pacing_rate_.i)
   br i1 %call.i, label %if.end.i, label %if.then.i
 
@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %if.end27
   %call3.i = tail call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %max_pacing_rate_.i)
   %7 = load ptr, ptr %this, align 8
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %8 = load ptr, ptr %vfn.i, align 8
   %call6.i = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %add)
   store i64 %call6.i, ptr %ref.tmp5.i, align 8
@@ -136,7 +136,7 @@ if.then.i:                                        ; preds = %if.end27
 if.end.i:                                         ; preds = %if.end27
   %9 = load ptr, ptr %this, align 8
   %vtable12.i = load ptr, ptr %9, align 8
-  %vfn13.i = getelementptr inbounds i8, ptr %vtable12.i, i64 72
+  %vfn13.i = getelementptr inbounds nuw i8, ptr %vtable12.i, i64 72
   %10 = load ptr, ptr %vfn13.i, align 8
   %call14.i = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %add)
   br label %_ZNK3net12PacingSender10PacingRateEm.exit
@@ -147,17 +147,17 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %if.then.i, %if.end.
   store i64 %retval.sroa.0.0.i, ptr %ref.tmp28, align 8
   %call31 = call { i64, i64 } @_ZNK3net13QuicBandwidth12TransferTimeEm(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, i64 noundef %bytes)
   %11 = extractvalue { i64, i64 } %call31, 1
-  %was_last_send_delayed_32 = getelementptr inbounds i8, ptr %this, i64 40
+  %was_last_send_delayed_32 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %12 = load i8, ptr %was_last_send_delayed_32, align 8
   %tobool33 = trunc i8 %12 to i1
-  %ideal_next_packet_send_time_37 = getelementptr inbounds i8, ptr %this, i64 32
+  %ideal_next_packet_send_time_37 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp36.sroa.0.0.copyload = load i64, ptr %ideal_next_packet_send_time_37, align 8
   br i1 %tobool33, label %if.then34, label %if.else75
 
 if.then34:                                        ; preds = %_ZNK3net12PacingSender10PacingRateEm.exit
   %add.i = add nsw i64 %agg.tmp36.sroa.0.0.copyload, %11
   store i64 %add.i, ptr %ideal_next_packet_send_time_37, align 8
-  %last_delayed_packet_sent_time_43 = getelementptr inbounds i8, ptr %this, i64 24
+  %last_delayed_packet_sent_time_43 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load i64, ptr %last_delayed_packet_sent_time_43, align 8
   %cmp.i17 = icmp ne i64 %13, 0
   %add.i18 = add nsw i64 %13, %11
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.else75, %if.else
 define dso_local i64 @_ZNK3net12PacingSender10PacingRateEm(ptr noundef nonnull align 8 dereferenceable(41) %this, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp5 = alloca %"class.net::QuicBandwidth", align 8
-  %max_pacing_rate_ = getelementptr inbounds i8, ptr %this, i64 8
+  %max_pacing_rate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK3net13QuicBandwidth6IsZeroEv(ptr noundef nonnull align 8 dereferenceable(8) %max_pacing_rate_)
   br i1 %call, label %if.end, label %if.then
 
@@ -198,7 +198,7 @@ if.then:                                          ; preds = %entry
   %call3 = tail call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %max_pacing_rate_)
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call6 = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %bytes_in_flight)
   store i64 %call6, ptr %ref.tmp5, align 8
@@ -210,7 +210,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 72
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 72
   %3 = load ptr, ptr %vfn13, align 8
   %call14 = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %bytes_in_flight)
   br label %return
@@ -227,11 +227,11 @@ define dso_local { i64, i64 } @_ZNK3net12PacingSender13TimeUntilSendENS_8QuicTim
 entry:
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { i64, i64 } %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %now.coerce, i64 noundef %bytes_in_flight)
   %2 = extractvalue { i64, i64 } %call, 1
-  %burst_tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %burst_tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %burst_tokens_, align 8
   %cmp = icmp eq i32 %3, 0
   %cmp3 = icmp ne i64 %bytes_in_flight, 0
@@ -241,14 +241,14 @@ entry:
   br i1 %or.cond9, label %if.end6, label %return
 
 if.end6:                                          ; preds = %entry
-  %ideal_next_packet_send_time_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ideal_next_packet_send_time_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp7.sroa.0.0.copyload = load i64, ptr %ideal_next_packet_send_time_, align 8
   %add.i = add nsw i64 %now.coerce, 1000
   %cmp.i.i = icmp slt i64 %add.i, %agg.tmp7.sroa.0.0.copyload
   br i1 %cmp.i.i, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end6
-  %was_last_send_delayed_ = getelementptr inbounds i8, ptr %this, i64 40
+  %was_last_send_delayed_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %was_last_send_delayed_, align 8
   %sub.i = sub nsw i64 %agg.tmp7.sroa.0.0.copyload, %now.coerce
   %.fca.1.insert.i = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %sub.i, 1

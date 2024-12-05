@@ -15,7 +15,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags1 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %flags1 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %flags, ptr %flags1, align 8
   br label %if.end
 
@@ -39,17 +39,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds i8, ptr %a, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %a, i64 24
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 1
   %tobool.not = icmp eq i64 %and, 0
-  %max6 = getelementptr inbounds i8, ptr %a, i64 16
+  %max6 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load i64, ptr %max6, align 8
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -87,13 +87,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %max = getelementptr inbounds i8, ptr %str, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %str, i64 16
   %1 = load i64, ptr %max, align 8
   %cmp2.not = icmp ult i64 %1, %len
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %str, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %str, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %if.end9, label %if.then5
@@ -124,7 +124,7 @@ if.end14:                                         ; preds = %if.end11
   %div35 = udiv i32 %div.lhs.trunc, 3
   %4 = shl nuw i32 %div35, 2
   %mul = zext i32 %4 to i64
-  %flags = getelementptr inbounds i8, ptr %str, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %str, i64 24
   %5 = load i64, ptr %flags, align 8
   %and = and i64 %5, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -132,7 +132,7 @@ if.end14:                                         ; preds = %if.end11
 
 if.then15:                                        ; preds = %if.end14
   %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef range(i64 4, 2147483645) %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
-  %data.i = getelementptr inbounds i8, ptr %str, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %str, i64 8
   %6 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp ne ptr %6, null
   %cmp1.i = icmp ne ptr %call.i, null
@@ -146,7 +146,7 @@ if.end18.thread:                                  ; preds = %if.then15
   br label %if.else21
 
 if.else:                                          ; preds = %if.end14
-  %data16 = getelementptr inbounds i8, ptr %str, i64 8
+  %data16 = getelementptr inbounds nuw i8, ptr %str, i64 8
   %8 = load ptr, ptr %data16, align 8
   %call17 = tail call ptr @CRYPTO_realloc(ptr noundef %8, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 95) #5
   br label %if.end18
@@ -158,7 +158,7 @@ if.end18:                                         ; preds = %if.then15, %if.else
 
 if.else21:                                        ; preds = %if.end18.thread, %if.end18
   %ret.034 = phi ptr [ %call.i, %if.end18.thread ], [ %ret.0, %if.end18 ]
-  %data22 = getelementptr inbounds i8, ptr %str, i64 8
+  %data22 = getelementptr inbounds nuw i8, ptr %str, i64 8
   store ptr %ret.034, ptr %data22, align 8
   store i64 %mul, ptr %max, align 8
   %9 = load i64, ptr %str, align 8
@@ -192,7 +192,7 @@ entry:
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %str, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %str, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end, label %if.then2
@@ -208,13 +208,13 @@ if.end:                                           ; preds = %if.then2, %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %max = getelementptr inbounds i8, ptr %str, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %str, i64 16
   %2 = load i64, ptr %max, align 8
   %cmp7.not = icmp ult i64 %2, %len
   br i1 %cmp7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %data9 = getelementptr inbounds i8, ptr %str, i64 8
+  %data9 = getelementptr inbounds nuw i8, ptr %str, i64 8
   %3 = load ptr, ptr %data9, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %3, i64 %0
   %sub13 = sub i64 %len, %0
@@ -238,7 +238,7 @@ if.end18:                                         ; preds = %if.end15
   %div41 = udiv i32 %div.lhs.trunc, 3
   %5 = shl nuw i32 %div41, 2
   %mul = zext i32 %5 to i64
-  %flags = getelementptr inbounds i8, ptr %str, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %str, i64 24
   %6 = load i64, ptr %flags, align 8
   %and = and i64 %6, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -246,7 +246,7 @@ if.end18:                                         ; preds = %if.end15
 
 if.then19:                                        ; preds = %if.end18
   %call.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef range(i64 4, 2147483645) %mul, ptr noundef nonnull @.str, i32 noundef 60) #5
-  %data.i = getelementptr inbounds i8, ptr %str, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %str, i64 8
   %7 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp ne ptr %7, null
   %cmp1.i = icmp ne ptr %call.i, null
@@ -260,7 +260,7 @@ if.end23.thread:                                  ; preds = %if.then19
   br label %if.else26
 
 if.else:                                          ; preds = %if.end18
-  %data20 = getelementptr inbounds i8, ptr %str, i64 8
+  %data20 = getelementptr inbounds nuw i8, ptr %str, i64 8
   %9 = load ptr, ptr %data20, align 8
   %call22 = tail call ptr @CRYPTO_clear_realloc(ptr noundef %9, i64 noundef %2, i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 132) #5
   br label %if.end23
@@ -272,7 +272,7 @@ if.end23:                                         ; preds = %if.then19, %if.else
 
 if.else26:                                        ; preds = %if.end23.thread, %if.end23
   %ret.040 = phi ptr [ %call.i, %if.end23.thread ], [ %ret.0, %if.end23 ]
-  %data27 = getelementptr inbounds i8, ptr %str, i64 8
+  %data27 = getelementptr inbounds nuw i8, ptr %str, i64 8
   store ptr %ret.040, ptr %data27, align 8
   store i64 %mul, ptr %max, align 8
   %10 = load i64, ptr %str, align 8
@@ -308,7 +308,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.017 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %in.addr.016 = phi ptr [ %incdec.ptr, %for.body ], [ %in, %for.body.preheader ]
   %out.addr.0 = getelementptr i8, ptr %.pn18, i64 -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.016, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %in.addr.016, i64 1
   %1 = load i8, ptr %in.addr.016, align 1
   store i8 %1, ptr %out.addr.0, align 1
   %inc = add nuw i64 %i.017, 1
@@ -332,7 +332,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %2 = load i8, ptr %q.0, align 1
   %3 = load i8, ptr %out.addr.122, align 1
   store i8 %3, ptr %q.0, align 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %out.addr.122, i64 1
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %out.addr.122, i64 1
   store i8 %2, ptr %out.addr.122, align 1
   %inc10 = add nuw nsw i64 %i.120, 1
   %exitcond24.not = icmp eq i64 %inc10, %div13

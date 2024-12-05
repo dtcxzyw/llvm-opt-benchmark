@@ -96,28 +96,28 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   %15 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %1, ptr noundef nonnull %0)
           to label %18 unwind label %55
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #10
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #10
-  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 148
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 156
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 -1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
           to label %28 unwind label %57
@@ -129,7 +129,7 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
 
 29:                                               ; preds = %28
   store ptr getelementptr inbounds (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %27, ptr %30, align 8
   invoke void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %27)
           to label %31 unwind label %57
@@ -145,7 +145,7 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
 
 34:                                               ; preds = %33
   store ptr getelementptr inbounds (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %32, ptr %35, align 8
   invoke void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
           to label %36 unwind label %57
@@ -162,21 +162,21 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12rangeChangedEii to i64), ptr %10, align 8, !noalias !4
-  %.fca.1.gep14.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !4
   store i64 ptrtoint (ptr @_ZN16OverlayScrollBar13setChildRangeEii to i64), ptr %11, align 8, !noalias !4
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !4
   %39 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %38
   store i32 1, ptr %39, align 4, !noalias !4
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %40, align 8, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 ptrtoint (ptr @_ZN16OverlayScrollBar13setChildRangeEii to i64), ptr %41, align 8, !noalias !4
-  %.repack7.i.i = getelementptr inbounds i8, ptr %39, i64 24
+  %.repack7.i.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !4
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %39, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15QAbstractSlider16staticMetaObjectE)
           to label %42 unwind label %57
@@ -188,21 +188,21 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), ptr %8, align 8, !noalias !7
-  %.fca.1.gep12.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !7
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), ptr %9, align 8, !noalias !7
-  %.fca.1.gep.i32 = getelementptr inbounds i8, ptr %9, i64 8
+  %.fca.1.gep.i32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %.fca.1.gep.i32, align 8, !noalias !7
   %43 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
           to label %.noexc34 unwind label %57
 
 .noexc34:                                         ; preds = %42
   store i32 1, ptr %43, align 4, !noalias !7
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %44, align 8, !noalias !7
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), ptr %45, align 8, !noalias !7
-  %.repack7.i.i33 = getelementptr inbounds i8, ptr %43, i64 24
+  %.repack7.i.i33 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 0, ptr %.repack7.i.i33, align 8, !noalias !7
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull %9, ptr noundef nonnull %43, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15QAbstractSlider16staticMetaObjectE)
           to label %46 unwind label %57
@@ -214,21 +214,21 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), ptr %6, align 8, !noalias !10
-  %.fca.1.gep12.i39 = getelementptr inbounds i8, ptr %6, i64 8
+  %.fca.1.gep12.i39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.fca.1.gep12.i39, align 8, !noalias !10
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), ptr %7, align 8, !noalias !10
-  %.fca.1.gep.i40 = getelementptr inbounds i8, ptr %7, i64 8
+  %.fca.1.gep.i40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.fca.1.gep.i40, align 8, !noalias !10
   %47 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
           to label %.noexc42 unwind label %57
 
 .noexc42:                                         ; preds = %46
   store i32 1, ptr %47, align 4, !noalias !10
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %48, align 8, !noalias !10
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), ptr %49, align 8, !noalias !10
-  %.repack7.i.i41 = getelementptr inbounds i8, ptr %47, i64 24
+  %.repack7.i.i41 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %.repack7.i.i41, align 8, !noalias !10
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef nonnull %17, ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %47, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15QAbstractSlider16staticMetaObjectE)
           to label %50 unwind label %57
@@ -240,21 +240,21 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), ptr %4, align 8, !noalias !13
-  %.fca.1.gep12.i48 = getelementptr inbounds i8, ptr %4, i64 8
+  %.fca.1.gep12.i48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep12.i48, align 8, !noalias !13
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), ptr %5, align 8, !noalias !13
-  %.fca.1.gep.i49 = getelementptr inbounds i8, ptr %5, i64 8
+  %.fca.1.gep.i49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.fca.1.gep.i49, align 8, !noalias !13
   %51 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
           to label %.noexc51 unwind label %57
 
 .noexc51:                                         ; preds = %50
   store i32 1, ptr %51, align 4, !noalias !13
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %52, align 8, !noalias !13
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), ptr %53, align 8, !noalias !13
-  %.repack7.i.i50 = getelementptr inbounds i8, ptr %51, i64 24
+  %.repack7.i.i50 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 0, ptr %.repack7.i.i50, align 8, !noalias !13
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef nonnull %17, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %51, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15QAbstractSlider16staticMetaObjectE)
           to label %54 unwind label %57
@@ -324,7 +324,7 @@ declare void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN12QApplication5styleEv()
   call void @_ZNK6QStyle4nameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -351,7 +351,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %8
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %8, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %3, align 8
   call void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
   ret void
@@ -385,7 +385,7 @@ declare void @_ZN15QAbstractSlider12rangeChangedEii(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN16OverlayScrollBar13setChildRangeEii(ptr noundef nonnull align 8 dereferenceable(196) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN15QAbstractSlider8setRangeEii(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %1, i32 noundef %2)
   ret void
 }
@@ -431,35 +431,35 @@ declare void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16OverlayScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %12) #10
   br label %18
 
 18:                                               ; preds = %14, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN5QListIiED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i
@@ -475,11 +475,11 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %18
   br label %_ZN5QListIiED2Ev.exit
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %18, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN10QScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %26) #10
   tail call void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   ret void
@@ -509,9 +509,9 @@ define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #7 ali
 
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZNK16OverlayScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = tail call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.sroa.01.0.extract.trunc = trunc i64 %5 to i32
   %6 = add i32 %3, %.sroa.01.0.extract.trunc
@@ -526,7 +526,7 @@ declare i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN16OverlayScrollBar14sliderPositionEv(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = tail call noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   ret i32 %3
 }
@@ -535,20 +535,20 @@ declare noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 156
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i64, ptr %18, align 8
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, label %20
@@ -560,9 +560,9 @@ define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(pt
 _ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i:       ; preds = %20, %7
   %22 = load ptr, ptr %14, align 8
   store ptr %15, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %19, ptr %24, align 8
   %.not.i.i2.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIiEaSERKS0_.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
@@ -578,9 +578,9 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %_ZN17QArrayDataPoin
 
 _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %26
   %27 = sitofp i32 %6 to double
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
   %33 = sitofp i32 %32 to double
@@ -590,7 +590,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
 
 36:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit
   %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
   %41 = sitofp i32 %40 to double
@@ -600,7 +600,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
 43:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit, %36
   %44 = phi double [ %42, %36 ], [ %27, %_ZN5QListIiEaSERKS0_.exit ]
   %45 = fptosi double %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %45, ptr %46, align 8
   %47 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   %.not = icmp eq i32 %9, %47
@@ -608,7 +608,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
   %53 = sitofp i32 %52 to double
@@ -617,7 +617,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
   %56 = sitofp i32 %55 to double
   %57 = fdiv double %56, %54
   %58 = fptosi double %57 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %58, ptr %59, align 8
   tail call void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   br label %60
@@ -637,22 +637,22 @@ declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(10) %3, i32 noundef 12)
   %8 = sitofp i32 %7 to double
   %9 = fmul double %8, 0x3EF0000000000000
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %12 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
   %13 = sitofp i32 %12 to double
   %14 = fdiv double %13, %9
   %15 = fptosi double %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 148
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   ret void
 }
@@ -662,22 +662,22 @@ define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull ali
   %2 = alloca %class.QStyleOptionSlider, align 8
   call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %5 = load ptr, ptr %4, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %2)
           to label %6 unwind label %28
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 20
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %12, %13
   %19 = sub i32 %15, %17
@@ -685,16 +685,16 @@ define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull ali
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
   %.sroa.3.8.insert.ext.i = zext i32 %18 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %.sroa.3.8.insert.insert.i, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %22 unwind label %28
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %25 = load ptr, ptr %24, align 8
   %26 = invoke { i64, i64 } %25(ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 128, ptr noundef nonnull %7)
           to label %27 unwind label %28
@@ -719,28 +719,28 @@ define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef nonn
   %3 = alloca %class.QSize, align 4
   %4 = alloca %class.QPoint, align 4
   tail call void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %8, align 4
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.sroa.0.0.extract.trunc = trunc i64 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %13, 1
   %17 = sub i32 %16, %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %.sroa.0.0.extract.trunc, ptr %3, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %17, ptr %18, align 4
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -766,24 +766,24 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef nonnul
   %15 = alloca %class.QSize, align 8
   %16 = alloca %class.QBrush, align 8
   %17 = alloca %class.QColor, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(10) %18, i32 noundef 12)
   %23 = sitofp i32 %22 to double
   %24 = fmul double %23, 0x3EF0000000000000
-  %25 = getelementptr inbounds i8, ptr %0, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %30, 1
   %34 = sub i32 %33, %32
-  %35 = getelementptr inbounds i8, ptr %10, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %36 = sitofp i32 %26 to double
   %37 = fmul double %24, %36
   %38 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %37)
@@ -797,7 +797,7 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef nonnul
   %45 = fptosi double %44 to i32
   store i32 %45, ptr %35, align 4
   call void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %18)
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %48 unwind label %92
 
@@ -810,7 +810,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
           to label %50 unwind label %92
 
 50:                                               ; preds = %_ZNK8QPalette4baseEv.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %52 = invoke noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %51)
           to label %53 unwind label %92
 
@@ -849,11 +849,11 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
 63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %64 = getelementptr inbounds i8, ptr %8, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %65 = sitofp i32 %59 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store double %65, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %67 = sitofp i32 %60 to double
   store double %67, ptr %66, align 8
   %68 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -866,10 +866,10 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
 .noexc21:                                         ; preds = %.noexc
   %70 = sitofp i32 %68 to double
   %71 = sitofp i32 %69 to double
-  %72 = getelementptr inbounds i8, ptr %9, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store double %70, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store double %71, ptr %73, align 8
   invoke void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 0)
           to label %74 unwind label %98
@@ -878,15 +878,15 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #10
-  %75 = getelementptr inbounds i8, ptr %0, i64 184
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %76 = load i64, ptr %75, align 8
   %77 = icmp sgt i64 %76, 0
   br i1 %77, label %78, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 168
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %80 = load ptr, ptr %79, align 8, !noalias !16
-  %81 = getelementptr inbounds i8, ptr %0, i64 176
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %82 = load ptr, ptr %81, align 8, !noalias !16
   %.not.i.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit, label %83
@@ -902,10 +902,10 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5deca
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 192
-  %87 = getelementptr inbounds i8, ptr %7, i64 4
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
-  %89 = getelementptr inbounds i8, ptr %7, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %102
 
 ._crit_edge:                                      ; preds = %127, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
@@ -974,7 +974,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %._crit_edge
 
 _ZNK8QPalette9highlightEv.exit:                   ; preds = %113
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(14) %116, i32 noundef 1)
           to label %117 unwind label %100
 
@@ -1060,7 +1060,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %137
   %.sroa.2.0.insert.shift.i32 = shl nuw i64 %.sroa.2.0.insert.ext.i31, 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %142 = getelementptr inbounds i8, ptr %6, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.2.0.insert.shift.i32, ptr %142, align 8
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %6, i32 noundef 1)
           to label %143 unwind label %96
@@ -1071,7 +1071,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %137
   %.sroa.11.8.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i32, %.sroa.0.0.insert.ext.i38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %.sroa.0.0.insert.ext.i38, ptr %5, align 8
-  %144 = getelementptr inbounds i8, ptr %5, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.11.8.insert.insert, ptr %144, align 8
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %5, i32 noundef 1)
           to label %145 unwind label %96
@@ -1080,7 +1080,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %137
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 %.sroa.2.0.insert.shift.i32, ptr %4, align 8
-  %146 = getelementptr inbounds i8, ptr %4, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.11.8.insert.insert, ptr %146, align 8
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %4, i32 noundef 1)
           to label %147 unwind label %96
@@ -1178,9 +1178,9 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %10 = alloca %class.QImage, align 8
   %11 = alloca %class.QSize, align 8
   %12 = alloca %class.QPainter, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = icmp eq ptr %1, %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 12
   %or.cond = select i1 %14, i1 %17, i1 false
@@ -1188,7 +1188,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
 
 18:                                               ; preds = %3
   %19 = tail call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull %2)
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = tail call noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
   br i1 %21, label %115, label %22
 
@@ -1196,21 +1196,21 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7)
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 424
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 424
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull %7)
           to label %26 unwind label %46
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 20
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %29, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %28, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %36 = load i32, ptr %35, align 4
   %37 = sub i32 %31, %32
   %38 = sub i32 %34, %36
@@ -1218,16 +1218,16 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %.sroa.5.8.insert.shift.i.i = shl nuw i64 %.sroa.5.8.insert.ext.i.i, 32
   %.sroa.3.8.insert.ext.i.i = zext i32 %37 to i64
   %.sroa.3.8.insert.insert.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i, %.sroa.3.8.insert.ext.i.i
-  %39 = getelementptr inbounds i8, ptr %7, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %39, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.3.8.insert.insert.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %40 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %41 unwind label %46
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 216
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 216
   %44 = load ptr, ptr %43, align 8
   %45 = invoke { i64, i64 } %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %13)
           to label %_ZN16OverlayScrollBar10grooveRectEv.exit unwind label %46
@@ -1250,9 +1250,9 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %.sroa.14.8.extract.trunc = trunc i64 %49 to i32
   %.sroa.19.8.extract.shift = lshr i64 %49, 32
   %.sroa.19.8.extract.trunc = trunc nuw i64 %.sroa.19.8.extract.shift to i32
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(10) %50, i32 noundef 12)
   %55 = sitofp i32 %54 to double
@@ -1308,11 +1308,11 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 84:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = sitofp i32 %75 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store double %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %88 = sitofp i32 %80 to double
   store double %88, ptr %87, align 8
   %89 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -1325,10 +1325,10 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
 .noexc28:                                         ; preds = %.noexc
   %91 = sitofp i32 %89 to double
   %92 = sitofp i32 %90 to double
-  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store double %91, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %92, ptr %94, align 8
   invoke void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 0)
           to label %95 unwind label %107
@@ -1341,7 +1341,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
           to label %96 unwind label %105
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %0, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %97)
           to label %98 unwind label %105
 
@@ -1350,7 +1350,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %99 = sitofp i32 %61 to double
   %100 = sitofp i32 %66 to double
   store double %99, ptr %4, align 8
-  %101 = getelementptr inbounds i8, ptr %4, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %100, ptr %101, align 8
   invoke void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %102 unwind label %109
@@ -1414,24 +1414,24 @@ declare void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereference
 define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QRect, align 4
   %4 = alloca %class.QPoint, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i32, ptr %11, align 4
   store i32 0, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = add i32 %6, -1
   store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = sub i32 %10, %12
   store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
   %21 = extractvalue { double, double } %20, 0
@@ -1452,9 +1452,9 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
 
 30:                                               ; preds = %2
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %33, 1
   %37 = sub i32 %36, %35
@@ -1462,7 +1462,7 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.critedge
@@ -1473,16 +1473,16 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 156
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %50 = load i32, ptr %49, align 4
   %51 = sub i32 %48, %50
   %52 = sitofp i32 %51 to double
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %55, 1
   %59 = sub i32 %58, %57
@@ -1686,9 +1686,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
   br label %35
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %10, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
   %12 = and i64 %.unpack12, 1
@@ -1719,11 +1719,11 @@ _ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFviiEE4callINS_4ListIJiiEEEvEE
 
 27:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %28, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %29 = icmp eq i64 %.unpack, %.unpack9
   %30 = icmp eq i64 %.unpack, 0
@@ -1755,9 +1755,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
   br label %32
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %10, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
   %12 = and i64 %.unpack12, 1
@@ -1785,11 +1785,11 @@ _ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3
 
 24:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %25, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %26 = icmp eq i64 %.unpack, %.unpack9
   %27 = icmp eq i64 %.unpack, 0

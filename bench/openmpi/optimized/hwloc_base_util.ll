@@ -98,7 +98,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
 
 34:                                               ; preds = %32
   %35 = tail call ptr @opal_proc_local_get() #9
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %39 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %38) #9
@@ -114,7 +114,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   store ptr %4, ptr %5, align 8
   store ptr null, ptr %8, align 8
   %43 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %7, i32 noundef %37) #9
-  %44 = getelementptr inbounds i8, ptr %7, i64 256
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store i32 -2, ptr %44, align 4
   %45 = call i32 @PMIx_Info_load(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, ptr noundef null, i16 noundef zeroext 1) #9
   %46 = call i32 @PMIx_Get(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i64 noundef 1, ptr noundef nonnull %8) #9
@@ -148,7 +148,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %.04092 = phi i1 [ %.040.ph154, %.thread149 ], [ %54, %52 ], [ false, %42 ]
   store ptr null, ptr %12, align 8
   %55 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %11, i32 noundef %37) #9
-  %56 = getelementptr inbounds i8, ptr %11, i64 256
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 256
   store i32 -2, ptr %56, align 4
   %57 = call i32 @PMIx_Info_load(ptr noundef nonnull %13, ptr noundef nonnull @.str.2, ptr noundef null, i16 noundef zeroext 1) #9
   %58 = call i32 @PMIx_Get(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, ptr noundef nonnull %13, i64 noundef 1, ptr noundef nonnull %12) #9
@@ -182,7 +182,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %.04198 = phi i1 [ %.041.ph160, %.thread155 ], [ %66, %64 ], [ false, %.thread ]
   store ptr null, ptr %16, align 8
   %67 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %15, i32 noundef %37) #9
-  %68 = getelementptr inbounds i8, ptr %15, i64 256
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store i32 -2, ptr %68, align 4
   %69 = call i32 @PMIx_Info_load(ptr noundef nonnull %17, ptr noundef nonnull @.str.2, ptr noundef null, i16 noundef zeroext 1) #9
   %70 = call i32 @PMIx_Get(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, ptr noundef nonnull %17, i64 noundef 1, ptr noundef nonnull %16) #9
@@ -301,7 +301,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
 114:                                              ; preds = %112, %.thread105
   store ptr null, ptr %21, align 8
   %115 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %20, i32 noundef %37) #9
-  %116 = getelementptr inbounds i8, ptr %20, i64 256
+  %116 = getelementptr inbounds nuw i8, ptr %20, i64 256
   store i32 -2, ptr %116, align 4
   %117 = call i32 @PMIx_Info_load(ptr noundef nonnull %22, ptr noundef nonnull @.str.14, ptr noundef null, i16 noundef zeroext 1) #9
   %118 = call i32 @PMIx_Get(ptr noundef nonnull %20, ptr noundef nonnull @.str.15, ptr noundef nonnull %22, i64 noundef 1, ptr noundef nonnull %21) #9
@@ -340,7 +340,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
 .thread115:                                       ; preds = %.thread174, %114, %127, %128
   store ptr null, ptr %25, align 8
   %129 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %24, i32 noundef %37) #9
-  %130 = getelementptr inbounds i8, ptr %24, i64 256
+  %130 = getelementptr inbounds nuw i8, ptr %24, i64 256
   store i32 -2, ptr %130, align 4
   %131 = call i32 @PMIx_Info_load(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, ptr noundef null, i16 noundef zeroext 1) #9
   %132 = call i32 @PMIx_Get(ptr noundef nonnull %24, ptr noundef nonnull @.str.16, ptr noundef nonnull %26, i64 noundef 1, ptr noundef nonnull %25) #9
@@ -537,13 +537,13 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
   br i1 %204, label %fill_cache_line_size.exit, label %.preheaderthread-pre-split.i, !llvm.loop !6
 
 205:                                              ; preds = %opal_hwloc_base_get_obj_by_type.exit.i
-  %206 = getelementptr inbounds i8, ptr %201, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %201, i64 40
   %207 = load ptr, ptr %206, align 8
   %.not.i88 = icmp eq ptr %207, null
   br i1 %.not.i88, label %212, label %208
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %207, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 12
   %210 = load i32, ptr %209, align 4
   %.not24.i = icmp ne i32 %210, 0
   %211 = icmp ugt i32 %.11727.i, %210
@@ -594,7 +594,7 @@ fill_cache_line_size.exit:                        ; preds = %opal_hwloc_base_get
   %228 = load ptr, ptr @opal_hwloc_topology, align 8
   %229 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %228, i32 noundef 0, i32 noundef 0) #10
   %230 = load ptr, ptr @opal_hwloc_my_cpuset, align 8
-  %231 = getelementptr inbounds i8, ptr %229, i64 184
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 184
   %232 = load ptr, ptr %231, align 8
   %233 = call i32 @hwloc_bitmap_copy(ptr noundef %230, ptr noundef %232) #9
   br label %opal_hwloc_base_set_local_cpuset.exit
@@ -675,16 +675,16 @@ declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #11
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %12, label %11
 
@@ -698,9 +698,9 @@ define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed
 
 13:                                               ; preds = %12
   store ptr @opal_hwloc_topo_data_t_class, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -709,7 +709,7 @@ define internal fastcc void @opal_hwloc_base_filter_cpus(ptr noundef %0) unnamed
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %13 ]
   %.07.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %13 ]
   tail call void %17(ptr noundef nonnull %8) #9
-  %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !8
@@ -720,13 +720,13 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
 
 20:                                               ; preds = %opal_obj_new.exit, %1
   %21 = phi ptr [ %8, %opal_obj_new.exit ], [ %4, %1 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %26) #9
   store ptr %27, ptr %22, align 8
@@ -771,16 +771,16 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %9, %hwloc_get_nbobj
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %14, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 232
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %40
 
 .thread:                                          ; preds = %13, %18
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 56), align 8
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #11
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %24, %25
   br i1 %.not.i, label %27, label %26
 
@@ -794,9 +794,9 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %9, %hwloc_get_nbobj
 
 28:                                               ; preds = %27
   store ptr @opal_hwloc_topo_data_t_class, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_topo_data_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -805,7 +805,7 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %9, %hwloc_get_nbobj
   %32 = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %28 ]
   %.07.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %30, %28 ]
   tail call void %32(ptr noundef nonnull %23) #9
-  %33 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !8
@@ -817,43 +817,43 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %opal_obj_new.exit
-  %39 = getelementptr inbounds i8, ptr %14, i64 232
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 232
   store ptr %23, ptr %39, align 8
   br label %.loopexit
 
 40:                                               ; preds = %18
-  %41 = getelementptr inbounds i8, ptr %20, i64 40
-  %42 = getelementptr inbounds i8, ptr %20, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %.03652 = load volatile ptr, ptr %42, align 8
   %.not53 = icmp eq ptr %.03652, %41
   br i1 %.not53, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40, %57
   %.03654 = phi ptr [ %.036, %57 ], [ %.03652, %40 ]
-  %43 = getelementptr inbounds i8, ptr %.03654, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.03654, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %1, %44
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %.03654, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.03654, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %2, %48
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.03654, i64 52
+  %51 = getelementptr inbounds nuw i8, ptr %.03654, i64 52
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %3, %52
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.03654, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.03654, i64 48
   %56 = load i32, ptr %55, align 8
   br label %hwloc_get_nbobjs_by_type.exit.thread48
 
 57:                                               ; preds = %.lr.ph, %46, %50
-  %58 = getelementptr inbounds i8, ptr %.03654, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.03654, i64 16
   %.036 = load volatile ptr, ptr %58, align 8
   %.not = icmp eq ptr %.036, %41
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -861,10 +861,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
 .loopexit:                                        ; preds = %57, %40, %opal_obj_new.exit, %38
   %.1 = phi ptr [ %23, %38 ], [ %23, %opal_obj_new.exit ], [ %20, %40 ], [ %20, %57 ]
   %59 = call fastcc ptr @df_search(ptr noundef %0, ptr noundef %14, i32 noundef %1, i32 noundef 0, i8 noundef zeroext %3, ptr noundef nonnull %5)
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 56), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_summary_t_class, i64 56), align 8
   %61 = call noalias ptr @malloc(i64 noundef %60) #11
   %62 = load i32, ptr @opal_class_init_epoch, align 4
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 32), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_summary_t_class, i64 32), align 8
   %.not.i40 = icmp eq i32 %62, %63
   br i1 %.not.i40, label %65, label %64
 
@@ -878,9 +878,9 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
 
 66:                                               ; preds = %65
   store ptr @opal_hwloc_summary_t_class, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %61, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store volatile i32 1, ptr %67, align 8
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hwloc_summary_t_class, i64 40), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_summary_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i42 = icmp eq ptr %69, null
   br i1 %.not6.i.i42, label %opal_obj_new.exit46, label %.lr.ph.i.i43
@@ -889,33 +889,33 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %27, %2
   %70 = phi ptr [ %72, %.lr.ph.i.i43 ], [ %69, %66 ]
   %.07.i.i44 = phi ptr [ %71, %.lr.ph.i.i43 ], [ %68, %66 ]
   call void %70(ptr noundef nonnull %61) #9
-  %71 = getelementptr inbounds i8, ptr %.07.i.i44, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.07.i.i44, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i.i45 = icmp eq ptr %72, null
   br i1 %.not.i.i45, label %opal_obj_new.exit46, label %.lr.ph.i.i43, !llvm.loop !8
 
 opal_obj_new.exit46:                              ; preds = %.lr.ph.i.i43, %65, %66
-  %73 = getelementptr inbounds i8, ptr %61, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i32 %1, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %61, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 44
   store i32 %2, ptr %74, align 4
   %75 = load i32, ptr %5, align 4
-  %76 = getelementptr inbounds i8, ptr %61, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i32 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %61, i64 52
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 52
   store i8 %3, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %.1, i64 40
-  %79 = getelementptr inbounds i8, ptr %.1, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   %80 = load volatile ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %61, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store volatile ptr %80, ptr %81, align 8
   %82 = load volatile ptr, ptr %79, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store volatile ptr %61, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %61, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store volatile ptr %78, ptr %84, align 8
   store volatile ptr %61, ptr %79, align 8
-  %85 = getelementptr inbounds i8, ptr %.1, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %86 = load volatile i64, ptr %85, align 8
   %87 = add i64 %86, 1
   store volatile i64 %87, ptr %85, align 8
@@ -967,13 +967,13 @@ define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr nocapture noun
   br i1 %.not.i.us, label %22, label %16
 
 16:                                               ; preds = %.split.us
-  %17 = getelementptr inbounds i8, ptr %.054.us, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.054.us, i64 48
   %18 = load i32, ptr %17, align 8
   %.not7.i.us = icmp eq i32 %18, %7
   br i1 %.not7.i.us, label %19, label %hwloc_get_next_obj_by_depth.exit.thread
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.054.us, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %.054.us, i64 56
   %21 = load ptr, ptr %20, align 8
   br label %hwloc_get_next_obj_by_depth.exit.us
 
@@ -987,7 +987,7 @@ hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
   br i1 %.not69.us, label %hwloc_get_next_obj_by_depth.exit.thread, label %24
 
 24:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.us
-  %25 = getelementptr inbounds i8, ptr %.0.i.us, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %3
   %spec.select.us = select i1 %27, ptr %.0.i.us, ptr %.055.us
@@ -1005,13 +1005,13 @@ hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
   br label %hwloc_get_next_obj_by_depth.exit
 
 31:                                               ; preds = %.split
-  %32 = getelementptr inbounds i8, ptr %.054, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.054, i64 48
   %33 = load i32, ptr %32, align 8
   %.not7.i = icmp eq i32 %33, %7
   br i1 %.not7.i, label %34, label %hwloc_get_next_obj_by_depth.exit.thread
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.054, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.054, i64 56
   %36 = load ptr, ptr %35, align 8
   br label %hwloc_get_next_obj_by_depth.exit
 
@@ -1021,7 +1021,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
   br i1 %.not69, label %hwloc_get_next_obj_by_depth.exit.thread, label %37
 
 37:                                               ; preds = %hwloc_get_next_obj_by_depth.exit
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = icmp ugt i32 %39, %28
   br i1 %40, label %41, label %42
@@ -1050,27 +1050,27 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
 
 51:                                               ; preds = %46
   %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #10
-  %53 = getelementptr inbounds i8, ptr %52, i64 232
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noalias ptr @hwloc_bitmap_alloc() #9
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %63, label %56
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %58 = load ptr, ptr %57, align 8
   %.not65 = icmp eq ptr %58, null
   br i1 %.not65, label %63, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %1, i64 184
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @hwloc_bitmap_and(ptr noundef %55, ptr noundef %61, ptr noundef nonnull %58) #9
   br label %68
 
 63:                                               ; preds = %.thread, %56, %51
   %64 = phi ptr [ %50, %.thread ], [ %55, %56 ], [ %55, %51 ]
-  %65 = getelementptr inbounds i8, ptr %1, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @hwloc_bitmap_copy(ptr noundef %64, ptr noundef %66) #9
   br label %68
@@ -1088,7 +1088,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
 .preheader.i:                                     ; preds = %70, %78
   %.017.i = phi i32 [ %.1.i, %78 ], [ 0, %70 ]
   %.01016.i = phi ptr [ %80, %78 ], [ %71, %70 ]
-  %72 = getelementptr inbounds i8, ptr %.01016.i, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 184
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %73) #10
   %.not14.i = icmp eq i32 %74, 0
@@ -1103,7 +1103,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
 
 78:                                               ; preds = %75, %.preheader.i
   %.1.i = phi i32 [ %.017.i, %.preheader.i ], [ %spec.select.i, %75 ]
-  %79 = getelementptr inbounds i8, ptr %.01016.i, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 56
   %80 = load ptr, ptr %79, align 8
   %.not13.i = icmp eq ptr %80, null
   br i1 %.not13.i, label %hwloc_get_nbobjs_inside_cpuset_by_depth.exit, label %.preheader.i, !llvm.loop !11
@@ -1127,13 +1127,13 @@ hwloc_get_nbobjs_inside_cpuset_by_depth.exit:     ; preds = %78, %70
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.1, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %86 = load i32, ptr %85, align 8
   %.not7.i.i = icmp eq i32 %86, %7
   br i1 %.not7.i.i, label %87, label %.loopexit
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %.1, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   %89 = load ptr, ptr %88, align 8
   br label %hwloc_get_next_obj_by_depth.exit.i
 
@@ -1144,7 +1144,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %87, %82
 
 .preheader.i73:                                   ; preds = %hwloc_get_next_obj_by_depth.exit.i, %.critedge2.i
   %.019.i = phi ptr [ %96, %.critedge2.i ], [ %.0.i.i, %hwloc_get_next_obj_by_depth.exit.i ]
-  %90 = getelementptr inbounds i8, ptr %.019.i, i64 184
+  %90 = getelementptr inbounds nuw i8, ptr %.019.i, i64 184
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %91) #10
   %.not15.i74 = icmp eq i32 %92, 0
@@ -1156,7 +1156,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %87, %82
   br i1 %.not16.i, label %.critedge2.i, label %hwloc_get_next_obj_inside_cpuset_by_depth.exit
 
 .critedge2.i:                                     ; preds = %93, %.preheader.i73
-  %95 = getelementptr inbounds i8, ptr %.019.i, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %.019.i, i64 56
   %96 = load ptr, ptr %95, align 8
   %.not14.i75 = icmp eq ptr %96, null
   br i1 %.not14.i75, label %.loopexit, label %.preheader.i73, !llvm.loop !12
@@ -1225,7 +1225,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.opal_hwloc_base_get_location, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.opal_hwloc_base_get_location, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef 58) #9
   %9 = load ptr, ptr %8, align 8
@@ -1247,7 +1247,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %16, label %17, label %10
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %14, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %19 = tail call noalias ptr @strdup(ptr noundef nonnull %18) #9
   br label %.loopexit
 
@@ -1292,7 +1292,7 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   %.05290 = phi i64 [ %66, %.loopexit ], [ 0, %5 ]
   %.05489 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
   %12 = getelementptr inbounds ptr, ptr %6, i64 %.05290
-  %13 = getelementptr inbounds i8, ptr %11, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %14 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %8, ptr noundef nonnull %13) #9
   %15 = load ptr, ptr %7, align 8
   %.not5986 = icmp eq ptr %15, null
@@ -1317,7 +1317,7 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
   br i1 %24, label %25, label %17
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %22, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %27 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %9, ptr noundef nonnull %26) #9
   %28 = tail call i32 @hwloc_bitmap_intersects(ptr noundef %8, ptr noundef %9) #10
   %.not60 = icmp eq i32 %28, 0
@@ -1335,7 +1335,7 @@ sub_0:                                            ; preds = %25
   ]
 
 .tail:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 77
   br i1 %33, label %34, label %.tail81.thread
@@ -1345,7 +1345,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail61:                                          ; preds = %sub_0
-  %36 = getelementptr inbounds i8, ptr %29, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 75
   br i1 %38, label %39, label %.tail81.thread
@@ -1355,7 +1355,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail65:                                          ; preds = %sub_0
-  %41 = getelementptr inbounds i8, ptr %29, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 51
   br i1 %43, label %44, label %.tail69
@@ -1365,7 +1365,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail69:                                          ; preds = %.tail65
-  %46 = getelementptr inbounds i8, ptr %29, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 50
   br i1 %48, label %49, label %.tail73
@@ -1375,7 +1375,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail73:                                          ; preds = %.tail69
-  %51 = getelementptr inbounds i8, ptr %29, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 49
   br i1 %53, label %54, label %.tail81.thread
@@ -1385,7 +1385,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail77:                                          ; preds = %sub_0
-  %56 = getelementptr inbounds i8, ptr %29, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 82
   br i1 %58, label %59, label %.tail81.thread
@@ -1395,7 +1395,7 @@ sub_0:                                            ; preds = %25
   br label %.loopexit
 
 .tail81:                                          ; preds = %sub_0
-  %61 = getelementptr inbounds i8, ptr %29, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 84
   br i1 %63, label %64, label %.tail81.thread

@@ -27,7 +27,7 @@ $_ZTIN5zxing6qrcode16AlignmentPatternE = comdat any
 define hidden void @_ZN5zxing6qrcode16AlignmentPatternC2Efff(ptr noundef nonnull align 8 dereferenceable(24) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %5, align 4
   ret void
 }
@@ -37,7 +37,7 @@ declare void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5zxing6qrcode16AlignmentPattern11aboutEqualsEfff(ptr noundef nonnull align 8 dereferenceable(24) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef float %7(ptr noundef nonnull align 8 dereferenceable(20) %0)
   %9 = fsub float %2, %8
@@ -47,7 +47,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode16AlignmentPattern11aboutEqua
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(20) %0)
   %17 = fsub float %3, %16
@@ -56,7 +56,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode16AlignmentPattern11aboutEqua
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load float, ptr %21, align 4
   %23 = fsub float %1, %22
   %24 = tail call noundef float @llvm.fabs.f32(float %23)
@@ -73,18 +73,18 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode16AlignmentPattern11aboutEqua
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5zxing6qrcode16AlignmentPattern15combineEstimateEfff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float %8(ptr noundef nonnull align 8 dereferenceable(20) %1)
   %10 = fadd float %3, %9
   %11 = fmul float %10, 5.000000e-01
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef float %14(ptr noundef nonnull align 8 dereferenceable(20) %1)
   %16 = fadd float %2, %15
   %17 = fmul float %16, 5.000000e-01
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load float, ptr %18, align 4
   %20 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #7
   invoke void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(24) %20, float noundef %11, float noundef %17)
@@ -94,9 +94,9 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2EPS2_.exit: ; preds = %5
   %21 = fadd float %4, %19
   %22 = fmul float %21, 5.000000e-01
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode16AlignmentPatternE, i64 16), ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store float %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8

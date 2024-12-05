@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_group_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
@@ -55,7 +55,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %9
 
 14:                                               ; preds = %opal_thread_add_fetch_32.exit
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
@@ -65,7 +65,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %6, %9
   %19 = phi ptr [ %21, %.lr.ph.i ], [ %18, %14 ]
   %.07.i = phi ptr [ %20, %.lr.ph.i ], [ %17, %14 ]
   tail call void %19(ptr noundef nonnull %2) #11
-  %20 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -95,7 +95,7 @@ define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noun
 
 .lr.ph48:                                         ; preds = %.preheader43
   %9 = getelementptr i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr i8, ptr %3, i64 32
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %13
@@ -109,7 +109,7 @@ define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noun
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv57 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next58, %.lr.ph50 ]
-  %12 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv57
+  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv57
   store i32 -32766, ptr %12, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -117,13 +117,13 @@ define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noun
 
 13:                                               ; preds = %.lr.ph48, %.loopexit42
   %indvars.iv54 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next55, %.loopexit42 ]
-  %14 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv54
+  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv54
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -2
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv54
+  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
   store i32 -2, ptr %18, align 4
   br label %.loopexit42
 
@@ -145,13 +145,13 @@ define noundef i32 @ompi_group_translate_ranks(ptr noundef readonly %0, i32 noun
   br label %ompi_group_get_proc_name.exit
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %22, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %30, align 8
   br label %ompi_group_get_proc_name.exit
 
 ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %25 ], [ %.sroa.0.0.copyload.i, %29 ]
-  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv54
+  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv54
   store i32 -32766, ptr %31, align 4
   %32 = load i32, ptr %10, align 8
   %33 = icmp sgt i32 %32, 0
@@ -160,7 +160,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
 .lr.ph:                                           ; preds = %ompi_group_get_proc_name.exit, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %ompi_group_get_proc_name.exit ]
   %.val36 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, 1
@@ -175,7 +175,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   br label %ompi_group_get_proc_name.exit41
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %35, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %.sroa.0.0.copyload.i40 = load i64, ptr %43, align 8
   br label %ompi_group_get_proc_name.exit41
 
@@ -209,20 +209,20 @@ ompi_group_get_proc_name.exit41:                  ; preds = %38, %42
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_group_dump(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %70, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %0, @ompi_mpi_group_empty
   %15 = icmp eq ptr %13, @ompi_mpi_group_empty
@@ -230,7 +230,7 @@ define noundef i32 @ompi_group_dump(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %or.cond.i, label %ompi_group_translate_ranks.exit, label %.preheader43.i
 
 .preheader43.i:                                   ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = getelementptr i8, ptr %13, i64 32
   %18 = load i32, ptr %5, align 4
   %19 = icmp eq i32 %18, -2
@@ -255,7 +255,7 @@ define noundef i32 @ompi_group_dump(ptr noundef readonly %0) local_unnamed_addr 
   br label %ompi_group_get_proc_name.exit.i
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %24, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 8
   br label %ompi_group_get_proc_name.exit.i
 
@@ -268,7 +268,7 @@ ompi_group_get_proc_name.exit.i:                  ; preds = %31, %27
 .lr.ph.i:                                         ; preds = %ompi_group_get_proc_name.exit.i, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %ompi_group_get_proc_name.exit.i ]
   %.val36.i = load ptr, ptr %17, align 8
-  %35 = getelementptr inbounds ptr, ptr %.val36.i, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw ptr, ptr %.val36.i, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 1
@@ -283,7 +283,7 @@ ompi_group_get_proc_name.exit.i:                  ; preds = %31, %27
   br label %ompi_group_get_proc_name.exit41.i
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds i8, ptr %36, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %.sroa.0.0.copyload.i40.i = load i64, ptr %44, align 8
   br label %ompi_group_get_proc_name.exit41.i
 
@@ -308,8 +308,8 @@ ompi_group_get_proc_name.exit41.i:                ; preds = %43, %39
 ompi_group_translate_ranks.exit:                  ; preds = %50, %ompi_group_get_proc_name.exit.i, %48, %.preheader43.i, %11
   %.0 = phi i32 [ -32766, %11 ], [ %49, %48 ], [ -32766, %ompi_group_get_proc_name.exit.i ], [ -2, %.preheader43.i ], [ -32766, %50 ]
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0)
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
-  %56 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load i32, ptr %56, align 8
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %57)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -320,9 +320,9 @@ ompi_group_translate_ranks.exit:                  ; preds = %50, %ompi_group_get
 .lr.ph:                                           ; preds = %ompi_group_translate_ranks.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %ompi_group_translate_ranks.exit ]
   %61 = load ptr, ptr %55, align 8
-  %62 = getelementptr inbounds %struct.ompi_group_sporadic_list_t, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %struct.ompi_group_sporadic_list_t, ptr %61, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %63, i32 noundef %65)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -337,7 +337,7 @@ ompi_group_translate_ranks.exit:                  ; preds = %50, %ompi_group_get
   br i1 %.not30, label %125, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %0, @ompi_mpi_group_empty
   %76 = icmp eq ptr %74, @ompi_mpi_group_empty
@@ -345,7 +345,7 @@ ompi_group_translate_ranks.exit:                  ; preds = %50, %ompi_group_get
   br i1 %or.cond.i33, label %ompi_group_translate_ranks.exit59, label %.preheader43.i34
 
 .preheader43.i34:                                 ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %74, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = getelementptr i8, ptr %74, i64 32
   %79 = load i32, ptr %5, align 4
   %80 = icmp eq i32 %79, -2
@@ -370,7 +370,7 @@ ompi_group_translate_ranks.exit:                  ; preds = %50, %ompi_group_get
   br label %ompi_group_get_proc_name.exit.i39
 
 92:                                               ; preds = %81
-  %93 = getelementptr inbounds i8, ptr %85, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %.sroa.0.0.copyload.i.i53 = load i64, ptr %93, align 8
   br label %ompi_group_get_proc_name.exit.i39
 
@@ -383,7 +383,7 @@ ompi_group_get_proc_name.exit.i39:                ; preds = %92, %88
 .lr.ph.i44:                                       ; preds = %ompi_group_get_proc_name.exit.i39, %111
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i51, %111 ], [ 0, %ompi_group_get_proc_name.exit.i39 ]
   %.val36.i46 = load ptr, ptr %78, align 8
-  %96 = getelementptr inbounds ptr, ptr %.val36.i46, i64 %indvars.iv.i45
+  %96 = getelementptr inbounds nuw ptr, ptr %.val36.i46, i64 %indvars.iv.i45
   %97 = load ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = and i64 %98, 1
@@ -398,7 +398,7 @@ ompi_group_get_proc_name.exit.i39:                ; preds = %92, %88
   br label %ompi_group_get_proc_name.exit41.i49
 
 104:                                              ; preds = %.lr.ph.i44
-  %105 = getelementptr inbounds i8, ptr %97, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %.sroa.0.0.copyload.i40.i52 = load i64, ptr %105, align 8
   br label %ompi_group_get_proc_name.exit41.i49
 
@@ -423,13 +423,13 @@ ompi_group_get_proc_name.exit41.i49:              ; preds = %104, %100
 ompi_group_translate_ranks.exit59:                ; preds = %111, %ompi_group_get_proc_name.exit.i39, %109, %.preheader43.i34, %72
   %.1 = phi i32 [ -32766, %72 ], [ %110, %109 ], [ -32766, %ompi_group_get_proc_name.exit.i39 ], [ -2, %.preheader43.i34 ], [ -32766, %111 ]
   %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.1)
-  %116 = getelementptr inbounds i8, ptr %0, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %117 = load i32, ptr %116, align 8
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %117)
-  %119 = getelementptr inbounds i8, ptr %0, i64 60
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %120 = load i32, ptr %119, align 4
   %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %120)
-  %122 = getelementptr inbounds i8, ptr %0, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %123 = load i32, ptr %122, align 8
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %123)
   br label %.loopexit
@@ -440,7 +440,7 @@ ompi_group_translate_ranks.exit59:                ; preds = %111, %ompi_group_ge
   br i1 %.not31, label %.loopexit, label %127
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %0, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %0, @ompi_mpi_group_empty
   %131 = icmp eq ptr %129, @ompi_mpi_group_empty
@@ -448,7 +448,7 @@ ompi_group_translate_ranks.exit59:                ; preds = %111, %ompi_group_ge
   br i1 %or.cond.i60, label %ompi_group_translate_ranks.exit86, label %.preheader43.i61
 
 .preheader43.i61:                                 ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %129, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %133 = getelementptr i8, ptr %129, i64 32
   %134 = load i32, ptr %5, align 4
   %135 = icmp eq i32 %134, -2
@@ -473,7 +473,7 @@ ompi_group_translate_ranks.exit59:                ; preds = %111, %ompi_group_ge
   br label %ompi_group_get_proc_name.exit.i66
 
 147:                                              ; preds = %136
-  %148 = getelementptr inbounds i8, ptr %140, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %.sroa.0.0.copyload.i.i80 = load i64, ptr %148, align 8
   br label %ompi_group_get_proc_name.exit.i66
 
@@ -486,7 +486,7 @@ ompi_group_get_proc_name.exit.i66:                ; preds = %147, %143
 .lr.ph.i71:                                       ; preds = %ompi_group_get_proc_name.exit.i66, %166
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i78, %166 ], [ 0, %ompi_group_get_proc_name.exit.i66 ]
   %.val36.i73 = load ptr, ptr %133, align 8
-  %151 = getelementptr inbounds ptr, ptr %.val36.i73, i64 %indvars.iv.i72
+  %151 = getelementptr inbounds nuw ptr, ptr %.val36.i73, i64 %indvars.iv.i72
   %152 = load ptr, ptr %151, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = and i64 %153, 1
@@ -501,7 +501,7 @@ ompi_group_get_proc_name.exit.i66:                ; preds = %147, %143
   br label %ompi_group_get_proc_name.exit41.i76
 
 159:                                              ; preds = %.lr.ph.i71
-  %160 = getelementptr inbounds i8, ptr %152, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %.sroa.0.0.copyload.i40.i79 = load i64, ptr %160, align 8
   br label %ompi_group_get_proc_name.exit41.i76
 
@@ -526,8 +526,8 @@ ompi_group_get_proc_name.exit41.i76:              ; preds = %159, %155
 ompi_group_translate_ranks.exit86:                ; preds = %166, %ompi_group_get_proc_name.exit.i66, %164, %.preheader43.i61, %127
   %.2 = phi i32 [ -32766, %127 ], [ %165, %164 ], [ -32766, %ompi_group_get_proc_name.exit.i66 ], [ -2, %.preheader43.i61 ], [ -32766, %166 ]
   %170 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.2)
-  %171 = getelementptr inbounds i8, ptr %0, i64 56
-  %172 = getelementptr inbounds i8, ptr %0, i64 64
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %173 = load i32, ptr %172, align 8
   %174 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %173)
   %175 = load i32, ptr %172, align 8
@@ -537,7 +537,7 @@ ompi_group_translate_ranks.exit86:                ; preds = %166, %ompi_group_ge
 .lr.ph98:                                         ; preds = %ompi_group_translate_ranks.exit86, %.lr.ph98
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph98 ], [ 0, %ompi_group_translate_ranks.exit86 ]
   %177 = load ptr, ptr %171, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 %indvars.iv106
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 %indvars.iv106
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %180)
@@ -569,7 +569,7 @@ define i32 @ompi_group_minloc(ptr nocapture noundef readonly %0, i32 noundef %1)
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.018 = phi i32 [ %4, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.01217 = phi i32 [ 0, %.lr.ph.preheader ], [ %.113, %.lr.ph ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = icmp sle i32 %.018, %6
   %.not = icmp eq i32 %6, -1
@@ -596,7 +596,7 @@ declare i32 @ompi_group_incl_plist(ptr noundef, i32 noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sub nsw i32 %6, %1
   %8 = icmp sgt i32 %7, 0
@@ -628,7 +628,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 
 16:                                               ; preds = %.preheader.us, %20
   %indvars.iv50 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next51, %20 ]
-  %17 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv50
+  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv50
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %.02536.us
   br i1 %19, label %._crit_edge.us, label %20
@@ -667,7 +667,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 .preheader.us39:                                  ; preds = %.preheader.us39.preheader, %.preheader.us39
   %indvars.iv = phi i64 [ 0, %.preheader.us39.preheader ], [ %indvars.iv.next, %.preheader.us39 ]
   %indvars47 = trunc i64 %indvars.iv to i32
-  %29 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %indvars47, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -712,11 +712,11 @@ define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit102
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit102 ]
   %.074112 = phi i32 [ 0, %.lr.ph.preheader ], [ %.3, %.loopexit102 ]
-  %7 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %8, %10
   br i1 %13, label %.preheader101.preheader, label %23
@@ -776,11 +776,11 @@ define i32 @ompi_group_range_incl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.loopexit
   %indvars.iv138 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next139, %.loopexit ]
   %.4118 = phi i32 [ 0, %.lr.ph121.preheader ], [ %.7, %.loopexit ]
-  %33 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv138
+  %33 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 %indvars.iv138
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %33, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %34, %36
   br i1 %39, label %.preheader.preheader, label %43
@@ -856,11 +856,11 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit128
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit128 ]
   %.092135 = phi i32 [ 0, %.lr.ph.preheader ], [ %.3, %.loopexit128 ]
-  %6 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %7, %9
   br i1 %12, label %.preheader127.preheader, label %22
@@ -921,11 +921,11 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %.loopexit
   %indvars.iv178 = phi i64 [ 0, %.lr.ph144.preheader ], [ %indvars.iv.next179, %.loopexit ]
   %.0101141 = phi i32 [ 0, %.lr.ph144.preheader ], [ %.3104, %.loopexit ]
-  %32 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv178
+  %32 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 %indvars.iv178
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %33, %35
   br i1 %38, label %.preheader124.preheader, label %42
@@ -983,7 +983,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %.099202 = phi ptr [ null, %4 ], [ %.099, %.loopexit ]
   %.092.lcssa198201 = phi i32 [ 0, %4 ], [ %.092.lcssa198, %.loopexit ]
   %.0101.lcssa = phi i32 [ 0, %4 ], [ %.3104, %.loopexit ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8
   %.not117 = icmp eq i32 %53, %.092.lcssa198201
   br i1 %.not117, label %59, label %54
@@ -1015,7 +1015,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 62:                                               ; preds = %.preheader.us, %66
   %indvars.iv190 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next191, %66 ]
-  %63 = getelementptr inbounds i32, ptr %.099202, i64 %indvars.iv190
+  %63 = getelementptr inbounds nuw i32, ptr %.099202, i64 %indvars.iv190
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, %.2154.us
   br i1 %65, label %._crit_edge149.us, label %66
@@ -1054,7 +1054,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 .preheader.us157:                                 ; preds = %.preheader.us157.preheader, %.preheader.us157
   %indvars.iv183 = phi i64 [ 0, %.preheader.us157.preheader ], [ %indvars.iv.next184, %.preheader.us157 ]
   %indvars185 = trunc i64 %indvars.iv183 to i32
-  %75 = getelementptr inbounds i32, ptr %.0100, i64 %indvars.iv183
+  %75 = getelementptr inbounds nuw i32, ptr %.0100, i64 %indvars.iv183
   store i32 %indvars185, ptr %75, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count188
@@ -1086,7 +1086,7 @@ define i32 @ompi_group_range_excl(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_group_intersection(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %8, label %._crit_edge.thread
@@ -1104,7 +1104,7 @@ define i32 @ompi_group_intersection(ptr noundef %0, ptr nocapture noundef readon
 
 .lr.ph45:                                         ; preds = %8
   %13 = getelementptr i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = getelementptr i8, ptr %1, i64 32
   br label %16
 
@@ -1112,7 +1112,7 @@ define i32 @ompi_group_intersection(ptr noundef %0, ptr nocapture noundef readon
   %indvars.iv47 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next48, %.loopexit ]
   %.03142 = phi i32 [ 0, %.lr.ph45 ], [ %.1, %.loopexit ]
   %.val35 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv47
+  %17 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv47
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
@@ -1127,7 +1127,7 @@ define i32 @ompi_group_intersection(ptr noundef %0, ptr nocapture noundef readon
   br label %ompi_group_get_proc_name.exit
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %18, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %26, align 8
   br label %ompi_group_get_proc_name.exit
 
@@ -1147,7 +1147,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %21, %25
 .lr.ph:                                           ; preds = %ompi_group_get_proc_name.exit, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %ompi_group_get_proc_name.exit ]
   %.val = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 1
@@ -1162,7 +1162,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %21, %25
   br label %ompi_group_get_proc_name.exit40
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %34, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %.sroa.0.0.copyload.i39 = load i64, ptr %42, align 8
   br label %ompi_group_get_proc_name.exit40
 
@@ -1211,9 +1211,9 @@ define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef read
   br i1 %or.cond, label %.critedge, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %.preheader, label %.critedge
@@ -1231,7 +1231,7 @@ define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef read
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %43 ]
   %.04263 = phi i1 [ true, %.lr.ph65 ], [ %spec.select, %43 ]
   %.val47 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val47, i64 %indvars.iv70
+  %16 = getelementptr inbounds nuw ptr, ptr %.val47, i64 %indvars.iv70
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
@@ -1246,7 +1246,7 @@ define noundef i32 @ompi_group_compare(ptr noundef readonly %0, ptr noundef read
   br label %ompi_group_get_proc_name.exit
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %17, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %25, align 8
   br label %ompi_group_get_proc_name.exit
 
@@ -1259,7 +1259,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %20, %24
 .lr.ph:                                           ; preds = %ompi_group_get_proc_name.exit, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %ompi_group_get_proc_name.exit ]
   %.val = load ptr, ptr %14, align 8
-  %27 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -1274,7 +1274,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %20, %24
   br label %ompi_group_get_proc_name.exit52
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %28, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %.sroa.0.0.copyload.i51 = load i64, ptr %36, align 8
   br label %ompi_group_get_proc_name.exit52
 
@@ -1314,7 +1314,7 @@ ompi_group_get_proc_name.exit52:                  ; preds = %31, %35
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1332,7 +1332,7 @@ define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef re
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -1340,7 +1340,7 @@ define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef re
   br i1 %.not10, label %12, label %._crit_edge
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 12
   %or.cond.not = icmp eq i16 %15, 12
@@ -1353,7 +1353,7 @@ define noundef zeroext i1 @ompi_group_have_remote_peers(ptr nocapture noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1367,7 +1367,7 @@ define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) loca
 6:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %16 ]
-  %7 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -1375,7 +1375,7 @@ define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) loca
   br i1 %.not11, label %11, label %16
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %13 = load i16, ptr %12, align 4
   %14 = and i16 %13, 12
   %or.cond.not = icmp eq i16 %14, 12
@@ -1396,7 +1396,7 @@ define i32 @ompi_group_count_local_peers(ptr nocapture noundef readonly %0) loca
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #13
@@ -1415,8 +1415,8 @@ define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr nocapture noundef
 
 11:                                               ; preds = %.lr.ph, %ompi_group_get_proc_name.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ompi_group_get_proc_name.exit ]
-  %12 = getelementptr inbounds %struct.opal_process_name_t, ptr %7, i64 %indvars.iv
-  %13 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.opal_process_name_t, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
@@ -1431,7 +1431,7 @@ define range(i32 -2, 1) i32 @ompi_group_to_proc_name_array(ptr nocapture noundef
   br label %ompi_group_get_proc_name.exit
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %14, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 8
   br label %ompi_group_get_proc_name.exit
 
@@ -1459,14 +1459,14 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ompi_group_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph24, label %.loopexit
 
 .lr.ph24:                                         ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = getelementptr i8, ptr %1, i64 32
   br label %9
 
@@ -1474,7 +1474,7 @@ define noundef zeroext i1 @ompi_group_overlap(ptr nocapture noundef readonly %0,
   %10 = phi i32 [ %4, %.lr.ph24 ], [ %40, %._crit_edge ]
   %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %._crit_edge ]
   %.val13 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv27
+  %11 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv27
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -1489,7 +1489,7 @@ define noundef zeroext i1 @ompi_group_overlap(ptr nocapture noundef readonly %0,
   br label %ompi_group_get_proc_name.exit
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %12, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
   br label %ompi_group_get_proc_name.exit
 
@@ -1509,7 +1509,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %15, %19
 .lr.ph:                                           ; preds = %ompi_group_get_proc_name.exit, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %ompi_group_get_proc_name.exit ]
   %.val = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -1524,7 +1524,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %15, %19
   br label %ompi_group_get_proc_name.exit18
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %28, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %.sroa.0.0.copyload.i17 = load i64, ptr %36, align 8
   br label %ompi_group_get_proc_name.exit18
 

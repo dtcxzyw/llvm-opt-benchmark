@@ -138,74 +138,74 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 2:                                                ; preds = %2, %1
   %.idx = phi i64 [ 15184, %1 ], [ %.add, %2 ]
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr) #21
   %.add = add nuw nsw i64 %.idx, 32
   %3 = icmp eq i64 %.add, 15600
   br i1 %3, label %4, label %2
 
 4:                                                ; preds = %2
-  %.ptr33 = getelementptr inbounds i8, ptr %0, i64 15184
+  %.ptr33 = getelementptr inbounds nuw i8, ptr %0, i64 15184
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.ptr33, ptr noundef nonnull @.str)
           to label %6 unwind label %58
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 15216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 15216
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.1)
           to label %9 unwind label %58
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 15248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 15248
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.2)
           to label %12 unwind label %58
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 15280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 15280
   %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.3)
           to label %15 unwind label %58
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 15312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 15312
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.4)
           to label %18 unwind label %58
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 15344
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 15344
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.5)
           to label %21 unwind label %58
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 15376
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 15376
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.6)
           to label %24 unwind label %58
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 15408
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 15408
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.7)
           to label %27 unwind label %58
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 15440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 15440
   %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull @.str.8)
           to label %30 unwind label %58
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 15472
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 15472
   %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull @.str.9)
           to label %33 unwind label %58
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 15504
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 15504
   %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.10)
           to label %36 unwind label %58
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 15536
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 15536
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.11)
           to label %39 unwind label %58
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 15568
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 15568
   %41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.12)
           to label %.preheader51 unwind label %58
 
@@ -223,15 +223,15 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 47:                                               ; preds = %.preheader, %60
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %60 ]
-  %48 = getelementptr inbounds [13 x [4 x i32]], ptr %42, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
+  %48 = getelementptr inbounds nuw [13 x [4 x i32]], ptr %42, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
   store i32 13, ptr %48, align 4
-  %49 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatType"]], ptr %43, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
+  %49 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatType"]], ptr %43, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatType"]], ptr %44, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
+  %50 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatType"]], ptr %44, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %45, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
+  %51 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %45, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
   store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %46, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
+  %52 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %46, i64 0, i64 %indvars.iv61, i64 %indvars.iv57
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -239,9 +239,9 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 55:                                               ; preds = %47, %55
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %53, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %53, i64 0, i64 %indvars.iv
   store i32 0, ptr %56, align 4
-  %57 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %54, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %54, i64 0, i64 %indvars.iv
   store i32 0, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -273,62 +273,62 @@ define void @_ZN5MovesC2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 
 67:                                               ; preds = %62, %67
   %indvars.iv65 = phi i64 [ 0, %62 ], [ %indvars.iv.next66, %67 ]
-  %68 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %65, i64 0, i64 %indvars.iv65
+  %68 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %65, i64 0, i64 %indvars.iv65
   store i32 0, ptr %68, align 4
-  %69 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %66, i64 0, i64 %indvars.iv65
+  %69 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %66, i64 0, i64 %indvars.iv65
   store i32 0, ptr %69, align 8
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 13
   br i1 %exitcond68.not, label %70, label %67, !llvm.loop !8
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 39800
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 39800
   store i64 ptrtoint (ptr @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos to i64), ptr %71, align 8
-  %.repack39 = getelementptr inbounds i8, ptr %0, i64 39808
+  %.repack39 = getelementptr inbounds nuw i8, ptr %0, i64 39808
   store i64 0, ptr %.repack39, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 39816
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 39816
   store i64 ptrtoint (ptr @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos to i64), ptr %72, align 8
-  %.repack40 = getelementptr inbounds i8, ptr %0, i64 39824
+  %.repack40 = getelementptr inbounds nuw i8, ptr %0, i64 39824
   store i64 0, ptr %.repack40, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 39832
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 39832
   store i64 ptrtoint (ptr @_ZN5Moves18WeightAllocNTVoid1ERK3pos to i64), ptr %73, align 8
-  %.repack41 = getelementptr inbounds i8, ptr %0, i64 39840
+  %.repack41 = getelementptr inbounds nuw i8, ptr %0, i64 39840
   store i64 0, ptr %.repack41, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 39848
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 39848
   store i64 ptrtoint (ptr @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos to i64), ptr %74, align 8
-  %.repack42 = getelementptr inbounds i8, ptr %0, i64 39856
+  %.repack42 = getelementptr inbounds nuw i8, ptr %0, i64 39856
   store i64 0, ptr %.repack42, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 39864
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 39864
   store i64 ptrtoint (ptr @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos to i64), ptr %75, align 8
-  %.repack43 = getelementptr inbounds i8, ptr %0, i64 39872
+  %.repack43 = getelementptr inbounds nuw i8, ptr %0, i64 39872
   store i64 0, ptr %.repack43, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 39880
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 39880
   store i64 ptrtoint (ptr @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos to i64), ptr %76, align 8
-  %.repack44 = getelementptr inbounds i8, ptr %0, i64 39888
+  %.repack44 = getelementptr inbounds nuw i8, ptr %0, i64 39888
   store i64 0, ptr %.repack44, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 39896
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 39896
   store i64 ptrtoint (ptr @_ZN5Moves18WeightAllocNTVoid2ERK3pos to i64), ptr %77, align 8
-  %.repack45 = getelementptr inbounds i8, ptr %0, i64 39904
+  %.repack45 = getelementptr inbounds nuw i8, ptr %0, i64 39904
   store i64 0, ptr %.repack45, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 39912
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 39912
   store i64 ptrtoint (ptr @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos to i64), ptr %78, align 8
-  %.repack46 = getelementptr inbounds i8, ptr %0, i64 39920
+  %.repack46 = getelementptr inbounds nuw i8, ptr %0, i64 39920
   store i64 0, ptr %.repack46, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 39928
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 39928
   store i64 ptrtoint (ptr @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos to i64), ptr %79, align 8
-  %.repack47 = getelementptr inbounds i8, ptr %0, i64 39936
+  %.repack47 = getelementptr inbounds nuw i8, ptr %0, i64 39936
   store i64 0, ptr %.repack47, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 39944
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 39944
   store i64 ptrtoint (ptr @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos to i64), ptr %80, align 8
-  %.repack48 = getelementptr inbounds i8, ptr %0, i64 39952
+  %.repack48 = getelementptr inbounds nuw i8, ptr %0, i64 39952
   store i64 0, ptr %.repack48, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 39960
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 39960
   store i64 ptrtoint (ptr @_ZN5Moves18WeightAllocNTVoid3ERK3pos to i64), ptr %81, align 8
-  %.repack49 = getelementptr inbounds i8, ptr %0, i64 39968
+  %.repack49 = getelementptr inbounds nuw i8, ptr %0, i64 39968
   store i64 0, ptr %.repack49, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 39976
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 39976
   store i64 ptrtoint (ptr @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos to i64), ptr %82, align 8
-  %.repack50 = getelementptr inbounds i8, ptr %0, i64 39984
+  %.repack50 = getelementptr inbounds nuw i8, ptr %0, i64 39984
   store i64 0, ptr %.repack50, align 8
   ret void
 
@@ -364,7 +364,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
   %11 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %4
   %17 = load i32, ptr %16, align 4
@@ -372,7 +372,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
   %19 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %18, i64 %10
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %25 = load ptr, ptr %24, align 8
@@ -396,7 +396,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
 34:                                               ; preds = %.lr.ph43, %34
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %34 ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds %struct.moveType, ptr %35, i64 %indvars.iv46
+  %36 = getelementptr inbounds nuw %struct.moveType, ptr %35, i64 %indvars.iv46
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sub nsw i32 0, %38
@@ -409,9 +409,9 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
   br i1 %43, label %34, label %.loopexit, !llvm.loop !9
 
 44:                                               ; preds = %2
-  %45 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %13
+  %45 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %13
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %21
+  %47 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %21
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.fr = freeze i32 %48
@@ -433,7 +433,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
   %60 = load ptr, ptr %53, align 8
-  %61 = getelementptr inbounds %struct.moveType, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %struct.moveType, ptr %60, i64 %indvars.iv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
@@ -460,7 +460,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
 
 77:                                               ; preds = %76
   %78 = add nsw i32 %67, -3
-  %79 = getelementptr inbounds %struct.moveType, ptr %60, i64 %indvars.iv, i32 3
+  %79 = getelementptr inbounds nuw %struct.moveType, ptr %60, i64 %indvars.iv, i32 3
   store i32 %78, ptr %79, align 4
   br label %93
 
@@ -515,7 +515,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
   %11 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %.fr = freeze i32 %15
   %16 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %4
@@ -524,11 +524,11 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
   %19 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %18, i64 %10
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %13
+  %24 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %13
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %21
+  %26 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %21
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %invariant.smax = tail call i32 @llvm.smax.i32(i32 %23, i32 %.fr)
@@ -558,7 +558,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
   %45 = load ptr, ptr %32, align 8
-  %46 = getelementptr inbounds %struct.moveType, ptr %45, i64 %indvars.iv, i32 1
+  %46 = getelementptr inbounds nuw %struct.moveType, ptr %45, i64 %indvars.iv, i32 1
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [8192 x [15 x i8]], ptr @relRank, i64 0, i64 %44, i64 %48
@@ -700,7 +700,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
   br i1 %.not.not, label %.critedge107, label %.critedge
 
 .critedge:                                        ; preds = %122, %83, %57, %66, %65, %115, %114, %59, %92, %91, %129
-  %138 = getelementptr inbounds %struct.moveType, ptr %45, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw %struct.moveType, ptr %45, i64 %indvars.iv
   %139 = icmp sgt i32 %25, %47
   br i1 %139, label %140, label %143
 
@@ -789,13 +789,13 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
   br label %202
 
 .critedge107:                                     ; preds = %122, %83, %59, %77, %76, %92, %105, %104, %128, %129
-  %185 = getelementptr inbounds %struct.moveType, ptr %45, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw %struct.moveType, ptr %45, i64 %indvars.iv
   %or.cond108 = icmp slt i32 %47, %invariant.smax111
   br i1 %or.cond108, label %186, label %189
 
 186:                                              ; preds = %.critedge107
   %187 = add nsw i32 %51, -9
-  %188 = getelementptr inbounds %struct.moveType, ptr %45, i64 %indvars.iv, i32 3
+  %188 = getelementptr inbounds nuw %struct.moveType, ptr %45, i64 %indvars.iv, i32 3
   store i32 %187, ptr %188, align 4
   br label %202
 
@@ -891,7 +891,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr nocapture noundef nonnull 
   %.sink = phi i64 [ 1484, %39 ], [ 1516, %37 ]
   %.sink50 = phi i32 [ -3, %39 ], [ -2, %37 ]
   %.idx32 = shl nsw i64 %33, 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %41 = getelementptr i8, ptr %40, i64 %.idx32
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %29
@@ -938,7 +938,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr nocapture noundef nonnull 
 
 65:                                               ; preds = %63
   %.idx = shl nsw i64 %33, 3
-  %66 = getelementptr inbounds i8, ptr %1, i64 1516
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %67 = getelementptr i8, ptr %66, i64 %.idx
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, %29
@@ -948,7 +948,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr nocapture noundef nonnull 
 
 71:                                               ; preds = %63
   %.idx31 = shl nsw i64 %33, 3
-  %72 = getelementptr inbounds i8, ptr %1, i64 1484
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 1484
   %73 = getelementptr i8, ptr %72, i64 %.idx31
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, %29
@@ -1047,7 +1047,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnu
 
 46:                                               ; preds = %43
   %.idx89 = shl nsw i64 %9, 3
-  %47 = getelementptr inbounds i8, ptr %1, i64 1516
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %48 = getelementptr i8, ptr %47, i64 %.idx89
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %5
@@ -1159,7 +1159,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnu
 
 118:                                              ; preds = %113
   %.idx88 = shl nsw i64 %9, 3
-  %119 = getelementptr inbounds i8, ptr %1, i64 1516
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %120 = getelementptr i8, ptr %119, i64 %.idx88
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, %5
@@ -1228,7 +1228,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnu
 
 162:                                              ; preds = %157
   %.idx86 = shl nsw i64 %9, 3
-  %163 = getelementptr inbounds i8, ptr %1, i64 1516
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %164 = getelementptr i8, ptr %163, i64 %.idx86
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %165, %5
@@ -1372,7 +1372,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnu
   %251 = udiv i16 %.lhs.trunc97, 36
   %.zext98 = zext nneg i16 %251 to i32
   %252 = icmp eq i8 %11, 2
-  %253 = getelementptr inbounds i8, ptr %1, i64 1516
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %254 = or disjoint i32 %.zext98, -4
   %255 = udiv i16 %.lhs.trunc97, 44
   %narrow135 = add nuw nsw i16 %255, 24
@@ -1452,9 +1452,9 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
   %11 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %13
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %19 = load ptr, ptr %18, align 8
@@ -1462,7 +1462,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %121
@@ -1482,7 +1482,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
 .lr.ph65:                                         ; preds = %.preheader, %.lr.ph65
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph65 ], [ 0, %.preheader ]
   %34 = load ptr, ptr %18, align 8
-  %35 = getelementptr inbounds %struct.moveType, ptr %34, i64 %indvars.iv75
+  %35 = getelementptr inbounds nuw %struct.moveType, ptr %34, i64 %indvars.iv75
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 0, %37
@@ -1513,7 +1513,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
 
 47:                                               ; preds = %._crit_edge66
   %.idx = shl nsw i64 %.pre-phi81, 3
-  %48 = getelementptr inbounds i8, ptr %1, i64 1484
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1484
   %49 = getelementptr i8, ptr %48, i64 %.idx
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1558,7 +1558,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
 
 80:                                               ; preds = %79
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds %struct.moveType, ptr %76, i64 %indvars.iv.next.i, i32 1
+  %81 = getelementptr inbounds nuw %struct.moveType, ptr %76, i64 %indvars.iv.next.i, i32 1
   %82 = load i32, ptr %81, align 4
   %83 = icmp sgt i32 %82, %75
   br i1 %83, label %79, label %.critedge.i, !llvm.loop !20
@@ -1566,7 +1566,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
 .critedge.i:                                      ; preds = %80, %79
   %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.i, %80 ], [ %smax, %79 ]
   %84 = zext i16 %72 to i64
-  %85 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %73, i64 204
   %88 = getelementptr inbounds [4 x i32], ptr %87, i64 0, i64 %.pre-phi81
@@ -1588,7 +1588,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
   %.027.i = phi i32 [ %111, %106 ], [ %98, %.critedge.i ]
   %.02426.i = phi i32 [ %107, %106 ], [ %86, %.critedge.i ]
   %101 = zext nneg i32 %.02426.i to i64
-  %102 = getelementptr inbounds [7 x i32], ptr %99, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [7 x i32], ptr %99, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, %94
   %105 = icmp eq i32 %104, %103
@@ -1597,7 +1597,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnu
 106:                                              ; preds = %.lr.ph.i
   %107 = add nsw i32 %.02426.i, -1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds [7 x i32], ptr %95, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [7 x i32], ptr %95, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = or i32 %110, %.027.i
   %112 = icmp sgt i32 %.02426.i, 1
@@ -1625,7 +1625,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
   br i1 %122, label %127, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %23, i64 92
+  %124 = getelementptr inbounds nuw i8, ptr %23, i64 92
   %125 = load i32, ptr %124, align 4
   %126 = icmp slt i32 %21, %125
   br i1 %126, label %127, label %140
@@ -1639,7 +1639,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
 .lr.ph63:                                         ; preds = %127, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %127 ]
   %131 = load ptr, ptr %18, align 8
-  %132 = getelementptr inbounds %struct.moveType, ptr %131, i64 %indvars.iv72
+  %132 = getelementptr inbounds nuw %struct.moveType, ptr %131, i64 %indvars.iv72
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = sub nsw i32 0, %134
@@ -1656,7 +1656,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
   br i1 %141, label %142, label %_ZNK5Moves13RankForcesAceEi.exit
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %13
+  %143 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %13
   %144 = load i32, ptr %143, align 4
   %145 = getelementptr inbounds nuw i8, ptr %23, i64 204
   %146 = getelementptr inbounds [4 x i32], ptr %145, i64 0, i64 %10
@@ -1671,7 +1671,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
 150:                                              ; preds = %156, %.lr.ph.i55
   %.03241.i = phi i32 [ %144, %.lr.ph.i55 ], [ %157, %156 ]
   %151 = zext nneg i32 %.03241.i to i64
-  %152 = getelementptr inbounds [7 x i32], ptr %149, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [7 x i32], ptr %149, i64 0, i64 %151
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, %147
   %155 = icmp eq i32 %154, %153
@@ -1708,7 +1708,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
 
 168:                                              ; preds = %172, %.lr.ph48.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %172 ]
-  %169 = getelementptr inbounds %struct.moveType, ptr %19, i64 %indvars.iv54.i, i32 1
+  %169 = getelementptr inbounds nuw %struct.moveType, ptr %19, i64 %indvars.iv54.i, i32 1
   %170 = load i32, ptr %169, align 4
   %171 = icmp sgt i32 %170, %163
   br i1 %171, label %172, label %.critedge2.loopexit.split.loop.exit66.i
@@ -1743,7 +1743,7 @@ _ZNK5Moves12GetTopNumberEiiRiS0_.exit:            ; preds = %.lr.ph.i, %106, %.c
 
 180:                                              ; preds = %184, %.lr.ph43.i
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i54, %184 ]
-  %181 = getelementptr inbounds %struct.moveType, ptr %19, i64 %indvars.iv.i53, i32 1
+  %181 = getelementptr inbounds nuw %struct.moveType, ptr %19, i64 %indvars.iv.i53, i32 1
   %182 = load i32, ptr %181, align 4
   %183 = icmp sgt i32 %182, %125
   br i1 %183, label %184, label %.critedge4.loopexit.split.loop.exit64.i
@@ -1772,11 +1772,11 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %156, %.critedge4.lo
 .lr.ph:                                           ; preds = %_ZNK5Moves13RankForcesAceEi.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNK5Moves13RankForcesAceEi.exit ]
   %190 = load ptr, ptr %18, align 8
-  %191 = getelementptr inbounds %struct.moveType, ptr %190, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw %struct.moveType, ptr %190, i64 %indvars.iv
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = load ptr, ptr %22, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 92
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 92
   %196 = load i32, ptr %195, align 4
   %197 = icmp sgt i32 %193, %196
   %198 = icmp sgt i32 %193, %15
@@ -1822,9 +1822,9 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = zext i16 %12 to i64
-  %15 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %14
+  %17 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %14
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %20 = load ptr, ptr %19, align 8
@@ -1838,7 +1838,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
   br i1 %25, label %28, label %146
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %27, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %48
@@ -1858,7 +1858,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 .lr.ph197:                                        ; preds = %.preheader, %.lr.ph197
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.lr.ph197 ], [ 0, %.preheader ]
   %39 = load ptr, ptr %19, align 8
-  %40 = getelementptr inbounds %struct.moveType, ptr %39, i64 %indvars.iv248
+  %40 = getelementptr inbounds nuw %struct.moveType, ptr %39, i64 %indvars.iv248
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sub nsw i32 0, %42
@@ -1875,7 +1875,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %27, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 92
   %52 = load i32, ptr %51, align 4
   %53 = icmp slt i32 %22, %52
   br i1 %53, label %54, label %67
@@ -1889,7 +1889,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 .lr.ph195:                                        ; preds = %54, %.lr.ph195
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %.lr.ph195 ], [ 0, %54 ]
   %58 = load ptr, ptr %19, align 8
-  %59 = getelementptr inbounds %struct.moveType, ptr %58, i64 %indvars.iv245
+  %59 = getelementptr inbounds nuw %struct.moveType, ptr %58, i64 %indvars.iv245
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = sub nsw i32 0, %61
@@ -1914,7 +1914,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 .lr.ph192:                                        ; preds = %.preheader146, %83
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %83 ], [ 0, %.preheader146 ]
   %72 = load ptr, ptr %19, align 8
-  %73 = getelementptr inbounds %struct.moveType, ptr %72, i64 %indvars.iv242
+  %73 = getelementptr inbounds nuw %struct.moveType, ptr %72, i64 %indvars.iv242
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, %16
@@ -1922,7 +1922,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 
 77:                                               ; preds = %.lr.ph192
   %78 = load ptr, ptr %26, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 92
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 92
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %75, %80
   br i1 %81, label %83, label %82
@@ -1942,7 +1942,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
   br i1 %88, label %.lr.ph192, label %.loopexit, !llvm.loop !29
 
 89:                                               ; preds = %67
-  %90 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %14
+  %90 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %14
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds nuw i8, ptr %27, i64 204
   %93 = getelementptr inbounds [4 x i32], ptr %92, i64 0, i64 %10
@@ -1957,7 +1957,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 97:                                               ; preds = %103, %.lr.ph.i
   %.03241.i = phi i32 [ %91, %.lr.ph.i ], [ %104, %103 ]
   %98 = zext nneg i32 %.03241.i to i64
-  %99 = getelementptr inbounds [7 x i32], ptr %96, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [7 x i32], ptr %96, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, %94
   %102 = icmp eq i32 %101, %100
@@ -1994,7 +1994,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 
 115:                                              ; preds = %119, %.lr.ph48.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %119 ]
-  %116 = getelementptr inbounds %struct.moveType, ptr %20, i64 %indvars.iv54.i, i32 1
+  %116 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv54.i, i32 1
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, %110
   br i1 %118, label %119, label %.critedge2.loopexit.split.loop.exit66.i
@@ -2029,7 +2029,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef no
 
 127:                                              ; preds = %131, %.lr.ph43.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i, %131 ]
-  %128 = getelementptr inbounds %struct.moveType, ptr %20, i64 %indvars.iv.i, i32 1
+  %128 = getelementptr inbounds nuw %struct.moveType, ptr %20, i64 %indvars.iv.i, i32 1
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %129, %52
   br i1 %130, label %131, label %.critedge4.loopexit.split.loop.exit64.i
@@ -2058,7 +2058,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph189:                                        ; preds = %_ZNK5Moves13RankForcesAceEi.exit, %.lr.ph189
   %indvars.iv239 = phi i64 [ %indvars.iv.next240, %.lr.ph189 ], [ 0, %_ZNK5Moves13RankForcesAceEi.exit ]
   %137 = load ptr, ptr %19, align 8
-  %138 = getelementptr inbounds %struct.moveType, ptr %137, i64 %indvars.iv239
+  %138 = getelementptr inbounds nuw %struct.moveType, ptr %137, i64 %indvars.iv239
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = sub nsw i32 0, %140
@@ -2075,7 +2075,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
   br i1 %.not142, label %.loopexit, label %.loopexit.sink.split
 
 146:                                              ; preds = %2
-  %147 = getelementptr inbounds i8, ptr %27, i64 88
+  %147 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, %24
   br i1 %149, label %.preheader148, label %162
@@ -2089,7 +2089,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph187:                                        ; preds = %.preheader148, %.lr.ph187
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %.lr.ph187 ], [ 0, %.preheader148 ]
   %153 = load ptr, ptr %19, align 8
-  %154 = getelementptr inbounds %struct.moveType, ptr %153, i64 %indvars.iv236
+  %154 = getelementptr inbounds nuw %struct.moveType, ptr %153, i64 %indvars.iv236
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = sub nsw i32 0, %156
@@ -2102,7 +2102,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
   br i1 %161, label %.lr.ph187, label %.loopexit, !llvm.loop !31
 
 162:                                              ; preds = %146
-  %163 = getelementptr inbounds i8, ptr %27, i64 128
+  %163 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 0
   %166 = icmp eq i32 %16, 0
@@ -2120,7 +2120,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph185:                                        ; preds = %.preheader150, %.lr.ph185
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.lr.ph185 ], [ 0, %.preheader150 ]
   %171 = load ptr, ptr %19, align 8
-  %172 = getelementptr inbounds %struct.moveType, ptr %171, i64 %indvars.iv233
+  %172 = getelementptr inbounds nuw %struct.moveType, ptr %171, i64 %indvars.iv233
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %174 = load i32, ptr %173, align 4
   %175 = sub nsw i32 0, %174
@@ -2147,7 +2147,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph183:                                        ; preds = %.preheader152, %.lr.ph183
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %.lr.ph183 ], [ 0, %.preheader152 ]
   %187 = load ptr, ptr %19, align 8
-  %188 = getelementptr inbounds %struct.moveType, ptr %187, i64 %indvars.iv230
+  %188 = getelementptr inbounds nuw %struct.moveType, ptr %187, i64 %indvars.iv230
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
   %191 = sub nsw i32 0, %190
@@ -2164,7 +2164,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
   br i1 %197, label %202, label %198
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds i8, ptr %27, i64 92
+  %199 = getelementptr inbounds nuw i8, ptr %27, i64 92
   %200 = load i32, ptr %199, align 4
   %201 = icmp slt i32 %22, %200
   br i1 %201, label %202, label %215
@@ -2178,7 +2178,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph181:                                        ; preds = %202, %.lr.ph181
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %.lr.ph181 ], [ 0, %202 ]
   %206 = load ptr, ptr %19, align 8
-  %207 = getelementptr inbounds %struct.moveType, ptr %206, i64 %indvars.iv227
+  %207 = getelementptr inbounds nuw %struct.moveType, ptr %206, i64 %indvars.iv227
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = sub nsw i32 0, %209
@@ -2203,7 +2203,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph178:                                        ; preds = %.preheader155, %.lr.ph178
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph178 ], [ 0, %.preheader155 ]
   %220 = load ptr, ptr %19, align 8
-  %221 = getelementptr inbounds %struct.moveType, ptr %220, i64 %indvars.iv224
+  %221 = getelementptr inbounds nuw %struct.moveType, ptr %220, i64 %indvars.iv224
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
   %223 = load i32, ptr %222, align 4
   %224 = icmp sgt i32 %223, %16
@@ -2227,11 +2227,11 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph175:                                        ; preds = %229, %.lr.ph175
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.lr.ph175 ], [ 0, %229 ]
   %234 = load ptr, ptr %19, align 8
-  %235 = getelementptr inbounds %struct.moveType, ptr %234, i64 %indvars.iv221
+  %235 = getelementptr inbounds nuw %struct.moveType, ptr %234, i64 %indvars.iv221
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = load ptr, ptr %26, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 92
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 92
   %240 = load i32, ptr %239, align 4
   %241 = icmp sgt i32 %237, %240
   %242 = icmp sgt i32 %237, %16
@@ -2262,11 +2262,11 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph172:                                        ; preds = %.preheader157, %.lr.ph172
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %.lr.ph172 ], [ 0, %.preheader157 ]
   %251 = load ptr, ptr %19, align 8
-  %252 = getelementptr inbounds %struct.moveType, ptr %251, i64 %indvars.iv218
+  %252 = getelementptr inbounds nuw %struct.moveType, ptr %251, i64 %indvars.iv218
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4
   %255 = load ptr, ptr %26, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 92
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 92
   %257 = load i32, ptr %256, align 4
   %258 = icmp sgt i32 %254, %257
   %spec.select276 = select i1 %258, i32 20, i32 0
@@ -2284,7 +2284,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
   br i1 %264, label %269, label %265
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %27, i64 92
+  %266 = getelementptr inbounds nuw i8, ptr %27, i64 92
   %267 = load i32, ptr %266, align 4
   %268 = icmp slt i32 %22, %267
   br i1 %268, label %269, label %282
@@ -2298,7 +2298,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph170:                                        ; preds = %269, %.lr.ph170
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph170 ], [ 0, %269 ]
   %273 = load ptr, ptr %19, align 8
-  %274 = getelementptr inbounds %struct.moveType, ptr %273, i64 %indvars.iv215
+  %274 = getelementptr inbounds nuw %struct.moveType, ptr %273, i64 %indvars.iv215
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %276 = load i32, ptr %275, align 4
   %277 = sub nsw i32 0, %276
@@ -2323,11 +2323,11 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph167:                                        ; preds = %.preheader160, %.lr.ph167
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.lr.ph167 ], [ 0, %.preheader160 ]
   %287 = load ptr, ptr %19, align 8
-  %288 = getelementptr inbounds %struct.moveType, ptr %287, i64 %indvars.iv212
+  %288 = getelementptr inbounds nuw %struct.moveType, ptr %287, i64 %indvars.iv212
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %290 = load i32, ptr %289, align 4
   %291 = load ptr, ptr %26, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 92
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 92
   %293 = load i32, ptr %292, align 4
   %294 = icmp sgt i32 %290, %293
   %295 = icmp sgt i32 %290, %16
@@ -2352,11 +2352,11 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 .lr.ph:                                           ; preds = %300, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %300 ]
   %305 = load ptr, ptr %19, align 8
-  %306 = getelementptr inbounds %struct.moveType, ptr %305, i64 %indvars.iv
+  %306 = getelementptr inbounds nuw %struct.moveType, ptr %305, i64 %indvars.iv
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 4
   %308 = load i32, ptr %307, align 4
   %309 = load ptr, ptr %26, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 92
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 92
   %311 = load i32, ptr %310, align 4
   %312 = icmp sgt i32 %308, %311
   %313 = icmp sgt i32 %308, %16
@@ -2411,7 +2411,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr nocapture noundef nonnull 
 
 14:                                               ; preds = %2
   %.idx = shl nsw i64 %9, 3
-  %15 = getelementptr inbounds i8, ptr %1, i64 1516
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %16 = getelementptr i8, ptr %15, i64 %.idx
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %5
@@ -2421,7 +2421,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr nocapture noundef nonnull 
 
 20:                                               ; preds = %2
   %.idx14 = shl nsw i64 %9, 3
-  %21 = getelementptr inbounds i8, ptr %1, i64 1484
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1484
   %22 = getelementptr i8, ptr %21, i64 %.idx14
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %5
@@ -2484,7 +2484,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
   %20 = getelementptr inbounds [4 x [4 x i16]], ptr %1, i64 0, i64 %16, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
@@ -2528,7 +2528,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
 48:                                               ; preds = %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %81
@@ -2597,7 +2597,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
   %reass.sub = zext nneg i16 %narrow101 to i32
   %narrow102 = add nuw nsw i16 %89, 48
   %reass.sub66 = zext nneg i16 %narrow102 to i32
-  %90 = getelementptr inbounds i8, ptr %1, i64 1516
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %.zext76 = zext nneg i16 %89 to i32
   %reass.sub69 = add nsw i32 %.zext76, -12
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2610,7 +2610,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
 95:                                               ; preds = %.lr.ph98, %190
   %indvars.iv109 = phi i64 [ %94, %.lr.ph98 ], [ %indvars.iv.next110, %190 ]
   %96 = load ptr, ptr %49, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 88
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %25, align 4
   %100 = icmp eq i32 %98, %99
@@ -2621,7 +2621,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
   %103 = getelementptr inbounds %struct.moveType, ptr %102, i64 %indvars.iv109
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %96, i64 92
+  %106 = getelementptr inbounds nuw i8, ptr %96, i64 92
   %107 = load i32, ptr %106, align 4
   %108 = icmp slt i32 %105, %107
   br i1 %108, label %109, label %121
@@ -2642,7 +2642,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
   br label %190
 
 121:                                              ; preds = %101, %95
-  %122 = getelementptr inbounds i8, ptr %96, i64 128
+  %122 = getelementptr inbounds nuw i8, ptr %96, i64 128
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %164
@@ -2759,7 +2759,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
 define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture nonnull readnone align 4 %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 132
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %17, label %8
@@ -2773,7 +2773,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef
   br i1 %.not, label %32, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %4, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %12
   br i1 %16, label %17, label %32
@@ -2791,7 +2791,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef
 22:                                               ; preds = %.lr.ph17, %22
   %indvars.iv20 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next21, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds %struct.moveType, ptr %23, i64 %indvars.iv20
+  %24 = getelementptr inbounds nuw %struct.moveType, ptr %23, i64 %indvars.iv20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = sub nsw i32 0, %26
@@ -2816,11 +2816,11 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds %struct.moveType, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.moveType, ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %41, %44
   %spec.select = select i1 %45, i32 30, i32 0
@@ -2859,7 +2859,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr nocapture noundef nonnull 
 
 14:                                               ; preds = %2
   %.idx = shl nsw i64 %9, 3
-  %15 = getelementptr inbounds i8, ptr %1, i64 1516
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %16 = getelementptr i8, ptr %15, i64 %.idx
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %5
@@ -2869,7 +2869,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr nocapture noundef nonnull 
 
 20:                                               ; preds = %2
   %.idx14 = shl nsw i64 %9, 3
-  %21 = getelementptr inbounds i8, ptr %1, i64 1484
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1484
   %22 = getelementptr i8, ptr %21, i64 %.idx14
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %5
@@ -2930,7 +2930,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr nocapture noundef nonnu
 
 15:                                               ; preds = %2
   %.idx = shl nsw i64 %9, 3
-  %16 = getelementptr inbounds i8, ptr %1, i64 1516
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %17 = getelementptr i8, ptr %16, i64 %.idx
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %5
@@ -2978,7 +2978,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr nocapture noundef nonnu
 45:                                               ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 132
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 132
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %51, label %84
@@ -3041,7 +3041,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr nocapture noundef nonnu
   br i1 %83, label %74, label %.loopexit, !llvm.loop !50
 
 84:                                               ; preds = %45
-  %85 = getelementptr inbounds i8, ptr %47, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %47, i64 100
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, %25
   %88 = icmp eq i32 %8, %25
@@ -3080,7 +3080,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr nocapture noundef nonnu
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i32
   %113 = load ptr, ptr %46, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 104
   %115 = load i32, ptr %114, align 4
   %116 = icmp sgt i32 %108, %115
   %. = select i1 %116, i32 33, i32 -13
@@ -3227,13 +3227,13 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align
 .preheader45:                                     ; preds = %25
   %18 = sext i32 %1 to i64
   %.idx42 = mul nsw i64 %18, 220
-  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %20 = getelementptr i8, ptr %19, i64 %.idx42
   br label %26
 
 21:                                               ; preds = %.preheader46, %21
   %indvars.iv = phi i64 [ 0, %.preheader46 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds [13 x [4 x %struct.movePlyType]], ptr %17, i64 0, i64 %indvars.iv54, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [13 x [4 x %struct.movePlyType]], ptr %17, i64 0, i64 %indvars.iv54, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 228
@@ -3249,7 +3249,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align
 
 26:                                               ; preds = %.preheader45, %26
   %indvars.iv58 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next59, %26 ]
-  %27 = getelementptr inbounds [4 x i32], ptr %20, i64 0, i64 %indvars.iv58
+  %27 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv58
   store i32 65535, ptr %27, align 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 4
@@ -3269,10 +3269,10 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align
 
 29:                                               ; preds = %.preheader43, %29
   %indvars.iv62 = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next63, %29 ]
-  %30 = getelementptr inbounds [4 x i16], ptr %5, i64 %indvars.iv66, i64 %indvars.iv62
+  %30 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 %indvars.iv66, i64 %indvars.iv62
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds [4 x i32], ptr %20, i64 0, i64 %indvars.iv62
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv62
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, %32
   store i32 %35, ptr %33, align 4
@@ -3287,9 +3287,9 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv70 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next71, %37 ]
-  %38 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv70
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv70
+  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv70
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %42
@@ -3340,7 +3340,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 140
-  %20 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv
   store i32 0, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3383,7 +3383,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %43 = load i32, ptr %22, align 4
   store i32 %43, ptr %34, align 8
   %44 = zext i16 %40 to i64
-  %45 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr %10, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 204
@@ -3403,9 +3403,9 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %57 = phi i32 [ %43, %.lr.ph55 ], [ %87, %.critedge ]
   %.054 = phi i32 [ %46, %.lr.ph55 ], [ %88, %.critedge ]
   %58 = zext nneg i32 %.054 to i64
-  %59 = getelementptr inbounds [7 x i32], ptr %52, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [7 x i32], ptr %52, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds [7 x i32], ptr %53, i64 0, i64 %58
+  %61 = getelementptr inbounds nuw [7 x i32], ptr %53, i64 0, i64 %58
   %62 = load i32, ptr %61, align 4
   %.not4547 = icmp eq i32 %.054, 0
   br i1 %.not4547, label %.critedge, label %.lr.ph
@@ -3414,7 +3414,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
   %.149 = phi i32 [ %69, %68 ], [ %.054, %56 ]
   %.04048 = phi i32 [ %73, %68 ], [ %62, %56 ]
   %63 = zext nneg i32 %.149 to i64
-  %64 = getelementptr inbounds [7 x i32], ptr %54, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [7 x i32], ptr %54, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, %50
   %67 = icmp eq i32 %66, %65
@@ -3423,7 +3423,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
 68:                                               ; preds = %.lr.ph
   %69 = add nsw i32 %.149, -1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds [7 x i32], ptr %55, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [7 x i32], ptr %55, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, %.04048
   %.not45 = icmp eq i32 %69, 0
@@ -3540,7 +3540,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = icmp ne i8 %21, 0
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 1480
-  %48 = getelementptr inbounds i8, ptr %1, i64 1516
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %.not209 = icmp eq i8 %21, 1
   %49 = icmp eq i8 %42, 1
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1512
@@ -4282,7 +4282,7 @@ define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr 
   %48 = zext i16 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1480
-  %51 = getelementptr inbounds i8, ptr %1, i64 1516
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 1516
   %52 = add nsw i32 %.0, 31
   %.not113 = icmp eq i8 %21, 1
   %53 = add nsw i32 %.0, -10
@@ -4625,195 +4625,195 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %10, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx10 = getelementptr inbounds i8, ptr %16, i64 28
+  %.sroa.388.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store i32 %10, ptr %.sroa.388.0..sroa_idx10, align 4
   %.pre983 = load ptr, ptr %7, align 8
   br label %18
 
 18:                                               ; preds = %14, %6
   %19 = phi ptr [ %.pre983, %14 ], [ %8, %6 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 60
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
-  %27 = getelementptr inbounds i8, ptr %19, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false)
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx14 = getelementptr inbounds i8, ptr %28, i64 60
+  %.sroa.388.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %28, i64 60
   store i32 %21, ptr %.sroa.388.0..sroa_idx14, align 4
   %.pre984 = load ptr, ptr %7, align 8
   br label %30
 
 30:                                               ; preds = %25, %18
   %31 = phi ptr [ %.pre984, %25 ], [ %19, %18 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 76
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 92
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 92
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %33, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %31, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
-  %39 = getelementptr inbounds i8, ptr %31, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx18 = getelementptr inbounds i8, ptr %40, i64 92
+  %.sroa.388.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %40, i64 92
   store i32 %33, ptr %.sroa.388.0..sroa_idx18, align 4
   %.pre985 = load ptr, ptr %7, align 8
   br label %42
 
 42:                                               ; preds = %37, %30
   %43 = phi ptr [ %.pre985, %37 ], [ %31, %30 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 124
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 124
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %43, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
-  %51 = getelementptr inbounds i8, ptr %43, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false)
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx22 = getelementptr inbounds i8, ptr %52, i64 124
+  %.sroa.388.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %52, i64 124
   store i32 %45, ptr %.sroa.388.0..sroa_idx22, align 4
   %.pre986 = load ptr, ptr %7, align 8
   br label %54
 
 54:                                               ; preds = %49, %42
   %55 = phi ptr [ %.pre986, %49 ], [ %43, %42 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 140
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %55, i64 156
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 156
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %57, %59
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %55, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %62, i64 12, i1 false)
-  %63 = getelementptr inbounds i8, ptr %55, i64 144
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false)
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx26 = getelementptr inbounds i8, ptr %64, i64 156
+  %.sroa.388.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %64, i64 156
   store i32 %57, ptr %.sroa.388.0..sroa_idx26, align 4
   %.pre987 = load ptr, ptr %7, align 8
   br label %66
 
 66:                                               ; preds = %61, %54
   %67 = phi ptr [ %.pre987, %61 ], [ %55, %54 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 172
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 172
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %67, i64 188
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 188
   %71 = load i32, ptr %70, align 4
   %72 = icmp slt i32 %69, %71
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %66
-  %74 = getelementptr inbounds i8, ptr %67, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false)
-  %75 = getelementptr inbounds i8, ptr %67, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %74, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false)
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 176
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %77, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx30 = getelementptr inbounds i8, ptr %76, i64 188
+  %.sroa.388.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %76, i64 188
   store i32 %69, ptr %.sroa.388.0..sroa_idx30, align 4
   %.pre988 = load ptr, ptr %7, align 8
   br label %78
 
 78:                                               ; preds = %73, %66
   %79 = phi ptr [ %.pre988, %73 ], [ %67, %66 ]
-  %80 = getelementptr inbounds i8, ptr %79, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %79, i64 60
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 60
   %83 = load i32, ptr %82, align 4
   %84 = icmp slt i32 %81, %83
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %78
-  %86 = getelementptr inbounds i8, ptr %79, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false)
-  %87 = getelementptr inbounds i8, ptr %79, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 4 dereferenceable(16) %87, i64 16, i1 false)
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %89, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx34 = getelementptr inbounds i8, ptr %88, i64 60
+  %.sroa.388.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %88, i64 60
   store i32 %81, ptr %.sroa.388.0..sroa_idx34, align 4
   %.pre989 = load ptr, ptr %7, align 8
   br label %90
 
 90:                                               ; preds = %85, %78
   %91 = phi ptr [ %.pre989, %85 ], [ %79, %78 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 92
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 92
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %91, i64 124
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 124
   %95 = load i32, ptr %94, align 4
   %96 = icmp slt i32 %93, %95
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %91, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false)
-  %99 = getelementptr inbounds i8, ptr %91, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %99, i64 16, i1 false)
   %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx38 = getelementptr inbounds i8, ptr %100, i64 124
+  %.sroa.388.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %100, i64 124
   store i32 %93, ptr %.sroa.388.0..sroa_idx38, align 4
   %.pre990 = load ptr, ptr %7, align 8
   br label %102
 
 102:                                              ; preds = %97, %90
   %103 = phi ptr [ %.pre990, %97 ], [ %91, %90 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 156
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 156
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %103, i64 188
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 188
   %107 = load i32, ptr %106, align 4
   %108 = icmp slt i32 %105, %107
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds i8, ptr %103, i64 144
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %110, i64 12, i1 false)
-  %111 = getelementptr inbounds i8, ptr %103, i64 176
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %111, i64 16, i1 false)
   %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 176
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %113, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx42 = getelementptr inbounds i8, ptr %112, i64 188
+  %.sroa.388.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %112, i64 188
   store i32 %105, ptr %.sroa.388.0..sroa_idx42, align 4
   %.pre991 = load ptr, ptr %7, align 8
   br label %114
@@ -4822,261 +4822,261 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %115 = phi ptr [ %.pre991, %109 ], [ %103, %102 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %115, i64 44
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 44
   %119 = load i32, ptr %118, align 4
   %120 = icmp slt i32 %117, %119
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %115, i64 12, i1 false)
-  %122 = getelementptr inbounds i8, ptr %115, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %115, ptr noundef nonnull align 4 dereferenceable(16) %122, i64 16, i1 false)
   %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %124, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx46 = getelementptr inbounds i8, ptr %123, i64 44
+  %.sroa.388.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %123, i64 44
   store i32 %117, ptr %.sroa.388.0..sroa_idx46, align 4
   %.pre992 = load ptr, ptr %7, align 8
   br label %125
 
 125:                                              ; preds = %121, %114
   %126 = phi ptr [ %.pre992, %121 ], [ %115, %114 ]
-  %127 = getelementptr inbounds i8, ptr %126, i64 76
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 76
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %126, i64 108
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 108
   %130 = load i32, ptr %129, align 4
   %131 = icmp slt i32 %128, %130
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %126, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %126, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %133, i64 12, i1 false)
-  %134 = getelementptr inbounds i8, ptr %126, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false)
   %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 96
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %136, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx50 = getelementptr inbounds i8, ptr %135, i64 108
+  %.sroa.388.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %135, i64 108
   store i32 %128, ptr %.sroa.388.0..sroa_idx50, align 4
   %.pre993 = load ptr, ptr %7, align 8
   br label %137
 
 137:                                              ; preds = %132, %125
   %138 = phi ptr [ %.pre993, %132 ], [ %126, %125 ]
-  %139 = getelementptr inbounds i8, ptr %138, i64 140
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 140
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %138, i64 172
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 172
   %142 = load i32, ptr %141, align 4
   %143 = icmp slt i32 %140, %142
   br i1 %143, label %144, label %149
 
 144:                                              ; preds = %137
-  %145 = getelementptr inbounds i8, ptr %138, i64 128
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %145, i64 12, i1 false)
-  %146 = getelementptr inbounds i8, ptr %138, i64 160
+  %146 = getelementptr inbounds nuw i8, ptr %138, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %145, ptr noundef nonnull align 4 dereferenceable(16) %146, i64 16, i1 false)
   %147 = load ptr, ptr %7, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 160
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %148, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx54 = getelementptr inbounds i8, ptr %147, i64 172
+  %.sroa.388.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %147, i64 172
   store i32 %140, ptr %.sroa.388.0..sroa_idx54, align 4
   %.pre994 = load ptr, ptr %7, align 8
   br label %149
 
 149:                                              ; preds = %144, %137
   %150 = phi ptr [ %.pre994, %144 ], [ %138, %137 ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 28
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 28
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %150, i64 44
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 44
   %154 = load i32, ptr %153, align 4
   %155 = icmp slt i32 %152, %154
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %149
-  %157 = getelementptr inbounds i8, ptr %150, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %157, i64 12, i1 false)
-  %158 = getelementptr inbounds i8, ptr %150, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %157, ptr noundef nonnull align 4 dereferenceable(16) %158, i64 16, i1 false)
   %159 = load ptr, ptr %7, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %160, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx58 = getelementptr inbounds i8, ptr %159, i64 44
+  %.sroa.388.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %159, i64 44
   store i32 %152, ptr %.sroa.388.0..sroa_idx58, align 4
   %.pre995 = load ptr, ptr %7, align 8
   br label %161
 
 161:                                              ; preds = %156, %149
   %162 = phi ptr [ %.pre995, %156 ], [ %150, %149 ]
-  %163 = getelementptr inbounds i8, ptr %162, i64 92
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 92
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %162, i64 108
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 108
   %166 = load i32, ptr %165, align 4
   %167 = icmp slt i32 %164, %166
   br i1 %167, label %168, label %173
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds i8, ptr %162, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %169, i64 12, i1 false)
-  %170 = getelementptr inbounds i8, ptr %162, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %162, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %169, ptr noundef nonnull align 4 dereferenceable(16) %170, i64 16, i1 false)
   %171 = load ptr, ptr %7, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %172, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx62 = getelementptr inbounds i8, ptr %171, i64 108
+  %.sroa.388.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %171, i64 108
   store i32 %164, ptr %.sroa.388.0..sroa_idx62, align 4
   %.pre996 = load ptr, ptr %7, align 8
   br label %173
 
 173:                                              ; preds = %168, %161
   %174 = phi ptr [ %.pre996, %168 ], [ %162, %161 ]
-  %175 = getelementptr inbounds i8, ptr %174, i64 156
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 156
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds i8, ptr %174, i64 172
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 172
   %178 = load i32, ptr %177, align 4
   %179 = icmp slt i32 %176, %178
   br i1 %179, label %180, label %185
 
 180:                                              ; preds = %173
-  %181 = getelementptr inbounds i8, ptr %174, i64 144
+  %181 = getelementptr inbounds nuw i8, ptr %174, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %181, i64 12, i1 false)
-  %182 = getelementptr inbounds i8, ptr %174, i64 160
+  %182 = getelementptr inbounds nuw i8, ptr %174, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %181, ptr noundef nonnull align 4 dereferenceable(16) %182, i64 16, i1 false)
   %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 160
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %184, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx66 = getelementptr inbounds i8, ptr %183, i64 172
+  %.sroa.388.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %183, i64 172
   store i32 %176, ptr %.sroa.388.0..sroa_idx66, align 4
   %.pre997 = load ptr, ptr %7, align 8
   br label %185
 
 185:                                              ; preds = %180, %173
   %186 = phi ptr [ %.pre997, %180 ], [ %174, %173 ]
-  %187 = getelementptr inbounds i8, ptr %186, i64 28
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 28
   %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i8, ptr %186, i64 92
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 92
   %190 = load i32, ptr %189, align 4
   %191 = icmp slt i32 %188, %190
   br i1 %191, label %192, label %197
 
 192:                                              ; preds = %185
-  %193 = getelementptr inbounds i8, ptr %186, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %186, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %193, i64 12, i1 false)
-  %194 = getelementptr inbounds i8, ptr %186, i64 80
+  %194 = getelementptr inbounds nuw i8, ptr %186, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %193, ptr noundef nonnull align 4 dereferenceable(16) %194, i64 16, i1 false)
   %195 = load ptr, ptr %7, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %196, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx70 = getelementptr inbounds i8, ptr %195, i64 92
+  %.sroa.388.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %195, i64 92
   store i32 %188, ptr %.sroa.388.0..sroa_idx70, align 4
   %.pre998 = load ptr, ptr %7, align 8
   br label %197
 
 197:                                              ; preds = %192, %185
   %198 = phi ptr [ %.pre998, %192 ], [ %186, %185 ]
-  %199 = getelementptr inbounds i8, ptr %198, i64 108
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 108
   %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds i8, ptr %198, i64 172
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 172
   %202 = load i32, ptr %201, align 4
   %203 = icmp slt i32 %200, %202
   br i1 %203, label %204, label %209
 
 204:                                              ; preds = %197
-  %205 = getelementptr inbounds i8, ptr %198, i64 96
+  %205 = getelementptr inbounds nuw i8, ptr %198, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %205, i64 12, i1 false)
-  %206 = getelementptr inbounds i8, ptr %198, i64 160
+  %206 = getelementptr inbounds nuw i8, ptr %198, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %206, i64 16, i1 false)
   %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 160
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %208, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx74 = getelementptr inbounds i8, ptr %207, i64 172
+  %.sroa.388.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %207, i64 172
   store i32 %200, ptr %.sroa.388.0..sroa_idx74, align 4
   %.pre999 = load ptr, ptr %7, align 8
   br label %209
 
 209:                                              ; preds = %204, %197
   %210 = phi ptr [ %.pre999, %204 ], [ %198, %197 ]
-  %211 = getelementptr inbounds i8, ptr %210, i64 92
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 92
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds i8, ptr %210, i64 156
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 156
   %214 = load i32, ptr %213, align 4
   %215 = icmp slt i32 %212, %214
   br i1 %215, label %216, label %221
 
 216:                                              ; preds = %209
-  %217 = getelementptr inbounds i8, ptr %210, i64 80
+  %217 = getelementptr inbounds nuw i8, ptr %210, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %217, i64 12, i1 false)
-  %218 = getelementptr inbounds i8, ptr %210, i64 144
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %217, ptr noundef nonnull align 4 dereferenceable(16) %218, i64 16, i1 false)
   %219 = load ptr, ptr %7, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 144
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %220, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx78 = getelementptr inbounds i8, ptr %219, i64 156
+  %.sroa.388.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %219, i64 156
   store i32 %212, ptr %.sroa.388.0..sroa_idx78, align 4
   %.pre1000 = load ptr, ptr %7, align 8
   br label %221
 
 221:                                              ; preds = %216, %209
   %222 = phi ptr [ %.pre1000, %216 ], [ %210, %209 ]
-  %223 = getelementptr inbounds i8, ptr %222, i64 44
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 44
   %224 = load i32, ptr %223, align 4
-  %225 = getelementptr inbounds i8, ptr %222, i64 108
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 108
   %226 = load i32, ptr %225, align 4
   %227 = icmp slt i32 %224, %226
   br i1 %227, label %228, label %233
 
 228:                                              ; preds = %221
-  %229 = getelementptr inbounds i8, ptr %222, i64 32
+  %229 = getelementptr inbounds nuw i8, ptr %222, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %229, i64 12, i1 false)
-  %230 = getelementptr inbounds i8, ptr %222, i64 96
+  %230 = getelementptr inbounds nuw i8, ptr %222, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %229, ptr noundef nonnull align 4 dereferenceable(16) %230, i64 16, i1 false)
   %231 = load ptr, ptr %7, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 96
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %232, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx82 = getelementptr inbounds i8, ptr %231, i64 108
+  %.sroa.388.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %231, i64 108
   store i32 %224, ptr %.sroa.388.0..sroa_idx82, align 4
   %.pre1001 = load ptr, ptr %7, align 8
   br label %233
 
 233:                                              ; preds = %228, %221
   %234 = phi ptr [ %.pre1001, %228 ], [ %222, %221 ]
-  %235 = getelementptr inbounds i8, ptr %234, i64 28
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 28
   %236 = load i32, ptr %235, align 4
-  %237 = getelementptr inbounds i8, ptr %234, i64 92
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 92
   %238 = load i32, ptr %237, align 4
   %239 = icmp slt i32 %236, %238
   br i1 %239, label %240, label %245
 
 240:                                              ; preds = %233
-  %241 = getelementptr inbounds i8, ptr %234, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %234, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %241, i64 12, i1 false)
-  %242 = getelementptr inbounds i8, ptr %234, i64 80
+  %242 = getelementptr inbounds nuw i8, ptr %234, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %241, ptr noundef nonnull align 4 dereferenceable(16) %242, i64 16, i1 false)
   %243 = load ptr, ptr %7, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 80
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %244, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx86 = getelementptr inbounds i8, ptr %243, i64 92
+  %.sroa.388.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %243, i64 92
   store i32 %236, ptr %.sroa.388.0..sroa_idx86, align 4
   %.pre1002 = load ptr, ptr %7, align 8
   br label %245
 
 245:                                              ; preds = %240, %233
   %246 = phi ptr [ %.pre1002, %240 ], [ %234, %233 ]
-  %247 = getelementptr inbounds i8, ptr %246, i64 108
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 108
   %248 = load i32, ptr %247, align 4
-  %249 = getelementptr inbounds i8, ptr %246, i64 172
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 172
   %250 = load i32, ptr %249, align 4
   %251 = icmp slt i32 %248, %250
   br i1 %251, label %252, label %257
 
 252:                                              ; preds = %245
-  %253 = getelementptr inbounds i8, ptr %246, i64 96
+  %253 = getelementptr inbounds nuw i8, ptr %246, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %253, i64 12, i1 false)
-  %254 = getelementptr inbounds i8, ptr %246, i64 160
+  %254 = getelementptr inbounds nuw i8, ptr %246, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %253, ptr noundef nonnull align 4 dereferenceable(16) %254, i64 16, i1 false)
   %255 = load ptr, ptr %7, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 160
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %256, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx90 = getelementptr inbounds i8, ptr %255, i64 172
+  %.sroa.388.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %255, i64 172
   store i32 %248, ptr %.sroa.388.0..sroa_idx90, align 4
   %.pre1003 = load ptr, ptr %7, align 8
   br label %257
@@ -5085,89 +5085,89 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %258 = phi ptr [ %.pre1003, %252 ], [ %246, %245 ]
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 12
   %260 = load i32, ptr %259, align 4
-  %261 = getelementptr inbounds i8, ptr %258, i64 76
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 76
   %262 = load i32, ptr %261, align 4
   %263 = icmp slt i32 %260, %262
   br i1 %263, label %264, label %268
 
 264:                                              ; preds = %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %258, i64 12, i1 false)
-  %265 = getelementptr inbounds i8, ptr %258, i64 64
+  %265 = getelementptr inbounds nuw i8, ptr %258, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %258, ptr noundef nonnull align 4 dereferenceable(16) %265, i64 16, i1 false)
   %266 = load ptr, ptr %7, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 64
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %267, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx94 = getelementptr inbounds i8, ptr %266, i64 76
+  %.sroa.388.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %266, i64 76
   store i32 %260, ptr %.sroa.388.0..sroa_idx94, align 4
   %.pre1004 = load ptr, ptr %7, align 8
   br label %268
 
 268:                                              ; preds = %264, %257
   %269 = phi ptr [ %.pre1004, %264 ], [ %258, %257 ]
-  %270 = getelementptr inbounds i8, ptr %269, i64 124
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 124
   %271 = load i32, ptr %270, align 4
-  %272 = getelementptr inbounds i8, ptr %269, i64 188
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 188
   %273 = load i32, ptr %272, align 4
   %274 = icmp slt i32 %271, %273
   br i1 %274, label %275, label %280
 
 275:                                              ; preds = %268
-  %276 = getelementptr inbounds i8, ptr %269, i64 112
+  %276 = getelementptr inbounds nuw i8, ptr %269, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %276, i64 12, i1 false)
-  %277 = getelementptr inbounds i8, ptr %269, i64 176
+  %277 = getelementptr inbounds nuw i8, ptr %269, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %276, ptr noundef nonnull align 4 dereferenceable(16) %277, i64 16, i1 false)
   %278 = load ptr, ptr %7, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 176
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %279, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx98 = getelementptr inbounds i8, ptr %278, i64 188
+  %.sroa.388.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %278, i64 188
   store i32 %271, ptr %.sroa.388.0..sroa_idx98, align 4
   %.pre1005 = load ptr, ptr %7, align 8
-  %.phi.trans.insert1006 = getelementptr inbounds i8, ptr %.pre1005, i64 124
+  %.phi.trans.insert1006 = getelementptr inbounds nuw i8, ptr %.pre1005, i64 124
   %.pre1007 = load i32, ptr %.phi.trans.insert1006, align 4
   br label %280
 
 280:                                              ; preds = %275, %268
   %281 = phi i32 [ %.pre1007, %275 ], [ %271, %268 ]
   %282 = phi ptr [ %.pre1005, %275 ], [ %269, %268 ]
-  %283 = getelementptr inbounds i8, ptr %282, i64 60
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 60
   %284 = load i32, ptr %283, align 4
   %285 = icmp slt i32 %284, %281
   br i1 %285, label %286, label %291
 
 286:                                              ; preds = %280
-  %287 = getelementptr inbounds i8, ptr %282, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %287, i64 12, i1 false)
-  %288 = getelementptr inbounds i8, ptr %282, i64 112
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %287, ptr noundef nonnull align 4 dereferenceable(16) %288, i64 16, i1 false)
   %289 = load ptr, ptr %7, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 112
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %290, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx102 = getelementptr inbounds i8, ptr %289, i64 124
+  %.sroa.388.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %289, i64 124
   store i32 %284, ptr %.sroa.388.0..sroa_idx102, align 4
   %.pre1008 = load ptr, ptr %7, align 8
   br label %291
 
 291:                                              ; preds = %286, %280
   %292 = phi ptr [ %.pre1008, %286 ], [ %282, %280 ]
-  %293 = getelementptr inbounds i8, ptr %292, i64 76
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 76
   %294 = load i32, ptr %293, align 4
-  %295 = getelementptr inbounds i8, ptr %292, i64 140
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 140
   %296 = load i32, ptr %295, align 4
   %297 = icmp slt i32 %294, %296
   br i1 %297, label %298, label %303
 
 298:                                              ; preds = %291
-  %299 = getelementptr inbounds i8, ptr %292, i64 64
+  %299 = getelementptr inbounds nuw i8, ptr %292, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %299, i64 12, i1 false)
-  %300 = getelementptr inbounds i8, ptr %292, i64 128
+  %300 = getelementptr inbounds nuw i8, ptr %292, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %299, ptr noundef nonnull align 4 dereferenceable(16) %300, i64 16, i1 false)
   %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 128
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %302, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx106 = getelementptr inbounds i8, ptr %301, i64 140
+  %.sroa.388.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %301, i64 140
   store i32 %294, ptr %.sroa.388.0..sroa_idx106, align 4
   %.pre1009 = load ptr, ptr %7, align 8
-  %.phi.trans.insert1010 = getelementptr inbounds i8, ptr %.pre1009, i64 76
+  %.phi.trans.insert1010 = getelementptr inbounds nuw i8, ptr %.pre1009, i64 76
   %.pre1011 = load i32, ptr %.phi.trans.insert1010, align 4
   br label %303
 
@@ -5181,299 +5181,299 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 309:                                              ; preds = %303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %305, i64 12, i1 false)
-  %310 = getelementptr inbounds i8, ptr %305, i64 64
+  %310 = getelementptr inbounds nuw i8, ptr %305, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %305, ptr noundef nonnull align 4 dereferenceable(16) %310, i64 16, i1 false)
   %311 = load ptr, ptr %7, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 64
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %312, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx110 = getelementptr inbounds i8, ptr %311, i64 76
+  %.sroa.388.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %311, i64 76
   store i32 %307, ptr %.sroa.388.0..sroa_idx110, align 4
   %.pre1012 = load ptr, ptr %7, align 8
   br label %313
 
 313:                                              ; preds = %309, %303
   %314 = phi ptr [ %.pre1012, %309 ], [ %305, %303 ]
-  %315 = getelementptr inbounds i8, ptr %314, i64 124
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 124
   %316 = load i32, ptr %315, align 4
-  %317 = getelementptr inbounds i8, ptr %314, i64 188
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 188
   %318 = load i32, ptr %317, align 4
   %319 = icmp slt i32 %316, %318
   br i1 %319, label %320, label %325
 
 320:                                              ; preds = %313
-  %321 = getelementptr inbounds i8, ptr %314, i64 112
+  %321 = getelementptr inbounds nuw i8, ptr %314, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %321, i64 12, i1 false)
-  %322 = getelementptr inbounds i8, ptr %314, i64 176
+  %322 = getelementptr inbounds nuw i8, ptr %314, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %321, ptr noundef nonnull align 4 dereferenceable(16) %322, i64 16, i1 false)
   %323 = load ptr, ptr %7, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 176
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %324, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx114 = getelementptr inbounds i8, ptr %323, i64 188
+  %.sroa.388.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %323, i64 188
   store i32 %316, ptr %.sroa.388.0..sroa_idx114, align 4
   %.pre1013 = load ptr, ptr %7, align 8
   br label %325
 
 325:                                              ; preds = %320, %313
   %326 = phi ptr [ %.pre1013, %320 ], [ %314, %313 ]
-  %327 = getelementptr inbounds i8, ptr %326, i64 28
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 28
   %328 = load i32, ptr %327, align 4
-  %329 = getelementptr inbounds i8, ptr %326, i64 76
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 76
   %330 = load i32, ptr %329, align 4
   %331 = icmp slt i32 %328, %330
   br i1 %331, label %332, label %337
 
 332:                                              ; preds = %325
-  %333 = getelementptr inbounds i8, ptr %326, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %326, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %333, i64 12, i1 false)
-  %334 = getelementptr inbounds i8, ptr %326, i64 64
+  %334 = getelementptr inbounds nuw i8, ptr %326, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %333, ptr noundef nonnull align 4 dereferenceable(16) %334, i64 16, i1 false)
   %335 = load ptr, ptr %7, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 64
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %336, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx118 = getelementptr inbounds i8, ptr %335, i64 76
+  %.sroa.388.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %335, i64 76
   store i32 %328, ptr %.sroa.388.0..sroa_idx118, align 4
   %.pre1014 = load ptr, ptr %7, align 8
   br label %337
 
 337:                                              ; preds = %332, %325
   %338 = phi ptr [ %.pre1014, %332 ], [ %326, %325 ]
-  %339 = getelementptr inbounds i8, ptr %338, i64 124
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 124
   %340 = load i32, ptr %339, align 4
-  %341 = getelementptr inbounds i8, ptr %338, i64 172
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 172
   %342 = load i32, ptr %341, align 4
   %343 = icmp slt i32 %340, %342
   br i1 %343, label %344, label %349
 
 344:                                              ; preds = %337
-  %345 = getelementptr inbounds i8, ptr %338, i64 112
+  %345 = getelementptr inbounds nuw i8, ptr %338, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %345, i64 12, i1 false)
-  %346 = getelementptr inbounds i8, ptr %338, i64 160
+  %346 = getelementptr inbounds nuw i8, ptr %338, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %345, ptr noundef nonnull align 4 dereferenceable(16) %346, i64 16, i1 false)
   %347 = load ptr, ptr %7, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 160
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %348, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx122 = getelementptr inbounds i8, ptr %347, i64 172
+  %.sroa.388.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %347, i64 172
   store i32 %340, ptr %.sroa.388.0..sroa_idx122, align 4
   %.pre1015 = load ptr, ptr %7, align 8
   br label %349
 
 349:                                              ; preds = %344, %337
   %350 = phi ptr [ %.pre1015, %344 ], [ %338, %337 ]
-  %351 = getelementptr inbounds i8, ptr %350, i64 60
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 60
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %350, i64 140
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 140
   %354 = load i32, ptr %353, align 4
   %355 = icmp slt i32 %352, %354
   br i1 %355, label %356, label %361
 
 356:                                              ; preds = %349
-  %357 = getelementptr inbounds i8, ptr %350, i64 48
+  %357 = getelementptr inbounds nuw i8, ptr %350, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %357, i64 12, i1 false)
-  %358 = getelementptr inbounds i8, ptr %350, i64 128
+  %358 = getelementptr inbounds nuw i8, ptr %350, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %357, ptr noundef nonnull align 4 dereferenceable(16) %358, i64 16, i1 false)
   %359 = load ptr, ptr %7, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 128
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %360, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx126 = getelementptr inbounds i8, ptr %359, i64 140
+  %.sroa.388.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %359, i64 140
   store i32 %352, ptr %.sroa.388.0..sroa_idx126, align 4
   %.pre1016 = load ptr, ptr %7, align 8
-  %.phi.trans.insert1017 = getelementptr inbounds i8, ptr %.pre1016, i64 60
+  %.phi.trans.insert1017 = getelementptr inbounds nuw i8, ptr %.pre1016, i64 60
   %.pre1018 = load i32, ptr %.phi.trans.insert1017, align 4
   br label %361
 
 361:                                              ; preds = %356, %349
   %362 = phi i32 [ %.pre1018, %356 ], [ %352, %349 ]
   %363 = phi ptr [ %.pre1016, %356 ], [ %350, %349 ]
-  %364 = getelementptr inbounds i8, ptr %363, i64 44
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 44
   %365 = load i32, ptr %364, align 4
   %366 = icmp slt i32 %365, %362
   br i1 %366, label %367, label %372
 
 367:                                              ; preds = %361
-  %368 = getelementptr inbounds i8, ptr %363, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %363, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %368, i64 12, i1 false)
-  %369 = getelementptr inbounds i8, ptr %363, i64 48
+  %369 = getelementptr inbounds nuw i8, ptr %363, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %368, ptr noundef nonnull align 4 dereferenceable(16) %369, i64 16, i1 false)
   %370 = load ptr, ptr %7, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 48
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %371, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx130 = getelementptr inbounds i8, ptr %370, i64 60
+  %.sroa.388.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %370, i64 60
   store i32 %365, ptr %.sroa.388.0..sroa_idx130, align 4
   %.pre1019 = load ptr, ptr %7, align 8
   br label %372
 
 372:                                              ; preds = %367, %361
   %373 = phi ptr [ %.pre1019, %367 ], [ %363, %361 ]
-  %374 = getelementptr inbounds i8, ptr %373, i64 140
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 140
   %375 = load i32, ptr %374, align 4
-  %376 = getelementptr inbounds i8, ptr %373, i64 156
+  %376 = getelementptr inbounds nuw i8, ptr %373, i64 156
   %377 = load i32, ptr %376, align 4
   %378 = icmp slt i32 %375, %377
   br i1 %378, label %379, label %384
 
 379:                                              ; preds = %372
-  %380 = getelementptr inbounds i8, ptr %373, i64 128
+  %380 = getelementptr inbounds nuw i8, ptr %373, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %380, i64 12, i1 false)
-  %381 = getelementptr inbounds i8, ptr %373, i64 144
+  %381 = getelementptr inbounds nuw i8, ptr %373, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %380, ptr noundef nonnull align 4 dereferenceable(16) %381, i64 16, i1 false)
   %382 = load ptr, ptr %7, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 144
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %383, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx134 = getelementptr inbounds i8, ptr %382, i64 156
+  %.sroa.388.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %382, i64 156
   store i32 %375, ptr %.sroa.388.0..sroa_idx134, align 4
   %.pre1020 = load ptr, ptr %7, align 8
   br label %384
 
 384:                                              ; preds = %379, %372
   %385 = phi ptr [ %.pre1020, %379 ], [ %373, %372 ]
-  %386 = getelementptr inbounds i8, ptr %385, i64 44
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 44
   %387 = load i32, ptr %386, align 4
-  %388 = getelementptr inbounds i8, ptr %385, i64 76
+  %388 = getelementptr inbounds nuw i8, ptr %385, i64 76
   %389 = load i32, ptr %388, align 4
   %390 = icmp slt i32 %387, %389
   br i1 %390, label %391, label %396
 
 391:                                              ; preds = %384
-  %392 = getelementptr inbounds i8, ptr %385, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %385, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %392, i64 12, i1 false)
-  %393 = getelementptr inbounds i8, ptr %385, i64 64
+  %393 = getelementptr inbounds nuw i8, ptr %385, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %392, ptr noundef nonnull align 4 dereferenceable(16) %393, i64 16, i1 false)
   %394 = load ptr, ptr %7, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 64
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %395, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx138 = getelementptr inbounds i8, ptr %394, i64 76
+  %.sroa.388.0..sroa_idx138 = getelementptr inbounds nuw i8, ptr %394, i64 76
   store i32 %387, ptr %.sroa.388.0..sroa_idx138, align 4
   %.pre1021 = load ptr, ptr %7, align 8
   br label %396
 
 396:                                              ; preds = %391, %384
   %397 = phi ptr [ %.pre1021, %391 ], [ %385, %384 ]
-  %398 = getelementptr inbounds i8, ptr %397, i64 124
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 124
   %399 = load i32, ptr %398, align 4
-  %400 = getelementptr inbounds i8, ptr %397, i64 156
+  %400 = getelementptr inbounds nuw i8, ptr %397, i64 156
   %401 = load i32, ptr %400, align 4
   %402 = icmp slt i32 %399, %401
   br i1 %402, label %403, label %408
 
 403:                                              ; preds = %396
-  %404 = getelementptr inbounds i8, ptr %397, i64 112
+  %404 = getelementptr inbounds nuw i8, ptr %397, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %404, i64 12, i1 false)
-  %405 = getelementptr inbounds i8, ptr %397, i64 144
+  %405 = getelementptr inbounds nuw i8, ptr %397, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %404, ptr noundef nonnull align 4 dereferenceable(16) %405, i64 16, i1 false)
   %406 = load ptr, ptr %7, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 144
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %407, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx142 = getelementptr inbounds i8, ptr %406, i64 156
+  %.sroa.388.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %406, i64 156
   store i32 %399, ptr %.sroa.388.0..sroa_idx142, align 4
   %.pre1022 = load ptr, ptr %7, align 8
   br label %408
 
 408:                                              ; preds = %403, %396
   %409 = phi ptr [ %.pre1022, %403 ], [ %397, %396 ]
-  %410 = getelementptr inbounds i8, ptr %409, i64 60
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 60
   %411 = load i32, ptr %410, align 4
-  %412 = getelementptr inbounds i8, ptr %409, i64 92
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 92
   %413 = load i32, ptr %412, align 4
   %414 = icmp slt i32 %411, %413
   br i1 %414, label %415, label %420
 
 415:                                              ; preds = %408
-  %416 = getelementptr inbounds i8, ptr %409, i64 48
+  %416 = getelementptr inbounds nuw i8, ptr %409, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %416, i64 12, i1 false)
-  %417 = getelementptr inbounds i8, ptr %409, i64 80
+  %417 = getelementptr inbounds nuw i8, ptr %409, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %416, ptr noundef nonnull align 4 dereferenceable(16) %417, i64 16, i1 false)
   %418 = load ptr, ptr %7, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 80
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %419, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx146 = getelementptr inbounds i8, ptr %418, i64 92
+  %.sroa.388.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %418, i64 92
   store i32 %411, ptr %.sroa.388.0..sroa_idx146, align 4
   %.pre1023 = load ptr, ptr %7, align 8
   br label %420
 
 420:                                              ; preds = %415, %408
   %421 = phi ptr [ %.pre1023, %415 ], [ %409, %408 ]
-  %422 = getelementptr inbounds i8, ptr %421, i64 108
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 108
   %423 = load i32, ptr %422, align 4
-  %424 = getelementptr inbounds i8, ptr %421, i64 140
+  %424 = getelementptr inbounds nuw i8, ptr %421, i64 140
   %425 = load i32, ptr %424, align 4
   %426 = icmp slt i32 %423, %425
   br i1 %426, label %427, label %432
 
 427:                                              ; preds = %420
-  %428 = getelementptr inbounds i8, ptr %421, i64 96
+  %428 = getelementptr inbounds nuw i8, ptr %421, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %428, i64 12, i1 false)
-  %429 = getelementptr inbounds i8, ptr %421, i64 128
+  %429 = getelementptr inbounds nuw i8, ptr %421, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %428, ptr noundef nonnull align 4 dereferenceable(16) %429, i64 16, i1 false)
   %430 = load ptr, ptr %7, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 128
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %431, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx150 = getelementptr inbounds i8, ptr %430, i64 140
+  %.sroa.388.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %430, i64 140
   store i32 %423, ptr %.sroa.388.0..sroa_idx150, align 4
   %.pre1024 = load ptr, ptr %7, align 8
   br label %432
 
 432:                                              ; preds = %427, %420
   %433 = phi ptr [ %.pre1024, %427 ], [ %421, %420 ]
-  %434 = getelementptr inbounds i8, ptr %433, i64 60
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 60
   %435 = load i32, ptr %434, align 4
-  %436 = getelementptr inbounds i8, ptr %433, i64 76
+  %436 = getelementptr inbounds nuw i8, ptr %433, i64 76
   %437 = load i32, ptr %436, align 4
   %438 = icmp slt i32 %435, %437
   br i1 %438, label %439, label %444
 
 439:                                              ; preds = %432
-  %440 = getelementptr inbounds i8, ptr %433, i64 48
+  %440 = getelementptr inbounds nuw i8, ptr %433, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %440, i64 12, i1 false)
-  %441 = getelementptr inbounds i8, ptr %433, i64 64
+  %441 = getelementptr inbounds nuw i8, ptr %433, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %440, ptr noundef nonnull align 4 dereferenceable(16) %441, i64 16, i1 false)
   %442 = load ptr, ptr %7, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 64
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %443, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx154 = getelementptr inbounds i8, ptr %442, i64 76
+  %.sroa.388.0..sroa_idx154 = getelementptr inbounds nuw i8, ptr %442, i64 76
   store i32 %435, ptr %.sroa.388.0..sroa_idx154, align 4
   %.pre1025 = load ptr, ptr %7, align 8
   br label %444
 
 444:                                              ; preds = %439, %432
   %445 = phi ptr [ %.pre1025, %439 ], [ %433, %432 ]
-  %446 = getelementptr inbounds i8, ptr %445, i64 92
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 92
   %447 = load i32, ptr %446, align 4
-  %448 = getelementptr inbounds i8, ptr %445, i64 108
+  %448 = getelementptr inbounds nuw i8, ptr %445, i64 108
   %449 = load i32, ptr %448, align 4
   %450 = icmp slt i32 %447, %449
   br i1 %450, label %451, label %456
 
 451:                                              ; preds = %444
-  %452 = getelementptr inbounds i8, ptr %445, i64 80
+  %452 = getelementptr inbounds nuw i8, ptr %445, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %452, i64 12, i1 false)
-  %453 = getelementptr inbounds i8, ptr %445, i64 96
+  %453 = getelementptr inbounds nuw i8, ptr %445, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %452, ptr noundef nonnull align 4 dereferenceable(16) %453, i64 16, i1 false)
   %454 = load ptr, ptr %7, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 96
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %455, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx158 = getelementptr inbounds i8, ptr %454, i64 108
+  %.sroa.388.0..sroa_idx158 = getelementptr inbounds nuw i8, ptr %454, i64 108
   store i32 %447, ptr %.sroa.388.0..sroa_idx158, align 4
   %.pre1026 = load ptr, ptr %7, align 8
   br label %456
 
 456:                                              ; preds = %451, %444
   %457 = phi ptr [ %.pre1026, %451 ], [ %445, %444 ]
-  %458 = getelementptr inbounds i8, ptr %457, i64 124
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 124
   %459 = load i32, ptr %458, align 4
-  %460 = getelementptr inbounds i8, ptr %457, i64 140
+  %460 = getelementptr inbounds nuw i8, ptr %457, i64 140
   %461 = load i32, ptr %460, align 4
   %462 = icmp slt i32 %459, %461
   br i1 %462, label %463, label %.loopexit
 
 463:                                              ; preds = %456
-  %464 = getelementptr inbounds i8, ptr %457, i64 112
+  %464 = getelementptr inbounds nuw i8, ptr %457, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %464, i64 12, i1 false)
-  %465 = getelementptr inbounds i8, ptr %457, i64 128
+  %465 = getelementptr inbounds nuw i8, ptr %457, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %464, ptr noundef nonnull align 4 dereferenceable(16) %465, i64 16, i1 false)
   %466 = load ptr, ptr %7, align 8
-  %467 = getelementptr inbounds i8, ptr %466, i64 128
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %467, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx162 = getelementptr inbounds i8, ptr %466, i64 140
+  %.sroa.388.0..sroa_idx162 = getelementptr inbounds nuw i8, ptr %466, i64 140
   store i32 %459, ptr %.sroa.388.0..sroa_idx162, align 4
   br label %.loopexit
 
@@ -5482,151 +5482,151 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 12
   %472 = load i32, ptr %471, align 4
-  %473 = getelementptr inbounds i8, ptr %470, i64 28
+  %473 = getelementptr inbounds nuw i8, ptr %470, i64 28
   %474 = load i32, ptr %473, align 4
   %475 = icmp slt i32 %472, %474
   br i1 %475, label %476, label %480
 
 476:                                              ; preds = %468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %470, i64 12, i1 false)
-  %477 = getelementptr inbounds i8, ptr %470, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %470, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %470, ptr noundef nonnull align 4 dereferenceable(16) %477, i64 16, i1 false)
   %478 = load ptr, ptr %469, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %479, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx166 = getelementptr inbounds i8, ptr %478, i64 28
+  %.sroa.388.0..sroa_idx166 = getelementptr inbounds nuw i8, ptr %478, i64 28
   store i32 %472, ptr %.sroa.388.0..sroa_idx166, align 4
   %.pre943 = load ptr, ptr %469, align 8
   br label %480
 
 480:                                              ; preds = %476, %468
   %481 = phi ptr [ %.pre943, %476 ], [ %470, %468 ]
-  %482 = getelementptr inbounds i8, ptr %481, i64 44
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 44
   %483 = load i32, ptr %482, align 4
-  %484 = getelementptr inbounds i8, ptr %481, i64 60
+  %484 = getelementptr inbounds nuw i8, ptr %481, i64 60
   %485 = load i32, ptr %484, align 4
   %486 = icmp slt i32 %483, %485
   br i1 %486, label %487, label %492
 
 487:                                              ; preds = %480
-  %488 = getelementptr inbounds i8, ptr %481, i64 32
+  %488 = getelementptr inbounds nuw i8, ptr %481, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %488, i64 12, i1 false)
-  %489 = getelementptr inbounds i8, ptr %481, i64 48
+  %489 = getelementptr inbounds nuw i8, ptr %481, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %488, ptr noundef nonnull align 4 dereferenceable(16) %489, i64 16, i1 false)
   %490 = load ptr, ptr %469, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 48
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %491, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx170 = getelementptr inbounds i8, ptr %490, i64 60
+  %.sroa.388.0..sroa_idx170 = getelementptr inbounds nuw i8, ptr %490, i64 60
   store i32 %483, ptr %.sroa.388.0..sroa_idx170, align 4
   %.pre944 = load ptr, ptr %469, align 8
   br label %492
 
 492:                                              ; preds = %487, %480
   %493 = phi ptr [ %.pre944, %487 ], [ %481, %480 ]
-  %494 = getelementptr inbounds i8, ptr %493, i64 76
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 76
   %495 = load i32, ptr %494, align 4
-  %496 = getelementptr inbounds i8, ptr %493, i64 92
+  %496 = getelementptr inbounds nuw i8, ptr %493, i64 92
   %497 = load i32, ptr %496, align 4
   %498 = icmp slt i32 %495, %497
   br i1 %498, label %499, label %504
 
 499:                                              ; preds = %492
-  %500 = getelementptr inbounds i8, ptr %493, i64 64
+  %500 = getelementptr inbounds nuw i8, ptr %493, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %500, i64 12, i1 false)
-  %501 = getelementptr inbounds i8, ptr %493, i64 80
+  %501 = getelementptr inbounds nuw i8, ptr %493, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %500, ptr noundef nonnull align 4 dereferenceable(16) %501, i64 16, i1 false)
   %502 = load ptr, ptr %469, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 80
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %503, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx174 = getelementptr inbounds i8, ptr %502, i64 92
+  %.sroa.388.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %502, i64 92
   store i32 %495, ptr %.sroa.388.0..sroa_idx174, align 4
   %.pre945 = load ptr, ptr %469, align 8
   br label %504
 
 504:                                              ; preds = %499, %492
   %505 = phi ptr [ %.pre945, %499 ], [ %493, %492 ]
-  %506 = getelementptr inbounds i8, ptr %505, i64 108
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 108
   %507 = load i32, ptr %506, align 4
-  %508 = getelementptr inbounds i8, ptr %505, i64 124
+  %508 = getelementptr inbounds nuw i8, ptr %505, i64 124
   %509 = load i32, ptr %508, align 4
   %510 = icmp slt i32 %507, %509
   br i1 %510, label %511, label %516
 
 511:                                              ; preds = %504
-  %512 = getelementptr inbounds i8, ptr %505, i64 96
+  %512 = getelementptr inbounds nuw i8, ptr %505, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %512, i64 12, i1 false)
-  %513 = getelementptr inbounds i8, ptr %505, i64 112
+  %513 = getelementptr inbounds nuw i8, ptr %505, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %512, ptr noundef nonnull align 4 dereferenceable(16) %513, i64 16, i1 false)
   %514 = load ptr, ptr %469, align 8
-  %515 = getelementptr inbounds i8, ptr %514, i64 112
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %515, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx178 = getelementptr inbounds i8, ptr %514, i64 124
+  %.sroa.388.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %514, i64 124
   store i32 %507, ptr %.sroa.388.0..sroa_idx178, align 4
   %.pre946 = load ptr, ptr %469, align 8
   br label %516
 
 516:                                              ; preds = %511, %504
   %517 = phi ptr [ %.pre946, %511 ], [ %505, %504 ]
-  %518 = getelementptr inbounds i8, ptr %517, i64 140
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 140
   %519 = load i32, ptr %518, align 4
-  %520 = getelementptr inbounds i8, ptr %517, i64 156
+  %520 = getelementptr inbounds nuw i8, ptr %517, i64 156
   %521 = load i32, ptr %520, align 4
   %522 = icmp slt i32 %519, %521
   br i1 %522, label %523, label %528
 
 523:                                              ; preds = %516
-  %524 = getelementptr inbounds i8, ptr %517, i64 128
+  %524 = getelementptr inbounds nuw i8, ptr %517, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %524, i64 12, i1 false)
-  %525 = getelementptr inbounds i8, ptr %517, i64 144
+  %525 = getelementptr inbounds nuw i8, ptr %517, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %524, ptr noundef nonnull align 4 dereferenceable(16) %525, i64 16, i1 false)
   %526 = load ptr, ptr %469, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 144
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %527, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx182 = getelementptr inbounds i8, ptr %526, i64 156
+  %.sroa.388.0..sroa_idx182 = getelementptr inbounds nuw i8, ptr %526, i64 156
   store i32 %519, ptr %.sroa.388.0..sroa_idx182, align 4
   %.pre947 = load ptr, ptr %469, align 8
   br label %528
 
 528:                                              ; preds = %523, %516
   %529 = phi ptr [ %.pre947, %523 ], [ %517, %516 ]
-  %530 = getelementptr inbounds i8, ptr %529, i64 28
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 28
   %531 = load i32, ptr %530, align 4
-  %532 = getelementptr inbounds i8, ptr %529, i64 60
+  %532 = getelementptr inbounds nuw i8, ptr %529, i64 60
   %533 = load i32, ptr %532, align 4
   %534 = icmp slt i32 %531, %533
   br i1 %534, label %535, label %540
 
 535:                                              ; preds = %528
-  %536 = getelementptr inbounds i8, ptr %529, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %529, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %536, i64 12, i1 false)
-  %537 = getelementptr inbounds i8, ptr %529, i64 48
+  %537 = getelementptr inbounds nuw i8, ptr %529, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %536, ptr noundef nonnull align 4 dereferenceable(16) %537, i64 16, i1 false)
   %538 = load ptr, ptr %469, align 8
-  %539 = getelementptr inbounds i8, ptr %538, i64 48
+  %539 = getelementptr inbounds nuw i8, ptr %538, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %539, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx186 = getelementptr inbounds i8, ptr %538, i64 60
+  %.sroa.388.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %538, i64 60
   store i32 %531, ptr %.sroa.388.0..sroa_idx186, align 4
   %.pre948 = load ptr, ptr %469, align 8
   br label %540
 
 540:                                              ; preds = %535, %528
   %541 = phi ptr [ %.pre948, %535 ], [ %529, %528 ]
-  %542 = getelementptr inbounds i8, ptr %541, i64 92
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 92
   %543 = load i32, ptr %542, align 4
-  %544 = getelementptr inbounds i8, ptr %541, i64 124
+  %544 = getelementptr inbounds nuw i8, ptr %541, i64 124
   %545 = load i32, ptr %544, align 4
   %546 = icmp slt i32 %543, %545
   br i1 %546, label %547, label %552
 
 547:                                              ; preds = %540
-  %548 = getelementptr inbounds i8, ptr %541, i64 80
+  %548 = getelementptr inbounds nuw i8, ptr %541, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %548, i64 12, i1 false)
-  %549 = getelementptr inbounds i8, ptr %541, i64 112
+  %549 = getelementptr inbounds nuw i8, ptr %541, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %548, ptr noundef nonnull align 4 dereferenceable(16) %549, i64 16, i1 false)
   %550 = load ptr, ptr %469, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 112
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %551, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx190 = getelementptr inbounds i8, ptr %550, i64 124
+  %.sroa.388.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %550, i64 124
   store i32 %543, ptr %.sroa.388.0..sroa_idx190, align 4
   %.pre949 = load ptr, ptr %469, align 8
   br label %552
@@ -5635,261 +5635,261 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %553 = phi ptr [ %.pre949, %547 ], [ %541, %540 ]
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 12
   %555 = load i32, ptr %554, align 4
-  %556 = getelementptr inbounds i8, ptr %553, i64 44
+  %556 = getelementptr inbounds nuw i8, ptr %553, i64 44
   %557 = load i32, ptr %556, align 4
   %558 = icmp slt i32 %555, %557
   br i1 %558, label %559, label %563
 
 559:                                              ; preds = %552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %553, i64 12, i1 false)
-  %560 = getelementptr inbounds i8, ptr %553, i64 32
+  %560 = getelementptr inbounds nuw i8, ptr %553, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %553, ptr noundef nonnull align 4 dereferenceable(16) %560, i64 16, i1 false)
   %561 = load ptr, ptr %469, align 8
-  %562 = getelementptr inbounds i8, ptr %561, i64 32
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %562, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx194 = getelementptr inbounds i8, ptr %561, i64 44
+  %.sroa.388.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %561, i64 44
   store i32 %555, ptr %.sroa.388.0..sroa_idx194, align 4
   %.pre950 = load ptr, ptr %469, align 8
   br label %563
 
 563:                                              ; preds = %559, %552
   %564 = phi ptr [ %.pre950, %559 ], [ %553, %552 ]
-  %565 = getelementptr inbounds i8, ptr %564, i64 76
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 76
   %566 = load i32, ptr %565, align 4
-  %567 = getelementptr inbounds i8, ptr %564, i64 108
+  %567 = getelementptr inbounds nuw i8, ptr %564, i64 108
   %568 = load i32, ptr %567, align 4
   %569 = icmp slt i32 %566, %568
   br i1 %569, label %570, label %575
 
 570:                                              ; preds = %563
-  %571 = getelementptr inbounds i8, ptr %564, i64 64
+  %571 = getelementptr inbounds nuw i8, ptr %564, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %571, i64 12, i1 false)
-  %572 = getelementptr inbounds i8, ptr %564, i64 96
+  %572 = getelementptr inbounds nuw i8, ptr %564, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %571, ptr noundef nonnull align 4 dereferenceable(16) %572, i64 16, i1 false)
   %573 = load ptr, ptr %469, align 8
-  %574 = getelementptr inbounds i8, ptr %573, i64 96
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %574, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx198 = getelementptr inbounds i8, ptr %573, i64 108
+  %.sroa.388.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %573, i64 108
   store i32 %566, ptr %.sroa.388.0..sroa_idx198, align 4
   %.pre951 = load ptr, ptr %469, align 8
   br label %575
 
 575:                                              ; preds = %570, %563
   %576 = phi ptr [ %.pre951, %570 ], [ %564, %563 ]
-  %577 = getelementptr inbounds i8, ptr %576, i64 140
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 140
   %578 = load i32, ptr %577, align 4
-  %579 = getelementptr inbounds i8, ptr %576, i64 172
+  %579 = getelementptr inbounds nuw i8, ptr %576, i64 172
   %580 = load i32, ptr %579, align 4
   %581 = icmp slt i32 %578, %580
   br i1 %581, label %582, label %587
 
 582:                                              ; preds = %575
-  %583 = getelementptr inbounds i8, ptr %576, i64 128
+  %583 = getelementptr inbounds nuw i8, ptr %576, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %583, i64 12, i1 false)
-  %584 = getelementptr inbounds i8, ptr %576, i64 160
+  %584 = getelementptr inbounds nuw i8, ptr %576, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %583, ptr noundef nonnull align 4 dereferenceable(16) %584, i64 16, i1 false)
   %585 = load ptr, ptr %469, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 160
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %586, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx202 = getelementptr inbounds i8, ptr %585, i64 172
+  %.sroa.388.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %585, i64 172
   store i32 %578, ptr %.sroa.388.0..sroa_idx202, align 4
   %.pre952 = load ptr, ptr %469, align 8
   br label %587
 
 587:                                              ; preds = %582, %575
   %588 = phi ptr [ %.pre952, %582 ], [ %576, %575 ]
-  %589 = getelementptr inbounds i8, ptr %588, i64 28
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 28
   %590 = load i32, ptr %589, align 4
-  %591 = getelementptr inbounds i8, ptr %588, i64 44
+  %591 = getelementptr inbounds nuw i8, ptr %588, i64 44
   %592 = load i32, ptr %591, align 4
   %593 = icmp slt i32 %590, %592
   br i1 %593, label %594, label %599
 
 594:                                              ; preds = %587
-  %595 = getelementptr inbounds i8, ptr %588, i64 16
+  %595 = getelementptr inbounds nuw i8, ptr %588, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %595, i64 12, i1 false)
-  %596 = getelementptr inbounds i8, ptr %588, i64 32
+  %596 = getelementptr inbounds nuw i8, ptr %588, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %595, ptr noundef nonnull align 4 dereferenceable(16) %596, i64 16, i1 false)
   %597 = load ptr, ptr %469, align 8
-  %598 = getelementptr inbounds i8, ptr %597, i64 32
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %598, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx206 = getelementptr inbounds i8, ptr %597, i64 44
+  %.sroa.388.0..sroa_idx206 = getelementptr inbounds nuw i8, ptr %597, i64 44
   store i32 %590, ptr %.sroa.388.0..sroa_idx206, align 4
   %.pre953 = load ptr, ptr %469, align 8
   br label %599
 
 599:                                              ; preds = %594, %587
   %600 = phi ptr [ %.pre953, %594 ], [ %588, %587 ]
-  %601 = getelementptr inbounds i8, ptr %600, i64 92
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 92
   %602 = load i32, ptr %601, align 4
-  %603 = getelementptr inbounds i8, ptr %600, i64 108
+  %603 = getelementptr inbounds nuw i8, ptr %600, i64 108
   %604 = load i32, ptr %603, align 4
   %605 = icmp slt i32 %602, %604
   br i1 %605, label %606, label %611
 
 606:                                              ; preds = %599
-  %607 = getelementptr inbounds i8, ptr %600, i64 80
+  %607 = getelementptr inbounds nuw i8, ptr %600, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %607, i64 12, i1 false)
-  %608 = getelementptr inbounds i8, ptr %600, i64 96
+  %608 = getelementptr inbounds nuw i8, ptr %600, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %607, ptr noundef nonnull align 4 dereferenceable(16) %608, i64 16, i1 false)
   %609 = load ptr, ptr %469, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 96
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %610, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx210 = getelementptr inbounds i8, ptr %609, i64 108
+  %.sroa.388.0..sroa_idx210 = getelementptr inbounds nuw i8, ptr %609, i64 108
   store i32 %602, ptr %.sroa.388.0..sroa_idx210, align 4
   %.pre954 = load ptr, ptr %469, align 8
   br label %611
 
 611:                                              ; preds = %606, %599
   %612 = phi ptr [ %.pre954, %606 ], [ %600, %599 ]
-  %613 = getelementptr inbounds i8, ptr %612, i64 156
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 156
   %614 = load i32, ptr %613, align 4
-  %615 = getelementptr inbounds i8, ptr %612, i64 172
+  %615 = getelementptr inbounds nuw i8, ptr %612, i64 172
   %616 = load i32, ptr %615, align 4
   %617 = icmp slt i32 %614, %616
   br i1 %617, label %618, label %623
 
 618:                                              ; preds = %611
-  %619 = getelementptr inbounds i8, ptr %612, i64 144
+  %619 = getelementptr inbounds nuw i8, ptr %612, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %619, i64 12, i1 false)
-  %620 = getelementptr inbounds i8, ptr %612, i64 160
+  %620 = getelementptr inbounds nuw i8, ptr %612, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %619, ptr noundef nonnull align 4 dereferenceable(16) %620, i64 16, i1 false)
   %621 = load ptr, ptr %469, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 160
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %622, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx214 = getelementptr inbounds i8, ptr %621, i64 172
+  %.sroa.388.0..sroa_idx214 = getelementptr inbounds nuw i8, ptr %621, i64 172
   store i32 %614, ptr %.sroa.388.0..sroa_idx214, align 4
   %.pre955 = load ptr, ptr %469, align 8
   br label %623
 
 623:                                              ; preds = %618, %611
   %624 = phi ptr [ %.pre955, %618 ], [ %612, %611 ]
-  %625 = getelementptr inbounds i8, ptr %624, i64 28
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 28
   %626 = load i32, ptr %625, align 4
-  %627 = getelementptr inbounds i8, ptr %624, i64 92
+  %627 = getelementptr inbounds nuw i8, ptr %624, i64 92
   %628 = load i32, ptr %627, align 4
   %629 = icmp slt i32 %626, %628
   br i1 %629, label %630, label %635
 
 630:                                              ; preds = %623
-  %631 = getelementptr inbounds i8, ptr %624, i64 16
+  %631 = getelementptr inbounds nuw i8, ptr %624, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %631, i64 12, i1 false)
-  %632 = getelementptr inbounds i8, ptr %624, i64 80
+  %632 = getelementptr inbounds nuw i8, ptr %624, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %631, ptr noundef nonnull align 4 dereferenceable(16) %632, i64 16, i1 false)
   %633 = load ptr, ptr %469, align 8
-  %634 = getelementptr inbounds i8, ptr %633, i64 80
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %634, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx218 = getelementptr inbounds i8, ptr %633, i64 92
+  %.sroa.388.0..sroa_idx218 = getelementptr inbounds nuw i8, ptr %633, i64 92
   store i32 %626, ptr %.sroa.388.0..sroa_idx218, align 4
   %.pre956 = load ptr, ptr %469, align 8
   br label %635
 
 635:                                              ; preds = %630, %623
   %636 = phi ptr [ %.pre956, %630 ], [ %624, %623 ]
-  %637 = getelementptr inbounds i8, ptr %636, i64 108
+  %637 = getelementptr inbounds nuw i8, ptr %636, i64 108
   %638 = load i32, ptr %637, align 4
-  %639 = getelementptr inbounds i8, ptr %636, i64 172
+  %639 = getelementptr inbounds nuw i8, ptr %636, i64 172
   %640 = load i32, ptr %639, align 4
   %641 = icmp slt i32 %638, %640
   br i1 %641, label %642, label %647
 
 642:                                              ; preds = %635
-  %643 = getelementptr inbounds i8, ptr %636, i64 96
+  %643 = getelementptr inbounds nuw i8, ptr %636, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %643, i64 12, i1 false)
-  %644 = getelementptr inbounds i8, ptr %636, i64 160
+  %644 = getelementptr inbounds nuw i8, ptr %636, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %643, ptr noundef nonnull align 4 dereferenceable(16) %644, i64 16, i1 false)
   %645 = load ptr, ptr %469, align 8
-  %646 = getelementptr inbounds i8, ptr %645, i64 160
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %646, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx222 = getelementptr inbounds i8, ptr %645, i64 172
+  %.sroa.388.0..sroa_idx222 = getelementptr inbounds nuw i8, ptr %645, i64 172
   store i32 %638, ptr %.sroa.388.0..sroa_idx222, align 4
   %.pre957 = load ptr, ptr %469, align 8
   br label %647
 
 647:                                              ; preds = %642, %635
   %648 = phi ptr [ %.pre957, %642 ], [ %636, %635 ]
-  %649 = getelementptr inbounds i8, ptr %648, i64 92
+  %649 = getelementptr inbounds nuw i8, ptr %648, i64 92
   %650 = load i32, ptr %649, align 4
-  %651 = getelementptr inbounds i8, ptr %648, i64 156
+  %651 = getelementptr inbounds nuw i8, ptr %648, i64 156
   %652 = load i32, ptr %651, align 4
   %653 = icmp slt i32 %650, %652
   br i1 %653, label %654, label %659
 
 654:                                              ; preds = %647
-  %655 = getelementptr inbounds i8, ptr %648, i64 80
+  %655 = getelementptr inbounds nuw i8, ptr %648, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %655, i64 12, i1 false)
-  %656 = getelementptr inbounds i8, ptr %648, i64 144
+  %656 = getelementptr inbounds nuw i8, ptr %648, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %655, ptr noundef nonnull align 4 dereferenceable(16) %656, i64 16, i1 false)
   %657 = load ptr, ptr %469, align 8
-  %658 = getelementptr inbounds i8, ptr %657, i64 144
+  %658 = getelementptr inbounds nuw i8, ptr %657, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %658, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx226 = getelementptr inbounds i8, ptr %657, i64 156
+  %.sroa.388.0..sroa_idx226 = getelementptr inbounds nuw i8, ptr %657, i64 156
   store i32 %650, ptr %.sroa.388.0..sroa_idx226, align 4
   %.pre958 = load ptr, ptr %469, align 8
   br label %659
 
 659:                                              ; preds = %654, %647
   %660 = phi ptr [ %.pre958, %654 ], [ %648, %647 ]
-  %661 = getelementptr inbounds i8, ptr %660, i64 44
+  %661 = getelementptr inbounds nuw i8, ptr %660, i64 44
   %662 = load i32, ptr %661, align 4
-  %663 = getelementptr inbounds i8, ptr %660, i64 108
+  %663 = getelementptr inbounds nuw i8, ptr %660, i64 108
   %664 = load i32, ptr %663, align 4
   %665 = icmp slt i32 %662, %664
   br i1 %665, label %666, label %671
 
 666:                                              ; preds = %659
-  %667 = getelementptr inbounds i8, ptr %660, i64 32
+  %667 = getelementptr inbounds nuw i8, ptr %660, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %667, i64 12, i1 false)
-  %668 = getelementptr inbounds i8, ptr %660, i64 96
+  %668 = getelementptr inbounds nuw i8, ptr %660, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %667, ptr noundef nonnull align 4 dereferenceable(16) %668, i64 16, i1 false)
   %669 = load ptr, ptr %469, align 8
-  %670 = getelementptr inbounds i8, ptr %669, i64 96
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %670, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx230 = getelementptr inbounds i8, ptr %669, i64 108
+  %.sroa.388.0..sroa_idx230 = getelementptr inbounds nuw i8, ptr %669, i64 108
   store i32 %662, ptr %.sroa.388.0..sroa_idx230, align 4
   %.pre959 = load ptr, ptr %469, align 8
   br label %671
 
 671:                                              ; preds = %666, %659
   %672 = phi ptr [ %.pre959, %666 ], [ %660, %659 ]
-  %673 = getelementptr inbounds i8, ptr %672, i64 28
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 28
   %674 = load i32, ptr %673, align 4
-  %675 = getelementptr inbounds i8, ptr %672, i64 92
+  %675 = getelementptr inbounds nuw i8, ptr %672, i64 92
   %676 = load i32, ptr %675, align 4
   %677 = icmp slt i32 %674, %676
   br i1 %677, label %678, label %683
 
 678:                                              ; preds = %671
-  %679 = getelementptr inbounds i8, ptr %672, i64 16
+  %679 = getelementptr inbounds nuw i8, ptr %672, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %679, i64 12, i1 false)
-  %680 = getelementptr inbounds i8, ptr %672, i64 80
+  %680 = getelementptr inbounds nuw i8, ptr %672, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %679, ptr noundef nonnull align 4 dereferenceable(16) %680, i64 16, i1 false)
   %681 = load ptr, ptr %469, align 8
-  %682 = getelementptr inbounds i8, ptr %681, i64 80
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %682, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx234 = getelementptr inbounds i8, ptr %681, i64 92
+  %.sroa.388.0..sroa_idx234 = getelementptr inbounds nuw i8, ptr %681, i64 92
   store i32 %674, ptr %.sroa.388.0..sroa_idx234, align 4
   %.pre960 = load ptr, ptr %469, align 8
   br label %683
 
 683:                                              ; preds = %678, %671
   %684 = phi ptr [ %.pre960, %678 ], [ %672, %671 ]
-  %685 = getelementptr inbounds i8, ptr %684, i64 108
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 108
   %686 = load i32, ptr %685, align 4
-  %687 = getelementptr inbounds i8, ptr %684, i64 172
+  %687 = getelementptr inbounds nuw i8, ptr %684, i64 172
   %688 = load i32, ptr %687, align 4
   %689 = icmp slt i32 %686, %688
   br i1 %689, label %690, label %695
 
 690:                                              ; preds = %683
-  %691 = getelementptr inbounds i8, ptr %684, i64 96
+  %691 = getelementptr inbounds nuw i8, ptr %684, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %691, i64 12, i1 false)
-  %692 = getelementptr inbounds i8, ptr %684, i64 160
+  %692 = getelementptr inbounds nuw i8, ptr %684, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %691, ptr noundef nonnull align 4 dereferenceable(16) %692, i64 16, i1 false)
   %693 = load ptr, ptr %469, align 8
-  %694 = getelementptr inbounds i8, ptr %693, i64 160
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %694, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx238 = getelementptr inbounds i8, ptr %693, i64 172
+  %.sroa.388.0..sroa_idx238 = getelementptr inbounds nuw i8, ptr %693, i64 172
   store i32 %686, ptr %.sroa.388.0..sroa_idx238, align 4
   %.pre961 = load ptr, ptr %469, align 8
   br label %695
@@ -5898,66 +5898,66 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %696 = phi ptr [ %.pre961, %690 ], [ %684, %683 ]
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 12
   %698 = load i32, ptr %697, align 4
-  %699 = getelementptr inbounds i8, ptr %696, i64 76
+  %699 = getelementptr inbounds nuw i8, ptr %696, i64 76
   %700 = load i32, ptr %699, align 4
   %701 = icmp slt i32 %698, %700
   br i1 %701, label %702, label %706
 
 702:                                              ; preds = %695
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %696, i64 12, i1 false)
-  %703 = getelementptr inbounds i8, ptr %696, i64 64
+  %703 = getelementptr inbounds nuw i8, ptr %696, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %696, ptr noundef nonnull align 4 dereferenceable(16) %703, i64 16, i1 false)
   %704 = load ptr, ptr %469, align 8
-  %705 = getelementptr inbounds i8, ptr %704, i64 64
+  %705 = getelementptr inbounds nuw i8, ptr %704, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %705, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx242 = getelementptr inbounds i8, ptr %704, i64 76
+  %.sroa.388.0..sroa_idx242 = getelementptr inbounds nuw i8, ptr %704, i64 76
   store i32 %698, ptr %.sroa.388.0..sroa_idx242, align 4
   %.pre962 = load ptr, ptr %469, align 8
   br label %706
 
 706:                                              ; preds = %702, %695
   %707 = phi ptr [ %.pre962, %702 ], [ %696, %695 ]
-  %708 = getelementptr inbounds i8, ptr %707, i64 60
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 60
   %709 = load i32, ptr %708, align 4
-  %710 = getelementptr inbounds i8, ptr %707, i64 124
+  %710 = getelementptr inbounds nuw i8, ptr %707, i64 124
   %711 = load i32, ptr %710, align 4
   %712 = icmp slt i32 %709, %711
   br i1 %712, label %713, label %718
 
 713:                                              ; preds = %706
-  %714 = getelementptr inbounds i8, ptr %707, i64 48
+  %714 = getelementptr inbounds nuw i8, ptr %707, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %714, i64 12, i1 false)
-  %715 = getelementptr inbounds i8, ptr %707, i64 112
+  %715 = getelementptr inbounds nuw i8, ptr %707, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %714, ptr noundef nonnull align 4 dereferenceable(16) %715, i64 16, i1 false)
   %716 = load ptr, ptr %469, align 8
-  %717 = getelementptr inbounds i8, ptr %716, i64 112
+  %717 = getelementptr inbounds nuw i8, ptr %716, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %717, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx246 = getelementptr inbounds i8, ptr %716, i64 124
+  %.sroa.388.0..sroa_idx246 = getelementptr inbounds nuw i8, ptr %716, i64 124
   store i32 %709, ptr %.sroa.388.0..sroa_idx246, align 4
   %.pre963 = load ptr, ptr %469, align 8
   br label %718
 
 718:                                              ; preds = %713, %706
   %719 = phi ptr [ %.pre963, %713 ], [ %707, %706 ]
-  %720 = getelementptr inbounds i8, ptr %719, i64 76
+  %720 = getelementptr inbounds nuw i8, ptr %719, i64 76
   %721 = load i32, ptr %720, align 4
-  %722 = getelementptr inbounds i8, ptr %719, i64 140
+  %722 = getelementptr inbounds nuw i8, ptr %719, i64 140
   %723 = load i32, ptr %722, align 4
   %724 = icmp slt i32 %721, %723
   br i1 %724, label %725, label %730
 
 725:                                              ; preds = %718
-  %726 = getelementptr inbounds i8, ptr %719, i64 64
+  %726 = getelementptr inbounds nuw i8, ptr %719, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %726, i64 12, i1 false)
-  %727 = getelementptr inbounds i8, ptr %719, i64 128
+  %727 = getelementptr inbounds nuw i8, ptr %719, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %726, ptr noundef nonnull align 4 dereferenceable(16) %727, i64 16, i1 false)
   %728 = load ptr, ptr %469, align 8
-  %729 = getelementptr inbounds i8, ptr %728, i64 128
+  %729 = getelementptr inbounds nuw i8, ptr %728, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %729, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx250 = getelementptr inbounds i8, ptr %728, i64 140
+  %.sroa.388.0..sroa_idx250 = getelementptr inbounds nuw i8, ptr %728, i64 140
   store i32 %721, ptr %.sroa.388.0..sroa_idx250, align 4
   %.pre964 = load ptr, ptr %469, align 8
-  %.phi.trans.insert965 = getelementptr inbounds i8, ptr %.pre964, i64 76
+  %.phi.trans.insert965 = getelementptr inbounds nuw i8, ptr %.pre964, i64 76
   %.pre966 = load i32, ptr %.phi.trans.insert965, align 4
   br label %730
 
@@ -5971,300 +5971,300 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 736:                                              ; preds = %730
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %732, i64 12, i1 false)
-  %737 = getelementptr inbounds i8, ptr %732, i64 64
+  %737 = getelementptr inbounds nuw i8, ptr %732, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %732, ptr noundef nonnull align 4 dereferenceable(16) %737, i64 16, i1 false)
   %738 = load ptr, ptr %469, align 8
-  %739 = getelementptr inbounds i8, ptr %738, i64 64
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %739, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx254 = getelementptr inbounds i8, ptr %738, i64 76
+  %.sroa.388.0..sroa_idx254 = getelementptr inbounds nuw i8, ptr %738, i64 76
   store i32 %734, ptr %.sroa.388.0..sroa_idx254, align 4
   %.pre967 = load ptr, ptr %469, align 8
-  %.phi.trans.insert968 = getelementptr inbounds i8, ptr %.pre967, i64 76
+  %.phi.trans.insert968 = getelementptr inbounds nuw i8, ptr %.pre967, i64 76
   %.pre969 = load i32, ptr %.phi.trans.insert968, align 4
   br label %740
 
 740:                                              ; preds = %736, %730
   %741 = phi i32 [ %.pre969, %736 ], [ %731, %730 ]
   %742 = phi ptr [ %.pre967, %736 ], [ %732, %730 ]
-  %743 = getelementptr inbounds i8, ptr %742, i64 28
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 28
   %744 = load i32, ptr %743, align 4
   %745 = icmp slt i32 %744, %741
   br i1 %745, label %746, label %751
 
 746:                                              ; preds = %740
-  %747 = getelementptr inbounds i8, ptr %742, i64 16
+  %747 = getelementptr inbounds nuw i8, ptr %742, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %747, i64 12, i1 false)
-  %748 = getelementptr inbounds i8, ptr %742, i64 64
+  %748 = getelementptr inbounds nuw i8, ptr %742, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %747, ptr noundef nonnull align 4 dereferenceable(16) %748, i64 16, i1 false)
   %749 = load ptr, ptr %469, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 64
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %750, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx258 = getelementptr inbounds i8, ptr %749, i64 76
+  %.sroa.388.0..sroa_idx258 = getelementptr inbounds nuw i8, ptr %749, i64 76
   store i32 %744, ptr %.sroa.388.0..sroa_idx258, align 4
   %.pre970 = load ptr, ptr %469, align 8
   br label %751
 
 751:                                              ; preds = %746, %740
   %752 = phi ptr [ %.pre970, %746 ], [ %742, %740 ]
-  %753 = getelementptr inbounds i8, ptr %752, i64 124
+  %753 = getelementptr inbounds nuw i8, ptr %752, i64 124
   %754 = load i32, ptr %753, align 4
-  %755 = getelementptr inbounds i8, ptr %752, i64 172
+  %755 = getelementptr inbounds nuw i8, ptr %752, i64 172
   %756 = load i32, ptr %755, align 4
   %757 = icmp slt i32 %754, %756
   br i1 %757, label %758, label %763
 
 758:                                              ; preds = %751
-  %759 = getelementptr inbounds i8, ptr %752, i64 112
+  %759 = getelementptr inbounds nuw i8, ptr %752, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %759, i64 12, i1 false)
-  %760 = getelementptr inbounds i8, ptr %752, i64 160
+  %760 = getelementptr inbounds nuw i8, ptr %752, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %759, ptr noundef nonnull align 4 dereferenceable(16) %760, i64 16, i1 false)
   %761 = load ptr, ptr %469, align 8
-  %762 = getelementptr inbounds i8, ptr %761, i64 160
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %762, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx262 = getelementptr inbounds i8, ptr %761, i64 172
+  %.sroa.388.0..sroa_idx262 = getelementptr inbounds nuw i8, ptr %761, i64 172
   store i32 %754, ptr %.sroa.388.0..sroa_idx262, align 4
   %.pre971 = load ptr, ptr %469, align 8
   br label %763
 
 763:                                              ; preds = %758, %751
   %764 = phi ptr [ %.pre971, %758 ], [ %752, %751 ]
-  %765 = getelementptr inbounds i8, ptr %764, i64 60
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 60
   %766 = load i32, ptr %765, align 4
-  %767 = getelementptr inbounds i8, ptr %764, i64 140
+  %767 = getelementptr inbounds nuw i8, ptr %764, i64 140
   %768 = load i32, ptr %767, align 4
   %769 = icmp slt i32 %766, %768
   br i1 %769, label %770, label %775
 
 770:                                              ; preds = %763
-  %771 = getelementptr inbounds i8, ptr %764, i64 48
+  %771 = getelementptr inbounds nuw i8, ptr %764, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %771, i64 12, i1 false)
-  %772 = getelementptr inbounds i8, ptr %764, i64 128
+  %772 = getelementptr inbounds nuw i8, ptr %764, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %771, ptr noundef nonnull align 4 dereferenceable(16) %772, i64 16, i1 false)
   %773 = load ptr, ptr %469, align 8
-  %774 = getelementptr inbounds i8, ptr %773, i64 128
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %774, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx266 = getelementptr inbounds i8, ptr %773, i64 140
+  %.sroa.388.0..sroa_idx266 = getelementptr inbounds nuw i8, ptr %773, i64 140
   store i32 %766, ptr %.sroa.388.0..sroa_idx266, align 4
   %.pre972 = load ptr, ptr %469, align 8
-  %.phi.trans.insert973 = getelementptr inbounds i8, ptr %.pre972, i64 60
+  %.phi.trans.insert973 = getelementptr inbounds nuw i8, ptr %.pre972, i64 60
   %.pre974 = load i32, ptr %.phi.trans.insert973, align 4
   br label %775
 
 775:                                              ; preds = %770, %763
   %776 = phi i32 [ %.pre974, %770 ], [ %766, %763 ]
   %777 = phi ptr [ %.pre972, %770 ], [ %764, %763 ]
-  %778 = getelementptr inbounds i8, ptr %777, i64 44
+  %778 = getelementptr inbounds nuw i8, ptr %777, i64 44
   %779 = load i32, ptr %778, align 4
   %780 = icmp slt i32 %779, %776
   br i1 %780, label %781, label %786
 
 781:                                              ; preds = %775
-  %782 = getelementptr inbounds i8, ptr %777, i64 32
+  %782 = getelementptr inbounds nuw i8, ptr %777, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %782, i64 12, i1 false)
-  %783 = getelementptr inbounds i8, ptr %777, i64 48
+  %783 = getelementptr inbounds nuw i8, ptr %777, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %782, ptr noundef nonnull align 4 dereferenceable(16) %783, i64 16, i1 false)
   %784 = load ptr, ptr %469, align 8
-  %785 = getelementptr inbounds i8, ptr %784, i64 48
+  %785 = getelementptr inbounds nuw i8, ptr %784, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %785, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx270 = getelementptr inbounds i8, ptr %784, i64 60
+  %.sroa.388.0..sroa_idx270 = getelementptr inbounds nuw i8, ptr %784, i64 60
   store i32 %779, ptr %.sroa.388.0..sroa_idx270, align 4
   %.pre975 = load ptr, ptr %469, align 8
   br label %786
 
 786:                                              ; preds = %781, %775
   %787 = phi ptr [ %.pre975, %781 ], [ %777, %775 ]
-  %788 = getelementptr inbounds i8, ptr %787, i64 140
+  %788 = getelementptr inbounds nuw i8, ptr %787, i64 140
   %789 = load i32, ptr %788, align 4
-  %790 = getelementptr inbounds i8, ptr %787, i64 156
+  %790 = getelementptr inbounds nuw i8, ptr %787, i64 156
   %791 = load i32, ptr %790, align 4
   %792 = icmp slt i32 %789, %791
   br i1 %792, label %793, label %798
 
 793:                                              ; preds = %786
-  %794 = getelementptr inbounds i8, ptr %787, i64 128
+  %794 = getelementptr inbounds nuw i8, ptr %787, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %794, i64 12, i1 false)
-  %795 = getelementptr inbounds i8, ptr %787, i64 144
+  %795 = getelementptr inbounds nuw i8, ptr %787, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %794, ptr noundef nonnull align 4 dereferenceable(16) %795, i64 16, i1 false)
   %796 = load ptr, ptr %469, align 8
-  %797 = getelementptr inbounds i8, ptr %796, i64 144
+  %797 = getelementptr inbounds nuw i8, ptr %796, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %797, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx274 = getelementptr inbounds i8, ptr %796, i64 156
+  %.sroa.388.0..sroa_idx274 = getelementptr inbounds nuw i8, ptr %796, i64 156
   store i32 %789, ptr %.sroa.388.0..sroa_idx274, align 4
   %.pre976 = load ptr, ptr %469, align 8
   br label %798
 
 798:                                              ; preds = %793, %786
   %799 = phi ptr [ %.pre976, %793 ], [ %787, %786 ]
-  %800 = getelementptr inbounds i8, ptr %799, i64 44
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 44
   %801 = load i32, ptr %800, align 4
-  %802 = getelementptr inbounds i8, ptr %799, i64 76
+  %802 = getelementptr inbounds nuw i8, ptr %799, i64 76
   %803 = load i32, ptr %802, align 4
   %804 = icmp slt i32 %801, %803
   br i1 %804, label %805, label %810
 
 805:                                              ; preds = %798
-  %806 = getelementptr inbounds i8, ptr %799, i64 32
+  %806 = getelementptr inbounds nuw i8, ptr %799, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %806, i64 12, i1 false)
-  %807 = getelementptr inbounds i8, ptr %799, i64 64
+  %807 = getelementptr inbounds nuw i8, ptr %799, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %806, ptr noundef nonnull align 4 dereferenceable(16) %807, i64 16, i1 false)
   %808 = load ptr, ptr %469, align 8
-  %809 = getelementptr inbounds i8, ptr %808, i64 64
+  %809 = getelementptr inbounds nuw i8, ptr %808, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %809, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx278 = getelementptr inbounds i8, ptr %808, i64 76
+  %.sroa.388.0..sroa_idx278 = getelementptr inbounds nuw i8, ptr %808, i64 76
   store i32 %801, ptr %.sroa.388.0..sroa_idx278, align 4
   %.pre977 = load ptr, ptr %469, align 8
   br label %810
 
 810:                                              ; preds = %805, %798
   %811 = phi ptr [ %.pre977, %805 ], [ %799, %798 ]
-  %812 = getelementptr inbounds i8, ptr %811, i64 124
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 124
   %813 = load i32, ptr %812, align 4
-  %814 = getelementptr inbounds i8, ptr %811, i64 156
+  %814 = getelementptr inbounds nuw i8, ptr %811, i64 156
   %815 = load i32, ptr %814, align 4
   %816 = icmp slt i32 %813, %815
   br i1 %816, label %817, label %822
 
 817:                                              ; preds = %810
-  %818 = getelementptr inbounds i8, ptr %811, i64 112
+  %818 = getelementptr inbounds nuw i8, ptr %811, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %818, i64 12, i1 false)
-  %819 = getelementptr inbounds i8, ptr %811, i64 144
+  %819 = getelementptr inbounds nuw i8, ptr %811, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %818, ptr noundef nonnull align 4 dereferenceable(16) %819, i64 16, i1 false)
   %820 = load ptr, ptr %469, align 8
-  %821 = getelementptr inbounds i8, ptr %820, i64 144
+  %821 = getelementptr inbounds nuw i8, ptr %820, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %821, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx282 = getelementptr inbounds i8, ptr %820, i64 156
+  %.sroa.388.0..sroa_idx282 = getelementptr inbounds nuw i8, ptr %820, i64 156
   store i32 %813, ptr %.sroa.388.0..sroa_idx282, align 4
   %.pre978 = load ptr, ptr %469, align 8
   br label %822
 
 822:                                              ; preds = %817, %810
   %823 = phi ptr [ %.pre978, %817 ], [ %811, %810 ]
-  %824 = getelementptr inbounds i8, ptr %823, i64 60
+  %824 = getelementptr inbounds nuw i8, ptr %823, i64 60
   %825 = load i32, ptr %824, align 4
-  %826 = getelementptr inbounds i8, ptr %823, i64 92
+  %826 = getelementptr inbounds nuw i8, ptr %823, i64 92
   %827 = load i32, ptr %826, align 4
   %828 = icmp slt i32 %825, %827
   br i1 %828, label %829, label %834
 
 829:                                              ; preds = %822
-  %830 = getelementptr inbounds i8, ptr %823, i64 48
+  %830 = getelementptr inbounds nuw i8, ptr %823, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %830, i64 12, i1 false)
-  %831 = getelementptr inbounds i8, ptr %823, i64 80
+  %831 = getelementptr inbounds nuw i8, ptr %823, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %830, ptr noundef nonnull align 4 dereferenceable(16) %831, i64 16, i1 false)
   %832 = load ptr, ptr %469, align 8
-  %833 = getelementptr inbounds i8, ptr %832, i64 80
+  %833 = getelementptr inbounds nuw i8, ptr %832, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %833, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx286 = getelementptr inbounds i8, ptr %832, i64 92
+  %.sroa.388.0..sroa_idx286 = getelementptr inbounds nuw i8, ptr %832, i64 92
   store i32 %825, ptr %.sroa.388.0..sroa_idx286, align 4
   %.pre979 = load ptr, ptr %469, align 8
   br label %834
 
 834:                                              ; preds = %829, %822
   %835 = phi ptr [ %.pre979, %829 ], [ %823, %822 ]
-  %836 = getelementptr inbounds i8, ptr %835, i64 108
+  %836 = getelementptr inbounds nuw i8, ptr %835, i64 108
   %837 = load i32, ptr %836, align 4
-  %838 = getelementptr inbounds i8, ptr %835, i64 140
+  %838 = getelementptr inbounds nuw i8, ptr %835, i64 140
   %839 = load i32, ptr %838, align 4
   %840 = icmp slt i32 %837, %839
   br i1 %840, label %841, label %846
 
 841:                                              ; preds = %834
-  %842 = getelementptr inbounds i8, ptr %835, i64 96
+  %842 = getelementptr inbounds nuw i8, ptr %835, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %842, i64 12, i1 false)
-  %843 = getelementptr inbounds i8, ptr %835, i64 128
+  %843 = getelementptr inbounds nuw i8, ptr %835, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %842, ptr noundef nonnull align 4 dereferenceable(16) %843, i64 16, i1 false)
   %844 = load ptr, ptr %469, align 8
-  %845 = getelementptr inbounds i8, ptr %844, i64 128
+  %845 = getelementptr inbounds nuw i8, ptr %844, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %845, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx290 = getelementptr inbounds i8, ptr %844, i64 140
+  %.sroa.388.0..sroa_idx290 = getelementptr inbounds nuw i8, ptr %844, i64 140
   store i32 %837, ptr %.sroa.388.0..sroa_idx290, align 4
   %.pre980 = load ptr, ptr %469, align 8
   br label %846
 
 846:                                              ; preds = %841, %834
   %847 = phi ptr [ %.pre980, %841 ], [ %835, %834 ]
-  %848 = getelementptr inbounds i8, ptr %847, i64 60
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 60
   %849 = load i32, ptr %848, align 4
-  %850 = getelementptr inbounds i8, ptr %847, i64 76
+  %850 = getelementptr inbounds nuw i8, ptr %847, i64 76
   %851 = load i32, ptr %850, align 4
   %852 = icmp slt i32 %849, %851
   br i1 %852, label %853, label %858
 
 853:                                              ; preds = %846
-  %854 = getelementptr inbounds i8, ptr %847, i64 48
+  %854 = getelementptr inbounds nuw i8, ptr %847, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %854, i64 12, i1 false)
-  %855 = getelementptr inbounds i8, ptr %847, i64 64
+  %855 = getelementptr inbounds nuw i8, ptr %847, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %854, ptr noundef nonnull align 4 dereferenceable(16) %855, i64 16, i1 false)
   %856 = load ptr, ptr %469, align 8
-  %857 = getelementptr inbounds i8, ptr %856, i64 64
+  %857 = getelementptr inbounds nuw i8, ptr %856, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %857, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx294 = getelementptr inbounds i8, ptr %856, i64 76
+  %.sroa.388.0..sroa_idx294 = getelementptr inbounds nuw i8, ptr %856, i64 76
   store i32 %849, ptr %.sroa.388.0..sroa_idx294, align 4
   %.pre981 = load ptr, ptr %469, align 8
   br label %858
 
 858:                                              ; preds = %853, %846
   %859 = phi ptr [ %.pre981, %853 ], [ %847, %846 ]
-  %860 = getelementptr inbounds i8, ptr %859, i64 92
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 92
   %861 = load i32, ptr %860, align 4
-  %862 = getelementptr inbounds i8, ptr %859, i64 108
+  %862 = getelementptr inbounds nuw i8, ptr %859, i64 108
   %863 = load i32, ptr %862, align 4
   %864 = icmp slt i32 %861, %863
   br i1 %864, label %865, label %870
 
 865:                                              ; preds = %858
-  %866 = getelementptr inbounds i8, ptr %859, i64 80
+  %866 = getelementptr inbounds nuw i8, ptr %859, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %866, i64 12, i1 false)
-  %867 = getelementptr inbounds i8, ptr %859, i64 96
+  %867 = getelementptr inbounds nuw i8, ptr %859, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %866, ptr noundef nonnull align 4 dereferenceable(16) %867, i64 16, i1 false)
   %868 = load ptr, ptr %469, align 8
-  %869 = getelementptr inbounds i8, ptr %868, i64 96
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %869, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx298 = getelementptr inbounds i8, ptr %868, i64 108
+  %.sroa.388.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %868, i64 108
   store i32 %861, ptr %.sroa.388.0..sroa_idx298, align 4
   %.pre982 = load ptr, ptr %469, align 8
   br label %870
 
 870:                                              ; preds = %865, %858
   %871 = phi ptr [ %.pre982, %865 ], [ %859, %858 ]
-  %872 = getelementptr inbounds i8, ptr %871, i64 124
+  %872 = getelementptr inbounds nuw i8, ptr %871, i64 124
   %873 = load i32, ptr %872, align 4
-  %874 = getelementptr inbounds i8, ptr %871, i64 140
+  %874 = getelementptr inbounds nuw i8, ptr %871, i64 140
   %875 = load i32, ptr %874, align 4
   %876 = icmp slt i32 %873, %875
   br i1 %876, label %877, label %.loopexit
 
 877:                                              ; preds = %870
-  %878 = getelementptr inbounds i8, ptr %871, i64 112
+  %878 = getelementptr inbounds nuw i8, ptr %871, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %878, i64 12, i1 false)
-  %879 = getelementptr inbounds i8, ptr %871, i64 128
+  %879 = getelementptr inbounds nuw i8, ptr %871, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %878, ptr noundef nonnull align 4 dereferenceable(16) %879, i64 16, i1 false)
   %880 = load ptr, ptr %469, align 8
-  %881 = getelementptr inbounds i8, ptr %880, i64 128
+  %881 = getelementptr inbounds nuw i8, ptr %880, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %881, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx302 = getelementptr inbounds i8, ptr %880, i64 140
+  %.sroa.388.0..sroa_idx302 = getelementptr inbounds nuw i8, ptr %880, i64 140
   store i32 %873, ptr %.sroa.388.0..sroa_idx302, align 4
   br label %.loopexit
 
 882:                                              ; preds = %1
   %883 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %884 = load ptr, ptr %883, align 8
-  %885 = getelementptr inbounds i8, ptr %884, i64 28
+  %885 = getelementptr inbounds nuw i8, ptr %884, i64 28
   %886 = load i32, ptr %885, align 4
-  %887 = getelementptr inbounds i8, ptr %884, i64 140
+  %887 = getelementptr inbounds nuw i8, ptr %884, i64 140
   %888 = load i32, ptr %887, align 4
   %889 = icmp slt i32 %886, %888
   br i1 %889, label %890, label %895
 
 890:                                              ; preds = %882
-  %891 = getelementptr inbounds i8, ptr %884, i64 16
+  %891 = getelementptr inbounds nuw i8, ptr %884, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %891, i64 12, i1 false)
-  %892 = getelementptr inbounds i8, ptr %884, i64 128
+  %892 = getelementptr inbounds nuw i8, ptr %884, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %891, ptr noundef nonnull align 4 dereferenceable(16) %892, i64 16, i1 false)
   %893 = load ptr, ptr %883, align 8
-  %894 = getelementptr inbounds i8, ptr %893, i64 128
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %894, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx306 = getelementptr inbounds i8, ptr %893, i64 140
+  %.sroa.388.0..sroa_idx306 = getelementptr inbounds nuw i8, ptr %893, i64 140
   store i32 %886, ptr %.sroa.388.0..sroa_idx306, align 4
   %.pre911 = load ptr, ptr %883, align 8
   br label %895
@@ -6273,88 +6273,88 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %896 = phi ptr [ %.pre911, %890 ], [ %884, %882 ]
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 12
   %898 = load i32, ptr %897, align 4
-  %899 = getelementptr inbounds i8, ptr %896, i64 76
+  %899 = getelementptr inbounds nuw i8, ptr %896, i64 76
   %900 = load i32, ptr %899, align 4
   %901 = icmp slt i32 %898, %900
   br i1 %901, label %902, label %906
 
 902:                                              ; preds = %895
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %896, i64 12, i1 false)
-  %903 = getelementptr inbounds i8, ptr %896, i64 64
+  %903 = getelementptr inbounds nuw i8, ptr %896, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %896, ptr noundef nonnull align 4 dereferenceable(16) %903, i64 16, i1 false)
   %904 = load ptr, ptr %883, align 8
-  %905 = getelementptr inbounds i8, ptr %904, i64 64
+  %905 = getelementptr inbounds nuw i8, ptr %904, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %905, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx310 = getelementptr inbounds i8, ptr %904, i64 76
+  %.sroa.388.0..sroa_idx310 = getelementptr inbounds nuw i8, ptr %904, i64 76
   store i32 %898, ptr %.sroa.388.0..sroa_idx310, align 4
   %.pre912 = load ptr, ptr %883, align 8
   br label %906
 
 906:                                              ; preds = %902, %895
   %907 = phi ptr [ %.pre912, %902 ], [ %896, %895 ]
-  %908 = getelementptr inbounds i8, ptr %907, i64 92
+  %908 = getelementptr inbounds nuw i8, ptr %907, i64 92
   %909 = load i32, ptr %908, align 4
-  %910 = getelementptr inbounds i8, ptr %907, i64 156
+  %910 = getelementptr inbounds nuw i8, ptr %907, i64 156
   %911 = load i32, ptr %910, align 4
   %912 = icmp slt i32 %909, %911
   br i1 %912, label %913, label %918
 
 913:                                              ; preds = %906
-  %914 = getelementptr inbounds i8, ptr %907, i64 80
+  %914 = getelementptr inbounds nuw i8, ptr %907, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %914, i64 12, i1 false)
-  %915 = getelementptr inbounds i8, ptr %907, i64 144
+  %915 = getelementptr inbounds nuw i8, ptr %907, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %914, ptr noundef nonnull align 4 dereferenceable(16) %915, i64 16, i1 false)
   %916 = load ptr, ptr %883, align 8
-  %917 = getelementptr inbounds i8, ptr %916, i64 144
+  %917 = getelementptr inbounds nuw i8, ptr %916, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %917, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx314 = getelementptr inbounds i8, ptr %916, i64 156
+  %.sroa.388.0..sroa_idx314 = getelementptr inbounds nuw i8, ptr %916, i64 156
   store i32 %909, ptr %.sroa.388.0..sroa_idx314, align 4
   %.pre913 = load ptr, ptr %883, align 8
   br label %918
 
 918:                                              ; preds = %913, %906
   %919 = phi ptr [ %.pre913, %913 ], [ %907, %906 ]
-  %920 = getelementptr inbounds i8, ptr %919, i64 44
+  %920 = getelementptr inbounds nuw i8, ptr %919, i64 44
   %921 = load i32, ptr %920, align 4
-  %922 = getelementptr inbounds i8, ptr %919, i64 108
+  %922 = getelementptr inbounds nuw i8, ptr %919, i64 108
   %923 = load i32, ptr %922, align 4
   %924 = icmp slt i32 %921, %923
   br i1 %924, label %925, label %930
 
 925:                                              ; preds = %918
-  %926 = getelementptr inbounds i8, ptr %919, i64 32
+  %926 = getelementptr inbounds nuw i8, ptr %919, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %926, i64 12, i1 false)
-  %927 = getelementptr inbounds i8, ptr %919, i64 96
+  %927 = getelementptr inbounds nuw i8, ptr %919, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %926, ptr noundef nonnull align 4 dereferenceable(16) %927, i64 16, i1 false)
   %928 = load ptr, ptr %883, align 8
-  %929 = getelementptr inbounds i8, ptr %928, i64 96
+  %929 = getelementptr inbounds nuw i8, ptr %928, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %929, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx318 = getelementptr inbounds i8, ptr %928, i64 108
+  %.sroa.388.0..sroa_idx318 = getelementptr inbounds nuw i8, ptr %928, i64 108
   store i32 %921, ptr %.sroa.388.0..sroa_idx318, align 4
   %.pre914 = load ptr, ptr %883, align 8
   br label %930
 
 930:                                              ; preds = %925, %918
   %931 = phi ptr [ %.pre914, %925 ], [ %919, %918 ]
-  %932 = getelementptr inbounds i8, ptr %931, i64 60
+  %932 = getelementptr inbounds nuw i8, ptr %931, i64 60
   %933 = load i32, ptr %932, align 4
-  %934 = getelementptr inbounds i8, ptr %931, i64 124
+  %934 = getelementptr inbounds nuw i8, ptr %931, i64 124
   %935 = load i32, ptr %934, align 4
   %936 = icmp slt i32 %933, %935
   br i1 %936, label %937, label %942
 
 937:                                              ; preds = %930
-  %938 = getelementptr inbounds i8, ptr %931, i64 48
+  %938 = getelementptr inbounds nuw i8, ptr %931, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %938, i64 12, i1 false)
-  %939 = getelementptr inbounds i8, ptr %931, i64 112
+  %939 = getelementptr inbounds nuw i8, ptr %931, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %938, ptr noundef nonnull align 4 dereferenceable(16) %939, i64 16, i1 false)
   %940 = load ptr, ptr %883, align 8
-  %941 = getelementptr inbounds i8, ptr %940, i64 112
+  %941 = getelementptr inbounds nuw i8, ptr %940, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %941, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx322 = getelementptr inbounds i8, ptr %940, i64 124
+  %.sroa.388.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %940, i64 124
   store i32 %933, ptr %.sroa.388.0..sroa_idx322, align 4
   %.pre915 = load ptr, ptr %883, align 8
-  %.phi.trans.insert916 = getelementptr inbounds i8, ptr %.pre915, i64 60
+  %.phi.trans.insert916 = getelementptr inbounds nuw i8, ptr %.pre915, i64 60
   %.pre917 = load i32, ptr %.phi.trans.insert916, align 4
   br label %942
 
@@ -6368,56 +6368,56 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 948:                                              ; preds = %942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %944, i64 12, i1 false)
-  %949 = getelementptr inbounds i8, ptr %944, i64 48
+  %949 = getelementptr inbounds nuw i8, ptr %944, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %944, ptr noundef nonnull align 4 dereferenceable(16) %949, i64 16, i1 false)
   %950 = load ptr, ptr %883, align 8
-  %951 = getelementptr inbounds i8, ptr %950, i64 48
+  %951 = getelementptr inbounds nuw i8, ptr %950, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %951, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx326 = getelementptr inbounds i8, ptr %950, i64 60
+  %.sroa.388.0..sroa_idx326 = getelementptr inbounds nuw i8, ptr %950, i64 60
   store i32 %946, ptr %.sroa.388.0..sroa_idx326, align 4
   %.pre918 = load ptr, ptr %883, align 8
   br label %952
 
 952:                                              ; preds = %948, %942
   %953 = phi ptr [ %.pre918, %948 ], [ %944, %942 ]
-  %954 = getelementptr inbounds i8, ptr %953, i64 108
+  %954 = getelementptr inbounds nuw i8, ptr %953, i64 108
   %955 = load i32, ptr %954, align 4
-  %956 = getelementptr inbounds i8, ptr %953, i64 156
+  %956 = getelementptr inbounds nuw i8, ptr %953, i64 156
   %957 = load i32, ptr %956, align 4
   %958 = icmp slt i32 %955, %957
   br i1 %958, label %959, label %964
 
 959:                                              ; preds = %952
-  %960 = getelementptr inbounds i8, ptr %953, i64 96
+  %960 = getelementptr inbounds nuw i8, ptr %953, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %960, i64 12, i1 false)
-  %961 = getelementptr inbounds i8, ptr %953, i64 144
+  %961 = getelementptr inbounds nuw i8, ptr %953, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %960, ptr noundef nonnull align 4 dereferenceable(16) %961, i64 16, i1 false)
   %962 = load ptr, ptr %883, align 8
-  %963 = getelementptr inbounds i8, ptr %962, i64 144
+  %963 = getelementptr inbounds nuw i8, ptr %962, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %963, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx330 = getelementptr inbounds i8, ptr %962, i64 156
+  %.sroa.388.0..sroa_idx330 = getelementptr inbounds nuw i8, ptr %962, i64 156
   store i32 %955, ptr %.sroa.388.0..sroa_idx330, align 4
   %.pre919 = load ptr, ptr %883, align 8
   br label %964
 
 964:                                              ; preds = %959, %952
   %965 = phi ptr [ %.pre919, %959 ], [ %953, %952 ]
-  %966 = getelementptr inbounds i8, ptr %965, i64 44
+  %966 = getelementptr inbounds nuw i8, ptr %965, i64 44
   %967 = load i32, ptr %966, align 4
-  %968 = getelementptr inbounds i8, ptr %965, i64 92
+  %968 = getelementptr inbounds nuw i8, ptr %965, i64 92
   %969 = load i32, ptr %968, align 4
   %970 = icmp slt i32 %967, %969
   br i1 %970, label %971, label %976
 
 971:                                              ; preds = %964
-  %972 = getelementptr inbounds i8, ptr %965, i64 32
+  %972 = getelementptr inbounds nuw i8, ptr %965, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %972, i64 12, i1 false)
-  %973 = getelementptr inbounds i8, ptr %965, i64 80
+  %973 = getelementptr inbounds nuw i8, ptr %965, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %972, ptr noundef nonnull align 4 dereferenceable(16) %973, i64 16, i1 false)
   %974 = load ptr, ptr %883, align 8
-  %975 = getelementptr inbounds i8, ptr %974, i64 80
+  %975 = getelementptr inbounds nuw i8, ptr %974, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %975, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx334 = getelementptr inbounds i8, ptr %974, i64 92
+  %.sroa.388.0..sroa_idx334 = getelementptr inbounds nuw i8, ptr %974, i64 92
   store i32 %967, ptr %.sroa.388.0..sroa_idx334, align 4
   %.pre920 = load ptr, ptr %883, align 8
   br label %976
@@ -6426,85 +6426,85 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %977 = phi ptr [ %.pre920, %971 ], [ %965, %964 ]
   %978 = getelementptr inbounds nuw i8, ptr %977, i64 12
   %979 = load i32, ptr %978, align 4
-  %980 = getelementptr inbounds i8, ptr %977, i64 28
+  %980 = getelementptr inbounds nuw i8, ptr %977, i64 28
   %981 = load i32, ptr %980, align 4
   %982 = icmp slt i32 %979, %981
   br i1 %982, label %983, label %987
 
 983:                                              ; preds = %976
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %977, i64 12, i1 false)
-  %984 = getelementptr inbounds i8, ptr %977, i64 16
+  %984 = getelementptr inbounds nuw i8, ptr %977, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %977, ptr noundef nonnull align 4 dereferenceable(16) %984, i64 16, i1 false)
   %985 = load ptr, ptr %883, align 8
-  %986 = getelementptr inbounds i8, ptr %985, i64 16
+  %986 = getelementptr inbounds nuw i8, ptr %985, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %986, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx338 = getelementptr inbounds i8, ptr %985, i64 28
+  %.sroa.388.0..sroa_idx338 = getelementptr inbounds nuw i8, ptr %985, i64 28
   store i32 %979, ptr %.sroa.388.0..sroa_idx338, align 4
   %.pre921 = load ptr, ptr %883, align 8
   br label %987
 
 987:                                              ; preds = %983, %976
   %988 = phi ptr [ %.pre921, %983 ], [ %977, %976 ]
-  %989 = getelementptr inbounds i8, ptr %988, i64 60
+  %989 = getelementptr inbounds nuw i8, ptr %988, i64 60
   %990 = load i32, ptr %989, align 4
-  %991 = getelementptr inbounds i8, ptr %988, i64 108
+  %991 = getelementptr inbounds nuw i8, ptr %988, i64 108
   %992 = load i32, ptr %991, align 4
   %993 = icmp slt i32 %990, %992
   br i1 %993, label %994, label %999
 
 994:                                              ; preds = %987
-  %995 = getelementptr inbounds i8, ptr %988, i64 48
+  %995 = getelementptr inbounds nuw i8, ptr %988, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %995, i64 12, i1 false)
-  %996 = getelementptr inbounds i8, ptr %988, i64 96
+  %996 = getelementptr inbounds nuw i8, ptr %988, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %995, ptr noundef nonnull align 4 dereferenceable(16) %996, i64 16, i1 false)
   %997 = load ptr, ptr %883, align 8
-  %998 = getelementptr inbounds i8, ptr %997, i64 96
+  %998 = getelementptr inbounds nuw i8, ptr %997, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %998, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx342 = getelementptr inbounds i8, ptr %997, i64 108
+  %.sroa.388.0..sroa_idx342 = getelementptr inbounds nuw i8, ptr %997, i64 108
   store i32 %990, ptr %.sroa.388.0..sroa_idx342, align 4
   %.pre922 = load ptr, ptr %883, align 8
   br label %999
 
 999:                                              ; preds = %994, %987
   %1000 = phi ptr [ %.pre922, %994 ], [ %988, %987 ]
-  %1001 = getelementptr inbounds i8, ptr %1000, i64 140
+  %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 140
   %1002 = load i32, ptr %1001, align 4
-  %1003 = getelementptr inbounds i8, ptr %1000, i64 156
+  %1003 = getelementptr inbounds nuw i8, ptr %1000, i64 156
   %1004 = load i32, ptr %1003, align 4
   %1005 = icmp slt i32 %1002, %1004
   br i1 %1005, label %1006, label %1011
 
 1006:                                             ; preds = %999
-  %1007 = getelementptr inbounds i8, ptr %1000, i64 128
+  %1007 = getelementptr inbounds nuw i8, ptr %1000, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1007, i64 12, i1 false)
-  %1008 = getelementptr inbounds i8, ptr %1000, i64 144
+  %1008 = getelementptr inbounds nuw i8, ptr %1000, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1007, ptr noundef nonnull align 4 dereferenceable(16) %1008, i64 16, i1 false)
   %1009 = load ptr, ptr %883, align 8
-  %1010 = getelementptr inbounds i8, ptr %1009, i64 144
+  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1010, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx346 = getelementptr inbounds i8, ptr %1009, i64 156
+  %.sroa.388.0..sroa_idx346 = getelementptr inbounds nuw i8, ptr %1009, i64 156
   store i32 %1002, ptr %.sroa.388.0..sroa_idx346, align 4
   %.pre923 = load ptr, ptr %883, align 8
   br label %1011
 
 1011:                                             ; preds = %1006, %999
   %1012 = phi ptr [ %.pre923, %1006 ], [ %1000, %999 ]
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 76
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 76
   %1014 = load i32, ptr %1013, align 4
-  %1015 = getelementptr inbounds i8, ptr %1012, i64 124
+  %1015 = getelementptr inbounds nuw i8, ptr %1012, i64 124
   %1016 = load i32, ptr %1015, align 4
   %1017 = icmp slt i32 %1014, %1016
   br i1 %1017, label %1018, label %1023
 
 1018:                                             ; preds = %1011
-  %1019 = getelementptr inbounds i8, ptr %1012, i64 64
+  %1019 = getelementptr inbounds nuw i8, ptr %1012, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1019, i64 12, i1 false)
-  %1020 = getelementptr inbounds i8, ptr %1012, i64 112
+  %1020 = getelementptr inbounds nuw i8, ptr %1012, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1019, ptr noundef nonnull align 4 dereferenceable(16) %1020, i64 16, i1 false)
   %1021 = load ptr, ptr %883, align 8
-  %1022 = getelementptr inbounds i8, ptr %1021, i64 112
+  %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1022, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx350 = getelementptr inbounds i8, ptr %1021, i64 124
+  %.sroa.388.0..sroa_idx350 = getelementptr inbounds nuw i8, ptr %1021, i64 124
   store i32 %1014, ptr %.sroa.388.0..sroa_idx350, align 4
   %.pre924 = load ptr, ptr %883, align 8
   br label %1023
@@ -6513,372 +6513,372 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1024 = phi ptr [ %.pre924, %1018 ], [ %1012, %1011 ]
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 12
   %1026 = load i32, ptr %1025, align 4
-  %1027 = getelementptr inbounds i8, ptr %1024, i64 44
+  %1027 = getelementptr inbounds nuw i8, ptr %1024, i64 44
   %1028 = load i32, ptr %1027, align 4
   %1029 = icmp slt i32 %1026, %1028
   br i1 %1029, label %1030, label %1034
 
 1030:                                             ; preds = %1023
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1024, i64 12, i1 false)
-  %1031 = getelementptr inbounds i8, ptr %1024, i64 32
+  %1031 = getelementptr inbounds nuw i8, ptr %1024, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1024, ptr noundef nonnull align 4 dereferenceable(16) %1031, i64 16, i1 false)
   %1032 = load ptr, ptr %883, align 8
-  %1033 = getelementptr inbounds i8, ptr %1032, i64 32
+  %1033 = getelementptr inbounds nuw i8, ptr %1032, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1033, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx354 = getelementptr inbounds i8, ptr %1032, i64 44
+  %.sroa.388.0..sroa_idx354 = getelementptr inbounds nuw i8, ptr %1032, i64 44
   store i32 %1026, ptr %.sroa.388.0..sroa_idx354, align 4
   %.pre925 = load ptr, ptr %883, align 8
   br label %1034
 
 1034:                                             ; preds = %1030, %1023
   %1035 = phi ptr [ %.pre925, %1030 ], [ %1024, %1023 ]
-  %1036 = getelementptr inbounds i8, ptr %1035, i64 76
+  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 76
   %1037 = load i32, ptr %1036, align 4
-  %1038 = getelementptr inbounds i8, ptr %1035, i64 140
+  %1038 = getelementptr inbounds nuw i8, ptr %1035, i64 140
   %1039 = load i32, ptr %1038, align 4
   %1040 = icmp slt i32 %1037, %1039
   br i1 %1040, label %1041, label %1046
 
 1041:                                             ; preds = %1034
-  %1042 = getelementptr inbounds i8, ptr %1035, i64 64
+  %1042 = getelementptr inbounds nuw i8, ptr %1035, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1042, i64 12, i1 false)
-  %1043 = getelementptr inbounds i8, ptr %1035, i64 128
+  %1043 = getelementptr inbounds nuw i8, ptr %1035, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1042, ptr noundef nonnull align 4 dereferenceable(16) %1043, i64 16, i1 false)
   %1044 = load ptr, ptr %883, align 8
-  %1045 = getelementptr inbounds i8, ptr %1044, i64 128
+  %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1045, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx358 = getelementptr inbounds i8, ptr %1044, i64 140
+  %.sroa.388.0..sroa_idx358 = getelementptr inbounds nuw i8, ptr %1044, i64 140
   store i32 %1037, ptr %.sroa.388.0..sroa_idx358, align 4
   %.pre926 = load ptr, ptr %883, align 8
   br label %1046
 
 1046:                                             ; preds = %1041, %1034
   %1047 = phi ptr [ %.pre926, %1041 ], [ %1035, %1034 ]
-  %1048 = getelementptr inbounds i8, ptr %1047, i64 28
+  %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 28
   %1049 = load i32, ptr %1048, align 4
-  %1050 = getelementptr inbounds i8, ptr %1047, i64 92
+  %1050 = getelementptr inbounds nuw i8, ptr %1047, i64 92
   %1051 = load i32, ptr %1050, align 4
   %1052 = icmp slt i32 %1049, %1051
   br i1 %1052, label %1053, label %1058
 
 1053:                                             ; preds = %1046
-  %1054 = getelementptr inbounds i8, ptr %1047, i64 16
+  %1054 = getelementptr inbounds nuw i8, ptr %1047, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1054, i64 12, i1 false)
-  %1055 = getelementptr inbounds i8, ptr %1047, i64 80
+  %1055 = getelementptr inbounds nuw i8, ptr %1047, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1054, ptr noundef nonnull align 4 dereferenceable(16) %1055, i64 16, i1 false)
   %1056 = load ptr, ptr %883, align 8
-  %1057 = getelementptr inbounds i8, ptr %1056, i64 80
+  %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1057, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx362 = getelementptr inbounds i8, ptr %1056, i64 92
+  %.sroa.388.0..sroa_idx362 = getelementptr inbounds nuw i8, ptr %1056, i64 92
   store i32 %1049, ptr %.sroa.388.0..sroa_idx362, align 4
   %.pre927 = load ptr, ptr %883, align 8
   br label %1058
 
 1058:                                             ; preds = %1053, %1046
   %1059 = phi ptr [ %.pre927, %1053 ], [ %1047, %1046 ]
-  %1060 = getelementptr inbounds i8, ptr %1059, i64 124
+  %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 124
   %1061 = load i32, ptr %1060, align 4
-  %1062 = getelementptr inbounds i8, ptr %1059, i64 156
+  %1062 = getelementptr inbounds nuw i8, ptr %1059, i64 156
   %1063 = load i32, ptr %1062, align 4
   %1064 = icmp slt i32 %1061, %1063
   br i1 %1064, label %1065, label %1070
 
 1065:                                             ; preds = %1058
-  %1066 = getelementptr inbounds i8, ptr %1059, i64 112
+  %1066 = getelementptr inbounds nuw i8, ptr %1059, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1066, i64 12, i1 false)
-  %1067 = getelementptr inbounds i8, ptr %1059, i64 144
+  %1067 = getelementptr inbounds nuw i8, ptr %1059, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1066, ptr noundef nonnull align 4 dereferenceable(16) %1067, i64 16, i1 false)
   %1068 = load ptr, ptr %883, align 8
-  %1069 = getelementptr inbounds i8, ptr %1068, i64 144
+  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1069, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx366 = getelementptr inbounds i8, ptr %1068, i64 156
+  %.sroa.388.0..sroa_idx366 = getelementptr inbounds nuw i8, ptr %1068, i64 156
   store i32 %1061, ptr %.sroa.388.0..sroa_idx366, align 4
   %.pre928 = load ptr, ptr %883, align 8
   br label %1070
 
 1070:                                             ; preds = %1065, %1058
   %1071 = phi ptr [ %.pre928, %1065 ], [ %1059, %1058 ]
-  %1072 = getelementptr inbounds i8, ptr %1071, i64 28
+  %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 28
   %1073 = load i32, ptr %1072, align 4
-  %1074 = getelementptr inbounds i8, ptr %1071, i64 44
+  %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 44
   %1075 = load i32, ptr %1074, align 4
   %1076 = icmp slt i32 %1073, %1075
   br i1 %1076, label %1077, label %1082
 
 1077:                                             ; preds = %1070
-  %1078 = getelementptr inbounds i8, ptr %1071, i64 16
+  %1078 = getelementptr inbounds nuw i8, ptr %1071, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1078, i64 12, i1 false)
-  %1079 = getelementptr inbounds i8, ptr %1071, i64 32
+  %1079 = getelementptr inbounds nuw i8, ptr %1071, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1078, ptr noundef nonnull align 4 dereferenceable(16) %1079, i64 16, i1 false)
   %1080 = load ptr, ptr %883, align 8
-  %1081 = getelementptr inbounds i8, ptr %1080, i64 32
+  %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1081, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx370 = getelementptr inbounds i8, ptr %1080, i64 44
+  %.sroa.388.0..sroa_idx370 = getelementptr inbounds nuw i8, ptr %1080, i64 44
   store i32 %1073, ptr %.sroa.388.0..sroa_idx370, align 4
   %.pre929 = load ptr, ptr %883, align 8
   br label %1082
 
 1082:                                             ; preds = %1077, %1070
   %1083 = phi ptr [ %.pre929, %1077 ], [ %1071, %1070 ]
-  %1084 = getelementptr inbounds i8, ptr %1083, i64 60
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 60
   %1085 = load i32, ptr %1084, align 4
-  %1086 = getelementptr inbounds i8, ptr %1083, i64 76
+  %1086 = getelementptr inbounds nuw i8, ptr %1083, i64 76
   %1087 = load i32, ptr %1086, align 4
   %1088 = icmp slt i32 %1085, %1087
   br i1 %1088, label %1089, label %1094
 
 1089:                                             ; preds = %1082
-  %1090 = getelementptr inbounds i8, ptr %1083, i64 48
+  %1090 = getelementptr inbounds nuw i8, ptr %1083, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1090, i64 12, i1 false)
-  %1091 = getelementptr inbounds i8, ptr %1083, i64 64
+  %1091 = getelementptr inbounds nuw i8, ptr %1083, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1090, ptr noundef nonnull align 4 dereferenceable(16) %1091, i64 16, i1 false)
   %1092 = load ptr, ptr %883, align 8
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 64
+  %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1093, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx374 = getelementptr inbounds i8, ptr %1092, i64 76
+  %.sroa.388.0..sroa_idx374 = getelementptr inbounds nuw i8, ptr %1092, i64 76
   store i32 %1085, ptr %.sroa.388.0..sroa_idx374, align 4
   %.pre930 = load ptr, ptr %883, align 8
   br label %1094
 
 1094:                                             ; preds = %1089, %1082
   %1095 = phi ptr [ %.pre930, %1089 ], [ %1083, %1082 ]
-  %1096 = getelementptr inbounds i8, ptr %1095, i64 92
+  %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 92
   %1097 = load i32, ptr %1096, align 4
-  %1098 = getelementptr inbounds i8, ptr %1095, i64 108
+  %1098 = getelementptr inbounds nuw i8, ptr %1095, i64 108
   %1099 = load i32, ptr %1098, align 4
   %1100 = icmp slt i32 %1097, %1099
   br i1 %1100, label %1101, label %1106
 
 1101:                                             ; preds = %1094
-  %1102 = getelementptr inbounds i8, ptr %1095, i64 80
+  %1102 = getelementptr inbounds nuw i8, ptr %1095, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1102, i64 12, i1 false)
-  %1103 = getelementptr inbounds i8, ptr %1095, i64 96
+  %1103 = getelementptr inbounds nuw i8, ptr %1095, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1102, ptr noundef nonnull align 4 dereferenceable(16) %1103, i64 16, i1 false)
   %1104 = load ptr, ptr %883, align 8
-  %1105 = getelementptr inbounds i8, ptr %1104, i64 96
+  %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1105, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx378 = getelementptr inbounds i8, ptr %1104, i64 108
+  %.sroa.388.0..sroa_idx378 = getelementptr inbounds nuw i8, ptr %1104, i64 108
   store i32 %1097, ptr %.sroa.388.0..sroa_idx378, align 4
   %.pre931 = load ptr, ptr %883, align 8
   br label %1106
 
 1106:                                             ; preds = %1101, %1094
   %1107 = phi ptr [ %.pre931, %1101 ], [ %1095, %1094 ]
-  %1108 = getelementptr inbounds i8, ptr %1107, i64 124
+  %1108 = getelementptr inbounds nuw i8, ptr %1107, i64 124
   %1109 = load i32, ptr %1108, align 4
-  %1110 = getelementptr inbounds i8, ptr %1107, i64 140
+  %1110 = getelementptr inbounds nuw i8, ptr %1107, i64 140
   %1111 = load i32, ptr %1110, align 4
   %1112 = icmp slt i32 %1109, %1111
   br i1 %1112, label %1113, label %1118
 
 1113:                                             ; preds = %1106
-  %1114 = getelementptr inbounds i8, ptr %1107, i64 112
+  %1114 = getelementptr inbounds nuw i8, ptr %1107, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1114, i64 12, i1 false)
-  %1115 = getelementptr inbounds i8, ptr %1107, i64 128
+  %1115 = getelementptr inbounds nuw i8, ptr %1107, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1114, ptr noundef nonnull align 4 dereferenceable(16) %1115, i64 16, i1 false)
   %1116 = load ptr, ptr %883, align 8
-  %1117 = getelementptr inbounds i8, ptr %1116, i64 128
+  %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1117, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx382 = getelementptr inbounds i8, ptr %1116, i64 140
+  %.sroa.388.0..sroa_idx382 = getelementptr inbounds nuw i8, ptr %1116, i64 140
   store i32 %1109, ptr %.sroa.388.0..sroa_idx382, align 4
   %.pre932 = load ptr, ptr %883, align 8
   br label %1118
 
 1118:                                             ; preds = %1113, %1106
   %1119 = phi ptr [ %.pre932, %1113 ], [ %1107, %1106 ]
-  %1120 = getelementptr inbounds i8, ptr %1119, i64 28
+  %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 28
   %1121 = load i32, ptr %1120, align 4
-  %1122 = getelementptr inbounds i8, ptr %1119, i64 60
+  %1122 = getelementptr inbounds nuw i8, ptr %1119, i64 60
   %1123 = load i32, ptr %1122, align 4
   %1124 = icmp slt i32 %1121, %1123
   br i1 %1124, label %1125, label %1130
 
 1125:                                             ; preds = %1118
-  %1126 = getelementptr inbounds i8, ptr %1119, i64 16
+  %1126 = getelementptr inbounds nuw i8, ptr %1119, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1126, i64 12, i1 false)
-  %1127 = getelementptr inbounds i8, ptr %1119, i64 48
+  %1127 = getelementptr inbounds nuw i8, ptr %1119, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1126, ptr noundef nonnull align 4 dereferenceable(16) %1127, i64 16, i1 false)
   %1128 = load ptr, ptr %883, align 8
-  %1129 = getelementptr inbounds i8, ptr %1128, i64 48
+  %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1129, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx386 = getelementptr inbounds i8, ptr %1128, i64 60
+  %.sroa.388.0..sroa_idx386 = getelementptr inbounds nuw i8, ptr %1128, i64 60
   store i32 %1121, ptr %.sroa.388.0..sroa_idx386, align 4
   %.pre933 = load ptr, ptr %883, align 8
   br label %1130
 
 1130:                                             ; preds = %1125, %1118
   %1131 = phi ptr [ %.pre933, %1125 ], [ %1119, %1118 ]
-  %1132 = getelementptr inbounds i8, ptr %1131, i64 108
+  %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 108
   %1133 = load i32, ptr %1132, align 4
-  %1134 = getelementptr inbounds i8, ptr %1131, i64 140
+  %1134 = getelementptr inbounds nuw i8, ptr %1131, i64 140
   %1135 = load i32, ptr %1134, align 4
   %1136 = icmp slt i32 %1133, %1135
   br i1 %1136, label %1137, label %1142
 
 1137:                                             ; preds = %1130
-  %1138 = getelementptr inbounds i8, ptr %1131, i64 96
+  %1138 = getelementptr inbounds nuw i8, ptr %1131, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1138, i64 12, i1 false)
-  %1139 = getelementptr inbounds i8, ptr %1131, i64 128
+  %1139 = getelementptr inbounds nuw i8, ptr %1131, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1138, ptr noundef nonnull align 4 dereferenceable(16) %1139, i64 16, i1 false)
   %1140 = load ptr, ptr %883, align 8
-  %1141 = getelementptr inbounds i8, ptr %1140, i64 128
+  %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1141, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx390 = getelementptr inbounds i8, ptr %1140, i64 140
+  %.sroa.388.0..sroa_idx390 = getelementptr inbounds nuw i8, ptr %1140, i64 140
   store i32 %1133, ptr %.sroa.388.0..sroa_idx390, align 4
   %.pre934 = load ptr, ptr %883, align 8
   br label %1142
 
 1142:                                             ; preds = %1137, %1130
   %1143 = phi ptr [ %.pre934, %1137 ], [ %1131, %1130 ]
-  %1144 = getelementptr inbounds i8, ptr %1143, i64 44
+  %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 44
   %1145 = load i32, ptr %1144, align 4
-  %1146 = getelementptr inbounds i8, ptr %1143, i64 76
+  %1146 = getelementptr inbounds nuw i8, ptr %1143, i64 76
   %1147 = load i32, ptr %1146, align 4
   %1148 = icmp slt i32 %1145, %1147
   br i1 %1148, label %1149, label %1154
 
 1149:                                             ; preds = %1142
-  %1150 = getelementptr inbounds i8, ptr %1143, i64 32
+  %1150 = getelementptr inbounds nuw i8, ptr %1143, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1150, i64 12, i1 false)
-  %1151 = getelementptr inbounds i8, ptr %1143, i64 64
+  %1151 = getelementptr inbounds nuw i8, ptr %1143, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1150, ptr noundef nonnull align 4 dereferenceable(16) %1151, i64 16, i1 false)
   %1152 = load ptr, ptr %883, align 8
-  %1153 = getelementptr inbounds i8, ptr %1152, i64 64
+  %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1153, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx394 = getelementptr inbounds i8, ptr %1152, i64 76
+  %.sroa.388.0..sroa_idx394 = getelementptr inbounds nuw i8, ptr %1152, i64 76
   store i32 %1145, ptr %.sroa.388.0..sroa_idx394, align 4
   %.pre935 = load ptr, ptr %883, align 8
   br label %1154
 
 1154:                                             ; preds = %1149, %1142
   %1155 = phi ptr [ %.pre935, %1149 ], [ %1143, %1142 ]
-  %1156 = getelementptr inbounds i8, ptr %1155, i64 92
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 92
   %1157 = load i32, ptr %1156, align 4
-  %1158 = getelementptr inbounds i8, ptr %1155, i64 124
+  %1158 = getelementptr inbounds nuw i8, ptr %1155, i64 124
   %1159 = load i32, ptr %1158, align 4
   %1160 = icmp slt i32 %1157, %1159
   br i1 %1160, label %1161, label %1166
 
 1161:                                             ; preds = %1154
-  %1162 = getelementptr inbounds i8, ptr %1155, i64 80
+  %1162 = getelementptr inbounds nuw i8, ptr %1155, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1162, i64 12, i1 false)
-  %1163 = getelementptr inbounds i8, ptr %1155, i64 112
+  %1163 = getelementptr inbounds nuw i8, ptr %1155, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1162, ptr noundef nonnull align 4 dereferenceable(16) %1163, i64 16, i1 false)
   %1164 = load ptr, ptr %883, align 8
-  %1165 = getelementptr inbounds i8, ptr %1164, i64 112
+  %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1165, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx398 = getelementptr inbounds i8, ptr %1164, i64 124
+  %.sroa.388.0..sroa_idx398 = getelementptr inbounds nuw i8, ptr %1164, i64 124
   store i32 %1157, ptr %.sroa.388.0..sroa_idx398, align 4
   %.pre936 = load ptr, ptr %883, align 8
   br label %1166
 
 1166:                                             ; preds = %1161, %1154
   %1167 = phi ptr [ %.pre936, %1161 ], [ %1155, %1154 ]
-  %1168 = getelementptr inbounds i8, ptr %1167, i64 44
+  %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 44
   %1169 = load i32, ptr %1168, align 4
-  %1170 = getelementptr inbounds i8, ptr %1167, i64 60
+  %1170 = getelementptr inbounds nuw i8, ptr %1167, i64 60
   %1171 = load i32, ptr %1170, align 4
   %1172 = icmp slt i32 %1169, %1171
   br i1 %1172, label %1173, label %1178
 
 1173:                                             ; preds = %1166
-  %1174 = getelementptr inbounds i8, ptr %1167, i64 32
+  %1174 = getelementptr inbounds nuw i8, ptr %1167, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1174, i64 12, i1 false)
-  %1175 = getelementptr inbounds i8, ptr %1167, i64 48
+  %1175 = getelementptr inbounds nuw i8, ptr %1167, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1174, ptr noundef nonnull align 4 dereferenceable(16) %1175, i64 16, i1 false)
   %1176 = load ptr, ptr %883, align 8
-  %1177 = getelementptr inbounds i8, ptr %1176, i64 48
+  %1177 = getelementptr inbounds nuw i8, ptr %1176, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1177, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx402 = getelementptr inbounds i8, ptr %1176, i64 60
+  %.sroa.388.0..sroa_idx402 = getelementptr inbounds nuw i8, ptr %1176, i64 60
   store i32 %1169, ptr %.sroa.388.0..sroa_idx402, align 4
   %.pre937 = load ptr, ptr %883, align 8
   br label %1178
 
 1178:                                             ; preds = %1173, %1166
   %1179 = phi ptr [ %.pre937, %1173 ], [ %1167, %1166 ]
-  %1180 = getelementptr inbounds i8, ptr %1179, i64 108
+  %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 108
   %1181 = load i32, ptr %1180, align 4
-  %1182 = getelementptr inbounds i8, ptr %1179, i64 124
+  %1182 = getelementptr inbounds nuw i8, ptr %1179, i64 124
   %1183 = load i32, ptr %1182, align 4
   %1184 = icmp slt i32 %1181, %1183
   br i1 %1184, label %1185, label %1190
 
 1185:                                             ; preds = %1178
-  %1186 = getelementptr inbounds i8, ptr %1179, i64 96
+  %1186 = getelementptr inbounds nuw i8, ptr %1179, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1186, i64 12, i1 false)
-  %1187 = getelementptr inbounds i8, ptr %1179, i64 112
+  %1187 = getelementptr inbounds nuw i8, ptr %1179, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1186, ptr noundef nonnull align 4 dereferenceable(16) %1187, i64 16, i1 false)
   %1188 = load ptr, ptr %883, align 8
-  %1189 = getelementptr inbounds i8, ptr %1188, i64 112
+  %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1189, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx406 = getelementptr inbounds i8, ptr %1188, i64 124
+  %.sroa.388.0..sroa_idx406 = getelementptr inbounds nuw i8, ptr %1188, i64 124
   store i32 %1181, ptr %.sroa.388.0..sroa_idx406, align 4
   %.pre938 = load ptr, ptr %883, align 8
   br label %1190
 
 1190:                                             ; preds = %1185, %1178
   %1191 = phi ptr [ %.pre938, %1185 ], [ %1179, %1178 ]
-  %1192 = getelementptr inbounds i8, ptr %1191, i64 60
+  %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 60
   %1193 = load i32, ptr %1192, align 4
-  %1194 = getelementptr inbounds i8, ptr %1191, i64 92
+  %1194 = getelementptr inbounds nuw i8, ptr %1191, i64 92
   %1195 = load i32, ptr %1194, align 4
   %1196 = icmp slt i32 %1193, %1195
   br i1 %1196, label %1197, label %1202
 
 1197:                                             ; preds = %1190
-  %1198 = getelementptr inbounds i8, ptr %1191, i64 48
+  %1198 = getelementptr inbounds nuw i8, ptr %1191, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1198, i64 12, i1 false)
-  %1199 = getelementptr inbounds i8, ptr %1191, i64 80
+  %1199 = getelementptr inbounds nuw i8, ptr %1191, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1198, ptr noundef nonnull align 4 dereferenceable(16) %1199, i64 16, i1 false)
   %1200 = load ptr, ptr %883, align 8
-  %1201 = getelementptr inbounds i8, ptr %1200, i64 80
+  %1201 = getelementptr inbounds nuw i8, ptr %1200, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1201, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx410 = getelementptr inbounds i8, ptr %1200, i64 92
+  %.sroa.388.0..sroa_idx410 = getelementptr inbounds nuw i8, ptr %1200, i64 92
   store i32 %1193, ptr %.sroa.388.0..sroa_idx410, align 4
   %.pre939 = load ptr, ptr %883, align 8
   br label %1202
 
 1202:                                             ; preds = %1197, %1190
   %1203 = phi ptr [ %.pre939, %1197 ], [ %1191, %1190 ]
-  %1204 = getelementptr inbounds i8, ptr %1203, i64 76
+  %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 76
   %1205 = load i32, ptr %1204, align 4
-  %1206 = getelementptr inbounds i8, ptr %1203, i64 108
+  %1206 = getelementptr inbounds nuw i8, ptr %1203, i64 108
   %1207 = load i32, ptr %1206, align 4
   %1208 = icmp slt i32 %1205, %1207
   br i1 %1208, label %1209, label %1214
 
 1209:                                             ; preds = %1202
-  %1210 = getelementptr inbounds i8, ptr %1203, i64 64
+  %1210 = getelementptr inbounds nuw i8, ptr %1203, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1210, i64 12, i1 false)
-  %1211 = getelementptr inbounds i8, ptr %1203, i64 96
+  %1211 = getelementptr inbounds nuw i8, ptr %1203, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1210, ptr noundef nonnull align 4 dereferenceable(16) %1211, i64 16, i1 false)
   %1212 = load ptr, ptr %883, align 8
-  %1213 = getelementptr inbounds i8, ptr %1212, i64 96
+  %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1213, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx414 = getelementptr inbounds i8, ptr %1212, i64 108
+  %.sroa.388.0..sroa_idx414 = getelementptr inbounds nuw i8, ptr %1212, i64 108
   store i32 %1205, ptr %.sroa.388.0..sroa_idx414, align 4
   %.pre940 = load ptr, ptr %883, align 8
-  %.phi.trans.insert941 = getelementptr inbounds i8, ptr %.pre940, i64 76
+  %.phi.trans.insert941 = getelementptr inbounds nuw i8, ptr %.pre940, i64 76
   %.pre942 = load i32, ptr %.phi.trans.insert941, align 4
   br label %1214
 
 1214:                                             ; preds = %1209, %1202
   %1215 = phi i32 [ %.pre942, %1209 ], [ %1205, %1202 ]
   %1216 = phi ptr [ %.pre940, %1209 ], [ %1203, %1202 ]
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 92
+  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 92
   %1218 = load i32, ptr %1217, align 4
   %1219 = icmp slt i32 %1215, %1218
   br i1 %1219, label %1220, label %.loopexit
 
 1220:                                             ; preds = %1214
-  %1221 = getelementptr inbounds i8, ptr %1216, i64 64
+  %1221 = getelementptr inbounds nuw i8, ptr %1216, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1221, i64 12, i1 false)
-  %1222 = getelementptr inbounds i8, ptr %1216, i64 80
+  %1222 = getelementptr inbounds nuw i8, ptr %1216, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1221, ptr noundef nonnull align 4 dereferenceable(16) %1222, i64 16, i1 false)
   %1223 = load ptr, ptr %883, align 8
-  %1224 = getelementptr inbounds i8, ptr %1223, i64 80
+  %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1224, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx418 = getelementptr inbounds i8, ptr %1223, i64 92
+  %.sroa.388.0..sroa_idx418 = getelementptr inbounds nuw i8, ptr %1223, i64 92
   store i32 %1215, ptr %.sroa.388.0..sroa_idx418, align 4
   br label %.loopexit
 
@@ -6887,129 +6887,129 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1227 = load ptr, ptr %1226, align 8
   %1228 = getelementptr inbounds nuw i8, ptr %1227, i64 12
   %1229 = load i32, ptr %1228, align 4
-  %1230 = getelementptr inbounds i8, ptr %1227, i64 28
+  %1230 = getelementptr inbounds nuw i8, ptr %1227, i64 28
   %1231 = load i32, ptr %1230, align 4
   %1232 = icmp slt i32 %1229, %1231
   br i1 %1232, label %1233, label %1237
 
 1233:                                             ; preds = %1225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1227, i64 12, i1 false)
-  %1234 = getelementptr inbounds i8, ptr %1227, i64 16
+  %1234 = getelementptr inbounds nuw i8, ptr %1227, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1227, ptr noundef nonnull align 4 dereferenceable(16) %1234, i64 16, i1 false)
   %1235 = load ptr, ptr %1226, align 8
-  %1236 = getelementptr inbounds i8, ptr %1235, i64 16
+  %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1236, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx422 = getelementptr inbounds i8, ptr %1235, i64 28
+  %.sroa.388.0..sroa_idx422 = getelementptr inbounds nuw i8, ptr %1235, i64 28
   store i32 %1229, ptr %.sroa.388.0..sroa_idx422, align 4
   %.pre869 = load ptr, ptr %1226, align 8
   br label %1237
 
 1237:                                             ; preds = %1233, %1225
   %1238 = phi ptr [ %.pre869, %1233 ], [ %1227, %1225 ]
-  %1239 = getelementptr inbounds i8, ptr %1238, i64 60
+  %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 60
   %1240 = load i32, ptr %1239, align 4
-  %1241 = getelementptr inbounds i8, ptr %1238, i64 76
+  %1241 = getelementptr inbounds nuw i8, ptr %1238, i64 76
   %1242 = load i32, ptr %1241, align 4
   %1243 = icmp slt i32 %1240, %1242
   br i1 %1243, label %1244, label %1249
 
 1244:                                             ; preds = %1237
-  %1245 = getelementptr inbounds i8, ptr %1238, i64 48
+  %1245 = getelementptr inbounds nuw i8, ptr %1238, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1245, i64 12, i1 false)
-  %1246 = getelementptr inbounds i8, ptr %1238, i64 64
+  %1246 = getelementptr inbounds nuw i8, ptr %1238, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1245, ptr noundef nonnull align 4 dereferenceable(16) %1246, i64 16, i1 false)
   %1247 = load ptr, ptr %1226, align 8
-  %1248 = getelementptr inbounds i8, ptr %1247, i64 64
+  %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1248, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx426 = getelementptr inbounds i8, ptr %1247, i64 76
+  %.sroa.388.0..sroa_idx426 = getelementptr inbounds nuw i8, ptr %1247, i64 76
   store i32 %1240, ptr %.sroa.388.0..sroa_idx426, align 4
   %.pre870 = load ptr, ptr %1226, align 8
   br label %1249
 
 1249:                                             ; preds = %1244, %1237
   %1250 = phi ptr [ %.pre870, %1244 ], [ %1238, %1237 ]
-  %1251 = getelementptr inbounds i8, ptr %1250, i64 108
+  %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 108
   %1252 = load i32, ptr %1251, align 4
-  %1253 = getelementptr inbounds i8, ptr %1250, i64 124
+  %1253 = getelementptr inbounds nuw i8, ptr %1250, i64 124
   %1254 = load i32, ptr %1253, align 4
   %1255 = icmp slt i32 %1252, %1254
   br i1 %1255, label %1256, label %1261
 
 1256:                                             ; preds = %1249
-  %1257 = getelementptr inbounds i8, ptr %1250, i64 96
+  %1257 = getelementptr inbounds nuw i8, ptr %1250, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1257, i64 12, i1 false)
-  %1258 = getelementptr inbounds i8, ptr %1250, i64 112
+  %1258 = getelementptr inbounds nuw i8, ptr %1250, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1257, ptr noundef nonnull align 4 dereferenceable(16) %1258, i64 16, i1 false)
   %1259 = load ptr, ptr %1226, align 8
-  %1260 = getelementptr inbounds i8, ptr %1259, i64 112
+  %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1260, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx430 = getelementptr inbounds i8, ptr %1259, i64 124
+  %.sroa.388.0..sroa_idx430 = getelementptr inbounds nuw i8, ptr %1259, i64 124
   store i32 %1252, ptr %.sroa.388.0..sroa_idx430, align 4
   %.pre871 = load ptr, ptr %1226, align 8
   br label %1261
 
 1261:                                             ; preds = %1256, %1249
   %1262 = phi ptr [ %.pre871, %1256 ], [ %1250, %1249 ]
-  %1263 = getelementptr inbounds i8, ptr %1262, i64 28
+  %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 28
   %1264 = load i32, ptr %1263, align 4
-  %1265 = getelementptr inbounds i8, ptr %1262, i64 44
+  %1265 = getelementptr inbounds nuw i8, ptr %1262, i64 44
   %1266 = load i32, ptr %1265, align 4
   %1267 = icmp slt i32 %1264, %1266
   br i1 %1267, label %1268, label %1273
 
 1268:                                             ; preds = %1261
-  %1269 = getelementptr inbounds i8, ptr %1262, i64 16
+  %1269 = getelementptr inbounds nuw i8, ptr %1262, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1269, i64 12, i1 false)
-  %1270 = getelementptr inbounds i8, ptr %1262, i64 32
+  %1270 = getelementptr inbounds nuw i8, ptr %1262, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1269, ptr noundef nonnull align 4 dereferenceable(16) %1270, i64 16, i1 false)
   %1271 = load ptr, ptr %1226, align 8
-  %1272 = getelementptr inbounds i8, ptr %1271, i64 32
+  %1272 = getelementptr inbounds nuw i8, ptr %1271, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1272, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx434 = getelementptr inbounds i8, ptr %1271, i64 44
+  %.sroa.388.0..sroa_idx434 = getelementptr inbounds nuw i8, ptr %1271, i64 44
   store i32 %1264, ptr %.sroa.388.0..sroa_idx434, align 4
   %.pre872 = load ptr, ptr %1226, align 8
   br label %1273
 
 1273:                                             ; preds = %1268, %1261
   %1274 = phi ptr [ %.pre872, %1268 ], [ %1262, %1261 ]
-  %1275 = getelementptr inbounds i8, ptr %1274, i64 76
+  %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 76
   %1276 = load i32, ptr %1275, align 4
-  %1277 = getelementptr inbounds i8, ptr %1274, i64 92
+  %1277 = getelementptr inbounds nuw i8, ptr %1274, i64 92
   %1278 = load i32, ptr %1277, align 4
   %1279 = icmp slt i32 %1276, %1278
   br i1 %1279, label %1280, label %1285
 
 1280:                                             ; preds = %1273
-  %1281 = getelementptr inbounds i8, ptr %1274, i64 64
+  %1281 = getelementptr inbounds nuw i8, ptr %1274, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1281, i64 12, i1 false)
-  %1282 = getelementptr inbounds i8, ptr %1274, i64 80
+  %1282 = getelementptr inbounds nuw i8, ptr %1274, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1281, ptr noundef nonnull align 4 dereferenceable(16) %1282, i64 16, i1 false)
   %1283 = load ptr, ptr %1226, align 8
-  %1284 = getelementptr inbounds i8, ptr %1283, i64 80
+  %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1284, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx438 = getelementptr inbounds i8, ptr %1283, i64 92
+  %.sroa.388.0..sroa_idx438 = getelementptr inbounds nuw i8, ptr %1283, i64 92
   store i32 %1276, ptr %.sroa.388.0..sroa_idx438, align 4
   %.pre873 = load ptr, ptr %1226, align 8
   br label %1285
 
 1285:                                             ; preds = %1280, %1273
   %1286 = phi ptr [ %.pre873, %1280 ], [ %1274, %1273 ]
-  %1287 = getelementptr inbounds i8, ptr %1286, i64 124
+  %1287 = getelementptr inbounds nuw i8, ptr %1286, i64 124
   %1288 = load i32, ptr %1287, align 4
-  %1289 = getelementptr inbounds i8, ptr %1286, i64 140
+  %1289 = getelementptr inbounds nuw i8, ptr %1286, i64 140
   %1290 = load i32, ptr %1289, align 4
   %1291 = icmp slt i32 %1288, %1290
   br i1 %1291, label %1292, label %1297
 
 1292:                                             ; preds = %1285
-  %1293 = getelementptr inbounds i8, ptr %1286, i64 112
+  %1293 = getelementptr inbounds nuw i8, ptr %1286, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1293, i64 12, i1 false)
-  %1294 = getelementptr inbounds i8, ptr %1286, i64 128
+  %1294 = getelementptr inbounds nuw i8, ptr %1286, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1293, ptr noundef nonnull align 4 dereferenceable(16) %1294, i64 16, i1 false)
   %1295 = load ptr, ptr %1226, align 8
-  %1296 = getelementptr inbounds i8, ptr %1295, i64 128
+  %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1296, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx442 = getelementptr inbounds i8, ptr %1295, i64 140
+  %.sroa.388.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %1295, i64 140
   store i32 %1288, ptr %.sroa.388.0..sroa_idx442, align 4
   %.pre874 = load ptr, ptr %1226, align 8
   br label %1297
@@ -7018,63 +7018,63 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1298 = phi ptr [ %.pre874, %1292 ], [ %1286, %1285 ]
   %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 12
   %1300 = load i32, ptr %1299, align 4
-  %1301 = getelementptr inbounds i8, ptr %1298, i64 28
+  %1301 = getelementptr inbounds nuw i8, ptr %1298, i64 28
   %1302 = load i32, ptr %1301, align 4
   %1303 = icmp slt i32 %1300, %1302
   br i1 %1303, label %1304, label %1308
 
 1304:                                             ; preds = %1297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1298, i64 12, i1 false)
-  %1305 = getelementptr inbounds i8, ptr %1298, i64 16
+  %1305 = getelementptr inbounds nuw i8, ptr %1298, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1298, ptr noundef nonnull align 4 dereferenceable(16) %1305, i64 16, i1 false)
   %1306 = load ptr, ptr %1226, align 8
-  %1307 = getelementptr inbounds i8, ptr %1306, i64 16
+  %1307 = getelementptr inbounds nuw i8, ptr %1306, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1307, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx446 = getelementptr inbounds i8, ptr %1306, i64 28
+  %.sroa.388.0..sroa_idx446 = getelementptr inbounds nuw i8, ptr %1306, i64 28
   store i32 %1300, ptr %.sroa.388.0..sroa_idx446, align 4
   %.pre875 = load ptr, ptr %1226, align 8
   br label %1308
 
 1308:                                             ; preds = %1304, %1297
   %1309 = phi ptr [ %.pre875, %1304 ], [ %1298, %1297 ]
-  %1310 = getelementptr inbounds i8, ptr %1309, i64 60
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 60
   %1311 = load i32, ptr %1310, align 4
-  %1312 = getelementptr inbounds i8, ptr %1309, i64 76
+  %1312 = getelementptr inbounds nuw i8, ptr %1309, i64 76
   %1313 = load i32, ptr %1312, align 4
   %1314 = icmp slt i32 %1311, %1313
   br i1 %1314, label %1315, label %1320
 
 1315:                                             ; preds = %1308
-  %1316 = getelementptr inbounds i8, ptr %1309, i64 48
+  %1316 = getelementptr inbounds nuw i8, ptr %1309, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1316, i64 12, i1 false)
-  %1317 = getelementptr inbounds i8, ptr %1309, i64 64
+  %1317 = getelementptr inbounds nuw i8, ptr %1309, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1316, ptr noundef nonnull align 4 dereferenceable(16) %1317, i64 16, i1 false)
   %1318 = load ptr, ptr %1226, align 8
-  %1319 = getelementptr inbounds i8, ptr %1318, i64 64
+  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1319, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx450 = getelementptr inbounds i8, ptr %1318, i64 76
+  %.sroa.388.0..sroa_idx450 = getelementptr inbounds nuw i8, ptr %1318, i64 76
   store i32 %1311, ptr %.sroa.388.0..sroa_idx450, align 4
   %.pre876 = load ptr, ptr %1226, align 8
   br label %1320
 
 1320:                                             ; preds = %1315, %1308
   %1321 = phi ptr [ %.pre876, %1315 ], [ %1309, %1308 ]
-  %1322 = getelementptr inbounds i8, ptr %1321, i64 108
+  %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 108
   %1323 = load i32, ptr %1322, align 4
-  %1324 = getelementptr inbounds i8, ptr %1321, i64 124
+  %1324 = getelementptr inbounds nuw i8, ptr %1321, i64 124
   %1325 = load i32, ptr %1324, align 4
   %1326 = icmp slt i32 %1323, %1325
   br i1 %1326, label %1327, label %1332
 
 1327:                                             ; preds = %1320
-  %1328 = getelementptr inbounds i8, ptr %1321, i64 96
+  %1328 = getelementptr inbounds nuw i8, ptr %1321, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1328, i64 12, i1 false)
-  %1329 = getelementptr inbounds i8, ptr %1321, i64 112
+  %1329 = getelementptr inbounds nuw i8, ptr %1321, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1328, ptr noundef nonnull align 4 dereferenceable(16) %1329, i64 16, i1 false)
   %1330 = load ptr, ptr %1226, align 8
-  %1331 = getelementptr inbounds i8, ptr %1330, i64 112
+  %1331 = getelementptr inbounds nuw i8, ptr %1330, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1331, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx454 = getelementptr inbounds i8, ptr %1330, i64 124
+  %.sroa.388.0..sroa_idx454 = getelementptr inbounds nuw i8, ptr %1330, i64 124
   store i32 %1323, ptr %.sroa.388.0..sroa_idx454, align 4
   %.pre877 = load ptr, ptr %1226, align 8
   br label %1332
@@ -7083,45 +7083,45 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1333 = phi ptr [ %.pre877, %1327 ], [ %1321, %1320 ]
   %1334 = getelementptr inbounds nuw i8, ptr %1333, i64 12
   %1335 = load i32, ptr %1334, align 4
-  %1336 = getelementptr inbounds i8, ptr %1333, i64 60
+  %1336 = getelementptr inbounds nuw i8, ptr %1333, i64 60
   %1337 = load i32, ptr %1336, align 4
   %1338 = icmp slt i32 %1335, %1337
   br i1 %1338, label %1339, label %1343
 
 1339:                                             ; preds = %1332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1333, i64 12, i1 false)
-  %1340 = getelementptr inbounds i8, ptr %1333, i64 48
+  %1340 = getelementptr inbounds nuw i8, ptr %1333, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1333, ptr noundef nonnull align 4 dereferenceable(16) %1340, i64 16, i1 false)
   %1341 = load ptr, ptr %1226, align 8
-  %1342 = getelementptr inbounds i8, ptr %1341, i64 48
+  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1342, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx458 = getelementptr inbounds i8, ptr %1341, i64 60
+  %.sroa.388.0..sroa_idx458 = getelementptr inbounds nuw i8, ptr %1341, i64 60
   store i32 %1335, ptr %.sroa.388.0..sroa_idx458, align 4
   %.pre878 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert879 = getelementptr inbounds i8, ptr %.pre878, i64 60
+  %.phi.trans.insert879 = getelementptr inbounds nuw i8, ptr %.pre878, i64 60
   %.pre880 = load i32, ptr %.phi.trans.insert879, align 4
   br label %1343
 
 1343:                                             ; preds = %1339, %1332
   %1344 = phi i32 [ %.pre880, %1339 ], [ %1337, %1332 ]
   %1345 = phi ptr [ %.pre878, %1339 ], [ %1333, %1332 ]
-  %1346 = getelementptr inbounds i8, ptr %1345, i64 108
+  %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 108
   %1347 = load i32, ptr %1346, align 4
   %1348 = icmp slt i32 %1344, %1347
   br i1 %1348, label %1349, label %1354
 
 1349:                                             ; preds = %1343
-  %1350 = getelementptr inbounds i8, ptr %1345, i64 48
+  %1350 = getelementptr inbounds nuw i8, ptr %1345, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1350, i64 12, i1 false)
-  %1351 = getelementptr inbounds i8, ptr %1345, i64 96
+  %1351 = getelementptr inbounds nuw i8, ptr %1345, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1350, ptr noundef nonnull align 4 dereferenceable(16) %1351, i64 16, i1 false)
   %1352 = load ptr, ptr %1226, align 8
-  %1353 = getelementptr inbounds i8, ptr %1352, i64 96
+  %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1353, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx462 = getelementptr inbounds i8, ptr %1352, i64 108
+  %.sroa.388.0..sroa_idx462 = getelementptr inbounds nuw i8, ptr %1352, i64 108
   store i32 %1344, ptr %.sroa.388.0..sroa_idx462, align 4
   %.pre881 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert882 = getelementptr inbounds i8, ptr %.pre881, i64 60
+  %.phi.trans.insert882 = getelementptr inbounds nuw i8, ptr %.pre881, i64 60
   %.pre883 = load i32, ptr %.phi.trans.insert882, align 4
   br label %1354
 
@@ -7135,305 +7135,305 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 1360:                                             ; preds = %1354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1356, i64 12, i1 false)
-  %1361 = getelementptr inbounds i8, ptr %1356, i64 48
+  %1361 = getelementptr inbounds nuw i8, ptr %1356, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1356, ptr noundef nonnull align 4 dereferenceable(16) %1361, i64 16, i1 false)
   %1362 = load ptr, ptr %1226, align 8
-  %1363 = getelementptr inbounds i8, ptr %1362, i64 48
+  %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1363, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx466 = getelementptr inbounds i8, ptr %1362, i64 60
+  %.sroa.388.0..sroa_idx466 = getelementptr inbounds nuw i8, ptr %1362, i64 60
   store i32 %1358, ptr %.sroa.388.0..sroa_idx466, align 4
   %.pre884 = load ptr, ptr %1226, align 8
   br label %1364
 
 1364:                                             ; preds = %1360, %1354
   %1365 = phi ptr [ %.pre884, %1360 ], [ %1356, %1354 ]
-  %1366 = getelementptr inbounds i8, ptr %1365, i64 28
+  %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 28
   %1367 = load i32, ptr %1366, align 4
-  %1368 = getelementptr inbounds i8, ptr %1365, i64 76
+  %1368 = getelementptr inbounds nuw i8, ptr %1365, i64 76
   %1369 = load i32, ptr %1368, align 4
   %1370 = icmp slt i32 %1367, %1369
   br i1 %1370, label %1371, label %1376
 
 1371:                                             ; preds = %1364
-  %1372 = getelementptr inbounds i8, ptr %1365, i64 16
+  %1372 = getelementptr inbounds nuw i8, ptr %1365, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1372, i64 12, i1 false)
-  %1373 = getelementptr inbounds i8, ptr %1365, i64 64
+  %1373 = getelementptr inbounds nuw i8, ptr %1365, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1372, ptr noundef nonnull align 4 dereferenceable(16) %1373, i64 16, i1 false)
   %1374 = load ptr, ptr %1226, align 8
-  %1375 = getelementptr inbounds i8, ptr %1374, i64 64
+  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1375, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx470 = getelementptr inbounds i8, ptr %1374, i64 76
+  %.sroa.388.0..sroa_idx470 = getelementptr inbounds nuw i8, ptr %1374, i64 76
   store i32 %1367, ptr %.sroa.388.0..sroa_idx470, align 4
   %.pre885 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert886 = getelementptr inbounds i8, ptr %.pre885, i64 76
+  %.phi.trans.insert886 = getelementptr inbounds nuw i8, ptr %.pre885, i64 76
   %.pre887 = load i32, ptr %.phi.trans.insert886, align 4
   br label %1376
 
 1376:                                             ; preds = %1371, %1364
   %1377 = phi i32 [ %.pre887, %1371 ], [ %1369, %1364 ]
   %1378 = phi ptr [ %.pre885, %1371 ], [ %1365, %1364 ]
-  %1379 = getelementptr inbounds i8, ptr %1378, i64 124
+  %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 124
   %1380 = load i32, ptr %1379, align 4
   %1381 = icmp slt i32 %1377, %1380
   br i1 %1381, label %1382, label %1387
 
 1382:                                             ; preds = %1376
-  %1383 = getelementptr inbounds i8, ptr %1378, i64 64
+  %1383 = getelementptr inbounds nuw i8, ptr %1378, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1383, i64 12, i1 false)
-  %1384 = getelementptr inbounds i8, ptr %1378, i64 112
+  %1384 = getelementptr inbounds nuw i8, ptr %1378, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1383, ptr noundef nonnull align 4 dereferenceable(16) %1384, i64 16, i1 false)
   %1385 = load ptr, ptr %1226, align 8
-  %1386 = getelementptr inbounds i8, ptr %1385, i64 112
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1386, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx474 = getelementptr inbounds i8, ptr %1385, i64 124
+  %.sroa.388.0..sroa_idx474 = getelementptr inbounds nuw i8, ptr %1385, i64 124
   store i32 %1377, ptr %.sroa.388.0..sroa_idx474, align 4
   %.pre888 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert889 = getelementptr inbounds i8, ptr %.pre888, i64 76
+  %.phi.trans.insert889 = getelementptr inbounds nuw i8, ptr %.pre888, i64 76
   %.pre890 = load i32, ptr %.phi.trans.insert889, align 4
   br label %1387
 
 1387:                                             ; preds = %1382, %1376
   %1388 = phi i32 [ %.pre890, %1382 ], [ %1377, %1376 ]
   %1389 = phi ptr [ %.pre888, %1382 ], [ %1378, %1376 ]
-  %1390 = getelementptr inbounds i8, ptr %1389, i64 28
+  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 28
   %1391 = load i32, ptr %1390, align 4
   %1392 = icmp slt i32 %1391, %1388
   br i1 %1392, label %1393, label %1398
 
 1393:                                             ; preds = %1387
-  %1394 = getelementptr inbounds i8, ptr %1389, i64 16
+  %1394 = getelementptr inbounds nuw i8, ptr %1389, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1394, i64 12, i1 false)
-  %1395 = getelementptr inbounds i8, ptr %1389, i64 64
+  %1395 = getelementptr inbounds nuw i8, ptr %1389, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1394, ptr noundef nonnull align 4 dereferenceable(16) %1395, i64 16, i1 false)
   %1396 = load ptr, ptr %1226, align 8
-  %1397 = getelementptr inbounds i8, ptr %1396, i64 64
+  %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1397, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx478 = getelementptr inbounds i8, ptr %1396, i64 76
+  %.sroa.388.0..sroa_idx478 = getelementptr inbounds nuw i8, ptr %1396, i64 76
   store i32 %1391, ptr %.sroa.388.0..sroa_idx478, align 4
   %.pre891 = load ptr, ptr %1226, align 8
   br label %1398
 
 1398:                                             ; preds = %1393, %1387
   %1399 = phi ptr [ %.pre891, %1393 ], [ %1389, %1387 ]
-  %1400 = getelementptr inbounds i8, ptr %1399, i64 44
+  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 44
   %1401 = load i32, ptr %1400, align 4
-  %1402 = getelementptr inbounds i8, ptr %1399, i64 92
+  %1402 = getelementptr inbounds nuw i8, ptr %1399, i64 92
   %1403 = load i32, ptr %1402, align 4
   %1404 = icmp slt i32 %1401, %1403
   br i1 %1404, label %1405, label %1410
 
 1405:                                             ; preds = %1398
-  %1406 = getelementptr inbounds i8, ptr %1399, i64 32
+  %1406 = getelementptr inbounds nuw i8, ptr %1399, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1406, i64 12, i1 false)
-  %1407 = getelementptr inbounds i8, ptr %1399, i64 80
+  %1407 = getelementptr inbounds nuw i8, ptr %1399, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1406, ptr noundef nonnull align 4 dereferenceable(16) %1407, i64 16, i1 false)
   %1408 = load ptr, ptr %1226, align 8
-  %1409 = getelementptr inbounds i8, ptr %1408, i64 80
+  %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1409, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx482 = getelementptr inbounds i8, ptr %1408, i64 92
+  %.sroa.388.0..sroa_idx482 = getelementptr inbounds nuw i8, ptr %1408, i64 92
   store i32 %1401, ptr %.sroa.388.0..sroa_idx482, align 4
   %.pre892 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert893 = getelementptr inbounds i8, ptr %.pre892, i64 92
+  %.phi.trans.insert893 = getelementptr inbounds nuw i8, ptr %.pre892, i64 92
   %.pre894 = load i32, ptr %.phi.trans.insert893, align 4
   br label %1410
 
 1410:                                             ; preds = %1405, %1398
   %1411 = phi i32 [ %.pre894, %1405 ], [ %1403, %1398 ]
   %1412 = phi ptr [ %.pre892, %1405 ], [ %1399, %1398 ]
-  %1413 = getelementptr inbounds i8, ptr %1412, i64 140
+  %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 140
   %1414 = load i32, ptr %1413, align 4
   %1415 = icmp slt i32 %1411, %1414
   br i1 %1415, label %1416, label %1421
 
 1416:                                             ; preds = %1410
-  %1417 = getelementptr inbounds i8, ptr %1412, i64 80
+  %1417 = getelementptr inbounds nuw i8, ptr %1412, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1417, i64 12, i1 false)
-  %1418 = getelementptr inbounds i8, ptr %1412, i64 128
+  %1418 = getelementptr inbounds nuw i8, ptr %1412, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1417, ptr noundef nonnull align 4 dereferenceable(16) %1418, i64 16, i1 false)
   %1419 = load ptr, ptr %1226, align 8
-  %1420 = getelementptr inbounds i8, ptr %1419, i64 128
+  %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1420, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx486 = getelementptr inbounds i8, ptr %1419, i64 140
+  %.sroa.388.0..sroa_idx486 = getelementptr inbounds nuw i8, ptr %1419, i64 140
   store i32 %1411, ptr %.sroa.388.0..sroa_idx486, align 4
   %.pre895 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert896 = getelementptr inbounds i8, ptr %.pre895, i64 92
+  %.phi.trans.insert896 = getelementptr inbounds nuw i8, ptr %.pre895, i64 92
   %.pre897 = load i32, ptr %.phi.trans.insert896, align 4
   br label %1421
 
 1421:                                             ; preds = %1416, %1410
   %1422 = phi i32 [ %.pre897, %1416 ], [ %1411, %1410 ]
   %1423 = phi ptr [ %.pre895, %1416 ], [ %1412, %1410 ]
-  %1424 = getelementptr inbounds i8, ptr %1423, i64 44
+  %1424 = getelementptr inbounds nuw i8, ptr %1423, i64 44
   %1425 = load i32, ptr %1424, align 4
   %1426 = icmp slt i32 %1425, %1422
   br i1 %1426, label %1427, label %1432
 
 1427:                                             ; preds = %1421
-  %1428 = getelementptr inbounds i8, ptr %1423, i64 32
+  %1428 = getelementptr inbounds nuw i8, ptr %1423, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1428, i64 12, i1 false)
-  %1429 = getelementptr inbounds i8, ptr %1423, i64 80
+  %1429 = getelementptr inbounds nuw i8, ptr %1423, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1428, ptr noundef nonnull align 4 dereferenceable(16) %1429, i64 16, i1 false)
   %1430 = load ptr, ptr %1226, align 8
-  %1431 = getelementptr inbounds i8, ptr %1430, i64 80
+  %1431 = getelementptr inbounds nuw i8, ptr %1430, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1431, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx490 = getelementptr inbounds i8, ptr %1430, i64 92
+  %.sroa.388.0..sroa_idx490 = getelementptr inbounds nuw i8, ptr %1430, i64 92
   store i32 %1425, ptr %.sroa.388.0..sroa_idx490, align 4
   %.pre898 = load ptr, ptr %1226, align 8
   br label %1432
 
 1432:                                             ; preds = %1427, %1421
   %1433 = phi ptr [ %.pre898, %1427 ], [ %1423, %1421 ]
-  %1434 = getelementptr inbounds i8, ptr %1433, i64 28
+  %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 28
   %1435 = load i32, ptr %1434, align 4
-  %1436 = getelementptr inbounds i8, ptr %1433, i64 60
+  %1436 = getelementptr inbounds nuw i8, ptr %1433, i64 60
   %1437 = load i32, ptr %1436, align 4
   %1438 = icmp slt i32 %1435, %1437
   br i1 %1438, label %1439, label %1444
 
 1439:                                             ; preds = %1432
-  %1440 = getelementptr inbounds i8, ptr %1433, i64 16
+  %1440 = getelementptr inbounds nuw i8, ptr %1433, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1440, i64 12, i1 false)
-  %1441 = getelementptr inbounds i8, ptr %1433, i64 48
+  %1441 = getelementptr inbounds nuw i8, ptr %1433, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1440, ptr noundef nonnull align 4 dereferenceable(16) %1441, i64 16, i1 false)
   %1442 = load ptr, ptr %1226, align 8
-  %1443 = getelementptr inbounds i8, ptr %1442, i64 48
+  %1443 = getelementptr inbounds nuw i8, ptr %1442, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1443, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx494 = getelementptr inbounds i8, ptr %1442, i64 60
+  %.sroa.388.0..sroa_idx494 = getelementptr inbounds nuw i8, ptr %1442, i64 60
   store i32 %1435, ptr %.sroa.388.0..sroa_idx494, align 4
   %.pre899 = load ptr, ptr %1226, align 8
   br label %1444
 
 1444:                                             ; preds = %1439, %1432
   %1445 = phi ptr [ %.pre899, %1439 ], [ %1433, %1432 ]
-  %1446 = getelementptr inbounds i8, ptr %1445, i64 92
+  %1446 = getelementptr inbounds nuw i8, ptr %1445, i64 92
   %1447 = load i32, ptr %1446, align 4
-  %1448 = getelementptr inbounds i8, ptr %1445, i64 124
+  %1448 = getelementptr inbounds nuw i8, ptr %1445, i64 124
   %1449 = load i32, ptr %1448, align 4
   %1450 = icmp slt i32 %1447, %1449
   br i1 %1450, label %1451, label %1456
 
 1451:                                             ; preds = %1444
-  %1452 = getelementptr inbounds i8, ptr %1445, i64 80
+  %1452 = getelementptr inbounds nuw i8, ptr %1445, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1452, i64 12, i1 false)
-  %1453 = getelementptr inbounds i8, ptr %1445, i64 112
+  %1453 = getelementptr inbounds nuw i8, ptr %1445, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1452, ptr noundef nonnull align 4 dereferenceable(16) %1453, i64 16, i1 false)
   %1454 = load ptr, ptr %1226, align 8
-  %1455 = getelementptr inbounds i8, ptr %1454, i64 112
+  %1455 = getelementptr inbounds nuw i8, ptr %1454, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1455, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx498 = getelementptr inbounds i8, ptr %1454, i64 124
+  %.sroa.388.0..sroa_idx498 = getelementptr inbounds nuw i8, ptr %1454, i64 124
   store i32 %1447, ptr %.sroa.388.0..sroa_idx498, align 4
   %.pre900 = load ptr, ptr %1226, align 8
   br label %1456
 
 1456:                                             ; preds = %1451, %1444
   %1457 = phi ptr [ %.pre900, %1451 ], [ %1445, %1444 ]
-  %1458 = getelementptr inbounds i8, ptr %1457, i64 44
+  %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 44
   %1459 = load i32, ptr %1458, align 4
-  %1460 = getelementptr inbounds i8, ptr %1457, i64 108
+  %1460 = getelementptr inbounds nuw i8, ptr %1457, i64 108
   %1461 = load i32, ptr %1460, align 4
   %1462 = icmp slt i32 %1459, %1461
   br i1 %1462, label %1463, label %1468
 
 1463:                                             ; preds = %1456
-  %1464 = getelementptr inbounds i8, ptr %1457, i64 32
+  %1464 = getelementptr inbounds nuw i8, ptr %1457, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1464, i64 12, i1 false)
-  %1465 = getelementptr inbounds i8, ptr %1457, i64 96
+  %1465 = getelementptr inbounds nuw i8, ptr %1457, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1464, ptr noundef nonnull align 4 dereferenceable(16) %1465, i64 16, i1 false)
   %1466 = load ptr, ptr %1226, align 8
-  %1467 = getelementptr inbounds i8, ptr %1466, i64 96
+  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1467, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx502 = getelementptr inbounds i8, ptr %1466, i64 108
+  %.sroa.388.0..sroa_idx502 = getelementptr inbounds nuw i8, ptr %1466, i64 108
   store i32 %1459, ptr %.sroa.388.0..sroa_idx502, align 4
   %.pre901 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert902 = getelementptr inbounds i8, ptr %.pre901, i64 108
+  %.phi.trans.insert902 = getelementptr inbounds nuw i8, ptr %.pre901, i64 108
   %.pre903 = load i32, ptr %.phi.trans.insert902, align 4
   br label %1468
 
 1468:                                             ; preds = %1463, %1456
   %1469 = phi i32 [ %.pre903, %1463 ], [ %1461, %1456 ]
   %1470 = phi ptr [ %.pre901, %1463 ], [ %1457, %1456 ]
-  %1471 = getelementptr inbounds i8, ptr %1470, i64 76
+  %1471 = getelementptr inbounds nuw i8, ptr %1470, i64 76
   %1472 = load i32, ptr %1471, align 4
   %1473 = icmp slt i32 %1472, %1469
   br i1 %1473, label %1474, label %1479
 
 1474:                                             ; preds = %1468
-  %1475 = getelementptr inbounds i8, ptr %1470, i64 64
+  %1475 = getelementptr inbounds nuw i8, ptr %1470, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1475, i64 12, i1 false)
-  %1476 = getelementptr inbounds i8, ptr %1470, i64 96
+  %1476 = getelementptr inbounds nuw i8, ptr %1470, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1475, ptr noundef nonnull align 4 dereferenceable(16) %1476, i64 16, i1 false)
   %1477 = load ptr, ptr %1226, align 8
-  %1478 = getelementptr inbounds i8, ptr %1477, i64 96
+  %1478 = getelementptr inbounds nuw i8, ptr %1477, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1478, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx506 = getelementptr inbounds i8, ptr %1477, i64 108
+  %.sroa.388.0..sroa_idx506 = getelementptr inbounds nuw i8, ptr %1477, i64 108
   store i32 %1472, ptr %.sroa.388.0..sroa_idx506, align 4
   %.pre904 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert905 = getelementptr inbounds i8, ptr %.pre904, i64 76
+  %.phi.trans.insert905 = getelementptr inbounds nuw i8, ptr %.pre904, i64 76
   %.pre906 = load i32, ptr %.phi.trans.insert905, align 4
   br label %1479
 
 1479:                                             ; preds = %1474, %1468
   %1480 = phi i32 [ %.pre906, %1474 ], [ %1472, %1468 ]
   %1481 = phi ptr [ %.pre904, %1474 ], [ %1470, %1468 ]
-  %1482 = getelementptr inbounds i8, ptr %1481, i64 44
+  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 44
   %1483 = load i32, ptr %1482, align 4
   %1484 = icmp slt i32 %1483, %1480
   br i1 %1484, label %1485, label %1490
 
 1485:                                             ; preds = %1479
-  %1486 = getelementptr inbounds i8, ptr %1481, i64 32
+  %1486 = getelementptr inbounds nuw i8, ptr %1481, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1486, i64 12, i1 false)
-  %1487 = getelementptr inbounds i8, ptr %1481, i64 64
+  %1487 = getelementptr inbounds nuw i8, ptr %1481, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1486, ptr noundef nonnull align 4 dereferenceable(16) %1487, i64 16, i1 false)
   %1488 = load ptr, ptr %1226, align 8
-  %1489 = getelementptr inbounds i8, ptr %1488, i64 64
+  %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1489, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx510 = getelementptr inbounds i8, ptr %1488, i64 76
+  %.sroa.388.0..sroa_idx510 = getelementptr inbounds nuw i8, ptr %1488, i64 76
   store i32 %1483, ptr %.sroa.388.0..sroa_idx510, align 4
   %.pre907 = load ptr, ptr %1226, align 8
-  %.phi.trans.insert908 = getelementptr inbounds i8, ptr %.pre907, i64 44
+  %.phi.trans.insert908 = getelementptr inbounds nuw i8, ptr %.pre907, i64 44
   %.pre909 = load i32, ptr %.phi.trans.insert908, align 4
   br label %1490
 
 1490:                                             ; preds = %1485, %1479
   %.sroa.388.0.copyload513 = phi i32 [ %.pre909, %1485 ], [ %1483, %1479 ]
   %1491 = phi ptr [ %.pre907, %1485 ], [ %1481, %1479 ]
-  %1492 = getelementptr inbounds i8, ptr %1491, i64 60
+  %1492 = getelementptr inbounds nuw i8, ptr %1491, i64 60
   %1493 = load i32, ptr %1492, align 4
   %1494 = icmp slt i32 %.sroa.388.0.copyload513, %1493
   br i1 %1494, label %1495, label %1500
 
 1495:                                             ; preds = %1490
-  %1496 = getelementptr inbounds i8, ptr %1491, i64 32
+  %1496 = getelementptr inbounds nuw i8, ptr %1491, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1496, i64 12, i1 false)
-  %1497 = getelementptr inbounds i8, ptr %1491, i64 48
+  %1497 = getelementptr inbounds nuw i8, ptr %1491, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1496, ptr noundef nonnull align 4 dereferenceable(16) %1497, i64 16, i1 false)
   %1498 = load ptr, ptr %1226, align 8
-  %1499 = getelementptr inbounds i8, ptr %1498, i64 48
+  %1499 = getelementptr inbounds nuw i8, ptr %1498, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1499, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx514 = getelementptr inbounds i8, ptr %1498, i64 60
+  %.sroa.388.0..sroa_idx514 = getelementptr inbounds nuw i8, ptr %1498, i64 60
   store i32 %.sroa.388.0.copyload513, ptr %.sroa.388.0..sroa_idx514, align 4
   %.pre910 = load ptr, ptr %1226, align 8
   br label %1500
 
 1500:                                             ; preds = %1495, %1490
   %1501 = phi ptr [ %.pre910, %1495 ], [ %1491, %1490 ]
-  %1502 = getelementptr inbounds i8, ptr %1501, i64 92
+  %1502 = getelementptr inbounds nuw i8, ptr %1501, i64 92
   %1503 = load i32, ptr %1502, align 4
-  %1504 = getelementptr inbounds i8, ptr %1501, i64 108
+  %1504 = getelementptr inbounds nuw i8, ptr %1501, i64 108
   %1505 = load i32, ptr %1504, align 4
   %1506 = icmp slt i32 %1503, %1505
   br i1 %1506, label %1507, label %.loopexit
 
 1507:                                             ; preds = %1500
-  %1508 = getelementptr inbounds i8, ptr %1501, i64 80
+  %1508 = getelementptr inbounds nuw i8, ptr %1501, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1508, i64 12, i1 false)
-  %1509 = getelementptr inbounds i8, ptr %1501, i64 96
+  %1509 = getelementptr inbounds nuw i8, ptr %1501, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1508, ptr noundef nonnull align 4 dereferenceable(16) %1509, i64 16, i1 false)
   %1510 = load ptr, ptr %1226, align 8
-  %1511 = getelementptr inbounds i8, ptr %1510, i64 96
+  %1511 = getelementptr inbounds nuw i8, ptr %1510, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1511, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx518 = getelementptr inbounds i8, ptr %1510, i64 108
+  %.sroa.388.0..sroa_idx518 = getelementptr inbounds nuw i8, ptr %1510, i64 108
   store i32 %1503, ptr %.sroa.388.0..sroa_idx518, align 4
   br label %.loopexit
 
@@ -7442,85 +7442,85 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1514 = load ptr, ptr %1513, align 8
   %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 12
   %1516 = load i32, ptr %1515, align 4
-  %1517 = getelementptr inbounds i8, ptr %1514, i64 28
+  %1517 = getelementptr inbounds nuw i8, ptr %1514, i64 28
   %1518 = load i32, ptr %1517, align 4
   %1519 = icmp slt i32 %1516, %1518
   br i1 %1519, label %1520, label %1524
 
 1520:                                             ; preds = %1512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1514, i64 12, i1 false)
-  %1521 = getelementptr inbounds i8, ptr %1514, i64 16
+  %1521 = getelementptr inbounds nuw i8, ptr %1514, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1514, ptr noundef nonnull align 4 dereferenceable(16) %1521, i64 16, i1 false)
   %1522 = load ptr, ptr %1513, align 8
-  %1523 = getelementptr inbounds i8, ptr %1522, i64 16
+  %1523 = getelementptr inbounds nuw i8, ptr %1522, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1523, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx522 = getelementptr inbounds i8, ptr %1522, i64 28
+  %.sroa.388.0..sroa_idx522 = getelementptr inbounds nuw i8, ptr %1522, i64 28
   store i32 %1516, ptr %.sroa.388.0..sroa_idx522, align 4
   %.pre851 = load ptr, ptr %1513, align 8
   br label %1524
 
 1524:                                             ; preds = %1520, %1512
   %1525 = phi ptr [ %.pre851, %1520 ], [ %1514, %1512 ]
-  %1526 = getelementptr inbounds i8, ptr %1525, i64 44
+  %1526 = getelementptr inbounds nuw i8, ptr %1525, i64 44
   %1527 = load i32, ptr %1526, align 4
-  %1528 = getelementptr inbounds i8, ptr %1525, i64 60
+  %1528 = getelementptr inbounds nuw i8, ptr %1525, i64 60
   %1529 = load i32, ptr %1528, align 4
   %1530 = icmp slt i32 %1527, %1529
   br i1 %1530, label %1531, label %1536
 
 1531:                                             ; preds = %1524
-  %1532 = getelementptr inbounds i8, ptr %1525, i64 32
+  %1532 = getelementptr inbounds nuw i8, ptr %1525, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1532, i64 12, i1 false)
-  %1533 = getelementptr inbounds i8, ptr %1525, i64 48
+  %1533 = getelementptr inbounds nuw i8, ptr %1525, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1532, ptr noundef nonnull align 4 dereferenceable(16) %1533, i64 16, i1 false)
   %1534 = load ptr, ptr %1513, align 8
-  %1535 = getelementptr inbounds i8, ptr %1534, i64 48
+  %1535 = getelementptr inbounds nuw i8, ptr %1534, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1535, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx526 = getelementptr inbounds i8, ptr %1534, i64 60
+  %.sroa.388.0..sroa_idx526 = getelementptr inbounds nuw i8, ptr %1534, i64 60
   store i32 %1527, ptr %.sroa.388.0..sroa_idx526, align 4
   %.pre852 = load ptr, ptr %1513, align 8
   br label %1536
 
 1536:                                             ; preds = %1531, %1524
   %1537 = phi ptr [ %.pre852, %1531 ], [ %1525, %1524 ]
-  %1538 = getelementptr inbounds i8, ptr %1537, i64 76
+  %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 76
   %1539 = load i32, ptr %1538, align 4
-  %1540 = getelementptr inbounds i8, ptr %1537, i64 92
+  %1540 = getelementptr inbounds nuw i8, ptr %1537, i64 92
   %1541 = load i32, ptr %1540, align 4
   %1542 = icmp slt i32 %1539, %1541
   br i1 %1542, label %1543, label %1548
 
 1543:                                             ; preds = %1536
-  %1544 = getelementptr inbounds i8, ptr %1537, i64 64
+  %1544 = getelementptr inbounds nuw i8, ptr %1537, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1544, i64 12, i1 false)
-  %1545 = getelementptr inbounds i8, ptr %1537, i64 80
+  %1545 = getelementptr inbounds nuw i8, ptr %1537, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1544, ptr noundef nonnull align 4 dereferenceable(16) %1545, i64 16, i1 false)
   %1546 = load ptr, ptr %1513, align 8
-  %1547 = getelementptr inbounds i8, ptr %1546, i64 80
+  %1547 = getelementptr inbounds nuw i8, ptr %1546, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1547, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx530 = getelementptr inbounds i8, ptr %1546, i64 92
+  %.sroa.388.0..sroa_idx530 = getelementptr inbounds nuw i8, ptr %1546, i64 92
   store i32 %1539, ptr %.sroa.388.0..sroa_idx530, align 4
   %.pre853 = load ptr, ptr %1513, align 8
   br label %1548
 
 1548:                                             ; preds = %1543, %1536
   %1549 = phi ptr [ %.pre853, %1543 ], [ %1537, %1536 ]
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 108
+  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 108
   %1551 = load i32, ptr %1550, align 4
-  %1552 = getelementptr inbounds i8, ptr %1549, i64 124
+  %1552 = getelementptr inbounds nuw i8, ptr %1549, i64 124
   %1553 = load i32, ptr %1552, align 4
   %1554 = icmp slt i32 %1551, %1553
   br i1 %1554, label %1555, label %1560
 
 1555:                                             ; preds = %1548
-  %1556 = getelementptr inbounds i8, ptr %1549, i64 96
+  %1556 = getelementptr inbounds nuw i8, ptr %1549, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1556, i64 12, i1 false)
-  %1557 = getelementptr inbounds i8, ptr %1549, i64 112
+  %1557 = getelementptr inbounds nuw i8, ptr %1549, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1556, ptr noundef nonnull align 4 dereferenceable(16) %1557, i64 16, i1 false)
   %1558 = load ptr, ptr %1513, align 8
-  %1559 = getelementptr inbounds i8, ptr %1558, i64 112
+  %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1559, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx534 = getelementptr inbounds i8, ptr %1558, i64 124
+  %.sroa.388.0..sroa_idx534 = getelementptr inbounds nuw i8, ptr %1558, i64 124
   store i32 %1551, ptr %.sroa.388.0..sroa_idx534, align 4
   %.pre854 = load ptr, ptr %1513, align 8
   br label %1560
@@ -7529,129 +7529,129 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1561 = phi ptr [ %.pre854, %1555 ], [ %1549, %1548 ]
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 12
   %1563 = load i32, ptr %1562, align 4
-  %1564 = getelementptr inbounds i8, ptr %1561, i64 44
+  %1564 = getelementptr inbounds nuw i8, ptr %1561, i64 44
   %1565 = load i32, ptr %1564, align 4
   %1566 = icmp slt i32 %1563, %1565
   br i1 %1566, label %1567, label %1571
 
 1567:                                             ; preds = %1560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1561, i64 12, i1 false)
-  %1568 = getelementptr inbounds i8, ptr %1561, i64 32
+  %1568 = getelementptr inbounds nuw i8, ptr %1561, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1561, ptr noundef nonnull align 4 dereferenceable(16) %1568, i64 16, i1 false)
   %1569 = load ptr, ptr %1513, align 8
-  %1570 = getelementptr inbounds i8, ptr %1569, i64 32
+  %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1570, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx538 = getelementptr inbounds i8, ptr %1569, i64 44
+  %.sroa.388.0..sroa_idx538 = getelementptr inbounds nuw i8, ptr %1569, i64 44
   store i32 %1563, ptr %.sroa.388.0..sroa_idx538, align 4
   %.pre855 = load ptr, ptr %1513, align 8
   br label %1571
 
 1571:                                             ; preds = %1567, %1560
   %1572 = phi ptr [ %.pre855, %1567 ], [ %1561, %1560 ]
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 76
+  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 76
   %1574 = load i32, ptr %1573, align 4
-  %1575 = getelementptr inbounds i8, ptr %1572, i64 108
+  %1575 = getelementptr inbounds nuw i8, ptr %1572, i64 108
   %1576 = load i32, ptr %1575, align 4
   %1577 = icmp slt i32 %1574, %1576
   br i1 %1577, label %1578, label %1583
 
 1578:                                             ; preds = %1571
-  %1579 = getelementptr inbounds i8, ptr %1572, i64 64
+  %1579 = getelementptr inbounds nuw i8, ptr %1572, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1579, i64 12, i1 false)
-  %1580 = getelementptr inbounds i8, ptr %1572, i64 96
+  %1580 = getelementptr inbounds nuw i8, ptr %1572, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1579, ptr noundef nonnull align 4 dereferenceable(16) %1580, i64 16, i1 false)
   %1581 = load ptr, ptr %1513, align 8
-  %1582 = getelementptr inbounds i8, ptr %1581, i64 96
+  %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1582, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx542 = getelementptr inbounds i8, ptr %1581, i64 108
+  %.sroa.388.0..sroa_idx542 = getelementptr inbounds nuw i8, ptr %1581, i64 108
   store i32 %1574, ptr %.sroa.388.0..sroa_idx542, align 4
   %.pre856 = load ptr, ptr %1513, align 8
   br label %1583
 
 1583:                                             ; preds = %1578, %1571
   %1584 = phi ptr [ %.pre856, %1578 ], [ %1572, %1571 ]
-  %1585 = getelementptr inbounds i8, ptr %1584, i64 28
+  %1585 = getelementptr inbounds nuw i8, ptr %1584, i64 28
   %1586 = load i32, ptr %1585, align 4
-  %1587 = getelementptr inbounds i8, ptr %1584, i64 60
+  %1587 = getelementptr inbounds nuw i8, ptr %1584, i64 60
   %1588 = load i32, ptr %1587, align 4
   %1589 = icmp slt i32 %1586, %1588
   br i1 %1589, label %1590, label %1595
 
 1590:                                             ; preds = %1583
-  %1591 = getelementptr inbounds i8, ptr %1584, i64 16
+  %1591 = getelementptr inbounds nuw i8, ptr %1584, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1591, i64 12, i1 false)
-  %1592 = getelementptr inbounds i8, ptr %1584, i64 48
+  %1592 = getelementptr inbounds nuw i8, ptr %1584, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1591, ptr noundef nonnull align 4 dereferenceable(16) %1592, i64 16, i1 false)
   %1593 = load ptr, ptr %1513, align 8
-  %1594 = getelementptr inbounds i8, ptr %1593, i64 48
+  %1594 = getelementptr inbounds nuw i8, ptr %1593, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1594, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx546 = getelementptr inbounds i8, ptr %1593, i64 60
+  %.sroa.388.0..sroa_idx546 = getelementptr inbounds nuw i8, ptr %1593, i64 60
   store i32 %1586, ptr %.sroa.388.0..sroa_idx546, align 4
   %.pre857 = load ptr, ptr %1513, align 8
   br label %1595
 
 1595:                                             ; preds = %1590, %1583
   %1596 = phi ptr [ %.pre857, %1590 ], [ %1584, %1583 ]
-  %1597 = getelementptr inbounds i8, ptr %1596, i64 92
+  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 92
   %1598 = load i32, ptr %1597, align 4
-  %1599 = getelementptr inbounds i8, ptr %1596, i64 124
+  %1599 = getelementptr inbounds nuw i8, ptr %1596, i64 124
   %1600 = load i32, ptr %1599, align 4
   %1601 = icmp slt i32 %1598, %1600
   br i1 %1601, label %1602, label %1607
 
 1602:                                             ; preds = %1595
-  %1603 = getelementptr inbounds i8, ptr %1596, i64 80
+  %1603 = getelementptr inbounds nuw i8, ptr %1596, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1603, i64 12, i1 false)
-  %1604 = getelementptr inbounds i8, ptr %1596, i64 112
+  %1604 = getelementptr inbounds nuw i8, ptr %1596, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1603, ptr noundef nonnull align 4 dereferenceable(16) %1604, i64 16, i1 false)
   %1605 = load ptr, ptr %1513, align 8
-  %1606 = getelementptr inbounds i8, ptr %1605, i64 112
+  %1606 = getelementptr inbounds nuw i8, ptr %1605, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1606, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx550 = getelementptr inbounds i8, ptr %1605, i64 124
+  %.sroa.388.0..sroa_idx550 = getelementptr inbounds nuw i8, ptr %1605, i64 124
   store i32 %1598, ptr %.sroa.388.0..sroa_idx550, align 4
   %.pre858 = load ptr, ptr %1513, align 8
   br label %1607
 
 1607:                                             ; preds = %1602, %1595
   %1608 = phi ptr [ %.pre858, %1602 ], [ %1596, %1595 ]
-  %1609 = getelementptr inbounds i8, ptr %1608, i64 28
+  %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 28
   %1610 = load i32, ptr %1609, align 4
-  %1611 = getelementptr inbounds i8, ptr %1608, i64 44
+  %1611 = getelementptr inbounds nuw i8, ptr %1608, i64 44
   %1612 = load i32, ptr %1611, align 4
   %1613 = icmp slt i32 %1610, %1612
   br i1 %1613, label %1614, label %1619
 
 1614:                                             ; preds = %1607
-  %1615 = getelementptr inbounds i8, ptr %1608, i64 16
+  %1615 = getelementptr inbounds nuw i8, ptr %1608, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1615, i64 12, i1 false)
-  %1616 = getelementptr inbounds i8, ptr %1608, i64 32
+  %1616 = getelementptr inbounds nuw i8, ptr %1608, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1615, ptr noundef nonnull align 4 dereferenceable(16) %1616, i64 16, i1 false)
   %1617 = load ptr, ptr %1513, align 8
-  %1618 = getelementptr inbounds i8, ptr %1617, i64 32
+  %1618 = getelementptr inbounds nuw i8, ptr %1617, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1618, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx554 = getelementptr inbounds i8, ptr %1617, i64 44
+  %.sroa.388.0..sroa_idx554 = getelementptr inbounds nuw i8, ptr %1617, i64 44
   store i32 %1610, ptr %.sroa.388.0..sroa_idx554, align 4
   %.pre859 = load ptr, ptr %1513, align 8
   br label %1619
 
 1619:                                             ; preds = %1614, %1607
   %1620 = phi ptr [ %.pre859, %1614 ], [ %1608, %1607 ]
-  %1621 = getelementptr inbounds i8, ptr %1620, i64 92
+  %1621 = getelementptr inbounds nuw i8, ptr %1620, i64 92
   %1622 = load i32, ptr %1621, align 4
-  %1623 = getelementptr inbounds i8, ptr %1620, i64 108
+  %1623 = getelementptr inbounds nuw i8, ptr %1620, i64 108
   %1624 = load i32, ptr %1623, align 4
   %1625 = icmp slt i32 %1622, %1624
   br i1 %1625, label %1626, label %1631
 
 1626:                                             ; preds = %1619
-  %1627 = getelementptr inbounds i8, ptr %1620, i64 80
+  %1627 = getelementptr inbounds nuw i8, ptr %1620, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1627, i64 12, i1 false)
-  %1628 = getelementptr inbounds i8, ptr %1620, i64 96
+  %1628 = getelementptr inbounds nuw i8, ptr %1620, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1627, ptr noundef nonnull align 4 dereferenceable(16) %1628, i64 16, i1 false)
   %1629 = load ptr, ptr %1513, align 8
-  %1630 = getelementptr inbounds i8, ptr %1629, i64 96
+  %1630 = getelementptr inbounds nuw i8, ptr %1629, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1630, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx558 = getelementptr inbounds i8, ptr %1629, i64 108
+  %.sroa.388.0..sroa_idx558 = getelementptr inbounds nuw i8, ptr %1629, i64 108
   store i32 %1622, ptr %.sroa.388.0..sroa_idx558, align 4
   %.pre860 = load ptr, ptr %1513, align 8
   br label %1631
@@ -7660,195 +7660,195 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1632 = phi ptr [ %.pre860, %1626 ], [ %1620, %1619 ]
   %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 12
   %1634 = load i32, ptr %1633, align 4
-  %1635 = getelementptr inbounds i8, ptr %1632, i64 76
+  %1635 = getelementptr inbounds nuw i8, ptr %1632, i64 76
   %1636 = load i32, ptr %1635, align 4
   %1637 = icmp slt i32 %1634, %1636
   br i1 %1637, label %1638, label %1642
 
 1638:                                             ; preds = %1631
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1632, i64 12, i1 false)
-  %1639 = getelementptr inbounds i8, ptr %1632, i64 64
+  %1639 = getelementptr inbounds nuw i8, ptr %1632, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1632, ptr noundef nonnull align 4 dereferenceable(16) %1639, i64 16, i1 false)
   %1640 = load ptr, ptr %1513, align 8
-  %1641 = getelementptr inbounds i8, ptr %1640, i64 64
+  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1641, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx562 = getelementptr inbounds i8, ptr %1640, i64 76
+  %.sroa.388.0..sroa_idx562 = getelementptr inbounds nuw i8, ptr %1640, i64 76
   store i32 %1634, ptr %.sroa.388.0..sroa_idx562, align 4
   %.pre861 = load ptr, ptr %1513, align 8
   br label %1642
 
 1642:                                             ; preds = %1638, %1631
   %1643 = phi ptr [ %.pre861, %1638 ], [ %1632, %1631 ]
-  %1644 = getelementptr inbounds i8, ptr %1643, i64 28
+  %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 28
   %1645 = load i32, ptr %1644, align 4
-  %1646 = getelementptr inbounds i8, ptr %1643, i64 92
+  %1646 = getelementptr inbounds nuw i8, ptr %1643, i64 92
   %1647 = load i32, ptr %1646, align 4
   %1648 = icmp slt i32 %1645, %1647
   br i1 %1648, label %1649, label %1654
 
 1649:                                             ; preds = %1642
-  %1650 = getelementptr inbounds i8, ptr %1643, i64 16
+  %1650 = getelementptr inbounds nuw i8, ptr %1643, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1650, i64 12, i1 false)
-  %1651 = getelementptr inbounds i8, ptr %1643, i64 80
+  %1651 = getelementptr inbounds nuw i8, ptr %1643, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1650, ptr noundef nonnull align 4 dereferenceable(16) %1651, i64 16, i1 false)
   %1652 = load ptr, ptr %1513, align 8
-  %1653 = getelementptr inbounds i8, ptr %1652, i64 80
+  %1653 = getelementptr inbounds nuw i8, ptr %1652, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1653, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx566 = getelementptr inbounds i8, ptr %1652, i64 92
+  %.sroa.388.0..sroa_idx566 = getelementptr inbounds nuw i8, ptr %1652, i64 92
   store i32 %1645, ptr %.sroa.388.0..sroa_idx566, align 4
   %.pre862 = load ptr, ptr %1513, align 8
   br label %1654
 
 1654:                                             ; preds = %1649, %1642
   %1655 = phi ptr [ %.pre862, %1649 ], [ %1643, %1642 ]
-  %1656 = getelementptr inbounds i8, ptr %1655, i64 44
+  %1656 = getelementptr inbounds nuw i8, ptr %1655, i64 44
   %1657 = load i32, ptr %1656, align 4
-  %1658 = getelementptr inbounds i8, ptr %1655, i64 108
+  %1658 = getelementptr inbounds nuw i8, ptr %1655, i64 108
   %1659 = load i32, ptr %1658, align 4
   %1660 = icmp slt i32 %1657, %1659
   br i1 %1660, label %1661, label %1666
 
 1661:                                             ; preds = %1654
-  %1662 = getelementptr inbounds i8, ptr %1655, i64 32
+  %1662 = getelementptr inbounds nuw i8, ptr %1655, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1662, i64 12, i1 false)
-  %1663 = getelementptr inbounds i8, ptr %1655, i64 96
+  %1663 = getelementptr inbounds nuw i8, ptr %1655, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1662, ptr noundef nonnull align 4 dereferenceable(16) %1663, i64 16, i1 false)
   %1664 = load ptr, ptr %1513, align 8
-  %1665 = getelementptr inbounds i8, ptr %1664, i64 96
+  %1665 = getelementptr inbounds nuw i8, ptr %1664, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1665, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx570 = getelementptr inbounds i8, ptr %1664, i64 108
+  %.sroa.388.0..sroa_idx570 = getelementptr inbounds nuw i8, ptr %1664, i64 108
   store i32 %1657, ptr %.sroa.388.0..sroa_idx570, align 4
   %.pre863 = load ptr, ptr %1513, align 8
   br label %1666
 
 1666:                                             ; preds = %1661, %1654
   %1667 = phi ptr [ %.pre863, %1661 ], [ %1655, %1654 ]
-  %1668 = getelementptr inbounds i8, ptr %1667, i64 60
+  %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 60
   %1669 = load i32, ptr %1668, align 4
-  %1670 = getelementptr inbounds i8, ptr %1667, i64 124
+  %1670 = getelementptr inbounds nuw i8, ptr %1667, i64 124
   %1671 = load i32, ptr %1670, align 4
   %1672 = icmp slt i32 %1669, %1671
   br i1 %1672, label %1673, label %1678
 
 1673:                                             ; preds = %1666
-  %1674 = getelementptr inbounds i8, ptr %1667, i64 48
+  %1674 = getelementptr inbounds nuw i8, ptr %1667, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1674, i64 12, i1 false)
-  %1675 = getelementptr inbounds i8, ptr %1667, i64 112
+  %1675 = getelementptr inbounds nuw i8, ptr %1667, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1674, ptr noundef nonnull align 4 dereferenceable(16) %1675, i64 16, i1 false)
   %1676 = load ptr, ptr %1513, align 8
-  %1677 = getelementptr inbounds i8, ptr %1676, i64 112
+  %1677 = getelementptr inbounds nuw i8, ptr %1676, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1677, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx574 = getelementptr inbounds i8, ptr %1676, i64 124
+  %.sroa.388.0..sroa_idx574 = getelementptr inbounds nuw i8, ptr %1676, i64 124
   store i32 %1669, ptr %.sroa.388.0..sroa_idx574, align 4
   %.pre864 = load ptr, ptr %1513, align 8
   br label %1678
 
 1678:                                             ; preds = %1673, %1666
   %1679 = phi ptr [ %.pre864, %1673 ], [ %1667, %1666 ]
-  %1680 = getelementptr inbounds i8, ptr %1679, i64 44
+  %1680 = getelementptr inbounds nuw i8, ptr %1679, i64 44
   %1681 = load i32, ptr %1680, align 4
-  %1682 = getelementptr inbounds i8, ptr %1679, i64 76
+  %1682 = getelementptr inbounds nuw i8, ptr %1679, i64 76
   %1683 = load i32, ptr %1682, align 4
   %1684 = icmp slt i32 %1681, %1683
   br i1 %1684, label %1685, label %1690
 
 1685:                                             ; preds = %1678
-  %1686 = getelementptr inbounds i8, ptr %1679, i64 32
+  %1686 = getelementptr inbounds nuw i8, ptr %1679, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1686, i64 12, i1 false)
-  %1687 = getelementptr inbounds i8, ptr %1679, i64 64
+  %1687 = getelementptr inbounds nuw i8, ptr %1679, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1686, ptr noundef nonnull align 4 dereferenceable(16) %1687, i64 16, i1 false)
   %1688 = load ptr, ptr %1513, align 8
-  %1689 = getelementptr inbounds i8, ptr %1688, i64 64
+  %1689 = getelementptr inbounds nuw i8, ptr %1688, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1689, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx578 = getelementptr inbounds i8, ptr %1688, i64 76
+  %.sroa.388.0..sroa_idx578 = getelementptr inbounds nuw i8, ptr %1688, i64 76
   store i32 %1681, ptr %.sroa.388.0..sroa_idx578, align 4
   %.pre865 = load ptr, ptr %1513, align 8
   br label %1690
 
 1690:                                             ; preds = %1685, %1678
   %1691 = phi ptr [ %.pre865, %1685 ], [ %1679, %1678 ]
-  %1692 = getelementptr inbounds i8, ptr %1691, i64 60
+  %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 60
   %1693 = load i32, ptr %1692, align 4
-  %1694 = getelementptr inbounds i8, ptr %1691, i64 92
+  %1694 = getelementptr inbounds nuw i8, ptr %1691, i64 92
   %1695 = load i32, ptr %1694, align 4
   %1696 = icmp slt i32 %1693, %1695
   br i1 %1696, label %1697, label %1702
 
 1697:                                             ; preds = %1690
-  %1698 = getelementptr inbounds i8, ptr %1691, i64 48
+  %1698 = getelementptr inbounds nuw i8, ptr %1691, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1698, i64 12, i1 false)
-  %1699 = getelementptr inbounds i8, ptr %1691, i64 80
+  %1699 = getelementptr inbounds nuw i8, ptr %1691, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1698, ptr noundef nonnull align 4 dereferenceable(16) %1699, i64 16, i1 false)
   %1700 = load ptr, ptr %1513, align 8
-  %1701 = getelementptr inbounds i8, ptr %1700, i64 80
+  %1701 = getelementptr inbounds nuw i8, ptr %1700, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1701, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx582 = getelementptr inbounds i8, ptr %1700, i64 92
+  %.sroa.388.0..sroa_idx582 = getelementptr inbounds nuw i8, ptr %1700, i64 92
   store i32 %1693, ptr %.sroa.388.0..sroa_idx582, align 4
   %.pre866 = load ptr, ptr %1513, align 8
   br label %1702
 
 1702:                                             ; preds = %1697, %1690
   %1703 = phi ptr [ %.pre866, %1697 ], [ %1691, %1690 ]
-  %1704 = getelementptr inbounds i8, ptr %1703, i64 28
+  %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 28
   %1705 = load i32, ptr %1704, align 4
-  %1706 = getelementptr inbounds i8, ptr %1703, i64 44
+  %1706 = getelementptr inbounds nuw i8, ptr %1703, i64 44
   %1707 = load i32, ptr %1706, align 4
   %1708 = icmp slt i32 %1705, %1707
   br i1 %1708, label %1709, label %1714
 
 1709:                                             ; preds = %1702
-  %1710 = getelementptr inbounds i8, ptr %1703, i64 16
+  %1710 = getelementptr inbounds nuw i8, ptr %1703, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1710, i64 12, i1 false)
-  %1711 = getelementptr inbounds i8, ptr %1703, i64 32
+  %1711 = getelementptr inbounds nuw i8, ptr %1703, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1710, ptr noundef nonnull align 4 dereferenceable(16) %1711, i64 16, i1 false)
   %1712 = load ptr, ptr %1513, align 8
-  %1713 = getelementptr inbounds i8, ptr %1712, i64 32
+  %1713 = getelementptr inbounds nuw i8, ptr %1712, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1713, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx586 = getelementptr inbounds i8, ptr %1712, i64 44
+  %.sroa.388.0..sroa_idx586 = getelementptr inbounds nuw i8, ptr %1712, i64 44
   store i32 %1705, ptr %.sroa.388.0..sroa_idx586, align 4
   %.pre867 = load ptr, ptr %1513, align 8
   br label %1714
 
 1714:                                             ; preds = %1709, %1702
   %1715 = phi ptr [ %.pre867, %1709 ], [ %1703, %1702 ]
-  %1716 = getelementptr inbounds i8, ptr %1715, i64 60
+  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 60
   %1717 = load i32, ptr %1716, align 4
-  %1718 = getelementptr inbounds i8, ptr %1715, i64 76
+  %1718 = getelementptr inbounds nuw i8, ptr %1715, i64 76
   %1719 = load i32, ptr %1718, align 4
   %1720 = icmp slt i32 %1717, %1719
   br i1 %1720, label %1721, label %1726
 
 1721:                                             ; preds = %1714
-  %1722 = getelementptr inbounds i8, ptr %1715, i64 48
+  %1722 = getelementptr inbounds nuw i8, ptr %1715, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1722, i64 12, i1 false)
-  %1723 = getelementptr inbounds i8, ptr %1715, i64 64
+  %1723 = getelementptr inbounds nuw i8, ptr %1715, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1722, ptr noundef nonnull align 4 dereferenceable(16) %1723, i64 16, i1 false)
   %1724 = load ptr, ptr %1513, align 8
-  %1725 = getelementptr inbounds i8, ptr %1724, i64 64
+  %1725 = getelementptr inbounds nuw i8, ptr %1724, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1725, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx590 = getelementptr inbounds i8, ptr %1724, i64 76
+  %.sroa.388.0..sroa_idx590 = getelementptr inbounds nuw i8, ptr %1724, i64 76
   store i32 %1717, ptr %.sroa.388.0..sroa_idx590, align 4
   %.pre868 = load ptr, ptr %1513, align 8
   br label %1726
 
 1726:                                             ; preds = %1721, %1714
   %1727 = phi ptr [ %.pre868, %1721 ], [ %1715, %1714 ]
-  %1728 = getelementptr inbounds i8, ptr %1727, i64 92
+  %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 92
   %1729 = load i32, ptr %1728, align 4
-  %1730 = getelementptr inbounds i8, ptr %1727, i64 108
+  %1730 = getelementptr inbounds nuw i8, ptr %1727, i64 108
   %1731 = load i32, ptr %1730, align 4
   %1732 = icmp slt i32 %1729, %1731
   br i1 %1732, label %1733, label %.loopexit
 
 1733:                                             ; preds = %1726
-  %1734 = getelementptr inbounds i8, ptr %1727, i64 80
+  %1734 = getelementptr inbounds nuw i8, ptr %1727, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1734, i64 12, i1 false)
-  %1735 = getelementptr inbounds i8, ptr %1727, i64 96
+  %1735 = getelementptr inbounds nuw i8, ptr %1727, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1734, ptr noundef nonnull align 4 dereferenceable(16) %1735, i64 16, i1 false)
   %1736 = load ptr, ptr %1513, align 8
-  %1737 = getelementptr inbounds i8, ptr %1736, i64 96
+  %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1737, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx594 = getelementptr inbounds i8, ptr %1736, i64 108
+  %.sroa.388.0..sroa_idx594 = getelementptr inbounds nuw i8, ptr %1736, i64 108
   store i32 %1729, ptr %.sroa.388.0..sroa_idx594, align 4
   br label %.loopexit
 
@@ -7857,63 +7857,63 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1740 = load ptr, ptr %1739, align 8
   %1741 = getelementptr inbounds nuw i8, ptr %1740, i64 12
   %1742 = load i32, ptr %1741, align 4
-  %1743 = getelementptr inbounds i8, ptr %1740, i64 28
+  %1743 = getelementptr inbounds nuw i8, ptr %1740, i64 28
   %1744 = load i32, ptr %1743, align 4
   %1745 = icmp slt i32 %1742, %1744
   br i1 %1745, label %1746, label %1750
 
 1746:                                             ; preds = %1738
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1740, i64 12, i1 false)
-  %1747 = getelementptr inbounds i8, ptr %1740, i64 16
+  %1747 = getelementptr inbounds nuw i8, ptr %1740, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1740, ptr noundef nonnull align 4 dereferenceable(16) %1747, i64 16, i1 false)
   %1748 = load ptr, ptr %1739, align 8
-  %1749 = getelementptr inbounds i8, ptr %1748, i64 16
+  %1749 = getelementptr inbounds nuw i8, ptr %1748, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1749, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx598 = getelementptr inbounds i8, ptr %1748, i64 28
+  %.sroa.388.0..sroa_idx598 = getelementptr inbounds nuw i8, ptr %1748, i64 28
   store i32 %1742, ptr %.sroa.388.0..sroa_idx598, align 4
   %.pre832 = load ptr, ptr %1739, align 8
   br label %1750
 
 1750:                                             ; preds = %1746, %1738
   %1751 = phi ptr [ %.pre832, %1746 ], [ %1740, %1738 ]
-  %1752 = getelementptr inbounds i8, ptr %1751, i64 44
+  %1752 = getelementptr inbounds nuw i8, ptr %1751, i64 44
   %1753 = load i32, ptr %1752, align 4
-  %1754 = getelementptr inbounds i8, ptr %1751, i64 60
+  %1754 = getelementptr inbounds nuw i8, ptr %1751, i64 60
   %1755 = load i32, ptr %1754, align 4
   %1756 = icmp slt i32 %1753, %1755
   br i1 %1756, label %1757, label %1762
 
 1757:                                             ; preds = %1750
-  %1758 = getelementptr inbounds i8, ptr %1751, i64 32
+  %1758 = getelementptr inbounds nuw i8, ptr %1751, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1758, i64 12, i1 false)
-  %1759 = getelementptr inbounds i8, ptr %1751, i64 48
+  %1759 = getelementptr inbounds nuw i8, ptr %1751, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1758, ptr noundef nonnull align 4 dereferenceable(16) %1759, i64 16, i1 false)
   %1760 = load ptr, ptr %1739, align 8
-  %1761 = getelementptr inbounds i8, ptr %1760, i64 48
+  %1761 = getelementptr inbounds nuw i8, ptr %1760, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1761, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx602 = getelementptr inbounds i8, ptr %1760, i64 60
+  %.sroa.388.0..sroa_idx602 = getelementptr inbounds nuw i8, ptr %1760, i64 60
   store i32 %1753, ptr %.sroa.388.0..sroa_idx602, align 4
   %.pre833 = load ptr, ptr %1739, align 8
   br label %1762
 
 1762:                                             ; preds = %1757, %1750
   %1763 = phi ptr [ %.pre833, %1757 ], [ %1751, %1750 ]
-  %1764 = getelementptr inbounds i8, ptr %1763, i64 76
+  %1764 = getelementptr inbounds nuw i8, ptr %1763, i64 76
   %1765 = load i32, ptr %1764, align 4
-  %1766 = getelementptr inbounds i8, ptr %1763, i64 92
+  %1766 = getelementptr inbounds nuw i8, ptr %1763, i64 92
   %1767 = load i32, ptr %1766, align 4
   %1768 = icmp slt i32 %1765, %1767
   br i1 %1768, label %1769, label %1774
 
 1769:                                             ; preds = %1762
-  %1770 = getelementptr inbounds i8, ptr %1763, i64 64
+  %1770 = getelementptr inbounds nuw i8, ptr %1763, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1770, i64 12, i1 false)
-  %1771 = getelementptr inbounds i8, ptr %1763, i64 80
+  %1771 = getelementptr inbounds nuw i8, ptr %1763, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1770, ptr noundef nonnull align 4 dereferenceable(16) %1771, i64 16, i1 false)
   %1772 = load ptr, ptr %1739, align 8
-  %1773 = getelementptr inbounds i8, ptr %1772, i64 80
+  %1773 = getelementptr inbounds nuw i8, ptr %1772, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1773, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx606 = getelementptr inbounds i8, ptr %1772, i64 92
+  %.sroa.388.0..sroa_idx606 = getelementptr inbounds nuw i8, ptr %1772, i64 92
   store i32 %1765, ptr %.sroa.388.0..sroa_idx606, align 4
   %.pre834 = load ptr, ptr %1739, align 8
   br label %1774
@@ -7922,108 +7922,108 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1775 = phi ptr [ %.pre834, %1769 ], [ %1763, %1762 ]
   %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 12
   %1777 = load i32, ptr %1776, align 4
-  %1778 = getelementptr inbounds i8, ptr %1775, i64 44
+  %1778 = getelementptr inbounds nuw i8, ptr %1775, i64 44
   %1779 = load i32, ptr %1778, align 4
   %1780 = icmp slt i32 %1777, %1779
   br i1 %1780, label %1781, label %1785
 
 1781:                                             ; preds = %1774
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1775, i64 12, i1 false)
-  %1782 = getelementptr inbounds i8, ptr %1775, i64 32
+  %1782 = getelementptr inbounds nuw i8, ptr %1775, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1775, ptr noundef nonnull align 4 dereferenceable(16) %1782, i64 16, i1 false)
   %1783 = load ptr, ptr %1739, align 8
-  %1784 = getelementptr inbounds i8, ptr %1783, i64 32
+  %1784 = getelementptr inbounds nuw i8, ptr %1783, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1784, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx610 = getelementptr inbounds i8, ptr %1783, i64 44
+  %.sroa.388.0..sroa_idx610 = getelementptr inbounds nuw i8, ptr %1783, i64 44
   store i32 %1777, ptr %.sroa.388.0..sroa_idx610, align 4
   %.pre835 = load ptr, ptr %1739, align 8
   br label %1785
 
 1785:                                             ; preds = %1781, %1774
   %1786 = phi ptr [ %.pre835, %1781 ], [ %1775, %1774 ]
-  %1787 = getelementptr inbounds i8, ptr %1786, i64 76
+  %1787 = getelementptr inbounds nuw i8, ptr %1786, i64 76
   %1788 = load i32, ptr %1787, align 4
-  %1789 = getelementptr inbounds i8, ptr %1786, i64 108
+  %1789 = getelementptr inbounds nuw i8, ptr %1786, i64 108
   %1790 = load i32, ptr %1789, align 4
   %1791 = icmp slt i32 %1788, %1790
   br i1 %1791, label %1792, label %1797
 
 1792:                                             ; preds = %1785
-  %1793 = getelementptr inbounds i8, ptr %1786, i64 64
+  %1793 = getelementptr inbounds nuw i8, ptr %1786, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1793, i64 12, i1 false)
-  %1794 = getelementptr inbounds i8, ptr %1786, i64 96
+  %1794 = getelementptr inbounds nuw i8, ptr %1786, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1793, ptr noundef nonnull align 4 dereferenceable(16) %1794, i64 16, i1 false)
   %1795 = load ptr, ptr %1739, align 8
-  %1796 = getelementptr inbounds i8, ptr %1795, i64 96
+  %1796 = getelementptr inbounds nuw i8, ptr %1795, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1796, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx614 = getelementptr inbounds i8, ptr %1795, i64 108
+  %.sroa.388.0..sroa_idx614 = getelementptr inbounds nuw i8, ptr %1795, i64 108
   store i32 %1788, ptr %.sroa.388.0..sroa_idx614, align 4
   %.pre836 = load ptr, ptr %1739, align 8
   br label %1797
 
 1797:                                             ; preds = %1792, %1785
   %1798 = phi ptr [ %.pre836, %1792 ], [ %1786, %1785 ]
-  %1799 = getelementptr inbounds i8, ptr %1798, i64 28
+  %1799 = getelementptr inbounds nuw i8, ptr %1798, i64 28
   %1800 = load i32, ptr %1799, align 4
-  %1801 = getelementptr inbounds i8, ptr %1798, i64 60
+  %1801 = getelementptr inbounds nuw i8, ptr %1798, i64 60
   %1802 = load i32, ptr %1801, align 4
   %1803 = icmp slt i32 %1800, %1802
   br i1 %1803, label %1804, label %1809
 
 1804:                                             ; preds = %1797
-  %1805 = getelementptr inbounds i8, ptr %1798, i64 16
+  %1805 = getelementptr inbounds nuw i8, ptr %1798, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1805, i64 12, i1 false)
-  %1806 = getelementptr inbounds i8, ptr %1798, i64 48
+  %1806 = getelementptr inbounds nuw i8, ptr %1798, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1805, ptr noundef nonnull align 4 dereferenceable(16) %1806, i64 16, i1 false)
   %1807 = load ptr, ptr %1739, align 8
-  %1808 = getelementptr inbounds i8, ptr %1807, i64 48
+  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1808, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx618 = getelementptr inbounds i8, ptr %1807, i64 60
+  %.sroa.388.0..sroa_idx618 = getelementptr inbounds nuw i8, ptr %1807, i64 60
   store i32 %1800, ptr %.sroa.388.0..sroa_idx618, align 4
   %.pre837 = load ptr, ptr %1739, align 8
-  %.phi.trans.insert838 = getelementptr inbounds i8, ptr %.pre837, i64 28
+  %.phi.trans.insert838 = getelementptr inbounds nuw i8, ptr %.pre837, i64 28
   %.pre839 = load i32, ptr %.phi.trans.insert838, align 4
   br label %1809
 
 1809:                                             ; preds = %1804, %1797
   %.sroa.388.0.copyload621 = phi i32 [ %.pre839, %1804 ], [ %1800, %1797 ]
   %1810 = phi ptr [ %.pre837, %1804 ], [ %1798, %1797 ]
-  %1811 = getelementptr inbounds i8, ptr %1810, i64 44
+  %1811 = getelementptr inbounds nuw i8, ptr %1810, i64 44
   %1812 = load i32, ptr %1811, align 4
   %1813 = icmp slt i32 %.sroa.388.0.copyload621, %1812
   br i1 %1813, label %1814, label %1819
 
 1814:                                             ; preds = %1809
-  %1815 = getelementptr inbounds i8, ptr %1810, i64 16
+  %1815 = getelementptr inbounds nuw i8, ptr %1810, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1815, i64 12, i1 false)
-  %1816 = getelementptr inbounds i8, ptr %1810, i64 32
+  %1816 = getelementptr inbounds nuw i8, ptr %1810, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1815, ptr noundef nonnull align 4 dereferenceable(16) %1816, i64 16, i1 false)
   %1817 = load ptr, ptr %1739, align 8
-  %1818 = getelementptr inbounds i8, ptr %1817, i64 32
+  %1818 = getelementptr inbounds nuw i8, ptr %1817, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1818, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx622 = getelementptr inbounds i8, ptr %1817, i64 44
+  %.sroa.388.0..sroa_idx622 = getelementptr inbounds nuw i8, ptr %1817, i64 44
   store i32 %.sroa.388.0.copyload621, ptr %.sroa.388.0..sroa_idx622, align 4
   %.pre840 = load ptr, ptr %1739, align 8
   br label %1819
 
 1819:                                             ; preds = %1814, %1809
   %1820 = phi ptr [ %.pre840, %1814 ], [ %1810, %1809 ]
-  %1821 = getelementptr inbounds i8, ptr %1820, i64 92
+  %1821 = getelementptr inbounds nuw i8, ptr %1820, i64 92
   %1822 = load i32, ptr %1821, align 4
-  %1823 = getelementptr inbounds i8, ptr %1820, i64 108
+  %1823 = getelementptr inbounds nuw i8, ptr %1820, i64 108
   %1824 = load i32, ptr %1823, align 4
   %1825 = icmp slt i32 %1822, %1824
   br i1 %1825, label %1826, label %1831
 
 1826:                                             ; preds = %1819
-  %1827 = getelementptr inbounds i8, ptr %1820, i64 80
+  %1827 = getelementptr inbounds nuw i8, ptr %1820, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1827, i64 12, i1 false)
-  %1828 = getelementptr inbounds i8, ptr %1820, i64 96
+  %1828 = getelementptr inbounds nuw i8, ptr %1820, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1827, ptr noundef nonnull align 4 dereferenceable(16) %1828, i64 16, i1 false)
   %1829 = load ptr, ptr %1739, align 8
-  %1830 = getelementptr inbounds i8, ptr %1829, i64 96
+  %1830 = getelementptr inbounds nuw i8, ptr %1829, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1830, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx626 = getelementptr inbounds i8, ptr %1829, i64 108
+  %.sroa.388.0..sroa_idx626 = getelementptr inbounds nuw i8, ptr %1829, i64 108
   store i32 %1822, ptr %.sroa.388.0..sroa_idx626, align 4
   %.pre841 = load ptr, ptr %1739, align 8
   br label %1831
@@ -8032,174 +8032,174 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1832 = phi ptr [ %.pre841, %1826 ], [ %1820, %1819 ]
   %1833 = getelementptr inbounds nuw i8, ptr %1832, i64 12
   %1834 = load i32, ptr %1833, align 4
-  %1835 = getelementptr inbounds i8, ptr %1832, i64 76
+  %1835 = getelementptr inbounds nuw i8, ptr %1832, i64 76
   %1836 = load i32, ptr %1835, align 4
   %1837 = icmp slt i32 %1834, %1836
   br i1 %1837, label %1838, label %1842
 
 1838:                                             ; preds = %1831
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1832, i64 12, i1 false)
-  %1839 = getelementptr inbounds i8, ptr %1832, i64 64
+  %1839 = getelementptr inbounds nuw i8, ptr %1832, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1832, ptr noundef nonnull align 4 dereferenceable(16) %1839, i64 16, i1 false)
   %1840 = load ptr, ptr %1739, align 8
-  %1841 = getelementptr inbounds i8, ptr %1840, i64 64
+  %1841 = getelementptr inbounds nuw i8, ptr %1840, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1841, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx630 = getelementptr inbounds i8, ptr %1840, i64 76
+  %.sroa.388.0..sroa_idx630 = getelementptr inbounds nuw i8, ptr %1840, i64 76
   store i32 %1834, ptr %.sroa.388.0..sroa_idx630, align 4
   %.pre842 = load ptr, ptr %1739, align 8
   br label %1842
 
 1842:                                             ; preds = %1838, %1831
   %1843 = phi ptr [ %.pre842, %1838 ], [ %1832, %1831 ]
-  %1844 = getelementptr inbounds i8, ptr %1843, i64 28
+  %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 28
   %1845 = load i32, ptr %1844, align 4
-  %1846 = getelementptr inbounds i8, ptr %1843, i64 92
+  %1846 = getelementptr inbounds nuw i8, ptr %1843, i64 92
   %1847 = load i32, ptr %1846, align 4
   %1848 = icmp slt i32 %1845, %1847
   br i1 %1848, label %1849, label %1854
 
 1849:                                             ; preds = %1842
-  %1850 = getelementptr inbounds i8, ptr %1843, i64 16
+  %1850 = getelementptr inbounds nuw i8, ptr %1843, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1850, i64 12, i1 false)
-  %1851 = getelementptr inbounds i8, ptr %1843, i64 80
+  %1851 = getelementptr inbounds nuw i8, ptr %1843, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1850, ptr noundef nonnull align 4 dereferenceable(16) %1851, i64 16, i1 false)
   %1852 = load ptr, ptr %1739, align 8
-  %1853 = getelementptr inbounds i8, ptr %1852, i64 80
+  %1853 = getelementptr inbounds nuw i8, ptr %1852, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1853, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx634 = getelementptr inbounds i8, ptr %1852, i64 92
+  %.sroa.388.0..sroa_idx634 = getelementptr inbounds nuw i8, ptr %1852, i64 92
   store i32 %1845, ptr %.sroa.388.0..sroa_idx634, align 4
   %.pre843 = load ptr, ptr %1739, align 8
   br label %1854
 
 1854:                                             ; preds = %1849, %1842
   %1855 = phi ptr [ %.pre843, %1849 ], [ %1843, %1842 ]
-  %1856 = getelementptr inbounds i8, ptr %1855, i64 44
+  %1856 = getelementptr inbounds nuw i8, ptr %1855, i64 44
   %1857 = load i32, ptr %1856, align 4
-  %1858 = getelementptr inbounds i8, ptr %1855, i64 108
+  %1858 = getelementptr inbounds nuw i8, ptr %1855, i64 108
   %1859 = load i32, ptr %1858, align 4
   %1860 = icmp slt i32 %1857, %1859
   br i1 %1860, label %1861, label %1866
 
 1861:                                             ; preds = %1854
-  %1862 = getelementptr inbounds i8, ptr %1855, i64 32
+  %1862 = getelementptr inbounds nuw i8, ptr %1855, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1862, i64 12, i1 false)
-  %1863 = getelementptr inbounds i8, ptr %1855, i64 96
+  %1863 = getelementptr inbounds nuw i8, ptr %1855, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1862, ptr noundef nonnull align 4 dereferenceable(16) %1863, i64 16, i1 false)
   %1864 = load ptr, ptr %1739, align 8
-  %1865 = getelementptr inbounds i8, ptr %1864, i64 96
+  %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1865, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx638 = getelementptr inbounds i8, ptr %1864, i64 108
+  %.sroa.388.0..sroa_idx638 = getelementptr inbounds nuw i8, ptr %1864, i64 108
   store i32 %1857, ptr %.sroa.388.0..sroa_idx638, align 4
   %.pre844 = load ptr, ptr %1739, align 8
-  %.phi.trans.insert845 = getelementptr inbounds i8, ptr %.pre844, i64 44
+  %.phi.trans.insert845 = getelementptr inbounds nuw i8, ptr %.pre844, i64 44
   %.pre846 = load i32, ptr %.phi.trans.insert845, align 4
   br label %1866
 
 1866:                                             ; preds = %1861, %1854
   %.sroa.388.0.copyload641 = phi i32 [ %.pre846, %1861 ], [ %1857, %1854 ]
   %1867 = phi ptr [ %.pre844, %1861 ], [ %1855, %1854 ]
-  %1868 = getelementptr inbounds i8, ptr %1867, i64 76
+  %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 76
   %1869 = load i32, ptr %1868, align 4
   %1870 = icmp slt i32 %.sroa.388.0.copyload641, %1869
   br i1 %1870, label %1871, label %1876
 
 1871:                                             ; preds = %1866
-  %1872 = getelementptr inbounds i8, ptr %1867, i64 32
+  %1872 = getelementptr inbounds nuw i8, ptr %1867, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1872, i64 12, i1 false)
-  %1873 = getelementptr inbounds i8, ptr %1867, i64 64
+  %1873 = getelementptr inbounds nuw i8, ptr %1867, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1872, ptr noundef nonnull align 4 dereferenceable(16) %1873, i64 16, i1 false)
   %1874 = load ptr, ptr %1739, align 8
-  %1875 = getelementptr inbounds i8, ptr %1874, i64 64
+  %1875 = getelementptr inbounds nuw i8, ptr %1874, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1875, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx642 = getelementptr inbounds i8, ptr %1874, i64 76
+  %.sroa.388.0..sroa_idx642 = getelementptr inbounds nuw i8, ptr %1874, i64 76
   store i32 %.sroa.388.0.copyload641, ptr %.sroa.388.0..sroa_idx642, align 4
   %.pre847 = load ptr, ptr %1739, align 8
   br label %1876
 
 1876:                                             ; preds = %1871, %1866
   %1877 = phi ptr [ %.pre847, %1871 ], [ %1867, %1866 ]
-  %1878 = getelementptr inbounds i8, ptr %1877, i64 60
+  %1878 = getelementptr inbounds nuw i8, ptr %1877, i64 60
   %1879 = load i32, ptr %1878, align 4
-  %1880 = getelementptr inbounds i8, ptr %1877, i64 92
+  %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 92
   %1881 = load i32, ptr %1880, align 4
   %1882 = icmp slt i32 %1879, %1881
   br i1 %1882, label %1883, label %1888
 
 1883:                                             ; preds = %1876
-  %1884 = getelementptr inbounds i8, ptr %1877, i64 48
+  %1884 = getelementptr inbounds nuw i8, ptr %1877, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1884, i64 12, i1 false)
-  %1885 = getelementptr inbounds i8, ptr %1877, i64 80
+  %1885 = getelementptr inbounds nuw i8, ptr %1877, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1884, ptr noundef nonnull align 4 dereferenceable(16) %1885, i64 16, i1 false)
   %1886 = load ptr, ptr %1739, align 8
-  %1887 = getelementptr inbounds i8, ptr %1886, i64 80
+  %1887 = getelementptr inbounds nuw i8, ptr %1886, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1887, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx646 = getelementptr inbounds i8, ptr %1886, i64 92
+  %.sroa.388.0..sroa_idx646 = getelementptr inbounds nuw i8, ptr %1886, i64 92
   store i32 %1879, ptr %.sroa.388.0..sroa_idx646, align 4
   %.pre848 = load ptr, ptr %1739, align 8
   br label %1888
 
 1888:                                             ; preds = %1883, %1876
   %1889 = phi ptr [ %.pre848, %1883 ], [ %1877, %1876 ]
-  %1890 = getelementptr inbounds i8, ptr %1889, i64 28
+  %1890 = getelementptr inbounds nuw i8, ptr %1889, i64 28
   %1891 = load i32, ptr %1890, align 4
-  %1892 = getelementptr inbounds i8, ptr %1889, i64 44
+  %1892 = getelementptr inbounds nuw i8, ptr %1889, i64 44
   %1893 = load i32, ptr %1892, align 4
   %1894 = icmp slt i32 %1891, %1893
   br i1 %1894, label %1895, label %1900
 
 1895:                                             ; preds = %1888
-  %1896 = getelementptr inbounds i8, ptr %1889, i64 16
+  %1896 = getelementptr inbounds nuw i8, ptr %1889, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1896, i64 12, i1 false)
-  %1897 = getelementptr inbounds i8, ptr %1889, i64 32
+  %1897 = getelementptr inbounds nuw i8, ptr %1889, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1896, ptr noundef nonnull align 4 dereferenceable(16) %1897, i64 16, i1 false)
   %1898 = load ptr, ptr %1739, align 8
-  %1899 = getelementptr inbounds i8, ptr %1898, i64 32
+  %1899 = getelementptr inbounds nuw i8, ptr %1898, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1899, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx650 = getelementptr inbounds i8, ptr %1898, i64 44
+  %.sroa.388.0..sroa_idx650 = getelementptr inbounds nuw i8, ptr %1898, i64 44
   store i32 %1891, ptr %.sroa.388.0..sroa_idx650, align 4
   %.pre849 = load ptr, ptr %1739, align 8
   br label %1900
 
 1900:                                             ; preds = %1895, %1888
   %1901 = phi ptr [ %.pre849, %1895 ], [ %1889, %1888 ]
-  %1902 = getelementptr inbounds i8, ptr %1901, i64 60
+  %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 60
   %1903 = load i32, ptr %1902, align 4
-  %1904 = getelementptr inbounds i8, ptr %1901, i64 76
+  %1904 = getelementptr inbounds nuw i8, ptr %1901, i64 76
   %1905 = load i32, ptr %1904, align 4
   %1906 = icmp slt i32 %1903, %1905
   br i1 %1906, label %1907, label %1912
 
 1907:                                             ; preds = %1900
-  %1908 = getelementptr inbounds i8, ptr %1901, i64 48
+  %1908 = getelementptr inbounds nuw i8, ptr %1901, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1908, i64 12, i1 false)
-  %1909 = getelementptr inbounds i8, ptr %1901, i64 64
+  %1909 = getelementptr inbounds nuw i8, ptr %1901, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1908, ptr noundef nonnull align 4 dereferenceable(16) %1909, i64 16, i1 false)
   %1910 = load ptr, ptr %1739, align 8
-  %1911 = getelementptr inbounds i8, ptr %1910, i64 64
+  %1911 = getelementptr inbounds nuw i8, ptr %1910, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1911, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx654 = getelementptr inbounds i8, ptr %1910, i64 76
+  %.sroa.388.0..sroa_idx654 = getelementptr inbounds nuw i8, ptr %1910, i64 76
   store i32 %1903, ptr %.sroa.388.0..sroa_idx654, align 4
   %.pre850 = load ptr, ptr %1739, align 8
   br label %1912
 
 1912:                                             ; preds = %1907, %1900
   %1913 = phi ptr [ %.pre850, %1907 ], [ %1901, %1900 ]
-  %1914 = getelementptr inbounds i8, ptr %1913, i64 92
+  %1914 = getelementptr inbounds nuw i8, ptr %1913, i64 92
   %1915 = load i32, ptr %1914, align 4
-  %1916 = getelementptr inbounds i8, ptr %1913, i64 108
+  %1916 = getelementptr inbounds nuw i8, ptr %1913, i64 108
   %1917 = load i32, ptr %1916, align 4
   %1918 = icmp slt i32 %1915, %1917
   br i1 %1918, label %1919, label %.loopexit
 
 1919:                                             ; preds = %1912
-  %1920 = getelementptr inbounds i8, ptr %1913, i64 80
+  %1920 = getelementptr inbounds nuw i8, ptr %1913, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1920, i64 12, i1 false)
-  %1921 = getelementptr inbounds i8, ptr %1913, i64 96
+  %1921 = getelementptr inbounds nuw i8, ptr %1913, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1920, ptr noundef nonnull align 4 dereferenceable(16) %1921, i64 16, i1 false)
   %1922 = load ptr, ptr %1739, align 8
-  %1923 = getelementptr inbounds i8, ptr %1922, i64 96
+  %1923 = getelementptr inbounds nuw i8, ptr %1922, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1923, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx658 = getelementptr inbounds i8, ptr %1922, i64 108
+  %.sroa.388.0..sroa_idx658 = getelementptr inbounds nuw i8, ptr %1922, i64 108
   store i32 %1915, ptr %.sroa.388.0..sroa_idx658, align 4
   br label %.loopexit
 
@@ -8208,63 +8208,63 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1926 = load ptr, ptr %1925, align 8
   %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 12
   %1928 = load i32, ptr %1927, align 4
-  %1929 = getelementptr inbounds i8, ptr %1926, i64 28
+  %1929 = getelementptr inbounds nuw i8, ptr %1926, i64 28
   %1930 = load i32, ptr %1929, align 4
   %1931 = icmp slt i32 %1928, %1930
   br i1 %1931, label %1932, label %1936
 
 1932:                                             ; preds = %1924
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1926, i64 12, i1 false)
-  %1933 = getelementptr inbounds i8, ptr %1926, i64 16
+  %1933 = getelementptr inbounds nuw i8, ptr %1926, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1926, ptr noundef nonnull align 4 dereferenceable(16) %1933, i64 16, i1 false)
   %1934 = load ptr, ptr %1925, align 8
-  %1935 = getelementptr inbounds i8, ptr %1934, i64 16
+  %1935 = getelementptr inbounds nuw i8, ptr %1934, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1935, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx662 = getelementptr inbounds i8, ptr %1934, i64 28
+  %.sroa.388.0..sroa_idx662 = getelementptr inbounds nuw i8, ptr %1934, i64 28
   store i32 %1928, ptr %.sroa.388.0..sroa_idx662, align 4
   %.pre819 = load ptr, ptr %1925, align 8
   br label %1936
 
 1936:                                             ; preds = %1932, %1924
   %1937 = phi ptr [ %.pre819, %1932 ], [ %1926, %1924 ]
-  %1938 = getelementptr inbounds i8, ptr %1937, i64 44
+  %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 44
   %1939 = load i32, ptr %1938, align 4
-  %1940 = getelementptr inbounds i8, ptr %1937, i64 60
+  %1940 = getelementptr inbounds nuw i8, ptr %1937, i64 60
   %1941 = load i32, ptr %1940, align 4
   %1942 = icmp slt i32 %1939, %1941
   br i1 %1942, label %1943, label %1948
 
 1943:                                             ; preds = %1936
-  %1944 = getelementptr inbounds i8, ptr %1937, i64 32
+  %1944 = getelementptr inbounds nuw i8, ptr %1937, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1944, i64 12, i1 false)
-  %1945 = getelementptr inbounds i8, ptr %1937, i64 48
+  %1945 = getelementptr inbounds nuw i8, ptr %1937, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1944, ptr noundef nonnull align 4 dereferenceable(16) %1945, i64 16, i1 false)
   %1946 = load ptr, ptr %1925, align 8
-  %1947 = getelementptr inbounds i8, ptr %1946, i64 48
+  %1947 = getelementptr inbounds nuw i8, ptr %1946, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1947, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx666 = getelementptr inbounds i8, ptr %1946, i64 60
+  %.sroa.388.0..sroa_idx666 = getelementptr inbounds nuw i8, ptr %1946, i64 60
   store i32 %1939, ptr %.sroa.388.0..sroa_idx666, align 4
   %.pre820 = load ptr, ptr %1925, align 8
   br label %1948
 
 1948:                                             ; preds = %1943, %1936
   %1949 = phi ptr [ %.pre820, %1943 ], [ %1937, %1936 ]
-  %1950 = getelementptr inbounds i8, ptr %1949, i64 76
+  %1950 = getelementptr inbounds nuw i8, ptr %1949, i64 76
   %1951 = load i32, ptr %1950, align 4
-  %1952 = getelementptr inbounds i8, ptr %1949, i64 92
+  %1952 = getelementptr inbounds nuw i8, ptr %1949, i64 92
   %1953 = load i32, ptr %1952, align 4
   %1954 = icmp slt i32 %1951, %1953
   br i1 %1954, label %1955, label %1960
 
 1955:                                             ; preds = %1948
-  %1956 = getelementptr inbounds i8, ptr %1949, i64 64
+  %1956 = getelementptr inbounds nuw i8, ptr %1949, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1956, i64 12, i1 false)
-  %1957 = getelementptr inbounds i8, ptr %1949, i64 80
+  %1957 = getelementptr inbounds nuw i8, ptr %1949, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1956, ptr noundef nonnull align 4 dereferenceable(16) %1957, i64 16, i1 false)
   %1958 = load ptr, ptr %1925, align 8
-  %1959 = getelementptr inbounds i8, ptr %1958, i64 80
+  %1959 = getelementptr inbounds nuw i8, ptr %1958, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1959, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx670 = getelementptr inbounds i8, ptr %1958, i64 92
+  %.sroa.388.0..sroa_idx670 = getelementptr inbounds nuw i8, ptr %1958, i64 92
   store i32 %1951, ptr %.sroa.388.0..sroa_idx670, align 4
   %.pre821 = load ptr, ptr %1925, align 8
   br label %1960
@@ -8273,64 +8273,64 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1961 = phi ptr [ %.pre821, %1955 ], [ %1949, %1948 ]
   %1962 = getelementptr inbounds nuw i8, ptr %1961, i64 12
   %1963 = load i32, ptr %1962, align 4
-  %1964 = getelementptr inbounds i8, ptr %1961, i64 44
+  %1964 = getelementptr inbounds nuw i8, ptr %1961, i64 44
   %1965 = load i32, ptr %1964, align 4
   %1966 = icmp slt i32 %1963, %1965
   br i1 %1966, label %1967, label %1971
 
 1967:                                             ; preds = %1960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1961, i64 12, i1 false)
-  %1968 = getelementptr inbounds i8, ptr %1961, i64 32
+  %1968 = getelementptr inbounds nuw i8, ptr %1961, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1961, ptr noundef nonnull align 4 dereferenceable(16) %1968, i64 16, i1 false)
   %1969 = load ptr, ptr %1925, align 8
-  %1970 = getelementptr inbounds i8, ptr %1969, i64 32
+  %1970 = getelementptr inbounds nuw i8, ptr %1969, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1970, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx674 = getelementptr inbounds i8, ptr %1969, i64 44
+  %.sroa.388.0..sroa_idx674 = getelementptr inbounds nuw i8, ptr %1969, i64 44
   store i32 %1963, ptr %.sroa.388.0..sroa_idx674, align 4
   %.pre822 = load ptr, ptr %1925, align 8
   br label %1971
 
 1971:                                             ; preds = %1967, %1960
   %1972 = phi ptr [ %.pre822, %1967 ], [ %1961, %1960 ]
-  %1973 = getelementptr inbounds i8, ptr %1972, i64 28
+  %1973 = getelementptr inbounds nuw i8, ptr %1972, i64 28
   %1974 = load i32, ptr %1973, align 4
-  %1975 = getelementptr inbounds i8, ptr %1972, i64 60
+  %1975 = getelementptr inbounds nuw i8, ptr %1972, i64 60
   %1976 = load i32, ptr %1975, align 4
   %1977 = icmp slt i32 %1974, %1976
   br i1 %1977, label %1978, label %1983
 
 1978:                                             ; preds = %1971
-  %1979 = getelementptr inbounds i8, ptr %1972, i64 16
+  %1979 = getelementptr inbounds nuw i8, ptr %1972, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1979, i64 12, i1 false)
-  %1980 = getelementptr inbounds i8, ptr %1972, i64 48
+  %1980 = getelementptr inbounds nuw i8, ptr %1972, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1979, ptr noundef nonnull align 4 dereferenceable(16) %1980, i64 16, i1 false)
   %1981 = load ptr, ptr %1925, align 8
-  %1982 = getelementptr inbounds i8, ptr %1981, i64 48
+  %1982 = getelementptr inbounds nuw i8, ptr %1981, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1982, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx678 = getelementptr inbounds i8, ptr %1981, i64 60
+  %.sroa.388.0..sroa_idx678 = getelementptr inbounds nuw i8, ptr %1981, i64 60
   store i32 %1974, ptr %.sroa.388.0..sroa_idx678, align 4
   %.pre823 = load ptr, ptr %1925, align 8
-  %.phi.trans.insert824 = getelementptr inbounds i8, ptr %.pre823, i64 28
+  %.phi.trans.insert824 = getelementptr inbounds nuw i8, ptr %.pre823, i64 28
   %.pre825 = load i32, ptr %.phi.trans.insert824, align 4
   br label %1983
 
 1983:                                             ; preds = %1978, %1971
   %.sroa.388.0.copyload681 = phi i32 [ %.pre825, %1978 ], [ %1974, %1971 ]
   %1984 = phi ptr [ %.pre823, %1978 ], [ %1972, %1971 ]
-  %1985 = getelementptr inbounds i8, ptr %1984, i64 44
+  %1985 = getelementptr inbounds nuw i8, ptr %1984, i64 44
   %1986 = load i32, ptr %1985, align 4
   %1987 = icmp slt i32 %.sroa.388.0.copyload681, %1986
   br i1 %1987, label %1988, label %1993
 
 1988:                                             ; preds = %1983
-  %1989 = getelementptr inbounds i8, ptr %1984, i64 16
+  %1989 = getelementptr inbounds nuw i8, ptr %1984, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1989, i64 12, i1 false)
-  %1990 = getelementptr inbounds i8, ptr %1984, i64 32
+  %1990 = getelementptr inbounds nuw i8, ptr %1984, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1989, ptr noundef nonnull align 4 dereferenceable(16) %1990, i64 16, i1 false)
   %1991 = load ptr, ptr %1925, align 8
-  %1992 = getelementptr inbounds i8, ptr %1991, i64 32
+  %1992 = getelementptr inbounds nuw i8, ptr %1991, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1992, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx682 = getelementptr inbounds i8, ptr %1991, i64 44
+  %.sroa.388.0..sroa_idx682 = getelementptr inbounds nuw i8, ptr %1991, i64 44
   store i32 %.sroa.388.0.copyload681, ptr %.sroa.388.0..sroa_idx682, align 4
   %.pre826 = load ptr, ptr %1925, align 8
   br label %1993
@@ -8339,129 +8339,129 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %1994 = phi ptr [ %.pre826, %1988 ], [ %1984, %1983 ]
   %1995 = getelementptr inbounds nuw i8, ptr %1994, i64 12
   %1996 = load i32, ptr %1995, align 4
-  %1997 = getelementptr inbounds i8, ptr %1994, i64 76
+  %1997 = getelementptr inbounds nuw i8, ptr %1994, i64 76
   %1998 = load i32, ptr %1997, align 4
   %1999 = icmp slt i32 %1996, %1998
   br i1 %1999, label %2000, label %2004
 
 2000:                                             ; preds = %1993
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %1994, i64 12, i1 false)
-  %2001 = getelementptr inbounds i8, ptr %1994, i64 64
+  %2001 = getelementptr inbounds nuw i8, ptr %1994, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1994, ptr noundef nonnull align 4 dereferenceable(16) %2001, i64 16, i1 false)
   %2002 = load ptr, ptr %1925, align 8
-  %2003 = getelementptr inbounds i8, ptr %2002, i64 64
+  %2003 = getelementptr inbounds nuw i8, ptr %2002, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2003, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx686 = getelementptr inbounds i8, ptr %2002, i64 76
+  %.sroa.388.0..sroa_idx686 = getelementptr inbounds nuw i8, ptr %2002, i64 76
   store i32 %1996, ptr %.sroa.388.0..sroa_idx686, align 4
   %.pre827 = load ptr, ptr %1925, align 8
   br label %2004
 
 2004:                                             ; preds = %2000, %1993
   %2005 = phi ptr [ %.pre827, %2000 ], [ %1994, %1993 ]
-  %2006 = getelementptr inbounds i8, ptr %2005, i64 28
+  %2006 = getelementptr inbounds nuw i8, ptr %2005, i64 28
   %2007 = load i32, ptr %2006, align 4
-  %2008 = getelementptr inbounds i8, ptr %2005, i64 92
+  %2008 = getelementptr inbounds nuw i8, ptr %2005, i64 92
   %2009 = load i32, ptr %2008, align 4
   %2010 = icmp slt i32 %2007, %2009
   br i1 %2010, label %2011, label %2016
 
 2011:                                             ; preds = %2004
-  %2012 = getelementptr inbounds i8, ptr %2005, i64 16
+  %2012 = getelementptr inbounds nuw i8, ptr %2005, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2012, i64 12, i1 false)
-  %2013 = getelementptr inbounds i8, ptr %2005, i64 80
+  %2013 = getelementptr inbounds nuw i8, ptr %2005, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2012, ptr noundef nonnull align 4 dereferenceable(16) %2013, i64 16, i1 false)
   %2014 = load ptr, ptr %1925, align 8
-  %2015 = getelementptr inbounds i8, ptr %2014, i64 80
+  %2015 = getelementptr inbounds nuw i8, ptr %2014, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2015, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx690 = getelementptr inbounds i8, ptr %2014, i64 92
+  %.sroa.388.0..sroa_idx690 = getelementptr inbounds nuw i8, ptr %2014, i64 92
   store i32 %2007, ptr %.sroa.388.0..sroa_idx690, align 4
   %.pre828 = load ptr, ptr %1925, align 8
   br label %2016
 
 2016:                                             ; preds = %2011, %2004
   %2017 = phi ptr [ %.pre828, %2011 ], [ %2005, %2004 ]
-  %2018 = getelementptr inbounds i8, ptr %2017, i64 44
+  %2018 = getelementptr inbounds nuw i8, ptr %2017, i64 44
   %2019 = load i32, ptr %2018, align 4
-  %2020 = getelementptr inbounds i8, ptr %2017, i64 76
+  %2020 = getelementptr inbounds nuw i8, ptr %2017, i64 76
   %2021 = load i32, ptr %2020, align 4
   %2022 = icmp slt i32 %2019, %2021
   br i1 %2022, label %2023, label %2028
 
 2023:                                             ; preds = %2016
-  %2024 = getelementptr inbounds i8, ptr %2017, i64 32
+  %2024 = getelementptr inbounds nuw i8, ptr %2017, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2024, i64 12, i1 false)
-  %2025 = getelementptr inbounds i8, ptr %2017, i64 64
+  %2025 = getelementptr inbounds nuw i8, ptr %2017, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2024, ptr noundef nonnull align 4 dereferenceable(16) %2025, i64 16, i1 false)
   %2026 = load ptr, ptr %1925, align 8
-  %2027 = getelementptr inbounds i8, ptr %2026, i64 64
+  %2027 = getelementptr inbounds nuw i8, ptr %2026, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2027, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx694 = getelementptr inbounds i8, ptr %2026, i64 76
+  %.sroa.388.0..sroa_idx694 = getelementptr inbounds nuw i8, ptr %2026, i64 76
   store i32 %2019, ptr %.sroa.388.0..sroa_idx694, align 4
   %.pre829 = load ptr, ptr %1925, align 8
   br label %2028
 
 2028:                                             ; preds = %2023, %2016
   %2029 = phi ptr [ %.pre829, %2023 ], [ %2017, %2016 ]
-  %2030 = getelementptr inbounds i8, ptr %2029, i64 60
+  %2030 = getelementptr inbounds nuw i8, ptr %2029, i64 60
   %2031 = load i32, ptr %2030, align 4
-  %2032 = getelementptr inbounds i8, ptr %2029, i64 92
+  %2032 = getelementptr inbounds nuw i8, ptr %2029, i64 92
   %2033 = load i32, ptr %2032, align 4
   %2034 = icmp slt i32 %2031, %2033
   br i1 %2034, label %2035, label %2040
 
 2035:                                             ; preds = %2028
-  %2036 = getelementptr inbounds i8, ptr %2029, i64 48
+  %2036 = getelementptr inbounds nuw i8, ptr %2029, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2036, i64 12, i1 false)
-  %2037 = getelementptr inbounds i8, ptr %2029, i64 80
+  %2037 = getelementptr inbounds nuw i8, ptr %2029, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2036, ptr noundef nonnull align 4 dereferenceable(16) %2037, i64 16, i1 false)
   %2038 = load ptr, ptr %1925, align 8
-  %2039 = getelementptr inbounds i8, ptr %2038, i64 80
+  %2039 = getelementptr inbounds nuw i8, ptr %2038, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2039, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx698 = getelementptr inbounds i8, ptr %2038, i64 92
+  %.sroa.388.0..sroa_idx698 = getelementptr inbounds nuw i8, ptr %2038, i64 92
   store i32 %2031, ptr %.sroa.388.0..sroa_idx698, align 4
   %.pre830 = load ptr, ptr %1925, align 8
   br label %2040
 
 2040:                                             ; preds = %2035, %2028
   %2041 = phi ptr [ %.pre830, %2035 ], [ %2029, %2028 ]
-  %2042 = getelementptr inbounds i8, ptr %2041, i64 28
+  %2042 = getelementptr inbounds nuw i8, ptr %2041, i64 28
   %2043 = load i32, ptr %2042, align 4
-  %2044 = getelementptr inbounds i8, ptr %2041, i64 44
+  %2044 = getelementptr inbounds nuw i8, ptr %2041, i64 44
   %2045 = load i32, ptr %2044, align 4
   %2046 = icmp slt i32 %2043, %2045
   br i1 %2046, label %2047, label %2052
 
 2047:                                             ; preds = %2040
-  %2048 = getelementptr inbounds i8, ptr %2041, i64 16
+  %2048 = getelementptr inbounds nuw i8, ptr %2041, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2048, i64 12, i1 false)
-  %2049 = getelementptr inbounds i8, ptr %2041, i64 32
+  %2049 = getelementptr inbounds nuw i8, ptr %2041, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2048, ptr noundef nonnull align 4 dereferenceable(16) %2049, i64 16, i1 false)
   %2050 = load ptr, ptr %1925, align 8
-  %2051 = getelementptr inbounds i8, ptr %2050, i64 32
+  %2051 = getelementptr inbounds nuw i8, ptr %2050, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2051, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx702 = getelementptr inbounds i8, ptr %2050, i64 44
+  %.sroa.388.0..sroa_idx702 = getelementptr inbounds nuw i8, ptr %2050, i64 44
   store i32 %2043, ptr %.sroa.388.0..sroa_idx702, align 4
   %.pre831 = load ptr, ptr %1925, align 8
   br label %2052
 
 2052:                                             ; preds = %2047, %2040
   %2053 = phi ptr [ %.pre831, %2047 ], [ %2041, %2040 ]
-  %2054 = getelementptr inbounds i8, ptr %2053, i64 60
+  %2054 = getelementptr inbounds nuw i8, ptr %2053, i64 60
   %2055 = load i32, ptr %2054, align 4
-  %2056 = getelementptr inbounds i8, ptr %2053, i64 76
+  %2056 = getelementptr inbounds nuw i8, ptr %2053, i64 76
   %2057 = load i32, ptr %2056, align 4
   %2058 = icmp slt i32 %2055, %2057
   br i1 %2058, label %2059, label %.loopexit
 
 2059:                                             ; preds = %2052
-  %2060 = getelementptr inbounds i8, ptr %2053, i64 48
+  %2060 = getelementptr inbounds nuw i8, ptr %2053, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2060, i64 12, i1 false)
-  %2061 = getelementptr inbounds i8, ptr %2053, i64 64
+  %2061 = getelementptr inbounds nuw i8, ptr %2053, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2060, ptr noundef nonnull align 4 dereferenceable(16) %2061, i64 16, i1 false)
   %2062 = load ptr, ptr %1925, align 8
-  %2063 = getelementptr inbounds i8, ptr %2062, i64 64
+  %2063 = getelementptr inbounds nuw i8, ptr %2062, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2063, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx706 = getelementptr inbounds i8, ptr %2062, i64 76
+  %.sroa.388.0..sroa_idx706 = getelementptr inbounds nuw i8, ptr %2062, i64 76
   store i32 %2055, ptr %.sroa.388.0..sroa_idx706, align 4
   br label %.loopexit
 
@@ -8470,44 +8470,44 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %2066 = load ptr, ptr %2065, align 8
   %2067 = getelementptr inbounds nuw i8, ptr %2066, i64 12
   %2068 = load i32, ptr %2067, align 4
-  %2069 = getelementptr inbounds i8, ptr %2066, i64 28
+  %2069 = getelementptr inbounds nuw i8, ptr %2066, i64 28
   %2070 = load i32, ptr %2069, align 4
   %2071 = icmp slt i32 %2068, %2070
   br i1 %2071, label %2072, label %2076
 
 2072:                                             ; preds = %2064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2066, i64 12, i1 false)
-  %2073 = getelementptr inbounds i8, ptr %2066, i64 16
+  %2073 = getelementptr inbounds nuw i8, ptr %2066, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2066, ptr noundef nonnull align 4 dereferenceable(16) %2073, i64 16, i1 false)
   %2074 = load ptr, ptr %2065, align 8
-  %2075 = getelementptr inbounds i8, ptr %2074, i64 16
+  %2075 = getelementptr inbounds nuw i8, ptr %2074, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2075, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx710 = getelementptr inbounds i8, ptr %2074, i64 28
+  %.sroa.388.0..sroa_idx710 = getelementptr inbounds nuw i8, ptr %2074, i64 28
   store i32 %2068, ptr %.sroa.388.0..sroa_idx710, align 4
   %.pre803 = load ptr, ptr %2065, align 8
   br label %2076
 
 2076:                                             ; preds = %2072, %2064
   %2077 = phi ptr [ %.pre803, %2072 ], [ %2066, %2064 ]
-  %2078 = getelementptr inbounds i8, ptr %2077, i64 44
+  %2078 = getelementptr inbounds nuw i8, ptr %2077, i64 44
   %2079 = load i32, ptr %2078, align 4
-  %2080 = getelementptr inbounds i8, ptr %2077, i64 60
+  %2080 = getelementptr inbounds nuw i8, ptr %2077, i64 60
   %2081 = load i32, ptr %2080, align 4
   %2082 = icmp slt i32 %2079, %2081
   br i1 %2082, label %2083, label %2088
 
 2083:                                             ; preds = %2076
-  %2084 = getelementptr inbounds i8, ptr %2077, i64 32
+  %2084 = getelementptr inbounds nuw i8, ptr %2077, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2084, i64 12, i1 false)
-  %2085 = getelementptr inbounds i8, ptr %2077, i64 48
+  %2085 = getelementptr inbounds nuw i8, ptr %2077, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2084, ptr noundef nonnull align 4 dereferenceable(16) %2085, i64 16, i1 false)
   %2086 = load ptr, ptr %2065, align 8
-  %2087 = getelementptr inbounds i8, ptr %2086, i64 48
+  %2087 = getelementptr inbounds nuw i8, ptr %2086, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2087, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx714 = getelementptr inbounds i8, ptr %2086, i64 60
+  %.sroa.388.0..sroa_idx714 = getelementptr inbounds nuw i8, ptr %2086, i64 60
   store i32 %2079, ptr %.sroa.388.0..sroa_idx714, align 4
   %.pre804 = load ptr, ptr %2065, align 8
-  %.phi.trans.insert805 = getelementptr inbounds i8, ptr %.pre804, i64 44
+  %.phi.trans.insert805 = getelementptr inbounds nuw i8, ptr %.pre804, i64 44
   %.pre806 = load i32, ptr %.phi.trans.insert805, align 4
   br label %2088
 
@@ -8521,57 +8521,57 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 2094:                                             ; preds = %2088
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2090, i64 12, i1 false)
-  %2095 = getelementptr inbounds i8, ptr %2090, i64 32
+  %2095 = getelementptr inbounds nuw i8, ptr %2090, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2090, ptr noundef nonnull align 4 dereferenceable(16) %2095, i64 16, i1 false)
   %2096 = load ptr, ptr %2065, align 8
-  %2097 = getelementptr inbounds i8, ptr %2096, i64 32
+  %2097 = getelementptr inbounds nuw i8, ptr %2096, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2097, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx718 = getelementptr inbounds i8, ptr %2096, i64 44
+  %.sroa.388.0..sroa_idx718 = getelementptr inbounds nuw i8, ptr %2096, i64 44
   store i32 %2092, ptr %.sroa.388.0..sroa_idx718, align 4
   %.pre807 = load ptr, ptr %2065, align 8
   br label %2098
 
 2098:                                             ; preds = %2094, %2088
   %2099 = phi ptr [ %.pre807, %2094 ], [ %2090, %2088 ]
-  %2100 = getelementptr inbounds i8, ptr %2099, i64 28
+  %2100 = getelementptr inbounds nuw i8, ptr %2099, i64 28
   %2101 = load i32, ptr %2100, align 4
-  %2102 = getelementptr inbounds i8, ptr %2099, i64 60
+  %2102 = getelementptr inbounds nuw i8, ptr %2099, i64 60
   %2103 = load i32, ptr %2102, align 4
   %2104 = icmp slt i32 %2101, %2103
   br i1 %2104, label %2105, label %2110
 
 2105:                                             ; preds = %2098
-  %2106 = getelementptr inbounds i8, ptr %2099, i64 16
+  %2106 = getelementptr inbounds nuw i8, ptr %2099, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2106, i64 12, i1 false)
-  %2107 = getelementptr inbounds i8, ptr %2099, i64 48
+  %2107 = getelementptr inbounds nuw i8, ptr %2099, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2106, ptr noundef nonnull align 4 dereferenceable(16) %2107, i64 16, i1 false)
   %2108 = load ptr, ptr %2065, align 8
-  %2109 = getelementptr inbounds i8, ptr %2108, i64 48
+  %2109 = getelementptr inbounds nuw i8, ptr %2108, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2109, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx722 = getelementptr inbounds i8, ptr %2108, i64 60
+  %.sroa.388.0..sroa_idx722 = getelementptr inbounds nuw i8, ptr %2108, i64 60
   store i32 %2101, ptr %.sroa.388.0..sroa_idx722, align 4
   %.pre808 = load ptr, ptr %2065, align 8
-  %.phi.trans.insert809 = getelementptr inbounds i8, ptr %.pre808, i64 28
+  %.phi.trans.insert809 = getelementptr inbounds nuw i8, ptr %.pre808, i64 28
   %.pre810 = load i32, ptr %.phi.trans.insert809, align 4
   br label %2110
 
 2110:                                             ; preds = %2105, %2098
   %.sroa.388.0.copyload725 = phi i32 [ %.pre810, %2105 ], [ %2101, %2098 ]
   %2111 = phi ptr [ %.pre808, %2105 ], [ %2099, %2098 ]
-  %2112 = getelementptr inbounds i8, ptr %2111, i64 44
+  %2112 = getelementptr inbounds nuw i8, ptr %2111, i64 44
   %2113 = load i32, ptr %2112, align 4
   %2114 = icmp slt i32 %.sroa.388.0.copyload725, %2113
   br i1 %2114, label %2115, label %2120
 
 2115:                                             ; preds = %2110
-  %2116 = getelementptr inbounds i8, ptr %2111, i64 16
+  %2116 = getelementptr inbounds nuw i8, ptr %2111, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2116, i64 12, i1 false)
-  %2117 = getelementptr inbounds i8, ptr %2111, i64 32
+  %2117 = getelementptr inbounds nuw i8, ptr %2111, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2116, ptr noundef nonnull align 4 dereferenceable(16) %2117, i64 16, i1 false)
   %2118 = load ptr, ptr %2065, align 8
-  %2119 = getelementptr inbounds i8, ptr %2118, i64 32
+  %2119 = getelementptr inbounds nuw i8, ptr %2118, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2119, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx726 = getelementptr inbounds i8, ptr %2118, i64 44
+  %.sroa.388.0..sroa_idx726 = getelementptr inbounds nuw i8, ptr %2118, i64 44
   store i32 %.sroa.388.0.copyload725, ptr %.sroa.388.0..sroa_idx726, align 4
   %.pre811 = load ptr, ptr %2065, align 8
   br label %2120
@@ -8580,87 +8580,87 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %2121 = phi ptr [ %.pre811, %2115 ], [ %2111, %2110 ]
   %2122 = getelementptr inbounds nuw i8, ptr %2121, i64 12
   %2123 = load i32, ptr %2122, align 4
-  %2124 = getelementptr inbounds i8, ptr %2121, i64 76
+  %2124 = getelementptr inbounds nuw i8, ptr %2121, i64 76
   %2125 = load i32, ptr %2124, align 4
   %2126 = icmp slt i32 %2123, %2125
   br i1 %2126, label %2127, label %2131
 
 2127:                                             ; preds = %2120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2121, i64 12, i1 false)
-  %2128 = getelementptr inbounds i8, ptr %2121, i64 64
+  %2128 = getelementptr inbounds nuw i8, ptr %2121, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2121, ptr noundef nonnull align 4 dereferenceable(16) %2128, i64 16, i1 false)
   %2129 = load ptr, ptr %2065, align 8
-  %2130 = getelementptr inbounds i8, ptr %2129, i64 64
+  %2130 = getelementptr inbounds nuw i8, ptr %2129, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2130, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx730 = getelementptr inbounds i8, ptr %2129, i64 76
+  %.sroa.388.0..sroa_idx730 = getelementptr inbounds nuw i8, ptr %2129, i64 76
   store i32 %2123, ptr %.sroa.388.0..sroa_idx730, align 4
   %.pre812 = load ptr, ptr %2065, align 8
-  %.phi.trans.insert813 = getelementptr inbounds i8, ptr %.pre812, i64 76
+  %.phi.trans.insert813 = getelementptr inbounds nuw i8, ptr %.pre812, i64 76
   %.pre814 = load i32, ptr %.phi.trans.insert813, align 4
   br label %2131
 
 2131:                                             ; preds = %2127, %2120
   %2132 = phi i32 [ %.pre814, %2127 ], [ %2125, %2120 ]
   %2133 = phi ptr [ %.pre812, %2127 ], [ %2121, %2120 ]
-  %2134 = getelementptr inbounds i8, ptr %2133, i64 44
+  %2134 = getelementptr inbounds nuw i8, ptr %2133, i64 44
   %2135 = load i32, ptr %2134, align 4
   %2136 = icmp slt i32 %2135, %2132
   br i1 %2136, label %2137, label %2142
 
 2137:                                             ; preds = %2131
-  %2138 = getelementptr inbounds i8, ptr %2133, i64 32
+  %2138 = getelementptr inbounds nuw i8, ptr %2133, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2138, i64 12, i1 false)
-  %2139 = getelementptr inbounds i8, ptr %2133, i64 64
+  %2139 = getelementptr inbounds nuw i8, ptr %2133, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2138, ptr noundef nonnull align 4 dereferenceable(16) %2139, i64 16, i1 false)
   %2140 = load ptr, ptr %2065, align 8
-  %2141 = getelementptr inbounds i8, ptr %2140, i64 64
+  %2141 = getelementptr inbounds nuw i8, ptr %2140, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2141, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx734 = getelementptr inbounds i8, ptr %2140, i64 76
+  %.sroa.388.0..sroa_idx734 = getelementptr inbounds nuw i8, ptr %2140, i64 76
   store i32 %2135, ptr %.sroa.388.0..sroa_idx734, align 4
   %.pre815 = load ptr, ptr %2065, align 8
-  %.phi.trans.insert816 = getelementptr inbounds i8, ptr %.pre815, i64 44
+  %.phi.trans.insert816 = getelementptr inbounds nuw i8, ptr %.pre815, i64 44
   %.pre817 = load i32, ptr %.phi.trans.insert816, align 4
   br label %2142
 
 2142:                                             ; preds = %2137, %2131
   %2143 = phi i32 [ %.pre817, %2137 ], [ %2135, %2131 ]
   %2144 = phi ptr [ %.pre815, %2137 ], [ %2133, %2131 ]
-  %2145 = getelementptr inbounds i8, ptr %2144, i64 28
+  %2145 = getelementptr inbounds nuw i8, ptr %2144, i64 28
   %2146 = load i32, ptr %2145, align 4
   %2147 = icmp slt i32 %2146, %2143
   br i1 %2147, label %2148, label %2153
 
 2148:                                             ; preds = %2142
-  %2149 = getelementptr inbounds i8, ptr %2144, i64 16
+  %2149 = getelementptr inbounds nuw i8, ptr %2144, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2149, i64 12, i1 false)
-  %2150 = getelementptr inbounds i8, ptr %2144, i64 32
+  %2150 = getelementptr inbounds nuw i8, ptr %2144, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2149, ptr noundef nonnull align 4 dereferenceable(16) %2150, i64 16, i1 false)
   %2151 = load ptr, ptr %2065, align 8
-  %2152 = getelementptr inbounds i8, ptr %2151, i64 32
+  %2152 = getelementptr inbounds nuw i8, ptr %2151, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2152, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx738 = getelementptr inbounds i8, ptr %2151, i64 44
+  %.sroa.388.0..sroa_idx738 = getelementptr inbounds nuw i8, ptr %2151, i64 44
   store i32 %2146, ptr %.sroa.388.0..sroa_idx738, align 4
   %.pre818 = load ptr, ptr %2065, align 8
   br label %2153
 
 2153:                                             ; preds = %2148, %2142
   %2154 = phi ptr [ %.pre818, %2148 ], [ %2144, %2142 ]
-  %2155 = getelementptr inbounds i8, ptr %2154, i64 60
+  %2155 = getelementptr inbounds nuw i8, ptr %2154, i64 60
   %2156 = load i32, ptr %2155, align 4
-  %2157 = getelementptr inbounds i8, ptr %2154, i64 76
+  %2157 = getelementptr inbounds nuw i8, ptr %2154, i64 76
   %2158 = load i32, ptr %2157, align 4
   %2159 = icmp slt i32 %2156, %2158
   br i1 %2159, label %2160, label %.loopexit
 
 2160:                                             ; preds = %2153
-  %2161 = getelementptr inbounds i8, ptr %2154, i64 48
+  %2161 = getelementptr inbounds nuw i8, ptr %2154, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2161, i64 12, i1 false)
-  %2162 = getelementptr inbounds i8, ptr %2154, i64 64
+  %2162 = getelementptr inbounds nuw i8, ptr %2154, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2161, ptr noundef nonnull align 4 dereferenceable(16) %2162, i64 16, i1 false)
   %2163 = load ptr, ptr %2065, align 8
-  %2164 = getelementptr inbounds i8, ptr %2163, i64 64
+  %2164 = getelementptr inbounds nuw i8, ptr %2163, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2164, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx742 = getelementptr inbounds i8, ptr %2163, i64 76
+  %.sroa.388.0..sroa_idx742 = getelementptr inbounds nuw i8, ptr %2163, i64 76
   store i32 %2156, ptr %.sroa.388.0..sroa_idx742, align 4
   br label %.loopexit
 
@@ -8669,44 +8669,44 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %2167 = load ptr, ptr %2166, align 8
   %2168 = getelementptr inbounds nuw i8, ptr %2167, i64 12
   %2169 = load i32, ptr %2168, align 4
-  %2170 = getelementptr inbounds i8, ptr %2167, i64 28
+  %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 28
   %2171 = load i32, ptr %2170, align 4
   %2172 = icmp slt i32 %2169, %2171
   br i1 %2172, label %2173, label %2177
 
 2173:                                             ; preds = %2165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2167, i64 12, i1 false)
-  %2174 = getelementptr inbounds i8, ptr %2167, i64 16
+  %2174 = getelementptr inbounds nuw i8, ptr %2167, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2167, ptr noundef nonnull align 4 dereferenceable(16) %2174, i64 16, i1 false)
   %2175 = load ptr, ptr %2166, align 8
-  %2176 = getelementptr inbounds i8, ptr %2175, i64 16
+  %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2176, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx746 = getelementptr inbounds i8, ptr %2175, i64 28
+  %.sroa.388.0..sroa_idx746 = getelementptr inbounds nuw i8, ptr %2175, i64 28
   store i32 %2169, ptr %.sroa.388.0..sroa_idx746, align 4
   %.pre795 = load ptr, ptr %2166, align 8
   br label %2177
 
 2177:                                             ; preds = %2173, %2165
   %2178 = phi ptr [ %.pre795, %2173 ], [ %2167, %2165 ]
-  %2179 = getelementptr inbounds i8, ptr %2178, i64 44
+  %2179 = getelementptr inbounds nuw i8, ptr %2178, i64 44
   %2180 = load i32, ptr %2179, align 4
-  %2181 = getelementptr inbounds i8, ptr %2178, i64 60
+  %2181 = getelementptr inbounds nuw i8, ptr %2178, i64 60
   %2182 = load i32, ptr %2181, align 4
   %2183 = icmp slt i32 %2180, %2182
   br i1 %2183, label %2184, label %2189
 
 2184:                                             ; preds = %2177
-  %2185 = getelementptr inbounds i8, ptr %2178, i64 32
+  %2185 = getelementptr inbounds nuw i8, ptr %2178, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2185, i64 12, i1 false)
-  %2186 = getelementptr inbounds i8, ptr %2178, i64 48
+  %2186 = getelementptr inbounds nuw i8, ptr %2178, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2185, ptr noundef nonnull align 4 dereferenceable(16) %2186, i64 16, i1 false)
   %2187 = load ptr, ptr %2166, align 8
-  %2188 = getelementptr inbounds i8, ptr %2187, i64 48
+  %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2188, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx750 = getelementptr inbounds i8, ptr %2187, i64 60
+  %.sroa.388.0..sroa_idx750 = getelementptr inbounds nuw i8, ptr %2187, i64 60
   store i32 %2180, ptr %.sroa.388.0..sroa_idx750, align 4
   %.pre796 = load ptr, ptr %2166, align 8
-  %.phi.trans.insert797 = getelementptr inbounds i8, ptr %.pre796, i64 44
+  %.phi.trans.insert797 = getelementptr inbounds nuw i8, ptr %.pre796, i64 44
   %.pre798 = load i32, ptr %.phi.trans.insert797, align 4
   br label %2189
 
@@ -8720,57 +8720,57 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 
 2195:                                             ; preds = %2189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2191, i64 12, i1 false)
-  %2196 = getelementptr inbounds i8, ptr %2191, i64 32
+  %2196 = getelementptr inbounds nuw i8, ptr %2191, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2191, ptr noundef nonnull align 4 dereferenceable(16) %2196, i64 16, i1 false)
   %2197 = load ptr, ptr %2166, align 8
-  %2198 = getelementptr inbounds i8, ptr %2197, i64 32
+  %2198 = getelementptr inbounds nuw i8, ptr %2197, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2198, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx754 = getelementptr inbounds i8, ptr %2197, i64 44
+  %.sroa.388.0..sroa_idx754 = getelementptr inbounds nuw i8, ptr %2197, i64 44
   store i32 %2193, ptr %.sroa.388.0..sroa_idx754, align 4
   %.pre799 = load ptr, ptr %2166, align 8
   br label %2199
 
 2199:                                             ; preds = %2195, %2189
   %2200 = phi ptr [ %.pre799, %2195 ], [ %2191, %2189 ]
-  %2201 = getelementptr inbounds i8, ptr %2200, i64 28
+  %2201 = getelementptr inbounds nuw i8, ptr %2200, i64 28
   %2202 = load i32, ptr %2201, align 4
-  %2203 = getelementptr inbounds i8, ptr %2200, i64 60
+  %2203 = getelementptr inbounds nuw i8, ptr %2200, i64 60
   %2204 = load i32, ptr %2203, align 4
   %2205 = icmp slt i32 %2202, %2204
   br i1 %2205, label %2206, label %2211
 
 2206:                                             ; preds = %2199
-  %2207 = getelementptr inbounds i8, ptr %2200, i64 16
+  %2207 = getelementptr inbounds nuw i8, ptr %2200, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2207, i64 12, i1 false)
-  %2208 = getelementptr inbounds i8, ptr %2200, i64 48
+  %2208 = getelementptr inbounds nuw i8, ptr %2200, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2207, ptr noundef nonnull align 4 dereferenceable(16) %2208, i64 16, i1 false)
   %2209 = load ptr, ptr %2166, align 8
-  %2210 = getelementptr inbounds i8, ptr %2209, i64 48
+  %2210 = getelementptr inbounds nuw i8, ptr %2209, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2210, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx758 = getelementptr inbounds i8, ptr %2209, i64 60
+  %.sroa.388.0..sroa_idx758 = getelementptr inbounds nuw i8, ptr %2209, i64 60
   store i32 %2202, ptr %.sroa.388.0..sroa_idx758, align 4
   %.pre800 = load ptr, ptr %2166, align 8
-  %.phi.trans.insert801 = getelementptr inbounds i8, ptr %.pre800, i64 28
+  %.phi.trans.insert801 = getelementptr inbounds nuw i8, ptr %.pre800, i64 28
   %.pre802 = load i32, ptr %.phi.trans.insert801, align 4
   br label %2211
 
 2211:                                             ; preds = %2206, %2199
   %.sroa.388.0.copyload761 = phi i32 [ %.pre802, %2206 ], [ %2202, %2199 ]
   %2212 = phi ptr [ %.pre800, %2206 ], [ %2200, %2199 ]
-  %2213 = getelementptr inbounds i8, ptr %2212, i64 44
+  %2213 = getelementptr inbounds nuw i8, ptr %2212, i64 44
   %2214 = load i32, ptr %2213, align 4
   %2215 = icmp slt i32 %.sroa.388.0.copyload761, %2214
   br i1 %2215, label %2216, label %.loopexit
 
 2216:                                             ; preds = %2211
-  %2217 = getelementptr inbounds i8, ptr %2212, i64 16
+  %2217 = getelementptr inbounds nuw i8, ptr %2212, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2217, i64 12, i1 false)
-  %2218 = getelementptr inbounds i8, ptr %2212, i64 32
+  %2218 = getelementptr inbounds nuw i8, ptr %2212, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2217, ptr noundef nonnull align 4 dereferenceable(16) %2218, i64 16, i1 false)
   %2219 = load ptr, ptr %2166, align 8
-  %2220 = getelementptr inbounds i8, ptr %2219, i64 32
+  %2220 = getelementptr inbounds nuw i8, ptr %2219, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2220, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx762 = getelementptr inbounds i8, ptr %2219, i64 44
+  %.sroa.388.0..sroa_idx762 = getelementptr inbounds nuw i8, ptr %2219, i64 44
   store i32 %.sroa.388.0.copyload761, ptr %.sroa.388.0..sroa_idx762, align 4
   br label %.loopexit
 
@@ -8779,19 +8779,19 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %2223 = load ptr, ptr %2222, align 8
   %2224 = getelementptr inbounds nuw i8, ptr %2223, i64 12
   %2225 = load i32, ptr %2224, align 4
-  %2226 = getelementptr inbounds i8, ptr %2223, i64 28
+  %2226 = getelementptr inbounds nuw i8, ptr %2223, i64 28
   %2227 = load i32, ptr %2226, align 4
   %2228 = icmp slt i32 %2225, %2227
   br i1 %2228, label %2229, label %2233
 
 2229:                                             ; preds = %2221
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2223, i64 12, i1 false)
-  %2230 = getelementptr inbounds i8, ptr %2223, i64 16
+  %2230 = getelementptr inbounds nuw i8, ptr %2223, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2223, ptr noundef nonnull align 4 dereferenceable(16) %2230, i64 16, i1 false)
   %2231 = load ptr, ptr %2222, align 8
-  %2232 = getelementptr inbounds i8, ptr %2231, i64 16
+  %2232 = getelementptr inbounds nuw i8, ptr %2231, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2232, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx766 = getelementptr inbounds i8, ptr %2231, i64 28
+  %.sroa.388.0..sroa_idx766 = getelementptr inbounds nuw i8, ptr %2231, i64 28
   store i32 %2225, ptr %.sroa.388.0..sroa_idx766, align 4
   %.pre = load ptr, ptr %2222, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
@@ -8801,42 +8801,42 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
 2233:                                             ; preds = %2229, %2221
   %.sroa.388.0.copyload769 = phi i32 [ %.pre791, %2229 ], [ %2225, %2221 ]
   %2234 = phi ptr [ %.pre, %2229 ], [ %2223, %2221 ]
-  %2235 = getelementptr inbounds i8, ptr %2234, i64 44
+  %2235 = getelementptr inbounds nuw i8, ptr %2234, i64 44
   %2236 = load i32, ptr %2235, align 4
   %2237 = icmp slt i32 %.sroa.388.0.copyload769, %2236
   br i1 %2237, label %2238, label %2242
 
 2238:                                             ; preds = %2233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2234, i64 12, i1 false)
-  %2239 = getelementptr inbounds i8, ptr %2234, i64 32
+  %2239 = getelementptr inbounds nuw i8, ptr %2234, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2234, ptr noundef nonnull align 4 dereferenceable(16) %2239, i64 16, i1 false)
   %2240 = load ptr, ptr %2222, align 8
-  %2241 = getelementptr inbounds i8, ptr %2240, i64 32
+  %2241 = getelementptr inbounds nuw i8, ptr %2240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2241, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx770 = getelementptr inbounds i8, ptr %2240, i64 44
+  %.sroa.388.0..sroa_idx770 = getelementptr inbounds nuw i8, ptr %2240, i64 44
   store i32 %.sroa.388.0.copyload769, ptr %.sroa.388.0..sroa_idx770, align 4
   %.pre792 = load ptr, ptr %2222, align 8
-  %.phi.trans.insert793 = getelementptr inbounds i8, ptr %.pre792, i64 44
+  %.phi.trans.insert793 = getelementptr inbounds nuw i8, ptr %.pre792, i64 44
   %.pre794 = load i32, ptr %.phi.trans.insert793, align 4
   br label %2242
 
 2242:                                             ; preds = %2238, %2233
   %2243 = phi i32 [ %.pre794, %2238 ], [ %2236, %2233 ]
   %2244 = phi ptr [ %.pre792, %2238 ], [ %2234, %2233 ]
-  %2245 = getelementptr inbounds i8, ptr %2244, i64 28
+  %2245 = getelementptr inbounds nuw i8, ptr %2244, i64 28
   %2246 = load i32, ptr %2245, align 4
   %2247 = icmp slt i32 %2246, %2243
   br i1 %2247, label %2248, label %.loopexit
 
 2248:                                             ; preds = %2242
-  %2249 = getelementptr inbounds i8, ptr %2244, i64 16
+  %2249 = getelementptr inbounds nuw i8, ptr %2244, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2249, i64 12, i1 false)
-  %2250 = getelementptr inbounds i8, ptr %2244, i64 32
+  %2250 = getelementptr inbounds nuw i8, ptr %2244, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2249, ptr noundef nonnull align 4 dereferenceable(16) %2250, i64 16, i1 false)
   %2251 = load ptr, ptr %2222, align 8
-  %2252 = getelementptr inbounds i8, ptr %2251, i64 32
+  %2252 = getelementptr inbounds nuw i8, ptr %2251, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2252, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx774 = getelementptr inbounds i8, ptr %2251, i64 44
+  %.sroa.388.0..sroa_idx774 = getelementptr inbounds nuw i8, ptr %2251, i64 44
   store i32 %2246, ptr %.sroa.388.0..sroa_idx774, align 4
   br label %.loopexit
 
@@ -8845,28 +8845,28 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %2255 = load ptr, ptr %2254, align 8
   %2256 = getelementptr inbounds nuw i8, ptr %2255, i64 12
   %2257 = load i32, ptr %2256, align 4
-  %2258 = getelementptr inbounds i8, ptr %2255, i64 28
+  %2258 = getelementptr inbounds nuw i8, ptr %2255, i64 28
   %2259 = load i32, ptr %2258, align 4
   %2260 = icmp slt i32 %2257, %2259
   br i1 %2260, label %2261, label %.loopexit
 
 2261:                                             ; preds = %2253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2255, i64 12, i1 false)
-  %2262 = getelementptr inbounds i8, ptr %2255, i64 16
+  %2262 = getelementptr inbounds nuw i8, ptr %2255, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2255, ptr noundef nonnull align 4 dereferenceable(16) %2262, i64 16, i1 false)
   %2263 = load ptr, ptr %2254, align 8
-  %2264 = getelementptr inbounds i8, ptr %2263, i64 16
+  %2264 = getelementptr inbounds nuw i8, ptr %2263, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2264, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx778 = getelementptr inbounds i8, ptr %2263, i64 28
+  %.sroa.388.0..sroa_idx778 = getelementptr inbounds nuw i8, ptr %2263, i64 28
   store i32 %2257, ptr %.sroa.388.0..sroa_idx778, align 4
   br label %.loopexit
 
 2265:                                             ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %2266 = load ptr, ptr %5, align 8
-  %2267 = getelementptr inbounds %struct.moveType, ptr %2266, i64 %indvars.iv
+  %2267 = getelementptr inbounds nuw %struct.moveType, ptr %2266, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2267, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx780 = getelementptr inbounds i8, ptr %2267, i64 12
+  %.sroa.388.0..sroa_idx780 = getelementptr inbounds nuw i8, ptr %2267, i64 12
   %.sroa.388.0.copyload781 = load i32, ptr %.sroa.388.0..sroa_idx780, align 4
   br label %2268
 
@@ -8900,7 +8900,7 @@ define void @_ZN5Moves9MergeSortEv(ptr noundef nonnull readonly align 8 derefere
   %.0.lcssa = phi i64 [ 0, %..critedge_crit_edge ], [ %2277, %.critedgesplit ]
   %2279 = getelementptr inbounds %struct.moveType, ptr %2278, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2279, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %.sroa.388.0..sroa_idx782 = getelementptr inbounds i8, ptr %2279, i64 12
+  %.sroa.388.0..sroa_idx782 = getelementptr inbounds nuw i8, ptr %2279, i64 12
   store i32 %.sroa.388.0.copyload781, ptr %.sroa.388.0..sroa_idx782, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2280 = load i32, ptr %2, align 4
@@ -8978,7 +8978,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 
 44:                                               ; preds = %36
   %45 = zext i16 %43 to i64
-  %46 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %8, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 204
@@ -9005,9 +9005,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %60 = phi i32 [ 0, %.lr.ph98 ], [ %90, %.critedge ]
   %.07297 = phi i32 [ %47, %.lr.ph98 ], [ %91, %.critedge ]
   %61 = zext nneg i32 %.07297 to i64
-  %62 = getelementptr inbounds [7 x i32], ptr %55, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [7 x i32], ptr %55, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds [7 x i32], ptr %56, i64 0, i64 %61
+  %64 = getelementptr inbounds nuw [7 x i32], ptr %56, i64 0, i64 %61
   %65 = load i32, ptr %64, align 4
   %.not8790 = icmp eq i32 %.07297, 0
   br i1 %.not8790, label %.critedge, label %.lr.ph
@@ -9016,7 +9016,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.192 = phi i32 [ %72, %71 ], [ %.07297, %59 ]
   %.07391 = phi i32 [ %76, %71 ], [ %65, %59 ]
   %66 = zext nneg i32 %.192 to i64
-  %67 = getelementptr inbounds [7 x i32], ptr %57, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [7 x i32], ptr %57, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, %51
   %70 = icmp eq i32 %69, %68
@@ -9025,7 +9025,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 71:                                               ; preds = %.lr.ph
   %72 = add nsw i32 %.192, -1
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds [7 x i32], ptr %58, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [7 x i32], ptr %58, i64 0, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, %.07391
   %.not87 = icmp eq i32 %72, 0
@@ -9071,7 +9071,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %100 = sext i32 %98 to i64
   %101 = getelementptr inbounds [16 x { i64, i64 }], ptr %99, i64 0, i64 %100
   %.unpack83 = load i64, ptr %101, align 8
-  %.elt84 = getelementptr inbounds i8, ptr %101, i64 8
+  %.elt84 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %.unpack85 = load i64, ptr %.elt84, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 %.unpack85
   %103 = and i64 %.unpack83, 1
@@ -9102,7 +9102,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %118 = sext i32 %116 to i64
   %119 = getelementptr inbounds [16 x { i64, i64 }], ptr %117, i64 0, i64 %118
   %.unpack = load i64, ptr %119, align 8
-  %.elt79 = getelementptr inbounds i8, ptr %119, i64 8
+  %.elt79 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.unpack80 = load i64, ptr %.elt79, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %120, align 8
@@ -9127,7 +9127,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %133 = load i32, ptr %26, align 4
   store i32 %133, ptr %121, align 8
   %134 = zext i16 %130 to i64
-  %135 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = load ptr, ptr %8, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 204
@@ -9147,9 +9147,9 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %147 = phi i32 [ %133, %.lr.ph111 ], [ %177, %.critedge2 ]
   %.2109 = phi i32 [ %136, %.lr.ph111 ], [ %178, %.critedge2 ]
   %148 = zext nneg i32 %.2109 to i64
-  %149 = getelementptr inbounds [7 x i32], ptr %142, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [7 x i32], ptr %142, i64 0, i64 %148
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds [7 x i32], ptr %143, i64 0, i64 %148
+  %151 = getelementptr inbounds nuw [7 x i32], ptr %143, i64 0, i64 %148
   %152 = load i32, ptr %151, align 4
   %.not8899 = icmp eq i32 %.2109, 0
   br i1 %.not8899, label %.critedge2, label %.lr.ph103
@@ -9158,7 +9158,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
   %.3101 = phi i32 [ %159, %158 ], [ %.2109, %146 ]
   %.174100 = phi i32 [ %163, %158 ], [ %152, %146 ]
   %153 = zext nneg i32 %.3101 to i64
-  %154 = getelementptr inbounds [7 x i32], ptr %144, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [7 x i32], ptr %144, i64 0, i64 %153
   %155 = load i32, ptr %154, align 4
   %156 = and i32 %155, %140
   %157 = icmp eq i32 %156, %155
@@ -9167,7 +9167,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 158:                                              ; preds = %.lr.ph103
   %159 = add nsw i32 %.3101, -1
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds [7 x i32], ptr %145, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [7 x i32], ptr %145, i64 0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = or i32 %162, %.174100
   %.not88 = icmp eq i32 %159, 0
@@ -9264,7 +9264,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 16:                                               ; preds = %.lr.ph, %22
   %.03241 = phi i32 [ %5, %.lr.ph ], [ %23, %22 ]
   %17 = zext nneg i32 %.03241 to i64
-  %18 = getelementptr inbounds [7 x i32], ptr %15, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [7 x i32], ptr %15, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, %13
   %21 = icmp eq i32 %20, %19
@@ -9286,7 +9286,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [7 x i32], ptr %25, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %7, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %29, %31
   br i1 %32, label %.preheader, label %45
@@ -9305,7 +9305,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 
 38:                                               ; preds = %.lr.ph48, %42
   %indvars.iv54 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next55, %42 ]
-  %39 = getelementptr inbounds %struct.moveType, ptr %37, i64 %indvars.iv54, i32 1
+  %39 = getelementptr inbounds nuw %struct.moveType, ptr %37, i64 %indvars.iv54, i32 1
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, %29
   br i1 %41, label %42, label %.critedge2.loopexit.split.loop.exit66
@@ -9325,7 +9325,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
   br label %.critedge2
 
 45:                                               ; preds = %.critedge.thread
-  %46 = getelementptr inbounds i8, ptr %7, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %.preheader38, label %.critedge2
@@ -9344,7 +9344,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 
 54:                                               ; preds = %.lr.ph43, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %58 ]
-  %55 = getelementptr inbounds %struct.moveType, ptr %53, i64 %indvars.iv, i32 1
+  %55 = getelementptr inbounds nuw %struct.moveType, ptr %53, i64 %indvars.iv, i32 1
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, %31
   br i1 %57, label %58, label %.critedge4.loopexit.split.loop.exit64
@@ -9388,7 +9388,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull read
 14:                                               ; preds = %8
   %15 = load ptr, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds %struct.moveType, ptr %15, i64 %indvars.iv.next, i32 1
+  %16 = getelementptr inbounds nuw %struct.moveType, ptr %15, i64 %indvars.iv.next, i32 1
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, %2
   br i1 %18, label %8, label %.critedge, !llvm.loop !20
@@ -9422,7 +9422,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull read
   %.027 = phi i32 [ %51, %46 ], [ %38, %.critedge ]
   %.02426 = phi i32 [ %47, %46 ], [ %21, %.critedge ]
   %41 = zext nneg i32 %.02426 to i64
-  %42 = getelementptr inbounds [7 x i32], ptr %39, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [7 x i32], ptr %39, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, %34
   %45 = icmp eq i32 %44, %43
@@ -9431,7 +9431,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull read
 46:                                               ; preds = %.lr.ph
   %47 = add nsw i32 %.02426, -1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [7 x i32], ptr %35, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [7 x i32], ptr %35, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = or i32 %50, %.027
   %52 = icmp sgt i32 %.02426, 1
@@ -9453,7 +9453,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
   %.idx2 = mul nsw i64 %5, 232
-  %6 = getelementptr inbounds i8, ptr %0, i64 3132
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3132
   %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = getelementptr i8, ptr %7, i64 %.idx2
   %9 = load i32, ptr %8, align 4
@@ -9599,7 +9599,7 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %95 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %5, i64 0, i64 %94
   %96 = load ptr, ptr %8, align 8
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %96, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 136
   %99 = load i32, ptr %98, align 4
   %100 = add nsw i32 %99, %97
   %101 = srem i32 %100, 4
@@ -9611,9 +9611,9 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %indvars.iv = phi i64 [ 0, %92 ], [ %indvars.iv.next, %103 ]
   %104 = load ptr, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 204
-  %106 = getelementptr inbounds [4 x i32], ptr %105, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i32], ptr %105, i64 0, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds [4 x i32], ptr %102, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i32], ptr %102, i64 0, i64 %indvars.iv
   store i32 %107, ptr %108, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9623,10 +9623,10 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader ], [ 0, %103 ]
   %109 = load ptr, ptr %8, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = getelementptr inbounds [4 x i32], ptr %110, i64 0, i64 %indvars.iv63
+  %111 = getelementptr inbounds nuw [4 x i32], ptr %110, i64 0, i64 %indvars.iv63
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %114 = getelementptr inbounds [4 x i32], ptr %113, i64 0, i64 %indvars.iv63
+  %114 = getelementptr inbounds nuw [4 x i32], ptr %113, i64 0, i64 %indvars.iv63
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %112 to i64
   %117 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %116
@@ -9686,7 +9686,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %31 = getelementptr inbounds i16, ptr %3, i64 %26
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds [8192 x i32], ptr @lowestRank, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [8192 x i32], ptr @lowestRank, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 0
   %spec.store.select = select i1 %36, i32 15, i32 %35
@@ -9861,7 +9861,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %144 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %5, i64 0, i64 %143
   %145 = load ptr, ptr %13, align 8
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %145, i64 136
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 136
   %148 = load i32, ptr %147, align 4
   %149 = add nsw i32 %148, %146
   %150 = srem i32 %149, 4
@@ -9873,9 +9873,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %indvars.iv = phi i64 [ 0, %141 ], [ %indvars.iv.next, %152 ]
   %153 = load ptr, ptr %13, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 204
-  %155 = getelementptr inbounds [4 x i32], ptr %154, i64 0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [4 x i32], ptr %154, i64 0, i64 %indvars.iv
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds [4 x i32], ptr %151, i64 0, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [4 x i32], ptr %151, i64 0, i64 %indvars.iv
   store i32 %156, ptr %157, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9885,10 +9885,10 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.preheader ], [ 0, %152 ]
   %158 = load ptr, ptr %13, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %160 = getelementptr inbounds [4 x i32], ptr %159, i64 0, i64 %indvars.iv105
+  %160 = getelementptr inbounds nuw [4 x i32], ptr %159, i64 0, i64 %indvars.iv105
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %163 = getelementptr inbounds [4 x i32], ptr %162, i64 0, i64 %indvars.iv105
+  %163 = getelementptr inbounds nuw [4 x i32], ptr %162, i64 0, i64 %indvars.iv105
   %164 = load i32, ptr %163, align 4
   %165 = sext i32 %161 to i64
   %166 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %165
@@ -10059,7 +10059,7 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
 100:                                              ; preds = %89
   %101 = load ptr, ptr %18, align 8
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %101, i64 136
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %104 = load i32, ptr %103, align 4
   %105 = add nsw i32 %104, %102
   %106 = srem i32 %105, 4
@@ -10086,7 +10086,7 @@ define void @_ZN5Moves4StepEii(ptr nocapture noundef nonnull align 8 dereference
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
   %.idx2 = mul nsw i64 %5, 232
-  %6 = getelementptr inbounds i8, ptr %0, i64 3128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = getelementptr i8, ptr %7, i64 %.idx2
   %9 = load i32, ptr %8, align 8
@@ -10101,7 +10101,7 @@ define void @_ZN5Moves6RewindEii(ptr nocapture noundef nonnull writeonly align 8
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
   %.idx2 = mul nsw i64 %5, 232
-  %6 = getelementptr inbounds i8, ptr %0, i64 3128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3128
   %7 = getelementptr i8, ptr %6, i64 %.idx
   %8 = getelementptr i8, ptr %7, i64 %.idx2
   store i32 0, ptr %8, align 8
@@ -10119,7 +10119,7 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr nocapture noundef nonnull align 8
 
 10:                                               ; preds = %4, %.loopexit
   %indvars.iv45 = phi i64 [ 1, %4 ], [ %indvars.iv.next46, %.loopexit ]
-  %11 = getelementptr inbounds %struct.moveType, ptr %3, i64 %indvars.iv45
+  %11 = getelementptr inbounds nuw %struct.moveType, ptr %3, i64 %indvars.iv45
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -10134,7 +10134,7 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr nocapture noundef nonnull align 8
 .lr.ph38:                                         ; preds = %.preheader32, %31
   %17 = phi i32 [ %32, %31 ], [ %16, %.preheader32 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader32 ]
-  %18 = getelementptr inbounds [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %12, %19
   br i1 %20, label %21, label %31
@@ -10153,8 +10153,8 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr nocapture noundef nonnull align 8
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %26 = getelementptr inbounds [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv.next42
-  %27 = getelementptr inbounds [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv41
+  %26 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv.next42
+  %27 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %8, i64 0, i64 %indvars.iv41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %28 = load i32, ptr %9, align 4
   %29 = sext i32 %28 to i64
@@ -10205,7 +10205,7 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
 .preheader24:
   %2 = sext i32 %1 to i64
   %.idx = mul nsw i64 %2, 220
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = getelementptr i8, ptr %3, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2896
@@ -10215,7 +10215,7 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
   %indvars.iv = phi i64 [ 0, %.preheader24 ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %11
@@ -10229,7 +10229,7 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.preheader ], [ 0, %6 ]
   %.02127 = phi i32 [ %17, %.preheader ], [ 0, %6 ]
-  %15 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %indvars.iv31
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv31
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %.02127
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
@@ -10250,19 +10250,19 @@ define noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataE
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 116
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %25, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %25, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %25, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %36, ptr %37, align 4
@@ -10301,7 +10301,7 @@ define void @_ZN5Moves4SortEii(ptr noundef nonnull align 8 dereferenceable(39992
 define void @_ZNK5Moves9PrintMoveB5cxx11ERK11movePlyType(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(232) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.15)
           to label %7 unwind label %.loopexit.split-lp
 
@@ -10353,7 +10353,7 @@ define void @_ZNK5Moves9PrintMoveB5cxx11ERK11movePlyType(ptr dead_on_unwind noal
           to label %30 unwind label %.loopexit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds [14 x %struct.moveType], ptr %2, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %2, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %33
@@ -10787,17 +10787,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -10812,12 +10812,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -10849,11 +10849,11 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2904
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [13 x [4 x %struct.movePlyType]], ptr %5, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 232
-  %9 = getelementptr inbounds i8, ptr %7, i64 464
-  %10 = getelementptr inbounds i8, ptr %7, i64 696
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 464
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 696
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 16)
           to label %13 unwind label %113
 
@@ -10907,7 +10907,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
           to label %48 unwind label %113
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %7, i64 456
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [14 x %struct.moveType], ptr %8, i64 0, i64 %51
@@ -10936,7 +10936,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
           to label %69 unwind label %113
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %7, i64 688
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 688
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds [14 x %struct.moveType], ptr %9, i64 0, i64 %72
@@ -10965,7 +10965,7 @@ define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writabl
           to label %90 unwind label %113
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %7, i64 920
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 920
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds [14 x %struct.moveType], ptr %10, i64 0, i64 %93
@@ -11025,7 +11025,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nocapture 
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %10
 
@@ -11044,7 +11044,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nocapture 
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %15, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %15, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -11064,7 +11064,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nocapture 
   br i1 %26, label %.lr.ph43, label %._crit_edge44
 
 .lr.ph43:                                         ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28
 
 28:                                               ; preds = %.lr.ph43, %28
@@ -11155,7 +11155,7 @@ define void @_ZN5Moves11RegisterHitEii(ptr nocapture noundef nonnull align 8 der
 30:                                               ; preds = %22
   %31 = add nsw i32 %24, -1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [14 x %struct.moveType], ptr %7, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %7, i64 0, i64 %32
   %34 = load i32, ptr %33, align 8
   %.not62 = icmp slt i32 %12, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
@@ -11168,7 +11168,7 @@ define void @_ZN5Moves11RegisterHitEii(ptr nocapture noundef nonnull align 8 der
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05664 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.05763 = phi i32 [ 0, %.lr.ph.preheader ], [ %.158, %.lr.ph ]
-  %35 = getelementptr inbounds [14 x %struct.moveType], ptr %7, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %7, i64 0, i64 %indvars.iv
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %34
   %38 = add nsw i32 %.05763, 1
@@ -11228,7 +11228,7 @@ define void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_u
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %6, label %8, label %20
 
 8:                                                ; preds = %3
@@ -11334,7 +11334,7 @@ define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_
   br i1 %6, label %7, label %32
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 6)
           to label %10 unwind label %30
 
@@ -11390,7 +11390,7 @@ define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_
   %35 = sitofp i32 %34 to double
   %36 = sitofp i32 %5 to double
   %37 = fdiv double %35, %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 5)
           to label %40 unwind label %30
 
@@ -11496,7 +11496,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 5)
           to label %11 unwind label %.loopexit.split-lp
 
@@ -11635,7 +11635,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds [4 x %"struct.Moves::moveStatType"], ptr %2, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x %"struct.Moves::moveStatType"], ptr %2, i64 %indvars.iv
   invoke void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %78)
           to label %79 unwind label %.loopexit
 
@@ -11648,7 +11648,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
           to label %83 unwind label %102
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %78, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 16
   invoke void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %84)
           to label %85 unwind label %102
 
@@ -11661,7 +11661,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
           to label %89 unwind label %104
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %78, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 32
   invoke void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %90)
           to label %91 unwind label %104
 
@@ -11674,7 +11674,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
           to label %95 unwind label %106
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %78, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %78, i64 48
   invoke void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %96)
           to label %97 unwind label %106
 
@@ -11801,7 +11801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 15:                                               ; preds = %3
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 15)
           to label %18 unwind label %.loopexit.split-lp
 
@@ -11872,13 +11872,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %51 = getelementptr inbounds [13 x %"class.std::__cxx11::basic_string"], ptr %45, i64 0, i64 %indvars.iv33
+  %51 = getelementptr inbounds nuw [13 x %"class.std::__cxx11::basic_string"], ptr %45, i64 0, i64 %indvars.iv33
   br label %52
 
 52:                                               ; preds = %.lr.ph, %70
   %53 = phi i32 [ %48, %.lr.ph ], [ %71, %70 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %54 = getelementptr inbounds [13 x %"struct.Moves::moveStatType"], ptr %44, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [13 x %"struct.Moves::moveStatType"], ptr %44, i64 0, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
@@ -12035,7 +12035,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %12)
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.17)
-  %15 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %6, i64 0, i64 %indvars.iv37, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %6, i64 0, i64 %indvars.iv37, i64 %indvars.iv
   call void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull align 4 dereferenceable(212) %15)
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %17 unwind label %20
@@ -12078,7 +12078,7 @@ define void @_ZNK5Moves17PrintTrickDetailsERSt14basic_ofstreamIcSt11char_traitsI
   %31 = trunc nuw nsw i64 %indvars.iv40 to i32
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %31)
   %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.17)
-  %34 = getelementptr inbounds [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %25, i64 0, i64 %indvars.iv44, i64 %indvars.iv40
+  %34 = getelementptr inbounds nuw [13 x [4 x %"struct.Moves::moveStatsType"]], ptr %25, i64 0, i64 %indvars.iv44, i64 %indvars.iv40
   call void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull align 4 dereferenceable(212) %34)
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %36 unwind label %39

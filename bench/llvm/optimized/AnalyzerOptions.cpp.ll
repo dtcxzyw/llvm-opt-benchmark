@@ -62,7 +62,7 @@ define dso_local void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm21formatted_raw_ostreamE, i64 16), ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %13 = getelementptr inbounds i8, ptr %6, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull %13, i64 noundef 4) #12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -72,7 +72,7 @@ define dso_local void @_ZN5clang15AnalyzerOptions19printFormattedEntryERN4llvm11
   %16 = trunc i64 %2 to i32
   %17 = call noundef nonnull align 8 dereferenceable(105) ptr @_ZN4llvm21formatted_raw_ostream11PadToColumnEj(ptr noundef nonnull align 8 dereferenceable(105) %6, i32 noundef %16) #12
   %.sroa.09.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -125,7 +125,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %26, %28, %29
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %43, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %49, ptr %33, align 8
   store i8 10, ptr %43, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -136,7 +136,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %46, %_ZN4llvm1
   %52 = icmp eq i64 %4, 0
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %53, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   br i1 %52, label %54, label %68
 
@@ -201,7 +201,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %46, %_ZN4llvm1
   br label %_ZN4llvm11raw_ostreamlsEc.exit28
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %82, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %88, ptr %33, align 8
   store i8 10, ptr %82, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit28
@@ -218,13 +218,13 @@ _ZN4llvm11raw_ostreamlsEc.exit28:                 ; preds = %85, %87
   br label %_ZN4llvm11raw_ostreamlsEc.exit31
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %82, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %94, ptr %33, align 8
   store i8 %72, ptr %82, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit31
 
 _ZN4llvm11raw_ostreamlsEc.exit31:                 ; preds = %93, %91, %_ZN4llvm11raw_ostreamlsEc.exit28
-  %95 = getelementptr inbounds i8, ptr %.033, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %.not = icmp eq ptr %95, %69
   br i1 %.not, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit25, label %71
 
@@ -264,7 +264,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef range(i32 0, 6) i32 @_ZNK5clang15AnalyzerOptions22getExplorationStrategyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 448
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 448
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   switch i64 %.sroa.2.0.copyload, label %_ZN4llvm12StringSwitchISt8optionalIN5clang23ExplorationStrategyKindEES4_E4CaseENS_13StringLiteralES4_.exit40.thread163 [
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
@@ -320,7 +320,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang23ExplorationStrategyKindEES4_E4CaseEN
 define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang15AnalyzerOptions20getCTUPhase1InliningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 416
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   switch i64 %.sroa.2.0.copyload, label %_ZN4llvm12StringSwitchISt8optionalIN5clang21CTUPhase1InliningKindEES4_E4CaseENS_13StringLiteralES4_.exit16 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
@@ -356,7 +356,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang21CTUPhase1InliningKindEES4_E4CaseENS_
 define dso_local noundef range(i32 0, 6) i32 @_ZNK5clang15AnalyzerOptions10getIPAModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 480
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 480
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   switch i64 %.sroa.2.0.copyload, label %_ZN4llvm12StringSwitchISt8optionalIN5clang7IPAKindEES4_E4CaseENS_13StringLiteralES4_.exit32 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
@@ -412,7 +412,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang15AnalyzerOptions26mayInlineCXXMe
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 432
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 432
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   switch i64 %.sroa.2.0.copyload, label %_ZN4llvm12StringSwitchISt8optionalIN5clang23CXXInlineableMemberKindEES4_E4CaseENS_13StringLiteralES4_.exit25 [
     i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
@@ -458,15 +458,15 @@ define dso_local { ptr, i64 } @_ZNK5clang15AnalyzerOptions22getCheckerStringOpti
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
-  %20 = getelementptr inbounds i8, ptr %8, i64 33
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds i8, ptr %8, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %_ZN4llvmplERKNS_5TwineES2_.exit17
 
 _ZN4llvmplERKNS_5TwineES2_.exit17:                ; preds = %6, %_ZNK4llvm9StringRef5rfindEcm.exit
@@ -537,7 +537,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZNK5clang15AnalyzerOptions22getCheckerStringOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { ptr, i64 } %8(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   %10 = extractvalue { ptr, i64 } %9, 0
@@ -567,7 +567,7 @@ _ZN4llvm12StringSwitchISt8optionalIbES2_E4CaseENS_13StringLiteralES2_.exit16: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { ptr, i64 } %8(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   %10 = extractvalue { ptr, i64 } %9, 0
@@ -611,7 +611,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:
 define dso_local noundef i32 @_ZNK5clang15AnalyzerOptions23getCheckerIntegerOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call { ptr, i64 } %9(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   %11 = extractvalue { ptr, i64 } %10, 0
@@ -647,7 +647,7 @@ define linkonce_odr hidden void @_ZN4llvm21formatted_raw_ostream9setStreamERNS_1
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(48) %1) #12
   br label %_ZNK4llvm11raw_ostream13GetBufferSizeEv.exit
@@ -713,7 +713,7 @@ _ZN4llvm11raw_ostream13SetUnbufferedEv.exit5:     ; preds = %29, %35
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext %39) #12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -742,7 +742,7 @@ define linkonce_odr hidden void @_ZN4llvm21formatted_raw_ostream13releaseStreamE
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   br label %_ZNK4llvm11raw_ostream13GetBufferSizeEv.exit

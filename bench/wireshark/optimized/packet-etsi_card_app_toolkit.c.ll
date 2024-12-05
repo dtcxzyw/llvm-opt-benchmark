@@ -1075,21 +1075,21 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not692, label %._crit_edge, label %.lr.ph691
 
 .lr.ph691:                                        ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 348
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %.not639 = icmp eq ptr %3, null
   %30 = ptrtoint ptr %3 to i64
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 208
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %39 = trunc i64 %30 to i32
-  %40 = getelementptr inbounds i8, ptr %1, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %. = zext i1 %32 to i32
   br label %41
 
@@ -1312,7 +1312,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 124:                                              ; preds = %116
   %125 = load ptr, ptr %40, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 50
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 50
   %127 = load i16, ptr %126, align 2
   %128 = and i16 %127, 8
   %.not643 = icmp eq i16 %128, 0
@@ -1324,12 +1324,12 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %132 = load i32, ptr %35, align 4
   store i32 %132, ptr %131, align 4
   %133 = load i32, ptr %11, align 4
-  %134 = getelementptr inbounds i8, ptr %131, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 %133, ptr %134, align 4
   %135 = and i32 %133, 65535
   %136 = icmp eq i32 %135, 9730
   %137 = zext i1 %136 to i32
-  %138 = getelementptr inbounds i8, ptr %131, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i32 %137, ptr %138, align 4
   %139 = load ptr, ptr %.0609, align 8
   call void @wmem_tree_insert32_array(ptr noundef %139, ptr noundef nonnull %6, ptr noundef nonnull %131) #2
@@ -1342,7 +1342,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not644, label %dissect_cat_efadn_coding.exit, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %142, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = load i32, ptr %11, align 4
   %.not645 = icmp eq i32 %145, %146
@@ -1593,14 +1593,14 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not636, label %dissect_cat_efadn_coding.exit, label %277
 
 277:                                              ; preds = %276
-  %278 = getelementptr inbounds i8, ptr %.0610687, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %.0610687, i64 4
   %279 = load i32, ptr %278, align 4
   %280 = and i32 %279, 65535
   %281 = icmp eq i32 %280, 9730
   br i1 %281, label %282, label %dissect_cat_efadn_coding.exit
 
 282:                                              ; preds = %277
-  %283 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %.0610687, i64 8
   %284 = load i32, ptr %283, align 4
   switch i32 %284, label %dissect_cat_efadn_coding.exit [
     i32 1, label %285
@@ -2032,7 +2032,7 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not633, label %dissect_cat_efadn_coding.exit, label %586
 
 586:                                              ; preds = %583
-  %587 = getelementptr inbounds i8, ptr %.0610687, i64 4
+  %587 = getelementptr inbounds nuw i8, ptr %.0610687, i64 4
   %588 = load i32, ptr %587, align 4
   %589 = and i32 %588, 65535
   %590 = icmp eq i32 %589, 9730
@@ -2045,14 +2045,14 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond4, label %594, label %596
 
 594:                                              ; preds = %591
-  %595 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %.0610687, i64 8
   store i32 2, ptr %595, align 4
   br label %dissect_cat_efadn_coding.exit
 
 596:                                              ; preds = %591
   %597 = add i32 %592, -5
   %or.cond6 = icmp ult i32 %597, 5
-  %598 = getelementptr inbounds i8, ptr %.0610687, i64 8
+  %598 = getelementptr inbounds nuw i8, ptr %.0610687, i64 8
   br i1 %or.cond6, label %599, label %600
 
 599:                                              ; preds = %596

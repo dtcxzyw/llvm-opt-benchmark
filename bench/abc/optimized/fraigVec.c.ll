@@ -9,7 +9,7 @@ define noalias noundef ptr @Fraig_NodeVecAlloc(i32 noundef %0) local_unnamed_add
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 7
   %spec.store.select = select i1 %or.cond, i32 8, i32 %0
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   store i32 %spec.store.select, ptr %2, align 8
   %.not = icmp eq i32 %spec.store.select, 0
@@ -23,7 +23,7 @@ define noalias noundef ptr @Fraig_NodeVecAlloc(i32 noundef %0) local_unnamed_add
 
 9:                                                ; preds = %1, %5
   %10 = phi ptr [ %8, %5 ], [ null, %1 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %11, align 8
   ret ptr %2
 }
@@ -33,7 +33,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Fraig_NodeVecFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -53,9 +53,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Fraig_NodeVecDup(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %4, ptr %5, align 4
   %6 = load i32, ptr %0, align 8
   store i32 %6, ptr %2, align 8
@@ -70,9 +70,9 @@ define noalias noundef ptr @Fraig_NodeVecDup(ptr nocapture noundef readonly %0) 
 
 11:                                               ; preds = %1, %7
   %12 = phi ptr [ %10, %7 ], [ null, %1 ]
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %4 to i64
   %17 = shl nsw i64 %16, 3
@@ -85,14 +85,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeVecReadArray(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_NodeVecReadSize(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -104,7 +104,7 @@ define void @Fraig_NodeVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   %7 = sext i32 %1 to i64
@@ -134,28 +134,28 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_NodeVecShrink(ptr nocapture noundef writeonly initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_NodeVecClear(ptr nocapture noundef writeonly initializes((4, 8)) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Fraig_NodeVecPush(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Fraig_NodeVecGrow.exit11_crit_edge
 
 .Fraig_NodeVecGrow.exit11_crit_edge:              ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Fraig_NodeVecGrow.exit11
 
@@ -164,7 +164,7 @@ define void @Fraig_NodeVecPush(ptr nocapture noundef %0, ptr noundef %1) local_u
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -185,7 +185,7 @@ Fraig_NodeVecGrow.exit:                           ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -219,13 +219,13 @@ Fraig_NodeVecGrow.exit11:                         ; preds = %.Fraig_NodeVecGrow.
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, pt
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -248,7 +248,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, pt
   br i1 %14, label %15, label %.Fraig_NodeVecGrow.exit11_crit_edge.i
 
 .Fraig_NodeVecGrow.exit11_crit_edge.i:            ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Fraig_NodeVecPush.exit
 
@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, pt
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i.i = icmp eq ptr %19, null
   br i1 %.not9.i.i, label %22, label %20
@@ -278,7 +278,7 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %22, %20
 
 25:                                               ; preds = %15
   %26 = shl nuw nsw i32 %4, 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i10.i = icmp eq ptr %28, null
   %29 = zext nneg i32 %26 to i64
@@ -316,14 +316,14 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 
 ; Function Attrs: nounwind uwtable
 define void @Fraig_NodeVecPushOrder(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Fraig_NodeVecGrow.exit11_crit_edge.i
 
 .Fraig_NodeVecGrow.exit11_crit_edge.i:            ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Fraig_NodeVecPush.exit
 
@@ -332,7 +332,7 @@ define void @Fraig_NodeVecPushOrder(ptr nocapture noundef %0, ptr noundef %1) lo
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i.i = icmp eq ptr %11, null
   br i1 %.not9.i.i, label %14, label %12
@@ -353,7 +353,7 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10.i = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -383,7 +383,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   store ptr %1, ptr %33, align 8
   %34 = load i32, ptr %3, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = icmp sgt i32 %34, 1
   br i1 %36, label %.lr.ph.preheader, label %._crit_edge
 
@@ -395,10 +395,10 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8
   %41 = add nsw i64 %indvars.iv, -2
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8
   %.not = icmp ult ptr %40, %43
   br i1 %.not, label %44, label %._crit_edge
@@ -406,7 +406,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 44:                                               ; preds = %.lr.ph
   store ptr %43, ptr %39, align 8
   %45 = load ptr, ptr %35, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %41
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %41
   store ptr %40, ptr %46, align 8
   %47 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -417,13 +417,13 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -435,7 +435,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr nocapture noundef %
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -451,14 +451,14 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrder(ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define void @Fraig_NodeVecPushOrderByLevel(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Fraig_NodeVecGrow.exit11_crit_edge.i
 
 .Fraig_NodeVecGrow.exit11_crit_edge.i:            ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Fraig_NodeVecPush.exit
 
@@ -467,7 +467,7 @@ define void @Fraig_NodeVecPushOrderByLevel(ptr nocapture noundef %0, ptr noundef
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i.i = icmp eq ptr %11, null
   br i1 %.not9.i.i, label %14, label %12
@@ -488,7 +488,7 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10.i = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -518,7 +518,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   store ptr %1, ptr %33, align 8
   %34 = load i32, ptr %3, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = icmp sgt i32 %34, 1
   br i1 %36, label %.lr.ph.preheader, label %._crit_edge
 
@@ -530,20 +530,20 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8
   %41 = add nsw i64 %indvars.iv, -2
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %40 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = ptrtoint ptr %43 to i64
   %50 = and i64 %49, -2
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8
   %.not = icmp sgt i32 %48, %53
   br i1 %.not, label %54, label %._crit_edge
@@ -551,7 +551,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 54:                                               ; preds = %.lr.ph
   store ptr %43, ptr %39, align 8
   %55 = load ptr, ptr %35, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %41
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %41
   store ptr %40, ptr %56, align 8
   %57 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -562,13 +562,13 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -580,7 +580,7 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr nocapture no
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -596,9 +596,9 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUniqueOrderByLevel(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @Fraig_NodeVecPop(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %4, align 4
@@ -610,20 +610,20 @@ define ptr @Fraig_NodeVecPop(ptr nocapture noundef %0) local_unnamed_addr #10 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit, label %12
@@ -644,7 +644,7 @@ define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone 
   br i1 %14, label %.lr.ph23, label %._crit_edge24
 
 .lr.ph23:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = zext i32 %.0.lcssa to i64
   %17 = add nuw nsw i64 %16, 1
   br label %18
@@ -653,10 +653,10 @@ define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone 
   %indvars.iv28 = phi i64 [ %17, %.lr.ph23 ], [ %indvars.iv.next29, %18 ]
   %.1.in20 = phi i32 [ %.0.lcssa, %.lr.ph23 ], [ %27, %18 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv28
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv28
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %.1.in20 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
   store ptr %21, ptr %23, align 8
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %24 = load i32, ptr %3, align 4
@@ -674,7 +674,7 @@ define void @Fraig_NodeVecRemove(ptr nocapture noundef %0, ptr noundef readnone 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_NodeVecWriteEntry(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #12 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -684,7 +684,7 @@ define void @Fraig_NodeVecWriteEntry(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fraig_NodeVecReadEntry(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5
@@ -698,13 +698,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr nocapture 
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %14)
   ret i32 %.0
@@ -716,13 +716,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr nocapture 
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %8)
   ret i32 %.0
@@ -750,13 +750,13 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr nocapture noundef
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %1, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %8, %14
   br i1 %15, label %26, label %16
@@ -766,9 +766,9 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr nocapture noundef
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp slt i32 %20, %22
   br i1 %23, label %26, label %24
@@ -786,9 +786,9 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr nocapture noundef
 ; Function Attrs: nofree nounwind uwtable
 define void @Fraig_NodeVecSortByLevel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #14 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %Fraig_NodeVecCompareLevelsDecreasing.Fraig_NodeVecCompareLevelsIncreasing = select i1 %.not, ptr @Fraig_NodeVecCompareLevelsDecreasing, ptr @Fraig_NodeVecCompareLevelsIncreasing
@@ -801,9 +801,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Fraig_NodeVecSortByNumber(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareNumbers) #18
@@ -812,9 +812,9 @@ define void @Fraig_NodeVecSortByNumber(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Fraig_NodeVecSortByRefCount(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareRefCounts) #18

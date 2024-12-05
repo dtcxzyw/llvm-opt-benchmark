@@ -24,7 +24,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 1
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
@@ -54,7 +54,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   ]
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 2
   %23 = sext i1 %22 to i16
@@ -62,7 +62,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   %29 = sext i1 %28 to i16
@@ -70,7 +70,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 31:                                               ; preds = %14
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = load i16, ptr %32, align 1
   %34 = icmp ugt i16 %33, 7
   %35 = select i1 %34, i16 3, i16 %18
@@ -84,13 +84,13 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %.loopexit
 
 40:                                               ; preds = %14
-  %41 = getelementptr inbounds i8, ptr %7, i64 30
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 30
   %42 = load ptr, ptr %41, align 1
   %43 = icmp eq ptr %42, null
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %7, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %46 = load i16, ptr %45, align 1
   %47 = add i16 %46, 1
   br label %48
@@ -101,13 +101,13 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 51:                                               ; preds = %14
-  %52 = getelementptr inbounds i8, ptr %7, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %53 = load ptr, ptr %52, align 1
   %54 = icmp eq ptr %53, null
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %7, i64 38
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 38
   %57 = load i16, ptr %56, align 1
   %58 = add i16 %57, 1
   br label %59
@@ -118,13 +118,13 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 62:                                               ; preds = %14
-  %63 = getelementptr inbounds i8, ptr %7, i64 60
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %64 = load ptr, ptr %63, align 1
   %65 = icmp eq ptr %64, null
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %7, i64 58
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 58
   %68 = load i16, ptr %67, align 1
   %69 = add i16 %68, 1
   br label %70
@@ -135,17 +135,17 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 73:                                               ; preds = %14
-  %74 = getelementptr inbounds i8, ptr %7, i64 13
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 13
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i16
   %77 = shl nuw nsw i16 %76, 2
-  %78 = getelementptr inbounds i8, ptr %7, i64 17
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %79 = load ptr, ptr %78, align 1
   %80 = icmp eq ptr %79, null
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %7, i64 15
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 15
   %83 = load i16, ptr %82, align 1
   %84 = add i16 %83, 1
   br label %85
@@ -158,98 +158,98 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_rs_get_aml_length(ptr nou
   br label %171
 
 90:                                               ; preds = %14
-  %91 = getelementptr inbounds i8, ptr %7, i64 21
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %92 = load i16, ptr %91, align 1
   %93 = shl i16 %92, 1
   %94 = add i16 %93, %18
-  %95 = getelementptr inbounds i8, ptr %7, i64 26
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 26
   %96 = load i16, ptr %95, align 1
   %97 = add i16 %94, %96
-  %98 = getelementptr inbounds i8, ptr %7, i64 23
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %99 = load i16, ptr %98, align 1
   %100 = add i16 %97, %99
   br label %171
 
 101:                                              ; preds = %14
-  %102 = getelementptr inbounds i8, ptr %7, i64 13
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 13
   %103 = load i16, ptr %102, align 1
   %104 = shl i16 %103, 1
   %105 = add i16 %104, %18
-  %106 = getelementptr inbounds i8, ptr %7, i64 18
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %107 = load i16, ptr %106, align 1
   %108 = add i16 %105, %107
-  %109 = getelementptr inbounds i8, ptr %7, i64 15
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 15
   %110 = load i16, ptr %109, align 1
   %111 = add i16 %108, %110
   br label %171
 
 112:                                              ; preds = %14
-  %113 = getelementptr inbounds i8, ptr %7, i64 18
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %114 = load i16, ptr %113, align 1
   %115 = add i16 %114, %18
   br label %171
 
 116:                                              ; preds = %14
-  %117 = getelementptr inbounds i8, ptr %7, i64 9
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
   %120 = getelementptr [0 x i8], ptr @acpi_gbl_aml_resource_serial_bus_sizes, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i16
-  %123 = getelementptr inbounds i8, ptr %7, i64 19
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %124 = load i16, ptr %123, align 1
   %125 = add i16 %124, %122
-  %126 = getelementptr inbounds i8, ptr %7, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = load i16, ptr %126, align 1
   %128 = add i16 %125, %127
   br label %171
 
 129:                                              ; preds = %14
-  %130 = getelementptr inbounds i8, ptr %7, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %131 = load i16, ptr %130, align 1
   %132 = shl i16 %131, 1
   %133 = add i16 %132, %18
-  %134 = getelementptr inbounds i8, ptr %7, i64 21
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %135 = load i16, ptr %134, align 1
   %136 = add i16 %133, %135
-  %137 = getelementptr inbounds i8, ptr %7, i64 18
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %138 = load i16, ptr %137, align 1
   %139 = add i16 %136, %138
   br label %171
 
 140:                                              ; preds = %14
-  %141 = getelementptr inbounds i8, ptr %7, i64 10
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %142 = load i16, ptr %141, align 1
   %143 = shl i16 %142, 1
   %144 = add i16 %143, %18
-  %145 = getelementptr inbounds i8, ptr %7, i64 22
+  %145 = getelementptr inbounds nuw i8, ptr %7, i64 22
   %146 = load i16, ptr %145, align 1
   %147 = add i16 %144, %146
-  %148 = getelementptr inbounds i8, ptr %7, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %149 = load i16, ptr %148, align 1
   %150 = add i16 %147, %149
   br label %171
 
 151:                                              ; preds = %14
-  %152 = getelementptr inbounds i8, ptr %7, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %153 = load i16, ptr %152, align 1
   %154 = add i16 %153, %18
-  %155 = getelementptr inbounds i8, ptr %7, i64 26
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 26
   %156 = load i16, ptr %155, align 1
   %157 = add i16 %154, %156
-  %158 = getelementptr inbounds i8, ptr %7, i64 13
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 13
   %159 = load i16, ptr %158, align 1
   %160 = add i16 %157, %159
   br label %171
 
 161:                                              ; preds = %14
-  %162 = getelementptr inbounds i8, ptr %7, i64 19
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %163 = load i16, ptr %162, align 1
   %164 = add i16 %163, %18
-  %165 = getelementptr inbounds i8, ptr %7, i64 29
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 29
   %166 = load i16, ptr %165, align 1
   %167 = add i16 %164, %166
-  %168 = getelementptr inbounds i8, ptr %7, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %169 = load i16, ptr %168, align 1
   %170 = add i16 %167, %169
   br label %171
@@ -402,16 +402,16 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 72:                                               ; preds = %11
-  %73 = getelementptr inbounds i8, ptr %8, i64 21
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %74 = load i16, ptr %73, align 1
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %86, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %8, i64 19
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 19
   %78 = load i16, ptr %77, align 1
   %79 = zext i16 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %8, i64 14
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = zext i16 %74 to i32
@@ -420,27 +420,27 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 86:                                               ; preds = %72
-  %87 = getelementptr inbounds i8, ptr %8, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %88 = load i16, ptr %87, align 1
   %89 = zext i16 %88 to i32
   %90 = add nuw nsw i32 %89, 3
-  %91 = getelementptr inbounds i8, ptr %8, i64 14
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = sub nsw i32 %90, %93
   br label %.loopexit
 
 95:                                               ; preds = %11
-  %96 = getelementptr inbounds i8, ptr %8, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %97 = load i16, ptr %96, align 4
   %98 = icmp eq i16 %97, 0
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %8, i64 14
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
-  %103 = getelementptr inbounds i8, ptr %8, i64 9
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %104 = load i16, ptr %103, align 1
   %105 = zext i16 %104 to i32
   %106 = zext i16 %97 to i32
@@ -449,20 +449,20 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 109:                                              ; preds = %95
-  %110 = getelementptr inbounds i8, ptr %8, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %111 = load i16, ptr %110, align 1
   %112 = zext i16 %111 to i32
   %113 = add nuw nsw i32 %112, 3
-  %114 = getelementptr inbounds i8, ptr %8, i64 9
+  %114 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %115 = load i16, ptr %114, align 1
   %116 = zext i16 %115 to i32
   %117 = sub nsw i32 %113, %116
   br label %.loopexit
 
 118:                                              ; preds = %11
-  %119 = getelementptr inbounds i8, ptr %8, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %120 = load i16, ptr %119, align 1
-  %121 = getelementptr inbounds i8, ptr %8, i64 5
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   %124 = getelementptr [0 x i8], ptr @acpi_gbl_resource_aml_serial_bus_sizes, i64 0, i64 %123
@@ -473,16 +473,16 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 129:                                              ; preds = %11
-  %130 = getelementptr inbounds i8, ptr %8, i64 18
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %131 = load i16, ptr %130, align 2
   %132 = icmp eq i16 %131, 0
   br i1 %132, label %143, label %133
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %8, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %135 = load i16, ptr %134, align 4
   %136 = zext i16 %135 to i32
-  %137 = getelementptr inbounds i8, ptr %8, i64 11
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 11
   %138 = load i16, ptr %137, align 1
   %139 = zext i16 %138 to i32
   %140 = zext i16 %131 to i32
@@ -491,53 +491,53 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 143:                                              ; preds = %129
-  %144 = getelementptr inbounds i8, ptr %8, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %145 = load i16, ptr %144, align 1
   %146 = zext i16 %145 to i32
   %147 = add nuw nsw i32 %146, 3
-  %148 = getelementptr inbounds i8, ptr %8, i64 11
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 11
   %149 = load i16, ptr %148, align 1
   %150 = zext i16 %149 to i32
   %151 = sub nsw i32 %147, %150
   br label %.loopexit
 
 152:                                              ; preds = %11
-  %153 = getelementptr inbounds i8, ptr %8, i64 10
+  %153 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
-  %156 = getelementptr inbounds i8, ptr %8, i64 6
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i32
   %159 = sub nsw i32 %155, %158
-  %160 = getelementptr inbounds i8, ptr %8, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %161 = load i16, ptr %160, align 4
   %162 = zext i16 %161 to i32
   %163 = add nsw i32 %159, %162
   br label %.loopexit
 
 164:                                              ; preds = %11
-  %165 = getelementptr inbounds i8, ptr %8, i64 13
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 13
   %166 = load i16, ptr %165, align 1
   %167 = zext i16 %166 to i32
-  %168 = getelementptr inbounds i8, ptr %8, i64 9
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %169 = load i16, ptr %168, align 1
   %170 = zext i16 %169 to i32
   %171 = sub nsw i32 %167, %170
-  %172 = getelementptr inbounds i8, ptr %8, i64 15
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 15
   %173 = load i16, ptr %172, align 1
   %174 = zext i16 %173 to i32
   %175 = add nsw i32 %171, %174
   br label %.loopexit
 
 176:                                              ; preds = %11
-  %177 = getelementptr inbounds i8, ptr %8, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %178 = load i16, ptr %177, align 4
   %179 = zext i16 %178 to i32
-  %180 = getelementptr inbounds i8, ptr %8, i64 12
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %181 = load i16, ptr %180, align 4
   %182 = zext i16 %181 to i32
   %183 = sub nsw i32 %179, %182
-  %184 = getelementptr inbounds i8, ptr %8, i64 18
+  %184 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %185 = load i16, ptr %184, align 2
   %186 = zext i16 %185 to i32
   %187 = add nsw i32 %183, %186
@@ -558,7 +558,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   %197 = phi i32 [ 0, %11 ], [ %196, %188 ], [ %187, %176 ], [ %175, %164 ], [ %163, %152 ], [ %142, %133 ], [ %151, %143 ], [ %128, %118 ], [ %108, %99 ], [ %117, %109 ], [ %85, %76 ], [ %94, %86 ], [ %71, %58 ], [ %57, %49 ], [ %48, %46 ], [ 0, %44 ], [ 0, %21 ], [ %30, %.loopexit.loopexit ], [ 0, %31 ], [ %43, %.loopexit18.loopexit ]
   %198 = call zeroext i8 @acpi_ut_get_resource_type(ptr noundef %8) #4
   %199 = icmp eq i8 %198, -114
-  %200 = getelementptr inbounds i8, ptr %8, i64 5
+  %200 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %201 = select i1 %199, ptr %200, ptr %4
   %202 = select i1 %199, ptr @acpi_gbl_resource_struct_serial_bus_sizes, ptr @acpi_gbl_resource_struct_sizes
   %203 = load i8, ptr %201, align 1
@@ -602,13 +602,13 @@ declare dso_local i32 @acpi_ut_get_descriptor_length(ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_length(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %61, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -621,19 +621,19 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   br i1 %14, label %.loopexit8, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %13, i64 9
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 4
   br i1 %18, label %19, label %.loopexit8
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %.preheader
 
@@ -645,7 +645,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %27, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 9
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %36 [
     i8 2, label %39
@@ -653,7 +653,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   ]
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %27, i64 13
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 13
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 5
   br i1 %35, label %45, label %36
@@ -665,7 +665,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %27, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = add i64 %12, 21
@@ -673,7 +673,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_rs_get_pci_routing_table_
   br label %52
 
 45:                                               ; preds = %32
-  %46 = getelementptr inbounds i8, ptr %27, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %47 = add i64 %12, 20
   %48 = load ptr, ptr %46, align 8
   %49 = tail call i64 @acpi_ns_get_pathname_length(ptr noundef %48) #4

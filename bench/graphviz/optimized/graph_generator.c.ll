@@ -672,10 +672,10 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03237 = phi ptr [ %17, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %18 = getelementptr inbounds %struct.vtx_data, ptr %14, i64 %indvars.iv
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw %struct.vtx_data, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.03237, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.03237, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.03237, i64 16
   store i32 0, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -688,13 +688,13 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge41
   %indvars.iv49 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next50, %._crit_edge41 ]
-  %21 = getelementptr inbounds %struct.vtx_data, ptr %14, i64 %indvars.iv49
+  %21 = getelementptr inbounds nuw %struct.vtx_data, ptr %14, i64 %indvars.iv49
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph40, label %._crit_edge41
 
 .lr.ph40:                                         ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = trunc nuw nsw i64 %indvars.iv49 to i32
   br label %26
 
@@ -702,7 +702,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
   %27 = phi i32 [ %22, %.lr.ph40 ], [ %35, %34 ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next47, %34 ]
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv46
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv46
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv49, %31
@@ -726,7 +726,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
   br i1 %exitcond53.not, label %._crit_edge44, label %.preheader
 
 ._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread
-  %38 = getelementptr inbounds i8, ptr %14, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void @free(ptr noundef %39) #14
   tail call void @free(ptr noundef %14) #14
@@ -801,7 +801,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %13 = sext i32 %.tr.lcssa to i64
   %14 = getelementptr inbounds %struct.vtx_data, ptr %4, i64 %13
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %15 to i64
   %19 = getelementptr inbounds i32, ptr %17, i64 %18
@@ -815,7 +815,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %24 = sext i32 %.tr54.lcssa to i64
   %25 = getelementptr inbounds %struct.vtx_data, ptr %4, i64 %24
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %26 to i64
   %30 = getelementptr inbounds i32, ptr %28, i64 %29
@@ -829,7 +829,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %35 = sext i32 %.tr55.lcssa to i64
   %36 = getelementptr inbounds %struct.vtx_data, ptr %4, i64 %35
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds i32, ptr %39, i64 %40
@@ -876,10 +876,10 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03237 = phi ptr [ %14, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %15 = getelementptr inbounds %struct.vtx_data, ptr %11, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %15 = getelementptr inbounds nuw %struct.vtx_data, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.03237, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.03237, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.03237, i64 24
   store i32 0, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -892,13 +892,13 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge41
   %indvars.iv49 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next50, %._crit_edge41 ]
-  %18 = getelementptr inbounds %struct.vtx_data, ptr %11, i64 %indvars.iv49
+  %18 = getelementptr inbounds nuw %struct.vtx_data, ptr %11, i64 %indvars.iv49
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph40, label %._crit_edge41
 
 .lr.ph40:                                         ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = trunc nuw nsw i64 %indvars.iv49 to i32
   br label %23
 
@@ -906,7 +906,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
   %24 = phi i32 [ %19, %.lr.ph40 ], [ %32, %31 ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next47, %31 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv46
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv46
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv49, %28
@@ -930,7 +930,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
   br i1 %exitcond53.not, label %._crit_edge44, label %.preheader
 
 ._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread
-  %35 = getelementptr inbounds i8, ptr %11, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #14
   tail call void @free(ptr noundef %11) #14
@@ -971,7 +971,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %17 = sext i32 %.tr.lcssa to i64
   %18 = getelementptr inbounds %struct.vtx_data, ptr %5, i64 %17
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
@@ -989,7 +989,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %31 = sext i32 %.tr92.lcssa to i64
   %32 = getelementptr inbounds %struct.vtx_data, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds i32, ptr %35, i64 %36
@@ -1007,7 +1007,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %45 = sext i32 %.tr93.lcssa to i64
   %46 = getelementptr inbounds %struct.vtx_data, ptr %5, i64 %45
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %47 to i64
   %51 = getelementptr inbounds i32, ptr %49, i64 %50
@@ -1025,7 +1025,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %59 = sext i32 %.tr94.lcssa to i64
   %60 = getelementptr inbounds %struct.vtx_data, ptr %5, i64 %59
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %61 to i64
   %65 = getelementptr inbounds i32, ptr %63, i64 %64
@@ -1530,7 +1530,7 @@ gv_alloc.exit:                                    ; preds = %1
   %7 = add nsw i32 %0, 1
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 4)
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 1, ptr %10, align 4
   %11 = icmp sgt i32 %0, 1
   br i1 %11, label %.preheader.preheader.i, label %genCnt.exit
@@ -1550,7 +1550,7 @@ gv_alloc.exit:                                    ; preds = %1
 14:                                               ; preds = %30, %.preheader.i
   %indvars.iv39.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next40.i, %30 ]
   %.02636.i = phi i32 [ 0, %.preheader.i ], [ %.1.lcssa.i, %30 ]
-  %15 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv39.i
+  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv39.i
   %16 = load i32, ptr %15, align 4
   %17 = trunc nuw nsw i64 %indvars.iv39.i to i32
   %18 = mul nsw i32 %16, %17
@@ -1569,7 +1569,7 @@ gv_alloc.exit:                                    ; preds = %1
 23:                                               ; preds = %22
   %24 = sub nsw i32 %.02932.i, %17
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %9, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = mul nsw i32 %18, %27
   %29 = add nsw i32 %28, %.134.i
@@ -1585,14 +1585,14 @@ gv_alloc.exit:                                    ; preds = %1
 
 31:                                               ; preds = %30
   %32 = sdiv i32 %.1.lcssa.i, %13
-  %33 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next46.i
+  %33 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next46.i
   store i32 %32, ptr %33, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %genCnt.exit, label %.preheader.i
 
 genCnt.exit:                                      ; preds = %31, %gv_alloc.exit
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %34, align 8
   %35 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 49) 16) #16
   %36 = icmp eq ptr %35, null
@@ -1606,9 +1606,9 @@ genCnt.exit:                                      ; preds = %31, %gv_alloc.exit
 
 mkTree.exit:                                      ; preds = %genCnt.exit
   %40 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 4)
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %35, ptr %42, align 8
   %43 = tail call i64 @time(ptr noundef null) #14
   %44 = trunc i64 %43 to i32
@@ -1621,21 +1621,21 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
   store i32 0, ptr %6, align 8
   %8 = load i32, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %15
 
 15:                                               ; preds = %._crit_edge69.i, %2
@@ -1647,7 +1647,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)
   %.14566.i = phi i32 [ %35, %int_stack_push.exit.i ], [ %.044.i, %15 ]
   %17 = add nsw i32 %.14566.i, -1
   %18 = zext nneg i32 %.14566.i to i64
-  %19 = getelementptr inbounds i32, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = mul nsw i32 %20, %17
   %22 = sitofp i32 %21 to double
@@ -1662,7 +1662,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.lr.ph.i ]
   %.0.i = phi i32 [ %.2.i, %45 ], [ %27, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i
   %30 = load i32, ptr %29, align 4
   %31 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %32 = mul nsw i32 %30, %31
@@ -1680,7 +1680,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds i32, ptr %10, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = mul nsw i32 %32, %40
   %42 = sub nsw i32 %.1.i, %41
@@ -1936,13 +1936,13 @@ genTree.exit:                                     ; preds = %150
   br i1 %.not6.i, label %writeTree.exit, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %genTree.exit
-  %168 = getelementptr inbounds i8, ptr %166, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   br label %169
 
 169:                                              ; preds = %169, %.lr.ph.i8
   %indvars.iv.i9 = phi i64 [ 2, %.lr.ph.i8 ], [ %indvars.iv.next.i10, %169 ]
   %170 = load ptr, ptr %168, align 8
-  %171 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv.i9
+  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv.i9
   %172 = load i32, ptr %171, align 4
   %173 = trunc nuw nsw i64 %indvars.iv.i9 to i32
   tail call void %1(i32 noundef %172, i32 noundef %173) #14
@@ -1958,18 +1958,18 @@ writeTree.exit:                                   ; preds = %169, %genTree.exit
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @freeTreeGen(ptr nocapture noundef initializes((24, 40)) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %6) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #14
   tail call void @free(ptr noundef %8) #14
@@ -1991,9 +1991,9 @@ declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i.i

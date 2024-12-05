@@ -26,7 +26,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   br i1 %11, label %qtmd_init_model.exit115, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef 1864) #3
   %.not77 = icmp eq ptr %15, null
@@ -36,12 +36,12 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   %17 = load ptr, ptr %13, align 8
   %18 = zext i32 %6 to i64
   %19 = tail call ptr %17(ptr noundef nonnull %0, i64 noundef %18) #3
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = zext nneg i32 %10 to i64
   %23 = tail call ptr %21(ptr noundef nonnull %0, i64 noundef %22) #3
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %20, align 8
   %.not78 = icmp eq ptr %25, null
@@ -50,7 +50,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
   br i1 %or.cond80, label %26, label %32
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %25) #3
   %29 = load ptr, ptr %27, align 8
@@ -62,64 +62,64 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
 
 32:                                               ; preds = %16
   store ptr %0, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %2, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %15, i64 100
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 100
   store i32 %10, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %15, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %15, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %15, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 32768, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 50
   store i8 0, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %15, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %15, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store ptr %23, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %23, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %15, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr %25, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store ptr %25, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %15, i64 105
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 105
   store i8 0, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %15, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i8 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %15, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 112
-  %49 = getelementptr inbounds i8, ptr %15, i64 256
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store i32 4, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %15, i64 116
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i32 64, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %15, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store ptr %49, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %52, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %52 ]
   %53 = trunc i64 %indvars.iv.i to i16
-  %54 = getelementptr inbounds %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv.i
   store i16 %53, ptr %54, align 2
   %55 = sub i16 64, %53
-  %56 = getelementptr inbounds i8, ptr %54, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i16 %55, ptr %56, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
   br i1 %exitcond.not.i, label %qtmd_init_model.exit, label %52
 
 qtmd_init_model.exit:                             ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %15, i64 128
-  %58 = getelementptr inbounds i8, ptr %15, i64 516
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 516
   store i32 4, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %15, i64 132
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 132
   store i32 64, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %15, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 136
   store ptr %58, ptr %60, align 8
   br label %61
 
@@ -127,22 +127,22 @@ qtmd_init_model.exit:                             ; preds = %52
   %indvars.iv.i82 = phi i64 [ 0, %qtmd_init_model.exit ], [ %indvars.iv.next.i83, %61 ]
   %62 = trunc i64 %indvars.iv.i82 to i16
   %63 = add i16 %62, 64
-  %64 = getelementptr inbounds %struct.qtmd_modelsym, ptr %58, i64 %indvars.iv.i82
+  %64 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %58, i64 %indvars.iv.i82
   store i16 %63, ptr %64, align 2
   %65 = sub i16 64, %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store i16 %65, ptr %66, align 2
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 65
   br i1 %exitcond.not.i84, label %qtmd_init_model.exit85, label %61
 
 qtmd_init_model.exit85:                           ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %15, i64 144
-  %68 = getelementptr inbounds i8, ptr %15, i64 776
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 776
   store i32 4, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %15, i64 148
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 148
   store i32 64, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %15, i64 152
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %68, ptr %70, align 8
   br label %71
 
@@ -150,22 +150,22 @@ qtmd_init_model.exit85:                           ; preds = %61
   %indvars.iv.i86 = phi i64 [ 0, %qtmd_init_model.exit85 ], [ %indvars.iv.next.i87, %71 ]
   %72 = trunc i64 %indvars.iv.i86 to i16
   %73 = add i16 %72, 128
-  %74 = getelementptr inbounds %struct.qtmd_modelsym, ptr %68, i64 %indvars.iv.i86
+  %74 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %68, i64 %indvars.iv.i86
   store i16 %73, ptr %74, align 2
   %75 = sub i16 64, %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 2
   store i16 %75, ptr %76, align 2
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 65
   br i1 %exitcond.not.i88, label %qtmd_init_model.exit89, label %71
 
 qtmd_init_model.exit89:                           ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %15, i64 160
-  %78 = getelementptr inbounds i8, ptr %15, i64 1036
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 1036
   store i32 4, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %15, i64 164
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 164
   store i32 64, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %15, i64 168
+  %80 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store ptr %78, ptr %80, align 8
   br label %81
 
@@ -173,10 +173,10 @@ qtmd_init_model.exit89:                           ; preds = %71
   %indvars.iv.i90 = phi i64 [ 0, %qtmd_init_model.exit89 ], [ %indvars.iv.next.i91, %81 ]
   %82 = trunc i64 %indvars.iv.i90 to i16
   %83 = add i16 %82, 192
-  %84 = getelementptr inbounds %struct.qtmd_modelsym, ptr %78, i64 %indvars.iv.i90
+  %84 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %78, i64 %indvars.iv.i90
   store i16 %83, ptr %84, align 2
   %85 = sub i16 64, %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i16 %85, ptr %86, align 2
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, 65
@@ -184,13 +184,13 @@ qtmd_init_model.exit89:                           ; preds = %71
 
 qtmd_init_model.exit93:                           ; preds = %81
   %87 = shl nuw nsw i32 %3, 1
-  %88 = getelementptr inbounds i8, ptr %15, i64 176
-  %89 = getelementptr inbounds i8, ptr %15, i64 1296
+  %88 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 1296
   %90 = tail call i32 @llvm.umin.i32(i32 %87, i32 24)
   store i32 4, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %15, i64 180
+  %91 = getelementptr inbounds nuw i8, ptr %15, i64 180
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %15, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 184
   store ptr %89, ptr %92, align 8
   %93 = or disjoint i32 %90, 1
   %wide.trip.count.i = zext nneg i32 %93 to i64
@@ -200,24 +200,24 @@ qtmd_init_model.exit93:                           ; preds = %81
   %indvars.iv.i94 = phi i64 [ 0, %qtmd_init_model.exit93 ], [ %indvars.iv.next.i95, %94 ]
   %95 = trunc i64 %indvars.iv.i94 to i32
   %96 = trunc i64 %indvars.iv.i94 to i16
-  %97 = getelementptr inbounds %struct.qtmd_modelsym, ptr %89, i64 %indvars.iv.i94
+  %97 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %89, i64 %indvars.iv.i94
   store i16 %96, ptr %97, align 2
   %98 = sub i32 %90, %95
   %99 = trunc nuw nsw i32 %98 to i16
-  %100 = getelementptr inbounds i8, ptr %97, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i16 %99, ptr %100, align 2
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i
   br i1 %exitcond.not.i96, label %qtmd_init_model.exit97, label %94
 
 qtmd_init_model.exit97:                           ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %15, i64 192
-  %102 = getelementptr inbounds i8, ptr %15, i64 1396
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  %102 = getelementptr inbounds nuw i8, ptr %15, i64 1396
   %103 = tail call i32 @llvm.umin.i32(i32 %87, i32 36)
   store i32 4, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %15, i64 196
+  %104 = getelementptr inbounds nuw i8, ptr %15, i64 196
   store i32 %103, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %15, i64 200
+  %105 = getelementptr inbounds nuw i8, ptr %15, i64 200
   store ptr %102, ptr %105, align 8
   %106 = or disjoint i32 %103, 1
   %wide.trip.count.i98 = zext nneg i32 %106 to i64
@@ -227,23 +227,23 @@ qtmd_init_model.exit97:                           ; preds = %94
   %indvars.iv.i99 = phi i64 [ 0, %qtmd_init_model.exit97 ], [ %indvars.iv.next.i100, %107 ]
   %108 = trunc i64 %indvars.iv.i99 to i32
   %109 = trunc i64 %indvars.iv.i99 to i16
-  %110 = getelementptr inbounds %struct.qtmd_modelsym, ptr %102, i64 %indvars.iv.i99
+  %110 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %102, i64 %indvars.iv.i99
   store i16 %109, ptr %110, align 2
   %111 = sub i32 %103, %108
   %112 = trunc nuw nsw i32 %111 to i16
-  %113 = getelementptr inbounds i8, ptr %110, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 2
   store i16 %112, ptr %113, align 2
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
   br i1 %exitcond.not.i101, label %qtmd_init_model.exit102, label %107
 
 qtmd_init_model.exit102:                          ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %15, i64 208
-  %115 = getelementptr inbounds i8, ptr %15, i64 1544
+  %114 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  %115 = getelementptr inbounds nuw i8, ptr %15, i64 1544
   store i32 4, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %15, i64 212
+  %116 = getelementptr inbounds nuw i8, ptr %15, i64 212
   store i32 %87, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %15, i64 216
+  %117 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store ptr %115, ptr %117, align 8
   %118 = or disjoint i32 %87, 1
   %wide.trip.count.i103 = zext nneg i32 %118 to i64
@@ -253,55 +253,55 @@ qtmd_init_model.exit102:                          ; preds = %107
   %indvars.iv.i104 = phi i64 [ 0, %qtmd_init_model.exit102 ], [ %indvars.iv.next.i105, %119 ]
   %120 = trunc i64 %indvars.iv.i104 to i32
   %121 = trunc i64 %indvars.iv.i104 to i16
-  %122 = getelementptr inbounds %struct.qtmd_modelsym, ptr %115, i64 %indvars.iv.i104
+  %122 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %115, i64 %indvars.iv.i104
   store i16 %121, ptr %122, align 2
   %123 = sub i32 %87, %120
   %124 = trunc nuw nsw i32 %123 to i16
-  %125 = getelementptr inbounds i8, ptr %122, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 2
   store i16 %124, ptr %125, align 2
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i103
   br i1 %exitcond.not.i106, label %qtmd_init_model.exit107, label %119
 
 qtmd_init_model.exit107:                          ; preds = %119
-  %126 = getelementptr inbounds i8, ptr %15, i64 224
-  %127 = getelementptr inbounds i8, ptr %15, i64 1716
+  %126 = getelementptr inbounds nuw i8, ptr %15, i64 224
+  %127 = getelementptr inbounds nuw i8, ptr %15, i64 1716
   store i32 4, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %15, i64 228
+  %128 = getelementptr inbounds nuw i8, ptr %15, i64 228
   store i32 27, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %15, i64 232
+  %129 = getelementptr inbounds nuw i8, ptr %15, i64 232
   store ptr %127, ptr %129, align 8
   br label %130
 
 130:                                              ; preds = %130, %qtmd_init_model.exit107
   %indvars.iv.i108 = phi i64 [ 0, %qtmd_init_model.exit107 ], [ %indvars.iv.next.i109, %130 ]
   %131 = trunc i64 %indvars.iv.i108 to i16
-  %132 = getelementptr inbounds %struct.qtmd_modelsym, ptr %127, i64 %indvars.iv.i108
+  %132 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %127, i64 %indvars.iv.i108
   store i16 %131, ptr %132, align 2
   %133 = sub i16 27, %131
-  %134 = getelementptr inbounds i8, ptr %132, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 2
   store i16 %133, ptr %134, align 2
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, 28
   br i1 %exitcond.not.i110, label %qtmd_init_model.exit111, label %130
 
 qtmd_init_model.exit111:                          ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %15, i64 240
-  %136 = getelementptr inbounds i8, ptr %15, i64 1828
+  %135 = getelementptr inbounds nuw i8, ptr %15, i64 240
+  %136 = getelementptr inbounds nuw i8, ptr %15, i64 1828
   store i32 4, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %15, i64 244
+  %137 = getelementptr inbounds nuw i8, ptr %15, i64 244
   store i32 7, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %15, i64 248
+  %138 = getelementptr inbounds nuw i8, ptr %15, i64 248
   store ptr %136, ptr %138, align 8
   br label %139
 
 139:                                              ; preds = %139, %qtmd_init_model.exit111
   %indvars.iv.i112 = phi i64 [ 0, %qtmd_init_model.exit111 ], [ %indvars.iv.next.i113, %139 ]
   %140 = trunc i64 %indvars.iv.i112 to i16
-  %141 = getelementptr inbounds %struct.qtmd_modelsym, ptr %136, i64 %indvars.iv.i112
+  %141 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %136, i64 %indvars.iv.i112
   store i16 %140, ptr %141, align 2
   %142 = sub i16 7, %140
-  %143 = getelementptr inbounds i8, ptr %141, i64 2
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 2
   store i16 %142, ptr %143, align 2
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 8
@@ -320,15 +320,15 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %or.cond, label %1206, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %1206
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -343,9 +343,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 18:                                               ; preds = %8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %21(ptr noundef %23, ptr noundef %12, i32 noundef %.0939) #3
   %.not1058 = icmp eq i32 %24, %.0939
@@ -371,25 +371,25 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %33, label %1206, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = load i8, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %50 = load i16, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 46
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load i16, ptr %53, align 8
   %55 = load ptr, ptr %9, align 8
   %56 = ptrtoint ptr %55 to i64
@@ -400,30 +400,30 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph1857:                                       ; preds = %34
   %60 = zext i8 %42 to i32
-  %61 = getelementptr inbounds i8, ptr %0, i64 50
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
-  %64 = getelementptr inbounds i8, ptr %0, i64 100
-  %65 = getelementptr inbounds i8, ptr %0, i64 105
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  %67 = getelementptr inbounds i8, ptr %0, i64 240
-  %68 = getelementptr inbounds i8, ptr %0, i64 248
-  %69 = getelementptr inbounds i8, ptr %0, i64 244
-  %70 = getelementptr inbounds i8, ptr %0, i64 224
-  %71 = getelementptr inbounds i8, ptr %0, i64 232
-  %72 = getelementptr inbounds i8, ptr %0, i64 228
-  %73 = getelementptr inbounds i8, ptr %0, i64 208
-  %74 = getelementptr inbounds i8, ptr %0, i64 216
-  %75 = getelementptr inbounds i8, ptr %0, i64 212
-  %76 = getelementptr inbounds i8, ptr %0, i64 192
-  %77 = getelementptr inbounds i8, ptr %0, i64 200
-  %78 = getelementptr inbounds i8, ptr %0, i64 196
-  %79 = getelementptr inbounds i8, ptr %0, i64 176
-  %80 = getelementptr inbounds i8, ptr %0, i64 184
-  %81 = getelementptr inbounds i8, ptr %0, i64 180
-  %82 = getelementptr inbounds i8, ptr %0, i64 128
-  %83 = getelementptr inbounds i8, ptr %0, i64 112
-  %84 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %85
 
 85:                                               ; preds = %.lr.ph1857, %1182
@@ -457,7 +457,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 90:                                               ; preds = %.lr.ph
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %62, align 8
   %95 = load ptr, ptr %63, align 8
@@ -477,7 +477,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %63, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   store i8 0, ptr %105, align 1
   %106 = load ptr, ptr %63, align 8
   store i8 0, ptr %106, align 1
@@ -493,21 +493,21 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %109 = load ptr, ptr %63, align 8
   store ptr %109, ptr %35, align 8
   %110 = zext nneg i32 %.0.i to i64
-  %111 = getelementptr inbounds i8, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
   store ptr %111, ptr %37, align 8
   br label %112
 
 112:                                              ; preds = %.lr.ph, %108
   %.4797 = phi ptr [ %111, %108 ], [ %.37961610, %.lr.ph ]
   %.4792 = phi ptr [ %109, %108 ], [ %.37911611, %.lr.ph ]
-  %113 = getelementptr inbounds i8, ptr %.4792, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.4792, i64 1
   %114 = load i8, ptr %.4792, align 1
   %.not1063 = icmp ult ptr %113, %.4797
   br i1 %.not1063, label %137, label %115
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %62, align 8
   %120 = load ptr, ptr %63, align 8
@@ -527,7 +527,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr %63, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
   store i8 0, ptr %130, align 1
   %131 = load ptr, ptr %63, align 8
   store i8 0, ptr %131, align 1
@@ -543,14 +543,14 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %134 = load ptr, ptr %63, align 8
   store ptr %134, ptr %35, align 8
   %135 = zext nneg i32 %.0.i1157 to i64
-  %136 = getelementptr inbounds i8, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
   store ptr %136, ptr %37, align 8
   br label %137
 
 137:                                              ; preds = %112, %133
   %.5798 = phi ptr [ %136, %133 ], [ %.4797, %112 ]
   %.5 = phi ptr [ %134, %133 ], [ %113, %112 ]
-  %138 = getelementptr inbounds i8, ptr %.5, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %139 = load i8, ptr %.5, align 1
   %140 = zext i8 %114 to i32
   %141 = shl nuw nsw i32 %140, 8
@@ -619,7 +619,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %165 = zext i16 %.39881801 to i32
   %166 = sub nsw i32 %164, %165
   %167 = load ptr, ptr %68, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %169 = load i16, ptr %168, align 2
   %170 = zext i16 %169 to i32
   %171 = load i32, ptr %69, align 4
@@ -641,7 +641,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 182:                                              ; preds = %.lr.ph1617, %185
   %indvars.iv = phi i64 [ 1, %.lr.ph1617 ], [ %indvars.iv.next, %185 ]
-  %183 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv, i32 1
+  %183 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv, i32 1
   %184 = load i16, ptr %183, align 2
   %.not1065 = icmp ugt i16 %184, %181
   br i1 %.not1065, label %185, label %._crit_edge1618.loopexit.split.loop.exit
@@ -668,7 +668,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %195 = mul i32 %191, %194
   %196 = udiv i32 %195, %170
   %197 = add i16 %.39881801, -1
-  %198 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %187, i32 1
+  %198 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %167, i64 %187, i32 1
   %199 = load i16, ptr %198, align 2
   %200 = zext i16 %199 to i32
   %201 = mul i32 %191, %200
@@ -693,7 +693,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %213 = add i16 %197, %212
   %214 = add i16 %.39881801, %203
   %215 = load ptr, ptr %68, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 2
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 2
   %217 = load i16, ptr %216, align 2
   %218 = icmp ugt i16 %217, 3800
   br i1 %218, label %219, label %.preheader2527
@@ -753,7 +753,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 236:                                              ; preds = %.lr.ph1627
   %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = load ptr, ptr %62, align 8
   %241 = load ptr, ptr %63, align 8
@@ -773,7 +773,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 249:                                              ; preds = %247
   %250 = load ptr, ptr %63, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   store i8 0, ptr %251, align 1
   %252 = load ptr, ptr %63, align 8
   store i8 0, ptr %252, align 1
@@ -789,21 +789,21 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %255 = load ptr, ptr %63, align 8
   store ptr %255, ptr %35, align 8
   %256 = zext nneg i32 %.0.i1161 to i64
-  %257 = getelementptr inbounds i8, ptr %255, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 %256
   store ptr %257, ptr %37, align 8
   br label %258
 
 258:                                              ; preds = %.lr.ph1627, %254
   %.10803 = phi ptr [ %257, %254 ], [ %.98021624, %.lr.ph1627 ]
   %.10 = phi ptr [ %255, %254 ], [ %.91625, %.lr.ph1627 ]
-  %259 = getelementptr inbounds i8, ptr %.10, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   %260 = load i8, ptr %.10, align 1
   %.not1071 = icmp ult ptr %259, %.10803
   br i1 %.not1071, label %283, label %261
 
 261:                                              ; preds = %258
   %262 = load ptr, ptr %0, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
   %264 = load ptr, ptr %263, align 8
   %265 = load ptr, ptr %62, align 8
   %266 = load ptr, ptr %63, align 8
@@ -823,7 +823,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 274:                                              ; preds = %272
   %275 = load ptr, ptr %63, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 1
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 1
   store i8 0, ptr %276, align 1
   %277 = load ptr, ptr %63, align 8
   store i8 0, ptr %277, align 1
@@ -839,14 +839,14 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %280 = load ptr, ptr %63, align 8
   store ptr %280, ptr %35, align 8
   %281 = zext nneg i32 %.0.i1165 to i64
-  %282 = getelementptr inbounds i8, ptr %280, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 %281
   store ptr %282, ptr %37, align 8
   br label %283
 
 283:                                              ; preds = %258, %279
   %.11804 = phi ptr [ %282, %279 ], [ %.10803, %258 ]
   %.11 = phi ptr [ %280, %279 ], [ %259, %258 ]
-  %284 = getelementptr inbounds i8, ptr %.11, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   %285 = load i8, ptr %.11, align 1
   %286 = zext i8 %260 to i32
   %287 = shl nuw nsw i32 %286, 8
@@ -887,18 +887,18 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 304:                                              ; preds = %302
   %305 = icmp eq i16 %190, 2
   %.v = select i1 %305, i64 144, i64 160
-  %306 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   br label %307
 
 307:                                              ; preds = %302, %303, %304
   %308 = phi ptr [ %82, %303 ], [ %306, %304 ], [ %83, %302 ]
   %309 = sub nsw i32 %222, %221
-  %310 = getelementptr inbounds i8, ptr %308, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 2
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 2
   %313 = load i16, ptr %312, align 2
   %314 = zext i16 %313 to i32
-  %315 = getelementptr inbounds i8, ptr %308, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %308, i64 4
   %316 = load i32, ptr %315, align 4
   %317 = icmp sgt i32 %316, 1
   br i1 %317, label %.lr.ph1784, label %._crit_edge1785
@@ -918,7 +918,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 327:                                              ; preds = %.lr.ph1784, %330
   %indvars.iv2105 = phi i64 [ 1, %.lr.ph1784 ], [ %indvars.iv.next2106, %330 ]
-  %328 = getelementptr inbounds %struct.qtmd_modelsym, ptr %311, i64 %indvars.iv2105, i32 1
+  %328 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %311, i64 %indvars.iv2105, i32 1
   %329 = load i16, ptr %328, align 2
   %.not1142 = icmp ugt i16 %329, %326
   br i1 %.not1142, label %330, label %._crit_edge1785.loopexit.split.loop.exit
@@ -945,7 +945,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %340 = mul i32 %336, %339
   %341 = udiv i32 %340, %314
   %342 = add i16 %.5990, -1
-  %343 = getelementptr inbounds %struct.qtmd_modelsym, ptr %311, i64 %332, i32 1
+  %343 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %311, i64 %332, i32 1
   %344 = load i16, ptr %343, align 2
   %345 = zext i16 %344 to i32
   %346 = mul i32 %336, %345
@@ -970,7 +970,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %358 = add i16 %342, %357
   %359 = add i16 %.5990, %348
   %360 = load ptr, ptr %310, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 2
   %362 = load i16, ptr %361, align 2
   %363 = icmp ugt i16 %362, 3800
   br i1 %363, label %364, label %.preheader2519
@@ -1045,7 +1045,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 388:                                              ; preds = %.lr.ph1794, %385
   %.14807 = phi ptr [ %387, %385 ], [ %.138061791, %.lr.ph1794 ]
   %.14 = phi ptr [ %386, %385 ], [ %.131792, %.lr.ph1794 ]
-  %389 = getelementptr inbounds i8, ptr %.14, i64 1
+  %389 = getelementptr inbounds nuw i8, ptr %.14, i64 1
   %390 = load i8, ptr %.14, align 1
   %.not1148 = icmp ult ptr %389, %.14807
   br i1 %.not1148, label %398, label %391
@@ -1067,7 +1067,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 398:                                              ; preds = %388, %395
   %.15808 = phi ptr [ %397, %395 ], [ %.14807, %388 ]
   %.15 = phi ptr [ %396, %395 ], [ %389, %388 ]
-  %399 = getelementptr inbounds i8, ptr %.15, i64 1
+  %399 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   %400 = load i8, ptr %.15, align 1
   %401 = zext i8 %390 to i32
   %402 = shl nuw nsw i32 %401, 8
@@ -1096,7 +1096,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %416 = trunc i16 %335 to i8
   %417 = add i32 %.29231803, 1
   %418 = zext i32 %.29231803 to i64
-  %419 = getelementptr inbounds i8, ptr %44, i64 %418
+  %419 = getelementptr inbounds nuw i8, ptr %44, i64 %418
   store i8 %416, ptr %419, align 1
   %420 = add i32 %.29151804, -1
   br label %.loopexit
@@ -1111,7 +1111,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 422:                                              ; preds = %421
   %423 = sub nsw i32 %222, %221
   %424 = load ptr, ptr %80, align 8
-  %425 = getelementptr inbounds i8, ptr %424, i64 2
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 2
   %426 = load i16, ptr %425, align 2
   %427 = zext i16 %426 to i32
   %428 = load i32, ptr %81, align 4
@@ -1133,7 +1133,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 439:                                              ; preds = %.lr.ph1735, %442
   %indvars.iv2097 = phi i64 [ 1, %.lr.ph1735 ], [ %indvars.iv.next2098, %442 ]
-  %440 = getelementptr inbounds %struct.qtmd_modelsym, ptr %424, i64 %indvars.iv2097, i32 1
+  %440 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %424, i64 %indvars.iv2097, i32 1
   %441 = load i16, ptr %440, align 2
   %.not1112 = icmp ugt i16 %441, %438
   br i1 %.not1112, label %442, label %._crit_edge1736.loopexit.split.loop.exit
@@ -1160,7 +1160,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %452 = mul i32 %448, %451
   %453 = udiv i32 %452, %427
   %454 = add i16 %.5990, -1
-  %455 = getelementptr inbounds %struct.qtmd_modelsym, ptr %424, i64 %444, i32 1
+  %455 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %424, i64 %444, i32 1
   %456 = load i16, ptr %455, align 2
   %457 = zext i16 %456 to i32
   %458 = mul i32 %448, %457
@@ -1185,7 +1185,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %470 = add i16 %454, %469
   %471 = add i16 %.5990, %460
   %472 = load ptr, ptr %80, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 2
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 2
   %474 = load i16, ptr %473, align 2
   %475 = icmp ugt i16 %474, 3800
   br i1 %475, label %476, label %.preheader2521
@@ -1260,7 +1260,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 500:                                              ; preds = %.lr.ph1745, %497
   %.19812 = phi ptr [ %499, %497 ], [ %.188111742, %.lr.ph1745 ]
   %.19 = phi ptr [ %498, %497 ], [ %.181743, %.lr.ph1745 ]
-  %501 = getelementptr inbounds i8, ptr %.19, i64 1
+  %501 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %502 = load i8, ptr %.19, align 1
   %.not1118 = icmp ult ptr %501, %.19812
   br i1 %.not1118, label %510, label %503
@@ -1282,7 +1282,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 510:                                              ; preds = %500, %507
   %.20813 = phi ptr [ %509, %507 ], [ %.19812, %500 ]
   %.20 = phi ptr [ %508, %507 ], [ %501, %500 ]
-  %511 = getelementptr inbounds i8, ptr %.20, i64 1
+  %511 = getelementptr inbounds nuw i8, ptr %.20, i64 1
   %512 = load i8, ptr %.20, align 1
   %513 = zext i8 %502 to i32
   %514 = shl nuw nsw i32 %513, 8
@@ -1313,7 +1313,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not11201751, label %._crit_edge1760, label %.lr.ph1759.preheader
 
 .lr.ph1759.preheader:                             ; preds = %527
-  %529 = getelementptr inbounds [42 x i8], ptr @extra_bits, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %528
   %530 = load i8, ptr %529, align 1
   br label %.lr.ph1759
 
@@ -1349,7 +1349,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 541:                                              ; preds = %533, %538
   %.23816 = phi ptr [ %540, %538 ], [ %.218141756, %533 ]
   %.23 = phi ptr [ %539, %538 ], [ %.211757, %533 ]
-  %542 = getelementptr inbounds i8, ptr %.23, i64 1
+  %542 = getelementptr inbounds nuw i8, ptr %.23, i64 1
   %543 = load i8, ptr %.23, align 1
   %.not1140 = icmp ult ptr %542, %.23816
   br i1 %.not1140, label %551, label %544
@@ -1371,7 +1371,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 551:                                              ; preds = %541, %548
   %.24817 = phi ptr [ %550, %548 ], [ %.23816, %541 ]
   %.24 = phi ptr [ %549, %548 ], [ %542, %541 ]
-  %552 = getelementptr inbounds i8, ptr %.24, i64 1
+  %552 = getelementptr inbounds nuw i8, ptr %.24, i64 1
   %553 = load i8, ptr %.24, align 1
   %554 = zext i8 %543 to i32
   %555 = shl nuw nsw i32 %554, 8
@@ -1404,7 +1404,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 573:                                              ; preds = %421
   %574 = sub nsw i32 %222, %221
   %575 = load ptr, ptr %77, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i64 2
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 2
   %577 = load i16, ptr %576, align 2
   %578 = zext i16 %577 to i32
   %579 = load i32, ptr %78, align 4
@@ -1426,7 +1426,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 590:                                              ; preds = %.lr.ph1702, %593
   %indvars.iv2089 = phi i64 [ 1, %.lr.ph1702 ], [ %indvars.iv.next2090, %593 ]
-  %591 = getelementptr inbounds %struct.qtmd_modelsym, ptr %575, i64 %indvars.iv2089, i32 1
+  %591 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %575, i64 %indvars.iv2089, i32 1
   %592 = load i16, ptr %591, align 2
   %.not1099 = icmp ugt i16 %592, %589
   br i1 %.not1099, label %593, label %._crit_edge1703.loopexit.split.loop.exit
@@ -1453,7 +1453,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %603 = mul i32 %599, %602
   %604 = udiv i32 %603, %578
   %605 = add i16 %.5990, -1
-  %606 = getelementptr inbounds %struct.qtmd_modelsym, ptr %575, i64 %595, i32 1
+  %606 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %575, i64 %595, i32 1
   %607 = load i16, ptr %606, align 2
   %608 = zext i16 %607 to i32
   %609 = mul i32 %599, %608
@@ -1478,7 +1478,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %621 = add i16 %605, %620
   %622 = add i16 %.5990, %611
   %623 = load ptr, ptr %77, align 8
-  %624 = getelementptr inbounds i8, ptr %623, i64 2
+  %624 = getelementptr inbounds nuw i8, ptr %623, i64 2
   %625 = load i16, ptr %624, align 2
   %626 = icmp ugt i16 %625, 3800
   br i1 %626, label %627, label %.preheader2523
@@ -1553,7 +1553,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 651:                                              ; preds = %.lr.ph1712, %648
   %.28821 = phi ptr [ %650, %648 ], [ %.278201709, %.lr.ph1712 ]
   %.28 = phi ptr [ %649, %648 ], [ %.271710, %.lr.ph1712 ]
-  %652 = getelementptr inbounds i8, ptr %.28, i64 1
+  %652 = getelementptr inbounds nuw i8, ptr %.28, i64 1
   %653 = load i8, ptr %.28, align 1
   %.not1105 = icmp ult ptr %652, %.28821
   br i1 %.not1105, label %661, label %654
@@ -1575,7 +1575,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 661:                                              ; preds = %651, %658
   %.29822 = phi ptr [ %660, %658 ], [ %.28821, %651 ]
   %.29 = phi ptr [ %659, %658 ], [ %652, %651 ]
-  %662 = getelementptr inbounds i8, ptr %.29, i64 1
+  %662 = getelementptr inbounds nuw i8, ptr %.29, i64 1
   %663 = load i8, ptr %.29, align 1
   %664 = zext i8 %653 to i32
   %665 = shl nuw nsw i32 %664, 8
@@ -1606,7 +1606,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not11071718, label %._crit_edge1760, label %.lr.ph1726.preheader
 
 .lr.ph1726.preheader:                             ; preds = %678
-  %680 = getelementptr inbounds [42 x i8], ptr @extra_bits, i64 0, i64 %679
+  %680 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %679
   %681 = load i8, ptr %680, align 1
   br label %.lr.ph1726
 
@@ -1642,7 +1642,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 692:                                              ; preds = %684, %689
   %.32825 = phi ptr [ %691, %689 ], [ %.308231723, %684 ]
   %.32 = phi ptr [ %690, %689 ], [ %.301724, %684 ]
-  %693 = getelementptr inbounds i8, ptr %.32, i64 1
+  %693 = getelementptr inbounds nuw i8, ptr %.32, i64 1
   %694 = load i8, ptr %.32, align 1
   %.not1110 = icmp ult ptr %693, %.32825
   br i1 %.not1110, label %702, label %695
@@ -1664,7 +1664,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 702:                                              ; preds = %692, %699
   %.33826 = phi ptr [ %701, %699 ], [ %.32825, %692 ]
   %.33 = phi ptr [ %700, %699 ], [ %693, %692 ]
-  %703 = getelementptr inbounds i8, ptr %.33, i64 1
+  %703 = getelementptr inbounds nuw i8, ptr %.33, i64 1
   %704 = load i8, ptr %.33, align 1
   %705 = zext i8 %694 to i32
   %706 = shl nuw nsw i32 %705, 8
@@ -1697,7 +1697,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 724:                                              ; preds = %421
   %725 = sub nsw i32 %222, %221
   %726 = load ptr, ptr %71, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 2
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 2
   %728 = load i16, ptr %727, align 2
   %729 = zext i16 %728 to i32
   %730 = load i32, ptr %72, align 4
@@ -1719,7 +1719,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 741:                                              ; preds = %.lr.ph1636, %744
   %indvars.iv2073 = phi i64 [ 1, %.lr.ph1636 ], [ %indvars.iv.next2074, %744 ]
-  %742 = getelementptr inbounds %struct.qtmd_modelsym, ptr %726, i64 %indvars.iv2073, i32 1
+  %742 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %726, i64 %indvars.iv2073, i32 1
   %743 = load i16, ptr %742, align 2
   %.not1073 = icmp ugt i16 %743, %740
   br i1 %.not1073, label %744, label %._crit_edge1637.loopexit.split.loop.exit
@@ -1746,7 +1746,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %754 = mul i32 %750, %753
   %755 = udiv i32 %754, %729
   %756 = add i16 %.5990, -1
-  %757 = getelementptr inbounds %struct.qtmd_modelsym, ptr %726, i64 %746, i32 1
+  %757 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %726, i64 %746, i32 1
   %758 = load i16, ptr %757, align 2
   %759 = zext i16 %758 to i32
   %760 = mul i32 %750, %759
@@ -1771,7 +1771,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %772 = add i16 %756, %771
   %773 = add i16 %.5990, %762
   %774 = load ptr, ptr %71, align 8
-  %775 = getelementptr inbounds i8, ptr %774, i64 2
+  %775 = getelementptr inbounds nuw i8, ptr %774, i64 2
   %776 = load i16, ptr %775, align 2
   %777 = icmp ugt i16 %776, 3800
   br i1 %777, label %778, label %.preheader2526
@@ -1846,7 +1846,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 802:                                              ; preds = %.lr.ph1646, %799
   %.36829 = phi ptr [ %801, %799 ], [ %.358281643, %.lr.ph1646 ]
   %.36 = phi ptr [ %800, %799 ], [ %.351644, %.lr.ph1646 ]
-  %803 = getelementptr inbounds i8, ptr %.36, i64 1
+  %803 = getelementptr inbounds nuw i8, ptr %.36, i64 1
   %804 = load i8, ptr %.36, align 1
   %.not1079 = icmp ult ptr %803, %.36829
   br i1 %.not1079, label %812, label %805
@@ -1868,7 +1868,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 812:                                              ; preds = %802, %809
   %.37830 = phi ptr [ %811, %809 ], [ %.36829, %802 ]
   %.37 = phi ptr [ %810, %809 ], [ %803, %802 ]
-  %813 = getelementptr inbounds i8, ptr %.37, i64 1
+  %813 = getelementptr inbounds nuw i8, ptr %.37, i64 1
   %814 = load i8, ptr %.37, align 1
   %815 = zext i8 %804 to i32
   %816 = shl nuw nsw i32 %815, 8
@@ -1900,7 +1900,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not10811652, label %._crit_edge1661, label %.lr.ph1660.preheader
 
 .lr.ph1660.preheader:                             ; preds = %829
-  %832 = getelementptr inbounds [27 x i8], ptr @length_extra, i64 0, i64 %830
+  %832 = getelementptr inbounds nuw [27 x i8], ptr @length_extra, i64 0, i64 %830
   %833 = load i8, ptr %832, align 1
   br label %.lr.ph1660
 
@@ -1936,7 +1936,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 844:                                              ; preds = %836, %841
   %.40833 = phi ptr [ %843, %841 ], [ %.388311657, %836 ]
   %.40 = phi ptr [ %842, %841 ], [ %.381658, %836 ]
-  %845 = getelementptr inbounds i8, ptr %.40, i64 1
+  %845 = getelementptr inbounds nuw i8, ptr %.40, i64 1
   %846 = load i8, ptr %.40, align 1
   %.not1097 = icmp ult ptr %845, %.40833
   br i1 %.not1097, label %854, label %847
@@ -1958,7 +1958,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 854:                                              ; preds = %844, %851
   %.41834 = phi ptr [ %853, %851 ], [ %.40833, %844 ]
   %.41 = phi ptr [ %852, %851 ], [ %845, %844 ]
-  %855 = getelementptr inbounds i8, ptr %.41, i64 1
+  %855 = getelementptr inbounds nuw i8, ptr %.41, i64 1
   %856 = load i8, ptr %.41, align 1
   %857 = zext i8 %846 to i32
   %858 = shl nuw nsw i32 %857, 8
@@ -1998,13 +1998,13 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.22870.lcssa = phi i32 [ %.20868, %829 ], [ %872, %._crit_edge1661.loopexit ]
   %.38831.lcssa = phi ptr [ %.34827, %829 ], [ %.39832, %._crit_edge1661.loopexit ]
   %.38.lcssa = phi ptr [ %.34, %829 ], [ %.39, %._crit_edge1661.loopexit ]
-  %877 = getelementptr inbounds [27 x i8], ptr @length_base, i64 0, i64 %830
+  %877 = getelementptr inbounds nuw [27 x i8], ptr @length_base, i64 0, i64 %830
   %878 = load i8, ptr %877, align 1
   %879 = zext i8 %878 to i32
   %880 = add i32 %.2963.lcssa, %879
   %881 = sub nsw i32 %781, %780
   %882 = load ptr, ptr %74, align 8
-  %883 = getelementptr inbounds i8, ptr %882, i64 2
+  %883 = getelementptr inbounds nuw i8, ptr %882, i64 2
   %884 = load i16, ptr %883, align 2
   %885 = zext i16 %884 to i32
   %886 = load i32, ptr %75, align 4
@@ -2026,7 +2026,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 897:                                              ; preds = %.lr.ph1669, %900
   %indvars.iv2081 = phi i64 [ 1, %.lr.ph1669 ], [ %indvars.iv.next2082, %900 ]
-  %898 = getelementptr inbounds %struct.qtmd_modelsym, ptr %882, i64 %indvars.iv2081, i32 1
+  %898 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %882, i64 %indvars.iv2081, i32 1
   %899 = load i16, ptr %898, align 2
   %.not1082 = icmp ugt i16 %899, %896
   br i1 %.not1082, label %900, label %._crit_edge1670.loopexit.split.loop.exit
@@ -2053,7 +2053,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %910 = mul i32 %906, %909
   %911 = udiv i32 %910, %885
   %912 = add i16 %.151000, -1
-  %913 = getelementptr inbounds %struct.qtmd_modelsym, ptr %882, i64 %902, i32 1
+  %913 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %882, i64 %902, i32 1
   %914 = load i16, ptr %913, align 2
   %915 = zext i16 %914 to i32
   %916 = mul i32 %906, %915
@@ -2078,7 +2078,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %928 = add i16 %912, %927
   %929 = add i16 %.151000, %918
   %930 = load ptr, ptr %74, align 8
-  %931 = getelementptr inbounds i8, ptr %930, i64 2
+  %931 = getelementptr inbounds nuw i8, ptr %930, i64 2
   %932 = load i16, ptr %931, align 2
   %933 = icmp ugt i16 %932, 3800
   br i1 %933, label %934, label %.preheader2525
@@ -2153,7 +2153,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 958:                                              ; preds = %.lr.ph1679, %955
   %.44837 = phi ptr [ %957, %955 ], [ %.438361676, %.lr.ph1679 ]
   %.44 = phi ptr [ %956, %955 ], [ %.431677, %.lr.ph1679 ]
-  %959 = getelementptr inbounds i8, ptr %.44, i64 1
+  %959 = getelementptr inbounds nuw i8, ptr %.44, i64 1
   %960 = load i8, ptr %.44, align 1
   %.not1088 = icmp ult ptr %959, %.44837
   br i1 %.not1088, label %968, label %961
@@ -2175,7 +2175,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 968:                                              ; preds = %958, %965
   %.45838 = phi ptr [ %967, %965 ], [ %.44837, %958 ]
   %.45 = phi ptr [ %966, %965 ], [ %959, %958 ]
-  %969 = getelementptr inbounds i8, ptr %.45, i64 1
+  %969 = getelementptr inbounds nuw i8, ptr %.45, i64 1
   %970 = load i8, ptr %.45, align 1
   %971 = zext i8 %960 to i32
   %972 = shl nuw nsw i32 %971, 8
@@ -2206,7 +2206,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not10901685, label %._crit_edge1760, label %.lr.ph1693.preheader
 
 .lr.ph1693.preheader:                             ; preds = %985
-  %987 = getelementptr inbounds [42 x i8], ptr @extra_bits, i64 0, i64 %986
+  %987 = getelementptr inbounds nuw [42 x i8], ptr @extra_bits, i64 0, i64 %986
   %988 = load i8, ptr %987, align 1
   br label %.lr.ph1693
 
@@ -2242,7 +2242,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 999:                                              ; preds = %991, %996
   %.48841 = phi ptr [ %998, %996 ], [ %.468391690, %991 ]
   %.48 = phi ptr [ %997, %996 ], [ %.461691, %991 ]
-  %1000 = getelementptr inbounds i8, ptr %.48, i64 1
+  %1000 = getelementptr inbounds nuw i8, ptr %.48, i64 1
   %1001 = load i8, ptr %.48, align 1
   %.not1093 = icmp ult ptr %1000, %.48841
   br i1 %.not1093, label %1009, label %1002
@@ -2264,7 +2264,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1009:                                             ; preds = %999, %1006
   %.49842 = phi ptr [ %1008, %1006 ], [ %.48841, %999 ]
   %.49 = phi ptr [ %1007, %1006 ], [ %1000, %999 ]
-  %1010 = getelementptr inbounds i8, ptr %.49, i64 1
+  %1010 = getelementptr inbounds nuw i8, ptr %.49, i64 1
   %1011 = load i8, ptr %.49, align 1
   %1012 = zext i8 %1001 to i32
   %1013 = shl nuw nsw i32 %1012, 8
@@ -2309,12 +2309,12 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.15863 = phi i32 [ %.11859, %527 ], [ %.16864, %678 ], [ %.24872, %985 ], [ %569, %562 ], [ %720, %713 ], [ %1027, %1020 ]
   %.25818 = phi ptr [ %.17810, %527 ], [ %.26819, %678 ], [ %.42835, %985 ], [ %.22815, %562 ], [ %.31824, %713 ], [ %.47840, %1020 ]
   %.25 = phi ptr [ %.17, %527 ], [ %.26, %678 ], [ %.42, %985 ], [ %.22, %562 ], [ %.31, %713 ], [ %.47, %1020 ]
-  %1032 = getelementptr inbounds [42 x i32], ptr @position_base, i64 0, i64 %.sink
+  %1032 = getelementptr inbounds nuw [42 x i32], ptr @position_base, i64 0, i64 %.sink
   %1033 = load i32, ptr %1032, align 4
   %1034 = add i32 %1033, %.3964.lcssa.sink
   %.0927 = add i32 %1034, 1
   %1035 = zext i32 %.29231803 to i64
-  %1036 = getelementptr inbounds i8, ptr %44, i64 %1035
+  %1036 = getelementptr inbounds nuw i8, ptr %44, i64 %1035
   %1037 = sub i32 %.29151804, %.0965
   %1038 = add i32 %.0965, %.29231803
   %1039 = load i32, ptr %66, align 8
@@ -2337,9 +2337,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1047 = add i32 %1046, -1
   %1048 = and i32 %1047, %.09571821
   %1049 = zext i32 %1048 to i64
-  %1050 = getelementptr inbounds i8, ptr %44, i64 %1049
+  %1050 = getelementptr inbounds nuw i8, ptr %44, i64 %1049
   %1051 = load i8, ptr %1050, align 1
-  %1052 = getelementptr inbounds i8, ptr %.09331823, i64 1
+  %1052 = getelementptr inbounds nuw i8, ptr %.09331823, i64 1
   store i8 %1051, ptr %.09331823, align 1
   %.not1121 = icmp eq i32 %1044, 0
   br i1 %.not1121, label %._crit_edge1826.loopexit, label %.lr.ph1825
@@ -2352,7 +2352,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1053 = phi i32 [ %1039, %1041 ], [ %.pre2114, %._crit_edge1826.loopexit ]
   %.0957.lcssa = phi i32 [ %1043, %1041 ], [ %1045, %._crit_edge1826.loopexit ]
   %1054 = zext i32 %1053 to i64
-  %1055 = getelementptr inbounds i8, ptr %44, i64 %1054
+  %1055 = getelementptr inbounds nuw i8, ptr %44, i64 %1054
   %1056 = load ptr, ptr %11, align 8
   %1057 = ptrtoint ptr %1055 to i64
   %1058 = ptrtoint ptr %1056 to i64
@@ -2369,7 +2369,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1063:                                             ; preds = %._crit_edge1826
   %1064 = trunc i64 %1059 to i32
   %1065 = load ptr, ptr %0, align 8
-  %1066 = getelementptr inbounds i8, ptr %1065, i64 24
+  %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 24
   %1067 = load ptr, ptr %1066, align 8
   %1068 = load ptr, ptr %84, align 8
   %1069 = tail call i32 %1067(ptr noundef %1068, ptr noundef %1056, i32 noundef %1064) #3
@@ -2399,9 +2399,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1078 = add i32 %1077, -1
   %1079 = and i32 %1078, %.19581829
   %1080 = zext i32 %1079 to i64
-  %1081 = getelementptr inbounds i8, ptr %44, i64 %1080
+  %1081 = getelementptr inbounds nuw i8, ptr %44, i64 %1080
   %1082 = load i8, ptr %1081, align 1
-  %1083 = getelementptr inbounds i8, ptr %.19341831, i64 1
+  %1083 = getelementptr inbounds nuw i8, ptr %.19341831, i64 1
   store i8 %1082, ptr %.19341831, align 1
   %.not1125 = icmp eq i32 %1075, 0
   br i1 %.not1125, label %._crit_edge1834.loopexit, label %.lr.ph1833
@@ -2427,7 +2427,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1090:                                             ; preds = %1086
   %1091 = sub i32 %1039, %1087
   %1092 = zext i32 %1091 to i64
-  %1093 = getelementptr inbounds i8, ptr %44, i64 %1092
+  %1093 = getelementptr inbounds nuw i8, ptr %44, i64 %1092
   %1094 = icmp slt i32 %1087, %.0965
   br i1 %1094, label %1095, label %.loopexit1182
 
@@ -2441,9 +2441,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.39361772 = phi ptr [ %1101, %.lr.ph1775 ], [ %1036, %1095 ]
   %.29591771 = phi i32 [ %1098, %.lr.ph1775 ], [ %1087, %1095 ]
   %1098 = add nsw i32 %.29591771, -1
-  %1099 = getelementptr inbounds i8, ptr %.19301773, i64 1
+  %1099 = getelementptr inbounds nuw i8, ptr %.19301773, i64 1
   %1100 = load i8, ptr %.19301773, align 1
-  %1101 = getelementptr inbounds i8, ptr %.39361772, i64 1
+  %1101 = getelementptr inbounds nuw i8, ptr %.39361772, i64 1
   store i8 %1100, ptr %.39361772, align 1
   %1102 = icmp samesign ugt i32 %.29591771, 1
   br i1 %1102, label %.lr.ph1775, label %.loopexit1182
@@ -2460,9 +2460,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.49371778 = phi ptr [ %1107, %.lr.ph1781 ], [ %.2935, %.loopexit1182 ]
   %.169551777 = phi i32 [ %1104, %.lr.ph1781 ], [ %.15954, %.loopexit1182 ]
   %1104 = add nsw i32 %.169551777, -1
-  %1105 = getelementptr inbounds i8, ptr %.29311779, i64 1
+  %1105 = getelementptr inbounds nuw i8, ptr %.29311779, i64 1
   %1106 = load i8, ptr %.29311779, align 1
-  %1107 = getelementptr inbounds i8, ptr %.49371778, i64 1
+  %1107 = getelementptr inbounds nuw i8, ptr %.49371778, i64 1
   store i8 %1106, ptr %.49371778, align 1
   %1108 = icmp samesign ugt i32 %.169551777, 1
   br i1 %1108, label %.lr.ph1781, label %.loopexit
@@ -2482,9 +2482,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.59381767 = phi ptr [ %1117, %.lr.ph1770 ], [ %1036, %.lr.ph1770.preheader ]
   %.179561766 = phi i32 [ %1114, %.lr.ph1770 ], [ %.0965, %.lr.ph1770.preheader ]
   %1114 = add nsw i32 %.179561766, -1
-  %1115 = getelementptr inbounds i8, ptr %.39321768, i64 1
+  %1115 = getelementptr inbounds nuw i8, ptr %.39321768, i64 1
   %1116 = load i8, ptr %.39321768, align 1
-  %1117 = getelementptr inbounds i8, ptr %.59381767, i64 1
+  %1117 = getelementptr inbounds nuw i8, ptr %.59381767, i64 1
   store i8 %1116, ptr %.59381767, align 1
   %1118 = icmp samesign ugt i32 %.179561766, 1
   br i1 %1118, label %.lr.ph1770, label %.loopexit
@@ -2514,7 +2514,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.7 = phi ptr [ %.2790, %153 ], [ %.25, %._crit_edge1834.loopexit ], [ %.25, %1071 ], [ %.16, %.loopexit ]
   %.3 = phi i64 [ %.11855, %153 ], [ %1072, %._crit_edge1834.loopexit ], [ %1072, %1071 ], [ %.11855, %.loopexit ]
   %1120 = zext i32 %.3924 to i64
-  %1121 = getelementptr inbounds i8, ptr %44, i64 %1120
+  %1121 = getelementptr inbounds nuw i8, ptr %44, i64 %1120
   store ptr %1121, ptr %9, align 8
   %1122 = icmp ugt i32 %.3916, 32768
   br i1 %1122, label %1123, label %1124
@@ -2566,7 +2566,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1139:                                             ; preds = %.lr.ph1840, %1136
   %.53846 = phi ptr [ %1138, %1136 ], [ %.528451837, %.lr.ph1840 ]
   %.53 = phi ptr [ %1137, %1136 ], [ %.521838, %.lr.ph1840 ]
-  %1140 = getelementptr inbounds i8, ptr %.53, i64 1
+  %1140 = getelementptr inbounds nuw i8, ptr %.53, i64 1
   %1141 = load i8, ptr %.53, align 1
   %.not1136 = icmp ult ptr %1140, %.53846
   br i1 %.not1136, label %1149, label %1142
@@ -2588,7 +2588,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1149:                                             ; preds = %1139, %1146
   %.54847 = phi ptr [ %1148, %1146 ], [ %.53846, %1139 ]
   %.54 = phi ptr [ %1147, %1146 ], [ %1140, %1139 ]
-  %1150 = getelementptr inbounds i8, ptr %.54, i64 1
+  %1150 = getelementptr inbounds nuw i8, ptr %.54, i64 1
   %1151 = load i8, ptr %.54, align 1
   %1152 = zext i8 %1141 to i32
   %1153 = shl nuw nsw i32 %1152, 8
@@ -2640,7 +2640,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1172:                                             ; preds = %1167
   %1173 = trunc i64 %1170 to i32
   %1174 = load ptr, ptr %0, align 8
-  %1175 = getelementptr inbounds i8, ptr %1174, i64 24
+  %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 24
   %1176 = load ptr, ptr %1175, align 8
   %1177 = load ptr, ptr %84, align 8
   %1178 = tail call i32 %1176(ptr noundef %1177, ptr noundef %.pre2117, i32 noundef %1173) #3
@@ -2693,9 +2693,9 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1192:                                             ; preds = %._crit_edge1858
   %1193 = trunc i64 %.2 to i32
   %1194 = load ptr, ptr %0, align 8
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 24
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 24
   %1196 = load ptr, ptr %1195, align 8
-  %1197 = getelementptr inbounds i8, ptr %0, i64 16
+  %1197 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1198 = load ptr, ptr %1197, align 8
   %1199 = tail call i32 %1196(ptr noundef %1198, ptr noundef %1191, i32 noundef %1193) #3
   %.not1132 = icmp eq i32 %1199, %1193
@@ -2733,20 +2733,20 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 %4(ptr noundef %6, ptr noundef %8, i32 noundef %10) #3
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 3, ptr %14, align 4
   br label %32
 
@@ -2755,19 +2755,19 @@ define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef non
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 105
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %19 = load i8, ptr %18, align 1
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 3, ptr %21, align 4
   br label %32
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 0, ptr %24, align 1
   %25 = load ptr, ptr %7, align 8
   store i8 0, ptr %25, align 1
@@ -2777,11 +2777,11 @@ define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef non
 26:                                               ; preds = %22, %15
   %.0 = phi i32 [ 2, %22 ], [ %11, %15 ]
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %27, ptr %28, align 8
   %29 = zext nneg i32 %.0 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -2799,13 +2799,13 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext nneg i32 %6 to i64
   br label %10
 
@@ -2813,14 +2813,14 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.qtmd_modelsym, ptr %11, i64 %indvars.iv.next, i32 1
+  %12 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %11, i64 %indvars.iv.next, i32 1
   %13 = load i16, ptr %12, align 2
   %14 = lshr i16 %13, 1
   store i16 %14, ptr %12, align 2
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct.qtmd_modelsym, ptr %15, i64 %indvars.iv.next, i32 1
+  %16 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %15, i64 %indvars.iv.next, i32 1
   %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds %struct.qtmd_modelsym, ptr %15, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %15, i64 %indvars.iv, i32 1
   %19 = load i16, ptr %18, align 2
   %.not54 = icmp ugt i16 %17, %19
   br i1 %.not54, label %22, label %20
@@ -2836,13 +2836,13 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
 
 24:                                               ; preds = %1
   store i32 50, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph63, label %.loopexit
 
 .lr.ph63:                                         ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %32
 
 .preheader56:                                     ; preds = %32
@@ -2851,26 +2851,26 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   br i1 %30, label %.lr.ph67, label %.preheader
 
 .lr.ph67:                                         ; preds = %.preheader56
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %57
 
 32:                                               ; preds = %.lr.ph63, %32
   %indvars.iv73 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next74, %32 ]
   %33 = load ptr, ptr %28, align 8
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %34 = getelementptr inbounds %struct.qtmd_modelsym, ptr %33, i64 %indvars.iv.next74, i32 1
+  %34 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %33, i64 %indvars.iv.next74, i32 1
   %35 = load i16, ptr %34, align 2
-  %36 = getelementptr inbounds %struct.qtmd_modelsym, ptr %33, i64 %indvars.iv73, i32 1
+  %36 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %33, i64 %indvars.iv73, i32 1
   %37 = load i16, ptr %36, align 2
   %38 = sub i16 %37, %35
   store i16 %38, ptr %36, align 2
   %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds %struct.qtmd_modelsym, ptr %39, i64 %indvars.iv73, i32 1
+  %40 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %39, i64 %indvars.iv73, i32 1
   %41 = load i16, ptr %40, align 2
   %42 = add i16 %41, 1
   store i16 %42, ptr %40, align 2
   %43 = load ptr, ptr %28, align 8
-  %44 = getelementptr inbounds %struct.qtmd_modelsym, ptr %43, i64 %indvars.iv73, i32 1
+  %44 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %43, i64 %indvars.iv73, i32 1
   %45 = load i16, ptr %44, align 2
   %46 = lshr i16 %45, 1
   store i16 %46, ptr %44, align 2
@@ -2893,7 +2893,7 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   br i1 %54, label %.lr.ph69, label %.loopexit
 
 .lr.ph69:                                         ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = zext nneg i32 %.lcssa to i64
   br label %81
 
@@ -2911,21 +2911,21 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   %62 = phi i32 [ %78, %76 ], [ %58, %57 ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %76 ], [ %indvars.iv76, %57 ]
   %63 = load ptr, ptr %31, align 8
-  %64 = getelementptr inbounds %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv81
-  %65 = getelementptr inbounds i8, ptr %64, i64 2
+  %64 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv81
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %66 = load i16, ptr %65, align 2
-  %67 = getelementptr inbounds %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv78, i32 1
+  %67 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv78, i32 1
   %68 = load i16, ptr %67, align 2
   %69 = icmp ult i16 %66, %68
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %.lr.ph65
   %71 = load i32, ptr %64, align 2
-  %72 = getelementptr inbounds %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv78
+  %72 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %63, i64 %indvars.iv78
   %73 = load i32, ptr %72, align 2
   store i32 %73, ptr %64, align 2
   %74 = load ptr, ptr %31, align 8
-  %75 = getelementptr inbounds %struct.qtmd_modelsym, ptr %74, i64 %indvars.iv78
+  %75 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %74, i64 %indvars.iv78
   store i32 %71, ptr %75, align 2
   %.pre = load i32, ptr %25, align 4
   br label %76
@@ -2941,10 +2941,10 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
 81:                                               ; preds = %.lr.ph69, %81
   %indvars.iv84 = phi i64 [ %56, %.lr.ph69 ], [ %indvars.iv.next85, %81 ]
   %82 = load ptr, ptr %55, align 8
-  %83 = getelementptr inbounds %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84
-  %84 = getelementptr inbounds i8, ptr %83, i64 6
+  %83 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84, i32 1
+  %86 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84, i32 1
   %87 = load i16, ptr %86, align 2
   %88 = add i16 %87, %85
   store i16 %88, ptr %86, align 2
@@ -2963,13 +2963,13 @@ define void @qtmd_free(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %5(ptr noundef %7) #3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10) #3
   %11 = load ptr, ptr %4, align 8

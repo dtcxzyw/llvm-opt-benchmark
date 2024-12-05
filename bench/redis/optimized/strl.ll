@@ -18,9 +18,9 @@ while.cond:                                       ; preds = %entry, %while.body
   br i1 %cmp1.not, label %if.then12, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.1, i64 1
   %0 = load i8, ptr %src.addr.1, align 1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %dst.addr.1, i64 1
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %dst.addr.1, i64 1
   store i8 %0, ptr %dst.addr.1, align 1
   %cmp3 = icmp eq i8 %0, 0
   br i1 %cmp3, label %if.end18, label %while.cond, !llvm.loop !5
@@ -35,7 +35,7 @@ while.cond14.preheader:                           ; preds = %entry, %if.then12
 
 while.cond14:                                     ; preds = %while.cond14.preheader, %while.cond14
   %src.addr.3 = phi ptr [ %incdec.ptr15, %while.cond14 ], [ %src.addr.3.ph, %while.cond14.preheader ]
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %src.addr.3, i64 1
+  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %src.addr.3, i64 1
   %1 = load i8, ptr %src.addr.3, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end18, label %while.cond14, !llvm.loop !7
@@ -68,7 +68,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %dec20 = add i64 %dec20.in, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %dst.addr.019, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %dst.addr.019, i64 1
   %cmp.not = icmp eq i64 %dec20, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !8
 
@@ -103,7 +103,7 @@ while.body10:                                     ; preds = %while.body10.prehea
   br i1 %cmp11.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %while.body10
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %dst.addr.124, i64 1
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %dst.addr.124, i64 1
   store i8 %3, ptr %dst.addr.124, align 1
   %dec15 = add i64 %n.125, -1
   br label %if.end16
@@ -111,7 +111,7 @@ if.then13:                                        ; preds = %while.body10
 if.end16:                                         ; preds = %if.then13, %while.body10
   %dst.addr.2 = phi ptr [ %incdec.ptr14, %if.then13 ], [ %dst.addr.124, %while.body10 ]
   %n.2 = phi i64 [ %dec15, %if.then13 ], [ 0, %while.body10 ]
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %src.addr.023, i64 1
+  %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %src.addr.023, i64 1
   %4 = load i8, ptr %incdec.ptr17, align 1
   %cmp8.not = icmp eq i8 %4, 0
   br i1 %cmp8.not, label %while.end18, label %while.body10, !llvm.loop !9

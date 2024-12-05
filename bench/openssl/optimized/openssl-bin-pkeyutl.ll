@@ -575,7 +575,7 @@ if.then221:                                       ; preds = %if.end216
 
 if.else224:                                       ; preds = %for.body194
   store i8 0, ptr %call198, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %call198, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call198, i64 1
   %call225 = call i32 @app_passwd(ptr noundef nonnull %incdec.ptr, ptr noundef null, ptr noundef nonnull %passwd, ptr noundef null) #5
   %cmp226 = icmp eq i32 %call225, 0
   br i1 %cmp226, label %if.then228, label %if.else224.if.end231_crit_edge
@@ -640,7 +640,7 @@ if.then260:                                       ; preds = %if.end257
 if.then264:                                       ; preds = %if.then260
   %call265 = call i32 @stat(ptr noundef nonnull %infile.0, ptr noundef nonnull %st) #5
   %cmp266 = icmp eq i32 %call265, 0
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   %20 = load i64, ptr %st_size, align 8
   %cmp269 = icmp slt i64 %20, 2147483648
   %or.cond7 = select i1 %cmp266, i1 %cmp269, i1 false
@@ -715,7 +715,7 @@ if.then315:                                       ; preds = %if.end313
 for.body321:                                      ; preds = %if.then315, %for.body321
   %i316.0280 = phi i64 [ %inc329, %for.body321 ], [ 0, %if.then315 ]
   %25 = load ptr, ptr %buf_in, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %25, i64 %i316.0280
+  %arrayidx = getelementptr inbounds nuw i8, ptr %25, i64 %i316.0280
   %26 = load i8, ptr %arrayidx, align 1
   %27 = xor i64 %i316.0280, -1
   %sub322 = add nsw i64 %27, %conv317

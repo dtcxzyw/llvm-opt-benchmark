@@ -23,7 +23,7 @@ define void @Java_com_sun_management_internal_GarbageCollectorExtImpl_setNotific
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @jmm_interface_management_ext, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 280
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %0, ptr noundef nonnull %2, i8 noundef zeroext %3) #2
   br label %14

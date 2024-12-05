@@ -1174,7 +1174,7 @@ define internal i32 @get_couchbase_pdu_length(ptr nocapture readnone %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_couchbase(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.398) #3
   %7 = load ptr, ptr %5, align 8
@@ -1349,13 +1349,13 @@ opcode_use_vbucket.exit.i:                        ; preds = %66, %is_request_mag
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %79
 
 79:                                               ; preds = %opcode_use_vbucket.exit.i
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8
   %.not5.i.i = icmp eq ptr %81, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, 2
   store i32 %85, ptr %83, align 4
@@ -1524,7 +1524,7 @@ get_key_length.exit:                              ; preds = %106, %is_flex_encod
   %166 = add i32 %.07599.i28.i, 1
   %167 = sext i32 %166 to i64
   %168 = getelementptr %struct.flex_frame_by_id_dissect, ptr %125, i64 %167
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
   %.not92.i.i = icmp eq ptr %170, null
   br i1 %.not92.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -3386,13 +3386,13 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %85
 
 85:                                               ; preds = %76
-  %86 = getelementptr inbounds i8, ptr %84, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8
   %.not5.i = icmp eq ptr %87, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %87, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %90 = load i32, ptr %89, align 4
   %91 = or i32 %90, 2
   store i32 %91, ptr %89, align 4
@@ -3441,13 +3441,13 @@ proto_item_set_generated.exit:                    ; preds = %76, %85, %88
   br i1 %.not.i486, label %proto_item_set_generated.exit488, label %116
 
 116:                                              ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load ptr, ptr %117, align 8
   %.not5.i487 = icmp eq ptr %118, null
   br i1 %.not5.i487, label %proto_item_set_generated.exit488, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 2
   store i32 %122, ptr %120, align 4
@@ -3782,7 +3782,7 @@ has_json_value.exit.thread:                       ; preds = %has_json_value.exit
   br i1 %293, label %294, label %314
 
 294:                                              ; preds = %288
-  %295 = getelementptr inbounds i8, ptr %1, i64 408
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %296 = load ptr, ptr %295, align 8
   %297 = load i64, ptr %10, align 8
   %298 = call noalias ptr @wmem_alloc(ptr noundef %296, i64 noundef %297) #3

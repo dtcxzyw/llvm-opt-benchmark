@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 4
   store i16 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
@@ -321,17 +321,17 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %8, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %.lr.ph98, label %._crit_edge99
 
 .lr.ph98:                                         ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
-  %35 = getelementptr inbounds i8, ptr %6, i64 8192
-  %36 = getelementptr inbounds i8, ptr %6, i64 4108
-  %37 = getelementptr inbounds i8, ptr %7, i64 24
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8192
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4108
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %39
 
 39:                                               ; preds = %.lr.ph98, %113

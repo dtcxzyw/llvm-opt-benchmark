@@ -39,10 +39,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost6fibers4algo11round_robin8awakenedEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef initializes((160, 176)) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %1, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %6, ptr %7, align 8, !tbaa !3
   store ptr %3, ptr %4, align 8, !tbaa !8
   store ptr %4, ptr %5, align 8, !tbaa !3
@@ -139,7 +139,7 @@ define void @_ZN5boost6fibers4algo11round_robin13suspend_untilERKNSt6chrono10tim
 10:                                               ; preds = %6
   store i8 1, ptr %8, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.val.val2.i = load i8, ptr %12, align 8, !tbaa !17, !range !31, !noundef !32
   %13 = trunc nuw i8 %.val.val2.i to i1
   br i1 %13, label %"_ZNSt18condition_variable4waitIZN5boost6fibers4algo11round_robin13suspend_untilERKNSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %.lr.ph.i
@@ -192,7 +192,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit7:        ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %27
 

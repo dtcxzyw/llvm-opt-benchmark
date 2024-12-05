@@ -21,14 +21,14 @@ define dso_local noundef ptr @makeParamList(i32 noundef %0) local_unnamed_addr #
   %3 = shl nsw i64 %2, 4
   %4 = add nsw i64 %3, 64
   %5 = tail call ptr @palloc(i64 noundef %4) #6
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr @paramlist_parser_setup, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %0, ptr %9, align 8
   ret ptr %5
 }
@@ -37,9 +37,9 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @paramlist_parser_setup(ptr nocapture noundef writeonly initializes((200, 208), (216, 224)) %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @paramlist_param_ref, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -53,7 +53,7 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %.loopexit, label %10
@@ -63,22 +63,22 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   %12 = shl nuw nsw i64 %11, 4
   %13 = add nuw nsw i64 %12, 64
   %14 = tail call ptr @palloc(i64 noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   store ptr @paramlist_parser_setup, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 %8, ptr %18, align 8
   %19 = load i32, ptr %7, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %23
 
 23:                                               ; preds = %.lr.ph, %46
@@ -101,13 +101,13 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
 32:                                               ; preds = %30, %26
   %.022 = phi ptr [ %29, %26 ], [ %31, %30 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.022, i64 16, i1 false)
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %46, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %24, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %38 = load i32, ptr %37, align 4
   %.not28 = icmp eq i32 %38, 0
   br i1 %.not28, label %46, label %39
@@ -151,13 +151,13 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %28
@@ -179,7 +179,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
 
 19:                                               ; preds = %17, %13
   %.021 = phi ptr [ %16, %13 ], [ %18, %17 ]
-  %20 = getelementptr inbounds i8, ptr %.021, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = call i64 @add_size(i64 noundef %.02229, i64 noundef 4) #6
   %23 = call i64 @add_size(i64 noundef %22, i64 noundef 2) #6
@@ -203,7 +203,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %29 = phi i32 [ 8, %27 ], [ %26, %24 ]
   %30 = phi i1 [ true, %27 ], [ %25, %24 ]
   %31 = load i64, ptr %.021, align 8
-  %32 = getelementptr inbounds i8, ptr %.021, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   %35 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %34, i1 noundef zeroext %30, i32 noundef %29) #6
@@ -240,7 +240,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   br label %._crit_edge
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %13 = load ptr, ptr %1, align 8
@@ -252,7 +252,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %17
 
@@ -274,14 +274,14 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
 
 25:                                               ; preds = %23, %19
   %.025 = phi ptr [ %22, %19 ], [ %24, %23 ]
-  %26 = getelementptr inbounds i8, ptr %.025, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.025, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %1, align 8
   store i32 %27, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   store ptr %30, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %.025, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %.025, i64 10
   %32 = load i16, ptr %31, align 2
   store i16 %32, ptr %30, align 1
   %33 = load ptr, ptr %1, align 8
@@ -307,7 +307,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   %40 = phi i32 [ 8, %38 ], [ %37, %35 ]
   %41 = phi i1 [ true, %38 ], [ %36, %35 ]
   %42 = load i64, ptr %.025, align 8
-  %43 = getelementptr inbounds i8, ptr %.025, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   call void @datumSerialize(i64 noundef %42, i1 noundef zeroext %45, i1 noundef zeroext %41, i32 noundef %40, ptr noundef nonnull %1) #6
@@ -331,40 +331,40 @@ define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_add
   %5 = shl nsw i64 %4, 4
   %6 = add nsw i64 %5, 64
   %7 = tail call ptr @palloc(i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store ptr @paramlist_parser_setup, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %.0.copyload, ptr %11, align 8
   %12 = icmp sgt i32 %.0.copyload, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %wide.trip.count = zext nneg i32 %.0.copyload to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load ptr, ptr %0, align 8
   %18 = load i32, ptr %17, align 1
   store i32 %18, ptr %16, align 4
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr i8, ptr %19, i64 4
   store ptr %20, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %22 = load i16, ptr %20, align 1
   store i16 %22, ptr %21, align 2
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 2
   store ptr %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = tail call i64 @datumRestore(ptr noundef nonnull %0, ptr noundef nonnull %25) #6
   store i64 %26, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -396,13 +396,13 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
   %12 = call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not27 = icmp eq ptr %1, null
   br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -414,13 +414,13 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next34 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %20) #6
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %.lr.ph.split.us
-  %25 = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
   %.not26.us = icmp eq i32 %26, 0
   br i1 %.not26.us, label %31, label %27
@@ -451,13 +451,13 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #6
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds i8, ptr %36, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %44 = load i32, ptr %43, align 4
   %.not26 = icmp eq i32 %44, 0
   br i1 %.not26, label %45, label %46
@@ -525,13 +525,13 @@ define dso_local void @ParamsErrorCallback(ptr noundef readonly %0) local_unname
   br i1 %2, label %28, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %28, label %11
@@ -550,7 +550,7 @@ define dso_local void @ParamsErrorCallback(ptr noundef readonly %0) local_unname
   %16 = tail call i32 @set_errcontext_domain(ptr noundef null) #6
   %17 = load ptr, ptr %0, align 8
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.5, ptr noundef %17, ptr noundef %20) #6
   br label %28
@@ -558,7 +558,7 @@ define dso_local void @ParamsErrorCallback(ptr noundef readonly %0) local_unname
 22:                                               ; preds = %13, %11
   %23 = tail call i32 @set_errcontext_domain(ptr noundef null) #6
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.6, ptr noundef %26) #6
   br label %28
@@ -574,15 +574,15 @@ declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca %struct.ParamExternData, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %37, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %7, %11
   br i1 %12, label %37, label %13
@@ -597,7 +597,7 @@ define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly 
   br label %22
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %19 = add nsw i32 %7, -1
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr [0 x %struct.ParamExternData], ptr %18, i64 0, i64 %20
@@ -605,7 +605,7 @@ define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly 
 
 22:                                               ; preds = %17, %15
   %.023 = phi ptr [ %16, %15 ], [ %21, %17 ]
-  %23 = getelementptr inbounds i8, ptr %.023, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %24 = load i32, ptr %23, align 4
   %.not26 = icmp eq i32 %24, 0
   br i1 %.not26, label %37, label %25
@@ -613,21 +613,21 @@ define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly 
 25:                                               ; preds = %22
   %26 = call noundef ptr @palloc0(i64 noundef 28) #6
   store i32 8, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %7, ptr %28, align 4
   %29 = load i32, ptr %23, align 4
-  %30 = getelementptr inbounds i8, ptr %26, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 -1, ptr %31, align 4
   %32 = call i32 @get_typcollation(i32 noundef %29) #6
-  %33 = getelementptr inbounds i8, ptr %26, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %26, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %35, ptr %36, align 4
   br label %37
 

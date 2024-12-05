@@ -113,13 +113,13 @@ sub_0:                                            ; preds = %3, %72
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %9 = load i8, ptr %8, align 1
   %.not5 = icmp eq i8 %9, 102
   br i1 %.not5, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %7, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 102
   br i1 %12, label %13, label %.tail.thread
@@ -245,7 +245,7 @@ sub_02:                                           ; preds = %60, %63
   br i1 %.not6, label %.tail1, label %.tail1.thread
 
 .tail1:                                           ; preds = %sub_02
-  %65 = getelementptr inbounds i8, ptr %7, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 116
   br i1 %67, label %68, label %.tail1.thread
@@ -306,9 +306,9 @@ define internal void @via_no_dac(ptr noundef %0) #2 align 16 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %4, ptr noundef nonnull @.str.20) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.20) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @pci_walk_bus(ptr noundef %6, ptr noundef nonnull @via_no_dac_cb, ptr noundef null) #6
   br label %7
@@ -346,7 +346,7 @@ declare dso_local void @pci_walk_bus(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @via_no_dac_cb(ptr nocapture noundef writeonly initializes((760, 768)) %0, ptr nocapture readnone %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store i64 4294967295, ptr %3, align 8
   ret i32 0
 }

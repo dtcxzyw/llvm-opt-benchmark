@@ -101,7 +101,7 @@ define hidden noundef i32 @_ZNK4ncnn12TanH_x86_fma15forward_inplaceERNS_3MatERKN
   %57 = fdiv fast <8 x float> splat (float 1.000000e+00), %56
   %58 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %57, <8 x float> splat (float 2.000000e+00), <8 x float> splat (float -1.000000e+00))
   store <8 x float> %58, ptr %.0369449, align 1
-  %59 = getelementptr inbounds i8, ptr %.0369449, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.0369449, i64 32
   %60 = add nuw nsw i32 %.0450, 8
   %61 = or disjoint i32 %60, 7
   %62 = icmp slt i32 %61, %16
@@ -147,7 +147,7 @@ define hidden noundef i32 @_ZNK4ncnn12TanH_x86_fma15forward_inplaceERNS_3MatERKN
   %92 = fdiv fast <4 x float> splat (float 2.000000e+00), %91
   %93 = fadd fast <4 x float> %92, splat (float -1.000000e+00)
   store <4 x float> %93, ptr %.1370452, align 1
-  %94 = getelementptr inbounds i8, ptr %.1370452, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.1370452, i64 16
   %95 = add nuw nsw i32 %.1453, 4
   %96 = or disjoint i32 %95, 3
   %97 = icmp slt i32 %96, %16
@@ -159,7 +159,7 @@ define hidden noundef i32 @_ZNK4ncnn12TanH_x86_fma15forward_inplaceERNS_3MatERKN
   %98 = load float, ptr %.2371457, align 4
   %99 = tail call fast float @llvm.tanh.f32(float %98)
   store float %99, ptr %.2371457, align 4
-  %100 = getelementptr inbounds i8, ptr %.2371457, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.2371457, i64 4
   %101 = add nuw nsw i32 %.2458, 1
   %exitcond.not = icmp eq i32 %101, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph459, !llvm.loop !7

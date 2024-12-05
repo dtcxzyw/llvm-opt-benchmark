@@ -147,7 +147,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %size_shift_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %size_shift_.i, align 8
   %1 = load i32, ptr %call2.i, align 4
   %conv.i.i.i = zext i32 %1 to i64
@@ -167,7 +167,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessElementAndIndexEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %size_shift_4.i = getelementptr inbounds i8, ptr %this, i64 8
+  %size_shift_4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %size_shift_4.i, align 8
   %4 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i, i32 %3)
   %conv6.i = sext i32 %4 to i64
@@ -179,9 +179,9 @@ _ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessEle
   %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %5, i64 %storemerge.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr null, ptr %agg.result, align 8, !alias.scope !5
-  %cache_idx_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %cache_idx_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 -1, ptr %cache_idx_.i.i, align 8, !alias.scope !5
-  %zstd_uncomp_sentinel_.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %zstd_uncomp_sentinel_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   %6 = ptrtoint ptr %arrayidx.i.i.i to i64
   %7 = cmpxchg ptr %zstd_uncomp_sentinel_.i, i64 %6, i64 0 seq_cst seq_cst, align 8, !noalias !5
   %8 = extractvalue { i64, i1 } %7, 1
@@ -198,7 +198,7 @@ if.then.i.i:                                      ; preds = %if.then.i2
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
   store ptr %call.i2.i, ptr %arrayidx.i.i.i, align 8, !noalias !5
-  %cache_idx_.i1.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %cache_idx_.i1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 -1, ptr %cache_idx_.i1.i, align 8, !noalias !5
   br label %nrvo.skipdtor.sink.split.i
 
@@ -234,7 +234,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %1, i64 %idx
-  %zstd_uncomp_sentinel_.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %zstd_uncomp_sentinel_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   %2 = ptrtoint ptr %arrayidx.i.i.i to i64
   %3 = atomicrmw xchg ptr %zstd_uncomp_sentinel_.i.i, i64 %2 seq_cst, align 8
   ret void
@@ -315,7 +315,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
-  %size_shift_ = getelementptr inbounds i8, ptr %this, i64 8
+  %size_shift_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %storemerge, ptr %size_shift_, align 8
   %sh_prom = zext nneg i32 %storemerge to i64
   %0 = icmp samesign ugt i32 %storemerge, 57
@@ -328,20 +328,20 @@ while.end:                                        ; preds = %while.cond
 invoke.cont:                                      ; preds = %while.end
   %shl6 = shl nuw i64 1, %sh_prom
   store i64 %shl6, ptr %call7, align 16
-  %.ptr = getelementptr inbounds i8, ptr %call7, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %arrayctor.end = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %.ptr, i64 %shl6
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont, %invoke.cont9
   %arrayctor.cur.idx = phi i64 [ 8, %invoke.cont ], [ %arrayctor.cur.add, %invoke.cont9 ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call7, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 %arrayctor.cur.idx
   store ptr null, ptr %arrayctor.cur.ptr.ptr, align 8
-  %cache_idx_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
+  %cache_idx_.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i64 -1, ptr %cache_idx_.i.i, align 8
-  %zstd_uncomp_sentinel_.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 16
+  %zstd_uncomp_sentinel_.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 16
   store ptr %arrayctor.cur.ptr.ptr, ptr %zstd_uncomp_sentinel_.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call7, i64 %arrayctor.cur.add
+  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 %arrayctor.cur.add
   %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont9
 
@@ -479,7 +479,7 @@ define linkonce_odr void @_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev(ptr noundef 
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp ne ptr %0, null
-  %cache_idx_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cache_idx_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %cache_idx_, align 8
   %cmp2 = icmp eq i64 %1, -1
   %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false

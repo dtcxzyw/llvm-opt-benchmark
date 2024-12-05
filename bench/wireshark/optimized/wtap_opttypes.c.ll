@@ -136,7 +136,7 @@ define void @wtap_packet_verdict_free(ptr nocapture noundef readonly %0) local_u
   br i1 %cond, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @g_byte_array_free(ptr noundef %5, i32 noundef 1) #15
   br label %7
@@ -149,7 +149,7 @@ declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @wtap_packet_hash_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1) #15
   ret void
@@ -164,7 +164,7 @@ define i32 @wtap_block_get_type(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @wtap_block_get_mandatory_data(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -181,12 +181,12 @@ define noundef ptr @wtap_block_create(i32 noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %4) #15
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -206,7 +206,7 @@ define noundef ptr @wtap_block_ref(ptr noundef returned %0) local_unnamed_addr #
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = atomicrmw add ptr %4, i32 1 seq_cst, align 8
   br label %6
 
@@ -220,14 +220,14 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %31, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = atomicrmw sub ptr %3, i32 1 seq_cst, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %31
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
@@ -237,16 +237,16 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %wtap_block_free_options.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -262,7 +262,7 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @wtap_block_free_option(ptr %.val.val.i, ptr noundef %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load ptr, ptr %14, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next.i, %26
@@ -295,7 +295,7 @@ define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %12, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -323,7 +323,7 @@ define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -333,15 +333,15 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %.not174 = icmp eq i32 %11, 0
   br i1 %.not174, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %wtap_block_add_uint8_option.exit
@@ -350,13 +350,13 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr %struct.wtap_option_t, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %16, align 8
   %21 = zext i32 %20 to i64
   %22 = inttoptr i64 %21 to ptr
   %23 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef %22) #15
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %wtap_block_add_uint8_option.exit [
     i32 0, label %26
@@ -377,10 +377,10 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 26:                                               ; preds = %13
   %27 = load i32, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %27 to i64
   %34 = inttoptr i64 %33 to ptr
@@ -389,18 +389,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %36, label %wtap_block_add_uint8_option.exit, label %37
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load i32, ptr %38, align 8
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %40, label %wtap_block_add_uint8_option.exit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %35, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not20.i.i = icmp eq i32 %43, 0
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   br i1 %.not20.i.i, label %47, label %.loopexit.i
 
@@ -434,16 +434,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %59 = zext i32 %54 to i64
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %27, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i8 %29, ptr %61, align 8
   br label %wtap_block_add_uint8_option.exit
 
 62:                                               ; preds = %13
   %63 = load i32, ptr %16, align 8
-  %64 = getelementptr inbounds i8, ptr %16, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = zext i32 %63 to i64
   %70 = inttoptr i64 %69 to ptr
@@ -452,18 +452,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %72, label %wtap_block_add_uint8_option.exit, label %73
 
 73:                                               ; preds = %62
-  %74 = getelementptr inbounds i8, ptr %71, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %75 = load i32, ptr %74, align 8
   %.not.i.i63 = icmp eq i32 %75, 1
   br i1 %.not.i.i63, label %76, label %wtap_block_add_uint8_option.exit
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %71, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 1
   %.not20.i.i65 = icmp eq i32 %79, 0
   %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 8
   br i1 %.not20.i.i65, label %83, label %.loopexit.i66
 
@@ -497,16 +497,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %95 = zext i32 %90 to i64
   %96 = getelementptr %struct.wtap_option_t, ptr %94, i64 %95
   store i32 %63, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 %65, ptr %97, align 8
   br label %wtap_block_add_uint8_option.exit
 
 98:                                               ; preds = %13
   %99 = load i32, ptr %16, align 8
-  %100 = getelementptr inbounds i8, ptr %16, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %101 = load i64, ptr %100, align 8
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = zext i32 %99 to i64
   %106 = inttoptr i64 %105 to ptr
@@ -515,18 +515,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %108, label %wtap_block_add_uint8_option.exit, label %109
 
 109:                                              ; preds = %98
-  %110 = getelementptr inbounds i8, ptr %107, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %111 = load i32, ptr %110, align 8
   %.not.i.i73 = icmp eq i32 %111, 2
   br i1 %.not.i.i73, label %112, label %wtap_block_add_uint8_option.exit
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %107, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 1
   %.not20.i.i75 = icmp eq i32 %115, 0
   %116 = load ptr, ptr %12, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8
   br i1 %.not20.i.i75, label %119, label %.loopexit.i76
 
@@ -560,16 +560,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %131 = zext i32 %126 to i64
   %132 = getelementptr %struct.wtap_option_t, ptr %130, i64 %131
   store i32 %99, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %101, ptr %133, align 8
   br label %wtap_block_add_uint8_option.exit
 
 134:                                              ; preds = %13
   %135 = load i32, ptr %16, align 8
-  %136 = getelementptr inbounds i8, ptr %16, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %137 = load i8, ptr %136, align 8
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
   %141 = zext i32 %135 to i64
   %142 = inttoptr i64 %141 to ptr
@@ -578,18 +578,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %144, label %wtap_block_add_uint8_option.exit, label %145
 
 145:                                              ; preds = %134
-  %146 = getelementptr inbounds i8, ptr %143, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %147 = load i32, ptr %146, align 8
   %.not.i.i83 = icmp eq i32 %147, 11
   br i1 %.not.i.i83, label %148, label %wtap_block_add_uint8_option.exit
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %143, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, 1
   %.not20.i.i85 = icmp eq i32 %151, 0
   %152 = load ptr, ptr %12, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i32, ptr %153, align 8
   br i1 %.not20.i.i85, label %155, label %.loopexit.i86
 
@@ -623,16 +623,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %167 = zext i32 %162 to i64
   %168 = getelementptr %struct.wtap_option_t, ptr %166, i64 %167
   store i32 %135, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i8 %137, ptr %169, align 8
   br label %wtap_block_add_uint8_option.exit
 
 170:                                              ; preds = %13
   %171 = load i32, ptr %16, align 8
-  %172 = getelementptr inbounds i8, ptr %16, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %173 = load i32, ptr %172, align 8
   %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 48
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 48
   %176 = load ptr, ptr %175, align 8
   %177 = zext i32 %171 to i64
   %178 = inttoptr i64 %177 to ptr
@@ -641,18 +641,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %180, label %wtap_block_add_uint8_option.exit, label %181
 
 181:                                              ; preds = %170
-  %182 = getelementptr inbounds i8, ptr %179, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %183 = load i32, ptr %182, align 8
   %.not.i.i93 = icmp eq i32 %183, 12
   br i1 %.not.i.i93, label %184, label %wtap_block_add_uint8_option.exit
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %179, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 20
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 1
   %.not20.i.i95 = icmp eq i32 %187, 0
   %188 = load ptr, ptr %12, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i32, ptr %189, align 8
   br i1 %.not20.i.i95, label %191, label %.loopexit.i96
 
@@ -686,16 +686,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %203 = zext i32 %198 to i64
   %204 = getelementptr %struct.wtap_option_t, ptr %202, i64 %203
   store i32 %171, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 %173, ptr %205, align 8
   br label %wtap_block_add_uint8_option.exit
 
 206:                                              ; preds = %13
   %207 = load i32, ptr %16, align 8
-  %208 = getelementptr inbounds i8, ptr %16, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %209 = load i64, ptr %208, align 8
   %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 48
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
   %212 = load ptr, ptr %211, align 8
   %213 = zext i32 %207 to i64
   %214 = inttoptr i64 %213 to ptr
@@ -704,18 +704,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %216, label %wtap_block_add_uint8_option.exit, label %217
 
 217:                                              ; preds = %206
-  %218 = getelementptr inbounds i8, ptr %215, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %219 = load i32, ptr %218, align 8
   %.not.i.i103 = icmp eq i32 %219, 13
   br i1 %.not.i.i103, label %220, label %wtap_block_add_uint8_option.exit
 
 220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %215, i64 20
+  %221 = getelementptr inbounds nuw i8, ptr %215, i64 20
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 1
   %.not20.i.i105 = icmp eq i32 %223, 0
   %224 = load ptr, ptr %12, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load i32, ptr %225, align 8
   br i1 %.not20.i.i105, label %227, label %.loopexit.i106
 
@@ -749,16 +749,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %239 = zext i32 %234 to i64
   %240 = getelementptr %struct.wtap_option_t, ptr %238, i64 %239
   store i32 %207, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store i64 %209, ptr %241, align 8
   br label %wtap_block_add_uint8_option.exit
 
 242:                                              ; preds = %13
   %243 = load i32, ptr %16, align 8
-  %244 = getelementptr inbounds i8, ptr %16, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %245 = load i32, ptr %244, align 8
   %246 = load ptr, ptr %0, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 48
   %248 = load ptr, ptr %247, align 8
   %249 = zext i32 %243 to i64
   %250 = inttoptr i64 %249 to ptr
@@ -767,18 +767,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %252, label %wtap_block_add_uint8_option.exit, label %253
 
 253:                                              ; preds = %242
-  %254 = getelementptr inbounds i8, ptr %251, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %255 = load i32, ptr %254, align 8
   %.not.i.i113 = icmp eq i32 %255, 5
   br i1 %.not.i.i113, label %256, label %wtap_block_add_uint8_option.exit
 
 256:                                              ; preds = %253
-  %257 = getelementptr inbounds i8, ptr %251, i64 20
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 20
   %258 = load i32, ptr %257, align 4
   %259 = and i32 %258, 1
   %.not20.i.i115 = icmp eq i32 %259, 0
   %260 = load ptr, ptr %12, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load i32, ptr %261, align 8
   br i1 %.not20.i.i115, label %263, label %.loopexit.i116
 
@@ -812,15 +812,15 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %275 = zext i32 %270 to i64
   %276 = getelementptr %struct.wtap_option_t, ptr %274, i64 %275
   store i32 %243, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i32 %245, ptr %277, align 8
   br label %wtap_block_add_uint8_option.exit
 
 278:                                              ; preds = %13
   %279 = load i32, ptr %16, align 8
-  %280 = getelementptr inbounds i8, ptr %16, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 48
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
   %283 = load ptr, ptr %282, align 8
   %284 = zext i32 %279 to i64
   %285 = inttoptr i64 %284 to ptr
@@ -829,18 +829,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %287, label %wtap_block_add_uint8_option.exit, label %288
 
 288:                                              ; preds = %278
-  %289 = getelementptr inbounds i8, ptr %286, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 16
   %290 = load i32, ptr %289, align 8
   %.not.i.i123 = icmp eq i32 %290, 6
   br i1 %.not.i.i123, label %291, label %wtap_block_add_uint8_option.exit
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds i8, ptr %286, i64 20
+  %292 = getelementptr inbounds nuw i8, ptr %286, i64 20
   %293 = load i32, ptr %292, align 4
   %294 = and i32 %293, 1
   %.not20.i.i125 = icmp eq i32 %294, 0
   %295 = load ptr, ptr %12, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load i32, ptr %296, align 8
   br i1 %.not20.i.i125, label %298, label %.loopexit.i126
 
@@ -874,17 +874,17 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %310 = zext i32 %305 to i64
   %311 = getelementptr %struct.wtap_option_t, ptr %309, i64 %310
   store i32 %279, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull readonly align 1 dereferenceable(16) %280, i64 16, i1 false)
   br label %wtap_block_add_uint8_option.exit
 
 313:                                              ; preds = %13
   %314 = load i32, ptr %16, align 8
-  %315 = getelementptr inbounds i8, ptr %16, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %316 = load ptr, ptr %315, align 8
   %317 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %316) #17
   %318 = load ptr, ptr %0, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 48
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 48
   %320 = load ptr, ptr %319, align 8
   %321 = zext i32 %314 to i64
   %322 = inttoptr i64 %321 to ptr
@@ -893,18 +893,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %324, label %wtap_block_add_uint8_option.exit, label %325
 
 325:                                              ; preds = %313
-  %326 = getelementptr inbounds i8, ptr %323, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %327 = load i32, ptr %326, align 8
   %.not.i.i133 = icmp eq i32 %327, 3
   br i1 %.not.i.i133, label %328, label %wtap_block_add_uint8_option.exit
 
 328:                                              ; preds = %325
-  %329 = getelementptr inbounds i8, ptr %323, i64 20
+  %329 = getelementptr inbounds nuw i8, ptr %323, i64 20
   %330 = load i32, ptr %329, align 4
   %331 = and i32 %330, 1
   %.not20.i.i135 = icmp eq i32 %331, 0
   %332 = load ptr, ptr %12, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   br i1 %.not20.i.i135, label %335, label %.loopexit.i136
 
@@ -939,16 +939,16 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %348 = getelementptr %struct.wtap_option_t, ptr %346, i64 %347
   store i32 %314, ptr %348, align 8
   %349 = tail call noalias ptr @g_strndup(ptr noundef %316, i64 noundef %317) #15
-  %350 = getelementptr inbounds i8, ptr %348, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 8
   store ptr %349, ptr %350, align 8
   br label %wtap_block_add_uint8_option.exit
 
 351:                                              ; preds = %13
   %352 = load i32, ptr %16, align 8
-  %353 = getelementptr inbounds i8, ptr %16, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %354 = load ptr, ptr %353, align 8
   %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 48
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 48
   %357 = load ptr, ptr %356, align 8
   %358 = zext i32 %352 to i64
   %359 = inttoptr i64 %358 to ptr
@@ -957,18 +957,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %361, label %wtap_block_add_uint8_option.exit, label %362
 
 362:                                              ; preds = %351
-  %363 = getelementptr inbounds i8, ptr %360, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %364 = load i32, ptr %363, align 8
   %.not.i.i143 = icmp eq i32 %364, 4
   br i1 %.not.i.i143, label %365, label %wtap_block_add_uint8_option.exit
 
 365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %360, i64 20
+  %366 = getelementptr inbounds nuw i8, ptr %360, i64 20
   %367 = load i32, ptr %366, align 4
   %368 = and i32 %367, 1
   %.not20.i.i145 = icmp eq i32 %368, 0
   %369 = load ptr, ptr %12, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load i32, ptr %370, align 8
   br i1 %.not20.i.i145, label %372, label %.loopexit.i146
 
@@ -1003,34 +1003,34 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %385 = getelementptr %struct.wtap_option_t, ptr %383, i64 %384
   store i32 %352, ptr %385, align 8
   %386 = tail call ptr @g_bytes_ref(ptr noundef %354) #15
-  %387 = getelementptr inbounds i8, ptr %385, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store ptr %386, ptr %387, align 8
   br label %wtap_block_add_uint8_option.exit
 
 388:                                              ; preds = %13
-  %389 = getelementptr inbounds i8, ptr %16, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %390 = load i32, ptr %389, align 8
   %cond = icmp eq i32 %390, 10949
   br i1 %cond, label %391, label %399
 
 391:                                              ; preds = %388
-  %392 = getelementptr inbounds i8, ptr %16, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %393 = load i32, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %16, i64 32
+  %394 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %16, i64 24
+  %396 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %397 = load i64, ptr %396, align 8
   %398 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef nonnull %0, i32 noundef %393, ptr noundef %395, i64 noundef %397)
   br label %wtap_block_add_uint8_option.exit
 
 399:                                              ; preds = %388
   %400 = load i32, ptr %16, align 8
-  %401 = getelementptr inbounds i8, ptr %16, i64 16
-  %402 = getelementptr inbounds i8, ptr %16, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %402 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %403 = load ptr, ptr %402, align 8
   %404 = load i64, ptr %401, align 8
   %405 = load ptr, ptr %0, align 8
-  %406 = getelementptr inbounds i8, ptr %405, i64 48
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 48
   %407 = load ptr, ptr %406, align 8
   %408 = zext i32 %400 to i64
   %409 = inttoptr i64 %408 to ptr
@@ -1039,18 +1039,18 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %411, label %wtap_block_add_uint8_option.exit, label %412
 
 412:                                              ; preds = %399
-  %413 = getelementptr inbounds i8, ptr %410, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %410, i64 16
   %414 = load i32, ptr %413, align 8
   %.not.i.i153 = icmp eq i32 %414, 7
   br i1 %.not.i.i153, label %415, label %wtap_block_add_uint8_option.exit
 
 415:                                              ; preds = %412
-  %416 = getelementptr inbounds i8, ptr %410, i64 20
+  %416 = getelementptr inbounds nuw i8, ptr %410, i64 20
   %417 = load i32, ptr %416, align 4
   %418 = and i32 %417, 1
   %.not20.i.i155 = icmp eq i32 %418, 0
   %419 = load ptr, ptr %12, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 8
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load i32, ptr %420, align 8
   br i1 %.not20.i.i155, label %422, label %.loopexit.i156
 
@@ -1084,37 +1084,37 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %434 = zext i32 %429 to i64
   %435 = getelementptr %struct.wtap_option_t, ptr %433, i64 %434
   store i32 %400, ptr %435, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i32 %390, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %435, i64 16
+  %437 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store i64 %404, ptr %437, align 8
   %438 = tail call ptr @g_memdup2(ptr noundef %403, i64 noundef %404) #18
-  %439 = getelementptr inbounds i8, ptr %435, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %435, i64 24
   store ptr %438, ptr %439, align 8
   br label %wtap_block_add_uint8_option.exit
 
 440:                                              ; preds = %13
   %441 = load i32, ptr %16, align 8
-  %442 = getelementptr inbounds i8, ptr %16, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %443 = tail call i32 @wtap_block_add_if_filter_option(ptr noundef nonnull %0, i32 noundef %441, ptr noundef nonnull %442)
   br label %wtap_block_add_uint8_option.exit
 
 444:                                              ; preds = %13
   %445 = load i32, ptr %16, align 8
-  %446 = getelementptr inbounds i8, ptr %16, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %447 = tail call i32 @wtap_block_add_packet_verdict_option(ptr noundef nonnull %0, i32 noundef %445, ptr noundef nonnull %446)
   br label %wtap_block_add_uint8_option.exit
 
 448:                                              ; preds = %13
   %449 = load i32, ptr %16, align 8
-  %450 = getelementptr inbounds i8, ptr %16, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %451 = tail call i32 @wtap_block_add_packet_hash_option(ptr noundef nonnull %0, i32 noundef %449, ptr noundef nonnull %450)
   br label %wtap_block_add_uint8_option.exit
 
 wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %301, %266, %230, %194, %158, %122, %86, %50, %.loopexit.i156, %412, %399, %.loopexit.i146, %362, %351, %.loopexit.i136, %325, %313, %.loopexit.i126, %288, %278, %.loopexit.i116, %253, %242, %.loopexit.i106, %217, %206, %.loopexit.i96, %181, %170, %.loopexit.i86, %145, %134, %.loopexit.i76, %109, %98, %.loopexit.i66, %73, %62, %.loopexit.i, %37, %26, %13, %440, %444, %448, %391
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %452 = load ptr, ptr %8, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %454 = load i32, ptr %453, align 8
   %455 = zext i32 %454 to i64
   %456 = icmp samesign ult i64 %indvars.iv.next, %455
@@ -1133,7 +1133,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly %0
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1142,19 +1142,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly %0
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1188,7 +1188,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly %0
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1204,7 +1204,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly %
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1213,19 +1213,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly %
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 1
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1259,7 +1259,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly %
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1275,7 +1275,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly %
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1284,19 +1284,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly %
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 2
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1330,7 +1330,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly %
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1346,7 +1346,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly %0,
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1355,19 +1355,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly %0,
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 11
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1401,7 +1401,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly %0,
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1417,7 +1417,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly %0
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1426,19 +1426,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly %0
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 12
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1472,7 +1472,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly %0
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1488,7 +1488,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly %0
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1497,19 +1497,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly %0
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 13
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1543,7 +1543,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly %0
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1559,7 +1559,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0,
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1568,19 +1568,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0,
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 5
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1614,7 +1614,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0,
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1630,7 +1630,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0,
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1639,19 +1639,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0,
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 6
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1685,7 +1685,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0,
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1701,7 +1701,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly %
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -1710,19 +1710,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly %
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_add_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not20.i = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   br i1 %.not20.i, label %25, label %.loopexit
 
@@ -1757,7 +1757,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly %
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
   %39 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1776,7 +1776,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -1785,19 +1785,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 4
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -1832,7 +1832,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
   %38 = tail call ptr @g_bytes_ref(ptr noundef %2) #15
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %38, ptr %39, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1848,26 +1848,26 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr)) #15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %wtap_block_add_option_common.exit.thread, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 7
   br i1 %.not.i, label %15, label %wtap_block_add_option_common.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not20.i = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   br i1 %.not20.i, label %23, label %.loopexit
 
@@ -1901,20 +1901,20 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
   %35 = zext i32 %30 to i64
   %36 = getelementptr %struct.wtap_option_t, ptr %34, i64 %35
   store i32 2989, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 10949, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 %3, ptr %39, align 8
   %40 = tail call ptr @g_memdup2(ptr noundef %2, i64 noundef %3) #18
-  %41 = getelementptr inbounds i8, ptr %36, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 11
   %45 = zext i1 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %36, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 %45, ptr %46, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -1930,7 +1930,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly %
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -1939,19 +1939,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly %
   br i1 %14, label %wtap_block_add_option_common.exit.thread, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, 7
   br i1 %.not.i, label %18, label %wtap_block_add_option_common.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not20.i = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   br i1 %.not20.i, label %26, label %.loopexit
 
@@ -1985,12 +1985,12 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly %
   %38 = zext i32 %33 to i64
   %39 = getelementptr %struct.wtap_option_t, ptr %37, i64 %38
   store i32 %1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %4, ptr %41, align 8
   %42 = tail call ptr @g_memdup2(ptr noundef %3, i64 noundef %4) #18
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %42, ptr %43, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -2008,7 +2008,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2017,19 +2017,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 8
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -2063,7 +2063,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   store i64 0, ptr %.sroa.37, align 8, !alias.scope !9
   store ptr null, ptr %.sroa.5, align 8, !alias.scope !9
@@ -2074,16 +2074,16 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
   ]
 
 40:                                               ; preds = %.loopexit
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load ptr, ptr %41, align 8, !noalias !9
   %43 = tail call noalias ptr @g_strdup(ptr noundef %42) #15, !noalias !9
   br label %.sink.split.i
 
 44:                                               ; preds = %.loopexit
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i32, ptr %45, align 8, !noalias !9
   store i32 %46, ptr %.sroa.37, align 8, !alias.scope !9
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load ptr, ptr %47, align 8, !noalias !9
   %49 = zext i32 %46 to i64
   %50 = shl nuw nsw i64 %49, 3
@@ -2102,11 +2102,11 @@ if_filter_dup.exit:                               ; preds = %.loopexit, %.sink.s
   %.sroa.5.0..sroa.5.0..sroa.5.0.copyload = phi ptr [ null, %.loopexit ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre, %.sink.split.i ]
   %.sroa.37.0..sroa.37.0..sroa.37.0.copyload = phi i64 [ 0, %.loopexit ], [ %.sroa.37.0..sroa.37.0..sroa.37.0..sroa.37.0.copyload.pre, %.sink.split.i ]
   store i32 %39, ptr %38, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 %.sroa.37.0..sroa.37.0..sroa.37.0.copyload, ptr %.sroa.37.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %.sroa.5.0..sroa.5.0..sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -2122,7 +2122,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2131,19 +2131,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 9
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -2177,7 +2177,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %2, align 8
   switch i32 %39, label %packet_verdict_dup.exit [
     i32 0, label %40
@@ -2186,28 +2186,28 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   ]
 
 40:                                               ; preds = %.loopexit
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = tail call ptr @g_memdup2(ptr noundef %43, i64 noundef %46) #18
   %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = tail call ptr @g_byte_array_new_take(ptr noundef %47, i64 noundef %51) #15
   br label %packet_verdict_dup.exit
 
 53:                                               ; preds = %.loopexit
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = inttoptr i64 %55 to ptr
   br label %packet_verdict_dup.exit
 
 57:                                               ; preds = %.loopexit
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = inttoptr i64 %59 to ptr
   br label %packet_verdict_dup.exit
@@ -2215,7 +2215,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 packet_verdict_dup.exit:                          ; preds = %.loopexit, %40, %53, %57
   %.sroa.37.0.i = phi ptr [ null, %.loopexit ], [ %60, %57 ], [ %56, %53 ], [ %52, %40 ]
   store i32 %39, ptr %38, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %.sroa.37.0.i, ptr %.sroa.21.0..sroa_idx, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -2231,7 +2231,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2240,19 +2240,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 10
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -2286,22 +2286,22 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %45) #18
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50) #15
   store i8 %39, ptr %38, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %51, ptr %.sroa.21.0..sroa_idx, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -2324,12 +2324,12 @@ define noundef ptr @wtap_block_make_copy(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
   %10 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %6) #15
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %14, align 8
   br label %wtap_block_create.exit
 
@@ -2345,9 +2345,9 @@ define i32 @wtap_block_count_option(ptr noundef readonly %0, i32 noundef %1) loc
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -2380,9 +2380,9 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapt
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %.not19 = icmp eq i32 %8, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
@@ -2390,7 +2390,7 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapt
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
@@ -2402,16 +2402,16 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapt
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %struct.wtap_option_t, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %17, align 8
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %23) #15
   %25 = load i32, ptr %17, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %17, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = tail call i32 %1(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %28, ptr noundef %2) #15
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.loopexit, label %9
@@ -2428,7 +2428,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2437,22 +2437,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2475,7 +2475,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -2491,7 +2491,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2500,22 +2500,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2538,7 +2538,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i8, ptr %32, align 8
   store i8 %33, ptr %2, align 1
   br label %wtap_block_get_option_common.exit.thread
@@ -2555,7 +2555,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2564,22 +2564,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 1
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2602,7 +2602,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -2618,7 +2618,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2627,22 +2627,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 1
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2665,7 +2665,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %2, align 4
   br label %wtap_block_get_option_common.exit.thread
@@ -2682,7 +2682,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2691,22 +2691,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 2
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2729,7 +2729,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -2745,7 +2745,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2754,22 +2754,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 2
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2792,7 +2792,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %2, align 8
   br label %wtap_block_get_option_common.exit.thread
@@ -2809,7 +2809,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2818,22 +2818,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 11
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2856,7 +2856,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -2872,7 +2872,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2881,22 +2881,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 11
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2919,7 +2919,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i8, ptr %32, align 8
   store i8 %33, ptr %2, align 1
   br label %wtap_block_get_option_common.exit.thread
@@ -2936,7 +2936,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -2945,22 +2945,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 12
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -2983,7 +2983,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -2999,7 +2999,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3008,22 +3008,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 12
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3046,7 +3046,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %2, align 4
   br label %wtap_block_get_option_common.exit.thread
@@ -3063,7 +3063,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3072,22 +3072,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 13
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3110,7 +3110,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -3126,7 +3126,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3135,22 +3135,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 13
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3173,7 +3173,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %2, align 8
   br label %wtap_block_get_option_common.exit.thread
@@ -3190,7 +3190,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3199,22 +3199,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 5
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3237,7 +3237,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %2, ptr %32, align 8
   br label %wtap_block_get_option_common.exit.thread
 
@@ -3253,7 +3253,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3262,22 +3262,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 5
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3300,7 +3300,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %2, align 4
   br label %wtap_block_get_option_common.exit.thread
@@ -3320,7 +3320,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3329,22 +3329,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 6
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3367,7 +3367,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
@@ -3383,7 +3383,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3392,22 +3392,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 6
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -3430,7 +3430,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
@@ -3448,7 +3448,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -3457,19 +3457,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 3
   br i1 %.not.i, label %16, label %wtap_block_add_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not20.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   br i1 %.not20.i, label %24, label %.loopexit
 
@@ -3503,7 +3503,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %38, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -3520,7 +3520,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -3529,19 +3529,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_add_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not20.i = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   br i1 %.not20.i, label %25, label %.loopexit
 
@@ -3577,7 +3577,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
   store i32 %1, ptr %38, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
   %39 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %wtap_block_add_option_common.exit.thread
@@ -3596,7 +3596,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -3605,22 +3605,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
   br i1 %13, label %wtap_block_add_string_option.exit, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_add_string_option.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not15.i = icmp eq i32 %20, 0
   br i1 %.not15.i, label %21, label %wtap_block_add_string_option.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i
@@ -3644,25 +3644,25 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 
 .thread:                                          ; preds = %27, %21
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_add_string_option.exit, label %37
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load i32, ptr %38, align 8
   %.not.i.i12 = icmp eq i32 %39, 3
   br i1 %.not.i.i12, label %40, label %wtap_block_add_string_option.exit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %35, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not20.i.i = icmp eq i32 %43, 0
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   br i1 %.not20.i.i, label %47, label %.loopexit.i
 
@@ -3697,12 +3697,12 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
   %61 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_add_string_option.exit
 
 63:                                               ; preds = %28
-  %64 = getelementptr inbounds i8, ptr %29, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @g_free(ptr noundef %65) #15
   %66 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
@@ -3721,7 +3721,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -3730,22 +3730,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   br i1 %14, label %wtap_block_get_nth_option_common.exit.thread, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, 3
   br i1 %.not.i, label %18, label %wtap_block_get_nth_option_common.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not16.i = icmp eq i32 %21, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -3778,7 +3778,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %29, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @g_free(ptr noundef %39) #15
   %40 = tail call noalias ptr @g_strndup(ptr noundef %3, i64 noundef %4) #15
@@ -3798,7 +3798,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -3807,22 +3807,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
   br i1 %13, label %wtap_block_get_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_get_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not15.i = icmp eq i32 %20, 0
   br i1 %.not15.i, label %21, label %wtap_block_get_option_common.exit.thread
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i
@@ -3847,25 +3847,25 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 .thread:                                          ; preds = %27, %21
   call void @llvm.va_start.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_get_option_common.exit.thread.sink.split, label %37
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load i32, ptr %38, align 8
   %.not.i.i11 = icmp eq i32 %39, 3
   br i1 %.not.i.i11, label %40, label %wtap_block_get_option_common.exit.thread.sink.split
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %35, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not20.i.i = icmp eq i32 %43, 0
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   br i1 %.not20.i.i, label %47, label %.loopexit.i
 
@@ -3900,12 +3900,12 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
   %61 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_get_option_common.exit.thread.sink.split
 
 63:                                               ; preds = %28
-  %64 = getelementptr inbounds i8, ptr %29, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @g_free(ptr noundef %65) #15
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -3931,7 +3931,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -3940,22 +3940,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   br i1 %14, label %wtap_block_get_nth_option_common.exit.thread, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, 3
   br i1 %.not.i, label %18, label %wtap_block_get_nth_option_common.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not16.i = icmp eq i32 %21, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -3988,7 +3988,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %29, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @g_free(ptr noundef %39) #15
   call void @llvm.va_start.p0(ptr nonnull %5)
@@ -4009,7 +4009,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -4018,22 +4018,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 3
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -4056,7 +4056,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %2, align 8
   br label %wtap_block_get_option_common.exit.thread
@@ -4073,7 +4073,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -4082,22 +4082,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_get_nth_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not16.i = icmp eq i32 %20, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -4130,7 +4130,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %3, align 8
   br label %wtap_block_get_nth_option_common.exit.thread
@@ -4147,7 +4147,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly %0
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -4156,19 +4156,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly %0
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 4
   br i1 %.not.i, label %17, label %wtap_block_add_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not20.i = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   br i1 %.not20.i, label %25, label %.loopexit
 
@@ -4203,7 +4203,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly %0
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
   %39 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   br label %wtap_block_add_option_common.exit.thread
 
@@ -4223,7 +4223,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -4232,22 +4232,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
   br i1 %13, label %wtap_block_add_bytes_option.exit, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 4
   br i1 %.not.i, label %17, label %wtap_block_add_bytes_option.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not15.i = icmp eq i32 %20, 0
   br i1 %.not15.i, label %21, label %wtap_block_add_bytes_option.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i
@@ -4271,25 +4271,25 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 
 .thread:                                          ; preds = %27, %21
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_add_bytes_option.exit, label %37
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load i32, ptr %38, align 8
   %.not.i.i12 = icmp eq i32 %39, 4
   br i1 %.not.i.i12, label %40, label %wtap_block_add_bytes_option.exit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %35, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not20.i.i = icmp eq i32 %43, 0
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   br i1 %.not20.i.i, label %47, label %.loopexit.i
 
@@ -4324,12 +4324,12 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
   %61 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_add_bytes_option.exit
 
 63:                                               ; preds = %28
-  %64 = getelementptr inbounds i8, ptr %29, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @g_bytes_unref(ptr noundef %65) #15
   %66 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
@@ -4350,7 +4350,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -4359,22 +4359,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 4
   br i1 %.not.i, label %17, label %wtap_block_get_nth_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not16.i = icmp eq i32 %20, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -4407,7 +4407,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @g_bytes_unref(ptr noundef %38) #15
   %39 = tail call ptr @g_bytes_ref(ptr noundef %3) #15
@@ -4426,7 +4426,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -4435,22 +4435,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 4
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -4473,7 +4473,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %2, align 8
   br label %wtap_block_get_option_common.exit.thread
@@ -4490,7 +4490,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -4499,22 +4499,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 4
   br i1 %.not.i, label %17, label %wtap_block_get_nth_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not16.i = icmp eq i32 %20, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -4547,7 +4547,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %3, align 8
   br label %wtap_block_get_nth_option_common.exit.thread
@@ -4567,22 +4567,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr)) #15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge.thread, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 7
   br i1 %.not, label %.preheader, label %._crit_edge.thread
 
 .preheader:                                       ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not230 = icmp eq i32 %18, 0
   br i1 %.not230, label %._crit_edge, label %.lr.ph
@@ -4600,13 +4600,13 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 10949
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %21, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %._crit_edge.loopexit, label %32
@@ -4627,7 +4627,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br i1 %34, label %._crit_edge.thread, label %35
 
 35:                                               ; preds = %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %.1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = icmp ult i64 %3, %37
   br i1 %38, label %._crit_edge.thread, label %39
@@ -4642,173 +4642,173 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   ]
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %.1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %2, align 4
   br label %._crit_edge.thread
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %.1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %46, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %46, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %58 = load i8, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %46, i64 25
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 25
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %2, i64 25
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %46, i64 26
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 26
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %2, i64 26
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 26
   store i16 %64, ptr %65, align 2
-  %66 = getelementptr inbounds i8, ptr %46, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %2, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %46, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %46, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %2, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %73, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %46, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %46, i64 44
+  %78 = getelementptr inbounds nuw i8, ptr %46, i64 44
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %2, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %46, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %46, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %46, i64 52
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %2, i64 52
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %46, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %46, i64 60
+  %90 = getelementptr inbounds nuw i8, ptr %46, i64 60
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %2, i64 60
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %91, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %46, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %2, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %46, i64 68
+  %96 = getelementptr inbounds nuw i8, ptr %46, i64 68
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %2, i64 68
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %97, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %46, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %46, i64 76
+  %102 = getelementptr inbounds nuw i8, ptr %46, i64 76
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %2, i64 76
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 %103, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %46, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %106 = load i32, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %46, i64 84
+  %108 = getelementptr inbounds nuw i8, ptr %46, i64 84
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %2, i64 84
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i32 %109, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %46, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %46, i64 88
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %2, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %112, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %46, i64 92
+  %114 = getelementptr inbounds nuw i8, ptr %46, i64 92
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %2, i64 92
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %115, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %46, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %2, i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %46, i64 100
+  %120 = getelementptr inbounds nuw i8, ptr %46, i64 100
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %2, i64 100
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %46, i64 104
+  %123 = getelementptr inbounds nuw i8, ptr %46, i64 104
   %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %2, i64 104
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %46, i64 108
+  %126 = getelementptr inbounds nuw i8, ptr %46, i64 108
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %2, i64 108
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 %127, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %46, i64 112
+  %129 = getelementptr inbounds nuw i8, ptr %46, i64 112
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 112
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %46, i64 116
+  %132 = getelementptr inbounds nuw i8, ptr %46, i64 116
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %2, i64 116
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %133, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %46, i64 120
+  %135 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 120
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i32 %136, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %46, i64 124
+  %138 = getelementptr inbounds nuw i8, ptr %46, i64 124
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %2, i64 124
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %46, i64 128
+  %141 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %2, i64 128
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 %142, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %46, i64 132
+  %144 = getelementptr inbounds nuw i8, ptr %46, i64 132
   %145 = load i32, ptr %144, align 4
-  %146 = getelementptr inbounds i8, ptr %2, i64 132
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 %145, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %46, i64 136
+  %147 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %148 = load i32, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %2, i64 136
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %148, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %46, i64 140
+  %150 = getelementptr inbounds nuw i8, ptr %46, i64 140
   %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %2, i64 140
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 140
   store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %46, i64 144
+  %153 = getelementptr inbounds nuw i8, ptr %46, i64 144
   %154 = load i32, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %2, i64 144
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %46, i64 148
+  %156 = getelementptr inbounds nuw i8, ptr %46, i64 148
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %2, i64 148
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %157, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %46, i64 152
+  %159 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %160 = load i32, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %2, i64 152
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %160, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %46, i64 156
+  %162 = getelementptr inbounds nuw i8, ptr %46, i64 156
   %163 = load i8, ptr %162, align 4
   %164 = and i8 %163, 15
-  %165 = getelementptr inbounds i8, ptr %2, i64 156
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %166 = load i8, ptr %165, align 4
   %167 = and i8 %166, -16
   %168 = or disjoint i8 %167, %164
@@ -4817,8 +4817,8 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   %170 = and i8 %169, -16
   %171 = or disjoint i8 %170, %164
   store i8 %171, ptr %165, align 4
-  %172 = getelementptr inbounds i8, ptr %46, i64 157
-  %173 = getelementptr inbounds i8, ptr %2, i64 157
+  %172 = getelementptr inbounds nuw i8, ptr %46, i64 157
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 157
   br label %174
 
 174:                                              ; preds = %44, %174
@@ -4832,148 +4832,148 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br i1 %exitcond239.not, label %178, label %174, !llvm.loop !16
 
 178:                                              ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %46, i64 160
+  %179 = getelementptr inbounds nuw i8, ptr %46, i64 160
   %180 = load i64, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %2, i64 160
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i64 %180, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %46, i64 168
+  %182 = getelementptr inbounds nuw i8, ptr %46, i64 168
   %183 = load i64, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %2, i64 168
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %46, i64 176
+  %185 = getelementptr inbounds nuw i8, ptr %46, i64 176
   %186 = load i64, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %2, i64 176
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store i64 %186, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %46, i64 184
+  %188 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %189 = load i64, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %2, i64 184
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i64 %189, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %46, i64 192
+  %191 = getelementptr inbounds nuw i8, ptr %46, i64 192
   %192 = load i32, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %2, i64 192
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i32 %192, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %46, i64 196
+  %194 = getelementptr inbounds nuw i8, ptr %46, i64 196
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %2, i64 196
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 196
   store i32 %195, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %46, i64 200
+  %197 = getelementptr inbounds nuw i8, ptr %46, i64 200
   %198 = load i32, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %2, i64 200
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i32 %198, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %46, i64 204
+  %200 = getelementptr inbounds nuw i8, ptr %46, i64 204
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %2, i64 204
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i32 %201, ptr %202, align 4
-  %203 = getelementptr inbounds i8, ptr %46, i64 208
+  %203 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %204 = load i32, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %2, i64 208
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i32 %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %46, i64 212
+  %206 = getelementptr inbounds nuw i8, ptr %46, i64 212
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr inbounds i8, ptr %2, i64 212
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 212
   store i32 %207, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %46, i64 216
+  %209 = getelementptr inbounds nuw i8, ptr %46, i64 216
   %210 = load i32, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %2, i64 216
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store i32 %210, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %46, i64 220
+  %212 = getelementptr inbounds nuw i8, ptr %46, i64 220
   %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds i8, ptr %2, i64 220
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 220
   store i32 %213, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %46, i64 224
+  %215 = getelementptr inbounds nuw i8, ptr %46, i64 224
   %216 = load i32, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %2, i64 224
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store i32 %216, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %46, i64 228
+  %218 = getelementptr inbounds nuw i8, ptr %46, i64 228
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %2, i64 228
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 228
   store i32 %219, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %46, i64 232
+  %221 = getelementptr inbounds nuw i8, ptr %46, i64 232
   %222 = load i32, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %2, i64 232
+  %223 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store i32 %222, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %46, i64 236
+  %224 = getelementptr inbounds nuw i8, ptr %46, i64 236
   %225 = load i32, ptr %224, align 4
-  %226 = getelementptr inbounds i8, ptr %2, i64 236
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 236
   store i32 %225, ptr %226, align 4
-  %227 = getelementptr inbounds i8, ptr %46, i64 240
+  %227 = getelementptr inbounds nuw i8, ptr %46, i64 240
   %228 = load i32, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %2, i64 240
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store i32 %228, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %46, i64 244
+  %230 = getelementptr inbounds nuw i8, ptr %46, i64 244
   %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds i8, ptr %2, i64 244
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 244
   store i32 %231, ptr %232, align 4
   %233 = trunc i32 %231 to i16
-  %234 = getelementptr inbounds i8, ptr %2, i64 248
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store i16 %233, ptr %234, align 8
   %235 = load i32, ptr %230, align 4
   %236 = trunc i32 %235 to i16
-  %237 = getelementptr inbounds i8, ptr %2, i64 250
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 250
   store i16 %236, ptr %237, align 2
-  %238 = getelementptr inbounds i8, ptr %46, i64 252
+  %238 = getelementptr inbounds nuw i8, ptr %46, i64 252
   %239 = load i16, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %2, i64 252
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 252
   store i16 %239, ptr %240, align 4
-  %241 = getelementptr inbounds i8, ptr %46, i64 254
+  %241 = getelementptr inbounds nuw i8, ptr %46, i64 254
   %242 = load i8, ptr %241, align 2
-  %243 = getelementptr inbounds i8, ptr %2, i64 254
+  %243 = getelementptr inbounds nuw i8, ptr %2, i64 254
   store i8 %242, ptr %243, align 2
-  %244 = getelementptr inbounds i8, ptr %46, i64 255
+  %244 = getelementptr inbounds nuw i8, ptr %46, i64 255
   %245 = load i8, ptr %244, align 1
-  %246 = getelementptr inbounds i8, ptr %2, i64 255
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 255
   store i8 %245, ptr %246, align 1
-  %247 = getelementptr inbounds i8, ptr %46, i64 256
+  %247 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %248 = load i8, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %2, i64 256
+  %249 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store i8 %248, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %46, i64 257
+  %250 = getelementptr inbounds nuw i8, ptr %46, i64 257
   %251 = load i8, ptr %250, align 1
-  %252 = getelementptr inbounds i8, ptr %2, i64 257
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 257
   store i8 %251, ptr %252, align 1
-  %253 = getelementptr inbounds i8, ptr %46, i64 258
+  %253 = getelementptr inbounds nuw i8, ptr %46, i64 258
   %254 = load i8, ptr %253, align 2
-  %255 = getelementptr inbounds i8, ptr %2, i64 258
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 258
   store i8 %254, ptr %255, align 2
-  %256 = getelementptr inbounds i8, ptr %46, i64 259
+  %256 = getelementptr inbounds nuw i8, ptr %46, i64 259
   %257 = load i8, ptr %256, align 1
-  %258 = getelementptr inbounds i8, ptr %2, i64 259
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 259
   store i8 %257, ptr %258, align 1
-  %259 = getelementptr inbounds i8, ptr %46, i64 260
+  %259 = getelementptr inbounds nuw i8, ptr %46, i64 260
   %260 = load i32, ptr %259, align 4
-  %261 = getelementptr inbounds i8, ptr %2, i64 260
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 260
   store i32 %260, ptr %261, align 4
-  %262 = getelementptr inbounds i8, ptr %46, i64 264
+  %262 = getelementptr inbounds nuw i8, ptr %46, i64 264
   %263 = load i32, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %2, i64 264
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 %263, ptr %264, align 8
   br label %._crit_edge.thread
 
 265:                                              ; preds = %39
-  %266 = getelementptr inbounds i8, ptr %.1, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %267 = load ptr, ptr %266, align 8
   %268 = load i32, ptr %267, align 8
   store i32 %268, ptr %2, align 8
-  %269 = getelementptr inbounds i8, ptr %267, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %270 = load i32, ptr %269, align 4
-  %271 = getelementptr inbounds i8, ptr %2, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %270, ptr %271, align 4
-  %272 = getelementptr inbounds i8, ptr %267, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %273 = load i64, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %2, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %273, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %267, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %276 = load i16, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %2, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %276, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %267, i64 18
+  %278 = getelementptr inbounds nuw i8, ptr %267, i64 18
   %279 = load i16, ptr %278, align 2
-  %280 = getelementptr inbounds i8, ptr %2, i64 18
+  %280 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 %279, ptr %280, align 2
-  %281 = getelementptr inbounds i8, ptr %267, i64 20
-  %282 = getelementptr inbounds i8, ptr %2, i64 20
-  %283 = getelementptr inbounds i8, ptr %267, i64 36
-  %284 = getelementptr inbounds i8, ptr %2, i64 36
+  %281 = getelementptr inbounds nuw i8, ptr %267, i64 20
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %283 = getelementptr inbounds nuw i8, ptr %267, i64 36
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 36
   br label %285
 
 285:                                              ; preds = %265, %285
@@ -4991,45 +4991,45 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br i1 %exitcond235.not, label %292, label %285, !llvm.loop !17
 
 292:                                              ; preds = %285
-  %293 = getelementptr inbounds i8, ptr %267, i64 52
+  %293 = getelementptr inbounds nuw i8, ptr %267, i64 52
   %294 = load i32, ptr %293, align 4
-  %295 = getelementptr inbounds i8, ptr %2, i64 52
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %294, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %267, i64 56
+  %296 = getelementptr inbounds nuw i8, ptr %267, i64 56
   %297 = load i64, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %2, i64 56
+  %298 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %297, ptr %298, align 8
-  %299 = getelementptr inbounds i8, ptr %267, i64 64
+  %299 = getelementptr inbounds nuw i8, ptr %267, i64 64
   %300 = load i64, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %2, i64 64
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 %300, ptr %301, align 8
-  %302 = getelementptr inbounds i8, ptr %2, i64 72
-  %303 = getelementptr inbounds i8, ptr %267, i64 72
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %303 = getelementptr inbounds nuw i8, ptr %267, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %302, ptr noundef nonnull align 8 dereferenceable(64) %303, i64 64, i1 false)
-  %304 = getelementptr inbounds i8, ptr %2, i64 136
-  %305 = getelementptr inbounds i8, ptr %267, i64 136
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %305 = getelementptr inbounds nuw i8, ptr %267, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef nonnull align 8 dereferenceable(32) %305, i64 32, i1 false)
-  %306 = getelementptr inbounds i8, ptr %2, i64 168
-  %307 = getelementptr inbounds i8, ptr %267, i64 168
+  %306 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %307 = getelementptr inbounds nuw i8, ptr %267, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %307, i64 32, i1 false)
-  %308 = getelementptr inbounds i8, ptr %267, i64 200
+  %308 = getelementptr inbounds nuw i8, ptr %267, i64 200
   %309 = load i8, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %2, i64 200
+  %310 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i8 %309, ptr %310, align 8
-  %311 = getelementptr inbounds i8, ptr %2, i64 201
-  %312 = getelementptr inbounds i8, ptr %267, i64 201
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 201
+  %312 = getelementptr inbounds nuw i8, ptr %267, i64 201
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %311, ptr noundef nonnull align 1 dereferenceable(7) %312, i64 7, i1 false)
   br label %._crit_edge.thread
 
 313:                                              ; preds = %39
-  %314 = getelementptr inbounds i8, ptr %.1, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %315 = load ptr, ptr %314, align 8
   %316 = load i64, ptr %315, align 8
   store i64 %316, ptr %2, align 8
   br label %._crit_edge.thread
 
 317:                                              ; preds = %39
-  %318 = getelementptr inbounds i8, ptr %.1, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %319 = load ptr, ptr %318, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %319, i64 %3, i1 false)
   br label %._crit_edge.thread
@@ -5048,7 +5048,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -5057,22 +5057,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
   br i1 %12, label %if_filter_free.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 8
   br i1 %.not.i, label %16, label %if_filter_free.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %if_filter_free.exit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %if_filter_free.exit, label %.lr.ph.i.i
@@ -5095,12 +5095,12 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.011.0.copyload = load i32, ptr %32, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 12
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 24
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
   %.sroa.313.0.copyload = load ptr, ptr %.sroa.313.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   store i64 0, ptr %.sroa.39, align 8, !alias.scope !18
@@ -5112,16 +5112,16 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
   ]
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8, !noalias !18
   %37 = tail call noalias ptr @g_strdup(ptr noundef %36) #15, !noalias !18
   br label %.sink.split.i
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 8, !noalias !18
   store i32 %40, ptr %.sroa.39, align 8, !alias.scope !18
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !18
   %43 = zext i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
@@ -5169,7 +5169,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -5178,22 +5178,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 8
   br i1 %.not.i, label %16, label %wtap_block_get_option_common.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %20, label %wtap_block_get_option_common.exit.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %wtap_block_get_option_common.exit.thread, label %.lr.ph.i.i
@@ -5216,7 +5216,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
   br i1 %30, label %31, label %26
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
@@ -5232,7 +5232,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -5241,22 +5241,22 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   br i1 %13, label %wtap_packet_verdict_free.exit, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 9
   br i1 %.not.i, label %17, label %wtap_packet_verdict_free.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not16.i = icmp eq i32 %20, 0
   br i1 %.not16.i, label %wtap_packet_verdict_free.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %wtap_packet_verdict_free.exit, label %.lr.ph.i.i
@@ -5289,9 +5289,9 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.0.0.copyload = load i32, ptr %37, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.28.0.copyload = load ptr, ptr %.sroa.28.0..sroa_idx, align 8
   %38 = load i32, ptr %3, align 8
   switch i32 %38, label %packet_verdict_dup.exit [
@@ -5301,28 +5301,28 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   ]
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %45) #18
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50) #15
   br label %packet_verdict_dup.exit
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %54 to ptr
   br label %packet_verdict_dup.exit
 
 56:                                               ; preds = %36
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = inttoptr i64 %58 to ptr
   br label %packet_verdict_dup.exit
@@ -5350,7 +5350,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -5359,22 +5359,22 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 3
   br i1 %.not.i, label %17, label %wtap_block_get_nth_option_common.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %.not16.i = icmp eq i32 %20, 0
   br i1 %.not16.i, label %wtap_block_get_nth_option_common.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %.lr.ph.i.i
@@ -5407,7 +5407,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   br label %wtap_block_get_nth_option_common.exit.thread
 
@@ -5423,7 +5423,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %1 to i64
   %9 = inttoptr i64 %8 to ptr
@@ -5432,16 +5432,16 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %10, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %.not23 = icmp eq i32 %19, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph
@@ -5484,7 +5484,7 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noca
   %3 = zext i32 %2 to i64
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %.0.val.48.val, ptr noundef %4) #15
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %if_filter_free.exit [
     i32 3, label %8
@@ -5496,37 +5496,37 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noca
   ]
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #15
   br label %if_filter_free.exit
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_bytes_unref(ptr noundef %13) #15
   br label %if_filter_free.exit
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %cond = icmp eq i32 %16, 10949
   br i1 %cond, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @g_free(ptr noundef %19) #15
   br label %if_filter_free.exit
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22) #15
   br label %if_filter_free.exit
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %if_filter_free.exit [
     i32 0, label %.sink.split.i
@@ -5538,25 +5538,25 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noca
 
 .sink.split.i:                                    ; preds = %26, %23
   %.sink.i = phi i64 [ 16, %26 ], [ 8, %23 ]
-  %27 = getelementptr inbounds i8, ptr %24, i64 %.sink.i
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.sink.i
   %28 = load ptr, ptr %27, align 8
   tail call void @g_free(ptr noundef %28) #15
   br label %if_filter_free.exit
 
 29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   %cond.i = icmp eq i32 %31, 0
   br i1 %cond.i, label %32, label %if_filter_free.exit
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @g_byte_array_free(ptr noundef %34, i32 noundef 1) #15
   br label %if_filter_free.exit
 
 36:                                               ; preds = %1
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @g_byte_array_free(ptr noundef %38, i32 noundef 1) #15
   br label %if_filter_free.exit
@@ -5574,7 +5574,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -5583,16 +5583,16 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %.not28 = icmp eq i32 %20, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph
@@ -5643,15 +5643,15 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
 define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %1 = load i32, ptr @wtap_opttypes_initialize.shb_block, align 8
   %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %3 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %7 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
   %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %12 = zext i32 %1 to i64
   %13 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %12
@@ -5664,15 +5664,15 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %16 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val2, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_userappl) #15
   %17 = load i32, ptr @wtap_opttypes_initialize.idb_block, align 8
   %18 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %21 = tail call i32 @g_hash_table_insert(ptr noundef %20, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %23 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %28 = zext i32 %17 to i64
   %29 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %28
@@ -5697,15 +5697,15 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %38 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val10, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_hardware) #15
   %39 = load i32, ptr @wtap_opttypes_initialize.nrb_block, align 8
   %40 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %41 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %43 = tail call i32 @g_hash_table_insert(ptr noundef %42, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %45 = tail call i32 @g_hash_table_insert(ptr noundef %44, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
   %49 = tail call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %50 = zext i32 %39 to i64
   %51 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %50
@@ -5718,15 +5718,15 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %54 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val12, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP6addr) #15
   %55 = load i32, ptr @wtap_opttypes_initialize.isb_block, align 8
   %56 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %56, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
+  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %57 = tail call i32 @g_hash_table_insert(ptr noundef %56, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %59 = tail call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %61 = tail call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %63 = tail call i32 @g_hash_table_insert(ptr noundef %62, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
   %65 = tail call i32 @g_hash_table_insert(ptr noundef %64, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %66 = zext i32 %55 to i64
   %67 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %66
@@ -5747,45 +5747,45 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %74 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val18, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_usrdeliv) #15
   %75 = load i32, ptr @wtap_opttypes_initialize.dsb_block, align 8
   %76 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %76, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
+  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %77 = tail call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %79 = tail call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %81 = tail call i32 @g_hash_table_insert(ptr noundef %80, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %83 = tail call i32 @g_hash_table_insert(ptr noundef %82, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
   %85 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %86 = zext i32 %75 to i64
   %87 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %86
   store ptr @wtap_opttypes_initialize.dsb_block, ptr %87, align 8
   %88 = load i32, ptr @wtap_opttypes_initialize.mev_block, align 8
   %89 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %90 = tail call i32 @g_hash_table_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %94 = tail call i32 @g_hash_table_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %96 = tail call i32 @g_hash_table_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
   %98 = tail call i32 @g_hash_table_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %99 = zext i32 %88 to i64
   %100 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %99
   store ptr @wtap_opttypes_initialize.mev_block, ptr %100, align 8
   %101 = load i32, ptr @wtap_opttypes_initialize.pkt_block, align 8
   %102 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %102, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %103 = tail call i32 @g_hash_table_insert(ptr noundef %102, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %105 = tail call i32 @g_hash_table_insert(ptr noundef %104, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %107 = tail call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %109 = tail call i32 @g_hash_table_insert(ptr noundef %108, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
   %111 = tail call i32 @g_hash_table_insert(ptr noundef %110, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %112 = zext i32 %101 to i64
   %113 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %112
@@ -5804,30 +5804,30 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %119 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val23, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_verdict) #15
   %120 = load i32, ptr @wtap_opttypes_initialize.journal_block, align 8
   %121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %121, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
+  store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %122 = tail call i32 @g_hash_table_insert(ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %124 = tail call i32 @g_hash_table_insert(ptr noundef %123, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %126 = tail call i32 @g_hash_table_insert(ptr noundef %125, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %128 = tail call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
   %130 = tail call i32 @g_hash_table_insert(ptr noundef %129, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %131 = zext i32 %120 to i64
   %132 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %131
   store ptr @wtap_opttypes_initialize.journal_block, ptr %132, align 8
   %133 = load i32, ptr @wtap_opttypes_initialize.cb_block, align 8
   %134 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
-  store ptr %134, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
+  store ptr %134, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %135 = tail call i32 @g_hash_table_insert(ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %137 = tail call i32 @g_hash_table_insert(ptr noundef %136, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %139 = tail call i32 @g_hash_table_insert(ptr noundef %138, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %141 = tail call i32 @g_hash_table_insert(ptr noundef %140, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
   %143 = tail call i32 @g_hash_table_insert(ptr noundef %142, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
   %144 = zext i32 %133 to i64
   %145 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %144
@@ -5839,16 +5839,16 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
 define internal void @shb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #16
   store i64 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @shb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 1
   store i64 %7, ptr %4, align 1
@@ -5858,22 +5858,22 @@ define internal void @shb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal void @idb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @idb_free_mand(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
   %.not10 = icmp eq i8 %5, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -5890,7 +5890,7 @@ define internal void @idb_free_mand(ptr nocapture noundef readonly %0) #0 {
   br i1 %14, label %7, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %7, %1
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
@@ -5906,38 +5906,38 @@ define internal void @idb_free_mand(ptr nocapture noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @idb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i8, ptr %8, align 8
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @g_array_free(ptr noundef %12, i32 noundef 1) #15
   br label %14
 
 14:                                               ; preds = %10, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i8, ptr %15, align 8
   %.not15 = icmp eq i8 %16, 0
   br i1 %.not15, label %.loopexit, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #15
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %18, ptr %19, align 8
   %20 = load i8, ptr %15, align 8
   %.not17 = icmp eq i8 %20, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %wtap_block_make_copy.exit
@@ -5958,12 +5958,12 @@ define internal void @idb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %31, align 8
   %35 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull %31) #15
-  %39 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 1, ptr %39, align 8
   br label %wtap_block_make_copy.exit
 
@@ -5987,16 +5987,16 @@ wtap_block_make_copy.exit:                        ; preds = %22, %30
 ; Function Attrs: nounwind uwtable
 define internal void @dsb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dsb_free_mand(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #15
   ret void
@@ -6004,20 +6004,20 @@ define internal void @dsb_free_mand(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @dsb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #15
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
   %16 = zext i32 %15 to i64
@@ -6029,18 +6029,18 @@ define internal void @dsb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal void @nrb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @nrb_free_mand(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #15
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_list_free_full(ptr noundef %6, ptr noundef nonnull @g_free) #15
   ret void
@@ -6049,16 +6049,16 @@ define internal void @nrb_free_mand(ptr nocapture noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @isb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @isb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) %6, i64 12, i1 false)
   ret void
@@ -6067,16 +6067,16 @@ define internal void @isb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal void @mev_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @mev_free_mand(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #15
   ret void
@@ -6084,20 +6084,20 @@ define internal void @mev_free_mand(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @mev_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #15
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
   %16 = zext i32 %15 to i64
@@ -6108,21 +6108,21 @@ define internal void @mev_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pkt_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @sjeb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @cb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -6139,7 +6139,7 @@ define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7

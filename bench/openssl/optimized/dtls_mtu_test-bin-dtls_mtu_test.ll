@@ -308,7 +308,7 @@ for.body:                                         ; preds = %lor.lhs.false20, %f
   %call34 = call i64 @SSL_ctrl(ptr noundef %6, i32 noundef 17, i64 noundef %7, ptr noundef null) #6
   %8 = load ptr, ptr %clnt_ssl, align 8
   %call35 = call i64 @DTLS_get_data_mtu(ptr noundef %8) #6
-  %arrayidx = getelementptr inbounds [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv
   store i64 %call35, ptr %arrayidx, align 8
   %call45 = call i32 @test_size_t_ne(ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.8, i64 noundef %call35, i64 noundef 0) #6
   %tobool46.not = icmp eq i32 %call45, 0
@@ -323,7 +323,7 @@ for.end:                                          ; preds = %for.cond
   %10 = load ptr, ptr %clnt_ssl, align 8
   %call50 = call i64 @SSL_ctrl(ptr noundef %10, i32 noundef 17, i64 noundef 1000, ptr noundef null) #6
   %11 = load i64, ptr %mtus, align 16
-  %arrayidx53 = getelementptr inbounds i8, ptr %mtus, i64 232
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %mtus, i64 232
   %12 = load i64, ptr %arrayidx53, align 8
   %cmp54.not48 = icmp ugt i64 %11, %12
   br i1 %cmp54.not48, label %for.end117, label %for.body56
@@ -349,7 +349,7 @@ for.cond71:                                       ; preds = %if.end91
 
 for.body74:                                       ; preds = %if.end64, %for.cond71
   %indvars.iv62 = phi i64 [ 0, %if.end64 ], [ %indvars.iv.next63, %for.cond71 ]
-  %arrayidx76 = getelementptr inbounds [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv62
+  %arrayidx76 = getelementptr inbounds nuw [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv62
   %15 = load i64, ptr %arrayidx76, align 8
   %cmp77.not = icmp ule i64 %s.049, %15
   %16 = add nuw nsw i64 %indvars.iv62, 500
@@ -404,7 +404,7 @@ cond.end125:                                      ; preds = %for.end117, %cond.f
   br i1 %tobool128.not, label %end, label %if.end130
 
 if.end130:                                        ; preds = %cond.end125
-  %s3 = getelementptr inbounds i8, ptr %cond126, i64 280
+  %s3 = getelementptr inbounds nuw i8, ptr %cond126, i64 280
   %21 = load i64, ptr %s3, align 8
   %and = and i64 %21, 256
   %tobool131.not = icmp eq i64 %and, 0

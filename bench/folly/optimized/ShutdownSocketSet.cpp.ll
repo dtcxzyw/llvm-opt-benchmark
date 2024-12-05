@@ -49,7 +49,7 @@ entry:
   %0 = tail call i64 @llvm.umin.i64(i64 %capacity, i64 2147483647)
   %cond5.i.i = select i1 %cmp.i.i, i64 0, i64 %0
   store i64 %cond5.i.i, ptr %this, align 8, !tbaa !7
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noalias ptr @calloc(i64 noundef %cond5.i.i, i64 noundef 1) #12
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN5folly13checkedCallocEmm.exit
@@ -60,7 +60,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN5folly13checkedCallocEmm.exit:                 ; preds = %entry
   store ptr %call.i, ptr %data_, align 8, !tbaa !22
-  %nullFile_ = getelementptr inbounds i8, ptr %this, i64 16
+  %nullFile_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5) %nullFile_, ptr noundef nonnull @.str, i32 noundef 2, i32 noundef 438)
           to label %invoke.cont unwind label %lpad
 
@@ -150,7 +150,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = cmpxchg ptr %arrayidx.i, i8 0, i8 1 monotonic monotonic, align 1
@@ -246,11 +246,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = load atomic i8, ptr %arrayidx.i monotonic, align 1
-  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %__ts.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN5folly6detail19relaxed_atomic_baseIhE21compare_exchange_weakERhh.exit, %if.end
@@ -347,7 +347,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup.sink.split
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = load atomic i8, ptr %arrayidx.i monotonic, align 1
@@ -452,13 +452,13 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.not.not.i, label %if.end7.i, label %cleanup81
 
 if.end7.i:                                        ; preds = %if.then.i, %if.then
-  %nullFile_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %nullFile_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %nullFile_.i, align 8, !tbaa !33
   %call10.i = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %1, i32 noundef %fd.coerce)
   br label %cleanup81
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %2, i64 %spec.select.i
   %3 = cmpxchg ptr %arrayidx.i, i8 1, i8 2 monotonic monotonic, align 1
@@ -478,7 +478,7 @@ if.then.i93:                                      ; preds = %if.end17
   br i1 %cmp.not.not.i95, label %if.end7.i90, label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit96
 
 if.end7.i90:                                      ; preds = %if.then.i93, %if.end17
-  %nullFile_.i91 = getelementptr inbounds i8, ptr %this, i64 16
+  %nullFile_.i91 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i32, ptr %nullFile_.i91, align 8, !tbaa !33
   %call10.i92 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %5, i32 noundef %fd.coerce)
   br label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit96
@@ -614,7 +614,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then, %entry
-  %nullFile_ = getelementptr inbounds i8, ptr %this, i64 16
+  %nullFile_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %nullFile_, align 8, !tbaa !33
   %call10 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %0, i32 noundef %fd.coerce)
   br label %return
@@ -646,7 +646,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call2, i64 %vbase.offset.i.i.i
-  %_M_width.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
+  %_M_width.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   %2 = load i64, ptr %_M_width.i.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -689,7 +689,7 @@ entry:
   br i1 %cmp9.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end, %entry

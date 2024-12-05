@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @Gia_ManRandom(i32 noundef 1) #4
   %7 = tail call ptr @Abc_AigConst1(ptr noundef %0) #4
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr inttoptr (i64 2 to ptr), ptr %8, align 8
   %.not = icmp eq i32 %2, 0
   %9 = getelementptr i8, ptr %0, i64 40
@@ -33,9 +33,9 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val124215 = phi ptr [ %.val124, %.lr.ph ], [ %.val125216, %.preheader209 ]
   %12 = getelementptr i8, ptr %.val124215, i64 8
   %.val129.val = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val129.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val129.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr inttoptr (i64 3 to ptr), ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val124 = load ptr, ptr %9, align 8
@@ -50,14 +50,14 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val125219 = phi ptr [ %.val125, %.lr.ph220 ], [ %.val125216, %.preheader208 ]
   %19 = getelementptr i8, ptr %.val125219, i64 8
   %.val130.val = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds ptr, ptr %.val130.val, i64 %indvars.iv267
+  %20 = getelementptr inbounds nuw ptr, ptr %.val130.val, i64 %indvars.iv267
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @Gia_ManRandom(i32 noundef 0) #4
   %23 = and i32 %22, 1
   %24 = add nuw nsw i32 %23, 1
   %25 = zext nneg i32 %24 to i64
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %21, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %26, ptr %27, align 8
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %.val125 = load ptr, ptr %9, align 8
@@ -69,7 +69,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph220, %.preheader209, %.preheader208
   %.not114 = icmp eq i32 %3, 0
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 4
   %.val120224 = load i32, ptr %33, align 4
@@ -87,7 +87,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv270 = phi i64 [ %indvars.iv.next271, %49 ], [ 0, %.preheader206 ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val134.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val134.val, i64 %indvars.iv270
+  %37 = getelementptr inbounds nuw ptr, ptr %.val134.val, i64 %indvars.iv270
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 20
   %.val138 = load i32, ptr %39, align 4
@@ -107,7 +107,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %45 = sext i32 %.val143.val to i64
   %46 = getelementptr inbounds ptr, ptr %.val142.val.val, i64 %45
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store ptr inttoptr (i64 3 to ptr), ptr %48, align 8
   %.pre = load ptr, ptr %31, align 8
   br label %49
@@ -126,7 +126,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %72 ], [ 0, %.preheader205 ]
   %55 = getelementptr i8, ptr %54, i64 8
   %.val135.val = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val135.val, i64 %indvars.iv273
+  %56 = getelementptr inbounds nuw ptr, ptr %.val135.val, i64 %indvars.iv273
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 20
   %.val139 = load i32, ptr %58, align 4
@@ -152,7 +152,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext201 = shl i64 %68, 32
   %69 = ashr exact i64 %sext201, 32
   %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds i8, ptr %66, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store ptr %70, ptr %71, align 8
   %.pre300 = load ptr, ptr %31, align 8
   br label %72
@@ -173,10 +173,10 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %79, label %.preheader204.lr.ph, label %._crit_edge
 
 .preheader204.lr.ph:                              ; preds = %.critedge4
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = getelementptr i8, ptr %0, i64 64
   %82 = getelementptr i8, ptr %0, i64 40
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %84 = getelementptr i8, ptr %0, i64 48
   br label %.preheader204
 
@@ -200,7 +200,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv276 = phi i64 [ %indvars.iv.next277, %126 ], [ 0, %.preheader204 ]
   %91 = getelementptr i8, ptr %90, i64 8
   %.val151.val = load ptr, ptr %91, align 8
-  %92 = getelementptr inbounds ptr, ptr %.val151.val, i64 %indvars.iv276
+  %92 = getelementptr inbounds nuw ptr, ptr %.val151.val, i64 %indvars.iv276
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %126, label %95
@@ -260,7 +260,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %or.cond3.i = or i1 %121, %122
   %123 = select i1 %or.cond3.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 2 to ptr)
   %124 = select i1 %or.cond.i, ptr inttoptr (i64 1 to ptr), ptr %123
-  %125 = getelementptr inbounds i8, ptr %93, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr %124, ptr %125, align 8
   %.pre301 = load ptr, ptr %80, align 8
   br label %126
@@ -279,7 +279,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val159233 = phi ptr [ %.val159, %.critedge8 ], [ %.val159230, %.critedge8.preheader ]
   %131 = getelementptr i8, ptr %.val159233, i64 8
   %.val160.val = load ptr, ptr %131, align 8
-  %132 = getelementptr inbounds ptr, ptr %.val160.val, i64 %indvars.iv279
+  %132 = getelementptr inbounds nuw ptr, ptr %.val160.val, i64 %indvars.iv279
   %133 = load ptr, ptr %132, align 8
   %.val.i173 = load ptr, ptr %133, align 8
   %134 = getelementptr i8, ptr %133, i64 32
@@ -308,7 +308,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext198 = shl i64 %145, 32
   %146 = ashr exact i64 %sext198, 32
   %147 = inttoptr i64 %146 to ptr
-  %148 = getelementptr inbounds i8, ptr %133, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %133, i64 64
   store ptr %147, ptr %148, align 8
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %.val159 = load ptr, ptr %81, align 8
@@ -332,7 +332,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val126238 = phi ptr [ %.val126, %.lr.ph239 ], [ %.val126235, %.critedge10 ]
   %156 = getelementptr i8, ptr %.val126238, i64 8
   %.val131.val = load ptr, ptr %156, align 8
-  %157 = getelementptr inbounds ptr, ptr %.val131.val, i64 %indvars.iv282
+  %157 = getelementptr inbounds nuw ptr, ptr %.val131.val, i64 %indvars.iv282
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr @stdout, align 8
   %160 = getelementptr i8, ptr %158, i64 64
@@ -366,7 +366,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %188 ], [ 0, %.critedge12 ]
   %172 = getelementptr i8, ptr %171, i64 8
   %.val136.val = load ptr, ptr %172, align 8
-  %173 = getelementptr inbounds ptr, ptr %.val136.val, i64 %indvars.iv285
+  %173 = getelementptr inbounds nuw ptr, ptr %.val136.val, i64 %indvars.iv285
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr i8, ptr %174, i64 20
   %.val140 = load i32, ptr %175, align 4
@@ -422,7 +422,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val161246 = phi ptr [ %.val161, %.lr.ph247 ], [ %.val161243, %.critedge14 ]
   %197 = getelementptr i8, ptr %.val161246, i64 8
   %.val162.val = load ptr, ptr %197, align 8
-  %198 = getelementptr inbounds ptr, ptr %.val162.val, i64 %indvars.iv288
+  %198 = getelementptr inbounds nuw ptr, ptr %.val162.val, i64 %indvars.iv288
   %199 = load ptr, ptr %198, align 8
   %200 = load ptr, ptr @stdout, align 8
   %201 = getelementptr i8, ptr %199, i64 64
@@ -462,9 +462,9 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val127251 = phi ptr [ %.val127, %.lr.ph252 ], [ %.val128253, %.preheader202 ]
   %210 = getelementptr i8, ptr %.val127251, i64 8
   %.val132.val = load ptr, ptr %210, align 8
-  %211 = getelementptr inbounds ptr, ptr %.val132.val, i64 %indvars.iv291
+  %211 = getelementptr inbounds nuw ptr, ptr %.val132.val, i64 %indvars.iv291
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 64
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 64
   store ptr inttoptr (i64 3 to ptr), ptr %213, align 8
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %.val127 = load ptr, ptr %82, align 8
@@ -479,14 +479,14 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val128256 = phi ptr [ %.val128, %.lr.ph257 ], [ %.val128253, %.preheader ]
   %217 = getelementptr i8, ptr %.val128256, i64 8
   %.val133.val = load ptr, ptr %217, align 8
-  %218 = getelementptr inbounds ptr, ptr %.val133.val, i64 %indvars.iv294
+  %218 = getelementptr inbounds nuw ptr, ptr %.val133.val, i64 %indvars.iv294
   %219 = load ptr, ptr %218, align 8
   %220 = tail call i32 @Gia_ManRandom(i32 noundef 0) #4
   %221 = and i32 %220, 1
   %222 = add nuw nsw i32 %221, 1
   %223 = zext nneg i32 %222 to i64
   %224 = inttoptr i64 %223 to ptr
-  %225 = getelementptr inbounds i8, ptr %219, i64 64
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 64
   store ptr %224, ptr %225, align 8
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %.val128 = load ptr, ptr %82, align 8
@@ -508,7 +508,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %254 ], [ 0, %.critedge18 ]
   %233 = getelementptr i8, ptr %232, i64 8
   %.val137.val = load ptr, ptr %233, align 8
-  %234 = getelementptr inbounds ptr, ptr %.val137.val, i64 %indvars.iv297
+  %234 = getelementptr inbounds nuw ptr, ptr %.val137.val, i64 %indvars.iv297
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr i8, ptr %235, i64 20
   %.val141 = load i32, ptr %236, align 4
@@ -540,7 +540,7 @@ define void @Abc_NtkXValueSimulate(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext = shl i64 %250, 32
   %251 = ashr exact i64 %sext, 32
   %252 = inttoptr i64 %251 to ptr
-  %253 = getelementptr inbounds i8, ptr %244, i64 64
+  %253 = getelementptr inbounds nuw i8, ptr %244, i64 64
   store ptr %252, ptr %253, align 8
   %.pre303 = load ptr, ptr %83, align 8
   br label %254
@@ -574,9 +574,9 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Gia_ManRandom(i32 noundef 1) #4
   %6 = tail call ptr @Abc_AigConst1(ptr noundef %0) #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr inttoptr (i64 2 to ptr), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val69122 = load i32, ptr %10, align 4
@@ -591,7 +591,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
 .preheader121.lr.ph:                              ; preds = %.critedge.preheader
   %14 = getelementptr i8, ptr %0, i64 40
   %.not65 = icmp eq i32 %2, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr i8, ptr %0, i64 64
   br label %.preheader121
 
@@ -600,7 +600,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %4 ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val74.val = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds ptr, ptr %.val74.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %.val74.val, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 20
   %.val77 = load i32, ptr %21, align 4
@@ -626,7 +626,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext120 = shl i64 %31, 32
   %32 = ashr exact i64 %sext120, 32
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %29, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr %33, ptr %34, align 8
   %.pre = load ptr, ptr %8, align 8
   br label %35
@@ -656,14 +656,14 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val70127.us = phi ptr [ %.val70.us, %.lr.ph128.split.us ], [ %.val70124, %.lr.ph128 ]
   %42 = getelementptr i8, ptr %.val70127.us, i64 8
   %.val71.val.us = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds ptr, ptr %.val71.val.us, i64 %indvars.iv150
+  %43 = getelementptr inbounds nuw ptr, ptr %.val71.val.us, i64 %indvars.iv150
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @Gia_ManRandom(i32 noundef 0) #4
   %46 = and i32 %45, 1
   %47 = add nuw nsw i32 %46, 1
   %48 = zext nneg i32 %47 to i64
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %44, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 64
   store ptr %49, ptr %50, align 8
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %.val70.us = load ptr, ptr %14, align 8
@@ -692,9 +692,9 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val70127 = phi ptr [ %.val70, %.lr.ph128.split ], [ %.val70124, %.lr.ph128 ]
   %60 = getelementptr i8, ptr %.val70127, i64 8
   %.val71.val = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds ptr, ptr %.val71.val, i64 %indvars.iv147
+  %61 = getelementptr inbounds nuw ptr, ptr %.val71.val, i64 %indvars.iv147
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   store ptr inttoptr (i64 3 to ptr), ptr %63, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %.val70 = load ptr, ptr %14, align 8
@@ -716,7 +716,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %70 = getelementptr i8, ptr %69, i64 8
   %.val85.val = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds ptr, ptr %.val85.val, i64 %indvars.iv153
+  %71 = getelementptr inbounds nuw ptr, ptr %.val85.val, i64 %indvars.iv153
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.critedge2, label %74
@@ -776,7 +776,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %or.cond3.i = or i1 %100, %101
   %102 = select i1 %or.cond3.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 2 to ptr)
   %103 = select i1 %or.cond.i, ptr inttoptr (i64 1 to ptr), ptr %102
-  %104 = getelementptr inbounds i8, ptr %72, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %103, ptr %104, align 8
   %.pre165 = load ptr, ptr %15, align 8
   br label %.critedge2
@@ -802,7 +802,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val91135 = phi ptr [ %.val91, %.critedge4 ], [ %.val91132, %.critedge4.preheader ]
   %112 = getelementptr i8, ptr %.val91135, i64 8
   %.val92.val = load ptr, ptr %112, align 8
-  %113 = getelementptr inbounds ptr, ptr %.val92.val, i64 %indvars.iv156
+  %113 = getelementptr inbounds nuw ptr, ptr %.val92.val, i64 %indvars.iv156
   %114 = load ptr, ptr %113, align 8
   %.val.i103 = load ptr, ptr %114, align 8
   %115 = getelementptr i8, ptr %114, i64 32
@@ -831,7 +831,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext117 = shl i64 %126, 32
   %127 = ashr exact i64 %sext117, 32
   %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds i8, ptr %114, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 64
   store ptr %128, ptr %129, align 8
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %.val91 = load ptr, ptr %16, align 8
@@ -846,7 +846,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.critedge6 ], [ 0, %.critedge6.preheader ]
   %134 = getelementptr i8, ptr %133, i64 8
   %.val73.val = load ptr, ptr %134, align 8
-  %135 = getelementptr inbounds ptr, ptr %.val73.val, i64 %indvars.iv159
+  %135 = getelementptr inbounds nuw ptr, ptr %.val73.val, i64 %indvars.iv159
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr i8, ptr %136, i64 20
   %.val76 = load i32, ptr %137, align 4
@@ -878,7 +878,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext116 = shl i64 %151, 32
   %152 = ashr exact i64 %sext116, 32
   %153 = inttoptr i64 %152 to ptr
-  %154 = getelementptr inbounds i8, ptr %145, i64 64
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 64
   store ptr %153, ptr %154, align 8
   %.pre166 = load ptr, ptr %8, align 8
   br label %.critedge6
@@ -903,7 +903,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %179 ], [ 0, %.preheader ]
   %162 = getelementptr i8, ptr %161, i64 8
   %.val72.val = load ptr, ptr %162, align 8
-  %163 = getelementptr inbounds ptr, ptr %.val72.val, i64 %indvars.iv162
+  %163 = getelementptr inbounds nuw ptr, ptr %.val72.val, i64 %indvars.iv162
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr i8, ptr %164, i64 20
   %.val75 = load i32, ptr %165, align 4
@@ -929,7 +929,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %sext = shl i64 %175, 32
   %176 = ashr exact i64 %sext, 32
   %177 = inttoptr i64 %176 to ptr
-  %178 = getelementptr inbounds i8, ptr %164, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %164, i64 56
   store ptr %177, ptr %178, align 8
   %.pre167 = load ptr, ptr %8, align 8
   br label %179

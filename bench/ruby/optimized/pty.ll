@@ -104,7 +104,7 @@ define internal noundef i64 @pty_getpty(i32 noundef %0, ptr noundef %1, i64 %2) 
   br i1 %.not27.i, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not28.i = icmp eq ptr %25, null
   %spec.select.i = select i1 %.not28.i, ptr @.str.8, ptr %25
@@ -120,10 +120,10 @@ define internal noundef i64 @pty_getpty(i32 noundef %0, ptr noundef %1, i64 %2) 
   %.017.i = phi ptr [ %7, %26 ], [ %1, %3 ]
   %.0.i = phi i32 [ 1, %26 ], [ %0, %3 ]
   %29 = call i64 @rb_execarg_new(i32 noundef %.0.i, ptr noundef %.017.i, i32 noundef 1, i32 noundef 0) #10
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %29, ptr %30, align 8
   %31 = call ptr @rb_execarg_get(i64 noundef %29) #10
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %31, ptr %32, align 8
   call void @rb_execarg_parent_start(i64 noundef %29) #10
   %33 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0)
@@ -139,9 +139,9 @@ getDevice.exit.i:                                 ; preds = %34, %28
   %36 = load i32, ptr %4, align 4
   store i32 %36, ptr %8, align 8
   %37 = load i32, ptr %5, align 4
-  %38 = getelementptr inbounds i8, ptr %8, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %39, align 8
   store i8 0, ptr %9, align 16
   %40 = call i32 @rb_fork_async_signal_safe(ptr noundef nonnull %6, ptr noundef nonnull @chfunc, ptr noundef nonnull %8, i64 noundef 4, ptr noundef nonnull %9, i64 noundef 32) #10
@@ -176,7 +176,7 @@ establishShell.exit:                              ; preds = %getDevice.exit.i
   %54 = call i32 @close(i32 noundef %37) #10
   %55 = load i64, ptr %30, align 8
   call void @rb_execarg_parent_end(i64 noundef %55) #10
-  %56 = getelementptr inbounds i8, ptr %11, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %40, ptr %56, align 4
   store i32 %36, ptr %11, align 4
   store ptr %30, ptr %10, align 8
@@ -361,7 +361,7 @@ declare i64 @rb_yield(i64 noundef) #1
 define internal noundef i64 @pty_detach_process(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = call i32 @rb_waitpid(i32 noundef %5, ptr noundef nonnull %2, i32 noundef 1) #10
   %7 = icmp slt i32 %6, 1
@@ -395,7 +395,7 @@ declare i32 @rb_fork_async_signal_safe(ptr noundef, ptr noundef, ptr noundef, i6
 ; Function Attrs: nounwind uwtable
 define internal i32 @chfunc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @setsid() #10
   %8 = tail call i32 @close(i32 noundef %4) #10
@@ -421,7 +421,7 @@ define internal i32 @chfunc(ptr nocapture noundef readonly %0, ptr noundef %1, i
   br label %24
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @rb_exec_async_signal_safe(ptr noundef %22, ptr noundef %1, i64 noundef 8) #10
   br label %24

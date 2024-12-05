@@ -198,7 +198,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 9:                                                ; preds = %4
   %10 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %5, align 4
   %13 = load ptr, ptr @beep_request_hash, align 8
@@ -219,7 +219,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 23:                                               ; preds = %9, %15, %4
   %.069 = phi ptr [ null, %4 ], [ %14, %9 ], [ %20, %15 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.43) #5
   %26 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
@@ -228,7 +228,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %33 = call ptr @tvb_format_text(ptr noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef %32) #5
@@ -290,7 +290,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not80, label %73, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %.069, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %73
@@ -300,9 +300,9 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %67 = call ptr @wmem_file_scope() #5
   %68 = call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef 12) #5
   store i32 %64, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 0, ptr %70, align 4
   %71 = call ptr @wmem_file_scope() #5
   %72 = load i32, ptr @proto_beep, align 4
@@ -316,9 +316,9 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %75 = call ptr @wmem_file_scope() #5
   %76 = call noalias ptr @wmem_alloc(ptr noundef %75, i64 noundef 12) #5
   store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 0, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 0, ptr %78, align 4
   %79 = call ptr @wmem_file_scope() #5
   %80 = load i32, ptr @proto_beep, align 4
@@ -470,13 +470,13 @@ header_len.exit:                                  ; preds = %32, %37, %37
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %60
 
 60:                                               ; preds = %47
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = load ptr, ptr %61, align 8
   %.not5.i.i = icmp eq ptr %62, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %62, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -498,15 +498,15 @@ proto_item_set_hidden.exit.i:                     ; preds = %63, %60, %47
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr @global_beep_tcp_ports, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %72 = load i32, ptr %71, align 8
   %73 = tail call i32 @value_is_in_range(ptr noundef %70, i32 noundef %72) #5
   %.not15.i = icmp eq i32 %73, 0
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not15.i, label %82, label %75
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %77 = load i32, ptr %76, align 4
   %.not19.i = icmp eq i32 %77, 0
   br i1 %.not19.i, label %80, label %78
@@ -528,7 +528,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %63, %60, %47
   br label %set_mime_hdr_flags.exit
 
 82:                                               ; preds = %69
-  %83 = getelementptr inbounds i8, ptr %4, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %84 = load i32, ptr %83, align 4
   %.not16.i = icmp eq i32 %84, 0
   br i1 %.not16.i, label %87, label %85
@@ -577,7 +577,7 @@ set_mime_hdr_flags.exit:                          ; preds = %68, %78, %79, %80, 
 
 106:                                              ; preds = %set_mime_hdr_flags.exit
   %107 = load i32, ptr %10, align 4
-  %108 = getelementptr inbounds i8, ptr %4, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %107, ptr %108, align 4
   br label %113
 
@@ -587,7 +587,7 @@ set_mime_hdr_flags.exit:                          ; preds = %68, %78, %79, %80, 
 
 110:                                              ; preds = %109
   %111 = load i32, ptr %10, align 4
-  %112 = getelementptr inbounds i8, ptr %5, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %111, i32 0)
   store i32 %spec.store.select, ptr %112, align 4
   br label %113
@@ -628,7 +628,7 @@ set_mime_hdr_flags.exit:                          ; preds = %68, %78, %79, %80, 
   br i1 %.not303, label %132, label %169
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %5, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %134 = load i32, ptr %133, align 4
   %.not304 = icmp eq i32 %134, 0
   br i1 %.not304, label %169, label %135
@@ -747,7 +747,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
 
 .sink.split:                                      ; preds = %183
   %.mux = select i1 %.not.i313, ptr %4, ptr %5
-  %185 = getelementptr inbounds i8, ptr %.mux, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.mux, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = sub i32 %186, %179
   %spec.store.select310 = tail call i32 @llvm.smax.i32(i32 %187, i32 0)
@@ -903,7 +903,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br i1 %.not305, label %293, label %279
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds i8, ptr %4, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %281 = load i32, ptr %280, align 4
   %282 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3270) #5
   %283 = icmp slt i32 %281, %282
@@ -931,7 +931,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br i1 %.not306, label %303, label %294
 
 294:                                              ; preds = %293
-  %295 = getelementptr inbounds i8, ptr %5, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %296 = load i32, ptr %295, align 4
   %297 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3270) #5
   %298 = icmp slt i32 %296, %297
@@ -986,7 +986,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
 
 .thread327.sink.split:                            ; preds = %318, %316
   %.sink340 = phi ptr [ %4, %316 ], [ %5, %318 ]
-  %319 = getelementptr inbounds i8, ptr %.sink340, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %.sink340, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = sub i32 %320, %.1
   %spec.store.select312 = tail call i32 @llvm.smax.i32(i32 %321, i32 0)
@@ -1042,7 +1042,7 @@ define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr nocapture nound
   br i1 %.not.i, label %num_len.exit, label %9, !llvm.loop !4
 
 num_len.exit:                                     ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %0, i32 noundef %2, i32 noundef %.0.i, i32 noundef 0) #5
   %20 = tail call i64 @strtol(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #5
@@ -1061,13 +1061,13 @@ num_len.exit:                                     ; preds = %9
   br i1 %.not.i26, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1128,7 +1128,7 @@ define internal fastcc range(i32 -1, 3) i32 @check_term(ptr noundef %0, ptr noun
   br label %33
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @tvb_format_text(ptr noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 2) #5
   %32 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_invalid_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef nonnull @.str.65, ptr noundef %31) #5

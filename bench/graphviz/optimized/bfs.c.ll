@@ -55,7 +55,7 @@ define void @bfs(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef 
 
 mkQueue.exit:                                     ; preds = %17
   store i32 %0, ptr %20, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.preheader, label %.preheader78
@@ -70,7 +70,7 @@ mkQueue.exit:                                     ; preds = %17
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.loopexit ], [ 0, %mkQueue.exit ]
   %.sroa.10.092 = phi i32 [ %.sroa.10.1.lcssa, %.loopexit ], [ 1, %mkQueue.exit ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %30 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv101
+  %30 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv101
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %3, i64 %32
@@ -81,7 +81,7 @@ mkQueue.exit:                                     ; preds = %17
   br i1 %37, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = add nsw i32 %34, 1
   br label %40
 
@@ -126,7 +126,7 @@ enQueue.exit:                                     ; preds = %49, %48, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit77 ], [ 0, %mkQueue.exit ]
   %.sroa.10.385 = phi i32 [ %.sroa.10.4.lcssa, %.loopexit77 ], [ 1, %mkQueue.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i32, ptr %3, i64 %59
@@ -137,8 +137,8 @@ enQueue.exit:                                     ; preds = %49, %48, %40
   br i1 %64, label %.lr.ph84, label %.loopexit77
 
 .lr.ph84:                                         ; preds = %.preheader78
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
-  %66 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   br label %67
 
 67:                                               ; preds = %.lr.ph84, %enQueue.exit52
@@ -190,7 +190,7 @@ deQueue.exit:                                     ; preds = %.loopexit77, %.loop
 
 89:                                               ; preds = %.lr.ph95, %94
   %indvars.iv104 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next105, %94 ]
-  %90 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv104
+  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv104
   %91 = load i32, ptr %90, align 4
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %94
@@ -237,11 +237,11 @@ define void @mkQueue(ptr nocapture noundef writeonly %0, i32 noundef %1) local_u
 
 gv_calloc.exit:                                   ; preds = %7
   store ptr %9, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %17, align 8
   ret void
 }
@@ -250,18 +250,18 @@ gv_calloc.exit:                                   ; preds = %7
 define void @initQueue(ptr nocapture noundef initializes((12, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @deQueue(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %7, label %13
@@ -282,9 +282,9 @@ define noundef zeroext i1 @deQueue(ptr nocapture noundef %0, ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @enQueue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %7, label %12

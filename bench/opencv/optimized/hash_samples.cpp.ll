@@ -106,7 +106,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 22:                                               ; preds = %2
   tail call void @_ZN2cv3ocl12setUseOpenCLEb(i1 noundef zeroext false)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -119,7 +119,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
 26:                                               ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -347,14 +347,14 @@ define linkonce_odr hidden void @_Z8test_oneIN2cv8img_hash11AverageHashEEvRKNSt7
 18:                                               ; preds = %3
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -372,7 +372,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exit, label %29
 
 29:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -380,10 +380,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -409,10 +409,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
-  %51 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
@@ -434,7 +434,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
   %60 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exit
@@ -446,7 +446,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exi
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exit
-  %64 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -454,10 +454,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exi
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %.pr, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
@@ -483,10 +483,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exi
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %.pr, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
-  %85 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i17 = icmp eq i8 %86, 0
   br i1 %.not.i.i.i.i.i.i.i17, label %90, label %87
@@ -508,7 +508,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_11AverageHashEEERS3_RKNS0_IT_EE.exi
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19: ; preds = %92, %68
   %94 = load ptr, ptr %.pr, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit
@@ -519,15 +519,15 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
 
 98:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %8, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %4, ptr %103, align 8
@@ -569,15 +569,15 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
           to label %123 unwind label %197
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %10, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %5, ptr %127, align 8
@@ -619,19 +619,19 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
           to label %147 unwind label %197
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %12, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %12, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %13, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %152, align 4
   store i32 16842752, ptr %13, align 8
-  %153 = getelementptr inbounds i8, ptr %13, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %153, align 8
   %154 = invoke noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %155 unwind label %203
@@ -654,7 +654,7 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
   br i1 %.not.i.i.i.i27, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load atomic i64, ptr %164 acquire, align 8
   %166 = icmp eq i64 %165, 4294967297
   %167 = trunc i64 %165 to i32
@@ -662,10 +662,10 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
 
 168:                                              ; preds = %163
   store i32 0, ptr %164, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 0, ptr %169, align 4
   %170 = load ptr, ptr %162, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
@@ -691,10 +691,10 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %162, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
-  %185 = getelementptr inbounds i8, ptr %162, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i30 = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i30, label %190, label %187
@@ -716,7 +716,7 @@ _ZN2cv3PtrINS_8img_hash11AverageHashEED2Ev.exit:  ; preds = %18, %_ZN2cv3PtrINS_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %192, %168
   %194 = load ptr, ptr %162, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit
@@ -779,14 +779,14 @@ define linkonce_odr hidden void @_Z8test_oneIN2cv8img_hash5PHashEEvRKNSt7__cxx11
 18:                                               ; preds = %3
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -804,7 +804,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit, label %29
 
 29:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -812,10 +812,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -841,10 +841,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
-  %51 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
@@ -866,7 +866,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
   %60 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit
@@ -878,7 +878,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit: ; pr
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit
-  %64 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -886,10 +886,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit: ; pr
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %.pr, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
@@ -915,10 +915,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit: ; pr
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %.pr, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
-  %85 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i17 = icmp eq i8 %86, 0
   br i1 %.not.i.i.i.i.i.i.i17, label %90, label %87
@@ -940,7 +940,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_5PHashEEERS3_RKNS0_IT_EE.exit: ; pr
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19: ; preds = %92, %68
   %94 = load ptr, ptr %.pr, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit
@@ -951,15 +951,15 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
 
 98:                                               ; preds = %_ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %8, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %4, ptr %103, align 8
@@ -1001,15 +1001,15 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
           to label %123 unwind label %197
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %10, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %5, ptr %127, align 8
@@ -1051,19 +1051,19 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
           to label %147 unwind label %197
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %12, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %12, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %13, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %152, align 4
   store i32 16842752, ptr %13, align 8
-  %153 = getelementptr inbounds i8, ptr %13, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %153, align 8
   %154 = invoke noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %155 unwind label %203
@@ -1086,7 +1086,7 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
   br i1 %.not.i.i.i.i27, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load atomic i64, ptr %164 acquire, align 8
   %166 = icmp eq i64 %165, 4294967297
   %167 = trunc i64 %165 to i32
@@ -1094,10 +1094,10 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
 
 168:                                              ; preds = %163
   store i32 0, ptr %164, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 0, ptr %169, align 4
   %170 = load ptr, ptr %162, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
@@ -1123,10 +1123,10 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %162, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
-  %185 = getelementptr inbounds i8, ptr %162, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i30 = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i30, label %190, label %187
@@ -1148,7 +1148,7 @@ _ZN2cv3PtrINS_8img_hash5PHashEED2Ev.exit:         ; preds = %18, %_ZN2cv3PtrINS_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %192, %168
   %194 = load ptr, ptr %162, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit
@@ -1211,14 +1211,14 @@ define linkonce_odr hidden void @_Z8test_oneIN2cv8img_hash16MarrHildrethHashEEvR
 18:                                               ; preds = %3
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -1236,7 +1236,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_EE.exit, label %29
 
 29:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -1244,10 +1244,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1273,10 +1273,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
-  %51 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
@@ -1298,7 +1298,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
   %60 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_EE.exit
@@ -1310,7 +1310,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_E
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_EE.exit
-  %64 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -1318,10 +1318,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_E
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %.pr, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
@@ -1347,10 +1347,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_E
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %.pr, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
-  %85 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i17 = icmp eq i8 %86, 0
   br i1 %.not.i.i.i.i.i.i.i17, label %90, label %87
@@ -1372,7 +1372,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_16MarrHildrethHashEEERS3_RKNS0_IT_E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19: ; preds = %92, %68
   %94 = load ptr, ptr %.pr, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit
@@ -1383,15 +1383,15 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
 
 98:                                               ; preds = %_ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %8, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %4, ptr %103, align 8
@@ -1433,15 +1433,15 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
           to label %123 unwind label %197
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %10, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %5, ptr %127, align 8
@@ -1483,19 +1483,19 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
           to label %147 unwind label %197
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %12, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %12, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %13, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %152, align 4
   store i32 16842752, ptr %13, align 8
-  %153 = getelementptr inbounds i8, ptr %13, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %153, align 8
   %154 = invoke noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %155 unwind label %203
@@ -1518,7 +1518,7 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
   br i1 %.not.i.i.i.i27, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load atomic i64, ptr %164 acquire, align 8
   %166 = icmp eq i64 %165, 4294967297
   %167 = trunc i64 %165 to i32
@@ -1526,10 +1526,10 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
 
 168:                                              ; preds = %163
   store i32 0, ptr %164, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 0, ptr %169, align 4
   %170 = load ptr, ptr %162, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
@@ -1555,10 +1555,10 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %162, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
-  %185 = getelementptr inbounds i8, ptr %162, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i30 = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i30, label %190, label %187
@@ -1580,7 +1580,7 @@ _ZN2cv3PtrINS_8img_hash16MarrHildrethHashEED2Ev.exit: ; preds = %18, %_ZN2cv3Ptr
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %192, %168
   %194 = load ptr, ptr %162, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit
@@ -1643,14 +1643,14 @@ define linkonce_odr hidden void @_Z8test_oneIN2cv8img_hash18RadialVarianceHashEE
 18:                                               ; preds = %3
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -1668,7 +1668,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT_EE.exit, label %29
 
 29:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -1676,10 +1676,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1705,10 +1705,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
-  %51 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
@@ -1730,7 +1730,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
   %60 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT_EE.exit
@@ -1742,7 +1742,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT_EE.exit
-  %64 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -1750,10 +1750,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %.pr, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
@@ -1779,10 +1779,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %.pr, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
-  %85 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i17 = icmp eq i8 %86, 0
   br i1 %.not.i.i.i.i.i.i.i17, label %90, label %87
@@ -1804,7 +1804,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_18RadialVarianceHashEEERS3_RKNS0_IT
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19: ; preds = %92, %68
   %94 = load ptr, ptr %.pr, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit
@@ -1815,15 +1815,15 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
 
 98:                                               ; preds = %_ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %8, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %4, ptr %103, align 8
@@ -1865,15 +1865,15 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
           to label %123 unwind label %197
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %10, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %5, ptr %127, align 8
@@ -1915,19 +1915,19 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
           to label %147 unwind label %197
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %12, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %12, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %13, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %152, align 4
   store i32 16842752, ptr %13, align 8
-  %153 = getelementptr inbounds i8, ptr %13, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %153, align 8
   %154 = invoke noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %155 unwind label %203
@@ -1950,7 +1950,7 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
   br i1 %.not.i.i.i.i27, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load atomic i64, ptr %164 acquire, align 8
   %166 = icmp eq i64 %165, 4294967297
   %167 = trunc i64 %165 to i32
@@ -1958,10 +1958,10 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
 
 168:                                              ; preds = %163
   store i32 0, ptr %164, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 0, ptr %169, align 4
   %170 = load ptr, ptr %162, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
@@ -1987,10 +1987,10 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %162, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
-  %185 = getelementptr inbounds i8, ptr %162, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i30 = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i30, label %190, label %187
@@ -2012,7 +2012,7 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEED2Ev.exit: ; preds = %18, %_ZN2cv3P
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %192, %168
   %194 = load ptr, ptr %162, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit
@@ -2075,14 +2075,14 @@ define linkonce_odr hidden void @_Z8test_oneIN2cv8img_hash13BlockMeanHashEEvRKNS
 18:                                               ; preds = %3
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -2100,7 +2100,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.exit, label %29
 
 29:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 8
   %31 = load atomic i64, ptr %30 acquire, align 8
   %32 = icmp eq i64 %31, 4294967297
   %33 = trunc i64 %31 to i32
@@ -2108,10 +2108,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 34:                                               ; preds = %29
   store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -2137,10 +2137,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
-  %51 = getelementptr inbounds i8, ptr %.pr.i.i.i.i.pre, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.i.pre, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
@@ -2162,7 +2162,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
   %60 = load ptr, ptr %.pr.i.i.i.i.pre, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.pre) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.exit
@@ -2174,7 +2174,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.e
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.exit
-  %64 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %65 = load atomic i64, ptr %64 acquire, align 8
   %66 = icmp eq i64 %65, 4294967297
   %67 = trunc i64 %65 to i32
@@ -2182,10 +2182,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.e
 
 68:                                               ; preds = %63
   store i32 0, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %.pr, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
@@ -2211,10 +2211,10 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.e
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %.pr, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
-  %85 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i17 = icmp eq i8 %86, 0
   br i1 %.not.i.i.i.i.i.i.i17, label %90, label %87
@@ -2236,7 +2236,7 @@ _ZN2cv3PtrINS_8img_hash11ImgHashBaseEEaSINS1_13BlockMeanHashEEERS3_RKNS0_IT_EE.e
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19: ; preds = %92, %68
   %94 = load ptr, ptr %.pr, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #8
   br label %_ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit
@@ -2247,15 +2247,15 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
 
 98:                                               ; preds = %_ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %8, align 8
-  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %104, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %4, ptr %103, align 8
@@ -2297,15 +2297,15 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
           to label %123 unwind label %197
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %10, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %10, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %11, i64 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %5, ptr %127, align 8
@@ -2347,19 +2347,19 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
           to label %147 unwind label %197
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %12, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %12, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %13, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %13, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %152, align 4
   store i32 16842752, ptr %13, align 8
-  %153 = getelementptr inbounds i8, ptr %13, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %153, align 8
   %154 = invoke noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %155 unwind label %203
@@ -2382,7 +2382,7 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
   br i1 %.not.i.i.i.i27, label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load atomic i64, ptr %164 acquire, align 8
   %166 = icmp eq i64 %165, 4294967297
   %167 = trunc i64 %165 to i32
@@ -2390,10 +2390,10 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
 
 168:                                              ; preds = %163
   store i32 0, ptr %164, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 0, ptr %169, align 4
   %170 = load ptr, ptr %162, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
@@ -2419,10 +2419,10 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %162, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
-  %185 = getelementptr inbounds i8, ptr %162, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i30 = icmp eq i8 %186, 0
   br i1 %.not.i.i.i.i.i.i.i30, label %190, label %187
@@ -2444,7 +2444,7 @@ _ZN2cv3PtrINS_8img_hash13BlockMeanHashEED2Ev.exit: ; preds = %18, %_ZN2cv3PtrINS
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %192, %168
   %194 = load ptr, ptr %162, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(16) %162) #8
   br label %_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev.exit
@@ -2500,13 +2500,13 @@ declare noundef double @_ZNK2cv8img_hash11ImgHashBase7compareERKNS_11_InputArray
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv8img_hash11ImgHashBaseEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -2514,10 +2514,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev(ptr 
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -2543,10 +2543,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev(ptr 
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -2568,7 +2568,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_8img_hash11ImgHashBaseEED2Ev(ptr 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %_ZNSt10shared_ptrIN2cv8img_hash11ImgHashBaseEED2Ev.exit

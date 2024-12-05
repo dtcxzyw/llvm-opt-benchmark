@@ -216,7 +216,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTy
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEvPT_.exit.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -910,7 +910,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTy
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %68, %72, %77
-  %82 = getelementptr inbounds i8, ptr %2, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %83 = load i64, ptr %3, align 8
   store i64 %83, ptr %82, align 8
   %84 = and i64 %83, 7
@@ -934,7 +934,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %68, %72, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit77
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit77: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %85, %90
-  %95 = getelementptr inbounds i8, ptr %2, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %96 = load i64, ptr %5, align 8
   store i64 %96, ptr %95, align 8
   %97 = and i64 %96, 7
@@ -958,7 +958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit77: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit80
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit80: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit77, %98, %103
-  %108 = getelementptr inbounds i8, ptr %2, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %109 = load i64, ptr %7, align 8
   store i64 %109, ptr %108, align 8
   %110 = and i64 %109, 7
@@ -982,7 +982,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit80: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit83
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit83: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit80, %111, %116
-  %121 = getelementptr inbounds i8, ptr %2, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %122 = load i64, ptr %9, align 8
   store i64 %122, ptr %121, align 8
   %123 = and i64 %122, 7
@@ -1006,7 +1006,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit83: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit86
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit86: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit83, %124, %129
-  %134 = getelementptr inbounds i8, ptr %2, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %135 = load i64, ptr %11, align 8
   store i64 %135, ptr %134, align 8
   %136 = and i64 %135, 7
@@ -1030,7 +1030,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit86: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit89
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit89: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit86, %137, %142
-  %147 = getelementptr inbounds i8, ptr %2, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %148 = load i64, ptr %13, align 8
   store i64 %148, ptr %147, align 8
   %149 = and i64 %148, 7
@@ -1054,7 +1054,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit89: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit92
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit92: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit89, %150, %155
-  %160 = getelementptr inbounds i8, ptr %2, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %161 = load i64, ptr %15, align 8
   store i64 %161, ptr %160, align 8
   %162 = and i64 %161, 7
@@ -1078,7 +1078,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit92: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit95
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit95: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit92, %163, %168
-  %173 = getelementptr inbounds i8, ptr %2, i64 64
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %174 = load i64, ptr %17, align 8
   store i64 %174, ptr %173, align 8
   %175 = and i64 %174, 7
@@ -1102,7 +1102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit95: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit98
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit98: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit95, %176, %181
-  %186 = getelementptr inbounds i8, ptr %2, i64 72
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %187 = load i64, ptr %19, align 8
   store i64 %187, ptr %186, align 8
   %188 = and i64 %187, 7
@@ -1126,7 +1126,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit98: ; preds = %_ZN32px
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit101
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit101: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit98, %189, %194
-  %199 = getelementptr inbounds i8, ptr %2, i64 80
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %200 = load i64, ptr %21, align 8
   store i64 %200, ptr %199, align 8
   %201 = and i64 %200, 7
@@ -1150,7 +1150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit101: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit104
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit104: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit101, %202, %207
-  %212 = getelementptr inbounds i8, ptr %2, i64 88
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %213 = load i64, ptr %23, align 8
   store i64 %213, ptr %212, align 8
   %214 = and i64 %213, 7
@@ -1174,7 +1174,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit104: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit107
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit107: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit104, %215, %220
-  %225 = getelementptr inbounds i8, ptr %2, i64 96
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %226 = load i64, ptr %25, align 8
   store i64 %226, ptr %225, align 8
   %227 = and i64 %226, 7
@@ -1198,7 +1198,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit107: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit110
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit110: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit107, %228, %233
-  %238 = getelementptr inbounds i8, ptr %2, i64 104
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %239 = load i64, ptr %27, align 8
   store i64 %239, ptr %238, align 8
   %240 = and i64 %239, 7
@@ -1222,7 +1222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit110: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit113
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit113: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit110, %241, %246
-  %251 = getelementptr inbounds i8, ptr %2, i64 112
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %252 = load i64, ptr %29, align 8
   store i64 %252, ptr %251, align 8
   %253 = and i64 %252, 7
@@ -1246,7 +1246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit113: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit116
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit116: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit113, %254, %259
-  %264 = getelementptr inbounds i8, ptr %2, i64 120
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %265 = load i64, ptr %31, align 8
   store i64 %265, ptr %264, align 8
   %266 = and i64 %265, 7
@@ -1270,7 +1270,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit116: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit119
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit119: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit116, %267, %272
-  %277 = getelementptr inbounds i8, ptr %2, i64 128
+  %277 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %278 = load i64, ptr %33, align 8
   store i64 %278, ptr %277, align 8
   %279 = and i64 %278, 7
@@ -1294,7 +1294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit119: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit122
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit122: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit119, %280, %285
-  %290 = getelementptr inbounds i8, ptr %2, i64 136
+  %290 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %291 = load i64, ptr %35, align 8
   store i64 %291, ptr %290, align 8
   %292 = and i64 %291, 7
@@ -1318,7 +1318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit122: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit125
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit125: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit122, %293, %298
-  %303 = getelementptr inbounds i8, ptr %2, i64 144
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %304 = load i64, ptr %37, align 8
   store i64 %304, ptr %303, align 8
   %305 = and i64 %304, 7
@@ -1342,7 +1342,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit125: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit128
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit128: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit125, %306, %311
-  %316 = getelementptr inbounds i8, ptr %2, i64 152
+  %316 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %317 = load i64, ptr %39, align 8
   store i64 %317, ptr %316, align 8
   %318 = and i64 %317, 7
@@ -1366,7 +1366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit128: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit131
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit131: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit128, %319, %324
-  %329 = getelementptr inbounds i8, ptr %2, i64 160
+  %329 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %330 = load i64, ptr %41, align 8
   store i64 %330, ptr %329, align 8
   %331 = and i64 %330, 7
@@ -1390,7 +1390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit131: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit134
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit134: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit131, %332, %337
-  %342 = getelementptr inbounds i8, ptr %2, i64 168
+  %342 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %343 = load i64, ptr %43, align 8
   store i64 %343, ptr %342, align 8
   %344 = and i64 %343, 7
@@ -1414,7 +1414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit134: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit137
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit137: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit134, %345, %350
-  %355 = getelementptr inbounds i8, ptr %2, i64 176
+  %355 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %356 = load i64, ptr %45, align 8
   store i64 %356, ptr %355, align 8
   %357 = and i64 %356, 7
@@ -1438,7 +1438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit137: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit140
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit140: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit137, %358, %363
-  %368 = getelementptr inbounds i8, ptr %2, i64 184
+  %368 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %369 = load i64, ptr %47, align 8
   store i64 %369, ptr %368, align 8
   %370 = and i64 %369, 7
@@ -1462,7 +1462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit140: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit143
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit143: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit140, %371, %376
-  %381 = getelementptr inbounds i8, ptr %2, i64 192
+  %381 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %382 = load i64, ptr %49, align 8
   store i64 %382, ptr %381, align 8
   %383 = and i64 %382, 7
@@ -1486,7 +1486,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit143: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit146
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit146: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit143, %384, %389
-  %394 = getelementptr inbounds i8, ptr %2, i64 200
+  %394 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %395 = load i64, ptr %51, align 8
   store i64 %395, ptr %394, align 8
   %396 = and i64 %395, 7
@@ -1510,7 +1510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit146: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit149
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit149: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit146, %397, %402
-  %407 = getelementptr inbounds i8, ptr %2, i64 208
+  %407 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %408 = load i64, ptr %53, align 8
   store i64 %408, ptr %407, align 8
   %409 = and i64 %408, 7
@@ -1534,7 +1534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit149: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit152
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit152: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit149, %410, %415
-  %420 = getelementptr inbounds i8, ptr %2, i64 216
+  %420 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %421 = load i64, ptr %55, align 8
   store i64 %421, ptr %420, align 8
   %422 = and i64 %421, 7
@@ -1558,7 +1558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit152: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit155
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit155: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit152, %423, %428
-  %433 = getelementptr inbounds i8, ptr %2, i64 224
+  %433 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %434 = load i64, ptr %57, align 8
   store i64 %434, ptr %433, align 8
   %435 = and i64 %434, 7
@@ -1582,7 +1582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit155: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit158
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit158: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit155, %436, %441
-  %446 = getelementptr inbounds i8, ptr %2, i64 232
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %447 = load i64, ptr %59, align 8
   store i64 %447, ptr %446, align 8
   %448 = and i64 %447, 7
@@ -1606,7 +1606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit158: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit161
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit161: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit158, %449, %454
-  %459 = getelementptr inbounds i8, ptr %2, i64 240
+  %459 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %460 = load i64, ptr %61, align 8
   store i64 %460, ptr %459, align 8
   %461 = and i64 %460, 7
@@ -1630,7 +1630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit161: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit164
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit164: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit161, %462, %467
-  %472 = getelementptr inbounds i8, ptr %2, i64 248
+  %472 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %473 = load i64, ptr %63, align 8
   store i64 %473, ptr %472, align 8
   %474 = and i64 %473, 7
@@ -1654,7 +1654,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit164: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit167
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit167: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit164, %475, %480
-  %485 = getelementptr inbounds i8, ptr %2, i64 256
+  %485 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %486 = load i64, ptr %65, align 8
   store i64 %486, ptr %485, align 8
   %487 = and i64 %486, 7
@@ -1678,7 +1678,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit167: ; preds = %_ZN32p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit170
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit170: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit167, %488, %493
-  %498 = getelementptr inbounds i8, ptr %2, i64 264
+  %498 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %499 = load i64, ptr %67, align 8
   store i64 %499, ptr %498, align 8
   %500 = and i64 %499, 7
@@ -1703,13 +1703,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit170: ; preds = %_ZN32p
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit170, %501, %506
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
-  %511 = getelementptr inbounds i8, ptr %2, i64 272
+  %511 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %512 = invoke noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
           to label %.noexc3.i unwind label %.body
 
 .noexc3.i:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173
   store ptr %512, ptr %69, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 272
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 272
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %513, ptr %514, align 8
   br label %.lr.ph.i.i.i.i.i.i
@@ -1717,7 +1717,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173: ; preds = %_ZN32p
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %.noexc3.i
   %.011.i.i.i.i.i.i = phi ptr [ %527, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %512, %.noexc3.i ]
   %.0810.i.i.i.i.i.i.idx = phi i64 [ %.0810.i.i.i.i.i.i.add, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %.noexc3.i ]
-  %.0810.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %.0810.i.i.i.i.i.i.idx
+  %.0810.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i.i.i.i.i.i.idx
   %515 = load i64, ptr %.0810.i.i.i.i.i.i.ptr, align 8
   store i64 %515, ptr %.011.i.i.i.i.i.i, align 8
   %516 = and i64 %515, 7
@@ -1742,7 +1742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173: ; preds = %_ZN32p
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %522, %517, %.lr.ph.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.add = add nuw nsw i64 %.0810.i.i.i.i.i.i.idx, 8
-  %527 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.0810.i.i.i.i.i.i.add, 272
   br i1 %.not.i.i.i.i.i.i, label %528, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
@@ -2531,7 +2531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNK32pxr
   store float 1.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store float 0.000000e+00, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store float 0.000000e+00, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store float 1.000000e+00, ptr %43, align 4
@@ -2745,7 +2745,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA113_S3_EEEOT_
 
 74:                                               ; preds = %.critedge
   %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 72
   %77 = load ptr, ptr %76, align 8
   invoke void %77(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60)
           to label %78 unwind label %70
@@ -2796,7 +2796,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCamera
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit: ; preds = %92, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i, %82
   %95 = phi ptr [ %84, %82 ], [ %94, %92 ], [ %86, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %96 = load ptr, ptr %1, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 328
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 328
   %98 = load ptr, ptr %97, align 8
   invoke void %98(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %95)
           to label %99 unwind label %70
@@ -2911,7 +2911,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %142 = phi ptr [ %131, %129 ], [ %141, %139 ], [ %133, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i149 ]
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %1, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 328
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 328
   %146 = load ptr, ptr %145, align 8
   invoke void %146(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %143)
           to label %147 unwind label %127
@@ -3015,7 +3015,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %186 = phi ptr [ %175, %173 ], [ %185, %183 ], [ %177, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i164 ]
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load ptr, ptr %1, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 328
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 328
   %190 = load ptr, ptr %189, align 8
   invoke void %190(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %187)
           to label %191 unwind label %171
@@ -3119,7 +3119,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %230 = phi ptr [ %219, %217 ], [ %229, %227 ], [ %221, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i185 ]
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %232 = load ptr, ptr %1, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 328
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 328
   %234 = load ptr, ptr %233, align 8
   invoke void %234(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %231)
           to label %235 unwind label %215
@@ -3223,7 +3223,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %274 = phi ptr [ %263, %261 ], [ %273, %271 ], [ %265, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i206 ]
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 32
   %276 = load ptr, ptr %1, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 328
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 328
   %278 = load ptr, ptr %277, align 8
   invoke void %278(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %275)
           to label %279 unwind label %259
@@ -3327,7 +3327,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %318 = phi ptr [ %307, %305 ], [ %317, %315 ], [ %309, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i227 ]
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 40
   %320 = load ptr, ptr %1, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 328
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 328
   %322 = load ptr, ptr %321, align 8
   invoke void %322(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %319)
           to label %323 unwind label %303
@@ -3431,7 +3431,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %362 = phi ptr [ %351, %349 ], [ %361, %359 ], [ %353, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i248 ]
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 48
   %364 = load ptr, ptr %1, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 328
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 328
   %366 = load ptr, ptr %365, align 8
   invoke void %366(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %363)
           to label %367 unwind label %347
@@ -3535,7 +3535,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %406 = phi ptr [ %395, %393 ], [ %405, %403 ], [ %397, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i264 ]
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 64
   %408 = load ptr, ptr %1, align 8
-  %409 = getelementptr inbounds i8, ptr %408, i64 328
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 328
   %410 = load ptr, ptr %409, align 8
   invoke void %410(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %407)
           to label %411 unwind label %391
@@ -3639,7 +3639,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %450 = phi ptr [ %439, %437 ], [ %449, %447 ], [ %441, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i285 ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 72
   %452 = load ptr, ptr %1, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 328
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 328
   %454 = load ptr, ptr %453, align 8
   invoke void %454(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %451)
           to label %455 unwind label %435
@@ -3743,7 +3743,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %494 = phi ptr [ %483, %481 ], [ %493, %491 ], [ %485, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i306 ]
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 80
   %496 = load ptr, ptr %1, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 328
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 328
   %498 = load ptr, ptr %497, align 8
   invoke void %498(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %495)
           to label %499 unwind label %479
@@ -3848,7 +3848,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %539 = phi ptr [ %528, %526 ], [ %538, %536 ], [ %530, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i322 ]
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 88
   %541 = load ptr, ptr %1, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 328
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 328
   %543 = load ptr, ptr %542, align 8
   invoke void %543(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %540)
           to label %544 unwind label %524
@@ -3952,7 +3952,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %583 = phi ptr [ %572, %570 ], [ %582, %580 ], [ %574, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i343 ]
   %584 = getelementptr inbounds nuw i8, ptr %583, i64 96
   %585 = load ptr, ptr %1, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 328
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 328
   %587 = load ptr, ptr %586, align 8
   invoke void %587(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %584)
           to label %588 unwind label %568
@@ -4056,7 +4056,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %627 = phi ptr [ %616, %614 ], [ %626, %624 ], [ %618, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i359 ]
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 104
   %629 = load ptr, ptr %1, align 8
-  %630 = getelementptr inbounds i8, ptr %629, i64 328
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 328
   %631 = load ptr, ptr %630, align 8
   invoke void %631(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %628)
           to label %632 unwind label %612
@@ -4160,7 +4160,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %671 = phi ptr [ %660, %658 ], [ %670, %668 ], [ %662, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i380 ]
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 112
   %673 = load ptr, ptr %1, align 8
-  %674 = getelementptr inbounds i8, ptr %673, i64 328
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 328
   %675 = load ptr, ptr %674, align 8
   invoke void %675(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %672)
           to label %676 unwind label %656
@@ -4264,7 +4264,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %715 = phi ptr [ %704, %702 ], [ %714, %712 ], [ %706, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i401 ]
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 120
   %717 = load ptr, ptr %1, align 8
-  %718 = getelementptr inbounds i8, ptr %717, i64 328
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 328
   %719 = load ptr, ptr %718, align 8
   invoke void %719(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %716)
           to label %720 unwind label %700
@@ -4368,7 +4368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %759 = phi ptr [ %748, %746 ], [ %758, %756 ], [ %750, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i422 ]
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 128
   %761 = load ptr, ptr %1, align 8
-  %762 = getelementptr inbounds i8, ptr %761, i64 328
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 328
   %763 = load ptr, ptr %762, align 8
   invoke void %763(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %760)
           to label %764 unwind label %744
@@ -4472,7 +4472,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %803 = phi ptr [ %792, %790 ], [ %802, %800 ], [ %794, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i443 ]
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 136
   %805 = load ptr, ptr %1, align 8
-  %806 = getelementptr inbounds i8, ptr %805, i64 328
+  %806 = getelementptr inbounds nuw i8, ptr %805, i64 328
   %807 = load ptr, ptr %806, align 8
   invoke void %807(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %804)
           to label %808 unwind label %788
@@ -4576,7 +4576,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %847 = phi ptr [ %836, %834 ], [ %846, %844 ], [ %838, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i464 ]
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 144
   %849 = load ptr, ptr %1, align 8
-  %850 = getelementptr inbounds i8, ptr %849, i64 328
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 328
   %851 = load ptr, ptr %850, align 8
   invoke void %851(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %848)
           to label %852 unwind label %832
@@ -4680,7 +4680,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %891 = phi ptr [ %880, %878 ], [ %890, %888 ], [ %882, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i485 ]
   %892 = getelementptr inbounds nuw i8, ptr %891, i64 152
   %893 = load ptr, ptr %1, align 8
-  %894 = getelementptr inbounds i8, ptr %893, i64 328
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 328
   %895 = load ptr, ptr %894, align 8
   invoke void %895(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %28, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %892)
           to label %896 unwind label %876
@@ -4784,7 +4784,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %935 = phi ptr [ %924, %922 ], [ %934, %932 ], [ %926, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i506 ]
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 160
   %937 = load ptr, ptr %1, align 8
-  %938 = getelementptr inbounds i8, ptr %937, i64 328
+  %938 = getelementptr inbounds nuw i8, ptr %937, i64 328
   %939 = load ptr, ptr %938, align 8
   invoke void %939(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %936)
           to label %940 unwind label %920
@@ -4888,7 +4888,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %979 = phi ptr [ %968, %966 ], [ %978, %976 ], [ %970, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i522 ]
   %980 = getelementptr inbounds nuw i8, ptr %979, i64 168
   %981 = load ptr, ptr %1, align 8
-  %982 = getelementptr inbounds i8, ptr %981, i64 328
+  %982 = getelementptr inbounds nuw i8, ptr %981, i64 328
   %983 = load ptr, ptr %982, align 8
   invoke void %983(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %980)
           to label %984 unwind label %964
@@ -4992,7 +4992,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1023 = phi ptr [ %1012, %1010 ], [ %1022, %1020 ], [ %1014, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i543 ]
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 176
   %1025 = load ptr, ptr %1, align 8
-  %1026 = getelementptr inbounds i8, ptr %1025, i64 328
+  %1026 = getelementptr inbounds nuw i8, ptr %1025, i64 328
   %1027 = load ptr, ptr %1026, align 8
   invoke void %1027(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1024)
           to label %1028 unwind label %1008
@@ -5096,7 +5096,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1067 = phi ptr [ %1056, %1054 ], [ %1066, %1064 ], [ %1058, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i564 ]
   %1068 = getelementptr inbounds nuw i8, ptr %1067, i64 208
   %1069 = load ptr, ptr %1, align 8
-  %1070 = getelementptr inbounds i8, ptr %1069, i64 328
+  %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 328
   %1071 = load ptr, ptr %1070, align 8
   invoke void %1071(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %32, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1068)
           to label %1072 unwind label %1052
@@ -5240,7 +5240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1131 = phi ptr [ %1120, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit ], [ %1130, %1128 ], [ %1122, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i582 ]
   %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 216
   %1133 = load ptr, ptr %1, align 8
-  %1134 = getelementptr inbounds i8, ptr %1133, i64 328
+  %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 328
   %1135 = load ptr, ptr %1134, align 8
   invoke void %1135(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1132)
           to label %1136 unwind label %1117
@@ -5344,7 +5344,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1175 = phi ptr [ %1164, %1162 ], [ %1174, %1172 ], [ %1166, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i603 ]
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 224
   %1177 = load ptr, ptr %1, align 8
-  %1178 = getelementptr inbounds i8, ptr %1177, i64 328
+  %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 328
   %1179 = load ptr, ptr %1178, align 8
   invoke void %1179(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1176)
           to label %1180 unwind label %1160
@@ -5448,7 +5448,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1219 = phi ptr [ %1208, %1206 ], [ %1218, %1216 ], [ %1210, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i624 ]
   %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 232
   %1221 = load ptr, ptr %1, align 8
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 328
+  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 328
   %1223 = load ptr, ptr %1222, align 8
   invoke void %1223(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %35, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1220)
           to label %1224 unwind label %1204
@@ -5552,7 +5552,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1263 = phi ptr [ %1252, %1250 ], [ %1262, %1260 ], [ %1254, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i640 ]
   %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 240
   %1265 = load ptr, ptr %1, align 8
-  %1266 = getelementptr inbounds i8, ptr %1265, i64 328
+  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 328
   %1267 = load ptr, ptr %1266, align 8
   invoke void %1267(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1264)
           to label %1268 unwind label %1248
@@ -5656,7 +5656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1307 = phi ptr [ %1296, %1294 ], [ %1306, %1304 ], [ %1298, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i661 ]
   %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 248
   %1309 = load ptr, ptr %1, align 8
-  %1310 = getelementptr inbounds i8, ptr %1309, i64 328
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 328
   %1311 = load ptr, ptr %1310, align 8
   invoke void %1311(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1308)
           to label %1312 unwind label %1292
@@ -5760,7 +5760,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1351 = phi ptr [ %1340, %1338 ], [ %1350, %1348 ], [ %1342, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i682 ]
   %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 256
   %1353 = load ptr, ptr %1, align 8
-  %1354 = getelementptr inbounds i8, ptr %1353, i64 328
+  %1354 = getelementptr inbounds nuw i8, ptr %1353, i64 328
   %1355 = load ptr, ptr %1354, align 8
   invoke void %1355(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %38, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1352)
           to label %1356 unwind label %1336
@@ -5864,7 +5864,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1395 = phi ptr [ %1384, %1382 ], [ %1394, %1392 ], [ %1386, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i703 ]
   %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 264
   %1397 = load ptr, ptr %1, align 8
-  %1398 = getelementptr inbounds i8, ptr %1397, i64 328
+  %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 328
   %1399 = load ptr, ptr %1398, align 8
   invoke void %1399(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1396)
           to label %1400 unwind label %1380
@@ -6869,7 +6869,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1801 = phi ptr [ %1790, %1788 ], [ %1800, %1798 ], [ %1792, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i812 ]
   %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 184
   %1803 = load ptr, ptr %1, align 8
-  %1804 = getelementptr inbounds i8, ptr %1803, i64 328
+  %1804 = getelementptr inbounds nuw i8, ptr %1803, i64 328
   %1805 = load ptr, ptr %1804, align 8
   invoke void %1805(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %40, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1802)
           to label %1806 unwind label %70
@@ -7015,7 +7015,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %1863 = phi ptr [ %1852, %1850 ], [ %1862, %1860 ], [ %1854, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i834 ]
   %1864 = getelementptr inbounds nuw i8, ptr %1863, i64 56
   %1865 = load ptr, ptr %1, align 8
-  %1866 = getelementptr inbounds i8, ptr %1865, i64 328
+  %1866 = getelementptr inbounds nuw i8, ptr %1865, i64 328
   %1867 = load ptr, ptr %1866, align 8
   invoke void %1867(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(8) %1864)
           to label %1868 unwind label %70
@@ -7275,7 +7275,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EE20_M_allocate_a
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %22
   store ptr %20, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 %9
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
   store ptr %23, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 

@@ -42,20 +42,20 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br label %60
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -65,7 +65,7 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br label %60
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 140
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %24 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %26
@@ -75,7 +75,7 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br label %60
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 148
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %28 = load i32, ptr %27, align 4
   %.not36 = icmp eq i32 %28, 3
   br i1 %.not36, label %30, label %29
@@ -85,13 +85,13 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br label %60
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 1880
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %32 = load ptr, ptr %31, align 8
   %.not37 = icmp eq ptr %32, null
   br i1 %.not37, label %38, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 1888
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %35 = load i32, ptr %34, align 8
   %.not38 = icmp eq i32 %35, 0
   br i1 %.not38, label %38, label %36
@@ -102,7 +102,7 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
 
 38:                                               ; preds = %36, %33, %30
   store ptr %1, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1888
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   store i32 0, ptr %39, align 8
   %40 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #2
   %41 = icmp eq i32 %40, 0
@@ -149,7 +149,7 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br label %60
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 1400
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store i32 0, ptr %59, align 8
   br label %60
 
@@ -176,34 +176,34 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg1(ptr noundef %0, pt
   br label %51
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 1892
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1892
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 648
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 760
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 760
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %11
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #2
-  %18 = getelementptr inbounds i8, ptr %2, i64 1032
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 472
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %14, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %11
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 784
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %11
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 480
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 488
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %30, ptr noundef %32, ptr noundef %34) #2
   %36 = icmp slt i32 %35, 0
@@ -214,14 +214,14 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg1(ptr noundef %0, pt
   br i1 %.not, label %38, label %51
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %2, i64 1312
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 656
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %11
   %44 = load ptr, ptr %43, align 8
   tail call void @N_VLinearSum(double noundef %40, ptr noundef %44, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %1) #2
-  %45 = getelementptr inbounds i8, ptr %2, i64 1320
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   %46 = load double, ptr %45, align 8
   %47 = fneg double %46
   %48 = load ptr, ptr %27, align 8
@@ -245,30 +245,30 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg1(ptr noundef %0, 
   br label %43
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 1892
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1892
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 648
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 760
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 760
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %11
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #2
-  %18 = getelementptr inbounds i8, ptr %2, i64 1032
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 472
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %14, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %11
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 480
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 488
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %1, ptr noundef %28, ptr noundef %30) #2
   %32 = icmp slt i32 %31, 0
@@ -279,14 +279,14 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg1(ptr noundef %0, 
   br i1 %.not, label %34, label %43
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %2, i64 992
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 992
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 656
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds ptr, ptr %38, i64 %11
   %40 = load ptr, ptr %39, align 8
   tail call void @N_VLinearSum(double noundef %36, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %40, ptr noundef %1) #2
-  %41 = getelementptr inbounds i8, ptr %2, i64 1312
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   %42 = load double, ptr %41, align 8
   tail call void @N_VScale(double noundef %42, ptr noundef %1, ptr noundef %1) #2
   br label %43
@@ -317,13 +317,13 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg1(ptr noundef %0, p
 13:                                               ; preds = %10
   %14 = load i32, ptr %7, align 4
   %15 = icmp sgt i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %5, i64 1352
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %17 = load double, ptr %16, align 8
   br i1 %15, label %18, label %.thread
 
 18:                                               ; preds = %13
   %19 = fmul double %17, 3.000000e-01
-  %20 = getelementptr inbounds i8, ptr %5, i64 1360
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1360
   %21 = load double, ptr %20, align 8
   %22 = fdiv double %11, %21
   %23 = fcmp ogt double %19, %22
@@ -350,7 +350,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg1(ptr noundef %0, p
   br i1 %36, label %38, label %.thread26
 
 .thread26:                                        ; preds = %.thread, %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 1360
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1360
   store double %11, ptr %37, align 8
   br label %38
 
@@ -363,10 +363,10 @@ declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1992
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 1880
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %5 = load ptr, ptr %4, align 8
   %.cvNlsLSetupSensStg1 = select i1 %.not, ptr null, ptr @cvNlsLSetupSensStg1
   %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.cvNlsLSetupSensStg1) #2
@@ -378,10 +378,10 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_ad
   br label %22
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 2000
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 1880
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %12 = load ptr, ptr %11, align 8
   %.cvNlsLSolveSensStg1 = select i1 %.not16, ptr null, ptr @cvNlsLSolveSensStg1
   %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.cvNlsLSolveSensStg1) #2
@@ -393,7 +393,7 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_ad
   br label %22
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1880
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
   %.not18 = icmp eq i32 %18, 0
@@ -404,7 +404,7 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_ad
   br label %22
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 1896
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   store i64 0, ptr %21, align 8
   br label %22
 
@@ -426,7 +426,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
 
 6:                                                ; preds = %3
   %.not = icmp eq i32 %0, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 1920
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 1920
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %6
@@ -439,43 +439,43 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
 
 8:                                                ; preds = %._crit_edge, %7
   %9 = phi i32 [ %.pre, %._crit_edge ], [ 1, %7 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 1992
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1992
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 472
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 2080
-  %17 = getelementptr inbounds i8, ptr %2, i64 480
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 2080
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 488
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 496
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 496
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %11(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %18, ptr noundef %20, ptr noundef %22) #2
-  %24 = getelementptr inbounds i8, ptr %2, i64 1736
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1736
   %25 = load i64, ptr %24, align 8
   %26 = add nsw i64 %25, 1
   store i64 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 1744
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 1744
   %28 = load i64, ptr %27, align 8
   %29 = add nsw i64 %28, 1
   store i64 %29, ptr %27, align 8
   %30 = load i32, ptr %16, align 8
   store i32 %30, ptr %1, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 1336
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1336
   store double 1.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 1320
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 1328
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 1328
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 1344
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store double 1.000000e+00, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 1352
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 1352
   store double 1.000000e+00, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 1576
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 1576
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 2048
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   store i64 %38, ptr %39, align 8
   %40 = icmp slt i32 %23, 0
   br i1 %40, label %42, label %41
@@ -502,18 +502,18 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg1(ptr noundef %0, ptr
   br label %22
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 1892
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1892
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 2000
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2000
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 448
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 472
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %9(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %14, ptr noundef %16, ptr noundef %18) #2
   %20 = icmp slt i32 %19, 0

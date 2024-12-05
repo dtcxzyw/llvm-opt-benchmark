@@ -148,9 +148,9 @@ define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr nocapture noundef %0, p
   %logcat_text_tag_file_type_subtype.sink = phi ptr [ @logcat_text_brief_file_type_subtype, %.critedge ], [ @logcat_text_tag_file_type_subtype, %21 ], [ @logcat_text_process_file_type_subtype, %23 ], [ @logcat_text_time_file_type_subtype, %25 ], [ @logcat_text_thread_file_type_subtype, %27 ], [ @logcat_text_threadtime_file_type_subtype, %29 ], [ @logcat_text_long_file_type_subtype, %31 ]
   %.sink = phi i32 [ 164, %.critedge ], [ 166, %21 ], [ 165, %23 ], [ 168, %25 ], [ 167, %27 ], [ 169, %29 ], [ 170, %31 ]
   %34 = load i32, ptr %logcat_text_tag_file_type_subtype.sink, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.sink, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = tail call i64 @file_seek(ptr noundef %37, i64 noundef 0, i32 noundef 0, ptr noundef %1) #11
@@ -158,13 +158,13 @@ define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr nocapture noundef %0, p
   br i1 %39, label %.sink.split, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @logcat_text_read, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @logcat_text_seek_read, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 148
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %44, align 4
   br label %.sink.split
 
@@ -200,7 +200,7 @@ define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef read
   %8 = tail call i64 @file_tell(ptr noundef %7) #11
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   ret i32 %12
@@ -208,7 +208,7 @@ define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @logcat_text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
   %10 = icmp eq i64 %9, -1
@@ -216,7 +216,7 @@ define internal range(i32 0, 2) i32 @logcat_text_seek_read(ptr nocapture noundef
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, i32 noundef %14)
   %.not = icmp eq i32 %15, 0
@@ -368,19 +368,19 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
 42:                                               ; preds = %40, %23, %20
   store i32 0, ptr %1, align 8
   %43 = call ptr @wtap_block_create(i32 noundef 5) #11
-  %44 = getelementptr inbounds i8, ptr %1, i64 232
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %43, ptr %44, align 8
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 68
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %46, ptr %48, align 4
   %49 = add i64 %45, 1
   %50 = and i64 %49, 4294967295
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %50) #11
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr i8, ptr %51, i64 %53
   %55 = load i32, ptr @logcat_text_time_file_type_subtype, align 4
@@ -405,21 +405,21 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
   %65 = getelementptr i8, ptr %10, i64 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  %66 = getelementptr inbounds i8, ptr %8, i64 16
-  %67 = getelementptr inbounds i8, ptr %8, i64 12
-  %68 = getelementptr inbounds i8, ptr %8, i64 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %65, ptr noundef nonnull @.str.15, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
   %71 = icmp eq i32 %70, 6
   br i1 %71, label %72, label %get_time.exit
 
 72:                                               ; preds = %64
-  %73 = getelementptr inbounds i8, ptr %8, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 70, ptr %73, align 4
   %74 = load i32, ptr %66, align 8
   %75 = add i32 %74, -1
   store i32 %75, ptr %66, align 8
-  %76 = getelementptr inbounds i8, ptr %8, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %76, align 8
   %77 = call i64 @mktime(ptr noundef nonnull %8) #11
   %78 = load i32, ptr %7, align 4
@@ -432,11 +432,11 @@ get_time.exit:                                    ; preds = %64, %72
   %.sink8.i = phi i64 [ %77, %72 ], [ 0, %64 ]
   %.sink7.i = phi i32 [ %81, %72 ], [ 0, %64 ]
   %.sink.i = phi i32 [ 1, %72 ], [ 0, %64 ]
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sink8.i, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.sink7.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sink.i, ptr %84, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
@@ -445,21 +445,21 @@ get_time.exit:                                    ; preds = %64, %72
 85:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %86 = getelementptr inbounds i8, ptr %6, i64 16
-  %87 = getelementptr inbounds i8, ptr %6, i64 12
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
-  %89 = getelementptr inbounds i8, ptr %6, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %91 = icmp eq i32 %90, 6
   br i1 %91, label %92, label %get_time.exit72
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %6, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 70, ptr %93, align 4
   %94 = load i32, ptr %86, align 8
   %95 = add i32 %94, -1
   store i32 %95, ptr %86, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %96, align 8
   %97 = call i64 @mktime(ptr noundef nonnull %6) #11
   %98 = load i32, ptr %5, align 4
@@ -472,22 +472,22 @@ get_time.exit72:                                  ; preds = %85, %92
   %.sink8.i69 = phi i64 [ %97, %92 ], [ 0, %85 ]
   %.sink7.i70 = phi i32 [ %101, %92 ], [ 0, %85 ]
   %.sink.i71 = phi i32 [ 1, %92 ], [ 0, %85 ]
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sink8.i69, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.sink7.i70, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sink.i71, ptr %104, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %109
 
 105:                                              ; preds = %42, %61
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %108, align 8
   br label %109
 
@@ -543,9 +543,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32
 define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 164, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -557,7 +557,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %10, 0
@@ -568,10 +568,10 @@ define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr n
   br label %121
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i32, ptr %16, align 8
   %.not93 = icmp eq i32 %14, %17
   br i1 %.not93, label %19, label %18
@@ -605,17 +605,17 @@ define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr n
   br i1 %.not99, label %121, label %120
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load i32, ptr %29, align 8
   %31 = load i16, ptr %2, align 4
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %2, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = sdiv i32 %40, 1000000
   switch i32 %30, label %50 [
@@ -870,9 +870,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_process_dump_can_write_encap(i
 define internal noundef i32 @logcat_text_process_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 165, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -901,9 +901,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_tag_dump_can_write_encap(i32 n
 define internal noundef i32 @logcat_text_tag_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 166, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -932,9 +932,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_thread_dump_can_write_encap(i3
 define internal noundef i32 @logcat_text_thread_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 167, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -963,9 +963,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_time_dump_can_write_encap(i32 
 define internal noundef i32 @logcat_text_time_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 168, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -994,9 +994,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_threadtime_dump_can_write_enca
 define internal noundef i32 @logcat_text_threadtime_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 169, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }
@@ -1025,9 +1025,9 @@ define internal range(i32 -9, 1) i32 @logcat_text_long_dump_can_write_encap(i32 
 define internal noundef i32 @logcat_text_long_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 170, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @logcat_text_dump_text, ptr %6, align 8
   ret i32 1
 }

@@ -82,9 +82,9 @@ define internal range(i32 0, 2) i32 @v2_check_quota_file(ptr noundef %0, i32 nou
   %3 = alloca %struct.v2_disk_dqheader, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store i64 0, ptr %3, align 8, !annotation !5
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 %7(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 8, i64 noundef 0) #8
   %9 = icmp eq i64 %8, 8
@@ -105,7 +105,7 @@ define internal range(i32 0, 2) i32 @v2_check_quota_file(ptr noundef %0, i32 nou
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp ult i32 %21, 2
   %23 = zext i1 %22 to i32
@@ -125,14 +125,14 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8, !annotation !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = sext i32 %1 to i64
   %7 = getelementptr [3 x %struct.mem_dqinfo], ptr %5, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call void @down_read(ptr noundef %8) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  tail call void @down_read(ptr noundef nonnull %8) #8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 %12(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i64 noundef 8, i64 noundef 0) #8
   %14 = icmp eq i64 %13, 8
@@ -149,9 +149,9 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
   br i1 %19, label %.thread, label %.thread9
 
 .thread9:                                         ; preds = %2, %17
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 2
   %25 = icmp ne i32 %21, 0
@@ -166,7 +166,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %9, align 16
-  %33 = getelementptr inbounds i8, ptr %32, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 160
   %34 = load ptr, ptr %33, align 8
   %35 = call i64 %34(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8) #8
   %36 = icmp eq i64 %35, 24
@@ -182,61 +182,61 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
 41:                                               ; preds = %31
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %43 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3136, i64 noundef 48) #9
-  %44 = getelementptr inbounds i8, ptr %7, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %43, null
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %41
   %47 = icmp eq i32 %21, 0
-  %48 = getelementptr inbounds i8, ptr %7, i64 48
-  %49 = getelementptr inbounds i8, ptr %7, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %50 = select i1 %47, i64 4398046510080, i64 9223372036854775807
   %51 = select i1 %47, i64 4294967295, i64 9223372036854775807
   store i64 %50, ptr %48, align 8
   store i64 %51, ptr %49, align 8
   %52 = load i32, ptr %3, align 4
-  %53 = getelementptr inbounds i8, ptr %7, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %7, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %7, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 0, ptr %57, align 8
   store ptr %0, ptr %43, align 8
-  %58 = getelementptr inbounds i8, ptr %43, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %43, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %43, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %43, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %43, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 10, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %43, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i32 1024, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %43, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %43, i64 36
   store i32 4, ptr %70, align 4
   %71 = select i1 %47, i32 48, i32 72
   %72 = select i1 %47, ptr @v2r0_qtree_ops, ptr @v2r1_qtree_ops
-  %73 = getelementptr inbounds i8, ptr %43, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %43, i64 28
   store i32 %71, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %43, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %72, ptr %74, align 8
   %75 = zext i32 %60 to i64
   %76 = shl nuw nsw i64 %75, 10
-  %77 = getelementptr inbounds i8, ptr %0, i64 304
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %78 = getelementptr [3 x ptr], ptr %77, i64 0, i64 %6
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
   %81 = load i64, ptr %80, align 8
   %82 = icmp sgt i64 %76, %81
   br i1 %82, label %83, label %84
@@ -269,7 +269,7 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
 
 .thread:                                          ; preds = %15, %87, %90, %41, %37, %27, %.thread9, %17
   %92 = phi i32 [ %18, %17 ], [ -117, %90 ], [ -22, %27 ], [ -22, %.thread9 ], [ -12, %41 ], [ %40, %37 ], [ 0, %87 ], [ -5, %15 ]
-  call void @up_read(ptr noundef %8) #8
+  call void @up_read(ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
   ret i32 %92
@@ -279,46 +279,46 @@ define internal i32 @v2_read_file_info(ptr noundef %0, i32 noundef %1) #2 align 
 define internal i32 @v2_write_file_info(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca %struct.v2_disk_dqinfo, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = sext i32 %1 to i64
   %6 = getelementptr [3 x %struct.mem_dqinfo], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call void @down_write(ptr noundef %9) #8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  tail call void @down_write(ptr noundef nonnull %9) #8
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_data_lock) #8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, -131073
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %3, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %18, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_data_lock) #8
-  %19 = getelementptr inbounds i8, ptr %8, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %8, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 16
-  %30 = getelementptr inbounds i8, ptr %29, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 168
   %31 = load ptr, ptr %30, align 8
   %32 = call i64 %31(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 24, i64 noundef 8) #8
-  call void @up_write(ptr noundef %9) #8
+  call void @up_write(ptr noundef nonnull %9) #8
   %33 = icmp eq i64 %32, 24
   br i1 %33, label %38, label %34
 
@@ -348,12 +348,12 @@ define internal noundef i32 @v2_free_file_info(ptr nocapture noundef readonly %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v2_read_dquot(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 264
-  tail call void @down_read(ptr noundef %4) #8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  tail call void @down_read(ptr noundef nonnull %4) #8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %.idx = mul nsw i64 %8, 72
@@ -361,31 +361,31 @@ define internal i32 @v2_read_dquot(ptr noundef %0) #2 align 16 {
   %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @qtree_read_dquot(ptr noundef %11, ptr noundef %0) #8
-  tail call void @up_read(ptr noundef %4) #8
+  tail call void @up_read(ptr noundef nonnull %4) #8
   ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v2_write_dquot(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %3, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 264
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @down_write(ptr noundef %7) #8
+  tail call void @down_write(ptr noundef nonnull %7) #8
   br label %10
 
 9:                                                ; preds = %1
-  tail call void @down_read(ptr noundef %7) #8
+  tail call void @down_read(ptr noundef nonnull %7) #8
   br label %10
 
 10:                                               ; preds = %9, %8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %.idx = mul nsw i64 %14, 72
@@ -396,11 +396,11 @@ define internal i32 @v2_write_dquot(ptr noundef %0) #2 align 16 {
   br i1 %6, label %19, label %20
 
 19:                                               ; preds = %10
-  tail call void @up_write(ptr noundef %7) #8
+  tail call void @up_write(ptr noundef nonnull %7) #8
   br label %21
 
 20:                                               ; preds = %10
-  tail call void @up_read(ptr noundef %7) #8
+  tail call void @up_read(ptr noundef nonnull %7) #8
   br label %21
 
 21:                                               ; preds = %20, %19
@@ -409,12 +409,12 @@ define internal i32 @v2_write_dquot(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v2_release_dquot(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 264
-  tail call void @down_write(ptr noundef %4) #8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  tail call void @down_write(ptr noundef nonnull %4) #8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %.idx = mul nsw i64 %8, 72
@@ -422,15 +422,15 @@ define internal i32 @v2_release_dquot(ptr noundef %0) #2 align 16 {
   %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @qtree_release_dquot(ptr noundef %11, ptr noundef %0) #8
-  tail call void @up_write(ptr noundef %4) #8
+  tail call void @up_write(ptr noundef nonnull %4) #8
   ret i32 %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v2_get_next_id(ptr noundef %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call void @down_read(ptr noundef %3) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  tail call void @down_read(ptr noundef nonnull %3) #8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %.idx = mul nsw i64 %6, 72
@@ -438,7 +438,7 @@ define internal i32 @v2_get_next_id(ptr noundef %0, ptr noundef %1) #2 align 16 
   %8 = getelementptr i8, ptr %7, i64 %.idx
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @qtree_get_next_id(ptr noundef %9, ptr noundef %1) #8
-  tail call void @up_read(ptr noundef %3) #8
+  tail call void @up_read(ptr noundef nonnull %3) #8
   ret i32 %10
 }
 
@@ -468,56 +468,56 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 136
-  %4 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
-  %7 = getelementptr inbounds i8, ptr %1, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %.idx = mul nsw i64 %9, 72
   %10 = getelementptr i8, ptr %5, i64 392
   %11 = getelementptr i8, ptr %10, i64 %.idx
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %26, ptr %27, align 8
   %28 = load i64, ptr %3, align 8
   %29 = add i64 %28, 1023
   %30 = lshr i64 %29, 10
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 1023
   %36 = lshr i64 %35, 10
   %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %43, ptr %44, align 8
   %45 = load i64, ptr %6, align 8
   %46 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %45) #8
@@ -538,47 +538,47 @@ define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr 
 define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.v2r0_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 10
   store i64 %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 10
-  %28 = getelementptr inbounds i8, ptr %0, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %33, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
-  %35 = getelementptr inbounds i8, ptr %3, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 1, ptr %35, align 8
   %36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %3, ptr noundef dereferenceable(48) %1, i64 48)
   %37 = icmp eq i32 %36, 0
@@ -595,9 +595,9 @@ define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly initializ
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 116
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %.idx = mul nsw i64 %7, 72
@@ -620,7 +620,7 @@ define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr nocapture no
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %20 = zext nneg i32 %14 to i64
   %21 = shl nuw nsw i64 %20, 32
   %22 = zext i32 %18 to i64
@@ -646,56 +646,56 @@ declare dso_local zeroext i1 @qid_eq(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 136
-  %4 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
-  %7 = getelementptr inbounds i8, ptr %1, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %.idx = mul nsw i64 %9, 72
   %10 = getelementptr i8, ptr %5, i64 392
   %11 = getelementptr i8, ptr %10, i64 %.idx
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %23, ptr %24, align 8
   %25 = load i64, ptr %3, align 8
   %26 = add i64 %25, 1023
   %27 = ashr i64 %26, 10
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1023
   %32 = ashr i64 %31, 10
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %38, ptr %39, align 8
   %40 = load i64, ptr %6, align 8
   %41 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %40) #8
   store i32 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %42, align 4
   %43 = tail call i32 @qtree_entry_unused(ptr noundef %12, ptr noundef %0) #8
   %44 = icmp eq i32 %43, 0
@@ -713,42 +713,42 @@ define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr 
 define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.v2r1_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = shl i64 %18, 10
   store i64 %19, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %22 = shl i64 %21, 10
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %28, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 64, i1 false)
-  %30 = getelementptr inbounds i8, ptr %3, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %30, align 8
   %31 = call i32 @bcmp(ptr noundef nonnull dereferenceable(72) %3, ptr noundef dereferenceable(72) %1, i64 72)
   %32 = icmp eq i32 %31, 0
@@ -765,9 +765,9 @@ define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly initializ
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 116
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %.idx = mul nsw i64 %7, 72
@@ -790,7 +790,7 @@ define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr nocapture no
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %20 = zext nneg i32 %14 to i64
   %21 = shl nuw nsw i64 %20, 32
   %22 = zext i32 %18 to i64

@@ -8604,7 +8604,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_xnap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.3611) #7
   %8 = load ptr, ptr %6, align 8
@@ -8615,7 +8615,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_xnap(ptr noundef %
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %12 = load i32, ptr @ett_xnap, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_xnap, align 4
   %17 = tail call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 0) #7
@@ -8645,11 +8645,11 @@ xnap_get_private_data.exit:                       ; preds = %4, %18
   store ptr %28, ptr %.0.i, align 8
   %29 = tail call ptr @wmem_file_scope() #7
   %30 = load ptr, ptr %.0.i, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 212
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 216
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %36 = load ptr, ptr %35, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 %32, ptr %30, align 8
@@ -8659,31 +8659,31 @@ xnap_get_private_data.exit:                       ; preds = %4, %18
 38:                                               ; preds = %26
   %39 = sext i32 %34 to i64
   %40 = tail call noalias ptr @wmem_memdup(ptr noundef %29, ptr noundef %36, i64 noundef %39) #7
-  %41 = getelementptr inbounds i8, ptr %30, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %40, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %30, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %34, ptr %43, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %26, %38
-  %44 = getelementptr inbounds i8, ptr %1, i64 284
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %.0.i, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 %45, ptr %47, align 8
   %48 = load ptr, ptr %.0.i, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 -1, ptr %49, align 4
   %50 = tail call ptr @wmem_file_scope() #7
   %51 = load ptr, ptr %.0.i, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
-  %53 = getelementptr inbounds i8, ptr %1, i64 232
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 236
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %58 = load ptr, ptr %57, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   store i32 %54, ptr %52, align 8
@@ -8693,22 +8693,22 @@ copy_address_wmem.exit:                           ; preds = %26, %38
 60:                                               ; preds = %copy_address_wmem.exit
   %61 = sext i32 %56 to i64
   %62 = tail call noalias ptr @wmem_memdup(ptr noundef %50, ptr noundef %58, i64 noundef %61) #7
-  %63 = getelementptr inbounds i8, ptr %51, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %51, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %51, i64 36
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 36
   store i32 %56, ptr %65, align 4
   br label %copy_address_wmem.exit28
 
 copy_address_wmem.exit28:                         ; preds = %copy_address_wmem.exit, %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 288
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %67 = load i32, ptr %66, align 8
   %68 = load ptr, ptr %.0.i, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
   store i32 %67, ptr %69, align 8
   %70 = load ptr, ptr %.0.i, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 60
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 60
   store i32 -1, ptr %71, align 4
   %72 = load i32, ptr @proto_xnap, align 4
   %73 = load ptr, ptr %.0.i, align 8
@@ -10301,9 +10301,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_GUAMI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_xnap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -10320,7 +10320,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
 
 dissect_xnap_GUAMI.exit:                          ; preds = %4, %13
   %.0.i.i = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   store i32 10, ptr %18, align 4
   %19 = load i32, ptr @ett_xnap_GUAMI, align 4
   %20 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %19, ptr noundef nonnull @GUAMI_sequence) #7
@@ -10435,9 +10435,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MN_to_SN_Container
   br i1 %.not.i, label %dissect_xnap_MN_to_SN_Container.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_xnap, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %12, i32 noundef %15, i32 noundef 0) #7
@@ -10455,15 +10455,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MN_to_SN_Container
 xnap_get_private_data.exit.i:                     ; preds = %17, %10
   %.0.i.i = phi ptr [ %16, %10 ], [ %19, %17 ]
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 232
-  %24 = getelementptr inbounds i8, ptr %22, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 288
   %25 = load i32, ptr %24, align 8
   %26 = call fastcc i32 @xnap_get_ranmode_id(ptr noundef nonnull %23, i32 noundef %25, ptr noundef %22)
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @ett_xnap_container, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #7
-  %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %32 = load i32, ptr %31, align 4
   switch i32 %32, label %dissect_xnap_MN_to_SN_Container.exit [
     i32 7, label %33
@@ -10474,19 +10474,19 @@ xnap_get_private_data.exit.i:                     ; preds = %17, %10
   ]
 
 33:                                               ; preds = %xnap_get_private_data.exit.i
-  %34 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %48, label %dissect_xnap_MN_to_SN_Container.exit
 
 37:                                               ; preds = %xnap_get_private_data.exit.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %48, label %dissect_xnap_MN_to_SN_Container.exit
 
 41:                                               ; preds = %xnap_get_private_data.exit.i
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %dissect_xnap_MN_to_SN_Container.exit [
     i32 2, label %48
@@ -10494,7 +10494,7 @@ xnap_get_private_data.exit.i:                     ; preds = %17, %10
   ]
 
 44:                                               ; preds = %xnap_get_private_data.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %dissect_xnap_MN_to_SN_Container.exit
@@ -10534,7 +10534,7 @@ xnap_get_private_data.exit.i:                     ; preds = %17, %10
   br label %dissect_xnap_MN_to_SN_Container.exit
 
 68:                                               ; preds = %xnap_get_private_data.exit.i
-  %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %72, label %dissect_xnap_MN_to_SN_Container.exit
@@ -11050,12 +11050,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SN_to_MN_Container
   br i1 %.not.i, label %dissect_xnap_SN_to_MN_Container.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_container, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_nr_rrc_CG_Config_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #7
   br label %dissect_xnap_SN_to_MN_Container.exit
@@ -11116,13 +11116,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Target2SourceNG_RA
   br i1 %.not.i, label %dissect_xnap_Target2SourceNG_RANnodeTranspContainer.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 208
-  %14 = getelementptr inbounds i8, ptr %12, i64 284
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 284
   %15 = load i32, ptr %14, align 4
   %16 = call fastcc i32 @xnap_get_ranmode_id(ptr noundef nonnull %13, i32 noundef %15, ptr noundef %12)
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @ett_xnap_container, align 4
   %20 = call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #7
@@ -11863,12 +11863,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetCellinEUTRAN
   br i1 %.not.i, label %dissect_xnap_TargetCellinEUTRAN.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_TargetCellinEUTRAN, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_s1ap_EUTRAN_CGI_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #7
   br label %dissect_xnap_TargetCellinEUTRAN.exit
@@ -11939,7 +11939,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ReportCharacterist
   br i1 %.not.i, label %dissect_xnap_ReportCharacteristics.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_ReportCharacteristics, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
@@ -13183,12 +13183,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_FiveGCMobilityRest
   br i1 %.not.i, label %dissect_xnap_FiveGCMobilityRestrictionListContainer.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_FiveGCMobilityRestrictionListContainer, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_ngap_MobilityRestrictionList_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #7
   br label %dissect_xnap_FiveGCMobilityRestrictionListContainer.exit
@@ -13329,12 +13329,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TDDULDLConfigurati
   br i1 %.not.i, label %dissect_xnap_TDDULDLConfigurationCommonNR.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_TDDULDLConfigurationCommonNR, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_nr_rrc_TDD_UL_DL_ConfigCommon_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #7
   br label %dissect_xnap_TDDULDLConfigurationCommonNR.exit
@@ -13395,12 +13395,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRCellPRACHConfig_
   br i1 %.not.i, label %dissect_xnap_NRCellPRACHConfig.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_NRCellPRACHConfig, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_f1ap_NRPRACHConfig_PDU(ptr noundef %15, ptr noundef %17, ptr noundef %14, ptr noundef null) #7
   br label %dissect_xnap_NRCellPRACHConfig.exit
@@ -14099,9 +14099,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.581) #7
   %11 = load i32, ptr @ett_xnap_HandoverRequest, align 4
@@ -14116,9 +14116,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverRequestAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.587) #7
   %11 = load i32, ptr @ett_xnap_HandoverRequestAcknowledge, align 4
@@ -14133,9 +14133,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverPreparationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.591) #7
   %11 = load i32, ptr @ett_xnap_HandoverPreparationFailure, align 4
@@ -14150,9 +14150,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNStatusTransfer_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNStatusTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.593) #7
   %11 = load i32, ptr @ett_xnap_SNStatusTransfer, align 4
@@ -14167,9 +14167,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverCancel_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.597) #7
   %11 = load i32, ptr @ett_xnap_HandoverCancel, align 4
@@ -14184,9 +14184,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEContextR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RetrieveUEContextRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.609) #7
   %11 = load i32, ptr @ett_xnap_RetrieveUEContextRequest, align 4
@@ -14201,9 +14201,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEContextR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RetrieveUEContextResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.611) #7
   %11 = load i32, ptr @ett_xnap_RetrieveUEContextResponse, align 4
@@ -14218,9 +14218,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEContextF
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RetrieveUEContextFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.615) #7
   %11 = load i32, ptr @ett_xnap_RetrieveUEContextFailure, align 4
@@ -14235,9 +14235,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANPaging_PDU(ptr 
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RANPaging_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.607) #7
   %11 = load i32, ptr @ett_xnap_RANPaging, align 4
@@ -14252,9 +14252,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnUAddressIndicati
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnUAddressIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.619) #7
   %11 = load i32, ptr @ett_xnap_XnUAddressIndication, align 4
@@ -14269,9 +14269,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextRelease_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_UEContextRelease_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.595) #7
   %11 = load i32, ptr @ett_xnap_UEContextRelease, align 4
@@ -14286,9 +14286,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeAdditionReque
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeAdditionRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.621) #7
   %11 = load i32, ptr @ett_xnap_SNodeAdditionRequest, align 4
@@ -14303,9 +14303,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeAdditionReque
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeAdditionRequestAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.629) #7
   %11 = load i32, ptr @ett_xnap_SNodeAdditionRequestAcknowledge, align 4
@@ -14320,9 +14320,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeAdditionReque
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeAdditionRequestReject_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.639) #7
   %11 = load i32, ptr @ett_xnap_SNodeAdditionRequestReject, align 4
@@ -14337,9 +14337,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReconfigurati
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReconfigurationComplete_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.641) #7
   %11 = load i32, ptr @ett_xnap_SNodeReconfigurationComplete, align 4
@@ -14354,9 +14354,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.645) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationRequest, align 4
@@ -14371,9 +14371,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationRequestAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.651) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationRequestAcknowledge, align 4
@@ -14388,9 +14388,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationRequestReject_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.661) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationRequestReject, align 4
@@ -14405,9 +14405,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationRequired_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.663) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationRequired, align 4
@@ -14422,9 +14422,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationC
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationConfirm_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.669) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationConfirm, align 4
@@ -14439,9 +14439,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeModificationR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeModificationRefuse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.675) #7
   %11 = load i32, ptr @ett_xnap_SNodeModificationRefuse, align 4
@@ -14456,9 +14456,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReleaseReques
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReleaseRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.677) #7
   %11 = load i32, ptr @ett_xnap_SNodeReleaseRequest, align 4
@@ -14473,9 +14473,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReleaseReques
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReleaseRequestAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.679) #7
   %11 = load i32, ptr @ett_xnap_SNodeReleaseRequestAcknowledge, align 4
@@ -14490,9 +14490,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReleaseReject
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReleaseReject_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.683) #7
   %11 = load i32, ptr @ett_xnap_SNodeReleaseReject, align 4
@@ -14507,9 +14507,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReleaseRequir
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReleaseRequired_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.685) #7
   %11 = load i32, ptr @ett_xnap_SNodeReleaseRequired, align 4
@@ -14524,9 +14524,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeReleaseConfir
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeReleaseConfirm_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.689) #7
   %11 = load i32, ptr @ett_xnap_SNodeReleaseConfirm, align 4
@@ -14541,9 +14541,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeCounterCheckR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeCounterCheckRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.693) #7
   %11 = load i32, ptr @ett_xnap_SNodeCounterCheckRequest, align 4
@@ -14558,9 +14558,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeChangeRequire
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeChangeRequired_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.697) #7
   %11 = load i32, ptr @ett_xnap_SNodeChangeRequired, align 4
@@ -14575,9 +14575,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeChangeConfirm
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeChangeConfirm_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.701) #7
   %11 = load i32, ptr @ett_xnap_SNodeChangeConfirm, align 4
@@ -14592,9 +14592,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SNodeChangeRefuse_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SNodeChangeRefuse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.705) #7
   %11 = load i32, ptr @ett_xnap_SNodeChangeRefuse, align 4
@@ -14609,9 +14609,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCTransfer_PDU(pt
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RRCTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.707) #7
   %11 = load i32, ptr @ett_xnap_RRCTransfer, align 4
@@ -14626,9 +14626,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnRemovalRequest_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnRemovalRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.751) #7
   %11 = load i32, ptr @ett_xnap_XnRemovalRequest, align 4
@@ -14643,9 +14643,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnRemovalResponse_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnRemovalResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.753) #7
   %11 = load i32, ptr @ett_xnap_XnRemovalResponse, align 4
@@ -14660,9 +14660,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnRemovalFailure_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnRemovalFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.755) #7
   %11 = load i32, ptr @ett_xnap_XnRemovalFailure, align 4
@@ -14677,9 +14677,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnSetupRequest_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnSetupRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.725) #7
   %11 = load i32, ptr @ett_xnap_XnSetupRequest, align 4
@@ -14694,9 +14694,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnSetupResponse_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnSetupResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.727) #7
   %11 = load i32, ptr @ett_xnap_XnSetupResponse, align 4
@@ -14711,9 +14711,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_XnSetupFailure_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_XnSetupFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.729) #7
   %11 = load i32, ptr @ett_xnap_XnSetupFailure, align 4
@@ -14728,9 +14728,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANNodeConfigura
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_NGRANNodeConfigurationUpdate_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.731) #7
   %11 = load i32, ptr @ett_xnap_NGRANNodeConfigurationUpdate, align 4
@@ -14745,9 +14745,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANNodeConfigura
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_NGRANNodeConfigurationUpdateAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.735) #7
   %11 = load i32, ptr @ett_xnap_NGRANNodeConfigurationUpdateAcknowledge, align 4
@@ -14762,9 +14762,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANNodeConfigura
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_NGRANNodeConfigurationUpdateFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.739) #7
   %11 = load i32, ptr @ett_xnap_NGRANNodeConfigurationUpdateFailure, align 4
@@ -14779,9 +14779,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PartialUEContextTr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_PartialUEContextTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.849) #7
   %11 = load i32, ptr @ett_xnap_PartialUEContextTransfer, align 4
@@ -14796,9 +14796,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PartialUEContextTr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_PartialUEContextTransferAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.851) #7
   %11 = load i32, ptr @ett_xnap_PartialUEContextTransferAcknowledge, align 4
@@ -14813,9 +14813,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PartialUEContextTr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_PartialUEContextTransferFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.853) #7
   %11 = load i32, ptr @ett_xnap_PartialUEContextTransferFailure, align 4
@@ -14830,9 +14830,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_UTRA_NR_CellReso
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_E_UTRA_NR_CellResourceCoordinationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.741) #7
   %11 = load i32, ptr @ett_xnap_E_UTRA_NR_CellResourceCoordinationRequest, align 4
@@ -14847,9 +14847,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_UTRA_NR_CellReso
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_E_UTRA_NR_CellResourceCoordinationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.745) #7
   %11 = load i32, ptr @ett_xnap_E_UTRA_NR_CellResourceCoordinationResponse, align 4
@@ -14864,9 +14864,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellActivationRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_CellActivationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.757) #7
   %11 = load i32, ptr @ett_xnap_CellActivationRequest, align 4
@@ -14881,9 +14881,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellActivationResp
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_CellActivationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.761) #7
   %11 = load i32, ptr @ett_xnap_CellActivationResponse, align 4
@@ -14898,9 +14898,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellActivationFail
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_CellActivationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.765) #7
   %11 = load i32, ptr @ett_xnap_CellActivationFailure, align 4
@@ -14915,9 +14915,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetRequest_PDU(p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResetRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.767) #7
   %11 = load i32, ptr @ett_xnap_ResetRequest, align 4
@@ -14932,9 +14932,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetResponse_PDU(
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResetResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.769) #7
   %11 = load i32, ptr @ett_xnap_ResetResponse, align 4
@@ -14949,9 +14949,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ErrorIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.771) #7
   %11 = load i32, ptr @ett_xnap_ErrorIndication, align 4
@@ -14966,9 +14966,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NotificationContro
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_NotificationControlIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.717) #7
   %11 = load i32, ptr @ett_xnap_NotificationControlIndication, align 4
@@ -14983,9 +14983,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ActivityNotificati
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ActivityNotification_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.721) #7
   %11 = load i32, ptr @ett_xnap_ActivityNotification, align 4
@@ -15000,9 +15000,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_PrivateMessage_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.773) #7
   %11 = load i32, ptr @ett_xnap_PrivateMessage, align 4
@@ -15017,9 +15017,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_SecondaryRATDataUsageReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.749) #7
   %11 = load i32, ptr @ett_xnap_SecondaryRATDataUsageReport, align 4
@@ -15034,9 +15034,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_DeactivateTrace_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.777) #7
   %11 = load i32, ptr @ett_xnap_DeactivateTrace, align 4
@@ -15051,9 +15051,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_TraceStart_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.775) #7
   %11 = load i32, ptr @ett_xnap_TraceStart, align 4
@@ -15068,9 +15068,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverSuccess_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.599) #7
   %11 = load i32, ptr @ett_xnap_HandoverSuccess, align 4
@@ -15085,9 +15085,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConditionalHandove
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ConditionalHandoverCancel_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.601) #7
   %11 = load i32, ptr @ett_xnap_ConditionalHandoverCancel, align 4
@@ -15102,9 +15102,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyStatusTransfe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_EarlyStatusTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.603) #7
   %11 = load i32, ptr @ett_xnap_EarlyStatusTransfer, align 4
@@ -15119,9 +15119,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_FailureIndication_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_FailureIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.779) #7
   %11 = load i32, ptr @ett_xnap_FailureIndication, align 4
@@ -15136,9 +15136,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverReport_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_HandoverReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.781) #7
   %11 = load i32, ptr @ett_xnap_HandoverReport, align 4
@@ -15153,9 +15153,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResourceStatusRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResourceStatusRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.783) #7
   %11 = load i32, ptr @ett_xnap_ResourceStatusRequest, align 4
@@ -15170,9 +15170,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResourceStatusResp
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResourceStatusResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.785) #7
   %11 = load i32, ptr @ett_xnap_ResourceStatusResponse, align 4
@@ -15187,9 +15187,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResourceStatusFail
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResourceStatusFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.787) #7
   %11 = load i32, ptr @ett_xnap_ResourceStatusFailure, align 4
@@ -15204,9 +15204,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResourceStatusUpda
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ResourceStatusUpdate_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.789) #7
   %11 = load i32, ptr @ett_xnap_ResourceStatusUpdate, align 4
@@ -15221,9 +15221,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MobilityChangeRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_MobilityChangeRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.791) #7
   %11 = load i32, ptr @ett_xnap_MobilityChangeRequest, align 4
@@ -15238,9 +15238,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MobilityChangeAckn
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_MobilityChangeAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.793) #7
   %11 = load i32, ptr @ett_xnap_MobilityChangeAcknowledge, align 4
@@ -15255,9 +15255,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MobilityChangeFail
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_MobilityChangeFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.795) #7
   %11 = load i32, ptr @ett_xnap_MobilityChangeFailure, align 4
@@ -15272,9 +15272,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AccessAndMobilityI
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_AccessAndMobilityIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.797) #7
   %11 = load i32, ptr @ett_xnap_AccessAndMobilityIndication, align 4
@@ -15289,9 +15289,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_CellTrafficTrace_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.799) #7
   %11 = load i32, ptr @ett_xnap_CellTrafficTrace, align 4
@@ -15306,9 +15306,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANMulticastGroupP
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RANMulticastGroupPaging_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.801) #7
   %11 = load i32, ptr @ett_xnap_RANMulticastGroupPaging, align 4
@@ -15323,9 +15323,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ScgFailureInformat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ScgFailureInformationReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.803) #7
   %11 = load i32, ptr @ett_xnap_ScgFailureInformationReport, align 4
@@ -15340,9 +15340,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ScgFailureTransfer
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_ScgFailureTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.805) #7
   %11 = load i32, ptr @ett_xnap_ScgFailureTransfer, align 4
@@ -15357,9 +15357,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_F1CTrafficTransfer
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_F1CTrafficTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.807) #7
   %11 = load i32, ptr @ett_xnap_F1CTrafficTransfer, align 4
@@ -15374,9 +15374,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABTransportMigrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABTransportMigrationManagementRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.809) #7
   %11 = load i32, ptr @ett_xnap_IABTransportMigrationManagementRequest, align 4
@@ -15391,9 +15391,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABTransportMigrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABTransportMigrationManagementResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.815) #7
   %11 = load i32, ptr @ett_xnap_IABTransportMigrationManagementResponse, align 4
@@ -15408,9 +15408,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABTransportMigrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABTransportMigrationManagementReject_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.827) #7
   %11 = load i32, ptr @ett_xnap_IABTransportMigrationManagementReject, align 4
@@ -15425,9 +15425,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABTransportMigrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABTransportMigrationModificationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.829) #7
   %11 = load i32, ptr @ett_xnap_IABTransportMigrationModificationRequest, align 4
@@ -15442,9 +15442,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABTransportMigrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABTransportMigrationModificationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.835) #7
   %11 = load i32, ptr @ett_xnap_IABTransportMigrationModificationResponse, align 4
@@ -15459,9 +15459,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABResourceCoordin
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABResourceCoordinationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.839) #7
   %11 = load i32, ptr @ett_xnap_IABResourceCoordinationRequest, align 4
@@ -15476,9 +15476,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_IABResourceCoordin
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_IABResourceCoordinationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.845) #7
   %11 = load i32, ptr @ett_xnap_IABResourceCoordinationResponse, align 4
@@ -15493,9 +15493,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEContextC
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_RetrieveUEContextConfirm_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.613) #7
   %11 = load i32, ptr @ett_xnap_RetrieveUEContextConfirm, align 4
@@ -15510,9 +15510,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CPCCancel_PDU(ptr 
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_xnap_CPCCancel_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_append_sep_str(ptr noundef %10, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.847) #7
   %11 = load i32, ptr @ett_xnap_CPCCancel, align 4
@@ -15627,9 +15627,9 @@ define internal i32 @dissect_xnap_ProtocolIE_Field(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -15646,13 +15646,13 @@ define internal i32 @dissect_xnap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %18 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %17, i32 noundef 0) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %xnap_get_private_data.exit
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @proto_item_get_parent_nth(ptr noundef %21, i32 noundef 2) #7
   %23 = load i32, ptr %17, align 8
@@ -15692,7 +15692,7 @@ declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_xnap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -15710,7 +15710,7 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 xnap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %14 = load ptr, ptr @xnap_ies_dissector_table, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
   %.not = icmp eq i32 %17, 0
@@ -15744,7 +15744,7 @@ define internal i32 @dissect_xnap_T_extensionValue(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_xnap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -15762,7 +15762,7 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 xnap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %14 = load ptr, ptr @xnap_extension_dissector_table, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
   %.not = icmp eq i32 %17, 0
@@ -15825,9 +15825,9 @@ define internal i32 @dissect_xnap_UnsuccessfulOutcome(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_ProcedureCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -15844,16 +15844,16 @@ define internal i32 @dissect_xnap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %18 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %17, i32 noundef 0) #7
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_InitiatingMessage_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -15870,7 +15870,7 @@ define internal i32 @dissect_xnap_InitiatingMessage_value(ptr noundef %0, i32 no
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 0, ptr %17, align 8
   %18 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_InitiatingMessageValue) #7
   ret i32 %18
@@ -15878,7 +15878,7 @@ xnap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_xnap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -15896,7 +15896,7 @@ define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef 
 xnap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %14 = load ptr, ptr @xnap_proc_imsg_dissector_table, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
   %.not = icmp eq i32 %17, 0
@@ -15913,9 +15913,9 @@ xnap_get_private_data.exit:                       ; preds = %4, %9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_SuccessfulOutcome_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -15932,7 +15932,7 @@ define internal i32 @dissect_xnap_SuccessfulOutcome_value(ptr noundef %0, i32 no
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %17, align 8
   %18 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_SuccessfulOutcomeValue) #7
   ret i32 %18
@@ -15940,7 +15940,7 @@ xnap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_xnap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -15958,7 +15958,7 @@ define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef 
 xnap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %14 = load ptr, ptr @xnap_proc_sout_dissector_table, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
   %.not = icmp eq i32 %17, 0
@@ -15975,9 +15975,9 @@ xnap_get_private_data.exit:                       ; preds = %4, %9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_UnsuccessfulOutcome_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -15994,7 +15994,7 @@ define internal i32 @dissect_xnap_UnsuccessfulOutcome_value(ptr noundef %0, i32 
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 2, ptr %17, align 8
   %18 = tail call i32 @dissect_per_open_type_pdu_new(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @dissect_UnsuccessfulOutcomeValue) #7
   ret i32 %18
@@ -16002,7 +16002,7 @@ xnap_get_private_data.exit:                       ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_xnap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -16020,7 +16020,7 @@ define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr nounde
 xnap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
   %14 = load ptr, ptr @xnap_proc_uout_dissector_table, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
   %.not = icmp eq i32 %17, 0
@@ -16051,9 +16051,9 @@ define internal i32 @dissect_xnap_SEQUENCE_SIZE_1_maxnoofCellsinNG_RANnode_OF_E_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -16070,7 +16070,7 @@ define internal i32 @dissect_xnap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr nou
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 7, ptr %17, align 4
   %18 = load i32, ptr @ett_xnap_NR_CGI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @NR_CGI_sequence) #7
@@ -16081,9 +16081,9 @@ xnap_get_private_data.exit:                       ; preds = %5, %12
 define internal i32 @dissect_xnap_PLMN_Identity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_xnap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -16100,7 +16100,7 @@ define internal i32 @dissect_xnap_PLMN_Identity(ptr noundef %0, i32 noundef %1, 
 
 xnap_get_private_data.exit:                       ; preds = %5, %13
   %.0.i = phi ptr [ %12, %5 ], [ %15, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %19 = load i32, ptr %18, align 4
   store i32 0, ptr %18, align 4
   %20 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %6) #7
@@ -16109,7 +16109,7 @@ xnap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %.not, label %30, label %22
 
 22:                                               ; preds = %xnap_get_private_data.exit
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @ett_xnap_PLMN_Identity, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #7
@@ -16133,7 +16133,7 @@ define internal i32 @dissect_xnap_NR_Cell_Identity(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 5, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -16149,9 +16149,9 @@ declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_E_UTRA_CGI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -16168,7 +16168,7 @@ define internal i32 @dissect_xnap_E_UTRA_CGI(ptr noundef %0, i32 noundef %1, ptr
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 5, ptr %17, align 4
   %18 = load i32, ptr @ett_xnap_E_UTRA_CGI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @E_UTRA_CGI_sequence) #7
@@ -16186,7 +16186,7 @@ define internal i32 @dissect_xnap_E_UTRA_Cell_Identity(ptr noundef %0, i32 nound
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -16401,7 +16401,7 @@ define internal i32 @dissect_xnap_TransportLayerAddress(ptr noundef %0, i32 noun
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_xnap_TransportLayerAddress, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #7
@@ -16610,9 +16610,9 @@ define internal i32 @dissect_xnap_NG_RAN_Cell_Identity(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_GlobalNG_RANNode_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_xnap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -16636,23 +16636,23 @@ xnap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %.not, label %addresses_equal.exit23, label %21
 
 21:                                               ; preds = %xnap_get_private_data.exit
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 17
   br i1 %24, label %25, label %addresses_equal.exit23
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 208
   %28 = load i32, ptr %27, align 8
   %29 = load i32, ptr %20, align 8
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %addresses_equal.exit
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 212
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 212
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %20, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %33, %35
   br i1 %36, label %37, label %addresses_equal.exit
@@ -16662,9 +16662,9 @@ xnap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %26, i64 216
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %20, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %33 to i64
   %bcmp.i = call i32 @bcmp(ptr %41, ptr %43, i64 %44)
@@ -16672,23 +16672,23 @@ xnap_get_private_data.exit:                       ; preds = %5, %13
   br i1 %45, label %46, label %addresses_equal.exit
 
 46:                                               ; preds = %39, %37
-  %47 = getelementptr inbounds i8, ptr %26, i64 284
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 284
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %20, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %48, %50
   br i1 %51, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %39, %31, %25, %46
-  %52 = getelementptr inbounds i8, ptr %20, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %28, %53
   br i1 %54, label %55, label %addresses_equal.exit23
 
 55:                                               ; preds = %addresses_equal.exit
-  %56 = getelementptr inbounds i8, ptr %26, i64 212
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 212
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %20, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %57, %59
   br i1 %60, label %61, label %addresses_equal.exit23
@@ -16698,9 +16698,9 @@ addresses_equal.exit:                             ; preds = %39, %31, %25, %46
   br i1 %62, label %70, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %26, i64 216
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %20, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %57 to i64
   %bcmp.i22 = call i32 @bcmp(ptr %65, ptr %67, i64 %68)
@@ -16708,9 +16708,9 @@ addresses_equal.exit:                             ; preds = %39, %31, %25, %46
   br i1 %69, label %70, label %addresses_equal.exit23
 
 70:                                               ; preds = %63, %61
-  %71 = getelementptr inbounds i8, ptr %26, i64 284
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 284
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %20, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %72, %74
   br i1 %75, label %addresses_equal.exit23.sink.split, label %addresses_equal.exit23
@@ -16718,7 +16718,7 @@ addresses_equal.exit:                             ; preds = %39, %31, %25, %46
 addresses_equal.exit23.sink.split:                ; preds = %70, %46
   %.sink29 = phi i64 [ 28, %46 ], [ 60, %70 ]
   %76 = load i32, ptr %6, align 4
-  %77 = getelementptr inbounds i8, ptr %20, i64 %.sink29
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink29
   store i32 %76, ptr %77, align 4
   br label %addresses_equal.exit23
 
@@ -16969,7 +16969,7 @@ define internal i32 @dissect_xnap_TAC(ptr noundef %0, i32 noundef %1, ptr nounde
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 3, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -17269,12 +17269,12 @@ define internal i32 @dissect_xnap_T_measurementTimingConfiguration(ptr noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_measurementTimingConfiguration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_MeasurementTimingConfiguration_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -17430,12 +17430,12 @@ define internal i32 @dissect_xnap_T_measurementTimingConfiguration_01(ptr nounde
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_measurementTimingConfiguration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_MeasurementTimingConfiguration_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -17520,9 +17520,9 @@ define internal i32 @dissect_xnap_RequestReferenceID(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_TAIsinAoI_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -17539,7 +17539,7 @@ define internal i32 @dissect_xnap_TAIsinAoI_Item(ptr noundef %0, i32 noundef %1,
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 8, ptr %17, align 4
   %18 = load i32, ptr @ett_xnap_TAIsinAoI_Item, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @TAIsinAoI_Item_sequence) #7
@@ -17574,7 +17574,7 @@ define internal i32 @dissect_xnap_NG_RANnodeUEXnAPID(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @xnap_get_ranmode_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_xnap, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %2, i32 noundef %6, i32 noundef 0) #7
@@ -17602,9 +17602,9 @@ xnap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %17, label %18, label %addresses_equal.exit
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
   br i1 %23, label %24, label %addresses_equal.exit
@@ -17614,9 +17614,9 @@ xnap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %20 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %28, ptr %30, i64 %31)
@@ -17624,21 +17624,21 @@ xnap_get_private_data.exit:                       ; preds = %3, %8
   br i1 %32, label %33, label %addresses_equal.exit
 
 33:                                               ; preds = %26, %24
-  %34 = getelementptr inbounds i8, ptr %13, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %1, %35
   br i1 %36, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %26, %18, %14, %33
-  %37 = getelementptr inbounds i8, ptr %13, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %15, %38
   br i1 %39, label %40, label %addresses_equal.exit18
 
 40:                                               ; preds = %addresses_equal.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %13, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %42, %44
   br i1 %45, label %46, label %addresses_equal.exit18
@@ -17648,9 +17648,9 @@ addresses_equal.exit:                             ; preds = %26, %18, %14, %33
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %13, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %42 to i64
   %bcmp.i17 = tail call i32 @bcmp(ptr %50, ptr %52, i64 %53)
@@ -17658,14 +17658,14 @@ addresses_equal.exit:                             ; preds = %26, %18, %14, %33
   br i1 %54, label %55, label %addresses_equal.exit18
 
 55:                                               ; preds = %48, %46
-  %56 = getelementptr inbounds i8, ptr %13, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %1, %57
   br i1 %58, label %addresses_equal.exit18.sink.split, label %addresses_equal.exit18
 
 addresses_equal.exit18.sink.split:                ; preds = %55, %33
   %.sink23 = phi i64 [ 28, %33 ], [ 60, %55 ]
-  %59 = getelementptr inbounds i8, ptr %13, i64 %.sink23
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink23
   %60 = load i32, ptr %59, align 4
   br label %addresses_equal.exit18
 
@@ -18866,13 +18866,13 @@ define internal i32 @dissect_xnap_T_m_NG_RANNode_to_S_NG_RANNode_Container(ptr n
   br i1 %.not, label %35, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 232
-  %13 = getelementptr inbounds i8, ptr %11, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = call fastcc i32 @xnap_get_ranmode_id(ptr noundef nonnull %12, i32 noundef %14, ptr noundef %11)
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @ett_xnap_container, align 4
   %19 = call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #7
@@ -18917,12 +18917,12 @@ define internal i32 @dissect_xnap_T_m_NG_RANNode_to_S_NG_RANNode_Container_01(pt
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_container, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_CG_ConfigInfo_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19046,12 +19046,12 @@ define internal i32 @dissect_xnap_NG_RANTraceID(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_NG_RANTraceID, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_e212_mcc_mnc(ptr noundef %14, ptr noundef %16, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %18 = load i32, ptr @hf_xnap_NG_RANTraceID_TraceID, align 4
@@ -19162,13 +19162,13 @@ define internal i32 @dissect_xnap_T_rrc_Context_01(ptr noundef %0, i32 noundef %
   br i1 %.not, label %40, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 232
-  %13 = getelementptr inbounds i8, ptr %11, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = call fastcc i32 @xnap_get_ranmode_id(ptr noundef nonnull %12, i32 noundef %14, ptr noundef %11)
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @ett_xnap_RRC_Context, align 4
   %19 = call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #7
@@ -19291,13 +19291,13 @@ define internal i32 @dissect_xnap_T_rrc_Context(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %35, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 232
-  %13 = getelementptr inbounds i8, ptr %11, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = call fastcc i32 @xnap_get_ranmode_id(ptr noundef nonnull %12, i32 noundef %14, ptr noundef %11)
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @ett_xnap_RRC_Context, align 4
   %19 = call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #7
@@ -19446,12 +19446,12 @@ define internal i32 @dissect_xnap_LastVisitedNGRANCellInformation(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_LastVisitedNGRANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_ngap_LastVisitedNGRANCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19470,12 +19470,12 @@ define internal i32 @dissect_xnap_LastVisitedEUTRANCellInformation(ptr noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_LastVisitedEUTRANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_LastVisitedEUTRANCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19493,12 +19493,12 @@ define internal i32 @dissect_xnap_LastVisitedUTRANCellInformation(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_LastVisitedUTRANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_ranap_LastVisitedUTRANCell_Item_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19517,12 +19517,12 @@ define internal i32 @dissect_xnap_LastVisitedGERANCellInformation(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_LastVisitedGERANCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_LastVisitedGERANCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19638,7 +19638,7 @@ define internal i32 @dissect_xnap_T_startTimeStamp(ptr noundef %0, i32 noundef %
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_ntp_fmt_ts_sec(ptr noundef nonnull %8, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.4645, ptr noundef %12) #7
@@ -19658,7 +19658,7 @@ define internal i32 @dissect_xnap_T_endTimeStamp(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_ntp_fmt_ts_sec(ptr noundef nonnull %8, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.4645, ptr noundef %12) #7
@@ -19738,12 +19738,12 @@ define internal i32 @dissect_xnap_UERadioCapabilityForPagingOfNR(ptr noundef %0,
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_UERadioCapabilityForPagingOfNR, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_UERadioPagingInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19762,12 +19762,12 @@ define internal i32 @dissect_xnap_UERadioCapabilityForPagingOfEUTRA(ptr noundef 
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_UERadioCapabilityForPagingOfEUTRA, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_UERadioPagingInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -19803,7 +19803,7 @@ define internal i32 @dissect_xnap_PortNumber(ptr noundef %0, i32 noundef %1, ptr
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -20036,12 +20036,12 @@ define internal i32 @dissect_xnap_UERLFReportContainerNR(ptr noundef %0, i32 nou
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_UERLFReportContainerNR, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_nr_RLF_Report_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20060,12 +20060,12 @@ define internal i32 @dissect_xnap_UERLFReportContainerLTE(ptr noundef %0, i32 no
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_UERLFReportContainerLTE, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_RLF_Report_r9_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20102,12 +20102,12 @@ define internal i32 @dissect_xnap_NRMobilityHistoryReport(ptr noundef %0, i32 no
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_NRMobilityHistoryReport, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_VisitedCellInfoList_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20425,12 +20425,12 @@ define internal i32 @dissect_xnap_RACHReportContainer(ptr noundef %0, i32 nounde
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_RACHReportContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_RA_ReportList_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20550,12 +20550,12 @@ define internal i32 @dissect_xnap_SuccessfulHOReportContainer(ptr noundef %0, i3
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_SuccessfulHOReportContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_SuccessHO_Report_r17_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20590,12 +20590,12 @@ define internal i32 @dissect_xnap_LastVisitedPSCellInformation(ptr noundef %0, i
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_LastVisitedPSCellInformation, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_ngap_LastVisitedPSCellInformation_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20712,12 +20712,12 @@ define internal i32 @dissect_xnap_MeasObjectContainer(ptr noundef %0, i32 nounde
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_MeasObjectContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_MeasObjectToAddMod_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20736,12 +20736,12 @@ define internal i32 @dissect_xnap_ReportConfigContainer(ptr noundef %0, i32 noun
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_ReportConfigContainer, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_ReportConfigToAddMod_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -20809,7 +20809,7 @@ define internal i32 @dissect_xnap_T_iPv4Address(ptr noundef %0, i32 noundef %1, 
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 32, i32 noundef 32, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -20821,7 +20821,7 @@ define internal i32 @dissect_xnap_T_iPv6Address(ptr noundef %0, i32 noundef %1, 
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 128, i32 noundef 128, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef 16, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -20833,7 +20833,7 @@ define internal i32 @dissect_xnap_T_iPv6Prefix(ptr noundef %0, i32 noundef %1, p
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 64, i32 noundef 64, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #7
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef 8, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -21161,12 +21161,12 @@ define internal i32 @dissect_xnap_RACH_Config_Common(ptr noundef %0, i32 noundef
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_RACH_Config_Common, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_RACH_ConfigCommon_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21185,12 +21185,12 @@ define internal i32 @dissect_xnap_RACH_Config_Common_IAB(ptr noundef %0, i32 nou
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_RACH_Config_Common_IAB, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_rach_ConfigCommonIAB_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21209,12 +21209,12 @@ define internal i32 @dissect_xnap_T_cSI_RS_Configuration(ptr noundef %0, i32 nou
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_cSI_RS_Configuration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_NZP_CSI_RS_Resource_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21233,12 +21233,12 @@ define internal i32 @dissect_xnap_T_sR_Configuration(ptr noundef %0, i32 noundef
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_sR_Configuration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_SchedulingRequestResourceConfig_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21257,12 +21257,12 @@ define internal i32 @dissect_xnap_T_pDCCH_ConfigSIB1(ptr noundef %0, i32 noundef
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_pDCCH_ConfigSIB1, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_PDCCH_ConfigSIB1_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21281,12 +21281,12 @@ define internal i32 @dissect_xnap_T_sCS_Common(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_sCS_Common, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_subCarrierSpacingCommon_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -21719,12 +21719,12 @@ define internal i32 @dissect_xnap_T_sN_to_MN_Container(ptr noundef %0, i32 nound
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_container, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_CG_ConfigInfo_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -22119,12 +22119,12 @@ define internal i32 @dissect_xnap_T_dRB_RLC_Bearer_Configuration(ptr noundef %0,
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_RLC_Bearer_Configuration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_RLC_BearerConfig_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -22166,12 +22166,12 @@ define internal i32 @dissect_xnap_T_sRB_RLC_Bearer_Configuration(ptr noundef %0,
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_RLC_Bearer_Configuration, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_RLC_BearerConfig_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -22210,12 +22210,12 @@ define internal i32 @dissect_xnap_UERLFReportContainerLTEExtendBand(ptr noundef 
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_UERLFReportContainerLTEExtendBand, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_RLF_Report_v9e0_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -22286,7 +22286,7 @@ define internal i32 @dissect_xnap_T_primaryRATRestriction(ptr noundef %0, i32 no
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_primaryRATRestriction, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -22308,7 +22308,7 @@ define internal i32 @dissect_xnap_T_secondaryRATRestriction(ptr noundef %0, i32 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_secondaryRATRestriction, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -22366,12 +22366,12 @@ define internal i32 @dissect_xnap_T_burstArrivalTime(ptr noundef %0, i32 noundef
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_burstArrivalTime, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_nr_rrc_ReferenceTime_r16_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -22630,9 +22630,9 @@ define internal i32 @dissect_xnap_TAIListforMDT(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xnap_TAIforMDT_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_xnap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -22649,7 +22649,7 @@ define internal i32 @dissect_xnap_TAIforMDT_Item(ptr noundef %0, i32 noundef %1,
 
 xnap_get_private_data.exit:                       ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 8, ptr %17, align 4
   %18 = load i32, ptr @ett_xnap_TAIforMDT_Item, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @TAIforMDT_Item_sequence) #7
@@ -22687,7 +22687,7 @@ define internal i32 @dissect_xnap_MeasurementsToActivate(ptr noundef %0, i32 nou
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_MeasurementsToActivate, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -22730,7 +22730,7 @@ define internal i32 @dissect_xnap_MDT_Location_Info(ptr noundef %0, i32 noundef 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_MDT_Location_Info, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
@@ -22890,7 +22890,7 @@ define internal i32 @dissect_xnap_BluetoothName(ptr noundef %0, i32 noundef %1, 
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 248, i32 noundef 0, ptr noundef nonnull %6) #7
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -22927,7 +22927,7 @@ define internal i32 @dissect_xnap_WLANName(ptr noundef %0, i32 noundef %1, ptr n
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6) #7
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -23087,12 +23087,12 @@ define internal i32 @dissect_xnap_MDTMode_EUTRA(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_MDTMode_EUTRA, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_s1ap_MDTMode_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23163,12 +23163,12 @@ define internal i32 @dissect_xnap_T_anchorCarrier_NPRACHConfig(ptr noundef %0, i
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_anchorCarrier_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_NPRACH_ParametersList_NB_r13_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23187,12 +23187,12 @@ define internal i32 @dissect_xnap_T_anchorCarrier_EDT_NPRACHConfig(ptr noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_anchorCarrier_EDT_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_NPRACH_ParametersList_NB_r14_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23211,12 +23211,12 @@ define internal i32 @dissect_xnap_T_anchorCarrier_Format2_NPRACHConfig(ptr nound
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_anchorCarrier_Format2_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_NPRACH_ParametersListFmt2_NB_r15_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23235,12 +23235,12 @@ define internal i32 @dissect_xnap_T_anchorCarrier_Format2_EDT_NPRACHConfig(ptr n
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_anchorCarrier_Format2_EDT_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_NPRACH_ParametersListFmt2_NB_r15_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23259,12 +23259,12 @@ define internal i32 @dissect_xnap_T_non_anchorCarrier_NPRACHConfig(ptr noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_non_anchorCarrier_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_UL_ConfigCommonList_NB_r14_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23283,12 +23283,12 @@ define internal i32 @dissect_xnap_T_non_anchorCarrier_Format2_NPRACHConfig(ptr n
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_non_anchorCarrier_Format2_NPRACHConfig, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_UL_ConfigCommonList_NB_v1530_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23323,12 +23323,12 @@ define internal i32 @dissect_xnap_T_anchorCarrier_NPRACHConfigTDD(ptr noundef %0
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_anchorCarrier_NPRACHConfigTDD, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_NPRACH_ParametersListTDD_NB_r15_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23354,12 +23354,12 @@ define internal i32 @dissect_xnap_T_non_anchorCarrier_NPRACHConfigTDD(ptr nounde
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_non_anchorCarrier_NPRACHConfigTDD, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_UL_ConfigCommonListTDD_NB_r15_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18
@@ -23387,12 +23387,12 @@ define internal i32 @dissect_xnap_T_non_anchorCarrierFrquency(ptr noundef %0, i3
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_xnap_non_anchorCarrierFrequency, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_lte_rrc_DL_CarrierConfigCommon_NB_r14_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13, ptr noundef null) #7
   br label %18

@@ -745,7 +745,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_extrememesh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.391) #4
   %7 = load i32, ptr @proto_extrememesh, align 4
@@ -759,11 +759,11 @@ define internal noundef i32 @dissect_extrememesh(ptr noundef %0, ptr noundef %1,
   %15 = load i32, ptr @hf_extrememesh_nextproto, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef -1) #4
-  %18 = getelementptr inbounds i8, ptr %1, i64 216
-  %19 = getelementptr inbounds i8, ptr %1, i64 240
-  %20 = getelementptr inbounds i8, ptr %1, i64 212
-  %21 = getelementptr inbounds i8, ptr %1, i64 236
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %dissect_extrememesh_eth_noaddr.exit
 
 dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh_eth_noaddr.exit.backedge, %4
@@ -926,11 +926,11 @@ define internal fastcc void @dissect_extrememesh_mch(ptr noundef %0, ptr noundef
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0) #4
   %36 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 20, i32 noundef -1) #4
   %37 = getelementptr i8, ptr %1, i64 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 216
-  %39 = getelementptr inbounds i8, ptr %1, i64 240
-  %40 = getelementptr inbounds i8, ptr %1, i64 212
-  %41 = getelementptr inbounds i8, ptr %1, i64 236
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %dissect_extrememesh_eth_noaddr.exit
 
 dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh_eth_noaddr.exit.backedge, %3

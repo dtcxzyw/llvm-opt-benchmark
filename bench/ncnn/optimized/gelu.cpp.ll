@@ -82,7 +82,7 @@ define hidden noundef i32 @_ZNK4ncnn4GELU15forward_inplaceERNS_3MatERKNS_6Option
 
 26:                                               ; preds = %.lr.ph.us, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %28 = load float, ptr %27, align 4
   %29 = fmul fast float %28, 5.000000e-01
   %30 = fmul fast float %28, %28
@@ -129,7 +129,7 @@ define hidden noundef i32 @_ZNK4ncnn4GELU15forward_inplaceERNS_3MatERKNS_6Option
 
 47:                                               ; preds = %.lr.ph.us144, %47
   %indvars.iv155 = phi i64 [ 0, %.lr.ph.us144 ], [ %indvars.iv.next156, %47 ]
-  %48 = getelementptr inbounds float, ptr %46, i64 %indvars.iv155
+  %48 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv155
   %49 = load float, ptr %48, align 4
   %50 = fmul fast float %49, 5.000000e-01
   %51 = fmul fast float %49, 0xBFE6A09E60000000

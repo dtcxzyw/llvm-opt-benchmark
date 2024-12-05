@@ -77,7 +77,7 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %.preheader, %49
   %9 = phi ptr [ %51, %49 ], [ %0, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   br label %11
 
 11:                                               ; preds = %15, %8
@@ -134,7 +134,7 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
   %40 = getelementptr i8, ptr %13, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %13, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %41, ptr %43, align 8
   store volatile ptr %42, ptr %41, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %13, align 8
@@ -143,7 +143,7 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
   %45 = getelementptr i8, ptr %13, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %46, ptr %48, align 8
   store volatile ptr %47, ptr %46, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %44, align 8
@@ -152,21 +152,21 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
   br label %49
 
 49:                                               ; preds = %39, %35, %30, %.thread
-  %50 = getelementptr inbounds i8, ptr %9, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %2
   br i1 %52, label %.loopexit, label %8, !llvm.loop !13
 
 .loopexit:                                        ; preds = %49, %4
   tail call void @mutex_unlock(ptr noundef nonnull @rdmacg_mutex) #8
-  %53 = getelementptr inbounds i8, ptr %0, i64 84
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 1
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %75
 
 57:                                               ; preds = %.loopexit
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @__rcu_read_lock() #8
   %59 = load volatile i64, ptr %58, align 8
   %60 = and i64 %59, 3
@@ -179,7 +179,7 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
   br label %74
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, i64 1, ptr elementtype(i64) %66) #8, !srcloc !15
   %68 = icmp ult i8 %67, 2
@@ -189,9 +189,9 @@ define internal fastcc void @rdmacg_uncharge_hierarchy(ptr noundef %0, ptr nound
 
 70:                                               ; preds = %64
   %71 = load ptr, ptr %65, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef %58) #8
+  tail call void %73(ptr noundef nonnull %58) #8
   br label %74
 
 74:                                               ; preds = %70, %64, %62
@@ -211,11 +211,11 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !17
   %7 = inttoptr i64 %6 to ptr
   tail call void @__rcu_read_lock() #8
-  %8 = getelementptr inbounds i8, ptr %7, i64 2272
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2272
   %9 = load volatile ptr, ptr %8, align 32
   %10 = getelementptr i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0
@@ -223,7 +223,7 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
 
 .preheader:                                       ; preds = %5, %._crit_edge
   %16 = phi ptr [ %39, %._crit_edge ], [ %11, %5 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @__rcu_read_lock() #8
   %18 = load volatile i64, ptr %17, align 8
   %19 = and i64 %18, 3
@@ -236,7 +236,7 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   br label %.loopexit14.sink.split
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %16, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = load volatile i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
@@ -263,7 +263,7 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   %37 = load volatile ptr, ptr %8, align 32
   %38 = getelementptr i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 84
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 84
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
@@ -281,14 +281,14 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   br i1 %45, label %.loopexit13, label %46
 
 46:                                               ; preds = %.loopexit14
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = zext nneg i32 %2 to i64
   br label %50
 
 50:                                               ; preds = %103, %46
   %51 = phi ptr [ %44, %46 ], [ %108, %103 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 200
   br label %53
 
 53:                                               ; preds = %57, %50
@@ -316,8 +316,8 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
 
 67:                                               ; preds = %.thread11
   store ptr %1, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %.promoted = load i32, ptr %69, align 8
   br label %70
 
@@ -341,15 +341,15 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   br i1 %72, label %70, label %81, !llvm.loop !25
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %65, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store volatile ptr %82, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %65, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store volatile ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %65, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store volatile ptr %84, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %65, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store volatile ptr %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %51, i64 208
+  %86 = getelementptr inbounds nuw i8, ptr %51, i64 208
   %87 = load ptr, ptr %86, align 8
   store ptr %82, ptr %86, align 8
   store ptr %52, ptr %82, align 8
@@ -374,9 +374,9 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
   br label %.loopexit
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %90, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %97 = getelementptr [2 x %struct.rdmacg_resource], ptr %96, i64 0, i64 %49
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
   %101 = load i32, ptr %97, align 8
@@ -385,11 +385,11 @@ define dso_local i32 @rdmacg_try_charge(ptr nocapture noundef writeonly %0, ptr 
 
 103:                                              ; preds = %95
   store i32 %100, ptr %98, align 4
-  %104 = getelementptr inbounds i8, ptr %90, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, 1
   store i64 %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %51, i64 192
+  %107 = getelementptr inbounds nuw i8, ptr %51, i64 192
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.loopexit13, label %50, !llvm.loop !26
@@ -425,11 +425,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rdmacg_register_device(ptr noundef %0) #0 align 16 {
   store volatile ptr %0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %3, ptr %4, align 8
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @rdmacg_devices, i64 8), align 8
@@ -444,15 +444,15 @@ define dso_local void @rdmacg_register_device(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rdmacg_unregister_device(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store volatile ptr %0, ptr %0, align 8
   store volatile ptr %0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %.loopexit, label %.preheader
@@ -465,7 +465,7 @@ define dso_local void @rdmacg_unregister_device(ptr noundef %0) #0 align 16 {
   %13 = getelementptr i8, ptr %9, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
@@ -473,7 +473,7 @@ define dso_local void @rdmacg_unregister_device(ptr noundef %0) #0 align 16 {
   %17 = getelementptr i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   store volatile ptr %19, ptr %18, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
@@ -489,20 +489,20 @@ define dso_local void @rdmacg_unregister_device(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @free_cg_rpool_locked(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
@@ -519,9 +519,9 @@ define internal noundef ptr @rdmacg_css_alloc(ptr nocapture readnone %0) #0 alig
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store volatile ptr %6, ptr %7, align 8
   br label %8
 
@@ -533,7 +533,7 @@ define internal noundef ptr @rdmacg_css_alloc(ptr nocapture readnone %0) #0 alig
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rdmacg_css_offline(ptr noundef readonly %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -598,7 +598,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @of_css(ptr noundef %4) #8
   tail call void @mutex_lock(ptr noundef nonnull @rdmacg_mutex) #8
@@ -607,12 +607,12 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture 
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 200
   br label %10
 
 10:                                               ; preds = %.split8.us, %8
   %11 = phi ptr [ %6, %8 ], [ %52, %.split8.us ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %13) #8
   br label %14
@@ -638,15 +638,15 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture 
   %.fr12 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit17 ], [ null, %14 ]
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load i64, ptr %27, align 8
   %.fr = freeze i64 %28
   %29 = and i64 %.fr, 4294967295
   %30 = icmp eq i64 %29, 0
   %31 = icmp eq ptr %.fr12, null
-  %32 = getelementptr inbounds i8, ptr %.fr12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.fr12, i64 8
   br i1 %30, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.split.loop.exit5, %41
@@ -759,7 +759,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %24
 
 24:                                               ; preds = %48, %22
@@ -843,7 +843,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %60, label %.thread18, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %59, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef %63) #8
   %65 = icmp eq i32 %64, 0
@@ -854,7 +854,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %67, label %.thread18, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %10, i64 200
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 200
   br label %70
 
 70:                                               ; preds = %74, %68
@@ -882,8 +882,8 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
 
 84:                                               ; preds = %.thread19
   store ptr %59, ptr %82, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
-  %86 = getelementptr inbounds i8, ptr %82, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %.promoted = load i32, ptr %86, align 8
   br label %87
 
@@ -901,22 +901,22 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
 
 95:                                               ; preds = %87
   store i32 %spec.select33, ptr %86, align 8
-  %96 = getelementptr inbounds i8, ptr %82, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store volatile ptr %96, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %82, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store volatile ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %82, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store volatile ptr %98, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %82, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store volatile ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 208
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %101 = load ptr, ptr %100, align 8
   store ptr %96, ptr %100, align 8
   store ptr %69, ptr %96, align 8
   store ptr %101, ptr %97, align 8
   store volatile ptr %96, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %59, i64 16
-  %103 = getelementptr inbounds i8, ptr %59, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %104 = load ptr, ptr %103, align 8
   store ptr %98, ptr %103, align 8
   store ptr %102, ptr %98, align 8
@@ -930,8 +930,8 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %107, label %.thread20, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %106, i64 8
-  %110 = getelementptr inbounds i8, ptr %106, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 64
   br label %114
 
 .thread20:                                        ; preds = %.thread19, %105
@@ -987,7 +987,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %142, label %.thread22, label %114, !prof !34, !llvm.loop !35
 
 .thread22:                                        ; preds = %114, %138, %119
-  %143 = getelementptr inbounds i8, ptr %106, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %144 = load i64, ptr %143, align 8
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %146, label %.thread18

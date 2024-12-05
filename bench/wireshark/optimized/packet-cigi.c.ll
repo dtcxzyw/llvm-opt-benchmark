@@ -4911,7 +4911,7 @@ define internal fastcc void @dissect_cigi_pdu(ptr noundef %0, ptr noundef %1, pt
   %5 = icmp ult i16 %4, 256
   %. = select i1 %5, i32 0, i32 -2147483648
   %6 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef %.) #2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.2637) #2
   %9 = icmp eq i16 %6, 1
@@ -4936,9 +4936,9 @@ define internal fastcc void @dissect_cigi_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %17
 
 17:                                               ; preds = %.sink.split, %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %21 = tail call ptr @address_to_str(ptr noundef %19, ptr noundef nonnull %20) #2
   %22 = load ptr, ptr @global_host_ip, align 8
   %23 = tail call i32 @g_ascii_strcasecmp(ptr noundef %22, ptr noundef %21) #2
@@ -4955,7 +4955,7 @@ define internal fastcc void @dissect_cigi_pdu(ptr noundef %0, ptr noundef %1, pt
 27:                                               ; preds = %24, %17
   %.077 = phi ptr [ @.str.2850, %17 ], [ %spec.select, %24 ]
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %30 = tail call ptr @address_to_str(ptr noundef %28, ptr noundef nonnull %29) #2
   %31 = load ptr, ptr @global_host_ip, align 8
   %32 = tail call i32 @g_ascii_strcasecmp(ptr noundef %31, ptr noundef %30) #2
@@ -4986,20 +4986,20 @@ define internal fastcc void @dissect_cigi_pdu(ptr noundef %0, ptr noundef %1, pt
   %45 = load i32, ptr @ett_cigi, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #2
   %47 = load i32, ptr @hf_cigi_src_port, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 284
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %49) #2
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %51
 
 51:                                               ; preds = %39
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not5.i = icmp eq ptr %53, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, 1
   store i32 %57, ptr %55, align 4
@@ -5007,20 +5007,20 @@ define internal fastcc void @dissect_cigi_pdu(ptr noundef %0, ptr noundef %1, pt
 
 proto_item_set_hidden.exit:                       ; preds = %39, %51, %54
   %58 = load i32, ptr @hf_cigi_dest_port, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 288
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %60 = load i32, ptr %59, align 8
   %61 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %60) #2
   %.not.i86 = icmp eq ptr %61, null
   br i1 %.not.i86, label %proto_item_set_hidden.exit88, label %62
 
 62:                                               ; preds = %proto_item_set_hidden.exit
-  %63 = getelementptr inbounds i8, ptr %61, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %64 = load ptr, ptr %63, align 8
   %.not5.i87 = icmp eq ptr %64, null
   br i1 %.not5.i87, label %proto_item_set_hidden.exit88, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %67 = load i32, ptr %66, align 4
   %68 = or i32 %67, 1
   store i32 %68, ptr %66, align 4
@@ -5034,13 +5034,13 @@ proto_item_set_hidden.exit88:                     ; preds = %proto_item_set_hidd
   br i1 %.not.i89, label %proto_item_set_hidden.exit91, label %72
 
 72:                                               ; preds = %proto_item_set_hidden.exit88
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not5.i90 = icmp eq ptr %74, null
   br i1 %.not5.i90, label %proto_item_set_hidden.exit91, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -5054,13 +5054,13 @@ proto_item_set_hidden.exit91:                     ; preds = %proto_item_set_hidd
   br i1 %.not.i92, label %proto_item_set_hidden.exit94, label %82
 
 82:                                               ; preds = %proto_item_set_hidden.exit91
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not5.i93 = icmp eq ptr %84, null
   br i1 %.not5.i93, label %proto_item_set_hidden.exit94, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, 1
   store i32 %88, ptr %86, align 4
@@ -5074,13 +5074,13 @@ proto_item_set_hidden.exit94:                     ; preds = %proto_item_set_hidd
   br i1 %.not.i95, label %proto_item_set_hidden.exit97, label %92
 
 92:                                               ; preds = %proto_item_set_hidden.exit94
-  %93 = getelementptr inbounds i8, ptr %91, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not5.i96 = icmp eq ptr %94, null
   br i1 %.not5.i96, label %proto_item_set_hidden.exit97, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 1
   store i32 %98, ptr %96, align 4
@@ -5359,7 +5359,7 @@ switch.lookup:                                    ; preds = %132
   %switch.downshift = lshr i48 17729895536688, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   %177 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_cigi_pdu, i64 0, i64 %177
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_cigi_pdu, i64 0, i64 %177
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %178
 

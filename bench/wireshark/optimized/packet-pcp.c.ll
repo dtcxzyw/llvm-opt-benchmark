@@ -709,7 +709,7 @@ define internal i32 @get_pcp_message_len(ptr nocapture readnone %0, ptr noundef 
 define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.251) #5
   %9 = load ptr, ptr %7, align 8
@@ -730,13 +730,13 @@ define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %19, ptr %16, align 8
   %20 = tail call ptr @wmem_file_scope() #5
   %21 = tail call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #5
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 0, ptr %25, align 8
   br label %26
 
@@ -899,7 +899,7 @@ define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i124:                                      ; preds = %106
   %.not71.i = icmp eq i32 %117, 0
-  %121 = getelementptr inbounds i8, ptr %1, i64 20
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sink85.i = select i1 %.not71.i, i32 4, i32 8
   br label %122
 
@@ -973,13 +973,13 @@ get_pcp_conversation_info.exit.i.i:               ; preds = %140
 
 get_pcp_conversation_info.exit.i.i.i:             ; preds = %146
   %150 = load i32, ptr %121, align 4
-  %151 = getelementptr inbounds i8, ptr %148, i64 20
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %152 = load i32, ptr %151, align 4
   %153 = icmp ugt i32 %150, %152
   br i1 %153, label %is_unvisited_pmns_names_frame.exit.i.i, label %add_candidate_name_for_pmid_resolution.exit.i
 
 is_unvisited_pmns_names_frame.exit.i.i:           ; preds = %get_pcp_conversation_info.exit.i.i.i
-  %154 = getelementptr inbounds i8, ptr %148, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %155 = load i32, ptr %154, align 8
   %.not.i.i = icmp ugt i32 %150, %155
   br i1 %.not.i.i, label %156, label %add_candidate_name_for_pmid_resolution.exit.i
@@ -1043,9 +1043,9 @@ add_candidate_name_for_pmid_resolution.exit.i:    ; preds = %156, %is_unvisited_
   unreachable
 
 get_pcp_conversation_info.exit.i78.i:             ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %1, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds i8, ptr %178, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %183 = load i32, ptr %182, align 8
   %184 = icmp ugt i32 %181, %183
   br i1 %184, label %185, label %dissect_pcp_message_creds.exit
@@ -1121,7 +1121,7 @@ get_pcp_conversation_info.exit.i.i129:            ; preds = %214
   br i1 %.not.i12.i.i, label %create_pmid_to_name_map_from_candidates.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %224
-  %225 = getelementptr inbounds i8, ptr %216, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %216, i64 8
   br label %226
 
 226:                                              ; preds = %239, %.lr.ph.i.i.i
@@ -1669,7 +1669,7 @@ dissect_pcp_message_text_req.exit:                ; preds = %521, %523, %525
   br i1 %583, label %.lr.ph.i162, label %dissect_pcp_message_label.exit
 
 .lr.ph.i162:                                      ; preds = %567
-  %584 = getelementptr inbounds i8, ptr %1, i64 408
+  %584 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %585
 
 585:                                              ; preds = %dissect_pcp_partial_labelset.exit.i, %.lr.ph.i162
@@ -1746,7 +1746,7 @@ dissect_pcp_message_text_req.exit:                ; preds = %521, %523, %525
   unreachable
 
 is_using_good_labels.exit.i.i.i:                  ; preds = %631
-  %635 = getelementptr inbounds i8, ptr %633, i64 24
+  %635 = getelementptr inbounds nuw i8, ptr %633, i64 24
   %636 = load i32, ptr %635, align 8
   %.not.i.i.i163 = icmp eq i32 %636, 0
   br i1 %.not.i.i.i163, label %640, label %637
@@ -1858,7 +1858,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_pcp_message_error(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_append_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.394) #5
   %6 = load i32, ptr @hf_pcp_pdu_error, align 4
@@ -1910,7 +1910,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_pcp_partial_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #5
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %7, ptr noundef nonnull @.str.378) #5
   %9 = zext i16 %5 to i32
@@ -1924,7 +1924,7 @@ define internal fastcc noundef i32 @dissect_pcp_partial_features(ptr noundef %0,
   br i1 %.not13.i, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %8, ptr noundef nonnull @.str.379, ptr noundef %15) #5
   br label %16
@@ -1947,7 +1947,7 @@ define internal fastcc noundef i32 @dissect_pcp_partial_features(ptr noundef %0,
 
 get_pcp_features_to_string.exit:                  ; preds = %19, %22
   %24 = tail call ptr @wmem_strbuf_get_str(ptr noundef %8) #5
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.377, ptr noundef %24) #5
   %27 = load i32, ptr @hf_pcp_features_flags, align 4
@@ -1984,7 +1984,7 @@ get_pcp_features_to_string.exit:                  ; preds = %19, %22
   unreachable
 
 get_pcp_conversation_info.exit:                   ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 1, ptr %41, align 8
   br label %42
 
@@ -2044,7 +2044,7 @@ define internal fastcc noundef i32 @dissect_pcp_partial_pmid(ptr noundef %0, ptr
   unreachable
 
 get_pcp_conversation_info.exit.i:                 ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %5 to i64
   %15 = inttoptr i64 %14 to ptr
@@ -2053,7 +2053,7 @@ get_pcp_conversation_info.exit.i:                 ; preds = %8
   br i1 %.not.i, label %17, label %get_name_from_pmid.exit
 
 17:                                               ; preds = %get_pcp_conversation_info.exit.i
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr @wmem_strdup(ptr noundef %19, ptr noundef nonnull @.str.400) #5
   br label %get_name_from_pmid.exit

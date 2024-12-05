@@ -23,21 +23,21 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16FrameInformationC2EP11CaptureFileP11_frame_dataP7QObject(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @wtap_rec_init(ptr noundef nonnull %9)
           to label %10 unwind label %14
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   invoke void @ws_buffer_init(ptr noundef nonnull %11, i64 noundef 1514)
           to label %12 unwind label %14
 
@@ -65,20 +65,20 @@ declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16FrameInformation13loadFrameTreeEv(ptr noundef nonnull align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %61, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not1 = icmp eq ptr %6, null
   br i1 %.not1, label %61, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not24 = icmp ne ptr %10, null
   %.not2.not = select i1 %8, i1 %.not24, i1 false
@@ -87,58 +87,58 @@ define void @_ZN16FrameInformation13loadFrameTreeEv(ptr noundef nonnull align 8 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %5, align 8
   %13 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %13, ptr %15, ptr null
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %20 = tail call i32 @cf_read_record(ptr noundef %16, ptr noundef %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %.not3 = icmp eq i32 %20, 0
   br i1 %.not3, label %61, label %21
 
 21:                                               ; preds = %11
   %22 = tail call noalias dereferenceable_or_null(464) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 464) #15
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %24)
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   tail call void @epan_dissect_init(ptr noundef %22, ptr noundef %28, i32 noundef 1, i32 noundef 1)
   %29 = load ptr, ptr %23, align 8
   %30 = load ptr, ptr %5, align 8
   %31 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %30)
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = select i1 %31, ptr %33, ptr null
-  %35 = getelementptr inbounds i8, ptr %34, i64 304
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 304
   tail call void @col_custom_prime_edt(ptr noundef %29, ptr noundef nonnull %35)
   %36 = load ptr, ptr %23, align 8
   %37 = load ptr, ptr %5, align 8
   %38 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %37)
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = select i1 %38, ptr %40, ptr null
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load i16, ptr %42, align 8
   %44 = zext i16 %43 to i32
   %45 = load ptr, ptr %5, align 8
   %46 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = select i1 %46, ptr %48, ptr null
-  %50 = getelementptr inbounds i8, ptr %49, i64 248
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 248
   %51 = load ptr, ptr %2, align 8
   %52 = tail call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull %50, ptr noundef %51, ptr noundef nonnull %19)
   %53 = load ptr, ptr %2, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %54)
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = select i1 %55, ptr %57, ptr null
-  %59 = getelementptr inbounds i8, ptr %58, i64 304
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 304
   tail call void @epan_dissect_run(ptr noundef %36, i32 noundef %44, ptr noundef nonnull %18, ptr noundef %52, ptr noundef %53, ptr noundef nonnull %59)
   %60 = load ptr, ptr %23, align 8
   tail call void @epan_dissect_fill_in_columns(ptr noundef %60, i32 noundef 1, i32 noundef 1)
@@ -169,9 +169,9 @@ declare void @epan_dissect_fill_in_columns(ptr noundef, i32 noundef, i32 noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16FrameInformationD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FrameInformation, i64 136), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -186,12 +186,12 @@ define void @_ZN16FrameInformationD2Ev(ptr noundef nonnull align 8 dereferenceab
           to label %8 unwind label %13
 
 8:                                                ; preds = %6, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @wtap_rec_cleanup(ptr noundef nonnull %9)
           to label %10 unwind label %13
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   invoke void @ws_buffer_free(ptr noundef nonnull %11)
           to label %12 unwind label %13
 
@@ -254,23 +254,23 @@ define void @_ZThn16_N16FrameInformationD0Ev(ptr noundef %0) unnamed_addr #7 ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN16FrameInformation7isValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not2 = icmp eq ptr %5, null
   %or.cond = select i1 %.not, i1 true, i1 %.not2
   br i1 %or.cond, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not3 = icmp eq ptr %8, null
   br i1 %.not3, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not4 = icmp ne ptr %11, null
   br label %12
@@ -282,14 +282,14 @@ define noundef zeroext i1 @_ZN16FrameInformation7isValidEv(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK16FrameInformation9frameDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK16FrameInformation8frameNumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -305,13 +305,13 @@ define noundef i32 @_ZNK16FrameInformation8frameNumEv(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16FrameInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %8, label %9
@@ -321,11 +321,11 @@ define void @_ZN16FrameInformation13printableDataEv(ptr dead_on_unwind noalias w
   br label %18
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @tvb_captured_length(ptr noundef %11)
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @tvb_get_ptr(ptr noundef %15, i32 noundef 0, i32 noundef %12)
   %17 = sext i32 %12 to i64
@@ -345,13 +345,13 @@ declare void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: uwtable
 define void @_ZThn16_N16FrameInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !4
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !noalias !4
   %.not3.i = icmp eq ptr %7, null
   br i1 %.not3.i, label %8, label %9
@@ -361,11 +361,11 @@ define void @_ZThn16_N16FrameInformation13printableDataEv(ptr dead_on_unwind noa
   br label %_ZN16FrameInformation13printableDataEv.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !4
   %12 = tail call i32 @tvb_captured_length(ptr noundef %11), !noalias !4
   %13 = load ptr, ptr %6, align 8, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !4
   %16 = tail call ptr @tvb_get_ptr(ptr noundef %15, i32 noundef 0, i32 noundef %12), !noalias !4
   %17 = sext i32 %12 to i64

@@ -120,7 +120,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 32:                                               ; preds = %14
   %33 = load float, ptr %0, align 4
   %34 = lshr i64 %2, 1
-  %35 = getelementptr inbounds float, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw float, ptr %0, i64 %34
   %36 = load float, ptr %35, align 4
   %37 = getelementptr float, ptr %0, i64 %2
   %38 = getelementptr i8, ptr %37, i64 -4
@@ -136,8 +136,8 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %43 = ashr exact i64 %sext, 32
   %44 = and i64 %2, 4294967295
   %.not.i77 = icmp eq i64 %44, 0
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not.i77, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %47
@@ -156,7 +156,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 .lr.ph.i.us:                                      ; preds = %56, %.split.us
   %.013.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
-  %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 4
   %50 = load float, ptr %.013.i.us, align 4
   %51 = fcmp olt float %.05389.us, %50
   br i1 %51, label %.sink.split.i.us, label %52
@@ -214,7 +214,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %71
   %.013.i = phi ptr [ %64, %71 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
-  %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %65 = load float, ptr %.013.i, align 4
   %66 = fcmp olt float %.05389, %65
   br i1 %66, label %.sink.split.i, label %67
@@ -416,7 +416,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   ret void
@@ -503,7 +503,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 32:                                               ; preds = %14
   %33 = load float, ptr %0, align 4
   %34 = lshr i64 %2, 1
-  %35 = getelementptr inbounds float, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw float, ptr %0, i64 %34
   %36 = load float, ptr %35, align 4
   %37 = getelementptr float, ptr %0, i64 %2
   %38 = getelementptr i8, ptr %37, i64 -4
@@ -519,8 +519,8 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   %43 = ashr exact i64 %sext, 32
   %44 = and i64 %2, 4294967295
   %.not.i77 = icmp eq i64 %44, 0
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not.i77, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %47
@@ -539,7 +539,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
 .lr.ph.i.us:                                      ; preds = %56, %.split.us
   %.013.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
-  %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 4
   %50 = load float, ptr %.013.i.us, align 4
   %51 = fcmp ogt float %.05389.us, %50
   br i1 %51, label %.sink.split.i.us, label %52
@@ -597,7 +597,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %71
   %.013.i = phi ptr [ %64, %71 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
-  %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %65 = load float, ptr %.013.i, align 4
   %66 = fcmp ogt float %.05389, %65
   br i1 %66, label %.sink.split.i, label %67
@@ -848,7 +848,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 33:                                               ; preds = %15
   %34 = load i16, ptr %0, align 2
   %35 = lshr i64 %2, 1
-  %36 = getelementptr inbounds i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = getelementptr i16, ptr %0, i64 %2
   %39 = getelementptr i8, ptr %38, i64 -2
@@ -862,8 +862,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %42 = ashr exact i64 %sext, 32
   %43 = and i64 %2, 4294967295
   %.not.i76 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %7, i64 2
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %.not.i76, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %33
@@ -874,7 +874,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
   %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ult i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
@@ -931,7 +931,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %67
   %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
   %62 = icmp ult i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
@@ -1184,7 +1184,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 33:                                               ; preds = %15
   %34 = load i16, ptr %0, align 2
   %35 = lshr i64 %2, 1
-  %36 = getelementptr inbounds i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = getelementptr i16, ptr %0, i64 %2
   %39 = getelementptr i8, ptr %38, i64 -2
@@ -1198,8 +1198,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %42 = ashr exact i64 %sext, 32
   %43 = and i64 %2, 4294967295
   %.not.i76 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %7, i64 2
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %.not.i76, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %33
@@ -1210,7 +1210,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
   %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ugt i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
@@ -1267,7 +1267,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %67
   %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
   %62 = icmp ugt i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
@@ -1520,7 +1520,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 33:                                               ; preds = %15
   %34 = load i16, ptr %0, align 2
   %35 = lshr i64 %2, 1
-  %36 = getelementptr inbounds i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = getelementptr i16, ptr %0, i64 %2
   %39 = getelementptr i8, ptr %38, i64 -2
@@ -1534,8 +1534,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %42 = ashr exact i64 %sext, 32
   %43 = and i64 %2, 4294967295
   %.not.i76 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %7, i64 2
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %.not.i76, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %33
@@ -1546,7 +1546,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
   %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ult i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
@@ -1603,7 +1603,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %67
   %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
   %62 = icmp ult i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
@@ -1856,7 +1856,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 33:                                               ; preds = %15
   %34 = load i16, ptr %0, align 2
   %35 = lshr i64 %2, 1
-  %36 = getelementptr inbounds i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = getelementptr i16, ptr %0, i64 %2
   %39 = getelementptr i8, ptr %38, i64 -2
@@ -1870,8 +1870,8 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   %42 = ashr exact i64 %sext, 32
   %43 = and i64 %2, 4294967295
   %.not.i76 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %7, i64 2
-  %45 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %.not.i76, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %33
@@ -1882,7 +1882,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
   %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
   %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
   %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ugt i16 %.0.i, %47
   br i1 %48, label %.sink.split.i.us, label %49
@@ -1939,7 +1939,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
 .lr.ph.i:                                         ; preds = %.split, %67
   %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
   %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
   %61 = load i16, ptr %.013.i, align 2
   %62 = icmp ugt i16 %.05391, %61
   br i1 %62, label %.sink.split.i, label %63
@@ -2139,9 +2139,9 @@ _ZN5faiss12simd16uint16C2Ei.exit.preheader:
 
 10:                                               ; preds = %10, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %12 = load i16, ptr %11, align 2
-  %13 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %spec.store.select = tail call i16 @llvm.umin.i16(i16 %12, i16 %14)
   store i16 %spec.store.select, ptr %13, align 2
@@ -2151,9 +2151,9 @@ _ZN5faiss12simd16uint16C2Ei.exit.preheader:
 
 _ZN5faiss12simd16uint168accu_minERKS0_.exit:      ; preds = %10, %_ZN5faiss12simd16uint168accu_minERKS0_.exit
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %_ZN5faiss12simd16uint168accu_minERKS0_.exit ], [ 0, %10 ]
-  %15 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i33
+  %15 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i33
   %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds [16 x i16], ptr %5, i64 0, i64 %indvars.iv.i33
+  %17 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 0, i64 %indvars.iv.i33
   %18 = load i16, ptr %17, align 2
   %spec.store.select39 = tail call i16 @llvm.umax.i16(i16 %16, i16 %18)
   store i16 %spec.store.select39, ptr %17, align 2
@@ -2169,7 +2169,7 @@ _ZN5faiss12simd16uint168accu_maxERKS0_.exit:      ; preds = %_ZN5faiss12simd16ui
 
 _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16uint168accu_maxERKS0_.exit, %_ZN5faiss12simd16uint16C2Ei.exit.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false)
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
   %23 = load i16, ptr %7, align 32
   store i16 %23, ptr %2, align 2
@@ -2179,13 +2179,13 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 
 25:                                               ; preds = %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge, %25
   %indvars.iv = phi i64 [ 1, %_ZN5faiss12simd16uint16C2Ei.exit32._crit_edge ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds [32 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2
   %28 = load i16, ptr %2, align 2
   %29 = tail call i16 @llvm.umin.i16(i16 %27, i16 %28)
   store i16 %29, ptr %2, align 2
   %30 = or disjoint i64 %indvars.iv, 16
-  %31 = getelementptr inbounds [32 x i16], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %30
   %32 = load i16, ptr %3, align 2
   %33 = load i16, ptr %31, align 2
   %34 = tail call i16 @llvm.umax.i16(i16 %32, i16 %33)
@@ -2237,7 +2237,7 @@ define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonl
   %8 = getelementptr inbounds i16, ptr %0, i64 %.02432
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2270,7 +2270,7 @@ define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonl
 27:                                               ; preds = %22
   %28 = lshr i32 %26, %3
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -2307,7 +2307,7 @@ define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly
   %8 = getelementptr inbounds i16, ptr %0, i64 %.02128
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2331,7 +2331,7 @@ define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds i32, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4

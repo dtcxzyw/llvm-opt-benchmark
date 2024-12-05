@@ -100,9 +100,9 @@ declare void @switch_record_validate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_p_eval_nodes(ptr noundef initializes((32, 40), (96, 97)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @eval_nodes_tree, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %3, align 8
   %4 = tail call i32 @common_topo_choose_nodes(ptr noundef %0) #10
   ret i32 %4
@@ -135,7 +135,7 @@ define noundef zeroext i1 @topology_p_generate_node_ranking() local_unnamed_addr
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %35 ], [ 0, %.preheader17 ]
   %.01319 = phi i32 [ %.1, %35 ], [ 1, %.preheader17 ]
   %8 = load ptr, ptr @switch_record_table, align 8
-  %9 = getelementptr inbounds %struct.switch_record_t, ptr %8, i64 %indvars.iv24
+  %9 = getelementptr inbounds nuw %struct.switch_record_t, ptr %8, i64 %indvars.iv24
   %10 = load i32, ptr %9, align 8
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %.preheader, label %35
@@ -148,7 +148,7 @@ define noundef zeroext i1 @topology_p_generate_node_ranking() local_unnamed_addr
 .lr.ph:                                           ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader ]
   %13 = load ptr, ptr @switch_record_table, align 8
-  %14 = getelementptr inbounds %struct.switch_record_t, ptr %13, i64 %indvars.iv24, i32 3
+  %14 = getelementptr inbounds nuw %struct.switch_record_t, ptr %13, i64 %indvars.iv24, i32 3
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_bit_test(ptr noundef %15, i64 noundef %indvars.iv) #10
   %.not16 = icmp eq i32 %16, 0
@@ -156,9 +156,9 @@ define noundef zeroext i1 @topology_p_generate_node_ranking() local_unnamed_addr
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr @node_record_table_ptr, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 288
   store i32 %.01319, ptr %21, align 8
   %22 = tail call i32 @slurm_get_log_level() #10
   %23 = icmp sgt i32 %22, 4
@@ -166,9 +166,9 @@ define noundef zeroext i1 @topology_p_generate_node_ranking() local_unnamed_addr
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr @node_record_table_ptr, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 256
   %29 = load ptr, ptr %28, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.topology_p_generate_node_ranking, ptr noundef %29, i32 noundef %.01319) #10
   br label %30
@@ -243,7 +243,7 @@ define range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, ptr nounde
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.03545 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %16 ]
-  %17 = getelementptr inbounds %struct.switch_record_t, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.switch_record_t, ptr %15, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %18, i32 %.03545)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -256,7 +256,7 @@ define range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, ptr nounde
   store ptr %19, ptr %1, align 8
   %20 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.4) #10
   store ptr %20, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 192
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge50.thread
@@ -269,13 +269,13 @@ define range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, ptr nounde
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %42 ], [ 0, %.preheader ]
   %.13847 = phi ptr [ %.2, %42 ], [ null, %.preheader ]
   %24 = load ptr, ptr @switch_record_table, align 8
-  %25 = getelementptr inbounds %struct.switch_record_t, ptr %24, i64 %indvars.iv55
+  %25 = getelementptr inbounds nuw %struct.switch_record_t, ptr %24, i64 %indvars.iv55
   %26 = load i32, ptr %25, align 8
   %.not42 = icmp eq i32 %26, %.052
   br i1 %.not42, label %27, label %42
 
 27:                                               ; preds = %.lr.ph49
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %21, align 8
   %31 = zext i32 %30 to i64
@@ -286,7 +286,7 @@ define range(i32 -1, 1) i32 @topology_p_get_node_addr(ptr noundef %0, ptr nounde
 33:                                               ; preds = %27
   %34 = icmp eq ptr %.13847, null
   %35 = load ptr, ptr @switch_record_table, align 8
-  %36 = getelementptr inbounds %struct.switch_record_t, ptr %35, i64 %indvars.iv55, i32 2
+  %36 = getelementptr inbounds nuw %struct.switch_record_t, ptr %35, i64 %indvars.iv55, i32 2
   %37 = load ptr, ptr %36, align 8
   br i1 %34, label %38, label %40
 
@@ -445,13 +445,13 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %44 = phi i32 [ %58, %57 ], [ 0, %38 ]
   %45 = load ptr, ptr @switch_record_table, align 8
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds %struct.switch_record_t, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw %struct.switch_record_t, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %47, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
   %54 = call i32 @slurm_bit_overlap_any(ptr noundef %52, ptr noundef %53) #10
@@ -499,13 +499,13 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %71 = phi i32 [ %101, %._crit_edge103.thread ], [ 0, %.preheader ]
   %72 = load ptr, ptr @switch_record_table, align 8
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds %struct.switch_record_t, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw %struct.switch_record_t, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, %.056112
   br i1 %76, label %77, label %._crit_edge103.thread
 
 77:                                               ; preds = %.lr.ph107
-  %78 = getelementptr inbounds i8, ptr %74, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %79 = load i16, ptr %78, align 8
   %.not125 = icmp eq i16 %79, 0
   br i1 %.not125, label %._crit_edge103.thread, label %.lr.ph102.preheader
@@ -519,9 +519,9 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %.05899 = phi i32 [ 0, %.lr.ph102.preheader ], [ %.1, %94 ]
   %.05998 = phi i32 [ -1, %.lr.ph102.preheader ], [ %.160, %94 ]
   %80 = load ptr, ptr @switch_record_table, align 8
-  %81 = getelementptr inbounds %struct.switch_record_t, ptr %80, i64 %73, i32 10
+  %81 = getelementptr inbounds nuw %struct.switch_record_t, ptr %80, i64 %73, i32 10
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i16, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2
   %85 = load ptr, ptr %10, align 8
   %86 = zext i16 %84 to i64
@@ -615,7 +615,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 125:                                              ; preds = %119
   %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds i8, ptr %122, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = call i32 @slurm_bit_super_set(ptr noundef %126, ptr noundef %128) #10
   %.not78 = icmp eq i32 %129, 0
@@ -691,11 +691,11 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %.031.i = phi i32 [ %.2.i, %200 ], [ 0, %150 ]
   %157 = getelementptr inbounds %struct.switch_record_t, ptr %156, i64 %148, i32 11
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i16, ptr %158, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw i16, ptr %158, i64 %indvars.iv.i
   %160 = load i16, ptr %159, align 2
   %.not.i = icmp eq ptr %155, null
   %161 = zext i16 %160 to i64
-  %162 = getelementptr inbounds %struct.switch_record_t, ptr %156, i64 %161, i32 3
+  %162 = getelementptr inbounds nuw %struct.switch_record_t, ptr %156, i64 %161, i32 3
   %163 = load ptr, ptr %162, align 8
   br i1 %.not.i, label %164, label %166
 
@@ -743,7 +743,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 188:                                              ; preds = %179
   %189 = load ptr, ptr @switch_record_table, align 8
-  %190 = getelementptr inbounds %struct.switch_record_t, ptr %189, i64 %indvars.iv.i, i32 2
+  %190 = getelementptr inbounds nuw %struct.switch_record_t, ptr %189, i64 %indvars.iv.i, i32 2
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %6, align 8
   %193 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -850,7 +850,7 @@ _subtree_split_hostlist.exit:                     ; preds = %150, %._crit_edge.i
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds ptr, ptr %237, i64 %239
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %231, i64 256
+  %242 = getelementptr inbounds nuw i8, ptr %231, i64 256
   %243 = load ptr, ptr %242, align 8
   %244 = call i32 @slurm_hostlist_push_host(ptr noundef %241, ptr noundef %243) #10
   %245 = load i32, ptr %2, align 4
@@ -969,7 +969,7 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %16, label %.preheader
@@ -982,13 +982,13 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.topo_info, ptr %7, i64 %indvars.iv, i32 2
+  %8 = getelementptr inbounds nuw %struct.topo_info, ptr %7, i64 %indvars.iv, i32 2
   tail call void @slurm_xfree(ptr noundef nonnull %8) #10
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.topo_info, ptr %9, i64 %indvars.iv, i32 3
+  %10 = getelementptr inbounds nuw %struct.topo_info, ptr %9, i64 %indvars.iv, i32 3
   tail call void @slurm_xfree(ptr noundef nonnull %10) #10
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.topo_info, ptr %11, i64 %indvars.iv, i32 4
+  %12 = getelementptr inbounds nuw %struct.topo_info, ptr %11, i64 %indvars.iv, i32 4
   tail call void @slurm_xfree(ptr noundef nonnull %12) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
@@ -1021,13 +1021,13 @@ define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture nounde
   store ptr %5, ptr %1, align 8
   store ptr %4, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 102, ptr %7, align 8
   %8 = load i32, ptr @switch_record_cnt, align 4
   store i32 %8, ptr %4, align 8
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 491, ptr noundef nonnull @__func__.topology_p_get) #10
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %12 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %12, 0
@@ -1036,38 +1036,38 @@ define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %13 = load ptr, ptr @switch_record_table, align 8
-  %14 = getelementptr inbounds %struct.switch_record_t, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.switch_record_t, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 8
   %16 = trunc i32 %15 to i16
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct.topo_info, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.topo_info, ptr %17, i64 %indvars.iv
   store i16 %16, ptr %18, align 8
   %19 = load ptr, ptr @switch_record_table, align 8
-  %20 = getelementptr inbounds %struct.switch_record_t, ptr %19, i64 %indvars.iv, i32 1
+  %20 = getelementptr inbounds nuw %struct.switch_record_t, ptr %19, i64 %indvars.iv, i32 1
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds %struct.topo_info, ptr %22, i64 %indvars.iv, i32 1
+  %23 = getelementptr inbounds nuw %struct.topo_info, ptr %22, i64 %indvars.iv, i32 1
   store i32 %21, ptr %23, align 4
   %24 = load ptr, ptr @switch_record_table, align 8
-  %25 = getelementptr inbounds %struct.switch_record_t, ptr %24, i64 %indvars.iv, i32 2
+  %25 = getelementptr inbounds nuw %struct.switch_record_t, ptr %24, i64 %indvars.iv, i32 2
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @slurm_xstrdup(ptr noundef %26) #10
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds %struct.topo_info, ptr %28, i64 %indvars.iv, i32 2
+  %29 = getelementptr inbounds nuw %struct.topo_info, ptr %28, i64 %indvars.iv, i32 2
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr @switch_record_table, align 8
-  %31 = getelementptr inbounds %struct.switch_record_t, ptr %30, i64 %indvars.iv, i32 4
+  %31 = getelementptr inbounds nuw %struct.switch_record_t, ptr %30, i64 %indvars.iv, i32 4
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @slurm_xstrdup(ptr noundef %32) #10
   %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct.topo_info, ptr %34, i64 %indvars.iv, i32 3
+  %35 = getelementptr inbounds nuw %struct.topo_info, ptr %34, i64 %indvars.iv, i32 3
   store ptr %33, ptr %35, align 8
   %36 = load ptr, ptr @switch_record_table, align 8
-  %37 = getelementptr inbounds %struct.switch_record_t, ptr %36, i64 %indvars.iv, i32 8
+  %37 = getelementptr inbounds nuw %struct.switch_record_t, ptr %36, i64 %indvars.iv, i32 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @slurm_xstrdup(ptr noundef %38) #10
   %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds %struct.topo_info, ptr %40, i64 %indvars.iv, i32 4
+  %41 = getelementptr inbounds nuw %struct.topo_info, ptr %40, i64 %indvars.iv, i32 4
   store ptr %39, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %4, align 8
@@ -1100,21 +1100,21 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %struct.topo_info, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.topo_info, ptr %8, i64 %indvars.iv
   %10 = load i16, ptr %9, align 8
   tail call void @slurm_pack16(i16 noundef zeroext %10, ptr noundef %1) #10
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.topo_info, ptr %11, i64 %indvars.iv, i32 1
+  %12 = getelementptr inbounds nuw %struct.topo_info, ptr %11, i64 %indvars.iv, i32 1
   %13 = load i32, ptr %12, align 4
   tail call void @slurm_pack32(i32 noundef %13, ptr noundef %1) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.topo_info, ptr %14, i64 %indvars.iv, i32 2
+  %15 = getelementptr inbounds nuw %struct.topo_info, ptr %14, i64 %indvars.iv, i32 2
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %21, label %17
@@ -1129,7 +1129,7 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   %.036 = phi i32 [ %20, %17 ], [ 0, %7 ]
   tail call void @slurm_packmem(ptr noundef %16, i32 noundef %.036, ptr noundef %1) #10
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.topo_info, ptr %22, i64 %indvars.iv, i32 3
+  %23 = getelementptr inbounds nuw %struct.topo_info, ptr %22, i64 %indvars.iv, i32 3
   %24 = load ptr, ptr %23, align 8
   %.not41 = icmp eq ptr %24, null
   br i1 %.not41, label %29, label %25
@@ -1144,7 +1144,7 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   %.035 = phi i32 [ %28, %25 ], [ 0, %21 ]
   tail call void @slurm_packmem(ptr noundef %24, i32 noundef %.035, ptr noundef %1) #10
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.topo_info, ptr %30, i64 %indvars.iv, i32 4
+  %31 = getelementptr inbounds nuw %struct.topo_info, ptr %30, i64 %indvars.iv, i32 4
   %32 = load ptr, ptr %31, align 8
   %.not42 = icmp eq ptr %32, null
   br i1 %.not42, label %37, label %33
@@ -1183,14 +1183,14 @@ define void @_print_topo_record(ptr nocapture noundef readonly %0, ptr noundef %
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %0, align 8
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   call void (ptr, ptr, ptr, ...) @slurm_xstrfmtcatat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef %6, i32 noundef %8, i32 noundef %10) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
@@ -1200,7 +1200,7 @@ define void @_print_topo_record(ptr nocapture noundef readonly %0, ptr noundef %
   br label %14
 
 14:                                               ; preds = %13, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %18, label %17
@@ -1257,7 +1257,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader47
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %28
 
 10:                                               ; preds = %5, %3
@@ -1266,7 +1266,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %12, label %14, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
 14:                                               ; preds = %10
@@ -1276,7 +1276,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %.lr.ph55, %16
   %indvars.iv64 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next65, %16 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds %struct.topo_info, ptr %17, i64 %indvars.iv64
+  %18 = getelementptr inbounds nuw %struct.topo_info, ptr %17, i64 %indvars.iv64
   tail call void @_print_topo_record(ptr noundef %18, ptr noundef nonnull %2)
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %19 = load i32, ptr %0, align 8
@@ -1296,13 +1296,13 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %26, label %._crit_edge.thread, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.preheader46
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %36
 
 28:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.topo_info, ptr %29, i64 %indvars.iv, i32 2
+  %30 = getelementptr inbounds nuw %struct.topo_info, ptr %29, i64 %indvars.iv, i32 2
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @slurm_xstrcmp(ptr noundef %31, ptr noundef nonnull %1) #10
   %.not45 = icmp eq i32 %32, 0
@@ -1310,7 +1310,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.topo_info, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.topo_info, ptr %34, i64 %indvars.iv
   tail call void @_print_topo_record(ptr noundef %35, ptr noundef nonnull %2)
   br label %.loopexit
 
@@ -1318,7 +1318,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %indvars.iv61 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next62, %54 ]
   %.04151 = phi i32 [ 0, %.lr.ph53 ], [ %.142, %54 ]
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds %struct.topo_info, ptr %37, i64 %indvars.iv61, i32 3
+  %38 = getelementptr inbounds nuw %struct.topo_info, ptr %37, i64 %indvars.iv61, i32 3
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %54, label %41
@@ -1346,7 +1346,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 50:                                               ; preds = %48
   %51 = add nsw i32 %.04151, 1
   %52 = load ptr, ptr %27, align 8
-  %53 = getelementptr inbounds %struct.topo_info, ptr %52, i64 %indvars.iv61
+  %53 = getelementptr inbounds nuw %struct.topo_info, ptr %52, i64 %indvars.iv61
   tail call void @_print_topo_record(ptr noundef %53, ptr noundef nonnull %2)
   br label %54
 
@@ -1396,14 +1396,14 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %.not34, label %.thread45, label %13
 
 .thread45:                                        ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %12, align 8
   br label %.loopexit
 
 13:                                               ; preds = %10
   %14 = zext i32 %11 to i64
   %15 = tail call ptr @slurm_xcalloc(i64 noundef %14, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.8, i32 noundef 624, ptr noundef nonnull @__func__.topology_p_topology_unpack) #10
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %.thread, label %17
@@ -1414,7 +1414,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %24
 
 20:                                               ; preds = %40
@@ -1427,35 +1427,35 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds %struct.topo_info, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.topo_info, ptr %25, i64 %indvars.iv
   %27 = call i32 @slurm_unpack16(ptr noundef %26, ptr noundef %1) #10
   %.not36 = icmp eq i32 %27, 0
   br i1 %.not36, label %28, label %.thread
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds %struct.topo_info, ptr %29, i64 %indvars.iv, i32 1
+  %30 = getelementptr inbounds nuw %struct.topo_info, ptr %29, i64 %indvars.iv, i32 1
   %31 = call i32 @slurm_unpack32(ptr noundef nonnull %30, ptr noundef %1) #10
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %32, label %.thread
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %19, align 8
-  %34 = getelementptr inbounds %struct.topo_info, ptr %33, i64 %indvars.iv, i32 2
+  %34 = getelementptr inbounds nuw %struct.topo_info, ptr %33, i64 %indvars.iv, i32 2
   %35 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef %1) #10
   %.not38 = icmp eq i32 %35, 0
   br i1 %.not38, label %36, label %.thread
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr inbounds %struct.topo_info, ptr %37, i64 %indvars.iv, i32 3
+  %38 = getelementptr inbounds nuw %struct.topo_info, ptr %37, i64 %indvars.iv, i32 3
   %39 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %38, ptr noundef nonnull %6, ptr noundef %1) #10
   %.not39 = icmp eq i32 %39, 0
   br i1 %.not39, label %40, label %.thread
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds %struct.topo_info, ptr %41, i64 %indvars.iv, i32 4
+  %42 = getelementptr inbounds nuw %struct.topo_info, ptr %41, i64 %indvars.iv, i32 4
   %43 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %42, ptr noundef nonnull %7, ptr noundef %1) #10
   %.not40 = icmp eq i32 %43, 0
   br i1 %.not40, label %20, label %.thread
@@ -1472,7 +1472,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %.not.i, label %topology_p_topology_free.exit, label %45
 
 45:                                               ; preds = %.thread, %44
-  %46 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not6.i = icmp eq ptr %47, null
   br i1 %.not6.i, label %58, label %.preheader.i
@@ -1485,13 +1485,13 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds %struct.topo_info, ptr %49, i64 %indvars.iv.i, i32 2
+  %50 = getelementptr inbounds nuw %struct.topo_info, ptr %49, i64 %indvars.iv.i, i32 2
   call void @slurm_xfree(ptr noundef nonnull %50) #10
   %51 = load ptr, ptr %46, align 8
-  %52 = getelementptr inbounds %struct.topo_info, ptr %51, i64 %indvars.iv.i, i32 3
+  %52 = getelementptr inbounds nuw %struct.topo_info, ptr %51, i64 %indvars.iv.i, i32 3
   call void @slurm_xfree(ptr noundef nonnull %52) #10
   %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds %struct.topo_info, ptr %53, i64 %indvars.iv.i, i32 4
+  %54 = getelementptr inbounds nuw %struct.topo_info, ptr %53, i64 %indvars.iv.i, i32 4
   call void @slurm_xfree(ptr noundef nonnull %54) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %8, align 8

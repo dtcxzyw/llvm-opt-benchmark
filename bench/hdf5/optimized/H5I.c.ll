@@ -127,7 +127,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 17, %23 ]
-  %29 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -159,11 +159,11 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 47:                                               ; preds = %40
   store i32 %.030, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %2, ptr %50, align 8
   %51 = tail call i32 @H5I_register_type(ptr noundef nonnull %41) #3
   %52 = icmp slt i32 %51, 0
@@ -284,7 +284,7 @@ define range(i32 -1, 2) i32 @H5Itype_exists(i32 noundef %0) local_unnamed_addr #
 
 36:                                               ; preds = %28
   %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
   %spec.select = zext i1 %40 to i32
@@ -358,7 +358,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly %
 
 36:                                               ; preds = %29
   %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %45
@@ -1347,7 +1347,7 @@ define range(i32 -1, 2) i32 @H5Iis_valid(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %19 = load i32, ptr %18, align 4
   %.not = icmp ne i32 %19, 0
   %spec.select = zext i1 %.not to i32
@@ -1421,9 +1421,9 @@ define ptr @H5Isearch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unna
 
 31:                                               ; preds = %24
   store ptr %1, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %33, align 8
   %34 = call i32 @H5I_iterate(i32 noundef %0, ptr noundef nonnull @H5I__search_cb, ptr noundef nonnull %4, i1 noundef zeroext true) #3
   %35 = load ptr, ptr %33, align 8
@@ -1444,14 +1444,14 @@ declare i32 @H5I_iterate(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroe
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5I__search_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %4(ptr noundef %0, i64 noundef %1, ptr noundef %6) #3
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %10, align 8
   br label %11
 
@@ -1495,7 +1495,7 @@ define range(i32 -1, -2147483648) i32 @H5Iiterate(i32 noundef %0, ptr noundef %1
 24:                                               ; preds = %17
   %25 = tail call i32 @H5E_clear_stack() #3
   store ptr %1, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %26, align 8
   %27 = call i32 @H5I_iterate(i32 noundef %0, ptr noundef nonnull @H5I__iterate_pub_cb, ptr noundef nonnull %4, i1 noundef zeroext true) #3
   %28 = icmp slt i32 %27, 0
@@ -1524,7 +1524,7 @@ define range(i32 -1, -2147483648) i32 @H5Iiterate(i32 noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5I__iterate_pub_cb(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %4(i64 noundef %1, ptr noundef %6) #3
   %.lobit = ashr i32 %7, 31
@@ -1676,16 +1676,16 @@ define i64 @H5Iget_name(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_un
   br label %.thread28
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %35, align 4
   %36 = tail call i32 @H5I_get_type(i64 noundef %0) #3
   store i32 %36, ptr %5, align 8
   store i32 1, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %6, ptr %39, align 8
   %40 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %41 = call i32 @H5VL_object_get(ptr noundef nonnull %28, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %40, ptr noundef null) #3

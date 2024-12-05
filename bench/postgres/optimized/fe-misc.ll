@@ -26,15 +26,15 @@ define noundef i32 @PQlibVersion() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pqGetc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 904
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 908
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 908
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 888
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %9 = load ptr, ptr %8, align 8
   %10 = add nsw i32 %4, 1
   store i32 %10, ptr %3, align 8
@@ -61,18 +61,18 @@ define range(i32 -1, 1) i32 @pqPutc(i8 noundef signext %0, ptr noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 932
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 932
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = add i64 %1, %6
-  %8 = getelementptr inbounds i8, ptr %2, i64 920
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 920
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %.not.i = icmp ugt i64 %7, %10
   br i1 %.not.i, label %.preheader.i, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 912
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 912
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %35
 
@@ -95,7 +95,7 @@ define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr nocapture noundef
   br label %22
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %2, i64 912
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %13) #18
   %.not41.i = icmp eq ptr %20, null
@@ -125,7 +125,7 @@ define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr nocapture noundef
   br i1 %or.cond46.i, label %pqCheckOutBufferSpace.exit, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %2, i64 912
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @realloc(ptr noundef %31, i64 noundef %25) #18
   %.not43.i = icmp eq ptr %32, null
@@ -137,7 +137,7 @@ define internal fastcc range(i32 -1, 1) i32 @pqPutMsgBytes(ptr nocapture noundef
   br label %35
 
 pqCheckOutBufferSpace.exit:                       ; preds = %28, %29
-  %34 = getelementptr inbounds i8, ptr %2, i64 1000
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %34, ptr noundef nonnull @.str.2) #19
   br label %43
 
@@ -160,11 +160,11 @@ pqCheckOutBufferSpace.exit:                       ; preds = %28, %29
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqGets(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 888
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 904
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 908
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 908
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %.lr.ph.preheader.i, label %pqGets_internal.exit
@@ -206,11 +206,11 @@ pqGets_internal.exit:                             ; preds = %13, %2, %14
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqGets_append(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 888
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 904
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 908
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 908
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %.lr.ph.preheader.i, label %pqGets_internal.exit
@@ -262,9 +262,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @pqGetnchar(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 908
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 908
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 904
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 904
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
   %9 = sext i32 %8 to i64
@@ -272,7 +272,7 @@ define range(i32 -1, 1) i32 @pqGetnchar(ptr nocapture noundef writeonly %0, i64 
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 888
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %7 to i64
   %15 = getelementptr i8, ptr %13, i64 %14
@@ -293,9 +293,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @pqSkipnchar(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 908
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 908
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 904
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %6 = load i32, ptr %5, align 8
   %7 = sub i32 %4, %6
   %8 = sext i32 %7 to i64
@@ -329,16 +329,16 @@ define range(i32 -1, 1) i32 @pqGetInt(ptr nocapture noundef writeonly %0, i64 no
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 904
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 904
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 908
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 908
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %7, %9
   br i1 %10, label %34, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %2, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 888
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %6 to i64
   %15 = getelementptr i8, ptr %13, i64 %14
@@ -349,16 +349,16 @@ define range(i32 -1, 1) i32 @pqGetInt(ptr nocapture noundef writeonly %0, i64 no
   br label %33
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %2, i64 904
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 904
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 908
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 908
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %21, %23
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %2, i64 888
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 888
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %20 to i64
   %29 = getelementptr i8, ptr %27, i64 %28
@@ -368,7 +368,7 @@ define range(i32 -1, 1) i32 @pqGetInt(ptr nocapture noundef writeonly %0, i64 no
   br label %33
 
 31:                                               ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %2, i64 328
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 328
   tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %32, ptr noundef nonnull @.str, i64 noundef %1) #19
   br label %34
 
@@ -415,7 +415,7 @@ define range(i32 -1, 1) i32 @pqPutInt(i32 noundef %0, i64 noundef %1, ptr nounde
   br i1 %.not, label %15, label %16
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %2, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 328
   tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, i64 noundef %1) #19
   br label %16
 
@@ -429,7 +429,7 @@ define range(i32 -1, 1) i32 @pqPutInt(i32 noundef %0, i64 noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %.not = icmp ugt i64 %0, %5
@@ -454,7 +454,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   br label %17
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 912
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @realloc(ptr noundef %14, i64 noundef %8) #18
   %.not41 = icmp eq ptr %15, null
@@ -484,7 +484,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   br i1 %or.cond46, label %29, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 912
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @realloc(ptr noundef %26, i64 noundef %20) #18
   %.not43 = icmp eq ptr %27, null
@@ -496,7 +496,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   br label %31
 
 29:                                               ; preds = %24, %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 1000
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %30, ptr noundef nonnull @.str.2) #19
   br label %31
 
@@ -512,18 +512,18 @@ declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 896
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %.not = icmp ugt i64 %0, %5
   br i1 %.not, label %6, label %58
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 900
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 900
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = sub i64 %0, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 908
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 908
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %8, %12
   br i1 %13, label %14, label %28
@@ -533,7 +533,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 888
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 %9
   %20 = sub i32 %12, %8
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   %23 = load i32, ptr %11, align 4
   %24 = sub i32 %23, %22
   store i32 %24, ptr %11, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 904
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %26 = load i32, ptr %25, align 8
   %27 = sub i32 %26, %22
   store i32 %27, ptr %25, align 8
@@ -551,7 +551,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
 
 28:                                               ; preds = %6
   store i32 0, ptr %11, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 904
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i32 0, ptr %29, align 8
   br label %.sink.split
 
@@ -578,7 +578,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   br i1 %or.cond, label %42, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 888
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @realloc(ptr noundef %39, i64 noundef %33) #18
   %.not66 = icmp eq ptr %40, null
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   br i1 %or.cond71, label %56, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 888
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @realloc(ptr noundef %53, i64 noundef %47) #18
   %.not68 = icmp eq ptr %54, null
@@ -620,7 +620,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   br label %58
 
 56:                                               ; preds = %51, %50
-  %57 = getelementptr inbounds i8, ptr %1, i64 1000
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %57, ptr noundef nonnull @.str.3) #19
   br label %58
 
@@ -635,12 +635,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp ne i8 %0, 0
-  %3 = getelementptr inbounds i8, ptr %1, i64 924
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 924
   %4 = load i32, ptr %3, align 4
   %5 = zext i1 %.not to i32
   %.0 = add i32 %4, %5
   %6 = add i32 %.0, 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 920
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ugt i32 %6, %8
   br i1 %.not.i, label %.preheader.i, label %33
@@ -664,7 +664,7 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
 
 14:                                               ; preds = %13
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds i8, ptr %1, i64 912
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @realloc(ptr noundef %17, i64 noundef %15) #18
   %.not41.i = icmp eq ptr %18, null
@@ -693,7 +693,7 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
 
 26:                                               ; preds = %25
   %27 = zext nneg i32 %21 to i64
-  %28 = getelementptr inbounds i8, ptr %1, i64 912
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @realloc(ptr noundef %29, i64 noundef %27) #18
   %.not43.i = icmp eq ptr %30, null
@@ -704,7 +704,7 @@ define range(i32 -1, 1) i32 @pqPutMsgStart(i8 noundef signext %0, ptr noundef %1
   br label %.sink.split
 
 pqCheckOutBufferSpace.exit:                       ; preds = %25, %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 1000
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %32, ptr noundef nonnull @.str.2) #19
   br label %44
 
@@ -717,9 +717,9 @@ pqCheckOutBufferSpace.exit:                       ; preds = %25, %26
   br i1 %.not, label %34, label %41
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 912
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 924
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 924
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
@@ -727,9 +727,9 @@ pqCheckOutBufferSpace.exit:                       ; preds = %25, %26
   br label %41
 
 41:                                               ; preds = %34, %33
-  %42 = getelementptr inbounds i8, ptr %1, i64 928
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 928
   store i32 %.0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 932
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 932
   store i32 %6, ptr %43, align 4
   br label %44
 
@@ -740,17 +740,17 @@ pqCheckOutBufferSpace.exit:                       ; preds = %25, %26
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pqPutMsgEnd(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 928
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 932
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %7, %3
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 912
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %3 to i64
   %13 = getelementptr i8, ptr %11, i64 %12
@@ -758,17 +758,17 @@ define range(i32 -1, 1) i32 @pqPutMsgEnd(ptr noundef %0) local_unnamed_addr #2 {
   br label %14
 
 14:                                               ; preds = %5, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %30, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 924
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %2, align 8
   %21 = icmp slt i32 %19, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 912
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %23 = load ptr, ptr %22, align 8
   br i1 %21, label %24, label %27
 
@@ -785,9 +785,9 @@ define range(i32 -1, 1) i32 @pqPutMsgEnd(ptr noundef %0) local_unnamed_addr #2 {
   br label %30
 
 30:                                               ; preds = %24, %27, %14
-  %31 = getelementptr inbounds i8, ptr %0, i64 932
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 924
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 924
   store i32 %32, ptr %33, align 4
   %34 = icmp sgt i32 %32, 8191
   br i1 %34, label %35, label %39
@@ -814,16 +814,16 @@ declare void @pqTraceOutputNoTypeByteMessage(ptr noundef, ptr noundef) local_unn
 define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.pollfd, align 4
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 912
-  %6 = getelementptr inbounds i8, ptr %0, i64 924
-  %7 = getelementptr inbounds i8, ptr %0, i64 765
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 765
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
   store i32 0, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %12 = load i32, ptr %11, align 8
   %.not45 = icmp eq i32 %12, -1
   br i1 %.not45, label %16, label %13
@@ -839,7 +839,7 @@ define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noun
 17:                                               ; preds = %2
   %18 = load i32, ptr %6, align 4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 472
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %27, label %.preheader
@@ -849,15 +849,15 @@ define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noun
   br i1 %23, label %.outer.split.lr.ph, label %pqWait.exit.thread
 
 .outer.split.lr.ph:                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %0, i64 395
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 395
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 6
   br label %.outer.split
 
 27:                                               ; preds = %17
   store i8 1, ptr %7, align 1
   %28 = tail call noalias dereferenceable_or_null(21) ptr @strdup(ptr noundef nonnull @.str.8) #19
-  %29 = getelementptr inbounds i8, ptr %0, i64 768
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store ptr %28, ptr %29, align 8
   store i32 0, ptr %6, align 4
   br label %80
@@ -996,7 +996,7 @@ pqWait.exit.thread:                               ; preds = %47, %pqWait.exit, %
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %6
@@ -1006,9 +1006,9 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   br label %.loopexit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 900
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 900
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 908
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 908
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %8, %10
   br i1 %11, label %12, label %27
@@ -1018,7 +1018,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 888
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %8 to i64
   %18 = getelementptr i8, ptr %16, i64 %17
@@ -1029,7 +1029,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   %22 = load i32, ptr %9, align 4
   %23 = sub i32 %22, %21
   store i32 %23, ptr %9, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 904
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %25 = load i32, ptr %24, align 8
   %26 = sub i32 %25, %21
   store i32 %26, ptr %24, align 8
@@ -1037,7 +1037,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
 
 27:                                               ; preds = %6
   store i32 0, ptr %9, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 904
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store i32 0, ptr %28, align 8
   br label %.sink.split
 
@@ -1048,7 +1048,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
 
 29:                                               ; preds = %.sink.split, %12
   %30 = phi i32 [ %10, %12 ], [ %.ph, %.sink.split ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 896
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %32 = load i32, ptr %31, align 8
   %33 = sub i32 %32, %30
   %34 = icmp slt i32 %33, 8192
@@ -1069,7 +1069,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %35, %39, %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 888
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 888
   br label %.outer
 
 .outer:                                           ; preds = %65, %44
@@ -1180,7 +1180,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
 
 .loopexit60:                                      ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %82, %82, %82, %82, %82, %82, %82, %82, %82, %89
   tail call void @pqDropConnection(ptr noundef nonnull %0, i1 noundef zeroext false) #19
-  %90 = getelementptr inbounds i8, ptr %0, i64 376
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 1, ptr %90, align 8
   br label %.loopexit
 
@@ -1200,8 +1200,8 @@ define void @libpq_append_conn_error(ptr noundef %0, ptr noundef %1, ...) local_
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #21
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1000
-  %7 = getelementptr inbounds i8, ptr %0, i64 1016
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %12, label %.preheader
@@ -1236,13 +1236,13 @@ declare void @pqDropConnection(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @pqFlush(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 924
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -1311,7 +1311,7 @@ define internal fastcc i32 @pqSocketCheck(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not, label %.critedge12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 472
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %23, label %.preheader
@@ -1319,8 +1319,8 @@ define internal fastcc i32 @pqSocketCheck(ptr noundef %0, i32 noundef %1, i32 no
 .preheader:                                       ; preds = %7
   %11 = or i32 %2, %1
   %or.cond.not.i = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.not16.not.i = icmp eq i32 %2, 0
   %.not.not.i = icmp eq i32 %1, 0
   %14 = select i1 %.not.not.i, i16 12, i16 13
@@ -1456,7 +1456,7 @@ define void @libpq_append_error(ptr noundef %0, ptr noundef %1, ...) local_unnam
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %13, label %.preheader

@@ -12,16 +12,16 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @rb_Digest_MD5_Init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -271733879, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1732584194, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 271733878, ptr %6, align 4
   ret i32 1
 }
@@ -39,7 +39,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %.tr = trunc i64 %2 to i32
   %10 = shl i32 %.tr, 3
   %11 = lshr i64 %2, 29
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = trunc i64 %11 to i32
   %15 = add i32 %13, %14
@@ -63,8 +63,8 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %23 = icmp ugt i64 %22, 64
   %24 = sub nuw nsw i64 64, %7
   %25 = select i1 %23, i64 %24, i64 %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = getelementptr inbounds i8, ptr %26, i64 %7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %1, i64 %25, i1 false)
   %28 = add i64 %25, %7
   %29 = icmp ult i64 %28, 64
@@ -86,7 +86,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %.143 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
   %.13842 = phi i64 [ %36, %.lr.ph ], [ %.037, %33 ]
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143)
-  %35 = getelementptr inbounds i8, ptr %.143, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %.143, i64 64
   %36 = add i64 %.13842, -64
   %37 = icmp ugt i64 %36, 63
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -98,7 +98,7 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not41, label %40, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.1.lcssa, i64 %.138.lcssa, i1 false)
   br label %40
 
@@ -111,44 +111,44 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @md5_process(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
-  %.0.sroa.gep600 = getelementptr inbounds i8, ptr %1, i64 60
+  %.0.sroa.gep600 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.0.sroa.phi598.sroa.speculated = load i32, ptr %.0.sroa.gep600, align 1
-  %.0.sroa.gep597 = getelementptr inbounds i8, ptr %1, i64 56
+  %.0.sroa.gep597 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0.sroa.phi595.sroa.speculated = load i32, ptr %.0.sroa.gep597, align 1
-  %.0.sroa.gep594 = getelementptr inbounds i8, ptr %1, i64 52
+  %.0.sroa.gep594 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %.0.sroa.phi592.sroa.speculated = load i32, ptr %.0.sroa.gep594, align 1
-  %.0.sroa.gep591 = getelementptr inbounds i8, ptr %1, i64 48
+  %.0.sroa.gep591 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.sroa.phi589.sroa.speculated = load i32, ptr %.0.sroa.gep591, align 1
-  %.0.sroa.gep588 = getelementptr inbounds i8, ptr %1, i64 44
+  %.0.sroa.gep588 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.0.sroa.phi586.sroa.speculated = load i32, ptr %.0.sroa.gep588, align 1
-  %.0.sroa.gep585 = getelementptr inbounds i8, ptr %1, i64 40
+  %.0.sroa.gep585 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0.sroa.phi583.sroa.speculated = load i32, ptr %.0.sroa.gep585, align 1
-  %.0.sroa.gep582 = getelementptr inbounds i8, ptr %1, i64 36
+  %.0.sroa.gep582 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.0.sroa.phi580.sroa.speculated = load i32, ptr %.0.sroa.gep582, align 1
-  %.0.sroa.gep579 = getelementptr inbounds i8, ptr %1, i64 32
+  %.0.sroa.gep579 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.sroa.phi577.sroa.speculated = load i32, ptr %.0.sroa.gep579, align 1
   %11 = load i32, ptr %1, align 1
-  %.0.sroa.gep558 = getelementptr inbounds i8, ptr %1, i64 4
+  %.0.sroa.gep558 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %.0.sroa.gep558, align 1
-  %.0.sroa.gep561 = getelementptr inbounds i8, ptr %1, i64 8
+  %.0.sroa.gep561 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %.0.sroa.gep561, align 1
-  %.0.sroa.gep564 = getelementptr inbounds i8, ptr %1, i64 12
+  %.0.sroa.gep564 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %.0.sroa.gep564, align 1
-  %.0.sroa.gep567 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.sroa.gep567 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %.0.sroa.gep567, align 1
-  %.0.sroa.gep570 = getelementptr inbounds i8, ptr %1, i64 20
+  %.0.sroa.gep570 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %.0.sroa.gep570, align 1
-  %.0.sroa.gep573 = getelementptr inbounds i8, ptr %1, i64 24
+  %.0.sroa.gep573 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %.0.sroa.gep573, align 1
-  %.0.sroa.gep576 = getelementptr inbounds i8, ptr %1, i64 28
+  %.0.sroa.gep576 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %18 = load i32, ptr %.0.sroa.gep576, align 1
   %19 = and i32 %8, %6
   %20 = xor i32 %6, -1
@@ -694,14 +694,14 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
 4:                                                ; preds = %2, %4
   %.036 = phi i64 [ 0, %2 ], [ %13, %4 ]
   %5 = lshr i64 %.036, 2
-  %6 = getelementptr inbounds [2 x i32], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %.0.tr = trunc nuw i64 %.036 to i32
   %8 = shl nuw nsw i32 %.0.tr, 3
   %9 = and i32 %8, 24
   %10 = lshr i32 %7, %9
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %.036
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.036
   store i8 %11, ptr %12, align 1
   %13 = add nuw nsw i64 %.036, 1
   %exitcond.not = icmp eq i64 %13, 8
@@ -717,7 +717,7 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   %21 = and i32 %16, 63
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i32 %19, 3
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %23, %15
   store i32 %26, ptr %0, align 4
@@ -738,15 +738,15 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   %33 = icmp samesign ugt i64 %32, 64
   %34 = sub nuw nsw i64 64, %22
   %35 = select i1 %33, i64 %34, i64 %20
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = getelementptr inbounds i8, ptr %36, i64 %22
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @rb_Digest_MD5_Finish.pad, i64 %35, i1 false)
   %38 = add nuw nsw i64 %35, %22
   %39 = icmp samesign ult i64 %38, 64
   br i1 %39, label %rb_Digest_MD5_Update.exit, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr @rb_Digest_MD5_Finish.pad, i64 %35
+  %41 = getelementptr inbounds nuw i8, ptr @rb_Digest_MD5_Finish.pad, i64 %35
   %42 = sub nsw i64 %20, %35
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %36)
   br label %43
@@ -761,7 +761,7 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   %.143.i = phi ptr [ %45, %.lr.ph.i ], [ %.0.i, %43 ]
   %.13842.i = phi i64 [ %46, %.lr.ph.i ], [ %.037.i, %43 ]
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i)
-  %45 = getelementptr inbounds i8, ptr %.143.i, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.143.i, i64 64
   %46 = add i64 %.13842.i, -64
   %47 = icmp ugt i64 %46, 63
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
@@ -773,7 +773,7 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not41.i, label %rb_Digest_MD5_Update.exit, label %48
 
 48:                                               ; preds = %._crit_edge.i
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.1.lcssa.i, i64 %.138.lcssa.i, i1 false)
   br label %rb_Digest_MD5_Update.exit
 
@@ -801,15 +801,15 @@ rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i,
   %61 = icmp samesign ugt i32 %52, 56
   %62 = sub nuw nsw i64 64, %53
   %63 = select i1 %61, i64 %62, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  %65 = getelementptr inbounds i8, ptr %64, i64 %53
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
   %66 = add nuw nsw i64 %63, %53
   %67 = icmp samesign ult i64 %66, 64
   br i1 %67, label %rb_Digest_MD5_Update.exit25, label %68
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %3, i64 %63
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %63
   %70 = sub nsw i64 8, %63
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %64)
   %71 = icmp ugt i64 %70, 63
@@ -819,7 +819,7 @@ rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i,
   %.143.i23 = phi ptr [ %72, %.lr.ph.i22 ], [ %69, %68 ]
   %.13842.i24 = phi i64 [ %73, %.lr.ph.i22 ], [ %70, %68 ]
   call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.143.i23)
-  %72 = getelementptr inbounds i8, ptr %.143.i23, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %.143.i23, i64 64
   %73 = add i64 %.13842.i24, -64
   %74 = icmp ugt i64 %73, 63
   br i1 %74, label %.lr.ph.i22, label %._crit_edge.i18, !llvm.loop !6
@@ -833,25 +833,25 @@ rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i,
 ._crit_edge.i18.thread:                           ; preds = %59, %._crit_edge.i18
   %.1.lcssa.i2032 = phi ptr [ %.1.lcssa.i20, %._crit_edge.i18 ], [ %3, %59 ]
   %.138.lcssa.i1931 = phi i64 [ %.138.lcssa.i19, %._crit_edge.i18 ], [ 8, %59 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i2032, i64 %.138.lcssa.i1931, i1 false)
   br label %rb_Digest_MD5_Update.exit25
 
 rb_Digest_MD5_Update.exit25:                      ; preds = %60, %._crit_edge.i18, %._crit_edge.i18.thread
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %77
 
 77:                                               ; preds = %rb_Digest_MD5_Update.exit25, %77
   %.137 = phi i64 [ 0, %rb_Digest_MD5_Update.exit25 ], [ %86, %77 ]
   %78 = lshr i64 %.137, 2
-  %79 = getelementptr inbounds [4 x i32], ptr %76, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   %.1.tr = trunc nuw i64 %.137 to i32
   %81 = shl nuw nsw i32 %.1.tr, 3
   %82 = and i32 %81, 24
   %83 = lshr i32 %80, %82
   %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds i8, ptr %1, i64 %.137
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 %.137
   store i8 %84, ptr %85, align 1
   %86 = add nuw nsw i64 %.137, 1
   %exitcond41.not = icmp eq i64 %86, 16

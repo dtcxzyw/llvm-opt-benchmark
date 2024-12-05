@@ -133,7 +133,7 @@ sw.default.i:                                     ; preds = %if.else.i
 auxstatus.exit:                                   ; preds = %getco.exit, %if.else.i, %sw.bb1.i, %if.else4.i, %sw.default.i
   %retval.0.i = phi i64 [ 1, %sw.default.i ], [ 0, %getco.exit ], [ 2, %if.else.i ], [ 3, %sw.bb1.i ], [ %..i, %if.else4.i ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ar.i)
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @statname, i64 0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @statname, i64 0, i64 %retval.0.i
   %0 = load ptr, ptr %arrayidx, align 8
   %call2 = call ptr @lua_pushstring(ptr noundef %L, ptr noundef %0) #3
   ret i32 1
@@ -211,7 +211,7 @@ sw.bb1.i:                                         ; preds = %if.else.i
 auxstatus.exit.thread17:                          ; preds = %getco.exit, %sw.bb1.i
   %retval.0.i.ph = phi i64 [ 3, %sw.bb1.i ], [ 0, %getco.exit ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ar.i)
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @statname, i64 0, i64 %retval.0.i.ph
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @statname, i64 0, i64 %retval.0.i.ph
   %0 = load ptr, ptr %arrayidx, align 8
   %call3 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.14, ptr noundef %0) #3
   br label %return

@@ -1074,13 +1074,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_REPLY_CONTAINER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1126,14 +1126,14 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_REPLY_CONTAINE
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -1159,13 +1159,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAINER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1211,14 +1211,14 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAI
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -1268,7 +1268,7 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(pt
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %14 = load i32, ptr %13, align 4
   %.not = icmp ne i32 %14, 0
   %15 = and i32 %1, 7
@@ -1396,9 +1396,9 @@ iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %68 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %68) #3
-  %69 = getelementptr inbounds i8, ptr %4, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 1
   %.not34 = icmp eq i32 %73, 0
@@ -1424,7 +1424,7 @@ iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit: ; preds 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintNamedProperty(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -1451,9 +1451,9 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintNamedProperty(pt
   %22 = tail call i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #3
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -1479,13 +1479,13 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintNamedProperty(pt
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertiesCollection(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1533,14 +1533,14 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertiesCollec
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -1561,7 +1561,7 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertiesCollec
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_bitmap_winspool_InstallPrinterDriverFromPackageFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1610,7 +1610,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden i32 @iremotewinspool_dissect_bitmap_winspool_UploadPrinterDriverPackageFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1747,7 +1747,7 @@ define internal i32 @iremotewinspool_dissect_element_winspool_PrintPropertiesCol
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncOpenPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.523, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncOpenPrinter_pPrinterName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncOpenPrinter_pPrinterName_, i32 noundef 2, ptr noundef nonnull @.str.598, i32 noundef %8) #3
@@ -1770,7 +1770,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncOpenPrinter_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncOpenPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.523, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncOpenPrinter_pHandle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncOpenPrinter_pHandle_, i32 noundef 1, ptr noundef nonnull @.str.604, i32 noundef %9) #3
@@ -1782,7 +1782,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncOpenPrinter_response(
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -1794,7 +1794,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncOpenPrinter_response(
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.524, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPrinter_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPrinter_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -1817,7 +1817,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinter_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.524, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPrinter_pHandle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPrinter_pHandle_, i32 noundef 1, ptr noundef nonnull @.str.604, i32 noundef %9) #3
@@ -1829,7 +1829,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinter_response(p
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -1841,7 +1841,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinter_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJob_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.525, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetJob_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -1861,7 +1861,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJob_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJob_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.525, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1870,7 +1870,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJob_response(ptr n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -1882,7 +1882,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJob_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJob_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.526, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetJob_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -1905,7 +1905,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJob_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJob_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.526, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetJob_pJob, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetJob_pJob_, i32 noundef 2, ptr noundef nonnull @.str.609, i32 noundef %9) #3
@@ -1920,7 +1920,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJob_response(ptr n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -1932,7 +1932,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJob_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.527, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumJobs_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -1958,7 +1958,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobs_request(ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.527, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumJobs_pJob, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumJobs_pJob_, i32 noundef 2, ptr noundef nonnull @.str.609, i32 noundef %9) #3
@@ -1976,7 +1976,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobs_response(ptr
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -1988,7 +1988,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobs_response(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddJob_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.528, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddJob_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2008,7 +2008,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddJob_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddJob_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.528, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddJob_pAddJob, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddJob_pAddJob_, i32 noundef 2, ptr noundef nonnull @.str.612, i32 noundef %9) #3
@@ -2023,7 +2023,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddJob_response(ptr n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -2035,7 +2035,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddJob_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncScheduleJob_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.529, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncScheduleJob_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2049,7 +2049,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncScheduleJob_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncScheduleJob_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.529, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2058,7 +2058,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncScheduleJob_response(
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2070,7 +2070,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncScheduleJob_response(
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.530, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2081,7 +2081,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinter_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.530, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2090,7 +2090,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinter_respons
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2102,7 +2102,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinter_respons
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.531, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2125,7 +2125,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinter_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.531, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2134,7 +2134,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinter_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2146,7 +2146,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinter_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.532, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2166,7 +2166,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinter_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.532, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinter_pPrinter, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinter_pPrinter_, i32 noundef 2, ptr noundef nonnull @.str.613, i32 noundef %9) #3
@@ -2181,7 +2181,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinter_response(p
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -2193,7 +2193,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinter_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncStartDocPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.533, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncStartDocPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2207,7 +2207,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartDocPrinter_reque
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncStartDocPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.533, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncStartDocPrinter_pJobId, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncStartDocPrinter_pJobId_, i32 noundef 1, ptr noundef nonnull @.str.615, i32 noundef %9) #3
@@ -2219,7 +2219,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartDocPrinter_respo
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -2231,7 +2231,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartDocPrinter_respo
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncStartPagePrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.534, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncStartPagePrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2242,7 +2242,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartPagePrinter_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncStartPagePrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.534, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2251,7 +2251,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartPagePrinter_resp
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2263,7 +2263,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncStartPagePrinter_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncWritePrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.535, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncWritePrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2280,7 +2280,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncWritePrinter_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncWritePrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.535, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncWritePrinter_pcWritten, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncWritePrinter_pcWritten_, i32 noundef 1, ptr noundef nonnull @.str.617, i32 noundef %9) #3
@@ -2292,7 +2292,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncWritePrinter_response
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -2304,7 +2304,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncWritePrinter_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEndPagePrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.536, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEndPagePrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2315,7 +2315,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndPagePrinter_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEndPagePrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.536, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2324,7 +2324,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndPagePrinter_respon
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2336,7 +2336,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndPagePrinter_respon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEndDocPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.537, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEndDocPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2347,7 +2347,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndDocPrinter_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEndDocPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.537, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2356,7 +2356,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndDocPrinter_respons
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2368,7 +2368,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEndDocPrinter_respons
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAbortPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.538, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAbortPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2379,7 +2379,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAbortPrinter_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAbortPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.538, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2388,7 +2388,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAbortPrinter_response
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2400,7 +2400,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAbortPrinter_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.539, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterData_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2417,7 +2417,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterData_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.539, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterData_pType, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterData_pType_, i32 noundef 1, ptr noundef nonnull @.str.619, i32 noundef %9) #3
@@ -2435,7 +2435,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterData_respon
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -2447,7 +2447,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterData_respon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDataEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.540, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDataEx_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2467,7 +2467,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDataEx_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDataEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.540, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDataEx_pType, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDataEx_pType_, i32 noundef 1, ptr noundef nonnull @.str.619, i32 noundef %9) #3
@@ -2485,7 +2485,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDataEx_resp
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -2497,7 +2497,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDataEx_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.541, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetPrinterData_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2520,7 +2520,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterData_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.541, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2529,7 +2529,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterData_respon
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2541,7 +2541,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterData_respon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterDataEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.542, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetPrinterDataEx_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2567,7 +2567,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterDataEx_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterDataEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.542, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2576,7 +2576,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterDataEx_resp
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2588,7 +2588,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPrinterDataEx_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncClosePrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.543, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncClosePrinter_phPrinter, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncClosePrinter_phPrinter_, i32 noundef 1, ptr noundef nonnull @.str.622, i32 noundef %8) #3
@@ -2599,7 +2599,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncClosePrinter_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncClosePrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.543, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncClosePrinter_phPrinter, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncClosePrinter_phPrinter_, i32 noundef 1, ptr noundef nonnull @.str.622, i32 noundef %9) #3
@@ -2611,7 +2611,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncClosePrinter_response
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -2623,7 +2623,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncClosePrinter_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddForm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.544, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddForm_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2637,7 +2637,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddForm_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddForm_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.544, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2646,7 +2646,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddForm_response(ptr 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2658,7 +2658,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddForm_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteForm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.545, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeleteForm_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2672,7 +2672,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteForm_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteForm_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.545, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2681,7 +2681,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteForm_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2693,7 +2693,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteForm_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetForm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.546, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetForm_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2716,7 +2716,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetForm_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetForm_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.546, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetForm_pForm, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetForm_pForm_, i32 noundef 2, ptr noundef nonnull @.str.625, i32 noundef %9) #3
@@ -2731,7 +2731,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetForm_response(ptr 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -2743,7 +2743,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetForm_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetForm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.547, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetForm_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2760,7 +2760,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetForm_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetForm_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.547, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2769,7 +2769,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetForm_response(ptr 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -2781,7 +2781,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetForm_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumForms_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.548, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumForms_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2801,7 +2801,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumForms_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumForms_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.548, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumForms_pForm, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumForms_pForm_, i32 noundef 2, ptr noundef nonnull @.str.625, i32 noundef %9) #3
@@ -2819,7 +2819,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumForms_response(pt
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -2831,7 +2831,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumForms_response(pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriver_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.549, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriver_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2860,7 +2860,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriver_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriver_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.549, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriver_pDriver, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDriver_pDriver_, i32 noundef 2, ptr noundef nonnull @.str.627, i32 noundef %9) #3
@@ -2881,7 +2881,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriver_resp
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %27) #3
@@ -2893,7 +2893,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriver_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.550, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterData_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2913,7 +2913,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterData_reque
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.550, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterData_pValueName, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinterData_pValueName_, i32 noundef 1, ptr noundef nonnull @.str.618, i32 noundef %9) #3
@@ -2937,7 +2937,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterData_respo
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %30) #3
@@ -2949,7 +2949,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterData_respo
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDataEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.551, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterDataEx_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -2966,7 +2966,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDataEx_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDataEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.551, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterDataEx_pEnumValues, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinterDataEx_pEnumValues_, i32 noundef 1, ptr noundef nonnull @.str.632, i32 noundef %9) #3
@@ -2984,7 +2984,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDataEx_res
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -2996,7 +2996,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDataEx_res
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.552, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterKey_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3013,7 +3013,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterKey_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.552, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterKey_pSubkey, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinterKey_pSubkey_, i32 noundef 1, ptr noundef nonnull @.str.635, i32 noundef %9) #3
@@ -3028,7 +3028,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterKey_respon
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -3040,7 +3040,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterKey_respon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.553, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterData_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3054,7 +3054,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterData_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.553, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3063,7 +3063,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterData_res
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3075,7 +3075,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterData_res
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDataEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.554, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterDataEx_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3092,7 +3092,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDataEx_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDataEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.554, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3101,7 +3101,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDataEx_r
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3113,7 +3113,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDataEx_r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.555, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterKey_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3127,7 +3127,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterKey_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.555, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3136,7 +3136,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterKey_resp
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3148,7 +3148,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterKey_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncXcvData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.556, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncXcvData_hXcv, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3174,7 +3174,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncXcvData_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncXcvData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.556, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncXcvData_pOutputData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncXcvData_pOutputData_, i32 noundef 1, ptr noundef nonnull @.str.640, i32 noundef %9) #3
@@ -3192,7 +3192,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncXcvData_response(ptr 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3204,7 +3204,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncXcvData_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSendRecvBidiData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.557, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSendRecvBidiData_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3221,7 +3221,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSendRecvBidiData_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSendRecvBidiData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.557, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSendRecvBidiData_ppRespData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncSendRecvBidiData_ppRespData_, i32 noundef 1, ptr noundef nonnull @.str.644, i32 noundef %9) #3
@@ -3233,7 +3233,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSendRecvBidiData_resp
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -3245,7 +3245,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSendRecvBidiData_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncCreatePrinterIC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.558, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncCreatePrinterIC_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3259,7 +3259,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCreatePrinterIC_reque
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncCreatePrinterIC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.558, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncCreatePrinterIC_pHandle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncCreatePrinterIC_pHandle_, i32 noundef 1, ptr noundef nonnull @.str.604, i32 noundef %9) #3
@@ -3271,7 +3271,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCreatePrinterIC_respo
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -3283,7 +3283,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCreatePrinterIC_respo
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncPlayGdiScriptOnPrinterIC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.559, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncPlayGdiScriptOnPrinterIC_hPrinterIC, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3306,7 +3306,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncPlayGdiScriptOnPrinte
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncPlayGdiScriptOnPrinterIC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.559, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncPlayGdiScriptOnPrinterIC_pOut, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncPlayGdiScriptOnPrinterIC_pOut_, i32 noundef 1, ptr noundef nonnull @.str.646, i32 noundef %9) #3
@@ -3318,7 +3318,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncPlayGdiScriptOnPrinte
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -3330,7 +3330,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncPlayGdiScriptOnPrinte
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterIC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.560, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterIC_phPrinterIC, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrinterIC_phPrinterIC_, i32 noundef 1, ptr noundef nonnull @.str.647, i32 noundef %8) #3
@@ -3341,7 +3341,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterIC_reque
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterIC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.560, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterIC_phPrinterIC, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrinterIC_phPrinterIC_, i32 noundef 1, ptr noundef nonnull @.str.647, i32 noundef %9) #3
@@ -3353,7 +3353,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterIC_respo
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -3365,7 +3365,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterIC_respo
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinters_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.561, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinters_Flags, align 4
   %9 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -3388,7 +3388,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinters_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinters_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.561, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinters_pPrinterEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinters_pPrinterEnum_, i32 noundef 2, ptr noundef nonnull @.str.648, i32 noundef %9) #3
@@ -3406,7 +3406,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinters_response
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3418,7 +3418,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinters_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinterDriver_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.562, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPrinterDriver_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPrinterDriver_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3435,7 +3435,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinterDriver_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinterDriver_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.562, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3444,7 +3444,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinterDriver_resp
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3456,7 +3456,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrinterDriver_resp
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDrivers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.563, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterDrivers_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinterDrivers_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3479,7 +3479,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDrivers_re
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDrivers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.563, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrinterDrivers_pDrivers, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrinterDrivers_pDrivers_, i32 noundef 2, ptr noundef nonnull @.str.650, i32 noundef %9) #3
@@ -3497,7 +3497,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDrivers_re
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3509,7 +3509,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrinterDrivers_re
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverDirectory_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.564, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriverDirectory_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDriverDirectory_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3532,7 +3532,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverDirec
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.564, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriverDirectory_pDriverDirectory, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDriverDirectory_pDriverDirectory_, i32 noundef 2, ptr noundef nonnull @.str.651, i32 noundef %9) #3
@@ -3547,7 +3547,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverDirec
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -3559,7 +3559,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverDirec
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriver_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.565, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterDriver_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrinterDriver_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3576,7 +3576,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriver_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriver_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.565, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3585,7 +3585,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriver_r
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3597,7 +3597,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriver_r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.566, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterDriverEx_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrinterDriverEx_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3620,7 +3620,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverEx
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.566, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3629,7 +3629,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverEx
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3641,7 +3641,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverEx
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrintProcessor_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.567, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPrintProcessor_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPrintProcessor_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3661,7 +3661,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrintProcessor_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrintProcessor_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.567, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3670,7 +3670,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrintProcessor_res
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3682,7 +3682,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPrintProcessor_res
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessors_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.568, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrintProcessors_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrintProcessors_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3705,7 +3705,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessors_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessors_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.568, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrintProcessors_pPrintProcessorInfo, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrintProcessors_pPrintProcessorInfo_, i32 noundef 2, ptr noundef nonnull @.str.655, i32 noundef %9) #3
@@ -3723,7 +3723,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessors_r
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3735,7 +3735,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessors_r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrintProcessorDirectory_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.569, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrintProcessorDirectory_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrintProcessorDirectory_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3758,7 +3758,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrintProcessorDire
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrintProcessorDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.569, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrintProcessorDirectory_pPrintProcessorDirectory, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrintProcessorDirectory_pPrintProcessorDirectory_, i32 noundef 2, ptr noundef nonnull @.str.656, i32 noundef %9) #3
@@ -3773,7 +3773,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrintProcessorDire
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -3785,7 +3785,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrintProcessorDire
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPorts_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.570, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPorts_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPorts_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3805,7 +3805,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPorts_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPorts_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.570, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPorts_pPort, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPorts_pPort_, i32 noundef 2, ptr noundef nonnull @.str.657, i32 noundef %9) #3
@@ -3823,7 +3823,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPorts_response(pt
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3835,7 +3835,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPorts_response(pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumMonitors_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.571, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumMonitors_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumMonitors_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3855,7 +3855,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumMonitors_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumMonitors_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.571, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumMonitors_pMonitor, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumMonitors_pMonitor_, i32 noundef 2, ptr noundef nonnull @.str.658, i32 noundef %9) #3
@@ -3873,7 +3873,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumMonitors_response
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -3885,7 +3885,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumMonitors_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPort_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.572, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPort_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPort_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3905,7 +3905,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPort_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.572, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3914,7 +3914,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPort_response(ptr 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3926,7 +3926,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPort_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPort_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.573, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetPort_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncSetPort_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -3943,7 +3943,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPort_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.573, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3952,7 +3952,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPort_response(ptr 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3964,7 +3964,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetPort_response(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddMonitor_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.574, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddMonitor_Name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddMonitor_Name_, i32 noundef 2, ptr noundef nonnull @.str.663, i32 noundef %8) #3
@@ -3978,7 +3978,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddMonitor_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddMonitor_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.574, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -3987,7 +3987,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddMonitor_response(p
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -3999,7 +3999,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddMonitor_response(p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteMonitor_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.575, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeleteMonitor_Name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeleteMonitor_Name_, i32 noundef 2, ptr noundef nonnull @.str.663, i32 noundef %8) #3
@@ -4016,7 +4016,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteMonitor_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteMonitor_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.575, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4025,7 +4025,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteMonitor_respons
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4037,7 +4037,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteMonitor_respons
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrintProcessor_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.576, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrintProcessor_Name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrintProcessor_Name_, i32 noundef 2, ptr noundef nonnull @.str.663, i32 noundef %8) #3
@@ -4054,7 +4054,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrintProcessor_
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrintProcessor_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.576, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4063,7 +4063,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrintProcessor_
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4075,7 +4075,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrintProcessor_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessorDatatypes_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.577, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrintProcessorDatatypes_pName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrintProcessorDatatypes_pName_, i32 noundef 2, ptr noundef nonnull @.str.605, i32 noundef %8) #3
@@ -4098,7 +4098,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessorDat
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessorDatatypes_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.577, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPrintProcessorDatatypes_pDatatypes, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPrintProcessorDatatypes_pDatatypes_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #3
@@ -4116,7 +4116,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessorDat
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -4128,7 +4128,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPrintProcessorDat
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPerMachineConnection_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.578, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncAddPerMachineConnection_pServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncAddPerMachineConnection_pServer_, i32 noundef 2, ptr noundef nonnull @.str.666, i32 noundef %8) #3
@@ -4148,7 +4148,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPerMachineConnecti
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPerMachineConnection_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.578, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4157,7 +4157,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPerMachineConnecti
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4169,7 +4169,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncAddPerMachineConnecti
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePerMachineConnection_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.579, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePerMachineConnection_pServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePerMachineConnection_pServer_, i32 noundef 2, ptr noundef nonnull @.str.666, i32 noundef %8) #3
@@ -4183,7 +4183,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePerMachineConne
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePerMachineConnection_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.579, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4192,7 +4192,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePerMachineConne
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4204,7 +4204,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePerMachineConne
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPerMachineConnections_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.580, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPerMachineConnections_pServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPerMachineConnections_pServer_, i32 noundef 2, ptr noundef nonnull @.str.666, i32 noundef %8) #3
@@ -4221,7 +4221,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPerMachineConnect
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPerMachineConnections_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.580, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumPerMachineConnections_pPrinterEnum, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumPerMachineConnections_pPrinterEnum_, i32 noundef 2, ptr noundef nonnull @.str.648, i32 noundef %9) #3
@@ -4239,7 +4239,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPerMachineConnect
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %24) #3
@@ -4251,7 +4251,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumPerMachineConnect
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncRegisterForRemoteNotifications_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.581, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_SyncRegisterForRemoteNotifications_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4265,7 +4265,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRegisterForRemoteNotif
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncRegisterForRemoteNotifications_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.581, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_SyncRegisterForRemoteNotifications_phRpcHandle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_SyncRegisterForRemoteNotifications_phRpcHandle_, i32 noundef 1, ptr noundef nonnull @.str.671, i32 noundef %9) #3
@@ -4277,7 +4277,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRegisterForRemoteNotif
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4289,7 +4289,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRegisterForRemoteNotif
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncUnRegisterForRemoteNotifications_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.582, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_SyncUnRegisterForRemoteNotifications_phRpcHandle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_SyncUnRegisterForRemoteNotifications_phRpcHandle_, i32 noundef 1, ptr noundef nonnull @.str.671, i32 noundef %8) #3
@@ -4300,7 +4300,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncUnRegisterForRemoteNot
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncUnRegisterForRemoteNotifications_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.582, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_SyncUnRegisterForRemoteNotifications_phRpcHandle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_SyncUnRegisterForRemoteNotifications_phRpcHandle_, i32 noundef 1, ptr noundef nonnull @.str.671, i32 noundef %9) #3
@@ -4312,7 +4312,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncUnRegisterForRemoteNot
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4324,7 +4324,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncUnRegisterForRemoteNot
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncRefreshRemoteNotifications_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.583, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_SyncRefreshRemoteNotifications_hRpcHandle, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4338,7 +4338,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRefreshRemoteNotificat
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_SyncRefreshRemoteNotifications_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.583, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_SyncRefreshRemoteNotifications_ppNotifyData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_SyncRefreshRemoteNotifications_ppNotifyData_, i32 noundef 1, ptr noundef nonnull @.str.672, i32 noundef %9) #3
@@ -4350,7 +4350,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRefreshRemoteNotificat
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4362,7 +4362,7 @@ define internal i32 @iremotewinspool_dissect_winspool_SyncRefreshRemoteNotificat
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetRemoteNotifications_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.584, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetRemoteNotifications_hRpcHandle, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4373,7 +4373,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetRemoteNotification
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetRemoteNotifications_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.584, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetRemoteNotifications_ppNotifyData, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetRemoteNotifications_ppNotifyData_, i32 noundef 1, ptr noundef nonnull @.str.672, i32 noundef %9) #3
@@ -4385,7 +4385,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetRemoteNotification
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4397,7 +4397,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetRemoteNotification
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncInstallPrinterDriverFromPackage_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.585, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncInstallPrinterDriverFromPackage_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncInstallPrinterDriverFromPackage_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4420,7 +4420,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncInstallPrinterDriverF
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncInstallPrinterDriverFromPackage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.585, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_hresult, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4429,7 +4429,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncInstallPrinterDriverF
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4441,7 +4441,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncInstallPrinterDriverF
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncUploadPrinterDriverPackage_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.586, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncUploadPrinterDriverPackage_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncUploadPrinterDriverPackage_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4467,7 +4467,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncUploadPrinterDriverPa
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncUploadPrinterDriverPackage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.586, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncUploadPrinterDriverPackage_pszDestInfPath, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncUploadPrinterDriverPackage_pszDestInfPath_, i32 noundef 2, ptr noundef nonnull @.str.677, i32 noundef %9) #3
@@ -4482,7 +4482,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncUploadPrinterDriverPa
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -4494,7 +4494,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncUploadPrinterDriverPa
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetCorePrinterDrivers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.587, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetCorePrinterDrivers_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetCorePrinterDrivers_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4517,7 +4517,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetCorePrinterDrivers
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetCorePrinterDrivers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.587, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetCorePrinterDrivers_pCorePrinterDrivers, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetCorePrinterDrivers_pCorePrinterDrivers_, i32 noundef 1, ptr noundef nonnull @.str.680, i32 noundef %9) #3
@@ -4529,7 +4529,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetCorePrinterDrivers
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4541,7 +4541,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetCorePrinterDrivers
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncCorePrinterDriverInstalled_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.588, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncCorePrinterDriverInstalled_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncCorePrinterDriverInstalled_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4564,7 +4564,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCorePrinterDriverInst
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncCorePrinterDriverInstalled_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.588, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncCorePrinterDriverInstalled_pbDriverInstalled, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncCorePrinterDriverInstalled_pbDriverInstalled_, i32 noundef 1, ptr noundef nonnull @.str.681, i32 noundef %9) #3
@@ -4576,7 +4576,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCorePrinterDriverInst
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4588,7 +4588,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncCorePrinterDriverInst
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverPackagePath_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.589, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriverPackagePath_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDriverPackagePath_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4614,7 +4614,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverPacka
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverPackagePath_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.589, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetPrinterDriverPackagePath_pszDriverPackageCab, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetPrinterDriverPackagePath_pszDriverPackageCab_, i32 noundef 2, ptr noundef nonnull @.str.684, i32 noundef %9) #3
@@ -4629,7 +4629,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverPacka
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -4641,7 +4641,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetPrinterDriverPacka
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverPackage_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.590, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeletePrinterDriverPackage_pszServer, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncDeletePrinterDriverPackage_pszServer_, i32 noundef 2, ptr noundef nonnull @.str.673, i32 noundef %8) #3
@@ -4658,7 +4658,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverPa
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverPackage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.590, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_hresult, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4667,7 +4667,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverPa
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @HRES_errors, ptr noundef nonnull @.str.670) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4679,7 +4679,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeletePrinterDriverPa
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncReadPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.591, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncReadPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4693,7 +4693,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncReadPrinter_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncReadPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.591, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncReadPrinter_pBuf, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncReadPrinter_pBuf_, i32 noundef 1, ptr noundef nonnull @.str.616, i32 noundef %9) #3
@@ -4708,7 +4708,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncReadPrinter_response(
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -4720,7 +4720,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncReadPrinter_response(
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncResetPrinter_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.592, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncResetPrinter_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4737,7 +4737,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncResetPrinter_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncResetPrinter_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.592, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4746,7 +4746,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncResetPrinter_response
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4758,7 +4758,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncResetPrinter_response
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJobNamedPropertyValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.593, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetJobNamedPropertyValue_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4775,7 +4775,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJobNamedPropertyVa
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJobNamedPropertyValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.593, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncGetJobNamedPropertyValue_pValue, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncGetJobNamedPropertyValue_pValue_, i32 noundef 1, ptr noundef nonnull @.str.688, i32 noundef %9) #3
@@ -4787,7 +4787,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJobNamedPropertyVa
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %18) #3
@@ -4799,7 +4799,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncGetJobNamedPropertyVa
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJobNamedProperty_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.594, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncSetJobNamedProperty_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4816,7 +4816,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJobNamedProperty_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJobNamedProperty_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.594, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4825,7 +4825,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJobNamedProperty_r
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4837,7 +4837,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncSetJobNamedProperty_r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteJobNamedProperty_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.595, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncDeleteJobNamedProperty_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4854,7 +4854,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteJobNamedPropert
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteJobNamedProperty_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.595, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4863,7 +4863,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteJobNamedPropert
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -4875,7 +4875,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncDeleteJobNamedPropert
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobNamedProperties_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.596, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumJobNamedProperties_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4889,7 +4889,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobNamedPropertie
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobNamedProperties_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.596, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_winspool_AsyncEnumJobNamedProperties_pcProperties, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_AsyncEnumJobNamedProperties_pcProperties_, i32 noundef 1, ptr noundef nonnull @.str.690, i32 noundef %9) #3
@@ -4904,7 +4904,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobNamedPropertie
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %21) #3
@@ -4916,7 +4916,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncEnumJobNamedPropertie
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncLogJobInfoForBranchOffice_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.597, ptr %7, align 8
   %8 = load i32, ptr @hf_iremotewinspool_winspool_AsyncLogJobInfoForBranchOffice_hPrinter, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #3
@@ -4930,7 +4930,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncLogJobInfoForBranchOf
 ; Function Attrs: nounwind uwtable
 define internal i32 @iremotewinspool_dissect_winspool_AsyncLogJobInfoForBranchOffice_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.597, ptr %8, align 8
   %9 = load i32, ptr @hf_iremotewinspool_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -4939,7 +4939,7 @@ define internal i32 @iremotewinspool_dissect_winspool_AsyncLogJobInfoForBranchOf
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.603) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.602, ptr noundef %15) #3
@@ -5028,7 +5028,7 @@ define internal i32 @iremotewinspool_dissect_element_winspool_AsyncAddPrinter_pD
 define internal i32 @iremotewinspool_dissect_element_winspool_AsyncAddPrinter_pSecurityContainer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %iremotewinspool_dissect_sec_desc_buf.exit
@@ -5150,7 +5150,7 @@ define internal i32 @iremotewinspool_dissect_element_winspool_AsyncSetPrinter_pD
 define internal i32 @iremotewinspool_dissect_element_winspool_AsyncSetPrinter_pSecurityContainer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %iremotewinspool_dissect_sec_desc_buf.exit

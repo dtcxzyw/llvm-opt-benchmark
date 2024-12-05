@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddLiteralSetIntersection(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -31,7 +31,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %9 = ptrtoint ptr %2 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq i64 %7, %10
   br i1 %14, label %153, label %15
@@ -45,10 +45,10 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -59,10 +59,10 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -72,7 +72,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %.not151, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %40
 
 40:                                               ; preds = %.lr.ph, %94
@@ -87,7 +87,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
 
 42:                                               ; preds = %40
   %.not150 = icmp eq ptr %.0113155, %.0121153
-  %43 = getelementptr inbounds i8, ptr %.0121153, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.0121153, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = xor i64 %45, 1
@@ -97,7 +97,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %.0121153, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0121153, i64 24
   %51 = load ptr, ptr %50, align 8
   br i1 %.not150, label %56, label %52
 
@@ -119,7 +119,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
 62:                                               ; preds = %56
   %63 = load ptr, ptr %39, align 8
   %64 = zext i32 %60 to i64
-  %65 = getelementptr inbounds i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
   %66 = load i32, ptr %65, align 4
   br label %94
 
@@ -129,7 +129,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
 
 69:                                               ; preds = %67
   %.not149 = icmp eq ptr %.0123152, %.0119154
-  %70 = getelementptr inbounds i8, ptr %.0119154, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.0119154, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = xor i64 %72, 1
@@ -139,7 +139,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %.0119154, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.0119154, i64 24
   %78 = load ptr, ptr %77, align 8
   br i1 %.not149, label %83, label %79
 
@@ -161,7 +161,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
 89:                                               ; preds = %83
   %90 = load ptr, ptr %39, align 8
   %91 = zext i32 %87 to i64
-  %92 = getelementptr inbounds i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
   %93 = load i32, ptr %92, align 4
   br label %94
 
@@ -190,7 +190,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
 
 98:                                               ; preds = %96
   %.not146 = icmp eq ptr %.0113.lcssa, %.0121.lcssa
-  %99 = getelementptr inbounds i8, ptr %.0121.lcssa, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.0121.lcssa, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = ptrtoint ptr %100 to i64
   %102 = xor i64 %101, 1
@@ -200,7 +200,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds i8, ptr %.0121.lcssa, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %.0121.lcssa, i64 24
   %107 = load ptr, ptr %106, align 8
   br i1 %.not146, label %112, label %108
 
@@ -214,7 +214,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %.1118 = phi ptr [ %111, %108 ], [ %107, %105 ], [ %.0117, %98 ]
   %.0108 = phi i32 [ 0, %108 ], [ 0, %105 ], [ 1, %98 ]
   %.not147 = icmp eq ptr %.0123.lcssa, %.0119.lcssa
-  %113 = getelementptr inbounds i8, ptr %.0119.lcssa, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.0119.lcssa, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = xor i64 %115, 1
@@ -224,7 +224,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds i8, ptr %.0119.lcssa, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.0119.lcssa, i64 24
   %121 = load ptr, ptr %120, align 8
   br i1 %.not147, label %126, label %122
 
@@ -249,15 +249,15 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %131 = ptrtoint ptr %127 to i64
   %132 = and i64 %131, -2
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 344
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %138 = load ptr, ptr %137, align 8
   %139 = load i32, ptr %.0121.lcssa, align 8
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
   %144 = xor i64 %143, 1

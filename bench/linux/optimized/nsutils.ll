@@ -30,7 +30,7 @@ define dso_local void @acpi_ns_print_node_pathname(ptr noundef %0, ptr noundef %
   br label %17
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %7, align 8, !annotation !5
   store i64 -2, ptr %3, align 8
   %8 = call i32 @acpi_ns_handle_to_pathname(ptr noundef nonnull %0, ptr noundef nonnull %3, i8 noundef zeroext 1) #9
@@ -46,7 +46,7 @@ define dso_local void @acpi_ns_print_node_pathname(ptr noundef %0, ptr noundef %
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.2, ptr noundef %15) #9
   %16 = load ptr, ptr %14, align 8
@@ -83,7 +83,7 @@ define dso_local range(i32 0, 256) i32 @acpi_ns_get_type(ptr noundef readonly %0
   br label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   br label %8
@@ -125,9 +125,9 @@ declare dso_local zeroext i8 @acpi_ut_valid_object_type(i32 noundef) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @acpi_ns_get_internal_name_length(ptr nocapture noundef initializes((28, 37)) %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(9) %4, i8 0, i64 9, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %4, i8 0, i64 9, i1 false)
   %5 = load i8, ptr %2, align 1
   switch i8 %5, label %.loopexit1 [
     i8 92, label %6
@@ -135,7 +135,7 @@ define dso_local void @acpi_ns_get_internal_name_length(ptr nocapture noundef in
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %7, align 4
   br label %8
 
@@ -196,22 +196,22 @@ define dso_local void @acpi_ns_get_internal_name_length(ptr nocapture noundef in
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit1
   %37 = phi i32 [ %36, %.loopexit.loopexit ], [ 4, %.loopexit1 ]
   %38 = add i32 %37, %19
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %40, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %22, label %11
@@ -240,7 +240,7 @@ define dso_local noundef range(i32 0, 4100) i32 @acpi_ns_build_internal_name(ptr
   br label %.preheader.preheader
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit6, label %.preheader5
@@ -771,7 +771,7 @@ define dso_local ptr @acpi_ns_validate_handle(ptr noundef %0) local_unnamed_addr
   br label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 15
   %9 = select i1 %8, ptr %0, ptr null
@@ -877,7 +877,7 @@ define dso_local i32 @acpi_ns_get_node_unlocked(ptr noundef %0, ptr noundef %1, 
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %25, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = or i32 %2, 2
@@ -944,7 +944,7 @@ define dso_local i32 @acpi_ns_get_node(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = or i32 %2, 2

@@ -12,23 +12,23 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %2, i64 24
   %.val = load i64, ptr %17, align 8
   %18 = sext i32 %1 to i64
   %19 = mul i64 %.val, %18
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
-  %24 = getelementptr inbounds i8, ptr %16, i64 32
-  %25 = getelementptr inbounds i8, ptr %6, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 256
   br label %26
 
 26:                                               ; preds = %.lr.ph, %129
@@ -37,7 +37,7 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
   store i32 -2, ptr %11, align 4
   store i32 -2, ptr %12, align 4
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %37, label %31
@@ -48,7 +48,7 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %24, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %.thread, label %129
@@ -63,7 +63,7 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
 40:                                               ; preds = %37
   %41 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %.pre to i64
   %45 = getelementptr inbounds ptr, ptr %43, i64 %44
@@ -87,7 +87,7 @@ define i32 @mca_coll_monitoring_neighbor_allgather(ptr noundef %0, i32 noundef %
   br i1 %58, label %59, label %ompi_group_get_proc_ptr.exit.i
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %53, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %61 = load i8, ptr @opal_uses_threads, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %65
@@ -118,7 +118,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %65, %63, %49, %40
   br label %76
 
 74:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %75 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %75, align 8
   br label %76
 
@@ -150,7 +150,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %76
 85:                                               ; preds = %.thread
   %86 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %87 = getelementptr inbounds i8, ptr %86, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %84 to i64
   %90 = getelementptr inbounds ptr, ptr %88, i64 %89
@@ -174,7 +174,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %76
   br i1 %103, label %104, label %ompi_group_get_proc_ptr.exit.i41
 
 104:                                              ; preds = %94
-  %105 = getelementptr inbounds i8, ptr %98, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %106 = load i8, ptr @opal_uses_threads, align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %110
@@ -205,7 +205,7 @@ ompi_group_get_proc_ptr.exit.i41:                 ; preds = %110, %108, %94, %85
   br label %121
 
 119:                                              ; preds = %ompi_group_get_proc_ptr.exit.i41
-  %120 = getelementptr inbounds i8, ptr %.0.i.i.i43, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43, i64 40
   %.sroa.05.0.copyload.i47 = load i64, ptr %120, align 8
   br label %121
 
@@ -238,12 +238,12 @@ mca_common_monitoring_get_world_rank.exit48:      ; preds = %121
 
 ._crit_edge:                                      ; preds = %129, %8
   %.033.lcssa = phi i64 [ 0, %8 ], [ %.1, %129 ]
-  %133 = getelementptr inbounds i8, ptr %7, i64 1704
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 1704
   %134 = load ptr, ptr %133, align 8
   call void @mca_common_monitoring_coll_a2a(i64 noundef %.033.lcssa, ptr noundef %134) #3
-  %135 = getelementptr inbounds i8, ptr %7, i64 1408
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 1408
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %7, i64 1416
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 1416
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 %136(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %138) #3
   ret i32 %139
@@ -261,23 +261,23 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 280
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %2, i64 24
   %.val = load i64, ptr %18, align 8
   %19 = sext i32 %1 to i64
   %20 = mul i64 %.val, %19
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %17, i64 24
-  %25 = getelementptr inbounds i8, ptr %17, i64 32
-  %26 = getelementptr inbounds i8, ptr %6, i64 256
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 256
   br label %27
 
 27:                                               ; preds = %.lr.ph, %130
@@ -286,7 +286,7 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
   store i32 -2, ptr %12, align 4
   store i32 -2, ptr %13, align 4
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 1
   br i1 %31, label %38, label %32
@@ -297,7 +297,7 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %.thread, label %130
@@ -312,7 +312,7 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %.pre to i64
   %46 = getelementptr inbounds ptr, ptr %44, i64 %45
@@ -336,7 +336,7 @@ define i32 @mca_coll_monitoring_ineighbor_allgather(ptr noundef %0, i32 noundef 
   br i1 %59, label %60, label %ompi_group_get_proc_ptr.exit.i
 
 60:                                               ; preds = %50
-  %61 = getelementptr inbounds i8, ptr %54, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %62 = load i8, ptr @opal_uses_threads, align 1
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %66
@@ -367,7 +367,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %66, %64, %50, %41
   br label %77
 
 75:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %76 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %76, align 8
   br label %77
 
@@ -399,7 +399,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %77
 86:                                               ; preds = %.thread
   %87 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %88 = getelementptr inbounds i8, ptr %87, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = sext i32 %85 to i64
   %91 = getelementptr inbounds ptr, ptr %89, i64 %90
@@ -423,7 +423,7 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %77
   br i1 %104, label %105, label %ompi_group_get_proc_ptr.exit.i42
 
 105:                                              ; preds = %95
-  %106 = getelementptr inbounds i8, ptr %99, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %107 = load i8, ptr @opal_uses_threads, align 1
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %111
@@ -454,7 +454,7 @@ ompi_group_get_proc_ptr.exit.i42:                 ; preds = %111, %109, %95, %86
   br label %122
 
 120:                                              ; preds = %ompi_group_get_proc_ptr.exit.i42
-  %121 = getelementptr inbounds i8, ptr %.0.i.i.i44, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 40
   %.sroa.05.0.copyload.i48 = load i64, ptr %121, align 8
   br label %122
 
@@ -487,12 +487,12 @@ mca_common_monitoring_get_world_rank.exit49:      ; preds = %122
 
 ._crit_edge:                                      ; preds = %130, %9
   %.034.lcssa = phi i64 [ 0, %9 ], [ %.1, %130 ]
-  %134 = getelementptr inbounds i8, ptr %8, i64 1704
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 1704
   %135 = load ptr, ptr %134, align 8
   call void @mca_common_monitoring_coll_a2a(i64 noundef %.034.lcssa, ptr noundef %135) #3
-  %136 = getelementptr inbounds i8, ptr %8, i64 1488
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 1488
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %8, i64 1496
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 1496
   %139 = load ptr, ptr %138, align 8
   %140 = call i32 %137(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %139) #3
   ret i32 %140

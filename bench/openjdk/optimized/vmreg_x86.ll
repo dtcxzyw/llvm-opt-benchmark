@@ -27,11 +27,11 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %3 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %2
   %4 = tail call noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #2
   %5 = or disjoint i64 %indvars.iv, 1
-  %6 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv
   store ptr %4, ptr %6, align 8
   %7 = tail call noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %8 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %5
   store ptr %7, ptr %8, align 8
   %9 = ptrtoint ptr %3 to i64
   %10 = trunc i64 %9 to i32
@@ -49,11 +49,11 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %15 = getelementptr inbounds %"class.FloatRegister::FloatRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_FloatRegisterImpls, i64 1), i64 %14
   %16 = tail call noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %15) #2
   %17 = or disjoint i64 %indvars.iv64, 1
-  %18 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv64
+  %18 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv64
   store ptr %16, ptr %18, align 8
   %19 = tail call noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %15) #2
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 2
-  %20 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %17
+  %20 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %17
   store ptr %19, ptr %20, align 8
   %21 = ptrtoint ptr %15 to i64
   %22 = trunc i64 %21 to i32

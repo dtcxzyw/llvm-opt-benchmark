@@ -189,7 +189,7 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
   br i1 %10, label %dissect_fb_zero_common.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.72) #3
   %14 = load i32, ptr @proto_fb_zero, align 4
@@ -236,7 +236,7 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
   br i1 %39, label %.lr.ph.i.i, label %dissect_fb_zero_unencrypt.exit.i
 
 .lr.ph.i.i:                                       ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %41
 
 41:                                               ; preds = %257, %.lr.ph.i.i
@@ -331,13 +331,13 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br i1 %.not.i.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %96, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %99 = load ptr, ptr %98, align 8
   %.not5.i.i.i.i = icmp eq ptr %99, null
   br i1 %.not5.i.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %99, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 28
   %102 = load i32, ptr %101, align 4
   %103 = or i32 %102, 2
   store i32 %103, ptr %101, align 4

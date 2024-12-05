@@ -20,15 +20,15 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @CreateEmptyBlockRefTable() local_unnamed_addr #0 {
   %1 = tail call ptr @palloc(i64 noundef 8) #12
   %2 = tail call ptr @pg_malloc0(i64 noundef 40) #12
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @pg_malloc0(i64 noundef 458752) #12
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %4, ptr %5, align 8
   store i64 8192, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 8191, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 7372, ptr %7, align 8
   store ptr %2, ptr %1, align 8
   ret ptr %1
@@ -40,7 +40,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 define void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
   %.sroa.3.12.insert.ext = zext i32 %2 to i64
@@ -50,14 +50,14 @@ define void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr n
   %7 = call fastcc ptr @blockreftable_insert(ptr noundef %6, i64 %.sroa.0.0.copyload, i64 %.sroa.3.12.insert.insert, ptr noundef %5)
   %8 = load i8, ptr %5, align 1
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %9, label %14, label %11
 
 11:                                               ; preds = %4
   store i32 %3, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %BlockRefTableEntrySetLimitBlock.exit
 
@@ -70,7 +70,7 @@ define void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr n
   store i32 %3, ptr %10, align 8
   %17 = lshr i32 %3, 16
   %18 = and i32 %3, 65535
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i32, ptr %19, align 8
   %.not42.i = icmp ult i32 %17, %20
   br i1 %.not42.i, label %.preheader44.i, label %BlockRefTableEntrySetLimitBlock.exit
@@ -81,7 +81,7 @@ define void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr n
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader44.i
-  %22 = getelementptr inbounds i8, ptr %7, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %23 = zext nneg i32 %.03945.i to i64
   br label %24
 
@@ -97,12 +97,12 @@ define void @BlockRefTableSetLimitBlock(ptr nocapture noundef readonly %0, ptr n
   br i1 %29, label %24, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %24, %.preheader44.i
-  %30 = getelementptr inbounds i8, ptr %7, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %17 to i64
   %33 = getelementptr ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i16, ptr %36, i64 %32
   %38 = load i16, ptr %37, align 2
@@ -181,18 +181,18 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %
   %5 = alloca %struct.BlockRefTableKey, align 8
   %6 = alloca %struct.BlockRefTableKey, align 8
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %7, align 8
   %8 = call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef 16) #12
   %9 = load i64, ptr %6, align 8
   %10 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %9, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr i8, ptr %0, i64 12
   %.pre.i = load i32, ptr %12, align 8
   %.pre173.i = load i32, ptr %13, align 8
@@ -269,7 +269,7 @@ blockreftable_update_parameters.exit.i.i:         ; preds = %blockreftable_compu
   %50 = phi i64 [ %60, %58 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
   %.055.i.i = phi i32 [ %59, %58 ], [ 0, %blockreftable_update_parameters.exit.i.i ]
   %51 = getelementptr %struct.BlockRefTableEntry, ptr %25, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %53 = load i8, ptr %52, align 4
   %.not.i.i = icmp eq i8 %53, 1
   br i1 %.not.i.i, label %54, label %.lr.ph63.i.i.preheader
@@ -296,7 +296,7 @@ blockreftable_update_parameters.exit.i.i:         ; preds = %blockreftable_compu
   %.04960.i.i = phi i32 [ %spec.store.select.i.i, %77 ], [ %.04960.i.i.ph, %.lr.ph63.i.i.preheader ]
   %62 = zext i32 %.04960.i.i to i64
   %63 = getelementptr %struct.BlockRefTableEntry, ptr %25, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %65 = load i8, ptr %64, align 4
   %66 = icmp eq i8 %65, 1
   br i1 %66, label %67, label %77
@@ -311,7 +311,7 @@ blockreftable_update_parameters.exit.i.i:         ; preds = %blockreftable_compu
   %.047.i.i = and i32 %.pn.i.i, %.val53.i.i
   %70 = zext i32 %.047.i.i to i64
   %71 = getelementptr %struct.BlockRefTableEntry, ptr %35, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %73 = load i8, ptr %72, align 4
   %74 = icmp eq i8 %73, 0
   %75 = add i32 %.047.i.i, 1
@@ -341,14 +341,14 @@ blockreftable_grow.exit.i:                        ; preds = %77, %blockreftable_
   %85 = and i32 %.val.i, %8
   %86 = zext i32 %85 to i64
   %87 = getelementptr %struct.BlockRefTableEntry, ptr %84, i64 %86
-  %88 = getelementptr inbounds i8, ptr %87, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 20
   %89 = load i8, ptr %88, align 4
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %83, %146
   %.lcssa109.i = phi ptr [ %148, %146 ], [ %87, %83 ]
-  %91 = getelementptr inbounds i8, ptr %.lcssa109.i, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %.lcssa109.i, i64 20
   %92 = load i32, ptr %12, align 8
   %93 = add i32 %92, 1
   store i32 %93, ptr %12, align 8
@@ -388,7 +388,7 @@ blockreftable_distance.exit.i:                    ; preds = %99, %96
 .preheader79.i:                                   ; preds = %blockreftable_distance.exit.i
   %106 = zext i32 %105 to i64
   %107 = getelementptr %struct.BlockRefTableEntry, ptr %84, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %.preheader.i, label %.lr.ph119.i
@@ -396,7 +396,7 @@ blockreftable_distance.exit.i:                    ; preds = %99, %96
 .preheader.i:                                     ; preds = %.preheader79.i, %122
   %.lcssa94.i = phi i32 [ %124, %122 ], [ %105, %.preheader79.i ]
   %.lcssa92.i = phi ptr [ %126, %122 ], [ %107, %.preheader79.i ]
-  %.lcssa82.lcssa.i = getelementptr inbounds i8, ptr %94, i64 20
+  %.lcssa82.lcssa.i = getelementptr inbounds nuw i8, ptr %94, i64 20
   %.not72137.i = icmp eq i32 %.lcssa94.i, %.066111.i
   br i1 %.not72137.i, label %._crit_edge141.i, label %.lr.ph140.i
 
@@ -426,7 +426,7 @@ blockreftable_distance.exit.i:                    ; preds = %99, %96
   %124 = and i32 %123, %.val73.i
   %125 = zext i32 %124 to i64
   %126 = getelementptr %struct.BlockRefTableEntry, ptr %84, i64 %125
-  %127 = getelementptr inbounds i8, ptr %126, i64 20
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 20
   %128 = load i8, ptr %127, align 4
   %129 = icmp eq i8 %128, 0
   br i1 %129, label %.preheader.i, label %.lr.ph119.i
@@ -468,7 +468,7 @@ blockreftable_distance.exit.i:                    ; preds = %99, %96
 146:                                              ; preds = %139, %136
   %147 = zext i32 %105 to i64
   %148 = getelementptr %struct.BlockRefTableEntry, ptr %84, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %150 = load i8, ptr %149, align 4
   %151 = icmp eq i8 %150, 0
   br i1 %151, label %._crit_edge.i, label %.lr.ph.i
@@ -483,7 +483,7 @@ blockreftable_insert_hash_internal.exit:          ; preds = %.lr.ph.i, %._crit_e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp ult i32 %1, %4
   br i1 %.not, label %5, label %.loopexit
@@ -492,7 +492,7 @@ define void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 nound
   store i32 %1, ptr %3, align 8
   %6 = lshr i32 %1, 16
   %7 = and i32 %1, 65535
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %.not42 = icmp ult i32 %6, %9
   br i1 %.not42, label %.preheader44, label %.loopexit
@@ -503,7 +503,7 @@ define void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 nound
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader44
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = lshr i32 %1, 16
   %narrow = add nuw nsw i32 %12, 1
   %13 = zext nneg i32 %narrow to i64
@@ -521,12 +521,12 @@ define void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 nound
   br i1 %19, label %14, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %14, %.preheader44
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %6 to i64
   %23 = getelementptr ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i16, ptr %26, i64 %22
   %28 = load i16, ptr %27, align 2
@@ -598,7 +598,7 @@ define void @BlockRefTableEntrySetLimitBlock(ptr nocapture noundef %0, i32 nound
 define void @BlockRefTableMarkBlockModified(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
   %.sroa.3.12.insert.ext = zext i32 %2 to i64
@@ -611,11 +611,11 @@ define void @BlockRefTableMarkBlockModified(ptr nocapture noundef readonly %0, p
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %14
 
@@ -628,7 +628,7 @@ define void @BlockRefTableMarkBlockModified(ptr nocapture noundef readonly %0, p
 define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i32 %2, 16
   %5 = and i32 %2, 65535
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp ult i32 %4, %7
   br i1 %.not, label %50, label %8
@@ -651,20 +651,20 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   %14 = zext nneg i32 %.0108 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = tail call ptr @palloc0(i64 noundef %15) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
   %18 = tail call ptr @palloc0(i64 noundef %15) #12
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %18, ptr %19, align 8
   %20 = shl nuw nsw i64 %14, 3
   %21 = tail call ptr @palloc0(i64 noundef %20) #12
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8
   br label %49
 
 23:                                               ; preds = %11
   %24 = sub i32 %.0108, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %.0108 to i64
   %28 = shl nuw nsw i64 %27, 1
@@ -676,7 +676,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   %33 = zext i32 %24 to i64
   %34 = shl nuw nsw i64 %33, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %32, i8 0, i64 %34, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %28) #12
   store ptr %37, ptr %35, align 8
@@ -684,7 +684,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   %39 = zext i32 %38 to i64
   %40 = getelementptr i16, ptr %37, i64 %39
   tail call void @llvm.memset.p0.i64(ptr align 2 %40, i8 0, i64 %34, i1 false)
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = shl nuw nsw i64 %27, 3
   %44 = tail call ptr @repalloc(ptr noundef %42, i64 noundef %43) #12
@@ -701,7 +701,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   br label %50
 
 50:                                               ; preds = %49, %3
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %4 to i64
   %54 = getelementptr i16, ptr %52, i64 %53
@@ -711,7 +711,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
 
 57:                                               ; preds = %50
   %58 = tail call ptr @palloc(i64 noundef 32) #12
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr ptr, ptr %60, i64 %53
   store ptr %58, ptr %61, align 8
@@ -723,14 +723,14 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   %66 = getelementptr ptr, ptr %65, i64 %53
   %67 = load ptr, ptr %66, align 8
   store i16 %64, ptr %67, align 2
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i16, ptr %69, i64 %53
   store i16 1, ptr %70, align 2
   br label %.loopexit
 
 71:                                               ; preds = %50
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i16, ptr %73, i64 %53
   %75 = load i16, ptr %74, align 2
@@ -740,7 +740,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   ]
 
 .lr.ph:                                           ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr ptr, ptr %77, i64 %53
   %79 = load ptr, ptr %78, align 8
@@ -749,7 +749,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   br label %95
 
 81:                                               ; preds = %71
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr ptr, ptr %83, i64 %53
   %85 = load ptr, ptr %84, align 8
@@ -789,7 +789,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   br i1 %.not121, label %._crit_edge119, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %0, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %106
 
 106:                                              ; preds = %.lr.ph118, %106
@@ -825,7 +825,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
   %130 = trunc nuw i32 %125 to i16
   %131 = or i16 %129, %130
   store i16 %131, ptr %128, align 2
-  %132 = getelementptr inbounds i8, ptr %0, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr ptr, ptr %133, i64 %53
   %135 = load ptr, ptr %134, align 8
@@ -848,7 +848,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
 143:                                              ; preds = %._crit_edge.thread
   %144 = zext i16 %55 to i64
   %145 = shl i16 %55, 1
-  %146 = getelementptr inbounds i8, ptr %0, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr ptr, ptr %147, i64 %53
   %149 = load ptr, ptr %148, align 8
@@ -868,7 +868,7 @@ define void @BlockRefTableEntryMarkBlockModified(ptr nocapture noundef %0, i32 %
 156:                                              ; preds = %143, %._crit_edge.thread
   %157 = phi i16 [ %.pre126, %143 ], [ %75, %._crit_edge.thread ]
   %158 = trunc i32 %2 to i16
-  %159 = getelementptr inbounds i8, ptr %0, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr ptr, ptr %160, i64 %53
   %162 = load ptr, ptr %161, align 8
@@ -891,7 +891,7 @@ define noundef ptr @BlockRefTableGetEntry(ptr nocapture noundef readonly %0, ptr
   %5 = alloca %struct.BlockRefTableKey, align 8
   %6 = alloca %struct.BlockRefTableKey, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0.copyload to i64
   %.sroa.3.12.insert.ext = zext i32 %2 to i64
@@ -900,23 +900,23 @@ define noundef ptr @BlockRefTableGetEntry(ptr nocapture noundef readonly %0, ptr
   %7 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.0.0.copyload, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.3.12.insert.insert, ptr %8, align 8
   %9 = call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef 16) #12
   %10 = load i64, ptr %6, align 8
   %11 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %10, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %12, align 8
   %13 = getelementptr i8, ptr %7, i64 12
   %.val.i.i = load i32, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
   %.01113.i.i = and i32 %.val.i.i, %9
   %16 = zext i32 %.01113.i.i to i64
   %17 = getelementptr %struct.BlockRefTableEntry, ptr %15, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %blockreftable_lookup.exit.thread, label %.lr.ph.i.i
@@ -926,7 +926,7 @@ define noundef ptr @BlockRefTableGetEntry(ptr nocapture noundef readonly %0, ptr
   %.011.i.i = and i32 %22, %.val.i.i
   %23 = zext i32 %.011.i.i to i64
   %24 = getelementptr %struct.BlockRefTableEntry, ptr %15, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %blockreftable_lookup.exit.thread, label %.lr.ph.i.i
@@ -950,7 +950,7 @@ blockreftable_lookup.exit:                        ; preds = %.lr.ph.i.i
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %blockreftable_lookup.exit
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %3, align 4
   br label %33
@@ -968,15 +968,15 @@ define i32 @BlockRefTableEntryGetBlocks(ptr nocapture noundef readonly %0, i32 n
   %.not = icmp ne i32 %8, 0
   %9 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %7, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %11)
   %12 = icmp samesign ult i32 %6, %.1
   br i1 %12, label %.lr.ph92, label %.loopexit73
 
 .lr.ph92:                                         ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = and i32 %1, 65535
   %16 = add nsw i32 %.1, -1
   %17 = lshr i32 %1, 16
@@ -1095,22 +1095,22 @@ BlockRefTableWrite.exit:
   %5 = alloca %struct.BlockRefTableBuffer, align 8
   %6 = alloca i32, align 4
   store i32 1697321851, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65568) %7, i8 0, i64 65552, i1 false)
   store ptr %1, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 65560
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 65560
   %10 = load ptr, ptr @pg_comp_crc32c, align 8
   %11 = call i32 %10(i32 noundef -1, ptr noundef nonnull %6, i64 noundef 4) #12
   store i32 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 65552
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 65552
   %.pre80 = load ptr, ptr %0, align 8
   %.pre = load i32, ptr %6, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.pre, ptr %13, align 8
   store i32 4, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.pre80, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.pre80, i64 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.loopexit, label %16
@@ -1125,7 +1125,7 @@ BlockRefTableWrite.exit:
   br i1 %.not16.i, label %blockreftable_start_iterate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1152,8 +1152,8 @@ blockreftable_start_iterate.exit:                 ; preds = %24, %28, %16
   %.sroa.5.0 = phi i1 [ false, %blockreftable_start_iterate.exit ], [ %spec.select, %.critedge ]
   %.sroa.0.0 = phi i32 [ %.0.i, %blockreftable_start_iterate.exit ], [ %44, %.critedge ]
   %.043 = phi i32 [ 0, %blockreftable_start_iterate.exit ], [ %52, %.critedge ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = getelementptr inbounds i8, ptr %33, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   br label %36
 
 36:                                               ; preds = %38, %32
@@ -1173,7 +1173,7 @@ blockreftable_start_iterate.exit:                 ; preds = %24, %28, %16
   %46 = and i32 %43, %45
   %47 = icmp eq i32 %46, 0
   %spec.select = select i1 %47, i1 true, i1 %.sroa.5.1
-  %48 = getelementptr inbounds i8, ptr %41, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %49 = load i8, ptr %48, align 4
   %50 = icmp eq i8 %49, 1
   br i1 %50, label %blockreftable_iterate.exit, label %36, !llvm.loop !18
@@ -1187,18 +1187,18 @@ blockreftable_iterate.exit:                       ; preds = %38
   %53 = zext i32 %.043 to i64
   %54 = getelementptr %struct.BlockRefTableSerializedEntry, ptr %19, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false)
-  %55 = getelementptr inbounds i8, ptr %41, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %54, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %41, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %41, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %54, i64 20
-  %64 = getelementptr inbounds i8, ptr %41, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %65 = zext i32 %62 to i64
   br label %66
 
@@ -1225,14 +1225,14 @@ blockreftable_iterate.exit.thread:                ; preds = %blockreftable_itera
   %74 = zext i32 %.043 to i64
   call void @pg_qsort(ptr noundef %19, i64 noundef %74, i64 noundef 24, ptr noundef nonnull @BlockRefTableComparator) #12
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %.not67 = icmp eq i32 %77, 0
   br i1 %.not67, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %blockreftable_iterate.exit.thread
-  %78 = getelementptr inbounds i8, ptr %4, i64 8
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %80
 
 80:                                               ; preds = %.lr.ph66, %._crit_edge
@@ -1263,7 +1263,7 @@ BlockRefTableWrite.exit52:                        ; preds = %80, %88
   %96 = add i32 %95, 24
   store i32 %96, ptr %12, align 8
   %.sroa.0.0.copyload = load i64, ptr %81, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
   %97 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1277,12 +1277,12 @@ BlockRefTableWrite.exit52:                        ; preds = %80, %88
   store i64 %100, ptr %79, align 8
   %101 = getelementptr i8, ptr %97, i64 12
   %.val.i.i = load i32, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %97, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %103 = load ptr, ptr %102, align 8
   %.01113.i.i = and i32 %.val.i.i, %98
   %104 = zext i32 %.01113.i.i to i64
   %105 = getelementptr %struct.BlockRefTableEntry, ptr %103, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
   %107 = load i8, ptr %106, align 4
   %108 = icmp eq i8 %107, 0
   br i1 %108, label %blockreftable_lookup.exit, label %.lr.ph.i.i
@@ -1292,7 +1292,7 @@ BlockRefTableWrite.exit52:                        ; preds = %80, %88
   %.011.i.i = and i32 %110, %.val.i.i
   %111 = zext i32 %.011.i.i to i64
   %112 = getelementptr %struct.BlockRefTableEntry, ptr %103, i64 %111
-  %113 = getelementptr inbounds i8, ptr %112, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %114 = load i8, ptr %113, align 4
   %115 = icmp eq i8 %114, 0
   br i1 %115, label %blockreftable_lookup.exit, label %.lr.ph.i.i
@@ -1308,13 +1308,13 @@ blockreftable_lookup.exit:                        ; preds = %109, %.lr.ph.i.i, %
   %.0.i.i = phi ptr [ null, %BlockRefTableWrite.exit52 ], [ %116, %.lr.ph.i.i ], [ null, %109 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %118 = getelementptr inbounds i8, ptr %81, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %119 = load i32, ptr %118, align 4
   %.not49 = icmp eq i32 %119, 0
   br i1 %.not49, label %BlockRefTableWrite.exit53, label %120
 
 120:                                              ; preds = %blockreftable_lookup.exit
-  %121 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %122 = load ptr, ptr %121, align 8
   %123 = shl i32 %119, 1
   %124 = load ptr, ptr @pg_comp_crc32c, align 8
@@ -1355,14 +1355,14 @@ blockreftable_lookup.exit:                        ; preds = %109, %.lr.ph.i.i, %
   br label %BlockRefTableWrite.exit53
 
 BlockRefTableWrite.exit53:                        ; preds = %142, %138, %blockreftable_lookup.exit
-  %147 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %148 = load i32, ptr %147, align 8
   %.not68 = icmp eq i32 %148, 0
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BlockRefTableWrite.exit53
-  %149 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  %150 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   br label %151
 
 151:                                              ; preds = %.lr.ph, %BlockRefTableWrite.exit54
@@ -1426,7 +1426,7 @@ BlockRefTableWrite.exit54:                        ; preds = %180, %176, %151
 ._crit_edge:                                      ; preds = %BlockRefTableWrite.exit54, %BlockRefTableWrite.exit53
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i32, ptr %189, align 8
   %191 = zext i32 %190 to i64
   %192 = icmp samesign ult i64 %indvars.iv.next78, %191
@@ -1451,9 +1451,9 @@ define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr nocapture noun
   br i1 %7, label %32, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %10, %12
   br i1 %13, label %32, label %14
@@ -1463,9 +1463,9 @@ define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr nocapture noun
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %18, %20
   br i1 %21, label %32, label %22
@@ -1475,9 +1475,9 @@ define internal range(i32 -1, 2) i32 @BlockRefTableComparator(ptr nocapture noun
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %26, %28
   br i1 %29, label %32, label %30
@@ -1498,11 +1498,11 @@ define internal fastcc void @BlockRefTableFileTerminate(ptr noundef %0) unnamed_
   %3 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr @pg_comp_crc32c, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 65560
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   %6 = load i32, ptr %5, align 8
   %7 = call i32 %4(i32 noundef %6, ptr noundef nonnull %2, i64 noundef 24) #12
   store i32 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 65552
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 65552
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 24
   %11 = icmp sgt i32 %10, 65536
@@ -1510,16 +1510,16 @@ define internal fastcc void @BlockRefTableFileTerminate(ptr noundef %0) unnamed_
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = call i32 %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %9) #12
   store i32 0, ptr %8, align 8
   br label %BlockRefTableWrite.exit
 
 BlockRefTableWrite.exit:                          ; preds = %1, %12
   %18 = phi i32 [ 0, %12 ], [ %9, %1 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = sext i32 %18 to i64
   %21 = getelementptr [65536 x i8], ptr %19, i64 0, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
@@ -1539,7 +1539,7 @@ BlockRefTableWrite.exit:                          ; preds = %1, %12
 
 31:                                               ; preds = %BlockRefTableWrite.exit
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 %32(ptr noundef %34, ptr noundef nonnull %19, i32 noundef %28) #12
   store i32 0, ptr %8, align 8
@@ -1555,7 +1555,7 @@ BlockRefTableWrite.exit4:                         ; preds = %BlockRefTableWrite.
   %41 = add i32 %40, 4
   store i32 %41, ptr %8, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 %42(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %41) #12
   store i32 0, ptr %8, align 8
@@ -1567,15 +1567,15 @@ define noundef ptr @CreateBlockRefTableReader(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca i32, align 4
   %7 = tail call ptr @palloc0(i64 noundef 73808) #12
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 65568
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 65568
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 65576
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 65576
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 65584
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 65584
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 65560
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 65560
   store i32 -1, ptr %12, align 8
   call fastcc void @BlockRefTableRead(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 4)
   %13 = load i32, ptr %6, align 4
@@ -1598,14 +1598,14 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 65556
-  %6 = getelementptr inbounds i8, ptr %0, i64 65552
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 65576
-  %10 = getelementptr inbounds i8, ptr %0, i64 65584
-  %11 = getelementptr inbounds i8, ptr %0, i64 65568
-  %12 = getelementptr inbounds i8, ptr %0, i64 65560
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 65556
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 65552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 65576
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 65584
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 65568
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   br label %13
 
 13:                                               ; preds = %.lr.ph, %56
@@ -1698,7 +1698,7 @@ define noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr n
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 65560
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   %11 = load i32, ptr %10, align 8
   %12 = xor i32 %11, -1
   call fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 4)
@@ -1707,17 +1707,17 @@ define noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr n
   br i1 %14, label %41, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 65576
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 65584
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 65584
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 65568
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 65568
   %21 = load ptr, ptr %20, align 8
   call void (ptr, ptr, ...) %17(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef %21, i32 noundef %12, i32 noundef %13) #12
   br label %41
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 65600
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 65600
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
@@ -1727,7 +1727,7 @@ define noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr n
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 1
@@ -1737,15 +1737,15 @@ define noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %0, ptr n
   %33 = shl i32 %32, 1
   call fastcc void @BlockRefTableRead(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %33)
   %34 = load i32, ptr %27, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 65592
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 65592
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 65596
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 65596
   store i32 0, ptr %36, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
-  %37 = getelementptr inbounds i8, ptr %5, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %2, align 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %3, align 4
   br label %41
@@ -1758,11 +1758,11 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 65596
-  %5 = getelementptr inbounds i8, ptr %0, i64 65600
-  %6 = getelementptr inbounds i8, ptr %0, i64 73800
-  %7 = getelementptr inbounds i8, ptr %0, i64 65608
-  %8 = getelementptr inbounds i8, ptr %0, i64 65592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 65596
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 65600
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 73800
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 65608
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 65592
   %9 = zext i32 %2 to i64
   %.pre = load i32, ptr %4, align 4
   br label %10
@@ -1901,7 +1901,7 @@ define i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture noundef w
 
 ; Function Attrs: nounwind uwtable
 define void @DestroyBlockRefTableReader(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 65600
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 65600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1922,14 +1922,14 @@ define noundef ptr @CreateBlockRefTableWriter(ptr noundef %0, ptr noundef %1) lo
   store i32 1697321851, ptr %3, align 4
   %4 = tail call ptr @palloc0(i64 noundef 65568) #12
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 65560
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 65560
   store i32 -1, ptr %6, align 8
   %7 = load ptr, ptr @pg_comp_crc32c, align 8
   %8 = call i32 %7(i32 noundef -1, ptr noundef nonnull %3, i64 noundef 4) #12
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 65552
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 65552
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 4
   %12 = icmp sgt i32 %11, 65536
@@ -1938,14 +1938,14 @@ define noundef ptr @CreateBlockRefTableWriter(ptr noundef %0, ptr noundef %1) lo
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = call i32 %14(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %10) #12
   store i32 0, ptr %9, align 8
   br label %BlockRefTableWrite.exit
 
 BlockRefTableWrite.exit:                          ; preds = %2, %13
   %18 = phi i32 [ 0, %13 ], [ %10, %2 ]
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = sext i32 %18 to i64
   %21 = getelementptr [65536 x i8], ptr %19, i64 0, i64 %20
   %22 = load i32, ptr %3, align 4
@@ -1960,18 +1960,18 @@ BlockRefTableWrite.exit:                          ; preds = %2, %13
 define void @BlockRefTableWriteEntry(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BlockRefTableSerializedEntry, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 20
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = zext i32 %11 to i64
   br label %15
 
@@ -1992,11 +1992,11 @@ define void @BlockRefTableWriteEntry(ptr noundef %0, ptr nocapture noundef reado
 
 .critedge:                                        ; preds = %15, %17
   %23 = load ptr, ptr @pg_comp_crc32c, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 65560
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   %25 = load i32, ptr %24, align 8
   %26 = call i32 %23(i32 noundef %25, ptr noundef nonnull %3, i64 noundef 24) #12
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 65552
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 65552
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 24
   %30 = icmp sgt i32 %29, 65536
@@ -2004,16 +2004,16 @@ define void @BlockRefTableWriteEntry(ptr noundef %0, ptr nocapture noundef reado
 
 31:                                               ; preds = %.critedge
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = call i32 %32(ptr noundef %34, ptr noundef nonnull %35, i32 noundef %28) #12
   store i32 0, ptr %27, align 8
   br label %BlockRefTableWrite.exit
 
 BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
   %37 = phi i32 [ 0, %31 ], [ %28, %.critedge ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = sext i32 %37 to i64
   %40 = getelementptr [65536 x i8], ptr %38, i64 0, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %40, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
@@ -2039,7 +2039,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %55(ptr noundef %57, ptr noundef nonnull %38, i32 noundef %51) #12
   store i32 0, ptr %27, align 8
@@ -2052,7 +2052,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 %63(ptr noundef %65, ptr noundef %45, i32 noundef %46) #12
   br label %BlockRefTableWrite.exit20
@@ -2072,8 +2072,8 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BlockRefTableWrite.exit20
-  %73 = getelementptr inbounds i8, ptr %1, i64 48
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %75
 
 75:                                               ; preds = %.lr.ph, %BlockRefTableWrite.exit21
@@ -2149,11 +2149,11 @@ define void @DestroyBlockRefTableWriter(ptr noundef %0) local_unnamed_addr #0 {
 define noundef ptr @CreateBlockRefTableEntry(i64 %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc0(i64 noundef 56) #12
   store i64 %0, ptr %4, align 8
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %.sroa.25.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %6, align 8
   ret ptr %4
 }
@@ -2162,7 +2162,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2173,7 +2173,7 @@ define void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %9, label %8
@@ -2184,7 +2184,7 @@ define void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %13, label %12

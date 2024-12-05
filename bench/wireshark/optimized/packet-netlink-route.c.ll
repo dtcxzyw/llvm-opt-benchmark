@@ -598,7 +598,7 @@ define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.407) #4
   %13 = load ptr, ptr %11, align 8
@@ -607,12 +607,12 @@ define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr n
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netlink_route, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr @hf_netlink_route_nltype, align 4
   %21 = tail call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %17, i32 noundef 0, i32 noundef %19, i32 noundef %20, ptr noundef null) #4
   store ptr %1, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i16, ptr %22, align 4
   switch i16 %23, label %dissect_netlink_route_ifaddrmsg.exit.thread [
     i16 25, label %95
@@ -638,7 +638,7 @@ define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr n
 
 28:                                               ; preds = %10, %10, %10, %24
   %29 = phi i32 [ %27, %24 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ]
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %29, ptr %30, align 8
   %31 = load i32, ptr @hf_netlink_route_ifi_family, align 4
   %32 = load i32, ptr %18, align 4
@@ -696,7 +696,7 @@ dissect_netlink_route_ifinfomsg.exit:             ; preds = %28, %56
 
 69:                                               ; preds = %10, %10, %65
   %.pr = phi i32 [ %68, %65 ], [ 0, %10 ], [ 0, %10 ]
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.pr, ptr %70, align 8
   %71 = load i32, ptr @hf_netlink_route_ifa_family, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %71, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
@@ -731,7 +731,7 @@ dissect_netlink_route_ifinfomsg.exit:             ; preds = %28, %56
 
 95:                                               ; preds = %10, %10, %91
   %.pr64 = phi i32 [ %94, %91 ], [ 0, %10 ], [ 0, %10 ]
-  %96 = getelementptr inbounds i8, ptr %5, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.pr64, ptr %96, align 8
   %97 = load i32, ptr @hf_netlink_route_rt_family, align 4
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %97, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #4
@@ -813,7 +813,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 define internal fastcc void @_fill_label_value_string_bitmask(ptr noundef initializes((0, 1)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   store i8 0, ptr %0, align 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -938,7 +938,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 16:                                               ; preds = %7
   %17 = load i32, ptr @hf_netlink_route_ifla_mtu, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %17, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = load i32, ptr %9, align 4
@@ -947,7 +947,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 22:                                               ; preds = %7
   %23 = load i32, ptr @hf_netlink_route_ifla_txqlen, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %25, ptr noundef nonnull %9) #4
   %27 = load i32, ptr %9, align 4
@@ -956,14 +956,14 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 28:                                               ; preds = %7
   %29 = load i32, ptr @hf_netlink_route_ifla_operstate, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %29, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %31) #4
   br label %156
 
 33:                                               ; preds = %7
   %34 = load i32, ptr @hf_netlink_route_ifla_promiscuity, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %36, ptr noundef nonnull %9) #4
   %38 = load i32, ptr %9, align 4
@@ -972,7 +972,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 39:                                               ; preds = %7
   %40 = load i32, ptr @hf_netlink_route_ifla_txqnum, align 4
-  %41 = getelementptr inbounds i8, ptr %2, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %42, ptr noundef nonnull %9) #4
   %44 = load i32, ptr %9, align 4
@@ -981,7 +981,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 45:                                               ; preds = %7
   %46 = load i32, ptr @hf_netlink_route_ifla_rxqnum, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %48, ptr noundef nonnull %9) #4
   %50 = load i32, ptr %9, align 4
@@ -990,7 +990,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 51:                                               ; preds = %7
   %52 = load i32, ptr @hf_netlink_route_ifla_group, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %52, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %54, ptr noundef nonnull %9) #4
   %56 = load i32, ptr %9, align 4
@@ -999,7 +999,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 57:                                               ; preds = %7
   %58 = load i32, ptr @hf_netlink_route_ifla_gso_maxsegs, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %58, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %60, ptr noundef nonnull %9) #4
   %62 = load i32, ptr %9, align 4
@@ -1008,7 +1008,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 63:                                               ; preds = %7
   %64 = load i32, ptr @hf_netlink_route_ifla_gso_maxsize, align 4
-  %65 = getelementptr inbounds i8, ptr %2, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %64, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %66, ptr noundef nonnull %9) #4
   %68 = load i32, ptr %9, align 4
@@ -1017,7 +1017,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 69:                                               ; preds = %7
   %70 = load i32, ptr @hf_netlink_route_ifla_carrier, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %3, i32 noundef %70, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %72, ptr noundef nonnull %10) #4
   %74 = load i32, ptr %10, align 4
@@ -1027,7 +1027,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 76:                                               ; preds = %7
   %77 = load i32, ptr @hf_netlink_route_ifla_carrier_changes, align 4
-  %78 = getelementptr inbounds i8, ptr %2, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %79, ptr noundef nonnull %9) #4
   %81 = load i32, ptr %9, align 4
@@ -1039,7 +1039,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   %84 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %83, ptr noundef %0, i32 noundef %5, i32 noundef %6, i8 noundef signext 58) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.408, ptr noundef %84) #4
   %85 = load i32, ptr @hf_netlink_route_ifla_hwaddr, align 4
-  %86 = getelementptr inbounds i8, ptr %2, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %85, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %87) #4
   br label %156
@@ -1049,7 +1049,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   %91 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %90, ptr noundef %0, i32 noundef %5, i32 noundef %6, i8 noundef signext 58) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.408, ptr noundef %91) #4
   %92 = load i32, ptr @hf_netlink_route_ifla_broadcast, align 4
-  %93 = getelementptr inbounds i8, ptr %2, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %92, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %94) #4
   br label %156
@@ -1076,7 +1076,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 107:                                              ; preds = %7
   %108 = load i32, ptr @hf_netlink_route_ifla_map_memstart, align 4
-  %109 = getelementptr inbounds i8, ptr %2, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %108, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef %110) #4
   %112 = load i32, ptr @hf_netlink_route_ifla_map_memend, align 4
@@ -1103,7 +1103,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 132:                                              ; preds = %7
   %133 = load i32, ptr @hf_netlink_route_ifla_carrier_up_count, align 4
-  %134 = getelementptr inbounds i8, ptr %2, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %133, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %135, ptr noundef nonnull %9) #4
   %137 = load i32, ptr %9, align 4
@@ -1112,7 +1112,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 138:                                              ; preds = %7
   %139 = load i32, ptr @hf_netlink_route_ifla_carrier_down_count, align 4
-  %140 = getelementptr inbounds i8, ptr %2, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %139, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %141, ptr noundef nonnull %9) #4
   %143 = load i32, ptr %9, align 4
@@ -1121,7 +1121,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 144:                                              ; preds = %7
   %145 = load i32, ptr @hf_netlink_route_ifla_min_mtu, align 4
-  %146 = getelementptr inbounds i8, ptr %2, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %145, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %147, ptr noundef nonnull %9) #4
   %149 = load i32, ptr %9, align 4
@@ -1130,7 +1130,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 150:                                              ; preds = %7
   %151 = load i32, ptr @hf_netlink_route_ifla_max_mtu, align 4
-  %152 = getelementptr inbounds i8, ptr %2, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %151, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %153, ptr noundef nonnull %9) #4
   %155 = load i32, ptr %9, align 4
@@ -1163,7 +1163,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef
 
 14:                                               ; preds = %7
   %15 = load i32, ptr @hf_netlink_route_ifa_flags32, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %17) #4
   br label %30
@@ -1211,7 +1211,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr nound
 .sink.split:                                      ; preds = %11, %9
   %hf_netlink_route_rta_oif.sink = phi ptr [ @hf_netlink_route_rta_iif, %9 ], [ @hf_netlink_route_rta_oif, %11 ]
   %13 = load i32, ptr %hf_netlink_route_rta_oif.sink, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %15, ptr noundef nonnull %8) #4
   %17 = load i32, ptr %8, align 4
@@ -1243,7 +1243,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 4, 9) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %5, %7

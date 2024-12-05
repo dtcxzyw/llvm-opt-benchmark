@@ -50,7 +50,7 @@ local_strdup.exit19.i:                            ; preds = %local_strdup.exit.i
   br i1 %cmp3.i, label %free_field.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %local_strdup.exit19.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 1
   store i8 0, ptr %call2.i, align 1
   %0 = load i8, ptr %call.i16.i, align 1
   %.fr28.i = freeze i8 %0
@@ -71,7 +71,7 @@ switch.early.test.i:                              ; preds = %for.body.i
   ]
 
 for.inc.i:                                        ; preds = %switch.early.test.i
-  %incdec.ptr17.i = getelementptr inbounds i8, ptr %q.030.i, i64 1
+  %incdec.ptr17.i = getelementptr inbounds nuw i8, ptr %q.030.i, i64 1
   %1 = load i8, ptr %incdec.ptr17.i, align 1
   %.fr.i = freeze i8 %1
   %tobool.not.i = icmp eq i8 %.fr.i, 0
@@ -136,7 +136,7 @@ if.then8.i:                                       ; preds = %if.end5.i8
   unreachable
 
 if.end9.i:                                        ; preds = %if.end5.i8
-  %arrayidx.i = getelementptr inbounds i8, ptr %call6.i, i64 %call.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 %call.i
   store i8 0, ptr %arrayidx.i, align 1
   %call11.i = tail call noalias ptr @fopen64(ptr noundef nonnull %call.i24.i, ptr noundef nonnull @.str.7)
   %cmp12.i = icmp eq ptr %call11.i, null
@@ -194,7 +194,7 @@ if.end33.i:                                       ; preds = %if.then30.i, %if.th
 
 if.end37.i:                                       ; preds = %if.end33.i
   %5 = load i32, ptr %entry1.i, align 8
-  %6 = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %call38.i = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %5, ptr %7, i32 noundef 0) #10
   %tobool39.not.i = icmp eq i32 %call38.i, 0

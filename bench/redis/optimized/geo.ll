@@ -85,9 +85,9 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @geoArrayAppend(ptr nocapture noundef %ga, ptr nocapture noundef readonly %xy, double noundef %dist, double noundef %score, ptr noundef %member) local_unnamed_addr #0 {
 entry:
-  %used = getelementptr inbounds i8, ptr %ga, i64 16
+  %used = getelementptr inbounds nuw i8, ptr %ga, i64 16
   %0 = load i64, ptr %used, align 8
-  %buckets = getelementptr inbounds i8, ptr %ga, i64 8
+  %buckets = getelementptr inbounds nuw i8, ptr %ga, i64 8
   %1 = load i64, ptr %buckets, align 8
   %cmp = icmp eq i64 %0, %1
   %.pre = load ptr, ptr %ga, align 8
@@ -110,15 +110,15 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr = getelementptr inbounds %struct.geoPoint, ptr %3, i64 %2
   %4 = load double, ptr %xy, align 8
   store double %4, ptr %add.ptr, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %xy, i64 8
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %xy, i64 8
   %5 = load double, ptr %arrayidx10, align 8
-  %latitude = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %latitude = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store double %5, ptr %latitude, align 8
-  %dist11 = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %dist11 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store double %dist, ptr %dist11, align 8
-  %member12 = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %member12 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   store ptr %member, ptr %member12, align 8
-  %score13 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %score13 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   store double %score, ptr %score13, align 8
   %6 = load i64, ptr %used, align 8
   %inc = add i64 %6, 1
@@ -132,7 +132,7 @@ declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @geoArrayFree(ptr noundef %ga) local_unnamed_addr #0 {
 entry:
-  %used = getelementptr inbounds i8, ptr %ga, i64 16
+  %used = getelementptr inbounds nuw i8, ptr %ga, i64 16
   %0 = load i64, ptr %used, align 8
   %cmp6.not = icmp eq i64 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body
@@ -180,9 +180,9 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %cmp = phi i1 [ true, %entry ], [ false, %for.cond ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.cond ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds double, ptr %xy, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw double, ptr %xy, i64 %indvars.iv
   %call = tail call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %0, ptr noundef %add.ptr, ptr noundef null) #14
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %for.cond, label %return
@@ -191,7 +191,7 @@ for.end:                                          ; preds = %for.cond
   %1 = load double, ptr %xy, align 8
   %2 = tail call double @llvm.fabs.f64(double %1)
   %or.cond = fcmp ogt double %2, 1.800000e+02
-  %arrayidx14.phi.trans.insert = getelementptr inbounds i8, ptr %xy, i64 8
+  %arrayidx14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %xy, i64 8
   %.pre = load double, ptr %arrayidx14.phi.trans.insert, align 8
   %3 = tail call double @llvm.fabs.f64(double %.pre)
   %or.cond12 = fcmp ogt double %3, 0x40554345B1A57F00
@@ -216,7 +216,7 @@ define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %zobj, ptr 
 entry:
   %score = alloca double, align 8
   store double 0.000000e+00, ptr %score, align 8
-  %ptr = getelementptr inbounds i8, ptr %member, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %member, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = call i32 @zsetScore(ptr noundef %zobj, ptr noundef %0, ptr noundef nonnull %score) #14
   %cmp = icmp eq i32 %call, -1
@@ -240,7 +240,7 @@ declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local noundef double @extractUnitOrReply(ptr noundef %c, ptr nocapture noundef readonly %unit) local_unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds i8, ptr %unit, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %unit, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.1) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -302,9 +302,9 @@ if.then4:                                         ; preds = %if.end3
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end3
-  %arrayidx6 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %2, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr.i, align 8
   %call.i = call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.1) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -354,7 +354,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
   %call2 = call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %h, ptr noundef nonnull @.str.9) #14
   %cmp3.not = icmp eq i32 %call2, 0
@@ -389,9 +389,9 @@ if.then12:                                        ; preds = %if.end10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
-  %arrayidx14 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %4 = load ptr, ptr %arrayidx14, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %4, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr.i, align 8
   %call.i = call i32 @strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.1) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -460,16 +460,16 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then1:                                         ; preds = %if.end
-  %xy2 = getelementptr inbounds i8, ptr %shape, i64 8
+  %xy2 = getelementptr inbounds nuw i8, ptr %shape, i64 8
   %1 = load double, ptr %xy2, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %shape, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %shape, i64 16
   %2 = load double, ptr %arrayidx4, align 8
   %3 = load double, ptr %xy, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %xy, i64 8
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %xy, i64 8
   %4 = load double, ptr %arrayidx6, align 8
-  %t = getelementptr inbounds i8, ptr %shape, i64 64
+  %t = getelementptr inbounds nuw i8, ptr %shape, i64 64
   %5 = load double, ptr %t, align 8
-  %conversion = getelementptr inbounds i8, ptr %shape, i64 24
+  %conversion = getelementptr inbounds nuw i8, ptr %shape, i64 24
   %6 = load double, ptr %conversion, align 8
   %mul = fmul double %5, %6
   %call7 = tail call i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %mul, ptr noundef %distance) #14
@@ -477,20 +477,20 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool8.not, label %return, label %if.end31
 
 if.then13:                                        ; preds = %if.end
-  %t14 = getelementptr inbounds i8, ptr %shape, i64 64
-  %width = getelementptr inbounds i8, ptr %shape, i64 72
+  %t14 = getelementptr inbounds nuw i8, ptr %shape, i64 64
+  %width = getelementptr inbounds nuw i8, ptr %shape, i64 72
   %7 = load double, ptr %width, align 8
-  %conversion15 = getelementptr inbounds i8, ptr %shape, i64 24
+  %conversion15 = getelementptr inbounds nuw i8, ptr %shape, i64 24
   %8 = load double, ptr %conversion15, align 8
   %mul16 = fmul double %7, %8
   %9 = load double, ptr %t14, align 8
   %mul19 = fmul double %8, %9
-  %xy20 = getelementptr inbounds i8, ptr %shape, i64 8
+  %xy20 = getelementptr inbounds nuw i8, ptr %shape, i64 8
   %10 = load double, ptr %xy20, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %shape, i64 16
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %shape, i64 16
   %11 = load double, ptr %arrayidx23, align 8
   %12 = load double, ptr %xy, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %xy, i64 8
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %xy, i64 8
   %13 = load double, ptr %arrayidx25, align 8
   %call26 = tail call i32 @geohashGetDistanceIfInRectangle(double noundef %mul16, double noundef %mul19, double noundef %10, double noundef %11, double noundef %12, double noundef %13, ptr noundef %distance) #14
   %tobool27.not = icmp eq i32 %call26, 0
@@ -521,13 +521,13 @@ entry:
   %xy46 = alloca [2 x double], align 16
   %distance47 = alloca double, align 8
   store double %min, ptr %range, align 8
-  %max2 = getelementptr inbounds i8, ptr %range, i64 8
+  %max2 = getelementptr inbounds nuw i8, ptr %range, i64 8
   store double %max, ptr %max2, align 8
-  %minex = getelementptr inbounds i8, ptr %range, i64 16
+  %minex = getelementptr inbounds nuw i8, ptr %range, i64 16
   store i32 0, ptr %minex, align 8
-  %maxex = getelementptr inbounds i8, ptr %range, i64 20
+  %maxex = getelementptr inbounds nuw i8, ptr %range, i64 20
   store i32 1, ptr %maxex, align 4
-  %used = getelementptr inbounds i8, ptr %ga, i64 16
+  %used = getelementptr inbounds nuw i8, ptr %ga, i64 16
   %0 = load i64, ptr %used, align 8
   %bf.load = load i32, ptr %zobj, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -538,7 +538,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %zobj, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %zobj, i64 8
   %1 = load ptr, ptr %ptr, align 8
   store i32 0, ptr %vlen, align 4
   store i64 0, ptr %vlong, align 8
@@ -550,8 +550,8 @@ if.then:                                          ; preds = %entry
 while.body.lr.ph:                                 ; preds = %if.then
   %call5 = call ptr @lpNext(ptr noundef %1, ptr noundef nonnull %call) #14
   store ptr %call5, ptr %sptr, align 8
-  %buckets.i = getelementptr inbounds i8, ptr %ga, i64 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %xy, i64 8
+  %buckets.i = getelementptr inbounds nuw i8, ptr %ga, i64 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %xy, i64 8
   %2 = add i64 %limit, -1
   br label %while.body
 
@@ -616,13 +616,13 @@ geoArrayAppend.exit:                              ; preds = %cond.end, %if.then.
   %12 = load double, ptr %xy, align 16
   store double %12, ptr %add.ptr.i, align 8
   %13 = load double, ptr %arrayidx10.i, align 8
-  %latitude.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %latitude.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store double %13, ptr %latitude.i, align 8
-  %dist11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %dist11.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store double %7, ptr %dist11.i, align 8
-  %member12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
+  %member12.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   store ptr %cond, ptr %member12.i, align 8
-  %score13.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
+  %score13.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   store double %call6, ptr %score13.i, align 8
   %14 = load i64, ptr %used, align 8
   %inc.i = add i64 %14, 1
@@ -641,24 +641,24 @@ if.end29:                                         ; preds = %if.end20
   br i1 %tobool.not, label %if.end76, label %while.body, !llvm.loop !8
 
 if.then35:                                        ; preds = %entry
-  %ptr36 = getelementptr inbounds i8, ptr %zobj, i64 8
+  %ptr36 = getelementptr inbounds nuw i8, ptr %zobj, i64 8
   %17 = load ptr, ptr %ptr36, align 8
-  %zsl37 = getelementptr inbounds i8, ptr %17, i64 8
+  %zsl37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load ptr, ptr %zsl37, align 8
   %call38 = call ptr @zslNthInRange(ptr noundef %18, ptr noundef nonnull %range, i64 noundef 0) #14
   %cmp39 = icmp eq ptr %call38, null
   br i1 %cmp39, label %return, label %while.cond43.preheader
 
 while.cond43.preheader:                           ; preds = %if.then35
-  %buckets.i30 = getelementptr inbounds i8, ptr %ga, i64 8
-  %arrayidx10.i34 = getelementptr inbounds i8, ptr %xy46, i64 8
+  %buckets.i30 = getelementptr inbounds nuw i8, ptr %ga, i64 8
+  %arrayidx10.i34 = getelementptr inbounds nuw i8, ptr %xy46, i64 8
   %19 = add i64 %limit, -1
   br label %while.body45
 
 while.body45:                                     ; preds = %while.cond43.preheader, %if.end73
   %ln.052 = phi ptr [ %call38, %while.cond43.preheader ], [ %33, %if.end73 ]
   store double 0.000000e+00, ptr %distance47, align 8
-  %score48 = getelementptr inbounds i8, ptr %ln.052, i64 8
+  %score48 = getelementptr inbounds nuw i8, ptr %ln.052, i64 8
   %20 = load double, ptr %score48, align 8
   %call49 = call i32 @zslValueLteMax(double noundef %20, ptr noundef nonnull %range) #14
   %tobool50.not = icmp eq i32 %call49, 0
@@ -703,13 +703,13 @@ geoArrayAppend.exit47:                            ; preds = %if.then58, %if.then
   %29 = load double, ptr %xy46, align 16
   store double %29, ptr %add.ptr.i33, align 8
   %30 = load double, ptr %arrayidx10.i34, align 8
-  %latitude.i35 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 8
+  %latitude.i35 = getelementptr inbounds nuw i8, ptr %add.ptr.i33, i64 8
   store double %30, ptr %latitude.i35, align 8
-  %dist11.i36 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 16
+  %dist11.i36 = getelementptr inbounds nuw i8, ptr %add.ptr.i33, i64 16
   store double %22, ptr %dist11.i36, align 8
-  %member12.i37 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 32
+  %member12.i37 = getelementptr inbounds nuw i8, ptr %add.ptr.i33, i64 32
   store ptr %call61, ptr %member12.i37, align 8
-  %score13.i38 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 24
+  %score13.i38 = getelementptr inbounds nuw i8, ptr %add.ptr.i33, i64 24
   store double %23, ptr %score13.i38, align 8
   %31 = load i64, ptr %used, align 8
   %inc.i39 = add i64 %31, 1
@@ -722,7 +722,7 @@ if.end63:                                         ; preds = %if.end52.if.end63_c
   br i1 %.not, label %if.end76, label %if.end73
 
 if.end73:                                         ; preds = %if.end63
-  %level = getelementptr inbounds i8, ptr %ln.052, i64 24
+  %level = getelementptr inbounds nuw i8, ptr %ln.052, i64 24
   %33 = load ptr, ptr %level, align 8
   %tobool44.not = icmp eq ptr %33, null
   br i1 %tobool44.not, label %if.end76, label %while.body45, !llvm.loop !9
@@ -788,31 +788,31 @@ define dso_local i32 @membersOfAllNeighbors(ptr nocapture noundef readonly %zobj
 entry:
   %neighbors = alloca [9 x %struct.GeoHashBits], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %neighbors, ptr noundef nonnull align 8 dereferenceable(16) %n, i64 16, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %neighbors, i64 16
-  %neighbors2 = getelementptr inbounds i8, ptr %n, i64 64
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %neighbors, i64 16
+  %neighbors2 = getelementptr inbounds nuw i8, ptr %n, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(16) %neighbors2, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %neighbors, i64 32
-  %south = getelementptr inbounds i8, ptr %n, i64 112
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %neighbors, i64 32
+  %south = getelementptr inbounds nuw i8, ptr %n, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %south, i64 16, i1 false)
-  %arrayidx5 = getelementptr inbounds i8, ptr %neighbors, i64 48
-  %east = getelementptr inbounds i8, ptr %n, i64 80
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %neighbors, i64 48
+  %east = getelementptr inbounds nuw i8, ptr %n, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(16) %east, i64 16, i1 false)
-  %arrayidx7 = getelementptr inbounds i8, ptr %neighbors, i64 64
-  %west = getelementptr inbounds i8, ptr %n, i64 96
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %neighbors, i64 64
+  %west = getelementptr inbounds nuw i8, ptr %n, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7, ptr noundef nonnull align 8 dereferenceable(16) %west, i64 16, i1 false)
-  %arrayidx9 = getelementptr inbounds i8, ptr %neighbors, i64 80
-  %north_east = getelementptr inbounds i8, ptr %n, i64 128
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %neighbors, i64 80
+  %north_east = getelementptr inbounds nuw i8, ptr %n, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(16) %north_east, i64 16, i1 false)
-  %arrayidx11 = getelementptr inbounds i8, ptr %neighbors, i64 96
-  %north_west = getelementptr inbounds i8, ptr %n, i64 160
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %neighbors, i64 96
+  %north_west = getelementptr inbounds nuw i8, ptr %n, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(16) %north_west, i64 16, i1 false)
-  %arrayidx13 = getelementptr inbounds i8, ptr %neighbors, i64 112
-  %south_east = getelementptr inbounds i8, ptr %n, i64 144
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %neighbors, i64 112
+  %south_east = getelementptr inbounds nuw i8, ptr %n, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx13, ptr noundef nonnull align 8 dereferenceable(16) %south_east, i64 16, i1 false)
-  %arrayidx15 = getelementptr inbounds i8, ptr %neighbors, i64 128
-  %south_west = getelementptr inbounds i8, ptr %n, i64 176
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %neighbors, i64 128
+  %south_west = getelementptr inbounds nuw i8, ptr %n, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx15, ptr noundef nonnull align 8 dereferenceable(16) %south_west, i64 16, i1 false)
-  %used = getelementptr inbounds i8, ptr %ga, i64 16
+  %used = getelementptr inbounds nuw i8, ptr %ga, i64 16
   %0 = add i64 %limit, -1
   br label %for.body
 
@@ -820,13 +820,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %count.056 = phi i32 [ 0, %entry ], [ %count.1, %for.inc ]
   %last_processed.055 = phi i32 [ 0, %entry ], [ %last_processed.1, %for.inc ]
-  %arrayidx18 = getelementptr inbounds [9 x %struct.GeoHashBits], ptr %neighbors, i64 0, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %neighbors, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx18, align 16
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end86
 
 land.lhs.true:                                    ; preds = %for.body
-  %step = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %step = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %2 = load i8, ptr %step, align 8
   %tobool21.not = icmp eq i8 %2, 0
   br i1 %tobool21.not, label %for.inc, label %if.end86
@@ -837,15 +837,15 @@ if.end86:                                         ; preds = %for.body, %land.lhs
 
 land.lhs.true88:                                  ; preds = %if.end86
   %idxprom92 = zext i32 %last_processed.055 to i64
-  %arrayidx93 = getelementptr inbounds [9 x %struct.GeoHashBits], ptr %neighbors, i64 0, i64 %idxprom92
+  %arrayidx93 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %neighbors, i64 0, i64 %idxprom92
   %3 = load i64, ptr %arrayidx93, align 16
   %cmp95 = icmp eq i64 %1, %3
   br i1 %cmp95, label %land.lhs.true97, label %if.end120
 
 land.lhs.true97:                                  ; preds = %land.lhs.true88
-  %step100 = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %step100 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %4 = load i8, ptr %step100, align 8
-  %step104 = getelementptr inbounds i8, ptr %arrayidx93, i64 8
+  %step104 = getelementptr inbounds nuw i8, ptr %arrayidx93, i64 8
   %5 = load i8, ptr %step104, align 8
   %cmp106 = icmp eq i8 %4, %5
   br i1 %cmp106, label %for.inc, label %if.end120
@@ -856,7 +856,7 @@ if.end120:                                        ; preds = %land.lhs.true97, %l
   br i1 %.not, label %for.end, label %if.end129
 
 if.end129:                                        ; preds = %if.end120
-  %7 = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %8 = load i8, ptr %7, align 8
   %call.i.i = tail call i64 @geohashAlign52Bits(i64 %1, i8 %8) #14
   %inc.i.i = add i64 %1, 1
@@ -891,14 +891,14 @@ define dso_local void @geoaddCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %xy = alloca [2 x double], align 16
   %hash = alloca %struct.GeoHashBits, align 8
-  %indvars.iv.i.sroa.gep49 = getelementptr inbounds i8, ptr %xy, i64 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %indvars.iv.i.sroa.gep49 = getelementptr inbounds nuw i8, ptr %xy, i64 8
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp53 = icmp sgt i32 %0, 2
   br i1 %cmp53, label %while.body.lr.ph, label %while.end.thread
 
 while.body.lr.ph:                                 ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %while.body
@@ -907,9 +907,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %indvars.iv = phi i64 [ 2, %while.body.lr.ph ], [ %indvars.iv.next, %if.end10 ]
   %xx.056 = phi i32 [ 0, %while.body.lr.ph ], [ %xx.1, %if.end10 ]
   %nx.055 = phi i32 [ 0, %while.body.lr.ph ], [ %nx.1, %if.end10 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %2, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.23) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -972,7 +972,7 @@ for.body.lr.ph:                                   ; preds = %while.end, %while.e
   %call22 = tail call noalias ptr @zcalloc(i64 noundef %mul21) #12
   %call23 = tail call ptr @createRawStringObject(ptr noundef nonnull @.str.26, i64 noundef 4) #14
   store ptr %call23, ptr %call22, align 8
-  %argv27 = getelementptr inbounds i8, ptr %c, i64 96
+  %argv27 = getelementptr inbounds nuw i8, ptr %c, i64 96
   %umax = tail call i32 @llvm.umax.i32(i32 %longidx.0.lcssa98105, i32 2)
   %wide.trip.count76 = zext i32 %umax to i64
   br label %for.body
@@ -982,22 +982,22 @@ for.cond35.preheader:                             ; preds = %for.body
   br i1 %cmp3666, label %for.body38.lr.ph, label %for.end84
 
 for.body38.lr.ph:                                 ; preds = %for.cond35.preheader
-  %argv39 = getelementptr inbounds i8, ptr %c, i64 96
+  %argv39 = getelementptr inbounds nuw i8, ptr %c, i64 96
   %idx.ext = zext i32 %longidx.0.lcssa98105 to i64
-  %9 = getelementptr inbounds i8, ptr %hash, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %add77 = add nuw nsw i32 %longidx.0.lcssa98105, 1
   %10 = zext i32 %add77 to i64
   %wide.trip.count86 = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr inbounds ptr, ptr %call22, i64 %idx.ext
-  %invariant.gep113 = getelementptr inbounds ptr, ptr %call22, i64 %10
+  %invariant.gep = getelementptr inbounds nuw ptr, ptr %call22, i64 %idx.ext
+  %invariant.gep113 = getelementptr inbounds nuw ptr, ptr %call22, i64 %10
   br label %for.body38
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv73 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next74, %for.body ]
   %11 = load ptr, ptr %argv27, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv73
+  %arrayidx29 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv73
   %12 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx31 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv73
+  %arrayidx31 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv73
   store ptr %12, ptr %arrayidx31, align 8
   tail call void @incrRefCount(ptr noundef %12) #14
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
@@ -1007,9 +1007,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body38:                                       ; preds = %for.body38.lr.ph, %if.end61
   %indvars.iv78 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next79, %if.end61 ]
   %13 = load ptr, ptr %argv39, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %13, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %13, i64 %idx.ext
   %14 = mul nuw nsw i64 %indvars.iv78, 3
-  %add.ptr42 = getelementptr inbounds ptr, ptr %add.ptr, i64 %14
+  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %14
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1019,7 +1019,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %cmp.i = phi i1 [ true, %for.body38 ], [ false, %for.cond.i ]
   %indvars.iv.i.sroa.phi = phi ptr [ %xy, %for.body38 ], [ %indvars.iv.i.sroa.gep49, %for.cond.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body38 ], [ 1, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr42, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr42, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   %call.i = call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %15, ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null) #14
   %cmp1.not.i = icmp eq i32 %call.i, 0
@@ -1049,7 +1049,7 @@ for.body50.preheader:                             ; preds = %extractLongLatOrRep
 
 for.body50:                                       ; preds = %for.body50.preheader, %for.inc58
   %indvars.iv88 = phi i64 [ 0, %for.body50.preheader ], [ %indvars.iv.next89, %for.inc58 ]
-  %arrayidx52 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv88
+  %arrayidx52 = getelementptr inbounds nuw ptr, ptr %call22, i64 %indvars.iv88
   %19 = load ptr, ptr %arrayidx52, align 8
   %tobool53.not = icmp eq ptr %19, null
   br i1 %tobool53.not, label %for.inc58, label %if.then54
@@ -1074,14 +1074,14 @@ if.end61:                                         ; preds = %for.end.i
   %call65 = call i64 @geohashAlign52Bits(i64 %20, i8 %21) #14
   %call66 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %call65) #14
   %22 = load ptr, ptr %argv39, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %14
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %idx.ext
-  %arrayidx72 = getelementptr inbounds i8, ptr %24, i64 16
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %14
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %idx.ext
+  %arrayidx72 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %25 = load ptr, ptr %arrayidx72, align 8
   %26 = shl nuw nsw i64 %indvars.iv78, 1
-  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %26
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %26
   store ptr %call66, ptr %gep, align 8
-  %gep114 = getelementptr inbounds ptr, ptr %invariant.gep113, i64 %26
+  %gep114 = getelementptr inbounds nuw ptr, ptr %invariant.gep113, i64 %26
   store ptr %25, ptr %gep114, align 8
   call void @incrRefCount(ptr noundef %25) #14
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -1124,9 +1124,9 @@ entry:
   %shape = alloca %struct.GeoShape, align 8
   %count = alloca i64, align 8
   %georadius = alloca %struct.GeoHashRadius, align 8
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
   %idxprom = sext i32 %srcKeyIndex to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
@@ -1145,8 +1145,8 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   store i32 1, ptr %shape, align 8
   %3 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 16
-  %xy = getelementptr inbounds i8, ptr %shape, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %xy = getelementptr inbounds nuw i8, ptr %shape, i64 8
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1155,9 +1155,9 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %if.then3
   %cmp.i = phi i1 [ true, %if.then3 ], [ false, %for.cond.i ]
   %indvars.iv.i = phi i64 [ 0, %if.then3 ], [ 1, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i = getelementptr inbounds double, ptr %xy, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %xy, i64 %indvars.iv.i
   %call.i = call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %4, ptr noundef nonnull %add.ptr.i, ptr noundef null) #14
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %for.cond.i, label %return
@@ -1166,7 +1166,7 @@ for.end.i:                                        ; preds = %for.cond.i
   %5 = load double, ptr %xy, align 8
   %6 = call double @llvm.fabs.f64(double %5)
   %or.cond.i = fcmp ogt double %6, 1.800000e+02
-  %arrayidx14.phi.trans.insert.i = getelementptr inbounds i8, ptr %shape, i64 16
+  %arrayidx14.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %shape, i64 16
   %.pre.i = load double, ptr %arrayidx14.phi.trans.insert.i, align 8
   %7 = call double @llvm.fabs.f64(double %.pre.i)
   %or.cond12.i = fcmp ogt double %7, 0x40554345B1A57F00
@@ -1179,9 +1179,9 @@ if.then12.i:                                      ; preds = %for.end.i
 
 if.end7:                                          ; preds = %for.end.i
   %8 = load ptr, ptr %argv, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 32
-  %conversion = getelementptr inbounds i8, ptr %shape, i64 24
-  %t = getelementptr inbounds i8, ptr %shape, i64 64
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %conversion = getelementptr inbounds nuw i8, ptr %shape, i64 24
+  %t = getelementptr inbounds nuw i8, ptr %shape, i64 64
   %call11 = call i32 @extractDistanceOrReply(ptr noundef %c, ptr noundef nonnull %add.ptr10, ptr noundef nonnull %conversion, ptr noundef nonnull %t)
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.end56, label %return
@@ -1199,11 +1199,11 @@ if.else19:                                        ; preds = %if.else
 if.then22:                                        ; preds = %if.else19
   store i32 1, ptr %shape, align 8
   %9 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %arrayidx25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %score.i)
   store double 0.000000e+00, ptr %score.i, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %10, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %ptr.i, align 8
   %call.i237 = call i32 @zsetScore(ptr noundef %call, ptr noundef %11, ptr noundef nonnull %score.i) #14
   %cmp.i238 = icmp eq i32 %call.i237, -1
@@ -1214,7 +1214,7 @@ longLatFromMember.exit.thread:                    ; preds = %if.then22
   br label %if.then30
 
 longLatFromMember.exit:                           ; preds = %if.then22
-  %xy26 = getelementptr inbounds i8, ptr %shape, i64 8
+  %xy26 = getelementptr inbounds nuw i8, ptr %shape, i64 8
   %12 = load double, ptr %score.i, align 8
   %conv.i.i = fptoui double %12 to i64
   %call.i.i = call i32 @geohashDecodeToLongLatWGS84(i64 %conv.i.i, i8 26, ptr noundef nonnull %xy26) #14
@@ -1228,9 +1228,9 @@ if.then30:                                        ; preds = %longLatFromMember.e
 
 if.end31:                                         ; preds = %longLatFromMember.exit
   %13 = load ptr, ptr %argv, align 8
-  %add.ptr35 = getelementptr inbounds i8, ptr %13, i64 24
-  %conversion36 = getelementptr inbounds i8, ptr %shape, i64 24
-  %t37 = getelementptr inbounds i8, ptr %shape, i64 64
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %conversion36 = getelementptr inbounds nuw i8, ptr %shape, i64 24
+  %t37 = getelementptr inbounds nuw i8, ptr %shape, i64 64
   %call38 = call i32 @extractDistanceOrReply(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr35, ptr noundef nonnull %conversion36, ptr noundef nonnull %t37)
   %cmp39.not = icmp eq i32 %call38, 0
   br i1 %cmp39.not, label %if.end56, label %return
@@ -1247,7 +1247,7 @@ if.then45:                                        ; preds = %if.else42
 
 if.then48:                                        ; preds = %if.then45
   %14 = load ptr, ptr %argv, align 8
-  %arrayidx50 = getelementptr inbounds i8, ptr %14, i64 8
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %arrayidx50, align 8
   br label %if.end56
 
@@ -1259,7 +1259,7 @@ if.end56:                                         ; preds = %if.else, %if.then48
   %base_args.0 = phi i32 [ 6, %if.end7 ], [ 5, %if.end31 ], [ 3, %if.then48 ], [ 2, %if.then45 ], [ 5, %if.else ]
   %storekey.0 = phi ptr [ null, %if.end7 ], [ null, %if.end31 ], [ %15, %if.then48 ], [ null, %if.then45 ], [ null, %if.else ]
   store i64 0, ptr %count, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %16 = load i32, ptr %argc, align 8
   %cmp57 = icmp sgt i32 %16, %base_args.0
   br i1 %cmp57, label %if.then58, label %if.end276
@@ -1277,11 +1277,11 @@ for.body.lr.ph:                                   ; preds = %if.then58
   %19 = and i32 %flags, 24
   %.not = icmp eq i32 %19, 24
   %cmp166 = icmp eq ptr %call, null
-  %xy175 = getelementptr inbounds i8, ptr %shape, i64 8
+  %xy175 = getelementptr inbounds nuw i8, ptr %shape, i64 8
   %idx.ext195 = zext nneg i32 %base_args.0 to i64
-  %conversion225 = getelementptr inbounds i8, ptr %shape, i64 24
-  %t226 = getelementptr inbounds i8, ptr %shape, i64 64
-  %width = getelementptr inbounds i8, ptr %shape, i64 72
+  %conversion225 = getelementptr inbounds nuw i8, ptr %shape, i64 24
+  %t226 = getelementptr inbounds nuw i8, ptr %shape, i64 64
+  %width = getelementptr inbounds nuw i8, ptr %shape, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1302,7 +1302,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom62 = sext i32 %add to i64
   %arrayidx63 = getelementptr inbounds ptr, ptr %20, i64 %idxprom62
   %21 = load ptr, ptr %arrayidx63, align 8
-  %ptr = getelementptr inbounds i8, ptr %21, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %ptr, align 8
   %call64 = call i32 @strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.29) #15
   %tobool65.not = icmp eq i32 %call64, 0
@@ -1435,10 +1435,10 @@ land.lhs.true185:                                 ; preds = %if.else182
   br i1 %or.cond251, label %if.else207, label %if.then193
 
 if.then193:                                       ; preds = %land.lhs.true185
-  %add.ptr196 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext195
+  %add.ptr196 = getelementptr inbounds nuw ptr, ptr %20, i64 %idx.ext195
   %idx.ext197 = sext i32 %i.0305 to i64
   %add.ptr198 = getelementptr inbounds ptr, ptr %add.ptr196, i64 %idx.ext197
-  %add.ptr199 = getelementptr inbounds i8, ptr %add.ptr198, i64 8
+  %add.ptr199 = getelementptr inbounds nuw i8, ptr %add.ptr198, i64 8
   %call202 = call i32 @extractLongLatOrReply(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr199, ptr noundef nonnull %xy175)
   %cmp203 = icmp eq i32 %call202, -1
   br i1 %cmp203, label %return, label %for.inc
@@ -1457,10 +1457,10 @@ land.lhs.true210:                                 ; preds = %if.else207
   br i1 %or.cond252, label %if.else233, label %if.then218
 
 if.then218:                                       ; preds = %land.lhs.true210
-  %add.ptr221 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext195
+  %add.ptr221 = getelementptr inbounds nuw ptr, ptr %20, i64 %idx.ext195
   %idx.ext222 = sext i32 %i.0305 to i64
   %add.ptr223 = getelementptr inbounds ptr, ptr %add.ptr221, i64 %idx.ext222
-  %add.ptr224 = getelementptr inbounds i8, ptr %add.ptr223, i64 8
+  %add.ptr224 = getelementptr inbounds nuw i8, ptr %add.ptr223, i64 8
   %call227 = call i32 @extractDistanceOrReply(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr224, ptr noundef nonnull %conversion225, ptr noundef nonnull %t226)
   %cmp228.not = icmp eq i32 %call227, 0
   br i1 %cmp228.not, label %if.end230, label %return
@@ -1483,10 +1483,10 @@ land.lhs.true236:                                 ; preds = %if.else233
   br i1 %or.cond253, label %if.else260, label %if.then244
 
 if.then244:                                       ; preds = %land.lhs.true236
-  %add.ptr247 = getelementptr inbounds ptr, ptr %20, i64 %idx.ext195
+  %add.ptr247 = getelementptr inbounds nuw ptr, ptr %20, i64 %idx.ext195
   %idx.ext248 = sext i32 %i.0305 to i64
   %add.ptr249 = getelementptr inbounds ptr, ptr %add.ptr247, i64 %idx.ext248
-  %add.ptr250 = getelementptr inbounds i8, ptr %add.ptr249, i64 8
+  %add.ptr250 = getelementptr inbounds nuw i8, ptr %add.ptr249, i64 8
   %call254 = call i32 @extractBoxOrReply(ptr noundef nonnull %c, ptr noundef nonnull %add.ptr250, ptr noundef nonnull %conversion225, ptr noundef nonnull %width, ptr noundef nonnull %t226)
   %cmp255.not = icmp eq i32 %call254, 0
   br i1 %cmp255.not, label %if.end257, label %return
@@ -1565,7 +1565,7 @@ if.end286:                                        ; preds = %land.lhs.true278, %
 if.then293:                                       ; preds = %if.end286
   %40 = load ptr, ptr %argv, align 8
   %41 = load ptr, ptr %40, align 8
-  %ptr296 = getelementptr inbounds i8, ptr %41, i64 8
+  %ptr296 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %42 = load ptr, ptr %ptr296, align 8
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.46, ptr noundef %42) #14
   br label %return
@@ -1578,7 +1578,7 @@ if.end297:                                        ; preds = %if.end286
 if.then304:                                       ; preds = %if.end297
   %43 = load ptr, ptr %argv, align 8
   %44 = load ptr, ptr %43, align 8
-  %ptr307 = getelementptr inbounds i8, ptr %44, i64 8
+  %ptr307 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %45 = load ptr, ptr %ptr307, align 8
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.47, ptr noundef %45) #14
   br label %return
@@ -1611,7 +1611,7 @@ if.then321:                                       ; preds = %if.then317
   %48 = load ptr, ptr %db, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %48, ptr noundef nonnull %storekey.1) #14
   %49 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %49, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %49, i64 48
   %50 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.1, i32 noundef %50) #14
   %51 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1637,7 +1637,7 @@ if.end328:                                        ; preds = %if.end313
   %54 = load i64, ptr %count, align 8
   %cond338 = select i1 %tobool333, i64 %54, i64 0
   %call339 = call i32 @membersOfAllNeighbors(ptr noundef nonnull %call, ptr noundef nonnull %georadius, ptr noundef nonnull %shape, ptr noundef %call.i240, i64 noundef %cond338)
-  %used = getelementptr inbounds i8, ptr %call.i240, i64 16
+  %used = getelementptr inbounds nuw i8, ptr %call.i240, i64 16
   %55 = load i64, ptr %used, align 8
   %cmp340 = icmp eq i64 %55, 0
   %or.cond14 = and i1 %tobool277.not, %cmp340
@@ -1701,7 +1701,7 @@ for.body387.lr.ph:                                ; preds = %if.then370
   %option_length.1 = select i1 %tobool375.not, i64 %spec.select, i64 %inc377
   %inc381 = zext i1 %withhash.0 to i64
   %option_length.2 = add nuw nsw i64 %option_length.1, %inc381
-  %conversion391 = getelementptr inbounds i8, ptr %shape, i64 24
+  %conversion391 = getelementptr inbounds nuw i8, ptr %shape, i64 24
   %tobool392.not = icmp eq i64 %option_length.2, 0
   %add394 = add nuw nsw i64 %option_length.2, 1
   br label %for.body387
@@ -1709,9 +1709,9 @@ for.body387.lr.ph:                                ; preds = %if.then370
 for.body387:                                      ; preds = %for.body387.lr.ph, %for.inc411
   %indvars.iv336 = phi i64 [ 0, %for.body387.lr.ph ], [ %indvars.iv.next337, %for.inc411 ]
   %60 = load ptr, ptr %call.i240, align 8
-  %add.ptr390 = getelementptr inbounds %struct.geoPoint, ptr %60, i64 %indvars.iv336
+  %add.ptr390 = getelementptr inbounds nuw %struct.geoPoint, ptr %60, i64 %indvars.iv336
   %61 = load double, ptr %conversion391, align 8
-  %dist = getelementptr inbounds i8, ptr %add.ptr390, i64 16
+  %dist = getelementptr inbounds nuw i8, ptr %add.ptr390, i64 16
   %62 = load double, ptr %dist, align 8
   %div = fdiv double %62, %61
   store double %div, ptr %dist, align 8
@@ -1722,7 +1722,7 @@ if.then393:                                       ; preds = %for.body387
   br label %if.end395
 
 if.end395:                                        ; preds = %if.then393, %for.body387
-  %member396 = getelementptr inbounds i8, ptr %add.ptr390, i64 32
+  %member396 = getelementptr inbounds nuw i8, ptr %add.ptr390, i64 32
   %63 = load ptr, ptr %member396, align 8
   call void @addReplyBulkSds(ptr noundef %c, ptr noundef %63) #14
   store ptr null, ptr %member396, align 8
@@ -1741,7 +1741,7 @@ if.end401:                                        ; preds = %if.then399, %if.end
   br i1 %withhash.0, label %if.then403, label %if.end405
 
 if.then403:                                       ; preds = %if.end401
-  %score = getelementptr inbounds i8, ptr %add.ptr390, i64 24
+  %score = getelementptr inbounds nuw i8, ptr %add.ptr390, i64 24
   %65 = load double, ptr %score, align 8
   %conv404 = fptosi double %65 to i64
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv404) #14
@@ -1755,7 +1755,7 @@ if.then407:                                       ; preds = %if.end405
   %66 = load double, ptr %add.ptr390, align 8
   %conv408 = fpext double %66 to x86_fp80
   call void @addReplyHumanLongDouble(ptr noundef %c, x86_fp80 noundef %conv408) #14
-  %latitude = getelementptr inbounds i8, ptr %add.ptr390, i64 8
+  %latitude = getelementptr inbounds nuw i8, ptr %add.ptr390, i64 8
   %67 = load double, ptr %latitude, align 8
   %conv409 = fpext double %67 to x86_fp80
   call void @addReplyHumanLongDouble(ptr noundef %c, x86_fp80 noundef %conv409) #14
@@ -1772,14 +1772,14 @@ if.else414:                                       ; preds = %if.end368
 
 if.end421:                                        ; preds = %if.else414
   %call419 = call ptr @createZsetObject() #14
-  %ptr420 = getelementptr inbounds i8, ptr %call419, i64 8
+  %ptr420 = getelementptr inbounds nuw i8, ptr %call419, i64 8
   %68 = load ptr, ptr %ptr420, align 8
   %cmp424324 = icmp sgt i64 %cond352, 0
   br i1 %cmp424324, label %for.body426.lr.ph, label %if.then467
 
 for.body426.lr.ph:                                ; preds = %if.end421
-  %conversion431 = getelementptr inbounds i8, ptr %shape, i64 24
-  %zsl = getelementptr inbounds i8, ptr %68, i64 8
+  %conversion431 = getelementptr inbounds nuw i8, ptr %shape, i64 24
+  %zsl = getelementptr inbounds nuw i8, ptr %68, i64 8
   br label %for.body426
 
 for.body426:                                      ; preds = %for.body426.lr.ph, %cond.end461
@@ -1787,22 +1787,22 @@ for.body426:                                      ; preds = %for.body426.lr.ph, 
   %totelelen.0327 = phi i64 [ 0, %for.body426.lr.ph ], [ %add448, %cond.end461 ]
   %maxelelen.0326 = phi i64 [ 0, %for.body426.lr.ph ], [ %spec.select236, %cond.end461 ]
   %69 = load ptr, ptr %call.i240, align 8
-  %add.ptr430 = getelementptr inbounds %struct.geoPoint, ptr %69, i64 %indvars.iv
+  %add.ptr430 = getelementptr inbounds nuw %struct.geoPoint, ptr %69, i64 %indvars.iv
   %70 = load double, ptr %conversion431, align 8
-  %dist432 = getelementptr inbounds i8, ptr %add.ptr430, i64 16
+  %dist432 = getelementptr inbounds nuw i8, ptr %add.ptr430, i64 16
   %71 = load double, ptr %dist432, align 8
   %div433 = fdiv double %71, %70
   store double %div433, ptr %dist432, align 8
   br i1 %storedist.0, label %cond.false438, label %cond.end440
 
 cond.false438:                                    ; preds = %for.body426
-  %score439 = getelementptr inbounds i8, ptr %add.ptr430, i64 24
+  %score439 = getelementptr inbounds nuw i8, ptr %add.ptr430, i64 24
   %72 = load double, ptr %score439, align 8
   br label %cond.end440
 
 cond.end440:                                      ; preds = %for.body426, %cond.false438
   %cond441 = phi double [ %72, %cond.false438 ], [ %div433, %for.body426 ]
-  %member442 = getelementptr inbounds i8, ptr %add.ptr430, i64 32
+  %member442 = getelementptr inbounds nuw i8, ptr %add.ptr430, i64 32
   %73 = load ptr, ptr %member442, align 8
   %arrayidx.i242 = getelementptr inbounds i8, ptr %73, i64 -1
   %74 = load i8, ptr %arrayidx.i242, align 1
@@ -1850,7 +1850,7 @@ sdslen.exit:                                      ; preds = %cond.end440, %sw.bb
   %call450 = call ptr @zslInsert(ptr noundef %79, double noundef %cond441, ptr noundef nonnull %73) #14
   %80 = load ptr, ptr %68, align 8
   %81 = load ptr, ptr %member442, align 8
-  %score452 = getelementptr inbounds i8, ptr %call450, i64 8
+  %score452 = getelementptr inbounds nuw i8, ptr %call450, i64 8
   %call453 = call i32 @dictAdd(ptr noundef %80, ptr noundef %81, ptr noundef nonnull %score452) #14
   %cmp454 = icmp eq i32 %call453, 0
   br i1 %cmp454, label %cond.end461, label %cond.false460
@@ -1877,7 +1877,7 @@ if.then467:                                       ; preds = %cond.end461, %if.en
   call void @decrRefCount(ptr noundef %call419) #14
   %cond471 = select i1 %tobool288, ptr @.str.52, ptr @.str.51
   %83 = load ptr, ptr %db, align 8
-  %id473 = getelementptr inbounds i8, ptr %83, i64 48
+  %id473 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %84 = load i32, ptr %id473, align 8
   call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.1, i32 noundef %84) #14
   br label %if.end485.sink.split
@@ -1892,7 +1892,7 @@ if.then479:                                       ; preds = %if.else475
   %86 = load ptr, ptr %db, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %86, ptr noundef nonnull %storekey.1) #14
   %87 = load ptr, ptr %db, align 8
-  %id482 = getelementptr inbounds i8, ptr %87, i64 48
+  %id482 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %88 = load i32, ptr %id482, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.1, i32 noundef %88) #14
   br label %if.end485.sink.split
@@ -1935,9 +1935,9 @@ declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
 entry:
-  %dist = getelementptr inbounds i8, ptr %a, i64 16
+  %dist = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load double, ptr %dist, align 8
-  %dist1 = getelementptr inbounds i8, ptr %b, i64 16
+  %dist1 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %1 = load double, ptr %dist1, align 8
   %cmp = fcmp ogt double %0, %1
   %cmp4 = fcmp une double %0, %1
@@ -1949,9 +1949,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
 entry:
-  %dist.i = getelementptr inbounds i8, ptr %a, i64 16
+  %dist.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load double, ptr %dist.i, align 8
-  %dist1.i = getelementptr inbounds i8, ptr %b, i64 16
+  %dist1.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %1 = load double, ptr %dist1.i, align 8
   %cmp.i = fcmp ogt double %0, %1
   %cmp4.i = fcmp une double %0, %1
@@ -2038,11 +2038,11 @@ entry:
   %r = alloca [2 x %struct.GeoHashRange], align 16
   %hash = alloca %struct.GeoHashBits, align 8
   %buf = alloca [12 x i8], align 1
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyRead(ptr noundef %0, ptr noundef %2) #14
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 3) #14
@@ -2050,7 +2050,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %for.end46
 
 if.end:                                           ; preds = %entry
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %3, -2
   %conv = sext i32 %sub to i64
@@ -2061,11 +2061,11 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %tobool4.not = icmp eq ptr %call, null
-  %max = getelementptr inbounds i8, ptr %r, i64 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %r, i64 16
-  %max20 = getelementptr inbounds i8, ptr %r, i64 24
-  %arrayidx24 = getelementptr inbounds i8, ptr %xy, i64 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %buf, i64 11
+  %max = getelementptr inbounds nuw i8, ptr %r, i64 8
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %r, i64 16
+  %max20 = getelementptr inbounds nuw i8, ptr %r, i64 24
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %xy, i64 8
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %buf, i64 11
   br i1 %tobool4.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -2079,9 +2079,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc44
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.inc44 ], [ 2, %for.body.lr.ph ]
   %6 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv26
+  %arrayidx6 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv26
   %7 = load ptr, ptr %arrayidx6, align 8
-  %ptr = getelementptr inbounds i8, ptr %7, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
   %call7 = call i32 @zsetScore(ptr noundef nonnull %call, ptr noundef %8, ptr noundef nonnull %score) #14
   %cmp8 = icmp eq i32 %call7, -1
@@ -2121,9 +2121,9 @@ for.body29:                                       ; preds = %if.end14, %for.body
   %shr = lshr i64 %12, %14
   %conv35 = and i64 %shr, 31
   %idx.0 = select i1 %cmp30, i64 0, i64 %conv35
-  %arrayidx38 = getelementptr inbounds i8, ptr @.str.53, i64 %idx.0
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr @.str.53, i64 %idx.0
   %15 = load i8, ptr %arrayidx38, align 1
-  %arrayidx40 = getelementptr inbounds [12 x i8], ptr %buf, i64 0, i64 %indvars.iv
+  %arrayidx40 = getelementptr inbounds nuw [12 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %15, ptr %arrayidx40, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -2154,11 +2154,11 @@ define dso_local void @geoposCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %score = alloca double, align 8
   %xy = alloca [2 x double], align 16
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyRead(ptr noundef %0, ptr noundef %2) #14
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 3) #14
@@ -2166,7 +2166,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %3, -2
   %conv = sext i32 %sub to i64
@@ -2177,7 +2177,7 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %tobool4.not = icmp eq ptr %call, null
-  %arrayidx17 = getelementptr inbounds i8, ptr %xy, i64 8
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %xy, i64 8
   br i1 %tobool4.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -2191,9 +2191,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 2, %for.body.lr.ph ]
   %6 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx6, align 8
-  %ptr = getelementptr inbounds i8, ptr %7, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
   %call7 = call i32 @zsetScore(ptr noundef nonnull %call, ptr noundef %8, ptr noundef nonnull %score) #14
   %cmp8 = icmp eq i32 %call7, -1
@@ -2243,17 +2243,17 @@ entry:
   %score1 = alloca double, align 8
   %score2 = alloca double, align 8
   %xyxy = alloca [4 x double], align 16
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %0, 5
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %2, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr.i, align 8
   %call.i = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.1) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2283,7 +2283,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else.if.end7_crit_edge
 
 if.else.if.end7_crit_edge:                        ; preds = %if.else
-  %argv8.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 96
+  %argv8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %c, i64 96
   %.pre = load ptr, ptr %argv8.phi.trans.insert, align 8
   br label %if.end7
 
@@ -2295,10 +2295,10 @@ if.then5:                                         ; preds = %if.else
 if.end7:                                          ; preds = %if.else.if.end7_crit_edge, %if.else8.i, %if.else4.i, %if.else.i, %if.then
   %5 = phi ptr [ %.pre, %if.else.if.end7_crit_edge ], [ %1, %if.else8.i ], [ %1, %if.else4.i ], [ %1, %if.else.i ], [ %1, %if.then ]
   %to_meter.0 = phi double [ 1.000000e+00, %if.else.if.end7_crit_edge ], [ 1.609340e+03, %if.else8.i ], [ 3.048000e-01, %if.else4.i ], [ 1.000000e+03, %if.else.i ], [ 1.000000e+00, %if.then ]
-  %argv8 = getelementptr inbounds i8, ptr %c, i64 96
-  %arrayidx9 = getelementptr inbounds i8, ptr %5, i64 8
+  %argv8 = getelementptr inbounds nuw i8, ptr %c, i64 96
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %arrayidx9, align 8
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %7 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %7 to i64
   %arrayidx10 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
@@ -2314,9 +2314,9 @@ lor.lhs.false:                                    ; preds = %if.end7
 
 if.end15:                                         ; preds = %lor.lhs.false
   %9 = load ptr, ptr %argv8, align 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %arrayidx17, align 8
-  %ptr = getelementptr inbounds i8, ptr %10, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %ptr, align 8
   %call18 = call i32 @zsetScore(ptr noundef nonnull %call11, ptr noundef %11, ptr noundef nonnull %score1) #14
   %cmp19 = icmp eq i32 %call18, -1
@@ -2324,9 +2324,9 @@ if.end15:                                         ; preds = %lor.lhs.false
 
 lor.lhs.false20:                                  ; preds = %if.end15
   %12 = load ptr, ptr %argv8, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %12, i64 24
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load ptr, ptr %arrayidx22, align 8
-  %ptr23 = getelementptr inbounds i8, ptr %13, i64 8
+  %ptr23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr23, align 8
   %call24 = call i32 @zsetScore(ptr noundef nonnull %call11, ptr noundef %14, ptr noundef nonnull %score2) #14
   %cmp25 = icmp eq i32 %call24, -1
@@ -2345,7 +2345,7 @@ if.end27:                                         ; preds = %lor.lhs.false20
 
 lor.lhs.false30:                                  ; preds = %if.end27
   %16 = load double, ptr %score2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %xyxy, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %xyxy, i64 16
   %conv.i18 = fptoui double %16 to i64
   %call.i19 = call i32 @geohashDecodeToLongLatWGS84(i64 %conv.i18, i8 26, ptr noundef nonnull %add.ptr) #14
   %tobool33.not = icmp eq i32 %call.i19, 0
@@ -2357,10 +2357,10 @@ if.then34:                                        ; preds = %lor.lhs.false30, %i
 
 if.else35:                                        ; preds = %lor.lhs.false30
   %17 = load double, ptr %xyxy, align 16
-  %arrayidx37 = getelementptr inbounds i8, ptr %xyxy, i64 8
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %xyxy, i64 8
   %18 = load double, ptr %arrayidx37, align 8
   %19 = load double, ptr %add.ptr, align 16
-  %arrayidx39 = getelementptr inbounds i8, ptr %xyxy, i64 24
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %xyxy, i64 24
   %20 = load double, ptr %arrayidx39, align 8
   %call40 = call double @geohashGetDistance(double noundef %17, double noundef %18, double noundef %19, double noundef %20) #14
   %div = fdiv double %call40, %to_meter.0

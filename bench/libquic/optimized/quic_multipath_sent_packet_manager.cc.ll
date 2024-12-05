@@ -48,19 +48,19 @@ $_ZTIN3net30QuicSentPacketManagerInterfaceE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerC2EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %manager, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-cond.true.i.i.i.i:
+_ZNKSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path_managers_info_, i8 0, i64 24, i1 false)
-  %delegate_ = getelementptr inbounds i8, ptr %this, i64 32
+  %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %delegate, ptr %delegate_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call5.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
   store ptr %manager, ptr %call5.i.i.i.i.i.i1, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 8
+  %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i1, i64 8
   store i32 0, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i1, i64 16
   store ptr %call5.i.i.i.i.i.i1, ptr %path_managers_info_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
@@ -73,9 +73,9 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -88,13 +88,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 delete.notnull:                                   ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload) #12
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %delete.notnull
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -119,9 +119,9 @@ _ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESa
 define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
-  %path_managers_info_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not4.i, label %for.end.i, label %for.body.i
@@ -134,13 +134,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 delete.notnull.i:                                 ; preds = %for.body.i
   %vtable.i = load ptr, ptr %path_manager_info.sroa.0.0.copyload.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload.i) #12
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %delete.notnull.i, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i
 
@@ -168,9 +168,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager13SetFromConfigERKNS_10QuicConfigE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(600) %config) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -183,13 +183,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(600) %config)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -210,7 +210,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 1 %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption)
   br label %return
@@ -231,10 +231,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv = zext i8 %path_id to i64
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %state = getelementptr inbounds %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %0, i64 %conv, i32 1
+  %state = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %0, i64 %conv, i32 1
   %1 = load i32, ptr %state, align 8
   %cmp3.not = icmp eq i32 %1, 0
   br i1 %cmp3.not, label %return, label %if.then4
@@ -245,7 +245,7 @@ if.then4:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then4
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef nonnull @.str, i32 noundef 471, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   %conv11 = zext i8 %path_id to i32
   invoke void @_ZN4base11IntToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, i32 noundef %conv11)
           to label %invoke.cont12 unwind label %lpad
@@ -340,10 +340,10 @@ invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_details, ptr noundef nonnull align 8 dereferenceable(32) %call.i9) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
-  %delegate_ = getelementptr inbounds i8, ptr %this, i64 32
+  %delegate_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %delegate_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 91, ptr noundef nonnull align 8 dereferenceable(32) %error_details, i32 noundef 1)
           to label %return unwind label %lpad5
@@ -378,10 +378,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_details8, ptr noundef nonnull align 8 dereferenceable(32) %call.i12) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #12
-  %delegate_18 = getelementptr inbounds i8, ptr %this, i64 32
+  %delegate_18 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %delegate_18, align 8
   %vtable19 = load ptr, ptr %5, align 8
-  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 16
+  %vfn20 = getelementptr inbounds nuw i8, ptr %vtable19, i64 16
   %6 = load ptr, ptr %vfn20, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 92, ptr noundef nonnull align 8 dereferenceable(32) %error_details8, i32 noundef 1)
           to label %return unwind label %lpad21
@@ -417,9 +417,9 @@ eh.resume:                                        ; preds = %lpad12, %lpad14, %l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager17SetNumOpenStreamsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %num_streams) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -432,13 +432,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, i64 noundef %num_streams)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -459,7 +459,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 %max_pacing_rate.coerce)
   br label %return
@@ -484,7 +484,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -496,11 +496,11 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager13OnIncomingAckERKNS_12QuicAckFrameENS_8QuicTimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(100) %ack_frame, i64 %ack_receive_time.coerce) unnamed_addr #0 align 2 {
 entry:
-  %path_id = getelementptr inbounds i8, ptr %ack_frame, i64 96
+  %path_id = getelementptr inbounds nuw i8, ptr %ack_frame, i64 96
   %0 = load i8, ptr %path_id, align 8
   %conv = zext i8 %0 to i64
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %path_managers_info_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -511,8 +511,8 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %2, i64 %conv
-  %state = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %add.ptr.i = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %2, i64 %conv
+  %state = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp6.not = icmp eq i32 %3, 0
   br i1 %cmp6.not, label %if.end, label %return
@@ -520,7 +520,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %4 = load ptr, ptr %add.ptr.i, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(100) %ack_frame, i64 %ack_receive_time.coerce)
   br label %return
@@ -542,7 +542,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef signext %retransmission_type)
   br label %return
@@ -554,9 +554,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net30QuicMultipathSentPacketManager28MaybeRetransmitTailLossProbeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i4.not = icmp eq ptr %0, %1
   br i1 %cmp.i4.not, label %return, label %for.body
@@ -564,7 +564,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.05, align 8
-  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 8
+  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 8
   %path_manager_info.sroa.2.0.copyload = load i32, ptr %path_manager_info.sroa.2.0..sroa_idx, align 8
   %cmp = icmp ne ptr %path_manager_info.sroa.0.0.copyload, null
   %cmp6 = icmp eq i32 %path_manager_info.sroa.2.0.copyload, 0
@@ -573,13 +573,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload)
   br i1 %call8, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -601,7 +601,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -619,7 +619,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %land.end
@@ -640,25 +640,25 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN3net30QuicMultipathSentPacketManager24OnUnrecoverablePathErrorEh(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 noundef zeroext 0)
   store i64 0, ptr %agg.result, align 8
-  %retransmittable_frames3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %retransmittable_frames3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retransmittable_frames, ptr %retransmittable_frames3.i, align 8
-  %transmission_type4.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %transmission_type4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 0, ptr %transmission_type4.i, align 8
-  %path_id5.i = getelementptr inbounds i8, ptr %agg.result, i64 17
+  %path_id5.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 -1, ptr %path_id5.i, align 1
-  %has_crypto_handshake6.i = getelementptr inbounds i8, ptr %agg.result, i64 18
+  %has_crypto_handshake6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 18
   store i8 0, ptr %has_crypto_handshake6.i, align 2
-  %num_padding_bytes8.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %num_padding_bytes8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 0, ptr %num_padding_bytes8.i, align 4
-  %encryption_level9.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %encryption_level9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %encryption_level9.i, align 8
-  %packet_number_length10.i = getelementptr inbounds i8, ptr %agg.result, i64 25
+  %packet_number_length10.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 25
   store i8 1, ptr %packet_number_length10.i, align 1
   br label %return
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"struct.net::PendingRetransmission") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -670,9 +670,9 @@ return:                                           ; preds = %if.then, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net30QuicMultipathSentPacketManager17HasUnackedPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i4.not = icmp eq ptr %0, %1
   br i1 %cmp.i4.not, label %return, label %for.body
@@ -680,7 +680,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.05, align 8
-  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 8
+  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 8
   %path_manager_info.sroa.2.0.copyload = load i32, ptr %path_manager_info.sroa.2.0..sroa_idx, align 8
   %cmp = icmp ne ptr %path_manager_info.sroa.0.0.copyload, null
   %cmp6 = icmp eq i32 %path_manager_info.sroa.2.0.copyload, 0
@@ -689,13 +689,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 land.lhs.true7:                                   ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %2 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload)
   br i1 %call9, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true7
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -713,7 +713,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef zeroext %path_id)
   br label %return
@@ -731,8 +731,8 @@ entry:
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %conv = zext i8 %path_id to i64
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %path_managers_info_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -743,7 +743,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %1, i64 %conv
   %2 = load ptr, ptr %add.ptr.i, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %if.then, label %return
@@ -754,7 +754,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp7, ptr noundef nonnull @.str, i32 noundef 454, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   %conv12 = zext i8 %path_id to i32
   invoke void @_ZN4base11IntToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, i32 noundef %conv12)
           to label %invoke.cont13 unwind label %lpad
@@ -824,7 +824,7 @@ return:                                           ; preds = %lor.lhs.false, %cle
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net30QuicMultipathSentPacketManager12OnPacketSentEPNS_16SerializedPacketEhmNS_8QuicTimeENS_16TransmissionTypeENS_22HasRetransmittableDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %serialized_packet, i8 noundef zeroext %original_path_id, i64 noundef %original_packet_number, i64 %sent_time.coerce, i8 noundef signext %transmission_type, i8 noundef signext %has_retransmittable_data) unnamed_addr #0 align 2 {
 entry:
-  %path_id = getelementptr inbounds i8, ptr %serialized_packet, i64 44
+  %path_id = getelementptr inbounds nuw i8, ptr %serialized_packet, i64 44
   %0 = load i8, ptr %path_id, align 4
   %call = tail call noundef ptr @_ZNK3net30QuicMultipathSentPacketManager38MaybeGetSentPacketManagerForActivePathEh(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 noundef zeroext %0)
   %cmp = icmp eq ptr %call, null
@@ -837,7 +837,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %serialized_packet, i8 noundef zeroext %original_path_id, i64 noundef %original_packet_number, i64 %sent_time.coerce, i8 noundef signext %transmission_type, i8 noundef signext %has_retransmittable_data)
   br label %return
@@ -850,8 +850,8 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager23OnRetransmissionTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %path_managers_info_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %path_managers_info_.i, align 8
   %cmp18.not.i = icmp eq ptr %0, %1
@@ -868,14 +868,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp5.i, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %state.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %state.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %4 = load i32, ptr %state.i, align 8
   %cmp8.not.i = icmp eq i32 %4, 0
   br i1 %cmp8.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 144
   %5 = load ptr, ptr %vfn.i, align 8
   %call12.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cmp.i.not.i = icmp eq i64 %call12.i, 0
@@ -915,7 +915,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %vtable = load ptr, ptr %call5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %call5)
   br label %return
@@ -927,8 +927,8 @@ return:                                           ; preds = %if.end7, %if.then6
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i8 @_ZNK3net30QuicMultipathSentPacketManager34DetermineRetransmissionTimeoutPathEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %path_managers_info_, align 8
   %cmp18.not = icmp eq ptr %0, %1
@@ -945,14 +945,14 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp5, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %4 = load i32, ptr %state, align 8
   %cmp8.not = icmp eq i32 %4, 0
   br i1 %cmp8.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %5 = load ptr, ptr %vfn, align 8
   %call12 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cmp.i.not = icmp eq i64 %call12, 0
@@ -992,8 +992,8 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 define dso_local { i64, i64 } @_ZN3net30QuicMultipathSentPacketManager13TimeUntilSendENS_8QuicTimeEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %now.coerce, ptr noundef initializes((0, 1)) %path_id) unnamed_addr #0 align 2 {
 entry:
   store i8 -1, ptr %path_id, align 1
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %path_managers_info_, align 8
   %cmp21.not = icmp eq ptr %0, %1
@@ -1010,14 +1010,14 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp5, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %4 = load i32, ptr %state, align 8
   %cmp8.not = icmp eq i32 %4, 0
   br i1 %cmp8.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %5 = load ptr, ptr %vfn, align 8
   %call13 = tail call { i64, i64 } %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 %now.coerce, ptr noundef nonnull %path_id)
   %6 = extractvalue { i64, i64 } %call13, 1
@@ -1056,9 +1056,9 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZNK3net30QuicMultipathSentPacketManager21GetRetransmissionTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not12 = icmp eq ptr %0, %1
   br i1 %cmp.i.not12, label %for.end, label %for.body
@@ -1067,7 +1067,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %retval.sroa.0.014 = phi i64 [ %retval.sroa.0.1, %for.inc ], [ 0, %entry ]
   %__begin1.sroa.0.013 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.013, align 8
-  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 8
+  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.013, i64 8
   %path_manager_info.sroa.2.0.copyload = load i32, ptr %path_manager_info.sroa.2.0..sroa_idx, align 8
   %cmp = icmp eq ptr %path_manager_info.sroa.0.0.copyload, null
   %cmp8 = icmp ne i32 %path_manager_info.sroa.2.0.copyload, 0
@@ -1076,7 +1076,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %2 = load ptr, ptr %vfn, align 8
   %call10 = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload)
   %cmp.i2.not = icmp eq i64 %call10, 0
@@ -1090,7 +1090,7 @@ if.end14:                                         ; preds = %if.end
 
 for.inc:                                          ; preds = %if.end14, %if.end, %for.body
   %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.014, %for.body ], [ %retval.sroa.0.014, %if.end ], [ %spec.select, %if.end14 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.013, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1108,7 +1108,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1131,7 +1131,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1152,7 +1152,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1171,7 +1171,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1184,9 +1184,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK3net30QuicMultipathSentPacketManager26EstimateMaxPacketsInFlightEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %max_packet_length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not9 = icmp eq ptr %0, %1
   br i1 %cmp.i.not9, label %if.end15, label %for.body
@@ -1200,7 +1200,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %2 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, i64 noundef %max_packet_length)
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %max_packets_in_flight.011, i64 %call7)
@@ -1208,7 +1208,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %max_packets_in_flight.1 = phi i64 [ %max_packets_in_flight.011, %for.body ], [ %.sroa.speculated, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %if.end15, label %for.body
 
@@ -1226,7 +1226,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1245,7 +1245,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1265,8 +1265,8 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %path_managers_info_, align 8
   %cmp25.not = icmp eq ptr %0, %1
@@ -1282,14 +1282,14 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp4, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %5 = load i32, ptr %state, align 8
   %cmp7.not = icmp eq i32 %5, 0
   br i1 %cmp7.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 208
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %invoke.cont unwind label %lpad
@@ -1453,9 +1453,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager30CancelRetransmissionsForStreamEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %stream_id) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1468,13 +1468,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, i32 noundef %stream_id)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1495,7 +1495,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef zeroext %path_id, i32 noundef %type)
   br label %return
@@ -1513,7 +1513,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %land.end
@@ -1526,9 +1526,9 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager16SetDebugDelegateEPNS_30QuicSentPacketManagerInterface13DebugDelegateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %debug_delegate) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1541,13 +1541,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, ptr noundef %debug_delegate)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1564,7 +1564,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef zeroext %path_id)
   br label %return
@@ -1583,7 +1583,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 256
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef zeroext %path_id)
   br label %return
@@ -1602,7 +1602,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 264
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i8 noundef zeroext %path_id)
   br label %return
@@ -1615,9 +1615,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager23SetNetworkChangeVisitorEPNS_30QuicSentPacketManagerInterface20NetworkChangeVisitorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1625,7 +1625,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %path_manager_info.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.05, align 8
-  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 8
+  %path_manager_info.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 8
   %path_manager_info.sroa.2.0.copyload = load i32, ptr %path_manager_info.sroa.2.0..sroa_idx, align 8
   %cmp = icmp eq ptr %path_manager_info.sroa.0.0.copyload, null
   %cmp6 = icmp ne i32 %path_manager_info.sroa.2.0.copyload, 0
@@ -1634,13 +1634,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %vtable = load ptr, ptr %path_manager_info.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 272
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %path_manager_info.sroa.0.0.copyload, ptr noundef %visitor)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1657,7 +1657,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 280
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %land.end
@@ -1676,7 +1676,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 288
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1695,7 +1695,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 296
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call)
   br label %return
@@ -1709,7 +1709,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %state = getelementptr inbounds i8, ptr %this, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 1, ptr %state, align 8
   ret void
 }
@@ -1718,7 +1718,7 @@ entry:
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2EPNS_30QuicSentPacketManagerInterfaceENS0_26PathSentPacketManagerStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %manager, i32 noundef %state) unnamed_addr #6 align 2 {
 entry:
   store ptr %manager, ptr %this, align 8
-  %state3 = getelementptr inbounds i8, ptr %this, i64 8
+  %state3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %state, ptr %state3, align 8
   ret void
 }
@@ -1739,9 +1739,9 @@ declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net30QuicMultipathSentPacketManager20OnApplicationLimitedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
-  %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_managers_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %path_managers_info_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %0, %1
   br i1 %cmp.i.not6, label %for.end, label %for.body
@@ -1753,20 +1753,20 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.07, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp6.not = icmp eq i32 %3, 0
   br i1 %cmp6.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 304
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %if.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.07, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 

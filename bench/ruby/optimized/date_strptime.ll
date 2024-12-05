@@ -411,7 +411,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   %28 = getelementptr inbounds i8, ptr %2, i64 %.06451392
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8192
   %.not = icmp eq i16 %33, 0
@@ -426,7 +426,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   %34 = getelementptr inbounds i8, ptr %0, i64 %.11384
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %27, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr %27, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8192
   %.not736 = icmp eq i16 %39, 0
@@ -451,7 +451,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   %46 = getelementptr inbounds i8, ptr %2, i64 %43
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds i16, ptr %27, i64 %48
+  %49 = getelementptr inbounds nuw i16, ptr %27, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 8192
   %.not737 = icmp eq i16 %51, 0
@@ -624,7 +624,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
 
 90:                                               ; preds = %87, %head_match_p.exit747.thread
   %indvars.iv1585 = phi i64 [ 0, %87 ], [ %indvars.iv.next1586, %head_match_p.exit747.thread ]
-  %91 = getelementptr inbounds [7 x ptr], ptr @day_names, i64 0, i64 %indvars.iv1585
+  %91 = getelementptr inbounds nuw [7 x ptr], ptr @day_names, i64 0, i64 %indvars.iv1585
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #11
   %.not.i745 = icmp ult i64 %88, %93
@@ -688,7 +688,7 @@ head_match_p.exit747.thread:                      ; preds = %head_match_p.exit.t
 
 108:                                              ; preds = %105, %head_match_p.exit763.thread
   %indvars.iv1581 = phi i64 [ 0, %105 ], [ %indvars.iv.next1582, %head_match_p.exit763.thread ]
-  %109 = getelementptr inbounds [12 x ptr], ptr @month_names, i64 0, i64 %indvars.iv1581
+  %109 = getelementptr inbounds nuw [12 x ptr], ptr @month_names, i64 0, i64 %indvars.iv1581
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #11
   %.not.i760 = icmp ult i64 %106, %111
@@ -750,7 +750,7 @@ head_match_p.exit763.thread:                      ; preds = %head_match_p.exit76
   %126 = getelementptr i8, ptr %125, i64 2
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds i16, ptr %27, i64 %128
+  %129 = getelementptr inbounds nuw i16, ptr %27, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = and i16 %130, 2048
   %.not.i776 = icmp eq i16 %131, 0
@@ -786,7 +786,7 @@ head_match_p.exit763.thread:                      ; preds = %head_match_p.exit76
 
 143:                                              ; preds = %141
   %144 = zext i8 %140 to i64
-  %145 = getelementptr inbounds i16, ptr %27, i64 %144
+  %145 = getelementptr inbounds nuw i16, ptr %27, i64 %144
   %146 = load i16, ptr %145, align 2
   %147 = and i16 %146, 2048
   %.not14.i = icmp eq i16 %147, 0
@@ -975,7 +975,7 @@ rbimpl_intern_const.exit810:                      ; preds = %.lr.ph.i808, %215
   %227 = getelementptr i8, ptr %226, i64 2
   %228 = load i8, ptr %227, align 1
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds i16, ptr %27, i64 %229
+  %230 = getelementptr inbounds nuw i16, ptr %27, i64 %229
   %231 = load i16, ptr %230, align 2
   %232 = and i16 %231, 2048
   %.not.i811 = icmp eq i16 %232, 0
@@ -1011,7 +1011,7 @@ rbimpl_intern_const.exit810:                      ; preds = %.lr.ph.i808, %215
 
 244:                                              ; preds = %242
   %245 = zext i8 %241 to i64
-  %246 = getelementptr inbounds i16, ptr %27, i64 %245
+  %246 = getelementptr inbounds nuw i16, ptr %27, i64 %245
   %247 = load i16, ptr %246, align 2
   %248 = and i16 %247, 2048
   %.not14.i817 = icmp eq i16 %248, 0
@@ -1350,7 +1350,7 @@ rbimpl_intern_const.exit890:                      ; preds = %.lr.ph.i888, %375
   %388 = getelementptr i8, ptr %387, i64 2
   %389 = load i8, ptr %388, align 1
   %390 = zext i8 %389 to i64
-  %391 = getelementptr inbounds i16, ptr %27, i64 %390
+  %391 = getelementptr inbounds nuw i16, ptr %27, i64 %390
   %392 = load i16, ptr %391, align 2
   %393 = and i16 %392, 2048
   %.not.i891 = icmp eq i16 %393, 0
@@ -1386,7 +1386,7 @@ rbimpl_intern_const.exit890:                      ; preds = %.lr.ph.i888, %375
 
 405:                                              ; preds = %403
   %406 = zext i8 %402 to i64
-  %407 = getelementptr inbounds i16, ptr %27, i64 %406
+  %407 = getelementptr inbounds nuw i16, ptr %27, i64 %406
   %408 = load i16, ptr %407, align 2
   %409 = and i16 %408, 2048
   %.not14.i897 = icmp eq i16 %409, 0
@@ -2165,7 +2165,7 @@ rbimpl_intern_const.exit1067:                     ; preds = %.lr.ph.i1065, %715
   %733 = getelementptr i8, ptr %732, i64 2
   %734 = load i8, ptr %733, align 1
   %735 = zext i8 %734 to i64
-  %736 = getelementptr inbounds i16, ptr %27, i64 %735
+  %736 = getelementptr inbounds nuw i16, ptr %27, i64 %735
   %737 = load i16, ptr %736, align 2
   %738 = and i16 %737, 2048
   %.not.i1068 = icmp eq i16 %738, 0
@@ -2201,7 +2201,7 @@ rbimpl_intern_const.exit1067:                     ; preds = %.lr.ph.i1065, %715
 
 750:                                              ; preds = %748
   %751 = zext i8 %747 to i64
-  %752 = getelementptr inbounds i16, ptr %27, i64 %751
+  %752 = getelementptr inbounds nuw i16, ptr %27, i64 %751
   %753 = load i16, ptr %752, align 2
   %754 = and i16 %753, 2048
   %.not14.i1074 = icmp eq i16 %754, 0
@@ -2615,7 +2615,7 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
   br i1 %exitcond.not, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.035
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.035
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, -58
@@ -2650,7 +2650,7 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
   %22 = sext i8 %21 to i64
   %23 = add i64 %20, -48
   %24 = add i64 %23, %22
-  %25 = getelementptr inbounds i8, ptr %.03444, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.03444, i64 1
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %19
   %28 = icmp ult i64 %27, %.142

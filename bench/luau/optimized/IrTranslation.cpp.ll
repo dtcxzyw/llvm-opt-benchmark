@@ -110,14 +110,14 @@ define dso_local void @_ZN4Luau7CodeGen18translateInstLoadKERNS0_9IrBuilderEPKj(
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau7CodeGenL25translateInstLoadConstantERNS0_9IrBuilderEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds %struct.lua_TValue, ptr %7, i64 %8
   %.sroa.022.0.copyload = load double, ptr %9, align 8
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
+  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
   %.sroa.324.0.copyload = load i32, ptr %.sroa.324.0..sroa_idx, align 4
   switch i32 %.sroa.324.0.copyload, label %32 [
     i32 0, label %10
@@ -174,7 +174,7 @@ define dso_local void @_ZN4Luau7CodeGen19translateInstLoadKXERNS0_9IrBuilderEPKj
   %3 = load i32, ptr %1, align 4
   %4 = lshr i32 %3, 8
   %5 = and i32 %4, 255
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   tail call fastcc void @_ZN4Luau7CodeGenL25translateInstLoadConstantERNS0_9IrBuilderEii(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %5, i32 noundef %7)
   ret void
@@ -254,7 +254,7 @@ declare void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonn
 define dso_local void @_ZN4Luau7CodeGen21translateInstJumpIfEqERNS0_9IrBuilderEPKjib(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %2, 1
   %10 = ashr i32 %5, 16
@@ -308,7 +308,7 @@ declare i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonn
 define dso_local void @_ZN4Luau7CodeGen23translateInstJumpIfCondERNS0_9IrBuilderEPKjiNS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %2, 1
   %10 = ashr i32 %5, 16
@@ -384,7 +384,7 @@ define dso_local void @_ZN4Luau7CodeGen18translateInstJumpXERNS0_9IrBuilderEPKji
 define dso_local void @_ZN4Luau7CodeGen23translateInstJumpxEqNilERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   %8 = add nsw i32 %2, 1
@@ -415,7 +415,7 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstJumpxEqNilERNS0_9IrBuilder
 define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqBERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   %8 = add nsw i32 %2, 1
@@ -454,7 +454,7 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqBERNS0_9IrBuilderEP
 define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqNERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   %8 = add nsw i32 %2, 1
@@ -473,13 +473,13 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqNERNS0_9IrBuilderEP
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %14)
   %20 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %15)
   %21 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 3, i32 %20)
-  %22 = getelementptr inbounds i8, ptr %0, i64 320
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = and i32 %7, 16777215
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds %struct.lua_TValue, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw %struct.lua_TValue, ptr %25, i64 %27
   %.sroa.09.0.copyload = load double, ptr %28, align 8
   %29 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %.sroa.09.0.copyload)
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
@@ -500,7 +500,7 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqNERNS0_9IrBuilderEP
 define dso_local void @_ZN4Luau7CodeGen21translateInstJumpxEqSERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   %8 = add nsw i32 %2, 1
@@ -559,8 +559,8 @@ define dso_local void @_ZN4Luau7CodeGen19translateInstBinaryERNS0_9IrBuilderEPKj
 define internal fastcc void @_ZN4Luau7CodeGenL26translateInstBinaryNumericERNS0_9IrBuilderEiiiNS0_4IrOpES3_i3TMS(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1, 256) %2, i32 noundef range(i32 -1, 256) %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -648,13 +648,13 @@ switch.lookup:                                    ; preds = %_ZNK4Luau7CodeGen10
   br i1 %68, label %69, label %78
 
 69:                                               ; preds = %60
-  %70 = getelementptr inbounds i8, ptr %0, i64 320
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = lshr i32 %4, 4
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds %struct.lua_TValue, ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw %struct.lua_TValue, ptr %73, i64 %75
   %.sroa.02.0.copyload.i = load double, ptr %76, align 8
   %77 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %.sroa.02.0.copyload.i)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit
@@ -708,13 +708,13 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds
   br i1 %106, label %107, label %116
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %0, i64 320
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = lshr i32 %5, 4
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds %struct.lua_TValue, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw %struct.lua_TValue, ptr %111, i64 %113
   %.sroa.02.0.copyload.i425 = load double, ptr %114, align 8
   %115 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %.sroa.02.0.copyload.i425)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit426
@@ -750,7 +750,7 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit426: ; pr
 
 131:                                              ; preds = %129, %127
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
   %134 = load ptr, ptr %133, align 8
   %.not416 = icmp eq ptr %134, null
   br i1 %.not416, label %138, label %135
@@ -835,13 +835,13 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428: ;
   br i1 %173, label %174, label %183
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %0, i64 320
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = lshr i32 %4, 4
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds %struct.lua_TValue, ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw %struct.lua_TValue, ptr %178, i64 %180
   %.sroa.02.0.copyload.i430 = load double, ptr %181, align 8
   %182 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(744) %0, double noundef %.sroa.02.0.copyload.i430)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431
@@ -857,13 +857,13 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   br i1 %186, label %187, label %210
 
 187:                                              ; preds = %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431
-  %188 = getelementptr inbounds i8, ptr %0, i64 320
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = lshr i32 %5, 4
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds %struct.lua_TValue, ptr %191, i64 %193
+  %194 = getelementptr inbounds nuw %struct.lua_TValue, ptr %191, i64 %193
   %.sroa.085.0.copyload = load double, ptr %194, align 8
   %195 = icmp eq i32 %7, 14
   %196 = fcmp oeq double %.sroa.085.0.copyload, 5.000000e-01
@@ -974,7 +974,7 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   %241 = add nsw i32 %6, 1
   %242 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %241)
   store ptr %0, ptr %9, align 8
-  %243 = getelementptr inbounds i8, ptr %9, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %242, ptr %243, align 8
   %244 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %242)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0440.2)
@@ -1009,13 +1009,13 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   %258 = landingpad { ptr, i32 }
           catch ptr null
   %259 = extractvalue { ptr, i32 } %258, 0
-  tail call void @__clang_call_terminate(ptr %259) #11
+  tail call void @__clang_call_terminate(ptr %259) #12
   unreachable
 
 260:                                              ; preds = %254, %252, %250, %248, %246, %240
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #13
   resume { ptr, i32 } %261
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %256, %135, %238, %138, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit426, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit, %switch.lookup
@@ -1079,8 +1079,8 @@ define dso_local void @_ZN4Luau7CodeGen16translateInstNotERNS0_9IrBuilderEPKj(pt
 define dso_local void @_ZN4Luau7CodeGen18translateInstMinusERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -1137,7 +1137,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %47 = load ptr, ptr %46, align 8
   %.not146 = icmp eq ptr %47, null
   %.pre = trunc i32 %21 to i8
@@ -1205,7 +1205,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   %85 = add nsw i32 %2, 1
   %86 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %85)
   store ptr %0, ptr %4, align 8
-  %87 = getelementptr inbounds i8, ptr %4, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %86, ptr %87, align 8
   %88 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %86)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0.0)
@@ -1240,7 +1240,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
 103:                                              ; preds = %.invoke, %127, %120, %115, %110, %105, %101, %99, %97, %95, %90, %84
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %104
 
 105:                                              ; preds = %92
@@ -1288,7 +1288,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  tail call void @__clang_call_terminate(ptr %132) #11
+  tail call void @__clang_call_terminate(ptr %132) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %129, %48, %82, %._crit_edge, %25
@@ -1306,7 +1306,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i32, ptr %3, align 8
   invoke void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %2, i32 %.sroa.0.0.copyload)
           to label %4 unwind label %5
@@ -1318,7 +1318,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(pt
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #11
+  tail call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
@@ -1326,8 +1326,8 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(pt
 define dso_local void @_ZN4Luau7CodeGen19translateInstLengthERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -1362,7 +1362,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   %.pre = trunc i32 %21 to i8
@@ -1415,7 +1415,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
   %64 = add nsw i32 %2, 1
   %65 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %64)
   store ptr %0, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %65, ptr %66, align 8
   %67 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %65)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %42)
@@ -1442,7 +1442,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
 78:                                               ; preds = %.invoke, %93, %85, %80, %76, %74, %69, %51
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %79
 
 80:                                               ; preds = %71
@@ -1477,7 +1477,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %15
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #11
+  tail call void @__clang_call_terminate(ptr %98) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %95, %30, %._crit_edge
@@ -1490,7 +1490,7 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstNewTableERNS0_9IrBuilderEP
   %5 = lshr i32 %4, 8
   %6 = lshr i32 %4, 16
   %7 = and i32 %6, 255
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %2, 1
   %11 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %10)
@@ -1584,8 +1584,8 @@ define dso_local i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjib
   %11 = and i32 %10, 255
   %12 = lshr i32 %8, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 8
   %18 = and i32 %17, 255
@@ -1617,14 +1617,14 @@ define dso_local i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjib
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 320
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = lshr i32 %5, 4
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %struct.lua_TValue, ptr %40, i64 %42
-  %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 12
+  %43 = getelementptr inbounds nuw %struct.lua_TValue, ptr %40, i64 %42
+  %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 12
   %.sroa.254.0.copyload = load i32, ptr %.sroa.254.0..sroa_idx, align 4
   %44 = icmp eq i32 %.sroa.254.0.copyload, 3
   br i1 %44, label %45, label %47
@@ -1681,11 +1681,11 @@ define dso_local i32 @_ZN4Luau7CodeGen18translateFastCallNERNS0_9IrBuilderEPKjib
   br i1 %.not151, label %128, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = lshr i32 %55, 4
   %74 = zext nneg i32 %73 to i64
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %75, i64 %74
   store i8 4, ptr %76, align 4
   %77 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5undefEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
   br label %128
@@ -1815,17 +1815,17 @@ define dso_local void @_ZN4Luau7CodeGen18beforeInstForNPrepERNS0_9IrBuilderEPKji
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
   %6 = and i32 %5, 255
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %11, i64 %10, i32 2
+  %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %11, i64 %10, i32 2
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, 2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -1881,11 +1881,11 @@ define dso_local void @_ZN4Luau7CodeGen18beforeInstForNPrepERNS0_9IrBuilderEPKji
 55:                                               ; preds = %48
   %56 = getelementptr i8, ptr %26, i64 -36
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = lshr i32 %.sroa.0.0.copyload.i, 4
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %59, i32 1
+  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %59, i32 1
   %62 = load i8, ptr %61, align 8
   %63 = icmp eq i8 %62, 3
   br i1 %63, label %_ZN4Luau7CodeGenL12getLoopStepKERNS0_9IrBuilderEi.exit, label %64
@@ -1896,11 +1896,11 @@ define dso_local void @_ZN4Luau7CodeGen18beforeInstForNPrepERNS0_9IrBuilderEPKji
 
 _ZN4Luau7CodeGenL12getLoopStepKERNS0_9IrBuilderEi.exit: ; preds = %55, %64
   %.sroa.020.0.i = phi i32 [ %65, %64 ], [ %42, %55 ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 672
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %67 = add nsw i32 %2, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 680
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 688
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %69, %71
   br i1 %.not.i.i, label %75, label %72
@@ -1912,7 +1912,7 @@ _ZN4Luau7CodeGenL12getLoopStepKERNS0_9IrBuilderEi.exit: ; preds = %55, %64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %69, align 4
   %73 = load ptr, ptr %68, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %74, ptr %68, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE9push_backEOS3_.exit
 
@@ -1922,74 +1922,68 @@ _ZN4Luau7CodeGenL12getLoopStepKERNS0_9IrBuilderEi.exit: ; preds = %55, %64
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = icmp eq i64 %79, 9223372036854775800
-  br i1 %80, label %81, label %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
+  br i1 %80, label %81, label %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 81:                                               ; preds = %75
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
-_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %75
+_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %75
   %82 = ashr exact i64 %79, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
-  %83 = add nsw i64 %.sroa.speculated.i.i, %82
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %82, i64 1)
+  %83 = add nsw i64 %.sroa.speculated.i.i.i.i, %82
   %84 = icmp ult i64 %83, %82
   %85 = tail call i64 @llvm.umin.i64(i64 %83, i64 1152921504606846975)
   %86 = select i1 %84, i64 1152921504606846975, i64 %85
-  %.not.i.i4 = icmp eq i64 %86, 0
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i, label %87
+  %.not.i.i.i.i = icmp ne i64 %86, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %87 = shl nuw nsw i64 %86, 3
+  %88 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #15
+  %89 = getelementptr inbounds i8, ptr %88, i64 %79
+  %.sroa.3.0.insert.ext9 = zext i32 %67 to i64
+  %.sroa.3.0.insert.shift10 = shl nuw i64 %.sroa.3.0.insert.ext9, 32
+  %.sroa.0.0.insert.ext5 = zext i32 %.sroa.020.0.i to i64
+  %.sroa.0.0.insert.insert7 = or disjoint i64 %.sroa.3.0.insert.shift10, %.sroa.0.0.insert.ext5
+  store i64 %.sroa.0.0.insert.insert7, ptr %89, align 4
+  %.not10.i.i.i.i.i.i = icmp eq ptr %76, %69
+  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-87:                                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %88 = shl nuw nsw i64 %86, 3
-  %89 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #14
-  br label %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i
-
-_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i: ; preds = %87, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i
-  %90 = phi ptr [ %89, %87 ], [ null, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i ]
-  %91 = getelementptr inbounds %"struct.Luau::CodeGen::IrBuilder::LoopInfo", ptr %90, i64 %82
-  %.sroa.3.0.insert.ext10 = zext i32 %67 to i64
-  %.sroa.3.0.insert.shift11 = shl nuw i64 %.sroa.3.0.insert.ext10, 32
-  %.sroa.0.0.insert.ext6 = zext i32 %.sroa.020.0.i to i64
-  %.sroa.0.0.insert.insert8 = or disjoint i64 %.sroa.3.0.insert.shift11, %.sroa.0.0.insert.ext6
-  store i64 %.sroa.0.0.insert.insert8, ptr %91, align 4
-  %.not10.i.i.i.i = icmp eq ptr %76, %69
-  br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %90, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %76, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i.i.i.i ], [ %88, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i.i.i.i ], [ %76, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %92 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !8, !noalias !5
-  store i64 %92, ptr %.012.i.i.i.i, align 4, !alias.scope !5, !noalias !8
-  %93 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %94 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %93, %69
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  %90 = load i64, ptr %.0911.i.i.i.i.i.i, align 4, !alias.scope !8, !noalias !5
+  store i64 %90, ptr %.012.i.i.i.i.i.i, align 4, !alias.scope !5, !noalias !8
+  %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %91, %69
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
-_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %90, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i ], [ %94, %.lr.ph.i.i.i.i ]
-  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %76, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %96
+_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %88, %_ZNKSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %92, %.lr.ph.i.i.i.i.i.i ]
+  %93 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %76, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %94
 
-96:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %79) #15
-  br label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit
+94:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %79) #16
+  br label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i, %96
-  store ptr %90, ptr %66, align 8
-  store ptr %95, ptr %68, align 8
-  %97 = getelementptr inbounds %"struct.Luau::CodeGen::IrBuilder::LoopInfo", ptr %90, i64 %86
-  store ptr %97, ptr %70, align 8
+_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %94, %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
+  store ptr %88, ptr %66, align 8
+  store ptr %93, ptr %68, align 8
+  %95 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBuilder::LoopInfo", ptr %88, i64 %86
+  store ptr %95, ptr %70, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE9push_backEOS3_.exit
 
-_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE9push_backEOS3_.exit: ; preds = %72, %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit
+_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE9push_backEOS3_.exit: ; preds = %72, %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau7CodeGen17afterInstForNLoopERNS0_9IrBuilderEPKj(ptr nocapture noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 680
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   store ptr %5, ptr %3, align 8
@@ -2072,7 +2066,7 @@ _ZN4Luau7CodeGen10isFastCallE10LuauOpcode.exit.i: ; preds = %3
 _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %12, %16, %20, %24, %26
   %.0.i = phi i32 [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %29, %26 ], [ -1, %24 ]
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %.0.i)
-  %31 = getelementptr inbounds i8, ptr %0, i64 680
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %.sroa.049.0.copyload = load i32, ptr %33, align 4
@@ -2109,11 +2103,11 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %12, %16, %20, %24, 
   br label %75
 
 62:                                               ; preds = %_ZN4Luau7CodeGen13getJumpTargetEjj.exit
-  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = lshr i32 %.sroa.049.0.copyload, 4
   %65 = zext nneg i32 %64 to i64
   %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %66, i64 %65, i32 1
+  %67 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %66, i64 %65, i32 1
   %68 = load double, ptr %67, align 8
   %69 = fcmp ogt double %68, 0.000000e+00
   %70 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 5)
@@ -2136,7 +2130,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %12, %16, %20, %24, 
   br label %78
 
 78:                                               ; preds = %77, %75
-  %79 = getelementptr inbounds i8, ptr %0, i64 9
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %79, align 1
   ret void
 }
@@ -2217,7 +2211,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %7, %11, %15, %19, %
   %28 = tail call noundef i32 @_ZN4Luau11getOpLengthE10LuauOpcode(i32 noundef %27)
   %29 = add nsw i32 %28, %2
   %30 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %29)
-  %31 = getelementptr inbounds i8, ptr %0, i64 680
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %.sroa.046.0.copyload = load i32, ptr %33, align 4
@@ -2260,11 +2254,11 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %7, %11, %15, %19, %
   br label %69
 
 56:                                               ; preds = %47
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = lshr i32 %.sroa.046.0.copyload, 4
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %59, i32 1
+  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %60, i64 %59, i32 1
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %62, 0.000000e+00
   %64 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 4)
@@ -2499,7 +2493,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %7, %11, %15, %19, %
   %68 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %67)
   %69 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %68)
   %70 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %35)
-  %71 = getelementptr inbounds i8, ptr %1, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %72)
   %74 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 102, i32 %70, i32 %73, i32 %25, i32 %30)
@@ -2523,8 +2517,8 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetTableNERNS0_9IrBuilderE
   %8 = lshr i32 %5, 24
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2572,7 +2566,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %46 = add nsw i32 %2, 1
   %47 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %46)
   store ptr %0, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %47, ptr %48, align 8
   %49 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %47)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -2612,7 +2606,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  tail call void @__clang_call_terminate(ptr %67) #11
+  tail call void @__clang_call_terminate(ptr %67) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %64
@@ -2621,7 +2615,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %64
 68:                                               ; preds = %62, %60, %57, %55, %53, %51, %31
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %69
 }
 
@@ -2634,8 +2628,8 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstSetTableNERNS0_9IrBuilderE
   %8 = lshr i32 %5, 24
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2687,7 +2681,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %50 = add nsw i32 %2, 1
   %51 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %50)
   store ptr %0, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %51, ptr %52, align 8
   %53 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %51)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -2727,7 +2721,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #11
+  tail call void @__clang_call_terminate(ptr %71) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %68
@@ -2736,7 +2730,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %68
 72:                                               ; preds = %66, %64, %61, %59, %57, %55, %31
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %73
 }
 
@@ -2749,8 +2743,8 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstGetTableERNS0_9IrBuilderEP
   %8 = lshr i32 %5, 24
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2814,7 +2808,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %57 = add nsw i32 %2, 1
   %58 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %57)
   store ptr %0, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %58, ptr %59, align 8
   %60 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %58)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -2853,7 +2847,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #11
+  tail call void @__clang_call_terminate(ptr %77) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %74
@@ -2862,7 +2856,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %74
 78:                                               ; preds = %72, %70, %68, %66, %64, %62, %41
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %79
 }
 
@@ -2875,8 +2869,8 @@ define dso_local void @_ZN4Luau7CodeGen21translateInstSetTableERNS0_9IrBuilderEP
   %8 = lshr i32 %5, 24
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2944,7 +2938,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %61 = add nsw i32 %2, 1
   %62 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %61)
   store ptr %0, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %62, ptr %63, align 8
   %64 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %62)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -2983,7 +2977,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  tail call void @__clang_call_terminate(ptr %81) #11
+  tail call void @__clang_call_terminate(ptr %81) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %78
@@ -2992,7 +2986,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %78
 82:                                               ; preds = %76, %74, %72, %70, %68, %66, %41
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %83
 }
 
@@ -3002,7 +2996,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetImportERNS0_9IrBuilderE
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
   %7 = ashr i32 %5, 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 2)
   %11 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
@@ -3021,7 +3015,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetImportERNS0_9IrBuilderE
   %23 = add nsw i32 %2, 2
   %24 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %23)
   store ptr %0, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %24, ptr %25, align 8
   %26 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %24)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %11)
@@ -3057,7 +3051,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetImportERNS0_9IrBuilderE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #11
+  tail call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %39
@@ -3066,7 +3060,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %39
 43:                                               ; preds = %37, %35, %33, %31, %29, %3
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %44
 }
 
@@ -3078,11 +3072,11 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstGetTableKSERNS0_9IrBuilder
   %7 = and i32 %6, 255
   %8 = lshr i32 %5, 16
   %9 = and i32 %8, 255
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -3112,15 +3106,15 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %32 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 4)
   %33 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %2)
   %34 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %28, i32 %32, i32 %33)
-  %35 = getelementptr inbounds i8, ptr %0, i64 320
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %11 to i64
-  %40 = getelementptr inbounds %struct.lua_TValue, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw %struct.lua_TValue, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
-  %43 = getelementptr inbounds i8, ptr %41, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %46, label %78
@@ -3179,7 +3173,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %.not229 = icmp eq ptr %84, null
   br i1 %.not229, label %88, label %85
@@ -3221,21 +3215,21 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   %.not = icmp eq ptr %111, null
   br i1 %.not, label %125, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %0, i64 320
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = zext i32 %11 to i64
-  %118 = getelementptr inbounds %struct.lua_TValue, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw %struct.lua_TValue, ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
-  %121 = getelementptr inbounds i8, ptr %119, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 20
   %122 = load i32, ptr %121, align 4
   %123 = zext i32 %122 to i64
   %124 = tail call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.1.0.extract.trunc, ptr noundef nonnull %120, i64 noundef %123, i32 noundef %7, i32 noundef %9, i32 noundef %2)
@@ -3278,7 +3272,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %152 = add nsw i32 %2, 2
   %153 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %152)
   store ptr %0, ptr %4, align 8
-  %154 = getelementptr inbounds i8, ptr %4, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %153, ptr %154, align 8
   %155 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %153)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %133)
@@ -3313,7 +3307,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %22
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
-  tail call void @__clang_call_terminate(ptr %170) #11
+  tail call void @__clang_call_terminate(ptr %170) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %167, %112, %48, %68, %88, %58, %85, %125
@@ -3322,7 +3316,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %167, %112, %48, %68
 171:                                              ; preds = %165, %163, %161, %159, %157, %138
   %172 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %172
 }
 
@@ -3332,11 +3326,11 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstSetTableKSERNS0_9IrBuilder
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
   %7 = lshr i32 %5, 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -3420,7 +3414,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %67 = add nsw i32 %2, 2
   %68 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %67)
   store ptr %0, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %68, ptr %69, align 8
   %70 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %68)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %44)
@@ -3455,7 +3449,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3, %20
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #11
+  tail call void @__clang_call_terminate(ptr %85) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %82, %33
@@ -3464,7 +3458,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %82, %33
 86:                                               ; preds = %80, %78, %76, %74, %72, %49
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %87
 }
 
@@ -3473,7 +3467,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderE
   %4 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 7)
@@ -3490,7 +3484,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderE
   %21 = add nsw i32 %2, 2
   %22 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %21)
   store ptr %0, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %22, ptr %23, align 8
   %24 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %22)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -3521,7 +3515,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstGetGlobalERNS0_9IrBuilderE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #11
+  tail call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %34
@@ -3530,7 +3524,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %34
 38:                                               ; preds = %32, %30, %28, %26, %3
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %39
 }
 
@@ -3539,7 +3533,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderE
   %4 = alloca %"struct.Luau::CodeGen::FallbackStreamScope", align 8
   %5 = load i32, ptr %1, align 4
   %6 = lshr i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 1)
   %10 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 7)
@@ -3560,7 +3554,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderE
   %25 = add nsw i32 %2, 2
   %26 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %25)
   store ptr %0, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %26, ptr %27, align 8
   %28 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %26)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %9)
@@ -3591,7 +3585,7 @@ define dso_local void @_ZN4Luau7CodeGen22translateInstSetGlobalERNS0_9IrBuilderE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #11
+  tail call void @__clang_call_terminate(ptr %41) #12
   unreachable
 
 _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %38
@@ -3600,7 +3594,7 @@ _ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit:   ; preds = %38
 42:                                               ; preds = %36, %34, %32, %30, %3
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #12
+  call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   resume { ptr, i32 } %43
 }
 
@@ -3673,11 +3667,11 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen21translateInstNamecallERNS
   %5 = lshr i32 %4, 8
   %6 = lshr i32 %4, 16
   %7 = and i32 %6, 255
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -3707,13 +3701,13 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not259 = icmp eq ptr %33, null
   br i1 %.not259, label %56, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 255
@@ -3722,15 +3716,15 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   %41 = add nsw i32 %40, -1
   %42 = lshr i32 %36, 24
   %43 = add nsw i32 %42, -1
-  %44 = getelementptr inbounds i8, ptr %0, i64 320
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = zext i32 %9 to i64
-  %49 = getelementptr inbounds %struct.lua_TValue, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw %struct.lua_TValue, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = getelementptr inbounds i8, ptr %50, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %51, i64 noundef %54, i32 noundef %38, i32 noundef %7, i32 noundef %41, i32 noundef %43, i32 noundef %2)
@@ -3777,13 +3771,13 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %82 = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %82, null
   br i1 %.not, label %105, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = lshr i32 %85, 8
   %87 = and i32 %86, 255
@@ -3792,15 +3786,15 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   %90 = add nsw i32 %89, -1
   %91 = lshr i32 %85, 24
   %92 = add nsw i32 %91, -1
-  %93 = getelementptr inbounds i8, ptr %0, i64 320
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext i32 %9 to i64
-  %98 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw %struct.lua_TValue, ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  %101 = getelementptr inbounds i8, ptr %99, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 20
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
   %104 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.1.0.extract.trunc263265, ptr noundef nonnull %100, i64 noundef %103, i32 noundef %87, i32 noundef %7, i32 noundef %90, i32 noundef %92, i32 noundef %2)
@@ -3836,14 +3830,14 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   tail call void @_ZN4Luau7CodeGen9IrBuilder15loadAndCheckTagENS0_4IrOpEhS2_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %119, i8 noundef zeroext 6, i32 %.sroa.076.0)
   %124 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %118)
   %125 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 2, i32 %124)
-  %126 = getelementptr inbounds i8, ptr %0, i64 320
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %9 to i64
-  %131 = getelementptr inbounds %struct.lua_TValue, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw %struct.lua_TValue, ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i32, ptr %133, align 8
   %135 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %134)
   %136 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 10, i32 %125, i32 %135)
@@ -3994,9 +3988,9 @@ define dso_local void @_ZN4Luau7CodeGen16translateInstOrXERNS0_9IrBuilderEPKjiNS
 define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilderEPKji(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = ashr i32 %4, 16
   %11 = sext i32 %10 to i64
@@ -4006,7 +4000,7 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
   %15 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %14)
   %16 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 95, i32 %15)
   %17 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 7)
-  %18 = getelementptr inbounds i8, ptr %13, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %20)
@@ -4027,7 +4021,7 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
 .lr.ph:                                           ; preds = %3, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 8
   %trunc = trunc i32 %35 to i8
@@ -4090,8 +4084,8 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstNewClosureERNS0_9IrBuilder
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #11
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -4118,6 +4112,9 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4129,11 +4126,12 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

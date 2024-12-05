@@ -192,18 +192,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %7, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 20
-  %11 = getelementptr inbounds i8, ptr %5, i64 21
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 21
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 22
   store i8 1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 23
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 23
   store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %14, align 8
   %15 = load ptr, ptr %1, align 8
   tail call void @pg_logging_init(ptr noundef %15) #9
@@ -212,14 +212,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %18 = load ptr, ptr %1, align 8
   tail call void @set_pglocale_pgservice(ptr noundef %18, ptr noundef nonnull @.str.31) #9
   tail call void @handle_help_version_opts(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @help) #9
-  %19 = getelementptr inbounds i8, ptr %5, i64 12
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 6
-  %22 = getelementptr inbounds i8, ptr %5, i64 5
-  %23 = getelementptr inbounds i8, ptr %5, i64 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 1
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 3
   br label %27
 
 27:                                               ; preds = %.backedge, %2
@@ -638,15 +638,15 @@ escape_quotes.exit:                               ; preds = %94
   unreachable
 
 177:                                              ; preds = %173, %170, %168
-  %178 = getelementptr inbounds i8, ptr %4, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.054, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %4, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.052, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %4, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.050, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %4, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.048, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %4, i64 40
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %182, align 8
   call void @setup_cancel_handler(ptr noundef null) #9
   %.not65 = icmp ne i32 %.041, 0
@@ -885,11 +885,11 @@ define internal fastcc void @vacuum_all_databases(ptr noundef nonnull %0, ptr no
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader36
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %21
 
 .preheader35:                                     ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader35, %._crit_edge
@@ -943,7 +943,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   %14 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %15 = tail call ptr @connectDatabase(ptr noundef nonnull %0, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext true) #9
-  %16 = getelementptr inbounds i8, ptr %1, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %23
@@ -960,7 +960,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 23:                                               ; preds = %19, %8
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %31
@@ -977,7 +977,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 31:                                               ; preds = %27, %23
-  %32 = getelementptr inbounds i8, ptr %1, i64 21
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %39
@@ -994,7 +994,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 39:                                               ; preds = %35, %31
-  %40 = getelementptr inbounds i8, ptr %1, i64 22
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
   br i1 %42, label %47, label %43
@@ -1011,7 +1011,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 47:                                               ; preds = %43, %39
-  %48 = getelementptr inbounds i8, ptr %1, i64 23
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %49 = load i8, ptr %48, align 1
   %50 = trunc i8 %49 to i1
   br i1 %50, label %55, label %51
@@ -1028,7 +1028,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 55:                                               ; preds = %51, %47
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
   br i1 %58, label %63, label %59
@@ -1045,7 +1045,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 63:                                               ; preds = %59, %55
-  %64 = getelementptr inbounds i8, ptr %1, i64 6
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %65 = load i8, ptr %64, align 2
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %71
@@ -1062,7 +1062,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 71:                                               ; preds = %67, %63
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load i32, ptr %72, align 8
   %.not = icmp eq i32 %73, 0
   br i1 %.not, label %78, label %74
@@ -1078,7 +1078,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 78:                                               ; preds = %74, %71
-  %79 = getelementptr inbounds i8, ptr %1, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %80 = load i32, ptr %79, align 4
   %.not145 = icmp eq i32 %80, 0
   br i1 %.not145, label %85, label %81
@@ -1094,7 +1094,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 85:                                               ; preds = %81, %78
-  %86 = getelementptr inbounds i8, ptr %1, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %89, label %93
@@ -1110,7 +1110,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   unreachable
 
 93:                                               ; preds = %89, %85
-  %94 = getelementptr inbounds i8, ptr %1, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %95 = load ptr, ptr %94, align 8
   %.not146 = icmp eq ptr %95, null
   br i1 %.not146, label %100, label %96
@@ -1128,7 +1128,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
 100:                                              ; preds = %96, %93
   %101 = tail call i32 @PQserverVersion(ptr noundef %15) #9
   %102 = icmp sgt i32 %101, 159999
-  %103 = getelementptr inbounds i8, ptr %1, i64 25
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %104 = zext i1 %102 to i8
   store i8 %104, ptr %103, align 1
   br i1 %7, label %117, label %105
@@ -1176,7 +1176,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   br i1 %.not159, label %124, label %122
 
 122:                                              ; preds = %.lr.ph
-  %123 = getelementptr inbounds i8, ptr %.0126174, i64 9
+  %123 = getelementptr inbounds nuw i8, ptr %.0126174, i64 9
   call void @appendStringLiteralConn(ptr noundef nonnull %11, ptr noundef nonnull %123, ptr noundef %15) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %11, ptr noundef nonnull @.str.71) #9
   %.pre = load i32, ptr @objfilter, align 4
@@ -1189,7 +1189,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   br i1 %.not160, label %131, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %.0126174, i64 9
+  %128 = getelementptr inbounds nuw i8, ptr %.0126174, i64 9
   %129 = call i32 @PQclientEncoding(ptr noundef %15) #9
   call void @splitTableColumnsSpec(ptr noundef nonnull %128, i32 noundef %129, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %130 = load ptr, ptr %13, align 8
@@ -1372,15 +1372,15 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
   call void @ParallelSlotsAdoptConn(ptr noundef %192, ptr noundef %15) #9
   call void @initPQExpBuffer(ptr noundef nonnull %9) #9
   %193 = load ptr, ptr %12, align 8
-  %194 = getelementptr inbounds i8, ptr %1, i64 3
-  %195 = getelementptr inbounds i8, ptr %1, i64 4
-  %196 = getelementptr inbounds i8, ptr %1, i64 1
-  %197 = getelementptr inbounds i8, ptr %1, i64 2
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %198
 
 198:                                              ; preds = %run_vacuum_command.exit, %191
   %.1 = phi ptr [ %193, %191 ], [ %314, %run_vacuum_command.exit ]
-  %199 = getelementptr inbounds i8, ptr %.1, i64 9
+  %199 = getelementptr inbounds nuw i8, ptr %.1, i64 9
   %200 = load volatile i32, ptr @CancelRequested, align 4
   %.not154 = icmp eq i32 %200, 0
   br i1 %.not154, label %201, label %.critedge169
@@ -1641,9 +1641,9 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr noc
 
 prepare_vacuum_command.exit:                      ; preds = %221, %222, %223, %226, %284, %285, %298, %301
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %9, ptr noundef nonnull @.str.115, ptr noundef nonnull %199) #9
-  %302 = getelementptr inbounds i8, ptr %202, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store ptr @TableCommandResultHandler, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %202, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store ptr null, ptr %303, align 8
   %304 = load ptr, ptr %202, align 8
   %305 = load ptr, ptr %9, align 8
@@ -1685,9 +1685,9 @@ run_vacuum_command.exit:                          ; preds = %308, %311
   br i1 %.not157, label %.critedge169, label %322
 
 322:                                              ; preds = %320
-  %323 = getelementptr inbounds i8, ptr %321, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 16
   store ptr @TableCommandResultHandler, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %321, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 24
   store ptr null, ptr %324, align 8
   %325 = load ptr, ptr %321, align 8
   br i1 %6, label %326, label %328

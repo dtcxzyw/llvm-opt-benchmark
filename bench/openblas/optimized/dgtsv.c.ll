@@ -62,12 +62,12 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 42:                                               ; preds = %86, %37
   %43 = phi i64 [ 1, %37 ], [ %87, %86 ]
-  %44 = getelementptr inbounds double, ptr %11, i64 %43
+  %44 = getelementptr inbounds nuw double, ptr %11, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !7
   %46 = fcmp oge double %45, 0.000000e+00
   %47 = fneg double %45
   %48 = select i1 %46, double %45, double %47
-  %49 = getelementptr inbounds double, ptr %10, i64 %43
+  %49 = getelementptr inbounds nuw double, ptr %10, i64 %43
   %50 = load double, ptr %49, align 8, !tbaa !7
   %51 = fcmp oge double %50, 0.000000e+00
   %52 = fneg double %50
@@ -80,7 +80,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %56, label %57, label %69
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds double, ptr %12, i64 %43
+  %58 = getelementptr inbounds nuw double, ptr %12, i64 %43
   %59 = load double, ptr %58, align 8, !tbaa !7
   %60 = getelementptr double, ptr %3, i64 %43
   %61 = load double, ptr %60, align 8, !tbaa !7
@@ -105,7 +105,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %50, ptr %44, align 8, !tbaa !7
   %72 = getelementptr double, ptr %3, i64 %43
   %73 = load double, ptr %72, align 8, !tbaa !7
-  %74 = getelementptr inbounds double, ptr %12, i64 %43
+  %74 = getelementptr inbounds nuw double, ptr %12, i64 %43
   %75 = load double, ptr %74, align 8, !tbaa !7
   %76 = fdiv double %47, %50
   %77 = tail call double @llvm.fmuladd.f64(double %76, double %73, double %75)
@@ -137,12 +137,12 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 90:                                               ; preds = %.loopexit15
   %91 = add nsw i32 %17, -1
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds double, ptr %11, i64 %92
+  %93 = getelementptr inbounds nuw double, ptr %11, i64 %92
   %94 = load double, ptr %93, align 8, !tbaa !7
   %95 = fcmp oge double %94, 0.000000e+00
   %96 = fneg double %94
   %97 = select i1 %95, double %94, double %96
-  %98 = getelementptr inbounds double, ptr %10, i64 %92
+  %98 = getelementptr inbounds nuw double, ptr %10, i64 %92
   %99 = load double, ptr %98, align 8, !tbaa !7
   %100 = fcmp oge double %99, 0.000000e+00
   %101 = fneg double %99
@@ -155,10 +155,10 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %105, label %106, label %123
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds double, ptr %12, i64 %92
+  %107 = getelementptr inbounds nuw double, ptr %12, i64 %92
   %108 = load double, ptr %107, align 8, !tbaa !7
   %109 = zext nneg i32 %17 to i64
-  %110 = getelementptr inbounds double, ptr %11, i64 %109
+  %110 = getelementptr inbounds nuw double, ptr %11, i64 %109
   %111 = load double, ptr %110, align 8, !tbaa !7
   %112 = fdiv double %101, %94
   %113 = tail call double @llvm.fmuladd.f64(double %112, double %108, double %111)
@@ -182,9 +182,9 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 124:                                              ; preds = %90
   store double %99, ptr %93, align 8, !tbaa !7
   %125 = zext nneg i32 %17 to i64
-  %126 = getelementptr inbounds double, ptr %11, i64 %125
+  %126 = getelementptr inbounds nuw double, ptr %11, i64 %125
   %127 = load double, ptr %126, align 8, !tbaa !7
-  %128 = getelementptr inbounds double, ptr %12, i64 %92
+  %128 = getelementptr inbounds nuw double, ptr %12, i64 %92
   %129 = load double, ptr %128, align 8, !tbaa !7
   %130 = fdiv double %96, %99
   %131 = tail call double @llvm.fmuladd.f64(double %130, double %127, double %129)
@@ -205,7 +205,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 141:                                              ; preds = %124, %106, %.loopexit15
   %142 = zext nneg i32 %17 to i64
-  %143 = getelementptr inbounds double, ptr %11, i64 %142
+  %143 = getelementptr inbounds nuw double, ptr %11, i64 %142
   %144 = load double, ptr %143, align 8, !tbaa !7
   %145 = fcmp oeq double %144, 0.000000e+00
   br i1 %145, label %146, label %305
@@ -235,12 +235,12 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %scevgep51 = getelementptr i8, ptr %5, i64 %157
   %158 = shl nuw nsw i64 %indvar, 3
   %scevgep = getelementptr i8, ptr %5, i64 %158
-  %159 = getelementptr inbounds double, ptr %11, i64 %156
+  %159 = getelementptr inbounds nuw double, ptr %11, i64 %156
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = fcmp oge double %160, 0.000000e+00
   %162 = fneg double %160
   %163 = select i1 %161, double %160, double %162
-  %164 = getelementptr inbounds double, ptr %10, i64 %156
+  %164 = getelementptr inbounds nuw double, ptr %10, i64 %156
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fcmp oge double %165, 0.000000e+00
   %167 = fneg double %165
@@ -253,7 +253,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %171, label %172, label %198
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds double, ptr %12, i64 %156
+  %173 = getelementptr inbounds nuw double, ptr %12, i64 %156
   %174 = load double, ptr %173, align 8, !tbaa !7
   %175 = getelementptr double, ptr %3, i64 %156
   %176 = load double, ptr %175, align 8, !tbaa !7
@@ -309,7 +309,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   store double %165, ptr %159, align 8, !tbaa !7
   %201 = getelementptr double, ptr %3, i64 %156
   %202 = load double, ptr %201, align 8, !tbaa !7
-  %203 = getelementptr inbounds double, ptr %12, i64 %156
+  %203 = getelementptr inbounds nuw double, ptr %12, i64 %156
   %204 = load double, ptr %203, align 8, !tbaa !7
   %205 = fdiv double %162, %165
   %206 = tail call double @llvm.fmuladd.f64(double %205, double %202, double %204)
@@ -372,12 +372,12 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 233:                                              ; preds = %.loopexit20
   %234 = add nsw i32 %17, -1
   %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds double, ptr %11, i64 %235
+  %236 = getelementptr inbounds nuw double, ptr %11, i64 %235
   %237 = load double, ptr %236, align 8, !tbaa !7
   %238 = fcmp oge double %237, 0.000000e+00
   %239 = fneg double %237
   %240 = select i1 %238, double %237, double %239
-  %241 = getelementptr inbounds double, ptr %10, i64 %235
+  %241 = getelementptr inbounds nuw double, ptr %10, i64 %235
   %242 = load double, ptr %241, align 8, !tbaa !7
   %243 = fcmp oge double %242, 0.000000e+00
   %244 = fneg double %242
@@ -390,10 +390,10 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %248, label %249, label %274
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds double, ptr %12, i64 %235
+  %250 = getelementptr inbounds nuw double, ptr %12, i64 %235
   %251 = load double, ptr %250, align 8, !tbaa !7
   %252 = zext nneg i32 %17 to i64
-  %253 = getelementptr inbounds double, ptr %11, i64 %252
+  %253 = getelementptr inbounds nuw double, ptr %11, i64 %252
   %254 = load double, ptr %253, align 8, !tbaa !7
   %255 = fdiv double %244, %237
   %256 = tail call double @llvm.fmuladd.f64(double %255, double %251, double %254)
@@ -429,9 +429,9 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 275:                                              ; preds = %233
   store double %242, ptr %236, align 8, !tbaa !7
   %276 = zext nneg i32 %17 to i64
-  %277 = getelementptr inbounds double, ptr %11, i64 %276
+  %277 = getelementptr inbounds nuw double, ptr %11, i64 %276
   %278 = load double, ptr %277, align 8, !tbaa !7
-  %279 = getelementptr inbounds double, ptr %12, i64 %235
+  %279 = getelementptr inbounds nuw double, ptr %12, i64 %235
   %280 = load double, ptr %279, align 8, !tbaa !7
   %281 = fdiv double %239, %242
   %282 = tail call double @llvm.fmuladd.f64(double %281, double %278, double %280)
@@ -464,7 +464,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .loopexit16:                                      ; preds = %264, %290, %275, %249, %.loopexit20
   %300 = zext nneg i32 %17 to i64
-  %301 = getelementptr inbounds double, ptr %11, i64 %300
+  %301 = getelementptr inbounds nuw double, ptr %11, i64 %300
   %302 = load double, ptr %301, align 8, !tbaa !7
   %303 = fcmp oeq double %302, 0.000000e+00
   br i1 %303, label %304, label %305
@@ -476,7 +476,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 305:                                              ; preds = %.loopexit16, %141
   %306 = icmp slt i32 %20, 3
   %307 = zext nneg i32 %17 to i64
-  %308 = getelementptr inbounds double, ptr %11, i64 %307
+  %308 = getelementptr inbounds nuw double, ptr %11, i64 %307
   %309 = icmp sgt i32 %17, 1
   %310 = sext i32 %34 to i64
   %311 = sext i32 %13 to i64
@@ -486,8 +486,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %313 = icmp sgt i32 %17, 2
   %314 = add nsw i32 %17, -1
   %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr inbounds double, ptr %12, i64 %315
-  %317 = getelementptr inbounds double, ptr %11, i64 %315
+  %316 = getelementptr inbounds nuw double, ptr %12, i64 %315
+  %317 = getelementptr inbounds nuw double, ptr %11, i64 %315
   %318 = sext i32 %314 to i64
   %319 = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
   %320 = add nuw nsw i32 %319, 1
@@ -570,8 +570,8 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 378:                                              ; preds = %305
   %379 = add nsw i32 %17, -1
   %380 = zext nneg i32 %379 to i64
-  %381 = getelementptr inbounds double, ptr %12, i64 %380
-  %382 = getelementptr inbounds double, ptr %11, i64 %380
+  %381 = getelementptr inbounds nuw double, ptr %12, i64 %380
+  %382 = getelementptr inbounds nuw double, ptr %11, i64 %380
   %383 = icmp sgt i32 %17, 2
   %384 = sext i32 %379 to i64
   %385 = add nuw i32 %20, 1

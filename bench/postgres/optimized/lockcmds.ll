@@ -16,16 +16,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph25, label %._crit_edge
@@ -35,7 +35,7 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i8, ptr %13, align 8
   %15 = load i32, ptr %6, align 8
   %16 = load i8, ptr %7, align 4
@@ -96,7 +96,7 @@ define internal void @RangeVarCallbackForLockTable(ptr nocapture noundef readonl
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 151027844) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %12) #4
   %14 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %7) #4
@@ -128,7 +128,7 @@ define internal void @RangeVarCallbackForLockTable(ptr nocapture noundef readonl
 27:                                               ; preds = %21
   %28 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #4
   %29 = tail call i32 @get_relkind_objtype(i8 noundef signext %28) #4
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void @aclcheck_error(i32 noundef %26, i32 noundef %29, ptr noundef %31) #4
   br label %32
@@ -146,15 +146,15 @@ define internal fastcc void @LockViewRecurse(i32 noundef %0, i32 noundef %1, i1 
   %7 = tail call ptr @table_open(i32 noundef %0, i32 noundef 0) #4
   %8 = tail call ptr @get_view_query(ptr noundef %7) #4
   store i32 %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %6, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
@@ -165,20 +165,20 @@ define internal fastcc void @LockViewRecurse(i32 noundef %0, i32 noundef %1, i1 
   br label %23
 
 .critedge:                                        ; preds = %4, %12
-  %19 = getelementptr inbounds i8, ptr %7, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load i32, ptr %21, align 4
   br label %23
 
 23:                                               ; preds = %.critedge, %17
   %.sink = phi i32 [ %22, %.critedge ], [ %18, %17 ]
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %0, ptr %25, align 4
   %26 = tail call ptr @lappend_oid(ptr noundef %3, i32 noundef %0) #4
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %26, ptr %27, align 8
   %28 = call zeroext i1 @LockViewRecurse_walker(ptr noundef %8, ptr noundef nonnull %5)
   %29 = load ptr, ptr %27, align 8
@@ -195,8 +195,8 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -327,17 +327,17 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   br i1 %6, label %7, label %68
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %10, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph60, label %._crit_edge
@@ -347,9 +347,9 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv59
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i8, ptr %22, align 4
   %24 = tail call ptr @get_rel_name(i32 noundef %21) #4
   switch i8 %23, label %63 [
@@ -415,7 +415,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   br label %63
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %19, i64 201
+  %56 = getelementptr inbounds nuw i8, ptr %19, i64 201
   %57 = load i8, ptr %56, align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %63

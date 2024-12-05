@@ -31,18 +31,18 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter10ensureInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %pe = alloca %struct.perf_event_attr, align 8
-  %0 = getelementptr inbounds i8, ptr %pe, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %pe, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
-  %type_ = getelementptr inbounds i8, ptr %this, i64 16
+  %type_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %type_, align 8
   store i32 %1, ptr %pe, align 8
-  %size = getelementptr inbounds i8, ptr %pe, i64 4
+  %size = getelementptr inbounds nuw i8, ptr %pe, i64 4
   store i32 128, ptr %size, align 4
-  %config_ = getelementptr inbounds i8, ptr %this, i64 24
+  %config_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %config_, align 8
-  %config = getelementptr inbounds i8, ptr %pe, i64 8
+  %config = getelementptr inbounds nuw i8, ptr %pe, i64 8
   store i64 %2, ptr %config, align 8
-  %disabled = getelementptr inbounds i8, ptr %pe, i64 40
+  %disabled = getelementptr inbounds nuw i8, ptr %pe, i64 40
   store i64 97, ptr %disabled, align 8
   %call = call i64 (i64, ...) @syscall(i64 noundef 298, ptr noundef nonnull %pe, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0) #8
   %conv = trunc i64 %call to i32
@@ -67,18 +67,18 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i)
-  %1 = getelementptr inbounds i8, ptr %pe.i, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %pe.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 112, i1 false)
-  %type_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %type_.i, align 8
   store i32 %2, ptr %pe.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %pe.i, i64 4
+  %size.i = getelementptr inbounds nuw i8, ptr %pe.i, i64 4
   store i32 128, ptr %size.i, align 4
-  %config_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %config_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %config_.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %pe.i, i64 8
+  %config.i = getelementptr inbounds nuw i8, ptr %pe.i, i64 8
   store i64 %3, ptr %config.i, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %pe.i, i64 40
+  %disabled.i = getelementptr inbounds nuw i8, ptr %pe.i, i64 40
   store i64 97, ptr %disabled.i, align 8
   %call.i = call i64 (i64, ...) @syscall(i64 noundef 298, ptr noundef nonnull %pe.i, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0) #8
   %conv.i = trunc i64 %call.i to i32
@@ -122,25 +122,25 @@ if.end:                                           ; preds = %entry
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats) #8
-  %BufferMode.i.i = getelementptr inbounds i8, ptr %os, i64 32
+  %BufferMode.i.i = getelementptr inbounds nuw i8, ptr %os, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
+  %OutBufStart.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %os, align 8
-  %OS.i = getelementptr inbounds i8, ptr %os, i64 40
+  %OS.i = getelementptr inbounds nuw i8, ptr %os, i64 40
   store ptr %stats, ptr %OS.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %os, i64 24
+  %OutBufCur.i6.i = getelementptr inbounds nuw i8, ptr %os, i64 24
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull @.str, i64 noundef 11) #8
-  %name_ = getelementptr inbounds i8, ptr %this, i64 8
+  %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %name_, align 8
   %tobool.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit17, label %cond.true.i.split.i
 
 cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %call.i.i3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
-  %OutBufEnd.i5.i4 = getelementptr inbounds i8, ptr %call3.i.i, i64 16
+  %OutBufEnd.i5.i4 = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i4, align 8
-  %OutBufCur.i6.i5 = getelementptr inbounds i8, ptr %call3.i.i, i64 24
+  %OutBufCur.i6.i5 = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i5, align 8
   %sub.ptr.lhs.cast.i7.i6 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i7 = ptrtoint ptr %4 to i64
@@ -165,9 +165,9 @@ if.then4.i.i12:                                   ; preds = %if.end.i.i10
 
 _ZN4llvh11raw_ostreamlsEPKc.exit17:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i.i15, %if.end.i.i10, %if.then4.i.i12
   %phi.call.i14 = phi ptr [ %call3.i.i16, %if.then.i.i15 ], [ %call3.i.i, %if.then4.i.i12 ], [ %call3.i.i, %if.end.i.i10 ], [ %call3.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
-  %OutBufEnd.i5.i20 = getelementptr inbounds i8, ptr %phi.call.i14, i64 16
+  %OutBufEnd.i5.i20 = getelementptr inbounds nuw i8, ptr %phi.call.i14, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i20, align 8
-  %OutBufCur.i6.i21 = getelementptr inbounds i8, ptr %phi.call.i14, i64 24
+  %OutBufCur.i6.i21 = getelementptr inbounds nuw i8, ptr %phi.call.i14, i64 24
   %7 = load ptr, ptr %OutBufCur.i6.i21, align 8
   %sub.ptr.lhs.cast.i7.i22 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8.i23 = ptrtoint ptr %7 to i64
@@ -182,7 +182,7 @@ if.then.i.i31:                                    ; preds = %_ZN4llvh11raw_ostre
 if.then4.i.i28:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
   %8 = load ptr, ptr %OutBufCur.i6.i21, align 8
-  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %8, i64 3
+  %add.ptr.i.i29 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store ptr %add.ptr.i.i29, ptr %OutBufCur.i6.i21, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit33
 
@@ -190,9 +190,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit33:               ; preds = %if.then.i.i31, %if.
   %phi.call.i30 = phi ptr [ %call3.i.i32, %if.then.i.i31 ], [ %phi.call.i14, %if.then4.i.i28 ]
   %9 = load i64, ptr %count, align 8
   %call11 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i30, i64 noundef %9) #8
-  %OutBufEnd.i5.i36 = getelementptr inbounds i8, ptr %call11, i64 16
+  %OutBufEnd.i5.i36 = getelementptr inbounds nuw i8, ptr %call11, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5.i36, align 8
-  %OutBufCur.i6.i37 = getelementptr inbounds i8, ptr %call11, i64 24
+  %OutBufCur.i6.i37 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   %11 = load ptr, ptr %OutBufCur.i6.i37, align 8
   %sub.ptr.lhs.cast.i7.i38 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i8.i39 = ptrtoint ptr %11 to i64
@@ -207,7 +207,7 @@ if.then.i.i47:                                    ; preds = %_ZN4llvh11raw_ostre
 if.then4.i.i44:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit33
   store i32 151587372, ptr %11, align 1
   %12 = load ptr, ptr %OutBufCur.i6.i37, align 8
-  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %12, i64 4
+  %add.ptr.i.i45 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store ptr %add.ptr.i.i45, ptr %OutBufCur.i6.i37, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit49
 
@@ -263,15 +263,15 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation10PerfEvents5beginEv() local_unnamed_addr #0 align 2 {
 entry:
   %pe.i.i = alloca %struct.perf_event_attr, align 8
-  %0 = getelementptr inbounds i8, ptr %pe.i.i, i64 16
-  %size.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 4
-  %config.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 8
-  %disabled.i.i = getelementptr inbounds i8, ptr %pe.i.i, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %pe.i.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %pe.i.i, i64 4
+  %config.i.i = getelementptr inbounds nuw i8, ptr %pe.i.i, i64 8
+  %disabled.i.i = getelementptr inbounds nuw i8, ptr %pe.i.i, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %__begin2.0.idx4 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.inc ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 %__begin2.0.idx4
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 %__begin2.0.idx4
   %1 = load i32, ptr %__begin2.0.ptr, align 16
   %cmp.i = icmp eq i32 %1, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc
@@ -279,11 +279,11 @@ for.body:                                         ; preds = %entry, %for.inc
 land.lhs.true.i:                                  ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %pe.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 112, i1 false)
-  %type_.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr, i64 16
+  %type_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr, i64 16
   %2 = load i32, ptr %type_.i.i, align 16
   store i32 %2, ptr %pe.i.i, align 8
   store i32 128, ptr %size.i.i, align 4
-  %config_.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr, i64 24
+  %config_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr, i64 24
   %3 = load i64, ptr %config_.i.i, align 8
   store i64 %3, ptr %config.i.i, align 8
   store i64 97, ptr %disabled.i.i, align 8
@@ -315,7 +315,7 @@ entry:
 
 for.body:                                         ; preds = %for.body, %entry
   %__begin2.0.idx3 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.body ]
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 %__begin2.0.idx3
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN6hermes2vm15instrumentationL8countersE, i64 %__begin2.0.idx3
   %call = tail call noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter17endAndInsertStatsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.0.ptr, ptr noundef nonnull align 8 dereferenceable(32) %jsonStats)
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx3, 32
   %cmp.not = icmp ne i64 %__begin2.0.add, 160

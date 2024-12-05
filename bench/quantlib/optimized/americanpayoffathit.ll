@@ -150,7 +150,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -163,7 +163,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1556,7 +1556,7 @@ if.then.i.i220:                                   ; preds = %if.then383
 
 if.then.i.i.i222:                                 ; preds = %if.then.i.i220
   %vtable.i.i.i = load ptr, ptr %aoo.sroa.5.0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %188 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %188(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1569,7 +1569,7 @@ if.then.i.i.i222:                                 ; preds = %if.then.i.i220
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %aoo.sroa.5.0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %190 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %190(ptr noundef nonnull align 8 dereferenceable(16) %aoo.sroa.5.0)
           to label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1594,7 +1594,7 @@ if.then.i.i225:                                   ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i228:                                 ; preds = %if.then.i.i225
   %vtable.i.i.i229 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
-  %vfn.i.i.i230 = getelementptr inbounds i8, ptr %vtable.i.i.i229, i64 16
+  %vfn.i.i.i230 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i229, i64 16
   %194 = load ptr, ptr %vfn.i.i.i230, align 8
   invoke void %194(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
           to label %.noexc.i.i232 unwind label %terminate.lpad.i.i231
@@ -1607,7 +1607,7 @@ if.then.i.i.i228:                                 ; preds = %if.then.i.i225
 
 if.then.i.i.i.i235:                               ; preds = %.noexc.i.i232
   %vtable.i.i.i.i236 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
-  %vfn.i.i.i.i237 = getelementptr inbounds i8, ptr %vtable.i.i.i.i236, i64 24
+  %vfn.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i236, i64 24
   %196 = load ptr, ptr %vfn.i.i.i.i237, align 8
   invoke void %196(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
           to label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit unwind label %terminate.lpad.i.i231

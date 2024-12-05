@@ -5,22 +5,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %5
   %12 = tail call ptr @dtflatten(ptr noundef nonnull %0) #3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 64
@@ -33,13 +33,13 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not78, label %31, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #3
   %.pre = load ptr, ptr %13, align 8
@@ -47,20 +47,20 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 26:                                               ; preds = %23, %19
   %27 = phi ptr [ %.pre, %23 ], [ %14, %19 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i32 0, ptr %28, align 8
   %29 = load ptr, ptr %13, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %26
   %.sink103 = phi ptr [ %29, %26 ], [ %14, %11 ]
-  %30 = getelementptr inbounds i8, ptr %.sink103, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sink103, i64 16
   store ptr null, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %.sink.split, %17
   %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %33, align 8
   %34 = load ptr, ptr %13, align 8
   %35 = load i32, ptr %34, align 8
@@ -101,7 +101,7 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.07092 = phi ptr [ %.070, %.lr.ph ], [ %.07089, %.preheader ]
   %.07391 = phi ptr [ %.07092, %.lr.ph ], [ %12, %.preheader ]
-  %50 = getelementptr inbounds i8, ptr %.07092, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.07092, i64 8
   store ptr %.07391, ptr %50, align 8
   %.070 = load ptr, ptr %.07092, align 8
   %.not87 = icmp eq ptr %.070, null
@@ -109,13 +109,13 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.073.lcssa = phi ptr [ %12, %.preheader ], [ %.07092, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.073.lcssa, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %._crit_edge, %47
   %53 = load ptr, ptr %13, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %12, ptr %54, align 8
   br label %.loopexit
 
@@ -126,7 +126,7 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %13, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   store i32 0, ptr %59, align 4
   %.not8493 = icmp eq ptr %12, null
   br i1 %.not8493, label %.loopexit, label %.lr.ph96
@@ -147,10 +147,10 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %13, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i32 0, ptr %68, align 8
   %69 = load ptr, ptr %13, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 28
   store i32 0, ptr %70, align 4
   %.not8397 = icmp eq ptr %12, null
   br i1 %.not8397, label %.loopexit, label %.lr.ph100

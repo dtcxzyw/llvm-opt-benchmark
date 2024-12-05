@@ -373,7 +373,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !18
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -386,7 +386,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !18
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -583,7 +583,7 @@ ehcleanup35:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %entry
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_20short_weekday_holderE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_20short_weekday_holderE, i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load, i64 noundef 3)
   ret ptr %out
@@ -764,7 +764,7 @@ ehcleanup35:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %entry
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_23shortest_weekday_holderE, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_23shortest_weekday_holderE, i64 0, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call1.i22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load, i64 noundef 2)
   ret ptr %out

@@ -63,9 +63,9 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10Relocation17pd_set_data_valueEPhb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 8
@@ -90,7 +90,7 @@ define hidden void @_ZN10Relocation17pd_set_data_valueEPhb(ptr nocapture noundef
   unreachable
 
 _ZN10Relocation18pd_address_in_codeEv.exit:       ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %18, i32 noundef 0) #6
   %20 = load ptr, ptr %19, align 8
@@ -113,14 +113,14 @@ _ZN10Relocation18pd_address_in_codeEv.exit:       ; preds = %14
   unreachable
 
 _ZN10Relocation18pd_address_in_codeEv.exit28:     ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %5, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %28, i32 noundef 0) #6
   store ptr %1, ptr %29, align 8
   br label %99
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %32, i32 noundef 3) #6
   %34 = tail call noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef %1) #6
@@ -194,7 +194,7 @@ _ZN10Relocation18pd_address_in_codeEv.exit28:     ; preds = %24
 
 79:                                               ; preds = %3
   %80 = zext nneg i16 %10 to i32
-  %81 = getelementptr inbounds i8, ptr %5, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %82, i32 noundef %80) #6
   %84 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %82) #6
@@ -229,9 +229,9 @@ _ZN10Relocation18pd_address_in_codeEv.exit28:     ; preds = %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 1792
@@ -245,7 +245,7 @@ define hidden noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr nocapture n
   unreachable
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %13, i32 noundef 0) #6
   ret ptr %14
@@ -264,9 +264,9 @@ declare noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef) loca
 define hidden noundef ptr @_ZN10Relocation19pd_call_destinationEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 ._crit_edge:
   %.not = icmp eq ptr %1, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8
   %2 = ptrtoint ptr %.pre17 to i64
   %3 = ptrtoint ptr %1 to i64
@@ -287,9 +287,9 @@ define hidden noundef ptr @_ZN10Relocation19pd_call_destinationEPh(ptr nocapture
   br i1 %spec.select.i, label %11, label %21
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %.pre17, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.pre17, i64 1
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.pre17, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %.pre17, i64 5
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %17 = icmp eq ptr %16, %.pre17
@@ -317,7 +317,7 @@ define hidden noundef ptr @_ZN10Relocation19pd_call_destinationEPh(ptr nocapture
   br label %48
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds i8, ptr %.pre17, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.pre17, i64 1
   switch i8 %28, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
     i8 72, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
     i8 -43, label %36
@@ -332,7 +332,7 @@ define hidden noundef ptr @_ZN10Relocation19pd_call_destinationEPh(ptr nocapture
   ]
 
 switch.edge.thread.i:                             ; preds = %36, %36, %36
-  %37 = getelementptr inbounds i8, ptr %.pre17, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.pre17, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %34, %34, %switch.edge.thread.i
@@ -345,7 +345,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %34, %34, %switch.ed
 41:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit
   %42 = icmp eq i8 %28, -43
   %43 = select i1 %42, i64 3, i64 2
-  %44 = getelementptr inbounds i8, ptr %.pre17, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %.pre17, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = inttoptr i64 %45 to ptr
   br label %48
@@ -370,16 +370,16 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10Relocation23pd_set_call_destinationEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, -24
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %11 = ptrtoint ptr %1 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -395,7 +395,7 @@ define hidden void @_ZN10Relocation23pd_set_call_destinationEPh(ptr nocapture no
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   %18 = trunc i64 %13 to i32
-  %19 = getelementptr inbounds i8, ptr %6, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i32 %18, ptr %19, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 1) #6
   br label %73
@@ -406,9 +406,9 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   br i1 %spec.select.i, label %22, label %37
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %6, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   %28 = icmp eq ptr %27, %6
@@ -440,7 +440,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
 47:                                               ; preds = %37
   %48 = tail call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %51, i32 noundef 2) #6
   %53 = ptrtoint ptr %1 to i64
@@ -453,7 +453,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   br label %73
 
 59:                                               ; preds = %37
-  %60 = getelementptr inbounds i8, ptr %6, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 1
   switch i8 %44, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
     i8 72, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
     i8 -43, label %61
@@ -468,7 +468,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   ]
 
 switch.edge.thread.i:                             ; preds = %61, %61, %61
-  %62 = getelementptr inbounds i8, ptr %6, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %59, %59, %switch.edge.thread.i
@@ -483,7 +483,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %59, %59, %switch.ed
   %68 = icmp eq i8 %44, -43
   %69 = select i1 %68, i32 3, i32 2
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %6, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 %70
   store i64 %67, ptr %71, align 8
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %69) #6
   br label %73
@@ -500,9 +500,9 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %59, %61, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 2
   %7 = lshr i16 %6, 8
@@ -512,7 +512,7 @@ define hidden noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr nocap
 
 9:                                                ; preds = %1
   %10 = zext nneg i16 %8 to i32
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %12, i32 noundef %10) #6
   %14 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #6
@@ -533,7 +533,7 @@ define hidden noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr nocap
   unreachable
 
 _ZN10Relocation18pd_address_in_codeEv.exit:       ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %24, i32 noundef 0) #6
   %26 = load ptr, ptr %25, align 8

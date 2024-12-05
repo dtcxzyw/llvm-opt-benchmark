@@ -67,21 +67,21 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_9p_properties) #6
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_9p, ptr %vmsd, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i8, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i8, i64 176
   store ptr @virtio_9p_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i8, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i8, i64 184
   store ptr @virtio_9p_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds i8, ptr %call.i8, i64 192
+  %get_features = getelementptr inbounds nuw i8, ptr %call.i8, i64 192
   store ptr @virtio_9p_get_features, ptr %get_features, align 8
-  %get_config = getelementptr inbounds i8, ptr %call.i8, i64 224
+  %get_config = getelementptr inbounds nuw i8, ptr %call.i8, i64 224
   store ptr @virtio_9p_get_config, ptr %get_config, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i8, i64 240
+  %reset = getelementptr inbounds nuw i8, ptr %call.i8, i64 240
   store ptr @virtio_9p_reset, ptr %reset, align 8
   ret void
 }
@@ -93,9 +93,9 @@ define internal void @virtio_9p_device_realize(ptr noundef %dev, ptr noundef %er
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %state = getelementptr inbounds i8, ptr %call.i9, i64 1560
-  %fsconf = getelementptr inbounds i8, ptr %call.i9, i64 8936
-  %fsdev_id = getelementptr inbounds i8, ptr %call.i9, i64 8944
+  %state = getelementptr inbounds nuw i8, ptr %call.i9, i64 1560
+  %fsconf = getelementptr inbounds nuw i8, ptr %call.i9, i64 8936
+  %fsdev_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 8944
   %0 = load ptr, ptr %fsdev_id, align 8
   %call2 = tail call ptr @get_fsdev_fsentry(ptr noundef %0) #6
   %1 = load i8, ptr @qtest_allowed, align 1
@@ -105,7 +105,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %export_flags = getelementptr inbounds i8, ptr %call2, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %or = or i32 %2, 2048
   store i32 %or, ptr %export_flags, align 8
@@ -120,11 +120,11 @@ if.end7:                                          ; preds = %if.end
   %3 = load ptr, ptr %fsconf, align 8
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %add = add i64 %call9, 2
-  %config_size = getelementptr inbounds i8, ptr %call.i9, i64 528
+  %config_size = getelementptr inbounds nuw i8, ptr %call.i9, i64 528
   store i64 %add, ptr %config_size, align 8
   tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 9, i64 noundef %add) #6
   %call11 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 128, ptr noundef nonnull @handle_9p_output) #6
-  %vq = getelementptr inbounds i8, ptr %call.i9, i64 520
+  %vq = getelementptr inbounds nuw i8, ptr %call.i9, i64 520
   store ptr %call11, ptr %vq, align 8
   br label %return
 
@@ -137,8 +137,8 @@ define internal void @virtio_9p_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %state = getelementptr inbounds i8, ptr %call.i3, i64 1560
-  %vq = getelementptr inbounds i8, ptr %call.i3, i64 520
+  %state = getelementptr inbounds nuw i8, ptr %call.i3, i64 1560
+  %vq = getelementptr inbounds nuw i8, ptr %call.i3, i64 520
   %0 = load ptr, ptr %vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %0) #6
   tail call void @virtio_cleanup(ptr noundef %call.i) #6
@@ -157,7 +157,7 @@ entry:
 define internal void @virtio_9p_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %tag = getelementptr inbounds i8, ptr %call.i, i64 1656
+  %tag = getelementptr inbounds nuw i8, ptr %call.i, i64 1656
   %0 = load ptr, ptr %tag, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %sext = shl i64 %call1, 32
@@ -166,10 +166,10 @@ entry:
   %call3 = tail call noalias ptr @g_malloc0(i64 noundef %add) #8
   %conv4 = trunc i64 %call1 to i16
   store i16 %conv4, ptr %call3, align 1
-  %tag5 = getelementptr inbounds i8, ptr %call3, i64 2
+  %tag5 = getelementptr inbounds nuw i8, ptr %call3, i64 2
   %1 = load ptr, ptr %tag, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %tag5, ptr align 1 %1, i64 %conv2, i1 false)
-  %config_size = getelementptr inbounds i8, ptr %call.i, i64 528
+  %config_size = getelementptr inbounds nuw i8, ptr %call.i, i64 528
   %2 = load i64, ptr %config_size, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 1 %call3, i64 %2, i1 false)
   tail call void @g_free(ptr noundef nonnull %call3) #6
@@ -179,7 +179,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_reset(ptr noundef %vdev) #0 {
 entry:
-  %state = getelementptr inbounds i8, ptr %vdev, i64 1560
+  %state = getelementptr inbounds nuw i8, ptr %vdev, i64 1560
   tail call void @v9fs_reset(ptr noundef nonnull %state) #6
   ret void
 }
@@ -201,13 +201,13 @@ declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnam
 define internal void @handle_9p_output(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
   %out = alloca %struct.P9MsgHeader, align 1
-  %state = getelementptr inbounds i8, ptr %vdev, i64 1560
+  %state = getelementptr inbounds nuw i8, ptr %vdev, i64 1560
   %call25 = tail call ptr @pdu_alloc(ptr noundef nonnull %state) #6
   %tobool.not26 = icmp eq ptr %call25, null
   br i1 %tobool.not26, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %elems = getelementptr inbounds i8, ptr %vdev, i64 536
+  %elems = getelementptr inbounds nuw i8, ptr %vdev, i64 536
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
@@ -217,9 +217,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool2.not, label %out_free_pdu, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %in_sg = getelementptr inbounds i8, ptr %call1, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %0 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %call1, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %1 = load i32, ptr %in_num, align 8
   %call3 = call i64 @iov_size(ptr noundef %0, i32 noundef %1) #6
   %cmp = icmp ult i64 %call3, 7
@@ -230,15 +230,15 @@ if.then4:                                         ; preds = %if.end
   br label %out_free_req
 
 if.end5:                                          ; preds = %if.end
-  %out_sg = getelementptr inbounds i8, ptr %call1, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %call1, i64 48
   %2 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %call1, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %call1, i64 12
   %3 = load i32, ptr %out_num, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %iov_to_buf.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.end5
-  %iov_len.i = getelementptr inbounds i8, ptr %2, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
   %cmp5.i = icmp ugt i64 %4, 6
   br i1 %cmp5.i, label %iov_to_buf.exit.thread, label %iov_to_buf.exit
@@ -258,7 +258,7 @@ if.then8:                                         ; preds = %iov_to_buf.exit
   br label %out_free_req
 
 if.end9:                                          ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
-  %idx = getelementptr inbounds i8, ptr %call27, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %call27, i64 48
   %6 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %6 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
@@ -286,17 +286,17 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @virtio_pdu_vmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %in_sg = getelementptr inbounds i8, ptr %2, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %2, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %in_num, align 8
   %call = tail call i64 @v9fs_iov_vmarshal(ptr noundef %3, i32 noundef %4, i64 noundef %offset, i32 noundef 1, ptr noundef %fmt, ptr noundef %ap) #6
   %cmp = icmp slt i64 %call, 0
@@ -305,7 +305,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   %add = add nuw nsw i32 %conv, 1
@@ -319,17 +319,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @virtio_pdu_vunmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %out_sg = getelementptr inbounds i8, ptr %2, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %2, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %out_num, align 4
   %call = tail call i64 @v9fs_iov_vunmarshal(ptr noundef %3, i32 noundef %4, i64 noundef %offset, i32 noundef 1, ptr noundef %fmt, ptr noundef %ap) #6
   %cmp = icmp slt i64 %call, 0
@@ -338,7 +338,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i, ptr noundef nonnull @.str.11, i32 noundef %conv) #6
@@ -351,17 +351,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_init_in_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %in_sg = getelementptr inbounds i8, ptr %2, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds i8, ptr %2, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %in_num, align 8
   %call = tail call i64 @iov_size(ptr noundef %3, i32 noundef %4) #6
   %cmp = icmp ult i64 %call, %size
@@ -370,7 +370,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   %add = add nuw nsw i32 %conv, 1
@@ -388,17 +388,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_init_out_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %out_sg = getelementptr inbounds i8, ptr %2, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds i8, ptr %2, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %out_num, align 4
   %call = tail call i64 @iov_size(ptr noundef %3, i32 noundef %4) #6
   %cmp = icmp ult i64 %call, %size
@@ -407,7 +407,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i, ptr noundef nonnull @.str.13, i32 noundef %conv, i64 noundef %size, i64 noundef %call) #6
@@ -424,11 +424,11 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_push_and_notify(ptr nocapture noundef readonly %pdu) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom

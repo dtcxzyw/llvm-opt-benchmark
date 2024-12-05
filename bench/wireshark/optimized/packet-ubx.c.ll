@@ -1423,7 +1423,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.527) #5
   %8 = load ptr, ptr %6, align 8
@@ -1441,7 +1441,7 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #5
   %20 = load i32, ptr @hf_ubx_payload_len, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = add nuw nsw i32 %10, 4
   %25 = zext nneg i32 %24 to i64
@@ -1556,7 +1556,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_ack_ack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.8) #5
   %7 = load ptr, ptr %5, align 8
@@ -1573,7 +1573,7 @@ define internal i32 @dissect_ubx_ack_ack(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_ack_nak(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.11) #5
   %7 = load ptr, ptr %5, align 8
@@ -1590,7 +1590,7 @@ define internal i32 @dissect_ubx_ack_nak(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.14) #5
   %7 = load ptr, ptr %5, align 8
@@ -1652,7 +1652,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr nocapture noundef 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %52 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_ubx_cfg_gnss, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_ubx_cfg_gnss, i64 0, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %53
 
@@ -1671,7 +1671,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.36) #5
   %7 = load ptr, ptr %5, align 8
@@ -1777,7 +1777,7 @@ define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_dop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.130) #5
   %7 = load ptr, ptr %5, align 8
@@ -1808,7 +1808,7 @@ define internal i32 @dissect_ubx_nav_dop(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_eoe(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.148) #5
   %7 = load ptr, ptr %5, align 8
@@ -1825,7 +1825,7 @@ define internal i32 @dissect_ubx_nav_eoe(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_odo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.151) #5
   %7 = load ptr, ptr %5, align 8
@@ -1852,7 +1852,7 @@ define internal i32 @dissect_ubx_nav_odo(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_posecef(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.162) #5
   %7 = load ptr, ptr %5, align 8
@@ -1877,7 +1877,7 @@ define internal i32 @dissect_ubx_nav_posecef(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.173) #5
   %7 = load ptr, ptr %5, align 8
@@ -1977,7 +1977,7 @@ define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.263) #5
   %7 = load ptr, ptr %5, align 8
@@ -2054,7 +2054,7 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.317) #5
   %7 = load ptr, ptr %5, align 8
@@ -2137,7 +2137,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.356) #5
   %7 = load ptr, ptr %5, align 8
@@ -2178,7 +2178,7 @@ define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_timeutc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.373) #5
   %7 = load ptr, ptr %5, align 8
@@ -2214,7 +2214,7 @@ define internal i32 @dissect_ubx_nav_timeutc(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_nav_velecef(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.398) #5
   %7 = load ptr, ptr %5, align 8
@@ -2239,7 +2239,7 @@ define internal i32 @dissect_ubx_nav_velecef(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.408) #5
   %7 = load ptr, ptr %5, align 8
@@ -2361,7 +2361,7 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.456) #5
   %7 = load ptr, ptr %5, align 8
@@ -2476,7 +2476,7 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.504) #5
   %8 = load ptr, ptr %6, align 8
@@ -2538,7 +2538,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   br label %62
 
 41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = zext nneg i32 %13 to i64
   %45 = call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef %44) #5

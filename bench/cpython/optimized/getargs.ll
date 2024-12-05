@@ -248,7 +248,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load double, ptr %cval, align 8
-  %1 = getelementptr inbounds i8, ptr %cval, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %cval, i64 8
   %2 = load double, ptr %1, align 8
   %call1 = call ptr @PyComplex_FromCComplex(double %0, double %2) #6
   br label %return
@@ -543,13 +543,13 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i, %if.then1
-  %ob_size.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %ob_size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %ob_size.i.i, align 8
   %tobool2.not.i = icmp eq i64 %2, 0
   br i1 %tobool2.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %Py_SIZE.exit.i
-  %ob_start.i = getelementptr inbounds i8, ptr %0, i64 40
+  %ob_start.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -589,7 +589,7 @@ cond.false4.i.i13:                                ; preds = %cond.end.i.i9
   unreachable
 
 PyByteArray_GET_SIZE.exit:                        ; preds = %PyByteArray_AS_STRING.exit, %cond.end.i.i9
-  %ob_size.i.i12 = getelementptr inbounds i8, ptr %4, i64 16
+  %ob_size.i.i12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %ob_size.i.i12, align 8
   store i64 %6, ptr %size, align 8
   br label %if.end4
@@ -702,13 +702,13 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 Py_SIZE.exit.i:                                   ; preds = %cond.end.i.i, %if.then1
-  %ob_size.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %ob_size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %ob_size.i.i, align 8
   %tobool2.not.i = icmp eq i64 %2, 0
   br i1 %tobool2.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %Py_SIZE.exit.i
-  %ob_start.i = getelementptr inbounds i8, ptr %0, i64 40
+  %ob_start.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -748,7 +748,7 @@ cond.false4.i.i13:                                ; preds = %cond.end.i.i9
   unreachable
 
 PyByteArray_GET_SIZE.exit:                        ; preds = %PyByteArray_AS_STRING.exit, %cond.end.i.i9
-  %ob_size.i.i12 = getelementptr inbounds i8, ptr %4, i64 16
+  %ob_size.i.i12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %ob_size.i.i12, align 8
   store i64 %6, ptr %size, align 8
   br label %if.end4
@@ -883,15 +883,15 @@ define internal ptr @getargs_keywords(ptr nocapture readnone %self, ptr noundef 
 entry:
   %int_args = alloca [10 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %int_args, i8 -1, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %int_args, i64 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %int_args, i64 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %int_args, i64 12
-  %arrayidx4 = getelementptr inbounds i8, ptr %int_args, i64 16
-  %arrayidx5 = getelementptr inbounds i8, ptr %int_args, i64 20
-  %arrayidx6 = getelementptr inbounds i8, ptr %int_args, i64 24
-  %arrayidx7 = getelementptr inbounds i8, ptr %int_args, i64 28
-  %arrayidx8 = getelementptr inbounds i8, ptr %int_args, i64 32
-  %arrayidx9 = getelementptr inbounds i8, ptr %int_args, i64 36
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %int_args, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %int_args, i64 8
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %int_args, i64 12
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %int_args, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %int_args, i64 20
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %int_args, i64 24
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %int_args, i64 28
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %int_args, i64 32
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %int_args, i64 36
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwargs, ptr noundef nonnull @getargs_keywords.fmt, ptr noundef nonnull @getargs_keywords.keywords, ptr noundef nonnull %int_args, ptr noundef nonnull %arrayidx1, ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx3, ptr noundef nonnull %arrayidx4, ptr noundef nonnull %arrayidx5, ptr noundef nonnull %arrayidx6, ptr noundef nonnull %arrayidx7, ptr noundef nonnull %arrayidx8, ptr noundef nonnull %arrayidx9) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1043,7 +1043,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %buffer, align 8
-  %len = getelementptr inbounds i8, ptr %buffer, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %len, align 8
   %call1 = call ptr @PyBytes_FromStringAndSize(ptr noundef %0, i64 noundef %1) #6
   call void @PyBuffer_Release(ptr noundef nonnull %buffer) #6
@@ -1085,7 +1085,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds i8, ptr %buffer, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %0 = load i64, ptr %len, align 8
   %cmp = icmp sgt i64 %0, 1
   br i1 %cmp, label %if.then1, label %if.end4
@@ -1149,7 +1149,7 @@ cond.false.i:                                     ; preds = %land.lhs.true
   unreachable
 
 PyDict_GET_SIZE.exit:                             ; preds = %land.lhs.true
-  %ma_used.i = getelementptr inbounds i8, ptr %kwargs, i64 16
+  %ma_used.i = getelementptr inbounds nuw i8, ptr %kwargs, i64 16
   %3 = load i64, ptr %ma_used.i, align 8
   %cmp8 = icmp sgt i64 %3, 0
   br i1 %cmp8, label %if.then, label %if.else
@@ -1225,7 +1225,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %buffer, align 8
-  %len = getelementptr inbounds i8, ptr %buffer, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %len, align 8
   %call1 = call ptr @PyBytes_FromStringAndSize(ptr noundef %0, i64 noundef %1) #6
   call void @PyBuffer_Release(ptr noundef nonnull %buffer) #6
@@ -1296,7 +1296,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %len = getelementptr inbounds i8, ptr %buffer, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %len, align 8
   %call3 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %0, i64 noundef %1) #6
   br label %if.end5
@@ -1399,7 +1399,7 @@ cond.false4.i.i41:                                ; preds = %cond.end.i.i38
   unreachable
 
 cond.end:                                         ; preds = %cond.end.i.i38, %cond.end.i.i
-  %cond.in = getelementptr inbounds i8, ptr %0, i64 16
+  %cond.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %cond = load i64, ptr %cond.in, align 8
   %cmp = icmp sgt i64 %cond, 8
   br i1 %cmp, label %if.then13, label %for.cond.preheader
@@ -1425,7 +1425,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool18.not, label %cond.false26, label %cond.end25
 
 cond.end25:                                       ; preds = %for.body
-  %ob_item = getelementptr inbounds i8, ptr %6, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %ob_item, align 8
   %arrayidx = getelementptr ptr, ptr %10, i64 %i.086
   br label %cond.end35
@@ -1440,7 +1440,7 @@ cond.false31:                                     ; preds = %cond.false26
   unreachable
 
 cond.end32:                                       ; preds = %cond.false26
-  %ob_item33 = getelementptr inbounds i8, ptr %6, i64 24
+  %ob_item33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %arrayidx34 = getelementptr [1 x ptr], ptr %ob_item33, i64 0, i64 %i.086
   br label %cond.end35
 
@@ -1468,7 +1468,7 @@ if.else:                                          ; preds = %cond.end35
   br i1 %tobool49.not, label %if.else53, label %PyBytes_AS_STRING.exit
 
 PyBytes_AS_STRING.exit:                           ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds i8, ptr %cond36, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %cond36, i64 32
   %arrayidx52 = getelementptr [9 x ptr], ptr %keywords, i64 0, i64 %i.086
   store ptr %ob_sval.i, ptr %arrayidx52, align 8
   br label %for.inc
@@ -1487,13 +1487,13 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %16 = load ptr, ptr %sub_args, align 8
   %17 = load ptr, ptr %sub_kwargs, align 8
   %18 = load ptr, ptr %sub_format, align 8
-  %add.ptr60 = getelementptr inbounds i8, ptr %buffers, i64 32
-  %add.ptr62 = getelementptr inbounds i8, ptr %buffers, i64 64
-  %add.ptr64 = getelementptr inbounds i8, ptr %buffers, i64 96
-  %add.ptr66 = getelementptr inbounds i8, ptr %buffers, i64 128
-  %add.ptr68 = getelementptr inbounds i8, ptr %buffers, i64 160
-  %add.ptr70 = getelementptr inbounds i8, ptr %buffers, i64 192
-  %add.ptr72 = getelementptr inbounds i8, ptr %buffers, i64 224
+  %add.ptr60 = getelementptr inbounds nuw i8, ptr %buffers, i64 32
+  %add.ptr62 = getelementptr inbounds nuw i8, ptr %buffers, i64 64
+  %add.ptr64 = getelementptr inbounds nuw i8, ptr %buffers, i64 96
+  %add.ptr66 = getelementptr inbounds nuw i8, ptr %buffers, i64 128
+  %add.ptr68 = getelementptr inbounds nuw i8, ptr %buffers, i64 160
+  %add.ptr70 = getelementptr inbounds nuw i8, ptr %buffers, i64 192
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %buffers, i64 224
   %call73 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %keywords, ptr noundef nonnull %buffers, ptr noundef nonnull %add.ptr60, ptr noundef nonnull %add.ptr62, ptr noundef nonnull %add.ptr64, ptr noundef nonnull %add.ptr66, ptr noundef nonnull %add.ptr68, ptr noundef nonnull %add.ptr70, ptr noundef nonnull %add.ptr72) #6
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.then75
@@ -1545,8 +1545,8 @@ for.cond103.preheader:                            ; preds = %if.then95
 
 for.body107.lr.ph:                                ; preds = %for.cond103.preheader
   %24 = getelementptr i8, ptr %call97, i64 8
-  %ob_size.i.i72 = getelementptr inbounds i8, ptr %call97, i64 16
-  %ob_item.i = getelementptr inbounds i8, ptr %call97, i64 24
+  %ob_size.i.i72 = getelementptr inbounds nuw i8, ptr %call97, i64 16
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call97, i64 24
   br label %for.body107
 
 for.body107:                                      ; preds = %for.body107.lr.ph, %PyTuple_SET_ITEM.exit

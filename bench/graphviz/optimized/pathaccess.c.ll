@@ -17,10 +17,10 @@ define noundef ptr @pathaccess(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 31
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 31
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %10
 
 10:                                               ; preds = %60, %3
@@ -108,7 +108,7 @@ gv_calloc.exit.i.i.i:                             ; preds = %.thread.i.i
 
 .thread35.i.i:                                    ; preds = %agxbsizeof.exit.thread.i.i
   %37 = zext nneg i8 %.val.i.i.i to i64
-  %38 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %37
   store i8 0, ptr %38, align 1
   %39 = load i8, ptr %6, align 1
   %40 = add i8 %39, 1

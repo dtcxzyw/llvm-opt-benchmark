@@ -26,7 +26,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
   br i1 %11, label %msgrcv_wait.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
   %16 = icmp ult i64 %2, %15
@@ -36,15 +36,15 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
   br i1 %or.cond, label %msgrcv_wait.exit.thread, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %10, i64 40
-  %21 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %22 = icmp slt i64 %3, 0
   %23 = icmp eq i64 %3, 0
   %24 = and i32 %4, 8192
   %25 = icmp eq i32 %24, 0
   %26 = and i32 %4, 2048
   %.not43.i = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %10, i64 34
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 34
   br i1 %22, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %19
@@ -61,15 +61,15 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 ._crit_edge56.split.us.us.us.thread.i:            ; preds = %._crit_edge56.split.us.us.us.i, %.split.us.split.us.i
   %28 = load ptr, ptr @g_readytorun, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store ptr %10, ptr %29, align 16
   %30 = load i16, ptr %27, align 2
   %31 = add i16 %30, 1
   store i16 %31, ptr %27, align 2
-  %32 = getelementptr inbounds i8, ptr %28, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 68
   store i16 0, ptr %32, align 4
   %33 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %28, i1 noundef zeroext true) #7
-  %34 = getelementptr inbounds i8, ptr %28, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 7, ptr %34, align 16
   %35 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %28, ptr noundef nonnull %10) #7
   br i1 %33, label %36, label %38
@@ -91,9 +91,9 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %.lr.ph.us.us.i
-  %42 = getelementptr inbounds i8, ptr %.154.us.us.us.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.154.us.us.us.i, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.03955.us.us.us.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.03955.us.us.us.i, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = icmp sgt i64 %43, %45
   br i1 %46, label %47, label %48
@@ -103,7 +103,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 48:                                               ; preds = %47, %41
   %.3.us.us.us.i = phi ptr [ %.03955.us.us.us.i, %47 ], [ %.154.us.us.us.i, %41 ]
-  %49 = getelementptr inbounds i8, ptr %.03955.us.us.us.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.03955.us.us.us.i, i64 8
   %.039.us.us.us.i = load ptr, ptr %49, align 8
   %.not.us.us.us.i = icmp eq ptr %.039.us.us.us.i, %20
   br i1 %.not.us.us.us.i, label %._crit_edge56.split.us.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !8
@@ -124,9 +124,9 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
   br i1 %50, label %57, label %51
 
 51:                                               ; preds = %.lr.ph.us.i
-  %52 = getelementptr inbounds i8, ptr %.154.us.us.i, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.154.us.us.i, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.03955.us.us.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.03955.us.us.i, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = icmp sgt i64 %53, %55
   br i1 %56, label %57, label %58
@@ -136,7 +136,7 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 58:                                               ; preds = %57, %51
   %.3.us.us.i = phi ptr [ %.03955.us.us.i, %57 ], [ %.154.us.us.i, %51 ]
-  %59 = getelementptr inbounds i8, ptr %.03955.us.us.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.03955.us.us.i, i64 8
   %.039.us.us.i = load ptr, ptr %59, align 8
   %.not.us.us.i = icmp eq ptr %.039.us.us.i, %20
   br i1 %.not.us.us.i, label %._crit_edge56.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !8
@@ -156,15 +156,15 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 60:                                               ; preds = %.split.split.us.split.us.i
   %61 = load ptr, ptr @g_readytorun, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
   store ptr %10, ptr %62, align 16
   %63 = load i16, ptr %27, align 2
   %64 = add i16 %63, 1
   store i16 %64, ptr %27, align 2
-  %65 = getelementptr inbounds i8, ptr %61, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 68
   store i16 0, ptr %65, align 4
   %66 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %61, i1 noundef zeroext true) #7
-  %67 = getelementptr inbounds i8, ptr %61, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i8 7, ptr %67, align 16
   %68 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %61, ptr noundef nonnull %10) #7
   br i1 %66, label %69, label %71
@@ -186,29 +186,29 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 .lr.ph.us69.i:                                    ; preds = %.split.split.us.split.split.i, %77
   %.03955.us.i = phi ptr [ %.039.us.i, %77 ], [ %.03952.us64.i, %.split.split.us.split.split.i ]
-  %73 = getelementptr inbounds i8, ptr %.03955.us.i, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.03955.us.i, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = icmp ne i64 %74, %3
   %76 = xor i1 %25, %75
   br i1 %76, label %msgrcv_wait.exit.thread50, label %77
 
 77:                                               ; preds = %.lr.ph.us69.i
-  %78 = getelementptr inbounds i8, ptr %.03955.us.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.03955.us.i, i64 8
   %.039.us.i = load ptr, ptr %78, align 8
   %.not.us.i = icmp eq ptr %.039.us.i, %20
   br i1 %.not.us.i, label %._crit_edge56.split.us.i, label %.lr.ph.us69.i, !llvm.loop !8
 
 ._crit_edge56.split.us.i:                         ; preds = %77, %.split.split.us.split.split.i
   %79 = load ptr, ptr @g_readytorun, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 128
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
   store ptr %10, ptr %80, align 16
   %81 = load i16, ptr %27, align 2
   %82 = add i16 %81, 1
   store i16 %82, ptr %27, align 2
-  %83 = getelementptr inbounds i8, ptr %79, i64 68
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 68
   store i16 0, ptr %83, align 4
   %84 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %79, i1 noundef zeroext true) #7
-  %85 = getelementptr inbounds i8, ptr %79, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i8 7, ptr %85, align 16
   %86 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %79, ptr noundef nonnull %10) #7
   br i1 %84, label %87, label %89
@@ -231,14 +231,14 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 
 .lr.ph.split.split.i:                             ; preds = %.split.split.i, %95
   %.03955.i = phi ptr [ %.039.i, %95 ], [ %.03952.i, %.split.split.i ]
-  %91 = getelementptr inbounds i8, ptr %.03955.i, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.03955.i, i64 24
   %92 = load i64, ptr %91, align 8
   %93 = icmp ne i64 %92, %3
   %94 = xor i1 %25, %93
   br i1 %94, label %msgrcv_wait.exit.thread50, label %95
 
 95:                                               ; preds = %.lr.ph.split.split.i
-  %96 = getelementptr inbounds i8, ptr %.03955.i, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.03955.i, i64 8
   %.039.i = load ptr, ptr %96, align 8
   %.not.i = icmp eq ptr %.039.i, %20
   br i1 %.not.i, label %msgrcv_wait.exit.thread, label %.lr.ph.split.split.i, !llvm.loop !8
@@ -251,35 +251,35 @@ define range(i64 -1, 65536) i64 @msgrcv(i32 noundef %0, ptr noundef writeonly %1
 msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.i, %.lr.ph.us69.i, %.split.split.us.split.us.i, %._crit_edge56.split.us.us.us.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i
   %.247.i = phi ptr [ %.3.us.us.i, %._crit_edge56.split.us.us.i ], [ %.03952.i, %.lr.ph.split.split.us.i ], [ %.3.us.us.us.i, %._crit_edge56.split.us.us.us.i ], [ %.03952.us64.us.i, %.split.split.us.split.us.i ], [ %.03955.us.i, %.lr.ph.us69.i ], [ %.03955.i, %.lr.ph.split.split.i ]
   %97 = load ptr, ptr %.247.i, align 8
-  %98 = getelementptr inbounds i8, ptr %.247.i, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.247.i, i64 8
   %99 = load ptr, ptr %98, align 8
   store ptr %97, ptr %99, align 8
   %100 = load ptr, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %10, i64 62
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.247.i, i8 0, i64 16, i1 false)
   %103 = load i16, ptr %102, align 2
   %104 = add i16 %103, -1
   store i16 %104, ptr %102, align 2
-  %105 = getelementptr inbounds i8, ptr %.247.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.247.i, i64 16
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i64
   %. = call i64 @llvm.umin.i64(i64 %2, i64 %107)
   %108 = trunc nuw nsw i64 %. to i32
-  %109 = getelementptr inbounds i8, ptr %.247.i, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %.247.i, i64 24
   %110 = load i64, ptr %109, align 8
   store i64 %110, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = getelementptr inbounds i8, ptr %.247.i, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.247.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 %112, i64 %., i1 false)
   %113 = load ptr, ptr @g_msgfreelist, align 8
   store ptr %113, ptr %.247.i, align 8
   store ptr @g_msgfreelist, ptr %98, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %.247.i, ptr %114, align 8
   store ptr %.247.i, ptr @g_msgfreelist, align 8
-  %115 = getelementptr inbounds i8, ptr %10, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %116 = load i16, ptr %115, align 8
   %117 = icmp sgt i16 %116, 0
   br i1 %117, label %121, label %msgrcv_wait.exit.thread
@@ -294,15 +294,15 @@ msgrcv_wait.exit:                                 ; preds = %89, %71, %38
 
 121:                                              ; preds = %msgrcv_wait.exit.thread50
   %122 = load ptr, ptr @g_readytorun, align 8
-  %123 = getelementptr inbounds i8, ptr %10, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %124 = call ptr @dq_remfirst(ptr noundef nonnull %123) #7
-  %125 = getelementptr inbounds i8, ptr %124, i64 88
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 88
   %126 = load ptr, ptr %125, align 8
   %.not = icmp eq ptr %126, null
   br i1 %.not, label %130, label %127
 
 127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %124, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 72
   %129 = call i32 @wd_cancel(ptr noundef nonnull %128) #7
   br label %130
 
@@ -310,7 +310,7 @@ msgrcv_wait.exit:                                 ; preds = %89, %71, %38
   %131 = load i16, ptr %115, align 8
   %132 = add i16 %131, -1
   store i16 %132, ptr %115, align 8
-  %133 = getelementptr inbounds i8, ptr %124, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 128
   store ptr null, ptr %133, align 16
   %134 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %124) #7
   br i1 %134, label %135, label %msgrcv_wait.exit.thread

@@ -94,7 +94,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @vuf_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 1280
+  %bootindex = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %call.i3) #8
   ret void
@@ -106,27 +106,27 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vuf_properties) #8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vuf_vmstate, ptr %vmsd, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i11, i64 176
   store ptr @vuf_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i11, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i11, i64 184
   store ptr @vuf_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds i8, ptr %call.i11, i64 192
+  %get_features = getelementptr inbounds nuw i8, ptr %call.i11, i64 192
   store ptr @vuf_get_features, ptr %get_features, align 8
-  %get_config = getelementptr inbounds i8, ptr %call.i11, i64 224
+  %get_config = getelementptr inbounds nuw i8, ptr %call.i11, i64 224
   store ptr @vuf_get_config, ptr %get_config, align 8
-  %set_status = getelementptr inbounds i8, ptr %call.i11, i64 248
+  %set_status = getelementptr inbounds nuw i8, ptr %call.i11, i64 248
   store ptr @vuf_set_status, ptr %set_status, align 8
-  %guest_notifier_mask = getelementptr inbounds i8, ptr %call.i11, i64 288
+  %guest_notifier_mask = getelementptr inbounds nuw i8, ptr %call.i11, i64 288
   store ptr @vuf_guest_notifier_mask, ptr %guest_notifier_mask, align 8
-  %guest_notifier_pending = getelementptr inbounds i8, ptr %call.i11, i64 280
+  %guest_notifier_pending = getelementptr inbounds nuw i8, ptr %call.i11, i64 280
   store ptr @vuf_guest_notifier_pending, ptr %guest_notifier_pending, align 8
-  %get_vhost = getelementptr inbounds i8, ptr %call.i11, i64 352
+  %get_vhost = getelementptr inbounds nuw i8, ptr %call.i11, i64 352
   store ptr @vuf_get_vhost, ptr %get_vhost, align 8
   ret void
 }
@@ -142,7 +142,7 @@ define internal void @vuf_device_realize(ptr noundef %dev, ptr noundef %errp) #0
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #8
   %call.i45 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %conf = getelementptr inbounds i8, ptr %call.i45, i64 520
+  %conf = getelementptr inbounds nuw i8, ptr %call.i45, i64 520
   %0 = load ptr, ptr %conf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -152,7 +152,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %call.i45, i64 576
+  %tag = getelementptr inbounds nuw i8, ptr %call.i45, i64 576
   %1 = load ptr, ptr %tag, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.then4, label %if.end5
@@ -179,7 +179,7 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %num_request_queues = getelementptr inbounds i8, ptr %call.i45, i64 584
+  %num_request_queues = getelementptr inbounds nuw i8, ptr %call.i45, i64 584
   %2 = load i16, ptr %num_request_queues, align 8
   %cmp15 = icmp eq i16 %2, 0
   br i1 %cmp15, label %if.then17, label %if.end18
@@ -189,7 +189,7 @@ if.then17:                                        ; preds = %if.end13
   br label %return
 
 if.end18:                                         ; preds = %if.end13
-  %queue_size = getelementptr inbounds i8, ptr %call.i45, i64 586
+  %queue_size = getelementptr inbounds nuw i8, ptr %call.i45, i64 586
   %3 = load i16, ptr %queue_size, align 2
   %4 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %3)
   %or.cond = icmp eq i16 %4, 1
@@ -208,7 +208,7 @@ if.then29:                                        ; preds = %if.end23
   br label %return
 
 if.end30:                                         ; preds = %if.end23
-  %vhost_user = getelementptr inbounds i8, ptr %call.i45, i64 1240
+  %vhost_user = getelementptr inbounds nuw i8, ptr %call.i45, i64 1240
   %call33 = tail call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %conf, ptr noundef %errp) #8
   br i1 %call33, label %if.end35, label %return
 
@@ -217,12 +217,12 @@ if.end35:                                         ; preds = %if.end30
   %5 = load i16, ptr %queue_size, align 2
   %conv38 = zext i16 %5 to i32
   %call39 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef %conv38, ptr noundef nonnull @vuf_handle_output) #8
-  %hiprio_vq = getelementptr inbounds i8, ptr %call.i45, i64 1272
+  %hiprio_vq = getelementptr inbounds nuw i8, ptr %call.i45, i64 1272
   store ptr %call39, ptr %hiprio_vq, align 8
   %6 = load i16, ptr %num_request_queues, align 8
   %conv42 = zext i16 %6 to i64
   %call43 = tail call noalias ptr @g_malloc_n(i64 noundef %conv42, i64 noundef 8) #10
-  %req_vqs = getelementptr inbounds i8, ptr %call.i45, i64 1264
+  %req_vqs = getelementptr inbounds nuw i8, ptr %call.i45, i64 1264
   store ptr %call43, ptr %req_vqs, align 8
   %7 = load i16, ptr %num_request_queues, align 8
   %cmp4748.not = icmp eq i16 %7, 0
@@ -249,12 +249,12 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end35
   %conv46.lcssa.in = phi i32 [ 1, %if.end35 ], [ %13, %for.end.loopexit ]
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i45, i64 600
-  %nvqs = getelementptr inbounds i8, ptr %call.i45, i64 1040
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i45, i64 600
+  %nvqs = getelementptr inbounds nuw i8, ptr %call.i45, i64 1040
   store i32 %conv46.lcssa.in, ptr %nvqs, align 8
   %conv59 = zext nneg i32 %conv46.lcssa.in to i64
   %call60 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv59, i64 noundef 128) #10
-  %vqs = getelementptr inbounds i8, ptr %call.i45, i64 1032
+  %vqs = getelementptr inbounds nuw i8, ptr %call.i45, i64 1032
   store ptr %call60, ptr %vqs, align 8
   %call64 = tail call i32 @vhost_dev_init(ptr noundef nonnull %vhost_dev, ptr noundef nonnull %vhost_user, i32 noundef 2, i32 noundef 0, ptr noundef %errp) #8
   %cmp65 = icmp slt i32 %call64, 0
@@ -297,23 +297,23 @@ define internal void @vuf_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #8
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i11, i64 600
-  %vqs = getelementptr inbounds i8, ptr %call.i11, i64 1032
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i11, i64 600
+  %vqs = getelementptr inbounds nuw i8, ptr %call.i11, i64 1032
   %0 = load ptr, ptr %vqs, align 8
   tail call void @vuf_set_status(ptr noundef %call.i, i8 noundef zeroext 0)
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %vhost_dev) #8
-  %vhost_user = getelementptr inbounds i8, ptr %call.i11, i64 1240
+  %vhost_user = getelementptr inbounds nuw i8, ptr %call.i11, i64 1240
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #8
-  %hiprio_vq = getelementptr inbounds i8, ptr %call.i11, i64 1272
+  %hiprio_vq = getelementptr inbounds nuw i8, ptr %call.i11, i64 1272
   %1 = load ptr, ptr %hiprio_vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %1) #8
-  %num_request_queues = getelementptr inbounds i8, ptr %call.i11, i64 584
+  %num_request_queues = getelementptr inbounds nuw i8, ptr %call.i11, i64 584
   %2 = load i16, ptr %num_request_queues, align 8
   %cmp13.not = icmp eq i16 %2, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %req_vqs = getelementptr inbounds i8, ptr %call.i11, i64 1264
+  %req_vqs = getelementptr inbounds nuw i8, ptr %call.i11, i64 1264
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -329,7 +329,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
-  %req_vqs4 = getelementptr inbounds i8, ptr %call.i11, i64 1264
+  %req_vqs4 = getelementptr inbounds nuw i8, ptr %call.i11, i64 1264
   %7 = load ptr, ptr %req_vqs4, align 8
   tail call void @g_free(ptr noundef %7) #8
   tail call void @virtio_cleanup(ptr noundef %call.i) #8
@@ -341,7 +341,7 @@ for.end:                                          ; preds = %for.body, %entry
 define internal i64 @vuf_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %vhost_dev, ptr noundef nonnull @user_feature_bits, i64 noundef %features) #8
   ret i64 %call1
 }
@@ -352,16 +352,16 @@ entry:
   %fscfg = alloca %struct.virtio_fs_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %fscfg, i8 0, i64 36, i1 false)
-  %tag1 = getelementptr inbounds i8, ptr %call.i, i64 576
+  %tag1 = getelementptr inbounds nuw i8, ptr %call.i, i64 576
   %0 = load ptr, ptr %tag1, align 8
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %add = add i64 %call4, 1
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 36)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %fscfg, ptr align 1 %0, i64 %cond, i1 false)
-  %num_request_queues6 = getelementptr inbounds i8, ptr %call.i, i64 584
+  %num_request_queues6 = getelementptr inbounds nuw i8, ptr %call.i, i64 584
   %1 = load i16, ptr %num_request_queues6, align 8
   %conv = zext i16 %1 to i32
-  %fscfg.36.fscfg.36.fscfg.36.num_request_queues.sroa_idx = getelementptr inbounds i8, ptr %fscfg, i64 36
+  %fscfg.36.fscfg.36.fscfg.36.num_request_queues.sroa_idx = getelementptr inbounds nuw i8, ptr %fscfg, i64 36
   store i32 %conv, ptr %fscfg.36.fscfg.36.fscfg.36.num_request_queues.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %config, ptr noundef nonnull align 1 dereferenceable(40) %fscfg, i64 40, i1 false)
   ret void
@@ -371,7 +371,7 @@ entry:
 define internal void @vuf_set_status(ptr noundef %vdev, i8 noundef zeroext %status) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
+  %vm_running.i = getelementptr inbounds nuw i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %entry.virtio_device_should_start.exit_crit_edge
@@ -383,13 +383,13 @@ entry.virtio_device_should_start.exit_crit_edge:  ; preds = %entry
   br i1 %tobool.i519, label %if.else, label %if.end7
 
 if.end.i:                                         ; preds = %entry
-  %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
+  %use_started.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 438
   %2 = load i8, ptr %use_started.i.i, align 2
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   %3 = load i8, ptr %started.i.i, align 1
   %tobool1.i.i = trunc i8 %3 to i1
   br label %virtio_device_should_start.exit
@@ -417,7 +417,7 @@ if.then6:                                         ; preds = %if.end
   %call.i26.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #8
   %call.i27.i = tail call ptr @object_get_class(ptr noundef %call.i26.i) #8
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i27.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #8
-  %set_guest_notifiers.i = getelementptr inbounds i8, ptr %call1.i.i, i64 240
+  %set_guest_notifiers.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 240
   %7 = load ptr, ptr %set_guest_notifiers.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i6
@@ -427,7 +427,7 @@ if.then.i:                                        ; preds = %if.then6
   br label %if.end7
 
 if.end.i6:                                        ; preds = %if.then6
-  %vhost_dev.i = getelementptr inbounds i8, ptr %call.i.i, i64 600
+  %vhost_dev.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 600
   %call5.i = tail call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %vhost_dev.i, ptr noundef nonnull %vdev) #8
   %cmp.i = icmp slt i32 %call5.i, 0
   br i1 %cmp.i, label %if.then6.i, label %if.end7.i
@@ -439,9 +439,9 @@ if.then6.i:                                       ; preds = %if.end.i6
 
 if.end7.i:                                        ; preds = %if.end.i6
   %8 = load ptr, ptr %set_guest_notifiers.i, align 8
-  %parent.i = getelementptr inbounds i8, ptr %call.i26.i, i64 40
+  %parent.i = getelementptr inbounds nuw i8, ptr %call.i26.i, i64 40
   %9 = load ptr, ptr %parent.i, align 8
-  %nvqs.i = getelementptr inbounds i8, ptr %call.i.i, i64 1040
+  %nvqs.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 1040
   %10 = load i32, ptr %nvqs.i, align 8
   %call10.i = tail call i32 %8(ptr noundef %9, i32 noundef %10, i1 noundef zeroext true) #8
   %cmp11.i = icmp slt i32 %call10.i, 0
@@ -453,9 +453,9 @@ if.then12.i:                                      ; preds = %if.end7.i
   br label %err_host_notifiers.i
 
 if.end14.i:                                       ; preds = %if.end7.i
-  %guest_features.i = getelementptr inbounds i8, ptr %vdev, i64 184
+  %guest_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 184
   %11 = load i64, ptr %guest_features.i, align 8
-  %acked_features.i = getelementptr inbounds i8, ptr %call.i.i, i64 1064
+  %acked_features.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 1064
   store i64 %11, ptr %acked_features.i, align 8
   %call17.i = tail call i32 @vhost_dev_start(ptr noundef nonnull %vhost_dev.i, ptr noundef nonnull %vdev, i1 noundef zeroext true) #8
   %cmp18.i = icmp slt i32 %call17.i, 0
@@ -494,18 +494,18 @@ if.else:                                          ; preds = %entry.virtio_device
   %call.i10.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i8, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.6, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #8
   %call.i11.i = tail call ptr @object_get_class(ptr noundef %call.i10.i) #8
   %call1.i.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i11.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #8
-  %set_guest_notifiers.i10 = getelementptr inbounds i8, ptr %call1.i.i9, i64 240
+  %set_guest_notifiers.i10 = getelementptr inbounds nuw i8, ptr %call1.i.i9, i64 240
   %17 = load ptr, ptr %set_guest_notifiers.i10, align 8
   %tobool.not.i11 = icmp eq ptr %17, null
   br i1 %tobool.not.i11, label %if.end7, label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.else
-  %vhost_dev.i13 = getelementptr inbounds i8, ptr %call.i.i7, i64 600
+  %vhost_dev.i13 = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 600
   tail call void @vhost_dev_stop(ptr noundef nonnull %vhost_dev.i13, ptr noundef nonnull %vdev, i1 noundef zeroext true) #8
   %18 = load ptr, ptr %set_guest_notifiers.i10, align 8
-  %parent.i14 = getelementptr inbounds i8, ptr %call.i10.i, i64 40
+  %parent.i14 = getelementptr inbounds nuw i8, ptr %call.i10.i, i64 40
   %19 = load ptr, ptr %parent.i14, align 8
-  %nvqs.i15 = getelementptr inbounds i8, ptr %call.i.i7, i64 1040
+  %nvqs.i15 = getelementptr inbounds nuw i8, ptr %call.i.i7, i64 1040
   %20 = load i32, ptr %nvqs.i15, align 8
   %call7.i = tail call i32 %18(ptr noundef %19, i32 noundef %20, i1 noundef zeroext false) #8
   %cmp.i16 = icmp slt i32 %call7.i, 0
@@ -531,7 +531,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   tail call void @vhost_virtqueue_mask(ptr noundef nonnull %vhost_dev, ptr noundef %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #8
   br label %return
 
@@ -547,7 +547,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %call1 = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef nonnull %vhost_dev, i32 noundef %idx) #8
   br label %return
 
@@ -560,7 +560,7 @@ return:                                           ; preds = %entry, %if.end
 define internal nonnull ptr @vuf_get_vhost(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   ret ptr %vhost_dev
 }
 
@@ -570,16 +570,16 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 define internal range(i32 -95, 1) i32 @vuf_check_migration_support(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %call1 = tail call zeroext i1 @vhost_supports_device_state(ptr noundef nonnull %vhost_dev) #8
   br i1 %call1, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %opaque, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %opaque, i64 160
   %0 = load ptr, ptr %name, align 8
-  %canonical_path = getelementptr inbounds i8, ptr %opaque, i64 48
+  %canonical_path = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
-  %tag = getelementptr inbounds i8, ptr %call.i, i64 576
+  %tag = getelementptr inbounds nuw i8, ptr %call.i, i64 576
   %2 = load ptr, ptr %tag, align 8
   %tobool.not = icmp eq ptr %2, null
   %..str.21 = select i1 %tobool.not, ptr @.str.21, ptr %2
@@ -603,18 +603,18 @@ entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
   store ptr null, ptr %local_error, align 8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %call1 = call i32 @vhost_load_backend_state(ptr noundef nonnull %vhost_dev, ptr noundef %f, ptr noundef nonnull %local_error) #8
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %local_error, align 8
-  %name = getelementptr inbounds i8, ptr %pv, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %pv, i64 160
   %1 = load ptr, ptr %name, align 8
-  %canonical_path = getelementptr inbounds i8, ptr %pv, i64 48
+  %canonical_path = getelementptr inbounds nuw i8, ptr %pv, i64 48
   %2 = load ptr, ptr %canonical_path, align 8
-  %tag = getelementptr inbounds i8, ptr %call.i, i64 576
+  %tag = getelementptr inbounds nuw i8, ptr %call.i, i64 576
   %3 = load ptr, ptr %tag, align 8
   %tobool.not = icmp eq ptr %3, null
   %..str.21 = select i1 %tobool.not, ptr @.str.21, ptr %3
@@ -632,18 +632,18 @@ entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
   store ptr null, ptr %local_error, align 8
-  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 600
   %call1 = call i32 @vhost_save_backend_state(ptr noundef nonnull %vhost_dev, ptr noundef %f, ptr noundef nonnull %local_error) #8
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %local_error, align 8
-  %name = getelementptr inbounds i8, ptr %pv, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %pv, i64 160
   %1 = load ptr, ptr %name, align 8
-  %canonical_path = getelementptr inbounds i8, ptr %pv, i64 48
+  %canonical_path = getelementptr inbounds nuw i8, ptr %pv, i64 48
   %2 = load ptr, ptr %canonical_path, align 8
-  %tag = getelementptr inbounds i8, ptr %call.i, i64 576
+  %tag = getelementptr inbounds nuw i8, ptr %call.i, i64 576
   %3 = load ptr, ptr %tag, align 8
   %tobool.not = icmp eq ptr %3, null
   %..str.21 = select i1 %tobool.not, ptr @.str.21, ptr %3

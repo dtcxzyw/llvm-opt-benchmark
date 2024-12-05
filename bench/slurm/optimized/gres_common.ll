@@ -35,19 +35,19 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @gres_use_local_device_index() #5
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %103, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 57
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %.not65 = icmp eq ptr %15, null
   br i1 %.not65, label %103, label %16
@@ -59,11 +59,11 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16
   %19 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %8) #5
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = zext i1 %6 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.outer
 
 .outer:                                           ; preds = %73, %18
@@ -143,7 +143,7 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %.us-phi89 = phi i32 [ %.056.ph80, %48 ], [ %.056.ph80, %47 ], [ %45, %44 ], [ %32, %31 ]
   %50 = load i8, ptr %20, align 8
   %51 = trunc i8 %50 to i1
-  %52 = getelementptr inbounds i8, ptr %.us-phi, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 20
   %.0.in = select i1 %51, ptr %52, ptr %.us-phi
   %.0 = load i32, ptr %.0.in, align 4
   %.153 = add nsw i32 %.052.ph82, %21
@@ -176,7 +176,7 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   br label %67
 
 67:                                               ; preds = %65, %63
-  %68 = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not75 = icmp eq ptr %69, null
   %70 = load ptr, ptr %24, align 8
@@ -202,7 +202,7 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not68, label %79, label %76
 
 76:                                               ; preds = %.outer79._crit_edge
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @slurm_xfree(ptr noundef nonnull %77) #5
   %78 = load ptr, ptr %2, align 8
   store ptr %78, ptr %77, align 8
@@ -214,14 +214,14 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not69, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @slurm_xfree(ptr noundef nonnull %82) #5
   %83 = load ptr, ptr %3, align 8
   store ptr %83, ptr %82, align 8
   br label %84
 
 84:                                               ; preds = %81, %79
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 1
   %.not70 = icmp eq i32 %87, 0
@@ -247,9 +247,9 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %96 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef %95) #5
   store ptr %96, ptr %5, align 8
   %97 = load ptr, ptr @stderr, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.6, ptr noundef %storemerge, ptr noundef %96, i32 noundef %.052.ph82, ptr noundef %99, ptr noundef %101) #6
   call void @slurm_xfree(ptr noundef nonnull %5) #5
@@ -285,23 +285,23 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define void @print_gres_conf(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %0, align 8
   %16 = tail call ptr @gres_flags2str(i32 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %1, ptr noundef nonnull @.str.7, ptr noundef %4, ptr noundef %6, i64 noundef %8, i32 noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20) #5
   ret void
@@ -333,21 +333,21 @@ define internal fastcc void @_print_gres_list_helper(ptr noundef %0, i32 noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %8 = phi ptr [ %28, %.lr.ph.split.us ], [ %7, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not.i.us = icmp eq ptr %24, null
   %spec.select.i.us = select i1 %.not.i.us, ptr @.str, ptr %24
@@ -361,23 +361,23 @@ define internal fastcc void @_print_gres_list_helper(ptr noundef %0, i32 noundef
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %29 = phi ptr [ %48, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %29, align 8
   %43 = tail call ptr @gres_flags2str(i32 noundef %42) #5
-  %44 = getelementptr inbounds i8, ptr %29, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %29, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %47 = load ptr, ptr %46, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %1, ptr noundef nonnull @.str.7, ptr noundef %31, ptr noundef %33, i64 noundef %35, i32 noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47) #5
   %48 = tail call ptr @slurm_list_next(ptr noundef %6) #5
@@ -401,11 +401,11 @@ define void @print_gres_list_parsable(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %.str.8..str.9 = select i1 %5, ptr @.str.8, ptr @.str.9
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @.str, ptr %6, align 8
   tail call void @common_gres_set_env(ptr noundef %0)
   %7 = load ptr, ptr %0, align 8
@@ -421,68 +421,68 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   %11 = sext i32 %9 to i64
   %12 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.10, i64 noundef %11) #5
   store ptr %12, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @slurm_env_array_overwrite(ptr noundef %14, ptr noundef nonnull @.str.11, ptr noundef %12) #5
   call void @slurm_xfree(ptr noundef nonnull %2) #5
   br label %23
 
 .thread:                                          ; preds = %1, %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 2
   %.not45 = icmp eq i32 %18, 0
   br i1 %.not45, label %19, label %23
 
 19:                                               ; preds = %.thread
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   tail call void @slurm_unsetenvp(ptr noundef %22, ptr noundef nonnull @.str.11) #5
   br label %23
 
 23:                                               ; preds = %.thread, %19, %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not46 = icmp eq ptr %25, null
   br i1 %.not46, label %30, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @slurm_env_array_overwrite(ptr noundef %28, ptr noundef nonnull %.str.8..str.9, ptr noundef nonnull %25) #5
   call void @slurm_xfree(ptr noundef nonnull %24) #5
   br label %38
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   call void @slurm_unsetenvp(ptr noundef %37, ptr noundef nonnull %.str.8..str.9) #5
   br label %38
 
 38:                                               ; preds = %30, %34, %26
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
   %.not48 = icmp eq ptr %40, null
   br i1 %.not48, label %74, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 32
   %.not54 = icmp eq i32 %44, 0
   br i1 %.not54, label %49, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @slurm_env_array_overwrite(ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef nonnull %40) #5
   %.pre = load i32, ptr %42, align 8
@@ -495,7 +495,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not55, label %57, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %39, align 8
   %56 = call i32 @slurm_env_array_overwrite(ptr noundef %54, ptr noundef nonnull @.str.13, ptr noundef %55) #5
@@ -509,7 +509,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not56, label %65, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %39, align 8
   %64 = call i32 @slurm_env_array_overwrite(ptr noundef %62, ptr noundef nonnull @.str.14, ptr noundef %63) #5
@@ -523,7 +523,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not57, label %73, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %39, align 8
   %72 = call i32 @slurm_env_array_overwrite(ptr noundef %70, ptr noundef nonnull @.str.15, ptr noundef %71) #5
@@ -534,21 +534,21 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br label %107
 
 74:                                               ; preds = %38
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 2
   %.not49 = icmp eq i32 %77, 0
   br i1 %.not49, label %78, label %107
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 32
   %.not50 = icmp eq i32 %81, 0
   br i1 %.not50, label %86, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
   call void @slurm_unsetenvp(ptr noundef %85, ptr noundef nonnull @.str.12) #5
@@ -562,7 +562,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not51, label %93, label %89
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
   call void @slurm_unsetenvp(ptr noundef %92, ptr noundef nonnull @.str.13) #5
@@ -576,7 +576,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not52, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   call void @slurm_unsetenvp(ptr noundef %99, ptr noundef nonnull @.str.14) #5
@@ -590,7 +590,7 @@ define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local
   br i1 %.not53, label %107, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   call void @slurm_unsetenvp(ptr noundef %106, ptr noundef nonnull @.str.15) #5
@@ -621,7 +621,7 @@ define noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %78, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %78, label %13
@@ -635,7 +635,7 @@ define noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, ptr noundef 
   br label %78
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not52 = icmp eq ptr %19, null
   br i1 %.not52, label %.thread.thread, label %20
@@ -692,7 +692,7 @@ define noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, ptr noundef 
   br i1 %.not62, label %51, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not63 = icmp eq ptr %45, null
   br i1 %.not63, label %47, label %46

@@ -62,7 +62,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pmproxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.9) #4
   %8 = load ptr, ptr %6, align 8
@@ -74,16 +74,16 @@ define internal i32 @dissect_pmproxy(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %12, label %is_pmproxy_exchange_complete.exit.thread, label %is_pmproxy_exchange_complete.exit
 
 is_pmproxy_exchange_complete.exit:                ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %11, align 4
   %.not12 = icmp ult i32 %14, %15
   br i1 %.not12, label %is_pmproxy_exchange_complete.exit.thread, label %16
 
 16:                                               ; preds = %is_pmproxy_exchange_complete.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 330
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 330
   %18 = load i16, ptr %17, align 2
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i16 %18, ptr %19, align 8
   %20 = load ptr, ptr @pcp_handle, align 8
   %21 = tail call i32 @call_dissector(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
@@ -231,7 +231,7 @@ looks_like_proxy_exchange.exit.thread.i:          ; preds = %.lr.ph.i.i.i, %look
 
 mark_pmproxy_exchange_complete.exit.i:            ; preds = %89, %looks_like_proxy_exchange.exit.thread.i
   %.0.i23.i = phi ptr [ %91, %89 ], [ %87, %looks_like_proxy_exchange.exit.thread.i ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %.0.i23.i, align 4
   %94 = load i32, ptr @proto_pmproxy, align 4

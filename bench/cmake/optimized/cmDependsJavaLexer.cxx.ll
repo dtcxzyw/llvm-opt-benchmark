@@ -51,19 +51,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 361) i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelper10ParserTypeEPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %._crit_edge675
 
 ._crit_edge675:                                   ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre666.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %76
 
 5:                                                ; preds = %2
   store i32 1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %7 = load i32, ptr %6, align 4
   %.not232 = icmp eq i32 %7, 0
   br i1 %.not232, label %8, label %9
@@ -73,7 +73,7 @@ define dso_local noundef range(i32 0, 361) i32 @_Z19cmDependsJava_yylexPN25cmDep
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not233 = icmp eq ptr %11, null
   br i1 %.not233, label %12, label %14
@@ -85,7 +85,7 @@ define dso_local noundef range(i32 0, 361) i32 @_Z19cmDependsJava_yylexPN25cmDep
 
 14:                                               ; preds = %12, %9
   %15 = phi ptr [ %13, %12 ], [ %11, %9 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not234 = icmp eq ptr %17, null
   br i1 %.not234, label %18, label %20
@@ -96,13 +96,13 @@ define dso_local noundef range(i32 0, 361) i32 @_Z19cmDependsJava_yylexPN25cmDep
   br label %20
 
 20:                                               ; preds = %18, %14
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not235 = icmp eq ptr %22, null
   br i1 %.not235, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
@@ -121,14 +121,14 @@ define dso_local noundef range(i32 0, 361) i32 @_Z19cmDependsJava_yylexPN25cmDep
 
 32:                                               ; preds = %29
   store i64 0, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %34, align 8
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
 .critedge:                                        ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, -1
   %.not29.i = icmp ult i64 %25, %37
@@ -165,10 +165,10 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %32, %.critedge, %43
   unreachable
 
 49:                                               ; preds = %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
-  %50 = getelementptr inbounds i8, ptr %47, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i32 16384, ptr %50, align 8
   %51 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #29
-  %52 = getelementptr inbounds i8, ptr %47, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %51, ptr %52, align 8
   %.not14.i = icmp eq ptr %51, null
   br i1 %.not14.i, label %53, label %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit
@@ -178,11 +178,11 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %32, %.critedge, %43
   unreachable
 
 _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %47, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store i32 1, ptr %54, align 8
   tail call fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef nonnull %47, ptr noundef %46, ptr noundef nonnull %1)
   %55 = load ptr, ptr %21, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %55, i64 %57
   store ptr %47, ptr %58, align 8
@@ -197,39 +197,39 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %61 = phi i64 [ %.pre663, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %25, %23 ]
   %62 = phi ptr [ %.pre662, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %22, %23 ]
   %63 = getelementptr inbounds ptr, ptr %62, i64 %61
-  %64 = getelementptr inbounds i8, ptr %60, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 52
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %65, ptr %66, align 4
   %67 = load ptr, ptr %63, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %69, ptr %71, align 8
   %72 = load ptr, ptr %63, align 8
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %10, align 8
   %74 = load i8, ptr %69, align 1
-  %75 = getelementptr inbounds i8, ptr %1, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %._crit_edge675, %59
   %.pre666 = phi ptr [ %.pre666.pre, %._crit_edge675 ], [ %69, %59 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 64
-  %78 = getelementptr inbounds i8, ptr %1, i64 48
-  %79 = getelementptr inbounds i8, ptr %1, i64 76
-  %80 = getelementptr inbounds i8, ptr %1, i64 104
-  %81 = getelementptr inbounds i8, ptr %1, i64 112
-  %82 = getelementptr inbounds i8, ptr %1, i64 128
-  %83 = getelementptr inbounds i8, ptr %1, i64 56
-  %84 = getelementptr inbounds i8, ptr %1, i64 40
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
-  %86 = getelementptr inbounds i8, ptr %1, i64 52
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %76
@@ -250,7 +250,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.1 = phi i32 [ %.0218, %.backedge ], [ %129, %._crit_edge ]
   %93 = load i8, ptr %.1222, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = sext i32 %.1 to i64
   %98 = getelementptr inbounds [327 x i16], ptr @_ZL9yy_accept, i64 0, i64 %97
@@ -285,7 +285,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %.lr.ph
-  %116 = getelementptr inbounds [65 x i8], ptr @_ZL7yy_meta, i64 0, i64 %110
+  %116 = getelementptr inbounds nuw [65 x i8], ptr @_ZL7yy_meta, i64 0, i64 %110
   %117 = load i8, ptr %116, align 1
   br label %118
 
@@ -307,7 +307,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %127 = getelementptr inbounds [479 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %128 = load i16, ptr %127, align 2
   %129 = sext i16 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %.1222, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.1222, i64 1
   %131 = sext i16 %128 to i64
   %132 = getelementptr inbounds [334 x i16], ptr @_ZL7yy_base, i64 0, i64 %131
   %133 = load i16, ptr %132, align 2
@@ -918,13 +918,13 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %280 = load i64, ptr %85, align 8
   %281 = getelementptr inbounds ptr, ptr %279, i64 %280
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 56
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 56
   %284 = load i32, ptr %283, align 8
   %285 = icmp eq i32 %284, 0
   br i1 %285, label %286, label %296
 
 286:                                              ; preds = %276
-  %287 = getelementptr inbounds i8, ptr %282, i64 28
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 28
   %288 = load i32, ptr %287, align 4
   store i32 %288, ptr %86, align 4
   %289 = load ptr, ptr %87, align 8
@@ -934,7 +934,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %292 = load i64, ptr %85, align 8
   %293 = getelementptr inbounds ptr, ptr %291, i64 %292
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 56
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 56
   store i32 1, ptr %295, align 8
   %.pre667 = load ptr, ptr %84, align 8
   %.pre668 = load i64, ptr %85, align 8
@@ -947,7 +947,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %298 = phi i64 [ %.pre668, %286 ], [ %280, %276 ]
   %299 = phi ptr [ %.pre667, %286 ], [ %279, %276 ]
   %300 = load ptr, ptr %77, align 8
-  %301 = getelementptr inbounds i8, ptr %297, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %302 = load ptr, ptr %301, align 8
   %303 = load i32, ptr %86, align 4
   %304 = sext i32 %303 to i64
@@ -972,7 +972,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 
 316:                                              ; preds = %306
   %317 = load ptr, ptr %77, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 1
   store ptr %318, ptr %77, align 8
   br label %.backedge.backedge
 
@@ -999,7 +999,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   unreachable
 
 324:                                              ; preds = %319
-  %325 = getelementptr inbounds i8, ptr %297, i64 52
+  %325 = getelementptr inbounds nuw i8, ptr %297, i64 52
   %326 = load i32, ptr %325, align 4
   %327 = icmp eq i32 %326, 0
   %328 = ptrtoint ptr %300 to i64
@@ -1022,9 +1022,9 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.099121.i = phi ptr [ %340, %.lr.ph.i ], [ %302, %333 ]
   %.0100120.i = phi ptr [ %338, %.lr.ph.i ], [ %320, %333 ]
   %.0101119.i = phi i32 [ %341, %.lr.ph.i ], [ 0, %333 ]
-  %338 = getelementptr inbounds i8, ptr %.0100120.i, i64 1
+  %338 = getelementptr inbounds nuw i8, ptr %.0100120.i, i64 1
   %339 = load i8, ptr %.0100120.i, align 1
-  %340 = getelementptr inbounds i8, ptr %.099121.i, i64 1
+  %340 = getelementptr inbounds nuw i8, ptr %.099121.i, i64 1
   store i8 %339, ptr %.099121.i, align 1
   %341 = add nuw nsw i32 %.0101119.i, 1
   %exitcond.not.i = icmp eq i32 %341, %336
@@ -1041,7 +1041,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %342 = phi ptr [ %.pre132.i, %._crit_edge.loopexit.i ], [ %297, %333 ]
   %343 = phi i64 [ %.pre131.i, %._crit_edge.loopexit.i ], [ %298, %333 ]
   %344 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %299, %333 ]
-  %345 = getelementptr inbounds i8, ptr %342, i64 56
+  %345 = getelementptr inbounds nuw i8, ptr %342, i64 56
   %346 = load i32, ptr %345, align 8
   %347 = icmp eq i32 %346, 2
   br i1 %347, label %348, label %350
@@ -1053,7 +1053,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 
 350:                                              ; preds = %._crit_edge.i
   %351 = xor i32 %336, -1
-  %.pn.in122.i = getelementptr inbounds i8, ptr %342, i64 24
+  %.pn.in122.i = getelementptr inbounds nuw i8, ptr %342, i64 24
   %.pn123.i = load i32, ptr %.pn.in122.i, align 8
   %.0102124.i = add i32 %.pn123.i, %351
   %352 = icmp slt i32 %.0102124.i, 1
@@ -1067,12 +1067,12 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %353 = phi i32 [ %.pn123.i, %.lr.ph126.preheader.i ], [ %.pn.i, %372 ]
   %354 = phi ptr [ %.pre133.i, %.lr.ph126.preheader.i ], [ %374, %372 ]
   %355 = phi ptr [ %342, %.lr.ph126.preheader.i ], [ %378, %372 ]
-  %356 = getelementptr inbounds i8, ptr %355, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %357 = load ptr, ptr %356, align 8
   %358 = ptrtoint ptr %354 to i64
   %359 = ptrtoint ptr %357 to i64
   %360 = sub i64 %358, %359
-  %361 = getelementptr inbounds i8, ptr %355, i64 32
+  %361 = getelementptr inbounds nuw i8, ptr %355, i64 32
   %362 = load i32, ptr %361, align 8
   %.not.i243 = icmp eq i32 %362, 0
   br i1 %.not.i243, label %.thread.i, label %363
@@ -1082,7 +1082,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   br label %.loopexit.i
 
 363:                                              ; preds = %.lr.ph126.i
-  %364 = getelementptr inbounds i8, ptr %355, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %365 = icmp slt i32 %353, 1
   %366 = shl nuw nsw i32 %353, 1
   %.nonneg.i = sub i32 0, %353
@@ -1110,7 +1110,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %376 = load i64, ptr %85, align 8
   %377 = getelementptr inbounds ptr, ptr %375, i64 %376
   %378 = load ptr, ptr %377, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %378, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %378, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0102.i = add i32 %.pn.i, %351
   %379 = icmp slt i32 %.0102.i, 1
@@ -1121,7 +1121,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.0102.lcssa.i = phi i32 [ %.0102124.i, %350 ], [ %.0102.i, %372 ]
   %381 = tail call i32 @llvm.umin.i32(i32 %.0102.lcssa.i, i32 8192)
   %382 = load ptr, ptr %1, align 8
-  %383 = getelementptr inbounds i8, ptr %380, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %384 = load ptr, ptr %383, align 8
   %sext.i = shl i64 %335, 32
   %385 = ashr exact i64 %sext.i, 32
@@ -1137,7 +1137,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.sink143.in.i = phi ptr [ %390, %._crit_edge127.i ], [ %349, %348 ]
   %.sink.i = phi i32 [ %387, %._crit_edge127.i ], [ 0, %348 ]
   %.sink143.i = load ptr, ptr %.sink143.in.i, align 8
-  %392 = getelementptr inbounds i8, ptr %.sink143.i, i64 28
+  %392 = getelementptr inbounds nuw i8, ptr %.sink143.i, i64 28
   store i32 %.sink.i, ptr %392, align 4
   %393 = load i32, ptr %86, align 4
   %394 = icmp eq i32 %393, 0
@@ -1157,7 +1157,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %401 = load i64, ptr %85, align 8
   %402 = getelementptr inbounds ptr, ptr %400, i64 %401
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 56
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 56
   store i32 2, ptr %404, align 8
   br label %405
 
@@ -1169,7 +1169,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %409 = load i64, ptr %85, align 8
   %410 = getelementptr inbounds ptr, ptr %408, i64 %409
   %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 24
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
   %413 = load i32, ptr %412, align 8
   %414 = icmp sgt i32 %407, %413
   br i1 %414, label %415, label %_ZL18yy_get_next_bufferPv.exit
@@ -1177,7 +1177,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 415:                                              ; preds = %405
   %416 = ashr i32 %406, 1
   %417 = add nsw i32 %407, %416
-  %418 = getelementptr inbounds i8, ptr %411, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = sext i32 %417 to i64
   %421 = tail call noalias noundef ptr @realloc(ptr noundef %419, i64 noundef %420) #31
@@ -1185,13 +1185,13 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %423 = load i64, ptr %85, align 8
   %424 = getelementptr inbounds ptr, ptr %422, i64 %423
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store ptr %421, ptr %426, align 8
   %427 = load ptr, ptr %84, align 8
   %428 = load i64, ptr %85, align 8
   %429 = getelementptr inbounds ptr, ptr %427, i64 %428
   %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   %432 = load ptr, ptr %431, align 8
   %.not112.i = icmp eq ptr %432, null
   br i1 %.not112.i, label %433, label %434
@@ -1202,7 +1202,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 
 434:                                              ; preds = %415
   %435 = add nsw i32 %417, -2
-  %436 = getelementptr inbounds i8, ptr %430, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %430, i64 24
   store i32 %435, ptr %436, align 8
   %.pre134.i = load i32, ptr %86, align 4
   %.pre135.i = load ptr, ptr %84, align 8
@@ -1217,7 +1217,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %405, %434
   store i32 %.pre-phi.i, ptr %86, align 4
   %439 = getelementptr inbounds ptr, ptr %438, i64 %437
   %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = sext i32 %.pre-phi.i to i64
   %444 = getelementptr inbounds i8, ptr %442, i64 %443
@@ -1226,7 +1226,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %405, %434
   %446 = load i64, ptr %85, align 8
   %447 = getelementptr inbounds ptr, ptr %445, i64 %446
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = load i32, ptr %86, align 4
   %452 = sext i32 %451 to i64
@@ -1237,7 +1237,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %405, %434
   %456 = load i64, ptr %85, align 8
   %457 = getelementptr inbounds ptr, ptr %455, i64 %456
   %458 = load ptr, ptr %457, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load ptr, ptr %459, align 8
   store ptr %460, ptr %82, align 8
   switch i32 %.0103.i, label %default.unreachable678 [
@@ -1249,7 +1249,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %405, %434
 _ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
   %461 = getelementptr inbounds ptr, ptr %455, i64 %456
   %.pre671 = load ptr, ptr %461, align 8
-  %.phi.trans.insert672 = getelementptr inbounds i8, ptr %.pre671, i64 8
+  %.phi.trans.insert672 = getelementptr inbounds nuw i8, ptr %.pre671, i64 8
   %.pre673 = load ptr, ptr %.phi.trans.insert672, align 8
   %.pre674 = load i32, ptr %86, align 4
   %.pre677 = sext i32 %.pre674 to i64
@@ -1324,12 +1324,12 @@ define dso_local noundef nonnull ptr @_Z30cmDependsJava_yy_create_bufferP8_IO_FI
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %7, align 8
   %8 = add nsw i32 %1, 2
   %9 = sext i32 %8 to i64
   %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #29
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
@@ -1339,7 +1339,7 @@ define dso_local noundef nonnull ptr @_Z30cmDependsJava_yy_create_bufferP8_IO_FI
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
   tail call fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %2)
   ret ptr %4
@@ -1364,18 +1364,18 @@ declare void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture noundef %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %.lr.ph32, label %._crit_edge33
 
 .lr.ph32:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %11
 
 11:                                               ; preds = %.lr.ph32, %._crit_edge
@@ -1387,7 +1387,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 
 13:                                               ; preds = %11
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   br label %17
 
@@ -1426,7 +1426,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds [65 x i8], ptr @_ZL7yy_meta, i64 0, i64 %32
+  %38 = getelementptr inbounds nuw [65 x i8], ptr @_ZL7yy_meta, i64 0, i64 %32
   %39 = load i8, ptr %38, align 1
   br label %40
 
@@ -1448,7 +1448,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %49 = getelementptr inbounds [479 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %.02329, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.02329, i64 1
   %exitcond.not = icmp eq ptr %52, %7
   br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !12
 
@@ -1466,11 +1466,11 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_tra
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %8, ptr %10, align 8
   br label %11
 
@@ -1519,13 +1519,13 @@ define internal fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef %0) unnamed_ad
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z23cmDependsJava_yyrestartP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -1544,14 +1544,14 @@ define dso_local void @_Z23cmDependsJava_yyrestartP8_IO_FILEPv(ptr noundef %0, p
 
 14:                                               ; preds = %11
   store i64 0, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %16, align 8
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
 .critedge:                                        ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   %.not29.i = icmp ult i64 %7, %19
@@ -1577,7 +1577,7 @@ define dso_local void @_Z23cmDependsJava_yyrestartP8_IO_FILEPv(ptr noundef %0, p
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
 _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not.i18 = icmp eq ptr %30, null
@@ -1588,10 +1588,10 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   unreachable
 
 32:                                               ; preds = %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 16384, ptr %33, align 8
   %34 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #29
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8
   %.not14.i = icmp eq ptr %34, null
   br i1 %.not14.i, label %36, label %37
@@ -1601,11 +1601,11 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   unreachable
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %30, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 1, ptr %38, align 8
   tail call fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef nonnull %30, ptr noundef %29, ptr noundef nonnull %1)
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds ptr, ptr %39, i64 %41
   store ptr %30, ptr %42, align 8
@@ -1615,7 +1615,7 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
 
 .thread:                                          ; preds = %5, %37
   %43 = phi ptr [ %.pre, %37 ], [ %4, %5 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds ptr, ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8
@@ -1625,27 +1625,27 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %14, %.critedge, %25
   %49 = phi ptr [ %47, %.thread ], [ null, %37 ]
   tail call fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef %49, ptr noundef %0, ptr noundef nonnull %1)
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds ptr, ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %56, ptr %57, align 4
   %58 = load ptr, ptr %53, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %60, ptr %62, align 8
   %63 = load ptr, ptr %53, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %64, ptr %65, align 8
   %66 = load i8, ptr %60, align 1
-  %67 = getelementptr inbounds i8, ptr %1, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %66, ptr %67, align 8
   ret void
 }
@@ -1658,28 +1658,28 @@ define internal fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_state
   br i1 %.not.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 0, ptr %11, align 1
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not15.i = icmp eq ptr %17, null
   br i1 %.not15.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
@@ -1687,37 +1687,37 @@ define internal fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_state
   br i1 %23, label %24, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %26, ptr %27, align 4
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %30, ptr %32, align 8
   %33 = load ptr, ptr %21, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %34, ptr %35, align 8
   %36 = load i8, ptr %30, align 1
-  %37 = getelementptr inbounds i8, ptr %2, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %36, ptr %37, align 8
   br label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit
 
 _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %18, %24
   store ptr %1, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.thread, label %41
 
 41:                                               ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds ptr, ptr %40, i64 %43
   %45 = load ptr, ptr %44, align 8
@@ -1725,9 +1725,9 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %1
   br i1 %.not17, label %48, label %.thread
 
 .thread:                                          ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %47, align 8
   br label %48
 
@@ -1744,7 +1744,7 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %1
 
 54:                                               ; preds = %48, %49
   %55 = phi i32 [ %53, %49 ], [ 0, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %55, ptr %56, align 4
   store i32 %5, ptr %4, align 4
   ret void
@@ -1752,7 +1752,7 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %11
@@ -1769,16 +1769,16 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
 
 8:                                                ; preds = %5
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %10, align 8
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   %.not29.i = icmp ult i64 %13, %16
@@ -1805,7 +1805,7 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
 
 .thread:                                          ; preds = %22, %11, %8
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
@@ -1817,9 +1817,9 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
   br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %35 = load i8, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
   store i8 %35, ptr %37, align 1
   %38 = load ptr, ptr %36, align 8
@@ -1827,22 +1827,22 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
   %40 = load i64, ptr %26, align 8
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %38, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %26, align 8
   %48 = getelementptr inbounds ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 %45, ptr %50, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
   %51 = phi ptr [ %.pre, %33 ], [ %25, %31 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds ptr, ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
@@ -1850,25 +1850,25 @@ define dso_local void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv
   %56 = load i64, ptr %52, align 8
   %57 = getelementptr inbounds ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -1888,13 +1888,13 @@ define dso_local void @_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv(pt
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -1906,13 +1906,13 @@ define dso_local void @_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv(pt
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #36
   br label %18
@@ -1937,28 +1937,28 @@ define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -1966,23 +1966,23 @@ define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i8, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
   br label %.thread
 
@@ -1996,7 +1996,7 @@ define dso_local void @_Z33cmDependsJava_yypush_buffer_stateP15yy_buffer_statePv
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %13
@@ -2013,16 +2013,16 @@ define dso_local void @_Z33cmDependsJava_yypush_buffer_stateP15yy_buffer_statePv
 
 10:                                               ; preds = %7
   store i64 0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %12, align 8
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %.not29.i = icmp ult i64 %15, %18
@@ -2051,16 +2051,16 @@ define dso_local void @_Z33cmDependsJava_yypush_buffer_stateP15yy_buffer_statePv
 _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr inbounds ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.critedge29, label %.critedge
 
 .critedge:                                        ; preds = %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -2068,15 +2068,15 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %39 = load i64, ptr %29, align 8
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre32 = load i64, ptr %29, align 8
@@ -2099,25 +2099,25 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %56 = load i64, ptr %29, align 8
   %57 = getelementptr inbounds ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -2127,13 +2127,13 @@ _ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_Z32cmDependsJava_yypop_buffer_statePv(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2142,13 +2142,13 @@ define dso_local void @_Z32cmDependsJava_yypop_buffer_statePv(ptr nocapture noun
 
 .thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8
   %.not15.i = icmp eq i32 %11, 0
   br i1 %.not15.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, label %12
 
 12:                                               ; preds = %.thread.i
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #36
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
@@ -2181,25 +2181,25 @@ _Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %34, ptr %36, align 8
   %37 = load ptr, ptr %25, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %39, align 8
   %40 = load i8, ptr %34, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %42, align 8
   br label %.critedge
 
@@ -2237,24 +2237,24 @@ define dso_local noundef ptr @_Z28cmDependsJava_yy_scan_bufferPcmPv(ptr noundef 
 
 16:                                               ; preds = %13
   %17 = trunc i64 %6 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %21, align 8
   store ptr null, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %17, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %26, align 8
   tail call void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef nonnull %14, ptr noundef %2)
   br label %27
@@ -2321,24 +2321,24 @@ define dso_local noundef nonnull ptr @_Z27cmDependsJava_yy_scan_bytesPKciPv(ptr 
   unreachable
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %6, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 0, ptr %25, align 8
   store ptr null, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %18, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %18, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 52
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %18, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i32 0, ptr %30, align 8
   tail call void @_Z33cmDependsJava_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef nonnull %18, ptr noundef %2)
   store i32 1, ptr %25, align 8
@@ -2353,13 +2353,13 @@ define dso_local noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z26cmDependsJava_yyget_linenoPv(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2367,7 +2367,7 @@ define dso_local noundef i32 @_Z26cmDependsJava_yyget_linenoPv(ptr nocapture nou
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %12 = load i32, ptr %11, align 4
   br label %.critedge
 
@@ -2378,13 +2378,13 @@ define dso_local noundef i32 @_Z26cmDependsJava_yyget_linenoPv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z26cmDependsJava_yyget_columnPv(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2392,7 +2392,7 @@ define dso_local noundef i32 @_Z26cmDependsJava_yyget_columnPv(ptr nocapture nou
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load i32, ptr %11, align 8
   br label %.critedge
 
@@ -2403,28 +2403,28 @@ define dso_local noundef i32 @_Z26cmDependsJava_yyget_columnPv(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z22cmDependsJava_yyget_inPv(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z23cmDependsJava_yyget_outPv(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z24cmDependsJava_yyget_lengPv(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_Z24cmDependsJava_yyget_textPv(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -2437,13 +2437,13 @@ define dso_local void @_Z25cmDependsJava_yyset_extraP25cmDependsJavaParserHelper
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_Z26cmDependsJava_yyset_linenoiPv(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2455,20 +2455,20 @@ define dso_local void @_Z26cmDependsJava_yyset_linenoiPv(i32 noundef %0, ptr noc
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_Z26cmDependsJava_yyset_columniPv(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2480,35 +2480,35 @@ define dso_local void @_Z26cmDependsJava_yyset_columniPv(i32 noundef %0, ptr noc
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_Z22cmDependsJava_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_Z23cmDependsJava_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_Z25cmDependsJava_yyget_debugPv(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_Z25cmDependsJava_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
@@ -2573,19 +2573,19 @@ define dso_local noundef range(i32 0, 2) i32 @_Z30cmDependsJava_yylex_init_extra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -2596,13 +2596,13 @@ define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr nocapture no
   %15 = phi ptr [ %61, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %60, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i32, ptr %17, align 8
   %.not15.i = icmp eq i32 %18, 0
   br i1 %.not15.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, label %19
 
 19:                                               ; preds = %.thread.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #36
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
@@ -2626,13 +2626,13 @@ _Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.
 
 .thread.i.i:                                      ; preds = %26
   store ptr null, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %32 = load i32, ptr %31, align 8
   %.not15.i.i = icmp eq i32 %32, 0
   br i1 %.not15.i.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %33
 
 33:                                               ; preds = %.thread.i.i
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %35) #36
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
@@ -2665,11 +2665,11 @@ _Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
   br i1 %48, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %47, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %5, align 4
   %52 = load ptr, ptr %46, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %6, align 8
   store ptr %54, ptr %7, align 8
@@ -2693,7 +2693,7 @@ _Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %26, %45, %49
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z32cmDependsJava_yypop_buffer_statePv.exit ]
   tail call void @free(ptr noundef %.lcssa) #36
   store ptr null, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %64 = load ptr, ptr %63, align 8
   tail call void @free(ptr noundef %64) #36
   tail call void @free(ptr noundef nonnull %0) #36

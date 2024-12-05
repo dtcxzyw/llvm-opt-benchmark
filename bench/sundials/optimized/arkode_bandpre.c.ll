@@ -25,11 +25,11 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
@@ -48,23 +48,23 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   br label %103
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %19, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store ptr %0, ptr %23, align 8
   store i64 %1, ptr %19, align 8
   %24 = add nsw i64 %1, -1
   %25 = call i64 @llvm.smax.i64(i64 %2, i64 0)
   %.not84 = icmp sgt i64 %1, %25
   %. = select i1 %.not84, i64 %25, i64 %24
-  %26 = getelementptr inbounds i8, ptr %19, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %., ptr %26, align 8
   %27 = call i64 @llvm.smax.i64(i64 %3, i64 0)
   %.not85 = icmp sgt i64 %1, %27
   %28 = select i1 %.not85, i64 %27, i64 %24
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %19, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %32 = load ptr, ptr %9, align 8
   %33 = call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %., i64 noundef %28, i64 noundef %., ptr noundef %32) #7
   store ptr %33, ptr %31, align 8
@@ -81,7 +81,7 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   %38 = add nsw i64 %28, %.
   %.not86 = icmp sgt i64 %1, %38
   %.91 = select i1 %.not86, i64 %38, i64 %24
-  %39 = getelementptr inbounds i8, ptr %19, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %40 = load ptr, ptr %5, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %., i64 noundef %28, i64 noundef %.91, ptr noundef %41) #7
@@ -97,9 +97,9 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   br label %103
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %19, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 296
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 296
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %48, align 8
   %52 = call ptr @SUNLinSol_Band(ptr noundef %50, ptr noundef nonnull %42, ptr noundef %51) #7
@@ -116,10 +116,10 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   br label %103
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %19, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr null, ptr %57, align 8
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 296
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 296
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @arkAllocVec(ptr noundef %58, ptr noundef %60, ptr noundef nonnull %57) #7
   %.not87 = icmp eq i32 %61, 0
@@ -138,10 +138,10 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   br label %103
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds i8, ptr %19, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store ptr null, ptr %69, align 8
   %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 296
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 296
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @arkAllocVec(ptr noundef %70, ptr noundef %72, ptr noundef nonnull %69) #7
   %.not88 = icmp eq i32 %73, 0
@@ -184,7 +184,7 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
 
 91:                                               ; preds = %81
   %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 224
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 224
   %94 = load ptr, ptr %93, align 8
   %.not90 = icmp eq ptr %94, null
   br i1 %.not90, label %98, label %95
@@ -197,9 +197,9 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
 
 98:                                               ; preds = %95, %91
   %99 = phi ptr [ %.pre, %95 ], [ %92, %91 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 232
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 232
   store ptr %19, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 224
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 224
   store ptr @ARKBandPrecFree, ptr %101, align 8
   %102 = call i32 @arkLSSetPreconditioner(ptr noundef %0, ptr noundef nonnull @ARKBandPrecSetup, ptr noundef nonnull @ARKBandPrecSolve) #7
   br label %103
@@ -239,31 +239,31 @@ define internal noundef i32 @ARKBandPrecFree(ptr noundef %0) #0 {
   br i1 %2, label %22, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %22, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SUNLinSolFree(ptr noundef %14) #7
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void @SUNMatDestroy(ptr noundef %17) #7
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void @SUNMatDestroy(ptr noundef %19) #7
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %10, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 56
   tail call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef nonnull %21) #7
   tail call void @free(ptr noundef nonnull %10) #7
   br label %22
@@ -276,16 +276,16 @@ declare i32 @arkLSSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %6, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %3, 0
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %7
   store i32 0, ptr %4, align 4
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SUNMatCopy(ptr noundef %12, ptr noundef %14) #7
   %16 = icmp slt i32 %15, 0
@@ -315,32 +315,32 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not39, label %25, label %199
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %6, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef %30) #7
   %34 = icmp eq ptr %33, null
   br i1 %34, label %ARKBandPDQJac.exit.thread46, label %35
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %30, i64 240
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @N_VGetArrayPointer(ptr noundef %37) #7
   %39 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #7
   %40 = tail call ptr @N_VGetArrayPointer(ptr noundef %27) #7
   %41 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #7
   %42 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #7
-  %43 = getelementptr inbounds i8, ptr %30, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %44 = load i32, ptr %43, align 8
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %49, label %45
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %30, i64 328
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 328
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @N_VGetArrayPointer(ptr noundef %47) #7
   br label %49
@@ -348,7 +348,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 49:                                               ; preds = %45, %35
   %50 = phi ptr [ %48, %45 ], [ null, %35 ]
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %29) #7
-  %51 = getelementptr inbounds i8, ptr %30, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %52 = load double, ptr %51, align 8
   %53 = fcmp ugt double %52, 0.000000e+00
   br i1 %53, label %54, label %56
@@ -359,7 +359,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 56:                                               ; preds = %54, %49
   %57 = phi double [ %55, %54 ], [ 0.000000e+00, %49 ]
-  %58 = getelementptr inbounds i8, ptr %30, i64 248
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 248
   %59 = load ptr, ptr %58, align 8
   %60 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %59) #7
   %61 = fcmp une double %60, 0.000000e+00
@@ -367,7 +367,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %61, label %62, label %72
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %30, i64 376
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 376
   %64 = load double, ptr %63, align 8
   %65 = tail call double @llvm.fabs.f64(double %64)
   %66 = fmul double %65, 1.000000e+03
@@ -380,19 +380,19 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 72:                                               ; preds = %62, %56
   %73 = phi double [ %71, %62 ], [ 1.000000e+00, %56 ]
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %75, 1
   %79 = add i64 %78, %77
   %..i = tail call i64 @llvm.smin.i64(i64 %79, i64 %.pre.i)
-  %80 = getelementptr inbounds i8, ptr %30, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.not155171.i = icmp slt i64 %..i, 1
   br i1 %.not155171.i, label %.loopexit, label %.lr.ph174.i
 
 .lr.ph174.i:                                      ; preds = %72
-  %81 = getelementptr inbounds i8, ptr %6, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %82
 
 82:                                               ; preds = %._crit_edge170.i, %.lr.ph174.i
@@ -540,9 +540,9 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph166.i:                                      ; preds = %157, %.lr.ph166.i
   %.0137164.i = phi i64 [ %174, %.lr.ph166.i ], [ %spec.select.i, %157 ]
-  %166 = getelementptr inbounds double, ptr %40, i64 %.0137164.i
+  %166 = getelementptr inbounds nuw double, ptr %40, i64 %.0137164.i
   %167 = load double, ptr %166, align 8
-  %168 = getelementptr inbounds double, ptr %39, i64 %.0137164.i
+  %168 = getelementptr inbounds nuw double, ptr %39, i64 %.0137164.i
   %169 = load double, ptr %168, align 8
   %170 = fsub double %167, %169
   %171 = fmul double %158, %170
@@ -579,7 +579,7 @@ ARKBandPDQJac.exit.thread46:                      ; preds = %25, %ARKBandPDQJac.
 
 .loopexit:                                        ; preds = %._crit_edge170.i, %72
   %181 = load ptr, ptr %10, align 8
-  %182 = getelementptr inbounds i8, ptr %6, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %183 = load ptr, ptr %182, align 8
   %184 = tail call i32 @SUNMatCopy(ptr noundef %181, ptr noundef %183) #7
   %185 = icmp slt i32 %184, 0
@@ -595,7 +595,7 @@ ARKBandPDQJac.exit.thread46:                      ; preds = %25, %ARKBandPDQJac.
 
 188:                                              ; preds = %187, %18
   %189 = fneg double %5
-  %190 = getelementptr inbounds i8, ptr %6, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %191 = load ptr, ptr %190, align 8
   %192 = tail call i32 @SUNMatScaleAddI(double noundef %189, ptr noundef %191) #7
   %.not43 = icmp eq i32 %192, 0
@@ -606,7 +606,7 @@ ARKBandPDQJac.exit.thread46:                      ; preds = %25, %ARKBandPDQJac.
   br label %199
 
 194:                                              ; preds = %188
-  %195 = getelementptr inbounds i8, ptr %6, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %190, align 8
   %198 = tail call i32 @SUNLinSolSetup_Band(ptr noundef %196, ptr noundef %197) #7
@@ -619,9 +619,9 @@ ARKBandPDQJac.exit.thread46:                      ; preds = %25, %ARKBandPDQJac.
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ARKBandPrecSolve(double %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr nocapture noundef readonly %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SUNLinSolSolve(ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef %3, double noundef 0.000000e+00) #7
   ret i32 %14
@@ -641,7 +641,7 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, pt
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
@@ -655,11 +655,11 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, pt
   store i64 4, ptr %2, align 8
   store i64 0, ptr %1, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 296
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 296
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %35, label %26
@@ -679,11 +679,11 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, pt
   br label %35
 
 35:                                               ; preds = %26, %18
-  %36 = getelementptr inbounds i8, ptr %14, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %41 = load ptr, ptr %40, align 8
   %.not25 = icmp eq ptr %41, null
   br i1 %.not25, label %52, label %42
@@ -705,11 +705,11 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, pt
   br label %52
 
 52:                                               ; preds = %42, %45, %35
-  %53 = getelementptr inbounds i8, ptr %14, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   %.not26 = icmp eq ptr %58, null
   br i1 %.not26, label %69, label %59
@@ -731,11 +731,11 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef %1, pt
   br label %69
 
 69:                                               ; preds = %59, %62, %52
-  %70 = getelementptr inbounds i8, ptr %14, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load ptr, ptr %74, align 8
   %.not27 = icmp eq ptr %75, null
   br i1 %.not27, label %86, label %76
@@ -777,7 +777,7 @@ define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writ
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -788,7 +788,7 @@ define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writ
   br label %16
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %9, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %1, align 8
   br label %16

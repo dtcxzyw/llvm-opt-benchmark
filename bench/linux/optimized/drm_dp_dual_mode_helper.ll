@@ -65,20 +65,20 @@ define dso_local range(i64 -2147483648, 1) i64 @drm_dp_dual_mode_read(ptr nounde
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i16 64, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 64, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 18
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 1, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %12 = zext i8 %1 to i64
   %13 = add i64 %3, %12
   %14 = trunc i64 %13 to i16
   store i16 %14, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %15, align 8
   %16 = icmp eq i8 %1, 0
   br i1 %16, label %.thread, label %18
@@ -146,7 +146,7 @@ define dso_local range(i64 -2147483648, 1) i64 @drm_dp_dual_mode_write(ptr nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   store i64 0, ptr %5, align 8, !annotation !5
   store i16 64, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = trunc i64 %3 to i16
   %8 = add i16 %7, 1
   store i16 %8, ptr %6, align 4
@@ -156,7 +156,7 @@ define dso_local range(i64 -2147483648, 1) i64 @drm_dp_dual_mode_write(ptr nound
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %13, align 8
   store i8 %1, ptr %10, align 8
   %14 = getelementptr i8, ptr %10, i64 1
@@ -195,17 +195,17 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i16 64, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 64, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 18
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 1, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 16, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %7, ptr %13, align 8
   %14 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2) #9
   call void @kfree(ptr noundef null) #9
@@ -220,7 +220,7 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -237,15 +237,15 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i16 64, ptr %4, align 16
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 64, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %4, i64 18
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %4, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 17, ptr %33, align 4
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %35 = call noalias align 8 dereferenceable_or_null(17) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 3264, i64 noundef 17) #11
@@ -253,7 +253,7 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   br i1 %36, label %48, label %37
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %35, ptr %38, align 8
   %39 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 2) #9
   %40 = getelementptr i8, ptr %35, i64 16
@@ -279,7 +279,7 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   br i1 %20, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -314,7 +314,7 @@ define dso_local range(i32 1, 7) i32 @drm_dp_dual_mode_detect(ptr noundef readon
   br i1 %20, label %73, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -359,15 +359,15 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   store i16 64, ptr %5, align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 64, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 30, ptr %14, align 4
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = call noalias align 8 dereferenceable_or_null(30) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 30) #11
@@ -380,7 +380,7 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   br label %25
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %16, ptr %19, align 8
   %20 = call i32 @i2c_transfer(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2) #9
   %21 = freeze i32 %20
@@ -403,7 +403,7 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -439,15 +439,15 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i16 64, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 64, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %6, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 33, ptr %14, align 4
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %16 = call noalias align 8 dereferenceable_or_null(33) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 33) #11
@@ -455,7 +455,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %16, ptr %19, align 8
   %20 = call i32 @i2c_transfer(ptr noundef %2, ptr noundef nonnull %6, i32 noundef 2) #9
   %21 = getelementptr i8, ptr %16, i64 32
@@ -476,7 +476,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_get_tmds_output
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -510,17 +510,17 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_dual_mode_set_tmds_output
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = icmp eq ptr %0, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = select i1 %3, ptr @.str.6, ptr @.str.7
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 18
-  %22 = getelementptr inbounds i8, ptr %6, i64 20
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %24 = select i1 %3, ptr @.str.9, ptr @.str.10
   br label %28
 
@@ -702,12 +702,12 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
 
 8:                                                ; preds = %3
   store i8 0, ptr %6, align 1, !annotation !5
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 18
-  %13 = getelementptr inbounds i8, ptr %5, i64 20
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %25
 
 15:                                               ; preds = %3
@@ -715,7 +715,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -772,7 +772,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_lspcon_get_mode(ptr noundef 
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
@@ -806,7 +806,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8, !annotation !5
   store i16 64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 2, ptr %6, align 4
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 2) #11
@@ -814,7 +814,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = icmp eq i32 %2, 2
   %13 = zext i1 %12 to i8
   store ptr %8, ptr %11, align 8
@@ -841,7 +841,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -861,7 +861,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %36
 
@@ -886,7 +886,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   br label %49
 
@@ -902,7 +902,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_lspcon_set_mode(ptr noundef 
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   br label %58
 

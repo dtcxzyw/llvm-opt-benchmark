@@ -26,26 +26,26 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #9
-  %compression_type_.i.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %compression_type_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i8 7, ptr %compression_type_.i.i, align 8
-  %opts_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %opts_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %opts_.i.i, ptr noundef nonnull align 8 dereferenceable(56) %opts, i64 56, i1 false)
-  %compress_format_version_.i.i = getelementptr inbounds i8, ptr %call1, i64 72
+  %compress_format_version_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store i32 %compress_format_version, ptr %compress_format_version_.i.i, align 8
-  %max_output_len_.i.i = getelementptr inbounds i8, ptr %call1, i64 80
+  %max_output_len_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 80
   store i64 %max_output_len, ptr %max_output_len_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i64 16), ptr %call1, align 8
   %call.i1 = invoke ptr @ZSTD_createCCtx()
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end
-  %cctx_.i = getelementptr inbounds i8, ptr %call1, i64 88
+  %cctx_.i = getelementptr inbounds nuw i8, ptr %call1, i64 88
   store ptr %call.i1, ptr %cctx_.i, align 8
   %call4.i2 = invoke i64 @ZSTD_CCtx_setParameter(ptr noundef %call.i1, i32 noundef 201, i32 noundef 1)
           to label %_ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit unwind label %lpad
 
 _ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit: ; preds = %call.i.noexc
-  %input_buffer_5.i = getelementptr inbounds i8, ptr %call1, i64 96
+  %input_buffer_5.i = getelementptr inbounds nuw i8, ptr %call1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input_buffer_5.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -76,20 +76,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #9
-  %compression_type_.i.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %compression_type_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i8 7, ptr %compression_type_.i.i, align 8
-  %compress_format_version_.i.i = getelementptr inbounds i8, ptr %call1, i64 12
+  %compress_format_version_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 12
   store i32 %compress_format_version, ptr %compress_format_version_.i.i, align 4
-  %max_output_len_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %max_output_len_.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i64 %max_output_len, ptr %max_output_len_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i64 16), ptr %call1, align 8
   %call.i1 = invoke ptr @ZSTD_createDCtx()
           to label %_ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit unwind label %lpad
 
 _ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit:   ; preds = %if.end
-  %dctx_.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %dctx_.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %call.i1, ptr %dctx_.i, align 8
-  %input_buffer_2.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %input_buffer_2.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input_buffer_2.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -113,7 +113,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 96
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %input_buffer_, align 8
   %cmp2 = icmp ne ptr %0, null
   %cmp5.not = icmp eq ptr %0, %input
@@ -122,21 +122,21 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   store ptr %input, ptr %input_buffer_, align 8
-  %ref.tmp.sroa.2.0.input_buffer_8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
+  %ref.tmp.sroa.2.0.input_buffer_8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i64 %input_size, ptr %ref.tmp.sroa.2.0.input_buffer_8.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.input_buffer_8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
+  %ref.tmp.sroa.3.0.input_buffer_8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %ref.tmp.sroa.3.0.input_buffer_8.sroa_idx, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %if.then6
   store ptr %output, ptr %output_buffer, align 8
-  %size15 = getelementptr inbounds i8, ptr %output_buffer, i64 8
-  %max_output_len_ = getelementptr inbounds i8, ptr %this, i64 80
+  %size15 = getelementptr inbounds nuw i8, ptr %output_buffer, i64 8
+  %max_output_len_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i64, ptr %max_output_len_, align 8
   store i64 %1, ptr %size15, align 8
-  %pos16 = getelementptr inbounds i8, ptr %output_buffer, i64 16
+  %pos16 = getelementptr inbounds nuw i8, ptr %output_buffer, i64 16
   store i64 0, ptr %pos16, align 8
-  %cctx_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cctx_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = load ptr, ptr %cctx_, align 8
   %call = call i64 @ZSTD_compressStream2(ptr noundef %2, ptr noundef nonnull %output_buffer, ptr noundef nonnull %input_buffer_, i32 noundef 2)
   %call18 = call i32 @ZSTD_isError(i64 noundef %call)
@@ -170,10 +170,10 @@ declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb21ZSTDStreamingCompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((96, 120)) %this) unnamed_addr #0 align 2 {
 entry:
-  %cctx_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cctx_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %cctx_, align 8
   %call = tail call i64 @ZSTD_CCtx_reset(ptr noundef %0, i32 noundef 1)
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 96
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input_buffer_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -196,25 +196,25 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 32
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %input, ptr %input_buffer_, align 8
-  %ref.tmp.sroa.2.0.input_buffer_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.2.0.input_buffer_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %input_size, ptr %ref.tmp.sroa.2.0.input_buffer_.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.input_buffer_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.3.0.input_buffer_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %ref.tmp.sroa.3.0.input_buffer_.sroa_idx, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
   store ptr %output, ptr %output_buffer, align 8
-  %size4 = getelementptr inbounds i8, ptr %output_buffer, i64 8
-  %max_output_len_ = getelementptr inbounds i8, ptr %this, i64 16
+  %size4 = getelementptr inbounds nuw i8, ptr %output_buffer, i64 8
+  %max_output_len_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %max_output_len_, align 8
   store i64 %0, ptr %size4, align 8
-  %pos5 = getelementptr inbounds i8, ptr %output_buffer, i64 16
+  %pos5 = getelementptr inbounds nuw i8, ptr %output_buffer, i64 16
   store i64 0, ptr %pos5, align 8
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %dctx_, align 8
-  %input_buffer_6 = getelementptr inbounds i8, ptr %this, i64 32
+  %input_buffer_6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = call i64 @ZSTD_decompressStream(ptr noundef %1, ptr noundef nonnull %output_buffer, ptr noundef nonnull %input_buffer_6)
   %call7 = call i32 @ZSTD_isError(i64 noundef %call)
   %tobool8.not = icmp eq i32 %call7, 0
@@ -229,9 +229,9 @@ if.then9:                                         ; preds = %if.end3
 if.end10:                                         ; preds = %if.end3
   %3 = load i64, ptr %pos5, align 8
   store i64 %3, ptr %output_pos, align 8
-  %size13 = getelementptr inbounds i8, ptr %this, i64 40
+  %size13 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %size13, align 8
-  %pos15 = getelementptr inbounds i8, ptr %this, i64 48
+  %pos15 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load i64, ptr %pos15, align 8
   %sub = sub i64 %4, %5
   %conv = trunc i64 %sub to i32
@@ -247,10 +247,10 @@ declare i64 @ZSTD_decompressStream(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb23ZSTDStreamingUncompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((32, 56)) %this) unnamed_addr #0 align 2 {
 entry:
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %dctx_, align 8
   %call = tail call i64 @ZSTD_DCtx_reset(ptr noundef %0, i32 noundef 1)
-  %input_buffer_ = getelementptr inbounds i8, ptr %this, i64 32
+  %input_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input_buffer_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -260,7 +260,7 @@ declare i64 @ZSTD_DCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ZSTDStreamingCompressD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cctx_ = getelementptr inbounds i8, ptr %this, i64 88
+  %cctx_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %cctx_, align 8
   %call = invoke i64 @ZSTD_freeCCtx(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -279,7 +279,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ZSTDStreamingCompressD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cctx_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %cctx_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %cctx_.i, align 8
   %call.i = invoke i64 @ZSTD_freeCCtx(ptr noundef %0)
           to label %_ZN7rocksdb21ZSTDStreamingCompressD2Ev.exit unwind label %terminate.lpad.i
@@ -299,7 +299,7 @@ _ZN7rocksdb21ZSTDStreamingCompressD2Ev.exit:      ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb23ZSTDStreamingUncompressD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %dctx_, align 8
   %call = invoke i64 @ZSTD_freeDCtx(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -318,7 +318,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb23ZSTDStreamingUncompressD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dctx_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dctx_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %dctx_.i, align 8
   %call.i = invoke i64 @ZSTD_freeDCtx(ptr noundef %0)
           to label %_ZN7rocksdb23ZSTDStreamingUncompressD2Ev.exit unwind label %terminate.lpad.i

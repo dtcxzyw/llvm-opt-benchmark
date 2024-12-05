@@ -533,33 +533,33 @@ define hidden void @dissect_e164_number(ptr noundef %0, ptr noundef %1, i32 noun
 .sink.split:                                      ; preds = %5, %7
   %hf_E164_called_party_number.sink = phi ptr [ @hf_E164_called_party_number, %7 ], [ @hf_E164_calling_party_number, %5 ]
   %8 = load i32, ptr %hf_E164_called_party_number.sink, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %10) #5
   br label %12
 
 12:                                               ; preds = %.sink.split, %5
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 4
   br i1 %15, label %16, label %proto_item_set_hidden.exit
 
 16:                                               ; preds = %12
   %17 = load i32, ptr @hf_E164_msisdn, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %19) #5
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not5.i = icmp eq ptr %23, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = or i32 %26, 1
   store i32 %27, ptr %25, align 4

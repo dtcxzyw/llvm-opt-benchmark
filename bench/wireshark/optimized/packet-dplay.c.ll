@@ -667,7 +667,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.327) #3
   %17 = load ptr, ptr %15, align 8
@@ -681,7 +681,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
 20:                                               ; preds = %18
   %21 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 72) #3
   %22 = zext i16 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.327) #3
   %25 = load ptr, ptr %23, align 8
@@ -694,7 +694,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
 
 30:                                               ; preds = %18
   %31 = zext i16 %12 to i32
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_set_str(ptr noundef %33, i32 noundef 34, ptr noundef nonnull @.str.327) #3
   %34 = load ptr, ptr %32, align 8
@@ -844,7 +844,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr noca
   br i1 %.not, label %100, label %dissect_dplay.exit
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8
   tail call void @col_set_str(ptr noundef %105, i32 noundef 34, ptr noundef nonnull @.str.327) #3
   %106 = load ptr, ptr %104, align 8

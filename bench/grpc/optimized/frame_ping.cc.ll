@@ -62,51 +62,51 @@ entry:
   tail call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef 17)
   %0 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cond, i64 1
   store i8 0, ptr %cond, align 1
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %cond, i64 2
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %cond, i64 2
   store i8 0, ptr %incdec.ptr, align 1
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %cond, i64 3
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %cond, i64 3
   store i8 8, ptr %incdec.ptr3, align 1
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %cond, i64 4
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %cond, i64 4
   store i8 6, ptr %incdec.ptr4, align 1
   %tobool6.not = icmp ne i8 %ack, 0
   %conv = zext i1 %tobool6.not to i8
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %cond, i64 5
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %cond, i64 5
   store i8 %conv, ptr %incdec.ptr5, align 1
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %cond, i64 9
+  %incdec.ptr12 = getelementptr inbounds nuw i8, ptr %cond, i64 9
   %shr = lshr i64 %opaque_8bytes, 56
   %conv13 = trunc nuw i64 %shr to i8
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %cond, i64 10
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %cond, i64 10
   store i32 0, ptr %incdec.ptr8, align 1
   store i8 %conv13, ptr %incdec.ptr12, align 1
   %shr15 = lshr i64 %opaque_8bytes, 48
   %conv16 = trunc i64 %shr15 to i8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %cond, i64 11
+  %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %cond, i64 11
   store i8 %conv16, ptr %incdec.ptr14, align 1
   %shr18 = lshr i64 %opaque_8bytes, 40
   %conv19 = trunc i64 %shr18 to i8
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %cond, i64 12
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %cond, i64 12
   store i8 %conv19, ptr %incdec.ptr17, align 1
   %shr21 = lshr i64 %opaque_8bytes, 32
   %conv22 = trunc i64 %shr21 to i8
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %cond, i64 13
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %cond, i64 13
   store i8 %conv22, ptr %incdec.ptr20, align 1
   %shr24 = lshr i64 %opaque_8bytes, 24
   %conv25 = trunc i64 %shr24 to i8
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %cond, i64 14
+  %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %cond, i64 14
   store i8 %conv25, ptr %incdec.ptr23, align 1
   %shr27 = lshr i64 %opaque_8bytes, 16
   %conv28 = trunc i64 %shr27 to i8
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %cond, i64 15
+  %incdec.ptr29 = getelementptr inbounds nuw i8, ptr %cond, i64 15
   store i8 %conv28, ptr %incdec.ptr26, align 1
   %shr30 = lshr i64 %opaque_8bytes, 8
   %conv31 = trunc i64 %shr30 to i8
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %cond, i64 16
+  %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %cond, i64 16
   store i8 %conv31, ptr %incdec.ptr29, align 1
   %conv33 = trunc i64 %opaque_8bytes to i8
   store i8 %conv33, ptr %incdec.ptr32, align 1
@@ -132,13 +132,13 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %length to i64
   %0 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %0, ptr %ref.tmp.i, align 8, !noalias !4
-  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !4
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i8 %flags to i64
   %1 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
   store ptr %1, ptr %arrayinit.element.i, align 8, !noalias !4
-  %dispatcher_.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %dispatcher_.i.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !4
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str, i64 35, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -151,7 +151,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont5:                                     ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp3, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -175,7 +175,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !7
 
@@ -205,9 +205,9 @@ lpad4:                                            ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %parser, align 8
-  %is_ack = getelementptr inbounds i8, ptr %parser, i64 1
+  %is_ack = getelementptr inbounds nuw i8, ptr %parser, i64 1
   store i8 %flags, ptr %is_ack, align 1
-  %opaque_8bytes = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes = getelementptr inbounds nuw i8, ptr %parser, i64 8
   store i64 0, ptr %opaque_8bytes, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !9
   br label %return
@@ -230,7 +230,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -254,7 +254,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -284,11 +284,11 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %1 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %1, null
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
-  %data17 = getelementptr inbounds i8, ptr %slice, i64 8
+  %data17 = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %3 = load i64, ptr %data17, align 8
   %conv = and i64 %3, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %3
@@ -300,7 +300,7 @@ entry:
   br i1 %4, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %opaque_8bytes = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %opaque_8bytes.promoted = load i64, ptr %opaque_8bytes, align 8
   br label %while.body
 
@@ -317,7 +317,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shl = shl i64 %conv25, %sh_prom
   %or = or i64 %shl, %5
   store i64 %or, ptr %opaque_8bytes, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur.052, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.052, i64 1
   %inc = add i8 %6, 1
   store i8 %inc, ptr %parser, align 8
   %cmp = icmp ne i8 %inc, 8
@@ -339,66 +339,66 @@ if.then34:                                        ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %is_ack = getelementptr inbounds i8, ptr %parser, i64 1
+  %is_ack = getelementptr inbounds nuw i8, ptr %parser, i64 1
   %9 = load i8, ptr %is_ack, align 1
   %tobool35.not = icmp eq i8 %9, 0
   br i1 %tobool35.not, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %do.end
-  %10 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
+  %10 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %if.then37, label %if.end44
 
 if.then37:                                        ; preds = %if.then36
-  %is_client = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %11 = load i8, ptr %is_client, align 8
   %tobool38 = trunc i8 %11 to i1
   %.str.4..str.5 = select i1 %tobool38, ptr @.str.4, ptr @.str.5
-  %opaque_8bytes43 = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes43 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %12 = load i64, ptr %opaque_8bytes43, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 100, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.4..str.5, ptr noundef %t, i64 noundef %12)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then37, %if.then36
-  %opaque_8bytes45 = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes45 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %13 = load i64, ptr %opaque_8bytes45, align 8
   tail call void @_Z20grpc_chttp2_ack_pingP21grpc_chttp2_transportm(ptr noundef %t, i64 noundef %13)
   br label %if.end95
 
 if.else:                                          ; preds = %do.end
-  %is_client46 = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client46 = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %14 = load i8, ptr %is_client46, align 8
   %tobool47 = trunc i8 %14 to i1
   br i1 %tobool47, label %if.else67, label %if.then48
 
 if.then48:                                        ; preds = %if.else
-  %keepalive_permit_without_calls = getelementptr inbounds i8, ptr %t, i64 3373
+  %keepalive_permit_without_calls = getelementptr inbounds nuw i8, ptr %t, i64 3373
   %15 = load i8, ptr %keepalive_permit_without_calls, align 1
   %16 = and i8 %15, 1
   %cmp51 = icmp eq i8 %16, 0
   br i1 %cmp51, label %land.rhs52, label %land.end54
 
 land.rhs52:                                       ; preds = %if.then48
-  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %t, i64 584
+  %compressed_tuple_.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 584
   %17 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %tobool.not.i = icmp eq i64 %17, 0
   br label %land.end54
 
 land.end54:                                       ; preds = %land.rhs52, %if.then48
   %18 = phi i1 [ false, %if.then48 ], [ %tobool.not.i, %land.rhs52 ]
-  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_keepalive_trace, i64 16) monotonic, align 8
+  %19 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_keepalive_trace, i64 16) monotonic, align 8
   %tobool.i.i.i45 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i45, label %if.then57, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end54
-  %20 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %20 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
   %tobool.i.i.i46 = trunc i8 %20 to i1
   br i1 %tobool.i.i.i46, label %if.then57, label %if.end61
 
 if.then57:                                        ; preds = %lor.lhs.false, %land.end54
-  %opaque_8bytes58 = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes58 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %21 = load i64, ptr %opaque_8bytes58, align 8
-  %ping_abuse_policy = getelementptr inbounds i8, ptr %t, i64 2120
+  %ping_abuse_policy = getelementptr inbounds nuw i8, ptr %t, i64 2120
   call void @_ZNK9grpc_core21Chttp2PingAbusePolicy14GetDebugStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy, i1 noundef zeroext %18)
   %call60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 109, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %t, i64 noundef %21, ptr noundef %call60)
@@ -415,7 +415,7 @@ lpad:                                             ; preds = %if.then57
   resume { ptr, i32 } %22
 
 if.end61:                                         ; preds = %invoke.cont, %lor.lhs.false
-  %ping_abuse_policy62 = getelementptr inbounds i8, ptr %t, i64 2120
+  %ping_abuse_policy62 = getelementptr inbounds nuw i8, ptr %t, i64 2120
   %call64 = call noundef zeroext i1 @_ZN9grpc_core21Chttp2PingAbusePolicy15ReceivedOnePingEb(ptr noundef nonnull align 8 dereferenceable(24) %ping_abuse_policy62, i1 noundef zeroext %18)
   br i1 %call64, label %if.then65, label %if.end72
 
@@ -424,32 +424,32 @@ if.then65:                                        ; preds = %if.end61
   br label %if.end72
 
 if.else67:                                        ; preds = %if.else
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_ping_trace, i64 16) monotonic, align 8
   %tobool.i.i.i47 = trunc i8 %23 to i1
   br i1 %tobool.i.i.i47, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %if.else67
-  %opaque_8bytes70 = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes70 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %24 = load i64, ptr %opaque_8bytes70, align 8
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 117, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull %t, i64 noundef %24)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else67, %if.then69, %if.end61, %if.then65
-  %ack_pings = getelementptr inbounds i8, ptr %t, i64 3380
+  %ack_pings = getelementptr inbounds nuw i8, ptr %t, i64 3380
   %25 = load i8, ptr %ack_pings, align 4
   %tobool73 = trunc i8 %25 to i1
   br i1 %tobool73, label %if.then74, label %if.end95
 
 if.then74:                                        ; preds = %if.end72
-  %ping_ack_count = getelementptr inbounds i8, ptr %t, i64 2328
+  %ping_ack_count = getelementptr inbounds nuw i8, ptr %t, i64 2328
   %26 = load i64, ptr %ping_ack_count, align 8
-  %ping_ack_capacity = getelementptr inbounds i8, ptr %t, i64 2336
+  %ping_ack_capacity = getelementptr inbounds nuw i8, ptr %t, i64 2336
   %27 = load i64, ptr %ping_ack_capacity, align 8
   %cmp75 = icmp eq i64 %26, %27
   br i1 %cmp75, label %if.then76, label %if.then74.if.end87_crit_edge
 
 if.then74.if.end87_crit_edge:                     ; preds = %if.then74
-  %ping_acks90.phi.trans.insert = getelementptr inbounds i8, ptr %t, i64 2344
+  %ping_acks90.phi.trans.insert = getelementptr inbounds nuw i8, ptr %t, i64 2344
   %.pre = load ptr, ptr %ping_acks90.phi.trans.insert, align 8
   br label %if.end87
 
@@ -458,7 +458,7 @@ if.then76:                                        ; preds = %if.then74
   %div44 = lshr i64 %mul79, 1
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %div44, i64 3)
   store i64 %.sroa.speculated, ptr %ping_ack_capacity, align 8
-  %ping_acks = getelementptr inbounds i8, ptr %t, i64 2344
+  %ping_acks = getelementptr inbounds nuw i8, ptr %t, i64 2344
   %28 = load ptr, ptr %ping_acks, align 8
   %mul84 = shl i64 %.sroa.speculated, 3
   %call85 = call ptr @gpr_realloc(ptr noundef %28, i64 noundef %mul84)
@@ -469,11 +469,11 @@ if.then76:                                        ; preds = %if.then74
 if.end87:                                         ; preds = %if.then74.if.end87_crit_edge, %if.then76
   %29 = phi i64 [ %26, %if.then74.if.end87_crit_edge ], [ %.pre53, %if.then76 ]
   %30 = phi ptr [ %.pre, %if.then74.if.end87_crit_edge ], [ %call85, %if.then76 ]
-  %num_pending_induced_frames = getelementptr inbounds i8, ptr %t, i64 3292
+  %num_pending_induced_frames = getelementptr inbounds nuw i8, ptr %t, i64 3292
   %31 = load i32, ptr %num_pending_induced_frames, align 4
   %inc88 = add i32 %31, 1
   store i32 %inc88, ptr %num_pending_induced_frames, align 4
-  %opaque_8bytes89 = getelementptr inbounds i8, ptr %parser, i64 8
+  %opaque_8bytes89 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %32 = load i64, ptr %opaque_8bytes89, align 8
   %inc92 = add i64 %29, 1
   store i64 %inc92, ptr %ping_ack_count, align 8

@@ -210,7 +210,7 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
   %6 = call i32 @uname(ptr noundef nonnull %2) #12
   %7 = call noalias ptr @strdup(ptr noundef nonnull %2) #12
   store ptr %7, ptr @GetJavaProperties.sprops, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 130
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 130
   %9 = call noalias ptr @strdup(ptr noundef nonnull %8) #12
   store ptr %9, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 8), align 8
   store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 16), align 8
@@ -230,7 +230,7 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
 
 15:                                               ; preds = %12, %14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1824
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1824
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i8 %18(ptr noundef nonnull %0) #12
   %.not17 = icmp eq i8 %19, 0
@@ -274,7 +274,7 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
   %35 = load ptr, ptr %33, align 8
   %36 = tail call noalias ptr @strdup(ptr noundef %35) #12
   store ptr %36, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 64), align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @strdup(ptr noundef %38) #12
   store ptr %39, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
@@ -287,7 +287,7 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %53
@@ -359,7 +359,7 @@ sub_0:                                            ; preds = %7
   br i1 %.not181, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %15, label %.tail.thread
@@ -426,7 +426,7 @@ sub_0:                                            ; preds = %7
 
 36:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %37 = getelementptr inbounds ptr, ptr @locale_aliases, i64 %indvars.iv.next.i
+  %37 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %indvars.iv.next.i
   %38 = load ptr, ptr %37, align 16
   %strcmpload.i = load i8, ptr %38, align 1
   %.not.i = icmp eq i8 %strcmpload.i, 0
@@ -435,7 +435,7 @@ sub_0:                                            ; preds = %7
 39:                                               ; preds = %.lr.ph.i
   %40 = and i64 %indvars.iv.i, 4294967294
   %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr @locale_aliases, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
   %45 = add i64 %44, 1
@@ -487,7 +487,7 @@ mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit
   br i1 %.not111, label %64, label %62
 
 62:                                               ; preds = %mapLookup.exit.thread
-  %63 = getelementptr inbounds i8, ptr %61, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 0, ptr %61, align 1
   br label %64
 
@@ -498,7 +498,7 @@ mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit
   br i1 %.not112, label %72, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %65, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %68 = ptrtoint ptr %65 to i64
   %69 = ptrtoint ptr %.082 to i64
   %70 = sub i64 %68, %69
@@ -513,7 +513,7 @@ mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit
   br i1 %.not113, label %80, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %73, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %76 = ptrtoint ptr %73 to i64
   %77 = ptrtoint ptr %.1 to i64
   %78 = sub i64 %76, %77
@@ -539,7 +539,7 @@ mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit
 
 83:                                               ; preds = %.lr.ph.i123
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124, 2
-  %84 = getelementptr inbounds ptr, ptr @language_names, i64 %indvars.iv.next.i126
+  %84 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %indvars.iv.next.i126
   %85 = load ptr, ptr %84, align 16
   %strcmpload.i127 = load i8, ptr %85, align 1
   %.not.i128 = icmp eq i8 %strcmpload.i127, 0
@@ -548,7 +548,7 @@ mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit
 mapLookup.exit130:                                ; preds = %.lr.ph.i123
   %86 = and i64 %indvars.iv.i124, 4294967294
   %87 = or disjoint i64 %86, 1
-  %88 = getelementptr inbounds ptr, ptr @language_names, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %87
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %2, align 8
   br label %97
@@ -585,7 +585,7 @@ mapLookup.exit130:                                ; preds = %.lr.ph.i123
 
 102:                                              ; preds = %.lr.ph.i133
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i134, 2
-  %103 = getelementptr inbounds ptr, ptr @country_names, i64 %indvars.iv.next.i136
+  %103 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %indvars.iv.next.i136
   %104 = load ptr, ptr %103, align 16
   %strcmpload.i137 = load i8, ptr %104, align 1
   %.not.i138 = icmp eq i8 %strcmpload.i137, 0
@@ -594,7 +594,7 @@ mapLookup.exit130:                                ; preds = %.lr.ph.i123
 mapLookup.exit140:                                ; preds = %.lr.ph.i133
   %105 = and i64 %indvars.iv.i134, 4294967294
   %106 = or disjoint i64 %105, 1
-  %107 = getelementptr inbounds ptr, ptr @country_names, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %106
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %4, align 8
   br label %116
@@ -634,14 +634,14 @@ mapLookup.exit140:                                ; preds = %.lr.ph.i133
 120:                                              ; preds = %.lr.ph.i143
   %121 = and i64 %indvars.iv.i144, 4294967294
   %122 = or disjoint i64 %121, 1
-  %123 = getelementptr inbounds ptr, ptr @script_names, i64 %122
+  %123 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %122
   %124 = load ptr, ptr %123, align 8
   store ptr %124, ptr %3, align 8
   br label %mapLookup.exit150
 
 125:                                              ; preds = %.lr.ph.i143
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i144, 2
-  %126 = getelementptr inbounds ptr, ptr @script_names, i64 %indvars.iv.next.i146
+  %126 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %indvars.iv.next.i146
   %127 = load ptr, ptr %126, align 16
   %strcmpload.i147 = load i8, ptr %127, align 1
   %.not.i148 = icmp eq i8 %strcmpload.i147, 0

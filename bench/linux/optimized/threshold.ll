@@ -55,7 +55,7 @@ define internal void @default_threshold_interrupt() #0 align 16 {
 define dso_local void @sysvec_threshold(ptr noundef %0) local_unnamed_addr #1 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #10
   tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #10, !srcloc !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -117,7 +117,7 @@ define internal void @__sysvec_threshold(ptr nocapture readnone %0) #3 align 16 
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_threshold_apic_entry(ptr noundef %13, i32 noundef 249) #10
   br label %15
@@ -160,7 +160,7 @@ define internal void @__sysvec_threshold(ptr nocapture readnone %0) #3 align 16 
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @__SCT__tp_func_threshold_apic_exit(ptr noundef %35, i32 noundef 249) #10
   br label %37
@@ -204,7 +204,7 @@ define dso_local void @mce_inherit_storm(i32 noundef %0) local_unnamed_addr #3 a
   %5 = getelementptr [64 x %struct.storm_bank], ptr %3, i64 0, i64 %4
   store i64 -1, ptr %5, align 8
   %6 = load volatile i64, ptr @jiffies, align 64
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %6, ptr %7, align 8
   ret void
 }
@@ -233,7 +233,7 @@ define dso_local void @cmci_storm_begin(i32 noundef %0) local_unnamed_addr #3 al
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 %4) #10, !srcloc !32
   %7 = getelementptr [64 x %struct.storm_bank], ptr %3, i64 0, i64 %4, i32 2
   store i8 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 1536
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1536
   %9 = load i8, ptr %8, align 8
   %10 = add i8 %9, 1
   store i8 %10, ptr %8, align 8
@@ -261,7 +261,7 @@ define dso_local void @cmci_storm_end(i32 noundef %0) local_unnamed_addr #3 alig
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 %4) #10, !srcloc !35
   %7 = getelementptr [64 x %struct.storm_bank], ptr %3, i64 0, i64 %4
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 0, ptr %8, align 8
   %9 = tail call i8 asm sideeffect "xaddb $0, %gs:$1", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @storm_desc, i64 1536), i8 -1, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @storm_desc, i64 1536)) #10, !srcloc !36
   %10 = icmp eq i8 %9, 1
@@ -280,23 +280,23 @@ define dso_local void @mce_track_storm(ptr noundef %0) local_unnamed_addr #3 ali
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @storm_desc) #11, !srcloc !37
   %3 = inttoptr i64 %2 to ptr
   %4 = load volatile i64, ptr @jiffies, align 64
-  %5 = getelementptr inbounds i8, ptr %0, i64 65
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [64 x %struct.storm_bank], ptr %3, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 17
   %10 = load i8, ptr %9, align 1, !range !38, !noundef !39
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %76
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load i8, ptr %13, align 8, !range !38, !noundef !39
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %4, 1000
   %20 = sub i64 %19, %18

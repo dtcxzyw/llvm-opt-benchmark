@@ -27,23 +27,23 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.flock, align 8
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %198, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, -769
   store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr %struct.mca_common_ompio_io_array_t, ptr %5, i64 %16
@@ -53,7 +53,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr i8, ptr %17, i64 -8
   %22 = load i64, ptr %21, align 8
   %23 = add nsw i64 %22, %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %23, %26
@@ -73,14 +73,14 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %34, %7
-  %36 = getelementptr inbounds i8, ptr %0, i64 304
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 1
   %39 = load ptr, ptr %4, align 8
   br i1 %38, label %40, label %164
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %wide.trip.count = zext nneg i32 %37 to i64
@@ -91,11 +91,11 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %.04769 = phi i64 [ %43, %40 ], [ %51, %44 ]
   %.04868 = phi i64 [ 0, %40 ], [ %48, %44 ]
   %.04967 = phi i64 [ 0, %40 ], [ %53, %44 ]
-  %45 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %39, i64 %indvars.iv
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %45 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %39, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %.04868
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %.04967, %.04769
@@ -128,7 +128,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %68, label %.critedge, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 2048
   %.not55 = icmp eq i32 %72, 0
@@ -156,20 +156,20 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
 
 77:                                               ; preds = %.lr.ph.i
   %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %78, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %78, i64 %indvars.iv.i
   %80 = load ptr, ptr %79, align 8
   store ptr %80, ptr %.086108.i, align 8
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %81, i64 %indvars.iv.i, i32 2
+  %82 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %81, i64 %indvars.iv.i, i32 2
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.086108.i, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.086108.i, i64 8
   store i64 %83, ptr %84, align 8
   %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %85, i64 %indvars.iv.i
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %86 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %85, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
-  %90 = getelementptr inbounds i8, ptr %86, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = add nsw i64 %91, %89
   br label %93
@@ -206,15 +206,15 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %107, i64 %indvars.iv.i
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %108 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %107, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = ptrtoint ptr %110 to i64
-  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %113 = load i64, ptr %112, align 8
   %114 = add nsw i64 %113, %111
-  %115 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %107, i64 %indvars.iv.next.i
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %115 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %107, i64 %indvars.iv.next.i
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %117 to i64
   %119 = icmp eq i64 %114, %118
@@ -228,16 +228,16 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %124 = getelementptr inbounds %struct.iovec, ptr %.187.i, i64 %123
   store ptr %122, ptr %124, align 8
   %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %125, i64 %indvars.iv.next.i, i32 2
+  %126 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %125, i64 %indvars.iv.next.i, i32 2
   %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %124, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i64 %127, ptr %128, align 8
   %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %129, i64 %indvars.iv.i
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %130 = getelementptr inbounds nuw %struct.mca_common_ompio_io_array_t, ptr %129, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = ptrtoint ptr %132 to i64
-  %134 = getelementptr inbounds i8, ptr %130, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %135 = load i64, ptr %134, align 8
   %136 = add nsw i64 %135, %133
   %137 = add nsw i32 %.184.i, 1
@@ -299,9 +299,9 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 164:                                              ; preds = %35
-  %165 = getelementptr inbounds i8, ptr %39, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %39, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = ptrtoint ptr %168 to i64
   %170 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %169, i64 noundef %166, i32 noundef 10, ptr noundef nonnull %3) #9
@@ -330,10 +330,10 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %180 = load ptr, ptr %4, align 8
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 %.03135.i
-  %183 = getelementptr inbounds i8, ptr %180, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %184 = load i64, ptr %183, align 8
   %185 = sub i64 %184, %.03135.i
-  %186 = getelementptr inbounds i8, ptr %180, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = ptrtoint ptr %187 to i64
   %189 = add i64 %.03135.i, %188
@@ -380,13 +380,13 @@ declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load i32, ptr %4, align 8
   %.not148 = icmp sgt i32 %5, 0
   br i1 %.not148, label %.lr.ph155, label %._crit_edge156
 
 .lr.ph155:                                        ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %7
 
 7:                                                ; preds = %.lr.ph155, %._crit_edge146
@@ -408,10 +408,10 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
 16:                                               ; preds = %7, %29
   %indvars.iv = phi i64 [ %10, %7 ], [ %indvars.iv.next, %29 ]
   %17 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %9, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %20, %13
   %24 = add i64 %23, %22
@@ -437,10 +437,10 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %32 = add i32 %.2104, 1
   %33 = sext i32 %.2104 to i64
   %34 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %9, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %34, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %37, %13
   %41 = add i64 %40, %39
@@ -525,11 +525,11 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %.1108140 = phi i64 [ %80, %.lr.ph143 ], [ %.0107149, %._crit_edge ]
   %70 = load ptr, ptr %6, align 8
   %71 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %70, i64 %indvars.iv171
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %74, %69
-  %76 = getelementptr inbounds i8, ptr %71, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %.1106, i64 %75
   %79 = load ptr, ptr %71, align 8

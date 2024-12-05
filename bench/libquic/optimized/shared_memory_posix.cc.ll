@@ -70,13 +70,13 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN4base25SharedMemoryCreateOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 9), (16, 26)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %open_existing_deprecated = getelementptr inbounds i8, ptr %this, i64 8
+  %open_existing_deprecated = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %open_existing_deprecated, align 8
-  %size = getelementptr inbounds i8, ptr %this, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %size, align 8
-  %executable = getelementptr inbounds i8, ptr %this, i64 24
+  %executable = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %executable, align 8
-  %share_read_only = getelementptr inbounds i8, ptr %this, i64 25
+  %share_read_only = getelementptr inbounds nuw i8, ptr %this, i64 25
   store i8 0, ptr %share_read_only, align 1
   ret void
 }
@@ -85,10 +85,10 @@ entry:
 define dso_local void @_ZN4base12SharedMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %this, align 8
-  %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
+  %readonly_mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 -1, ptr %readonly_mapped_file_, align 4
-  %mapped_size_ = getelementptr inbounds i8, ptr %this, i64 8
-  %requested_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %mapped_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %requested_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %requested_size_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mapped_size_, i8 0, i64 17, i1 false)
   ret void
@@ -100,13 +100,13 @@ entry:
   %frombool = zext i1 %read_only to i8
   %0 = load i32, ptr %handle, align 4
   store i32 %0, ptr %this, align 8
-  %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
+  %readonly_mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 -1, ptr %readonly_mapped_file_, align 4
-  %mapped_size_ = getelementptr inbounds i8, ptr %this, i64 8
-  %read_only_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mapped_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %read_only_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_, i8 0, i64 16, i1 false)
   store i8 %frombool, ptr %read_only_, align 8
-  %requested_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %requested_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %requested_size_, align 8
   ret void
 }
@@ -114,13 +114,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base12SharedMemoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %memory_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %memory_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %_ZN4base12SharedMemory5UnmapEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mapped_size_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mapped_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %mapped_size_.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_.i, i8 0, i64 16, i1 false)
@@ -144,13 +144,13 @@ terminate.lpad:                                   ; preds = %_ZN4base12SharedMem
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4base12SharedMemory5UnmapEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %memory_ = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %memory_, align 8
   %cmp = icmp ne ptr %0, null
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mapped_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mapped_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %mapped_size_, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_, i8 0, i64 16, i1 false)
@@ -205,7 +205,7 @@ if.then8:                                         ; preds = %land.lhs.true, %do.
 cond.false:                                       ; preds = %if.then8
   %call11 = tail call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 404, i32 noundef 2, i32 noundef %call11)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.11)
           to label %cleanup.action unwind label %lpad
 
@@ -223,7 +223,7 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end19, %entry
-  %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
+  %readonly_mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i32, ptr %readonly_mapped_file_, align 4
   %cmp22 = icmp sgt i32 %3, 0
   br i1 %cmp22, label %do.body25, label %if.end60
@@ -250,7 +250,7 @@ if.then37:                                        ; preds = %land.lhs.true29, %d
 cond.false40:                                     ; preds = %if.then37
   %call43 = call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp42, ptr noundef nonnull @.str, i32 noundef 409, i32 noundef 2, i32 noundef %call43)
-  %stream_.i.i6 = getelementptr inbounds i8, ptr %ref.tmp42, i64 16
+  %stream_.i.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp42, i64 16
   %call49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i6, ptr noundef nonnull @.str.11)
           to label %cleanup.action53 unwind label %lpad45
 
@@ -362,12 +362,12 @@ entry:
   %options.i = alloca %"struct.base::SharedMemoryCreateOptions", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %options.i)
   store ptr null, ptr %options.i, align 8
-  %open_existing_deprecated.i.i = getelementptr inbounds i8, ptr %options.i, i64 8
+  %open_existing_deprecated.i.i = getelementptr inbounds nuw i8, ptr %options.i, i64 8
   store i8 0, ptr %open_existing_deprecated.i.i, align 8
-  %size.i.i = getelementptr inbounds i8, ptr %options.i, i64 16
-  %executable.i.i = getelementptr inbounds i8, ptr %options.i, i64 24
+  %size.i.i = getelementptr inbounds nuw i8, ptr %options.i, i64 16
+  %executable.i.i = getelementptr inbounds nuw i8, ptr %options.i, i64 24
   store i8 0, ptr %executable.i.i, align 8
-  %share_read_only.i.i = getelementptr inbounds i8, ptr %options.i, i64 25
+  %share_read_only.i.i = getelementptr inbounds nuw i8, ptr %options.i, i64 25
   store i8 0, ptr %share_read_only.i.i, align 1
   store i64 %size, ptr %size.i.i, align 8
   %call.i = call noundef zeroext i1 @_ZN4base12SharedMemory6CreateERKNS_25SharedMemoryCreateOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(26) %options.i)
@@ -382,13 +382,13 @@ land.rhs:                                         ; preds = %entry
   br i1 %or.cond.i.i, label %land.end, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %land.rhs
-  %memory_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %memory_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %land.end
 
 if.end6.i.i:                                      ; preds = %if.end4.i.i
-  %read_only_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %read_only_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i8, ptr %read_only_.i.i, align 8
   %tobool7.i.i = trunc i8 %2 to i1
   %or.i.i = select i1 %tobool7.i.i, i32 1, i32 3
@@ -401,7 +401,7 @@ if.end6.i.i:                                      ; preds = %if.end4.i.i
   ]
 
 if.then16.i.i:                                    ; preds = %if.end6.i.i
-  %mapped_size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mapped_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %size, ptr %mapped_size_.i.i, align 8
   br label %land.end
 
@@ -424,7 +424,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp1 = icmp slt i64 %1, 0
   br i1 %cmp1, label %return, label %if.end3
@@ -457,7 +457,7 @@ if.end:
   %ref.tmp230 = alloca %"class.logging::LogMessage", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp251 = alloca %"class.base::ScopedGeneric", align 4
-  %size = getelementptr inbounds i8, ptr %options, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %options, i64 16
   %0 = load i64, ptr %size, align 8
   %1 = add i64 %0, -2147483648
   %or.cond87 = icmp ult i64 %1, -2147483647
@@ -485,7 +485,7 @@ if.then18:                                        ; preds = %lor.lhs.false, %inv
 
 .noexc:                                           ; preds = %if.then18
   store ptr null, ptr %path_unlinker.i, align 8
-  %executable.i = getelementptr inbounds i8, ptr %options, i64 24
+  %executable.i = getelementptr inbounds nuw i8, ptr %options, i64 24
   %3 = load i8, ptr %executable.i, align 8
   %tobool.i = trunc i8 %3 to i1
   %call.i = invoke noundef zeroext i1 @_ZN4base15GetShmemTempDirEbPNS_8FilePathE(i1 noundef zeroext %tobool.i, ptr noundef nonnull %directory.i)
@@ -532,7 +532,7 @@ terminate.lpad.i.i:                               ; preds = %lpad1.i
 
 if.then10.i:                                      ; preds = %if.end.i.i
   store ptr %path, ptr %path_unlinker.i, align 8
-  %share_read_only.i = getelementptr inbounds i8, ptr %options, i64 25
+  %share_read_only.i = getelementptr inbounds nuw i8, ptr %options, i64 25
   %6 = load i8, ptr %share_read_only.i, align 1
   %tobool11.i = trunc i8 %6 to i1
   br i1 %tobool11.i, label %do.body.i, label %cleanup.i
@@ -634,7 +634,7 @@ land.rhs:                                         ; preds = %invoke.cont33
   br i1 %cmp37, label %do.body, label %land.lhs.true, !llvm.loop !8
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %open_existing_deprecated = getelementptr inbounds i8, ptr %options, i64 8
+  %open_existing_deprecated = getelementptr inbounds nuw i8, ptr %options, i64 8
   %13 = load i8, ptr %open_existing_deprecated, align 8
   %tobool39 = trunc i8 %13 to i1
   br i1 %tobool39, label %do.body42, label %if.end86
@@ -665,7 +665,7 @@ land.lhs.true59:                                  ; preds = %do.end54
   br i1 %cmp61.not, label %lor.lhs.false62, label %if.then67
 
 lor.lhs.false62:                                  ; preds = %land.lhs.true59
-  %st_uid = getelementptr inbounds i8, ptr %sb, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %sb, i64 28
   %15 = load i32, ptr %st_uid, align 4
   %cmp63.not = icmp eq i32 %15, %call56
   %cmp66.not = icmp eq i32 %15, %call57
@@ -684,7 +684,7 @@ cond.false:                                       ; preds = %invoke.cont68
           to label %invoke.cont73 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %cond.false
-  %stream_.i29 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
+  %stream_.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 8
   %call78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i29, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad74
 
@@ -706,7 +706,7 @@ lpad74:                                           ; preds = %invoke.cont73
 if.end86:                                         ; preds = %invoke.cont33, %do.end54, %lor.lhs.false62, %land.lhs.true
   %fd.0 = phi i32 [ -1, %land.lhs.true ], [ %call47, %lor.lhs.false62 ], [ %call47, %do.end54 ], [ %call34, %invoke.cont33 ]
   %fix_size.1 = phi i1 [ true, %land.lhs.true ], [ false, %lor.lhs.false62 ], [ false, %do.end54 ], [ true, %invoke.cont33 ]
-  %share_read_only = getelementptr inbounds i8, ptr %options, i64 25
+  %share_read_only = getelementptr inbounds nuw i8, ptr %options, i64 25
   %19 = load i8, ptr %share_read_only, align 1
   %tobool87 = trunc i8 %19 to i1
   br i1 %tobool87, label %do.body91, label %if.end112
@@ -758,7 +758,7 @@ if.then121:                                       ; preds = %if.end117.thread, %
   br i1 %cmp125.not, label %if.end127, label %cleanup
 
 if.end127:                                        ; preds = %if.then121
-  %st_size = getelementptr inbounds i8, ptr %stat, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %stat, i64 48
   %21 = load i64, ptr %st_size, align 8
   %22 = load i64, ptr %size, align 8
   %cmp129.not = icmp eq i64 %21, %22
@@ -799,7 +799,7 @@ invoke.cont160:                                   ; preds = %cond.false156
           to label %invoke.cont162 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont162:                                   ; preds = %invoke.cont160
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp159, i64 16
   %call168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont167 unwind label %lpad164
 
@@ -841,7 +841,7 @@ invoke.cont198:                                   ; preds = %cond.false194
           to label %invoke.cont200 unwind label %lpad184
 
 invoke.cont200:                                   ; preds = %invoke.cont198
-  %stream_.i.i35 = getelementptr inbounds i8, ptr %ref.tmp197, i64 16
+  %stream_.i.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 16
   %call206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i35, ptr noundef nonnull @.str.5)
           to label %invoke.cont205 unwind label %lpad202
 
@@ -870,7 +870,7 @@ cond.false227:                                    ; preds = %invoke.cont224
           to label %invoke.cont231 unwind label %lpad184
 
 invoke.cont231:                                   ; preds = %cond.false227
-  %stream_.i38 = getelementptr inbounds i8, ptr %ref.tmp230, i64 8
+  %stream_.i38 = getelementptr inbounds nuw i8, ptr %ref.tmp230, i64 8
   %call237 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i38, ptr noundef nonnull @.str.7)
           to label %invoke.cont236 unwind label %lpad233
 
@@ -916,7 +916,7 @@ ehcleanup:                                        ; preds = %lpad233, %lpad202, 
 
 invoke.cont253.sink.split:                        ; preds = %if.end127, %if.end150
   %.sink = phi i64 [ %25, %if.end150 ], [ %21, %if.end127 ]
-  %requested_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %requested_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %.sink, ptr %requested_size_, align 8
   br label %invoke.cont253
 
@@ -1087,7 +1087,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   %3 = load ptr, ptr %agg.tmp, align 8
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %4, align 8
   invoke void @_ZNK4base8FilePath11AppendASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull sret(%"class.base::FilePath") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %temp_dir, ptr %3, i64 %5)
           to label %invoke.cont31 unwind label %lpad29
@@ -1234,9 +1234,9 @@ if.then25:                                        ; preds = %if.end16
   br i1 %cmp.not, label %lor.lhs.false, label %if.then35
 
 lor.lhs.false:                                    ; preds = %if.then25
-  %st_ino = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %st, i64 8
   %4 = load i64, ptr %st_ino, align 8
-  %st_ino33 = getelementptr inbounds i8, ptr %readonly_st, i64 8
+  %st_ino33 = getelementptr inbounds nuw i8, ptr %readonly_st, i64 8
   %5 = load i64, ptr %st_ino33, align 8
   %cmp34.not = icmp eq i64 %4, %5
   br i1 %cmp34.not, label %do.body.preheader, label %if.then35
@@ -1247,7 +1247,7 @@ if.then35:                                        ; preds = %lor.lhs.false, %if.
 
 cond.false:                                       ; preds = %if.then35
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp40, ptr noundef nonnull @.str, i32 noundef 434, i32 noundef 2)
-  %stream_.i5 = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
+  %stream_.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp40, i64 8
   %call46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i5, ptr noundef nonnull @.str.12)
           to label %cleanup.action unwind label %lpad42
 
@@ -1285,7 +1285,7 @@ if.then64:                                        ; preds = %if.then61
 
 cond.false68:                                     ; preds = %if.then64
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp71, ptr noundef nonnull @.str, i32 noundef 442, i32 noundef 1)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp71, i64 8
   %call78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.13)
           to label %cleanup.action82 unwind label %lpad74
 
@@ -1305,7 +1305,7 @@ if.end89.critedge:                                ; preds = %do.body
 invoke.cont90:                                    ; preds = %if.then61, %if.end89.critedge
   %11 = load i32, ptr %readonly_fd, align 4
   store i32 -1, ptr %readonly_fd, align 4
-  %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
+  %readonly_mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %11, ptr %readonly_mapped_file_, align 4
   br label %return
 
@@ -1405,7 +1405,7 @@ lpad:                                             ; preds = %if.end, %entry
   br label %ehcleanup30
 
 if.end:                                           ; preds = %invoke.cont
-  %read_only_ = getelementptr inbounds i8, ptr %this, i64 24
+  %read_only_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 %frombool, ptr %read_only_, align 8
   %cond = select i1 %read_only, ptr @.str.9, ptr @.str.10
   %call5 = invoke noundef ptr @_ZN4base8OpenFileERKNS_8FilePathEPKc(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull %cond)
@@ -1511,13 +1511,13 @@ entry:
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %memory_ = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %memory_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end4
-  %read_only_ = getelementptr inbounds i8, ptr %this, i64 24
+  %read_only_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i8, ptr %read_only_, align 8
   %tobool7 = trunc i8 %2 to i1
   %or = select i1 %tobool7, i32 1, i32 3
@@ -1530,7 +1530,7 @@ if.end6:                                          ; preds = %if.end4
   ]
 
 if.then16:                                        ; preds = %if.end6
-  %mapped_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mapped_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %bytes, ptr %mapped_size_, align 8
   br label %return
 
@@ -1593,7 +1593,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
+  %readonly_mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %readonly_mapped_file_, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v1.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v2.addr.i)
@@ -1646,19 +1646,19 @@ if.then11:                                        ; preds = %land.rhs, %do.end
   br i1 %close_self, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then11
-  %memory_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %memory_.i, align 8
   %cmp.i.not = icmp eq ptr %4, null
   br i1 %cmp.i.not, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end15:                                         ; preds = %do.end
   store i32 %call7, ptr %new_handle, align 4
-  %auto_close = getelementptr inbounds i8, ptr %new_handle, i64 4
+  %auto_close = getelementptr inbounds nuw i8, ptr %new_handle, i64 4
   store i8 1, ptr %auto_close, align 4
   br i1 %close_self, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end15
-  %memory_.i6 = getelementptr inbounds i8, ptr %this, i64 16
+  %memory_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %memory_.i6, align 8
   %cmp.i7.not = icmp eq ptr %5, null
   br i1 %cmp.i7.not, label %return.sink.split, label %return.sink.split.sink.split
@@ -1666,7 +1666,7 @@ if.then17:                                        ; preds = %if.end15
 return.sink.split.sink.split:                     ; preds = %if.then17, %if.then12
   %.sink = phi ptr [ %4, %if.then12 ], [ %5, %if.then17 ]
   %cmp1016.ph.ph = phi i1 [ false, %if.then12 ], [ true, %if.then17 ]
-  %mapped_size_.i9 = getelementptr inbounds i8, ptr %this, i64 8
+  %mapped_size_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %mapped_size_.i9, align 8
   %call.i10 = call i32 @munmap(ptr noundef nonnull %.sink, i64 noundef %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_.i9, i8 0, i64 16, i1 false)
@@ -1708,7 +1708,7 @@ if.then.i:                                        ; preds = %if.then
 cond.false.i:                                     ; preds = %if.then.i
   %call5.i = tail call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp4.i, ptr noundef nonnull @.str, i32 noundef 50, i32 noundef 1, i32 noundef %call5.i)
-  %stream_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 16
+  %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 16
   %call8.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i.i, ptr noundef nonnull @.str.17)
           to label %cleanup.action.i unwind label %lpad.i
 

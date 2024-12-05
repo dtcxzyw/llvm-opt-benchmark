@@ -109,7 +109,7 @@ define linkonce_odr hidden noundef ptr @_ZN24hb_shapers_lazy_loader_t6createEv()
 19:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ 1, %37 ]
   %.147 = phi i32 [ %.037, %.lr.ph ], [ %.2, %37 ]
-  %20 = getelementptr inbounds %struct.hb_shaper_entry_t, ptr %6, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %6, i64 %indvars.iv
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
   %sext = shl i64 %21, 32
   %22 = ashr exact i64 %sext, 32
@@ -125,9 +125,9 @@ define linkonce_odr hidden noundef ptr @_ZN24hb_shapers_lazy_loader_t6createEv()
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %28 = add i32 %.147, 1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.hb_shaper_entry_t, ptr %6, i64 %29
+  %30 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %6, i64 %29
   %31 = zext i32 %.147 to i64
-  %32 = getelementptr inbounds %struct.hb_shaper_entry_t, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %6, i64 %31
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = sub i32 %33, %.147
   %35 = zext i32 %34 to i64
@@ -145,7 +145,7 @@ define linkonce_odr hidden noundef ptr @_ZN24hb_shapers_lazy_loader_t6createEv()
   %.1.lcssa = phi i32 [ %.037, %13 ], [ %.2, %37 ]
   %39 = load i8, ptr %.036, align 1
   %.not46 = icmp eq i8 %39, 0
-  %40 = getelementptr inbounds i8, ptr %.036, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   br i1 %.not46, label %.loopexit, label %8, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %5, %0, %3

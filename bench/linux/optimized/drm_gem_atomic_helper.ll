@@ -38,14 +38,14 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_gem_simp
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
-  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 1, ptr elementtype(i32) %8) #4, !srcloc !5
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 1, ptr nonnull elementtype(i32) %8) #4, !srcloc !5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11, !prof !6
 
@@ -57,20 +57,20 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
 
 15:                                               ; preds = %11, %7
   %16 = phi i32 [ 2, %7 ], [ 1, %11 ]
-  tail call void @refcount_warn_saturate(ptr noundef %8, i32 noundef %16) #4
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %8, i32 noundef %16) #4
   br label %17
 
 17:                                               ; preds = %15, %11, %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread18, label %21
 
 21:                                               ; preds = %17
   %22 = zext i1 %6 to i32
-  %23 = getelementptr inbounds i8, ptr %19, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.loopexit, label %.preheader
@@ -87,7 +87,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   br i1 %33, label %73, label %34
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %32, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 248
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @dma_resv_get_singleton(ptr noundef %36, i32 noundef %22, ptr noundef nonnull %3) #4
   %38 = icmp eq i32 %37, 0
@@ -124,9 +124,9 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   %54 = add nuw nsw i64 %29, 1
   %55 = load ptr, ptr %18, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 5
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = icmp samesign ult i64 %54, %60
@@ -139,8 +139,8 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   br i1 %64, label %.thread13, label %65
 
 65:                                               ; preds = %.loopexit
-  %66 = getelementptr inbounds i8, ptr %63, i64 56
-  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %66, i32 -1, ptr elementtype(i32) %66) #4, !srcloc !12
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 56
+  %67 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %66, i32 -1, ptr nonnull elementtype(i32) %66) #4, !srcloc !12
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %72, label %69
 
@@ -149,12 +149,12 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   br i1 %70, label %.thread13, label %71, !prof !7
 
 71:                                               ; preds = %69
-  call void @refcount_warn_saturate(ptr noundef %66, i32 noundef 3) #4
+  call void @refcount_warn_saturate(ptr noundef nonnull %66, i32 noundef 3) #4
   br label %.thread13
 
 72:                                               ; preds = %65
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
-  call void @dma_fence_release(ptr noundef %66) #4
+  call void @dma_fence_release(ptr noundef nonnull %66) #4
   br label %.thread13
 
 .thread13:                                        ; preds = %69, %71, %72, %.loopexit
@@ -169,8 +169,8 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
 
 75:                                               ; preds = %.thread14, %73
   %.ph16 = phi i32 [ -12, %.thread14 ], [ %.ph, %73 ]
-  %76 = getelementptr inbounds i8, ptr %30, i64 56
-  %77 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %76, i32 -1, ptr elementtype(i32) %76) #4, !srcloc !12
+  %76 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %77 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %76, i32 -1, ptr nonnull elementtype(i32) %76) #4, !srcloc !12
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %82, label %79
 
@@ -179,12 +179,12 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr nocapture readnone %0,
   br i1 %80, label %.thread18, label %81, !prof !7
 
 81:                                               ; preds = %79
-  call void @refcount_warn_saturate(ptr noundef %76, i32 noundef 3) #4
+  call void @refcount_warn_saturate(ptr noundef nonnull %76, i32 noundef 3) #4
   br label %.thread18
 
 82:                                               ; preds = %75
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
-  call void @dma_fence_release(ptr noundef %76) #4
+  call void @dma_fence_release(ptr noundef nonnull %76) #4
   br label %.thread18
 
 .thread18:                                        ; preds = %79, %81, %82, %73, %.thread13, %17
@@ -209,12 +209,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_gem_duplicate_shadow_plane_state(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load ptr, ptr %3, align 8
   tail call void @__drm_atomic_helper_plane_duplicate_state(ptr noundef %0, ptr noundef %1) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
-  %6 = getelementptr inbounds i8, ptr %1, i64 176
-  tail call void @drm_format_conv_state_copy(ptr noundef %5, ptr noundef %6) #4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @drm_format_conv_state_copy(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   ret void
 }
 
@@ -226,7 +226,7 @@ declare dso_local void @drm_format_conv_state_copy(ptr noundef, ptr noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_gem_duplicate_shadow_plane_state(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -240,9 +240,9 @@ define dso_local noundef ptr @drm_gem_duplicate_shadow_plane_state(ptr noundef %
 9:                                                ; preds = %5
   %10 = load ptr, ptr %2, align 8
   tail call void @__drm_atomic_helper_plane_duplicate_state(ptr noundef %0, ptr noundef nonnull %7) #4
-  %11 = getelementptr inbounds i8, ptr %10, i64 176
-  %12 = getelementptr inbounds i8, ptr %7, i64 176
-  tail call void @drm_format_conv_state_copy(ptr noundef %11, ptr noundef %12) #4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  tail call void @drm_format_conv_state_copy(ptr noundef nonnull %11, ptr noundef nonnull %12) #4
   br label %13
 
 13:                                               ; preds = %9, %5, %1
@@ -252,8 +252,8 @@ define dso_local noundef ptr @drm_gem_duplicate_shadow_plane_state(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_gem_destroy_shadow_plane_state(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @drm_format_conv_state_release(ptr noundef %2) #4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @drm_format_conv_state_release(ptr noundef nonnull %2) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef %0) #4
   ret void
 }
@@ -266,8 +266,8 @@ declare dso_local void @__drm_atomic_helper_plane_destroy_state(ptr noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_destroy_shadow_plane_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 176
-  tail call void @drm_format_conv_state_release(ptr noundef %3) #4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @drm_format_conv_state_release(ptr noundef nonnull %3) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef %1) #4
   tail call void @kfree(ptr noundef %1) #4
   ret void
@@ -279,8 +279,8 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_gem_reset_shadow_plane(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @__drm_atomic_helper_plane_reset(ptr noundef %0, ptr noundef %1) #4
-  %3 = getelementptr inbounds i8, ptr %1, i64 176
-  tail call void @drm_format_conv_state_init(ptr noundef %3) #4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @drm_format_conv_state_init(ptr noundef nonnull %3) #4
   ret void
 }
 
@@ -292,14 +292,14 @@ declare dso_local void @drm_format_conv_state_init(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_reset_shadow_plane(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 176
-  tail call void @drm_format_conv_state_release(ptr noundef %6) #4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  tail call void @drm_format_conv_state_release(ptr noundef nonnull %6) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef nonnull %3) #4
   tail call void @kfree(ptr noundef nonnull %3) #4
   store ptr null, ptr %2, align 8
@@ -313,8 +313,8 @@ define dso_local void @drm_gem_reset_shadow_plane(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %7
   tail call void @__drm_atomic_helper_plane_reset(ptr noundef %0, ptr noundef nonnull %9) #4
-  %12 = getelementptr inbounds i8, ptr %9, i64 176
-  tail call void @drm_format_conv_state_init(ptr noundef %12) #4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  tail call void @drm_format_conv_state_init(ptr noundef nonnull %12) #4
   br label %13
 
 13:                                               ; preds = %11, %7
@@ -323,15 +323,15 @@ define dso_local void @drm_gem_reset_shadow_plane(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_begin_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 200
-  %8 = getelementptr inbounds i8, ptr %1, i64 264
-  %9 = tail call i32 @drm_gem_fb_vmap(ptr noundef nonnull %4, ptr noundef %7, ptr noundef %8) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %9 = tail call i32 @drm_gem_fb_vmap(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   br label %10
 
 10:                                               ; preds = %6, %2
@@ -344,14 +344,14 @@ declare dso_local i32 @drm_gem_fb_vmap(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_end_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 200
-  tail call void @drm_gem_fb_vunmap(ptr noundef nonnull %4, ptr noundef %7) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  tail call void @drm_gem_fb_vunmap(ptr noundef nonnull %4, ptr noundef nonnull %7) #4
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -363,15 +363,15 @@ declare dso_local void @drm_gem_fb_vunmap(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_simple_kms_begin_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 200
-  %8 = getelementptr inbounds i8, ptr %1, i64 264
-  %9 = tail call i32 @drm_gem_fb_vmap(ptr noundef nonnull %4, ptr noundef %7, ptr noundef %8) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %9 = tail call i32 @drm_gem_fb_vmap(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   br label %10
 
 10:                                               ; preds = %6, %2
@@ -381,14 +381,14 @@ define dso_local i32 @drm_gem_simple_kms_begin_shadow_fb_access(ptr nocapture re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_simple_kms_end_shadow_fb_access(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 200
-  tail call void @drm_gem_fb_vunmap(ptr noundef nonnull %4, ptr noundef %7) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  tail call void @drm_gem_fb_vunmap(ptr noundef nonnull %4, ptr noundef nonnull %7) #4
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -397,15 +397,15 @@ define dso_local void @drm_gem_simple_kms_end_shadow_fb_access(ptr nocapture rea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_simple_kms_reset_shadow_plane(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1648
-  %3 = getelementptr inbounds i8, ptr %0, i64 2888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 176
-  tail call void @drm_format_conv_state_release(ptr noundef %7) #4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  tail call void @drm_format_conv_state_release(ptr noundef nonnull %7) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef nonnull %4) #4
   tail call void @kfree(ptr noundef nonnull %4) #4
   store ptr null, ptr %3, align 8
@@ -418,9 +418,9 @@ define dso_local void @drm_gem_simple_kms_reset_shadow_plane(ptr noundef %0) #0 
   br i1 %11, label %drm_gem_reset_shadow_plane.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @__drm_atomic_helper_plane_reset(ptr noundef %2, ptr noundef nonnull %10) #4
-  %13 = getelementptr inbounds i8, ptr %10, i64 176
-  tail call void @drm_format_conv_state_init(ptr noundef %13) #4
+  tail call void @__drm_atomic_helper_plane_reset(ptr noundef nonnull %2, ptr noundef nonnull %10) #4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  tail call void @drm_format_conv_state_init(ptr noundef nonnull %13) #4
   br label %drm_gem_reset_shadow_plane.exit
 
 drm_gem_reset_shadow_plane.exit:                  ; preds = %8, %12
@@ -429,8 +429,8 @@ drm_gem_reset_shadow_plane.exit:                  ; preds = %8, %12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_gem_simple_kms_duplicate_shadow_plane_state(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1648
-  %3 = getelementptr inbounds i8, ptr %0, i64 2888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
@@ -443,10 +443,10 @@ define dso_local noundef ptr @drm_gem_simple_kms_duplicate_shadow_plane_state(pt
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %3, align 8
-  tail call void @__drm_atomic_helper_plane_duplicate_state(ptr noundef %2, ptr noundef nonnull %8) #4
-  %12 = getelementptr inbounds i8, ptr %11, i64 176
-  %13 = getelementptr inbounds i8, ptr %8, i64 176
-  tail call void @drm_format_conv_state_copy(ptr noundef %12, ptr noundef %13) #4
+  tail call void @__drm_atomic_helper_plane_duplicate_state(ptr noundef nonnull %2, ptr noundef nonnull %8) #4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  tail call void @drm_format_conv_state_copy(ptr noundef nonnull %12, ptr noundef nonnull %13) #4
   br label %14
 
 14:                                               ; preds = %10, %6, %1
@@ -456,8 +456,8 @@ define dso_local noundef ptr @drm_gem_simple_kms_duplicate_shadow_plane_state(pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_simple_kms_destroy_shadow_plane_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 176
-  tail call void @drm_format_conv_state_release(ptr noundef %3) #4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @drm_format_conv_state_release(ptr noundef nonnull %3) #4
   tail call void @__drm_atomic_helper_plane_destroy_state(ptr noundef %1) #4
   tail call void @kfree(ptr noundef %1) #4
   ret void

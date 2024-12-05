@@ -142,8 +142,8 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %77, %113
   %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ 1, %77 ]
-  %82 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
-  %83 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   call void @slartg_(ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16)
   %84 = load float, ptr %16, align 4
   store float %84, ptr %82, align 4
@@ -177,7 +177,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.sink.split
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds float, ptr %40, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
   store float %89, ptr %104, align 4
   %105 = fneg float %85
   %106 = load i32, ptr %19, align 4
@@ -333,7 +333,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph440:                                        ; preds = %.lr.ph440.preheader, %193
   %indvars.iv464 = phi i64 [ 1, %.lr.ph440.preheader ], [ %indvars.iv.next465, %193 ]
-  %186 = getelementptr inbounds float, ptr %30, i64 %indvars.iv464
+  %186 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv464
   %187 = load float, ptr %186, align 4
   %188 = call noundef float @llvm.fabs.f32(float %187)
   %189 = fcmp olt float %188, 0x3E80000000000000
@@ -379,7 +379,7 @@ define void @sbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv467 = phi i64 [ 1, %.lr.ph446 ], [ %indvars.iv.next468.pre-phi, %341 ]
   %.0395.neg444 = phi i32 [ -1, %.lr.ph446 ], [ %.0395.neg, %341 ]
   %.0395443 = phi i32 [ 1, %.lr.ph446 ], [ %.1, %341 ]
-  %211 = getelementptr inbounds float, ptr %31, i64 %indvars.iv467
+  %211 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv467
   %212 = load float, ptr %211, align 4
   %213 = call noundef float @llvm.fabs.f32(float %212)
   %214 = fcmp olt float %213, 0x3E80000000000000
@@ -610,7 +610,7 @@ thread-pre-split:                                 ; preds = %118, %._crit_edge44
   %indvars.iv472 = phi i64 [ %indvars.iv470, %.lr.ph453.preheader ], [ %indvars.iv.next473, %.lr.ph453 ]
   %.0403451 = phi i32 [ %354, %.lr.ph453.preheader ], [ %.1404, %.lr.ph453 ]
   %.0408450 = phi float [ %351, %.lr.ph453.preheader ], [ %.1409, %.lr.ph453 ]
-  %356 = getelementptr inbounds float, ptr %30, i64 %indvars.iv472
+  %356 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv472
   %357 = load float, ptr %356, align 4
   %358 = fcmp ogt float %357, %.0408450
   %.1409 = select i1 %358, float %357, float %.0408450

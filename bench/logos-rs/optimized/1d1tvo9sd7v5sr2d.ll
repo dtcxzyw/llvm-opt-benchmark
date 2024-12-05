@@ -54,20 +54,20 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
   br i1 %23, label %24, label %37
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load ptr, ptr %27, align 8
   store i64 %26, ptr %16, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds { { { [16 x i8], i8, [7 x i8] }, { {} } }, { { { i64, ptr, {} }, i64 } } }, ptr %31, i64 %33
   store ptr %31, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %34, ptr %35, align 8
   %36 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hef5d46fe7eea2844E"(ptr nonnull align 8 %12, ptr align 8 %1)
           to label %41 unwind label %39
@@ -94,16 +94,16 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
 
 42:                                               ; preds = %41
   store ptr %1, ptr %9, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.218.0..sroa_idx, align 8
   store ptr @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.1, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 2, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %10, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %10, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %9, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %46, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %11, ptr nonnull align 8 %10)
           to label %48 unwind label %39
@@ -113,13 +113,13 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %68 unwind label %39
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 2
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %54 = load i32, ptr %53, align 4
   br label %55
 
@@ -129,13 +129,13 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %57 unwind label %39
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %36, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %59 = load i8, ptr %58, align 8
   %60 = icmp eq i8 %59, 2
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %36, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %63 = load i32, ptr %62, align 4
   br label %64
 
@@ -155,9 +155,9 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
 68:                                               ; preds = %47
   %69 = load i64, ptr %16, align 8
   %70 = icmp eq i64 %69, 0
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %74 = load i64, ptr %73, align 8
   br i1 %70, label %75, label %76
 
@@ -187,19 +187,19 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
   br i1 %.not41, label %83, label %90
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %7, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %7, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %87 = load i64, ptr %86, align 8
   store ptr %85, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %87, ptr %88, align 8
   %89 = invoke i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE(ptr nonnull align 8 %16)
           to label %94 unwind label %108
 
 90:                                               ; preds = %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %5, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcc6e36e1e2ae5332E"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
           to label %112 unwind label %101
@@ -215,7 +215,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
 
 96:                                               ; preds = %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %97 = getelementptr inbounds i8, ptr %5, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcc6e36e1e2ae5332E"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
           to label %103 unwind label %101
@@ -263,7 +263,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
   br i1 %114, label %115, label %107
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %7, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %116)
           to label %106 unwind label %79
 
@@ -278,7 +278,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %77 unwind label %110
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %7, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %121) #4
           to label %77 unwind label %110
 
@@ -347,7 +347,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   %18 = alloca [24 x i8], align 8
   %19 = load i64, ptr %2, align 8
   %20 = icmp eq i64 %19, 0
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %4
@@ -360,21 +360,21 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
   br label %.preheader
 
 .preheader:                                       ; preds = %22, %23
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
-  %27 = getelementptr inbounds i8, ptr %11, i64 16
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
-  %29 = getelementptr inbounds i8, ptr %14, i64 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
@@ -504,9 +504,9 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h802
           to label %87 unwind label %77
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %75, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %86 = load i64, ptr %85, align 8
   invoke void @_ZN5alloc6string6String13replace_range17ha73eb89c51540df1E(ptr nonnull align 8 %18, i64 %49, i64 %61, ptr align 1 %84, i64 %86)
           to label %100 unwind label %77

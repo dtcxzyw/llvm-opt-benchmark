@@ -647,7 +647,7 @@ if.then79:                                        ; preds = %if.end76
 
 if.end80:                                         ; preds = %if.then79, %if.end76
   %cmp81 = icmp eq i32 %type, 1
-  %tv_usec = getelementptr inbounds i8, ptr %timeout, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %timeout, i64 8
   br i1 %cmp81, label %for.cond.us, label %for.cond
 
 for.cond.us:                                      ; preds = %if.end80, %do.end124.us
@@ -676,7 +676,7 @@ if.end99.us:                                      ; preds = %do.body.us
   %shl.us = shl nuw i64 1, %sh_prom.us
   %div66.us = lshr i32 %call90.us, 6
   %idxprom112.us = zext nneg i32 %div66.us to i64
-  %arrayidx113.us = getelementptr inbounds [16 x i64], ptr %readfds, i64 0, i64 %idxprom112.us
+  %arrayidx113.us = getelementptr inbounds nuw [16 x i64], ptr %readfds, i64 0, i64 %idxprom112.us
   %add.us = add nuw nsw i32 %call90.us, 1
   br label %do.body103.us
 

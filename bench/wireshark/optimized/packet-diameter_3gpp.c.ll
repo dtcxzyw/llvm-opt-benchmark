@@ -1800,19 +1800,19 @@ define hidden noundef i32 @dissect_diameter_3gpp_core_network_restrictions(ptr n
   br i1 %.not, label %proto_item_set_hidden.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i = icmp eq ptr %10, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -2136,12 +2136,12 @@ define internal noundef i32 @dissect_diameter_3gpp_ms_timezone(ptr noundef %0, p
   %21 = and i8 %20, 3
   %22 = load i32, ptr @hf_diameter_3gpp_timezone_adjustment, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i8 %21 to i32
   %27 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @daylight_saving_time_vals, ptr noundef nonnull @.str.948) #3
   %28 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.947, i32 noundef %7, i32 noundef %17, i32 noundef %18, ptr noundef %27) #3
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %28, ptr %29, align 8
   ret i32 2
 }
@@ -2163,7 +2163,7 @@ define internal i32 @dissect_diameter_3gpp_codec_data(ptr noundef %0, ptr nounde
   br i1 %8, label %36, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_get_string_enc(ptr noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0) #3
   %13 = load i32, ptr @hf_diameter_3gpp_codec_data_dir, align 4
@@ -2211,19 +2211,19 @@ define internal i32 @dissect_diameter_3gpp_codec_data(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_af_requested_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2272,7 +2272,7 @@ define internal noundef i32 @dissect_diameter_3gpp_feature_list_id(ptr noundef %
 
 5:                                                ; preds = %4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %6, ptr %7, align 8
   br label %8
 
@@ -2288,21 +2288,21 @@ define internal noundef i32 @dissect_diameter_3gpp_feature_list(ptr noundef %0, 
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -2404,13 +2404,13 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   br i1 %.not.i42, label %proto_item_set_visible.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %63, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not5.i43 = icmp eq ptr %66, null
   br i1 %.not5.i43, label %proto_item_set_visible.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, -2
   store i32 %70, ptr %68, align 4
@@ -2422,19 +2422,19 @@ proto_item_set_visible.exit:                      ; preds = %67, %64, %62, %19, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_uar_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2490,13 +2490,13 @@ define internal i32 @dissect_diameter_3gpp_contact(ptr noundef %0, ptr nocapture
   br i1 %.not.i, label %proto_item_set_generated.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 2
   store i32 %13, ptr %11, align 4
@@ -2509,19 +2509,19 @@ proto_item_set_generated.exit:                    ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_sar_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2543,19 +2543,19 @@ define internal noundef i32 @dissect_diameter_3gpp_msisdn(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_req_nodes(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -2584,7 +2584,7 @@ define internal i32 @dissect_diameter_3gpp_tmgi(ptr noundef %0, ptr noundef %1, 
 define internal i32 @dissect_diameter_3gpp_rai(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((24, 32)) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp eq i32 %5, 12
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 2) #3
   %10 = load ptr, ptr %7, align 8
@@ -2597,7 +2597,7 @@ define internal i32 @dissect_diameter_3gpp_rai(ptr noundef %0, ptr nocapture nou
   %14 = load ptr, ptr %7, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef %.29, i32 noundef 2, i32 noundef 2) #3
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %8, ptr noundef nonnull @.str.958, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #3
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %16, ptr %17, align 8
   ret i32 %5
 }
@@ -2768,7 +2768,7 @@ define internal noundef i32 @dissect_diameter_3ggp_qos_susbscribed(ptr noundef %
   br i1 %59, label %switch.lookup, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %1, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ult i8 %57, 64
   br i1 %63, label %qos_calc_bitrate.exit, label %64
@@ -2794,7 +2794,7 @@ qos_calc_bitrate.exit:                            ; preds = %60, %66, %69
 
 switch.lookup:                                    ; preds = %56
   %73 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed, i64 0, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %74
 
@@ -2813,7 +2813,7 @@ switch.lookup:                                    ; preds = %56
   br i1 %80, label %switch.lookup353, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %1, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = icmp ult i8 %78, 64
   br i1 %84, label %qos_calc_bitrate.exit282, label %85
@@ -2839,7 +2839,7 @@ qos_calc_bitrate.exit282:                         ; preds = %81, %87, %90
 
 switch.lookup353:                                 ; preds = %77
   %94 = zext nneg i8 %switch.tableidx354 to i64
-  %switch.gep355 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 0, i64 %94
+  %switch.gep355 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 0, i64 %94
   %switch.load356 = load ptr, ptr %switch.gep355, align 8
   br label %95
 
@@ -2897,7 +2897,7 @@ switch.lookup353:                                 ; preds = %77
 
 124:                                              ; preds = %118, %121, %114
   %.0 = phi i32 [ %115, %114 ], [ %120, %118 ], [ %123, %121 ]
-  %125 = getelementptr inbounds i8, ptr %1, i64 408
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %126 = load ptr, ptr %125, align 8
   %127 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %126, ptr noundef nonnull @.str.973, i32 noundef %.0) #3
   br label %128
@@ -2917,7 +2917,7 @@ switch.lookup353:                                 ; preds = %77
   br i1 %135, label %switch.lookup357, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %1, i64 408
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %138 = load ptr, ptr %137, align 8
   %139 = icmp ult i8 %133, 64
   br i1 %139, label %qos_calc_bitrate.exit284, label %140
@@ -2943,7 +2943,7 @@ qos_calc_bitrate.exit284:                         ; preds = %136, %142, %145
 
 switch.lookup357:                                 ; preds = %132
   %149 = zext nneg i8 %switch.tableidx358 to i64
-  %switch.gep359 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 0, i64 %149
+  %switch.gep359 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 0, i64 %149
   %switch.load360 = load ptr, ptr %switch.gep359, align 8
   br label %150
 
@@ -2962,7 +2962,7 @@ switch.lookup357:                                 ; preds = %132
   br i1 %156, label %switch.lookup361, label %157
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds i8, ptr %1, i64 408
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %159 = load ptr, ptr %158, align 8
   %160 = icmp ult i8 %154, 64
   br i1 %160, label %qos_calc_bitrate.exit286, label %161
@@ -2988,7 +2988,7 @@ qos_calc_bitrate.exit286:                         ; preds = %157, %163, %166
 
 switch.lookup361:                                 ; preds = %153
   %170 = zext nneg i8 %switch.tableidx362 to i64
-  %switch.gep363 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 0, i64 %170
+  %switch.gep363 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 0, i64 %170
   %switch.load364 = load ptr, ptr %switch.gep363, align 8
   br label %171
 
@@ -3039,7 +3039,7 @@ switch.lookup361:                                 ; preds = %153
   %198 = mul nuw nsw i32 %.sink8.i, %189
   %199 = add nsw i32 %198, %.sink7.i
   %200 = icmp ugt i8 %188, 73
-  %201 = getelementptr inbounds i8, ptr %1, i64 408
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %202 = load ptr, ptr %201, align 8
   br i1 %200, label %203, label %206
 
@@ -3083,7 +3083,7 @@ switch.lookup361:                                 ; preds = %153
   %223 = mul nuw nsw i32 %.sink8.i289, %214
   %224 = add nsw i32 %223, %.sink7.i290
   %225 = icmp ugt i8 %213, 73
-  %226 = getelementptr inbounds i8, ptr %1, i64 408
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %227 = load ptr, ptr %226, align 8
   br i1 %225, label %228, label %231
 
@@ -3127,7 +3127,7 @@ switch.lookup361:                                 ; preds = %153
   %247 = mul nuw nsw i32 %.sink8.i293, %238
   %248 = add nsw i32 %247, %.sink7.i294
   %249 = icmp ugt i8 %237, 73
-  %250 = getelementptr inbounds i8, ptr %1, i64 408
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %251 = load ptr, ptr %250, align 8
   br i1 %249, label %252, label %255
 
@@ -3171,7 +3171,7 @@ switch.lookup361:                                 ; preds = %153
   %272 = mul nuw nsw i32 %.sink8.i297, %263
   %273 = add nsw i32 %272, %.sink7.i298
   %274 = icmp ugt i8 %262, 73
-  %275 = getelementptr inbounds i8, ptr %1, i64 408
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %276 = load ptr, ptr %275, align 8
   br i1 %274, label %277, label %280
 
@@ -3210,19 +3210,19 @@ switch.lookup361:                                 ; preds = %153
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_ulr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3237,19 +3237,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_ula_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3270,7 +3270,7 @@ define internal i32 @dissect_diameter_3gpp_visited_plmn_id(ptr noundef %0, ptr n
 
 7:                                                ; preds = %4
   %8 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #3
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
   br label %12
 
@@ -3284,19 +3284,19 @@ define internal i32 @dissect_diameter_3gpp_visited_plmn_id(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_dsr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3311,19 +3311,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_dsa_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3338,19 +3338,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_acc_res_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3373,19 +3373,19 @@ define internal noundef i32 @dissect_diameter_3gpp_ida_flags(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_pua_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3400,19 +3400,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_nor_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3434,19 +3434,19 @@ define internal noundef i32 @dissect_diameter_3gpp_isdn(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_idr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3461,19 +3461,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_ppr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3488,19 +3488,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_aaa_fail_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3515,19 +3515,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_der_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3542,19 +3542,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_dea_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3569,19 +3569,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_rar_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3596,19 +3596,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_der_s6b_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3623,19 +3623,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_emergency_services(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3650,19 +3650,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_pur_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3677,19 +3677,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_clr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3704,19 +3704,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_uvr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3731,19 +3731,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_uva_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3758,19 +3758,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_subscription_data_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3785,19 +3785,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_wlan_offloadability_eutran(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3812,19 +3812,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_wlan_offloadability_utran(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3845,7 +3845,7 @@ define internal i32 @dissect_diameter_3gpp_group_plmn_id(ptr noundef %0, ptr nou
 
 7:                                                ; preds = %4
   %8 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #3
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
   br label %12
 
@@ -3859,19 +3859,19 @@ define internal i32 @dissect_diameter_3gpp_group_plmn_id(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_air_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3886,19 +3886,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_preferred_data_mode(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3913,19 +3913,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_v2x_permission(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3940,19 +3940,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_supported_gad_shapes(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -3973,19 +3973,19 @@ define internal i32 @dissect_diameter_3gpp_eutran_positioning_data(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_deferred_location_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4000,19 +4000,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_plr_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4027,19 +4027,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_pla_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4164,19 +4164,19 @@ define internal i32 @dissect_diameter_3gpp_ran_nas_release_cause(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_supported_monitoring_events(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4191,19 +4191,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_rir_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4219,16 +4219,16 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @col_get_writable(ptr noundef %7, i32 noundef -1) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br label %15
@@ -4256,7 +4256,7 @@ define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef 
 .sink.split:                                      ; preds = %19, %20
   %spec.select.sink.in = phi i1 [ %not..0, %20 ], [ %.0, %19 ]
   %spec.select.sink = zext i1 %spec.select.sink.in to i32
-  %21 = getelementptr inbounds i8, ptr %1, i64 348
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %spec.select.sink, ptr %21, align 4
   %22 = load ptr, ptr @gsm_sms_handle, align 8
   %23 = tail call i32 @call_dissector(ptr noundef %22, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #3
@@ -4270,19 +4270,19 @@ define internal i32 @dissect_diameter_3gpp_sm_rp_ui(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_mbms_bearer_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4297,19 +4297,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_mbms_bearer_result(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4324,19 +4324,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_tmgi_allocation_result(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -4351,19 +4351,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %7, %10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_3gpp_tmgi_deallocation_result(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not5.i = icmp eq ptr %9, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4

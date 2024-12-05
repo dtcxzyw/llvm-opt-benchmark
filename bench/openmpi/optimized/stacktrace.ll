@@ -106,7 +106,7 @@ define void @prte_stackframe_output(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %.preheader ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   call void (i32, ptr, ...) @pmix_output(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef %10) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -229,7 +229,7 @@ define noundef ptr @prte_stackframe_output_string() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.01521 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge.loopexit, label %11
@@ -264,7 +264,7 @@ define noundef ptr @prte_stackframe_output_string() local_unnamed_addr #0 {
 
 19:                                               ; preds = %.lr.ph28, %23
   %indvars.iv32 = phi i64 [ 3, %.lr.ph28 ], [ %indvars.iv.next33, %23 ]
-  %20 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %._crit_edge29, label %23
@@ -372,7 +372,7 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
   br label %.critedge
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %39, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %43, ptr %3, align 8
   %44 = tail call noalias ptr @strdup(ptr noundef nonnull %43) #14
   store ptr %44, ptr @prte_stacktrace_output_filename_base, align 8
@@ -393,10 +393,10 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
 51:                                               ; preds = %0, %6, %12, %27, %48, %42, %18
   %.sink = phi i32 [ %14, %12 ], [ -1, %27 ], [ %50, %48 ], [ -1, %42 ], [ %20, %18 ], [ -1, %6 ], [ -1, %0 ]
   store i32 %.sink, ptr @prte_stacktrace_output_fileno, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %52, i8 0, i64 144, i1 false)
   store ptr @show_stackframe, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 -2147483644, ptr %53, align 8
   %54 = load ptr, ptr @prte_signal_string, align 8
   store ptr %54, ptr %3, align 8
@@ -453,7 +453,7 @@ thread-pre-split:                                 ; preds = %62
   br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %67, i64 9
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
   store ptr %75, ptr %3, align 8
   br label %76
 
@@ -485,7 +485,7 @@ thread-pre-split:                                 ; preds = %62
 
 .lr.ph:                                           ; preds = %81, %82, %85
   %.1 = phi i1 [ %.0244059, %81 ], [ true, %82 ], [ %.0244059, %85 ]
-  %87 = getelementptr inbounds i8, ptr %77, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %88 = load i8, ptr %77, align 1
   %.not32 = icmp eq i8 %88, 0
   br i1 %.not32, label %.critedge, label %.lr.ph60
@@ -577,7 +577,7 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
   br i1 %.not80, label %130, label %47
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i32, ptr %48, align 8
   switch i32 %0, label %62 [
     i32 4, label %50
@@ -666,37 +666,37 @@ define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, p
 
 switch.lookup:                                    ; preds = %50
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.show_stackframe, i64 0, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.show_stackframe, i64 0, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %76
 
 switch.lookup91:                                  ; preds = %52
   %72 = zext nneg i32 %switch.tableidx92 to i64
-  %switch.gep93 = getelementptr inbounds [8 x ptr], ptr @switch.table.show_stackframe.1, i64 0, i64 %72
+  %switch.gep93 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.show_stackframe.1, i64 0, i64 %72
   %switch.load94 = load ptr, ptr %switch.gep93, align 8
   br label %76
 
 switch.lookup95:                                  ; preds = %55
   %73 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep97 = getelementptr inbounds [3 x ptr], ptr @switch.table.show_stackframe.2, i64 0, i64 %73
+  %switch.gep97 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.show_stackframe.2, i64 0, i64 %73
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %76
 
 switch.lookup99:                                  ; preds = %58
   %74 = zext nneg i32 %switch.tableidx100 to i64
-  %switch.gep101 = getelementptr inbounds [6 x ptr], ptr @switch.table.show_stackframe.3, i64 0, i64 %74
+  %switch.gep101 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.show_stackframe.3, i64 0, i64 %74
   %switch.load102 = load ptr, ptr %switch.gep101, align 8
   br label %76
 
 switch.lookup103:                                 ; preds = %60
   %75 = zext nneg i32 %switch.tableidx104 to i64
-  %switch.gep105 = getelementptr inbounds [6 x ptr], ptr @switch.table.show_stackframe.4, i64 0, i64 %75
+  %switch.gep105 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.show_stackframe.4, i64 0, i64 %75
   %switch.load106 = load ptr, ptr %switch.gep105, align 8
   br label %76
 
 76:                                               ; preds = %switch.lookup103, %60, %switch.lookup99, %58, %switch.lookup95, %55, %switch.lookup91, %52, %switch.lookup, %50, %57, %54, %62, %63, %64, %65, %66, %67, %68, %69, %70
   %.0 = phi ptr [ @.str.14, %62 ], [ @.str.58, %70 ], [ @.str.57, %69 ], [ @.str.56, %68 ], [ @.str.55, %67 ], [ @.str.54, %66 ], [ @.str.53, %65 ], [ @.str.52, %64 ], [ @.str.51, %63 ], [ @.str.14, %60 ], [ @.str.14, %58 ], [ @.str.14, %55 ], [ @.str.14, %52 ], [ @.str.14, %50 ], [ %switch.select86, %54 ], [ %switch.select90, %57 ], [ %switch.load, %switch.lookup ], [ %switch.load94, %switch.lookup91 ], [ %switch.load98, %switch.lookup95 ], [ %switch.load102, %switch.lookup99 ], [ %switch.load106, %switch.lookup103 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i32, ptr %77, align 4
   %.not81 = icmp eq i32 %78, 0
   br i1 %.not81, label %90, label %79
@@ -720,7 +720,7 @@ switch.lookup103:                                 ; preds = %60
   %91 = sext i32 %.075 to i64
   %92 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %93 = tail call i32 @getpid() #14
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.076, i64 noundef %91, ptr noundef nonnull @.str.60, ptr noundef %92, i32 noundef %93, ptr noundef nonnull %.0, i32 noundef %95) #14
   %97 = sub nsw i32 %.075, %96
@@ -739,7 +739,7 @@ switch.lookup103:                                 ; preds = %60
   %101 = sext i32 %97 to i64
   %102 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %103 = tail call i32 @getpid() #14
-  %104 = getelementptr inbounds i8, ptr %1, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %101, ptr noundef nonnull @.str.61, ptr noundef %102, i32 noundef %103, ptr noundef %105) #14
   %107 = sub nsw i32 %97, %106
@@ -749,11 +749,11 @@ switch.lookup103:                                 ; preds = %60
   %109 = sext i32 %97 to i64
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %111 = tail call i32 @getpid() #14
-  %112 = getelementptr inbounds i8, ptr %1, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load i32, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %1, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = load i32, ptr %116, align 8
   %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %109, ptr noundef nonnull @.str.62, ptr noundef %110, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117) #14
   %119 = sub nsw i32 %97, %118
@@ -763,9 +763,9 @@ switch.lookup103:                                 ; preds = %60
   %121 = sext i32 %97 to i64
   %122 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
   %123 = tail call i32 @getpid() #14
-  %124 = getelementptr inbounds i8, ptr %1, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %127 = load i32, ptr %126, align 8
   %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %121, ptr noundef nonnull @.str.63, ptr noundef %122, i32 noundef %123, i64 noundef %125, i32 noundef %127) #14
   %129 = sub nsw i32 %97, %128

@@ -97,16 +97,16 @@ define internal void @_track_script_rec_destroy(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.10, i32 noundef %6, i64 noundef %8) #8
   br label %9
 
 9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 @pthread_detach(i64 noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %13) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %18, label %15
@@ -118,7 +118,7 @@ define internal void @_track_script_rec_destroy(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %15, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %19) #8
   %.not5 = icmp eq i32 %20, 0
   br i1 %.not5, label %23, label %21
@@ -334,13 +334,13 @@ define internal noundef i32 @_flush_job(ptr nocapture noundef %0, ptr nocapture 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__._flush_job, i32 noundef %3, i32 noundef %10) #8
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %_kill_script.exit, label %15
@@ -383,13 +383,13 @@ define void @track_script_fini() local_unnamed_addr #0 {
 define void @track_script_rec_add(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 251, ptr noundef nonnull @__func__.track_script_rec_add) #8
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %8, ptr noundef null) #8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
@@ -401,7 +401,7 @@ define void @track_script_rec_add(i32 noundef %0, i32 noundef %1, i64 noundef %2
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = tail call i32 @pthread_cond_init(ptr noundef nonnull %13, ptr noundef null) #8
   %.not14 = icmp eq i32 %14, 0
   br i1 %.not14, label %17, label %15
@@ -431,10 +431,10 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.foreach_broadcast_rec_t, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
   store i64 %0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 8
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @flush_mutex) #8
   %.not = icmp eq i32 %7, 0
@@ -479,7 +479,7 @@ define zeroext i1 @track_script_killed(i64 noundef %0, i32 noundef %1, i1 nounde
   br i1 %.not14, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %4, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br label %31
@@ -502,14 +502,14 @@ declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_signal_wait_thd(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %4, %5
   br i1 %.not, label %6, label %22
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #8
   %.not17 = icmp eq i32 %8, 0
   br i1 %.not17, label %11, label %9
@@ -521,9 +521,9 @@ define internal range(i32 -1, 1) i32 @_signal_wait_thd(ptr noundef %0, ptr nocap
   unreachable
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %13) #8
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %18, label %15
@@ -552,14 +552,14 @@ define internal range(i32 -1, 1) i32 @_signal_wait_thd(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_script_killed(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %4, %5
   br i1 %.not, label %6, label %26
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #8
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %11, label %9
@@ -571,14 +571,14 @@ define internal range(i32 -1, 1) i32 @_script_killed(ptr noundef %0, ptr nocaptu
   unreachable
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 127
   %15 = icmp eq i32 %14, 9
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
   %spec.select = zext i1 %19 to i8
@@ -597,7 +597,7 @@ define internal range(i32 -1, 1) i32 @_script_killed(ptr noundef %0, ptr nocaptu
   unreachable
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 %.015, ptr %25, align 4
   br label %26
 
@@ -637,7 +637,7 @@ declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_match_tid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %4, %5
@@ -648,9 +648,9 @@ define internal range(i32 0, 2) i32 @_match_tid(ptr nocapture noundef readonly %
 ; Function Attrs: nounwind uwtable
 define void @track_script_reset_cpid(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.track_script_rec_t, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %5, align 4
   %6 = load ptr, ptr @track_script_thd_list, align 8
   %7 = call i32 @list_for_each(ptr noundef %6, ptr noundef nonnull @_reset_cpid, ptr noundef nonnull %3) #8
@@ -659,17 +659,17 @@ define void @track_script_reset_cpid(i64 noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 -1, 1) i32 @_reset_cpid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %5, %6
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
   br label %11
 
@@ -714,13 +714,13 @@ define internal noalias noundef ptr @_track_script_rec_cleanup(ptr noundef %0) #
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19, i32 noundef %7, i64 noundef %9) #8
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %_kill_script.exit, label %14
@@ -735,17 +735,17 @@ _kill_script.exit:                                ; preds = %10, %14
   %17 = load i64, ptr %2, align 8
   %18 = add nsw i64 %17, 5
   store i64 %18, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = mul nsw i64 %20, 1000
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.thread38, label %24
 
 24:                                               ; preds = %_kill_script.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %25) #8
   %.not29 = icmp eq i32 %26, 0
   br i1 %.not29, label %29, label %27
@@ -757,13 +757,13 @@ _kill_script.exit:                                ; preds = %10, %14
   unreachable
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %34, ptr noundef nonnull %25, ptr noundef nonnull %3) #8
   %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %25) #8
   %.not30 = icmp eq i32 %36, 0
@@ -786,7 +786,7 @@ _kill_script.exit:                                ; preds = %10, %14
   br i1 %42, label %.thread38, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %12, i64 noundef %45) #8
   br label %.thread38
@@ -804,7 +804,7 @@ _kill_script.exit:                                ; preds = %10, %14
 
 50:                                               ; preds = %.thread38
   %51 = load ptr, ptr @flush_script_thd_list, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = call i32 @list_delete_first(ptr noundef %51, ptr noundef nonnull @_match_tid, ptr noundef nonnull %52) #8
   %54 = call i32 @pthread_cond_signal(ptr noundef nonnull @flush_cond) #8
   %.not33 = icmp eq i32 %54, 0

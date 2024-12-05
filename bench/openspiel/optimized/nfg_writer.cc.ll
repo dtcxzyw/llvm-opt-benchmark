@@ -146,7 +146,7 @@ define void @_ZN10open_spiel15GameToNFGStringB5cxx11ERKNS_4GameE(ptr dead_on_unw
 
 35:                                               ; preds = %2
   %36 = load ptr, ptr %25, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(280) %25)
   %40 = sext i32 %39 to i64
@@ -166,7 +166,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %35
   %42 = mul nuw nsw i64 %40, 24
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #20
   store ptr %43, ptr %6, align 8
-  %44 = getelementptr inbounds %"class.std::vector.8", ptr %43, i64 %40
+  %44 = getelementptr inbounds nuw %"class.std::vector.8", ptr %43, i64 %40
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %42, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %43, i64 %42
   br label %_ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.thread.i
@@ -180,7 +180,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   store ptr %45, ptr %48, align 8
   store ptr %46, ptr %47, align 8
   %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
   invoke void %51(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(280) %25)
           to label %.preheader95 unwind label %77
@@ -198,14 +198,14 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEED2Ev.exit ]
   %55 = load ptr, ptr %7, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %58(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %8, ptr noundef nonnull align 8 dereferenceable(60) %55, i32 noundef %59)
           to label %60 unwind label %.loopexit96
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -378,7 +378,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %indvars.iv122 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next123, %125 ]
   store ptr @.str.7, ptr %18, align 8
   store i64 1, ptr %106, align 8
-  %111 = getelementptr inbounds %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv122
+  %111 = getelementptr inbounds nuw %"class.std::vector.8", ptr %.pr.i, i64 %indvars.iv122
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %111, align 8
@@ -420,7 +420,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 127:                                              ; preds = %._crit_edge107
   %128 = load ptr, ptr %7, align 8
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 48
   %131 = load ptr, ptr %130, align 8
   invoke void %131(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %21, ptr noundef nonnull align 8 dereferenceable(60) %128)
           to label %132 unwind label %.loopexit.split-lp87.loopexit.split-lp
@@ -464,7 +464,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit60:                  ; preds = %._crit_edge114, %14
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit60
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
   call void %150(ptr noundef nonnull align 8 dereferenceable(60) %147) #18
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit
@@ -490,7 +490,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %_ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i.i: ; preds = %152, %.lr.ph.i.i.i.i
-  %158 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i61 = icmp eq ptr %158, %46
   br i1 %.not.i.i.i.i61, label %_ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
@@ -514,7 +514,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   %165 = load ptr, ptr %7, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %166 = load ptr, ptr %165, align 8, !noalias !9
-  %167 = getelementptr inbounds i8, ptr %166, i64 192
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 192
   %168 = load ptr, ptr %167, align 8, !noalias !9
   invoke void %168(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %23, ptr noundef nonnull align 8 dereferenceable(60) %165)
           to label %.noexc63 unwind label %201
@@ -522,7 +522,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 .noexc63:                                         ; preds = %163
   %169 = load ptr, ptr %23, align 8, !alias.scope !9
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8
   invoke void %172(ptr noundef nonnull align 8 dereferenceable(60) %169, i64 noundef %164)
           to label %_ZNK10open_spiel5State5ChildEl.exit unwind label %173
@@ -536,7 +536,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i: ; preds = %173
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(60) %175) #18
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i
@@ -548,7 +548,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i: ; pre
 _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc63
   %179 = load ptr, ptr %23, align 8
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 104
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %182 = load ptr, ptr %181, align 8
   invoke void %182(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.18") align 8 %22, ptr noundef nonnull align 8 dereferenceable(60) %179)
           to label %183 unwind label %203
@@ -560,7 +560,7 @@ _ZNK10open_spiel5State5ChildEl.exit:              ; preds = %.noexc63
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i65: ; preds = %183
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   call void %187(ptr noundef nonnull align 8 dereferenceable(60) %184) #18
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66
@@ -575,7 +575,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66: ; pre
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE130560EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_130560EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66, %193
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %193 ], [ 0, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66 ]
   %190 = phi ptr [ %195, %193 ], [ %189, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit66 ]
-  %191 = getelementptr inbounds double, ptr %190, i64 %indvars.iv128
+  %191 = getelementptr inbounds nuw double, ptr %190, i64 %indvars.iv128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %191, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8
@@ -609,7 +609,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i69: ; preds = %203
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8
   call void %208(ptr noundef nonnull align 8 dereferenceable(60) %205) #18
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit70
@@ -670,7 +670,7 @@ _ZN4absl7debian220StripAsciiWhitespaceEPNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit76
 
 _ZNSt6vectorIdSaIdEED2Ev.exit76:                  ; preds = %216, %218
-  %223 = getelementptr inbounds i8, ptr %.sroa.083.0111, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.083.0111, i64 8
   %.not = icmp eq ptr %223, %135
   br i1 %.not, label %._crit_edge114.loopexit, label %163
 
@@ -702,7 +702,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit78:                  ; preds = %.loopexit86, %.loop
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i80: ; preds = %231
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8
   call void %235(ptr noundef nonnull align 8 dereferenceable(60) %232) #18
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit81
@@ -802,7 +802,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnul
   br label %_ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIlSaIlEEEvPT_.exit.i.i.i:  ; preds = %6, %.lr.ph.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %12, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !8
 
@@ -864,7 +864,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %12 = getelementptr inbounds i8, ptr %.sroa.09.3.i.i, i64 -1
   %13 = load i8, ptr %12, align 1, !noalias !16
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1, !noalias !16
   %17 = and i8 %16, 8
   %.not = icmp eq i8 %17, 0
@@ -874,7 +874,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %19 = getelementptr inbounds i8, ptr %.sroa.09.3.i.i, i64 -2
   %20 = load i8, ptr %19, align 1, !noalias !16
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !noalias !16
   %24 = and i8 %23, 8
   %.not4 = icmp eq i8 %24, 0
@@ -884,7 +884,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %26 = getelementptr inbounds i8, ptr %.sroa.09.3.i.i, i64 -3
   %27 = load i8, ptr %26, align 1, !noalias !16
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1, !noalias !16
   %31 = and i8 %30, 8
   %.not5 = icmp eq i8 %31, 0
@@ -894,7 +894,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %33 = getelementptr inbounds i8, ptr %.sroa.09.3.i.i, i64 -4
   %34 = load i8, ptr %33, align 1, !noalias !16
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1, !noalias !16
   %38 = and i8 %37, 8
   %.not6 = icmp eq i8 %38, 0
@@ -923,7 +923,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %46 = getelementptr inbounds i8, ptr %.sroa.09.0.i.i, i64 -1
   %47 = load i8, ptr %46, align 1, !noalias !16
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1, !noalias !16
   %51 = and i8 %50, 8
   %.not7 = icmp eq i8 %51, 0
@@ -935,7 +935,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %54 = getelementptr inbounds i8, ptr %.ptr21.i.i.i, i64 -1
   %55 = load i8, ptr %54, align 1, !noalias !16
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1, !noalias !16
   %59 = and i8 %58, 8
   %.not8 = icmp eq i8 %59, 0
@@ -947,7 +947,7 @@ define linkonce_odr void @_ZN4absl7debian228StripTrailingAsciiWhitespaceEPNSt7__
   %62 = getelementptr inbounds i8, ptr %.ptr23.i.i.i, i64 -1
   %63 = load i8, ptr %62, align 1, !noalias !16
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !16
   %67 = and i8 %66, 8
   %.not9 = icmp eq i8 %67, 0
@@ -1005,44 +1005,44 @@ define linkonce_odr void @_ZN4absl7debian227StripLeadingAsciiWhitespaceEPNSt7__c
   %.sroa.032.051.i.i.i = phi ptr [ %37, %36 ], [ %2, %.lr.ph.i.i.i.preheader ]
   %10 = load i8, ptr %.sroa.032.051.i.i.i, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 8
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 8
   %.not9 = icmp eq i8 %21, 0
   br i1 %.not9, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 8
   %.not10 = icmp eq i8 %28, 0
   br i1 %.not10, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit27, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 8
   %.not11 = icmp eq i8 %35, 0
   br i1 %.not11, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit29, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
   %38 = add nsw i64 %.052.i.i.i, -1
   %39 = icmp sgt i64 %.052.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !22
@@ -1064,35 +1064,35 @@ define linkonce_odr void @_ZN4absl7debian227StripLeadingAsciiWhitespaceEPNSt7__c
 41:                                               ; preds = %._crit_edge.i.i.i
   %42 = load i8, ptr %.sroa.032.0.lcssa.i.i.i, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 8
   %.not12 = icmp eq i8 %46, 0
   br i1 %.not12, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit, label %47
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 1
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i.i.i
   %.sroa.032.1.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %47 ]
   %50 = load i8, ptr %.sroa.032.1.i.i.i, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 8
   %.not13 = icmp eq i8 %54, 0
   br i1 %.not13, label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i, i64 1
   br label %57
 
 57:                                               ; preds = %55, %._crit_edge.i.i.i
   %.sroa.032.2.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %56, %55 ]
   %58 = load i8, ptr %.sroa.032.2.i.i.i, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl7debian214ascii_internal13kPropertyBitsE, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, 8
   %.not14 = icmp eq i8 %62, 0
@@ -1100,15 +1100,15 @@ define linkonce_odr void @_ZN4absl7debian227StripLeadingAsciiWhitespaceEPNSt7__c
   br label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit
 
 _ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit: ; preds = %15
-  %63 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   br label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit
 
 _ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit27: ; preds = %22
-  %64 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   br label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit
 
 _ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit29: ; preds = %29
-  %65 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   br label %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit
 
 _ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit27, %_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbhEET_SC_SC_T0_.exit.loopexit.split.loop.exit29, %._crit_edge.i.i.i, %41, %49, %57

@@ -59,13 +59,13 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   %.03450 = phi ptr [ %24, %23 ], [ %9, %8 ]
   %.03549 = phi i32 [ %.1, %23 ], [ -1, %8 ]
   %.03648 = phi ptr [ %.137, %23 ], [ null, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.03450, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.03450, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @mca_osc_monitoring_component
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %11, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #8
   %17 = icmp sgt i32 %16, -1
@@ -82,7 +82,7 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   br i1 %.not42, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.03450, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.03450, i64 16
   %22 = load volatile ptr, ptr %21, align 8
   br label %23
 
@@ -96,22 +96,22 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %.137, i64 280
+  %27 = getelementptr inbounds nuw i8, ptr %.137, i64 280
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 272
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.137, i64 84
+  %34 = getelementptr inbounds nuw i8, ptr %.137, i64 84
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str, ptr noundef nonnull readonly dereferenceable(1) %34) #9
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %ompi_mca_osc_monitoring_set_template.exit, label %.lr.ph53
 
 37:                                               ; preds = %.lr.ph53
-  %38 = getelementptr inbounds [5 x %struct.osc_monitoring_components_list_t], ptr @osc_monitoring_components_list, i64 0, i64 %indvars.iv.next.i
+  %38 = getelementptr inbounds nuw [5 x %struct.osc_monitoring_components_list_t], ptr @osc_monitoring_components_list, i64 0, i64 %indvars.iv.next.i
   %.sroa.0.0.copyload2.i = load ptr, ptr %38, align 16
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload2.i, ptr noundef nonnull readonly dereferenceable(1) %34) #9
   %40 = icmp eq i32 %39, 0
@@ -124,7 +124,7 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   br i1 %exitcond.i, label %.loopexit, label %37, !llvm.loop !6
 
 ompi_mca_osc_monitoring_set_template.exit.loopexit: ; preds = %37
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.4.0.copyload3.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   br label %ompi_mca_osc_monitoring_set_template.exit
 
@@ -193,10 +193,10 @@ define internal i32 @ompi_osc_monitoring_portals4_free(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -220,7 +220,7 @@ define internal i32 @ompi_osc_monitoring_portals4_put(ptr noundef %0, i32 nounde
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -251,7 +251,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -286,10 +286,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -313,7 +313,7 @@ define internal i32 @ompi_osc_monitoring_portals4_get(ptr noundef %0, i32 nounde
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -344,7 +344,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -380,10 +380,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -407,7 +407,7 @@ define internal i32 @ompi_osc_monitoring_portals4_accumulate(ptr noundef %0, i32
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -438,7 +438,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -473,10 +473,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -500,7 +500,7 @@ define internal i32 @ompi_osc_monitoring_portals4_compare_and_swap(ptr noundef %
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -531,7 +531,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -565,10 +565,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_fetch_and_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -592,7 +592,7 @@ define internal i32 @ompi_osc_monitoring_portals4_fetch_and_op(ptr noundef %0, p
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -623,7 +623,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -657,10 +657,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_get_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #1 {
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %6 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -684,7 +684,7 @@ define internal i32 @ompi_osc_monitoring_portals4_get_accumulate(ptr noundef %0,
   br i1 %32, label %33, label %ompi_group_get_proc_ptr.exit.i
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
@@ -715,7 +715,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %39, %37, %23, %12
   br label %50
 
 48:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %49, align 8
   br label %50
 
@@ -755,10 +755,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -782,7 +782,7 @@ define internal i32 @ompi_osc_monitoring_portals4_rput(ptr noundef %0, i32 nound
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -813,7 +813,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -848,10 +848,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -875,7 +875,7 @@ define internal i32 @ompi_osc_monitoring_portals4_rget(ptr noundef %0, i32 nound
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -906,7 +906,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -942,10 +942,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_raccumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -969,7 +969,7 @@ define internal i32 @ompi_osc_monitoring_portals4_raccumulate(ptr noundef %0, i3
   br i1 %30, label %31, label %ompi_group_get_proc_ptr.exit.i
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %37
@@ -1000,7 +1000,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %37, %35, %21, %10
   br label %48
 
 46:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %47, align 8
   br label %48
 
@@ -1035,10 +1035,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_portals4_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #1 {
   %14 = alloca i64, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %6 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -1062,7 +1062,7 @@ define internal i32 @ompi_osc_monitoring_portals4_rget_accumulate(ptr noundef %0
   br i1 %33, label %34, label %ompi_group_get_proc_ptr.exit.i
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %28, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -1093,7 +1093,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %40, %38, %24, %13
   br label %51
 
 49:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %50, align 8
   br label %51
 
@@ -1316,10 +1316,10 @@ define internal i32 @ompi_osc_monitoring_rdma_free(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -1343,7 +1343,7 @@ define internal i32 @ompi_osc_monitoring_rdma_put(ptr noundef %0, i32 noundef %1
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -1374,7 +1374,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -1409,10 +1409,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -1436,7 +1436,7 @@ define internal i32 @ompi_osc_monitoring_rdma_get(ptr noundef %0, i32 noundef %1
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -1467,7 +1467,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -1503,10 +1503,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -1530,7 +1530,7 @@ define internal i32 @ompi_osc_monitoring_rdma_accumulate(ptr noundef %0, i32 nou
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -1561,7 +1561,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -1596,10 +1596,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -1623,7 +1623,7 @@ define internal i32 @ompi_osc_monitoring_rdma_compare_and_swap(ptr noundef %0, p
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -1654,7 +1654,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -1688,10 +1688,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_fetch_and_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -1715,7 +1715,7 @@ define internal i32 @ompi_osc_monitoring_rdma_fetch_and_op(ptr noundef %0, ptr n
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -1746,7 +1746,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -1780,10 +1780,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_get_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #1 {
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %6 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -1807,7 +1807,7 @@ define internal i32 @ompi_osc_monitoring_rdma_get_accumulate(ptr noundef %0, i32
   br i1 %32, label %33, label %ompi_group_get_proc_ptr.exit.i
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
@@ -1838,7 +1838,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %39, %37, %23, %12
   br label %50
 
 48:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %49, align 8
   br label %50
 
@@ -1878,10 +1878,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -1905,7 +1905,7 @@ define internal i32 @ompi_osc_monitoring_rdma_rput(ptr noundef %0, i32 noundef %
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -1936,7 +1936,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -1971,10 +1971,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -1998,7 +1998,7 @@ define internal i32 @ompi_osc_monitoring_rdma_rget(ptr noundef %0, i32 noundef %
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -2029,7 +2029,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -2065,10 +2065,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_raccumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -2092,7 +2092,7 @@ define internal i32 @ompi_osc_monitoring_rdma_raccumulate(ptr noundef %0, i32 no
   br i1 %30, label %31, label %ompi_group_get_proc_ptr.exit.i
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %37
@@ -2123,7 +2123,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %37, %35, %21, %10
   br label %48
 
 46:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %47, align 8
   br label %48
 
@@ -2158,10 +2158,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_rdma_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #1 {
   %14 = alloca i64, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %6 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -2185,7 +2185,7 @@ define internal i32 @ompi_osc_monitoring_rdma_rget_accumulate(ptr noundef %0, i3
   br i1 %33, label %34, label %ompi_group_get_proc_ptr.exit.i
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %28, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -2216,7 +2216,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %40, %38, %24, %13
   br label %51
 
 49:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %50, align 8
   br label %51
 
@@ -2382,10 +2382,10 @@ define internal i32 @ompi_osc_monitoring_ucx_free(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -2409,7 +2409,7 @@ define internal i32 @ompi_osc_monitoring_ucx_put(ptr noundef %0, i32 noundef %1,
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -2440,7 +2440,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -2475,10 +2475,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -2502,7 +2502,7 @@ define internal i32 @ompi_osc_monitoring_ucx_get(ptr noundef %0, i32 noundef %1,
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -2533,7 +2533,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -2569,10 +2569,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -2596,7 +2596,7 @@ define internal i32 @ompi_osc_monitoring_ucx_accumulate(ptr noundef %0, i32 noun
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -2627,7 +2627,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -2662,10 +2662,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -2689,7 +2689,7 @@ define internal i32 @ompi_osc_monitoring_ucx_compare_and_swap(ptr noundef %0, pt
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -2720,7 +2720,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -2754,10 +2754,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_fetch_and_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -2781,7 +2781,7 @@ define internal i32 @ompi_osc_monitoring_ucx_fetch_and_op(ptr noundef %0, ptr no
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -2812,7 +2812,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -2846,10 +2846,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_get_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #1 {
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %6 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -2873,7 +2873,7 @@ define internal i32 @ompi_osc_monitoring_ucx_get_accumulate(ptr noundef %0, i32 
   br i1 %32, label %33, label %ompi_group_get_proc_ptr.exit.i
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
@@ -2904,7 +2904,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %39, %37, %23, %12
   br label %50
 
 48:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %49, align 8
   br label %50
 
@@ -2944,10 +2944,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -2971,7 +2971,7 @@ define internal i32 @ompi_osc_monitoring_ucx_rput(ptr noundef %0, i32 noundef %1
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -3002,7 +3002,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -3037,10 +3037,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -3064,7 +3064,7 @@ define internal i32 @ompi_osc_monitoring_ucx_rget(ptr noundef %0, i32 noundef %1
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -3095,7 +3095,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -3131,10 +3131,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_raccumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -3158,7 +3158,7 @@ define internal i32 @ompi_osc_monitoring_ucx_raccumulate(ptr noundef %0, i32 nou
   br i1 %30, label %31, label %ompi_group_get_proc_ptr.exit.i
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %37
@@ -3189,7 +3189,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %37, %35, %21, %10
   br label %48
 
 46:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %47, align 8
   br label %48
 
@@ -3224,10 +3224,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_ucx_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #1 {
   %14 = alloca i64, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %6 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -3251,7 +3251,7 @@ define internal i32 @ompi_osc_monitoring_ucx_rget_accumulate(ptr noundef %0, i32
   br i1 %33, label %34, label %ompi_group_get_proc_ptr.exit.i
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %28, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -3282,7 +3282,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %40, %38, %24, %13
   br label %51
 
 49:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %50, align 8
   br label %51
 
@@ -3448,10 +3448,10 @@ define internal i32 @ompi_osc_monitoring_sm_free(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -3475,7 +3475,7 @@ define internal i32 @ompi_osc_monitoring_sm_put(ptr noundef %0, i32 noundef %1, 
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -3506,7 +3506,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -3541,10 +3541,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -3568,7 +3568,7 @@ define internal i32 @ompi_osc_monitoring_sm_get(ptr noundef %0, i32 noundef %1, 
   br i1 %28, label %29, label %ompi_group_get_proc_ptr.exit.i
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i8, ptr @opal_uses_threads, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
@@ -3599,7 +3599,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %35, %33, %19, %8
   br label %46
 
 44:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %45, align 8
   br label %46
 
@@ -3635,10 +3635,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %46
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -3662,7 +3662,7 @@ define internal i32 @ompi_osc_monitoring_sm_accumulate(ptr noundef %0, i32 nound
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -3693,7 +3693,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -3728,10 +3728,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_compare_and_swap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -3755,7 +3755,7 @@ define internal i32 @ompi_osc_monitoring_sm_compare_and_swap(ptr noundef %0, ptr
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -3786,7 +3786,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -3820,10 +3820,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_fetch_and_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -3847,7 +3847,7 @@ define internal i32 @ompi_osc_monitoring_sm_fetch_and_op(ptr noundef %0, ptr nou
   br i1 %27, label %28, label %ompi_group_get_proc_ptr.exit.i
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -3878,7 +3878,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %34, %32, %18, %7
   br label %45
 
 43:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %44, align 8
   br label %45
 
@@ -3912,10 +3912,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %45
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_get_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #1 {
   %13 = alloca i64, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %6 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -3939,7 +3939,7 @@ define internal i32 @ompi_osc_monitoring_sm_get_accumulate(ptr noundef %0, i32 n
   br i1 %32, label %33, label %ompi_group_get_proc_ptr.exit.i
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i8, ptr @opal_uses_threads, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
@@ -3970,7 +3970,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %39, %37, %23, %12
   br label %50
 
 48:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %49, align 8
   br label %50
 
@@ -4010,10 +4010,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %50
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -4037,7 +4037,7 @@ define internal i32 @ompi_osc_monitoring_sm_rput(ptr noundef %0, i32 noundef %1,
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -4068,7 +4068,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -4103,10 +4103,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #1 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -4130,7 +4130,7 @@ define internal i32 @ompi_osc_monitoring_sm_rget(ptr noundef %0, i32 noundef %1,
   br i1 %29, label %30, label %ompi_group_get_proc_ptr.exit.i
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i8, ptr @opal_uses_threads, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %36
@@ -4161,7 +4161,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %36, %34, %20, %9
   br label %47
 
 45:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %46, align 8
   br label %47
 
@@ -4197,10 +4197,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_raccumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %3 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -4224,7 +4224,7 @@ define internal i32 @ompi_osc_monitoring_sm_raccumulate(ptr noundef %0, i32 noun
   br i1 %30, label %31, label %ompi_group_get_proc_ptr.exit.i
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i8, ptr @opal_uses_threads, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %37
@@ -4255,7 +4255,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %37, %35, %21, %10
   br label %48
 
 46:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %47, align 8
   br label %48
 
@@ -4290,10 +4290,10 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %48
 ; Function Attrs: nounwind uwtable
 define internal i32 @ompi_osc_monitoring_sm_rget_accumulate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #1 {
   %14 = alloca i64, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %6 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -4317,7 +4317,7 @@ define internal i32 @ompi_osc_monitoring_sm_rget_accumulate(ptr noundef %0, i32 
   br i1 %33, label %34, label %ompi_group_get_proc_ptr.exit.i
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %28, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %36 = load i8, ptr @opal_uses_threads, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -4348,7 +4348,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %40, %38, %24, %13
   br label %51
 
 49:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %50, align 8
   br label %51
 

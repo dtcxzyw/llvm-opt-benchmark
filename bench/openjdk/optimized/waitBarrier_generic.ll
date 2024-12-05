@@ -20,13 +20,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18GenericWaitBarrier3armEi(ptr noundef nonnull align 8 dereferenceable(3084) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2952
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   store volatile i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds [16 x %"class.GenericWaitBarrier::Cell"], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [16 x %"class.GenericWaitBarrier::Cell"], ptr %4, i64 0, i64 %6
   tail call void @_ZN18GenericWaitBarrier4Cell3armEi(ptr noundef nonnull align 8 dereferenceable(172) %7, i32 noundef %1)
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
@@ -37,7 +37,7 @@ define hidden void @_ZN18GenericWaitBarrier3armEi(ptr noundef nonnull align 8 de
 define hidden void @_ZN18GenericWaitBarrier4Cell3armEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.SpinYield, align 8
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4096, i32 noundef 64, i32 noundef 1000) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load volatile i64, ptr %4, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %6 = and i64 %5, 4294967295
@@ -45,8 +45,8 @@ define hidden void @_ZN18GenericWaitBarrier4Cell3armEi(ptr noundef nonnull align
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN9SpinYield4waitEv.exit
@@ -95,15 +95,15 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %14, %17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18GenericWaitBarrier6disarmEv(ptr noundef nonnull align 8 dereferenceable(3084) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2952
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %3 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   store volatile i32 0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = and i32 %3, 15
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds [16 x %"class.GenericWaitBarrier::Cell"], ptr %4, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [16 x %"class.GenericWaitBarrier::Cell"], ptr %4, i64 0, i64 %6
   tail call void @_ZN18GenericWaitBarrier4Cell6disarmEi(ptr noundef nonnull align 8 dereferenceable(172) %7, i32 poison)
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
@@ -113,7 +113,7 @@ define hidden void @_ZN18GenericWaitBarrier6disarmEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18GenericWaitBarrier4Cell6disarmEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.SpinYield, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -130,13 +130,13 @@ define hidden void @_ZN18GenericWaitBarrier4Cell6disarmEi(ptr noundef nonnull al
   br i1 %12, label %13, label %_ZN18GenericWaitBarrier4Cell16signal_if_neededEi.exit.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   store volatile i32 %11, ptr %14, align 8
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4096, i32 noundef 64, i32 noundef 1000) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN9SpinYield4waitEv.exit
 
 _ZN9SpinYield4waitEv.exit:                        ; preds = %_ZN9SpinYield4waitEv.exit.backedge, %13
@@ -189,11 +189,11 @@ _ZN18GenericWaitBarrier4Cell16signal_if_neededEi.exit.thread: ; preds = %_ZN18Ge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18GenericWaitBarrier4waitEi(ptr noundef nonnull align 8 dereferenceable(3084) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = and i32 %1, 15
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds [16 x %"class.GenericWaitBarrier::Cell"], ptr %3, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 160
+  %6 = getelementptr inbounds nuw [16 x %"class.GenericWaitBarrier::Cell"], ptr %3, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
   br label %8
 
 8:                                                ; preds = %12, %2
@@ -214,9 +214,9 @@ define hidden void @_ZN18GenericWaitBarrier4waitEi(ptr noundef nonnull align 8 d
   br i1 %18, label %19, label %8, !llvm.loop !14
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %6, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 128
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #4
-  %21 = getelementptr inbounds i8, ptr %6, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 168
   br label %22
 
 22:                                               ; preds = %28, %19
@@ -260,7 +260,7 @@ _ZN18GenericWaitBarrier4Cell4waitEi.exit:         ; preds = %8, %_ZN18GenericWai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18GenericWaitBarrier4Cell4waitEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %4
 
 4:                                                ; preds = %8, %2
@@ -281,9 +281,9 @@ define hidden void @_ZN18GenericWaitBarrier4Cell4waitEi(ptr noundef nonnull alig
   br i1 %14, label %15, label %4, !llvm.loop !14
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #4
-  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %18
 
 18:                                               ; preds = %24, %15
@@ -330,8 +330,8 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN18GenericWaitBarrier4Cell16signal_if_neededEi(ptr noundef nonnull align 8 dereferenceable(172) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %5
 

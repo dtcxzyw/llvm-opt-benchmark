@@ -95,7 +95,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   br label %67
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -103,7 +103,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 28:                                               ; preds = %25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -122,8 +122,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
           to label %35 unwind label %59
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %12, i64 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %37, align 8
   store i32 33619968, ptr %12, align 8
   store ptr %9, ptr %36, align 8
@@ -143,10 +143,10 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 41:                                               ; preds = %41, %40
   %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds [3 x double], ptr %13, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [3 x double], ptr %13, i64 0, i64 %indvars.iv.i
   %43 = load double, ptr %42, align 8, !noalias !5
   %44 = fptrunc double %43 to float
-  %45 = getelementptr inbounds [3 x float], ptr %14, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i
   store float %44, ptr %45, align 4, !alias.scope !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

@@ -56,7 +56,7 @@ define range(i32 -1, 1) i32 @slurm_get_cluster_info(ptr noundef writeonly %0, pt
 23:                                               ; preds = %20, %18
   %.0.i = phi ptr [ %21, %20 ], [ null, %18 ]
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @list_transfer_match(ptr noundef %26, ptr noundef %11, ptr noundef nonnull @_match_and_setup_cluster_rec, ptr noundef %.0.i) #3
   store ptr %11, ptr %0, align 8
@@ -125,7 +125,7 @@ define internal range(i32 0, 2) i32 @_match_and_setup_cluster_rec(ptr noundef %0
   br i1 %.not7, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %7) #3
   %.not8 = icmp ne ptr %8, null

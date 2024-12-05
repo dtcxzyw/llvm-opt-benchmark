@@ -100,7 +100,7 @@ define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_notify(i32 noundef %0, p
   br label %63
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8
@@ -119,7 +119,7 @@ define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_notify(i32 noundef %0, p
   br label %63
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, -1
   store i64 %26, ptr %24, align 8
@@ -138,7 +138,7 @@ define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_notify(i32 noundef %0, p
   br label %63
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %1, i64 280
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 1
   store i64 %38, ptr %36, align 8
@@ -157,7 +157,7 @@ define internal range(i32 -1, 1) i32 @H5AC__proxy_entry_notify(i32 noundef %0, p
   br label %63
 
 47:                                               ; preds = %2
-  %48 = getelementptr inbounds i8, ptr %1, i64 280
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, -1
   store i64 %50, ptr %48, align 8
@@ -205,7 +205,7 @@ define noalias ptr @H5AC_proxy_entry_create() local_unnamed_addr #1 {
   br label %9
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %1, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store i64 -1, ptr %8, align 8
   br label %9
 
@@ -221,7 +221,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_parent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %13
@@ -240,7 +240,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_parent(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %6, %2
   %14 = phi ptr [ %7, %6 ], [ %4, %2 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = tail call i32 @H5SL_insert(ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %15) #3
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
@@ -252,7 +252,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_parent(ptr noundef %0, ptr nou
   br label %32
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = load i64, ptr %23, align 8
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %32, label %25
@@ -281,9 +281,9 @@ declare i32 @H5AC_create_flush_dependency(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_parent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call ptr @H5SL_remove(ptr noundef %4, ptr noundef nonnull %5) #3
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
@@ -295,7 +295,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_parent(ptr noundef %0, ptr 
   br label %45
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, -1
   br i1 %.not, label %18, label %15
@@ -334,7 +334,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_parent(ptr noundef %0, ptr 
   br label %35
 
 35:                                               ; preds = %34, %22
-  %36 = getelementptr inbounds i8, ptr %0, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %37 = load i64, ptr %36, align 8
   %.not18 = icmp eq i64 %37, 0
   br i1 %.not18, label %45, label %38
@@ -365,13 +365,13 @@ declare i32 @H5AC_destroy_flush_dependency(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_child(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %49
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, -1
   br i1 %.not, label %10, label %17
@@ -423,7 +423,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_add_child(ptr noundef %0, ptr noun
   br label %59
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %41 = load ptr, ptr %40, align 8
   %.not22 = icmp eq ptr %41, null
   br i1 %.not22, label %49, label %42
@@ -501,7 +501,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_child(ptr noundef %0, ptr n
   br label %38
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, -1
   store i64 %12, ptr %10, align 8
@@ -509,7 +509,7 @@ define range(i32 -1, 1) i32 @H5AC_proxy_entry_remove_child(ptr noundef %0, ptr n
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %24, label %17

@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @cryptodev_vhost_get_max_queues(ptr nocapture noundef readonly %crypto) local_unnamed_addr #0 {
 entry:
-  %max_queues = getelementptr inbounds i8, ptr %crypto, i64 488
+  %max_queues = getelementptr inbounds nuw i8, ptr %crypto, i64 488
   %0 = load i64, ptr %max_queues, align 8
   ret i64 %0
 }
@@ -51,26 +51,26 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call noalias dereferenceable_or_null(784) ptr @g_malloc_n(i64 noundef 1, i64 noundef 784) #7
-  %max_queues = getelementptr inbounds i8, ptr %call, i64 488
+  %max_queues = getelementptr inbounds nuw i8, ptr %call, i64 488
   store i64 1, ptr %max_queues, align 8
-  %nvqs = getelementptr inbounds i8, ptr %call, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %call, i64 440
   store i32 1, ptr %nvqs, align 8
-  %vqs = getelementptr inbounds i8, ptr %call, i64 640
-  %vqs3 = getelementptr inbounds i8, ptr %call, i64 432
+  %vqs = getelementptr inbounds nuw i8, ptr %call, i64 640
+  %vqs3 = getelementptr inbounds nuw i8, ptr %call, i64 432
   store ptr %vqs, ptr %vqs3, align 8
-  %cc = getelementptr inbounds i8, ptr %options, i64 24
+  %cc = getelementptr inbounds nuw i8, ptr %options, i64 24
   %0 = load ptr, ptr %cc, align 8
-  %cc4 = getelementptr inbounds i8, ptr %call, i64 776
+  %cc4 = getelementptr inbounds nuw i8, ptr %call, i64 776
   store ptr %0, ptr %cc4, align 8
-  %protocol_features = getelementptr inbounds i8, ptr %call, i64 480
+  %protocol_features = getelementptr inbounds nuw i8, ptr %call, i64 480
   store i64 0, ptr %protocol_features, align 8
-  %backend = getelementptr inbounds i8, ptr %call, i64 768
+  %backend = getelementptr inbounds nuw i8, ptr %call, i64 768
   store i32 -1, ptr %backend, align 8
-  %queue_index = getelementptr inbounds i8, ptr %0, i64 16
+  %queue_index = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i32, ptr %queue_index, align 8
-  %vq_index = getelementptr inbounds i8, ptr %call, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %call, i64 444
   store i32 %1, ptr %vq_index, align 4
-  %opaque = getelementptr inbounds i8, ptr %options, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %options, i64 8
   %2 = load ptr, ptr %opaque, align 8
   %3 = load i32, ptr %options, align 8
   %call11 = call i32 @vhost_dev_init(ptr noundef %call, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %local_err) #6
@@ -127,9 +127,9 @@ entry:
   %call.i45 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i44, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #6
   %call.i46 = tail call ptr @object_get_class(ptr noundef %call.i45) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i46, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
-  %cryptodev = getelementptr inbounds i8, ptr %call.i, i64 592
+  %cryptodev = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %0 = load ptr, ptr %cryptodev, align 8
-  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
+  %set_guest_notifiers = getelementptr inbounds nuw i8, ptr %call1.i, i64 240
   %1 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
@@ -139,8 +139,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp79, label %for.body.lr.ph, label %for.end.thread
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %conf = getelementptr inbounds i8, ptr %0, i64 48
-  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %dev, i64 465
+  %conf = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %use_guest_notifier_mask = getelementptr inbounds nuw i8, ptr %dev, i64 465
   %wide.trip.count = zext nneg i32 %total_queues to i64
   br label %for.body
 
@@ -158,7 +158,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cond.i = icmp eq i32 %4, 1
   tail call void @llvm.assume(i1 %cond.i)
   %call.i47 = tail call ptr @cryptodev_vhost_user_get_vhost(ptr noundef nonnull %2, ptr noundef nonnull %0, i16 noundef zeroext %conv) #6
-  %vq_index1.i = getelementptr inbounds i8, ptr %call.i47, i64 444
+  %vq_index1.i = getelementptr inbounds nuw i8, ptr %call.i47, i64 444
   store i32 %3, ptr %vq_index1.i, align 4
   %5 = load i32, ptr %2, align 8
   %cmp7 = icmp eq i32 %5, 1
@@ -175,21 +175,21 @@ for.inc:                                          ; preds = %for.body, %if.then9
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds i8, ptr %call.i44, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call.i44, i64 40
   %6 = load ptr, ptr %parent, align 8
   %call12 = tail call i32 %.pre(ptr noundef %6, i32 noundef %total_queues, i1 noundef zeroext true) #6
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %if.then15, label %for.body20.lr.ph
 
 for.end.thread:                                   ; preds = %for.cond.preheader
-  %parent101 = getelementptr inbounds i8, ptr %call.i44, i64 40
+  %parent101 = getelementptr inbounds nuw i8, ptr %call.i44, i64 40
   %7 = load ptr, ptr %parent101, align 8
   %call12102 = tail call i32 %1(ptr noundef %7, i32 noundef %total_queues, i1 noundef zeroext true) #6
   %cmp13103 = icmp slt i32 %call12102, 0
   br i1 %cmp13103, label %if.then15, label %return
 
 for.body20.lr.ph:                                 ; preds = %for.end
-  %conf21 = getelementptr inbounds i8, ptr %0, i64 48
+  %conf21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count96 = zext nneg i32 %total_queues to i64
   br label %for.body20
 
@@ -218,10 +218,10 @@ sw.bb.i52:                                        ; preds = %if.end.i49
 
 cryptodev_get_vhost.exit54:                       ; preds = %for.body20, %if.end.i49, %sw.bb.i52
   %retval.0.i51 = phi ptr [ null, %for.body20 ], [ %call.i53, %sw.bb.i52 ], [ null, %if.end.i49 ]
-  %nvqs.i = getelementptr inbounds i8, ptr %retval.0.i51, i64 440
+  %nvqs.i = getelementptr inbounds nuw i8, ptr %retval.0.i51, i64 440
   store i32 1, ptr %nvqs.i, align 8
-  %vqs.i = getelementptr inbounds i8, ptr %retval.0.i51, i64 640
-  %vqs3.i = getelementptr inbounds i8, ptr %retval.0.i51, i64 432
+  %vqs.i = getelementptr inbounds nuw i8, ptr %retval.0.i51, i64 640
+  %vqs3.i = getelementptr inbounds nuw i8, ptr %retval.0.i51, i64 432
   store ptr %vqs.i, ptr %vqs3.i, align 8
   %call.i55 = tail call i32 @vhost_dev_enable_notifiers(ptr noundef %retval.0.i51, ptr noundef %dev) #6
   %cmp.i = icmp slt i32 %call.i55, 0
@@ -237,7 +237,7 @@ fail_start.i:                                     ; preds = %if.end.i56
   br label %err_start
 
 if.end32:                                         ; preds = %if.end.i56
-  %vring_enable = getelementptr inbounds i8, ptr %8, i64 20
+  %vring_enable = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %vring_enable, align 4
   %tobool33.not = icmp eq i32 %10, 0
   br i1 %tobool33.not, label %for.inc43, label %if.end.i.i
@@ -254,9 +254,9 @@ cryptodev_get_vhost.exit.i:                       ; preds = %if.end.i.i
   br i1 %tobool.not.i59, label %for.inc43, label %if.end.i60
 
 if.end.i60:                                       ; preds = %cryptodev_get_vhost.exit.i
-  %vhost_ops1.i = getelementptr inbounds i8, ptr %call.i.i, i64 528
+  %vhost_ops1.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 528
   %12 = load ptr, ptr %vhost_ops1.i, align 8
-  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %12, i64 216
+  %vhost_set_vring_enable.i = getelementptr inbounds nuw i8, ptr %12, i64 216
   %13 = load ptr, ptr %vhost_set_vring_enable.i, align 8
   %tobool2.not.i = icmp eq ptr %13, null
   br i1 %tobool2.not.i, label %for.inc43, label %vhost_set_vring_enable.exit
@@ -336,14 +336,14 @@ entry:
   %call.i13 = tail call ptr @object_get_class(ptr noundef %call.i12) #6
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #6
   %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #6
-  %cryptodev = getelementptr inbounds i8, ptr %call.i14, i64 592
+  %cryptodev = getelementptr inbounds nuw i8, ptr %call.i14, i64 592
   %0 = load ptr, ptr %cryptodev, align 8
   %conv = sext i32 %total_queues to i64
   %cmp17.not = icmp eq i32 %total_queues, 0
   br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %conf = getelementptr inbounds i8, ptr %0, i64 48
+  %conf = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cryptodev_get_vhost.exit
@@ -372,9 +372,9 @@ cryptodev_get_vhost.exit:                         ; preds = %for.body, %if.end.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %cryptodev_get_vhost.exit, %entry
-  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
+  %set_guest_notifiers = getelementptr inbounds nuw i8, ptr %call1.i, i64 240
   %3 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds i8, ptr %call.i11, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call.i11, i64 40
   %4 = load ptr, ptr %parent, align 8
   %call9 = tail call i32 %3(ptr noundef %4, i32 noundef %total_queues, i1 noundef zeroext false) #6
   %cmp10 = icmp slt i32 %call9, 0
@@ -404,9 +404,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cryptodev = getelementptr inbounds i8, ptr %call.i, i64 592
+  %cryptodev = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %0 = load ptr, ptr %cryptodev, align 8
-  %conf = getelementptr inbounds i8, ptr %0, i64 48
+  %conf = getelementptr inbounds nuw i8, ptr %0, i64 48
   %idxprom = sext i32 %queue to i64
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -443,9 +443,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cryptodev = getelementptr inbounds i8, ptr %call.i, i64 592
+  %cryptodev = getelementptr inbounds nuw i8, ptr %call.i, i64 592
   %0 = load ptr, ptr %cryptodev, align 8
-  %conf = getelementptr inbounds i8, ptr %0, i64 48
+  %conf = getelementptr inbounds nuw i8, ptr %0, i64 48
   %idxprom = sext i32 %queue to i64
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8

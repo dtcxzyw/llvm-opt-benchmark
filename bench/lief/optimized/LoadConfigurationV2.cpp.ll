@@ -32,8 +32,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #0
 define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2IjEERKNS0_7details21load_configuration_v2IT_EE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(104) %1) unnamed_addr #1 comdat($_ZN4LIEF2PE19LoadConfigurationV2C5IjEERKNS0_7details21load_configuration_v2IT_EE) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF2PE19LoadConfigurationV1C2IjEERKNS0_7details21load_configuration_v1IT_EE(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 4 dereferenceable(92) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
-  %4 = getelementptr inbounds i8, ptr %1, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   invoke void @_ZN4LIEF2PE13CodeIntegrityC1ERKNS0_7details17pe_code_integrityE(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 1 dereferenceable(12) %4)
           to label %5 unwind label %6
 
@@ -57,8 +57,8 @@ declare i32 @__gxx_personality_v0(...)
 define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2ImEERKNS0_7details21load_configuration_v2IT_EE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(160) %1) unnamed_addr #1 comdat($_ZN4LIEF2PE19LoadConfigurationV2C5ImEERKNS0_7details21load_configuration_v2IT_EE) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF2PE19LoadConfigurationV1C2ImEERKNS0_7details21load_configuration_v1IT_EE(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 4 dereferenceable(148) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
-  %4 = getelementptr inbounds i8, ptr %1, i64 148
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 148
   invoke void @_ZN4LIEF2PE13CodeIntegrityC1ERKNS0_7details17pe_code_integrityE(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 1 dereferenceable(12) %4)
           to label %5 unwind label %6
 
@@ -77,7 +77,7 @@ declare hidden void @_ZN4LIEF2PE19LoadConfigurationV1C2ImEERKNS0_7details21load_
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE19LoadConfigurationV26acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 744
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 744
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(184) %0)
   ret void
@@ -87,7 +87,7 @@ define void @_ZNK4LIEF2PE19LoadConfigurationV26acceptERNS_7VisitorE(ptr noundef 
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF2PE19LoadConfigurationV25printERSo(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF2PE19LoadConfigurationV15printERSo(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str)
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_13CodeIntegrityE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(20) %5)
   ret ptr %1
 }
@@ -112,7 +112,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4LIEF6ObjectneERKS0_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #5
   tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) #5
   ret void
@@ -121,7 +121,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D2Ev(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #5
   tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #5
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6

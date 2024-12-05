@@ -97,14 +97,14 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(112) %12)
           to label %16 unwind label %36
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load ptr, ptr %18, align 8
   %.not26 = icmp eq ptr %19, null
   br i1 %.not26, label %38, label %20
@@ -118,15 +118,15 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %22 unwind label %30
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %25 unwind label %32
 
 25:                                               ; preds = %22
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %34, label %29
@@ -221,7 +221,7 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 
 5:                                                ; preds = %.noexc
   store ptr %4, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZN2mu11ParserErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6)
           to label %.sink.split unwind label %9
 
@@ -247,7 +247,7 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 
 14:                                               ; preds = %.noexc7
   store ptr %13, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void @_ZN2mu11ParserErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15)
           to label %.sink.split unwind label %18
 
@@ -264,11 +264,11 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 
 .sink.split:                                      ; preds = %14, %5
   %.sink17 = phi ptr [ %3, %5 ], [ %12, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.sink17, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %.sink17, i64 120
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.sink17, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %.sink17, i64 128
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.sink17, i64 132
+  %22 = getelementptr inbounds nuw i8, ptr %.sink17, i64 132
   store i32 %0, ptr %22, align 4
   br label %23
 
@@ -307,13 +307,13 @@ define void @mupRelease(ptr noundef %0) local_unnamed_addr #8 {
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(596) %4) #19
   br label %_ZN9ParserTagD2Ev.exit
 
 _ZN9ParserTagD2Ev.exit:                           ; preds = %3, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %11
@@ -348,14 +348,14 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 8 dereferenceable(112) %14)
           to label %18 unwind label %38
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load ptr, ptr %20, align 8
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %40, label %22
@@ -369,15 +369,15 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
           to label %24 unwind label %32
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %27 unwind label %34
 
 27:                                               ; preds = %24
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %36, label %31
@@ -459,14 +459,14 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %15 unwind label %35
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %37, label %19
@@ -480,15 +480,15 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
           to label %21 unwind label %29
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %33, label %28
@@ -583,14 +583,14 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %14, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %15)
           to label %19 unwind label %42
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load ptr, ptr %21, align 8
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %44, label %23
@@ -604,15 +604,15 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
           to label %25 unwind label %36
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %28 unwind label %38
 
 28:                                               ; preds = %25
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %40, label %32
@@ -708,14 +708,14 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(112) %12)
           to label %16 unwind label %36
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load ptr, ptr %18, align 8
   %.not26 = icmp eq ptr %19, null
   br i1 %.not26, label %38, label %20
@@ -729,15 +729,15 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
           to label %22 unwind label %30
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %25 unwind label %32
 
 25:                                               ; preds = %22
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %34, label %29
@@ -836,14 +836,14 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(112) %16)
           to label %20 unwind label %40
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load ptr, ptr %22, align 8
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %42, label %24
@@ -857,15 +857,15 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
           to label %26 unwind label %34
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %29 unwind label %36
 
 29:                                               ; preds = %26
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %38, label %33
@@ -964,14 +964,14 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(112) %16)
           to label %20 unwind label %40
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load ptr, ptr %22, align 8
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %42, label %24
@@ -985,15 +985,15 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
           to label %26 unwind label %34
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %29 unwind label %36
 
 29:                                               ; preds = %26
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #19
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %38, label %33
@@ -1068,14 +1068,14 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %14 unwind label %34
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %36, label %18
@@ -1089,15 +1089,15 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           to label %20 unwind label %28
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -1172,14 +1172,14 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %14 unwind label %34
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %36, label %18
@@ -1193,15 +1193,15 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
           to label %20 unwind label %28
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -1276,14 +1276,14 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %14 unwind label %34
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %36, label %18
@@ -1297,15 +1297,15 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
           to label %20 unwind label %28
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -1380,14 +1380,14 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %14 unwind label %34
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %36, label %18
@@ -1401,15 +1401,15 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           to label %20 unwind label %28
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -1487,7 +1487,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -1533,14 +1533,14 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -1554,15 +1554,15 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -1647,7 +1647,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -1693,14 +1693,14 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -1714,15 +1714,15 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -1800,7 +1800,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -1846,14 +1846,14 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -1867,15 +1867,15 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -1953,7 +1953,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -1999,14 +1999,14 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2020,15 +2020,15 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2106,7 +2106,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2152,14 +2152,14 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2173,15 +2173,15 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2259,7 +2259,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2305,14 +2305,14 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2326,15 +2326,15 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2412,7 +2412,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2458,14 +2458,14 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2479,15 +2479,15 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2565,7 +2565,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2611,14 +2611,14 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2632,15 +2632,15 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2718,7 +2718,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2764,14 +2764,14 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2785,15 +2785,15 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -2871,7 +2871,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -2917,14 +2917,14 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -2938,15 +2938,15 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -3024,7 +3024,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -3070,14 +3070,14 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -3091,15 +3091,15 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -3177,7 +3177,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3223,14 +3223,14 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -3244,15 +3244,15 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -3330,7 +3330,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3376,14 +3376,14 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -3397,15 +3397,15 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -3483,7 +3483,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3529,14 +3529,14 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -3550,15 +3550,15 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -3636,7 +3636,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3682,14 +3682,14 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -3703,15 +3703,15 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -3789,7 +3789,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3835,14 +3835,14 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -3856,15 +3856,15 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -3942,7 +3942,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -3988,14 +3988,14 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4009,15 +4009,15 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4095,7 +4095,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -4141,14 +4141,14 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4162,15 +4162,15 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4248,7 +4248,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -4294,14 +4294,14 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4315,15 +4315,15 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4401,7 +4401,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -4447,14 +4447,14 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4468,15 +4468,15 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4554,7 +4554,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -4600,14 +4600,14 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4621,15 +4621,15 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4707,7 +4707,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -4753,14 +4753,14 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -4774,15 +4774,15 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -4859,7 +4859,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -4905,14 +4905,14 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -4926,15 +4926,15 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5011,7 +5011,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5057,14 +5057,14 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5078,15 +5078,15 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5163,7 +5163,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5209,14 +5209,14 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5230,15 +5230,15 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5315,7 +5315,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5361,14 +5361,14 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5382,15 +5382,15 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5467,7 +5467,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5513,14 +5513,14 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5534,15 +5534,15 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5619,7 +5619,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5665,14 +5665,14 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5686,15 +5686,15 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5771,7 +5771,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5817,14 +5817,14 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5838,15 +5838,15 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -5923,7 +5923,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -5969,14 +5969,14 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -5990,15 +5990,15 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -6075,7 +6075,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -6121,14 +6121,14 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -6142,15 +6142,15 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -6227,7 +6227,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -6273,14 +6273,14 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -6294,15 +6294,15 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -6379,7 +6379,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -6425,14 +6425,14 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -6446,15 +6446,15 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -6531,7 +6531,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -6577,14 +6577,14 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -6598,15 +6598,15 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -6683,7 +6683,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -6729,14 +6729,14 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -6750,15 +6750,15 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -6835,7 +6835,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -6881,14 +6881,14 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -6902,15 +6902,15 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -6987,7 +6987,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7033,14 +7033,14 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7054,15 +7054,15 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7139,7 +7139,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7185,14 +7185,14 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7206,15 +7206,15 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7291,7 +7291,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7337,14 +7337,14 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7358,15 +7358,15 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7443,7 +7443,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7489,14 +7489,14 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7510,15 +7510,15 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7595,7 +7595,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7641,14 +7641,14 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7662,15 +7662,15 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7747,7 +7747,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7793,14 +7793,14 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7814,15 +7814,15 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -7899,7 +7899,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -7945,14 +7945,14 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -7966,15 +7966,15 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -8051,7 +8051,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -8097,14 +8097,14 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -8118,15 +8118,15 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -8203,7 +8203,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -8249,14 +8249,14 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -8270,15 +8270,15 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -8355,7 +8355,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -8401,14 +8401,14 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -8422,15 +8422,15 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -8507,7 +8507,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -8553,14 +8553,14 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -8574,15 +8574,15 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -8659,7 +8659,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -8705,14 +8705,14 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -8726,15 +8726,15 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -8811,7 +8811,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %10)
           to label %15 unwind label %13
 
@@ -8857,14 +8857,14 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %49, label %31
@@ -8878,15 +8878,15 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -8963,7 +8963,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -9009,14 +9009,14 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -9030,15 +9030,15 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -9115,7 +9115,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -9161,14 +9161,14 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -9182,15 +9182,15 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -9267,7 +9267,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -9313,14 +9313,14 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -9334,15 +9334,15 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -9419,7 +9419,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -9465,14 +9465,14 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -9486,15 +9486,15 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -9571,7 +9571,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %12 unwind label %14
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %9, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %11)
           to label %16 unwind label %14
 
@@ -9617,14 +9617,14 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %28 unwind label %48
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load ptr, ptr %30, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %50, label %32
@@ -9638,15 +9638,15 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %34 unwind label %42
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %37 unwind label %44
 
 37:                                               ; preds = %34
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %46, label %41
@@ -9724,7 +9724,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
           to label %13 unwind label %15
 
 13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %9, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %12)
           to label %17 unwind label %15
 
@@ -9770,14 +9770,14 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %29 unwind label %49
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
@@ -9791,15 +9791,15 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
           to label %35 unwind label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %38 unwind label %45
 
 38:                                               ; preds = %35
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %47, label %42
@@ -9877,7 +9877,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %13)
           to label %18 unwind label %16
 
@@ -9923,14 +9923,14 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %25, label %27, label %35
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %26)
           to label %30 unwind label %50
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %52, label %34
@@ -9944,15 +9944,15 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
           to label %36 unwind label %44
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %39 unwind label %46
 
 39:                                               ; preds = %36
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %48, label %43
@@ -10052,14 +10052,14 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %20, label %22, label %30
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %21)
           to label %25 unwind label %45
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not32 = icmp eq ptr %28, null
   br i1 %.not32, label %47, label %29
@@ -10073,15 +10073,15 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
           to label %31 unwind label %39
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %32, ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %34 unwind label %41
 
 34:                                               ; preds = %31
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %43, label %38
@@ -10180,14 +10180,14 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %17)
           to label %21 unwind label %41
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %43, label %25
@@ -10201,15 +10201,15 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %6)
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %39, label %34
@@ -10308,14 +10308,14 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %17)
           to label %21 unwind label %41
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %43, label %25
@@ -10329,15 +10329,15 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %6)
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %39, label %34
@@ -10434,14 +10434,14 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
   br i1 %16, label %18, label %26
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %17)
           to label %21 unwind label %41
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %43, label %25
@@ -10455,15 +10455,15 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
           to label %27 unwind label %35
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(112) %6)
           to label %30 unwind label %37
 
 30:                                               ; preds = %27
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #19
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %39, label %34
@@ -10583,14 +10583,14 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %27 unwind label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not31 = icmp eq ptr %30, null
   br i1 %.not31, label %49, label %31
@@ -10604,15 +10604,15 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
           to label %33 unwind label %41
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull align 8 dereferenceable(112) %8)
           to label %36 unwind label %43
 
 36:                                               ; preds = %33
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #19
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %45, label %40
@@ -10692,14 +10692,14 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 8 dereferenceable(112) %14)
           to label %18 unwind label %38
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load ptr, ptr %20, align 8
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %40, label %22
@@ -10713,15 +10713,15 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
           to label %24 unwind label %32
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %27 unwind label %34
 
 27:                                               ; preds = %24
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %36, label %31
@@ -10822,14 +10822,14 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %18, label %20, label %28
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %19)
           to label %23 unwind label %43
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not30 = icmp eq ptr %26, null
   br i1 %.not30, label %45, label %27
@@ -10843,15 +10843,15 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
           to label %29 unwind label %37
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %30, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %32 unwind label %39
 
 32:                                               ; preds = %29
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %41, label %36
@@ -10952,14 +10952,14 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %19, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %20)
           to label %24 unwind label %44
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not30 = icmp eq ptr %27, null
   br i1 %.not30, label %46, label %28
@@ -10973,15 +10973,15 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
           to label %30 unwind label %38
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %31, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %33 unwind label %40
 
 33:                                               ; preds = %30
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %42, label %37
@@ -11074,17 +11074,17 @@ define i32 @mupGetVarNum(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           to label %7 unwind label %31
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %15
@@ -11097,7 +11097,7 @@ define i32 @mupGetVarNum(ptr noundef %0) local_unnamed_addr #3 personality ptr @
 
 .noexc.i.i:                                       ; preds = %15, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %18, %.noexc.i.i ], [ %16, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -11108,14 +11108,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 19:                                               ; preds = %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %16, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i8.i.i.i.i, label %22, label %19, !llvm.loop !7
 
 22:                                               ; preds = %19
   store ptr %.0.i.i7.i.i.i.i, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -11148,14 +11148,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %39, ptr noundef nonnull align 8 dereferenceable(112) %37)
           to label %41 unwind label %60
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8
   %.not26 = icmp eq ptr %44, null
   br i1 %.not26, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit.sink.split, label %45
@@ -11169,15 +11169,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %47 unwind label %55
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %48, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit.sink.split, label %54
@@ -11232,9 +11232,9 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK2mu10ParserBase6Get
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit unwind label %8
 
@@ -11268,17 +11268,17 @@ common.resume:                                    ; preds = %62, %12
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit: ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
   %21 = load i32, ptr %1, align 8
   store i32 %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %33, label %26
@@ -11288,7 +11288,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
           to label %28 unwind label %.loopexit.split-lp
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %27, ptr %29, align 8
   br label %33
 
@@ -11314,7 +11314,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
           to label %67 unwind label %62
 
 33:                                               ; preds = %28, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_.exit
-  %.0.in34 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.035 = load ptr, ptr %.0.in34, align 8
   %.not3136 = icmp eq ptr %.035, null
   br i1 %.not3136, label %._crit_edge, label %.lr.ph
@@ -11326,8 +11326,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.038, i64 32
-  %36 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.038, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35)
           to label %47 unwind label %37
 
@@ -11357,19 +11357,19 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   unreachable
 
 47:                                               ; preds = %.noexc
-  %48 = getelementptr inbounds i8, ptr %34, i64 64
-  %49 = getelementptr inbounds i8, ptr %.038, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %.038, i64 64
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %48, align 8
   %51 = load i32, ptr %.038, align 8
   store i32 %51, ptr %34, align 8
-  %52 = getelementptr inbounds i8, ptr %34, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  %53 = getelementptr inbounds i8, ptr %.03037, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.03037, i64 16
   store ptr %34, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %34, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %.03037, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.038, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.038, i64 24
   %56 = load ptr, ptr %55, align 8
   %.not32 = icmp eq ptr %56, null
   br i1 %.not32, label %61, label %57
@@ -11379,12 +11379,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
           to label %59 unwind label %.loopexit
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %34, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %58, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %59, %47
-  %.0.in = getelementptr inbounds i8, ptr %.038, i64 16
+  %.0.in = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -11416,12 +11416,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
@@ -11445,17 +11445,17 @@ define void @mupGetVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef wri
           to label %10 unwind label %29
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit.thread, label %18
@@ -11468,7 +11468,7 @@ define void @mupGetVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef wri
 
 .noexc.i.i:                                       ; preds = %18, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %21, %.noexc.i.i ], [ %19, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -11479,14 +11479,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 22:                                               ; preds = %22, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %24, %22 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i8.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %22, !llvm.loop !7
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit: ; preds = %22
   store ptr %.0.i.i7.i.i.i.i, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -11525,25 +11525,25 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %36 ], [ %37, %.lr.ph ]
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #19
   %41 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ9mupGetVarE6szName, ptr noundef nonnull dereferenceable(1) %40, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ9mupGetVarE6szName, i64 1023), align 1
   store ptr @_ZZ9mupGetVarE6szName, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %43 = load ptr, ptr %42, align 8
   %.pre = load ptr, ptr %12, align 8
   br label %61
 
 44:                                               ; preds = %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %45, ptr noundef nonnull align 8 dereferenceable(112) %35)
           to label %47 unwind label %71
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %50 = load ptr, ptr %49, align 8
   %.not35 = icmp eq ptr %50, null
   br i1 %.not35, label %73, label %51
@@ -11557,15 +11557,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %53 unwind label %66
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %54, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %56 unwind label %68
 
 56:                                               ; preds = %53
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %59 = load ptr, ptr %58, align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %73, label %60
@@ -11647,17 +11647,17 @@ define i32 @mupGetExprVarNum(ptr noundef %0) local_unnamed_addr #3 personality p
           to label %7 unwind label %31
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %15
@@ -11670,7 +11670,7 @@ define i32 @mupGetExprVarNum(ptr noundef %0) local_unnamed_addr #3 personality p
 
 .noexc.i.i:                                       ; preds = %15, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %18, %.noexc.i.i ], [ %16, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -11681,14 +11681,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 19:                                               ; preds = %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %16, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i8.i.i.i.i, label %22, label %19, !llvm.loop !7
 
 22:                                               ; preds = %19
   store ptr %.0.i.i7.i.i.i.i, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -11721,14 +11721,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %39, ptr noundef nonnull align 8 dereferenceable(112) %37)
           to label %41 unwind label %60
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8
   %.not26 = icmp eq ptr %44, null
   br i1 %.not26, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit.sink.split, label %45
@@ -11742,15 +11742,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %47 unwind label %55
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %48, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit.sink.split, label %54
@@ -11813,17 +11813,17 @@ define void @mupGetExprVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
           to label %10 unwind label %29
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit.thread, label %18
@@ -11836,7 +11836,7 @@ define void @mupGetExprVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
 
 .noexc.i.i:                                       ; preds = %18, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %21, %.noexc.i.i ], [ %19, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -11847,14 +11847,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 
 22:                                               ; preds = %22, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PdESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %24, %22 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i8.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit, label %22, !llvm.loop !7
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEEC2ERKSD_.exit: ; preds = %22
   store ptr %.0.i.i7.i.i.i.i, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -11880,14 +11880,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
   br i1 %34, label %36, label %44
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %35)
           to label %39 unwind label %71
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %73, label %43
@@ -11901,15 +11901,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           to label %45 unwind label %66
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %48 unwind label %68
 
 48:                                               ; preds = %45
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %73, label %52
@@ -11932,12 +11932,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %53 ], [ %54, %.lr.ph ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
   %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ13mupGetExprVarE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ13mupGetExprVarE6szName, i64 1023), align 1
   store ptr @_ZZ13mupGetExprVarE6szName, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %60 = load ptr, ptr %59, align 8
   %.pre = load ptr, ptr %12, align 8
   br label %61
@@ -12009,17 +12009,17 @@ define i32 @mupGetConstNum(ptr noundef %0) local_unnamed_addr #3 personality ptr
           to label %7 unwind label %31
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2ERKSC_.exit, label %15
@@ -12032,7 +12032,7 @@ define i32 @mupGetConstNum(ptr noundef %0) local_unnamed_addr #3 personality ptr
 
 .noexc.i.i:                                       ; preds = %15, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %18, %.noexc.i.i ], [ %16, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -12043,14 +12043,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
 
 19:                                               ; preds = %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %16, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %21, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i8.i.i.i.i, label %22, label %19, !llvm.loop !7
 
 22:                                               ; preds = %19
   store ptr %.0.i.i7.i.i.i.i, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -12083,14 +12083,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   br i1 %36, label %38, label %46
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %39, ptr noundef nonnull align 8 dereferenceable(112) %37)
           to label %41 unwind label %60
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8
   %.not26 = icmp eq ptr %44, null
   br i1 %.not26, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev.exit.sink.split, label %45
@@ -12104,15 +12104,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           to label %47 unwind label %55
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %48, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %50 unwind label %57
 
 50:                                               ; preds = %47
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev.exit.sink.split, label %54
@@ -12167,9 +12167,9 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK2mu10ParserBase8Get
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE7_M_copyILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit unwind label %8
 
@@ -12203,17 +12203,17 @@ common.resume:                                    ; preds = %62, %12
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit: ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load double, ptr %19, align 8
   store double %20, ptr %18, align 8
   %21 = load i32, ptr %1, align 8
   store i32 %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %33, label %26
@@ -12223,7 +12223,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
           to label %28 unwind label %.loopexit.split-lp
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %27, ptr %29, align 8
   br label %33
 
@@ -12249,7 +12249,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
           to label %67 unwind label %62
 
 33:                                               ; preds = %28, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_M_clone_nodeILb0ENSE_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESJ_RT0_.exit
-  %.0.in34 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.035 = load ptr, ptr %.0.in34, align 8
   %.not3136 = icmp eq ptr %.035, null
   br i1 %.not3136, label %._crit_edge, label %.lr.ph
@@ -12261,8 +12261,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.038, i64 32
-  %36 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.038, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35)
           to label %47 unwind label %37
 
@@ -12292,19 +12292,19 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
   unreachable
 
 47:                                               ; preds = %.noexc
-  %48 = getelementptr inbounds i8, ptr %34, i64 64
-  %49 = getelementptr inbounds i8, ptr %.038, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %.038, i64 64
   %50 = load double, ptr %49, align 8
   store double %50, ptr %48, align 8
   %51 = load i32, ptr %.038, align 8
   store i32 %51, ptr %34, align 8
-  %52 = getelementptr inbounds i8, ptr %34, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  %53 = getelementptr inbounds i8, ptr %.03037, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.03037, i64 16
   store ptr %34, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %34, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %.03037, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.038, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.038, i64 24
   %56 = load ptr, ptr %55, align 8
   %.not32 = icmp eq ptr %56, null
   br i1 %.not32, label %61, label %57
@@ -12314,12 +12314,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
           to label %59 unwind label %.loopexit
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %34, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %58, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %59, %47
-  %.0.in = getelementptr inbounds i8, ptr %.038, i64 16
+  %.0.in = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -12351,12 +12351,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
@@ -12385,14 +12385,14 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %15 unwind label %35
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   br i1 %.not25, label %37, label %19
@@ -12406,15 +12406,15 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           to label %21 unwind label %29
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %33, label %28
@@ -12489,14 +12489,14 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
   br i1 %9, label %11, label %19
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %14 unwind label %34
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %36, label %18
@@ -12510,15 +12510,15 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
           to label %20 unwind label %28
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %23 unwind label %30
 
 23:                                               ; preds = %20
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #19
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -12593,14 +12593,14 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %15 unwind label %35
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   br i1 %.not25, label %37, label %19
@@ -12614,15 +12614,15 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           to label %21 unwind label %29
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %33, label %28
@@ -12697,14 +12697,14 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %15 unwind label %35
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   br i1 %.not25, label %37, label %19
@@ -12718,15 +12718,15 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
           to label %21 unwind label %29
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %33, label %28
@@ -12792,17 +12792,17 @@ define void @mupGetConst(ptr noundef %0, i32 noundef %1, ptr nocapture noundef w
           to label %10 unwind label %29
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2ERKSC_.exit.thread, label %18
@@ -12815,7 +12815,7 @@ define void @mupGetConst(ptr noundef %0, i32 noundef %1, ptr nocapture noundef w
 
 .noexc.i.i:                                       ; preds = %18, %.noexc.i.i
   %.0.i.i.i.i.i.i = phi ptr [ %21, %.noexc.i.i ], [ %19, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !5
@@ -12826,14 +12826,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_d
 
 22:                                               ; preds = %22, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i
   %.0.i.i7.i.i.i.i = phi ptr [ %19, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_dESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i ], [ %24, %22 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i7.i.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i8.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2ERKSC_.exit, label %22, !llvm.loop !7
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEEC2ERKSC_.exit: ; preds = %22
   store ptr %.0.i.i7.i.i.i.i, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -12859,14 +12859,14 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
   br i1 %34, label %36, label %44
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 8 dereferenceable(112) %35)
           to label %39 unwind label %71
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %73, label %43
@@ -12880,15 +12880,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           to label %45 unwind label %66
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %48 unwind label %68
 
 48:                                               ; preds = %45
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #19
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %73, label %52
@@ -12911,12 +12911,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
   %.sroa.0.0.lcssa = phi ptr [ %.0.i.i.i.i.i.i, %53 ], [ %54, %.lr.ph ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 32
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
   %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZZ11mupGetConstE6szName, ptr noundef nonnull dereferenceable(1) %57, i64 noundef 1024) #19
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZ11mupGetConstE6szName, i64 1023), align 1
   store ptr @_ZZ11mupGetConstE6szName, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 64
   %60 = load double, ptr %59, align 8
   %.pre = load ptr, ptr %12, align 8
   br label %61
@@ -12997,14 +12997,14 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %10, label %12, label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %15 unwind label %35
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   br i1 %.not25, label %37, label %19
@@ -13018,15 +13018,15 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
           to label %21 unwind label %29
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN2mu11ParserErroraSERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %24 unwind label %31
 
 24:                                               ; preds = %21
   call void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %33, label %28
@@ -13084,7 +13084,7 @@ declare void @_ZN2mu10ParserBase11AddValIdentEPFiPKcPiPdE(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   store i8 0, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -13094,21 +13094,21 @@ define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @mupErrorReset(ptr nocapture noundef writeonly initializes((128, 129)) %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @mupSetErrorHandler(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #14 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @mupGetErrorMsg(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError6GetMsgB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #19
@@ -13119,7 +13119,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError6Ge
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @mupGetErrorToken(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError8GetTokenB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL11s_tmpOutBuf, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %4) #19
@@ -13130,7 +13130,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError8Ge
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @mupGetErrorCode(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef i32 @_ZNK2mu11ParserError7GetCodeEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   ret i32 %3
 }
@@ -13139,7 +13139,7 @@ declare noundef i32 @_ZNK2mu11ParserError7GetCodeEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @mupGetErrorPos(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef i32 @_ZNK2mu11ParserError6GetPosEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   ret i32 %3
 }

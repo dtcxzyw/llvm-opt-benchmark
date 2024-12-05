@@ -49,13 +49,13 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10T
   br i1 %27, label %.preheader.i, label %44
 
 .preheader.i:                                     ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i
-  %.sroa.01.032.i = getelementptr inbounds i8, ptr %25, i64 72
+  %.sroa.01.032.i = getelementptr inbounds nuw i8, ptr %25, i64 72
   %.not36.i = icmp eq ptr %.sroa.01.032.i, %5
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nuw nsw i32 %.034.i, 1
-  %.sroa.01.0.i = getelementptr inbounds i8, ptr %.sroa.01.035.i, i64 72
+  %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %.sroa.01.035.i, i64 72
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
@@ -85,11 +85,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp olt double %.val9.i.i, %1
-  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = xor i64 %37, -1
   %43 = add i64 %.06.i.i, %42
   %.sroa.03.1.i.i = select i1 %40, ptr %41, ptr %.sroa.03.05.i.i
@@ -131,11 +131,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp olt double %.val9.i66.i, %1
-  %60 = getelementptr inbounds i8, ptr %57, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %61 = xor i64 %56, -1
   %62 = add i64 %.06.i62.i, %61
   %.sroa.03.1.i67.i = select i1 %59, ptr %60, ptr %.sroa.03.05.i63.i
@@ -147,11 +147,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp olt double %.val9.i79.i, %1
-  %67 = getelementptr inbounds i8, ptr %64, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = xor i64 %63, -1
   %69 = add i64 %.06.i75.i, %68
   %.sroa.03.1.i80.i = select i1 %66, ptr %67, ptr %.sroa.03.05.i76.i
@@ -206,13 +206,13 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10
   br i1 %27, label %.preheader.i, label %44
 
 .preheader.i:                                     ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i
-  %.sroa.01.032.i = getelementptr inbounds i8, ptr %25, i64 72
+  %.sroa.01.032.i = getelementptr inbounds nuw i8, ptr %25, i64 72
   %.not36.i = icmp eq ptr %.sroa.01.032.i, %5
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nuw nsw i32 %.034.i, 1
-  %.sroa.01.0.i = getelementptr inbounds i8, ptr %.sroa.01.035.i, i64 72
+  %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %.sroa.01.035.i, i64 72
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
@@ -242,11 +242,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp olt double %.val9.i.i, %1
-  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = xor i64 %37, -1
   %43 = add i64 %.06.i.i, %42
   %.sroa.03.1.i.i = select i1 %40, ptr %41, ptr %.sroa.03.05.i.i
@@ -288,11 +288,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp olt double %.val9.i66.i, %1
-  %60 = getelementptr inbounds i8, ptr %57, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %61 = xor i64 %56, -1
   %62 = add i64 %.06.i62.i, %61
   %.sroa.03.1.i67.i = select i1 %59, ptr %60, ptr %.sroa.03.05.i63.i
@@ -304,11 +304,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp olt double %.val9.i79.i, %1
-  %67 = getelementptr inbounds i8, ptr %64, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = xor i64 %63, -1
   %69 = add i64 %.06.i75.i, %68
   %.sroa.03.1.i80.i = select i1 %66, ptr %67, ptr %.sroa.03.05.i76.i
@@ -363,13 +363,13 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10T
   br i1 %27, label %44, label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i
-  %.sroa.01.030.i = getelementptr inbounds i8, ptr %25, i64 72
+  %.sroa.01.030.i = getelementptr inbounds nuw i8, ptr %25, i64 72
   %.not36.i = icmp eq ptr %.sroa.01.030.i, %5
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nuw nsw i32 %.032.i, 1
-  %.sroa.01.0.i = getelementptr inbounds i8, ptr %.sroa.01.033.i, i64 72
+  %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %.sroa.01.033.i, i64 72
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
@@ -399,11 +399,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp ugt double %.val9.i.i, %1
-  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = xor i64 %37, -1
   %43 = add i64 %.06.i.i, %42
   %.sroa.03.1.i.i = select i1 %40, ptr %.sroa.03.05.i.i, ptr %41
@@ -445,11 +445,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp ugt double %.val9.i66.i, %1
-  %60 = getelementptr inbounds i8, ptr %57, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %61 = xor i64 %56, -1
   %62 = add i64 %.06.i62.i, %61
   %.sroa.03.1.i67.i = select i1 %59, ptr %.sroa.03.05.i63.i, ptr %60
@@ -461,11 +461,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp ugt double %.val9.i79.i, %1
-  %67 = getelementptr inbounds i8, ptr %64, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = xor i64 %63, -1
   %69 = add i64 %.06.i75.i, %68
   %.sroa.03.1.i80.i = select i1 %66, ptr %.sroa.03.05.i76.i, ptr %67
@@ -520,13 +520,13 @@ _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10
   br i1 %27, label %44, label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i
-  %.sroa.01.030.i = getelementptr inbounds i8, ptr %25, i64 72
+  %.sroa.01.030.i = getelementptr inbounds nuw i8, ptr %25, i64 72
   %.not36.i = icmp eq ptr %.sroa.01.030.i, %5
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nuw nsw i32 %.032.i, 1
-  %.sroa.01.0.i = getelementptr inbounds i8, ptr %.sroa.01.033.i, i64 72
+  %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %.sroa.01.033.i, i64 72
   %.not43.i = icmp ne i32 %29, 3
   %30 = icmp ne ptr %.sroa.01.0.i, %5
   %or.cond.i = select i1 %.not43.i, i1 %30, i1 false
@@ -556,11 +556,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp ugt double %.val9.i.i, %1
-  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = xor i64 %37, -1
   %43 = add i64 %.06.i.i, %42
   %.sroa.03.1.i.i = select i1 %40, ptr %.sroa.03.05.i.i, ptr %41
@@ -602,11 +602,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp ugt double %.val9.i66.i, %1
-  %60 = getelementptr inbounds i8, ptr %57, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %61 = xor i64 %56, -1
   %62 = add i64 %.06.i62.i, %61
   %.sroa.03.1.i67.i = select i1 %59, ptr %.sroa.03.05.i63.i, ptr %60
@@ -618,11 +618,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp ugt double %.val9.i79.i, %1
-  %67 = getelementptr inbounds i8, ptr %64, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = xor i64 %63, -1
   %69 = add i64 %.06.i75.i, %68
   %.sroa.03.1.i80.i = select i1 %66, ptr %.sroa.03.05.i76.i, ptr %67

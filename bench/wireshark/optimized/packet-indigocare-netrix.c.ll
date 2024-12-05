@@ -217,7 +217,7 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.66) #2
   %17 = load ptr, ptr %15, align 8
@@ -258,7 +258,7 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not334, label %39, label %270
 
 39:                                               ; preds = %35, %31, %27
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.66) #2
   %42 = load ptr, ptr %40, align 8
@@ -268,7 +268,7 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   %45 = load i32, ptr @ett_netrix, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #2
   %47 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 1, i32 noundef -1, i8 noundef zeroext 2) #2
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = add i32 %47, -1
   %51 = tail call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2

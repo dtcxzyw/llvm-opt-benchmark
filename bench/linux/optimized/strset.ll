@@ -60,18 +60,18 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr nocaptur
   %16 = getelementptr i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = zext i1 %18 to i8
   store i8 %20, ptr %19, align 4
   %21 = load i16, ptr %6, align 2
   %22 = add i16 %21, -4
   %23 = icmp eq ptr %2, null
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = icmp ugt i16 %22, 3
   br i1 %30, label %.lr.ph.preheader, label %.critedge
 
@@ -90,7 +90,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr nocaptur
   br i1 %or.cond, label %.critedge, label %37
 
 37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds i8, ptr %32, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 16383
   %41 = icmp eq i16 %40, 1
@@ -198,13 +198,13 @@ define internal range(i32 -2147483648, 1) i32 @strset_parse_request(ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((8, 344)) %1, ptr noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %5, ptr noundef nonnull align 16 dereferenceable(336) @info_template, i64 336, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %5, ptr noundef nonnull align 16 dereferenceable(336) @info_template, i64 336, i1 false)
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %30
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   br label %10
 
@@ -227,7 +227,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %2, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = load ptr, ptr %23, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @strset_prepare_data.__msg) #8
   %25 = icmp eq ptr %24, null
@@ -248,10 +248,10 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %32, label %133, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
-  %36 = getelementptr inbounds i8, ptr %4, i64 760
-  %37 = getelementptr inbounds i8, ptr %4, i64 2144
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 760
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 2144
   br label %38
 
 38:                                               ; preds = %128, %33
@@ -279,7 +279,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %128, label %54
@@ -311,7 +311,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %70, label %82, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %66, i64 472
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 472
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   %75 = icmp ne ptr %65, null
@@ -328,13 +328,13 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br label %93
 
 82:                                               ; preds = %77, %71, %68, %62
-  %83 = getelementptr inbounds i8, ptr %66, i64 248
+  %83 = getelementptr inbounds nuw i8, ptr %66, i64 248
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %66, i64 192
+  %87 = getelementptr inbounds nuw i8, ptr %66, i64 192
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.thread, label %90
@@ -367,7 +367,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %106, label %119, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %66, i64 472
+  %108 = getelementptr inbounds nuw i8, ptr %66, i64 472
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   %111 = icmp ne ptr %65, null
@@ -375,7 +375,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br i1 %112, label %113, label %119
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %65, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %119, label %117
@@ -385,22 +385,22 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
   br label %123
 
 119:                                              ; preds = %113, %107, %104, %103
-  %120 = getelementptr inbounds i8, ptr %66, i64 192
+  %120 = getelementptr inbounds nuw i8, ptr %66, i64 192
   %121 = load ptr, ptr %120, align 8
   %122 = trunc i64 %39 to i32
   tail call void %121(ptr noundef nonnull %4, i32 noundef %122, ptr noundef nonnull %101) #8
   br label %123
 
 123:                                              ; preds = %119, %117
-  %124 = getelementptr inbounds i8, ptr %60, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %101, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %60, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 1, ptr %125, align 1
   br label %.thread
 
 .thread:                                          ; preds = %82, %86, %93, %123
   %126 = phi i32 [ %97, %93 ], [ %94, %123 ], [ 0, %86 ], [ 0, %82 ]
-  %127 = getelementptr inbounds i8, ptr %60, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %126, ptr %127, align 4
   br label %128
 
@@ -424,13 +424,13 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
 135:                                              ; preds = %144, %133
   %136 = phi i64 [ 0, %133 ], [ %145, %144 ]
   %137 = getelementptr [21 x %struct.strset_info], ptr %5, i64 0, i64 %136
-  %138 = getelementptr inbounds i8, ptr %137, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1, !range !15, !noundef !16
   %140 = icmp eq i8 %139, 0
   br i1 %140, label %144, label %141
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds i8, ptr %137, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %143 = load ptr, ptr %142, align 8
   tail call void @kfree(ptr noundef %143) #8
   store ptr null, ptr %142, align 8
@@ -449,11 +449,11 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br i1 %5, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %53
@@ -465,7 +465,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %.split.us
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %53, label %17
@@ -480,7 +480,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
 21:                                               ; preds = %17
   %22 = load i8, ptr %7, align 4, !range !15, !noundef !16
   %23 = icmp ne i8 %22, 0
-  %24 = getelementptr inbounds i8, ptr %10, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = or i1 %23, %26
@@ -488,7 +488,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   br i1 %27, label %.thread.us, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %25 to i64
   br label %33
@@ -539,7 +539,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   %62 = getelementptr [21 x %struct.strset_info], ptr %6, i64 0, i64 %56
   %63 = load i8, ptr %7, align 4, !range !15, !noundef !16
   %64 = icmp ne i8 %63, 0
-  %65 = getelementptr inbounds i8, ptr %62, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   %68 = or i1 %64, %67
@@ -547,7 +547,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
   br i1 %68, label %.thread, label %70
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %62, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = zext i32 %66 to i64
   br label %74
@@ -595,9 +595,9 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
@@ -608,10 +608,10 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   br i1 %16, label %183, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
-  %21 = getelementptr inbounds i8, ptr %0, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %22
 
 22:                                               ; preds = %162, %17
@@ -639,7 +639,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %162, label %38
@@ -660,13 +660,13 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit10, label %52
 
 52:                                               ; preds = %48, %42
-  %53 = getelementptr inbounds i8, ptr %44, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %162, label %56
@@ -720,7 +720,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   br i1 %85, label %.loopexit9, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %44, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %88
 
 88:                                               ; preds = %110, %86
@@ -887,19 +887,19 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @strset_cleanup_data(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %12, %1
   %4 = phi i64 [ 0, %1 ], [ %13, %12 ]
   %5 = getelementptr [21 x %struct.strset_info], ptr %2, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1, !range !15, !noundef !16
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @kfree(ptr noundef %11) #8
   store ptr null, ptr %10, align 8

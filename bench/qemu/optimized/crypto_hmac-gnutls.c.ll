@@ -127,7 +127,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @qcrypto_gnutls_hmac_bytesv(ptr nocapture noundef readonly %hmac, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %hmac, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %hmac, i64 8
   %0 = load ptr, ptr %opaque, align 8
   %cmp17.not = icmp eq i64 %niov, 0
   br i1 %cmp17.not, label %for.end, label %for.body
@@ -138,7 +138,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %0, align 8
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %conv19
   %2 = load ptr, ptr %arrayidx, align 8
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %iov_len, align 8
   %call = tail call i32 @gnutls_hmac(ptr noundef %1, ptr noundef %2, i64 noundef %3) #7
   %inc = add i32 %i.018, 1
@@ -198,7 +198,7 @@ return:                                           ; preds = %if.end20, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qcrypto_gnutls_hmac_ctx_free(ptr nocapture noundef readonly %hmac) #2 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %hmac, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %hmac, i64 8
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @gnutls_hmac_deinit(ptr noundef %1, ptr noundef null) #7

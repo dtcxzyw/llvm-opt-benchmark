@@ -109,11 +109,11 @@ entry:
   %tmp = alloca %struct.PyStatus, align 8
   %tmp1 = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #8
-  %install_signal_handlers = getelementptr inbounds i8, ptr %config, i64 16
+  %install_signal_handlers = getelementptr inbounds nuw i8, ptr %config, i64 16
   store i32 0, ptr %install_signal_handlers, align 8
-  %int_max_str_digits = getelementptr inbounds i8, ptr %config, i64 264
+  %int_max_str_digits = getelementptr inbounds nuw i8, ptr %config, i64 264
   store i32 8086, ptr %int_max_str_digits, align 8
-  %program_name = getelementptr inbounds i8, ptr %config, i64 280
+  %program_name = getelementptr inbounds nuw i8, ptr %config, i64 280
   %0 = load ptr, ptr %argv, align 8
   %1 = load ptr, ptr %0, align 8
   call void @PyConfig_SetBytesString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef %1) #8

@@ -35,15 +35,15 @@ define range(i32 0, 2) i32 @Inter_ManCheckInitialState(ptr noundef %0) local_unn
   %11 = getelementptr i8, ptr %0, i64 108
   %.val28 = load i32, ptr %11, align 4
   %12 = tail call ptr @Abc_CexAlloc(i32 noundef %.val26, i32 noundef %.val28, i32 noundef 1) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %12, ptr %13, align 8
   %.val2933 = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %.val2933, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = getelementptr i8, ptr %4, i64 328
   br label %18
 
@@ -53,7 +53,7 @@ define range(i32 0, 2) i32 @Inter_ManCheckInitialState(ptr noundef %0) local_unn
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   %.val30 = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val30, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr i8, ptr %22, i64 36
@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @Inter_ManCheckInitialState(ptr noundef %0) local_unn
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %.val27 = load i32, ptr %2, align 8
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = add nsw i32 %.val27, %34
@@ -127,7 +127,7 @@ define range(i32 0, 2) i32 @Inter_ManCheckAllStates(ptr noundef %0) local_unname
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg12 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg13 = add i64 %.neg, %.neg12
@@ -156,7 +156,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 18:                                               ; preds = %14
   %19 = load i64, ptr %2, align 8
   %20 = mul nsw i64 %19, 1000000
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = sdiv i64 %22, 1000
   %24 = add nsw i64 %23, %20

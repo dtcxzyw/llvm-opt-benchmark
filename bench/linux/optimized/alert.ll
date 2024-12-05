@@ -54,7 +54,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tls_alert_send(ptr noundef %0, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_tls_alert_send, i64 8), i32 2) #8
           to label %30 [label %10], !srcloc !6
@@ -76,7 +76,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tls_alert_send(ptr noundef %0, i
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_tls_alert_send(ptr noundef %21, ptr noundef %9, i8 noundef zeroext %1, i8 noundef zeroext %2) #8
   br label %23
@@ -97,28 +97,28 @@ define dso_local range(i32 -2147483648, 1) i32 @tls_alert_send(ptr noundef %0, i
 
 30:                                               ; preds = %27, %23, %10, %3
   store i8 %1, ptr %7, align 2
-  %31 = getelementptr inbounds i8, ptr %7, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %2, ptr %31, align 1
   store ptr %7, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %5, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %4, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 24, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 64, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 282, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %38, align 4
   store i64 17, ptr %4, align 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 21, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @iov_iter_kvec(ptr noundef %40, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 1, i64 noundef 2) #8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @iov_iter_kvec(ptr noundef nonnull %40, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 1, i64 noundef 2) #8
   %41 = call i32 @sock_sendmsg(ptr noundef %0, ptr noundef nonnull %5) #8
   %42 = call i32 @llvm.smin.i32(i32 %41, i32 0)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #8
@@ -145,13 +145,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i8 @tls_get_record_type(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 282
   br i1 %5, label %6, label %33
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %33
@@ -179,7 +179,7 @@ define dso_local zeroext i8 @tls_get_record_type(ptr noundef %0, ptr nocapture n
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @__SCT__tp_func_tls_contenttype(ptr noundef %24, ptr noundef %0, i8 noundef zeroext %12) #8
   br label %26
@@ -205,7 +205,7 @@ define dso_local zeroext i8 @tls_get_record_type(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tls_alert_recv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
@@ -234,7 +234,7 @@ define dso_local void @tls_alert_recv(ptr noundef %0, ptr nocapture noundef read
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @__SCT__tp_func_tls_alert_recv(ptr noundef %23, ptr noundef %0, i8 noundef zeroext %11, i8 noundef zeroext %10) #8
   br label %25

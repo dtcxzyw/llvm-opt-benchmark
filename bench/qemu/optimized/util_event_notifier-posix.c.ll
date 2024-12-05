@@ -9,9 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @event_notifier_init_fd(ptr nocapture noundef writeonly initializes((0, 9)) %e, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   store i32 %fd, ptr %e, align 4
-  %wfd = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   store i32 %fd, ptr %wfd, align 4
-  %initialized = getelementptr inbounds i8, ptr %e, i64 8
+  %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   store i8 1, ptr %initialized, align 4
   ret void
 }
@@ -25,7 +25,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %wfd = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   store i32 %call, ptr %wfd, align 4
   store i32 %call, ptr %e, align 4
   br label %if.end27
@@ -57,7 +57,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool11.not, label %fail, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
-  %arrayidx16 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   %3 = load i32, ptr %arrayidx16, align 4
   %call17 = call i32 @g_unix_set_fd_nonblocking(i32 noundef %3, i32 noundef 1, ptr noundef null) #8
   %tobool18.not = icmp eq i32 %call17, 0
@@ -67,18 +67,18 @@ if.end22:                                         ; preds = %if.end15
   %4 = load i32, ptr %fds, align 4
   store i32 %4, ptr %e, align 4
   %5 = load i32, ptr %arrayidx16, align 4
-  %wfd26 = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd26 = getelementptr inbounds nuw i8, ptr %e, i64 4
   store i32 %5, ptr %wfd26, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.then
-  %initialized = getelementptr inbounds i8, ptr %e, i64 8
+  %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   store i8 1, ptr %initialized, align 4
   %tobool28.not = icmp eq i32 %active, 0
   br i1 %tobool28.not, label %return, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end27
-  %wfd.i = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd.i = getelementptr inbounds nuw i8, ptr %e, i64 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
@@ -98,7 +98,7 @@ fail:                                             ; preds = %if.end15, %if.end9
   %ret.0 = sub i32 0, %.pn
   %8 = load i32, ptr %fds, align 4
   %call33 = call i32 @close(i32 noundef %8) #8
-  %arrayidx34 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   %9 = load i32, ptr %arrayidx34, align 4
   %call35 = call i32 @close(i32 noundef %9) #8
   br label %return
@@ -121,13 +121,13 @@ declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) lo
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local range(i32 -10, -11) i32 @event_notifier_set(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %e, i64 8
+  %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %entry
-  %wfd = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -158,14 +158,14 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @event_notifier_cleanup(ptr nocapture noundef %e) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds i8, ptr %e, i64 8
+  %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %e, align 4
-  %wfd = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   %2 = load i32, ptr %wfd, align 4
   %cmp.not = icmp eq i32 %1, %2
   br i1 %cmp.not, label %if.end3, label %if.then1
@@ -197,7 +197,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @event_notifier_get_wfd(ptr nocapture noundef readonly %e) local_unnamed_addr #6 {
 entry:
-  %wfd = getelementptr inbounds i8, ptr %e, i64 4
+  %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   %0 = load i32, ptr %wfd, align 4
   ret i32 %0
 }
@@ -209,7 +209,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define dso_local range(i32 0, 2) i32 @event_notifier_test_and_clear(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
   %buffer = alloca [512 x i8], align 16
-  %initialized = getelementptr inbounds i8, ptr %e, i64 8
+  %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body, label %return

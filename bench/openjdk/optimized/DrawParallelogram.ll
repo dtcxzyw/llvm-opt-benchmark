@@ -49,8 +49,8 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   %47 = alloca i32, align 4
   %48 = alloca i32, align 4
   %49 = fcmp olt double %7, 0.000000e+00
-  %.0616.sroa.gep = getelementptr inbounds i8, ptr %15, i64 384
-  %.0616.sroa.gep798 = getelementptr inbounds i8, ptr %15, i64 192
+  %.0616.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 384
+  %.0616.sroa.gep798 = getelementptr inbounds nuw i8, ptr %15, i64 192
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %12
@@ -139,9 +139,9 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 
 104:                                              ; preds = %67
   %105 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #4
-  %106 = getelementptr inbounds i8, ptr %102, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   %.not = icmp eq ptr %109, null
   br i1 %.not, label %111, label %110
@@ -158,15 +158,15 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 114:                                              ; preds = %111
   call void @GrPrim_Sg2dGetClip(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %13) #4
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %13, i32 noundef %88, i32 noundef %94, i32 noundef %91, i32 noundef %101) #4
-  %115 = getelementptr inbounds i8, ptr %13, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %13, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %118 = load i32, ptr %117, align 4
   %.not708 = icmp sgt i32 %116, %118
   br i1 %.not708, label %119, label %531
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %13, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = load i32, ptr %13, align 8
   %.not709 = icmp sgt i32 %121, %122
@@ -174,7 +174,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %112, align 8
-  %125 = getelementptr inbounds i8, ptr %102, i64 52
+  %125 = getelementptr inbounds nuw i8, ptr %102, i64 52
   %126 = load i32, ptr %125, align 4
   %127 = call i32 %124(ptr noundef %0, ptr noundef nonnull %112, ptr noundef nonnull %13, i32 noundef %126) #4
   %.not710 = icmp eq i32 %127, 0
@@ -191,16 +191,16 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br i1 %or.cond728, label %135, label %528
 
 135:                                              ; preds = %128
-  %136 = getelementptr inbounds i8, ptr %112, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef %0, ptr noundef nonnull %112, ptr noundef nonnull %13) #4
-  %138 = getelementptr inbounds i8, ptr %13, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not711 = icmp eq ptr %139, null
   br i1 %.not711, label %.loopexit765, label %140
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %102, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %142, align 8
   %144 = fcmp oeq double %.1580, 0.000000e+00
@@ -231,7 +231,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br i1 %or.cond3, label %163, label %374
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds i8, ptr %142, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = fadd double %.1, %.1578
   %167 = fadd double %.1576, %.1580
@@ -611,7 +611,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br label %367
 
 367:                                              ; preds = %328, %337, %324, %356, %358, %341, %354, %345
-  %368 = getelementptr inbounds i8, ptr %112, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %369 = load ptr, ptr %368, align 8
   %.not726 = icmp eq ptr %369, null
   br i1 %.not726, label %371, label %370
@@ -621,7 +621,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br label %371
 
 371:                                              ; preds = %370, %367
-  %372 = getelementptr inbounds i8, ptr %112, i64 24
+  %372 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %373 = load ptr, ptr %372, align 8
   %.not727 = icmp eq ptr %373, null
   br i1 %.not727, label %531, label %.sink.split
@@ -629,84 +629,84 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 374:                                              ; preds = %156
   %375 = fadd double %68, %74
   %376 = fadd double %70, %375
-  %377 = getelementptr inbounds i8, ptr %15, i64 96
+  %377 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store double %376, ptr %377, align 16
   %378 = fadd double %69, %77
   %379 = fadd double %71, %378
-  %380 = getelementptr inbounds i8, ptr %15, i64 104
+  %380 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store double %379, ptr %380, align 8
   %381 = fsub double %.1580, %69
   %382 = fadd double %381, %379
-  %383 = getelementptr inbounds i8, ptr %15, i64 112
+  %383 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store double %382, ptr %383, align 16
-  %384 = getelementptr inbounds i8, ptr %15, i64 120
+  %384 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store double %146, ptr %384, align 8
-  %385 = getelementptr inbounds i8, ptr %15, i64 128
+  %385 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i64 %151, ptr %385, align 16
   %386 = fadd double %379, 5.000000e-01
   %387 = call double @llvm.floor.f64(double %386)
   %388 = fptosi double %387 to i32
-  %389 = getelementptr inbounds i8, ptr %15, i64 136
+  %389 = getelementptr inbounds nuw i8, ptr %15, i64 136
   store i32 %388, ptr %389, align 8
   %390 = fadd double %382, 5.000000e-01
   %391 = call double @llvm.floor.f64(double %390)
   %392 = fptosi double %391 to i32
-  %393 = getelementptr inbounds i8, ptr %15, i64 140
+  %393 = getelementptr inbounds nuw i8, ptr %15, i64 140
   store i32 %392, ptr %393, align 4
-  %394 = getelementptr inbounds i8, ptr %15, i64 192
+  %394 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store double %376, ptr %394, align 16
-  %395 = getelementptr inbounds i8, ptr %15, i64 200
+  %395 = getelementptr inbounds nuw i8, ptr %15, i64 200
   store double %379, ptr %395, align 8
   %396 = fsub double %.1584, %71
   %397 = fadd double %396, %379
-  %398 = getelementptr inbounds i8, ptr %15, i64 208
+  %398 = getelementptr inbounds nuw i8, ptr %15, i64 208
   store double %397, ptr %398, align 16
-  %399 = getelementptr inbounds i8, ptr %15, i64 216
+  %399 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store double %149, ptr %399, align 8
-  %400 = getelementptr inbounds i8, ptr %15, i64 224
+  %400 = getelementptr inbounds nuw i8, ptr %15, i64 224
   store i64 %153, ptr %400, align 16
-  %401 = getelementptr inbounds i8, ptr %15, i64 232
+  %401 = getelementptr inbounds nuw i8, ptr %15, i64 232
   store i32 %388, ptr %401, align 8
   %402 = fadd double %397, 5.000000e-01
   %403 = call double @llvm.floor.f64(double %402)
   %404 = fptosi double %403 to i32
-  %405 = getelementptr inbounds i8, ptr %15, i64 236
+  %405 = getelementptr inbounds nuw i8, ptr %15, i64 236
   store i32 %404, ptr %405, align 4
   %406 = fsub double %.1578, %68
   %407 = fadd double %406, %376
-  %408 = getelementptr inbounds i8, ptr %15, i64 144
+  %408 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store double %407, ptr %408, align 16
-  %409 = getelementptr inbounds i8, ptr %15, i64 152
+  %409 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store double %382, ptr %409, align 8
   %410 = fadd double %396, %382
-  %411 = getelementptr inbounds i8, ptr %15, i64 160
+  %411 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store double %410, ptr %411, align 16
-  %412 = getelementptr inbounds i8, ptr %15, i64 168
+  %412 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store double %149, ptr %412, align 8
-  %413 = getelementptr inbounds i8, ptr %15, i64 176
+  %413 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %153, ptr %413, align 16
-  %414 = getelementptr inbounds i8, ptr %15, i64 184
+  %414 = getelementptr inbounds nuw i8, ptr %15, i64 184
   store i32 %392, ptr %414, align 8
   %415 = fadd double %410, 5.000000e-01
   %416 = call double @llvm.floor.f64(double %415)
   %417 = fptosi double %416 to i32
-  %418 = getelementptr inbounds i8, ptr %15, i64 188
+  %418 = getelementptr inbounds nuw i8, ptr %15, i64 188
   store i32 %417, ptr %418, align 4
   %419 = fsub double %.1582, %70
   %420 = fadd double %419, %376
-  %421 = getelementptr inbounds i8, ptr %15, i64 240
+  %421 = getelementptr inbounds nuw i8, ptr %15, i64 240
   store double %420, ptr %421, align 16
-  %422 = getelementptr inbounds i8, ptr %15, i64 248
+  %422 = getelementptr inbounds nuw i8, ptr %15, i64 248
   store double %397, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %15, i64 256
+  %423 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store double %410, ptr %423, align 16
-  %424 = getelementptr inbounds i8, ptr %15, i64 264
+  %424 = getelementptr inbounds nuw i8, ptr %15, i64 264
   store double %146, ptr %424, align 8
-  %425 = getelementptr inbounds i8, ptr %15, i64 272
+  %425 = getelementptr inbounds nuw i8, ptr %15, i64 272
   store i64 %151, ptr %425, align 16
-  %426 = getelementptr inbounds i8, ptr %15, i64 280
+  %426 = getelementptr inbounds nuw i8, ptr %15, i64 280
   store i32 %404, ptr %426, align 8
-  %427 = getelementptr inbounds i8, ptr %15, i64 284
+  %427 = getelementptr inbounds nuw i8, ptr %15, i64 284
   store i32 %417, ptr %427, align 4
   br label %428
 
@@ -714,22 +714,22 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   %.0616.sroa.phi = phi ptr [ %.0616.sroa.gep, %374 ], [ %.0616.sroa.gep798, %140 ]
   %.0616 = phi i64 [ 8, %374 ], [ 4, %140 ]
   store double %74, ptr %15, align 16
-  %429 = getelementptr inbounds i8, ptr %15, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double %77, ptr %429, align 8
   %430 = fadd double %.1580, %69
   %431 = fadd double %430, %77
-  %432 = getelementptr inbounds i8, ptr %15, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double %431, ptr %432, align 16
-  %433 = getelementptr inbounds i8, ptr %15, i64 24
+  %433 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double %146, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %15, i64 32
+  %434 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %151, ptr %434, align 16
-  %435 = getelementptr inbounds i8, ptr %15, i64 40
+  %435 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 %94, ptr %435, align 8
   %436 = fadd double %431, 5.000000e-01
   %437 = call double @llvm.floor.f64(double %436)
   %438 = fptosi double %437 to i32
-  %439 = getelementptr inbounds i8, ptr %15, i64 44
+  %439 = getelementptr inbounds nuw i8, ptr %15, i64 44
   store i32 %438, ptr %439, align 4
   %440 = getelementptr inbounds i8, ptr %.0616.sroa.phi, i64 -96
   store double %74, ptr %440, align 16
@@ -751,23 +751,23 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   %451 = getelementptr inbounds i8, ptr %.0616.sroa.phi, i64 -52
   store i32 %450, ptr %451, align 4
   %452 = fadd double %78, %74
-  %453 = getelementptr inbounds i8, ptr %15, i64 48
+  %453 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store double %452, ptr %453, align 16
-  %454 = getelementptr inbounds i8, ptr %15, i64 56
+  %454 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store double %431, ptr %454, align 8
   %455 = fadd double %442, %431
-  %456 = getelementptr inbounds i8, ptr %15, i64 64
+  %456 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store double %455, ptr %456, align 16
-  %457 = getelementptr inbounds i8, ptr %15, i64 72
+  %457 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store double %149, ptr %457, align 8
-  %458 = getelementptr inbounds i8, ptr %15, i64 80
+  %458 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i64 %153, ptr %458, align 16
-  %459 = getelementptr inbounds i8, ptr %15, i64 88
+  %459 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i32 %438, ptr %459, align 8
   %460 = fadd double %455, 5.000000e-01
   %461 = call double @llvm.floor.f64(double %460)
   %462 = fptosi double %461 to i32
-  %463 = getelementptr inbounds i8, ptr %15, i64 92
+  %463 = getelementptr inbounds nuw i8, ptr %15, i64 92
   store i32 %462, ptr %463, align 4
   %464 = fadd double %82, %74
   %465 = getelementptr inbounds i8, ptr %.0616.sroa.phi, i64 -48
@@ -810,14 +810,14 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   %indvars.iv = phi i64 [ 0, %.preheader764 ], [ %indvars.iv.next, %492 ]
   %.0588767 = phi i32 [ 0, %.preheader764 ], [ %.1589, %492 ]
   %.0614766 = phi i32 [ %132, %.preheader764 ], [ %.1615, %492 ]
-  %479 = getelementptr inbounds [8 x %struct.EdgeInfo], ptr %15, i64 0, i64 %indvars.iv
-  %480 = getelementptr inbounds i8, ptr %479, i64 44
+  %479 = getelementptr inbounds nuw [8 x %struct.EdgeInfo], ptr %15, i64 0, i64 %indvars.iv
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 44
   %481 = load i32, ptr %480, align 4
   %482 = icmp slt i32 %.1607770, %481
   br i1 %482, label %483, label %492
 
 483:                                              ; preds = %478
-  %484 = getelementptr inbounds i8, ptr %479, i64 40
+  %484 = getelementptr inbounds nuw i8, ptr %479, i64 40
   %485 = load i32, ptr %484, align 8
   %486 = icmp slt i32 %.1607770, %485
   br i1 %486, label %487, label %488
@@ -843,15 +843,15 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 
 493:                                              ; preds = %.lr.ph, %493
   %indvars.iv772 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next773, %493 ]
-  %494 = getelementptr inbounds [4 x ptr], ptr %16, i64 0, i64 %indvars.iv772
+  %494 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %indvars.iv772
   %495 = load ptr, ptr %494, align 16
   %496 = or disjoint i64 %indvars.iv772, 1
-  %497 = getelementptr inbounds [4 x ptr], ptr %16, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %496
   %498 = load ptr, ptr %497, align 8
   %499 = load double, ptr %495, align 8
-  %500 = getelementptr inbounds i8, ptr %495, i64 24
+  %500 = getelementptr inbounds nuw i8, ptr %495, i64 24
   %501 = load double, ptr %500, align 8
-  %502 = getelementptr inbounds i8, ptr %495, i64 8
+  %502 = getelementptr inbounds nuw i8, ptr %495, i64 8
   %503 = load double, ptr %502, align 8
   %504 = fsub double %477, %503
   %505 = call double @llvm.fmuladd.f64(double %501, double %504, double %499)
@@ -859,18 +859,18 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   %507 = fptosi double %506 to i64
   %508 = add nsw i64 %507, 2147483647
   %509 = load double, ptr %498, align 8
-  %510 = getelementptr inbounds i8, ptr %498, i64 24
+  %510 = getelementptr inbounds nuw i8, ptr %498, i64 24
   %511 = load double, ptr %510, align 8
-  %512 = getelementptr inbounds i8, ptr %498, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %513 = load double, ptr %512, align 8
   %514 = fsub double %477, %513
   %515 = call double @llvm.fmuladd.f64(double %511, double %514, double %509)
   %516 = fmul double %515, 0x41F0000000000000
   %517 = fptosi double %516 to i64
   %518 = add nsw i64 %517, 2147483647
-  %519 = getelementptr inbounds i8, ptr %495, i64 32
+  %519 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %520 = load i64, ptr %519, align 8
-  %521 = getelementptr inbounds i8, ptr %498, i64 32
+  %521 = getelementptr inbounds nuw i8, ptr %498, i64 32
   %522 = load i64, ptr %521, align 8
   call void %143(ptr noundef nonnull %13, i32 noundef %129, i32 noundef %.1607770, i32 noundef %131, i32 noundef %.1615, i64 noundef %508, i64 noundef %520, i64 noundef %518, i64 noundef %522, i32 noundef %105, ptr noundef nonnull %102, ptr noundef nonnull %14) #4
   %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 2
@@ -879,7 +879,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br i1 %524, label %493, label %.loopexit, !llvm.loop !9
 
 .loopexit765:                                     ; preds = %.loopexit, %428, %135
-  %525 = getelementptr inbounds i8, ptr %112, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %526 = load ptr, ptr %525, align 8
   %.not712 = icmp eq ptr %526, null
   br i1 %.not712, label %528, label %527
@@ -889,7 +889,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
   br label %528
 
 528:                                              ; preds = %128, %.loopexit765, %527
-  %529 = getelementptr inbounds i8, ptr %112, i64 24
+  %529 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %530 = load ptr, ptr %529, align 8
   %.not713 = icmp eq ptr %530, null
   br i1 %.not713, label %531, label %.sink.split

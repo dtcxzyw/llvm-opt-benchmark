@@ -31,7 +31,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   %8 = sext i8 %7 to i32
   %9 = tail call i32 @isspace(i32 noundef %8) #9
   %.not = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %.0167, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0167, i64 1
   br i1 %.not, label %11, label %.preheader253, !llvm.loop !5
 
 11:                                               ; preds = %.preheader253
@@ -55,7 +55,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   br i1 %.not232, label %167, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.0167, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %.0167, i64 3
   store ptr %19, ptr %1, align 8
   br label %167
 
@@ -136,7 +136,7 @@ switch.early.test:                                ; preds = %28
   ]
 
 .critedge:                                        ; preds = %41, %41
-  %43 = getelementptr inbounds i8, ptr %.2169, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.2169, i64 1
   %.pre = load i8, ptr %43, align 1
   br label %41, !llvm.loop !7
 
@@ -171,7 +171,7 @@ switch.early.test:                                ; preds = %28
 
 .lr.ph540:                                        ; preds = %.critedge2.lr.ph, %.critedge2
   %.3275539 = phi ptr [ %51, %.critedge2 ], [ %.3.ph288, %.critedge2.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %.3275539, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.3275539, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
   %isdigittmp210 = add nsw i32 %53, -48
@@ -185,7 +185,7 @@ switch.early.test:                                ; preds = %28
   %.3275.lcssa = phi ptr [ %.3.ph288, %.critedge2.lr.ph ], [ %51, %.critedge2 ]
   %55 = sitofp i32 %isdigittmp210276.lcssa to double
   %56 = tail call double @llvm.fmuladd.f64(double %.0175.ph287, double 1.000000e+01, double %55)
-  %57 = getelementptr inbounds i8, ptr %.3275.lcssa, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.3275.lcssa, i64 1
   %58 = add nuw nsw i32 %.0162.ph289, 1
   %59 = load i8, ptr %57, align 1
   %60 = sext i8 %59 to i32
@@ -230,7 +230,7 @@ switch.early.test:                                ; preds = %28
   br label %167
 
 68:                                               ; preds = %.outer251._crit_edge
-  %69 = getelementptr inbounds i8, ptr %.3.lcssa, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 1
   %70 = fcmp oeq double %.0175.ph.lcssa, 0.000000e+00
   br i1 %70, label %.preheader249, label %thread-pre-split
 
@@ -247,7 +247,7 @@ switch.early.test:                                ; preds = %28
   %72 = icmp eq i8 %71, 48
   %73 = zext i1 %72 to i32
   %spec.select = add nuw nsw i32 %.1, %73
-  %74 = getelementptr inbounds i8, ptr %.6, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   br label %.preheader249, !llvm.loop !9
 
 thread-pre-split:                                 ; preds = %68
@@ -299,7 +299,7 @@ thread-pre-split:                                 ; preds = %68
 
 .lr.ph:                                           ; preds = %.critedge6.lr.ph.split, %.critedge6
   %.7298334 = phi ptr [ %87, %.critedge6 ], [ %.7.ph343, %.critedge6.lr.ph.split ]
-  %87 = getelementptr inbounds i8, ptr %.7298334, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.7298334, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = sext i8 %88 to i32
   %isdigittmp213 = add nsw i32 %89, -48
@@ -316,7 +316,7 @@ thread-pre-split:                                 ; preds = %68
   %92 = tail call double @llvm.fmuladd.f64(double %.2177.ph341, double 1.000000e+01, double %91)
   %.not226 = icmp eq i8 %.lcssa259, 48
   %spec.select240 = select i1 %.not226, i32 %.0171.ph342, i32 1
-  %93 = getelementptr inbounds i8, ptr %.7.lcssa260, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.7.lcssa260, i64 1
   %94 = add i32 %.2164.ph344, 1
   %95 = add nuw i32 %.0161.ph345, 1
   %96 = load i8, ptr %93, align 1
@@ -341,7 +341,7 @@ thread-pre-split:                                 ; preds = %68
 
 .critedge6.us:                                    ; preds = %.critedge6.lr.ph, %.critedge6.us
   %.7298.us = phi ptr [ %101, %.critedge6.us ], [ %.7.ph343, %.critedge6.lr.ph ]
-  %101 = getelementptr inbounds i8, ptr %.7298.us, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.7298.us, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = sext i8 %102 to i32
   %isdigittmp213.us = add nsw i32 %103, -48
@@ -396,7 +396,7 @@ thread-pre-split:                                 ; preds = %68
   ]
 
 .critedge9:                                       ; preds = %114, %114
-  %116 = getelementptr inbounds i8, ptr %.4, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %117 = load i8, ptr %116, align 1
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %145, label %119
@@ -411,7 +411,7 @@ thread-pre-split:                                 ; preds = %68
   %.9 = phi ptr [ %124, %.preheader ], [ %116, %119 ]
   %122 = load i8, ptr %.9, align 1
   %123 = icmp eq i8 %122, 95
-  %124 = getelementptr inbounds i8, ptr %.9, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   br i1 %123, label %.preheader, label %125, !llvm.loop !11
 
 125:                                              ; preds = %.preheader
@@ -462,7 +462,7 @@ thread-pre-split:                                 ; preds = %68
 
 .lr.ph543:                                        ; preds = %.critedge11.lr.ph, %.critedge11
   %.11356542 = phi ptr [ %133, %.critedge11 ], [ %.11.ph366, %.critedge11.lr.ph ]
-  %133 = getelementptr inbounds i8, ptr %.11356542, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.11356542, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = sext i8 %134 to i32
   %isdigittmp220 = add nsw i32 %135, -48
@@ -476,7 +476,7 @@ thread-pre-split:                                 ; preds = %68
   %.11356.lcssa = phi ptr [ %.11.ph366, %.critedge11.lr.ph ], [ %133, %.critedge11 ]
   %137 = mul nsw i32 %.0165.ph367, 10
   %138 = add nsw i32 %isdigittmp220357.lcssa, %137
-  %139 = getelementptr inbounds i8, ptr %.11356.lcssa, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.11356.lcssa, i64 1
   %140 = load i8, ptr %139, align 1
   %141 = sext i8 %140 to i32
   %isdigittmp220353 = add nsw i32 %141, -48

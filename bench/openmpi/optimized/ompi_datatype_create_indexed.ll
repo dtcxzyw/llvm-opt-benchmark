@@ -24,7 +24,7 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.critedge.loopexit
@@ -51,10 +51,10 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
 
 16:                                               ; preds = %.critedge
   %17 = zext nneg i32 %.0.lcssa to i64
-  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %1, i64 %17
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %17
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %3, i64 48
@@ -63,7 +63,7 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
   %.val56 = load i64, ptr %25, align 8
   %26 = sub nsw i64 %.val56, %.val55
   %27 = sub nsw i32 %0, %.0.lcssa
-  %28 = getelementptr inbounds i8, ptr %3, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, 2
@@ -83,13 +83,13 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
   %.04970 = phi i64 [ %35, %.lr.ph72.preheader ], [ %.150, %57 ]
   %.05169 = phi i64 [ %20, %.lr.ph72.preheader ], [ %.152, %57 ]
   %.06268 = phi i64 [ %23, %.lr.ph72.preheader ], [ %.163, %57 ]
-  %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv76
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv76
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %57, label %40
 
 40:                                               ; preds = %.lr.ph72
-  %41 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv76
+  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv76
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp eq i64 %.04970, %43
@@ -150,7 +150,7 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.critedge.loopexit
@@ -182,13 +182,13 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
   %.val56 = load i64, ptr %18, align 8
   %19 = sub nsw i64 %.val56, %.val55
   %20 = zext nneg i32 %.0.lcssa to i64
-  %21 = getelementptr inbounds i64, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i32, ptr %1, i64 %20
+  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %20
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = sub nsw i32 %0, %.0.lcssa
-  %27 = getelementptr inbounds i8, ptr %3, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
   %30 = add i32 %29, 2
@@ -209,13 +209,13 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
   %.04973 = phi i64 [ %35, %.lr.ph75.preheader ], [ %.150, %56 ]
   %.05172 = phi i64 [ %22, %.lr.ph75.preheader ], [ %.152, %56 ]
   %.06571 = phi i64 [ %25, %.lr.ph75.preheader ], [ %.166, %56 ]
-  %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv79
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %56, label %40
 
 40:                                               ; preds = %.lr.ph75
-  %41 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv79
+  %41 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv79
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %.04973, %42
   br i1 %43, label %44, label %49
@@ -274,7 +274,7 @@ define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, p
   %12 = getelementptr i8, ptr %3, i64 56
   %.val44 = load i64, ptr %12, align 8
   %13 = sub nsw i64 %.val44, %.val
-  %14 = getelementptr inbounds i8, ptr %3, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = add i32 %16, 2
@@ -296,7 +296,7 @@ define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, p
   %.03648 = phi i64 [ %22, %.lr.ph.preheader ], [ %.1, %35 ]
   %.04047 = phi i64 [ %21, %.lr.ph.preheader ], [ %.141, %35 ]
   %.03850 = add nsw i64 %.038.pn.pn, %22
-  %24 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp eq i64 %.03850, %26
@@ -351,7 +351,7 @@ define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, 
   %12 = getelementptr i8, ptr %3, i64 56
   %.val44 = load i64, ptr %12, align 8
   %13 = sub nsw i64 %.val44, %.val
-  %14 = getelementptr inbounds i8, ptr %3, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = add i32 %16, 2
@@ -373,7 +373,7 @@ define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, 
   %.03651 = phi i64 [ %21, %.lr.ph.preheader ], [ %.1, %32 ]
   %.04050 = phi i64 [ %20, %.lr.ph.preheader ], [ %.141, %32 ]
   %.03853 = add i64 %.038.pn.pn, %22
-  %24 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %.03853, %25
   br i1 %26, label %27, label %29

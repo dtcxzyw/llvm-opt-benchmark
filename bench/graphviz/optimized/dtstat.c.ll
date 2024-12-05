@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4096
@@ -20,12 +20,12 @@ define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 
   br label %10
 
 10:                                               ; preds = %3, %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %14 = tail call i32 @dtsize(ptr noundef nonnull %0) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %14, ptr %15, align 4
   %16 = load ptr, ptr %4, align 8
   %17 = load i32, ptr %16, align 8
@@ -42,21 +42,21 @@ define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 
   br i1 %.not51, label %78, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.i, label %dthstat.exit
 
 .lr.ph.i:                                         ; preds = %23
   %.01621.i = add nsw i32 %25, -1
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = zext nneg i32 %.01621.i to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %40, %.lr.ph.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %40 ], [ %28, %.lr.ph.i ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv25.i
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv25.i
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.split.us.i
@@ -138,21 +138,21 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph.split.i.preheader, label %dthstat.exit71
 
 .lr.ph.split.i.preheader:                         ; preds = %62
   %.01621.i62 = add nsw i32 %65, -1
-  %67 = getelementptr inbounds i8, ptr %63, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %68 = zext nneg i32 %.01621.i62 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %73
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ %68, %.lr.ph.split.i.preheader ]
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i
   br label %71
 
 71:                                               ; preds = %71, %.lr.ph.split.i
@@ -178,7 +178,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %.not52, label %dthstat.exit71, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %20, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not53 = icmp eq ptr %82, null
   br i1 %.not53, label %dthstat.exit71, label %83
@@ -234,7 +234,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 104:                                              ; preds = %100
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   tail call fastcc void @dttstat(ptr noundef nonnull %1, ptr noundef %107, i64 noundef 0, ptr noundef nonnull %99)
   %108 = load i64, ptr %12, align 8
@@ -282,7 +282,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @dttstat(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -303,7 +303,7 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr nocapture noundef reado
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %2, %15
   br i1 %16, label %17, label %18

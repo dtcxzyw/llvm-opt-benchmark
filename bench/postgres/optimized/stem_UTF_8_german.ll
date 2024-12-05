@@ -54,11 +54,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @german_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %7
 
 7:                                                ; preds = %.backedge, %1
@@ -182,7 +182,7 @@ define hidden range(i32 -2147483648, 2) i32 @german_UTF_8_stem(ptr noundef initi
 53:                                               ; preds = %.loopexit67
   store i32 %3, ptr %2, align 8
   %54 = load i32, ptr %6, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 8
   store i32 %54, ptr %57, align 4
@@ -252,7 +252,7 @@ define hidden range(i32 -2147483648, 2) i32 @german_UTF_8_stem(ptr noundef initi
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %53, %65, %69, %85, %88, %93
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %98, align 8
   %99 = load i32, ptr %6, align 4
   store i32 %99, ptr %2, align 8

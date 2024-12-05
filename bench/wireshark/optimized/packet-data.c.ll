@@ -94,7 +94,7 @@ define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not68, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %8 to i64
   %16 = tail call ptr @tvb_memdup(ptr noundef %14, ptr noundef %0, i32 noundef 0, i64 noundef %15) #2
@@ -133,13 +133,13 @@ define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_generated.exit, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load ptr, ptr %38, align 8
   %.not5.i = icmp eq ptr %39, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, 2
   store i32 %43, ptr %41, align 4
@@ -159,10 +159,10 @@ proto_item_set_generated.exit:                    ; preds = %40, %37, %31, %28, 
   %.061..0 = select i1 %or.cond, ptr %.061, ptr %.0
   %.064. = select i1 %or.cond, i32 %.064, i32 %8
   %48 = load i32, ptr @hf_data_text, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %24, i32 noundef %48, ptr noundef %.061..0, i32 noundef 0, i32 noundef %.064., i32 noundef 2, ptr noundef %50, ptr noundef nonnull %5) #2
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %5, align 8
   call void @col_add_str(ptr noundef %53, i32 noundef 25, ptr noundef %54) #2
@@ -177,7 +177,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %37, %31, %28, 
   %58 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %8) #2
   %59 = zext nneg i32 %8 to i64
   call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef nonnull %6, ptr noundef %58, i64 noundef %59) #2
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %61, ptr noundef nonnull %6, i64 noundef 16, i8 noundef signext 0, i64 noundef 24) #2
   %63 = load i32, ptr @hf_data_md5_hash, align 4
@@ -186,13 +186,13 @@ proto_item_set_generated.exit:                    ; preds = %40, %37, %31, %28, 
   br i1 %.not.i73, label %proto_item_set_generated.exit75, label %65
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %64, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %67 = load ptr, ptr %66, align 8
   %.not5.i74 = icmp eq ptr %67, null
   br i1 %.not5.i74, label %proto_item_set_generated.exit75, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %67, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 28
   %70 = load i32, ptr %69, align 4
   %71 = or i32 %70, 2
   store i32 %71, ptr %69, align 4
@@ -205,13 +205,13 @@ proto_item_set_generated.exit75:                  ; preds = %68, %65, %57, %55
   br i1 %.not.i76, label %proto_item_set_generated.exit78, label %74
 
 74:                                               ; preds = %proto_item_set_generated.exit75
-  %75 = getelementptr inbounds i8, ptr %73, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %76 = load ptr, ptr %75, align 8
   %.not5.i77 = icmp eq ptr %76, null
   br i1 %.not5.i77, label %proto_item_set_generated.exit78, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = or i32 %79, 2
   store i32 %80, ptr %78, align 4

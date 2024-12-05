@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i8 @qvirtio_config_readb(ptr noundef %d, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   %0 = load i8, ptr %features_negotiated, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -63,7 +63,7 @@ declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @qvirtio_config_readw(ptr noundef %d, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   %0 = load i8, ptr %features_negotiated, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -74,7 +74,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %if.else, %entry
   %1 = load ptr, ptr %d, align 8
-  %config_readw = getelementptr inbounds i8, ptr %1, i64 8
+  %config_readw = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %config_readw, align 8
   %call = tail call zeroext i16 %2(ptr noundef nonnull %d, i64 noundef %addr) #6
   ret i16 %call
@@ -83,7 +83,7 @@ do.end:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qvirtio_config_readl(ptr noundef %d, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   %0 = load i8, ptr %features_negotiated, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -94,7 +94,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %if.else, %entry
   %1 = load ptr, ptr %d, align 8
-  %config_readl = getelementptr inbounds i8, ptr %1, i64 16
+  %config_readl = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %config_readl, align 8
   %call = tail call i32 %2(ptr noundef nonnull %d, i64 noundef %addr) #6
   ret i32 %call
@@ -103,7 +103,7 @@ do.end:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qvirtio_config_readq(ptr noundef %d, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   %0 = load i8, ptr %features_negotiated, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -114,7 +114,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %if.else, %entry
   %1 = load ptr, ptr %d, align 8
-  %config_readq = getelementptr inbounds i8, ptr %1, i64 24
+  %config_readq = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %config_readq, align 8
   %call = tail call i64 %2(ptr noundef nonnull %d, i64 noundef %addr) #6
   ret i64 %call
@@ -124,7 +124,7 @@ do.end:                                           ; preds = %if.else, %entry
 define dso_local i64 @qvirtio_get_features(ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %get_features = getelementptr inbounds i8, ptr %0, i64 32
+  %get_features = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %get_features, align 8
   %call = tail call i64 %1(ptr noundef nonnull %d) #6
   ret i64 %call
@@ -142,10 +142,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %features1 = getelementptr inbounds i8, ptr %d, i64 16
+  %features1 = getelementptr inbounds nuw i8, ptr %d, i64 16
   store i64 %features, ptr %features1, align 8
   %0 = load ptr, ptr %d, align 8
-  %set_features = getelementptr inbounds i8, ptr %0, i64 40
+  %set_features = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %set_features, align 8
   tail call void %1(ptr noundef nonnull %d, i64 noundef %features) #6
   %and2 = and i64 %features, 4294967296
@@ -154,16 +154,16 @@ do.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %do.end
   %2 = load ptr, ptr %d, align 8
-  %get_status = getelementptr inbounds i8, ptr %2, i64 56
+  %get_status = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %get_status, align 8
   %call = tail call zeroext i8 %3(ptr noundef nonnull %d) #6
   %4 = or i8 %call, 8
   %5 = load ptr, ptr %d, align 8
-  %set_status = getelementptr inbounds i8, ptr %5, i64 64
+  %set_status = getelementptr inbounds nuw i8, ptr %5, i64 64
   %6 = load ptr, ptr %set_status, align 8
   tail call void %6(ptr noundef nonnull %d, i8 noundef zeroext %4) #6
   %7 = load ptr, ptr %d, align 8
-  %get_status10 = getelementptr inbounds i8, ptr %7, i64 56
+  %get_status10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %8 = load ptr, ptr %get_status10, align 8
   %call11 = tail call zeroext i8 %8(ptr noundef nonnull %d) #6
   %cmp = icmp eq i8 %call11, %4
@@ -176,7 +176,7 @@ if.else16:                                        ; preds = %if.then4
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then4, %if.else16, %do.end
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   store i8 1, ptr %features_negotiated, align 1
   ret void
 }
@@ -189,7 +189,7 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qvirtqueue_setup(ptr noundef %d, ptr noundef %alloc, i16 noundef zeroext %index) local_unnamed_addr #0 {
 entry:
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   %0 = load i8, ptr %features_negotiated, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -200,7 +200,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %if.else, %entry
   %1 = load ptr, ptr %d, align 8
-  %virtqueue_setup = getelementptr inbounds i8, ptr %1, i64 112
+  %virtqueue_setup = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %virtqueue_setup, align 8
   %call = tail call ptr %2(ptr noundef nonnull %d, ptr noundef %alloc, i16 noundef zeroext %index) #6
   ret ptr %call
@@ -209,7 +209,7 @@ do.end:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtqueue_cleanup(ptr nocapture noundef readonly %bus, ptr noundef %vq, ptr noundef %alloc) local_unnamed_addr #0 {
 entry:
-  %virtqueue_cleanup = getelementptr inbounds i8, ptr %bus, i64 120
+  %virtqueue_cleanup = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %virtqueue_cleanup, align 8
   tail call void %0(ptr noundef %vq, ptr noundef %alloc) #6
   ret void
@@ -219,11 +219,11 @@ entry:
 define dso_local void @qvirtio_reset(ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %set_status = getelementptr inbounds i8, ptr %0, i64 64
+  %set_status = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_status, align 8
   tail call void %1(ptr noundef nonnull %d, i8 noundef zeroext 0) #6
   %2 = load ptr, ptr %d, align 8
-  %get_status = getelementptr inbounds i8, ptr %2, i64 56
+  %get_status = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %get_status, align 8
   %call = tail call zeroext i8 %3(ptr noundef nonnull %d) #6
   %cmp = icmp eq i8 %call, 0
@@ -235,7 +235,7 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
-  %features_negotiated = getelementptr inbounds i8, ptr %d, i64 25
+  %features_negotiated = getelementptr inbounds nuw i8, ptr %d, i64 25
   store i8 0, ptr %features_negotiated, align 1
   ret void
 }
@@ -244,15 +244,15 @@ do.end:                                           ; preds = %if.else, %entry
 define dso_local void @qvirtio_set_acknowledge(ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %set_status = getelementptr inbounds i8, ptr %0, i64 64
+  %set_status = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_status, align 8
-  %get_status = getelementptr inbounds i8, ptr %0, i64 56
+  %get_status = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load ptr, ptr %get_status, align 8
   %call = tail call zeroext i8 %2(ptr noundef nonnull %d) #6
   %3 = or i8 %call, 1
   tail call void %1(ptr noundef nonnull %d, i8 noundef zeroext %3) #6
   %4 = load ptr, ptr %d, align 8
-  %get_status4 = getelementptr inbounds i8, ptr %4, i64 56
+  %get_status4 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %get_status4, align 8
   %call5 = tail call zeroext i8 %5(ptr noundef nonnull %d) #6
   %cmp = icmp eq i8 %call5, 1
@@ -271,15 +271,15 @@ do.end:                                           ; preds = %if.else, %entry
 define dso_local void @qvirtio_set_driver(ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %set_status = getelementptr inbounds i8, ptr %0, i64 64
+  %set_status = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_status, align 8
-  %get_status = getelementptr inbounds i8, ptr %0, i64 56
+  %get_status = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load ptr, ptr %get_status, align 8
   %call = tail call zeroext i8 %2(ptr noundef nonnull %d) #6
   %3 = or i8 %call, 2
   tail call void %1(ptr noundef nonnull %d, i8 noundef zeroext %3) #6
   %4 = load ptr, ptr %d, align 8
-  %get_status4 = getelementptr inbounds i8, ptr %4, i64 56
+  %get_status4 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %get_status4, align 8
   %call5 = tail call zeroext i8 %5(ptr noundef nonnull %d) #6
   %cmp = icmp eq i8 %call5, 3
@@ -298,19 +298,19 @@ do.end:                                           ; preds = %if.else, %entry
 define dso_local void @qvirtio_set_driver_ok(ptr noundef %d) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %set_status = getelementptr inbounds i8, ptr %0, i64 64
+  %set_status = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_status, align 8
-  %get_status = getelementptr inbounds i8, ptr %0, i64 56
+  %get_status = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load ptr, ptr %get_status, align 8
   %call = tail call zeroext i8 %2(ptr noundef nonnull %d) #6
   %3 = or i8 %call, 4
   tail call void %1(ptr noundef nonnull %d, i8 noundef zeroext %3) #6
   %4 = load ptr, ptr %d, align 8
-  %get_status4 = getelementptr inbounds i8, ptr %4, i64 56
+  %get_status4 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %get_status4, align 8
   %call5 = tail call zeroext i8 %5(ptr noundef nonnull %d) #6
   %conv6 = zext i8 %call5 to i64
-  %features = getelementptr inbounds i8, ptr %d, i64 16
+  %features = getelementptr inbounds nuw i8, ptr %d, i64 16
   %6 = load i64, ptr %features, align 8
   %and = lshr i64 %6, 29
   %cond = and i64 %and, 8
@@ -337,7 +337,7 @@ entry:
 for.cond:                                         ; preds = %do.body, %entry
   %call1 = tail call i64 @qtest_clock_step(ptr noundef %qts, i64 noundef 100) #6
   %0 = load ptr, ptr %d, align 8
-  %get_queue_isr_status = getelementptr inbounds i8, ptr %0, i64 72
+  %get_queue_isr_status = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %get_queue_isr_status, align 8
   %call2 = tail call zeroext i1 %1(ptr noundef nonnull %d, ptr noundef %vq) #6
   br i1 %call2, label %if.then, label %do.body
@@ -374,7 +374,7 @@ while.cond:                                       ; preds = %do.body5, %entry
 while.body:                                       ; preds = %while.cond
   %call3 = tail call i64 @qtest_clock_step(ptr noundef %qts, i64 noundef 100) #6
   %0 = load ptr, ptr %d, align 8
-  %get_queue_isr_status = getelementptr inbounds i8, ptr %0, i64 72
+  %get_queue_isr_status = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %get_queue_isr_status, align 8
   %call4 = tail call zeroext i1 %1(ptr noundef nonnull %d, ptr noundef %vq) #6
   br i1 %call4, label %if.else, label %do.body5
@@ -409,7 +409,7 @@ entry:
 for.cond:                                         ; preds = %do.body10, %entry
   %call1 = call i64 @qtest_clock_step(ptr noundef %qts, i64 noundef 100) #6
   %0 = load ptr, ptr %d, align 8
-  %get_queue_isr_status = getelementptr inbounds i8, ptr %0, i64 72
+  %get_queue_isr_status = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %get_queue_isr_status, align 8
   %call2 = call zeroext i1 %1(ptr noundef nonnull %d, ptr noundef %vq) #6
   br i1 %call2, label %land.lhs.true, label %do.body10
@@ -447,11 +447,11 @@ if.else15:                                        ; preds = %do.body10
 define dso_local noundef zeroext i1 @qvirtqueue_get_buf(ptr noundef %qts, ptr nocapture noundef %vq, ptr noundef writeonly %desc_idx, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vq, align 8
-  %used = getelementptr inbounds i8, ptr %vq, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %1 = load i64, ptr %used, align 8
   %add = add i64 %1, 2
   %call.i = tail call zeroext i16 @qtest_readw(ptr noundef %qts, i64 noundef %add) #6
-  %features.i = getelementptr inbounds i8, ptr %0, i64 16
+  %features.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %features.i, align 8
   %and.i = and i64 %2, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -465,7 +465,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 qvirtio_readw.exit:                               ; preds = %entry, %land.lhs.true.i
   %val.0.i = phi i16 [ %call.i, %entry ], [ %spec.select.i, %land.lhs.true.i ]
-  %last_used_idx = getelementptr inbounds i8, ptr %vq, i64 52
+  %last_used_idx = getelementptr inbounds nuw i8, ptr %vq, i64 52
   %4 = load i16, ptr %last_used_idx, align 4
   %cmp = icmp ne i16 %val.0.i, %4
   br i1 %cmp, label %if.end, label %return
@@ -474,7 +474,7 @@ if.end:                                           ; preds = %qvirtio_readw.exit
   %conv1 = zext i16 %4 to i32
   %5 = load i64, ptr %used, align 8
   %add4 = add i64 %5, 4
-  %size = getelementptr inbounds i8, ptr %vq, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %vq, i64 36
   %6 = load i32, ptr %size, align 4
   %rem = urem i32 %conv1, %6
   %7 = shl nuw nsw i32 %rem, 3
@@ -486,7 +486,7 @@ if.end:                                           ; preds = %qvirtio_readw.exit
 if.then9:                                         ; preds = %if.end
   %8 = load ptr, ptr %vq, align 8
   %call.i15 = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add8) #6
-  %features.i16 = getelementptr inbounds i8, ptr %8, i64 16
+  %features.i16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load i64, ptr %features.i16, align 8
   %and.i17 = and i64 %9, 4294967296
   %tobool.not.i18 = icmp eq i64 %and.i17, 0
@@ -511,7 +511,7 @@ if.then15:                                        ; preds = %if.end13
   %add16 = add i64 %add8, 4
   %11 = load ptr, ptr %vq, align 8
   %call.i23 = tail call zeroext i16 @qtest_readw(ptr noundef %qts, i64 noundef %add16) #6
-  %features.i24 = getelementptr inbounds i8, ptr %11, i64 16
+  %features.i24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load i64, ptr %features.i24, align 8
   %and.i25 = and i64 %12, 4294967296
   %tobool.not.i26 = icmp eq i64 %and.i25, 0
@@ -543,7 +543,7 @@ return:                                           ; preds = %qvirtio_readw.exit,
 define dso_local void @qvirtio_wait_config_isr(ptr noundef %d, i64 noundef %timeout_us) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %d, align 8
-  %wait_config_isr_status = getelementptr inbounds i8, ptr %0, i64 80
+  %wait_config_isr_status = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %wait_config_isr_status, align 8
   tail call void %1(ptr noundef nonnull %d, i64 noundef %timeout_us) #6
   ret void
@@ -552,19 +552,19 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvring_init(ptr noundef %qts, ptr nocapture noundef readnone %alloc, ptr nocapture noundef initializes((8, 32)) %vq, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %desc = getelementptr inbounds i8, ptr %vq, i64 8
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   store i64 %addr, ptr %desc, align 8
-  %size = getelementptr inbounds i8, ptr %vq, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %vq, i64 36
   %0 = load i32, ptr %size, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 4
   %add = add i64 %mul, %addr
-  %avail = getelementptr inbounds i8, ptr %vq, i64 16
+  %avail = getelementptr inbounds nuw i8, ptr %vq, i64 16
   store i64 %add, ptr %avail, align 8
   %add4 = add i32 %0, 3
   %conv5 = zext i32 %add4 to i64
   %mul6 = shl nuw nsw i64 %conv5, 1
-  %align = getelementptr inbounds i8, ptr %vq, i64 48
+  %align = getelementptr inbounds nuw i8, ptr %vq, i64 48
   %1 = load i32, ptr %align, align 8
   %conv8 = zext i32 %1 to i64
   %add7 = add nuw nsw i64 %mul6, 4294967295
@@ -573,7 +573,7 @@ entry:
   %not = sub i32 0, %1
   %conv12 = zext i32 %not to i64
   %and = and i64 %sub, %conv12
-  %used = getelementptr inbounds i8, ptr %vq, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %vq, i64 24
   store i64 %and, ptr %used, align 8
   %cmp93.not = icmp eq i32 %0, 1
   br i1 %cmp93.not, label %for.end, label %for.body
@@ -731,9 +731,9 @@ qvirtio_writew.exit91:                            ; preds = %qvirtio_writew.exit
 define dso_local noalias noundef ptr @qvring_indirect_desc_setup(ptr noundef %qs, ptr nocapture noundef readonly %d, ptr noundef %alloc, i16 noundef zeroext %elem) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %index = getelementptr inbounds i8, ptr %call, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i16 0, ptr %index, align 8
-  %elem1 = getelementptr inbounds i8, ptr %call, i64 10
+  %elem1 = getelementptr inbounds nuw i8, ptr %call, i64 10
   store i16 %elem, ptr %elem1, align 2
   %conv = zext i16 %elem to i64
   %mul = shl nuw nsw i64 %conv, 4
@@ -810,9 +810,9 @@ declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvring_indirect_desc_add(ptr nocapture noundef readonly %d, ptr noundef %qts, ptr nocapture noundef %indirect, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write) local_unnamed_addr #0 {
 entry:
-  %index = getelementptr inbounds i8, ptr %indirect, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %indirect, i64 8
   %0 = load i16, ptr %index, align 8
-  %elem = getelementptr inbounds i8, ptr %indirect, i64 10
+  %elem = getelementptr inbounds nuw i8, ptr %indirect, i64 10
   %1 = load i16, ptr %elem, align 2
   %cmp = icmp ult i16 %0, %1
   br i1 %cmp, label %do.end, label %if.else
@@ -832,7 +832,7 @@ do.end:                                           ; preds = %if.else, %entry
   %add = add i64 %3, 12
   %add8 = add i64 %add, %mul
   %call.i = tail call zeroext i16 @qtest_readw(ptr noundef %qts, i64 noundef %add8) #6
-  %features.i = getelementptr inbounds i8, ptr %d, i64 16
+  %features.i = getelementptr inbounds nuw i8, ptr %d, i64 16
   %4 = load i64, ptr %features.i, align 8
   %and.i = and i64 %4, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -924,7 +924,7 @@ qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qvirtqueue_add(ptr noundef %qts, ptr nocapture noundef %vq, i64 noundef %data, i32 noundef %len, i1 noundef zeroext %write, i1 noundef zeroext %next) local_unnamed_addr #0 {
 entry:
-  %num_free = getelementptr inbounds i8, ptr %vq, i64 44
+  %num_free = getelementptr inbounds nuw i8, ptr %vq, i64 44
   %0 = load i32, ptr %num_free, align 4
   %dec = add i32 %0, -1
   store i32 %dec, ptr %num_free, align 4
@@ -932,9 +932,9 @@ entry:
   %1 = zext i1 %next to i16
   %flags.1 = or disjoint i16 %spec.select, %1
   %2 = load ptr, ptr %vq, align 8
-  %desc = getelementptr inbounds i8, ptr %vq, i64 8
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   %3 = load i64, ptr %desc, align 8
-  %free_head = getelementptr inbounds i8, ptr %vq, i64 40
+  %free_head = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %4 = load i32, ptr %free_head, align 8
   %mul = shl i32 %4, 4
   %conv9 = zext i32 %mul to i64
@@ -1007,7 +1007,7 @@ qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qvirtqueue_add_indirect(ptr noundef %qts, ptr nocapture noundef %vq, ptr nocapture noundef readonly %indirect) local_unnamed_addr #0 {
 entry:
-  %indirect1 = getelementptr inbounds i8, ptr %vq, i64 54
+  %indirect1 = getelementptr inbounds nuw i8, ptr %vq, i64 54
   %0 = load i8, ptr %indirect1, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.body2, label %if.else
@@ -1017,9 +1017,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body2:                                         ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %vq, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %vq, i64 36
   %1 = load i32, ptr %size, align 4
-  %elem = getelementptr inbounds i8, ptr %indirect, i64 10
+  %elem = getelementptr inbounds nuw i8, ptr %indirect, i64 10
   %2 = load i16, ptr %elem, align 2
   %3 = zext i16 %2 to i32
   %cmp.not = icmp ult i32 %1, %3
@@ -1034,7 +1034,7 @@ if.else6:                                         ; preds = %do.body2
 
 do.body11:                                        ; preds = %do.body2, %if.else6
   %4 = phi i16 [ %2, %do.body2 ], [ %.pre, %if.else6 ]
-  %index = getelementptr inbounds i8, ptr %indirect, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %indirect, i64 8
   %5 = load i16, ptr %index, align 8
   %cmp17 = icmp eq i16 %5, %4
   br i1 %cmp17, label %do.end24, label %if.else20
@@ -1046,14 +1046,14 @@ if.else20:                                        ; preds = %do.body11
   br label %do.end24
 
 do.end24:                                         ; preds = %if.else20, %do.body11
-  %num_free = getelementptr inbounds i8, ptr %vq, i64 44
+  %num_free = getelementptr inbounds nuw i8, ptr %vq, i64 44
   %6 = load i32, ptr %num_free, align 4
   %dec = add i32 %6, -1
   store i32 %dec, ptr %num_free, align 4
   %7 = load ptr, ptr %vq, align 8
-  %desc = getelementptr inbounds i8, ptr %vq, i64 8
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   %8 = load i64, ptr %desc, align 8
-  %free_head = getelementptr inbounds i8, ptr %vq, i64 40
+  %free_head = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %9 = load i32, ptr %free_head, align 8
   %mul = shl i32 %9, 4
   %conv25 = zext i32 %mul to i64
@@ -1129,11 +1129,11 @@ qvirtio_writew.exit:                              ; preds = %qvirtio_writel.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtqueue_kick(ptr noundef %qts, ptr noundef %d, ptr noundef %vq, i32 noundef %free_head) local_unnamed_addr #0 {
 entry:
-  %avail = getelementptr inbounds i8, ptr %vq, i64 16
+  %avail = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %0 = load i64, ptr %avail, align 8
   %add = add i64 %0, 2
   %call.i = tail call zeroext i16 @qtest_readw(ptr noundef %qts, i64 noundef %add) #6
-  %features.i = getelementptr inbounds i8, ptr %d, i64 16
+  %features.i = getelementptr inbounds nuw i8, ptr %d, i64 16
   %1 = load i64, ptr %features.i, align 8
   %and.i = and i64 %1, 4294967296
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -1154,7 +1154,7 @@ qvirtio_readw.exit:                               ; preds = %entry, %land.lhs.tr
   %4 = load i64, ptr %avail, align 8
   %add2 = add i64 %4, 4
   %conv = zext i16 %val.0.i to i32
-  %size = getelementptr inbounds i8, ptr %vq, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %vq, i64 36
   %5 = load i32, ptr %size, align 4
   %rem = urem i32 %conv, %5
   %mul = shl nuw nsw i32 %rem, 1
@@ -1204,7 +1204,7 @@ land.lhs.true.i38:                                ; preds = %qvirtio_writew.exit
 
 qvirtio_readw.exit42:                             ; preds = %qvirtio_writew.exit33, %land.lhs.true.i38
   %val.0.i41 = phi i16 [ %call.i34, %qvirtio_writew.exit33 ], [ %spec.select.i40, %land.lhs.true.i38 ]
-  %used = getelementptr inbounds i8, ptr %vq, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %12 = load i64, ptr %used, align 8
   %add13 = add i64 %12, 4
   %13 = load i32, ptr %size, align 4
@@ -1230,7 +1230,7 @@ qvirtio_readw.exit51:                             ; preds = %qvirtio_readw.exit4
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %qvirtio_readw.exit51
-  %event = getelementptr inbounds i8, ptr %vq, i64 55
+  %event = getelementptr inbounds nuw i8, ptr %vq, i64 55
   %17 = load i8, ptr %event, align 1
   %tobool = trunc i8 %17 to i1
   %cmp25 = icmp ne i16 %val.0.i, %val.0.i50
@@ -1239,7 +1239,7 @@ land.lhs.true:                                    ; preds = %qvirtio_readw.exit5
 
 if.then:                                          ; preds = %land.lhs.true
   %18 = load ptr, ptr %d, align 8
-  %virtqueue_kick = getelementptr inbounds i8, ptr %18, i64 128
+  %virtqueue_kick = getelementptr inbounds nuw i8, ptr %18, i64 128
   %19 = load ptr, ptr %virtqueue_kick, align 8
   tail call void %19(ptr noundef nonnull %d, ptr noundef nonnull %vq) #6
   br label %if.end
@@ -1251,7 +1251,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtqueue_set_used_event(ptr noundef %qts, ptr nocapture noundef readonly %vq, i16 noundef zeroext %idx) local_unnamed_addr #0 {
 entry:
-  %event = getelementptr inbounds i8, ptr %vq, i64 55
+  %event = getelementptr inbounds nuw i8, ptr %vq, i64 55
   %0 = load i8, ptr %event, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -1262,9 +1262,9 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %vq, align 8
-  %avail = getelementptr inbounds i8, ptr %vq, i64 16
+  %avail = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %2 = load i64, ptr %avail, align 8
-  %size = getelementptr inbounds i8, ptr %vq, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %vq, i64 36
   %3 = load i32, ptr %size, align 4
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8
@@ -1292,11 +1292,11 @@ qvirtio_writew.exit:                              ; preds = %do.end, %land.lhs.t
 define dso_local void @qvirtio_start_device(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %vdev, align 8
-  %set_status.i = getelementptr inbounds i8, ptr %0, i64 64
+  %set_status.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_status.i, align 8
   tail call void %1(ptr noundef nonnull %vdev, i8 noundef zeroext 0) #6
   %2 = load ptr, ptr %vdev, align 8
-  %get_status.i = getelementptr inbounds i8, ptr %2, i64 56
+  %get_status.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %get_status.i, align 8
   %call.i = tail call zeroext i8 %3(ptr noundef nonnull %vdev) #6
   %cmp.i = icmp eq i8 %call.i, 0
@@ -1308,18 +1308,18 @@ if.else.i:                                        ; preds = %entry
   br label %qvirtio_reset.exit
 
 qvirtio_reset.exit:                               ; preds = %entry, %if.else.i
-  %features_negotiated.i = getelementptr inbounds i8, ptr %vdev, i64 25
+  %features_negotiated.i = getelementptr inbounds nuw i8, ptr %vdev, i64 25
   store i8 0, ptr %features_negotiated.i, align 1
   %4 = load ptr, ptr %vdev, align 8
-  %set_status.i3 = getelementptr inbounds i8, ptr %4, i64 64
+  %set_status.i3 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %5 = load ptr, ptr %set_status.i3, align 8
-  %get_status.i4 = getelementptr inbounds i8, ptr %4, i64 56
+  %get_status.i4 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %get_status.i4, align 8
   %call.i5 = tail call zeroext i8 %6(ptr noundef nonnull %vdev) #6
   %7 = or i8 %call.i5, 1
   tail call void %5(ptr noundef nonnull %vdev, i8 noundef zeroext %7) #6
   %8 = load ptr, ptr %vdev, align 8
-  %get_status4.i = getelementptr inbounds i8, ptr %8, i64 56
+  %get_status4.i = getelementptr inbounds nuw i8, ptr %8, i64 56
   %9 = load ptr, ptr %get_status4.i, align 8
   %call5.i = tail call zeroext i8 %9(ptr noundef nonnull %vdev) #6
   %cmp.i6 = icmp eq i8 %call5.i, 1
@@ -1332,15 +1332,15 @@ if.else.i7:                                       ; preds = %qvirtio_reset.exit
 
 qvirtio_set_acknowledge.exit:                     ; preds = %qvirtio_reset.exit, %if.else.i7
   %10 = load ptr, ptr %vdev, align 8
-  %set_status.i8 = getelementptr inbounds i8, ptr %10, i64 64
+  %set_status.i8 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %11 = load ptr, ptr %set_status.i8, align 8
-  %get_status.i9 = getelementptr inbounds i8, ptr %10, i64 56
+  %get_status.i9 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %get_status.i9, align 8
   %call.i10 = tail call zeroext i8 %12(ptr noundef nonnull %vdev) #6
   %13 = or i8 %call.i10, 2
   tail call void %11(ptr noundef nonnull %vdev, i8 noundef zeroext %13) #6
   %14 = load ptr, ptr %vdev, align 8
-  %get_status4.i11 = getelementptr inbounds i8, ptr %14, i64 56
+  %get_status4.i11 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %15 = load ptr, ptr %get_status4.i11, align 8
   %call5.i12 = tail call zeroext i8 %15(ptr noundef nonnull %vdev) #6
   %cmp.i13 = icmp eq i8 %call5.i12, 3
@@ -1358,7 +1358,7 @@ qvirtio_set_driver.exit:                          ; preds = %qvirtio_set_acknowl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qvirtio_is_big_endian(ptr nocapture noundef readonly %d) local_unnamed_addr #4 {
 entry:
-  %big_endian = getelementptr inbounds i8, ptr %d, i64 24
+  %big_endian = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i8, ptr %big_endian, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool

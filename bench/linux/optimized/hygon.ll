@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @early_init_hygon(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, -2147483640
   br i1 %4, label %25, label %5
@@ -62,7 +62,7 @@ define internal void @early_init_hygon(ptr noundef %0) #0 align 16 {
   %8 = trunc i32 %7 to i16
   %9 = and i16 %8, 255
   %10 = add nuw nsw i16 %9, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i16 %10, ptr %11, align 8
   %12 = lshr i32 %7, 12
   %13 = and i32 %12, 15
@@ -83,7 +83,7 @@ define internal void @early_init_hygon(ptr noundef %0) #0 align 16 {
 .loopexit:                                        ; preds = %17, %5
   %22 = phi i32 [ %13, %5 ], [ %18, %17 ]
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %0, i64 30
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 %23, ptr %24, align 2
   br label %25
 
@@ -105,9 +105,9 @@ define internal void @early_init_hygon(ptr noundef %0) #0 align 16 {
 
 34:                                               ; preds = %29, %25
   %35 = trunc i64 %28 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 308
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 276
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 256
   %40 = icmp eq i32 %39, 0
@@ -321,32 +321,32 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 1, ptr elementtype(i8) %2) #5, !srcloc !9
   %3 = tail call i32 @__SCT__apic_call_read(i32 noundef 32) #5
   %4 = load ptr, ptr @apic, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i32 noundef %3) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %7, ptr %8, align 8
   %9 = getelementptr i8, ptr %0, i64 71
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 16, ptr elementtype(i8) %9) #5, !srcloc !9
   %10 = getelementptr i8, ptr %0, i64 68
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 4, ptr elementtype(i8) %10) #5, !srcloc !9
   tail call void @cpu_detect_cache_sizes(ptr noundef %0) #5
-  %11 = getelementptr inbounds i8, ptr %0, i64 30
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 220
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %15 = load i32, ptr %14, align 4
   %16 = shl nsw i32 -1, %13
   %17 = xor i32 %16, -1
   %18 = and i32 %15, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 236
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %18, ptr %19, align 4
   %20 = lshr i32 %15, %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 228
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %20, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %20, ptr %23, align 8
   %24 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
   %25 = and i64 %24, 4194304
@@ -366,7 +366,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %0, i64 296
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %37 = load i16, ptr %36, align 8
   %38 = zext i16 %37 to i32
   %39 = udiv i32 %38, %33
@@ -380,7 +380,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   br i1 %43, label %44, label %56
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 296
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %46 = load i16, ptr %45, align 8
   %47 = icmp eq i16 %46, 0
   br i1 %47, label %54, label %48
@@ -405,7 +405,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %62 = load i8, ptr %61, align 2
   %63 = icmp ult i8 %62, 4
   br i1 %63, label %64, label %67
@@ -644,7 +644,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cpu_detect_tlb_hygon(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, -2147483642
   br i1 %4, label %40, label %5

@@ -16,30 +16,30 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8EncInitAlpha(ptr noundef initializes((540, 556)) %0) local_unnamed_addr #0 {
   tail call void @WebPInitAlphaProcessing() #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @WebPPictureHasTransparency(ptr noundef %3) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 540
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 23632
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 23632
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 560
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %13 = tail call ptr @WebPGetWorkerInterface() #5
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %12) #5
-  %15 = getelementptr inbounds i8, ptr %0, i64 584
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 592
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 576
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr @CompressAlphaJob, ptr %17, align 8
   br label %18
 
@@ -60,23 +60,23 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr nocapture noundef %0, 
   %5 = alloca %struct.FilterTrial, align 8
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   %13 = icmp eq i32 %11, 1
   %14 = select i1 %13, i32 6, i32 5
-  %15 = getelementptr inbounds i8, ptr %7, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %22
   %26 = sext i32 %25 to i64
@@ -111,9 +111,9 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr nocapture noundef %0, 
   br label %EncodeAlpha.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %20, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %20, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %45 = load i32, ptr %44, align 8
   tail call void @WebPCopyPlane(ptr noundef %43, i32 noundef %45, ptr noundef nonnull %37, i32 noundef %22, i32 noundef %22, i32 noundef %24) #5
   br i1 %27, label %46, label %.critedge.i
@@ -142,7 +142,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr nocapture noundef %0, 
 
 .critedge.i:                                      ; preds = %54, %41
   call void @VP8FiltersInit() #5
-  %58 = getelementptr inbounds i8, ptr %20, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5)
@@ -153,7 +153,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr nocapture noundef %0, 
 
 GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
   store i64 4294967295, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %61 = call i32 @VP8BitWriterInit(ptr noundef nonnull %60, i64 noundef 0) #5
   br label %110
 
@@ -174,15 +174,15 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 .lr.ph.us.i.i.i.i:                                ; preds = %._crit_edge.us.i.i.i.i, %.lr.ph.us.preheader.i.i.i.i
   %indvars.iv26.i.i.i.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i.i.i ], [ %indvars.iv.next27.i.i.i.i, %._crit_edge.us.i.i.i.i ]
   %67 = mul nuw nsw i64 %indvars.iv26.i.i.i.i, %66
-  %68 = getelementptr inbounds i8, ptr %37, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 %67
   br label %69
 
 69:                                               ; preds = %69, %.lr.ph.us.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.us.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %69 ]
-  %70 = getelementptr inbounds i8, ptr %68, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv.i.i.i.i
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %72
   store i8 1, ptr %73, align 1
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %66
@@ -199,7 +199,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
   %.01622.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
-  %74 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %indvars.iv31.i.i.i.i
+  %74 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %indvars.iv31.i.i.i.i
   %75 = load i8, ptr %74, align 1
   %.not.i.i.i.i = icmp ne i8 %75, 0
   %76 = zext i1 %.not.i.i.i.i to i32
@@ -219,7 +219,7 @@ GetNumColors.exit.i.i.i:                          ; preds = %.preheader.i.i.i.i
 
 GetFilterMap.exit.thread57.i.i:                   ; preds = %.critedge.i
   store i64 4294967295, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = call i32 @VP8BitWriterInit(ptr noundef nonnull %80, i64 noundef 0) #5
   br label %88
 
@@ -231,7 +231,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   %85 = zext i1 %or.cond.i.i.i to i32
   %spec.select.i.i.i = or i32 %83, %85
   store i64 4294967295, ptr %4, align 8
-  %86 = getelementptr inbounds i8, ptr %4, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %87 = call i32 @VP8BitWriterInit(ptr noundef nonnull %86, i64 noundef 0) #5
   %.not.i.i = icmp eq i32 %spec.select.i.i.i, 1
   br i1 %.not.i.i, label %110, label %88
@@ -244,7 +244,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br i1 %91, label %147, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %93
 
 93:                                               ; preds = %103, %.preheader.i.i
@@ -304,41 +304,41 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br i1 %.not51.i.i, label %ApplyFiltersAndEncode.exit.i, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %4, i64 204
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %59, i64 148
+  %119 = getelementptr inbounds nuw i8, ptr %59, i64 148
   store i32 %118, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %4, i64 208
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %59, i64 152
+  %122 = getelementptr inbounds nuw i8, ptr %59, i64 152
   store i32 %121, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %4, i64 212
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 212
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %59, i64 156
+  %125 = getelementptr inbounds nuw i8, ptr %59, i64 156
   store i32 %124, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %4, i64 236
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 236
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %59, i64 180
+  %128 = getelementptr inbounds nuw i8, ptr %59, i64 180
   store i32 %127, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %4, i64 216
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %59, i64 160
+  %131 = getelementptr inbounds nuw i8, ptr %59, i64 160
   store i32 %130, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %4, i64 220
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 220
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %59, i64 164
+  %134 = getelementptr inbounds nuw i8, ptr %59, i64 164
   store i32 %133, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %4, i64 224
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %59, i64 168
+  %137 = getelementptr inbounds nuw i8, ptr %59, i64 168
   store i32 %136, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %4, i64 228
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 228
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %59, i64 172
+  %140 = getelementptr inbounds nuw i8, ptr %59, i64 172
   store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %4, i64 232
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %59, i64 176
+  %143 = getelementptr inbounds nuw i8, ptr %59, i64 176
   store i32 %142, ptr %143, align 4
   br label %ApplyFiltersAndEncode.exit.i
 
@@ -375,7 +375,7 @@ ApplyFiltersAndEncode.exit.i:                     ; preds = %116, %115
   %154 = add nsw i32 %153, %152
   store i32 %154, ptr %150, align 4
   %155 = load i64, ptr %6, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 23536
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 23536
   store i64 %155, ptr %156, align 8
   br label %157
 
@@ -404,9 +404,9 @@ EncodeAlpha.exit:                                 ; preds = %29, %32, %39, %157
 
 160:                                              ; preds = %158
   %161 = trunc nuw i64 %.2 to i32
-  %162 = getelementptr inbounds i8, ptr %0, i64 552
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i32 %161, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 544
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr %.219, ptr %163, align 8
   br label %164
 
@@ -417,35 +417,35 @@ EncodeAlpha.exit:                                 ; preds = %29, %32, %39, %157
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @VP8EncStartAlpha(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 540
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 23632
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 23632
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 560
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %10 = tail call ptr @WebPGetWorkerInterface() #5
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %9) #5
   %.not7 = icmp eq i32 %13, 0
   br i1 %.not7, label %14, label %18
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @WebPEncodingSetError(ptr noundef %16, i32 noundef 1) #5
   br label %24
 
 18:                                               ; preds = %8
   %19 = tail call ptr @WebPGetWorkerInterface() #5
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull %9) #5
   br label %24
@@ -463,30 +463,30 @@ declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @VP8EncFinishAlpha(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 540
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 23632
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 23632
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 560
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %10 = tail call ptr @WebPGetWorkerInterface() #5
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %9) #5
   %.not7 = icmp eq i32 %13, 0
   br i1 %.not7, label %21, label %14
 
 14:                                               ; preds = %4, %8, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 536
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 20
   %20 = tail call i32 @WebPReportProgress(ptr noundef %16, i32 noundef %19, ptr noundef nonnull %17) #5
@@ -501,29 +501,29 @@ declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @VP8EncDeleteAlpha(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 23632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 23632
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 560
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %7 = tail call ptr @WebPGetWorkerInterface() #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull %6) #5
   %11 = tail call ptr @WebPGetWorkerInterface() #5
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %6) #5
   br label %14
 
 14:                                               ; preds = %5, %1
   %.0 = phi i32 [ %10, %5 ], [ 1, %1 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 544
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %16 = load ptr, ptr %15, align 8
   tail call void @WebPSafeFree(ptr noundef %16) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 540
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 540
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   ret i32 %.0
 }
@@ -575,13 +575,13 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   br i1 %.not.i, label %.thread67, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %2, ptr %29, align 4
   store i32 1, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 128
   store ptr %27, ptr %30, align 8
   %31 = call i32 @WebPPictureAlloc(ptr noundef nonnull %11) #5
   %.not15.i = icmp eq i32 %31, 0
@@ -591,9 +591,9 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %33 = load ptr, ptr @WebPDispatchAlphaToGreen, align 8
   %34 = load i32, ptr %28, align 8
   %35 = load i32, ptr %29, align 4
-  %36 = getelementptr inbounds i8, ptr %11, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %39 = load i32, ptr %38, align 8
   call void %33(ptr noundef %.050, i32 noundef %1, i32 noundef %34, i32 noundef %35, ptr noundef %37, i32 noundef %39) #5
   %40 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %10, i32 noundef 0, float noundef 7.500000e+01, i32 noundef 528) #5
@@ -602,9 +602,9 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
 
 41:                                               ; preds = %32
   store i32 1, ptr %10, align 4
-  %42 = getelementptr inbounds i8, ptr %10, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %6, ptr %43, align 4
   %44 = icmp eq i32 %5, 0
   %45 = icmp eq i32 %6, 6
@@ -612,12 +612,12 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %46 = sitofp i32 %6 to float
   %47 = fmul float %46, 8.000000e+00
   %48 = select i1 %or.cond.i, float 1.000000e+02, float %47
-  %49 = getelementptr inbounds i8, ptr %10, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %48, ptr %49, align 4
   %50 = call i32 @VP8LEncodeStream(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13) #5
   call void @WebPPictureFree(ptr noundef nonnull %11) #5
   %.not17.i = icmp ne i32 %50, 0
-  %51 = getelementptr inbounds i8, ptr %13, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %52 = load i32, ptr %51, align 8
   %.not18.i = icmp eq i32 %52, 0
   %or.cond = select i1 %.not17.i, i1 %.not18.i, i1 false
@@ -642,19 +642,19 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
 
 56:                                               ; preds = %53
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %57, i8 0, i64 48, i1 false)
   br label %101
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %13, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %13, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %60 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = add nsw i32 %67, 7
   %69 = ashr i32 %68, 3
@@ -669,7 +669,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
 
 .thread:                                          ; preds = %21, %.thread67
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  %74 = getelementptr inbounds i8, ptr %8, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
   br label %101
 
@@ -685,7 +685,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %82 = or i8 %81, 16
   %storemerge = select i1 %.not62, i8 %81, i8 %82
   store i8 %storemerge, ptr %12, align 1
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = add i64 %78, 1
   %85 = call i32 @VP8BitWriterInit(ptr noundef nonnull %83, i64 noundef %84) #5
   %.not63.not = icmp eq i32 %85, 0
@@ -713,7 +713,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   br i1 %91, label %94, label %98
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %8, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %96 = load i32, ptr %95, align 8
   %.not66 = icmp eq i32 %96, 0
   %97 = zext i1 %.not66 to i32

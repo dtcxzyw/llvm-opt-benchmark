@@ -19,9 +19,9 @@ define void @Cudd_SymmProfile(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
-  %5 = getelementptr inbounds i8, ptr %0, i64 608
-  %6 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %7
 
 7:                                                ; preds = %.lr.ph, %29
@@ -73,7 +73,7 @@ define void @Cudd_SymmProfile(ptr nocapture noundef readonly %0, i32 noundef %1,
 ._crit_edge:                                      ; preds = %29, %3
   %.024.lcssa = phi i32 [ 0, %3 ], [ %.2, %29 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %29 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 608
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.3, i32 noundef %.024.lcssa) #13
   %34 = load ptr, ptr %31, align 8
@@ -86,7 +86,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds %struct.DdSubtable, ptr %5, i64 %6, i32 3
@@ -95,7 +95,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %2 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
@@ -106,26 +106,26 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %15 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %19, %10
   %29 = getelementptr inbounds %struct.DdSubtable, ptr %5, i64 %6
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %29, align 8
   %33 = icmp sgt i32 %31, 0
   br i1 %33, label %.lr.ph127, label %._crit_edge128
 
 .lr.ph127:                                        ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %35
 
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   %.081124 = phi i32 [ 0, %.lr.ph127 ], [ %.182.lcssa, %._crit_edge ]
   %.083123 = phi i32 [ 1, %.lr.ph127 ], [ %.184.lcssa, %._crit_edge ]
   %.086122 = phi i32 [ 1, %.lr.ph127 ], [ %.187.lcssa, %._crit_edge ]
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %.077114 = load ptr, ptr %36, align 8
   %.not99115 = icmp eq ptr %.077114, %0
   br i1 %.not99115, label %._crit_edge, label %.lr.ph
@@ -144,9 +144,9 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   %.182118 = phi i32 [ %.3, %88 ], [ %.081124, %35 ]
   %.184117 = phi i32 [ %.285, %88 ], [ %.083123, %35 ]
   %.187116 = phi i32 [ %.288, %88 ], [ %.086122, %35 ]
-  %37 = getelementptr inbounds i8, ptr %.077119, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.077119, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.077119, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.077119, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -2
@@ -157,9 +157,9 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 
 46:                                               ; preds = %.lr.ph
   %47 = add nsw i32 %.182118, 1
-  %48 = getelementptr inbounds i8, ptr %38, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %38, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %51 = load ptr, ptr %50, align 8
   %.pre = load i32, ptr %43, align 8
   br label %59
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   br i1 %or.cond108, label %56, label %.loopexit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.077119, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.077119, i64 4
   %58 = load i32, ptr %57, align 4
   %.not103 = icmp eq i32 %58, 1
   br i1 %.not103, label %59, label %.loopexit
@@ -195,9 +195,9 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   %.091156 = phi ptr [ %.091, %59 ], [ %38, %52 ]
   %.092154 = phi ptr [ %.092, %59 ], [ %38, %52 ]
   %62 = add nsw i32 %.2157, 1
-  %63 = getelementptr inbounds i8, ptr %43, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %43, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -224,7 +224,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
   br i1 %or.cond109, label %76, label %79
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %.077119, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.077119, i64 4
   %78 = load i32, ptr %77, align 4
   %.not107 = icmp eq i32 %78, 1
   br i1 %.not107, label %88, label %79
@@ -244,7 +244,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 88:                                               ; preds = %79, %76
   %.288 = phi i32 [ %82, %79 ], [ %.187116, %76 ]
   %.285 = phi i32 [ %85, %79 ], [ %.184117, %76 ]
-  %89 = getelementptr inbounds i8, ptr %.077119, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.077119, i64 8
   %.077 = load ptr, ptr %89, align 8
   %.not99 = icmp eq ptr %.077, %0
   br i1 %.not99, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -260,7 +260,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 ._crit_edge128:                                   ; preds = %._crit_edge, %28
   %.081.lcssa = phi i32 [ 0, %28 ], [ %.182.lcssa, %._crit_edge ]
   %90 = getelementptr inbounds %struct.DdSubtable, ptr %5, i64 %13
-  %91 = getelementptr inbounds i8, ptr %90, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %90, align 8
   %94 = icmp sgt i32 %92, 0
@@ -273,7 +273,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %._crit_edge136
   %indvars.iv145 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next146, %._crit_edge136 ]
   %.079138 = phi i32 [ -1, %.lr.ph141.preheader ], [ %.180.lcssa, %._crit_edge136 ]
-  %95 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv145
+  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv145
   %.178130 = load ptr, ptr %95, align 8
   %.not131 = icmp eq ptr %.178130, %0
   br i1 %.not131, label %._crit_edge136, label %.lr.ph135
@@ -281,10 +281,10 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 .lr.ph135:                                        ; preds = %.lr.ph141, %.lr.ph135
   %.178133 = phi ptr [ %.178, %.lr.ph135 ], [ %.178130, %.lr.ph141 ]
   %.180132 = phi i32 [ %98, %.lr.ph135 ], [ %.079138, %.lr.ph141 ]
-  %96 = getelementptr inbounds i8, ptr %.178133, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.178133, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %.180132
-  %99 = getelementptr inbounds i8, ptr %.178133, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.178133, i64 8
   %.178 = load ptr, ptr %99, align 8
   %.not = icmp eq ptr %.178, %0
   br i1 %.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !9
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @cuddSymmCheck(ptr noundef readonly %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @cuddSymmSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
@@ -319,7 +319,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSifting(ptr noundef %0, 
   br i1 %10, label %.thread81, label %12
 
 .thread81:                                        ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 624
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %11, align 8
   br label %ddSymmSummary.exit
 
@@ -333,15 +333,15 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSifting(ptr noundef %0, 
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader85
-  %16 = getelementptr inbounds i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %21
 
 .thread108:                                       ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 624
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %20, align 8
   tail call void @free(ptr noundef nonnull %9) #13
   store ptr null, ptr @entry, align 8
@@ -349,14 +349,14 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSifting(ptr noundef %0, 
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %24, i32 3
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -369,24 +369,24 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSifting(ptr noundef %0, 
   br i1 %.not87, label %.preheader84, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %0, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %31 = sext i32 %1 to i64
   %32 = add i32 %2, 1
   br label %41
 
 .preheader84:                                     ; preds = %41, %._crit_edge
-  %33 = getelementptr inbounds i8, ptr %0, i64 456
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %34 = load i32, ptr %33, align 8
   %.91 = tail call i32 @llvm.smin.i32(i32 %6, i32 %34)
   %35 = icmp sgt i32 %.91, 0
   br i1 %35, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %.preheader84
-  %36 = getelementptr inbounds i8, ptr %0, i64 460
-  %37 = getelementptr inbounds i8, ptr %0, i64 752
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
-  %40 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %45
 
 41:                                               ; preds = %.lr.ph90, %41
@@ -435,7 +435,7 @@ Abc_Clock.exit:                                   ; preds = %50, %53
 
 61:                                               ; preds = %Abc_Clock.exit, %48
   %62 = load ptr, ptr %39, align 8
-  %63 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv101
+  %63 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv101
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %62, i64 %65
@@ -481,7 +481,7 @@ Abc_Clock.exit:                                   ; preds = %50, %53
   br i1 %.not87, label %ddSymmSummary.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84
-  %85 = getelementptr inbounds i8, ptr %0, i64 152
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %86 = load ptr, ptr %85, align 8
   br label %87
 
@@ -557,9 +557,9 @@ define internal i32 @ddSymmUniqueCompare(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 228
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load i32, ptr %7, align 8
   %9 = sub i32 %6, %8
   %10 = sub nsw i32 %1, %2
@@ -572,7 +572,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %13, label %.lr.ph, label %.loopexit365
 
 .lr.ph:                                           ; preds = %.preheader367
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %29
 
 .preheader364:                                    ; preds = %4
@@ -580,7 +580,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %15, label %.lr.ph378, label %.loopexit365
 
 .lr.ph378:                                        ; preds = %.preheader364
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = sext i32 %1 to i64
   br label %18
 
@@ -634,7 +634,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %44, label %29, label %.loopexit365, !llvm.loop !18
 
 .loopexit365:                                     ; preds = %29, %38, %18, %21, %.preheader367, %.preheader364
-  %45 = getelementptr inbounds i8, ptr %0, i64 152
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -663,7 +663,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   ]
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = load ptr, ptr %45, align 8
   br label %62
@@ -766,7 +766,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br label %122
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %111, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %115 = load i32, ptr %114, align 4
   %116 = load ptr, ptr %45, align 8
   br label %117
@@ -830,7 +830,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not336383, label %._crit_edge386, label %.lr.ph385
 
 .lr.ph385:                                        ; preds = %.preheader354
-  %143 = getelementptr inbounds i8, ptr %0, i64 400
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %146
 
 144:                                              ; preds = %.loopexit356
@@ -839,12 +839,12 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
 
 146:                                              ; preds = %.lr.ph385, %146
   %.4283384 = phi ptr [ %111, %.lr.ph385 ], [ %148, %146 ]
-  %147 = getelementptr inbounds i8, ptr %.4283384, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.4283384, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %.4283384, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %.4283384, i64 4
   store i32 0, ptr %149, align 4
   %150 = load ptr, ptr %143, align 8
-  %151 = getelementptr inbounds i8, ptr %.4283384, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %.4283384, i64 8
   store ptr %150, ptr %151, align 8
   store ptr %.4283384, ptr %143, align 8
   %.not336 = icmp eq ptr %148, null
@@ -907,7 +907,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   ]
 
 177:                                              ; preds = %.loopexit363
-  %178 = getelementptr inbounds i8, ptr %176, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = load ptr, ptr %45, align 8
   br label %181
@@ -939,7 +939,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not332380, label %._crit_edge, label %.lr.ph382
 
 .lr.ph382:                                        ; preds = %.preheader360
-  %193 = getelementptr inbounds i8, ptr %0, i64 400
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %196
 
 194:                                              ; preds = %.loopexit361
@@ -948,12 +948,12 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
 
 196:                                              ; preds = %.lr.ph382, %196
   %.4290381 = phi ptr [ %162, %.lr.ph382 ], [ %198, %196 ]
-  %197 = getelementptr inbounds i8, ptr %.4290381, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %.4290381, i64 16
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %.4290381, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %.4290381, i64 4
   store i32 0, ptr %199, align 4
   %200 = load ptr, ptr %193, align 8
-  %201 = getelementptr inbounds i8, ptr %.4290381, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %.4290381, i64 8
   store ptr %200, ptr %201, align 8
   store ptr %.4290381, ptr %193, align 8
   %.not332 = icmp eq ptr %198, null
@@ -980,7 +980,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not340387, label %.preheader352, label %.lr.ph390
 
 .lr.ph390:                                        ; preds = %208
-  %209 = getelementptr inbounds i8, ptr %0, i64 400
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %211
 
 .preheader352:                                    ; preds = %211, %208
@@ -988,17 +988,17 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %.not341391, label %.loopexit, label %.lr.ph393
 
 .lr.ph393:                                        ; preds = %.preheader352
-  %210 = getelementptr inbounds i8, ptr %0, i64 400
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %217
 
 211:                                              ; preds = %.lr.ph390, %211
   %.5284388 = phi ptr [ %.1280, %.lr.ph390 ], [ %213, %211 ]
-  %212 = getelementptr inbounds i8, ptr %.5284388, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %.5284388, i64 16
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %.5284388, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %.5284388, i64 4
   store i32 0, ptr %214, align 4
   %215 = load ptr, ptr %209, align 8
-  %216 = getelementptr inbounds i8, ptr %.5284388, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.5284388, i64 8
   store ptr %215, ptr %216, align 8
   store ptr %.5284388, ptr %209, align 8
   %.not340 = icmp eq ptr %213, null
@@ -1006,12 +1006,12 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
 
 217:                                              ; preds = %.lr.ph393, %217
   %.5291392 = phi ptr [ %.2288, %.lr.ph393 ], [ %219, %217 ]
-  %218 = getelementptr inbounds i8, ptr %.5291392, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %.5291392, i64 16
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %.5291392, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %.5291392, i64 4
   store i32 0, ptr %220, align 4
   %221 = load ptr, ptr %210, align 8
-  %222 = getelementptr inbounds i8, ptr %.5291392, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.5291392, i64 8
   store ptr %221, ptr %222, align 8
   store ptr %.5291392, ptr %210, align 8
   %.not341 = icmp eq ptr %219, null
@@ -1024,17 +1024,17 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %switch, label %.loopexit351, label %.preheader350
 
 .preheader350:                                    ; preds = %223
-  %224 = getelementptr inbounds i8, ptr %0, i64 400
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %225
 
 225:                                              ; preds = %.preheader350, %225
   %.6285 = phi ptr [ %227, %225 ], [ %.0279, %.preheader350 ]
-  %226 = getelementptr inbounds i8, ptr %.6285, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %.6285, i64 16
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %.6285, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %.6285, i64 4
   store i32 0, ptr %228, align 4
   %229 = load ptr, ptr %224, align 8
-  %230 = getelementptr inbounds i8, ptr %.6285, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.6285, i64 8
   store ptr %229, ptr %230, align 8
   store ptr %.6285, ptr %224, align 8
   %.old1.not = icmp eq ptr %227, null
@@ -1049,17 +1049,17 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingAux(ptr noundef %0, i32
   br i1 %switch349, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit351
-  %231 = getelementptr inbounds i8, ptr %0, i64 400
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %232
 
 232:                                              ; preds = %.preheader, %232
   %.6292 = phi ptr [ %234, %232 ], [ %.0286403, %.preheader ]
-  %233 = getelementptr inbounds i8, ptr %.6292, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.6292, i64 16
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %.6292, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.6292, i64 4
   store i32 0, ptr %235, align 4
   %236 = load ptr, ptr %231, align 8
-  %237 = getelementptr inbounds i8, ptr %.6292, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %.6292, i64 8
   store ptr %236, ptr %237, align 8
   store ptr %.6292, ptr %231, align 8
   %.old3.not = icmp eq ptr %234, null
@@ -1075,12 +1075,12 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 228
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 2
@@ -1090,7 +1090,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %14, label %.thread, label %16
 
 .thread:                                          ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 624
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %15, align 8
   br label %326
 
@@ -1104,28 +1104,28 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader151
-  %20 = getelementptr inbounds i8, ptr %0, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %26
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 624
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %25, align 8
   br label %ddSymmSiftingConvAux.exit
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %29, i32 3
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %34, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1138,13 +1138,13 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %.not160, label %.preheader149, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %0, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %36 = sext i32 %1 to i64
   %37 = add i32 %2, 1
   br label %45
 
 .preheader149:                                    ; preds = %45, %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %0, i64 456
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %39 = load i32, ptr %9, align 8
   %40 = load i32, ptr %38, align 8
   %.164 = tail call i32 @llvm.smin.i32(i32 %39, i32 %40)
@@ -1152,9 +1152,9 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %41, label %.lr.ph166, label %._crit_edge167
 
 .lr.ph166:                                        ; preds = %.preheader149
-  %42 = getelementptr inbounds i8, ptr %0, i64 460
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
-  %44 = getelementptr inbounds i8, ptr %0, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.pre204 = load i32, ptr @ddTotalNumberSwapping, align 4
   br label %49
 
@@ -1180,7 +1180,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %43, align 8
-  %56 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv195
+  %56 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv195
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %55, i64 %58
@@ -1227,11 +1227,11 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br i1 %80, label %.preheader148.lr.ph, label %._crit_edge179
 
 .preheader148.lr.ph:                              ; preds = %._crit_edge167
-  %81 = getelementptr inbounds i8, ptr %0, i64 152
-  %82 = getelementptr inbounds i8, ptr %0, i64 328
-  %83 = getelementptr inbounds i8, ptr %0, i64 460
-  %84 = getelementptr inbounds i8, ptr %0, i64 312
-  %85 = getelementptr inbounds i8, ptr %0, i64 400
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %.preheader148
 
 .preheader148:                                    ; preds = %.preheader148.lr.ph, %._crit_edge177
@@ -1252,7 +1252,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   %.1 = phi i32 [ %93, %89 ], [ %.0105170, %.preheader145 ]
   %90 = sext i32 %.1 to i64
   %91 = getelementptr inbounds %struct.DdSubtable, ptr %88, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = icmp ult i32 %.1, %93
   br i1 %94, label %89, label %95, !llvm.loop !33
@@ -1261,12 +1261,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   %96 = load ptr, ptr %82, align 8
   %97 = getelementptr inbounds i32, ptr %96, i64 %90
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %91, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %100 = load i32, ptr %99, align 8
   %101 = sext i32 %98 to i64
   %102 = getelementptr inbounds i32, ptr %87, i64 %101
   store i32 %100, ptr %102, align 4
-  %103 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv198
+  %103 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv198
   store i32 %98, ptr %103, align 4
   %104 = add nsw i32 %.1, 1
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
@@ -1295,7 +1295,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 111:                                              ; preds = %.lr.ph176
   %112 = load ptr, ptr %84, align 8
-  %113 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv201
+  %113 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv201
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %112, i64 %115
@@ -1324,7 +1324,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   ]
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = load ptr, ptr %81, align 8
   br label %134
@@ -1437,7 +1437,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   br label %198
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %187, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %191 = load i32, ptr %190, align 4
   %192 = load ptr, ptr %81, align 8
   br label %193
@@ -1506,12 +1506,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .lr.ph326.i:                                      ; preds = %.preheader310.i, %.lr.ph326.i
   %.4242325.i = phi ptr [ %222, %.lr.ph326.i ], [ %187, %.preheader310.i ]
-  %221 = getelementptr inbounds i8, ptr %.4242325.i, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.4242325.i, i64 16
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %.4242325.i, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.4242325.i, i64 4
   store i32 0, ptr %223, align 4
   %224 = load ptr, ptr %85, align 8
-  %225 = getelementptr inbounds i8, ptr %.4242325.i, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.4242325.i, i64 8
   store ptr %224, ptr %225, align 8
   store ptr %.4242325.i, ptr %85, align 8
   %.not291.i = icmp eq ptr %222, null
@@ -1574,7 +1574,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
   ]
 
 251:                                              ; preds = %.loopexit319.i
-  %252 = getelementptr inbounds i8, ptr %250, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %253 = load i32, ptr %252, align 4
   %254 = load ptr, ptr %81, align 8
   br label %255
@@ -1611,12 +1611,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.preheader316.i, %.lr.ph.i
   %.4249323.i = phi ptr [ %270, %.lr.ph.i ], [ %236, %.preheader316.i ]
-  %269 = getelementptr inbounds i8, ptr %.4249323.i, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %.4249323.i, i64 16
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %.4249323.i, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %.4249323.i, i64 4
   store i32 0, ptr %271, align 4
   %272 = load ptr, ptr %85, align 8
-  %273 = getelementptr inbounds i8, ptr %.4249323.i, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %.4249323.i, i64 8
   store ptr %272, ptr %273, align 8
   store ptr %.4249323.i, ptr %85, align 8
   %.not287.i = icmp eq ptr %270, null
@@ -1648,12 +1648,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .lr.ph331.i:                                      ; preds = %280, %.lr.ph331.i
   %.5243329.i = phi ptr [ %282, %.lr.ph331.i ], [ %.1239.i, %280 ]
-  %281 = getelementptr inbounds i8, ptr %.5243329.i, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %.5243329.i, i64 16
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i8, ptr %.5243329.i, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %.5243329.i, i64 4
   store i32 0, ptr %283, align 4
   %284 = load ptr, ptr %85, align 8
-  %285 = getelementptr inbounds i8, ptr %.5243329.i, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %.5243329.i, i64 8
   store ptr %284, ptr %285, align 8
   store ptr %.5243329.i, ptr %85, align 8
   %.not295.i = icmp eq ptr %282, null
@@ -1661,12 +1661,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .lr.ph334.i:                                      ; preds = %.preheader307.i, %.lr.ph334.i
   %.5250333.i = phi ptr [ %287, %.lr.ph334.i ], [ %.2247.i, %.preheader307.i ]
-  %286 = getelementptr inbounds i8, ptr %.5250333.i, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %.5250333.i, i64 16
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %.5250333.i, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.5250333.i, i64 4
   store i32 0, ptr %288, align 4
   %289 = load ptr, ptr %85, align 8
-  %290 = getelementptr inbounds i8, ptr %.5250333.i, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %.5250333.i, i64 8
   store ptr %289, ptr %290, align 8
   store ptr %.5250333.i, ptr %85, align 8
   %.not296.i = icmp eq ptr %287, null
@@ -1680,12 +1680,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .preheader305.i:                                  ; preds = %291, %.preheader305.i
   %.6244.i = phi ptr [ %293, %.preheader305.i ], [ %.0238.i, %291 ]
-  %292 = getelementptr inbounds i8, ptr %.6244.i, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %.6244.i, i64 16
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %.6244.i, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %.6244.i, i64 4
   store i32 0, ptr %294, align 4
   %295 = load ptr, ptr %85, align 8
-  %296 = getelementptr inbounds i8, ptr %.6244.i, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.6244.i, i64 8
   store ptr %295, ptr %296, align 8
   store ptr %.6244.i, ptr %85, align 8
   %.old1.not.i = icmp eq ptr %293, null
@@ -1698,12 +1698,12 @@ define range(i32 -2147483647, -2147483648) i32 @cuddSymmSiftingConv(ptr noundef 
 
 .preheader.i:                                     ; preds = %.loopexit306.i, %.preheader.i
   %.6251.i = phi ptr [ %298, %.preheader.i ], [ %.0245341.i, %.loopexit306.i ]
-  %297 = getelementptr inbounds i8, ptr %.6251.i, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.6251.i, i64 16
   %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds i8, ptr %.6251.i, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %.6251.i, i64 4
   store i32 0, ptr %299, align 4
   %300 = load ptr, ptr %85, align 8
-  %301 = getelementptr inbounds i8, ptr %.6251.i, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %.6251.i, i64 8
   store ptr %300, ptr %301, align 8
   store ptr %.6251.i, ptr %85, align 8
   %.old3.not.i = icmp eq ptr %298, null
@@ -1728,7 +1728,7 @@ ddSymmSiftingConvAux.exit.thread:                 ; preds = %.lr.ph334.i, %.preh
   br i1 %.not160, label %ddSymmSummary.exit, label %.lr.ph.i132
 
 .lr.ph.i132:                                      ; preds = %._crit_edge179
-  %309 = getelementptr inbounds i8, ptr %0, i64 152
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %310 = load ptr, ptr %309, align 8
   br label %311
 
@@ -1803,25 +1803,25 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds %struct.DdSubtable, ptr %11, i64 %7, i32 6
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 228
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %17 = load i32, ptr %16, align 8
   %18 = sub i32 %15, %17
   %19 = icmp sgt i32 %2, %13
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %21 = sext i32 %2 to i64
   %22 = sext i32 %13 to i64
   br label %23
@@ -1845,7 +1845,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   %32 = sext i32 %26 to i64
   %33 = getelementptr inbounds ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 1
   %.neg174 = sext i1 %37 to i32
@@ -1871,8 +1871,8 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   br i1 %or.cond195, label %.lr.ph202, label %.loopexit183
 
 .lr.ph202:                                        ; preds = %._crit_edge
-  %47 = getelementptr inbounds i8, ptr %0, i64 344
-  %48 = getelementptr inbounds i8, ptr %0, i64 464
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %49
 
 49:                                               ; preds = %.lr.ph202, %.loopexit182
@@ -1933,7 +1933,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   %77 = sext i32 %73 to i64
   %78 = getelementptr inbounds ptr, ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 1
   %.neg171.neg209 = zext i1 %82 to i32
@@ -1957,12 +1957,12 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
 
 93:                                               ; preds = %90
   store i32 %.0140200, ptr %91, align 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 %.0150196, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %91, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store i32 %88, ptr %95, align 4
   %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds i8, ptr %91, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %96, ptr %97, align 8
   store ptr %91, ptr %4, align 8
   %98 = sitofp i32 %88 to double
@@ -1996,7 +1996,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   %112 = sext i32 %106 to i64
   %113 = getelementptr inbounds ptr, ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 1
   %.neg.neg208 = zext i1 %117 to i32
@@ -2061,7 +2061,7 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   %147 = sext i32 %141 to i64
   %148 = getelementptr inbounds ptr, ptr %146, i64 %147
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, 1
   %.neg169 = sext i1 %152 to i32
@@ -2098,17 +2098,17 @@ define internal fastcc ptr @ddSymmSiftingDown(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not172204, label %.loopexit183, label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %162
-  %163 = getelementptr inbounds i8, ptr %0, i64 400
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %164
 
 164:                                              ; preds = %.lr.ph206, %164
   %165 = phi ptr [ %.pr, %.lr.ph206 ], [ %167, %164 ]
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %165, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 4
   store i32 0, ptr %168, align 4
   %169 = load ptr, ptr %163, align 8
-  %170 = getelementptr inbounds i8, ptr %165, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr %169, ptr %170, align 8
   store ptr %165, ptr %163, align 8
   %.not172 = icmp eq ptr %167, null
@@ -2125,23 +2125,23 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingBackward(ptr noundef %0
   br i1 %.not37, label %ddSymmGroupMoveBackward.exit.thread, label %.lr.ph
 
 .lr.ph42:                                         ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %9
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.02439 = phi ptr [ %8, %.lr.ph ], [ %1, %3 ]
   %.02538 = phi i32 [ %spec.select, %.lr.ph ], [ %2, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.02439, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %.02439, i64 12
   %6 = load i32, ptr %5, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %.02538)
-  %7 = getelementptr inbounds i8, ptr %.02439, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.lr.ph42, label %.lr.ph, !llvm.loop !54
 
 9:                                                ; preds = %.lr.ph42, %69
   %.141 = phi ptr [ %1, %.lr.ph42 ], [ %71, %69 ]
-  %10 = getelementptr inbounds i8, ptr %.141, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.141, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %spec.select
   br i1 %12, label %ddSymmGroupMoveBackward.exit.thread, label %13
@@ -2150,16 +2150,16 @@ define internal fastcc range(i32 0, 2) i32 @ddSymmSiftingBackward(ptr noundef %0
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %.141, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.DdSubtable, ptr %14, i64 %16, i32 6
+  %17 = getelementptr inbounds nuw %struct.DdSubtable, ptr %14, i64 %16, i32 6
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %15
-  %20 = getelementptr inbounds i8, ptr %.141, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.141, i64 4
   %21 = load i32, ptr %20, align 4
   br i1 %19, label %22, label %._crit_edge
 
 22:                                               ; preds = %13
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %14, i64 %23, i32 6
+  %24 = getelementptr inbounds nuw %struct.DdSubtable, ptr %14, i64 %23, i32 6
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %21
   br i1 %26, label %ddSymmGroupMoveBackward.exit, label %._crit_edge
@@ -2282,7 +2282,7 @@ ddSymmGroupMoveBackward.exit:                     ; preds = %22
   br label %69
 
 69:                                               ; preds = %._crit_edge89.i, %ddSymmGroupMoveBackward.exit
-  %70 = getelementptr inbounds i8, ptr %.141, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.141, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not31 = icmp eq ptr %71, null
   br i1 %.not31, label %ddSymmGroupMoveBackward.exit.thread, label %9, !llvm.loop !60
@@ -2296,16 +2296,16 @@ ddSymmGroupMoveBackward.exit.thread:              ; preds = %9, %ddSymmGroupMove
 define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i32, ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 228
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 304
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -2323,7 +2323,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not.not150, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %0, i64 344
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %23 = sext i32 %2 to i64
   br label %24
 
@@ -2347,7 +2347,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   %33 = sext i32 %27 to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 1
   %.neg143.neg165 = zext i1 %38 to i32
@@ -2372,8 +2372,8 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br i1 %47, label %.lr.ph158, label %.loopexit147
 
 .lr.ph158:                                        ; preds = %._crit_edge
-  %48 = getelementptr inbounds i8, ptr %0, i64 344
-  %49 = getelementptr inbounds i8, ptr %0, i64 464
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %50
 
 50:                                               ; preds = %.lr.ph158, %143
@@ -2439,7 +2439,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   %84 = sext i32 %77 to i64
   %85 = getelementptr inbounds ptr, ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 1
   %.neg139 = sext i1 %89 to i32
@@ -2458,11 +2458,11 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
 
 98:                                               ; preds = %95
   store i32 %.0126153, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %.0121155, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %96, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 %78, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %96, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr %51, ptr %101, align 8
   store ptr %96, ptr %4, align 8
   %102 = sitofp i32 %78 to double
@@ -2483,7 +2483,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br i1 %110, label %149, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %.pr.pre, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 4
   %113 = load i32, ptr %112, align 4
   br label %114
 
@@ -2504,7 +2504,7 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   %122 = sext i32 %118 to i64
   %123 = getelementptr inbounds ptr, ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %126, 1
   %.neg = sext i1 %127 to i32
@@ -2550,17 +2550,17 @@ define internal fastcc ptr @ddSymmSiftingUp(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not140161, label %.loopexit147, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %149
-  %150 = getelementptr inbounds i8, ptr %0, i64 400
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %151
 
 151:                                              ; preds = %.lr.ph163, %151
   %152 = phi ptr [ %.pr, %.lr.ph163 ], [ %154, %151 ]
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %152, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 0, ptr %155, align 4
   %156 = load ptr, ptr %150, align 8
-  %157 = getelementptr inbounds i8, ptr %152, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %156, ptr %157, align 8
   store ptr %152, ptr %150, align 8
   %.not140 = icmp eq ptr %154, null
@@ -2581,7 +2581,7 @@ declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.DdSubtable, ptr %6, i64 %7, i32 6
@@ -2705,12 +2705,12 @@ define internal fastcc i32 @ddSymmGroupMove(ptr noundef %0, i32 noundef %1, i32 
 
 49:                                               ; preds = %._crit_edge119
   store i32 %.067.lcssa139, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %.0.lcssa140, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %47, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 %.076.lcssa138, ptr %51, align 4
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %52, ptr %53, align 8
   store ptr %47, ptr %3, align 8
   br label %.loopexit

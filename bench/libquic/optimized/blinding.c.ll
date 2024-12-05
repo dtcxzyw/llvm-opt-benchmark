@@ -26,13 +26,13 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @BN_new() #5
-  %Ai = getelementptr inbounds i8, ptr %calloc, i64 8
+  %Ai = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %call6, ptr %Ai, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %BN_BLINDING_free.exit, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %counter = getelementptr inbounds i8, ptr %calloc, i64 16
+  %counter = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store i32 31, ptr %counter, align 8
   br label %return
 
@@ -60,7 +60,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %r, align 8
   tail call void @BN_free(ptr noundef %0) #5
-  %Ai = getelementptr inbounds i8, ptr %r, i64 8
+  %Ai = getelementptr inbounds nuw i8, ptr %r, i64 8
   %1 = load ptr, ptr %Ai, align 8
   tail call void @BN_free(ptr noundef %1) #5
   tail call void @free(ptr noundef nonnull %r) #5
@@ -80,7 +80,7 @@ define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %n, ptr nocap
 entry:
   %mont_N_consttime.i.i = alloca %struct.bignum_st, align 8
   %no_inverse.i.i = alloca i32, align 4
-  %counter.i = getelementptr inbounds i8, ptr %b, i64 16
+  %counter.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %0 = load i32, ptr %counter.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %counter.i, align 8
@@ -91,7 +91,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %mont_N_consttime.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %no_inverse.i.i)
   call void @BN_init(ptr noundef nonnull %mont_N_consttime.i.i) #5
-  %N.i.i = getelementptr inbounds i8, ptr %mont, i64 24
+  %N.i.i = getelementptr inbounds nuw i8, ptr %mont, i64 24
   call void @BN_with_flags(ptr noundef nonnull %mont_N_consttime.i.i, ptr noundef nonnull %N.i.i, i32 noundef 4) #5
   %1 = load ptr, ptr %b, align 8
   %call17.i.i = call i32 @BN_rand_range(ptr noundef %1, ptr noundef nonnull %N.i.i) #5
@@ -99,7 +99,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not18.i.i, label %if.then.i.i, label %if.end.lr.ph.i.i
 
 if.end.lr.ph.i.i:                                 ; preds = %if.then.i
-  %Ai.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %Ai.i.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   br label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end15.i.i, %if.then.i
@@ -176,7 +176,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool6.not.i, label %bn_blinding_update.exit.thread7, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
-  %Ai.i = getelementptr inbounds i8, ptr %b, i64 8
+  %Ai.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %10 = load ptr, ptr %Ai.i, align 8
   %call9.i = tail call i32 @BN_mod_mul_montgomery(ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %mont, ptr noundef %ctx) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
@@ -215,7 +215,7 @@ declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @BN_BLINDING_invert(ptr noundef %n, ptr nocapture noundef readonly %b, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %Ai = getelementptr inbounds i8, ptr %b, i64 8
+  %Ai = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load ptr, ptr %Ai, align 8
   %call = tail call i32 @BN_mod_mul_montgomery(ptr noundef %n, ptr noundef %n, ptr noundef %0, ptr noundef %mont, ptr noundef %ctx) #5
   ret i32 %call

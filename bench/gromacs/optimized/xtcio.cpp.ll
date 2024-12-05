@@ -84,7 +84,7 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
 
 22:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %23 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %23)
   %.not25.not.i = icmp eq i32 %24, 0
   br i1 %.not25.not.i, label %25, label %_ZL9xtc_checkPKcbS0_i.exit.i
@@ -265,7 +265,7 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
 
 23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %24 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %24)
   %.not25.not.i = icmp eq i32 %25, 0
   br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
@@ -329,7 +329,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #8
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -337,7 +337,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -388,7 +388,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -499,7 +499,7 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
 
 29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
-  %30 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %31 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %30)
   %.not25.not.i = icmp eq i32 %31, 0
   br i1 %.not25.not.i, label %32, label %_ZL9xtc_checkPKcbS0_i.exit.i

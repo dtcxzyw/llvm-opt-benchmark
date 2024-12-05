@@ -232,7 +232,7 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i32 0, ptr %5, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.59) #4
   %17 = load ptr, ptr %15, align 8
@@ -246,7 +246,7 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %23, label %.preheader.lr.ph.i, label %dissect_management_packet.exit
 
 .preheader.lr.ph.i:                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %52, %.preheader.lr.ph.i
@@ -342,12 +342,12 @@ define internal i32 @get_gearman_pdu_len(ptr nocapture readnone %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.59) #4
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #4
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #4

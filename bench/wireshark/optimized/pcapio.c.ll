@@ -17,17 +17,17 @@ define hidden noundef zeroext i1 @libpcap_write_file_header(ptr nocapture nounde
   %7 = alloca %struct.pcap_hdr, align 4
   %8 = select i1 %3, i32 -1582154675, i32 -1582119980
   store i32 %8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 4, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %1, ptr %14, align 4
   %15 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 24, i64 noundef 1, ptr noundef %0)
   %.not.i = icmp eq i64 %15, 1
@@ -94,11 +94,11 @@ define hidden noundef zeroext i1 @libpcap_write_packet(ptr nocapture noundef %0,
   %9 = alloca %struct.pcaprec_hdr, align 4
   %10 = trunc i64 %1 to i32
   store i32 %10, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %4, ptr %13, align 4
   %14 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 16, i64 noundef 1, ptr noundef %0)
   %.not.i = icmp eq i64 %14, 1
@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocaptur
   br i1 %.not, label %.loopexit79, label %.preheader78
 
 .preheader78:                                     ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %.not84 = icmp eq i32 %13, 0
   br i1 %.not84, label %.loopexit79, label %.lr.ph
@@ -325,15 +325,15 @@ pcapng_count_string_option.exit68:                ; preds = %pcapng_count_string
   %55 = add i32 %spec.select, 28
   store i32 %55, ptr %11, align 4
   store i32 168627466, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %9, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 439041101, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i16 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %9, i64 14
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 14
   store i16 0, ptr %59, align 2
-  %60 = getelementptr inbounds i8, ptr %9, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %5, ptr %60, align 8
   %61 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 24, i64 noundef 1, ptr noundef %0)
   %.not.i69 = icmp eq i64 %61, 1
@@ -361,7 +361,7 @@ write_to_file.exit:                               ; preds = %62, %64
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 8
   %.not85 = icmp eq i32 %71, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph83
@@ -399,7 +399,7 @@ write_to_file.exit:                               ; preds = %62, %64
 
 86:                                               ; preds = %85
   store i16 0, ptr %10, align 2
-  %87 = getelementptr inbounds i8, ptr %10, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 0, ptr %87, align 2
   %88 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i70 = icmp eq i64 %88, 1
@@ -474,7 +474,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapt
 12:                                               ; preds = %9
   store i16 %1, ptr %6, align 2
   %13 = trunc nuw i64 %10 to i16
-  %14 = getelementptr inbounds i8, ptr %6, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %13, ptr %14, align 2
   %15 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i = icmp eq i64 %15, 1
@@ -693,14 +693,14 @@ pcapng_count_string_option.exit121:               ; preds = %pcapng_count_string
   %77 = select i1 %.not98, i32 20, i32 %76
   store i32 %77, ptr %18, align 4
   store i32 1, ptr %16, align 4
-  %78 = getelementptr inbounds i8, ptr %16, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %77, ptr %78, align 4
   %79 = trunc i32 %7 to i16
-  %80 = getelementptr inbounds i8, ptr %16, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %16, i64 10
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 10
   store i16 0, ptr %81, align 2
-  %82 = getelementptr inbounds i8, ptr %16, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %8, ptr %82, align 4
   %83 = call i64 @fwrite(ptr noundef nonnull %16, i64 noundef 16, i64 noundef 1, ptr noundef %0)
   %.not.i122 = icmp eq i64 %83, 1
@@ -741,7 +741,7 @@ write_to_file.exit:                               ; preds = %84, %86
 
 98:                                               ; preds = %97
   store i16 8, ptr %17, align 2
-  %99 = getelementptr inbounds i8, ptr %17, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i16 8, ptr %99, align 2
   %100 = call i64 @fwrite(ptr noundef nonnull %17, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i123 = icmp eq i64 %100, 1
@@ -774,7 +774,7 @@ write_to_file.exit126:                            ; preds = %101, %103
 
 111:                                              ; preds = %110
   store i16 9, ptr %17, align 2
-  %112 = getelementptr inbounds i8, ptr %17, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i16 1, ptr %112, align 2
   %113 = call i64 @fwrite(ptr noundef nonnull %17, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i127 = icmp eq i64 %113, 1
@@ -819,7 +819,7 @@ write_to_file.exit130:                            ; preds = %114, %116
   store i16 11, ptr %17, align 2
   %130 = trunc nuw i64 %127 to i16
   %131 = add nuw i16 %130, 1
-  %132 = getelementptr inbounds i8, ptr %17, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i16 %131, ptr %132, align 2
   %133 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
   br i1 %133, label %134, label %158
@@ -861,7 +861,7 @@ write_to_file.exit130:                            ; preds = %114, %116
 
 153:                                              ; preds = %152
   store i16 0, ptr %17, align 2
-  %154 = getelementptr inbounds i8, ptr %17, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i16 0, ptr %154, align 2
   %155 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
   br i1 %155, label %156, label %158
@@ -922,20 +922,20 @@ pcapng_count_string_option.exit:                  ; preds = %12, %22, %25
   %35 = zext i32 %3 to i64
   %36 = add i64 %34, %35
   store i32 6, ptr %14, align 4
-  %37 = getelementptr inbounds i8, ptr %14, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %32, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %6, ptr %38, align 4
   %39 = lshr i64 %36, 32
   %40 = trunc nuw i64 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %14, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %40, ptr %41, align 4
   %42 = trunc i64 %36 to i32
-  %43 = getelementptr inbounds i8, ptr %14, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %14, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 %4, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %14, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %5, ptr %45, align 4
   %46 = call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 28, i64 noundef 1, ptr noundef %0)
   %.not.i71 = icmp eq i64 %46, 1
@@ -1071,7 +1071,7 @@ write_to_file.exit83:                             ; preds = %87, %89
 
 97:                                               ; preds = %96
   store i16 2, ptr %15, align 2
-  %98 = getelementptr inbounds i8, ptr %15, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 4, ptr %98, align 2
   %99 = call i64 @fwrite(ptr noundef nonnull %15, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i84 = icmp eq i64 %99, 1
@@ -1104,7 +1104,7 @@ write_to_file.exit87:                             ; preds = %100, %102
 
 110:                                              ; preds = %109
   store i16 0, ptr %15, align 2
-  %111 = getelementptr inbounds i8, ptr %15, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 0, ptr %111, align 2
   %112 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull %10, ptr noundef %11)
   br i1 %112, label %113, label %write_to_file.exit79
@@ -1135,7 +1135,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr no
   %20 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #6
   %21 = load i64, ptr %13, align 8
   %22 = mul i64 %21, 1000000
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %22, %24
   %.not = icmp eq i64 %6, -1
@@ -1173,16 +1173,16 @@ pcapng_count_string_option.exit:                  ; preds = %9, %27, %30
   %39 = select i1 %.not70, i32 24, i32 %38
   store i32 %39, ptr %15, align 4
   store i32 5, ptr %12, align 4
-  %40 = getelementptr inbounds i8, ptr %12, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %12, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %1, ptr %41, align 4
   %42 = lshr i64 %25, 32
   %43 = trunc nuw i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %12, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %43, ptr %44, align 4
   %45 = trunc i64 %25 to i32
-  %46 = getelementptr inbounds i8, ptr %12, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %45, ptr %46, align 4
   %47 = call i64 @fwrite(ptr noundef nonnull %12, i64 noundef 20, i64 noundef 1, ptr noundef %0)
   %.not.i74 = icmp eq i64 %47, 1
@@ -1215,7 +1215,7 @@ write_to_file.exit:                               ; preds = %48, %50
 
 58:                                               ; preds = %57
   store i16 2, ptr %14, align 2
-  %59 = getelementptr inbounds i8, ptr %14, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %59, align 2
   %60 = lshr i64 %4, 32
   %61 = trunc nuw i64 %60 to i32
@@ -1298,7 +1298,7 @@ write_to_file.exit86:                             ; preds = %82, %84
 
 90:                                               ; preds = %89
   store i16 3, ptr %14, align 2
-  %91 = getelementptr inbounds i8, ptr %14, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %91, align 2
   %92 = lshr i64 %5, 32
   %93 = trunc nuw i64 %92 to i32
@@ -1359,7 +1359,7 @@ write_to_file.exit94:                             ; preds = %105, %107
 
 115:                                              ; preds = %114
   store i16 4, ptr %14, align 2
-  %116 = getelementptr inbounds i8, ptr %14, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %116, align 2
   %117 = call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %.not.i95 = icmp eq i64 %117, 1
@@ -1392,7 +1392,7 @@ write_to_file.exit98:                             ; preds = %118, %120
 
 128:                                              ; preds = %127
   store i16 5, ptr %14, align 2
-  %129 = getelementptr inbounds i8, ptr %14, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %129, align 2
   %130 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef nonnull %2, ptr noundef %8)
   br i1 %130, label %131, label %139
@@ -1406,7 +1406,7 @@ write_to_file.exit98:                             ; preds = %118, %120
 
 134:                                              ; preds = %133
   store i16 0, ptr %14, align 2
-  %135 = getelementptr inbounds i8, ptr %14, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 0, ptr %135, align 2
   %136 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef nonnull %2, ptr noundef %8)
   br i1 %136, label %137, label %139

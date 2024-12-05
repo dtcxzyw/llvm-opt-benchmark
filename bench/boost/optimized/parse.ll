@@ -67,7 +67,7 @@ define void @_ZN5boost4urls18parse_absolute_uriENS_4core17basic_string_viewIcEE(
 
 _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !18
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !18
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #5, !noalias !18
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -77,7 +77,7 @@ _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5erro
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !3
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !3
   store i64 %18, ptr %19, align 8, !tbaa !24, !alias.scope !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -137,7 +137,7 @@ define void @_ZN5boost4urls17parse_origin_formENS_4core17basic_string_viewIcEE(p
 
 _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !30
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !30
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #5, !noalias !30
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -147,7 +147,7 @@ _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5erro
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !27
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !27
   store i64 %18, ptr %19, align 8, !tbaa !24, !alias.scope !27
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -204,7 +204,7 @@ define void @_ZN5boost4urls18parse_relative_refENS_4core17basic_string_viewIcEE(
 
 _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !36
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !36
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #5, !noalias !36
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -214,7 +214,7 @@ _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5erro
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !33
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !33
   store i64 %18, ptr %19, align 8, !tbaa !24, !alias.scope !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -271,7 +271,7 @@ define void @_ZN5boost4urls9parse_uriENS_4core17basic_string_viewIcEE(ptr dead_o
 
 _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !42
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !42
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #5, !noalias !42
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -281,7 +281,7 @@ _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5erro
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !39
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !39
   store i64 %18, ptr %19, align 8, !tbaa !24, !alias.scope !39
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -338,7 +338,7 @@ define void @_ZN5boost4urls19parse_uri_referenceENS_4core17basic_string_viewIcEE
 
 _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !48
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !48
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #5, !noalias !48
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -348,7 +348,7 @@ _ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5erro
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls8url_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !45
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !45
   store i64 %18, ptr %19, align 8, !tbaa !24, !alias.scope !45
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192

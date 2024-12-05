@@ -27,7 +27,7 @@ define noundef i32 @mca_fbtl_posix_component_init_query(i1 noundef zeroext %0, i
 define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @mca_fbtl_posix_priority, align 4
   store i32 %3, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 148
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
   %7 = tail call i32 @llvm.smax.i32(i32 %3, i32 50)
@@ -66,24 +66,24 @@ define noundef i32 @mca_fbtl_posix_module_finalize(ptr nocapture readnone %0) #0
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %5, %7
   br i1 %8, label %.lr.ph, label %.loopexit171
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = getelementptr inbounds i8, ptr %3, i64 88
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 72
-  %14 = getelementptr inbounds i8, ptr %3, i64 64
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = sext i32 %5 to i64
   br label %18
 
@@ -121,13 +121,13 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   store i64 %37, ptr %11, align 8
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr inbounds %struct.aiocb, ptr %38, i64 %indvars.iv
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i64, ptr %40, align 8
   %.not170 = icmp eq i64 %41, %35
   br i1 %.not170, label %94, label %42
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %39, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, %35
   store i64 %45, ptr %43, align 8
@@ -152,9 +152,9 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   store i32 115, ptr %59, align 4
   %60 = load ptr, ptr %9, align 8
   %61 = getelementptr inbounds %struct.aiocb, ptr %60, i64 %indvars.iv
-  %62 = getelementptr inbounds i8, ptr %61, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = load ptr, ptr %13, align 8
   tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %12, ptr noundef %66, ptr noundef nonnull %14) #9
@@ -222,10 +222,10 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %104
 
 98:                                               ; preds = %23
-  %99 = getelementptr inbounds i8, ptr %0, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1, ptr %99, align 8
   %100 = load i64, ptr %11, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %100, ptr %101, align 8
   br label %.loopexit171
 
@@ -246,22 +246,22 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   %.0157196 = phi i32 [ %.0157211, %98 ], [ 0, %1 ], [ %.1158, %104 ]
   %.0155190 = phi i32 [ %.0155212, %98 ], [ 0, %1 ], [ %.1156, %104 ]
   %108 = phi i1 [ true, %98 ], [ false, %1 ], [ false, %104 ]
-  %109 = getelementptr inbounds i8, ptr %3, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %.0157196, %110
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %.loopexit171
-  %113 = getelementptr inbounds i8, ptr %3, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %114 = load i32, ptr %113, align 4
   %.not = icmp eq i32 %114, 0
   br i1 %.not, label %.loopexit, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %3, i64 32
-  %117 = getelementptr inbounds i8, ptr %3, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %116, ptr noundef %118, ptr noundef nonnull %119) #9
   %120 = load i32, ptr %6, align 4
   store i32 %120, ptr %4, align 8
@@ -272,7 +272,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   %125 = add nsw i32 %123, %120
   %storemerge = select i1 %124, i32 %125, i32 %121
   store i32 %storemerge, ptr %6, align 4
-  %126 = getelementptr inbounds i8, ptr %3, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %127 = load ptr, ptr %126, align 8
   %128 = sext i32 %120 to i64
   %129 = getelementptr inbounds %struct.aiocb, ptr %127, i64 %128, i32 11
@@ -285,7 +285,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   %136 = load i64, ptr %135, align 8
   %137 = sub i64 %134, %130
   %138 = add i64 %137, %136
-  %139 = getelementptr inbounds i8, ptr %3, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %140 = load i32, ptr %139, align 8
   switch i32 %140, label %144 [
     i32 1, label %.sink.split
@@ -364,25 +364,25 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br i1 %171, label %.lr.ph217, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %168, %148, %112, %.loopexit171
-  %172 = getelementptr inbounds i8, ptr %3, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %173 = load i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %188
 
 175:                                              ; preds = %.loopexit
-  %176 = getelementptr inbounds i8, ptr %0, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %3, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %178 = load i64, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 80
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %178, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %3, i64 32
-  %181 = getelementptr inbounds i8, ptr %3, i64 72
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %3, i64 64
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @mca_fbtl_posix_unlock(ptr noundef nonnull %180, ptr noundef %182, ptr noundef nonnull %183) #9
   %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 108
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 108
   %186 = load i32, ptr %185, align 4
   %.not169 = icmp eq i32 %186, 0
   br i1 %.not169, label %188, label %187
@@ -416,13 +416,13 @@ declare i32 @aio_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @mca_fbtl_posix_request_free(ptr nocapture noundef %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %8, label %7
@@ -432,7 +432,7 @@ define void @mca_fbtl_posix_request_free(ptr nocapture noundef %0) #5 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %12, label %11
@@ -457,9 +457,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 define zeroext i1 @mca_fbtl_posix_check_atomicity(ptr nocapture noundef readonly %0) #2 {
   %2 = alloca %struct.flock, align 8
   store i16 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %3, align 2
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %5 = load i32, ptr %0, align 8
   %6 = call i32 (i32, i32, ...) @fcntl(i32 noundef %5, i32 noundef 5, ptr noundef nonnull %2) #9

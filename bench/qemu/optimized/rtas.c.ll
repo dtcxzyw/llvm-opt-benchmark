@@ -36,34 +36,34 @@ qrtas_call.exit:                                  ; preds = %for.body.i15.i
 
 if.end:                                           ; preds = %qrtas_call.exit
   %0 = load i32, ptr %ret, align 16
-  %1 = getelementptr inbounds i8, ptr %tm, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %tm, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 32, i1 false)
-  %arrayidx2 = getelementptr inbounds i8, ptr %ret, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %ret, i64 4
   %2 = load i32, ptr %arrayidx2, align 4
   %sub = add i32 %2, -1900
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 %sub, ptr %tm_year, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %ret, i64 8
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %ret, i64 8
   %3 = load i32, ptr %arrayidx3, align 8
   %sub4 = add i32 %3, -1
-  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
   store i32 %sub4, ptr %tm_mon, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %ret, i64 12
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %ret, i64 12
   %4 = load i32, ptr %arrayidx5, align 4
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
   store i32 %4, ptr %tm_mday, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %ret, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %ret, i64 16
   %5 = load i32, ptr %arrayidx6, align 16
-  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 8
   store i32 %5, ptr %tm_hour, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %ret, i64 20
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %ret, i64 20
   %6 = load i32, ptr %arrayidx7, align 4
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
   store i32 %6, ptr %tm_min, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %ret, i64 24
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %ret, i64 24
   %7 = load i32, ptr %arrayidx8, align 8
   store i32 %7, ptr %tm, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %ret, i64 28
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %ret, i64 28
   %8 = load i32, ptr %arrayidx9, align 4
   store i32 %8, ptr %ns, align 4
   br label %return
@@ -133,12 +133,12 @@ entry:
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
   %conv = trunc nuw i64 %shr to i32
-  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32
-  %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 8
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i32 %conv2, ptr %arrayidx3, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 12
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %args, i64 12
   store i32 %size, ptr %arrayidx4, align 4
   %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.1, i32 noundef 4, ptr noundef nonnull %args, i32 noundef 2, ptr noundef %ret)
   %0 = and i64 %call, 4294967295
@@ -146,7 +146,7 @@ entry:
   %1 = load i32, ptr %ret, align 4
   %cmp9.not = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.not, i1 %cmp9.not, i1 false
-  %arrayidx13 = getelementptr inbounds i8, ptr %ret, i64 4
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %ret, i64 4
   %2 = load i32, ptr %arrayidx13, align 4
   %retval.0 = select i1 %or.cond, i32 %2, i32 -1
   ret i32 %retval.0
@@ -160,14 +160,14 @@ entry:
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
   %conv = trunc nuw i64 %shr to i32
-  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32
-  %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 8
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i32 %conv2, ptr %arrayidx3, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 12
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %args, i64 12
   store i32 %size, ptr %arrayidx4, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %args, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 %val, ptr %arrayidx5, align 16
   %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull %args, i32 noundef 1, ptr noundef %ret)
   %0 = and i64 %call, 4294967295

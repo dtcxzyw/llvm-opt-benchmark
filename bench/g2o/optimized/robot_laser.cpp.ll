@@ -153,7 +153,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
 .lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %56 = load ptr, ptr %36, align 8
-  %57 = getelementptr inbounds double, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv
   %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %10, align 4
@@ -203,7 +203,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit19:             ; preds = %74, %76, %78, %80
 .lr.ph29:                                         ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit19, %.lr.ph29
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph29 ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit19 ]
   %83 = load ptr, ptr %63, align 16
-  %84 = getelementptr inbounds double, ptr %83, i64 %indvars.iv32
+  %84 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv32
   %85 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %84)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %86 = load i32, ptr %10, align 4
@@ -229,7 +229,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit19:             ; preds = %74, %76, %78, %80
   store i64 %100, ptr %101, align 16
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store double %98, ptr %102, align 16
-  %.sroa.4.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 280
+  %.sroa.4.16..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
   store double %99, ptr %.sroa.4.16..sroa_idx, align 8
   %.cast = bitcast i64 %100 to double
   %103 = fsub double 0x400921FB54442D18, %.cast
@@ -434,7 +434,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull al
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %102, double noundef %.sroa.219.24.vec.extract)
   %104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str)
   %105 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %104, double noundef %.0.i.i.i)
-  %106 = getelementptr inbounds i8, ptr %0, i64 280
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %107 = load double, ptr %81, align 16, !noalias !41
   %108 = load double, ptr %83, align 16, !noalias !41
   %109 = load double, ptr %106, align 8, !noalias !41
@@ -633,7 +633,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds double, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds double, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw double, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 

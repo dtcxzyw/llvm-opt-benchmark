@@ -16,8 +16,8 @@ define i32 @wcscmp(ptr nocapture noundef readonly %0, ptr nocapture noundef read
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.0, i64 4
-  %9 = getelementptr inbounds i8, ptr %.05, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.05, i64 4
   %10 = icmp eq i32 %4, 0
   br i1 %10, label %.loopexit, label %3, !llvm.loop !6
 

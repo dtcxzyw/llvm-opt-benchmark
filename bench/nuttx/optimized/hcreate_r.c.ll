@@ -35,7 +35,7 @@ define range(i32 0, 2) i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) 
 
 11:                                               ; preds = %8, %4
   %12 = phi i64 [ %10, %8 ], [ %spec.store.select1, %4 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
   %14 = shl nsw i64 %12, 3
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #6
@@ -68,7 +68,7 @@ define void @hdestroy_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %3, label %25, label %.preheader16
 
 .preheader16:                                     ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not20 = icmp eq i64 %5, 0
   br i1 %.not20, label %._crit_edge19, label %.preheader
@@ -87,10 +87,10 @@ define void @hdestroy_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %11 = phi ptr [ %18, %.lr.ph ], [ %8, %.preheader ]
   %12 = load ptr, ptr %10, align 8
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16)
   tail call void @free(ptr noundef nonnull %10)
@@ -131,11 +131,11 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
   %8 = tail call i32 %7(ptr noundef %0, i64 noundef %6) #7
   %9 = load ptr, ptr %4, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 4294967295
   %14 = and i64 %13, %10
-  %15 = getelementptr inbounds %struct.internal_head, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw %struct.internal_head, ptr %9, i64 %14
   br label %16
 
 16:                                               ; preds = %17, %5
@@ -145,7 +145,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.042, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #7
   %21 = icmp eq i32 %20, 0
@@ -158,7 +158,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
   ]
 
 .thread:                                          ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %.042, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %24 = icmp eq i32 %2, 2
   br i1 %24, label %25, label %37
 
@@ -186,7 +186,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
 33:                                               ; preds = %28, %31
   %34 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %.042, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.042, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36)
   tail call void @free(ptr noundef %.042)
@@ -210,9 +210,9 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nocapt
   br label %47
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %1, ptr %45, align 8
   %46 = load ptr, ptr %15, align 8
   store ptr %46, ptr %40, align 8

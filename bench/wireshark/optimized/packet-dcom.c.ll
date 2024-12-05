@@ -543,7 +543,7 @@ define ptr @dcom_interface_find(ptr nocapture noundef readnone %0, ptr nocapture
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.013, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -551,7 +551,7 @@ define ptr @dcom_interface_find(ptr nocapture noundef readnone %0, ptr nocapture
 .lr.ph:                                           ; preds = %3, %5
   %.013 = phi ptr [ %.0, %5 ], [ %.011, %3 ]
   %7 = load ptr, ptr %.013, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %bcmp10 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %2, i64 16)
   %9 = icmp eq i32 %bcmp10, 0
   br i1 %9, label %.loopexit, label %5
@@ -585,34 +585,34 @@ define ptr @dcom_interface_new(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = load i32, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %24
 
 16:                                               ; preds = %10
   %17 = tail call ptr @wmem_file_scope() #11
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 56) #11
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %18, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   br label %.loopexit.sink.split
 
 24:                                               ; preds = %.lr.ph, %cmp_address.exit.thread
   %.077103 = phi ptr [ %.077101, %.lr.ph ], [ %.077, %cmp_address.exit.thread ]
   %25 = load ptr, ptr %.077103, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %or.cond95.not = icmp eq i32 %27, %13
   br i1 %or.cond95.not, label %28, label %cmp_address.exit.thread
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %14, align 4
   %or.cond96.not = icmp eq i32 %30, %31
@@ -623,7 +623,7 @@ define ptr @dcom_interface_new(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %33, label %.thread, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %25, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %15, align 8
   %37 = sext i32 %30 to i64
@@ -632,18 +632,18 @@ cmp_address.exit:                                 ; preds = %32
   br i1 %38, label %.thread, label %cmp_address.exit.thread
 
 cmp_address.exit.thread:                          ; preds = %28, %24, %cmp_address.exit
-  %39 = getelementptr inbounds i8, ptr %.077103, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.077103, i64 8
   %.077 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %.077, null
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %cmp_address.exit.thread, %.preheader
   %40 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #12
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   store i32 %42, ptr %41, align 8
@@ -653,19 +653,19 @@ cmp_address.exit.thread:                          ; preds = %28, %24, %cmp_addre
 48:                                               ; preds = %._crit_edge
   %49 = sext i32 %44 to i64
   %50 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %46, i64 noundef %49) #11
-  %51 = getelementptr inbounds i8, ptr %40, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %40, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i32 %44, ptr %53, align 4
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %._crit_edge, %48
   store ptr null, ptr %40, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %40, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %55, ptr %56, align 8
   %57 = load ptr, ptr @dcom_machines, align 8
   %58 = tail call ptr @g_list_append(ptr noundef %57, ptr noundef nonnull %40) #11
@@ -679,7 +679,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
   br i1 %.not84105, label %._crit_edge108, label %.lr.ph107
 
 59:                                               ; preds = %.lr.ph107
-  %60 = getelementptr inbounds i8, ptr %.178106, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.178106, i64 8
   %.178 = load ptr, ptr %60, align 8
   %.not84 = icmp eq ptr %.178, null
   br i1 %.not84, label %._crit_edge108, label %.lr.ph107, !llvm.loop !7
@@ -687,7 +687,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
 .lr.ph107:                                        ; preds = %.thread, %59
   %.178106 = phi ptr [ %.178, %59 ], [ %.178104, %.thread ]
   %61 = load ptr, ptr %.178106, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, %4
   br i1 %64, label %.loopexit98, label %59
@@ -695,15 +695,15 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
 ._crit_edge108:                                   ; preds = %59, %.thread
   %65 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #12
   store ptr %.276, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %65, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i64 %4, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %65, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i64 %3, ptr %71, align 8
   %72 = load ptr, ptr %.276, align 8
   %73 = tail call ptr @g_list_append(ptr noundef %72, ptr noundef nonnull %65) #11
@@ -712,13 +712,13 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
 
 .loopexit98:                                      ; preds = %.lr.ph107, %._crit_edge108
   %.273 = phi ptr [ %65, %._crit_edge108 ], [ %61, %.lr.ph107 ]
-  %74 = getelementptr inbounds i8, ptr %.273, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.273, i64 8
   %.279109 = load ptr, ptr %74, align 8
   %.not85110 = icmp eq ptr %.279109, null
   br i1 %.not85110, label %._crit_edge114, label %.lr.ph113
 
 75:                                               ; preds = %.lr.ph113
-  %76 = getelementptr inbounds i8, ptr %.279111, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.279111, i64 8
   %.279 = load ptr, ptr %76, align 8
   %.not85 = icmp eq ptr %.279, null
   br i1 %.not85, label %._crit_edge114, label %.lr.ph113, !llvm.loop !8
@@ -726,7 +726,7 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
 .lr.ph113:                                        ; preds = %.loopexit98, %75
   %.279111 = phi ptr [ %.279, %75 ], [ %.279109, %.loopexit98 ]
   %77 = load ptr, ptr %.279111, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 36
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
   %bcmp86 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %78, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %79 = icmp eq i32 %bcmp86, 0
   br i1 %79, label %.loopexit, label %75
@@ -734,15 +734,15 @@ copy_address.exit:                                ; preds = %._crit_edge, %48
 ._crit_edge114:                                   ; preds = %75, %.loopexit98
   %80 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %.273, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr null, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i32 %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %85, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %86 = getelementptr inbounds i8, ptr %80, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   %87 = load ptr, ptr %74, align 8
   %88 = tail call ptr @g_list_append(ptr noundef %87, ptr noundef nonnull %80) #11
@@ -799,16 +799,16 @@ define i32 @dissect_dcom_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %28 = zext i16 %27 to i32
   %29 = load i16, ptr %8, align 2
   %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @guids_resolve_guid_to_str(ptr noundef nonnull %11, ptr noundef %32) #11
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.120, i32 noundef %28, i32 noundef %30, ptr noundef %33) #11
   %reass.sub = sub i32 %26, %19
   %34 = add i32 %reass.sub, 4
   call void @proto_item_set_len(ptr noundef %13, i32 noundef %34) #11
-  %35 = getelementptr inbounds i8, ptr %4, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %37, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %proto_item_set_generated.exit, label %38
@@ -822,13 +822,13 @@ define i32 @dissect_dcom_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %.not.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 2
   store i32 %49, ptr %47, align 4
@@ -858,41 +858,41 @@ define i32 @dissect_dcom_UUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %9 = alloca %struct._e_guid_t, align 4
   %10 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #11
   %11 = call ptr @proto_registrar_get_nth(i32 noundef %6) #11
-  %12 = getelementptr inbounds i8, ptr %2, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @guids_get_guid_name(ptr noundef nonnull %9, ptr noundef %13) #11
   %.not = icmp eq ptr %14, null
   %15 = add i32 %10, -16
   %16 = load ptr, ptr %11, align 8
   %17 = load i32, ptr %9, align 4
-  %18 = getelementptr inbounds i8, ptr %9, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %9, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %9, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %9, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %9, i64 11
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 11
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %9, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %37 = load i8, ptr %36, align 4
   %38 = zext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %9, i64 13
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %9, i64 14
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 14
   %43 = load i8, ptr %42, align 2
   %44 = zext i8 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %9, i64 15
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 15
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   br i1 %.not, label %50, label %48
@@ -964,17 +964,17 @@ define internal fastcc i32 @dissect_dcom_extent(ptr noundef %0, i32 noundef %1, 
   br i1 %.not109, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %2, i64 408
-  %38 = getelementptr inbounds i8, ptr %13, i64 4
-  %39 = getelementptr inbounds i8, ptr %13, i64 6
-  %40 = getelementptr inbounds i8, ptr %13, i64 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 9
-  %42 = getelementptr inbounds i8, ptr %13, i64 10
-  %43 = getelementptr inbounds i8, ptr %13, i64 11
-  %44 = getelementptr inbounds i8, ptr %13, i64 12
-  %45 = getelementptr inbounds i8, ptr %13, i64 13
-  %46 = getelementptr inbounds i8, ptr %13, i64 14
-  %47 = getelementptr inbounds i8, ptr %13, i64 15
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 10
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 11
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 13
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 15
   br label %48
 
 48:                                               ; preds = %.lr.ph, %111
@@ -1049,13 +1049,13 @@ define internal fastcc i32 @dissect_dcom_extent(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i.i, label %dissect_dcom_nospec_data.exit, label %98
 
 98:                                               ; preds = %91
-  %99 = getelementptr inbounds i8, ptr %97, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %100 = load ptr, ptr %99, align 8
   %.not5.i.i = icmp eq ptr %100, null
   br i1 %.not5.i.i, label %dissect_dcom_nospec_data.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, 2
   store i32 %104, ptr %102, align 4
@@ -1116,16 +1116,16 @@ define i32 @dissect_dcom_that(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %reass.sub = sub i32 %14, %13
   %15 = add i32 %reass.sub, 4
   call void @proto_item_set_len(ptr noundef %9, i32 noundef %15) #11
-  %16 = getelementptr inbounds i8, ptr %4, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %18, ptr noundef nonnull dereferenceable(16) @uuid_null, i64 16)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %proto_item_set_generated.exit, label %19
 
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_dcom_ipid, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @guids_resolve_guid_to_str(ptr noundef nonnull %18, ptr noundef %22) #11
   %24 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %18, ptr noundef nonnull @.str.121, ptr noundef %23) #11
@@ -1133,13 +1133,13 @@ define i32 @dissect_dcom_that(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br i1 %.not.i, label %proto_item_set_generated.exit, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not5.i = icmp eq ptr %27, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = or i32 %30, 2
   store i32 %31, ptr %29, align 4
@@ -1190,7 +1190,7 @@ define i32 @dissect_dcom_simple_resp(ptr noundef %0, i32 noundef %1, ptr noundef
 dissect_dcom_HRESULT.exit:                        ; preds = %19, %21
   %24 = phi i32 [ %20, %19 ], [ %.pre, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.124) #11
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.123, ptr noundef %27) #11
@@ -1271,13 +1271,13 @@ define hidden noundef i32 @dissect_dcom_tobedone_data(ptr noundef %0, i32 nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 2
   store i32 %15, ptr %13, align 4
@@ -1301,13 +1301,13 @@ define hidden noundef i32 @dissect_dcom_nospec_data(ptr noundef %0, i32 noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 2
   store i32 %15, ptr %13, align 4
@@ -1659,13 +1659,13 @@ dissect_dcom_HRESULT.exit:                        ; preds = %95, %97
   br i1 %.not.i.i, label %dissect_dcom_tobedone_data.exit, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %123, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not5.i.i = icmp eq ptr %126, null
   br i1 %.not5.i.i, label %dissect_dcom_tobedone_data.exit, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
   %129 = load i32, ptr %128, align 4
   %130 = or i32 %129, 2
   store i32 %130, ptr %128, align 4
@@ -2038,13 +2038,13 @@ dissect_dcom_HRESULT.exit:                        ; preds = %139, %141
   br i1 %.not.i.i218, label %dissect_dcom_tobedone_data.exit, label %159
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %158, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not5.i.i = icmp eq ptr %161, null
   br i1 %.not5.i.i, label %dissect_dcom_tobedone_data.exit, label %162
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %161, i64 28
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 28
   %164 = load i32, ptr %163, align 4
   %165 = or i32 %164, 2
   store i32 %165, ptr %163, align 4
@@ -2105,7 +2105,7 @@ declare ptr @guids_get_guid_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %8) #11
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @guids_get_guid_name(ptr noundef %8, ptr noundef %12) #11
   %14 = tail call ptr @proto_registrar_get_nth(i32 noundef %6) #11
@@ -2133,13 +2133,13 @@ define i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %1, ptr noundef
 
 22:                                               ; preds = %21, %20
   %23 = load i32, ptr %8, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %8, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i32
   %33 = getelementptr i8, ptr %8, i64 9
@@ -2172,7 +2172,7 @@ define i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %1, ptr noundef
 
 55:                                               ; preds = %54, %22
   %56 = phi ptr [ %13, %54 ], [ @.str.143, %22 ]
-  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %14, align 8
   br i1 %.not, label %61, label %60
@@ -2408,13 +2408,13 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   br i1 %.not105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %29 = getelementptr inbounds i8, ptr %19, i64 4
-  %30 = getelementptr inbounds i8, ptr %19, i64 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 16
-  %32 = getelementptr inbounds i8, ptr %20, i64 4
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 16
-  %35 = getelementptr inbounds i8, ptr %2, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %.not103 = icmp eq ptr %7, null
   br label %36
 
@@ -2561,7 +2561,7 @@ define hidden i32 @dissect_dcom_STDOBJREF(ptr noundef %0, i32 noundef %1, ptr no
   %25 = load i32, ptr @hf_dcom_ipid, align 4
   %26 = call i32 @dissect_dcom_UUID(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %16, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef %9)
   %27 = load i32, ptr %12, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @guids_resolve_guid_to_str(ptr noundef %9, ptr noundef %29) #11
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.154, i32 noundef %27, ptr noundef %30) #11
@@ -2583,7 +2583,7 @@ define hidden range(i32 -1, 1) i32 @dcom_register_routine(ptr noundef %0, ptr no
   br i1 %or.cond.i, label %dcom_get_routine_by_uuid.exit.thread, label %.lr.ph.i
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.0.i = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dcom_get_routine_by_uuid.exit.thread, label %.lr.ph.i, !llvm.loop !17
@@ -2591,13 +2591,13 @@ define hidden range(i32 -1, 1) i32 @dcom_register_routine(ptr noundef %0, ptr no
 .lr.ph.i:                                         ; preds = %2, %4
   %.013.i = phi ptr [ %.0.i, %4 ], [ %.011.i, %2 ]
   %6 = load ptr, ptr %.013.i, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %8 = icmp eq i32 %bcmp10.i, 0
   br i1 %8, label %dcom_get_routine_by_uuid.exit, label %4
 
 dcom_get_routine_by_uuid.exit:                    ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %dcom_get_routine_by_uuid.exit.thread, label %18
@@ -2609,10 +2609,10 @@ dcom_get_routine_by_uuid.exit.thread:             ; preds = %4, %2, %dcom_get_ro
   br i1 %.not10, label %18, label %13
 
 13:                                               ; preds = %dcom_get_routine_by_uuid.exit.thread
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %0, ptr %15, align 8
   %16 = load ptr, ptr @dcom_marshalers, align 8
   %17 = tail call ptr @g_list_append(ptr noundef %16, ptr noundef nonnull %12) #11
@@ -2634,7 +2634,7 @@ define hidden ptr @dcom_get_routine_by_uuid(ptr nocapture noundef readonly %0) l
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.013, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -2642,13 +2642,13 @@ define hidden ptr @dcom_get_routine_by_uuid(ptr nocapture noundef readonly %0) l
 .lr.ph:                                           ; preds = %1, %3
   %.013 = phi ptr [ %.0, %3 ], [ %.011, %1 ]
   %5 = load ptr, ptr %.013, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %bcmp10 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %0, i64 16)
   %7 = icmp eq i32 %bcmp10, 0
   br i1 %7, label %8, label %3
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load ptr, ptr %9, align 8
   br label %.loopexit
 
@@ -2726,7 +2726,7 @@ define hidden i32 @dissect_dcom_OBJREF(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %or.cond.i.i, label %dissect_dcom_CUSTOBJREF.exit, label %.lr.ph.i.i
 
 53:                                               ; preds = %.lr.ph.i.i
-  %54 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.0.i.i = load ptr, ptr %54, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_dcom_CUSTOBJREF.exit, label %.lr.ph.i.i, !llvm.loop !17
@@ -2734,13 +2734,13 @@ define hidden i32 @dissect_dcom_OBJREF(ptr noundef %0, i32 noundef %1, ptr nound
 .lr.ph.i.i:                                       ; preds = %41, %53
   %.013.i.i = phi ptr [ %.0.i.i, %53 ], [ %.011.i.i, %41 ]
   %55 = load ptr, ptr %.013.i.i, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %56, ptr noundef nonnull readonly dereferenceable(16) %13, i64 16)
   %57 = icmp eq i32 %bcmp10.i.i, 0
   br i1 %57, label %dcom_get_routine_by_uuid.exit.i, label %53
 
 dcom_get_routine_by_uuid.exit.i:                  ; preds = %.lr.ph.i.i
-  %58 = getelementptr inbounds i8, ptr %55, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %dissect_dcom_CUSTOBJREF.exit, label %60
@@ -2766,18 +2766,18 @@ dissect_dcom_CUSTOBJREF.exit:                     ; preds = %53, %41, %dcom_get_
   br i1 %or.cond, label %67, label %78
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %2, i64 160
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 2
   br i1 %70, label %71, label %78
 
 71:                                               ; preds = %67
   store i32 2, ptr %19, align 8
-  %72 = getelementptr inbounds i8, ptr %19, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 4, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %19, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %19, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %74, align 8
   %75 = load i64, ptr %15, align 8
   %76 = load i64, ptr %16, align 8
@@ -2922,7 +2922,7 @@ define internal void @dcom_cleanup() #1 {
 .preheader40:                                     ; preds = %.preheader41, %12
   %.02743 = phi ptr [ %15, %12 ], [ %3, %.preheader41 ]
   %4 = load ptr, ptr %.02743, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not38 = icmp eq ptr %6, null
   br i1 %.not38, label %12, label %.preheader
@@ -2932,7 +2932,7 @@ define internal void @dcom_cleanup() #1 {
   %7 = load ptr, ptr %.042, align 8
   tail call void @g_free(ptr noundef %7) #11
   store ptr null, ptr %.042, align 8
-  %8 = getelementptr inbounds i8, ptr %.042, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not39 = icmp eq ptr %9, null
   br i1 %.not39, label %10, label %.preheader, !llvm.loop !18
@@ -2948,7 +2948,7 @@ define internal void @dcom_cleanup() #1 {
   %13 = phi ptr [ %.pre, %10 ], [ %4, %.preheader40 ]
   tail call void @g_free(ptr noundef %13) #11
   store ptr null, ptr %.02743, align 8
-  %14 = getelementptr inbounds i8, ptr %.02743, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02743, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not37 = icmp eq ptr %15, null
   br i1 %.not37, label %16, label %.preheader40, !llvm.loop !19
@@ -2956,19 +2956,19 @@ define internal void @dcom_cleanup() #1 {
 16:                                               ; preds = %12
   %17 = load ptr, ptr %2, align 8
   tail call void @g_list_free(ptr noundef %17) #11
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i32, ptr %18, align 8
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %free_address.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %2, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %free_address.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not6.i.i = icmp eq ptr %26, null
   br i1 %.not6.i.i, label %free_address.exit, label %27
@@ -2987,7 +2987,7 @@ free_address.exit:                                ; preds = %16, %20, %24, %27
   %29 = phi ptr [ %.pre45, %free_address.exit ], [ %2, %.preheader41 ]
   tail call void @g_free(ptr noundef %29) #11
   store ptr null, ptr %.02644, align 8
-  %30 = getelementptr inbounds i8, ptr %.02644, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.02644, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not33 = icmp eq ptr %31, null
   br i1 %.not33, label %32, label %.preheader41, !llvm.loop !20

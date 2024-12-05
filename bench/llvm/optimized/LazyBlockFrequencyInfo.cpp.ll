@@ -68,11 +68,11 @@ define internal noundef nonnull ptr @_ZL44initializeLazyBlockFrequencyInfoPassPa
   tail call void @_ZN4llvm33initializeLoopInfoWrapperPassPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #10
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #12
   store ptr @.str, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 29, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 15, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN4llvm26LazyBlockFrequencyInfoPass2IDE, ptr %4, align 8
@@ -215,7 +215,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26LazyBlockFrequencyInfoPass13runOn
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %.sroa.07.012.i4.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %5, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i4.i.i, i64 16
   %.not.i.i.i = icmp ne ptr %10, %7
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %11 = load ptr, ptr %10, align 8
@@ -227,7 +227,7 @@ _ZNK4llvm4Pass11getAnalysisINS_29LazyBranchProbabilityInfoPassEEERT_v.exit: ; pr
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(40) ptr %17(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull @_ZN4llvm29LazyBranchProbabilityInfoPass2IDE) #10
   %19 = load ptr, ptr %3, align 8
@@ -242,7 +242,7 @@ _ZNK4llvm4Pass11getAnalysisINS_29LazyBranchProbabilityInfoPassEEERT_v.exit: ; pr
 
 .lr.ph.i.i.i5:                                    ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29LazyBranchProbabilityInfoPassEEERT_v.exit, %.lr.ph.i.i.i5
   %.sroa.07.012.i4.i.i6 = phi ptr [ %25, %.lr.ph.i.i.i5 ], [ %20, %_ZNK4llvm4Pass11getAnalysisINS_29LazyBranchProbabilityInfoPassEEERT_v.exit ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i4.i.i6, i64 16
   %.not.i.i.i7 = icmp ne ptr %25, %22
   tail call void @llvm.assume(i1 %.not.i.i.i7)
   %26 = load ptr, ptr %25, align 8
@@ -254,7 +254,7 @@ _ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i8, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef nonnull align 8 dereferenceable(176) ptr %32(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef nonnull @_ZN4llvm19LoopInfoWrapperPass2IDE) #10
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32

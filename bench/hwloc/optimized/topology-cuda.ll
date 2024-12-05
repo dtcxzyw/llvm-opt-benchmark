@@ -44,7 +44,7 @@ define internal ptr @hwloc_cuda_component_instantiate(ptr noundef %0, ptr nounde
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @hwloc_cuda_discover, ptr %9, align 8
   br label %10
 
@@ -62,7 +62,7 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca %struct.cudaDeviceProp, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @hwloc_topology_get_type_filter(ptr noundef %10, i32 noundef 16, ptr noundef nonnull %4) #8
   %12 = load i32, ptr %4, align 4
@@ -82,15 +82,15 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
   br i1 %17, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %8, i64 288
-  %19 = getelementptr inbounds i8, ptr %8, i64 616
-  %20 = getelementptr inbounds i8, ptr %8, i64 388
-  %21 = getelementptr inbounds i8, ptr %8, i64 360
-  %22 = getelementptr inbounds i8, ptr %8, i64 364
-  %23 = getelementptr inbounds i8, ptr %8, i64 296
-  %24 = getelementptr inbounds i8, ptr %3, i64 592
-  %25 = getelementptr inbounds i8, ptr %3, i64 584
-  %26 = getelementptr inbounds i8, ptr %3, i64 588
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 616
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 388
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 364
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 592
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 584
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 588
   br label %34
 
 27:                                               ; preds = %14
@@ -109,17 +109,17 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
   %35 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 16, i32 noundef -1) #8
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %.04085) #8
   %37 = call noalias ptr @strdup(ptr noundef nonnull %6) #8
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i32 -1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %41 = load ptr, ptr %40, align 8
   store i64 12, ptr %41, align 8
   %42 = call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.4) #8
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 216
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 216
   %45 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #8
   %46 = call i32 @cudaGetDeviceProperties(ptr noundef nonnull %8, i32 noundef %.04085) #8
   %47 = icmp eq i32 %46, 0
@@ -184,7 +184,7 @@ hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
 
 switch.lookup:                                    ; preds = %70
   %74 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.hwloc_cuda_discover, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.hwloc_cuda_discover, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
@@ -196,7 +196,7 @@ switch.hole_check:                                ; preds = %72
 
 switch.lookup87:                                  ; preds = %switch.hole_check
   %75 = zext nneg i32 %66 to i64
-  %switch.gep88 = getelementptr inbounds [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
+  %switch.gep88 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
   %switch.load89 = load i32, ptr %switch.gep88, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 

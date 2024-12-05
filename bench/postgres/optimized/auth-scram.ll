@@ -81,7 +81,7 @@ define internal void @scram_get_mechanisms(ptr nocapture readnone %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = tail call ptr @palloc0(i64 noundef 224) #12
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8
   store i32 0, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.7) #13
@@ -89,7 +89,7 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef re
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %9, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %14
@@ -108,12 +108,12 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef re
   br i1 %16, label %17, label %32
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 36
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = getelementptr inbounds i8, ptr %4, i64 48
-  %23 = getelementptr inbounds i8, ptr %4, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %24 = tail call zeroext i1 @parse_scram_secret(ptr noundef nonnull %2, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
   br i1 %24, label %75, label %25
 
@@ -123,7 +123,7 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef re
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 336
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 336
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %30) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.scram_init) #12
@@ -131,22 +131,22 @@ define internal noundef ptr @scram_init(ptr noundef %0, ptr nocapture noundef re
 
 32:                                               ; preds = %14
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 336
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef %35) #12
-  %37 = getelementptr inbounds i8, ptr %4, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %36, ptr %37, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %27, %25, %32
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 336
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
-  %42 = getelementptr inbounds i8, ptr %4, i64 36
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
-  %44 = getelementptr inbounds i8, ptr %4, i64 40
-  %45 = getelementptr inbounds i8, ptr %4, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 3, ptr %41, align 4
   store i32 32, ptr %43, align 4
   %46 = tail call ptr @GetMockAuthenticationNonce() #12
@@ -202,7 +202,7 @@ mock_scram_secret.exit:                           ; preds = %62
   store i8 0, ptr %73, align 1
   store ptr %66, ptr %44, align 8
   store i32 4096, ptr %42, align 4
-  %74 = getelementptr inbounds i8, ptr %4, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %45, i8 0, i64 64, i1 false)
   store i8 1, ptr %74, align 8
   br label %75
@@ -271,7 +271,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %37 = tail call ptr @pstrdup(ptr noundef nonnull %1) #12
   store ptr %37, ptr %15, align 8
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %38, ptr %39, align 8
   switch i8 %38, label %96 [
     i8 110, label %40
@@ -280,7 +280,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   ]
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %49
@@ -316,7 +316,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   br label %102
 
 60:                                               ; preds = %36
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i8, ptr %61, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %69
@@ -352,7 +352,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   br label %102
 
 80:                                               ; preds = %36
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %89, label %84
@@ -427,7 +427,7 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
   %116 = getelementptr i8, ptr %103, i64 1
   store ptr %116, ptr %15, align 8
   %117 = tail call ptr @pstrdup(ptr noundef %116) #12
-  %118 = getelementptr inbounds i8, ptr %0, i64 120
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %117, ptr %118, align 8
   %119 = load i8, ptr %116, align 1
   %120 = icmp eq i8 %119, 109
@@ -443,10 +443,10 @@ define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef 
 
 125:                                              ; preds = %115
   %126 = call fastcc ptr @read_attr_value(ptr noundef %15, i8 noundef signext 110)
-  %127 = getelementptr inbounds i8, ptr %0, i64 128
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %126, ptr %127, align 8
   %128 = call fastcc ptr @read_attr_value(ptr noundef %15, i8 noundef signext 114)
-  %129 = getelementptr inbounds i8, ptr %0, i64 136
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %128, ptr %129, align 8
   %130 = load i8, ptr %128, align 1
   %.fr10.i.i = freeze i8 %130
@@ -513,7 +513,7 @@ read_client_first_message.exit:                   ; preds = %.lr.ph.i, %.prehead
   %151 = add i32 %150, 1
   %152 = sext i32 %151 to i64
   %153 = call ptr @palloc(i64 noundef %152) #12
-  %154 = getelementptr inbounds i8, ptr %0, i64 200
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %153, ptr %154, align 8
   %155 = call i32 @pg_b64_encode(ptr noundef nonnull %14, i32 noundef 18, ptr noundef %153, i32 noundef %150) #12
   %156 = icmp slt i32 %155, 0
@@ -534,12 +534,12 @@ build_server_first_message.exit:                  ; preds = %149
   store i8 0, ptr %163, align 1
   %164 = load ptr, ptr %129, align 8
   %165 = load ptr, ptr %154, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 36
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %169 = load i32, ptr %168, align 4
   %170 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.35, ptr noundef %164, ptr noundef %165, ptr noundef %167, i32 noundef %169) #12
-  %171 = getelementptr inbounds i8, ptr %0, i64 192
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %170, ptr %171, align 8
   %172 = call ptr @pstrdup(ptr noundef %170) #12
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %14)
@@ -553,7 +553,7 @@ build_server_first_message.exit:                  ; preds = %149
   %174 = tail call ptr @pstrdup(ptr noundef nonnull %1) #12
   store ptr %174, ptr %13, align 8
   %175 = call fastcc ptr @read_attr_value(ptr noundef %13, i8 noundef signext 99)
-  %176 = getelementptr inbounds i8, ptr %0, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load i8, ptr %176, align 8
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %182
@@ -571,7 +571,7 @@ build_server_first_message.exit:                  ; preds = %149
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %0, i64 112
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %187 = load i8, ptr %186, align 8
   %188 = icmp eq i8 %187, 110
   br i1 %188, label %200, label %189
@@ -582,7 +582,7 @@ build_server_first_message.exit:                  ; preds = %149
   br i1 %191, label %192, label %196
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %0, i64 112
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %194 = load i8, ptr %193, align 8
   %195 = icmp eq i8 %194, 121
   br i1 %195, label %200, label %196
@@ -597,7 +597,7 @@ build_server_first_message.exit:                  ; preds = %149
 
 200:                                              ; preds = %192, %185
   %201 = call fastcc ptr @read_attr_value(ptr noundef %13, i8 noundef signext 114)
-  %202 = getelementptr inbounds i8, ptr %0, i64 152
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %201, ptr %202, align 8
   br label %203
 
@@ -617,7 +617,7 @@ build_server_first_message.exit:                  ; preds = %149
   %213 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #13
   %214 = trunc i64 %213 to i32
   %215 = call i32 @pg_b64_decode(ptr noundef %205, i32 noundef %214, ptr noundef %212, i32 noundef %210) #12
-  %216 = getelementptr inbounds i8, ptr %0, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %217 = load i32, ptr %216, align 8
   %.not27.i = icmp eq i32 %215, %217
   br i1 %.not27.i, label %223, label %218
@@ -632,7 +632,7 @@ build_server_first_message.exit:                  ; preds = %149
   unreachable
 
 223:                                              ; preds = %207
-  %224 = getelementptr inbounds i8, ptr %0, i64 160
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %225 = sext i32 %215 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %224, ptr align 1 %212, i64 %225, i1 false)
   call void @pfree(ptr noundef %212) #12
@@ -657,7 +657,7 @@ read_client_final_message.exit:                   ; preds = %223
   %236 = sub i64 %234, %235
   %237 = add i64 %236, 1
   %238 = call ptr @palloc(i64 noundef %237) #12
-  %239 = getelementptr inbounds i8, ptr %0, i64 144
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %238, ptr %239, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %238, ptr nonnull align 1 %1, i64 %236, i1 false)
   %240 = load ptr, ptr %239, align 8
@@ -665,11 +665,11 @@ read_client_final_message.exit:                   ; preds = %223
   store i8 0, ptr %241, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %242 = getelementptr inbounds i8, ptr %0, i64 136
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %243 = load ptr, ptr %242, align 8
   %244 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %243) #13
   %245 = trunc i64 %244 to i32
-  %246 = getelementptr inbounds i8, ptr %0, i64 200
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %247 = load ptr, ptr %246, align 8
   %248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %247) #13
   %249 = trunc i64 %248 to i32
@@ -709,11 +709,11 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %263 = getelementptr inbounds i8, ptr %0, i64 28
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %264 = load i32, ptr %263, align 4
   %265 = call ptr @pg_hmac_create(i32 noundef %264) #12
   store ptr null, ptr %11, align 8
-  %266 = getelementptr inbounds i8, ptr %0, i64 48
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %267 = load i32, ptr %216, align 8
   %268 = sext i32 %267 to i64
   %269 = call i32 @pg_hmac_init(ptr noundef %265, ptr noundef nonnull %266, i64 noundef %268) #12
@@ -721,7 +721,7 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   br i1 %270, label %299, label %271
 
 271:                                              ; preds = %262
-  %272 = getelementptr inbounds i8, ptr %0, i64 120
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %273 = load ptr, ptr %272, align 8
   %274 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %273) #13
   %275 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef %273, i64 noundef %274) #12
@@ -734,7 +734,7 @@ verify_final_nonce.exit.thread:                   ; preds = %254, %read_client_f
   br i1 %279, label %299, label %280
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %0, i64 192
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %282 = load ptr, ptr %281, align 8
   %283 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #13
   %284 = call i32 @pg_hmac_update(ptr noundef %265, ptr noundef %282, i64 noundef %283) #12
@@ -817,7 +817,7 @@ verify_client_proof.exit:                         ; preds = %._crit_edge.i
   br i1 %.not.i42, label %322, label %382
 
 322:                                              ; preds = %verify_client_proof.exit
-  %323 = getelementptr inbounds i8, ptr %0, i64 208
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %324 = load i8, ptr %323, align 8
   %325 = trunc i8 %324 to i1
   br i1 %325, label %382, label %326
@@ -826,7 +826,7 @@ verify_client_proof.exit:                         ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %327 = load i32, ptr %263, align 4
   %328 = call ptr @pg_hmac_create(i32 noundef %327) #12
-  %329 = getelementptr inbounds i8, ptr %0, i64 80
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %330 = load i32, ptr %216, align 8
   %331 = sext i32 %330 to i64
   %332 = call i32 @pg_hmac_init(ptr noundef %328, ptr noundef nonnull %329, i64 noundef %331) #12
@@ -916,7 +916,7 @@ build_server_final_message.exit:                  ; preds = %364
   unreachable
 
 382:                                              ; preds = %322, %verify_client_proof.exit
-  %383 = getelementptr inbounds i8, ptr %0, i64 216
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %384 = load ptr, ptr %383, align 8
   %385 = icmp ne ptr %384, null
   %386 = icmp ne ptr %5, null

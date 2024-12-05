@@ -105,16 +105,16 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
 
 .lr.ph:                                           ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 56
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 56
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %38 = getelementptr inbounds i8, ptr %21, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.sroa.5351.0..sroa_idx354 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.7361.0..sroa_idx364 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sroa.9366.0..sroa_idx369 = getelementptr inbounds i8, ptr %18, i64 33
+  %.sroa.5351.0..sroa_idx354 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.7361.0..sroa_idx364 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sroa.9366.0..sroa_idx369 = getelementptr inbounds nuw i8, ptr %18, i64 33
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -124,13 +124,13 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 33
-  %52 = getelementptr inbounds i8, ptr %27, i64 32
-  %53 = getelementptr inbounds i8, ptr %27, i64 33
-  %54 = getelementptr inbounds i8, ptr %27, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %27, i64 24
-  %.sroa.5220.0..sroa_idx223 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.7230.0..sroa_idx233 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.9235.0..sroa_idx238 = getelementptr inbounds i8, ptr %9, i64 33
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i124 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sroa.5220.0..sroa_idx223 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.7230.0..sroa_idx233 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.9235.0..sroa_idx238 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 33
@@ -139,13 +139,13 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %60 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  %63 = getelementptr inbounds i8, ptr %24, i64 32
-  %64 = getelementptr inbounds i8, ptr %24, i64 33
-  %65 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i79 = getelementptr inbounds i8, ptr %24, i64 24
-  %.sroa.5251.0..sroa_idx254 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.7261.0..sroa_idx264 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sroa.9266.0..sroa_idx269 = getelementptr inbounds i8, ptr %12, i64 33
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 33
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i79 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sroa.5251.0..sroa_idx254 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.7261.0..sroa_idx264 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.9266.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %12, i64 33
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 33
@@ -154,21 +154,21 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %74 = getelementptr inbounds i8, ptr %30, i64 32
-  %75 = getelementptr inbounds i8, ptr %30, i64 33
-  %76 = getelementptr inbounds i8, ptr %30, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i169 = getelementptr inbounds i8, ptr %30, i64 24
-  %.sroa.5.0..sroa_idx196 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.7.0..sroa_idx204 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.9.0..sroa_idx208 = getelementptr inbounds i8, ptr %6, i64 33
+  %74 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %76 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i169 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %.sroa.5.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.7.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.9.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %23, i64 33
   %80 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sroa.5282.0..sroa_idx285 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.7292.0..sroa_idx295 = getelementptr inbounds i8, ptr %15, i64 32
-  %.sroa.9297.0..sroa_idx300 = getelementptr inbounds i8, ptr %15, i64 33
+  %.sroa.5282.0..sroa_idx285 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.7292.0..sroa_idx295 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sroa.9297.0..sroa_idx300 = getelementptr inbounds nuw i8, ptr %15, i64 33
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %83
 
@@ -216,7 +216,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %90
   store i8 2, ptr %.sroa.7361.0..sroa_idx364, align 8
   store i8 3, ptr %.sroa.9366.0..sroa_idx369, align 1
   %94 = load ptr, ptr %2, align 8, !noalias !7
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8, !noalias !7
   %97 = call { ptr, i64 } %96(ptr noundef nonnull align 8 dereferenceable(24) %2) #11, !noalias !7
   %98 = extractvalue { ptr, i64 } %97, 0
@@ -251,7 +251,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %90
 111:                                              ; preds = %90
   %112 = load ptr, ptr %21, align 8
   %.sroa.03.0.copyload = load ptr, ptr %112, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   switch i64 %.sroa.24.0.copyload, label %_ZN4llvmplERKNS_5TwineES2_.exit50 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
@@ -286,7 +286,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %111, %_ZN4llvmeqENS
   store i8 2, ptr %.sroa.7292.0..sroa_idx295, align 8
   store i8 3, ptr %.sroa.9297.0..sroa_idx300, align 1
   %116 = load ptr, ptr %2, align 8, !noalias !21
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !noalias !21
   %119 = call { ptr, i64 } %118(ptr noundef nonnull align 8 dereferenceable(24) %2) #11, !noalias !21
   %120 = extractvalue { ptr, i64 } %119, 0
@@ -320,13 +320,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %111, %_ZN4llvmeqENS
 
 _ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i31
   %.sroa.8.5 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i23 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i31 ]
-  %133 = getelementptr inbounds i8, ptr %112, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %133, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %134 = getelementptr inbounds i8, ptr %112, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %.sroa.0.0.copyload = load ptr, ptr %134, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 40
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %135 = call noundef i32 @_ZN4llvm28ItaniumManglingCanonicalizer14addEquivalenceENS0_12FragmentKindENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.sroa.8.5, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #11
   switch i32 %135, label %212 [
@@ -337,23 +337,23 @@ _ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKi
 
 _ZN4llvmplERKNS_5TwineES2_.exit95:                ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %136 = load ptr, ptr %21, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   store i8 3, ptr %56, align 8, !alias.scope !32
   store i8 5, ptr %57, align 1, !alias.scope !32
   store ptr @.str.7, ptr %26, align 8, !alias.scope !32
   %138 = load ptr, ptr %137, align 8, !noalias !32
   store ptr %138, ptr %58, align 8, !alias.scope !32
-  %139 = getelementptr inbounds i8, ptr %136, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %140 = load i64, ptr %139, align 8, !noalias !32
   store i64 %140, ptr %59, align 8, !alias.scope !32
   store ptr %26, ptr %25, align 8, !alias.scope !35
   store ptr @.str.8, ptr %60, align 8, !alias.scope !35
   store i8 2, ptr %61, align 8, !alias.scope !35
   store i8 3, ptr %62, align 1, !alias.scope !35
-  %141 = getelementptr inbounds i8, ptr %136, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %136, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %144 = load ptr, ptr %143, align 8
   store ptr %25, ptr %24, align 8, !alias.scope !40
   store ptr %144, ptr %65, align 8, !alias.scope !40
@@ -367,7 +367,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit95:                ; preds = %_ZN4llvm12StringSwi
   store i8 2, ptr %.sroa.7261.0..sroa_idx264, align 8
   store i8 3, ptr %.sroa.9266.0..sroa_idx269, align 1
   %145 = load ptr, ptr %2, align 8, !noalias !45
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8, !noalias !45
   %148 = call { ptr, i64 } %147(ptr noundef nonnull align 8 dereferenceable(24) %2) #11, !noalias !45
   %149 = extractvalue { ptr, i64 } %148, 0
@@ -401,14 +401,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit95:                ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvmplERKNS_5TwineES2_.exit140:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %162 = load ptr, ptr %21, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   store i8 3, ptr %45, align 8, !alias.scope !56
   store i8 5, ptr %46, align 1, !alias.scope !56
   store ptr @.str.10, ptr %29, align 8, !alias.scope !56
   %164 = load ptr, ptr %163, align 8, !noalias !56
   store ptr %164, ptr %47, align 8, !alias.scope !56
-  %165 = getelementptr inbounds i8, ptr %162, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %166 = load i64, ptr %165, align 8, !noalias !56
   store i64 %166, ptr %48, align 8, !alias.scope !56
   store ptr %29, ptr %28, align 8, !alias.scope !59
@@ -430,7 +430,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit140:               ; preds = %_ZN4llvm12StringSwi
   store i8 2, ptr %.sroa.7230.0..sroa_idx233, align 8
   store i8 3, ptr %.sroa.9235.0..sroa_idx238, align 1
   %170 = load ptr, ptr %2, align 8, !noalias !69
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !noalias !69
   %173 = call { ptr, i64 } %172(ptr noundef nonnull align 8 dereferenceable(24) %2) #11, !noalias !69
   %174 = extractvalue { ptr, i64 } %173, 0
@@ -464,14 +464,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit140:               ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvmplERKNS_5TwineES2_.exit185:               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit34
   %187 = load ptr, ptr %21, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 32
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
   store i8 3, ptr %67, align 8, !alias.scope !80
   store i8 5, ptr %68, align 1, !alias.scope !80
   store ptr @.str.10, ptr %32, align 8, !alias.scope !80
   %189 = load ptr, ptr %188, align 8, !noalias !80
   store ptr %189, ptr %69, align 8, !alias.scope !80
-  %190 = getelementptr inbounds i8, ptr %187, i64 40
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 40
   %191 = load i64, ptr %190, align 8, !noalias !80
   store i64 %191, ptr %70, align 8, !alias.scope !80
   store ptr %32, ptr %31, align 8, !alias.scope !83
@@ -493,7 +493,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit185:               ; preds = %_ZN4llvm12StringSwi
   store i8 2, ptr %.sroa.7.0..sroa_idx204, align 8
   store i8 3, ptr %.sroa.9.0..sroa_idx208, align 1
   %195 = load ptr, ptr %2, align 8, !noalias !93
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load ptr, ptr %196, align 8, !noalias !93
   %198 = call { ptr, i64 } %197(ptr noundef nonnull align 8 dereferenceable(24) %2) #11, !noalias !93
   %199 = extractvalue { ptr, i64 } %198, 0
@@ -613,7 +613,7 @@ define linkonce_odr hidden void @_ZNK4llvm25SymbolRemappingParseError3logERNS_11
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 58, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -640,7 +640,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %11, %13
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   store i16 8250, ptr %21, align 1
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store ptr %30, ptr %20, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -670,7 +670,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #11
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11

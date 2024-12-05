@@ -85,7 +85,7 @@ while.end:                                        ; preds = %while.body, %entry
   %x.addr.0.lcssa = phi i32 [ %x, %entry ], [ %shr, %while.body ]
   %l.0.lcssa = phi i32 [ -1, %entry ], [ %add, %while.body ]
   %idxprom = zext nneg i32 %x.addr.0.lcssa to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @luaO_log2.log_2, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @luaO_log2.log_2, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !7
   %conv = zext i8 %0 to i32
   %add1 = add nsw i32 %l.0.lcssa, %conv
@@ -95,9 +95,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #3 {
 entry:
-  %tt = getelementptr inbounds i8, ptr %t1, i64 8
+  %tt = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !10
-  %tt1 = getelementptr inbounds i8, ptr %t2, i64 8
+  %tt1 = getelementptr inbounds nuw i8, ptr %t2, i64 8
   %1 = load i32, ptr %tt1, align 8, !tbaa !10
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.else, label %return
@@ -181,11 +181,11 @@ while.cond:                                       ; preds = %while.cond, %while.
   %incdec.ptr26 = phi ptr [ %endptr.promoted, %while.cond.preheader ], [ %incdec.ptr, %while.cond ]
   %4 = load i8, ptr %incdec.ptr26, align 1, !tbaa !7
   %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %3, i64 %idxprom
   %5 = load i16, ptr %arrayidx, align 2, !tbaa !17
   %6 = and i16 %5, 8192
   %tobool.not = icmp eq i16 %6, 0
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr26, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr26, i64 1
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !19
 
 while.end:                                        ; preds = %while.cond
@@ -214,13 +214,13 @@ entry:
   %buff = alloca [2 x i8], align 1
   %buff83 = alloca [40 x i8], align 16
   %buff99 = alloca [3 x i8], align 1
-  %top.i = getelementptr inbounds i8, ptr %L, i64 16
+  %top.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load ptr, ptr %top.i, align 8, !tbaa !20
   %call1.i = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 0) #16
   store ptr %call1.i, ptr %0, align 8, !tbaa !7
-  %tt.i = getelementptr inbounds i8, ptr %0, i64 8
+  %tt.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %tt.i, align 8, !tbaa !10
-  %stack_last.i = getelementptr inbounds i8, ptr %L, i64 56
+  %stack_last.i = getelementptr inbounds nuw i8, ptr %L, i64 56
   %1 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %2 = load ptr, ptr %top.i, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -236,19 +236,19 @@ if.then.i:                                        ; preds = %entry
 
 pushstr.exit:                                     ; preds = %if.then.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i, %if.then.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %incdec.ptr.i, ptr %top.i, align 8, !tbaa !20
   %call247 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fmt, i32 noundef 37) #18
   %cmp248 = icmp eq ptr %call247, null
   br i1 %cmp248, label %for.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %pushstr.exit
-  %overflow_arg_area_p91 = getelementptr inbounds i8, ptr %argp, i64 8
-  %4 = getelementptr inbounds i8, ptr %argp, i64 16
-  %fp_offset_p = getelementptr inbounds i8, ptr %argp, i64 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %buff, i64 1
-  %arrayidx102 = getelementptr inbounds i8, ptr %buff99, i64 1
-  %arrayidx103 = getelementptr inbounds i8, ptr %buff99, i64 2
+  %overflow_arg_area_p91 = getelementptr inbounds nuw i8, ptr %argp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %argp, i64 16
+  %fp_offset_p = getelementptr inbounds nuw i8, ptr %argp, i64 4
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %buff, i64 1
+  %arrayidx102 = getelementptr inbounds nuw i8, ptr %buff99, i64 1
+  %arrayidx103 = getelementptr inbounds nuw i8, ptr %buff99, i64 2
   br label %if.end
 
 if.end:                                           ; preds = %cleanup, %if.end.lr.ph
@@ -261,7 +261,7 @@ if.end:                                           ; preds = %cleanup, %if.end.lr
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call1 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fmt.addr.0250, i64 noundef %sub.ptr.sub) #16
   store ptr %call1, ptr %5, align 8, !tbaa !7
-  %tt = getelementptr inbounds i8, ptr %5, i64 8
+  %tt = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 4, ptr %tt, align 8, !tbaa !10
   %6 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %7 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -278,9 +278,9 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then7, %if.end
   %8 = phi ptr [ %7, %if.end ], [ %.pre, %if.then7 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %incdec.ptr, ptr %top.i, align 8, !tbaa !20
-  %add.ptr = getelementptr inbounds i8, ptr %call251, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call251, i64 1
   %9 = load i8, ptr %add.ptr, align 1, !tbaa !7
   switch i8 %9, label %sw.default [
     i8 115, label %sw.bb
@@ -319,7 +319,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %call.i164 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
   %call1.i165 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %spec.store.select, i64 noundef %call.i164) #16
   store ptr %call1.i165, ptr %14, align 8, !tbaa !7
-  %tt.i166 = getelementptr inbounds i8, ptr %14, i64 8
+  %tt.i166 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %tt.i166, align 8, !tbaa !10
   %15 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %16 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -336,7 +336,7 @@ if.then.i173:                                     ; preds = %vaarg.end
 
 pushstr.exit175:                                  ; preds = %if.then.i173, %vaarg.end
   %17 = phi ptr [ %16, %vaarg.end ], [ %.pre.i174, %if.then.i173 ]
-  %incdec.ptr.i172 = getelementptr inbounds i8, ptr %17, i64 16
+  %incdec.ptr.i172 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %incdec.ptr.i172, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -370,7 +370,7 @@ vaarg.end24:                                      ; preds = %vaarg.in_mem20, %va
   %call.i177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #18
   %call1.i178 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff, i64 noundef %call.i177) #16
   store ptr %call1.i178, ptr %22, align 8, !tbaa !7
-  %tt.i179 = getelementptr inbounds i8, ptr %22, i64 8
+  %tt.i179 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 4, ptr %tt.i179, align 8, !tbaa !10
   %23 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %24 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -387,7 +387,7 @@ if.then.i186:                                     ; preds = %vaarg.end24
 
 pushstr.exit188:                                  ; preds = %if.then.i186, %vaarg.end24
   %25 = phi ptr [ %24, %vaarg.end24 ], [ %.pre.i187, %if.then.i186 ]
-  %incdec.ptr.i185 = getelementptr inbounds i8, ptr %25, i64 16
+  %incdec.ptr.i185 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %incdec.ptr.i185, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buff) #16
   br label %cleanup
@@ -416,7 +416,7 @@ vaarg.end40:                                      ; preds = %vaarg.in_mem36, %va
   %29 = load i32, ptr %vaarg.addr41, align 4
   %conv42 = sitofp i32 %29 to double
   store double %conv42, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt44 = getelementptr inbounds i8, ptr %8, i64 24
+  %tt44 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 3, ptr %tt44, align 8, !tbaa !10
   %30 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %31 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -433,7 +433,7 @@ if.then52:                                        ; preds = %vaarg.end40
 
 if.end54:                                         ; preds = %if.then52, %vaarg.end40
   %32 = phi ptr [ %31, %vaarg.end40 ], [ %.pre254, %if.then52 ]
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %32, i64 16
+  %incdec.ptr56 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %incdec.ptr56, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -460,7 +460,7 @@ vaarg.end66:                                      ; preds = %vaarg.in_mem62, %va
   %vaarg.addr67 = phi ptr [ %34, %vaarg.in_reg60 ], [ %overflow_arg_area64, %vaarg.in_mem62 ]
   %36 = load double, ptr %vaarg.addr67, align 8
   store double %36, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt69 = getelementptr inbounds i8, ptr %8, i64 24
+  %tt69 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 3, ptr %tt69, align 8, !tbaa !10
   %37 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %38 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -477,7 +477,7 @@ if.then77:                                        ; preds = %vaarg.end66
 
 if.end79:                                         ; preds = %if.then77, %vaarg.end66
   %39 = phi ptr [ %38, %vaarg.end66 ], [ %.pre253, %if.then77 ]
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %39, i64 16
+  %incdec.ptr81 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %incdec.ptr81, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -509,7 +509,7 @@ vaarg.end94:                                      ; preds = %vaarg.in_mem90, %va
   %call.i190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff83) #18
   %call1.i191 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff83, i64 noundef %call.i190) #16
   store ptr %call1.i191, ptr %44, align 8, !tbaa !7
-  %tt.i192 = getelementptr inbounds i8, ptr %44, i64 8
+  %tt.i192 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 4, ptr %tt.i192, align 8, !tbaa !10
   %45 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %46 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -526,7 +526,7 @@ if.then.i199:                                     ; preds = %vaarg.end94
 
 pushstr.exit201:                                  ; preds = %if.then.i199, %vaarg.end94
   %47 = phi ptr [ %46, %vaarg.end94 ], [ %.pre.i200, %if.then.i199 ]
-  %incdec.ptr.i198 = getelementptr inbounds i8, ptr %47, i64 16
+  %incdec.ptr.i198 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %incdec.ptr.i198, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buff83) #16
   br label %cleanup
@@ -534,7 +534,7 @@ pushstr.exit201:                                  ; preds = %if.then.i199, %vaar
 sw.bb98:                                          ; preds = %if.end8
   %call1.i204 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.3, i64 noundef 1) #16
   store ptr %call1.i204, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt.i205 = getelementptr inbounds i8, ptr %8, i64 24
+  %tt.i205 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 4, ptr %tt.i205, align 8, !tbaa !10
   %48 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %49 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -551,7 +551,7 @@ if.then.i212:                                     ; preds = %sw.bb98
 
 pushstr.exit214:                                  ; preds = %if.then.i212, %sw.bb98
   %50 = phi ptr [ %49, %sw.bb98 ], [ %.pre.i213, %if.then.i212 ]
-  %incdec.ptr.i211 = getelementptr inbounds i8, ptr %50, i64 16
+  %incdec.ptr.i211 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %incdec.ptr.i211, ptr %top.i, align 8, !tbaa !20
   br label %cleanup
 
@@ -563,7 +563,7 @@ sw.default:                                       ; preds = %if.end8
   %call.i216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff99) #18
   %call1.i217 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff99, i64 noundef %call.i216) #16
   store ptr %call1.i217, ptr %incdec.ptr, align 8, !tbaa !7
-  %tt.i218 = getelementptr inbounds i8, ptr %8, i64 24
+  %tt.i218 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 4, ptr %tt.i218, align 8, !tbaa !10
   %51 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %52 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -580,7 +580,7 @@ if.then.i225:                                     ; preds = %sw.default
 
 pushstr.exit227:                                  ; preds = %if.then.i225, %sw.default
   %53 = phi ptr [ %52, %sw.default ], [ %.pre.i226, %if.then.i225 ]
-  %incdec.ptr.i224 = getelementptr inbounds i8, ptr %53, i64 16
+  %incdec.ptr.i224 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %incdec.ptr.i224, ptr %top.i, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %buff99) #16
   br label %cleanup
@@ -588,7 +588,7 @@ pushstr.exit227:                                  ; preds = %if.then.i225, %sw.d
 cleanup:                                          ; preds = %pushstr.exit227, %pushstr.exit214, %pushstr.exit201, %if.end79, %if.end54, %pushstr.exit188, %pushstr.exit175
   %54 = phi ptr [ %incdec.ptr.i172, %pushstr.exit175 ], [ %incdec.ptr.i185, %pushstr.exit188 ], [ %incdec.ptr56, %if.end54 ], [ %incdec.ptr81, %if.end79 ], [ %incdec.ptr.i198, %pushstr.exit201 ], [ %incdec.ptr.i211, %pushstr.exit214 ], [ %incdec.ptr.i224, %pushstr.exit227 ]
   %add = add nuw nsw i32 %n.0249, 2
-  %add.ptr105 = getelementptr inbounds i8, ptr %call251, i64 2
+  %add.ptr105 = getelementptr inbounds nuw i8, ptr %call251, i64 2
   %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr105, i32 noundef 37) #18
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %for.end, label %if.end
@@ -600,7 +600,7 @@ for.end:                                          ; preds = %cleanup, %pushstr.e
   %call.i229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #18
   %call1.i230 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call.i229) #16
   store ptr %call1.i230, ptr %55, align 8, !tbaa !7
-  %tt.i231 = getelementptr inbounds i8, ptr %55, i64 8
+  %tt.i231 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 4, ptr %tt.i231, align 8, !tbaa !10
   %56 = load ptr, ptr %stack_last.i, align 8, !tbaa !23
   %57 = load ptr, ptr %top.i, align 8, !tbaa !20
@@ -617,10 +617,10 @@ if.then.i238:                                     ; preds = %for.end
 
 pushstr.exit240:                                  ; preds = %if.then.i238, %for.end
   %58 = phi ptr [ %57, %for.end ], [ %.pre.i239, %if.then.i238 ]
-  %incdec.ptr.i237 = getelementptr inbounds i8, ptr %58, i64 16
+  %incdec.ptr.i237 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %incdec.ptr.i237, ptr %top.i, align 8, !tbaa !20
   %add106 = add nuw nsw i32 %n.0.lcssa, 1
-  %base = getelementptr inbounds i8, ptr %L, i64 24
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 24
   %59 = load ptr, ptr %base, align 8, !tbaa !24
   %sub.ptr.lhs.cast108 = ptrtoint ptr %incdec.ptr.i237 to i64
   %sub.ptr.rhs.cast109 = ptrtoint ptr %59 to i64
@@ -636,7 +636,7 @@ pushstr.exit240:                                  ; preds = %if.then.i238, %for.
   store ptr %add.ptr113, ptr %top.i, align 8, !tbaa !20
   %add.ptr115 = getelementptr inbounds i8, ptr %add.ptr113, i64 -16
   %61 = load ptr, ptr %add.ptr115, align 8, !tbaa !7
-  %add.ptr117 = getelementptr inbounds i8, ptr %61, i64 24
+  %add.ptr117 = getelementptr inbounds nuw i8, ptr %61, i64 24
   ret ptr %add.ptr117
 }
 
@@ -680,7 +680,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %source, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %source, i64 1
   %call = tail call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %add.ptr, i64 noundef %bufflen) #16
   %1 = getelementptr i8, ptr %out, i64 %bufflen
   %arrayidx = getelementptr i8, ptr %1, i64 -1
@@ -688,7 +688,7 @@ if.then:                                          ; preds = %entry
   br label %if.end36
 
 if.then5:                                         ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %source, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %source, i64 1
   %sub6 = add i64 %bufflen, -8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr) #18
   store i8 0, ptr %out, align 1

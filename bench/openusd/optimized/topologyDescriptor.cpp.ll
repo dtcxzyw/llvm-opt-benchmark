@@ -56,14 +56,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 15:                                               ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE22setNumBaseFaceVerticesERNS1_15TopologyRefinerEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE22setNumBaseFaceVerticesERNS1_15TopologyRefinerEii.exit ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
-  %.idx = shl nsw i64 %indvars.iv, 3
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   store i32 %18, ptr %23, align 4
   %24 = icmp eq i64 %indvars.iv, 0
   br i1 %24, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level18resizeFaceVerticesEii.exit.i, label %25
@@ -78,7 +78,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal5Level18resizeFaceVerticesEii.exit.i: ; preds = %25, %15
   %31 = phi i32 [ %30, %25 ], [ 0, %15 ]
-  %32 = getelementptr inbounds i8, ptr %23, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %31, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %34 = load i32, ptr %33, align 4
@@ -277,8 +277,8 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_le
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %31 = load i16, ptr %.0911.i.i.i.i.i, align 2, !alias.scope !10, !noalias !7
   store i16 %31, ptr %.012.i.i.i.i.i, align 2, !alias.scope !7, !noalias !10
-  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 2
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
@@ -295,7 +295,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE13_M_de
   store ptr %29, ptr %0, align 8
   %36 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %30, i64 %12
   store ptr %36, ptr %3, align 8
-  %37 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %29, i64 %27
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE17_M_default_appendEm.exit
 
@@ -407,7 +407,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -520,7 +520,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds float, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -616,8 +616,8 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_le
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %46 = load i8, ptr %.0911.i.i.i.i.i.i, align 1, !alias.scope !16, !noalias !13
   store i8 %46, ptr %.012.i.i.i.i.i.i, align 1, !alias.scope !13, !noalias !16
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i, i64 1
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i = icmp eq ptr %47, %24
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
@@ -634,7 +634,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE13_M_de
   store ptr %45, ptr %21, align 8
   %51 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %45, i64 %22
   store ptr %51, ptr %23, align 8
-  %52 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %45, i64 %44
+  %52 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %45, i64 %44
   store ptr %52, ptr %32, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE6resizeEm.exit
 
@@ -682,12 +682,12 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %14 = shl nuw nsw i64 %indvars.iv47, 1
   %15 = or disjoint i64 %14, 1
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds i32, ptr %20, i64 %19
-  %22 = getelementptr inbounds i32, ptr %16, i64 %14
+  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %14
   %23 = load i32, ptr %22, align 4
   %24 = load i8, ptr %7, align 8
   %25 = trunc i8 %24 to i1
@@ -724,7 +724,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %36 = load ptr, ptr %8, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv40
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.next43
+  %39 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next43
   store i32 %38, ptr %39, align 4
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
   %40 = icmp samesign ugt i64 %indvars.iv42, 2
@@ -737,7 +737,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv35
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   store i32 %43, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -792,7 +792,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.04358 = phi ptr [ %10, %.lr.ph ], [ %38, %37 ]
   %16 = load i32, ptr %.04358, align 4
-  %17 = getelementptr inbounds i8, ptr %.04358, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.04358, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %14, align 8
   %20 = load ptr, ptr %19, align 8
@@ -802,7 +802,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   %25 = load float, ptr %24, align 4
   %26 = load ptr, ptr %14, align 8
   %27 = load ptr, ptr %26, align 8
@@ -823,7 +823,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 
 37:                                               ; preds = %22, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds i8, ptr %.04358, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.04358, i64 8
   %39 = load i32, ptr %5, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
@@ -854,7 +854,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 52:                                               ; preds = %.lr.ph60, %73
   %indvars.iv69 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next70, %73 ]
   %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv69
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv69
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %57, label %71
@@ -869,12 +869,12 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %49, align 8
-  %65 = getelementptr inbounds float, ptr %64, i64 %indvars.iv69
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv69
   %66 = load float, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 408
   %68 = zext nneg i32 %55 to i64
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds float, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw float, ptr %69, i64 %68
   store float %66, ptr %70, align 4
   br label %73
 
@@ -905,7 +905,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 83:                                               ; preds = %.lr.ph62, %83
   %indvars.iv72 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next73, %83 ]
   %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds i32, ptr %84, i64 %indvars.iv72
+  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv72
   %86 = load i32, ptr %85, align 4
   %87 = load ptr, ptr %81, align 8
   %88 = load ptr, ptr %87, align 8
@@ -958,7 +958,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 11:                                               ; preds = %.lr.ph49, %._crit_edge
   %indvars.iv64 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next65, %._crit_edge ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::TopologyDescriptor::FVarChannel", ptr %12, i64 %indvars.iv64
+  %13 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::TopologyDescriptor::FVarChannel", ptr %12, i64 %indvars.iv64
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -1014,7 +1014,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
   %37 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv57
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %.fca.0.extract, i64 %indvars.iv.next60
+  %39 = getelementptr inbounds nuw i32, ptr %.fca.0.extract, i64 %indvars.iv.next60
   store i32 %38, ptr %39, align 4
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %40 = icmp samesign ugt i64 %indvars.iv59, 2
@@ -1026,7 +1026,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %41 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv52
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %.fca.0.extract, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %.fca.0.extract, i64 %indvars.iv
   store i32 %42, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

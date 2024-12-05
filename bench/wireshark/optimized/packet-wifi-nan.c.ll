@@ -1190,7 +1190,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nan_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.696) #4
   %8 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #4
@@ -1226,7 +1226,7 @@ define internal i32 @dissect_nan_action(ptr noundef %0, ptr noundef %1, ptr noun
 define internal i32 @dissect_nan_service_discovery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.696) #4
   %8 = load i32, ptr @proto_nan, align 4
@@ -1252,7 +1252,7 @@ define internal i32 @dissect_nan_service_discovery(ptr noundef %0, ptr noundef %
 define internal i32 @dissect_nan_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.696) #4
   %8 = load ptr, ptr %6, align 8
@@ -1672,7 +1672,7 @@ define internal fastcc void @dissect_attr_sda(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %31, label %28
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.702) #4
   br label %37
@@ -1680,7 +1680,7 @@ define internal fastcc void @dissect_attr_sda(ptr noundef %0, ptr noundef %1, i3
 31:                                               ; preds = %10
   %32 = and i32 %26, 2
   %.not70 = icmp eq i32 %32, 0
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   br i1 %.not70, label %36, label %35
 
@@ -1976,7 +1976,7 @@ define internal fastcc void @dissect_attr_element_container(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %5
   %13 = add i32 %2, 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
@@ -2525,7 +2525,7 @@ define internal fastcc void @dissect_attr_mesh(ptr noundef %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %9
   %18 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_attr_mesh, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_attr_mesh, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -2975,7 +2975,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %21 = load i32, ptr @ett_device_cap_capabilities, align 4
   %22 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @dissect_attr_availability.availability_ctr_fields, i32 noundef -2147483648) #4
   %23 = add i32 %2, 6
-  %24 = getelementptr inbounds i8, ptr %4, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 408
   br label %25
 
 25:                                               ; preds = %15, %._crit_edge
@@ -3103,7 +3103,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br i1 %.not14.i, label %111, label %108
 
 108:                                              ; preds = %.preheader
-  %109 = getelementptr inbounds i8, ptr %106, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %110 = load i32, ptr %109, align 4
   %.not15.i = icmp ult i32 %110, %99
   br i1 %.not15.i, label %111, label %114
@@ -3118,7 +3118,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br label %.loopexit
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %106, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %116 = getelementptr i32, ptr %115, i64 %indvars.iv198
   %117 = load i32, ptr %116, align 4
   switch i32 %117, label %121 [
@@ -3161,7 +3161,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br i1 %.not14.i163, label %132, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %127, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %131 = load i32, ptr %130, align 4
   %.not15.i164 = icmp ult i32 %131, %99
   br i1 %.not15.i164, label %132, label %133
@@ -3172,7 +3172,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br i1 %exitcond.i168, label %157, label %126, !llvm.loop !15
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %127, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %135 = and i16 %90, 255
   %136 = zext nneg i16 %135 to i32
   br label %137
@@ -3382,7 +3382,7 @@ define internal fastcc void @dissect_attr_vendor_specific(ptr noundef %0, ptr no
   %11 = add i32 %2, 3
   %12 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %11, i32 noundef -1) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load ptr, ptr @ie_handle_table, align 8
   %15 = call i32 @dissector_try_uint_new(ptr noundef %14, i32 noundef 221, ptr noundef %12, ptr noundef %4, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6) #4

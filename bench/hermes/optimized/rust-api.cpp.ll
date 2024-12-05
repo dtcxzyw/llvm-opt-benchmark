@@ -59,7 +59,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.(anonymous namespace)::DiagMessage" = type { %"class.llvh::SMLoc", %"struct.(anonymous namespace)::Coord", i32, %"class.llvh::StringRef", %"class.llvh::StringRef" }
 %"class.llvh::SMLoc" = type { ptr }
 %"struct.(anonymous namespace)::Coord" = type { i32, i32 }
-%"struct.std::pair.152" = type { i32, i32 }
 %"class.llvh::SMFixIt" = type { %"class.llvh::SMRange", %"class.std::__cxx11::basic_string" }
 %"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
 %"class.std::unique_ptr.204" = type { %"struct.std::__uniq_ptr_data.205" }
@@ -380,14 +379,14 @@ $_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIN6hermes6parser19PreParsedBuff
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_Program_body(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 88
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 88
   ret ptr %_body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionExpression_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 72
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -395,14 +394,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_FunctionExpression_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionExpression_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 96
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -410,7 +409,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionExpression_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -418,7 +417,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionExpression_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -426,7 +425,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionExpression_predicate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
+  %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %0 = load ptr, ptr %_predicate, align 8
   ret ptr %0
 }
@@ -434,7 +433,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_FunctionExpression_generator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_generator = getelementptr inbounds i8, ptr %node, i64 128
+  %_generator = getelementptr inbounds nuw i8, ptr %node, i64 128
   %0 = load i8, ptr %_generator, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -443,7 +442,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_FunctionExpression_async(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_async = getelementptr inbounds i8, ptr %node, i64 129
+  %_async = getelementptr inbounds nuw i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -452,7 +451,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrowFunctionExpression_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 72
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -460,14 +459,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ArrowFunctionExpression_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrowFunctionExpression_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 96
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -475,7 +474,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrowFunctionExpression_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -483,7 +482,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrowFunctionExpression_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -491,7 +490,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrowFunctionExpression_predicate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
+  %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %0 = load ptr, ptr %_predicate, align 8
   ret ptr %0
 }
@@ -499,7 +498,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ArrowFunctionExpression_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 128
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 128
   %0 = load i8, ptr %_expression, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -508,7 +507,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ArrowFunctionExpression_async(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_async = getelementptr inbounds i8, ptr %node, i64 129
+  %_async = getelementptr inbounds nuw i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -517,7 +516,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 72
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -525,14 +524,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_FunctionDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 96
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -540,7 +539,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -548,7 +547,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionDeclaration_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 112
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -556,7 +555,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionDeclaration_predicate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_predicate = getelementptr inbounds i8, ptr %node, i64 120
+  %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %0 = load ptr, ptr %_predicate, align 8
   ret ptr %0
 }
@@ -564,7 +563,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_FunctionDeclaration_generator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_generator = getelementptr inbounds i8, ptr %node, i64 128
+  %_generator = getelementptr inbounds nuw i8, ptr %node, i64 128
   %0 = load i8, ptr %_generator, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -573,7 +572,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_FunctionDeclaration_async(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_async = getelementptr inbounds i8, ptr %node, i64 129
+  %_async = getelementptr inbounds nuw i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -582,7 +581,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 72
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -590,14 +589,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ComponentDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 96
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -605,7 +604,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 104
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -613,7 +612,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentDeclaration_rendersType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rendersType = getelementptr inbounds i8, ptr %node, i64 112
+  %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_rendersType, align 8
   ret ptr %0
 }
@@ -621,7 +620,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_WhileStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -629,7 +628,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_WhileStatement_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 64
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -637,7 +636,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DoWhileStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -645,7 +644,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DoWhileStatement_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 64
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -653,7 +652,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForInStatement_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 56
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -661,7 +660,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForInStatement_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 64
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -669,7 +668,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForInStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 72
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -677,7 +676,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForOfStatement_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 56
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -685,7 +684,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForOfStatement_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 64
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -693,7 +692,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForOfStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 72
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -701,7 +700,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ForOfStatement_await(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_await = getelementptr inbounds i8, ptr %node, i64 80
+  %_await = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load i8, ptr %_await, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -710,7 +709,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForStatement_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 56
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -718,7 +717,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForStatement_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 64
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -726,7 +725,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForStatement_update(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_update = getelementptr inbounds i8, ptr %node, i64 72
+  %_update = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_update, align 8
   ret ptr %0
 }
@@ -734,7 +733,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ForStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 80
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -742,14 +741,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_BlockStatement_body(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BreakStatement_label(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_label = getelementptr inbounds i8, ptr %node, i64 56
+  %_label = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   ret ptr %0
 }
@@ -757,7 +756,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ContinueStatement_label(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_label = getelementptr inbounds i8, ptr %node, i64 56
+  %_label = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   ret ptr %0
 }
@@ -765,7 +764,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ThrowStatement_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -773,7 +772,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ReturnStatement_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -781,7 +780,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_WithStatement_object(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_object = getelementptr inbounds i8, ptr %node, i64 48
+  %_object = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   ret ptr %0
 }
@@ -789,7 +788,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_WithStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -797,7 +796,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_SwitchStatement_discriminant(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
+  %_discriminant = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_discriminant, align 8
   ret ptr %0
 }
@@ -805,14 +804,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_SwitchStatement_cases(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_cases = getelementptr inbounds i8, ptr %node, i64 64
+  %_cases = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_cases
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_LabeledStatement_label(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_label = getelementptr inbounds i8, ptr %node, i64 56
+  %_label = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   ret ptr %0
 }
@@ -820,7 +819,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_LabeledStatement_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 64
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -828,7 +827,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExpressionStatement_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -836,7 +835,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExpressionStatement_directive(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_directive = getelementptr inbounds i8, ptr %node, i64 56
+  %_directive = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_directive, align 8
   ret ptr %0
 }
@@ -844,7 +843,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TryStatement_block(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_block = getelementptr inbounds i8, ptr %node, i64 48
+  %_block = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_block, align 8
   ret ptr %0
 }
@@ -852,7 +851,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TryStatement_handler(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_handler = getelementptr inbounds i8, ptr %node, i64 56
+  %_handler = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_handler, align 8
   ret ptr %0
 }
@@ -860,7 +859,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TryStatement_finalizer(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
+  %_finalizer = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_finalizer, align 8
   ret ptr %0
 }
@@ -868,7 +867,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_IfStatement_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 48
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -876,7 +875,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_IfStatement_consequent(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
+  %_consequent = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_consequent, align 8
   ret ptr %0
 }
@@ -884,7 +883,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_IfStatement_alternate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_alternate = getelementptr inbounds i8, ptr %node, i64 64
+  %_alternate = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_alternate, align 8
   ret ptr %0
 }
@@ -892,7 +891,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_BooleanLiteral_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load i8, ptr %_value, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -901,7 +900,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_StringLiteral_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -909,7 +908,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden double @hermes_get_NumericLiteral_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load double, ptr %_value, align 8
   ret double %0
 }
@@ -917,7 +916,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_RegExpLiteral_pattern(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_pattern = getelementptr inbounds i8, ptr %node, i64 48
+  %_pattern = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_pattern, align 8
   ret ptr %0
 }
@@ -925,7 +924,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_RegExpLiteral_flags(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_flags = getelementptr inbounds i8, ptr %node, i64 56
+  %_flags = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_flags, align 8
   ret ptr %0
 }
@@ -933,7 +932,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BigIntLiteral_bigint(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_bigint = getelementptr inbounds i8, ptr %node, i64 48
+  %_bigint = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_bigint, align 8
   ret ptr %0
 }
@@ -941,28 +940,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_SequenceExpression_expressions(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_expressions = getelementptr inbounds i8, ptr %node, i64 48
+  %_expressions = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_expressions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectExpression_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ArrayExpression_elements(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %_elements = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ArrayExpression_trailingComma(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_trailingComma = getelementptr inbounds i8, ptr %node, i64 64
+  %_trailingComma = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_trailingComma, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -971,7 +970,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_SpreadElement_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -979,7 +978,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_NewExpression_callee(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_callee = getelementptr inbounds i8, ptr %node, i64 48
+  %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   ret ptr %0
 }
@@ -987,7 +986,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_NewExpression_typeArguments(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeArguments, align 8
   ret ptr %0
 }
@@ -995,14 +994,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_NewExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_YieldExpression_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -1010,7 +1009,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_YieldExpression_delegate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_delegate = getelementptr inbounds i8, ptr %node, i64 56
+  %_delegate = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load i8, ptr %_delegate, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1019,7 +1018,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AwaitExpression_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -1027,7 +1026,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportExpression_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 48
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -1035,7 +1034,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportExpression_attributes(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
+  %_attributes = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_attributes, align 8
   ret ptr %0
 }
@@ -1043,7 +1042,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CallExpression_callee(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_callee = getelementptr inbounds i8, ptr %node, i64 48
+  %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   ret ptr %0
 }
@@ -1051,7 +1050,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CallExpression_typeArguments(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeArguments, align 8
   ret ptr %0
 }
@@ -1059,14 +1058,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_CallExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalCallExpression_callee(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_callee = getelementptr inbounds i8, ptr %node, i64 48
+  %_callee = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   ret ptr %0
 }
@@ -1074,7 +1073,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalCallExpression_typeArguments(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeArguments, align 8
   ret ptr %0
 }
@@ -1082,14 +1081,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_OptionalCallExpression_arguments(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_arguments
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_OptionalCallExpression_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 80
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1098,7 +1097,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AssignmentExpression_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 48
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -1106,7 +1105,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AssignmentExpression_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 56
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -1114,7 +1113,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AssignmentExpression_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 64
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -1122,7 +1121,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_UnaryExpression_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 48
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -1130,7 +1129,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_UnaryExpression_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 56
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -1138,7 +1137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_UnaryExpression_prefix(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_prefix = getelementptr inbounds i8, ptr %node, i64 64
+  %_prefix = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_prefix, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1147,7 +1146,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_UpdateExpression_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 48
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -1155,7 +1154,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_UpdateExpression_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 56
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -1163,7 +1162,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_UpdateExpression_prefix(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_prefix = getelementptr inbounds i8, ptr %node, i64 64
+  %_prefix = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_prefix, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1172,7 +1171,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MemberExpression_object(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_object = getelementptr inbounds i8, ptr %node, i64 48
+  %_object = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   ret ptr %0
 }
@@ -1180,7 +1179,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MemberExpression_property(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_property = getelementptr inbounds i8, ptr %node, i64 56
+  %_property = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_property, align 8
   ret ptr %0
 }
@@ -1188,7 +1187,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_MemberExpression_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 64
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1197,7 +1196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalMemberExpression_object(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_object = getelementptr inbounds i8, ptr %node, i64 48
+  %_object = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   ret ptr %0
 }
@@ -1205,7 +1204,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalMemberExpression_property(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_property = getelementptr inbounds i8, ptr %node, i64 56
+  %_property = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_property, align 8
   ret ptr %0
 }
@@ -1213,7 +1212,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_OptionalMemberExpression_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 64
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1222,7 +1221,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_OptionalMemberExpression_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 65
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_optional, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1231,7 +1230,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_LogicalExpression_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 48
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -1239,7 +1238,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_LogicalExpression_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 56
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -1247,7 +1246,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_LogicalExpression_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 64
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -1255,7 +1254,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalExpression_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 48
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -1263,7 +1262,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalExpression_alternate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_alternate = getelementptr inbounds i8, ptr %node, i64 56
+  %_alternate = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_alternate, align 8
   ret ptr %0
 }
@@ -1271,7 +1270,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalExpression_consequent(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_consequent = getelementptr inbounds i8, ptr %node, i64 64
+  %_consequent = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_consequent, align 8
   ret ptr %0
 }
@@ -1279,7 +1278,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BinaryExpression_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 48
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -1287,7 +1286,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BinaryExpression_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 56
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -1295,7 +1294,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BinaryExpression_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 64
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -1303,7 +1302,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Directive_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1311,7 +1310,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DirectiveLiteral_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1319,7 +1318,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Identifier_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -1327,7 +1326,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Identifier_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -1335,7 +1334,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_Identifier_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1344,7 +1343,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_PrivateName_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -1352,7 +1351,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MetaProperty_meta(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_meta = getelementptr inbounds i8, ptr %node, i64 48
+  %_meta = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_meta, align 8
   ret ptr %0
 }
@@ -1360,7 +1359,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MetaProperty_property(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_property = getelementptr inbounds i8, ptr %node, i64 56
+  %_property = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_property, align 8
   ret ptr %0
 }
@@ -1368,7 +1367,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_SwitchCase_test(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_test = getelementptr inbounds i8, ptr %node, i64 48
+  %_test = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   ret ptr %0
 }
@@ -1376,14 +1375,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_SwitchCase_consequent(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
+  %_consequent = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_consequent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CatchClause_param(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_param = getelementptr inbounds i8, ptr %node, i64 48
+  %_param = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_param, align 8
   ret ptr %0
 }
@@ -1391,7 +1390,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CatchClause_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -1399,7 +1398,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_VariableDeclarator_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 48
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -1407,7 +1406,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_VariableDeclarator_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 56
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -1415,7 +1414,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_VariableDeclaration_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 48
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -1423,28 +1422,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_VariableDeclaration_declarations(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_declarations = getelementptr inbounds i8, ptr %node, i64 56
+  %_declarations = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_declarations
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TemplateLiteral_quasis(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_quasis = getelementptr inbounds i8, ptr %node, i64 48
+  %_quasis = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_quasis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TemplateLiteral_expressions(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_expressions = getelementptr inbounds i8, ptr %node, i64 64
+  %_expressions = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_expressions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TaggedTemplateExpression_tag(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_tag = getelementptr inbounds i8, ptr %node, i64 48
+  %_tag = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
   ret ptr %0
 }
@@ -1452,7 +1451,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TaggedTemplateExpression_quasi(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_quasi = getelementptr inbounds i8, ptr %node, i64 56
+  %_quasi = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_quasi, align 8
   ret ptr %0
 }
@@ -1460,7 +1459,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TemplateElement_tail(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_tail = getelementptr inbounds i8, ptr %node, i64 48
+  %_tail = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load i8, ptr %_tail, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1469,7 +1468,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TemplateElement_cooked(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_cooked = getelementptr inbounds i8, ptr %node, i64 56
+  %_cooked = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_cooked, align 8
   ret ptr %0
 }
@@ -1477,7 +1476,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TemplateElement_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 64
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -1485,7 +1484,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Property_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -1493,7 +1492,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Property_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1501,7 +1500,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Property_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 64
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -1509,7 +1508,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_Property_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 72
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1518,7 +1517,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_Property_method(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_method = getelementptr inbounds i8, ptr %node, i64 73
+  %_method = getelementptr inbounds nuw i8, ptr %node, i64 73
   %0 = load i8, ptr %_method, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1527,7 +1526,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_Property_shorthand(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_shorthand = getelementptr inbounds i8, ptr %node, i64 74
+  %_shorthand = getelementptr inbounds nuw i8, ptr %node, i64 74
   %0 = load i8, ptr %_shorthand, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1536,7 +1535,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -1544,7 +1543,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -1552,7 +1551,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassDeclaration_superClass(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
+  %_superClass = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_superClass, align 8
   ret ptr %0
 }
@@ -1560,7 +1559,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassDeclaration_superTypeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
+  %_superTypeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_superTypeParameters, align 8
   ret ptr %0
 }
@@ -1568,21 +1567,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ClassDeclaration_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ClassDeclaration_decorators(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_decorators
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 112
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -1590,7 +1589,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassExpression_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -1598,7 +1597,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassExpression_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -1606,7 +1605,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassExpression_superClass(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_superClass = getelementptr inbounds i8, ptr %node, i64 64
+  %_superClass = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_superClass, align 8
   ret ptr %0
 }
@@ -1614,7 +1613,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassExpression_superTypeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_superTypeParameters = getelementptr inbounds i8, ptr %node, i64 72
+  %_superTypeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_superTypeParameters, align 8
   ret ptr %0
 }
@@ -1622,21 +1621,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ClassExpression_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ClassExpression_decorators(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_decorators = getelementptr inbounds i8, ptr %node, i64 96
+  %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_decorators
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassExpression_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 112
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -1644,14 +1643,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ClassBody_body(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 48
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassProperty_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -1659,7 +1658,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassProperty_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1667,7 +1666,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassProperty_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 64
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1676,7 +1675,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassProperty_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 65
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_static, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1685,7 +1684,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassProperty_declare(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_declare = getelementptr inbounds i8, ptr %node, i64 66
+  %_declare = getelementptr inbounds nuw i8, ptr %node, i64 66
   %0 = load i8, ptr %_declare, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1694,7 +1693,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassProperty_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 67
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 67
   %0 = load i8, ptr %_optional, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1703,7 +1702,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassProperty_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 72
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -1711,7 +1710,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassProperty_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -1719,7 +1718,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassProperty_tsModifiers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
+  %_tsModifiers = getelementptr inbounds nuw i8, ptr %node, i64 88
   %0 = load ptr, ptr %_tsModifiers, align 8
   ret ptr %0
 }
@@ -1727,7 +1726,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassPrivateProperty_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -1735,7 +1734,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassPrivateProperty_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1743,7 +1742,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassPrivateProperty_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 64
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_static, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1752,7 +1751,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassPrivateProperty_declare(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_declare = getelementptr inbounds i8, ptr %node, i64 65
+  %_declare = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_declare, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1761,7 +1760,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ClassPrivateProperty_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 66
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 66
   %0 = load i8, ptr %_optional, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1770,7 +1769,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassPrivateProperty_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 72
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -1778,7 +1777,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassPrivateProperty_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 80
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -1786,7 +1785,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassPrivateProperty_tsModifiers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_tsModifiers = getelementptr inbounds i8, ptr %node, i64 88
+  %_tsModifiers = getelementptr inbounds nuw i8, ptr %node, i64 88
   %0 = load ptr, ptr %_tsModifiers, align 8
   ret ptr %0
 }
@@ -1794,7 +1793,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MethodDefinition_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -1802,7 +1801,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MethodDefinition_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1810,7 +1809,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_MethodDefinition_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 64
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -1818,7 +1817,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_MethodDefinition_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 72
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1827,7 +1826,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_MethodDefinition_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 73
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 73
   %0 = load i8, ptr %_static, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1836,14 +1835,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ImportDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
+  %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_specifiers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportDeclaration_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 64
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -1851,14 +1850,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ImportDeclaration_assertions(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_assertions = getelementptr inbounds i8, ptr %node, i64 72
+  %_assertions = getelementptr inbounds nuw i8, ptr %node, i64 72
   ret ptr %_assertions
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportDeclaration_importKind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_importKind = getelementptr inbounds i8, ptr %node, i64 88
+  %_importKind = getelementptr inbounds nuw i8, ptr %node, i64 88
   %0 = load ptr, ptr %_importKind, align 8
   ret ptr %0
 }
@@ -1866,7 +1865,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportSpecifier_imported(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_imported = getelementptr inbounds i8, ptr %node, i64 48
+  %_imported = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_imported, align 8
   ret ptr %0
 }
@@ -1874,7 +1873,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportSpecifier_local(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_local = getelementptr inbounds i8, ptr %node, i64 56
+  %_local = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_local, align 8
   ret ptr %0
 }
@@ -1882,7 +1881,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportSpecifier_importKind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_importKind = getelementptr inbounds i8, ptr %node, i64 64
+  %_importKind = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_importKind, align 8
   ret ptr %0
 }
@@ -1890,7 +1889,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportDefaultSpecifier_local(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_local = getelementptr inbounds i8, ptr %node, i64 48
+  %_local = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
   ret ptr %0
 }
@@ -1898,7 +1897,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportNamespaceSpecifier_local(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_local = getelementptr inbounds i8, ptr %node, i64 48
+  %_local = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_local, align 8
   ret ptr %0
 }
@@ -1906,7 +1905,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportAttribute_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -1914,7 +1913,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ImportAttribute_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -1922,7 +1921,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportNamedDeclaration_declaration(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
+  %_declaration = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   ret ptr %0
 }
@@ -1930,14 +1929,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ExportNamedDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_specifiers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportNamedDeclaration_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 72
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -1945,7 +1944,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportNamedDeclaration_exportKind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exportKind = getelementptr inbounds i8, ptr %node, i64 80
+  %_exportKind = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_exportKind, align 8
   ret ptr %0
 }
@@ -1953,7 +1952,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportSpecifier_exported(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exported = getelementptr inbounds i8, ptr %node, i64 48
+  %_exported = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
   ret ptr %0
 }
@@ -1961,7 +1960,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportSpecifier_local(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_local = getelementptr inbounds i8, ptr %node, i64 56
+  %_local = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_local, align 8
   ret ptr %0
 }
@@ -1969,7 +1968,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportNamespaceSpecifier_exported(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exported = getelementptr inbounds i8, ptr %node, i64 48
+  %_exported = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exported, align 8
   ret ptr %0
 }
@@ -1977,7 +1976,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportDefaultDeclaration_declaration(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
+  %_declaration = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   ret ptr %0
 }
@@ -1985,7 +1984,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportAllDeclaration_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 48
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -1993,7 +1992,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ExportAllDeclaration_exportKind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exportKind = getelementptr inbounds i8, ptr %node, i64 56
+  %_exportKind = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_exportKind, align 8
   ret ptr %0
 }
@@ -2001,14 +2000,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectPattern_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectPattern_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2016,14 +2015,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ArrayPattern_elements(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %_elements = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrayPattern_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2031,7 +2030,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_RestElement_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -2039,7 +2038,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AssignmentPattern_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 48
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -2047,7 +2046,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AssignmentPattern_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 56
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -2055,7 +2054,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXIdentifier_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2063,7 +2062,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXMemberExpression_object(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_object = getelementptr inbounds i8, ptr %node, i64 48
+  %_object = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   ret ptr %0
 }
@@ -2071,7 +2070,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXMemberExpression_property(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_property = getelementptr inbounds i8, ptr %node, i64 56
+  %_property = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_property, align 8
   ret ptr %0
 }
@@ -2079,7 +2078,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXNamespacedName_namespace(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_namespace = getelementptr inbounds i8, ptr %node, i64 48
+  %_namespace = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_namespace, align 8
   ret ptr %0
 }
@@ -2087,7 +2086,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXNamespacedName_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 56
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2095,7 +2094,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXExpressionContainer_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -2103,7 +2102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXSpreadChild_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -2111,7 +2110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXOpeningElement_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2119,14 +2118,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_JSXOpeningElement_attributes(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_attributes = getelementptr inbounds i8, ptr %node, i64 56
+  %_attributes = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_attributes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_JSXOpeningElement_selfClosing(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_selfClosing = getelementptr inbounds i8, ptr %node, i64 72
+  %_selfClosing = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load i8, ptr %_selfClosing, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2135,7 +2134,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXOpeningElement_typeArguments(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeArguments = getelementptr inbounds i8, ptr %node, i64 80
+  %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_typeArguments, align 8
   ret ptr %0
 }
@@ -2143,7 +2142,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXClosingElement_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2151,7 +2150,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXAttribute_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2159,7 +2158,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXAttribute_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -2167,7 +2166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXSpreadAttribute_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -2175,7 +2174,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXStringLiteral_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -2183,7 +2182,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXStringLiteral_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 56
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2191,7 +2190,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXText_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -2199,7 +2198,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXText_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 56
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2207,7 +2206,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXElement_openingElement(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_openingElement = getelementptr inbounds i8, ptr %node, i64 48
+  %_openingElement = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingElement, align 8
   ret ptr %0
 }
@@ -2215,14 +2214,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_JSXElement_children(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %_children = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_children
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXElement_closingElement(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_closingElement = getelementptr inbounds i8, ptr %node, i64 72
+  %_closingElement = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_closingElement, align 8
   ret ptr %0
 }
@@ -2230,7 +2229,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXFragment_openingFragment(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_openingFragment = getelementptr inbounds i8, ptr %node, i64 48
+  %_openingFragment = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_openingFragment, align 8
   ret ptr %0
 }
@@ -2238,14 +2237,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_JSXFragment_children(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_children = getelementptr inbounds i8, ptr %node, i64 56
+  %_children = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_children
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_JSXFragment_closingFragment(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_closingFragment = getelementptr inbounds i8, ptr %node, i64 72
+  %_closingFragment = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_closingFragment, align 8
   ret ptr %0
 }
@@ -2253,7 +2252,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_StringLiteralTypeAnnotation_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -2261,7 +2260,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_StringLiteralTypeAnnotation_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 56
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2269,7 +2268,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden double @hermes_get_NumberLiteralTypeAnnotation_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load double, ptr %_value, align 8
   ret double %0
 }
@@ -2277,7 +2276,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_NumberLiteralTypeAnnotation_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 56
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2285,7 +2284,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BigIntLiteralTypeAnnotation_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 48
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2293,7 +2292,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_BooleanLiteralTypeAnnotation_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load i8, ptr %_value, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2302,7 +2301,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_BooleanLiteralTypeAnnotation_raw(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_raw = getelementptr inbounds i8, ptr %node, i64 56
+  %_raw = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_raw, align 8
   ret ptr %0
 }
@@ -2310,14 +2309,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_FunctionTypeAnnotation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeAnnotation_this(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_this = getelementptr inbounds i8, ptr %node, i64 64
+  %_this = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_this, align 8
   ret ptr %0
 }
@@ -2325,7 +2324,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeAnnotation_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -2333,7 +2332,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeAnnotation_rest(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rest = getelementptr inbounds i8, ptr %node, i64 80
+  %_rest = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_rest, align 8
   ret ptr %0
 }
@@ -2341,7 +2340,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeAnnotation_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 88
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 88
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2349,7 +2348,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeParam_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2357,7 +2356,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_FunctionTypeParam_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2365,7 +2364,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_FunctionTypeParam_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2374,14 +2373,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ComponentTypeAnnotation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentTypeAnnotation_rest(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rest = getelementptr inbounds i8, ptr %node, i64 64
+  %_rest = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_rest, align 8
   ret ptr %0
 }
@@ -2389,7 +2388,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentTypeAnnotation_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2397,7 +2396,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentTypeAnnotation_rendersType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rendersType = getelementptr inbounds i8, ptr %node, i64 80
+  %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_rendersType, align 8
   ret ptr %0
 }
@@ -2405,7 +2404,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentTypeParameter_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -2413,7 +2412,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentTypeParameter_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2421,7 +2420,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ComponentTypeParameter_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2430,7 +2429,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_NullableTypeAnnotation_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2438,7 +2437,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_QualifiedTypeIdentifier_qualification(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
+  %_qualification = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   ret ptr %0
 }
@@ -2446,7 +2445,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_QualifiedTypeIdentifier_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 56
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2454,7 +2453,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeofTypeAnnotation_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -2462,7 +2461,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_KeyofTypeAnnotation_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -2470,7 +2469,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeOperator_operator(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_operator = getelementptr inbounds i8, ptr %node, i64 48
+  %_operator = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_operator, align 8
   ret ptr %0
 }
@@ -2478,7 +2477,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeOperator_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2486,7 +2485,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_QualifiedTypeofIdentifier_qualification(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_qualification = getelementptr inbounds i8, ptr %node, i64 48
+  %_qualification = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_qualification, align 8
   ret ptr %0
 }
@@ -2494,7 +2493,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_QualifiedTypeofIdentifier_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 56
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2502,14 +2501,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TupleTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_types = getelementptr inbounds i8, ptr %node, i64 48
+  %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TupleTypeSpreadElement_label(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_label = getelementptr inbounds i8, ptr %node, i64 48
+  %_label = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   ret ptr %0
 }
@@ -2517,7 +2516,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TupleTypeSpreadElement_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2525,7 +2524,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TupleTypeLabeledElement_label(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_label = getelementptr inbounds i8, ptr %node, i64 48
+  %_label = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_label, align 8
   ret ptr %0
 }
@@ -2533,7 +2532,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TupleTypeLabeledElement_elementType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_elementType = getelementptr inbounds i8, ptr %node, i64 56
+  %_elementType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_elementType, align 8
   ret ptr %0
 }
@@ -2541,7 +2540,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TupleTypeLabeledElement_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2550,7 +2549,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TupleTypeLabeledElement_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 72
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -2558,7 +2557,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ArrayTypeAnnotation_elementType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_elementType = getelementptr inbounds i8, ptr %node, i64 48
+  %_elementType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
   ret ptr %0
 }
@@ -2566,7 +2565,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InferTypeAnnotation_typeParameter(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameter = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeParameter = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeParameter, align 8
   ret ptr %0
 }
@@ -2574,21 +2573,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_UnionTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_types = getelementptr inbounds i8, ptr %node, i64 48
+  %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_IntersectionTypeAnnotation_types(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_types = getelementptr inbounds i8, ptr %node, i64 48
+  %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_GenericTypeAnnotation_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2596,7 +2595,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_GenericTypeAnnotation_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2604,7 +2603,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_IndexedAccessType_objectType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
+  %_objectType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   ret ptr %0
 }
@@ -2612,7 +2611,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_IndexedAccessType_indexType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
+  %_indexType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_indexType, align 8
   ret ptr %0
 }
@@ -2620,7 +2619,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalIndexedAccessType_objectType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
+  %_objectType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   ret ptr %0
 }
@@ -2628,7 +2627,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OptionalIndexedAccessType_indexType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
+  %_indexType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_indexType, align 8
   ret ptr %0
 }
@@ -2636,7 +2635,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_OptionalIndexedAccessType_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2645,7 +2644,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalTypeAnnotation_checkType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
+  %_checkType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   ret ptr %0
 }
@@ -2653,7 +2652,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalTypeAnnotation_extendsType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
+  %_extendsType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_extendsType, align 8
   ret ptr %0
 }
@@ -2661,7 +2660,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalTypeAnnotation_trueType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
+  %_trueType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_trueType, align 8
   ret ptr %0
 }
@@ -2669,7 +2668,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ConditionalTypeAnnotation_falseType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
+  %_falseType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_falseType, align 8
   ret ptr %0
 }
@@ -2677,7 +2676,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypePredicate_parameterName(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
+  %_parameterName = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   ret ptr %0
 }
@@ -2685,7 +2684,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypePredicate_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -2693,7 +2692,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TypePredicate_asserts(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_asserts = getelementptr inbounds i8, ptr %node, i64 64
+  %_asserts = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_asserts, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2702,14 +2701,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_InterfaceTypeAnnotation_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_extends = getelementptr inbounds i8, ptr %node, i64 48
+  %_extends = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceTypeAnnotation_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 64
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -2717,7 +2716,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeAlias_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2725,7 +2724,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeAlias_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2733,7 +2732,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeAlias_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 64
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -2741,7 +2740,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OpaqueType_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2749,7 +2748,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OpaqueType_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2757,7 +2756,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OpaqueType_impltype(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
+  %_impltype = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_impltype, align 8
   ret ptr %0
 }
@@ -2765,7 +2764,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_OpaqueType_supertype(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
+  %_supertype = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_supertype, align 8
   ret ptr %0
 }
@@ -2773,7 +2772,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2781,7 +2780,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2789,14 +2788,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_InterfaceDeclaration_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 80
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -2804,7 +2803,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareTypeAlias_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2812,7 +2811,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareTypeAlias_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2820,7 +2819,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareTypeAlias_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 64
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -2828,7 +2827,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareOpaqueType_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2836,7 +2835,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareOpaqueType_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2844,7 +2843,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareOpaqueType_impltype(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_impltype = getelementptr inbounds i8, ptr %node, i64 64
+  %_impltype = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_impltype, align 8
   ret ptr %0
 }
@@ -2852,7 +2851,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareOpaqueType_supertype(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_supertype = getelementptr inbounds i8, ptr %node, i64 72
+  %_supertype = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_supertype, align 8
   ret ptr %0
 }
@@ -2860,7 +2859,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareInterface_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2868,7 +2867,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareInterface_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2876,14 +2875,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareInterface_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareInterface_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 80
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -2891,7 +2890,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareClass_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2899,7 +2898,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareClass_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2907,28 +2906,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareClass_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareClass_implements(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_implements = getelementptr inbounds i8, ptr %node, i64 80
+  %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_implements
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareClass_mixins(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_mixins = getelementptr inbounds i8, ptr %node, i64 96
+  %_mixins = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_mixins
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareClass_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 112
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -2936,7 +2935,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareFunction_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2944,7 +2943,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareFunction_predicate(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_predicate = getelementptr inbounds i8, ptr %node, i64 56
+  %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_predicate, align 8
   ret ptr %0
 }
@@ -2952,7 +2951,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareComponent_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2960,14 +2959,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareComponent_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareComponent_rest(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rest = getelementptr inbounds i8, ptr %node, i64 72
+  %_rest = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_rest, align 8
   ret ptr %0
 }
@@ -2975,7 +2974,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareComponent_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -2983,7 +2982,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareComponent_rendersType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rendersType = getelementptr inbounds i8, ptr %node, i64 88
+  %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 88
   %0 = load ptr, ptr %_rendersType, align 8
   ret ptr %0
 }
@@ -2991,7 +2990,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareVariable_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -2999,7 +2998,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareVariable_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 56
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -3007,7 +3006,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareEnum_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3015,7 +3014,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareEnum_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -3023,7 +3022,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareExportDeclaration_declaration(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_declaration = getelementptr inbounds i8, ptr %node, i64 48
+  %_declaration = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_declaration, align 8
   ret ptr %0
 }
@@ -3031,14 +3030,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_DeclareExportDeclaration_specifiers(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_specifiers = getelementptr inbounds i8, ptr %node, i64 56
+  %_specifiers = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_specifiers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareExportDeclaration_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 72
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -3046,7 +3045,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_DeclareExportDeclaration_default(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_default = getelementptr inbounds i8, ptr %node, i64 80
+  %_default = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load i8, ptr %_default, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3055,7 +3054,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareExportAllDeclaration_source(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_source = getelementptr inbounds i8, ptr %node, i64 48
+  %_source = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_source, align 8
   ret ptr %0
 }
@@ -3063,7 +3062,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareModule_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3071,7 +3070,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareModule_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -3079,7 +3078,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareModule_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 64
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -3087,7 +3086,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclareModuleExports_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3095,7 +3094,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceExtends_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3103,7 +3102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_InterfaceExtends_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3111,7 +3110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassImplements_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3119,7 +3118,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ClassImplements_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3127,7 +3126,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeAnnotation_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3135,35 +3134,35 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_properties(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_properties = getelementptr inbounds i8, ptr %node, i64 48
+  %_properties = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_properties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_indexers(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_indexers = getelementptr inbounds i8, ptr %node, i64 64
+  %_indexers = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_indexers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_callProperties(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_callProperties = getelementptr inbounds i8, ptr %node, i64 80
+  %_callProperties = getelementptr inbounds nuw i8, ptr %node, i64 80
   ret ptr %_callProperties
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_ObjectTypeAnnotation_internalSlots(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_internalSlots = getelementptr inbounds i8, ptr %node, i64 96
+  %_internalSlots = getelementptr inbounds nuw i8, ptr %node, i64 96
   ret ptr %_internalSlots
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeAnnotation_inexact(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_inexact = getelementptr inbounds i8, ptr %node, i64 112
+  %_inexact = getelementptr inbounds nuw i8, ptr %node, i64 112
   %0 = load i8, ptr %_inexact, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3172,7 +3171,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeAnnotation_exact(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exact = getelementptr inbounds i8, ptr %node, i64 113
+  %_exact = getelementptr inbounds nuw i8, ptr %node, i64 113
   %0 = load i8, ptr %_exact, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3181,7 +3180,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeProperty_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -3189,7 +3188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeProperty_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -3197,7 +3196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeProperty_method(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_method = getelementptr inbounds i8, ptr %node, i64 64
+  %_method = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_method, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3206,7 +3205,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeProperty_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 65
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_optional, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3215,7 +3214,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeProperty_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 66
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 66
   %0 = load i8, ptr %_static, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3224,7 +3223,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeProperty_proto(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_proto = getelementptr inbounds i8, ptr %node, i64 67
+  %_proto = getelementptr inbounds nuw i8, ptr %node, i64 67
   %0 = load i8, ptr %_proto, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3233,7 +3232,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeProperty_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 72
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -3241,7 +3240,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeProperty_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 80
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -3249,7 +3248,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeSpreadProperty_argument(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_argument = getelementptr inbounds i8, ptr %node, i64 48
+  %_argument = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_argument, align 8
   ret ptr %0
 }
@@ -3257,7 +3256,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeInternalSlot_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3265,7 +3264,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeInternalSlot_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 56
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -3273,7 +3272,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeInternalSlot_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3282,7 +3281,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeInternalSlot_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 65
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_static, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3291,7 +3290,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeInternalSlot_method(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_method = getelementptr inbounds i8, ptr %node, i64 66
+  %_method = getelementptr inbounds nuw i8, ptr %node, i64 66
   %0 = load i8, ptr %_method, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3300,7 +3299,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeCallProperty_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -3308,7 +3307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeCallProperty_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 56
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load i8, ptr %_static, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3317,7 +3316,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeIndexer_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3325,7 +3324,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeIndexer_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 56
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -3333,7 +3332,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeIndexer_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 64
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -3341,7 +3340,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ObjectTypeIndexer_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 72
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load i8, ptr %_static, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3350,7 +3349,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeIndexer_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 80
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -3358,7 +3357,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeMappedTypeProperty_keyTparam(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_keyTparam = getelementptr inbounds i8, ptr %node, i64 48
+  %_keyTparam = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
   ret ptr %0
 }
@@ -3366,7 +3365,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeMappedTypeProperty_propType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_propType = getelementptr inbounds i8, ptr %node, i64 56
+  %_propType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_propType, align 8
   ret ptr %0
 }
@@ -3374,7 +3373,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeMappedTypeProperty_sourceType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_sourceType = getelementptr inbounds i8, ptr %node, i64 64
+  %_sourceType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_sourceType, align 8
   ret ptr %0
 }
@@ -3382,7 +3381,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeMappedTypeProperty_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 72
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -3390,7 +3389,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ObjectTypeMappedTypeProperty_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 80
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_optional, align 8
   ret ptr %0
 }
@@ -3398,7 +3397,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_Variance_kind(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_kind = getelementptr inbounds i8, ptr %node, i64 48
+  %_kind = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_kind, align 8
   ret ptr %0
 }
@@ -3406,14 +3405,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TypeParameterDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeParameter_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -3421,7 +3420,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeParameter_bound(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_bound = getelementptr inbounds i8, ptr %node, i64 56
+  %_bound = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_bound, align 8
   ret ptr %0
 }
@@ -3429,7 +3428,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeParameter_variance(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_variance = getelementptr inbounds i8, ptr %node, i64 64
+  %_variance = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_variance, align 8
   ret ptr %0
 }
@@ -3437,7 +3436,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeParameter_default(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_default = getelementptr inbounds i8, ptr %node, i64 72
+  %_default = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_default, align 8
   ret ptr %0
 }
@@ -3445,7 +3444,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TypeParameter_usesExtendsBound(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_usesExtendsBound = getelementptr inbounds i8, ptr %node, i64 80
+  %_usesExtendsBound = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load i8, ptr %_usesExtendsBound, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3454,14 +3453,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TypeParameterInstantiation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeCastExpression_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -3469,7 +3468,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TypeCastExpression_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3477,7 +3476,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AsExpression_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -3485,7 +3484,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_AsExpression_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3493,7 +3492,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_DeclaredPredicate_value(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %node, i64 48
+  %_value = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_value, align 8
   ret ptr %0
 }
@@ -3501,7 +3500,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3509,7 +3508,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -3517,14 +3516,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_EnumStringBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 48
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumStringBody_explicitType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
+  %_explicitType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_explicitType, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3533,7 +3532,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumStringBody_hasUnknownMembers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
+  %_hasUnknownMembers = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_hasUnknownMembers, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3542,14 +3541,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_EnumNumberBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 48
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumNumberBody_explicitType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
+  %_explicitType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_explicitType, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3558,7 +3557,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumNumberBody_hasUnknownMembers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
+  %_hasUnknownMembers = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_hasUnknownMembers, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3567,14 +3566,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_EnumBooleanBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 48
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumBooleanBody_explicitType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_explicitType = getelementptr inbounds i8, ptr %node, i64 64
+  %_explicitType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_explicitType, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3583,7 +3582,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumBooleanBody_hasUnknownMembers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 65
+  %_hasUnknownMembers = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_hasUnknownMembers, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3592,14 +3591,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_EnumSymbolBody_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 48
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_EnumSymbolBody_hasUnknownMembers(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_hasUnknownMembers = getelementptr inbounds i8, ptr %node, i64 64
+  %_hasUnknownMembers = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_hasUnknownMembers, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3608,7 +3607,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumDefaultedMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3616,7 +3615,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumStringMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3624,7 +3623,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumStringMember_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 56
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -3632,7 +3631,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumNumberMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3640,7 +3639,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumNumberMember_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 56
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -3648,7 +3647,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumBooleanMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3656,7 +3655,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_EnumBooleanMember_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 56
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -3664,7 +3663,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentParameter_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -3672,7 +3671,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_ComponentParameter_local(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_local = getelementptr inbounds i8, ptr %node, i64 56
+  %_local = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_local, align 8
   ret ptr %0
 }
@@ -3680,7 +3679,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_ComponentParameter_shorthand(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_shorthand = getelementptr inbounds i8, ptr %node, i64 64
+  %_shorthand = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_shorthand, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3689,7 +3688,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAnnotation_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3697,7 +3696,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSLiteralType_literal(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_literal = getelementptr inbounds i8, ptr %node, i64 48
+  %_literal = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_literal, align 8
   ret ptr %0
 }
@@ -3705,7 +3704,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSIndexedAccessType_objectType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_objectType = getelementptr inbounds i8, ptr %node, i64 48
+  %_objectType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_objectType, align 8
   ret ptr %0
 }
@@ -3713,7 +3712,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSIndexedAccessType_indexType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_indexType = getelementptr inbounds i8, ptr %node, i64 56
+  %_indexType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_indexType, align 8
   ret ptr %0
 }
@@ -3721,7 +3720,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSArrayType_elementType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_elementType = getelementptr inbounds i8, ptr %node, i64 48
+  %_elementType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_elementType, align 8
   ret ptr %0
 }
@@ -3729,7 +3728,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeReference_typeName(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeName = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeName = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeName, align 8
   ret ptr %0
 }
@@ -3737,7 +3736,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeReference_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3745,7 +3744,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSQualifiedName_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 48
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -3753,7 +3752,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSQualifiedName_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 56
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -3761,14 +3760,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSFunctionType_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSFunctionType_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -3776,7 +3775,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSFunctionType_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3784,14 +3783,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSConstructorType_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConstructorType_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -3799,7 +3798,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConstructorType_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 72
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3807,7 +3806,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypePredicate_parameterName(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_parameterName = getelementptr inbounds i8, ptr %node, i64 48
+  %_parameterName = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
   ret ptr %0
 }
@@ -3815,7 +3814,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypePredicate_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3823,14 +3822,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSTupleType_elementTypes(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_elementTypes = getelementptr inbounds i8, ptr %node, i64 48
+  %_elementTypes = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_elementTypes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAssertion_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 48
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3838,7 +3837,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAssertion_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 56
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -3846,7 +3845,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSAsExpression_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -3854,7 +3853,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSAsExpression_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3862,7 +3861,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSParameterProperty_parameter(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_parameter = getelementptr inbounds i8, ptr %node, i64 48
+  %_parameter = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_parameter, align 8
   ret ptr %0
 }
@@ -3870,7 +3869,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSParameterProperty_accessibility(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_accessibility = getelementptr inbounds i8, ptr %node, i64 56
+  %_accessibility = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_accessibility, align 8
   ret ptr %0
 }
@@ -3878,7 +3877,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSParameterProperty_readonly(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_readonly = getelementptr inbounds i8, ptr %node, i64 64
+  %_readonly = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_readonly, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3887,7 +3886,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSParameterProperty_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 65
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 65
   %0 = load i8, ptr %_static, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3896,7 +3895,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSParameterProperty_export(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_export = getelementptr inbounds i8, ptr %node, i64 66
+  %_export = getelementptr inbounds nuw i8, ptr %node, i64 66
   %0 = load i8, ptr %_export, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -3905,7 +3904,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAliasDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3913,7 +3912,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAliasDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3921,7 +3920,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeAliasDeclaration_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -3929,7 +3928,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSInterfaceDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3937,7 +3936,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSInterfaceDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -3945,14 +3944,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSInterfaceDeclaration_extends(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_extends = getelementptr inbounds i8, ptr %node, i64 64
+  %_extends = getelementptr inbounds nuw i8, ptr %node, i64 64
   ret ptr %_extends
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSInterfaceDeclaration_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 80
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3960,7 +3959,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSInterfaceHeritage_expression(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_expression = getelementptr inbounds i8, ptr %node, i64 48
+  %_expression = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   ret ptr %0
 }
@@ -3968,7 +3967,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSInterfaceHeritage_typeParameters(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeParameters = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeParameters, align 8
   ret ptr %0
 }
@@ -3976,14 +3975,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSInterfaceBody_body(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 48
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSEnumDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -3991,14 +3990,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSEnumDeclaration_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 56
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSEnumMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -4006,7 +4005,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSEnumMember_initializer(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
+  %_initializer = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_initializer, align 8
   ret ptr %0
 }
@@ -4014,7 +4013,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSModuleDeclaration_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -4022,7 +4021,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSModuleDeclaration_body(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   ret ptr %0
 }
@@ -4030,14 +4029,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSModuleBlock_body(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_body = getelementptr inbounds i8, ptr %node, i64 48
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSModuleMember_id(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_id = getelementptr inbounds i8, ptr %node, i64 48
+  %_id = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_id, align 8
   ret ptr %0
 }
@@ -4045,7 +4044,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSModuleMember_initializer(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_initializer = getelementptr inbounds i8, ptr %node, i64 56
+  %_initializer = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_initializer, align 8
   ret ptr %0
 }
@@ -4053,14 +4052,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSTypeParameterDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeParameter_name(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_name = getelementptr inbounds i8, ptr %node, i64 48
+  %_name = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_name, align 8
   ret ptr %0
 }
@@ -4068,7 +4067,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeParameter_constraint(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_constraint = getelementptr inbounds i8, ptr %node, i64 56
+  %_constraint = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_constraint, align 8
   ret ptr %0
 }
@@ -4076,7 +4075,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeParameter_default(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_default = getelementptr inbounds i8, ptr %node, i64 64
+  %_default = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_default, align 8
   ret ptr %0
 }
@@ -4084,28 +4083,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSTypeParameterInstantiation_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSUnionType_types(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_types = getelementptr inbounds i8, ptr %node, i64 48
+  %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSIntersectionType_types(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_types = getelementptr inbounds i8, ptr %node, i64 48
+  %_types = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSTypeQuery_exprName(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_exprName = getelementptr inbounds i8, ptr %node, i64 48
+  %_exprName = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_exprName, align 8
   ret ptr %0
 }
@@ -4113,7 +4112,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConditionalType_checkType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_checkType = getelementptr inbounds i8, ptr %node, i64 48
+  %_checkType = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_checkType, align 8
   ret ptr %0
 }
@@ -4121,7 +4120,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConditionalType_extendsType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_extendsType = getelementptr inbounds i8, ptr %node, i64 56
+  %_extendsType = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_extendsType, align 8
   ret ptr %0
 }
@@ -4129,7 +4128,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConditionalType_trueType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_trueType = getelementptr inbounds i8, ptr %node, i64 64
+  %_trueType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_trueType, align 8
   ret ptr %0
 }
@@ -4137,7 +4136,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSConditionalType_falseType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_falseType = getelementptr inbounds i8, ptr %node, i64 72
+  %_falseType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_falseType, align 8
   ret ptr %0
 }
@@ -4145,14 +4144,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSTypeLiteral_members(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_members = getelementptr inbounds i8, ptr %node, i64 48
+  %_members = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_members
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSPropertySignature_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -4160,7 +4159,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSPropertySignature_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 56
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -4168,7 +4167,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSPropertySignature_initializer(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_initializer = getelementptr inbounds i8, ptr %node, i64 64
+  %_initializer = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_initializer, align 8
   ret ptr %0
 }
@@ -4176,7 +4175,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSPropertySignature_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 72
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4185,7 +4184,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSPropertySignature_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 73
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 73
   %0 = load i8, ptr %_computed, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4194,7 +4193,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSPropertySignature_readonly(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_readonly = getelementptr inbounds i8, ptr %node, i64 74
+  %_readonly = getelementptr inbounds nuw i8, ptr %node, i64 74
   %0 = load i8, ptr %_readonly, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4203,7 +4202,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSPropertySignature_static(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_static = getelementptr inbounds i8, ptr %node, i64 75
+  %_static = getelementptr inbounds nuw i8, ptr %node, i64 75
   %0 = load i8, ptr %_static, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4212,7 +4211,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSPropertySignature_export(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_export = getelementptr inbounds i8, ptr %node, i64 76
+  %_export = getelementptr inbounds nuw i8, ptr %node, i64 76
   %0 = load i8, ptr %_export, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4221,7 +4220,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSMethodSignature_key(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_key = getelementptr inbounds i8, ptr %node, i64 48
+  %_key = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_key, align 8
   ret ptr %0
 }
@@ -4229,14 +4228,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSMethodSignature_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 56
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 56
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSMethodSignature_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 72
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -4244,7 +4243,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSMethodSignature_computed(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_computed = getelementptr inbounds i8, ptr %node, i64 80
+  %_computed = getelementptr inbounds nuw i8, ptr %node, i64 80
   %0 = load i8, ptr %_computed, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4253,14 +4252,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSIndexSignature_parameters(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_parameters = getelementptr inbounds i8, ptr %node, i64 48
+  %_parameters = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_parameters
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSIndexSignature_typeAnnotation(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_typeAnnotation = getelementptr inbounds i8, ptr %node, i64 64
+  %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
   ret ptr %0
 }
@@ -4268,14 +4267,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @hermes_get_TSCallSignatureDeclaration_params(ptr noundef readnone %node) local_unnamed_addr #0 {
 entry:
-  %_params = getelementptr inbounds i8, ptr %node, i64 48
+  %_params = getelementptr inbounds nuw i8, ptr %node, i64 48
   ret ptr %_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSCallSignatureDeclaration_returnType(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_returnType = getelementptr inbounds i8, ptr %node, i64 64
+  %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
   ret ptr %0
 }
@@ -4283,7 +4282,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_TSModifiers_accessibility(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_accessibility = getelementptr inbounds i8, ptr %node, i64 48
+  %_accessibility = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_accessibility, align 8
   ret ptr %0
 }
@@ -4291,7 +4290,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_TSModifiers_readonly(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_readonly = getelementptr inbounds i8, ptr %node, i64 56
+  %_readonly = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load i8, ptr %_readonly, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4300,7 +4299,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CoverInitializer_init(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_init = getelementptr inbounds i8, ptr %node, i64 48
+  %_init = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_init, align 8
   ret ptr %0
 }
@@ -4308,7 +4307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CoverRestElement_rest(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_rest = getelementptr inbounds i8, ptr %node, i64 48
+  %_rest = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_rest, align 8
   ret ptr %0
 }
@@ -4316,7 +4315,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CoverTypedIdentifier_left(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_left = getelementptr inbounds i8, ptr %node, i64 48
+  %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   ret ptr %0
 }
@@ -4324,7 +4323,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_get_CoverTypedIdentifier_right(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_right = getelementptr inbounds i8, ptr %node, i64 56
+  %_right = getelementptr inbounds nuw i8, ptr %node, i64 56
   %0 = load ptr, ptr %_right, align 8
   ret ptr %0
 }
@@ -4332,7 +4331,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @hermes_get_CoverTypedIdentifier_optional(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
-  %_optional = getelementptr inbounds i8, ptr %node, i64 64
+  %_optional = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load i8, ptr %_optional, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -4356,88 +4355,88 @@ entry:
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp4.i)
-  %unlimitedRegisters.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 1
+  %unlimitedRegisters.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %agg.tmp.i, i8 0, i64 392, i1 false)
   store i8 1, ptr %unlimitedRegisters.i.i, align 1
-  %passes.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  %passes.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
   store i32 1, ptr %passes.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i, %entry
   %B.05.i.i.i.i.idx.i.i.i.i = phi i64 [ %B.05.i.i.i.i.add.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ 8, %entry ]
-  %B.05.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %passes.i.i.i, i64 %B.05.i.i.i.i.idx.i.i.i.i
+  %B.05.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %passes.i.i.i, i64 %B.05.i.i.i.i.idx.i.i.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.i.i.ptr.i.i.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.05.i.i.i.i.ptr.i.i.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.i.i.ptr.i.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %B.05.i.i.i.i.add.i.i.i.i = add nuw nsw i64 %B.05.i.i.i.i.idx.i.i.i.i, 16
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq i64 %B.05.i.i.i.i.add.i.i.i.i, 72
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %functions.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 96
+  %functions.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 96
   store i32 1, ptr %functions.i.i.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 100
+  %NumTombstones.i.i.i.i.i.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 100
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i1.i.i.i, align 4
   br label %for.body.i.i.i.i.i2.i.i.i
 
 for.body.i.i.i.i.i2.i.i.i:                        ; preds = %for.body.i.i.i.i.i2.i.i.i, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i.i.i
   %B.05.i.i.i.i.idx.i3.i.i.i = phi i64 [ %B.05.i.i.i.i.add.i6.i.i.i, %for.body.i.i.i.i.i2.i.i.i ], [ 8, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i.i.i ]
-  %B.05.i.i.i.i.ptr.i4.i.i.i = getelementptr inbounds i8, ptr %functions.i.i.i, i64 %B.05.i.i.i.i.idx.i3.i.i.i
+  %B.05.i.i.i.i.ptr.i4.i.i.i = getelementptr inbounds nuw i8, ptr %functions.i.i.i, i64 %B.05.i.i.i.i.idx.i3.i.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.i.i.ptr.i4.i.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %B.05.i.i.i.i.ptr.i4.i.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.i.i.ptr.i4.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i.i.i, align 8
   %B.05.i.i.i.i.add.i6.i.i.i = add nuw nsw i64 %B.05.i.i.i.i.idx.i3.i.i.i, 16
   %cmp.not.i.i.i.i.i7.i.i.i = icmp eq i64 %B.05.i.i.i.i.add.i6.i.i.i, 72
   br i1 %cmp.not.i.i.i.i.i7.i.i.i, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit.i.i, label %for.body.i.i.i.i.i2.i.i.i, !llvm.loop !4
 
 _ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit.i.i: ; preds = %for.body.i.i.i.i.i2.i.i.i
-  %dumpAfter.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 168
+  %dumpAfter.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 168
   store i8 0, ptr %dumpAfter.i.i, align 8
-  %passes.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 176
+  %passes.i1.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 176
   store i32 1, ptr %passes.i1.i.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 180
+  %NumTombstones.i.i.i.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 180
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i.i2.i.i, align 4
   br label %for.body.i.i.i.i.i.i3.i.i
 
 for.body.i.i.i.i.i.i3.i.i:                        ; preds = %for.body.i.i.i.i.i.i3.i.i, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit.i.i
   %B.05.i.i.i.i.idx.i.i4.i.i = phi i64 [ %B.05.i.i.i.i.add.i.i7.i.i, %for.body.i.i.i.i.i.i3.i.i ], [ 8, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit.i.i ]
-  %B.05.i.i.i.i.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %passes.i1.i.i, i64 %B.05.i.i.i.i.idx.i.i4.i.i
+  %B.05.i.i.i.i.ptr.i.i5.i.i = getelementptr inbounds nuw i8, ptr %passes.i1.i.i, i64 %B.05.i.i.i.i.idx.i.i4.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.i.i.ptr.i.i5.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %B.05.i.i.i.i.ptr.i.i5.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.i.i.ptr.i.i5.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i6.i.i, align 8
   %B.05.i.i.i.i.add.i.i7.i.i = add nuw nsw i64 %B.05.i.i.i.i.idx.i.i4.i.i, 16
   %cmp.not.i.i.i.i.i.i8.i.i = icmp eq i64 %B.05.i.i.i.i.add.i.i7.i.i, 72
   br i1 %cmp.not.i.i.i.i.i.i8.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i9.i.i, label %for.body.i.i.i.i.i.i3.i.i, !llvm.loop !4
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i9.i.i: ; preds = %for.body.i.i.i.i.i.i3.i.i
-  %functions.i10.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 248
+  %functions.i10.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 248
   store i32 1, ptr %functions.i10.i.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i1.i11.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 252
+  %NumTombstones.i.i.i.i.i.i.i1.i11.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 252
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i1.i11.i.i, align 4
   br label %for.body.i.i.i.i.i2.i12.i.i
 
 for.body.i.i.i.i.i2.i12.i.i:                      ; preds = %for.body.i.i.i.i.i2.i12.i.i, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i9.i.i
   %B.05.i.i.i.i.idx.i3.i13.i.i = phi i64 [ %B.05.i.i.i.i.add.i6.i16.i.i, %for.body.i.i.i.i.i2.i12.i.i ], [ 8, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit.i9.i.i ]
-  %B.05.i.i.i.i.ptr.i4.i14.i.i = getelementptr inbounds i8, ptr %functions.i10.i.i, i64 %B.05.i.i.i.i.idx.i3.i13.i.i
+  %B.05.i.i.i.i.ptr.i4.i14.i.i = getelementptr inbounds nuw i8, ptr %functions.i10.i.i, i64 %B.05.i.i.i.i.idx.i3.i13.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.i.i.ptr.i4.i14.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i15.i.i = getelementptr inbounds i8, ptr %B.05.i.i.i.i.ptr.i4.i14.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i15.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.i.i.ptr.i4.i14.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i5.i15.i.i, align 8
   %B.05.i.i.i.i.add.i6.i16.i.i = add nuw nsw i64 %B.05.i.i.i.i.idx.i3.i13.i.i, 16
   %cmp.not.i.i.i.i.i7.i17.i.i = icmp eq i64 %B.05.i.i.i.i.add.i6.i16.i.i, 72
   br i1 %cmp.not.i.i.i.i.i7.i17.i.i, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit18.i.i, label %for.body.i.i.i.i.i2.i12.i.i, !llvm.loop !4
 
 _ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit18.i.i: ; preds = %for.body.i.i.i.i.i2.i12.i.i
-  %functionsToDump.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 320
+  %functionsToDump.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 320
   store i32 1, ptr %functionsToDump.i.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 324
+  %NumTombstones.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 324
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i.i.i, align 4
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit18.i.i
   %B.05.i.i.i.i.idx.i.i.i = phi i64 [ %B.05.i.i.i.i.add.i.i.i, %for.body.i.i.i.i.i.i.i ], [ 8, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2Ev.exit18.i.i ]
-  %B.05.i.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %functionsToDump.i.i, i64 %B.05.i.i.i.i.idx.i.i.i
+  %B.05.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %functionsToDump.i.i, i64 %B.05.i.i.i.i.idx.i.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.i.i.ptr.i.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.05.i.i.i.i.ptr.i.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.i.i.ptr.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i.i, align 8
   %B.05.i.i.i.i.add.i.i.i = add nuw nsw i64 %B.05.i.i.i.i.idx.i.i.i, 16
   %cmp.not.i.i.i.i.i.i.i = icmp eq i64 %B.05.i.i.i.i.add.i.i.i, 72
@@ -4462,7 +4461,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %_
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i
-  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i32 %2, 0
   %.pre1.i.i.i.i = load ptr, ptr %1, align 8
@@ -4470,7 +4469,7 @@ delete.notnull.i.i.i:                             ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.preheader.i.i.i.i.i: ; preds = %delete.notnull.i.i.i
   %idx.ext.i.i.i.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.127", ptr %.pre1.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.127", ptr %.pre1.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i: ; preds = %if.end16.i.i.i.i.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.preheader.i.i.i.i.i
@@ -4480,13 +4479,13 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i: ; preds = 
   br i1 %switch.i.i.i.i.i, label %if.end16.i.i.i.i.i, label %if.then14.i.i.i.i.i
 
 if.then14.i.i.i.i.i:                              ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i
-  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %P.020.i.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.020.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %3) #17
   br label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.then14.i.i.i.i.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %P.020.i.i.i.i.i, i64 40
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.020.i.i.i.i.i, i64 40
   %cmp6.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp6.not.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS1_IS2_S2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEES2_S8_S4_S9_E10destroyAllEv.exit.loopexit.i.i.i.i, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i.i, !llvm.loop !6
 
@@ -4508,7 +4507,7 @@ _ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS
   br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit.i
-  %storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 328
+  %storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 328
   %5 = load ptr, ptr %storage.i.i.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %5) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i
@@ -4520,7 +4519,7 @@ _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i:
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i
-  %storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 256
+  %storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 256
   %6 = load ptr, ptr %storage.i.i.i.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %6) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i.i
@@ -4532,7 +4531,7 @@ _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i.
   br i1 %tobool.not.i.i.i.i3.i.i.i, label %if.end.i.i.i.i4.i.i.i, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit.i.i
 
 if.end.i.i.i.i4.i.i.i:                            ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i.i.i
-  %storage.i.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 184
+  %storage.i.i.i.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 184
   %7 = load ptr, ptr %storage.i.i.i.i.i.i5.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %7) #17
   br label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit.i.i
@@ -4544,7 +4543,7 @@ _ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit.i.i: ; preds = %if.end.
   br i1 %tobool.not.i.i.i.i.i4.i.i, label %if.end.i.i.i.i.i12.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5.i.i
 
 if.end.i.i.i.i.i12.i.i:                           ; preds = %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit.i.i
-  %storage.i.i.i.i.i.i.i13.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 104
+  %storage.i.i.i.i.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 104
   %8 = load ptr, ptr %storage.i.i.i.i.i.i.i13.i.i, align 8
   call void @_ZdlPv(ptr noundef %8) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5.i.i
@@ -4556,64 +4555,64 @@ _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5.i
   br i1 %tobool.not.i.i.i.i3.i9.i.i, label %if.end.i.i.i.i4.i10.i.i, label %_ZN12_GLOBAL__N_113ParserContextC2Ev.exit
 
 if.end.i.i.i.i4.i10.i.i:                          ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5.i.i
-  %storage.i.i.i.i.i.i5.i11.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
+  %storage.i.i.i.i.i.i5.i11.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   %9 = load ptr, ptr %storage.i.i.i.i.i.i5.i11.i.i, align 8
   call void @_ZdlPv(ptr noundef %9) #17
   br label %_ZN12_GLOBAL__N_113ParserContextC2Ev.exit
 
 _ZN12_GLOBAL__N_113ParserContextC2Ev.exit:        ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5.i.i, %if.end.i.i.i.i4.i10.i.i
-  %bufId_.i = getelementptr inbounds i8, ptr %call, i64 656
+  %bufId_.i = getelementptr inbounds nuw i8, ptr %call, i64 656
   store i32 -1, ptr %bufId_.i, align 8
-  %ourMessages_.i = getelementptr inbounds i8, ptr %call, i64 664
-  %_M_map_size.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 672
+  %ourMessages_.i = getelementptr inbounds nuw i8, ptr %call, i64 664
+  %_M_map_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 672
   store i64 8, ptr %_M_map_size.i.i.i.i, align 8
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store ptr %call5.i.i.i.i.i.i.i, ptr %ourMessages_.i, align 8
-  %__cur.04.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
+  %__cur.04.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #15
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %__cur.04.i.i.ptr.i.i.i, align 8
-  %_M_start.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 680
-  %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 704
+  %_M_start.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 680
+  %_M_node.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 704
   store ptr %__cur.04.i.i.ptr.i.i.i, ptr %_M_node.i.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 688
+  %_M_first.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 688
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_first.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 360
-  %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 696
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 360
+  %_M_last.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 696
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 712
-  %_M_node.i9.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 736
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 712
+  %_M_node.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 736
   store ptr %__cur.04.i.i.ptr.i.i.i, ptr %_M_node.i9.i.i.i.i, align 8
-  %_M_first.i10.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 720
+  %_M_first.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 720
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_first.i10.i.i.i.i, align 8
-  %_M_last.i12.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 728
+  %_M_last.i12.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 728
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i12.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_start.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  %convertedMessages_.i = getelementptr inbounds i8, ptr %call, i64 744
-  %hasVal.i.i.i = getelementptr inbounds i8, ptr %call, i64 776
+  %convertedMessages_.i = getelementptr inbounds nuw i8, ptr %call, i64 744
+  %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 776
   store i8 0, ptr %hasVal.i.i.i, align 8
-  %ast_.i = getelementptr inbounds i8, ptr %call, i64 784
+  %ast_.i = getelementptr inbounds nuw i8, ptr %call, i64 784
   store ptr null, ptr %ast_.i, align 8
-  %docBlock_.i = getelementptr inbounds i8, ptr %call, i64 792
+  %docBlock_.i = getelementptr inbounds nuw i8, ptr %call, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %convertedMessages_.i, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %docBlock_.i) #17
-  %sm_.i.i = getelementptr inbounds i8, ptr %call, i64 160
+  %sm_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   %10 = load ptr, ptr %sm_.i.i, align 8
-  %DiagHandler.i.i.i = getelementptr inbounds i8, ptr %10, i64 104
+  %DiagHandler.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 104
   store ptr @_ZZN12_GLOBAL__N_113ParserContextC1EvENUlRKN4llvh12SMDiagnosticEPvE_8__invokeES4_S5_, ptr %DiagHandler.i.i.i, align 8
-  %DiagContext.i.i.i = getelementptr inbounds i8, ptr %10, i64 112
+  %DiagContext.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 112
   store ptr %call, ptr %DiagContext.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp4.i)
   %tobool = trunc i32 %flags.coerce to i8
   %frombool.i = and i8 %tobool, 1
-  %strictMode_.i = getelementptr inbounds i8, ptr %call, i64 168
+  %strictMode_.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   store i8 %frombool.i, ptr %strictMode_.i, align 8
   %11 = lshr i32 %flags.coerce, 8
   %12 = trunc i32 %11 to i8
   %frombool.i23 = and i8 %12, 1
-  %parseJSX_.i = getelementptr inbounds i8, ptr %call, i64 183
+  %parseJSX_.i = getelementptr inbounds nuw i8, ptr %call, i64 183
   store i8 %frombool.i23, ptr %parseJSX_.i, align 1
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4628,8 +4627,8 @@ lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_113
 if.then:                                          ; preds = %lor.lhs.false, %_ZN12_GLOBAL__N_113ParserContextC2Ev.exit
   %call6.val = load ptr, ptr %sm_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
+  %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
@@ -4650,16 +4649,16 @@ if.end:                                           ; preds = %lor.lhs.false
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %if.end
   %vtable.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
   br label %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit
 
 _ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i24)
-  %parseTS_.i = getelementptr inbounds i8, ptr %call, i64 192
+  %parseTS_.i = getelementptr inbounds nuw i8, ptr %call, i64 192
   store i8 0, ptr %parseTS_.i, align 8
-  %parseFlow_.i = getelementptr inbounds i8, ptr %call, i64 188
+  %parseFlow_.i = getelementptr inbounds nuw i8, ptr %call, i64 188
   store i32 0, ptr %parseFlow_.i, align 4
   %cmp13 = icmp eq i8 %flags.sroa.3.0.extract.trunc, 3
   br i1 %cmp13, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit, label %lor.lhs.false14
@@ -4672,7 +4671,7 @@ _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EED2Ev.exit: ; preds = %lor.lh
   %call19.val = load i32, ptr %bufId_.i, align 8
   call void @_ZN6hermes6parser21getCommentsInDocBlockERNS_7ContextEj(ptr nonnull sret(%"class.std::vector.48") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(656) %call, i32 noundef %call19.val) #17
   %18 = load ptr, ptr %ref.tmp, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %19 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %20 = ptrtoint ptr %19 to i64
@@ -4739,8 +4738,8 @@ if.then52:                                        ; preds = %if.end45
 if.then54:                                        ; preds = %if.then52
   %call55.val = load ptr, ptr %sm_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i41)
-  %LHSKind.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i41, i64 16
-  %RHSKind.i.i43 = getelementptr inbounds i8, ptr %ref.tmp.i41, i64 17
+  %LHSKind.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i41, i64 16
+  %RHSKind.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i41, i64 17
   store i8 1, ptr %RHSKind.i.i43, align 1
   store ptr @.str, ptr %ref.tmp.i41, align 8
   store i8 3, ptr %LHSKind.i.i42, align 8
@@ -4797,9 +4796,9 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %docBlock_.i = getelementptr inbounds i8, ptr %parserCtx, i64 792
+  %docBlock_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 792
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %docBlock_.i) #17
-  %convertedMessages_.i = getelementptr inbounds i8, ptr %parserCtx, i64 744
+  %convertedMessages_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 744
   %convertedMessages_.val.i = load ptr, ptr %convertedMessages_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %convertedMessages_.val.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -4809,38 +4808,38 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull
   br label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %delete.notnull
-  %ourMessages_.i = getelementptr inbounds i8, ptr %parserCtx, i64 664
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 680
+  %ourMessages_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 664
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 680
   %0 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !7
-  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 688
+  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 688
   %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !7
-  %_M_last4.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 696
+  %_M_last4.i.i.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 696
   %2 = load ptr, ptr %_M_last4.i.i.i.i, align 8, !noalias !7
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 704
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 704
   %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !7
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 712
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 712
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !10
-  %_M_first3.i.i2.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 720
+  %_M_first3.i.i2.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 720
   %5 = load ptr, ptr %_M_first3.i.i2.i.i, align 8, !noalias !10
-  %_M_last4.i.i4.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 728
+  %_M_last4.i.i4.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 728
   %6 = load ptr, ptr %_M_last4.i.i4.i.i, align 8, !noalias !10
-  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 736
+  %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 736
   %7 = load ptr, ptr %_M_node5.i.i6.i.i, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
-  %_M_first.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %_M_first.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i.i7.i.i, align 8
-  %_M_last.i.i9.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %_M_last.i.i9.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %2, ptr %_M_last.i.i9.i.i, align 8
-  %_M_node.i.i11.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  %_M_node.i.i11.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i11.i.i, align 8
   store ptr %4, ptr %agg.tmp2.i.i.i, align 8
-  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
+  %_M_first.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %5, ptr %_M_first.i1.i.i.i, align 8
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
+  %_M_last.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %6, ptr %_M_last.i3.i.i.i, align 8
-  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
+  %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i, align 8
   call void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE19_M_destroy_data_auxESt15_Deque_iteratorIS1_RS1_PS1_ES7_(ptr noundef nonnull align 8 dereferenceable(80) %ourMessages_.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -4852,7 +4851,7 @@ _ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i: ; preds = %if.the
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i
   %9 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %10 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %9, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
@@ -4860,7 +4859,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %9, %if.then.i.i.i ]
   %11 = load ptr, ptr %__n.04.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %11) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %10
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !13
 
@@ -4888,13 +4887,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 -2147483648, 2147483648) i64 @hermes_parser_get_first_error(ptr nocapture noundef readonly %parserCtx) local_unnamed_addr #1 {
 entry:
-  %hasVal.i = getelementptr inbounds i8, ptr %parserCtx, i64 776
+  %hasVal.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 776
   %0 = load i8, ptr %hasVal.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %firstError_ = getelementptr inbounds i8, ptr %parserCtx, i64 768
+  %firstError_ = getelementptr inbounds nuw i8, ptr %parserCtx, i64 768
   %1 = load i64, ptr %firstError_, align 8
   %sext = shl i64 %1, 32
   %2 = ashr exact i64 %sext, 32
@@ -4908,7 +4907,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @hermes_parser_get_messages(ptr nocapture noundef readonly %parserCtx) local_unnamed_addr #1 {
 entry:
-  %convertedMessages_ = getelementptr inbounds i8, ptr %parserCtx, i64 744
+  %convertedMessages_ = getelementptr inbounds nuw i8, ptr %parserCtx, i64 744
   %convertedMessages_.val = load ptr, ptr %convertedMessages_, align 8
   %0 = getelementptr i8, ptr %parserCtx, i64 752
   %convertedMessages_.val1 = load ptr, ptr %0, align 8
@@ -4924,7 +4923,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @hermes_parser_get_ast(ptr nocapture noundef readonly %parserCtx) local_unnamed_addr #1 {
 entry:
-  %ast_ = getelementptr inbounds i8, ptr %parserCtx, i64 784
+  %ast_ = getelementptr inbounds nuw i8, ptr %parserCtx, i64 784
   %0 = load ptr, ptr %ast_, align 8
   ret ptr %0
 }
@@ -4934,11 +4933,11 @@ define hidden noundef zeroext i1 @hermes_parser_find_location(ptr nocapture noun
 entry:
   %coords = alloca %"class.hermes::SourceErrorManager::SourceCoords", align 4
   store i32 0, ptr %coords, align 4
-  %line.i = getelementptr inbounds i8, ptr %coords, i64 4
+  %line.i = getelementptr inbounds nuw i8, ptr %coords, i64 4
   store i32 0, ptr %line.i, align 4
-  %col.i = getelementptr inbounds i8, ptr %coords, i64 8
+  %col.i = getelementptr inbounds nuw i8, ptr %coords, i64 8
   store i32 0, ptr %col.i, align 4
-  %sm_.i = getelementptr inbounds i8, ptr %parserCtx, i64 160
+  %sm_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 160
   %0 = load ptr, ptr %sm_.i, align 8
   %call2 = call noundef zeroext i1 @_ZN6hermes18SourceErrorManager20findBufferLineAndLocEN4llvh5SMLocERNS0_12SourceCoordsE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %loc.coerce, ptr noundef nonnull align 4 dereferenceable(12) %coords) #17
   %1 = load i32, ptr %line.i, align 4
@@ -4947,7 +4946,7 @@ entry:
   %.sink4 = select i1 %call2, i32 %1, i32 0
   %.sink = select i1 %call2, i32 %sub, i32 0
   store i32 %.sink4, ptr %res, align 4
-  %3 = getelementptr inbounds i8, ptr %res, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %res, i64 4
   store i32 %.sink, ptr %3, align 4
   ret i1 %call2
 }
@@ -4961,25 +4960,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden noundef zeroext i1 @hermes_parser_find_line(ptr nocapture noundef readonly %parserCtx, ptr %loc.coerce, ptr nocapture noundef writeonly %res) local_unnamed_addr #2 {
 entry:
   %coord = alloca %"class.llvh::Optional.105", align 8
-  %sm_.i = getelementptr inbounds i8, ptr %parserCtx, i64 160
+  %sm_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 160
   %0 = load ptr, ptr %sm_.i, align 8
   call void @_ZNK6hermes18SourceErrorManager17findBufferAndLineEN4llvh5SMLocE(ptr nonnull sret(%"class.llvh::Optional.105") align 8 %coord, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %loc.coerce) #17
-  %hasVal.i = getelementptr inbounds i8, ptr %coord, i64 24
+  %hasVal.i = getelementptr inbounds nuw i8, ptr %coord, i64 24
   %1 = load i8, ptr %hasVal.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %lineNo = getelementptr inbounds i8, ptr %coord, i64 4
+  %lineNo = getelementptr inbounds nuw i8, ptr %coord, i64 4
   %2 = load i32, ptr %lineNo, align 4
   store i32 %2, ptr %res, align 8
-  %lineRef = getelementptr inbounds i8, ptr %coord, i64 8
+  %lineRef = getelementptr inbounds nuw i8, ptr %coord, i64 8
   %lineRef.val = load ptr, ptr %lineRef, align 8
-  %3 = getelementptr inbounds i8, ptr %coord, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %coord, i64 16
   %lineRef.val2 = load i64, ptr %3, align 8
-  %lineRef7 = getelementptr inbounds i8, ptr %res, i64 8
+  %lineRef7 = getelementptr inbounds nuw i8, ptr %res, i64 8
   store ptr %lineRef.val, ptr %lineRef7, align 8
-  %ref.tmp.sroa.2.0.lineRef7.sroa_idx = getelementptr inbounds i8, ptr %res, i64 16
+  %ref.tmp.sroa.2.0.lineRef7.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 16
   store i64 %lineRef.val2, ptr %ref.tmp.sroa.2.0.lineRef7.sroa_idx, align 8
   br label %return
 
@@ -4992,7 +4991,7 @@ declare void @_ZNK6hermes18SourceErrorManager17findBufferAndLineEN4llvh5SMLocE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @hermes_parser_get_line_ref(ptr nocapture noundef readonly %parserCtx, i32 noundef %line) local_unnamed_addr #2 {
 entry:
-  %sm_.i = getelementptr inbounds i8, ptr %parserCtx, i64 160
+  %sm_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 160
   %0 = load ptr, ptr %sm_.i, align 8
   %1 = getelementptr i8, ptr %parserCtx, i64 656
   %parserCtx.val = load i32, ptr %1, align 8
@@ -5009,7 +5008,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ast_ = getelementptr inbounds i8, ptr %parserCtx, i64 784
+  %ast_ = getelementptr inbounds nuw i8, ptr %parserCtx, i64 784
   %1 = load ptr, ptr %ast_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5021,11 +5020,11 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %sm_.i = getelementptr inbounds i8, ptr %parserCtx, i64 160
+  %sm_.i = getelementptr inbounds nuw i8, ptr %parserCtx, i64 160
   %2 = load ptr, ptr %sm_.i, align 8
-  %sourceUrls_.i = getelementptr inbounds i8, ptr %2, i64 376
+  %sourceUrls_.i = getelementptr inbounds nuw i8, ptr %2, i64 376
   %3 = load ptr, ptr %sourceUrls_.i, align 8
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 392
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 392
   %4 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.i.i.i, label %if.end.i.i, label %if.end.i.i.i
@@ -5035,7 +5034,7 @@ if.end.i.i.i:                                     ; preds = %sw.bb
   %sub.i.i.i = add i32 %4, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %mul.i.i.i.i.i
   %idx.ext20.i.i.i = zext i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext20.i.i.i
   %5 = load i32, ptr %add.ptr21.i.i.i, align 4
   %cmp.i22.i.i.i = icmp eq i32 %parserCtx.val8, %5
   br i1 %cmp.i22.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i, label %if.end9.i.i.i
@@ -5052,25 +5051,25 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i.i
   %7 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %parserCtx.val8, %7
   br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i, label %if.end9.i.i.i, !llvm.loop !14
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %sw.bb
   %idx.ext.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i: ; preds = %if.end13.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   %idx.ext.i.i3.i = zext i32 %4 to i64
-  %add.ptr.i.i4.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i3.i
+  %add.ptr.i.i4.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %3, i64 %idx.ext.i.i3.i
   %cmp.i.i5.not.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i4.i
   br i1 %cmp.i.i5.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i
-  %second.i = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
+  %second.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #17
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #17
   %8 = insertvalue { ptr, i64 } poison, ptr %call.i.i, 0
@@ -5088,11 +5087,11 @@ _ZNK6hermes18SourceErrorManager12getSourceUrlEj.exit: ; preds = %if.then.i, %if.
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %sm_.i9 = getelementptr inbounds i8, ptr %parserCtx, i64 160
+  %sm_.i9 = getelementptr inbounds nuw i8, ptr %parserCtx, i64 160
   %12 = load ptr, ptr %sm_.i9, align 8
-  %sourceMappingUrls_.i = getelementptr inbounds i8, ptr %12, i64 352
+  %sourceMappingUrls_.i = getelementptr inbounds nuw i8, ptr %12, i64 352
   %13 = load ptr, ptr %sourceMappingUrls_.i, align 8
-  %NumBuckets.i.i.i.i.i10 = getelementptr inbounds i8, ptr %12, i64 368
+  %NumBuckets.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %12, i64 368
   %14 = load i32, ptr %NumBuckets.i.i.i.i.i10, align 8
   %cmp.i.i.i11 = icmp eq i32 %14, 0
   br i1 %cmp.i.i.i11, label %if.end.i.i36, label %if.end.i.i.i12
@@ -5102,7 +5101,7 @@ if.end.i.i.i12:                                   ; preds = %sw.bb4
   %sub.i.i.i14 = add i32 %14, -1
   %BucketNo.019.i.i.i15 = and i32 %sub.i.i.i14, %mul.i.i.i.i.i13
   %idx.ext20.i.i.i16 = zext i32 %BucketNo.019.i.i.i15 to i64
-  %add.ptr21.i.i.i17 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext20.i.i.i16
+  %add.ptr21.i.i.i17 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext20.i.i.i16
   %15 = load i32, ptr %add.ptr21.i.i.i17, align 4
   %cmp.i22.i.i.i18 = icmp eq i32 %parserCtx.val8, %15
   br i1 %cmp.i22.i.i.i18, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30, label %if.end9.i.i.i19
@@ -5119,25 +5118,25 @@ if.end13.i.i.i23:                                 ; preds = %if.end9.i.i.i19
   %add.i.i.i25 = add i32 %ProbeAmt.024.i.i.i21, %BucketNo.025.i.i.i20
   %BucketNo.0.i.i.i26 = and i32 %add.i.i.i25, %sub.i.i.i14
   %idx.ext.i.i.i27 = zext i32 %BucketNo.0.i.i.i26 to i64
-  %add.ptr.i.i.i28 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i.i27
+  %add.ptr.i.i.i28 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i.i27
   %17 = load i32, ptr %add.ptr.i.i.i28, align 4
   %cmp.i.i.i.i29 = icmp eq i32 %parserCtx.val8, %17
   br i1 %cmp.i.i.i.i29, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30, label %if.end9.i.i.i19, !llvm.loop !14
 
 if.end.i.i36:                                     ; preds = %if.end9.i.i.i19, %sw.bb4
   %idx.ext.i.i.i.i37 = zext i32 %14 to i64
-  %add.ptr.i.i.i.i38 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i.i.i37
+  %add.ptr.i.i.i.i38 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i.i.i37
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30: ; preds = %if.end13.i.i.i23, %if.end.i.i36, %if.end.i.i.i12
   %cond.sink.i.ph.pn.i.i31 = phi ptr [ %add.ptr.i.i.i.i38, %if.end.i.i36 ], [ %add.ptr21.i.i.i17, %if.end.i.i.i12 ], [ %add.ptr.i.i.i28, %if.end13.i.i.i23 ]
   %idx.ext.i.i5.i = zext i32 %14 to i64
-  %add.ptr.i.i6.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i5.i
+  %add.ptr.i.i6.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %13, i64 %idx.ext.i.i5.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i31, %add.ptr.i.i6.i
   br i1 %cmp.i.i, label %return, label %if.end.i32
 
 if.end.i32:                                       ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4findERKj.exit.i30
-  %second.i33 = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i.i31, i64 8
+  %second.i33 = getelementptr inbounds nuw i8, ptr %cond.sink.i.ph.pn.i.i31, i64 8
   %call.i.i34 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i33) #17
   %call2.i.i35 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i33) #17
   br label %return
@@ -5163,7 +5162,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZN6hermes6ESTree4Node11getNodeNameEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %kind_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [251 x i64], ptr @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv, i64 0, i64 %1
@@ -5179,7 +5178,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @hermes_parser_get_doc_block(ptr noundef %parserCtx) local_unnamed_addr #2 {
 entry:
-  %docBlock_ = getelementptr inbounds i8, ptr %parserCtx, i64 792
+  %docBlock_ = getelementptr inbounds nuw i8, ptr %parserCtx, i64 792
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %docBlock_) #17
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %docBlock_) #17
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %call.i, 0
@@ -5192,117 +5191,117 @@ define linkonce_odr hidden void @_ZN6hermes7ContextC2ENS_22CodeGenerationSetting
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   store i32 0, ptr %call.i, align 8
-  %offset.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 0, ptr %offset.i.i, align 8
-  %hugeAllocs.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %hugeAllocs.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %hugeAllocs.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %state_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call.i, ptr %state_.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(262144) ptr @_Znwm(i64 noundef 262144) #15, !noalias !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(262144) %call.i.i, i8 0, i64 262144, i1 false), !noalias !15
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   %0 = ptrtoint ptr %call.i.i to i64
-  store i64 %0, ptr %call5.i.i.i.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
-  store ptr %call5.i.i.i.i.i, ptr %this, align 8
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %identifierAllocator_ = getelementptr inbounds i8, ptr %this, i64 32
+  store i64 %0, ptr %call5.i.i.i.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 8
+  store ptr %call5.i.i.i.i.i.i.i, ptr %this, align 8
+  store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
+  store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
+  %identifierAllocator_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call.i1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   store i32 0, ptr %call.i1, align 8
-  %offset.i.i2 = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %offset.i.i2 = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store i64 0, ptr %offset.i.i2, align 8
-  %hugeAllocs.i.i3 = getelementptr inbounds i8, ptr %call.i1, i64 16
-  %add.ptr.i.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call.i1, i64 32
+  %hugeAllocs.i.i3 = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
+  %add.ptr.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call.i1, i64 32
   store ptr %add.ptr.i.i.i.i.i.i.i4, ptr %hugeAllocs.i.i3, align 8
-  %Size.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %call.i1, i64 24
+  %Size.i.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i.i.i5, i8 0, i64 16, i1 false)
-  %state_.i6 = getelementptr inbounds i8, ptr %this, i64 56
+  %state_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %call.i1, ptr %state_.i6, align 8
   %call.i.i7 = tail call noalias noundef nonnull dereferenceable(262144) ptr @_Znwm(i64 noundef 262144) #15, !noalias !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(262144) %call.i.i7, i8 0, i64 262144, i1 false), !noalias !18
-  %_M_finish.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_end_of_storage.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 48
-  %call5.i.i.i.i.i10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
+  %_M_finish.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_end_of_storage.i.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %call5.i.i.i.i.i.i.i10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   %1 = ptrtoint ptr %call.i.i7 to i64
-  store i64 %1, ptr %call5.i.i.i.i.i10, align 8
-  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i10, i64 8
-  store ptr %call5.i.i.i.i.i10, ptr %identifierAllocator_, align 8
-  store ptr %incdec.ptr.i.i11, ptr %_M_finish.i.i.i8, align 8
-  store ptr %incdec.ptr.i.i11, ptr %_M_end_of_storage.i.i.i9, align 8
-  %preParsed_ = getelementptr inbounds i8, ptr %this, i64 64
+  store i64 %1, ptr %call5.i.i.i.i.i.i.i10, align 8
+  %incdec.ptr.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i10, i64 8
+  store ptr %call5.i.i.i.i.i.i.i10, ptr %identifierAllocator_, align 8
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i8, align 8
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_end_of_storage.i.i.i9, align 8
+  %preParsed_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %preParsed_, align 8
-  %stringTable_ = getelementptr inbounds i8, ptr %this, i64 72
+  %stringTable_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %identifierAllocator_, ptr %stringTable_, align 8
-  %strMap_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %strMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %strMap_.i, i8 0, i64 20, i1 false)
-  %compiledRegExps_ = getelementptr inbounds i8, ptr %this, i64 104
-  %2 = getelementptr inbounds i8, ptr %this, i64 112
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %compiledRegExps_ = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %compiledRegExps_, i8 0, i64 24, i1 false)
   store ptr %2, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %ownSm_ = getelementptr inbounds i8, ptr %this, i64 152
+  %ownSm_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call = tail call noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #15
   tail call void @_ZN6hermes18SourceErrorManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %call) #17
   store ptr %call, ptr %ownSm_, align 8
-  %sm_ = getelementptr inbounds i8, ptr %this, i64 160
+  %sm_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %call, ptr %sm_, align 8
-  %strictMode_ = getelementptr inbounds i8, ptr %this, i64 168
+  %strictMode_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i8 0, ptr %strictMode_, align 8
-  %enableEval_ = getelementptr inbounds i8, ptr %this, i64 169
+  %enableEval_ = getelementptr inbounds nuw i8, ptr %this, i64 169
   store i8 1, ptr %enableEval_, align 1
-  %lazyCompilation_ = getelementptr inbounds i8, ptr %this, i64 170
+  %lazyCompilation_ = getelementptr inbounds nuw i8, ptr %this, i64 170
   store i8 0, ptr %lazyCompilation_, align 2
-  %preemptiveFunctionCompilationThreshold_ = getelementptr inbounds i8, ptr %this, i64 172
-  %generatorEnabled_ = getelementptr inbounds i8, ptr %this, i64 181
+  %preemptiveFunctionCompilationThreshold_ = getelementptr inbounds nuw i8, ptr %this, i64 172
+  %generatorEnabled_ = getelementptr inbounds nuw i8, ptr %this, i64 181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %preemptiveFunctionCompilationThreshold_, i8 0, i64 9, i1 false)
   store i8 1, ptr %generatorEnabled_, align 1
-  %useCJSModules_ = getelementptr inbounds i8, ptr %this, i64 182
+  %useCJSModules_ = getelementptr inbounds nuw i8, ptr %this, i64 182
   store i8 0, ptr %useCJSModules_, align 2
-  %parseJSX_ = getelementptr inbounds i8, ptr %this, i64 183
+  %parseJSX_ = getelementptr inbounds nuw i8, ptr %this, i64 183
   store i8 0, ptr %parseJSX_, align 1
-  %parseFlowComponentSyntax_ = getelementptr inbounds i8, ptr %this, i64 184
+  %parseFlowComponentSyntax_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i8 0, ptr %parseFlowComponentSyntax_, align 8
-  %parseFlow_ = getelementptr inbounds i8, ptr %this, i64 188
+  %parseFlow_ = getelementptr inbounds nuw i8, ptr %this, i64 188
   store i32 0, ptr %parseFlow_, align 4
-  %parseTS_ = getelementptr inbounds i8, ptr %this, i64 192
+  %parseTS_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i8 0, ptr %parseTS_, align 8
-  %convertES6Classes_ = getelementptr inbounds i8, ptr %this, i64 193
+  %convertES6Classes_ = getelementptr inbounds nuw i8, ptr %this, i64 193
   store i8 0, ptr %convertES6Classes_, align 1
-  %resolutionTable_ = getelementptr inbounds i8, ptr %this, i64 200
+  %resolutionTable_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %3 = load i64, ptr %resolutionTable, align 8
   store i64 %3, ptr %resolutionTable_, align 8
   store ptr null, ptr %resolutionTable, align 8
-  %segments_ = getelementptr inbounds i8, ptr %this, i64 208
+  %segments_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %4 = load ptr, ptr %segments, align 8
   store ptr %4, ptr %segments_, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %segments, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %_M_finish3.i.i.i.i = getelementptr inbounds nuw i8, ptr %segments, i64 8
   %5 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %segments, i64 16
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds nuw i8, ptr %segments, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %segments, i8 0, i64 24, i1 false)
-  %debugInfoSetting_ = getelementptr inbounds i8, ptr %this, i64 232
+  %debugInfoSetting_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   store i32 0, ptr %debugInfoSetting_, align 8
-  %emitAsyncBreakCheck_ = getelementptr inbounds i8, ptr %this, i64 236
+  %emitAsyncBreakCheck_ = getelementptr inbounds nuw i8, ptr %this, i64 236
   store i8 0, ptr %emitAsyncBreakCheck_, align 4
-  %codeGenerationSettings_ = getelementptr inbounds i8, ptr %this, i64 240
+  %codeGenerationSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @_ZN6hermes22CodeGenerationSettingsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(392) %codeGenerationSettings_, ptr noundef nonnull align 8 dereferenceable(392) %codeGenOpts)
-  %optimizationSettings_ = getelementptr inbounds i8, ptr %this, i64 632
+  %optimizationSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 632
   store i48 %optimizationOpts.coerce, ptr %optimizationSettings_, align 8
-  %hbcBackendContext_ = getelementptr inbounds i8, ptr %this, i64 640
+  %hbcBackendContext_ = getelementptr inbounds nuw i8, ptr %this, i64 640
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hbcBackendContext_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -5310,66 +5309,66 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes22CodeGenerationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %functionsToDump = getelementptr inbounds i8, ptr %this, i64 320
+  %functionsToDump = getelementptr inbounds nuw i8, ptr %this, i64 320
   %bf.load.i.i.i.i = load i32, ptr %functionsToDump, align 8
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 1
   %tobool.not.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %storage.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %0) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit: ; preds = %entry, %if.end.i.i.i.i
-  %functions.i = getelementptr inbounds i8, ptr %this, i64 248
+  %functions.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %bf.load.i.i.i.i.i = load i32, ptr %functions.i, align 8
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 1
   %tobool.not.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit
-  %storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %1 = load ptr, ptr %storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %1) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i: ; preds = %if.end.i.i.i.i.i, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit
-  %passes.i = getelementptr inbounds i8, ptr %this, i64 176
+  %passes.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %bf.load.i.i.i.i1.i = load i32, ptr %passes.i, align 8
   %bf.clear.i.i.i.i2.i = and i32 %bf.load.i.i.i.i1.i, 1
   %tobool.not.i.i.i.i3.i = icmp eq i32 %bf.clear.i.i.i.i2.i, 0
   br i1 %tobool.not.i.i.i.i3.i, label %if.end.i.i.i.i4.i, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit
 
 if.end.i.i.i.i4.i:                                ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i
-  %storage.i.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %this, i64 184
+  %storage.i.i.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %2 = load ptr, ptr %storage.i.i.i.i.i.i5.i, align 8
   tail call void @_ZdlPv(ptr noundef %2) #17
   br label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit
 
 _ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit: ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i, %if.end.i.i.i.i4.i
-  %functions.i1 = getelementptr inbounds i8, ptr %this, i64 96
+  %functions.i1 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %bf.load.i.i.i.i.i2 = load i32, ptr %functions.i1, align 8
   %bf.clear.i.i.i.i.i3 = and i32 %bf.load.i.i.i.i.i2, 1
   %tobool.not.i.i.i.i.i4 = icmp eq i32 %bf.clear.i.i.i.i.i3, 0
   br i1 %tobool.not.i.i.i.i.i4, label %if.end.i.i.i.i.i12, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5
 
 if.end.i.i.i.i.i12:                               ; preds = %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit
-  %storage.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
+  %storage.i.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %3 = load ptr, ptr %storage.i.i.i.i.i.i.i13, align 8
   tail call void @_ZdlPv(ptr noundef %3) #17
   br label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5: ; preds = %if.end.i.i.i.i.i12, %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit
-  %passes.i6 = getelementptr inbounds i8, ptr %this, i64 24
+  %passes.i6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %bf.load.i.i.i.i1.i7 = load i32, ptr %passes.i6, align 8
   %bf.clear.i.i.i.i2.i8 = and i32 %bf.load.i.i.i.i1.i7, 1
   %tobool.not.i.i.i.i3.i9 = icmp eq i32 %bf.clear.i.i.i.i2.i8, 0
   br i1 %tobool.not.i.i.i.i3.i9, label %if.end.i.i.i.i4.i10, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit14
 
 if.end.i.i.i.i4.i10:                              ; preds = %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEED2Ev.exit.i5
-  %storage.i.i.i.i.i.i5.i11 = getelementptr inbounds i8, ptr %this, i64 32
+  %storage.i.i.i.i.i.i5.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %storage.i.i.i.i.i.i5.i11, align 8
   tail call void @_ZdlPv(ptr noundef %4) #17
   br label %_ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit14
@@ -5387,110 +5386,110 @@ declare void @_ZN6hermes18SourceErrorManagerC1Ev(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN6hermes22CodeGenerationSettingsC2EOS0_(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr noundef nonnull align 8 dereferenceable(10) %0, i64 10, i1 false)
-  %dumpBefore = getelementptr inbounds i8, ptr %this, i64 16
-  %dumpBefore3 = getelementptr inbounds i8, ptr %0, i64 16
+  %dumpBefore = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %dumpBefore3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i8, ptr %dumpBefore3, align 8
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %dumpBefore, align 8
-  %passes.i = getelementptr inbounds i8, ptr %this, i64 24
+  %passes.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 1, ptr %passes.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %NumTombstones.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i.i, align 4
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %entry
   %B.05.i.i.idx.i.i.i.i = phi i64 [ %B.05.i.i.add.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 8, %entry ]
-  %B.05.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %passes.i, i64 %B.05.i.i.idx.i.i.i.i
+  %B.05.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %passes.i, i64 %B.05.i.i.idx.i.i.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.ptr.i.i.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %B.05.i.i.ptr.i.i.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.ptr.i.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i, align 8
   %B.05.i.i.add.i.i.i.i = add nuw nsw i64 %B.05.i.i.idx.i.i.i.i, 16
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %B.05.i.i.add.i.i.i.i, 72
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i: ; preds = %for.body.i.i.i.i.i.i
-  %passes3.i = getelementptr inbounds i8, ptr %0, i64 24
+  %passes3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvh13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i, ptr noundef nonnull align 8 dereferenceable(72) %passes3.i)
-  %functions.i = getelementptr inbounds i8, ptr %this, i64 96
+  %functions.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 1, ptr %functions.i, align 8
-  %NumTombstones.i.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %this, i64 100
+  %NumTombstones.i.i.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i3.i, align 4
   br label %for.body.i.i.i.i.i4.i
 
 for.body.i.i.i.i.i4.i:                            ; preds = %for.body.i.i.i.i.i4.i, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i
   %B.05.i.i.idx.i.i.i5.i = phi i64 [ %B.05.i.i.add.i.i.i8.i, %for.body.i.i.i.i.i4.i ], [ 8, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i ]
-  %B.05.i.i.ptr.i.i.i6.i = getelementptr inbounds i8, ptr %functions.i, i64 %B.05.i.i.idx.i.i.i5.i
+  %B.05.i.i.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %functions.i, i64 %B.05.i.i.idx.i.i.i5.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.ptr.i.i.i6.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %B.05.i.i.ptr.i.i.i6.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.ptr.i.i.i6.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i, align 8
   %B.05.i.i.add.i.i.i8.i = add nuw nsw i64 %B.05.i.i.idx.i.i.i5.i, 16
   %cmp.not.i.i.i.i.i9.i = icmp eq i64 %B.05.i.i.add.i.i.i8.i, 72
   br i1 %cmp.not.i.i.i.i.i9.i, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit, label %for.body.i.i.i.i.i4.i, !llvm.loop !4
 
 _ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit: ; preds = %for.body.i.i.i.i.i4.i
-  %functions4.i = getelementptr inbounds i8, ptr %0, i64 96
+  %functions4.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN4llvh13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %functions.i, ptr noundef nonnull align 8 dereferenceable(72) %functions4.i)
-  %dumpAfter = getelementptr inbounds i8, ptr %this, i64 168
-  %dumpAfter4 = getelementptr inbounds i8, ptr %0, i64 168
+  %dumpAfter = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %dumpAfter4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %2 = load i8, ptr %dumpAfter4, align 8
   %frombool.i4 = and i8 %2, 1
   store i8 %frombool.i4, ptr %dumpAfter, align 8
-  %passes.i5 = getelementptr inbounds i8, ptr %this, i64 176
+  %passes.i5 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 1, ptr %passes.i5, align 8
-  %NumTombstones.i.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 180
+  %NumTombstones.i.i.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 180
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i.i6, align 4
   br label %for.body.i.i.i.i.i.i7
 
 for.body.i.i.i.i.i.i7:                            ; preds = %for.body.i.i.i.i.i.i7, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit
   %B.05.i.i.idx.i.i.i.i8 = phi i64 [ %B.05.i.i.add.i.i.i.i11, %for.body.i.i.i.i.i.i7 ], [ 8, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit ]
-  %B.05.i.i.ptr.i.i.i.i9 = getelementptr inbounds i8, ptr %passes.i5, i64 %B.05.i.i.idx.i.i.i.i8
+  %B.05.i.i.ptr.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %passes.i5, i64 %B.05.i.i.idx.i.i.i.i8
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.ptr.i.i.i.i9, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %B.05.i.i.ptr.i.i.i.i9, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %B.05.i.i.ptr.i.i.i.i9, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i.i10, align 8
   %B.05.i.i.add.i.i.i.i11 = add nuw nsw i64 %B.05.i.i.idx.i.i.i.i8, 16
   %cmp.not.i.i.i.i.i.i12 = icmp eq i64 %B.05.i.i.add.i.i.i.i11, 72
   br i1 %cmp.not.i.i.i.i.i.i12, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i13, label %for.body.i.i.i.i.i.i7, !llvm.loop !4
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i13: ; preds = %for.body.i.i.i.i.i.i7
-  %passes3.i14 = getelementptr inbounds i8, ptr %0, i64 176
+  %passes3.i14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN4llvh13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i5, ptr noundef nonnull align 8 dereferenceable(72) %passes3.i14)
-  %functions.i15 = getelementptr inbounds i8, ptr %this, i64 248
+  %functions.i15 = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i32 1, ptr %functions.i15, align 8
-  %NumTombstones.i.i.i.i.i.i.i3.i16 = getelementptr inbounds i8, ptr %this, i64 252
+  %NumTombstones.i.i.i.i.i.i.i3.i16 = getelementptr inbounds nuw i8, ptr %this, i64 252
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i3.i16, align 4
   br label %for.body.i.i.i.i.i4.i17
 
 for.body.i.i.i.i.i4.i17:                          ; preds = %for.body.i.i.i.i.i4.i17, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i13
   %B.05.i.i.idx.i.i.i5.i18 = phi i64 [ %B.05.i.i.add.i.i.i8.i21, %for.body.i.i.i.i.i4.i17 ], [ 8, %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit.i13 ]
-  %B.05.i.i.ptr.i.i.i6.i19 = getelementptr inbounds i8, ptr %functions.i15, i64 %B.05.i.i.idx.i.i.i5.i18
+  %B.05.i.i.ptr.i.i.i6.i19 = getelementptr inbounds nuw i8, ptr %functions.i15, i64 %B.05.i.i.idx.i.i.i5.i18
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.ptr.i.i.i6.i19, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i20 = getelementptr inbounds i8, ptr %B.05.i.i.ptr.i.i.i6.i19, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i20 = getelementptr inbounds nuw i8, ptr %B.05.i.i.ptr.i.i.i6.i19, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i7.i20, align 8
   %B.05.i.i.add.i.i.i8.i21 = add nuw nsw i64 %B.05.i.i.idx.i.i.i5.i18, 16
   %cmp.not.i.i.i.i.i9.i22 = icmp eq i64 %B.05.i.i.add.i.i.i8.i21, 72
   br i1 %cmp.not.i.i.i.i.i9.i22, label %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit24, label %for.body.i.i.i.i.i4.i17, !llvm.loop !4
 
 _ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit24: ; preds = %for.body.i.i.i.i.i4.i17
-  %functions4.i23 = getelementptr inbounds i8, ptr %0, i64 248
+  %functions4.i23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN4llvh13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %functions.i15, ptr noundef nonnull align 8 dereferenceable(72) %functions4.i23)
-  %functionsToDump = getelementptr inbounds i8, ptr %this, i64 320
+  %functionsToDump = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i32 1, ptr %functionsToDump, align 8
-  %NumTombstones.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 324
+  %NumTombstones.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 324
   store i32 0, ptr %NumTombstones.i.i.i.i.i.i.i, align 4
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit24
   %B.05.i.i.idx.i.i.i = phi i64 [ %B.05.i.i.add.i.i.i, %for.body.i.i.i.i.i ], [ 8, %_ZN6hermes35CodeGenerationSettings_DumpSettingsC2EOS0_.exit24 ]
-  %B.05.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %functionsToDump, i64 %B.05.i.i.idx.i.i.i
+  %B.05.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %functionsToDump, i64 %B.05.i.i.idx.i.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.05.i.i.ptr.i.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %B.05.i.i.ptr.i.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %B.05.i.i.ptr.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i.i.i.i, align 8
   %B.05.i.i.add.i.i.i = add nuw nsw i64 %B.05.i.i.idx.i.i.i, 16
   %cmp.not.i.i.i.i.i = icmp eq i64 %B.05.i.i.add.i.i.i, 72
   br i1 %cmp.not.i.i.i.i.i, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit, label %for.body.i.i.i.i.i, !llvm.loop !4
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2EOS4_.exit: ; preds = %for.body.i.i.i.i.i
-  %functionsToDump5 = getelementptr inbounds i8, ptr %0, i64 320
+  %functionsToDump5 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @_ZN4llvh13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %functionsToDump, ptr noundef nonnull align 8 dereferenceable(72) %functionsToDump5)
   ret void
 }
@@ -5521,8 +5520,8 @@ entry:
   %bf.clear8 = and i32 %bf.load5, 1
   %bf.set9 = or disjoint i32 %bf.clear8, %bf.lshr
   store i32 %bf.set9, ptr %this, align 8
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 4
-  %NumTombstones10 = getelementptr inbounds i8, ptr %RHS, i64 4
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %NumTombstones10 = getelementptr inbounds nuw i8, ptr %RHS, i64 4
   %0 = load i32, ptr %NumTombstones, align 4
   %1 = load i32, ptr %NumTombstones10, align 4
   store i32 %1, ptr %NumTombstones, align 4
@@ -5539,14 +5538,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool65.not, label %if.end73, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true
-  %storage.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %storage.i.i46 = getelementptr inbounds i8, ptr %RHS, i64 8
+  %storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %storage.i.i46 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %storage.i.i, i64 %indvars.iv
-  %arrayidx20 = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %storage.i.i46, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i46, i64 %indvars.iv
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload
   %cmp7.i65 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
@@ -5592,14 +5591,14 @@ land.lhs.true62:                                  ; preds = %entry
   br i1 %tobool65.not, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %land.lhs.true62
-  %storage.i.i86 = getelementptr inbounds i8, ptr %this, i64 8
-  %storage.i.i87 = getelementptr inbounds i8, ptr %RHS, i64 8
+  %storage.i.i86 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %storage.i.i87 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %2 = load ptr, ptr %storage.i.i86, align 8
   %3 = load ptr, ptr %storage.i.i87, align 8
   store ptr %3, ptr %storage.i.i86, align 8
   store ptr %2, ptr %storage.i.i87, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
-  %NumBuckets72 = getelementptr inbounds i8, ptr %RHS, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %NumBuckets72 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %4 = load i32, ptr %NumBuckets, align 8
   %5 = load i32, ptr %NumBuckets72, align 8
   store i32 %5, ptr %NumBuckets, align 8
@@ -5610,17 +5609,17 @@ if.end73:                                         ; preds = %land.lhs.true, %lan
   %bf.load86 = phi i32 [ %bf.load63, %land.lhs.true ], [ %bf.load12, %land.lhs.true62 ]
   %cond-lvalue83 = phi ptr [ %RHS, %land.lhs.true ], [ %this, %land.lhs.true62 ]
   %cond-lvalue = phi ptr [ %this, %land.lhs.true ], [ %RHS, %land.lhs.true62 ]
-  %storage.i.i90 = getelementptr inbounds i8, ptr %cond-lvalue83, i64 8
+  %storage.i.i90 = getelementptr inbounds nuw i8, ptr %cond-lvalue83, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i90, i64 16, i1 false)
   %bf.set88 = or i32 %bf.load86, 1
   store i32 %bf.set88, ptr %cond-lvalue83, align 8
-  %storage.i.i93 = getelementptr inbounds i8, ptr %cond-lvalue, i64 8
+  %storage.i.i93 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
   %indvars.iv128 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next129, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106 ]
-  %arrayidx96 = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %storage.i.i90, i64 %indvars.iv128
-  %arrayidx99 = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %storage.i.i93, i64 %indvars.iv128
+  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i90, i64 %indvars.iv128
+  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i93, i64 %indvars.iv128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx96, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx99, i64 16, i1 false)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %cmp92.not = icmp eq i64 %indvars.iv.next129, 4
@@ -5640,24 +5639,24 @@ return:                                           ; preds = %for.inc, %for.end11
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN12_GLOBAL__N_113ParserContextC1EvENUlRKN4llvh12SMDiagnosticEPvE_8__invokeES4_S5_(ptr noundef nonnull align 8 dereferenceable(360) %diag, ptr noundef %ctx) #2 align 2 {
 entry:
-  %Kind.i.i.i = getelementptr inbounds i8, ptr %diag, i64 56
+  %Kind.i.i.i = getelementptr inbounds nuw i8, ptr %diag, i64 56
   %0 = load i32, ptr %Kind.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %hasVal.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 776
+  %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 776
   %1 = load i8, ptr %hasVal.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %firstError_.i.i = getelementptr inbounds i8, ptr %ctx, i64 768
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 712
-  %_M_start.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 680
-  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 736
+  %firstError_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 768
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 712
+  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 680
+  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 736
   %2 = load ptr, ptr %_M_node.i.i.i.i, align 8
-  %_M_node1.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 704
+  %_M_node1.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   %3 = load ptr, ptr %_M_node1.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
@@ -5667,14 +5666,14 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 720
+  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 720
   %5 = load ptr, ptr %_M_first.i.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 360
   %add.i.i.i.i = add nsw i64 %sub.i.i.i.i, %sub.ptr.div6.i.i.i.i
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 696
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 696
   %6 = load ptr, ptr %_M_last.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_start.i.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %6 to i64
@@ -5687,9 +5686,9 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i, %entry
-  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %ctx, i64 712
+  %_M_finish.i2.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 712
   %8 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 728
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 728
   %9 = load ptr, ptr %_M_last.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 -360
   %cmp.not.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i
@@ -5698,30 +5697,30 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %land.
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   tail call void @_ZN4llvh12SMDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(360) %8, ptr noundef nonnull align 8 dereferenceable(360) %diag)
   %10 = load ptr, ptr %_M_finish.i2.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 360
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 360
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i2.i.i, align 8
   br label %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE9push_backERKS1_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  %ourMessages_6.i.i = getelementptr inbounds i8, ptr %ctx, i64 664
+  %ourMessages_6.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 664
   tail call void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %ourMessages_6.i.i, ptr noundef nonnull align 8 dereferenceable(360) %diag)
   %.pre.i.i = load ptr, ptr %_M_finish.i2.i.i, align 8, !noalias !23
   br label %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE9push_backERKS1_.exit.i.i
 
 _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE9push_backERKS1_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %11 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %.pre.i.i, %if.else.i.i.i ]
-  %convertedMessages_.i.i = getelementptr inbounds i8, ptr %ctx, i64 744
-  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 720
+  %convertedMessages_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 744
+  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 720
   %12 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !23
   %cmp.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE9push_backERKS1_.exit.i.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 736
+  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 736
   %13 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !23
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8
   %14 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 360
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 360
   br label %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i
 
 _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE9push_backERKS1_.exit.i.i
@@ -5743,31 +5742,31 @@ _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i: ; preds = %if.then.i.
   %LineContents.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -264
   %call.i.i6.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i.i.i) #17
   %call2.i.i7.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i.i.i) #17
-  %_M_finish.i.i3.i.i = getelementptr inbounds i8, ptr %ctx, i64 752
+  %_M_finish.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 752
   %20 = load ptr, ptr %_M_finish.i.i3.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 760
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 760
   %21 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %20, %21
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i4.i.i
 
 if.then.i.i4.i.i:                                 ; preds = %_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE4backEv.exit.i.i
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %20, align 8
-  %ref.tmp7.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %ref.tmp7.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %16, ptr %ref.tmp7.sroa.3.0..sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 12
+  %ref.tmp7.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %17, ptr %ref.tmp7.sroa.4.0..sroa_idx.i.i, align 4
-  %ref.tmp7.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 16
+  %ref.tmp7.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %spec.select, ptr %ref.tmp7.sroa.5.0..sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.612.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  %ref.tmp7.sroa.612.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %call.i.i.i.i.i, ptr %ref.tmp7.sroa.612.0..sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 32
+  %ref.tmp7.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 %call2.i.i.i.i.i, ptr %ref.tmp7.sroa.7.0..sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 40
+  %ref.tmp7.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr %call.i.i6.i.i.i, ptr %ref.tmp7.sroa.8.0..sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.9.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 48
+  %ref.tmp7.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i64 %call2.i.i7.i.i.i, ptr %ref.tmp7.sroa.9.0..sroa_idx.i.i, align 8
   %22 = load ptr, ptr %_M_finish.i.i3.i.i, align 8
-  %incdec.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %22, i64 56
+  %incdec.ptr.i.i5.i.i = getelementptr inbounds nuw i8, ptr %22, i64 56
   store ptr %incdec.ptr.i.i5.i.i, ptr %_M_finish.i.i3.i.i, align 8
   br label %_ZZN12_GLOBAL__N_113ParserContextC1EvENKUlRKN4llvh12SMDiagnosticEPvE_clES4_S5_.exit
 
@@ -5797,19 +5796,19 @@ _ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #15
   %add.ptr.i.i.i6.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %add.ptr.i.i.i6.i.i, align 8
-  %ref.tmp7.sroa.3.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 8
+  %ref.tmp7.sroa.3.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 8
   store i32 %16, ptr %ref.tmp7.sroa.3.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.4.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 12
+  %ref.tmp7.sroa.4.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 12
   store i32 %17, ptr %ref.tmp7.sroa.4.0.add.ptr.i.i.i6.sroa_idx.i.i, align 4
-  %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 16
+  %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 16
   store i32 %spec.select, ptr %ref.tmp7.sroa.5.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.612.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 24
+  %ref.tmp7.sroa.612.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 24
   store ptr %call.i.i.i.i.i, ptr %ref.tmp7.sroa.612.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.7.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 32
+  %ref.tmp7.sroa.7.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 32
   store i64 %call2.i.i.i.i.i, ptr %ref.tmp7.sroa.7.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.8.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 40
+  %ref.tmp7.sroa.8.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 40
   store ptr %call.i.i6.i.i.i, ptr %ref.tmp7.sroa.8.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  %ref.tmp7.sroa.9.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 48
+  %ref.tmp7.sroa.9.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i6.i.i, i64 48
   store i64 %call2.i.i7.i.i.i, ptr %ref.tmp7.sroa.9.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
@@ -5817,14 +5816,14 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNKSt6vectorIN12_G
   %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %this.val.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %__cur.03.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %__first.addr.02.i.i.i.i.i.i.i.i, i64 56, i1 false), !alias.scope !26
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 56
-  %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 56
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 56
+  %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %20
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 56
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 56
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, label %if.then.i22.i.i.i.i.i
 
@@ -5835,7 +5834,7 @@ if.then.i22.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIN12_GL
 _ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i22.i.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %convertedMessages_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i3.i.i, align 8
-  %add.ptr19.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::DiagMessage", ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
+  %add.ptr19.i.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::DiagMessage", ptr %call5.i.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZZN12_GLOBAL__N_113ParserContextC1EvENKUlRKN4llvh12SMDiagnosticEPvE_clES4_S5_.exit
 
@@ -5846,11 +5845,11 @@ _ZZN12_GLOBAL__N_113ParserContextC1EvENKUlRKN4llvh12SMDiagnosticEPvE_clES4_S5_.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(360) %__args) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -5860,14 +5859,14 @@ entry:
   %conv.neg.i.i = sext i1 %tobool.i.i to i64
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 360
   %add.i.i = add nsw i64 %sub.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -5883,7 +5882,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -5901,17 +5900,17 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #15
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   tail call void @_ZN4llvh12SMDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(360) %9, ptr noundef nonnull align 8 dereferenceable(360) %__args)
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %10, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr12, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 360
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 360
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %11, ptr %_M_finish.i, align 8
   ret void
@@ -5921,33 +5920,32 @@ _ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE22_M_reserve_map_at_backEm.exit: ; pred
 define linkonce_odr hidden void @_ZN4llvh12SMDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %Filename = getelementptr inbounds i8, ptr %this, i64 16
-  %Filename3 = getelementptr inbounds i8, ptr %0, i64 16
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %Filename3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Filename, ptr noundef nonnull align 8 dereferenceable(32) %Filename3) #17
-  %LineNo = getelementptr inbounds i8, ptr %this, i64 48
-  %LineNo4 = getelementptr inbounds i8, ptr %0, i64 48
+  %LineNo = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %LineNo4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %LineNo, ptr noundef nonnull align 8 dereferenceable(12) %LineNo4, i64 12, i1 false)
-  %Message = getelementptr inbounds i8, ptr %this, i64 64
-  %Message5 = getelementptr inbounds i8, ptr %0, i64 64
+  %Message = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %Message5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Message, ptr noundef nonnull align 8 dereferenceable(32) %Message5) #17
-  %LineContents = getelementptr inbounds i8, ptr %this, i64 96
-  %LineContents6 = getelementptr inbounds i8, ptr %0, i64 96
+  %LineContents = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %LineContents6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %LineContents, ptr noundef nonnull align 8 dereferenceable(32) %LineContents6) #17
-  %Ranges = getelementptr inbounds i8, ptr %this, i64 128
-  %Ranges7 = getelementptr inbounds i8, ptr %0, i64 128
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 136
+  %Ranges = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %Ranges7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %Ranges7, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Ranges, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %entry
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 1152921504606846975
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIjjEEE8allocateERS2_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
@@ -5961,10 +5959,10 @@ _ZNSt16allocator_traitsISaISt4pairIjjEEE8allocateERS2_m.exit.i.i.i.i: ; preds = 
 _ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairIjjEEE8allocateERS2_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIjjEEE8allocateERS2_m.exit.i.i.i.i ], [ null, %entry ]
   store ptr %cond.i.i.i.i, ptr %Ranges, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.152", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %Ranges7, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5976,28 +5974,28 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i ]
   %5 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 4
   store i64 %5, ptr %__cur.07.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EEC2ERKS3_.exit, label %for.body.i.i.i.i.i, !llvm.loop !31
 
 _ZNSt6vectorISt4pairIjjESaIS1_EEC2ERKS3_.exit:    ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %FixIts = getelementptr inbounds i8, ptr %this, i64 152
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %FixIts = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %add.ptr.i.i.i.i.i, ptr %FixIts, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
-  %Size.i.i = getelementptr inbounds i8, ptr %0, i64 160
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i32, ptr %Size.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EEC2ERKS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EEC2ERKS3_.exit
-  %FixIts8 = getelementptr inbounds i8, ptr %0, i64 152
+  %FixIts8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplINS_7SMFixItEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(208) %FixIts, ptr noundef nonnull align 8 dereferenceable(208) %FixIts8)
   br label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EEC2ERKS2_.exit
 
@@ -6014,10 +6012,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
-  %Size.i18 = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i18 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i18, align 8
   %conv.i19 = zext i32 %1 to i64
   %cmp3.not = icmp ult i32 %1, %0
@@ -6037,11 +6035,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.07.i.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
-  %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %Text.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end11.loopexit, !llvm.loop !32
@@ -6056,7 +6054,7 @@ if.end11:                                         ; preds = %if.then4, %if.end11
   %conv.i21.pre-phi = phi i64 [ %.pre60, %if.end11.loopexit ], [ %conv.i19, %if.then4 ]
   %4 = phi ptr [ %.pre, %if.end11.loopexit ], [ %2, %if.then4 ]
   %NewEnd.0 = phi ptr [ %incdec.ptr1.i.i.i.i.i, %if.end11.loopexit ], [ %2, %if.then4 ]
-  %add.ptr.i59 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %4, i64 %conv.i21.pre-phi
+  %add.ptr.i59 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %4, i64 %conv.i21.pre-phi
   %cmp.not3.i = icmp eq ptr %NewEnd.0, %add.ptr.i59
   br i1 %cmp.not3.i, label %return.sink.split, label %while.body.i
 
@@ -6069,7 +6067,7 @@ while.body.i:                                     ; preds = %if.end11, %while.bo
   br i1 %cmp.not.i, label %return.sink.split, label %while.body.i, !llvm.loop !33
 
 if.end13:                                         ; preds = %if.end
-  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %Capacity.i, align 4
   %cmp15 = icmp ult i32 %5, %0
   br i1 %cmp15, label %if.then16, label %if.else19
@@ -6080,7 +6078,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %cmp.not3.i26, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32, label %while.body.i27.preheader
 
 while.body.i27.preheader:                         ; preds = %if.then16
-  %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %6, i64 %conv.i19
+  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %6, i64 %conv.i19
   br label %while.body.i27
 
 while.body.i27:                                   ; preds = %while.body.i27.preheader, %while.body.i27
@@ -6110,11 +6108,11 @@ for.body.i.i.i.i.i41:                             ; preds = %for.body.i.i.i.i.i4
   %__result.addr.08.i.i.i.i.i43 = phi ptr [ %incdec.ptr1.i.i.i.i.i49, %for.body.i.i.i.i.i41 ], [ %8, %for.body.preheader.i.i.i.i.i39 ]
   %__first.addr.07.i.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i48, %for.body.i.i.i.i.i41 ], [ %7, %for.body.preheader.i.i.i.i.i39 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__result.addr.08.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.07.i.i.i.i.i44, i64 16, i1 false)
-  %Text.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i43, i64 16
-  %Text3.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i44, i64 16
+  %Text.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i43, i64 16
+  %Text3.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i44, i64 16
   %call.i.i.i.i.i.i47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i46) #17
-  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i44, i64 48
-  %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i43, i64 48
+  %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i44, i64 48
+  %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i43, i64 48
   %dec.i.i.i.i.i50 = add nsw i64 %__n.09.i.i.i.i.i42, -1
   %cmp.i.i.i.i.i51 = icmp samesign ugt i64 %__n.09.i.i.i.i.i42, 1
   br i1 %cmp.i.i.i.i.i51, label %for.body.i.i.i.i.i41, label %if.end28, !llvm.loop !32
@@ -6124,25 +6122,25 @@ if.end28:                                         ; preds = %for.body.i.i.i.i.i4
   %9 = load ptr, ptr %RHS, align 8
   %10 = load i32, ptr %Size.i, align 8
   %conv.i54 = zext i32 %10 to i64
-  %add.ptr.i65 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %9, i64 %conv.i54
+  %add.ptr.i65 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %9, i64 %conv.i54
   %cmp.not5.i.i.i.i = icmp eq i64 %CurSize.0, %conv.i54
   br i1 %cmp.not5.i.i.i.i, label %return.sink.split, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.end28
   %11 = load ptr, ptr %this, align 8
-  %add.ptr33 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %11, i64 %CurSize.0
-  %add.ptr30 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %9, i64 %CurSize.0
+  %add.ptr33 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %11, i64 %CurSize.0
+  %add.ptr30 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %9, i64 %CurSize.0
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr33, %for.body.i.i.i.i.preheader ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr30, %for.body.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
-  %Text3.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
+  %Text.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i56) #17
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 48
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i, i64 48
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i65
   br i1 %cmp.not.i.i.i.i, label %return.sink.split, label %for.body.i.i.i.i, !llvm.loop !34
 
@@ -6157,7 +6155,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %MinSize) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
   %conv.i = zext i32 %0 to i64
   %add = add nuw nsw i64 %conv.i, 2
@@ -6197,10 +6195,10 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %1 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i30 = getelementptr inbounds %"class.llvh::SMFixIt", ptr %1, i64 %conv.i5
+  %add.ptr.i30 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %1, i64 %conv.i5
   %cmp.i.i.not5.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not5.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit, label %for.body.i.i.i.i
 
@@ -6208,11 +6206,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i, %_ZN4llvh11safe_mallocEm.exit ]
   %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN4llvh11safe_mallocEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.sroa.0.06.i.i.i.i, i64 16, i1 false)
-  %Text.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
-  %Text3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
+  %Text.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 16
+  %Text3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
   br i1 %cmp.i.i.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !35
 
@@ -6224,7 +6222,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_E
 
 while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
   %conv.i7 = zext i32 %.pre18 to i64
-  %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %.pre, i64 %conv.i7
+  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %.pre, i64 %conv.i7
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
@@ -6241,7 +6239,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit: ; preds = %_ZN4llvh11safe_mallocEm.exit, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
   %3 = phi ptr [ %.pre19, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit ], [ %.pre, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit ], [ %1, %_ZN4llvh11safe_mallocEm.exit ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i8 = icmp eq ptr %3, %add.ptr.i.i
   br i1 %cmp.i8, label %if.end17, label %if.then15
 
@@ -6272,9 +6270,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -6282,7 +6280,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -6292,11 +6290,11 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -6346,10 +6344,10 @@ _ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE15_M_allocate_mapEm.exit: ; pred
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30, label %if.then.i.i.i.i.i28
 
@@ -6370,19 +6368,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4llvh12SMDiagnosticES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 360
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 360
-  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 360
+  %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }
@@ -6405,13 +6403,13 @@ declare void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr sret(%
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes7ContextD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 648
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes3hbc14BackendContextEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -6419,10 +6417,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -6448,10 +6446,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -6473,15 +6471,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BackendContextEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes3hbc14BackendContextEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %codeGenerationSettings_ = getelementptr inbounds i8, ptr %this, i64 240
+  %codeGenerationSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @_ZN6hermes22CodeGenerationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %codeGenerationSettings_) #17
-  %segments_ = getelementptr inbounds i8, ptr %this, i64 208
+  %segments_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %11 = load ptr, ptr %segments_, align 8
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i1
@@ -6491,13 +6489,13 @@ if.then.i.i.i1:                                   ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BackendContextEED2Ev.exit, %if.then.i.i.i1
-  %resolutionTable_ = getelementptr inbounds i8, ptr %this, i64 200
+  %resolutionTable_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %12 = load ptr, ptr %resolutionTable_, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i2 = icmp eq i32 %13, 0
   %.pre1.i.i.i = load ptr, ptr %12, align 8
@@ -6505,7 +6503,7 @@ delete.notnull.i.i:                               ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.preheader.i.i.i.i: ; preds = %delete.notnull.i.i
   %idx.ext.i.i.i.i.i = zext i32 %13 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.127", ptr %.pre1.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.127", ptr %.pre1.i.i.i, i64 %idx.ext.i.i.i.i.i
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i: ; preds = %if.end16.i.i.i.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.preheader.i.i.i.i
@@ -6515,13 +6513,13 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i: ; preds = %i
   br i1 %switch.i.i.i.i, label %if.end16.i.i.i.i, label %if.then14.i.i.i.i
 
 if.then14.i.i.i.i:                                ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %P.020.i.i.i.i, i64 16
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.020.i.i.i.i, i64 16
   %14 = load ptr, ptr %second.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %14) #17
   br label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.then14.i.i.i.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %P.020.i.i.i.i, i64 40
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.020.i.i.i.i, i64 40
   %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS1_IS2_S2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEES2_S8_S4_S9_E10destroyAllEv.exit.loopexit.i.i.i, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.i.i.i, !llvm.loop !6
 
@@ -6537,7 +6535,7 @@ _ZNKSt14default_deleteIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapI
 
 _ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %_ZNKSt14default_deleteIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEEEclEPSA_.exit.i
   store ptr null, ptr %resolutionTable_, align 8
-  %ownSm_ = getelementptr inbounds i8, ptr %this, i64 152
+  %ownSm_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %16 = load ptr, ptr %ownSm_, align 8
   %cmp.not.i3 = icmp eq ptr %16, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN6hermes18SourceErrorManagerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6hermes18SourceErrorManagerEEclEPS1_.exit.i
@@ -6549,27 +6547,27 @@ _ZNKSt14default_deleteIN6hermes18SourceErrorManagerEEclEPS1_.exit.i: ; preds = %
 
 _ZNSt10unique_ptrIN6hermes18SourceErrorManagerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit, %_ZNKSt14default_deleteIN6hermes18SourceErrorManagerEEclEPS1_.exit.i
   store ptr null, ptr %ownSm_, align 8
-  %compiledRegExps_ = getelementptr inbounds i8, ptr %this, i64 104
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %compiledRegExps_ = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %17 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeISt4pairIPN6hermes12UniqueStringES3_ES0_IKS4_NS1_14CompiledRegExpEESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %compiledRegExps_, ptr noundef %17)
-  %strMap_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %strMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %18 = load ptr, ptr %strMap_.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #17
-  %preParsed_ = getelementptr inbounds i8, ptr %this, i64 64
+  %preParsed_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %19 = load ptr, ptr %preParsed_, align 8
   %cmp.not.i4 = icmp eq ptr %19, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN6hermes6parser13PreParsedDataESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i5
 
 delete.notnull.i.i5:                              ; preds = %_ZNSt10unique_ptrIN6hermes18SourceErrorManagerESt14default_deleteIS1_EED2Ev.exit
   %20 = load ptr, ptr %19, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %21 to i64
-  %add.ptr.i.i.i.i.i6 = getelementptr inbounds %"class.std::unique_ptr.204", ptr %20, i64 %conv.i.i.i.i.i
+  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw %"class.std::unique_ptr.204", ptr %20, i64 %conv.i.i.i.i.i
   tail call void @_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIN6hermes6parser19PreParsedBufferInfoESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_(ptr noundef %20, ptr noundef %add.ptr.i.i.i.i.i6)
   %22 = load ptr, ptr %19, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %cmp.i.i.i.i.i.i7 = icmp eq ptr %22, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i7, label %_ZNKSt14default_deleteIN6hermes6parser13PreParsedDataEEclEPS2_.exit.i, label %if.then.i.i.i.i.i8
 
@@ -6583,7 +6581,7 @@ _ZNKSt14default_deleteIN6hermes6parser13PreParsedDataEEclEPS2_.exit.i: ; preds =
 
 _ZNSt10unique_ptrIN6hermes6parser13PreParsedDataESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6hermes18SourceErrorManagerESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN6hermes6parser13PreParsedDataEEclEPS2_.exit.i
   store ptr null, ptr %preParsed_, align 8
-  %identifierAllocator_ = getelementptr inbounds i8, ptr %this, i64 32
+  %identifierAllocator_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN6hermes28BacktrackingBumpPtrAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %identifierAllocator_) #17
   tail call void @_ZN6hermes28BacktrackingBumpPtrAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #17
   ret void
@@ -6592,10 +6590,10 @@ _ZNSt10unique_ptrIN6hermes6parser13PreParsedDataESt14default_deleteIS2_EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE19_M_destroy_data_auxESt15_Deque_iteratorIS1_RS1_PS1_ES7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
+  %_M_node = getelementptr inbounds nuw i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node2 = getelementptr inbounds i8, ptr %__last, i64 24
-  %__node.04 = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_node2 = getelementptr inbounds nuw i8, ptr %__last, i64 24
+  %__node.04 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_node2, align 8
   %cmp5 = icmp ult ptr %__node.04, %1
   br i1 %cmp5, label %for.body, label %for.end
@@ -6603,16 +6601,16 @@ entry:
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit.i
   %__node.06 = phi ptr [ %__node.0, %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit.i ], [ %__node.04, %entry ]
   %2 = load ptr, ptr %__node.06, align 8
-  %FixIts.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %FixIts.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %3 = load ptr, ptr %FixIts.i.i.i, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 160
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 160
   %4 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i, label %while.body.i.preheader.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %for.body
   %conv.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %3, i64 %conv.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %3, i64 %conv.i.i.i.i.i
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %while.body.i.preheader.i.i.i.i
@@ -6629,7 +6627,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i, %for.body
   %5 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i ], [ %3, %for.body ]
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 168
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 168
   %cmp.i.i.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i
 
@@ -6638,7 +6636,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i.i
 
 _ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i
-  %Ranges.i.i.i = getelementptr inbounds i8, ptr %2, i64 128
+  %Ranges.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 128
   %6 = load ptr, ptr %Ranges.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit.i, label %if.then.i.i.i.i.i.i
@@ -6648,13 +6646,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN4llvh11SmallVect
   br label %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit.i
 
 _ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit.i:  ; preds = %if.then.i.i.i.i.i.i, %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i.i
-  %LineContents.i.i.i = getelementptr inbounds i8, ptr %2, i64 96
+  %LineContents.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i.i) #17
-  %Message.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
+  %Message.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i.i) #17
-  %Filename.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %Filename.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Filename.i.i.i) #17
-  %__node.0 = getelementptr inbounds i8, ptr %__node.06, i64 8
+  %__node.0 = getelementptr inbounds nuw i8, ptr %__node.06, i64 8
   %7 = load ptr, ptr %_M_node2, align 8
   %cmp = icmp ult ptr %__node.0, %7
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !36
@@ -6671,10 +6669,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %10 = load ptr, ptr %_M_last, align 8
   tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvh12SMDiagnosticEEEvT_S5_(ptr noundef %9, ptr noundef %10)
-  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
+  %_M_first = getelementptr inbounds nuw i8, ptr %__last, i64 8
   %11 = load ptr, ptr %_M_first, align 8
   br label %if.end
 
@@ -6693,16 +6691,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit ], [ %__first, %entry ]
-  %FixIts.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 152
+  %FixIts.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 152
   %0 = load ptr, ptr %FixIts.i.i, align 8
-  %Size.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 160
+  %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 160
   %1 = load i32, ptr %Size.i.i.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i, label %while.body.i.preheader.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %for.body
   %conv.i.i.i.i = zext i32 %1 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %0, i64 %conv.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %0, i64 %conv.i.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -6719,7 +6717,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.
 
 _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i, %for.body
   %2 = phi ptr [ %.pre.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i ], [ %0, %for.body ]
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 168
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 168
   %cmp.i.i.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, label %if.then.i.i.i.i
 
@@ -6728,7 +6726,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i
 
 _ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
-  %Ranges.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 128
+  %Ranges.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 128
   %3 = load ptr, ptr %Ranges.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit, label %if.then.i.i.i.i.i
@@ -6738,13 +6736,13 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh11SmallVect
   br label %_ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit
 
 _ZSt8_DestroyIN4llvh12SMDiagnosticEEvPT_.exit:    ; preds = %_ZN4llvh11SmallVectorINS_7SMFixItELj4EED2Ev.exit.i.i, %if.then.i.i.i.i.i
-  %LineContents.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 96
+  %LineContents.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %LineContents.i.i) #17
-  %Message.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 64
+  %Message.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Message.i.i) #17
-  %Filename.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 16
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Filename.i.i) #17
-  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 360
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 360
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !37
 
@@ -6755,26 +6753,26 @@ for.end:                                          ; preds = %_ZSt8_DestroyIN4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes28BacktrackingBumpPtrAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 24
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %state_, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %_ZN6hermes28BacktrackingBumpPtrAllocator8popScopeEv.exit
   %1 = phi ptr [ %8, %_ZN6hermes28BacktrackingBumpPtrAllocator8popScopeEv.exit ], [ %0, %entry ]
-  %previous.i = getelementptr inbounds i8, ptr %1, i64 32
+  %previous.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %previous.i, align 8
   store ptr %2, ptr %state_, align 8
-  %hugeAllocs.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %hugeAllocs.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %hugeAllocs.i.i, align 8
-  %Size.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseISt10unique_ptrIvPDoFvPvEELb0EE13destroy_rangeEPS5_S7_.exit.i.i.i, label %while.body.i.preheader.i.i.i
 
 while.body.i.preheader.i.i.i:                     ; preds = %while.body
   %conv.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.234", ptr %3, i64 %conv.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.234", ptr %3, i64 %conv.i.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -6816,7 +6814,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8popScopeEv.exit: ; preds = %_ZN4llvh23S
 
 while.end:                                        ; preds = %_ZN6hermes28BacktrackingBumpPtrAllocator8popScopeEv.exit, %entry
   %9 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i1 = icmp eq ptr %9, %10
   br i1 %cmp.not3.i.i.i.i1, label %_ZSt8_DestroyIPSt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %for.body.i.i.i.i
@@ -6833,7 +6831,7 @@ _ZNKSt14default_deleteIN6hermes28BacktrackingBumpPtrAllocator4SlabEEclEPS2_.exit
 
 _ZSt8_DestroyISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6hermes28BacktrackingBumpPtrAllocator4SlabEEclEPS2_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i2 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i3 = icmp eq ptr %incdec.ptr.i.i.i.i2, %10
   br i1 %cmp.not.i.i.i.i3, label %_ZSt8_DestroyIPSt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !40
 
@@ -6857,18 +6855,18 @@ _ZNSt6vectorISt10unique_ptrIN6hermes28BacktrackingBumpPtrAllocator4SlabESt14defa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes18SourceErrorManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %bufferedNotes_ = getelementptr inbounds i8, ptr %this, i64 440
+  %bufferedNotes_ = getelementptr inbounds nuw i8, ptr %this, i64 440
   %0 = load ptr, ptr %bufferedNotes_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 448
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN6hermes18SourceErrorManager11MessageDataES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
-  %msg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
+  %msg.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN6hermes18SourceErrorManager11MessageDataES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !41
 
@@ -6886,18 +6884,18 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN6he
   br label %_ZNSt6vectorIN6hermes18SourceErrorManager11MessageDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes18SourceErrorManager11MessageDataESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6hermes18SourceErrorManager11MessageDataES2_EvT_S4_RSaIT0_E.exit.i, %if.then.i.i.i
-  %bufferedMessages_ = getelementptr inbounds i8, ptr %this, i64 416
+  %bufferedMessages_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %3 = load ptr, ptr %bufferedMessages_, align 8
-  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 424
+  %_M_finish.i1 = getelementptr inbounds nuw i8, ptr %this, i64 424
   %4 = load ptr, ptr %_M_finish.i1, align 8
   %cmp.not3.i.i.i.i2 = icmp eq ptr %3, %4
   br i1 %cmp.not3.i.i.i.i2, label %_ZSt8_DestroyIPN6hermes18SourceErrorManager15BufferedMessageES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i3
 
 for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN6hermes18SourceErrorManager11MessageDataESaIS2_EED2Ev.exit, %for.body.i.i.i.i3
   %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %for.body.i.i.i.i3 ], [ %3, %_ZNSt6vectorIN6hermes18SourceErrorManager11MessageDataESaIS2_EED2Ev.exit ]
-  %msg.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 32
+  %msg.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i4, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 72
+  %incdec.ptr.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i4, i64 72
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %4
   br i1 %cmp.not.i.i.i.i6, label %_ZSt8_DestroyIPN6hermes18SourceErrorManager15BufferedMessageES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i3, !llvm.loop !42
 
@@ -6915,8 +6913,8 @@ if.then.i.i.i9:                                   ; preds = %_ZSt8_DestroyIPN6he
   br label %_ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6hermes18SourceErrorManager15BufferedMessageES2_EvT_S4_RSaIT0_E.exit.i, %if.then.i.i.i9
-  %sourceUrls_ = getelementptr inbounds i8, ptr %this, i64 376
-  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
+  %sourceUrls_ = getelementptr inbounds nuw i8, ptr %this, i64 376
+  %NumBuckets.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   %6 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %6, 0
   %.pre1.i = load ptr, ptr %sourceUrls_, align 8
@@ -6924,7 +6922,7 @@ _ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit: ; 
 
 for.body.preheader.i.i:                           ; preds = %_ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit
   %idx.ext.i.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %.pre1.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %.pre1.i, i64 %idx.ext.i.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
@@ -6934,12 +6932,12 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   br i1 %switch.i.i, label %if.end13.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %for.body.i.i
-  %second.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i, i64 8
+  %second.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #17
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then11.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %P.08.i.i, i64 40
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i, i64 40
   %cmp6.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp6.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !43
 
@@ -6950,8 +6948,8 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i
   %8 = phi ptr [ %.pre.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i, %_ZNSt6vectorIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EED2Ev.exit ]
   tail call void @_ZdlPv(ptr noundef %8) #17
-  %sourceMappingUrls_ = getelementptr inbounds i8, ptr %this, i64 352
-  %NumBuckets.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 368
+  %sourceMappingUrls_ = getelementptr inbounds nuw i8, ptr %this, i64 352
+  %NumBuckets.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %9 = load i32, ptr %NumBuckets.i.i.i.i10, align 8
   %cmp.i.i11 = icmp eq i32 %9, 0
   %.pre1.i12 = load ptr, ptr %sourceMappingUrls_, align 8
@@ -6959,7 +6957,7 @@ _ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 
 for.body.preheader.i.i13:                         ; preds = %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit
   %idx.ext.i.i.i14 = zext i32 %9 to i64
-  %add.ptr.i.i.i15 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.165", ptr %.pre1.i12, i64 %idx.ext.i.i.i14
+  %add.ptr.i.i.i15 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.165", ptr %.pre1.i12, i64 %idx.ext.i.i.i14
   br label %for.body.i.i16
 
 for.body.i.i16:                                   ; preds = %if.end13.i.i21, %for.body.preheader.i.i13
@@ -6969,12 +6967,12 @@ for.body.i.i16:                                   ; preds = %if.end13.i.i21, %fo
   br i1 %switch.i.i18, label %if.end13.i.i21, label %if.then11.i.i19
 
 if.then11.i.i19:                                  ; preds = %for.body.i.i16
-  %second.i.i.i20 = getelementptr inbounds i8, ptr %P.08.i.i17, i64 8
+  %second.i.i.i20 = getelementptr inbounds nuw i8, ptr %P.08.i.i17, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i20) #17
   br label %if.end13.i.i21
 
 if.end13.i.i21:                                   ; preds = %if.then11.i.i19, %for.body.i.i16
-  %incdec.ptr.i.i22 = getelementptr inbounds i8, ptr %P.08.i.i17, i64 40
+  %incdec.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %P.08.i.i17, i64 40
   %cmp6.not.i.i23 = icmp eq ptr %incdec.ptr.i.i22, %add.ptr.i.i.i15
   br i1 %cmp6.not.i.i23, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i24, label %for.body.i.i16, !llvm.loop !43
 
@@ -6985,7 +6983,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit26: ; preds = %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i24
   %11 = phi ptr [ %.pre.i25, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i24 ], [ %.pre1.i12, %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit ]
   tail call void @_ZdlPv(ptr noundef %11) #17
-  %warningsAreErrors_ = getelementptr inbounds i8, ptr %this, i64 328
+  %warningsAreErrors_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %12 = load i64, ptr %warningsAreErrors_, align 8
   %and.i.i = and i64 %12, 1
   %tobool.i.not.i = icmp ne i64 %and.i.i, 0
@@ -7001,7 +6999,7 @@ delete.notnull.i:                                 ; preds = %_ZN4llvh8DenseMapIj
   br label %_ZN4llvh14SmallBitVectorD2Ev.exit
 
 _ZN4llvh14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit26, %delete.notnull.i
-  %warningStatuses_ = getelementptr inbounds i8, ptr %this, i64 320
+  %warningStatuses_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %15 = load i64, ptr %warningStatuses_, align 8
   %and.i.i27 = and i64 %15, 1
   %tobool.i.not.i28 = icmp ne i64 %and.i.i27, 0
@@ -7017,18 +7015,18 @@ delete.notnull.i31:                               ; preds = %_ZN4llvh14SmallBitV
   br label %_ZN4llvh14SmallBitVectorD2Ev.exit32
 
 _ZN4llvh14SmallBitVectorD2Ev.exit32:              ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit, %delete.notnull.i31
-  %virtualBufferNames_ = getelementptr inbounds i8, ptr %this, i64 192
-  %stringsToIndex_.i = getelementptr inbounds i8, ptr %this, i64 272
+  %virtualBufferNames_ = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %stringsToIndex_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %18 = load ptr, ptr %stringsToIndex_.i, align 8
   tail call void @_ZdlPv(ptr noundef %18) #17
   tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %virtualBufferNames_) #17
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit32
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
@@ -7036,10 +7034,10 @@ if.then.i.i.i33:                                  ; preds = %_ZN4llvh14SmallBitV
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i33
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
   br label %if.end8.sink.split.i.i.i.i
@@ -7065,10 +7063,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7090,15 +7088,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
   br label %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit: ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %IncludeDirectories.i = getelementptr inbounds i8, ptr %this, i64 80
+  %IncludeDirectories.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %30 = load ptr, ptr %IncludeDirectories.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %31 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
@@ -7106,7 +7104,7 @@ _ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit: ; p
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %30, %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %31
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !44
 
@@ -7124,12 +7122,12 @@ if.then.i.i.i.i34:                                ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i34, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %BufferEnds.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %BufferEnds.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %33 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   tail call void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %BufferEnds.i, ptr noundef %33)
   %34 = load ptr, ptr %this, align 8
-  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %35 = load ptr, ptr %_M_finish.i1.i, align 8
   %cmp.not3.i.i.i.i2.i = icmp eq ptr %34, %35
   br i1 %cmp.not3.i.i.i.i2.i, label %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i3.i
@@ -7137,7 +7135,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 for.body.i.i.i.i3.i:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %for.body.i.i.i.i3.i
   %__first.addr.04.i.i.i.i4.i = phi ptr [ %incdec.ptr.i.i.i.i5.i, %for.body.i.i.i.i3.i ], [ %34, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i ]
   tail call void @_ZN4llvh9SourceMgr9SrcBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i4.i) #17
-  %incdec.ptr.i.i.i.i5.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4.i, i64 24
+  %incdec.ptr.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i4.i, i64 24
   %cmp.not.i.i.i.i6.i = icmp eq ptr %incdec.ptr.i.i.i.i5.i, %35
   br i1 %cmp.not.i.i.i.i6.i, label %_ZSt8_DestroyIPN4llvh9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i3.i, !llvm.loop !45
 
@@ -7161,19 +7159,19 @@ _ZN4llvh9SourceMgrD2Ev.exit:                      ; preds = %_ZSt8_DestroyIPN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start.i, align 8, !noalias !46
-  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !46
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !46
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !49
-  %_M_first3.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first3.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load ptr, ptr %_M_first3.i.i2, align 8, !noalias !49
-  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !49
-  %__node.022.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %__node.022.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp23.i.i = icmp ult ptr %__node.022.i.i, %5
   br i1 %cmp23.i.i, label %for.body.i.i, label %for.end.i.i
 
@@ -7184,14 +7182,14 @@ for.body.i.i:                                     ; preds = %entry, %_ZSt8_Destr
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i
   %__first.addr.04.i.i.i.idx.i.i = phi i64 [ %__first.addr.04.i.i.i.add.i.i, %for.body.i.i.i.i.i ], [ 0, %for.body.i.i ]
-  %__first.addr.04.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %__first.addr.04.i.i.i.idx.i.i
+  %__first.addr.04.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %__first.addr.04.i.i.i.idx.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.ptr.i.i) #17
   %__first.addr.04.i.i.i.add.i.i = add nuw nsw i64 %__first.addr.04.i.i.i.idx.i.i, 32
   %cmp.not.i.i.i.i.i = icmp eq i64 %__first.addr.04.i.i.i.add.i.i, 512
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !44
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %for.body.i.i.i.i.i
-  %__node.0.i.i = getelementptr inbounds i8, ptr %__node.024.i.i, i64 8
+  %__node.0.i.i = getelementptr inbounds nuw i8, ptr %__node.024.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__node.0.i.i, %5
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !52
 
@@ -7206,7 +7204,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i4.i.i:                              ; preds = %if.then.i.i, %for.body.i.i.i4.i.i
   %__first.addr.04.i.i.i5.i.i = phi ptr [ %incdec.ptr.i.i.i6.i.i, %for.body.i.i.i4.i.i ], [ %0, %if.then.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i5.i.i) #17
-  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5.i.i, i64 32
+  %incdec.ptr.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i5.i.i, i64 32
   %cmp.not.i.i.i7.i.i = icmp eq ptr %incdec.ptr.i.i.i6.i.i, %1
   br i1 %cmp.not.i.i.i7.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit8.i.i, label %for.body.i.i.i4.i.i, !llvm.loop !44
 
@@ -7217,7 +7215,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 for.body.i.i.i10.i.i:                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit8.i.i, %for.body.i.i.i10.i.i
   %__first.addr.04.i.i.i11.i.i = phi ptr [ %incdec.ptr.i.i.i12.i.i, %for.body.i.i.i10.i.i ], [ %4, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit8.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i11.i.i) #17
-  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i11.i.i, i64 32
+  %incdec.ptr.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i11.i.i, i64 32
   %cmp.not.i.i.i13.i.i = icmp eq ptr %incdec.ptr.i.i.i12.i.i, %3
   br i1 %cmp.not.i.i.i13.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_destroy_dataESt15_Deque_iteratorIS5_RS5_PS5_ESB_RKS6_.exit, label %for.body.i.i.i10.i.i, !llvm.loop !44
 
@@ -7228,7 +7226,7 @@ if.else.i.i:                                      ; preds = %for.end.i.i
 for.body.i.i.i16.i.i:                             ; preds = %if.else.i.i, %for.body.i.i.i16.i.i
   %__first.addr.04.i.i.i17.i.i = phi ptr [ %incdec.ptr.i.i.i18.i.i, %for.body.i.i.i16.i.i ], [ %0, %if.else.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i17.i.i) #17
-  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17.i.i, i64 32
+  %incdec.ptr.i.i.i18.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i17.i.i, i64 32
   %cmp.not.i.i.i19.i.i = icmp eq ptr %incdec.ptr.i.i.i18.i.i, %3
   br i1 %cmp.not.i.i.i19.i.i, label %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_destroy_dataESt15_Deque_iteratorIS5_RS5_PS5_ESB_RKS6_.exit, label %for.body.i.i.i16.i.i, !llvm.loop !44
 
@@ -7240,7 +7238,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_des
 if.then.i:                                        ; preds = %_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_destroy_dataESt15_Deque_iteratorIS5_RS5_PS5_ESB_RKS6_.exit
   %8 = load ptr, ptr %_M_node5.i.i, align 8
   %9 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %cmp3.i.i = icmp ult ptr %8, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i9, label %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.i
 
@@ -7248,7 +7246,7 @@ for.body.i.i9:                                    ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i9 ], [ %8, %if.then.i ]
   %10 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %10) #16
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i10 = icmp ult ptr %__n.04.i.i, %9
   br i1 %cmp.i.i10, label %for.body.i.i9, label %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_destroy_nodesEPPS5_S9_.exit.loopexit.i, !llvm.loop !53
 
@@ -7273,10 +7271,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIPKcSt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
@@ -7297,12 +7295,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeISt4pairIPN6hermes12UniqueStringES3_ES0_IKS4_NS1_14CompiledRegExpEESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 48
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 48
   tail call void @_ZN6hermes14CompiledRegExpD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %second.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
@@ -7329,7 +7327,7 @@ while.body:                                       ; preds = %entry, %_ZNSt10uniq
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6hermes6parser19PreParsedBufferInfoESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body
-  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %NumBuckets.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i32 %1, 0
   %.pre1.i.i.i.i = load ptr, ptr %0, align 8
@@ -7337,7 +7335,7 @@ delete.notnull.i.i:                               ; preds = %while.body
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %delete.notnull.i.i
   %idx.ext.i.i.i.i.i.i = zext i32 %1 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.217", ptr %.pre1.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.217", ptr %.pre1.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end14.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
@@ -7347,16 +7345,16 @@ for.body.i.i.i.i.i:                               ; preds = %if.end14.i.i.i.i.i,
   br i1 %switch.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %if.then12.i.i.i.i.i
 
 if.then12.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
-  %directives.i.i.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i.i, i64 24
+  %directives.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i.i, i64 24
   %3 = load ptr, ptr %directives.i.i.i.i.i.i, align 8
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i.i, i64 32
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i.i, i64 32
   %4 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, label %while.body.i.preheader.i.i.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i.i.i.i:             ; preds = %if.then12.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallString", ptr %3, i64 %conv.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"class.llvh::SmallString", ptr %3, i64 %conv.i.i.i.i.i.i.i.i
   br label %while.body.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %_ZN4llvh11SmallStringILj24EED2Ev.exit.i.i.i.i.i.i.i.i, %while.body.i.preheader.i.i.i.i.i.i.i
@@ -7381,7 +7379,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEP
 
 _ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i.i.i.i.i, %if.then12.i.i.i.i.i
   %6 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i.i.i.i.i ], [ %3, %if.then12.i.i.i.i.i ]
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i.i, i64 40
+  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i.i, i64 40
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -7390,7 +7388,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4llvh23SmallVect
   br label %if.end14.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i.i, i64 80
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i.i, i64 80
   %cmp7.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp7.not.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_5SMLocEN6hermes6parser21PreParsedFunctionInfoENS4_9SMLocInfoENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S6_S9_E10destroyAllEv.exit.loopexit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !57
 
@@ -7426,14 +7424,14 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7448,8 +7446,8 @@ attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { builtin nounwind allocsize(0) }
 attributes #16 = { builtin nounwind }
 attributes #17 = { nounwind }

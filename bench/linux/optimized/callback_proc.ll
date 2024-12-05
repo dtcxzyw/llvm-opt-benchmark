@@ -35,7 +35,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br i1 %5, label %112, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr i8, ptr %1, i64 8
   store i32 0, ptr %8, align 4
   store i32 0, ptr %7, align 4
@@ -82,7 +82,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @__SCT__tp_func_nfs4_cb_getattr(ptr noundef %31, ptr noundef %17, ptr noundef %0, ptr noundef null, i32 noundef %19) #6
   br label %33
@@ -108,20 +108,20 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br i1 %42, label %82, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 52
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 2
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %82, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %10, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %41, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %53, ptr %54, align 8
   %55 = load i16, ptr %10, align 8
   %56 = icmp slt i16 %55, -28672
@@ -139,23 +139,23 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br label %63
 
 63:                                               ; preds = %61, %57, %48
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
-  %65 = getelementptr inbounds i8, ptr %10, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %10, i64 128
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %68 = load i64, ptr %67, align 8
   store i64 %66, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 48
-  %71 = getelementptr inbounds i8, ptr %10, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %10, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %74 = load i64, ptr %73, align 8
   store i64 %72, ptr %70, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 132
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 24
   store i32 %78, ptr %7, align 4
@@ -192,7 +192,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 @__SCT__tp_func_nfs4_cb_getattr(ptr noundef %98, ptr noundef %83, ptr noundef %0, ptr noundef %10, i32 noundef %86) #6
   br label %100
@@ -216,7 +216,7 @@ define dso_local i32 @nfs4_callback_getattr(ptr noundef %0, ptr nocapture nounde
   br i1 %108, label %112, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %10, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %111 = load ptr, ptr %110, align 8
   tail call void @iput(ptr noundef nonnull %10) #6
   tail call void @nfs_sb_deactive(ptr noundef %111) #6
@@ -251,7 +251,7 @@ define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef 
   %10 = icmp eq ptr %7, inttoptr (i64 -11 to ptr)
   %11 = select i1 %10, i32 405209088, i32 287768576
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %14 = tail call i32 @llvm.bswap.i32(i32 %11)
   %15 = sub nsw i32 0, %14
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_nfs4_cb_recall, i64 8), i32 2) #6
@@ -274,9 +274,9 @@ define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef 
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @__SCT__tp_func_nfs4_cb_recall(ptr noundef %27, ptr noundef %12, ptr noundef %0, ptr noundef null, ptr noundef %13, i32 noundef %15) #6
+  %28 = tail call i32 @__SCT__tp_func_nfs4_cb_recall(ptr noundef %27, ptr noundef %12, ptr noundef %0, ptr noundef null, ptr noundef nonnull %13, i32 noundef %15) #6
   br label %29
 
 29:                                               ; preds = %25, %22
@@ -294,8 +294,8 @@ define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef 
   br label %71
 
 36:                                               ; preds = %6
-  %37 = getelementptr inbounds i8, ptr %0, i64 132
-  %38 = tail call i32 @nfs_async_inode_return_delegation(ptr noundef %7, ptr noundef %37) #6
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %38 = tail call i32 @nfs_async_inode_return_delegation(ptr noundef %7, ptr noundef nonnull %37) #6
   %39 = icmp eq i32 %38, -2
   %40 = select i1 %39, i32 690421760, i32 572981248
   %41 = icmp eq i32 %38, 0
@@ -323,9 +323,9 @@ define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef 
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 @__SCT__tp_func_nfs4_cb_recall(ptr noundef %57, ptr noundef %43, ptr noundef %0, ptr noundef %7, ptr noundef %37, i32 noundef %45) #6
+  %58 = tail call i32 @__SCT__tp_func_nfs4_cb_recall(ptr noundef %57, ptr noundef %43, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %37, i32 noundef %45) #6
   br label %59
 
 59:                                               ; preds = %55, %52
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 1462173697) i32 @nfs4_callback_recall(ptr noundef 
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %7, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %70 = load ptr, ptr %69, align 8
   tail call void @iput(ptr noundef nonnull %7) #6
   tail call void @nfs_sb_deactive(ptr noundef %70) #6

@@ -8,33 +8,33 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation8IKAimJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) initializes((0, 112)) %0) unnamed_addr #0 align 2 {
   store <4 x float> zeroinitializer, ptr %0, align 16
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x float> zeroinitializer, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store float 0.000000e+00, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float 1.000000e+00, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob8ValidateEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(112) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 16
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load <4 x float>, ptr %9, align 16
   %11 = fmul <4 x float> %10, %10
   %shift = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -58,14 +58,14 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob8ValidateEv(ptr 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 16
   %7 = icmp ne ptr %6, null
   %8 = and i1 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load <4 x float>, ptr %9, align 16
   %11 = fmul <4 x float> %10, %10
   %shift = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -88,12 +88,12 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
 
 26:                                               ; preds = %1
   %27 = load <4 x float>, ptr %3, align 16, !noalias !5
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load <4 x float>, ptr %28, align 16, !noalias !5
   %30 = shufflevector <4 x float> %27, <4 x float> %29, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %31 = getelementptr inbounds i8, ptr %3, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %32 = load <4 x float>, ptr %31, align 16, !noalias !5
-  %33 = getelementptr inbounds i8, ptr %3, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %34 = load <4 x float>, ptr %33, align 16, !noalias !5
   %35 = shufflevector <4 x float> %32, <4 x float> %34, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %36 = shufflevector <4 x float> %27, <4 x float> %29, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
   %shift1331 = shufflevector <4 x float> %141, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %143 = fadd <4 x float> %shift1331, %142
   %144 = shufflevector <4 x float> %143, <4 x float> %141, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
-  %145 = getelementptr inbounds i8, ptr %0, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = load <4 x float>, ptr %145, align 16
   %147 = fmul <4 x float> %10, %146
   %shift1332 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation8IKAimJob3RunEv(ptr nocap
 
 _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ; preds = %26, %160
   %.0 = phi <4 x float> [ %167, %160 ], [ undef, %26 ]
-  %168 = getelementptr inbounds i8, ptr %0, i64 104
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %169 = load ptr, ptr %168, align 8
   %.not = icmp eq ptr %169, null
   br i1 %.not, label %173, label %170
@@ -341,7 +341,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
 
 227:                                              ; preds = %180, %216
   %.sroa.0261.0 = phi <4 x float> [ %226, %216 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %180 ]
-  %228 = getelementptr inbounds i8, ptr %0, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %229 = load <4 x float>, ptr %228, align 16
   %230 = shufflevector <4 x float> %.sroa.0261.0, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %231 = shufflevector <4 x float> %.sroa.0261.0, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
@@ -359,7 +359,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %243 = shufflevector <4 x float> %242, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %244 = fadd <4 x float> %229, %243
   %245 = fadd <4 x float> %243, %244
-  %246 = getelementptr inbounds i8, ptr %0, i64 64
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %247 = load <4 x float>, ptr %246, align 16
   %248 = shufflevector <4 x float> %247, <4 x float> poison, <4 x i32> zeroinitializer
   %249 = fmul <4 x float> %127, %248
@@ -461,7 +461,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
 331:                                              ; preds = %319, %279
   %.sroa.01288.0 = phi <4 x float> [ %318, %279 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %319 ]
   %.01272 = phi <4 x float> [ %289, %279 ], [ %330, %319 ]
-  %332 = getelementptr inbounds i8, ptr %0, i64 80
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %333 = load float, ptr %332, align 16
   %334 = fcmp une float %333, 0.000000e+00
   br i1 %334, label %335, label %362
@@ -514,7 +514,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %.sroa.04.0.in.in = bitcast <4 x float> %376 to <4 x i32>
   %.sroa.04.0.in = xor <4 x i32> %.sroa.04.0.in.in, <i32 0, i32 0, i32 0, i32 -2147483648>
   %.sroa.04.0 = bitcast <4 x i32> %.sroa.04.0.in to <4 x float>
-  %377 = getelementptr inbounds i8, ptr %0, i64 84
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %378 = load float, ptr %377, align 4
   %379 = fcmp olt float %378, 1.000000e+00
   br i1 %379, label %380, label %395

@@ -40,22 +40,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReconnectToServer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #8
-  %9 = getelementptr inbounds i8, ptr %6, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 320
   store ptr %8, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %7, %2
   store ptr null, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 280
   tail call void @ConnectDatabase(ptr noundef nonnull %0, ptr noundef nonnull %11, i1 noundef zeroext true)
   tail call void @PQfinish(ptr noundef %4) #8
   ret void
@@ -67,7 +67,7 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [8 x ptr], align 16
   %5 = alloca [8 x ptr], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 440
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -81,29 +81,29 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
   br i1 %2, label %.thread82, label %26
 
 .thread82:                                        ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 424
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %.split.us
 
 26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i32, ptr %27, align 8
   %.fr79 = freeze i32 %28
-  %29 = getelementptr inbounds i8, ptr %0, i64 424
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq i32 %.fr79, 2
   %32 = icmp eq ptr %30, null
@@ -112,37 +112,37 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
 
 .thread87:                                        ; preds = %26
   %33 = tail call ptr @simple_prompt(ptr noundef nonnull @.str.1, i1 noundef zeroext false) #8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
-  %44 = getelementptr inbounds i8, ptr %5, i64 32
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
-  %46 = getelementptr inbounds i8, ptr %4, i64 40
-  %47 = getelementptr inbounds i8, ptr %5, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %.split.preheader
 
 48:                                               ; preds = %26
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 16
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
-  %56 = getelementptr inbounds i8, ptr %4, i64 24
-  %57 = getelementptr inbounds i8, ptr %5, i64 24
-  %58 = getelementptr inbounds i8, ptr %4, i64 32
-  %59 = getelementptr inbounds i8, ptr %5, i64 32
-  %60 = getelementptr inbounds i8, ptr %1, i64 40
-  %61 = getelementptr inbounds i8, ptr %4, i64 40
-  %62 = getelementptr inbounds i8, ptr %5, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.not80 = icmp eq i32 %.fr79, 1
   br i1 %.not80, label %.split.us, label %.split.preheader
 
@@ -391,11 +391,11 @@ ExecuteSqlQueryForSingleRow.exit:                 ; preds = %ExecuteSqlQuery.exi
 
 175:                                              ; preds = %167
   %176 = call ptr @pg_strdup(ptr noundef nonnull %169) #8
-  %177 = getelementptr inbounds i8, ptr %0, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %176, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %171, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 112
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %180 = load ptr, ptr %179, align 8
   %.not.i67 = icmp eq ptr %180, null
   br i1 %.not.i67, label %181, label %182
@@ -409,13 +409,13 @@ ExecuteSqlQueryForSingleRow.exit:                 ; preds = %ExecuteSqlQuery.exi
   br i1 %.not22.i, label %193, label %183
 
 183:                                              ; preds = %182
-  %184 = getelementptr inbounds i8, ptr %0, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %185 = load i32, ptr %184, align 8
   %186 = icmp slt i32 %171, %185
   br i1 %186, label %191, label %187
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %0, i64 44
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %189 = load i32, ptr %188, align 4
   %190 = icmp sgt i32 %171, %189
   br i1 %190, label %191, label %193
@@ -456,7 +456,7 @@ ExecuteSqlQueryForSingleRow.exit.i:               ; preds = %ExecuteSqlQuery.exi
   br i1 %.not23.i, label %sub_1.i, label %_check_database_version.exit
 
 sub_1.i:                                          ; preds = %ExecuteSqlQueryForSingleRow.exit.i
-  %202 = getelementptr inbounds i8, ptr %200, i64 1
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 1
   %203 = load i8, ptr %202, align 1
   %204 = icmp eq i8 %203, 0
   %205 = zext i1 %204 to i8
@@ -464,7 +464,7 @@ sub_1.i:                                          ; preds = %ExecuteSqlQueryForS
 
 _check_database_version.exit:                     ; preds = %ExecuteSqlQueryForSingleRow.exit.i, %sub_1.i
   %206 = phi i8 [ 0, %ExecuteSqlQueryForSingleRow.exit.i ], [ %205, %sub_1.i ]
-  %207 = getelementptr inbounds i8, ptr %0, i64 36
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %206, ptr %207, align 4
   call void @PQclear(ptr noundef %195) #8
   %208 = load ptr, ptr %6, align 8
@@ -495,7 +495,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecuteSqlQueryForSingleRow(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
   %6 = tail call i32 @PQresultStatus(ptr noundef %5) #8
@@ -541,13 +541,13 @@ declare void @set_archive_cancel_info(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @DisconnectDatabase(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x i8], align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = load volatile ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %15, label %8
@@ -583,14 +583,14 @@ declare i32 @PQcancel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @GetConnection(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 440
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecuteSqlStatement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
   %6 = tail call i32 @PQresultStatus(ptr noundef %5) #8
@@ -622,7 +622,7 @@ define internal fastcc void @die_on_query_failure(ptr %.440.val, ptr noundef %0)
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecuteSqlQuery(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 440
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @PQexec(ptr noundef %5, ptr noundef %1) #8
   %7 = tail call i32 @PQresultStatus(ptr noundef %6) #8
@@ -642,7 +642,7 @@ declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 460
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %74 [
     i32 1, label %6
@@ -650,13 +650,13 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %ExecuteSimpleCommands.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 440
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = load ptr, ptr %11, align 8
   %13 = trunc i64 %2 to i32
   %14 = tail call i32 @PQputCopyData(ptr noundef %12, ptr noundef %1, i32 noundef %13) #8
@@ -672,8 +672,8 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
 
 19:                                               ; preds = %3
   %20 = getelementptr i8, ptr %1, i64 %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
-  %22 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -688,10 +688,10 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br i1 %28, label %.lr.ph.i, label %ExecuteSimpleCommands.exit
 
 .lr.ph.i:                                         ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 68
-  %30 = getelementptr inbounds i8, ptr %0, i64 156
-  %31 = getelementptr inbounds i8, ptr %0, i64 440
-  %32 = getelementptr inbounds i8, ptr %0, i64 464
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %33
 
 33:                                               ; preds = %72, %.lr.ph.i
@@ -702,7 +702,7 @@ define dso_local noundef i32 @ExecuteSqlCommandBuf(ptr noundef %0, ptr noundef %
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %41, label %40
@@ -814,7 +814,7 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 440
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr @PQexec(ptr noundef %80, ptr noundef nonnull %1) #8
   %82 = tail call i32 @PQresultStatus(ptr noundef %81) #8
@@ -826,7 +826,7 @@ ExecuteSqlCommand.exit.i:                         ; preds = %51, %50, %44, %44, 
   ]
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %0, i64 464
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 1, ptr %84, align 8
   br label %ExecuteSqlCommand.exit
 
@@ -845,7 +845,7 @@ ExecuteSqlCommand.exit:                           ; preds = %78, %78, %78, %83, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %1, i64 %2, i1 false)
   %90 = getelementptr i8, ptr %89, i64 %2
   store i8 0, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %0, i64 440
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %92 = load ptr, ptr %91, align 8
   %93 = tail call ptr @PQexec(ptr noundef %92, ptr noundef %89) #8
   %94 = tail call i32 @PQresultStatus(ptr noundef %93) #8
@@ -857,7 +857,7 @@ ExecuteSqlCommand.exit:                           ; preds = %78, %78, %78, %83, 
   ]
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %0, i64 464
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 1, ptr %96, align 8
   br label %ExecuteSqlCommand.exit24
 
@@ -885,13 +885,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 440
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @PQputCopyEnd(ptr noundef %8, ptr noundef null) #8
   %10 = icmp slt i32 %9, 1
@@ -943,7 +943,7 @@ declare void @warn_or_exit_horribly(ptr noundef, ptr noundef, ...) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @StartTransaction(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 440
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.19) #8
   %5 = tail call i32 @PQresultStatus(ptr noundef %4) #8
@@ -955,7 +955,7 @@ define dso_local void @StartTransaction(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 1, ptr %7, align 8
   br label %ExecuteSqlCommand.exit
 
@@ -971,7 +971,7 @@ ExecuteSqlCommand.exit:                           ; preds = %1, %1, %1, %6, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CommitTransaction(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 440
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @PQexec(ptr noundef %3, ptr noundef nonnull @.str.21) #8
   %5 = tail call i32 @PQresultStatus(ptr noundef %4) #8
@@ -983,7 +983,7 @@ define dso_local void @CommitTransaction(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 1, ptr %7, align 8
   br label %ExecuteSqlCommand.exit
 
@@ -999,7 +999,7 @@ ExecuteSqlCommand.exit:                           ; preds = %1, %1, %1, %6, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DropLOIfExists(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6

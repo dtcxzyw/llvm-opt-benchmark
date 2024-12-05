@@ -93,9 +93,9 @@ define hidden range(i32 0, 2) i32 @PORT_GetPortMixerDescription(i32 noundef %0, 
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %20 = sub i64 199, %19
   %21 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull %6, i64 noundef %20) #11
-  %22 = getelementptr inbounds i8, ptr %1, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %23 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(35) @.str.2, i64 noundef 199) #11
-  %24 = getelementptr inbounds i8, ptr %1, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %25 = load ptr, ptr %4, align 8
   %26 = call ptr @snd_ctl_card_info_get_name(ptr noundef %25) #11
   %27 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 199) #11
@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @PORT_GetPortMixerDescription(i32 noundef %0, 
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #12
   %34 = sub i64 199, %33
   %35 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %24, ptr noundef %32, i64 noundef %34) #11
-  %36 = getelementptr inbounds i8, ptr %1, i64 600
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 600
   call void @getALSAVersion(ptr noundef nonnull %36, i32 noundef 199) #11
   %37 = load ptr, ptr %3, align 8
   %38 = call i32 @snd_ctl_close(ptr noundef %37) #11
@@ -191,7 +191,7 @@ define hidden noundef ptr @PORT_Open(i32 noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %26
   %33 = call noalias dereferenceable_or_null(2400) ptr @calloc(i64 noundef 300, i64 noundef 8) #13
-  %34 = getelementptr inbounds i8, ptr %27, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %33, ptr %34, align 8
   %35 = icmp eq ptr %33, null
   br i1 %35, label %36, label %39
@@ -204,7 +204,7 @@ define hidden noundef ptr @PORT_Open(i32 noundef %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %32
   %40 = call noalias dereferenceable_or_null(1200) ptr @calloc(i64 noundef 300, i64 noundef 4) #13
-  %41 = getelementptr inbounds i8, ptr %27, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %40, ptr %41, align 8
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %46
@@ -218,7 +218,7 @@ define hidden noundef ptr @PORT_Open(i32 noundef %0) local_unnamed_addr #0 {
 
 46:                                               ; preds = %39
   %47 = call noalias dereferenceable_or_null(38400) ptr @calloc(i64 noundef 1200, i64 noundef 32) #13
-  %48 = getelementptr inbounds i8, ptr %27, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %47, ptr %48, align 8
   %49 = icmp eq ptr %47, null
   %50 = load ptr, ptr %3, align 8
@@ -263,7 +263,7 @@ define hidden i32 @PORT_GetPortCount(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %49, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %.loopexit
@@ -275,8 +275,8 @@ define hidden i32 @PORT_GetPortCount(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %.lr.ph, %46
@@ -374,7 +374,7 @@ define hidden void @PORT_Close(ptr noundef %0) local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %4, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not16 = icmp eq ptr %8, null
   br i1 %.not16, label %10, label %9
@@ -384,7 +384,7 @@ define hidden void @PORT_Close(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %14, label %13
@@ -394,7 +394,7 @@ define hidden void @PORT_Close(ptr noundef %0) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not18 = icmp eq ptr %16, null
   br i1 %.not18, label %18, label %17
@@ -429,16 +429,16 @@ define hidden i32 @PORT_GetPortType(ptr noundef readonly %0, i32 noundef %1) loc
   br i1 %or.cond, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -455,16 +455,16 @@ define hidden range(i32 -1, 2) i32 @PORT_GetPortName(ptr noundef readonly %0, i3
   br i1 %or.cond, label %21, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp slt i32 %1, %9
   br i1 %.not, label %10, label %21
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @snd_mixer_selem_get_name(ptr noundef %15) #11
   %17 = add nsw i32 %3, -1
@@ -496,16 +496,16 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %or.cond110, label %172, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not = icmp slt i32 %1, %14
   br i1 %.not, label %15, label %172
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @snd_mixer_selem_has_playback_volume(ptr noundef %20) #11
   %.not88 = icmp eq i32 %21, 0
@@ -517,9 +517,9 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not89, label %getControlSlot.exit124.thread, label %24
 
 24:                                               ; preds = %22, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %18
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 65280
   %.not90 = icmp eq i32 %29, 0
@@ -552,13 +552,13 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
   %41 = phi i1 [ %.not93, %33 ], [ false, %.critedge112 ], [ %39, %37 ], [ false, %30 ]
   %42 = icmp ne i32 %.in, 0
   %or.cond = select i1 %42, i1 true, i1 %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %or.cond, label %47, label %.preheader
 
 .preheader:                                       ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %76
 
 47:                                               ; preds = %40
@@ -567,7 +567,7 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %49, label %getControlSlot.exit.thread, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %48 to i64
   %54 = getelementptr inbounds %struct.PortControl, ptr %52, i64 %53
@@ -575,14 +575,14 @@ define hidden void @PORT_GetControls(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %55, ptr %43, align 8
   store ptr %20, ptr %54, align 8
   %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %18
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %18
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr inttoptr (i64 4 to ptr), ptr %60, align 8
   %spec.select = select i1 %42, i32 32, i32 33
-  %61 = getelementptr inbounds i8, ptr %54, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i32 %spec.select, ptr %61, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -604,7 +604,7 @@ createVolumeControl.exit:                         ; preds = %62, %64
   %.0.i.i = select i1 %68, i64 %69, i64 1
   %70 = sitofp i64 %.0.i.i to float
   %71 = fdiv float 1.000000e+00, %70
-  %72 = getelementptr inbounds i8, ptr %2, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr %73(ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull inttoptr (i64 4 to ptr), float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef %71, ptr noundef nonnull @.str.4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -645,13 +645,13 @@ createVolumeControl.exit:                         ; preds = %62, %64
   store i32 %87, ptr %43, align 8
   store ptr %20, ptr %86, align 8
   %88 = load ptr, ptr %25, align 8
-  %89 = getelementptr inbounds i32, ptr %88, i64 %18
+  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %18
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %86, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr inttoptr (i64 4 to ptr), ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %86, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i32 %.0159, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -707,13 +707,13 @@ getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit
   br i1 %41, label %115, label %getControlSlot.exit124.thread
 
 115:                                              ; preds = %getControlSlot.exit.thread
-  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load i32, ptr %116, align 8
   %118 = icmp sgt i32 %117, 1199
   br i1 %118, label %getControlSlot.exit124.thread, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load ptr, ptr %120, align 8
   %122 = sext i32 %117 to i64
   %123 = getelementptr inbounds %struct.PortControl, ptr %121, i64 %122
@@ -721,15 +721,15 @@ getControlSlot.exit.thread:                       ; preds = %getControlSlot.exit
   store i32 %124, ptr %116, align 8
   store ptr %20, ptr %123, align 8
   %125 = load ptr, ptr %25, align 8
-  %126 = getelementptr inbounds i32, ptr %125, i64 %18
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %18
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %123, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %123, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i32 33, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr %132(ptr noundef %2, ptr noundef nonnull %123, ptr noundef nonnull inttoptr (i64 1 to ptr), float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 0x3F847AE140000000, ptr noundef nonnull @.str.4) #11
   store ptr %133, ptr %8, align 8
@@ -756,13 +756,13 @@ getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlo
   br i1 %.not105, label %getControlSlot.exit126.thread, label %141
 
 141:                                              ; preds = %139, %getControlSlot.exit124.thread
-  %142 = getelementptr inbounds i8, ptr %0, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %143 = load i32, ptr %142, align 8
   %144 = icmp sgt i32 %143, 1199
   br i1 %144, label %getControlSlot.exit126.thread, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %0, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %147 = load ptr, ptr %146, align 8
   %148 = sext i32 %143 to i64
   %149 = getelementptr inbounds %struct.PortControl, ptr %147, i64 %148
@@ -771,13 +771,13 @@ getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlo
   %.not107 = icmp eq i32 %.080, 0
   %151 = select i1 %.not107, ptr inttoptr (i64 2 to ptr), ptr inttoptr (i64 1 to ptr)
   store ptr %20, ptr %149, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i32, ptr %153, i64 %18
+  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %18
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %149, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 %155, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %149, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store ptr %151, ptr %157, align 8
   %158 = load ptr, ptr %2, align 8
   %159 = call ptr %158(ptr noundef nonnull %2, ptr noundef nonnull %149, ptr noundef nonnull %151) #11
@@ -795,7 +795,7 @@ getControlSlot.exit124.thread:                    ; preds = %115, %getControlSlo
 getControlSlot.exit126.thread:                    ; preds = %141, %160, %145, %139
   %.4 = phi i32 [ %161, %160 ], [ %.079, %145 ], [ %.079, %139 ], [ %.079, %141 ]
   %164 = call ptr @snd_mixer_selem_get_name(ptr noundef %20) #11
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = call ptr %166(ptr noundef %2, ptr noundef %164, ptr noundef nonnull %9, i32 noundef %.4) #11
   store ptr %167, ptr %8, align 8
@@ -803,7 +803,7 @@ getControlSlot.exit126.thread:                    ; preds = %141, %160, %145, %1
   br i1 %.not109, label %172, label %168
 
 168:                                              ; preds = %getControlSlot.exit126.thread
-  %169 = getelementptr inbounds i8, ptr %2, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %170 = load ptr, ptr %169, align 8
   %171 = call i32 %170(ptr noundef nonnull %2, ptr noundef nonnull %167) #11
   br label %172
@@ -837,12 +837,12 @@ define hidden i32 @PORT_GetIntValue(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %.not, label %23, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -2
   %switch = icmp eq i32 %6, 32
   %. = select i1 %switch, i32 0, i32 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %magicptr = ptrtoint ptr %8 to i64
   %magicptr.off = add i64 %magicptr, -1
@@ -850,7 +850,7 @@ define hidden i32 @PORT_GetIntValue(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %switch15, label %9, label %23
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65280
   %.not13 = icmp eq i32 %12, 0
@@ -891,7 +891,7 @@ define hidden void @PORT_SetIntValue(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
   %.not12 = icmp eq i32 %1, 0
@@ -903,7 +903,7 @@ define hidden void @PORT_SetIntValue(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %switch, label %8, label %17
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 65280
   %.not13 = icmp eq i32 %11, 0
@@ -934,7 +934,7 @@ define hidden float @getRealVolume(ptr nocapture noundef readonly %0, i32 nounde
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 65280
   %.not = icmp eq i32 %8, 0
@@ -981,7 +981,7 @@ define hidden void @setRealVolume(ptr nocapture noundef readonly %0, i32 noundef
   %5 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 65280
   %.not = icmp eq i32 %8, 0
@@ -1032,7 +1032,7 @@ define hidden float @PORT_GetFloatValue(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not, label %getFakeBalance.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %magicptr = ptrtoint ptr %4 to i64
   switch i64 %magicptr, label %getFakeBalance.exit [
@@ -1041,7 +1041,7 @@ define hidden float @PORT_GetFloatValue(ptr noundef readonly %0) local_unnamed_a
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %15 [
     i32 32, label %8
@@ -1064,7 +1064,7 @@ define hidden float @PORT_GetFloatValue(ptr noundef readonly %0) local_unnamed_a
   br label %getFakeBalance.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 33
   br i1 %20, label %21, label %getFakeBalance.exit
@@ -1100,7 +1100,7 @@ define hidden void @PORT_SetFloatValue(ptr noundef readonly %0, float noundef %1
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %magicptr = ptrtoint ptr %5 to i64
   switch i64 %magicptr, label %42 [
@@ -1109,7 +1109,7 @@ define hidden void @PORT_SetFloatValue(ptr noundef readonly %0, float noundef %1
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %27 [
     i32 32, label %9
@@ -1158,7 +1158,7 @@ getFakeBalance.exit:                              ; preds = %14, %17, %19
   br label %42
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 33
   br i1 %31, label %32, label %42

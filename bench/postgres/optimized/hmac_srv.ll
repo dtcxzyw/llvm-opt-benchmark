@@ -17,23 +17,23 @@ define dso_local ptr @pg_hmac_create(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %2, i8 0, i64 288, i1 false)
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %6, align 8
   %7 = icmp ult i32 %0, 6
   br i1 %7, label %switch.lookup, label %12
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %0 to i64
-  %switch.gep29 = getelementptr inbounds [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
+  %switch.gep29 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.pg_hmac_create.1, i64 0, i64 %9
   %switch.load30 = load i32, ptr %switch.gep29, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %switch.load, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %switch.load30, ptr %11, align 8
   br label %12
 
@@ -71,14 +71,14 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br i1 %4, label %72, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = sext i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 92, i64 %11, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 54, i64 %11, i1 false)
   %13 = icmp ugt i64 %2, %11
   br i1 %13, label %14, label %41
@@ -90,20 +90,20 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %19, align 4
   br label %72
 
 20:                                               ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %15, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call ptr @pg_cryptohash_create(i32 noundef %22) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %26, align 4
   tail call void @pfree(ptr noundef nonnull %16) #5
   br label %72
@@ -124,10 +124,10 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33, %30, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %37, align 4
   %38 = tail call ptr @pg_cryptohash_error(ptr noundef nonnull %23) #5
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %38, ptr %39, align 8
   tail call void @pg_cryptohash_free(ptr noundef nonnull %23) #5
   tail call void @pfree(ptr noundef nonnull %16) #5
@@ -178,11 +178,11 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %58, %._crit_edge
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %65, align 4
   %66 = load ptr, ptr %0, align 8
   %67 = tail call ptr @pg_cryptohash_error(ptr noundef %66) #5
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %67, ptr %68, align 8
   %.not64 = icmp eq ptr %.055, null
   br i1 %.not64, label %72, label %69
@@ -226,11 +226,11 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_update(ptr noundef %0, ptr nounde
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %10, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = tail call ptr @pg_cryptohash_error(ptr noundef %11) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   br label %14
 
@@ -245,7 +245,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
   br i1 %4, label %54, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = tail call ptr @palloc(i64 noundef %8) #5
@@ -253,7 +253,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %12, align 4
   br label %54
 
@@ -269,11 +269,11 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %22, align 4
   %23 = load ptr, ptr %0, align 8
   %24 = tail call ptr @pg_cryptohash_error(ptr noundef %23) #5
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %25, align 8
   tail call void @pfree(ptr noundef nonnull %9) #5
   br label %54
@@ -286,8 +286,8 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = tail call i32 @pg_cryptohash_update(ptr noundef %31, ptr noundef nonnull %32, i64 noundef %35) #5
@@ -309,11 +309,11 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_final(ptr noundef %0, ptr noundef
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %44, %38, %30, %26
-  %49 = getelementptr inbounds i8, ptr %0, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %49, align 4
   %50 = load ptr, ptr %0, align 8
   %51 = tail call ptr @pg_cryptohash_error(ptr noundef %50) #5
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %52, align 8
   tail call void @pfree(ptr noundef nonnull %9) #5
   br label %54
@@ -349,13 +349,13 @@ define dso_local ptr @pg_hmac_error(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %switch.selectcmp = icmp eq i32 %8, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.2, ptr @.str.1

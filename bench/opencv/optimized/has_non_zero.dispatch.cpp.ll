@@ -201,7 +201,7 @@ define noundef zeroext i1 @_ZN2cv10hasNonZeroERKNS_11_InputArrayE(ptr noundef no
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %.noexc
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !10
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %31)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %16
@@ -219,9 +219,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 .noexc63:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %34 = and i32 %33, 7
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load i32, ptr %38, align 8
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %44, label %40
@@ -281,7 +281,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br label %.loopexit68
 
 53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %6, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 2
   br i1 %56, label %57, label %90
@@ -293,7 +293,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br i1 %.not65, label %68, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %64 unwind label %.loopexit.split-lp
@@ -307,15 +307,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br label %.loopexit
 
 68:                                               ; preds = %57
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp slt i32 %70, 1
   br i1 %71, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
-  %73 = getelementptr inbounds i8, ptr %6, i64 72
-  %74 = getelementptr inbounds i8, ptr %6, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %75 = zext nneg i32 %70 to i64
   br label %76
 
@@ -343,15 +343,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 
 90:                                               ; preds = %53
   store ptr %6, ptr %9, align 16
-  %91 = getelementptr inbounds i8, ptr %9, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %91, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #10
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPS1_i(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1)
           to label %.preheader75 unwind label %.loopexit.split-lp71.loopexit.split-lp
 
 .preheader75:                                     ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %11, i64 32
-  %93 = getelementptr inbounds i8, ptr %11, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %94
 
 94:                                               ; preds = %.preheader75, %.loopexit69
@@ -375,7 +375,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br i1 %.not64, label %111, label %102
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %99, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %99)
           to label %106 unwind label %.loopexit.split-lp71.loopexit
@@ -410,15 +410,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br label %.loopexit68
 
 111:                                              ; preds = %98
-  %112 = getelementptr inbounds i8, ptr %99, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = icmp slt i32 %113, 1
   br i1 %114, label %.loopexit69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %99, i64 16
-  %116 = getelementptr inbounds i8, ptr %99, i64 72
-  %117 = getelementptr inbounds i8, ptr %99, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %99, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 12
   %118 = zext nneg i32 %113 to i64
   br label %119
 
@@ -453,7 +453,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 .loopexit:                                        ; preds = %85, %.preheader, %68, %66
   %.141 = phi i8 [ %67, %66 ], [ 0, %68 ], [ %.242, %.preheader ], [ %87, %85 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
-  %135 = getelementptr inbounds i8, ptr %3, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %136 = load i32, ptr %135, align 8
   %.not.i = icmp eq i32 %136, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %137
@@ -518,7 +518,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4

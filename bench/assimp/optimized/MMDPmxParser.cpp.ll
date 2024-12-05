@@ -375,8 +375,8 @@ if.then:                                          ; preds = %entry
 
 if.else.i.i:                                      ; preds = %entry
   %conv = sext i32 %0 to i64
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %cmp.i.i.i = icmp slt i32 %0, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
 
@@ -398,13 +398,13 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIcSaIc
   br i1 %cmp.i.i.i.i.i24.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i25.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %call5.i.i.i.i.i.noexc
-  %incdec.ptr.i.i.i22.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i8, i64 1
+  %incdec.ptr.i.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i8, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i, i8 0, i64 %sub.i.i.i23.i.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i25.i.i
   store ptr %call5.i.i.i.i.i8, ptr %buffer, align 8
-  %add.ptr36.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i8, i64 %conv
+  %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i8, i64 %conv
   store ptr %add.ptr36.i.i, ptr %_M_finish.i.i, align 8
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %call5.i.i.i.i.i8, i64 noundef %conv)
@@ -526,7 +526,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end25
   %start.addr.023 = phi ptr [ %start.addr.1, %if.end25 ], [ %start, %entry ]
   %result.addr.022 = phi ptr [ %call26, %if.end25 ], [ %result, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %start.addr.023, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %start.addr.023, i64 2
   %0 = load i16, ptr %start.addr.023, align 2
   %conv = zext i16 %0 to i32
   %trunc = and i16 %0, -1024
@@ -547,7 +547,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %3, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then3
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %start.addr.023, i64 4
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %start.addr.023, i64 4
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %add9 = add nsw i32 %add, %conv6
@@ -556,7 +556,7 @@ if.then8:                                         ; preds = %if.then3
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception, align 8
-  %u16.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %u16.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
   unreachable
@@ -564,7 +564,7 @@ if.else:                                          ; preds = %if.then3
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception12, align 8
-  %u16.i13 = getelementptr inbounds i8, ptr %exception12, i64 8
+  %u16.i13 = getelementptr inbounds nuw i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
   unreachable
@@ -572,7 +572,7 @@ if.else11:                                        ; preds = %if.then
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf813invalid_utf16E, i64 16), ptr %exception20, align 8
-  %u16.i14 = getelementptr inbounds i8, ptr %exception20, i64 8
+  %u16.i14 = getelementptr inbounds nuw i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i14, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #18
   unreachable
@@ -646,19 +646,19 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %this, i64 noundef 1)
-  %uv = getelementptr inbounds i8, ptr %this, i64 1
+  %uv = getelementptr inbounds nuw i8, ptr %this, i64 1
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv, i64 noundef 1)
-  %vertex_index_size = getelementptr inbounds i8, ptr %this, i64 2
+  %vertex_index_size = getelementptr inbounds nuw i8, ptr %this, i64 2
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %vertex_index_size, i64 noundef 1)
-  %texture_index_size = getelementptr inbounds i8, ptr %this, i64 3
+  %texture_index_size = getelementptr inbounds nuw i8, ptr %this, i64 3
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_index_size, i64 noundef 1)
-  %material_index_size = getelementptr inbounds i8, ptr %this, i64 4
+  %material_index_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %material_index_size, i64 noundef 1)
-  %bone_index_size = getelementptr inbounds i8, ptr %this, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %this, i64 5
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_index_size, i64 noundef 1)
-  %morph_index_size = getelementptr inbounds i8, ptr %this, i64 6
+  %morph_index_size = getelementptr inbounds nuw i8, ptr %this, i64 6
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_index_size, i64 noundef 1)
-  %rigidbody_index_size = getelementptr inbounds i8, ptr %this, i64 7
+  %rigidbody_index_size = getelementptr inbounds nuw i8, ptr %this, i64 7
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rigidbody_index_size, i64 noundef 1)
   %2 = load i8, ptr %count, align 1
   %cmp1112 = icmp ugt i8 %2, 8
@@ -719,7 +719,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -756,7 +756,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index, align 8
   ret void
 }
@@ -770,7 +770,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -807,7 +807,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
@@ -845,9 +845,9 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i6)
-  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
+  %bone_index2 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %retval.0.i9, ptr %bone_index2, align 4
-  %bone_weight = getelementptr inbounds i8, ptr %this, i64 16
+  %bone_weight = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight, i64 noundef 4)
   ret void
 }
@@ -867,7 +867,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -904,7 +904,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i11)
@@ -942,7 +942,7 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
+  %bone_index2 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %retval.0.i16, ptr %bone_index2, align 4
   %8 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i28)
@@ -980,7 +980,7 @@ _ZN3pmx9ReadIndexEPSii.exit44:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i28)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i30)
-  %bone_index3 = getelementptr inbounds i8, ptr %this, i64 16
+  %bone_index3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %retval.0.i33, ptr %bone_index3, align 8
   %12 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i45)
@@ -1018,15 +1018,15 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i45)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i47)
-  %bone_index4 = getelementptr inbounds i8, ptr %this, i64 20
+  %bone_index4 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %retval.0.i50, ptr %bone_index4, align 4
-  %bone_weight1 = getelementptr inbounds i8, ptr %this, i64 24
+  %bone_weight1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight1, i64 noundef 4)
-  %bone_weight2 = getelementptr inbounds i8, ptr %this, i64 28
+  %bone_weight2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight2, i64 noundef 4)
-  %bone_weight3 = getelementptr inbounds i8, ptr %this, i64 32
+  %bone_weight3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight3, i64 noundef 4)
-  %bone_weight4 = getelementptr inbounds i8, ptr %this, i64 36
+  %bone_weight4 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight4, i64 noundef 4)
   ret void
 }
@@ -1040,7 +1040,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1077,7 +1077,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i7)
@@ -1115,15 +1115,15 @@ _ZN3pmx9ReadIndexEPSii.exit23:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i7)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i9)
-  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
+  %bone_index2 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %retval.0.i12, ptr %bone_index2, align 4
-  %bone_weight = getelementptr inbounds i8, ptr %this, i64 16
+  %bone_weight = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight, i64 noundef 4)
-  %sdef_c = getelementptr inbounds i8, ptr %this, i64 20
+  %sdef_c = getelementptr inbounds nuw i8, ptr %this, i64 20
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_c, i64 noundef 12)
-  %sdef_r0 = getelementptr inbounds i8, ptr %this, i64 32
+  %sdef_r0 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_r0, i64 noundef 12)
-  %sdef_r1 = getelementptr inbounds i8, ptr %this, i64 44
+  %sdef_r1 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sdef_r1, i64 noundef 12)
   ret void
 }
@@ -1143,7 +1143,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1180,7 +1180,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index1 = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index1, align 8
   %4 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i11)
@@ -1218,7 +1218,7 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %bone_index2 = getelementptr inbounds i8, ptr %this, i64 12
+  %bone_index2 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %retval.0.i16, ptr %bone_index2, align 4
   %8 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i28)
@@ -1256,7 +1256,7 @@ _ZN3pmx9ReadIndexEPSii.exit44:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i28)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i30)
-  %bone_index3 = getelementptr inbounds i8, ptr %this, i64 16
+  %bone_index3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %retval.0.i33, ptr %bone_index3, align 8
   %12 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i45)
@@ -1294,15 +1294,15 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i45)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i47)
-  %bone_index4 = getelementptr inbounds i8, ptr %this, i64 20
+  %bone_index4 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %retval.0.i50, ptr %bone_index4, align 4
-  %bone_weight1 = getelementptr inbounds i8, ptr %this, i64 24
+  %bone_weight1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight1, i64 noundef 4)
-  %bone_weight2 = getelementptr inbounds i8, ptr %this, i64 28
+  %bone_weight2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight2, i64 noundef 4)
-  %bone_weight3 = getelementptr inbounds i8, ptr %this, i64 32
+  %bone_weight3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight3, i64 noundef 4)
-  %bone_weight4 = getelementptr inbounds i8, ptr %this, i64 36
+  %bone_weight4 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_weight4, i64 noundef 4)
   ret void
 }
@@ -1311,22 +1311,22 @@ _ZN3pmx9ReadIndexEPSii.exit61:                    ; preds = %_ZN3pmx9ReadIndexEP
 define hidden void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull %stream, ptr noundef %setting) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %this, i64 noundef 12)
-  %normal = getelementptr inbounds i8, ptr %this, i64 12
+  %normal = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call3 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %normal, i64 noundef 12)
-  %uv = getelementptr inbounds i8, ptr %this, i64 24
+  %uv = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv, i64 noundef 8)
-  %uv6 = getelementptr inbounds i8, ptr %setting, i64 1
+  %uv6 = getelementptr inbounds nuw i8, ptr %setting, i64 1
   %0 = load i8, ptr %uv6, align 1
   %cmp51.not = icmp eq i8 %0, 0
   br i1 %cmp51.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %uva = getelementptr inbounds i8, ptr %this, i64 32
+  %uva = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [4 x [4 x float]], ptr %uva, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x [4 x float]], ptr %uva, i64 0, i64 %indvars.iv
   %call8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %arrayidx, i64 noundef 16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i8, ptr %uv6, align 1
@@ -1335,7 +1335,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %skinning_type = getelementptr inbounds i8, ptr %this, i64 96
+  %skinning_type = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call9 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %skinning_type, i64 noundef 1)
   %3 = load i8, ptr %skinning_type, align 8
   switch i8 %3, label %sw.default [
@@ -1349,9 +1349,9 @@ for.end:                                          ; preds = %for.body, %entry
 sw.bb:                                            ; preds = %for.end
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i64 16), ptr %call.i, align 8, !noalias !8
-  %bone_index.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %bone_index.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %bone_index.i.i, align 8, !noalias !8
-  %skinning = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning = getelementptr inbounds nuw i8, ptr %this, i64 104
   %4 = load ptr, ptr %skinning, align 8
   store ptr %call.i, ptr %skinning, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
@@ -1360,13 +1360,13 @@ sw.bb:                                            ; preds = %for.end
 sw.bb12:                                          ; preds = %for.end
   %call.i10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i64 16), ptr %call.i10, align 8, !noalias !11
-  %bone_index1.i.i = getelementptr inbounds i8, ptr %call.i10, i64 8
+  %bone_index1.i.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 8
   store i32 0, ptr %bone_index1.i.i, align 8, !noalias !11
-  %bone_index2.i.i = getelementptr inbounds i8, ptr %call.i10, i64 12
+  %bone_index2.i.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 12
   store i32 0, ptr %bone_index2.i.i, align 4, !noalias !11
-  %bone_weight.i.i = getelementptr inbounds i8, ptr %call.i10, i64 16
+  %bone_weight.i.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 16
   store float 0.000000e+00, ptr %bone_weight.i.i, align 8, !noalias !11
-  %skinning14 = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning14 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %5 = load ptr, ptr %skinning14, align 8
   store ptr %call.i10, ptr %skinning14, align 8
   %tobool.not.i.i.i11 = icmp eq ptr %5, null
@@ -1375,9 +1375,9 @@ sw.bb12:                                          ; preds = %for.end
 sw.bb16:                                          ; preds = %for.end
   %call.i18 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i64 16), ptr %call.i18, align 8, !noalias !14
-  %bone_index1.i.i19 = getelementptr inbounds i8, ptr %call.i18, i64 8
+  %bone_index1.i.i19 = getelementptr inbounds nuw i8, ptr %call.i18, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i19, i8 0, i64 32, i1 false), !noalias !14
-  %skinning18 = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning18 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %6 = load ptr, ptr %skinning18, align 8
   store ptr %call.i18, ptr %skinning18, align 8
   %tobool.not.i.i.i20 = icmp eq ptr %6, null
@@ -1386,9 +1386,9 @@ sw.bb16:                                          ; preds = %for.end
 sw.bb20:                                          ; preds = %for.end
   %call.i27 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19, !noalias !17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i64 16), ptr %call.i27, align 8, !noalias !17
-  %bone_index1.i.i28 = getelementptr inbounds i8, ptr %call.i27, i64 8
+  %bone_index1.i.i28 = getelementptr inbounds nuw i8, ptr %call.i27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bone_index1.i.i28, i8 0, i64 48, i1 false), !noalias !17
-  %skinning22 = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning22 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %7 = load ptr, ptr %skinning22, align 8
   store ptr %call.i27, ptr %skinning22, align 8
   %tobool.not.i.i.i29 = icmp eq ptr %7, null
@@ -1397,9 +1397,9 @@ sw.bb20:                                          ; preds = %for.end
 sw.bb24:                                          ; preds = %for.end
   %call.i36 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i64 16), ptr %call.i36, align 8, !noalias !20
-  %bone_index1.i.i37 = getelementptr inbounds i8, ptr %call.i36, i64 8
+  %bone_index1.i.i37 = getelementptr inbounds nuw i8, ptr %call.i36, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index1.i.i37, i8 0, i64 32, i1 false), !noalias !20
-  %skinning26 = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning26 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %8 = load ptr, ptr %skinning26, align 8
   store ptr %call.i36, ptr %skinning26, align 8
   %tobool.not.i.i.i38 = icmp eq ptr %8, null
@@ -1414,18 +1414,18 @@ sw.default:                                       ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb
   %.sink55 = phi ptr [ %4, %sw.bb ], [ %5, %sw.bb12 ], [ %6, %sw.bb16 ], [ %7, %sw.bb20 ], [ %8, %sw.bb24 ]
   %vtable.i.i.i.i40 = load ptr, ptr %.sink55, align 8
-  %vfn.i.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i.i40, i64 16
+  %vfn.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i40, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i41, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %.sink55) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb24, %sw.bb20, %sw.bb16, %sw.bb12, %sw.bb
-  %skinning28 = getelementptr inbounds i8, ptr %this, i64 104
+  %skinning28 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %10 = load ptr, ptr %skinning28, align 8
   %vtable = load ptr, ptr %10, align 8
   %11 = load ptr, ptr %vtable, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
-  %edge = getelementptr inbounds i8, ptr %this, i64 112
+  %edge = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge, i64 noundef 4)
   ret void
 }
@@ -1451,24 +1451,24 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %material_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %material_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %diffuse = getelementptr inbounds i8, ptr %this, i64 64
+  %diffuse = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %diffuse, i64 noundef 16)
-  %specular = getelementptr inbounds i8, ptr %this, i64 80
+  %specular = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specular, i64 noundef 12)
-  %specularlity = getelementptr inbounds i8, ptr %this, i64 92
+  %specularlity = getelementptr inbounds nuw i8, ptr %this, i64 92
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specularlity, i64 noundef 4)
-  %ambient = getelementptr inbounds i8, ptr %this, i64 96
+  %ambient = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ambient, i64 noundef 12)
-  %flag = getelementptr inbounds i8, ptr %this, i64 108
+  %flag = getelementptr inbounds nuw i8, ptr %this, i64 108
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %flag, i64 noundef 1)
-  %edge_color = getelementptr inbounds i8, ptr %this, i64 112
+  %edge_color = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_color, i64 noundef 16)
-  %edge_size = getelementptr inbounds i8, ptr %this, i64 128
+  %edge_size = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_size, i64 noundef 4)
-  %texture_index_size = getelementptr inbounds i8, ptr %setting, i64 3
+  %texture_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 3
   %2 = load i8, ptr %texture_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1505,7 +1505,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %diffuse_texture_index = getelementptr inbounds i8, ptr %this, i64 132
+  %diffuse_texture_index = getelementptr inbounds nuw i8, ptr %this, i64 132
   store i32 %retval.0.i, ptr %diffuse_texture_index, align 4
   %6 = load i8, ptr %texture_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i22)
@@ -1543,18 +1543,18 @@ _ZN3pmx9ReadIndexEPSii.exit38:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i22)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i24)
-  %sphere_texture_index = getelementptr inbounds i8, ptr %this, i64 136
+  %sphere_texture_index = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 %retval.0.i27, ptr %sphere_texture_index, align 8
-  %sphere_op_mode = getelementptr inbounds i8, ptr %this, i64 140
+  %sphere_op_mode = getelementptr inbounds nuw i8, ptr %this, i64 140
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sphere_op_mode, i64 noundef 1)
-  %common_toon_flag = getelementptr inbounds i8, ptr %this, i64 141
+  %common_toon_flag = getelementptr inbounds nuw i8, ptr %this, i64 141
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %common_toon_flag, i64 noundef 1)
   %10 = load i8, ptr %common_toon_flag, align 1
   %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit38
-  %toon_texture_index = getelementptr inbounds i8, ptr %this, i64 144
+  %toon_texture_index = getelementptr inbounds nuw i8, ptr %this, i64 144
   %call22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %toon_texture_index, i64 noundef 1)
   br label %if.end
 
@@ -1595,17 +1595,17 @@ _ZN3pmx9ReadIndexEPSii.exit55:                    ; preds = %if.else, %sw.bb.i50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i39)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i41)
-  %toon_texture_index26 = getelementptr inbounds i8, ptr %this, i64 144
+  %toon_texture_index26 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %retval.0.i44, ptr %toon_texture_index26, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3pmx9ReadIndexEPSii.exit55, %if.then
   %15 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull %stream, i8 noundef zeroext %15)
-  %memo = getelementptr inbounds i8, ptr %this, i64 152
+  %memo = getelementptr inbounds nuw i8, ptr %this, i64 152
   %call29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %memo, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #17
-  %index_count = getelementptr inbounds i8, ptr %this, i64 184
+  %index_count = getelementptr inbounds nuw i8, ptr %this, i64 184
   %call30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %index_count, i64 noundef 4)
   ret void
 }
@@ -1619,7 +1619,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1657,16 +1657,16 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   store i32 %retval.0.i, ptr %this, align 4
-  %angle_lock = getelementptr inbounds i8, ptr %this, i64 4
+  %angle_lock = getelementptr inbounds nuw i8, ptr %this, i64 4
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %angle_lock, i64 noundef 1)
   %4 = load i8, ptr %angle_lock, align 4
   %cmp = icmp eq i8 %4, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit
-  %max_radian = getelementptr inbounds i8, ptr %this, i64 8
+  %max_radian = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %max_radian, i64 noundef 12)
-  %min_radian = getelementptr inbounds i8, ptr %this, i64 20
+  %min_radian = getelementptr inbounds nuw i8, ptr %this, i64 20
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %min_radian, i64 noundef 12)
   br label %if.end
 
@@ -1697,12 +1697,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %bone_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %bone_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %position = getelementptr inbounds i8, ptr %this, i64 64
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %2 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -1739,11 +1739,11 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %parent_index = getelementptr inbounds i8, ptr %this, i64 76
+  %parent_index = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i32 %retval.0.i, ptr %parent_index, align 4
-  %level = getelementptr inbounds i8, ptr %this, i64 80
+  %level = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %level, i64 noundef 4)
-  %bone_flag = getelementptr inbounds i8, ptr %this, i64 84
+  %bone_flag = getelementptr inbounds nuw i8, ptr %this, i64 84
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_flag, i64 noundef 2)
   %6 = load i16, ptr %bone_flag, align 4
   %7 = and i16 %6, 1
@@ -1787,12 +1787,12 @@ _ZN3pmx9ReadIndexEPSii.exit43:                    ; preds = %if.then, %sw.bb.i38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i27)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i29)
-  %target_index = getelementptr inbounds i8, ptr %this, i64 100
+  %target_index = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 %retval.0.i32, ptr %target_index, align 4
   br label %if.end
 
 if.else:                                          ; preds = %_ZN3pmx9ReadIndexEPSii.exit
-  %offset = getelementptr inbounds i8, ptr %this, i64 88
+  %offset = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset, i64 noundef 12)
   br label %if.end
 
@@ -1839,9 +1839,9 @@ _ZN3pmx9ReadIndexEPSii.exit60:                    ; preds = %if.then20, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i44)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i45)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i46)
-  %grant_parent_index = getelementptr inbounds i8, ptr %this, i64 104
+  %grant_parent_index = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %retval.0.i49, ptr %grant_parent_index, align 8
-  %grant_weight = getelementptr inbounds i8, ptr %this, i64 108
+  %grant_weight = getelementptr inbounds nuw i8, ptr %this, i64 108
   %call24 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %grant_weight, i64 noundef 4)
   %.pre = load i16, ptr %bone_flag, align 4
   br label %if.end25
@@ -1853,7 +1853,7 @@ if.end25:                                         ; preds = %_ZN3pmx9ReadIndexEP
   br i1 %tobool29.not, label %if.end33, label %if.then30
 
 if.then30:                                        ; preds = %if.end25
-  %lock_axis_orientation = getelementptr inbounds i8, ptr %this, i64 112
+  %lock_axis_orientation = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %lock_axis_orientation, i64 noundef 12)
   %.pre83 = load i16, ptr %bone_flag, align 4
   br label %if.end33
@@ -1865,9 +1865,9 @@ if.end33:                                         ; preds = %if.then30, %if.end2
   br i1 %tobool37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end33
-  %local_axis_x_orientation = getelementptr inbounds i8, ptr %this, i64 124
+  %local_axis_x_orientation = getelementptr inbounds nuw i8, ptr %this, i64 124
   %call40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %local_axis_x_orientation, i64 noundef 12)
-  %local_axis_y_orientation = getelementptr inbounds i8, ptr %this, i64 136
+  %local_axis_y_orientation = getelementptr inbounds nuw i8, ptr %this, i64 136
   %call42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %local_axis_y_orientation, i64 noundef 12)
   %.pre84 = load i16, ptr %bone_flag, align 4
   br label %if.end43
@@ -1879,7 +1879,7 @@ if.end43:                                         ; preds = %if.then38, %if.end3
   br i1 %tobool47.not, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.end43
-  %key = getelementptr inbounds i8, ptr %this, i64 148
+  %key = getelementptr inbounds nuw i8, ptr %this, i64 148
   %call49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %key, i64 noundef 4)
   %.pre85 = load i16, ptr %bone_flag, align 4
   br label %if.end50
@@ -1927,13 +1927,13 @@ _ZN3pmx9ReadIndexEPSii.exit77:                    ; preds = %if.then55, %sw.bb.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i61)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i63)
-  %ik_target_bone_index = getelementptr inbounds i8, ptr %this, i64 152
+  %ik_target_bone_index = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 %retval.0.i66, ptr %ik_target_bone_index, align 8
-  %ik_loop = getelementptr inbounds i8, ptr %this, i64 156
+  %ik_loop = getelementptr inbounds nuw i8, ptr %this, i64 156
   %call59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_loop, i64 noundef 4)
-  %ik_loop_angle_limit = getelementptr inbounds i8, ptr %this, i64 160
+  %ik_loop_angle_limit = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call60 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_loop_angle_limit, i64 noundef 4)
-  %ik_link_count = getelementptr inbounds i8, ptr %this, i64 164
+  %ik_link_count = getelementptr inbounds nuw i8, ptr %this, i64 164
   %call61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ik_link_count, i64 noundef 4)
   %30 = load i32, ptr %ik_link_count, align 4
   %conv64 = sext i32 %30 to i64
@@ -1951,16 +1951,16 @@ new.ctorloop.i:                                   ; preds = %_ZN3pmx9ReadIndexEP
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call.i78, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store i32 0, ptr %arrayctor.cur.i, align 4, !noalias !23
-  %angle_lock.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 4
+  %angle_lock.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 4
   store i8 0, ptr %angle_lock.i.i, align 4, !noalias !23
-  %max_radian.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
+  %max_radian.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %max_radian.i.i, i8 0, i64 24, i1 false), !noalias !23
-  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 32
+  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 32
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxIkLinkEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx9PmxIkLinkEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %_ZN3pmx9ReadIndexEPSii.exit77
-  %ik_links = getelementptr inbounds i8, ptr %this, i64 168
+  %ik_links = getelementptr inbounds nuw i8, ptr %this, i64 168
   %34 = load ptr, ptr %ik_links, align 8
   store ptr %call.i78, ptr %ik_links, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %34, null
@@ -1979,7 +1979,7 @@ _ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit: ; preds =
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit ]
   %36 = load ptr, ptr %ik_links, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %36, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.pmx::PmxIkLink", ptr %36, i64 %indvars.iv
   call void @_ZN3pmx9PmxIkLink4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %ik_link_count, align 4
@@ -1997,7 +1997,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
+  %vertex_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 2
   %0 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2034,9 +2034,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %vertex_index = getelementptr inbounds i8, ptr %this, i64 8
+  %vertex_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %vertex_index, align 8
-  %position_offset = getelementptr inbounds i8, ptr %this, i64 12
+  %position_offset = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position_offset, i64 noundef 12)
   ret void
 }
@@ -2047,7 +2047,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
+  %vertex_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 2
   %0 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2084,9 +2084,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %vertex_index = getelementptr inbounds i8, ptr %this, i64 8
+  %vertex_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %vertex_index, align 8
-  %uv_offset = getelementptr inbounds i8, ptr %this, i64 12
+  %uv_offset = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %uv_offset, i64 noundef 16)
   ret void
 }
@@ -2097,7 +2097,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %0 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2134,11 +2134,11 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %bone_index = getelementptr inbounds i8, ptr %this, i64 8
+  %bone_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %bone_index, align 8
-  %translation = getelementptr inbounds i8, ptr %this, i64 12
+  %translation = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %translation, i64 noundef 12)
-  %rotation = getelementptr inbounds i8, ptr %this, i64 24
+  %rotation = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation, i64 noundef 16)
   ret void
 }
@@ -2149,7 +2149,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %material_index_size = getelementptr inbounds i8, ptr %setting, i64 4
+  %material_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 4
   %0 = load i8, ptr %material_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2186,27 +2186,27 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %material_index = getelementptr inbounds i8, ptr %this, i64 8
+  %material_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %material_index, align 8
-  %offset_operation = getelementptr inbounds i8, ptr %this, i64 12
+  %offset_operation = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset_operation, i64 noundef 1)
-  %diffuse = getelementptr inbounds i8, ptr %this, i64 16
+  %diffuse = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %diffuse, i64 noundef 16)
-  %specular = getelementptr inbounds i8, ptr %this, i64 32
+  %specular = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specular, i64 noundef 12)
-  %specularity = getelementptr inbounds i8, ptr %this, i64 44
+  %specularity = getelementptr inbounds nuw i8, ptr %this, i64 44
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %specularity, i64 noundef 4)
-  %ambient = getelementptr inbounds i8, ptr %this, i64 48
+  %ambient = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %ambient, i64 noundef 12)
-  %edge_color = getelementptr inbounds i8, ptr %this, i64 60
+  %edge_color = getelementptr inbounds nuw i8, ptr %this, i64 60
   %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_color, i64 noundef 16)
-  %edge_size = getelementptr inbounds i8, ptr %this, i64 76
+  %edge_size = getelementptr inbounds nuw i8, ptr %this, i64 76
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %edge_size, i64 noundef 4)
-  %texture_argb = getelementptr inbounds i8, ptr %this, i64 80
+  %texture_argb = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_argb, i64 noundef 16)
-  %sphere_texture_argb = getelementptr inbounds i8, ptr %this, i64 96
+  %sphere_texture_argb = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %sphere_texture_argb, i64 noundef 16)
-  %toon_texture_argb = getelementptr inbounds i8, ptr %this, i64 112
+  %toon_texture_argb = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %toon_texture_argb, i64 noundef 16)
   ret void
 }
@@ -2217,7 +2217,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
+  %morph_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 6
   %0 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2254,9 +2254,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %morph_index = getelementptr inbounds i8, ptr %this, i64 8
+  %morph_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %morph_index, align 8
-  %morph_weight = getelementptr inbounds i8, ptr %this, i64 12
+  %morph_weight = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_weight, i64 noundef 4)
   ret void
 }
@@ -2267,7 +2267,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
+  %morph_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 6
   %0 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2304,9 +2304,9 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %morph_index = getelementptr inbounds i8, ptr %this, i64 8
+  %morph_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %morph_index, align 8
-  %morph_value = getelementptr inbounds i8, ptr %this, i64 12
+  %morph_value = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_value, i64 noundef 4)
   ret void
 }
@@ -2317,7 +2317,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
+  %rigidbody_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2354,13 +2354,13 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %rigid_body_index = getelementptr inbounds i8, ptr %this, i64 8
+  %rigid_body_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %retval.0.i, ptr %rigid_body_index, align 8
-  %is_local = getelementptr inbounds i8, ptr %this, i64 12
+  %is_local = getelementptr inbounds nuw i8, ptr %this, i64 12
   %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %is_local, i64 noundef 1)
-  %velocity = getelementptr inbounds i8, ptr %this, i64 16
+  %velocity = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %velocity, i64 noundef 12)
-  %angular_torque = getelementptr inbounds i8, ptr %this, i64 28
+  %angular_torque = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %angular_torque, i64 noundef 12)
   ret void
 }
@@ -2376,14 +2376,14 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %morph_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %morph_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %category = getelementptr inbounds i8, ptr %this, i64 64
+  %category = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %category, i64 noundef 1)
-  %morph_type = getelementptr inbounds i8, ptr %this, i64 65
+  %morph_type = getelementptr inbounds nuw i8, ptr %this, i64 65
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_type, i64 noundef 1)
-  %offset_count = getelementptr inbounds i8, ptr %this, i64 68
+  %offset_count = getelementptr inbounds nuw i8, ptr %this, i64 68
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %offset_count, i64 noundef 4)
   %2 = load i8, ptr %morph_type, align 1
   switch i8 %2, label %sw.default [
@@ -2407,7 +2407,7 @@ sw.bb:                                            ; preds = %entry
   %7 = select i1 %4, i64 -1, i64 %6
   %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19, !noalias !27
   store i64 %conv, ptr %call.i, align 16, !noalias !27
-  %8 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %isempty.i = icmp eq i32 %3, 0
   br i1 %isempty.i, label %_ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i
 
@@ -2418,16 +2418,16 @@ new.ctorloop.i:                                   ; preds = %sw.bb
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %8, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i64 16), ptr %arrayctor.cur.i, align 8, !noalias !27
-  %morph_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
+  %morph_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 8
   store i32 0, ptr %morph_index.i.i, align 8, !noalias !27
-  %morph_weight.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 12
+  %morph_weight.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 12
   store float 0.000000e+00, ptr %morph_weight.i.i, align 4, !noalias !27
-  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 16
+  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 16
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %sw.bb
-  %group_offsets = getelementptr inbounds i8, ptr %this, i64 104
+  %group_offsets = getelementptr inbounds nuw i8, ptr %this, i64 104
   %9 = load ptr, ptr %group_offsets, align 8
   store ptr %8, ptr %group_offsets, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
@@ -2447,7 +2447,7 @@ _ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %12 = load ptr, ptr %group_offsets, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %12, i64 %indvars.iv104
+  %arrayidx.i = getelementptr inbounds nuw %"class.pmx::PmxMorphGroupOffset", ptr %12, i64 %indvars.iv104
   %vtable = load ptr, ptr %arrayidx.i, align 8
   %13 = load ptr, ptr %vtable, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
@@ -2470,7 +2470,7 @@ sw.bb16:                                          ; preds = %entry
   %24 = select i1 %22, i64 -1, i64 %23
   %call.i26 = call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #19, !noalias !31
   store i64 %conv19, ptr %call.i26, align 16, !noalias !31
-  %25 = getelementptr inbounds i8, ptr %call.i26, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %call.i26, i64 8
   %isempty.i27 = icmp eq i32 %16, 0
   br i1 %isempty.i27, label %_ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i28
 
@@ -2481,14 +2481,14 @@ new.ctorloop.i28:                                 ; preds = %sw.bb16
 arrayctor.loop.i30:                               ; preds = %arrayctor.loop.i30, %new.ctorloop.i28
   %arrayctor.cur.i31 = phi ptr [ %25, %new.ctorloop.i28 ], [ %arrayctor.next.i32, %arrayctor.loop.i30 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i64 16), ptr %arrayctor.cur.i31, align 8, !noalias !31
-  %vertex_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i31, i64 8
+  %vertex_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i31, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertex_index.i.i, i8 0, i64 16, i1 false), !noalias !31
-  %arrayctor.next.i32 = getelementptr inbounds i8, ptr %arrayctor.cur.i31, i64 24
+  %arrayctor.next.i32 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i31, i64 24
   %arrayctor.done.i33 = icmp eq ptr %arrayctor.next.i32, %arrayctor.end.i29
   br i1 %arrayctor.done.i33, label %_ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i30
 
 _ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i30, %sw.bb16
-  %vertex_offsets = getelementptr inbounds i8, ptr %this, i64 72
+  %vertex_offsets = getelementptr inbounds nuw i8, ptr %this, i64 72
   %26 = load ptr, ptr %vertex_offsets, align 8
   store ptr %25, ptr %vertex_offsets, align 8
   %tobool.not.i.i.i.i34 = icmp eq ptr %26, null
@@ -2508,7 +2508,7 @@ _ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exi
 for.body25:                                       ; preds = %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit, %for.body25
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %for.body25 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %29 = load ptr, ptr %vertex_offsets, align 8
-  %arrayidx.i36 = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %29, i64 %indvars.iv101
+  %arrayidx.i36 = getelementptr inbounds nuw %"class.pmx::PmxMorphVertexOffset", ptr %29, i64 %indvars.iv101
   %vtable29 = load ptr, ptr %arrayidx.i36, align 8
   %30 = load ptr, ptr %vtable29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i36, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
@@ -2531,7 +2531,7 @@ sw.bb34:                                          ; preds = %entry
   %41 = select i1 %39, i64 -1, i64 %40
   %call.i37 = call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #19, !noalias !35
   store i64 %conv37, ptr %call.i37, align 16, !noalias !35
-  %42 = getelementptr inbounds i8, ptr %call.i37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %call.i37, i64 8
   %isempty.i38 = icmp eq i32 %33, 0
   br i1 %isempty.i38, label %_ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i39
 
@@ -2542,14 +2542,14 @@ new.ctorloop.i39:                                 ; preds = %sw.bb34
 arrayctor.loop.i41:                               ; preds = %arrayctor.loop.i41, %new.ctorloop.i39
   %arrayctor.cur.i42 = phi ptr [ %42, %new.ctorloop.i39 ], [ %arrayctor.next.i43, %arrayctor.loop.i41 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i64 16), ptr %arrayctor.cur.i42, align 8, !noalias !35
-  %bone_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i42, i64 8
+  %bone_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bone_index.i.i, i8 0, i64 32, i1 false), !noalias !35
-  %arrayctor.next.i43 = getelementptr inbounds i8, ptr %arrayctor.cur.i42, i64 40
+  %arrayctor.next.i43 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i42, i64 40
   %arrayctor.done.i44 = icmp eq ptr %arrayctor.next.i43, %arrayctor.end.i40
   br i1 %arrayctor.done.i44, label %_ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i41
 
 _ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i41, %sw.bb34
-  %bone_offsets = getelementptr inbounds i8, ptr %this, i64 88
+  %bone_offsets = getelementptr inbounds nuw i8, ptr %this, i64 88
   %43 = load ptr, ptr %bone_offsets, align 8
   store ptr %42, ptr %bone_offsets, align 8
   %tobool.not.i.i.i.i45 = icmp eq ptr %43, null
@@ -2569,7 +2569,7 @@ _ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit:
 for.body43:                                       ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, %for.body43
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %for.body43 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %46 = load ptr, ptr %bone_offsets, align 8
-  %arrayidx.i47 = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %46, i64 %indvars.iv98
+  %arrayidx.i47 = getelementptr inbounds nuw %"class.pmx::PmxMorphBoneOffset", ptr %46, i64 %indvars.iv98
   %vtable47 = load ptr, ptr %arrayidx.i47, align 8
   %47 = load ptr, ptr %vtable47, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i47, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
@@ -2588,7 +2588,7 @@ sw.bb52:                                          ; preds = %entry
   %54 = select i1 %51, i64 -1, i64 %53
   %call.i48 = call noalias noundef nonnull ptr @_Znam(i64 noundef %54) #19, !noalias !39
   store i64 %conv55, ptr %call.i48, align 16, !noalias !39
-  %55 = getelementptr inbounds i8, ptr %call.i48, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %call.i48, i64 8
   %isempty.i49 = icmp eq i32 %50, 0
   br i1 %isempty.i49, label %_ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i50
 
@@ -2599,14 +2599,14 @@ new.ctorloop.i50:                                 ; preds = %sw.bb52
 arrayctor.loop.i52:                               ; preds = %arrayctor.loop.i52, %new.ctorloop.i50
   %arrayctor.cur.i53 = phi ptr [ %55, %new.ctorloop.i50 ], [ %arrayctor.next.i54, %arrayctor.loop.i52 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i64 16), ptr %arrayctor.cur.i53, align 8, !noalias !39
-  %diffuse.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i53, i64 16
+  %diffuse.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i53, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %diffuse.i.i, i8 0, i64 112, i1 false), !noalias !39
-  %arrayctor.next.i54 = getelementptr inbounds i8, ptr %arrayctor.cur.i53, i64 128
+  %arrayctor.next.i54 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i53, i64 128
   %arrayctor.done.i55 = icmp eq ptr %arrayctor.next.i54, %arrayctor.end.i51
   br i1 %arrayctor.done.i55, label %_ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i52
 
 _ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i52, %sw.bb52
-  %material_offsets = getelementptr inbounds i8, ptr %this, i64 96
+  %material_offsets = getelementptr inbounds nuw i8, ptr %this, i64 96
   %56 = load ptr, ptr %material_offsets, align 8
   store ptr %55, ptr %material_offsets, align 8
   %tobool.not.i.i.i.i56 = icmp eq ptr %56, null
@@ -2626,7 +2626,7 @@ _ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.e
 for.body61:                                       ; preds = %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, %for.body61
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %for.body61 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %59 = load ptr, ptr %material_offsets, align 8
-  %arrayidx.i58 = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %59, i64 %indvars.iv95
+  %arrayidx.i58 = getelementptr inbounds nuw %"class.pmx::PmxMorphMaterialOffset", ptr %59, i64 %indvars.iv95
   %vtable65 = load ptr, ptr %arrayidx.i58, align 8
   %60 = load ptr, ptr %vtable65, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i58, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
@@ -2645,7 +2645,7 @@ sw.bb70:                                          ; preds = %entry, %entry, %ent
   %67 = select i1 %64, i64 -1, i64 %66
   %call.i59 = call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #19, !noalias !43
   store i64 %conv73, ptr %call.i59, align 16, !noalias !43
-  %68 = getelementptr inbounds i8, ptr %call.i59, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %call.i59, i64 8
   %isempty.i60 = icmp eq i32 %63, 0
   br i1 %isempty.i60, label %_ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i61
 
@@ -2656,14 +2656,14 @@ new.ctorloop.i61:                                 ; preds = %sw.bb70
 arrayctor.loop.i63:                               ; preds = %arrayctor.loop.i63, %new.ctorloop.i61
   %arrayctor.cur.i64 = phi ptr [ %68, %new.ctorloop.i61 ], [ %arrayctor.next.i66, %arrayctor.loop.i63 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i64 16), ptr %arrayctor.cur.i64, align 8, !noalias !43
-  %vertex_index.i.i65 = getelementptr inbounds i8, ptr %arrayctor.cur.i64, i64 8
+  %vertex_index.i.i65 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i64, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %vertex_index.i.i65, i8 0, i64 20, i1 false), !noalias !43
-  %arrayctor.next.i66 = getelementptr inbounds i8, ptr %arrayctor.cur.i64, i64 32
+  %arrayctor.next.i66 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i64, i64 32
   %arrayctor.done.i67 = icmp eq ptr %arrayctor.next.i66, %arrayctor.end.i62
   br i1 %arrayctor.done.i67, label %_ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i63
 
 _ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i63, %sw.bb70
-  %uv_offsets = getelementptr inbounds i8, ptr %this, i64 80
+  %uv_offsets = getelementptr inbounds nuw i8, ptr %this, i64 80
   %69 = load ptr, ptr %uv_offsets, align 8
   store ptr %68, ptr %uv_offsets, align 8
   %tobool.not.i.i.i.i68 = icmp eq ptr %69, null
@@ -2683,7 +2683,7 @@ _ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit: ;
 for.body79:                                       ; preds = %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, %for.body79
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body79 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %72 = load ptr, ptr %uv_offsets, align 8
-  %arrayidx.i70 = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %72, i64 %indvars.iv
+  %arrayidx.i70 = getelementptr inbounds nuw %"class.pmx::PmxMorphUVOffset", ptr %72, i64 %indvars.iv
   %vtable83 = load ptr, ptr %arrayidx.i70, align 8
   %73 = load ptr, ptr %vtable83, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(28) %arrayidx.i70, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
@@ -2727,7 +2727,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %1 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2767,7 +2767,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %if.then, %sw.bb.i, 
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %morph_index_size = getelementptr inbounds i8, ptr %setting, i64 6
+  %morph_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 6
   %5 = load i8, ptr %morph_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i5)
@@ -2808,7 +2808,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %if.else, %sw.bb.i15
 
 if.end:                                           ; preds = %_ZN3pmx9ReadIndexEPSii.exit20, %_ZN3pmx9ReadIndexEPSii.exit
   %retval.0.i9.sink = phi i32 [ %retval.0.i9, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %retval.0.i, %_ZN3pmx9ReadIndexEPSii.exit ]
-  %index7 = getelementptr inbounds i8, ptr %this, i64 4
+  %index7 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %retval.0.i9.sink, ptr %index7, align 4
   ret void
 }
@@ -2824,12 +2824,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %frame_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %frame_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %frame_flag = getelementptr inbounds i8, ptr %this, i64 64
+  %frame_flag = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %frame_flag, i64 noundef 1)
-  %element_count = getelementptr inbounds i8, ptr %this, i64 68
+  %element_count = getelementptr inbounds nuw i8, ptr %this, i64 68
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %element_count, i64 noundef 4)
   %2 = load i32, ptr %element_count, align 4
   %conv = sext i32 %2 to i64
@@ -2847,14 +2847,14 @@ new.ctorloop.i:                                   ; preds = %entry
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call.i, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   store i8 0, ptr %arrayctor.cur.i, align 4, !noalias !47
-  %index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 4
+  %index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 4
   store i32 0, ptr %index.i.i, align 4, !noalias !47
-  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 8
+  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 8
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx15PmxFrameElementEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx15PmxFrameElementEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %entry
-  %elements = getelementptr inbounds i8, ptr %this, i64 72
+  %elements = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %elements, align 8
   store ptr %call.i, ptr %elements, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
@@ -2873,7 +2873,7 @@ _ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit: ; 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit ]
   %8 = load ptr, ptr %elements, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxFrameElement", ptr %8, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.pmx::PmxFrameElement", ptr %8, i64 %indvars.iv
   call void @_ZN3pmx15PmxFrameElement4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %element_count, align 4
@@ -2899,10 +2899,10 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %girid_body_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %girid_body_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %bone_index_size = getelementptr inbounds i8, ptr %setting, i64 5
+  %bone_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 5
   %2 = load i8, ptr %bone_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -2939,31 +2939,31 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %target_bone = getelementptr inbounds i8, ptr %this, i64 64
+  %target_bone = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %retval.0.i, ptr %target_bone, align 8
-  %group = getelementptr inbounds i8, ptr %this, i64 68
+  %group = getelementptr inbounds nuw i8, ptr %this, i64 68
   %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %group, i64 noundef 1)
-  %mask = getelementptr inbounds i8, ptr %this, i64 70
+  %mask = getelementptr inbounds nuw i8, ptr %this, i64 70
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %mask, i64 noundef 2)
-  %shape = getelementptr inbounds i8, ptr %this, i64 72
+  %shape = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %shape, i64 noundef 1)
-  %size = getelementptr inbounds i8, ptr %this, i64 76
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 76
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %size, i64 noundef 12)
-  %position = getelementptr inbounds i8, ptr %this, i64 88
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %orientation = getelementptr inbounds i8, ptr %this, i64 100
+  %orientation = getelementptr inbounds nuw i8, ptr %this, i64 100
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %orientation, i64 noundef 12)
-  %mass = getelementptr inbounds i8, ptr %this, i64 112
+  %mass = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %mass, i64 noundef 4)
-  %move_attenuation = getelementptr inbounds i8, ptr %this, i64 116
+  %move_attenuation = getelementptr inbounds nuw i8, ptr %this, i64 116
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_attenuation, i64 noundef 4)
-  %rotation_attenuation = getelementptr inbounds i8, ptr %this, i64 120
+  %rotation_attenuation = getelementptr inbounds nuw i8, ptr %this, i64 120
   %call16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_attenuation, i64 noundef 4)
-  %repulsion = getelementptr inbounds i8, ptr %this, i64 124
+  %repulsion = getelementptr inbounds nuw i8, ptr %this, i64 124
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %repulsion, i64 noundef 4)
-  %friction = getelementptr inbounds i8, ptr %this, i64 128
+  %friction = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %friction, i64 noundef 4)
-  %physics_calc_type = getelementptr inbounds i8, ptr %this, i64 132
+  %physics_calc_type = getelementptr inbounds nuw i8, ptr %this, i64 132
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %physics_calc_type, i64 noundef 1)
   ret void
 }
@@ -2977,7 +2977,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
+  %rigidbody_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3051,23 +3051,23 @@ _ZN3pmx9ReadIndexEPSii.exit27:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i11)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i13)
-  %rigid_body2 = getelementptr inbounds i8, ptr %this, i64 4
+  %rigid_body2 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %retval.0.i16, ptr %rigid_body2, align 4
-  %position = getelementptr inbounds i8, ptr %this, i64 8
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %position, i64 noundef 12)
-  %orientaiton = getelementptr inbounds i8, ptr %this, i64 20
+  %orientaiton = getelementptr inbounds nuw i8, ptr %this, i64 20
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %orientaiton, i64 noundef 12)
-  %move_limitation_min = getelementptr inbounds i8, ptr %this, i64 32
+  %move_limitation_min = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_limitation_min, i64 noundef 12)
-  %move_limitation_max = getelementptr inbounds i8, ptr %this, i64 44
+  %move_limitation_max = getelementptr inbounds nuw i8, ptr %this, i64 44
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %move_limitation_max, i64 noundef 12)
-  %rotation_limitation_min = getelementptr inbounds i8, ptr %this, i64 56
+  %rotation_limitation_min = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_limitation_min, i64 noundef 12)
-  %rotation_limitation_max = getelementptr inbounds i8, ptr %this, i64 68
+  %rotation_limitation_max = getelementptr inbounds nuw i8, ptr %this, i64 68
   %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rotation_limitation_max, i64 noundef 12)
-  %spring_move_coefficient = getelementptr inbounds i8, ptr %this, i64 80
+  %spring_move_coefficient = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %spring_move_coefficient, i64 noundef 12)
-  %spring_rotation_coefficient = getelementptr inbounds i8, ptr %this, i64 92
+  %spring_rotation_coefficient = getelementptr inbounds nuw i8, ptr %this, i64 92
   %call19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %spring_rotation_coefficient, i64 noundef 12)
   ret void
 }
@@ -3083,12 +3083,12 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   %1 = load i8, ptr %setting, align 1
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef %stream, i8 noundef zeroext %1)
-  %joint_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %joint_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #17
-  %joint_type = getelementptr inbounds i8, ptr %this, i64 64
+  %joint_type = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type, i64 noundef 1)
-  %param = getelementptr inbounds i8, ptr %this, i64 68
+  %param = getelementptr inbounds nuw i8, ptr %this, i64 68
   call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   ret void
 }
@@ -3102,7 +3102,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %rigidbody_index_size = getelementptr inbounds i8, ptr %setting, i64 7
+  %rigidbody_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 7
   %0 = load i8, ptr %rigidbody_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
@@ -3140,7 +3140,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %entry, %sw.bb.i, %s
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   store i32 %retval.0.i, ptr %this, align 4
-  %vertex_index_size = getelementptr inbounds i8, ptr %setting, i64 2
+  %vertex_index_size = getelementptr inbounds nuw i8, ptr %setting, i64 2
   %4 = load i8, ptr %vertex_index_size, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i5)
@@ -3177,9 +3177,9 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i6)
-  %related_vertex = getelementptr inbounds i8, ptr %this, i64 4
+  %related_vertex = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %retval.0.i9, ptr %related_vertex, align 4
-  %is_near = getelementptr inbounds i8, ptr %this, i64 8
+  %is_near = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %is_near, i64 noundef 1)
   ret void
 }
@@ -3206,17 +3206,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3pmx8PmxModel4InitEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 4)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store float 0.000000e+00, ptr %this, align 8
-  %model_name = getelementptr inbounds i8, ptr %this, i64 16
+  %model_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_name) #17
-  %model_english_name = getelementptr inbounds i8, ptr %this, i64 48
+  %model_english_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_english_name) #17
-  %model_comment = getelementptr inbounds i8, ptr %this, i64 80
+  %model_comment = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_comment) #17
-  %model_english_comment = getelementptr inbounds i8, ptr %this, i64 112
+  %model_english_comment = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %model_english_comment) #17
-  %vertex_count = getelementptr inbounds i8, ptr %this, i64 144
+  %vertex_count = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 0, ptr %vertex_count, align 8
-  %vertices = getelementptr inbounds i8, ptr %this, i64 152
+  %vertices = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %vertices, align 8
   store ptr null, ptr %vertices, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3242,7 +3242,7 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %_ZN3pmx9PmxVertexD2
 
 _ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   br label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i
@@ -3257,9 +3257,9 @@ _ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_converti
   br label %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %index_count = getelementptr inbounds i8, ptr %this, i64 160
+  %index_count = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %index_count, align 8
-  %indices = getelementptr inbounds i8, ptr %this, i64 168
+  %indices = getelementptr inbounds nuw i8, ptr %this, i64 168
   %5 = load ptr, ptr %indices, align 8
   store ptr null, ptr %indices, align 8
   %tobool.not.i.i.i.i1 = icmp eq ptr %5, null
@@ -3270,9 +3270,9 @@ _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
-  %texture_count = getelementptr inbounds i8, ptr %this, i64 176
+  %texture_count = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 0, ptr %texture_count, align 8
-  %textures = getelementptr inbounds i8, ptr %this, i64 184
+  %textures = getelementptr inbounds nuw i8, ptr %this, i64 184
   %6 = load ptr, ptr %textures, align 8
   store ptr null, ptr %textures, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %6, null
@@ -3300,9 +3300,9 @@ _ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcl
   br label %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EEaSEDn.exit, %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i
-  %material_count = getelementptr inbounds i8, ptr %this, i64 192
+  %material_count = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 0, ptr %material_count, align 8
-  %materials = getelementptr inbounds i8, ptr %this, i64 200
+  %materials = getelementptr inbounds nuw i8, ptr %this, i64 200
   %9 = load ptr, ptr %materials, align 8
   store ptr null, ptr %materials, align 8
   %tobool.not.i.i.i.i11 = icmp eq ptr %9, null
@@ -3334,9 +3334,9 @@ _ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_conve
   br label %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %bone_count = getelementptr inbounds i8, ptr %this, i64 208
+  %bone_count = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 0, ptr %bone_count, align 8
-  %bones = getelementptr inbounds i8, ptr %this, i64 216
+  %bones = getelementptr inbounds nuw i8, ptr %this, i64 216
   %12 = load ptr, ptr %bones, align 8
   store ptr null, ptr %bones, align 8
   %tobool.not.i.i.i.i20 = icmp eq ptr %12, null
@@ -3377,9 +3377,9 @@ _ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibl
   br label %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %morph_count = getelementptr inbounds i8, ptr %this, i64 224
+  %morph_count = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i32 0, ptr %morph_count, align 8
-  %morphs = getelementptr inbounds i8, ptr %this, i64 232
+  %morphs = getelementptr inbounds nuw i8, ptr %this, i64 232
   %16 = load ptr, ptr %morphs, align 8
   store ptr null, ptr %morphs, align 8
   %tobool.not.i.i.i.i30 = icmp eq ptr %16, null
@@ -3407,9 +3407,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %frame_count = getelementptr inbounds i8, ptr %this, i64 240
+  %frame_count = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 0, ptr %frame_count, align 8
-  %frames = getelementptr inbounds i8, ptr %this, i64 248
+  %frames = getelementptr inbounds nuw i8, ptr %this, i64 248
   %19 = load ptr, ptr %frames, align 8
   store ptr null, ptr %frames, align 8
   %tobool.not.i.i.i.i39 = icmp eq ptr %19, null
@@ -3450,9 +3450,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %rigid_body_count = getelementptr inbounds i8, ptr %this, i64 256
+  %rigid_body_count = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i32 0, ptr %rigid_body_count, align 8
-  %rigid_bodies = getelementptr inbounds i8, ptr %this, i64 264
+  %rigid_bodies = getelementptr inbounds nuw i8, ptr %this, i64 264
   %23 = load ptr, ptr %rigid_bodies, align 8
   store ptr null, ptr %rigid_bodies, align 8
   %tobool.not.i.i.i.i49 = icmp eq ptr %23, null
@@ -3482,9 +3482,9 @@ _ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_conv
   br label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %joint_count = getelementptr inbounds i8, ptr %this, i64 272
+  %joint_count = getelementptr inbounds nuw i8, ptr %this, i64 272
   store i32 0, ptr %joint_count, align 8
-  %joints = getelementptr inbounds i8, ptr %this, i64 280
+  %joints = getelementptr inbounds nuw i8, ptr %this, i64 280
   %26 = load ptr, ptr %joints, align 8
   store ptr null, ptr %joints, align 8
   %tobool.not.i.i.i.i58 = icmp eq ptr %26, null
@@ -3514,9 +3514,9 @@ _ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertib
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EEaSEDn.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EEaSEDn.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EEaSEDn.exit, %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i
-  %soft_body_count = getelementptr inbounds i8, ptr %this, i64 288
+  %soft_body_count = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i32 0, ptr %soft_body_count, align 8
-  %soft_bodies = getelementptr inbounds i8, ptr %this, i64 296
+  %soft_bodies = getelementptr inbounds nuw i8, ptr %this, i64 296
   %29 = load ptr, ptr %soft_bodies, align 8
   store ptr null, ptr %soft_bodies, align 8
   %tobool.not.i.i.i.i67 = icmp eq ptr %29, null
@@ -3592,15 +3592,15 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %magic, i64 noundef 4)
   %0 = load i8, ptr %magic, align 1
   %cmp = icmp ne i8 %0, 80
-  %arrayidx2 = getelementptr inbounds i8, ptr %magic, i64 1
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %magic, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp4 = icmp ne i8 %1, 77
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
-  %arrayidx6 = getelementptr inbounds i8, ptr %magic, i64 2
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %magic, i64 2
   %2 = load i8, ptr %arrayidx6, align 1
   %cmp8 = icmp ne i8 %2, 88
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp8
-  %arrayidx10 = getelementptr inbounds i8, ptr %magic, i64 3
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %magic, i64 3
   %3 = load i8, ptr %arrayidx10, align 1
   %cmp12 = icmp ne i8 %3, 32
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp12
@@ -3666,29 +3666,29 @@ cleanup.action:                                   ; preds = %ehcleanup.thread257
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.end
-  %setting = getelementptr inbounds i8, ptr %this, i64 4
+  %setting = getelementptr inbounds nuw i8, ptr %this, i64 4
   call void @_ZN3pmx10PmxSetting4ReadEPSi(ptr noundef nonnull align 1 dereferenceable(8) %setting, ptr noundef nonnull %stream)
   %10 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull %stream, i8 noundef zeroext %10)
-  %model_name = getelementptr inbounds i8, ptr %this, i64 16
+  %model_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #17
   %11 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull %stream, i8 noundef zeroext %11)
-  %model_english_name = getelementptr inbounds i8, ptr %this, i64 48
+  %model_english_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #17
   %12 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull %stream, i8 noundef zeroext %12)
-  %model_comment = getelementptr inbounds i8, ptr %this, i64 80
+  %model_comment = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #17
   %13 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull %stream, i8 noundef zeroext %13)
-  %model_english_comment = getelementptr inbounds i8, ptr %this, i64 112
+  %model_english_comment = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
-  %vertex_count = getelementptr inbounds i8, ptr %this, i64 144
+  %vertex_count = getelementptr inbounds nuw i8, ptr %this, i64 144
   %call41 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %vertex_count, i64 noundef 4)
   %14 = load i32, ptr %vertex_count, align 8
   %conv44 = sext i32 %14 to i64
@@ -3702,7 +3702,7 @@ if.end25:                                         ; preds = %if.end
   %22 = select i1 %20, i64 -1, i64 %21
   %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #19, !noalias !51
   store i64 %conv44, ptr %call.i, align 16, !noalias !51
-  %23 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %isempty.i = icmp eq i32 %14, 0
   br i1 %isempty.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i
 
@@ -3712,17 +3712,17 @@ new.ctorloop.i:                                   ; preds = %if.end25
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %23, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
-  %skinning.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 104
+  %skinning.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 104
   store ptr null, ptr %skinning.i.i, align 8, !noalias !51
-  %edge.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 112
+  %edge.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 112
   store float 0.000000e+00, ptr %edge.i.i, align 8, !noalias !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %arrayctor.cur.i, i8 0, i64 96, i1 false), !noalias !51
-  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 120
+  %arrayctor.next.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i, i64 120
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i
 
 _ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %if.end25
-  %vertices = getelementptr inbounds i8, ptr %this, i64 152
+  %vertices = getelementptr inbounds nuw i8, ptr %this, i64 152
   %24 = load ptr, ptr %vertices, align 8
   store ptr %23, ptr %vertices, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %24, null
@@ -3748,7 +3748,7 @@ arraydestroy.body.i.i.i.i.i:                      ; preds = %_ZN3pmx9PmxVertexD2
 
 _ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %27, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27) #17
   br label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i
@@ -3771,7 +3771,7 @@ _ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit: ; preds =
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit ]
   %30 = load ptr, ptr %vertices, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %30, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.pmx::PmxVertex", ptr %30, i64 %indvars.iv
   call void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(116) %arrayidx.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %vertex_count, align 8
@@ -3780,7 +3780,7 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit
-  %index_count = getelementptr inbounds i8, ptr %this, i64 160
+  %index_count = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %index_count, i64 noundef 4)
   %33 = load i32, ptr %index_count, align 8
   %conv55 = sext i32 %33 to i64
@@ -3789,7 +3789,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt10u
   %36 = select i1 %34, i64 -1, i64 %35
   %call.i49 = call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #19, !noalias !55
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i49, i8 0, i64 %36, i1 false), !noalias !55
-  %indices = getelementptr inbounds i8, ptr %this, i64 168
+  %indices = getelementptr inbounds nuw i8, ptr %this, i64 168
   %37 = load ptr, ptr %indices, align 8
   store ptr %call.i49, ptr %indices, align 8
   %tobool.not.i.i.i.i50 = icmp eq ptr %37, null
@@ -3806,7 +3806,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   br i1 %cmp60261, label %for.body61.lr.ph, label %for.end70
 
 for.body61.lr.ph:                                 ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
-  %vertex_index_size = getelementptr inbounds i8, ptr %this, i64 6
+  %vertex_index_size = getelementptr inbounds nuw i8, ptr %this, i64 6
   br label %for.body61
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN3pmx9ReadIndexEPSii.exit
@@ -3848,7 +3848,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %for.body61, %sw.bb.
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
   %43 = load ptr, ptr %indices, align 8
-  %arrayidx.i53 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv278
+  %arrayidx.i53 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv278
   store i32 %retval.0.i, ptr %arrayidx.i53, align 4
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %44 = load i32, ptr %index_count, align 8
@@ -3857,7 +3857,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %for.body61, %sw.bb.
   br i1 %cmp60, label %for.body61, label %for.end70, !llvm.loop !58
 
 for.end70:                                        ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
-  %texture_count = getelementptr inbounds i8, ptr %this, i64 176
+  %texture_count = getelementptr inbounds nuw i8, ptr %this, i64 176
   %call71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_count, i64 noundef 4)
   %46 = load i32, ptr %texture_count, align 8
   %conv74 = sext i32 %46 to i64
@@ -3867,7 +3867,7 @@ for.end70:                                        ; preds = %_ZN3pmx9ReadIndexEP
   %50 = select i1 %47, i64 -1, i64 %49
   %call.i54 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #19, !noalias !59
   store i64 %conv74, ptr %call.i54, align 16, !noalias !59
-  %51 = getelementptr inbounds i8, ptr %call.i54, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %call.i54, i64 8
   %isempty.i55 = icmp eq i32 %46, 0
   br i1 %isempty.i55, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i56
 
@@ -3878,12 +3878,12 @@ new.ctorloop.i56:                                 ; preds = %for.end70
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %new.ctorloop.i56
   %arrayctor.cur.i59 = phi ptr [ %51, %new.ctorloop.i56 ], [ %arrayctor.next.i60, %arrayctor.loop.i58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i59) #17, !noalias !59
-  %arrayctor.next.i60 = getelementptr inbounds i8, ptr %arrayctor.cur.i59, i64 32
+  %arrayctor.next.i60 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i59, i64 32
   %arrayctor.done.i61 = icmp eq ptr %arrayctor.next.i60, %arrayctor.end.i57
   br i1 %arrayctor.done.i61, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i58
 
 _ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i58, %for.end70
-  %textures = getelementptr inbounds i8, ptr %this, i64 184
+  %textures = getelementptr inbounds nuw i8, ptr %this, i64 184
   %52 = load ptr, ptr %textures, align 8
   store ptr %51, ptr %textures, align 8
   %tobool.not.i.i.i.i62 = icmp eq ptr %52, null
@@ -3920,7 +3920,7 @@ for.body80:                                       ; preds = %_ZNSt10unique_ptrIA
   %56 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull %stream, i8 noundef zeroext %56)
   %57 = load ptr, ptr %textures, align 8
-  %arrayidx.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %indvars.iv281
+  %arrayidx.i80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %57, i64 %indvars.iv281
   %call89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i80, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #17
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
@@ -3930,7 +3930,7 @@ for.body80:                                       ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp79, label %for.body80, label %for.end93, !llvm.loop !62
 
 for.end93:                                        ; preds = %for.body80, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit
-  %material_count = getelementptr inbounds i8, ptr %this, i64 192
+  %material_count = getelementptr inbounds nuw i8, ptr %this, i64 192
   %call94 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %material_count, i64 noundef 4)
   %60 = load i32, ptr %material_count, align 8
   %conv97 = sext i32 %60 to i64
@@ -3941,7 +3941,7 @@ for.end93:                                        ; preds = %for.body80, %_ZNSt1
   %65 = select i1 %62, i64 -1, i64 %64
   %call.i81 = call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #19, !noalias !63
   store i64 %conv97, ptr %call.i81, align 16, !noalias !63
-  %66 = getelementptr inbounds i8, ptr %call.i81, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %call.i81, i64 8
   %isempty.i82 = icmp eq i32 %60, 0
   br i1 %isempty.i82, label %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i83
 
@@ -3952,32 +3952,32 @@ new.ctorloop.i83:                                 ; preds = %for.end93
 arrayctor.loop.i85:                               ; preds = %arrayctor.loop.i85, %new.ctorloop.i83
   %arrayctor.cur.i86 = phi ptr [ %66, %new.ctorloop.i83 ], [ %arrayctor.next.i87, %arrayctor.loop.i85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(188) %arrayctor.cur.i86) #17, !noalias !63
-  %material_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 32
+  %material_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i) #17, !noalias !63
-  %specularlity.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 92
+  %specularlity.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 92
   store float 0.000000e+00, ptr %specularlity.i.i, align 4, !noalias !63
-  %flag.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 108
+  %flag.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 108
   store i8 0, ptr %flag.i.i, align 4, !noalias !63
-  %edge_size.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 128
-  %toon_texture_index.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 144
+  %edge_size.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 128
+  %toon_texture_index.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 144
   store i32 0, ptr %toon_texture_index.i.i, align 8, !noalias !63
-  %memo.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 152
+  %memo.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %edge_size.i.i, i8 0, i64 14, i1 false), !noalias !63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %memo.i.i) #17, !noalias !63
-  %index_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 184
+  %index_count.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 184
   store i32 0, ptr %index_count.i.i, align 8, !noalias !63
-  %ambient.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 96
-  %edge_color.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 112
+  %ambient.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 96
+  %edge_color.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ambient.i.i, i8 0, i64 12, i1 false), !noalias !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %edge_color.i.i, i8 0, i64 12, i1 false), !noalias !63
-  %diffuse.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 64
+  %diffuse.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %diffuse.i.i, i8 0, i64 28, i1 false), !noalias !63
-  %arrayctor.next.i87 = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 192
+  %arrayctor.next.i87 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i86, i64 192
   %arrayctor.done.i88 = icmp eq ptr %arrayctor.next.i87, %arrayctor.end.i84
   br i1 %arrayctor.done.i88, label %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i85
 
 _ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i85, %for.end93
-  %materials = getelementptr inbounds i8, ptr %this, i64 200
+  %materials = getelementptr inbounds nuw i8, ptr %this, i64 200
   %67 = load ptr, ptr %materials, align 8
   store ptr %66, ptr %materials, align 8
   %tobool.not.i.i.i.i89 = icmp eq ptr %67, null
@@ -4016,7 +4016,7 @@ _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit: ; pred
 for.body103:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, %for.body103
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %for.body103 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit ]
   %71 = load ptr, ptr %materials, align 8
-  %arrayidx.i107 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %71, i64 %indvars.iv284
+  %arrayidx.i107 = getelementptr inbounds nuw %"class.pmx::PmxMaterial", ptr %71, i64 %indvars.iv284
   call void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %arrayidx.i107, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %72 = load i32, ptr %material_count, align 8
@@ -4025,7 +4025,7 @@ for.body103:                                      ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp102, label %for.body103, label %for.end110, !llvm.loop !66
 
 for.end110:                                       ; preds = %for.body103, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit
-  %bone_count = getelementptr inbounds i8, ptr %this, i64 208
+  %bone_count = getelementptr inbounds nuw i8, ptr %this, i64 208
   %call111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_count, i64 noundef 4)
   %74 = load i32, ptr %bone_count, align 8
   %conv114 = sext i32 %74 to i64
@@ -4036,7 +4036,7 @@ for.end110:                                       ; preds = %for.body103, %_ZNSt
   %79 = select i1 %76, i64 -1, i64 %78
   %call.i108 = call noalias noundef nonnull ptr @_Znam(i64 noundef %79) #19, !noalias !67
   store i64 %conv114, ptr %call.i108, align 16, !noalias !67
-  %80 = getelementptr inbounds i8, ptr %call.i108, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %call.i108, i64 8
   %isempty.i109 = icmp eq i32 %74, 0
   br i1 %isempty.i109, label %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i110
 
@@ -4047,18 +4047,18 @@ new.ctorloop.i110:                                ; preds = %for.end110
 arrayctor.loop.i112:                              ; preds = %arrayctor.loop.i112, %new.ctorloop.i110
   %arrayctor.cur.i113 = phi ptr [ %80, %new.ctorloop.i110 ], [ %arrayctor.next.i114, %arrayctor.loop.i112 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %arrayctor.cur.i113) #17, !noalias !67
-  %bone_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 32
+  %bone_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i113, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i) #17, !noalias !67
-  %position.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 64
-  %offset.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 88
+  %position.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i113, i64 64
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i113, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %position.i.i, i8 0, i64 22, i1 false), !noalias !67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %offset.i.i, i8 0, i64 88, i1 false), !noalias !67
-  %arrayctor.next.i114 = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 176
+  %arrayctor.next.i114 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i113, i64 176
   %arrayctor.done.i115 = icmp eq ptr %arrayctor.next.i114, %arrayctor.end.i111
   br i1 %arrayctor.done.i115, label %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i112
 
 _ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i112, %for.end110
-  %bones = getelementptr inbounds i8, ptr %this, i64 216
+  %bones = getelementptr inbounds nuw i8, ptr %this, i64 216
   %81 = load ptr, ptr %bones, align 8
   store ptr %80, ptr %bones, align 8
   %tobool.not.i.i.i.i116 = icmp eq ptr %81, null
@@ -4106,7 +4106,7 @@ _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %
 for.body120:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit, %for.body120
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %for.body120 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit ]
   %86 = load ptr, ptr %bones, align 8
-  %arrayidx.i136 = getelementptr inbounds %"class.pmx::PmxBone", ptr %86, i64 %indvars.iv287
+  %arrayidx.i136 = getelementptr inbounds nuw %"class.pmx::PmxBone", ptr %86, i64 %indvars.iv287
   call void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %arrayidx.i136, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %87 = load i32, ptr %bone_count, align 8
@@ -4115,7 +4115,7 @@ for.body120:                                      ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp119, label %for.body120, label %for.end127, !llvm.loop !70
 
 for.end127:                                       ; preds = %for.body120, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit
-  %morph_count = getelementptr inbounds i8, ptr %this, i64 224
+  %morph_count = getelementptr inbounds nuw i8, ptr %this, i64 224
   %call128 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_count, i64 noundef 4)
   %89 = load i32, ptr %morph_count, align 8
   %conv131 = sext i32 %89 to i64
@@ -4125,7 +4125,7 @@ for.end127:                                       ; preds = %for.body120, %_ZNSt
   %93 = select i1 %90, i64 -1, i64 %92
   %call.i137 = call noalias noundef nonnull ptr @_Znam(i64 noundef %93) #19, !noalias !71
   store i64 %conv131, ptr %call.i137, align 16, !noalias !71
-  %94 = getelementptr inbounds i8, ptr %call.i137, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %call.i137, i64 8
   %isempty.i138 = icmp eq i32 %89, 0
   br i1 %isempty.i138, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i139
 
@@ -4136,16 +4136,16 @@ new.ctorloop.i139:                                ; preds = %for.end127
 arrayctor.loop.i141:                              ; preds = %arrayctor.loop.i141, %new.ctorloop.i139
   %arrayctor.cur.i142 = phi ptr [ %94, %new.ctorloop.i139 ], [ %arrayctor.next.i143, %arrayctor.loop.i141 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %arrayctor.cur.i142) #17, !noalias !71
-  %morph_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 32
+  %morph_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i142, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name.i.i) #17, !noalias !71
-  %offset_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 68
+  %offset_count.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i142, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %offset_count.i.i, i8 0, i64 60, i1 false), !noalias !71
-  %arrayctor.next.i143 = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 128
+  %arrayctor.next.i143 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i142, i64 128
   %arrayctor.done.i144 = icmp eq ptr %arrayctor.next.i143, %arrayctor.end.i140
   br i1 %arrayctor.done.i144, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i141
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i141, %for.end127
-  %morphs = getelementptr inbounds i8, ptr %this, i64 232
+  %morphs = getelementptr inbounds nuw i8, ptr %this, i64 232
   %95 = load ptr, ptr %morphs, align 8
   store ptr %94, ptr %morphs, align 8
   %tobool.not.i.i.i.i145 = icmp eq ptr %95, null
@@ -4180,7 +4180,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 for.body137:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit, %for.body137
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %for.body137 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit ]
   %99 = load ptr, ptr %morphs, align 8
-  %arrayidx.i163 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %99, i64 %indvars.iv290
+  %arrayidx.i163 = getelementptr inbounds nuw %"class.pmx::PmxMorph", ptr %99, i64 %indvars.iv290
   call void @_ZN3pmx8PmxMorph4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i163, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %100 = load i32, ptr %morph_count, align 8
@@ -4189,7 +4189,7 @@ for.body137:                                      ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp136, label %for.body137, label %for.end144, !llvm.loop !74
 
 for.end144:                                       ; preds = %for.body137, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit
-  %frame_count = getelementptr inbounds i8, ptr %this, i64 240
+  %frame_count = getelementptr inbounds nuw i8, ptr %this, i64 240
   %call145 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %frame_count, i64 noundef 4)
   %102 = load i32, ptr %frame_count, align 8
   %conv148 = sext i32 %102 to i64
@@ -4200,7 +4200,7 @@ for.end144:                                       ; preds = %for.body137, %_ZNSt
   %107 = select i1 %104, i64 -1, i64 %106
   %call.i164 = call noalias noundef nonnull ptr @_Znam(i64 noundef %107) #19, !noalias !75
   store i64 %conv148, ptr %call.i164, align 16, !noalias !75
-  %108 = getelementptr inbounds i8, ptr %call.i164, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %call.i164, i64 8
   %isempty.i165 = icmp eq i32 %102, 0
   br i1 %isempty.i165, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i166
 
@@ -4211,20 +4211,20 @@ new.ctorloop.i166:                                ; preds = %for.end144
 arrayctor.loop.i168:                              ; preds = %arrayctor.loop.i168, %new.ctorloop.i166
   %arrayctor.cur.i169 = phi ptr [ %108, %new.ctorloop.i166 ], [ %arrayctor.next.i170, %arrayctor.loop.i168 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %arrayctor.cur.i169) #17, !noalias !75
-  %frame_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 32
+  %frame_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i169, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i) #17, !noalias !75
-  %frame_flag.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 64
+  %frame_flag.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i169, i64 64
   store i8 0, ptr %frame_flag.i.i, align 8, !noalias !75
-  %element_count.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 68
+  %element_count.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i169, i64 68
   store i32 0, ptr %element_count.i.i, align 4, !noalias !75
-  %elements.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 72
+  %elements.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i169, i64 72
   store ptr null, ptr %elements.i.i, align 8, !noalias !75
-  %arrayctor.next.i170 = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 80
+  %arrayctor.next.i170 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i169, i64 80
   %arrayctor.done.i171 = icmp eq ptr %arrayctor.next.i170, %arrayctor.end.i167
   br i1 %arrayctor.done.i171, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i168
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i168, %for.end144
-  %frames = getelementptr inbounds i8, ptr %this, i64 248
+  %frames = getelementptr inbounds nuw i8, ptr %this, i64 248
   %109 = load ptr, ptr %frames, align 8
   store ptr %108, ptr %frames, align 8
   %tobool.not.i.i.i.i172 = icmp eq ptr %109, null
@@ -4272,7 +4272,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 for.body154:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit, %for.body154
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %for.body154 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit ]
   %114 = load ptr, ptr %frames, align 8
-  %arrayidx.i192 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %114, i64 %indvars.iv293
+  %arrayidx.i192 = getelementptr inbounds nuw %"class.pmx::PmxFrame", ptr %114, i64 %indvars.iv293
   call void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %arrayidx.i192, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %115 = load i32, ptr %frame_count, align 8
@@ -4281,7 +4281,7 @@ for.body154:                                      ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp153, label %for.body154, label %for.end161, !llvm.loop !78
 
 for.end161:                                       ; preds = %for.body154, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit
-  %rigid_body_count = getelementptr inbounds i8, ptr %this, i64 256
+  %rigid_body_count = getelementptr inbounds nuw i8, ptr %this, i64 256
   %call162 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rigid_body_count, i64 noundef 4)
   %117 = load i32, ptr %rigid_body_count, align 8
   %conv165 = sext i32 %117 to i64
@@ -4295,7 +4295,7 @@ for.end161:                                       ; preds = %for.body154, %_ZNSt
   %125 = select i1 %123, i64 -1, i64 %124
   %call.i193 = call noalias noundef nonnull ptr @_Znam(i64 noundef %125) #19, !noalias !79
   store i64 %conv165, ptr %call.i193, align 16, !noalias !79
-  %126 = getelementptr inbounds i8, ptr %call.i193, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %call.i193, i64 8
   %isempty.i194 = icmp eq i32 %117, 0
   br i1 %isempty.i194, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i195
 
@@ -4306,24 +4306,24 @@ new.ctorloop.i195:                                ; preds = %for.end161
 arrayctor.loop.i197:                              ; preds = %arrayctor.loop.i197, %new.ctorloop.i195
   %arrayctor.cur.i198 = phi ptr [ %126, %new.ctorloop.i195 ], [ %arrayctor.next.i199, %arrayctor.loop.i197 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(133) %arrayctor.cur.i198) #17, !noalias !79
-  %girid_body_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 32
+  %girid_body_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i) #17, !noalias !79
-  %target_bone.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 64
+  %target_bone.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 64
   store i32 0, ptr %target_bone.i.i, align 8, !noalias !79
-  %group.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 68
+  %group.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 68
   store i8 0, ptr %group.i.i, align 4, !noalias !79
-  %mask.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 70
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 70
   store i16 0, ptr %mask.i.i, align 2, !noalias !79
-  %shape.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 72
+  %shape.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 72
   store i8 0, ptr %shape.i.i, align 8, !noalias !79
-  %size.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 76
+  %size.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(57) %size.i.i, i8 0, i64 57, i1 false), !noalias !79
-  %arrayctor.next.i199 = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 136
+  %arrayctor.next.i199 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.i198, i64 136
   %arrayctor.done.i200 = icmp eq ptr %arrayctor.next.i199, %arrayctor.end.i196
   br i1 %arrayctor.done.i200, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %arrayctor.loop.i197
 
 _ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i197, %for.end161
-  %rigid_bodies = getelementptr inbounds i8, ptr %this, i64 264
+  %rigid_bodies = getelementptr inbounds nuw i8, ptr %this, i64 264
   %127 = load ptr, ptr %rigid_bodies, align 8
   store ptr %126, ptr %rigid_bodies, align 8
   %tobool.not.i.i.i.i201 = icmp eq ptr %127, null
@@ -4360,7 +4360,7 @@ _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit: ; pre
 for.body171:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, %for.body171
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %for.body171 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit ]
   %131 = load ptr, ptr %rigid_bodies, align 8
-  %arrayidx.i219 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %131, i64 %indvars.iv296
+  %arrayidx.i219 = getelementptr inbounds nuw %"class.pmx::PmxRigidBody", ptr %131, i64 %indvars.iv296
   call void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %arrayidx.i219, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %132 = load i32, ptr %rigid_body_count, align 8
@@ -4369,7 +4369,7 @@ for.body171:                                      ; preds = %_ZNSt10unique_ptrIA
   br i1 %cmp170, label %for.body171, label %for.end178, !llvm.loop !82
 
 for.end178:                                       ; preds = %for.body171, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit
-  %joint_count = getelementptr inbounds i8, ptr %this, i64 272
+  %joint_count = getelementptr inbounds nuw i8, ptr %this, i64 272
   %call179 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_count, i64 noundef 4)
   %134 = load i32, ptr %joint_count, align 8
   %conv182 = sext i32 %134 to i64
@@ -4380,7 +4380,7 @@ for.end178:                                       ; preds = %for.body171, %_ZNSt
   %139 = select i1 %136, i64 -1, i64 %138
   %call.i220 = call noalias noundef nonnull ptr @_Znam(i64 noundef %139) #19, !noalias !83
   store i64 %conv182, ptr %call.i220, align 16, !noalias !83
-  %.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 8
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %call.i220, i64 8
   %isempty.i221 = icmp eq i32 %134, 0
   br i1 %isempty.i221, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i222
 
@@ -4390,20 +4390,20 @@ new.ctorloop.i222:                                ; preds = %for.end178
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i222
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i222 ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
-  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 %arrayctor.cur.idx.i
+  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call.i220, i64 %arrayctor.cur.idx.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %arrayctor.cur.ptr.ptr.i, i8 0, i64 176, i1 false), !noalias !83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(172) %arrayctor.cur.ptr.ptr.i) #17, !noalias !83
-  %joint_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 32
+  %joint_english_name.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i.i) #17, !noalias !83
-  %param.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 68
+  %param.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %param.i.i, i8 0, i64 104, i1 false), !noalias !83
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 176
-  %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 %arrayctor.cur.add.i
+  %arrayctor.next.ptr.i = getelementptr inbounds nuw i8, ptr %call.i220, i64 %arrayctor.cur.add.i
   %arrayctor.done.i224 = icmp eq ptr %arrayctor.next.ptr.i, %arrayctor.end.i223
   br i1 %arrayctor.done.i224, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %invoke.cont.i
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %invoke.cont.i, %for.end178
-  %joints = getelementptr inbounds i8, ptr %this, i64 280
+  %joints = getelementptr inbounds nuw i8, ptr %this, i64 280
   %140 = load ptr, ptr %joints, align 8
   store ptr %.ptr.i, ptr %joints, align 8
   %tobool.not.i.i.i.i225 = icmp eq ptr %140, null
@@ -4440,7 +4440,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 for.body188:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, %for.body188
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %for.body188 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit ]
   %144 = load ptr, ptr %joints, align 8
-  %arrayidx.i243 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %144, i64 %indvars.iv299
+  %arrayidx.i243 = getelementptr inbounds nuw %"class.pmx::PmxJoint", ptr %144, i64 %indvars.iv299
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
   %145 = load i8, ptr %setting, align 4
@@ -4449,12 +4449,12 @@ for.body188:                                      ; preds = %_ZNSt10unique_ptrIA
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   %146 = load i8, ptr %setting, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull %stream, i8 noundef zeroext %146)
-  %joint_english_name.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 32
+  %joint_english_name.i = getelementptr inbounds nuw i8, ptr %arrayidx.i243, i64 32
   %call4.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #17
-  %joint_type.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 64
+  %joint_type.i = getelementptr inbounds nuw i8, ptr %arrayidx.i243, i64 64
   %call5.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_type.i, i64 noundef 1)
-  %param.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 68
+  %param.i = getelementptr inbounds nuw i8, ptr %arrayidx.i243, i64 68
   call void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(104) %param.i, ptr noundef nonnull %stream, ptr noundef nonnull readonly %setting)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
@@ -4770,7 +4770,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3pmx8PmxMorphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %implus_offsets = getelementptr inbounds i8, ptr %this, i64 120
+  %implus_offsets = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %implus_offsets, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4782,7 +4782,7 @@ _ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr1
 
 _ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N3pmx20PmxMorphImplusOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %implus_offsets, align 8
-  %flip_offsets = getelementptr inbounds i8, ptr %this, i64 112
+  %flip_offsets = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %flip_offsets, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4794,7 +4794,7 @@ _ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14i
 
 _ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx20PmxMorphImplusOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx18PmxMorphFlipOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %flip_offsets, align 8
-  %group_offsets = getelementptr inbounds i8, ptr %this, i64 104
+  %group_offsets = getelementptr inbounds nuw i8, ptr %this, i64 104
   %4 = load ptr, ptr %group_offsets, align 8
   %cmp.not.i2 = icmp eq ptr %4, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4806,7 +4806,7 @@ _ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14
 
 _ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphFlipOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx19PmxMorphGroupOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %group_offsets, align 8
-  %material_offsets = getelementptr inbounds i8, ptr %this, i64 96
+  %material_offsets = getelementptr inbounds nuw i8, ptr %this, i64 96
   %6 = load ptr, ptr %material_offsets, align 8
   %cmp.not.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4818,7 +4818,7 @@ _ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXs
 
 _ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx22PmxMorphMaterialOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %material_offsets, align 8
-  %bone_offsets = getelementptr inbounds i8, ptr %this, i64 88
+  %bone_offsets = getelementptr inbounds nuw i8, ptr %this, i64 88
   %8 = load ptr, ptr %bone_offsets, align 8
   %cmp.not.i4 = icmp eq ptr %8, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4830,7 +4830,7 @@ _ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14i
 
 _ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx18PmxMorphBoneOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %bone_offsets, align 8
-  %uv_offsets = getelementptr inbounds i8, ptr %this, i64 80
+  %uv_offsets = getelementptr inbounds nuw i8, ptr %this, i64 80
   %10 = load ptr, ptr %uv_offsets, align 8
   %cmp.not.i5 = icmp eq ptr %10, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4842,7 +4842,7 @@ _ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_
 
 _ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx16PmxMorphUVOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %uv_offsets, align 8
-  %vertex_offsets = getelementptr inbounds i8, ptr %this, i64 72
+  %vertex_offsets = getelementptr inbounds nuw i8, ptr %this, i64 72
   %12 = load ptr, ptr %vertex_offsets, align 8
   %cmp.not.i6 = icmp eq ptr %12, null
   br i1 %cmp.not.i6, label %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -4854,7 +4854,7 @@ _ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr1
 
 _ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIA_N3pmx20PmxMorphVertexOffsetEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %vertex_offsets, align 8
-  %morph_english_name = getelementptr inbounds i8, ptr %this, i64 32
+  %morph_english_name = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #17
   ret void
@@ -4888,7 +4888,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %exception, align 8
-  %cp.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %cp.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #18
   unreachable
@@ -4899,7 +4899,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %conv.i.i = trunc nuw nsw i32 %cp to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %result, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
   store i8 %conv.i.i, ptr %result, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
@@ -4911,19 +4911,19 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
   %shr.i.i = lshr i32 %cp, 6
   %3 = trunc nuw i32 %shr.i.i to i8
   %conv3.i.i = or disjoint i8 %3, -64
-  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %result, i64 1
+  %incdec.ptr4.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
   store i8 %conv3.i.i, ptr %result, align 1
   %4 = trunc i32 %cp to i8
   %5 = and i8 %4, 63
   %conv6.i.i = or disjoint i8 %5, -128
-  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %result, i64 2
+  %incdec.ptr7.i.i = getelementptr inbounds nuw i8, ptr %result, i64 2
   store i8 %conv6.i.i, ptr %incdec.ptr4.i.i, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
   %cmp9.i.i = icmp samesign ult i32 %cp, 65536
-  %incdec.ptr14.i.i = getelementptr inbounds i8, ptr %result, i64 1
-  %incdec.ptr19.i.i = getelementptr inbounds i8, ptr %result, i64 2
+  %incdec.ptr14.i.i = getelementptr inbounds nuw i8, ptr %result, i64 1
+  %incdec.ptr19.i.i = getelementptr inbounds nuw i8, ptr %result, i64 2
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.else24.i.i
 
 if.then10.i.i:                                    ; preds = %if.else8.i.i
@@ -4939,7 +4939,7 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
   %9 = trunc i32 %cp to i8
   %10 = and i8 %9, 63
   %conv22.i.i = or disjoint i8 %10, -128
-  %incdec.ptr23.i.i = getelementptr inbounds i8, ptr %result, i64 3
+  %incdec.ptr23.i.i = getelementptr inbounds nuw i8, ptr %result, i64 3
   store i8 %conv22.i.i, ptr %incdec.ptr19.i.i, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
@@ -4957,12 +4957,12 @@ if.else24.i.i:                                    ; preds = %if.else8.i.i
   %14 = trunc i32 %shr34.i.i to i8
   %15 = and i8 %14, 63
   %conv37.i.i = or disjoint i8 %15, -128
-  %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %result, i64 3
+  %incdec.ptr38.i.i = getelementptr inbounds nuw i8, ptr %result, i64 3
   store i8 %conv37.i.i, ptr %incdec.ptr19.i.i, align 1
   %16 = trunc i32 %cp to i8
   %17 = and i8 %16, 63
   %conv41.i.i = or disjoint i8 %17, -128
-  %incdec.ptr42.i.i = getelementptr inbounds i8, ptr %result, i64 4
+  %incdec.ptr42.i.i = getelementptr inbounds nuw i8, ptr %result, i64 4
   store i8 %conv41.i.i, ptr %incdec.ptr38.i.i, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 

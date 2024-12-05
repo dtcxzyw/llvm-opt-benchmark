@@ -48,19 +48,19 @@ $_ZTV10WorkerTask = comdat any
 define hidden void @_ZN28ShenandoahClassUnloadingTaskC2EN22ShenandoahPhaseTimings5PhaseEjb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 25)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #4
   store i32 %8, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahClassUnloadingTask, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN22CodeCacheUnloadingTaskC1Ejb(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %2, i1 noundef zeroext %3) #4
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17KlassCleaningTaskC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #4
   ret void
 }
@@ -73,13 +73,13 @@ declare void @_ZN17KlassCleaningTaskC1Ev(ptr noundef nonnull align 8 dereference
 define hidden void @_ZN28ShenandoahClassUnloadingTask4workEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
   %4 = alloca %class.ShenandoahWorkerTimingsTracker, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %6, i32 noundef 6, i32 noundef %1) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %1) #4
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
@@ -87,7 +87,7 @@ define hidden void @_ZN28ShenandoahClassUnloadingTask4workEj(ptr noundef nonnull
 11:                                               ; preds = %2
   %12 = load i32, ptr %5, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %12, i32 noundef 7, i32 noundef %1) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #4
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #4
   br label %14

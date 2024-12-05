@@ -114,18 +114,18 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %8, %3
   %12 = phi ptr [ %10, %8 ], [ null, %3 ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 336
-  %18 = getelementptr inbounds i8, ptr %0, i64 337
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 337
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
   %21 = select i1 %20, ptr @.str.9, ptr @.str.43
@@ -135,7 +135,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %23, label %.loopexit28, label %24
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %0, i64 872
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %26 = load i32, ptr %25, align 8
   store i8 0, ptr %4, align 16
   br label %27
@@ -192,7 +192,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %63, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %62 = load ptr, ptr %61, align 8
   br label %63
 
@@ -202,7 +202,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %66 = icmp eq i8 %65, 0
   %67 = select i1 %66, ptr @.str.9, ptr @.str.43
   %68 = load i32, ptr %25, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 4744
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %70 = load i32, ptr %69, align 8
   %71 = icmp ugt i32 %70, 2
   br i1 %71, label %76, label %72
@@ -215,7 +215,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 76:                                               ; preds = %72, %63
   %77 = phi ptr [ %75, %72 ], [ @.str, %63 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 4748
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 4748
   %79 = load i32, ptr %78, align 4
   %80 = icmp ugt i32 %79, 2
   br i1 %80, label %85, label %81
@@ -232,9 +232,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %107, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 864
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %91 = load i32, ptr %90, align 8
   switch i32 %91, label %98 [
     i32 0, label %99
@@ -269,9 +269,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 99:                                               ; preds = %98, %97, %96, %95, %94, %93, %92, %87
   %100 = phi ptr [ @.str.65, %98 ], [ @.str.64, %97 ], [ @.str.63, %96 ], [ @.str.55, %95 ], [ @.str.62, %94 ], [ @.str.61, %93 ], [ @.str.60, %92 ], [ @.str.59, %87 ]
-  %101 = getelementptr inbounds i8, ptr %0, i64 1364
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1364
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 878
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 878
   %104 = load i8, ptr %103, align 2, !range !6, !noundef !7
   %105 = zext nneg i8 %104 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %89, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %100, i32 noundef %102, i32 noundef %105) #6
@@ -279,7 +279,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br label %124
 
 107:                                              ; preds = %85
-  %108 = getelementptr inbounds i8, ptr %0, i64 864
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %109 = load i32, ptr %108, align 8
   switch i32 %109, label %116 [
     i32 0, label %117
@@ -314,9 +314,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 117:                                              ; preds = %116, %115, %114, %113, %112, %111, %110, %107
   %118 = phi ptr [ @.str.65, %116 ], [ @.str.64, %115 ], [ @.str.63, %114 ], [ @.str.55, %113 ], [ @.str.62, %112 ], [ @.str.61, %111 ], [ @.str.60, %110 ], [ @.str.59, %107 ]
-  %119 = getelementptr inbounds i8, ptr %0, i64 1364
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1364
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %0, i64 878
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 878
   %122 = load i8, ptr %121, align 2, !range !6, !noundef !7
   %123 = zext nneg i8 %122 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %118, i32 noundef %120, i32 noundef %123) #6
@@ -324,7 +324,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 124:                                              ; preds = %117, %99
   %125 = phi ptr [ %106, %99 ], [ null, %117 ]
-  %126 = getelementptr inbounds i8, ptr %0, i64 4916
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4916
   %127 = load i32, ptr %126, align 4
   switch i32 %127, label %134 [
     i32 0, label %135
@@ -363,9 +363,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %155, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %6, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 4908
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 4908
   %141 = load i32, ptr %140, align 4
   switch i32 %141, label %148 [
     i32 0, label %149
@@ -400,7 +400,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 149:                                              ; preds = %148, %147, %146, %145, %144, %143, %142, %137
   %150 = phi ptr [ @.str.65, %148 ], [ @.str.64, %147 ], [ @.str.63, %146 ], [ @.str.55, %145 ], [ @.str.62, %144 ], [ @.str.61, %143 ], [ @.str.60, %142 ], [ @.str.59, %137 ]
-  %151 = getelementptr inbounds i8, ptr %0, i64 4912
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %152 = load i8, ptr %151, align 8
   %153 = zext i8 %152 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %139, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef nonnull %150, i32 noundef %153) #6
@@ -408,7 +408,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br label %170
 
 155:                                              ; preds = %135
-  %156 = getelementptr inbounds i8, ptr %0, i64 4908
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 4908
   %157 = load i32, ptr %156, align 4
   switch i32 %157, label %164 [
     i32 0, label %165
@@ -443,7 +443,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 165:                                              ; preds = %164, %163, %162, %161, %160, %159, %158, %155
   %166 = phi ptr [ @.str.65, %164 ], [ @.str.64, %163 ], [ @.str.63, %162 ], [ @.str.55, %161 ], [ @.str.62, %160 ], [ @.str.61, %159 ], [ @.str.60, %158 ], [ @.str.59, %155 ]
-  %167 = getelementptr inbounds i8, ptr %0, i64 4912
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %168 = load i8, ptr %167, align 8
   %169 = zext i8 %168 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef nonnull %166, i32 noundef %169) #6
@@ -461,58 +461,58 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 176:                                              ; preds = %173, %170
   %177 = phi ptr [ %175, %173 ], [ @.str.7, %170 ]
-  %178 = getelementptr inbounds i8, ptr %0, i64 4755
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 4755
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %171, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %177, i32 noundef %180) #6
   br i1 %7, label %184, label %181
 
 181:                                              ; preds = %176
-  %182 = getelementptr inbounds i8, ptr %6, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %183 = load ptr, ptr %182, align 8
   br label %184
 
 184:                                              ; preds = %181, %176
   %185 = phi ptr [ %183, %181 ], [ null, %176 ]
-  %186 = getelementptr inbounds i8, ptr %0, i64 4944
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 4944
   %187 = load i8, ptr %186, align 8, !range !6, !noundef !7
   %188 = icmp eq i8 %187, 0
   %189 = select i1 %188, ptr @.str.67, ptr @.str.66
-  %190 = getelementptr inbounds i8, ptr %0, i64 4945
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 4945
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
-  %193 = getelementptr inbounds i8, ptr %0, i64 4946
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 4946
   %194 = load i8, ptr %193, align 2
   %195 = zext i8 %194 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %185, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %189, i32 noundef %192, i32 noundef %195) #6
-  %196 = getelementptr inbounds i8, ptr %0, i64 860
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %197 = load i8, ptr %196, align 4, !range !6, !noundef !7
   %198 = icmp eq i8 %197, 0
   br i1 %198, label %220, label %199
 
 199:                                              ; preds = %184
-  %200 = getelementptr inbounds i8, ptr %0, i64 1492
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1492
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %0, i64 1496
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %203 = load ptr, ptr %0, align 8
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %209, label %206
 
 206:                                              ; preds = %199
-  %207 = getelementptr inbounds i8, ptr %204, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %208 = load ptr, ptr %207, align 8
   br label %209
 
 209:                                              ; preds = %206, %199
   %210 = phi ptr [ %208, %206 ], [ null, %199 ]
-  %211 = getelementptr inbounds i8, ptr %0, i64 1500
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds i8, ptr %0, i64 1504
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds i8, ptr %0, i64 1508
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 1508
   %216 = load i32, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %0, i64 1512
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 1512
   %218 = load i32, ptr %217, align 4
   %219 = load i32, ptr %202, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %210, i32 noundef 2, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.11, i32 noundef %201, i32 noundef %212, i32 noundef %214, i32 noundef %216, i32 noundef %218, i32 noundef %219) #6
@@ -525,67 +525,67 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %223, label %314, label %224
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds i8, ptr %0, i64 1457
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 1457
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %0, i64 1368
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %229 = load ptr, ptr %0, align 8
   %230 = load ptr, ptr %229, align 8
   %231 = icmp eq ptr %230, null
   br i1 %231, label %235, label %232
 
 232:                                              ; preds = %224
-  %233 = getelementptr inbounds i8, ptr %230, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %234 = load ptr, ptr %233, align 8
   br label %235
 
 235:                                              ; preds = %232, %224
   %236 = phi ptr [ %234, %232 ], [ null, %224 ]
-  %237 = getelementptr inbounds i8, ptr %0, i64 1372
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   %238 = load i32, ptr %237, align 4
-  %239 = getelementptr inbounds i8, ptr %0, i64 1376
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %240 = load i32, ptr %239, align 4
-  %241 = getelementptr inbounds i8, ptr %0, i64 1380
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %242 = load i32, ptr %241, align 4
-  %243 = getelementptr inbounds i8, ptr %0, i64 1384
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %244 = load i32, ptr %243, align 4
   %245 = load i32, ptr %228, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %236, i32 noundef 2, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.12, i32 noundef %227, i32 noundef %238, i32 noundef %240, i32 noundef %242, i32 noundef %244, i32 noundef %245) #6
   %246 = load i8, ptr %225, align 1
   %247 = zext i8 %246 to i32
-  %248 = getelementptr inbounds i8, ptr %0, i64 1388
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1388
   %249 = load ptr, ptr %0, align 8
   %250 = load ptr, ptr %249, align 8
   %251 = icmp eq ptr %250, null
   br i1 %251, label %255, label %252
 
 252:                                              ; preds = %235
-  %253 = getelementptr inbounds i8, ptr %250, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %254 = load ptr, ptr %253, align 8
   br label %255
 
 255:                                              ; preds = %252, %235
   %256 = phi ptr [ %254, %252 ], [ null, %235 ]
-  %257 = getelementptr inbounds i8, ptr %0, i64 1392
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %258 = load i32, ptr %257, align 4
-  %259 = getelementptr inbounds i8, ptr %0, i64 1396
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 1396
   %260 = load i32, ptr %259, align 4
-  %261 = getelementptr inbounds i8, ptr %0, i64 1400
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %262 = load i32, ptr %261, align 4
-  %263 = getelementptr inbounds i8, ptr %0, i64 1404
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1404
   %264 = load i32, ptr %263, align 4
   %265 = load i32, ptr %248, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %256, i32 noundef 2, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.13, i32 noundef %247, i32 noundef %258, i32 noundef %260, i32 noundef %262, i32 noundef %264, i32 noundef %265) #6
   br i1 %7, label %278, label %266
 
 266:                                              ; preds = %255
-  %267 = getelementptr inbounds i8, ptr %6, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %0, i64 4903
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 4903
   %270 = load i8, ptr %269, align 1, !range !6, !noundef !7
   %271 = icmp eq i8 %270, 0
   %272 = select i1 %271, ptr @.str.67, ptr @.str.66
-  %273 = getelementptr inbounds i8, ptr %0, i64 4902
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 4902
   %274 = load i8, ptr %273, align 2, !range !6, !noundef !7
   %275 = icmp eq i8 %274, 0
   %276 = select i1 %275, ptr @.str.67, ptr @.str.66
@@ -594,11 +594,11 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br label %287
 
 278:                                              ; preds = %255
-  %279 = getelementptr inbounds i8, ptr %0, i64 4903
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 4903
   %280 = load i8, ptr %279, align 1, !range !6, !noundef !7
   %281 = icmp eq i8 %280, 0
   %282 = select i1 %281, ptr @.str.67, ptr @.str.66
-  %283 = getelementptr inbounds i8, ptr %0, i64 4902
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 4902
   %284 = load i8, ptr %283, align 2, !range !6, !noundef !7
   %285 = icmp eq i8 %284, 0
   %286 = select i1 %285, ptr @.str.67, ptr @.str.66
@@ -607,7 +607,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 287:                                              ; preds = %278, %266
   %288 = phi ptr [ %277, %266 ], [ null, %278 ]
-  %289 = getelementptr inbounds i8, ptr %0, i64 4904
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %290 = load i8, ptr %289, align 8, !range !6, !noundef !7
   %291 = icmp eq i8 %290, 0
   %292 = select i1 %291, ptr @.str.67, ptr @.str.66
@@ -615,25 +615,25 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %296, label %293
 
 293:                                              ; preds = %287
-  %294 = getelementptr inbounds i8, ptr %6, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %295 = load ptr, ptr %294, align 8
   br label %296
 
 296:                                              ; preds = %293, %287
   %297 = phi ptr [ %295, %293 ], [ null, %287 ]
-  %298 = getelementptr inbounds i8, ptr %0, i64 1409
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 1409
   %299 = load i8, ptr %298, align 1, !range !6, !noundef !7
   %300 = icmp eq i8 %299, 0
   %301 = select i1 %300, ptr @.str.67, ptr @.str.66
-  %302 = getelementptr inbounds i8, ptr %0, i64 1410
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 1410
   %303 = load i8, ptr %302, align 2, !range !6, !noundef !7
   %304 = icmp eq i8 %303, 0
   %305 = select i1 %304, ptr @.str.67, ptr @.str.66
-  %306 = getelementptr inbounds i8, ptr %0, i64 1413
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 1413
   %307 = load i8, ptr %306, align 1, !range !6, !noundef !7
   %308 = icmp eq i8 %307, 0
   %309 = select i1 %308, ptr @.str.67, ptr @.str.66
-  %310 = getelementptr inbounds i8, ptr %0, i64 1411
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 1411
   %311 = load i8, ptr %310, align 1, !range !6, !noundef !7
   %312 = icmp eq i8 %311, 0
   %313 = select i1 %312, ptr @.str.67, ptr @.str.66
@@ -644,12 +644,12 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %325, label %315
 
 315:                                              ; preds = %314
-  %316 = getelementptr inbounds i8, ptr %6, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 4335
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 4335
   %319 = load i8, ptr %318, align 1
   %320 = zext i8 %319 to i32
-  %321 = getelementptr inbounds i8, ptr %0, i64 4336
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %322 = load i8, ptr %321, align 8
   %323 = zext i8 %322 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %317, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %320, i32 noundef %323) #6
@@ -657,10 +657,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br label %332
 
 325:                                              ; preds = %314
-  %326 = getelementptr inbounds i8, ptr %0, i64 4335
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 4335
   %327 = load i8, ptr %326, align 1
   %328 = zext i8 %327 to i32
-  %329 = getelementptr inbounds i8, ptr %0, i64 4336
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 4336
   %330 = load i8, ptr %329, align 8
   %331 = zext i8 %330 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %328, i32 noundef %331) #6
@@ -668,13 +668,13 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 332:                                              ; preds = %325, %315
   %333 = phi ptr [ %324, %315 ], [ null, %325 ]
-  %334 = getelementptr inbounds i8, ptr %0, i64 877
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 877
   %335 = load i8, ptr %334, align 1, !range !6, !noundef !7
   %336 = zext nneg i8 %335 to i32
-  %337 = getelementptr inbounds i8, ptr %0, i64 861
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 861
   %338 = load i8, ptr %337, align 1, !range !6, !noundef !7
   %339 = zext nneg i8 %338 to i32
-  %340 = getelementptr inbounds i8, ptr %0, i64 4340
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 4340
   %341 = load i32, ptr %340, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %333, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %336, i32 noundef %339, i32 noundef %341) #6
   %342 = load i32, ptr %340, align 4
@@ -687,13 +687,13 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %350, label %347
 
 347:                                              ; preds = %346
-  %348 = getelementptr inbounds i8, ptr %6, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %349 = load ptr, ptr %348, align 8
   br label %350
 
 350:                                              ; preds = %347, %346
   %351 = phi ptr [ %349, %347 ], [ null, %346 ]
-  %352 = getelementptr inbounds i8, ptr %0, i64 4344
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 4344
   %353 = load i32, ptr %352, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %351, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %353) #6
   br label %354
@@ -712,10 +712,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %362, label %367, label %363
 
 363:                                              ; preds = %359
-  %364 = getelementptr inbounds i8, ptr %0, i64 4348
-  %365 = getelementptr inbounds i8, ptr %6, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 4348
+  %365 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %366 = load ptr, ptr %365, align 8
-  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %366, ptr noundef %364) #6
+  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %366, ptr noundef nonnull %364) #6
   br label %367
 
 367:                                              ; preds = %363, %359, %354
@@ -732,10 +732,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %375, label %380, label %376
 
 376:                                              ; preds = %372
-  %377 = getelementptr inbounds i8, ptr %0, i64 4408
-  %378 = getelementptr inbounds i8, ptr %6, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %378 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %379 = load ptr, ptr %378, align 8
-  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %379, ptr noundef %377) #6
+  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %379, ptr noundef nonnull %377) #6
   br label %380
 
 380:                                              ; preds = %376, %372, %367
@@ -752,10 +752,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %388, label %393, label %389
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %0, i64 4468
-  %391 = getelementptr inbounds i8, ptr %6, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 4468
+  %391 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %392 = load ptr, ptr %391, align 8
-  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %392, ptr noundef %390) #6
+  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %392, ptr noundef nonnull %390) #6
   br label %393
 
 393:                                              ; preds = %389, %385, %380
@@ -772,10 +772,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %401, label %406, label %402
 
 402:                                              ; preds = %398
-  %403 = getelementptr inbounds i8, ptr %0, i64 4528
-  %404 = getelementptr inbounds i8, ptr %6, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 4528
+  %404 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %405 = load ptr, ptr %404, align 8
-  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %405, ptr noundef %403) #6
+  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %405, ptr noundef nonnull %403) #6
   br label %406
 
 406:                                              ; preds = %402, %398, %393
@@ -792,10 +792,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %414, label %419, label %415
 
 415:                                              ; preds = %411
-  %416 = getelementptr inbounds i8, ptr %0, i64 4528
-  %417 = getelementptr inbounds i8, ptr %6, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 4528
+  %417 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %418 = load ptr, ptr %417, align 8
-  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %418, ptr noundef %416) #6
+  call void @hdmi_infoframe_log(ptr noundef nonnull @.str.69, ptr noundef %418, ptr noundef nonnull %416) #6
   br label %419
 
 419:                                              ; preds = %415, %411, %406
@@ -812,10 +812,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %427, label %432, label %428
 
 428:                                              ; preds = %424
-  %429 = getelementptr inbounds i8, ptr %0, i64 4588
-  %430 = getelementptr inbounds i8, ptr %6, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 4588
+  %430 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %431 = load ptr, ptr %430, align 8
-  call void @drm_dp_vsc_sdp_log(ptr noundef nonnull @.str.69, ptr noundef %431, ptr noundef %429) #6
+  call void @drm_dp_vsc_sdp_log(ptr noundef nonnull @.str.69, ptr noundef %431, ptr noundef nonnull %429) #6
   br label %432
 
 432:                                              ; preds = %428, %424, %419
@@ -835,37 +835,37 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %442 = zext i8 %441 to i64
   %443 = shl nuw nsw i64 %442, 2
   %444 = add nuw nsw i64 %443, 4
-  %445 = getelementptr inbounds i8, ptr %0, i64 4612
-  call void @print_hex_dump(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 16, i32 noundef 0, ptr noundef %445, i64 noundef %444, i1 noundef zeroext false) #6
+  %445 = getelementptr inbounds nuw i8, ptr %0, i64 4612
+  call void @print_hex_dump(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %445, i64 noundef %444, i1 noundef zeroext false) #6
   br label %446
 
 446:                                              ; preds = %439, %435, %432
   br i1 %7, label %450, label %447
 
 447:                                              ; preds = %446
-  %448 = getelementptr inbounds i8, ptr %6, i64 8
+  %448 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %449 = load ptr, ptr %448, align 8
   br label %450
 
 450:                                              ; preds = %447, %446
   %451 = phi ptr [ %449, %447 ], [ null, %446 ]
-  %452 = getelementptr inbounds i8, ptr %0, i64 4932
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 4932
   %453 = load i8, ptr %452, align 4, !range !6, !noundef !7
   %454 = icmp eq i8 %453, 0
   %455 = select i1 %454, ptr @.str.9, ptr @.str.43
-  %456 = getelementptr inbounds i8, ptr %0, i64 4938
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 4938
   %457 = load i16, ptr %456, align 2
   %458 = zext i16 %457 to i32
-  %459 = getelementptr inbounds i8, ptr %0, i64 4940
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %460 = load i16, ptr %459, align 4
   %461 = zext i16 %460 to i32
-  %462 = getelementptr inbounds i8, ptr %0, i64 4934
+  %462 = getelementptr inbounds nuw i8, ptr %0, i64 4934
   %463 = load i8, ptr %462, align 2
   %464 = zext i8 %463 to i32
-  %465 = getelementptr inbounds i8, ptr %0, i64 4942
+  %465 = getelementptr inbounds nuw i8, ptr %0, i64 4942
   %466 = load i16, ptr %465, align 2
   %467 = zext i16 %466 to i32
-  %468 = getelementptr inbounds i8, ptr %0, i64 4936
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   %469 = load i16, ptr %468, align 4
   %470 = zext i16 %469 to i32
   %471 = call i32 @intel_vrr_vmin_vblank_start(ptr noundef %0) #6
@@ -874,134 +874,134 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %476, label %473
 
 473:                                              ; preds = %450
-  %474 = getelementptr inbounds i8, ptr %6, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %475 = load ptr, ptr %474, align 8
   br label %476
 
 476:                                              ; preds = %473, %450
   %477 = phi ptr [ %475, %473 ], [ null, %450 ]
-  %478 = getelementptr inbounds i8, ptr %0, i64 368
-  %479 = getelementptr inbounds i8, ptr %0, i64 448
-  %480 = call i32 @drm_mode_vrefresh(ptr noundef %478) #6
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %480 = call i32 @drm_mode_vrefresh(ptr noundef nonnull %478) #6
   %481 = load i32, ptr %478, align 8
-  %482 = getelementptr inbounds i8, ptr %0, i64 372
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %483 = load i16, ptr %482, align 4
   %484 = zext i16 %483 to i32
-  %485 = getelementptr inbounds i8, ptr %0, i64 374
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 374
   %486 = load i16, ptr %485, align 2
   %487 = zext i16 %486 to i32
-  %488 = getelementptr inbounds i8, ptr %0, i64 376
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %489 = load i16, ptr %488, align 8
   %490 = zext i16 %489 to i32
-  %491 = getelementptr inbounds i8, ptr %0, i64 378
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 378
   %492 = load i16, ptr %491, align 2
   %493 = zext i16 %492 to i32
-  %494 = getelementptr inbounds i8, ptr %0, i64 382
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 382
   %495 = load i16, ptr %494, align 2
   %496 = zext i16 %495 to i32
-  %497 = getelementptr inbounds i8, ptr %0, i64 384
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %498 = load i16, ptr %497, align 8
   %499 = zext i16 %498 to i32
-  %500 = getelementptr inbounds i8, ptr %0, i64 386
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 386
   %501 = load i16, ptr %500, align 2
   %502 = zext i16 %501 to i32
-  %503 = getelementptr inbounds i8, ptr %0, i64 388
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %504 = load i16, ptr %503, align 4
   %505 = zext i16 %504 to i32
-  %506 = getelementptr inbounds i8, ptr %0, i64 430
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 430
   %507 = load i8, ptr %506, align 2
   %508 = zext i8 %507 to i32
-  %509 = getelementptr inbounds i8, ptr %0, i64 392
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %510 = load i32, ptr %509, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %477, i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef %479, i32 noundef %480, i32 noundef %481, i32 noundef %484, i32 noundef %487, i32 noundef %490, i32 noundef %493, i32 noundef %496, i32 noundef %499, i32 noundef %502, i32 noundef %505, i32 noundef %508, i32 noundef %510) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %477, i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef nonnull %479, i32 noundef %480, i32 noundef %481, i32 noundef %484, i32 noundef %487, i32 noundef %490, i32 noundef %493, i32 noundef %496, i32 noundef %499, i32 noundef %502, i32 noundef %505, i32 noundef %508, i32 noundef %510) #6
   br i1 %7, label %514, label %511
 
 511:                                              ; preds = %476
-  %512 = getelementptr inbounds i8, ptr %6, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %513 = load ptr, ptr %512, align 8
   br label %514
 
 514:                                              ; preds = %511, %476
   %515 = phi ptr [ %513, %511 ], [ null, %476 ]
-  %516 = getelementptr inbounds i8, ptr %0, i64 608
-  %517 = getelementptr inbounds i8, ptr %0, i64 688
-  %518 = call i32 @drm_mode_vrefresh(ptr noundef %516) #6
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %518 = call i32 @drm_mode_vrefresh(ptr noundef nonnull %516) #6
   %519 = load i32, ptr %516, align 8
-  %520 = getelementptr inbounds i8, ptr %0, i64 612
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %521 = load i16, ptr %520, align 4
   %522 = zext i16 %521 to i32
-  %523 = getelementptr inbounds i8, ptr %0, i64 614
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 614
   %524 = load i16, ptr %523, align 2
   %525 = zext i16 %524 to i32
-  %526 = getelementptr inbounds i8, ptr %0, i64 616
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %527 = load i16, ptr %526, align 8
   %528 = zext i16 %527 to i32
-  %529 = getelementptr inbounds i8, ptr %0, i64 618
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 618
   %530 = load i16, ptr %529, align 2
   %531 = zext i16 %530 to i32
-  %532 = getelementptr inbounds i8, ptr %0, i64 622
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 622
   %533 = load i16, ptr %532, align 2
   %534 = zext i16 %533 to i32
-  %535 = getelementptr inbounds i8, ptr %0, i64 624
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %536 = load i16, ptr %535, align 8
   %537 = zext i16 %536 to i32
-  %538 = getelementptr inbounds i8, ptr %0, i64 626
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 626
   %539 = load i16, ptr %538, align 2
   %540 = zext i16 %539 to i32
-  %541 = getelementptr inbounds i8, ptr %0, i64 628
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %542 = load i16, ptr %541, align 4
   %543 = zext i16 %542 to i32
-  %544 = getelementptr inbounds i8, ptr %0, i64 670
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 670
   %545 = load i8, ptr %544, align 2
   %546 = zext i8 %545 to i32
-  %547 = getelementptr inbounds i8, ptr %0, i64 632
+  %547 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %548 = load i32, ptr %547, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %515, i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef %517, i32 noundef %518, i32 noundef %519, i32 noundef %522, i32 noundef %525, i32 noundef %528, i32 noundef %531, i32 noundef %534, i32 noundef %537, i32 noundef %540, i32 noundef %543, i32 noundef %546, i32 noundef %548) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %515, i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef nonnull %517, i32 noundef %518, i32 noundef %519, i32 noundef %522, i32 noundef %525, i32 noundef %528, i32 noundef %531, i32 noundef %534, i32 noundef %537, i32 noundef %540, i32 noundef %543, i32 noundef %546, i32 noundef %548) #6
   br i1 %7, label %552, label %549
 
 549:                                              ; preds = %514
-  %550 = getelementptr inbounds i8, ptr %6, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %551 = load ptr, ptr %550, align 8
   br label %552
 
 552:                                              ; preds = %549, %514
   %553 = phi ptr [ %551, %549 ], [ null, %514 ]
-  %554 = getelementptr inbounds i8, ptr %0, i64 636
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %555 = load i32, ptr %554, align 4
-  %556 = getelementptr inbounds i8, ptr %0, i64 640
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %557 = load i16, ptr %556, align 8
   %558 = zext i16 %557 to i32
-  %559 = getelementptr inbounds i8, ptr %0, i64 642
+  %559 = getelementptr inbounds nuw i8, ptr %0, i64 642
   %560 = load i16, ptr %559, align 2
   %561 = zext i16 %560 to i32
-  %562 = getelementptr inbounds i8, ptr %0, i64 644
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %563 = load i16, ptr %562, align 4
   %564 = zext i16 %563 to i32
-  %565 = getelementptr inbounds i8, ptr %0, i64 646
+  %565 = getelementptr inbounds nuw i8, ptr %0, i64 646
   %566 = load i16, ptr %565, align 2
   %567 = zext i16 %566 to i32
-  %568 = getelementptr inbounds i8, ptr %0, i64 648
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %569 = load i16, ptr %568, align 8
   %570 = zext i16 %569 to i32
-  %571 = getelementptr inbounds i8, ptr %0, i64 650
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 650
   %572 = load i16, ptr %571, align 2
   %573 = zext i16 %572 to i32
-  %574 = getelementptr inbounds i8, ptr %0, i64 654
+  %574 = getelementptr inbounds nuw i8, ptr %0, i64 654
   %575 = load i16, ptr %574, align 2
   %576 = zext i16 %575 to i32
-  %577 = getelementptr inbounds i8, ptr %0, i64 656
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %578 = load i16, ptr %577, align 8
   %579 = zext i16 %578 to i32
-  %580 = getelementptr inbounds i8, ptr %0, i64 658
+  %580 = getelementptr inbounds nuw i8, ptr %0, i64 658
   %581 = load i16, ptr %580, align 2
   %582 = zext i16 %581 to i32
-  %583 = getelementptr inbounds i8, ptr %0, i64 660
+  %583 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %584 = load i16, ptr %583, align 4
   %585 = zext i16 %584 to i32
-  %586 = getelementptr inbounds i8, ptr %0, i64 662
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 662
   %587 = load i16, ptr %586, align 2
   %588 = zext i16 %587 to i32
-  %589 = getelementptr inbounds i8, ptr %0, i64 664
+  %589 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %590 = load i16, ptr %589, align 8
   %591 = zext i16 %590 to i32
   %592 = load i32, ptr %547, align 8
@@ -1009,91 +1009,91 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %596, label %593
 
 593:                                              ; preds = %552
-  %594 = getelementptr inbounds i8, ptr %6, i64 8
+  %594 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %595 = load ptr, ptr %594, align 8
   br label %596
 
 596:                                              ; preds = %593, %552
   %597 = phi ptr [ %595, %593 ], [ null, %552 ]
-  %598 = getelementptr inbounds i8, ptr %0, i64 488
-  %599 = getelementptr inbounds i8, ptr %0, i64 568
-  %600 = call i32 @drm_mode_vrefresh(ptr noundef %598) #6
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %600 = call i32 @drm_mode_vrefresh(ptr noundef nonnull %598) #6
   %601 = load i32, ptr %598, align 8
-  %602 = getelementptr inbounds i8, ptr %0, i64 492
+  %602 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %603 = load i16, ptr %602, align 4
   %604 = zext i16 %603 to i32
-  %605 = getelementptr inbounds i8, ptr %0, i64 494
+  %605 = getelementptr inbounds nuw i8, ptr %0, i64 494
   %606 = load i16, ptr %605, align 2
   %607 = zext i16 %606 to i32
-  %608 = getelementptr inbounds i8, ptr %0, i64 496
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %609 = load i16, ptr %608, align 8
   %610 = zext i16 %609 to i32
-  %611 = getelementptr inbounds i8, ptr %0, i64 498
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 498
   %612 = load i16, ptr %611, align 2
   %613 = zext i16 %612 to i32
-  %614 = getelementptr inbounds i8, ptr %0, i64 502
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 502
   %615 = load i16, ptr %614, align 2
   %616 = zext i16 %615 to i32
-  %617 = getelementptr inbounds i8, ptr %0, i64 504
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %618 = load i16, ptr %617, align 8
   %619 = zext i16 %618 to i32
-  %620 = getelementptr inbounds i8, ptr %0, i64 506
+  %620 = getelementptr inbounds nuw i8, ptr %0, i64 506
   %621 = load i16, ptr %620, align 2
   %622 = zext i16 %621 to i32
-  %623 = getelementptr inbounds i8, ptr %0, i64 508
+  %623 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %624 = load i16, ptr %623, align 4
   %625 = zext i16 %624 to i32
-  %626 = getelementptr inbounds i8, ptr %0, i64 550
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 550
   %627 = load i8, ptr %626, align 2
   %628 = zext i8 %627 to i32
-  %629 = getelementptr inbounds i8, ptr %0, i64 512
+  %629 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %630 = load i32, ptr %629, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %597, i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef %599, i32 noundef %600, i32 noundef %601, i32 noundef %604, i32 noundef %607, i32 noundef %610, i32 noundef %613, i32 noundef %616, i32 noundef %619, i32 noundef %622, i32 noundef %625, i32 noundef %628, i32 noundef %630) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %597, i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef nonnull %599, i32 noundef %600, i32 noundef %601, i32 noundef %604, i32 noundef %607, i32 noundef %610, i32 noundef %613, i32 noundef %616, i32 noundef %619, i32 noundef %622, i32 noundef %625, i32 noundef %628, i32 noundef %630) #6
   br i1 %7, label %634, label %631
 
 631:                                              ; preds = %596
-  %632 = getelementptr inbounds i8, ptr %6, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %633 = load ptr, ptr %632, align 8
   br label %634
 
 634:                                              ; preds = %631, %596
   %635 = phi ptr [ %633, %631 ], [ null, %596 ]
-  %636 = getelementptr inbounds i8, ptr %0, i64 516
+  %636 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %637 = load i32, ptr %636, align 4
-  %638 = getelementptr inbounds i8, ptr %0, i64 520
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %639 = load i16, ptr %638, align 8
   %640 = zext i16 %639 to i32
-  %641 = getelementptr inbounds i8, ptr %0, i64 522
+  %641 = getelementptr inbounds nuw i8, ptr %0, i64 522
   %642 = load i16, ptr %641, align 2
   %643 = zext i16 %642 to i32
-  %644 = getelementptr inbounds i8, ptr %0, i64 524
+  %644 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %645 = load i16, ptr %644, align 4
   %646 = zext i16 %645 to i32
-  %647 = getelementptr inbounds i8, ptr %0, i64 526
+  %647 = getelementptr inbounds nuw i8, ptr %0, i64 526
   %648 = load i16, ptr %647, align 2
   %649 = zext i16 %648 to i32
-  %650 = getelementptr inbounds i8, ptr %0, i64 528
+  %650 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %651 = load i16, ptr %650, align 8
   %652 = zext i16 %651 to i32
-  %653 = getelementptr inbounds i8, ptr %0, i64 530
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 530
   %654 = load i16, ptr %653, align 2
   %655 = zext i16 %654 to i32
-  %656 = getelementptr inbounds i8, ptr %0, i64 534
+  %656 = getelementptr inbounds nuw i8, ptr %0, i64 534
   %657 = load i16, ptr %656, align 2
   %658 = zext i16 %657 to i32
-  %659 = getelementptr inbounds i8, ptr %0, i64 536
+  %659 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %660 = load i16, ptr %659, align 8
   %661 = zext i16 %660 to i32
-  %662 = getelementptr inbounds i8, ptr %0, i64 538
+  %662 = getelementptr inbounds nuw i8, ptr %0, i64 538
   %663 = load i16, ptr %662, align 2
   %664 = zext i16 %663 to i32
-  %665 = getelementptr inbounds i8, ptr %0, i64 540
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %666 = load i16, ptr %665, align 4
   %667 = zext i16 %666 to i32
-  %668 = getelementptr inbounds i8, ptr %0, i64 542
+  %668 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %669 = load i16, ptr %668, align 2
   %670 = zext i16 %669 to i32
-  %671 = getelementptr inbounds i8, ptr %0, i64 544
+  %671 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %672 = load i16, ptr %671, align 8
   %673 = zext i16 %672 to i32
   %674 = load i32, ptr %629, align 8
@@ -1101,45 +1101,45 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %678, label %675
 
 675:                                              ; preds = %634
-  %676 = getelementptr inbounds i8, ptr %6, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %677 = load ptr, ptr %676, align 8
   br label %678
 
 678:                                              ; preds = %675, %634
   %679 = phi ptr [ %677, %675 ], [ null, %634 ]
-  %680 = getelementptr inbounds i8, ptr %0, i64 1448
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %681 = load i32, ptr %680, align 8
-  %682 = getelementptr inbounds i8, ptr %0, i64 840
-  %683 = getelementptr inbounds i8, ptr %0, i64 848
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %684 = load i32, ptr %683, align 4
   %685 = load i32, ptr %682, align 4
   %686 = sub i32 %684, %685
-  %687 = getelementptr inbounds i8, ptr %0, i64 852
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %688 = load i32, ptr %687, align 4
-  %689 = getelementptr inbounds i8, ptr %0, i64 844
+  %689 = getelementptr inbounds nuw i8, ptr %0, i64 844
   %690 = load i32, ptr %689, align 4
   %691 = sub i32 %688, %690
-  %692 = getelementptr inbounds i8, ptr %0, i64 856
+  %692 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %693 = load i32, ptr %692, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %679, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %681, i32 noundef %686, i32 noundef %691, i32 noundef %685, i32 noundef %690, i32 noundef %693) #6
   br i1 %7, label %697, label %694
 
 694:                                              ; preds = %678
-  %695 = getelementptr inbounds i8, ptr %6, i64 8
+  %695 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %696 = load ptr, ptr %695, align 8
   br label %697
 
 697:                                              ; preds = %694, %678
   %698 = phi ptr [ %696, %694 ], [ null, %678 ]
-  %699 = getelementptr inbounds i8, ptr %0, i64 4898
+  %699 = getelementptr inbounds nuw i8, ptr %0, i64 4898
   %700 = load i16, ptr %699, align 2
   %701 = zext i16 %700 to i32
-  %702 = getelementptr inbounds i8, ptr %0, i64 4900
+  %702 = getelementptr inbounds nuw i8, ptr %0, i64 4900
   %703 = load i16, ptr %702, align 4
   %704 = zext i16 %703 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %698, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %701, i32 noundef %704) #6
-  %705 = getelementptr inbounds i8, ptr %6, i64 2624
-  %706 = getelementptr inbounds i8, ptr %6, i64 2632
+  %705 = getelementptr inbounds nuw i8, ptr %6, i64 2624
+  %706 = getelementptr inbounds nuw i8, ptr %6, i64 2632
   %707 = load i16, ptr %706, align 8
   %708 = icmp ugt i16 %707, 8
   br i1 %708, label %709, label %723
@@ -1148,26 +1148,26 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %713, label %710
 
 710:                                              ; preds = %709
-  %711 = getelementptr inbounds i8, ptr %6, i64 8
+  %711 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %712 = load ptr, ptr %711, align 8
   br label %713
 
 713:                                              ; preds = %710, %709
   %714 = phi ptr [ %712, %710 ], [ null, %709 ]
-  %715 = getelementptr inbounds i8, ptr %5, i64 2048
+  %715 = getelementptr inbounds nuw i8, ptr %5, i64 2048
   %716 = load i32, ptr %715, align 8
-  %717 = getelementptr inbounds i8, ptr %0, i64 1540
+  %717 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %718 = load i32, ptr %717, align 4
-  %719 = getelementptr inbounds i8, ptr %0, i64 1544
+  %719 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %720 = load i32, ptr %719, align 4
-  %721 = getelementptr inbounds i8, ptr %0, i64 728
+  %721 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %722 = load i32, ptr %721, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %714, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %716, i32 noundef %718, i32 noundef %720, i32 noundef %722) #6
   br label %723
 
 723:                                              ; preds = %713, %697
   %724 = load ptr, ptr %705, align 8
-  %725 = getelementptr inbounds i8, ptr %724, i64 28
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 28
   %726 = load i16, ptr %725, align 4
   %727 = and i16 %726, 128
   %728 = icmp eq i16 %727, 0
@@ -1177,17 +1177,17 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %733, label %730
 
 730:                                              ; preds = %729
-  %731 = getelementptr inbounds i8, ptr %6, i64 8
+  %731 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %732 = load ptr, ptr %731, align 8
   br label %733
 
 733:                                              ; preds = %730, %729
   %734 = phi ptr [ %732, %730 ], [ null, %729 ]
-  %735 = getelementptr inbounds i8, ptr %0, i64 1460
+  %735 = getelementptr inbounds nuw i8, ptr %0, i64 1460
   %736 = load i32, ptr %735, align 4
-  %737 = getelementptr inbounds i8, ptr %0, i64 1464
+  %737 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %738 = load i32, ptr %737, align 4
-  %739 = getelementptr inbounds i8, ptr %0, i64 1468
+  %739 = getelementptr inbounds nuw i8, ptr %0, i64 1468
   %740 = load i32, ptr %739, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %734, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %736, i32 noundef %738, i32 noundef %740) #6
   br label %765
@@ -1196,27 +1196,27 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %745, label %742
 
 742:                                              ; preds = %741
-  %743 = getelementptr inbounds i8, ptr %6, i64 8
+  %743 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %744 = load ptr, ptr %743, align 8
   br label %745
 
 745:                                              ; preds = %742, %741
   %746 = phi ptr [ %744, %742 ], [ null, %741 ]
-  %747 = getelementptr inbounds i8, ptr %0, i64 1472
-  %748 = getelementptr inbounds i8, ptr %0, i64 1480
+  %747 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %748 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %749 = load i32, ptr %748, align 4
   %750 = load i32, ptr %747, align 4
   %751 = sub i32 %749, %750
-  %752 = getelementptr inbounds i8, ptr %0, i64 1484
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   %753 = load i32, ptr %752, align 4
-  %754 = getelementptr inbounds i8, ptr %0, i64 1476
+  %754 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   %755 = load i32, ptr %754, align 4
   %756 = sub i32 %753, %755
-  %757 = getelementptr inbounds i8, ptr %0, i64 1488
+  %757 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %758 = load i8, ptr %757, align 8, !range !6, !noundef !7
   %759 = icmp eq i8 %758, 0
   %760 = select i1 %759, ptr @.str.67, ptr @.str.66
-  %761 = getelementptr inbounds i8, ptr %0, i64 1489
+  %761 = getelementptr inbounds nuw i8, ptr %0, i64 1489
   %762 = load i8, ptr %761, align 1, !range !6, !noundef !7
   %763 = icmp eq i8 %762, 0
   %764 = select i1 %763, ptr @.str.9, ptr @.str.43
@@ -1227,25 +1227,25 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %769, label %766
 
 766:                                              ; preds = %765
-  %767 = getelementptr inbounds i8, ptr %6, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %768 = load ptr, ptr %767, align 8
   br label %769
 
 769:                                              ; preds = %766, %765
   %770 = phi ptr [ %768, %766 ], [ null, %765 ]
-  %771 = getelementptr inbounds i8, ptr %0, i64 1516
+  %771 = getelementptr inbounds nuw i8, ptr %0, i64 1516
   %772 = load i8, ptr %771, align 4, !range !6, !noundef !7
   %773 = zext nneg i8 %772 to i32
-  %774 = getelementptr inbounds i8, ptr %0, i64 1518
+  %774 = getelementptr inbounds nuw i8, ptr %0, i64 1518
   %775 = load i8, ptr %774, align 2, !range !6, !noundef !7
   %776 = zext nneg i8 %775 to i32
-  %777 = getelementptr inbounds i8, ptr %0, i64 1408
+  %777 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %778 = load i8, ptr %777, align 8, !range !6, !noundef !7
   %779 = zext nneg i8 %778 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %770, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %773, i32 noundef %776, i32 noundef %779) #6
-  %780 = getelementptr inbounds i8, ptr %0, i64 928
-  call void @intel_dpll_dump_hw_state(ptr noundef %6, ptr noundef %780) #6
-  %781 = getelementptr inbounds i8, ptr %6, i64 7184
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  call void @intel_dpll_dump_hw_state(ptr noundef %6, ptr noundef nonnull %780) #6
+  %781 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %782 = load i32, ptr %781, align 4
   %783 = and i32 %782, 16777216
   %784 = icmp eq i32 %783, 0
@@ -1255,20 +1255,20 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %789, label %786
 
 786:                                              ; preds = %785
-  %787 = getelementptr inbounds i8, ptr %6, i64 8
+  %787 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %788 = load ptr, ptr %787, align 8
   br label %789
 
 789:                                              ; preds = %786, %785
   %790 = phi ptr [ %788, %786 ], [ null, %785 ]
-  %791 = getelementptr inbounds i8, ptr %0, i64 4324
+  %791 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   %792 = load i32, ptr %791, align 4
-  %793 = getelementptr inbounds i8, ptr %0, i64 4320
+  %793 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %794 = load i32, ptr %793, align 8
-  %795 = getelementptr inbounds i8, ptr %0, i64 4752
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 4752
   %796 = load i8, ptr %795, align 8, !range !6, !noundef !7
   %797 = zext nneg i8 %796 to i32
-  %798 = getelementptr inbounds i8, ptr %0, i64 4753
+  %798 = getelementptr inbounds nuw i8, ptr %0, i64 4753
   %799 = load i8, ptr %798, align 1, !range !6, !noundef !7
   %800 = zext nneg i8 %799 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %790, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %792, i32 noundef %794, i32 noundef %797, i32 noundef %800) #6
@@ -1278,20 +1278,20 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %805, label %802
 
 802:                                              ; preds = %801
-  %803 = getelementptr inbounds i8, ptr %6, i64 8
+  %803 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %804 = load ptr, ptr %803, align 8
   br label %805
 
 805:                                              ; preds = %802, %801
   %806 = phi ptr [ %804, %802 ], [ null, %801 ]
-  %807 = getelementptr inbounds i8, ptr %0, i64 4324
+  %807 = getelementptr inbounds nuw i8, ptr %0, i64 4324
   %808 = load i32, ptr %807, align 4
-  %809 = getelementptr inbounds i8, ptr %0, i64 4320
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %810 = load i32, ptr %809, align 8
-  %811 = getelementptr inbounds i8, ptr %0, i64 4752
+  %811 = getelementptr inbounds nuw i8, ptr %0, i64 4752
   %812 = load i8, ptr %811, align 8, !range !6, !noundef !7
   %813 = zext nneg i8 %812 to i32
-  %814 = getelementptr inbounds i8, ptr %0, i64 4753
+  %814 = getelementptr inbounds nuw i8, ptr %0, i64 4753
   %815 = load i8, ptr %814, align 1, !range !6, !noundef !7
   %816 = zext nneg i8 %815 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %806, i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %808, i32 noundef %810, i32 noundef %813, i32 noundef %816) #6
@@ -1301,23 +1301,23 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %7, label %821, label %818
 
 818:                                              ; preds = %817
-  %819 = getelementptr inbounds i8, ptr %6, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %820 = load ptr, ptr %819, align 8
   br label %821
 
 821:                                              ; preds = %818, %817
   %822 = phi ptr [ %820, %818 ], [ null, %817 ]
-  %823 = getelementptr inbounds i8, ptr %0, i64 736
+  %823 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %824 = load ptr, ptr %823, align 8
   %825 = icmp eq ptr %824, null
   br i1 %825, label %.thread27, label %826
 
 826:                                              ; preds = %821
-  %827 = getelementptr inbounds i8, ptr %6, i64 2232
+  %827 = getelementptr inbounds nuw i8, ptr %6, i64 2232
   %828 = load ptr, ptr %827, align 8
   %829 = icmp eq ptr %824, %828
   %830 = select i1 %829, ptr @.str.34, ptr @.str.35
-  %831 = getelementptr inbounds i8, ptr %824, i64 72
+  %831 = getelementptr inbounds nuw i8, ptr %824, i64 72
   %832 = load i64, ptr %831, align 8
   %833 = lshr i64 %832, 3
   %834 = trunc i64 %833 to i32
@@ -1326,13 +1326,13 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 .thread27:                                        ; preds = %821, %826
   %835 = phi ptr [ %830, %826 ], [ @.str.35, %821 ]
   %836 = phi i32 [ %834, %826 ], [ 0, %821 ]
-  %837 = getelementptr inbounds i8, ptr %0, i64 744
+  %837 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %838 = load ptr, ptr %837, align 8
   %839 = icmp eq ptr %838, null
   br i1 %839, label %845, label %840
 
 840:                                              ; preds = %.thread27
-  %841 = getelementptr inbounds i8, ptr %838, i64 72
+  %841 = getelementptr inbounds nuw i8, ptr %838, i64 72
   %842 = load i64, ptr %841, align 8
   %843 = lshr i64 %842, 3
   %844 = trunc i64 %843 to i32
@@ -1346,21 +1346,21 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %848, label %849, label %851
 
 849:                                              ; preds = %845
-  %850 = getelementptr inbounds i8, ptr %0, i64 782
-  call fastcc void @ilk_dump_csc(ptr noundef %6, ptr noundef nonnull @.str.36, ptr noundef %850)
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 782
+  call fastcc void @ilk_dump_csc(ptr noundef %6, ptr noundef nonnull @.str.36, ptr noundef nonnull %850)
   br label %851
 
 851:                                              ; preds = %849, %845
   %852 = load ptr, ptr %705, align 8
-  %853 = getelementptr inbounds i8, ptr %852, i64 28
+  %853 = getelementptr inbounds nuw i8, ptr %852, i64 28
   %854 = load i16, ptr %853, align 4
   %855 = and i16 %854, 128
   %856 = icmp eq i16 %855, 0
   br i1 %856, label %857, label %859
 
 857:                                              ; preds = %851
-  %858 = getelementptr inbounds i8, ptr %0, i64 752
-  call fastcc void @ilk_dump_csc(ptr noundef %6, ptr noundef nonnull @.str.37, ptr noundef %858)
+  %858 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  call fastcc void @ilk_dump_csc(ptr noundef %6, ptr noundef nonnull @.str.37, ptr noundef nonnull %858)
   br label %.loopexit28
 
 859:                                              ; preds = %851
@@ -1371,8 +1371,8 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %863, label %898, label %864
 
 864:                                              ; preds = %859
-  %865 = getelementptr inbounds i8, ptr %0, i64 752
-  %866 = getelementptr inbounds i8, ptr %6, i64 8
+  %865 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %866 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %864, %.split.us
@@ -1420,8 +1420,8 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %900, label %.loopexit28, label %901
 
 901:                                              ; preds = %898
-  %902 = getelementptr inbounds i8, ptr %0, i64 752
-  %903 = getelementptr inbounds i8, ptr %6, i64 8
+  %902 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %903 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %7, label %.split30.us, label %.split30
 
 .split30.us:                                      ; preds = %901, %.split30.us
@@ -1468,16 +1468,16 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %935, label %.loopexit, label %936
 
 936:                                              ; preds = %.loopexit28
-  %937 = getelementptr inbounds i8, ptr %1, i64 8
+  %937 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %938 = load ptr, ptr %937, align 8
-  %939 = getelementptr inbounds i8, ptr %938, i64 704
+  %939 = getelementptr inbounds nuw i8, ptr %938, i64 704
   %940 = load i32, ptr %939, align 8
   %941 = icmp sgt i32 %940, 0
   br i1 %941, label %942, label %.loopexit
 
 942:                                              ; preds = %936
-  %943 = getelementptr inbounds i8, ptr %1, i64 24
-  %944 = getelementptr inbounds i8, ptr %5, i64 1648
+  %943 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %944 = getelementptr inbounds nuw i8, ptr %5, i64 1648
   br label %945
 
 945:                                              ; preds = %1058, %942
@@ -1485,13 +1485,13 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %947 = load ptr, ptr %943, align 8
   %948 = getelementptr %struct.__drm_planes_state, ptr %947, i64 %946
   %949 = load ptr, ptr %948, align 8
-  %950 = getelementptr inbounds i8, ptr %948, i64 24
+  %950 = getelementptr inbounds nuw i8, ptr %948, i64 24
   %951 = load ptr, ptr %950, align 8
   %952 = icmp eq ptr %949, null
   br i1 %952, label %1058, label %953
 
 953:                                              ; preds = %945
-  %954 = getelementptr inbounds i8, ptr %949, i64 1328
+  %954 = getelementptr inbounds nuw i8, ptr %949, i64 1328
   %955 = load i32, ptr %954, align 8
   %956 = load i32, ptr %944, align 8
   %957 = icmp eq i32 %955, %956
@@ -1500,7 +1500,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 958:                                              ; preds = %953
   %959 = load ptr, ptr %951, align 8
   %960 = load ptr, ptr %959, align 8
-  %961 = getelementptr inbounds i8, ptr %951, i64 184
+  %961 = getelementptr inbounds nuw i8, ptr %951, i64 184
   %962 = load ptr, ptr %961, align 8
   %963 = icmp eq ptr %962, null
   %964 = icmp eq ptr %960, null
@@ -1510,17 +1510,17 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %964, label %969, label %966
 
 966:                                              ; preds = %965
-  %967 = getelementptr inbounds i8, ptr %960, i64 8
+  %967 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %968 = load ptr, ptr %967, align 8
   br label %969
 
 969:                                              ; preds = %966, %965
   %970 = phi ptr [ %968, %966 ], [ null, %965 ]
-  %971 = getelementptr inbounds i8, ptr %959, i64 88
+  %971 = getelementptr inbounds nuw i8, ptr %959, i64 88
   %972 = load i32, ptr %971, align 8
-  %973 = getelementptr inbounds i8, ptr %959, i64 24
+  %973 = getelementptr inbounds nuw i8, ptr %959, i64 24
   %974 = load ptr, ptr %973, align 8
-  %975 = getelementptr inbounds i8, ptr %951, i64 140
+  %975 = getelementptr inbounds nuw i8, ptr %951, i64 140
   %976 = load i8, ptr %975, align 4, !range !6, !noundef !7
   %977 = icmp eq i8 %976, 0
   %978 = select i1 %977, ptr @.str.9, ptr @.str.43
@@ -1531,27 +1531,27 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %964, label %983, label %980
 
 980:                                              ; preds = %979
-  %981 = getelementptr inbounds i8, ptr %960, i64 8
+  %981 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %982 = load ptr, ptr %981, align 8
   br label %983
 
 983:                                              ; preds = %980, %979
   %984 = phi ptr [ %982, %980 ], [ null, %979 ]
-  %985 = getelementptr inbounds i8, ptr %959, i64 88
+  %985 = getelementptr inbounds nuw i8, ptr %959, i64 88
   %986 = load i32, ptr %985, align 8
-  %987 = getelementptr inbounds i8, ptr %959, i64 24
+  %987 = getelementptr inbounds nuw i8, ptr %959, i64 24
   %988 = load ptr, ptr %987, align 8
-  %989 = getelementptr inbounds i8, ptr %962, i64 24
+  %989 = getelementptr inbounds nuw i8, ptr %962, i64 24
   %990 = load i32, ptr %989, align 8
-  %991 = getelementptr inbounds i8, ptr %962, i64 128
+  %991 = getelementptr inbounds nuw i8, ptr %962, i64 128
   %992 = load i32, ptr %991, align 8
-  %993 = getelementptr inbounds i8, ptr %962, i64 132
+  %993 = getelementptr inbounds nuw i8, ptr %962, i64 132
   %994 = load i32, ptr %993, align 4
-  %995 = getelementptr inbounds i8, ptr %962, i64 72
+  %995 = getelementptr inbounds nuw i8, ptr %962, i64 72
   %996 = load ptr, ptr %995, align 8
-  %997 = getelementptr inbounds i8, ptr %962, i64 120
+  %997 = getelementptr inbounds nuw i8, ptr %962, i64 120
   %998 = load i64, ptr %997, align 8
-  %999 = getelementptr inbounds i8, ptr %951, i64 140
+  %999 = getelementptr inbounds nuw i8, ptr %951, i64 140
   %1000 = load i8, ptr %999, align 4, !range !6, !noundef !7
   %1001 = icmp eq i8 %1000, 0
   %1002 = select i1 %1001, ptr @.str.9, ptr @.str.43
@@ -1559,17 +1559,17 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %964, label %1006, label %1003
 
 1003:                                             ; preds = %983
-  %1004 = getelementptr inbounds i8, ptr %960, i64 8
+  %1004 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %1005 = load ptr, ptr %1004, align 8
   br label %1006
 
 1006:                                             ; preds = %1003, %983
   %1007 = phi ptr [ %1005, %1003 ], [ null, %983 ]
-  %1008 = getelementptr inbounds i8, ptr %951, i64 196
+  %1008 = getelementptr inbounds nuw i8, ptr %951, i64 196
   %1009 = load i32, ptr %1008, align 4
-  %1010 = getelementptr inbounds i8, ptr %951, i64 392
+  %1010 = getelementptr inbounds nuw i8, ptr %951, i64 392
   %1011 = load i32, ptr %1010, align 8
-  %1012 = getelementptr inbounds i8, ptr %951, i64 208
+  %1012 = getelementptr inbounds nuw i8, ptr %951, i64 208
   %1013 = load i32, ptr %1012, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1007, i32 noundef 2, ptr noundef nonnull @.str.76, i32 noundef %1009, i32 noundef %1011, i32 noundef %1013) #6
   %1014 = load i8, ptr %999, align 4, !range !6, !noundef !7
@@ -1580,14 +1580,14 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   br i1 %964, label %1020, label %1017
 
 1017:                                             ; preds = %1016
-  %1018 = getelementptr inbounds i8, ptr %960, i64 8
+  %1018 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %1019 = load ptr, ptr %1018, align 8
   br label %1020
 
 1020:                                             ; preds = %1017, %1016
   %1021 = phi ptr [ %1019, %1017 ], [ null, %1016 ]
-  %1022 = getelementptr inbounds i8, ptr %951, i64 108
-  %1023 = getelementptr inbounds i8, ptr %951, i64 116
+  %1022 = getelementptr inbounds nuw i8, ptr %951, i64 108
+  %1023 = getelementptr inbounds nuw i8, ptr %951, i64 116
   %1024 = load i32, ptr %1023, align 4
   %1025 = load i32, ptr %1022, align 4
   %1026 = sub i32 %1024, %1025
@@ -1595,9 +1595,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %1028 = and i32 %1026, 65535
   %1029 = mul nuw nsw i32 %1028, 15625
   %1030 = lshr i32 %1029, 10
-  %1031 = getelementptr inbounds i8, ptr %951, i64 120
+  %1031 = getelementptr inbounds nuw i8, ptr %951, i64 120
   %1032 = load i32, ptr %1031, align 4
-  %1033 = getelementptr inbounds i8, ptr %951, i64 112
+  %1033 = getelementptr inbounds nuw i8, ptr %951, i64 112
   %1034 = load i32, ptr %1033, align 4
   %1035 = sub i32 %1032, %1034
   %1036 = ashr i32 %1035, 16
@@ -1612,14 +1612,14 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %1045 = and i32 %1034, 65535
   %1046 = mul nuw nsw i32 %1045, 15625
   %1047 = lshr i32 %1046, 10
-  %1048 = getelementptr inbounds i8, ptr %951, i64 124
-  %1049 = getelementptr inbounds i8, ptr %951, i64 132
+  %1048 = getelementptr inbounds nuw i8, ptr %951, i64 124
+  %1049 = getelementptr inbounds nuw i8, ptr %951, i64 132
   %1050 = load i32, ptr %1049, align 4
   %1051 = load i32, ptr %1048, align 4
   %1052 = sub i32 %1050, %1051
-  %1053 = getelementptr inbounds i8, ptr %951, i64 136
+  %1053 = getelementptr inbounds nuw i8, ptr %951, i64 136
   %1054 = load i32, ptr %1053, align 4
-  %1055 = getelementptr inbounds i8, ptr %951, i64 128
+  %1055 = getelementptr inbounds nuw i8, ptr %951, i64 128
   %1056 = load i32, ptr %1055, align 4
   %1057 = sub i32 %1054, %1056
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1021, i32 noundef 2, ptr noundef nonnull @.str.77, i32 noundef %1027, i32 noundef %1030, i32 noundef %1036, i32 noundef %1039, i32 noundef %1040, i32 noundef %1043, i32 noundef %1044, i32 noundef %1047, i32 noundef %1052, i32 noundef %1057, i32 noundef %1051, i32 noundef %1056) #6
@@ -1628,7 +1628,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 1058:                                             ; preds = %1020, %1006, %969, %953, %945
   %1059 = add nuw nsw i64 %946, 1
   %1060 = load ptr, ptr %937, align 8
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 704
+  %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 704
   %1062 = load i32, ptr %1061, align 8
   %1063 = sext i32 %1062 to i64
   %1064 = icmp slt i64 %1059, %1063
@@ -1678,13 +1678,13 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %5, %3
   %9 = phi ptr [ %7, %5 ], [ null, %3 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 18
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = getelementptr i8, ptr %2, i64 20
@@ -1694,7 +1694,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef %12, i32 noundef %15, i32 noundef %18) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %8, %.split.us
@@ -1737,7 +1737,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %
   br i1 %50, label %.split3.us, label %.split, !llvm.loop !17
 
 .split3.us:                                       ; preds = %.split, %.split.us
-  %51 = getelementptr inbounds i8, ptr %0, i64 2632
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %52 = load i16, ptr %51, align 8
   %53 = icmp ult i16 %52, 7
   br i1 %53, label %68, label %54
@@ -1751,7 +1751,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %
 
 57:                                               ; preds = %55, %54
   %58 = phi ptr [ %56, %55 ], [ null, %54 ]
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
   %62 = getelementptr i8, ptr %2, i64 26

@@ -421,7 +421,7 @@ define internal i32 @get_hislip_message_len(ptr nocapture readnone %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_hislip_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.85) #2
   %7 = load ptr, ptr %5, align 8
@@ -485,7 +485,7 @@ is_connection_syn_or_asyn.exit:                   ; preds = %32, %switch.lookup,
   store i8 %.0.i, ptr %30, align 8
   %35 = tail call ptr @wmem_file_scope() #2
   %36 = tail call noalias ptr @wmem_tree_new(ptr noundef %35) #2
-  %37 = getelementptr inbounds i8, ptr %30, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %36, ptr %37, align 8
   %38 = load i32, ptr @proto_hislip, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %38, ptr noundef nonnull %30) #2
@@ -505,13 +505,13 @@ is_connection_syn_or_asyn.exit:                   ; preds = %32, %switch.lookup,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -534,13 +534,13 @@ proto_item_set_generated.exit:                    ; preds = %39, %44, %47
   ]
 
 51:                                               ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %52 = getelementptr inbounds i8, ptr %1, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 50
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 50
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8
   %.not86 = icmp eq i16 %56, 0
-  %57 = getelementptr inbounds i8, ptr %1, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br i1 %.not86, label %.thread, label %66
 
 .thread:                                          ; preds = %51
@@ -548,19 +548,19 @@ proto_item_set_generated.exit:                    ; preds = %39, %44, %47
   %59 = tail call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef 16) #2
   %60 = load i32, ptr %57, align 4
   store i32 %60, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i8 %8, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %59, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 9
   store i8 %9, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %.077, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @wmem_tree_insert32(ptr noundef %65, i32 noundef %60, ptr noundef nonnull %59) #2
   br label %71
 
 66:                                               ; preds = %51
-  %67 = getelementptr inbounds i8, ptr %.077, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %57, align 4
   %70 = tail call ptr @wmem_tree_lookup32(ptr noundef %68, i32 noundef %69) #2
@@ -569,7 +569,7 @@ proto_item_set_generated.exit:                    ; preds = %39, %44, %47
 
 71:                                               ; preds = %.thread, %66
   %.076265 = phi ptr [ %59, %.thread ], [ %70, %66 ]
-  %72 = getelementptr inbounds i8, ptr %.076265, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.076265, i64 4
   %73 = load i32, ptr %72, align 4
   %.not88 = icmp eq i32 %73, 0
   br i1 %.not88, label %proto_item_set_generated.exit92, label %74
@@ -581,22 +581,22 @@ proto_item_set_generated.exit:                    ; preds = %39, %44, %47
   br i1 %.not.i90, label %proto_item_set_generated.exit92, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i91 = icmp eq ptr %79, null
   br i1 %.not5.i91, label %proto_item_set_generated.exit92, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
   br label %proto_item_set_generated.exit92
 
 proto_item_set_generated.exit92:                  ; preds = %80, %77, %74, %71, %66
-  %84 = getelementptr inbounds i8, ptr %.077, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = add i32 %87, -1
   %89 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %85, i32 noundef %88) #2
@@ -604,13 +604,13 @@ proto_item_set_generated.exit92:                  ; preds = %80, %77, %74, %71, 
   br i1 %.not.i93, label %proto_item_set_generated.exit97, label %90
 
 90:                                               ; preds = %proto_item_set_generated.exit92
-  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i8, ptr %91, align 4
   %93 = icmp eq i8 %92, %8
   br i1 %93, label %94, label %proto_item_set_generated.exit97
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %89, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %search_for_retransmission.exit, label %proto_item_set_generated.exit97
@@ -627,15 +627,15 @@ search_for_retransmission.exit:                   ; preds = %94
   br i1 %.not.i95, label %proto_item_set_generated.exit97, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %104 = load ptr, ptr %103, align 8
   %.not5.i96 = icmp eq ptr %104, null
   br i1 %.not5.i96, label %proto_item_set_generated.exit97, label %proto_item_set_generated.exit97.sink.split
 
 105:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %106 = getelementptr inbounds i8, ptr %.077, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %109 = load i32, ptr %108, align 4
   %110 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %107, i32 noundef %109) #2
   %.not85 = icmp eq ptr %110, null
@@ -643,9 +643,9 @@ search_for_retransmission.exit:                   ; preds = %94
 
 111:                                              ; preds = %105
   %112 = load i32, ptr %108, align 4
-  %113 = getelementptr inbounds i8, ptr %110, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %110, i64 9
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 9
   %115 = load i8, ptr %114, align 1
   %116 = load i32, ptr @hf_hislip_request, align 4
   %117 = load i32, ptr %110, align 4
@@ -654,7 +654,7 @@ search_for_retransmission.exit:                   ; preds = %94
   br i1 %.not.i98, label %proto_item_set_generated.exit97, label %119
 
 119:                                              ; preds = %111
-  %120 = getelementptr inbounds i8, ptr %118, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not5.i99 = icmp eq ptr %121, null
   br i1 %.not5.i99, label %proto_item_set_generated.exit97, label %proto_item_set_generated.exit97.sink.split
@@ -662,7 +662,7 @@ search_for_retransmission.exit:                   ; preds = %94
 proto_item_set_generated.exit97.sink.split:       ; preds = %119, %102
   %.sink275 = phi ptr [ %104, %102 ], [ %121, %119 ]
   %.0.ph = phi i8 [ 0, %102 ], [ %115, %119 ]
-  %122 = getelementptr inbounds i8, ptr %.sink275, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %.sink275, i64 28
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, 2
   store i32 %124, ptr %122, align 4
@@ -966,7 +966,7 @@ decode_messagepara.exit:                          ; preds = %235, %240, %246, %2
   %275 = trunc nuw nsw i64 %11 to i32
   %spec.select.i = select i1 %274, i32 %275, i32 60
   %276 = load ptr, ptr %5, align 8
-  %277 = getelementptr inbounds i8, ptr %1, i64 408
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %278 = load ptr, ptr %277, align 8
   %279 = tail call ptr @tvb_format_text(ptr noundef %278, ptr noundef %0, i32 noundef %271, i32 noundef %spec.select.i) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %276, i32 noundef 25, ptr noundef nonnull @.str.252, ptr noundef %279) #2

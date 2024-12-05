@@ -258,7 +258,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_nbit(i64 noundef %0, i64 no
 85:                                               ; preds = %78
   %86 = trunc i64 %79 to i32
   store i32 3, ptr %5, align 4
-  %87 = getelementptr inbounds i8, ptr %50, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %86, ptr %87, align 4
   store i8 1, ptr %8, align 1
   switch i32 %16, label %default.unreachable [
@@ -317,7 +317,7 @@ default.unreachable:                              ; preds = %85
   %111 = load i8, ptr %8, align 1
   %112 = and i8 %111, 1
   %113 = zext nneg i8 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %50, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %113, ptr %114, align 4
   %115 = load i32, ptr %4, align 4
   %116 = call i32 @H5P_modify_filter(ptr noundef nonnull %58, i32 noundef 5, i32 noundef %115, i64 noundef %48, ptr noundef nonnull %50) #8
@@ -362,7 +362,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   br label %127
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %.not29 = icmp eq i32 %23, 0
   br i1 %.not29, label %26, label %24
@@ -372,7 +372,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   br label %127
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %0, 256
   %.not30 = icmp eq i32 %29, 0
@@ -380,7 +380,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 
 30:                                               ; preds = %26
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = mul nuw i64 %34, %31
@@ -402,7 +402,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i64 0, ptr %11, align 8
   store i64 8, ptr %12, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %H5Z__nbit_decompress.exit.thread [
     i32 1, label %45
@@ -412,17 +412,17 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 
 45:                                               ; preds = %41
   store i32 %33, ptr %13, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %13, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %13, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %2, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %13, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %53, ptr %54, align 4
   %55 = shl i32 %33, 3
   %56 = icmp ugt i32 %50, %55
@@ -535,7 +535,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i64 0, ptr %7, align 8
   store i64 8, ptr %8, align 8
-  %95 = getelementptr inbounds i8, ptr %2, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %96 = load i32, ptr %95, align 4
   switch i32 %96, label %H5Z__nbit_compress.exit [
     i32 1, label %97
@@ -544,20 +544,20 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
   ]
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load i32, ptr %98, align 4
   store i32 %99, ptr %9, align 4
-  %100 = getelementptr inbounds i8, ptr %2, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %9, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %101, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %2, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %9, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %104, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %2, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %9, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %107, ptr %108, align 4
   %.not39.i = icmp eq i32 %28, 0
   br i1 %.not39.i, label %H5Z__nbit_compress.exit, label %.lr.ph37.i
@@ -576,7 +576,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
   br i1 %exitcond52.not.i, label %H5Z__nbit_compress.exit, label %110
 
 112:                                              ; preds = %93
-  %113 = getelementptr inbounds i8, ptr %2, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
   store i32 4, ptr %10, align 4
@@ -597,7 +597,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.
   br i1 %exitcond47.not.i, label %H5Z__nbit_compress.exit, label %.lr.ph35.i
 
 117:                                              ; preds = %93
-  %118 = getelementptr inbounds i8, ptr %2, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %119 = load i32, ptr %118, align 4
   %120 = zext i32 %119 to i64
   store i32 4, ptr %10, align 4
@@ -890,7 +890,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %7
   store i32 1, ptr %8, align 4
   %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
@@ -908,7 +908,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %18 = add i32 %17, 1
   store i32 %18, ptr %1, align 4
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
   %21 = tail call i32 @H5T_get_order(ptr noundef nonnull %0) #8
   switch i32 %21, label %26 [
@@ -934,7 +934,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %32 = add i32 %31, 1
   store i32 %32, ptr %1, align 4
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
   store i32 %21, ptr %34, align 4
   %35 = tail call i64 @H5T_get_precision(ptr noundef nonnull %0) #8
   %36 = icmp eq i64 %35, 0
@@ -978,13 +978,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
   %61 = add i32 %60, 1
   store i32 %61, ptr %1, align 4
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %2, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %62
   store i32 %59, ptr %63, align 4
   %64 = load i32, ptr %1, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %1, align 4
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds i32, ptr %2, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %2, i64 %66
   store i32 %42, ptr %67, align 4
   %68 = load i8, ptr %3, align 1
   %69 = trunc i8 %68 to i1
@@ -1011,7 +1011,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef no
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %7
   store i32 2, ptr %8, align 4
   %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
@@ -1029,7 +1029,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef no
   %18 = add i32 %17, 1
   store i32 %18, ptr %1, align 4
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
   %21 = tail call ptr @H5T_get_super(ptr noundef nonnull %0) #8
   %22 = icmp eq ptr %21, null
@@ -1117,7 +1117,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef no
   %65 = add i32 %64, 1
   store i32 %65, ptr %1, align 4
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds i32, ptr %2, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %2, i64 %66
   store i32 4, ptr %67, align 4
   %68 = tail call i64 @H5T_get_size(ptr noundef nonnull %21) #8
   %69 = icmp eq i64 %68, 0
@@ -1129,7 +1129,7 @@ H5Z__set_parms_nooptype.exit:                     ; preds = %63
   %72 = add i32 %71, 1
   store i32 %72, ptr %1, align 4
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds i32, ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %2, i64 %73
   store i32 %70, ptr %74, align 4
   br label %86
 
@@ -1171,7 +1171,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %7
   store i32 3, ptr %8, align 4
   %9 = tail call i64 @H5T_get_size(ptr noundef nonnull %0) #8
   %10 = icmp eq i64 %9, 0
@@ -1189,7 +1189,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %18 = add i32 %17, 1
   store i32 %18, ptr %1, align 4
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
   store i32 %16, ptr %20, align 4
   %21 = tail call i32 @H5T_get_nmembers(ptr noundef nonnull %0) #8
   %22 = icmp slt i32 %21, 0
@@ -1206,7 +1206,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %29 = add i32 %28, 1
   store i32 %29, ptr %1, align 4
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds i32, ptr %2, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %30
   store i32 %21, ptr %31, align 4
   %.not95 = icmp eq i32 %21, 0
   br i1 %.not95, label %.loopexit, label %.lr.ph
@@ -1250,7 +1250,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %53 = add i32 %52, 1
   store i32 %53, ptr %1, align 4
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds i32, ptr %2, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %54
   store i32 %51, ptr %55, align 4
   switch i32 %43, label %109 [
     i32 0, label %56
@@ -1315,7 +1315,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %86 = add i32 %85, 1
   store i32 %86, ptr %1, align 4
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %2, i64 %87
   store i32 4, ptr %88, align 4
   %.not = icmp eq i32 %.06893, %32
   br i1 %.not, label %92, label %89
@@ -1336,7 +1336,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef
   %96 = add i32 %95, 1
   store i32 %96, ptr %1, align 4
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds i32, ptr %2, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %2, i64 %97
   store i32 4, ptr %98, align 4
   %99 = tail call i64 @H5T_get_size(ptr noundef nonnull %36) #8
   %100 = icmp eq i64 %99, 0
@@ -1367,7 +1367,7 @@ H5Z__set_parms_nooptype.exit:                     ; preds = %94
   %114 = add i32 %113, 1
   store i32 %114, ptr %1, align 4
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds i32, ptr %2, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr %2, i64 %115
   store i32 %.sink, ptr %116, align 4
   br label %117
 
@@ -1422,12 +1422,12 @@ declare i64 @H5T_get_member_offset(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, %11
   br i1 %9, label %15, label %138
@@ -1838,12 +1838,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %10 = add i32 %9, 1
   store i32 %10, ptr %6, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %9, 2
   store i32 %14, ptr %6, align 4
   %15 = zext i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %H5Z__nbit_decompress_one_nooptype.exit [
     i32 1, label %18
@@ -1856,29 +1856,29 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
   %19 = add i32 %9, 3
   store i32 %19, ptr %6, align 4
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds i32, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %20
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %8, align 4
   %23 = add i32 %9, 4
   store i32 %23, ptr %6, align 4
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i32, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %26, ptr %27, align 4
   %28 = add i32 %9, 5
   store i32 %28, ptr %6, align 4
   %29 = zext i32 %23 to i64
-  %30 = getelementptr inbounds i32, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %31, ptr %32, align 4
   %33 = add i32 %9, 6
   store i32 %33, ptr %6, align 4
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds i32, ptr %5, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %8, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %36, ptr %37, align 4
   %38 = shl i32 %22, 3
   %39 = icmp ugt i32 %31, %38
@@ -1914,7 +1914,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
 
 54:                                               ; preds = %7
   %55 = zext i32 %14 to i64
-  %56 = getelementptr inbounds i32, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
   %57 = load i32, ptr %56, align 4
   %.not83 = icmp ugt i32 %57, %13
   br i1 %.not83, label %H5Z__nbit_decompress_one_nooptype.exit, label %.lr.ph80
@@ -1947,7 +1947,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr 
 
 72:                                               ; preds = %7
   %73 = zext i32 %14 to i64
-  %74 = getelementptr inbounds i32, ptr %5, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %5, i64 %73
   %75 = load i32, ptr %74, align 4
   %.not = icmp ugt i32 %75, %13
   br i1 %.not, label %H5Z__nbit_decompress_one_nooptype.exit, label %.lr.ph
@@ -2050,21 +2050,21 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   %10 = add i32 %9, 1
   store i32 %10, ptr %6, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %9, 2
   store i32 %14, ptr %6, align 4
   %15 = zext i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4
   %.not77 = icmp eq i32 %17, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %18 = getelementptr i8, ptr %0, i64 %1
-  %19 = getelementptr inbounds i8, ptr %8, i64 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %22
 
 22:                                               ; preds = %.lr.ph, %H5Z__nbit_decompress_one_nooptype.exit
@@ -2074,15 +2074,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   %24 = add i32 %23, 1
   store i32 %24, ptr %6, align 4
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds i32, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %23, 2
   store i32 %28, ptr %6, align 4
   %29 = zext i32 %24 to i64
-  %30 = getelementptr inbounds i32, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i32, ptr %5, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, %.06975
   %36 = icmp ugt i32 %35, %13
@@ -2129,19 +2129,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   %56 = add i32 %23, 4
   store i32 %56, ptr %6, align 4
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds i32, ptr %5, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %57
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %19, align 4
   %60 = add i32 %23, 5
   store i32 %60, ptr %6, align 4
   %61 = zext i32 %56 to i64
-  %62 = getelementptr inbounds i32, ptr %5, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %61
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %20, align 4
   %64 = add i32 %23, 6
   store i32 %64, ptr %6, align 4
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds i32, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %65
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %21, align 4
   %68 = shl i32 %34, 3
@@ -2262,12 +2262,12 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %133, %97, %76, %79,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, %11
   br i1 %9, label %15, label %129
@@ -2652,12 +2652,12 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %10 = add i32 %9, 1
   store i32 %10, ptr %6, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %9, 2
   store i32 %14, ptr %6, align 4
   %15 = zext i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %H5Z__nbit_compress_one_nooptype.exit [
     i32 1, label %18
@@ -2670,29 +2670,29 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
   %19 = add i32 %9, 3
   store i32 %19, ptr %6, align 4
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds i32, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %20
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %8, align 4
   %23 = add i32 %9, 4
   store i32 %23, ptr %6, align 4
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i32, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %26, ptr %27, align 4
   %28 = add i32 %9, 5
   store i32 %28, ptr %6, align 4
   %29 = zext i32 %23 to i64
-  %30 = getelementptr inbounds i32, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %31, ptr %32, align 4
   %33 = add i32 %9, 6
   store i32 %33, ptr %6, align 4
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds i32, ptr %5, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %8, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %36, ptr %37, align 4
   %.not76 = icmp ugt i32 %22, %13
   br i1 %.not76, label %H5Z__nbit_compress_one_nooptype.exit, label %.lr.ph74
@@ -2714,7 +2714,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
 
 45:                                               ; preds = %7
   %46 = zext i32 %14 to i64
-  %47 = getelementptr inbounds i32, ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4
   %.not75 = icmp ugt i32 %48, %13
   br i1 %.not75, label %H5Z__nbit_compress_one_nooptype.exit, label %.lr.ph72
@@ -2737,7 +2737,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef 
 
 56:                                               ; preds = %7
   %57 = zext i32 %14 to i64
-  %58 = getelementptr inbounds i32, ptr %5, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %57
   %59 = load i32, ptr %58, align 4
   %.not = icmp ugt i32 %59, %13
   br i1 %.not, label %H5Z__nbit_compress_one_nooptype.exit, label %.lr.ph
@@ -2831,16 +2831,16 @@ define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture nound
   %11 = add i32 %9, 2
   store i32 %11, ptr %6, align 4
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %15 = getelementptr i8, ptr %0, i64 %1
-  %16 = getelementptr inbounds i8, ptr %8, i64 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %19
 
 19:                                               ; preds = %.lr.ph, %H5Z__nbit_compress_one_nooptype.exit
@@ -2849,12 +2849,12 @@ define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture nound
   %21 = add i32 %20, 1
   store i32 %21, ptr %6, align 4
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %20, 2
   store i32 %25, ptr %6, align 4
   %26 = zext i32 %21 to i64
-  %27 = getelementptr inbounds i32, ptr %5, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %26
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %H5Z__nbit_compress_one_nooptype.exit [
     i32 1, label %29
@@ -2867,25 +2867,25 @@ define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture nound
   %30 = add i32 %20, 3
   store i32 %30, ptr %6, align 4
   %31 = zext i32 %25 to i64
-  %32 = getelementptr inbounds i32, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %8, align 4
   %34 = add i32 %20, 4
   store i32 %34, ptr %6, align 4
   %35 = zext i32 %30 to i64
-  %36 = getelementptr inbounds i32, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %35
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %16, align 4
   %38 = add i32 %20, 5
   store i32 %38, ptr %6, align 4
   %39 = zext i32 %34 to i64
-  %40 = getelementptr inbounds i32, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %17, align 4
   %42 = add i32 %20, 6
   store i32 %42, ptr %6, align 4
   %43 = zext i32 %38 to i64
-  %44 = getelementptr inbounds i32, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4
   store i32 %45, ptr %18, align 4
   %46 = zext i32 %24 to i64
@@ -2909,7 +2909,7 @@ define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture nound
   %55 = add i32 %20, 3
   store i32 %55, ptr %6, align 4
   %56 = zext i32 %25 to i64
-  %57 = getelementptr inbounds i32, ptr %5, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %56
   %58 = load i32, ptr %57, align 4
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %H5Z__nbit_compress_one_nooptype.exit, label %.lr.ph.i

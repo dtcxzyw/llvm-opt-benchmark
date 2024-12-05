@@ -597,7 +597,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 377:                                              ; preds = %385, %375
   %378 = phi i64 [ 1, %375 ], [ %386, %385 ]
-  %379 = getelementptr inbounds double, ptr %13, i64 %378
+  %379 = getelementptr inbounds nuw double, ptr %13, i64 %378
   %380 = load double, ptr %379, align 8, !tbaa !7
   %381 = fcmp une double %380, 0.000000e+00
   br i1 %381, label %382, label %385

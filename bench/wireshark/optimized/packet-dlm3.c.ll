@@ -503,7 +503,7 @@ define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %or.cond, label %dissect_dlm3_2.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.213) #2
   %15 = load ptr, ptr %13, align 8
@@ -758,7 +758,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %41 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %35) #2
   %42 = load i32, ptr @hf_dlm3_m_type, align 4
   %43 = tail call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %42, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %41) #2
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @dlm3_msg, ptr noundef nonnull @.str.277) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.276, ptr noundef %46) #2
@@ -836,7 +836,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %111 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %35) #2
   %112 = load i32, ptr @hf_dlm3_rc_type, align 4
   %113 = tail call ptr @proto_tree_add_uint(ptr noundef %110, i32 noundef %112, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %111) #2
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = tail call ptr @val_to_str_const(i32 noundef %111, ptr noundef nonnull @dlm3_rcom, ptr noundef nonnull @.str.277) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %115, i32 noundef 25, ptr noundef nonnull @.str.276, ptr noundef %116) #2

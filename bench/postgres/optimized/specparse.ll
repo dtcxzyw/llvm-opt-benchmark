@@ -199,9 +199,9 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %87 = sub nsw i64 1, %86
   %88 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %87
   %.sroa.0.0.copyload = load ptr, ptr %88, align 8
-  %.sroa.74.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
+  %.sroa.74.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.74.0.copyload = load i32, ptr %.sroa.74.0..sroa_idx, align 8
-  %.sroa.87.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 12
+  %.sroa.87.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 12
   %.sroa.87.0.copyload = load i32, ptr %.sroa.87.0..sroa_idx, align 4
   switch i32 %.0253, label %285 [
     i32 2, label %89
@@ -252,7 +252,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store i32 %99, ptr getelementptr inbounds (i8, ptr @parseresult, i64 32), align 8
   %100 = load ptr, ptr %.2256, align 8
   store ptr %100, ptr getelementptr inbounds (i8, ptr @parseresult, i64 40), align 8
-  %101 = getelementptr inbounds i8, ptr %.2256, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.2256, i64 8
   %102 = load i32, ptr %101, align 8
   store i32 %102, ptr getelementptr inbounds (i8, ptr @parseresult, i64 48), align 8
   br label %285
@@ -324,18 +324,18 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store ptr %147, ptr %145, align 8
   %148 = getelementptr i8, ptr %.2256, i64 -32
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %145, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %149, ptr %150, align 8
   %151 = getelementptr i8, ptr %.2256, i64 -16
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %145, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store ptr %152, ptr %153, align 8
   %154 = getelementptr i8, ptr %.2256, i64 -8
   %155 = load i32, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %145, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 32
   store i32 %155, ptr %156, align 8
   %157 = load ptr, ptr %.2256, align 8
-  %158 = getelementptr inbounds i8, ptr %145, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %157, ptr %158, align 8
   br label %285
 
@@ -369,19 +369,19 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %180 = load ptr, ptr %179, align 8
   store ptr %180, ptr %178, align 8
   %181 = load ptr, ptr %.2256, align 8
-  %182 = getelementptr inbounds i8, ptr %178, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store ptr %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %178, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store i32 -1, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %178, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 20
   store i8 0, ptr %184, align 4
   br label %285
 
 185:                                              ; preds = %82
   %.sroa.0.0.copyload80 = load ptr, ptr %.2256, align 8
-  %.sroa.74.0..sroa_idx82 = getelementptr inbounds i8, ptr %.2256, i64 8
+  %.sroa.74.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %.2256, i64 8
   %.sroa.74.0.copyload83 = load i32, ptr %.sroa.74.0..sroa_idx82, align 8
-  %.sroa.87.0..sroa_idx86 = getelementptr inbounds i8, ptr %.2256, i64 12
+  %.sroa.87.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %.2256, i64 12
   %.sroa.87.0.copyload87 = load i32, ptr %.sroa.87.0..sroa_idx86, align 4
   br label %285
 
@@ -411,11 +411,11 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 
 204:                                              ; preds = %82
   %205 = call ptr @pg_malloc(i64 noundef 16) #7
-  %206 = getelementptr inbounds i8, ptr %.2256, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.2256, i64 8
   %207 = load i32, ptr %206, align 8
   store i32 %207, ptr %205, align 8
   %208 = load ptr, ptr %.2256, align 8
-  %209 = getelementptr inbounds i8, ptr %205, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store ptr %208, ptr %209, align 8
   br label %285
 
@@ -447,11 +447,11 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %229 = call ptr @pg_malloc(i64 noundef 32) #7
   %230 = load ptr, ptr %.2256, align 8
   store ptr %230, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %229, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr null, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %229, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store i32 0, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %229, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 24
   store ptr null, ptr %233, align 8
   br label %285
 
@@ -462,13 +462,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   store ptr %237, ptr %235, align 8
   %238 = getelementptr i8, ptr %.2256, i64 -16
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %235, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store ptr %239, ptr %240, align 8
   %241 = getelementptr i8, ptr %.2256, i64 -8
   %242 = load i32, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %235, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store i32 %242, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %235, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %235, i64 24
   store ptr null, ptr %244, align 8
   br label %285
 
@@ -500,13 +500,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %264 = call ptr @pg_malloc(i64 noundef 32) #7
   %265 = load ptr, ptr %.2256, align 8
   store ptr %265, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %264, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store i32 1, ptr %266, align 8
-  %267 = getelementptr inbounds i8, ptr %264, i64 12
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 12
   store i32 -1, ptr %267, align 4
-  %268 = getelementptr inbounds i8, ptr %264, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   store ptr null, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %264, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %264, i64 24
   store i32 -1, ptr %269, align 8
   br label %285
 
@@ -515,27 +515,27 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %272 = getelementptr i8, ptr %.2256, i64 -32
   %273 = load ptr, ptr %272, align 8
   store ptr %273, ptr %271, align 8
-  %274 = getelementptr inbounds i8, ptr %271, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i32 2, ptr %274, align 8
   %275 = load i32, ptr %.2256, align 8
-  %276 = getelementptr inbounds i8, ptr %271, i64 12
+  %276 = getelementptr inbounds nuw i8, ptr %271, i64 12
   store i32 %275, ptr %276, align 4
-  %277 = getelementptr inbounds i8, ptr %271, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store ptr null, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %271, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %271, i64 24
   store i32 -1, ptr %278, align 8
   br label %285
 
 279:                                              ; preds = %82
   %280 = call ptr @pg_malloc(i64 noundef 32) #7
   store ptr null, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i32 0, ptr %281, align 8
-  %282 = getelementptr inbounds i8, ptr %280, i64 12
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 12
   store i32 -1, ptr %282, align 4
-  %283 = getelementptr inbounds i8, ptr %280, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %280, i64 16
   store ptr null, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %280, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %280, i64 24
   store i32 -1, ptr %284, align 8
   br label %285
 

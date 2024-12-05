@@ -29,7 +29,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   ret void
 }
@@ -67,7 +67,7 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
   br i1 %17, label %18, label %32
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -90,7 +90,7 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
 
 29:                                               ; preds = %27
   store i8 1, ptr %5, align 1
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %34, label %31
 
@@ -99,7 +99,7 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
   br label %34
 
 32:                                               ; preds = %14, %10
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %33, align 4
   br label %34
 
@@ -115,7 +115,7 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not11 = icmp eq ptr %41, null
   br i1 %.not11, label %44, label %42
 
@@ -125,7 +125,7 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
   br label %44
 
 44:                                               ; preds = %40, %42
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %45, align 4
   br label %53
 
@@ -133,13 +133,13 @@ define hidden void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverhea
   br i1 %.0, label %47, label %53
 
 47:                                               ; preds = %46
-  %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not10 = icmp eq ptr %48, null
   br i1 %.not10, label %53, label %49
 
 49:                                               ; preds = %47
   %50 = load i32, ptr @GCTimeLimit, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %52 = load i32, ptr %51, align 4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.5, i32 noundef %50, i32 noundef %52)
   br label %53

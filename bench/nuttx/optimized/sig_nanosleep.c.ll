@@ -15,7 +15,7 @@ define range(i32 -10, -11) i32 @nxsig_nanosleep(ptr noundef %0, ptr noundef %1) 
   br i1 %6, label %up_irq_restore.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %or.cond = icmp ugt i64 %9, 999999999
   br i1 %or.cond, label %up_irq_restore.exit, label %10

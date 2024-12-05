@@ -51,10 +51,10 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @H5FS_debug(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5FS_hdr_cache_ud_t, align 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i64 %1, ptr %9, align 8
   %10 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_FSPACE_HDR, i64 noundef %1, ptr noundef nonnull %6, i32 noundef 128) #6
@@ -69,48 +69,48 @@ define range(i32 -1, 1) i32 @H5FS_debug(ptr noundef %0, i64 noundef %1, ptr noca
 
 15:                                               ; preds = %5
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %3, ptr noundef nonnull @.str.3) #6
-  %17 = getelementptr inbounds i8, ptr %10, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   %20 = icmp eq i32 %18, 1
   %21 = select i1 %20, ptr @.str.7, ptr @.str.8
   %22 = select i1 %19, ptr @.str.6, ptr %21
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.5, ptr noundef nonnull %22) #6
-  %24 = getelementptr inbounds i8, ptr %10, i64 248
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %25 = load i64, ptr %24, align 8
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.10, i64 noundef %25) #6
-  %27 = getelementptr inbounds i8, ptr %10, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %28 = load i64, ptr %27, align 8
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.11, i64 noundef %28) #6
-  %30 = getelementptr inbounds i8, ptr %10, i64 264
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %31 = load i64, ptr %30, align 8
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.12, i64 noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %10, i64 272
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %34 = load i64, ptr %33, align 8
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.13, i64 noundef %34) #6
-  %36 = getelementptr inbounds i8, ptr %10, i64 284
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 284
   %37 = load i16, ptr %36, align 4
   %38 = zext i16 %37 to i32
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.15, i32 noundef %38) #6
-  %40 = getelementptr inbounds i8, ptr %10, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 288
   %41 = load i32, ptr %40, align 8
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.17, i32 noundef %41) #6
-  %43 = getelementptr inbounds i8, ptr %10, i64 292
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 292
   %44 = load i32, ptr %43, align 4
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.18, i32 noundef %44) #6
-  %46 = getelementptr inbounds i8, ptr %10, i64 296
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %47 = load i32, ptr %46, align 8
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %47) #6
-  %49 = getelementptr inbounds i8, ptr %10, i64 304
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 304
   %50 = load i64, ptr %49, align 8
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.20, i64 noundef %50) #6
-  %52 = getelementptr inbounds i8, ptr %10, i64 312
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %53 = load i64, ptr %52, align 8
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.21, i64 noundef %53) #6
-  %55 = getelementptr inbounds i8, ptr %10, i64 320
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 320
   %56 = load i64, ptr %55, align 8
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.22, i64 noundef %56) #6
-  %58 = getelementptr inbounds i8, ptr %10, i64 328
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 328
   %59 = load i64, ptr %58, align 8
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.23, i64 noundef %59) #6
   %61 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FSPACE_HDR, i64 noundef %1, ptr noundef nonnull %10, i32 noundef 0) #6
@@ -139,12 +139,12 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.H5FS_section_class_t, ptr %7, i64 %10, i32 16
+  %11 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %7, i64 %10, i32 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %20, label %13
@@ -169,10 +169,10 @@ define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr nocapture noundef readonly %0, 
 define range(i32 -1, 1) i32 @H5FS_sects_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5FS_hdr_cache_ud_t, align 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 %5, ptr %11, align 8
   %12 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_FSPACE_HDR, i64 noundef %5, ptr noundef nonnull %8, i32 noundef 128) #6
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @H5FS_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %51
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %12, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %20 = load i32, ptr %19, align 8
   %21 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FSPACE_HDR, i64 noundef %5, ptr noundef nonnull %12, i32 noundef 1) #6
   %22 = icmp slt i32 %21, 0

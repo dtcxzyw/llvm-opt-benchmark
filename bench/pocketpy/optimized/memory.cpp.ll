@@ -52,30 +52,30 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy10MemoryPoolILi64EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not5.i = icmp eq ptr %3, %4
   br i1 %.not5.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i
 
 _ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i: ; preds = %1, %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i
   %.06.i = phi ptr [ %6, %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i, i64 noundef 327704) #15
   %.not.i = icmp eq ptr %6, %4
   br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, !llvm.loop !4
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not5.i1 = icmp eq ptr %8, %9
   br i1 %.not5.i1, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i
 
 _ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i: ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i
   %.06.i2 = phi ptr [ %11, %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i ], [ %8, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit ]
-  %10 = getelementptr inbounds i8, ptr %.06.i2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.06.i2, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i2, i64 noundef 327704) #15
   %.not.i3 = icmp eq ptr %11, %9
@@ -87,30 +87,30 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pkpy10MemoryPoolILi128EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not5.i = icmp eq ptr %3, %4
   br i1 %.not5.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i
 
 _ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i: ; preds = %1, %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i
   %.06.i = phi ptr [ %6, %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i, i64 noundef 294936) #15
   %.not.i = icmp eq ptr %6, %4
   br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, !llvm.loop !7
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not5.i1 = icmp eq ptr %8, %9
   br i1 %.not5.i1, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i
 
 _ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i: ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i
   %.06.i2 = phi ptr [ %11, %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i ], [ %8, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit ]
-  %10 = getelementptr inbounds i8, ptr %.06.i2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.06.i2, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i2, i64 noundef 294936) #15
   %.not.i3 = icmp eq ptr %11, %9
@@ -153,35 +153,35 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi64EE5allocEm(ptr noundef
   br i1 %9, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %24
 
 10:                                               ; preds = %7
   %11 = tail call noalias noundef nonnull dereferenceable(327704) ptr @_Znwm(i64 noundef 327704) #18
-  %12 = getelementptr inbounds i8, ptr %11, i64 327696
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 327696
   store i32 4096, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = getelementptr inbounds i8, ptr %11, i64 294928
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 294928
   br label %15
 
 15:                                               ; preds = %15, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds [4096 x %"struct.pkpy::MemoryPool<64>::Block"], ptr %13, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4096 x %"struct.pkpy::MemoryPool<64>::Block"], ptr %13, i64 0, i64 %indvars.iv.i
   store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds [4096 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4096 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit, label %15, !llvm.loop !9
 
 _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %11, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %21, align 8
   store ptr %11, ptr %18, align 8
   %22 = load i32, ptr %0, align 8
@@ -191,11 +191,11 @@ _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
 
 24:                                               ; preds = %._crit_edge, %_ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %11, %_ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 327696
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 327696
   %27 = load i32, ptr %26, align 8
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 294928
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 294928
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds [4096 x ptr], ptr %29, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
@@ -203,10 +203,10 @@ _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
   br i1 %33, label %34, label %51
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %35, ptr %38, align 8
   %39 = load ptr, ptr %35, align 8
   %40 = load ptr, ptr %39, align 8
@@ -214,14 +214,14 @@ _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
   %41 = load i32, ptr %0, align 8
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %25, align 8
-  %46 = getelementptr inbounds i8, ptr %25, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %44, ptr %46, align 8
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %25, ptr %48, align 8
   store ptr %25, ptr %44, align 8
   %49 = load i32, ptr %43, align 8
@@ -231,7 +231,7 @@ _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
 
 51:                                               ; preds = %24, %34, %4
   %.pn = phi ptr [ %6, %4 ], [ %32, %34 ], [ %32, %24 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   ret ptr %.0
 }
 
@@ -261,31 +261,31 @@ define void @_ZN4pkpy14pool64_deallocEPv(ptr noundef %0) local_unnamed_addr #7 p
   br label %_ZN4pkpy10MemoryPoolILi64EE7deallocEPv.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 327696
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 327696
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %12, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
   %17 = add nsw i32 %16, -1
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 8), ptr %3, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 8), ptr %3, align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
   store ptr %18, ptr %11, align 8
   store ptr %3, ptr %18, align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
   %19 = load i32, ptr @_ZN4pkpyL6pool64E, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr @_ZN4pkpyL6pool64E, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 294928
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 294928
   %22 = load i32, ptr %7, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [4096 x ptr], ptr %21, i64 0, i64 %23
@@ -296,7 +296,7 @@ define void @_ZN4pkpy14pool64_deallocEPv(ptr noundef %0) local_unnamed_addr #7 p
   br label %_ZN4pkpy10MemoryPoolILi64EE7deallocEPv.exit
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %3, i64 294928
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 294928
   %29 = sext i32 %8 to i64
   %30 = getelementptr inbounds [4096 x ptr], ptr %28, i64 0, i64 %29
   store ptr %2, ptr %30, align 8
@@ -342,35 +342,35 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi128EE5allocEm(ptr nounde
   br i1 %9, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %24
 
 10:                                               ; preds = %7
   %11 = tail call noalias noundef nonnull dereferenceable(294936) ptr @_Znwm(i64 noundef 294936) #18
-  %12 = getelementptr inbounds i8, ptr %11, i64 294928
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 294928
   store i32 2048, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = getelementptr inbounds i8, ptr %11, i64 278544
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 278544
   br label %15
 
 15:                                               ; preds = %15, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds [2048 x %"struct.pkpy::MemoryPool<>::Block"], ptr %13, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [2048 x %"struct.pkpy::MemoryPool<>::Block"], ptr %13, i64 0, i64 %indvars.iv.i
   store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds [2048 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2048 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
   br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit, label %15, !llvm.loop !10
 
 _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %11, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %21, align 8
   store ptr %11, ptr %18, align 8
   %22 = load i32, ptr %0, align 8
@@ -380,11 +380,11 @@ _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
 
 24:                                               ; preds = %._crit_edge, %_ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %11, %_ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 294928
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 294928
   %27 = load i32, ptr %26, align 8
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 278544
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 278544
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds [2048 x ptr], ptr %29, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
@@ -392,10 +392,10 @@ _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
   br i1 %33, label %34, label %51
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %35, ptr %38, align 8
   %39 = load ptr, ptr %35, align 8
   %40 = load ptr, ptr %39, align 8
@@ -403,14 +403,14 @@ _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
   %41 = load i32, ptr %0, align 8
   %42 = add nsw i32 %41, -1
   store i32 %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %25, align 8
-  %46 = getelementptr inbounds i8, ptr %25, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %44, ptr %46, align 8
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %25, ptr %48, align 8
   store ptr %25, ptr %44, align 8
   %49 = load i32, ptr %43, align 8
@@ -420,7 +420,7 @@ _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
 
 51:                                               ; preds = %24, %34, %4
   %.pn = phi ptr [ %6, %4 ], [ %32, %34 ], [ %32, %24 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   ret ptr %.0
 }
 
@@ -436,31 +436,31 @@ define void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %0) local_unnamed_addr #7 
   br label %_ZN4pkpy10MemoryPoolILi128EE7deallocEPv.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 294928
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 294928
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %12, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
   %17 = add nsw i32 %16, -1
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 8), ptr %3, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 8), ptr %3, align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
   store ptr %18, ptr %11, align 8
   store ptr %3, ptr %18, align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
   %19 = load i32, ptr @_ZN4pkpyL7pool128E, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr @_ZN4pkpyL7pool128E, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 278544
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 278544
   %22 = load i32, ptr %7, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [2048 x ptr], ptr %21, i64 0, i64 %23
@@ -471,7 +471,7 @@ define void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %0) local_unnamed_addr #7 
   br label %_ZN4pkpy10MemoryPoolILi128EE7deallocEPv.exit
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %3, i64 278544
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 278544
   %29 = sext i32 %8 to i64
   %30 = getelementptr inbounds [2048 x ptr], ptr %28, i64 0, i64 %29
   store ptr %2, ptr %30, align 8
@@ -488,23 +488,23 @@ _ZN4pkpy10MemoryPoolILi128EE7deallocEPv.exit:     ; preds = %27, %10, %5
 define void @_ZN4pkpy19pools_shrink_to_fitEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load i32, ptr @_ZN4pkpyL6pool64E, align 8
   %2 = icmp slt i32 %1, 12
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
-  %.not5.i.i = icmp eq ptr %3, getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 24)
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
+  %.not5.i.i = icmp eq ptr %3, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 24)
   %or.cond = select i1 %2, i1 true, i1 %.not5.i.i
   br i1 %or.cond, label %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
   %.06.i.i = phi ptr [ %5, %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i ], [ %3, %0 ]
-  %4 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.06.i.i, i64 327696
+  %6 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 327696
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 4096
   br i1 %8, label %9, label %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
 
 9:                                                ; preds = %.lr.ph.i.i
   %10 = load ptr, ptr %.06.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %5, ptr %11, align 8
   %12 = load ptr, ptr %.06.i.i, align 8
   store ptr %12, ptr %5, align 8
@@ -515,29 +515,29 @@ define void @_ZN4pkpy19pools_shrink_to_fitEv() local_unnamed_addr #3 personality
   br label %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
 
 _ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i: ; preds = %9, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %5, getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 24)
+  %.not.i.i = icmp eq ptr %5, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 24)
   br i1 %.not.i.i, label %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i, %0
   %15 = load i32, ptr @_ZN4pkpyL7pool128E, align 8
   %16 = icmp slt i32 %15, 12
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
-  %.not5.i.i1 = icmp eq ptr %17, getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 24)
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
+  %.not5.i.i1 = icmp eq ptr %17, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 24)
   %or.cond5 = select i1 %16, i1 true, i1 %.not5.i.i1
   br i1 %or.cond5, label %_ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit, label %.lr.ph.i.i2
 
 .lr.ph.i.i2:                                      ; preds = %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit, %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
   %.06.i.i3 = phi ptr [ %19, %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i ], [ %17, %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit ]
-  %18 = getelementptr inbounds i8, ptr %.06.i.i3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.06.i.i3, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.06.i.i3, i64 294928
+  %20 = getelementptr inbounds nuw i8, ptr %.06.i.i3, i64 294928
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 2048
   br i1 %22, label %23, label %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
 
 23:                                               ; preds = %.lr.ph.i.i2
   %24 = load ptr, ptr %.06.i.i3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %19, ptr %25, align 8
   %26 = load ptr, ptr %.06.i.i3, align 8
   store ptr %26, ptr %19, align 8
@@ -548,7 +548,7 @@ _ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryP
   br label %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i
 
 _ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i: ; preds = %23, %.lr.ph.i.i2
-  %.not.i.i4 = icmp eq ptr %19, getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 24)
+  %.not.i.i4 = icmp eq ptr %19, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 24)
   br i1 %.not.i.i4, label %_ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit, label %.lr.ph.i.i2, !llvm.loop !12
 
 _ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i, %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit
@@ -576,12 +576,12 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi64EE4infoB5cxx11Ev(ptr dead_on_
   %3 = alloca [512 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not5.i = icmp eq ptr %10, %11
   br i1 %.not5.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit, label %.lr.ph.i
 
@@ -589,9 +589,9 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi64EE4infoB5cxx11Ev(ptr dead_on_
   %.015 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
   %.0 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
   %.06.i = phi ptr [ %13, %.lr.ph.i ], [ %10, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.06.i, i64 327696
+  %14 = getelementptr inbounds nuw i8, ptr %.06.i, i64 327696
   %15 = load i32, ptr %14, align 8
   %16 = shl i32 %15, 6
   %17 = sub i32 262144, %16
@@ -610,16 +610,16 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx1
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit: ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, %2
   %.116 = phi double [ 0.000000e+00, %2 ], [ %23, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit ]
   %.1 = phi i64 [ 0, %2 ], [ %20, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.not5.i6 = icmp eq ptr %25, %26
   br i1 %.not5.i6, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit, %.lr.ph.i7
   %27 = phi i64 [ %30, %.lr.ph.i7 ], [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ]
   %.06.i8 = phi ptr [ %29, %.lr.ph.i7 ], [ %25, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ]
-  %28 = getelementptr inbounds i8, ptr %.06.i8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.06.i8, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %27, 262144
   %.not.i9 = icmp eq ptr %29, %26
@@ -687,12 +687,12 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi128EE4infoB5cxx11Ev(ptr dead_on
   %3 = alloca [512 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not5.i = icmp eq ptr %10, %11
   br i1 %.not5.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit, label %.lr.ph.i
 
@@ -700,9 +700,9 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi128EE4infoB5cxx11Ev(ptr dead_on
   %.015 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
   %.0 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
   %.06.i = phi ptr [ %13, %.lr.ph.i ], [ %10, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.06.i, i64 294928
+  %14 = getelementptr inbounds nuw i8, ptr %.06.i, i64 294928
   %15 = load i32, ptr %14, align 8
   %16 = shl i32 %15, 7
   %17 = sub i32 262144, %16
@@ -721,16 +721,16 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit: ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, %2
   %.116 = phi double [ 0.000000e+00, %2 ], [ %23, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit ]
   %.1 = phi i64 [ 0, %2 ], [ %20, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.not5.i6 = icmp eq ptr %25, %26
   br i1 %.not5.i6, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit, %.lr.ph.i7
   %27 = phi i64 [ %30, %.lr.ph.i7 ], [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ]
   %.06.i8 = phi ptr [ %29, %.lr.ph.i7 ], [ %25, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ]
-  %28 = getelementptr inbounds i8, ptr %.06.i8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.06.i8, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %27, 262144
   %.not.i9 = icmp eq ptr %29, %26
@@ -900,26 +900,26 @@ define internal void @_GLOBAL__sub_I_memory.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   store i32 0, ptr @_ZN4pkpyL6pool64E, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 24), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 48), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 56), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 64), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL6pool64E, i64 72), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 24), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 16), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 48), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 56), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 72), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pkpy10MemoryPoolILi64EED2Ev, ptr nonnull @_ZN4pkpyL6pool64E, ptr nonnull @__dso_handle) #19
   store i32 0, ptr @_ZN4pkpyL7pool128E, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 24), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 48), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 64), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 56), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 48), ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 64), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4pkpyL7pool128E, i64 72), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 24), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 16), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 40), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 48), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 56), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 48), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 72), align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pkpy10MemoryPoolILi128EED2Ev, ptr nonnull @_ZN4pkpyL7pool128E, ptr nonnull @__dso_handle) #19
   ret void
 }

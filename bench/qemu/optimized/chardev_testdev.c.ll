@@ -36,7 +36,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_testdev_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #6
-  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
+  %chr_write = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @testdev_chr_write, ptr %chr_write, align 8
   ret void
 }
@@ -49,8 +49,8 @@ entry:
   br i1 %tobool.not32, label %while.end25, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %in_buf_used = getelementptr inbounds i8, ptr %call.i, i64 184
-  %in_buf = getelementptr inbounds i8, ptr %call.i, i64 152
+  %in_buf_used = getelementptr inbounds nuw i8, ptr %call.i, i64 184
+  %in_buf = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %incdec.ptr.i = getelementptr i8, ptr %call.i, i64 153
   %sub.ptr.rhs.cast.i = ptrtoint ptr %in_buf to i64
   %.pre = load i32, ptr %in_buf_used, align 8

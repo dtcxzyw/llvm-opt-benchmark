@@ -18,7 +18,7 @@ define dso_local ptr @alias_lookup(ptr noundef %alias) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.config_alias_data, align 8
   store ptr %alias, ptr %data, align 8
-  %v = getelementptr inbounds i8, ptr %data, i64 8
+  %v = getelementptr inbounds nuw i8, ptr %data, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v, i8 0, i64 16, i1 false)
   call void @read_early_config(ptr noundef nonnull @config_alias_cb, ptr noundef nonnull %data) #8
   %0 = load ptr, ptr %v, align 8
@@ -36,13 +36,13 @@ entry:
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %str.addr.0.i = phi ptr [ %key, %entry ], [ %incdec.ptr.i, %do.cond.i ]
   %prefix.addr.0.idx.i = phi i64 [ 0, %entry ], [ %prefix.addr.0.add.i, %do.cond.i ]
-  %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str, i64 %prefix.addr.0.idx.i
+  %prefix.addr.0.ptr.i = getelementptr inbounds nuw i8, ptr @.str, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 6
   br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
@@ -63,12 +63,12 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then1
-  %v = getelementptr inbounds i8, ptr %d, i64 8
+  %v = getelementptr inbounds nuw i8, ptr %d, i64 8
   %call6 = tail call i32 @git_config_string(ptr noundef nonnull %v, ptr noundef %key, ptr noundef %value) #8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %list = getelementptr inbounds i8, ptr %d, i64 16
+  %list = getelementptr inbounds nuw i8, ptr %d, i64 16
   %3 = load ptr, ptr %list, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %return, label %if.then9
@@ -86,7 +86,7 @@ return:                                           ; preds = %if.then1, %if.then9
 define dso_local void @list_aliases(ptr noundef %list) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.config_alias_data, align 8
-  %list1 = getelementptr inbounds i8, ptr %data, i64 16
+  %list1 = getelementptr inbounds nuw i8, ptr %data, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
   store ptr %list, ptr %list1, align 8
   call void @read_early_config(ptr noundef nonnull @config_alias_cb, ptr noundef nonnull %data) #8
@@ -101,8 +101,8 @@ entry:
   br i1 %tobool.not73, label %for.end14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %len.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_addch.exit72
@@ -238,7 +238,7 @@ strbuf_addch.exit57:                              ; preds = %strbuf_avail.exit.i
   %26 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i52 = getelementptr inbounds i8, ptr %25, i64 %26
   store i8 0, ptr %arrayidx3.i52, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   br label %for.cond1, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond1
@@ -269,7 +269,7 @@ strbuf_addch.exit72:                              ; preds = %strbuf_avail.exit.i
   %32 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i67 = getelementptr inbounds i8, ptr %31, i64 %32
   store i8 0, ptr %arrayidx3.i67, align 1
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %argp.074, i64 8
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %argp.074, i64 8
   %33 = load ptr, ptr %incdec.ptr13, align 8
   %tobool.not = icmp eq ptr %33, null
   br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !8
@@ -304,7 +304,7 @@ for.body:                                         ; preds = %entry, %if.end77
 
 land.lhs.true:                                    ; preds = %for.body
   %idxprom = zext i8 %1 to i64
-  %arrayidx5 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx5, align 1
   %3 = and i8 %2, 1
   %cmp.not = icmp eq i8 %3, 0
@@ -326,7 +326,7 @@ while.cond:                                       ; preds = %land.rhs, %if.then
 
 land.rhs:                                         ; preds = %while.cond
   %idxprom14 = zext i8 %4 to i64
-  %arrayidx15 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom14
   %5 = load i8, ptr %arrayidx15, align 1
   %6 = and i8 %5, 1
   %cmp18.not = icmp eq i8 %6, 0
@@ -467,7 +467,7 @@ if.then94:                                        ; preds = %do.body90
 do.end111:                                        ; preds = %do.body90.thread, %do.body90, %if.then94
   %count.0.lcssa94100105 = phi i64 [ %count.1, %do.body90 ], [ %count.1, %if.then94 ], [ 1, %do.body90.thread ]
   %17 = phi ptr [ %.pre88, %do.body90 ], [ %call109, %if.then94 ], [ %.pre88104, %do.body90.thread ]
-  %arrayidx112 = getelementptr inbounds ptr, ptr %17, i64 %count.0.lcssa94100105
+  %arrayidx112 = getelementptr inbounds nuw ptr, ptr %17, i64 %count.0.lcssa94100105
   store ptr null, ptr %arrayidx112, align 8
   %conv113 = trunc nuw nsw i64 %count.0.lcssa94100105 to i32
   br label %return

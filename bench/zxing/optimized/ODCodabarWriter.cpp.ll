@@ -428,13 +428,13 @@ select.unfold:                                    ; preds = %switch.early.test, 
   %112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %113 = add i64 %.053.lcssa, %112
   store ptr null, ptr %17, align 8
-  %114 = getelementptr inbounds i8, ptr %17, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %17, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %17, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %17, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %117, align 8
   %.not.i.i = icmp eq i64 %113, 0
   br i1 %.not.i.i, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %118
@@ -448,7 +448,7 @@ select.unfold:                                    ; preds = %switch.early.test, 
 
 123:                                              ; preds = %118
   %124 = lshr i64 %119, 6
-  %125 = getelementptr inbounds i64, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %122, i64 %124
   store ptr %125, ptr %117, align 8
   store ptr %122, ptr %17, align 8
   store i32 0, ptr %114, align 8
@@ -493,49 +493,49 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %123, %._crit_edge
   br i1 %139, label %.loopexit, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, %136
   br i1 %143, label %.loopexit.loopexit.split.loop.exit196, label %144
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, %136
   br i1 %147, label %.loopexit.loopexit.split.loop.exit194, label %148
 
 148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, %136
   br i1 %151, label %.loopexit.loopexit.split.loop.exit, label %152
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %154 = add nsw i64 %.047.i.i.i.i.i, -1
   %155 = icmp ugt i64 %.047.i.i.i.i.i, 1
   br i1 %155, label %137, label %._crit_edge._crit_edge52.i.i.i.i.i84, !llvm.loop !6
 
 ._crit_edge._crit_edge52.i.i.i.i.i84:             ; preds = %152
   %156 = icmp eq i32 %136, 0
-  %spec.select.i.i85 = select i1 %156, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 80), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
+  %spec.select.i.i85 = select i1 %156, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 80), ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %148
-  %157 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 12
+  %157 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit194:            ; preds = %144
-  %158 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit196:            ; preds = %140
-  %159 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %137, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit194, %.loopexit.loopexit.split.loop.exit196, %._crit_edge._crit_edge52.i.i.i.i.i84
   %.028.i.i.i.i.i86 = phi ptr [ %spec.select.i.i85, %._crit_edge._crit_edge52.i.i.i.i.i84 ], [ %157, %.loopexit.loopexit.split.loop.exit ], [ %158, %.loopexit.loopexit.split.loop.exit194 ], [ %159, %.loopexit.loopexit.split.loop.exit196 ], [ %.02946.i.i.i.i.i, %137 ]
-  %160 = icmp eq ptr %.028.i.i.i.i.i86, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
+  %160 = icmp eq ptr %.028.i.i.i.i.i86, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
   %161 = ptrtoint ptr %.028.i.i.i.i.i86 to i64
   %162 = sub i64 %161, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i64)
   %sext = shl i64 %162, 30
@@ -578,7 +578,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.us:             ; preds = %.outer.split.us.spl
   %178 = add i32 %.sroa.6.1.us.us, 1
   %179 = icmp eq i32 %.sroa.6.1.us.us, 63
   %spec.select137.idx.us.us = select i1 %179, i64 8, i64 0
-  %spec.select137.us.us = getelementptr inbounds i8, ptr %.sroa.0121.1.us.us, i64 %spec.select137.idx.us.us
+  %spec.select137.us.us = getelementptr inbounds nuw i8, ptr %.sroa.0121.1.us.us, i64 %spec.select137.idx.us.us
   %spec.select138.us.us = select i1 %179, i32 0, i32 %178
   %180 = zext nneg i32 %.sroa.6.1.us.us to i64
   %181 = shl nuw i64 1, %180
@@ -609,7 +609,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.outer.split.us.spl
   %192 = add i32 %.sroa.6.1.us, 1
   %193 = icmp eq i32 %.sroa.6.1.us, 63
   %spec.select137.idx.us = select i1 %193, i64 8, i64 0
-  %spec.select137.us = getelementptr inbounds i8, ptr %.sroa.0121.1.us, i64 %spec.select137.idx.us
+  %spec.select137.us = getelementptr inbounds nuw i8, ptr %.sroa.0121.1.us, i64 %spec.select137.idx.us
   %spec.select138.us = select i1 %193, i32 0, i32 %192
   %194 = zext nneg i32 %.sroa.6.1.us to i64
   %195 = shl nuw i64 1, %194
@@ -623,7 +623,7 @@ select.unfold132.split.us.sink.split:             ; preds = %.outer.split.us.spl
   %.sink202 = phi i64 [ %190, %.outer.split.us.split.split.us ], [ %176, %.outer.split.us.split.us.split.us ]
   %spec.select137.idx.us.us165.pn = phi i64 [ %spec.select137.idx.us.us165, %.outer.split.us.split.split.us ], [ %spec.select137.idx.us.us.us, %.outer.split.us.split.us.split.us ]
   %.us-phi161.ph = phi i32 [ %spec.select138.us.us167, %.outer.split.us.split.split.us ], [ %spec.select138.us.us.us, %.outer.split.us.split.us.split.us ]
-  %.us-phi.ph = getelementptr inbounds i8, ptr %.sroa.0121.1.ph176, i64 %spec.select137.idx.us.us165.pn
+  %.us-phi.ph = getelementptr inbounds nuw i8, ptr %.sroa.0121.1.ph176, i64 %spec.select137.idx.us.us165.pn
   store i64 %.sink202, ptr %.sroa.0121.1.ph176, align 8
   br label %select.unfold132.split.us
 
@@ -674,7 +674,7 @@ select.unfold132.split.us:                        ; preds = %_ZNSt14_Bit_referen
   %219 = add i32 %.us-phi161, 1
   %220 = icmp eq i32 %.us-phi161, 63
   %spec.select139.idx = select i1 %220, i64 8, i64 0
-  %spec.select139 = getelementptr inbounds i8, ptr %.us-phi, i64 %spec.select139.idx
+  %spec.select139 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 %spec.select139.idx
   %spec.select140 = select i1 %220, i32 0, i32 %219
   %221 = zext nneg i32 %.us-phi161 to i64
   %222 = shl nuw i64 1, %221
@@ -687,7 +687,7 @@ select.unfold132.split.us:                        ; preds = %_ZNSt14_Bit_referen
 226:                                              ; preds = %.outer.split, %218
   %.sroa.0121.2 = phi ptr [ %spec.select139, %218 ], [ %.us-phi, %.outer.split ]
   %.sroa.6.2 = phi i32 [ %spec.select140, %218 ], [ %.us-phi161, %.outer.split ]
-  %227 = getelementptr inbounds i8, ptr %.sroa.0118.0181, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0181, i64 4
   %.not = icmp eq ptr %227, %135
   br i1 %.not, label %._crit_edge185, label %.lr.ph184
 

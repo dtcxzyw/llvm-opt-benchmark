@@ -307,7 +307,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds double, ptr %29, i64 %154
   %156 = load double, ptr %155, align 8
-  %157 = getelementptr inbounds double, ptr %30, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
   %158 = load double, ptr %157, align 8
   %159 = fadd double %156, %158
   store double %159, ptr %157, align 8
@@ -360,7 +360,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %175 = phi i32 [ %201, %._crit_edge290.us.thread ], [ %171, %.lr.ph299.split.us ]
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %._crit_edge290.us.thread ], [ 1, %.lr.ph299.split.us ]
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %._crit_edge290.us.thread ], [ 2, %.lr.ph299.split.us ]
-  %176 = getelementptr inbounds double, ptr %30, i64 %indvars.iv308
+  %176 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv308
   %177 = load double, ptr %176, align 8
   %178 = load i32, ptr %10, align 4
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
@@ -376,7 +376,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv304 = phi i64 [ %indvars.iv302, %.lr.ph289.us.preheader ], [ %indvars.iv.next305, %.lr.ph289.us ]
   %.0287.us = phi i32 [ 0, %.lr.ph289.us.preheader ], [ %.1.us, %.lr.ph289.us ]
   %.0250285.us = phi double [ %177, %.lr.ph289.us.preheader ], [ %.1251.us, %.lr.ph289.us ]
-  %181 = getelementptr inbounds double, ptr %30, i64 %indvars.iv304
+  %181 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv304
   %182 = load double, ptr %181, align 8
   %183 = fcmp olt double %182, %.0250285.us
   %.1251.us = select i1 %183, double %182, double %.0250285.us
@@ -414,8 +414,8 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store i32 %197, ptr %194, align 4
   store i32 %195, ptr %gep295.us, align 4
   %198 = load i32, ptr %193, align 4
-  %.idx = shl i64 %indvars.iv308, 3
-  %199 = getelementptr inbounds i8, ptr %34, i64 %.idx
+  %.idx = shl nuw i64 %indvars.iv308, 3
+  %199 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %200 = load i32, ptr %199, align 4
   store i32 %200, ptr %193, align 4
   store i32 %198, ptr %199, align 4
@@ -432,7 +432,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph299.split:                                  ; preds = %.lr.ph299.split.preheader, %._crit_edge290.thread
   %indvars.iv318 = phi i64 [ 1, %.lr.ph299.split.preheader ], [ %indvars.iv.next319, %._crit_edge290.thread ]
   %indvars.iv311 = phi i64 [ 2, %.lr.ph299.split.preheader ], [ %indvars.iv.next312, %._crit_edge290.thread ]
-  %203 = getelementptr inbounds double, ptr %30, i64 %indvars.iv318
+  %203 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv318
   %204 = load double, ptr %203, align 8
   %205 = load i32, ptr %10, align 4
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
@@ -448,7 +448,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv313 = phi i64 [ %indvars.iv311, %.lr.ph289.preheader ], [ %indvars.iv.next314, %.lr.ph289 ]
   %.0287 = phi i32 [ 0, %.lr.ph289.preheader ], [ %.1, %.lr.ph289 ]
   %.0250285 = phi double [ %204, %.lr.ph289.preheader ], [ %.1251, %.lr.ph289 ]
-  %208 = getelementptr inbounds double, ptr %30, i64 %indvars.iv313
+  %208 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv313
   %209 = load double, ptr %208, align 8
   %210 = fcmp olt double %209, %.0250285
   %.1251 = select i1 %210, double %209, double %.0250285

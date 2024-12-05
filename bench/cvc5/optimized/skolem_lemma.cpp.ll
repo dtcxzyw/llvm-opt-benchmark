@@ -29,8 +29,8 @@ define hidden void @_ZN4cvc58internal6theory11SkolemLemmaC2ENS0_9TrustNodeENS0_1
 entry:
   %0 = load i32, ptr %lem, align 8
   store i32 %0, ptr %this, align 8
-  %d_proven.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_proven3.i = getelementptr inbounds i8, ptr %lem, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_proven3.i = getelementptr inbounds nuw i8, ptr %lem, i64 8
   %1 = load ptr, ptr %d_proven3.i, align 8
   store ptr %1, ptr %d_proven.i, align 8
   %bf.load.i.i.i = load i64, ptr %1, align 8
@@ -59,11 +59,11 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZN4cvc58internal9TrustNodeC2ERKS1_.exit
 
 _ZN4cvc58internal9TrustNodeC2ERKS1_.exit:         ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  %d_gen.i = getelementptr inbounds i8, ptr %this, i64 16
-  %d_gen4.i = getelementptr inbounds i8, ptr %lem, i64 16
+  %d_gen.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %d_gen4.i = getelementptr inbounds nuw i8, ptr %lem, i64 16
   %3 = load ptr, ptr %d_gen4.i, align 8
   store ptr %3, ptr %d_gen.i, align 8
-  %d_skolem = getelementptr inbounds i8, ptr %this, i64 24
+  %d_skolem = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %k, align 8
   store ptr %4, ptr %d_skolem, align 8
   %bf.load.i.i = load i64, ptr %4, align 8
@@ -106,7 +106,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_proven = getelementptr inbounds i8, ptr %this, i64 8
+  %d_proven = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_proven, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200

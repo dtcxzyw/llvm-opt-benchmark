@@ -28,7 +28,7 @@ define void @pg_prng_seed(ptr nocapture noundef writeonly initializes((0, 16)) %
   %18 = mul i64 %17, -7723592293110705685
   %19 = lshr i64 %18, 31
   %20 = xor i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8
   %22 = or i64 %3, %12
   %or.cond = icmp eq i64 %22, 0
@@ -50,7 +50,7 @@ define noundef zeroext i1 @pg_prng_seed_check(ptr nocapture noundef %0) local_un
   br i1 %3, label %4, label %.critedge
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %.critedge
@@ -87,7 +87,7 @@ define void @pg_prng_fseed(ptr nocapture noundef writeonly initializes((0, 16)) 
   %20 = mul i64 %19, -7723592293110705685
   %21 = lshr i64 %20, 31
   %22 = xor i64 %21, %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8
   %24 = or i64 %5, %14
   %or.cond.i = icmp eq i64 %24, 0
@@ -105,7 +105,7 @@ pg_prng_seed.exit:                                ; preds = %2, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @pg_prng_uint64(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -131,7 +131,7 @@ define i64 @pg_prng_uint64_range(ptr nocapture noundef %0, i64 noundef %1, i64 n
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load i64, ptr %0, align 8
   %.promoted14 = load i64, ptr %8, align 8
   br label %9
@@ -168,7 +168,7 @@ define i64 @pg_prng_uint64_range(ptr nocapture noundef %0, i64 noundef %1, i64 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @pg_prng_int64(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -189,7 +189,7 @@ define i64 @pg_prng_int64(ptr nocapture noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -211,7 +211,7 @@ define range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr nocapture noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @pg_prng_uint32(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -234,7 +234,7 @@ define i32 @pg_prng_uint32(ptr nocapture noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @pg_prng_int32(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -257,7 +257,7 @@ define i32 @pg_prng_int32(ptr nocapture noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -280,7 +280,7 @@ define range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr nocapture noundef %0) l
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define double @pg_prng_double(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -307,7 +307,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define double @pg_prng_double_normal(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5
@@ -366,7 +366,7 @@ declare double @sin(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define zeroext i1 @pg_prng_bool(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, %2
   %6 = mul i64 %2, 5

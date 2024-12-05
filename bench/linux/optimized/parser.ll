@@ -29,7 +29,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_match_strdup
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @match_token(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -142,32 +142,32 @@ define dso_local i32 @match_token(ptr noundef %0, ptr nocapture noundef readonly
   %61 = select i1 %59, i32 %60, i32 %44
   %62 = sext i32 %61 to i64
   %63 = getelementptr i8, ptr %26, i64 %62
-  %64 = getelementptr inbounds i8, ptr %48, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %63, ptr %64, align 8
   br label %82
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %48, i64 8
-  %67 = call i64 @simple_strtol(ptr noundef %26, ptr noundef %66, i32 noundef 0) #9
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %67 = call i64 @simple_strtol(ptr noundef %26, ptr noundef nonnull %66, i32 noundef 0) #9
   br label %77
 
 68:                                               ; preds = %46
-  %69 = getelementptr inbounds i8, ptr %48, i64 8
-  %70 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef %69, i32 noundef 0) #9
+  %69 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %70 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef nonnull %69, i32 noundef 0) #9
   br label %77
 
 71:                                               ; preds = %46
-  %72 = getelementptr inbounds i8, ptr %48, i64 8
-  %73 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef %72, i32 noundef 8) #9
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %73 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef nonnull %72, i32 noundef 8) #9
   br label %77
 
 74:                                               ; preds = %46
-  %75 = getelementptr inbounds i8, ptr %48, i64 8
-  %76 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef %75, i32 noundef 16) #9
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %76 = call i64 @simple_strtoul(ptr noundef %26, ptr noundef nonnull %75, i32 noundef 16) #9
   br label %77
 
 77:                                               ; preds = %74, %71, %68, %65
-  %78 = getelementptr inbounds i8, ptr %48, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %48, align 8
   %81 = icmp eq ptr %79, %80
@@ -215,7 +215,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_int(ptr nocapture noundef 
   store ptr null, ptr %3, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -256,7 +256,7 @@ define dso_local i32 @match_uint(ptr nocapture noundef readonly %0, ptr noundef 
   %3 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -284,7 +284,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local i64 @match_strlcpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -317,7 +317,7 @@ define dso_local i32 @match_u64(ptr nocapture noundef readonly %0, ptr nocapture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8, !annotation !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -355,7 +355,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_octal(ptr nocapture nounde
   store ptr null, ptr %3, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -399,7 +399,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_hex(ptr nocapture noundef 
   store ptr null, ptr %3, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -514,7 +514,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @match_strdup(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %2 to i64

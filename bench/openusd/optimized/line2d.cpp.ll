@@ -36,16 +36,16 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__8GfLine2d16FindClosestPointERKNS_7GfVec2dEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef writeonly %2) local_unnamed_addr #1 align 2 {
   %.sroa.0.0.copyload2.i = load double, ptr %1, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
   %4 = load double, ptr %0, align 8
   %5 = fsub double %.sroa.0.0.copyload2.i, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fsub double %.sroa.4.0.copyload.i, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
   %13 = fmul double %8, %12
   %14 = tail call noundef double @llvm.fmuladd.f64(double %5, double %10, double %13)
@@ -80,18 +80,18 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %7, align 8
   %10 = load double, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load double, ptr %13, align 8
   %15 = fmul double %12, %14
   %16 = tail call noundef double @llvm.fmuladd.f64(double %9, double %10, double %15)
   %17 = fmul double %12, %12
   %18 = tail call noundef double @llvm.fmuladd.f64(double %9, double %9, double %17)
   %19 = load double, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = fmul double %14, %14
   %24 = tail call noundef double @llvm.fmuladd.f64(double %10, double %10, double %23)
   %25 = fneg double %24
@@ -130,7 +130,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %53 = fadd double %19, %51
   %54 = fadd double %21, %52
   store double %53, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %54, ptr %.sroa.22.0..sroa_idx, align 8
   br label %55
 
@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__19GfFindClosestP
   %59 = fadd double %57, %.sroa.0.0.copyload2.i2.i61
   %60 = fadd double %58, %.sroa.4.0.copyload.i4.i63
   store double %59, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %60, ptr %.sroa.2.0..sroa_idx, align 8
   br label %61
 

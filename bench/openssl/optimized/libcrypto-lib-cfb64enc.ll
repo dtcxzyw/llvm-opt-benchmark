@@ -16,28 +16,28 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool72.not96, label %if.end156, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %incdec.ptr = getelementptr inbounds i8, ptr %ivec, i64 1
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %ivec, i64 2
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %ivec, i64 3
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %ivec, i64 4
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %ivec, i64 5
-  %incdec.ptr16 = getelementptr inbounds i8, ptr %ivec, i64 6
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx28 = getelementptr inbounds i8, ptr %ti, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ivec, i64 1
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %ivec, i64 2
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %ivec, i64 3
+  %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %ivec, i64 5
+  %incdec.ptr16 = getelementptr inbounds nuw i8, ptr %ivec, i64 6
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %ivec, i64 7
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %ti, i64 4
   br label %while.body
 
 while.cond70.preheader:                           ; preds = %entry
   br i1 %tobool72.not96, label %if.end156, label %while.body73.lr.ph
 
 while.body73.lr.ph:                               ; preds = %while.cond70.preheader
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %ivec, i64 1
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %ivec, i64 2
-  %incdec.ptr83 = getelementptr inbounds i8, ptr %ivec, i64 3
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %ivec, i64 4
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %ivec, i64 5
-  %incdec.ptr94 = getelementptr inbounds i8, ptr %ivec, i64 6
-  %incdec.ptr98 = getelementptr inbounds i8, ptr %ivec, i64 7
-  %arrayidx106 = getelementptr inbounds i8, ptr %ti, i64 4
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %ivec, i64 1
+  %incdec.ptr79 = getelementptr inbounds nuw i8, ptr %ivec, i64 2
+  %incdec.ptr83 = getelementptr inbounds nuw i8, ptr %ivec, i64 3
+  %incdec.ptr87 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
+  %incdec.ptr92 = getelementptr inbounds nuw i8, ptr %ivec, i64 5
+  %incdec.ptr94 = getelementptr inbounds nuw i8, ptr %ivec, i64 6
+  %incdec.ptr98 = getelementptr inbounds nuw i8, ptr %ivec, i64 7
+  %arrayidx106 = getelementptr inbounds nuw i8, ptr %ti, i64 4
   br label %while.body73
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -82,13 +82,13 @@ if.then2:                                         ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %while.body
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %in.addr.092, i64 1
+  %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %in.addr.092, i64 1
   %5 = load i8, ptr %in.addr.092, align 1
   %idxprom = sext i32 %n.093 to i64
   %arrayidx63 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom
   %6 = load i8, ptr %arrayidx63, align 1
   %xor87 = xor i8 %6, %5
-  %incdec.ptr66 = getelementptr inbounds i8, ptr %out.addr.091, i64 1
+  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %out.addr.091, i64 1
   store i8 %xor87, ptr %out.addr.091, align 1
   store i8 %xor87, ptr %arrayidx63, align 1
   %add = add nsw i32 %n.093, 1
@@ -138,14 +138,14 @@ if.then76:                                        ; preds = %while.body73
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then76, %while.body73
-  %incdec.ptr143 = getelementptr inbounds i8, ptr %in.addr.198, i64 1
+  %incdec.ptr143 = getelementptr inbounds nuw i8, ptr %in.addr.198, i64 1
   %11 = load i8, ptr %in.addr.198, align 1
   %idxprom144 = sext i32 %n.299 to i64
   %arrayidx145 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom144
   %12 = load i8, ptr %arrayidx145, align 1
   store i8 %11, ptr %arrayidx145, align 1
   %xor15086 = xor i8 %12, %11
-  %incdec.ptr152 = getelementptr inbounds i8, ptr %out.addr.197, i64 1
+  %incdec.ptr152 = getelementptr inbounds nuw i8, ptr %out.addr.197, i64 1
   store i8 %xor15086, ptr %out.addr.197, align 1
   %add153 = add nsw i32 %n.299, 1
   %and154 = and i32 %add153, 7

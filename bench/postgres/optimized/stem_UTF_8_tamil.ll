@@ -356,10 +356,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call fastcc i32 @r_fix_ending(ptr noundef %0)
   %7 = icmp slt i32 %6, 0
@@ -374,7 +374,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %12, ptr %13, align 4
   %14 = tail call i32 @eq_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_12) #2
   %.not.i = icmp eq i32 %14, 0
@@ -392,7 +392,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %20, ptr %21, align 8
   %22 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %23 = icmp slt i32 %22, 0
@@ -411,7 +411,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
   %30 = load i32, ptr %4, align 8
   store i32 %30, ptr %13, align 4
   %31 = add i32 %30, 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4
   %.not.i75 = icmp slt i32 %31, %33
   br i1 %.not.i75, label %34, label %60
@@ -450,7 +450,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %51, ptr %52, align 8
   %53 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %54 = icmp slt i32 %53, 0
@@ -476,11 +476,11 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
   %65 = getelementptr i8, ptr %64, i64 4
   store i32 0, ptr %65, align 4
   %66 = load i32, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %66, ptr %67, align 8
   %68 = load i32, ptr %32, align 4
   store i32 %68, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %68, ptr %69, align 8
   %70 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_14, i32 noundef 3) #2
   %.not.i77 = icmp eq i32 %70, 0
@@ -525,11 +525,11 @@ r_remove_question_suffixes.exit:                  ; preds = %80, %60
 
 89:                                               ; preds = %r_remove_question_suffixes.exit
   %90 = load i32, ptr %4, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %90, ptr %91, align 8
   %92 = load i32, ptr %32, align 4
   store i32 %92, ptr %4, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %92, ptr %93, align 8
   %94 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull @s_54) #2
   %.not.i80 = icmp eq i32 %94, 0
@@ -564,11 +564,11 @@ r_remove_question_suffixes.exit:                  ; preds = %80, %60
 
 110:                                              ; preds = %105
   %111 = load i32, ptr %4, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %111, ptr %112, align 8
   %113 = load i32, ptr %32, align 4
   store i32 %113, ptr %4, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %113, ptr %114, align 8
   %115 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @s_56) #2
   %.not.i83 = icmp eq i32 %115, 0
@@ -732,11 +732,11 @@ r_remove_common_word_endings.exit:                ; preds = %177, %166, %105
 
 187:                                              ; preds = %r_remove_common_word_endings.exit
   %188 = load i32, ptr %4, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %188, ptr %189, align 8
   %190 = load i32, ptr %32, align 4
   store i32 %190, ptr %4, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %190, ptr %191, align 8
   %192 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_71) #2
   %.not.i87 = icmp eq i32 %192, 0
@@ -1073,11 +1073,11 @@ r_remove_vetrumai_urupukal.exit:                  ; preds = %336, %316, %r_remov
   %342 = getelementptr i8, ptr %341, i64 4
   store i32 0, ptr %342, align 4
   %343 = load i32, ptr %4, align 8
-  %344 = getelementptr inbounds i8, ptr %0, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %343, ptr %344, align 8
   %345 = load i32, ptr %32, align 4
   store i32 %345, ptr %4, align 8
-  %346 = getelementptr inbounds i8, ptr %0, i64 24
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %345, ptr %346, align 8
   %347 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 18, ptr noundef nonnull @s_46) #2
   %.not.i91 = icmp eq i32 %347, 0
@@ -1180,14 +1180,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   br i1 %4, label %5, label %228
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %10, ptr %11, align 8
   %12 = add i32 %10, -5
   %.not = icmp sgt i32 %12, %7
@@ -1215,7 +1215,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %25 = icmp slt i32 %24, 0
@@ -1241,7 +1241,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %34 = load i32, ptr %9, align 4
   %35 = add i32 %34, %.neg342
   store i32 %35, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %35, ptr %36, align 4
   %37 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %38 = icmp slt i32 %37, 0
@@ -1264,7 +1264,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 45:                                               ; preds = %42, %39
   %46 = load i32, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %46, ptr %47, align 4
   %48 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_17) #2
   %49 = icmp slt i32 %48, 0
@@ -1280,7 +1280,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %54, ptr %55, align 4
   %56 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_19) #2
   %57 = icmp slt i32 %56, 0
@@ -1296,7 +1296,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 61:                                               ; preds = %58
   %62 = load i32, ptr %6, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %62, ptr %63, align 4
   %64 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_21) #2
   %65 = icmp slt i32 %64, 0
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %6, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %70, ptr %71, align 4
   %72 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_23) #2
   %73 = icmp slt i32 %72, 0
@@ -1321,7 +1321,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 74:                                               ; preds = %66
   %75 = load i32, ptr %9, align 4
   store i32 %75, ptr %6, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %77, align 4
   %.not311 = icmp eq i32 %78, 0
@@ -1345,7 +1345,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %.neg = sub i32 %82, %.pre345
   %85 = add i32 %.pre344, %.neg
   store i32 %85, ptr %6, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %85, ptr %86, align 4
   %87 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_26) #2
   %88 = icmp slt i32 %87, 0
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 97:                                               ; preds = %94, %91
   %98 = load i32, ptr %6, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %98, ptr %99, align 4
   %100 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_29) #2
   %101 = icmp slt i32 %100, 0
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 111:                                              ; preds = %109
   %112 = load i32, ptr %6, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %112, ptr %113, align 4
   %114 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %115 = icmp slt i32 %114, 0
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 119:                                              ; preds = %116
   %120 = load i32, ptr %6, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 20
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %120, ptr %121, align 4
   %122 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_33) #2
   %123 = icmp slt i32 %122, 0
@@ -1441,7 +1441,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 129:                                              ; preds = %127
   %130 = load i32, ptr %6, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %130, ptr %131, align 4
   %132 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %133 = icmp slt i32 %132, 0
@@ -1506,7 +1506,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 161:                                              ; preds = %159
   %162 = load i32, ptr %6, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 20
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %162, ptr %163, align 4
   %164 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_37) #2
   %165 = icmp slt i32 %164, 0
@@ -1522,7 +1522,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 169:                                              ; preds = %166
   %170 = load i32, ptr %6, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 20
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %170, ptr %171, align 4
   %172 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %173 = icmp slt i32 %172, 0
@@ -1548,7 +1548,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %182 = load i32, ptr %9, align 4
   %183 = add i32 %182, %.neg334
   store i32 %183, ptr %6, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %183, ptr %184, align 4
   %185 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %186 = icmp slt i32 %185, 0
@@ -1574,7 +1574,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %195 = load i32, ptr %9, align 4
   %196 = add i32 %195, %.neg337
   store i32 %196, ptr %6, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 20
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %196, ptr %197, align 4
   %198 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_41) #2
   %199 = icmp slt i32 %198, 0
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 
 203:                                              ; preds = %200
   %204 = load i32, ptr %6, align 8
-  %205 = getelementptr inbounds i8, ptr %0, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %204, ptr %205, align 4
   %206 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %207 = icmp slt i32 %206, 0
@@ -1624,7 +1624,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %221 = load i32, ptr %9, align 4
   %222 = sub i32 %221, %214
   store i32 %222, ptr %6, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 20
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %222, ptr %223, align 4
   %224 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %225 = icmp slt i32 %224, 0
@@ -1648,18 +1648,18 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %13, align 8
   %14 = add i32 %12, -5
   %.not = icmp sgt i32 %14, %9
@@ -1681,7 +1681,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %24, ptr %25, align 4
   %26 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %27 = icmp slt i32 %26, 0
@@ -1702,11 +1702,11 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1714,10 +1714,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   br i1 %.not17, label %r_remove_tense_suffix.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %5, align 8
   br label %13
 
@@ -2323,11 +2323,11 @@ declare i32 @find_among(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @eq_s(ptr noundef %0, i32 noundef 6, ptr noundef nonnull @s_0) #2
   store i32 %3, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %5, align 4
   %6 = tail call i32 @eq_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_1) #2
   %.not71 = icmp eq i32 %6, 0
@@ -2335,7 +2335,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %8, ptr %9, align 8
   %10 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_2) #2
   %11 = icmp slt i32 %10, 0
@@ -2352,7 +2352,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %17, align 8
   %18 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_5) #2
   %19 = icmp slt i32 %18, 0
@@ -2369,7 +2369,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %24, ptr %25, align 8
   %26 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_8) #2
   %27 = icmp slt i32 %26, 0
@@ -2386,7 +2386,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef
 
 31:                                               ; preds = %28
   %32 = load i32, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %32, ptr %33, align 8
   %34 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_11) #2
   %35 = icmp slt i32 %34, 0

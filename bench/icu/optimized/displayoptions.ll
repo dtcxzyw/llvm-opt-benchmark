@@ -60,29 +60,29 @@ define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef 
 entry:
   %0 = load i32, ptr %builder, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds i8, ptr %builder, i64 4
+  %nounClass = getelementptr inbounds nuw i8, ptr %builder, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
+  %nounClass3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds i8, ptr %builder, i64 8
+  %pluralCategory = getelementptr inbounds nuw i8, ptr %builder, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
+  %pluralCategory4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds i8, ptr %builder, i64 12
+  %capitalization = getelementptr inbounds nuw i8, ptr %builder, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
+  %capitalization5 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds i8, ptr %builder, i64 16
+  %nameStyle = getelementptr inbounds nuw i8, ptr %builder, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
+  %nameStyle6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds i8, ptr %builder, i64 20
+  %displayLength = getelementptr inbounds nuw i8, ptr %builder, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
+  %displayLength7 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds i8, ptr %builder, i64 24
+  %substituteHandling = getelementptr inbounds nuw i8, ptr %builder, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
+  %substituteHandling8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }
@@ -99,29 +99,29 @@ define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef no
 entry:
   %0 = load i32, ptr %displayOptions, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds i8, ptr %displayOptions, i64 4
+  %nounClass = getelementptr inbounds nuw i8, ptr %displayOptions, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
+  %nounClass3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds i8, ptr %displayOptions, i64 8
+  %pluralCategory = getelementptr inbounds nuw i8, ptr %displayOptions, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
+  %pluralCategory4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds i8, ptr %displayOptions, i64 12
+  %capitalization = getelementptr inbounds nuw i8, ptr %displayOptions, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
+  %capitalization5 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds i8, ptr %displayOptions, i64 16
+  %nameStyle = getelementptr inbounds nuw i8, ptr %displayOptions, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
+  %nameStyle6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds i8, ptr %displayOptions, i64 20
+  %displayLength = getelementptr inbounds nuw i8, ptr %displayOptions, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
+  %displayLength7 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds i8, ptr %displayOptions, i64 24
+  %substituteHandling = getelementptr inbounds nuw i8, ptr %displayOptions, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
+  %substituteHandling8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }
@@ -134,7 +134,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %grammaticalCase to i64
-  %arrayidx = getelementptr inbounds [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -150,7 +150,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %identifier, ptr noundef nonnull dereferenceable(1) %0) #7
   %cmp1 = icmp eq i32 %call, 0
@@ -181,7 +181,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %pluralCategory to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -197,7 +197,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %identifier, ptr noundef nonnull dereferenceable(1) %0) #7
   %cmp1 = icmp eq i32 %call, 0
@@ -225,7 +225,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %nounClass to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -241,7 +241,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %identifier, ptr noundef nonnull dereferenceable(1) %0) #7
   %cmp1 = icmp eq i32 %call, 0

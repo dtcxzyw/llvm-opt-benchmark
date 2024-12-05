@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @crypto_hash_sha512_init(ptr nocapture noundef nonnull writeonly initializes((0, 80)) %state) local_unnamed_addr #0 {
 entry:
-  %count = getelementptr inbounds i8, ptr %state, i64 64
+  %count = getelementptr inbounds nuw i8, ptr %state, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
   ret i32 0
@@ -30,7 +30,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   fence acquire
-  %count = getelementptr inbounds i8, ptr %state, i64 64
+  %count = getelementptr inbounds nuw i8, ptr %state, i64 64
   %arrayidx = getelementptr i8, ptr %state, i64 72
   %0 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %0, 3
@@ -47,7 +47,7 @@ if.end:                                           ; preds = %entry
   store i64 %add16, ptr %count, align 8
   %sub = sub nuw nsw i64 128, %and
   %cmp17 = icmp ult i64 %inlen, %sub
-  %buf = getelementptr inbounds i8, ptr %state, i64 80
+  %buf = getelementptr inbounds nuw i8, ptr %state, i64 80
   br i1 %cmp17, label %for.body, label %for.body28
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -73,7 +73,7 @@ for.body28:                                       ; preds = %if.end, %for.body28
   br i1 %exitcond.not, label %for.end35, label %for.body28, !llvm.loop !6
 
 for.end35:                                        ; preds = %for.body28
-  %arrayidx40 = getelementptr inbounds i8, ptr %tmp64, i64 640
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %tmp64, i64 640
   call fastcc void @SHA512_Transform(ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %tmp64, ptr noundef nonnull %arrayidx40)
   %add.ptr = getelementptr i8, ptr %in, i64 %sub
   %sub43 = sub i64 %inlen, %sub
@@ -982,8 +982,8 @@ for.cond7.preheader.i:                            ; preds = %entry
   %scevgep.i = getelementptr i8, ptr %4, i64 80
   %5 = zext nneg i32 %sub8.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %5, i1 false)
-  %buf22.i = getelementptr inbounds i8, ptr %state, i64 80
-  %arrayidx25.i = getelementptr inbounds i8, ptr %tmp64, i64 640
+  %buf22.i = getelementptr inbounds nuw i8, ptr %state, i64 80
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %tmp64, i64 640
   call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf22.i, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx25.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %buf22.i, i8 0, i64 112, i1 false)
   br label %if.end.i
@@ -998,7 +998,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.lr.ph.i, %for.cond7.preheader.i
-  %count.i = getelementptr inbounds i8, ptr %state, i64 64
+  %count.i = getelementptr inbounds nuw i8, ptr %state, i64 64
   %arrayidx29.i = getelementptr i8, ptr %state, i64 192
   br label %for.body.i.i
 
@@ -1043,8 +1043,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %SHA512_Pad.exit, label %for.body.i.i, !llvm.loop !11
 
 SHA512_Pad.exit:                                  ; preds = %for.body.i.i
-  %buf28.i = getelementptr inbounds i8, ptr %state, i64 80
-  %arrayidx37.i = getelementptr inbounds i8, ptr %tmp64, i64 640
+  %buf28.i = getelementptr inbounds nuw i8, ptr %state, i64 80
+  %arrayidx37.i = getelementptr inbounds nuw i8, ptr %tmp64, i64 640
   call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf28.i, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx37.i)
   br label %for.body.i
 
@@ -1098,7 +1098,7 @@ be64enc_vect.exit:                                ; preds = %for.body.i
 define noundef i32 @crypto_hash_sha512(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #2 {
 entry:
   %state = alloca %struct.crypto_hash_sha512_state, align 8
-  %count.i = getelementptr inbounds i8, ptr %state, i64 64
+  %count.i = getelementptr inbounds nuw i8, ptr %state, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %state, ptr noundef nonnull align 16 dereferenceable(64) @crypto_hash_sha512_init.sha512_initial_state, i64 64, i1 false)
   %call1 = call i32 @crypto_hash_sha512_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)

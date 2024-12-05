@@ -29,24 +29,24 @@ define hidden void @_ZN6hermes2vm18StatSamplingThreadC2ENSt6chrono8durationIlSt5
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   store i8 0, ptr %this, align 8
-  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
-  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
+  %mExit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %exitMonitor_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mExit_, i8 0, i64 40, i1 false)
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
-  %interval_ = getelementptr inbounds i8, ptr %this, i64 96
+  %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 %interval.coerce, ptr %interval_, align 8
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN6hermes2vm12ProcessStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %stats_) #10
-  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
+  %sampler_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %sampler_, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS5_EEEEEE, i64 16), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 ptrtoint (ptr @_ZN6hermes2vm18StatSamplingThread3runEv to i64), ptr %0, align 8
-  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %this.repack3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %sampler_, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #10
@@ -56,7 +56,7 @@ entry:
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
   br label %_ZNSt6threadC2IMN6hermes2vm18StatSamplingThreadEFvvEJPS3_EvEEOT_DpOT0_.exit
@@ -78,7 +78,7 @@ declare void @_ZN6hermes2vm12ProcessStatsC1Ev(ptr noundef nonnull align 8 derefe
 define hidden void @_ZN6hermes2vm18StatSamplingThread3runEv(ptr noundef nonnull align 8 dereferenceable(184) %this) #0 align 2 {
 entry:
   %__ts.i.i.i = alloca %struct.timespec, align 8
-  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mExit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mExit_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.cond.preheader, label %if.then.i.i.i
@@ -89,10 +89,10 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool4, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
-  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
-  %interval_ = getelementptr inbounds i8, ptr %this, i64 96
-  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %exitMonitor_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %tv_nsec.i.i.i = getelementptr inbounds nuw i8, ptr %__ts.i.i.i, i64 8
   br label %while.body
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -126,13 +126,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm18StatSamplingThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
 entry:
-  %sampler_.i = getelementptr inbounds i8, ptr %this, i64 176
+  %sampler_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %sampler_.i, align 8
   %cmp.i.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.i.not, label %_ZNSt6threadD2Ev.exit, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mExit_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mExit_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mExit_.i) #10
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.end, label %if.then.i.i.i.i
@@ -144,10 +144,10 @@ if.then.i.i.i.i:                                  ; preds = %if.then
 if.end:                                           ; preds = %if.then
   store i8 1, ptr %this, align 8
   %call1.i.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mExit_.i) #10
-  %exitMonitor_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %exitMonitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_.i) #10
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %sampler_.i) #10
-  %stats_.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %stats_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call.i.i = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_.i.i) #10
   %agg.tmp.sroa.0.0.copyload.i.i2.pr = load i64, ptr %sampler_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i2.pr, 0
@@ -158,7 +158,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %entry, %if.end
-  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
+  %exitMonitor_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
   ret void
 }
@@ -166,7 +166,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK6hermes2vm18StatSamplingThread9isRunningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
+  %sampler_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %sampler_, align 8
   %cmp.i.i = icmp ne i64 %agg.tmp.sroa.0.0.copyload.i, 0
   ret i1 %cmp.i.i
@@ -175,7 +175,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZN6hermes2vm18StatSamplingThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mExit_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mExit_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mExit_) #10
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
@@ -187,11 +187,11 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   store i8 1, ptr %this, align 8
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mExit_) #10
-  %exitMonitor_ = getelementptr inbounds i8, ptr %this, i64 48
+  %exitMonitor_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %exitMonitor_) #10
-  %sampler_ = getelementptr inbounds i8, ptr %this, i64 176
+  %sampler_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %sampler_) #10
-  %stats_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %stats_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call.i = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_.i) #10
   ret { i64, i64 } %call.i
 }
@@ -207,7 +207,7 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK6hermes2vm18StatSamplingThread4infoEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 104
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call = tail call { i64, i64 } @_ZNK6hermes2vm12ProcessStats17getIntegratedInfoEv(ptr noundef nonnull align 8 dereferenceable(72) %stats_) #10
   ret { i64, i64 } %call
 }
@@ -245,11 +245,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingThreadEFvvEPS5_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_func, align 8
   %.unpack.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %.elt1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %.elt1.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %.unpack2.i.i.i.i = load i64, ptr %.elt1.i.i.i.i, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 %.unpack2.i.i.i.i
   %2 = and i64 %.unpack.i.i.i.i, 1

@@ -42,7 +42,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
 13:                                               ; preds = %5
   %14 = load i8, ptr %0, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %15, 16
@@ -52,7 +52,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i32 %21, 0
   %27 = and i8 %25, -8
@@ -68,7 +68,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32be_mbc_enc_len(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = icmp ult ptr %4, %1
   br i1 %5, label %6, label %20
 
@@ -78,13 +78,13 @@ define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %20
@@ -106,18 +106,18 @@ define internal range(i32 0, 2) i32 @utf32be_is_mbc_newline(ptr noundef readonly
 define internal range(i32 0, -2147483648) i32 @utf32be_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %5, 16
   %10 = shl nuw nsw i32 %8, 8
   %11 = or disjoint i32 %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = shl nuw nsw i32 %15, 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
@@ -133,15 +133,15 @@ define internal noundef i32 @utf32be_code_to_mbclen(i32 %0, ptr nocapture readno
 define internal noundef i32 @utf32be_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2) #4 {
   %4 = lshr i32 %0, 24
   %5 = trunc nuw i32 %4 to i8
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %5, ptr %1, align 1
   %7 = lshr i32 %0, 16
   %8 = trunc i32 %7 to i8
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %8, ptr %6, align 1
   %10 = lshr i32 %0, 8
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %1, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %11, ptr %9, align 1
   %13 = trunc i32 %0 to i8
   store i8 %13, ptr %12, align 1
@@ -151,19 +151,19 @@ define internal noundef i32 @utf32be_code_to_mbc(i32 noundef %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal i32 @utf32be_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %8 = load i8, ptr %7, align 1
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %31
@@ -174,19 +174,19 @@ define internal i32 @utf32be_mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %3, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %23, align 1
   %25 = load i8, ptr %7, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   store i8 %28, ptr %24, align 1
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store ptr %30, ptr %1, align 8
   br label %33
 

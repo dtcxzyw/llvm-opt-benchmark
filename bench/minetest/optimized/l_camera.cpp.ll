@@ -347,9 +347,9 @@ entry:
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
   %1 = load ptr, ptr %0, align 8, !tbaa !12
   %call1 = tail call noundef ptr @_ZN10ModApiBase9getClientEP9lua_State(ptr noundef %L)
-  %m_local_player.i = getelementptr inbounds i8, ptr %call1, i64 232
+  %m_local_player.i = getelementptr inbounds nuw i8, ptr %call1, i64 232
   %2 = load ptr, ptr %m_local_player.i, align 8, !tbaa !15
-  %m_cao.i = getelementptr inbounds i8, ptr %2, i64 752
+  %m_cao.i = getelementptr inbounds nuw i8, ptr %2, i64 752
   %3 = load ptr, ptr %m_cao.i, align 8, !tbaa !55
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cleanup, label %if.end
@@ -370,7 +370,7 @@ cond.end:                                         ; preds = %if.end
 if.end9:                                          ; preds = %cond.end
   %call10 = tail call nsz double @lua_tonumber(ptr noundef %L, i32 noundef 2)
   %conv = fptosi double %call10 to i32
-  %m_camera_mode.i = getelementptr inbounds i8, ptr %1, i64 512
+  %m_camera_mode.i = getelementptr inbounds nuw i8, ptr %1, i64 512
   store i32 %conv, ptr %m_camera_mode.i, align 8, !tbaa !77
   tail call void @_ZN10GenericCAO17updateMeshCullingEv(ptr noundef nonnull align 8 dereferenceable(1073) %3)
   %4 = load i32, ptr %m_camera_mode.i, align 8, !tbaa !77
@@ -414,7 +414,7 @@ entry:
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_camera_mode.i = getelementptr inbounds i8, ptr %1, i64 512
+  %m_camera_mode.i = getelementptr inbounds nuw i8, ptr %1, i64 512
   %2 = load i32, ptr %m_camera_mode.i, align 8, !tbaa !77
   %conv = sext i32 %2 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
@@ -438,22 +438,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 0)
-  %m_fov_x.i = getelementptr inbounds i8, ptr %1, i64 160
+  %m_fov_x.i = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2 = load float, ptr %m_fov_x.i, align 8, !tbaa !103
   %mul = fmul nsz float %2, 0x404CA5DC00000000
   %conv = fpext float %mul to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.18)
-  %m_fov_y.i = getelementptr inbounds i8, ptr %1, i64 164
+  %m_fov_y.i = getelementptr inbounds nuw i8, ptr %1, i64 164
   %3 = load float, ptr %m_fov_y.i, align 4, !tbaa !104
   %mul3 = fmul nsz float %3, 0x404CA5DC00000000
   %conv4 = fpext float %mul3 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv4)
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.19)
-  %m_cameranode.i = getelementptr inbounds i8, ptr %1, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !105
   %vtable = load ptr, ptr %4, align 8, !tbaa !106
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %5 = load ptr, ptr %vfn, align 8
   %call6 = tail call nsz noundef float %5(ptr noundef nonnull align 8 dereferenceable(233) %4)
   %mul7 = fmul nsz float %call6, 0x404CA5DC00000000
@@ -489,9 +489,9 @@ entry:
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_camera_position.i = getelementptr inbounds i8, ptr %1, i64 60
+  %m_camera_position.i = getelementptr inbounds nuw i8, ptr %1, i64 60
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_camera_position.i, align 4, !tbaa.struct !108
-  %retval.sroa.2.0.m_camera_position.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 68
+  %retval.sroa.2.0.m_camera_position.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_camera_position.sroa_idx.i, align 4, !tbaa !109
   %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
@@ -512,7 +512,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef i32 @_ZN9LuaCamera12l_get_offsetEP9lua_State(ptr noundef %L) #10 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase9getClientEP9lua_State(ptr noundef %L)
-  %m_local_player.i = getelementptr inbounds i8, ptr %call, i64 232
+  %m_local_player.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %m_local_player.i, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -543,9 +543,9 @@ entry:
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_camera_direction.i = getelementptr inbounds i8, ptr %1, i64 72
+  %m_camera_direction.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_camera_direction.i, align 8, !tbaa.struct !108
-  %retval.sroa.2.0.m_camera_direction.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 80
+  %retval.sroa.2.0.m_camera_direction.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_camera_direction.sroa_idx.i, align 8, !tbaa !109
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %retval.sroa.0.0.copyload.i, float %retval.sroa.2.0.copyload.i)
   br label %cleanup
@@ -559,7 +559,7 @@ cleanup:                                          ; preds = %if.end, %entry
 define dso_local noundef i32 @_ZN9LuaCamera21l_get_look_horizontalEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase9getClientEP9lua_State(ptr noundef %L)
-  %m_local_player.i = getelementptr inbounds i8, ptr %call, i64 232
+  %m_local_player.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %m_local_player.i, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -569,7 +569,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %m_yaw.i = getelementptr inbounds i8, ptr %0, i64 688
+  %m_yaw.i = getelementptr inbounds nuw i8, ptr %0, i64 688
   %1 = load float, ptr %m_yaw.i, align 8, !tbaa !110
   %add = fadd nsz float %1, 9.000000e+01
   %mul = fmul nsz float %add, 0x3F91DF46A0000000
@@ -582,7 +582,7 @@ cond.end:                                         ; preds = %entry
 define dso_local noundef i32 @_ZN9LuaCamera19l_get_look_verticalEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase9getClientEP9lua_State(ptr noundef %L)
-  %m_local_player.i = getelementptr inbounds i8, ptr %call, i64 232
+  %m_local_player.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %m_local_player.i, align 8, !tbaa !15
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -592,7 +592,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %m_pitch.i = getelementptr inbounds i8, ptr %0, i64 692
+  %m_pitch.i = getelementptr inbounds nuw i8, ptr %0, i64 692
   %1 = load float, ptr %m_pitch.i, align 4, !tbaa !111
   %mul4 = fmul nsz float %1, 0xBF91DF46A0000000
   %conv = fpext float %mul4 to double
@@ -610,10 +610,10 @@ entry:
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_cameranode.i = getelementptr inbounds i8, ptr %1, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !105
   %vtable = load ptr, ptr %2, align 8, !tbaa !106
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call nsz noundef float %3(ptr noundef nonnull align 8 dereferenceable(233) %2)
   %conv = fpext float %call2 to double
@@ -684,7 +684,7 @@ entry:
 
 _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !106
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %if.end

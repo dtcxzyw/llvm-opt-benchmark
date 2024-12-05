@@ -205,7 +205,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go11Neighbours4deEv(ptr nocapture n
   %3 = load i16, ptr %2, align 2
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds [9 x i32], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [9 x i32], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
   %9 = add i16 %3, %8
@@ -333,7 +333,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN10open_spiel2go11Boar
   br i1 %6, label %7, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points) #26
+  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %9
 
@@ -348,7 +348,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 10:                                               ; preds = %9
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 12:                                               ; preds = %1
@@ -357,7 +357,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %14, label %15, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points) #26
+  %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i6 = icmp eq i32 %16, 0
   br i1 %.not.i6, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %17
 
@@ -368,7 +368,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 20:                                               ; preds = %1
@@ -377,7 +377,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %22, label %23, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points) #26
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i7 = icmp eq i32 %24, 0
   br i1 %.not.i7, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %25
 
@@ -388,7 +388,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 26:                                               ; preds = %25
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 28:                                               ; preds = %1
@@ -397,7 +397,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %30, label %31, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points) #26
+  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i8 = icmp eq i32 %32, 0
   br i1 %.not.i8, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %33
 
@@ -408,7 +408,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 36:                                               ; preds = %1
@@ -417,7 +417,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %38, label %39, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points) #26
+  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i9 = icmp eq i32 %40, 0
   br i1 %.not.i9, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %41
 
@@ -428,7 +428,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 42:                                               ; preds = %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 44:                                               ; preds = %1
@@ -437,7 +437,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %46, label %47, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points) #26
+  %48 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i10 = icmp eq i32 %48, 0
   br i1 %.not.i10, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %49
 
@@ -448,7 +448,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 52:                                               ; preds = %1
@@ -457,7 +457,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %54, label %55, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 55:                                               ; preds = %52
-  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points) #26
+  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i11 = icmp eq i32 %56, 0
   br i1 %.not.i11, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %57
 
@@ -468,7 +468,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 58:                                               ; preds = %57
   %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 60:                                               ; preds = %1
@@ -477,7 +477,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %62, label %63, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 63:                                               ; preds = %60
-  %64 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points) #26
+  %64 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i12 = icmp eq i32 %64, 0
   br i1 %.not.i12, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %65
 
@@ -488,7 +488,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 66:                                               ; preds = %65
   %67 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 68:                                               ; preds = %1
@@ -497,7 +497,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %70, label %71, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 71:                                               ; preds = %68
-  %72 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points) #26
+  %72 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i13 = icmp eq i32 %72, 0
   br i1 %.not.i13, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %73
 
@@ -508,7 +508,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 74:                                               ; preds = %73
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 76:                                               ; preds = %1
@@ -517,7 +517,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %78, label %79, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 79:                                               ; preds = %76
-  %80 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points) #26
+  %80 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i14 = icmp eq i32 %80, 0
   br i1 %.not.i14, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %81
 
@@ -528,7 +528,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 82:                                               ; preds = %81
   %83 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 84:                                               ; preds = %1
@@ -537,7 +537,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %86, label %87, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 87:                                               ; preds = %84
-  %88 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points) #26
+  %88 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i15 = icmp eq i32 %88, 0
   br i1 %.not.i15, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %89
 
@@ -548,7 +548,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 90:                                               ; preds = %89
   %91 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 92:                                               ; preds = %1
@@ -557,7 +557,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %94, label %95, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 95:                                               ; preds = %92
-  %96 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points) #26
+  %96 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i16 = icmp eq i32 %96, 0
   br i1 %.not.i16, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %97
 
@@ -568,7 +568,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 98:                                               ; preds = %97
   %99 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 100:                                              ; preds = %1
@@ -577,7 +577,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %102, label %103, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 103:                                              ; preds = %100
-  %104 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points) #26
+  %104 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i17 = icmp eq i32 %104, 0
   br i1 %.not.i17, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %105
 
@@ -588,7 +588,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 106:                                              ; preds = %105
   %107 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 108:                                              ; preds = %1
@@ -597,7 +597,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %110, label %111, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points) #26
+  %112 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i18 = icmp eq i32 %112, 0
   br i1 %.not.i18, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %113
 
@@ -608,7 +608,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 116:                                              ; preds = %1
@@ -617,7 +617,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %118, label %119, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 119:                                              ; preds = %116
-  %120 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points) #26
+  %120 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i19 = icmp eq i32 %120, 0
   br i1 %.not.i19, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %121
 
@@ -628,7 +628,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 122:                                              ; preds = %121
   %123 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 124:                                              ; preds = %1
@@ -637,7 +637,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %126, label %127, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 127:                                              ; preds = %124
-  %128 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points) #26
+  %128 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i20 = icmp eq i32 %128, 0
   br i1 %.not.i20, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %129
 
@@ -648,7 +648,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 130:                                              ; preds = %129
   %131 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 132:                                              ; preds = %1
@@ -657,7 +657,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %134, label %135, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 135:                                              ; preds = %132
-  %136 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points) #26
+  %136 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i21 = icmp eq i32 %136, 0
   br i1 %.not.i21, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %137
 
@@ -668,7 +668,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 138:                                              ; preds = %137
   %139 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 140:                                              ; preds = %1
@@ -677,7 +677,7 @@ common.resume:                                    ; preds = %155, %146, %138, %1
   br i1 %142, label %143, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, !prof !4
 
 143:                                              ; preds = %140
-  %144 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points) #26
+  %144 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points) #27
   %.not.i22 = icmp eq i32 %144, 0
   br i1 %.not.i22, label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit, label %145
 
@@ -688,16 +688,16 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 146:                                              ; preds = %145
   %147 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points) #27
   br label %common.resume
 
 148:                                              ; preds = %1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %149 unwind label %151
 
 149:                                              ; preds = %148
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
           to label %150 unwind label %153
 
 150:                                              ; preds = %149
@@ -711,19 +711,19 @@ common.resume:                                    ; preds = %155, %146, %138, %1
 153:                                              ; preds = %149
   %154 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   br label %155
 
 155:                                              ; preds = %153, %151
   %.pn = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   br label %common.resume
 
 _ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit.sink.split: ; preds = %145, %137, %129, %121, %113, %105, %97, %89, %81, %73, %65, %57, %49, %41, %33, %25, %17, %9
   %_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink = phi ptr [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points, %9 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points, %17 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points, %25 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points, %33 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points, %41 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points, %49 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points, %57 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points, %65 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points, %73 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points, %81 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points, %89 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points, %97 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points, %105 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points, %113 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points, %121 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points, %129 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points, %137 ], [ @_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points, %145 ]
   %_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink = phi ptr [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEvE6points, %9 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi3EEERKSt6vectorItSaItEEvE6points, %17 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi4EEERKSt6vectorItSaItEEvE6points, %25 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi5EEERKSt6vectorItSaItEEvE6points, %33 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi6EEERKSt6vectorItSaItEEvE6points, %41 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi7EEERKSt6vectorItSaItEEvE6points, %49 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi8EEERKSt6vectorItSaItEEvE6points, %57 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi9EEERKSt6vectorItSaItEEvE6points, %65 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi10EEERKSt6vectorItSaItEEvE6points, %73 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi11EEERKSt6vectorItSaItEEvE6points, %81 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi12EEERKSt6vectorItSaItEEvE6points, %89 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi13EEERKSt6vectorItSaItEEvE6points, %97 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi14EEERKSt6vectorItSaItEEvE6points, %105 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi15EEERKSt6vectorItSaItEEvE6points, %113 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi16EEERKSt6vectorItSaItEEvE6points, %121 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi17EEERKSt6vectorItSaItEEvE6points, %129 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi18EEERKSt6vectorItSaItEEvE6points, %137 ], [ @_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points, %145 ]
-  %156 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorItSaItEED2Ev, ptr nonnull %_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink, ptr nonnull @__dso_handle) #26
-  tail call void @__cxa_guard_release(ptr nonnull %_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink) #26
+  %156 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorItSaItEED2Ev, ptr nonnull %_ZZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink, ptr nonnull @__dso_handle) #27
+  tail call void @__cxa_guard_release(ptr nonnull %_ZGVZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi19EEERKSt6vectorItSaItEEvE6points.sink) #27
   br label %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit
 
 _ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit: ; preds = %_ZN10open_spiel2go12_GLOBAL__N_114GetBoardPointsILi2EEERKSt6vectorItSaItEEv.exit.sink.split, %143, %140, %135, %132, %127, %124, %119, %116, %111, %108, %103, %100, %95, %92, %87, %84, %79, %76, %71, %68, %63, %60, %55, %52, %47, %44, %39, %36, %31, %28, %23, %20, %15, %12, %7, %4
@@ -745,7 +745,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.44) #27
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.44) #28
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -754,11 +754,11 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
-  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
+  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %12)
           to label %13 unwind label %8
@@ -809,7 +809,7 @@ _ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit: ; preds = %_ZN4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 13, ptr %17, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
           to label %18 unwind label %19
 
 18:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit
@@ -818,7 +818,7 @@ _ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit: ; preds = %_ZN4
 19:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   resume { ptr, i32 } %20
 
 switch.lookup:                                    ; preds = %1
@@ -839,13 +839,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoN
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   ret ptr %4
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   resume { ptr, i32 } %7
 }
 
@@ -869,7 +869,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
   ]
 
 11:                                               ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %15
 
@@ -884,7 +884,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 13:                                               ; preds = %.noexc5
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body
 
 15:                                               ; preds = %.noexc, %11
@@ -894,11 +894,11 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 
 .body:                                            ; preds = %13, %15
   %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   br label %49
 
 17:                                               ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc6 unwind label %21
 
@@ -913,7 +913,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 19:                                               ; preds = %.noexc7
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body8
 
 21:                                               ; preds = %.noexc6, %17
@@ -923,11 +923,11 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 
 .body8:                                           ; preds = %19, %21
   %eh.lpad-body9 = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   br label %49
 
 23:                                               ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc11 unwind label %27
 
@@ -942,7 +942,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 25:                                               ; preds = %.noexc12
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body13
 
 27:                                               ; preds = %.noexc11, %23
@@ -952,11 +952,11 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 
 .body13:                                          ; preds = %25, %27
   %eh.lpad-body14 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #27
   br label %49
 
 29:                                               ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc16 unwind label %33
 
@@ -971,7 +971,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 31:                                               ; preds = %.noexc17
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body18
 
 33:                                               ; preds = %.noexc16, %29
@@ -981,7 +981,7 @@ define void @_ZN10open_spiel2go15GoColorToStringB5cxx11ENS0_7GoColorE(ptr dead_o
 
 .body18:                                          ; preds = %31, %33
   %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   br label %49
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %2
@@ -1009,7 +1009,7 @@ _ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit: ; preds = %_ZN4
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 20, ptr %45, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
           to label %46 unwind label %47
 
 46:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit
@@ -1018,12 +1018,12 @@ _ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit: ; preds = %_ZN4
 47:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #27
   br label %49
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc17, %.noexc12, %.noexc7, %.noexc5
   %.sink = phi ptr [ %3, %.noexc5 ], [ %4, %.noexc7 ], [ %5, %.noexc12 ], [ %6, %.noexc17 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #27
   ret void
 
 49:                                               ; preds = %47, %.body18, %.body13, %.body8, %.body
@@ -1039,13 +1039,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSot
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   ret ptr %4
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   resume { ptr, i32 } %7
 }
 
@@ -1063,7 +1063,7 @@ define void @_ZN10open_spiel2go20VirtualPointToStringB5cxx11Et(ptr dead_on_unwin
   ]
 
 9:                                                ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %13
 
@@ -1078,7 +1078,7 @@ define void @_ZN10open_spiel2go20VirtualPointToStringB5cxx11Et(ptr dead_on_unwin
 11:                                               ; preds = %.noexc11
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body
 
 13:                                               ; preds = %.noexc, %9
@@ -1087,7 +1087,7 @@ define void @_ZN10open_spiel2go20VirtualPointToStringB5cxx11Et(ptr dead_on_unwin
   br label %.body
 
 15:                                               ; preds = %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   %16 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc12 unwind label %19
 
@@ -1102,7 +1102,7 @@ define void @_ZN10open_spiel2go20VirtualPointToStringB5cxx11Et(ptr dead_on_unwin
 17:                                               ; preds = %.noexc13
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %.body
 
 19:                                               ; preds = %.noexc12, %15
@@ -1119,7 +1119,7 @@ _ZN10open_spiel2go21VirtualPointTo2DPointEt.exit: ; preds = %2
   %24 = icmp samesign ugt i8 %23, 104
   %25 = add nuw nsw i8 %.zext16.i, 97
   %spec.select = select i1 %24, i8 %25, i8 %23
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
   %26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc17 unwind label %44
 
@@ -1134,12 +1134,12 @@ _ZN10open_spiel2go21VirtualPointTo2DPointEt.exit: ; preds = %2
 27:                                               ; preds = %.noexc18
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc18
-  %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   store ptr %29, ptr %5, align 8
   %31 = icmp sgt i64 %30, -1
   br i1 %31, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %32
@@ -1174,7 +1174,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %43 unwind label %46
 
 43:                                               ; preds = %41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 44:                                               ; preds = %.noexc17, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit
@@ -1185,18 +1185,18 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 46:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %41
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc13, %.noexc11, %43
   %.sink = phi ptr [ %7, %43 ], [ %3, %.noexc11 ], [ %4, %.noexc13 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #27
   ret void
 
 .body:                                            ; preds = %46, %27, %44, %19, %17, %13, %11
   %.sink22 = phi ptr [ %3, %11 ], [ %3, %13 ], [ %4, %17 ], [ %4, %19 ], [ %7, %44 ], [ %7, %27 ], [ %7, %46 ]
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %14, %13 ], [ %18, %17 ], [ %20, %19 ], [ %45, %44 ], [ %28, %27 ], [ %47, %46 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink22) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1204,8 +1204,8 @@ declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unw
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
+  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
   store ptr %3, ptr %0, align 8
   %5 = icmp sgt i64 %4, -1
   br i1 %5, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %6
@@ -1222,9 +1222,9 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext range(i16 24655, 18281) i16 @_ZN10open_spiel2go9MakePointENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %0) local_unnamed_addr #7 {
-  %2 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
-  %3 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
-  %4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  %2 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  %3 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  %4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %.not6.i = icmp eq ptr %2, %3
   br i1 %.not6.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit, label %.lr.ph.i
 
@@ -1233,26 +1233,26 @@ define noundef zeroext range(i16 24655, 18281) i16 @_ZN10open_spiel2go9MakePoint
   %.sroa.03.07.i = phi ptr [ %9, %.lr.ph.i ], [ %2, %1 ]
   %5 = load i8, ptr %.sroa.03.07.i, align 1
   %6 = sext i8 %5 to i32
-  %7 = tail call noundef i32 @tolower(i32 noundef %6) #26
+  %7 = tail call noundef i32 @tolower(i32 noundef %6) #27
   %8 = trunc i32 %7 to i8
   store i8 %8, ptr %.sroa.0.08.i, align 1
-  %9 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 1
   %.not.i = icmp eq ptr %9, %3
   br i1 %.not.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit: ; preds = %.lr.ph.i, %1
-  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10) #26
+  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10) #27
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %44, label %13
 
 13:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
-  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %15 = icmp ult i64 %14, 2
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %18 = icmp ugt i64 %17, 3
   br i1 %18, label %44, label %19
 
@@ -1269,7 +1269,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i16
   %30 = add nsw i16 %29, -48
-  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
+  %31 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %32 = icmp eq i64 %31, 3
   br i1 %32, label %33, label %40
 
@@ -1342,7 +1342,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %15, ptr %18, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
           to label %19 unwind label %20
 
 19:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
@@ -1351,7 +1351,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 20:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %2
@@ -1368,14 +1368,14 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 3, ptr %6, align 2
   %7 = trunc i64 %indvars.iv to i16
   store i16 %7, ptr %5, align 2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %7, ptr %8, align 2
-  %9 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i16 0, ptr %10, align 2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1401,11 +1401,11 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
   %.sroa.029.035 = phi ptr [ %24, %.lr.ph ], [ %17, %13 ]
   %20 = load i16, ptr %.sroa.029.035, align 2
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %21, i32 2
+  %22 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %21, i32 2
   store i8 2, ptr %22, align 2
-  %23 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %23, i8 0, i64 10, i1 false)
-  %24 = getelementptr inbounds i8, ptr %.sroa.029.035, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 2
   %.not = icmp eq ptr %24, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1430,17 +1430,17 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
   %32 = load i16, ptr %.sroa.025.037, align 2
   %33 = add i16 %32, 21
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %34, i32 2
+  %35 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %34, i32 2
   %36 = load i8, ptr %35, align 2
   %37 = icmp eq i8 %36, 2
   br i1 %37, label %38, label %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i"
 
 38:                                               ; preds = %.lr.ph39
   %39 = zext i16 %32 to i64
-  %40 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i16, ptr %44, align 4
   %46 = add i16 %45, 1
@@ -1459,17 +1459,17 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i": ; preds = %38, %.lr.ph39
   %54 = add i16 %32, 1
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %55, i32 2
+  %56 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %55, i32 2
   %57 = load i8, ptr %56, align 2
   %58 = icmp eq i8 %57, 2
   br i1 %58, label %59, label %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i"
 
 59:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i"
   %60 = zext i16 %32 to i64
-  %61 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i64
-  %64 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i16, ptr %65, align 4
   %67 = add i16 %66, 1
@@ -1488,17 +1488,17 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i": ; preds = %59, %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i"
   %75 = add i16 %32, -1
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %76, i32 2
+  %77 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %76, i32 2
   %78 = load i8, ptr %77, align 2
   %79 = icmp eq i8 %78, 2
   br i1 %79, label %80, label %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i"
 
 80:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i"
   %81 = zext i16 %32 to i64
-  %82 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i16, ptr %86, align 4
   %88 = add i16 %87, 1
@@ -1517,17 +1517,17 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i": ; preds = %80, %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i"
   %96 = add i16 %32, -21
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %97, i32 2
+  %98 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %97, i32 2
   %99 = load i8, ptr %98, align 2
   %100 = icmp eq i8 %99, 2
   br i1 %100, label %101, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard5ClearEvE3$_0EEvtRKT_.exit"
 
 101:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i"
   %102 = zext i16 %32 to i64
-  %103 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %102
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i64
-  %106 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %3, i64 0, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i16, ptr %107, align 4
   %109 = add i16 %108, 1
@@ -1544,7 +1544,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
   br label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard5ClearEvE3$_0EEvtRKT_.exit"
 
 "_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard5ClearEvE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i", %101
-  %117 = getelementptr inbounds i8, ptr %.sroa.025.037, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.025.037, i64 2
   %.not32 = icmp eq ptr %117, %29
   br i1 %.not32, label %.preheader, label %.lr.ph39
 }
@@ -1594,7 +1594,7 @@ define noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(pt
 
 21:                                               ; preds = %3
   %22 = zext i16 %1 to i64
-  %23 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %22, i32 2
+  %23 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %22, i32 2
   %24 = load i8, ptr %23, align 2
   %.not = icmp eq i8 %24, 2
   br i1 %.not, label %"_ZZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorEENK3$_0clEt.exit.i", label %_ZN4absl7debian28AlphaNumC2EPKc.exit
@@ -1625,7 +1625,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
           to label %31 unwind label %37
 
 31:                                               ; preds = %30
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
           to label %32 unwind label %39
 
 32:                                               ; preds = %31
@@ -1649,44 +1649,44 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
 39:                                               ; preds = %31
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %41
 
 41:                                               ; preds = %39, %37
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #27
   br label %42
 
 42:                                               ; preds = %41, %35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %36, %35 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   br label %138
 
 "_ZZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorEENK3$_0clEt.exit.i": ; preds = %21
   %43 = add i16 %1, 21
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %44, i32 2
+  %45 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %44, i32 2
   %46 = load i8, ptr %45, align 2
   %47 = icmp ne i8 %46, %2
   %48 = icmp ne i8 %46, 2
   %or.cond.i.i.not = and i1 %48, %47
   %49 = add i16 %1, 1
   %50 = zext i16 %49 to i64
-  %51 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %50, i32 2
+  %51 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %50, i32 2
   %52 = load i8, ptr %51, align 2
   %53 = icmp ne i8 %52, %2
   %54 = icmp ne i8 %52, 2
   %or.cond.i7.i.not = and i1 %54, %53
   %55 = add i16 %1, -1
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %56, i32 2
+  %57 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %56, i32 2
   %58 = load i8, ptr %57, align 2
   %59 = icmp ne i8 %58, %2
   %60 = icmp ne i8 %58, 2
   %or.cond.i9.i.not = and i1 %60, %59
   %61 = add i16 %1, -21
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %62, i32 2
+  %63 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %62, i32 2
   %64 = load i8, ptr %63, align 2
   %65 = icmp ne i8 %64, %2
   %66 = icmp ne i8 %64, 2
@@ -1697,10 +1697,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   tail call void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2)
   tail call void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2)
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %70 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %44
+  %70 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %44
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i16, ptr %74, align 4
   %76 = add i16 %75, -1
@@ -1714,10 +1714,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %82 = load i32, ptr %73, align 4
   %83 = sub i32 %82, %81
   store i32 %83, ptr %73, align 4
-  %84 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %50
+  %84 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %50
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i16, ptr %88, align 4
   %90 = add i16 %89, -1
@@ -1729,10 +1729,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %94 = load i32, ptr %87, align 4
   %95 = sub i32 %94, %81
   store i32 %95, ptr %87, align 4
-  %96 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %56
+  %96 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %56
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i16, ptr %100, align 4
   %102 = add i16 %101, -1
@@ -1744,10 +1744,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %106 = load i32, ptr %99, align 4
   %107 = sub i32 %106, %81
   store i32 %107, ptr %99, align 4
-  %108 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %62
+  %108 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %62
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %69, i64 0, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load i16, ptr %112, align 4
   %114 = add i16 %113, -1
@@ -1769,12 +1769,12 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   store i16 %.sink, ptr %124, align 8
   %125 = load i16, ptr %4, align 2
   %126 = zext i16 %125 to i64
-  %127 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %126
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i64
   %.idx = mul nuw nsw i64 %129, 12
-  %130 = getelementptr inbounds i8, ptr %69, i64 %.idx
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i16, ptr %131, align 4
   store i16 %132, ptr %14, align 2
   store i32 0, ptr %15, align 4
@@ -1784,7 +1784,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
 133:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorEENK3$_0clEt.exit.i"
   store i32 324, ptr %17, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iS6_RA34_S2_RA31_S2_RA4_S2_RtRA7_S2_RiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 1 dereferenceable(130) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 1 dereferenceable(2) @.str.18, ptr noundef nonnull align 1 dereferenceable(34) @.str.23, ptr noundef nonnull align 1 dereferenceable(31) @.str.24, ptr noundef nonnull align 1 dereferenceable(4) @.str.21, ptr noundef nonnull align 2 dereferenceable(2) %14, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, ptr noundef nonnull align 4 dereferenceable(4) %15)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %16) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
           to label %134 unwind label %135
 
 134:                                              ; preds = %133
@@ -1801,7 +1801,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
 138:                                              ; preds = %33, %42, %135
   %.sink37 = phi ptr [ %16, %135 ], [ %8, %42 ], [ %8, %33 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn.pn, %42 ], [ %34, %33 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink37) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink37) #27
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -1810,38 +1810,38 @@ define linkonce_odr void @_ZN4absl7debian26StrCatIJtA39_cNSt7__cxx1112basic_stri
   %10 = alloca [8 x %"class.absl::debian2::string_view"], align 8
   %11 = alloca %"class.absl::debian2::AlphaNum", align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.0.0.copyload.i8 = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store ptr %.sroa.0.0.copyload.i8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %.sroa.2.0.copyload.i10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.0.0.copyload.i13 = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i14, align 8
   store ptr %.sroa.0.0.copyload.i13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %.sroa.2.0.copyload.i15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.sroa.0.0.copyload.i18 = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i20 = load i64, ptr %.sroa.2.0..sroa_idx.i19, align 8
   store ptr %.sroa.0.0.copyload.i18, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %.sroa.2.0.copyload.i20, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %.sroa.0.0.copyload.i23 = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i24, align 8
   store ptr %.sroa.0.0.copyload.i23, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 %.sroa.2.0.copyload.i25, ptr %20, align 8
   %21 = load i16, ptr %6, align 2
   %22 = zext i16 %21 to i32
@@ -1859,13 +1859,13 @@ define linkonce_odr void @_ZN4absl7debian26StrCatIJtA39_cNSt7__cxx1112basic_stri
   unreachable
 
 _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %10, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %27, ptr %31, align 8
   store ptr %23, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i64 %27, ptr %32, align 8
-  %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #26
+  %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
   %34 = icmp sgt i64 %33, -1
   br i1 %34, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %35
 
@@ -1874,12 +1874,12 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %9
   unreachable
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit
-  %36 = getelementptr inbounds i8, ptr %10, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %7, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i64 %33, ptr %37, align 8
-  %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
-  %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %40 = icmp sgt i64 %39, -1
   br i1 %40, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %41
 
@@ -1888,9 +1888,9 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZN4absl7debian28Al
   unreachable
 
 _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit
-  %42 = getelementptr inbounds i8, ptr %10, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store ptr %38, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 %39, ptr %43, align 8
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %10, i64 8)
   ret void
@@ -1900,17 +1900,17 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #11 align 2 {
   %4 = add i16 %1, 21
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5, i32 2
   %7 = load i8, ptr %6, align 2
   %8 = icmp eq i8 %7, %2
   br i1 %8, label %9, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
+  %10 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %.idx.i.i = mul nuw nsw i64 %12, 12
-  %13 = getelementptr inbounds i8, ptr %0, i64 2654
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2654
   %14 = getelementptr i8, ptr %13, i64 %.idx.i.i
   %15 = load i16, ptr %14, align 2
   %.not = icmp eq i16 %15, 0
@@ -1923,17 +1923,17 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.0 = phi i32 [ 0, %3 ], [ %16, %9 ]
   %17 = add i16 %1, 1
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18, i32 2
   %20 = load i8, ptr %19, align 2
   %21 = icmp eq i8 %20, %2
   br i1 %21, label %22, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
 22:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %23 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %.idx.i7.i = mul nuw nsw i64 %25, 12
-  %26 = getelementptr inbounds i8, ptr %0, i64 2654
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2654
   %27 = getelementptr i8, ptr %26, i64 %.idx.i7.i
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
@@ -1947,17 +1947,17 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.1 = phi i32 [ %.0, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select68, %22 ]
   %31 = add i16 %1, -1
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32, i32 2
+  %33 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32, i32 2
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, %2
   br i1 %35, label %36, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
 
 36:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
-  %37 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
+  %37 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
   %.idx.i9.i = mul nuw nsw i64 %39, 12
-  %40 = getelementptr inbounds i8, ptr %0, i64 2654
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2654
   %41 = getelementptr i8, ptr %40, i64 %.idx.i9.i
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
@@ -1971,17 +1971,17 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i" ], [ %spec.select70, %36 ]
   %45 = add i16 %1, -21
   %46 = zext i16 %45 to i64
-  %47 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46, i32 2
+  %47 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46, i32 2
   %48 = load i8, ptr %47, align 2
   %49 = icmp eq i8 %48, %2
   br i1 %49, label %50, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
 
 50:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
-  %51 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46
+  %51 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i64
   %.idx.i11.i = mul nuw nsw i64 %53, 12
-  %54 = getelementptr inbounds i8, ptr %0, i64 2654
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2654
   %55 = getelementptr i8, ptr %54, i64 %.idx.i11.i
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
@@ -2001,7 +2001,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %8, label %61, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit.i"
 
 61:                                               ; preds = %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit.thread"
-  %62 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
+  %62 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
   %63 = load i16, ptr %62, align 2
   %.not.i.i = icmp eq i16 %63, %.36265
   br i1 %.not.i.i, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit.i", label %64
@@ -2009,12 +2009,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %66 = zext i16 %.36265 to i64
-  %67 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i64
-  %70 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %65, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %65, i64 0, i64 %69
   %71 = zext i16 %63 to i64
-  %72 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %65, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %65, i64 0, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   %74 = load i16, ptr %73, align 2
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 6
@@ -2042,7 +2042,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 91:                                               ; preds = %91, %64
   %.0.i.i = phi i16 [ %4, %64 ], [ %95, %91 ]
   %92 = zext i16 %.0.i.i to i64
-  %93 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %92
   store i16 %.36265, ptr %93, align 2
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2
@@ -2050,7 +2050,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %.not10.i.i, label %96, label %91, !llvm.loop !8
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %66, i32 1
+  %97 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %66, i32 1
   %98 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %99 = load i16, ptr %97, align 2
   %100 = load i16, ptr %98, align 2
@@ -2065,7 +2065,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %102, label %103, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit10.i"
 
 103:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit.i"
-  %104 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18
+  %104 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %18
   %105 = load i16, ptr %104, align 2
   %.not.i7.i = icmp eq i16 %105, %.36265
   br i1 %.not.i7.i, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit10.i", label %106
@@ -2073,12 +2073,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %108 = zext i16 %.36265 to i64
-  %109 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %107, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %107, i64 0, i64 %111
   %113 = zext i16 %105 to i64
-  %114 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %107, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %107, i64 0, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 6
   %116 = load i16, ptr %115, align 2
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 6
@@ -2106,7 +2106,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 133:                                              ; preds = %133, %106
   %.0.i8.i = phi i16 [ %17, %106 ], [ %137, %133 ]
   %134 = zext i16 %.0.i8.i to i64
-  %135 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %134
   store i16 %.36265, ptr %135, align 2
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %137 = load i16, ptr %136, align 2
@@ -2114,7 +2114,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %.not10.i9.i, label %138, label %133, !llvm.loop !8
 
 138:                                              ; preds = %133
-  %139 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %108, i32 1
+  %139 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %108, i32 1
   %140 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %141 = load i16, ptr %139, align 2
   %142 = load i16, ptr %140, align 2
@@ -2128,7 +2128,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %144, label %145, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit14.i"
 
 145:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit10.i"
-  %146 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
+  %146 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
   %147 = load i16, ptr %146, align 2
   %.not.i11.i = icmp eq i16 %147, %.36265
   br i1 %.not.i11.i, label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit14.i", label %148
@@ -2136,12 +2136,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %150 = zext i16 %.36265 to i64
-  %151 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i64
-  %154 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %149, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %149, i64 0, i64 %153
   %155 = zext i16 %147 to i64
-  %156 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %149, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %149, i64 0, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 6
   %158 = load i16, ptr %157, align 2
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 6
@@ -2169,7 +2169,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 175:                                              ; preds = %175, %148
   %.0.i12.i = phi i16 [ %31, %148 ], [ %179, %175 ]
   %176 = zext i16 %.0.i12.i to i64
-  %177 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %176
   store i16 %.36265, ptr %177, align 2
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 2
   %179 = load i16, ptr %178, align 2
@@ -2177,7 +2177,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %.not10.i13.i, label %180, label %175, !llvm.loop !8
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %150, i32 1
+  %181 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %150, i32 1
   %182 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %183 = load i16, ptr %181, align 2
   %184 = load i16, ptr %182, align 2
@@ -2191,7 +2191,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %186, label %187, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit"
 
 187:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit14.i"
-  %188 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46
+  %188 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %46
   %189 = load i16, ptr %188, align 2
   %.not.i15.i = icmp eq i16 %189, %.36265
   br i1 %.not.i15.i, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit", label %190
@@ -2199,12 +2199,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %192 = zext i16 %.36265 to i64
-  %193 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %192
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i64
-  %196 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %191, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %191, i64 0, i64 %195
   %197 = zext i16 %189 to i64
-  %198 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %191, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %191, i64 0, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 6
   %200 = load i16, ptr %199, align 2
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 6
@@ -2232,7 +2232,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 217:                                              ; preds = %217, %190
   %.0.i16.i = phi i16 [ %45, %190 ], [ %221, %217 ]
   %218 = zext i16 %.0.i16.i to i64
-  %219 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %218
   store i16 %.36265, ptr %219, align 2
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 2
   %221 = load i16, ptr %220, align 2
@@ -2240,7 +2240,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   br i1 %.not10.i17.i, label %222, label %217, !llvm.loop !8
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %192, i32 1
+  %223 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %192, i32 1
   %224 = getelementptr inbounds nuw i8, ptr %188, i64 2
   %225 = load i16, ptr %223, align 2
   %226 = load i16, ptr %224, align 2
@@ -2250,11 +2250,11 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 
 "_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit14.i", %187, %222
   %227 = zext i16 %.36265 to i64
-  %228 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 2
   %230 = load i16, ptr %229, align 2
   %231 = zext i16 %1 to i64
-  %232 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 2
   store i16 %230, ptr %233, align 2
   store i16 %1, ptr %229, align 2
@@ -2262,7 +2262,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %235 = load i16, ptr %228, align 2
   %236 = zext i16 %235 to i64
-  %237 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 6
   %239 = load i16, ptr %238, align 2
   %240 = add i16 %239, 1
@@ -2295,7 +2295,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 256:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
   %257 = load i16, ptr %228, align 2
   %258 = zext i16 %257 to i64
-  %259 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %258
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %261 = load i16, ptr %260, align 4
   %262 = add i16 %261, 1
@@ -2319,7 +2319,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 272:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
   %273 = load i16, ptr %228, align 2
   %274 = zext i16 %273 to i64
-  %275 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load i16, ptr %276, align 4
   %278 = add i16 %277, 1
@@ -2343,7 +2343,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 288:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i"
   %289 = load i16, ptr %228, align 2
   %290 = zext i16 %289 to i64
-  %291 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %234, i64 0, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load i16, ptr %292, align 4
   %294 = add i16 %293, 1
@@ -2370,7 +2370,7 @@ define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr nocapture no
   br i1 %5, label %6, label %11, !prof !4
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -2379,8 +2379,8 @@ define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr nocapture no
           to label %9 unwind label %29
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm2EEED2Ev, ptr nonnull @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, ptr nonnull @__dso_handle) #26
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm2EEED2Ev, ptr nonnull @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, ptr nonnull @__dso_handle) #27
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   br label %11
 
 11:                                               ; preds = %9, %6, %3
@@ -2390,29 +2390,29 @@ define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr nocapture no
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %12, i32 2
+  %16 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %12, i32 2
   %17 = load i8, ptr %16, align 2
   br label %18
 
 18:                                               ; preds = %11, %15
   %19 = phi i8 [ %17, %15 ], [ %2, %11 ]
-  %20 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.13", ptr %13, i64 %12
+  %20 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %13, i64 %12
   %21 = zext i8 %19 to i64
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i64, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, %24
   store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %12, i32 2
+  %28 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %12, i32 2
   store i8 %2, ptr %28, align 2
   ret void
 
 29:                                               ; preds = %8
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   resume { ptr, i32 } %30
 }
 
@@ -2421,10 +2421,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   %3 = add i16 %1, 21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %5 = zext i16 %3 to i64
-  %6 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 4
   %12 = add i16 %11, -1
@@ -2440,10 +2440,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %19, ptr %9, align 4
   %20 = add i16 %1, 1
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i16, ptr %26, align 4
   %28 = add i16 %27, -1
@@ -2457,10 +2457,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %33, ptr %25, align 4
   %34 = add i16 %1, -1
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i16, ptr %40, align 4
   %42 = add i16 %41, -1
@@ -2474,10 +2474,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %47, ptr %39, align 4
   %48 = add i16 %1, -21
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %4, i64 0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i16, ptr %54, align 4
   %56 = add i16 %55, -1
@@ -2496,7 +2496,7 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
 define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = add i16 %1, 21
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5, i32 2
   %7 = load i8, ptr %6, align 2
   %8 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
   %9 = icmp eq i8 %7, %8
@@ -2504,12 +2504,12 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %12 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
+  %12 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %5
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %.idx.i.i = mul nuw nsw i64 %14, 12
-  %15 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit.i"
@@ -2517,7 +2517,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   store i16 %13, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   tail call void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %4)
@@ -2528,7 +2528,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.0 = phi i32 [ %23, %19 ], [ 0, %10 ], [ 0, %3 ]
   %24 = add i16 %1, 1
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %25, i32 2
+  %26 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %25, i32 2
   %27 = load i8, ptr %26, align 2
   %28 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
   %29 = icmp eq i8 %27, %28
@@ -2536,12 +2536,12 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
 
 30:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit.i"
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %32 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %25
+  %32 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %25
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
   %.idx.i7.i = mul nuw nsw i64 %34, 12
-  %35 = getelementptr inbounds i8, ptr %31, i64 %.idx.i7.i
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i7.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i16, ptr %36, align 4
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %39, label %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit9.i"
@@ -2550,13 +2550,13 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %41 = add nuw nsw i32 %.125, 1
   %42 = zext nneg i32 %.125 to i64
-  %43 = getelementptr inbounds [4 x i16], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i16], ptr %40, i64 0, i64 %42
   store i16 %33, ptr %43, align 2
   %44 = load i16, ptr %32, align 2
   %45 = zext i16 %44 to i64
   %.idx5.i8.i = mul nuw nsw i64 %45, 12
-  %46 = getelementptr inbounds i8, ptr %31, i64 %.idx5.i8.i
-  %47 = getelementptr inbounds i8, ptr %46, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx5.i8.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = add nuw nsw i32 %.0, %49
@@ -2568,7 +2568,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.1 = phi i32 [ %50, %39 ], [ %.0, %30 ], [ %.0, %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit.i" ]
   %51 = add i16 %1, -1
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52, i32 2
   %54 = load i8, ptr %53, align 2
   %55 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
   %56 = icmp eq i8 %54, %55
@@ -2576,12 +2576,12 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
 
 57:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit9.i"
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %59 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52
+  %59 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %.idx.i10.i = mul nuw nsw i64 %61, 12
-  %62 = getelementptr inbounds i8, ptr %58, i64 %.idx.i10.i
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i10.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i16, ptr %63, align 4
   %65 = icmp eq i16 %64, 0
   br i1 %65, label %66, label %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit12.i"
@@ -2590,13 +2590,13 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %68 = add nuw nsw i32 %.226, 1
   %69 = zext nneg i32 %.226 to i64
-  %70 = getelementptr inbounds [4 x i16], ptr %67, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i16], ptr %67, i64 0, i64 %69
   store i16 %60, ptr %70, align 2
   %71 = load i16, ptr %59, align 2
   %72 = zext i16 %71 to i64
   %.idx5.i11.i = mul nuw nsw i64 %72, 12
-  %73 = getelementptr inbounds i8, ptr %58, i64 %.idx5.i11.i
-  %74 = getelementptr inbounds i8, ptr %73, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx5.i11.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %.1, %76
@@ -2608,7 +2608,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.2 = phi i32 [ %77, %66 ], [ %.1, %57 ], [ %.1, %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit9.i" ]
   %78 = add i16 %1, -21
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %79, i32 2
+  %80 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %79, i32 2
   %81 = load i8, ptr %80, align 2
   %82 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
   %83 = icmp eq i8 %81, %82
@@ -2616,12 +2616,12 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
 
 84:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit12.i"
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %86 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %79
+  %86 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %79
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i64
   %.idx.i13.i = mul nuw nsw i64 %88, 12
-  %89 = getelementptr inbounds i8, ptr %85, i64 %.idx.i13.i
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i13.i
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i16, ptr %90, align 4
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard17CaptureDeadChainsEtNS0_7GoColorEE3$_0EEvtRKT_.exit", label %.lr.ph
@@ -2630,13 +2630,13 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %94 = add nuw nsw i32 %.327, 1
   %95 = zext nneg i32 %.327 to i64
-  %96 = getelementptr inbounds [4 x i16], ptr %93, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i16], ptr %93, i64 0, i64 %95
   store i16 %87, ptr %96, align 2
   %97 = load i16, ptr %86, align 2
   %98 = zext i16 %97 to i64
   %.idx5.i14.i = mul nuw nsw i64 %98, 12
-  %99 = getelementptr inbounds i8, ptr %85, i64 %.idx5.i14.i
-  %100 = getelementptr inbounds i8, ptr %99, i64 6
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx5.i14.i
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = add nuw nsw i32 %.2, %102
@@ -2713,13 +2713,13 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
           to label %26 unwind label %27
 
 26:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciSB_RA34_S9_RA31_S9_RA4_S9_RtRA7_S9_RiEEEvRT_RKT0_DpOT1_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #27
   ret void
 
 27:                                               ; preds = %.noexc18, %.noexc17, %.noexc16, %.noexc15, %.noexc14, %.noexc13, %.noexc12, %.noexc11, %.noexc, %11, %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciSB_RA34_S9_RA31_S9_RA4_S9_RtRA7_S9_RiEEEvRT_RKT0_DpOT1_.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #27
   resume { ptr, i32 } %28
 }
 
@@ -2736,11 +2736,11 @@ define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard13SingleLibertyEt(ptr noc
   %11 = alloca %"class.absl::debian2::AlphaNum", align 8
   %12 = alloca %"class.absl::debian2::AlphaNum", align 8
   %13 = zext i16 %1 to i64
-  %14 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %17 = zext i16 %15 to i64
-  %18 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %16, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %16, i64 0, i64 %17
   %19 = tail call noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(ptr noundef nonnull align 4 dereferenceable(12) %18)
   switch i16 %19, label %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i [
     i16 442, label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
@@ -2768,7 +2768,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %2, %2, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
   store i32 334, ptr %4, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iRA13_S2_RA23_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 1 dereferenceable(130) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, ptr noundef nonnull align 1 dereferenceable(23) @.str.27, ptr noundef nonnull align 1 dereferenceable(2) @.str.28)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
           to label %27 unwind label %28
 
 27:                                               ; preds = %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
@@ -2781,7 +2781,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %2, %2, %_ZN
 
 30:                                               ; preds = %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
   %31 = zext i16 %19 to i64
-  %32 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31, i32 2
   %33 = load i8, ptr %32, align 2
   %34 = icmp eq i8 %33, 2
   br i1 %34, label %39, label %35
@@ -2789,7 +2789,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %2, %2, %_ZN
 35:                                               ; preds = %30
   store i32 335, ptr %6, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iRA13_S2_RA17_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(130) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, ptr noundef nonnull align 1 dereferenceable(17) @.str.29, ptr noundef nonnull align 1 dereferenceable(2) @.str.28)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
           to label %36 unwind label %37
 
 36:                                               ; preds = %35
@@ -2814,12 +2814,12 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %2, %2, %_ZN
 
 44:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %45 = getelementptr inbounds [9 x i32], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [9 x i32], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 0, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = trunc i32 %46 to i16
   %48 = add i16 %42, %47
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = icmp eq i16 %51, %15
   br i1 %52, label %53, label %54
@@ -2876,7 +2876,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit14:             ; preds = %_ZN4absl7debian28Al
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %72, ptr %75, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %12)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
           to label %76 unwind label %77
 
 76:                                               ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit14
@@ -2890,7 +2890,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit14:             ; preds = %_ZN4absl7debian28Al
 79:                                               ; preds = %77, %37, %28
   %.sink = phi ptr [ %8, %77 ], [ %5, %37 ], [ %3, %28 ]
   %.pn = phi { ptr, i32 } [ %78, %77 ], [ %38, %37 ], [ %29, %28 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -2917,7 +2917,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(
 18:                                               ; preds = %1
   store i32 537, ptr %3, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iRA13_S2_RA11_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 1 dereferenceable(130) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, ptr noundef nonnull align 1 dereferenceable(11) @.str.32, ptr noundef nonnull align 1 dereferenceable(2) @.str.28)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
@@ -2940,7 +2940,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(
 27:                                               ; preds = %22
   store i32 547, ptr %7, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA130_KcRA2_S2_iS6_RA47_S2_RA43_S2_RA4_S2_RiRA7_S2_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 1 dereferenceable(130) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(2) @.str.18, ptr noundef nonnull align 1 dereferenceable(47) @.str.33, ptr noundef nonnull align 1 dereferenceable(43) @.str.34, ptr noundef nonnull align 1 dereferenceable(4) @.str.21, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -2957,7 +2957,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(
 32:                                               ; preds = %29, %20
   %.sink = phi ptr [ %6, %29 ], [ %2, %20 ]
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %21, %20 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -3024,13 +3024,13 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
           to label %16 unwind label %17
 
 16:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA23_S9_SB_EEEvRT_RKT0_DpOT1_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   ret void
 
 17:                                               ; preds = %.noexc10, %.noexc9, %.noexc8, %.noexc7, %.noexc, %7, %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA23_S9_SB_EEEvRT_RKT0_DpOT1_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   resume { ptr, i32 } %18
 }
 
@@ -3067,13 +3067,13 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
           to label %16 unwind label %17
 
 16:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA17_S9_SB_EEEvRT_RKT0_DpOT1_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   ret void
 
 17:                                               ; preds = %.noexc10, %.noexc9, %.noexc8, %.noexc7, %.noexc, %7, %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA17_S9_SB_EEEvRT_RKT0_DpOT1_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   resume { ptr, i32 } %18
 }
 
@@ -3097,7 +3097,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm
   %8 = xor i64 %7, %6
   %9 = mul i64 %8, 6364136223846793005
   %10 = add i64 %9, %.011.i.i
-  %11 = getelementptr inbounds [312 x i64], ptr %3, i64 0, i64 %.011.i.i
+  %11 = getelementptr inbounds nuw [312 x i64], ptr %3, i64 0, i64 %.011.i.i
   store i64 %10, ptr %11, align 8
   %12 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %12, 312
@@ -3106,7 +3106,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 2496
   store i64 312, ptr %13, align 8
-  %14 = invoke noalias noundef nonnull dereferenceable(10584) ptr @_Znwm(i64 noundef 10584) #28
+  %14 = invoke noalias noundef nonnull dereferenceable(10584) ptr @_Znwm(i64 noundef 10584) #29
           to label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit.i
@@ -3114,7 +3114,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE7reserve
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %0, align 8
   store ptr %14, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 10584
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 10584
   store ptr %17, ptr %16, align 8
   br label %18
 
@@ -3145,7 +3145,7 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
 
 23:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
+  call void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
   resume { ptr, i32 } %lpad.phi
 
 24:                                               ; preds = %21
@@ -3172,11 +3172,11 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #30
   br label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i.i: ; preds = %6, %.lr.ph.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %12, %4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
@@ -3195,7 +3195,7 @@ _ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaI
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #30
   br label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit.i, %14
@@ -3211,18 +3211,18 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = zext i16 %1 to i64
-  %4 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
   store i16 %1, ptr %4, align 2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %1, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %7 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %6, i64 0, i64 %3
+  %7 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %6, i64 0, i64 %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 10, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 1, ptr %8, align 2
   %9 = add i16 %1, 21
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %10, i32 2
   %12 = load i8, ptr %11, align 2
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %14, label %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit.i"
@@ -3243,7 +3243,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef no
   %21 = phi i16 [ 1, %14 ], [ 0, %2 ]
   %22 = add i16 %1, 1
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %23, i32 2
   %25 = load i8, ptr %24, align 2
   %26 = icmp eq i8 %25, 2
   br i1 %26, label %27, label %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit14.i"
@@ -3267,7 +3267,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef no
   %37 = phi i16 [ %29, %27 ], [ %21, %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit.i" ]
   %38 = add i16 %1, -1
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %39, i32 2
+  %40 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %39, i32 2
   %41 = load i8, ptr %40, align 2
   %42 = icmp eq i8 %41, 2
   br i1 %42, label %43, label %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit15.i"
@@ -3291,7 +3291,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef no
   %53 = phi i16 [ %45, %43 ], [ %37, %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit14.i" ]
   %54 = add i16 %1, -21
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %55, i32 2
+  %56 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %55, i32 2
   %57 = load i8, ptr %56, align 2
   %58 = icmp eq i8 %57, 2
   br i1 %58, label %59, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard12InitNewChainEtE3$_0EEvtRKT_.exit"
@@ -3316,7 +3316,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr nocapture noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i16 %1 to i64
-  %4 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2648
@@ -3325,14 +3325,14 @@ define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr nocapture noundef non
 8:                                                ; preds = %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard11RemoveChainEtE3$_0EEvtRKT_.exit", %2
   %.0 = phi i16 [ %1, %2 ], [ %11, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard11RemoveChainEtE3$_0EEvtRKT_.exit" ]
   %9 = zext i16 %.0 to i64
-  %10 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %9, i32 1
+  %10 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %9, i32 1
   %11 = load i16, ptr %10, align 2
   %12 = load atomic i8, ptr @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values acquire, align 8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit, !prof !4
 
 14:                                               ; preds = %8
-  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit, label %16
 
@@ -3341,24 +3341,24 @@ define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr nocapture noundef non
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm2EEED2Ev, ptr nonnull @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, ptr nonnull @__dso_handle) #26
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  %18 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm2EEED2Ev, ptr nonnull @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, ptr nonnull @__dso_handle) #27
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   br label %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #26
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values) #27
   resume { ptr, i32 } %20
 
 _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %14, %17
   %21 = load ptr, ptr @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, align 8
-  %22 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %9, i32 2
+  %22 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %9, i32 2
   %23 = load i8, ptr %22, align 2
-  %24 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.13", ptr %21, i64 %9
+  %24 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %21, i64 %9
   %25 = zext i8 %23 to i64
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %25
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %6, align 8
   %30 = xor i64 %29, %28
@@ -3367,20 +3367,20 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %14, %17
   tail call void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %.0)
   %31 = add i16 %.0, 21
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %.not.i.i = icmp eq i16 %34, %5
   br i1 %.not.i.i, label %35, label %39
 
 35:                                               ; preds = %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit
-  %36 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32, i32 2
+  %36 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %32, i32 2
   %37 = load i8, ptr %36, align 2
   %38 = icmp eq i8 %37, 2
   br i1 %38, label %39, label %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i"
 
 39:                                               ; preds = %35, %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit
   %40 = zext i16 %34 to i64
-  %41 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i16, ptr %42, align 4
   %44 = add i16 %43, 1
@@ -3399,20 +3399,20 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %14, %17
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i": ; preds = %39, %35
   %52 = add i16 %.0, 1
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %53
   %55 = load i16, ptr %54, align 2
   %.not.i7.i = icmp eq i16 %55, %5
   br i1 %.not.i7.i, label %56, label %60
 
 56:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i"
-  %57 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %53, i32 2
+  %57 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %53, i32 2
   %58 = load i8, ptr %57, align 2
   %59 = icmp eq i8 %58, 2
   br i1 %59, label %60, label %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i"
 
 60:                                               ; preds = %56, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i"
   %61 = zext i16 %55 to i64
-  %62 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i16, ptr %63, align 4
   %65 = add i16 %64, 1
@@ -3431,20 +3431,20 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %14, %17
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i": ; preds = %60, %56
   %73 = add i16 %.0, -1
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74
   %76 = load i16, ptr %75, align 2
   %.not.i9.i = icmp eq i16 %76, %5
   br i1 %.not.i9.i, label %77, label %81
 
 77:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i"
-  %78 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74, i32 2
+  %78 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74, i32 2
   %79 = load i8, ptr %78, align 2
   %80 = icmp eq i8 %79, 2
   br i1 %80, label %81, label %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i"
 
 81:                                               ; preds = %77, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i"
   %82 = zext i16 %76 to i64
-  %83 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i16, ptr %84, align 4
   %86 = add i16 %85, 1
@@ -3463,20 +3463,20 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %14, %17
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i": ; preds = %81, %77
   %94 = add i16 %.0, -21
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %95
   %97 = load i16, ptr %96, align 2
   %.not.i11.i = icmp eq i16 %97, %5
   br i1 %.not.i11.i, label %98, label %102
 
 98:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i"
-  %99 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %95, i32 2
+  %99 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %95, i32 2
   %100 = load i8, ptr %99, align 2
   %101 = icmp eq i8 %100, 2
   br i1 %101, label %102, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard11RemoveChainEtE3$_0EEvtRKT_.exit"
 
 102:                                              ; preds = %98, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i"
   %103 = zext i16 %97 to i64
-  %104 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %7, i64 0, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i16, ptr %105, align 4
   %107 = add i16 %106, 1
@@ -3529,7 +3529,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 
 13:                                               ; preds = %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
   %14 = zext i16 %1 to i64
-  %15 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %14, i32 2
+  %15 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %14, i32 2
   %16 = load i8, ptr %15, align 2
   %17 = icmp ne i8 %16, 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 7968
@@ -3540,12 +3540,12 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %23 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %14
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %.idx = mul nuw nsw i64 %25, 12
-  %26 = getelementptr inbounds i8, ptr %22, i64 %.idx
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i16, ptr %27, align 4
   %.not = icmp eq i16 %28, 0
   br i1 %.not, label %29, label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
@@ -3553,16 +3553,16 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 29:                                               ; preds = %21
   %30 = add i16 %1, 21
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31, i32 2
   %33 = load i8, ptr %32, align 2
   %34 = icmp eq i8 %33, %2
   br i1 %34, label %35, label %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i"
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31
+  %36 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %31
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i32
@@ -3579,16 +3579,16 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %50 = phi i1 [ false, %29 ], [ %49, %35 ]
   %51 = add i16 %1, 1
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52, i32 2
   %54 = load i8, ptr %53, align 2
   %55 = icmp eq i8 %54, %2
   br i1 %55, label %56, label %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i"
 
 56:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %57 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52
+  %57 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %52
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i32
@@ -3606,16 +3606,16 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %72 = or i1 %50, %71
   %73 = add i16 %1, -1
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74, i32 2
+  %75 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74, i32 2
   %76 = load i8, ptr %75, align 2
   %77 = icmp eq i8 %76, %2
   br i1 %77, label %78, label %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
 78:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i"
-  %79 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %74
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i16, ptr %83, align 4
   %85 = zext i16 %84 to i32
@@ -3633,16 +3633,16 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %94 = or i1 %72, %93
   %95 = add i16 %1, -21
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %96, i32 2
+  %97 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %96, i32 2
   %98 = load i8, ptr %97, align 2
   %99 = icmp eq i8 %98, %2
   br i1 %99, label %100, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
 
 100:                                              ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i"
-  %101 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %96
+  %101 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %96
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %22, i64 0, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i16, ptr %105, align 4
   %107 = zext i16 %106 to i32
@@ -3685,7 +3685,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %3 = add i16 %0, 21
   %4 = load ptr, ptr %1, align 8
   %5 = zext i16 %3 to i64
-  %6 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %4, i64 0, i64 %5, i32 2
+  %6 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %4, i64 0, i64 %5, i32 2
   %7 = load i8, ptr %6, align 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i8, ptr %8, align 8
@@ -3695,10 +3695,10 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2648
-  %14 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %4, i64 0, i64 %5
+  %14 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %4, i64 0, i64 %5
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %13, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %13, i64 0, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
@@ -3723,7 +3723,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %35 = add i16 %0, 1
   %36 = load ptr, ptr %1, align 8
   %37 = zext i16 %35 to i64
-  %38 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %36, i64 0, i64 %37, i32 2
+  %38 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %36, i64 0, i64 %37, i32 2
   %39 = load i8, ptr %38, align 2
   %40 = load i8, ptr %8, align 8
   %41 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %40)
@@ -3732,10 +3732,10 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
 
 43:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_1clEt.exit"
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 2648
-  %45 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %36, i64 0, i64 %37
+  %45 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %36, i64 0, i64 %37
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i64
-  %48 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %44, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %44, i64 0, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
@@ -3759,7 +3759,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %65 = add i16 %0, -1
   %66 = load ptr, ptr %1, align 8
   %67 = zext i16 %65 to i64
-  %68 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %66, i64 0, i64 %67, i32 2
+  %68 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %66, i64 0, i64 %67, i32 2
   %69 = load i8, ptr %68, align 2
   %70 = load i8, ptr %8, align 8
   %71 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %70)
@@ -3768,10 +3768,10 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
 
 73:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_1clEt.exit7"
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 2648
-  %75 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %66, i64 0, i64 %67
+  %75 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %66, i64 0, i64 %67
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %74, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %74, i64 0, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i16, ptr %79, align 4
   %81 = zext i16 %80 to i32
@@ -3795,7 +3795,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %95 = add i16 %0, -21
   %96 = load ptr, ptr %1, align 8
   %97 = zext i16 %95 to i64
-  %98 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %96, i64 0, i64 %97, i32 2
+  %98 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %96, i64 0, i64 %97, i32 2
   %99 = load i8, ptr %98, align 2
   %100 = load i8, ptr %8, align 8
   %101 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %100)
@@ -3804,10 +3804,10 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
 
 103:                                              ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_1clEt.exit8"
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 2648
-  %105 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %96, i64 0, i64 %97
+  %105 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %96, i64 0, i64 %97
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i64
-  %108 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %104, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Chain"], ptr %104, i64 0, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i16, ptr %109, align 4
   %111 = zext i16 %110 to i32
@@ -3927,13 +3927,13 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
           to label %16 unwind label %17
 
 16:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA11_S9_SB_EEEvRT_RKT0_DpOT1_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   ret void
 
 17:                                               ; preds = %.noexc10, %.noexc9, %.noexc8, %.noexc7, %.noexc, %7, %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciRA13_S9_RA11_S9_SB_EEEvRT_RKT0_DpOT1_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #27
   resume { ptr, i32 } %18
 }
 
@@ -3988,13 +3988,13 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
           to label %26 unwind label %27
 
 26:                                               ; preds = %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciSB_RA47_S9_RA43_S9_RA4_S9_RiRA7_S9_SI_EEEvRT_RKT0_DpOT1_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #27
   ret void
 
 27:                                               ; preds = %.noexc18, %.noexc17, %.noexc16, %.noexc15, %.noexc14, %.noexc13, %.noexc12, %.noexc11, %.noexc, %11, %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA130_cJRA2_KciSB_RA47_S9_RA43_S9_RA4_S9_RiRA7_S9_SI_EEEvRT_RKT0_DpOT1_.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #27
   resume { ptr, i32 } %28
 }
 
@@ -4010,13 +4010,13 @@ define void @_ZN10open_spiel2go7GoBoard8ToStringB5cxx11Ev(ptr dead_on_unwind noa
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #27
   ret void
 
 7:                                                ; preds = %5, %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #26
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #27
   resume { ptr, i32 } %8
 }
 
@@ -4065,7 +4065,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoR
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %switch.lookup ]
   %28 = add nuw nsw i64 %26, %indvars.iv
   %29 = and i64 %28, 65535
-  %30 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %1, i64 0, i64 %29, i32 2
+  %30 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %1, i64 0, i64 %29, i32 2
   %31 = load i8, ptr %30, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -4099,7 +4099,7 @@ _ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit.i: ; preds = %_Z
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 18, ptr %43, align 8
   call void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
           to label %44 unwind label %45
 
 44:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit.i
@@ -4112,7 +4112,7 @@ common.resume:                                    ; preds = %.body, %121, %45
 45:                                               ; preds = %_ZN4absl7debian28AlphaNumC2IN10open_spiel2go7GoColorEvEET_.exit.i
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   br label %common.resume
 
 switch.lookup:                                    ; preds = %27
@@ -4137,7 +4137,7 @@ switch.lookup:                                    ; preds = %27
   br i1 %53, label %.lr.ph43, label %._crit_edge44, !llvm.loop !15
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %2
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #27
   %54 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %109
 
@@ -4152,11 +4152,11 @@ switch.lookup:                                    ; preds = %27
 55:                                               ; preds = %.noexc27
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc27
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #27
   %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.37)
           to label %58 unwind label %111
 
@@ -4175,8 +4175,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %65 unwind label %113
 
 65:                                               ; preds = %63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   %66 = load i32, ptr %14, align 8
   %67 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10open_spiel2go11BoardPointsEi(i32 noundef %66)
           to label %68 unwind label %115
@@ -4192,7 +4192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.sroa.030.046 = phi ptr [ %120, %119 ], [ %69, %68 ]
   %72 = load i16, ptr %.sroa.030.046, align 2
   %73 = zext i16 %72 to i64
-  %74 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %1, i64 0, i64 %73, i32 2
+  %74 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %1, i64 0, i64 %73, i32 2
   %75 = load i8, ptr %74, align 2
   %76 = icmp eq i8 %75, 2
   br i1 %76, label %119, label %77
@@ -4204,26 +4204,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %79, label %80, label %85, !prof !4
 
 80:                                               ; preds = %77
-  %81 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #26, !noalias !16
+  %81 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #27, !noalias !16
   %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %85, label %82
 
 82:                                               ; preds = %80
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26, !noalias !16
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27, !noalias !16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11, ptr noundef nonnull @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %83 unwind label %102, !noalias !16
 
 83:                                               ; preds = %82
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26, !noalias !16
-  %84 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11, ptr nonnull @__dso_handle) #26, !noalias !16
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #26, !noalias !16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27, !noalias !16
+  %84 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11, ptr nonnull @__dso_handle) #27, !noalias !16
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #27, !noalias !16
   br label %85
 
 85:                                               ; preds = %83, %80, %77
   %86 = zext i8 %75 to i16
   %87 = shl i16 %72, 1
   %88 = or i16 %87, %86
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   %89 = zext i16 %88 to i32
   %90 = lshr i32 %89, 5
   %91 = and i32 %90, 31
@@ -4250,14 +4250,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 102:                                              ; preds = %82
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26, !noalias !16
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #26, !noalias !16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27, !noalias !16
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN10open_spiel2go12_GLOBAL__N_111MoveAsAsciiB5cxx11EtNS0_7GoColorEE4codeB5cxx11) #27, !noalias !16
   br label %.body28
 
 104:                                              ; preds = %100, %96, %94, %85
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   br label %.body28
 
 106:                                              ; preds = %100
@@ -4266,7 +4266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %108 unwind label %117
 
 108:                                              ; preds = %106
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   br label %119
 
 109:                                              ; preds = %.noexc, %._crit_edge44
@@ -4276,7 +4276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %55, %109
   %eh.lpad-body = phi { ptr, i32 } [ %110, %109 ], [ %56, %55 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #27
   br label %common.resume
 
 111:                                              ; preds = %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -4287,7 +4287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 113:                                              ; preds = %63, %61
   %114 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
   br label %121
 
 115:                                              ; preds = %65
@@ -4298,27 +4298,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 117:                                              ; preds = %106
   %118 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   br label %.body28
 
 119:                                              ; preds = %.lr.ph48, %108
-  %120 = getelementptr inbounds i8, ptr %.sroa.030.046, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.030.046, i64 2
   %.not = icmp eq ptr %120, %71
   br i1 %.not, label %._crit_edge49, label %.lr.ph48
 
 ._crit_edge49:                                    ; preds = %119, %68
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   ret ptr %0
 
 .body28:                                          ; preds = %115, %104, %102, %117
   %.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ], [ %105, %104 ], [ %103, %102 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   br label %121
 
 121:                                              ; preds = %.body28, %113, %111
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body28 ], [ %114, %113 ], [ %112, %111 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   br label %common.resume
 }
 
@@ -4369,7 +4369,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %11 = phi i16 [ %.pre, %.lr.ph ], [ %100, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit" ]
   %12 = phi i32 [ %4, %.lr.ph ], [ %.pr, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit" ]
   %13 = zext i16 %11 to i64
-  %14 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %.critedge, label %17
@@ -4378,17 +4378,17 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %18 = add i16 %11, 21
   %19 = load ptr, ptr %0, align 8
   %20 = zext i16 %18 to i64
-  %21 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %19, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %19, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %19, i64 0, i64 %23, i32 2
   %25 = load i8, ptr %24, align 2
   %26 = load i8, ptr %8, align 4
   %27 = icmp eq i8 %25, %26
   br i1 %27, label %28, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %23
+  %29 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %23
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit.i", label %32
@@ -4409,16 +4409,16 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %37 = phi ptr [ %19, %17 ], [ %19, %28 ], [ %.pre.i, %32 ]
   %38 = add i16 %11, 1
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %37, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %37, i64 0, i64 %42, i32 2
+  %43 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %37, i64 0, i64 %42, i32 2
   %44 = load i8, ptr %43, align 2
   %45 = icmp eq i8 %44, %36
   br i1 %45, label %46, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
 
 46:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
-  %47 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %42
+  %47 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %42
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
   br i1 %49, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i", label %50
@@ -4440,16 +4440,16 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %56 = phi ptr [ %37, %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit.i" ], [ %37, %46 ], [ %.pre2.i, %50 ]
   %57 = add i16 %11, -1
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %56, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %56, i64 0, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
-  %62 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %56, i64 0, i64 %61, i32 2
+  %62 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %56, i64 0, i64 %61, i32 2
   %63 = load i8, ptr %62, align 2
   %64 = icmp eq i8 %63, %55
   br i1 %64, label %65, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i"
 
 65:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
-  %66 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %61
+  %66 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %61
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i", label %69
@@ -4471,16 +4471,16 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %75 = phi ptr [ %56, %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i" ], [ %56, %65 ], [ %.pre4.i, %69 ]
   %76 = add i16 %11, -21
   %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %75, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %75, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %75, i64 0, i64 %80, i32 2
+  %81 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %75, i64 0, i64 %80, i32 2
   %82 = load i8, ptr %81, align 2
   %83 = icmp eq i8 %82, %74
   br i1 %83, label %84, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit"
 
 84:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i"
-  %85 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %80
+  %85 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %80
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   br i1 %87, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit", label %88
@@ -4500,11 +4500,11 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr nocapture noundef n
   %93 = phi ptr [ %75, %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i" ], [ %75, %84 ], [ %.pre2, %88 ]
   %94 = load i16, ptr %7, align 2
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %95
   store i8 1, ptr %96, align 1
   %97 = load i16, ptr %7, align 2
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %93, i64 0, i64 %98, i32 1
+  %99 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %93, i64 0, i64 %98, i32 1
   %100 = load i16, ptr %99, align 2
   store i16 %100, ptr %7, align 2
   %.pr = load i32, ptr %2, align 4
@@ -4520,7 +4520,7 @@ define noundef i32 @_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5
   %6 = alloca i32, align 4
   %7 = alloca %class.anon.33, align 8
   %8 = zext i16 %1 to i64
-  %9 = getelementptr inbounds [441 x i8], ptr %2, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [441 x i8], ptr %2, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %22, label %12
@@ -4584,7 +4584,7 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   %.sroa.026.032 = phi ptr [ %14, %.lr.ph ], [ %55, %.thread ]
   %22 = load i16, ptr %.sroa.026.032, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %23, i32 2
+  %24 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %23, i32 2
   %25 = load i8, ptr %24, align 2
   switch i8 %25, label %.thread [
     i8 0, label %26
@@ -4602,7 +4602,7 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   br label %.thread
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %23
+  %31 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %23
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %.thread, label %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit
@@ -4647,12 +4647,12 @@ _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.
   br label %.thread
 
 47:                                               ; preds = %21
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %48 unwind label %50
 
 48:                                               ; preds = %47
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
           to label %49 unwind label %52
 
 49:                                               ; preds = %48
@@ -4666,17 +4666,17 @@ _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.
 52:                                               ; preds = %48
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
   br label %54
 
 54:                                               ; preds = %52, %50
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %43, %45, %21, %26, %28, %30
   %.1 = phi i32 [ %.02333, %21 ], [ %.02333, %30 ], [ %29, %28 ], [ %27, %26 ], [ %spec.select, %45 ], [ %spec.select29, %43 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.026.032, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 2
   %.not = icmp eq ptr %55, %16
   br i1 %.not, label %._crit_edge.loopexit, label %21
 
@@ -4701,8 +4701,8 @@ define void @_ZN10open_spiel2go11CreateBoardERKNSt7__cxx1112basic_stringIcSt11ch
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN10open_spiel2go7GoBoardC1Ei(ptr noundef nonnull align 8 dereferenceable(7970) %0, i32 noundef 19)
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
   %9 = icmp sgt i64 %8, -1
   br i1 %9, label %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %10
 
@@ -4712,7 +4712,7 @@ define void @_ZN10open_spiel2go11CreateBoardERKNSt7__cxx1112basic_stringIcSt11ch
 
 _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
   store ptr %7, ptr %3, align 8, !alias.scope !20
-  %.sroa.2.0..sroa_idx.i1.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i1.i, align 8, !alias.scope !20
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 10, ptr %11, align 8, !alias.scope !20
@@ -4736,7 +4736,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   %19 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr nonnull %7, i64 %8, i64 noundef 0)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds i8, ptr %7, i64 %8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %23 = icmp eq ptr %20, %22
   br i1 %23, label %24, label %25
 
@@ -4750,7 +4750,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   br i1 %27, label %28, label %_ZNK4absl7debian211string_view6substrEmm.exit.i.i.i
 
 28:                                               ; preds = %25
-  call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.48) #27
+  call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.48) #28
   unreachable
 
 _ZNK4absl7debian211string_view6substrEmm.exit.i.i.i: ; preds = %25
@@ -4761,7 +4761,7 @@ _ZNK4absl7debian211string_view6substrEmm.exit.i.i.i: ; preds = %25
   %33 = sub nuw nsw i64 %8, %26
   %34 = call noundef i64 @llvm.umin.i64(i64 %32, i64 %33)
   store ptr %29, ptr %13, align 8, !alias.scope !23
-  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %34, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !alias.scope !23
   %35 = add i64 %26, %21
   %36 = add i64 %35, %34
@@ -4780,7 +4780,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
   br i1 %.not3.i43, label %.lr.ph45, label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %41
 
 41:                                               ; preds = %.lr.ph45, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit
@@ -4813,12 +4813,12 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
   br i1 %.01742, label %51, label %64
 
 51:                                               ; preds = %50
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %52 unwind label %54
 
 52:                                               ; preds = %51
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
           to label %53 unwind label %56
 
 53:                                               ; preds = %52
@@ -4832,12 +4832,12 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 56:                                               ; preds = %52
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   br label %58
 
 58:                                               ; preds = %56, %54
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #27
   resume { ptr, i32 } %.pn
 
 59:                                               ; preds = %48
@@ -4858,7 +4858,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 64:                                               ; preds = %50, %62
   %.1 = phi i32 [ %63, %62 ], [ %.03840, %50 ]
   %.118 = phi i1 [ %.2, %62 ], [ false, %50 ]
-  %65 = getelementptr inbounds i8, ptr %.01941, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.01941, i64 1
   %.not = icmp eq ptr %65, %45
   br i1 %.not, label %._crit_edge.loopexit, label %48
 
@@ -4880,7 +4880,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 70:                                               ; preds = %._crit_edge
   %71 = load ptr, ptr %14, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %71, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %71, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %72 = load i64, ptr %4, align 8
   %73 = call { ptr, i64 } @_ZNK4absl7debian26ByChar4FindENS0_11string_viewEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 noundef %72)
@@ -4901,7 +4901,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %79
-  call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.48) #27
+  call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.48) #28
   unreachable
 
 84:                                               ; preds = %79
@@ -4966,11 +4966,11 @@ define linkonce_odr void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTable
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #30
   br label %_ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %12, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -4989,7 +4989,7 @@ _ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaI
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub i64 %17, %18
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #30
   br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN10open_spiel12chess_common12ZobristTableImLm2EJEEES3_EvT_S5_RSaIT0_E.exit, %14
@@ -4998,8 +4998,8 @@ _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EED
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
-  tail call void @_ZSt9terminatev() #30
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
@@ -5054,7 +5054,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #30
+  tail call void @__clang_call_terminate(ptr %17) #31
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -5063,7 +5063,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #27
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -5075,7 +5075,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #27
   resume { ptr, i32 } %23
 }
 
@@ -5109,7 +5109,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #30
+  tail call void @__clang_call_terminate(ptr %7) #31
   unreachable
 }
 
@@ -5126,14 +5126,14 @@ define internal fastcc void @_ZN10open_spiel2go12_GLOBAL__N_115MakeBoardPointsEi
 
 _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i: ; preds = %2
   %6 = shl nuw nsw i64 %4, 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #28
+  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #29
           to label %_ZNSt6vectorItSaItEE7reserveEm.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %0, align 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i16, ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %4
   store ptr %9, ptr %5, align 8
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge17
@@ -5143,8 +5143,8 @@ _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
-  %.promoted.us = phi ptr [ %7, %.preheader.lr.ph ], [ %43, %._crit_edge.us ]
-  %storemerge16.us = phi i32 [ 0, %.preheader.lr.ph ], [ %45, %._crit_edge.us ]
+  %.promoted.us = phi ptr [ %7, %.preheader.lr.ph ], [ %40, %._crit_edge.us ]
+  %storemerge16.us = phi i32 [ 0, %.preheader.lr.ph ], [ %42, %._crit_edge.us ]
   %.sroa.0.0.extract.trunc.i.us = trunc i32 %storemerge16.us to i16
   %12 = mul i16 %.sroa.0.0.extract.trunc.i.us, 21
   %13 = add i16 %12, 22
@@ -5152,9 +5152,9 @@ _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %14
 
 14:                                               ; preds = %.preheader.us, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us
-  %15 = phi ptr [ %.promoted15.us, %.preheader.us ], [ %42, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
-  %16 = phi ptr [ %.promoted.us, %.preheader.us ], [ %43, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
-  %storemerge614.us = phi i32 [ 0, %.preheader.us ], [ %44, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
+  %15 = phi ptr [ %.promoted15.us, %.preheader.us ], [ %39, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
+  %16 = phi ptr [ %.promoted.us, %.preheader.us ], [ %40, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
+  %storemerge614.us = phi i32 [ 0, %.preheader.us ], [ %41, %_ZNSt6vectorItSaItEE9push_backEOt.exit.us ]
   %.sroa.2.0.extract.trunc.i.us = trunc i32 %storemerge614.us to i16
   %17 = add i16 %13, %.sroa.2.0.extract.trunc.i.us
   %.not.i.i.us = icmp eq ptr %16, %15
@@ -5162,7 +5162,7 @@ _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 
 18:                                               ; preds = %14
   store i16 %17, ptr %16, align 2
-  %19 = getelementptr inbounds i8, ptr %16, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store ptr %19, ptr %11, align 8
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit.us
 
@@ -5181,87 +5181,83 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us: ; preds = %20
   %28 = icmp ult i64 %27, %26
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 4611686018427387903)
   %30 = select i1 %28, i64 4611686018427387903, i64 %29
-  %.not.i.i.i.i.us = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i.us, label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i.i.us, label %31
+  %.not.i.i.i.i.us = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.us)
+  %31 = shl nuw nsw i64 %30, 1
+  %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #29
+          to label %.noexc8.us unwind label %.loopexit.split.us
 
-31:                                               ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us
-  %32 = shl nuw nsw i64 %30, 1
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #28
-          to label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i.i.us unwind label %.loopexit.split.us
+.noexc8.us:                                       ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us
+  %33 = getelementptr inbounds i8, ptr %32, i64 %24
+  store i16 %17, ptr %33, align 2
+  %34 = icmp sgt i64 %24, 0
+  br i1 %34, label %35, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
 
-_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i.i.us: ; preds = %31, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us
-  %34 = phi ptr [ null, %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us ], [ %33, %31 ]
-  %35 = getelementptr inbounds i16, ptr %34, i64 %26
-  store i16 %17, ptr %35, align 2
-  %36 = icmp sgt i64 %24, 0
-  br i1 %36, label %37, label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
-
-37:                                               ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %34, ptr align 2 %21, i64 %24, i1 false)
+35:                                               ; preds = %.noexc8.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %32, ptr align 2 %21, i64 %24, i1 false)
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
 
-_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us: ; preds = %37, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i.i.us
-  %38 = getelementptr inbounds i8, ptr %34, i64 %24
-  %39 = getelementptr inbounds i8, ptr %38, i64 2
+_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us: ; preds = %35, %.noexc8.us
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %.not.i17.i.i.i.us = icmp eq ptr %21, null
-  br i1 %.not.i17.i.i.i.us, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us, label %40
+  br i1 %.not.i17.i.i.i.us, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us, label %37
 
-40:                                               ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #29
+37:                                               ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #30
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us
 
-_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us: ; preds = %40, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
-  store ptr %34, ptr %0, align 8
-  store ptr %39, ptr %11, align 8
-  %41 = getelementptr inbounds i16, ptr %34, i64 %30
-  store ptr %41, ptr %5, align 8
+_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us: ; preds = %37, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
+  store ptr %32, ptr %0, align 8
+  store ptr %36, ptr %11, align 8
+  %38 = getelementptr inbounds nuw i16, ptr %32, i64 %30
+  store ptr %38, ptr %5, align 8
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit.us
 
 _ZNSt6vectorItSaItEE9push_backEOt.exit.us:        ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us, %18
-  %42 = phi ptr [ %41, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us ], [ %15, %18 ]
-  %43 = phi ptr [ %39, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us ], [ %19, %18 ]
-  %44 = add nuw nsw i32 %storemerge614.us, 1
-  %exitcond.not = icmp eq i32 %44, %1
+  %39 = phi ptr [ %38, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us ], [ %15, %18 ]
+  %40 = phi ptr [ %36, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us ], [ %19, %18 ]
+  %41 = add nuw nsw i32 %storemerge614.us, 1
+  %exitcond.not = icmp eq i32 %41, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %_ZNSt6vectorItSaItEE9push_backEOt.exit.us
-  %45 = add nuw nsw i32 %storemerge16.us, 1
-  %exitcond18.not = icmp eq i32 %45, %1
+  %42 = add nuw nsw i32 %storemerge16.us, 1
+  %exitcond18.not = icmp eq i32 %42, %1
   br i1 %exitcond18.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !31
 
-.loopexit.split.us:                               ; preds = %31
+.loopexit.split.us:                               ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %44
 
 .split.us:                                        ; preds = %20
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #27
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #28
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %.split.us
   unreachable
 
 .loopexit.split-lp:                               ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i, %.split.us
-  %46 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i ], [ %21, %.split.us ]
+  %43 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i ], [ %21, %.split.us ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %44
 
-47:                                               ; preds = %.loopexit.split-lp, %.loopexit.split.us
-  %48 = phi ptr [ %21, %.loopexit.split.us ], [ %46, %.loopexit.split-lp ]
+44:                                               ; preds = %.loopexit.split-lp, %.loopexit.split.us
+  %45 = phi ptr [ %21, %.loopexit.split.us ], [ %43, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %49
+  %.not.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %46
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %5, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %48 to i64
-  %53 = sub i64 %51, %52
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #29
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %5, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = ptrtoint ptr %45 to i64
+  %50 = sub i64 %48, %49
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %50) #30
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %47, %49
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %44, %46
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %2, %_ZNSt6vectorItSaItEE7reserveEm.exit
@@ -5280,7 +5276,7 @@ define linkonce_odr void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 d
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #30
   br label %_ZNSt12_Vector_baseItSaItEED2Ev.exit
 
 _ZNSt12_Vector_baseItSaItEED2Ev.exit:             ; preds = %1, %3
@@ -5317,9 +5313,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %9 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+  %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5335,7 +5331,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %17 = xor i64 %16, %15
   %18 = mul i64 %17, 6364136223846793005
   %19 = add i64 %18, %.011.i.i.i.i.i
-  %20 = getelementptr inbounds [312 x i64], ptr %3, i64 0, i64 %.011.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [312 x i64], ptr %3, i64 0, i64 %.011.i.i.i.i.i
   store i64 %19, ptr %20, align 8
   %21 = add nuw nsw i64 %.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %21, 312
@@ -5352,7 +5348,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
           to label %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i unwind label %26
 
 _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %24
-  %.sroa.010.0.ptr15.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.sroa.010.0.idx14.i.i.i
+  %.sroa.010.0.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.010.0.idx14.i.i.i
   store i64 %25, ptr %.sroa.010.0.ptr15.i.i.i, align 8
   %.sroa.010.0.add.i.i.i = add nuw nsw i64 %.sroa.010.0.idx14.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.sroa.010.0.add.i.i.i, 16
@@ -5370,7 +5366,7 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %28 to i64
   %33 = sub i64 %31, %32
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %33) #29
+  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %33) #30
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %29, %26
@@ -5379,7 +5375,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %29, %26
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %35, ptr %4, align 8
   br label %37
 
@@ -5407,7 +5403,7 @@ define linkonce_odr void @_ZNSt6vectorIN10open_spiel12chess_common12ZobristTable
   br i1 %11, label %12, label %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit
 
 12:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #28
   unreachable
 
 _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -5419,184 +5415,176 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_ch
   %17 = select i1 %15, i64 384307168202282325, i64 %16
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %18, %9
-  %20 = sdiv exact i64 %19, 24
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit, label %21
-
-21:                                               ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit
-  %22 = mul nuw nsw i64 %17, 24
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #28
-  br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit, %21
-  %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %25 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.13", ptr %24, i64 %20
-  %26 = load i64, ptr %2, align 8
+  %.not.i = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %20 = mul nuw nsw i64 %17, 24
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #29
+  %22 = getelementptr inbounds i8, ptr %21, i64 %19
+  %23 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %27 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %.noexc unwind label %77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  %24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
+          to label %.noexc unwind label %74
 
-.noexc:                                           ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  store ptr %28, ptr %30, align 8
-  store i64 %26, ptr %4, align 8
-  br label %31
+.noexc:                                           ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit
+  store ptr %24, ptr %22, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  store ptr %25, ptr %27, align 8
+  store i64 %23, ptr %4, align 8
+  br label %28
 
-31:                                               ; preds = %31, %.noexc
-  %32 = phi i64 [ %26, %.noexc ], [ %36, %31 ]
-  %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %38, %31 ]
-  %33 = lshr i64 %32, 62
-  %34 = xor i64 %33, %32
-  %35 = mul i64 %34, 6364136223846793005
-  %36 = add i64 %35, %.011.i.i.i.i.i
-  %37 = getelementptr inbounds [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
-  store i64 %36, ptr %37, align 8
-  %38 = add nuw nsw i64 %.011.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %38, 312
-  br i1 %exitcond.not.i.i.i.i.i, label %39, label %31, !llvm.loop !10
+28:                                               ; preds = %28, %.noexc
+  %29 = phi i64 [ %23, %.noexc ], [ %33, %28 ]
+  %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %35, %28 ]
+  %30 = lshr i64 %29, 62
+  %31 = xor i64 %30, %29
+  %32 = mul i64 %31, 6364136223846793005
+  %33 = add i64 %32, %.011.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [312 x i64], ptr %4, i64 0, i64 %.011.i.i.i.i.i
+  store i64 %33, ptr %34, align 8
+  %35 = add nuw nsw i64 %.011.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %35, 312
+  br i1 %exitcond.not.i.i.i.i.i, label %36, label %28, !llvm.loop !10
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 2496
-  store i64 312, ptr %40, align 8
-  br label %41
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 2496
+  store i64 312, ptr %37, align 8
+  br label %38
 
-41:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %39
-  %.sroa.010.0.idx14.i.i.i = phi i64 [ 0, %39 ], [ %.sroa.010.0.add.i.i.i, %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i ]
-  %42 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
-          to label %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i unwind label %43
+38:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i, %36
+  %.sroa.010.0.idx14.i.i.i = phi i64 [ 0, %36 ], [ %.sroa.010.0.add.i.i.i, %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i ]
+  %39 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
+          to label %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i unwind label %40
 
-_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %41
-  %.sroa.010.0.ptr15.i.i.i = getelementptr inbounds i8, ptr %27, i64 %.sroa.010.0.idx14.i.i.i
-  store i64 %42, ptr %.sroa.010.0.ptr15.i.i.i, align 8
+_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i: ; preds = %38
+  %.sroa.010.0.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.010.0.idx14.i.i.i
+  store i64 %39, ptr %.sroa.010.0.ptr15.i.i.i, align 8
   %.sroa.010.0.add.i.i.i = add nuw nsw i64 %.sroa.010.0.idx14.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.sroa.010.0.add.i.i.i, 16
-  br i1 %.not.i.i.i, label %51, label %41
+  br i1 %.not.i.i.i, label %48, label %38
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i.i.i, label %81, label %46
+  %42 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i, label %78, label %43
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %29, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = ptrtoint ptr %45 to i64
-  %50 = sub i64 %48, %49
-  call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %50) #29
-  br label %81
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %26, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %42 to i64
+  %47 = sub i64 %45, %46
+  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %47) #30
+  br label %78
 
-51:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
+48:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %51, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i ], [ %24, %51 ]
-  %.0911.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i ], [ %7, %51 ]
+.lr.ph.i.i.i:                                     ; preds = %48, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i ], [ %21, %48 ]
+  %.0911.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i ], [ %7, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %52 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
-  store ptr %52, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
-  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %49 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
+  store ptr %49, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %52 = load ptr, ptr %51, align 8, !alias.scope !35, !noalias !32
+  store ptr %52, ptr %50, align 8, !alias.scope !32, !noalias !35
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %55 = load ptr, ptr %54, align 8, !alias.scope !35, !noalias !32
   store ptr %55, ptr %53, align 8, !alias.scope !32, !noalias !35
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %58 = load ptr, ptr %57, align 8, !alias.scope !35, !noalias !32
-  store ptr %58, ptr %56, align 8, !alias.scope !32, !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
-  %59 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i26 = icmp eq ptr %59, %1
+  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i26 = icmp eq ptr %56, %1
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
-_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %51
-  %.0.lcssa.i.i.i = phi ptr [ %24, %51 ], [ %60, %.lr.ph.i.i.i ]
-  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %48
+  %.0.lcssa.i.i.i = phi ptr [ %21, %48 ], [ %57, %.lr.ph.i.i.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i28
-  %.012.i.i.i29 = phi ptr [ %70, %.lr.ph.i.i.i28 ], [ %61, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i30 = phi ptr [ %69, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i29 = phi ptr [ %67, %.lr.ph.i.i.i28 ], [ %58, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i30 = phi ptr [ %66, %.lr.ph.i.i.i28 ], [ %1, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %62 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !41, !noalias !38
-  store ptr %62, ptr %.012.i.i.i29, align 8, !alias.scope !38, !noalias !41
-  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
+  %59 = load ptr, ptr %.0911.i.i.i30, align 8, !alias.scope !41, !noalias !38
+  store ptr %59, ptr %.012.i.i.i29, align 8, !alias.scope !38, !noalias !41
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
+  %62 = load ptr, ptr %61, align 8, !alias.scope !41, !noalias !38
+  store ptr %62, ptr %60, align 8, !alias.scope !38, !noalias !41
+  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %65 = load ptr, ptr %64, align 8, !alias.scope !41, !noalias !38
   store ptr %65, ptr %63, align 8, !alias.scope !38, !noalias !41
-  %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
-  %68 = load ptr, ptr %67, align 8, !alias.scope !41, !noalias !38
-  store ptr %68, ptr %66, align 8, !alias.scope !38, !noalias !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i30, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
-  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 24
-  %70 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 24
-  %.not.i.i.i31 = icmp eq ptr %69, %6
+  %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 24
+  %.not.i.i.i31 = icmp eq ptr %66, %6
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i28, !llvm.loop !37
 
 _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33: ; preds = %.lr.ph.i.i.i28, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i32 = phi ptr [ %61, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %70, %.lr.ph.i.i.i28 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i32 = phi ptr [ %58, %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %67, %.lr.ph.i.i.i28 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i34 = icmp eq ptr %7, null
-  br i1 %.not.i34, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %72
+  br i1 %.not.i34, label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %69
 
-72:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33
-  %73 = load ptr, ptr %71, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %9
-  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %75) #29
+69:                                               ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33
+  %70 = load ptr, ptr %68, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = sub i64 %71, %9
+  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %72) #30
   br label %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %72
-  store ptr %24, ptr %0, align 8
+_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %69
+  store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %76 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.13", ptr %24, i64 %17
-  store ptr %76, ptr %71, align 8
+  %73 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %21, i64 %17
+  store ptr %73, ptr %68, align 8
   ret void
 
-77:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_M_allocateEm.exit
-  %78 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_check_lenEmPKc.exit
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  br label %81
+  br label %78
 
-79:                                               ; preds = %81
-  %80 = landingpad { ptr, i32 }
+76:                                               ; preds = %78
+  %77 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %85 unwind label %86
+          to label %81 unwind label %82
 
-81:                                               ; preds = %77, %46, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %78, %77 ], [ %44, %46 ], [ %44, %43 ]
-  %82 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %83 = call ptr @__cxa_begin_catch(ptr %82) #26
-  %84 = mul nuw nsw i64 %17, 24
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %84) #29
-  invoke void @__cxa_rethrow() #27
-          to label %89 unwind label %79
+78:                                               ; preds = %74, %43, %40
+  %eh.lpad-body = phi { ptr, i32 } [ %75, %74 ], [ %41, %43 ], [ %41, %40 ]
+  %79 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %80 = call ptr @__cxa_begin_catch(ptr %79) #27
+  call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #30
+  invoke void @__cxa_rethrow() #28
+          to label %85 unwind label %76
 
-85:                                               ; preds = %79
-  resume { ptr, i32 } %80
+81:                                               ; preds = %76
+  resume { ptr, i32 } %77
 
-86:                                               ; preds = %79
-  %87 = landingpad { ptr, i32 }
+82:                                               ; preds = %76
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #30
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #31
   unreachable
 
-89:                                               ; preds = %81
+85:                                               ; preds = %78
   unreachable
 }
 
@@ -5618,15 +5606,15 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
   %15 = add nuw nsw i64 %.021.i, 156
-  %16 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = lshr exact i64 %14, 1
   %19 = xor i64 %18, %17
@@ -5639,17 +5627,17 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   br i1 %exitcond.not.i, label %.preheader.preheader.i, label %6, !llvm.loop !43
 
 .preheader.preheader.i:                           ; preds = %6
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 1248
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %.pre24.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %23 = phi i64 [ %28, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %26, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %24 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %.01822.i
+  %24 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.01822.i
   %25 = and i64 %23, -2147483648
   %26 = add nuw nsw i64 %.01822.i, 1
-  %27 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2147483646
   %30 = or disjoint i64 %29, %25
@@ -5667,13 +5655,13 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
   br i1 %exitcond23.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit, label %.preheader.i, !llvm.loop !44
 
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit: ; preds = %.preheader.i
-  %39 = getelementptr inbounds i8, ptr %0, i64 2488
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, -2147483648
   %42 = load i64, ptr %0, align 8
   %43 = and i64 %42, 2147483646
   %44 = or disjoint i64 %43, %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 1240
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %46 = load i64, ptr %45, align 8
   %47 = lshr exact i64 %44, 1
   %48 = xor i64 %47, %46
@@ -5688,7 +5676,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %53 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %54 = add nuw nsw i64 %53, 1
   store i64 %54, ptr %2, align 8
-  %55 = getelementptr inbounds [312 x i64], ptr %0, i64 0, i64 %53
+  %55 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %53
   %56 = load i64, ptr %55, align 8
   %57 = lshr i64 %56, 29
   %58 = and i64 %57, 22906492245
@@ -5710,7 +5698,7 @@ define internal fastcc void @"_ZZN10open_spiel2go19NumSurroundedPointsERKNS0_7Go
   %4 = alloca %class.anon.33, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = zext i16 %1 to i64
-  %7 = getelementptr inbounds [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %5, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %5, i64 0, i64 %6, i32 2
   %8 = load i8, ptr %7, align 2
   switch i8 %8, label %39 [
     i8 0, label %9
@@ -5739,7 +5727,7 @@ define internal fastcc void @"_ZZN10open_spiel2go19NumSurroundedPointsERKNS0_7Go
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %22 = getelementptr inbounds [441 x i8], ptr %17, i64 0, i64 %6
+  %22 = getelementptr inbounds nuw [441 x i8], ptr %17, i64 0, i64 %6
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit, label %25
@@ -5790,7 +5778,7 @@ declare void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr nounde
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_go_board.cc() #21 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
 
@@ -5803,17 +5791,20 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5839,13 +5830,14 @@ attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { builtin allocsize(0) }
-attributes #29 = { builtin nounwind }
-attributes #30 = { noreturn nounwind }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn }
+attributes #29 = { builtin allocsize(0) }
+attributes #30 = { builtin nounwind }
+attributes #31 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

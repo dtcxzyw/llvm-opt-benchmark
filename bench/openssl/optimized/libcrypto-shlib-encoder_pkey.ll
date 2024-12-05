@@ -23,9 +23,9 @@ entry:
   %tmp2 = alloca %struct.ossl_param_st, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str, ptr noundef %cipher_name, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.1, ptr noundef %propquery, i64 noundef 0) #5
-  %0 = getelementptr inbounds i8, ptr %params, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %call = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %ctx, ptr noundef nonnull %params) #5
@@ -45,7 +45,7 @@ declare i32 @OSSL_ENCODER_CTX_set_params(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef %ctx, ptr noundef %kstr, i64 noundef %klen) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_passphrase(ptr noundef nonnull %pwdata, ptr noundef %kstr, i64 noundef %klen) #5
   ret i32 %call
 }
@@ -55,7 +55,7 @@ declare i32 @ossl_pw_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_ENCODER_CTX_set_passphrase_ui(ptr noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_ui_method(ptr noundef nonnull %pwdata, ptr noundef %ui_method, ptr noundef %ui_data) #5
   ret i32 %call
 }
@@ -65,7 +65,7 @@ declare i32 @ossl_pw_set_ui_method(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_ENCODER_CTX_set_pem_password_cb(ptr noundef %ctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_pem_password_cb(ptr noundef nonnull %pwdata, ptr noundef %cb, ptr noundef %cbarg) #5
   ret i32 %call
 }
@@ -75,7 +75,7 @@ declare i32 @ossl_pw_set_pem_password_cb(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_ENCODER_CTX_set_passphrase_cb(ptr noundef %ctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata, ptr noundef %cb, ptr noundef %cbarg) #5
   ret i32 %call
 }
@@ -100,13 +100,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %lor.lhs.false, label %if.end5
 
 lor.lhs.false:                                    ; preds = %if.end
-  %keydata = getelementptr inbounds i8, ptr %pkey, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %pkey, i64 104
   %1 = load ptr, ptr %keydata, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.then4, label %if.end5
@@ -129,7 +129,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %pkey, i64 96
   %2 = load ptr, ptr %keymgmt, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %do.body, label %if.then10
@@ -191,7 +191,7 @@ if.then34.i:                                      ; preds = %if.end29.i
   br label %if.end35.critedge
 
 if.end35.i:                                       ; preds = %if.end29.i
-  %error_occurred.i = getelementptr inbounds i8, ptr %keymgmt_data.i, i64 8
+  %error_occurred.i = getelementptr inbounds nuw i8, ptr %keymgmt_data.i, i64 8
   store i8 0, ptr %error_occurred.i, align 8
   %4 = load ptr, ptr %keymgmt, align 8
   %call37.i = call i32 @EVP_KEYMGMT_names_do_all(ptr noundef %4, ptr noundef nonnull @collect_name, ptr noundef nonnull %keymgmt_data.i) #5
@@ -207,21 +207,21 @@ if.then42.i:                                      ; preds = %if.end35.i
 
 if.end45.i:                                       ; preds = %if.end35.i
   store ptr %5, ptr %encoder_data.i, align 8
-  %output_type.i = getelementptr inbounds i8, ptr %call, i64 8
+  %output_type.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %6 = load ptr, ptr %output_type.i, align 8
-  %output_type48.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 24
+  %output_type48.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 24
   store ptr %6, ptr %output_type48.i, align 8
-  %output_structure.i = getelementptr inbounds i8, ptr %call, i64 16
+  %output_structure.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %7 = load ptr, ptr %output_structure.i, align 8
-  %output_structure49.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 16
+  %output_structure49.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 16
   store ptr %7, ptr %output_structure49.i, align 8
-  %error_occurred50.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 52
+  %error_occurred50.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 52
   store i32 0, ptr %error_occurred50.i, align 4
-  %keymgmt_prov.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 32
+  %keymgmt_prov.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 32
   store ptr %call.i, ptr %keymgmt_prov.i, align 8
-  %ctx51.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 40
+  %ctx51.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 40
   store ptr %call, ptr %ctx51.i, align 8
-  %id_names.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 8
+  %id_names.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 8
   store ptr null, ptr %id_names.i, align 8
   %call52.i = call ptr @ossl_namemap_stored(ptr noundef %call19.i) #5
   %call55.i = call i32 @OPENSSL_sk_num(ptr noundef %5) #5
@@ -247,14 +247,14 @@ for.body.i:                                       ; preds = %if.then58.i, %for.b
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call73.i = call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %10) #5
   %call74.i = call i32 @ossl_namemap_name2num(ptr noundef %call52.i, ptr noundef %call73.i) #5
-  %arrayidx.i = getelementptr inbounds i32, ptr %call60.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %call60.i, i64 %indvars.iv.i
   store i32 %call74.i, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv59.i
   br i1 %exitcond.not.i, label %if.end76.i, label %for.body.i, !llvm.loop !4
 
 if.end76.i:                                       ; preds = %for.body.i, %if.end45.i
-  %flag_find_same_provider.i = getelementptr inbounds i8, ptr %encoder_data.i, i64 48
+  %flag_find_same_provider.i = getelementptr inbounds nuw i8, ptr %encoder_data.i, i64 48
   store i8 0, ptr %flag_find_same_provider.i, align 8
   call void @OSSL_ENCODER_do_all_provided(ptr noundef %call19.i, ptr noundef nonnull @collect_encoder, ptr noundef nonnull %encoder_data.i) #5
   %bf.load81.i = load i8, ptr %flag_find_same_provider.i, align 8
@@ -291,7 +291,7 @@ lor.lhs.false103.i:                               ; preds = %lor.lhs.false100.i
 
 if.end107.i:                                      ; preds = %lor.lhs.false103.i
   store ptr %pkey, ptr %call25.i, align 8
-  %selection108.i = getelementptr inbounds i8, ptr %call25.i, i64 8
+  %selection108.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 8
   store i32 %selection, ptr %selection108.i, align 8
   br label %land.lhs.true26
 
@@ -314,11 +314,11 @@ land.lhs.true26:                                  ; preds = %land.lhs.true23, %i
   br i1 %tobool28.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true26
-  %save_parameters30 = getelementptr inbounds i8, ptr %pkey, i64 72
+  %save_parameters30 = getelementptr inbounds nuw i8, ptr %pkey, i64 72
   %14 = load i32, ptr %save_parameters30, align 8
   store i32 %14, ptr %save_parameters, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %save_parameters) #5
-  %15 = getelementptr inbounds i8, ptr %params, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call31 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef nonnull %call, ptr noundef nonnull %params) #5
@@ -376,7 +376,7 @@ declare i32 @EVP_KEYMGMT_names_do_all(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal void @collect_name(ptr noundef %name, ptr nocapture noundef %arg) #0 {
 entry:
-  %error_occurred = getelementptr inbounds i8, ptr %arg, i64 8
+  %error_occurred = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %bf.load = load i8, ptr %error_occurred, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -417,7 +417,7 @@ declare void @OSSL_ENCODER_do_all_provided(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @collect_encoder(ptr noundef %encoder, ptr nocapture noundef %arg) #0 {
 entry:
-  %error_occurred = getelementptr inbounds i8, ptr %arg, i64 52
+  %error_occurred = getelementptr inbounds nuw i8, ptr %arg, i64 52
   %0 = load i32, ptr %error_occurred, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -425,9 +425,9 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 1, ptr %error_occurred, align 4
   %call = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef %encoder) #5
-  %keymgmt_prov = getelementptr inbounds i8, ptr %arg, i64 32
+  %keymgmt_prov = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %1 = load ptr, ptr %keymgmt_prov, align 8
-  %flag_find_same_provider = getelementptr inbounds i8, ptr %arg, i64 48
+  %flag_find_same_provider = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %bf.load = load i8, ptr %flag_find_same_provider, align 8
   %2 = trunc i8 %bf.load to i1
   %3 = icmp ne ptr %1, %call
@@ -442,11 +442,11 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp823, label %for.body.lr.ph, label %if.end43
 
 for.body.lr.ph:                                   ; preds = %if.then4
-  %id_names = getelementptr inbounds i8, ptr %arg, i64 8
-  %id = getelementptr inbounds i8, ptr %encoder, i64 8
-  %does_selection = getelementptr inbounds i8, ptr %encoder, i64 96
-  %ctx = getelementptr inbounds i8, ptr %arg, i64 40
-  %import_object = getelementptr inbounds i8, ptr %encoder, i64 112
+  %id_names = getelementptr inbounds nuw i8, ptr %arg, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %encoder, i64 8
+  %does_selection = getelementptr inbounds nuw i8, ptr %encoder, i64 96
+  %ctx = getelementptr inbounds nuw i8, ptr %arg, i64 40
+  %import_object = getelementptr inbounds nuw i8, ptr %encoder, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
@@ -459,7 +459,7 @@ for.body:                                         ; preds = %for.body.backedge, 
 if.then15:                                        ; preds = %for.body
   %5 = load ptr, ptr %id_names, align 8
   %idxprom = zext nneg i32 %i.024 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom
   %6 = load i32, ptr %arrayidx, align 4
   %7 = load i32, ptr %id, align 8
   %cmp16 = icmp eq i32 %6, %7
@@ -534,7 +534,7 @@ declare i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal ptr @encoder_construct_pkey(ptr noundef %encoder_inst, ptr noundef %arg) #0 {
 entry:
-  %obj = getelementptr inbounds i8, ptr %arg, i64 24
+  %obj = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %0 = load ptr, ptr %obj, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %return
@@ -542,7 +542,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef %encoder_inst) #5
   %1 = load ptr, ptr %arg, align 8
-  %keymgmt = getelementptr inbounds i8, ptr %1, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load ptr, ptr %keymgmt, align 8
   %call2 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %2) #5
   %call3 = tail call ptr @OSSL_ENCODER_get0_provider(ptr noundef %call) #5
@@ -550,23 +550,23 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %encoder_inst6 = getelementptr inbounds i8, ptr %arg, i64 16
+  %encoder_inst6 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   store ptr %encoder_inst, ptr %encoder_inst6, align 8
   %3 = load ptr, ptr %keymgmt, align 8
-  %keydata = getelementptr inbounds i8, ptr %1, i64 104
+  %keydata = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %keydata, align 8
-  %selection = getelementptr inbounds i8, ptr %arg, i64 8
+  %selection = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %5 = load i32, ptr %selection, align 8
   %call8 = tail call i32 @evp_keymgmt_export(ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull @encoder_import_cb, ptr noundef nonnull %arg) #5
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then5
-  %constructed_obj = getelementptr inbounds i8, ptr %arg, i64 32
+  %constructed_obj = getelementptr inbounds nuw i8, ptr %arg, i64 32
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then
-  %keydata11 = getelementptr inbounds i8, ptr %1, i64 104
+  %keydata11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.else
@@ -587,22 +587,22 @@ declare i32 @OSSL_ENCODER_CTX_set_cleanup(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @encoder_destruct_pkey(ptr nocapture noundef %arg) #0 {
 entry:
-  %encoder_inst = getelementptr inbounds i8, ptr %arg, i64 16
+  %encoder_inst = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %encoder_inst, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef nonnull %0) #5
-  %free_object = getelementptr inbounds i8, ptr %call, i64 120
+  %free_object = getelementptr inbounds nuw i8, ptr %call, i64 120
   %1 = load ptr, ptr %free_object, align 8
-  %constructed_obj = getelementptr inbounds i8, ptr %arg, i64 32
+  %constructed_obj = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %2 = load ptr, ptr %constructed_obj, align 8
   tail call void %1(ptr noundef %2) #5
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %constructed_obj2 = getelementptr inbounds i8, ptr %arg, i64 32
+  %constructed_obj2 = getelementptr inbounds nuw i8, ptr %arg, i64 32
   store ptr null, ptr %constructed_obj2, align 8
   ret void
 }
@@ -624,16 +624,16 @@ declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @encoder_import_cb(ptr noundef %params, ptr nocapture noundef initializes((32, 40)) %arg) #0 {
 entry:
-  %encoder_inst1 = getelementptr inbounds i8, ptr %arg, i64 16
+  %encoder_inst1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %encoder_inst1, align 8
   %call = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef %0) #5
   %call2 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder_ctx(ptr noundef %0) #5
-  %import_object = getelementptr inbounds i8, ptr %call, i64 112
+  %import_object = getelementptr inbounds nuw i8, ptr %call, i64 112
   %1 = load ptr, ptr %import_object, align 8
-  %selection = getelementptr inbounds i8, ptr %arg, i64 8
+  %selection = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %2 = load i32, ptr %selection, align 8
   %call3 = tail call ptr %1(ptr noundef %call2, i32 noundef %2, ptr noundef %params) #5
-  %constructed_obj = getelementptr inbounds i8, ptr %arg, i64 32
+  %constructed_obj = getelementptr inbounds nuw i8, ptr %arg, i64 32
   store ptr %call3, ptr %constructed_obj, align 8
   %cmp = icmp ne ptr %call3, null
   %conv = zext i1 %cmp to i32

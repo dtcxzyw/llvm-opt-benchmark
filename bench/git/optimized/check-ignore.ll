@@ -187,9 +187,9 @@ if.then36:                                        ; preds = %if.end34
   br i1 %cmp.not4.i, label %check_ignore_stdin_paths.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then36
-  %buf2.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %len2.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 16
+  %buf2.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %unquoted.i, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %unquoted.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
@@ -333,20 +333,20 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end3
-  %items = getelementptr inbounds i8, ptr %pathspec, i64 16
+  %items = getelementptr inbounds nuw i8, ptr %pathspec, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end25
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end25 ]
   %num_ignored.013 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %if.end25 ]
-  %arrayidx6 = getelementptr inbounds i8, ptr %call4, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %call4, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx6, align 1
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %for.body
   %5 = load ptr, ptr %items, align 8
-  %arrayidx = getelementptr inbounds %struct.pathspec_item, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.pathspec_item, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   store i32 0, ptr %dtype, align 4
   %call9 = call ptr @last_matching_pattern(ptr noundef nonnull %dir, ptr noundef nonnull @the_index, ptr noundef %6, ptr noundef nonnull %dtype) #10
@@ -357,7 +357,7 @@ if.then8:                                         ; preds = %for.body
   br i1 %or.cond, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %if.then8
-  %flags = getelementptr inbounds i8, ptr %call9, i64 36
+  %flags = getelementptr inbounds nuw i8, ptr %call9, i64 36
   %8 = load i32, ptr %flags, align 4
   %and = and i32 %8, 16
   %tobool13.not = icmp eq i32 %and, 0
@@ -379,13 +379,13 @@ land.lhs.true18:                                  ; preds = %if.end16
 
 if.then21:                                        ; preds = %land.lhs.true18
   %11 = load ptr, ptr %items, align 8
-  %original = getelementptr inbounds %struct.pathspec_item, ptr %11, i64 %indvars.iv, i32 1
+  %original = getelementptr inbounds nuw %struct.pathspec_item, ptr %11, i64 %indvars.iv, i32 1
   %12 = load ptr, ptr %original, align 8
   %tobool.not.i = icmp eq ptr %pattern.0, null
   br i1 %tobool.not.i, label %land.end7.i, label %land.rhs3.i
 
 land.rhs3.i:                                      ; preds = %if.then21
-  %flags.i = getelementptr inbounds i8, ptr %pattern.0, i64 36
+  %flags.i = getelementptr inbounds nuw i8, ptr %pattern.0, i64 36
   %13 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %13, 16
   %tobool1.not.i = icmp eq i32 %and.i, 0
@@ -417,13 +417,13 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then13.i:                                      ; preds = %if.else.i
   %19 = load ptr, ptr %pattern.0, align 8
-  %src.i = getelementptr inbounds i8, ptr %19, i64 16
+  %src.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %20 = load ptr, ptr %src.i, align 8
   %21 = load ptr, ptr @stdout, align 8
   %call.i = call i64 @quote_c_style(ptr noundef %20, ptr noundef null, ptr noundef %21, i32 noundef 0) #10
-  %srcpos.i = getelementptr inbounds i8, ptr %pattern.0, i64 40
+  %srcpos.i = getelementptr inbounds nuw i8, ptr %pattern.0, i64 40
   %22 = load i32, ptr %srcpos.i, align 8
-  %pattern14.i = getelementptr inbounds i8, ptr %pattern.0, i64 8
+  %pattern14.i = getelementptr inbounds nuw i8, ptr %pattern.0, i64 8
   %23 = load ptr, ptr %pattern14.i, align 8
   %call15.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %22, ptr noundef nonnull %cond19.i, ptr noundef %23, ptr noundef nonnull %cond8.i)
   br label %if.end.i
@@ -451,11 +451,11 @@ if.else25.i:                                      ; preds = %if.else21.i
 
 if.then27.i:                                      ; preds = %if.else25.i
   %26 = load ptr, ptr %pattern.0, align 8
-  %src29.i = getelementptr inbounds i8, ptr %26, i64 16
+  %src29.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   %27 = load ptr, ptr %src29.i, align 8
-  %srcpos30.i = getelementptr inbounds i8, ptr %pattern.0, i64 40
+  %srcpos30.i = getelementptr inbounds nuw i8, ptr %pattern.0, i64 40
   %28 = load i32, ptr %srcpos30.i, align 8
-  %pattern31.i = getelementptr inbounds i8, ptr %pattern.0, i64 8
+  %pattern31.i = getelementptr inbounds nuw i8, ptr %pattern.0, i64 8
   %29 = load ptr, ptr %pattern31.i, align 8
   %call32.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %27, i32 noundef 0, i32 noundef %28, i32 noundef 0, ptr noundef nonnull %cond19.i, ptr noundef %29, ptr noundef nonnull %cond8.i, i32 noundef 0, ptr noundef %12, i32 noundef 0)
   br label %if.end25

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ssl_cookie_init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mbedtls_md_init(ptr noundef %0) #6
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 60, ptr %2, align 8
   ret void
 }
@@ -15,7 +15,7 @@ declare void @mbedtls_md_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ssl_cookie_set_timeout(ptr nocapture noundef writeonly initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %3, align 8
   ret void
 }
@@ -91,19 +91,19 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0,
   %21 = lshr i64 %17, 16
   %22 = trunc i64 %21 to i8
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %22, ptr %24, align 1
   %25 = lshr i64 %17, 8
   %26 = trunc i64 %25 to i8
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %26, ptr %28, align 1
   %29 = trunc i64 %17 to i8
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store i8 %29, ptr %31, align 1
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %33, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %34 = icmp ule ptr %33, %2
@@ -137,7 +137,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_write(ptr noundef %0,
   %47 = load ptr, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %47, ptr noundef nonnull align 16 dereferenceable(28) %6, i64 28, i1 false)
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store ptr %49, ptr %1, align 8
   br label %ssl_cookie_hmac.exit
 
@@ -195,14 +195,14 @@ ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
 19:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %7, ptr noundef nonnull align 16 dereferenceable(28) %6, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %20, ptr noundef nonnull %7, i64 noundef 28) #6
   %.not26 = icmp eq i32 %21, 0
   br i1 %.not26, label %22, label %46
 
 22:                                               ; preds = %19
   %23 = call i64 @time(ptr noundef null) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
   %.not27 = icmp eq i64 %25, 0
   br i1 %.not27, label %46, label %26
@@ -211,17 +211,17 @@ ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
   %27 = load i8, ptr %1, align 1
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 24
-  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 16
   %34 = or disjoint i64 %33, %29
-  %35 = getelementptr inbounds i8, ptr %1, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 8
   %39 = or disjoint i64 %34, %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = or disjoint i64 %39, %42

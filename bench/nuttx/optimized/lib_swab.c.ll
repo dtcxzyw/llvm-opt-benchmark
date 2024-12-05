@@ -10,20 +10,20 @@ define void @swab(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i
 
 5:                                                ; preds = %3
   %6 = and i64 %2, 9223372036854775806
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %.not13 = icmp eq i64 %6, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.015 = phi ptr [ %10, %.lr.ph ], [ %0, %5 ]
   %.01114 = phi ptr [ %13, %.lr.ph ], [ %1, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.015, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %9 = load i8, ptr %.015, align 1
-  %10 = getelementptr inbounds i8, ptr %.015, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.015, i64 2
   %11 = load i8, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %.01114, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01114, i64 1
   store i8 %11, ptr %.01114, align 1
-  %13 = getelementptr inbounds i8, ptr %.01114, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01114, i64 2
   store i8 %9, ptr %12, align 1
   %.not = icmp eq ptr %13, %7
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6

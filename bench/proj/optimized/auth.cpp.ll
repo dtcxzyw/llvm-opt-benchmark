@@ -14,14 +14,14 @@ define hidden noalias noundef ptr @_Z10pj_authsetd(double noundef %0) local_unna
   %5 = fmul double %0, %0
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x3FC60B60B60B60B6, double %4)
   %7 = fmul double %5, 0x3FB05B05B05B05B0
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = fmul double %0, %5
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 0x3FBA42A42A42A42A, double %6)
   store double %10, ptr %2, align 8
   %11 = tail call double @llvm.fmuladd.f64(double %9, double 0x3FB0FFBAA6550FFC, double %7)
   store double %11, ptr %8, align 8
   %12 = fmul double %9, 0x3F912DF66D9FBD8A
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %12, ptr %13, align 8
   br label %14
 
@@ -41,12 +41,12 @@ define hidden noundef double @_Z10pj_authlatdPd(double noundef %0, ptr nocapture
   %4 = load double, ptr %1, align 8
   %5 = tail call double @sin(double noundef %3) #6
   %6 = tail call double @llvm.fmuladd.f64(double %4, double %5, double %0)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fadd double %3, %3
   %10 = tail call double @sin(double noundef %9) #6
   %11 = tail call double @llvm.fmuladd.f64(double %8, double %10, double %6)
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fadd double %3, %9
   %15 = tail call double @sin(double noundef %14) #6

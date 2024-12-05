@@ -858,7 +858,7 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %7 = load i32, ptr @ett_dsmcc, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.486) #2
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -927,13 +927,13 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %56 = load ptr, ptr %55, align 8
   %.not5.i = icmp eq ptr %56, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, 2
   store i32 %60, ptr %58, align 4
@@ -960,7 +960,7 @@ define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.486) #2
   %9 = load ptr, ptr %7, align 8
@@ -985,7 +985,7 @@ define internal i32 @dissect_dsmcc_udp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.486) #2
   %9 = load ptr, ptr %7, align 8
@@ -1282,7 +1282,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %8 = zext i16 %6 to i32
   %9 = tail call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dsmcc_un_sess_message_id_vals, ptr noundef nonnull @.str.492) #2
   %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @.str.491, ptr noundef %9) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dsmcc_un_sess_message_id_vals, ptr noundef nonnull @.str.492) #2
   call void @col_append_sep_str(ptr noundef %12, i32 noundef 25, ptr noundef null, ptr noundef %13) #2
@@ -1713,7 +1713,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   br i1 %.not75, label %.loopexit, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %286
-  %291 = getelementptr inbounds i8, ptr %1, i64 408
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %292
 
 292:                                              ; preds = %.lr.ph41, %292
@@ -2208,7 +2208,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %656
-  %661 = getelementptr inbounds i8, ptr %1, i64 408
+  %661 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %662
 
 662:                                              ; preds = %.lr.ph, %662
@@ -2379,7 +2379,7 @@ dissect_dsmcc_adaptation_header.exit:             ; preds = %85, %72, %54, %36
 define internal fastcc void @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_dsmcc_heading, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 10, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.560) #2
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_bytes_to_str(ptr noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 10) #2
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %6, ptr noundef nonnull @.str.561, ptr noundef %9) #2

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @ts_typanalyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i32, ptr %4, align 8
@@ -33,10 +33,10 @@ define dso_local noundef i64 @ts_typanalyze(ptr nocapture noundef readonly %0) l
 
 9:                                                ; preds = %7, %1
   %10 = phi i32 [ %8, %7 ], [ %5, %1 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @compute_tsvector_stats, ptr %11, align 8
   %12 = mul i32 %10, 300
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %12, ptr %13, align 8
   ret i64 1
 }
@@ -54,16 +54,16 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
   %13 = mul i32 %11, 10000
   %14 = add i32 %13, 10000
   %15 = sdiv i32 %14, 7
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 16, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 24, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @lexeme_hash, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @lexeme_match, ptr %19, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %20, ptr %21, align 8
   %22 = sext i32 %12 to i64
   %23 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef %22, ptr noundef nonnull %6, i32 noundef 1224) #11
@@ -71,7 +71,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
   br i1 %24, label %.lr.ph178, label %._crit_edge179
 
 .lr.ph178:                                        ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph178, %117
@@ -97,7 +97,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %38 = load i8, ptr %37, align 1
   %.off = add i8 %38, -1
   %switch = icmp ult i8 %.off, 3
@@ -133,8 +133,8 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
   %55 = uitofp nneg i64 %54 to double
   %56 = fadd double %.0136175, %55
   %57 = call ptr @pg_detoast_datum(ptr noundef nonnull %33) #11
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr [0 x %struct.WordEntry], ptr %58, i64 0, i64 %61
@@ -158,7 +158,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
   %71 = call ptr @hash_search(ptr noundef %23, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %10) #11
   %72 = load i8, ptr %10, align 1
   %73 = trunc i8 %72 to i1
-  %74 = getelementptr inbounds i8, ptr %71, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   br i1 %73, label %75, label %78
 
 75:                                               ; preds = %.lr.ph
@@ -170,7 +170,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
 78:                                               ; preds = %.lr.ph
   store i32 1, ptr %74, align 8
   %79 = add i32 %.2170, -1
-  %80 = getelementptr inbounds i8, ptr %71, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 20
   store i32 %79, ptr %80, align 4
   %81 = load i32, ptr %25, align 8
   %82 = sext i32 %81 to i64
@@ -197,9 +197,9 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %91, %107
   %93 = phi ptr [ %108, %107 ], [ %92, %91 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 20
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %95
   %.not7.i = icmp sgt i32 %98, %.2170
@@ -269,22 +269,22 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
 
 120:                                              ; preds = %._crit_edge179
   %121 = sub i32 %2, %.0135.lcssa
-  %122 = getelementptr inbounds i8, ptr %0, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %122, align 8
   %123 = sitofp i32 %.0135.lcssa to double
   %124 = sitofp i32 %2 to double
   %125 = fdiv double %123, %124
   %126 = fptrunc double %125 to float
-  %127 = getelementptr inbounds i8, ptr %0, i64 68
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %126, ptr %127, align 4
   %128 = sitofp i32 %121 to double
   %129 = fdiv double %.0136.lcssa, %128
   %130 = fptosi double %129 to i32
-  %131 = getelementptr inbounds i8, ptr %0, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %130, ptr %131, align 8
   %132 = fsub float 1.000000e+00, %126
   %133 = fneg float %132
-  %134 = getelementptr inbounds i8, ptr %0, i64 76
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float %133, ptr %134, align 4
   %135 = mul i32 %.0148.lcssa, 9
   %136 = sdiv i32 %135, %15
@@ -303,7 +303,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %.0140186 = phi i32 [ %.1141, %152 ], [ 0, %120 ]
   %.0142185 = phi i32 [ %.1143, %152 ], [ %.0148.lcssa, %120 ]
   %.0146184 = phi i32 [ %.1147, %152 ], [ 0, %120 ]
-  %143 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i32, ptr %143, align 8
   %145 = icmp sgt i32 %144, %136
   br i1 %145, label %146, label %152
@@ -353,7 +353,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %163 = sext i32 %162 to i64
   %164 = getelementptr ptr, ptr %140, i64 %163
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load i32, ptr %166, align 8
   br label %168
 
@@ -366,7 +366,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
 170:                                              ; preds = %168
   %171 = zext nneg i32 %.0 to i64
   call void @qsort_interruptible(ptr noundef %140, i64 noundef %171, i64 noundef 8, ptr noundef nonnull @trackitem_compare_lexemes, ptr noundef null) #11
-  %172 = getelementptr inbounds i8, ptr %0, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %173, ptr @CurrentMemoryContext, align 8
@@ -383,13 +383,13 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %182 = getelementptr ptr, ptr %140, i64 %indvars.iv
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %183, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %186 = load i32, ptr %185, align 8
   %187 = call ptr @cstring_to_text_with_len(ptr noundef %184, i32 noundef %186) #11
   %188 = ptrtoint ptr %187 to i64
   %189 = getelementptr i64, ptr %176, i64 %indvars.iv
   store i64 %188, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %183, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %191 = load i32, ptr %190, align 8
   %192 = sitofp i32 %191 to double
   %193 = fdiv double %192, %128
@@ -414,38 +414,38 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %205 = getelementptr i8, ptr %180, i64 %204
   store float %202, ptr %205, align 4
   store ptr %174, ptr @CurrentMemoryContext, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 80
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i16 4, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 92
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 98, ptr %207, align 4
-  %208 = getelementptr inbounds i8, ptr %0, i64 112
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 100, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 152
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %180, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 132
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %177, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %0, i64 216
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %176, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 192
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %.0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 256
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 25, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 276
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i16 -1, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %0, i64 286
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 286
   store i8 0, ptr %215, align 2
-  %216 = getelementptr inbounds i8, ptr %0, i64 291
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 291
   store i8 105, ptr %216, align 1
   br label %222
 
 217:                                              ; preds = %._crit_edge179
-  %218 = getelementptr inbounds i8, ptr %0, i64 64
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %0, i64 68
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float 1.000000e+00, ptr %219, align 4
-  %220 = getelementptr inbounds i8, ptr %0, i64 72
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 76
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 0.000000e+00, ptr %221, align 4
   br label %222
 
@@ -456,7 +456,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
 ; Function Attrs: nounwind uwtable
 define internal i32 @lexeme_hash(ptr nocapture noundef readonly %0, i64 %1) #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @hash_bytes(ptr noundef %3, i32 noundef %5) #11
   ret i32 %6
@@ -464,9 +464,9 @@ define internal i32 @lexeme_hash(ptr nocapture noundef readonly %0, i64 %1) #1 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @lexeme_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %5, %7
   br i1 %8, label %lexeme_compare.exit, label %9
@@ -520,10 +520,10 @@ declare void @qsort_interruptible(ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @trackitem_compare_frequencies_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #6 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %6, %9
   ret i32 %10
@@ -533,9 +533,9 @@ define internal i32 @trackitem_compare_frequencies_desc(ptr nocapture noundef re
 define internal i32 @trackitem_compare_lexemes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %7, %9
   br i1 %10, label %lexeme_compare.exit, label %11

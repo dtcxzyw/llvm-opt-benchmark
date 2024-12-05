@@ -13,11 +13,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference82_$LT$impl$u20$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$8inferrer17h94283985a7df7b37E"(ptr nocapture writeonly sret({ ptr, { i64, { { { i64, ptr }, i64 } } } }) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
-  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -59,8 +59,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br label %130
 
 29:                                               ; preds = %5
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %32 = icmp eq ptr %.fr, null
   br i1 %32, label %36, label %38
 
@@ -78,11 +78,11 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 38:                                               ; preds = %29
   store ptr %1, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %22, i64 8
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8
-  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 32
+  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 0, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8
   invoke void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %21, ptr nonnull align 8 %22, ptr nonnull align 8 %.fr, ptr align 8 %3)
           to label %66 unwind label %71
@@ -95,11 +95,11 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 41:                                               ; preds = %36
   call void @"_ZN3syn3gen5clone62_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..ty..Type$GT$5clone17h435c2b43cfe9ef22E"(ptr nonnull sret({ i64, [28 x i64] }) align 8 %18, ptr nonnull align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %23, ptr noundef nonnull align 8 dereferenceable(232) %18, i64 232, i1 false)
-  %42 = getelementptr inbounds i8, ptr %23, i64 232
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 232
   store i64 0, ptr %42, align 8
-  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 240
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 240
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.221.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 248
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 248
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   br label %61
 
@@ -155,12 +155,12 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 59:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %23, ptr noundef nonnull align 8 dereferenceable(232) %17, i64 232, i1 false)
-  %60 = getelementptr inbounds i8, ptr %23, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %23, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   br label %61
 
 61:                                               ; preds = %69, %59, %41
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdb721dc99183711dE"(ptr nonnull sret({ i64, [31 x i64] }) align 8 %24, ptr nonnull align 8 %62, ptr nonnull align 8 %31, ptr nonnull align 8 %23)
   call void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$dsl_auto_type..auto_type..local_variables_map..LetStatementInferredType$GT$$GT$17hc4eaa34e0de67d1bE"(ptr nonnull align 8 %24)
   br label %.thread70
@@ -188,7 +188,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 69:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %23, ptr noundef nonnull align 8 dereferenceable(232) %21, i64 232, i1 false)
-  %70 = getelementptr inbounds i8, ptr %23, i64 232
+  %70 = getelementptr inbounds nuw i8, ptr %23, i64 232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   br label %61
 
@@ -204,18 +204,18 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br i1 %75, label %117, label %76
 
 76:                                               ; preds = %117, %73, %33
-  %77 = getelementptr inbounds i8, ptr %2, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %78 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hd2980950a4f1debdE"(ptr nonnull align 8 %77)
   %79 = extractvalue { ptr, ptr } %78, 0
   %80 = extractvalue { ptr, ptr } %78, 1
   store ptr %79, ptr %10, align 8
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %80, ptr %.sroa.223.0..sroa_idx, align 8
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.324.0..sroa_idx, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not58 = icmp eq ptr %.fr, null
-  %82 = getelementptr inbounds i8, ptr %.fr, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.fr, i64 32
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %76
@@ -316,16 +316,16 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br label %.split73.us
 
 117:                                              ; preds = %73
-  %118 = getelementptr inbounds i8, ptr %2, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %119 = load i64, ptr %118, align 8, !noundef !4
-  %120 = getelementptr inbounds i8, ptr %2, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %121 = load ptr, ptr %120, align 8, !noundef !4
   %.not55 = icmp ne ptr %121, null
   %. = zext i1 %.not55 to i64
   %122 = add i64 %119, %.
-  %123 = getelementptr inbounds i8, ptr %3, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %124 = load i64, ptr %123, align 8, !noundef !4
-  %125 = getelementptr inbounds i8, ptr %3, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %126 = load ptr, ptr %125, align 8, !noundef !4
   %.not56 = icmp ne ptr %126, null
   %.0 = zext i1 %.not56 to i64
@@ -398,17 +398,17 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
 
 .split77.us:                                      ; preds = %146, %113, %100, %87
   %.us-phi78 = phi i64 [ %88, %87 ], [ %101, %100 ], [ %114, %113 ], [ %147, %146 ]
-  %.sroa.043.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.043.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.us-phi78, ptr %0, align 8
-  %.sroa.247.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.247.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.043.sroa.2.0..sroa_idx, i64 16, i1 false)
   call void @"_ZN4core3ptr113drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$syn..punctuated..Iter$LT$syn..pat..Pat$GT$$GT$$GT$17h441ed21324aec38eE"(ptr nonnull align 8 %10)
   br label %130
 
 149:                                              ; preds = %34
-  %150 = getelementptr inbounds i8, ptr %2, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %151 = load ptr, ptr %150, align 8, !nonnull !4, !align !8, !noundef !4
-  %152 = getelementptr inbounds i8, ptr %2, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %153 = load ptr, ptr %152, align 8, !nonnull !4, !align !8, !noundef !4
   call void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %26, ptr align 8 %1, ptr nonnull align 8 %151, ptr nonnull align 8 %153, ptr align 8 %.fr)
   %154 = load i64, ptr %26, align 8, !range !6, !noundef !4
@@ -423,9 +423,9 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br label %130
 
 158:                                              ; preds = %149
-  %.sroa.036.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.036.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %154, ptr %0, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.240.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.sroa.2.0..sroa_idx, i64 16, i1 false)
   br label %130
 }

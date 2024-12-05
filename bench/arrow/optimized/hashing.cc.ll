@@ -59,7 +59,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %reader.sroa.4.046.i = phi ptr [ %add.ptr.i19.i, %while.body.i ], [ %add.ptr.i.i, %while.body.i.preheader ]
   %reader.sroa.21.045.i = phi i8 [ %reader.sroa.21.40.extract.trunc41.i, %while.body.i ], [ %reader.sroa.21.045.i.ph, %while.body.i.preheader ]
   %dec.i = add nsw i64 %nwords.048.i, -1
-  %add.ptr.i19.i = getelementptr inbounds i8, ptr %reader.sroa.4.046.i, i64 8
+  %add.ptr.i19.i = getelementptr inbounds nuw i8, ptr %reader.sroa.4.046.i, i64 8
   %ret.0.copyload.i.i.i20.i = load i64, ptr %add.ptr.i19.i, align 1
   %0 = freeze i64 %ret.0.copyload.i.i.i20.i
   %reader.sroa.21.40.insert.ext.i = zext i8 %reader.sroa.21.045.i to i64
@@ -104,7 +104,7 @@ do.body.us.i:                                     ; preds = %do.body.preheader.i
   br i1 %cmp.i23.us.i, label %if.then.i.us.i, label %if.else.i24.us.i
 
 if.else.i24.us.i:                                 ; preds = %do.body.us.i
-  %incdec.ptr.i.us.i = getelementptr inbounds i8, ptr %reader.sroa.4.1.us.i, i64 1
+  %incdec.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %reader.sroa.4.1.us.i, i64 1
   %ret.0.copyload.i.i.i25.us.i = load i8, ptr %incdec.ptr.i.us.i, align 1
   %sub33.i.us.i = add nsw i32 %reader.sroa.13.0.us.i, -8
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
@@ -244,7 +244,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i
 
 if.else.i24.i:                                    ; preds = %do.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reader.sroa.4.1.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %reader.sroa.4.1.i, i64 1
   %ret.0.copyload.i.i.i25.i = load i8, ptr %incdec.ptr.i.i, align 1
   %conv19.i.i = zext i8 %reader.sroa.21.1.i to i32
   %shr20.i.i = lshr i32 %conv19.i.i, %sh_prom.i.i

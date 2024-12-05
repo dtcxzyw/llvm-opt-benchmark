@@ -19,9 +19,9 @@ define void @_ZN7RawReadC2Ev(ptr nocapture noundef nonnull writeonly align 8 der
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7RawRead5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 16), (40, 64)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
 }
@@ -31,24 +31,24 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7RawReadC2EP4File(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %55, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %7, %9
   %11 = icmp ugt i64 %1, %10
@@ -61,7 +61,7 @@ define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 der
   %16 = add i64 %15, %13
   %17 = add i64 %16, %7
   store i64 %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp ugt i64 %17, %19
   br i1 %20, label %21, label %._ZN5ArrayIhE3AddEm.exit_crit_edge
@@ -71,7 +71,7 @@ define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 der
   br label %_ZN5ArrayIhE3AddEm.exit
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8
   %.not.i = icmp ne i64 %23, 0
   %24 = icmp ugt i64 %17, %23
@@ -108,11 +108,11 @@ define noundef i64 @_ZN7RawRead4ReadEm(ptr nocapture noundef nonnull align 8 der
 
 _ZN5ArrayIhE3AddEm.exit:                          ; preds = %._ZN5ArrayIhE3AddEm.exit_crit_edge, %36
   %37 = phi ptr [ %.pre, %._ZN5ArrayIhE3AddEm.exit_crit_edge ], [ %33, %36 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 %7
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(8256) %39, ptr noundef nonnull %40, i64 noundef %16)
   %45 = sext i32 %44 to i64
@@ -137,11 +137,11 @@ _ZN5ArrayIhE3AddEm.exit:                          ; preds = %._ZN5ArrayIhE3AddEm
   br i1 %.not23, label %92, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %1
   store i64 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = icmp ugt i64 %59, %61
   br i1 %62, label %63, label %._ZN5ArrayIhE3AddEm.exit29_crit_edge
@@ -151,7 +151,7 @@ _ZN5ArrayIhE3AddEm.exit:                          ; preds = %._ZN5ArrayIhE3AddEm
   br label %_ZN5ArrayIhE3AddEm.exit29
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load i64, ptr %64, align 8
   %.not.i24 = icmp ne i64 %65, 0
   %66 = icmp ugt i64 %59, %65
@@ -188,13 +188,13 @@ _ZN5ArrayIhE3AddEm.exit:                          ; preds = %._ZN5ArrayIhE3AddEm
 
 _ZN5ArrayIhE3AddEm.exit29:                        ; preds = %._ZN5ArrayIhE3AddEm.exit29_crit_edge, %78
   %79 = phi ptr [ %.pre30, %._ZN5ArrayIhE3AddEm.exit29_crit_edge ], [ %75, %78 ]
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %79, i64 %83
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef i32 %87(ptr noundef nonnull align 8 dereferenceable(8256) %81, ptr noundef nonnull %84, i64 noundef %1)
   %89 = sext i32 %88 to i64
@@ -216,11 +216,11 @@ define void @_ZN7RawRead4ReadEPhm(ptr nocapture noundef nonnull align 8 derefere
   br i1 %.not, label %33, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %2
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %._ZN5ArrayIhE3AddEm.exit_crit_edge
@@ -230,7 +230,7 @@ define void @_ZN7RawRead4ReadEPhm(ptr nocapture noundef nonnull align 8 derefere
   br label %_ZN5ArrayIhE3AddEm.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp ne i64 %13, 0
   %14 = icmp ugt i64 %7, %13
@@ -267,7 +267,7 @@ define void @_ZN7RawRead4ReadEPhm(ptr nocapture noundef nonnull align 8 derefere
 
 _ZN5ArrayIhE3AddEm.exit:                          ; preds = %._ZN5ArrayIhE3AddEm.exit_crit_edge, %26
   %27 = phi ptr [ %.pre, %._ZN5ArrayIhE3AddEm.exit_crit_edge ], [ %23, %26 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %1, i64 %2, i1 false)
@@ -285,9 +285,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %12
@@ -307,10 +307,10 @@ define noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr nocapture noundef nonnull alig
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %19
@@ -336,10 +336,10 @@ define noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr nocapture noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN7RawRead4Get4Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %29
@@ -375,10 +375,10 @@ define noundef i32 @_ZN7RawRead4Get4Ev(ptr nocapture noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN7RawRead4Get8Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %_ZN7RawRead4Get4Ev.exit
@@ -438,8 +438,8 @@ _ZN7RawRead4Get4Ev.exit3:                         ; preds = %_ZN7RawRead4Get4Ev.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN7RawRead4GetVEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.promoted = load i64, ptr %2, align 8
   %5 = icmp ult i64 %.promoted, %4
@@ -478,7 +478,7 @@ define noundef i64 @_ZN7RawRead4GetVEv(ptr nocapture noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN7RawRead8GetVSizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -512,9 +512,9 @@ define noundef i32 @_ZN7RawRead8GetVSizeEm(ptr nocapture noundef nonnull readonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN7RawRead4GetBEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = icmp ult i64 %8, %2
@@ -549,12 +549,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7RawRead4GetWEPwm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %2, 1
   %7 = add i64 %6, -1
   %8 = add i64 %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %12, label %19
@@ -582,15 +582,15 @@ declare noundef ptr @_Z9RawToWidePKhPwm(ptr noundef, ptr noundef, i64 noundef) l
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 65536) i32 @_ZN7RawRead8GetCRC15Eb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, 3
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load i64, ptr %9, align 8
   %10 = select i1 %1, i64 %.val, i64 %4
   %11 = add i64 %10, -2
@@ -608,14 +608,14 @@ declare noundef i32 @_Z5CRC32jPKvm(i32 noundef, ptr noundef, i64 noundef) local_
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN7RawRead8GetCRC50Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = icmp ult i64 %3, 5
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = add i64 %3, -4
   %9 = tail call noundef i32 @_Z5CRC32jPKvm(i32 noundef -1, ptr noundef nonnull %7, i64 noundef %8)
   %10 = xor i32 %9, -1
@@ -649,7 +649,7 @@ define noundef i64 @_Z7RawGetVPKhRjjRb(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc i64 %indvars.iv.next to i32
   store i32 %9, ptr %1, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 127
   %13 = zext nneg i8 %12 to i64

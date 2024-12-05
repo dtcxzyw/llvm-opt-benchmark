@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_se
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_link_setup(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4056
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4056
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %7
@@ -68,60 +68,60 @@ define dso_local void @ieee80211_link_init(ptr noundef %0, i32 noundef %1, ptr n
   %5 = icmp slt i32 %1, 0
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 4056
-  %8 = getelementptr inbounds i8, ptr %0, i64 4936
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4056
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   %9 = zext nneg i32 %6 to i64
   %10 = getelementptr [15 x ptr], ptr %8, i64 0, i64 %9
   store volatile ptr %3, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %11 = getelementptr inbounds i8, ptr %0, i64 3904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   %12 = getelementptr [15 x ptr], ptr %11, i64 0, i64 %9
   store volatile ptr %2, ptr %12, align 8
   store ptr %0, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 720
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 720
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %6, ptr %15, align 8
   store ptr %7, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store volatile ptr %16, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store volatile ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @ieee80211_csa_finalize_work, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store volatile ptr %19, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store volatile ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store ptr @ieee80211_color_change_finalize_work, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store i64 68719476704, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store volatile ptr %23, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store volatile ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr @ieee80211_color_collision_detection_work, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 256
-  tail call void @init_timer_key(ptr noundef %26, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  tail call void @init_timer_key(ptr noundef nonnull %26, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile ptr %27, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store volatile ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store volatile ptr %29, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store volatile ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 384
-  %32 = getelementptr inbounds i8, ptr %2, i64 416
-  tail call void @init_timer_key(ptr noundef %32, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 416
+  tail call void @init_timer_key(ptr noundef nonnull %32, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   store volatile ptr %31, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 392
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 392
   store volatile ptr %31, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 400
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 400
   store ptr @ieee80211_dfs_cac_timer_work, ptr %34, align 8
   br i1 %5, label %54, label %35
 
@@ -133,8 +133,8 @@ define dso_local void @ieee80211_link_init(ptr noundef %0, i32 noundef %1, ptr n
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 20
-  %39 = getelementptr inbounds i8, ptr %0, i64 424
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %40 = getelementptr [15 x %struct.anon.8], ptr %39, i64 0, i64 %9
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %38, align 4
@@ -142,9 +142,9 @@ define dso_local void @ieee80211_link_init(ptr noundef %0, i32 noundef %1, ptr n
   %43 = load i16, ptr %42, align 2
   %44 = getelementptr i8, ptr %3, i64 24
   store i16 %43, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %38, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 1144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i64
   %49 = shl nuw i64 1, %9
@@ -198,7 +198,7 @@ declare dso_local void @ieee80211_dfs_cac_timer_work(ptr noundef, ptr noundef) #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_link_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4056
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4056
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %7
@@ -208,8 +208,8 @@ define dso_local void @ieee80211_link_stop(ptr noundef %0) local_unnamed_addr #0
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
-  %9 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %8) #10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %9 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %8) #10
   tail call void @ieee80211_link_release_channel(ptr noundef %0) #10
   ret void
 }
@@ -231,9 +231,9 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   %7 = alloca [15 x ptr], align 16
   %8 = alloca [15 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 5056
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 5058
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5058
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %1 to i32
   %14 = zext i16 %10 to i32
@@ -247,13 +247,13 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   %18 = icmp eq i16 %10, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 1256
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   %20 = icmp eq i16 %10, %1
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 5060
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5060
   %23 = load i16, ptr %22, align 4
   %24 = icmp eq i16 %23, %2
   br i1 %24, label %237, label %25
@@ -295,13 +295,13 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %49, label %.thread, label %31, !prof !17, !llvm.loop !18
 
 .thread:                                          ; preds = %31, %44, %36
-  %50 = getelementptr inbounds i8, ptr %0, i64 4936
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %6, ptr noundef align 8 dereferenceable(120) %50, i64 120, i1 false)
-  %51 = getelementptr inbounds i8, ptr %0, i64 3904
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, ptr noundef align 8 dereferenceable(120) %51, i64 120, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4936
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) %50, i64 120, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 3904
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) %51, i64 120, i1 false)
   %52 = and i32 %27, 32767
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %0, i64 3176
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 3176
   br label %55
 
 55:                                               ; preds = %.thread, %72
@@ -374,10 +374,10 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 ._crit_edge:                                      ; preds = %85, %90, %86
   %91 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %.pre
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 728
-  tail call void @ieee80211_link_init(ptr noundef %0, i32 noundef %83, ptr noundef %92, ptr noundef %93)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 728
+  tail call void @ieee80211_link_init(ptr noundef %0, i32 noundef %83, ptr noundef %92, ptr noundef nonnull %93)
   %94 = load ptr, ptr %92, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 4056
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4056
   %96 = load i32, ptr %95, align 8
   %97 = icmp eq i32 %96, 2
   br i1 %97, label %98, label %99
@@ -397,57 +397,57 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %103, label %104, label %.preheader25
 
 104:                                              ; preds = %.thread17
-  %105 = getelementptr inbounds i8, ptr %0, i64 4144
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 4144
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %106 = getelementptr inbounds i8, ptr %0, i64 4056
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   store volatile ptr %105, ptr %50, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   store volatile ptr %54, ptr %51, align 8
   store ptr %0, ptr %54, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 3184
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 3896
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 3896
   store ptr %105, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 4160
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   store i32 0, ptr %109, align 8
   store ptr %106, ptr %105, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 3312
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 3312
   store volatile ptr %110, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 3320
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 3320
   store volatile ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 3328
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   store ptr @ieee80211_csa_finalize_work, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 3376
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 3376
   store volatile ptr %113, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 3384
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 3384
   store volatile ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 3392
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store ptr @ieee80211_color_change_finalize_work, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 3400
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   store i64 68719476704, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 3408
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 3408
   store volatile ptr %117, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 3416
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   store volatile ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 3424
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   store ptr @ieee80211_color_collision_detection_work, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 3432
-  tail call void @init_timer_key(ptr noundef %120, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
-  %121 = getelementptr inbounds i8, ptr %0, i64 3192
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 3432
+  tail call void @init_timer_key(ptr noundef nonnull %120, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3192
   store volatile ptr %121, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 3200
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3200
   store volatile ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 3208
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 3208
   store volatile ptr %123, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 3216
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3216
   store volatile ptr %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 3560
-  %126 = getelementptr inbounds i8, ptr %0, i64 3592
-  tail call void @init_timer_key(ptr noundef %126, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3560
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3592
+  tail call void @init_timer_key(ptr noundef nonnull %126, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   store volatile ptr %125, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 3568
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3568
   store volatile ptr %125, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 3576
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 3576
   store ptr @ieee80211_dfs_cac_timer_work, ptr %128, align 8
   br label %.preheader25
 
@@ -464,7 +464,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %or.cond, label %135, label %.thread20
 
 135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %132, i64 720
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 720
   br label %137
 
 137:                                              ; preds = %.thread18, %135
@@ -477,10 +477,10 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 
 143:                                              ; preds = %137
   %144 = load ptr, ptr %136, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 20
-  %146 = getelementptr inbounds i8, ptr %141, i64 720
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 720
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 20
   %149 = load i32, ptr %145, align 4
   %150 = load i32, ptr %148, align 4
   %151 = xor i32 %150, %149
@@ -507,7 +507,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   %163 = zext nneg i32 %27 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   store ptr %4, ptr %4, align 8
-  %164 = getelementptr inbounds i8, ptr %4, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %164, align 8
   br label %165
 
@@ -537,7 +537,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 179:                                              ; preds = %170
   call void @ieee80211_remove_link_keys(ptr noundef nonnull %176, ptr noundef nonnull %4) #10
   %180 = load ptr, ptr %176, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 4056
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4056
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 2
   br i1 %183, label %184, label %185
@@ -547,8 +547,8 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br label %185
 
 185:                                              ; preds = %184, %179
-  %186 = getelementptr inbounds i8, ptr %176, i64 224
-  %187 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef %186) #10
+  %186 = getelementptr inbounds nuw i8, ptr %176, i64 224
+  %187 = call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %186) #10
   call void @ieee80211_link_release_channel(ptr noundef nonnull %176) #10
   br label %188
 
@@ -573,8 +573,8 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
 
 .thread22:                                        ; preds = %143, %191
   %199 = phi i32 [ %197, %191 ], [ -114, %143 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(120) %51, ptr noundef nonnull align 16 dereferenceable(120) %7, i64 120, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(120) %50, ptr noundef nonnull align 16 dereferenceable(120) %6, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull align 16 dereferenceable(120) %7, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %50, ptr noundef nonnull align 16 dereferenceable(120) %6, i64 120, i1 false)
   call fastcc void @ieee80211_set_vif_links_bitmaps(ptr noundef %0, i16 noundef zeroext %10, i16 noundef zeroext %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %8, i8 0, i64 120, i1 false)
   br label %.loopexit23
@@ -599,60 +599,60 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %207, label %209, label %237
 
 209:                                              ; preds = %.loopexit
-  %210 = getelementptr inbounds i8, ptr %0, i64 3176
-  %211 = getelementptr inbounds i8, ptr %0, i64 4144
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 3176
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 4144
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %212 = getelementptr inbounds i8, ptr %0, i64 4056
-  %213 = getelementptr inbounds i8, ptr %0, i64 4936
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 4056
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 4936
   store volatile ptr %211, ptr %213, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %214 = getelementptr inbounds i8, ptr %0, i64 3904
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   store volatile ptr %210, ptr %214, align 8
   store ptr %0, ptr %210, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 3184
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   store i32 0, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 3896
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 3896
   store ptr %211, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 4160
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   store i32 0, ptr %217, align 8
   store ptr %212, ptr %211, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 3312
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 3312
   store volatile ptr %218, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %0, i64 3320
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 3320
   store volatile ptr %218, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 3328
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   store ptr @ieee80211_csa_finalize_work, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 3376
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 3376
   store volatile ptr %221, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 3384
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 3384
   store volatile ptr %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 3392
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store ptr @ieee80211_color_change_finalize_work, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 3400
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   store i64 68719476704, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 3408
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 3408
   store volatile ptr %225, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 3416
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   store volatile ptr %225, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 3424
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   store ptr @ieee80211_color_collision_detection_work, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %0, i64 3432
-  call void @init_timer_key(ptr noundef %228, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
-  %229 = getelementptr inbounds i8, ptr %0, i64 3192
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 3432
+  call void @init_timer_key(ptr noundef nonnull %228, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #10
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 3192
   store volatile ptr %229, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 3200
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 3200
   store volatile ptr %229, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 3208
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 3208
   store volatile ptr %231, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 3216
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 3216
   store volatile ptr %231, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 3560
-  %234 = getelementptr inbounds i8, ptr %0, i64 3592
-  call void @init_timer_key(ptr noundef %234, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 3560
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 3592
+  call void @init_timer_key(ptr noundef nonnull %234, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   store volatile ptr %233, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 3568
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 3568
   store volatile ptr %233, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 3576
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 3576
   store ptr @ieee80211_dfs_cac_timer_work, ptr %236, align 8
   br label %237
 
@@ -685,7 +685,7 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
   %3 = getelementptr i8, ptr %0, i64 -4056
   %4 = getelementptr i8, ptr %0, i64 -2800
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1415
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1415
   %7 = load i8, ptr %6, align 1, !range !34, !noundef !35
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.thread
@@ -705,7 +705,7 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
   %17 = getelementptr i8, ptr %0, i64 -2808
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %18, i64 296
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 296
   %21 = getelementptr i8, ptr %0, i64 -2776
   %22 = select i1 %19, ptr %21, ptr %20
   %23 = load i32, ptr %10, align 8
@@ -744,7 +744,7 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @__SCT__tp_func_drv_can_activate_links(ptr noundef %40, ptr noundef %5, ptr noundef %3, i16 noundef zeroext %1) #10
   br label %42
@@ -764,9 +764,9 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
   br label %49
 
 49:                                               ; preds = %46, %42, %29, %28
-  %50 = getelementptr inbounds i8, ptr %5, i64 448
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 904
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 904
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %57, label %55
@@ -797,7 +797,7 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_drv_return_bool(ptr noundef %70, ptr noundef %5, i1 noundef zeroext %58) #10
   br label %72
@@ -844,9 +844,9 @@ define dso_local i32 @ieee80211_set_active_links(ptr noundef %0, i16 noundef zer
 define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca [15 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 5058
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5058
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   %9 = zext i16 %1 to i32
@@ -856,22 +856,22 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   %13 = xor i32 %8, -1
   %14 = and i32 %13, %9
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 1272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %17 = load volatile i64, ptr %16, align 8
   %18 = and i64 %17, 1
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %134, label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 4056
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %24, label %134
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 5056
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   %26 = load i16, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 5060
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5060
   %28 = load i16, ptr %27, align 4
   %29 = xor i16 %28, -1
   %30 = and i16 %26, %29
@@ -886,8 +886,8 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   br i1 %36, label %134, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 4936
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %3, ptr noundef align 8 dereferenceable(120) %38, i64 120, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4936
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %38, i64 120, i1 false)
   %39 = icmp eq i32 %14, 0
   br i1 %39, label %45, label %40
 
@@ -904,7 +904,7 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
 
 45:                                               ; preds = %40, %37
   %46 = and i64 %12, 32767
-  %47 = getelementptr inbounds i8, ptr %0, i64 3904
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 3904
   br label %48
 
 48:                                               ; preds = %45, %57
@@ -931,7 +931,7 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   br i1 %63, label %.thread, label %48, !prof !17, !llvm.loop !55
 
 .thread:                                          ; preds = %48, %57, %53
-  %64 = getelementptr inbounds i8, ptr %5, i64 1560
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 1560
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %64
   br i1 %66, label %.loopexit16, label %67
@@ -942,15 +942,15 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
 
 69:                                               ; preds = %79, %67
   %70 = phi ptr [ %65, %67 ], [ %80, %79 ]
-  %71 = getelementptr inbounds i8, ptr %70, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %0
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %69
   call void @__ieee80211_sta_recalc_aggregates(ptr noundef %70, i16 noundef zeroext %68) #10
-  %75 = getelementptr inbounds i8, ptr %70, i64 2680
-  %76 = call i32 @drv_change_sta_links(ptr noundef %5, ptr noundef %0, ptr noundef %75, i16 noundef zeroext %7, i16 noundef zeroext %68) #10
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 2680
+  %76 = call i32 @drv_change_sta_links(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %75, i16 noundef zeroext %7, i16 noundef zeroext %68) #10
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %79, label %78, !prof !49
 
@@ -991,15 +991,15 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
 
 91:                                               ; preds = %102, %88
   %92 = phi ptr [ %86, %88 ], [ %103, %102 ]
-  %93 = getelementptr inbounds i8, ptr %92, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 80
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, %0
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %91
   call void @__ieee80211_sta_recalc_aggregates(ptr noundef %92, i16 noundef zeroext %1) #10
-  %97 = getelementptr inbounds i8, ptr %92, i64 2680
-  %98 = call i32 @drv_change_sta_links(ptr noundef %5, ptr noundef %0, ptr noundef %97, i16 noundef zeroext %89, i16 noundef zeroext %1) #10
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 2680
+  %98 = call i32 @drv_change_sta_links(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %97, i16 noundef zeroext %89, i16 noundef zeroext %1) #10
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %101, label %100, !prof !49
 
@@ -1035,10 +1035,10 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   %115 = and i64 %111, 15
   %116 = getelementptr [15 x ptr], ptr %47, i64 0, i64 %115
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 720
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 720
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 128
-  %121 = call i32 @ieee80211_link_use_channel(ptr noundef %117, ptr noundef %120, i32 noundef 0) #10
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 128
+  %121 = call i32 @ieee80211_link_use_channel(ptr noundef %117, ptr noundef nonnull %120, i32 noundef 0) #10
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %124, label %123, !prof !49
 
@@ -1094,9 +1094,9 @@ define dso_local void @ieee80211_set_active_links_async(ptr noundef %0, i16 noun
 
 10:                                               ; preds = %7
   %11 = zext i16 %1 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 1000
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %13 = load i16, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1004
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %15 = load i16, ptr %14, align 4
   %16 = xor i16 %15, -1
   %17 = and i16 %13, %16
@@ -1117,7 +1117,7 @@ define dso_local void @ieee80211_set_active_links_async(ptr noundef %0, i16 noun
   store i16 %1, ptr %27, align 8
   %28 = getelementptr i8, ptr %0, i64 -2800
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %0, i64 -32
   tail call void @wiphy_work_queue(ptr noundef %31, ptr noundef %32) #10
@@ -1135,10 +1135,10 @@ declare dso_local void @wiphy_delayed_work_timer(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture noundef initializes((5056, 5058), (5060, 5062)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4056
-  %5 = getelementptr inbounds i8, ptr %0, i64 5056
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   store i16 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 5060
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5060
   store i16 %2, ptr %6, align 4
   %7 = icmp eq i16 %1, 0
   br i1 %7, label %19, label %8
@@ -1165,7 +1165,7 @@ define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture nound
   br label %19
 
 19:                                               ; preds = %18, %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 5058
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5058
   store i16 0, ptr %20, align 2
   store i16 0, ptr %6, align 4
   br label %39
@@ -1178,7 +1178,7 @@ define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture nound
   ]
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 5058
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5058
   store i16 %1, ptr %24, align 2
   %25 = icmp eq i16 %2, 0
   br i1 %25, label %39, label %26, !prof !49
@@ -1190,7 +1190,7 @@ define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture nound
   br label %39
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 5058
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5058
   %29 = load i16, ptr %28, align 2
   %30 = icmp eq i16 %29, 0
   br i1 %30, label %31, label %39

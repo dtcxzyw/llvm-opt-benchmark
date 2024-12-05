@@ -24,7 +24,7 @@ define range(i32 -2, 1) i32 @ompi_fortran_string_f2c(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %.lr.ph
   %11 = add nuw nsw i32 %.032, 1
-  %12 = getelementptr inbounds i8, ptr %.02731, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.02731, i64 1
   %exitcond.not = icmp eq i32 %11, %1
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !4
 
@@ -119,7 +119,7 @@ define i32 @ompi_fortran_argv_blank_f2c(ptr noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph.preheader.i.us:                            ; preds = %4, %35
   %.010.us = phi ptr [ %36, %35 ], [ %0, %4 ]
-  %10 = getelementptr inbounds i8, ptr %.010.us, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %.010.us, i64 %6
   %scevgep.i.us = getelementptr i8, ptr %.010.us, i64 %8
   br label %.lr.ph.i.us
 
@@ -151,7 +151,7 @@ define i32 @ompi_fortran_argv_blank_f2c(ptr noundef %0, i32 noundef %1, i32 noun
 
 22:                                               ; preds = %.lr.ph.i.us
   %23 = add nuw nsw i32 %.032.i.us, 1
-  %24 = getelementptr inbounds i8, ptr %.02731.i.us, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02731.i.us, i64 1
   %exitcond.not.i.us = icmp eq i32 %23, %1
   br i1 %exitcond.not.i.us, label %.critedge.thread.i.us, label %.lr.ph.i.us, !llvm.loop !4
 
@@ -244,7 +244,7 @@ define i32 @ompi_fortran_argv_count_f2c(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %37
   %.026.us = phi i32 [ %39, %37 ], [ 0, %.lr.ph ]
   %.01425.us = phi ptr [ %38, %37 ], [ %0, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.01425.us, i64 %8
+  %12 = getelementptr inbounds nuw i8, ptr %.01425.us, i64 %8
   %scevgep.i.us = getelementptr i8, ptr %.01425.us, i64 %10
   br label %.lr.ph.i.us
 
@@ -276,7 +276,7 @@ define i32 @ompi_fortran_argv_count_f2c(ptr noundef %0, i32 noundef %1, i32 noun
 
 24:                                               ; preds = %.lr.ph.i.us
   %25 = add nuw nsw i32 %.032.i.us, 1
-  %26 = getelementptr inbounds i8, ptr %.02731.i.us, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02731.i.us, i64 1
   %exitcond.not.i.us = icmp eq i32 %25, %2
   br i1 %exitcond.not.i.us, label %.critedge.thread.i.us, label %.lr.ph.i.us, !llvm.loop !4
 
@@ -366,7 +366,7 @@ define i32 @ompi_fortran_multiple_argvs_f2c(i32 noundef %0, ptr noundef %1, i32 
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.01823 = phi ptr [ %1, %.lr.ph ], [ %16, %15 ]
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %13 = tail call i32 @ompi_fortran_argv_blank_f2c(ptr noundef %.01823, i32 noundef %2, i32 noundef %9, ptr noundef %12)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14

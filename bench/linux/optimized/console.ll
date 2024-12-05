@@ -38,13 +38,13 @@ define dso_local void @pm_vt_switch_required(ptr noundef %0, i1 noundef zeroext 
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %4, !llvm.loop !5
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 %3, ptr %13, align 8
   br label %24
 
@@ -55,15 +55,15 @@ define dso_local void @pm_vt_switch_required(ptr noundef %0, i1 noundef zeroext 
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i8 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %0, ptr %20, align 8
   %21 = load ptr, ptr @pm_vt_switch_list, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %16, ptr %22, align 8
   store ptr %21, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @pm_vt_switch_list, ptr %23, align 8
   store volatile ptr %16, ptr @pm_vt_switch_list, align 8
   br label %24
@@ -91,16 +91,16 @@ define dso_local void @pm_vt_switch_unregister(ptr noundef readnone %0) #0 align
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %2, !llvm.loop !8
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   store volatile ptr %13, ptr %12, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
@@ -133,7 +133,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 .preheader:                                       ; preds = %0, %thread-pre-split
   %7 = phi ptr [ %.pr, %thread-pre-split ], [ %1, %0 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %thread-pre-split, label %.loopexit, !llvm.loop !11
@@ -181,7 +181,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 .preheader:                                       ; preds = %0, %thread-pre-split
   %6 = phi ptr [ %.pr, %thread-pre-split ], [ %1, %0 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !9, !noundef !10
   %.not3.not = icmp ne i8 %8, 0
   br i1 %.not3.not, label %.loopexit, label %thread-pre-split, !llvm.loop !11

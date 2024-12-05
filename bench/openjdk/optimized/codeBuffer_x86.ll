@@ -22,7 +22,7 @@ $_ZTV9Assembler = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10CodeBuffer17pd_finalize_stubsEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_Z27emit_shared_stubs_to_interpI14MacroAssemblerLi0EEbP10CodeBufferP13GrowableArrayI25SharedStubToInterpRequestE(ptr noundef nonnull %0, ptr noundef %3)
   ret i1 %4
@@ -36,7 +36,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z27emit_shared_stubs_to_interpI1
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit, label %10
@@ -57,11 +57,11 @@ _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; pre
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %.critedge
@@ -92,7 +92,7 @@ _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; pre
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %4, align 8, !alias.scope !6
   store ptr %34, ptr %18, align 8, !alias.scope !6
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %35, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

@@ -65,7 +65,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @_ZN11proc_macro27Literal16usize_unsuffixed17h064b573ace7e1179E(ptr nonnull sret({ { i64, [2 x i64] }, {} }) align 8 %25, i64 %2), !noalias !3
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN15wiggle_generate5names12enum_variant17h88a4bde2e234dee3E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %24, ptr nonnull align 8 %27)
           to label %31 unwind label %29, !noalias !3
 
@@ -215,7 +215,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %68 unwind label %52, !noalias !3
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !noalias !3, !nonnull !7, !align !9, !noundef !7
   invoke void @"_ZN50_$LT$u32$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0293d1bb616df71dE"(ptr nonnull align 4 %70, ptr nonnull align 8 %16)
           to label %73 unwind label %71, !noalias !3
@@ -343,7 +343,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %102 unwind label %52, !noalias !3
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %1, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %104 = load ptr, ptr %103, align 8, !noalias !3, !nonnull !7, !align !8, !noundef !7
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %104, ptr nonnull align 8 %11)
           to label %108 unwind label %106, !noalias !3
@@ -437,7 +437,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %128 unwind label %123, !noalias !3
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %1, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %130 = load ptr, ptr %129, align 8, !noalias !3, !nonnull !7, !align !8, !noundef !7
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %130, ptr nonnull align 8 %6)
           to label %133 unwind label %131, !noalias !3
@@ -512,7 +512,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN15wiggle_generate5names12enum_variant17h88a4bde2e234dee3E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %9, ptr nonnull align 8 %11), !noalias !10
   invoke void @_ZN11proc_macro27Literal16usize_unsuffixed17h064b573ace7e1179E(ptr nonnull sret({ { i64, [2 x i64] }, {} }) align 8 %8, i64 %2)
           to label %15 unwind label %13, !noalias !10
@@ -635,7 +635,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names12enum_variant17h88a4bde2e234dee3E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %11, ptr nonnull align 8 %13), !noalias !13
   %14 = load i64, ptr %2, align 8, !range !6, !noalias !13, !noundef !7
   %.not.i = icmp eq i64 %14, 2
@@ -763,7 +763,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN15wiggle_generate5names12enum_variant17h88a4bde2e234dee3E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %7, ptr nonnull align 8 %9), !noalias !16
   invoke void @_ZN11proc_macro27Literal16usize_unsuffixed17h064b573ace7e1179E(ptr nonnull sret({ { i64, [2 x i64] }, {} }) align 8 %6, i64 %2)
           to label %13 unwind label %11, !noalias !16
@@ -894,7 +894,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store i64 %2, ptr %28, align 8, !noalias !19
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN15wiggle_generate5names12enum_variant17h88a4bde2e234dee3E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %27, ptr nonnull align 8 %30), !noalias !19
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %25)
           to label %34 unwind label %32, !noalias !19
@@ -990,7 +990,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   br i1 %.not.i, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !noalias !19, !nonnull !7, !align !8, !noundef !7
   invoke void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hbd472bfd2a174bc6E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr nonnull align 8 %58)
           to label %63 unwind label %61, !noalias !19
@@ -1029,7 +1029,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   br label %65
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load ptr, ptr %69, align 8, !noalias !19, !nonnull !7, !align !8, !noundef !7
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %70, ptr nonnull align 8 %19)
           to label %74 unwind label %72, !noalias !19
@@ -1154,7 +1154,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %102 unwind label %85, !noalias !19
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %1, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %104 = load ptr, ptr %103, align 8, !noalias !19, !nonnull !7, !align !9, !noundef !7
   invoke void @"_ZN50_$LT$u32$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0293d1bb616df71dE"(ptr nonnull align 4 %104, ptr nonnull align 8 %12)
           to label %107 unwind label %105, !noalias !19
@@ -1290,7 +1290,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   unreachable
 
 138:                                              ; preds = %59
-  %139 = getelementptr inbounds i8, ptr %1, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load ptr, ptr %139, align 8, !noalias !19, !nonnull !7, !align !8, !noundef !7
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %140, ptr nonnull align 8 %8)
           to label %144 unwind label %142, !noalias !19

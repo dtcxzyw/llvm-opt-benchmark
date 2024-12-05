@@ -46,7 +46,7 @@ define hidden void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 deref
   %6 = phi i1 [ true, %1 ], [ false, %switch.lookup ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %1 ], [ %.sroa.2, %switch.lookup ]
   %.in.v = select i1 %6, i64 14, i64 15
-  %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %7 = load i8, ptr %.in, align 1
   %8 = icmp ult i8 %7, 3
   br i1 %8, label %switch.lookup, label %9
@@ -67,13 +67,13 @@ define hidden void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 deref
 
 switch.lookup:                                    ; preds = %5
   %14 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN7nanogui7Texture4initEv, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7nanogui7Texture4initEv, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %indvars.iv.sroa.phi, align 4
   br i1 %6, label %5, label %15, !llvm.loop !5
 
 15:                                               ; preds = %switch.lookup
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = icmp ult i8 %17, 3
   br i1 %18, label %switch.lookup26, label %19
@@ -94,13 +94,13 @@ switch.lookup:                                    ; preds = %5
 
 switch.lookup26:                                  ; preds = %15
   %24 = zext nneg i8 %17 to i64
-  %switch.gep27 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN7nanogui7Texture4initEv.1, i64 0, i64 %24
+  %switch.gep27 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN7nanogui7Texture4initEv.1, i64 0, i64 %24
   %switch.load28 = load i32, ptr %switch.gep27, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
-  %26 = getelementptr inbounds i8, ptr %0, i64 13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 13
   call fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %27 = getelementptr inbounds i8, ptr %0, i64 17
-  %28 = getelementptr inbounds i8, ptr %0, i64 18
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 1
@@ -111,7 +111,7 @@ switch.lookup26:                                  ; preds = %15
   %33 = load i8, ptr %27, align 1
   %34 = icmp ugt i8 %33, 1
   %35 = select i1 %34, i32 37120, i32 3553
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @glGenTextures(i32 noundef 1, ptr noundef nonnull %36)
   %37 = load i32, ptr %36, align 8
   tail call void @glBindTexture(i32 noundef %35, i32 noundef %37)
@@ -136,7 +136,7 @@ switch.lookup26:                                  ; preds = %15
   br i1 %.not19, label %61, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @glGenRenderbuffers(i32 noundef 1, ptr noundef nonnull %44)
   %45 = load i32, ptr %44, align 4
   tail call void @glBindRenderbuffer(i32 noundef 36161, i32 noundef %45)
@@ -146,9 +146,9 @@ switch.lookup26:                                  ; preds = %15
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %4, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   tail call void @glRenderbufferStorage(i32 noundef 36161, i32 noundef %49, i32 noundef %51, i32 noundef %53)
   br label %66
@@ -156,9 +156,9 @@ switch.lookup26:                                  ; preds = %15
 54:                                               ; preds = %43
   %55 = zext i8 %46 to i32
   %56 = load i32, ptr %4, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8
   tail call void @glRenderbufferStorageMultisample(i32 noundef 36161, i32 noundef %55, i32 noundef %56, i32 noundef %58, i32 noundef %60)
   br label %66
@@ -311,7 +311,7 @@ switch.hole_check:                                ; preds = %10
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %thread-pre-split.sink.split
 
@@ -323,7 +323,7 @@ switch.hole_check73:                              ; preds = %13
 
 switch.lookup74:                                  ; preds = %switch.hole_check73
   %31 = zext nneg i8 %switch.tableidx72 to i64
-  %switch.gep78 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2, i64 0, i64 %31
+  %switch.gep78 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.2, i64 0, i64 %31
   %switch.load79 = load i32, ptr %switch.gep78, align 4
   br label %thread-pre-split.sink.split
 
@@ -335,7 +335,7 @@ switch.hole_check82:                              ; preds = %16
 
 switch.lookup83:                                  ; preds = %switch.hole_check82
   %32 = zext nneg i8 %switch.tableidx81 to i64
-  %switch.gep87 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3, i64 0, i64 %32
+  %switch.gep87 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.3, i64 0, i64 %32
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   br label %thread-pre-split.sink.split
 
@@ -347,7 +347,7 @@ switch.hole_check91:                              ; preds = %19
 
 switch.lookup92:                                  ; preds = %switch.hole_check91
   %33 = zext nneg i8 %switch.tableidx90 to i64
-  %switch.gep96 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4, i64 0, i64 %33
+  %switch.gep96 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.4, i64 0, i64 %33
   %switch.load97 = load i32, ptr %switch.gep96, align 4
   br label %thread-pre-split.sink.split
 
@@ -393,7 +393,7 @@ switch.hole_check100:                             ; preds = %34
 
 switch.lookup101:                                 ; preds = %switch.hole_check100
   %44 = zext nneg i8 %switch.tableidx99 to i64
-  %switch.gep105 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5, i64 0, i64 %44
+  %switch.gep105 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_.5, i64 0, i64 %44
   %switch.load106 = load i32, ptr %switch.gep105, align 4
   store i32 %switch.load106, ptr %3, align 4
   br label %.thread
@@ -457,7 +457,7 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1
   %8 = icmp ugt i8 %7, 1
   %9 = icmp ne ptr %1, null
@@ -480,10 +480,10 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
-  %17 = getelementptr inbounds i8, ptr %0, i64 13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 13
   call fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %58, label %20
@@ -509,9 +509,9 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
 
 27:                                               ; preds = %.critedge
   %28 = load i32, ptr %5, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = load i32, ptr %3, align 4
   %34 = load i32, ptr %4, align 4
@@ -521,24 +521,24 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
 35:                                               ; preds = %.critedge
   %36 = zext i8 %25 to i32
   %37 = load i32, ptr %5, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load i32, ptr %40, align 8
   tail call void @glTexImage2DMultisample(i32 noundef %23, i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i8 noundef zeroext 0)
   br label %42
 
 42:                                               ; preds = %35, %27
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i8, ptr %43, align 4
   %45 = trunc i8 %44 to i1
   br i1 %45, label %76, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %48 = load i8, ptr %47, align 2
   %49 = icmp eq i8 %48, 2
-  %50 = getelementptr inbounds i8, ptr %0, i64 15
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 2
   %or.cond14 = select i1 %49, i1 true, i1 %52
@@ -554,7 +554,7 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
   br label %76
 
 58:                                               ; preds = %15
-  %59 = getelementptr inbounds i8, ptr %0, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %60 = load i32, ptr %59, align 4
   tail call void @glBindRenderbuffer(i32 noundef 36161, i32 noundef %60)
   %61 = load i8, ptr %6, align 1
@@ -563,9 +563,9 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
 
 63:                                               ; preds = %58
   %64 = load i32, ptr %5, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8
   tail call void @glRenderbufferStorage(i32 noundef 36161, i32 noundef %64, i32 noundef %66, i32 noundef %68)
   br label %76
@@ -573,9 +573,9 @@ define hidden void @_ZN7nanogui7Texture6uploadEPKh(ptr nocapture noundef nonnull
 69:                                               ; preds = %58
   %70 = zext i8 %61 to i32
   %71 = load i32, ptr %5, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = load i32, ptr %74, align 8
   tail call void @glRenderbufferStorageMultisample(i32 noundef 36161, i32 noundef %70, i32 noundef %71, i32 noundef %73, i32 noundef %75)
   br label %76
@@ -595,12 +595,12 @@ declare void @glRenderbufferStorageMultisample(i32 noundef, i32 noundef, i32 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
           to label %3 unwind label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   invoke void @glDeleteRenderbuffers(i32 noundef 1, ptr noundef nonnull %4)
           to label %5 unwind label %6
 
@@ -638,12 +638,12 @@ declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %2)
           to label %3 unwind label %5
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   invoke void @glDeleteRenderbuffers(i32 noundef 1, ptr noundef nonnull %4)
           to label %_ZN7nanogui7TextureD2Ev.exit unwind label %5
 
@@ -671,11 +671,11 @@ declare void @glTexImage2DMultisample(i32 noundef, i32 noundef, i32 noundef, i32
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui7Texture15generate_mipmapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
   %4 = icmp ugt i8 %3, 1
   %5 = select i1 %4, i32 37120, i32 3553
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   tail call void @glBindTexture(i32 noundef %5, i32 noundef %7)
   tail call void @glGenerateMipmap(i32 noundef %5)
@@ -687,7 +687,7 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %9 = load i8, ptr %8, align 1
   %10 = icmp ugt i8 %9, 1
   %11 = icmp ne ptr %1, null
@@ -709,10 +709,10 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   br label %76
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
-  %19 = getelementptr inbounds i8, ptr %0, i64 13
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 13
   call fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28
@@ -735,18 +735,18 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   %29 = load i32, ptr %2, align 4
   %30 = load i32, ptr %3, align 4
   %31 = add nsw i32 %30, %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %31, %33
   br i1 %34, label %44, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %40, %42
   br i1 %43, label %44, label %49
@@ -787,16 +787,16 @@ define hidden void @_ZN7nanogui7Texture17upload_sub_regionEPKhRKNS_5ArrayIiLm2EE
   %58 = load i32, ptr %5, align 4
   %59 = load i32, ptr %6, align 4
   tail call void @glTexSubImage2D(i32 noundef %52, i32 noundef 0, i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef %1)
-  %60 = getelementptr inbounds i8, ptr %0, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
   br i1 %62, label %75, label %63
 
 63:                                               ; preds = %.critedge
-  %64 = getelementptr inbounds i8, ptr %0, i64 14
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %65 = load i8, ptr %64, align 2
   %66 = icmp eq i8 %65, 2
-  %67 = getelementptr inbounds i8, ptr %0, i64 15
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 2
   %or.cond21 = select i1 %66, i1 true, i1 %69
@@ -828,7 +828,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %14
@@ -848,7 +848,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br label %52
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %16 = load i8, ptr %15, align 1
   %17 = icmp ugt i8 %16, 1
   br i1 %17, label %18, label %23
@@ -868,15 +868,15 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br label %52
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
-  %25 = getelementptr inbounds i8, ptr %0, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 13
   call fastcc void @_ZN7nanoguiL21gl_map_texture_formatERNS_7Texture11PixelFormatERNS0_15ComponentFormatERjS5_S5_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %26 = load i32, ptr %6, align 8
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef %26)
   %27 = load i32, ptr %3, align 4
   %28 = load i32, ptr %4, align 4
   tail call void @glGetTexImage(i32 noundef 3553, i32 noundef 0, i32 noundef %27, i32 noundef %28, ptr noundef %1)
-  %29 = getelementptr inbounds i8, ptr %0, i64 18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %30 = load i8, ptr %29, align 2
   %31 = and i8 %30, 2
   %.not = icmp eq i8 %31, 0
@@ -884,12 +884,12 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
 
 32:                                               ; preds = %23
   %33 = tail call noundef i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = mul i64 %33, %36
   %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #14
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, -1
   %42 = sext i32 %41 to i64
@@ -898,7 +898,7 @@ define hidden void @_ZN7nanogui7Texture8downloadEPh(ptr noundef nonnull align 8 
   br i1 %44, label %.lr.ph, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 .lr.ph:                                           ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %1, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %43
   %46 = sub i64 0, %37
   br label %47
 
@@ -939,15 +939,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui7Texture6resizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %4
 
 4:                                                ; preds = %4, %2
   %.not8.i = phi i1 [ true, %2 ], [ false, %4 ]
   %.07.i = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %5 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %.07.i
+  %5 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %.07.i
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.07.i
+  %7 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %.07.i
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %6, %8
   %or.cond.i = and i1 %.not8.i, %.not.i

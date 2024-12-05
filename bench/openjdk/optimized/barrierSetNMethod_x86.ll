@@ -49,7 +49,7 @@ define hidden noundef zeroext i1 @_ZNK23NativeNMethodCmpBarrier13check_barrierER
   br label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %.not15 = icmp eq i8 %12, -127
   br i1 %.not15, label %15, label %13
@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @_ZNK23NativeNMethodCmpBarrier13check_barrierER
   br label %20
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i8, ptr %16, align 1
   %.not16 = icmp eq i8 %17, 127
   br i1 %.not16, label %20, label %18
@@ -87,48 +87,48 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EE5printEPKcz(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17BarrierSetNMethod10deoptimizeEP7nmethodPPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds ptr, ptr %2, i64 %6
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %9
 
 9:                                                ; preds = %3
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 800
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not21 = icmp eq ptr %22, null
   br i1 %.not21, label %40, label %23
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %1, i64 148
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %25 = load i32, ptr %24, align 4
   %26 = icmp ne i32 %25, -1
   %27 = zext i1 %26 to i32
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 168
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(1800) %11) #5
-  %32 = getelementptr inbounds i8, ptr %1, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %1, i64 %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 146
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 146
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %27, ptr noundef nonnull %11, ptr noundef %31, ptr noundef %7, ptr noundef %39)
   br label %40
 
@@ -161,7 +161,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %45, %43, %3
   store ptr %49, ptr %48, align 8
   store ptr %7, ptr %46, align 8
   %50 = load ptr, ptr @_ZN13SharedRuntime18_wrong_method_blobE, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 36
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %50, i64 %53
@@ -184,42 +184,42 @@ define hidden void @_ZN17BarrierSetNMethod15set_guard_valueEP7nmethodi(ptr nound
   br i1 %4, label %5, label %44
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 209
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 3
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   br i1 %8, label %13, label %35
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %1, i64 %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 182
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 182
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   %26 = ptrtoint ptr %17 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %29 = and i64 %28, 4294967295
   %30 = icmp eq i64 %29, 0
   %spec.select.i.i = select i1 %30, ptr null, ptr %25
-  %31 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %12, i64 %33
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
 35:                                               ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %1, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i64
   %39 = getelementptr inbounds i8, ptr %12, i64 %38
@@ -230,7 +230,7 @@ define hidden void @_ZN17BarrierSetNMethod15set_guard_valueEP7nmethodi(ptr nound
 
 _ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %13, %35
   %.0.i = phi ptr [ %34, %13 ], [ %42, %35 ]
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 %2, ptr %43, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %.0.i, i32 noundef 4) #5
   br label %44
@@ -251,42 +251,42 @@ define hidden noundef i32 @_ZN17BarrierSetNMethod11guard_valueEP7nmethod(ptr nou
   br label %46
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 209
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 3
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 %12
   br i1 %9, label %14, label %36
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %1, i64 %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 182
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 182
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = ptrtoint ptr %18 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = and i64 %29, 4294967295
   %31 = icmp eq i64 %30, 0
   %spec.select.i.i = select i1 %31, ptr null, ptr %26
-  %32 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %13, i64 %34
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
 36:                                               ; preds = %6
-  %37 = getelementptr inbounds i8, ptr %1, i64 50
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i64
   %40 = getelementptr inbounds i8, ptr %13, i64 %39
@@ -297,7 +297,7 @@ define hidden noundef i32 @_ZN17BarrierSetNMethod11guard_valueEP7nmethod(ptr nou
 
 _ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %14, %36
   %.0.i = phi ptr [ %35, %14 ], [ %43, %36 ]
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %45 = load i32, ptr %44, align 4
   br label %46
 
@@ -310,42 +310,42 @@ declare noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod14verify_barrierEP7nmethodR12FormatBufferILm256EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(264) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 209
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 3
-  %7 = getelementptr inbounds i8, ptr %1, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   br i1 %6, label %11, label %33
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 182
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 182
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %24 = ptrtoint ptr %15 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = and i64 %26, 4294967295
   %28 = icmp eq i64 %27, 0
   %spec.select.i.i = select i1 %28, ptr null, ptr %23
-  %29 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %10, i64 %31
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %1, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i64
   %37 = getelementptr inbounds i8, ptr %10, i64 %36
@@ -376,7 +376,7 @@ _ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %11, %33
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %50 = load i8, ptr %49, align 1
   %.not15.i = icmp eq i8 %50, -127
   br i1 %.not15.i, label %53, label %51
@@ -387,7 +387,7 @@ _ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %11, %33
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %55 = load i8, ptr %54, align 1
   %.not16.i = icmp eq i8 %55, 127
   br i1 %.not16.i, label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit, label %56

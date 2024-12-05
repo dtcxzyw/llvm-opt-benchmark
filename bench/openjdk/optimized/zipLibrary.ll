@@ -104,19 +104,19 @@ define internal fastcc void @_ZL10initializeb(i1 noundef zeroext %0) unnamed_add
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(888) %13) #8
   br i1 %18, label %19, label %_ZN20ZipLibraryLoaderLockC2Ev.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %13, i64 1092
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 1092
   %21 = load volatile i32, ptr %20, align 4
   %.not7.i = icmp eq i32 %21, 4
   br i1 %.not7.i, label %_ZN20ZipLibraryLoaderLockC2Ev.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %13, i64 928
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   store volatile i32 4, ptr %20, align 4
@@ -262,7 +262,7 @@ _ZL16load_zip_libraryb.exit:                      ; preds = %35, %36, %_ZL23stor
 67:                                               ; preds = %66
   %68 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %69 = trunc i8 %68 to i1
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1092
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1092
   store volatile i32 6, ptr %70, align 4
   br i1 %69, label %72, label %71
 
@@ -272,7 +272,7 @@ _ZL16load_zip_libraryb.exit:                      ; preds = %35, %36, %_ZL23stor
   br label %72
 
 72:                                               ; preds = %71, %67
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1096
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1096
   %74 = load volatile i64, ptr %73, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %75 = and i64 %74, 1
@@ -284,7 +284,7 @@ _ZL16load_zip_libraryb.exit:                      ; preds = %35, %36, %_ZL23stor
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %76, %72
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1088
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1088
   %78 = load volatile i32, ptr %77, align 8
   %79 = and i32 %78, 12
   %.not.i.i.i = icmp eq i32 %79, 0

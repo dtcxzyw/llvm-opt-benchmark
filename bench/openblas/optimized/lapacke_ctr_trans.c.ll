@@ -97,11 +97,11 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %69 = phi i64 [ 0, %62 ], [ %77, %68 ]
   %70 = getelementptr { float, float }, ptr %66, i64 %69
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %70, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = load float, ptr %72, align 4
   %74 = mul nsw i64 %69, %47
   %75 = getelementptr { float, float }, ptr %67, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store float %71, ptr %75, align 4
   store float %73, ptr %76, align 4
   %77 = add nuw nsw i64 %69, 1
@@ -124,11 +124,11 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %88 = phi i64 [ %81, %83 ], [ %96, %87 ]
   %89 = getelementptr { float, float }, ptr %85, i64 %88
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %89, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %92 = load float, ptr %91, align 4
   %93 = mul nsw i64 %88, %38
   %94 = getelementptr { float, float }, ptr %86, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store float %90, ptr %94, align 4
   store float %92, ptr %95, align 4
   %96 = add nuw nsw i64 %88, 1

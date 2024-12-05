@@ -69,7 +69,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %agg.tmp1, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -93,7 +93,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -194,7 +194,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -218,7 +218,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -279,7 +279,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %agg.tmp1, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -303,7 +303,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -595,7 +595,7 @@ if.then:                                          ; preds = %entry
 cond.true.i:                                      ; preds = %if.then
   %sub.i.i = add nsw i64 %0, -1
   %1 = inttoptr i64 %sub.i.i to ptr
-  %message.i = getelementptr inbounds i8, ptr %1, i64 8
+  %message.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %call4.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #15
   br label %_ZNK4absl12lts_202308026Status7messageEv.exit
 
@@ -623,7 +623,7 @@ if.else:                                          ; preds = %_ZNK4absl12lts_2023
   %8 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %7, ptr %8) #15
   %9 = load i64, ptr %agg.tmp.i, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
@@ -643,7 +643,7 @@ lpad:                                             ; preds = %if.else
 
 if.else5:                                         ; preds = %entry
   call void @_ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202308026StatusENS_17StatusStrPropertyE(ptr nonnull sret(%"class.std::optional.3") align 8 %value, ptr noundef nonnull align 8 dereferenceable(8) %error, i32 noundef %which)
-  %_M_engaged.i.i = getelementptr inbounds i8, ptr %value, i64 32
+  %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %value, i64 32
   %13 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %if.then7, label %if.else10
@@ -847,16 +847,16 @@ entry:
   %0 = load i8, ptr %args1, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  %rep.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args1, i64 8
+  %rep.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %args1, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not4.i.i.i.i.i.i = icmp eq ptr %2, null
   %tobool.not.i.i.i.i.i.i = select i1 %cmp.i.i.not.i.i.i.i.i.i.i, i1 true, i1 %tobool.not4.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcount.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = atomicrmw add ptr %refcount.i.i.i.i.i.i.i, i32 4 monotonic, align 4
-  %rep.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i, i64 8
+  %rep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 8
   store ptr %2, ptr %rep.i.i.i.i.i.i.i.i.i, align 8
   store i64 1, ptr %agg.tmp2.i.i.i.i, align 8
   %4 = load i64, ptr %args1, align 8

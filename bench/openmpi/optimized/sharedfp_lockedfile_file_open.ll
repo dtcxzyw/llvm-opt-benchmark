@@ -41,7 +41,7 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
   br label %136
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %14 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
@@ -63,15 +63,15 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
   br label %136
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 220
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %55
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
@@ -92,7 +92,7 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
   br i1 %42, label %43, label %ompi_group_peer_lookup.exit
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %38, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = load i8, ptr @opal_uses_threads, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %49
@@ -110,21 +110,21 @@ define i32 @mca_sharedfp_lockedfile_file_open(ptr noundef %0, ptr noundef %1, i3
 
 ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
   %.0.i.i.i = phi ptr [ %31, %26 ], [ %38, %49 ], [ %38, %47 ], [ %38, %34 ]
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %7, align 4
   br label %55
 
 55:                                               ; preds = %ompi_group_peer_lookup.exit, %22
-  %56 = getelementptr inbounds i8, ptr %0, i64 328
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 %59(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_unsigned, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %61) #11
   %.not97 = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds i8, ptr %4, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %64 = load i32, ptr %63, align 4
   br i1 %.not97, label %66, label %65
 
@@ -145,9 +145,9 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
 
 70:                                               ; preds = %68, %66
   %71 = load ptr, ptr %56, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 120
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 120
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %73(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %75) #11
   %.not98 = icmp eq i32 %76, 0
@@ -180,7 +180,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %18, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %82, ptr %91, align 8
   br label %100
 
@@ -197,7 +197,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
 
 95:                                               ; preds = %92
   %96 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %82, ptr noundef null) #11
-  %97 = getelementptr inbounds i8, ptr %18, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %96, ptr %97, align 8
   %98 = icmp eq ptr %96, null
   br i1 %98, label %99, label %100
@@ -245,9 +245,9 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
 
 114:                                              ; preds = %112, %100
   %115 = load ptr, ptr %56, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %115, i64 104
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 104
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 %117(ptr noundef nonnull %0, ptr noundef %119) #11
   %.not101 = icmp eq i32 %120, 0
@@ -277,12 +277,12 @@ ompi_group_peer_lookup.exit:                      ; preds = %26, %34, %47, %49
 128:                                              ; preds = %123
   store i32 %124, ptr %18, align 8
   store ptr %18, ptr %13, align 8
-  %129 = getelementptr inbounds i8, ptr %4, i64 168
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %calloc, ptr %129, align 8
   %130 = load ptr, ptr %56, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %134 = load ptr, ptr %133, align 8
   %135 = call i32 %132(ptr noundef nonnull %0, ptr noundef %134) #11
   br label %136
@@ -354,13 +354,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_sharedfp_lockedfile_file_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %24, label %8
@@ -372,19 +372,19 @@ define noundef i32 @mca_sharedfp_lockedfile_file_close(ptr nocapture noundef rea
 
 10:                                               ; preds = %8
   %11 = tail call i32 @close(i32 noundef %9) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @unlink(ptr noundef %17) #11
   br label %19
 
 19:                                               ; preds = %10, %15, %8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
   br i1 %.not17, label %23, label %22

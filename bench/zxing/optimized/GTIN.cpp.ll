@@ -45,9 +45,9 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5ZXing4GTINltERKNS0_9CountryIdES3_(ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = icmp ult i16 %4, %6
   ret i1 %7
@@ -65,7 +65,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 32, i64 noundef 0) #16
   %13 = icmp eq i64 %12, -1
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = select i1 %13, i64 %15, i64 %12
   %17 = icmp ne i64 %16, 8
@@ -77,9 +77,9 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   ]
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %0, align 8, !tbaa !8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %20, align 8, !tbaa !11
   store i8 0, ptr %19, align 8, !tbaa !14
   br label %283
@@ -141,7 +141,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
 49:                                               ; preds = %48, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   %50 = load ptr, ptr %8, align 8, !tbaa !15
-  %51 = getelementptr inbounds i8, ptr %8, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = icmp eq ptr %50, %51
   br i1 %52, label %79, label %83
 
@@ -172,12 +172,12 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %65 = trunc i64 %39 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   %66 = load ptr, ptr %8, align 8, !tbaa !15
-  %67 = getelementptr inbounds i8, ptr %8, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %68 = icmp eq ptr %66, %67
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !11
   %72 = icmp ult i64 %71, 16
   call void @llvm.assume(i1 %72)
@@ -193,15 +193,15 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %75, label %76, label %85
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %77, ptr %0, align 8, !tbaa !8
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %78, align 8, !tbaa !11
   store i8 0, ptr %77, align 8, !tbaa !14
   br label %283
 
 79:                                               ; preds = %49
-  %80 = getelementptr inbounds i8, ptr %8, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %81 = load i64, ptr %80, align 8, !tbaa !11
   %82 = icmp ult i64 %81, 16
   call void @llvm.assume(i1 %82)
@@ -249,7 +249,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
 99:                                               ; preds = %98, %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   %100 = load ptr, ptr %9, align 8, !tbaa !15
-  %101 = getelementptr inbounds i8, ptr %9, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %102 = icmp eq ptr %100, %101
   br i1 %102, label %131, label %135
 
@@ -280,12 +280,12 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %115 = trunc i64 %89 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   %116 = load ptr, ptr %9, align 8, !tbaa !15
-  %117 = getelementptr inbounds i8, ptr %9, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %118 = icmp eq ptr %116, %117
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %9, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !11
   %122 = icmp ult i64 %121, 16
   call void @llvm.assume(i1 %122)
@@ -302,17 +302,17 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %126, label %127, label %137
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %128, ptr %0, align 8, !tbaa !8
   store i16 21333, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %129, align 8, !tbaa !11
-  %130 = getelementptr inbounds i8, ptr %0, i64 18
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 0, ptr %130, align 2, !tbaa !14
   br label %283
 
 131:                                              ; preds = %99
-  %132 = getelementptr inbounds i8, ptr %9, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !11
   %134 = icmp ult i64 %133, 16
   call void @llvm.assume(i1 %134)
@@ -360,7 +360,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
 151:                                              ; preds = %150, %146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %152 = load ptr, ptr %10, align 8, !tbaa !15
-  %153 = getelementptr inbounds i8, ptr %10, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %154 = icmp eq ptr %152, %153
   br i1 %154, label %183, label %187
 
@@ -391,12 +391,12 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %167 = trunc i64 %141 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %168 = load ptr, ptr %10, align 8, !tbaa !15
-  %169 = getelementptr inbounds i8, ptr %10, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %170 = icmp eq ptr %168, %169
   br i1 %170, label %171, label %175
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds i8, ptr %10, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %173 = load i64, ptr %172, align 8, !tbaa !11
   %174 = icmp ult i64 %173, 16
   call void @llvm.assume(i1 %174)
@@ -413,17 +413,17 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %178, label %179, label %189
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %0, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %180, ptr %0, align 8, !tbaa !8
   store i16 21333, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %181, align 8, !tbaa !11
-  %182 = getelementptr inbounds i8, ptr %0, i64 18
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 0, ptr %182, align 2, !tbaa !14
   br label %283
 
 183:                                              ; preds = %151
-  %184 = getelementptr inbounds i8, ptr %10, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %185 = load i64, ptr %184, align 8, !tbaa !11
   %186 = icmp ult i64 %185, 16
   call void @llvm.assume(i1 %186)
@@ -474,7 +474,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
 206:                                              ; preds = %205, %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   %207 = load ptr, ptr %11, align 8, !tbaa !15
-  %208 = getelementptr inbounds i8, ptr %11, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %209 = icmp eq ptr %207, %208
   br i1 %209, label %240, label %244
 
@@ -505,12 +505,12 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %222 = trunc i64 %196 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   %223 = load ptr, ptr %11, align 8, !tbaa !15
-  %224 = getelementptr inbounds i8, ptr %11, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %225 = icmp eq ptr %223, %224
   br i1 %225, label %226, label %230
 
 226:                                              ; preds = %221
-  %227 = getelementptr inbounds i8, ptr %11, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %228 = load i64, ptr %227, align 8, !tbaa !11
   %229 = icmp ult i64 %228, 16
   call void @llvm.assume(i1 %229)
@@ -530,15 +530,15 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %236, label %237, label %246
 
 237:                                              ; preds = %231
-  %238 = getelementptr inbounds i8, ptr %0, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %238, ptr %0, align 8, !tbaa !8
-  %239 = getelementptr inbounds i8, ptr %0, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %239, align 8, !tbaa !11
   store i8 0, ptr %238, align 8, !tbaa !14
   br label %283
 
 240:                                              ; preds = %206
-  %241 = getelementptr inbounds i8, ptr %11, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %242 = load i64, ptr %241, align 8, !tbaa !11
   %243 = icmp ult i64 %242, 16
   call void @llvm.assume(i1 %243)
@@ -560,11 +560,11 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %249 = phi ptr [ @_ZN5ZXing4GTINL9COUNTRIESE, %246 ], [ %260, %248 ]
   %250 = phi i64 [ 120, %246 ], [ %259, %248 ]
   %251 = lshr i64 %250, 1
-  %252 = getelementptr inbounds %"struct.ZXing::GTIN::CountryId", ptr %249, i64 %251
-  %253 = getelementptr inbounds i8, ptr %252, i64 2
+  %252 = getelementptr inbounds nuw %"struct.ZXing::GTIN::CountryId", ptr %249, i64 %251
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 2
   %254 = load i16, ptr %253, align 2, !tbaa !3
   %255 = icmp ult i16 %254, %247
-  %256 = getelementptr inbounds i8, ptr %252, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %257 = xor i64 %251, -1
   %258 = add nsw i64 %250, %257
   %259 = select i1 %255, i64 %258, i64 %251
@@ -583,15 +583,15 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br i1 %267, label %278, label %268
 
 268:                                              ; preds = %264
-  %269 = getelementptr inbounds i8, ptr %260, i64 2
+  %269 = getelementptr inbounds nuw i8, ptr %260, i64 2
   %270 = load i16, ptr %269, align 2, !tbaa !3
   %271 = zext i16 %270 to i32
   %272 = icmp samesign ugt i32 %222, %271
   br i1 %272, label %278, label %273
 
 273:                                              ; preds = %268
-  %274 = getelementptr inbounds i8, ptr %260, i64 4
-  %275 = getelementptr inbounds i8, ptr %0, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %260, i64 4
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %275, ptr %0, align 8, !tbaa !8
   %276 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %274) #16
   %277 = getelementptr inbounds i8, ptr %274, i64 %276
@@ -599,9 +599,9 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   br label %283
 
 278:                                              ; preds = %268, %264, %262
-  %279 = getelementptr inbounds i8, ptr %0, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %279, ptr %0, align 8, !tbaa !8
-  %280 = getelementptr inbounds i8, ptr %0, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %280, align 8, !tbaa !11
   store i8 0, ptr %279, align 8, !tbaa !14
   br label %283
@@ -634,7 +634,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing4GTIN8EanAddOnB5cxx11ERKNS_6ResultE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(211) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %5 = load i32, ptr %4, align 8, !tbaa !22
   %6 = and i32 %5, -49921
   %7 = icmp eq i32 %6, 0
@@ -643,9 +643,9 @@ define void @_ZN5ZXing4GTIN8EanAddOnB5cxx11ERKNS_6ResultE(ptr dead_on_unwind noa
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8, !tbaa !11
   store i8 0, ptr %11, align 8, !tbaa !14
   br label %39
@@ -653,7 +653,7 @@ define void @_ZN5ZXing4GTIN8EanAddOnB5cxx11ERKNS_6ResultE(ptr dead_on_unwind noa
 13:                                               ; preds = %2
   %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ZXing6Result5bytesEv(ptr noundef nonnull align 8 dereferenceable(211) %1) #18
   %15 = load ptr, ptr %14, align 8, !tbaa !49
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !50
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %15 to i64
@@ -688,9 +688,9 @@ define void @_ZN5ZXing4GTIN8EanAddOnB5cxx11ERKNS_6ResultE(ptr dead_on_unwind noa
   br label %39
 
 36:                                               ; preds = %22, %13
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %0, align 8, !tbaa !8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %38, align 8, !tbaa !11
   store i8 0, ptr %37, align 8, !tbaa !14
   br label %39
@@ -705,15 +705,15 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ZXing6Result5bytes
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing4GTIN7IssueNrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = icmp eq i64 %5, 2
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %9, align 8, !tbaa !11
   store i8 0, ptr %8, align 8, !tbaa !14
   br label %69
@@ -818,7 +818,7 @@ define void @_ZN5ZXing4GTIN7IssueNrERKNSt7__cxx1112basic_stringIcSt11char_traits
   %58 = lshr i32 %37, 31
   %59 = add i32 %57, %58
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %61, ptr %0, align 8, !tbaa !8, !alias.scope !52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %60, i8 noundef signext 45) #18
           to label %65 unwind label %62
@@ -833,7 +833,7 @@ define void @_ZN5ZXing4GTIN7IssueNrERKNSt7__cxx1112basic_stringIcSt11char_traits
 65:                                               ; preds = %.loopexit
   %66 = zext nneg i32 %58 to i64
   %67 = load ptr, ptr %0, align 8, !tbaa !15, !alias.scope !52
-  %68 = getelementptr inbounds i8, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %66
   tail call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %68, i32 noundef %57, i32 noundef %38) #16
   br label %69
 
@@ -847,24 +847,24 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = icmp eq i64 %8, 5
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8, !tbaa !11
   store i8 0, ptr %11, align 8, !tbaa !14
   br label %150
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %4, align 8, !tbaa !8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %15, align 8, !tbaa !11
   store i8 0, ptr %14, align 8, !tbaa !14
   %16 = load ptr, ptr %1, align 8, !tbaa !15
@@ -902,9 +902,9 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %0, align 8, !tbaa !8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %29, align 8, !tbaa !11
   store i8 0, ptr %28, align 8, !tbaa !14
   br label %133
@@ -915,12 +915,12 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !8
   store i32 808463920, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %35, align 8, !tbaa !11
-  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %36, align 4, !tbaa !14
   br label %133
 
@@ -930,12 +930,12 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %41, ptr %0, align 8, !tbaa !8
   store i32 1684370261, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %42, align 8, !tbaa !11
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %43, align 4, !tbaa !14
   br label %133
 
@@ -989,7 +989,7 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 66:                                               ; preds = %65, %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %67 = load ptr, ptr %5, align 8, !tbaa !15
-  %68 = getelementptr inbounds i8, ptr %5, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %69 = icmp eq ptr %67, %68
   br i1 %69, label %119, label %123
 
@@ -1020,12 +1020,12 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %82 = trunc i64 %56 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %83 = load ptr, ptr %5, align 8, !tbaa !15
-  %84 = getelementptr inbounds i8, ptr %5, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !11
   %89 = icmp ult i64 %88, 16
   call void @llvm.assume(i1 %89)
@@ -1042,7 +1042,7 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
           to label %92 unwind label %126
 
 92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %94 = load ptr, ptr %4, align 8, !tbaa !15
   %95 = load i64, ptr %15, align 8, !tbaa !11
   %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef %94, i64 noundef %95) #18
@@ -1053,14 +1053,14 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %99 = getelementptr i8, ptr %98, i64 -24
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %96, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load i32, ptr %102, align 8, !tbaa !57
   %104 = and i32 %103, -261
   %105 = or disjoint i32 %104, 4
   store i32 %105, ptr %102, align 4, !tbaa !57
   %106 = load i64, ptr %99, align 8
   %107 = getelementptr inbounds i8, ptr %96, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 2, ptr %108, align 8, !tbaa !59
   %109 = sitofp i32 %82 to float
   %110 = fdiv float %109, 1.000000e+02
@@ -1069,13 +1069,13 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
           to label %113 unwind label %128
 
 113:                                              ; preds = %97
-  %114 = getelementptr inbounds i8, ptr %6, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 24
   invoke void @_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %114) #18
           to label %115 unwind label %128
 
 115:                                              ; preds = %113
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE) #16
-  %116 = getelementptr inbounds i8, ptr %6, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %116) #16
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6) #17
   br label %133
@@ -1086,7 +1086,7 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %124
 
 119:                                              ; preds = %66
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !11
   %122 = icmp ult i64 %121, 16
   call void @llvm.assume(i1 %122)
@@ -1110,7 +1110,7 @@ define void @_ZN5ZXing4GTIN5PriceERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE) #16
-  %130 = getelementptr inbounds i8, ptr %6, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %130) #16
   br label %131
 
@@ -1215,17 +1215,17 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   %12 = udiv i32 %8, 100
   %13 = or disjoint i32 %11, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = zext i32 %9 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !14
   %19 = zext nneg i32 %11 to i64
-  %20 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %19
   %21 = load i8, ptr %20, align 2, !tbaa !14
   %22 = add i32 %9, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
   store i8 %21, ptr %24, align 1, !tbaa !14
   %25 = add i32 %9, -2
   %26 = icmp ugt i32 %8, 9999
@@ -1240,12 +1240,12 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   %30 = shl nuw nsw i32 %27, 1
   %31 = or disjoint i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !14
-  %35 = getelementptr inbounds i8, ptr %0, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %34, ptr %35, align 1, !tbaa !14
   %36 = zext nneg i32 %30 to i64
-  %37 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
   %38 = load i8, ptr %37, align 2, !tbaa !14
   br label %42
 
@@ -1285,7 +1285,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #18
   store ptr %12, ptr %0, align 8, !tbaa !15
   %13 = load i64, ptr %4, align 8, !tbaa !65
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8, !tbaa !14
   br label %15
 
@@ -1307,7 +1307,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 20:                                               ; preds = %19, %17, %15
   %21 = load i64, ptr %4, align 8, !tbaa !65
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !11
   %23 = load ptr, ptr %0, align 8, !tbaa !15
   %24 = getelementptr inbounds i8, ptr %23, i64 %21

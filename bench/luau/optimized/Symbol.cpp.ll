@@ -1178,13 +1178,13 @@ define dso_local noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr nocapture noun
   br label %23
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %23, label %_ZNK4Luau7AstNameeqEPKc.exit
@@ -1202,7 +1202,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %10
 18:                                               ; preds = %15
   %19 = load ptr, ptr %1, align 8
   %.not11 = icmp eq ptr %19, null
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not12 = icmp eq ptr %21, null
   %22 = select i1 %.not11, i1 %.not12, i1 false
@@ -1260,7 +1260,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11ERKNS_6SymbolE(ptr dead_on_unwind
   br label %.body
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
   %22 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

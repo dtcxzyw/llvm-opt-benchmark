@@ -88,7 +88,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   br i1 %7, label %81, label %8
 
 8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 1413763908
   br i1 %11, label %12, label %81
@@ -99,7 +99,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   br i1 %14, label %15, label %81
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr @acpi_gbl_DSDT, align 8
   %18 = load i8, ptr @acpi_gbl_copy_dsdt_locally, align 1
@@ -154,7 +154,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   br i1 %46, label %67, label %47
 
 47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %44, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %49 = load i32, ptr %48, align 4
   switch i32 %49, label %67 [
     i32 1413763923, label %50
@@ -177,10 +177,10 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %44, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 189, i32 noundef %57, ptr noundef nonnull @.str.7, ptr noundef %48, ptr noundef %63) #5
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 189, i32 noundef %57, ptr noundef nonnull @.str.7, ptr noundef nonnull %48, ptr noundef nonnull %63) #5
   %64 = add i32 %40, 1
   br label %67
 
@@ -316,7 +316,7 @@ define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align
   br i1 %2, label %34, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %34, label %7
@@ -339,13 +339,13 @@ define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align
 16:                                               ; preds = %30, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %13 ]
   %17 = getelementptr %struct.acpi_table_desc, ptr %14, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %5, %19
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1413763908
   br i1 %24, label %.loopexit, label %25

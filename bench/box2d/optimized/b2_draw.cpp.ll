@@ -22,7 +22,7 @@ $_ZTI6b2Draw = comdat any
 define void @_ZN6b2DrawC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6b2Draw, i64 16), ptr %this, align 8
-  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
+  %m_drawFlags = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %m_drawFlags, align 8
   ret void
 }
@@ -30,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6b2Draw8SetFlagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
+  %m_drawFlags = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %flags, ptr %m_drawFlags, align 8
   ret void
 }
@@ -38,7 +38,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6b2Draw8GetFlagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
+  %m_drawFlags = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   ret i32 %0
 }
@@ -46,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6b2Draw11AppendFlagsEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
+  %m_drawFlags = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   %or = or i32 %0, %flags
   store i32 %or, ptr %m_drawFlags, align 8
@@ -57,7 +57,7 @@ entry:
 define void @_ZN6b2Draw10ClearFlagsEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
   %not = xor i32 %flags, -1
-  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
+  %m_drawFlags = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   %and = and i32 %0, %not
   store i32 %and, ptr %m_drawFlags, align 8

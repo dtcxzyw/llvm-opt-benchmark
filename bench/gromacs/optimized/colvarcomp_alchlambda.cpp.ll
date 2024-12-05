@@ -133,16 +133,16 @@ declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6colvar11alch_lambda10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1648) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull %3)
   %8 = load double, ptr %3, align 8
   %9 = fneg double %8
   store double %9, ptr %3, align 8
   %10 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load double, ptr %11, align 8
   %13 = fsub double %12, %8
   store double %13, ptr %3, align 8
@@ -166,7 +166,7 @@ declare void @_ZN6colvar3cvc24calc_Jacobian_derivativeEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6colvar11alch_lambda11apply_forceERK11colvarvalue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1648) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load double, ptr %4, align 8
   tail call void @_ZN18colvarproxy_system15set_alch_lambdaEd(ptr noundef nonnull align 8 dereferenceable(256) %3, double noundef %5)
   ret void
@@ -174,9 +174,9 @@ define void @_ZN6colvar11alch_lambda11apply_forceERK11colvarvalue(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK6colvar11alch_lambda5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fsub double %5, %7
   %9 = fmul double %8, %8
@@ -186,9 +186,9 @@ define noundef double @_ZNK6colvar11alch_lambda5dist2ERK11colvarvalueS3_(ptr noc
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6colvar11alch_lambda11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fsub double %7, %9
   %11 = fmul double %10, 2.000000e+00
@@ -200,7 +200,7 @@ define void @_ZNK6colvar11alch_lambda11dist2_lgradERK11colvarvalueS3_(ptr dead_o
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6colvar11alch_lambda11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr dead_on_unwind writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) %2)
   ret void
@@ -258,9 +258,9 @@ define linkonce_odr void @_ZN6colvar12alch_FlambdaD0Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6colvar12alch_Flambda10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1648) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull %3)
   %8 = load double, ptr %3, align 8
@@ -278,24 +278,24 @@ define void @_ZN6colvar12alch_Flambda14calc_gradientsEv(ptr nocapture nonnull re
 define void @_ZN6colvar12alch_Flambda11apply_forceERK11colvarvalue(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #2 align 2 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fneg double %6
   store double %7, ptr %3, align 8
   %8 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(256) %8, ptr noundef nonnull %3)
   %13 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull %4)
   %18 = load double, ptr %4, align 8
   %19 = load double, ptr %3, align 8
   %20 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load double, ptr %21, align 8
   %23 = call double @llvm.fmuladd.f64(double %18, double %19, double %22)
   store double %23, ptr %21, align 8
@@ -304,9 +304,9 @@ define void @_ZN6colvar12alch_Flambda11apply_forceERK11colvarvalue(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK6colvar12alch_Flambda5dist2ERK11colvarvalueS3_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fsub double %5, %7
   %9 = fmul double %8, %8
@@ -316,9 +316,9 @@ define noundef double @_ZNK6colvar12alch_Flambda5dist2ERK11colvarvalueS3_(ptr no
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6colvar12alch_Flambda11dist2_lgradERK11colvarvalueS3_(ptr dead_on_unwind noalias nonnull writable sret(%class.colvarvalue) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = alloca double, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fsub double %7, %9
   %11 = fmul double %10, 2.000000e+00
@@ -330,7 +330,7 @@ define void @_ZNK6colvar12alch_Flambda11dist2_lgradERK11colvarvalueS3_(ptr dead_
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6colvar12alch_Flambda11dist2_rgradERK11colvarvalueS3_(ptr dead_on_unwind noalias writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #2 align 2 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr dead_on_unwind writable sret(%class.colvarvalue) align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) %2)
   ret void
@@ -358,7 +358,7 @@ define void @_ZN6colvar11alch_lambdaC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11alch_lambdaE, i64 248), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -393,16 +393,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %15 unwind label %29
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 632
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i32 1, ptr %5, align 4
   invoke void @_ZN11colvarvalue4typeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %17 unwind label %29
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 640
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load ptr, ptr %21, align 8
   %23 = invoke noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(256) %18, ptr noundef nonnull %19)
           to label %24 unwind label %29
@@ -576,7 +576,7 @@ define void @_ZN6colvar12alch_FlambdaC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   %5 = alloca i32, align 4
   tail call void @_ZN6colvar3cvcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1648) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alch_FlambdaE, i64 248), ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -611,7 +611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %15 unwind label %22
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 632
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i32 1, ptr %5, align 4
   invoke void @_ZN11colvarvalue4typeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %17 unwind label %22

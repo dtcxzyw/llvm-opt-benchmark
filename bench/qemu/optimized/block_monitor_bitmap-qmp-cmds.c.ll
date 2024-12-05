@@ -359,7 +359,7 @@ for.cond.preheader:                               ; preds = %do.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %lst.018 = phi ptr [ %7, %for.inc ], [ %bms, %for.cond.preheader ]
-  %value = getelementptr inbounds i8, ptr %lst.018, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %lst.018, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load i32, ptr %0, align 8
   switch i32 %1, label %sw.default [
@@ -368,7 +368,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %u = getelementptr inbounds i8, ptr %0, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %u, align 8
   %3 = load ptr, ptr %bs, align 8
   %call6 = call ptr @bdrv_find_dirty_bitmap(ptr noundef %3, ptr noundef %2) #5
@@ -380,9 +380,9 @@ if.then8:                                         ; preds = %sw.bb
   br label %fail
 
 sw.bb10:                                          ; preds = %for.body
-  %u12 = getelementptr inbounds i8, ptr %0, i64 8
+  %u12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %u12, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %name, align 8
   %call15 = call ptr @block_dirty_bitmap_lookup(ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef %errp)
   %tobool16.not = icmp eq ptr %call15, null

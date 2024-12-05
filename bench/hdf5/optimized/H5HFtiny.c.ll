@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   %5 = icmp ugt i32 %4, 16
@@ -29,9 +29,9 @@ define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)
   %narrow = icmp ugt i32 %4, 17
   %.sink = zext i1 %narrow to i8
   %.sink11 = zext i32 %.sink11.shrunk to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 688
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i64 %.sink11, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 696
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store i8 %.sink, ptr %8, align 8
   ret i32 0
 }
@@ -39,20 +39,20 @@ define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %16
 
 11:                                               ; preds = %4
   %12 = lshr i64 %5, 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %14 = trunc i64 %5 to i8
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %14, ptr %13, align 1
   br label %16
 
@@ -65,7 +65,7 @@ define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, p
   store i8 %.sink, ptr %3, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.022, ptr align 1 %2, i64 %1, i1 false)
   %17 = getelementptr inbounds i8, ptr %.022, i64 %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = load i8, ptr %6, align 8
@@ -75,11 +75,11 @@ define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, p
   %24 = add i64 %1, %23
   %25 = sub i64 %20, %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %25, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 552
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %1
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 560
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %29, align 8
@@ -110,7 +110,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 696
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %10, label %7
@@ -121,7 +121,7 @@ define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, pt
   br label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -146,7 +146,7 @@ define range(i32 -1, 1) i32 @H5HF__tiny_read(ptr nocapture noundef readonly %0, 
   br label %H5HF__tiny_get_obj_len.exit.i
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   br label %H5HF__tiny_get_obj_len.exit.i
 
@@ -155,7 +155,7 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %9, %6
   %.0.in.i.i = phi i8 [ %11, %9 ], [ %8, %6 ]
   %.0.i.i = zext i8 %.0.in.i.i to i64
   %12 = add nuw nsw i64 %.0.i.i, 1
-  %.010.i = getelementptr inbounds i8, ptr %1, i64 %.010.v.i
+  %.010.i = getelementptr inbounds nuw i8, ptr %1, i64 %.010.v.i
   %13 = tail call i32 @H5HF__op_read(ptr noundef nonnull %.010.i, i64 noundef %12, ptr noundef %2) #5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %H5HF__tiny_op_real.exit
@@ -189,7 +189,7 @@ define range(i32 -1, 1) i32 @H5HF__tiny_op(ptr nocapture noundef readonly %0, pt
   br label %H5HF__tiny_get_obj_len.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   br label %H5HF__tiny_get_obj_len.exit.i
 
@@ -198,7 +198,7 @@ H5HF__tiny_get_obj_len.exit.i:                    ; preds = %10, %7
   %.0.in.i.i = phi i8 [ %12, %10 ], [ %9, %7 ]
   %.0.i.i = zext i8 %.0.in.i.i to i64
   %13 = add nuw nsw i64 %.0.i.i, 1
-  %.010.i = getelementptr inbounds i8, ptr %1, i64 %.010.v.i
+  %.010.i = getelementptr inbounds nuw i8, ptr %1, i64 %.010.v.i
   %14 = tail call i32 %2(ptr noundef nonnull %.010.i, i64 noundef %13, ptr noundef %3) #5
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %H5HF__tiny_op_real.exit
@@ -219,7 +219,7 @@ H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__tiny_remove(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 696
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -230,7 +230,7 @@ define range(i32 -1, 1) i32 @H5HF__tiny_remove(ptr noundef %0, ptr nocapture nou
   br label %H5HF__tiny_get_obj_len.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   br label %H5HF__tiny_get_obj_len.exit
 
@@ -238,11 +238,11 @@ H5HF__tiny_get_obj_len.exit:                      ; preds = %6, %9
   %.0.in.i = phi i8 [ %11, %9 ], [ %8, %6 ]
   %.0.i = zext i8 %.0.in.i to i64
   %.neg = xor i64 %.0.i, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %.neg
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 560
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, -1
   store i64 %17, ptr %15, align 8

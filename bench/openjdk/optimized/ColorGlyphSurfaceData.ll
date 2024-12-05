@@ -20,7 +20,7 @@ define void @Java_sun_font_ColorGlyphSurfaceData_initOps(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %2
   store ptr @Glyph_Lock, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @Glyph_GetRasInfo, ptr %7, align 8
   br label %8
 
@@ -44,20 +44,20 @@ define internal range(i32 -1, 1) i32 @Glyph_Lock(ptr noundef %0, ptr nocapture n
   br label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
   store i32 0, ptr %5, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 10
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %5, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %18, ptr %19, align 4
   call void @SurfaceData_IntersectBounds(ptr noundef %2, ptr noundef nonnull %5) #3
   br label %20
@@ -69,20 +69,20 @@ define internal range(i32 -1, 1) i32 @Glyph_Lock(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @Glyph_GetRasInfo(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 36)) %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 4, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %13, ptr %14, align 8
   ret void
 }
@@ -95,7 +95,7 @@ define void @Java_sun_font_ColorGlyphSurfaceData_setCurrentGlyph(ptr noundef %0,
 
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %7, ptr %8, align 8
   br label %9
 

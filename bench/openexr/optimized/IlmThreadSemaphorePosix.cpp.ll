@@ -32,7 +32,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 16), ptr %this, align 8
-  %_semaphore2 = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i32 @sem_init(ptr noundef nonnull %_semaphore2, i32 noundef 0, i32 noundef %value) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -105,7 +105,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN13IlmThread_3_29SemaphoreD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 16), ptr %this, align 8
-  %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i32 @sem_destroy(ptr noundef nonnull %_semaphore) #8
   ret void
 }
@@ -127,7 +127,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13IlmThread_3_29Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %entry
@@ -153,7 +153,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN13IlmThread_3_29Semaphore7tryWaitEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i32 @sem_trywait(ptr noundef nonnull %_semaphore) #8
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
@@ -167,7 +167,7 @@ define void @_ZN13IlmThread_3_29Semaphore4postEv(ptr noundef nonnull align 8 der
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i32 @sem_post(ptr noundef nonnull %_semaphore) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -229,7 +229,7 @@ entry:
   %value = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
+  %_semaphore = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = call i32 @sem_getvalue(ptr noundef nonnull %_semaphore, ptr noundef nonnull %value) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then

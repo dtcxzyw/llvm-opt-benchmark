@@ -99,9 +99,9 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader54 ]
-  %42 = getelementptr inbounds i64, ptr %.041, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %.041, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %43, ptr %44, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %2, align 4
@@ -111,10 +111,10 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph57 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds ptr, ptr %.042, i64 %indvars.iv59
+  %48 = getelementptr inbounds nuw ptr, ptr %.042, i64 %indvars.iv59
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @PMPI_Type_c2f(ptr noundef %49) #4
-  %51 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv59
+  %51 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv59
   store i32 %50, ptr %51, align 4
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %52 = load i32, ptr %3, align 4

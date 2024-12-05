@@ -195,7 +195,7 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
   %land.ext = phi i32 [ 0, %lor.lhs.false ], [ %call2, %land.rhs ]
   %ctx.val = load ptr, ptr %ctx, align 8
   %prov.val = load ptr, ptr %prov, align 16
-  %0 = getelementptr inbounds i8, ptr %prov, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %prov, i64 8
   %prov.val1 = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %prov.val, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -321,7 +321,7 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
   %land.ext = phi i32 [ 0, %lor.lhs.false ], [ %call2, %land.rhs ]
   %ctx.val = load ptr, ptr %ctx, align 8
   %prov.val = load ptr, ptr %prov, align 16
-  %0 = getelementptr inbounds i8, ptr %prov, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %prov, i64 8
   %prov.val1 = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %prov.val, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -672,7 +672,7 @@ err:                                              ; preds = %if.else, %if.end7, 
   %ret.0 = phi i32 [ 1, %if.end18 ], [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %land.lhs.true ]
   tail call void @EVP_MD_free(ptr noundef %md.0) #7
   %prov.val = load ptr, ptr %prov, align 16
-  %2 = getelementptr inbounds i8, ptr %prov, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %prov, i64 8
   %prov.val6 = load ptr, ptr %2, align 8
   %cmp.not.i = icmp eq ptr %prov.val, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -891,7 +891,7 @@ err:                                              ; preds = %if.else, %if.end7, 
   %ret.0 = phi i32 [ 1, %if.end18 ], [ 0, %if.end7 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %land.lhs.true ]
   tail call void @EVP_CIPHER_free(ptr noundef %cipher.0) #7
   %prov.val = load ptr, ptr %prov, align 16
-  %2 = getelementptr inbounds i8, ptr %prov, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %prov, i64 8
   %prov.val6 = load ptr, ptr %2, align 8
   %cmp.not.i = icmp eq ptr %prov.val, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i

@@ -41,14 +41,14 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 5:                                                ; preds = %4, %19
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %19 ]
   %.017 = phi i32 [ -2, %4 ], [ %.2, %19 ]
-  %6 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fnmatch(ptr noundef %7, ptr noundef %1, i32 noundef 0) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #12
@@ -56,7 +56,7 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %6, ptr %18, align 8
   br label %.loopexit
@@ -74,12 +74,12 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @procfs_close(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -100,12 +100,12 @@ define internal i32 @procfs_close(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @procfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #12
   ret i64 %11
@@ -113,12 +113,12 @@ define internal i64 @procfs_read(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @procfs_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
@@ -139,12 +139,12 @@ define internal noundef i32 @procfs_ioctl(ptr nocapture readnone %0, i32 %1, i64
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @procfs_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
@@ -160,12 +160,12 @@ define internal i32 @procfs_poll(ptr noundef %0, ptr noundef %1, i1 noundef zero
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @procfs_dup(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #12
   ret i32 %10
@@ -173,15 +173,15 @@ define internal i32 @procfs_dup(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @procfs_fstat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33060, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   %spec.store.select = select i1 %.not, i32 33060, i32 33206
@@ -206,14 +206,14 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
 
 9:                                                ; preds = %7
   tail call void @nxsched_foreach(ptr noundef nonnull @procfs_enum, ptr noundef nonnull %8) #12
-  %10 = getelementptr inbounds i8, ptr %8, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
   %.not.i = icmp eq i16 %11, 0
   br i1 %.not.i, label %procfs_sort_pid.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %invariant.op.i = add nsw i32 %12, -1
   br label %.preheader.i
 
@@ -233,13 +233,13 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
   %15 = phi i32 [ %.pre.i, %.lr.ph.preheader.i ], [ %22, %21 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds [128 x i32], ptr %13, i64 0, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw [128 x i32], ptr %13, i64 0, i64 %indvars.iv.next.i
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds [128 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [128 x i32], ptr %13, i64 0, i64 %indvars.iv.i
   store i32 %17, ptr %20, align 4
   store i32 %15, ptr %16, align 4
   br label %21
@@ -255,7 +255,7 @@ define internal i32 @procfs_opendir(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %exitcond28.not.i, label %procfs_sort_pid.exit, label %.preheader.i, !llvm.loop !9
 
 procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
-  %24 = getelementptr inbounds i8, ptr %8, i64 552
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 552
   store ptr @.str.13, ptr %24, align 8
   br label %56
 
@@ -267,16 +267,16 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 
 28:                                               ; preds = %25, %55
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %55 ]
-  %29 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @fnmatch(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 0) #12
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %1, ptr noundef %2) #12
   %39 = icmp eq i32 %38, 0
@@ -284,7 +284,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %29, ptr %42, align 8
   br label %.loopexit
 
@@ -299,17 +299,17 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   br i1 %.not44, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 1, ptr %48, align 8
   %49 = trunc i64 %indvars.iv to i16
-  %50 = getelementptr inbounds i8, ptr %47, i64 18
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 18
   store i16 %49, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %47, i64 34
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 34
   store i16 %49, ptr %51, align 2
   %52 = trunc i64 %26 to i8
-  %53 = getelementptr inbounds i8, ptr %47, i64 33
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 33
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %47, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr @.str.13, ptr %54, align 8
   br label %56
 
@@ -320,9 +320,9 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 
 56:                                               ; preds = %.thread, %procfs_sort_pid.exit
   %.sink61 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
-  %57 = getelementptr inbounds i8, ptr %.sink61, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.sink61, i64 32
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %.sink61, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.sink61, i64 24
   store ptr null, ptr %58, align 8
   store ptr %.sink61, ptr %2, align 8
   br label %.loopexit
@@ -340,15 +340,15 @@ define internal noundef i32 @procfs_closedir(ptr nocapture readnone %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %57
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 18
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %9 = load i16, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i16, ptr %10, align 4
   %.not = icmp ult i16 %9, %11
   br i1 %.not, label %47, label %12
@@ -359,14 +359,14 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %13, label %.lr.ph112, label %.thread
 
 .lr.ph112:                                        ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 552
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %16 = zext nneg i16 %narrow to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph112, %.critedge.thread
   %indvars.iv = phi i64 [ %16, %.lr.ph112 ], [ %indvars.iv.next, %.critedge.thread ]
-  %18 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -382,7 +382,7 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   ]
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.2, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %20
@@ -407,11 +407,11 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   %31 = trunc i64 %30 to i8
   store i8 %31, ptr %14, align 8
   store ptr %19, ptr %15, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %33 = and i64 %30, 255
   %34 = add nuw nsw i64 %33, 1
   %35 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %19, i64 noundef %34) #12
-  %36 = getelementptr inbounds i8, ptr %18, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %37 = load i8, ptr %36, align 8
   %38 = icmp eq i8 %37, 2
   br i1 %38, label %43, label %39
@@ -434,9 +434,9 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br label %.thread
 
 47:                                               ; preds = %7
-  %48 = getelementptr inbounds i8, ptr %1, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %49 = zext i16 %9 to i64
-  %50 = getelementptr inbounds [128 x i32], ptr %48, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [128 x i32], ptr %48, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr @nxsched_get_tcb(i32 noundef %51) #12
   %.not94 = icmp eq ptr %52, null
@@ -444,38 +444,38 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
 
 53:                                               ; preds = %47
   store i8 4, ptr %2, align 1
-  %54 = getelementptr inbounds i8, ptr %2, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %55 = tail call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %54, i64 noundef 33, ptr noundef nonnull @.str.15, i32 noundef %51) #12
   %56 = add nuw i16 %9, 1
   store i16 %56, ptr %8, align 2
   br label %.thread
 
 57:                                               ; preds = %3
-  %58 = getelementptr inbounds i8, ptr %1, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %112
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %1, i64 18
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %63 = load i16, ptr %62, align 2
   %64 = icmp ult i16 %63, 13
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %1, i64 34
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %67 = load i16, ptr %66, align 2
   %68 = icmp ult i16 %67, 13
   br i1 %68, label %69, label %.thread
 
 69:                                               ; preds = %65
   %70 = zext nneg i16 %63 to i64
-  %71 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = zext nneg i16 %67 to i64
-  %74 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %73
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 33
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
   %79 = tail call i32 @strncmp(ptr noundef %72, ptr noundef %75, i64 noundef %78) #12
@@ -483,15 +483,15 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br i1 %80, label %81, label %.thread
 
 81:                                               ; preds = %69
-  %82 = getelementptr inbounds i8, ptr %72, i64 %78
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 %78
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %84 = tail call i64 @strcspn(ptr noundef nonnull %83, ptr noundef nonnull @.str.14)
   %85 = trunc i64 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %1, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %83, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %89 = and i64 %84, 255
   %90 = add nuw nsw i64 %89, 1
   %91 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %83, i64 noundef %90) #12
@@ -516,11 +516,11 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
   %.lcssa109 = phi i64 [ %92, %81 ], [ %99, %.lr.ph ]
-  %104 = getelementptr inbounds [33 x i8], ptr %88, i64 0, i64 %.lcssa109
+  %104 = getelementptr inbounds nuw [33 x i8], ptr %88, i64 0, i64 %.lcssa109
   store i8 0, ptr %104, align 1
   %105 = load i8, ptr %86, align 8
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %83, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %83, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = icmp eq i8 %108, 47
   %. = select i1 %109, i8 4, i8 8
@@ -531,9 +531,9 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br label %.thread
 
 112:                                              ; preds = %57
-  %113 = getelementptr inbounds i8, ptr %59, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i32 %116(ptr noundef nonnull %1, ptr noundef %2) #12
   br label %.thread
@@ -545,25 +545,25 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @procfs_rewinddir(ptr nocapture readnone %0, ptr nocapture noundef initializes((18, 20)) %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 34
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %11 = load i16, ptr %10, align 2
   br label %12
 
 12:                                               ; preds = %2, %5, %9
   %.sink = phi i16 [ %11, %9 ], [ 0, %5 ], [ 0, %2 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i16 %.sink, ptr %13, align 2
   ret i32 0
 }
@@ -581,8 +581,8 @@ define internal noundef i32 @procfs_unbind(ptr nocapture readnone %0, ptr nocapt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @procfs_statfs(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 36)) %1) #5 {
   store i32 1129271888, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i64 32, ptr %4, align 8
   ret i32 0
@@ -600,7 +600,7 @@ define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr 
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4, %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16676, ptr %8, align 8
   br label %.loopexit
 
@@ -617,16 +617,16 @@ define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr 
 
 13:                                               ; preds = %9, %12
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fnmatch(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0) #12
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %1, ptr noundef %2) #12
   br label %.loopexit
@@ -637,7 +637,7 @@ define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr 
   br i1 %26, label %27, label %12
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16676, ptr %28, align 8
   br label %.loopexit
 
@@ -661,17 +661,17 @@ declare void @nxsched_foreach(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @procfs_enum(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i16, ptr %3, align 4
   %5 = icmp ugt i16 %4, 127
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = zext nneg i16 %4 to i64
-  %11 = getelementptr inbounds [128 x i32], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [128 x i32], ptr %9, i64 0, i64 %10
   store i32 %8, ptr %11, align 4
   %narrow = add nuw nsw i16 %4, 1
   store i16 %narrow, ptr %3, align 4

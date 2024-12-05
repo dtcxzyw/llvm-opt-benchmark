@@ -95,7 +95,7 @@ _ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLi
   br label %49
 
 39:                                               ; preds = %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %40, i8 0, i64 72, i1 false), !alias.scope !10
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %41, ptr %0, align 8, !alias.scope !10

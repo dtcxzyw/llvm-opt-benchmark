@@ -21,9 +21,9 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   %6 = urem i32 %.0, %2
   %7 = udiv i32 %.0, %2
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds i8, ptr @.str, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @.str, i64 %8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %.1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %10, ptr %.1, align 1
   %.not = icmp ugt i32 %2, %.0
   br i1 %.not, label %12, label %.preheader, !llvm.loop !6
@@ -33,7 +33,7 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.1, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 45, ptr %11, align 1
   br label %16
 
@@ -58,7 +58,7 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   %25 = xor i64 %indvars.iv, -1
   %26 = getelementptr i8, ptr %24, i64 %25
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
   store i8 %29, ptr %26, align 1
   store i8 %27, ptr %28, align 1

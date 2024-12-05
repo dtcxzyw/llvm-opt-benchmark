@@ -71,7 +71,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   br i1 %33, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %23, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 82
   br i1 %37, label %38, label %40
@@ -96,7 +96,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   ]
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %23, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 82
   br i1 %47, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %.thread.i
@@ -136,7 +136,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   br i1 %63, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %54, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 82
   br i1 %67, label %68, label %70
@@ -161,7 +161,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   ]
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %54, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 82
   br i1 %77, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %.thread.i17
@@ -197,7 +197,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   br i1 %91, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit30, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %81, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 82
   br i1 %95, label %96, label %98
@@ -222,7 +222,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   ]
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %81, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 82
   br i1 %105, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit30, label %.thread.i24
@@ -250,33 +250,33 @@ define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr 
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(457) %3, i8 0, i64 457, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 2, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 1, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 34
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 1, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 41
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 51
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 51
   store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 55
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 55
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 66
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i8 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 53
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 70
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 70
   store i8 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 75
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 75
   store i8 1, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 45
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 1, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load ptr, ptr %18, align 8
@@ -286,17 +286,17 @@ define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr 
   br i1 %.not, label %29, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 2, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 2, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 27
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 2, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 2, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 18
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 2, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 33686018, ptr %28, align 4
   %.pre = load ptr, ptr %18, align 8
   %.pre4 = load i64, ptr %.pre, align 8
@@ -309,7 +309,7 @@ define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr 
   br i1 %.not2, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 19
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 2, ptr %33, align 1
   %.pre5 = load ptr, ptr %18, align 8
   %.pre6 = load i64, ptr %.pre5, align 8
@@ -322,7 +322,7 @@ define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr 
   br i1 %.not3, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 57
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 1, ptr %38, align 1
   br label %39
 
@@ -335,17 +335,17 @@ define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr 
   store i8 5, ptr %12, align 4
   store i8 5, ptr %13, align 2
   store i8 5, ptr %14, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 39
   store i8 4, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 49
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 4, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 4, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 61
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 4, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 4, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 4, ptr %45, align 8
   ret void
 }
@@ -425,7 +425,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %29, %27, %27, %27, 
   %.067 = phi i16 [ %25, %24 ], [ %33, %29 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ], [ %25, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = zext i16 %.067 to i64
-  %36 = getelementptr inbounds [457 x i8], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [457 x i8], ptr %34, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = icmp eq i8 %37, 0
@@ -607,7 +607,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit89.thread: ; preds = %_ZNK5clang5Token
 
 87:                                               ; preds = %60
   %88 = zext i8 %.0 to i64
-  %89 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 488
   %92 = icmp ne i16 %91, 0
@@ -627,7 +627,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit89.thread: ; preds = %_ZNK5clang5Token
 
 100:                                              ; preds = %95
   %101 = zext i8 %.0 to i64
-  %102 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = and i16 %103, 8
   %.not = icmp eq i16 %104, 0
@@ -776,7 +776,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %1
 9:                                                ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 1
   br label %40
 

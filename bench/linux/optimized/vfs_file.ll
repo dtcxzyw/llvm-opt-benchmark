@@ -29,14 +29,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load i32, ptr %11, align 8
   br i1 %10, label %15, label %13
 
@@ -51,14 +51,14 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
 
 18:                                               ; preds = %15, %13
   %19 = phi i32 [ %14, %13 ], [ %17, %15 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %3, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %106
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 67108864
@@ -66,11 +66,11 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %28, label %37, label %29, !prof !5
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 32
   %36 = tail call ptr %35(ptr noundef %25, ptr noundef %31) #4
   br label %37
@@ -93,8 +93,8 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br label %46
 
 46:                                               ; preds = %45, %43
-  %47 = getelementptr inbounds i8, ptr %39, i64 12
-  %48 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47, i32 -1, ptr elementtype(i32) %47) #4, !srcloc !7
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %48 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %47, i32 -1, ptr nonnull elementtype(i32) %47) #4, !srcloc !7
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %53, label %50
 
@@ -103,7 +103,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %51, label %.thread, label %52, !prof !5
 
 52:                                               ; preds = %50
-  tail call void @refcount_warn_saturate(ptr noundef %47, i32 noundef 3) #4
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %47, i32 noundef 3) #4
   br label %.thread
 
 53:                                               ; preds = %46
@@ -123,7 +123,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br label %.thread10
 
 60:                                               ; preds = %.thread
-  %61 = getelementptr inbounds i8, ptr %7, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 4
   %64 = icmp eq i32 %63, 0
@@ -141,7 +141,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
 
 73:                                               ; preds = %68
   %74 = tail call i32 @p9_client_open(ptr noundef %55, i32 noundef %19) #4
-  %75 = getelementptr inbounds i8, ptr %55, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = or i32 %76, 8192
   store i32 %77, ptr %75, align 8
@@ -169,8 +169,8 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br label %87
 
 87:                                               ; preds = %86, %85
-  %88 = getelementptr inbounds i8, ptr %55, i64 12
-  %89 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #4, !srcloc !7
+  %88 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  %89 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %88, i32 -1, ptr nonnull elementtype(i32) %88) #4, !srcloc !7
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %94, label %91
 
@@ -179,7 +179,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %92, label %.thread10, label %93, !prof !5
 
 93:                                               ; preds = %91
-  tail call void @refcount_warn_saturate(ptr noundef %88, i32 noundef 3) #4
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %88, i32 noundef 3) #4
   br label %.thread10
 
 94:                                               ; preds = %87
@@ -210,10 +210,10 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
 106:                                              ; preds = %105, %18
   %107 = phi ptr [ %55, %105 ], [ %21, %18 ]
   %108 = load i32, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %7, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = load i32, ptr %11, align 8
-  %112 = getelementptr inbounds i8, ptr %107, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %113 = load i8, ptr %112, align 8
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %115, label %141
@@ -223,7 +223,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
   br i1 %116, label %136, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %107, i64 28
+  %118 = getelementptr inbounds nuw i8, ptr %107, i64 28
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %108, 128
   %121 = or i32 %119, %120
@@ -247,7 +247,7 @@ define dso_local i32 @v9fs_file_open(ptr noundef %0, ptr noundef %1) #0 align 16
 
 136:                                              ; preds = %128, %117, %115
   %137 = phi i32 [ 8192, %117 ], [ 8192, %115 ], [ 16384, %128 ]
-  %138 = getelementptr inbounds i8, ptr %107, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %139 = load i32, ptr %138, align 8
   %140 = or i32 %139, %137
   store i32 %140, ptr %138, align 8
@@ -286,7 +286,7 @@ declare dso_local void @v9fs_open_fid_add(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @v9fs_file_fsync_dotl(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @file_write_and_wait_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #4
@@ -294,12 +294,12 @@ define dso_local i32 @v9fs_file_fsync_dotl(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 160
-  tail call void @down_write(ptr noundef %11) #4
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  tail call void @down_write(ptr noundef nonnull %11) #4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @p9_client_fsync(ptr noundef %13, i32 noundef %3) #4
-  tail call void @up_write(ptr noundef %11) #4
+  tail call void @up_write(ptr noundef nonnull %11) #4
   br label %15
 
 15:                                               ; preds = %10, %4
@@ -316,9 +316,9 @@ declare dso_local i32 @p9_client_fsync(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @v9fs_file_read_iter(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 8192
   %9 = icmp eq i32 %8, 0
@@ -340,9 +340,9 @@ define internal i64 @v9fs_file_read_iter(ptr noundef %0, ptr noundef %1) #0 alig
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @v9fs_file_write_iter(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 24576
   %9 = icmp eq i32 %8, 0
@@ -370,7 +370,7 @@ declare dso_local i32 @v9fs_dir_release(ptr noundef, ptr noundef) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_file_fsync(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
   %5 = alloca %struct.p9_wstat, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #4
@@ -380,13 +380,13 @@ define internal i32 @v9fs_file_fsync(ptr noundef %0, i64 noundef %1, i64 noundef
 
 11:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false), !annotation !9
-  %12 = getelementptr inbounds i8, ptr %8, i64 160
-  tail call void @down_write(ptr noundef %12) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  tail call void @down_write(ptr noundef nonnull %12) #4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %14 = load ptr, ptr %13, align 8
   call void @v9fs_blank_wstat(ptr noundef nonnull %5) #4
   %15 = call i32 @p9_client_wstat(ptr noundef %14, ptr noundef nonnull %5) #4
-  call void @up_write(ptr noundef %12) #4
+  call void @up_write(ptr noundef nonnull %12) #4
   br label %16
 
 16:                                               ; preds = %11, %4
@@ -397,24 +397,24 @@ define internal i32 @v9fs_file_fsync(ptr noundef %0, i64 noundef %1, i64 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @v9fs_file_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %1, -2
   %7 = icmp eq i32 %6, 6
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @filemap_write_and_wait_range(ptr noundef %14, i64 noundef 0, i64 noundef 9223372036854775807) #4
-  %16 = getelementptr inbounds i8, ptr %5, i64 360
-  %17 = tail call i64 @invalidate_mapping_pages(ptr noundef %16, i64 noundef 0, i64 noundef -1) #4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %17 = tail call i64 @invalidate_mapping_pages(ptr noundef nonnull %16, i64 noundef 0, i64 noundef -1) #4
   br label %18
 
 18:                                               ; preds = %12, %8, %3
@@ -426,9 +426,9 @@ declare dso_local i64 @iter_file_splice_write(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @v9fs_file_splice_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 8192
   %11 = icmp eq i32 %10, 0
@@ -449,13 +449,13 @@ define internal i64 @v9fs_file_splice_read(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_file_mmap(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 4
   %12 = icmp eq i32 %11, 0
@@ -471,7 +471,7 @@ define internal i32 @v9fs_file_mmap(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr @v9fs_mmap_file_vm_ops, ptr %19, align 8
   br label %20
 
@@ -483,24 +483,24 @@ define internal i32 @v9fs_file_mmap(ptr noundef %0, ptr noundef %1) #0 align 16 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.p9_getlock, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = and i32 %1, -2
   %8 = icmp eq i32 %7, 6
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 2
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %6, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @filemap_write_and_wait_range(ptr noundef %15, i64 noundef 0, i64 noundef 9223372036854775807) #4
-  %17 = getelementptr inbounds i8, ptr %6, i64 360
-  %18 = tail call i64 @invalidate_mapping_pages(ptr noundef %17, i64 noundef 0, i64 noundef -1) #4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 360
+  %18 = tail call i64 @invalidate_mapping_pages(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #4
   br label %19
 
 19:                                               ; preds = %13, %9
@@ -513,7 +513,7 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #4
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28, !prof !11
@@ -525,7 +525,7 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 
 28:                                               ; preds = %23
   tail call void @posix_test_lock(ptr noundef %0, ptr noundef %2) #4
-  %29 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %30 = load i8, ptr %29, align 4
   %31 = icmp eq i8 %30, 2
   br i1 %31, label %32, label %70
@@ -533,25 +533,25 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 32:                                               ; preds = %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
   store i8 2, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 9223372036854775807
   %reass.sub = sub i64 %37, %34
   %39 = add i64 %reass.sub, 1
   %40 = select i1 %38, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %43, ptr %44, align 8
   %45 = load ptr, ptr %25, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 104
-  %47 = getelementptr inbounds i8, ptr %4, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %46, ptr %47, align 8
   %48 = call i32 @p9_client_getlock_dotl(ptr noundef nonnull %25, ptr noundef nonnull %4) #4
   %49 = icmp slt i32 %48, 0
@@ -584,7 +584,7 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 64:                                               ; preds = %55, %53, %32
   %65 = load ptr, ptr %47, align 8
   %66 = load ptr, ptr %25, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = icmp eq ptr %65, %67
   br i1 %68, label %70, label %69
 
@@ -604,9 +604,9 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @v9fs_file_flock_dotl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -618,17 +618,17 @@ define internal range(i32 -2147483648, 1) i32 @v9fs_file_flock_dotl(ptr nocaptur
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 2
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @filemap_write_and_wait_range(ptr noundef %19, i64 noundef 0, i64 noundef 9223372036854775807) #4
-  %21 = getelementptr inbounds i8, ptr %5, i64 360
-  %22 = tail call i64 @invalidate_mapping_pages(ptr noundef %21, i64 noundef 0, i64 noundef -1) #4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %22 = tail call i64 @invalidate_mapping_pages(ptr noundef nonnull %21, i64 noundef 0, i64 noundef -1) #4
   %.pre = load i32, ptr %6, align 8
   br label %23
 
@@ -712,40 +712,40 @@ declare dso_local i32 @generic_file_mmap(ptr noundef, ptr noundef) local_unnamed
 define internal void @v9fs_mmap_vm_close(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.writeback_control, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #4
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %3, align 8, !annotation !9
   store i64 9223372036854775807, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 12
   store i64 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
   %13 = xor i64 %12, -1
   %14 = add i64 %11, %8
   %15 = add i64 %14, %13
   store i64 %15, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @filemap_fdatawrite_wbc(ptr noundef %28, ptr noundef nonnull %2) #4
   br label %30
@@ -780,7 +780,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
   store i8 2, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !11
@@ -791,7 +791,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
@@ -803,7 +803,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
   unreachable
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @locks_lock_inode_wait(ptr noundef %18, ptr noundef %2) #4
   %20 = icmp slt i32 %19, 0
@@ -811,7 +811,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
 
 21:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
-  %22 = getelementptr inbounds i8, ptr %2, i64 84
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %23 = load i8, ptr %22, align 4
   %.off = add i8 %23, -1
   %switch = icmp ult i8 %.off, 2
@@ -822,46 +822,46 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
   br label %24
 
 24:                                               ; preds = %21, %.sink.split
-  %25 = getelementptr inbounds i8, ptr %2, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 9223372036854775807
   %reass.sub = sub i64 %29, %26
   %31 = add i64 %reass.sub, 1
   %32 = select i1 %30, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %35, ptr %36, align 8
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %38, ptr %39, align 8
   %40 = icmp ne i32 %1, 7
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %24
-  %42 = getelementptr inbounds i8, ptr %4, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %42, align 4
   br label %43
 
 43:                                               ; preds = %41, %24
   %44 = load ptr, ptr %17, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 872
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 872
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @p9_client_lock_dotl(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %48, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %53 = load i8, ptr %5, align 1
   %54 = icmp ne i8 %53, 1
   %55 = select i1 %40, i1 true, i1 %54
@@ -881,14 +881,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr noca
 62:                                               ; preds = %.preheader
   %63 = load ptr, ptr %39, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %66 = icmp eq ptr %63, %65
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %62
   call void @kfree(ptr noundef %63) #4
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
   store ptr %69, ptr %39, align 8
   br label %70
 
@@ -946,7 +946,7 @@ thread-pre-split:                                 ; preds = %.preheader
   %86 = phi i32 [ %.ph, %82 ], [ %.ph, %.loopexit ], [ 0, %.loopexit7 ]
   %87 = load ptr, ptr %39, align 8
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 104
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %90 = icmp eq ptr %87, %89
   br i1 %90, label %92, label %91
 

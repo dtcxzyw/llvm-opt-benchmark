@@ -148,7 +148,7 @@ entry:
   br i1 %cmp1.not.i, label %for.cond5.preheader.preheader.i, label %_string_to_points.exit
 
 for.cond5.preheader.preheader.i:                  ; preds = %entry
-  %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %h.i, i64 48
   br label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.cond5.preheader.preheader.i
@@ -190,7 +190,7 @@ entry:
   br i1 %cmp1.not.i, label %for.cond5.preheader.preheader.i, label %_string_to_points.exit
 
 for.cond5.preheader.preheader.i:                  ; preds = %entry
-  %arrayidx11.i = getelementptr inbounds i8, ptr %h.i, i64 48
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %h.i, i64 48
   br label %for.cond5.preheader.i
 
 for.cond5.preheader.i:                            ; preds = %for.end.i, %for.cond5.preheader.preheader.i
@@ -227,7 +227,7 @@ _string_to_points.exit:                           ; preds = %entry
 if.end:                                           ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %h_be.i)
-  %arrayidx1 = getelementptr inbounds i8, ptr %px, i64 32
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %px, i64 32
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p_p3.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %q_p3.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %r_p3.i)
@@ -326,9 +326,9 @@ entry:
   %t_ = alloca [64 x i8], align 16
   %s_ = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t_, i8 0, i64 32, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %t_, i64 32
+  %add.ptr = getelementptr inbounds nuw i8, ptr %t_, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 32, i1 false)
-  %0 = getelementptr inbounds i8, ptr %s_, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %s_, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_, ptr noundef nonnull align 1 dereferenceable(32) %s, i64 32, i1 false)
   call void @sodium_sub(ptr noundef nonnull %t_, ptr noundef nonnull %s_, i64 noundef 64) #6
@@ -354,9 +354,9 @@ entry:
   %s_ = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t_, i8 0, i64 32, i1 false)
   store i8 1, ptr %t_, align 16
-  %add.ptr = getelementptr inbounds i8, ptr %t_, i64 32
+  %add.ptr = getelementptr inbounds nuw i8, ptr %t_, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 32, i1 false)
-  %0 = getelementptr inbounds i8, ptr %s_, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %s_, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_, ptr noundef nonnull align 1 dereferenceable(32) %s, i64 32, i1 false)
   call void @sodium_sub(ptr noundef nonnull %t_, ptr noundef nonnull %s_, i64 noundef 64) #6
@@ -371,10 +371,10 @@ entry:
   %t.i = alloca [64 x i8], align 16
   %x_ = alloca [64 x i8], align 16
   %y_ = alloca [64 x i8], align 16
-  %0 = getelementptr inbounds i8, ptr %x_, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %x_, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_, ptr noundef nonnull align 1 dereferenceable(32) %x, i64 32, i1 false)
-  %1 = getelementptr inbounds i8, ptr %y_, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %y_, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %y_, ptr noundef nonnull align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_, ptr noundef nonnull %y_, i64 noundef 32) #6
@@ -411,9 +411,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t_.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %s_.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t_.i, i8 0, i64 32, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %t_.i, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %t_.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(32) @L, i64 32, i1 false)
-  %0 = getelementptr inbounds i8, ptr %s_.i, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %s_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %s_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %y, i64 32, i1 false)
   call void @sodium_sub(ptr noundef nonnull %t_.i, ptr noundef nonnull %s_.i, i64 noundef 64) #6
@@ -423,10 +423,10 @@ entry:
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t_.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %s_.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %x_.i)
-  %1 = getelementptr inbounds i8, ptr %x_.i, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %x_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %x_.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %x, i64 32, i1 false)
-  %2 = getelementptr inbounds i8, ptr %y_.i, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %y_.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void @sodium_add(ptr noundef nonnull %x_.i, ptr noundef nonnull %y_.i, i64 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t.i.i)

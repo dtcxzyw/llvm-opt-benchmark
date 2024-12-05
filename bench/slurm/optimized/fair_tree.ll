@@ -69,12 +69,12 @@ define void @fair_tree_decay(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
   br i1 %.not1.i, label %_apply_priority_fs.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 312
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
   store x86_fp80 0xK401EFFFFFFFE00000000, ptr %22, align 16
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call fastcc ptr @_append_list_to_array(ptr noundef %25, ptr noundef null, ptr noundef %6)
   store ptr %26, ptr %3, align 8
@@ -194,46 +194,46 @@ define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %
   %.055 = phi i64 [ %48, %_calc_assoc_fs.exit ], [ 0, %.preheader ]
   %12 = getelementptr i8, ptr %11, i64 312
   %.val.i = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.val.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ft_set_assoc_usage_efctv.exit.i, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %14, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 312
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %19 = load x86_fp80, ptr %18, align 16
   %20 = fcmp une x86_fp80 %19, 0xK00000000000000000000
   br i1 %20, label %21, label %_ft_set_assoc_usage_efctv.exit.i
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %.val.i, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 144
   %23 = load x86_fp80, ptr %22, align 16
   %24 = fdiv x86_fp80 %23, %19
   br label %_ft_set_assoc_usage_efctv.exit.i
 
 _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
   %.sink.i.i = phi x86_fp80 [ %24, %21 ], [ 0xK00000000000000000000, %15 ], [ 0xK00000000000000000000, %.lr.ph ]
-  %25 = getelementptr inbounds i8, ptr %.val.i, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 112
   store x86_fp80 %.sink.i.i, ptr %25, align 16
   tail call void @set_assoc_usage_norm(ptr noundef nonnull %11) #6
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load x86_fp80, ptr %27, align 16
-  %29 = getelementptr inbounds i8, ptr %26, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %30 = load double, ptr %29, align 16
   %31 = fpext double %30 to x86_fp80
-  %32 = getelementptr inbounds i8, ptr %11, i64 300
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 300
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 2147483647
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %_ft_set_assoc_usage_efctv.exit.i
-  %36 = getelementptr inbounds i8, ptr %11, i64 320
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
-  %38 = getelementptr inbounds i8, ptr %26, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 176
   br i1 %.not.i, label %40, label %39
 
 39:                                               ; preds = %35
@@ -249,13 +249,13 @@ _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %26, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 176
   store x86_fp80 0xK00000000000000000000, ptr %44, align 16
   br label %_calc_assoc_fs.exit
 
 45:                                               ; preds = %41
   %46 = fdiv x86_fp80 %31, %28
-  %47 = getelementptr inbounds i8, ptr %26, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 176
   store x86_fp80 %46, ptr %47, align 16
   br label %_calc_assoc_fs.exit
 
@@ -290,9 +290,9 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   br i1 %brmerge.not, label %66, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %57, i64 312
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 312
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 176
   %64 = load x86_fp80, ptr %63, align 16
   %65 = fcmp oeq x86_fp80 %.03857, %64
   br label %66
@@ -306,19 +306,19 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
 
 69:                                               ; preds = %66
   %70 = zext i1 %.037 to i32
-  %71 = getelementptr inbounds i8, ptr %57, i64 320
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 320
   %72 = load ptr, ptr %71, align 8
   %.not.i48 = icmp eq ptr %72, null
   br i1 %.not.i48, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %57, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %75 = load ptr, ptr %74, align 8
   br label %76
 
 76:                                               ; preds = %73, %69
   %77 = phi ptr [ %75, %73 ], [ %72, %69 ]
-  %78 = getelementptr inbounds i8, ptr %57, i64 300
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 300
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 2147483647
   %81 = call i32 @get_log_level() #6
@@ -329,7 +329,7 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   br i1 %82, label %84, label %_ft_debug.exit
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %57, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %86 = load ptr, ptr %85, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._ft_debug, i32 noundef %54, ptr noundef nonnull @.str.5, i32 noundef %70, ptr noundef nonnull @.str.6, ptr noundef %77, ptr noundef %86) #6
   br label %_ft_debug.exit
@@ -338,17 +338,17 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   br i1 %82, label %88, label %_ft_debug.exit
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %57, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %57, i64 312
+  %91 = getelementptr inbounds nuw i8, ptr %57, i64 312
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 176
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 176
   %94 = load x86_fp80, ptr %93, align 16
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._ft_debug, i32 noundef %54, ptr noundef nonnull @.str.5, i32 noundef %70, ptr noundef nonnull @.str.6, ptr noundef %77, ptr noundef %90, x86_fp80 noundef %94) #6
   br label %_ft_debug.exit
 
 _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, %66
-  %95 = getelementptr inbounds i8, ptr %57, i64 320
+  %95 = getelementptr inbounds nuw i8, ptr %57, i64 320
   %96 = load ptr, ptr %95, align 8
   %.not45 = icmp eq ptr %96, null
   br i1 %.not45, label %111, label %97
@@ -371,9 +371,9 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   %103 = load i32, ptr @g_user_assoc_count, align 4
   %104 = uitofp i32 %103 to double
   %105 = fdiv double %102, %104
-  %106 = getelementptr inbounds i8, ptr %57, i64 312
+  %106 = getelementptr inbounds nuw i8, ptr %57, i64 312
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
   store double %105, ptr %108, align 8
   %109 = load i32, ptr %3, align 4
   %110 = add i32 %109, -1
@@ -382,7 +382,7 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
 
 111:                                              ; preds = %_ft_debug.exit
   %112 = load ptr, ptr %58, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 312
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 312
   %114 = add i64 %.158, 1
   %115 = getelementptr inbounds ptr, ptr %0, i64 %114
   %116 = load ptr, ptr %115, align 8
@@ -393,18 +393,18 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   %117 = phi ptr [ %134, %130 ], [ %116, %111 ]
   %118 = phi i64 [ %132, %130 ], [ %114, %111 ]
   %.013.i = phi i64 [ %131, %130 ], [ 0, %111 ]
-  %119 = getelementptr inbounds i8, ptr %117, i64 320
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 320
   %120 = load ptr, ptr %119, align 8
   %.not11.i = icmp eq ptr %120, null
   br i1 %.not11.i, label %_count_tied_accounts.exit, label %121
 
 121:                                              ; preds = %.lr.ph.i
   %122 = load ptr, ptr %113, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 176
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 176
   %124 = load x86_fp80, ptr %123, align 16
-  %125 = getelementptr inbounds i8, ptr %117, i64 312
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 312
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 176
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 176
   %128 = load x86_fp80, ptr %127, align 16
   %129 = fcmp une x86_fp80 %124, %128
   br i1 %129, label %_count_tied_accounts.exit, label %130
@@ -432,9 +432,9 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   %.01622.i = phi ptr [ %.1.i, %174 ], [ %136, %_count_tied_accounts.exit ]
   %137 = getelementptr inbounds ptr, ptr %0, i64 %.023.i
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 312
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 312
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %144 = and i64 %143, 2048
@@ -444,19 +444,19 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   br i1 %or.cond.i, label %146, label %_ft_debug.exit.i
 
 146:                                              ; preds = %.lr.ph.i50
-  %147 = getelementptr inbounds i8, ptr %138, i64 320
+  %147 = getelementptr inbounds nuw i8, ptr %138, i64 320
   %148 = load ptr, ptr %147, align 8
   %.not.i.i52 = icmp eq ptr %148, null
   br i1 %.not.i.i52, label %149, label %152
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %138, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %151 = load ptr, ptr %150, align 8
   br label %152
 
 152:                                              ; preds = %149, %146
   %153 = phi ptr [ %151, %149 ], [ %148, %146 ]
-  %154 = getelementptr inbounds i8, ptr %138, i64 300
+  %154 = getelementptr inbounds nuw i8, ptr %138, i64 300
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 2147483647
   %157 = call i32 @get_log_level() #6
@@ -467,7 +467,7 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   br i1 %158, label %160, label %_ft_debug.exit.i
 
 160:                                              ; preds = %159
-  %161 = getelementptr inbounds i8, ptr %138, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %162 = load ptr, ptr %161, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._ft_debug, i32 noundef %54, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %153, ptr noundef %162) #6
   br label %_ft_debug.exit.i
@@ -476,10 +476,10 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   br i1 %158, label %164, label %_ft_debug.exit.i
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %138, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = load ptr, ptr %139, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 176
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 176
   %169 = load x86_fp80, ptr %168, align 16
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._ft_debug, i32 noundef %54, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %153, ptr noundef %166, x86_fp80 noundef %169) #6
   br label %_ft_debug.exit.i
@@ -513,9 +513,9 @@ _merge_accounts.exit:                             ; preds = %174, %_count_tied_a
 
 176:                                              ; preds = %_merge_accounts.exit, %100
   %.2 = phi i64 [ %.158, %100 ], [ %135, %_merge_accounts.exit ]
-  %177 = getelementptr inbounds i8, ptr %57, i64 312
+  %177 = getelementptr inbounds nuw i8, ptr %57, i64 312
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 176
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 176
   %180 = load x86_fp80, ptr %179, align 16
   %181 = add i64 %.2, 1
   %182 = getelementptr inbounds ptr, ptr %0, i64 %181
@@ -547,14 +547,14 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @_cmp_level_fs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load x86_fp80, ptr %6, align 16
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %12 = load x86_fp80, ptr %11, align 16
   %13 = fcmp une x86_fp80 %7, %12
   br i1 %13, label %14, label %17
@@ -565,10 +565,10 @@ define internal range(i32 -1, 2) i32 @_cmp_level_fs(ptr nocapture noundef readon
   br label %25
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %3, i64 320
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  %20 = getelementptr inbounds i8, ptr %8, i64 320
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ne ptr %21, null
   %23 = xor i1 %.not, %22

@@ -18,8 +18,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readon
   br i1 %or.cond, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.08, i64 1
-  %6 = getelementptr inbounds i8, ptr %.09, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   %.not13 = icmp eq i8 %4, %.pre
   br i1 %.not13, label %3, label %7
 
@@ -48,8 +48,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef rea
   br i1 %or.cond, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.08, i64 1
-  %6 = getelementptr inbounds i8, ptr %.09, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   %.not13 = icmp eq i8 %4, %.pre
   br i1 %.not13, label %3, label %7
 
@@ -83,8 +83,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef reado
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.01016, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0818, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01016, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0818, i64 1
   %12 = add i64 %.0917, -1
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -114,8 +114,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef re
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.01016, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0818, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01016, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0818, i64 1
   %12 = add i64 %.0917, -1
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -134,7 +134,7 @@ define hidden i64 @_pcre2_strlen_8(ptr nocapture noundef readonly %0) local_unna
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.05 = phi i64 [ %4, %.lr.ph ], [ 0, %1 ]
   %.024 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.024, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   %4 = add i64 %.05, 1
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 0
@@ -155,8 +155,8 @@ define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr nocapture noun
   %4 = phi i8 [ %7, %.lr.ph ], [ %3, %2 ]
   %.010 = phi ptr [ %6, %.lr.ph ], [ %0, %2 ]
   %.079 = phi ptr [ %5, %.lr.ph ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.079, i64 1
-  %6 = getelementptr inbounds i8, ptr %.010, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.079, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   store i8 %4, ptr %.010, align 1
   %7 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %7, 0

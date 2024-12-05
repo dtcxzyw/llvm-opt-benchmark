@@ -24,12 +24,12 @@ entry:
   %errorCode = alloca i32, align 4
   %us = alloca ptr, align 8
   %s = alloca ptr, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %str, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %str, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %str, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp = icmp sgt i32 %cond.i, 0
@@ -54,11 +54,11 @@ if.else.i:                                        ; preds = %if.then3
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %str, i64 10
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %str, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %str, i64 24
+  %fArray.i = getelementptr inbounds nuw i8, ptr %str, i64 24
   %7 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -72,7 +72,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.then3, %if.then7
   %cond.i9 = select i1 %cmp.i.i6, i32 %9, i32 %shr.i.i7
   %idx.ext = sext i32 %cond.i9 to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
-  %add.ptr6 = getelementptr inbounds i8, ptr %buffer, i64 199
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %buffer, i64 199
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -125,7 +125,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %call = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
-  %continueReading.1.sroa.gep = getelementptr inbounds i8, ptr %ch, i64 1
+  %continueReading.1.sroa.gep = getelementptr inbounds nuw i8, ptr %ch, i64 1
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -137,10 +137,10 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store ptr %uBuffer, ptr %us, align 8
-  %add.ptr5 = getelementptr inbounds i8, ptr %uBuffer, i64 32
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %uBuffer, i64 32
   %sub.ptr.rhs.cast = ptrtoint ptr %uBuffer to i64
-  %fUnion.i.i = getelementptr inbounds i8, ptr %str, i64 8
-  %fLength.i.i = getelementptr inbounds i8, ptr %str, i64 12
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %if.then3, %if.end85
@@ -256,7 +256,7 @@ while.body69.preheader:                           ; preds = %if.then63
 while.body69:                                     ; preds = %while.body69.preheader, %while.body69
   %indvars.iv = phi i64 [ %8, %while.body69.preheader ], [ %9, %while.body69 ]
   %9 = add nsw i64 %indvars.iv, -1
-  %arrayidx71 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %9
+  %arrayidx71 = getelementptr inbounds nuw [16 x i8], ptr %buffer, i64 0, i64 %9
   %10 = load i8, ptr %arrayidx71, align 1
   %call72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %stream, i8 noundef signext %10)
   %11 = trunc nuw i64 %indvars.iv to i32

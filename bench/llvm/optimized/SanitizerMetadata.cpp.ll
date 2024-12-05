@@ -212,7 +212,7 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
   br i1 %36, label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.i, label %37
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %38 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %38, %31
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
@@ -229,7 +229,7 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
   br i1 %43, label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.i, label %44
 
 44:                                               ; preds = %.lr.ph.i4.i.i.i.i.i
-  %45 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i, i64 8
   %.not.i5.i.i.i.i.i = icmp eq ptr %45, %29
   br i1 %.not.i5.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.thread.i, label %.lr.ph.i4.i.i.i.i.i, !llvm.loop !4
 
@@ -281,7 +281,7 @@ _ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_
   br i1 %63, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, label %64
 
 64:                                               ; preds = %.lr.ph.i.i.i.i
-  %65 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i, i64 8
   %.not.i.i.i8.i = icmp eq ptr %65, %57
   br i1 %.not.i.i.i8.i, label %"_ZZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableERKNS_7VarDeclEbENK3$_0clES7_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -298,7 +298,7 @@ _ZNK5clang4Decl14specific_attrsINS_14NoSanitizeAttrEEEN4llvm14iterator_rangeINS_
   br i1 %70, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, label %71
 
 71:                                               ; preds = %.lr.ph.i4.i.i.i
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %.not.i5.i.i.i = icmp eq ptr %72, %.sroa.02.0.i
   br i1 %.not.i5.i.i.i, label %"_ZZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableERKNS_7VarDeclEbENK3$_0clES7_.exit", label %.lr.ph.i4.i.i.i, !llvm.loop !6
 
@@ -317,7 +317,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorI
 
 .lr.ph.i.i.i:                                     ; preds = %73, %.lr.ph.i.i.i
   %78 = phi ptr [ %79, %.lr.ph.i.i.i ], [ %.sroa.02.0.i, %73 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i16, ptr %81, align 8
@@ -332,7 +332,7 @@ _ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 36
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds %"class.llvm::StringRef", ptr %86, i64 %89
+  %90 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %86, i64 %89
   %.not20.i.i = icmp eq i32 %88, 0
   br i1 %.not20.i.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i
 
@@ -341,7 +341,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i: ; preds = %_ZNK5clang22speci
   %91 = phi i64 [ %99, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %92 = phi i64 [ %100, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ], [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ]
   %.sroa.05.0.copyload.i.i = load ptr, ptr %.021.i.i, align 8
-  %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.021.i.i, i64 8
+  %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %.sroa.26.0.copyload.i.i = load i64, ptr %.sroa.26.0..sroa_idx.i.i, align 8
   %93 = call { i64, i64 } @_ZN5clang19parseSanitizerValueEN4llvm9StringRefEb(ptr %.sroa.05.0.copyload.i.i, i64 %.sroa.26.0.copyload.i.i, i1 noundef zeroext true) #6
   %94 = extractvalue { i64, i64 } %93, 0
@@ -351,7 +351,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i: ; preds = %_ZNK5clang22speci
   %98 = extractvalue { i64, i64 } %96, 1
   %99 = or i64 %97, %91
   %100 = or i64 %98, %92
-  %101 = getelementptr inbounds i8, ptr %.021.i.i, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 16
   %.not.i9.i = icmp eq ptr %101, %90
   br i1 %.not.i9.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i
 
@@ -360,7 +360,7 @@ _ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i:      ; preds = %_ZN5clang13Sanitize
   %.lcssa.i.i = phi i64 [ 0, %_ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i ], [ %99, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i ]
   %102 = or i64 %.lcssa.i.i, %.sroa.06.0.i
   %103 = or i64 %.lcssa19.i.i, %.sroa.4.0.i
-  %104 = getelementptr inbounds i8, ptr %.sroa.02.1.i, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.02.1.i, i64 8
   br label %58
 
 "_ZZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llvm14GlobalVariableERKNS_7VarDeclEbENK3$_0clES7_.exit": ; preds = %66, %_ZN5clangneENS_22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, %71, %64, %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.i

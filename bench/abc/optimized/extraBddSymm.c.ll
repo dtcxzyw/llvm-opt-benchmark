@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @Extra_SymmPairsCompute(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
   tail call void @Cudd_Ref(ptr noundef %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -31,7 +31,7 @@ declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddSymmPairsCompute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -53,11 +53,11 @@ define noalias noundef ptr @Extra_SymmPairsCreateFromZdd(ptr noundef %0, ptr nou
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %7, ptr %8, align 8
   %9 = shl nsw i64 %5, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #11
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %10, ptr %11, align 8
   %12 = mul nsw i32 %4, %4
   %13 = zext nneg i32 %12 to i64
@@ -75,23 +75,23 @@ define noalias noundef ptr @Extra_SymmPairsCreateFromZdd(ptr noundef %0, ptr nou
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
-  %16 = getelementptr inbounds i8, ptr %store_forwarded, i64 %5
+  %16 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 %5
   store ptr %16, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Extra_SymmPairsAllocate.exit, label %.lr.ph.i, !llvm.loop !6
 
 Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %20)
-  %21 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 %18, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 12
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not64 = icmp eq ptr %2, %24
   br i1 %.not64, label %._crit_edge, label %.lr.ph
@@ -100,13 +100,13 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Extra_SymmPairsAllocate.exit ]
   %.05665 = phi ptr [ %31, %.lr.ph ], [ %2, %Extra_SymmPairsAllocate.exit ]
   %25 = load i32, ptr %.05665, align 8
-  %26 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %25, ptr %26, align 4
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds i32, ptr %calloc, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %calloc, i64 %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %.05665, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.05665, i64 16
   %31 = load ptr, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %31, %24
@@ -114,14 +114,14 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Extra_SymmPairsAllocate.exit
   tail call void @Cudd_Ref(ptr noundef %1) #10
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not6267 = icmp eq ptr %1, %33
   br i1 %.not6267, label %._crit_edge71, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %0, i64 448
-  %35 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %35 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   br label %36
 
 36:                                               ; preds = %.lr.ph70, %Extra_zddSelectOneSubset.exit
@@ -140,15 +140,15 @@ Extra_zddSelectOneSubset.exit:                    ; preds = %38
   tail call void @Cudd_Ref(ptr noundef %39) #10
   %42 = load i32, ptr %39, align 8
   %43 = lshr i32 %42, 1
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %43 to i64
-  %49 = getelementptr inbounds i32, ptr %calloc, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %calloc, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr inbounds i32, ptr %calloc, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %calloc, i64 %51
   %53 = load i32, ptr %52, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %50, i32 %53)
   %.82 = tail call i32 @llvm.smax.i32(i32 %50, i32 %53)
@@ -212,14 +212,14 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.lr.ph181
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   br label %175
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
   %.0147180 = phi i32 [ %18, %.lr.ph181 ], [ 0, %.lr.ph181.preheader ]
   %.0152179 = phi ptr [ %17, %.lr.ph181 ], [ %2, %.lr.ph181.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.0152179, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0152179, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = add nuw nsw i32 %.0147180, 1
   %exitcond189.not = icmp eq i32 %.0147180, %12
@@ -236,26 +236,26 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %22, label %175
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 312
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %6, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %2, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not184 = icmp sgt i32 %28, %32
   br i1 %.not184, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.0149171 = phi ptr [ %34, %.lr.ph ], [ %2, %22 ]
-  %33 = getelementptr inbounds i8, ptr %.0149171, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0149171, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %24, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %24, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %28, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -263,8 +263,8 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.0149.lcssa = phi ptr [ %2, %22 ], [ %34, %.lr.ph ]
   %.not168 = icmp eq ptr %1, %6
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8
   br i1 %.not168, label %51, label %43
 
@@ -285,7 +285,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 53:                                               ; preds = %51, %43
   %.0151 = phi ptr [ %46, %43 ], [ %42, %51 ]
   %.0150 = phi ptr [ %50, %43 ], [ %52, %51 ]
-  %54 = getelementptr inbounds i8, ptr %.0149.lcssa, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0149.lcssa, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %.0151, ptr noundef %55)
   %57 = icmp eq ptr %56, null
@@ -295,11 +295,11 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = ptrtoint ptr %56 to i64
   %60 = and i64 %59, -2
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %56, %66
   br i1 %67, label %90, label %68
@@ -318,7 +318,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %74 = ptrtoint ptr %70 to i64
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4
@@ -335,7 +335,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %84 = ptrtoint ptr %80 to i64
   %85 = and i64 %84, -2
   %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
@@ -358,7 +358,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %96 = ptrtoint ptr %92 to i64
   %97 = and i64 %96, -2
   %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -382,7 +382,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %111 = ptrtoint ptr %107 to i64
   %112 = and i64 %111, -2
   %113 = inttoptr i64 %112 to ptr
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 4
@@ -402,7 +402,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %123 = ptrtoint ptr %119 to i64
   %124 = and i64 %123, -2
   %125 = inttoptr i64 %124 to ptr
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -428,7 +428,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %135 = ptrtoint ptr %131 to i64
   %136 = and i64 %135, -2
   %137 = inttoptr i64 %136 to ptr
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = add i32 %139, 1
   store i32 %140, ptr %138, align 4
@@ -451,7 +451,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
   %.0175 = phi ptr [ %146, %.lr.ph176 ], [ %131, %.lr.ph176.preheader ]
   %.0144174 = phi i32 [ %147, %.lr.ph176 ], [ 0, %.lr.ph176.preheader ]
-  %145 = getelementptr inbounds i8, ptr %.0175, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.0175, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = add nuw nsw i32 %.0144174, 1
   %exitcond.not = icmp eq i32 %.0144174, %143
@@ -472,7 +472,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %152 = ptrtoint ptr %148 to i64
   %153 = and i64 %152, -2
   %154 = inttoptr i64 %153 to ptr
-  %155 = getelementptr inbounds i8, ptr %154, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, 1
   store i32 %157, ptr %155, align 4
@@ -490,7 +490,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %162 = ptrtoint ptr %158 to i64
   %163 = and i64 %162, -2
   %164 = inttoptr i64 %163 to ptr
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 4
@@ -503,7 +503,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %169 = ptrtoint ptr %.2 to i64
   %170 = and i64 %169, -2
   %171 = inttoptr i64 %170 to ptr
-  %172 = getelementptr inbounds i8, ptr %171, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %173, -1
   store i32 %174, ptr %172, align 4
@@ -517,7 +517,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddGetSymmetricVars(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -557,7 +557,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %186
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   br label %186
 
@@ -572,10 +572,10 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 312
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %26 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   br label %34
 
@@ -583,13 +583,13 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = phi i32 [ %33, %28 ], [ 2147483647, %25 ]
   %36 = load i32, ptr %10, align 8
   %37 = icmp eq i32 %36, 2147483647
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 312
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %37, label %._crit_edge176, label %38
 
 38:                                               ; preds = %34
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds i32, ptr %.pre, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %.pre, i64 %39
   %41 = load i32, ptr %40, align 4
   br label %._crit_edge176
 
@@ -598,18 +598,18 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %. = tail call i32 @llvm.smin.i32(i32 %35, i32 %42)
   %43 = load i32, ptr %3, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %.pre, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %.pre, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %., %46
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %._crit_edge176, %.lr.ph
   %.0145175 = phi ptr [ %49, %.lr.ph ], [ %3, %._crit_edge176 ]
-  %48 = getelementptr inbounds i8, ptr %.0145175, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0145175, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %.pre, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %.pre, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %., %53
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !14
@@ -621,8 +621,8 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 
 55:                                               ; preds = %._crit_edge
   %.not170 = icmp eq ptr %1, %7
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
-  %57 = getelementptr inbounds i8, ptr %7, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %58 = load ptr, ptr %57, align 8
   br i1 %.not170, label %67, label %59
 
@@ -648,8 +648,8 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 
 70:                                               ; preds = %69
   %.not171 = icmp eq ptr %2, %10
-  %71 = getelementptr inbounds i8, ptr %10, i64 16
-  %72 = getelementptr inbounds i8, ptr %10, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %73 = load ptr, ptr %72, align 8
   br i1 %.not171, label %82, label %74
 
@@ -670,7 +670,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 84:                                               ; preds = %69, %74, %82
   %.0147 = phi ptr [ %77, %74 ], [ %73, %82 ], [ %2, %69 ]
   %.0146 = phi ptr [ %81, %74 ], [ %83, %82 ], [ %2, %69 ]
-  %85 = getelementptr inbounds i8, ptr %.0145.lcssa, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0145.lcssa, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0149, ptr noundef %.0147, ptr noundef %86)
   %88 = icmp eq ptr %87, null
@@ -680,11 +680,11 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %90 = ptrtoint ptr %87 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, 1
   store i32 %95, ptr %93, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %87, %97
   br i1 %98, label %121, label %99
@@ -703,7 +703,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %105 = ptrtoint ptr %101 to i64
   %106 = and i64 %105, -2
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -720,7 +720,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %115 = ptrtoint ptr %111 to i64
   %116 = and i64 %115, -2
   %117 = inttoptr i64 %116 to ptr
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4
@@ -736,7 +736,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 123:                                              ; preds = %121
   %124 = load i32, ptr %.0145.lcssa, align 8
   %125 = shl i32 %124, 1
-  %126 = getelementptr inbounds i8, ptr %0, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %96, align 8
   %129 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %125, ptr noundef %127, ptr noundef %128) #10
@@ -751,7 +751,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %133 = ptrtoint ptr %129 to i64
   %134 = and i64 %133, -2
   %135 = inttoptr i64 %134 to ptr
-  %136 = getelementptr inbounds i8, ptr %135, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 4
@@ -768,7 +768,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %143 = ptrtoint ptr %139 to i64
   %144 = and i64 %143, -2
   %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
@@ -802,7 +802,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %156 = ptrtoint ptr %152 to i64
   %157 = and i64 %156, -2
   %158 = inttoptr i64 %157 to ptr
-  %159 = getelementptr inbounds i8, ptr %158, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = add i32 %160, 1
   store i32 %161, ptr %159, align 4
@@ -819,7 +819,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %166 = ptrtoint ptr %162 to i64
   %167 = and i64 %166, -2
   %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds i8, ptr %168, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
@@ -837,7 +837,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %176 = ptrtoint ptr %172 to i64
   %177 = and i64 %176, -2
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4
@@ -848,7 +848,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 182:                                              ; preds = %._crit_edge177, %175
   %.pre-phi182 = phi ptr [ %.pre181, %._crit_edge177 ], [ %178, %175 ]
   %.2 = phi ptr [ %.1, %._crit_edge177 ], [ %172, %175 ]
-  %183 = getelementptr inbounds i8, ptr %.pre-phi182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.pre-phi182, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = add i32 %184, -1
   store i32 %185, ptr %183, align 4
@@ -862,7 +862,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddGetSingletons(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -878,7 +878,7 @@ define ptr @Extra_zddGetSingletons(ptr noundef initializes((448, 452)) %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %47, label %6
@@ -889,7 +889,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %8, label %47
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @extraZddGetSingletons(ptr noundef nonnull %0, ptr noundef %10)
   %12 = icmp eq ptr %11, null
@@ -899,14 +899,14 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
   %14 = ptrtoint ptr %11 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
   %20 = load i32, ptr %1, align 8
   %21 = shl i32 %20, 1
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %21, ptr noundef %22, ptr noundef %24) #10
   %26 = icmp eq ptr %25, null
@@ -920,7 +920,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
   %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -937,7 +937,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
   %39 = ptrtoint ptr %35 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -956,7 +956,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddReduceVarSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -980,7 +980,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %8, label %98, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %98, label %13
@@ -991,11 +991,11 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.not, label %15, label %98
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %6, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %1, align 8
   %23 = icmp eq i32 %22, 2147483647
@@ -1005,13 +1005,13 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %24 = phi i32 [ %32, %29 ], [ %22, %15 ]
   %.07596 = phi ptr [ %31, %29 ], [ %1, %15 ]
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %17, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %17, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %21, %27
   br i1 %28, label %29, label %.thread92
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.07596, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.07596, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 2147483647
@@ -1024,15 +1024,15 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.thread92
-  %37 = getelementptr inbounds i8, ptr %.07595, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07595, i64 16
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.thread92, %36
   %.074 = phi ptr [ %38, %36 ], [ %.07595, %.thread92 ]
   %.not90 = icmp eq ptr %2, %6
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load ptr, ptr %41, align 8
   br i1 %.not90, label %51, label %43
 
@@ -1061,7 +1061,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %57 = ptrtoint ptr %54 to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4
@@ -1077,7 +1077,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %67 = ptrtoint ptr %63 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4
@@ -1098,7 +1098,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %78 = ptrtoint ptr %74 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -1115,7 +1115,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %88 = ptrtoint ptr %84 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -1126,7 +1126,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 94:                                               ; preds = %87, %66
   %.pre-phi101 = phi ptr [ %90, %87 ], [ %69, %66 ]
   %.073 = phi ptr [ %84, %87 ], [ %63, %66 ]
-  %95 = getelementptr inbounds i8, ptr %.pre-phi101, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.pre-phi101, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4
@@ -1145,11 +1145,11 @@ define noalias noundef ptr @Extra_SymmPairsAllocate(i32 noundef %0) local_unname
   %2 = sext i32 %0 to i64
   %3 = shl nsw i64 %2, 2
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #11
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %4, ptr %5, align 8
   %6 = shl nsw i64 %2, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %7, ptr %8, align 8
   %9 = mul nsw i32 %0, %0
   %10 = zext nneg i32 %9 to i64
@@ -1167,7 +1167,7 @@ define noalias noundef ptr @Extra_SymmPairsAllocate(i32 noundef %0) local_unname
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr ptr, ptr %7, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %store_forwarded, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 %2
   store ptr %13, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1182,7 +1182,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Extra_SymmPairsDissolve(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1193,7 +1193,7 @@ define void @Extra_SymmPairsDissolve(ptr nocapture noundef %0) local_unnamed_add
   br label %5
 
 5:                                                ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %8, null
@@ -1228,7 +1228,7 @@ define void @Extra_SymmPairsPrint(ptr nocapture noundef readonly %0) local_unnam
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge21
 
 .preheader.lr.ph:                                 ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -1254,9 +1254,9 @@ define void @Extra_SymmPairsPrint(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.lr.ph ], [ %indvars.iv22, %7 ]
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv27
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv24
   %15 = load i8, ptr %14, align 1
   %.not14 = icmp eq i8 %15, 0
   %. = select i1 %.not14, i32 46, i32 49
@@ -1283,7 +1283,7 @@ declare i32 @Extra_bddSuppSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddSelectOneSubset(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1301,7 +1301,7 @@ declare ptr @Cudd_zddDiff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Extra_bddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -1312,7 +1312,7 @@ define range(i32 0, 2) i32 @Extra_bddCheckVarsSymmetric(ptr noundef %0, ptr noun
   %13 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %9, ptr noundef %12) #10
   tail call void @Cudd_Ref(ptr noundef %13) #10
   %14 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr noundef %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %14, %16
   %18 = zext i1 %17 to i32
@@ -1324,7 +1324,7 @@ declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
@@ -1346,10 +1346,10 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -1362,20 +1362,20 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not122, label %32, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 312
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %31 = load ptr, ptr %30, align 8
   br label %.sink.split
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %4, align 8
   %36 = icmp eq ptr %34, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 312
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %2, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %40
   br i1 %36, label %47, label %42
 
 42:                                               ; preds = %32
@@ -1388,7 +1388,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   %.095.ph = phi i32 [ %43, %42 ], [ -1, %29 ]
   %44 = load i32, ptr %.sink129, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %.sink, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %.sink, i64 %45
   br label %47
 
 47:                                               ; preds = %.sink.split, %32
@@ -1400,8 +1400,8 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
 
 49:                                               ; preds = %47
   %.not123 = icmp eq ptr %1, %15
-  %50 = getelementptr inbounds i8, ptr %15, i64 16
-  %51 = getelementptr inbounds i8, ptr %15, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %52 = load ptr, ptr %51, align 8
   br i1 %.not123, label %61, label %53
 
@@ -1443,7 +1443,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %75, label %76, label %104
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = xor i64 %79, 1
@@ -1470,7 +1470,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %98, label %137, label %99
 
 99:                                               ; preds = %88
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %82, %101
   %103 = icmp eq ptr %93, %101
@@ -1500,7 +1500,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %118, label %137, label %119
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %106, %121
   %123 = icmp eq ptr %113, %121
@@ -1516,7 +1516,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not122, label %130, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %0, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load ptr, ptr %128, align 8
   br label %137
 
@@ -1551,11 +1551,11 @@ define noalias noundef ptr @Extra_SymmPairsComputeNaive(ptr noundef %0, ptr noun
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %7, ptr %8, align 8
   %9 = shl nsw i64 %5, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #11
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %10, ptr %11, align 8
   %12 = mul nsw i32 %4, %4
   %13 = zext nneg i32 %12 to i64
@@ -1573,18 +1573,18 @@ define noalias noundef ptr @Extra_SymmPairsComputeNaive(ptr noundef %0, ptr noun
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
-  %16 = getelementptr inbounds i8, ptr %store_forwarded, i64 %5
+  %16 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 %5
   store ptr %16, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Extra_SymmPairsAllocate.exit, label %.lr.ph.i, !llvm.loop !6
 
 Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not45 = icmp eq ptr %3, %21
   br i1 %.not45, label %.preheader, label %.lr.ph
@@ -1594,8 +1594,8 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
   br i1 %22, label %.lr.ph51, label %._crit_edge
 
 .lr.ph51:                                         ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %0, i64 344
-  %24 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %24 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %wide.trip.count61 = zext nneg i32 %4 to i64
   br label %30
 
@@ -1603,9 +1603,9 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Extra_SymmPairsAllocate.exit ]
   %.04246 = phi ptr [ %28, %.lr.ph ], [ %3, %Extra_SymmPairsAllocate.exit ]
   %25 = load i32, ptr %.04246, align 8
-  %26 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.04246, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.04246, i64 16
   %28 = load ptr, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %28, %21
@@ -1626,15 +1626,15 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
   br i1 %32, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %30
-  %33 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv58
-  %34 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv58
+  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv58
+  %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv58
   br label %35
 
 35:                                               ; preds = %.lr.ph49, %74
   %36 = phi i32 [ %31, %.lr.ph49 ], [ %75, %74 ]
   %indvars.iv55 = phi i64 [ %indvars.iv53, %.lr.ph49 ], [ %indvars.iv.next56, %74 ]
   %37 = load i32, ptr %33, align 4
-  %38 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv55
+  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv55
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr %23, align 8
   %41 = sext i32 %37 to i64
@@ -1669,14 +1669,14 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %59) #10
   %63 = zext i1 %62 to i8
   %64 = load ptr, ptr %34, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 %indvars.iv55
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %indvars.iv55
   store i8 %63, ptr %65, align 1
-  %66 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv55
+  %66 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv55
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 %indvars.iv58
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv58
   store i8 %63, ptr %68, align 1
   %69 = load ptr, ptr %34, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 %indvars.iv55
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv55
   %71 = load i8, ptr %70, align 1
   %.not44 = icmp eq i8 %71, 0
   br i1 %.not44, label %74, label %72
@@ -1699,7 +1699,7 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Extra_bddCheckVarsSymmetricNaive(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -1739,11 +1739,11 @@ declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddTuplesFromBdd(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %8
 
 8:                                                ; preds = %._crit_edge40, %3
@@ -1760,13 +1760,13 @@ define ptr @Extra_zddTuplesFromBdd(ptr noundef %0, i32 noundef %1, ptr noundef %
 13:                                               ; preds = %.lr.ph, %16
   %.02536 = phi i32 [ 0, %.lr.ph ], [ %18, %16 ]
   %.02735 = phi ptr [ %2, %.lr.ph ], [ %19, %16 ]
-  %14 = getelementptr inbounds i8, ptr %.02735, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.02735, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not31 = icmp eq ptr %15, %12
   br i1 %.not31, label %16, label %.loopexit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.02735, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.02735, i64 16
   %18 = add nuw nsw i32 %.02536, 1
   %19 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %19, %9
@@ -1785,7 +1785,7 @@ define ptr @Extra_zddTuplesFromBdd(ptr noundef %0, i32 noundef %1, ptr noundef %
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %.038 = phi i32 [ %25, %.lr.ph39 ], [ 0, %.preheader ]
   %.02637 = phi ptr [ %24, %.lr.ph39 ], [ %2, %.preheader ]
-  %23 = getelementptr inbounds i8, ptr %.02637, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.02637, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %25, %21
@@ -1815,10 +1815,10 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %4 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -1829,10 +1829,10 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   br label %22
 
@@ -1842,12 +1842,12 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   br label %79
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %2, %30
   br i1 %31, label %79, label %32
@@ -1858,7 +1858,7 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %34, label %79
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @extraZddTuplesFromBdd(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %36)
   %38 = icmp eq ptr %37, null
@@ -1868,7 +1868,7 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %40 = ptrtoint ptr %37 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -1877,12 +1877,12 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %39
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8
   br label %58
 
 51:                                               ; preds = %39
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %35, align 8
   %55 = tail call ptr @extraZddTuplesFromBdd(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %54)
@@ -1898,7 +1898,7 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %59 = ptrtoint ptr %.sink to i64
   %60 = and i64 %59, -2
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
@@ -1920,7 +1920,7 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %73 = ptrtoint ptr %.sink to i64
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, -1
   store i32 %78, ptr %76, align 4
@@ -1934,13 +1934,13 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddSelectOneSubset(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %40, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %1, %8
   br i1 %9, label %40, label %10
@@ -1951,7 +1951,7 @@ define ptr @extraZddSelectOneSubset(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %12, label %40
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %3, align 8
   %.not42 = icmp eq ptr %14, %15
@@ -1963,7 +1963,7 @@ define ptr @extraZddSelectOneSubset(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %18, label %40, label %39
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @extraZddSelectOneSubset(ptr noundef nonnull %0, ptr noundef %21)
   %23 = icmp eq ptr %22, null
@@ -1973,7 +1973,7 @@ define ptr @extraZddSelectOneSubset(ptr noundef %0, ptr noundef %1) #0 {
   %25 = ptrtoint ptr %22 to i64
   %26 = and i64 %25, -2
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4

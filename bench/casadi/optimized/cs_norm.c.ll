@@ -9,21 +9,21 @@ define double @cs_norm(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not29 = icmp eq ptr %8, null
   br i1 %.not29, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp sgt i32 %11, 0
   br i1 %14, label %.lr.ph36.preheader, label %.loopexit
@@ -38,7 +38,7 @@ define double @cs_norm(ptr noundef readonly %0) local_unnamed_addr #0 {
   %indvars.iv40 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next41, %._crit_edge ]
   %.02334 = phi double [ 0.000000e+00, %.lr.ph36.preheader ], [ %25, %._crit_edge ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next41
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next41
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %15, %17
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge

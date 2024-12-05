@@ -424,7 +424,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %9 = alloca [1 x %struct.vec_t], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.177) #3
   %14 = load ptr, ptr %12, align 8
@@ -444,7 +444,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %41, label %26
 
 26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = add nuw nsw i32 %24, 1
   %30 = zext nneg i32 %29 to i64
@@ -467,12 +467,12 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 39:                                               ; preds = %26, %37
   store ptr %31, ptr %9, align 16
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %29, ptr %40, align 8
   br label %44
 
 41:                                               ; preds = %4
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %24, ptr %42, align 8
   %43 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %24) #3
   store ptr %43, ptr %9, align 16
@@ -489,7 +489,7 @@ define internal i32 @dissect_cdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph1164:                                       ; preds = %44
   %.not1049 = icmp eq ptr %2, null
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %51
 
 51:                                               ; preds = %.lr.ph1164, %.loopexit
@@ -2121,7 +2121,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   %hf_cdp_nrgyz_ip_address.sink = phi ptr [ @hf_cdp_nrgyz_ip_address, %71 ], [ @hf_cdp_nrgyz_ip6_address, %73 ]
   %.sink149 = phi i32 [ 4, %71 ], [ %65, %73 ]
   %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 408
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr @tvb_address_to_str(ptr noundef %79, ptr noundef %0, i32 noundef %.sink152, i32 noundef %63) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %77, ptr noundef nonnull %.str.260.sink, ptr noundef %80) #3
@@ -2143,7 +2143,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
 
 89:                                               ; preds = %.thread147, %86
   %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @tvb_bytes_to_str(ptr noundef %92, ptr noundef %0, i32 noundef %63, i32 noundef %65) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %90, ptr noundef nonnull @.str.262, ptr noundef %93) #3

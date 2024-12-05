@@ -42,7 +42,7 @@ declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_shrink(ptr nocapture noundef %buffer) local_unnamed_addr #0 {
 entry:
-  %avg_size = getelementptr inbounds i8, ptr %buffer, i64 24
+  %avg_size = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %0 = load i64, ptr %avg_size, align 8
   %mul = mul i64 %0, 127
   %shr = lshr i64 %mul, 7
@@ -67,7 +67,7 @@ entry:
   %shr.i.i18 = lshr exact i64 -9223372036854775808, %sh_prom.i.i17
   %5 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18, i64 4096)
   %cond.i19 = select i1 %tobool.not.i.i15, i64 4096, i64 %5
-  %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %6 = load i64, ptr %capacity, align 8
   %shr5 = lshr i64 %6, 3
   %cmp = icmp ult i64 %cond.i19, %shr5
@@ -88,7 +88,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal fastcc void @buffer_adj_size(ptr nocapture noundef %buffer, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load i64, ptr %capacity, align 8
   %1 = getelementptr i8, ptr %buffer, i64 16
   %buffer.val = load i64, ptr %1, align 8
@@ -102,7 +102,7 @@ entry:
   %3 = tail call i64 @llvm.umax.i64(i64 %shr.i.i, i64 4096)
   %cond.i = select i1 %tobool.not.i.i, i64 4096, i64 %3
   store i64 %cond.i, ptr %capacity, align 8
-  %buffer2 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer2 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %4 = load ptr, ptr %buffer2, align 8
   %call4 = tail call ptr @g_realloc(ptr noundef %4, i64 noundef %cond.i) #12
   store ptr %call4, ptr %buffer2, align 8
@@ -133,7 +133,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %..str, i64 noundef %0, i64 noundef %6) #12
   br label %trace_buffer_resize.exit
@@ -144,7 +144,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_buffer_resize.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %avg_size = getelementptr inbounds i8, ptr %buffer, i64 24
+  %avg_size = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %13 = load i64, ptr %avg_size, align 8
   %14 = load i64, ptr %capacity, align 8
   %shl = shl i64 %14, 7
@@ -156,9 +156,9 @@ trace_buffer_resize.exit:                         ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_reserve(ptr nocapture noundef %buffer, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load i64, ptr %capacity, align 8
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %offset, align 8
   %sub = sub i64 %0, %1
   %cmp = icmp ult i64 %sub, %len
@@ -175,7 +175,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @buffer_empty(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
 entry:
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %0 = load i64, ptr %offset, align 8
   %cmp = icmp eq i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -185,9 +185,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @buffer_end(ptr nocapture noundef readonly %buffer) local_unnamed_addr #2 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 %1
   ret ptr %add.ptr
@@ -196,9 +196,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_reset(ptr nocapture noundef initializes((16, 24)) %buffer) local_unnamed_addr #0 {
 entry:
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   store i64 0, ptr %offset, align 8
-  %avg_size.i = getelementptr inbounds i8, ptr %buffer, i64 24
+  %avg_size.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %0 = load i64, ptr %avg_size.i, align 8
   %mul.i = mul i64 %0, 127
   %shr.i = lshr i64 %mul.i, 7
@@ -211,7 +211,7 @@ entry:
   %sh_prom.i.i17.i = and i64 %sub2.i.i16.i, 4294967295
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
   %2 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
-  %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %3 = load i64, ptr %capacity.i, align 8
   %shr5.i = lshr i64 %3, 3
   %cmp.i = icmp ult i64 %2, %shr5.i
@@ -235,7 +235,7 @@ entry:
   %0 = load ptr, ptr %buffer, align 8
   %tobool.not = icmp eq ptr %0, null
   %..str = select i1 %tobool.not, ptr @.str, ptr %0
-  %capacity = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %1 = load i64, ptr %capacity, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -260,7 +260,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %..str, i64 noundef %1) #12
   br label %trace_buffer_free.exit
@@ -271,7 +271,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_buffer_free.exit:                           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %8 = load ptr, ptr %buffer1, align 8
   tail call void @g_free(ptr noundef %8) #12
   %9 = load ptr, ptr %buffer, align 8
@@ -286,9 +286,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @buffer_append(ptr nocapture noundef %buffer, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %len, i1 false)
@@ -304,17 +304,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @buffer_advance(ptr nocapture noundef %buffer, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer1 = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   %0 = load ptr, ptr %buffer1, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 %len
-  %offset = getelementptr inbounds i8, ptr %buffer, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %1 = load i64, ptr %offset, align 8
   %sub = sub i64 %1, %len
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %add.ptr, i64 %sub, i1 false)
   %2 = load i64, ptr %offset, align 8
   %sub4 = sub i64 %2, %len
   store i64 %sub4, ptr %offset, align 8
-  %avg_size.i = getelementptr inbounds i8, ptr %buffer, i64 24
+  %avg_size.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   %3 = load i64, ptr %avg_size.i, align 8
   %mul.i = mul i64 %3, 127
   %shr.i = lshr i64 %mul.i, 7
@@ -337,7 +337,7 @@ entry:
   %shr.i.i18.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i17.i
   %7 = tail call i64 @llvm.umax.i64(i64 %shr.i.i18.i, i64 4096)
   %cond.i19.i = select i1 %tobool.not.i.i15.i, i64 4096, i64 %7
-  %capacity.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %8 = load i64, ptr %capacity.i, align 8
   %shr5.i = lshr i64 %8, 3
   %cmp.i = icmp ult i64 %cond.i19.i, %shr5.i
@@ -364,7 +364,7 @@ entry:
   %0 = load ptr, ptr %to, align 8
   %tobool.not = icmp eq ptr %0, null
   %..str = select i1 %tobool.not, ptr @.str, ptr %0
-  %offset = getelementptr inbounds i8, ptr %from, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %from, i64 16
   %1 = load i64, ptr %offset, align 8
   %2 = load ptr, ptr %from, align 8
   %tobool2.not = icmp eq ptr %2, null
@@ -392,7 +392,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %..str, i64 noundef %1, ptr noundef nonnull %cond6) #12
   br label %trace_buffer_move_empty.exit
@@ -403,7 +403,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_buffer_move_empty.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %offset7 = getelementptr inbounds i8, ptr %to, i64 16
+  %offset7 = getelementptr inbounds nuw i8, ptr %to, i64 16
   %9 = load i64, ptr %offset7, align 8
   %cmp = icmp eq i64 %9, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -413,16 +413,16 @@ if.else:                                          ; preds = %trace_buffer_move_e
   unreachable
 
 if.end:                                           ; preds = %trace_buffer_move_empty.exit
-  %buffer = getelementptr inbounds i8, ptr %to, i64 32
+  %buffer = getelementptr inbounds nuw i8, ptr %to, i64 32
   %10 = load ptr, ptr %buffer, align 8
   tail call void @g_free(ptr noundef %10) #12
   %11 = load i64, ptr %offset, align 8
   store i64 %11, ptr %offset7, align 8
-  %capacity = getelementptr inbounds i8, ptr %from, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %from, i64 8
   %12 = load i64, ptr %capacity, align 8
-  %capacity10 = getelementptr inbounds i8, ptr %to, i64 8
+  %capacity10 = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %12, ptr %capacity10, align 8
-  %buffer11 = getelementptr inbounds i8, ptr %from, i64 32
+  %buffer11 = getelementptr inbounds nuw i8, ptr %from, i64 32
   %13 = load ptr, ptr %buffer11, align 8
   store ptr %13, ptr %buffer, align 8
   store ptr null, ptr %buffer11, align 8
@@ -437,7 +437,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define dso_local void @buffer_move(ptr nocapture noundef %to, ptr nocapture noundef %from) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %offset = getelementptr inbounds i8, ptr %to, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %to, i64 16
   %0 = load i64, ptr %offset, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -450,7 +450,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %to, align 8
   %tobool.not = icmp eq ptr %1, null
   %..str = select i1 %tobool.not, ptr @.str, ptr %1
-  %offset1 = getelementptr inbounds i8, ptr %from, i64 16
+  %offset1 = getelementptr inbounds nuw i8, ptr %from, i64 16
   %2 = load i64, ptr %offset1, align 8
   %3 = load ptr, ptr %from, align 8
   %tobool3.not = icmp eq ptr %3, null
@@ -478,7 +478,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %..str, i64 noundef %2, ptr noundef nonnull %cond7) #12
   br label %trace_buffer_move.exit
@@ -490,7 +490,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_buffer_move.exit:                           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load i64, ptr %offset1, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %to, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   %11 = load i64, ptr %capacity.i, align 8
   %12 = load i64, ptr %offset, align 8
   %sub.i = sub i64 %11, %12
@@ -506,9 +506,9 @@ if.then.i:                                        ; preds = %trace_buffer_move.e
 buffer_reserve.exit:                              ; preds = %trace_buffer_move.exit, %if.then.i
   %13 = phi i64 [ %12, %trace_buffer_move.exit ], [ %.pre15, %if.then.i ]
   %14 = phi i64 [ %10, %trace_buffer_move.exit ], [ %.pre, %if.then.i ]
-  %buffer = getelementptr inbounds i8, ptr %from, i64 32
+  %buffer = getelementptr inbounds nuw i8, ptr %from, i64 32
   %15 = load ptr, ptr %buffer, align 8
-  %buffer1.i = getelementptr inbounds i8, ptr %to, i64 32
+  %buffer1.i = getelementptr inbounds nuw i8, ptr %to, i64 32
   %16 = load ptr, ptr %buffer1.i, align 8
   %add.ptr.i = getelementptr i8, ptr %16, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %15, i64 %14, i1 false)
@@ -517,7 +517,7 @@ buffer_reserve.exit:                              ; preds = %trace_buffer_move.e
   store i64 %add.i, ptr %offset, align 8
   %18 = load ptr, ptr %buffer, align 8
   tail call void @g_free(ptr noundef %18) #12
-  %capacity = getelementptr inbounds i8, ptr %from, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %from, i64 8
   store ptr null, ptr %buffer, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity, i8 0, i64 16, i1 false)
   br label %return

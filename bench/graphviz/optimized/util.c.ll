@@ -35,9 +35,9 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03033 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, %.03033
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -81,10 +81,10 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %gv_calloc.exit
   %indvars.iv55 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next56, %gv_calloc.exit ]
   %.02841 = phi i32 [ 0, %.lr.ph43.preheader ], [ %.129.lcssa, %gv_calloc.exit ]
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv55
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv55
   %24 = load ptr, ptr %23, align 8
   %.sroa.0.0.copyload = load ptr, ptr %24, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %25 = icmp sgt i32 %.sroa.3.0.copyload, 0
   br i1 %25, label %.lr.ph38.preheader, label %gv_calloc.exit
@@ -101,12 +101,12 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %.not = icmp samesign ult i64 %indvars.iv.next49, %27
   %28 = getelementptr inbounds %struct.Pedge_t, ptr %17, i64 %indvars.iv46
-  %29 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %indvars.iv48
+  %29 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %indvars.iv48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = and i64 %indvars.iv.next49, 4294967295
   %32 = select i1 %.not, i64 %31, i64 0
-  %33 = getelementptr inbounds %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %32
+  %33 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.sroa.0.0.copyload, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count53
@@ -160,7 +160,7 @@ define void @make_polyline(ptr nocapture readonly %0, i32 %1, ptr nocapture noun
   br i1 %19, label %20, label %gv_recalloc.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %13, i64 %11
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %11
   %22 = sub nuw nsw i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
   br label %gv_recalloc.exit
@@ -172,7 +172,7 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 
 23:                                               ; preds = %gv_recalloc.exit, %3
   %24 = phi ptr [ %13, %gv_recalloc.exit ], [ %.pre, %3 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %26 = add i32 %1, -1
@@ -186,10 +186,10 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv30 = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %indvars.iv30
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
-  %31 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.Pxy_t, ptr %24, i64 %indvars.iv30
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
@@ -206,12 +206,12 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 ._crit_edge:                                      ; preds = %23, %._crit_edge.loopexit
   %.023.lcssa = phi i64 [ %32, %._crit_edge.loopexit ], [ 2, %23 ]
   %.0.lcssa = phi i64 [ %33, %._crit_edge.loopexit ], [ 1, %23 ]
-  %34 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %.023.lcssa
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %.0.lcssa
+  %34 = getelementptr inbounds nuw %struct.Pxy_t, ptr %24, i64 %.023.lcssa
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw %struct.Pxy_t, ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %5, ptr %37, align 8
   store ptr %24, ptr %2, align 8
   ret void

@@ -22,9 +22,9 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx9 = getelementptr inbounds i8, ptr %data, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %data, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx9, align 1
-  %arrayidx11 = getelementptr inbounds i8, ptr %key, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %key, i64 %indvars.iv
   store i8 %1, ptr %arrayidx11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -48,11 +48,11 @@ for.body17:                                       ; preds = %for.body17.preheade
   %indvars.iv57 = phi i64 [ %5, %for.body17.preheader ], [ %indvars.iv.next58, %for.body17 ]
   %indvars.iv55 = phi i64 [ 0, %for.body17.preheader ], [ %indvars.iv.next56, %for.body17 ]
   %d.0.in48 = phi i8 [ %4, %for.body17.preheader ], [ %8, %for.body17 ]
-  %arrayidx19 = getelementptr inbounds i8, ptr %key, i64 %indvars.iv55
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %key, i64 %indvars.iv55
   %7 = load i8, ptr %arrayidx19, align 1
   %add.narrow = add i8 %7, %d.0.in48
   %idxprom21 = zext i8 %add.narrow to i64
-  %arrayidx22 = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %idxprom21
   %8 = load i8, ptr %arrayidx22, align 1
   %arrayidx26 = getelementptr inbounds i8, ptr %key, i64 %indvars.iv57
   store i8 %8, ptr %arrayidx26, align 1
@@ -69,12 +69,12 @@ for.end30:                                        ; preds = %for.body17, %for.en
   %and34 = and i32 %sub33, 7
   %shr35 = lshr i32 255, %and34
   %idxprom36 = zext nneg i32 %sub32 to i64
-  %arrayidx37 = getelementptr inbounds i8, ptr %key, i64 %idxprom36
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %key, i64 %idxprom36
   %9 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %9 to i32
   %and39 = and i32 %shr35, %conv38
   %idxprom40 = zext nneg i32 %and39 to i64
-  %arrayidx41 = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %idxprom40
   %10 = load i8, ptr %arrayidx41, align 1
   store i8 %10, ptr %arrayidx37, align 1
   %tobool.not49 = icmp eq i32 %shr, 128
@@ -95,7 +95,7 @@ while.body:                                       ; preds = %while.body.preheade
   %13 = load i8, ptr %gep69, align 1
   %xor42 = xor i8 %13, %d.1.in51
   %idxprom50 = zext i8 %xor42 to i64
-  %arrayidx51 = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [256 x i8], ptr @key_table, i64 0, i64 %idxprom50
   %14 = load i8, ptr %arrayidx51, align 1
   %arrayidx55 = getelementptr inbounds i8, ptr %key, i64 %indvars.iv.next62
   store i8 %14, ptr %arrayidx55, align 1
@@ -103,7 +103,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %15, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %for.end30
-  %arrayidx57 = getelementptr inbounds i8, ptr %key, i64 252
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %key, i64 252
   %invariant.gep = getelementptr i8, ptr %key, i64 -1
   br label %for.body61
 

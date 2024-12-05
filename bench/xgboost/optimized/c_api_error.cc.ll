@@ -37,7 +37,7 @@ define noundef ptr @XGBGetLastError() local_unnamed_addr #3 {
 
 3:                                                ; preds = %0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
   %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
@@ -59,7 +59,7 @@ define void @_Z18XGBAPISetLastErrorPKc(ptr noundef %0) local_unnamed_addr #4 {
 
 4:                                                ; preds = %1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
   %5 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
@@ -73,13 +73,13 @@ _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit: ; preds = %1, %4
 
 10:                                               ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
   %11 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1
 
 _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1: ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, %10
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %12, align 8
   ret void
 }
@@ -94,14 +94,14 @@ define i32 @XGBGetLastErrorCode() local_unnamed_addr #3 {
 
 3:                                                ; preds = %0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
   %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
 
 _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit: ; preds = %0, %3
   %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst)
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   ret i32 %7
 }

@@ -100,7 +100,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_device_relea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 724
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 16
   %5 = icmp eq i8 %4, 0
@@ -108,9 +108,9 @@ define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly 
 
 6:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %12, label %15
@@ -119,7 +119,7 @@ define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly 
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr %9, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store ptr %13, ptr %14, align 8
   store volatile ptr %9, ptr %13, align 8
   br label %15
@@ -141,27 +141,27 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @driver_deferred_probe_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %5, ptr %9, align 8
   store volatile ptr %4, ptr %4, align 8
   store volatile ptr %4, ptr %8, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %13 = load ptr, ptr %12, align 8
   tail call void @kfree(ptr noundef %13) #9
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store ptr null, ptr %15, align 8
   br label %16
 
@@ -185,7 +185,7 @@ define dso_local void @driver_deferred_probe_trigger() local_unnamed_addr #0 ali
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8
   store ptr %3, ptr %6, align 8
   store ptr @deferred_probe_active_list, ptr %7, align 8
@@ -262,7 +262,7 @@ define dso_local void @device_unblock_probing() local_unnamed_addr #0 align 16 {
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8
   store ptr %3, ptr %6, align 8
   store ptr @deferred_probe_active_list, ptr %7, align 8
@@ -286,13 +286,13 @@ define dso_local void @device_set_deferred_probe_reason(ptr noundef %0, ptr noun
   %3 = tail call ptr @dev_driver_string(ptr noundef %0) #9
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   %4 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str, ptr noundef %3, ptr noundef %1) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %8 = load ptr, ptr %7, align 8
   tail call void @kfree(ptr noundef %8) #9
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   store ptr %4, ptr %10, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
   ret void
@@ -384,7 +384,7 @@ define internal noundef i32 @deferred_probe_initcall() #0 align 16 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %7, align 8
   store ptr %2, ptr %5, align 8
   store ptr @deferred_probe_active_list, ptr %6, align 8
@@ -408,7 +408,7 @@ define internal noundef i32 @deferred_probe_initcall() #0 align 16 {
 14:                                               ; preds = %8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %17, align 8
   store ptr %12, ptr %15, align 8
   store ptr @deferred_probe_active_list, ptr %16, align 8
@@ -448,14 +448,14 @@ declare dso_local void @debugfs_lookup_and_remove(ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @device_is_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
-  %7 = tail call i32 @klist_node_attached(ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %7 = tail call i32 @klist_node_attached(ptr noundef nonnull %6) #9
   %8 = icmp ne i32 %7, 0
   br label %9
 
@@ -470,9 +470,9 @@ declare dso_local i32 @klist_node_attached(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @device_bind_driver(ptr noundef %0) #0 align 16 {
   tail call void @bus_notify(ptr noundef %0, i32 noundef 3) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = tail call i32 @sysfs_create_link(ptr noundef %5, ptr noundef %0, ptr noundef %6) #9
@@ -481,7 +481,7 @@ define dso_local i32 @device_bind_driver(ptr noundef %0) #0 align 16 {
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @sysfs_create_link(ptr noundef %0, ptr noundef %12, ptr noundef nonnull @.str.7) #9
   %14 = icmp eq i32 %13, 0
@@ -489,7 +489,7 @@ define dso_local i32 @device_bind_driver(ptr noundef %0) #0 align 16 {
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   tail call void @sysfs_remove_link(ptr noundef %18, ptr noundef %19) #9
@@ -515,14 +515,14 @@ declare dso_local void @device_links_force_bind(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
-  %7 = tail call i32 @klist_node_attached(ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %7 = tail call i32 @klist_node_attached(ptr noundef nonnull %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
@@ -537,36 +537,36 @@ define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 
 
 12:                                               ; preds = %._crit_edge, %1
   %13 = phi ptr [ %.pre, %._crit_edge ], [ null, %1 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
-  tail call void @klist_add_tail(ptr noundef %14, ptr noundef %19) #9
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  tail call void @klist_add_tail(ptr noundef nonnull %14, ptr noundef nonnull %19) #9
   tail call void @device_links_driver_bound(ptr noundef %0) #9
   tail call void @device_pm_check_callbacks(ptr noundef %0) #9
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %20, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   store volatile ptr %22, ptr %26, align 8
   store volatile ptr %21, ptr %21, align 8
   store volatile ptr %21, ptr %25, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %30 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef %30) #9
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 192
   store ptr null, ptr %32, align 8
   br label %33
 
@@ -585,7 +585,7 @@ define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 
 38:                                               ; preds = %35
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %39, ptr %41, align 8
   store ptr %36, ptr %39, align 8
   store ptr @deferred_probe_active_list, ptr %40, align 8
@@ -668,18 +668,18 @@ define dso_local i32 @device_attach(ptr noundef %0) #0 align 16 {
 define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.device_attach_data, align 8
   %4 = zext i1 %1 to i8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %5) #9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %26, label %16
@@ -689,8 +689,8 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %7, i64 72
-  %20 = tail call i32 @klist_node_attached(ptr noundef %19) #9
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %20 = tail call i32 @klist_node_attached(ptr noundef nonnull %19) #9
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread
 
@@ -705,14 +705,14 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
 
 26:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %27, align 8, !annotation !6
   store ptr %0, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 0, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
@@ -722,7 +722,7 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
   br label %35
 
 35:                                               ; preds = %33, %26
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @bus_for_each_drv(ptr noundef %37, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @__device_attach_driver) #9
   %39 = icmp eq i32 %38, 0
@@ -751,16 +751,16 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
 
 .thread:                                          ; preds = %2, %25, %18, %22
   %.ph = phi i32 [ 1, %22 ], [ 1, %18 ], [ 0, %25 ], [ 0, %2 ]
-  tail call void @mutex_unlock(ptr noundef %5) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %5) #9
   br label %56
 
 51:                                               ; preds = %46, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @mutex_unlock(ptr noundef %5) #9
+  call void @mutex_unlock(ptr noundef nonnull %5) #9
   br i1 %.not4, label %52, label %56
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 640
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %54 = load i32, ptr %53, align 8
   %55 = call i64 @async_schedule_node(ptr noundef nonnull @__device_attach_async_helper, ptr noundef %0, i32 noundef %54) #9
   br label %56
@@ -778,44 +778,44 @@ define dso_local void @device_initial_probe(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @device_driver_attach(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 128
-  tail call void @mutex_lock(ptr noundef %13) #9
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %13) #9
   br label %14
 
 14:                                               ; preds = %12, %6, %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 128
-  tail call void @mutex_lock(ptr noundef %15) #9
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %15) #9
   %16 = tail call fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1)
   %17 = load ptr, ptr %3, align 8
-  tail call void @mutex_unlock(ptr noundef %15) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %15) #9
   %18 = icmp eq ptr %17, null
   br i1 %18, label %27, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %23 = load i8, ptr %22, align 8, !range !7, !noundef !8
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %17, i64 128
-  tail call void @mutex_unlock(ptr noundef %26) #9
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  tail call void @mutex_unlock(ptr noundef nonnull %26) #9
   br label %27
 
 27:                                               ; preds = %25, %19, %14
@@ -828,34 +828,34 @@ define dso_local range(i32 -2147483648, 1) i32 @device_driver_attach(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %11 = load i8, ptr %10, align 4
   %12 = and i8 %11, 2
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %55, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %55
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 724
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 724
   %20 = load i8, ptr %19, align 4
   %21 = or i8 %20, 16
   store i8 %21, ptr %19, align 4
   tail call void @pm_runtime_get_suppliers(ptr noundef %1) #9
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
@@ -874,7 +874,7 @@ define internal fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1
   %32 = tail call i64 @ktime_get() #9
   %33 = tail call fastcc i32 @really_probe(ptr noundef %1, ptr noundef %0)
   %34 = tail call i64 @ktime_get() #9
-  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
@@ -916,7 +916,7 @@ define internal fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @driver_attach(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @bus_for_each_dev(ptr noundef %3, ptr noundef null, ptr noundef %0, ptr noundef nonnull @__driver_attach) #9
   ret i32 %4
@@ -927,9 +927,9 @@ declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread5, label %8
@@ -942,14 +942,14 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   ]
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 724
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %12 = load i8, ptr %11, align 4
   %13 = or i8 %12, 16
   store i8 %13, ptr %11, align 4
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %19, label %22
@@ -958,7 +958,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr %16, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store ptr %20, ptr %21, align 8
   store volatile ptr %16, ptr %20, align 8
   br label %22
@@ -972,7 +972,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   br i1 %24, label %85, label %.thread5
 
 .thread5:                                         ; preds = %2, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %27 [
     i32 1, label %41
@@ -988,29 +988,29 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %60, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 297
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 297
   %39 = load i8, ptr %38, align 1, !range !7, !noundef !8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %60, label %41
 
 41:                                               ; preds = %37, %27, %.thread5
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %42) #9
-  %43 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %42) #9
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 184
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %59
@@ -1018,57 +1018,57 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
 52:                                               ; preds = %46
   %53 = tail call ptr @get_device(ptr noundef %0) #9
   %54 = load ptr, ptr %47, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 184
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   store ptr %1, ptr %55, align 8
-  tail call void @mutex_unlock(ptr noundef %42) #9
-  %56 = getelementptr inbounds i8, ptr %0, i64 640
+  tail call void @mutex_unlock(ptr noundef nonnull %42) #9
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %57 = load i32, ptr %56, align 8
   %58 = tail call i64 @async_schedule_node(ptr noundef nonnull @__driver_attach_async_helper, ptr noundef %0, i32 noundef %57) #9
   br label %85
 
 59:                                               ; preds = %46, %41
-  tail call void @mutex_unlock(ptr noundef %42) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %42) #9
   br label %85
 
 60:                                               ; preds = %37, %33, %.thread5
-  %61 = getelementptr inbounds i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %72, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 152
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 152
   %68 = load i8, ptr %67, align 8, !range !7, !noundef !8
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %72, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %62, i64 128
-  tail call void @mutex_lock(ptr noundef %71) #9
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %71) #9
   br label %72
 
 72:                                               ; preds = %70, %64, %60
-  %73 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %73) #9
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %73) #9
   %74 = tail call fastcc i32 @driver_probe_device(ptr noundef %1, ptr noundef %0)
   %75 = load ptr, ptr %61, align 8
-  tail call void @mutex_unlock(ptr noundef %73) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %73) #9
   %76 = icmp eq ptr %75, null
   br i1 %76, label %85, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 152
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 152
   %81 = load i8, ptr %80, align 8, !range !7, !noundef !8
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %75, i64 128
-  tail call void @mutex_unlock(ptr noundef %84) #9
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 128
+  tail call void @mutex_unlock(ptr noundef nonnull %84) #9
   br label %85
 
 85:                                               ; preds = %83, %77, %72, %59, %52, %23, %22, %8
@@ -1081,23 +1081,23 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %2, i64 128
-  tail call void @mutex_lock(ptr noundef %12) #9
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %12) #9
   br label %13
 
 13:                                               ; preds = %11, %5, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %14) #9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %15 = icmp eq ptr %1, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 104
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %15, label %18, label %16
 
@@ -1111,10 +1111,10 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
 
 .thread:                                          ; preds = %16, %18
   %20 = phi ptr [ %.pre, %18 ], [ %1, %16 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
-  %24 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 128
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.thread, %26
@@ -1122,9 +1122,9 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %25, label %26, label %.split12.us
 
 26:                                               ; preds = %.split.us
-  tail call void @mutex_unlock(ptr noundef %14) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #9
   tail call void @device_links_unbind_consumers(ptr noundef %0) #9
-  tail call void @mutex_lock(ptr noundef %14) #9
+  tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %27 = load ptr, ptr %21, align 8
   %28 = icmp eq ptr %27, %20
   br i1 %28, label %.split.us, label %.split14.us, !llvm.loop !9
@@ -1134,31 +1134,31 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %29, label %30, label %.split12.us
 
 30:                                               ; preds = %.split
-  tail call void @mutex_unlock(ptr noundef %14) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #9
   %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %33 = load i8, ptr %32, align 8, !range !7, !noundef !8
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %30
-  tail call void @mutex_unlock(ptr noundef %24) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %24) #9
   br label %36
 
 36:                                               ; preds = %35, %30
   tail call void @device_links_unbind_consumers(ptr noundef %0) #9
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 152
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %39 = load i8, ptr %38, align 8, !range !7, !noundef !8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %36
-  tail call void @mutex_lock(ptr noundef %24) #9
+  tail call void @mutex_lock(ptr noundef nonnull %24) #9
   br label %42
 
 42:                                               ; preds = %41, %36
-  tail call void @mutex_lock(ptr noundef %14) #9
+  tail call void @mutex_lock(ptr noundef nonnull %14) #9
   %43 = load ptr, ptr %21, align 8
   %44 = icmp eq ptr %43, %20
   br i1 %44, label %.split, label %.split14.us, !llvm.loop !9
@@ -1173,7 +1173,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %.split12.us
-  %49 = getelementptr inbounds i8, ptr %46, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %53, label %52
@@ -1183,7 +1183,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br label %53
 
 53:                                               ; preds = %52, %48
-  %54 = getelementptr inbounds i8, ptr %46, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %0, align 8
   tail call void @sysfs_remove_link(ptr noundef %55, ptr noundef %56) #9
@@ -1195,7 +1195,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   %58 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #9
   tail call void @device_remove_file(ptr noundef %0, ptr noundef nonnull @dev_attr_state_synced) #9
   %59 = load ptr, ptr %21, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = load ptr, ptr %60, align 8
   tail call void @device_remove_groups(ptr noundef %0, ptr noundef %61) #9
   %62 = load ptr, ptr %23, align 8
@@ -1203,7 +1203,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %63, label %69, label %64
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %62, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %69, label %68
@@ -1214,7 +1214,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
 
 69:                                               ; preds = %64, %57
   %70 = load ptr, ptr %21, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %76, label %74
@@ -1229,7 +1229,7 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
   br i1 %78, label %84, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %84, label %83
@@ -1240,20 +1240,20 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
 
 84:                                               ; preds = %83, %79, %76
   %85 = tail call i32 @devres_release_all(ptr noundef %0) #9
-  %86 = getelementptr inbounds i8, ptr %0, i64 584
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %87 = load ptr, ptr %86, align 8
   tail call void @kfree(ptr noundef %87) #9
   store ptr null, ptr %86, align 8
   store ptr null, ptr %21, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 528
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %90, i64 216
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 216
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %97, label %96
@@ -1264,33 +1264,33 @@ define dso_local void @device_release_driver_internal(ptr noundef %0, ptr nounde
 
 97:                                               ; preds = %96, %92, %84
   tail call void @pm_runtime_reinit(ptr noundef %0) #9
-  %98 = getelementptr inbounds i8, ptr %0, i64 224
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %98, align 8
   tail call void @device_links_driver_cleanup(ptr noundef %0) #9
-  %99 = getelementptr inbounds i8, ptr %0, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 72
-  tail call void @klist_remove(ptr noundef %101) #9
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
+  tail call void @klist_remove(ptr noundef nonnull %101) #9
   tail call void @device_pm_check_callbacks(ptr noundef %0) #9
   tail call void @bus_notify(ptr noundef %0, i32 noundef 6) #9
   %102 = tail call i32 @kobject_uevent(ptr noundef %0, i32 noundef 7) #9
   br label %103
 
 103:                                              ; preds = %97, %.split14.us, %18, %16
-  tail call void @mutex_unlock(ptr noundef %14) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #9
   br i1 %4, label %112, label %104
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds i8, ptr %0, i64 96
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 152
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 152
   %108 = load i8, ptr %107, align 8, !range !7, !noundef !8
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %2, i64 128
-  tail call void @mutex_unlock(ptr noundef %111) #9
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  tail call void @mutex_unlock(ptr noundef nonnull %111) #9
   br label %112
 
 112:                                              ; preds = %110, %104, %103
@@ -1305,7 +1305,7 @@ define dso_local void @device_release_driver(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @device_driver_detach(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @device_release_driver_internal(ptr noundef %0, ptr noundef null, ptr noundef %3)
   ret void
@@ -1313,7 +1313,7 @@ define dso_local void @device_driver_detach(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @driver_detach(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
     i32 1, label %18
@@ -1329,13 +1329,13 @@ define dso_local void @driver_detach(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 297
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 297
   %16 = load i8, ptr %15, align 1, !range !7, !noundef !8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %19, label %18
@@ -1345,41 +1345,41 @@ define dso_local void @driver_detach(ptr noundef %0) local_unnamed_addr #0 align
   br label %19
 
 19:                                               ; preds = %18, %14, %10, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
-  tail call void @_raw_spin_lock(ptr noundef %22) #9
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  tail call void @_raw_spin_lock(ptr noundef nonnull %22) #9
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
   br i1 %26, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %19
   %27 = phi ptr [ %23, %19 ], [ %41, %.preheader ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 64
-  tail call void @_raw_spin_unlock(ptr noundef %28) #9
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #9
   ret void
 
 .preheader:                                       ; preds = %19, %.preheader
   %29 = phi ptr [ %41, %.preheader ], [ %23, %19 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @get_device(ptr noundef %33) #9
   %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
-  tail call void @_raw_spin_unlock(ptr noundef %36) #9
-  %37 = getelementptr inbounds i8, ptr %33, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %36) #9
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %38 = load ptr, ptr %37, align 8
   tail call void @device_release_driver_internal(ptr noundef %33, ptr noundef %0, ptr noundef %38)
   tail call void @put_device(ptr noundef %33) #9
   %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
-  tail call void @_raw_spin_lock(ptr noundef %40) #9
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  tail call void @_raw_spin_lock(ptr noundef nonnull %40) #9
   %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %42
   br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !12
@@ -1408,22 +1408,22 @@ define internal void @deferred_probe_work_func(ptr nocapture readnone %0) #0 ali
   %4 = phi ptr [ %18, %.preheader ], [ %2, %1 ]
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store volatile ptr %4, ptr %4, align 8
   store volatile ptr %4, ptr %7, align 8
   %11 = tail call ptr @get_device(ptr noundef %6) #9
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #9
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 192
   store ptr null, ptr %17, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void @device_pm_move_to_tail(ptr noundef %6) #9
@@ -1465,7 +1465,7 @@ define internal void @deferred_probe_timeout_work_func(ptr nocapture readnone %0
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %9, align 8
   store ptr %4, ptr %7, align 8
   store ptr @deferred_probe_active_list, ptr %8, align 8
@@ -1532,7 +1532,7 @@ declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @deferred_devs_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @deferred_devs_show, ptr noundef %4) #9
   ret i32 %5
@@ -1555,7 +1555,7 @@ define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr nocapture re
   %5 = phi ptr [ %21, %13 ], [ %3, %2 ]
   %6 = getelementptr i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -1566,9 +1566,9 @@ define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr nocapture re
 
 13:                                               ; preds = %11, %.preheader
   %14 = phi ptr [ %12, %11 ], [ %9, %.preheader ]
-  %15 = getelementptr inbounds i8, ptr %7, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 192
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = select i1 %19, ptr @.str.6, ptr %18
@@ -1624,9 +1624,9 @@ declare dso_local i32 @bus_for_each_drv(ptr noundef, ptr noundef, ptr noundef, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread6, label %9
@@ -1639,14 +1639,14 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 724
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 724
   %13 = load i8, ptr %12, align 4
   %14 = or i8 %13, 16
   store i8 %14, ptr %12, align 4
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %15 = getelementptr inbounds i8, ptr %3, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 168
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %20, label %23
@@ -1655,7 +1655,7 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr %17, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 176
   store ptr %21, ptr %22, align 8
   store volatile ptr %17, ptr %21, align 8
   br label %23
@@ -1669,7 +1669,7 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
   br i1 %25, label %56, label %.thread6
 
 .thread6:                                         ; preds = %2, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %28 [
     i32 1, label %.thread7
@@ -1685,31 +1685,31 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
   br i1 %33, label %34, label %.thread7
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread9, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 297
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 297
   %40 = load i8, ptr %39, align 1, !range !7, !noundef !8
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.thread9, label %.thread7
 
 .thread7:                                         ; preds = %28, %.thread6, %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 1, ptr %41, align 2
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread6, %34, %.thread7, %38
   %42 = phi i8 [ 1, %.thread7 ], [ 0, %38 ], [ 0, %34 ], [ 0, %.thread6 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i8, ptr %43, align 8, !range !7, !noundef !8
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %.thread9
-  %47 = getelementptr inbounds i8, ptr %1, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
   %49 = icmp eq i8 %48, %42
   br i1 %49, label %50, label %56
@@ -1733,31 +1733,31 @@ define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(pt
 define internal void @__device_attach_async_helper(ptr noundef %0, i64 %1) #0 align 16 {
   %3 = alloca %struct.device_attach_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !annotation !6
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %7) #9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -1767,7 +1767,7 @@ define internal void @__device_attach_async_helper(ptr noundef %0, i64 %1) #0 al
   br label %24
 
 24:                                               ; preds = %22, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @bus_for_each_drv(ptr noundef %26, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @__device_attach_driver) #9
   %28 = call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 1) #9
@@ -1780,7 +1780,7 @@ define internal void @__device_attach_async_helper(ptr noundef %0, i64 %1) #0 al
   br label %33
 
 33:                                               ; preds = %31, %24, %14, %2
-  call void @mutex_unlock(ptr noundef %7) #9
+  call void @mutex_unlock(ptr noundef nonnull %7) #9
   call void @put_device(ptr noundef %0) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   ret void
@@ -1800,7 +1800,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   ]
 
 5:                                                ; preds = %2, %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 724
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 724
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 16
   %9 = icmp eq i8 %8, 0
@@ -1808,9 +1808,9 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %5
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %16, label %19
@@ -1819,7 +1819,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr %13, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
   store ptr @deferred_probe_pending_list, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store ptr %17, ptr %18, align 8
   store volatile ptr %13, ptr %17, align 8
   br label %19
@@ -1851,7 +1851,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
 30:                                               ; preds = %27
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_active_list, i64 8), align 8
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @deferred_probe_pending_list, i64 8), align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %31, ptr %33, align 8
   store ptr %28, ptr %31, align 8
   store ptr @deferred_probe_active_list, ptr %32, align 8
@@ -1898,7 +1898,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %6, label %159, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 656
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %12, label %11
@@ -1908,11 +1908,11 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br label %159
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
@@ -1925,7 +1925,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 22:                                               ; preds = %19, %12
   tail call void @bus_notify(ptr noundef %0, i32 noundef 3) #9
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = tail call i32 @sysfs_create_link(ptr noundef %25, ptr noundef %0, ptr noundef %26) #9
@@ -1934,7 +1934,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @sysfs_create_link(ptr noundef %0, ptr noundef %32, ptr noundef nonnull @.str.7) #9
   %34 = icmp eq i32 %33, 0
@@ -1942,7 +1942,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %0, align 8
   tail call void @sysfs_remove_link(ptr noundef %38, ptr noundef %39) #9
@@ -1950,7 +1950,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 40:                                               ; preds = %22, %35
   %.ph = phi i32 [ %33, %35 ], [ %27, %22 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -1965,13 +1965,13 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br label %134
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i8, ptr %0, i64 528
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %51, i64 200
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 200
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
@@ -1983,13 +1983,13 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 60:                                               ; preds = %57, %53, %49
   %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.thread25, label %69
@@ -2006,7 +2006,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %79
@@ -2028,7 +2028,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br label %121
 
 .thread25:                                        ; preds = %65, %79, %69
-  %87 = getelementptr inbounds i8, ptr %1, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 @device_add_groups(ptr noundef %0, ptr noundef %88) #9
   %90 = icmp eq i32 %89, 0
@@ -2044,7 +2044,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %107
@@ -2055,7 +2055,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %102, label %110, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %101, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %110, label %107
@@ -2071,7 +2071,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %112, label %118, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %111, i64 208
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 208
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %118, label %117
@@ -2098,7 +2098,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %124, label %134, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %123, i64 128
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 128
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %130, label %129
@@ -2108,7 +2108,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br label %130
 
 130:                                              ; preds = %129, %125
-  %131 = getelementptr inbounds i8, ptr %123, i64 136
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 136
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %0, align 8
   tail call void @sysfs_remove_link(ptr noundef %132, ptr noundef %133) #9
@@ -2123,7 +2123,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %137, label %143, label %138
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %136, i64 136
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 136
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %143, label %142
@@ -2136,20 +2136,20 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   %144 = phi i32 [ %20, %19 ], [ %135, %142 ], [ %135, %138 ], [ %135, %134 ]
   tail call void @device_links_no_driver(ptr noundef %0) #9
   %145 = tail call i32 @devres_release_all(ptr noundef %0) #9
-  %146 = getelementptr inbounds i8, ptr %0, i64 584
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %147 = load ptr, ptr %146, align 8
   tail call void @kfree(ptr noundef %147) #9
   store ptr null, ptr %146, align 8
   store ptr null, ptr %13, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 120
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 528
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %157, label %152
 
 152:                                              ; preds = %143
-  %153 = getelementptr inbounds i8, ptr %150, i64 216
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 216
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %157, label %156
@@ -2160,7 +2160,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 157:                                              ; preds = %156, %152, %143
   tail call void @pm_runtime_reinit(ptr noundef %0) #9
-  %158 = getelementptr inbounds i8, ptr %0, i64 224
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %158, align 8
   br label %159
 
@@ -2193,18 +2193,18 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @device_remove(ptr noundef %0) unnamed_addr #0 align 16 {
   tail call void @device_remove_file(ptr noundef %0, ptr noundef nonnull @dev_attr_state_synced) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   tail call void @device_remove_groups(ptr noundef %0, ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -2215,7 +2215,7 @@ define internal fastcc void @device_remove(ptr noundef %0) unnamed_addr #0 align
 
 14:                                               ; preds = %9, %1
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -2233,11 +2233,11 @@ declare dso_local void @device_links_no_driver(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @state_synced_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 724
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %4) #9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %6 = load i8, ptr %5, align 4
-  tail call void @mutex_unlock(ptr noundef %4) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #9
   %7 = lshr i8 %6, 3
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32
@@ -2256,7 +2256,7 @@ sub_0:
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = sub nsw i32 0, %9
@@ -2268,9 +2268,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %12, label %13, label %38
 
 13:                                               ; preds = %.tail
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %14) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 724
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %14) #9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 8
   %18 = icmp eq i8 %17, 0
@@ -2279,21 +2279,21 @@ sub_1:                                            ; preds = %sub_0
 19:                                               ; preds = %13
   %20 = or disjoint i8 %16, 8
   store i8 %20, ptr %15, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %36, label %34
@@ -2305,7 +2305,7 @@ sub_1:                                            ; preds = %sub_0
 
 36:                                               ; preds = %34, %30, %26, %13
   %37 = phi i64 [ -22, %13 ], [ %3, %26 ], [ %3, %30 ], [ %3, %34 ]
-  tail call void @mutex_unlock(ptr noundef %14) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %14) #9
   br label %38
 
 38:                                               ; preds = %36, %.tail
@@ -2324,14 +2324,14 @@ declare dso_local void @device_remove_groups(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @coredump_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %5) #9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %0) #9
-  tail call void @mutex_unlock(ptr noundef %5) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %5) #9
   ret i64 %3
 }
 
@@ -2343,49 +2343,49 @@ declare dso_local void @pm_runtime_reinit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @__driver_attach_async_helper(ptr noundef %0, i64 %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 128
-  tail call void @mutex_lock(ptr noundef %13) #9
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %13) #9
   br label %14
 
 14:                                               ; preds = %12, %6, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %15) #9
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %15) #9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 184
   %19 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   %20 = tail call fastcc i32 @driver_probe_device(ptr noundef %19, ptr noundef %0)
   %21 = load ptr, ptr %3, align 8
-  tail call void @mutex_unlock(ptr noundef %15) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %15) #9
   %22 = icmp eq ptr %21, null
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %21, i64 128
-  tail call void @mutex_unlock(ptr noundef %30) #9
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  tail call void @mutex_unlock(ptr noundef nonnull %30) #9
   br label %31
 
 31:                                               ; preds = %29, %23, %14

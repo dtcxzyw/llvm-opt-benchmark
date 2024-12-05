@@ -31,9 +31,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN10MutualInfoC2Ejib(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 5), (8, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 {
   %5 = zext i1 %3 to i8
   store i32 %2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   tail call void @_ZN10MutualInfo7setBinsEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
   ret void
@@ -41,9 +41,9 @@ define void @_ZN10MutualInfoC2Ejib(ptr nocapture noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -53,7 +53,7 @@ define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 der
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not3 = icmp eq ptr %9, null
   br i1 %.not3, label %11, label %10
@@ -63,7 +63,7 @@ define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 der
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not4 = icmp eq ptr %13, null
   br i1 %.not4, label %15, label %14
@@ -90,7 +90,7 @@ define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10MutualInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -100,7 +100,7 @@ define void @_ZN10MutualInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -110,7 +110,7 @@ define void @_ZN10MutualInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -132,14 +132,14 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #7 align 2 {
   tail call void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %12, align 8
   %19 = zext i32 %18 to i64
@@ -150,7 +150,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   br i1 %.not, label %._crit_edge69, label %.lr.ph58.split.preheader
 
 .lr.ph58.split.preheader:                         ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.lr.ph58.split
 
 .lr.ph58.split:                                   ; preds = %.lr.ph58.split.preheader, %._crit_edge
@@ -159,7 +159,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %.056 = phi double [ 0.000000e+00, %.lr.ph58.split.preheader ], [ %43, %._crit_edge ]
   %.04155 = phi i32 [ 0, %.lr.ph58.split.preheader ], [ %.142.lcssa, %._crit_edge ]
   %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv83
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv83
   %.not73 = icmp eq i32 %23, 0
   br i1 %.not73, label %.lr.ph58.split.._crit_edge_crit_edge, label %.lr.ph.preheader
 
@@ -179,7 +179,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv78
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv78
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %29
   store i32 %33, ptr %31, align 4
@@ -214,7 +214,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   br i1 %.not74, label %._crit_edge69, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %._crit_edge59
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %48
 
 48:                                               ; preds = %.lr.ph68, %.loopexit
@@ -222,7 +222,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %indvars.iv92 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next93, %.loopexit ]
   %.04665 = phi double [ 0.000000e+00, %.lr.ph68 ], [ %.147, %.loopexit ]
   %50 = load ptr, ptr %16, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv92
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv92
   %52 = load i32, ptr %51, align 4
   %53 = uitofp i32 %52 to double
   %54 = icmp ne i32 %52, 0
@@ -244,7 +244,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %61 = trunc nuw i64 %indvars.iv89 to i32
   %62 = add i32 %60, %61
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %59, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %79, label %67
@@ -252,7 +252,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
 67:                                               ; preds = %.lr.ph63
   %68 = uitofp i32 %65 to double
   %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv89
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv89
   %71 = load i32, ptr %70, align 4
   %72 = uitofp i32 %71 to double
   %73 = fmul double %.1, %68
@@ -294,9 +294,9 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
   %spec.select = select i1 %10, i32 %1, i32 %6
   %11 = icmp eq i32 %8, 0
   %.033 = select i1 %11, i32 %2, i32 %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = mul i32 %15, %15
   %17 = zext i32 %16 to i64
@@ -399,7 +399,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr nocapture noundef nonnull
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph64 ], [ 0, %.preheader ]
   %50 = load i32, ptr %0, align 8
   %51 = load ptr, ptr %12, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv72
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv72
   %53 = load i32, ptr %52, align 4
   %54 = udiv i32 %53, %50
   store i32 %54, ptr %52, align 4

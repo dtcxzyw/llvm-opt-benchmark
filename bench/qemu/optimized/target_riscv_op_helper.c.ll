@@ -61,7 +61,7 @@ declare i32 @riscv_csrrw(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_csrw(ptr noundef %env, i32 noundef %csr, i64 noundef %src) local_unnamed_addr #2 {
 entry:
-  %xl = getelementptr inbounds i8, ptr %env, i64 5024
+  %xl = getelementptr inbounds nuw i8, ptr %env, i64 5024
   %0 = load i32, ptr %xl, align 16
   %cmp = icmp eq i32 %0, 1
   %cond = select i1 %cmp, i64 4294967295, i64 -1
@@ -118,7 +118,7 @@ if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
   %coerce7.sroa.2.0.extract.trunc = trunc nuw i128 %coerce7.sroa.2.0.extract.shift to i64
-  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
+  %retxh = getelementptr inbounds nuw i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64
   ret i64 %coerce9.sroa.0.0.extract.trunc
@@ -166,7 +166,7 @@ if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
   %coerce7.sroa.2.0.extract.trunc = trunc nuw i128 %coerce7.sroa.2.0.extract.shift to i64
-  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
+  %retxh = getelementptr inbounds nuw i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64
   ret i64 %coerce9.sroa.0.0.extract.trunc

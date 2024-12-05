@@ -2762,11 +2762,11 @@ define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 208
-  %13 = getelementptr inbounds i8, ptr %1, i64 232
-  %14 = getelementptr inbounds i8, ptr %1, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %15) #8
   %17 = tail call ptr @find_conversation(i32 noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
@@ -2810,7 +2810,7 @@ define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr 
   %40 = tail call ptr @wmem_file_scope() #8
   %41 = tail call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef 24) #8
   %42 = load i64, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %42, ptr %43, align 8
   %44 = load ptr, ptr %.030.i, align 8
   %45 = inttoptr i64 %42 to ptr
@@ -2820,9 +2820,9 @@ define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr 
 
 47:                                               ; preds = %39
   %48 = load i32, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = load i64, ptr %3, align 8
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1747, i32 noundef %48, i64 noundef %50, i64 noundef %52, i64 noundef %53) #9
@@ -2830,7 +2830,7 @@ define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr 
 
 lustre_get_trans.exit:                            ; preds = %33, %39
   %.029.i = phi ptr [ %41, %39 ], [ %37, %33 ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @col_set_str(ptr noundef %55, i32 noundef 34, ptr noundef nonnull @.str.1345) #8
   %56 = load ptr, ptr %54, align 8
@@ -2997,7 +2997,7 @@ dissect_struct_msg_v1.exit:                       ; preds = %62, %._crit_edge.i,
   %164 = call ptr @val_to_str(i32 noundef %162, ptr noundef nonnull @lustre_op_codes, ptr noundef nonnull @.str.1749) #8
   %165 = load i32, ptr %.029.i, align 8
   %166 = call ptr @val_to_str(i32 noundef %165, ptr noundef nonnull @lustre_op_codes, ptr noundef nonnull @.str.1749) #8
-  %167 = getelementptr inbounds i8, ptr %.029.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
   %168 = load i64, ptr %167, align 8
   %169 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %139, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1748, ptr noundef %164, ptr noundef %166, i64 noundef %168) #8
   br label %.sink.split.i.i
@@ -3861,13 +3861,13 @@ dissect_struct_fid_array.exit.i:                  ; preds = %329, %._crit_edge.i
 
 366:                                              ; preds = %364, %359
   %367 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %345) #8
-  %368 = getelementptr inbounds i8, ptr %4, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %367, ptr %368, align 8
   %369 = load i32, ptr @hf_lustre_ldlm_intent_opc, align 4
   %370 = load i32, ptr @ett_lustre_ldlm_intent_opc, align 4
   %371 = tail call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %345, i32 noundef %369, i32 noundef %370, ptr noundef nonnull @dissect_struct_ldlm_intent.flags, i32 noundef -2147483648) #8
   %372 = add i32 %345, 8
-  %373 = getelementptr inbounds i8, ptr %2, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %374 = load ptr, ptr %373, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.1772) #8
   %375 = load i64, ptr %368, align 8
@@ -4043,7 +4043,7 @@ dissect_struct_fid_array.exit.i:                  ; preds = %329, %._crit_edge.i
 
 dissect_struct_ldlm_intent.exit.i.i:              ; preds = %444, %359, %352
   %.0.i.i.i = phi i32 [ %372, %444 ], [ %345, %359 ], [ %345, %352 ]
-  %446 = getelementptr inbounds i8, ptr %4, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %447 = load i64, ptr %446, align 8
   switch i64 %447, label %518 [
     i64 3, label %448
@@ -4160,7 +4160,7 @@ dissect_struct_layout_intent.exit.i.i:            ; preds = %499, %486, %479
   br label %process_opcode_ost.exit
 
 520:                                              ; preds = %343
-  %521 = getelementptr inbounds i8, ptr %4, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %522 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %521, i32 noundef 1)
   %523 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %524 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4362,7 +4362,7 @@ default.unreachable:                              ; preds = %343
 
 671:                                              ; preds = %670
   %672 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  %673 = getelementptr inbounds i8, ptr %4, i64 8
+  %673 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %674 = load i64, ptr %673, align 8
   switch i64 %674, label %858 [
     i64 0, label %675
@@ -4825,7 +4825,7 @@ dissect_struct_mgs_target_info.exit.i:            ; preds = %._crit_edge.i.i134,
   %975 = add i32 %1, 72
   %976 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %975) #8
   %977 = zext i16 %976 to i64
-  %978 = getelementptr inbounds i8, ptr %4, i64 8
+  %978 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %977, ptr %978, align 8
   %979 = load i32, ptr @hf_lustre_mgs_config_body_type, align 4
   %980 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %979, ptr noundef %0, i32 noundef %975, i32 noundef 2, i32 noundef -2147483648) #8
@@ -4849,7 +4849,7 @@ dissect_struct_mgs_target_info.exit.i:            ; preds = %._crit_edge.i.i134,
   %996 = load i32, ptr @hf_lustre_mgs_config_res_offset, align 4
   %997 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %996, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef -2147483648) #8
   %998 = add i32 %1, 8
-  %999 = getelementptr inbounds i8, ptr %4, i64 8
+  %999 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %1000 = load i64, ptr %999, align 8
   %1001 = icmp eq i64 %1000, 4
   %hf_lustre_mgs_config_res_nm_cur_pass.val.i.i = load i32, ptr @hf_lustre_mgs_config_res_nm_cur_pass, align 4
@@ -5884,7 +5884,7 @@ define internal fastcc noundef i32 @process_opcode_seq(ptr noundef %0, i32 nound
 .split:                                           ; preds = %8
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %13, align 8
   %14 = load i32, ptr @hf_lustre_seq_opc, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
@@ -5933,7 +5933,7 @@ define internal fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, p
 .split:                                           ; preds = %8
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %13, align 8
   %14 = load i32, ptr @hf_lustre_fld_opc, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
@@ -8298,7 +8298,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef
 define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((8, 16)) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %7, ptr %8, align 8
   %9 = tail call fastcc i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   %10 = load i64, ptr %8, align 8
@@ -8394,7 +8394,7 @@ define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   switch i64 %8, label %21 [
     i64 1, label %9

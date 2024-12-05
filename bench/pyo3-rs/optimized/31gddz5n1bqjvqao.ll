@@ -70,7 +70,7 @@ define hidden zeroext i1 @"_ZN19pyo3_macros_backend5utils20option_type_argument2
   %2 = alloca [8 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   store ptr @anon.06e7e092f553c95666f1043904b4b908.1, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %4, ptr nonnull align 8 %2)
   ret i1 %5
 }

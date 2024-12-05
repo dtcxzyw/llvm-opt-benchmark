@@ -29,7 +29,7 @@ define void @_ZN3gmx8internal21printFatalErrorHeaderEP8_IO_FILEPKcS4_S4_i(ptr no
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %21 unwind label %13

@@ -195,12 +195,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [4 x %struct.movement], align 16
   %6 = load ptr, ptr @gbl_quake2ServerPorts, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @value_is_in_range(ptr noundef %6, i32 noundef %8) #3
   %.not = icmp eq i32 %9, 0
   %10 = zext i1 %.not to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.59) #3
   %13 = load ptr, ptr %11, align 8
@@ -308,7 +308,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 81:                                               ; preds = %79
   %82 = load i32, ptr @ett_quake2_game_clc, align 4
   %83 = tail call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %80, i32 noundef 0, i32 noundef -1, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.72) #3
-  %84 = getelementptr inbounds i8, ptr %5, i64 102
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 102
   br label %85
 
 85:                                               ; preds = %332, %81
@@ -355,7 +355,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 106:                                              ; preds = %99
   %107 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %96, i32 noundef %104) #3
-  %108 = getelementptr inbounds i8, ptr %101, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %109 = getelementptr i8, ptr %101, i64 4
   store i16 %107, ptr %109, align 2
   %110 = trunc i32 %104 to i16
@@ -403,7 +403,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 130:                                              ; preds = %128
   %131 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %96, i32 noundef %.3.i.i.i) #3
-  %132 = getelementptr inbounds i8, ptr %101, i64 14
+  %132 = getelementptr inbounds nuw i8, ptr %101, i64 14
   %133 = getelementptr i8, ptr %101, i64 16
   store i16 %131, ptr %133, align 2
   %134 = trunc i32 %.3.i.i.i to i16
@@ -451,7 +451,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 154:                                              ; preds = %152
   %155 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %.6.i.i.i) #3
-  %156 = getelementptr inbounds i8, ptr %101, i64 26
+  %156 = getelementptr inbounds nuw i8, ptr %101, i64 26
   %157 = getelementptr i8, ptr %101, i64 27
   store i8 %155, ptr %157, align 1
   %158 = trunc i32 %.6.i.i.i to i8
@@ -466,7 +466,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 161:                                              ; preds = %160
   %162 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %.7.i.i.i) #3
-  %163 = getelementptr inbounds i8, ptr %101, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %164 = getelementptr i8, ptr %101, i64 33
   store i8 %162, ptr %164, align 1
   %165 = trunc i32 %.7.i.i.i to i8
@@ -477,14 +477,14 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 167:                                              ; preds = %161, %160
   %.8.i.i.i = phi i32 [ %166, %161 ], [ %.7.i.i.i, %160 ]
   %168 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %.8.i.i.i) #3
-  %169 = getelementptr inbounds i8, ptr %101, i64 30
+  %169 = getelementptr inbounds nuw i8, ptr %101, i64 30
   %170 = getelementptr i8, ptr %101, i64 31
   store i8 %168, ptr %170, align 1
   %171 = trunc i32 %.8.i.i.i to i8
   store i8 %171, ptr %169, align 2
   %172 = add i32 %.8.i.i.i, 1
   %173 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %172) #3
-  %174 = getelementptr inbounds i8, ptr %101, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %101, i64 28
   %175 = getelementptr i8, ptr %101, i64 29
   store i8 %173, ptr %175, align 1
   %176 = trunc i32 %172 to i8
@@ -527,7 +527,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %199 = zext i8 %198 to i32
   %200 = tail call ptr @proto_tree_add_uint(ptr noundef %195, i32 noundef %196, ptr noundef %96, i32 noundef %188, i32 noundef 1, i32 noundef %199) #3
   %201 = load i32, ptr @hf_quake2_game_client_command_move_msec, align 4
-  %202 = getelementptr inbounds i8, ptr %187, i64 30
+  %202 = getelementptr inbounds nuw i8, ptr %187, i64 30
   %203 = load i8, ptr %202, align 2
   %204 = zext i8 %203 to i32
   %205 = getelementptr i8, ptr %187, i64 31
@@ -535,7 +535,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %207 = zext i8 %206 to i32
   %208 = tail call ptr @proto_tree_add_uint(ptr noundef %195, i32 noundef %201, ptr noundef %96, i32 noundef %204, i32 noundef 1, i32 noundef %207) #3
   %209 = load i32, ptr @hf_quake2_game_client_command_move_lightlevel, align 4
-  %210 = getelementptr inbounds i8, ptr %187, i64 28
+  %210 = getelementptr inbounds nuw i8, ptr %187, i64 28
   %211 = load i8, ptr %210, align 2
   %212 = zext i8 %211 to i32
   %213 = getelementptr i8, ptr %187, i64 29
@@ -558,7 +558,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 223:                                              ; preds = %219
   %224 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles1, align 4
-  %225 = getelementptr inbounds i8, ptr %187, i64 2
+  %225 = getelementptr inbounds nuw i8, ptr %187, i64 2
   %226 = load i16, ptr %225, align 2
   %227 = zext i16 %226 to i32
   %228 = tail call ptr @proto_tree_add_uint(ptr noundef %221, i32 noundef %224, ptr noundef %96, i32 noundef %227, i32 noundef 2, i32 noundef %199) #3
@@ -621,7 +621,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 265:                                              ; preds = %263
   %266 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_fwd, align 4
-  %267 = getelementptr inbounds i8, ptr %187, i64 14
+  %267 = getelementptr inbounds nuw i8, ptr %187, i64 14
   %268 = load i16, ptr %267, align 2
   %269 = sext i16 %268 to i32
   %270 = tail call ptr @proto_tree_add_uint(ptr noundef %221, i32 noundef %266, ptr noundef %96, i32 noundef %269, i32 noundef 2, i32 noundef %199) #3
@@ -672,7 +672,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 298:                                              ; preds = %296
   %299 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_buttons, align 4
-  %300 = getelementptr inbounds i8, ptr %187, i64 26
+  %300 = getelementptr inbounds nuw i8, ptr %187, i64 26
   %301 = load i8, ptr %300, align 2
   %302 = zext i8 %301 to i32
   %303 = tail call ptr @proto_tree_add_uint(ptr noundef %221, i32 noundef %299, ptr noundef %96, i32 noundef %302, i32 noundef 1, i32 noundef %199) #3
@@ -711,7 +711,7 @@ thread-pre-split.i.i.i:                           ; preds = %313, %312, %296
 
 314:                                              ; preds = %thread-pre-split.i.i.i
   %315 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_impulse, align 4
-  %316 = getelementptr inbounds i8, ptr %187, i64 32
+  %316 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %317 = load i8, ptr %316, align 2
   %318 = zext i8 %317 to i32
   %319 = tail call ptr @proto_tree_add_uint(ptr noundef %221, i32 noundef %315, ptr noundef %96, i32 noundef %318, i32 noundef 1, i32 noundef %199) #3

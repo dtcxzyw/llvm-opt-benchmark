@@ -14,7 +14,7 @@ define dso_local range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr nocaptur
 .lr.ph.i:                                         ; preds = %4, %8
   %.019.i = phi i32 [ %12, %8 ], [ 0, %4 ]
   %5 = zext i32 %.019.i to i64
-  %6 = getelementptr inbounds i8, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %7 = icmp eq i32 %bcmp.i, 0
   br i1 %7, label %select_next_protocol.exit14.thread.sink.split, label %8
@@ -35,7 +35,7 @@ define dso_local range(i32 -1, 2) i32 @nghttp2_select_next_protocol(ptr nocaptur
 .lr.ph.i9:                                        ; preds = %.loopexit, %17
   %.019.i10 = phi i32 [ %21, %17 ], [ 0, %.loopexit ]
   %14 = zext i32 %.019.i10 to i64
-  %15 = getelementptr inbounds i8, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %15, ptr noundef nonnull dereferenceable(9) @.str.1, i64 9)
   %16 = icmp eq i32 %bcmp.i11, 0
   br i1 %16, label %select_next_protocol.exit14.thread.sink.split, label %17
@@ -55,7 +55,7 @@ select_next_protocol.exit14.thread.sink.split:    ; preds = %.lr.ph.i, %.lr.ph.i
   %.0.ph = phi i32 [ 0, %.lr.ph.i9 ], [ 1, %.lr.ph.i ]
   %23 = add i32 %.019.i10.lcssa.sink, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   store ptr %25, ptr %0, align 8
   %26 = load i8, ptr %.lcssa.sink, align 1
   store i8 %26, ptr %1, align 1

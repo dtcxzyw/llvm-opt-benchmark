@@ -43,7 +43,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15MCAsmInfoDarwin28isSectionAtomiza
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %8 = getelementptr inbounds i8, ptr %0, i64 163
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %9 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit29.thread
@@ -56,7 +56,7 @@ _ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit: ; preds = %6
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str, i64 6)
   %12 = icmp eq i32 %bcmp.i, 0
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i17 = icmp eq i64 %.sroa.2.0.copyload.i, 10
   %or.cond = select i1 %12, i1 %.not.i17, i1 false
@@ -77,7 +77,7 @@ _ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit25: ; preds = %_ZNK4llvm14MCSect
 _ZN4llvmeqENS_9StringRefES0_.exit29:              ; preds = %_ZNK4llvm14MCSectionMachO14getSegmentNameEv.exit25
   %bcmp.i28 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str, i64 6)
   %16 = icmp eq i32 %bcmp.i28, 0
-  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.2.0.copyload.i32 = load i64, ptr %.sroa.2.0..sroa_idx.i31, align 8
   %.not.i35 = icmp eq i64 %.sroa.2.0.copyload.i32, 16
   %or.cond64 = select i1 %16, i1 %.not.i35, i1 false
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm15MCAsmInfoDarwinC2Ev(ptr noundef nonnull align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm15MCAsmInfoDarwinE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @.str.3, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i8 0, ptr %3, align 4

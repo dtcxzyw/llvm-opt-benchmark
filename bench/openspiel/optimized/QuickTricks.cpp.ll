@@ -76,14 +76,14 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 34:                                               ; preds = %56, %.split859.us
   %indvars.iv900 = phi i64 [ %indvars.iv.next901, %56 ], [ 0, %.split859.us ]
-  %35 = getelementptr inbounds %struct.highCardType, ptr %25, i64 %indvars.iv900
+  %35 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv900
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %32
   br i1 %38, label %53, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds [4 x %struct.highCardType], ptr %27, i64 0, i64 %indvars.iv900
+  %40 = getelementptr inbounds nuw [4 x %struct.highCardType], ptr %27, i64 0, i64 %indvars.iv900
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %32
@@ -120,7 +120,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br i1 %.not617, label %127, label %57
 
 57:                                               ; preds = %.split859.split
-  %58 = getelementptr inbounds %struct.highCardType, ptr %25, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %26, align 4
@@ -167,7 +167,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   br label %.thread806
 
 87:                                               ; preds = %57
-  %88 = getelementptr inbounds [4 x %struct.highCardType], ptr %27, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x %struct.highCardType], ptr %27, i64 0, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, %61
@@ -825,7 +825,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 393:                                              ; preds = %384
   %394 = zext i16 %391 to i64
-  %395 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %394
   %396 = load i32, ptr %395, align 4
   %.not650 = icmp eq i32 %396, 0
   br i1 %.not650, label %403, label %397
@@ -863,7 +863,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 .preheader:                                       ; preds = %.thread826, %412
   %.0529876 = phi i32 [ %413, %412 ], [ 14, %.thread826 ]
   %415 = zext nneg i32 %.0529876 to i64
-  %416 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %415
   %417 = load i16, ptr %416, align 2
   %418 = and i16 %417, %410
   %.not649 = icmp eq i16 %418, 0
@@ -902,7 +902,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 .preheader842:                                    ; preds = %426, %432
   %.0528875 = phi i32 [ %433, %432 ], [ 14, %426 ]
   %435 = zext nneg i32 %.0528875 to i64
-  %436 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %435
+  %436 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %435
   %437 = load i16, ptr %436, align 2
   %438 = and i16 %437, %430
   %.not648 = icmp eq i16 %438, 0
@@ -966,7 +966,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 
 460:                                              ; preds = %.preheader954, %474
   %indvars.iv912 = phi i64 [ %indvars.iv.next913, %474 ], [ 0, %.preheader954 ]
-  %461 = getelementptr inbounds %struct.highCardType, ptr %25, i64 %indvars.iv912
+  %461 = getelementptr inbounds nuw %struct.highCardType, ptr %25, i64 %indvars.iv912
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 4
   %463 = load i32, ptr %462, align 4
   %464 = icmp eq i32 %463, -1
@@ -1541,7 +1541,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
 135:                                              ; preds = %.preheader
   %136 = zext i16 %134 to i64
   %.idx = mul nuw nsw i64 %136, 120
-  %137 = getelementptr inbounds i8, ptr %15, i64 4968
+  %137 = getelementptr inbounds nuw i8, ptr %15, i64 4968
   %138 = getelementptr i8, ptr %137, i64 %.idx
   %139 = getelementptr inbounds [4 x %struct.absRankType], ptr %138, i64 0, i64 %53
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
@@ -1738,7 +1738,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
 95:                                               ; preds = %.preheader
   %96 = zext i16 %94 to i64
   %.idx = mul nuw nsw i64 %96, 120
-  %97 = getelementptr inbounds i8, ptr %13, i64 4968
+  %97 = getelementptr inbounds nuw i8, ptr %13, i64 4968
   %98 = getelementptr i8, ptr %97, i64 %.idx
   %99 = getelementptr inbounds [4 x %struct.absRankType], ptr %98, i64 0, i64 %16
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
@@ -1888,7 +1888,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
 
 76:                                               ; preds = %71, %70
   %77 = zext i16 %28 to i64
-  %78 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %80
@@ -2016,14 +2016,14 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %160 = getelementptr inbounds [4 x i16], ptr %0, i64 %128, i64 %indvars.iv
   %161 = load i16, ptr %160, align 2
   %162 = zext i16 %161 to i64
-  %163 = getelementptr inbounds [8192 x i32], ptr @counttable, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [8192 x i32], ptr @counttable, i64 0, i64 %162
   %164 = load i32, ptr %163, align 4
   %165 = add nsw i32 %164, %.1151
   %.not147 = icmp slt i32 %165, %.0127
   br i1 %.not147, label %181, label %.loopexit
 
 166:                                              ; preds = %153, %147, %141
-  %167 = getelementptr inbounds [4 x %struct.highCardType], ptr %106, i64 0, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [4 x %struct.highCardType], ptr %106, i64 0, i64 %indvars.iv
   %168 = load i32, ptr %167, align 4
   %.not145 = icmp eq i32 %168, 0
   br i1 %.not145, label %181, label %169

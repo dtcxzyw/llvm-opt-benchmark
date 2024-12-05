@@ -54,8 +54,8 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %26 = add nsw i32 %4, -2
   %notmask = shl nsw i32 -1, %26
   %27 = xor i32 %notmask, -1
-  %28 = getelementptr inbounds i8, ptr %1, i64 344
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.preheader430
 
 .preheader430:                                    ; preds = %.preheader430.lr.ph, %49
@@ -132,7 +132,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   ]
 
 .lr.ph436:                                        ; preds = %58
-  %59 = getelementptr inbounds i8, ptr %1, i64 328
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %wide.trip.count510 = zext nneg i32 %4 to i64
   br label %63
 
@@ -144,7 +144,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %indvars.iv512 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next513, %.lr.ph438 ]
   %60 = trunc nuw nsw i64 %indvars.iv512 to i32
   %61 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %60) #5
-  %62 = getelementptr inbounds [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv512
+  %62 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv512
   store ptr %61, ptr %62, align 8
   %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
   %exitcond516.not = icmp eq i64 %indvars.iv.next513, %wide.trip.count515
@@ -153,10 +153,10 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 63:                                               ; preds = %.lr.ph436, %63
   %indvars.iv507 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next508, %63 ]
   %64 = load ptr, ptr %59, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv507
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv507
   %66 = load i32, ptr %65, align 4
   %67 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %66) #5
-  %68 = getelementptr inbounds [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv507
+  %68 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv507
   store ptr %67, ptr %68, align 8
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %exitcond511.not = icmp eq i64 %indvars.iv.next508, %wide.trip.count510
@@ -176,7 +176,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %74, label %77, label %.preheader424
 
 .preheader424:                                    ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %1, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not337439 = icmp eq ptr %72, %76
   br i1 %.not337439, label %._crit_edge443, label %.lr.ph442
@@ -191,12 +191,12 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %.0311441 = phi ptr [ %86, %.lr.ph442 ], [ %72, %.preheader424 ]
   %79 = load i32, ptr %.0311441, align 8
   %80 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %1, i32 noundef %79) #5
-  %81 = getelementptr inbounds [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv517
+  %81 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv517
   store ptr %80, ptr %81, align 8
   %82 = ptrtoint ptr %.0311441 to i64
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %87 = load ptr, ptr %75, align 8
@@ -210,9 +210,9 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %88 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [20 x ptr], ptr @s_XVars, i64 0, i64 %indvars.iv
   store ptr %89, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond506.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -283,7 +283,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph450.split:                                  ; preds = %.lr.ph450.split.preheader, %.lr.ph450.split
   %indvars.iv526 = phi i64 [ 0, %.lr.ph450.split.preheader ], [ %indvars.iv.next527, %.lr.ph450.split ]
-  %108 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv526
+  %108 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv526
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %109) #5
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
@@ -381,7 +381,7 @@ define void @Extra_PrintKMap(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %fputc343 = tail call i32 @fputc(i32 10, ptr %0)
   %130 = sext i32 %92 to i64
   %131 = getelementptr inbounds ptr, ptr @s_XVars, i64 %130
-  %132 = getelementptr inbounds i8, ptr %1, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %133 = add nsw i32 %93, -1
   br label %.preheader420
 
@@ -621,7 +621,7 @@ define void @Extra_PrintKMapRelation(ptr nocapture noundef %0, ptr noundef %1, p
   br label %109
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %2, %17
   br i1 %18, label %19, label %21

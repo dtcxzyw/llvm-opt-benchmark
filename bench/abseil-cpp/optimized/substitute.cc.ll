@@ -45,7 +45,7 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp14.not, label %if.end, label %for.end78
 
 if.end:                                           ; preds = %if.then9
-  %arrayidx = getelementptr inbounds %"class.std::basic_string_view", ptr %args_array, i64 %sub
+  %arrayidx = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %args_array, i64 %sub
   %4 = load i64, ptr %arrayidx, align 8
   br label %for.inc
 
@@ -124,12 +124,12 @@ if.else63:                                        ; preds = %if.then48
   br i1 %cmp67, label %if.then68, label %for.inc76
 
 if.then68:                                        ; preds = %if.else63
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.064, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.064, i64 1
   store i8 36, ptr %target.064, align 1
   br label %for.inc76
 
 if.else72:                                        ; preds = %for.body44
-  %incdec.ptr74 = getelementptr inbounds i8, ptr %target.064, i64 1
+  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %target.064, i64 1
   store i8 %5, ptr %target.064, align 1
   br label %for.inc76
 
@@ -157,7 +157,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = ptrtoint ptr %value to i64
   br label %do.body
 
@@ -165,7 +165,7 @@ do.body:                                          ; preds = %do.body, %if.else
   %ptr.0 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr, %do.body ]
   %num.0 = phi i64 [ %0, %if.else ], [ %shr, %do.body ]
   %and = and i64 %num.0, 15
-  %arrayidx = getelementptr inbounds [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %and
+  %arrayidx = getelementptr inbounds nuw [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %and
   %1 = load i8, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %ptr.0, i64 -1
   store i8 %1, ptr %incdec.ptr, align 1
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %entry, %do.end
   %sub.ptr.sub.sink = phi i64 [ %sub.ptr.sub, %do.end ], [ 4, %entry ]
   %incdec.ptr5.sink = phi ptr [ %incdec.ptr5, %do.end ], [ @.str, %entry ]
   store i64 %sub.ptr.sub.sink, ptr %this, align 8
-  %ref.tmp6.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp6.sroa.2.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %incdec.ptr5.sink, ptr %ref.tmp6.sroa.2.0.this.sroa_idx, align 8
   ret void
 }
@@ -196,14 +196,14 @@ if.end:                                           ; preds = %entry, %do.end
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %hex.coerce0, i64 %hex.coerce1) unnamed_addr #3 align 2 {
 entry:
   %hex.sroa.4.8.extract.shift = lshr i64 %hex.coerce1, 8
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
   %writer.0 = phi ptr [ %arrayidx, %entry ], [ %incdec.ptr, %do.body ]
   %value.0 = phi i64 [ %hex.coerce0, %entry ], [ %shr, %do.body ]
   %and = and i64 %value.0, 15
-  %arrayidx3 = getelementptr inbounds [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %and
+  %arrayidx3 = getelementptr inbounds nuw [17 x i8], ptr @_ZN4absl16numbers_internal8kHexCharE, i64 0, i64 %and
   %0 = load i8, ptr %arrayidx3, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %writer.0, i64 -1
   store i8 %0, ptr %incdec.ptr, align 1
@@ -237,7 +237,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i, %i
   %beg.0 = phi ptr [ %add.ptr, %if.then.i.i.i.i ], [ %add.ptr, %if.then ], [ %incdec.ptr, %do.end ]
   %sub.ptr.sub12 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast11.pre-phi
   store i64 %sub.ptr.sub12, ptr %this, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %beg.0, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 8
   ret void
 }
@@ -247,7 +247,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef 
 entry:
   %dec.sroa.4.8.extract.shift = lshr i64 %dec.coerce1, 8
   %dec.sroa.4.8.extract.trunc = trunc i64 %dec.sroa.4.8.extract.shift to i8
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %idx.ext = and i64 %dec.coerce1, 255
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 %idx.neg
@@ -294,7 +294,7 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit:              ; preds = %if.end
   %cmp16 = icmp eq i8 %dec.sroa.4.8.extract.trunc, 48
   %or.cond = select i1 %tobool, i1 %cmp16, i1 false
   %spec.select.idx = zext i1 %or.cond to i64
-  %spec.select = getelementptr inbounds i8, ptr %writer.1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %writer.1, i64 %spec.select.idx
   %idx.neg20 = sub nsw i64 0, %sub.ptr.sub
   %add.ptr21 = getelementptr inbounds i8, ptr %spec.select, i64 %idx.neg20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr21, i8 %dec.sroa.4.8.extract.trunc, i64 %sub.ptr.sub, i1 false)
@@ -311,7 +311,7 @@ if.end27:                                         ; preds = %_ZSt6fill_nIPclcET_
   %sub.ptr.rhs.cast29 = ptrtoint ptr %writer.2 to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
   store i64 %sub.ptr.sub30, ptr %this, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %writer.2, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 8
   ret void
 }

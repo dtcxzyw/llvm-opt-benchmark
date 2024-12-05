@@ -132,12 +132,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv96 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next97, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = or disjoint i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %unicodePasswd, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %indvars.iv
   store i8 0, ptr %arrayidx, align 2
-  %arrayidx22 = getelementptr inbounds i8, ptr %password, i64 %indvars.iv96
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %password, i64 %indvars.iv96
   %1 = load i8, ptr %arrayidx22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %arrayidx25 = getelementptr inbounds [256 x i8], ptr %unicodePasswd, i64 0, i64 %0
+  %arrayidx25 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %0
   store i8 %1, ptr %arrayidx25, align 1
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
@@ -151,11 +151,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %idx.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %2, %for.end.loopexit ]
   %inc27 = or disjoint i32 %idx.0.lcssa, 1
   %idxprom28 = zext nneg i32 %idx.0.lcssa to i64
-  %arrayidx29 = getelementptr inbounds [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom28
   store i8 0, ptr %arrayidx29, align 1
   %inc30 = add nuw nsw i32 %idx.0.lcssa, 2
   %idxprom31 = zext nneg i32 %inc27 to i64
-  %arrayidx32 = getelementptr inbounds [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom31
   store i8 0, ptr %arrayidx32, align 1
   %call35 = call i32 @wc_PKCS12_PBKDF(ptr noundef nonnull %key, ptr noundef nonnull %unicodePasswd, i32 noundef %inc30, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef %derivedLen.0.ph, i32 noundef %., i32 noundef 1) #2
   %cmp36.not = icmp eq i32 %id, 1
@@ -215,7 +215,7 @@ for.body.preheader.i:                             ; preds = %if.then75, %sw.bb49
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %aes, %for.body.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 848, %for.body.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
+  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
@@ -228,7 +228,7 @@ for.body.preheader.i56:                           ; preds = %for.body.i, %if.end
 for.body.i58:                                     ; preds = %for.body.i58, %for.body.preheader.i56
   %w.017.i59 = phi ptr [ %incdec.ptr7.i61, %for.body.i58 ], [ %key, %for.body.preheader.i56 ]
   %len.addr.016.i60 = phi i32 [ %sub8.i62, %for.body.i58 ], [ 64, %for.body.preheader.i56 ]
-  %incdec.ptr7.i61 = getelementptr inbounds i8, ptr %w.017.i59, i64 8
+  %incdec.ptr7.i61 = getelementptr inbounds nuw i8, ptr %w.017.i59, i64 8
   store volatile i64 0, ptr %w.017.i59, align 8
   %sub8.i62 = add nsw i32 %len.addr.016.i60, -8
   %cmp5.i63.not = icmp eq i32 %sub8.i62, 0

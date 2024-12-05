@@ -32,28 +32,28 @@ entry:
   %c = alloca [1 x %struct.gf_s], align 16
   %d = alloca [1 x %struct.gf_s], align 16
   call void @ossl_gf_sqr(ptr noundef nonnull %c, ptr noundef %q) #7
-  %y = getelementptr inbounds i8, ptr %q, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %a, ptr noundef nonnull %y) #7
   br label %for.body.i78
 
 for.body.i78:                                     ; preds = %entry, %for.body.i78
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body.i78 ]
-  %arrayidx.i80 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv
+  %arrayidx.i80 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx.i80, align 8
-  %arrayidx4.i82 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv
+  %arrayidx4.i82 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4.i82, align 8
   %add.i83 = add i64 %1, %0
-  %arrayidx7.i85 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv
+  %arrayidx7.i85 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv
   store i64 %add.i83, ptr %arrayidx7.i85, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %gf_add_RAW.exit87, label %for.body.i78, !llvm.loop !4
 
 gf_add_RAW.exit87:                                ; preds = %for.body.i78
-  %arrayidx.i90 = getelementptr inbounds i8, ptr %d, i64 56
+  %arrayidx.i90 = getelementptr inbounds nuw i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i90, align 8
   %shr.i = lshr i64 %2, 56
-  %arrayidx2.i = getelementptr inbounds i8, ptr %d, i64 32
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i, align 16
   %add.i91 = add i64 %3, %shr.i
   store i64 %add.i91, ptr %arrayidx2.i, align 16
@@ -62,10 +62,10 @@ gf_add_RAW.exit87:                                ; preds = %for.body.i78
 for.body.i94:                                     ; preds = %gf_add_RAW.exit87, %for.body.i94
   %4 = phi i64 [ %2, %gf_add_RAW.exit87 ], [ %5, %for.body.i94 ]
   %indvars.iv132 = phi i64 [ 7, %gf_add_RAW.exit87 ], [ %indvars.iv.next133, %for.body.i94 ]
-  %arrayidx4.i96 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv132
+  %arrayidx4.i96 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv132
   %and.i = and i64 %4, 72057594037927935
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
-  %arrayidx7.i98 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.next133
+  %arrayidx7.i98 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.next133
   %5 = load i64, ptr %arrayidx7.i98, align 8
   %shr8.i = lshr i64 %5, 56
   %add9.i = add nuw nsw i64 %shr8.i, %and.i
@@ -78,27 +78,27 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i94
   %and15.i = and i64 %6, 72057594037927935
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %d, align 16
-  %t = getelementptr inbounds i8, ptr %p, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %p, i64 192
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %gf_weak_reduce.exit, %for.body.i61
   %indvars.iv135 = phi i64 [ 0, %gf_weak_reduce.exit ], [ %indvars.iv.next136, %for.body.i61 ]
-  %arrayidx.i63 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv135
+  %arrayidx.i63 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv135
   %7 = load i64, ptr %arrayidx.i63, align 8
-  %arrayidx4.i65 = getelementptr inbounds [8 x i64], ptr %q, i64 0, i64 %indvars.iv135
+  %arrayidx4.i65 = getelementptr inbounds nuw [8 x i64], ptr %q, i64 0, i64 %indvars.iv135
   %8 = load i64, ptr %arrayidx4.i65, align 8
   %add.i66 = add i64 %8, %7
-  %arrayidx7.i68 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv135
+  %arrayidx7.i68 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv135
   store i64 %add.i66, ptr %arrayidx7.i68, align 8
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, 8
   br i1 %exitcond138.not, label %gf_add_RAW.exit70, label %for.body.i61, !llvm.loop !4
 
 gf_add_RAW.exit70:                                ; preds = %for.body.i61
-  %arrayidx.i103 = getelementptr inbounds i8, ptr %p, i64 248
+  %arrayidx.i103 = getelementptr inbounds nuw i8, ptr %p, i64 248
   %9 = load i64, ptr %arrayidx.i103, align 8
   %shr.i104 = lshr i64 %9, 56
-  %arrayidx2.i105 = getelementptr inbounds i8, ptr %p, i64 224
+  %arrayidx2.i105 = getelementptr inbounds nuw i8, ptr %p, i64 224
   %10 = load i64, ptr %arrayidx2.i105, align 16
   %add.i106 = add i64 %10, %shr.i104
   store i64 %add.i106, ptr %arrayidx2.i105, align 16
@@ -107,10 +107,10 @@ gf_add_RAW.exit70:                                ; preds = %for.body.i61
 for.body.i111:                                    ; preds = %gf_add_RAW.exit70, %for.body.i111
   %11 = phi i64 [ %9, %gf_add_RAW.exit70 ], [ %12, %for.body.i111 ]
   %indvars.iv139 = phi i64 [ 7, %gf_add_RAW.exit70 ], [ %indvars.iv.next140, %for.body.i111 ]
-  %arrayidx4.i113 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv139
+  %arrayidx4.i113 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv139
   %and.i114 = and i64 %11, 72057594037927935
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, -1
-  %arrayidx7.i117 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv.next140
+  %arrayidx7.i117 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv.next140
   %12 = load i64, ptr %arrayidx7.i117, align 8
   %shr8.i118 = lshr i64 %12, 56
   %add9.i119 = add nuw nsw i64 %shr8.i118, %and.i114
@@ -128,9 +128,9 @@ gf_weak_reduce.exit123:                           ; preds = %for.body.i111
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %gf_weak_reduce.exit123
   %indvars.iv.i = phi i64 [ 0, %gf_weak_reduce.exit123 ], [ %indvars.iv.next.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
   %15 = load i64, ptr %arrayidx4.i.i, align 8
   %cmp7.i.i = icmp eq i64 %indvars.iv.i, 4
   %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855868, i64 144115188075855870
@@ -142,10 +142,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %gf_w
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 56
   %16 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %16, 56
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %17 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %17, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -154,10 +154,10 @@ gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %gf_sub_RAW.exit.i
   %18 = phi i64 [ %16, %gf_sub_RAW.exit.i ], [ %19, %for.body.i8.i ]
   %indvars.iv38.i = phi i64 [ 7, %gf_sub_RAW.exit.i ], [ %indvars.iv.next39.i, %for.body.i8.i ]
-  %arrayidx4.i10.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv38.i
+  %arrayidx4.i10.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv38.i
   %and.i.i = and i64 %18, 72057594037927935
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, -1
-  %arrayidx7.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next39.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next39.i
   %19 = load i64, ptr %arrayidx7.i.i, align 8
   %shr8.i.i = lshr i64 %19, 56
   %add9.i.i = add nuw nsw i64 %shr8.i.i, %and.i.i
@@ -174,15 +174,15 @@ gf_subx_nr.exit:                                  ; preds = %for.body.i8.i
 
 for.body.i.i70:                                   ; preds = %for.body.i.i70, %gf_subx_nr.exit
   %indvars.iv.i71 = phi i64 [ 0, %gf_subx_nr.exit ], [ %indvars.iv.next.i79, %for.body.i.i70 ]
-  %arrayidx.i.i72 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i71
+  %arrayidx.i.i72 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i71
   %21 = load i64, ptr %arrayidx.i.i72, align 8
-  %arrayidx4.i.i73 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv.i71
+  %arrayidx4.i.i73 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv.i71
   %22 = load i64, ptr %arrayidx4.i.i73, align 8
   %cmp7.i.i74 = icmp eq i64 %indvars.iv.i71, 4
   %cond.i.i75 = select i1 %cmp7.i.i74, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i76 = add i64 %cond.i.i75, %21
   %add.i.i77 = sub i64 %sub5.i.i76, %22
-  %arrayidx11.i.i78 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv.i71
+  %arrayidx11.i.i78 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv.i71
   store i64 %add.i.i77, ptr %arrayidx11.i.i78, align 8
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 8
@@ -199,10 +199,10 @@ gf_sub_RAW.exit.i81:                              ; preds = %for.body.i.i70
 for.body.i8.i86:                                  ; preds = %for.body.i8.i86, %gf_sub_RAW.exit.i81
   %25 = phi i64 [ %23, %gf_sub_RAW.exit.i81 ], [ %26, %for.body.i8.i86 ]
   %indvars.iv24.i = phi i64 [ 7, %gf_sub_RAW.exit.i81 ], [ %indvars.iv.next25.i, %for.body.i8.i86 ]
-  %arrayidx4.i10.i87 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv24.i
+  %arrayidx4.i10.i87 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv24.i
   %and.i.i88 = and i64 %25, 72057594037927935
   %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -1
-  %arrayidx7.i.i89 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv.next25.i
+  %arrayidx7.i.i89 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv.next25.i
   %26 = load i64, ptr %arrayidx7.i.i89, align 8
   %shr8.i.i90 = lshr i64 %26, 56
   %add9.i.i91 = add nuw nsw i64 %shr8.i.i90, %and.i.i88
@@ -215,27 +215,27 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i86
   %and15.i.i93 = and i64 %27, 72057594037927935
   %add16.i.i94 = add nuw nsw i64 %and15.i.i93, %shr.i.i83
   store i64 %add16.i.i94, ptr %t, align 16
-  %z = getelementptr inbounds i8, ptr %q, i64 128
+  %z = getelementptr inbounds nuw i8, ptr %q, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %p, ptr noundef nonnull %z) #7
-  %z25 = getelementptr inbounds i8, ptr %p, i64 128
+  %z25 = getelementptr inbounds nuw i8, ptr %p, i64 128
   br label %for.body.i
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit, %for.body.i
   %indvars.iv142 = phi i64 [ 0, %gf_sub_nr.exit ], [ %indvars.iv.next143, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %p, i64 0, i64 %indvars.iv142
+  %arrayidx.i = getelementptr inbounds nuw [8 x i64], ptr %p, i64 0, i64 %indvars.iv142
   %28 = load i64, ptr %arrayidx.i, align 8
   %add.i = shl i64 %28, 1
-  %arrayidx7.i = getelementptr inbounds [8 x i64], ptr %z25, i64 0, i64 %indvars.iv142
+  %arrayidx7.i = getelementptr inbounds nuw [8 x i64], ptr %z25, i64 0, i64 %indvars.iv142
   store i64 %add.i, ptr %arrayidx7.i, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 8
   br i1 %exitcond145.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i128 = getelementptr inbounds i8, ptr %p, i64 184
+  %arrayidx.i128 = getelementptr inbounds nuw i8, ptr %p, i64 184
   %29 = load i64, ptr %arrayidx.i128, align 8
   %shr.i129 = lshr i64 %29, 56
-  %arrayidx2.i130 = getelementptr inbounds i8, ptr %p, i64 160
+  %arrayidx2.i130 = getelementptr inbounds nuw i8, ptr %p, i64 160
   %30 = load i64, ptr %arrayidx2.i130, align 16
   %add.i131 = add i64 %30, %shr.i129
   store i64 %add.i131, ptr %arrayidx2.i130, align 16
@@ -244,10 +244,10 @@ gf_add_RAW.exit:                                  ; preds = %for.body.i
 for.body.i136:                                    ; preds = %gf_add_RAW.exit, %for.body.i136
   %31 = phi i64 [ %29, %gf_add_RAW.exit ], [ %32, %for.body.i136 ]
   %indvars.iv146 = phi i64 [ 7, %gf_add_RAW.exit ], [ %indvars.iv.next147, %for.body.i136 ]
-  %arrayidx4.i138 = getelementptr inbounds [8 x i64], ptr %z25, i64 0, i64 %indvars.iv146
+  %arrayidx4.i138 = getelementptr inbounds nuw [8 x i64], ptr %z25, i64 0, i64 %indvars.iv146
   %and.i139 = and i64 %31, 72057594037927935
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
-  %arrayidx7.i142 = getelementptr inbounds [8 x i64], ptr %z25, i64 0, i64 %indvars.iv.next147
+  %arrayidx7.i142 = getelementptr inbounds nuw [8 x i64], ptr %z25, i64 0, i64 %indvars.iv.next147
   %32 = load i64, ptr %arrayidx7.i142, align 8
   %shr8.i143 = lshr i64 %32, 56
   %add9.i144 = add nuw nsw i64 %shr8.i143, %and.i139
@@ -264,25 +264,25 @@ gf_weak_reduce.exit148:                           ; preds = %for.body.i136
 
 for.body.i.i95:                                   ; preds = %for.body.i.i95, %gf_weak_reduce.exit148
   %indvars.iv.i96 = phi i64 [ 0, %gf_weak_reduce.exit148 ], [ %indvars.iv.next.i104, %for.body.i.i95 ]
-  %arrayidx.i.i97 = getelementptr inbounds [8 x i64], ptr %z25, i64 0, i64 %indvars.iv.i96
+  %arrayidx.i.i97 = getelementptr inbounds nuw [8 x i64], ptr %z25, i64 0, i64 %indvars.iv.i96
   %34 = load i64, ptr %arrayidx.i.i97, align 8
-  %arrayidx4.i.i98 = getelementptr inbounds [8 x i64], ptr %t, i64 0, i64 %indvars.iv.i96
+  %arrayidx4.i.i98 = getelementptr inbounds nuw [8 x i64], ptr %t, i64 0, i64 %indvars.iv.i96
   %35 = load i64, ptr %arrayidx4.i.i98, align 8
   %cmp7.i.i99 = icmp eq i64 %indvars.iv.i96, 4
   %cond.i.i100 = select i1 %cmp7.i.i99, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i101 = add i64 %cond.i.i100, %34
   %add.i.i102 = sub i64 %sub5.i.i101, %35
-  %arrayidx11.i.i103 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i96
+  %arrayidx11.i.i103 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i96
   store i64 %add.i.i102, ptr %arrayidx11.i.i103, align 8
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 8
   br i1 %exitcond.not.i105, label %gf_sub_RAW.exit.i106, label %for.body.i.i95, !llvm.loop !7
 
 gf_sub_RAW.exit.i106:                             ; preds = %for.body.i.i95
-  %arrayidx.i4.i107 = getelementptr inbounds i8, ptr %a, i64 56
+  %arrayidx.i4.i107 = getelementptr inbounds nuw i8, ptr %a, i64 56
   %36 = load i64, ptr %arrayidx.i4.i107, align 8
   %shr.i.i108 = lshr i64 %36, 56
-  %arrayidx2.i.i109 = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx2.i.i109 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %37 = load i64, ptr %arrayidx2.i.i109, align 16
   %add.i5.i110 = add i64 %37, %shr.i.i108
   store i64 %add.i5.i110, ptr %arrayidx2.i.i109, align 16
@@ -291,10 +291,10 @@ gf_sub_RAW.exit.i106:                             ; preds = %for.body.i.i95
 for.body.i8.i111:                                 ; preds = %for.body.i8.i111, %gf_sub_RAW.exit.i106
   %38 = phi i64 [ %36, %gf_sub_RAW.exit.i106 ], [ %39, %for.body.i8.i111 ]
   %indvars.iv38.i112 = phi i64 [ 7, %gf_sub_RAW.exit.i106 ], [ %indvars.iv.next39.i115, %for.body.i8.i111 ]
-  %arrayidx4.i10.i113 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv38.i112
+  %arrayidx4.i10.i113 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv38.i112
   %and.i.i114 = and i64 %38, 72057594037927935
   %indvars.iv.next39.i115 = add nsw i64 %indvars.iv38.i112, -1
-  %arrayidx7.i.i116 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next39.i115
+  %arrayidx7.i.i116 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next39.i115
   %39 = load i64, ptr %arrayidx7.i.i116, align 8
   %shr8.i.i117 = lshr i64 %39, 56
   %add9.i.i118 = add nuw nsw i64 %shr8.i.i117, %and.i.i114
@@ -309,7 +309,7 @@ gf_subx_nr.exit122:                               ; preds = %for.body.i8.i111
   store i64 %add16.i.i121, ptr %a, align 16
   call void @ossl_gf_mul(ptr noundef %p, ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   call void @ossl_gf_mul(ptr noundef nonnull %z25, ptr noundef nonnull %t, ptr noundef nonnull %a) #7
-  %y45 = getelementptr inbounds i8, ptr %p, i64 64
+  %y45 = getelementptr inbounds nuw i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %y45, ptr noundef nonnull %t, ptr noundef nonnull %d) #7
   %tobool.not = icmp eq i32 %before_double, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -327,9 +327,9 @@ define i64 @ossl_curve448_point_eq(ptr noundef %p, ptr noundef %q) local_unnamed
 entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds i8, ptr %p, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef nonnull %y, ptr noundef %q) #7
-  %y4 = getelementptr inbounds i8, ptr %q, i64 64
+  %y4 = getelementptr inbounds nuw i8, ptr %q, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %b, ptr noundef nonnull %y4, ptr noundef %p) #7
   %call = call i64 @gf_eq(ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   ret i64 %call
@@ -345,10 +345,10 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds i8, ptr %p, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef %p, ptr noundef nonnull %y) #7
-  %z = getelementptr inbounds i8, ptr %p, i64 128
-  %t = getelementptr inbounds i8, ptr %p, i64 192
+  %z = getelementptr inbounds nuw i8, ptr %p, i64 128
+  %t = getelementptr inbounds nuw i8, ptr %p, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %b, ptr noundef nonnull %z, ptr noundef nonnull %t) #7
   %call = call i64 @gf_eq(ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %a, ptr noundef %p) #7
@@ -381,11 +381,11 @@ entry:
   %scalar1x = alloca [1 x %struct.curve448_scalar_s], align 16
   call void @ossl_curve448_scalar_add(ptr noundef nonnull %scalar1x, ptr noundef %scalar, ptr noundef nonnull @precomputed_scalarmul_adjustment) #7
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %scalar1x, ptr noundef nonnull %scalar1x) #7
-  %b.i = getelementptr inbounds i8, ptr %ni, i64 64
-  %c.i = getelementptr inbounds i8, ptr %ni, i64 128
-  %y.i = getelementptr inbounds i8, ptr %out, i64 64
-  %t.i = getelementptr inbounds i8, ptr %out, i64 192
-  %z.i = getelementptr inbounds i8, ptr %out, i64 128
+  %b.i = getelementptr inbounds nuw i8, ptr %ni, i64 64
+  %c.i = getelementptr inbounds nuw i8, ptr %ni, i64 128
+  %y.i = getelementptr inbounds nuw i8, ptr %out, i64 64
+  %t.i = getelementptr inbounds nuw i8, ptr %out, i64 192
+  %z.i = getelementptr inbounds nuw i8, ptr %out, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc45
@@ -418,7 +418,7 @@ for.body9:                                        ; preds = %for.cond7.preheader
 
 if.then13:                                        ; preds = %for.body9
   %div25 = lshr i64 %3, 6
-  %arrayidx = getelementptr inbounds [7 x i64], ptr %scalar1x, i64 0, i64 %div25
+  %arrayidx = getelementptr inbounds nuw [7 x i64], ptr %scalar1x, i64 0, i64 %div25
   %4 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %3, 63
   %shr = lshr i64 %4, %rem
@@ -440,7 +440,7 @@ for.end:                                          ; preds = %for.inc
   %xor24 = xor i32 %sub19, %tab.1
   %and23 = and i32 %xor24, 15
   %6 = shl nuw nsw i64 %indvars.iv39, 4
-  %arrayidx28 = getelementptr inbounds [80 x [1 x %struct.niels_s]], ptr %table, i64 0, i64 %6
+  %arrayidx28 = getelementptr inbounds nuw [80 x [1 x %struct.niels_s]], ptr %table, i64 0, i64 %6
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %conv1.i = zext nneg i32 %and23 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %ni, i8 0, i64 192, i1 false), !alias.scope !9
@@ -461,10 +461,10 @@ for.body.i.i:                                     ; preds = %for.inc9.i.i, %for.
 for.body4.i.i:                                    ; preds = %for.body4.i.i, %for.body.i.i
   %tablec.19.i.i = phi ptr [ %tablec.010.i.i, %for.body.i.i ], [ %incdec.ptr.i.i, %for.body4.i.i ]
   %j.08.i.i = phi i64 [ 0, %for.body.i.i ], [ %inc.i.i, %for.body4.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %tablec.19.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %tablec.19.i.i, i64 1
   %11 = load i8, ptr %tablec.19.i.i, align 1, !noalias !9
   %conv3.i.i.i = and i8 %11, %10
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ni, i64 %j.08.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ni, i64 %j.08.i.i
   %12 = load i8, ptr %add.ptr.i.i, align 1, !alias.scope !9
   %or7.i.i = or i8 %12, %conv3.i.i.i
   store i8 %or7.i.i, ptr %add.ptr.i.i, align 1, !alias.scope !9
@@ -485,8 +485,8 @@ constant_time_lookup_niels.exit:                  ; preds = %for.inc9.i.i
 
 for.body.i.i26:                                   ; preds = %for.body.i.i26, %constant_time_lookup_niels.exit
   %i.04.i.i = phi i64 [ 0, %constant_time_lookup_niels.exit ], [ %inc.i.i27, %for.body.i.i26 ]
-  %arrayidx1.i.i = getelementptr inbounds [8 x i64], ptr %ni, i64 0, i64 %i.04.i.i
-  %arrayidx3.i.i = getelementptr inbounds [8 x i64], ptr %b.i, i64 0, i64 %i.04.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [8 x i64], ptr %ni, i64 0, i64 %i.04.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw [8 x i64], ptr %b.i, i64 0, i64 %i.04.i.i
   %13 = load i64, ptr %arrayidx1.i.i, align 8, !noalias !15
   %14 = load i64, ptr %arrayidx3.i.i, align 8, !alias.scope !15
   %xor1.i.i.i = xor i64 %14, %13
@@ -509,9 +509,9 @@ gf_cond_swap.exit.i:                              ; preds = %for.body.i.i26
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %gf_cond_swap.exit.i
   %i.05.i.i.i = phi i64 [ 0, %gf_cond_swap.exit.i ], [ %inc.i.i.i, %for.body.i.i.i ]
-  %arrayidx1.i.i.i = getelementptr inbounds [8 x i64], ptr %y.i.i, i64 0, i64 %i.05.i.i.i
+  %arrayidx1.i.i.i = getelementptr inbounds nuw [8 x i64], ptr %y.i.i, i64 0, i64 %i.05.i.i.i
   %17 = load i64, ptr %arrayidx1.i.i.i, align 8
-  %arrayidx4.i.i.i = getelementptr inbounds [8 x i64], ptr %c.i, i64 0, i64 %i.05.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds nuw [8 x i64], ptr %c.i, i64 0, i64 %i.05.i.i.i
   %18 = load i64, ptr %arrayidx4.i.i.i, align 8
   %and.i.i.i.i = and i64 %17, %15
   %and2.i.i.i.i = and i64 %18, %16
@@ -566,30 +566,30 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds i8, ptr %d, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %d, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
   %1 = load i64, ptr %arrayidx4.i.i, align 8
   %cmp7.i.i = icmp eq i64 %indvars.iv.i, 4
   %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i = add i64 %cond.i.i, %0
   %add.i.i = sub i64 %sub5.i.i, %1
-  %arrayidx11.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
+  %arrayidx11.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
   store i64 %add.i.i, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 56
   %2 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %3, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -598,10 +598,10 @@ gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %gf_sub_RAW.exit.i
   %4 = phi i64 [ %2, %gf_sub_RAW.exit.i ], [ %5, %for.body.i8.i ]
   %indvars.iv24.i = phi i64 [ 7, %gf_sub_RAW.exit.i ], [ %indvars.iv.next25.i, %for.body.i8.i ]
-  %arrayidx4.i10.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i
+  %arrayidx4.i10.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i
   %and.i.i = and i64 %4, 72057594037927935
   %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -1
-  %arrayidx7.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i
   %5 = load i64, ptr %arrayidx7.i.i, align 8
   %shr8.i.i = lshr i64 %5, 56
   %add9.i.i = add nuw nsw i64 %shr8.i.i, %and.i.i
@@ -619,12 +619,12 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i
 
 for.body.i82:                                     ; preds = %gf_sub_nr.exit, %for.body.i82
   %indvars.iv = phi i64 [ 0, %gf_sub_nr.exit ], [ %indvars.iv.next, %for.body.i82 ]
-  %arrayidx.i84 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv
+  %arrayidx.i84 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %arrayidx.i84, align 8
-  %arrayidx4.i86 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv
+  %arrayidx4.i86 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx4.i86, align 8
   %add.i87 = add i64 %8, %7
-  %arrayidx7.i89 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv
+  %arrayidx7.i89 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv
   store i64 %add.i87, ptr %arrayidx7.i89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -641,10 +641,10 @@ gf_add_RAW.exit91:                                ; preds = %for.body.i82
 for.body.i98:                                     ; preds = %gf_add_RAW.exit91, %for.body.i98
   %11 = phi i64 [ %9, %gf_add_RAW.exit91 ], [ %12, %for.body.i98 ]
   %indvars.iv138 = phi i64 [ 7, %gf_add_RAW.exit91 ], [ %indvars.iv.next139, %for.body.i98 ]
-  %arrayidx4.i100 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv138
+  %arrayidx4.i100 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv138
   %and.i = and i64 %11, 72057594037927935
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
-  %arrayidx7.i102 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next139
+  %arrayidx7.i102 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next139
   %12 = load i64, ptr %arrayidx7.i102, align 8
   %shr8.i = lshr i64 %12, 56
   %add9.i = add nuw nsw i64 %shr8.i, %and.i
@@ -657,31 +657,31 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i98
   %and15.i = and i64 %13, 72057594037927935
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %b, align 16
-  %b14 = getelementptr inbounds i8, ptr %e, i64 64
+  %b14 = getelementptr inbounds nuw i8, ptr %e, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %y, ptr noundef nonnull %b14, ptr noundef nonnull %b) #7
-  %c19 = getelementptr inbounds i8, ptr %e, i64 128
-  %t = getelementptr inbounds i8, ptr %d, i64 192
+  %c19 = getelementptr inbounds nuw i8, ptr %e, i64 128
+  %t = getelementptr inbounds nuw i8, ptr %d, i64 192
   call void @ossl_gf_mul(ptr noundef %d, ptr noundef nonnull %c19, ptr noundef nonnull %t) #7
   br label %for.body.i65
 
 for.body.i65:                                     ; preds = %gf_weak_reduce.exit, %for.body.i65
   %indvars.iv141 = phi i64 [ 0, %gf_weak_reduce.exit ], [ %indvars.iv.next142, %for.body.i65 ]
-  %arrayidx.i67 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv141
+  %arrayidx.i67 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv141
   %14 = load i64, ptr %arrayidx.i67, align 8
-  %arrayidx4.i69 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv141
+  %arrayidx4.i69 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv141
   %15 = load i64, ptr %arrayidx4.i69, align 8
   %add.i70 = add i64 %15, %14
-  %arrayidx7.i72 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv141
+  %arrayidx7.i72 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv141
   store i64 %add.i70, ptr %arrayidx7.i72, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 8
   br i1 %exitcond144.not, label %gf_add_RAW.exit74, label %for.body.i65, !llvm.loop !4
 
 gf_add_RAW.exit74:                                ; preds = %for.body.i65
-  %arrayidx.i107 = getelementptr inbounds i8, ptr %c, i64 56
+  %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %c, i64 56
   %16 = load i64, ptr %arrayidx.i107, align 8
   %shr.i108 = lshr i64 %16, 56
-  %arrayidx2.i109 = getelementptr inbounds i8, ptr %c, i64 32
+  %arrayidx2.i109 = getelementptr inbounds nuw i8, ptr %c, i64 32
   %17 = load i64, ptr %arrayidx2.i109, align 16
   %add.i110 = add i64 %17, %shr.i108
   store i64 %add.i110, ptr %arrayidx2.i109, align 16
@@ -690,10 +690,10 @@ gf_add_RAW.exit74:                                ; preds = %for.body.i65
 for.body.i115:                                    ; preds = %gf_add_RAW.exit74, %for.body.i115
   %18 = phi i64 [ %16, %gf_add_RAW.exit74 ], [ %19, %for.body.i115 ]
   %indvars.iv145 = phi i64 [ 7, %gf_add_RAW.exit74 ], [ %indvars.iv.next146, %for.body.i115 ]
-  %arrayidx4.i117 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv145
+  %arrayidx4.i117 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv145
   %and.i118 = and i64 %18, 72057594037927935
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, -1
-  %arrayidx7.i121 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv.next146
+  %arrayidx7.i121 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv.next146
   %19 = load i64, ptr %arrayidx7.i121, align 8
   %shr8.i122 = lshr i64 %19, 56
   %add9.i123 = add nuw nsw i64 %shr8.i122, %and.i118
@@ -710,15 +710,15 @@ gf_weak_reduce.exit127:                           ; preds = %for.body.i115
 
 for.body.i.i73:                                   ; preds = %for.body.i.i73, %gf_weak_reduce.exit127
   %indvars.iv.i74 = phi i64 [ 0, %gf_weak_reduce.exit127 ], [ %indvars.iv.next.i82, %for.body.i.i73 ]
-  %arrayidx.i.i75 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i74
+  %arrayidx.i.i75 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i74
   %21 = load i64, ptr %arrayidx.i.i75, align 8
-  %arrayidx4.i.i76 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i74
+  %arrayidx4.i.i76 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i74
   %22 = load i64, ptr %arrayidx4.i.i76, align 8
   %cmp7.i.i77 = icmp eq i64 %indvars.iv.i74, 4
   %cond.i.i78 = select i1 %cmp7.i.i77, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i79 = add i64 %cond.i.i78, %21
   %add.i.i80 = sub i64 %sub5.i.i79, %22
-  %arrayidx11.i.i81 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i74
+  %arrayidx11.i.i81 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i74
   store i64 %add.i.i80, ptr %arrayidx11.i.i81, align 8
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 8
@@ -735,10 +735,10 @@ gf_sub_RAW.exit.i84:                              ; preds = %for.body.i.i73
 for.body.i8.i89:                                  ; preds = %for.body.i8.i89, %gf_sub_RAW.exit.i84
   %25 = phi i64 [ %23, %gf_sub_RAW.exit.i84 ], [ %26, %for.body.i8.i89 ]
   %indvars.iv24.i90 = phi i64 [ 7, %gf_sub_RAW.exit.i84 ], [ %indvars.iv.next25.i93, %for.body.i8.i89 ]
-  %arrayidx4.i10.i91 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i90
+  %arrayidx4.i10.i91 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i90
   %and.i.i92 = and i64 %25, 72057594037927935
   %indvars.iv.next25.i93 = add nsw i64 %indvars.iv24.i90, -1
-  %arrayidx7.i.i94 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i93
+  %arrayidx7.i.i94 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i93
   %26 = load i64, ptr %arrayidx7.i.i94, align 8
   %shr8.i.i95 = lshr i64 %26, 56
   %add9.i.i96 = add nuw nsw i64 %shr8.i.i95, %and.i.i92
@@ -751,30 +751,30 @@ gf_sub_nr.exit100:                                ; preds = %for.body.i8.i89
   %and15.i.i98 = and i64 %27, 72057594037927935
   %add16.i.i99 = add nuw nsw i64 %and15.i.i98, %shr.i.i86
   store i64 %add16.i.i99, ptr %b, align 16
-  %z = getelementptr inbounds i8, ptr %d, i64 128
+  %z = getelementptr inbounds nuw i8, ptr %d, i64 128
   br label %for.body.i.i101
 
 for.body.i.i101:                                  ; preds = %for.body.i.i101, %gf_sub_nr.exit100
   %indvars.iv.i102 = phi i64 [ 0, %gf_sub_nr.exit100 ], [ %indvars.iv.next.i110, %for.body.i.i101 ]
-  %arrayidx.i.i103 = getelementptr inbounds [8 x i64], ptr %z, i64 0, i64 %indvars.iv.i102
+  %arrayidx.i.i103 = getelementptr inbounds nuw [8 x i64], ptr %z, i64 0, i64 %indvars.iv.i102
   %28 = load i64, ptr %arrayidx.i.i103, align 8
-  %arrayidx4.i.i104 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i102
+  %arrayidx4.i.i104 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i102
   %29 = load i64, ptr %arrayidx4.i.i104, align 8
   %cmp7.i.i105 = icmp eq i64 %indvars.iv.i102, 4
   %cond.i.i106 = select i1 %cmp7.i.i105, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i107 = add i64 %cond.i.i106, %28
   %add.i.i108 = sub i64 %sub5.i.i107, %29
-  %arrayidx11.i.i109 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i102
+  %arrayidx11.i.i109 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i102
   store i64 %add.i.i108, ptr %arrayidx11.i.i109, align 8
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 8
   br i1 %exitcond.not.i111, label %gf_sub_RAW.exit.i112, label %for.body.i.i101, !llvm.loop !7
 
 gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
-  %arrayidx.i4.i113 = getelementptr inbounds i8, ptr %d, i64 120
+  %arrayidx.i4.i113 = getelementptr inbounds nuw i8, ptr %d, i64 120
   %30 = load i64, ptr %arrayidx.i4.i113, align 8
   %shr.i.i114 = lshr i64 %30, 56
-  %arrayidx2.i.i115 = getelementptr inbounds i8, ptr %d, i64 96
+  %arrayidx2.i.i115 = getelementptr inbounds nuw i8, ptr %d, i64 96
   %31 = load i64, ptr %arrayidx2.i.i115, align 16
   %add.i5.i116 = add i64 %31, %shr.i.i114
   store i64 %add.i5.i116, ptr %arrayidx2.i.i115, align 16
@@ -783,10 +783,10 @@ gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
 for.body.i8.i117:                                 ; preds = %for.body.i8.i117, %gf_sub_RAW.exit.i112
   %32 = phi i64 [ %30, %gf_sub_RAW.exit.i112 ], [ %33, %for.body.i8.i117 ]
   %indvars.iv24.i118 = phi i64 [ 7, %gf_sub_RAW.exit.i112 ], [ %indvars.iv.next25.i121, %for.body.i8.i117 ]
-  %arrayidx4.i10.i119 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv24.i118
+  %arrayidx4.i10.i119 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv24.i118
   %and.i.i120 = and i64 %32, 72057594037927935
   %indvars.iv.next25.i121 = add nsw i64 %indvars.iv24.i118, -1
-  %arrayidx7.i.i122 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.next25.i121
+  %arrayidx7.i.i122 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.next25.i121
   %33 = load i64, ptr %arrayidx7.i.i122, align 8
   %shr8.i.i123 = lshr i64 %33, 56
   %add9.i.i124 = add nuw nsw i64 %shr8.i.i123, %and.i.i120
@@ -803,22 +803,22 @@ gf_sub_nr.exit128:                                ; preds = %for.body.i8.i117
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit128, %for.body.i
   %indvars.iv148 = phi i64 [ 0, %gf_sub_nr.exit128 ], [ %indvars.iv.next149, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv148
+  %arrayidx.i = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv148
   %35 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %z, i64 0, i64 %indvars.iv148
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i64], ptr %z, i64 0, i64 %indvars.iv148
   %36 = load i64, ptr %arrayidx4.i, align 8
   %add.i = add i64 %36, %35
-  %arrayidx7.i = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv148
+  %arrayidx7.i = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv148
   store i64 %add.i, ptr %arrayidx7.i, align 8
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 8
   br i1 %exitcond151.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i132 = getelementptr inbounds i8, ptr %a, i64 56
+  %arrayidx.i132 = getelementptr inbounds nuw i8, ptr %a, i64 56
   %37 = load i64, ptr %arrayidx.i132, align 8
   %shr.i133 = lshr i64 %37, 56
-  %arrayidx2.i134 = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx2.i134 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %38 = load i64, ptr %arrayidx2.i134, align 16
   %add.i135 = add i64 %38, %shr.i133
   store i64 %add.i135, ptr %arrayidx2.i134, align 16
@@ -827,10 +827,10 @@ gf_add_RAW.exit:                                  ; preds = %for.body.i
 for.body.i140:                                    ; preds = %gf_add_RAW.exit, %for.body.i140
   %39 = phi i64 [ %37, %gf_add_RAW.exit ], [ %40, %for.body.i140 ]
   %indvars.iv152 = phi i64 [ 7, %gf_add_RAW.exit ], [ %indvars.iv.next153, %for.body.i140 ]
-  %arrayidx4.i142 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv152
+  %arrayidx4.i142 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv152
   %and.i143 = and i64 %39, 72057594037927935
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
-  %arrayidx7.i146 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next153
+  %arrayidx7.i146 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next153
   %40 = load i64, ptr %arrayidx7.i146, align 8
   %shr8.i147 = lshr i64 %40, 56
   %add9.i148 = add nuw nsw i64 %shr8.i147, %and.i143
@@ -872,14 +872,14 @@ entry:
   %u = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %q) #7
-  %y7 = getelementptr inbounds i8, ptr %q, i64 64
+  %y7 = getelementptr inbounds nuw i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %t, ptr noundef nonnull %y7) #7
   call void @gf_add(ptr noundef nonnull %u, ptr noundef nonnull %x, ptr noundef nonnull %t) #7
   call void @gf_add(ptr noundef nonnull %z, ptr noundef nonnull %y7, ptr noundef nonnull %q) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y, ptr noundef nonnull %z) #7
   call void @gf_sub(ptr noundef nonnull %y, ptr noundef nonnull %y, ptr noundef nonnull %u) #7
   call void @gf_sub(ptr noundef nonnull %z, ptr noundef nonnull %t, ptr noundef nonnull %x) #7
-  %z29 = getelementptr inbounds i8, ptr %q, i64 128
+  %z29 = getelementptr inbounds nuw i8, ptr %q, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %z29) #7
   call void @gf_add(ptr noundef nonnull %t, ptr noundef nonnull %x, ptr noundef nonnull %x) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #7
@@ -898,7 +898,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
   call void @ossl_gf_mul(ptr noundef nonnull %t, ptr noundef nonnull %x, ptr noundef nonnull %z) #7
   call void @ossl_gf_mul(ptr noundef nonnull %x, ptr noundef nonnull %y, ptr noundef nonnull %z) #7
-  %arrayidx = getelementptr inbounds i8, ptr %enc, i64 56
+  %arrayidx = getelementptr inbounds nuw i8, ptr %enc, i64 56
   store i8 0, ptr %arrayidx, align 1
   call void @gf_serialize(ptr noundef %enc, ptr noundef nonnull %x, i32 noundef 1) #7
   %call = call i64 @gf_lobit(ptr noundef nonnull %t) #7
@@ -936,7 +936,7 @@ entry:
   %c = alloca [1 x %struct.gf_s], align 16
   %d = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %enc2, ptr noundef nonnull align 1 dereferenceable(57) %enc, i64 57, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %enc2, i64 56
+  %arrayidx = getelementptr inbounds nuw i8, ptr %enc2, i64 56
   %0 = load i8, ptr %arrayidx, align 8
   %1 = and i8 %0, -128
   %conv1 = zext i8 %1 to i64
@@ -944,13 +944,13 @@ entry:
   %shr.neg.i.i = ashr i64 %sub.i, 63
   %2 = and i8 %0, 127
   store i8 %2, ptr %arrayidx, align 8
-  %y = getelementptr inbounds i8, ptr %p, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %p, i64 64
   %call8 = call i64 @gf_deserialize(ptr noundef nonnull %y, ptr noundef nonnull %enc2, i32 noundef 1, i8 noundef zeroext 0) #7
   %3 = load i8, ptr %arrayidx, align 8
   call void @ossl_gf_sqr(ptr noundef %p, ptr noundef nonnull %y) #7
-  %z = getelementptr inbounds i8, ptr %p, i64 128
+  %z = getelementptr inbounds nuw i8, ptr %p, i64 128
   call void @gf_sub(ptr noundef nonnull %z, ptr noundef nonnull @ONE, ptr noundef %p) #7
-  %t = getelementptr inbounds i8, ptr %p, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %p, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %t, ptr noundef %p, i32 noundef 39081) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull @ZERO, ptr noundef nonnull %t) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull @ONE, ptr noundef nonnull %t) #7
@@ -968,9 +968,9 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx1.i.i = getelementptr inbounds [8 x i64], ptr %y.i, i64 0, i64 %i.05.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [8 x i64], ptr %y.i, i64 0, i64 %i.05.i.i
   %7 = load i64, ptr %arrayidx1.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %p, i64 0, i64 %i.05.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i64], ptr %p, i64 0, i64 %i.05.i.i
   %8 = load i64, ptr %arrayidx4.i.i, align 8
   %and.i.i.i = and i64 %7, %5
   %and2.i.i.i = and i64 %8, %6
@@ -1033,14 +1033,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z2, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x3, ptr noundef nonnull align 16 dereferenceable(64) %x1, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z3, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false)
-  %arrayidx.i151 = getelementptr inbounds i8, ptr %t1, i64 56
-  %arrayidx2.i = getelementptr inbounds i8, ptr %t1, i64 32
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %t2, i64 56
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %t2, i64 32
-  %arrayidx.i4.i109 = getelementptr inbounds i8, ptr %z2, i64 56
-  %arrayidx2.i.i111 = getelementptr inbounds i8, ptr %z2, i64 32
-  %arrayidx.i4.i137 = getelementptr inbounds i8, ptr %z3, i64 56
-  %arrayidx2.i.i139 = getelementptr inbounds i8, ptr %z3, i64 32
+  %arrayidx.i151 = getelementptr inbounds nuw i8, ptr %t1, i64 56
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %t1, i64 32
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %t2, i64 56
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %t2, i64 32
+  %arrayidx.i4.i109 = getelementptr inbounds nuw i8, ptr %z2, i64 56
+  %arrayidx2.i.i111 = getelementptr inbounds nuw i8, ptr %z2, i64 32
+  %arrayidx.i4.i137 = getelementptr inbounds nuw i8, ptr %z3, i64 56
+  %arrayidx2.i.i139 = getelementptr inbounds nuw i8, ptr %z3, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %gf_weak_reduce.exit234
@@ -1048,7 +1048,7 @@ for.body:                                         ; preds = %entry, %gf_weak_red
   %t.0215 = phi i32 [ 447, %entry ], [ %dec, %gf_weak_reduce.exit234 ]
   %div81 = lshr i32 %t.0215, 3
   %idxprom = zext nneg i32 %div81 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %scalar, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %scalar, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %cmp7 = icmp samesign ult i32 %t.0215, 8
   %1 = and i8 %0, -4
@@ -1067,8 +1067,8 @@ for.body:                                         ; preds = %entry, %gf_weak_red
 
 for.body.i82:                                     ; preds = %for.body.i82, %for.body
   %i.04.i = phi i64 [ 0, %for.body ], [ %inc.i83, %for.body.i82 ]
-  %arrayidx1.i = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %i.04.i
-  %arrayidx3.i = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %i.04.i
+  %arrayidx1.i = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %i.04.i
   %2 = load i64, ptr %arrayidx1.i, align 8, !noalias !23
   %3 = load i64, ptr %arrayidx3.i, align 8, !alias.scope !23
   %xor1.i.i = xor i64 %3, %2
@@ -1087,8 +1087,8 @@ gf_cond_swap.exit:                                ; preds = %for.body.i82
 
 for.body.i84:                                     ; preds = %for.body.i84, %gf_cond_swap.exit
   %i.04.i85 = phi i64 [ 0, %gf_cond_swap.exit ], [ %inc.i92, %for.body.i84 ]
-  %arrayidx1.i86 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %i.04.i85
-  %arrayidx3.i87 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %i.04.i85
+  %arrayidx1.i86 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %i.04.i85
+  %arrayidx3.i87 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %i.04.i85
   %4 = load i64, ptr %arrayidx1.i86, align 8, !noalias !26
   %5 = load i64, ptr %arrayidx3.i87, align 8, !alias.scope !26
   %xor1.i.i88 = xor i64 %5, %4
@@ -1103,12 +1103,12 @@ for.body.i84:                                     ; preds = %for.body.i84, %gf_c
 
 for.body.i139:                                    ; preds = %for.body.i84, %for.body.i139
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i139 ], [ 0, %for.body.i84 ]
-  %arrayidx.i141 = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %indvars.iv
+  %arrayidx.i141 = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %arrayidx.i141, align 8
-  %arrayidx4.i143 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv
+  %arrayidx4.i143 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %arrayidx4.i143, align 8
   %add.i144 = add i64 %7, %6
-  %arrayidx7.i146 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv
+  %arrayidx7.i146 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv
   store i64 %add.i144, ptr %arrayidx7.i146, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1125,10 +1125,10 @@ gf_add_RAW.exit148:                               ; preds = %for.body.i139
 for.body.i155:                                    ; preds = %gf_add_RAW.exit148, %for.body.i155
   %10 = phi i64 [ %8, %gf_add_RAW.exit148 ], [ %11, %for.body.i155 ]
   %indvars.iv218 = phi i64 [ 7, %gf_add_RAW.exit148 ], [ %indvars.iv.next219, %for.body.i155 ]
-  %arrayidx4.i157 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv218
+  %arrayidx4.i157 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv218
   %and.i = and i64 %10, 72057594037927935
   %indvars.iv.next219 = add nsw i64 %indvars.iv218, -1
-  %arrayidx7.i159 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.next219
+  %arrayidx7.i159 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.next219
   %11 = load i64, ptr %arrayidx7.i159, align 8
   %shr8.i = lshr i64 %11, 56
   %add9.i = add nuw nsw i64 %shr8.i, %and.i
@@ -1145,15 +1145,15 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i155
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %gf_weak_reduce.exit
   %indvars.iv.i = phi i64 [ 0, %gf_weak_reduce.exit ], [ %indvars.iv.next.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %indvars.iv.i
   %13 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx4.i.i, align 8
   %cmp7.i.i = icmp eq i64 %indvars.iv.i, 4
   %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i = add i64 %cond.i.i, %13
   %add.i.i = sub i64 %sub5.i.i, %14
-  %arrayidx11.i.i = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.i
+  %arrayidx11.i.i = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.i
   store i64 %add.i.i, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i, 8
@@ -1170,10 +1170,10 @@ gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %gf_sub_RAW.exit.i
   %17 = phi i64 [ %15, %gf_sub_RAW.exit.i ], [ %18, %for.body.i8.i ]
   %indvars.iv24.i = phi i64 [ 7, %gf_sub_RAW.exit.i ], [ %indvars.iv.next25.i, %for.body.i8.i ]
-  %arrayidx4.i10.i = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv24.i
+  %arrayidx4.i10.i = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv24.i
   %and.i.i96 = and i64 %17, 72057594037927935
   %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -1
-  %arrayidx7.i.i = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.next25.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.next25.i
   %18 = load i64, ptr %arrayidx7.i.i, align 8
   %shr8.i.i = lshr i64 %18, 56
   %add9.i.i = add nuw nsw i64 %shr8.i.i, %and.i.i96
@@ -1190,15 +1190,15 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i
 
 for.body.i.i97:                                   ; preds = %for.body.i.i97, %gf_sub_nr.exit
   %indvars.iv.i98 = phi i64 [ 0, %gf_sub_nr.exit ], [ %indvars.iv.next.i106, %for.body.i.i97 ]
-  %arrayidx.i.i99 = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %indvars.iv.i98
+  %arrayidx.i.i99 = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %indvars.iv.i98
   %20 = load i64, ptr %arrayidx.i.i99, align 8
-  %arrayidx4.i.i100 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.i98
+  %arrayidx4.i.i100 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.i98
   %21 = load i64, ptr %arrayidx4.i.i100, align 8
   %cmp7.i.i101 = icmp eq i64 %indvars.iv.i98, 4
   %cond.i.i102 = select i1 %cmp7.i.i101, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i103 = add i64 %cond.i.i102, %20
   %add.i.i104 = sub i64 %sub5.i.i103, %21
-  %arrayidx11.i.i105 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i98
+  %arrayidx11.i.i105 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i98
   store i64 %add.i.i104, ptr %arrayidx11.i.i105, align 8
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, 8
@@ -1215,10 +1215,10 @@ gf_sub_RAW.exit.i108:                             ; preds = %for.body.i.i97
 for.body.i8.i113:                                 ; preds = %for.body.i8.i113, %gf_sub_RAW.exit.i108
   %24 = phi i64 [ %22, %gf_sub_RAW.exit.i108 ], [ %25, %for.body.i8.i113 ]
   %indvars.iv24.i114 = phi i64 [ 7, %gf_sub_RAW.exit.i108 ], [ %indvars.iv.next25.i117, %for.body.i8.i113 ]
-  %arrayidx4.i10.i115 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv24.i114
+  %arrayidx4.i10.i115 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv24.i114
   %and.i.i116 = and i64 %24, 72057594037927935
   %indvars.iv.next25.i117 = add nsw i64 %indvars.iv24.i114, -1
-  %arrayidx7.i.i118 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next25.i117
+  %arrayidx7.i.i118 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next25.i117
   %25 = load i64, ptr %arrayidx7.i.i118, align 8
   %shr8.i.i119 = lshr i64 %25, 56
   %add9.i.i120 = add nuw nsw i64 %shr8.i.i119, %and.i.i116
@@ -1236,12 +1236,12 @@ gf_sub_nr.exit124:                                ; preds = %for.body.i8.i113
 
 for.body.i122:                                    ; preds = %gf_sub_nr.exit124, %for.body.i122
   %indvars.iv221 = phi i64 [ 0, %gf_sub_nr.exit124 ], [ %indvars.iv.next222, %for.body.i122 ]
-  %arrayidx.i124 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %indvars.iv221
+  %arrayidx.i124 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %indvars.iv221
   %27 = load i64, ptr %arrayidx.i124, align 8
-  %arrayidx4.i126 = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %indvars.iv221
+  %arrayidx4.i126 = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %indvars.iv221
   %28 = load i64, ptr %arrayidx4.i126, align 8
   %add.i127 = add i64 %28, %27
-  %arrayidx7.i129 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv221
+  %arrayidx7.i129 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv221
   store i64 %add.i127, ptr %arrayidx7.i129, align 8
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next222, 8
@@ -1258,10 +1258,10 @@ gf_add_RAW.exit131:                               ; preds = %for.body.i122
 for.body.i172:                                    ; preds = %gf_add_RAW.exit131, %for.body.i172
   %31 = phi i64 [ %29, %gf_add_RAW.exit131 ], [ %32, %for.body.i172 ]
   %indvars.iv225 = phi i64 [ 7, %gf_add_RAW.exit131 ], [ %indvars.iv.next226, %for.body.i172 ]
-  %arrayidx4.i174 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv225
+  %arrayidx4.i174 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv225
   %and.i175 = and i64 %31, 72057594037927935
   %indvars.iv.next226 = add nsw i64 %indvars.iv225, -1
-  %arrayidx7.i178 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next226
+  %arrayidx7.i178 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next226
   %32 = load i64, ptr %arrayidx7.i178, align 8
   %shr8.i179 = lshr i64 %32, 56
   %add9.i180 = add nuw nsw i64 %shr8.i179, %and.i175
@@ -1279,15 +1279,15 @@ gf_weak_reduce.exit184:                           ; preds = %for.body.i172
 
 for.body.i.i125:                                  ; preds = %for.body.i.i125, %gf_weak_reduce.exit184
   %indvars.iv.i126 = phi i64 [ 0, %gf_weak_reduce.exit184 ], [ %indvars.iv.next.i134, %for.body.i.i125 ]
-  %arrayidx.i.i127 = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %indvars.iv.i126
+  %arrayidx.i.i127 = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %indvars.iv.i126
   %34 = load i64, ptr %arrayidx.i.i127, align 8
-  %arrayidx4.i.i128 = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %indvars.iv.i126
+  %arrayidx4.i.i128 = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %indvars.iv.i126
   %35 = load i64, ptr %arrayidx4.i.i128, align 8
   %cmp7.i.i129 = icmp eq i64 %indvars.iv.i126, 4
   %cond.i.i130 = select i1 %cmp7.i.i129, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i131 = add i64 %cond.i.i130, %34
   %add.i.i132 = sub i64 %sub5.i.i131, %35
-  %arrayidx11.i.i133 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.i126
+  %arrayidx11.i.i133 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.i126
   store i64 %add.i.i132, ptr %arrayidx11.i.i133, align 8
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i135 = icmp eq i64 %indvars.iv.next.i134, 8
@@ -1304,10 +1304,10 @@ gf_sub_RAW.exit.i136:                             ; preds = %for.body.i.i125
 for.body.i8.i141:                                 ; preds = %for.body.i8.i141, %gf_sub_RAW.exit.i136
   %38 = phi i64 [ %36, %gf_sub_RAW.exit.i136 ], [ %39, %for.body.i8.i141 ]
   %indvars.iv24.i142 = phi i64 [ 7, %gf_sub_RAW.exit.i136 ], [ %indvars.iv.next25.i145, %for.body.i8.i141 ]
-  %arrayidx4.i10.i143 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %indvars.iv24.i142
+  %arrayidx4.i10.i143 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %indvars.iv24.i142
   %and.i.i144 = and i64 %38, 72057594037927935
   %indvars.iv.next25.i145 = add nsw i64 %indvars.iv24.i142, -1
-  %arrayidx7.i.i146 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.next25.i145
+  %arrayidx7.i.i146 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %indvars.iv.next25.i145
   %39 = load i64, ptr %arrayidx7.i.i146, align 8
   %shr8.i.i147 = lshr i64 %39, 56
   %add9.i.i148 = add nuw nsw i64 %shr8.i.i147, %and.i.i144
@@ -1326,12 +1326,12 @@ gf_sub_nr.exit152:                                ; preds = %for.body.i8.i141
 
 for.body.i105:                                    ; preds = %gf_sub_nr.exit152, %for.body.i105
   %indvars.iv228 = phi i64 [ 0, %gf_sub_nr.exit152 ], [ %indvars.iv.next229, %for.body.i105 ]
-  %arrayidx.i107 = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %indvars.iv228
+  %arrayidx.i107 = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %indvars.iv228
   %41 = load i64, ptr %arrayidx.i107, align 8
-  %arrayidx4.i109 = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %indvars.iv228
+  %arrayidx4.i109 = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %indvars.iv228
   %42 = load i64, ptr %arrayidx4.i109, align 8
   %add.i110 = add i64 %42, %41
-  %arrayidx7.i112 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv228
+  %arrayidx7.i112 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv228
   store i64 %add.i110, ptr %arrayidx7.i112, align 8
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next229, 8
@@ -1348,10 +1348,10 @@ gf_add_RAW.exit114:                               ; preds = %for.body.i105
 for.body.i197:                                    ; preds = %gf_add_RAW.exit114, %for.body.i197
   %45 = phi i64 [ %43, %gf_add_RAW.exit114 ], [ %46, %for.body.i197 ]
   %indvars.iv232 = phi i64 [ 7, %gf_add_RAW.exit114 ], [ %indvars.iv.next233, %for.body.i197 ]
-  %arrayidx4.i199 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv232
+  %arrayidx4.i199 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv232
   %and.i200 = and i64 %45, 72057594037927935
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, -1
-  %arrayidx7.i203 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next233
+  %arrayidx7.i203 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.next233
   %46 = load i64, ptr %arrayidx7.i203, align 8
   %shr8.i204 = lshr i64 %46, 56
   %add9.i205 = add nuw nsw i64 %shr8.i204, %and.i200
@@ -1372,15 +1372,15 @@ gf_weak_reduce.exit209:                           ; preds = %for.body.i197
 
 for.body.i.i153:                                  ; preds = %for.body.i.i153, %gf_weak_reduce.exit209
   %indvars.iv.i154 = phi i64 [ 0, %gf_weak_reduce.exit209 ], [ %indvars.iv.next.i162, %for.body.i.i153 ]
-  %arrayidx.i.i155 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i154
+  %arrayidx.i.i155 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv.i154
   %48 = load i64, ptr %arrayidx.i.i155, align 8
-  %arrayidx4.i.i156 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.i154
+  %arrayidx4.i.i156 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.i154
   %49 = load i64, ptr %arrayidx4.i.i156, align 8
   %cmp7.i.i157 = icmp eq i64 %indvars.iv.i154, 4
   %cond.i.i158 = select i1 %cmp7.i.i157, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i159 = add i64 %cond.i.i158, %48
   %add.i.i160 = sub i64 %sub5.i.i159, %49
-  %arrayidx11.i.i161 = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.i154
+  %arrayidx11.i.i161 = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.i154
   store i64 %add.i.i160, ptr %arrayidx11.i.i161, align 8
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i154, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 8
@@ -1397,10 +1397,10 @@ gf_sub_RAW.exit.i164:                             ; preds = %for.body.i.i153
 for.body.i8.i169:                                 ; preds = %for.body.i8.i169, %gf_sub_RAW.exit.i164
   %52 = phi i64 [ %50, %gf_sub_RAW.exit.i164 ], [ %53, %for.body.i8.i169 ]
   %indvars.iv24.i170 = phi i64 [ 7, %gf_sub_RAW.exit.i164 ], [ %indvars.iv.next25.i173, %for.body.i8.i169 ]
-  %arrayidx4.i10.i171 = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv24.i170
+  %arrayidx4.i10.i171 = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv24.i170
   %and.i.i172 = and i64 %52, 72057594037927935
   %indvars.iv.next25.i173 = add nsw i64 %indvars.iv24.i170, -1
-  %arrayidx7.i.i174 = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.next25.i173
+  %arrayidx7.i.i174 = getelementptr inbounds nuw [8 x i64], ptr %t2, i64 0, i64 %indvars.iv.next25.i173
   %53 = load i64, ptr %arrayidx7.i.i174, align 8
   %shr8.i.i175 = lshr i64 %53, 56
   %add9.i.i176 = add nuw nsw i64 %shr8.i.i175, %and.i.i172
@@ -1418,9 +1418,9 @@ gf_sub_nr.exit180:                                ; preds = %for.body.i8.i169
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit180, %for.body.i
   %indvars.iv235 = phi i64 [ 0, %gf_sub_nr.exit180 ], [ %indvars.iv.next236, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv235
+  %arrayidx.i = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv235
   %55 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %indvars.iv235
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %indvars.iv235
   %56 = load i64, ptr %arrayidx4.i, align 8
   %add.i = add i64 %56, %55
   store i64 %add.i, ptr %arrayidx.i, align 8
@@ -1439,10 +1439,10 @@ gf_add_RAW.exit:                                  ; preds = %for.body.i
 for.body.i222:                                    ; preds = %gf_add_RAW.exit, %for.body.i222
   %59 = phi i64 [ %57, %gf_add_RAW.exit ], [ %60, %for.body.i222 ]
   %indvars.iv239 = phi i64 [ 7, %gf_add_RAW.exit ], [ %indvars.iv.next240, %for.body.i222 ]
-  %arrayidx4.i224 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv239
+  %arrayidx4.i224 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv239
   %and.i225 = and i64 %59, 72057594037927935
   %indvars.iv.next240 = add nsw i64 %indvars.iv239, -1
-  %arrayidx7.i228 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.next240
+  %arrayidx7.i228 = getelementptr inbounds nuw [8 x i64], ptr %t1, i64 0, i64 %indvars.iv.next240
   %60 = load i64, ptr %arrayidx7.i228, align 8
   %shr8.i229 = lshr i64 %60, 56
   %add9.i230 = add nuw nsw i64 %shr8.i229, %and.i225
@@ -1466,8 +1466,8 @@ for.end:                                          ; preds = %gf_weak_reduce.exit
 
 for.body.i181:                                    ; preds = %for.body.i181, %for.end
   %i.04.i182 = phi i64 [ 0, %for.end ], [ %inc.i189, %for.body.i181 ]
-  %arrayidx1.i183 = getelementptr inbounds [8 x i64], ptr %x2, i64 0, i64 %i.04.i182
-  %arrayidx3.i184 = getelementptr inbounds [8 x i64], ptr %x3, i64 0, i64 %i.04.i182
+  %arrayidx1.i183 = getelementptr inbounds nuw [8 x i64], ptr %x2, i64 0, i64 %i.04.i182
+  %arrayidx3.i184 = getelementptr inbounds nuw [8 x i64], ptr %x3, i64 0, i64 %i.04.i182
   %62 = load i64, ptr %arrayidx1.i183, align 8, !noalias !30
   %63 = load i64, ptr %arrayidx3.i184, align 8, !alias.scope !30
   %xor1.i.i185 = xor i64 %63, %62
@@ -1486,8 +1486,8 @@ gf_cond_swap.exit191:                             ; preds = %for.body.i181
 
 for.body.i192:                                    ; preds = %for.body.i192, %gf_cond_swap.exit191
   %i.04.i193 = phi i64 [ 0, %gf_cond_swap.exit191 ], [ %inc.i200, %for.body.i192 ]
-  %arrayidx1.i194 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 %i.04.i193
-  %arrayidx3.i195 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 %i.04.i193
+  %arrayidx1.i194 = getelementptr inbounds nuw [8 x i64], ptr %z2, i64 0, i64 %i.04.i193
+  %arrayidx3.i195 = getelementptr inbounds nuw [8 x i64], ptr %z3, i64 0, i64 %i.04.i193
   %64 = load i64, ptr %arrayidx1.i194, align 8, !noalias !33
   %65 = load i64, ptr %arrayidx3.i195, align 8, !alias.scope !33
   %xor1.i.i196 = xor i64 %65, %64
@@ -1532,7 +1532,7 @@ entry:
   %t2.i = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
-  %t = getelementptr inbounds i8, ptr %q, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %q, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i)
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i, ptr noundef nonnull %q) #7
@@ -1542,8 +1542,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
-  %z = getelementptr inbounds i8, ptr %q, i64 128
-  %y = getelementptr inbounds i8, ptr %q, i64 64
+  %z = getelementptr inbounds nuw i8, ptr %q, i64 128
+  %y = getelementptr inbounds nuw i8, ptr %q, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %z, ptr noundef nonnull %t, ptr noundef nonnull %y) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y, ptr noundef nonnull %z) #7
   call void @gf_serialize(ptr noundef %out, ptr noundef nonnull %y, i32 noundef 1) #7
@@ -1564,7 +1564,7 @@ entry:
   %0 = load i8, ptr %scalar2, align 16
   %1 = and i8 %0, -4
   store i8 %1, ptr %scalar2, align 16
-  %arrayidx2 = getelementptr inbounds i8, ptr %scalar2, i64 55
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %scalar2, i64 55
   %2 = load i8, ptr %arrayidx2, align 1
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx2, align 1
@@ -1574,7 +1574,7 @@ entry:
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %p, ptr noundef %4, ptr noundef nonnull %the_scalar)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %p, i64 256, i1 false)
-  %t.i = getelementptr inbounds i8, ptr %q.i, i64 192
+  %t.i = getelementptr inbounds nuw i8, ptr %q.i, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i.i)
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %q.i) #7
@@ -1584,8 +1584,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %t2.i.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i.i)
-  %z.i = getelementptr inbounds i8, ptr %q.i, i64 128
-  %y.i = getelementptr inbounds i8, ptr %q.i, i64 64
+  %z.i = getelementptr inbounds nuw i8, ptr %q.i, i64 128
+  %y.i = getelementptr inbounds nuw i8, ptr %q.i, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %z.i, ptr noundef nonnull %t.i, ptr noundef nonnull %y.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y.i, ptr noundef nonnull %z.i) #7
   call void @gf_serialize(ptr noundef %out, ptr noundef nonnull %y.i, i32 noundef 1) #7
@@ -1613,9 +1613,9 @@ entry:
   %precmp_var = alloca [8 x [1 x %struct.anon]], align 16
   %0 = load i64, ptr %scalar1, align 8
   %and.i = and i64 %0, 65535
-  %arrayidx4.i = getelementptr inbounds i8, ptr %control_pre, i64 608
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %control_pre, i64 608
   store i32 -1, ptr %arrayidx4.i, align 16
-  %addend.i = getelementptr inbounds i8, ptr %control_pre, i64 612
+  %addend.i = getelementptr inbounds nuw i8, ptr %control_pre, i64 612
   store i32 0, ptr %addend.i, align 4
   br label %for.body.i
 
@@ -1629,7 +1629,7 @@ for.body.i:                                       ; preds = %while.end.i, %entry
 if.then.i:                                        ; preds = %for.body.i
   %div938.i = lshr i32 %w.046.i, 2
   %idxprom10.i = zext nneg i32 %div938.i to i64
-  %arrayidx11.i = getelementptr inbounds [7 x i64], ptr %scalar1, i64 0, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds nuw [7 x i64], ptr %scalar1, i64 0, i64 %idxprom10.i
   %1 = load i64, ptr %arrayidx11.i, align 8
   %rem.i = shl nuw nsw i32 %w.046.i, 4
   %mul.i = and i32 %rem.i, 48
@@ -1667,7 +1667,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %add35.i = add nsw i32 %mul34.i, %3
   %arrayidx37.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv.i
   store i32 %add35.i, ptr %arrayidx37.i, align 8
-  %addend41.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 4
+  %addend41.i = getelementptr inbounds nuw i8, ptr %arrayidx37.i, i64 4
   store i32 %spec.select.i, ptr %addend41.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %and15.i = and i64 %sub32.i, 65535
@@ -1698,11 +1698,11 @@ for.body49.preheader.i:                           ; preds = %for.end.i
 
 for.body49.i:                                     ; preds = %for.body49.i, %for.body49.preheader.i
   %indvars.iv52.i = phi i64 [ 0, %for.body49.preheader.i ], [ %indvars.iv.next53.i, %for.body49.i ]
-  %arrayidx51.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv52.i
+  %arrayidx51.i = getelementptr inbounds nuw %struct.smvt_control, ptr %control_pre, i64 %indvars.iv52.i
   %5 = trunc nuw i64 %indvars.iv52.i to i32
   %add52.i = add i32 %inc44.i, %5
   %idxprom53.i = zext i32 %add52.i to i64
-  %arrayidx54.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %idxprom53.i
+  %arrayidx54.i = getelementptr inbounds nuw %struct.smvt_control, ptr %control_pre, i64 %idxprom53.i
   %6 = load i64, ptr %arrayidx54.i, align 8
   store i64 %6, ptr %arrayidx51.i, align 8
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
@@ -1712,9 +1712,9 @@ for.body49.i:                                     ; preds = %for.body49.i, %for.
 recode_wnaf.exit:                                 ; preds = %for.body49.i, %for.end.i
   %7 = load i64, ptr %scalar2, align 8
   %and.i45 = and i64 %7, 65535
-  %arrayidx4.i46 = getelementptr inbounds i8, ptr %control_var, i64 904
+  %arrayidx4.i46 = getelementptr inbounds nuw i8, ptr %control_var, i64 904
   store i32 -1, ptr %arrayidx4.i46, align 8
-  %addend.i47 = getelementptr inbounds i8, ptr %control_var, i64 908
+  %addend.i47 = getelementptr inbounds nuw i8, ptr %control_var, i64 908
   store i32 0, ptr %addend.i47, align 4
   br label %for.body.i48
 
@@ -1728,7 +1728,7 @@ for.body.i48:                                     ; preds = %while.end.i80, %rec
 if.then.i102:                                     ; preds = %for.body.i48
   %div938.i103 = lshr i32 %w.046.i51, 2
   %idxprom10.i104 = zext nneg i32 %div938.i103 to i64
-  %arrayidx11.i105 = getelementptr inbounds [7 x i64], ptr %scalar2, i64 0, i64 %idxprom10.i104
+  %arrayidx11.i105 = getelementptr inbounds nuw [7 x i64], ptr %scalar2, i64 0, i64 %idxprom10.i104
   %8 = load i64, ptr %arrayidx11.i105, align 8
   %rem.i106 = shl nuw nsw i32 %w.046.i51, 4
   %mul.i107 = and i32 %rem.i106, 48
@@ -1766,7 +1766,7 @@ while.body.i60:                                   ; preds = %while.body.i60, %wh
   %add35.i73 = add nsw i32 %mul34.i59, %10
   %arrayidx37.i74 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv.i61
   store i32 %add35.i73, ptr %arrayidx37.i74, align 8
-  %addend41.i75 = getelementptr inbounds i8, ptr %arrayidx37.i74, i64 4
+  %addend41.i75 = getelementptr inbounds nuw i8, ptr %arrayidx37.i74, i64 4
   store i32 %spec.select.i69, ptr %addend41.i75, align 4
   %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i61, -1
   %and15.i77 = and i64 %sub32.i72, 65535
@@ -1797,11 +1797,11 @@ for.body49.preheader.i91:                         ; preds = %for.end.i86
 
 for.body49.i93:                                   ; preds = %for.body49.i93, %for.body49.preheader.i91
   %indvars.iv52.i94 = phi i64 [ 0, %for.body49.preheader.i91 ], [ %indvars.iv.next53.i99, %for.body49.i93 ]
-  %arrayidx51.i95 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv52.i94
+  %arrayidx51.i95 = getelementptr inbounds nuw %struct.smvt_control, ptr %control_var, i64 %indvars.iv52.i94
   %12 = trunc nuw i64 %indvars.iv52.i94 to i32
   %add52.i96 = add i32 %inc44.i87, %12
   %idxprom53.i97 = zext i32 %add52.i96 to i64
-  %arrayidx54.i98 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %idxprom53.i97
+  %arrayidx54.i98 = getelementptr inbounds nuw %struct.smvt_control, ptr %control_var, i64 %idxprom53.i97
   %13 = load i64, ptr %arrayidx54.i98, align 8
   store i64 %13, ptr %arrayidx51.i95, align 8
   %indvars.iv.next53.i99 = add nuw nsw i64 %indvars.iv52.i94, 1
@@ -1811,42 +1811,42 @@ for.body49.i93:                                   ; preds = %for.body49.i93, %fo
 recode_wnaf.exit113:                              ; preds = %for.body49.i93, %for.end.i86
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %twop.i)
-  %y.i.i = getelementptr inbounds i8, ptr %base2, i64 64
+  %y.i.i = getelementptr inbounds nuw i8, ptr %base2, i64 64
   call void @gf_sub(ptr noundef nonnull %precmp_var, ptr noundef nonnull %y.i.i, ptr noundef %base2) #7
-  %b7.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 64
+  %b7.i.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i.i, ptr noundef %base2, ptr noundef nonnull %y.i.i) #7
-  %c.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 128
-  %t.i.i = getelementptr inbounds i8, ptr %base2, i64 192
+  %c.i.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 128
+  %t.i.i = getelementptr inbounds nuw i8, ptr %base2, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i.i, ptr noundef nonnull %t.i.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i.i) #7
-  %z.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 192
-  %z18.i.i = getelementptr inbounds i8, ptr %base2, i64 128
+  %z.i.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 192
+  %z18.i.i = getelementptr inbounds nuw i8, ptr %base2, i64 128
   call void @gf_add(ptr noundef nonnull %z.i.i, ptr noundef nonnull %z18.i.i, ptr noundef nonnull %z18.i.i) #7
   call fastcc void @point_double_internal(ptr noundef nonnull %tmp.i, ptr noundef %base2, i32 noundef 0)
-  %y.i8.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
+  %y.i8.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 64
   call void @gf_sub(ptr noundef nonnull %twop.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i9.i = getelementptr inbounds i8, ptr %twop.i, i64 64
+  %b7.i9.i = getelementptr inbounds nuw i8, ptr %twop.i, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i9.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i10.i = getelementptr inbounds i8, ptr %twop.i, i64 128
-  %t.i11.i = getelementptr inbounds i8, ptr %tmp.i, i64 192
+  %c.i10.i = getelementptr inbounds nuw i8, ptr %twop.i, i64 128
+  %t.i11.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i10.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i10.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i10.i) #7
-  %z.i12.i = getelementptr inbounds i8, ptr %twop.i, i64 192
-  %z18.i13.i = getelementptr inbounds i8, ptr %tmp.i, i64 128
+  %z.i12.i = getelementptr inbounds nuw i8, ptr %twop.i, i64 192
+  %z18.i13.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 128
   call void @gf_add(ptr noundef nonnull %z.i12.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i.i)
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z.i.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z18.i13.i, ptr noundef nonnull align 16 dereferenceable(64) %L0.i.i, i64 64, i1 false)
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %tmp.i, ptr noundef nonnull %precmp_var, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i.i)
-  %arrayidx7.i = getelementptr inbounds i8, ptr %precmp_var, i64 256
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 256
   call void @gf_sub(ptr noundef nonnull %arrayidx7.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i16.i = getelementptr inbounds i8, ptr %precmp_var, i64 320
+  %b7.i16.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 320
   call void @gf_add(ptr noundef nonnull %b7.i16.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i17.i = getelementptr inbounds i8, ptr %precmp_var, i64 384
+  %c.i17.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 384
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i17.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i17.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i17.i) #7
-  %z.i19.i = getelementptr inbounds i8, ptr %precmp_var, i64 448
+  %z.i19.i = getelementptr inbounds nuw i8, ptr %precmp_var, i64 448
   call void @gf_add(ptr noundef nonnull %z.i19.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   br label %for.body.i114
 
@@ -1857,14 +1857,14 @@ for.body.i114:                                    ; preds = %for.body.i114, %rec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z18.i13.i, ptr noundef nonnull align 16 dereferenceable(64) %L0.i21.i, i64 64, i1 false)
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %tmp.i, ptr noundef nonnull %twop.i, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i21.i)
-  %arrayidx13.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 %indvars.iv.i115
+  %arrayidx13.i = getelementptr inbounds nuw [1 x %struct.anon], ptr %precmp_var, i64 %indvars.iv.i115
   call void @gf_sub(ptr noundef nonnull %arrayidx13.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i25.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 64
+  %b7.i25.i = getelementptr inbounds nuw i8, ptr %arrayidx13.i, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i25.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i26.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 128
+  %c.i26.i = getelementptr inbounds nuw i8, ptr %arrayidx13.i, i64 128
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i26.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i26.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i26.i) #7
-  %z.i28.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 192
+  %z.i28.i = getelementptr inbounds nuw i8, ptr %arrayidx13.i, i64 192
   call void @gf_add(ptr noundef nonnull %z.i28.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 8
@@ -1889,51 +1889,51 @@ if.end:                                           ; preds = %prepare_wnaf_table.
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
-  %addend = getelementptr inbounds i8, ptr %control_var, i64 4
+  %addend = getelementptr inbounds nuw i8, ptr %control_var, i64 4
   %16 = load i32, ptr %addend, align 4
   %shr = ashr i32 %16, 1
   %idxprom = sext i32 %shr to i64
   %arrayidx9 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i)
-  %b.i = getelementptr inbounds i8, ptr %arrayidx9, i64 64
+  %b.i = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i, ptr noundef nonnull %b.i, ptr noundef nonnull %arrayidx9) #7
-  %y.i = getelementptr inbounds i8, ptr %combo, i64 64
+  %y.i = getelementptr inbounds nuw i8, ptr %combo, i64 64
   call void @gf_sub(ptr noundef nonnull %y.i, ptr noundef nonnull %b.i, ptr noundef nonnull %arrayidx9) #7
-  %t.i = getelementptr inbounds i8, ptr %combo, i64 192
+  %t.i = getelementptr inbounds nuw i8, ptr %combo, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %t.i, ptr noundef nonnull %y.i, ptr noundef nonnull %eu.i) #7
-  %z.i = getelementptr inbounds i8, ptr %arrayidx9, i64 192
+  %z.i = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 192
   call void @ossl_gf_mul(ptr noundef %combo, ptr noundef nonnull %z.i, ptr noundef nonnull %y.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef nonnull %eu.i) #7
-  %z28.i = getelementptr inbounds i8, ptr %combo, i64 128
+  %z28.i = getelementptr inbounds nuw i8, ptr %combo, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %z28.i, ptr noundef nonnull %z.i) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %eu.i)
   br label %if.end41
 
 if.else:                                          ; preds = %if.end
   %cmp13 = icmp eq i32 %14, %15
-  %t.i122 = getelementptr inbounds i8, ptr %combo, i64 192
+  %t.i122 = getelementptr inbounds nuw i8, ptr %combo, i64 192
   br i1 %cmp13, label %if.then15, label %if.else30
 
 if.then15:                                        ; preds = %if.else
-  %addend17 = getelementptr inbounds i8, ptr %control_var, i64 4
+  %addend17 = getelementptr inbounds nuw i8, ptr %control_var, i64 4
   %17 = load i32, ptr %addend17, align 4
   %shr18 = ashr i32 %17, 1
   %idxprom19 = sext i32 %shr18 to i64
   %arrayidx20 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i119)
-  %b.i120 = getelementptr inbounds i8, ptr %arrayidx20, i64 64
+  %b.i120 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i119, ptr noundef nonnull %b.i120, ptr noundef nonnull %arrayidx20) #7
-  %y.i121 = getelementptr inbounds i8, ptr %combo, i64 64
+  %y.i121 = getelementptr inbounds nuw i8, ptr %combo, i64 64
   call void @gf_sub(ptr noundef nonnull %y.i121, ptr noundef nonnull %b.i120, ptr noundef nonnull %arrayidx20) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t.i122, ptr noundef nonnull %y.i121, ptr noundef nonnull %eu.i119) #7
-  %z.i123 = getelementptr inbounds i8, ptr %arrayidx20, i64 192
+  %z.i123 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 192
   call void @ossl_gf_mul(ptr noundef %combo, ptr noundef nonnull %z.i123, ptr noundef nonnull %y.i121) #7
   call void @ossl_gf_mul(ptr noundef nonnull %y.i121, ptr noundef nonnull %z.i123, ptr noundef nonnull %eu.i119) #7
-  %z28.i124 = getelementptr inbounds i8, ptr %combo, i64 128
+  %z28.i124 = getelementptr inbounds nuw i8, ptr %combo, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %z28.i124, ptr noundef nonnull %z.i123) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %eu.i119)
   %18 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
-  %addend23 = getelementptr inbounds i8, ptr %control_pre, i64 4
+  %addend23 = getelementptr inbounds nuw i8, ptr %control_pre, i64 4
   %19 = load i32, ptr %addend23, align 4
   %shr24 = ashr i32 %19, 1
   %idxprom25 = sext i32 %shr24 to i64
@@ -1943,17 +1943,17 @@ if.then15:                                        ; preds = %if.else
 
 if.else30:                                        ; preds = %if.else
   %20 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
-  %addend34 = getelementptr inbounds i8, ptr %control_pre, i64 4
+  %addend34 = getelementptr inbounds nuw i8, ptr %control_pre, i64 4
   %21 = load i32, ptr %addend34, align 4
   %shr35 = ashr i32 %21, 1
   %idxprom36 = sext i32 %shr35 to i64
   %arrayidx37 = getelementptr inbounds [1 x %struct.niels_s], ptr %20, i64 %idxprom36
-  %y.i125 = getelementptr inbounds i8, ptr %combo, i64 64
-  %b.i126 = getelementptr inbounds i8, ptr %arrayidx37, i64 64
+  %y.i125 = getelementptr inbounds nuw i8, ptr %combo, i64 64
+  %b.i126 = getelementptr inbounds nuw i8, ptr %arrayidx37, i64 64
   call void @gf_add(ptr noundef nonnull %y.i125, ptr noundef nonnull %b.i126, ptr noundef %arrayidx37) #7
   call void @gf_sub(ptr noundef %combo, ptr noundef nonnull %b.i126, ptr noundef %arrayidx37) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t.i122, ptr noundef nonnull %y.i125, ptr noundef %combo) #7
-  %z.i128 = getelementptr inbounds i8, ptr %combo, i64 128
+  %z.i128 = getelementptr inbounds nuw i8, ptr %combo, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i128, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false)
   br label %if.end41
 
@@ -1965,7 +1965,7 @@ if.end41:                                         ; preds = %if.then15, %if.else
   br i1 %cmp42134.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end41
-  %z.i131 = getelementptr inbounds i8, ptr %combo, i64 128
+  %z.i131 = getelementptr inbounds nuw i8, ptr %combo, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1989,7 +1989,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp46, label %if.end91, label %if.then55
 
 if.then55:                                        ; preds = %for.body
-  %addend58 = getelementptr inbounds i8, ptr %arrayidx44, i64 4
+  %addend58 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 4
   %25 = load i32, ptr %addend58, align 4
   %cmp59 = icmp sgt i32 %25, 0
   br i1 %cmp59, label %if.then61, label %if.else75
@@ -1997,11 +1997,11 @@ if.then55:                                        ; preds = %for.body
 if.then61:                                        ; preds = %if.then55
   %shr65 = lshr i32 %25, 1
   %idxprom66 = zext nneg i32 %shr65 to i64
-  %arrayidx67 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom66
   %26 = select i1 %tobool, i1 %cmp50, i1 false
   %land.ext74 = zext i1 %26 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i)
-  %z2.i = getelementptr inbounds i8, ptr %arrayidx67, i64 192
+  %z2.i = getelementptr inbounds nuw i8, ptr %arrayidx67, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i, i64 64, i1 false)
   call fastcc void @add_niels_to_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx67, i32 noundef range(i32 0, 2) %land.ext74)
@@ -2012,11 +2012,11 @@ if.else75:                                        ; preds = %if.then55
   %sub = sub nsw i32 0, %25
   %shr79 = lshr i32 %sub, 1
   %idxprom80 = zext nneg i32 %shr79 to i64
-  %arrayidx81 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds nuw [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom80
   %27 = select i1 %tobool, i1 %cmp50, i1 false
   %land.ext88 = zext i1 %27 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i130)
-  %z2.i132 = getelementptr inbounds i8, ptr %arrayidx81, i64 192
+  %z2.i132 = getelementptr inbounds nuw i8, ptr %arrayidx81, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i130, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i132) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i130, i64 64, i1 false)
   call fastcc void @sub_niels_from_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx81, i32 noundef range(i32 0, 2) %land.ext88)
@@ -2032,7 +2032,7 @@ if.end91:                                         ; preds = %if.end89, %for.body
   br i1 %cmp50, label %for.inc, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  %addend96 = getelementptr inbounds i8, ptr %arrayidx48, i64 4
+  %addend96 = getelementptr inbounds nuw i8, ptr %arrayidx48, i64 4
   %28 = load i32, ptr %addend96, align 4
   %cmp97 = icmp sgt i32 %28, 0
   %29 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
@@ -2041,7 +2041,7 @@ if.then93:                                        ; preds = %if.end91
 if.then99:                                        ; preds = %if.then93
   %shr103 = lshr i32 %28, 1
   %idxprom104 = zext nneg i32 %shr103 to i64
-  %arrayidx105 = getelementptr inbounds [1 x %struct.niels_s], ptr %29, i64 %idxprom104
+  %arrayidx105 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %29, i64 %idxprom104
   call fastcc void @add_niels_to_pt(ptr noundef %combo, ptr noundef %arrayidx105, i32 noundef %i.1137)
   br label %if.end116
 
@@ -2049,7 +2049,7 @@ if.else107:                                       ; preds = %if.then93
   %sub111 = sub nsw i32 0, %28
   %shr112 = lshr i32 %sub111, 1
   %idxprom113 = zext nneg i32 %shr112 to i64
-  %arrayidx114 = getelementptr inbounds [1 x %struct.niels_s], ptr %29, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %29, i64 %idxprom113
   call fastcc void @sub_niels_from_pt(ptr noundef %combo, ptr noundef %arrayidx114, i32 noundef %i.1137)
   br label %if.end116
 
@@ -2078,30 +2078,30 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds i8, ptr %d, i64 64
+  %y = getelementptr inbounds nuw i8, ptr %d, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i
   %1 = load i64, ptr %arrayidx4.i.i, align 8
   %cmp7.i.i = icmp eq i64 %indvars.iv.i, 4
   %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i = add i64 %cond.i.i, %0
   %add.i.i = sub i64 %sub5.i.i, %1
-  %arrayidx11.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
+  %arrayidx11.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i
   store i64 %add.i.i, ptr %arrayidx11.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 56
   %2 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %3, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -2110,10 +2110,10 @@ gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
 for.body.i8.i:                                    ; preds = %for.body.i8.i, %gf_sub_RAW.exit.i
   %4 = phi i64 [ %2, %gf_sub_RAW.exit.i ], [ %5, %for.body.i8.i ]
   %indvars.iv24.i = phi i64 [ 7, %gf_sub_RAW.exit.i ], [ %indvars.iv.next25.i, %for.body.i8.i ]
-  %arrayidx4.i10.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i
+  %arrayidx4.i10.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i
   %and.i.i = and i64 %4, 72057594037927935
   %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -1
-  %arrayidx7.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i
   %5 = load i64, ptr %arrayidx7.i.i, align 8
   %shr8.i.i = lshr i64 %5, 56
   %add9.i.i = add nuw nsw i64 %shr8.i.i, %and.i.i
@@ -2126,18 +2126,18 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i
   %and15.i.i = and i64 %6, 72057594037927935
   %add16.i.i = add nuw nsw i64 %and15.i.i, %shr.i.i
   store i64 %add16.i.i, ptr %b, align 16
-  %b4 = getelementptr inbounds i8, ptr %e, i64 64
+  %b4 = getelementptr inbounds nuw i8, ptr %e, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef nonnull %b4, ptr noundef nonnull %b) #7
   br label %for.body.i82
 
 for.body.i82:                                     ; preds = %gf_sub_nr.exit, %for.body.i82
   %indvars.iv = phi i64 [ 0, %gf_sub_nr.exit ], [ %indvars.iv.next, %for.body.i82 ]
-  %arrayidx.i84 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv
+  %arrayidx.i84 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %arrayidx.i84, align 8
-  %arrayidx4.i86 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv
+  %arrayidx4.i86 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx4.i86, align 8
   %add.i87 = add i64 %8, %7
-  %arrayidx7.i89 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv
+  %arrayidx7.i89 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv
   store i64 %add.i87, ptr %arrayidx7.i89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2154,10 +2154,10 @@ gf_add_RAW.exit91:                                ; preds = %for.body.i82
 for.body.i98:                                     ; preds = %gf_add_RAW.exit91, %for.body.i98
   %11 = phi i64 [ %9, %gf_add_RAW.exit91 ], [ %12, %for.body.i98 ]
   %indvars.iv138 = phi i64 [ 7, %gf_add_RAW.exit91 ], [ %indvars.iv.next139, %for.body.i98 ]
-  %arrayidx4.i100 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv138
+  %arrayidx4.i100 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv138
   %and.i = and i64 %11, 72057594037927935
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
-  %arrayidx7.i102 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next139
+  %arrayidx7.i102 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next139
   %12 = load i64, ptr %arrayidx7.i102, align 8
   %shr8.i = lshr i64 %12, 56
   %add9.i = add nuw nsw i64 %shr8.i, %and.i
@@ -2171,29 +2171,29 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i98
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %b, align 16
   call void @ossl_gf_mul(ptr noundef nonnull %y, ptr noundef %e, ptr noundef nonnull %b) #7
-  %c19 = getelementptr inbounds i8, ptr %e, i64 128
-  %t = getelementptr inbounds i8, ptr %d, i64 192
+  %c19 = getelementptr inbounds nuw i8, ptr %e, i64 128
+  %t = getelementptr inbounds nuw i8, ptr %d, i64 192
   call void @ossl_gf_mul(ptr noundef %d, ptr noundef nonnull %c19, ptr noundef nonnull %t) #7
   br label %for.body.i65
 
 for.body.i65:                                     ; preds = %gf_weak_reduce.exit, %for.body.i65
   %indvars.iv141 = phi i64 [ 0, %gf_weak_reduce.exit ], [ %indvars.iv.next142, %for.body.i65 ]
-  %arrayidx.i67 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv141
+  %arrayidx.i67 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv141
   %14 = load i64, ptr %arrayidx.i67, align 8
-  %arrayidx4.i69 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv141
+  %arrayidx4.i69 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv141
   %15 = load i64, ptr %arrayidx4.i69, align 8
   %add.i70 = add i64 %15, %14
-  %arrayidx7.i72 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv141
+  %arrayidx7.i72 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv141
   store i64 %add.i70, ptr %arrayidx7.i72, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 8
   br i1 %exitcond144.not, label %gf_add_RAW.exit74, label %for.body.i65, !llvm.loop !4
 
 gf_add_RAW.exit74:                                ; preds = %for.body.i65
-  %arrayidx.i107 = getelementptr inbounds i8, ptr %c, i64 56
+  %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %c, i64 56
   %16 = load i64, ptr %arrayidx.i107, align 8
   %shr.i108 = lshr i64 %16, 56
-  %arrayidx2.i109 = getelementptr inbounds i8, ptr %c, i64 32
+  %arrayidx2.i109 = getelementptr inbounds nuw i8, ptr %c, i64 32
   %17 = load i64, ptr %arrayidx2.i109, align 16
   %add.i110 = add i64 %17, %shr.i108
   store i64 %add.i110, ptr %arrayidx2.i109, align 16
@@ -2202,10 +2202,10 @@ gf_add_RAW.exit74:                                ; preds = %for.body.i65
 for.body.i115:                                    ; preds = %gf_add_RAW.exit74, %for.body.i115
   %18 = phi i64 [ %16, %gf_add_RAW.exit74 ], [ %19, %for.body.i115 ]
   %indvars.iv145 = phi i64 [ 7, %gf_add_RAW.exit74 ], [ %indvars.iv.next146, %for.body.i115 ]
-  %arrayidx4.i117 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv145
+  %arrayidx4.i117 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv145
   %and.i118 = and i64 %18, 72057594037927935
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, -1
-  %arrayidx7.i121 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 %indvars.iv.next146
+  %arrayidx7.i121 = getelementptr inbounds nuw [8 x i64], ptr %c, i64 0, i64 %indvars.iv.next146
   %19 = load i64, ptr %arrayidx7.i121, align 8
   %shr8.i122 = lshr i64 %19, 56
   %add9.i123 = add nuw nsw i64 %shr8.i122, %and.i118
@@ -2222,15 +2222,15 @@ gf_weak_reduce.exit127:                           ; preds = %for.body.i115
 
 for.body.i.i73:                                   ; preds = %for.body.i.i73, %gf_weak_reduce.exit127
   %indvars.iv.i74 = phi i64 [ 0, %gf_weak_reduce.exit127 ], [ %indvars.iv.next.i82, %for.body.i.i73 ]
-  %arrayidx.i.i75 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i74
+  %arrayidx.i.i75 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.i74
   %21 = load i64, ptr %arrayidx.i.i75, align 8
-  %arrayidx4.i.i76 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i74
+  %arrayidx4.i.i76 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i74
   %22 = load i64, ptr %arrayidx4.i.i76, align 8
   %cmp7.i.i77 = icmp eq i64 %indvars.iv.i74, 4
   %cond.i.i78 = select i1 %cmp7.i.i77, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i79 = add i64 %cond.i.i78, %21
   %add.i.i80 = sub i64 %sub5.i.i79, %22
-  %arrayidx11.i.i81 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i74
+  %arrayidx11.i.i81 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.i74
   store i64 %add.i.i80, ptr %arrayidx11.i.i81, align 8
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 8
@@ -2247,10 +2247,10 @@ gf_sub_RAW.exit.i84:                              ; preds = %for.body.i.i73
 for.body.i8.i89:                                  ; preds = %for.body.i8.i89, %gf_sub_RAW.exit.i84
   %25 = phi i64 [ %23, %gf_sub_RAW.exit.i84 ], [ %26, %for.body.i8.i89 ]
   %indvars.iv24.i90 = phi i64 [ 7, %gf_sub_RAW.exit.i84 ], [ %indvars.iv.next25.i93, %for.body.i8.i89 ]
-  %arrayidx4.i10.i91 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i90
+  %arrayidx4.i10.i91 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv24.i90
   %and.i.i92 = and i64 %25, 72057594037927935
   %indvars.iv.next25.i93 = add nsw i64 %indvars.iv24.i90, -1
-  %arrayidx7.i.i94 = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i93
+  %arrayidx7.i.i94 = getelementptr inbounds nuw [8 x i64], ptr %b, i64 0, i64 %indvars.iv.next25.i93
   %26 = load i64, ptr %arrayidx7.i.i94, align 8
   %shr8.i.i95 = lshr i64 %26, 56
   %add9.i.i96 = add nuw nsw i64 %shr8.i.i95, %and.i.i92
@@ -2263,27 +2263,27 @@ gf_sub_nr.exit100:                                ; preds = %for.body.i8.i89
   %and15.i.i98 = and i64 %27, 72057594037927935
   %add16.i.i99 = add nuw nsw i64 %and15.i.i98, %shr.i.i86
   store i64 %add16.i.i99, ptr %b, align 16
-  %z = getelementptr inbounds i8, ptr %d, i64 128
+  %z = getelementptr inbounds nuw i8, ptr %d, i64 128
   br label %for.body.i
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit100, %for.body.i
   %indvars.iv148 = phi i64 [ 0, %gf_sub_nr.exit100 ], [ %indvars.iv.next149, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr %z, i64 0, i64 %indvars.iv148
+  %arrayidx.i = getelementptr inbounds nuw [8 x i64], ptr %z, i64 0, i64 %indvars.iv148
   %28 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv148
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv148
   %29 = load i64, ptr %arrayidx4.i, align 8
   %add.i = add i64 %29, %28
-  %arrayidx7.i = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv148
+  %arrayidx7.i = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv148
   store i64 %add.i, ptr %arrayidx7.i, align 8
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 8
   br i1 %exitcond151.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i132 = getelementptr inbounds i8, ptr %d, i64 120
+  %arrayidx.i132 = getelementptr inbounds nuw i8, ptr %d, i64 120
   %30 = load i64, ptr %arrayidx.i132, align 8
   %shr.i133 = lshr i64 %30, 56
-  %arrayidx2.i134 = getelementptr inbounds i8, ptr %d, i64 96
+  %arrayidx2.i134 = getelementptr inbounds nuw i8, ptr %d, i64 96
   %31 = load i64, ptr %arrayidx2.i134, align 16
   %add.i135 = add i64 %31, %shr.i133
   store i64 %add.i135, ptr %arrayidx2.i134, align 16
@@ -2292,10 +2292,10 @@ gf_add_RAW.exit:                                  ; preds = %for.body.i
 for.body.i140:                                    ; preds = %gf_add_RAW.exit, %for.body.i140
   %32 = phi i64 [ %30, %gf_add_RAW.exit ], [ %33, %for.body.i140 ]
   %indvars.iv152 = phi i64 [ 7, %gf_add_RAW.exit ], [ %indvars.iv.next153, %for.body.i140 ]
-  %arrayidx4.i142 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv152
+  %arrayidx4.i142 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv152
   %and.i143 = and i64 %32, 72057594037927935
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
-  %arrayidx7.i146 = getelementptr inbounds [8 x i64], ptr %y, i64 0, i64 %indvars.iv.next153
+  %arrayidx7.i146 = getelementptr inbounds nuw [8 x i64], ptr %y, i64 0, i64 %indvars.iv.next153
   %33 = load i64, ptr %arrayidx7.i146, align 8
   %shr8.i147 = lshr i64 %33, 56
   %add9.i148 = add nuw nsw i64 %shr8.i147, %and.i143
@@ -2312,25 +2312,25 @@ gf_weak_reduce.exit152:                           ; preds = %for.body.i140
 
 for.body.i.i101:                                  ; preds = %for.body.i.i101, %gf_weak_reduce.exit152
   %indvars.iv.i102 = phi i64 [ 0, %gf_weak_reduce.exit152 ], [ %indvars.iv.next.i110, %for.body.i.i101 ]
-  %arrayidx.i.i103 = getelementptr inbounds [8 x i64], ptr %z, i64 0, i64 %indvars.iv.i102
+  %arrayidx.i.i103 = getelementptr inbounds nuw [8 x i64], ptr %z, i64 0, i64 %indvars.iv.i102
   %35 = load i64, ptr %arrayidx.i.i103, align 8
-  %arrayidx4.i.i104 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i102
+  %arrayidx4.i.i104 = getelementptr inbounds nuw [8 x i64], ptr %d, i64 0, i64 %indvars.iv.i102
   %36 = load i64, ptr %arrayidx4.i.i104, align 8
   %cmp7.i.i105 = icmp eq i64 %indvars.iv.i102, 4
   %cond.i.i106 = select i1 %cmp7.i.i105, i64 144115188075855868, i64 144115188075855870
   %sub5.i.i107 = add i64 %cond.i.i106, %35
   %add.i.i108 = sub i64 %sub5.i.i107, %36
-  %arrayidx11.i.i109 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i102
+  %arrayidx11.i.i109 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.i102
   store i64 %add.i.i108, ptr %arrayidx11.i.i109, align 8
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 8
   br i1 %exitcond.not.i111, label %gf_sub_RAW.exit.i112, label %for.body.i.i101, !llvm.loop !7
 
 gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
-  %arrayidx.i4.i113 = getelementptr inbounds i8, ptr %a, i64 56
+  %arrayidx.i4.i113 = getelementptr inbounds nuw i8, ptr %a, i64 56
   %37 = load i64, ptr %arrayidx.i4.i113, align 8
   %shr.i.i114 = lshr i64 %37, 56
-  %arrayidx2.i.i115 = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx2.i.i115 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %38 = load i64, ptr %arrayidx2.i.i115, align 16
   %add.i5.i116 = add i64 %38, %shr.i.i114
   store i64 %add.i5.i116, ptr %arrayidx2.i.i115, align 16
@@ -2339,10 +2339,10 @@ gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
 for.body.i8.i117:                                 ; preds = %for.body.i8.i117, %gf_sub_RAW.exit.i112
   %39 = phi i64 [ %37, %gf_sub_RAW.exit.i112 ], [ %40, %for.body.i8.i117 ]
   %indvars.iv24.i118 = phi i64 [ 7, %gf_sub_RAW.exit.i112 ], [ %indvars.iv.next25.i121, %for.body.i8.i117 ]
-  %arrayidx4.i10.i119 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv24.i118
+  %arrayidx4.i10.i119 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv24.i118
   %and.i.i120 = and i64 %39, 72057594037927935
   %indvars.iv.next25.i121 = add nsw i64 %indvars.iv24.i118, -1
-  %arrayidx7.i.i122 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next25.i121
+  %arrayidx7.i.i122 = getelementptr inbounds nuw [8 x i64], ptr %a, i64 0, i64 %indvars.iv.next25.i121
   %40 = load i64, ptr %arrayidx7.i.i122, align 8
   %shr8.i.i123 = lshr i64 %40, 56
   %add9.i.i124 = add nuw nsw i64 %shr8.i.i123, %and.i.i120

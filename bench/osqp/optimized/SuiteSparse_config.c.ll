@@ -177,7 +177,7 @@ define void @SuiteSparse_tic(ptr nocapture noundef writeonly initializes((0, 16)
 define double @SuiteSparse_toc(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load double, ptr %0, align 8
   %3 = fsub double 0.000000e+00, %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double 0.000000e+00, %5
   %7 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e-09, double %3)
@@ -199,9 +199,9 @@ define noundef i32 @SuiteSparse_version(ptr noundef writeonly %0) local_unnamed_
 
 2:                                                ; preds = %1
   store i32 4, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 5, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %4, align 4
   br label %5
 

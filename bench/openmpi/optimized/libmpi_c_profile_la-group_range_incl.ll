@@ -85,7 +85,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.loopexit
   %indvars.iv129 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next130, %.loopexit ]
-  %31 = getelementptr inbounds [3 x i32], ptr %2, i64 %indvars.iv129
+  %31 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 %indvars.iv129
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %32, 0
   %34 = icmp sgt i32 %32, %.val
@@ -93,7 +93,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %or.cond99, label %.loopexit102, label %35
 
 35:                                               ; preds = %.lr.ph119
-  %36 = getelementptr inbounds i8, ptr %31, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
   %39 = icmp sgt i32 %37, %.val
@@ -101,7 +101,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %or.cond100, label %.loopexit102, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %31, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.loopexit102, label %44
@@ -126,7 +126,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %53
   %indvars.iv126 = phi i64 [ %48, %.lr.ph116.preheader ], [ %indvars.iv.next127, %53 ]
-  %51 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv126
+  %51 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv126
   %52 = load i32, ptr %51, align 4
   %.not98 = icmp eq i32 %52, -1
   br i1 %.not98, label %53, label %.loopexit102
@@ -172,7 +172,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 66:                                               ; preds = %55
   %67 = zext nneg i32 %32 to i64
-  %68 = getelementptr inbounds i32, ptr %23, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %23, i64 %67
   %69 = load i32, ptr %68, align 4
   %.not94 = icmp eq i32 %69, -1
   br i1 %.not94, label %70, label %.loopexit102
@@ -234,7 +234,7 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 88:                                               ; preds = %86, %.lr.ph.i
   %89 = phi i8 [ %82, %.lr.ph.i ], [ %.pre.i.i, %86 ]
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i
   %92 = load ptr, ptr %91, align 8
   %93 = trunc i8 %89 to i1
   br i1 %93, label %94, label %opal_pointer_array_get_item.exit.i
@@ -246,13 +246,13 @@ define i32 @PMPI_Group_range_incl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 opal_pointer_array_get_item.exit.i:               ; preds = %94, %88
   %96 = phi i8 [ %89, %88 ], [ %.pre.i, %94 ]
-  %97 = getelementptr inbounds i8, ptr %92, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, %73
   br i1 %99, label %100, label %78
 
 100:                                              ; preds = %opal_pointer_array_get_item.exit.i
-  %101 = getelementptr inbounds i8, ptr %92, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %102 = load i32, ptr %101, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

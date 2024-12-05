@@ -890,7 +890,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %11
   store i32 1819242306, ptr %7, align 1
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -905,7 +905,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 22:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store ptr %24, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -920,7 +920,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.2, i64 6, i1 false)
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store ptr %31, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -935,7 +935,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 36:                                               ; preds = %32
   store i32 947154505, ptr %7, align 1
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store ptr %38, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -950,7 +950,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 5
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 5
   store ptr %45, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -965,7 +965,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 50:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, i64 5, i1 false)
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 5
   store ptr %52, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -980,7 +980,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 5
   store ptr %59, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -995,7 +995,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 64:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 5
   store ptr %66, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1010,7 +1010,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false)
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store ptr %73, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1025,7 +1025,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 78:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, i64 6, i1 false)
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 6
   store ptr %80, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1040,7 +1040,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 6
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 6
   store ptr %87, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1055,7 +1055,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 92:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, i64 7, i1 false)
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 7
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 7
   store ptr %94, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1145,7 +1145,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   store i32 1701736270, ptr %8, align 1
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1167,7 +1167,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   store i32 1684631382, ptr %22, align 1
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1189,7 +1189,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   store i32 1918986307, ptr %36, align 1
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1211,7 +1211,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %50, ptr noundef nonnull align 1 dereferenceable(6) @.str.15, i64 6, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1233,7 +1233,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %64, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, i64 3, i1 false)
   %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 3
   store ptr %73, ptr %63, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1255,7 +1255,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %74
   store i32 1953384789, ptr %78, align 1
   %86 = load ptr, ptr %77, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store ptr %87, ptr %77, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1277,7 +1277,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 99:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %92, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
   %100 = load ptr, ptr %91, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 5
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 5
   store ptr %101, ptr %91, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1299,7 +1299,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 113:                                              ; preds = %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %106, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
   %114 = load ptr, ptr %105, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 3
   store ptr %115, ptr %105, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1321,7 +1321,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 127:                                              ; preds = %116
   store i32 1819242306, ptr %120, align 1
   %128 = load ptr, ptr %119, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store ptr %129, ptr %119, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1343,7 +1343,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 141:                                              ; preds = %130
   store i32 1735290700, ptr %134, align 1
   %142 = load ptr, ptr %133, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store ptr %143, ptr %133, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1365,7 +1365,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 155:                                              ; preds = %144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %148, ptr noundef nonnull align 1 dereferenceable(5) @.str.21, i64 5, i1 false)
   %156 = load ptr, ptr %147, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 5
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 5
   store ptr %157, ptr %147, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1387,7 +1387,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 169:                                              ; preds = %158
   store i64 8746956283274491203, ptr %162, align 1
   %170 = load ptr, ptr %161, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %171, ptr %161, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1409,7 +1409,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 183:                                              ; preds = %172
   store i32 1702125892, ptr %176, align 1
   %184 = load ptr, ptr %175, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store ptr %185, ptr %175, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1431,7 +1431,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 197:                                              ; preds = %186
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %190, ptr noundef nonnull align 1 dereferenceable(7) @.str.24, i64 7, i1 false)
   %198 = load ptr, ptr %189, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 7
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 7
   store ptr %199, ptr %189, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1453,7 +1453,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 211:                                              ; preds = %200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %204, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, i64 7, i1 false)
   %212 = load ptr, ptr %203, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 7
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 7
   store ptr %213, ptr %203, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1475,7 +1475,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 225:                                              ; preds = %214
   store i64 7236270204642421058, ptr %218, align 1
   %226 = load ptr, ptr %217, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr %227, ptr %217, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1497,7 +1497,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 239:                                              ; preds = %228
   store i32 1381258050, ptr %232, align 1
   %240 = load ptr, ptr %231, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   store ptr %241, ptr %231, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1519,7 +1519,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 253:                                              ; preds = %242
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %246, ptr noundef nonnull align 1 dereferenceable(7) @.str.28, i64 7, i1 false)
   %254 = load ptr, ptr %245, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 7
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 7
   store ptr %255, ptr %245, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1541,7 +1541,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 267:                                              ; preds = %256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %260, ptr noundef nonnull align 1 dereferenceable(6) @.str.29, i64 6, i1 false)
   %268 = load ptr, ptr %259, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 6
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 6
   store ptr %269, ptr %259, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1563,7 +1563,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 281:                                              ; preds = %270
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %274, ptr noundef nonnull align 1 dereferenceable(6) @.str.30, i64 6, i1 false)
   %282 = load ptr, ptr %273, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 6
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 6
   store ptr %283, ptr %273, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1585,7 +1585,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 295:                                              ; preds = %284
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %288, ptr noundef nonnull align 1 dereferenceable(5) @.str.31, i64 5, i1 false)
   %296 = load ptr, ptr %287, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 5
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 5
   store ptr %297, ptr %287, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1612,7 +1612,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 13:                                               ; preds = %2
   store i16 24415, ptr %6, align 1
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store ptr %15, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -1662,7 +1662,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 26:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %19, ptr noundef nonnull align 1 dereferenceable(5) @.str.33, i64 5, i1 false)
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 5
   store ptr %28, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1682,7 +1682,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 38:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %31, ptr noundef nonnull align 1 dereferenceable(5) @.str.33, i64 5, i1 false)
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 5
   store ptr %40, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1702,7 +1702,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 50:                                               ; preds = %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %43, ptr noundef nonnull align 1 dereferenceable(6) @.str.34, i64 6, i1 false)
   %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 6
   store ptr %52, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1722,7 +1722,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 62:                                               ; preds = %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %55, ptr noundef nonnull align 1 dereferenceable(6) @.str.34, i64 6, i1 false)
   %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 6
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store ptr %64, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1742,7 +1742,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 74:                                               ; preds = %65
   store i64 7812726533364343142, ptr %67, align 1
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %76, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1762,7 +1762,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 86:                                               ; preds = %77
   store i64 7812726533364343142, ptr %79, align 1
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %88, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1782,7 +1782,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 98:                                               ; preds = %89
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %91, ptr noundef nonnull align 1 dereferenceable(7) @.str.36, i64 7, i1 false)
   %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 7
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 7
   store ptr %100, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1802,7 +1802,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 110:                                              ; preds = %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %103, ptr noundef nonnull align 1 dereferenceable(7) @.str.36, i64 7, i1 false)
   %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 7
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 7
   store ptr %112, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1822,7 +1822,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 122:                                              ; preds = %113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %115, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false)
   %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 7
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 7
   store ptr %124, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1842,7 +1842,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 134:                                              ; preds = %125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %127, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false)
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 7
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 7
   store ptr %136, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1862,7 +1862,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 146:                                              ; preds = %137
   store i64 7812726533346912372, ptr %139, align 1
   %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %148, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1882,7 +1882,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 158:                                              ; preds = %149
   store i64 7812726533347371373, ptr %151, align 1
   %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr %160, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1902,7 +1902,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 170:                                              ; preds = %161
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %163, ptr noundef nonnull align 1 dereferenceable(11) @.str.40, i64 11, i1 false)
   %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 11
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 11
   store ptr %172, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1922,7 +1922,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 182:                                              ; preds = %173
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %175, ptr noundef nonnull align 1 dereferenceable(9) @.str.41, i64 9, i1 false)
   %183 = load ptr, ptr %5, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 9
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 9
   store ptr %184, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1942,7 +1942,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 194:                                              ; preds = %185
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %187, ptr noundef nonnull align 1 dereferenceable(7) @.str.42, i64 7, i1 false)
   %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 7
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 7
   store ptr %196, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1962,7 +1962,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 206:                                              ; preds = %197
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %199, ptr noundef nonnull align 1 dereferenceable(10) @.str.43, i64 10, i1 false)
   %207 = load ptr, ptr %5, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 10
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 10
   store ptr %208, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -1982,7 +1982,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 218:                                              ; preds = %209
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %211, ptr noundef nonnull align 1 dereferenceable(7) @.str.44, i64 7, i1 false)
   %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 7
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 7
   store ptr %220, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2002,7 +2002,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 230:                                              ; preds = %221
   store i64 7812726532269632865, ptr %223, align 1
   %231 = load ptr, ptr %5, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store ptr %232, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2022,7 +2022,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 242:                                              ; preds = %233
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %235, ptr noundef nonnull align 1 dereferenceable(7) @.str.46, i64 7, i1 false)
   %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 7
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 7
   store ptr %244, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2042,7 +2042,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 254:                                              ; preds = %245
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %247, ptr noundef nonnull align 1 dereferenceable(7) @.str.47, i64 7, i1 false)
   %255 = load ptr, ptr %5, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 7
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 7
   store ptr %256, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2062,7 +2062,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 266:                                              ; preds = %257
   store i64 7812726533326517101, ptr %259, align 1
   %267 = load ptr, ptr %5, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr %268, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2082,7 +2082,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 278:                                              ; preds = %269
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %271, ptr noundef nonnull align 1 dereferenceable(7) @.str.49, i64 7, i1 false)
   %279 = load ptr, ptr %5, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 7
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 7
   store ptr %280, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2102,7 +2102,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 290:                                              ; preds = %281
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %283, ptr noundef nonnull align 1 dereferenceable(10) @.str.50, i64 10, i1 false)
   %291 = load ptr, ptr %5, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 10
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 10
   store ptr %292, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2122,7 +2122,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 302:                                              ; preds = %293
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %295, ptr noundef nonnull align 1 dereferenceable(10) @.str.51, i64 10, i1 false)
   %303 = load ptr, ptr %5, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 10
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 10
   store ptr %304, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2142,7 +2142,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 314:                                              ; preds = %305
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %307, ptr noundef nonnull align 1 dereferenceable(9) @.str.52, i64 9, i1 false)
   %315 = load ptr, ptr %5, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 9
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 9
   store ptr %316, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
@@ -2184,7 +2184,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %8, ptr noundef nonnull align 1 dereferenceable(7) @.str.53, i64 7, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 7
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2206,7 +2206,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.54, i64 5, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2228,7 +2228,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %36, ptr noundef nonnull align 1 dereferenceable(12) @.str.55, i64 12, i1 false)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2250,7 +2250,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %50, ptr noundef nonnull align 1 dereferenceable(5) @.str.56, i64 5, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 5
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2272,7 +2272,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %60
   store i64 8247340102299773044, ptr %64, align 1
   %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %73, ptr %63, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2294,7 +2294,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %78, ptr noundef nonnull align 1 dereferenceable(13) @.str.58, i64 13, i1 false)
   %86 = load ptr, ptr %77, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 13
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 13
   store ptr %87, ptr %77, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2316,7 +2316,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 99:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %92, ptr noundef nonnull align 1 dereferenceable(6) @.str.59, i64 6, i1 false)
   %100 = load ptr, ptr %91, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 6
   store ptr %101, ptr %91, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2338,7 +2338,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 113:                                              ; preds = %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %106, ptr noundef nonnull align 1 dereferenceable(6) @.str.60, i64 6, i1 false)
   %114 = load ptr, ptr %105, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 6
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 6
   store ptr %115, ptr %105, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2360,7 +2360,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 127:                                              ; preds = %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %120, ptr noundef nonnull align 1 dereferenceable(13) @.str.61, i64 13, i1 false)
   %128 = load ptr, ptr %119, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 13
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 13
   store ptr %129, ptr %119, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2382,7 +2382,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 141:                                              ; preds = %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %134, ptr noundef nonnull align 1 dereferenceable(5) @.str.62, i64 5, i1 false)
   %142 = load ptr, ptr %133, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 5
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 5
   store ptr %143, ptr %133, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5736,7 +5736,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.719, i64 6, i1 false)
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store ptr %17, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5751,7 +5751,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 22:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.720, i64 3, i1 false)
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3
   store ptr %24, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5766,7 +5766,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.721, i64 6, i1 false)
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store ptr %31, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5781,7 +5781,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 36:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.722, i64 7, i1 false)
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 7
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 7
   store ptr %38, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5796,7 +5796,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %39
   store i64 8243122732010005874, ptr %7, align 1
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5811,7 +5811,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 50:                                               ; preds = %46
   store i64 7236270204642421090, ptr %7, align 1
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %52, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5826,7 +5826,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %53
   store i32 1953459315, ptr %7, align 1
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store ptr %59, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5841,7 +5841,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 64:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.726, i64 6, i1 false)
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   store ptr %66, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5856,7 +5856,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %67
   store i64 7022344802737087853, ptr %7, align 1
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %73, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5871,7 +5871,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 78:                                               ; preds = %74
   store i64 8389750308618530659, ptr %7, align 1
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %80, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5886,7 +5886,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) @.str.729, i64 16, i1 false)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %87, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5901,7 +5901,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 92:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, i64 7, i1 false)
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 7
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 7
   store ptr %94, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5940,7 +5940,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @.str.730, i64 12, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5962,7 +5962,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.731, i64 5, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -5984,7 +5984,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   store i64 7237954635114312787, ptr %36, align 1
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6006,7 +6006,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %50, ptr noundef nonnull align 1 dereferenceable(12) @.str.733, i64 12, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6028,7 +6028,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %64, ptr noundef nonnull align 1 dereferenceable(16) @.str.734, i64 16, i1 false)
   %72 = load ptr, ptr %63, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %73, ptr %63, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6050,7 +6050,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %78, ptr noundef nonnull align 1 dereferenceable(11) @.str.735, i64 11, i1 false)
   %86 = load ptr, ptr %77, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 11
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 11
   store ptr %87, ptr %77, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6072,7 +6072,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 99:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %92, ptr noundef nonnull align 1 dereferenceable(5) @.str.736, i64 5, i1 false)
   %100 = load ptr, ptr %91, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 5
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 5
   store ptr %101, ptr %91, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6108,7 +6108,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   store i32 1701736270, ptr %8, align 1
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6130,7 +6130,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %22, ptr noundef nonnull align 1 dereferenceable(3) @.str.737, i64 3, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6152,7 +6152,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   store i32 826361939, ptr %36, align 1
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6174,7 +6174,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %50, ptr noundef nonnull align 1 dereferenceable(6) @.str.739, i64 6, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6228,7 +6228,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 12:                                               ; preds = %4
   store i8 67, ptr %8, align 1
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %14, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6250,7 +6250,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 26:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) @.str.741, i64 3, i1 false)
   %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 3
   store ptr %28, ptr %18, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6272,7 +6272,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 40:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %33, ptr noundef nonnull align 1 dereferenceable(7) @.str.742, i64 7, i1 false)
   %41 = load ptr, ptr %32, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 7
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 7
   store ptr %42, ptr %32, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6294,7 +6294,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 54:                                               ; preds = %43
   store i32 1836278093, ptr %47, align 1
   %55 = load ptr, ptr %46, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store ptr %56, ptr %46, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6316,7 +6316,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 68:                                               ; preds = %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %61, ptr noundef nonnull align 1 dereferenceable(6) @.str.744, i64 6, i1 false)
   %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 6
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 6
   store ptr %70, ptr %60, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6338,7 +6338,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 82:                                               ; preds = %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %75, ptr noundef nonnull align 1 dereferenceable(5) @.str.745, i64 5, i1 false)
   %83 = load ptr, ptr %74, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 5
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 5
   store ptr %84, ptr %74, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6360,7 +6360,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 96:                                               ; preds = %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %89, ptr noundef nonnull align 1 dereferenceable(5) @.str.746, i64 5, i1 false)
   %97 = load ptr, ptr %88, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 5
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 5
   store ptr %98, ptr %88, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6382,7 +6382,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 110:                                              ; preds = %99
   store i32 1802398028, ptr %103, align 1
   %111 = load ptr, ptr %102, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store ptr %112, ptr %102, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6404,7 +6404,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 124:                                              ; preds = %113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %117, ptr noundef nonnull align 1 dereferenceable(6) @.str.748, i64 6, i1 false)
   %125 = load ptr, ptr %116, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 6
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 6
   store ptr %126, ptr %116, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6426,7 +6426,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 138:                                              ; preds = %127
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %131, ptr noundef nonnull align 1 dereferenceable(6) @.str.749, i64 6, i1 false)
   %139 = load ptr, ptr %130, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 6
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 6
   store ptr %140, ptr %130, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6448,7 +6448,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 152:                                              ; preds = %141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %145, ptr noundef nonnull align 1 dereferenceable(6) @.str.750, i64 6, i1 false)
   %153 = load ptr, ptr %144, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 6
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 6
   store ptr %154, ptr %144, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6470,7 +6470,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 166:                                              ; preds = %155
   store i16 16982, ptr %159, align 1
   %167 = load ptr, ptr %158, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
   store ptr %168, ptr %158, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6492,7 +6492,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 180:                                              ; preds = %169
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %173, ptr noundef nonnull align 1 dereferenceable(5) @.str.752, i64 5, i1 false)
   %181 = load ptr, ptr %172, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 5
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 5
   store ptr %182, ptr %172, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6514,7 +6514,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 194:                                              ; preds = %183
   store i32 1635148106, ptr %187, align 1
   %195 = load ptr, ptr %186, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   store ptr %196, ptr %186, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6536,7 +6536,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 208:                                              ; preds = %197
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %201, ptr noundef nonnull align 1 dereferenceable(7) @.str.754, i64 7, i1 false)
   %209 = load ptr, ptr %200, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 7
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 7
   store ptr %210, ptr %200, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6558,7 +6558,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 222:                                              ; preds = %211
   store i32 1279873869, ptr %215, align 1
   %223 = load ptr, ptr %214, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   store ptr %224, ptr %214, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6580,7 +6580,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 236:                                              ; preds = %225
   store i32 1280527432, ptr %229, align 1
   %237 = load ptr, ptr %228, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   store ptr %238, ptr %228, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6599,7 +6599,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 247:                                              ; preds = %239
   store i8 68, ptr %243, align 1
   %248 = load ptr, ptr %242, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 1
   store ptr %249, ptr %242, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6621,7 +6621,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 261:                                              ; preds = %250
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %254, ptr noundef nonnull align 1 dereferenceable(5) @.str.758, i64 5, i1 false)
   %262 = load ptr, ptr %253, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 5
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 5
   store ptr %263, ptr %253, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6643,7 +6643,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 275:                                              ; preds = %264
   store i32 1953723730, ptr %268, align 1
   %276 = load ptr, ptr %267, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 4
   store ptr %277, ptr %267, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6665,7 +6665,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 289:                                              ; preds = %278
   store i32 1131045455, ptr %282, align 1
   %290 = load ptr, ptr %281, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 4
   store ptr %291, ptr %281, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6687,7 +6687,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 303:                                              ; preds = %292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %296, ptr noundef nonnull align 1 dereferenceable(6) @.str.761, i64 6, i1 false)
   %304 = load ptr, ptr %295, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 6
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 6
   store ptr %305, ptr %295, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6709,7 +6709,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 317:                                              ; preds = %306
   store i64 7665776872712137793, ptr %310, align 1
   %318 = load ptr, ptr %309, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store ptr %319, ptr %309, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6731,7 +6731,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 331:                                              ; preds = %320
   store i16 28487, ptr %324, align 1
   %332 = load ptr, ptr %323, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 2
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 2
   store ptr %333, ptr %323, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6753,7 +6753,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 345:                                              ; preds = %334
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %338, ptr noundef nonnull align 1 dereferenceable(5) @.str.758, i64 5, i1 false)
   %346 = load ptr, ptr %337, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 5
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 5
   store ptr %347, ptr %337, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6827,7 +6827,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.764, i64 3, i1 false)
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 3
   store ptr %17, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6842,7 +6842,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 22:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.765, i64 9, i1 false)
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   store ptr %24, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6857,7 +6857,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) @.str.766, i64 16, i1 false)
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %31, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6872,7 +6872,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 36:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, ptr noundef nonnull align 1 dereferenceable(12) @.str.767, i64 12, i1 false)
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store ptr %38, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6887,7 +6887,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %39
   store i64 7957695015192261958, ptr %7, align 1
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6902,7 +6902,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 50:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.769, i64 5, i1 false)
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 5
   store ptr %52, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6917,7 +6917,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %53
   store i32 1635017028, ptr %7, align 1
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store ptr %59, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6932,7 +6932,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 64:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.771, i64 10, i1 false)
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 10
   store ptr %66, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6947,7 +6947,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.772, i64 5, i1 false)
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 5
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 5
   store ptr %73, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6962,7 +6962,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 78:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, ptr noundef nonnull align 1 dereferenceable(12) @.str.773, i64 12, i1 false)
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   store ptr %80, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6977,7 +6977,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.774, i64 3, i1 false)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 3
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 3
   store ptr %87, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6992,7 +6992,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 92:                                               ; preds = %88
   store i32 1836412485, ptr %7, align 1
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store ptr %94, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7007,7 +7007,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 99:                                               ; preds = %95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.776, i64 11, i1 false)
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 11
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 11
   store ptr %101, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7022,7 +7022,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 106:                                              ; preds = %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.777, i64 11, i1 false)
   %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 11
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 11
   store ptr %108, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7037,7 +7037,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 113:                                              ; preds = %109
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.778, i64 9, i1 false)
   %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 9
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 9
   store ptr %115, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7052,7 +7052,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 120:                                              ; preds = %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.779, i64 11, i1 false)
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 11
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 11
   store ptr %122, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7067,7 +7067,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 127:                                              ; preds = %123
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.780, i64 7, i1 false)
   %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 7
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 7
   store ptr %129, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7082,7 +7082,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 134:                                              ; preds = %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.781, i64 9, i1 false)
   %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 9
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 9
   store ptr %136, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7097,7 +7097,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 141:                                              ; preds = %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.782, i64 6, i1 false)
   %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 6
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 6
   store ptr %143, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7112,7 +7112,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 148:                                              ; preds = %144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.783, i64 11, i1 false)
   %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 11
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 11
   store ptr %150, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7127,7 +7127,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 155:                                              ; preds = %151
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.784, i64 14, i1 false)
   %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 14
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 14
   store ptr %157, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7142,7 +7142,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 162:                                              ; preds = %158
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %7, ptr noundef nonnull align 1 dereferenceable(12) @.str.785, i64 12, i1 false)
   %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 12
   store ptr %164, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7157,7 +7157,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 169:                                              ; preds = %165
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.786, i64 14, i1 false)
   %170 = load ptr, ptr %6, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 14
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 14
   store ptr %171, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7172,7 +7172,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 176:                                              ; preds = %172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.787, i64 11, i1 false)
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 11
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 11
   store ptr %178, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7187,7 +7187,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 183:                                              ; preds = %179
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.788, i64 6, i1 false)
   %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 6
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 6
   store ptr %185, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7202,7 +7202,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 190:                                              ; preds = %186
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.789, i64 6, i1 false)
   %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 6
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 6
   store ptr %192, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7217,7 +7217,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 197:                                              ; preds = %193
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.790, i64 5, i1 false)
   %198 = load ptr, ptr %6, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 5
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 5
   store ptr %199, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7232,7 +7232,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 204:                                              ; preds = %200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.791, i64 10, i1 false)
   %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 10
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 10
   store ptr %206, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7247,7 +7247,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 211:                                              ; preds = %207
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %7, ptr noundef nonnull align 1 dereferenceable(11) @.str.792, i64 11, i1 false)
   %212 = load ptr, ptr %6, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 11
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 11
   store ptr %213, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7262,7 +7262,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 218:                                              ; preds = %214
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.793, i64 9, i1 false)
   %219 = load ptr, ptr %6, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 9
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 9
   store ptr %220, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7277,7 +7277,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 225:                                              ; preds = %221
   store i64 7310583902151401795, ptr %7, align 1
   %226 = load ptr, ptr %6, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr %227, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7292,7 +7292,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 232:                                              ; preds = %228
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.795, i64 10, i1 false)
   %233 = load ptr, ptr %6, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 10
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 10
   store ptr %234, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7307,7 +7307,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 239:                                              ; preds = %235
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.796, i64 13, i1 false)
   %240 = load ptr, ptr %6, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 13
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 13
   store ptr %241, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7322,7 +7322,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 246:                                              ; preds = %242
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.797, i64 10, i1 false)
   %247 = load ptr, ptr %6, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 10
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 10
   store ptr %248, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7337,7 +7337,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 253:                                              ; preds = %249
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str.798, i64 10, i1 false)
   %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 10
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 10
   store ptr %255, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7352,7 +7352,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 260:                                              ; preds = %256
   store i64 7309475598187056200, ptr %7, align 1
   %261 = load ptr, ptr %6, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store ptr %262, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7367,7 +7367,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 267:                                              ; preds = %263
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.800, i64 6, i1 false)
   %268 = load ptr, ptr %6, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 6
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 6
   store ptr %269, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7382,7 +7382,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 274:                                              ; preds = %270
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.801, i64 6, i1 false)
   %275 = load ptr, ptr %6, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 6
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 6
   store ptr %276, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7397,7 +7397,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 281:                                              ; preds = %277
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.802, i64 6, i1 false)
   %282 = load ptr, ptr %6, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 6
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 6
   store ptr %283, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7412,7 +7412,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 288:                                              ; preds = %284
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %7, ptr noundef nonnull align 1 dereferenceable(18) @.str.803, i64 18, i1 false)
   %289 = load ptr, ptr %6, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 18
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 18
   store ptr %290, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7427,7 +7427,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 295:                                              ; preds = %291
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.804, i64 9, i1 false)
   %296 = load ptr, ptr %6, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 9
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 9
   store ptr %297, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7442,7 +7442,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 302:                                              ; preds = %298
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.805, i64 7, i1 false)
   %303 = load ptr, ptr %6, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 7
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 7
   store ptr %304, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7457,7 +7457,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 309:                                              ; preds = %305
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %7, ptr noundef nonnull align 1 dereferenceable(15) @.str.806, i64 15, i1 false)
   %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 15
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 15
   store ptr %311, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit171
 
@@ -7499,7 +7499,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.807, i64 6, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7521,7 +7521,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(9) @.str.808, i64 9, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 9
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7543,7 +7543,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %36, ptr noundef nonnull align 1 dereferenceable(7) @.str.809, i64 7, i1 false)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 7
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7579,7 +7579,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.810, i64 5, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 5
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7601,7 +7601,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, ptr noundef nonnull align 1 dereferenceable(6) @.str.811, i64 6, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7623,7 +7623,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %36, ptr noundef nonnull align 1 dereferenceable(9) @.str.812, i64 9, i1 false)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 9
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 9
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7645,7 +7645,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %50, ptr noundef nonnull align 1 dereferenceable(5) @.str.813, i64 5, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 5
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7697,7 +7697,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 15:                                               ; preds = %11
   store i32 859008321, ptr %7, align 1
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7712,7 +7712,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 22:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.815, i64 5, i1 false)
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 5
   store ptr %24, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7727,7 +7727,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.816, i64 3, i1 false)
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store ptr %31, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7742,7 +7742,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 36:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.817, i64 5, i1 false)
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 5
   store ptr %38, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7757,7 +7757,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 43:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.818, i64 3, i1 false)
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store ptr %45, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7772,7 +7772,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 50:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.819, i64 3, i1 false)
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 3
   store ptr %52, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7787,7 +7787,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 57:                                               ; preds = %53
   store i32 875979081, ptr %7, align 1
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store ptr %59, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7802,7 +7802,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 64:                                               ; preds = %60
   store i32 1379021645, ptr %7, align 1
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store ptr %66, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7817,7 +7817,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 71:                                               ; preds = %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.822, i64 6, i1 false)
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store ptr %73, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7832,7 +7832,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 78:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.823, i64 7, i1 false)
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 7
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 7
   store ptr %80, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7847,7 +7847,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 85:                                               ; preds = %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.824, i64 9, i1 false)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 9
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 9
   store ptr %87, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7862,7 +7862,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 92:                                               ; preds = %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.825, i64 7, i1 false)
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 7
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 7
   store ptr %94, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7877,7 +7877,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 99:                                               ; preds = %95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.826, i64 9, i1 false)
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 9
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 9
   store ptr %101, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7892,7 +7892,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 106:                                              ; preds = %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.827, i64 5, i1 false)
   %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 5
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 5
   store ptr %108, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7907,7 +7907,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 113:                                              ; preds = %109
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.828, i64 3, i1 false)
   %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 3
   store ptr %115, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7922,7 +7922,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 120:                                              ; preds = %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.829, i64 6, i1 false)
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 6
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 6
   store ptr %122, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7937,7 +7937,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 127:                                              ; preds = %123
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.830, i64 3, i1 false)
   %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 3
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 3
   store ptr %129, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7952,7 +7952,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 134:                                              ; preds = %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.831, i64 3, i1 false)
   %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 3
   store ptr %136, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7967,7 +7967,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 141:                                              ; preds = %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, ptr noundef nonnull align 1 dereferenceable(5) @.str.832, i64 5, i1 false)
   %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 5
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 5
   store ptr %143, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7982,7 +7982,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 148:                                              ; preds = %144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.833, i64 9, i1 false)
   %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 9
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 9
   store ptr %150, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -7997,7 +7997,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 155:                                              ; preds = %151
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, i64 7, i1 false)
   %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 7
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 7
   store ptr %157, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8033,7 +8033,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 14:                                               ; preds = %10
   store i32 1701736270, ptr %6, align 1
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store ptr %16, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8048,7 +8048,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 21:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, ptr noundef nonnull align 1 dereferenceable(7) @.str.834, i64 7, i1 false)
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 7
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 7
   store ptr %23, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8063,7 +8063,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 28:                                               ; preds = %24
   store i16 23116, ptr %6, align 1
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store ptr %30, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8078,7 +8078,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 35:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) @.str.836, i64 3, i1 false)
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
   store ptr %37, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8093,7 +8093,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 42:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) @.str.837, i64 6, i1 false)
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 6
   store ptr %44, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8108,7 +8108,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdb24
 49:                                               ; preds = %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @.str.838, i64 9, i1 false)
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 9
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 9
   store ptr %51, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
 
@@ -8130,7 +8130,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %47, %49
 61:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit22
   store i8 41, ptr %57, align 1
   %62 = load ptr, ptr %56, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %63, ptr %56, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8179,7 +8179,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 20:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %13, ptr noundef nonnull align 1 dereferenceable(4) %8, i64 %9, i1 false)
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %9
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %9
   store ptr %22, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8316,7 +8316,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 13:                                               ; preds = %2
   store i8 46, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8340,7 +8340,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 27:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 46, ptr %23, align 1
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %22, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -8368,7 +8368,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 
 7:                                                ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit7
   %.sroa.08.013 = phi ptr [ %.sroa.08.011, %.lr.ph ], [ %.sroa.08.0, %_ZN4llvm11raw_ostreamlsEPKc.exit7 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   %9 = load i64, ptr %8, align 4
   store i64 %9, ptr %3, align 8
   %10 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11raw_ostreamERKNS0_11PDB_SymTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -8384,7 +8384,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdbls
 16:                                               ; preds = %7
   store i8 58, ptr %12, align 1
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -8406,7 +8406,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 32, ptr %24, align 1
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %23, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 

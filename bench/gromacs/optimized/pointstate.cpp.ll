@@ -5,13 +5,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN3gmx10PointState9samplePmfEd(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fcmp ogt double %4, 0.000000e+00
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load double, ptr %7, align 8
   %9 = fneg double %1
   %10 = fcmp ogt double %8, %9
@@ -23,7 +23,7 @@ define void @_ZN3gmx10PointState9samplePmfEd(ptr nocapture noundef nonnull align
   %16 = tail call double @log1p(double noundef %15) #3
   %17 = fadd double %11, %16
   store double %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load double, ptr %18, align 8
   %20 = fadd double %19, 1.000000e+00
   store double %20, ptr %18, align 8
@@ -44,13 +44,13 @@ declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN3gmx10PointState18updatePmfUnvisitedEd(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fcmp ogt double %4, 0.000000e+00
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load double, ptr %7, align 8
   %9 = fneg double %1
   %10 = fcmp ogt double %8, %9

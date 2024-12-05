@@ -137,15 +137,15 @@ entry:
   %ref.tmp77 = alloca %"struct.Imf_3_2::Channel", align 8
   %out = alloca %"class.Imf_3_2::DeepTiledOutputFile", align 8
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
-  %ref.tmp31.sink60.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
-  %ref.tmp31.sink60.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp42, i64 4
-  %ref.tmp31.sink60.sroa.gep65 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  %ref.tmp31.sink60.sroa.gep66 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
-  %ref.tmp31.sink60.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp31, i64 12
-  %ref.tmp31.sink60.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp42, i64 12
+  %ref.tmp31.sink60.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 4
+  %ref.tmp31.sink60.sroa.gep63 = getelementptr inbounds nuw i8, ptr %ref.tmp42, i64 4
+  %ref.tmp31.sink60.sroa.gep65 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 8
+  %ref.tmp31.sink60.sroa.gep66 = getelementptr inbounds nuw i8, ptr %ref.tmp42, i64 8
+  %ref.tmp31.sink60.sroa.gep68 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 12
+  %ref.tmp31.sink60.sroa.gep69 = getelementptr inbounds nuw i8, ptr %ref.tmp42, i64 12
   %call = invoke ptr @_ZNK7Imf_3_26Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
           to label %for.cond unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 
@@ -159,7 +159,7 @@ invoke.cont7:                                     ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.13) #13
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %for.inc, label %invoke.cont12
@@ -175,7 +175,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   br i1 %tobool20.not, label %for.inc, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 288
   %0 = load ptr, ptr %second.i, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %for.inc unwind label %lpad.loopexit.split-lp50.loopexit
@@ -216,7 +216,7 @@ invoke.cont32:                                    ; preds = %if.then30
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %ySize = getelementptr inbounds i8, ptr %call35, i64 4
+  %ySize = getelementptr inbounds nuw i8, ptr %call35, i64 4
   %2 = load i32, ptr %ySize, align 4
   %call37 = invoke noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont36 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -266,17 +266,17 @@ invoke.cont51:                                    ; preds = %if.end49
 invoke.cont52:                                    ; preds = %invoke.cont51
   %3 = load i32, ptr %ref.tmp50, align 4
   store i32 %3, ptr %call53, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp50, i64 4
   %4 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call53, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call53, i64 4
   store i32 %4, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call53, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call53, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %ref.tmp50, i64 8
   %5 = load i32, ptr %max3.i, align 4
   store i32 %5, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp50, i64 12
   %6 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call53, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call53, i64 12
   store i32 %6, ptr %y3.i3.i, align 4
   %call56 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %newHdr)
           to label %invoke.cont55 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -284,7 +284,7 @@ invoke.cont52:                                    ; preds = %invoke.cont51
 invoke.cont55:                                    ; preds = %invoke.cont52
   store i32 2, ptr %call56, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %7 = load ptr, ptr %vfn, align 8
   %call58 = invoke noundef nonnull align 8 dereferenceable(192) ptr %7(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
@@ -294,7 +294,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %for.cond64.preheader unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 
 for.cond64.preheader:                             ; preds = %invoke.cont57
-  %8 = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 8
   br label %for.cond64
 
 for.cond64:                                       ; preds = %for.cond64.preheader, %for.inc83
@@ -311,13 +311,13 @@ for.body72:                                       ; preds = %invoke.cont70
           to label %invoke.cont73 unwind label %lpad.loopexit49
 
 invoke.cont73:                                    ; preds = %for.body72
-  %second.i32 = getelementptr inbounds i8, ptr %i59.sroa.0.0, i64 64
+  %second.i32 = getelementptr inbounds nuw i8, ptr %i59.sroa.0.0, i64 64
   %9 = load ptr, ptr %second.i32, align 8
   %call81 = invoke { i64, i64 } @_ZNK7Imf_3_212ImageChannel7channelEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %invoke.cont80 unwind label %lpad.loopexit49
 
 invoke.cont80:                                    ; preds = %invoke.cont73
-  %_M_storage.i.i.i31 = getelementptr inbounds i8, ptr %i59.sroa.0.0, i64 32
+  %_M_storage.i.i.i31 = getelementptr inbounds nuw i8, ptr %i59.sroa.0.0, i64 32
   %10 = extractvalue { i64, i64 } %call81, 0
   store i64 %10, ptr %ref.tmp77, align 8
   %11 = extractvalue { i64, i64 } %call81, 1
@@ -448,7 +448,7 @@ entry:
   %ref.tmp70 = alloca %"struct.Imf_3_2::DeepSlice", align 8
   %out = alloca %"class.Imf_3_2::DeepScanLineOutputFile", align 8
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke ptr @_ZNK7Imf_3_26Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
@@ -464,7 +464,7 @@ invoke.cont7:                                     ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.13) #13
   %tobool.not = icmp eq i32 %call11, 0
   br i1 %tobool.not, label %for.inc, label %invoke.cont12
@@ -480,7 +480,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   br i1 %tobool20.not, label %for.inc, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 288
   %0 = load ptr, ptr %second.i, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %for.inc unwind label %lpad.loopexit30
@@ -510,17 +510,17 @@ invoke.cont29:                                    ; preds = %for.end
 invoke.cont30:                                    ; preds = %invoke.cont29
   %1 = load i32, ptr %ref.tmp28, align 4
   store i32 %1, ptr %call31, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 4
   %2 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call31, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call31, i64 4
   store i32 %2, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call31, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call31, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
   %3 = load i32, ptr %max3.i, align 4
   store i32 %3, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 12
   %4 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call31, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call31, i64 12
   store i32 %4, ptr %y3.i3.i, align 4
   %call34 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49) %newHdr)
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp31
@@ -528,23 +528,23 @@ invoke.cont30:                                    ; preds = %invoke.cont29
 invoke.cont33:                                    ; preds = %invoke.cont30
   store i32 2, ptr %call34, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call36 = invoke noundef nonnull align 8 dereferenceable(192) ptr %5(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp31
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %6 = getelementptr inbounds i8, ptr %fb, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %fb, i64 8
   store i32 0, ptr %6, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 24
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 24
   store ptr %6, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 32
   store ptr %6, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %fb, i64 48
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %fb, i64 48
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %_sampleCounts.i, i32 noundef 1, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont37 unwind label %lpad.i
 
@@ -555,7 +555,7 @@ lpad.i:                                           ; preds = %invoke.cont35
   br label %ehcleanup93
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  %_sampleCounts.i12 = getelementptr inbounds i8, ptr %call36, i64 88
+  %_sampleCounts.i12 = getelementptr inbounds nuw i8, ptr %call36, i64 88
   invoke void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(104) %_sampleCounts.i12)
           to label %invoke.cont42 unwind label %lpad39.loopexit.split-lp
 
@@ -568,7 +568,7 @@ invoke.cont43:                                    ; preds = %invoke.cont42
           to label %for.cond49.preheader unwind label %lpad39.loopexit.split-lp
 
 for.cond49.preheader:                             ; preds = %invoke.cont43
-  %8 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp62, i64 8
   br label %for.cond49
 
 for.cond49:                                       ; preds = %for.cond49.preheader, %for.inc77
@@ -585,8 +585,8 @@ for.body57:                                       ; preds = %invoke.cont55
           to label %invoke.cont58 unwind label %lpad39.loopexit
 
 invoke.cont58:                                    ; preds = %for.body57
-  %_M_storage.i.i.i14 = getelementptr inbounds i8, ptr %i44.sroa.0.0, i64 32
-  %second.i15 = getelementptr inbounds i8, ptr %i44.sroa.0.0, i64 64
+  %_M_storage.i.i.i14 = getelementptr inbounds nuw i8, ptr %i44.sroa.0.0, i64 32
+  %second.i15 = getelementptr inbounds nuw i8, ptr %i44.sroa.0.0, i64 64
   %9 = load ptr, ptr %second.i15, align 8
   %call66 = invoke { i64, i64 } @_ZNK7Imf_3_212ImageChannel7channelEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %invoke.cont65 unwind label %lpad39.loopexit
@@ -602,7 +602,7 @@ invoke.cont65:                                    ; preds = %invoke.cont58
 invoke.cont67:                                    ; preds = %invoke.cont65
   %12 = load ptr, ptr %second.i15, align 8
   %vtable73 = load ptr, ptr %12, align 8
-  %vfn74 = getelementptr inbounds i8, ptr %vtable73, i64 32
+  %vfn74 = getelementptr inbounds nuw i8, ptr %vtable73, i64 32
   %13 = load ptr, ptr %vfn74, align 8
   invoke void %13(ptr nonnull sret(%"struct.Imf_3_2::DeepSlice") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %invoke.cont75 unwind label %lpad39.loopexit
@@ -643,13 +643,13 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %invoke.cont87 unwind label %lpad85
 
 invoke.cont87:                                    ; preds = %invoke.cont86
-  %y = getelementptr inbounds i8, ptr %call88, i64 12
+  %y = getelementptr inbounds nuw i8, ptr %call88, i64 12
   %14 = load i32, ptr %y, align 4
   %call90 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %newHdr)
           to label %invoke.cont89 unwind label %lpad85
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  %y91 = getelementptr inbounds i8, ptr %call90, i64 4
+  %y91 = getelementptr inbounds nuw i8, ptr %call90, i64 4
   %15 = load i32, ptr %y91, align 4
   %sub = add i32 %14, 1
   %add = sub i32 %sub, %15
@@ -696,7 +696,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -709,17 +709,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   %call.i2 = invoke noundef i32 @_ZNK7Imf_3_25Image9levelModeEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %call.i.noexc unwind label %lpad
@@ -780,7 +780,7 @@ entry:
 do.body:                                          ; preds = %entry
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.8)
           to label %invoke.cont unwind label %lpad
 
@@ -825,7 +825,7 @@ if.end:                                           ; preds = %entry
 do.body10:                                        ; preds = %if.end
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s11)
-  %add.ptr12 = getelementptr inbounds i8, ptr %_iex_throw_s11, i64 16
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %_iex_throw_s11, i64 16
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr12, ptr noundef nonnull @.str.8)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -870,7 +870,7 @@ if.end26:                                         ; preds = %if.end
 do.body29:                                        ; preds = %if.end26
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s30)
-  %add.ptr31 = getelementptr inbounds i8, ptr %_iex_throw_s30, i64 16
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %_iex_throw_s30, i64 16
   %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr31, ptr noundef nonnull @.str.11)
           to label %invoke.cont33 unwind label %lpad32
 
@@ -1054,7 +1054,7 @@ invoke.cont13:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont13
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #14
   %call.i20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %call.i.noexc unwind label %lpad19
@@ -1076,7 +1076,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 288
   invoke void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
           to label %invoke.cont24 unwind label %lpad21
 
@@ -1149,7 +1149,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %mode = getelementptr inbounds i8, ptr %call34, i64 8
+  %mode = getelementptr inbounds nuw i8, ptr %call34, i64 8
   %3 = load i32, ptr %mode, align 4
   %call36 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_218DeepTiledInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %in)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1159,10 +1159,10 @@ invoke.cont35:                                    ; preds = %invoke.cont33
           to label %invoke.cont37 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  %roundingMode = getelementptr inbounds i8, ptr %call38, i64 12
+  %roundingMode = getelementptr inbounds nuw i8, ptr %call38, i64 12
   %4 = load i32, ptr %roundingMode, align 4
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 4 dereferenceable(16) %call30, i32 noundef %3, i32 noundef %4)
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1251,8 +1251,8 @@ invoke.cont85:                                    ; preds = %invoke.cont79
   br i1 %cmp.i.i.i22.not, label %for.end96, label %invoke.cont88
 
 invoke.cont88:                                    ; preds = %invoke.cont85
-  %_M_storage.i.i.i23 = getelementptr inbounds i8, ptr %i70.sroa.0.0, i64 32
-  %second.i24 = getelementptr inbounds i8, ptr %i70.sroa.0.0, i64 288
+  %_M_storage.i.i.i23 = getelementptr inbounds nuw i8, ptr %i70.sroa.0.0, i64 32
+  %second.i24 = getelementptr inbounds nuw i8, ptr %i70.sroa.0.0, i64 288
   %6 = load ptr, ptr %second.i24, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull %_M_storage.i.i.i23, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %for.inc93 unwind label %lpad.loopexit
@@ -1308,7 +1308,7 @@ invoke.cont13:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont13
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #14
   %call.i16 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %call.i.noexc unwind label %lpad19
@@ -1330,7 +1330,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 288
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 288
   invoke void @_ZN7Imf_3_25Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7ChannelE(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(13) %second.i)
           to label %invoke.cont24 unwind label %lpad21
 
@@ -1376,30 +1376,30 @@ invoke.cont27:                                    ; preds = %for.end
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(104) %img, ptr noundef nonnull align 4 dereferenceable(16) %call30, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %vtable32 = load ptr, ptr %img, align 8
-  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 24
+  %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 24
   %4 = load ptr, ptr %vfn33, align 8
   %call35 = invoke noundef nonnull align 8 dereferenceable(192) ptr %4(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont31
-  %5 = getelementptr inbounds i8, ptr %fb, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %fb, i64 8
   store i32 0, ptr %5, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 24
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 24
   store ptr %5, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 32
   store ptr %5, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %fb, i64 48
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %fb, i64 48
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %_sampleCounts.i, i32 noundef 1, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont36 unwind label %lpad.i18
 
@@ -1410,7 +1410,7 @@ lpad.i18:                                         ; preds = %invoke.cont34
   br label %ehcleanup126
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  %_sampleCounts.i20 = getelementptr inbounds i8, ptr %call35, i64 88
+  %_sampleCounts.i20 = getelementptr inbounds nuw i8, ptr %call35, i64 88
   invoke void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(104) %_sampleCounts.i20)
           to label %invoke.cont41 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp
 
@@ -1432,16 +1432,16 @@ invoke.cont58:                                    ; preds = %for.cond50
   br i1 %cmp.i.i.i21.not, label %for.end73, label %for.body60
 
 for.body60:                                       ; preds = %invoke.cont58
-  %second.i23 = getelementptr inbounds i8, ptr %i43.sroa.0.0, i64 64
+  %second.i23 = getelementptr inbounds nuw i8, ptr %i43.sroa.0.0, i64 64
   %7 = load ptr, ptr %second.i23, align 8
   %vtable66 = load ptr, ptr %7, align 8
-  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 32
+  %vfn67 = getelementptr inbounds nuw i8, ptr %vtable66, i64 32
   %8 = load ptr, ptr %vfn67, align 8
   invoke void %8(ptr nonnull sret(%"struct.Imf_3_2::DeepSlice") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %invoke.cont68 unwind label %lpad38.loopexit.split-lp.loopexit
 
 invoke.cont68:                                    ; preds = %for.body60
-  %_M_storage.i.i.i22 = getelementptr inbounds i8, ptr %i43.sroa.0.0, i64 32
+  %_M_storage.i.i.i22 = getelementptr inbounds nuw i8, ptr %i43.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_215DeepFrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9DeepSliceE(ptr noundef nonnull align 8 dereferenceable(104) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i22, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp63)
           to label %for.inc70 unwind label %lpad38.loopexit.split-lp.loopexit
 
@@ -1473,9 +1473,9 @@ invoke.cont74:                                    ; preds = %for.end73
           to label %invoke.cont77 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %invoke.cont74
-  %y = getelementptr inbounds i8, ptr %call35, i64 28
+  %y = getelementptr inbounds nuw i8, ptr %call35, i64 28
   %9 = load i32, ptr %y, align 4
-  %y83 = getelementptr inbounds i8, ptr %call35, i64 36
+  %y83 = getelementptr inbounds nuw i8, ptr %call35, i64 36
   %10 = load i32, ptr %y83, align 4
   invoke void @_ZN7Imf_3_221DeepScanLineInputFile21readPixelSampleCountsEii(ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %9, i32 noundef %10)
           to label %invoke.cont84 unwind label %lpad78
@@ -1519,13 +1519,13 @@ invoke.cont110:                                   ; preds = %invoke.cont104
   br i1 %cmp.i.i.i32.not, label %for.end124, label %invoke.cont113
 
 invoke.cont113:                                   ; preds = %invoke.cont110
-  %_M_storage.i.i.i33 = getelementptr inbounds i8, ptr %i95.sroa.0.0, i64 32
+  %_M_storage.i.i.i33 = getelementptr inbounds nuw i8, ptr %i95.sroa.0.0, i64 32
   %call115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %_M_storage.i.i.i33, ptr noundef nonnull dereferenceable(6) @.str.14) #13
   %tobool.not = icmp eq i32 %call115, 0
   br i1 %tobool.not, label %for.inc121, label %invoke.cont116
 
 invoke.cont116:                                   ; preds = %invoke.cont113
-  %second.i35 = getelementptr inbounds i8, ptr %i95.sroa.0.0, i64 288
+  %second.i35 = getelementptr inbounds nuw i8, ptr %i95.sroa.0.0, i64 288
   %15 = load ptr, ptr %second.i35, align 8
   invoke void @_ZN7Imf_3_26Header6insertEPKcRKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull %_M_storage.i.i.i33, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %for.inc121 unwind label %lpad38.loopexit
@@ -1580,7 +1580,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_213loadDeepImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9DeepImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -1640,7 +1640,7 @@ declare void @_ZN7Imf_3_222DeepScanLineOutputFileD1Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_215DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1662,7 +1662,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -1675,17 +1675,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_221saveDeepScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9DeepImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -1736,7 +1736,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_221loadDeepScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9DeepImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -1768,20 +1768,20 @@ entry:
   %ref.tmp = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp14 = alloca %"struct.Imf_3_2::DeepSlice", align 8
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(192) ptr %0(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %x, i32 noundef %y)
-  %1 = getelementptr inbounds i8, ptr %fb, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %fb, i64 8
   store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 24
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 24
   store ptr %1, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 32
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %fb, i64 48
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %fb, i64 48
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %_sampleCounts.i, i32 noundef 1, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %_ZN7Imf_3_215DeepFrameBufferC2Ev.exit unwind label %lpad.i
 
@@ -1796,7 +1796,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN7Imf_3_215DeepFrameBufferC2Ev.exit:            ; preds = %entry
-  %_sampleCounts.i10 = getelementptr inbounds i8, ptr %call, i64 88
+  %_sampleCounts.i10 = getelementptr inbounds nuw i8, ptr %call, i64 88
   invoke void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %_sampleCounts.i10)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -1818,16 +1818,16 @@ invoke.cont11:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont11
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 64
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 64
   %3 = load ptr, ptr %second.i, align 8
   %vtable16 = load ptr, ptr %3, align 8
-  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 32
+  %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 32
   %4 = load ptr, ptr %vfn17, align 8
   invoke void %4(ptr nonnull sret(%"struct.Imf_3_2::DeepSlice") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %for.body
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_215DeepFrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9DeepSliceE(ptr noundef nonnull align 8 dereferenceable(104) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp14)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -1899,7 +1899,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -1912,17 +1912,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_218saveDeepTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9DeepImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -1949,20 +1949,20 @@ entry:
   %ref.tmp = alloca %"struct.Imf_3_2::Slice", align 8
   %ref.tmp18 = alloca %"struct.Imf_3_2::DeepSlice", align 8
   %vtable = load ptr, ptr %img, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(192) ptr %0(ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %x, i32 noundef %y)
-  %1 = getelementptr inbounds i8, ptr %fb, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %fb, i64 8
   store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 24
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 24
   store ptr %1, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 32
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fb, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %fb, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_sampleCounts.i = getelementptr inbounds i8, ptr %fb, i64 48
+  %_sampleCounts.i = getelementptr inbounds nuw i8, ptr %fb, i64 48
   invoke void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %_sampleCounts.i, i32 noundef 1, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %_ZN7Imf_3_215DeepFrameBufferC2Ev.exit unwind label %lpad.i
 
@@ -1977,7 +1977,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN7Imf_3_215DeepFrameBufferC2Ev.exit:            ; preds = %entry
-  %_sampleCounts.i19 = getelementptr inbounds i8, ptr %call, i64 88
+  %_sampleCounts.i19 = getelementptr inbounds nuw i8, ptr %call, i64 88
   invoke void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr nonnull sret(%"struct.Imf_3_2::Slice") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %_sampleCounts.i19)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -1999,16 +1999,16 @@ invoke.cont15:                                    ; preds = %for.cond
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont15
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 64
+  %second.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 64
   %3 = load ptr, ptr %second.i, align 8
   %vtable20 = load ptr, ptr %3, align 8
-  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 32
+  %vfn21 = getelementptr inbounds nuw i8, ptr %vtable20, i64 32
   %4 = load ptr, ptr %vfn21, align 8
   invoke void %4(ptr nonnull sret(%"struct.Imf_3_2::DeepSlice") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %invoke.cont22 unwind label %lpad.loopexit
 
 invoke.cont22:                                    ; preds = %for.body
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 32
   invoke void @_ZN7Imf_3_215DeepFrameBuffer6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9DeepSliceE(ptr noundef nonnull align 8 dereferenceable(104) %fb, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp18)
           to label %for.inc unwind label %lpad.loopexit
 
@@ -2122,7 +2122,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_218loadDeepTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9DeepImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -2159,7 +2159,7 @@ declare void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIN7Imf_3_24NameENS0_9DeepSliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev.exit unwind label %terminate.lpad.i
@@ -2183,10 +2183,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #17
   %cmp.not = icmp eq ptr %1, null

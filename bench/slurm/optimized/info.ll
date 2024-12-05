@@ -48,12 +48,12 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @enqueue_nag_req(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.enqueue_nag_req) #5
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = tail call i64 @slurm_strlcpy(ptr noundef nonnull %6, ptr noundef %2, i64 noundef 64) #5
   %8 = load ptr, ptr @nag_req_list, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %8, ptr %9, align 8
   store ptr %4, ptr @nag_req_list, align 8
   ret i32 0
@@ -116,14 +116,14 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
   %storemerge2429 = phi ptr [ %storemerge24, %59 ], [ %storemerge2425, %16 ]
   %.028 = phi ptr [ %.1, %59 ], [ null, %16 ]
   %.01527 = phi ptr [ %storemerge.in, %59 ], [ @nag_req_list, %16 ]
-  %31 = getelementptr inbounds i8, ptr %storemerge2429, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %storemerge2429, i64 8
   %32 = call i32 @slurm_xstrncmp(ptr noundef %0, ptr noundef nonnull %31, i64 noundef 64) #5
   %.not21 = icmp eq i32 %32, 0
   br i1 %.not21, label %36, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   br label %59
 
 36:                                               ; preds = %.lr.ph
@@ -133,7 +133,7 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_attr_put, i32 noundef %42) #5
   br label %43
@@ -157,14 +157,14 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, i32 noundef %53) #5
   br label %55
 
 55:                                               ; preds = %50, %46
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %.01527, align 8
   call void @slurm_xfree(ptr noundef nonnull %3) #5
@@ -247,7 +247,7 @@ define ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %5 ]
   %12 = load ptr, ptr @node_attr, align 8
   %13 = shl nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %15) #5
   %.not = icmp eq i32 %16, 0
@@ -257,7 +257,7 @@ define ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load ptr, ptr @node_attr, align 8
   %19 = and i64 %13, 4294967294
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %.loopexit
 
@@ -366,13 +366,13 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i.i:                                       ; preds = %35, %75
   %.13348.i.i = phi ptr [ %.133.i.i, %75 ], [ %.13345.i.i, %35 ]
   %.147.i.i = phi i32 [ %.2.i.i, %75 ], [ %41, %35 ]
-  %42 = getelementptr inbounds i8, ptr %.13348.i.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.13348.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %75, label %45
 
 45:                                               ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds i8, ptr %.13348.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.13348.i.i, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 8
   %.not40.i.i = icmp eq i32 %48, 0
@@ -398,7 +398,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 56:                                               ; preds = %51
   %57 = sext i32 %.147.i.i to i64
   %58 = getelementptr inbounds i8, ptr %39, i64 %57
-  %59 = getelementptr inbounds i8, ptr %.13348.i.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.13348.i.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %60, ptr noundef nonnull @.str.20, ptr noundef nonnull %3) #5
   %62 = add nsw i32 %61, %.147.i.i
@@ -417,7 +417,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 68:                                               ; preds = %63
   %69 = sext i32 %.147.i.i to i64
   %70 = getelementptr inbounds i8, ptr %39, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.13348.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.13348.i.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %72, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #5
   %74 = add nsw i32 %73, %.147.i.i

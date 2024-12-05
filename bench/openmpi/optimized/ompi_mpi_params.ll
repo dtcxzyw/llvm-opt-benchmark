@@ -190,7 +190,7 @@ sub_0:                                            ; preds = %.lr.ph
   br i1 %.not27, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %36 = getelementptr inbounds i8, ptr %32, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.tail.thread
@@ -228,7 +228,7 @@ sub_0:                                            ; preds = %.lr.ph
 
 51:                                               ; preds = %.sink.split, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.next
+  %52 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next
   %53 = load ptr, ptr %52, align 8
   %.not24 = icmp eq ptr %53, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -451,14 +451,14 @@ define range(i32 -21, 1) i32 @ompi_show_all_mca_params(i32 noundef %0, i32 nound
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not33 = icmp eq i32 %30, 0
   br i1 %.not33, label %31, label %54
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %.thread42 [
     i32 0, label %34

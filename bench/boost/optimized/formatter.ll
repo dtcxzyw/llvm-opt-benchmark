@@ -418,7 +418,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
   %60 = trunc i64 %58 to i32
   %61 = add i32 %59, %60
   %62 = load ptr, ptr %56, align 8, !tbaa !20
-  %63 = getelementptr inbounds i8, ptr %62, i64 232
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 232
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(356) %56, i32 noundef %61)
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit
@@ -426,7 +426,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
 65:                                               ; preds = %50
   %66 = trunc i64 %58 to i32
   %67 = load ptr, ptr %56, align 8, !tbaa !20
-  %68 = getelementptr inbounds i8, ptr %67, i64 232
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 232
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(356) %56, i32 noundef %66)
   %cond.i = icmp eq i32 %53, 4
@@ -436,7 +436,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit: ; preds = %.thread.i, %65
   %.sink.i = phi i32 [ %61, %.thread.i ], [ %spec.select.i, %65 ]
   %70 = load ptr, ptr %56, align 8, !tbaa !20
-  %71 = getelementptr inbounds i8, ptr %70, i64 240
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 240
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(356) %56, i32 noundef %.sink.i)
   %73 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
@@ -693,7 +693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %169 = trunc i64 %166 to i32
   %170 = add i32 %168, %169
   %171 = load ptr, ptr %161, align 8, !tbaa !20
-  %172 = getelementptr inbounds i8, ptr %171, i64 232
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 232
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(356) %161, i32 noundef %170)
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit157
@@ -701,7 +701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 174:                                              ; preds = %160
   %175 = trunc i64 %166 to i32
   %176 = load ptr, ptr %161, align 8, !tbaa !20
-  %177 = getelementptr inbounds i8, ptr %176, i64 232
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 232
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(356) %161, i32 noundef %175)
   %cond.i153 = icmp eq i32 %164, 4
@@ -711,7 +711,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit157: ; preds = %.thread.i156, %174
   %.sink.i155 = phi i32 [ %170, %.thread.i156 ], [ %spec.select.i154, %174 ]
   %179 = load ptr, ptr %161, align 8, !tbaa !20
-  %180 = getelementptr inbounds i8, ptr %179, i64 240
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 240
   %181 = load ptr, ptr %180, align 8
   call void %181(ptr noundef nonnull align 8 dereferenceable(356) %161, i32 noundef %.sink.i155)
   %182 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
@@ -1102,7 +1102,7 @@ _ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit: ; preds = %315
   %319 = icmp ult i64 %318, 4
   %. = select i1 %319, i64 %318, i64 1
   %320 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %321 = getelementptr inbounds [4 x %"class.icu_70::UnicodeString"], ptr %320, i64 0, i64 %.
+  %321 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %320, i64 0, i64 %.
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke
 
 322:                                              ; preds = %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke, %398, %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit208, %331, %324, %315
@@ -1120,7 +1120,7 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit: ; preds = %324
   %328 = icmp ult i64 %327, 4
   %.309 = select i1 %328, i64 %327, i64 1
   %329 = getelementptr inbounds nuw i8, ptr %44, i64 328
-  %330 = getelementptr inbounds [4 x %"class.icu_70::UnicodeString"], ptr %329, i64 0, i64 %.309
+  %330 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %329, i64 0, i64 %.309
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke
 
 331:                                              ; preds = %313
@@ -1141,7 +1141,7 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210: ; preds = %_ZN5boost6loc
   %339 = icmp ult i64 %338, 4
   %.311 = select i1 %339, i64 %338, i64 1
   %340 = getelementptr inbounds nuw i8, ptr %44, i64 584
-  %341 = getelementptr inbounds [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %340, i64 0, i64 %.310, i64 %.311
+  %341 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %340, i64 0, i64 %.310, i64 %.311
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke
 
 _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210.invoke: ; preds = %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit210
@@ -1334,7 +1334,7 @@ default.unreachable307:                           ; preds = %313
 
 398:                                              ; preds = %395
   %399 = load ptr, ptr %312, align 8, !tbaa !20
-  %400 = getelementptr inbounds i8, ptr %399, i64 256
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 256
   %401 = load ptr, ptr %400, align 8
   invoke void %401(ptr noundef nonnull align 8 dereferenceable(864) %312, ptr noundef nonnull align 8 dereferenceable(64) %18)
           to label %403 unwind label %322
@@ -1637,7 +1637,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 487:                                              ; preds = %485
   %488 = load ptr, ptr %.292, align 8, !tbaa !20
-  %489 = getelementptr inbounds i8, ptr %488, i64 184
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 184
   %490 = load ptr, ptr %489, align 8
   invoke void %490(ptr noundef nonnull align 8 dereferenceable(352) %.292, ptr noundef %486)
           to label %491 unwind label %514
@@ -1738,7 +1738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %_Z
 _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272: ; preds = %.body.i262, %524
   %eh.lpad-body265 = phi { ptr, i32 } [ %525, %524 ], [ %507, %.body.i262 ]
   %526 = load ptr, ptr %.sroa.0285.0, align 8, !tbaa !20
-  %527 = getelementptr inbounds i8, ptr %526, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8
   call void %528(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.0285.0) #21
   call void @_ZdlPvm(ptr noundef nonnull %501, i64 noundef 40) #24
@@ -1794,7 +1794,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit272: ; p
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i279: ; preds = %543
   %544 = load ptr, ptr %444, align 8, !tbaa !20
-  %545 = getelementptr inbounds i8, ptr %544, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %546 = load ptr, ptr %545, align 8
   call void %546(ptr noundef nonnull align 8 dereferenceable(352) %444) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1807,7 +1807,7 @@ _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i279: ; preds = %543
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i282: ; preds = %547
   %548 = load ptr, ptr %.sroa.0285.2, align 8, !tbaa !20
-  %549 = getelementptr inbounds i8, ptr %548, i64 8
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
   %550 = load ptr, ptr %549, align 8
   call void %550(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.0285.2) #21
   br label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit283
@@ -2453,7 +2453,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
   %74 = trunc i64 %72 to i32
   %75 = add i32 %73, %74
   %76 = load ptr, ptr %70, align 8, !tbaa !20
-  %77 = getelementptr inbounds i8, ptr %76, i64 232
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 232
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(356) %70, i32 noundef %75)
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit
@@ -2461,7 +2461,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
 79:                                               ; preds = %64
   %80 = trunc i64 %72 to i32
   %81 = load ptr, ptr %70, align 8, !tbaa !20
-  %82 = getelementptr inbounds i8, ptr %81, i64 232
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 232
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(356) %70, i32 noundef %80)
   %cond.i = icmp eq i32 %67, 4
@@ -2471,7 +2471,7 @@ _ZSt9use_facetIN5boost6locale8impl_icu16formatters_cacheEERKT_RKSt6locale.exit: 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit: ; preds = %.thread.i, %79
   %.sink.i = phi i32 [ %75, %.thread.i ], [ %spec.select.i, %79 ]
   %84 = load ptr, ptr %70, align 8, !tbaa !20
-  %85 = getelementptr inbounds i8, ptr %84, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 240
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(356) %70, i32 noundef %.sink.i)
   %87 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -2810,7 +2810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %_Z
   %215 = trunc i64 %212 to i32
   %216 = add i32 %214, %215
   %217 = load ptr, ptr %207, align 8, !tbaa !20
-  %218 = getelementptr inbounds i8, ptr %217, i64 232
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 232
   %219 = load ptr, ptr %218, align 8
   call void %219(ptr noundef nonnull align 8 dereferenceable(356) %207, i32 noundef %216)
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit156
@@ -2818,7 +2818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %_Z
 220:                                              ; preds = %206
   %221 = trunc i64 %212 to i32
   %222 = load ptr, ptr %207, align 8, !tbaa !20
-  %223 = getelementptr inbounds i8, ptr %222, i64 232
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 232
   %224 = load ptr, ptr %223, align 8
   call void %224(ptr noundef nonnull align 8 dereferenceable(356) %207, i32 noundef %221)
   %cond.i152 = icmp eq i32 %210, 4
@@ -2828,7 +2828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %_Z
 _ZN5boost6locale8impl_icu12_GLOBAL__N_119set_fraction_digitsERN6icu_7012NumberFormatESt13_Ios_Fmtflagsl.exit156: ; preds = %.thread.i155, %220
   %.sink.i154 = phi i32 [ %216, %.thread.i155 ], [ %spec.select.i153, %220 ]
   %225 = load ptr, ptr %207, align 8, !tbaa !20
-  %226 = getelementptr inbounds i8, ptr %225, i64 240
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 240
   %227 = load ptr, ptr %226, align 8
   call void %227(ptr noundef nonnull align 8 dereferenceable(356) %207, i32 noundef %.sink.i154)
   %228 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -3342,7 +3342,7 @@ _ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit: ; preds = %409
   %413 = icmp ult i64 %412, 4
   %. = select i1 %413, i64 %412, i64 1
   %414 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  %415 = getelementptr inbounds [4 x %"class.icu_70::UnicodeString"], ptr %414, i64 0, i64 %.
+  %415 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %414, i64 0, i64 %.
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke
 
 416:                                              ; preds = %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke, %506, %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit207, %425, %418, %409
@@ -3360,7 +3360,7 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit: ; preds = %418
   %422 = icmp ult i64 %421, 4
   %.317 = select i1 %422, i64 %421, i64 1
   %423 = getelementptr inbounds nuw i8, ptr %58, i64 328
-  %424 = getelementptr inbounds [4 x %"class.icu_70::UnicodeString"], ptr %423, i64 0, i64 %.317
+  %424 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %423, i64 0, i64 %.317
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke
 
 425:                                              ; preds = %407
@@ -3381,7 +3381,7 @@ _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209: ; preds = %_ZN5boost6loc
   %433 = icmp ult i64 %432, 4
   %.319 = select i1 %433, i64 %432, i64 1
   %434 = getelementptr inbounds nuw i8, ptr %58, i64 584
-  %435 = getelementptr inbounds [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %434, i64 0, i64 %.318, i64 %.319
+  %435 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %434, i64 0, i64 %.318, i64 %.319
   br label %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke
 
 _ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209.invoke: ; preds = %_ZN5boost6locale8impl_icu17date_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit, %_ZN5boost6locale8impl_icu17time_flags_to_lenEm.exit209
@@ -3601,7 +3601,7 @@ default.unreachable:                              ; preds = %407
 
 506:                                              ; preds = %503
   %507 = load ptr, ptr %406, align 8, !tbaa !20
-  %508 = getelementptr inbounds i8, ptr %507, i64 256
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 256
   %509 = load ptr, ptr %508, align 8
   invoke void %509(ptr noundef nonnull align 8 dereferenceable(864) %406, ptr noundef nonnull align 8 dereferenceable(64) %32)
           to label %511 unwind label %416
@@ -3936,7 +3936,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EE5resetEPS1_.exit:
 
 613:                                              ; preds = %611
   %614 = load ptr, ptr %.292, align 8, !tbaa !20
-  %615 = getelementptr inbounds i8, ptr %614, i64 184
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 184
   %616 = load ptr, ptr %615, align 8
   invoke void %616(ptr noundef nonnull align 8 dereferenceable(352) %.292, ptr noundef %612)
           to label %617 unwind label %657
@@ -4079,7 +4079,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit279: ; p
   %667 = landingpad { ptr, i32 }
           cleanup
   %668 = load ptr, ptr %.sroa.0294.0, align 8, !tbaa !20
-  %669 = getelementptr inbounds i8, ptr %668, i64 8
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
   %670 = load ptr, ptr %669, align 8
   call void %670(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.0294.0) #21
   call void @_ZdlPvm(ptr noundef nonnull %627, i64 noundef 32) #24
@@ -4175,7 +4175,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i286: ; preds = %702
   %703 = load ptr, ptr %569, align 8, !tbaa !20
-  %704 = getelementptr inbounds i8, ptr %703, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %703, i64 8
   %705 = load ptr, ptr %704, align 8
   call void %705(ptr noundef nonnull align 8 dereferenceable(352) %569) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -4188,7 +4188,7 @@ _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i286: ; preds = %702
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i289: ; preds = %706
   %707 = load ptr, ptr %.sroa.0294.2, align 8, !tbaa !20
-  %708 = getelementptr inbounds i8, ptr %707, i64 8
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 8
   %709 = load ptr, ptr %708, align 8
   call void %709(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.0294.2) #21
   br label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit290
@@ -5168,7 +5168,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !68
   %25 = load ptr, ptr %24, align 8, !tbaa !20
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(356) %24, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %28 unwind label %38
@@ -5350,7 +5350,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !68
   %25 = load ptr, ptr %24, align 8, !tbaa !20
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(356) %24, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %28 unwind label %38
@@ -5522,7 +5522,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu13number_forma
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !68
   %25 = load ptr, ptr %24, align 8, !tbaa !20
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(356) %24, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %28 unwind label %38
@@ -5975,7 +5975,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIcED2Ev(p
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !20
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(352) %3) #21
   br label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit
@@ -6012,7 +6012,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIcED0Ev(p
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !20
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(352) %3) #21
   br label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit.i
@@ -6939,7 +6939,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_.exit: ; preds = 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(356) %22, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %26 unwind label %36
@@ -7068,7 +7068,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_.exit: ; preds = 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(356) %22, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %26 unwind label %36
@@ -7197,7 +7197,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIwLi4EE3icuEPKwS5_.exit: ; preds = 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(356) %22, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %26 unwind label %36
@@ -7368,7 +7368,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIwED2Ev(p
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !20
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(352) %3) #21
   br label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit
@@ -7388,7 +7388,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu11date_formatIwED0Ev(p
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !20
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(352) %3) #21
   br label %_ZN5boost6locale8impl_icu11date_formatIwED2Ev.exit

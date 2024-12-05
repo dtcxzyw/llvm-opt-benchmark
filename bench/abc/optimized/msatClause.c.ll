@@ -35,7 +35,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 14:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.0105116 = phi i32 [ 0, %.lr.ph ], [ %.1106, %38 ]
-  %15 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = ashr i32 %16, 1
   %18 = sext i32 %17 to i64
@@ -105,7 +105,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %0, align 8
   store i32 %49, ptr %48, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = and i32 %2, 1
   %53 = shl i32 %.0102, 3
   %54 = shl i32 %45, 19
@@ -113,7 +113,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %55 = or disjoint i32 %52, %.masked
   %56 = or disjoint i32 %55, %54
   store i32 %56, ptr %51, align 4
-  %57 = getelementptr inbounds i8, ptr %48, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %58 = sext i32 %.0102 to i64
   %59 = shl nsw i64 %58, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %57, ptr align 4 %7, i64 %59, i1 false)
@@ -121,7 +121,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 60:                                               ; preds = %43
   %61 = tail call ptr @Msat_SolverReadDecisionLevelArray(ptr noundef nonnull %0) #12
-  %62 = getelementptr inbounds i8, ptr %7, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %63 = icmp sgt i32 %.0102, 2
   br i1 %63, label %.lr.ph122.preheader, label %._crit_edge123
 
@@ -138,7 +138,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %indvars.iv129 = phi i64 [ 2, %.lr.ph122.preheader ], [ %indvars.iv.next130, %.lr.ph122 ]
   %.0120 = phi i32 [ 1, %.lr.ph122.preheader ], [ %spec.select113, %.lr.ph122 ]
   %.0100119 = phi i32 [ %68, %.lr.ph122.preheader ], [ %spec.select, %.lr.ph122 ]
-  %69 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv129
+  %69 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv129
   %70 = load i32, ptr %69, align 4
   %71 = ashr i32 %70, 1
   %72 = sext i32 %71 to i64
@@ -158,18 +158,18 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 ._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %60
   %.0.lcssa = phi i64 [ 1, %60 ], [ %77, %._crit_edge123.loopexit ]
-  %78 = getelementptr inbounds i32, ptr %7, i64 %.0.lcssa
+  %78 = getelementptr inbounds nuw i32, ptr %7, i64 %.0.lcssa
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %48, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 %79, ptr %80, align 4
   %81 = load i32, ptr %62, align 4
-  %82 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %.0.lcssa
+  %82 = getelementptr inbounds nuw [0 x i32], ptr %57, i64 0, i64 %.0.lcssa
   store i32 %81, ptr %82, align 4
   %83 = load i32, ptr %51, align 4
   %84 = lshr i32 %83, 3
   %85 = and i32 %84, 16383
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %57, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %57, i64 %86
   store float 0.000000e+00, ptr %87, align 4
   tail call void @Msat_SolverClaBumpActivity(ptr noundef nonnull %0, ptr noundef nonnull %48) #12
   %88 = icmp sgt i32 %.0102, 0
@@ -181,7 +181,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %.lr.ph127
   %indvars.iv134 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next135, %.lr.ph127 ]
-  %89 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv134
+  %89 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv134
   %90 = load i32, ptr %89, align 4
   tail call void @Msat_SolverVarBumpActivity(ptr noundef nonnull %0, i32 noundef %90) #12
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
@@ -196,7 +196,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %95 = getelementptr inbounds ptr, ptr %91, i64 %94
   %96 = load ptr, ptr %95, align 8
   tail call void @Msat_ClauseVecPush(ptr noundef %96, ptr noundef nonnull %48) #12
-  %97 = getelementptr inbounds i8, ptr %48, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = xor i32 %98, 1
   %100 = sext i32 %99 to i64
@@ -238,13 +238,13 @@ declare ptr @Msat_SolverReadDecisionLevelArray(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Msat_ClauseWriteActivity(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 16383
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %8
   store float %1, ptr %9, align 4
   ret void
 }
@@ -264,7 +264,7 @@ define void @Msat_ClauseFree(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 4:                                                ; preds = %3
   %5 = tail call ptr @Msat_SolverReadWatchedArray(ptr noundef %0) #12
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = xor i32 %7, 1
   %9 = sext i32 %8 to i64
@@ -276,7 +276,7 @@ define void @Msat_ClauseFree(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 14:                                               ; preds = %14, %4
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %4 ]
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -295,16 +295,16 @@ define void @Msat_ClauseFree(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next17.i, %.lr.ph.i ]
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.next17.i
+  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next17.i
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv16.i
+  %22 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv16.i
   store ptr %21, ptr %22, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Msat_ClauseRemoveWatch.exit, label %.lr.ph.i, !llvm.loop !9
 
 Msat_ClauseRemoveWatch.exit:                      ; preds = %.lr.ph.i, %.preheader.i
   %23 = tail call ptr @Msat_ClauseVecPop(ptr noundef %11) #12
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %25, 1
   %27 = sext i32 %26 to i64
@@ -316,7 +316,7 @@ Msat_ClauseRemoveWatch.exit:                      ; preds = %.lr.ph.i, %.prehead
 
 32:                                               ; preds = %32, %Msat_ClauseRemoveWatch.exit
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i14, %32 ], [ 0, %Msat_ClauseRemoveWatch.exit ]
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i12
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i12
   %34 = load ptr, ptr %33, align 8
   %.not.i13 = icmp eq ptr %34, %1
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
@@ -335,9 +335,9 @@ Msat_ClauseRemoveWatch.exit:                      ; preds = %.lr.ph.i, %.prehead
 .lr.ph.i18:                                       ; preds = %.lr.ph.i18, %.lr.ph.preheader.i16
   %indvars.iv16.i19 = phi i64 [ %indvars.iv.i12, %.lr.ph.preheader.i16 ], [ %indvars.iv.next17.i20, %.lr.ph.i18 ]
   %indvars.iv.next17.i20 = add nuw nsw i64 %indvars.iv16.i19, 1
-  %38 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.next17.i20
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next17.i20
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv16.i19
+  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv16.i19
   store ptr %39, ptr %40, align 8
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next17.i20, %wide.trip.count.i17
   br i1 %exitcond.not.i21, label %Msat_ClauseRemoveWatch.exit22, label %.lr.ph.i18, !llvm.loop !9
@@ -348,7 +348,7 @@ Msat_ClauseRemoveWatch.exit22:                    ; preds = %.lr.ph.i18, %.prehe
 
 42:                                               ; preds = %Msat_ClauseRemoveWatch.exit22, %3
   %43 = tail call ptr @Msat_SolverReadMem(ptr noundef %0) #12
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 17
   tail call void @Msat_MmStepEntryRecycle(ptr noundef %43, ptr noundef %1, i32 noundef %46) #12
@@ -363,7 +363,7 @@ define void @Msat_ClauseRemoveWatch(ptr noundef %0, ptr noundef readnone %1) loc
 
 5:                                                ; preds = %5, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -382,9 +382,9 @@ define void @Msat_ClauseRemoveWatch(ptr noundef %0, ptr noundef readnone %1) loc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv16 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next17, %.lr.ph ]
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %11 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next17
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next17
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv16
+  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv16
   store ptr %12, ptr %13, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next17, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -398,7 +398,7 @@ declare void @Msat_MmStepEntryRecycle(ptr noundef, ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Msat_ClauseReadLearned(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
   ret i32 %4
@@ -406,7 +406,7 @@ define range(i32 0, 2) i32 @Msat_ClauseReadLearned(ptr nocapture noundef readonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 16384) i32 @Msat_ClauseReadSize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 3
   %5 = and i32 %4, 16383
@@ -415,13 +415,13 @@ define range(i32 0, 16384) i32 @Msat_ClauseReadSize(ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @Msat_ClauseReadLits(ptr noundef readnone %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Msat_ClauseReadMark(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 1
   %5 = and i32 %4, 1
@@ -436,7 +436,7 @@ define i32 @Msat_ClauseReadNum(ptr nocapture noundef readonly %0) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Msat_ClauseReadTypeA(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 2
   %5 = and i32 %4, 1
@@ -445,7 +445,7 @@ define range(i32 0, 2) i32 @Msat_ClauseReadTypeA(ptr nocapture noundef readonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Msat_ClauseSetMark(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %1, 1
   %6 = and i32 %5, 2
@@ -463,7 +463,7 @@ define void @Msat_ClauseSetNum(ptr nocapture noundef writeonly initializes((0, 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Msat_ClauseSetTypeA(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %1, 2
   %6 = and i32 %5, 4
@@ -476,7 +476,7 @@ define void @Msat_ClauseSetTypeA(ptr nocapture noundef %0, i32 noundef %1) local
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Msat_SolverReadReasonArray(ptr noundef %0) #12
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = ashr i32 %5, 1
   %7 = sext i32 %6 to i64
@@ -491,13 +491,13 @@ declare ptr @Msat_SolverReadReasonArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @Msat_ClauseReadActivity(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 16383
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %7
   %.0.copyload = load float, ptr %8, align 4
   ret float %.0.copyload
 }
@@ -505,13 +505,13 @@ define float @Msat_ClauseReadActivity(ptr nocapture noundef readonly %0) local_u
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
   %5 = xor i32 %1, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %5
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %6, align 4
   store i32 %5, ptr %10, align 4
@@ -527,7 +527,7 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
   br i1 %18, label %40, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 131064
   %23 = icmp samesign ugt i32 %22, 16
@@ -550,7 +550,7 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = ashr i32 %29, 1
   %31 = sext i32 %30 to i64
@@ -561,8 +561,8 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
   br i1 %.not, label %27, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %36 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %29, ptr %37, align 4
   store i32 %5, ptr %36, align 4
   %38 = load i32, ptr %37, align 4
@@ -582,21 +582,21 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 131064
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %22
   %8 = phi i32 [ %4, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.02233 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
-  %9 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %10, 1
   %12 = sext i32 %11 to i64
@@ -632,9 +632,9 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr nocapture noundef %0, ptr no
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = zext nneg i32 %25 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
   %.0.copyload.i = load float, ptr %32, align 4
   %33 = shl i32 %.1, 3
   %34 = and i32 %33, 131064
@@ -643,7 +643,7 @@ define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr nocapture noundef %0, ptr no
   store i32 %36, ptr %3, align 4
   %37 = and i32 %.1, 16383
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %30, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %38
   store float %.0.copyload.i, ptr %39, align 4
   br label %.loopexit
 
@@ -657,7 +657,7 @@ define void @Msat_ClauseCalcReason(ptr noundef %0, ptr noundef %1, i32 noundef %
   tail call void @Msat_IntVecClear(ptr noundef %3) #12
   %5 = icmp ne i32 %2, -2
   %6 = zext i1 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 3
   %10 = and i32 %9, 16383
@@ -665,13 +665,13 @@ define void @Msat_ClauseCalcReason(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = zext i1 %5 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, 1
   tail call void @Msat_IntVecPush(ptr noundef %3, i32 noundef %17) #12
@@ -717,18 +717,18 @@ define void @Msat_ClausePrint(ptr noundef readonly %0) local_unnamed_addr #8 {
   br label %.loopexit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = lshr i32 %7, 3
   %12 = and i32 %11, 16383
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %13
   %.0.copyload.i = load float, ptr %14, align 4
   %15 = fpext float %.0.copyload.i to double
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %15)
@@ -742,12 +742,12 @@ define void @Msat_ClausePrint(ptr noundef readonly %0) local_unnamed_addr #8 {
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not10 = icmp eq i32 %24, 0
@@ -773,21 +773,21 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Msat_ClauseWriteDimacs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 131064
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = icmp sgt i32 %2, 0
   %9 = zext i1 %8 to i32
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %.not12 = icmp eq i32 %13, 0
@@ -825,14 +825,14 @@ define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr
   br i1 %2, label %7, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 131064
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 7:                                                ; preds = %1
@@ -841,7 +841,7 @@ define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0

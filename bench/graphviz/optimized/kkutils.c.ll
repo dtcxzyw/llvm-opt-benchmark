@@ -20,7 +20,7 @@ define i64 @common_neighbors(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -53,7 +53,7 @@ define void @fill_neighbors_vec_unweighted(ptr nocapture noundef readonly %0, i3
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -82,7 +82,7 @@ define void @empty_neighbors_vec(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -104,7 +104,7 @@ define void @empty_neighbors_vec(ptr nocapture noundef readonly %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %5 = mul nsw i32 %1, %1
@@ -125,8 +125,8 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %13 = mul nuw nsw i64 %indvars.iv.i, %12
-  %14 = getelementptr inbounds i32, ptr %7, i64 %13
-  %15 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   store ptr %14, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
@@ -134,7 +134,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i, %.lr.ph23.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph23.i ], [ 0, %.lr.ph.i ]
-  %16 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
+  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv25.i
   %17 = load ptr, ptr %16, align 8
   %18 = trunc nuw nsw i64 %indvars.iv25.i to i32
   tail call void @dijkstra(i32 noundef %18, ptr noundef %0, i32 noundef %1, ptr noundef %17) #16
@@ -152,8 +152,8 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i5
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i8, %.lr.ph.i6 ]
   %21 = mul nuw nsw i64 %indvars.iv.i7, %20
-  %22 = getelementptr inbounds i32, ptr %7, i64 %21
-  %23 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i7
+  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i7
   store ptr %22, ptr %23, align 8
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %20
@@ -161,7 +161,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 
 .lr.ph23.i12:                                     ; preds = %.lr.ph.i6, %.lr.ph23.i12
   %indvars.iv25.i13 = phi i64 [ %indvars.iv.next26.i14, %.lr.ph23.i12 ], [ 0, %.lr.ph.i6 ]
-  %24 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i13
+  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv25.i13
   %25 = load ptr, ptr %24, align 8
   %26 = trunc nuw nsw i64 %indvars.iv25.i13 to i32
   tail call void @bfs(i32 noundef %26, ptr noundef %0, i32 noundef %1, ptr noundef %25) #16
@@ -175,7 +175,7 @@ compute_apsp_dijkstra.exit:                       ; preds = %.lr.ph23.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @compute_new_weights(ptr noundef %0, i32 noundef %1)
   %5 = mul nsw i32 %1, %1
@@ -193,8 +193,8 @@ define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %12 = mul nuw nsw i64 %indvars.iv.i, %11
-  %13 = getelementptr inbounds i32, ptr %7, i64 %12
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   store ptr %13, ptr %14, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -202,7 +202,7 @@ define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 
 
 .lr.ph23.i:                                       ; preds = %.lr.ph.i, %.lr.ph23.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph23.i ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv25.i
+  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv25.i
   %16 = load ptr, ptr %15, align 8
   %17 = trunc nuw nsw i64 %indvars.iv25.i to i32
   tail call void @dijkstra(i32 noundef %17, ptr noundef %0, i32 noundef %1, ptr noundef %16) #16
@@ -225,8 +225,8 @@ compute_apsp_dijkstra.exit:                       ; preds = %.lr.ph23.i, %2
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i8
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i8 ], [ %indvars.iv.next.i11, %.lr.ph.i9 ]
   %.01113.i = phi ptr [ %4, %.lr.ph.preheader.i8 ], [ %22, %.lr.ph.i9 ]
-  %19 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv.i10
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %19 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv.i10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %.01113.i, ptr %20, align 8
   %21 = load i64, ptr %19, align 8
   %22 = getelementptr inbounds float, ptr %.01113.i, i64 %21
@@ -256,7 +256,7 @@ define void @compute_new_weights(ptr nocapture noundef %0, i32 noundef %1) local
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04248 = phi i64 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %.04248
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -271,15 +271,15 @@ define void @compute_new_weights(ptr nocapture noundef %0, i32 noundef %1) local
 .lr.ph57:                                         ; preds = %._crit_edge, %empty_neighbors_vec.exit
   %indvars.iv63 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next64, %empty_neighbors_vec.exit ]
   %.04055 = phi ptr [ %10, %._crit_edge ], [ %59, %empty_neighbors_vec.exit ]
-  %11 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv63
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %11 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv63
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %.04055, ptr %12, align 8
   %13 = load i64, ptr %11, align 8
   %14 = icmp ugt i64 %13, 1
   br i1 %14, label %.lr.ph.i, label %fill_neighbors_vec_unweighted.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph57
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -300,7 +300,7 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %17, %.lr.ph57
   br i1 %.not50, label %empty_neighbors_vec.exit, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %fill_neighbors_vec_unweighted.exit
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = add i64 %13, -2
   br label %27
@@ -316,7 +316,7 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %17, %.lr.ph57
   br i1 %33, label %.lr.ph.i45, label %common_neighbors.exit
 
 .lr.ph.i45:                                       ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %36
 
@@ -354,7 +354,7 @@ common_neighbors.exit:                            ; preds = %common_neighbors.ex
   br i1 %14, label %.lr.ph.i46, label %empty_neighbors_vec.exit
 
 .lr.ph.i46:                                       ; preds = %._crit_edge53
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -382,7 +382,7 @@ empty_neighbors_vec.exit:                         ; preds = %53, %fill_neighbors
 
 ; Function Attrs: nounwind uwtable
 define void @restore_old_weights(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #16
   store ptr null, ptr %4, align 8
@@ -398,8 +398,8 @@ define void @restore_old_weights(ptr nocapture noundef %0, i32 noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01113 = phi ptr [ %2, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %7 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %7 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.01113, ptr %8, align 8
   %9 = load i64, ptr %7, align 8
   %10 = getelementptr inbounds float, ptr %.01113, i64 %9
@@ -425,7 +425,7 @@ define double @distance_kD(ptr nocapture noundef readonly %0, i32 noundef %1, i3
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.01617 = phi double [ 0.000000e+00, %.lr.ph ], [ %16, %8 ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds double, ptr %10, i64 %6
   %12 = load double, ptr %11, align 8

@@ -17,53 +17,53 @@ entry:
 
 if.end:                                           ; preds = %entry
   %k.val.i = load i32, ptr %k, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   store i32 %k.val.i, ptr %arrayidx.i, align 4
   %add.ptr1.i = getelementptr i8, ptr %k, i64 4
   %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 4
   %add.ptr6.i = getelementptr i8, ptr %k, i64 8
   %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
-  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 60
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %ctx, i64 60
   store i32 %add.ptr6.val.i, ptr %arrayidx10.i, align 4
   %add.ptr11.i = getelementptr i8, ptr %k, i64 12
   %add.ptr11.val.i = load i32, ptr %add.ptr11.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 4
   %add.ptr16.i = getelementptr i8, ptr %k, i64 16
   %add.ptr16.val.i = load i32, ptr %add.ptr16.i, align 1
-  %arrayidx20.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 %add.ptr16.val.i, ptr %arrayidx20.i, align 4
   %add.ptr21.i = getelementptr i8, ptr %k, i64 20
   %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
-  %arrayidx25.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 4
   %add.ptr26.i = getelementptr i8, ptr %k, i64 24
   %add.ptr26.val.i = load i32, ptr %add.ptr26.i, align 1
-  %arrayidx30.i = getelementptr inbounds i8, ptr %ctx, i64 36
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 %add.ptr26.val.i, ptr %arrayidx30.i, align 4
   %add.ptr31.i = getelementptr i8, ptr %k, i64 28
   %add.ptr31.val.i = load i32, ptr %add.ptr31.i, align 1
-  %arrayidx35.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 4
   store i32 1634760805, ptr %ctx, align 4
-  %arrayidx41.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   store i32 857760878, ptr %arrayidx41.i, align 4
-  %arrayidx44.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx44.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 2036477234, ptr %arrayidx44.i, align 4
-  %arrayidx47.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   store i32 1797285236, ptr %arrayidx47.i, align 4
   %iv.val.i = load i32, ptr %n, align 1
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %arrayidx.i5 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 %iv.val.i, ptr %arrayidx.i5, align 4
   %add.ptr1.i6 = getelementptr i8, ptr %n, i64 4
   %add.ptr1.val.i7 = load i32, ptr %add.ptr1.i6, align 1
-  %arrayidx5.i8 = getelementptr inbounds i8, ptr %ctx, i64 44
+  %arrayidx5.i8 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 %add.ptr1.val.i7, ptr %arrayidx5.i8, align 4
-  %arrayidx10.c.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %arrayidx10.c.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %arrayidx10.c.i, align 4
-  %arrayidx20.i9 = getelementptr inbounds i8, ptr %ctx, i64 52
+  %arrayidx20.i9 = getelementptr inbounds nuw i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx20.i9, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
   call fastcc void @salsa20_encrypt_bytes(ptr noundef %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
@@ -86,53 +86,53 @@ if.end:                                           ; preds = %entry
   %conv = trunc nuw i64 %shr to i32
   %conv1 = trunc i64 %ic to i32
   %k.val.i = load i32, ptr %k, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 20
   store i32 %k.val.i, ptr %arrayidx.i, align 4
   %add.ptr1.i = getelementptr i8, ptr %k, i64 4
   %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 4
   %add.ptr6.i = getelementptr i8, ptr %k, i64 8
   %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
-  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 60
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %ctx, i64 60
   store i32 %add.ptr6.val.i, ptr %arrayidx10.i, align 4
   %add.ptr11.i = getelementptr i8, ptr %k, i64 12
   %add.ptr11.val.i = load i32, ptr %add.ptr11.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 4
   %add.ptr16.i = getelementptr i8, ptr %k, i64 16
   %add.ptr16.val.i = load i32, ptr %add.ptr16.i, align 1
-  %arrayidx20.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 %add.ptr16.val.i, ptr %arrayidx20.i, align 4
   %add.ptr21.i = getelementptr i8, ptr %k, i64 20
   %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
-  %arrayidx25.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 4
   %add.ptr26.i = getelementptr i8, ptr %k, i64 24
   %add.ptr26.val.i = load i32, ptr %add.ptr26.i, align 1
-  %arrayidx30.i = getelementptr inbounds i8, ptr %ctx, i64 36
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 %add.ptr26.val.i, ptr %arrayidx30.i, align 4
   %add.ptr31.i = getelementptr i8, ptr %k, i64 28
   %add.ptr31.val.i = load i32, ptr %add.ptr31.i, align 1
-  %arrayidx35.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 4
   store i32 1634760805, ptr %ctx, align 4
-  %arrayidx41.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   store i32 857760878, ptr %arrayidx41.i, align 4
-  %arrayidx44.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %arrayidx44.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 2036477234, ptr %arrayidx44.i, align 4
-  %arrayidx47.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   store i32 1797285236, ptr %arrayidx47.i, align 4
   %iv.val.i = load i32, ptr %n, align 1
-  %arrayidx.i3 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %arrayidx.i3 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 %iv.val.i, ptr %arrayidx.i3, align 4
   %add.ptr1.i4 = getelementptr i8, ptr %n, i64 4
   %add.ptr1.val.i5 = load i32, ptr %add.ptr1.i4, align 1
-  %arrayidx5.i6 = getelementptr inbounds i8, ptr %ctx, i64 44
+  %arrayidx5.i6 = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 %add.ptr1.val.i5, ptr %arrayidx5.i6, align 4
-  %arrayidx10.i7 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %arrayidx10.i7 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 %conv1, ptr %arrayidx10.i7, align 4
-  %arrayidx20.i8 = getelementptr inbounds i8, ptr %ctx, i64 52
+  %arrayidx20.i8 = getelementptr inbounds nuw i8, ptr %ctx, i64 52
   store i32 %conv, ptr %arrayidx20.i8, align 4
   call fastcc void @salsa20_encrypt_bytes(ptr noundef %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
@@ -1376,47 +1376,47 @@ for.end1119:                                      ; preds = %for.body1024
   %vecext.i3381 = extractelement <4 x i32> %add.i2315, i64 0
   %vecext.i3378 = extractelement <4 x i32> %add.i2312, i64 0
   store i32 %vecext.i3387, ptr %partialblock, align 16
-  %add.ptr1147 = getelementptr inbounds i8, ptr %partialblock, i64 48
+  %add.ptr1147 = getelementptr inbounds nuw i8, ptr %partialblock, i64 48
   store i32 %vecext.i3384, ptr %add.ptr1147, align 16
-  %add.ptr1149 = getelementptr inbounds i8, ptr %partialblock, i64 32
+  %add.ptr1149 = getelementptr inbounds nuw i8, ptr %partialblock, i64 32
   store i32 %vecext.i3381, ptr %add.ptr1149, align 16
-  %add.ptr1151 = getelementptr inbounds i8, ptr %partialblock, i64 16
+  %add.ptr1151 = getelementptr inbounds nuw i8, ptr %partialblock, i64 16
   store i32 %vecext.i3378, ptr %add.ptr1151, align 16
   %vecext.i3375 = extractelement <4 x i32> %add.i2321, i64 1
   %vecext.i3372 = extractelement <4 x i32> %add.i2318, i64 1
   %vecext.i3369 = extractelement <4 x i32> %add.i2315, i64 1
   %vecext.i3366 = extractelement <4 x i32> %add.i2312, i64 1
-  %add.ptr1167 = getelementptr inbounds i8, ptr %partialblock, i64 20
+  %add.ptr1167 = getelementptr inbounds nuw i8, ptr %partialblock, i64 20
   store i32 %vecext.i3375, ptr %add.ptr1167, align 4
-  %add.ptr1169 = getelementptr inbounds i8, ptr %partialblock, i64 4
+  %add.ptr1169 = getelementptr inbounds nuw i8, ptr %partialblock, i64 4
   store i32 %vecext.i3372, ptr %add.ptr1169, align 4
-  %add.ptr1171 = getelementptr inbounds i8, ptr %partialblock, i64 52
+  %add.ptr1171 = getelementptr inbounds nuw i8, ptr %partialblock, i64 52
   store i32 %vecext.i3369, ptr %add.ptr1171, align 4
-  %add.ptr1173 = getelementptr inbounds i8, ptr %partialblock, i64 36
+  %add.ptr1173 = getelementptr inbounds nuw i8, ptr %partialblock, i64 36
   store i32 %vecext.i3366, ptr %add.ptr1173, align 4
   %vecext.i3363 = extractelement <4 x i32> %add.i2321, i64 2
   %vecext.i3360 = extractelement <4 x i32> %add.i2318, i64 2
   %vecext.i3357 = extractelement <4 x i32> %add.i2315, i64 2
   %vecext.i3354 = extractelement <4 x i32> %add.i2312, i64 2
-  %add.ptr1189 = getelementptr inbounds i8, ptr %partialblock, i64 40
+  %add.ptr1189 = getelementptr inbounds nuw i8, ptr %partialblock, i64 40
   store i32 %vecext.i3363, ptr %add.ptr1189, align 8
-  %add.ptr1191 = getelementptr inbounds i8, ptr %partialblock, i64 24
+  %add.ptr1191 = getelementptr inbounds nuw i8, ptr %partialblock, i64 24
   store i32 %vecext.i3360, ptr %add.ptr1191, align 8
-  %add.ptr1193 = getelementptr inbounds i8, ptr %partialblock, i64 8
+  %add.ptr1193 = getelementptr inbounds nuw i8, ptr %partialblock, i64 8
   store i32 %vecext.i3357, ptr %add.ptr1193, align 8
-  %add.ptr1195 = getelementptr inbounds i8, ptr %partialblock, i64 56
+  %add.ptr1195 = getelementptr inbounds nuw i8, ptr %partialblock, i64 56
   store i32 %vecext.i3354, ptr %add.ptr1195, align 8
   %vecext.i3351 = extractelement <4 x i32> %add.i2321, i64 3
   %vecext.i3348 = extractelement <4 x i32> %add.i2318, i64 3
   %vecext.i3345 = extractelement <4 x i32> %add.i2315, i64 3
   %vecext.i = extractelement <4 x i32> %add.i2312, i64 3
-  %add.ptr1211 = getelementptr inbounds i8, ptr %partialblock, i64 60
+  %add.ptr1211 = getelementptr inbounds nuw i8, ptr %partialblock, i64 60
   store i32 %vecext.i3351, ptr %add.ptr1211, align 4
-  %add.ptr1213 = getelementptr inbounds i8, ptr %partialblock, i64 44
+  %add.ptr1213 = getelementptr inbounds nuw i8, ptr %partialblock, i64 44
   store i32 %vecext.i3348, ptr %add.ptr1213, align 4
-  %add.ptr1215 = getelementptr inbounds i8, ptr %partialblock, i64 28
+  %add.ptr1215 = getelementptr inbounds nuw i8, ptr %partialblock, i64 28
   store i32 %vecext.i3345, ptr %add.ptr1215, align 4
-  %add.ptr1217 = getelementptr inbounds i8, ptr %partialblock, i64 12
+  %add.ptr1217 = getelementptr inbounds nuw i8, ptr %partialblock, i64 12
   store i32 %vecext.i, ptr %add.ptr1217, align 4
   br label %for.body1223
 

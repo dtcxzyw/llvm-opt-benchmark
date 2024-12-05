@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_bufcp_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %5, align 8
   ret void
 }
@@ -36,7 +36,7 @@ define dso_local void @Curl_bufcp_free(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not.i, label %chunk_list_free.exit, label %.lr.ph.i, !llvm.loop !5
 
 chunk_list_free.exit:                             ; preds = %.lr.ph.i, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
   ret void
 }
@@ -44,11 +44,11 @@ chunk_list_free.exit:                             ; preds = %.lr.ph.i, %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_bufq_init2(ptr nocapture noundef writeonly initializes((0, 64)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %3, ptr %7, align 8
   ret void
 }
@@ -56,27 +56,27 @@ define dso_local void @Curl_bufq_init2(ptr nocapture noundef writeonly initializ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_bufq_init(ptr nocapture noundef writeonly initializes((0, 64)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @Curl_bufq_initp(ptr nocapture noundef writeonly initializes((0, 64)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %3, ptr %10, align 8
   ret void
 }
@@ -98,7 +98,7 @@ define dso_local void @Curl_bufq_free(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not.i, label %chunk_list_free.exit, label %.lr.ph.i, !llvm.loop !5
 
 chunk_list_free.exit:                             ; preds = %.lr.ph.i, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not5.i4 = icmp eq ptr %8, null
   br i1 %.not5.i4, label %chunk_list_free.exit7, label %.lr.ph.i5
@@ -114,9 +114,9 @@ chunk_list_free.exit:                             ; preds = %.lr.ph.i, %1
   br i1 %.not.i6, label %chunk_list_free.exit7, label %.lr.ph.i5, !llvm.loop !5
 
 chunk_list_free.exit7:                            ; preds = %.lr.ph.i5, %chunk_list_free.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %14, align 8
   ret void
 }
@@ -128,7 +128,7 @@ define dso_local void @Curl_bufq_reset(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %3, align 8
   br label %4
 
@@ -144,7 +144,7 @@ define dso_local void @Curl_bufq_reset(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not, label %._crit_edge, label %4, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %4, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
   ret void
 }
@@ -175,7 +175,7 @@ define dso_local i64 @Curl_bufq_len(ptr nocapture noundef readonly %0) local_unn
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -190,7 +190,7 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
 
 8:                                                ; preds = %4, %1
   %.015 = phi i64 [ %7, %4 ], [ 0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not20 = icmp eq ptr %10, null
   br i1 %.not20, label %.loopexit, label %.preheader
@@ -198,7 +198,7 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
 .preheader:                                       ; preds = %8, %.preheader
   %.024 = phi ptr [ %14, %.preheader ], [ %10, %8 ]
   %.223 = phi i64 [ %13, %.preheader ], [ %.015, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.024, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %.223
   %14 = load ptr, ptr %.024, align 8
@@ -207,16 +207,16 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
 
 .loopexit:                                        ; preds = %.preheader, %8
   %.1 = phi i64 [ %.015, %8 ], [ %13, %.preheader ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %16, %18
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.loopexit
   %21 = sub nuw i64 %18, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = mul i64 %23, %21
   %25 = add i64 %24, %.1
@@ -248,21 +248,21 @@ define dso_local zeroext i1 @Curl_bufq_is_empty(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @Curl_bufq_is_full(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %7, label %19
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %19, label %13
@@ -298,24 +298,24 @@ define dso_local i64 @Curl_bufq_write(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %.thread, label %chunk_append.exit.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   %.not.i = icmp eq i64 %16, %14
   br i1 %.not.i, label %chunk_append.exit.thread, label %chunk_append.exit
 
 chunk_append.exit:                                ; preds = %12
   %17 = sub i64 %16, %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %14
   %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 range(i64 1, 0) %.02437)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02338, i64 %20, i1 false)
@@ -343,7 +343,7 @@ chunk_append.exit.thread:                         ; preds = %12, %6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -357,7 +357,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
   br i1 %.not23, label %get_spare.exit.thread, label %7
 
 7:                                                ; preds = %4, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %13, label %10
@@ -366,27 +366,27 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
   %11 = load ptr, ptr %9, align 8
   store ptr %11, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br label %get_spare.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %.not16.i = icmp ult i64 %15, %17
   br i1 %.not16.i, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 1
   %.not17.i = icmp eq i32 %21, 0
   br i1 %.not17.i, label %get_spare.exit.thread, label %22
 
 22:                                               ; preds = %18, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not18.i = icmp eq ptr %24, null
   br i1 %.not18.i, label %45, label %25
@@ -399,18 +399,18 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
 27:                                               ; preds = %25
   %28 = load ptr, ptr %26, align 8
   store ptr %28, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %29, align 8
   store ptr null, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   br label %42
 
 33:                                               ; preds = %25
   %34 = load ptr, ptr @Curl_ccalloc, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 40
   %38 = tail call ptr %34(i64 noundef 1, i64 noundef %37) #11
@@ -419,7 +419,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
 
 39:                                               ; preds = %33
   %40 = load i64, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %40, ptr %41, align 8
   br label %42
 
@@ -432,7 +432,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
 
 45:                                               ; preds = %22
   %46 = load ptr, ptr @Curl_ccalloc, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, 40
   %50 = tail call ptr %46(i64 noundef 1, i64 noundef %49) #11
@@ -441,7 +441,7 @@ define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %0) unnamed_
 
 51:                                               ; preds = %45
   %52 = load i64, ptr %47, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %52, ptr %53, align 8
   %54 = load i64, ptr %14, align 8
   %55 = add i64 %54, 1
@@ -476,12 +476,12 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br i1 %.not27, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %0, align 8
   br label %11
 
@@ -494,11 +494,11 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br i1 %.not24, label %.critedge, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %16
-  %18 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %19, %16
   %.not.i = icmp eq i64 %20, 0
@@ -555,9 +555,9 @@ chunk_read.exit:                                  ; preds = %13, %22, %23
   br i1 %.not23.i, label %53, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load i64, ptr %43, align 8
   %.not.i.i = icmp ult i64 %42, %44
   br i1 %.not.i.i, label %47, label %45
@@ -649,12 +649,12 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek(ptr nocapture noundef %0, pt
   br i1 %.not18, label %prune_head.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %14
 
 14:                                               ; preds = %51, %.lr.ph.i
@@ -683,9 +683,9 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek(ptr nocapture noundef %0, pt
   br i1 %.not23.i, label %38, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = load i64, ptr %28, align 8
   %.not.i.i = icmp ult i64 %27, %29
   br i1 %.not.i.i, label %32, label %30
@@ -753,7 +753,7 @@ prune_head.exit:                                  ; preds = %14, %5
 53:                                               ; preds = %prune_head.exit
   %54 = getelementptr i8, ptr %.pr, i64 24
   %55 = getelementptr i8, ptr %.pr, i64 16
-  %56 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %57 = getelementptr inbounds [1 x i8], ptr %56, i64 0, i64 %.val
   store ptr %57, ptr %1, align 8
   %58 = load i64, ptr %54, align 8
@@ -802,7 +802,7 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek_at(ptr nocapture noundef rea
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %.01526, i64 24
   %13 = add i64 %.015.val, %.01625
-  %14 = getelementptr inbounds i8, ptr %.01526, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.01526, i64 32
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %13
   store ptr %15, ptr %2, align 8
   %16 = load i64, ptr %12, align 8
@@ -826,12 +826,12 @@ define dso_local void @Curl_bufq_skip(ptr nocapture noundef %0, i64 noundef %1) 
   br i1 %.not9, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %0, align 8
   br label %9
 
@@ -842,9 +842,9 @@ define dso_local void @Curl_bufq_skip(ptr nocapture noundef %0, i64 noundef %1) 
   br i1 %.not7, label %.critedge, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq i64 %13, %15
   br i1 %.not.i, label %chunk_skip.exit, label %16
@@ -894,9 +894,9 @@ chunk_skip.exit:                                  ; preds = %11, %16, %21
   br i1 %.not23.i, label %47, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %38 = load i64, ptr %37, align 8
   %.not.i.i = icmp ult i64 %36, %38
   br i1 %.not.i.i, label %41, label %39
@@ -1022,13 +1022,13 @@ define dso_local i64 @Curl_bufq_write_pass(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not5369, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %16
 
 16:                                               ; preds = %.lr.ph, %112
@@ -1147,7 +1147,7 @@ Curl_bufq_is_full.exit.thread.sink.split:         ; preds = %38, %37, %35, %Curl
   %48 = load ptr, ptr %46, align 8
   store ptr %48, ptr %10, align 8
   store ptr null, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %get_spare.exit.i
 
@@ -1176,18 +1176,18 @@ Curl_bufq_is_full.exit.thread.sink.split:         ; preds = %38, %37, %35, %Curl
 60:                                               ; preds = %58
   %61 = load ptr, ptr %59, align 8
   store ptr %61, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, -1
   store i64 %64, ptr %62, align 8
   store ptr null, ptr %59, align 8
-  %65 = getelementptr inbounds i8, ptr %59, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br label %75
 
 66:                                               ; preds = %58
   %67 = load ptr, ptr @Curl_ccalloc, align 8
-  %68 = getelementptr inbounds i8, ptr %57, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, 40
   %71 = tail call ptr %67(i64 noundef 1, i64 noundef %70) #11
@@ -1196,7 +1196,7 @@ Curl_bufq_is_full.exit.thread.sink.split:         ; preds = %38, %37, %35, %Curl
 
 72:                                               ; preds = %66
   %73 = load i64, ptr %68, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 %73, ptr %74, align 8
   br label %75
 
@@ -1217,7 +1217,7 @@ Curl_bufq_is_full.exit.thread.sink.split:         ; preds = %38, %37, %35, %Curl
 
 83:                                               ; preds = %78
   %84 = load i64, ptr %15, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %84, ptr %85, align 8
   %86 = load i64, ptr %11, align 8
   %87 = add i64 %86, 1
@@ -1248,16 +1248,16 @@ get_spare.exit.i:                                 ; preds = %83, %75, %47
 
 get_non_full_tail.exit:                           ; preds = %90, %89, %42
   %.0.i40 = phi ptr [ %.0.i.i, %89 ], [ %.0.i.i, %90 ], [ %41, %42 ]
-  %95 = getelementptr inbounds i8, ptr %.0.i40, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 24
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %.0.i40, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 8
   %98 = load i64, ptr %97, align 8
   %.not.i.i = icmp eq i64 %98, %96
   br i1 %.not.i.i, label %chunk_append.exit.thread.i, label %chunk_append.exit.i
 
 chunk_append.exit.i:                              ; preds = %get_non_full_tail.exit
   %99 = sub i64 %98, %96
-  %100 = getelementptr inbounds i8, ptr %.0.i40, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 32
   %101 = getelementptr inbounds [1 x i8], ptr %100, i64 0, i64 %96
   %102 = tail call i64 @llvm.umin.i64(i64 %99, i64 range(i64 1, 0) %.02437.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr readonly align 1 %.02338.i, i64 %102, i1 false)
@@ -1285,7 +1285,7 @@ Curl_bufq_write.exit:                             ; preds = %chunk_append.exit.i
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %.02971, i64 %.0.i36
+  %113 = getelementptr inbounds nuw i8, ptr %.02971, i64 %.0.i36
   %114 = sub i64 %.03070, %.0.i36
   %115 = add i64 %.0.i36, %.072
   %.not53 = icmp eq i64 %114, 0
@@ -1321,9 +1321,9 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @Curl_bufq_sipn(ptr noc
   br i1 %.not, label %7, label %15
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %13, label %14
@@ -1337,9 +1337,9 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @Curl_bufq_sipn(ptr noc
   br label %32
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i64, ptr %18, align 8
   %.not.i = icmp eq i64 %19, %17
   br i1 %.not.i, label %chunk_slurpn.exit.thread, label %20
@@ -1350,7 +1350,7 @@ chunk_slurpn.exit.thread:                         ; preds = %15
 
 20:                                               ; preds = %15
   %21 = sub i64 %19, %17
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %17
   %.not23.not.i = icmp eq i64 %1, 0
   %24 = tail call i64 @llvm.umin.i64(i64 %21, i64 %1)
@@ -1386,14 +1386,14 @@ define dso_local i64 @Curl_bufq_slurp(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not.i38.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 ._crit_edge.i:                                    ; preds = %36, %4
   %.020.lcssa.i = phi i64 [ 0, %4 ], [ %31, %36 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %8, %10
   %..i = select i1 %11, i32 27, i32 81
@@ -1402,16 +1402,16 @@ define dso_local i64 @Curl_bufq_slurp(ptr nocapture noundef %0, ptr nocapture no
 12:                                               ; preds = %36, %.lr.ph.i
   %13 = phi ptr [ %5, %.lr.ph.i ], [ %37, %36 ]
   %.02039.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %36 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8
   %.not.i.i.i = icmp eq i64 %17, %15
   br i1 %.not.i.i.i, label %.sink.split.i, label %18
 
 18:                                               ; preds = %12
   %19 = sub i64 %17, %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %15
   %22 = tail call i64 %1(ptr noundef %2, ptr noundef nonnull %21, i64 noundef %19, ptr noundef nonnull %3) #11
   %23 = icmp sgt i64 %22, 0

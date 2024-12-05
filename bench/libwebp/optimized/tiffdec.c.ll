@@ -35,9 +35,9 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %18, align 8
   store i16 0, ptr %14, align 2
   store i16 0, ptr %15, align 2
@@ -209,10 +209,10 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 110:                                              ; preds = %106
   %111 = load i32, ptr %10, align 4
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %111, ptr %112, align 8
   %113 = load i32, ptr %11, align 4
-  %114 = getelementptr inbounds i8, ptr %2, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %113, ptr %114, align 4
   %115 = load i16, ptr %15, align 2
   %116 = icmp eq i16 %115, 1
@@ -241,7 +241,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %155
   %.022.i = phi ptr [ %157, %155 ], [ %.095, %.lr.ph.split ]
   %.01921.i = phi i32 [ %156, %155 ], [ 0, %.lr.ph.split ]
-  %127 = getelementptr inbounds i8, ptr %.022.i, i64 3
+  %127 = getelementptr inbounds nuw i8, ptr %.022.i, i64 3
   %128 = load i8, ptr %127, align 1
   switch i8 %128, label %132 [
     i8 -1, label %155
@@ -249,9 +249,9 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   ]
 
 129:                                              ; preds = %.lr.ph.i
-  %130 = getelementptr inbounds i8, ptr %.022.i, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %.022.i, i64 2
   store i8 0, ptr %130, align 1
-  %131 = getelementptr inbounds i8, ptr %.022.i, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.022.i, i64 1
   store i8 0, ptr %131, align 1
   store i8 0, ptr %.022.i, align 1
   br label %155
@@ -266,7 +266,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %139 = lshr i32 %138, 24
   %140 = trunc nuw i32 %139 to i8
   store i8 %140, ptr %.022.i, align 1
-  %141 = getelementptr inbounds i8, ptr %.022.i, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.022.i, i64 1
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = mul i32 %134, %143
@@ -274,7 +274,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
   %146 = lshr i32 %145, 24
   %147 = trunc nuw i32 %146 to i8
   store i8 %147, ptr %141, align 1
-  %148 = getelementptr inbounds i8, ptr %.022.i, i64 2
+  %148 = getelementptr inbounds nuw i8, ptr %.022.i, i64 2
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
   %151 = mul i32 %134, %150
@@ -286,7 +286,7 @@ define hidden i32 @ReadTIFF(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 155:                                              ; preds = %132, %129, %.lr.ph.i
   %156 = add nuw nsw i32 %.01921.i, 1
-  %157 = getelementptr inbounds i8, ptr %.022.i, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.022.i, i64 4
   %exitcond.not.i = icmp eq i32 %156, %125
   br i1 %exitcond.not.i, label %MultARGBRow.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
 
@@ -296,7 +296,7 @@ MultARGBRow.exit.loopexit:                        ; preds = %155
 
 MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.loopexit, %.lr.ph.split
   %158 = phi i32 [ %.pre98, %MultARGBRow.exit.loopexit ], [ %124, %.lr.ph.split ]
-  %159 = getelementptr inbounds i8, ptr %.095, i64 %54
+  %159 = getelementptr inbounds nuw i8, ptr %.095, i64 %54
   %160 = add nuw i32 %.06594, 1
   %161 = icmp ult i32 %160, %158
   br i1 %161, label %.lr.ph.split, label %.loopexit, !llvm.loop !7
@@ -337,7 +337,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   %indvars.iv.i = phi i64 [ 0, %172 ], [ %indvars.iv.next.i, %185 ]
   %174 = phi i32 [ 34675, %172 ], [ %187, %185 ]
   %175 = phi ptr [ @kTIFFMetadataMap, %172 ], [ %186, %185 ]
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i64, ptr %176, align 8
   %178 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %24, i32 noundef %174, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
   %.not11.i = icmp eq i32 %178, 0
@@ -354,7 +354,7 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
 
 185:                                              ; preds = %179, %173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %186 = getelementptr inbounds [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.next.i
+  %186 = getelementptr inbounds nuw [3 x %struct.anon], ptr @kTIFFMetadataMap, i64 0, i64 %indvars.iv.next.i
   %187 = load i32, ptr %186, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.i, label %188, label %173, !llvm.loop !9
@@ -399,10 +399,10 @@ declare ptr @TIFFClientOpen(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @MyRead(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   %10 = sub i64 %8, %5
@@ -435,20 +435,20 @@ define internal i64 @MySeek(ptr nocapture noundef %0, i64 noundef %1, i32 nounde
 
 .sink.split:                                      ; preds = %3, %4
   %.sink13 = phi i64 [ 8, %4 ], [ 16, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %.sink13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %.sink.split, %3
   %8 = phi i64 [ 0, %3 ], [ %6, %.sink.split ]
   %9 = add i64 %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %14, align 8
   br label %15
 
@@ -464,7 +464,7 @@ define internal noundef i32 @MyClose(ptr nocapture readnone %0) #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @MySize(ptr nocapture noundef readonly %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }

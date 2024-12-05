@@ -148,7 +148,7 @@ define dso_local void @mach_get_cmos_time(ptr nocapture noundef writeonly initia
 11:                                               ; preds = %6
   %12 = call i64 @rtc_tm_to_time64(ptr noundef nonnull %2) #6
   store i64 %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %13, align 8
   br label %14
 
@@ -181,7 +181,7 @@ define dso_local void @rtc_cmos_write(i8 noundef zeroext %0, i8 noundef zeroext 
 define dso_local i32 @update_persistent_clock64(i64 %0, i64 %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.timespec64, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 24), align 8
   %6 = call i32 %5(ptr noundef nonnull %3) #6

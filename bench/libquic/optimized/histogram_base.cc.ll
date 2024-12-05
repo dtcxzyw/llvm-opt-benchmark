@@ -308,9 +308,9 @@ declare noundef ptr @_ZN4base15SparseHistogram19DeserializeInfoImplEPNS_14Pickle
 define dso_local void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base13HistogramBaseE, i64 16), ptr %this, align 8
-  %histogram_name_ = getelementptr inbounds i8, ptr %this, i64 8
+  %histogram_name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %flags_, align 8
   ret void
 }
@@ -321,7 +321,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define dso_local void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base13HistogramBaseE, i64 16), ptr %this, align 8
-  %histogram_name_ = getelementptr inbounds i8, ptr %this, i64 8
+  %histogram_name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_) #15
   ret void
 }
@@ -348,7 +348,7 @@ if.end:
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_ monotonic, align 8
   %or = or i32 %0, %flags
   store atomic volatile i32 %or, ptr %flags_ monotonic, align 8
@@ -358,7 +358,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN4base13HistogramBase10ClearFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_ monotonic, align 8
   %not = xor i32 %flags, -1
   %and = and i32 %0, %not
@@ -372,7 +372,7 @@ entry:
   %call = tail call noundef i64 @_ZNK4base9TimeDelta14InMillisecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %time)
   %conv = trunc i64 %call to i32
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %conv)
   ret void
@@ -385,7 +385,7 @@ define dso_local void @_ZN4base13HistogramBase10AddBooleanEb(ptr noundef nonnull
 entry:
   %cond = zext i1 %value to i32
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %cond)
   ret void
@@ -396,7 +396,7 @@ define dso_local noundef zeroext i1 @_ZNK4base13HistogramBase13SerializeInfoEPNS
 return:
   %value.addr.i = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(44) %this)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
@@ -404,7 +404,7 @@ return:
   call void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %pickle, ptr noundef nonnull align 4 dereferenceable(4) %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 120
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 120
   %1 = load ptr, ptr %vfn4, align 8
   %call5 = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %pickle)
   ret i1 %call5
@@ -439,7 +439,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %count, ptr noundef nonnull %sum, ptr noundef nonnull %call)
           to label %invoke.cont4 unwind label %lpad3
@@ -454,7 +454,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   %vtable10 = load ptr, ptr %this, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 128
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 128
   %1 = load ptr, ptr %vfn11, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %call6)
           to label %invoke.cont13 unwind label %ehcleanup53.thread
@@ -472,16 +472,16 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %histogram_name_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %histogram_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i)
           to label %invoke.cont22 unwind label %lpad17
 
 invoke.cont22:                                    ; preds = %invoke.cont18
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %agg.tmp19, align 8
-  %6 = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %agg.tmp19, i64 8
   %7 = load i64, ptr %6, align 8
   invoke void @_ZN4base15DictionaryValue9SetStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %2, i64 %4, ptr %5, i64 %7)
           to label %invoke.cont23 unwind label %lpad17
@@ -493,7 +493,7 @@ invoke.cont23:                                    ; preds = %invoke.cont22
 invoke.cont25:                                    ; preds = %invoke.cont23
   %8 = load i32, ptr %count, align 4
   %9 = load ptr, ptr %agg.tmp24, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
   %11 = load i64, ptr %10, align 8
   invoke void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %9, i64 %11, i32 noundef %8)
           to label %invoke.cont26 unwind label %lpad17
@@ -506,7 +506,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   %12 = load i64, ptr %sum, align 8
   %conv = sitofp i64 %12 to double
   %13 = load ptr, ptr %agg.tmp27, align 8
-  %14 = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %agg.tmp27, i64 8
   %15 = load i64, ptr %14, align 8
   invoke void @_ZN4base15DictionaryValue9SetDoubleENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEd(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %13, i64 %15, double noundef %conv)
           to label %invoke.cont29 unwind label %lpad17
@@ -516,10 +516,10 @@ invoke.cont29:                                    ; preds = %invoke.cont28
           to label %invoke.cont31 unwind label %lpad17
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load atomic volatile i32, ptr %flags_.i monotonic, align 8
   %17 = load ptr, ptr %agg.tmp30, align 8
-  %18 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %agg.tmp30, i64 8
   %19 = load i64, ptr %18, align 8
   invoke void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %17, i64 %19, i32 noundef %16)
           to label %invoke.cont34 unwind label %lpad17
@@ -531,7 +531,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
 invoke.cont36:                                    ; preds = %invoke.cont34
   store ptr %call6, ptr %agg.tmp37, align 8
   %20 = load ptr, ptr %agg.tmp35, align 8
-  %21 = getelementptr inbounds i8, ptr %agg.tmp35, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %agg.tmp35, i64 8
   %22 = load i64, ptr %21, align 8
   invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %20, i64 %22, ptr noundef nonnull %agg.tmp37)
           to label %invoke.cont39 unwind label %lpad38
@@ -543,7 +543,7 @@ invoke.cont39:                                    ; preds = %invoke.cont36
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %invoke.cont39
   %vtable.i.i = load ptr, ptr %23, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %24 = load ptr, ptr %vfn.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(12) %23) #15
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -556,7 +556,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %inv
 invoke.cont41:                                    ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
   store ptr %call, ptr %agg.tmp42, align 8
   %25 = load ptr, ptr %agg.tmp40, align 8
-  %26 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %agg.tmp40, i64 8
   %27 = load i64, ptr %26, align 8
   invoke void @_ZN4base15DictionaryValue3SetENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %25, i64 %27, ptr noundef nonnull %agg.tmp42)
           to label %invoke.cont44 unwind label %lpad43
@@ -568,7 +568,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i7: ; preds = %invoke.cont44
   %vtable.i.i8 = load ptr, ptr %28, align 8
-  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
+  %vfn.i.i9 = getelementptr inbounds nuw i8, ptr %vtable.i.i8, i64 8
   %29 = load ptr, ptr %vfn.i.i9, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28) #15
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit10
@@ -584,7 +584,7 @@ invoke.cont46:                                    ; preds = %_ZNSt10unique_ptrIN
 
 invoke.cont47:                                    ; preds = %invoke.cont46
   %30 = load ptr, ptr %agg.tmp45, align 8
-  %31 = getelementptr inbounds i8, ptr %agg.tmp45, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %agg.tmp45, i64 8
   %32 = load i64, ptr %31, align 8
   invoke void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64) %root, ptr %30, i64 %32, i32 noundef %call48)
           to label %invoke.cont49 unwind label %lpad17
@@ -642,7 +642,7 @@ lpad38:                                           ; preds = %invoke.cont36
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i18: ; preds = %lpad38
   %vtable.i.i19 = load ptr, ptr %40, align 8
-  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 8
+  %vfn.i.i20 = getelementptr inbounds nuw i8, ptr %vtable.i.i19, i64 8
   %41 = load ptr, ptr %vfn.i.i20, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(12) %40) #15
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit21
@@ -660,7 +660,7 @@ lpad43:                                           ; preds = %invoke.cont41
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i23: ; preds = %lpad43
   %vtable.i.i24 = load ptr, ptr %43, align 8
-  %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 8
+  %vfn.i.i25 = getelementptr inbounds nuw i8, ptr %vtable.i.i24, i64 8
   %44 = load ptr, ptr %vfn.i.i25, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(12) %43) #15
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit26
@@ -683,7 +683,7 @@ _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i28: ; preds = %ehc
   %parameters.sroa.0.149 = phi ptr [ %call6, %ehcleanup53.thread ], [ %parameters.sroa.0.3, %ehcleanup53 ], [ %call6, %ehcleanup53.thread52 ]
   %buckets.sroa.0.247 = phi ptr [ %call, %ehcleanup53.thread ], [ %buckets.sroa.0.4, %ehcleanup53 ], [ %call, %ehcleanup53.thread52 ]
   %vtable.i.i29 = load ptr, ptr %parameters.sroa.0.149, align 8
-  %vfn.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i29, i64 8
+  %vfn.i.i30 = getelementptr inbounds nuw i8, ptr %vtable.i.i29, i64 8
   %45 = load ptr, ptr %vfn.i.i30, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(64) %parameters.sroa.0.149) #15
   br label %ehcleanup54
@@ -698,7 +698,7 @@ _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i33: ; preds = %lpad3, %lp
   %.pn.pn.pn.pn61 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup54 ], [ %34, %lpad3 ], [ %35, %lpad7 ]
   %buckets.sroa.0.160 = phi ptr [ %buckets.sroa.0.1, %ehcleanup54 ], [ %call, %lpad3 ], [ %call, %lpad7 ]
   %vtable.i.i34 = load ptr, ptr %buckets.sroa.0.160, align 8
-  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
+  %vfn.i.i35 = getelementptr inbounds nuw i8, ptr %vtable.i.i34, i64 8
   %46 = load ptr, ptr %vfn.i.i35, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(40) %buckets.sroa.0.160) #15
   br label %eh.resume
@@ -771,7 +771,7 @@ invoke.cont:                                      ; preds = %cond.end
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call4, ptr @_ZN4base13HistogramBase17report_histogram_E, align 8
   %vtable = load ptr, ptr %call4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(44) %call4, i32 noundef 0)
           to label %invoke.cont5 unwind label %lpad2
@@ -843,14 +843,14 @@ define dso_local void @_ZNK4base13HistogramBase18FindAndRunCallbackEi(ptr nounde
 entry:
   %args.addr.i = alloca i32, align 4
   %cb = alloca %"class.base::Callback", align 8
-  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_.i monotonic, align 8
   %and = and i32 %0, 32
   %cmp = icmp eq i32 %and, 0
   br i1 %cmp, label %return, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
-  %histogram_name_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %histogram_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN4base18StatisticsRecorder12FindCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.base::Callback") align 8 %cb, ptr noundef nonnull align 8 dereferenceable(32) %histogram_name_.i)
   %1 = load ptr, ptr %cb, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -932,7 +932,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZNK4base13HistogramBase25GetSimpleAsciiBucketRangeB5cxx11Ei(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %sample) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
-  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load atomic volatile i32, ptr %flags_.i monotonic, align 8
   %and = and i32 %0, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -972,7 +972,7 @@ entry:
   br i1 %tobool.not, label %sw.epilog29, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags_ = getelementptr inbounds i8, ptr %histogram, i64 40
+  %flags_ = getelementptr inbounds nuw i8, ptr %histogram, i64 40
   %1 = load i32, ptr %flags_, align 8
   switch i32 %activity, label %sw.epilog29 [
     i32 0, label %sw.bb
@@ -981,11 +981,11 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef 1)
   %vtable1 = load ptr, ptr %histogram, align 8
-  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 24
+  %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 24
   %3 = load ptr, ptr %vfn2, align 8
   %call = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(44) %histogram)
   %4 = icmp ult i32 %call, 5
@@ -993,7 +993,7 @@ sw.bb:                                            ; preds = %if.end
   %spec.select = select i1 %4, i32 %switch.offset, i32 11
   %5 = load ptr, ptr @_ZN4base13HistogramBase17report_histogram_E, align 8
   %vtable8 = load ptr, ptr %5, align 8
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
+  %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 40
   %6 = load ptr, ptr %vfn9, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(44) %5, i32 noundef %spec.select)
   %and = and i32 %1, 64
@@ -1003,7 +1003,7 @@ sw.bb:                                            ; preds = %if.end
 if.then11:                                        ; preds = %sw.bb
   %7 = load ptr, ptr @_ZN4base13HistogramBase17report_histogram_E, align 8
   %vtable12 = load ptr, ptr %7, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 40
   %8 = load ptr, ptr %vfn13, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(44) %7, i32 noundef 10)
   br label %if.end14
@@ -1016,7 +1016,7 @@ if.end14:                                         ; preds = %if.then11, %sw.bb
 if.then16:                                        ; preds = %if.end14
   %9 = load ptr, ptr @_ZN4base13HistogramBase17report_histogram_E, align 8
   %vtable17 = load ptr, ptr %9, align 8
-  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 40
+  %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 40
   %10 = load ptr, ptr %vfn18, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef 9)
   br label %sw.epilog29
@@ -1029,14 +1029,14 @@ if.else:                                          ; preds = %if.end14
 if.then21:                                        ; preds = %if.else
   %11 = load ptr, ptr @_ZN4base13HistogramBase17report_histogram_E, align 8
   %vtable22 = load ptr, ptr %11, align 8
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 40
+  %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 40
   %12 = load ptr, ptr %vfn23, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(44) %11, i32 noundef 8)
   br label %sw.epilog29
 
 sw.bb26:                                          ; preds = %if.end
   %vtable27 = load ptr, ptr %0, align 8
-  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 40
+  %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 40
   %13 = load ptr, ptr %vfn28, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef 2)
   br label %sw.epilog29

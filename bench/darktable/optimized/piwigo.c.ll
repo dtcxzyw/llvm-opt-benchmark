@@ -166,13 +166,13 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %6, ptr %7, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %6, i64 88
-  %9 = getelementptr inbounds i8, ptr %6, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %10 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %10, ptr %11, align 8, !tbaa !13
   %12 = load ptr, ptr %9, align 8, !tbaa !14
   %13 = icmp eq ptr %12, null
@@ -217,11 +217,11 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   store ptr %34, ptr %32, align 8, !tbaa !17
   %35 = call ptr @json_object_get_string_member(ptr noundef %31, ptr noundef nonnull @.str.53) #13
   %36 = call noalias ptr @g_strdup(ptr noundef %35) #13
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %36, ptr %37, align 8, !tbaa !19
   %38 = call ptr @json_object_get_string_member(ptr noundef %31, ptr noundef nonnull @.str.9) #13
   %39 = call noalias ptr @g_strdup(ptr noundef %38) #13
-  %40 = getelementptr inbounds i8, ptr %32, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !20
   %41 = load ptr, ptr %32, align 8, !tbaa !17
   %42 = icmp eq ptr %41, null
@@ -278,7 +278,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   br i1 %65, label %.loopexit11, label %66
 
 66:                                               ; preds = %63, %.preheader10
-  %67 = getelementptr inbounds i8, ptr %59, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.loopexit11, label %.preheader10
@@ -286,7 +286,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
 .loopexit11:                                      ; preds = %66, %63, %56, %.loopexit13
   %70 = phi ptr [ null, %.loopexit13 ], [ null, %56 ], [ %60, %63 ], [ null, %66 ]
   %71 = call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #13
-  %72 = getelementptr inbounds i8, ptr %6, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %71, ptr %72, align 8, !tbaa !23
   %73 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %71, ptr noundef null, ptr noundef nonnull @.str.2) #13
   %74 = load ptr, ptr %9, align 8, !tbaa !16
@@ -323,7 +323,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %96 = icmp eq i32 %95, 0
   %97 = select i1 %96, i32 %89, i32 %90
   %98 = add nuw nsw i32 %89, 1
-  %99 = getelementptr inbounds i8, ptr %88, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !16
   %101 = icmp eq ptr %100, null
   br i1 %101, label %.loopexit, label %.preheader
@@ -337,7 +337,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %106 = call ptr @dt_action_entry_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @_piwigo_server_entry_changed, ptr noundef nonnull %6, ptr noundef %86, ptr noundef %105) #13
   %107 = tail call i64 @gtk_entry_get_type() #16
   %108 = call ptr @g_type_check_instance_cast(ptr noundef %106, i64 noundef %107) #13
-  %109 = getelementptr inbounds i8, ptr %6, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %108, ptr %109, align 8, !tbaa !24
   %110 = tail call i64 @gtk_widget_get_type() #16
   %111 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %110) #13
@@ -365,7 +365,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   br i1 %87, label %128, label %125
 
 125:                                              ; preds = %104
-  %126 = getelementptr inbounds i8, ptr %70, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !19
   br label %128
 
@@ -373,7 +373,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %129 = phi ptr [ %127, %125 ], [ @.str.8, %104 ]
   %130 = call ptr @dt_action_entry_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @_piwigo_entry_changed, ptr noundef nonnull %6, ptr noundef null, ptr noundef %129) #13
   %131 = call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %107) #13
-  %132 = getelementptr inbounds i8, ptr %6, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %131, ptr %132, align 8, !tbaa !25
   %133 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %110) #13
   call void @gtk_widget_set_hexpand(ptr noundef %133, i32 noundef 1) #13
@@ -398,7 +398,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   br i1 %87, label %149, label %146
 
 146:                                              ; preds = %128
-  %147 = getelementptr inbounds i8, ptr %70, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !20
   br label %149
 
@@ -406,7 +406,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %150 = phi ptr [ %148, %146 ], [ @.str.8, %128 ]
   %151 = call ptr @dt_action_entry_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @_piwigo_entry_changed, ptr noundef nonnull %6, ptr noundef null, ptr noundef %150) #13
   %152 = call ptr @g_type_check_instance_cast(ptr noundef %151, i64 noundef %107) #13
-  %153 = getelementptr inbounds i8, ptr %6, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %152, ptr %153, align 8, !tbaa !26
   %154 = call ptr @g_type_check_instance_cast(ptr noundef %152, i64 noundef %107) #13
   call void @gtk_entry_set_visibility(ptr noundef %154, i32 noundef 0) #13
@@ -461,7 +461,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
 
 186:                                              ; preds = %184, %149
   %187 = call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @gui_init.texts) #13
-  %188 = getelementptr inbounds i8, ptr %6, i64 48
+  %188 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %187, ptr %188, align 8, !tbaa !28
   %189 = load ptr, ptr %11, align 8, !tbaa !13
   %190 = call ptr @g_type_check_instance_cast(ptr noundef %189, i64 noundef %82) #13
@@ -469,7 +469,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   call void @gtk_box_pack_start(ptr noundef %190, ptr noundef %191, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %192 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #13
   %193 = call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #13
-  %194 = getelementptr inbounds i8, ptr %6, i64 56
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %193, ptr %194, align 8, !tbaa !29
   %195 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %193, ptr noundef null, ptr noundef nonnull @.str.19) #13
   %196 = load ptr, ptr %194, align 8, !tbaa !29
@@ -492,7 +492,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   call void @gtk_box_pack_start(ptr noundef %208, ptr noundef %192, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %209 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
   %210 = call ptr @g_type_check_instance_cast(ptr noundef %209, i64 noundef %82) #13
-  %211 = getelementptr inbounds i8, ptr %6, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %210, ptr %211, align 8, !tbaa !30
   %212 = call ptr @g_type_check_instance_cast(ptr noundef %210, i64 noundef %110) #13
   call void @gtk_widget_set_no_show_all(ptr noundef %212, i32 noundef 1) #13
@@ -510,7 +510,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   call void @gtk_box_pack_start(ptr noundef %221, ptr noundef %219, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %222 = call ptr @gtk_entry_new() #13
   %223 = call ptr @g_type_check_instance_cast(ptr noundef %222, i64 noundef %107) #13
-  %224 = getelementptr inbounds i8, ptr %6, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %223, ptr %224, align 8, !tbaa !31
   %225 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #13
   call void @gtk_entry_set_text(ptr noundef %223, ptr noundef %225) #13
@@ -524,7 +524,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   %231 = load ptr, ptr %211, align 8, !tbaa !30
   call void @gtk_box_pack_start(ptr noundef %231, ptr noundef %217, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %232 = call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #13
-  %233 = getelementptr inbounds i8, ptr %6, i64 64
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %232, ptr %233, align 8, !tbaa !32
   %234 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %232, ptr noundef null, ptr noundef nonnull @.str.24) #13
   %235 = load ptr, ptr %233, align 8, !tbaa !32
@@ -543,7 +543,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   call void @gtk_widget_set_tooltip_markup(ptr noundef %242, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #13
   %243 = call ptr @dt_bauhaus_combobox_new(ptr noundef null) #13
-  %244 = getelementptr inbounds i8, ptr %6, i64 72
+  %244 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %243, ptr %244, align 8, !tbaa !33
   %245 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %243, ptr noundef null, ptr noundef nonnull @.str.27) #13
   %246 = load ptr, ptr %244, align 8, !tbaa !33
@@ -601,14 +601,14 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal void @_piwigo_account_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %4) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -626,23 +626,23 @@ define internal void @_piwigo_account_changed(ptr nocapture readnone %0, ptr noc
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %15, %.preheader
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %.preheader
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   tail call void @gtk_entry_set_text(ptr noundef %24, ptr noundef nonnull %13) #13
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !19
   tail call void @gtk_entry_set_text(ptr noundef %26, ptr noundef %28) #13
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !26
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   tail call void @gtk_entry_set_text(ptr noundef %30, ptr noundef %32) #13
   br label %.loopexit
@@ -661,7 +661,7 @@ declare ptr @dt_action_entry_new(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal void @_piwigo_server_entry_changed(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
   %3 = alloca [512 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
@@ -679,7 +679,7 @@ define internal void @_piwigo_server_entry_changed(ptr nocapture readnone %0, pt
   call void @gtk_widget_set_tooltip_markup(ptr noundef %13, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #13
   call fastcc void @_piwigo_ctx_destroy(ptr noundef nonnull %4)
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %12) #13
   call void @gtk_widget_set_sensitive(ptr noundef %16, i32 noundef 0) #13
@@ -711,11 +711,11 @@ define internal void @_piwigo_entry_changed(ptr nocapture readnone %0, ptr nocap
   %9 = call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #13
   call void @gtk_widget_set_tooltip_markup(ptr noundef %9, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #13
-  %10 = getelementptr inbounds i8, ptr %1, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %8) #13
   call void @gtk_widget_set_sensitive(ptr noundef %12, i32 noundef 0) #13
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -736,7 +736,7 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @_piwigo_login_clicked(ptr nocapture readnone %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call fastcc void @_piwigo_ctx_destroy(ptr noundef nonnull %3)
   %4 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.56) #13
   tail call fastcc void @_piwigo_refresh_albums(ptr noundef %1, ptr noundef %4)
@@ -759,7 +759,7 @@ declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal void @_piwigo_album_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %4) #13
   %6 = icmp eq ptr %5, null
@@ -769,7 +769,7 @@ define internal void @_piwigo_album_changed(ptr nocapture readnone %0, ptr nocap
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #15
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = tail call i64 @gtk_widget_get_type() #16
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #13
@@ -870,7 +870,7 @@ declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #13
   ret void
@@ -883,7 +883,7 @@ define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 
 
 ; Function Attrs: nounwind uwtable
 define void @finalize_store(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_finalize_store, ptr noundef %4) #13
   ret void
@@ -893,9 +893,9 @@ declare void @g_main_context_invoke(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_finalize_store(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !34
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %37
@@ -903,15 +903,15 @@ define internal noundef i32 @_finalize_store(ptr nocapture noundef %0) #1 {
 7:                                                ; preds = %1
   %8 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %9 = tail call i64 @g_strlcpy(ptr noundef %8, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %10 = getelementptr inbounds i8, ptr %8, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 100
   %11 = tail call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull @.str.60, i64 noundef 512) #13
   %12 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %8) #13
   %13 = load ptr, ptr %2, align 8, !tbaa !34
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %17 = tail call i64 @g_strlcpy(ptr noundef %16, ptr noundef nonnull @.str.61, i64 noundef 100) #13
-  %18 = getelementptr inbounds i8, ptr %16, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 100
   %19 = tail call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef %15, i64 noundef 512) #13
   %20 = tail call ptr @g_list_append(ptr noundef %12, ptr noundef %16) #13
   %21 = load ptr, ptr %2, align 8, !tbaa !34
@@ -926,16 +926,16 @@ define internal noundef i32 @_finalize_store(ptr nocapture noundef %0) #1 {
   tail call void @curl_easy_cleanup(ptr noundef %24) #13
   %25 = tail call ptr @curl_easy_init() #13
   store ptr %25, ptr %21, align 8, !tbaa !39
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 0, ptr %26, align 8, !tbaa !40
   tail call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %21)
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = icmp eq ptr %28, null
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %21, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %32 = load i32, ptr %31, align 8, !tbaa !36
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %36
@@ -964,21 +964,21 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %18 = alloca [10 x i8], align 1
   %19 = alloca [100 x i8], align 16
   %20 = alloca [4096 x i8], align 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 344
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %22 = load ptr, ptr %21, align 8, !tbaa !6
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !42
   %24 = tail call ptr @dt_image_cache_get(ptr noundef %23, i32 noundef %2, i8 noundef signext 114) #13
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %20) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %20, i8 0, i64 4096, i1 false)
-  %25 = getelementptr inbounds i8, ptr %24, i64 1116
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1116
   %26 = call i64 @g_strlcpy(ptr noundef nonnull %20, ptr noundef nonnull %25, i64 noundef 4096) #13
-  %27 = getelementptr inbounds i8, ptr %3, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %28 = load ptr, ptr %27, align 8, !tbaa !52
   %29 = call ptr %28(ptr noundef %4) #13
   %30 = call ptr @dt_filename_change_extension(ptr noundef nonnull %20, ptr noundef %29) #13
   %31 = call i64 @g_strlcpy(ptr noundef nonnull %20, ptr noundef %30, i64 noundef 4096) #13
   call void @g_free(ptr noundef %30) #13
-  %32 = getelementptr inbounds i8, ptr %24, i64 1428
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 1428
   %33 = load i32, ptr %32, align 4, !tbaa !54
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %36
@@ -998,7 +998,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %42, label %43, label %72
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %24, i64 1432
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 1432
   %45 = load i32, ptr %44, align 8, !tbaa !67
   %46 = call ptr @dt_metadata_get(i32 noundef %45, ptr noundef nonnull @.str.34, ptr noundef null) #13
   %47 = icmp eq ptr %46, null
@@ -1073,13 +1073,13 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 86:                                               ; preds = %81
   %87 = call ptr @dt_tag_get_list_export(i32 noundef %2, i32 noundef %83) #13
   %88 = call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.40, ptr noundef %87) #13
-  %89 = getelementptr inbounds i8, ptr %1, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %88, ptr %89, align 8, !tbaa !68
   call void @g_list_free_full(ptr noundef %87, ptr noundef nonnull @g_free) #13
   br label %90
 
 90:                                               ; preds = %86, %81
-  %91 = getelementptr inbounds i8, ptr %1, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %92 = load i32, ptr %91, align 8, !tbaa !70
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %159, label %94
@@ -1087,17 +1087,17 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 94:                                               ; preds = %90
   %95 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %96 = call i64 @g_strlcpy(ptr noundef %95, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %97 = getelementptr inbounds i8, ptr %95, i64 100
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 100
   %98 = call i64 @g_strlcpy(ptr noundef nonnull %97, ptr noundef nonnull @.str.68, i64 noundef 512) #13
   %99 = call ptr @g_list_append(ptr noundef null, ptr noundef %95) #13
-  %100 = getelementptr inbounds i8, ptr %1, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !71
   %102 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %103 = call i64 @g_strlcpy(ptr noundef %102, ptr noundef nonnull @.str.69, i64 noundef 100) #13
-  %104 = getelementptr inbounds i8, ptr %102, i64 100
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 100
   %105 = call i64 @g_strlcpy(ptr noundef nonnull %104, ptr noundef %101, i64 noundef 512) #13
   %106 = call ptr @g_list_append(ptr noundef %99, ptr noundef %102) #13
-  %107 = getelementptr inbounds i8, ptr %1, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %108 = load i64, ptr %107, align 8, !tbaa !72
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %117, label %110
@@ -1107,7 +1107,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 100, ptr noundef nonnull @.str.70, i64 noundef %108) #13
   %112 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %113 = call i64 @g_strlcpy(ptr noundef %112, ptr noundef nonnull @.str.71, i64 noundef 100) #13
-  %114 = getelementptr inbounds i8, ptr %112, i64 100
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 100
   %115 = call i64 @g_strlcpy(ptr noundef nonnull %114, ptr noundef nonnull %19, i64 noundef 512) #13
   %116 = call ptr @g_list_append(ptr noundef %106, ptr noundef %112) #13
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %19) #13
@@ -1115,13 +1115,13 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 
 117:                                              ; preds = %110, %94
   %118 = phi ptr [ %116, %110 ], [ %106, %94 ]
-  %119 = getelementptr inbounds i8, ptr %1, i64 36
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %120 = load i32, ptr %119, align 4, !tbaa !73
   %121 = icmp eq i32 %120, 0
   %122 = select i1 %121, ptr @.str.73, ptr @.str.74
   %123 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %124 = call i64 @g_strlcpy(ptr noundef %123, ptr noundef nonnull @.str.72, i64 noundef 100) #13
-  %125 = getelementptr inbounds i8, ptr %123, i64 100
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 100
   %126 = call i64 @g_strlcpy(ptr noundef nonnull %125, ptr noundef nonnull %122, i64 noundef 512) #13
   %127 = call ptr @g_list_append(ptr noundef %118, ptr noundef %123) #13
   %128 = load ptr, ptr %1, align 8, !tbaa !74
@@ -1136,16 +1136,16 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @curl_easy_cleanup(ptr noundef %131) #13
   %132 = call ptr @curl_easy_init() #13
   store ptr %132, ptr %128, align 8, !tbaa !39
-  %133 = getelementptr inbounds i8, ptr %128, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store i32 0, ptr %133, align 8, !tbaa !40
   call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %128)
-  %134 = getelementptr inbounds i8, ptr %128, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !41
   %136 = icmp eq ptr %135, null
   br i1 %136, label %143, label %137
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %128, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 80
   %139 = load i32, ptr %138, align 8, !tbaa !36
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %143
@@ -1158,13 +1158,13 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 143:                                              ; preds = %141, %137, %130, %117
   call void @g_list_free(ptr noundef %127) #13
   %144 = load ptr, ptr %1, align 8, !tbaa !74
-  %145 = getelementptr inbounds i8, ptr %144, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !41
   %147 = icmp eq ptr %146, null
   br i1 %147, label %157, label %148
 
 148:                                              ; preds = %143
-  %149 = getelementptr inbounds i8, ptr %144, i64 80
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 80
   %150 = load i32, ptr %149, align 8, !tbaa !36
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %157
@@ -1173,7 +1173,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %153 = call ptr @json_object_get_member(ptr noundef nonnull %146, ptr noundef nonnull @.str.75) #13
   %154 = call ptr @json_node_get_object(ptr noundef %153) #13
   %155 = call i64 @json_object_get_int_member(ptr noundef %154, ptr noundef nonnull @.str.76) #13
-  %156 = getelementptr inbounds i8, ptr %1, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %155, ptr %156, align 8, !tbaa !75
   br label %159
 
@@ -1200,17 +1200,17 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %169 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10, ptr noundef nonnull @.str.77, i32 noundef %163) #13
   %170 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %171 = call i64 @g_strlcpy(ptr noundef %170, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %172 = getelementptr inbounds i8, ptr %170, i64 100
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 100
   %173 = call i64 @g_strlcpy(ptr noundef nonnull %172, ptr noundef nonnull @.str.87, i64 noundef 512) #13
   %174 = call ptr @g_list_append(ptr noundef null, ptr noundef %170) #13
   %175 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %176 = call i64 @g_strlcpy(ptr noundef %175, ptr noundef nonnull @.str.88, i64 noundef 100) #13
-  %177 = getelementptr inbounds i8, ptr %175, i64 100
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 100
   %178 = call i64 @g_strlcpy(ptr noundef nonnull %177, ptr noundef nonnull %18, i64 noundef 512) #13
   %179 = call ptr @g_list_append(ptr noundef %174, ptr noundef %175) #13
   %180 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %181 = call i64 @g_strlcpy(ptr noundef %180, ptr noundef nonnull @.str.89, i64 noundef 100) #13
-  %182 = getelementptr inbounds i8, ptr %180, i64 100
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 100
   %183 = call i64 @g_strlcpy(ptr noundef nonnull %182, ptr noundef nonnull @.str.90, i64 noundef 512) #13
   %184 = call ptr @g_list_append(ptr noundef %179, ptr noundef %180) #13
   %185 = icmp eq ptr %75, null
@@ -1224,7 +1224,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 189:                                              ; preds = %186
   %190 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %191 = call i64 @g_strlcpy(ptr noundef %190, ptr noundef nonnull @.str.69, i64 noundef 100) #13
-  %192 = getelementptr inbounds i8, ptr %190, i64 100
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 100
   %193 = call i64 @g_strlcpy(ptr noundef nonnull %192, ptr noundef nonnull %75, i64 noundef 512) #13
   %194 = call ptr @g_list_append(ptr noundef %184, ptr noundef %190) #13
   br label %195
@@ -1242,7 +1242,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 201:                                              ; preds = %198
   %202 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %203 = call i64 @g_strlcpy(ptr noundef %202, ptr noundef nonnull @.str.91, i64 noundef 100) #13
-  %204 = getelementptr inbounds i8, ptr %202, i64 100
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 100
   %205 = call i64 @g_strlcpy(ptr noundef nonnull %204, ptr noundef nonnull %73, i64 noundef 512) #13
   %206 = call ptr @g_list_append(ptr noundef %196, ptr noundef %202) #13
   br label %207
@@ -1260,7 +1260,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 213:                                              ; preds = %210
   %214 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %215 = call i64 @g_strlcpy(ptr noundef %214, ptr noundef nonnull @.str.92, i64 noundef 100) #13
-  %216 = getelementptr inbounds i8, ptr %214, i64 100
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 100
   %217 = call i64 @g_strlcpy(ptr noundef nonnull %216, ptr noundef nonnull %74, i64 noundef 512) #13
   %218 = call ptr @g_list_append(ptr noundef %208, ptr noundef %214) #13
   br label %219
@@ -1279,15 +1279,15 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @curl_easy_cleanup(ptr noundef %224) #13
   %225 = call ptr @curl_easy_init() #13
   store ptr %225, ptr %221, align 8, !tbaa !39
-  %226 = getelementptr inbounds i8, ptr %221, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store i32 0, ptr %226, align 8, !tbaa !40
-  %227 = getelementptr inbounds i8, ptr %221, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !41
   %229 = icmp eq ptr %228, null
   br i1 %229, label %236, label %230
 
 230:                                              ; preds = %223
-  %231 = getelementptr inbounds i8, ptr %221, i64 80
+  %231 = getelementptr inbounds nuw i8, ptr %221, i64 80
   %232 = load i32, ptr %231, align 8, !tbaa !36
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %236
@@ -1300,7 +1300,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 236:                                              ; preds = %234, %230, %223, %219
   call void @g_list_free(ptr noundef %220) #13
   %237 = load ptr, ptr %1, align 8, !tbaa !74
-  %238 = getelementptr inbounds i8, ptr %237, i64 80
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 80
   %239 = load i32, ptr %238, align 8, !tbaa !36
   %240 = icmp eq i32 %239, 0
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18) #13
@@ -1323,31 +1323,31 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %15) #13
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %16) #13
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %17) #13
-  %249 = getelementptr inbounds i8, ptr %1, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %250 = load i64, ptr %249, align 8, !tbaa !75
   %251 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 10, ptr noundef nonnull @.str.70, i64 noundef %250) #13
-  %252 = getelementptr inbounds i8, ptr %1, i64 36
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %253 = load i32, ptr %252, align 4, !tbaa !73
   %254 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 10, ptr noundef nonnull @.str.77, i32 noundef %253) #13
   %255 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 10, ptr noundef nonnull @.str.77, i32 noundef %247) #13
   %256 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %257 = call i64 @g_strlcpy(ptr noundef %256, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %258 = getelementptr inbounds i8, ptr %256, i64 100
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 100
   %259 = call i64 @g_strlcpy(ptr noundef nonnull %258, ptr noundef nonnull @.str.93, i64 noundef 512) #13
   %260 = call ptr @g_list_append(ptr noundef null, ptr noundef %256) #13
   %261 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %262 = call i64 @g_strlcpy(ptr noundef %261, ptr noundef nonnull @.str.63, i64 noundef 100) #13
-  %263 = getelementptr inbounds i8, ptr %261, i64 100
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 100
   %264 = call i64 @g_strlcpy(ptr noundef nonnull %263, ptr noundef %39, i64 noundef 512) #13
   %265 = call ptr @g_list_append(ptr noundef %260, ptr noundef %261) #13
   %266 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %267 = call i64 @g_strlcpy(ptr noundef %266, ptr noundef nonnull @.str.94, i64 noundef 100) #13
-  %268 = getelementptr inbounds i8, ptr %266, i64 100
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 100
   %269 = call i64 @g_strlcpy(ptr noundef nonnull %268, ptr noundef nonnull %15, i64 noundef 512) #13
   %270 = call ptr @g_list_append(ptr noundef %265, ptr noundef %266) #13
   %271 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %272 = call i64 @g_strlcpy(ptr noundef %271, ptr noundef nonnull @.str.95, i64 noundef 100) #13
-  %273 = getelementptr inbounds i8, ptr %271, i64 100
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 100
   %274 = call i64 @g_strlcpy(ptr noundef nonnull %273, ptr noundef nonnull %16, i64 noundef 512) #13
   %275 = call ptr @g_list_append(ptr noundef %270, ptr noundef %271) #13
   %276 = icmp eq ptr %75, null
@@ -1361,7 +1361,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 280:                                              ; preds = %277
   %281 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %282 = call i64 @g_strlcpy(ptr noundef %281, ptr noundef nonnull @.str.69, i64 noundef 100) #13
-  %283 = getelementptr inbounds i8, ptr %281, i64 100
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 100
   %284 = call i64 @g_strlcpy(ptr noundef nonnull %283, ptr noundef nonnull %75, i64 noundef 512) #13
   %285 = call ptr @g_list_append(ptr noundef %275, ptr noundef %281) #13
   br label %286
@@ -1379,7 +1379,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 292:                                              ; preds = %289
   %293 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %294 = call i64 @g_strlcpy(ptr noundef %293, ptr noundef nonnull @.str.91, i64 noundef 100) #13
-  %295 = getelementptr inbounds i8, ptr %293, i64 100
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 100
   %296 = call i64 @g_strlcpy(ptr noundef nonnull %295, ptr noundef nonnull %73, i64 noundef 512) #13
   %297 = call ptr @g_list_append(ptr noundef %287, ptr noundef %293) #13
   br label %298
@@ -1397,14 +1397,14 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 304:                                              ; preds = %301
   %305 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %306 = call i64 @g_strlcpy(ptr noundef %305, ptr noundef nonnull @.str.92, i64 noundef 100) #13
-  %307 = getelementptr inbounds i8, ptr %305, i64 100
+  %307 = getelementptr inbounds nuw i8, ptr %305, i64 100
   %308 = call i64 @g_strlcpy(ptr noundef nonnull %307, ptr noundef nonnull %74, i64 noundef 512) #13
   %309 = call ptr @g_list_append(ptr noundef %299, ptr noundef %305) #13
   br label %310
 
 310:                                              ; preds = %304, %301, %298
   %311 = phi ptr [ %309, %304 ], [ %299, %301 ], [ %299, %298 ]
-  %312 = getelementptr inbounds i8, ptr %1, i64 48
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %313 = load ptr, ptr %312, align 8, !tbaa !68
   %314 = icmp eq ptr %313, null
   br i1 %314, label %324, label %315
@@ -1417,7 +1417,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 318:                                              ; preds = %315
   %319 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %320 = call i64 @g_strlcpy(ptr noundef %319, ptr noundef nonnull @.str.96, i64 noundef 100) #13
-  %321 = getelementptr inbounds i8, ptr %319, i64 100
+  %321 = getelementptr inbounds nuw i8, ptr %319, i64 100
   %322 = call i64 @g_strlcpy(ptr noundef nonnull %321, ptr noundef nonnull %313, i64 noundef 512) #13
   %323 = call ptr @g_list_append(ptr noundef %311, ptr noundef %319) #13
   br label %324
@@ -1429,7 +1429,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 326:                                              ; preds = %324
   %327 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %328 = call i64 @g_strlcpy(ptr noundef %327, ptr noundef nonnull @.str.88, i64 noundef 100) #13
-  %329 = getelementptr inbounds i8, ptr %327, i64 100
+  %329 = getelementptr inbounds nuw i8, ptr %327, i64 100
   %330 = call i64 @g_strlcpy(ptr noundef nonnull %329, ptr noundef nonnull %17, i64 noundef 512) #13
   %331 = call ptr @g_list_append(ptr noundef %325, ptr noundef %327) #13
   br label %332
@@ -1448,16 +1448,16 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @curl_easy_cleanup(ptr noundef %337) #13
   %338 = call ptr @curl_easy_init() #13
   store ptr %338, ptr %334, align 8, !tbaa !39
-  %339 = getelementptr inbounds i8, ptr %334, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %334, i64 24
   store i32 0, ptr %339, align 8, !tbaa !40
   call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %334)
-  %340 = getelementptr inbounds i8, ptr %334, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %341 = load ptr, ptr %340, align 8, !tbaa !41
   %342 = icmp eq ptr %341, null
   br i1 %342, label %349, label %343
 
 343:                                              ; preds = %336
-  %344 = getelementptr inbounds i8, ptr %334, i64 80
+  %344 = getelementptr inbounds nuw i8, ptr %334, i64 80
   %345 = load i32, ptr %344, align 8, !tbaa !36
   %346 = icmp eq i32 %345, 0
   br i1 %346, label %347, label %349
@@ -1470,7 +1470,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 349:                                              ; preds = %347, %343, %336, %332
   call void @g_list_free(ptr noundef %333) #13
   %350 = load ptr, ptr %1, align 8, !tbaa !74
-  %351 = getelementptr inbounds i8, ptr %350, i64 80
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 80
   %352 = load i32, ptr %351, align 8, !tbaa !36
   %353 = icmp eq i32 %352, 0
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %17) #13
@@ -1491,7 +1491,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 
 359:                                              ; preds = %356
   store i32 0, ptr %91, align 8, !tbaa !70
-  %360 = getelementptr inbounds i8, ptr %1, i64 24
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %361 = load ptr, ptr %360, align 8, !tbaa !71
   call fastcc void @_piwigo_refresh_albums(ptr noundef %22, ptr noundef %361)
   br label %362
@@ -1499,7 +1499,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
 362:                                              ; preds = %359, %356, %354, %243, %241, %236, %157
   %363 = phi i1 [ true, %157 ], [ true, %236 ], [ true, %241 ], [ true, %359 ], [ true, %356 ], [ true, %354 ], [ false, %243 ]
   %364 = phi i32 [ 0, %157 ], [ 0, %236 ], [ 1, %241 ], [ 0, %359 ], [ 0, %356 ], [ 1, %354 ], [ 0, %243 ]
-  %365 = getelementptr inbounds i8, ptr %1, i64 48
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %366 = load ptr, ptr %365, align 8, !tbaa !68
   %367 = icmp eq ptr %366, null
   br i1 %367, label %369, label %368
@@ -1551,15 +1551,15 @@ define internal fastcc ptr @_get_filename(ptr noundef %0, ptr nocapture noundef 
   %4 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 1116
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %6 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 4096) #13
-  %7 = getelementptr inbounds i8, ptr %1, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = call ptr %8(ptr noundef %2) #13
   %10 = call ptr @dt_filename_change_extension(ptr noundef nonnull %4, ptr noundef %9) #13
   %11 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef %10, i64 noundef 4096) #13
   call void @g_free(ptr noundef %10) #13
-  %12 = getelementptr inbounds i8, ptr %0, i64 1428
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1428
   %13 = load i32, ptr %12, align 4, !tbaa !54
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %16
@@ -1604,29 +1604,29 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
   %7 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !75
   %10 = trunc i64 %9 to i32
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 10, ptr noundef nonnull @.str.77, i32 noundef %10) #13
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 10, ptr noundef nonnull @.str.77, i32 noundef %4) #13
   %13 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %14 = tail call i64 @g_strlcpy(ptr noundef %13, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %15 = getelementptr inbounds i8, ptr %13, i64 100
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %16 = tail call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.78, i64 noundef 512) #13
   %17 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %13) #13
   %18 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %19 = tail call i64 @g_strlcpy(ptr noundef %18, ptr noundef nonnull @.str.79, i64 noundef 100) #13
-  %20 = getelementptr inbounds i8, ptr %18, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %21 = call i64 @g_strlcpy(ptr noundef nonnull %20, ptr noundef nonnull %6, i64 noundef 512) #13
   %22 = call ptr @g_list_append(ptr noundef %17, ptr noundef %18) #13
   %23 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %24 = call i64 @g_strlcpy(ptr noundef %23, ptr noundef nonnull @.str.80, i64 noundef 100) #13
-  %25 = getelementptr inbounds i8, ptr %23, i64 100
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 100
   %26 = call i64 @g_strlcpy(ptr noundef nonnull %25, ptr noundef nonnull @.str.81, i64 noundef 512) #13
   %27 = call ptr @g_list_append(ptr noundef %22, ptr noundef %23) #13
   %28 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %29 = call i64 @g_strlcpy(ptr noundef %28, ptr noundef nonnull @.str.82, i64 noundef 100) #13
-  %30 = getelementptr inbounds i8, ptr %28, i64 100
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 100
   %31 = call i64 @g_strlcpy(ptr noundef nonnull %30, ptr noundef nonnull %7, i64 noundef 512) #13
   %32 = call ptr @g_list_append(ptr noundef %27, ptr noundef %28) #13
   %33 = load ptr, ptr %0, align 8, !tbaa !74
@@ -1641,15 +1641,15 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
   call void @curl_easy_cleanup(ptr noundef %36) #13
   %37 = call ptr @curl_easy_init() #13
   store ptr %37, ptr %33, align 8, !tbaa !39
-  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 0, ptr %38, align 8, !tbaa !40
-  %39 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = icmp eq ptr %40, null
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %33, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %44 = load i32, ptr %43, align 8, !tbaa !36
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %48
@@ -1663,13 +1663,13 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
   call void @g_list_free(ptr noundef %32) #13
   %49 = call fastcc ptr @_get_filename(ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %50 = load ptr, ptr %0, align 8, !tbaa !74
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !41
   %53 = icmp eq ptr %52, null
   br i1 %53, label %106, label %54
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %50, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %56 = load i32, ptr %55, align 8, !tbaa !36
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %106
@@ -1681,7 +1681,7 @@ define internal fastcc i32 @_piwigo_api_get_image_id(ptr nocapture noundef reado
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %0, align 8, !tbaa !74
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   %65 = call ptr @json_object_get_member(ptr noundef %64, ptr noundef nonnull @.str.75) #13
   %66 = icmp eq ptr %65, null
@@ -1769,22 +1769,22 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   %4 = alloca [512 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [100 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = tail call i64 @gtk_widget_get_type() #16
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #13
   tail call void @gtk_widget_set_sensitive(ptr noundef %10, i32 noundef 0) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %9) #13
   tail call void @gtk_widget_set_sensitive(ptr noundef %13, i32 noundef 0) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %30, label %123
@@ -1794,52 +1794,52 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   %23 = tail call ptr @curl_easy_init() #13
   store ptr %23, ptr %22, align 8, !tbaa !39
   %24 = tail call ptr @json_parser_new() #13
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !77
-  %26 = getelementptr inbounds i8, ptr %22, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 0, ptr %26, align 8, !tbaa !40
-  %27 = getelementptr inbounds i8, ptr %22, i64 32
-  %28 = getelementptr inbounds i8, ptr %22, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store i32 0, ptr %28, align 8, !tbaa !36
-  %29 = getelementptr inbounds i8, ptr %22, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store ptr null, ptr %29, align 8, !tbaa !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store ptr %22, ptr %14, align 8, !tbaa !34
   br label %30
 
 30:                                               ; preds = %21, %17
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = tail call ptr @gtk_entry_get_text(ptr noundef %32) #13
   %34 = tail call noalias ptr @g_strdup(ptr noundef %33) #13
   %35 = load ptr, ptr %14, align 8, !tbaa !34
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr %34, ptr %36, align 8, !tbaa !78
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !25
   %39 = tail call ptr @gtk_entry_get_text(ptr noundef %38) #13
   %40 = tail call ptr @g_uri_escape_string(ptr noundef %39, ptr noundef null, i32 noundef 0) #13
   %41 = load ptr, ptr %14, align 8, !tbaa !34
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %40, ptr %42, align 8, !tbaa !79
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %45 = tail call ptr @gtk_entry_get_text(ptr noundef %44) #13
   %46 = tail call ptr @g_uri_escape_string(ptr noundef %45, ptr noundef null, i32 noundef 0) #13
   %47 = load ptr, ptr %14, align 8, !tbaa !34
-  %48 = getelementptr inbounds i8, ptr %47, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store ptr %46, ptr %48, align 8, !tbaa !80
   tail call fastcc void @_piwigo_api_authenticate(ptr noundef %47)
   %49 = load ptr, ptr %14, align 8, !tbaa !34
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 0, ptr %50, align 8, !tbaa !40
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !41
   %53 = icmp eq ptr %52, null
   br i1 %53, label %110, label %54
 
 54:                                               ; preds = %30
-  %55 = getelementptr inbounds i8, ptr %49, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %56 = load i32, ptr %55, align 8, !tbaa !36
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %110
@@ -1849,11 +1849,11 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   %59 = load ptr, ptr %7, align 8, !tbaa !29
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %9) #13
   %61 = load ptr, ptr %14, align 8, !tbaa !34
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !40
   tail call void @gtk_widget_set_sensitive(ptr noundef %60, i32 noundef %63) #13
   %64 = load ptr, ptr %14, align 8, !tbaa !34
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !40
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %101, label %68
@@ -1870,7 +1870,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   call void @gtk_widget_set_tooltip_markup(ptr noundef %73, ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #13
   %74 = load ptr, ptr %14, align 8, !tbaa !34
-  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !78
   call void @dt_conf_set_string(ptr noundef nonnull @.str.1, ptr noundef %76) #13
   %77 = call ptr @json_builder_new() #13
@@ -1906,7 +1906,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   br label %116
 
 101:                                              ; preds = %58
-  %102 = getelementptr inbounds i8, ptr %64, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !41
   %104 = tail call ptr @json_object_get_string_member(ptr noundef %103, ptr noundef nonnull @.str.110) #13
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %104) #13
@@ -1943,7 +1943,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   br i1 %118, label %249, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %117, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %121 = load i32, ptr %120, align 8, !tbaa !40
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %249, label %123
@@ -1953,23 +1953,23 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   call void @dt_bauhaus_combobox_clear(ptr noundef %124) #13
   %125 = load ptr, ptr %11, align 8, !tbaa !32
   call void @dt_bauhaus_combobox_clear(ptr noundef %125) #13
-  %126 = getelementptr inbounds i8, ptr %0, i64 88
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %127 = load ptr, ptr %126, align 8, !tbaa !81
   call void @g_list_free(ptr noundef %127) #13
   store ptr null, ptr %126, align 8, !tbaa !81
   %128 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %129 = call i64 @g_strlcpy(ptr noundef %128, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %130 = getelementptr inbounds i8, ptr %128, i64 100
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 100
   %131 = call i64 @g_strlcpy(ptr noundef nonnull %130, ptr noundef nonnull @.str.97, i64 noundef 512) #13
   %132 = call ptr @g_list_append(ptr noundef null, ptr noundef %128) #13
   %133 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %134 = call i64 @g_strlcpy(ptr noundef %133, ptr noundef nonnull @.str.79, i64 noundef 100) #13
-  %135 = getelementptr inbounds i8, ptr %133, i64 100
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 100
   %136 = call i64 @g_strlcpy(ptr noundef nonnull %135, ptr noundef nonnull @.str.98, i64 noundef 512) #13
   %137 = call ptr @g_list_append(ptr noundef %132, ptr noundef %133) #13
   %138 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %139 = call i64 @g_strlcpy(ptr noundef %138, ptr noundef nonnull @.str.99, i64 noundef 100) #13
-  %140 = getelementptr inbounds i8, ptr %138, i64 100
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 100
   %141 = call i64 @g_strlcpy(ptr noundef nonnull %140, ptr noundef nonnull @.str.100, i64 noundef 512) #13
   %142 = call ptr @g_list_append(ptr noundef %137, ptr noundef %138) #13
   %143 = load ptr, ptr %14, align 8, !tbaa !34
@@ -1984,16 +1984,16 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   call void @curl_easy_cleanup(ptr noundef %146) #13
   %147 = call ptr @curl_easy_init() #13
   store ptr %147, ptr %143, align 8, !tbaa !39
-  %148 = getelementptr inbounds i8, ptr %143, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i32 0, ptr %148, align 8, !tbaa !40
   call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %143)
-  %149 = getelementptr inbounds i8, ptr %143, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !41
   %151 = icmp eq ptr %150, null
   br i1 %151, label %158, label %152
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds i8, ptr %143, i64 80
+  %153 = getelementptr inbounds nuw i8, ptr %143, i64 80
   %154 = load i32, ptr %153, align 8, !tbaa !36
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %158
@@ -2006,13 +2006,13 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
 158:                                              ; preds = %156, %152, %145, %123
   call void @g_list_free(ptr noundef %142) #13
   %159 = load ptr, ptr %14, align 8, !tbaa !34
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !41
   %162 = icmp eq ptr %161, null
   br i1 %162, label %240, label %163
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %159, i64 80
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 80
   %165 = load i32, ptr %164, align 8, !tbaa !36
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %167, label %240
@@ -2025,7 +2025,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   %171 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.101, i32 noundef 5) #13
   call void @dt_bauhaus_combobox_add(ptr noundef %170, ptr noundef %171) #13
   %172 = load ptr, ptr %14, align 8, !tbaa !34
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8, !tbaa !41
   %175 = call ptr @json_object_get_member(ptr noundef %174, ptr noundef nonnull @.str.75) #13
   %176 = call ptr @json_node_get_object(ptr noundef %175) #13
@@ -2060,13 +2060,13 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %6, i8 0, i64 100, i1 false)
   %196 = call ptr @json_array_get_object_element(ptr noundef %177, i32 noundef %195) #13
   %197 = call noalias dereferenceable_or_null(216) ptr @g_malloc0(i64 noundef 216) #14
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = call ptr @json_object_get_string_member(ptr noundef %196, ptr noundef nonnull @.str.69) #13
   %200 = call i64 @g_strlcpy(ptr noundef nonnull %198, ptr noundef %199, i64 noundef 100) #13
   %201 = call i64 @json_object_get_int_member(ptr noundef %196, ptr noundef nonnull @.str.76) #13
   store i64 %201, ptr %197, align 8, !tbaa !82
   %202 = call i64 @json_object_get_int_member(ptr noundef %196, ptr noundef nonnull @.str.103) #13
-  %203 = getelementptr inbounds i8, ptr %197, i64 208
+  %203 = getelementptr inbounds nuw i8, ptr %197, i64 208
   store i64 %202, ptr %203, align 8, !tbaa !84
   %204 = call i32 @json_object_get_null_member(ptr noundef %196, ptr noundef nonnull @.str.104) #13
   %205 = icmp eq i32 %204, 0
@@ -2081,7 +2081,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
 .preheader:                                       ; preds = %206, %.preheader
   %210 = phi ptr [ %212, %.preheader ], [ %207, %206 ]
   %211 = phi i32 [ %216, %.preheader ], [ 0, %206 ]
-  %212 = getelementptr inbounds i8, ptr %210, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 1
   %213 = load i8, ptr %212, align 1, !tbaa !35
   %214 = icmp eq i8 %213, 44
   %215 = zext i1 %214 to i32
@@ -2113,7 +2113,7 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
 229:                                              ; preds = %224, %222
   %230 = phi i32 [ %223, %222 ], [ %227, %224 ]
   %231 = phi i32 [ %194, %222 ], [ %228, %224 ]
-  %232 = getelementptr inbounds i8, ptr %197, i64 108
+  %232 = getelementptr inbounds nuw i8, ptr %197, i64 108
   %233 = call i64 @g_strlcpy(ptr noundef nonnull %232, ptr noundef nonnull %6, i64 noundef 100) #13
   %234 = load ptr, ptr %126, align 8, !tbaa !81
   %235 = call ptr @g_list_append(ptr noundef %234, ptr noundef nonnull %197) #13
@@ -2167,7 +2167,7 @@ define void @init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %115, label %5
@@ -2178,13 +2178,13 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %7, label %115, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = icmp eq ptr %10, null
   br i1 %11, label %114, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %114
@@ -2194,57 +2194,57 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   %18 = tail call ptr @curl_easy_init() #13
   store ptr %18, ptr %17, align 8, !tbaa !39
   %19 = tail call ptr @json_parser_new() #13
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !77
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
-  %22 = getelementptr inbounds i8, ptr %17, i64 32
-  %23 = getelementptr inbounds i8, ptr %17, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i32 0, ptr %23, align 8, !tbaa !36
-  %24 = getelementptr inbounds i8, ptr %17, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr null, ptr %24, align 8, !tbaa !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store ptr %17, ptr %6, align 8, !tbaa !74
   store i32 0, ptr %21, align 8, !tbaa !40
   %25 = load ptr, ptr %9, align 8, !tbaa !34
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !78
   %28 = tail call noalias ptr @g_strdup(ptr noundef %27) #13
-  %29 = getelementptr inbounds i8, ptr %17, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %28, ptr %29, align 8, !tbaa !78
   %30 = load ptr, ptr %9, align 8, !tbaa !34
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8, !tbaa !79
   %33 = tail call noalias ptr @g_strdup(ptr noundef %32) #13
-  %34 = getelementptr inbounds i8, ptr %17, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %33, ptr %34, align 8, !tbaa !79
   %35 = load ptr, ptr %9, align 8, !tbaa !34
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %38 = tail call noalias ptr @g_strdup(ptr noundef %37) #13
-  %39 = getelementptr inbounds i8, ptr %17, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %38, ptr %39, align 8, !tbaa !80
   tail call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %17)
-  %40 = getelementptr inbounds i8, ptr %3, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !29
   %42 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %41) #13
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %43, align 8, !tbaa !75
-  %44 = getelementptr inbounds i8, ptr %6, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr null, ptr %44, align 8, !tbaa !68
-  %45 = getelementptr inbounds i8, ptr %3, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %46) #13
   store i32 %47, ptr @conflict_action, align 4, !tbaa !76
-  %48 = getelementptr inbounds i8, ptr %3, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %49) #13
-  %51 = getelementptr inbounds i8, ptr %6, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %52 = icmp ult i32 %50, 4
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %16
   %54 = zext nneg i32 %50 to i64
-  %55 = getelementptr inbounds [4 x i32], ptr @switch.table.get_params, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.get_params, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   br label %57
 
@@ -2259,10 +2259,10 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %61, label %62, label %88
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %3, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %64 = load ptr, ptr %63, align 8, !tbaa !32
   %65 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %64) #13
-  %66 = getelementptr inbounds i8, ptr %3, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %67 = load ptr, ptr %66, align 8, !tbaa !81
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit, label %.preheader
@@ -2270,7 +2270,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
 .preheader:                                       ; preds = %62, %76
   %69 = phi ptr [ %78, %76 ], [ %67, %62 ]
   %70 = load ptr, ptr %69, align 8, !tbaa !21
-  %71 = getelementptr inbounds i8, ptr %70, i64 108
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 108
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %71) #15
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %76
@@ -2280,22 +2280,22 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   br label %.loopexit
 
 76:                                               ; preds = %.preheader
-  %77 = getelementptr inbounds i8, ptr %69, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !85
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %76, %74, %62
   %80 = phi i64 [ %75, %74 ], [ 0, %62 ], [ 0, %76 ]
-  %81 = getelementptr inbounds i8, ptr %6, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %80, ptr %81, align 8, !tbaa !72
-  %82 = getelementptr inbounds i8, ptr %3, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !31
   %84 = tail call ptr @gtk_entry_get_text(ptr noundef %83) #13
   %85 = tail call noalias ptr @g_strdup(ptr noundef %84) #13
-  %86 = getelementptr inbounds i8, ptr %6, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %85, ptr %86, align 8, !tbaa !71
-  %87 = getelementptr inbounds i8, ptr %6, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %87, align 8, !tbaa !70
   br label %115
 
@@ -2303,9 +2303,9 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   %89 = load ptr, ptr %40, align 8, !tbaa !29
   %90 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %89) #13
   %91 = tail call noalias ptr @g_strdup(ptr noundef %90) #13
-  %92 = getelementptr inbounds i8, ptr %6, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %91, ptr %92, align 8, !tbaa !71
-  %93 = getelementptr inbounds i8, ptr %6, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %93, align 8, !tbaa !70
   %94 = icmp eq ptr %91, null
   br i1 %94, label %95, label %97
@@ -2316,7 +2316,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
   br label %114
 
 97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %3, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %99 = load ptr, ptr %98, align 8, !tbaa !81
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.loopexit11, label %.preheader10
@@ -2324,13 +2324,13 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
 .preheader10:                                     ; preds = %97, %106
   %101 = phi ptr [ %108, %106 ], [ %99, %97 ]
   %102 = load ptr, ptr %101, align 8, !tbaa !21
-  %103 = getelementptr inbounds i8, ptr %102, i64 108
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 108
   %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %103) #15
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %.preheader10
-  %107 = getelementptr inbounds i8, ptr %101, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !85
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.loopexit11, label %.preheader10
@@ -2362,28 +2362,28 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
 define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef initializes((40, 48)) %0) unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %3 = tail call i64 @g_strlcpy(ptr noundef %2, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %4 = getelementptr inbounds i8, ptr %2, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %5 = tail call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.113, i64 noundef 512) #13
   %6 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %2) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !79
   %9 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %10 = tail call i64 @g_strlcpy(ptr noundef %9, ptr noundef nonnull @.str.53, i64 noundef 100) #13
-  %11 = getelementptr inbounds i8, ptr %9, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %12 = tail call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef %8, i64 noundef 512) #13
   %13 = tail call ptr @g_list_append(ptr noundef %6, ptr noundef %9) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !80
   %16 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %17 = tail call i64 @g_strlcpy(ptr noundef %16, ptr noundef nonnull @.str.9, i64 noundef 100) #13
-  %18 = getelementptr inbounds i8, ptr %16, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 100
   %19 = tail call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef %15, i64 noundef 512) #13
   %20 = tail call ptr @g_list_append(ptr noundef %13, ptr noundef %16) #13
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !78
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.6) #15
   %24 = icmp eq i32 %23, 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %24, label %26, label %29
 
 26:                                               ; preds = %1
@@ -2418,15 +2418,15 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   tail call void @curl_easy_cleanup(ptr noundef %40) #13
   %41 = tail call ptr @curl_easy_init() #13
   store ptr %41, ptr %0, align 8, !tbaa !39
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %42, align 8, !tbaa !40
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !41
   %45 = icmp eq ptr %44, null
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load i32, ptr %47, align 8, !tbaa !36
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %52
@@ -2440,7 +2440,7 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   tail call void @g_list_free(ptr noundef %20) #13
   %53 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %54 = tail call i64 @g_strlcpy(ptr noundef %53, ptr noundef nonnull @.str.59, i64 noundef 100) #13
-  %55 = getelementptr inbounds i8, ptr %53, i64 100
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 100
   %56 = tail call i64 @g_strlcpy(ptr noundef nonnull %55, ptr noundef nonnull @.str.118, i64 noundef 512) #13
   %57 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %53) #13
   %58 = tail call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %0, ptr noundef %57, ptr noundef null, i32 noundef 1)
@@ -2454,15 +2454,15 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   tail call void @curl_easy_cleanup(ptr noundef %60) #13
   %61 = tail call ptr @curl_easy_init() #13
   store ptr %61, ptr %0, align 8, !tbaa !39
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %62, align 8, !tbaa !40
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   %65 = icmp eq ptr %64, null
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %68 = load i32, ptr %67, align 8, !tbaa !36
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %72
@@ -2473,13 +2473,13 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   br label %72
 
 72:                                               ; preds = %70, %66, %59, %52
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !41
   %75 = icmp eq ptr %74, null
   br i1 %75, label %86, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %0, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %78 = load i32, ptr %77, align 8, !tbaa !36
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %86
@@ -2489,7 +2489,7 @@ define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef init
   %82 = tail call ptr @json_node_get_object(ptr noundef %81) #13
   %83 = tail call ptr @json_object_get_string_member(ptr noundef %82, ptr noundef nonnull @.str.61) #13
   %84 = tail call noalias ptr @g_strdup(ptr noundef %83) #13
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %84, ptr %85, align 8, !tbaa !38
   br label %86
 
@@ -2507,7 +2507,7 @@ declare ptr @gtk_entry_get_text(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !87
   %7 = tail call i64 %6(ptr noundef %0) #13
   %8 = icmp ne i64 %7, %4
@@ -2517,7 +2517,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = tail call ptr %4(ptr noundef null) #13
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.50) #15
@@ -2543,10 +2543,10 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr noundef %1) loca
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !71
   tail call void @g_free(ptr noundef %6) #13
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !68
   tail call void @g_free(ptr noundef %8) #13
   tail call fastcc void @_piwigo_ctx_destroy(ptr noundef nonnull %1)
@@ -2567,7 +2567,7 @@ define internal fastcc void @_piwigo_ctx_destroy(ptr nocapture noundef %0) unnam
   %5 = load ptr, ptr %2, align 8, !tbaa !39
   tail call void @curl_easy_cleanup(ptr noundef %5) #13
   %6 = load ptr, ptr %0, align 8, !tbaa !16
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !89
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -2579,31 +2579,31 @@ define internal fastcc void @_piwigo_ctx_destroy(ptr nocapture noundef %0) unnam
 
 13:                                               ; preds = %10, %4
   %14 = phi ptr [ %12, %10 ], [ %6, %4 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !77
   tail call void @g_object_unref(ptr noundef %16) #13
   %17 = load ptr, ptr %0, align 8, !tbaa !16
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !89
   tail call void @g_free(ptr noundef %19) #13
   %20 = load ptr, ptr %0, align 8, !tbaa !16
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !86
   tail call void @g_free(ptr noundef %22) #13
   %23 = load ptr, ptr %0, align 8, !tbaa !16
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   tail call void @g_free(ptr noundef %25) #13
   %26 = load ptr, ptr %0, align 8, !tbaa !16
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !79
   tail call void @g_free(ptr noundef %28) #13
   %29 = load ptr, ptr %0, align 8, !tbaa !16
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !80
   tail call void @g_free(ptr noundef %31) #13
   %32 = load ptr, ptr %0, align 8, !tbaa !16
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !38
   tail call void @g_free(ptr noundef %34) #13
   %35 = load ptr, ptr %0, align 8, !tbaa !16
@@ -2622,10 +2622,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 define internal void @_piwigo_free_account(ptr nocapture noundef readonly %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void @g_free(ptr noundef %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   tail call void @g_free(ptr noundef %4) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   tail call void @g_free(ptr noundef %6) #13
   ret void
@@ -2692,7 +2692,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = tail call ptr @g_string_new(ptr noundef %9) #13
   %11 = tail call ptr @g_string_new(ptr noundef nonnull @.str.8) #13
@@ -2720,14 +2720,14 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
   %26 = load i64, ptr %5, align 8, !tbaa !92
   %27 = add nsw i64 %26, -1290608000
   %28 = sitofp i64 %27 to double
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !94
   %31 = sitofp i64 %30 to double
   %32 = fmul reassoc nsz arcp contract afn double %31, 0x3EB0C6F7A0B5ED8D
   %33 = fadd reassoc nsz arcp contract afn double %32, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   %34 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull %6, double noundef %33) #13
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %34, ptr %35, align 8, !tbaa !89
   %36 = load ptr, ptr %0, align 8, !tbaa !39
   %37 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %36, i32 noundef 10082, ptr noundef %34) #13
@@ -2736,7 +2736,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %0, align 8, !tbaa !39
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !89
   %42 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %39, i32 noundef 10031, ptr noundef %41) #13
   br label %43
@@ -2764,9 +2764,9 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
   %55 = load ptr, ptr %54, align 8, !tbaa !21
   %56 = call ptr @curl_mime_addpart(ptr noundef %47) #13
   %57 = call i32 @curl_mime_name(ptr noundef %56, ptr noundef %55) #13
-  %58 = getelementptr inbounds i8, ptr %55, i64 100
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 100
   %59 = call i32 @curl_mime_data(ptr noundef %56, ptr noundef nonnull %58, i64 noundef -1) #13
-  %60 = getelementptr inbounds i8, ptr %54, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !85
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit5, label %.preheader4
@@ -2796,9 +2796,9 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
 75:                                               ; preds = %73, %.preheader
   %76 = call ptr @g_string_append(ptr noundef %64, ptr noundef %71) #13
   %77 = call ptr @g_string_append(ptr noundef %64, ptr noundef nonnull @.str.65) #13
-  %78 = getelementptr inbounds i8, ptr %71, i64 100
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %79 = call ptr @g_string_append(ptr noundef %64, ptr noundef nonnull %78) #13
-  %80 = getelementptr inbounds i8, ptr %70, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !85
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.loopexit, label %.preheader
@@ -2815,7 +2815,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
 
 88:                                               ; preds = %87, %83
   %89 = call ptr @g_string_free(ptr noundef nonnull %10, i32 noundef 1) #13
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %90, align 8, !tbaa !41
   %91 = icmp eq i32 %86, 0
   br i1 %91, label %92, label %117
@@ -2823,10 +2823,10 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
 92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   store ptr null, ptr %7, align 8, !tbaa !16
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !77
   %95 = load ptr, ptr %11, align 8, !tbaa !90
-  %96 = getelementptr inbounds i8, ptr %11, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !95
   %98 = call i32 @json_parser_load_from_data(ptr noundef %94, ptr noundef %95, i64 noundef %97, ptr noundef nonnull %7) #13
   %99 = icmp eq i32 %98, 0
@@ -2854,7 +2854,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
 
 113:                                              ; preds = %109, %105
   %114 = phi i32 [ 0, %105 ], [ %112, %109 ]
-  %115 = getelementptr inbounds i8, ptr %0, i64 80
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %114, ptr %115, align 8, !tbaa !36
   br label %116
 
@@ -2863,7 +2863,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr nocapture noundef %0, 
   br label %119
 
 117:                                              ; preds = %88
-  %118 = getelementptr inbounds i8, ptr %0, i64 80
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %118, align 8, !tbaa !36
   br label %119
 

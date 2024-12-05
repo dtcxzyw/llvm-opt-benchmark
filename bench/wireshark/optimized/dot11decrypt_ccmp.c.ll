@@ -49,7 +49,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 n
   %42 = and i8 %41, 3
   %43 = icmp eq i8 %42, 3
   %.mux.i = select i1 %43, i64 30, i64 24
-  %44 = getelementptr inbounds i8, ptr %0, i64 %.mux.i
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.mux.i
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 15
   br label %ccmp_construct_nonce.exit
@@ -59,23 +59,23 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   %47 = or disjoint i8 %.sink.i, 16
   %spec.select = select i1 %37, i8 %47, i8 %.sink.i
   store i8 %spec.select, ptr %8, align 1
-  %48 = getelementptr inbounds i8, ptr %8, i64 1
-  %49 = getelementptr inbounds i8, ptr %0, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %48, ptr noundef nonnull readonly align 1 dereferenceable(6) %49, i64 6, i1 false)
   %50 = lshr i16 %27, 8
   %51 = trunc nuw i16 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %8, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 7
   store i8 %51, ptr %52, align 1
   %53 = trunc i16 %27 to i8
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %8, i64 9
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 %34, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %8, i64 10
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i8 %32, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %8, i64 11
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 11
   store i8 %30, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %8, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 %28, ptr %58, align 1
   call void @dot11decrypt_construct_aad(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %10) #3
   %59 = call i32 @gcry_cipher_open(ptr noundef nonnull %11, i32 noundef 7, i32 noundef 8, i32 noundef 0) #3
@@ -98,9 +98,9 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
 67:                                               ; preds = %64
   store i64 %18, ptr %12, align 16
   %68 = load i64, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %12, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %12, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %23, ptr %70, align 16
   %71 = load ptr, ptr %11, align 8
   %72 = call i32 @gcry_cipher_ctl(ptr noundef %71, i32 noundef 69, ptr noundef nonnull %12, i64 noundef 24) #3

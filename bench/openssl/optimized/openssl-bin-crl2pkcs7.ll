@@ -187,14 +187,14 @@ if.end63:                                         ; preds = %if.end59
 
 if.end67:                                         ; preds = %if.end63
   %call68 = call ptr @OBJ_nid2obj(i32 noundef 22) #2
-  %type = getelementptr inbounds i8, ptr %call60, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %call60, i64 24
   store ptr %call68, ptr %type, align 8
-  %d = getelementptr inbounds i8, ptr %call60, i64 32
+  %d = getelementptr inbounds nuw i8, ptr %call60, i64 32
   store ptr %call64, ptr %d, align 8
   %call69 = call ptr @OBJ_nid2obj(i32 noundef 21) #2
-  %contents = getelementptr inbounds i8, ptr %call64, i64 40
+  %contents = getelementptr inbounds nuw i8, ptr %call64, i64 40
   %5 = load ptr, ptr %contents, align 8
-  %type70 = getelementptr inbounds i8, ptr %5, i64 24
+  %type70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %call69, ptr %type70, align 8
   %6 = load ptr, ptr %call64, align 8
   %call71 = call i32 @ASN1_INTEGER_set(ptr noundef %6, i64 noundef 1) #2
@@ -211,7 +211,7 @@ if.then76:                                        ; preds = %if.end74
   br i1 %cmp78, label %end, label %if.end80
 
 if.end80:                                         ; preds = %if.then76
-  %crl81 = getelementptr inbounds i8, ptr %call64, i64 24
+  %crl81 = getelementptr inbounds nuw i8, ptr %call64, i64 24
   store ptr %call77, ptr %crl81, align 8
   %call84 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call77, ptr noundef nonnull %crl.1) #2
   br label %if.end85
@@ -226,7 +226,7 @@ if.then87:                                        ; preds = %if.end85
   br i1 %cmp89, label %end, label %if.end91
 
 if.end91:                                         ; preds = %if.then87
-  %cert = getelementptr inbounds i8, ptr %call64, i64 16
+  %cert = getelementptr inbounds nuw i8, ptr %call64, i64 16
   store ptr %call88, ptr %cert, align 8
   %call9346 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certflst.0) #2
   %cmp9447 = icmp sgt i32 %call9346, 0

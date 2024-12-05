@@ -139,7 +139,7 @@ entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9FileInputE, i64 16), ptr %this, align 8
-  %d_fs = getelementptr inbounds i8, ptr %this, i64 8
+  %d_fs = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %d_fs)
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %d_fs, ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 8)
           to label %invoke.cont4 unwind label %lpad3
@@ -156,7 +156,7 @@ if.then:                                          ; preds = %invoke.cont6
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %if.then
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -236,7 +236,7 @@ define hidden void @_ZN4cvc56parser5Input13mkStreamInputERSi(ptr noalias nocaptu
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser11StreamInputE, i64 16), ptr %call, align 8
-  %d_input.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_input.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %input, ptr %d_input.i, align 8
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -247,12 +247,12 @@ define hidden void @_ZN4cvc56parser5Input13mkStringInputERKNSt7__cxx1112basic_st
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser11StringInputE, i64 16), ptr %call, align 8
-  %d_input.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_input.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %d_input.i)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %input)
           to label %invoke.cont unwind label %lpad3.i
 
@@ -320,10 +320,10 @@ declare void @_ZN4cvc56parser15ParserExceptionC1ERKNSt7__cxx1112basic_stringIcSt
 define linkonce_odr hidden void @_ZN4cvc56parser15ParserExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser15ParserExceptionE, i64 16), ptr %this, align 8
-  %d_filename = getelementptr inbounds i8, ptr %this, i64 40
+  %d_filename = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_filename) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   ret void
@@ -347,7 +347,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN4cvc56parser9FileInputD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9FileInputE, i64 16), ptr %this, align 8
-  %d_fs = getelementptr inbounds i8, ptr %this, i64 8
+  %d_fs = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %d_fs) #12
   ret void
 }
@@ -356,7 +356,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser9FileInputD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9FileInputE, i64 16), ptr %this, align 8
-  %d_fs.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_fs.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %d_fs.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
@@ -365,7 +365,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4cvc56parser9FileInput9getStreamEv(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_fs = getelementptr inbounds i8, ptr %this, i64 8
+  %d_fs = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_fs
 }
 
@@ -376,7 +376,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr hidden void @_ZN4cvc516CVC5ApiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i64 16), ptr %this, align 8
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
   ret void
@@ -386,7 +386,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc516CVC5ApiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc516CVC5ApiExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
@@ -396,7 +396,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc516CVC5ApiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #12
   ret ptr %call
 }
@@ -404,7 +404,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4cvc516CVC5ApiException8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #1 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
   ret void
 }
@@ -428,7 +428,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4cvc56parser11StreamInput9getStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_input = getelementptr inbounds i8, ptr %this, i64 8
+  %d_input = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_input, align 8
   ret ptr %0
 }
@@ -443,7 +443,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser11StringInputD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser11StringInputE, i64 16), ptr %this, align 8
-  %d_input = getelementptr inbounds i8, ptr %this, i64 8
+  %d_input = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %d_input) #12
   ret void
 }
@@ -452,7 +452,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser11StringInputD0Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser11StringInputE, i64 16), ptr %this, align 8
-  %d_input.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_input.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %d_input.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
@@ -461,7 +461,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4cvc56parser11StringInput9getStreamEv(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_input = getelementptr inbounds i8, ptr %this, i64 8
+  %d_input = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_input
 }
 

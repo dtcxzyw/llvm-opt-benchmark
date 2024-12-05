@@ -92,14 +92,14 @@ define void @virtual_cwd_shutdown() local_unnamed_addr #0 {
 
 1:                                                ; preds = %._crit_edge.i.i, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %2 = getelementptr inbounds ptr, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i.i
+  %2 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i.i
   %3 = load ptr, ptr %2, align 8
   %.not1.i.i = icmp eq ptr %3, null
   br i1 %.not1.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %.0112.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0112.i.i, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.0112.i.i, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %.0112.i.i) #21
   %.not.i.i = icmp eq ptr %5, null
@@ -175,7 +175,7 @@ define noalias ptr @virtual_getcwd_ex(ptr nocapture noundef writeonly initialize
   store i64 1, ptr %0, align 8
   %5 = tail call noalias ptr @_emalloc_8() #21
   store i8 47, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %6, align 1
   br label %13
 
@@ -210,7 +210,7 @@ define ptr @virtual_getcwd(ptr noundef writeonly %0, i64 noundef %1) local_unnam
 5:                                                ; preds = %2
   %6 = tail call noalias ptr @_emalloc_8() #21
   store i8 47, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %7, align 1
   br label %virtual_getcwd_ex.exit
 
@@ -264,14 +264,14 @@ define void @realpath_cache_clean() local_unnamed_addr #0 {
 
 1:                                                ; preds = %._crit_edge.i, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %2 = getelementptr inbounds ptr, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i
+  %2 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i
   %3 = load ptr, ptr %2, align 8
   %.not1.i = icmp eq ptr %3, null
   br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.0112.i = phi ptr [ %5, %.lr.ph.i ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0112.i, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %.0112.i) #21
   %.not.i = icmp eq ptr %5, null
@@ -298,7 +298,7 @@ define void @realpath_cache_del(ptr noundef readonly %0, i64 noundef %1) local_u
   %.09.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
   %.078.i = phi i64 [ %9, %.lr.ph.i ], [ 2166136261, %2 ]
   %5 = mul i64 %.078.i, 16777619
-  %6 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %7 = load i8, ptr %.09.i, align 1
   %8 = sext i8 %7 to i64
   %9 = xor i64 %5, %8
@@ -308,7 +308,7 @@ define void @realpath_cache_del(ptr noundef readonly %0, i64 noundef %1) local_u
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   %.07.lcssa.i = phi i64 [ 2166136261, %2 ], [ %9, %.lr.ph.i ]
   %11 = and i64 %.07.lcssa.i, 1023
-  %12 = getelementptr inbounds [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not33 = icmp eq ptr %13, null
   br i1 %.not33, label %.loopexit, label %.lr.ph
@@ -321,27 +321,27 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %14, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %19 = load i16, ptr %18, align 8
   %20 = zext i16 %19 to i64
   %21 = icmp eq i64 %1, %20
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %14, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %24 = load ptr, ptr %23, align 8
   %bcmp = tail call i32 @bcmp(ptr %0, ptr %24, i64 %1)
   %25 = icmp eq i32 %bcmp, 0
   br i1 %25, label %26, label %48
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %14, i64 40
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %.034, align 8
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %31, %33
   %35 = load i16, ptr %27, align 8
@@ -355,7 +355,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   br label %47
 
 40:                                               ; preds = %26
-  %41 = getelementptr inbounds i8, ptr %14, i64 42
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 42
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
   %44 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 16), align 8
@@ -371,7 +371,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   br label %.loopexit
 
 48:                                               ; preds = %22, %17, %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %14, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -396,7 +396,7 @@ define internal fastcc ptr @realpath_cache_find(ptr noundef readonly %0, i64 nou
   %.09.i = phi ptr [ %7, %.lr.ph.i ], [ %0, %3 ]
   %.078.i = phi i64 [ %10, %.lr.ph.i ], [ 2166136261, %3 ]
   %6 = mul i64 %.078.i, 16777619
-  %7 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %8 = load i8, ptr %.09.i, align 1
   %9 = sext i8 %8 to i64
   %10 = xor i64 %6, %9
@@ -406,7 +406,7 @@ define internal fastcc ptr @realpath_cache_find(ptr noundef readonly %0, i64 nou
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i64 [ 2166136261, %3 ], [ %10, %.lr.ph.i ]
   %12 = and i64 %.07.lcssa.i, 1023
-  %13 = getelementptr inbounds [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not34 = icmp eq ptr %14, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -423,21 +423,21 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %.lr.ph.split.us
-  %21 = getelementptr inbounds i8, ptr %17, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %22 = load i16, ptr %21, align 8
   %23 = zext i16 %22 to i64
   %24 = icmp eq i64 %1, %23
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %27 = load ptr, ptr %26, align 8
   %bcmp.us = tail call i32 @bcmp(ptr %0, ptr %27, i64 %1)
   %28 = icmp eq i32 %bcmp.us, 0
   br i1 %28, label %._crit_edge, label %29
 
 29:                                               ; preds = %25, %20, %.lr.ph.split.us
-  %30 = getelementptr inbounds i8, ptr %17, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not.us = icmp eq ptr %31, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
@@ -450,21 +450,21 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   br i1 %.not28, label %60, label %34
 
 34:                                               ; preds = %.lr.ph.split
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = icmp slt i64 %36, %2
   br i1 %37, label %38, label %60
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %33, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %.02535, align 8
-  %41 = getelementptr inbounds i8, ptr %33, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %33, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %42, %44
-  %46 = getelementptr inbounds i8, ptr %33, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i64
   br i1 %45, label %49, label %52
@@ -476,7 +476,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   br label %59
 
 52:                                               ; preds = %38
-  %53 = getelementptr inbounds i8, ptr %33, i64 42
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 42
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64
   %56 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 16), align 8
@@ -498,21 +498,21 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %33, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i64
   %67 = icmp eq i64 %1, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %33, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %70 = load ptr, ptr %69, align 8
   %bcmp = tail call i32 @bcmp(ptr %0, ptr %70, i64 %1)
   %71 = icmp eq i32 %bcmp, 0
   br i1 %71, label %._crit_edge, label %72
 
 72:                                               ; preds = %68, %63, %60
-  %73 = getelementptr inbounds i8, ptr %33, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %33, i64 24
   br label %74
 
 74:                                               ; preds = %72, %59
@@ -565,7 +565,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   br i1 %14, label %41, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %21
@@ -604,7 +604,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 36:                                               ; preds = %27
   %37 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %17
   store i8 47, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = add nuw nsw i64 %8, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %39, i1 false)
   %40 = add i64 %39, %17
@@ -674,7 +674,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
 
 72:                                               ; preds = %70
   %73 = add nuw nsw i64 %.1, 1
-  %74 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.1
+  %74 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.1
   store i8 47, ptr %74, align 1
   br label %75
 
@@ -683,7 +683,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   %76 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.2
   store i8 0, ptr %76, align 1
   %.not119 = icmp eq ptr %2, null
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not119, label %93, label %78
 
 78:                                               ; preds = %75
@@ -865,23 +865,23 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %57, label %58, label %263
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 46
   br i1 %61, label %62, label %263
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 47
   br i1 %65, label %66, label %263
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 46, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 46, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %0, i64 5
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 47, ptr %69, align 1
   br label %263
 
@@ -920,9 +920,9 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
 
 89:                                               ; preds = %87
   store i8 46, ptr %0, align 1
-  %90 = getelementptr inbounds i8, ptr %0, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 46, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %0, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 47, ptr %91, align 1
   br label %263
 
@@ -957,7 +957,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %.0247296, label %106, label %110
 
 106:                                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %104, i64 44
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 44
   %108 = load i8, ptr %107, align 4
   %109 = and i8 %108, 1
   %.not275 = icmp eq i8 %109, 0
@@ -968,7 +968,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %.not276, label %116, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds i8, ptr %104, i64 44
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 44
   %113 = load i8, ptr %112, align 4
   %114 = and i8 %113, 1
   %115 = zext nneg i8 %114 to i32
@@ -976,9 +976,9 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br label %116
 
 116:                                              ; preds = %111, %110
-  %117 = getelementptr inbounds i8, ptr %104, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %104, i64 42
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 42
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i64
   %122 = add nuw nsw i64 %121, 1
@@ -1019,7 +1019,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %.0248.shrunk, label %139, label %.critedge286
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %10, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %141 = load i32, ptr %140, align 8
   %142 = and i32 %141, 61440
   %143 = icmp eq i32 %142, 40960
@@ -1222,7 +1222,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   %.09.i.i = phi ptr [ %230, %.lr.ph.i.i ], [ %138, %226 ]
   %.078.i.i = phi i64 [ %233, %.lr.ph.i.i ], [ 2166136261, %226 ]
   %229 = mul i64 %.078.i.i, 16777619
-  %230 = getelementptr inbounds i8, ptr %.09.i.i, i64 1
+  %230 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 1
   %231 = load i8, ptr %.09.i.i, align 1
   %232 = sext i8 %231 to i64
   %233 = xor i64 %229, %232
@@ -1232,27 +1232,27 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
 realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %.07.lcssa.i.i = phi i64 [ 2166136261, %226 ], [ %233, %.lr.ph.i.i ]
   store i64 %.07.lcssa.i.i, ptr %224, align 8
-  %235 = getelementptr inbounds i8, ptr %224, i64 48
-  %236 = getelementptr inbounds i8, ptr %224, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %224, i64 48
+  %236 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store ptr %235, ptr %236, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %235, ptr readonly align 1 %138, i64 %131, i1 false)
   %237 = trunc i64 %.0246297 to i16
-  %238 = getelementptr inbounds i8, ptr %224, i64 40
+  %238 = getelementptr inbounds nuw i8, ptr %224, i64 40
   store i16 %237, ptr %238, align 8
   br i1 %.not46.i, label %241, label %239
 
 239:                                              ; preds = %realpath_cache_key.exit.i
-  %240 = getelementptr inbounds i8, ptr %224, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store ptr %235, ptr %240, align 8
   br label %246
 
 241:                                              ; preds = %realpath_cache_key.exit.i
   %242 = getelementptr inbounds i8, ptr %235, i64 %131
-  %243 = getelementptr inbounds i8, ptr %224, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store ptr %242, ptr %243, align 8
   %244 = add i64 %.3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr nonnull readonly align 1 %0, i64 %244, i1 false)
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %224, i64 44
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %224, i64 44
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   %.pre47.i = load i64, ptr %224, align 8
   %245 = and i8 %.pre.i, -2
@@ -1262,21 +1262,21 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %247 = phi i64 [ %.pre47.i, %241 ], [ %.07.lcssa.i.i, %239 ]
   %248 = phi i8 [ %245, %241 ], [ 0, %239 ]
   %249 = trunc i64 %.3 to i16
-  %250 = getelementptr inbounds i8, ptr %224, i64 42
+  %250 = getelementptr inbounds nuw i8, ptr %224, i64 42
   store i16 %249, ptr %250, align 2
   %251 = icmp sgt i32 %213, 0
   %252 = zext i1 %251 to i8
-  %253 = getelementptr inbounds i8, ptr %224, i64 44
+  %253 = getelementptr inbounds nuw i8, ptr %224, i64 44
   %254 = or disjoint i8 %248, %252
   store i8 %254, ptr %253, align 4
   %255 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 32), align 8
   %256 = add nsw i64 %255, %214
-  %257 = getelementptr inbounds i8, ptr %224, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i64 %256, ptr %257, align 8
   %258 = and i64 %247, 1023
-  %259 = getelementptr inbounds [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %258
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %224, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store ptr %260, ptr %261, align 8
   store ptr %224, ptr %259, align 8
   store i64 %222, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 16), align 8
@@ -1315,7 +1315,7 @@ define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr nocapture noundef readonl
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 16384
@@ -1410,7 +1410,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
   %7 = tail call noalias ptr @_emalloc_8() #21
   store ptr %7, ptr %3, align 8
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %8, align 8
   %9 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 4096) #21
   %.not11 = icmp eq ptr %9, null
@@ -1419,7 +1419,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 
 10:                                               ; preds = %2
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %12, align 8
   %13 = add i64 %11, 1
   %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #23
@@ -1434,7 +1434,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
   %19 = tail call noalias ptr @_emalloc_8() #21
   store ptr %19, ptr %3, align 8
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %20, align 8
   br label %21
 
@@ -1446,11 +1446,11 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.umin.i64(i64 %26, i64 4095)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %.pre, i64 %27, i1 false)
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   store i8 0, ptr %28, align 1
   br label %29
 
@@ -1464,7 +1464,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %5, ptr %6, align 8
   %7 = add i64 %5, 1
   %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #23
@@ -1485,7 +1485,7 @@ virtual_filepath_ex.exit:
   %2 = alloca %struct._cwd_state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8
   %5 = add i64 %3, 1
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #23
@@ -1511,7 +1511,7 @@ define internal range(i32 0, 2) i32 @php_is_file_ok(ptr nocapture noundef readon
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 32768
@@ -1534,7 +1534,7 @@ define noalias noundef ptr @virtual_fopen(ptr nocapture noundef readonly %0, ptr
 
 6:                                                ; preds = %2
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %7, ptr %8, align 8
   %9 = add i64 %7, 1
   %10 = tail call noalias ptr @_emalloc(i64 noundef %9) #23
@@ -1571,7 +1571,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 define noundef i32 @virtual_access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1604,7 +1604,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 define noundef i32 @virtual_utime(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1637,7 +1637,7 @@ declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef
 define noundef i32 @virtual_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1670,7 +1670,7 @@ declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_un
 define noundef i32 @virtual_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._cwd_state, align 8
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %6, ptr %7, align 8
   %8 = add i64 %6, 1
   %9 = tail call noalias ptr @_emalloc(i64 noundef %8) #23
@@ -1714,7 +1714,7 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %5, ptr %6, align 8
   %7 = add i64 %5, 1
   %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #23
@@ -1739,7 +1739,7 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load ptr, ptr %19, align 16
   %21 = zext nneg i32 %16 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
@@ -1748,7 +1748,7 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
   br label %28
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 8
   store ptr %27, ptr %25, align 8
@@ -1781,7 +1781,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 define i32 @virtual_creat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1814,7 +1814,7 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
   %3 = alloca %struct._cwd_state, align 8
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %5, ptr %6, align 8
   %7 = add i64 %5, 1
   %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #23
@@ -1830,7 +1830,7 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
 
 14:                                               ; preds = %2
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %15, ptr %16, align 8
   %17 = add i64 %15, 1
   %18 = call noalias ptr @_emalloc(i64 noundef %17) #23
@@ -1870,7 +1870,7 @@ declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture nounde
 define noundef i32 @virtual_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1903,7 +1903,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 define noundef i32 @virtual_lstat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -1936,7 +1936,7 @@ declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef
 define noundef i32 @virtual_unlink(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8
   %5 = add i64 %3, 1
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #23
@@ -1969,7 +1969,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 define noundef i32 @virtual_mkdir(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cwd_state, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = add i64 %4, 1
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #23
@@ -2002,7 +2002,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 define noundef i32 @virtual_rmdir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8
   %5 = add i64 %3, 1
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #23
@@ -2035,7 +2035,7 @@ declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #1
 define noalias noundef ptr @virtual_opendir(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._cwd_state, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8
   %5 = add i64 %3, 1
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #23
@@ -2081,7 +2081,7 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   %9 = icmp eq i8 %8, 39
   %10 = add nsw i32 %.0140143, 3
   %spec.select = select i1 %9, i32 %10, i32 %.0140143
-  %11 = getelementptr inbounds i8, ptr %.0136144, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0136144, i64 1
   %12 = add nsw i32 %.0145, -1
   %13 = icmp samesign ugt i32 %.0145, 1
   br i1 %13, label %.lr.ph, label %._crit_edge.loopexit
@@ -2099,10 +2099,10 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   %18 = add i64 %17, %.0140.lcssa
   %19 = tail call noalias ptr @_emalloc(i64 noundef %18) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 noundef 3, i1 false) #21
-  %20 = getelementptr inbounds i8, ptr %19, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 3
   %21 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
   %22 = icmp eq i64 %21, 0
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br i1 %22, label %24, label %25
 
 24:                                               ; preds = %._crit_edge
@@ -2122,11 +2122,11 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   br i1 %cond, label %27, label %31
 
 27:                                               ; preds = %.lr.ph150
-  %28 = getelementptr inbounds i8, ptr %.1139146, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1139146, i64 1
   store i8 39, ptr %.1139146, align 1
-  %29 = getelementptr inbounds i8, ptr %.1139146, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.1139146, i64 2
   store i8 92, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.1139146, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.1139146, i64 3
   store i8 39, ptr %29, align 1
   %.pre = load i8, ptr %.1137147, align 1
   br label %31
@@ -2134,26 +2134,26 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
 31:                                               ; preds = %.lr.ph150, %27
   %32 = phi i8 [ %.pre, %27 ], [ %26, %.lr.ph150 ]
   %.2 = phi ptr [ %30, %27 ], [ %.1139146, %.lr.ph150 ]
-  %33 = getelementptr inbounds i8, ptr %.2, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %32, ptr %.2, align 1
-  %34 = getelementptr inbounds i8, ptr %.1137147, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.1137147, i64 1
   %35 = add nsw i32 %.1148, -1
   %36 = icmp sgt i32 %.1148, 1
   br i1 %36, label %.lr.ph150, label %._crit_edge151
 
 ._crit_edge151:                                   ; preds = %31, %25
   %.1139.lcssa = phi ptr [ %23, %25 ], [ %33, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.1139.lcssa, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.1139.lcssa, i64 1
   store i8 39, ptr %.1139.lcssa, align 1
   br label %38
 
 38:                                               ; preds = %._crit_edge151, %24
   %.0138 = phi ptr [ %23, %24 ], [ %37, %._crit_edge151 ]
-  %39 = getelementptr inbounds i8, ptr %.0138, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0138, i64 1
   store i8 32, ptr %.0138, align 1
-  %40 = getelementptr inbounds i8, ptr %.0138, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.0138, i64 2
   store i8 59, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.0138, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.0138, i64 3
   store i8 32, ptr %40, align 1
   %42 = add i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %0, i64 %42, i1 false)
@@ -2179,7 +2179,7 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
   %7 = tail call noalias ptr @_emalloc_8() #21
   store ptr %7, ptr %3, align 8
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %8, align 8
   %9 = call ptr @getcwd(ptr noundef nonnull %4, i64 noundef 4096) #21
   %.not12 = icmp eq ptr %9, null
@@ -2195,7 +2195,7 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
   %13 = call noalias ptr @_estrdup(ptr noundef nonnull %4) #21
   store ptr %13, ptr %3, align 8
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %14, ptr %15, align 8
   br label %19
 
@@ -2203,7 +2203,7 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
   %17 = call noalias ptr @_emalloc_8() #21
   store ptr %17, ptr %3, align 8
   store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %18, align 8
   br label %19
 
@@ -2223,12 +2223,12 @@ define ptr @tsrm_realpath(ptr nocapture noundef readonly %0, ptr noundef writeon
   br i1 %.not15, label %30, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.umin.i64(i64 %26, i64 4095)
   %28 = load ptr, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %28, i64 %27, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   store i8 0, ptr %29, align 1
   call void @_efree(ptr noundef %28) #21
   br label %32

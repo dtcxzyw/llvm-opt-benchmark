@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @_ZN13logos_codegen9generator7context7Context13can_backtrack17hf07ba9435975c40aE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp ne i32 %3, 0
   ret i1 %.not
@@ -37,7 +37,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context6switch17hb13390
   br label %8
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %2, ptr %7, align 8
   tail call void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515dde7b6c15E(ptr sret([32 x i8]) align 8 %0, ptr align 8 %1)
   br label %8
@@ -51,18 +51,18 @@ define hidden void @_ZN13logos_codegen9generator7context7Context7advance17h22de0
   %4 = load i64, ptr %1, align 8
   %5 = add i64 %4, %2
   store i64 %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i8, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = and i8 %10, 1
   store i8 %12, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %14, ptr %15, align 8
   ret void
 }
@@ -132,7 +132,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515d
           to label %23 unwind label %13
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i8 1, ptr %24, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -150,7 +150,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4bump17hbfec515d
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZN13logos_codegen9generator7context7Context9remainder17h20727715c784efcaE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
@@ -240,7 +240,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4read17h4d32c5d1
   %19 = alloca [8 x i8], align 8
   %20 = alloca [32 x i8], align 8
   %21 = alloca [32 x i8], align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %2, ptr %22, align 8
   %23 = load i64, ptr %1, align 8
   %24 = icmp eq i64 %23, 0
@@ -536,7 +536,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4read17h4d32c5d1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13logos_codegen9generator7context7Context4wipe17he467576542503990E(ptr nocapture writeonly align 8 initializes((8, 16)) %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -552,9 +552,9 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4miss17h21341fef
   %11 = alloca [32 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %19, label %17
@@ -567,7 +567,7 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4miss17h21341fef
 
 19:                                               ; preds = %4
   %.not5 = icmp eq i32 %16, 0
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i8, ptr %20, align 4
   br i1 %.not5, label %28, label %23
 
@@ -577,11 +577,11 @@ define hidden void @_ZN13logos_codegen9generator7context7Context4miss17h21341fef
   ret void
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %12, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %25 = and i8 %21, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !alias.scope !3
   store i8 %25, ptr %24, align 4, !alias.scope !3
-  %26 = getelementptr inbounds i8, ptr %12, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %26, align 8, !alias.scope !3
   %27 = call align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17h8d34e3b2bbffa129E(ptr align 8 %3, i32 %16, ptr nonnull align 8 %12)
   call void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hfc021a92a961e390E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %27)
@@ -677,45 +677,45 @@ define hidden void @_ZN13logos_codegen9generator7context7Context12write_suffix17
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %14, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %.not11 = icmp eq i64 %13, 0
   br i1 %.not11, label %20, label %23
 
 14:                                               ; preds = %2
   store ptr %0, ptr %8, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.22.0..sroa_idx, align 8
   store ptr @anon.50563a491966c50597445791b425cbcc.9, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 1, ptr %18, align 8
   %19 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hcc04dd4375aeb5a5E"(ptr align 8 %1, ptr nonnull align 8 %9)
   br label %11
 
 20:                                               ; preds = %23, %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %35, label %29
 
 23:                                               ; preds = %11
   store ptr %12, ptr %6, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h7e93687954fa76c5E", ptr %.sroa.26.0..sroa_idx, align 8
   store ptr @anon.50563a491966c50597445791b425cbcc.12, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %27, align 8
   %28 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hcc04dd4375aeb5a5E"(ptr align 8 %1, ptr nonnull align 8 %7)
   br label %20
@@ -723,22 +723,22 @@ define hidden void @_ZN13logos_codegen9generator7context7Context12write_suffix17
 29:                                               ; preds = %20
   store i32 %22, ptr %5, align 4
   store ptr %5, ptr %3, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E", ptr %.sroa.210.0..sroa_idx, align 8
   store ptr @anon.50563a491966c50597445791b425cbcc.14, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %33, align 8
   %34 = call zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hcc04dd4375aeb5a5E"(ptr align 8 %1, ptr nonnull align 8 %4)
   br label %35
 
 35:                                               ; preds = %29, %20
-  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = load i8, ptr %36, align 4
   %38 = trunc i8 %37 to i1
   br i1 %38, label %40, label %39
@@ -759,25 +759,25 @@ define hidden zeroext i1 @"_ZN83_$LT$logos_codegen..generator..context..Context$
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i8, ptr %15, align 4
   %17 = xor i8 %16, %14
   %18 = trunc i8 %17 to i1
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h94cda9541989b659E"(ptr nonnull align 4 %20, ptr nonnull align 4 %21)
   br label %23
 

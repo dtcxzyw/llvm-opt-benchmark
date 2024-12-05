@@ -515,7 +515,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   %107 = icmp eq i8 %106, 61
   %108 = sext i32 %.1113.i to i64
   %109 = getelementptr %struct.ws_option, ptr %3, i64 %108
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i32, ptr %110, align 8
   br i1 %107, label %112, label %124
 
@@ -524,7 +524,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not141.i, label %113, label %122
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %109, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %115 = load i32, ptr %114, align 8
   store i32 %115, ptr @ws_optopt, align 4
   %116 = load i32, ptr @ws_opterr, align 4
@@ -557,7 +557,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not139.i, label %130, label %139
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %109, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %132 = load i32, ptr %131, align 8
   store i32 %132, ptr @ws_optopt, align 4
   br i1 %56, label %__getopt_long_core.exit, label %133
@@ -588,10 +588,10 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br label %143
 
 143:                                              ; preds = %142, %141
-  %144 = getelementptr inbounds i8, ptr %109, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %145 = load ptr, ptr %144, align 8
   %.not144.i = icmp eq ptr %145, null
-  %146 = getelementptr inbounds i8, ptr %109, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %147 = load i32, ptr %146, align 8
   br i1 %.not144.i, label %__getopt_long_core.exit, label %148
 

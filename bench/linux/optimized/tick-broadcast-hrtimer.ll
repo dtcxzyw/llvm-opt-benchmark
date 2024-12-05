@@ -41,9 +41,9 @@ define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef w
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull @bctimer, i64 noundef %0, i64 noundef 0, i32 noundef 10) #2
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @bctimer, i64 48), align 8
   %4 = load ptr, ptr %3, align 64
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i32 %6, ptr %7, align 8
   ret i32 0
 }

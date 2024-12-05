@@ -39,7 +39,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.08193, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.08193, i64 1
   %22 = icmp ult ptr %21, %12
   br i1 %22, label %16, label %._crit_edge
 
@@ -60,7 +60,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 
 33:                                               ; preds = %28
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = sub nsw i64 4, %37
@@ -90,7 +90,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 
 53:                                               ; preds = %23, %28, %33
   %.183 = phi i32 [ %32, %33 ], [ 0, %28 ], [ 0, %23 ]
-  %54 = getelementptr inbounds i8, ptr %.08193, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.08193, i64 4
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %95 [
     i8 0, label %56
@@ -100,17 +100,17 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 56:                                               ; preds = %53, %53
   %57 = zext i8 %55 to i32
   %58 = shl nuw i32 %57, 24
-  %59 = getelementptr inbounds i8, ptr %.08193, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.08193, i64 3
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 16
   %63 = or disjoint i32 %62, %58
-  %64 = getelementptr inbounds i8, ptr %.08193, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.08193, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 8
   %68 = or disjoint i32 %63, %67
-  %69 = getelementptr inbounds i8, ptr %.08193, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.08193, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %68, %71
@@ -124,7 +124,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 
 .lr.ph103:                                        ; preds = %56
   %77 = zext nneg i32 %.183 to i64
-  %78 = getelementptr inbounds [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 3

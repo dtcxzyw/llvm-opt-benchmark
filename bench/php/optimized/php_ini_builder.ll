@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @php_ini_builder_prepend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %2, 1
   %8 = add i64 %7, %6
@@ -37,7 +37,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @php_ini_builder_unquoted(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %2, 3
   %10 = add i64 %9, %4
@@ -65,7 +65,7 @@ define void @php_ini_builder_unquoted(ptr nocapture noundef %0, ptr nocapture no
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @php_ini_builder_quoted(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %2, 5
   %10 = add i64 %9, %4
@@ -104,7 +104,7 @@ define void @php_ini_builder_define(ptr nocapture noundef %0, ptr noundef %1) lo
   br i1 %.not, label %52, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %7 = tail call ptr @__ctype_b_loc() #7
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %6, align 1
@@ -132,7 +132,7 @@ switch.early.test:                                ; preds = %5
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %18, 5
   %26 = add i64 %25, %21
@@ -162,7 +162,7 @@ switch.early.test:                                ; preds = %5
 
 40:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %5
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %3, 2
   %45 = add i64 %44, %43
@@ -180,7 +180,7 @@ switch.early.test:                                ; preds = %5
 
 52:                                               ; preds = %2
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %3, 4
   %57 = add i64 %56, %55

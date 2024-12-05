@@ -8,16 +8,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %3, %6
   %.05165 = phi i64 [ 0, %3 ], [ %11, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.lzma_filter, ptr %7, i64 %.05165
+  %8 = getelementptr inbounds nuw %struct.lzma_filter, ptr %7, i64 %.05165
   store i64 -1, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.lzma_filter, ptr %9, i64 %.05165, i32 1
+  %10 = getelementptr inbounds nuw %struct.lzma_filter, ptr %9, i64 %.05165, i32 1
   store ptr null, ptr %10, align 8
   %11 = add nuw nsw i64 %.05165, 1
   %exitcond.not = icmp eq i64 %11, 5
@@ -33,19 +33,19 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 0, ptr %17, align 8
   %18 = load i8, ptr %2, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 2
   %21 = add nuw nsw i32 %20, 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %21, %23
   br i1 %.not, label %24, label %.loopexit
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp ugt i32 %26, 15
   br i1 %27, label %.loopexit, label %28
@@ -53,13 +53,13 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
 28:                                               ; preds = %24
   %29 = zext nneg i32 %20 to i64
   %30 = tail call i32 @lzma_crc32(ptr noundef nonnull %2, i64 noundef %29, i32 noundef 0) #4
-  %31 = getelementptr inbounds i8, ptr %2, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %29
   %.val = load i32, ptr %31, align 1
   %.not57 = icmp eq i32 %30, %.val
   br i1 %.not57, label %32, label %.loopexit
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %2, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 60
   %.not58 = icmp eq i8 %35, 0
@@ -69,7 +69,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
   store i64 2, ptr %4, align 8
   %37 = and i8 %34, 64
   %.not59 = icmp eq i8 %37, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not59, label %44, label %39
 
 39:                                               ; preds = %36
@@ -89,7 +89,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
 45:                                               ; preds = %41, %44
   %46 = load i8, ptr %33, align 1
   %.not61 = icmp sgt i8 %46, -1
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not61, label %50, label %48
 
 48:                                               ; preds = %45
@@ -120,7 +120,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
 57:                                               ; preds = %51, %55
   %.05066 = phi i64 [ 0, %51 ], [ %56, %55 ]
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.lzma_filter, ptr %58, i64 %.05066
+  %59 = getelementptr inbounds nuw %struct.lzma_filter, ptr %58, i64 %.05066
   %60 = call i32 @lzma_filter_flags_decode(ptr noundef %59, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef %29) #5
   %.not64 = icmp eq i32 %60, 0
   br i1 %.not64, label %55, label %.loopexit.sink.split
@@ -162,20 +162,20 @@ declare i32 @lzma_filter_flags_decode(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_properties(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %4
 
 4:                                                ; preds = %2, %4
   %.08 = phi i64 [ 0, %2 ], [ %12, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.lzma_filter, ptr %5, i64 %.08, i32 1
+  %6 = getelementptr inbounds nuw %struct.lzma_filter, ptr %5, i64 %.08, i32 1
   %7 = load ptr, ptr %6, align 8
   tail call void @lzma_free(ptr noundef %7, ptr noundef %1) #5
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.lzma_filter, ptr %8, i64 %.08
+  %9 = getelementptr inbounds nuw %struct.lzma_filter, ptr %8, i64 %.08
   store i64 -1, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.lzma_filter, ptr %10, i64 %.08, i32 1
+  %11 = getelementptr inbounds nuw %struct.lzma_filter, ptr %10, i64 %.08, i32 1
   store ptr null, ptr %11, align 8
   %12 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %12, 4

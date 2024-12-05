@@ -116,9 +116,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
   %68 = phi i64 [ %109, %.loopexit52 ], [ 1, %63 ]
   %69 = shl nuw nsw i64 %indvar92, 3
   %scevgep94 = getelementptr i8, ptr %7, i64 %69
-  %70 = getelementptr inbounds double, ptr %11, i64 %68
+  %70 = getelementptr inbounds nuw double, ptr %11, i64 %68
   %71 = load double, ptr %70, align 8, !tbaa !7
-  %72 = getelementptr inbounds double, ptr %12, i64 %68
+  %72 = getelementptr inbounds nuw double, ptr %12, i64 %68
   %73 = load double, ptr %72, align 8, !tbaa !7
   %74 = fcmp une double %71, 1.000000e+00
   %75 = fcmp une double %73, 0.000000e+00
@@ -426,9 +426,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 271:                                              ; preds = %.loopexit44, %267
   %272 = phi i64 [ 1, %267 ], [ %302, %.loopexit44 ]
-  %273 = getelementptr inbounds double, ptr %11, i64 %272
+  %273 = getelementptr inbounds nuw double, ptr %11, i64 %272
   %274 = load double, ptr %273, align 8, !tbaa !7
-  %275 = getelementptr inbounds double, ptr %12, i64 %272
+  %275 = getelementptr inbounds nuw double, ptr %12, i64 %272
   %276 = load double, ptr %275, align 8, !tbaa !7
   %277 = fcmp une double %274, 1.000000e+00
   %278 = fcmp une double %276, 0.000000e+00
@@ -559,9 +559,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 362:                                              ; preds = %.loopexit40, %359
   %363 = phi i64 [ 1, %359 ], [ %396, %.loopexit40 ]
-  %364 = getelementptr inbounds double, ptr %11, i64 %363
+  %364 = getelementptr inbounds nuw double, ptr %11, i64 %363
   %365 = load double, ptr %364, align 8, !tbaa !7
-  %366 = getelementptr inbounds double, ptr %12, i64 %363
+  %366 = getelementptr inbounds nuw double, ptr %12, i64 %363
   %367 = load double, ptr %366, align 8, !tbaa !7
   %368 = fcmp une double %365, 1.000000e+00
   %369 = fcmp une double %367, 0.000000e+00
@@ -825,9 +825,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 548:                                              ; preds = %.loopexit32, %542
   %549 = phi i64 [ 1, %542 ], [ %579, %.loopexit32 ]
-  %550 = getelementptr inbounds double, ptr %11, i64 %549
+  %550 = getelementptr inbounds nuw double, ptr %11, i64 %549
   %551 = load double, ptr %550, align 8, !tbaa !7
-  %552 = getelementptr inbounds double, ptr %12, i64 %549
+  %552 = getelementptr inbounds nuw double, ptr %12, i64 %549
   %553 = load double, ptr %552, align 8, !tbaa !7
   %554 = fcmp une double %551, 1.000000e+00
   %555 = fcmp une double %553, 0.000000e+00

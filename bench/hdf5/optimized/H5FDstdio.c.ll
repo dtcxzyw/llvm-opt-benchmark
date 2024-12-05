@@ -99,7 +99,7 @@ sub_0:                                            ; preds = %5
   br i1 %.not9, label %.tail, label %.critedge
 
 .tail:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.critedge
@@ -335,13 +335,13 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
   br label %159
 
 96:                                               ; preds = %.thread
-  %97 = getelementptr inbounds i8, ptr %85, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %85, i64 80
   store ptr %.167, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %85, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %85, i64 128
   store i32 3, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %85, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 112
   store i64 -1, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %85, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %85, i64 120
   store i32 %.04868, ptr %100, align 8
   %101 = tail call i32 @fseeko64(ptr noundef nonnull %.167, i64 noundef 0, i32 noundef 2)
   %102 = icmp slt i32 %101, 0
@@ -354,7 +354,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 104:                                              ; preds = %96
   %105 = load ptr, ptr %97, align 8
   %106 = tail call i64 @ftello64(ptr noundef %105)
-  %107 = getelementptr inbounds i8, ptr %85, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %85, i64 104
   store i64 %106, ptr %107, align 8
   br label %108
 
@@ -365,13 +365,13 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 110:                                              ; preds = %108
   %111 = icmp ne i32 %109, 0
-  %112 = getelementptr inbounds i8, ptr %85, i64 124
+  %112 = getelementptr inbounds nuw i8, ptr %85, i64 124
   %113 = zext i1 %111 to i8
   store i8 %113, ptr %112, align 4
   br label %127
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %85, i64 124
+  %115 = getelementptr inbounds nuw i8, ptr %85, i64 124
   %116 = call i32 @H5Pget_file_locking(i64 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %115) #12
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %127
@@ -391,7 +391,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 127:                                              ; preds = %114, %110
   %128 = load ptr, ptr %97, align 8
   %129 = call i32 @fileno(ptr noundef %128) #12
-  %130 = getelementptr inbounds i8, ptr %85, i64 88
+  %130 = getelementptr inbounds nuw i8, ptr %85, i64 88
   store i32 %129, ptr %130, align 8
   %131 = icmp slt i32 %129, 0
   br i1 %131, label %132, label %141
@@ -427,11 +427,11 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 
 153:                                              ; preds = %141
   %154 = load i64, ptr %5, align 8
-  %155 = getelementptr inbounds i8, ptr %85, i64 136
+  %155 = getelementptr inbounds nuw i8, ptr %85, i64 136
   store i64 %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %5, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %85, i64 144
+  %158 = getelementptr inbounds nuw i8, ptr %85, i64 144
   store i64 %157, ptr %158, align 8
   br label %159
 
@@ -443,7 +443,7 @@ define internal noundef ptr @H5FD_stdio_open(ptr noundef %0, i32 noundef %1, i64
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_close(ptr nocapture noundef %0) #0 {
   %2 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fclose(ptr noundef %4)
   %6 = icmp slt i32 %5, 0
@@ -471,9 +471,9 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_close(ptr nocapture noundef %0)
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %19, label %9
@@ -483,9 +483,9 @@ define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr nocapture noundef reado
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = icmp ult i64 %13, %15
   br i1 %16, label %19, label %17
@@ -516,7 +516,7 @@ define internal noundef i32 @H5FD_stdio_query(ptr nocapture readnone %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD_stdio_alloc(ptr nocapture noundef %0, i32 %1, i64 %2, i64 noundef %3) #0 {
   %5 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %3
   store i64 %8, ptr %6, align 8
@@ -526,7 +526,7 @@ define internal i64 @H5FD_stdio_alloc(ptr nocapture noundef %0, i32 %1, i64 %2, 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD_stdio_get_eoa(ptr nocapture noundef readonly %0, i32 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8
   ret i64 %5
 }
@@ -534,7 +534,7 @@ define internal i64 @H5FD_stdio_get_eoa(ptr nocapture noundef readonly %0, i32 %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly initializes((96, 104)) %0, i32 %1, i64 noundef %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %2, ptr %5, align 8
   ret i32 0
 }
@@ -542,7 +542,7 @@ define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD_stdio_get_eof(ptr nocapture noundef readonly %0, i32 %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   ret i64 %5
 }
@@ -550,7 +550,7 @@ define internal i64 @H5FD_stdio_get_eof(ptr nocapture noundef readonly %0, i32 %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %2, align 8
   ret i32 0
 }
@@ -596,7 +596,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
   br i1 %31, label %91, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8
   %.not72 = icmp ult i64 %3, %34
   br i1 %.not72, label %36, label %35
@@ -606,7 +606,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
   br label %91
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load i32, ptr %37, align 8
   switch i32 %38, label %42 [
     i32 1, label %39
@@ -614,13 +614,13 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
   ]
 
 39:                                               ; preds = %36, %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load i64, ptr %40, align 8
   %.not73 = icmp eq i64 %41, %3
   br i1 %.not73, label %58, label %42
 
 42:                                               ; preds = %36, %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @fseeko64(ptr noundef %44, i64 noundef %3, i32 noundef 0)
   %46 = icmp slt i32 %45, 0
@@ -628,7 +628,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 
 47:                                               ; preds = %42
   store i32 0, ptr %37, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %48, align 8
   %49 = tail call i32 @H5open() #12
   %50 = load i64, ptr @H5E_ERR_CLS_g, align 8
@@ -640,7 +640,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
   br label %91
 
 56:                                               ; preds = %42
-  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %3, ptr %57, align 8
   %.pre = load i64, ptr %33, align 8
   br label %58
@@ -652,7 +652,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 
 61:                                               ; preds = %58
   %62 = sub nuw nsw i64 %20, %59
-  %63 = getelementptr inbounds i8, ptr %5, i64 %4
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %4
   %64 = sub nsw i64 0, %62
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %65, i8 0, i64 %62, i1 false)
@@ -662,7 +662,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 
 .lr.ph:                                           ; preds = %58, %61
   %.06397 = phi i64 [ %66, %61 ], [ %4, %58 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %68
 
 68:                                               ; preds = %.lr.ph, %.critedge
@@ -682,7 +682,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 
 75:                                               ; preds = %72
   store i32 0, ptr %37, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %76, align 8
   %77 = tail call i32 @H5open() #12
   %78 = load i64, ptr @H5E_ERR_CLS_g, align 8
@@ -712,7 +712,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr nocapture noundef %0, 
 .loopexit:                                        ; preds = %.critedge, %61, %86
   %.06280 = phi i64 [ %.06288, %86 ], [ %3, %61 ], [ %88, %.critedge ]
   store i32 1, ptr %37, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %.06280, ptr %90, align 8
   br label %91
 
@@ -756,20 +756,20 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
   br label %69
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, -2
   %switch = icmp eq i32 %32, 2
   br i1 %switch, label %33, label %36
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load i64, ptr %34, align 8
   %.not58 = icmp eq i64 %35, %3
   br i1 %.not58, label %52, label %36
 
 36:                                               ; preds = %29, %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @fseeko64(ptr noundef %38, i64 noundef %3, i32 noundef 0)
   %40 = icmp slt i32 %39, 0
@@ -777,7 +777,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
 
 41:                                               ; preds = %36
   store i32 0, ptr %30, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %42, align 8
   %43 = tail call i32 @H5open() #12
   %44 = load i64, ptr @H5E_ERR_CLS_g, align 8
@@ -789,7 +789,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
   br label %69
 
 50:                                               ; preds = %36
-  %51 = getelementptr inbounds i8, ptr %0, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %3, ptr %51, align 8
   br label %52
 
@@ -798,7 +798,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
   br i1 %.not5965, label %._crit_edge.split.us, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %52
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %4, ptr noundef %54)
   %.not60.us = icmp eq i64 %55, %4
@@ -806,7 +806,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   store i32 0, ptr %30, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %56, align 8
   %57 = tail call i32 @H5open() #12
   %58 = load i64, ptr @H5E_ERR_CLS_g, align 8
@@ -820,9 +820,9 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
 ._crit_edge.split.us:                             ; preds = %.lr.ph.split.us, %52
   %.047.lcssa = phi i64 [ %3, %52 ], [ %19, %.lr.ph.split.us ]
   store i32 2, ptr %30, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %.047.lcssa, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %66 = load i64, ptr %65, align 8
   %67 = icmp ugt i64 %.047.lcssa, %66
   br i1 %67, label %68, label %69
@@ -839,14 +839,14 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0, i64 %1, i1 noundef zeroext %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   %brmerge = or i1 %2, %.not
   br i1 %brmerge, label %23, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @fflush(ptr noundef %9)
   %11 = icmp slt i32 %10, 0
@@ -863,9 +863,9 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0,
   br label %23
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %22, align 8
   br label %23
 
@@ -877,12 +877,12 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr nocapture noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef %0, i64 %1, i1 zeroext %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
   br i1 %.not, label %32, label %11
 
@@ -891,10 +891,10 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef 
   br i1 %.not13, label %42, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void @rewind(ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i32, ptr %15, align 8
   %17 = load i64, ptr %7, align 8
   %18 = tail call i32 @ftruncate64(i32 noundef %16, i64 noundef %17) #12
@@ -914,9 +914,9 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef 
 28:                                               ; preds = %12
   %29 = load i64, ptr %7, align 8
   store i64 %29, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %31, align 8
   br label %42
 
@@ -942,7 +942,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_truncate(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
   %3 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = select i1 %1, i32 6, i32 5
   %7 = tail call i32 @flock(i32 noundef %5, i32 noundef %6) #12
@@ -950,7 +950,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef read
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %18
@@ -976,7 +976,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef read
   br label %39
 
 26:                                               ; preds = %17, %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @fflush(ptr noundef %28)
   %30 = icmp slt i32 %29, 0
@@ -1000,7 +1000,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_lock(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr nocapture noundef readonly %0) #0 {
   %2 = tail call i32 @H5Eclear2(i64 noundef 0) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fflush(ptr noundef %4)
   %6 = icmp slt i32 %5, 0
@@ -1017,14 +1017,14 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_unlock(ptr nocapture noundef re
   br label %37
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @flock(i32 noundef %17, i32 noundef 8) #12
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %37
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 124
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %29

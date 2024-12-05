@@ -78,14 +78,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen23DefaultHTTPCodecFactoryC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, i1 noundef zeroext %forceHTTP1xCodecTo1_1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %forceHTTP1xCodecTo1_1 to i8
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen23DefaultHTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %forceHTTP1xCodecTo1_1_ = getelementptr inbounds i8, ptr %this, i64 40
+  %forceHTTP1xCodecTo1_1_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 %frombool, ptr %forceHTTP1xCodecTo1_1_, align 8
   ret void
 }
@@ -181,7 +181,7 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_ZNKSt8functionIFbvEEclEv.exit.i
@@ -194,15 +194,15 @@ if.then.i.i:                                      ; preds = %_ZSt11make_uniqueIN
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = load ptr, ptr %_M_invoker.i.i, align 8
   %call2.i.i42 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i
   %frombool.i = zext i1 %call2.i.i42 to i8
-  %strictValidation_.i = getelementptr inbounds i8, ptr %call.i41, i64 1060
+  %strictValidation_.i = getelementptr inbounds nuw i8, ptr %call.i41, i64 1060
   store i8 %frombool.i, ptr %strictValidation_.i, align 4
   br label %return
 
@@ -210,7 +210,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47: ; 
   %8 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i45 = load ptr, ptr %call.i41, align 8
-  %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 8
+  %vfn.i.i46 = getelementptr inbounds nuw i8, ptr %vtable.i.i45, i64 8
   %9 = load ptr, ptr %vfn.i.i46, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(1062) %call.i41) #15
   br label %common.resume
@@ -259,7 +259,7 @@ lpad13:                                           ; preds = %invoke.cont22, %inv
   br label %common.resume
 
 if.end:                                           ; preds = %invoke.cont24, %land.lhs.true, %if.else
-  %_M_manager.i.i.i48 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i48 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load ptr, ptr %_M_manager.i.i.i48, align 8
   %tobool.not.i.i.i49 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i49, label %if.then.i.i53, label %_ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit54
@@ -269,9 +269,9 @@ if.then.i.i53:                                    ; preds = %if.end
   unreachable
 
 _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit54: ; preds = %if.end
-  %forceHTTP1xCodecTo1_1_ = getelementptr inbounds i8, ptr %this, i64 40
-  %useStrictValidationFn_.i51 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_invoker.i.i52 = getelementptr inbounds i8, ptr %this, i64 32
+  %forceHTTP1xCodecTo1_1_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %useStrictValidationFn_.i51 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_invoker.i.i52 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_invoker.i.i52, align 8
   %call2.i.i = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i51)
   %call.i55 = call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #16, !noalias !7
@@ -314,13 +314,13 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN8proxygen23DefaultHTTPCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i32 noundef 3)
           to label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -339,13 +339,13 @@ _ZN8proxygen16HTTPCodecFactoryD2Ev.exit:          ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZN8proxygen23DefaultHTTPCodecFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8proxygen23DefaultHTTPCodecFactoryD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %useStrictValidationFn_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, i32 noundef 3)
           to label %_ZN8proxygen23DefaultHTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -365,13 +365,13 @@ _ZN8proxygen23DefaultHTTPCodecFactoryD2Ev.exit:   ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZN8proxygen16HTTPCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %useStrictValidationFn_ = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 

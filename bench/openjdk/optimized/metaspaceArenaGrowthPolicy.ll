@@ -48,7 +48,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 7:                                                ; preds = %5
   store ptr @_ZN9metaspaceL25g_sequ_standard_non_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE39chunk_alloc_sequence_standard_non_class, align 8
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE39chunk_alloc_sequence_standard_non_class, i64 8), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE39chunk_alloc_sequence_standard_non_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE39chunk_alloc_sequence_standard_non_class) #3
   br label %8
 
@@ -64,7 +64,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 13:                                               ; preds = %11
   store ptr @_ZN9metaspaceL21g_sequ_standard_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_standard_class, align 8
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_standard_class, i64 8), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_standard_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_standard_class) #3
   br label %14
 
@@ -80,7 +80,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 19:                                               ; preds = %17
   store ptr @_ZN9metaspaceL21g_sequ_anon_non_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_anon_non_class, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_anon_non_class, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_anon_non_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_anon_non_class) #3
   br label %20
 
@@ -96,7 +96,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 25:                                               ; preds = %23
   store ptr @_ZN9metaspaceL17g_sequ_anon_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_anon_class, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_anon_class, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_anon_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_anon_class) #3
   br label %26
 
@@ -112,7 +112,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 31:                                               ; preds = %29
   store ptr @_ZN9metaspaceL21g_sequ_refl_non_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_refl_non_class, align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_refl_non_class, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_refl_non_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_refl_non_class) #3
   br label %32
 
@@ -128,7 +128,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 37:                                               ; preds = %35
   store ptr @_ZN9metaspaceL17g_sequ_refl_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_refl_class, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_refl_class, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_refl_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_refl_class) #3
   br label %38
 
@@ -144,7 +144,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 43:                                               ; preds = %41
   store ptr @_ZN9metaspaceL21g_sequ_boot_non_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_boot_non_class, align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_boot_non_class, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_boot_non_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE35chunk_alloc_sequence_boot_non_class) #3
   br label %44
 
@@ -160,7 +160,7 @@ define hidden noundef nonnull ptr @_ZN9metaspace17ArenaGrowthPolicy21policy_for_
 
 49:                                               ; preds = %47
   store ptr @_ZN9metaspaceL17g_sequ_boot_classE, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_boot_class, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_boot_class, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_boot_class, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9metaspace17ArenaGrowthPolicy21policy_for_space_typeEN9Metaspace13MetaspaceTypeEbE31chunk_alloc_sequence_boot_class) #3
   br label %50
 

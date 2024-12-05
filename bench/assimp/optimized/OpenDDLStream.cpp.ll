@@ -60,9 +60,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden void @_ZN10ODDLParser12IOStreamBaseC2EPNS_19StreamFormatterBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %formatter) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
-  %m_formatter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_formatter = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %formatter, ptr %m_formatter, align 8
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_file, align 8
   %cmp = icmp eq ptr %formatter, null
   br i1 %cmp, label %if.then, label %if.end
@@ -86,14 +86,14 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN10ODDLParser12IOStreamBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
-  %m_formatter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_formatter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formatter, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   br label %delete.end
@@ -107,14 +107,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define hidden void @_ZN10ODDLParser12IOStreamBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ODDLParser12IOStreamBaseE, i64 16), ptr %this, align 8
-  %m_formatter.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_formatter.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_formatter.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN10ODDLParser12IOStreamBaseD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
   br label %_ZN10ODDLParser12IOStreamBaseD2Ev.exit
@@ -129,7 +129,7 @@ define hidden noundef zeroext i1 @_ZN10ODDLParser12IOStreamBase4openERKNSt7__cxx
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
   %call2 = tail call noalias ptr @fopen(ptr noundef %call, ptr noundef nonnull @.str)
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call2, ptr %m_file, align 8
   %cmp = icmp ne ptr %call2, null
   ret i1 %cmp
@@ -144,7 +144,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10ODDLParser12IOStreamBase5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_file, align 8
   %cmp = icmp ne ptr %0, null
   br i1 %cmp, label %if.end, label %return
@@ -164,7 +164,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK10ODDLParser12IOStreamBase6isOpenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_file, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -173,7 +173,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase4readEmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %sizeToRead, ptr noundef nonnull align 8 dereferenceable(32) %statement) unnamed_addr #4 align 2 {
 entry:
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_file, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -201,16 +201,16 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase5writeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %statement) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %formatStatement = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_file = getelementptr inbounds i8, ptr %this, i64 16
+  %m_file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_file, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_formatter = getelementptr inbounds i8, ptr %this, i64 8
+  %m_formatter = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_formatter, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %formatStatement, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %statement)
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %formatStatement) #13

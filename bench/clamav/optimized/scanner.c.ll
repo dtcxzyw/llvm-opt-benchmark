@@ -136,11 +136,11 @@ define dso_local void @hash_callback(i32 noundef %0, i64 noundef %1, ptr nocaptu
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32) #11
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 0, ptr %10, align 8
   br label %11
 
@@ -153,13 +153,13 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @clamd_virus_found_cb(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
@@ -181,29 +181,29 @@ define dso_local void @clamd_virus_found_cb(i32 noundef %0, ptr noundef %1, ptr 
   %18 = load ptr, ptr %2, align 8
   %.not27 = icmp eq ptr %18, null
   %spec.select = select i1 %.not27, ptr @.str.2, ptr %18
-  %19 = getelementptr inbounds i8, ptr %5, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @conn_reply_virus(ptr noundef %23, ptr noundef nonnull %spec.select, ptr noundef nonnull %1) #11
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8
   %.not29 = icmp eq i64 %26, 0
   br i1 %.not29, label %37, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %5, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @optget(ptr noundef %29, ptr noundef nonnull @.str.3) #11
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8
   %.not30 = icmp eq i32 %32, 0
   br i1 %.not30, label %37, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load i64, ptr %25, align 8
   %36 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select, ptr noundef nonnull %1, ptr noundef nonnull %34, i64 noundef %35) #11
   br label %37
@@ -228,7 +228,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   %9 = alloca ptr, align 8
   %10 = load ptr, ptr %4, align 8
   store ptr null, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %1, null
@@ -240,7 +240,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br i1 %.not134, label %21, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @conn_reply_errno(ptr noundef %17, ptr noundef %2, ptr noundef nonnull @.str.6) #11
   %19 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #11
@@ -254,9 +254,9 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %15, %21, %5
   %.0122 = phi ptr [ %1, %15 ], [ %22, %21 ], [ null, %5 ]
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = call i64 @send(i32 noundef %27, ptr noundef nonnull %7, i64 noundef 0, i32 noundef 0) #11
   %29 = icmp eq i64 %28, -1
@@ -271,7 +271,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 33:                                               ; preds = %30
   %34 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.9) #11
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %37 = load ptr, ptr %36, align 8
   call void @thrmgr_group_terminate(ptr noundef %37) #11
   %38 = icmp eq i32 %3, 0
@@ -283,7 +283,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 40:                                               ; preds = %30, %23
   %41 = load ptr, ptr %24, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @thrmgr_group_need_terminate(ptr noundef %43) #11
   %.not136 = icmp eq i32 %44, 0
@@ -299,7 +299,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br label %265
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %10, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -325,7 +325,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br label %58
 
 58:                                               ; preds = %56, %54
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 8
@@ -336,7 +336,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   %63 = load ptr, ptr %24, align 8
   %64 = call i32 @conn_reply_errno(ptr noundef %63, ptr noundef %2, ptr noundef nonnull @.str.6) #11
   %65 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.13, ptr noundef %2) #11
-  %66 = getelementptr inbounds i8, ptr %10, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 8
@@ -354,7 +354,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br label %265
 
 73:                                               ; preds = %49
-  %74 = getelementptr inbounds i8, ptr %10, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %2, %75
   br i1 %76, label %77, label %80
@@ -393,13 +393,13 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br i1 %86, label %.thread, label %103
 
 .thread:                                          ; preds = %87, %91
-  %92 = getelementptr inbounds i8, ptr %0, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %93 = load i64, ptr %92, align 8
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %95, label %103
 
 95:                                               ; preds = %.thread
-  %96 = getelementptr inbounds i8, ptr %10, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %2, %97
   br i1 %98, label %99, label %102
@@ -423,33 +423,33 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br i1 %.not148, label %146, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %106, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i32 -1, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %10, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %106, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %106, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %.0122, ptr %112, align 8
   store i32 16, ptr %106, align 8
   %113 = load ptr, ptr %24, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %115 = load i8, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %106, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %106, i64 56
   store i8 %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %10, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %106, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %10, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %106, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %10, i64 88
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %106, i64 88
+  %125 = getelementptr inbounds nuw i8, ptr %106, i64 88
   store ptr %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %10, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 @cl_engine_addref(ptr noundef %127) #11
   %.not149 = icmp eq i32 %128, 0
@@ -463,14 +463,14 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 131:                                              ; preds = %107
   %132 = load ptr, ptr %126, align 8
-  %133 = getelementptr inbounds i8, ptr %106, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %106, i64 40
   store ptr %132, ptr %133, align 8
   %134 = call i32 @pthread_mutex_lock(ptr noundef nonnull @reload_mutex) #11
   %135 = load i64, ptr @reloaded_time, align 8
-  %136 = getelementptr inbounds i8, ptr %106, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store i64 %135, ptr %136, align 8
   %137 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @reload_mutex) #11
-  %138 = getelementptr inbounds i8, ptr %10, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %123, align 8
   %141 = call i32 @thrmgr_group_dispatch(ptr noundef %139, ptr noundef %140, ptr noundef nonnull %106, i32 noundef 1) #11
@@ -487,7 +487,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 146:                                              ; preds = %105
   %147 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.22) #11
-  %148 = getelementptr inbounds i8, ptr %10, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %149 = load i32, ptr %148, align 8
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %148, align 8
@@ -497,20 +497,20 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 151:                                              ; preds = %103
   call void @thrmgr_setactivetask(ptr noundef %.0122, ptr noundef null) #11
   store ptr %.0122, ptr %8, align 8
-  %152 = getelementptr inbounds i8, ptr %8, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %8, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %10, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 48
-  %155 = getelementptr inbounds i8, ptr %10, i64 64
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %10, i64 56
+  %157 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %158 = load ptr, ptr %157, align 8
   %159 = call i32 @cl_scanfile_callback(ptr noundef %.0122, ptr noundef nonnull %6, ptr noundef nonnull %154, ptr noundef %156, ptr noundef %158, ptr noundef nonnull %8) #11
   store i32 %159, ptr %7, align 4
   call void @thrmgr_setactivetask(ptr noundef null, ptr noundef null) #11
   %160 = load ptr, ptr %24, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 88
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 88
   %162 = load ptr, ptr %161, align 8
   %163 = call i32 @thrmgr_group_need_terminate(ptr noundef %162) #11
   %.not138 = icmp eq i32 %163, 0
@@ -556,7 +556,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 181:                                              ; preds = %176
   %182 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef %.0122) #11
-  %183 = getelementptr inbounds i8, ptr %10, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %184 = load i32, ptr %183, align 8
   %185 = add nsw i32 %184, 1
   store i32 %185, ptr %183, align 8
@@ -571,7 +571,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br i1 %.not141, label %190, label %194
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i8, ptr %10, i64 12
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %192 = load i32, ptr %191, align 4
   %.not142 = icmp eq i32 %192, 0
   %193 = and i32 %188, 8
@@ -580,17 +580,17 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
   br i1 %or.cond151, label %208, label %194
 
 194:                                              ; preds = %190, %186
-  %195 = getelementptr inbounds i8, ptr %10, i64 72
+  %195 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %196 = load ptr, ptr %195, align 8
   %197 = call ptr @optget(ptr noundef %196, ptr noundef nonnull @.str.26) #11
-  %198 = getelementptr inbounds i8, ptr %197, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %199 = load i32, ptr %198, align 8
   %.not147 = icmp eq i32 %199, 0
   br i1 %.not147, label %205, label %200
 
 200:                                              ; preds = %194
   %201 = load ptr, ptr %6, align 8
-  %202 = getelementptr inbounds i8, ptr %8, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %203 = load i64, ptr %152, align 8
   %204 = trunc i64 %203 to i32
   call void @prelude_logging(ptr noundef %.0122, ptr noundef %201, ptr noundef nonnull %202, i32 noundef %204) #11
@@ -605,7 +605,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 208:                                              ; preds = %190
   %209 = add nsw i32 %192, 1
   store i32 %209, ptr %191, align 4
-  %210 = getelementptr inbounds i8, ptr %10, i64 72
+  %210 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %211 = load ptr, ptr %210, align 8
   call void @virusaction(ptr noundef %.0122, ptr noundef %172, ptr noundef %211) #11
   %212 = load ptr, ptr %24, align 8
@@ -621,14 +621,14 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 217:                                              ; preds = %208
   %218 = load ptr, ptr %210, align 8
   %219 = call ptr @optget(ptr noundef %218, ptr noundef nonnull @.str.26) #11
-  %220 = getelementptr inbounds i8, ptr %219, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %221 = load i32, ptr %220, align 8
   %.not144 = icmp eq i32 %221, 0
   br i1 %.not144, label %227, label %222
 
 222:                                              ; preds = %217
   %223 = load ptr, ptr %6, align 8
-  %224 = getelementptr inbounds i8, ptr %8, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %225 = load i64, ptr %152, align 8
   %226 = trunc i64 %225 to i32
   call void @prelude_logging(ptr noundef %.0122, ptr noundef %223, ptr noundef nonnull %224, i32 noundef %226) #11
@@ -642,14 +642,14 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 229:                                              ; preds = %227
   %230 = load ptr, ptr %210, align 8
   %231 = call ptr @optget(ptr noundef %230, ptr noundef nonnull @.str.3) #11
-  %232 = getelementptr inbounds i8, ptr %231, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i32, ptr %232, align 8
   %.not146 = icmp eq i32 %233, 0
   br i1 %.not146, label %239, label %234
 
 234:                                              ; preds = %229
   %235 = load ptr, ptr %6, align 8
-  %236 = getelementptr inbounds i8, ptr %8, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %237 = load i64, ptr %152, align 8
   %238 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %.0122, ptr noundef %235, ptr noundef nonnull %236, i64 noundef %237) #11
   br label %260
@@ -661,7 +661,7 @@ define dso_local i32 @scan_callback(ptr noundef readonly %0, ptr noundef %1, ptr
 
 242:                                              ; preds = %.thread152, %175
   %243 = phi i32 [ 20, %.thread152 ], [ %170, %175 ]
-  %244 = getelementptr inbounds i8, ptr %10, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %245 = load i32, ptr %244, align 8
   %246 = add nsw i32 %245, 1
   store i32 %246, ptr %244, align 8
@@ -755,10 +755,10 @@ declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @optget(ptr noundef %6, ptr noundef nonnull @.str.29) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = icmp ne i32 %9, 0
   %11 = icmp ne ptr %7, null
@@ -767,20 +767,20 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr nocapture
 
 .preheader:                                       ; preds = %2, %19
   %.0 = phi ptr [ %21, %19 ], [ %7, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @match_regex(ptr noundef %0, ptr noundef %13) #11
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i32, ptr %17, align 8
   %.not21 = icmp eq i32 %18, 2
   br i1 %.not21, label %39, label %.sink.split
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.old1.not = icmp eq ptr %21, null
   br i1 %.old1.not, label %.loopexit, label %.preheader
@@ -788,7 +788,7 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr nocapture
 .loopexit:                                        ; preds = %19, %2
   %22 = load ptr, ptr %5, align 8
   %23 = tail call ptr @optget(ptr noundef %22, ptr noundef nonnull @.str.31) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %39
@@ -800,20 +800,20 @@ define dso_local range(i32 0, 2) i32 @scan_pathchk(ptr noundef %0, ptr nocapture
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %32 = load i64, ptr %31, align 8
   %.not19 = icmp eq i64 %30, %32
   br i1 %.not19, label %39, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load i32, ptr %34, align 8
   %.not20 = icmp eq i32 %35, 2
   br i1 %.not20, label %39, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %16
   %.str.32.sink = phi ptr [ @.str.30, %16 ], [ @.str.32, %33 ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @conn_reply_single(ptr noundef %37, ptr noundef %0, ptr noundef nonnull %.str.32.sink) #11
   br label %39
@@ -837,7 +837,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %12 = alloca ptr, align 8
   %13 = alloca %struct.sockaddr_in, align 4
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   store ptr null, ptr %8, align 8
   store ptr null, ptr %12, align 8
@@ -846,7 +846,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 17:                                               ; preds = %7
   store i32 16, ptr %14, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = call i32 @getpeername(i32 noundef %19, ptr nonnull %13, ptr noundef nonnull %14) #11
   %21 = icmp ne i32 %20, 0
@@ -863,10 +863,10 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %38
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %13, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call ptr @inet_ntoa(i32 %29) #11
-  %31 = getelementptr inbounds i8, ptr %13, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = call zeroext i16 @ntohs(i16 noundef zeroext %32) #12
   %34 = zext i16 %33 to i32
@@ -884,7 +884,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %9, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 61440
   %45 = icmp eq i32 %44, 32768
@@ -917,13 +917,13 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %.040 = phi ptr [ %11, %50 ], [ %11, %53 ], [ %56, %55 ]
   call void @thrmgr_setactivetask(ptr noundef nonnull %11, ptr noundef null) #11
   store ptr %11, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr null, ptr %59, align 8
   %60 = call i32 @cl_scandesc_callback(i32 noundef %16, ptr noundef %.040, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10) #11
   call void @thrmgr_setactivetask(ptr noundef null, ptr noundef null) #11
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 @thrmgr_group_need_terminate(ptr noundef %62) #11
   %.not46 = icmp eq i32 %63, 0
@@ -954,14 +954,14 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 75:                                               ; preds = %69
   %76 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.3) #11
-  %77 = getelementptr inbounds i8, ptr %76, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %78 = load i32, ptr %77, align 8
   %.not50 = icmp eq i32 %78, 0
   br i1 %.not50, label %84, label %79
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %10, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %82 = load i64, ptr %58, align 8
   %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %.040, ptr noundef %80, ptr noundef nonnull %81, i64 noundef %82) #11
   br label %99
@@ -1038,20 +1038,20 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %15 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %16 = tail call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.41) #11
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = tail call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.42) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = sub i32 %23, %19
   %25 = tail call i32 @cli_rndnum(i32 noundef %24) #11
   %26 = add i32 %24, 1
-  %27 = getelementptr inbounds i8, ptr %12, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %28 = tail call i32 @htonl(i32 noundef 0) #12
-  %29 = getelementptr inbounds i8, ptr %12, i64 4
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %31
 
 31:                                               ; preds = %6, %44
@@ -1087,11 +1087,11 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 46:                                               ; preds = %39, %44
   %.lcssa142 = phi i1 [ false, %39 ], [ true, %44 ]
   %47 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.43) #11
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i32
   %51 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.44) #11
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
   br i1 %.lcssa142, label %55, label %59
@@ -1156,11 +1156,11 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 0, ptr %10, align 16
   %91 = load i16, ptr %13, align 4
   %92 = zext i16 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %13, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %94 = call ptr @inet_ntop(i32 noundef %92, ptr noundef nonnull %93, ptr noundef nonnull %10, i32 noundef 32) #11
   %95 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %10, i32 noundef %34, i32 noundef %84) #11
   %96 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.57) #11
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @cli_gentempfd(ptr noundef %98, ptr noundef nonnull %15, ptr noundef nonnull %7) #11
   %.not = icmp eq i32 %99, 0
@@ -1176,7 +1176,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 106:                                              ; preds = %90
   %107 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.60) #11
-  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i64, ptr %108, align 8
   %.fr = freeze i64 %109
   %.not123 = icmp eq i64 %.fr, 0
@@ -1237,7 +1237,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %138 = load i32, ptr %7, align 4
   %139 = call i32 @close(i32 noundef %138) #11
   %140 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.64) #11
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load i32, ptr %141, align 8
   %.not126 = icmp eq i32 %142, 0
   br i1 %.not126, label %143, label %146
@@ -1274,9 +1274,9 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %155 = call i64 @lseek(i32 noundef %154, i64 noundef 0, i32 noundef 0) #11
   call void @thrmgr_setactivetask(ptr noundef nonnull %10, ptr noundef null) #11
   store ptr %10, ptr %11, align 8
-  %156 = getelementptr inbounds i8, ptr %11, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %11, i64 56
+  %157 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr null, ptr %157, align 8
   %158 = load i32, ptr %7, align 4
   %159 = load ptr, ptr %15, align 8
@@ -1290,7 +1290,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %162 = load i32, ptr %7, align 4
   %163 = call i32 @close(i32 noundef %162) #11
   %164 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.64) #11
-  %165 = getelementptr inbounds i8, ptr %164, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %166 = load i32, ptr %165, align 8
   %.not127 = icmp eq i32 %166, 0
   br i1 %.not127, label %167, label %170
@@ -1311,21 +1311,21 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %11, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %176 = load i64, ptr %175, align 8
   %.not130 = icmp eq i64 %176, 0
   br i1 %.not130, label %189, label %177
 
 177:                                              ; preds = %174
   %178 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.3) #11
-  %179 = getelementptr inbounds i8, ptr %178, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %180 = load i32, ptr %179, align 8
   %.not131 = icmp eq i32 %180, 0
   br i1 %.not131, label %189, label %181
 
 181:                                              ; preds = %177
   %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds i8, ptr %11, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %184 = load i64, ptr %175, align 8
   %185 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.69, ptr noundef %182, ptr noundef nonnull %183, i64 noundef %184, i32 noundef %69) #11
   %186 = load ptr, ptr %8, align 8

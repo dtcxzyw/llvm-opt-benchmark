@@ -59,7 +59,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %glib_auto_cleanup_GStrv.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %glib_auto_cleanup_GStrv.exit ]
   %sock_path.025 = phi ptr [ null, %for.body.preheader ], [ %sock_path.1, %glib_auto_cleanup_GStrv.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 2) #10
   %1 = load ptr, ptr %call, align 8
@@ -69,7 +69,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds i8, ptr %call, i64 8
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @verbose) #10
   br i1 %call6, label %glib_auto_cleanup_GStrv.exit, label %glib_auto_cleanup_GStrv.exit11
@@ -80,7 +80,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp11, label %if.then12, label %glib_auto_cleanup_GStrv.exit11
 
 if.then12:                                        ; preds = %if.else
-  %arrayidx13 = getelementptr inbounds i8, ptr %call, i64 8
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load ptr, ptr %arrayidx13, align 8
   br label %glib_auto_cleanup_GStrv.exit
 
@@ -117,7 +117,7 @@ if.then.i.i:                                      ; preds = %if.then.i8
 
 if.end.i.i:                                       ; preds = %if.then.i8
   store i16 1, ptr %sockaddr.i.i, align 2
-  %sun_path.i.i = getelementptr inbounds i8, ptr %sockaddr.i.i, i64 2
+  %sun_path.i.i = getelementptr inbounds nuw i8, ptr %sockaddr.i.i, i64 2
   %call1.i.i = call i64 @g_strlcpy(ptr noundef nonnull %sun_path.i.i, ptr noundef nonnull %sock_path.1, i64 noundef 107) #10
   %cmp2.i.i = icmp ugt i64 %call1.i.i, 106
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end5.i.i
@@ -159,7 +159,7 @@ if.then.i19.i:                                    ; preds = %if.else.i
 
 if.end.i6.i:                                      ; preds = %if.else.i
   store i16 1, ptr %sockaddr.i3.i, align 2
-  %sun_path.i7.i = getelementptr inbounds i8, ptr %sockaddr.i3.i, i64 2
+  %sun_path.i7.i = getelementptr inbounds nuw i8, ptr %sockaddr.i3.i, i64 2
   %call1.i8.i = call i64 @g_strlcpy(ptr noundef nonnull %sun_path.i7.i, ptr noundef nonnull %sock_path.1, i64 noundef 107) #10
   %cmp2.i9.i = icmp ugt i64 %call1.i8.i, 106
   br i1 %cmp2.i9.i, label %if.then3.i17.i, label %if.end5.i10.i
@@ -261,7 +261,7 @@ entry:
   %call1 = tail call i64 @qemu_plugin_tb_vaddr(ptr noundef %tb) #10
   store i64 %call1, ptr %call, align 8
   %call2 = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %tb) #10
-  %insns = getelementptr inbounds i8, ptr %call, i64 8
+  %insns = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %call2, ptr %insns, align 8
   %0 = load ptr, ptr @blocks, align 8
   %call3 = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef nonnull %call) #10
@@ -358,7 +358,7 @@ entry:
   %0 = load i64, ptr %udata, align 8
   store i64 %0, ptr %us, align 8
   %1 = load i64, ptr @insn_count, align 8
-  %insn_count = getelementptr inbounds i8, ptr %us, i64 8
+  %insn_count = getelementptr inbounds nuw i8, ptr %us, i64 8
   store i64 %1, ptr %insn_count, align 8
   %2 = load i32, ptr @socket_fd, align 4
   %call = call i64 @write(i32 noundef %2, ptr noundef nonnull %us, i64 noundef 16) #10
@@ -389,12 +389,12 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end8
-  %7 = getelementptr inbounds i8, ptr %them, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %them, i64 8
   %them.val10 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %divrec.i)
   %8 = load ptr, ptr @log, align 8
   store ptr %8, ptr %divrec.i, align 8
-  %distance.i = getelementptr inbounds i8, ptr %divrec.i, i64 8
+  %distance.i = getelementptr inbounds nuw i8, ptr %divrec.i, i64 8
   store i32 0, ptr %distance.i, align 8
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.19) #10
   %9 = load ptr, ptr @divergence_log, align 8
@@ -408,7 +408,7 @@ if.then.i:                                        ; preds = %if.then12
   br i1 %tobool2.not7.i, label %if.end19.i, label %cond.true.i.preheader
 
 cond.true.i.preheader:                            ; preds = %if.then.i
-  %next.i11 = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
+  %next.i11 = getelementptr inbounds nuw i8, ptr %entry1.06.i, i64 8
   %11 = load ptr, ptr %next.i11, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %if.end19.i, label %for.body.i.preheader
@@ -427,7 +427,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 cond.end11.i:                                     ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %14, 1
   store i32 %inc.i, ptr %distance.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %13, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %next.i, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %for.end.i, label %for.body.i
@@ -438,7 +438,7 @@ for.end.i:                                        ; preds = %cond.end11.i, %for.
   br i1 %17, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %for.end.i
-  %distance15.i = getelementptr inbounds i8, ptr %10, i64 8
+  %distance15.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load i32, ptr %distance15.i, align 8
   %cmp16.i = icmp eq i32 %18, 1
   br label %if.end19.i
@@ -476,7 +476,7 @@ if.then33.i:                                      ; preds = %if.end31.i
 cond.true40.i:                                    ; preds = %if.then33.i, %for.body45.i
   %entry34.012.i = phi ptr [ %entry34.0.i, %for.body45.i ], [ %entry34.09.i, %if.then33.i ]
   %i.011.i = phi i32 [ %inc57.i, %for.body45.i ], [ 0, %if.then33.i ]
-  %next41.i = getelementptr inbounds i8, ptr %entry34.012.i, i64 8
+  %next41.i = getelementptr inbounds nuw i8, ptr %entry34.012.i, i64 8
   %23 = load ptr, ptr %next41.i, align 8
   %tobool42.i = icmp ne ptr %23, null
   %cmp44.i = icmp samesign ult i32 %i.011.i, 5
@@ -487,9 +487,9 @@ for.body45.i:                                     ; preds = %cond.true40.i
   %24 = load ptr, ptr %entry34.012.i, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %25, align 8
-  %insns.i = getelementptr inbounds i8, ptr %25, i64 8
+  %insns.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %insns.i, align 8
-  %insn_count49.i = getelementptr inbounds i8, ptr %24, i64 8
+  %insn_count49.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i64, ptr %insn_count49.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call.i, ptr noundef nonnull @.str.22, i64 noundef %26, i64 noundef %27, i64 noundef %28) #10
   %inc57.i = add nuw nsw i32 %i.011.i, 1
@@ -518,7 +518,7 @@ report_divergance.exit:                           ; preds = %if.end60.i, %if.the
   br label %if.end13
 
 if.end13:                                         ; preds = %report_divergance.exit, %if.end8
-  %insns = getelementptr inbounds i8, ptr %udata, i64 8
+  %insns = getelementptr inbounds nuw i8, ptr %udata, i64 8
   %31 = load i64, ptr %insns, align 8
   %32 = load i64, ptr @insn_count, align 8
   %add = add i64 %32, %31
@@ -529,10 +529,10 @@ if.end13:                                         ; preds = %report_divergance.e
   %call14 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #13
   store ptr %udata, ptr %call14, align 8
   %34 = load i64, ptr @insn_count, align 8
-  %insn_count15 = getelementptr inbounds i8, ptr %call14, i64 8
+  %insn_count15 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store i64 %34, ptr %insn_count15, align 8
   %35 = load i64, ptr @bb_count, align 8
-  %block_count = getelementptr inbounds i8, ptr %call14, i64 16
+  %block_count = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store i64 %35, ptr %block_count, align 8
   %36 = load ptr, ptr @log, align 8
   %call16 = call ptr @g_slist_prepend(ptr noundef %36, ptr noundef nonnull %call14) #10

@@ -718,9 +718,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -802,9 +802,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -887,9 +887,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -956,9 +956,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -1025,9 +1025,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -1094,9 +1094,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
 define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #9
@@ -1896,9 +1896,9 @@ define dso_local void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12funct
   %9 = alloca %"class.llvm::APInt", align 8
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca %"class.llvm::APInt", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val11 = load i32, ptr %13, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val11)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #9
@@ -2082,7 +2082,7 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntngEv(ptr dead_on_unwind
   %22 = load ptr, ptr %1, align 8
   %23 = lshr i32 %18, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %21
   %.not.i = icmp eq i64 %27, 0
@@ -2284,9 +2284,9 @@ _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 17:                                               ; preds = %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val7 = load i32, ptr %19, align 8
   %.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val7)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #9
@@ -2375,9 +2375,9 @@ _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 17:                                               ; preds = %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val7 = load i32, ptr %19, align 8
   %.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val7)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #9
@@ -2530,9 +2530,9 @@ define dso_local void @_ZN4llvm6detail3gcdERKNS0_16SlowDynamicAPIntES3_(ptr dead
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load i32, ptr %8, align 8
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val5)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #9
@@ -2856,7 +2856,7 @@ declare void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull alig
 define linkonce_odr hidden void @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #1 comdat align 2 {
   %6 = inttoptr i64 %1 to ptr
   %.unpack.i.i.i = load i64, ptr %6, align 8, !noalias !73
-  %.elt4.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.elt4.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.unpack5.i.i.i = load i64, ptr %.elt4.i.i.i, align 8, !noalias !73
   %7 = getelementptr inbounds i8, ptr %2, i64 %.unpack5.i.i.i
   %8 = and i64 %.unpack.i.i.i, 1

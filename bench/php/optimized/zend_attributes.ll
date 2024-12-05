@@ -87,7 +87,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %38, label %7
@@ -98,7 +98,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
   %10 = getelementptr i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   store ptr %9, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %11, ptr %12, align 8
   %13 = and i32 %11, 65280
   %.not25.i = icmp eq i32 %13, 0
@@ -106,7 +106,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
   br i1 %.not25.i, label %26, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %9, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 128
   %.not26.i = icmp eq i32 %18, 0
@@ -169,7 +169,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %2, %6
   br i1 %.not, label %7, label %33
@@ -180,17 +180,17 @@ define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapt
   %9 = getelementptr i8, ptr %1, i64 40
   %10 = getelementptr i8, ptr %9, i64 %.idx
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8
   store ptr %11, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %13, ptr %14, align 8
   %15 = and i32 %13, 65280
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %27, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 128
   %.not26 = icmp eq i32 %19, 0
@@ -239,8 +239,8 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
 define hidden void @zim_Attribute___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
   store i64 63, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
   br i1 %7, label %.thread78, label %8
@@ -250,8 +250,8 @@ define hidden void @zim_Attribute___construct(ptr noundef %0, ptr nocapture read
   br i1 %9, label %.thread86, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 4
   br i1 %14, label %.thread68, label %16
@@ -283,9 +283,9 @@ define hidden void @zim_Attribute___construct(ptr noundef %0, ptr nocapture read
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68, %8
   %19 = phi i64 [ %.pre, %..thread86_crit_edge ], [ %15, %.thread68 ], [ 63, %8 ]
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 %19, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 4, ptr %22, align 8
   br label %23
 
@@ -302,7 +302,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReturnTypeWillChange___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -319,7 +319,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AllowDynamicProperties___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -334,7 +334,7 @@ define hidden void @zim_AllowDynamicProperties___construct(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SensitiveParameter___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -349,7 +349,7 @@ define hidden void @zim_SensitiveParameter___construct(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SensitiveParameterValue___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -360,12 +360,12 @@ define hidden void @zim_SensitiveParameterValue___construct(ptr noundef %0, ptr 
   br label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr @zend_ce_sensitive_parameter_value, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr @zend_known_strings, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load ptr, ptr %12, align 8
   tail call void @zend_update_property_ex(ptr noundef %9, ptr noundef %10, ptr noundef %13, ptr noundef nonnull %8) #16
   br label %14
@@ -378,7 +378,7 @@ declare void @zend_update_property_ex(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SensitiveParameterValue_getValue(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -388,14 +388,14 @@ define hidden void @zim_SensitiveParameterValue_getValue(ptr nocapture noundef r
   br label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load i32, ptr %11, align 8
   store ptr %10, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %12, ptr %13, align 8
   %14 = and i32 %12, 65280
   %.not11 = icmp eq i32 %14, 0
@@ -413,7 +413,7 @@ define hidden void @zim_SensitiveParameterValue_getValue(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SensitiveParameterValue___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -424,7 +424,7 @@ define hidden void @zim_SensitiveParameterValue___debugInfo(ptr nocapture nounde
 
 6:                                                ; preds = %2
   store ptr @zend_empty_array, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 7, ptr %7, align 8
   br label %8
 
@@ -434,7 +434,7 @@ define hidden void @zim_SensitiveParameterValue___debugInfo(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Override___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -453,13 +453,13 @@ define ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_un
   br i1 %.not.i, label %get_attribute.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 4
   %13 = icmp ne i32 %12, 0
@@ -468,31 +468,31 @@ define ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_un
   br i1 %.not3334.i, label %get_attribute.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
 15:                                               ; preds = %.critedge2.i, %.lr.ph.i
   %.02835.i = phi ptr [ %5, %.lr.ph.i ], [ %35, %.critedge2.i ]
-  %16 = getelementptr inbounds i8, ptr %.02835.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02835.i, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.critedge2.i, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %.02835.i, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.critedge2.i
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %1
   br i1 %27, label %get_attribute.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = load i64, ptr %14, align 8
   %32 = icmp eq i64 %30, %31
@@ -503,7 +503,7 @@ define ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_un
   br i1 %34, label %get_attribute.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %33, %28, %19, %15
-  %35 = getelementptr inbounds i8, ptr %.02835.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.02835.i, i64 16
   %.not33.i = icmp eq ptr %35, %9
   br i1 %.not33.i, label %get_attribute.exit, label %15
 
@@ -518,13 +518,13 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
   br i1 %.not.i, label %get_attribute_str.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds %struct._zval_struct, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw %struct._zval_struct, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %14 = icmp ne i32 %13, 0
@@ -534,34 +534,34 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
 
 .lr.ph.i:                                         ; preds = %4, %.critedge.i
   %.02431.i = phi ptr [ %31, %.critedge.i ], [ %6, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.02431.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %.critedge.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = load ptr, ptr %.02431.i, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.critedge.i
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, %2
   br i1 %28, label %29, label %.critedge.i
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %30, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %29, %23, %18, %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.02431.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 16
   %.not28.i = icmp eq ptr %31, %10
   br i1 %.not28.i, label %get_attribute_str.exit, label %.lr.ph.i
 
@@ -577,13 +577,13 @@ define ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1
   br i1 %.not.i, label %get_attribute.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds %struct._zval_struct, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw %struct._zval_struct, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 4
   %15 = icmp ne i32 %14, 0
@@ -592,31 +592,31 @@ define ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1
   br i1 %.not3334.i, label %get_attribute.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 
 17:                                               ; preds = %.critedge2.i, %.lr.ph.i
   %.02835.i = phi ptr [ %7, %.lr.ph.i ], [ %37, %.critedge2.i ]
-  %18 = getelementptr inbounds i8, ptr %.02835.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02835.i, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.critedge2.i, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %.02835.i, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %4
   br i1 %25, label %26, label %.critedge2.i
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %get_attribute.exit, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %16, align 8
   %34 = icmp eq i64 %32, %33
@@ -627,7 +627,7 @@ define ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1
   br i1 %36, label %get_attribute.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %35, %30, %21, %17
-  %37 = getelementptr inbounds i8, ptr %.02835.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.02835.i, i64 16
   %.not33.i = icmp eq ptr %37, %11
   br i1 %.not33.i, label %get_attribute.exit, label %17
 
@@ -643,13 +643,13 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
   br i1 %.not.i, label %get_attribute_str.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds %struct._zval_struct, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 4
   %16 = icmp ne i32 %15, 0
@@ -659,34 +659,34 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %6, %.critedge.i
   %.02431.i = phi ptr [ %33, %.critedge.i ], [ %8, %6 ]
-  %17 = getelementptr inbounds i8, ptr %.02431.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.critedge.i, label %20
 
 20:                                               ; preds = %.lr.ph.i
   %21 = load ptr, ptr %.02431.i, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %5
   br i1 %24, label %25, label %.critedge.i
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %2
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %31, %25, %20, %.lr.ph.i
-  %33 = getelementptr inbounds i8, ptr %.02431.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 16
   %.not28.i = icmp eq ptr %33, %12
   br i1 %.not28.i, label %get_attribute_str.exit, label %.lr.ph.i
 
@@ -703,7 +703,7 @@ declare i32 @zval_update_constant_ex(ptr noundef, ptr noundef) local_unnamed_add
 define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %4
 
 4:                                                ; preds = %1, %45
@@ -720,13 +720,13 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   br i1 %.not169, label %.critedge.thread, label %12
 
 .critedge.thread:                                 ; preds = %8
-  %9 = getelementptr inbounds [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
   br label %33
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.pr, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.critedge, label %16
@@ -740,25 +740,25 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 19:                                               ; preds = %16
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %17) #16
   %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre180 = load i64, ptr %.phi.trans.insert, align 8
   br label %.critedge.thread176
 
 .critedge.thread176:                              ; preds = %16, %19
   %20 = phi i64 [ %14, %16 ], [ %.pre180, %19 ]
   %21 = phi ptr [ %.pr, %16 ], [ %.pre, %19 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   store i16 8236, ptr %23, align 1
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %17, ptr %25, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge.thread176
   %26 = phi i64 [ %17, %.critedge.thread176 ], [ 0, %12 ]
   %27 = phi ptr [ %24, %.critedge.thread176 ], [ %.pr, %12 ]
-  %28 = getelementptr inbounds [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
   %31 = add i64 %26, %30
@@ -772,7 +772,7 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %.0152 = phi i64 [ %31, %.critedge ], [ %11, %.critedge.thread ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0152) #16
   %.pre181 = load ptr, ptr %2, align 8
-  %.phi.trans.insert182 = getelementptr inbounds i8, ptr %.pre181, i64 16
+  %.phi.trans.insert182 = getelementptr inbounds nuw i8, ptr %.pre181, i64 16
   %.pre183 = load i64, ptr %.phi.trans.insert182, align 8
   br label %36
 
@@ -782,11 +782,11 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %39 = phi i64 [ %34, %33 ], [ %30, %.critedge ]
   %40 = phi ptr [ %35, %33 ], [ %29, %.critedge ]
   %.1153 = phi i64 [ %.0152, %33 ], [ %31, %.critedge ]
-  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %42 = getelementptr inbounds i8, ptr %41, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %40, i64 %39, i1 false)
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %.1153, ptr %44, align 8
   br label %45
 
@@ -801,8 +801,8 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %92, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %46, i64 24
-  %50 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds [1 x i8], ptr %49, i64 0, i64 %51
   store i8 0, ptr %52, align 1
@@ -812,13 +812,13 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 
 54:                                               ; preds = %48
   %55 = load i64, ptr %3, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %94
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %53, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 64
   %.not166 = icmp eq i32 %62, 0
@@ -833,11 +833,11 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %67 = and i64 %57, -8
   %68 = add i64 %67, 32
   %69 = call ptr @_erealloc(ptr noundef nonnull %53, i64 noundef %68) #19
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %57, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, -513
   store i32 %74, ptr %72, align 4
@@ -848,14 +848,14 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %77 = add i64 %76, 32
   %78 = call noalias ptr @_emalloc(i64 noundef %77) #20
   store i32 1, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 22, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i64 %57, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 24
-  %83 = getelementptr inbounds i8, ptr %53, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %84 = load i64, ptr %56, align 8
   %. = call i64 @llvm.umin.i64(i64 %57, i64 %84)
   %85 = add nuw i64 %., 1
@@ -887,13 +887,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds %struct._zval_struct, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw %struct._zval_struct, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 4
   %12 = icmp ne i32 %11, 0
@@ -902,13 +902,13 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
   br i1 %.not35.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.critedge2
   %.02836 = phi ptr [ %4, %.lr.ph ], [ %39, %.critedge2 ]
-  %16 = getelementptr inbounds i8, ptr %.02836, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02836, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.critedge2, label %19
@@ -919,23 +919,23 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
   br i1 %.not34, label %.critedge2, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr %13, align 8
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %.critedge2
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %14, align 8
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %33, %35
   br i1 %36, label %37, label %.critedge2
@@ -945,7 +945,7 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
   br i1 %38, label %.critedge, label %.critedge2
 
 .critedge2:                                       ; preds = %19, %21, %31, %37, %15
-  %39 = getelementptr inbounds i8, ptr %.02836, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.02836, i64 16
   %.not.not = icmp eq ptr %39, %8
   br i1 %.not.not, label %.critedge, label %15
 
@@ -996,7 +996,7 @@ define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 
 27:                                               ; preds = %25, %23
   %28 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = lshr i32 %30, 7
   %.lobit = and i32 %31, 1
@@ -1018,8 +1018,8 @@ define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br i1 %.not146, label %39, label %58
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, -8
   %44 = add i64 %43, 32
@@ -1038,13 +1038,13 @@ define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   store i32 1, ptr %50, align 4
   %51 = shl nuw nsw i32 %8, 7
   %52 = or disjoint i32 %51, 22
-  %53 = getelementptr inbounds i8, ptr %50, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 %42, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 1 %40, i64 %42, i1 false)
   %57 = getelementptr inbounds [1 x i8], ptr %56, i64 0, i64 %42
   store i8 0, ptr %57, align 1
@@ -1054,29 +1054,29 @@ define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %storemerge = phi ptr [ %1, %35 ], [ %1, %34 ], [ %50, %49 ], [ %1, %38 ]
   store ptr %storemerge, ptr %28, align 8
   %59 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %storemerge, i1 noundef zeroext %9) #16
-  %60 = getelementptr inbounds i8, ptr %28, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %28, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %3, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %28, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i32 %5, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %28, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %4, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %28, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %2, ptr %64, align 4
   %.not149 = icmp eq i32 %2, 0
   br i1 %.not149, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %28, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %wide.trip.count = zext i32 %2 to i64
   br label %66
 
 66:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %65, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %65, i64 0, i64 %indvars.iv
   store ptr null, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i32 0, ptr %68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1085,7 +1085,7 @@ define ptr @zend_add_attribute(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 ._crit_edge:                                      ; preds = %66, %58
   %69 = load ptr, ptr %0, align 8
   store ptr %28, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 13, ptr %70, align 8
   %71 = call ptr @zend_hash_next_index_insert(ptr noundef %69, ptr noundef nonnull %7) #16
   %.not147 = icmp eq ptr %71, null
@@ -1111,13 +1111,13 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 ; Function Attrs: nounwind uwtable
 define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %.fr55 = freeze i32 %4
   %5 = and i32 %.fr55, 1
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
   %.not46 = icmp eq i32 %9, 0
@@ -1146,9 +1146,9 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   br label %19
 
 19:                                               ; preds = %10, %18, %17, %1
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 64
   %.not48 = icmp eq i32 %24, 0
@@ -1177,24 +1177,24 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   br label %34
 
 34:                                               ; preds = %25, %33, %32, %19
-  %35 = getelementptr inbounds i8, ptr %2, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %36 = load i32, ptr %35, align 4
   %.not54 = icmp eq i32 %36, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %53 ], [ 0, %.lr.ph ]
-  %38 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %37, i64 0, i64 %indvars.iv58
+  %38 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %37, i64 0, i64 %indvars.iv58
   %39 = load ptr, ptr %38, align 8
   %.not50.us = icmp eq ptr %39, null
   br i1 %.not50.us, label %53, label %40
 
 40:                                               ; preds = %.lr.ph.split.us
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64
   %.not51.us = icmp eq i32 %43, 0
@@ -1223,7 +1223,7 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   br label %53
 
 53:                                               ; preds = %52, %51, %44, %40, %.lr.ph.split.us
-  %54 = getelementptr inbounds i8, ptr %38, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %38, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %54) #16
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %55 = load i32, ptr %35, align 4
@@ -1233,13 +1233,13 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %58 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %37, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [1 x %struct.zend_attribute_arg], ptr %37, i64 0, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %.not50 = icmp eq ptr %59, null
   br i1 %.not50, label %73, label %60
 
 60:                                               ; preds = %.lr.ph.split
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
   %.not51 = icmp eq i32 %63, 0
@@ -1268,7 +1268,7 @@ define internal void @attr_free(ptr nocapture noundef readonly %0) #0 {
   br label %73
 
 73:                                               ; preds = %60, %71, %72, %64, %.lr.ph.split
-  %74 = getelementptr inbounds i8, ptr %58, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 8
   tail call void @zval_internal_ptr_dtor(ptr noundef nonnull %74) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %35, align 4
@@ -1308,110 +1308,110 @@ define noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local_unnamed_a
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = shl i32 %11, 2
-  %13 = and i32 %12, 16
-  %14 = xor i32 %13, 16
-  %narrow = add nuw nsw i32 %14, 16
-  %15 = zext nneg i32 %narrow to i64
   %.not4851 = icmp eq i32 %9, 0
-  br i1 %.not4851, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not4851, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = load ptr, ptr %16, align 8
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = shl i32 %13, 2
+  %15 = and i32 %14, 16
+  %16 = xor i32 %15, 16
+  %17 = zext nneg i32 %16 to i64
+  br label %18
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
-  %.053 = phi i32 [ %63, %.critedge2 ], [ %9, %.lr.ph.preheader ]
-  %.04552 = phi ptr [ %62, %.critedge2 ], [ %17, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.04552, i64 8
-  %19 = load i8, ptr %18, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.critedge2, label %21
+18:                                               ; preds = %.lr.ph, %.critedge2
+  %.053 = phi i32 [ %9, %.lr.ph ], [ %65, %.critedge2 ]
+  %.04552 = phi ptr [ %11, %.lr.ph ], [ %64, %.critedge2 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.04552, i64 8
+  %20 = load i8, ptr %19, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.critedge2, label %22
 
-21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %.04552, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr @zend_ce_attribute, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %23, %26
-  br i1 %27, label %.critedge, label %28
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %.04552, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr @zend_ce_attribute, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %24, %27
+  br i1 %28, label %.critedge, label %29
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %30, %32
-  br i1 %33, label %34, label %.critedge2
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %31, %33
+  br i1 %34, label %35, label %.critedge2
 
-34:                                               ; preds = %28
-  %35 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %23, ptr noundef nonnull %26) #16
-  br i1 %35, label %.critedge, label %.critedge2
+35:                                               ; preds = %29
+  %36 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %24, ptr noundef nonnull %27) #16
+  br i1 %36, label %.critedge, label %.critedge2
 
-.critedge:                                        ; preds = %21, %34
-  %36 = tail call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #20
-  store ptr %0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %22, i64 40
-  %38 = load i64, ptr %37, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
-  store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @zend_string_tolower_ex(ptr noundef %43, i1 noundef zeroext true) #16
-  store ptr %36, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 13, ptr %45, align 8
-  %46 = call ptr @zend_hash_update(ptr noundef nonnull @internal_attributes, ptr noundef %44, ptr noundef nonnull %2) #16
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %47, null
-  call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds i8, ptr %44, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 64
-  %.not49 = icmp eq i32 %51, 0
-  br i1 %.not49, label %52, label %61
+.critedge:                                        ; preds = %22, %35
+  %37 = tail call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #20
+  store ptr %0, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = trunc i64 %39 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 %40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call ptr @zend_string_tolower_ex(ptr noundef %44, i1 noundef zeroext true) #16
+  store ptr %37, ptr %2, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 13, ptr %46, align 8
+  %47 = call ptr @zend_hash_update(ptr noundef nonnull @internal_attributes, ptr noundef %45, ptr noundef nonnull %2) #16
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  call void @llvm.assume(i1 %49)
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 64
+  %.not49 = icmp eq i32 %52, 0
+  br i1 %.not49, label %53, label %62
 
-52:                                               ; preds = %.critedge
-  %53 = load i32, ptr %44, align 4
-  %54 = icmp ne i32 %53, 0
-  call void @llvm.assume(i1 %54)
-  %55 = add i32 %53, -1
-  store i32 %55, ptr %44, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %61
+53:                                               ; preds = %.critedge
+  %54 = load i32, ptr %45, align 4
+  %55 = icmp ne i32 %54, 0
+  call void @llvm.assume(i1 %55)
+  %56 = add i32 %54, -1
+  store i32 %56, ptr %45, align 4
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %52
-  %58 = and i32 %50, 128
-  %.not50 = icmp eq i32 %58, 0
-  br i1 %.not50, label %60, label %59
+58:                                               ; preds = %53
+  %59 = and i32 %51, 128
+  %.not50 = icmp eq i32 %59, 0
+  br i1 %.not50, label %61, label %60
 
-59:                                               ; preds = %57
-  call void @free(ptr noundef nonnull %44) #16
-  br label %61
+60:                                               ; preds = %58
+  call void @free(ptr noundef nonnull %45) #16
+  br label %62
 
-60:                                               ; preds = %57
-  call void @_efree(ptr noundef nonnull %44) #16
-  br label %61
+61:                                               ; preds = %58
+  call void @_efree(ptr noundef nonnull %45) #16
+  br label %62
 
-61:                                               ; preds = %52, %60, %59, %.critedge
-  ret ptr %36
+62:                                               ; preds = %53, %61, %60, %.critedge
+  ret ptr %37
 
-.critedge2:                                       ; preds = %34, %28, %.lr.ph
-  %62 = getelementptr inbounds i8, ptr %.04552, i64 %15
-  %63 = add i32 %.053, -1
-  %.not48 = icmp eq i32 %63, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+.critedge2:                                       ; preds = %35, %29, %18
+  %63 = getelementptr inbounds nuw i8, ptr %.04552, i64 %17
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = add i32 %.053, -1
+  %.not48 = icmp eq i32 %65, 0
+  br i1 %.not48, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %.critedge2, %5
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.4) #17
@@ -1421,17 +1421,17 @@ define noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define noundef ptr @zend_internal_attribute_register(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @zend_ce_attribute, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %0, align 8
   %.not = icmp ne i8 %6, 2
   %7 = zext i1 %.not to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 464
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %9 = tail call ptr @zend_add_attribute(ptr noundef nonnull %8, ptr noundef %5, i32 noundef 1, i32 noundef %7, i32 noundef 0, i32 noundef 0)
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = zext i32 %1 to i64
   store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 4, ptr %12, align 8
   %13 = tail call ptr @zend_mark_internal_attribute(ptr noundef nonnull %0)
   ret ptr %13
@@ -1503,27 +1503,27 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %8, i8 0, i64 512, i1 false)
   %27 = load ptr, ptr @zend_string_init_interned, align 8
   %28 = tail call ptr %27(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 360
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 360
   store ptr @std_object_handlers, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 496
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 496
   store ptr @class_Attribute_methods, ptr %31, align 8
   %32 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %8, ptr noundef null) #16
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 32
   store i32 %35, ptr %33, align 4
   store i64 1, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 4, ptr %36, align 8
   %37 = load ptr, ptr @zend_string_init_interned, align 8
   %38 = call ptr %37(ptr noundef nonnull @.str.12, i64 noundef 12, i1 noundef zeroext true) #16
   store ptr null, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 16, ptr %39, align 8
   %40 = call ptr @zend_declare_typed_class_constant(ptr noundef %32, ptr noundef %38, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %10) #16
-  %41 = getelementptr inbounds i8, ptr %38, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64
   %.not.i = icmp eq i32 %43, 0
@@ -1553,15 +1553,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 53:                                               ; preds = %52, %51, %44, %0
   store i64 2, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 4, ptr %54, align 8
   %55 = load ptr, ptr @zend_string_init_interned, align 8
   %56 = call ptr %55(ptr noundef nonnull @.str.13, i64 noundef 15, i1 noundef zeroext true) #16
   store ptr null, ptr %12, align 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 16, ptr %57, align 8
   %58 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %56, ptr noundef nonnull %11, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %12) #16
-  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 64
   %.not206.i = icmp eq i32 %61, 0
@@ -1591,15 +1591,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 71:                                               ; preds = %70, %69, %62, %53
   store i64 4, ptr %13, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 4, ptr %72, align 8
   %73 = load ptr, ptr @zend_string_init_interned, align 8
   %74 = call ptr %73(ptr noundef nonnull @.str.14, i64 noundef 13, i1 noundef zeroext true) #16
   store ptr null, ptr %14, align 8
-  %75 = getelementptr inbounds i8, ptr %14, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 16, ptr %75, align 8
   %76 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %74, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %14) #16
-  %77 = getelementptr inbounds i8, ptr %74, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 64
   %.not208.i = icmp eq i32 %79, 0
@@ -1629,15 +1629,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 89:                                               ; preds = %88, %87, %80, %71
   store i64 8, ptr %15, align 8
-  %90 = getelementptr inbounds i8, ptr %15, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 4, ptr %90, align 8
   %91 = load ptr, ptr @zend_string_init_interned, align 8
   %92 = call ptr %91(ptr noundef nonnull @.str.15, i64 noundef 15, i1 noundef zeroext true) #16
   store ptr null, ptr %16, align 8
-  %93 = getelementptr inbounds i8, ptr %16, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 16, ptr %93, align 8
   %94 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %92, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %16) #16
-  %95 = getelementptr inbounds i8, ptr %92, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, 64
   %.not210.i = icmp eq i32 %97, 0
@@ -1667,15 +1667,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 107:                                              ; preds = %106, %105, %98, %89
   store i64 16, ptr %17, align 8
-  %108 = getelementptr inbounds i8, ptr %17, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 4, ptr %108, align 8
   %109 = load ptr, ptr @zend_string_init_interned, align 8
   %110 = call ptr %109(ptr noundef nonnull @.str.16, i64 noundef 21, i1 noundef zeroext true) #16
   store ptr null, ptr %18, align 8
-  %111 = getelementptr inbounds i8, ptr %18, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 16, ptr %111, align 8
   %112 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %110, ptr noundef nonnull %17, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %18) #16
-  %113 = getelementptr inbounds i8, ptr %110, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 64
   %.not212.i = icmp eq i32 %115, 0
@@ -1705,15 +1705,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 125:                                              ; preds = %124, %123, %116, %107
   store i64 32, ptr %19, align 8
-  %126 = getelementptr inbounds i8, ptr %19, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 4, ptr %126, align 8
   %127 = load ptr, ptr @zend_string_init_interned, align 8
   %128 = call ptr %127(ptr noundef nonnull @.str.17, i64 noundef 16, i1 noundef zeroext true) #16
   store ptr null, ptr %20, align 8
-  %129 = getelementptr inbounds i8, ptr %20, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 16, ptr %129, align 8
   %130 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %128, ptr noundef nonnull %19, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %20) #16
-  %131 = getelementptr inbounds i8, ptr %128, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 64
   %.not214.i = icmp eq i32 %133, 0
@@ -1743,15 +1743,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 143:                                              ; preds = %142, %141, %134, %125
   store i64 63, ptr %21, align 8
-  %144 = getelementptr inbounds i8, ptr %21, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 4, ptr %144, align 8
   %145 = load ptr, ptr @zend_string_init_interned, align 8
   %146 = call ptr %145(ptr noundef nonnull @.str.18, i64 noundef 10, i1 noundef zeroext true) #16
   store ptr null, ptr %22, align 8
-  %147 = getelementptr inbounds i8, ptr %22, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 16, ptr %147, align 8
   %148 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %146, ptr noundef nonnull %21, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %22) #16
-  %149 = getelementptr inbounds i8, ptr %146, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, 64
   %.not216.i = icmp eq i32 %151, 0
@@ -1781,15 +1781,15 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
 
 161:                                              ; preds = %160, %159, %152, %143
   store i64 64, ptr %23, align 8
-  %162 = getelementptr inbounds i8, ptr %23, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 4, ptr %162, align 8
   %163 = load ptr, ptr @zend_string_init_interned, align 8
   %164 = call ptr %163(ptr noundef nonnull @.str.19, i64 noundef 13, i1 noundef zeroext true) #16
   store ptr null, ptr %24, align 8
-  %165 = getelementptr inbounds i8, ptr %24, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 16, ptr %165, align 8
   %166 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %32, ptr noundef %164, ptr noundef nonnull %23, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %24) #16
-  %167 = getelementptr inbounds i8, ptr %164, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %168, 64
   %.not218.i = icmp eq i32 %169, 0
@@ -1818,22 +1818,22 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   br label %179
 
 179:                                              ; preds = %178, %177, %170, %161
-  %180 = getelementptr inbounds i8, ptr %25, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %180, align 8
   %181 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #20
   store i32 1, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 150, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %181, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i64 0, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %181, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i64 5, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %181, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %185, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
-  %186 = getelementptr inbounds i8, ptr %181, i64 29
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 29
   store i8 0, ptr %186, align 1
   store ptr null, ptr %26, align 8
-  %187 = getelementptr inbounds i8, ptr %26, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 16, ptr %187, align 8
   %188 = call ptr @zend_declare_typed_property(ptr noundef nonnull %32, ptr noundef nonnull %181, ptr noundef nonnull %25, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %26) #16
   %189 = load i32, ptr %182, align 4
@@ -1869,9 +1869,9 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   %203 = load i8, ptr %32, align 8
   %.not222.i = icmp ne i8 %203, 2
   %204 = zext i1 %.not222.i to i32
-  %205 = getelementptr inbounds i8, ptr %32, i64 464
+  %205 = getelementptr inbounds nuw i8, ptr %32, i64 464
   %206 = call ptr @zend_add_attribute(ptr noundef nonnull %205, ptr noundef %202, i32 noundef 1, i32 noundef %204, i32 noundef 0, i32 noundef 0)
-  %207 = getelementptr inbounds i8, ptr %202, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = and i32 %208, 64
   %.not223.i = icmp eq i32 %209, 0
@@ -1900,9 +1900,9 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   br label %register_class_Attribute.exit
 
 register_class_Attribute.exit:                    ; preds = %200, %210, %217, %218
-  %219 = getelementptr inbounds i8, ptr %206, i64 40
+  %219 = getelementptr inbounds nuw i8, ptr %206, i64 40
   store ptr inttoptr (i64 1 to ptr), ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %206, i64 48
+  %220 = getelementptr inbounds nuw i8, ptr %206, i64 48
   store i32 4, ptr %220, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -1925,20 +1925,20 @@ register_class_Attribute.exit:                    ; preds = %200, %210, %217, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   store ptr %32, ptr @zend_ce_attribute, align 8
   %221 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %32)
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store ptr @validate_attribute, ptr %222, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %223 = load ptr, ptr @zend_string_init_interned, align 8
   %224 = call ptr %223(ptr noundef nonnull @.str.23, i64 noundef 20, i1 noundef zeroext true) #16
-  %225 = getelementptr inbounds i8, ptr %7, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %224, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %7, i64 360
+  %226 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store ptr @std_object_handlers, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %7, i64 496
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 496
   store ptr @class_ReturnTypeWillChange_methods, ptr %227, align 8
   %228 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %7, ptr noundef null) #16
-  %229 = getelementptr inbounds i8, ptr %228, i64 28
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 28
   %230 = load i32, ptr %229, align 4
   %231 = or i32 %230, 32
   store i32 %231, ptr %229, align 4
@@ -1947,9 +1947,9 @@ register_class_Attribute.exit:                    ; preds = %200, %210, %217, %2
   %234 = load i8, ptr %228, align 8
   %.not.i2 = icmp ne i8 %234, 2
   %235 = zext i1 %.not.i2 to i32
-  %236 = getelementptr inbounds i8, ptr %228, i64 464
+  %236 = getelementptr inbounds nuw i8, ptr %228, i64 464
   %237 = call ptr @zend_add_attribute(ptr noundef nonnull %236, ptr noundef %233, i32 noundef 1, i32 noundef %235, i32 noundef 0, i32 noundef 0)
-  %238 = getelementptr inbounds i8, ptr %233, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %239 = load i32, ptr %238, align 4
   %240 = and i32 %239, 64
   %.not27.i = icmp eq i32 %240, 0
@@ -1978,9 +1978,9 @@ register_class_Attribute.exit:                    ; preds = %200, %210, %217, %2
   br label %register_class_ReturnTypeWillChange.exit
 
 register_class_ReturnTypeWillChange.exit:         ; preds = %register_class_Attribute.exit, %241, %248, %249
-  %250 = getelementptr inbounds i8, ptr %237, i64 40
+  %250 = getelementptr inbounds nuw i8, ptr %237, i64 40
   store ptr inttoptr (i64 4 to ptr), ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %237, i64 48
+  %251 = getelementptr inbounds nuw i8, ptr %237, i64 48
   store i32 4, ptr %251, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
   store ptr %228, ptr @zend_ce_return_type_will_change_attribute, align 8
@@ -1989,14 +1989,14 @@ register_class_ReturnTypeWillChange.exit:         ; preds = %register_class_Attr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %253 = load ptr, ptr @zend_string_init_interned, align 8
   %254 = call ptr %253(ptr noundef nonnull @.str.24, i64 noundef 22, i1 noundef zeroext true) #16
-  %255 = getelementptr inbounds i8, ptr %6, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %254, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %6, i64 360
+  %256 = getelementptr inbounds nuw i8, ptr %6, i64 360
   store ptr @std_object_handlers, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %6, i64 496
+  %257 = getelementptr inbounds nuw i8, ptr %6, i64 496
   store ptr @class_AllowDynamicProperties_methods, ptr %257, align 8
   %258 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %6, ptr noundef null) #16
-  %259 = getelementptr inbounds i8, ptr %258, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = or i32 %260, 32
   store i32 %261, ptr %259, align 4
@@ -2005,9 +2005,9 @@ register_class_ReturnTypeWillChange.exit:         ; preds = %register_class_Attr
   %264 = load i8, ptr %258, align 8
   %.not.i3 = icmp ne i8 %264, 2
   %265 = zext i1 %.not.i3 to i32
-  %266 = getelementptr inbounds i8, ptr %258, i64 464
+  %266 = getelementptr inbounds nuw i8, ptr %258, i64 464
   %267 = call ptr @zend_add_attribute(ptr noundef nonnull %266, ptr noundef %263, i32 noundef 1, i32 noundef %265, i32 noundef 0, i32 noundef 0)
-  %268 = getelementptr inbounds i8, ptr %263, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 64
   %.not27.i4 = icmp eq i32 %270, 0
@@ -2036,27 +2036,27 @@ register_class_ReturnTypeWillChange.exit:         ; preds = %register_class_Attr
   br label %register_class_AllowDynamicProperties.exit
 
 register_class_AllowDynamicProperties.exit:       ; preds = %register_class_ReturnTypeWillChange.exit, %271, %278, %279
-  %280 = getelementptr inbounds i8, ptr %267, i64 40
+  %280 = getelementptr inbounds nuw i8, ptr %267, i64 40
   store ptr inttoptr (i64 1 to ptr), ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %267, i64 48
+  %281 = getelementptr inbounds nuw i8, ptr %267, i64 48
   store i32 4, ptr %281, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
   store ptr %258, ptr @zend_ce_allow_dynamic_properties, align 8
   %282 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %258)
-  %283 = getelementptr inbounds i8, ptr %282, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   store ptr @validate_allow_dynamic_properties, ptr %283, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %284 = load ptr, ptr @zend_string_init_interned, align 8
   %285 = call ptr %284(ptr noundef nonnull @.str.28, i64 noundef 18, i1 noundef zeroext true) #16
-  %286 = getelementptr inbounds i8, ptr %5, i64 8
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %285, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %5, i64 360
+  %287 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store ptr @std_object_handlers, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %5, i64 496
+  %288 = getelementptr inbounds nuw i8, ptr %5, i64 496
   store ptr @class_SensitiveParameter_methods, ptr %288, align 8
   %289 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %5, ptr noundef null) #16
-  %290 = getelementptr inbounds i8, ptr %289, i64 28
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 28
   %291 = load i32, ptr %290, align 4
   %292 = or i32 %291, 8224
   store i32 %292, ptr %290, align 4
@@ -2065,9 +2065,9 @@ register_class_AllowDynamicProperties.exit:       ; preds = %register_class_Retu
   %295 = load i8, ptr %289, align 8
   %.not.i6 = icmp ne i8 %295, 2
   %296 = zext i1 %.not.i6 to i32
-  %297 = getelementptr inbounds i8, ptr %289, i64 464
+  %297 = getelementptr inbounds nuw i8, ptr %289, i64 464
   %298 = call ptr @zend_add_attribute(ptr noundef nonnull %297, ptr noundef %294, i32 noundef 1, i32 noundef %296, i32 noundef 0, i32 noundef 0)
-  %299 = getelementptr inbounds i8, ptr %294, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %294, i64 4
   %300 = load i32, ptr %299, align 4
   %301 = and i32 %300, 64
   %.not27.i7 = icmp eq i32 %301, 0
@@ -2096,9 +2096,9 @@ register_class_AllowDynamicProperties.exit:       ; preds = %register_class_Retu
   br label %register_class_SensitiveParameter.exit
 
 register_class_SensitiveParameter.exit:           ; preds = %register_class_AllowDynamicProperties.exit, %302, %309, %310
-  %311 = getelementptr inbounds i8, ptr %298, i64 40
+  %311 = getelementptr inbounds nuw i8, ptr %298, i64 40
   store ptr inttoptr (i64 32 to ptr), ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %298, i64 48
+  %312 = getelementptr inbounds nuw i8, ptr %298, i64 48
   store i32 4, ptr %312, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
   store ptr %289, ptr @zend_ce_sensitive_parameter, align 8
@@ -2111,33 +2111,33 @@ register_class_SensitiveParameter.exit:           ; preds = %register_class_Allo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %2, i8 0, i64 512, i1 false)
   %314 = load ptr, ptr @zend_string_init_interned, align 8
   %315 = call ptr %314(ptr noundef nonnull @.str.29, i64 noundef 23, i1 noundef zeroext true) #16
-  %316 = getelementptr inbounds i8, ptr %2, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %2, i64 360
+  %317 = getelementptr inbounds nuw i8, ptr %2, i64 360
   store ptr @std_object_handlers, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %2, i64 496
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 496
   store ptr @class_SensitiveParameterValue_methods, ptr %318, align 8
   %319 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %2, ptr noundef null) #16
-  %320 = getelementptr inbounds i8, ptr %319, i64 28
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 28
   %321 = load i32, ptr %320, align 4
   %322 = or i32 %321, 536879136
   store i32 %322, ptr %320, align 4
-  %323 = getelementptr inbounds i8, ptr %3, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %323, align 8
   %324 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #20
   store i32 1, ptr %324, align 4
-  %325 = getelementptr inbounds i8, ptr %324, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 4
   store i32 150, ptr %325, align 4
-  %326 = getelementptr inbounds i8, ptr %324, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i64 0, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %324, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %324, i64 16
   store i64 5, ptr %327, align 8
-  %328 = getelementptr inbounds i8, ptr %324, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %324, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %328, ptr noundef nonnull align 1 dereferenceable(5) @.str.30, i64 5, i1 false)
-  %329 = getelementptr inbounds i8, ptr %324, i64 29
+  %329 = getelementptr inbounds nuw i8, ptr %324, i64 29
   store i8 0, ptr %329, align 1
   store ptr null, ptr %4, align 8
-  %330 = getelementptr inbounds i8, ptr %4, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1022, ptr %330, align 8
   %331 = call ptr @zend_declare_typed_property(ptr noundef %319, ptr noundef nonnull %324, ptr noundef nonnull %3, i32 noundef 132, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %4) #16
   %332 = load i32, ptr %325, align 4
@@ -2172,20 +2172,20 @@ register_class_SensitiveParameterValue.exit:      ; preds = %register_class_Sens
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store ptr %319, ptr @zend_ce_sensitive_parameter_value, align 8
-  %343 = getelementptr inbounds i8, ptr %319, i64 360
+  %343 = getelementptr inbounds nuw i8, ptr %319, i64 360
   store ptr @attributes_object_handlers_sensitive_parameter_value, ptr %343, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %1, i8 0, i64 512, i1 false)
   %344 = load ptr, ptr @zend_string_init_interned, align 8
   %345 = call ptr %344(ptr noundef nonnull @.str.33, i64 noundef 8, i1 noundef zeroext true) #16
-  %346 = getelementptr inbounds i8, ptr %1, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %345, ptr %346, align 8
-  %347 = getelementptr inbounds i8, ptr %1, i64 360
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store ptr @std_object_handlers, ptr %347, align 8
-  %348 = getelementptr inbounds i8, ptr %1, i64 496
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 496
   store ptr @class_Override_methods, ptr %348, align 8
   %349 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %1, ptr noundef null) #16
-  %350 = getelementptr inbounds i8, ptr %349, i64 28
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 28
   %351 = load i32, ptr %350, align 4
   %352 = or i32 %351, 8224
   store i32 %352, ptr %350, align 4
@@ -2194,9 +2194,9 @@ register_class_SensitiveParameterValue.exit:      ; preds = %register_class_Sens
   %355 = load i8, ptr %349, align 8
   %.not.i10 = icmp ne i8 %355, 2
   %356 = zext i1 %.not.i10 to i32
-  %357 = getelementptr inbounds i8, ptr %349, i64 464
+  %357 = getelementptr inbounds nuw i8, ptr %349, i64 464
   %358 = call ptr @zend_add_attribute(ptr noundef nonnull %357, ptr noundef %354, i32 noundef 1, i32 noundef %356, i32 noundef 0, i32 noundef 0)
-  %359 = getelementptr inbounds i8, ptr %354, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %354, i64 4
   %360 = load i32, ptr %359, align 4
   %361 = and i32 %360, 64
   %.not27.i11 = icmp eq i32 %361, 0
@@ -2225,9 +2225,9 @@ register_class_SensitiveParameterValue.exit:      ; preds = %register_class_Sens
   br label %register_class_Override.exit
 
 register_class_Override.exit:                     ; preds = %register_class_SensitiveParameterValue.exit, %362, %369, %370
-  %371 = getelementptr inbounds i8, ptr %358, i64 40
+  %371 = getelementptr inbounds nuw i8, ptr %358, i64 40
   store ptr inttoptr (i64 4 to ptr), ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %358, i64 48
+  %372 = getelementptr inbounds nuw i8, ptr %358, i64 48
   store i32 4, ptr %372, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %1)
   store ptr %349, ptr @zend_ce_override, align 8
@@ -2244,7 +2244,7 @@ define internal void @free_internal_attribute(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: nounwind uwtable
 define internal void @validate_allow_dynamic_properties(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
@@ -2269,9 +2269,9 @@ define internal void @validate_allow_dynamic_properties(ptr nocapture readnone %
   br i1 %.not6, label %17, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef nonnull %16) #17
   unreachable
 

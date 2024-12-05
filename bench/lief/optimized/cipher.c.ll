@@ -25,8 +25,8 @@ define hidden noundef nonnull ptr @mbedtls_cipher_list() local_unnamed_addr #0 {
   %2 = phi i32 [ %5, %.lr.ph ], [ %1, %.preheader ]
   %.08 = phi ptr [ %4, %.lr.ph ], [ @mbedtls_cipher_supported, %.preheader ]
   %.047 = phi ptr [ %3, %.lr.ph ], [ @mbedtls_cipher_definitions, %.preheader ]
-  %3 = getelementptr inbounds i8, ptr %.047, i64 16
-  %4 = getelementptr inbounds i8, ptr %.08, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %.047, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   store i32 %2, ptr %.08, align 4
   %5 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %5, 0
@@ -44,7 +44,7 @@ define hidden noundef nonnull ptr @mbedtls_cipher_list() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not7 = icmp eq ptr %2, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 
@@ -55,13 +55,13 @@ define hidden ptr @mbedtls_cipher_info_from_type(i32 noundef %0) local_unnamed_a
 
 .lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0811 = phi ptr [ %7, %.lr.ph ], [ @mbedtls_cipher_definitions, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.0811, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph12
-  %7 = getelementptr inbounds i8, ptr %.0811, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %._crit_edge, label %.lr.ph12, !llvm.loop !6
@@ -77,13 +77,13 @@ define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly %0) loca
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %.012, i64 16
-  %6 = getelementptr inbounds i8, ptr %.012, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -91,7 +91,7 @@ define hidden ptr @mbedtls_cipher_info_from_string(ptr noundef readonly %0) loca
 .lr.ph:                                           ; preds = %.preheader, %4
   %8 = phi ptr [ %7, %4 ], [ %3, %.preheader ]
   %.012 = phi ptr [ %5, %4 ], [ @mbedtls_cipher_definitions, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #15
   %.not10 = icmp eq i32 %11, 0
@@ -107,34 +107,34 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_cipher_definitions, i64 8), align 8
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %18
   %5 = phi ptr [ %21, %18 ], [ %4, %3 ]
   %.012 = phi ptr [ %19, %18 ], [ @mbedtls_cipher_definitions, %3 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %2
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph, %10, %14
-  %19 = getelementptr inbounds i8, ptr %.012, i64 16
-  %20 = getelementptr inbounds i8, ptr %.012, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -159,7 +159,7 @@ define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #7 {
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -171,16 +171,16 @@ define hidden void @mbedtls_cipher_free(ptr noundef %0) local_unnamed_addr #7 {
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %17, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %10) #16
   br label %17
@@ -205,27 +205,27 @@ define hidden range(i32 -24960, 1) i32 @mbedtls_cipher_setup(ptr nocapture nound
 
 4:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8() #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %mbedtls_cipher_set_padding_mode.exit, label %12
 
 12:                                               ; preds = %4
   store ptr %1, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %.not.i = icmp eq i32 %14, 2
   br i1 %.not.i, label %15, label %mbedtls_cipher_set_padding_mode.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @add_pkcs_padding, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @get_pkcs_padding, ptr %17, align 8
   br label %mbedtls_cipher_set_padding_mode.exit
 
@@ -241,7 +241,7 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr noca
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %8, label %14
@@ -252,14 +252,14 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_set_padding_mode(ptr noca
 
 switch.lookup:                                    ; preds = %8
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = zext nneg i32 %1 to i64
-  %switch.gep14 = getelementptr inbounds [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode.2, i64 0, i64 %11
+  %switch.gep14 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.mbedtls_cipher_set_padding_mode.2, i64 0, i64 %11
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %switch.load, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %switch.load15, ptr %13, align 8
   br label %14
 
@@ -275,28 +275,28 @@ define hidden i32 @mbedtls_cipher_setkey(ptr nocapture noundef %0, ptr noundef %
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, %2
   br i1 %.not, label %15, label %31
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %3, ptr %17, align 4
   %18 = icmp eq i32 %3, 1
   br i1 %18, label %.sink.split, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = load i32, ptr %20, align 4
   %.off = add i32 %21, -3
   %switch = icmp ult i32 %.off, 3
@@ -308,11 +308,11 @@ define hidden i32 @mbedtls_cipher_setkey(ptr nocapture noundef %0, ptr noundef %
 
 .sink.split:                                      ; preds = %22, %15, %19
   %.sink27 = phi i64 [ 64, %19 ], [ 64, %15 ], [ 72, %22 ]
-  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.sink27
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink27
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %27(ptr noundef %29, ptr noundef %1, i32 noundef %2) #16
   br label %31
@@ -333,14 +333,14 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   br i1 %7, label %54, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %2, %15
@@ -357,7 +357,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not43, label %21, label %54
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @mbedtls_chacha20_starts(ptr noundef %23, ptr noundef %1, i32 noundef 0) #16
   %.not44 = icmp eq i32 %24, 0
@@ -375,7 +375,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
 
 29:                                               ; preds = %.thread, %26
   %30 = phi ptr [ %25, %.thread ], [ %4, %26 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   switch i32 %32, label %50 [
     i32 6, label %33
@@ -383,22 +383,22 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   ]
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 @mbedtls_gcm_starts(ptr noundef %35, i32 noundef %37, ptr noundef %1, i64 noundef %2) #16
   br label %54
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @mbedtls_ccm_set_lengths(ptr noundef %41, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
   %.not46 = icmp eq i32 %42, 0
   br i1 %.not46, label %43, label %54
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = load i32, ptr %44, align 4
   switch i32 %45, label %54 [
     i32 0, label %47
@@ -419,9 +419,9 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not45, label %54, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr align 1 %1, i64 %.036, i1 false)
-  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.036, ptr %53, align 8
   br label %54
 
@@ -448,7 +448,7 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_reset(ptr nocapture nound
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %5, align 8
   br label %6
 
@@ -464,13 +464,13 @@ define hidden i32 @mbedtls_cipher_update_ad(ptr noundef %0, ptr noundef %1, i64 
   br i1 %5, label %29, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef %12, ptr noundef %1, i64 noundef %2) #16
   br label %29
@@ -481,13 +481,13 @@ define hidden i32 @mbedtls_cipher_update_ad(ptr noundef %0, ptr noundef %1, i64 
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %19, 1
   %21 = zext i1 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = tail call i32 @mbedtls_chachapoly_starts(ptr noundef %23, ptr noundef nonnull %24, i32 noundef %21) #16
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %29
@@ -521,14 +521,14 @@ define hidden i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %9, label %mbedtls_cipher_get_block_size.exit.thread, label %mbedtls_cipher_get_block_size.exit
 
 mbedtls_cipher_get_block_size.exit:               ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.val, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp eq i32 %11, 0
   br i1 %13, label %mbedtls_cipher_get_block_size.exit.thread, label %14
 
 14:                                               ; preds = %mbedtls_cipher_get_block_size.exit
-  %15 = getelementptr inbounds i8, ptr %.val, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %37 [
     i32 1, label %17
@@ -543,25 +543,25 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 18:                                               ; preds = %17
   store i64 %2, ptr %4, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 %23(ptr noundef %25, i32 noundef %27, ptr noundef %1, ptr noundef %3) #16
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @mbedtls_gcm_update(ptr noundef %31, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #16
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 33:                                               ; preds = %14
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @mbedtls_ccm_update(ptr noundef %35, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %2, ptr noundef nonnull %4) #16
   br label %mbedtls_cipher_get_block_size.exit.thread
@@ -573,7 +573,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 
 40:                                               ; preds = %37
   store i64 %2, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @mbedtls_chachapoly_update(ptr noundef %42, i64 noundef %2, ptr noundef %1, ptr noundef %3) #16
   br label %mbedtls_cipher_get_block_size.exit.thread
@@ -583,7 +583,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i64, ptr %47, align 8
   %.not = icmp eq i64 %48, 0
   br i1 %.not, label %49, label %mbedtls_cipher_get_block_size.exit.thread
@@ -604,7 +604,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   ]
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %54 = load i32, ptr %53, align 4
   switch i32 %54, label %.thread208 [
     i32 0, label %55
@@ -612,10 +612,10 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   ]
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %.not196 = icmp eq ptr %57, null
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = sub i64 %12, %59
   br i1 %.not196, label %62, label %61
@@ -629,7 +629,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br i1 %63, label %69, label %.thread208
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load i64, ptr %65, align 8
   %67 = sub i64 %12, %66
   %68 = icmp ult i64 %2, %67
@@ -637,8 +637,8 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 
 69:                                               ; preds = %64, %62, %61
   %70 = phi i64 [ %66, %64 ], [ %59, %62 ], [ %59, %61 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = getelementptr inbounds [16 x i8], ptr %71, i64 0, i64 %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %1, i64 %2, i1 false)
   %74 = load i64, ptr %72, align 8
@@ -647,25 +647,25 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 .thread208:                                       ; preds = %61, %52, %62, %64
-  %76 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load i64, ptr %76, align 8
   %.not198 = icmp eq i64 %77, 0
   br i1 %.not198, label %98, label %78
 
 78:                                               ; preds = %.thread208
   %79 = sub i64 %12, %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = getelementptr inbounds [16 x i8], ptr %80, i64 0, i64 %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %1, i64 %79, i1 false)
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %53, align 4
-  %90 = getelementptr inbounds i8, ptr %0, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %91 = tail call i32 %86(ptr noundef %88, i32 noundef %89, i64 noundef %12, ptr noundef nonnull %90, ptr noundef nonnull %80, ptr noundef %3) #16
   %.not199 = icmp eq i32 %91, 0
   br i1 %.not199, label %92, label %mbedtls_cipher_get_block_size.exit.thread
@@ -674,7 +674,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %93 = load i64, ptr %4, align 8
   %94 = add i64 %93, %12
   store i64 %94, ptr %4, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 %12
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   store i64 0, ptr %76, align 8
   %96 = getelementptr inbounds i8, ptr %1, i64 %79
   %97 = sub i64 %2, %79
@@ -698,7 +698,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not201 = icmp eq ptr %107, null
   %spec.select = select i1 %.not201, i64 0, i64 %12
@@ -706,7 +706,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 
 108:                                              ; preds = %99, %102, %105
   %.0 = phi i64 [ 0, %102 ], [ %100, %99 ], [ %spec.select, %105 ]
-  %109 = getelementptr inbounds i8, ptr %0, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = sub i64 %.0173, %.0
   %111 = getelementptr inbounds i8, ptr %.0171, i64 %110
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %109, ptr align 1 %111, i64 %.0, i1 false)
@@ -718,14 +718,14 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 
 114:                                              ; preds = %108
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %53, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %124 = tail call i32 %119(ptr noundef %121, i32 noundef %122, i64 noundef %110, ptr noundef nonnull %123, ptr noundef %.0171, ptr noundef %.0172) #16
   %.not203 = icmp eq i32 %124, 0
   br i1 %.not203, label %125, label %mbedtls_cipher_get_block_size.exit.thread
@@ -737,16 +737,16 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 128:                                              ; preds = %51
-  %129 = getelementptr inbounds i8, ptr %.val, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 48
-  %138 = getelementptr inbounds i8, ptr %0, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %139 = tail call i32 %132(ptr noundef %134, i32 noundef %136, i64 noundef %2, ptr noundef nonnull %137, ptr noundef nonnull %138, ptr noundef %1, ptr noundef %3) #16
   %.not195 = icmp eq i32 %139, 0
   br i1 %.not195, label %140, label %mbedtls_cipher_get_block_size.exit.thread
@@ -756,14 +756,14 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 141:                                              ; preds = %51
-  %142 = getelementptr inbounds i8, ptr %.val, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 80
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 48
-  %149 = getelementptr inbounds i8, ptr %0, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %150 = tail call i32 %145(ptr noundef %147, i64 noundef %2, ptr noundef nonnull %148, ptr noundef nonnull %149, ptr noundef %1, ptr noundef %3) #16
   %.not194 = icmp eq i32 %150, 0
   br i1 %.not194, label %151, label %mbedtls_cipher_get_block_size.exit.thread
@@ -773,15 +773,15 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 152:                                              ; preds = %51
-  %153 = getelementptr inbounds i8, ptr %.val, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 48
-  %160 = getelementptr inbounds i8, ptr %0, i64 56
-  %161 = getelementptr inbounds i8, ptr %0, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %162 = tail call i32 %156(ptr noundef %158, i64 noundef %2, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef %1, ptr noundef %3) #16
   %.not193 = icmp eq i32 %162, 0
   br i1 %.not193, label %163, label %mbedtls_cipher_get_block_size.exit.thread
@@ -791,21 +791,21 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 164:                                              ; preds = %51
-  %165 = getelementptr inbounds i8, ptr %0, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %166 = load i64, ptr %165, align 8
   %.not191 = icmp eq i64 %166, 0
   br i1 %.not191, label %167, label %mbedtls_cipher_get_block_size.exit.thread
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %.val, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 80
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %0, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %177 = tail call i32 %171(ptr noundef %173, i32 noundef %175, i64 noundef %2, ptr noundef nonnull %176, ptr noundef %1, ptr noundef %3) #16
   %.not192 = icmp eq i32 %177, 0
   br i1 %.not192, label %178, label %mbedtls_cipher_get_block_size.exit.thread
@@ -815,11 +815,11 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %mbedtls_cipher_get_block_size.exit.thread
 
 179:                                              ; preds = %51
-  %180 = getelementptr inbounds i8, ptr %.val, i64 40
+  %180 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 56
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 56
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 80
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %185 = load ptr, ptr %184, align 8
   %186 = tail call i32 %183(ptr noundef %185, i64 noundef %2, ptr noundef %1, ptr noundef %3) #16
   %.not190 = icmp eq i32 %186, 0
@@ -849,7 +849,7 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
 6:                                                ; preds = %3
   store i64 0, ptr %2, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %switch.tableidx = add i32 %9, -3
   %10 = icmp ult i32 %switch.tableidx, 8
@@ -868,34 +868,34 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
   %.not47 = icmp eq i64 %17, 0
   %. = select i1 %.not47, i32 0, i32 -25216
   br label %switch.lookup
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %mbedtls_cipher_get_block_size.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load i64, ptr %27, align 8
   %.not46 = icmp eq i64 %28, 0
   %.48 = select i1 %.not46, i32 0, i32 -25216
   br label %switch.lookup
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i64, ptr %31, align 8
   %.not.i = icmp eq i64 %32, 0
   br i1 %.not.i, label %35, label %33
@@ -905,34 +905,34 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
   br label %mbedtls_cipher_get_iv_size.exit
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %7, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %37 = load i32, ptr %36, align 8
   br label %mbedtls_cipher_get_iv_size.exit
 
 mbedtls_cipher_get_iv_size.exit:                  ; preds = %33, %35
   %.0.i = phi i32 [ %34, %33 ], [ %37, %35 ]
   %38 = sext i32 %.0.i to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load i64, ptr %39, align 8
   tail call void %24(ptr noundef nonnull %30, i64 noundef %38, i64 noundef %40) #16
   %.pre = load ptr, ptr %0, align 8
   %.pre59 = load i32, ptr %19, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre60 = load i32, ptr %.phi.trans.insert, align 8
   %.pre61 = zext i32 %.pre60 to i64
   br label %mbedtls_cipher_get_block_size.exit54
 
 mbedtls_cipher_get_block_size.exit:               ; preds = %18
-  %41 = getelementptr inbounds i8, ptr %7, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i64, ptr %44, align 8
   %.not = icmp eq i64 %45, %43
   br i1 %.not, label %mbedtls_cipher_get_block_size.exit54, label %46
 
 46:                                               ; preds = %mbedtls_cipher_get_block_size.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   %50 = icmp eq i64 %45, 0
@@ -944,14 +944,14 @@ mbedtls_cipher_get_block_size.exit54:             ; preds = %mbedtls_cipher_get_
   %.pre-phi = phi i64 [ %43, %mbedtls_cipher_get_block_size.exit ], [ %.pre61, %mbedtls_cipher_get_iv_size.exit ]
   %51 = phi i32 [ %20, %mbedtls_cipher_get_block_size.exit ], [ %.pre59, %mbedtls_cipher_get_iv_size.exit ]
   %52 = phi ptr [ %7, %mbedtls_cipher_get_block_size.exit ], [ %.pre, %mbedtls_cipher_get_iv_size.exit ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = tail call i32 %56(ptr noundef %58, i32 noundef %51, i64 noundef %.pre-phi, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef %1) #16
   %.not45 = icmp eq i32 %61, 0
   br i1 %.not45, label %62, label %switch.lookup
@@ -962,14 +962,14 @@ mbedtls_cipher_get_block_size.exit54:             ; preds = %mbedtls_cipher_get_
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8
   %.val49 = load ptr, ptr %0, align 8
   %68 = icmp eq ptr %.val49, null
   br i1 %68, label %mbedtls_cipher_get_block_size.exit56, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %.val49, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.val49, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   br label %mbedtls_cipher_get_block_size.exit56
@@ -985,7 +985,7 @@ mbedtls_cipher_get_block_size.exit56:             ; preds = %65, %69
   br i1 %75, label %mbedtls_cipher_get_block_size.exit58, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.val, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %78 = load i32, ptr %77, align 8
   %79 = zext i32 %78 to i64
   br label %mbedtls_cipher_get_block_size.exit58
@@ -1288,19 +1288,19 @@ define hidden i32 @mbedtls_cipher_write_tag(ptr nocapture noundef readonly %0, p
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %10, label %26
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 6
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @mbedtls_gcm_finish(ptr noundef %16, ptr noundef null, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #16
   br label %26
@@ -1315,7 +1315,7 @@ define hidden i32 @mbedtls_cipher_write_tag(ptr nocapture noundef readonly %0, p
   br i1 %.not11, label %22, label %26
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @mbedtls_chachapoly_finish(ptr noundef %24, ptr noundef %1) #16
   br label %26
@@ -1338,13 +1338,13 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr nocapture noundef readonly %0, p
   br i1 %7, label %35, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %35
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 6
   br i1 %14, label %15, label %23
@@ -1354,7 +1354,7 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr nocapture noundef readonly %0, p
   br i1 %16, label %35, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @mbedtls_gcm_finish(ptr noundef %19, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %2) #16
   %.not26 = icmp eq i32 %20, 0
@@ -1380,7 +1380,7 @@ define hidden i32 @mbedtls_cipher_check_tag(ptr nocapture noundef readonly %0, p
   br i1 %.not28, label %28, label %35
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @mbedtls_chachapoly_finish(ptr noundef %30, ptr noundef nonnull %4) #16
   %.not29 = icmp eq i32 %31, 0
@@ -1417,7 +1417,7 @@ define hidden i32 @mbedtls_cipher_crypt(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %12, label %mbedtls_cipher_reset.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %14, align 8
   %15 = tail call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
   %.not22 = icmp eq i32 %15, 0
@@ -1445,7 +1445,7 @@ mbedtls_cipher_reset.exit:                        ; preds = %10, %16, %13, %7, %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, -2
   %switch = icmp eq i32 %15, 12
@@ -1460,7 +1460,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
 19:                                               ; preds = %16
   %20 = icmp ne i32 %14, 12
   %21 = zext i1 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @mbedtls_nist_kw_wrap(ptr noundef %23, i32 noundef %21, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %9, i64 noundef %8) #16
   br label %53
@@ -1479,14 +1479,14 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
 
 30:                                               ; preds = %28
   store i64 %6, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %32, i32 noundef 1, i64 noundef %6, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, i64 noundef %10, ptr noundef %29) #16
   br label %mbedtls_cipher_aead_encrypt.exit
 
 34:                                               ; preds = %28
   store i64 %6, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %36, i64 noundef %6, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %29, i64 noundef %10) #16
   br label %mbedtls_cipher_aead_encrypt.exit
@@ -1497,7 +1497,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
   br i1 %40, label %41, label %mbedtls_cipher_aead_encrypt.exit
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %12, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp ne i64 %2, %44
@@ -1507,7 +1507,7 @@ define hidden i32 @mbedtls_cipher_auth_encrypt_ext(ptr nocapture noundef readonl
 
 47:                                               ; preds = %41
   store i64 %6, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %49, i64 noundef %6, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %29) #16
   br label %mbedtls_cipher_aead_encrypt.exit
@@ -1529,7 +1529,7 @@ declare i32 @mbedtls_nist_kw_wrap(ptr noundef, i32 noundef, ptr noundef, i64 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) local_unnamed_addr #7 {
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, -2
   %switch = icmp eq i32 %15, 12
@@ -1544,7 +1544,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
 19:                                               ; preds = %16
   %20 = icmp ne i32 %14, 12
   %21 = zext i1 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @mbedtls_nist_kw_unwrap(ptr noundef %23, i32 noundef %21, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %9, i64 noundef %8) #16
   br label %mbedtls_cipher_aead_decrypt.exit
@@ -1569,7 +1569,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
 
 34:                                               ; preds = %30
   store i64 %28, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @mbedtls_gcm_auth_decrypt(ptr noundef %36, i64 noundef %28, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %33, i64 noundef %10, ptr noundef %5, ptr noundef %7) #16
   %38 = icmp eq i32 %37, -18
@@ -1578,7 +1578,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
 
 39:                                               ; preds = %30
   store i64 %28, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @mbedtls_ccm_auth_decrypt(ptr noundef %41, i64 noundef %28, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %33, i64 noundef %10) #16
   %43 = icmp eq i32 %42, -15
@@ -1591,7 +1591,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
   br i1 %46, label %47, label %mbedtls_cipher_aead_decrypt.exit
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %12, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   %51 = icmp ne i64 %2, %50
@@ -1601,7 +1601,7 @@ define hidden i32 @mbedtls_cipher_auth_decrypt_ext(ptr nocapture noundef readonl
 
 53:                                               ; preds = %47
   store i64 %28, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %55, i64 noundef %28, ptr noundef %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %33, ptr noundef %5, ptr noundef %7) #16
   %57 = icmp eq i32 %56, -86

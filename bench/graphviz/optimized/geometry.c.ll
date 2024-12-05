@@ -31,9 +31,9 @@ define double @dist_2(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fsub double %7, %9
   %11 = fmul double %10, %10
@@ -49,7 +49,7 @@ define void @subpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, doub
   %6 = fsub double %1, %3
   store double %6, ptr %0, align 8
   %7 = fsub double %2, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %8, align 8
   ret void
 }
@@ -59,7 +59,7 @@ define void @addpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, doub
   %6 = fadd double %1, %3
   store double %6, ptr %0, align 8
   %7 = fadd double %2, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %8, align 8
   ret void
 }
@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double
   %34 = tail call double @llvm.fmuladd.f64(double %25, double %33, double %0)
   store double %34, ptr %8, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %25, double %14, double %1)
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %35, ptr %36, align 8
   %37 = fcmp oge double %25, 0.000000e+00
   %38 = fcmp ole double %25, 1.000000e+00

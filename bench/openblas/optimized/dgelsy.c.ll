@@ -462,7 +462,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %272 = phi i64 [ 1, %267 ], [ %279, %271 ]
   %273 = getelementptr double, ptr %270, i64 %272
   %274 = load double, ptr %273, align 8, !tbaa !7
-  %275 = getelementptr inbounds i32, ptr %37, i64 %272
+  %275 = getelementptr inbounds nuw i32, ptr %37, i64 %272
   %276 = load i32, ptr %275, align 4, !tbaa !3
   %277 = sext i32 %276 to i64
   %278 = getelementptr inbounds double, ptr %38, i64 %277

@@ -11,20 +11,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly initializes((120, 132), (136, 144)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef initializes((128, 132)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -35,7 +35,7 @@ define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef initialize
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -49,13 +49,13 @@ define range(i32 -29, 1) i32 @pmix_ring_buffer_init(ptr noundef writeonly %0, i3
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 3
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 1) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %11, align 8
   br label %12
 
@@ -69,9 +69,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %4, i64 %7
@@ -80,9 +80,9 @@ define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not, label %17, label %.sink.split
 
 .sink.split:                                      ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, -1
   %15 = icmp eq i32 %11, %14
@@ -93,7 +93,7 @@ define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) loca
 
 17:                                               ; preds = %.sink.split, %2
   store ptr %1, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 124
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %19, 0
   %.pre = load i32, ptr %5, align 8
@@ -104,7 +104,7 @@ define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) loca
   br label %22
 
 22:                                               ; preds = %21, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, -1
   %26 = icmp eq i32 %.pre, %25
@@ -116,26 +116,26 @@ define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @pmix_ring_buffer_pop(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   %11 = load i32, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, -1
   %15 = icmp eq i32 %11, %14
   %16 = add nsw i32 %11, 1
   %storemerge = select i1 %15, i32 0, i32 %16
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %storemerge, %18
   %spec.store.select = select i1 %19, i32 -1, i32 %storemerge
@@ -149,13 +149,13 @@ define ptr @pmix_ring_buffer_pop(ptr nocapture noundef %0) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @pmix_ring_buffer_poke(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %.not = icmp sgt i32 %4, %1
   br i1 %.not, label %5, label %35
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 124
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %35, label %9
@@ -165,10 +165,10 @@ define ptr @pmix_ring_buffer_poke(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8
   br i1 %14, label %17, label %22
 
@@ -191,7 +191,7 @@ define ptr @pmix_ring_buffer_poke(ptr nocapture noundef readonly %0, i32 noundef
   %.not23 = icmp sgt i32 %4, %28
   %29 = select i1 %.not23, i32 0, i32 %4
   %spec.select = sub nsw i32 %28, %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %spec.select to i64
   %33 = getelementptr inbounds ptr, ptr %31, i64 %32

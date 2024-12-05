@@ -107,12 +107,12 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
 11:                                               ; preds = %4
   %12 = tail call ptr @wmem_file_scope() #3
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 1544) #3
-  %14 = getelementptr inbounds i8, ptr %1, i64 284
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %17, ptr %18, align 4
   %19 = tail call ptr @wmem_file_scope() #3
   %20 = load i32, ptr @proto_fp_mux, align 4
@@ -121,7 +121,7 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 21:                                               ; preds = %11, %4
   %.0 = phi ptr [ %10, %4 ], [ %13, %11 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.14) #3
   %24 = load ptr, ptr %22, align 8
@@ -130,13 +130,13 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not99111, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 288
-  %26 = getelementptr inbounds i8, ptr %1, i64 284
-  %27 = getelementptr inbounds i8, ptr %.0, i64 8
-  %28 = getelementptr inbounds i8, ptr %.0, i64 520
-  %29 = getelementptr inbounds i8, ptr %.0, i64 1032
-  %30 = getelementptr inbounds i8, ptr %1, i64 232
-  %31 = getelementptr inbounds i8, ptr %1, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 520
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 1032
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %32
 
 32:                                               ; preds = %.lr.ph, %dissect_payload.exit
@@ -360,15 +360,15 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 284
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %10, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %.loopexit.sink.split, label %.loopexit

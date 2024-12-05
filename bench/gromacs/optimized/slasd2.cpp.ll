@@ -80,11 +80,11 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %74 = fmul float %72, %73
   %75 = getelementptr float, ptr %5, i64 %indvars.iv
   store float %74, ptr %75, align 4
-  %76 = getelementptr inbounds float, ptr %34, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   %77 = load float, ptr %76, align 4
   %78 = getelementptr float, ptr %4, i64 %indvars.iv
   store float %77, ptr %78, align 4
-  %79 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, 1
   %82 = getelementptr i32, ptr %20, i64 %indvars.iv
@@ -130,7 +130,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph452:                                        ; preds = %.lr.ph452.preheader, %.lr.ph452
   %indvars.iv539 = phi i64 [ 2, %.lr.ph452.preheader ], [ %indvars.iv.next540, %.lr.ph452 ]
-  %95 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv539
+  %95 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv539
   store i32 1, ptr %95, align 4
   %indvars.iv.next540 = add nuw nsw i64 %indvars.iv539, 1
   %exitcond542 = icmp eq i64 %indvars.iv.next540, %wide.trip.count
@@ -187,12 +187,12 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph467:                                        ; preds = %.lr.ph467.preheader, %.lr.ph467
   %indvars.iv553 = phi i64 [ 2, %.lr.ph467.preheader ], [ %indvars.iv.next554, %.lr.ph467 ]
-  %109 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv553
+  %109 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv553
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds float, ptr %34, i64 %111
   %113 = load float, ptr %112, align 4
-  %114 = getelementptr inbounds float, ptr %42, i64 %indvars.iv553
+  %114 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv553
   store float %113, ptr %114, align 4
   %115 = load i32, ptr %109, align 4
   %116 = sext i32 %115 to i64
@@ -204,15 +204,15 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i32, ptr %53, i64 %120
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv553
+  %123 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv553
   store i32 %122, ptr %123, align 4
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
   %exitcond557.not = icmp eq i64 %indvars.iv.next554, %wide.trip.count556
   br i1 %exitcond557.not, label %._crit_edge468, label %.lr.ph467, !llvm.loop !10
 
 ._crit_edge468:                                   ; preds = %.lr.ph467, %._crit_edge463
-  %124 = getelementptr inbounds i8, ptr %12, i64 4
-  %125 = getelementptr inbounds i8, ptr %18, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @slamrg_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %124, ptr noundef nonnull %33, ptr noundef nonnull %33, ptr noundef nonnull %125)
   %126 = load i32, ptr %27, align 4
   %invariant.op = add i32 %43, 1
@@ -226,23 +226,23 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph472:                                        ; preds = %.lr.ph472.preheader, %.lr.ph472
   %indvars.iv558 = phi i64 [ 2, %.lr.ph472.preheader ], [ %indvars.iv.next559, %.lr.ph472 ]
-  %127 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv558
+  %127 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv558
   %128 = load i32, ptr %127, align 4
   %129 = add nsw i32 %128, 1
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds float, ptr %42, i64 %130
   %132 = load float, ptr %131, align 4
-  %133 = getelementptr inbounds float, ptr %34, i64 %indvars.iv558
+  %133 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv558
   store float %132, ptr %133, align 4
   %.reass = add i32 %128, %invariant.op
   %134 = sext i32 %.reass to i64
   %135 = getelementptr inbounds float, ptr %45, i64 %134
   %136 = load float, ptr %135, align 4
-  %137 = getelementptr inbounds float, ptr %35, i64 %indvars.iv558
+  %137 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv558
   store float %136, ptr %137, align 4
   %138 = getelementptr inbounds i32, ptr %51, i64 %130
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv558
+  %140 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv558
   store i32 %139, ptr %140, align 4
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next559, %wide.trip.count561
@@ -268,7 +268,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph478.preheader:                              ; preds = %._crit_edge473
   %154 = zext nneg i32 %126 to i64
-  %155 = getelementptr inbounds i8, ptr %5, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %156 = load float, ptr %155, align 4
   %157 = call noundef float @llvm.fabs.f32(float %156)
   %158 = fcmp ugt float %157, %153
@@ -294,7 +294,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %indvars.iv.next564 = add nsw i64 %indvars.iv563634, -1
   %167 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.next564
   store i32 %166, ptr %167, align 4
-  %168 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv565633
+  %168 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv565633
   store i32 4, ptr %168, align 4
   %169 = icmp eq i64 %indvars.iv565633, %154
   br i1 %169, label %.loopexit441, label %.lr.ph478
@@ -480,7 +480,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph503:                                        ; preds = %.lr.ph503.preheader, %.lr.ph503
   %indvars.iv576 = phi i64 [ 2, %.lr.ph503.preheader ], [ %indvars.iv.next577, %.lr.ph503 ]
-  %266 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv576
+  %266 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv576
   %267 = load i32, ptr %266, align 4
   %268 = add nsw i32 %267, -1
   %269 = sext i32 %268 to i64
@@ -494,19 +494,19 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 ._crit_edge504.loopexit:                          ; preds = %.lr.ph503
   %.pre602 = load i32, ptr %31, align 16
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.pre603 = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert604 = getelementptr inbounds i8, ptr %31, i64 8
+  %.phi.trans.insert604 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.pre605 = load i32, ptr %.phi.trans.insert604, align 8
   %273 = add nsw i32 %.pre602, 2
   store i32 2, ptr %30, align 16
-  %274 = getelementptr inbounds i8, ptr %30, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %273, ptr %274, align 4
   %275 = add nsw i32 %.pre603, %273
-  %276 = getelementptr inbounds i8, ptr %30, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %275, ptr %276, align 8
   %277 = add nsw i32 %.pre605, %275
-  %278 = getelementptr inbounds i8, ptr %30, i64 12
+  %278 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %277, ptr %278, align 4
   %279 = add nuw i32 %264, 1
   %wide.trip.count584 = zext i32 %279 to i64
@@ -514,18 +514,18 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 ._crit_edge509.thread.critedge:                   ; preds = %.loopexit441
   store i32 2, ptr %30, align 16
-  %280 = getelementptr inbounds i8, ptr %30, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 2, ptr %280, align 4
-  %281 = getelementptr inbounds i8, ptr %30, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 2, ptr %281, align 8
-  %282 = getelementptr inbounds i8, ptr %30, i64 12
+  %282 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 2, ptr %282, align 4
   store i32 %264, ptr %24, align 4
   br label %._crit_edge520
 
 .lr.ph508:                                        ; preds = %._crit_edge504.loopexit, %.lr.ph508
   %indvars.iv581 = phi i64 [ 2, %._crit_edge504.loopexit ], [ %indvars.iv.next582, %.lr.ph508 ]
-  %283 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv581
+  %283 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv581
   %284 = load i32, ptr %283, align 4
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds i32, ptr %53, i64 %285
@@ -556,14 +556,14 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .lr.ph519:                                        ; preds = %._crit_edge509, %.lr.ph519
   %indvars.iv586 = phi i64 [ 2, %._crit_edge509 ], [ %indvars.iv.next587, %.lr.ph519 ]
-  %299 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv586
+  %299 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv586
   %300 = load i32, ptr %299, align 4
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds float, ptr %34, i64 %301
   %303 = load float, ptr %302, align 4
-  %304 = getelementptr inbounds float, ptr %42, i64 %indvars.iv586
+  %304 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv586
   store float %303, ptr %304, align 4
-  %305 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv586
+  %305 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv586
   %306 = load i32, ptr %305, align 4
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds i32, ptr %49, i64 %307
@@ -656,7 +656,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %353 = sext i32 %43 to i64
   %354 = getelementptr float, ptr %45, i64 %353
   %355 = getelementptr i8, ptr %354, i64 8
-  %356 = getelementptr inbounds i8, ptr %5, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @scopy_(ptr noundef nonnull %24, ptr noundef %355, ptr noundef nonnull %33, ptr noundef nonnull %356, ptr noundef nonnull %33)
   call void @slaset_(ptr noundef nonnull @.str, ptr noundef nonnull %27, ptr noundef nonnull %33, ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef %13, ptr noundef nonnull %14)
   %357 = add nsw i32 %56, %43

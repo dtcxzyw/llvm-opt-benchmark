@@ -87,10 +87,10 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN56_$LT$$BP$con
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN69_$LT$grep_printer..json..Config$u20$as$u20$core..default..Default$GT$7default17hfc52632af5d4ab24E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(24) initializes((0, 8), (16, 18)) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   store i64 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %3, align 1
   ret void
 }
@@ -98,16 +98,16 @@ define void @"_ZN69_$LT$grep_printer..json..Config$u20$as$u20$core..default..Def
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN12grep_printer4json11JSONBuilder3new17h3410cbfcd6342ec5E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(24) initializes((0, 8), (16, 18)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %.sroa.41.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 17
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder6pretty17h9ecc214dc111e692E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((16, 17)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
   ret ptr %0
@@ -116,14 +116,14 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder11max_matches17ha523cd8b36d994a5E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN12grep_printer4json11JSONBuilder16always_begin_end17h1890e283b3494f8bE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((17, 18)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
   ret ptr %0
@@ -137,7 +137,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %3, align 8, !noundef !8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !8
   %12 = icmp ugt i64 %9, %11
   br i1 %12, label %15, label %13
@@ -157,13 +157,13 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4cfb0ca7a0793490E.llvm.16674530249153215178.exit": ; preds = %13
   %17 = sub nuw i64 %11, %9
   %18 = getelementptr inbounds i8, ptr %1, i64 %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
-  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %17, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
-  %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %9, ptr %.sroa.03.sroa.5.0..sroa_idx, align 8
-  %.sroa.03.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.03.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %.sroa.03.sroa.6.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %25
@@ -171,9 +171,9 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
 20:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds { i64, i64 }, ptr %3, i64 %4
   %24 = icmp eq i64 %4, 0
@@ -198,7 +198,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
           to label %53 unwind label %51
 
 ._crit_edge:                                      ; preds = %44, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -207,9 +207,9 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
 .lr.ph:                                           ; preds = %20, %44
   %28 = phi i64 [ %49, %44 ], [ 0, %20 ]
   %.sroa.0.033 = phi ptr [ %29, %44 ], [ %3, %20 ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.033, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 16
   %30 = load i64, ptr %.sroa.0.033, align 8, !noundef !8
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.033, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !8
   %33 = icmp ugt i64 %30, %32
   br i1 %33, label %36, label %34
@@ -252,11 +252,11 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
   %46 = load ptr, ptr %21, align 8, !alias.scope !12, !noalias !15, !nonnull !8, !noundef !8
   %47 = getelementptr inbounds { { ptr, i64 }, i64, i64 }, ptr %46, i64 %45
   store ptr %40, ptr %47, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %39, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 16
+  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %30, ptr %.sroa.525.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %32, ptr %.sroa.6.0..sroa_idx, align 8
   %48 = load i64, ptr %22, align 8, !alias.scope !12, !noalias !15, !noundef !8
   %49 = add i64 %48, 1
@@ -293,13 +293,13 @@ default.unreachable5:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !8, !noundef !8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !8
   br label %10
 

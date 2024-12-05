@@ -21,10 +21,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23JfrVirtualMemorySegmentC2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #11
   ret void
 }
@@ -35,7 +35,7 @@ declare void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23JfrVirtualMemorySegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %2) #11
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %_ZN23JfrVirtualMemorySegment8decommitEv.exit, label %4
@@ -45,7 +45,7 @@ define hidden void @_ZN23JfrVirtualMemorySegmentD2Ev(ptr noundef nonnull align 8
   br label %_ZN23JfrVirtualMemorySegment8decommitEv.exit
 
 _ZN23JfrVirtualMemorySegment8decommitEv.exit:     ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %5) #11
   tail call void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #11
   ret void
@@ -53,7 +53,7 @@ _ZN23JfrVirtualMemorySegment8decommitEv.exit:     ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23JfrVirtualMemorySegment8decommitEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %2) #11
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %5, label %4
@@ -78,14 +78,14 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemorySegment10initializeEm(ptr
   %5 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   call void @_ZN13ReservedSpaceC1EmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %4, i64 noundef %1, i64 noundef %5, i64 noundef %6, ptr noundef null) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef nonnull align 8 dereferenceable(49) %4, i64 49, i1 false)
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %29, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   call void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef nonnull @.str, i64 noundef %1, i64 noundef %1, ptr noundef nonnull %8, i64 noundef %11, i64 noundef %12) #11
@@ -105,20 +105,20 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemorySegment10initializeEm(ptr
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %9, %17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = load i64, ptr %10, align 8
   %spec.select = select i1 %20, i64 %21, i64 0
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %24 = call noundef zeroext i1 @_ZN12VirtualSpace27initialize_with_granularityE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %7, i64 noundef %spec.select, i64 noundef %23) #11
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   br label %29
 
@@ -139,7 +139,7 @@ declare noundef zeroext i1 @_ZN12VirtualSpace27initialize_with_granularityE13Res
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23JfrVirtualMemorySegment9expand_byEm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = shl i64 %1, 3
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %6 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %7 = sub i64 %5, %6
@@ -158,9 +158,9 @@ declare void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -195,7 +195,7 @@ define hidden void @_ZN23JfrVirtualMemoryManagerD2Ev(ptr nocapture noundef nonnu
 .lr.ph:                                           ; preds = %1, %_ZN23JfrVirtualMemorySegmentD2Ev.exit
   %.06 = phi ptr [ %3, %_ZN23JfrVirtualMemorySegmentD2Ev.exit ], [ %2, %1 ]
   %3 = load ptr, ptr %.06, align 8
-  %4 = getelementptr inbounds i8, ptr %.06, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %.06, i64 72
   %5 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %_ZN23JfrVirtualMemorySegmentD2Ev.exit, label %6
@@ -205,7 +205,7 @@ define hidden void @_ZN23JfrVirtualMemoryManagerD2Ev(ptr nocapture noundef nonnu
   br label %_ZN23JfrVirtualMemorySegmentD2Ev.exit
 
 _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %.lr.ph, %6
-  %7 = getelementptr inbounds i8, ptr %.06, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.06, i64 16
   tail call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %7) #11
   tail call void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.06, i64 noundef 184) #11
@@ -221,10 +221,10 @@ declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   %5 = mul i64 %2, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %6, align 8
   %7 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1)
   ret i1 %7
@@ -237,10 +237,10 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(pt
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %3, i8 0, i64 16, i1 false)
   tail call void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #11
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %8 = shl i64 %1, 3
   %9 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemorySegment10initializeEm(ptr noundef nonnull align 8 dereferenceable(184) %3, i64 noundef %8)
@@ -264,20 +264,20 @@ _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %10, %12
 13:                                               ; preds = %5
   %14 = load ptr, ptr %0, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %.sink.i = select i1 %15, ptr %0, ptr %17
   store ptr %3, ptr %.sink.i, align 8
   store ptr %3, ptr %16, align 8
   %18 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %19 = lshr i64 %18, 3
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
   %23 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %24 = lshr i64 %23, 3
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %24
   store i64 %27, ptr %25, align 8
@@ -290,9 +290,9 @@ _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %10, %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK23JfrVirtualMemoryManager11can_reserveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = freeze i64 %5
   %7 = add i64 %3, -1
@@ -307,22 +307,22 @@ declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #2
 define hidden void @_ZN23JfrVirtualMemoryManager4linkEP23JfrVirtualMemorySegment(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.sink = select i1 %4, ptr %0, ptr %6
   store ptr %1, ptr %.sink, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #11
   %10 = lshr i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
   %14 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #11
   %15 = lshr i64 %14, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
@@ -331,7 +331,7 @@ define hidden void @_ZN23JfrVirtualMemoryManager4linkEP23JfrVirtualMemorySegment
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_byEP23JfrVirtualMemorySegmentm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %6 = lshr i64 %5, 3
   %7 = shl i64 %2, 3
@@ -343,7 +343,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_b
   %12 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   %13 = lshr i64 %12, 3
   %14 = sub nsw i64 %13, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %14, %16
   store i64 %17, ptr %15, align 8
@@ -352,7 +352,7 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager17expand_segment_b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN23JfrVirtualMemoryManager19inc_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
   store i64 %5, ptr %3, align 8
@@ -361,7 +361,7 @@ define hidden void @_ZN23JfrVirtualMemoryManager19inc_committed_wordsEm(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN23JfrVirtualMemoryManager18inc_reserved_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
   store i64 %5, ptr %3, align 8
@@ -370,16 +370,16 @@ define hidden void @_ZN23JfrVirtualMemoryManager18inc_reserved_wordsEm(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN23JfrVirtualMemoryManager7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %6) #11
   %8 = lshr i64 %7, 3
   %9 = shl i64 %1, 3
@@ -391,16 +391,16 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr 
   %14 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %6) #11
   %15 = lshr i64 %14, 3
   %16 = sub nsw i64 %15, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %16, %18
   store i64 %19, ptr %17, align 8
   br i1 %13, label %47, label %20
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = freeze i64 %24
   %26 = add i64 %22, -1
@@ -413,13 +413,13 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr 
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   br i1 %33, label %47, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %30, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %36 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %35) #11
   %37 = lshr i64 %36, 3
   %38 = tail call noundef i64 @_ZNK12VirtualSpace13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %35) #11
@@ -442,11 +442,11 @@ define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN23JfrVirtualMemoryManager6commitEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -464,29 +464,29 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit:       ; preds = %2
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.thread: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge, %2
   %15 = phi ptr [ %.pre14, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge ], [ %6, %2 ]
   %16 = phi ptr [ %.pre, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge ], [ %4, %2 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %15
   br i1 %19, label %_ZN23JfrVirtualMemorySegment6commitEm.exit11, label %20
 
 20:                                               ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %22)
   br i1 %23, label %24, label %_ZN23JfrVirtualMemorySegment6commitEm.exit11
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
@@ -526,7 +526,7 @@ define hidden void @_ZN16JfrVirtualMemoryD2Ev(ptr nocapture noundef nonnull read
 .lr.ph.i:                                         ; preds = %4, %_ZN23JfrVirtualMemorySegmentD2Ev.exit.i
   %.06.i = phi ptr [ %6, %_ZN23JfrVirtualMemorySegmentD2Ev.exit.i ], [ %5, %4 ]
   %6 = load ptr, ptr %.06.i, align 8
-  %7 = getelementptr inbounds i8, ptr %.06.i, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i, i64 72
   %8 = tail call noundef i64 @_ZNK12VirtualSpace21actual_committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i, label %_ZN23JfrVirtualMemorySegmentD2Ev.exit.i, label %9
@@ -536,7 +536,7 @@ define hidden void @_ZN16JfrVirtualMemoryD2Ev(ptr nocapture noundef nonnull read
   br label %_ZN23JfrVirtualMemorySegmentD2Ev.exit.i
 
 _ZN23JfrVirtualMemorySegmentD2Ev.exit.i:          ; preds = %9, %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   tail call void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49) %10) #11
   tail call void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.06.i, i64 noundef 184) #11
@@ -553,7 +553,7 @@ _ZN23JfrVirtualMemoryManagerD2Ev.exit:            ; preds = %_ZN23JfrVirtualMemo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK16JfrVirtualMemory24aligned_datum_size_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -573,7 +573,7 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr nocapture n
   store ptr %5, ptr %0, align 8
   %8 = add i64 %3, 7
   %9 = and i64 %8, -8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %9, ptr %10, align 8
   %11 = tail call noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef %1) #11
   %12 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
@@ -601,39 +601,39 @@ _ZL23adjust_allocation_ratioPmS_.exit:            ; preds = %7, %20
   %26 = mul i64 %.016.i, %15
   %27 = lshr i64 %25, 3
   %28 = lshr i64 %26, 3
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %27, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %27, ptr %32, align 8
   %33 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager11new_segmentEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef %27)
   br i1 %33, label %34, label %89
 
 34:                                               ; preds = %_ZL23adjust_allocation_ratioPmS_.exit
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %47, ptr %48, align 8
   %49 = load i64, ptr %29, align 8
   %50 = load ptr, ptr %36, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %52 to i64
   %56 = ptrtoint ptr %54 to i64
@@ -651,29 +651,29 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.i.i:   ; preds = %34
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i
   %.pre.i.i = load ptr, ptr %36, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 96
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 96
   %.pre14.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i, %34
   %61 = phi ptr [ %.pre14.i.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i ], [ %52, %34 ]
   %62 = phi ptr [ %.pre.i.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i ], [ %50, %34 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %61
   br i1 %65, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit, label %66
 
 66:                                               ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i
-  %67 = getelementptr inbounds i8, ptr %35, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %49, i64 noundef %68)
   br i1 %69, label %70, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %36, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %73 to i64
   %77 = ptrtoint ptr %75 to i64
@@ -691,11 +691,11 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit.i:     ; preds = %70
 
 _ZN23JfrVirtualMemoryManager6commitEm.exit.thread6.i: ; preds = %_ZN23JfrVirtualMemoryManager6commitEm.exit.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %86, ptr %87, align 8
   br label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit
 
@@ -713,13 +713,13 @@ declare noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory19commit_memory_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -737,29 +737,29 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.i:     ; preds = %1
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i
   %.pre.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 96
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 96
   %.pre14.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i, %1
   %17 = phi ptr [ %.pre14.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i ], [ %8, %1 ]
   %18 = phi ptr [ %.pre.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i ], [ %6, %1 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %17
   br i1 %21, label %_ZN23JfrVirtualMemoryManager6commitEm.exit.thread, label %22
 
 22:                                               ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %4, i64 noundef %24)
   br i1 %25, label %26, label %_ZN23JfrVirtualMemoryManager6commitEm.exit.thread
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %31 to i64
@@ -777,11 +777,11 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit:       ; preds = %26
 
 _ZN23JfrVirtualMemoryManager6commitEm.exit.thread6: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i, %_ZN23JfrVirtualMemoryManager6commitEm.exit
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %42, ptr %43, align 8
   br label %_ZN23JfrVirtualMemoryManager6commitEm.exit.thread
 
@@ -793,11 +793,11 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit.thread: ; preds = %26, %22, %_ZN23Jfr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16JfrVirtualMemory6commitEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -815,29 +815,29 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.i:     ; preds = %2
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i
   %.pre.i = load ptr, ptr %4, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 96
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 96
   %.pre14.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i, %2
   %16 = phi ptr [ %.pre14.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i ], [ %7, %2 ]
   %17 = phi ptr [ %.pre.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i ], [ %5, %2 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %16
   br i1 %20, label %_ZN23JfrVirtualMemoryManager6commitEm.exit, label %21
 
 21:                                               ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %1, i64 noundef %23)
   br i1 %24, label %25, label %_ZN23JfrVirtualMemoryManager6commitEm.exit
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %28 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -859,9 +859,9 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit:       ; preds = %_ZN23JfrVirtualMemo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   ret i1 %6
@@ -869,9 +869,9 @@ define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   ret i1 %6
@@ -879,22 +879,22 @@ define hidden noundef zeroext i1 @_ZNK16JfrVirtualMemory8is_emptyEv(ptr nocaptur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16JfrVirtualMemory9new_datumEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %7, label %49
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %14 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -912,29 +912,29 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit.i.i:   ; preds = %7
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i
   %.pre.i.i = load ptr, ptr %11, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 96
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 96
   %.pre14.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i
 
 _ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i, %7
   %23 = phi ptr [ %.pre14.i.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i ], [ %14, %7 ]
   %24 = phi ptr [ %.pre.i.i, %_ZN23JfrVirtualMemorySegment6commitEm.exit._ZN23JfrVirtualMemorySegment6commitEm.exit.thread_crit_edge.i.i ], [ %12, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %23
   br i1 %27, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit.thread, label %28
 
 28:                                               ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.thread.i.i
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = tail call noundef zeroext i1 @_ZN23JfrVirtualMemoryManager9expand_byEmm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %10, i64 noundef %30)
   br i1 %31, label %32, label %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit.thread
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %11, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -952,9 +952,9 @@ _ZN23JfrVirtualMemoryManager6commitEm.exit.i:     ; preds = %32
 
 _ZN16JfrVirtualMemory19commit_memory_blockEv.exit: ; preds = %_ZN23JfrVirtualMemorySegment6commitEm.exit.i.i, %_ZN23JfrVirtualMemoryManager6commitEm.exit.i
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %4, align 8
   %.pre = load ptr, ptr %2, align 8
@@ -962,7 +962,7 @@ _ZN16JfrVirtualMemory19commit_memory_blockEv.exit: ; preds = %_ZN23JfrVirtualMem
 
 49:                                               ; preds = %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit, %1
   %50 = phi ptr [ %.pre, %_ZN16JfrVirtualMemory19commit_memory_blockEv.exit ], [ %3, %1 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 %52
   store ptr %53, ptr %2, align 8
@@ -975,10 +975,10 @@ _ZN16JfrVirtualMemory19commit_memory_blockEv.exit.thread: ; preds = %32, %28, %_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN16JfrVirtualMemory9index_ptrEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %5
   ret ptr %8
@@ -986,10 +986,10 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory9index_ptrEm(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN16JfrVirtualMemory3getEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %5
   ret ptr %8
@@ -997,14 +997,14 @@ define hidden noundef ptr @_ZN16JfrVirtualMemory3getEm(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK16JfrVirtualMemory5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = udiv i64 %8, %10
   ret i64 %11
@@ -1012,9 +1012,9 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory5countEv(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK16JfrVirtualMemory8live_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1024,9 +1024,9 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory8live_setEv(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK16JfrVirtualMemory13reserved_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1036,13 +1036,13 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory13reserved_sizeEv(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN16JfrVirtualMemory7compactEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %8 to i64

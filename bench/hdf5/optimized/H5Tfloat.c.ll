@@ -80,16 +80,16 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 .preheader:                                       ; preds = %26, %.preheader
   %.027 = phi ptr [ %37, %.preheader ], [ %28, %26 ]
-  %34 = getelementptr inbounds i8, ptr %.027, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.027, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %.preheader
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %.027, i64 40
-  %40 = getelementptr inbounds i8, ptr %35, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %.027, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %41 = load i32, ptr %40, align 4
   %.not35 = icmp eq i32 %41, 1
   br i1 %.not35, label %46, label %42
@@ -105,7 +105,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
   br i1 %.not36, label %50, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %35, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %1, align 8
   br label %50
@@ -116,7 +116,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %39, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %54 = load i64, ptr %53, align 8
   store i64 %54, ptr %2, align 8
   br label %55
@@ -127,7 +127,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %39, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %3, align 8
   br label %60
@@ -138,7 +138,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %39, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 112
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr %4, align 8
   br label %65
@@ -149,7 +149,7 @@ define range(i32 -1, 1) i32 @H5Tget_fields(i64 noundef %0, ptr noundef writeonly
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %39, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %69 = load i64, ptr %68, align 8
   store i64 %69, ptr %5, align 8
   br label %71
@@ -229,9 +229,9 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
   br label %.thread90
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %28, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %.preheader, label %39
@@ -244,16 +244,16 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 
 .preheader:                                       ; preds = %34, %.preheader
   %.061 = phi ptr [ %46, %.preheader ], [ %28, %34 ]
-  %43 = getelementptr inbounds i8, ptr %.061, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.061, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not68 = icmp eq ptr %46, null
   br i1 %.not68, label %47, label %.preheader
 
 47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %.061, i64 40
-  %49 = getelementptr inbounds i8, ptr %44, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.061, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %50 = load i32, ptr %49, align 4
   %.not69 = icmp eq i32 %50, 1
   br i1 %.not69, label %55, label %51
@@ -266,10 +266,10 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
 
 55:                                               ; preds = %47
   %56 = add i64 %3, %2
-  %57 = getelementptr inbounds i8, ptr %44, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %58 = load i64, ptr %57, align 8
   %59 = sub i64 %56, %58
-  %60 = getelementptr inbounds i8, ptr %44, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %61 = load i64, ptr %60, align 8
   %62 = icmp ugt i64 %59, %61
   br i1 %62, label %63, label %67
@@ -350,19 +350,19 @@ define range(i32 -1, 1) i32 @H5Tset_fields(i64 noundef %0, i64 noundef %1, i64 n
   br label %.thread84
 
 104:                                              ; preds = %96
-  %105 = getelementptr inbounds i8, ptr %44, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %44, i64 80
   store i64 %1, ptr %105, align 8
   %106 = load ptr, ptr %48, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 88
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 88
   store i64 %2, ptr %107, align 8
   %108 = load ptr, ptr %48, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 112
   store i64 %4, ptr %109, align 8
   %110 = load ptr, ptr %48, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
   store i64 %3, ptr %111, align 8
   %112 = load ptr, ptr %48, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 120
   store i64 %5, ptr %113, align 8
   %114 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %116
@@ -421,15 +421,15 @@ define i64 @H5Tget_ebias(i64 noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %21, %.preheader
   %.013 = phi ptr [ %32, %.preheader ], [ %23, %21 ]
-  %29 = getelementptr inbounds i8, ptr %.013, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.013, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %33, label %.preheader
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %30, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %34, align 4
   %.not16 = icmp eq i32 %35, 1
   br i1 %.not16, label %41, label %36
@@ -445,7 +445,7 @@ define i64 @H5Tget_ebias(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread25
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %30, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %43 = load i64, ptr %42, align 8
   %44 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %46
@@ -503,9 +503,9 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
   br label %.thread35
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %.preheader, label %35
@@ -518,15 +518,15 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
 
 .preheader:                                       ; preds = %30, %.preheader
   %.016 = phi ptr [ %42, %.preheader ], [ %24, %30 ]
-  %39 = getelementptr inbounds i8, ptr %.016, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.016, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not19 = icmp eq ptr %42, null
   br i1 %.not19, label %43, label %.preheader
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %40, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %45 = load i32, ptr %44, align 4
   %.not20 = icmp eq i32 %45, 1
   br i1 %.not20, label %51, label %46
@@ -542,7 +542,7 @@ define range(i32 -1, 1) i32 @H5Tset_ebias(i64 noundef %0, i64 noundef %1) local_
   br label %.thread29
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %40, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store i64 %1, ptr %52, align 8
   %53 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %55
@@ -601,15 +601,15 @@ define i32 @H5Tget_norm(i64 noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %21, %.preheader
   %.013 = phi ptr [ %32, %.preheader ], [ %23, %21 ]
-  %29 = getelementptr inbounds i8, ptr %.013, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.013, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %33, label %.preheader
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %30, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %34, align 4
   %.not16 = icmp eq i32 %35, 1
   br i1 %.not16, label %41, label %36
@@ -625,7 +625,7 @@ define i32 @H5Tget_norm(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread25
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %30, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %43 = load i32, ptr %42, align 8
   %44 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %46
@@ -683,9 +683,9 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
   br label %.thread39
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %39, label %35
@@ -708,15 +708,15 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
 
 .preheader:                                       ; preds = %39, %.preheader
   %.020 = phi ptr [ %47, %.preheader ], [ %24, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.020, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.020, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not23 = icmp eq ptr %47, null
   br i1 %.not23, label %48, label %.preheader
 
 48:                                               ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %45, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %50 = load i32, ptr %49, align 4
   %.not24 = icmp eq i32 %50, 1
   br i1 %.not24, label %56, label %51
@@ -732,7 +732,7 @@ define range(i32 -1, 1) i32 @H5Tset_norm(i64 noundef %0, i32 noundef %1) local_u
   br label %.thread33
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %45, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 128
   store i32 %1, ptr %57, align 8
   %58 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %60
@@ -791,15 +791,15 @@ define i32 @H5Tget_inpad(i64 noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %21, %.preheader
   %.013 = phi ptr [ %32, %.preheader ], [ %23, %21 ]
-  %29 = getelementptr inbounds i8, ptr %.013, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.013, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %33, label %.preheader
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %30, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %34, align 4
   %.not16 = icmp eq i32 %35, 1
   br i1 %.not16, label %41, label %36
@@ -815,7 +815,7 @@ define i32 @H5Tget_inpad(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread25
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %30, i64 132
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 132
   %43 = load i32, ptr %42, align 4
   %44 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %46
@@ -873,9 +873,9 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
   br label %.thread39
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %39, label %35
@@ -898,15 +898,15 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
 
 .preheader:                                       ; preds = %39, %.preheader
   %.020 = phi ptr [ %47, %.preheader ], [ %24, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.020, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.020, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not23 = icmp eq ptr %47, null
   br i1 %.not23, label %48, label %.preheader
 
 48:                                               ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %45, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %50 = load i32, ptr %49, align 4
   %.not24 = icmp eq i32 %50, 1
   br i1 %.not24, label %56, label %51
@@ -922,7 +922,7 @@ define range(i32 -1, 1) i32 @H5Tset_inpad(i64 noundef %0, i32 noundef %1) local_
   br label %.thread33
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %45, i64 132
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 132
   store i32 %1, ptr %57, align 4
   %58 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #2
   br label %60
